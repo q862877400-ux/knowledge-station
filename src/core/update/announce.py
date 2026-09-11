@@ -1,0 +1,660 @@
+"""公告发现（announcement discovery，2026-09，KS×DSH 决策 19 延伸）：自定义公告源
+定期"看新公告"流程——与查号巡检（inspector，单元=标准号）是**两条独立流程**：
+本模块单元=源 URL（用户在设置栏目配置），引擎逐源抓列表页 → 零 LLM 启发式解析
+→ 与已见公告去重（announcement_observed 表，契约增量见 pipeline/03「公告发现」节）
+→ 新公告轻通知（host 纵览行 + 最近列表；决策 5 默默执行）。
+
+设计要点（verify_rollout 三路择优 0.512 + 用户拍板）：
+- 触发：host 巡检 finalizeBatch 后自动（force=false，含时间闸 min_interval_hours
+  默认 6h 防频繁）+ 独立按钮（force=true）。
+- 执行：fire-and-forget daemon 线程（与 /update/check 同构）；409 双闸
+  （进程内 _announce_runs + scan_state.status）；僵尸扫描自愈（DB running 而进程
+  内无登记 → 直接开新扫，扫描幂等且便宜）。
+- 存储：源清单 app_config 键 ``announce.sources``（配置语义，仿 subscriptions）；
+  已见公告 announcement_observed（32 号表）；扫描快照 app_config 键
+  ``announce.scan_state``（只留最近一次，明细历史走 event_log/P1 Excel）。
+- 首扫基线语义：源第一次扫描把全部条目记 baseline（first_scan_done=false），
+  不计"新"——避免加源当天被几十条"新"刷屏；PUT 改 URL 重置基线。
+- SSRF：仅 http/https；**默认禁内网**（用户拍板严格版，无豁免开关）——loopback /
+  RFC1918 / 链路本地(含云元数据) / 0.0.0.0 / IPv6 本地 / .local 一律 422 拒绝，
+  主机字面量与 DNS 解析结果都查。
+- 预算：单页 15s/2MB、每页条目上限 50、源间 1s 礼貌间隔、源数上限 50、
+  全程软上限 5 分钟（超时剩余源标 skipped_timeout）。
+- 失败诚实：WAF/验证码、JS 渲染壳、解析 0 条、超时——每源 status=failed+reason
+  直达 UI，绝不静默假装"0 新公告"。
+"""
+from __future__ import annotations
+
+import hashlib
+import ipaddress
+import json
+import re
+import socket
+import threading
+import time
+from datetime import datetime
+from typing import Any
+from urllib.parse import urljoin, urlsplit, urlunsplit
+
+from src.core.storage.sqlite_db import get_db_connection, write_transaction
+from src.core.update.channels.base import (
+    UPD_ANNOUNCE_SCAN_ALREADY_RUNNING,
+    UPD_ANNOUNCE_SOURCE_NOT_FOUND,
+    UPD_ILLEGAL_SOURCE_PAYLOAD,
+    UpdateError,
+    default_transport,
+    looks_like_captcha,
+    upd_log,
+)
+from src.core.update.channels.govcn_announce import _STD_TOKEN_RE
+from ulid import ULID
+
+from openpyxl import Workbook
+from openpyxl.styles import Alignment, Font, PatternFill
+from openpyxl.utils import get_column_letter
+
+from src.core.exports.report_export import _exports_dir, _safe_name
+
+# ---------------------------------------------------------------- 常量（预算，P0 不开放配置）
+SOURCES_KEY = "announce.sources"
+STATE_KEY = "announce.scan_state"
+SOURCES_MAX = 50                    # 源数量上限
+ITEMS_PER_PAGE_MAX = 50             # 每页条目上限（防导航页误判）
+PAGE_TIMEOUT_S = 15.0               # 单页超时（比渠道探测 30s 收紧一倍）
+PAGE_BYTES_MAX = 2 * 1024 * 1024    # 单页字节上限（截断标记）
+SOURCE_GAP_S = 1.0                  # 源间礼貌间隔
+SCAN_SOFT_CAP_S = 300               # 扫描全程软上限（超时剩余源标 skipped_timeout）
+MIN_INTERVAL_HOURS_DEFAULT = 6.0    # force=false 时间闸（app_config announce.min_interval_hours 可覆盖）
+
+_SCAN_LOCK = threading.Lock()
+_announce_runs: set[str] = set()    # 进程内在跑扫描（与 scan_state.status 构成双闸）
+
+_NOISE_RE = re.compile(
+    r"下一页|上一页|首页|末页|更多|返回|关闭|登录|注册|English|无障碍|浏览次数|"
+    r"首页|尾页|跳转|收起|展开|全文|下载|阅读|次浏览|版权所有|备案号|"
+    r"京公网安备|ICP备|网站地图|联系我们|意见反馈|站内搜索|"
+    r"政务服务投诉|社会救援服务|科普场馆")
+#: JS 拼接/模板代码片段特征（document.write 产出的 <a> 内层文本是源码不是标题）
+_JS_NOISE_RE = re.compile(r"[{}]|\";\s*$|function\s*\(|document\.|else\s+if|\+\s*i\s*\+")
+#: 标题尾部日期时间戳剥离（"…通知 2022-01-17 17:33" → "…通知"）
+_TAIL_STAMP_RE = re.compile(
+    r"\s*\d{4}[-./年]\d{1,2}[-./月]\d{1,2}日?(?:\s+\d{1,2}:\d{2}(?::\d{2})?)?\s*$")
+_TRACKING_PARAM_RE = re.compile(r"(?i)^(utm_\w+|spm|from|share_token|fr|vd|scene)$")
+_DATE_RE = re.compile(r"(\d{4})[年./\-](\d{1,2})[月./\-](\d{1,2})日?")
+_A_TAG_RE = re.compile(r"<a\b[^>]*href\s*=\s*[\"']([^\"']+)[\"'][^>]*>(.*?)</a>",
+                       re.IGNORECASE | re.DOTALL)
+_TAG_STRIP_RE = re.compile(r"<[^>]+>")
+_STATIC_EXT_RE = re.compile(r"(?i)\.(css|js|png|jpe?g|gif|svg|ico|woff2?)($|\?)")
+_SCHEME_BAD_RE = re.compile(r"(?i)^(javascript:|mailto:|tel:|#)")
+
+
+# ---------------------------------------------------------------- URL 归一化与 SSRF
+def normalize_url(url: str) -> str:
+    """URL 归一化：scheme/host 小写、去默认端口、path 去尾斜杠（根保留）、
+    剔除追踪参数并按 key 排序重组 query、丢 fragment。"""
+    parts = urlsplit((url or "").strip())
+    scheme = parts.scheme.lower()
+    host = (parts.hostname or "").lower()
+    port = parts.port
+    if port is not None and not (scheme == "http" and port == 80) \
+            and not (scheme == "https" and port == 443):
+        netloc = f"{host}:{port}"
+    else:
+        netloc = host
+    if parts.username:
+        netloc = f"{parts.username}@{netloc}"
+    path = parts.path or "/"
+    if len(path) > 1 and path.endswith("/"):
+        path = path.rstrip("/")
+    query_pairs = [p for p in parts.query.split("&") if p]
+    kept = []
+    for pair in query_pairs:
+        key = pair.split("=", 1)[0]
+        if _TRACKING_PARAM_RE.match(key):
+            continue
+        kept.append(pair)
+    kept.sort()
+    return urlunsplit((scheme, netloc, path, "&".join(kept), ""))
+
+
+def url_hash(url: str) -> str:
+    """归一化 URL 的 SHA-256 小写 hex（去重键）。"""
+    return hashlib.sha256(normalize_url(url).encode("utf-8")).hexdigest()
+
+
+def _host_is_private(host: str) -> bool:
+    """主机名是否指向内网/保留地址：字面量 IP 直接判；域名逐解析结果判。"""
+    host = (host or "").strip().lower()
+    if not host:
+        return True
+    if host == "localhost" or host.endswith(".local") or host.endswith(".internal"):
+        return True
+    try:
+        ip = ipaddress.ip_address(host)
+        return not ip.is_global
+    except ValueError:
+        pass
+    try:
+        infos = socket.getaddrinfo(host, None)
+    except OSError:
+        return True  # 解析失败按不可信处理（宁可错拒，绝不替用户探测）
+    for info in infos:
+        try:
+            ip = ipaddress.ip_address(info[4][0])
+        except ValueError:
+            continue
+        if not ip.is_global:
+            return True
+    return False
+
+
+def is_private_url(url: str) -> bool:
+    """SSRF 检查：仅 http/https；默认禁内网（用户拍板严格版，无豁免）。
+    主机字面量与 DNS 解析结果都查（known limitation：resolve-then-fetch 的
+    rebinding TOCTOU 窗口不设防——引擎仅本机回环监听、URL 为用户手工录入，
+    P0 接受；未来若开放远程写 API 需补连接时复检）。"""
+    parts = urlsplit((url or "").strip())
+    if parts.scheme.lower() not in ("http", "https"):
+        return True
+    if not parts.hostname:
+        return True
+    return _host_is_private(parts.hostname)
+
+
+# ---------------------------------------------------------------- 源 CRUD（app_config 配置语义）
+def _read_json_key(key: str, default: Any) -> Any:
+    row = get_db_connection().execute(
+        "SELECT config_value FROM app_config WHERE config_key=?", (key,)).fetchone()
+    if not row:
+        return default
+    try:
+        value = json.loads(row["config_value"])
+    except (TypeError, ValueError):
+        return default
+    return value if value is not None else default
+
+
+def _write_json_key(key: str, value: Any) -> None:
+    with write_transaction() as txn:
+        txn.execute(
+            "INSERT INTO app_config(config_key, config_value, updated_at) VALUES(?,?,datetime('now')) "
+            "ON CONFLICT(config_key) DO UPDATE SET config_value=excluded.config_value, "
+            "updated_at=datetime('now')",
+            (key, json.dumps(value, ensure_ascii=False)))
+
+
+def get_sources() -> list[dict]:
+    sources = _read_json_key(SOURCES_KEY, [])
+    return [s for s in sources if isinstance(s, dict) and isinstance(s.get("id"), str)]
+
+
+def _validate_source_payload(name: Any, url: Any) -> tuple[str, str]:
+    """新增/编辑源的字段校验：必填、scheme、SSRF（默认禁内网）→ 非法抛 UPD-3008。"""
+    name_s = str(name or "").strip()
+    url_s = str(url or "").strip()
+    if not name_s or not url_s:
+        raise UpdateError("name 与 url 必填", code=UPD_ILLEGAL_SOURCE_PAYLOAD)
+    if len(name_s) > 60 or len(url_s) > 500:
+        raise UpdateError("name/url 超长（60/500）", code=UPD_ILLEGAL_SOURCE_PAYLOAD)
+    if is_private_url(url_s):
+        raise UpdateError("仅支持公网 http/https 地址（内网/非 http(s) 已拒绝）",
+                          code=UPD_ILLEGAL_SOURCE_PAYLOAD)
+    return name_s, url_s
+
+
+def add_source(name: str, url: str, note: str = "") -> dict:
+    name_s, url_s = _validate_source_payload(name, url)
+    with _SCAN_LOCK:
+        sources = get_sources()
+        if len(sources) >= SOURCES_MAX:
+            raise UpdateError(f"源数量已达上限 {SOURCES_MAX}", code=UPD_ILLEGAL_SOURCE_PAYLOAD)
+        if any(normalize_url(s.get("url", "")) == normalize_url(url_s) for s in sources):
+            raise UpdateError("该 URL 已存在（归一化后重复）", code=UPD_ILLEGAL_SOURCE_PAYLOAD)
+        src = {"id": f"src_{ULID()}", "name": name_s, "url": url_s, "enabled": True,
+               "note": str(note or "").strip()[:200], "first_scan_done": False,
+               "added_at": datetime.now().isoformat(timespec="seconds")}
+        sources.append(src)
+        _write_json_key(SOURCES_KEY, sources)
+    upd_log(src["id"], "announce", "INFO", "source_added", url=url_s)
+    return src
+
+
+def update_source(source_id: str, patch: dict) -> dict:
+    """部分更新：name/enabled/note 可改；url 改动 → 重置 first_scan_done（换页=重新基线）。"""
+    with _SCAN_LOCK:
+        sources = get_sources()
+        target = next((s for s in sources if s.get("id") == source_id), None)
+        if target is None:
+            raise UpdateError(f"公告源不存在: {source_id}", code=UPD_ANNOUNCE_SOURCE_NOT_FOUND)
+        rebaselined = False
+        if "url" in patch and str(patch["url"]).strip() != target.get("url", ""):
+            _, url_s = _validate_source_payload(target.get("name"), patch["url"])
+            target["url"] = url_s
+            if target.get("first_scan_done"):
+                target["first_scan_done"] = False
+                rebaselined = True
+        if "name" in patch:
+            name_s = str(patch["name"] or "").strip()
+            if not name_s or len(name_s) > 60:
+                raise UpdateError("name 必填且 ≤60 字", code=UPD_ILLEGAL_SOURCE_PAYLOAD)
+            target["name"] = name_s
+        if "note" in patch:
+            target["note"] = str(patch["note"] or "").strip()[:200]
+        if "enabled" in patch:
+            target["enabled"] = bool(patch["enabled"])
+        _write_json_key(SOURCES_KEY, sources)
+    upd_log(source_id, "announce", "INFO", "source_updated", rebaselined=rebaselined)
+    return {**target, "rebaselined": rebaselined}
+
+
+def remove_source(source_id: str) -> list[dict]:
+    """删源：announcement_observed 记录保留（历史公告留档，source_name 快照可读）。"""
+    with _SCAN_LOCK:
+        sources = get_sources()
+        left = [s for s in sources if s.get("id") != source_id]
+        if len(left) == len(sources):
+            raise UpdateError(f"公告源不存在: {source_id}", code=UPD_ANNOUNCE_SOURCE_NOT_FOUND)
+        _write_json_key(SOURCES_KEY, left)
+    upd_log(source_id, "announce", "INFO", "source_removed")
+    return left
+
+
+# ---------------------------------------------------------------- 列表页解析（零 LLM 启发式）
+def _parse_date(text: str) -> str | None:
+    """列表条目日期解析：取**最后一个**合理年份（1990-2100）的匹配——公告日期
+    惯于缀尾；标准号（GB 1234.5-2020）形似日期的段会被合法域过滤。非法留空。"""
+    out: str | None = None
+    for m in _DATE_RE.finditer(text or ""):
+        y, mo, d = int(m.group(1)), int(m.group(2)), int(m.group(3))
+        if not 1990 <= y <= 2100:
+            continue
+        try:
+            out = datetime(y, mo, d).strftime("%Y-%m-%d")
+        except ValueError:
+            continue
+    return out
+
+
+def parse_list_page(html: str, page_url: str) -> tuple[list[dict], dict]:
+    """通用列表页启发式解析：候选 <a> 抽取 → 噪音/静态资源过滤 → 绝对化 →
+    日期/标准号识别。返回 (items, diag)；items 上限 50/页（truncated 标记）。
+    解析不出条目不抛错——由调用方按 diag 判 reason（parse_empty/js_shell_suspected）。"""
+    items: list[dict] = []
+    seen_urls: set[str] = set()
+    truncated = False
+    for m in _A_TAG_RE.finditer(html or ""):
+        href = (m.group(1) or "").strip()
+        text = _TAG_STRIP_RE.sub("", m.group(2) or "").strip()
+        if len(text) < 6:
+            continue
+        if _SCHEME_BAD_RE.match(href):
+            continue
+        # JS 拼接/模板片段（document.write 产出的 <a> 内层是源码）→ 滤
+        if _JS_NOISE_RE.search(text):
+            continue
+        url = urljoin(page_url, href)
+        if _STATIC_EXT_RE.search(url):
+            continue
+        if _NOISE_RE.search(text):
+            continue
+        key = normalize_url(url)
+        if key in seen_urls:
+            continue
+        seen_urls.add(key)
+        item = {"title": _TAIL_STAMP_RE.sub("", text)[:200], "url": url,
+                "published_date": _parse_date(text),
+                "standard_no": (lambda mm: mm.group(0).strip() if mm else None)(
+                    _STD_TOKEN_RE.search(text))}
+        items.append(item)
+        if len(items) >= ITEMS_PER_PAGE_MAX:
+            truncated = True
+            break
+    # JS 渲染壳启发：页面不小但几乎没有文本链接 → 疑似 JS 渲染（调用方判 failed）
+    diag = {"parsed": len(items), "truncated": truncated,
+            "js_shell_suspected": len(items) == 0 and len(html or "") > 40_000
+            and len(_A_TAG_RE.findall(html or "")) < 5}
+    return items, diag
+
+
+# ---------------------------------------------------------------- 扫描编排
+def _get_state() -> dict:
+    state = _read_json_key(STATE_KEY, {})
+    return state if isinstance(state, dict) else {}
+
+
+def _set_state(state: dict) -> None:
+    _write_json_key(STATE_KEY, state)
+
+
+def _min_interval_hours() -> float:
+    raw = _read_json_key("announce.min_interval_hours", MIN_INTERVAL_HOURS_DEFAULT)
+    try:
+        v = float(raw)
+        return v if v >= 0 else MIN_INTERVAL_HOURS_DEFAULT
+    except (TypeError, ValueError):
+        return MIN_INTERVAL_HOURS_DEFAULT
+
+
+def get_scan_state() -> dict:
+    """最近一次扫描快照（从未扫过 → status=never，恒可读）。"""
+    state = _get_state()
+    return state if state else {"status": "never"}
+
+
+def request_scan(force: bool, trigger: str, transport: Any = None) -> dict:
+    """扫描入口（端点调用）：时间闸 + 409 双闸 + 僵尸自愈 → 起 daemon 线程。
+    transport 仅测试注入用（默认 default_transport 真实抓取）。"""
+    with _SCAN_LOCK:
+        state = _get_state()
+        running = state.get("status") == "running"
+        in_process = bool(_announce_runs)
+        if running and not in_process:
+            # 僵尸扫描（引擎曾死）：扫描幂等且便宜 → 记审计直接开新扫。
+            upd_log("announce", "announce", "WARN", "scan_stale_recovered",
+                    prev_scan_id=state.get("scan_id"))
+            running = False
+        if running or in_process:
+            raise UpdateError("已有公告扫描在运行中", code=UPD_ANNOUNCE_SCAN_ALREADY_RUNNING)
+        if not force:
+            last_fin = state.get("finished_at")
+            if state.get("status") == "done" and last_fin:
+                try:
+                    age_h = (datetime.utcnow() - datetime.fromisoformat(
+                        str(last_fin).replace("Z", "+00:00").replace(" ", "T"))
+                        ).total_seconds() / 3600.0
+                except ValueError:
+                    age_h = float("inf")
+                if age_h < _min_interval_hours():
+                    return {"scan_id": state.get("scan_id"), "status": "skipped",
+                            "last": state}
+        scan_id = f"asc_{ULID()}"
+        enabled = [s for s in get_sources() if s.get("enabled") is not False]
+        new_state = {
+            "scan_id": scan_id, "status": "running", "trigger": trigger,
+            "started_at": datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S"),
+            "finished_at": None, "sources_total": len(enabled), "sources_done": 0,
+            "items_seen": 0, "new_count": 0, "baseline_count": 0,
+            "per_source": [], "recent": [],
+        }
+        _set_state(new_state)
+        _announce_runs.add(scan_id)
+    threading.Thread(target=_run_scan_thread, args=(scan_id, trigger, transport),
+                     name=f"ks-announce-{scan_id}", daemon=True).start()
+    return {"scan_id": scan_id, "status": "started"}
+
+
+def _run_scan_thread(scan_id: str, trigger: str, transport: Any = None) -> None:
+    try:
+        run_announce_scan(scan_id, trigger, transport=transport)
+    except Exception as exc:  # noqa: BLE001 — 后台线程必须吞异常存活
+        upd_log(scan_id, "announce", "WARN", "scan_thread_error", error=str(exc))
+        try:
+            state = _get_state()
+            if state.get("scan_id") == scan_id and state.get("status") == "running":
+                state["status"] = "failed"
+                state["finished_at"] = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+                state["error"] = str(exc)[:300]
+                _set_state(state)
+        except Exception:  # noqa: BLE001
+            pass
+    finally:
+        with _SCAN_LOCK:
+            _announce_runs.discard(scan_id)
+
+
+def run_announce_scan(scan_id: str, trigger: str, transport: Any = None) -> dict:
+    """逐源串行扫描：fetch → parse → 去重落库（每源一个短事务）→ 状态逐源写回。
+    transport 仅测试注入用。"""
+    t0 = time.monotonic()
+    upd_log(scan_id, "announce", "INFO", "scan_started", trigger=trigger)
+    transport = transport if transport is not None else default_transport()
+    state = _get_state()
+    per_source: list[dict] = []
+    total_seen = 0
+    total_new = 0
+    total_baseline = 0
+    recent: list[dict] = []
+
+    for src in [s for s in get_sources() if s.get("enabled") is not False]:
+        if time.monotonic() - t0 > SCAN_SOFT_CAP_S:
+            per_source.append({"id": src["id"], "name": src.get("name", ""),
+                               "status": "failed", "reason": "skipped_timeout",
+                               "items": 0, "new_items": 0})
+            continue
+        result = _scan_one_source(transport, src, scan_id)
+        per_source.append(result)
+        total_seen += result.get("items", 0)
+        total_new += result.get("new_items", 0)
+        total_baseline += result.get("baseline_items", 0)
+        recent.extend(result.pop("_recent", []) or [])
+        # 状态逐源写回（1s 进度轮询可见）
+        state = _get_state()
+        if state.get("scan_id") != scan_id:
+            return state  # 已被新扫描接管（理论上不可能——409 闸在）
+        state["per_source"] = per_source
+        state["sources_done"] = len([p for p in per_source if p.get("status") != "skipped_timeout"])
+        state["items_seen"] = total_seen
+        state["new_count"] = total_new
+        state["baseline_count"] = total_baseline
+        _set_state(state)
+        # 礼貌间隔只针对真实抓取（测试注入 transport 时跳过，别拖慢用例）
+        if transport is None and SOURCE_GAP_S > 0:
+            time.sleep(SOURCE_GAP_S)
+
+    recent.sort(key=lambda r: r.get("first_seen") or "", reverse=True)
+    state = _get_state()
+    if state.get("scan_id") == scan_id:
+        state.update({
+            "status": "done",
+            "finished_at": datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S"),
+            "per_source": per_source,
+            "sources_done": len([p for p in per_source if p.get("status") != "skipped_timeout"]),
+            "items_seen": total_seen, "new_count": total_new,
+            "baseline_count": total_baseline,
+            "recent": recent[:5],
+        })
+        _set_state(state)
+        upd_log(scan_id, "announce", "INFO", "scan_finished",
+                items=total_seen, new_items=total_new,
+                duration_ms=int((time.monotonic() - t0) * 1000))
+    return state
+
+
+def _scan_one_source(transport: Any, src: dict, scan_id: str) -> dict:
+    """单源扫描：抓取（预算内）→ 解析 → 去重落库。失败诚实归因，绝不假装成功。"""
+    result = {"id": src["id"], "name": src.get("name", ""), "status": "ok",
+              "http": None, "items": 0, "new_items": 0, "baseline_items": 0,
+              "reason": None, "truncated": False, "_recent": []}
+    src_url = src.get("url", "")
+    t0 = time.monotonic()
+    try:
+        status, body = transport.fetch(src_url, timeout=PAGE_TIMEOUT_S)
+        result["http"] = status
+        html = body if isinstance(body, str) else (
+            json.dumps(body, ensure_ascii=False) if body is not None else "")
+        if status != 200:
+            result["status"] = "failed"
+            result["reason"] = f"http_{status}"
+            return result
+        if looks_like_captcha(html) or status in (403, 429):
+            result["status"] = "failed"
+            result["reason"] = "waf_captcha"
+            return result
+        if len(html.encode("utf-8", "ignore")) > PAGE_BYTES_MAX:
+            html = html[:PAGE_BYTES_MAX]
+            result["truncated"] = True
+        items, diag = parse_list_page(html, src_url)
+        result["items"] = len(items)
+        result["truncated"] = bool(result["truncated"] or diag.get("truncated"))
+        if not items:
+            result["status"] = "failed"
+            result["reason"] = ("js_shell_suspected" if diag.get("js_shell_suspected")
+                                else "parse_empty")
+            return result
+
+        first_scan = src.get("first_scan_done") is not True
+        new_items: list[dict] = []
+        with write_transaction() as txn:
+            for it in items:
+                h = url_hash(it["url"])
+                row = txn.execute(
+                    "SELECT observed_id FROM announcement_observed"
+                    " WHERE source_id=? AND url_hash=?", (src["id"], h)).fetchone()
+                if row is not None:
+                    txn.execute(
+                        "UPDATE announcement_observed SET last_seen=datetime('now')"
+                        " WHERE observed_id=?", (row["observed_id"],))
+                    continue
+                observed_id = f"ann_{ULID()}"
+                txn.execute(
+                    "INSERT INTO announcement_observed(observed_id, source_id,"
+                    " source_name, title, url, url_hash, standard_no, published_date,"
+                    " scan_id) VALUES (?,?,?,?,?,?,?,?,?)",
+                    (observed_id, src["id"], src.get("name", ""), it["title"],
+                     it["url"], h, it.get("standard_no"), it.get("published_date"),
+                     scan_id))
+                if first_scan:
+                    result["baseline_items"] += 1
+                else:
+                    result["new_items"] += 1
+                    new_items.append({"title": it["title"], "url": it["url"],
+                                      "published_date": it.get("published_date"),
+                                      "source_name": src.get("name", ""),
+                                      "first_seen": datetime.utcnow().strftime(
+                                          "%Y-%m-%d %H:%M:%S")})
+        if first_scan:
+            # 首扫基线标记：必须在写事务外（write_queue 不可重入——嵌套事务会死锁）。
+            # 若此步失败，最坏后果 = 该源下轮把已见条目算作"已见"而非基线（无害）。
+            sources = get_sources()
+            for s in sources:
+                if s.get("id") == src["id"]:
+                    s["first_scan_done"] = True
+            _write_json_key(SOURCES_KEY, sources)
+        result["_recent"] = new_items
+        upd_log(scan_id, "announce", "INFO", "source_scanned",
+                source=src.get("name"), items=result["items"],
+                new_items=result["new_items"], baseline=result["baseline_items"],
+                duration_ms=int((time.monotonic() - t0) * 1000))
+        return result
+    except UpdateError as exc:
+        result["status"] = "failed"
+        result["reason"] = getattr(exc, "code", "UPD-5000")
+        upd_log(scan_id, "announce", "WARN", "source_failed",
+                source=src.get("name"), reason=result["reason"])
+        return result
+    except Exception as exc:  # noqa: BLE001 — 单源失败不拖垮整轮扫描
+        result["status"] = "failed"
+        result["reason"] = f"unreachable: {str(exc)[:120]}"
+        upd_log(scan_id, "announce", "WARN", "source_failed",
+                source=src.get("name"), reason=result["reason"])
+        return result
+
+
+# ---------------------------------------------------------------- 已见公告查询
+def list_items(limit: int = 20, source_id: str | None = None) -> dict:
+    """已见公告查询（host 最近列表/历史展示用）：
+    **按公告发布日期 DESC**（用户直觉"最新的公告"），无日期排最后，
+    同日再按 first_seen/插入序。注意不能按 first_seen 排——那是"我们何时
+    见到它"，单页扫描按 HTML 顺序插入（政府列表页从新到旧），同秒
+    observed_id DESC 会把页面上最旧的排到最前（真机回归已验证）。"""
+    n = max(1, min(int(limit or 20), 200))
+    sql = ("SELECT observed_id, source_id, source_name, title, url, standard_no,"
+           " published_date, first_seen, last_seen, scan_id"
+           " FROM announcement_observed")
+    args: list[Any] = []
+    if source_id:
+        sql += " WHERE source_id=?"
+        args.append(source_id)
+    sql += (" ORDER BY CASE WHEN published_date IS NULL THEN 1 ELSE 0 END,"
+            " published_date DESC, first_seen DESC, observed_id DESC LIMIT ?")
+    args.append(n)
+    rows = get_db_connection().execute(sql, args).fetchall()
+    total = get_db_connection().execute(
+        "SELECT COUNT(*) AS c FROM announcement_observed"
+        + (" WHERE source_id=?" if source_id else ""), args[:1] if source_id else []
+    ).fetchone()["c"]
+    return {"items": [dict(r) for r in rows], "total": total}
+
+
+# ---------------------------------------------------------------- Excel 导出（P1）
+_ANN_HEADERS = ["来源源", "标题", "标准号（识别）", "发布日期", "首次发现",
+                "最近发现", "链接", "首次扫描"]
+_ANN_SOURCE_HEADERS = ["源名称", "URL", "状态", "条目", "新条目", "基线收录", "失败原因"]
+
+
+def _xlsx_header_style(ws, row: int, cols: int) -> None:
+    fill = PatternFill("solid", fgColor="DDEBF7")
+    for c in range(1, cols + 1):
+        cell = ws.cell(row=row, column=c)
+        cell.font = Font(bold=True)
+        cell.fill = fill
+        cell.alignment = Alignment(vertical="center")
+
+
+def export_announce_xlsx() -> Path:
+    """《公告发现》Excel 到 exports 目录：Sheet1 最近扫描（源状态逐源）+
+    Sheet2 公告明细全量（发布日期 DESC，与 list_items 同口径）。
+    空库同样出文件；纯只读聚合，零库写入。"""
+    state = get_scan_state()
+    wb = Workbook()
+
+    # ---- Sheet1 最近扫描 ----
+    ws = wb.active
+    ws.title = "最近扫描"
+    ws.cell(row=1, column=1, value="公告发现 · 最近一次扫描").font = Font(size=14, bold=True)
+    if state.get("status") in ("done", "failed", "running"):
+        ws.cell(row=3, column=1, value="扫描编号").font = Font(bold=True)
+        ws.cell(row=3, column=2, value=state.get("scan_id") or "-")
+        ws.cell(row=4, column=1, value="状态/触发").font = Font(bold=True)
+        ws.cell(row=4, column=2, value=f"{state.get('status')}｜{state.get('trigger') or '-'}")
+        ws.cell(row=5, column=1, value="起止").font = Font(bold=True)
+        ws.cell(row=5, column=2, value=f"{state.get('started_at') or '-'} → {state.get('finished_at') or '-'}")
+        ws.cell(row=6, column=1, value="汇总").font = Font(bold=True)
+        ws.cell(row=6, column=2, value=f"条目 {state.get('items_seen', 0)}｜新 {state.get('new_count', 0)}"
+                                       f"｜基线 {state.get('baseline_count', 0)}")
+        r0 = 8
+        ws.cell(row=r0, column=1, value="逐源状态").font = Font(bold=True)
+        _xlsx_header_style(ws, r0 + 1, len(_ANN_SOURCE_HEADERS))
+        for c, h in enumerate(_ANN_SOURCE_HEADERS, start=1):
+            ws.cell(row=r0 + 1, column=c, value=h)
+        for i, p in enumerate(state.get("per_source") or []):
+            src_url = next((s.get("url", "") for s in get_sources()
+                            if s.get("id") == p.get("id")), "")
+            ws.cell(row=r0 + 2 + i, column=1, value=p.get("name") or "-")
+            ws.cell(row=r0 + 2 + i, column=2, value=src_url)
+            ws.cell(row=r0 + 2 + i, column=3, value=p.get("status") or "-")
+            ws.cell(row=r0 + 2 + i, column=4, value=p.get("items", 0))
+            ws.cell(row=r0 + 2 + i, column=5, value=p.get("new_items", 0))
+            ws.cell(row=r0 + 2 + i, column=6, value=p.get("baseline_items", 0))
+            ws.cell(row=r0 + 2 + i, column=7, value=p.get("reason") or "")
+    else:
+        ws.cell(row=3, column=1, value=f"状态：{state.get('status', 'never')}（尚未完成过扫描）")
+    ws.column_dimensions["A"].width = 22
+    ws.column_dimensions["B"].width = 48
+
+    # ---- Sheet2 公告明细全量（发布日期 DESC；无日期排最后——list_items 同口径） ----
+    wd = wb.create_sheet("公告明细")
+    wd.append(_ANN_HEADERS)
+    all_rows = get_db_connection().execute(
+        "SELECT source_name, title, standard_no, published_date, first_seen,"
+        " last_seen, url, scan_id FROM announcement_observed"
+        " ORDER BY CASE WHEN published_date IS NULL THEN 1 ELSE 0 END,"
+        " published_date DESC, first_seen DESC, observed_id DESC").fetchall()
+    for r in all_rows:
+        wd.append([r["source_name"] or "-", r["title"] or "-", r["standard_no"] or "",
+                   r["published_date"] or "", r["first_seen"] or "", r["last_seen"] or "",
+                   r["url"] or "-", r["scan_id"] or "-"])
+    if wd.max_row > 1:
+        _xlsx_header_style(wd, 1, len(_ANN_HEADERS))
+        wd.freeze_panes = "A2"
+        wd.auto_filter.ref = f"A1:{get_column_letter(len(_ANN_HEADERS))}{wd.max_row}"
+    widths = [18, 50, 18, 12, 18, 18, 52, 22]
+    for i, w in enumerate(widths, start=1):
+        wd.column_dimensions[get_column_letter(i)].width = w
+
+    out = (_exports_dir() /
+           f"公告发现_{datetime.now():%Y%m%d_%H%M%S}.xlsx")
+    wb.save(str(out))
+    upd_log(state.get("scan_id") or "announce", "announce", "INFO",
+            "announce_exported", rows=len(all_rows))
+    return out

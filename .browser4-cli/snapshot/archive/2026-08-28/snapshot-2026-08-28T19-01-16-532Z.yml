@@ -1,0 +1,119 @@
+# Snapshot viewport(s): 0
+# This file contains the accessibility tree for the requested viewport(s) only.
+# Use `browser4-cli snapshot grep <pattern>` to search the full in-memory tree.
+# Use `browser4-cli snapshot -v all` to capture all viewports.
+
+# Viewport State
+# - processingViewport: 0
+# - viewportHeight: 1080px
+# - viewportsTotal: 1
+# - hiddenTopHeight: 0px
+# - hiddenBottomHeight: 0px
+#
+- generic [ref=e10858] [box=0,0,1920,1080]:
+  - banner [ref=e10837] [box=0,0,1920,54]:
+    - generic "国标与法律法规 AI 知识工作站" [ref=e10862] [box=60,11,186,16]
+    - generic "KnowledgeStation · 可溯源合规问答" [ref=e10863] [box=60,28,186,13]
+    - navigation [ref=e10864] [box=266,9,195,34]:
+      - button "问答" [ref=e10865] [cursor=pointer] [box=270,13,61,26]
+      - button "审查" [ref=e10866] [cursor=pointer] [box=333,13,61,26]
+      - button "更新" [ref=e10867] [cursor=pointer] [box=396,13,61,26]
+    - button "⚙️ 设置" [ref=e10869] [cursor=pointer] [box=1367,12,69,28]
+    - button "📤 外发审计" [ref=e10870] [cursor=pointer] [box=1445,12,93,28]
+    - button "🔀 对比" [ref=e10871] [cursor=pointer] [box=1547,12,69,28]
+    - button "📜 更新日志" [ref=e10872] [cursor=pointer] [box=1625,12,93,28]
+    - button "🩺 运维" [ref=e10873] [cursor=pointer] [box=1726,12,69,28]
+    - generic "本地引擎已连接" [ref=e10874] [box=1808,14,93,25]: 引擎 :4365
+  - generic [ref=e10876] [box=0,54,1920,998]:
+    - generic [ref=e10877] [box=0,54,768,998]:
+      - generic [ref=e10878] [box=0,54,768,933]:
+        - generic "GB/T 21126-2007 小麦粉中甲醛次硫酸氢钠怎么测定" [ref=e10845] [box=411,3,338,40]
+        - generic [ref=e10922] [box=57,55,673,919]:
+          - paragraph [ref=e10923] [box=72,66,643,897]:
+            - text: 依据GB/T 21126-2007，小麦粉中甲醛次硫酸氢钠的测定采用高效液相色谱法，具体测定步骤如下：
+            - LineBreak [ref=e10787] [box=661,68,0,18]
+            - LineBreak [ref=e10788] [box=72,91,0,18]
+            - text: "**1. 测定原理**"
+            - LineBreak [ref=e10790] [box=162,115,0,18]
+            - text: 在酸性溶液中，样品中残留的甲醛次硫酸氢钠分解释放出的甲醛被水提取，提取后的甲醛与2,4-二硝基苯肼发生加成反应，生成黄色的2,4-二硝基苯腙，用正己烷萃取后，经高效液相色谱仪分离，与标准甲醛衍生物的保留时间对照定性，用标准曲线法定量。GB/T 21126-2007-3
+            - LineBreak [ref=e10792] [box=445,186,0,18]
+            - LineBreak [ref=e10793] [box=72,210,0,18]
+            - text: "**2. 样品测定操作**"
+            - LineBreak [ref=e10795] [box=189,233,0,18]
+            - text: 取2.0mL样品处理所得上清液于25mL比色管中，加入1mL磷酸氢二钠溶液、0.5mL衍生剂，补加水至10mL，盖上塞子，摇匀。然后置于50℃水浴中加热40min后取出，用流水冷却至室温，准确加入5.0mL正己烷，将比色管横置，水平方向轻轻振摇3次～5次后，将比色管倾斜放置，增加正己烷与水溶液的接触面积。在一个小时内，每隔5min轻轻振摇3次～5次，然后再静置30min，取10μL正己烷萃取液进样，并与标准曲线比较定量。注意振摇时不宜剧烈，以免发生乳化；如果出现乳化现象，滴加1滴～2滴无水乙醇。GB/T 21126-2007-6.4GB/T 21126-2007-6.3
+            - LineBreak [ref=e10797] [box=216,375,0,18]
+            - LineBreak [ref=e10798] [box=72,399,0,18]
+            - text: "**3. 标准工作曲线绘制**"
+            - LineBreak [ref=e10800] [box=216,422,0,18]
+            - text: 分别量取0.00mL、0.25mL、0.50mL、1.00mL、2.00mL、4.00mL甲醛标准使用液于25mL比色管中（相当于0、0.5、1.0、2.0、4.0、8.0μg甲醛），分别加入2mL盐酸-氯化钠溶液、1mL磷酸氢二钠溶液、0.5mL衍生剂，补加水至10mL，盖上塞子，摇匀。置于50℃水浴中加热40min后，取出用流水冷却至室温。准确加入5.0mL正己烷，按上述振摇、静置操作后，取10μL正己烷萃取液进样。以所取甲醛标准使用液中甲醛的质量（以微克为单位）为横坐标，甲醛衍生物苯腙的峰面积为纵坐标，绘制标准工作曲线。GB/T 21126-2007-6.3
+            - LineBreak [ref=e10802] [box=711,540,0,18]
+            - LineBreak [ref=e10803] [box=72,564,0,18]
+            - text: "**4. 结果计算**"
+            - LineBreak [ref=e10805] [box=162,588,0,18]
+            - text: 样品中甲醛次硫酸氢钠含量（以甲醛计）按式(1)计算，式中：c为样品中甲醛含量（μg/g）；m₁为按甲醛衍生物苯腙峰面积从标准工作曲线查得甲醛的质量（μg）；50为样品加提取液体积（mL）；2为测定用样品提取液体积（mL）；m为样品质量（g）。GB/T 21126-2007-7
+            - LineBreak [ref=e10807] [box=428,658,0,18]
+            - LineBreak [ref=e10808] [box=72,682,0,18]
+            - text: "**5. 结果报告与精密度**"
+            - LineBreak [ref=e10810] [box=216,706,0,18]
+            - text: "- 甲醛含量计算结果不超过10μg/g时，报告结果为未检出。GB/T 21126-2007-8"
+            - LineBreak [ref=e10812] [box=538,729,0,18]
+            - text: "- 以双试验测定结果的算术平均值作为样品的甲醛含量，保留小数点后1位。在重复条件下获得的两次独立测定结果的绝对差值不得超过算术平均值的15%。GB/T 21126-2007-9"
+            - LineBreak [ref=e10814] [box=470,777,0,18]
+            - LineBreak [ref=e10815] [box=72,800,0,18]
+            - text: "**6. 检出限**"
+            - LineBreak [ref=e10817] [box=148,824,0,18]
+            - text: 本标准的检出限为0.08μg/g。GB/T 21126-2007-1
+            - LineBreak [ref=e10819] [box=363,847,0,18]
+            - LineBreak [ref=e10820] [box=72,871,0,18]
+            - text: "**7. 试剂要求**"
+            - LineBreak [ref=e10822] [box=162,895,0,18]
+            - text: 所用化学试剂中，正己烷为色谱纯，其余均为分析纯。配溶液所用水均为经高锰酸钾处理后的重蒸水。GB/T 21126-2007-4
+      - textbox [ref=e10832] [cursor=pointer] [box=14,1001,321,37]:
+        - /placeholder: 如：动火作业监护要求
+      - LabelText "检索时包含已废止版本" [ref=e10927] [box=345,1011,87,18]: 含已废止
+      - combobox "R9 追问档位" [ref=e10833] [cursor=pointer] [box=442,1003,138,34]
+      - LabelText "回答覆盖范围（R59）：勾选后回答更全面（检索更多证据、回答更长）；不勾选为精简模式" [ref=e10948] [box=590,1011,63,18]: 全面
+      - button "提问 ⏎" [ref=e10846] [cursor=pointer] [box=663,1000,90,40]
+    - generic "拖动调整左右宽度" [ref=e10951] [box=768,54,7,998]
+    - generic [ref=e10952] [box=775,54,1145,998]:
+      - generic "📚 文件目录" [ref=e10955] [box=775,54,231,40]
+      - generic [ref=e10956] [cursor=pointer] [box=775,100,231,26]:
+        - textbox "按标准号或名称过滤文件目录，即时生效" [ref=e10834] [box=775,100,231,26]:
+          - /placeholder: 🔍 搜索国标名称/编号
+      - generic [ref=e10989] [box=781,138,219,22]
+      - generic [ref=e10979] [box=799,161,201,22]
+      - generic [ref=e10982] [box=799,183,201,22]
+      - generic [ref=e10985] [box=799,205,201,22]
+      - generic [ref=e11093] [box=781,231,219,22]
+      - generic [ref=e10995] [box=799,254,201,22]
+      - generic [ref=e10998] [box=799,276,201,22]
+      - generic [ref=e11001] [box=799,298,201,22]
+      - generic [ref=e11004] [box=799,320,201,22]
+      - generic [ref=e11007] [box=799,342,201,22]
+      - generic [ref=e11010] [box=799,364,201,22]
+      - generic [ref=e11013] [box=799,387,201,22]
+      - generic [ref=e11016] [box=799,409,201,22]
+      - generic [ref=e11019] [box=799,431,201,22]
+      - generic [ref=e11022] [box=799,453,201,22]
+      - generic [ref=e11025] [box=799,475,201,22]
+      - generic [ref=e11028] [box=799,497,201,22]
+      - generic [ref=e11031] [box=799,519,201,22]
+      - generic [ref=e11034] [box=799,541,201,22]
+      - generic [ref=e11037] [box=799,563,201,22]
+      - generic [ref=e11040] [box=799,585,201,22]
+      - generic [ref=e11043] [box=799,608,201,22]
+      - generic [ref=e11046] [box=799,630,201,22]
+      - generic [ref=e11049] [box=799,652,201,22]
+      - generic [ref=e11052] [box=799,674,201,22]
+      - generic [ref=e11055] [box=799,696,201,22]
+      - generic [ref=e11058] [box=799,718,201,22]
+      - generic [ref=e11061] [box=799,740,201,22]
+      - generic [ref=e11064] [box=799,762,201,22]
+      - generic [ref=e11067] [box=799,784,201,22]
+      - generic "拖动调整宽度" [ref=e10961] [box=1007,54,5,998]
+      - generic [ref=e10962] [box=1012,54,908,998]:
+        - button "📚 文件目录" [ref=e10964] [cursor=pointer] [box=1024,60,93,26]
+        - button "📖 目录" [disabled] [ref=e10965] [cursor=pointer] [box=1125,60,69,26]
+        - generic "法律法规文本直灌入库" [ref=e10968] [box=1391,569,150,20]
+        - generic "正在从 /documents/<doc>/clauses 拉取全文。若一直停留在此，请重启引擎以加载最新后端代码（全文预览接口）。" [ref=e10969] [box=1252,601,428,42]
+  - contentinfo [ref=e10970] [box=0,1052,1920,28]

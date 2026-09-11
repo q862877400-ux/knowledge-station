@@ -1,0 +1,82 @@
+# Auto-snapshot after command — current viewport.
+# Use `browser4-cli snapshot grep <pattern>` to search the tree.
+
+# Viewport State
+# - processingViewport: 0
+# - viewportHeight: 1080px
+# - viewportsTotal: 1
+# - hiddenTopHeight: 0px
+# - hiddenBottomHeight: 0px
+#
+- generic [ref=e165] [box=0,0,1920,1080]:
+  - banner "⚖️ 国标与法律法规 AI 知识工作站 KnowledgeStation · 可溯源合规问答 问答 问答 审查 审查 更新 更新 ⚙️ 设置 ⚙️ 设置 📤 外发审计 📤 外发审计 🔀 对比 🔀 对比 📜 更新日志 📜 更新日志 🩺 运维 🩺 运维 本地引擎已连接 引擎 :5539" [ref=e147] [box=0,0,1920,54]:
+    - generic "国标与法律法规 AI 知识工作站" [ref=e169] [box=60,11,186,16]
+    - generic "KnowledgeStation · 可溯源合规问答" [ref=e170] [box=60,28,186,13]
+    - navigation "问答 问答 审查 审查 更新 更新" [ref=e171] [box=266,9,195,34]:
+      - button "问答" [ref=e172] [cursor=pointer] [box=270,13,61,26]
+      - button "审查" [ref=e173] [cursor=pointer] [box=333,13,61,26]
+      - button "更新" [ref=e174] [cursor=pointer] [box=396,13,61,26]
+    - button "⚙️ 设置" [ref=e175] [cursor=pointer] [box=1367,12,69,28]
+    - button "📤 外发审计" [ref=e176] [cursor=pointer] [box=1445,12,93,28]
+    - button "🔀 对比" [ref=e177] [cursor=pointer] [box=1547,12,69,28]
+    - button "📜 更新日志" [ref=e178] [cursor=pointer] [box=1625,12,93,28]
+    - button "🩺 运维" [ref=e179] [cursor=pointer] [box=1726,12,69,28]
+    - generic "本地引擎已连接" [ref=e180] [box=1808,14,93,25]: 引擎 :5539
+  - generic [ref=e182] [box=0,54,1920,998]:
+    - generic "⚖️ 向知识库提问，每条结论都可点回原文核对 回答自动附标准号-条款号引用；悬停看证据卡片，点击跳到 PDF 原文黄框处。 动火作业如何分级？ 动火作业如何分级？ 气体探测器安装高度要求？ 气体探测器安装高度要求？ 消防疏散宽度怎么计算？ 消防疏散宽度怎么计算？ 格式条款无效的情形有哪些？ 格式条款无效的情形有哪些？ 提示：可用「[丙类厂房/高层/耐火二级] 疏散宽度」前置参数语法跳过追问 如：动火作业监护要求 如：动火作业监护要求 检索时包含已废止版本 检索时包含已废止版本 checkbox 含已废止 R9 追问档位 R9 追问档位 正本清源（追问） default 正本清源（追问） 打破沙锅 thorough 打破沙锅 差不多就行 quick 差不多就行 纯靠猜 guess 纯靠猜 回答覆盖范围（R59）：勾选后回答更全面（检索更多证据、回答更长）；不勾选为精简模式 回答覆盖范围（R59）：勾选后回答更全面（检索更多证据、回答更长）；不勾选为精简模式 checkbox 全面 提问 ⏎ 提问 ⏎" [ref=e183] [box=0,54,768,998]:
+      - generic "向知识库提问，每条结论都可点回原文核对" [ref=e186] [box=241,472,285,20]
+      - generic "回答自动附标准号-条款号引用；悬停看证据卡片，点击跳到 PDF 原文黄框处。" [ref=e187] [box=167,504,433,21]
+      - button "动火作业如何分级？" [ref=e189] [cursor=pointer] [box=139,541,138,30]
+      - button "气体探测器安装高度要求？" [ref=e190] [cursor=pointer] [box=285,541,174,30]
+      - button "消防疏散宽度怎么计算？" [ref=e191] [cursor=pointer] [box=467,541,162,30]
+      - button "格式条款无效的情形有哪些？" [ref=e192] [cursor=pointer] [box=291,579,186,30]
+      - generic "提示：可用「[丙类厂房/高层/耐火二级] 疏散宽度」前置参数语法跳过追问" [ref=e193] [box=204,627,359,15]
+      - textbox "如：动火作业监护要求" [ref=e142] [cursor=pointer] [box=14,1001,321,37]
+      - LabelText "检索时包含已废止版本" [ref=e197] [box=345,1011,87,18]: 含已废止
+      - combobox "R9 追问档位" [ref=e143] [cursor=pointer] [box=442,1003,138,34]:
+        - /has_popup: menu
+      - LabelText "回答覆盖范围（R59）：勾选后回答更全面（检索更多证据、回答更长）；不勾选为精简模式" [ref=e218] [box=590,1011,63,18]: 全面
+      - button "提问 ⏎" [ref=e150] [cursor=pointer] [box=663,1000,90,40]
+    - generic "拖动调整左右宽度" [ref=e221] [box=768,54,7,998]
+    - generic "📚 文件目录 按标准号或名称过滤文件目录，即时生效 按标准号或名称过滤文件目录，即时生效 🔍 搜索国标名称/编号 ▾ 法律法规 ▸ 法律（狭义） ▸ 行政法规 ▸ 部门规章 ▾ 国家标准·行业标准·团体标准 ▸ A 综合 ▸ B 农业、林业 ▸ C 医药、卫生、劳动保护 ▸ D 矿业 ▸ E 石油 ▸ F 能源、核技术 ▸ G 化工 ▸ H 冶金 ▸ J 机械 ▸ K 电工 ▸ L 电子元器件与信息技术 ▸ M 通信、广播 ▸ N 仪器、仪表 ▸ P 土木、建筑 ▸ Q 建材 ▸ R 公路、水路运输 ▸ S 铁路 ▸ T 车辆 ▸ U 船舶 ▸ V 航空、航天 ▸ W 纺织 ▸ X 食品 ▸ Y 轻工、文化与生活用品 ▸ Z 环境保护 ▸ 其他标准 拖动调整宽度 📚 文件目录 📚 文件目录 📖 目录 📖 目录 📜 法律法规文本直灌入库 正在从 /documents/<doc>/clauses 拉取全文。若一直停留在此，请重启引擎以加载最新后端代码（全文预览接口）。" [ref=e222] [box=775,54,1145,998]:
+      - generic "📚 文件目录" [ref=e225] [box=775,54,175,40]
+      - generic "按标准号或名称过滤文件目录，即时生效 按标准号或名称过滤文件目录，即时生效 🔍 搜索国标名称/编号" [ref=e226] [cursor=pointer] [box=775,100,175,26]:
+        - textbox "按标准号或名称过滤文件目录，即时生效" [ref=e144] [box=775,100,175,26]:
+          - /placeholder: 🔍 搜索国标名称/编号
+      - generic "▾ 法律法规" [ref=e231] [box=779,138,167,20]
+      - generic "▸ 法律（狭义）" [ref=e236] [box=793,159,153,20]
+      - generic "▸ 行政法规" [ref=e240] [box=793,179,153,20]
+      - generic "▸ 部门规章" [ref=e244] [box=793,199,153,20]
+      - generic "▾ 国家标准·行业标准·团体标准" [ref=e248] [box=779,223,167,20]
+      - generic "▸ A 综合" [ref=e253] [box=793,244,153,20]
+      - generic "▸ B 农业、林业" [ref=e257] [box=793,264,153,20]
+      - generic "▸ C 医药、卫生、劳动保护" [ref=e261] [box=793,284,153,20]
+      - generic "▸ D 矿业" [ref=e265] [box=793,304,153,20]
+      - generic "▸ E 石油" [ref=e269] [box=793,324,153,20]
+      - generic "▸ F 能源、核技术" [ref=e273] [box=793,344,153,20]
+      - generic "▸ G 化工" [ref=e277] [box=793,365,153,20]
+      - generic "▸ H 冶金" [ref=e281] [box=793,385,153,20]
+      - generic "▸ J 机械" [ref=e285] [box=793,405,153,20]
+      - generic "▸ K 电工" [ref=e289] [box=793,425,153,20]
+      - generic "▸ L 电子元器件与信息技术" [ref=e293] [box=793,445,153,20]
+      - generic "▸ M 通信、广播" [ref=e297] [box=793,465,153,20]
+      - generic "▸ N 仪器、仪表" [ref=e301] [box=793,485,153,20]
+      - generic "▸ P 土木、建筑" [ref=e305] [box=793,505,153,20]
+      - generic "▸ Q 建材" [ref=e309] [box=793,525,153,20]
+      - generic "▸ R 公路、水路运输" [ref=e313] [box=793,545,153,20]
+      - generic "▸ S 铁路" [ref=e317] [box=793,566,153,20]
+      - generic "▸ T 车辆" [ref=e321] [box=793,586,153,20]
+      - generic "▸ U 船舶" [ref=e325] [box=793,606,153,20]
+      - generic "▸ V 航空、航天" [ref=e329] [box=793,626,153,20]
+      - generic "▸ W 纺织" [ref=e333] [box=793,646,153,20]
+      - generic "▸ X 食品" [ref=e337] [box=793,666,153,20]
+      - generic "▸ Y 轻工、文化与生活用品" [ref=e341] [box=793,686,153,20]
+      - generic "▸ Z 环境保护" [ref=e345] [box=793,706,153,20]
+      - generic "▸ 其他标准" [ref=e349] [box=793,726,153,20]
+      - generic "拖动调整宽度" [ref=e352] [box=951,54,5,998]
+      - generic "📚 文件目录 📚 文件目录 📖 目录 📖 目录 📜 法律法规文本直灌入库 正在从 /documents/<doc>/clauses 拉取全文。若一直停留在此，请重启引擎以加载最新后端代码（全文预览接口）。" [ref=e353] [box=956,54,964,998]:
+        - button "📚 文件目录" [ref=e355] [cursor=pointer] [box=968,60,93,26]
+        - button "📖 目录" [disabled] [ref=e356] [cursor=pointer] [box=1069,60,69,26]
+        - generic "法律法规文本直灌入库" [ref=e358] [box=1363,569,150,20]
+        - generic "正在从 /documents/<doc>/clauses 拉取全文。若一直停留在此，请重启引擎以加载最新后端代码（全文预览接口）。" [ref=e359] [box=1224,601,428,42]
+  - contentinfo "⚙️ 本地知识库 · 云增强模式（LLM 仅接收问题与证据片段） 外发内容全程留痕 · 运维面板可回溯" [ref=e360] [box=0,1052,1920,28]

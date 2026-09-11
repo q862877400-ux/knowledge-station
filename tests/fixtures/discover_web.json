@@ -1,0 +1,68 @@
+{
+  "_doc": "找标网络检索 mock 表驱动数据（阶段六批次3；pipeline/05 §4-8 渠道单测禁止真实联网）。测试侧 DiscoverMockTransport 按 params.q 包含 case.key 匹配应答，http!=200 模拟渠道未命中，results[] 为原始结果行（discover._to_card 解析成卡片）。",
+  "cases": [
+    {
+      "key": "C C80",
+      "desc": "消防大类检索：3 条命中，覆盖 强制GB / 推荐 GB/T / 状态枚举混合",
+      "http": 200,
+      "results": [
+        {
+          "title": "GB 4715-2024 点型感烟火灾探测器",
+          "url": "https://openstd.samr.gov.cn/db/search/std_out_detail?no=GB4715-2024",
+          "status": "现行"
+        },
+        {
+          "title": "GB/T 4718-1996 火灾报警设备专业名词术语",
+          "url": "https://openstd.samr.gov.cn/db/search/std_out_detail?no=GBT4718-1996",
+          "status": "被代替"
+        },
+        {
+          "title": "GB 16806-2006 消防联动控制系统",
+          "url": "https://openstd.samr.gov.cn/db/search/std_out_detail?no=GB16806-2006",
+          "status": "现行"
+        }
+      ],
+      "expect": {
+        "count": 3,
+        "standard_nos": ["GB 4715-2024", "GB/T 4718-1996", "GB 16806-2006"],
+        "mandatory": [true, false, true],
+        "statuses": ["effective", "superseded", "effective"],
+        "card_keys": ["standard_no", "name", "status", "mandatory", "evidence_url"]
+      }
+    },
+    {
+      "key": "K K13",
+      "desc": "电线电缆检索：同号重复行（norm_no 相等）去重保序，无标准号垃圾行跳过",
+      "http": 200,
+      "results": [
+        {
+          "title": "GB/T 5023.1-2008 额定电压450/750V及以下聚氯乙烯绝缘电缆 第1部分：一般要求",
+          "url": "https://openstd.samr.gov.cn/db/search/std_out_detail?no=GBT5023.1-2008",
+          "status": "现行"
+        },
+        {
+          "title": "GB/T 5023.1-2008 额定电压450/750V及以下聚氯乙烯绝缘电缆 第1部分：一般要求（重复行）",
+          "url": "https://openstd.samr.gov.cn/db/search/std_out_detail?no=GBT5023.1-2008-dup",
+          "status": "现行"
+        },
+        {
+          "title": "无标准号的垃圾行应被跳过并告警",
+          "url": "https://example.com/no-noise",
+          "status": "现行"
+        }
+      ],
+      "expect": {
+        "count": 1,
+        "standard_nos": ["GB/T 5023.1-2008"],
+        "mandatory": [false]
+      }
+    },
+    {
+      "key": "EMPTY",
+      "desc": "渠道 HTTP 404 → 不抛错返回空列表（与 channels._miss 同语义）",
+      "http": 404,
+      "results": [],
+      "expect": {"count": 0}
+    }
+  ]
+}

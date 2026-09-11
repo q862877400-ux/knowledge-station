@@ -1,0 +1,141 @@
+# Snapshot viewport(s): 0
+# This file contains the accessibility tree for the requested viewport(s) only.
+# Use `browser4-cli snapshot grep <pattern>` to search the full in-memory tree.
+# Use `browser4-cli snapshot -v all` to capture all viewports.
+
+# Viewport State
+# - processingViewport: 0
+# - viewportHeight: 1080px
+# - viewportsTotal: 1
+# - hiddenTopHeight: 0px
+# - hiddenBottomHeight: 0px
+#
+- generic [ref=e1583] [box=0,0,1920,1080]:
+  - banner [ref=e1567] [box=0,0,1920,54]:
+    - generic "国标与法律法规 AI 知识工作站" [ref=e1587] [box=60,11,186,16]
+    - generic "KnowledgeStation · 可溯源合规问答" [ref=e1588] [box=60,28,186,13]
+    - navigation [ref=e1589] [box=266,9,195,34]:
+      - button "问答" [ref=e1590] [cursor=pointer] [box=270,13,61,26]
+      - button "审查" [ref=e1591] [cursor=pointer] [box=333,13,61,26]
+      - button "更新" [ref=e1592] [cursor=pointer] [box=396,13,61,26]
+    - button "⚙️ 设置" [ref=e1594] [cursor=pointer] [box=1367,12,69,28]
+    - button "📤 外发审计" [ref=e1595] [cursor=pointer] [box=1445,12,93,28]
+    - button "🔀 对比" [ref=e1596] [cursor=pointer] [box=1547,12,69,28]
+    - button "📜 更新日志" [ref=e1597] [cursor=pointer] [box=1625,12,93,28]
+    - button "🩺 运维" [ref=e1598] [cursor=pointer] [box=1726,12,69,28]
+    - generic "本地引擎已连接" [ref=e1599] [box=1808,14,93,25]: 引擎 :5539
+  - generic [ref=e1601] [box=0,54,1920,998]:
+    - generic [ref=e1602] [box=0,54,768,998]:
+      - button "🗑 清空对话" [ref=e1606] [cursor=pointer] [box=108,72,79,25]
+      - generic "动火作业如何分级？" [ref=e1569] [box=600,109,149,40]
+      - generic [ref=e1611] [box=57,161,673,281]:
+        - paragraph "依据 GB 30871-2022，固定动火区外的动火作业分为特级动火、一级动火和二级动火三个级别；遇节假日、公休日、夜间或其他特殊情况，动火作业应升级管理 - **一级动火作业**：在火灾爆炸危险场所进行的除特级动火作业以外的动火作业；管廊上的动火作业按一级动火作业管理 - **二级动火作业**：除特级动火作业和一级动火作业以外的动火作业。此外，生产装置或系统全部停车，装置经清洗、置换、分析合格并采取安全隔离措施后，根据其火灾、爆炸危险性大小，经危险化学品企业生产负责人或安全管理负责人批准，动火作业可按二级动火作业管理 依据不足：证据条款未给出“特级动火作业”的具体定义或判定条件，也未说明“火灾爆炸危险场所”的界定标准。请补充说明特级动火作业的判定条件或场所火灾危险性类别。" [ref=e1612] [box=72,172,643,259]:
+          - text: 依据 GB 30871-2022，固定动火区外的动火作业分为特级动火、一级动火和二级动火三个级别；遇节假日、公休日、夜间或其他特殊情况，动火作业应升级管理
+          - generic "GB 30871-2022-5.1.1" [ref=e1789] [box=386,199,110,17]
+          - LineBreak [ref=e1790] [box=510,197,0,18]
+          - LineBreak [ref=e1791] [box=72,221,0,18]
+          - text: "- **一级动火作业**：在火灾爆炸危险场所进行的除特级动火作业以外的动火作业；管廊上的动火作业按一级动火作业管理"
+          - generic "GB 30871-2022-5.1.3" [ref=e1792] [box=156,270,112,17]
+          - LineBreak [ref=e1793] [box=282,268,0,18]
+          - text: "- **二级动火作业**：除特级动火作业和一级动火作业以外的动火作业。此外，生产装置或系统全部停车，装置经清洗、置换、分析合格并采取安全隔离措施后，根据其火灾、爆炸危险性大小，经危险化学品企业生产负责人或安全管理负责人批准，动火作业可按二级动火作业管理"
+          - generic "GB 30871-2022-5.1.4" [ref=e1794] [box=453,341,112,17]
+          - LineBreak [ref=e1795] [box=579,339,0,18]
+          - LineBreak [ref=e1796] [box=72,363,0,18]
+          - text: 依据不足：证据条款未给出“特级动火作业”的具体定义或判定条件，也未说明“火灾爆炸危险场所”的界定标准。请补充说明特级动火作业的判定条件或场所火灾危险性类别。
+      - generic "动火作业如何分级？" [ref=e1570] [box=600,455,149,40]
+      - generic [ref=e1617] [box=57,507,673,258]:
+        - paragraph "依据 GB 30871-2022，固定动火区外的动火作业分为特级动火、一级动火和二级动火三个级别；遇节假日、公休日、夜间或其他特殊情况，动火作业应升级管理 - **一级动火作业**：在火灾爆炸危险场所进行的除特级动火作业以外的动火作业；管廊上的动火作业按一级动火作业管理 - **二级动火作业**：除特级动火作业和一级动火作业以外的动火作业。此外，生产装置或系统全部停车，装置经清洗、置换、分析合格并采取安全隔离措施后，根据其火灾、爆炸危险性大小，经危险化学品企业生产负责人或安全管理负责人批准，动火作业可按二级动火作业管理 请补充说明作业场所是否属于火灾爆炸危险场所。" [ref=e1618] [box=72,518,643,236]:
+          - text: 依据 GB 30871-2022，固定动火区外的动火作业分为特级动火、一级动火和二级动火三个级别；遇节假日、公休日、夜间或其他特殊情况，动火作业应升级管理
+          - generic "GB 30871-2022-5.1.1" [ref=e1797] [box=386,546,110,17]
+          - LineBreak [ref=e1798] [box=510,544,0,18]
+          - LineBreak [ref=e1799] [box=72,567,0,18]
+          - text: "- **一级动火作业**：在火灾爆炸危险场所进行的除特级动火作业以外的动火作业；管廊上的动火作业按一级动火作业管理"
+          - generic "GB 30871-2022-5.1.3" [ref=e1800] [box=156,616,112,17]
+          - LineBreak [ref=e1801] [box=282,614,0,18]
+          - text: "- **二级动火作业**：除特级动火作业和一级动火作业以外的动火作业。此外，生产装置或系统全部停车，装置经清洗、置换、分析合格并采取安全隔离措施后，根据其火灾、爆炸危险性大小，经危险化学品企业生产负责人或安全管理负责人批准，动火作业可按二级动火作业管理"
+          - generic "GB 30871-2022-5.1.4" [ref=e1802] [box=453,687,112,17]
+          - LineBreak [ref=e1803] [box=579,685,0,18]
+          - LineBreak [ref=e1804] [box=72,709,0,18]
+          - text: 请补充说明作业场所是否属于火灾爆炸危险场所。
+      - textbox [ref=e1562] [cursor=pointer] [box=14,1001,321,37]:
+        - /placeholder: 如：动火作业监护要求
+      - LabelText "检索时包含已废止版本" [ref=e1622] [box=345,1011,87,18]: 含已废止
+      - combobox "R9 追问档位" [ref=e1563] [cursor=pointer] [box=442,1003,138,34]
+      - LabelText "回答覆盖范围（R59）：勾选后回答更全面（检索更多证据、回答更长）；不勾选为精简模式" [ref=e1643] [box=590,1011,63,18]: 全面
+      - button "提问 ⏎" [ref=e1571] [cursor=pointer] [box=663,1000,90,40]
+    - generic "拖动调整左右宽度" [ref=e1646] [box=768,54,7,998]
+    - generic [ref=e1647] [box=775,54,1145,998]:
+      - generic "📚 文件目录" [ref=e1650] [box=775,54,175,40]
+      - generic [ref=e1651] [cursor=pointer] [box=775,100,175,26]:
+        - textbox "按标准号或名称过滤文件目录，即时生效" [ref=e1564] [box=775,100,175,26]:
+          - /placeholder: 🔍 搜索国标名称/编号
+        - button "×" [ref=e1929] [box=928,104,17,18]
+      - generic [ref=e1787] [box=779,138,167,20]
+      - generic [ref=e1695] [box=793,159,153,20]
+      - generic "C10/29 医药" [ref=e1926] [box=807,180,139,17]:
+        - generic [ref=e1920] [box=815,181,14,14]
+        - text: C10/29 医药
+      - generic "C10 医药综合" [ref=e1923] [box=821,198,125,17]
+      - generic "GB/T 34406-2017 珍珠粉鉴别方法 近红外光谱法" [ref=e1924] [box=821,216,125,51]:
+        - generic "GB/T 34406-2017" [ref=e1921] [box=825,218,91,15]
+        - generic "珍珠粉鉴别方法 近红外光谱法" [ref=e1922] [box=825,218,113,46]
+      - generic "拖动调整宽度" [ref=e1656] [box=951,54,5,998]
+      - generic "标题目录" [ref=e2367] [box=956,54,175,40]
+      - generic [ref=e2305] [box=960,102,167,20]
+      - generic [ref=e2309] [box=960,124,167,20]
+      - generic [ref=e2313] [box=960,146,167,20]
+      - generic [ref=e2317] [box=960,168,167,20]
+      - generic [ref=e2321] [box=960,190,167,20]
+      - generic [ref=e2325] [box=960,210,167,20]
+      - generic [ref=e2329] [box=960,232,167,20]
+      - generic [ref=e2333] [box=960,254,167,20]
+      - generic [ref=e2337] [box=960,274,167,20]
+      - generic [ref=e2341] [box=960,294,167,20]
+      - generic [ref=e2345] [box=960,316,167,20]
+      - generic [ref=e2349] [box=960,339,167,20]
+      - generic [ref=e2353] [box=960,361,167,20]
+      - generic "拖动调整宽度" [ref=e2370] [box=1132,54,5,998]
+      - generic [ref=e1657] [box=1137,54,783,998]:
+        - button "📚 文件目录" [ref=e1659] [cursor=pointer] [box=1149,60,93,26]
+        - button "📖 目录" [ref=e1660] [cursor=pointer] [box=1250,60,69,26]
+        - button "🔍 看原件" [ref=e1949] [cursor=pointer] [box=1770,99,69,21]
+        - button "✏️ 纠错" [ref=e1942] [cursor=pointer] [box=1849,99,58,21]
+        - generic [ref=e1662] [box=1137,147,783,905]:
+          - generic "原件第 4 页" [ref=e2133] [box=1155,-25,747,90]:
+            - paragraph "规范性引用文件下列文件对于本文件的应用是必不可少的。凡是注日期的引用文件,仅注日期的版本适用于本文件。凡是不注日期的引用文件,其最新版本(包括所有的修改单)适用于本文件。 GB/T14666分析化学术语 GB/T24895粮油检验 近红外分析定标模型验证和网络管理与维护通用规则" [ref=e1965] [box=1155,-1,747,66]
+          - generic "原件第 4 页" [ref=e2134] [box=1155,80,747,46]:
+            - generic [ref=e1971] [box=1155,80,747,22]
+            - paragraph "术语和定义 GB/T14666和GB/T24895界定的以及下列术语和定义适用于本文件。" [ref=e1969] [box=1155,104,747,22]
+          - generic "原件第 4 页" [ref=e2135] [box=1155,142,747,46]:
+            - generic "3.1" [ref=e1975] [box=1155,142,747,22]
+            - paragraph "珍珠粉 pearlpowder由珍珠经过机械加工而成的粉末状物质。" [ref=e1973] [box=1155,166,747,22]
+          - generic "原件第 4 页" [ref=e2136] [box=1155,205,747,46]:
+            - generic "3.2" [ref=e1979] [box=1155,205,747,22]
+            - paragraph "贝壳粉 shellpowder由孕育珍珠的珍珠母贝贝壳去除角质层后经机械加工而成的粉状物质。" [ref=e1977] [box=1155,229,747,22]
+          - generic "原件第 4 页" [ref=e2137] [box=1155,267,747,68]:
+            - generic "3.3" [ref=e1983] [box=1155,267,747,22]
+            - paragraph "相似度匹配值 similaritymatchvalue通过比较待测样品光谱和珍珠粉光谱在多个特征波段的光谱信息,得到待测样品与珍珠粉的匹配程度的比较结果。" [ref=e1981] [box=1155,291,747,44]
+          - generic "原件第 4 页" [ref=e2138] [box=1155,351,747,68]:
+            - generic "3.4" [ref=e1987] [box=1155,351,747,22]
+            - paragraph "判别分析 discriminantanalysis使用马氏距离(MahalanobisDistance)计算待测样品到每个珍珠粉和贝壳粉类别中心的距离并通过该距离判别待测样品的类别。" [ref=e1985] [box=1155,375,747,44]
+          - generic "原件第 4 页" [ref=e2139] [box=1155,435,747,46]:
+            - generic "3.5" [ref=e1991] [box=1155,435,747,22]
+            - paragraph "校正集 calibrationset具有代表性的、基本覆盖相关组成分含量范围的样品近红外光谱集合。" [ref=e1989] [box=1155,459,747,22]
+          - generic "原件第 4 页" [ref=e2140] [box=1155,498,747,74]:
+            - generic "3.6" [ref=e1996] [box=1155,498,747,22]
+            - paragraph "验证集 validationset用于验证模型测定结果准确性和重复性的集合。" [ref=e1993] [box=1155,522,747,22]
+            - paragraph [ref=e1995] [box=1155,550,747,22]
+          - generic "原件第 5 页" [ref=e2141] [box=1155,588,747,203]:
+            - generic "3.7" [ref=e2001] [box=1155,588,747,22]
+            - text: "相关系数 correlationcoefficient R表示近红外光谱法测定值与标准化学方法测定值的相关性: R=√(1-∑(^Ci-Ci)2/∑(Ci-Ci)2)(1)"
+            - image [ref=e2000] [box=1404,640,249,119]
+            - text: 式中:^Ci———样品i近红外光谱法预测值; Ci———样品i标准值; Ci———样品i的平均值。
+          - generic "原件第 5 页" [ref=e2142] [box=1155,807,747,219]:
+            - generic "3.8" [ref=e2006] [box=1155,807,747,22]
+            - text: "预测均方差 roommeansquareerrorofprediction;RMSEP表示验证集各样品近红外光谱测定值与标准化学方法测定值偏差平方的算术平均数的平方根: RMSEP=√(∑(^Ci-Ci)2/m)(2)"
+            - image [ref=e2005] [box=1394,881,269,113]
+            - text: "式中: m———验证集样品数。"
+          - generic "原件第 5 页" [ref=e2143] [box=1155,1042,747,68]:
+            - generic [ref=e2010] [box=1155,1042,747,22]
+            - paragraph "原理利用珍珠粉有机质中CH、NH、OH等化学基团的倍频与合频吸收,采集珍珠粉在近红外区的特征吸收光谱,用化学计量学方法建立近红外光谱定性和半定量分析模型以鉴别珍珠粉。" [ref=e2008] [box=1155,1067,747,44]
+  - contentinfo [ref=e1665] [box=0,1052,1920,28]

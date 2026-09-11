@@ -1,0 +1,184 @@
+# Auto-snapshot after command — current viewport.
+# Use `browser4-cli snapshot grep <pattern>` to search the tree.
+
+# Viewport State
+# - processingViewport: 0
+# - viewportHeight: 1080px
+# - viewportsTotal: 1
+# - hiddenTopHeight: 0px
+# - hiddenBottomHeight: 0px
+#
+- generic [ref=e4068] [box=0,0,1920,1080]:
+  - banner "⚖️ 国标与法律法规 AI 知识工作站 KnowledgeStation · 可溯源合规问答 问答 问答 审查 审查 更新 更新 ⚙️ 设置 ⚙️ 设置 📤 外发审计 📤 外发审计 🔀 对比 🔀 对比 📜 更新日志 📜 更新日志 🩺 运维 🩺 运维 本地引擎已连接 引擎 :11114" [ref=e4070] [box=0,0,1920,54]:
+    - generic "国标与法律法规 AI 知识工作站" [ref=e4074] [box=60,11,186,16]
+    - generic "KnowledgeStation · 可溯源合规问答" [ref=e4075] [box=60,28,186,13]
+    - navigation "问答 问答 审查 审查 更新 更新" [ref=e4076] [box=266,9,194,34]:
+      - button "问答" [ref=e4077] [cursor=pointer] [box=270,13,61,26]
+      - button "审查" [ref=e4078] [cursor=pointer] [box=333,13,61,26]
+      - button "更新" [ref=e4079] [cursor=pointer] [box=396,13,61,26]
+    - button "⚙️ 设置" [ref=e4081] [cursor=pointer] [box=1363,12,69,27]
+    - button "📤 外发审计" [ref=e4082] [cursor=pointer] [box=1441,12,93,27]
+    - button "🔀 对比" [ref=e4083] [cursor=pointer] [box=1542,12,69,27]
+    - button "📜 更新日志" [ref=e4084] [cursor=pointer] [box=1620,12,93,27]
+    - button "🩺 运维" [ref=e4085] [cursor=pointer] [box=1721,12,69,27]
+    - generic "本地引擎已连接" [ref=e4086] [box=1802,13,99,25]: 引擎 :11114
+  - generic [ref=e4088] [box=0,54,1920,997]:
+    - generic [ref=e4089] [box=0,54,768,997]:
+      - generic [ref=e4090] [box=0,54,768,932]:
+        - button "🗑 清空对话" [ref=e4093] [cursor=pointer] [box=113,72,78,25]
+        - generic "我要高处作业，怎么判断级别" [ref=e4096] [box=546,109,203,40]
+        - generic [ref=e4099] [box=57,161,673,919]:
+          - paragraph [ref=e4100] [box=71,172,643,897]:
+            - text: 根据您的问题，高处作业级别的判断需按以下步骤进行：
+            - LineBreak [ref=e3709] [box=409,175,0,17]
+            - LineBreak [ref=e3710] [box=71,198,0,17]
+            - text: "**第一步：确定基础高度（hb）**"
+            - LineBreak [ref=e3712] [box=279,222,0,17]
+            - text: 以作业位置为中心，6米为半径划出的垂直于水平面的柱形空间内的最低处与作业位置间的高度差，即为基础高度GB 3608-2025-3.5。
+            - LineBreak [ref=e3714] [box=219,269,0,17]
+            - LineBreak [ref=e3715] [box=71,293,0,17]
+            - text: "**第二步：确定可能坠落范围半径（R）**"
+            - LineBreak [ref=e3717] [box=325,316,0,17]
+            - text: 根据基础高度查表确定可能坠落范围半径GB 3608-2025-5.1：
+            - LineBreak [ref=e3719] [box=435,340,0,17]
+            - text: "- 2≤hb≤5时，R=3米；"
+            - LineBreak [ref=e3721] [box=208,364,0,17]
+            - text: "- 5<hb≤15时，R=4米；"
+            - LineBreak [ref=e3723] [box=215,387,0,17]
+            - text: "- 15<hb≤30时，R=5米；"
+            - LineBreak [ref=e3725] [box=222,411,0,17]
+            - text: "- hb>30时，R=6米GB 3608-2025-5.1。"
+            - LineBreak [ref=e3727] [box=306,435,0,17]
+            - LineBreak [ref=e3728] [box=71,458,0,17]
+            - text: "**第三步：确定高处作业高度（hw）**"
+            - LineBreak [ref=e3730] [box=308,482,0,17]
+            - text: 作业区各作业位置至相应坠落高度基准面（即可能坠落范围内最低处的水平面）的垂直距离中的最大值，即为高处作业高度GB 3608-2025-3.6GB 3608-2025-3.2。
+            - LineBreak [ref=e3732] [box=394,529,0,17]
+            - LineBreak [ref=e3733] [box=71,553,0,17]
+            - text: "**第四步：判断是否存在客观危险因素并分级**"
+            - LineBreak [ref=e3735] [box=358,576,0,17]
+            - text: "- 若不存在4.2条列出的任一种客观危险因素，按A类法分级；若存在一种或一种以上，则按B类法分级GB 3608-2025-4.3。"
+            - LineBreak [ref=e3737] [box=171,623,0,17]
+            - text: "- 分级表如下GB 3608-2025-4.3："
+            - LineBreak [ref=e3739] [box=269,647,0,17]
+            - text: "- **A类法**：2≤hw≤5为Ⅰ级；5<hw≤15为Ⅱ级；15<hw≤30为Ⅲ级；hw>30为Ⅳ级。"
+            - LineBreak [ref=e3741] [box=590,671,0,17]
+            - text: "- **B类法**：2≤hw≤5为Ⅱ级；5<hw≤15为Ⅲ级；15<hw≤30为Ⅳ级；hw>30为Ⅳ级。"
+            - LineBreak [ref=e3743] [box=589,694,0,17]
+            - LineBreak [ref=e3744] [box=71,718,0,17]
+            - text: "**客观危险因素包括**（存在任一即按B类法）GB 3608-2025-4.2："
+            - LineBreak [ref=e3746] [box=465,742,0,17]
+            - text: a) 5级以上风力；
+            - LineBreak [ref=e3748] [box=174,765,0,17]
+            - text: b) Ⅱ级或Ⅱ级以上的高温作业；
+            - LineBreak [ref=e3750] [box=263,789,0,17]
+            - text: c) 作业时间段平均气温等于或低于5℃；
+            - LineBreak [ref=e3752] [box=309,813,0,17]
+            - text: d) 接触冷水温度等于或低于12℃；
+            - LineBreak [ref=e3754] [box=277,836,0,17]
+            - text: e) 作业场地有冰、雪、霜、水、油等易滑物；
+            - LineBreak [ref=e3756] [box=343,860,0,17]
+            - text: f) 照明低于作业场所一般照明照度标准值的10%，或低于15lx；
+            - LineBreak [ref=e3758] [box=443,883,0,17]
+            - text: g) 作业活动范围与危险电压带电体的距离小于表1规定（如≤10kV时小于1.7米等）；
+            - LineBreak [ref=e3760] [box=569,907,0,17]
+            - text: h) 摆动，或立足处不是平面或只有很小的平面（任一边小于500mm的矩形平面、直径小于500mm的圆形平面或类似尺寸）；
+            - LineBreak [ref=e3762] [box=179,954,0,17]
+            - text: i) Ⅲ级或Ⅲ级以上的体力劳动强度；
+            - LineBreak [ref=e3764] [box=285,978,0,17]
+            - text: j) 空气中含氧量低于19.5%或存在有毒气体。
+            - LineBreak [ref=e3766] [box=334,1001,0,17]
+            - LineBreak [ref=e3767] [box=71,1025,0,17]
+            - text: 请补充说明您作业现场是否存在上述客观危险因素。
+        - generic "高度3米" [ref=e4103] [box=674,1093,75,40]
+        - generic [ref=e4106] [box=57,1145,673,1155]:
+          - paragraph [ref=e4107] [box=71,1156,643,1134]:
+            - text: 根据您的问题，高处作业级别的判断需按以下步骤进行：
+            - LineBreak [ref=e3772] [box=409,1158,0,17]
+            - LineBreak [ref=e3773] [box=71,1182,0,17]
+            - text: "**第一步：确定基础高度（hb）**"
+            - LineBreak [ref=e3775] [box=279,1205,0,17]
+            - text: 以作业位置为中心，6米为半径划出的垂直于水平面的柱形空间内的最低处与作业位置间的高度差，即为基础高度GB 3608-2025-3.5。
+            - LineBreak [ref=e3777] [box=219,1253,0,17]
+            - LineBreak [ref=e3778] [box=71,1276,0,17]
+            - text: "**第二步：确定可能坠落范围半径（R）**"
+            - LineBreak [ref=e3780] [box=325,1300,0,17]
+            - text: 根据基础高度查表确定可能坠落范围半径GB 3608-2025-5.1：
+            - LineBreak [ref=e3782] [box=435,1324,0,17]
+            - text: "- 2≤hb≤5时，R=3米；"
+            - LineBreak [ref=e3784] [box=208,1347,0,17]
+            - text: "- 5<hb≤15时，R=4米；"
+            - LineBreak [ref=e3786] [box=215,1371,0,17]
+            - text: "- 15<hb≤30时，R=5米；"
+            - LineBreak [ref=e3788] [box=222,1395,0,17]
+            - text: "- hb>30时，R=6米GB 3608-2025-5.1。"
+            - LineBreak [ref=e3790] [box=306,1418,0,17]
+            - LineBreak [ref=e3791] [box=71,1442,0,17]
+            - text: "**第三步：确定高处作业高度（hw）**"
+            - LineBreak [ref=e3793] [box=308,1465,0,17]
+            - text: 作业区各作业位置至相应坠落高度基准面（即可能坠落范围内最低处的水平面）的垂直距离中的最大值，即为高处作业高度GB 3608-2025-3.6GB 3608-2025-3.2。
+            - LineBreak [ref=e3795] [box=394,1513,0,17]
+            - LineBreak [ref=e3796] [box=71,1536,0,17]
+            - text: "**第四步：判断是否存在客观危险因素并分级**"
+            - LineBreak [ref=e3798] [box=358,1560,0,17]
+            - text: "- 若不存在4.2条列出的任一种客观危险因素，按A类法分级；若存在一种或一种以上，则按B类法分级GB 3608-2025-4.3。"
+            - LineBreak [ref=e3800] [box=171,1607,0,17]
+            - text: "- 分级表如下GB 3608-2025-4.3："
+            - LineBreak [ref=e3802] [box=269,1631,0,17]
+            - text: "- **A类法**：2≤hw≤5为Ⅰ级；5<hw≤15为Ⅱ级；15<hw≤30为Ⅲ级；hw>30为Ⅳ级。"
+            - LineBreak [ref=e3804] [box=590,1654,0,17]
+            - text: "- **B类法**：2≤hw≤5为Ⅱ级；5<hw≤15为Ⅲ级；15<hw≤30为Ⅳ级；hw>30为Ⅳ级。"
+            - LineBreak [ref=e3806] [box=589,1678,0,17]
+            - LineBreak [ref=e3807] [box=71,1702,0,17]
+            - text: "**客观危险因素包括**（存在任一即按B类法）GB 3608-2025-4.2："
+            - LineBreak [ref=e3809] [box=465,1725,0,17]
+            - text: a) 5级以上风力；
+            - LineBreak [ref=e3811] [box=174,1749,0,17]
+            - text: b) Ⅱ级或Ⅱ级以上的高温作业；
+            - LineBreak [ref=e3813] [box=263,1773,0,17]
+            - text: c) 作业时间段平均气温等于或低于5℃；
+            - LineBreak [ref=e3815] [box=309,1796,0,17]
+            - text: d) 接触冷水温度等于或低于12℃；
+            - LineBreak [ref=e3817] [box=277,1820,0,17]
+            - text: e) 作业场地有冰、雪、霜、水、油等易滑物；
+            - LineBreak [ref=e3819] [box=343,1843,0,17]
+            - text: f) 照明低于作业场所一般照明照度标准值的10%，或低于15lx；
+            - LineBreak [ref=e3821] [box=443,1867,0,17]
+            - text: g) 作业活动范围与危险电压带电体的距离小于表1规定（如≤10kV时小于1.7米等）；
+            - LineBreak [ref=e3823] [box=569,1891,0,17]
+            - text: h) 摆动，或立足处不是平面或只有很小的平面（任一边小于500mm的矩形平面、直径小于500mm的圆形平面或类似尺寸）；
+            - LineBreak [ref=e3825] [box=179,1938,0,17]
+            - text: i) Ⅲ级或Ⅲ级以上的体力劳动强度；
+            - LineBreak [ref=e3827] [box=285,1961,0,17]
+            - text: j) 空气中含氧量低于19.5%或存在有毒气体。
+            - LineBreak [ref=e3829] [box=334,1985,0,17]
+            - LineBreak [ref=e3830] [box=71,2009,0,17]
+            - text: 请补充说明您作业现场是否存在上述客观危险因素。依据不足。您提供的“建筑高度=3米”不能直接用于判断高处作业级别，因为判断级别需要的是“基础高度（hb）”和“高处作业高度（hw）”，而非建筑高度。基础高度是以作业位置为中心、6米为半径的柱形空间内最低处与作业位置间的高度差GB 3608-2025-3.5，高处作业高度是作业区各作业位置至相应坠落高度基准面的垂直距离中的最大值GB 3608-2025-3.6。您未提供作业位置的具体高度、坠落高度基准面位置及周围地形分布，因此无法确定基础高度和高处作业高度，进而无法分级。
+      - textbox "如：动火作业监护要求" [ref=e4036] [cursor=pointer] [box=14,1000,322,37]
+      - LabelText "检索时包含已废止版本" [ref=e4167] [box=346,1010,87,18]: 含已废止
+      - combobox "R9 追问档位" [ref=e4037] [cursor=pointer] [box=443,1002,137,32]:
+        - /has_popup: menu
+      - LabelText "回答覆盖范围（R59）：勾选后回答更全面（检索更多证据、回答更长）；不勾选为精简模式" [ref=e4188] [box=590,1010,63,18]: 全面
+      - button "提问 ⏎" [ref=e4191] [cursor=pointer] [box=663,999,90,40]
+    - generic "拖动调整左右宽度" [ref=e4192] [box=768,54,7,997]
+    - generic "📚 文件目录 按标准号或名称过滤文件目录，即时生效 按标准号或名称过滤文件目录，即时生效 🔍 搜索国标名称/编号 ☑ 编辑 进入编辑模式：条目前出现勾选框，点击条目即选中/取消 ☑ 编辑 ▾ 法律法规 ▸ 法律（狭义） ▸ 行政法规 ▸ 部门规章 ▾ 国家标准·行业标准·团体标准 ▸ C 医药、卫生、劳动保护 ▸ K 电工 拖动调整宽度 📚 文件目录 📚 文件目录 📖 目录 📖 目录 📜 法律法规文本直灌入库 正在从 /documents/<doc>/clauses 拉取全文。若一直停留在此，请重启引擎以加载最新后端代码（全文预览接口）。" [ref=e4193] [box=775,54,1145,997]:
+      - generic "📚 文件目录" [ref=e4196] [box=775,54,175,40]
+      - generic "按标准号或名称过滤文件目录，即时生效 按标准号或名称过滤文件目录，即时生效 🔍 搜索国标名称/编号" [ref=e4197] [cursor=pointer] [box=775,100,175,25]:
+        - textbox "按标准号或名称过滤文件目录，即时生效" [ref=e4038] [box=775,101,175,25]:
+          - /placeholder: 🔍 搜索国标名称/编号
+      - button "☑ 编辑" [ref=e4201] [cursor=pointer] [box=775,134,52,22]:
+        - /description: 进入编辑模式：条目前出现勾选框，点击条目即选中/取消
+      - generic "▾ 法律法规" [ref=e4204] [box=779,168,167,20]
+      - generic "▸ 法律（狭义）" [ref=e4209] [box=793,189,153,20]
+      - generic "▸ 行政法规" [ref=e4213] [box=793,209,153,20]
+      - generic "▸ 部门规章" [ref=e4217] [box=793,229,153,20]
+      - generic "▾ 国家标准·行业标准·团体标准" [ref=e4221] [box=779,253,167,20]
+      - generic "▸ C 医药、卫生、劳动保护" [ref=e4226] [box=793,274,153,20]
+      - generic "▸ K 电工" [ref=e4230] [box=793,294,153,20]
+      - generic "拖动调整宽度" [ref=e4233] [box=951,54,5,997]
+      - generic "📚 文件目录 📚 文件目录 📖 目录 📖 目录 📜 法律法规文本直灌入库 正在从 /documents/<doc>/clauses 拉取全文。若一直停留在此，请重启引擎以加载最新后端代码（全文预览接口）。" [ref=e4234] [box=956,54,964,997]:
+        - button "📚 文件目录" [ref=e4236] [cursor=pointer] [box=968,60,93,25]
+        - button "📖 目录" [disabled] [ref=e4237] [cursor=pointer] [box=1069,60,69,25]
+        - generic "法律法规文本直灌入库" [ref=e4241] [box=1363,568,150,20]
+        - generic "正在从 /documents/<doc>/clauses 拉取全文。若一直停留在此，请重启引擎以加载最新后端代码（全文预览接口）。" [ref=e4242] [box=1224,600,428,42]
+  - contentinfo "⚙️ 本地知识库 · 云增强模式（LLM 仅接收问题与证据片段） 外发内容全程留痕 · 运维面板可回溯" [ref=e4243] [box=0,1051,1920,28]

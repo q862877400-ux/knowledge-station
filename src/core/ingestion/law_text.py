@@ -1,0 +1,184 @@
+"""法条文本直灌通道（阶段3 新增，依据业主输入：法律法规以网页纯文本发布，基本无扫描版）。
+
+跳过 PDF/MinerU 全链路，直接从法规原文文本切分入库：
+适合从政府网站复制的法律正文、法规 Markdown 等。
+
+用法:
+    python -m src.core.ingestion.law_text <text_file> --standard-no "民法典(节选)" \
+        --name "中华人民共和国民法典(节选)" [--hierarchy 法律]
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+import re
+import sys
+from pathlib import Path
+
+from ulid import ULID
+
+from src.core.config import get_settings
+from src.core.domain.models import ClauseRevisionModel
+from src.core.knowledge.classifier import classify_clause
+from src.core.storage import clause_repo
+from src.core.storage.sqlite_db import get_db_connection, init_schema, write_transaction
+
+_LAW_SPLIT = re.compile(r"(?=第[一二三四五六七八九十百千零]+条)")
+_LAW_NO = re.compile(r"^(第[一二三四五六七八九十百千零]+条)")
+_CHAPTER_HEAD = re.compile(r"^第[一二三四五六七八九十百千]+[章节编]\s*.*$")
+
+
+_GB_SPLIT = re.compile(r"(?=^\s*[A-Za-z]?\d+[．.]\d+(?:[．.]\d+)?(?![\d.])(?:\s+[^0-9]|[一-鿿(（A-Za-z]))", re.M)
+_GB_HEAD = re.compile(r"^\s*([A-Za-z]?\d+[．.]\d+(?:[．.]\d+)?)\s*(.*)$", re.S)
+
+
+def split_gb_text(text: str) -> list[tuple[str, str]]:
+    """按 GB 风格条款号（3.1 / 4.2 / A.1）切分标准文本。条款号可单独成行或同行带正文。"""
+    text = re.sub(r"[ 	　]+", " ", text)
+    text = re.sub(r"[．]", ".", text)  # 全角点→半角
+    parts = [p.strip() for p in _GB_SPLIT.split(text) if p.strip()]
+    out: list[tuple[str, str]] = []
+    chapter_ctx = ""
+    for p in parts:
+        m = _GB_HEAD.match(p)
+        if not m:
+            # 仅并入短章标题（如“3 术语和定义”）；长前言不并入
+            piece = p.strip()
+            if len(piece) <= 24 and "\n" not in piece:
+                chapter_ctx = piece
+            else:
+                chapter_ctx = ""
+            continue
+        body = (m.group(2) or "").strip()
+        out.append((m.group(1), (chapter_ctx + chr(10) + body).strip() if chapter_ctx else body))
+    return out
+
+
+def split_law_text(text: str) -> list[tuple[str, str]]:
+    """按'第X条'切分法规文本。返回 [(条号, 正文)]；章/节标题并入其后条文上下文。
+
+    支持网文常见格式：'第一条 xxx'、'**第一条** xxx'、'1. 第一条'。
+    """
+    # 归一 markdown 粗体与序号前缀
+    text = re.sub(r"\r\n", "\n", text)
+    text = re.sub(r"^[ \t]*\d+[\.、]\s*(?=第[一二三四五六七八九十百千零]+条)", "", text,
+                  flags=re.M)
+    text = re.sub(r"\*{0,2}(第[一二三四五六七八九十百千零]+条)\*{0,2}", r"\1", text)
+    text = re.sub(r"[ \t]+", " ", text)
+
+    parts = [p.strip() for p in _LAW_SPLIT.split(text) if p.strip()]
+    out: list[tuple[str, str]] = []
+    chapter_ctx = ""
+    for p in parts:
+        m = _LAW_NO.match(p)
+        if not m:
+            chapter_ctx = (chapter_ctx + " " + p)[:60]
+            continue
+        body = _LAW_NO.sub("", p, count=1).strip()
+        out.append((m.group(1), (chapter_ctx + "\n" + body).strip() if chapter_ctx else body))
+    return out
+
+
+def ingest_law_text(text: str, standard_no: str, standard_name: str,
+                    legal_hierarchy: str = "法律",
+                    domain_tags: list[str] | None = None,
+                    effective_from: str | None = None) -> dict:
+    """法规纯文本 → 切分 → 分型 → 单事务原子入库（无源 PDF，file_path 记录来源标记）。"""
+    settings = get_settings()
+    init_schema()
+    conn = get_db_connection()
+    file_hash = hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+    if conn.execute("SELECT doc_id FROM doc_meta WHERE file_hash=?", (file_hash,)).fetchone():
+        return {"status": "duplicate"}
+    same_no = conn.execute(
+        "SELECT doc_id, file_hash FROM doc_meta WHERE standard_no=?", (standard_no,)).fetchone()
+    if same_no and same_no["file_hash"] != file_hash:
+        return {"status": "standard_exists", "existing_doc_id": same_no["doc_id"]}
+
+    doc_id = f"doc_{ULID()}"
+    articles = split_law_text(text)
+    if not articles:
+        articles = split_gb_text(text)
+    if not articles:
+        return {"status": "error", "message": "未识别到任何'第X条'条文"}
+
+    models: list[ClauseRevisionModel] = []
+    number_to_id: dict[str, str] = {}
+    for no, body in articles:
+        if len(body.strip()) < 4:
+            continue
+        tc = classify_clause(f"{no} {body}", doc_type="法律法规")
+        cid = f"clrev_{ULID()}"
+        number_to_id[no] = cid
+        models.append(ClauseRevisionModel(
+            clause_revision_id=cid, doc_id=doc_id,
+            clause_key=clause_repo.make_clause_key(doc_id, no),
+            standard_no=standard_no, clause_number=no,
+            content_text=f"{no} {body}"[:4000], hierarchy_path=None,
+            knowledge_type=tc.knowledge_type, type_confidence=tc.type_confidence,
+            modality=tc.modality, modality_strength=tc.modality_strength,
+            modality_confidence=tc.modality_confidence,
+            subject=tc.subject, exception=tc.exception,
+            legal_refs=tc.external_refs, cross_refs=tc.cross_refs,
+            is_mandatory=tc.is_mandatory, is_suspicious=tc.is_suspicious,
+            page_start=1, page_end=1))
+
+    raw_edges: list[tuple[str, str, str]] = []
+    for m in models:
+        for ref in m.cross_refs:
+            raw_edges.append(("reference_relation", m.clause_number, ref))
+    edges = [(t, number_to_id[m.clause_number], number_to_id[ref])
+             for t, src, ref in raw_edges
+             if src in number_to_id and ref in number_to_id]
+
+    with write_transaction() as txn:
+        clause_repo.insert_document(txn, {
+            "doc_id": doc_id, "standard_no": standard_no, "standard_name": standard_name,
+            "short_code": standard_no.replace("(", "").replace(")", "")[:24],
+            "current_revision_id": f"rev_{ULID()}", "doc_type": "法律法规",
+            "legal_hierarchy": legal_hierarchy, "domain_tags": domain_tags or ["法律"],
+            "effective_from": effective_from,
+            "file_path": "law-text://inline", "file_hash": file_hash})
+        clause_repo.insert_clauses_in_txn(txn, models)
+        clause_repo.insert_edges_in_txn(
+            txn, [(t, s, d, 0.9, "active") for t, s, d in edges])
+
+    # R8 运维日志：文本直灌入库成功也写 operation_log
+    with write_transaction() as txn:
+        txn.execute(
+            "INSERT INTO operation_log (operation, target_type, target_id, detail)"
+            " VALUES (?,?,?,?)",
+            ("ingest_law_text", "doc", doc_id,
+             json.dumps({"standard_no": standard_no, "clauses": len(models)},
+                        ensure_ascii=False)))
+
+    return {"status": "ok", "doc_id": doc_id, "total_clauses": len(models),
+            "evidence_edges": len(edges)}
+
+
+def main(argv: list[str] | None = None) -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("text_file", type=Path, help="法规纯文本/Markdown 文件")
+    ap.add_argument("--standard-no", required=True)
+    ap.add_argument("--name", default="")
+    ap.add_argument("--hierarchy", default="法律")
+    ap.add_argument("--domain-tags", default="法律")
+    args = ap.parse_args(argv)
+    if not args.text_file.exists():
+        print(json.dumps({"status": "error", "message": f"文件不存在: {args.text_file}"},
+                         ensure_ascii=False))
+        return 1
+    out = ingest_law_text(args.text_file.read_text(encoding="utf-8"),
+                          args.standard_no, args.name or args.standard_no,
+                          args.hierarchy,
+                          [t for t in args.domain_tags.split(",") if t])
+    print(json.dumps(out, ensure_ascii=False, indent=1), flush=True)
+    sys.stdout.flush()
+    os._exit(0 if out.get("status") in ("ok", "duplicate", "standard_exists") else 1)
+
+
+if __name__ == "__main__":
+    sys.exit(main())

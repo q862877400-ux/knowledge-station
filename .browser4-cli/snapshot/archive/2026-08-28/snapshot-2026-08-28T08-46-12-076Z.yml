@@ -1,0 +1,78 @@
+# Snapshot viewport(s): 0
+# This file contains the accessibility tree for the requested viewport(s) only.
+# Use `browser4-cli snapshot grep <pattern>` to search the full in-memory tree.
+# Use `browser4-cli snapshot -v all` to capture all viewports.
+
+# Viewport State
+# - processingViewport: 0
+# - viewportHeight: 1080px
+# - viewportsTotal: 1
+# - hiddenTopHeight: 0px
+# - hiddenBottomHeight: 0px
+#
+- generic [ref=e3097] [box=0,0,1920,1080]:
+  - banner [ref=e3077] [box=0,0,1920,54]:
+    - generic "国标与法律法规 AI 知识工作站" [ref=e3101] [box=60,11,186,16]
+    - generic "KnowledgeStation · 可溯源合规问答" [ref=e3102] [box=60,28,186,13]
+    - navigation [ref=e3103] [box=266,9,195,34]:
+      - button "问答" [ref=e3104] [cursor=pointer] [box=270,13,61,26]
+      - button "审查" [ref=e3105] [cursor=pointer] [box=333,13,61,26]
+      - button "更新" [ref=e3106] [cursor=pointer] [box=396,13,61,26]
+    - button "⚙️ 设置" [ref=e3108] [cursor=pointer] [box=1367,12,69,28]
+    - button "📤 外发审计" [ref=e3109] [cursor=pointer] [box=1445,12,93,28]
+    - button "🔀 对比" [ref=e3110] [cursor=pointer] [box=1547,12,69,28]
+    - button "📜 更新日志" [ref=e3111] [cursor=pointer] [box=1625,12,93,28]
+    - button "🩺 运维" [ref=e3112] [cursor=pointer] [box=1726,12,69,28]
+    - generic "本地引擎已连接" [ref=e3113] [box=1808,14,93,25]: 引擎 :8018
+  - generic [ref=e3115] [box=0,54,1920,998]:
+    - generic [ref=e3116] [box=0,54,768,998]:
+      - button "合同审查" [ref=e3540] [cursor=pointer] [box=16,70,84,30]
+      - button "义务清单" [ref=e3541] [cursor=pointer] [box=108,70,84,30]
+      - button "🔍 数据体检" [ref=e3119] [cursor=pointer] [box=647,70,104,30]
+      - textbox [ref=e3542] [cursor=pointer] [box=16,110,736,220]:
+        - /placeholder: 粘贴合同全文，点击开始审查
+      - button "开始合规审查" [ref=e3538] [cursor=pointer] [box=16,340,111,34]
+      - button "📄 导出报告Word" [disabled] [ref=e3539] [cursor=pointer] [box=135,340,138,34]
+    - generic "拖动调整左右宽度" [ref=e3183] [box=768,54,7,998]
+    - generic [ref=e3184] [box=775,54,1145,998]:
+      - generic "📚 文件目录" [ref=e3187] [box=775,54,231,40]
+      - generic [ref=e3188] [cursor=pointer] [box=775,100,231,26]:
+        - textbox "按标准号或名称过滤文件目录，即时生效" [ref=e3073] [box=775,100,231,26]:
+          - /placeholder: 🔍 搜索国标名称/编号
+      - generic [ref=e3221] [box=781,138,219,22]
+      - generic [ref=e3211] [box=799,161,201,22]
+      - generic [ref=e3214] [box=799,183,201,22]
+      - generic [ref=e3217] [box=799,205,201,22]
+      - generic [ref=e3325] [box=781,231,219,22]
+      - generic [ref=e3227] [box=799,254,201,22]
+      - generic [ref=e3230] [box=799,276,201,22]
+      - generic [ref=e3233] [box=799,298,201,22]
+      - generic [ref=e3236] [box=799,320,201,22]
+      - generic [ref=e3239] [box=799,342,201,22]
+      - generic [ref=e3242] [box=799,364,201,22]
+      - generic [ref=e3245] [box=799,387,201,22]
+      - generic [ref=e3248] [box=799,409,201,22]
+      - generic [ref=e3251] [box=799,431,201,22]
+      - generic [ref=e3254] [box=799,453,201,22]
+      - generic [ref=e3257] [box=799,475,201,22]
+      - generic [ref=e3260] [box=799,497,201,22]
+      - generic [ref=e3263] [box=799,519,201,22]
+      - generic [ref=e3266] [box=799,541,201,22]
+      - generic [ref=e3269] [box=799,563,201,22]
+      - generic [ref=e3272] [box=799,585,201,22]
+      - generic [ref=e3275] [box=799,608,201,22]
+      - generic [ref=e3278] [box=799,630,201,22]
+      - generic [ref=e3281] [box=799,652,201,22]
+      - generic [ref=e3284] [box=799,674,201,22]
+      - generic [ref=e3287] [box=799,696,201,22]
+      - generic [ref=e3290] [box=799,718,201,22]
+      - generic [ref=e3293] [box=799,740,201,22]
+      - generic [ref=e3296] [box=799,762,201,22]
+      - generic [ref=e3299] [box=799,784,201,22]
+      - generic "拖动调整宽度" [ref=e3193] [box=1007,54,5,998]
+      - generic [ref=e3194] [box=1012,54,908,998]:
+        - button "📚 文件目录" [ref=e3196] [cursor=pointer] [box=1024,60,93,26]
+        - button "📖 目录" [disabled] [ref=e3197] [cursor=pointer] [box=1125,60,69,26]
+        - generic "法律法规文本直灌入库" [ref=e3200] [box=1391,569,150,20]
+        - generic "正在从 /documents/<doc>/clauses 拉取全文。若一直停留在此，请重启引擎以加载最新后端代码（全文预览接口）。" [ref=e3201] [box=1252,601,428,42]
+  - contentinfo [ref=e3202] [box=0,1052,1920,28]

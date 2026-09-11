@@ -1,0 +1,39 @@
+# ks-dsh-plugin bundle patch
+#
+# This file is the `dsh.bundle.patch` layer declared by the package's
+# `dsh.bundle.patch` field. When the plugin is installed through the official
+# CLI —
+#
+#   dsh plugin --profile web add <absolute path to this plugin dir>
+#
+# — the command reconciles `dsh.profile.bundles` against installed packages
+# and, seeing this declaration, appends `ks-dsh-plugin` to the bundle stack.
+# The profile boot then merges THIS patch (a single `insert` of the plugin
+# row) exactly like a manual cordis.patch.yml mount line. No profile file
+# edits are needed: one command installs and mounts.
+#
+# The plugin row:
+#   id   : unique id of the plugin entry in the cordis load list.
+#   name : the npm package (module) name, i.e. what cordis loads for `apply`.
+#          It MUST equal package.json `name` so the loader resolves the entry.
+#
+# Optional `config` fields (all optional — the host applies identical
+# defaults itself). To override, extend the insert, e.g.:
+#   - insert:
+#       - id: ks-engine
+#         name: 'ks-dsh-plugin'
+#         config:
+#           engineRoot: 'D:\\AI\\work space\\zcode'
+#           python: 'D:\\AI\\work space\\zcode\\.venv\\Scripts\\python.exe'
+#           startupTimeoutMs: 60000
+#           idleTimeoutMs: 900000
+#           trustedHosts: ['192.168.1.5']   # 仅局域网访问时需要声明（默认只信回环）
+#
+# trustedHosts：/ks/* 路由的同源信任栅栏只接受本机回环 authority（127.0.0.1 /
+# localhost / ::1），用于挡 DNS rebinding 与跨站写入。若通过局域网 IP 访问 DSH
+# （--host 0.0.0.0 + --trusted-host），必须在此声明该 IP，否则「API配置」等栏目
+# 会返回 403 并提示声明地址。见 plugin/src/trust.js。
+#
+- insert:
+    - id: ks-engine
+      name: 'ks-dsh-plugin'

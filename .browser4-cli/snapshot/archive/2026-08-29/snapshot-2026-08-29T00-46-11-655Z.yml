@@ -1,0 +1,143 @@
+# Snapshot viewport(s): 0
+# This file contains the accessibility tree for the requested viewport(s) only.
+# Use `browser4-cli snapshot grep <pattern>` to search the full in-memory tree.
+# Use `browser4-cli snapshot -v all` to capture all viewports.
+
+# Viewport State
+# - processingViewport: 0
+# - viewportHeight: 1080px
+# - viewportsTotal: 1
+# - hiddenTopHeight: 0px
+# - hiddenBottomHeight: 0px
+#
+- generic [ref=e35] [box=0,0,1920,1080]:
+  - banner [ref=e13] [box=0,0,1920,54]:
+    - generic "国标与法律法规 AI 知识工作站" [ref=e39] [box=60,11,186,16]
+    - generic "KnowledgeStation · 可溯源合规问答" [ref=e40] [box=60,28,186,13]
+    - navigation [ref=e41] [box=266,9,195,34]:
+      - button "问答" [ref=e42] [cursor=pointer] [box=270,13,61,26]
+      - button "审查" [ref=e43] [cursor=pointer] [box=333,13,61,26]
+      - button "更新" [ref=e44] [cursor=pointer] [box=396,13,61,26]
+    - button "⚙️ 设置" [ref=e46] [cursor=pointer] [box=1367,12,69,28]
+    - button "📤 外发审计" [ref=e47] [cursor=pointer] [box=1445,12,93,28]
+    - button "🔀 对比" [ref=e48] [cursor=pointer] [box=1547,12,69,28]
+    - button "📜 更新日志" [ref=e49] [cursor=pointer] [box=1625,12,93,28]
+    - button "🩺 运维" [ref=e50] [cursor=pointer] [box=1726,12,69,28]
+    - generic "本地引擎已连接" [ref=e51] [box=1808,14,93,25]: 引擎 :8739
+  - generic [ref=e53] [box=0,54,1920,998]:
+    - generic [ref=e54] [box=0,54,768,998]:
+      - generic [ref=e55] [box=0,54,768,933]:
+        - generic [ref=e242] [box=57,-212,673,352]:
+          - paragraph "不存在4.2列出的任一种客观危险因素的高处作业按A类法分级；存在4.2列出的一种或一种以上客观危险因素的高处作业按B类法分级 **第三步：查表确定级别** 根据表2，对于“2≤hw≤5”区段：A类法对应Ⅰ级，B类法对应Ⅱ级 请补充说明是否存在客观危险因素。" [ref=e243] [box=72,-201,643,330]:
+            - text: 不存在4.2列出的任一种客观危险因素的高处作业按A类法分级；存在4.2列出的一种或一种以上客观危险因素的高处作业按B类法分级
+            - generic "GB 3608-2025-4.3" [ref=e854] [box=214,-8,100,17]
+            - LineBreak [ref=e855] [box=328,-10,0,18]
+            - LineBreak [ref=e856] [box=72,13,0,18]
+            - text: "**第三步：查表确定级别**"
+            - LineBreak [ref=e857] [box=236,37,0,18]
+            - text: 根据表2，对于“2≤hw≤5”区段：A类法对应Ⅰ级，B类法对应Ⅱ级
+            - generic "GB 3608-2025-表2" [ref=e858] [box=453,62,102,17]
+            - LineBreak [ref=e859] [box=569,60,0,18]
+            - LineBreak [ref=e860] [box=72,84,0,18]
+            - text: 请补充说明是否存在客观危险因素。
+        - generic "高处作业分级" [ref=e25] [box=641,152,109,40]
+        - generic [ref=e259] [box=57,205,673,352]:
+          - paragraph "根据您提供的高度3米，结合证据条款，判断如下： **第一步：确定高处作业高度区段** 高处作业高度分为2m~5m、大于5m~15m、大于15m~30m及大于30m四个区段 。您的高度3米属于“2≤hw≤5”区段。 **第二步：确定分级方法** 不存在4.2列出的任一种客观危险因素的高处作业按A类法分级；存在4.2列出的一种或一种以上客观危险因素的高处作业按B类法分级 **第三步：查表确定级别** 根据表2，对于“2≤hw≤5”区段：A类法对应Ⅰ级，B类法对应Ⅱ级 请补充说明是否存在客观危险因素。" [ref=e260] [box=72,216,643,330]:
+            - text: 根据您提供的高度3米，结合证据条款，判断如下：
+            - LineBreak [ref=e861] [box=376,218,0,18]
+            - LineBreak [ref=e862] [box=72,241,0,18]
+            - text: "**第一步：确定高处作业高度区段**"
+            - LineBreak [ref=e863] [box=290,265,0,18]
+            - text: 高处作业高度分为2m~5m、大于5m~15m、大于15m~30m及大于30m四个区段
+            - generic "GB 3608-2025-4.1" [ref=e864] [box=544,290,98,17]
+            - text: 。您的高度3米属于“2≤hw≤5”区段。
+            - LineBreak [ref=e865] [box=220,312,0,18]
+            - LineBreak [ref=e866] [box=72,336,0,18]
+            - text: "**第二步：确定分级方法**"
+            - LineBreak [ref=e867] [box=236,359,0,18]
+            - text: 不存在4.2列出的任一种客观危险因素的高处作业按A类法分级；存在4.2列出的一种或一种以上客观危险因素的高处作业按B类法分级
+            - generic "GB 3608-2025-4.3" [ref=e868] [box=214,409,100,17]
+            - LineBreak [ref=e869] [box=328,407,0,18]
+            - LineBreak [ref=e870] [box=72,430,0,18]
+            - text: "**第三步：查表确定级别**"
+            - LineBreak [ref=e871] [box=236,454,0,18]
+            - text: 根据表2，对于“2≤hw≤5”区段：A类法对应Ⅰ级，B类法对应Ⅱ级
+            - generic "GB 3608-2025-表2" [ref=e872] [box=453,479,102,17]
+            - LineBreak [ref=e873] [box=569,477,0,18]
+            - LineBreak [ref=e874] [box=72,501,0,18]
+            - text: 请补充说明是否存在客观危险因素。
+        - generic "高处作业分级" [ref=e26] [box=641,569,109,40]
+        - generic [ref=e276] [box=57,622,673,352]:
+          - paragraph "根据您提供的高度3米，结合证据条款，判断如下： **第一步：确定高处作业高度区段** 高处作业高度分为2m~5m、大于5m~15m、大于15m~30m及大于30m四个区段 。您的高度3米属于“2≤hw≤5”区段。 **第二步：确定分级方法** 不存在4.2列出的任一种客观危险因素的高处作业按A类法分级；存在4.2列出的一种或一种以上客观危险因素的高处作业按B类法分级 **第三步：查表确定级别** 根据表2，对于“2≤hw≤5”区段：A类法对应Ⅰ级，B类法对应Ⅱ级 请补充说明是否存在客观危险因素。" [ref=e277] [box=72,633,643,330]:
+            - text: 根据您提供的高度3米，结合证据条款，判断如下：
+            - LineBreak [ref=e875] [box=376,635,0,18]
+            - LineBreak [ref=e876] [box=72,658,0,18]
+            - text: "**第一步：确定高处作业高度区段**"
+            - LineBreak [ref=e877] [box=290,682,0,18]
+            - text: 高处作业高度分为2m~5m、大于5m~15m、大于15m~30m及大于30m四个区段
+            - generic "GB 3608-2025-4.1" [ref=e878] [box=544,707,98,17]
+            - text: 。您的高度3米属于“2≤hw≤5”区段。
+            - LineBreak [ref=e879] [box=220,729,0,18]
+            - LineBreak [ref=e880] [box=72,753,0,18]
+            - text: "**第二步：确定分级方法**"
+            - LineBreak [ref=e881] [box=236,776,0,18]
+            - text: 不存在4.2列出的任一种客观危险因素的高处作业按A类法分级；存在4.2列出的一种或一种以上客观危险因素的高处作业按B类法分级
+            - generic "GB 3608-2025-4.3" [ref=e882] [box=214,826,100,17]
+            - LineBreak [ref=e883] [box=328,824,0,18]
+            - LineBreak [ref=e884] [box=72,847,0,18]
+            - text: "**第三步：查表确定级别**"
+            - LineBreak [ref=e885] [box=236,871,0,18]
+            - text: 根据表2，对于“2≤hw≤5”区段：A类法对应Ⅰ级，B类法对应Ⅱ级
+            - generic "GB 3608-2025-表2" [ref=e886] [box=453,896,102,17]
+            - LineBreak [ref=e887] [box=569,894,0,18]
+            - LineBreak [ref=e888] [box=72,918,0,18]
+            - text: 请补充说明是否存在客观危险因素。
+      - textbox [ref=e8] [cursor=pointer] [box=14,1001,321,37]:
+        - /placeholder: 如：动火作业监护要求
+      - LabelText "检索时包含已废止版本" [ref=e292] [box=345,1011,87,18]: 含已废止
+      - combobox "R9 追问档位" [ref=e9] [cursor=pointer] [box=442,1003,138,34]
+      - LabelText "回答覆盖范围（R59）：勾选后回答更全面（检索更多证据、回答更长）；不勾选为精简模式" [ref=e313] [box=590,1011,63,18]: 全面
+      - button "提问 ⏎" [ref=e23] [cursor=pointer] [box=663,1000,90,40]
+    - generic "拖动调整左右宽度" [ref=e316] [box=768,54,7,998]
+    - generic [ref=e317] [box=775,54,1145,998]:
+      - generic "📚 文件目录" [ref=e320] [box=775,54,231,40]
+      - generic [ref=e321] [cursor=pointer] [box=775,100,231,26]:
+        - textbox "按标准号或名称过滤文件目录，即时生效" [ref=e10] [box=775,100,231,26]:
+          - /placeholder: 🔍 搜索国标名称/编号
+      - generic [ref=e565] [box=781,138,219,22]
+      - generic [ref=e555] [box=799,161,201,22]
+      - generic [ref=e558] [box=799,183,201,22]
+      - generic [ref=e561] [box=799,205,201,22]
+      - generic [ref=e669] [box=781,231,219,22]
+      - generic [ref=e571] [box=799,254,201,22]
+      - generic [ref=e574] [box=799,276,201,22]
+      - generic [ref=e577] [box=799,298,201,22]
+      - generic [ref=e580] [box=799,320,201,22]
+      - generic [ref=e583] [box=799,342,201,22]
+      - generic [ref=e586] [box=799,364,201,22]
+      - generic [ref=e589] [box=799,387,201,22]
+      - generic [ref=e592] [box=799,409,201,22]
+      - generic [ref=e595] [box=799,431,201,22]
+      - generic [ref=e598] [box=799,453,201,22]
+      - generic [ref=e601] [box=799,475,201,22]
+      - generic [ref=e604] [box=799,497,201,22]
+      - generic [ref=e607] [box=799,519,201,22]
+      - generic [ref=e610] [box=799,541,201,22]
+      - generic [ref=e613] [box=799,563,201,22]
+      - generic [ref=e616] [box=799,585,201,22]
+      - generic [ref=e619] [box=799,608,201,22]
+      - generic [ref=e622] [box=799,630,201,22]
+      - generic [ref=e625] [box=799,652,201,22]
+      - generic [ref=e628] [box=799,674,201,22]
+      - generic [ref=e631] [box=799,696,201,22]
+      - generic [ref=e634] [box=799,718,201,22]
+      - generic [ref=e637] [box=799,740,201,22]
+      - generic [ref=e640] [box=799,762,201,22]
+      - generic [ref=e643] [box=799,784,201,22]
+      - generic "拖动调整宽度" [ref=e326] [box=1007,54,5,998]
+      - generic [ref=e327] [box=1012,54,908,998]:
+        - button "📚 文件目录" [ref=e329] [cursor=pointer] [box=1024,60,93,26]
+        - button "📖 目录" [disabled] [ref=e330] [cursor=pointer] [box=1125,60,69,26]
+        - generic "法律法规文本直灌入库" [ref=e333] [box=1391,569,150,20]
+        - generic "正在从 /documents/<doc>/clauses 拉取全文。若一直停留在此，请重启引擎以加载最新后端代码（全文预览接口）。" [ref=e334] [box=1252,601,428,42]
+  - contentinfo [ref=e335] [box=0,1052,1920,28]

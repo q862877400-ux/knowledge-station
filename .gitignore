@@ -1,0 +1,20 @@
+.venv/
+node_modules/
+dist/
+dist-electron/
+var/
+__pycache__/
+*.pyc
+.pytest_cache/
+scripts/.build-electron.mjs
+.mimosa/
+.zcode/
+models/
+database/
+exports/
+parse_out/
+*.log
+.DS_Store
+Thumbs.db
+# 本地 wheel 仓（2.4GB torch 轮子，可重建/可重下）
+wheels_local/

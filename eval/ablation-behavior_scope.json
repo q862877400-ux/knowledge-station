@@ -1,0 +1,17 @@
+{
+ "meta": {
+  "golden": "D:\\AI\\work space\\zcode\\eval\\golden\\golden.json",
+  "count": 96,
+  "disable_channel": "behavior_scope"
+ },
+ "exact_hit@1": 0.8889,
+ "recall@5": 0.9778,
+ "recall@10": 0.9889,
+ "citation_precision@5": 0.9778,
+ "modality_intercept_rate": 1.0,
+ "compliance_accuracy": 1.0,
+ "red_precision": 1.0,
+ "n_search": 90,
+ "n_adversarial": 3,
+ "n_compliance": 3
+}

@@ -1,0 +1,15 @@
+# Snapshot — current viewport (use -v N for other viewports, -v all for full page).
+# Use `browser4-cli snapshot grep <pattern>` to search the tree.
+
+# Viewport State
+# - processingViewport: 0
+# - viewportHeight: 1080px
+# - viewportsTotal: 1
+# - hiddenTopHeight: 0px
+# - hiddenBottomHeight: 0px
+#
+- generic "{\"code\":401,\"status\":\"error\",\"error\":\"unauthorized\",\"message\":\"缺少或无效的 token\"}" [ref=e9] [box=0,13,1920,35]
+- generic "-internal-json-formatter-control 美观输出 美观输出 checkbox 美观输出" [ref=e15]:
+  - form "-internal-json-formatter-control 美观输出 美观输出 checkbox 美观输出" [ref=e2]:
+    - LabelText "-internal-json-formatter-control 美观输出 美观输出 checkbox 美观输出" [ref=e11]:
+      - checkbox "美观输出" [ref=e12]

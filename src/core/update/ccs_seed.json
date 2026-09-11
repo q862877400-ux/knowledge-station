@@ -1,0 +1,327 @@
+{
+  "_doc": "中标分类法(CCS)二级种子树 —— 阶段六批次3 找标子模块初始本体。全部节点 source=seed：凭编码知识人工整理的近似版，待 wenjianmulu/中国标准文献分类法.pdf 全量入库后扩充/校正（F-16 权威本体入库）。结构：categories[].children[]，code 为 CCS 一级字母 + 二级两位数字。",
+  "version": 1,
+  "source": "seed",
+  "categories": [
+    {
+      "code": "A",
+      "name": "综合",
+      "source": "seed",
+      "children": [
+        {"code": "A00", "name": "标准化、质量管理", "source": "seed"},
+        {"code": "A01", "name": "技术管理", "source": "seed"},
+        {"code": "A02", "name": "经济管理", "source": "seed"},
+        {"code": "A25", "name": "人类工效学", "source": "seed"},
+        {"code": "A80", "name": "标志、包装、运输、贮存", "source": "seed"},
+        {"code": "A90", "name": "社会公共安全综合", "source": "seed"}
+      ]
+    },
+    {
+      "code": "B",
+      "name": "农业",
+      "source": "seed",
+      "children": [
+        {"code": "B04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "B10", "name": "土壤、肥料", "source": "seed"},
+        {"code": "B20", "name": "粮食作物与产品", "source": "seed"},
+        {"code": "B30", "name": "经济作物与产品", "source": "seed"},
+        {"code": "B40", "name": "畜牧、兽医", "source": "seed"},
+        {"code": "B60", "name": "林业", "source": "seed"}
+      ]
+    },
+    {
+      "code": "C",
+      "name": "医药卫生与安全",
+      "source": "seed",
+      "children": [
+        {"code": "C04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "C30", "name": "医疗器械", "source": "seed"},
+        {"code": "C50", "name": "卫生与防疫", "source": "seed"},
+        {"code": "C60", "name": "劳动安全", "source": "seed"},
+        {"code": "C65", "name": "职业卫生", "source": "seed"},
+        {"code": "C80", "name": "消防", "source": "seed"}
+      ]
+    },
+    {
+      "code": "D",
+      "name": "矿业",
+      "source": "seed",
+      "children": [
+        {"code": "D04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "D20", "name": "煤炭", "source": "seed"},
+        {"code": "D30", "name": "有色金属矿", "source": "seed"},
+        {"code": "D40", "name": "黑色金属矿", "source": "seed"},
+        {"code": "D50", "name": "化工原料矿", "source": "seed"}
+      ]
+    },
+    {
+      "code": "E",
+      "name": "石油",
+      "source": "seed",
+      "children": [
+        {"code": "E04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "E10", "name": "石油勘探与开发", "source": "seed"},
+        {"code": "E30", "name": "油气储运", "source": "seed"},
+        {"code": "E36", "name": "炼油与加工", "source": "seed"},
+        {"code": "E46", "name": "石油燃料", "source": "seed"},
+        {"code": "E49", "name": "润滑油与润滑脂", "source": "seed"}
+      ]
+    },
+    {
+      "code": "F",
+      "name": "能源核技术",
+      "source": "seed",
+      "children": [
+        {"code": "F01", "name": "能源管理与节能", "source": "seed"},
+        {"code": "F04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "F40", "name": "核材料与核燃料", "source": "seed"},
+        {"code": "F50", "name": "辐射防护", "source": "seed"},
+        {"code": "F60", "name": "核反应堆", "source": "seed"},
+        {"code": "F74", "name": "放射性废物治理", "source": "seed"}
+      ]
+    },
+    {
+      "code": "G",
+      "name": "化工",
+      "source": "seed",
+      "children": [
+        {"code": "G04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "G10", "name": "无机化工原料", "source": "seed"},
+        {"code": "G20", "name": "化肥", "source": "seed"},
+        {"code": "G25", "name": "农药", "source": "seed"},
+        {"code": "G30", "name": "有机化工原料", "source": "seed"},
+        {"code": "G41", "name": "轮胎", "source": "seed"},
+        {"code": "G60", "name": "化学试剂", "source": "seed"}
+      ]
+    },
+    {
+      "code": "H",
+      "name": "冶金",
+      "source": "seed",
+      "children": [
+        {"code": "H04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "H10", "name": "金属化学分析方法", "source": "seed"},
+        {"code": "H20", "name": "金属物理性能试验方法", "source": "seed"},
+        {"code": "H31", "name": "生铁", "source": "seed"},
+        {"code": "H40", "name": "铁合金", "source": "seed"},
+        {"code": "H52", "name": "钢板、钢带", "source": "seed"}
+      ]
+    },
+    {
+      "code": "J",
+      "name": "机械",
+      "source": "seed",
+      "children": [
+        {"code": "J04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "J09", "name": "机械安全与卫生", "source": "seed"},
+        {"code": "J16", "name": "阀门", "source": "seed"},
+        {"code": "J20", "name": "液压与气动", "source": "seed"},
+        {"code": "J33", "name": "焊接与切割", "source": "seed"},
+        {"code": "J47", "name": "泵", "source": "seed"},
+        {"code": "J80", "name": "起重机械", "source": "seed"}
+      ]
+    },
+    {
+      "code": "K",
+      "name": "电工",
+      "source": "seed",
+      "children": [
+        {"code": "K04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "K13", "name": "电线电缆", "source": "seed"},
+        {"code": "K21", "name": "旋转电机", "source": "seed"},
+        {"code": "K32", "name": "低压电器", "source": "seed"},
+        {"code": "K41", "name": "变压器", "source": "seed"},
+        {"code": "K43", "name": "高压开关设备", "source": "seed"},
+        {"code": "K82", "name": "蓄电池", "source": "seed"}
+      ]
+    },
+    {
+      "code": "L",
+      "name": "电子",
+      "source": "seed",
+      "children": [
+        {"code": "L06", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "L11", "name": "电容器", "source": "seed"},
+        {"code": "L13", "name": "电阻器", "source": "seed"},
+        {"code": "L50", "name": "半导体分立器件", "source": "seed"},
+        {"code": "L56", "name": "半导体集成电路", "source": "seed"},
+        {"code": "L70", "name": "信息处理技术", "source": "seed"},
+        {"code": "L77", "name": "软件工程", "source": "seed"},
+        {"code": "L80", "name": "信息安全技术", "source": "seed"}
+      ]
+    },
+    {
+      "code": "M",
+      "name": "通信广播",
+      "source": "seed",
+      "children": [
+        {"code": "M04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "M11", "name": "通信网综合", "source": "seed"},
+        {"code": "M21", "name": "光通信设备", "source": "seed"},
+        {"code": "M30", "name": "数字通信", "source": "seed"},
+        {"code": "M33", "name": "移动通信", "source": "seed"},
+        {"code": "M60", "name": "电视与广播", "source": "seed"}
+      ]
+    },
+    {
+      "code": "N",
+      "name": "仪器",
+      "source": "seed",
+      "children": [
+        {"code": "N04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "N10", "name": "温度仪表", "source": "seed"},
+        {"code": "N12", "name": "压力仪表", "source": "seed"},
+        {"code": "N13", "name": "流量仪表", "source": "seed"},
+        {"code": "N16", "name": "实验室仪器", "source": "seed"},
+        {"code": "N50", "name": "工业自动化仪表", "source": "seed"}
+      ]
+    },
+    {
+      "code": "P",
+      "name": "工程建设",
+      "source": "seed",
+      "children": [
+        {"code": "P04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "P30", "name": "建筑设计", "source": "seed"},
+        {"code": "P40", "name": "给水排水工程", "source": "seed"},
+        {"code": "P45", "name": "供热通风与空调", "source": "seed"},
+        {"code": "P55", "name": "抗震与防灾", "source": "seed"},
+        {"code": "P60", "name": "建筑电气与智能化", "source": "seed"}
+      ]
+    },
+    {
+      "code": "Q",
+      "name": "建材",
+      "source": "seed",
+      "children": [
+        {"code": "Q04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "Q11", "name": "水泥", "source": "seed"},
+        {"code": "Q13", "name": "混凝土与砂浆", "source": "seed"},
+        {"code": "Q15", "name": "砖瓦与砌块", "source": "seed"},
+        {"code": "Q18", "name": "建筑防水材料", "source": "seed"},
+        {"code": "Q31", "name": "陶瓷制品", "source": "seed"},
+        {"code": "Q34", "name": "建筑玻璃", "source": "seed"}
+      ]
+    },
+    {
+      "code": "R",
+      "name": "公路运输",
+      "source": "seed",
+      "children": [
+        {"code": "R04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "R10", "name": "公路运输综合", "source": "seed"},
+        {"code": "R16", "name": "公路与桥梁养护", "source": "seed"},
+        {"code": "R80", "name": "交通安全与管理", "source": "seed"},
+        {"code": "R85", "name": "客货运输服务", "source": "seed"}
+      ]
+    },
+    {
+      "code": "S",
+      "name": "铁路",
+      "source": "seed",
+      "children": [
+        {"code": "S04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "S10", "name": "铁路线路工程", "source": "seed"},
+        {"code": "S40", "name": "铁路信号", "source": "seed"},
+        {"code": "S50", "name": "铁路通信", "source": "seed"},
+        {"code": "S70", "name": "铁路运输组织", "source": "seed"}
+      ]
+    },
+    {
+      "code": "T",
+      "name": "车辆",
+      "source": "seed",
+      "children": [
+        {"code": "T04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "T09", "name": "车辆运行与安全", "source": "seed"},
+        {"code": "T20", "name": "汽车发动机", "source": "seed"},
+        {"code": "T26", "name": "汽车电气与电子", "source": "seed"},
+        {"code": "T30", "name": "摩托车", "source": "seed"},
+        {"code": "T50", "name": "挂车与半挂车", "source": "seed"}
+      ]
+    },
+    {
+      "code": "U",
+      "name": "船舶",
+      "source": "seed",
+      "children": [
+        {"code": "U04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "U06", "name": "船舶设计与总体", "source": "seed"},
+        {"code": "U10", "name": "船体结构与强度", "source": "seed"},
+        {"code": "U30", "name": "船舶动力装置", "source": "seed"},
+        {"code": "U48", "name": "船舶救生与消防", "source": "seed"},
+        {"code": "U60", "name": "航海仪器与导航", "source": "seed"}
+      ]
+    },
+    {
+      "code": "V",
+      "name": "航空",
+      "source": "seed",
+      "children": [
+        {"code": "V04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "V07", "name": "航空运行与安全", "source": "seed"},
+        {"code": "V10", "name": "飞机设计与总体", "source": "seed"},
+        {"code": "V20", "name": "机体与结构", "source": "seed"},
+        {"code": "V35", "name": "航空发动机", "source": "seed"},
+        {"code": "V50", "name": "机载设备与航电", "source": "seed"}
+      ]
+    },
+    {
+      "code": "W",
+      "name": "纺织",
+      "source": "seed",
+      "children": [
+        {"code": "W04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "W10", "name": "棉纺织", "source": "seed"},
+        {"code": "W20", "name": "毛纺织", "source": "seed"},
+        {"code": "W30", "name": "丝纺织", "source": "seed"},
+        {"code": "W40", "name": "针织品", "source": "seed"},
+        {"code": "W50", "name": "印染整理", "source": "seed"},
+        {"code": "W60", "name": "服装", "source": "seed"}
+      ]
+    },
+    {
+      "code": "X",
+      "name": "食品",
+      "source": "seed",
+      "children": [
+        {"code": "X04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "X10", "name": "肉与肉制品", "source": "seed"},
+        {"code": "X16", "name": "乳与乳制品", "source": "seed"},
+        {"code": "X22", "name": "粮食加工品", "source": "seed"},
+        {"code": "X42", "name": "食品添加剂", "source": "seed"},
+        {"code": "X55", "name": "茶叶", "source": "seed"},
+        {"code": "X60", "name": "饮料与酒", "source": "seed"},
+        {"code": "X80", "name": "罐头食品", "source": "seed"}
+      ]
+    },
+    {
+      "code": "Y",
+      "name": "轻工环境",
+      "source": "seed",
+      "children": [
+        {"code": "Y04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "Y30", "name": "造纸与纸制品", "source": "seed"},
+        {"code": "Y45", "name": "皮革与革制品", "source": "seed"},
+        {"code": "Y50", "name": "文教办公用品", "source": "seed"},
+        {"code": "Y57", "name": "玩具", "source": "seed"},
+        {"code": "Y69", "name": "日用化学品", "source": "seed"},
+        {"code": "Y80", "name": "家具", "source": "seed"}
+      ]
+    },
+    {
+      "code": "Z",
+      "name": "环境保护",
+      "source": "seed",
+      "children": [
+        {"code": "Z04", "name": "基础标准与通用方法", "source": "seed"},
+        {"code": "Z10", "name": "环境质量与区划", "source": "seed"},
+        {"code": "Z23", "name": "大气污染防治", "source": "seed"},
+        {"code": "Z32", "name": "噪声与振动控制", "source": "seed"},
+        {"code": "Z35", "name": "水污染防治", "source": "seed"},
+        {"code": "Z70", "name": "固体废物处置", "source": "seed"},
+        {"code": "Z80", "name": "放射性与电磁环境", "source": "seed"}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+# Snapshot — current viewport (use -v N for other viewports, -v all for full page).
+# Use `browser4-cli snapshot grep <pattern>` to search the tree.
+
+# Viewport State
+# - processingViewport: 0
+# - viewportHeight: 1080px
+# - viewportsTotal: 1
+# - hiddenTopHeight: 0px
+# - hiddenBottomHeight: 0px
+#
+- image "file:///D:/AI/work%20space/zcode/var/tmp/user_redbox.png" [ref=e2] [box=777,386,366,308]

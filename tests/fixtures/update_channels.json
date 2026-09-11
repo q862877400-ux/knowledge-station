@@ -1,0 +1,354 @@
+{
+  "_comment": "渠道适配器 mock 应答矩阵（04a §2 表驱动；一行 case = 一次探测场景，responds 按 seq 依次弹出、耗尽复用末条）。expect 字段为 ChannelResult 的确定性断言子集：evidence_url 支持 \"@any\" 哨兵（仅要求非空）；error_code 表示期望抛 UpdateError 且 code 匹配。全部离线。",
+  "cases": [
+    {
+      "key": "ogb_effective_hit",
+      "channel": "official_gb",
+      "standard_no": "GB 30871-2022",
+      "standard_name": "危险化学品企业特殊作业安全规范",
+      "responds": [
+        {"seq": 1, "respond": {"http": 200, "body": {"rows": [
+          {"code": "GB 30871-2022", "name": "危险化学品企业特殊作业安全规范", "state": "现行",
+           "url": "https://openstd.samr.gov.cn/gb/std?id=gb30871", "date": "2022-03-15"}
+        ]}}}
+      ],
+      "expect": {"found": true, "captcha": false, "change_type": "no_change",
+                 "legal_status": "effective", "latest_version": "GB 30871-2022",
+                 "effective_date": "2022-03-15",
+                 "evidence_url": "https://openstd.samr.gov.cn/gb/std?id=gb30871"}
+    },
+    {
+      "key": "ogb_new_version",
+      "channel": "official_gb",
+      "standard_no": "GB/T 3608-2008",
+      "standard_name": "高处作业分级",
+      "responds": [
+        {"seq": 1, "respond": {"http": 200, "body": {"rows": [
+          {"code": "GB/T 3608-2025", "name": "高处作业分级", "state": "现行",
+           "url": "https://openstd.samr.gov.cn/gb/std?id=gbt3608-2025", "date": "2025-05-01"}
+        ]}}}
+      ],
+      "expect": {"found": true, "captcha": false, "change_type": "new_version",
+                 "legal_status": "effective", "latest_version": "GB/T 3608-2025",
+                 "evidence_url": "@any"}
+    },
+    {
+      "key": "ogb_superseded",
+      "channel": "official_gb",
+      "standard_no": "GB 50016-2014",
+      "standard_name": "建筑设计防火规范",
+      "responds": [
+        {"seq": 1, "respond": {"http": 200, "body": {"rows": [
+          {"code": "GB 50016-2014", "name": "建筑设计防火规范", "state": "被代替",
+           "url": "https://openstd.samr.gov.cn/gb/std?id=gb50016-2014", "date": "2014-08-01"}
+        ]}}}
+      ],
+      "expect": {"found": true, "captcha": false, "change_type": "superseded",
+                 "legal_status": "superseded", "latest_version": "GB 50016-2014"}
+    },
+    {
+      "key": "ogb_withdrawn",
+      "channel": "official_gb",
+      "standard_no": "GB/T 19001-2016",
+      "standard_name": "质量管理体系 要求",
+      "responds": [
+        {"seq": 1, "respond": {"http": 200, "body": {"rows": [
+          {"code": "GB/T 19001-2016", "name": "质量管理体系 要求", "state": "废止"}
+        ]}}}
+      ],
+      "expect": {"found": true, "captcha": false, "change_type": "withdrawn",
+                 "legal_status": "withdrawn", "latest_version": "GB/T 19001-2016"}
+    },
+    {
+      "key": "ogb_upcoming_new_version",
+      "channel": "official_gb",
+      "standard_no": "GB 17945-2010",
+      "standard_name": "消防应急照明和疏散指示系统",
+      "responds": [
+        {"seq": 1, "respond": {"http": 200, "body": {"rows": [
+          {"code": "GB 17945-2024", "name": "消防应急照明和疏散指示系统", "state": "即将实施",
+           "url": "https://openstd.samr.gov.cn/gb/std?id=gb17945-2024", "date": "2024-01-01"}
+        ]}}}
+      ],
+      "expect": {"found": true, "captcha": false, "change_type": "new_version",
+                 "legal_status": "upcoming", "latest_version": "GB 17945-2024",
+                 "effective_date": "2024-01-01"}
+    },
+    {
+      "key": "ogb_captcha_flag",
+      "channel": "official_gb",
+      "standard_no": "GB 30871-2022",
+      "responds": [
+        {"seq": 1, "respond": {"http": 200, "body": {"captcha": true, "msg": "请输入验证码"}}}
+      ],
+      "expect": {"found": false, "captcha": true, "change_type": null, "legal_status": null}
+    },
+    {
+      "key": "ogb_captcha_text_feature",
+      "channel": "official_gb",
+      "standard_no": "GB 30871-2022",
+      "responds": [
+        {"seq": 1, "respond": {"http": 200,
+         "body": "<html><body><div>操作过于频繁，请输入验证码后继续查询</div></body></html>"}}
+      ],
+      "expect": {"found": false, "captcha": true, "change_type": null}
+    },
+    {
+      "key": "ogb_empty_rows",
+      "channel": "official_gb",
+      "standard_no": "GB 99999-2099",
+      "responds": [
+        {"seq": 1, "respond": {"http": 200, "body": {"rows": [], "total": 0}}}
+      ],
+      "expect": {"found": false, "captcha": false, "change_type": null}
+    },
+    {
+      "key": "ogb_http_404",
+      "channel": "official_gb",
+      "standard_no": "GB 99998-2099",
+      "responds": [
+        {"seq": 1, "respond": {"http": 404, "body": {}}}
+      ],
+      "expect": {"found": false, "captcha": false}
+    },
+    {
+      "key": "ogb_http_503_degradable",
+      "channel": "official_gb",
+      "standard_no": "GB 30871-2022",
+      "responds": [
+        {"seq": 1, "respond": {"http": 503, "body": {}}}
+      ],
+      "expect": {"found": false, "captcha": false}
+    },
+    {
+      "key": "ogb_timeout_raise",
+      "channel": "official_gb",
+      "standard_no": "GB 30871-2022",
+      "responds": [
+        {"seq": 1, "respond": {"raise": "Timeout"}}
+      ],
+      "expect": {"error_code": "UPD-1001"}
+    },
+    {
+      "key": "ogb_delay31_over_budget",
+      "channel": "official_gb",
+      "standard_no": "GB 30871-2022",
+      "responds": [
+        {"seq": 1, "respond": {"delay_s": 31}}
+      ],
+      "expect": {"error_code": "UPD-1001"}
+    },
+    {
+      "key": "ogb_illegal_state_warn_not_guess",
+      "channel": "official_gb",
+      "standard_no": "GB 30871-2022",
+      "responds": [
+        {"seq": 1, "respond": {"http": 200, "body": {"rows": [
+          {"code": "GB 30871-2022", "name": "危险化学品企业特殊作业安全规范", "state": "draft"}
+        ]}}}
+      ],
+      "expect": {"found": true, "captcha": false, "change_type": "no_change",
+                 "legal_status": null, "latest_version": "GB 30871-2022"}
+    },
+    {
+      "key": "web_new_version_upcoming",
+      "channel": "web",
+      "standard_no": "GB/T 3608-2008",
+      "standard_name": "高处作业分级",
+      "responds": [
+        {"seq": 1, "respond": {"http": 200, "body": {"results": [
+          {"title": "GB/T 3608-2025 高处作业分级 正式发布",
+           "url": "https://www.example.com/news/gbt3608-2025",
+           "snippet": "新版标准将于 2025-05-01 实施，属即将实施状态"}
+        ]}}}
+      ],
+      "expect": {"found": true, "captcha": false, "change_type": "new_version",
+                 "legal_status": "upcoming", "latest_version": "GB/T 3608-2025",
+                 "effective_date": "2025-05-01", "evidence_url": "@any"}
+    },
+    {
+      "key": "web_withdrawn_same_no",
+      "channel": "web",
+      "standard_no": "GB 50157-2013",
+      "standard_name": "地铁设计规范",
+      "responds": [
+        {"seq": 1, "respond": {"http": 200, "body": {"results": [
+          {"title": "地铁设计规范 GB 50157-2013 废止公告",
+           "url": "https://www.example.com/news/gb50157-repeal",
+           "snippet": "自新版发布之日起原标准废止"}
+        ]}}}
+      ],
+      "expect": {"found": true, "captcha": false, "change_type": "withdrawn",
+                 "legal_status": "withdrawn", "latest_version": "GB 50157-2013"}
+    },
+    {
+      "key": "web_empty_results",
+      "channel": "web",
+      "standard_no": "GB 99997-2099",
+      "responds": [
+        {"seq": 1, "respond": {"http": 200, "body": {"results": []}}}
+      ],
+      "expect": {"found": false, "captcha": false}
+    },
+    {
+      "key": "web_http_404",
+      "channel": "web",
+      "standard_no": "GB 99996-2099",
+      "responds": [
+        {"seq": 1, "respond": {"http": 404, "body": {}}}
+      ],
+      "expect": {"found": false, "captcha": false}
+    },
+    {
+      "key": "govcn_publish_new_version",
+      "channel": "govcn",
+      "standard_no": "GB 50014-2006",
+      "standard_name": "室外排水设计标准",
+      "responds": [
+        {"seq": 1, "respond": {"http": 200, "body": {"announcements": [
+          {"title": "关于发布国家标准《室外排水设计标准》（GB 50014-2025）的公告",
+           "no": "GB 50014-2025", "url": "https://www.gov.cn/zhengce/2025-03/01/gb50014.htm",
+           "date": "2025-03-01", "pdf_url": "https://www.gov.cn/zhengce/2025-03/01/gb50014.pdf"}
+        ]}}}
+      ],
+      "expect": {"found": true, "captcha": false, "change_type": "new_version",
+                 "legal_status": "upcoming", "latest_version": "GB 50014-2025",
+                 "effective_date": "2025-03-01", "evidence_url": "@any"}
+    },
+    {
+      "key": "govcn_repeal_withdrawn",
+      "channel": "govcn",
+      "standard_no": "GB 50325-2010",
+      "standard_name": "民用建筑工程室内环境污染控制标准",
+      "responds": [
+        {"seq": 1, "respond": {"http": 200, "body": {"announcements": [
+          {"title": "关于废止《民用建筑工程室内环境污染控制标准》（GB 50325-2010）的公告",
+           "no": "GB 50325-2010", "url": "https://www.gov.cn/zhengce/gb50325-repeal.htm",
+           "pdf_url": "https://www.gov.cn/zhengce/gb50325-repeal.pdf"}
+        ]}}}
+      ],
+      "expect": {"found": true, "captcha": false, "change_type": "withdrawn",
+                 "legal_status": "withdrawn", "latest_version": "GB 50325-2010"}
+    },
+    {
+      "key": "govcn_name_only_hit",
+      "channel": "govcn",
+      "standard_no": "GB 55037-2022",
+      "standard_name": "建筑防火通用规范",
+      "responds": [
+        {"seq": 1, "respond": {"http": 200, "body": {"announcements": [
+          {"title": "住房和城乡建设部关于发布国家标准《建筑防火通用规范》的公告",
+           "url": "https://www.gov.cn/zhengce/gb55037.htm",
+           "date": "2022-09-01", "pdf_url": "https://www.gov.cn/zhengce/gb55037.pdf"}
+        ]}}}
+      ],
+      "expect": {"found": true, "captcha": false, "change_type": null,
+                 "legal_status": "upcoming", "effective_date": "2022-09-01",
+                 "evidence_url": "@any"}
+    },
+    {
+      "key": "govcn_empty_announcements",
+      "channel": "govcn",
+      "standard_no": "GB 99995-2099",
+      "responds": [
+        {"seq": 1, "respond": {"http": 200, "body": {"announcements": []}}}
+      ],
+      "expect": {"found": false, "captcha": false}
+    },
+    {
+      "key": "laws_db_effective_hit",
+      "channel": "laws_db",
+      "standard_no": "安全生产法",
+      "responds": [{"seq": 1, "respond": {"http": 200, "body": {"total": 2, "rows": [
+        {"bbbs": "ff8081817a66b816017a7956b7db0ad4", "title": "中华人民共和国<em class='highlight'>安全生产</em><em class='highlight'>法</em>", "flxz": "法律", "zdjgName": "全国人民代表大会常务委员会", "gbrq": "2021-06-10", "sxrq": "2021-09-01", "sxx": 3},
+        {"bbbs": "oldbbbs0001", "title": "中华人民共和国安全生产法", "flxz": "法律", "zdjgName": "全国人民代表大会常务委员会", "gbrq": "2014-08-31", "sxrq": "2014-12-01", "sxx": 2}
+      ]}}}],
+      "expect": {"found": true, "captcha": false, "change_type": "no_change", "legal_status": "effective", "effective_date": "2021-09-01", "evidence_url": "@any"}
+    },
+    {
+      "key": "laws_db_superseded_old_version",
+      "channel": "laws_db",
+      "standard_no": "安全生产法",
+      "standard_name": "安全生产法",
+      "responds": [{"seq": 1, "respond": {"http": 200, "body": {"total": 1, "rows": [
+        {"bbbs": "oldbbbs0002", "title": "中华人民共和国安全生产法", "flxz": "法律", "zdjgName": "全国人民代表大会常务委员会", "gbrq": "2014-08-31", "sxrq": "2014-12-01", "sxx": 2}
+      ]}}}],
+      "expect": {"found": true, "captcha": false, "change_type": "superseded", "legal_status": "superseded", "effective_date": "2014-12-01"}
+    },
+    {
+      "key": "laws_db_upcoming_not_effective",
+      "channel": "laws_db",
+      "standard_no": "商标法",
+      "responds": [{"seq": 1, "respond": {"http": 200, "body": {"total": 1, "rows": [
+        {"bbbs": "bbbs2027", "title": "中华人民共和国商标法", "flxz": "法律", "zdjgName": "全国人民代表大会常务委员会", "gbrq": "2026-06-26", "sxrq": "2027-01-01", "sxx": 4}
+      ]}}}],
+      "expect": {"found": true, "captcha": false, "change_type": null, "legal_status": "upcoming", "effective_date": "2027-01-01"}
+    },
+    {
+      "key": "laws_db_no_title_match",
+      "channel": "laws_db",
+      "standard_no": "不存在法规XYZZY",
+      "responds": [{"seq": 1, "respond": {"http": 200, "body": {"total": 0, "rows": []}}}],
+      "expect": {"found": false, "captcha": false, "change_type": null, "legal_status": null}
+    },
+    {
+      "key": "cssn_effective_exact",
+      "channel": "cssn",
+      "standard_no": "GB 30871-2022",
+      "standard_name": "危险化学品企业特殊作业安全规范",
+      "responds": [{"seq": 1, "respond": {"http": 200, "body": {"count": 2, "results": [
+        {"yf001": "x1", "a000": "现行", "a100": "GB 30871-2022", "a298": "危险化学品企业特殊作业安全规范",
+         "a101": "2022-03-15", "a205": "2022-10-01", "a825name": "劳动安全技术综合", "a826name": "职业安全、工业卫生"},
+        {"yf001": "x2", "a000": "被代替", "a100": "GB 30871-2014", "a298": "化学品生产单位特殊作业安全规范",
+         "a101": "2014-07-24", "a205": "2015-06-01"}
+      ]}}}],
+      "expect": {"found": true, "captcha": false, "change_type": "no_change", "legal_status": "effective",
+                 "latest_version": "GB 30871-2022", "effective_date": "2022-10-01", "evidence_url": "@any"}
+    },
+    {
+      "key": "cssn_cross_prefix_same_year_superseded",
+      "channel": "cssn",
+      "standard_no": "GB 14048.1-2012",
+      "standard_name": "低压开关设备和控制设备 第1部分",
+      "responds": [{"seq": 1, "respond": {"http": 200, "body": {"count": 4, "results": [
+        {"yf001": "a1", "a000": "现行", "a100": "GB/T 14048.1-2023", "a298": "低压开关设备和控制设备 第1部分",
+         "a101": "2023-11-27", "a205": "2024-06-01"},
+        {"yf001": "a2", "a000": "被代替", "a100": "GB/T 14048.1-2012", "a298": "低压开关设备和控制设备 第1部分",
+         "a101": "2012-12-31", "a205": "2013-12-01"},
+        {"yf001": "a3", "a000": "被代替", "a100": "GB 14048.1-2006", "a298": "低压开关设备和控制设备 第1部分",
+         "a101": "2006-04-30", "a205": "2007-01-01"}
+      ]}}}],
+      "expect": {"found": true, "captcha": false, "change_type": "superseded", "legal_status": "superseded",
+                 "latest_version": "GB/T 14048.1-2012", "effective_date": "2013-12-01"}
+    },
+    {
+      "key": "cssn_withdrawn_zuofei",
+      "channel": "cssn",
+      "standard_no": "GB/T 12245-2006",
+      "responds": [{"seq": 1, "respond": {"http": 200, "body": {"count": 1, "results": [
+        {"yf001": "b1", "a000": "作废", "a100": "GB/T 12245-2006", "a298": "减压阀 性能试验方法",
+         "a101": "2006-12-25", "a205": "2007-05-01"}
+      ]}}}],
+      "expect": {"found": true, "captcha": false, "change_type": "withdrawn", "legal_status": "withdrawn",
+                 "latest_version": "GB/T 12245-2006", "effective_date": "2007-05-01"}
+    },
+    {
+      "key": "cssn_upcoming_weixiao",
+      "channel": "cssn",
+      "standard_no": "GB 5009.250-2026",
+      "responds": [{"seq": 1, "respond": {"http": 200, "body": {"count": 1, "results": [
+        {"yf001": "c1", "a000": "未生效", "a100": "GB 5009.250-2026", "a298": "食品安全国家标准 某测定",
+         "a101": "2026-01-01", "a205": "2026-12-01"}
+      ]}}}],
+      "expect": {"found": true, "captcha": false, "change_type": "no_change", "legal_status": "upcoming",
+                 "latest_version": "GB 5009.250-2026", "effective_date": "2026-12-01"}
+    },
+    {
+      "key": "cssn_no_match",
+      "channel": "cssn",
+      "standard_no": "GB 99999-9999",
+      "responds": [{"seq": 1, "respond": {"http": 200, "body": {"count": 0, "results": []}}}],
+      "expect": {"found": false, "captcha": false, "change_type": null, "legal_status": null}
+    }
+  ]
+}

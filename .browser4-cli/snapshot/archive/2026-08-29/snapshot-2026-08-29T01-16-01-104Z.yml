@@ -1,0 +1,151 @@
+# Snapshot viewport(s): 0
+# This file contains the accessibility tree for the requested viewport(s) only.
+# Use `browser4-cli snapshot grep <pattern>` to search the full in-memory tree.
+# Use `browser4-cli snapshot -v all` to capture all viewports.
+
+# Viewport State
+# - processingViewport: 0
+# - viewportHeight: 1080px
+# - viewportsTotal: 1
+# - hiddenTopHeight: 0px
+# - hiddenBottomHeight: 0px
+#
+- generic [ref=e26] [box=0,0,1920,1080]:
+  - banner [ref=e9] [box=0,0,1920,54]:
+    - generic "国标与法律法规 AI 知识工作站" [ref=e30] [box=60,11,186,16]
+    - generic "KnowledgeStation · 可溯源合规问答" [ref=e31] [box=60,28,186,13]
+    - navigation [ref=e32] [box=266,9,195,34]:
+      - button "问答" [ref=e33] [cursor=pointer] [box=270,13,61,26]
+      - button "审查" [ref=e34] [cursor=pointer] [box=333,13,61,26]
+      - button "更新" [ref=e35] [cursor=pointer] [box=396,13,61,26]
+    - button "⚙️ 设置" [ref=e37] [cursor=pointer] [box=1367,12,69,28]
+    - button "📤 外发审计" [ref=e38] [cursor=pointer] [box=1445,12,93,28]
+    - button "🔀 对比" [ref=e39] [cursor=pointer] [box=1547,12,69,28]
+    - button "📜 更新日志" [ref=e40] [cursor=pointer] [box=1625,12,93,28]
+    - button "🩺 运维" [ref=e41] [cursor=pointer] [box=1726,12,69,28]
+    - generic "本地引擎已连接" [ref=e42] [box=1808,14,93,25]: 引擎 :1174
+  - generic [ref=e44] [box=0,54,1920,998]:
+    - generic [ref=e45] [box=0,54,768,998]:
+      - button "🗑 清空对话" [ref=e49] [cursor=pointer] [box=108,72,79,25]
+      - generic "我要安装一个气体探头，怎么确定高度" [ref=e11] [box=492,109,257,40]
+      - generic [ref=e54] [box=57,161,673,423]:
+        - paragraph "根据您的问题，气体探头安装高度的确定需依据被测气体的密度与释放源位置，具体如下： - 检测比空气重的可燃气体或有毒气体时，探测器的安装高度宜距地坪(或楼地板)0.3m～0.6m - 检测比空气轻的可燃气体或有毒气体时，探测器的安装高度宜在释放源上方2.0m内 - 检测比空气略重的可燃气体或有毒气体时，探测器的安装高度宜在释放源下方0.5m～1.0m - 检测比空气略轻的可燃气体或有毒气体时，探测器的安装高度宜高出释放源0.5m～1.0m 同时，探测器探头应靠近释放源，且在气体、蒸气易于聚集的地点 请注意，上述条款中的“宜”为推荐性要求，非强制性。若您涉及受限空间内的气体检测，则需按GB 30871-2022执行，但该标准未规定探头安装高度，仅要求检测点应有代表性，容积较大的受限空间应对上、中、下（左、中、右）各部位进行检测分析 b。 请补充说明您要检测的气体名称及其密度（比空气重、轻、略重或略轻），以便确定具体安装高度。" [ref=e55] [box=72,172,643,401]:
+          - text: 根据您的问题，气体探头安装高度的确定需依据被测气体的密度与释放源位置，具体如下：
+          - LineBreak [ref=e308] [box=612,174,0,18]
+          - LineBreak [ref=e309] [box=72,197,0,18]
+          - text: "- 检测比空气重的可燃气体或有毒气体时，探测器的安装高度宜距地坪(或楼地板)0.3m～0.6m"
+          - generic "GB/T 50493-2019-6.1.2" [ref=e310] [box=72,247,124,17]
+          - LineBreak [ref=e311] [box=210,245,0,18]
+          - text: "- 检测比空气轻的可燃气体或有毒气体时，探测器的安装高度宜在释放源上方2.0m内"
+          - generic "GB/T 50493-2019-6.1.2" [ref=e312] [box=572,270,124,17]
+          - LineBreak [ref=e313] [box=711,268,0,18]
+          - text: "- 检测比空气略重的可燃气体或有毒气体时，探测器的安装高度宜在释放源下方0.5m～1.0m"
+          - generic "GB/T 50493-2019-6.1.2" [ref=e314] [box=72,318,124,17]
+          - LineBreak [ref=e315] [box=210,316,0,18]
+          - text: "- 检测比空气略轻的可燃气体或有毒气体时，探测器的安装高度宜高出释放源0.5m～1.0m"
+          - generic "GB/T 50493-2019-6.1.2" [ref=e316] [box=72,365,124,17]
+          - LineBreak [ref=e317] [box=210,363,0,18]
+          - LineBreak [ref=e318] [box=72,386,0,18]
+          - text: 同时，探测器探头应靠近释放源，且在气体、蒸气易于聚集的地点
+          - generic "GB/T 50493-2019-4.1.4" [ref=e319] [box=467,412,125,17]
+          - LineBreak [ref=e320] [box=605,410,0,18]
+          - LineBreak [ref=e321] [box=72,434,0,18]
+          - text: 请注意，上述条款中的“宜”为推荐性要求，非强制性。若您涉及受限空间内的气体检测，则需按GB 30871-2022执行，但该标准未规定探头安装高度，仅要求检测点应有代表性，容积较大的受限空间应对上、中、下（左、中、右）各部位进行检测分析
+          - generic "GB 30871-2022-6.3" [ref=e322] [box=291,507,104,17]
+          - text: b。
+          - LineBreak [ref=e323] [box=417,505,0,18]
+          - LineBreak [ref=e324] [box=72,528,0,18]
+          - text: 请补充说明您要检测的气体名称及其密度（比空气重、轻、略重或略轻），以便确定具体安装高度。
+      - textbox [ref=e4] [cursor=pointer] [box=14,1001,321,37]:
+        - /placeholder: 如：动火作业监护要求
+      - LabelText "检索时包含已废止版本" [ref=e70] [box=345,1011,87,18]: 含已废止
+      - combobox "R9 追问档位" [ref=e5] [cursor=pointer] [box=442,1003,138,34]
+      - LabelText "回答覆盖范围（R59）：勾选后回答更全面（检索更多证据、回答更长）；不勾选为精简模式" [ref=e91] [box=590,1011,63,18]: 全面
+      - button "提问 ⏎" [ref=e12] [cursor=pointer] [box=663,1000,90,40]
+    - generic "拖动调整左右宽度" [ref=e94] [box=768,54,7,998]
+    - generic [ref=e95] [box=775,54,1145,998]:
+      - generic "📚 文件目录" [ref=e98] [box=775,54,231,40]
+      - generic [ref=e99] [cursor=pointer] [box=775,100,231,26]:
+        - textbox "按标准号或名称过滤文件目录，即时生效" [ref=e6] [box=775,100,231,26]:
+          - /placeholder: 🔍 搜索国标名称/编号
+        - button "×" [ref=e416] [box=984,104,17,18]
+      - generic [ref=e306] [box=779,138,223,20]
+      - generic [ref=e271] [box=793,159,209,20]
+      - generic "X00/09 食品综合" [ref=e413] [box=807,180,195,17]:
+        - generic [ref=e407] [box=815,181,14,14]
+        - text: X00/09 食品综合
+      - generic "X09 卫生、安全、劳动保护" [ref=e410] [box=827,198,175,17]
+      - generic "GB 25596-2025 食品安全国家标准 特殊医学用途婴儿配方食品通则 发布 2025-03-16 · 生效 2027-03-16" [ref=e411] [box=827,216,175,56]:
+        - generic "GB 25596-2025" [ref=e408] [box=833,219,80,15]
+        - generic "食品安全国家标准 特殊医学用途婴儿配方食品通则" [ref=e409] [box=833,219,157,48]
+      - generic "拖动调整宽度" [ref=e104] [box=1007,54,5,998]
+      - generic "标题目录" [ref=e2831] [box=1012,54,175,40]
+      - generic [ref=e2769] [box=1016,102,167,20]
+      - generic [ref=e2773] [box=1016,124,167,20]
+      - generic [ref=e2777] [box=1016,144,167,20]
+      - generic [ref=e2781] [box=1016,164,167,20]
+      - generic [ref=e2785] [box=1016,184,167,20]
+      - generic [ref=e2789] [box=1016,204,167,20]
+      - generic [ref=e2793] [box=1016,224,167,20]
+      - generic [ref=e2797] [box=1016,244,167,20]
+      - generic [ref=e2801] [box=1016,266,167,20]
+      - generic [ref=e2805] [box=1016,286,167,20]
+      - generic [ref=e2809] [box=1016,306,167,20]
+      - generic [ref=e2813] [box=1016,329,167,20]
+      - generic [ref=e2817] [box=1016,351,167,20]
+      - generic "拖动调整宽度" [ref=e2834] [box=1188,54,5,998]
+      - generic [ref=e105] [box=1193,54,727,998]:
+        - button "📚 文件目录" [ref=e107] [cursor=pointer] [box=1205,60,93,26]
+        - button "📖 目录" [ref=e108] [cursor=pointer] [box=1306,60,69,26]
+        - button "🔍 看原件" [ref=e436] [cursor=pointer] [box=1770,99,69,21]
+        - button "✏️ 纠错" [ref=e429] [cursor=pointer] [box=1849,99,58,21]
+        - text: 发布
+        - text: 2025-03-16
+        - text: 生效
+        - text: 2027-03-16
+        - generic [ref=e110] [box=1193,147,727,905]:
+          - generic "原件第 3 页" [ref=e1695] [box=1211,159,691,46]:
+            - generic [ref=e450] [box=1211,159,691,22]
+            - paragraph "范围本标准适用于0 12月龄婴儿食用的特殊医学用途婴儿配方食品。" [ref=e448] [box=1211,183,691,22]
+          - generic "原件第 3 页" [ref=e1696] [box=1211,221,691,46]:
+            - generic [ref=e454] [box=1211,221,691,22]
+            - paragraph "术语和定义" [ref=e452] [box=1211,245,691,22]
+          - generic "原件第 3 页" [ref=e1697] [box=1211,283,691,68]:
+            - generic "2.1" [ref=e458] [box=1211,283,691,22]
+            - paragraph "特殊医学用途婴儿配方食品为了满足进食受限、消化吸收障碍、代谢紊乱或特定疾病状态等婴儿对营养素或膳食的特殊需要,专门加工配制而成的配方食品。该类产品应在医生或临床营养师指导下,单独食用或与其他食物配合食用。" [ref=e456] [box=1211,307,691,44]
+          - generic "原件第 3 页" [ref=e1698] [box=1211,367,691,46]:
+            - generic [ref=e462] [box=1211,367,691,22]
+            - paragraph "技术要求" [ref=e460] [box=1211,391,691,22]
+          - generic "原件第 3 页" [ref=e1699] [box=1211,429,691,46]:
+            - generic "3.1" [ref=e466] [box=1211,429,691,22]
+            - paragraph "一般要求" [ref=e464] [box=1211,453,691,22]
+          - generic "原件第 3 页" [ref=e1700] [box=1211,492,691,68]:
+            - generic "3.1.1" [ref=e470] [box=1211,492,691,22]
+            - paragraph "特殊医学用途婴儿配方食品的配方应以医学和营养学的研究结果为依据,其安全性、营养充足性以及临床效果均需要经过科学证实。" [ref=e468] [box=1211,516,691,44]
+          - generic "原件第 3 页" [ref=e1701] [box=1211,576,691,46]:
+            - generic "3.1.1.1" [ref=e474] [box=1211,576,691,22]
+            - paragraph "常见特殊医学用途婴儿配方食品的类别、适用的特殊医学状况人群及配方主要技术要求应符合附录A 的规定。" [ref=e472] [box=1211,600,691,22]
+          - generic "原件第 3 页" [ref=e1702] [box=1211,638,691,46]:
+            - generic "3.1.1.2" [ref=e478] [box=1211,638,691,22]
+            - paragraph "其他确有临床需要的特殊医学用途婴儿配方食品配方应符合3.1.1的要求。" [ref=e476] [box=1211,662,691,22]
+          - generic "原件第 3 页" [ref=e1703] [box=1211,700,691,46]:
+            - generic "3.1.2" [ref=e482] [box=1211,700,691,22]
+            - paragraph "特殊医学用途婴儿配方食品的加工应符合国家有关规定。" [ref=e480] [box=1211,724,691,22]
+          - generic "原件第 3 页" [ref=e1704] [box=1211,762,691,46]:
+            - generic "3.2" [ref=e486] [box=1211,762,691,22]
+            - paragraph "原料要求" [ref=e484] [box=1211,787,691,22]
+          - generic "原件第 3 页" [ref=e1705] [box=1211,825,691,46]:
+            - generic "3.2.1" [ref=e490] [box=1211,825,691,22]
+            - paragraph "产品中所使用的原料应符合相应的安全标准和/或相关规定,不应使用危害婴儿营养与健康的物质。" [ref=e488] [box=1211,849,691,22]
+          - generic "原件第 3 页" [ref=e1706] [box=1211,887,691,46]:
+            - generic "3.2.2" [ref=e494] [box=1211,887,691,22]
+            - paragraph "所使用的原料和食品添加剂不应含有麸质。" [ref=e492] [box=1211,911,691,22]
+          - generic "原件第 3 页" [ref=e1707] [box=1211,949,691,46]:
+            - generic "3.2.3" [ref=e498] [box=1211,949,691,22]
+            - paragraph "不应使用氢化油脂。" [ref=e496] [box=1211,973,691,22]
+          - generic "原件第 3 页" [ref=e1708] [box=1211,1011,691,46]:
+            - generic "3.2.4" [ref=e502] [box=1211,1011,691,22]
+            - paragraph "不应使用经辐照处理过的原料。" [ref=e500] [box=1211,1035,691,22]
+          - generic "原件第 3 页" [ref=e1709] [box=1211,1073,691,68]:
+            - generic "3.3" [ref=e506] [box=1211,1073,691,22]
+  - contentinfo [ref=e113] [box=0,1052,1920,28]

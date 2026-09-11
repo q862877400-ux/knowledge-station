@@ -1,0 +1,164 @@
+# Auto-snapshot after command — current viewport.
+# Use `browser4-cli snapshot grep <pattern>` to search the tree.
+
+# Viewport State
+# - processingViewport: 0
+# - viewportHeight: 984px
+# - viewportsTotal: 1
+# - hiddenTopHeight: 0px
+# - hiddenBottomHeight: 0px
+#
+- generic [ref=e263] [box=0,0,1902,984]:
+  - generic [ref=e264]:
+    - generic [ref=e265] [box=0,0,1902,984]:
+      - generic "新建会话 button 新建会话 DSH Local Build 收起侧边栏 button 收起侧边栏 新建会话 button 新建会话 新会话 任务看板 button 任务看板 任务看板 SSH 远程 SSH 运维面板 button SSH SSH 技能中心 技能中心：浏览与管理已加载的 skill button 技能中心 技能中心 切换分组方式 button 切换分组方式 当前为按工作区，点击后切换为单列表 工作区 搜索会话 button 搜索会话 false 搜索会话… text 搜索会话… 500 视图选项 button 视图选项 添加工作区 button 添加工作区 会话 tree 会话 AI treeitem false AI button 工作区“AI”的操作 button 在“AI”中新建会话 RAG treeitem true RAG button 工作区“RAG”的操作 button 在“RAG”中新建会话 ComfyUI treeitem false ComfyUI button 工作区“ComfyUI”的操作 button 在“ComfyUI”中新建会话 DSH维护 treeitem true DSH维护 button 工作区“DSH维护”的操作 button 在“DSH维护”中新建会话 work space treeitem false work space button 工作区“work space”的操作 button 在“work space”中新建会话 发现新版本，检查更新 发现新版本，检查更新 button 发现新版本，检查更新 false 远程访问 远程访问 button 远程访问 false 导入会话 从其他工具导入会话（发现 + 单选/多选导入） 导入会话 导入会话 设置 button false clip0_1450_63327 设置 硬性重启 button 硬性重启 硬性重启 存复活币 button 存复活币 存复活币" [ref=e7] [box=0,0,280,984]:
+        - generic "新建会话 button 新建会话 DSH Local Build 收起侧边栏 button 收起侧边栏 新建会话 button 新建会话 新会话 任务看板 button 任务看板 任务看板 SSH 远程 SSH 运维面板 button SSH SSH 技能中心 技能中心：浏览与管理已加载的 skill button 技能中心 技能中心 切换分组方式 button 切换分组方式 当前为按工作区，点击后切换为单列表 工作区 搜索会话 button 搜索会话 false 搜索会话… text 搜索会话… 500 视图选项 button 视图选项 添加工作区 button 添加工作区 会话 tree 会话 AI treeitem false AI button 工作区“AI”的操作 button 在“AI”中新建会话 RAG treeitem true RAG button 工作区“RAG”的操作 button 在“RAG”中新建会话 ComfyUI treeitem false ComfyUI button 工作区“ComfyUI”的操作 button 在“ComfyUI”中新建会话 DSH维护 treeitem true DSH维护 button 工作区“DSH维护”的操作 button 在“DSH维护”中新建会话 work space treeitem false work space button 工作区“work space”的操作 button 在“work space”中新建会话 发现新版本，检查更新 发现新版本，检查更新 button 发现新版本，检查更新 false 远程访问 远程访问 button 远程访问 false 导入会话 从其他工具导入会话（发现 + 单选/多选导入） 导入会话 导入会话 设置 button false clip0_1450_63327 设置 硬性重启 button 硬性重启 硬性重启 存复活币 button 存复活币 存复活币" [ref=e266]:
+          - button "新建会话" [ref=e8] [cursor=pointer] [box=16,24,216,24]:
+            - generic "DSH Local Build" [ref=e269] [box=16,24,154,24]:
+              - generic "DSH Local Build" [ref=e273] [box=48,24,122,24]:
+                - generic "DSH Local Build" [ref=e274]:
+                  - generic "DSH Local Build" [ref=e275] [box=48,24,122,24]
+          - button "收起侧边栏" [ref=e11] [cursor=pointer] [box=240,22,28,28]:
+            - image [ref=e12] [box=246,28,16,16]
+          - button "新建会话" [ref=e13] [cursor=pointer] [box=14,74,252,38]:
+            - image [ref=e14] [box=109,86,14,14]
+          - button "任务看板" [ref=e16] [cursor=pointer] [box=12,120,256,36]
+          - button "SSH" [ref=e19] [cursor=pointer] [box=12,156,256,36]:
+            - /description: 远程 SSH 运维面板
+          - button "技能中心" [ref=e22] [cursor=pointer] [box=12,192,256,36]:
+            - /description: 技能中心：浏览与管理已加载的 skill
+          - generic "切换分组方式 button 切换分组方式 当前为按工作区，点击后切换为单列表 工作区 搜索会话 button 搜索会话 false 搜索会话… text 搜索会话… 500 视图选项 button 视图选项 添加工作区 button 添加工作区 会话 tree 会话 AI treeitem false AI button 工作区“AI”的操作 button 在“AI”中新建会话 RAG treeitem true RAG button 工作区“RAG”的操作 button 在“RAG”中新建会话 ComfyUI treeitem false ComfyUI button 工作区“ComfyUI”的操作 button 在“ComfyUI”中新建会话 DSH维护 treeitem true DSH维护 button 工作区“DSH维护”的操作 button 在“DSH维护”中新建会话 work space treeitem false work space button 工作区“work space”的操作 button 在“work space”中新建会话" [ref=e293]:
+            - button "切换分组方式" [ref=e25] [cursor=pointer] [box=16,234,28,28]:
+              - image [ref=e26] [box=22,240,16,16]
+            - generic "搜索会话 button 搜索会话 false 搜索会话… text 搜索会话… 500" [ref=e30] [cursor=pointer] [box=176,234,28,28]:
+              - button "搜索会话" [ref=e31] [box=176,234,28,28]:
+                - image [ref=e32] [box=183,241,14,14]
+              - textbox "搜索会话…" [ref=e1] [box=204,238,4,20]
+            - button "视图选项" [ref=e35] [cursor=pointer] [box=208,234,28,28]:
+              - image [ref=e36] [box=214,240,16,16]
+            - button "添加工作区" [ref=e37] [cursor=pointer] [box=240,234,28,28]:
+              - image [ref=e38] [box=246,240,16,16]
+            - generic "会话 tree 会话 AI treeitem false AI button 工作区“AI”的操作 button 在“AI”中新建会话 RAG treeitem true RAG button 工作区“RAG”的操作 button 在“RAG”中新建会话 ComfyUI treeitem false ComfyUI button 工作区“ComfyUI”的操作 button 在“ComfyUI”中新建会话 DSH维护 treeitem true DSH维护 button 工作区“DSH维护”的操作 button 在“DSH维护”中新建会话 work space treeitem false work space button 工作区“work space”的操作 button 在“work space”中新建会话" [ref=e313] [box=12,270,268,622]:
+              - tree "会话" [ref=e39] [box=8,270,270,622]:
+                - /multiselectable: "false"
+                - /orientation: vertical
+                - generic "AI treeitem false AI button 工作区“AI”的操作 button 在“AI”中新建会话" [ref=e314] [box=12,270,256,34]:
+                  - treeitem "AI" [level=1] [ref=e316] [box=12,270,256,34]:
+                    - image [ref=e40] [box=20,279,16,16]
+                    - generic "button 工作区“AI”的操作 button 在“AI”中新建会话" [ref=e324]:
+                      - generic "button 工作区“AI”的操作" [ref=e325]:
+                        - button "工作区“AI”的操作" [ref=e326]
+                      - button "在“AI”中新建会话" [ref=e331]
+                - generic "RAG treeitem true RAG button 工作区“RAG”的操作 button 在“RAG”中新建会话" [ref=e334] [box=12,308,256,34]:
+                  - treeitem "RAG" [expanded] [level=1] [ref=e336] [box=12,308,256,34]:
+                    - image [ref=e42] [box=20,317,16,16]
+                    - generic "button 工作区“RAG”的操作 button 在“RAG”中新建会话" [ref=e345]:
+                      - generic "button 工作区“RAG”的操作" [ref=e346]:
+                        - button "工作区“RAG”的操作" [ref=e347]
+                      - button "在“RAG”中新建会话" [ref=e352]
+                - generic "ComfyUI treeitem false ComfyUI button 工作区“ComfyUI”的操作 button 在“ComfyUI”中新建会话" [ref=e355] [box=12,346,256,34]:
+                  - treeitem "ComfyUI" [level=1] [ref=e357] [box=12,346,256,34]:
+                    - image [ref=e44] [box=20,355,16,16]
+                    - generic "button 工作区“ComfyUI”的操作 button 在“ComfyUI”中新建会话" [ref=e365]:
+                      - generic "button 工作区“ComfyUI”的操作" [ref=e366]:
+                        - button "工作区“ComfyUI”的操作" [ref=e367]
+                      - button "在“ComfyUI”中新建会话" [ref=e372]
+                - generic "DSH维护 treeitem true DSH维护 button 工作区“DSH维护”的操作 button 在“DSH维护”中新建会话" [ref=e375] [box=12,384,256,34]:
+                  - treeitem "DSH维护" [expanded] [level=1] [ref=e377] [box=12,384,256,34]:
+                    - image [ref=e46] [box=20,393,16,16]
+                    - generic "button 工作区“DSH维护”的操作 button 在“DSH维护”中新建会话" [ref=e386]:
+                      - generic "button 工作区“DSH维护”的操作" [ref=e387]:
+                        - button "工作区“DSH维护”的操作" [ref=e388]
+                      - button "在“DSH维护”中新建会话" [ref=e393]
+                - generic "work space treeitem false work space button 工作区“work space”的操作 button 在“work space”中新建会话" [ref=e396] [box=12,422,256,34]:
+                  - treeitem "work space" [level=1] [ref=e398] [box=12,422,256,34]:
+                    - image [ref=e48] [box=20,431,16,16]
+                    - generic "button 工作区“work space”的操作 button 在“work space”中新建会话" [ref=e406]:
+                      - generic "button 工作区“work space”的操作" [ref=e407]:
+                        - button "工作区“work space”的操作" [ref=e408]
+                      - button "在“work space”中新建会话" [ref=e413]
+          - generic "发现新版本，检查更新 发现新版本，检查更新 button 发现新版本，检查更新 false 远程访问 远程访问 button 远程访问 false 导入会话 从其他工具导入会话（发现 + 单选/多选导入） 导入会话 导入会话" [ref=e418]:
+            - button "发现新版本，检查更新" [ref=e50] [cursor=pointer] [box=12,892,36,36]:
+              - image [ref=e51] [box=22,902,16,16]
+            - button "远程访问" [ref=e52] [cursor=pointer] [box=54,892,36,36]
+            - button "导入会话" [ref=e54] [cursor=pointer] [box=90,892,178,36]:
+              - /description: 从其他工具导入会话（发现 + 单选/多选导入）
+          - generic "设置 button false clip0_1450_63327 设置 硬性重启 button 硬性重启 硬性重启 存复活币 button 存复活币 存复活币" [ref=e424] [box=12,928,256,50]:
+            - generic "设置 button false clip0_1450_63327 设置 硬性重启 button 硬性重启 硬性重启" [ref=e425]:
+              - button "设置" [ref=e57] [cursor=pointer] [box=10,932,260,42]:
+                - /has_popup: dialog
+                - image "clip0_1450_63327" [ref=e58] [box=18,945,16,16]:
+                  - generic "clip0_1450_63327" [ref=e430] [box=0,0,0,0]:
+                    - generic "clip0_1450_63327" [ref=e431] [box=0,0,0,0]
+              - button "硬性重启" [ref=e60] [cursor=pointer] [box=232,939,28,28]:
+                - image [ref=e61] [box=238,945,15,15]
+            - button "存复活币" [ref=e63] [cursor=pointer] [box=198,939,28,28]:
+              - image [ref=e64] [box=204,945,16,16]
+      - "generic \"empty-glow-r0 探索未至之境 预览版 选择工作区 button 选择工作区 false 选择工作区 标准模式 即将开始的这个会话所用的 Agent 预设 button false mask0_agent_preset_16 标准模式 选择工作区 选择一个工作区开始 选择工作区 false 语音输入：点击开始，持续聆听，再次点击停止 语音输入：点击开始，持续聆听，再次点击停止 button 语音输入：点击开始，持续聆听，再次点击停止 命令 button 命令 false 发送消息 button 发送消息 button 返回会话 ‹ 返回会话 远程 SSH tablist button tab 主机 button tab 终端 button tab 传输 button tab 隧道 button tab 集群 search 搜索别名 / 描述 / 标签… 分组方式 none 不分组 environment 按环境分组 tags 按标签分组 button 新增主机 button 导入 ~/.ssh/config 出错：HTTP 404: invalid JSON response button 返回会话 ‹ 返回会话 任务看板 Host 时区 Asia/Shanghai · revision 0 search 筛选任务… 筛选任务… button 归档 (0) button + 新建任务 待规划 0 这个状态还没有任务 待办 0 这个状态还没有任务 进行中 0 这个状态还没有任务 已完成 0 这个状态还没有任务 已失败 0 这个状态还没有任务\" [ref=e442] [box=280,0,1622,984]":
+        - generic "empty-glow-r0 探索未至之境 预览版 选择工作区 button 选择工作区 false 选择工作区 标准模式 即将开始的这个会话所用的 Agent 预设 button false mask0_agent_preset_16 标准模式 选择工作区 选择一个工作区开始 选择工作区 false 语音输入：点击开始，持续聆听，再次点击停止 语音输入：点击开始，持续聆听，再次点击停止 button 语音输入：点击开始，持续聆听，再次点击停止 命令 button 命令 false 发送消息 button 发送消息" [ref=e443]:
+          - generic "empty-glow-r0 探索未至之境 预览版 选择工作区 button 选择工作区 false 选择工作区 标准模式 即将开始的这个会话所用的 Agent 预设 button false mask0_agent_preset_16 标准模式 选择工作区 选择一个工作区开始 选择工作区 false 语音输入：点击开始，持续聆听，再次点击停止 语音输入：点击开始，持续聆听，再次点击停止 button 语音输入：点击开始，持续聆听，再次点击停止 命令 button 命令 false 发送消息 button 发送消息" [ref=e448]:
+            - generic "empty-glow-r0 探索未至之境 预览版 选择工作区 button 选择工作区 false 选择工作区 标准模式 即将开始的这个会话所用的 Agent 预设 button false mask0_agent_preset_16 标准模式 选择工作区 选择一个工作区开始 选择工作区 false 语音输入：点击开始，持续聆听，再次点击停止 语音输入：点击开始，持续聆听，再次点击停止 button 语音输入：点击开始，持续聆听，再次点击停止 命令 button 命令 false 发送消息 button 发送消息" [ref=e449]:
+              - generic "empty-glow-r0 探索未至之境 预览版 选择工作区 button 选择工作区 false 选择工作区 标准模式 即将开始的这个会话所用的 Agent 预设 button false mask0_agent_preset_16 标准模式 选择工作区 选择一个工作区开始 选择工作区 false 语音输入：点击开始，持续聆听，再次点击停止 语音输入：点击开始，持续聆听，再次点击停止 button 语音输入：点击开始，持续聆听，再次点击停止 命令 button 命令 false 发送消息 button 发送消息" [ref=e450] [box=681,371,812,242]:
+                - generic "empty-glow-r0" [ref=e67] [box=537,276,1099,489]
+                - button "选择工作区" [ref=e71] [cursor=pointer] [box=701,427,117,28]:
+                  - /has_popup: menu
+                  - image [ref=e72] [box=709,433,16,16]
+                  - image [ref=e74] [box=798,435,12,12]
+                - generic "标准模式 即将开始的这个会话所用的 Agent 预设 button false mask0_agent_preset_16 标准模式" [ref=e474]:
+                  - button "标准模式" [ref=e75] [cursor=pointer] [box=822,427,106,28]:
+                    - /description: 即将开始的这个会话所用的 Agent 预设
+                    - /has_popup: menu
+                    - image "mask0_agent_preset_16" [ref=e76] [box=830,433,16,16]:
+                      - generic "mask0_agent_preset_16" [ref=e476] [box=0,0,0,0]
+                    - text: 标准模式
+                    - image [ref=e78] [box=906,434,14,14]
+                - generic "选择工作区 选择一个工作区开始 选择工作区 false 语音输入：点击开始，持续聆听，再次点击停止 语音输入：点击开始，持续聆听，再次点击停止 button 语音输入：点击开始，持续聆听，再次点击停止 命令 button 命令 false 发送消息 button 发送消息" [ref=e486]:
+                  - generic "选择工作区 选择一个工作区开始 选择工作区 false 语音输入：点击开始，持续聆听，再次点击停止 语音输入：点击开始，持续聆听，再次点击停止 button 语音输入：点击开始，持续聆听，再次点击停止 命令 button 命令 false 发送消息 button 发送消息" [ref=e488] [box=697,463,780,118]:
+                    - generic "选择工作区 选择一个工作区开始 选择工作区 false" [ref=e492] [box=698,474,778,52]:
+                      - textbox "选择工作区" [ref=e2] [cursor=pointer] [box=698,474,778,52]:
+                        - /placeholder: 选择一个工作区开始
+                        - /has_popup: menu
+                        - /multiline: "true"
+                        - /readonly: "true"
+                    - button "语音输入：点击开始，持续聆听，再次点击停止" [ref=e81] [cursor=pointer] [box=708,545,26,24]:
+                      - image [ref=e82] [box=713,549,16,16]
+                    - button "命令" [disabled] [ref=e83] [cursor=pointer] [box=752,543,28,28]:
+                      - /has_popup: listbox
+                      - image [ref=e84] [box=759,550,14,14]
+                    - button "发送消息" [disabled] [ref=e85] [cursor=pointer] [box=1434,538,34,34]
+        - "generic \"button 返回会话 ‹ 返回会话 远程 SSH tablist button tab 主机 button tab 终端 button tab 传输 button tab 隧道 button tab 集群 search 搜索别名 / 描述 / 标签… 分组方式 none 不分组 environment 按环境分组 tags 按标签分组 button 新增主机 button 导入 ~/.ssh/config 出错：HTTP 404: invalid JSON response\" [ref=e507]":
+          - "generic \"button 返回会话 ‹ 返回会话 远程 SSH tablist button tab 主机 button tab 终端 button tab 传输 button tab 隧道 button tab 集群 search 搜索别名 / 描述 / 标签… 分组方式 none 不分组 environment 按环境分组 tags 按标签分组 button 新增主机 button 导入 ~/.ssh/config 出错：HTTP 404: invalid JSON response\" [ref=e508]":
+            - generic "button 返回会话 ‹ 返回会话 远程 SSH" [ref=e509]:
+              - button "返回会话" [ref=e510]
+            - tablist "tablist button tab 主机 button tab 终端 button tab 传输 button tab 隧道 button tab 集群" [ref=e514]:
+              - tab "button tab 主机" [selected] [ref=e515]
+              - tab "button tab 终端" [ref=e516]
+              - tab "button tab 传输" [ref=e517]
+              - tab "button tab 隧道" [ref=e518]
+              - tab "button tab 集群" [ref=e519]
+            - "generic \"search 搜索别名 / 描述 / 标签… 分组方式 none 不分组 environment 按环境分组 tags 按标签分组 button 新增主机 button 导入 ~/.ssh/config 出错：HTTP 404: invalid JSON response\" [ref=e520]":
+              - "generic \"search 搜索别名 / 描述 / 标签… 分组方式 none 不分组 environment 按环境分组 tags 按标签分组 button 新增主机 button 导入 ~/.ssh/config 出错：HTTP 404: invalid JSON response\" [ref=e521]":
+                - generic "search 搜索别名 / 描述 / 标签… 分组方式 none 不分组 environment 按环境分组 tags 按标签分组 button 新增主机 button 导入 ~/.ssh/config" [ref=e522]:
+                  - searchbox "search 搜索别名 / 描述 / 标签…" [ref=e3]
+                  - combobox "分组方式" [ref=e4]
+                  - button "button 新增主机" [ref=e544]
+                  - button "button 导入 ~/.ssh/config" [ref=e545]
+        - generic "button 返回会话 ‹ 返回会话 任务看板 Host 时区 Asia/Shanghai · revision 0 search 筛选任务… 筛选任务… button 归档 (0) button + 新建任务 待规划 0 这个状态还没有任务 待办 0 这个状态还没有任务 进行中 0 这个状态还没有任务 已完成 0 这个状态还没有任务 已失败 0 这个状态还没有任务" [ref=e547]:
+          - generic "button 返回会话 ‹ 返回会话 任务看板 Host 时区 Asia/Shanghai · revision 0 search 筛选任务… 筛选任务… button 归档 (0) button + 新建任务 待规划 0 这个状态还没有任务 待办 0 这个状态还没有任务 进行中 0 这个状态还没有任务 已完成 0 这个状态还没有任务 已失败 0 这个状态还没有任务" [ref=e548]:
+            - banner "button 返回会话 ‹ 返回会话 任务看板 Host 时区 Asia/Shanghai · revision 0 search 筛选任务… 筛选任务… button 归档 (0) button + 新建任务" [ref=e549]:
+              - button "返回会话" [ref=e550]
+              - searchbox "筛选任务…" [ref=e5]
+              - button "button 归档 (0)" [ref=e560]
+              - button "button + 新建任务" [ref=e561]
+      - generic "💀 别慌，双击桌面「DSH复活币X1」即可恢复" [ref=e600] [box=0,0,1902,984]:
+        - generic "💀 别慌，双击桌面「DSH复活币X1」即可恢复" [ref=e601]:
+          - generic "💀 别慌，双击桌面「DSH复活币X1」即可恢复" [ref=e87] [box=1642,917,247,27]
+- generic "退出 DeepSeek Harness 退出 DeepSeek Harness button 退出 DeepSeek Harness" [ref=e603] [box=0,984,1902,0]:
+  - button "退出 DeepSeek Harness" [ref=e95] [cursor=pointer] [box=1832,914,46,46]
+- generic "选择一个会话以使用侧边栏 button 选择一个会话以使用侧边栏 选择一个会话以使用侧边栏 button 选择一个会话以使用侧边栏" [ref=e606] [box=0,984,1902,0]:
+  - generic "选择一个会话以使用侧边栏 button 选择一个会话以使用侧边栏 选择一个会话以使用侧边栏 button 选择一个会话以使用侧边栏" [ref=e97] [box=0,0,1902,984]:
+    - generic "选择一个会话以使用侧边栏 button 选择一个会话以使用侧边栏 选择一个会话以使用侧边栏 button 选择一个会话以使用侧边栏" [ref=e607] [box=1832,54,60,28]:
+      - button "选择一个会话以使用侧边栏" [disabled] [ref=e98] [cursor=pointer] [box=1832,54,28,28]:
+        - image [ref=e99] [box=1838,60,16,16]
+      - button "选择一个会话以使用侧边栏" [disabled] [ref=e100] [cursor=pointer] [box=1864,54,28,28]:
+        - image [ref=e101] [box=1870,60,16,16]

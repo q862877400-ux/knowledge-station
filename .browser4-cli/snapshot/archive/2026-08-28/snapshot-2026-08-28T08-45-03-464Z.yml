@@ -1,0 +1,76 @@
+# Auto-snapshot after command — current viewport.
+# Use `browser4-cli snapshot grep <pattern>` to search the tree.
+
+# Viewport State
+# - processingViewport: 0
+# - viewportHeight: 1080px
+# - viewportsTotal: 1
+# - hiddenTopHeight: 0px
+# - hiddenBottomHeight: 0px
+#
+- generic "root ⚖️ 国标与法律法规 AI 知识工作站 KnowledgeStation · 可溯源合规问答 问答 问答 审查 审查 更新 更新 ⚙️ 设置 ⚙️ 设置 📤 外发审计 📤 外发审计 🔀 对比 🔀 对比 📜 更新日志 📜 更新日志 🩺 运维 🩺 运维 本地引擎已连接 引擎 :8018 合同审查 合同审查 义务清单 义务清单 🔍 数据体检 🔍 数据体检 粘贴合同全文，点击开始审查 粘贴合同全文，点击开始审查 开始合规审查 开始合规审查 📄 导出报告Word 📄 导出报告Word 拖动调整左右宽度 📚 文件目录 按标准号或名称过滤文件目录，即时生效 按标准号或名称过滤文件目录，即时生效 🔍 搜索国标名称/编号 ▾ 法律法规 ▸ 法律（狭义） ▸ 行政法规 ▸ 部门规章 ▾ 国家标准·行业标准·团体标准 ▸ A 综合 ▸ B 农业、林业 ▸ C 医药、卫生、劳动保护 ▸ D 矿业 ▸ E 石油 ▸ F 能源、核技术 ▸ G 化工 ▸ H 冶金 ▸ J 机械 ▸ K 电工 ▸ L 电子元器件与信息技术 ▸ M 通信、广播 ▸ N 仪器、仪表 ▸ P 土木、建筑 ▸ Q 建材 ▸ R 公路、水路运输 ▸ S 铁路 ▸ T 车辆 ▸ U 船舶 ▸ V 航空、航天 ▸ W 纺织 ▸ X 食品 ▸ Y 轻工、文化与生活用品 ▸ Z 环境保护 ▸ 其他标准 拖动调整宽度 📚 文件目录 📚 文件目录 📖 目录 📖 目录 📜 法律法规文本直灌入库 正在从 /documents/<doc>/clauses 拉取全文。若一直停留在此，请重启引擎以加载最新后端代码（全文预览接口）。 ⚙️ 本地知识库 · 云增强模式（LLM 仅接收问题与证据片段） 外发内容全程留痕 · 运维面板可回溯" [ref=e3097] [box=0,0,1920,1080]:
+  - banner "⚖️ 国标与法律法规 AI 知识工作站 KnowledgeStation · 可溯源合规问答 问答 问答 审查 审查 更新 更新 ⚙️ 设置 ⚙️ 设置 📤 外发审计 📤 外发审计 🔀 对比 🔀 对比 📜 更新日志 📜 更新日志 🩺 运维 🩺 运维 本地引擎已连接 引擎 :8018" [ref=e3077] [box=0,0,1920,54]:
+    - generic "国标与法律法规 AI 知识工作站" [ref=e3101] [box=60,11,186,16]
+    - generic "KnowledgeStation · 可溯源合规问答" [ref=e3102] [box=60,28,186,13]
+    - navigation "问答 问答 审查 审查 更新 更新" [ref=e3103] [box=266,9,195,34]:
+      - button "问答" [ref=e3104] [cursor=pointer] [box=270,13,61,26]
+      - button "审查" [ref=e3105] [cursor=pointer] [box=333,13,61,26]
+      - button "更新" [ref=e3106] [cursor=pointer] [box=396,13,61,26]
+    - button "⚙️ 设置" [ref=e3108] [cursor=pointer] [box=1367,12,69,28]
+    - button "📤 外发审计" [ref=e3109] [cursor=pointer] [box=1445,12,93,28]
+    - button "🔀 对比" [ref=e3110] [cursor=pointer] [box=1547,12,69,28]
+    - button "📜 更新日志" [ref=e3111] [cursor=pointer] [box=1625,12,93,28]
+    - button "🩺 运维" [ref=e3112] [cursor=pointer] [box=1726,12,69,28]
+    - generic "本地引擎已连接" [ref=e3113] [box=1808,14,93,25]: 引擎 :8018
+  - generic "合同审查 合同审查 义务清单 义务清单 🔍 数据体检 🔍 数据体检 粘贴合同全文，点击开始审查 粘贴合同全文，点击开始审查 开始合规审查 开始合规审查 📄 导出报告Word 📄 导出报告Word 拖动调整左右宽度 📚 文件目录 按标准号或名称过滤文件目录，即时生效 按标准号或名称过滤文件目录，即时生效 🔍 搜索国标名称/编号 ▾ 法律法规 ▸ 法律（狭义） ▸ 行政法规 ▸ 部门规章 ▾ 国家标准·行业标准·团体标准 ▸ A 综合 ▸ B 农业、林业 ▸ C 医药、卫生、劳动保护 ▸ D 矿业 ▸ E 石油 ▸ F 能源、核技术 ▸ G 化工 ▸ H 冶金 ▸ J 机械 ▸ K 电工 ▸ L 电子元器件与信息技术 ▸ M 通信、广播 ▸ N 仪器、仪表 ▸ P 土木、建筑 ▸ Q 建材 ▸ R 公路、水路运输 ▸ S 铁路 ▸ T 车辆 ▸ U 船舶 ▸ V 航空、航天 ▸ W 纺织 ▸ X 食品 ▸ Y 轻工、文化与生活用品 ▸ Z 环境保护 ▸ 其他标准 拖动调整宽度 📚 文件目录 📚 文件目录 📖 目录 📖 目录 📜 法律法规文本直灌入库 正在从 /documents/<doc>/clauses 拉取全文。若一直停留在此，请重启引擎以加载最新后端代码（全文预览接口）。" [ref=e3115] [box=0,54,1920,998]:
+    - generic "合同审查 合同审查 义务清单 义务清单 🔍 数据体检 🔍 数据体检 粘贴合同全文，点击开始审查 粘贴合同全文，点击开始审查 开始合规审查 开始合规审查 📄 导出报告Word 📄 导出报告Word" [ref=e3116] [box=0,54,768,998]:
+      - button "合同审查" [ref=e3540] [cursor=pointer] [box=16,70,84,30]
+      - button "义务清单" [ref=e3541] [cursor=pointer] [box=108,70,84,30]
+      - button "🔍 数据体检" [ref=e3119] [cursor=pointer] [box=647,70,104,30]
+      - textbox "粘贴合同全文，点击开始审查" [ref=e3542] [cursor=pointer] [box=16,110,736,220]:
+        - /multiline: "true"
+      - button "开始合规审查" [ref=e3538] [cursor=pointer] [box=16,340,111,34]
+      - button "📄 导出报告Word" [disabled] [ref=e3539] [cursor=pointer] [box=135,340,138,34]
+    - generic "拖动调整左右宽度" [ref=e3183] [box=768,54,7,998]
+    - generic "📚 文件目录 按标准号或名称过滤文件目录，即时生效 按标准号或名称过滤文件目录，即时生效 🔍 搜索国标名称/编号 ▾ 法律法规 ▸ 法律（狭义） ▸ 行政法规 ▸ 部门规章 ▾ 国家标准·行业标准·团体标准 ▸ A 综合 ▸ B 农业、林业 ▸ C 医药、卫生、劳动保护 ▸ D 矿业 ▸ E 石油 ▸ F 能源、核技术 ▸ G 化工 ▸ H 冶金 ▸ J 机械 ▸ K 电工 ▸ L 电子元器件与信息技术 ▸ M 通信、广播 ▸ N 仪器、仪表 ▸ P 土木、建筑 ▸ Q 建材 ▸ R 公路、水路运输 ▸ S 铁路 ▸ T 车辆 ▸ U 船舶 ▸ V 航空、航天 ▸ W 纺织 ▸ X 食品 ▸ Y 轻工、文化与生活用品 ▸ Z 环境保护 ▸ 其他标准 拖动调整宽度 📚 文件目录 📚 文件目录 📖 目录 📖 目录 📜 法律法规文本直灌入库 正在从 /documents/<doc>/clauses 拉取全文。若一直停留在此，请重启引擎以加载最新后端代码（全文预览接口）。" [ref=e3184] [box=775,54,1145,998]:
+      - generic "📚 文件目录" [ref=e3187] [box=775,54,231,40]
+      - generic "按标准号或名称过滤文件目录，即时生效 按标准号或名称过滤文件目录，即时生效 🔍 搜索国标名称/编号" [ref=e3188] [cursor=pointer] [box=775,100,231,26]:
+        - textbox "按标准号或名称过滤文件目录，即时生效" [ref=e3073] [box=775,100,231,26]:
+          - /placeholder: 🔍 搜索国标名称/编号
+      - generic "▾ 法律法规" [ref=e3221] [box=781,138,219,22]
+      - generic "▸ 法律（狭义）" [ref=e3211] [box=799,161,201,22]
+      - generic "▸ 行政法规" [ref=e3214] [box=799,183,201,22]
+      - generic "▸ 部门规章" [ref=e3217] [box=799,205,201,22]
+      - generic "▾ 国家标准·行业标准·团体标准" [ref=e3325] [box=781,231,219,22]
+      - generic "▸ A 综合" [ref=e3227] [box=799,254,201,22]
+      - generic "▸ B 农业、林业" [ref=e3230] [box=799,276,201,22]
+      - generic "▸ C 医药、卫生、劳动保护" [ref=e3233] [box=799,298,201,22]
+      - generic "▸ D 矿业" [ref=e3236] [box=799,320,201,22]
+      - generic "▸ E 石油" [ref=e3239] [box=799,342,201,22]
+      - generic "▸ F 能源、核技术" [ref=e3242] [box=799,364,201,22]
+      - generic "▸ G 化工" [ref=e3245] [box=799,387,201,22]
+      - generic "▸ H 冶金" [ref=e3248] [box=799,409,201,22]
+      - generic "▸ J 机械" [ref=e3251] [box=799,431,201,22]
+      - generic "▸ K 电工" [ref=e3254] [box=799,453,201,22]
+      - generic "▸ L 电子元器件与信息技术" [ref=e3257] [box=799,475,201,22]
+      - generic "▸ M 通信、广播" [ref=e3260] [box=799,497,201,22]
+      - generic "▸ N 仪器、仪表" [ref=e3263] [box=799,519,201,22]
+      - generic "▸ P 土木、建筑" [ref=e3266] [box=799,541,201,22]
+      - generic "▸ Q 建材" [ref=e3269] [box=799,563,201,22]
+      - generic "▸ R 公路、水路运输" [ref=e3272] [box=799,585,201,22]
+      - generic "▸ S 铁路" [ref=e3275] [box=799,608,201,22]
+      - generic "▸ T 车辆" [ref=e3278] [box=799,630,201,22]
+      - generic "▸ U 船舶" [ref=e3281] [box=799,652,201,22]
+      - generic "▸ V 航空、航天" [ref=e3284] [box=799,674,201,22]
+      - generic "▸ W 纺织" [ref=e3287] [box=799,696,201,22]
+      - generic "▸ X 食品" [ref=e3290] [box=799,718,201,22]
+      - generic "▸ Y 轻工、文化与生活用品" [ref=e3293] [box=799,740,201,22]
+      - generic "▸ Z 环境保护" [ref=e3296] [box=799,762,201,22]
+      - generic "▸ 其他标准" [ref=e3299] [box=799,784,201,22]
+      - generic "拖动调整宽度" [ref=e3193] [box=1007,54,5,998]
+      - generic "📚 文件目录 📚 文件目录 📖 目录 📖 目录 📜 法律法规文本直灌入库 正在从 /documents/<doc>/clauses 拉取全文。若一直停留在此，请重启引擎以加载最新后端代码（全文预览接口）。" [ref=e3194] [box=1012,54,908,998]:
+        - button "📚 文件目录" [ref=e3196] [cursor=pointer] [box=1024,60,93,26]
+        - button "📖 目录" [disabled] [ref=e3197] [cursor=pointer] [box=1125,60,69,26]
+        - generic "法律法规文本直灌入库" [ref=e3200] [box=1391,569,150,20]
+        - generic "正在从 /documents/<doc>/clauses 拉取全文。若一直停留在此，请重启引擎以加载最新后端代码（全文预览接口）。" [ref=e3201] [box=1252,601,428,42]
+  - contentinfo "⚙️ 本地知识库 · 云增强模式（LLM 仅接收问题与证据片段） 外发内容全程留痕 · 运维面板可回溯" [ref=e3202] [box=0,1052,1920,28]

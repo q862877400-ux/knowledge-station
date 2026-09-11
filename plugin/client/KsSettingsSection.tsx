@@ -1,0 +1,1077 @@
+/**
+ * ks-dsh-plugin — client/KsSettingsSection.tsx
+ *
+ * The「法规标准知识库」settings SECTION, contributed to the DSH Settings shell
+ * as a TOP-LEVEL nav 栏目 (a `settings.section` registration) — the same
+ * mechanism dsh-better-sidebar uses to contribute its own「侧边卡片」nav
+ * (see its client/index.tsx `ctx.slots.inject('settings.section', …)`).
+ *
+ * WHY this instead of the previous hidden-tab card:
+ *  - A `TabDescriptor` (even `hidden: true`) can ONLY ever render as a FEATURE
+ *    CARD inside the「侧边栏内容」grid of the「侧边卡片」settings section. It
+ *    cannot produce a distinct settings 栏目/nav entry. `hidden` is only
+ *    filtered from the + menu (Sidebar.tsx buildNewTabOptions:172); the
+ *    settings grid does NOT filter it (SideCardSection.tsx:982-997), so the
+ *    hidden tab DID render — but buried at the bottom (tabOrder:112 sorts
+ *    hidden last) and its config was behind a gear popup, so it never read as
+ *    the「法规标准知识库」设置栏目 the user asked for.
+ *  - This section renders the plugin's settings INLINE and VISIBLE (the
+ *    showArrow switch is a plain row, not a popup), so the user sees the
+ *    栏目 title AND the config item at once.
+ *
+ * PREF STORE: the setting lives in the shared Side card prefs document under
+ * `pluginSettings['ks:settings']` — exactly where KsEvidenceTab reads it
+ * (`store.getSnapshot().prefs.pluginSettings['ks:settings'].showArrow`).
+ * Reads come from the reactive betterSidebar snapshot (so store commits from
+ * the Side card page re-render this section); writes go through
+ * dsh-better-sidebar's own fenced `/sidebar/api/settings.update` route
+ * (same-origin, revision-guarded, merged into the SAME prefs doc).
+ *
+ * KNOWN NUANCE (documented honestly): a write performed by this standalone
+ * section cannot also push through dsh-better-sidebar's internal
+ * `store.setPrefs` (the API is not exposed on the service), so the switch
+ * is OPTIMISTIC here and the value becomes store-visible on the next
+ * store hydrate/commit (opening the Side card page, or a reload). Persistence
+ * is durable either way.
+ */
+
+import * as React from 'react'
+import { useCallback, useEffect, useState, useSyncExternalStore } from 'react'
+
+import {
+  addAnnounceSource,
+  exportAnnounceDiscovery,
+  exportInspectionResult,
+  fetchAnnounceSources,
+  fetchAnnounceSummary,
+  fetchApiConfig,
+  fetchInspectionSummary,
+  InspectionHttpError,
+  type KsAnnouncePerSource,
+  type KsAnnounceSource,
+  type KsAnnounceSummary,
+  type KsApiChannel,
+  type KsApiConfigStatus,
+  type KsInspectionSummary,
+  removeAnnounceSource,
+  runInspection,
+  saveApiConfig,
+  scanAnnounceSources,
+  testApiChannel,
+  updateAnnounceSource,
+  updateInspectionSettings,
+} from './api'
+
+/** The betterSidebar slices this section needs (reactive prefs snapshot). */
+export interface KsSettingsServiceFace {
+  getSnapshot(): {
+    prefs: { pluginSettings?: Record<string, Record<string, unknown>> }
+  }
+  subscribeState(listener: () => void): () => void
+  /** 效力报告入口按钮用（runtime service IS the full betterSidebar service；
+   *  face 只收窄我们触碰的面——与 getSnapshot/subscribeState 同哲学）。 */
+  openTab?(seed: { type: string; url?: string; title?: string }): void
+}
+
+/** Injected business face: the betterSidebar service. */
+export interface KsSettingsSectionInjected {
+  service: KsSettingsServiceFace
+}
+
+/** Prefs namespace (the plugin's settings blob key) + the key this section owns. */
+export const KS_SETTINGS_PREFS_KEY = 'ks:settings'
+export const KS_SHOW_ARROW_KEY = 'showArrow'
+
+const SETTINGS_API = '/sidebar/api/settings'
+
+/** Read showArrow from the reactive snapshot. Absent/true = on (default);
+ *  an explicit `false` turns the red arrow off. */
+function readShowArrow(service: KsSettingsServiceFace): boolean {
+  try {
+    const blob = service.getSnapshot().prefs.pluginSettings?.[KS_SETTINGS_PREFS_KEY] as Record<string, unknown> | undefined
+    return (blob?.[KS_SHOW_ARROW_KEY] as boolean | undefined) !== false
+  } catch {
+    return true
+  }
+}
+
+/** One commit through better-sidebar's fenced settings route (revision-guarded;
+ *  the guard is best-effort — a read failure omits it, the write still lands). */
+async function commitShowArrow(service: KsSettingsServiceFace, next: boolean): Promise<void> {
+  const current = service.getSnapshot().prefs.pluginSettings ?? {}
+  const merged: Record<string, Record<string, unknown>> = {
+    ...current,
+    [KS_SETTINGS_PREFS_KEY]: { ...(current[KS_SETTINGS_PREFS_KEY] ?? {}), [KS_SHOW_ARROW_KEY]: next },
+  }
+  let expectedRevision: number | undefined
+  try {
+    const res = await fetch(`${SETTINGS_API}/get`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: '{}' })
+    const view = (await res.json().catch(() => null)) as { ok?: boolean; value?: { revision?: number } } | null
+    if (view?.ok === true && typeof view.value?.revision === 'number') expectedRevision = view.value.revision
+  } catch { /* revision is best-effort */ }
+  const res = await fetch(`${SETTINGS_API}/update`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({
+      patch: { pluginSettings: merged },
+      ...(expectedRevision !== undefined ? { expectedRevision } : {}),
+    }),
+  })
+  if (!res.ok) {
+    const err = (await res.json().catch(() => null)) as { error?: { message?: string } } | null
+    throw new Error(err?.error?.message ?? `HTTP ${res.status}`)
+  }
+}
+
+/**
+ * The「法规标准知识库」settings section body. Renders a single VISIBLE settings
+ * row (showArrow) inline. Registered via `settings.section`; receives the
+ * injected `{ service }`.
+ */
+export function KsSettingsSection(props: KsSettingsSectionInjected): JSX.Element {
+  const { service } = props
+
+  // Reactive read: re-renders when the shared prefs store commits (e.g. the
+  // Side card page toggles the same key).
+  const stored = useSyncExternalStore(
+    useCallback((cb: () => void) => service.subscribeState(cb), [service]),
+    () => readShowArrow(service),
+    // 第三参（getServerSnapshot）：SSR/并发特性正确用法；客户端被忽略。
+    // 缺它会让 scripts/smoke-settings.mjs 的 SSR 冒烟直接抛错（无法离线验证渲染）。
+    () => readShowArrow(service),
+  )
+  // Optimistic override so the switch responds immediately even though a
+  // standalone-section write cannot push through `store.setPrefs`; falls back
+  // to the stored value on failure.
+  const [optimistic, setOptimistic] = useState<boolean | null>(null)
+  const [saving, setSaving] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const shown = optimistic ?? stored
+
+  const onToggle = (next: boolean): void => {
+    setOptimistic(next)
+    setError(null)
+    setSaving(true)
+    void commitShowArrow(service, next)
+      .then(() => { setOptimistic(next) })
+      .catch((err) => {
+        setOptimistic(null)
+        setError(err instanceof Error ? err.message : String(err))
+      })
+      .finally(() => { setSaving(false) })
+  }
+
+  return (
+    <section style={{ padding: '8px 16px' }}>
+      <p style={{ margin: '0 0 10px', fontSize: 13, color: 'var(--dsw-alias-label-secondary, #666)' }}>
+        配置「法规标准知识库」插件在证据 PDF 中的行为。
+      </p>
+      <label style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 0', borderTop: '1px solid var(--dsw-alias-border-l1, #eee)' }}>
+        <span style={{ flex: 1 }}>
+          <span style={{ display: 'block', fontWeight: 600, color: 'var(--dsw-alias-label-primary, #111)' }}>显示红色定位箭头</span>
+          <span style={{ display: 'block', fontSize: 12, color: 'var(--dsw-alias-label-secondary, #666)' }}>
+            在 PDF 证据页用红箭头标出引用条款位置；关闭后仅跳页。
+          </span>
+        </span>
+        <input
+          type="checkbox"
+          checked={shown}
+          disabled={saving}
+          aria-label="显示红色定位箭头"
+          onChange={(e) => onToggle(e.currentTarget.checked)}
+        />
+      </label>
+      {error !== null && (
+        <p role="alert" style={{ color: 'var(--dsw-alias-warn, #b8860b)', fontSize: 12 }}>
+          保存失败：{error}
+        </p>
+      )}
+      <KsInspectionPanel />
+      <KsAnnounceSourcesSection />
+      <KsApiConfigSection />
+      <div style={{ borderTop: '1px solid var(--dsw-alias-border-l1, #eee)', marginTop: 4, paddingTop: 6, display: 'flex', alignItems: 'center', gap: 10 }}>
+        <span style={{ flex: 1, fontSize: 12, color: 'var(--dsw-alias-label-secondary, #666)' }}>
+          效力报告：按文件目录分类查看库内效力现状（现行 / 即将实施 / 被替代 / 废止），可导出 Excel。
+        </span>
+        <button
+          type="button"
+          onClick={() => service.openTab?.({ type: 'ks:report', title: '效力报告' })}
+          style={{
+            padding: '4px 14px', borderRadius: 6, fontSize: 13,
+            border: '1px solid #7f7f7f', background: '#ffffff', color: '#111111',
+            cursor: 'pointer',
+          }}
+        >
+          📋 打开效力报告
+        </button>
+      </div>
+    </section>
+  )
+}
+
+/* ------------------------------------------------------------------ *
+ * 「每日巡检」组（决策 19, P0 = 手动触发 + 逾期补跑；自动定时 P1 默认关）
+ *
+ * 数据全部来自 host 同源代理 /ks/inspection/summary（host 负责引擎保活/
+ * 轮询/落盘；client 不直连引擎、不经手 token）。运行中每 ~2.5s 轮询一次
+ * summary，直到批次离开 running。
+ * ------------------------------------------------------------------ */
+
+const COUNT_COLORS: Record<string, string> = {
+  red: '#c0392b',
+  yellow: '#b8860b',
+  green: '#2e7d32',
+  gray: '#888',
+}
+
+/** 红黄两色的 tooltip/图例说明（与引擎判定口径一致）。 */
+const COUNT_LABELS: Record<string, string> = {
+  red: '废止 / 被替代（需关注）',
+  yellow: '新版（需关注）',
+  green: '现行无变化',
+  gray: '官方渠道查无此号',
+}
+
+/** 引擎 sqlite datetime 是 UTC 无时区（'YYYY-MM-DD HH:MM:SS'）→ 补 Z 转本地。 */
+function fmtTs(value: string | null): string {
+  if (!value) return ''
+  const norm = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/.test(value)
+    ? `${value.replace(' ', 'T')}Z`
+    : value
+  const d = new Date(norm)
+  if (Number.isNaN(d.getTime())) return value
+  const mm = String(d.getMonth() + 1).padStart(2, '0')
+  const dd = String(d.getDate()).padStart(2, '0')
+  const hh = String(d.getHours()).padStart(2, '0')
+  const mi = String(d.getMinutes()).padStart(2, '0')
+  return `${mm}-${dd} ${hh}:${mi}`
+}
+
+function statusText(s: KsInspectionSummary): { text: string; tone: string } {
+  const last = s.last
+  if (!last) return { text: '尚未巡检', tone: 'var(--dsw-alias-label-secondary, #666)' }
+  switch (last.status) {
+    case 'running':
+      return {
+        text: `巡检中 · ${last.checked}/${last.total}${last.total > 0 ? '' : '（准备中）'}`,
+        tone: 'var(--dsw-alias-label-primary, #111)',
+      }
+    case 'done': {
+      const base = fmtTs(last.finished_at) || fmtTs(last.started_at)
+      const prefix = last.auto === true ? '今日自动巡检' : '上次巡检'
+      return { text: base ? `${prefix} ${base}` : `${prefix}已完成`, tone: 'var(--dsw-alias-label-secondary, #666)' }
+    }
+    case 'failed':
+      return { text: '上次巡检失败', tone: '#c0392b' }
+    case 'paused':
+      return {
+        text: `上次巡检已暂停${last.pause_reason === 'budget' ? '（当日预算用尽）' : last.pause_reason === 'captcha' ? '（验证码，需人工处理）' : ''}`,
+        tone: 'var(--dsw-alias-warn, #b8860b)',
+      }
+    default:
+      return { text: '上次巡检状态未知', tone: 'var(--dsw-alias-label-secondary, #666)' }
+  }
+}
+
+function KsInspectionPanel(): JSX.Element {
+  const [summary, setSummary] = useState<KsInspectionSummary | null>(null)
+  const [busy, setBusy] = useState(false)
+  const [exporting, setExporting] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [expError, setExpError] = useState<string | null>(null)
+  const [loadError, setLoadError] = useState(false)
+
+  const load = useCallback(async (): Promise<void> => {
+    try {
+      const s = await fetchInspectionSummary()
+      setSummary(s)
+      setLoadError(false)
+    } catch {
+      setLoadError(true)
+      // 保留旧快照（可能正 running），轮询仍会重试
+    }
+  }, [])
+
+  useEffect(() => {
+    void load()
+  }, [load])
+
+  // Running 期间自动轮询（链式 setTimeout，不重叠；离开 running 即停）。
+  const isRunning = summary?.last?.status === 'running'
+  useEffect(() => {
+    if (!isRunning) return
+    let alive = true
+    let timer: number | undefined
+    const tick = (): void => {
+      if (!alive) return
+      fetchInspectionSummary()
+        .then((s) => { if (alive) setSummary(s) })
+        .catch(() => { /* 保留旧快照，下轮再试 */ })
+        .finally(() => { if (alive) timer = window.setTimeout(tick, 2500) })
+    }
+    timer = window.setTimeout(tick, 1500)
+    return () => {
+      alive = false
+      if (timer !== undefined) window.clearTimeout(timer)
+    }
+  }, [isRunning])
+
+  const onRun = async (): Promise<void> => {
+    if (busy || isRunning) return
+    setBusy(true)
+    setError(null)
+    try {
+      await runInspection()
+      await load() // 立即反映 running → 上方轮询接管
+    } catch (err) {
+      if (err instanceof InspectionHttpError) {
+        setError(err.message)
+      } else {
+        setError(err instanceof Error ? err.message : String(err))
+      }
+      void load()
+    } finally {
+      setBusy(false)
+    }
+  }
+
+  const status = summary !== null ? statusText(summary) : null
+  const last = summary?.last ?? null
+  const overdue = summary?.overdue_days ?? 0
+
+  /* ---- P1 每日自动巡检设置（host 状态文件为真值；乐观更新 + 失败回读） ---- */
+  const settings = summary?.settings ?? null
+  const [autoSaving, setAutoSaving] = useState(false)
+  const [autoError, setAutoError] = useState<string | null>(null)
+
+  const patchSettings = async (patch: { autoEnabled?: boolean; time?: string }): Promise<void> => {
+    setAutoSaving(true)
+    setAutoError(null)
+    setSummary((prev) => (prev !== null ? { ...prev, settings: { ...prev.settings, ...patch } } : prev))
+    try {
+      const saved = await updateInspectionSettings(patch)
+      setSummary((prev) => (prev !== null ? { ...prev, settings: saved } : prev))
+    } catch (err) {
+      setAutoError(err instanceof Error ? err.message : String(err))
+      void load() // 失败回读真值
+    } finally {
+      setAutoSaving(false)
+    }
+  }
+
+  /** 导出仅针对「已完成」的上一批次（running 中禁用；从未跑过无 last 也禁用）。 */
+  const canExport = last !== null && last.status !== 'running'
+  const onExport = async (): Promise<void> => {
+    if (!canExport || exporting) return
+    setExporting(true)
+    setExpError(null)
+    try {
+      await exportInspectionResult()
+    } catch (err) {
+      setExpError(err instanceof Error ? err.message : String(err))
+    } finally {
+      setExporting(false)
+    }
+  }
+
+  const colorDot = (c: string, n: number): React.ReactNode => (
+    <span key={c} title={COUNT_LABELS[c]} style={{ display: 'inline-flex', alignItems: 'center', gap: 4, color: c, fontSize: 12 }}>
+      <span style={{ width: 8, height: 8, borderRadius: '50%', background: c, display: 'inline-block' }} />
+      {n}
+    </span>
+  )
+
+  return (
+    <div style={{ borderTop: '1px solid var(--dsw-alias-border-l1, #eee)', marginTop: 4, paddingTop: 6 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 0 2px' }}>
+        <span style={{ fontWeight: 600, color: 'var(--dsw-alias-label-primary, #111)' }}>每日巡检（关注标准）</span>
+        {overdue > 0 && last?.status === 'done' && (
+          <span style={{ fontSize: 12, color: '#b8860b', border: '1px solid #b8860b55', borderRadius: 4, padding: '0 6px', lineHeight: '18px' }}>
+            已逾期 {overdue} 天
+          </span>
+        )}
+        {summary?.stale_run === true && (
+          <span style={{ fontSize: 12, color: '#c0392b', border: '1px solid #c0392b55', borderRadius: 4, padding: '0 6px', lineHeight: '18px' }}>
+            上次疑似中断
+          </span>
+        )}
+      </div>
+      <p style={{ margin: '2px 0 8px', fontSize: 12, color: 'var(--dsw-alias-label-secondary, #666)' }}>
+        对照官网公告检查关注标准/收藏标准是否出现新版、废止或替代；仅比对不改库，变更以三色列出。
+      </p>
+
+      {loadError && summary === null && (
+        <p role="alert" style={{ color: '#c0392b', fontSize: 12, margin: '0 0 6px' }}>
+          巡检状态读取失败（host 路由不可用？请刷新重试）
+        </p>
+      )}
+
+      {last !== null && last.status === 'failed' && (
+        <p role="alert" style={{ color: '#c0392b', fontSize: 12, margin: '0 0 6px' }}>
+          {last.error ?? '巡检批次失败'}
+        </p>
+      )}
+
+      {status !== null && (
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '2px 0 4px' }}>
+          <span style={{ color: status.tone, fontSize: 13 }}>
+            {isRunning ? '⏳' : last?.status === 'done' ? '✅' : last?.status === 'failed' ? '❌' : ''} {status.text}
+          </span>
+          {last !== null && last.total > 0 && last.status !== 'running' && (
+            <span style={{ display: 'inline-flex', gap: 10 }}>
+              {(['red', 'yellow', 'green', 'gray'] as const).map((k) => colorDot(k, last.counts[k]))}
+            </span>
+          )}
+        </div>
+      )}
+
+      {/* 纵览统计：只给数字总览，不给逐条清单（万级明细在 UI 展开无意义——
+          需要逐条看时用「导出巡查结果」拿 Excel）。 */}
+      {last !== null && last.by_type !== null && last.status !== 'running' && (
+        <div style={{ fontSize: 12, color: 'var(--dsw-alias-label-secondary, #666)', padding: '0 0 4px', lineHeight: '18px' }}>
+          {(() => {
+            const bt = last.by_type
+            if (last.total === 0) {
+              // tier0 = 关注面(收藏/盯板/订阅) ∪ 未首检；两者皆空 → 空转批次（正常语义）
+              return '本次巡检清单为空：关注面暂无标准、也无新入库待首检文档——收藏标准或导入新文档后再巡检'
+            }
+            const sum = bt.new_version + bt.superseded + bt.withdrawn + bt.not_found + bt.no_change
+            if (sum < last.total) {
+              // 旧状态文件的细分缺失（全 0）且启动自愈尚未跑：不做"全部无变化"断言
+              return `共检 ${last.total} 项 · 细分统计将在下次巡检时生成`
+            }
+            const attention = bt.superseded + bt.withdrawn + bt.new_version
+            if (attention === 0 && bt.not_found === 0) {
+              return `本次共检 ${last.total} 项 · 全部现行无变化`
+            }
+            const focus: string[] = []
+            if (bt.withdrawn > 0) focus.push(`废止 ${bt.withdrawn}`)
+            if (bt.superseded > 0) focus.push(`被替代 ${bt.superseded}`)
+            if (bt.new_version > 0) focus.push(`新版 ${bt.new_version}`)
+            const other: string[] = []
+            if (bt.not_found > 0) other.push(`查无 ${bt.not_found}`)
+            if (bt.no_change > 0) other.push(`无变化 ${bt.no_change}`)
+            const focusText = focus.length > 0 ? ` · 需关注 ${attention} 项（${focus.join(' / ')}）` : ''
+            const otherText = other.length > 0 ? ` · ${other.join(' / ')}` : ''
+            return `共检 ${last.total} 项${focusText}${otherText}`
+          })()}
+        </div>
+      )}
+
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '4px 0', flexWrap: 'wrap' }}>
+        <button
+          type="button"
+          onClick={() => void onRun()}
+          disabled={busy || isRunning || loadError}
+          style={{
+            padding: '4px 14px',
+            borderRadius: 6,
+            // 按钮配色成对固定，不拆开跟主题 token——背景与文字分属两个变量域时
+            // 会在深色主题下撞成白字白底（用户实测）。浅底深字，黑白两种主题都清晰。
+            border: `1px solid ${busy || isRunning || loadError ? '#c4c4c4' : '#7f7f7f'}`,
+            background: busy || isRunning || loadError ? '#e9e9e9' : '#ffffff',
+            color: busy || isRunning || loadError ? '#5a5a5a' : '#111111',
+            cursor: busy || isRunning ? 'default' : 'pointer',
+            fontSize: 13,
+          }}
+        >
+          {busy ? '启动中…' : isRunning ? '巡检中…' : overdue > 0 ? '补跑今日巡检' : '今日巡检（tier0）'}
+        </button>
+        <button
+          type="button"
+          onClick={() => void onExport()}
+          disabled={!canExport || exporting || loadError}
+          title={canExport ? '导出上一次巡检结果（Excel：汇总/明细/趋势）' : '需先完成一次巡检'}
+          style={{
+            padding: '4px 14px',
+            borderRadius: 6,
+            border: `1px solid ${!canExport || exporting || loadError ? '#c4c4c4' : '#7f7f7f'}`,
+            background: !canExport || exporting || loadError ? '#e9e9e9' : '#ffffff',
+            color: !canExport || exporting || loadError ? '#5a5a5a' : '#111111',
+            cursor: !canExport || exporting ? 'default' : 'pointer',
+            fontSize: 13,
+          }}
+        >
+          {exporting ? '导出中…' : '导出巡查结果（Excel）'}
+        </button>
+        {expError !== null && (
+          <span role="alert" style={{ color: '#c0392b', fontSize: 12 }}>{expError}</span>
+        )}
+        {error !== null && (
+          <span role="alert" style={{ color: '#c0392b', fontSize: 12 }}>{error}</span>
+        )}
+      </div>
+      {/* P1 每日自动巡检设置：host 定时器消费（30s tick，到点即跑；dsh 晚开补当天一次） */}
+      <div style={{ borderTop: '1px solid var(--dsw-alias-border-l1, #eee)', marginTop: 6, paddingTop: 2 }}>
+        <label style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 0 2px' }}>
+          <span style={{ flex: 1 }}>
+            <span style={{ display: 'block', fontWeight: 600, color: 'var(--dsw-alias-label-primary, #111)' }}>
+              每日自动巡检
+            </span>
+            <span style={{ display: 'block', fontSize: 12, color: 'var(--dsw-alias-label-secondary, #666)' }}>
+              开启后每日 {settings?.time ?? '08:30'} 自动检查关注面；dsh 未开启时，下次启动补跑当天一次。
+            </span>
+          </span>
+          <input
+            type="checkbox"
+            checked={settings?.autoEnabled === true}
+            disabled={autoSaving || settings === null}
+            aria-label="每日自动巡检"
+            onChange={(e) => void patchSettings({ autoEnabled: e.currentTarget.checked })}
+          />
+        </label>
+        {settings?.autoEnabled === true && (
+          <label style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '2px 0' }}>
+            <span style={{ fontSize: 12, color: 'var(--dsw-alias-label-secondary, #666)' }}>每日时点</span>
+            <input
+              type="time"
+              value={settings.time}
+              disabled={autoSaving}
+              aria-label="每日巡检时点"
+              onChange={(e) => {
+                const v = e.currentTarget.value
+                if (/^([01]\d|2[0-3]):[0-5]\d$/.test(v)) void patchSettings({ time: v })
+              }}
+              style={{ fontSize: 12, padding: '2px 6px' }}
+            />
+            <span style={{ fontSize: 12, color: 'var(--dsw-alias-label-secondary, #999)' }}>
+              周日 tier1 全库滚动（P2 开放）
+            </span>
+          </label>
+        )}
+        {autoError !== null && (
+          <p role="alert" style={{ color: '#c0392b', fontSize: 12, margin: '2px 0 0' }}>
+            保存失败：{autoError}
+          </p>
+        )}
+      </div>
+    </div>
+  )
+}
+
+/* ------------------------------------------------------------------ *
+ * 「公告发现」组（语义 C：自定义公告源 → 随巡检定期"看新公告" → 轻通知）
+ *
+ * 数据来自 host 同源代理 /ks/announce/*：summary 为本地快照（绝不拉起引擎）；
+ * 源管理 details 默认收起、展开才拉清单（打开设置页不拉起引擎）。running 期间
+ * 2.5s 轮询同巡检模式。解析失败（WAF/JS 壳/0 条）按源诚实归因，绝不假装成功。
+ * ------------------------------------------------------------------ */
+
+const REASON_LABELS: Record<string, string> = {
+  waf_captcha: 'WAF/验证码拦截',
+  js_shell_suspected: '疑似 JS 渲染（无可解析链接）',
+  parse_empty: '解析 0 条（页面结构不同）',
+  skipped_timeout: '扫描超时跳过',
+  unreachable: '网络不可达',
+}
+
+function sourceStatusText(p: KsAnnouncePerSource | undefined): string {
+  if (p === undefined) return '本轮未扫'
+  if (p.status === 'ok') {
+    const parts: string[] = []
+    if (p.baseline_items > 0) parts.push(`收录 ${p.baseline_items}`)
+    if (p.new_items > 0) parts.push(`新 ${p.new_items}`)
+    if (parts.length === 0) parts.push(`${p.items} 条已见`)
+    return `✅ ${parts.join(' · ')}`
+  }
+  if (p.status === 'failed') {
+    const label = p.reason !== null ? REASON_LABELS[p.reason] : undefined
+    return `❌ ${label ?? p.reason ?? '失败'}`
+  }
+  return `⏸ ${p.reason ?? p.status}`
+}
+
+function KsAnnounceSourcesSection(): JSX.Element {
+  const [summary, setSummary] = useState<KsAnnounceSummary | null>(null)
+  const [scanning, setScanning] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [loadError, setLoadError] = useState(false)
+  const [sources, setSources] = useState<KsAnnounceSource[] | null>(null)
+  const [sourcesError, setSourcesError] = useState<string | null>(null)
+  const [newName, setNewName] = useState('')
+  const [newUrl, setNewUrl] = useState('')
+  const [adding, setAdding] = useState(false)
+  const [addError, setAddError] = useState<string | null>(null)
+
+  const load = useCallback(async (): Promise<void> => {
+    try {
+      const s = await fetchAnnounceSummary()
+      setSummary(s)
+      setLoadError(false)
+    } catch {
+      setLoadError(true) // 保留旧快照
+    }
+  }, [])
+
+  useEffect(() => {
+    void load()
+  }, [load])
+
+  // 扫描 running 期间自动轮询（链式 setTimeout 不重叠）
+  const isRunning = summary?.last?.status === 'running'
+  useEffect(() => {
+    if (!isRunning) return
+    let alive = true
+    let timer: number | undefined
+    const tick = (): void => {
+      if (!alive) return
+      fetchAnnounceSummary()
+        .then((s) => { if (alive) setSummary(s) })
+        .catch(() => { /* 保留旧快照 */ })
+        .finally(() => { if (alive) timer = window.setTimeout(tick, 2500) })
+    }
+    timer = window.setTimeout(tick, 1500)
+    return () => {
+      alive = false
+      if (timer !== undefined) window.clearTimeout(timer)
+    }
+  }, [isRunning])
+
+  const onScan = async (): Promise<void> => {
+    if (scanning || isRunning) return
+    setScanning(true)
+    setError(null)
+    try {
+      await scanAnnounceSources()
+      await load()
+    } catch (err) {
+      setError(err instanceof Error ? err.message : String(err))
+      void load()
+    } finally {
+      setScanning(false)
+    }
+  }
+
+  const [exportingAnn, setExportingAnn] = useState(false)
+  const [annExportError, setAnnExportError] = useState<string | null>(null)
+  const onAnnExport = async (): Promise<void> => {
+    if (exportingAnn) return
+    setExportingAnn(true)
+    setAnnExportError(null)
+    try {
+      await exportAnnounceDiscovery()
+    } catch (err) {
+      setAnnExportError(err instanceof Error ? err.message : String(err))
+    } finally {
+      setExportingAnn(false)
+    }
+  }
+
+  const loadSources = useCallback(async (): Promise<void> => {
+    setSourcesError(null)
+    try {
+      const d = await fetchAnnounceSources()
+      setSources(d.sources)
+    } catch (err) {
+      setSourcesError(err instanceof Error ? err.message : String(err))
+    }
+  }, [])
+
+  const onAdd = async (): Promise<void> => {
+    if (adding || !newName.trim() || !newUrl.trim()) return
+    setAdding(true)
+    setAddError(null)
+    try {
+      await addAnnounceSource(newName.trim(), newUrl.trim())
+      setNewName('')
+      setNewUrl('')
+      await loadSources()
+      await load()
+    } catch (err) {
+      setAddError(err instanceof Error ? err.message : String(err))
+    } finally {
+      setAdding(false)
+    }
+  }
+
+  const onToggleEnabled = async (src: KsAnnounceSource, next: boolean): Promise<void> => {
+    try {
+      await updateAnnounceSource(src.id, { enabled: next })
+      await loadSources()
+    } catch (err) {
+      setSourcesError(err instanceof Error ? err.message : String(err))
+    }
+  }
+
+  const onRemove = async (src: KsAnnounceSource): Promise<void> => {
+    if (!window.confirm(`删除公告源「${src.name}」？（历史公告记录保留）`)) return
+    try {
+      await removeAnnounceSource(src.id)
+      await loadSources()
+      await load()
+    } catch (err) {
+      setSourcesError(err instanceof Error ? err.message : String(err))
+    }
+  }
+
+  const last = summary?.last ?? null
+  const failedCount = last?.per_source.filter((p) => p.status === 'failed').length ?? 0
+
+  return (
+    <div style={{ borderTop: '1px solid var(--dsw-alias-border-l1, #eee)', marginTop: 4, paddingTop: 6 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '8px 0 2px', flexWrap: 'wrap' }}>
+        <span style={{ fontWeight: 600, color: 'var(--dsw-alias-label-primary, #111)' }}>公告发现（自定义公告源）</span>
+        {summary?.stale_run === true && (
+          <span style={{ fontSize: 12, color: '#c0392b', border: '1px solid #c0392b55', borderRadius: 4, padding: '0 6px', lineHeight: '18px' }}>
+            上次扫描疑似中断
+          </span>
+        )}
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '2px 0 4px', flexWrap: 'wrap', fontSize: 13 }}>
+        {isRunning ? (
+          <span style={{ color: 'var(--dsw-alias-label-primary, #111)' }}>
+            ⏳ 扫描中 · {last?.sources_done ?? 0}/{last?.sources_total ?? 0} 源
+          </span>
+        ) : last?.status === 'done' ? (
+          <>
+            <span style={{ color: 'var(--dsw-alias-label-secondary, #666)' }}>
+              最近扫描 {fmtTs(last.finished_at)}
+            </span>
+            {last.baseline_count > 0 && (
+              <span style={{ color: 'var(--dsw-alias-label-secondary, #666)', fontSize: 12 }}>
+                收录 {last.baseline_count}
+              </span>
+            )}
+            {last.new_count > 0 && (
+              <span style={{ fontSize: 12, color: '#b8860b', border: '1px solid #b8860b55', borderRadius: 4, padding: '0 6px', lineHeight: '18px' }}>
+                新 {last.new_count} 条
+              </span>
+            )}
+            {failedCount > 0 && (
+              <span style={{ fontSize: 12, color: '#c0392b', border: '1px solid #c0392b55', borderRadius: 4, padding: '0 6px', lineHeight: '18px' }}>
+                失败 {failedCount} 个源
+              </span>
+            )}
+          </>
+        ) : last?.status === 'failed' ? (
+          <span style={{ color: '#c0392b', fontSize: 13 }}>
+            上次扫描失败{last.error ? `：${last.error}` : ''}
+          </span>
+        ) : (
+          <span style={{ color: 'var(--dsw-alias-label-secondary, #666)' }}>尚未扫描</span>
+        )}
+      </div>
+      <p style={{ margin: '2px 0 8px', fontSize: 12, color: 'var(--dsw-alias-label-secondary, #666)' }}>
+        添加官方公告列表页地址，随每日巡检自动检查新公告；仅支持公网 http/https，解析失败会如实显示原因。
+      </p>
+
+      {loadError && summary === null && (
+        <p role="alert" style={{ color: '#c0392b', fontSize: 12, margin: '0 0 6px' }}>
+          公告状态读取失败（host 路由不可用？请刷新重试）
+        </p>
+      )}
+
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '4px 0' }}>
+        <button
+          type="button"
+          onClick={() => void onScan()}
+          disabled={scanning || isRunning || loadError}
+          style={{
+            padding: '4px 14px',
+            borderRadius: 6,
+            // 配色成对固定（同「今日巡检」按钮，黑白主题都清晰）
+            border: `1px solid ${scanning || isRunning || loadError ? '#c4c4c4' : '#7f7f7f'}`,
+            background: scanning || isRunning || loadError ? '#e9e9e9' : '#ffffff',
+            color: scanning || isRunning || loadError ? '#5a5a5a' : '#111111',
+            cursor: scanning || isRunning ? 'default' : 'pointer',
+            fontSize: 13,
+          }}
+        >
+          {scanning ? '启动中…' : isRunning ? '扫描中…' : '扫描公告源'}
+        </button>
+        <button
+          type="button"
+          onClick={() => void onAnnExport()}
+          disabled={exportingAnn || loadError}
+          title="导出公告发现 Excel（最近扫描源状态 + 公告明细全量）"
+          style={{
+            padding: '4px 14px',
+            borderRadius: 6,
+            border: `1px solid ${exportingAnn || loadError ? '#c4c4c4' : '#7f7f7f'}`,
+            background: exportingAnn || loadError ? '#e9e9e9' : '#ffffff',
+            color: exportingAnn || loadError ? '#5a5a5a' : '#111111',
+            cursor: exportingAnn ? 'default' : 'pointer',
+            fontSize: 13,
+          }}
+        >
+          {exportingAnn ? '导出中…' : '导出公告发现（Excel）'}
+        </button>
+        {annExportError !== null && (
+          <span role="alert" style={{ color: '#c0392b', fontSize: 12 }}>{annExportError}</span>
+        )}
+        {error !== null && (
+          <span role="alert" style={{ color: '#c0392b', fontSize: 12 }}>{error}</span>
+        )}
+      </div>
+
+      <details style={{ fontSize: 12, margin: '2px 0', color: 'var(--dsw-alias-label-secondary, #666)' }}>
+        <summary style={{ cursor: 'pointer' }}>最近公告（{last?.recent.length ?? 0} 条，点击展开）</summary>
+        <ul style={{ margin: '6px 0 0', paddingLeft: 18 }}>
+          {(last?.recent ?? []).map((r, i) => (
+            <li key={`${r.url}-${i}`} style={{ lineHeight: '20px' }}>
+              <a href={r.url} target="_blank" rel="noreferrer" style={{ color: 'var(--dsw-alias-label-primary, #111)' }}>
+                {r.title}
+              </a>
+              <span style={{ color: 'var(--dsw-alias-label-secondary, #888)' }}>
+                {r.source_name ? ` · ${r.source_name}` : ''}{r.published_date ? ` · ${r.published_date}` : ''}
+              </span>
+            </li>
+          ))}
+          {(last?.recent.length ?? 0) === 0 && <li style={{ listStyle: 'none', marginLeft: -18 }}>暂无记录（扫描后显示最近 5 条）</li>}
+        </ul>
+      </details>
+
+      <details
+        style={{ fontSize: 12, margin: '2px 0', color: 'var(--dsw-alias-label-secondary, #666)' }}
+        onToggle={(e) => {
+          if ((e.currentTarget as HTMLDetailsElement).open && sources === null) {
+            void loadSources()
+          }
+        }}
+      >
+        <summary style={{ cursor: 'pointer' }}>
+          源管理（{sources === null ? '展开加载' : `${sources.length} 个`}）
+        </summary>
+        {sources === null ? (
+          <p style={{ margin: '6px 0 0' }}>加载中…</p>
+        ) : sources.length === 0 ? (
+          <p style={{ margin: '6px 0 0' }}>还没有公告源——在下方添加第一个。</p>
+        ) : (
+          <div style={{ margin: '6px 0 0' }}>
+            {sources.map((src) => {
+              const ps = last?.per_source.find((p) => p.id === src.id)
+              return (
+                <div key={src.id} style={{ display: 'flex', alignItems: 'center', gap: 8, padding: '3px 0', flexWrap: 'wrap' }}>
+                  <input
+                    type="checkbox"
+                    checked={src.enabled !== false}
+                    aria-label={`启用 ${src.name}`}
+                    onChange={(e) => void onToggleEnabled(src, e.currentTarget.checked)}
+                  />
+                  <span style={{ color: 'var(--dsw-alias-label-primary, #111)', minWidth: 90 }}>{src.name}</span>
+                  <span title={src.url} style={{ color: 'var(--dsw-alias-label-secondary, #888)', maxWidth: 260, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                    {src.url}
+                  </span>
+                  <span>{sourceStatusText(ps)}</span>
+                  <button
+                    type="button"
+                    onClick={() => void onRemove(src)}
+                    style={{ border: '1px solid #c4c4c4', background: '#ffffff', color: '#5a5a5a', borderRadius: 4, fontSize: 11, padding: '1px 8px', cursor: 'pointer' }}
+                  >
+                    删除
+                  </button>
+                </div>
+              )
+            })}
+          </div>
+        )}
+        {sourcesError !== null && (
+          <p role="alert" style={{ color: '#c0392b', fontSize: 12 }}>{sourcesError}</p>
+        )}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 8, flexWrap: 'wrap' }}>
+          <input
+            value={newName}
+            onChange={(e) => setNewName(e.currentTarget.value)}
+            placeholder="源名称（如 应急部标准公告）"
+            style={{ fontSize: 12, padding: '3px 8px', width: 170 }}
+          />
+          <input
+            value={newUrl}
+            onChange={(e) => setNewUrl(e.currentTarget.value)}
+            placeholder="https://…（公告列表页地址）"
+            style={{ fontSize: 12, padding: '3px 8px', flex: 1, minWidth: 220 }}
+          />
+          <button
+            type="button"
+            onClick={() => void onAdd()}
+            disabled={adding || !newName.trim() || !newUrl.trim()}
+            style={{
+              padding: '3px 14px', borderRadius: 6, fontSize: 12,
+              border: `1px solid ${adding || !newName.trim() || !newUrl.trim() ? '#c4c4c4' : '#7f7f7f'}`,
+              background: adding || !newName.trim() || !newUrl.trim() ? '#e9e9e9' : '#ffffff',
+              color: adding || !newName.trim() || !newUrl.trim() ? '#5a5a5a' : '#111111',
+              cursor: adding ? 'default' : 'pointer',
+            }}
+          >
+            {adding ? '添加中…' : '添加源'}
+          </button>
+        </div>
+        {addError !== null && (
+          <p role="alert" style={{ color: '#c0392b', fontSize: 12 }}>{addError}</p>
+        )}
+      </details>
+    </div>
+  )
+}
+
+/* ------------------------------------------------------------------ *
+ * 「API配置」组（2026-09-08）：云 OCR / LLM 凭据（可折叠，默认收起）
+ *
+ * 通道语义（用户修订）：导入文件时——配置了云 OCR Key → 云优先、本地兜底；
+ * 未配置 → 直接本地通道（纯本地不外发）。凭据由引擎写入 HKCU 注册表，
+ * 前端与 host 均不回显 Key（只显示「已配置」状态）。
+ * ------------------------------------------------------------------ */
+
+/** 按钮成对固定配色（同巡检/公告按钮：白底深字，黑白主题都清晰）。
+ *  注：曾误用 KsReportTab 里的同名局部 helper 导致 ReferenceError（栏目白屏，
+ *  由 scripts/smoke-settings.mjs 的 SSR 冒烟抓出）——本文件的 helper 就地定义。 */
+function btnStyle(disabled: boolean): React.CSSProperties {
+  return {
+    padding: '3px 12px', borderRadius: 6, fontSize: 12,
+    border: `1px solid ${disabled ? '#c4c4c4' : '#7f7f7f'}`,
+    background: disabled ? '#e9e9e9' : '#ffffff',
+    color: disabled ? '#5a5a5a' : '#111111',
+    cursor: disabled ? 'default' : 'pointer',
+  }
+}
+
+function KsApiConfigSection(): JSX.Element {
+  const [status, setStatus] = useState<KsApiConfigStatus | null>(null)
+  const [err, setErr] = useState<string | null>(null)
+  const [busy, setBusy] = useState<string | null>(null)
+  const [cloudKey, setCloudKey] = useState('')
+  const [cloudUrl, setCloudUrl] = useState('')
+  const [llmKey, setLlmKey] = useState('')
+  const [llmUrl, setLlmUrl] = useState('')
+  const [tests, setTests] = useState<Record<string, { ok: boolean; detail: string } | null>>({})
+
+  const load = useCallback(async (): Promise<void> => {
+    try {
+      setStatus(await fetchApiConfig())
+      setErr(null)
+    } catch (e) {
+      setErr(e instanceof Error ? e.message : String(e))
+    }
+  }, [])
+
+  const onSave = async (ch: KsApiChannel, key: string, url: string): Promise<void> => {
+    const payload: { mineru_cloud?: { api_key?: string; base_url?: string }; llm?: { api_key?: string; base_url?: string } } = {}
+    const sec: { api_key?: string; base_url?: string } = {}
+    if (key.trim()) sec.api_key = key.trim()
+    if (url.trim()) sec.base_url = url.trim()
+    if (Object.keys(sec).length === 0) {
+      setErr('请填写 Key 或 Base URL（留空表示保持现值）')
+      return
+    }
+    payload[ch] = sec
+    setBusy(`save-${ch}`)
+    setErr(null)
+    try {
+      setStatus(await saveApiConfig(payload))
+      // verifier F7：保存后旧探测结论已失效（它测的是旧凭据）→ 清掉，防误读
+      setTests((prev) => ({ ...prev, [ch]: null }))
+      if (ch === 'mineru_cloud') { setCloudKey(''); setCloudUrl('') } else { setLlmKey(''); setLlmUrl('') }
+    } catch (e) {
+      setErr(e instanceof Error ? e.message : String(e))
+    } finally {
+      setBusy(null)
+    }
+  }
+
+  const onTest = async (ch: KsApiChannel): Promise<void> => {
+    setBusy(`test-${ch}`)
+    try {
+      const r = await testApiChannel(ch)
+      setTests((prev) => ({ ...prev, [ch]: r }))
+    } catch (e) {
+      setTests((prev) => ({ ...prev, [ch]: { ok: false, detail: e instanceof Error ? e.message : String(e) } }))
+    } finally {
+      setBusy(null)
+    }
+  }
+
+  const chan = (ch: KsApiChannel, label: string, keyVal: string, setKey: (v: string) => void,
+    urlVal: string, setUrl: (v: string) => void): JSX.Element => {
+    const st = status?.[ch]
+    const configured = st?.configured === true
+    const t = tests[ch]
+    // verifier F7：探测走的是**已保存**的凭据——有未保存输入时先拦住，
+    // 否则用户会拿旧 Key 的探测结果去判断刚粘贴的新 Key（误判）。
+    const dirty = keyVal.trim().length > 0 || urlVal.trim().length > 0
+    return (
+      <div style={{ marginTop: 8 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12 }}>
+          <span style={{ fontWeight: 600, color: 'var(--dsw-alias-label-primary, #111)' }}>{label}</span>
+          <span style={{
+            fontSize: 11, padding: '0 6px', lineHeight: '17px', borderRadius: 4,
+            color: configured ? '#2e7d32' : '#888',
+            border: `1px solid ${configured ? '#2e7d3255' : '#88888855'}`,
+          }}>
+            {configured ? '已配置' : '未配置'}
+          </span>
+          {st?.base_url && (
+            <span style={{ fontSize: 11, color: 'var(--dsw-alias-label-secondary, #888)' }}>
+              当前生效 {st.base_url}
+            </span>
+          )}
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 4, flexWrap: 'wrap' }}>
+          <input
+            type="password"
+            autoComplete="off"
+            value={keyVal}
+            onChange={(e) => setKey(e.currentTarget.value)}
+            placeholder={configured ? 'Key 已配置（留空保持不变；输 "-" 清除）' : '粘贴 API Key'}
+            style={{ fontSize: 12, padding: '3px 8px', width: 220 }}
+          />
+          <input
+            value={urlVal}
+            onChange={(e) => setUrl(e.currentTarget.value)}
+            placeholder='Base URL（留空保持不变；输 "-" 恢复内置默认）'
+            style={{ fontSize: 12, padding: '3px 8px', flex: 1, minWidth: 200 }}
+          />
+          <button type="button" disabled={busy !== null}
+            onClick={() => void onSave(ch, keyVal, urlVal)}
+            style={btnStyle(busy !== null)}>
+            {busy === `save-${ch}` ? '保存中…' : '保存'}
+          </button>
+          <button type="button" disabled={busy !== null || dirty}
+            title={dirty ? '有未保存的修改：先点「保存」再测试' : undefined}
+            onClick={() => void onTest(ch)}
+            style={btnStyle(busy !== null || dirty)}>
+            {busy === `test-${ch}` ? '测试中…' : (dirty ? '先保存再测试' : '🧪 测试连通')}
+          </button>
+        </div>
+        {dirty && (
+          <p style={{ margin: '3px 0 0', fontSize: 11, color: 'var(--dsw-alias-label-secondary, #888)' }}>
+            探测使用已保存的凭据；新填的 Key / Base URL 请先保存。
+            留空表示保持不变，输入 <code>-</code> 表示清除该值（Key 清除后回到纯本地通道）。
+          </p>
+        )}
+        {t && (
+          <p style={{ margin: '3px 0 0', fontSize: 12, color: t.ok ? '#2e7d32' : '#c0392b' }}>
+            {t.ok ? '✅ ' : '❌ '}{t.detail}
+          </p>
+        )}
+      </div>
+    )
+  }
+
+  return (
+    <div style={{ borderTop: '1px solid var(--dsw-alias-border-l1, #eee)', marginTop: 4, paddingTop: 6 }}>
+      <details onToggle={(e) => {
+        if ((e.currentTarget as HTMLDetailsElement).open && status === null) void load()
+      }}>
+        <summary style={{ cursor: 'pointer', fontWeight: 600, color: 'var(--dsw-alias-label-primary, #111)', fontSize: 13 }}>
+          API配置
+          {status !== null && (
+            <span style={{ marginLeft: 8, fontSize: 11, fontWeight: 400, color: status.mineru_cloud.configured ? '#2e7d32' : '#888' }}>
+              云 OCR {status.mineru_cloud.configured ? '已配置' : '未配置'}
+            </span>
+          )}
+        </summary>
+        <p style={{ margin: '6px 0 0', fontSize: 12, color: 'var(--dsw-alias-label-secondary, #666)' }}>
+          配置云 OCR Key 后，导入文件优先走云解析、本地兜底；未配置则直接走本地通道（纯本地不外发）。
+          凭据只写入本机 Windows 用户注册表，不回显、不入库。
+        </p>
+        {chan('mineru_cloud', '☁️ 云 OCR（MinerU 官方云）', cloudKey, setCloudKey, cloudUrl, setCloudUrl)}
+        {chan('llm', '🤖 LLM 问答通道', llmKey, setLlmKey, llmUrl, setLlmUrl)}
+        {err !== null && (
+          <p role="alert" style={{ color: '#c0392b', fontSize: 12, margin: '6px 0 0' }}>{err}</p>
+        )}
+      </details>
+    </div>
+  )
+}
+
+export default KsSettingsSection
