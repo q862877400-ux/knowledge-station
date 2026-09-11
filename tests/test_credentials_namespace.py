@@ -38,6 +38,7 @@ LEGACY_ALLOWED_FILES = {
     "src/renderer/ApiConfigPanel.tsx",       # 旧 GUI 输入框占位提示
     "scripts/ks-credentials-migrate.py",     # 迁移工具（打印变量名，不回显值）
     "scripts/ks-credential-readers-scan.py",  # 读者排查工具（批 1b：检查旧名残留，只记存在性不记值）
+    "scripts/ks-credential-reconcile.py",   # 对账工具（批 2c：引擎↔DSH 名字配对+指纹比对，不碰值）
     "scripts/make_handoff_zip.py",           # 交接清单文档字符串
     "scripts/_dl_diag.py",                   # 只读探测存在性
     "plugin/scripts/verify-answer.mjs",      # 假引擎桩里的报错文案

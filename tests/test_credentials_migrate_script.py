@@ -171,6 +171,25 @@ def test_clean_system_deletes_verified_entries(migrate, fake_reg, capsys):
     assert "重启 DSH 宿主" in out                       # 删完必须提示重启 DSH
 
 
+def test_clean_system_two_pass_deletes_previously_migrated(migrate, fake_reg, capsys):
+    """批2 真实踩到的回归：先 --apply（第一遍搬完），再 --apply --clean-system（第二遍）
+    必须仍能删除系统层——否则 verify-before-delete 的 verified 集合在第二遍为空、
+    删除段静默空转（真机上第一遍 --clean-system 删了 0 条）。
+    """
+    fake_reg.store["DEEPSEEK_API_KEY"] = "sk-legacy"
+    fake_reg.store["KS_MINERU_CLOUD_API_KEY"] = "tok-cloud"
+    assert migrate.main(["--apply"]) == 0                      # 第一遍：只搬
+    capsys.readouterr()
+    assert migrate.main(["--apply", "--clean-system"]) == 0    # 第二遍：搬+删
+    out = capsys.readouterr().out
+    assert "DEEPSEEK_API_KEY" not in fake_reg.store            # 旧名（改名迁移的源）
+    assert "KS_MINERU_CLOUD_API_KEY" not in fake_reg.store     # 同名迁移的源
+    assert ss.read_value("KS_LLM_API_KEY") == "sk-legacy"      # 加密存储仍是权威
+    assert ss.read_value("KS_MINERU_CLOUD_API_KEY") == "tok-cloud"
+    assert "已从系统层删除" in out
+    assert "sk-legacy" not in out and "tok-cloud" not in out
+
+
 def test_clean_system_reports_env_only_entries(migrate, fake_reg, monkeypatch, capsys):
     """只在进程环境变量里的条目删不掉 —— 必须如实上报，不谎报已清理。"""
     monkeypatch.setenv("DEEPSEEK_API_KEY", "sk-env-only")

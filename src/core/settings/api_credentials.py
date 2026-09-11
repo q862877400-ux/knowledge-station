@@ -115,6 +115,18 @@ def import_system_layer(channel: str, *, force: bool = False) -> dict:
     if to_store:
         secret_store.write_values(to_store)
     verified = [n for n, v in to_store.items() if secret_store.read_value(n) == v]
+    # 2026-09-12 批2 修正：skipped_kept 里「存储值 == 系统层源值」的名字也算 verified——
+    # 否则 --apply 跑完再 --apply --clean-system 时（第二次没东西可搬），verify-before-delete
+    # 会因 verified 为空而拒删一切，删除段静默空转（真实踩到：批2 第一遍 --clean-system 删了 0 条）。
+    # 语义不变：能删的前提始终是「存储里能读回、且与系统层源值一致」；这里只是把
+    # 「上一轮已搬进并核对过」的名字补进核对集合，值不一致的仍留在 conflicts、绝不删。
+    for name in skipped_kept:
+        if name in conflicts:
+            continue
+        stored = secret_store.read_value(name)
+        sysval = _read_any_var(name)
+        if stored and sysval and stored == sysval:
+            verified.append(name)
     for n in to_store:
         if n not in verified:
             conflicts.append(n)
@@ -265,6 +277,17 @@ def adopt_legacy(channel: str = "llm", *, delete_legacy: bool = False,
     # **先核对再删**：只有"从存储读回来的值与源值一致"的名字才允许删系统层
     copied = list(to_store.keys())
     verified = [n for n, v in to_store.items() if secret_store.read_value(n) == v]
+    # 2026-09-12 批2 修正（与 import_system_layer 同源缺陷）：skipped_kept 且值一致
+    # 的名字补进 verified——两遍式迁移（先 --apply 后 --apply --clean-system）时
+    # 第二遍没有可搬条目、verified 为空，会导致删除段静默空转。
+    for new in skipped_kept:
+        if new in conflicts:
+            continue
+        old = old_key if new == new_key else old_url
+        stored = secret_store.read_value(new)
+        oldval = _read_any_var(old)
+        if stored and oldval and stored == oldval:
+            verified.append(new)
     for n in copied:
         if n not in verified:
             conflicts.append(n)                  # 读回不一致 → 冲突，绝不删源
