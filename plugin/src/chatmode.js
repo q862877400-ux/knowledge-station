@@ -355,6 +355,16 @@ function sweepStaleArtifacts(nowMs = Date.now(), maxAgeMs = ARTIFACT_MAX_AGE_MS)
 }
 
 /**
+ * 是否有**任何会话**开着查法规模式（批3 引擎 keepalive 判据，问题清单#12）。
+ * 只读内存 map（getMode 已含"未加载则顺手触发加载"），不会拉起引擎、不落盘。
+ * 引擎空闲回收前问一次：开着 → 续命，避免下一次 ks_* 调用承担 20s+ 冷启动。
+ */
+export function hasActiveForensicSessions() {
+  if (_loaded === null) void ensureLoaded()
+  return _modes.size > 0
+}
+
+/**
  * 允许下一次写操作重试一次加载（降级不是永久的：瞬时占用会自愈）。
  * **不动 `_modes`/`_touched`**：verifier 三轮指出——旧实现把它们清空，于是"降级期间
  * 用户已开、UI 已告知仅内存生效"的开关会在下一次点击时**提前蒸发**（提示层与工具层

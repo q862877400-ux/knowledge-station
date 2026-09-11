@@ -15,8 +15,9 @@
     "smoke:chatmode": "node scripts/smoke-chatmode.mjs",
     "smoke:client-entry": "node scripts/smoke-client-entry.mjs",
     "smoke:ingest": "node scripts/smoke-ingest.mjs",
+    "smoke:engine-guard": "node scripts/smoke-engine-guard.mjs",
     "verify:commands": "node scripts/run-verify-commands.mjs",
-    "smoke": "node scripts/smoke-pdf-fit.mjs && node scripts/smoke-pdf-panel.mjs && node scripts/smoke-bs-contract.mjs && node scripts/smoke-settings.mjs && node scripts/smoke-settings-guard.mjs && node scripts/smoke-effect-tool.mjs && node scripts/smoke-chatmode.mjs && node scripts/smoke-ingest.mjs && node scripts/smoke-client-entry.mjs"
+    "smoke": "node scripts/smoke-pdf-fit.mjs && node scripts/smoke-pdf-panel.mjs && node scripts/smoke-bs-contract.mjs && node scripts/smoke-settings.mjs && node scripts/smoke-settings-guard.mjs && node scripts/smoke-effect-tool.mjs && node scripts/smoke-chatmode.mjs && node scripts/smoke-ingest.mjs && node scripts/smoke-engine-guard.mjs && node scripts/smoke-client-entry.mjs"
   },
   "exports": {
     ".": "./src/index.js",

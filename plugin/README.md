@@ -88,7 +88,8 @@ plugin/
   `cwd`=仓库根，`args=['-m','src.core.main']`，轮询到 session 文件出现且 `/health` 为
   200（超时约 60s）。
 - **port/token 每次启动会变**：每次工具调用都重读 session 文件，绝不缓存死值。
-- **只杀自己 spawn 的**：`ctx.effect()` 注册 dispose——空闲 15 分钟自动杀 + 退出清理；
+- **只杀自己 spawn 的**：`ctx.effect()` 注册 dispose——空闲 30 分钟自动杀（2026-09-12 批3：
+  15→30，`idleTimeoutMs` 可配；查法规模式有会话开着时 keepalive 续命）+ 退出清理；
   对**复用**的既有健康实例（spawn 前就健康）绝不杀。
 - 失败返回明确错误（引擎未起 / 401 / 超时）。
 

@@ -41,7 +41,7 @@ import {
 import { registerKsReportRoutes } from './report.js'
 import { registerKsSettingsRoutes } from './settings.js'
 import { registerKsIngestRoutes } from './ingest.js'
-import { effectiveChatMode, ensureLoaded, makeChatModeSection, registerKsChatModeCommands, registerKsChatModeRoutes } from './chatmode.js'
+import { effectiveChatMode, ensureLoaded, hasActiveForensicSessions, makeChatModeSection, registerKsChatModeCommands, registerKsChatModeRoutes } from './chatmode.js'
 
 /** Plugin identity for the cordis.yml row (matches package.json name). */
 export const name = 'ks-dsh-plugin'
@@ -89,7 +89,10 @@ const DEFAULTS = {
   engineRoot: undefined, // -> EngineManager default (repo root)
   python: undefined, // -> $KS_PYTHON or repo venv
   startupTimeoutMs: 60_000,
-  idleTimeoutMs: 15 * 60 * 1000,
+  // 批3（问题清单#3）：15→30 分钟。ks_answer 自带 LLM 推理（工具超时 120s）、
+  // 效力报告/巡检批都在引擎里跑，15 分钟的窗口在慢查询+间歇阅读场景会把引擎
+  // 杀在"马上还要用"的节骨眼上。配置仍可覆盖：cordis.yml 里 idleTimeoutMs。
+  idleTimeoutMs: 30 * 60 * 1000,
   //: 额外可信 authority（局域网部署时声明；默认只认回环）。见 trust.js。
   trustedHosts: undefined,
 }
@@ -955,6 +958,11 @@ export function apply(ctx, config = {}) {
     trustedHosts: config.trustedHosts ?? DEFAULTS.trustedHosts,
   }
   const manager = new EngineManager(opts)
+
+  // 批3 keepalive（问题清单#12）：查法规模式有会话开着时，引擎空闲回收
+  // 前续命（否则下一次 ks_answer/ks_resolve_clause 要吃 20s+ 冷启动——载入
+  // embedding 模型）。钩子只读 chatmode 内存态，绝不拉引擎、不落盘。
+  manager.keepAliveCheck = () => hasActiveForensicSessions()
 
   // Dispose lifecycle: arm the idle auto-kill and tear down on fiber dispose.
   ctx.effect(() => {

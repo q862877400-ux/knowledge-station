@@ -230,7 +230,18 @@ export class EngineManager {
     /** Health-probe budget while the engine is still warming up (the first
      *  /health call loads the local embedding model, which can take a while). */
     this.startupProbeTimeoutMs = opts.startupProbeTimeoutMs ?? 20_000
-    this.idleTimeoutMs = opts.idleTimeoutMs ?? 15 * 60 * 1000
+    // 2026-09-12 批3（问题清单#3）：空闲回收默认 15min → 30min。慢查询
+    // （ks_answer 自带 LLM 推理，120s 工具超时）与阅读长 PDF 的间歇都装得下；
+    // 经 DSH 插件配置 idleTimeoutMs 仍可覆盖（index.js DEFAULTS 同步改）。
+    this.idleTimeoutMs = opts.idleTimeoutMs ?? 30 * 60 * 1000
+
+    /**
+     * 批3 keepalive 钩子（问题清单#12）：空闲回收动手前询问一次——
+     * 返回 true 则本轮不杀、续满整个窗口（查法规模式开着 → 引擎不断供）。
+     * 由 index.js 接线（engine.js 保持零 cordis 依赖、可被 smoke 独立加载）。
+     * 抛错按 false 处理（keepalive 只是优待，绝不能把回收搞挂）。
+     */
+    this.keepAliveCheck = null
 
     /** ChildProcess we spawned (set only when WE launch the engine).
      *  NOTE: the repo venv `python.exe` is a launcher that re-execs the real
@@ -253,6 +264,10 @@ export class EngineManager {
     this._idleTimer = null
     this._lastActivity = 0
     this._disposed = false
+    /** 批3：进行中的 spawn（并发 ensureLive 合并用；null=无进行中）。 */
+    this._spawning = null
+    /** 批3：死会话是否已留档过（一次 manager 生命周期只留一份，避免刷屏）。 */
+    this._staleSessionLogged = false
   }
 
   get sessionFile() {
@@ -272,6 +287,19 @@ export class EngineManager {
       this._idleTimer = null
       // Only touch an engine we actually spawned; never a pre-existing one.
       if (this.ownsCurrent && this.child) {
+        // 批3 keepalive（问题清单#12）：查法规模式等"会用引擎"的状态开着时，
+        // 引擎被回收会让下一次 ks_* 调用承担整段冷启动（载入 embedding 模型，
+        // 实测 >20s）。钩子说"续"就续满整个窗口再考虑下一次回收。
+        let keep = false
+        try {
+          keep = typeof this.keepAliveCheck === 'function' && this.keepAliveCheck()
+        } catch {
+          keep = false
+        }
+        if (keep) {
+          this.armIdle()
+          return
+        }
         this.killOwned()
       }
     }, this.idleTimeoutMs)
@@ -283,10 +311,29 @@ export class EngineManager {
     this._idleTimer = null
   }
 
-  async ensureLive(signal) {
-    if (this._disposed) throw new Error('ks-engine manager is disposed')
+  /**
+   * 批3 并发合并（问题清单#3）：同一 manager 上并发的 ensureLive（多工具同轮
+   * 齐发、路由+工具撞车）**共享整段操作**（探活 + spawn）——否则每个调用各自
+   * 起一个引擎进程，后写的 engine.session.json 把先写的顶掉，先起来的那个变成
+   * "幽灵引擎"（无人引用、永不回收）。占位必须**同步**发生在任何 await 之前：
+   * 探活/spawn 之间存在多个异步间隙，晚赋值会让并发调用穿过去（冒烟抓到）。
+   */
+  ensureLive(signal) {
+    if (this._disposed) {
+      return Promise.reject(new Error('ks-engine manager is disposed'))
+    }
     this.touchActivity()
+    if (this._spawning) return this._spawning
+    const run = this._ensureLive(signal)
+    this._spawning = run
+    return run.finally(() => {
+      // run 可能已 reject——finally 之后 _spawning 归 null，下一个调用正常重入
+      // （并发窗口内的后来者拿到同一份结果，包括同一份错误）。
+      if (this._spawning === run) this._spawning = null
+    })
+  }
 
+  async _ensureLive(signal) {
     // 1. Re-read the session file on EVERY call — port/token rotate per start.
     const existing = await readSessionFile()
     if (existing) {
@@ -302,6 +349,21 @@ export class EngineManager {
         if (!ours) this.sawExternal = true
         this.armIdle()
         return this.current
+      }
+      // 批3 stale 会话处置（问题清单#3）：会话文件指向的端口已不通——最常见
+      // 形态是"pid 是死的（上次宿主退出把引擎带走了）"。旧实现在此无条件
+      // spawn，新引擎起来后把新会话写进同一文件（行为正确）；这里补一层**留档**：
+      // 把死会话改名保留，避免"engine.session.json 被覆盖"式的排障盲区，
+      // 也让外部诊断工具能看出"上次那个引擎去哪了"。
+      if (!this._staleSessionLogged) {
+        this._staleSessionLogged = true
+        try {
+          const { rename } = await import('node:fs/promises')
+          const stale = `${this.sessionFile}.stale-${existing.pid}-${Date.now()}`
+          await rename(this.sessionFile, stale)
+        } catch {
+          /* 改名失败（不存在/被占用）→ 无害，spawn 会覆盖它 */
+        }
       }
     }
 
