@@ -13,8 +13,11 @@
 删掉环境里的 `DEEPSEEK_API_KEY` 之后，**当前正在运行**的 DSH 宿主手里仍握着启动时那份
 冻结的环境快照（DSH 源码 `packages/util/launch-environment/src/index.ts`：*Immutable
 launch-time environment snapshot*）——所以它的模型设置页不会立刻变可写。请**重启 DSH 宿主**
-（本项目的标准做法：桌面「DSH复活币X1」快捷方式）之后，DSH 才会重新读环境、落到它自己的
+（正常关掉再从你平时启动 DSH 的入口启动即可）之后，DSH 才会重新读环境、落到它自己的
 凭据文件（`~/.dsh/.credentials.yaml`）并把密钥输入框放开。**引擎侧不需要重启**。
+（⚠ 别用桌面「DSH复活币X1」当重启键——那是 dsh-fuhuobi 插件的**回滚恢复键**：
+双击 = 回滚到上次成功启动的 profile 配置快照。它只该在 DSH 崩了/黑屏/插件装崩时用；
+日常重启宿主用它会把配置回滚到旧状态。）
 
 ## 用法（默认只打印计划，**零写入**）
     python scripts/ks-credentials-migrate.py                        # 看现状 + 计划
@@ -48,13 +51,14 @@ def _plan(clean_system: bool, force: bool) -> list[str]:
     ]
     if clean_system:
         lines.append("动作: 搬进加密存储（先核对读回一致）→ 删除系统层里已验证的条目（破坏性）")
-        lines.append("⚠ 删完请**重启 DSH 宿主进程**（桌面「DSH复活币X1」），"
+        lines.append("⚠ 删完请**重启 DSH 宿主进程**（正常关闭后从平时的启动入口重新启动），"
                      "否则 DSH 仍握着启动时冻结的环境快照、其模型设置页不会放开")
+        lines.append("⚠ 别拿桌面「DSH复活币X1」当重启键——那是回滚恢复键（回滚到上次成功启动的配置快照），只在 DSH 崩了时用")
         lines.append("⚠ 脚本不回显 Key：删系统层前请确认你有其它备份；回滚＝手工把值填回设置页")
     else:
         lines.append("动作: 只搬进加密存储；系统层条目原样保留（可随时回退，推荐先这样跑一次）")
         lines.append("提示: 想让 DSH 模型设置页恢复可写 → 需 --clean-system 清掉系统层，"
-                     "并重启 DSH 宿主进程（桌面「DSH复活币X1」）")
+                     "并重启 DSH 宿主进程（正常重启，勿用复活币回滚键）")
     if force:
         lines.append("⚠ --force: 存储里已有不同值时，也丢弃系统层的旧值")
     return lines
@@ -139,7 +143,8 @@ def main(argv: list[str]) -> int:
 
     print("  未回显任何 Key 值。")
     if deleted:
-        print("\n★ 下一步（必做）: 重启 DSH 宿主进程（桌面「DSH复活币X1」快捷方式），"
+        print("\n★ 下一步（必做）: 重启 DSH 宿主进程（正常关闭后从平时的启动入口重新启动；"
+              "勿用复活币——那是回滚键），"
               "DSH 才会重新读环境、模型设置页的密钥输入框才恢复可写。引擎侧无需重启。")
     elif copied:
         print("\n提示: 系统层条目仍在 → DSH 仍可能把它们当只读凭据；"

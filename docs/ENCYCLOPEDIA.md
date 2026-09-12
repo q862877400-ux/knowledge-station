@@ -112,7 +112,8 @@
 ## 2.3 常用命令（Windows，仓库根；批 8 后形态）
 
 ```text
-启动 DSH 宿主  桌面「DSH复活币X1」（业主操作）→ 插件自动注册工具/侧栏/懒拉引擎
+启动 DSH 宿主  从平时启动 DSH 的入口启动（业主操作）→ 插件自动注册工具/侧栏/懒拉引擎
+               （⚠ 桌面「DSH复活币X1」是 dsh-fuhuobi 的回滚恢复键，只在 DSH 崩了时用，不是启动/重启入口）
 只起引擎      .venv/Scripts/python -m src.core.main
 全量测试      .venv/Scripts/python -m pytest tests -q        # 830 passed + 3 skipped
 类型门禁      npm run typecheck                                # tsc --noEmit -p plugin/client
@@ -153,7 +154,7 @@ flowchart LR
 - **坑（历史留档 + 现行）**：
   - （历史）旧前端探测链 Electron preload → localStorage → vite env 已随批 8 整体退役；坑原文留档：localStorage 键名误用 VITE_ENGINE_PORT 导致连不上；Windows vite 默认只绑 `[::1]` 必须 `--host 127.0.0.1`；Electron 主进程 spawn Python 被本机 Mimosa 安全钩子拦截 → 曾改 env 注入。
   - （现行）引擎重启后端口/token 必变 → tab 无需刷新：插件每次 fetch 经 `/ks/session` 取新值；host 侧会话镜像 stale 时如实标注不假装。
-  - （现行）**不要杀 DSH 宿主进程**——引擎可以重启（ks_ping 会拉新引擎），宿主由业主经桌面「DSH复活币X1」管理（历史事故见 §15.6）。
+  - （现行）**不要杀 DSH 宿主进程**——引擎可以重启（ks_ping 会拉新引擎），宿主由业主正常关闭再启动管理（历史事故见 §15.6；桌面「DSH复活币X1」是回滚恢复键不是重启键，见 §12.1）。
 
 ## 3.3 目录与模块地图（文件 → 职责）
 
@@ -373,7 +374,8 @@ tests/                           # 33 个测试文件（契约/检索/入库/API
   再回退旧名 `DEEPSEEK_API_KEY`；任何启动方式都能拿到；不打印、不落库、不进代码库。
   2026-09-11 改名原因见 `src/core/settings/api_credentials.py`（裸全局名会遮蔽 DSH 凭据层）。
 - **清理旧全局名的顺序（重要）**：跑 `scripts/ks-credentials-migrate.py --apply --delete-legacy`
-  删除 `DEEPSEEK_API_KEY` 之后，**必须重启 DSH 宿主进程**（桌面「DSH复活币X1」）才会生效——
+  删除 `DEEPSEEK_API_KEY` 之后，**必须重启 DSH 宿主进程**（正常关闭后从平时的启动入口重新启动——
+  ⚠ 勿用复活币，那是回滚键）才会生效——
   DSH 在启动时冻结环境快照，当前进程会继续把旧值当「只读凭据」，其模型设置页的密钥输入框
   仍是灰的（引擎侧不需要重启；删旧名前请自行备份该值，脚本不回显 Key、也不提供自动回滚）。
 - **未配 Key 自动降级占位**（离线可用，health-board llm 显示状态）。
@@ -665,10 +667,10 @@ tests/                           # 33 个测试文件（契约/检索/入库/API
 
 ## 12.1 启动与重启（批 8 后形态：DSH 宿主承载）
 
-- **正常启动**：业主打开桌面「DSH复活币X1」→ DSH Web GUI 起来 → 插件（ks-dsh-plugin）自动注册模型工具（ks_ping/ks_resolve_clause/ks_answer）+ 侧栏 tab + 设置区；**引擎按需懒拉**（首个工具调用/打开证据 tab 才 spawn，复用已存活的）。
+- **正常启动**：业主从平时启动 DSH 的入口启动 → DSH Web GUI 起来 → 插件（ks-dsh-plugin）自动注册模型工具（ks_ping/ks_resolve_clause/ks_answer）+ 侧栏 tab + 设置区；**引擎按需懒拉**（首个工具调用/打开证据 tab 才 spawn，复用已存活的）。
 - **引擎单独调试**：`python -m src.core.main`（stdout 打印 PORT/TOKEN 两行；session 写 `engine.session.json`）。
 - **引擎重启**：直接 Stop-Process 即可——下次 ks_ping 拉起**新引擎**（新代码生效）；宿主侧不感知轮换（session 每次重读）。**注意**：引擎在跑批量任务（巡检/异步预览）时不要杀。
-- **DSH 宿主重启**：业主操作（桌面「DSH复活币X1」）；插件的 src 改动要宿主重启才 live。**绝不主动杀宿主**（§15.6 历史事故）。
+- **DSH 宿主重启**：业主操作（正常关闭后从平时的启动入口重新启动）；插件的 src 改动要宿主重启才 live。**绝不主动杀宿主**（§15.6 历史事故）。⚠ 桌面「DSH复活币X1」是 dsh-fuhuobi 插件的**回滚恢复键**（回滚到上次成功启动的配置快照）——只该在 DSH 崩了/黑屏时用，**不是重启入口**；日常重启用它会把 profile 配置回滚到旧状态。
 - （历史留档）旧一键启动 `scripts/dev_launcher.py` / 原子重启 `scripts/restart_dev.py` 已随批 8 Electron 退役删除。
 
 ## 12.2 引擎连接与坑（批 8 后）

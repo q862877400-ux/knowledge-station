@@ -70,7 +70,8 @@ tests/                      # 测试文件（2026-09-12 批 8 门禁 830 passed 
 npm install
 cd plugin && npm install && cd ..
 
-# 1) 启动 DSH Web 宿主（业主操作：桌面「DSH复活币X1」），
+# 1) 启动 DSH Web 宿主（业主操作：从平时启动 DSH 的入口启动，
+#    ⚠ 桌面「DSH复活币X1」是回滚恢复键——只在 DSH 崩了/黑屏时用，不是启动/重启入口），
 #    插件自动注册：ks_ping/ks_resolve_clause/ks_answer 工具 + 侧栏四个 tab
 #    + 「法规标准知识库」设置区；引擎由插件按需懒拉（无需手动启动）。
 
@@ -117,8 +118,12 @@ cd plugin && npm run build:client               # -> client.js (~1.1MB)
   改名原因：写裸全局名会遮蔽 DSH 等同类工具的凭据层（继承环境变量优先级最高且只读），
   详见 `src/core/settings/api_credentials.py` 模块说明。
 - **清理旧全局名后必须重启 DSH 宿主进程**：DSH 在启动时冻结环境快照，删掉
-  `DEEPSEEK_API_KEY` 后只有重启宿主（桌面「DSH复活币X1」）才会重新读环境、其模型设置页的
-  密钥输入框才恢复可写；引擎侧不需要重启。工具与顺序见 `scripts/ks-credentials-migrate.py`。
+  `DEEPSEEK_API_KEY` 后只有重启宿主（正常关闭后从平时的启动入口重新启动）才会重新读环境、
+  其模型设置页的密钥输入框才恢复可写；引擎侧不需要重启。
+  ⚠ **别拿桌面「DSH复活币X1」当重启键**——那是 dsh-fuhuobi 插件的**回滚恢复键**
+  （双击 = 回滚到上次成功启动的 profile 配置快照 + 重装 node_modules），
+  只该在 DSH 崩了/黑屏/插件装崩时用；日常重启用它会把配置回滚到旧状态。
+  工具与顺序见 `scripts/ks-credentials-migrate.py`。
 - 外发可审计：发往 LLM 的 Prompt 仅含问题与最小必要证据片段，且完整 payload 落库可追责。
 - 引擎绑定 127.0.0.1 随机端口 + 一次性 token 鉴权（/health 除外）；DSH 侧栏经宿主同源代理访问，token 不进页面。
 
