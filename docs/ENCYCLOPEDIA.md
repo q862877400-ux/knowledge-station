@@ -787,6 +787,12 @@ test_api / test_auto_tag / test_backup / test_compliance / test_contract / test_
 5. **测试共享会话级库**：固定 ID 撞唯一约束 → 用完整 ULID + 相对断言（见 §13.3）。
 6. **清库禁用 DELETE FROM sqlite_master**：残留数据页 + 连接缓存失效 → 逐表 DROP + load_vec_extension。
 
+## 15.2.1 运行契约（超时与冷启动——2026-09-12 整改批 10 固化）
+
+1. **ks_answer 工具超时 120s 下限**：引擎自带 DeepSeek 推理（检索 + 生成 + typed_verifier 核验三段全流程），长推理实测可达 120s 量级；DSH 侧 `makeAnswerTool` 的 `timeoutMs=120_000` 是**契约下限**——任何宿主/会话配置不得低于此值，否则长推理被杀（结果表现为 HTTP 0 断连）。快查请用 `ks_resolve_clause`（毫秒级）。
+2. **fastembed 冷启动**：embedding 模型（BAAI/bge-small）首次加载 ~2.6s（热缓存后常驻）；引擎空闲回收后再来请求 = 冷启动 + 模型重载，这就是 idle 超时从 15min 提到 30min + 查法规模式 keepalive 的根因（见台账整改批 3）。
+3. **deep_server 解析 daemon**：常驻进程模型只加载一次；多分片同时冷启动会抢同一任务目录——一次只起一个 daemon。
+
 ## 15.3 核验误报（用户实测暴露）
 
 - **"25.0%→4.0%" 判数值篡改**：4% 是 LEL 阈值规则（AQ 3028 4.3.3），25% 是别处数值，语境不同却触发闭包比对 → **修复：核验用全量条款文本（`_full_evidence`），不截断 300/800 字**。
