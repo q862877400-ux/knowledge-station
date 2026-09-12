@@ -2926,7 +2926,7 @@ v4.2 的 TASK-001~010 缺少架构契约冻结与运维诊断，v4.3 重构为 T
 任何任务必须满足以下 8 条硬性指标，方可标记为 `Accepted`：
 
 1. **契约一致性**：所有 Agent 必须通过 T00 架构契约测试，禁止私自修改数据模型或 API schema；
-2. **类型检查与 Lint 零警告**：Python 端 `mypy --strict` 零报错；前端 `tsc --noEmit` 零报错；
+2. **类型检查与 Lint 零警告**：Python 端 `mypy --strict` 零报错（⚠ 2026-09-13 注：此门禁从未建立——mypy 曾声明于 pyproject 但未安装、无 [tool.mypy] 配置、无任何调用命令，现已移除声明。Python 端实际类型纪律=78% 函数带返回注解；tsc 门禁只覆盖 plugin/client。若要兑现本条需另行立项）；前端 `tsc --noEmit` 零报错；
 3. **测试覆盖率底线**：核心模块（`ingestion`, `retrieval`, `verification`, `compliance`）单元测试行覆盖率 $\ge 85\%$；
 4. **分型核验率**：
    * 数据型：伪引用与数值篡改拦截率 100%；

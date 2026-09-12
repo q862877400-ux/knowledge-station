@@ -13,16 +13,36 @@ dependencies = [
     "sqlite-vec>=0.1.1",
     "openai>=1.12",
     "python-ulid>=2.6",
-    "python-multipart>=0.0.9",
     "curl_cffi>=0.7",
-    "python-docx>=1.0",   # F-05 更新检查报告 Word 导出（report.py）
-    "openpyxl>=3.1",      # 更新检查结果 Excel 导出（report.py export_batch_report_xlsx）
+    # ---- 2026-09-13 依赖声明修复（verifier 审计 + 主对话交叉核实）----
+    # httpx：原在 dev extras，实际生产 3 文件 8 处使用（mineru_cloud/ccs_fetcher/update.channels）
+    "httpx>=0.27",
+    # requests/urllib3/bs4：knowledge/law_source 模块级裸 import（无 try 守卫），
+    # 此前仅靠 mineru/fastembed 传递依赖偶然满足，干净环境重建会 ImportError
+    "requests>=2.31",
+    "urllib3>=2.0",
+    "beautifulsoup4>=4.12",
+    # F-05 更新检查报告 Word 导出（report.py）
+    "python-docx>=1.0",
+    # 更新检查结果 Excel 导出（report.py export_batch_report_xlsx）
+    "openpyxl>=3.1",
+    # 已删除：python-multipart（全仓 0 import、120 端点无 multipart 表单，
+    #   venv 中仅作为 mineru 传递依赖存在）
 ]
 
 [project.optional-dependencies]
 # MinerU 深度解析: magic-pdf 已更名为 mineru (2.x)，模型结构与 API 均以 mineru 为准
+# （传递带入 python-multipart/pypdf/bs4 等，无需重复声明）
 parser = ["mineru>=2.0"]
-dev = ["pytest>=8", "pytest-timeout>=2", "httpx>=0.27", "mypy>=1.10"]
+# 图形重绘三件（figure_redraw.py，缺失时自动降级 PNG 截图）
+vision = ["numpy>=1.26", "opencv-python>=4.8", "rapidocr-onnxruntime>=1.3"]
+# 进程管理（parser_worker/deep_server，缺失时 psutil 调用降级）
+proc = ["psutil>=5.9"]
+# Word COM 往返（docx_adapter.py，word_com_available() 守卫，仅 Windows）
+wincom = ["pywin32>=306; sys_platform == 'win32'"]
+# dev：httpx 已上提 dependencies；mypy 已移除（声明了但从未运行/未安装/无配置，
+#   "mypy --strict 零报错" 是 REQUIREMENTS 未兑现的门禁愿景，见 REQUIREMENTS-v4.3.md 注记）
+dev = ["pytest>=8", "pytest-timeout>=2"]
 
 [build-system]
 requires = ["setuptools>=68"]
@@ -30,6 +50,9 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["."]
+include = ["src*"]
+exclude = ["tests*", "scripts*", "eval*", "plugin*", "var*", "docs*"]
+# 注意：src/__init__.py 必须存在，否则 find_packages 返回空（2026-09-13 实测）
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

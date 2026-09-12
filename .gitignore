@@ -8,7 +8,7 @@ __pycache__/
 .zcode/
 models/
 database/
-exports/
+/exports/
 parse_out/
 *.log
 .DS_Store

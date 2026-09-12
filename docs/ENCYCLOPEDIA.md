@@ -454,23 +454,27 @@ write_queue / event_log（统一事件模型）/ debug_dump（每次提问落库
 
 随机端口 + 一次性 Bearer token；所有请求带 `Authorization: Bearer <token>`；**仅 `/api/v1/health` 免 token**；CORS 预检 OPTIONS 放行（允许 localhost/127.0.0.1 任意端口——DSH web GUI 3080 跨源 fetch 引擎）。响应包裹 `{"code":200,"status":"success","data":...}`。
 
-## 10.2 端点全表（要点）
+## 10.2 端点全表（要点，120 端点按消费面四分类）
+
+> **消费面四分类（2026-09-13 verifier 全量审计，AST 枚举 × 四面静态匹配）**：
+> **LIVE-PRODUCT 44**（host 22 / client 12，真机链路在用）· **TEST-ONLY 54**（仅回归测试调用——契约保护对象，非死代码）· **ZERO 22**（四面零消费，逐条复核均为"未接线"而非废弃残留：法规时效 1、批量入库中断 1、图/公式/表图抽取 3、本地用户资产与合规审查 17）· **SCRIPT-ONLY 0**（scripts/ 全部直连业务模块，不打引擎 HTTP）。
 
 | 分组 | 端点 |
 |---|---|
 | 健康 | `GET /api/v1/health`（status/uptime/db_status/vector_engine/parser_worker） |
-| 入库 | `POST /documents/ingest`；`GET /ingest/queue`；`POST /ingest/bulk`（万级三阶段）；`POST /ingest/preview*`（Dry-Run + 异步预览 jobs） |
-| 检索问答 | `POST /chat/completions`（SSE；history/query_mode/answer_scope/免追问语法） |
-| 文档 | `GET /documents`｜`/documents/{id}/file`｜`/tree`｜`/versions`｜`/figure/{fig_no}`（截图/矢量重绘+C3 兜底）｜`/assets/{fname}`（sha256 白名单）｜`POST /documents/{id}/impact`（R49）｜`/migrate-patches` |
-| 条款 | `GET /clauses/resolve?standard_no&clause_number`（年份宽容+表回退）；`/clauses/{id}/interpretation`；`/clauses/{id}/backlinks`；office-edit start/poll/commit/cancel；`POST/GET /clauses/patches` |
-| 收藏/批注 | `/bookmarks`｜`/annotations`｜`/projects(+clauses)`｜`/doc-bookmarks` CRUD |
-| 合规 | `POST /compliance/review`｜`/review/{task_id}/execute`(SSE)｜`/compliance/obligations(+checklist)`｜`/gap-analysis`｜`POST /batch/qa` |
-| 更新/法规 | `/update/*`（批次/订阅/巡检）｜`/laws/sources|search|ingest|check-updates`｜`/update/announce*` |
-| 导出 | `POST /export/*`；`GET /export/download?name=`（限 exports 目录） |
+| 入库预览（全 LIVE） | `POST /ingest/preview`｜`/preview/batch`｜`GET /preview/inbox`｜`POST /preview/jobs`｜`GET /preview/jobs/{id}`｜`POST /preview/jobs/{id}/abort`（Dry-Run + 异步预览 jobs） |
+| 批量入库（TEST-ONLY 3 + ZERO 1） | `POST /ingest/bulk`（万级三阶段）｜`GET /ingest/bulk/{id}`｜`POST /ingest/bulk/{id}/resume`｜`/abort`（ZERO） |
+| 检索问答 | `POST /chat/completions`（SSE；history/query_mode/answer_scope/免追问语法）｜`POST /ks/answer`（取证答案）｜`POST /batch/qa`｜`POST /compare`（R42，ZERO）｜`POST /aliases/extract` |
+| 文档 | `GET /documents`｜`/categories`｜`POST /documents/batch-delete`｜`GET /documents/{id}/file`｜`/tree`｜`/clauses`｜`/clauses-by-prefix`｜`/versions`（ZERO）｜`/figure/{fig_no}`（ZERO，截图/矢量重绘+C3 兜底）｜`/formula/{fno}`（ZERO）｜`/table-image/{page}/{idx}`（ZERO）｜`/assets/{fname}`（sha256 白名单）｜`POST /documents/{id}/impact`（R49）｜`/migrate-patches` |
+| 条款 | `GET /clauses/resolve?standard_no&clause_number`（年份宽容+表回退）｜`GET /clauses/{id}/meta`｜`/backlinks`｜`/spans`｜office-edit start/poll(ZERO)/commit(ZERO)/cancel；`POST/GET /clauses/patches` |
+| 收藏/批注 | `/bookmarks`｜`/doc-bookmarks` CRUD（LIVE）｜`/annotations` CRUD（ZERO ×3）｜`/projects(+clauses)`（ZERO ×4） |
+| 合规 | `POST /compliance/review`｜`/review/{task_id}/execute`（普通 JSON，非 SSE）｜`/compliance/obligations` 全族 6 条（ZERO ×5 + export 1）｜`/gap-analysis`｜`/compliance/policies` |
+| 更新/发现/法规 | `/update/*` 37 条（check/batch/changes/announce×8/subscriptions/report×2）｜`/discover/*` 4 条｜`/laws/sources|search|ingest|catalog|verify`（TEST）｜`/laws/check-updates`（ZERO）｜`/data/package/export|import` |
+| 导出 | `POST /export/review/{task_id}`｜`/export/obligations/{id}`｜`/export/citations`（ZERO）｜`GET /export/download?name=`（限 exports 目录） |
 | 视觉 | `POST /vision/locate`（贴图→条款定位，本地 MinerU OCR，零外发） |
-| 效力报告 | `GET /report/effect/*`（host 侧裁剪——绝不回传全量分类树） |
+| 效力报告（全 LIVE） | `GET /report/effect`｜`/docs`｜`/color`｜`POST /report/effect/export`（host 侧裁剪——绝不回传全量分类树） |
 | 审计/运维 | `GET /egress/audit(+export)`｜`/health-board`｜`/operation-log`｜`/debug-dumps`｜`/data/quality-issues`｜`/snapshots` |
-| 设置 | `/settings/api-config(+test)`（加密存储读写） |
+| 设置（全 LIVE） | `GET/PUT /settings/api-config`｜`POST /settings/api-config/test` |
 
 ## 10.3 SSE 事件顺序（chat/completions，**冻结不得增删 reorder**）
 
@@ -546,7 +550,7 @@ tests/test_golden_gate.py：对 eval/golden/knowledge-snapshot.db 跑指标，�
 | 项 | 值 |
 |---|---|
 | 工作目录 | `D:\AI\work space\zcode`（git 仓库，本地身份 zegel@local 绝不 --global；tag baseline-792） |
-| venv | `.venv/`（3.12）——重建 `uv venv --python 3.12 .venv` + `uv pip install` |
+| venv | `.venv/`（3.12）——重建 `uv venv --python 3.12 .venv` + `uv pip install -e ".[parser,vision,proc,wincom,dev]"`（2026-09-13 修复 pyproject 后；**无 uv.lock**——重装会解析最新版本，pymupdf 实装 1.24.14 是验证过的组合） |
 | MinerU 模型 | `C:\Users\Zegel\.cache\modelscope\models\OpenDataLab--PDF-Extract-Kit-1.0\snapshots\master`（~2GB）；mineru-models-download -s modelscope -m pipeline |
 | MinerU 配置 | `~/mineru.json`（新版）+ `~/magic-pdf.json`（兼容版），两份都在别删 |
 | 数据目录 | `%APPDATA%\KnowledgeStation\`（KS_DATA_DIR 可重定向） |
@@ -738,7 +742,7 @@ backup.py：VACUUM INTO 在线备份到 `%APPDATA%\KnowledgeStation\backups\`；
 | 剩余测试盲区 | 部分 | R61/R72/R73/R76/R-L3 等 |
 | bge-m3 升维 | 不触发 | recall@5 97.8% >> 85% 验收线 |
 | LLM advisory judge | 判定砍 | 指标已达标，省额度 |
-| 120 端点中约 55 个零前端调用端点 | 现状 | 引擎侧对外契约，不属死代码；随功能增长消化 |
+| 120 端点消费面四分类（2026-09-13 精确化，替换旧"约 55"粗估） | 已精确化 | LIVE-PRODUCT 44 · TEST-ONLY 54（回归保护，非死代码）· ZERO 22（未接线而非废弃：法规时效 1、批量中断 1、图/公式/表图 3、用户资产与合规 17）· SCRIPT-ONLY 0；后续项=按需补接线或补测试（见 §10.2） |
 | exceptions.py 4 个未 raise 的异常类 | 现状 | 契约预定义，保留 |
 | office-edit poll/commit 端点 | 已实现 | 前端入口在 DSH 侧「数据体检」tab |
 | 知识库多用户/权限 | Non-goal | v5 §6 |
