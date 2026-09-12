@@ -27608,9 +27608,9 @@ async function fetchDocsFlat(port, token, signal) {
 var KsIngestHttpError = class extends Error {
   constructor(httpStatus, code, message) {
     super(message);
+    this.name = "KsIngestHttpError";
     this.httpStatus = httpStatus;
     this.code = code;
-    this.name = "KsIngestHttpError";
   }
 };
 async function parseIngestError(res) {

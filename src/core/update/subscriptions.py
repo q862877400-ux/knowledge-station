@@ -54,9 +54,3 @@ def subscriptions_as_tags() -> set[str]:
     return set(get_subscriptions())
 
 
-def _doc_tags(row: Any) -> list[str]:
-    try:
-        value = json.loads(row["domain_tags"] or "[]")
-    except (TypeError, ValueError):
-        return []
-    return [t for t in value if isinstance(t, str)] if isinstance(value, list) else []

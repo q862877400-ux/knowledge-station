@@ -33,6 +33,8 @@ LEGACY_NAMES = ("DEEPSEEK_API_KEY", "DEEPSEEK_BASE_URL", "DEEPSEEK_MODEL")
 #: 批 8（2026-09-12 Electron 退役）：src/renderer/ApiConfigPanel.tsx 已随整个
 #: 旧渲染层删除，其条目同步移除。**双向硬断言**：白名单条目指向已删除/改名的
 #: 文件会红（幽灵条目 = 白名单谎言，见 test_legacy_names_appear_only_in_reviewed_files）。
+#: 冗余清剿（2026-09-12）：scripts/archive/（含 _dl_diag.py）与 plugin/scripts/
+#: verify-answer.mjs（import 路径错误、运行必崩的零调用死脚本）已删除，条目同步移除。
 LEGACY_ALLOWED_FILES = {
     "src/core/config.py",                    # 只读回退读取链（deprecated 层）
     "src/core/settings/api_credentials.py",  # 只读回退 + 迁移源（绝不写入系统层）
@@ -42,8 +44,6 @@ LEGACY_ALLOWED_FILES = {
     "scripts/ks-credential-readers-scan.py",  # 读者排查工具（批 1b：检查旧名残留，只记存在性不记值）
     "scripts/ks-credential-reconcile.py",   # 对账工具（批 2c：引擎↔DSH 名字配对+指纹比对，不碰值）
     "scripts/make_handoff_zip.py",           # 交接清单文档字符串
-    "scripts/archive/_dl_diag.py",           # 只读探测存在性（批4 归档：一次性诊断，已离线）
-    "plugin/scripts/verify-answer.mjs",      # 假引擎桩里的报错文案
 }
 #: 扫描射程（verifier mut9：只扫 src/ 会漏掉脚本层的裸名写入）
 CODE_SUFFIXES = (".py", ".ps1", ".bat", ".cmd", ".mjs", ".js", ".ts", ".tsx")

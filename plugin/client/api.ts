@@ -458,33 +458,6 @@ function normalizeDocBookmark(value: unknown): DocBookmark | null {
   }
 }
 
-/** GET the standard-level bookmark list. 401 → EngineAuthError. */
-export async function fetchDocBookmarks(
-  port: number,
-  token: string,
-  signal?: AbortSignal,
-): Promise<DocBookmark[]> {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/doc-bookmarks`, {
-    method: 'GET',
-    headers: { Authorization: `Bearer ${token}`, accept: 'application/json' },
-    signal,
-  })
-  if (res.status === 401) {
-    clearSession()
-    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
-  }
-  if (!res.ok) {
-    throw new Error(`引擎返回 HTTP ${res.status}`)
-  }
-  let body: unknown = null
-  try {
-    body = await res.json()
-  } catch { /* non-JSON body */ }
-  return unwrapList(body)
-    .map(normalizeDocBookmark)
-    .filter((b): b is DocBookmark => b !== null)
-}
-
 /** POST a standard-level bookmark by doc_id. Idempotent (existed flag). */
 export async function addDocBookmark(
   port: number,
@@ -971,15 +944,19 @@ export interface KsIngestBatch {
 }
 
 /** 同源 host 代理的错误（保留 host/引擎的错误码，UI 才能给出可行动提示）。 */
-export class KsIngestHttpError extends Error {
+class KsIngestHttpError extends Error {
   constructor(
-    public readonly httpStatus: number,
-    public readonly code: string | null,
+    httpStatus: number,
+    code: string | null,
     message: string,
   ) {
     super(message)
     this.name = 'KsIngestHttpError'
+    this.httpStatus = httpStatus
+    this.code = code
   }
+  readonly httpStatus: number
+  readonly code: string | null
 }
 
 async function parseIngestError(res: Response): Promise<KsIngestHttpError> {

@@ -416,16 +416,6 @@ def strip_tags(s: str | None) -> str:
     return html_unescape(t).strip()
 
 
-def table_html_to_pipe(table_html: str) -> str:
-    """<table> html → 管道行文本（与前端 table_md 同源格式），单元格已解码实体。"""
-    rows: list[str] = []
-    for tr in re.findall(r"<tr>(.*?)</tr>", table_html or "", re.S):
-        cells = [strip_tags(c) for c in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", tr, re.S)]
-        if cells:
-            rows.append(" | ".join(cells))
-    return "\n".join(rows)
-
-
 #: 图题句形态（2026-08-29，GB/T 34406 附录A 实测，语料级）：
 #: '图N<标题>图'——GB 图题以"图"字收尾。图题句 token（'A.1'/'判别分析'）
 #: 与表题/表格格天然重叠 → 句级覆盖判定必误伤（实测 '图A.1判别分析相关图'

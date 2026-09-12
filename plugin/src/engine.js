@@ -78,15 +78,6 @@ export async function readSessionFile() {
   }
 }
 
-export async function mtimeOfSessionFile() {
-  const file = sessionFilePath()
-  try {
-    return (await stat(file)).mtimeMs
-  } catch {
-    return null
-  }
-}
-
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
@@ -205,10 +196,6 @@ export async function apiPost(base, path, { token, signal, timeoutMs = 10000, bo
     clearTimeout(timer)
     if (signal) signal.removeEventListener('abort', onAbort)
   }
-}
-
-export function healthUrl(port) {
-  return originUrl(port) + HEALTH_PATH
 }
 
 /** Engine origin (scheme + host + port), with no path. */

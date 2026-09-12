@@ -25,10 +25,6 @@ def find_libreoffice() -> Path | None:
     return None
 
 
-def libreoffice_available() -> bool:
-    return find_libreoffice() is not None
-
-
 def docx_to_pdf_libreoffice(docx_path: Path, out_pdf: Path, timeout: int = 180) -> bool:
     """LibreOffice headless 转换。产物名 = 输入 stem，转换后 rename 到 out_pdf。"""
     soffice = find_libreoffice()

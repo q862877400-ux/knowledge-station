@@ -7,7 +7,7 @@
 
 两个入口：
 - ``calibrate``：存量校准（读库全部 span → 投票 → UPDATE by rowid + event_log 审计）；
-  scripts/repair_span_origin.py 复用本函数。
+  （历史：一次性迁移脚本 scripts/repair_span_origin.py 曾复用本函数，2026-08-25 执行完毕后已删。）
 - ``calibrate_new``：纯函数版（内存 span 列表投票归一为底部原点，不落库）；
   pipeline.run_full_ingest 写库前调用。已底部原点的文档投票全 bottom、零改动（幂等）。
 

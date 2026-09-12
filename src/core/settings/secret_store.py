@@ -94,15 +94,6 @@ class _BlobHolder:
                                ctypes.cast(self._buf, ctypes.POINTER(ctypes.c_char)))
 
 
-def dpapi_available() -> bool:
-    """当前平台/环境是否具备用户态 DPAPI（用于给用户一句人话解释，而不是猜）。"""
-    try:
-        _open_libs()
-        return True
-    except Exception:
-        return False
-
-
 def _open_libs():
     if os.name != "nt":                       # 非 Windows 平台没有 crypt32
         raise OSError("非 Windows 平台没有 DPAPI")

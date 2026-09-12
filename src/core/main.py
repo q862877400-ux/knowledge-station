@@ -12,8 +12,8 @@ def _warmup_figure_ocr() -> None:
     """
     def _load():
         try:
-            from src.core.figure_redraw import _get_ocr
-            _get_ocr()
+            from src.core.figure_redraw import get_ocr
+            get_ocr()
         except Exception:
             pass
     threading.Thread(target=_load, name="figure-ocr-warmup", daemon=True).start()

@@ -137,7 +137,7 @@ GET https://sousuo.www.gov.cn/search-gov/data
 |---|---|---|
 | P1 核心抓取 | `src/core/knowledge/law_source/`：`flk_client.py`（搜索/枚举/详情/下载）、`govcn_client.py`（搜索/详情/下载链接）、`convert.py`（LibreOffice→WPS COM→Word COM 探测链）、`ingest.py`（docx 结构解析 + 调 `run_full_ingest`） | 命令行按关键词抓 1 部法：官方 docx 落盘 → PDF 生成 → 条款/章结构入库 → 预览高亮可用 |
 | P2 接口与 UI | 运维面板「法规抓取」表单（关键词/文号/分类 → 候选列表 → 勾选导入）；`POST /api/v1/laws/fetch`（dry-run 搜索 + 确认导入） | 前端全程可操作，无命令行 |
-| P3 存量重建 | `scripts/reingest_laws.py`：现有 7 部 `law-text://inline` 文档从官方源重导为带 PDF 版本（先 dry-run 匹配确认，再批量） | 7 部全部有 PDF 预览 + 高亮 + 章结构 |
+| P3 存量重建 | （已完成，2026-08-24：7 部 `law-text://inline` 文档已从官方源重导为带 PDF 版本；一次性脚本 `scripts/reingest_laws.py` 已随冗余清剿删除） | 7 部全部有 PDF 预览 + 高亮 + 章结构 |
 | P4 更新检查 | 接入更新检查批次（`law_source` 增量 + 时效变更提示） | 运维面板能报"新增/已修改/已废止" |
 
 ## 9. 风险与对策

@@ -724,5 +724,3 @@ export function registerKsIngestRoutes(ctx, manager) {
   }
 }
 
-/** 供 smoke 断言（不参与运行时逻辑）。 */
-export const __internals = { listPdfs, basename }

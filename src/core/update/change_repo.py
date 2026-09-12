@@ -95,26 +95,6 @@ def update_progress(batch_id: str, checked: int = 1,
     return get_batch(batch_id)
 
 
-def set_batch_status(batch_id: str, status: str) -> dict:
-    """状态机迁移 pending→running→paused/done/failed（done/failed 盖 finished_at）。"""
-    if status not in BATCH_STATUSES:
-        raise UpdateError(f"非法批次状态: {status}，允许 {BATCH_STATUSES}",
-                          code=UPD_ILLEGAL_BATCH_STATUS)
-    extra_sql = ""
-    if status == "running":
-        extra_sql = ", started_at = COALESCE(started_at, datetime('now'))"
-    elif status in ("done", "failed"):
-        extra_sql = ", finished_at = datetime('now')"
-    with write_transaction() as txn:
-        cur = txn.execute(
-            f"UPDATE update_check_batch SET status = ?{extra_sql} WHERE batch_id = ?",
-            (status, batch_id))
-        if cur.rowcount == 0:
-            raise UpdateError(f"批次不存在: {batch_id}", code=UPD_BATCH_NOT_FOUND)
-    upd_log(batch_id, "inspector", "INFO", "batch_status", status=status)
-    return get_batch(batch_id)
-
-
 # ================================================================ 变更事件
 def append_change(change: dict[str, Any]) -> str:
     """写入一条标准变更事件，返回 change_id（``chg_<ULID>``）。

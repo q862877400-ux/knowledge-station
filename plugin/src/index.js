@@ -279,8 +279,6 @@ function validationError(probe, query, queryMode) {
     meta_summary: '',
   }
 }
-
-/** Build the `ks_ping` tool definition. */
 /**
  * Build the `ks_effect_report` tool definition (P1, 2026-09-08).
  *

@@ -15,3 +15,5 @@ parse_out/
 Thumbs.db
 # 本地 wheel 仓（2.4GB torch 轮子，可重建/可重下）
 wheels_local/
+
+.browser4-cli/

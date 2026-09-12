@@ -133,7 +133,3 @@ def wait_until_drained(timeout: float = 10.0) -> bool:
     return False
 
 
-def run_inline(op_type: str, payload: dict[str, Any],
-               handler: Callable[[str, dict[str, Any]], Any]) -> Any:
-    """同步直写（测试/维护用）：走同样的短事务路径，绕过后台线程。"""
-    return handler(op_type, payload)

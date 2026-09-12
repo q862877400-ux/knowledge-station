@@ -22,7 +22,6 @@ logger = logging.getLogger(__name__)
 def _ocr_worker(image_path: str, out_dir: str, result_queue) -> None:  # noqa: ANN001
     """子进程：调 mineru CLI 对图片 OCR（list args，无 shell）。"""
     try:
-        venv_bin = Path(get_settings().data_dir).parent  # 占位（实际由调用方传入）
         mineru = _find_mineru_exe()
         proc = subprocess.run(
             [str(mineru), "-p", image_path, "-o", out_dir, "-b", "pipeline", "-m", "ocr"],

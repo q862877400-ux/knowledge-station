@@ -158,7 +158,7 @@ class VerificationResult(BaseModel):
     legal_element_violations: List[dict] = []
 
 
-# SSE 事件顺序契约（T00 冻结，见 docs/onboarding/contract.md 第 3 节）
+# SSE 事件顺序契约（T00 冻结，见 docs/ENCYCLOPEDIA.md §11.3 与 pipeline/03-contract-delta.md）
 SSE_EVENT_ORDER: List[str] = ['evidence', 'status', 'delta', 'verification', 'done']
 
 # 六路检索通道枚举（T00 冻结）

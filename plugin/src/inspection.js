@@ -877,16 +877,3 @@ export function registerKsInspectionRoutes(ctx, manager) {
     for (const dispose of disposers) dispose()
   }
 }
-
-/** Test hook (smoke scripts): point the state file at a fresh path + reset. */
-export function _resetStateForTests(pathOverride) {
-  const orig = inspectionFilePath
-  if (pathOverride) {
-    // Lazy: keep module pure — tests use env KS_DATA_DIR instead.
-    void pathOverride
-  }
-  _state = defaultState()
-  _persistChain = Promise.resolve()
-  _poll = null
-  return orig
-}
