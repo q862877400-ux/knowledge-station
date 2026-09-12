@@ -151,7 +151,8 @@ def register(app, json_error):
                              change_type: str | None = None, limit: int = 200):
         """变更明细（三色列表数据源）；可按批次 / change_type 过滤。"""
         conn = get_db_connection()
-        where, args = [], []
+        where: list[str] = []
+        args: list[object] = []
         if batch_id:
             where.append("batch_id=?")
             args.append(batch_id)

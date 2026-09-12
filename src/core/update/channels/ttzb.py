@@ -150,7 +150,7 @@ class TtzbAdapter(ChannelAdapter):
         status_line: str | None = None
         if sid:
             try:
-                detail_status, dbody = self._fetch(evidence)
+                detail_status, dbody = self._fetch(evidence or "")
             except UpdateError as exc:  # 详情失败降级检索行（同平台官方字段）
                 upd_log(self.trace_id, f"channel.{self.name}", "WARN",
                         "detail_fetch_failed_fallback_row",

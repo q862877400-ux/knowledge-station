@@ -16,8 +16,10 @@
     "smoke:client-entry": "node scripts/smoke-client-entry.mjs",
     "smoke:ingest": "node scripts/smoke-ingest.mjs",
     "smoke:engine-guard": "node scripts/smoke-engine-guard.mjs",
+    "smoke:docimage": "node scripts/smoke-docimage.mjs",
+    "smoke:sanitize": "node scripts/smoke-sanitize.mjs",
     "verify:commands": "node scripts/run-verify-commands.mjs",
-    "smoke": "node scripts/smoke-pdf-fit.mjs && node scripts/smoke-pdf-panel.mjs && node scripts/smoke-bs-contract.mjs && node scripts/smoke-settings.mjs && node scripts/smoke-settings-guard.mjs && node scripts/smoke-effect-tool.mjs && node scripts/smoke-chatmode.mjs && node scripts/smoke-ingest.mjs && node scripts/smoke-engine-guard.mjs && node scripts/smoke-client-entry.mjs"
+    "smoke": "node scripts/smoke-pdf-fit.mjs && node scripts/smoke-pdf-panel.mjs && node scripts/smoke-bs-contract.mjs && node scripts/smoke-settings.mjs && node scripts/smoke-settings-guard.mjs && node scripts/smoke-effect-tool.mjs && node scripts/smoke-chatmode.mjs && node scripts/smoke-ingest.mjs && node scripts/smoke-engine-guard.mjs && node scripts/smoke-client-entry.mjs && node scripts/smoke-docimage.mjs && node scripts/smoke-sanitize.mjs"
   },
   "exports": {
     ".": "./src/index.js",

@@ -4,7 +4,8 @@
   "description": "通用国标与法律法规本地 AI 知识工作站 — 引擎 + DSH 插件（桌面化由 DSH 整体套壳承担，本项目不再单独打包）",
   "type": "module",
   "scripts": {
-    "typecheck": "tsc --noEmit -p plugin/client"
+    "typecheck": "tsc --noEmit -p plugin/client",
+    "typecheck:py": ".venv\\Scripts\\python -m mypy"
   },
   "devDependencies": {
     "@types/react": "^18.2.0",

@@ -16,7 +16,7 @@ def _parser_worker_main(pdf_path: str, output_dir: str, result_queue,
         from src.core.ingestion.mineru_adapter import parse_pdf_with_mineru
         result = parse_pdf_with_mineru(Path(pdf_path), Path(output_dir),
                                        force_deep=force_deep, deep_fallback=deep_fallback)
-        payload = ("success", result)
+        payload: tuple[str, object] = ("success", result)
     except Exception as e:  # noqa: BLE001
         payload = ("error", f"{type(e).__name__}: {e}")
     # 先确保队列数据落盘，再硬退出：

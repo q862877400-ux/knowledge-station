@@ -513,8 +513,8 @@ def search(category_path: list[str], drill_level: int = 1,
                 duration_ms=round((perf_counter() - t0) * 1000, 1))
         return []
 
-    results: list[Any] = body.get("results") if isinstance(body, dict) else None
-    results = results if isinstance(results, list) else []
+    raw_results = body.get("results") if isinstance(body, dict) else None
+    results: list[Any] = raw_results if isinstance(raw_results, list) else []
 
     cards: list[dict] = []
     seen_nos: set[str] = set()

@@ -63,8 +63,8 @@ def create_bulk_batch(src_dir: str, batch_size: int = DEFAULT_BATCH_SIZE) -> dic
         raise UpdateError(f"已有运行中的导入批次: {running['batch_id']}",
                           code=UPD_BATCH_ALREADY_RUNNING)
     batch_id = f"bul_{ULID()}"
-    ckpt = {"queue": [], "errors": [], "pause_reason": None,
-            "parsed": 0, "scanned": 0, "src_dir": str(src)}
+    ckpt: dict[str, Any] = {"queue": [], "errors": [], "pause_reason": None,
+                            "parsed": 0, "scanned": 0, "src_dir": str(src)}
     with write_transaction() as txn:
         txn.execute(
             "INSERT INTO bulk_import_batch (batch_id, batch_kind, trigger_type,"
@@ -77,7 +77,7 @@ def create_bulk_batch(src_dir: str, batch_size: int = DEFAULT_BATCH_SIZE) -> dic
             (str(ULID()), "bulk/batch_created", "user", "bulk_import_batch", batch_id,
              json.dumps({"src_dir": str(src), "batch_size": batch_size},
                         ensure_ascii=False)))
-    return load_batch(batch_id)
+    return _reload(batch_id)
 
 
 def load_batch(batch_id: str) -> dict | None:
@@ -93,6 +93,12 @@ def load_batch(batch_id: str) -> dict | None:
         out["checkpoint"] = {}
     return out
 
+
+def _reload(batch_id: str) -> dict:
+    """_save_ckpt 刚写完行后的重载——行必存在；None 即状态库损坏，宁可炸也不撒谎。"""
+    b = load_batch(batch_id)
+    assert b is not None, f"bulk batch vanished after write: {batch_id}"
+    return b
 
 def _batch_status(batch_id: str) -> str | None:
     """轻量状态读（不做 checkpoint JSON 解析）：供扫描循环高频轮询外部暂停标志。
@@ -288,11 +294,11 @@ def fast_scan(batch_id: str, batch_size: int = DEFAULT_BATCH_SIZE,
             if cur is not None:
                 ckpt["pause_reason"] = (cur.get("checkpoint") or {}).get("pause_reason")
             _save_ckpt(batch_id, ckpt)
-            return load_batch(batch_id)
+            return _reload(batch_id)
         # 快扫完成 → paused(scan_complete)：等 resume 进入解析（running 态留给解析期）
         ckpt["pause_reason"] = "scan_complete"
         _save_ckpt(batch_id, ckpt, "paused", total=len(ckpt.get("queue", [])))
-        return load_batch(batch_id)
+        return _reload(batch_id)
     except Exception:
         _save_ckpt(batch_id, ckpt, "failed")
         raise
@@ -316,7 +322,7 @@ def parse_loop(batch_id: str, daily_budget: int = DEFAULT_PARSE_DAILY_BUDGET) ->
         if budget_left <= 0:
             ckpt["pause_reason"] = "daily_budget_reached"
             _save_ckpt(batch_id, ckpt, "paused")
-            return load_batch(batch_id)
+            return _reload(batch_id)
         if item.get("status") in ("parsed", "failed"):
             continue
         budget_left -= 1
@@ -339,7 +345,7 @@ def parse_loop(batch_id: str, daily_budget: int = DEFAULT_PARSE_DAILY_BUDGET) ->
                 pass
     remaining = [i for i in queue if i.get("status") not in ("parsed", "failed")]
     _save_ckpt(batch_id, ckpt, "done" if not remaining else "failed")
-    return load_batch(batch_id)
+    return _reload(batch_id)
 
 
 # ---------------------------------------------------------------- 控制面
@@ -350,7 +356,7 @@ def pause_batch(batch_id: str) -> dict:
     ckpt = batch["checkpoint"]
     ckpt["pause_reason"] = "user_requested"
     _save_ckpt(batch_id, ckpt, "paused")
-    return load_batch(batch_id)
+    return _reload(batch_id)
 
 
 def abort_batch(batch_id: str) -> dict:
@@ -373,7 +379,7 @@ def abort_batch(batch_id: str) -> dict:
              batch_id,
              json.dumps({"reason": "aborted_by_user", "prev_status": batch["status"]},
                         ensure_ascii=False)))
-    return load_batch(batch_id)
+    return _reload(batch_id)
 
 
 def _unscanned_remaining(batch: dict) -> bool:

@@ -46,10 +46,12 @@ ManifestCb = Callable[[dict], None]
 
 def sxx_label(sxx: int | str | None) -> str:
     """sxx 数字 → 展示文案；未知值原样标注（不猜）。"""
-    try:
-        return SXX_LABELS.get(int(sxx), f"未知({sxx})")
-    except (TypeError, ValueError):
-        return f"未知({sxx})"
+    if isinstance(sxx, (int, str)) and sxx != "":
+        try:
+            return SXX_LABELS.get(int(sxx), f"未知({sxx})")
+        except (TypeError, ValueError):
+            return f"未知({sxx})"
+    return f"未知({sxx})"
 
 
 def manifest_path() -> Path:
@@ -389,7 +391,8 @@ def query_catalog(q: str = "", category: str = "", sxx: Any = "",
     page = max(1, int(page))
     page_size = min(max(1, int(page_size)), 200)
 
-    where, params = [], []
+    where: list[str] = []
+    params: list[object] = []
     q = (q or "").strip()
     if q:
         where.append("title LIKE ?")

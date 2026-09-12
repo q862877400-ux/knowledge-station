@@ -99,7 +99,7 @@ def import_system_layer(channel: str, *, force: bool = False) -> dict:
     if channel not in CHANNEL_VARS:
         raise UnknownChannel(f"未知通道: {channel}")
     names = list(CHANNEL_VARS[channel])
-    to_store: dict[str, str] = {}
+    to_store: dict[str, str | None] = {}
     skipped_kept: list[str] = []
     conflicts: list[str] = []
     for name in names:
@@ -260,7 +260,7 @@ def adopt_legacy(channel: str = "llm", *, delete_legacy: bool = False,
     copied: list[str] = []
     skipped_kept: list[str] = []
     conflicts: list[str] = []
-    to_store: dict[str, str] = {}
+    to_store: dict[str, str | None] = {}
     for old, new in ((old_key, new_key), (old_url, new_url)):
         old_val = _read_any_var(old)
         if not old_val:

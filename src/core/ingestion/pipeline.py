@@ -529,7 +529,7 @@ def split_items_into_clauses(items: list[MidItem]) -> list[SplitClause]:
                     mm = _CLAUSE_GB.match(ln)
                     num = mm.group(1) if mm else ""
                     is_head = (bool(mm) and (len(num) >= 3 or num.count(".") >= 1)
-                               and _plausible_clause_head(num, mm.group(2)))
+                               and _plausible_clause_head(num, mm.group(2) if mm else ""))
                     if is_head:
                         cur = SplitClause(number=normalize_clause_number(num),
                                           texts=[ln], items=[it], content_type="normal",
@@ -777,7 +777,8 @@ def analyze_preview(pdf_path: Path) -> dict:
                          "modality": tc.modality, "suspicious": tc.is_suspicious})
     type_dist: dict[str, int] = {}
     for p in previews:
-        type_dist[p["knowledge_type"]] = type_dist.get(p["knowledge_type"], 0) + 1
+        kt = str(p["knowledge_type"])
+        type_dist[kt] = type_dist.get(kt, 0) + 1
     n_susp = sum(1 for p in previews if p["suspicious"])
     return {"status": "ok", "total_clauses": len(previews),
             "knowledge_type_distribution": type_dist,

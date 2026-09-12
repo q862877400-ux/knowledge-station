@@ -16,7 +16,10 @@ from pathlib import Path
 from ulid import ULID
 
 from src.core.config import get_settings
-from src.core.domain.models import ClauseRevisionModel, MODALITY_STRENGTH, SourceSpanModel
+from typing import Literal
+
+from src.core.domain.models import (
+    ClauseRevisionModel, MODALITY_STRENGTH, Modality, SourceSpanModel)
 from src.core.ingestion.parser_worker import run_parser_isolated
 from src.core.storage import clause_repo
 from src.core.storage.sqlite_db import init_schema, get_db_connection
@@ -48,11 +51,12 @@ def split_into_clauses(blocks: list[dict]) -> list[dict]:
     return clauses
 
 
-def _classify(text: str) -> tuple[str, str | None]:
+def _classify(text: str) -> tuple[Literal["data", "rule", "legal"], Modality | None]:
+    """冒烟分型：值域与 ClauseRevisionModel Literal 对齐（modality 词表 = MODALITY_STRENGTH 键）。"""
     m = _MODality_pattern.search(text)
     if m:
         word = m.group(0)
-        return "rule", word
+        return "rule", word  # type: ignore[return-value]  # word ∈ 正则词表 = Modality 值域（静态不可证）
     if re.search(r"\d+(\.\d+)?\s*(m|MPa|kPa|%|℃|kg|mm)", text):
         return "data", None
     return "rule", None
@@ -123,8 +127,8 @@ def ingest_pdf(pdf_path: Path, standard_no: str, standard_name: str,
             clause_number=cl["number"],
             content_text=content,
             knowledge_type=ktype,
-            modality=modality,  # type: ignore[arg-type]
-            modality_strength=MODALITY_STRENGTH.get(modality),
+            modality=modality,
+            modality_strength=MODALITY_STRENGTH.get(modality) if modality else None,
             page_start=min(pages), page_end=max(pages),
             source_spans=[SourceSpanModel(
                 span_id=f"span_{ULID()}", page_number=s["page_number"], bbox=s["bbox"])

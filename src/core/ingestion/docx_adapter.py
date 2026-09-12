@@ -28,8 +28,8 @@ def docx_to_pdf_via_com(docx_path: Path, out_pdf: Path) -> bool:
     if not word_com_available():
         return False
     try:
-        import win32com.client  # type: ignore[import-not-found]
-        import pythoncom  # type: ignore[import-not-found]
+        import win32com.client  # type: ignore[import-not-found]  # pywin32 仅 Windows；非 Windows 检查环境防御
+        import pythoncom  # type: ignore[import-not-found]  # 同上：pywin32 仅 Windows
         pythoncom.CoInitialize()
         for progid in ("Word.Application", "Kwps.Application", "wps.Application"):
             try:

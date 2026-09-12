@@ -219,7 +219,7 @@ class ProxyCurlTransport:
 
     def __init__(self, proxy: str) -> None:
         from curl_cffi import requests as cffi_requests
-        self._session = cffi_requests.Session(impersonate="chrome", proxy=proxy)
+        self._session: Any = cffi_requests.Session(impersonate="chrome", proxy=proxy)
 
     def fetch(self, url: str, **kw: Any) -> tuple[int, Any]:
         timeout = kw.pop("timeout", 30)

@@ -4,7 +4,7 @@ from __future__ import annotations
 import hashlib
 import json
 import sqlite3
-from typing import Any, Iterable
+from typing import Any, Iterable, Literal
 
 from ulid import ULID
 
@@ -36,10 +36,11 @@ def ensure_law_source_columns() -> None:
     conn.commit()
 
 
-def ensure_content_hash_column() -> None:
+def ensure_content_hash_column() -> int:
     """Task 10.4 迁移：clause_revision 增加 content_hash（快照可验证，红线 v2 #2）。
 
     SQLite 无 ADD COLUMN IF NOT EXISTS，需 PRAGMA 检查；存量行回填。幂等。
+    返回回填行数（供运维日志感知规模）。
     """
     conn = get_db_connection()
     cols = {r[1] for r in conn.execute("PRAGMA table_info(clause_revision)").fetchall()}
@@ -531,7 +532,11 @@ def fetch_full_clause(conn: sqlite3.Connection,
         is_suspicious = str(patch_map["is_suspicious"]).lower() in ("true", "1")
 
     # 补丁改写正文后重跑规则分型（仅覆写返回值，不回写快照）
-    knowledge_type = row["knowledge_type"] or "rule"
+    # knowledge_type 值域：DB 列只存 Literal（'data'|'rule'|'legal'，写入方为
+    # classify/pipeline），补丁重分类同为 Literal——显式声明自文档化
+    # （sqlite row 取值是 Any，本就无需 ignore）。
+    knowledge_type: Literal["data", "rule", "legal"] = (
+        row["knowledge_type"] or "rule")
     type_confidence = row["type_confidence"] or 1.0
     modality = row["modality"]
     modality_strength = row["modality_strength"]

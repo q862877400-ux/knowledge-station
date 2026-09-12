@@ -27,7 +27,7 @@ def _get_model():
         if _model is not None:
             return _model
         try:
-            from fastembed import TextEmbedding  # type: ignore[import-untyped]
+            from fastembed import TextEmbedding  # type: ignore[import-untyped]  # fastembed 无稳定 stub；双保险
             settings = get_settings()
             settings.models_dir.mkdir(parents=True, exist_ok=True)
             _model = TextEmbedding(

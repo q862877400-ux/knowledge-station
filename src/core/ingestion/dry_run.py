@@ -347,9 +347,10 @@ def analyze_preview_report(pdf_path: Path | str, *, doc_type: str = "standard",
     confs = [c["ocr_confidence"] for c in clauses]
     report["doc_confidence"] = (sorted(confs)[len(confs) // 2] if confs else 0.0)
 
-    verdict, reasons = verdict_document(report)
+    # verdict_document 返回 (str, list[dict])，与上方 clause 级 reasons（list[str]）同名不同物
+    verdict, doc_reasons = verdict_document(report)
     report["verdict"] = verdict
-    report["verdict_reasons"] = reasons
+    report["verdict_reasons"] = doc_reasons
     grade, grade_reasons = grade_document(verdict, report["doc_confidence"])
     report["grade"] = grade
     report["grade_reasons"] = grade_reasons

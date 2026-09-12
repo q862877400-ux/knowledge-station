@@ -150,6 +150,56 @@ export async function apiGet(base, path, { token, signal, timeoutMs = 10000 } = 
 }
 
 /**
+ * GET one BINARY endpoint through the local FastAPI, returning status + raw
+ * bytes (Uint8Array) + selected response headers. Used by the /ks/doc-image
+ * proxy (PNG screenshots from the engine's figure/formula/table-image
+ * endpoints) — apiGet/apiPost assume a textual/JSON body and would corrupt
+ * binary payloads through res.text().
+ *
+ * `captureHeaders` lists the engine headers worth forwarding verbatim
+ * (X-Frac-* sizing contract); Content-Type is always forwarded when present.
+ * Returns the same { status, ok, error } failure shape as apiGet.
+ */
+export async function apiGetBytes(
+  base, path,
+  { token, signal, timeoutMs = 30000, captureHeaders = [] } = {},
+) {
+  const controller = new AbortController()
+  const onAbort = () => controller.abort()
+  if (signal) {
+    if (signal.aborted) controller.abort()
+    else signal.addEventListener('abort', onAbort, { once: true })
+  }
+  const timer = setTimeout(() => controller.abort(), timeoutMs)
+  const headers = {}
+  if (token) headers.Authorization = `Bearer ${token}`
+  headers.accept = 'image/png,image/*'
+  try {
+    const res = await fetch(`${base}${path}`, { headers, signal: controller.signal })
+    const buffer = new Uint8Array(await res.arrayBuffer())
+    const out = { status: res.status, ok: res.ok, bytes: buffer, headers: {} }
+    const ct = res.headers.get('content-type')
+    if (ct !== null) out.headers['content-type'] = ct
+    for (const name of captureHeaders) {
+      const v = res.headers.get(name)
+      if (v !== null) out.headers[name] = v
+    }
+    return out
+  } catch (error) {
+    return {
+      status: 0,
+      ok: false,
+      bytes: null,
+      headers: {},
+      error: error instanceof Error ? error.message : String(error),
+    }
+  } finally {
+    clearTimeout(timer)
+    if (signal) signal.removeEventListener('abort', onAbort)
+  }
+}
+
+/**
  * POST a JSON body to one endpoint through the local FastAPI, returning the
  * same { status, ok, body, text, error } shape as apiGet. Use for the
  * request-bearing endpoints (e.g. POST /api/v1/ks/answer). A non-JSON body

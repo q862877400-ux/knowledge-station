@@ -241,6 +241,7 @@ class NdlsAdapter(ChannelAdapter):
         a100 = str(data.get("a100") or "").strip() or None
         version = self._newer_version(data, standard_no) or a100
         # 废止标准以废止日期为关键日期；否则实施日期；再否则发布日期（确定性）
+        eff: str | None
         if legal == "withdrawn" and wd:
             eff = wd
         elif impl:

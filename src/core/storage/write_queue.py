@@ -117,6 +117,7 @@ def enqueue(operation_type: str, payload: dict[str, Any]) -> int:
         "INSERT INTO write_queue (operation_type, payload) VALUES (?, ?)",
         (operation_type, json.dumps(payload, ensure_ascii=False)))
     conn.commit()
+    assert cur.lastrowid is not None  # INSERT 恒有 rowid
     return int(cur.lastrowid)
 
 

@@ -122,7 +122,7 @@ def fetch_detail(url: str) -> GovDetail:
     # 官方下载链接（href 以下载扩展名结尾），域名白名单校验
     seen: set[str] = set()
     for a in soup.find_all("a", href=True):
-        href = urljoin(url, a["href"])
+        href = urljoin(url, str(a["href"]))
         ext = re.search(r"\.(docx?|ofd|wps)$", href.lower())
         if not ext:
             continue

@@ -264,10 +264,11 @@ def _stream_llm(messages: List[Dict[str, str]],
         client = OpenAI(api_key=settings.llm_api_key,
                         base_url=settings.llm_base_url)
         stream = client.chat.completions.create(
-            model=settings.llm_model, messages=messages,
+            model=settings.llm_model,
+            messages=messages,  # type: ignore[arg-type]  # openai SDK messages TypedDict 形参窄于 list[dict]（运行时结构等价）
             max_tokens=max_tokens, temperature=temperature, stream=True)
         for chunk in stream:
-            delta = chunk.choices[0].delta if chunk.choices else None
+            delta = chunk.choices[0].delta if chunk.choices else None  # type: ignore[union-attr]  # SDK 重载联合含 tuple，stream=True 恒 ChatCompletionChunk
             if delta and delta.content:
                 yield delta.content
     except LLMError:

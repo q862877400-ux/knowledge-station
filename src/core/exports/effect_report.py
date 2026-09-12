@@ -342,10 +342,10 @@ def export_effect_report_xlsx(window: str = "all", color=None) -> Path:
     _xlsx_header_style(ws, r0 + 1, 3)
     for c, h in enumerate(["色别", "含义", "数量"], start=1):
         ws.cell(row=r0 + 1, column=c, value=h)
-    for i, c in enumerate(COLOR_ORDER):
-        ws.cell(row=r0 + 2 + i, column=1, value=COLOR_LABELS[c])
-        ws.cell(row=r0 + 2 + i, column=2, value=COLOR_MEANINGS[c])
-        ws.cell(row=r0 + 2 + i, column=3, value=colors_total[c])
+    for i, color_key in enumerate(COLOR_ORDER):
+        ws.cell(row=r0 + 2 + i, column=1, value=COLOR_LABELS[color_key])
+        ws.cell(row=r0 + 2 + i, column=2, value=COLOR_MEANINGS[color_key])
+        ws.cell(row=r0 + 2 + i, column=3, value=colors_total[color_key])
     ws.cell(row=r0 + 2 + len(COLOR_ORDER), column=1, value="合计").font = Font(bold=True)
     ws.cell(row=r0 + 2 + len(COLOR_ORDER), column=2, value="四色恒等式 = 库内可见文档总数")
     ws.cell(row=r0 + 2 + len(COLOR_ORDER), column=3,

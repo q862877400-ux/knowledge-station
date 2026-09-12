@@ -10,7 +10,7 @@
 from __future__ import annotations
 
 import re
-from typing import List
+from typing import List, Literal, Optional
 
 from src.core.domain.models import (
     MODALITY_STRENGTH, ModalityViolation, VerificationResult,
@@ -142,7 +142,7 @@ def verify_llm_output(llm_output: str, evidence_clauses: List[dict]) -> Verifica
                     break
 
         elif ktype == "rule":
-            src_mod = c.get("modality")
+            src_mod = c.get("modality") or ""
             src_strength = MODALITY_STRENGTH.get(src_mod, -1)
             if src_mod and src_strength >= 0:
                 out_mod, _ = extract_modality(window)
@@ -158,7 +158,8 @@ def verify_llm_output(llm_output: str, evidence_clauses: List[dict]) -> Verifica
                 else:
                     out_strength = MODALITY_STRENGTH.get(out_mod, -1)
                     if out_strength < src_strength:
-                        vtype = "modality_weakened"
+                        vtype: Optional[Literal[
+                            'modality_weakened', 'modality_strengthened']] = "modality_weakened"
                     elif out_strength > src_strength:
                         vtype = "modality_strengthened"
                     else:

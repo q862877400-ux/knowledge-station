@@ -58,7 +58,9 @@ def create_batch(trigger: str = "manual", total: int = 0) -> dict:
              "update_check_batch", batch_id,
              json.dumps({"trigger": trigger, "total": int(total)}, ensure_ascii=False)))
     upd_log(batch_id, "inspector", "INFO", "batch_created", trigger=trigger, total=int(total))
-    return get_batch(batch_id)
+    fresh = get_batch(batch_id)
+    assert fresh is not None  # 刚 INSERT 完必存在
+    return fresh
 
 
 def get_batch(batch_id: str) -> dict | None:
@@ -92,7 +94,9 @@ def update_progress(batch_id: str, checked: int = 1,
             (int(checked), int(red), int(yellow), int(green), int(gray), batch_id))
         if cur.rowcount == 0:
             raise UpdateError(f"批次不存在: {batch_id}", code=UPD_BATCH_NOT_FOUND)
-    return get_batch(batch_id)
+    updated = get_batch(batch_id)
+    assert updated is not None  # UPDATE 刚命中，必然存在
+    return updated
 
 
 # ================================================================ 变更事件
@@ -120,6 +124,9 @@ def append_change(change: dict[str, Any]) -> str:
         ("change_type", change_type), ("source_channel", source_channel)) if not val]
     if missing:
         raise UpdateError(f"append_change 缺少必填字段: {missing}", code=UPD_BAD_PAYLOAD)
+    # missing 检查通过 ⇒ 四字段均为真值 str（下方 SQL/日志以 str 使用）
+    assert isinstance(batch_id, str) and isinstance(standard_no, str)
+    assert isinstance(change_type, str) and isinstance(source_channel, str)
     if change_type not in CHANGE_TYPES:
         raise UpdateError(f"非法 change_type: {change_type}", code=UPD_ILLEGAL_CHANGE_TYPE)
     legal_status = change.get("current_legal_status")

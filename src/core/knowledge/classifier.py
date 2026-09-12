@@ -11,8 +11,9 @@ from __future__ import annotations
 
 import re
 from dataclasses import dataclass, field
+from typing import Literal
 
-from src.core.domain.models import MODALITY_STRENGTH
+from src.core.domain.models import MODALITY_STRENGTH, Modality
 
 # 数值 + 单位（工程量纲），R62 特殊字符已归一后匹配
 _NUM_UNIT = re.compile(
@@ -30,7 +31,7 @@ _MODAL_COMPOUND_NEXT = {
 }
 
 
-def extract_modality(text: str) -> tuple[str | None, float]:
+def extract_modality(text: str) -> tuple[Modality | None, float]:
     """抽取首个有效模态词（跳过复合词误命中）。返回 (词, 置信度)。"""
     for word in sorted(MODALITY_STRENGTH.keys(), key=len, reverse=True):
         blocked = _MODAL_COMPOUND_NEXT.get(word, "")
@@ -40,7 +41,7 @@ def extract_modality(text: str) -> tuple[str | None, float]:
             if nxt and nxt in blocked:
                 idx = text.find(word, idx + 1)
                 continue
-            return word, 0.92
+            return word, 0.92  # type: ignore[return-value]  # word ∈ MODALITY_STRENGTH 键 = Modality 值域（pydantic Literal 与 dict 键双源，静态不可证）
     return None, 0.0
 
 # 法条模式
@@ -88,9 +89,12 @@ _YEAR_SUPER = re.compile(r"^(\d+(?:\.\d+)*)\s*[（(]?(19|20)\d{2}[）)]?")
 
 @dataclass
 class TypedClause:
-    knowledge_type: str = "rule"
+    # 值域 = ClauseRevisionModel.knowledge_type 的 Literal（'data'|'rule'|'legal'，
+    # 赋值点仅下方 4 处字面量）——收窄注解让入库管线零 cast 直传
+    knowledge_type: Literal["data", "rule", "legal"] = "rule"
     type_confidence: float = 0.5
-    modality: str | None = None
+    # 值域 = models.Modality（extract_modality 只产 MODALITY_STRENGTH 键内词）
+    modality: Modality | None = None
     modality_strength: int | None = None
     modality_confidence: float | None = None
     exception: str | None = None

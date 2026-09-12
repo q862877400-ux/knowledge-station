@@ -23,8 +23,15 @@ logger = logging.getLogger(__name__)
 
 
 class ChildHandle(Protocol):
-    exitcode: int | None
-    pid: int | None
+    """supervisor 对子进程的最小依赖面（测试注入 FakeChild）。
+
+    SpawnProcess 的 exitcode/pid 是只读 property——Protocol 成员因此不设可写要求
+    （mypy 对 mutable Protocol 成员 vs 只读实现的报错见 _mp_child_factory 处 ignore）。
+    """
+    @property
+    def exitcode(self) -> int | None: ...
+    @property
+    def pid(self) -> int | None: ...
 
     def start(self) -> None: ...
     def join(self) -> None: ...
@@ -38,6 +45,8 @@ def _engine_entry() -> None:
 
 def _mp_child_factory() -> ChildHandle:
     ctx = mp.get_context("spawn")
+    # SpawnProcess 结构满足 ChildHandle（exitcode/pid 经 Protocol @property 只读
+    # 对齐；Protocol 属性化后此处的可写性误报已消失，无需 ignore）。
     return ctx.Process(target=_engine_entry, name="ks-engine")
 
 

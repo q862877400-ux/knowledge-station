@@ -35,9 +35,12 @@ def pypdf_page_clauses(pdf_path: str, page_no: int) -> dict[str, str]:
         return {}
     try:
         if sys.modules.get("pypdf"):
+            # 双包回退：pypdf 优先，PyPDF2 老环境兜底（二者同源 API）。
             from pypdf import PdfReader
         else:
-            from PyPDF2 import PdfReader
+            # PyPDF2 与上一分支同名 import（no-redef 是主要诉求；import-untyped
+            # 由全局 ignore_missing_imports 兜住，此处不重复声明——verifier 反证）。
+            from PyPDF2 import PdfReader  # type: ignore[no-redef]
     except Exception:
         return {}
     try:

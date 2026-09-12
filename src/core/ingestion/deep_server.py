@@ -350,7 +350,7 @@ def _collect_jobs(job_dir: Path) -> list:
     oldest_age = time.time() - jobs[0].stat().st_mtime
     if len(jobs) < min_docs and oldest_age < wait_s:
         return []  # 攒批窗口：不够一撮且最老的还新鲜 → 再等
-    claimed = []
+    claimed: list[tuple[Path, Any]] = []  # (任务目录, 已锁文件句柄)
     for j in jobs:
         if len(claimed) >= max_docs:
             break

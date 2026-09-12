@@ -456,8 +456,9 @@ write_queue / event_log（统一事件模型）/ debug_dump（每次提问落库
 
 ## 10.2 端点全表（要点，120 端点按消费面四分类）
 
-> **消费面四分类（2026-09-13 verifier 全量审计，AST 枚举 × 四面静态匹配）**：
-> **LIVE-PRODUCT 44**（host 22 / client 12，真机链路在用）· **TEST-ONLY 54**（仅回归测试调用——契约保护对象，非死代码）· **ZERO 22**（四面零消费，逐条复核均为"未接线"而非废弃残留：法规时效 1、批量入库中断 1、图/公式/表图抽取 3、本地用户资产与合规审查 17）· **SCRIPT-ONLY 0**（scripts/ 全部直连业务模块，不打引擎 HTTP）。
+> **消费面四分类（2026-09-13 verifier 全量审计，AST 枚举 × 四面静态匹配；同日端点接线后修订）**：
+> **LIVE-PRODUCT 47**（host 25 / client 15，真机链路在用）· **TEST-ONLY 54**（仅回归测试调用——契约保护对象，非死代码）· **ZERO 19**（四面零消费，逐条复核均为"未接线"而非废弃残留：法规时效 1、批量入库中断 1、本地用户资产与合规审查 17）· **SCRIPT-ONLY 0**（scripts/ 全部直连业务模块，不打引擎 HTTP）。
+> **2026-09-13 端点接线**：图/公式/表图抽取 3 端点 ZERO→LIVE（`/figure/{fig_no}`｜`/formula/{fno}`｜`/table-image/{page}/{idx}`——host 代理 `plugin/src/docimage.js`（`/ks/doc-image/*` 前缀，Bearer 只在 host 侧，X-Frac-* 逐字透传，引擎 404 状态码透传+本地信封=占位隐藏契约）+ client 正文视图（KsEvidenceTab「📄 正文」模式：KsDocTextView 渲染 content_html，fig-embed/table-embed/katex-formula 占位经同源代理拉 PNG/SVG blob 接线；HTML 经结构白名单消毒——剥 script/on*/外链 src，过滤不变量=属性过滤只在节点被 pop 时做）。E2E 实测（GB/T 34406 语料）：figure 1 SVG 矢量重绘 2601B / A.1 PNG 44KB / formula 1@3.7 PNG 3007B 带 X-Frac 三头 / 无图 404。现网语料边界：fig-embed 92 处 · katex 510 处 · asset-embed 124 处（本批不接线，只显 alt）· table-embed 0 处（代码链路通、待语料）。
 
 | 分组 | 端点 |
 |---|---|
@@ -465,7 +466,7 @@ write_queue / event_log（统一事件模型）/ debug_dump（每次提问落库
 | 入库预览（全 LIVE） | `POST /ingest/preview`｜`/preview/batch`｜`GET /preview/inbox`｜`POST /preview/jobs`｜`GET /preview/jobs/{id}`｜`POST /preview/jobs/{id}/abort`（Dry-Run + 异步预览 jobs） |
 | 批量入库（TEST-ONLY 3 + ZERO 1） | `POST /ingest/bulk`（万级三阶段）｜`GET /ingest/bulk/{id}`｜`POST /ingest/bulk/{id}/resume`｜`/abort`（ZERO） |
 | 检索问答 | `POST /chat/completions`（SSE；history/query_mode/answer_scope/免追问语法）｜`POST /ks/answer`（取证答案）｜`POST /batch/qa`｜`POST /compare`（R42，ZERO）｜`POST /aliases/extract` |
-| 文档 | `GET /documents`｜`/categories`｜`POST /documents/batch-delete`｜`GET /documents/{id}/file`｜`/tree`｜`/clauses`｜`/clauses-by-prefix`｜`/versions`（ZERO）｜`/figure/{fig_no}`（ZERO，截图/矢量重绘+C3 兜底）｜`/formula/{fno}`（ZERO）｜`/table-image/{page}/{idx}`（ZERO）｜`/assets/{fname}`（sha256 白名单）｜`POST /documents/{id}/impact`（R49）｜`/migrate-patches` |
+| 文档 | `GET /documents`｜`/categories`｜`POST /documents/batch-delete`｜`GET /documents/{id}/file`｜`/tree`｜`/clauses`｜`/clauses-by-prefix`｜`/versions`（ZERO）｜`/figure/{fig_no}`（LIVE 2026-09-13，截图/矢量重绘+C3 兜底）｜`/formula/{fno}`（LIVE）｜`/table-image/{page}/{idx}`（LIVE）｜`/assets/{fname}`（sha256 白名单）｜`POST /documents/{id}/impact`（R49）｜`/migrate-patches` |
 | 条款 | `GET /clauses/resolve?standard_no&clause_number`（年份宽容+表回退）｜`GET /clauses/{id}/meta`｜`/backlinks`｜`/spans`｜office-edit start/poll(ZERO)/commit(ZERO)/cancel；`POST/GET /clauses/patches` |
 | 收藏/批注 | `/bookmarks`｜`/doc-bookmarks` CRUD（LIVE）｜`/annotations` CRUD（ZERO ×3）｜`/projects(+clauses)`（ZERO ×4） |
 | 合规 | `POST /compliance/review`｜`/review/{task_id}/execute`（普通 JSON，非 SSE）｜`/compliance/obligations` 全族 6 条（ZERO ×5 + export 1）｜`/gap-analysis`｜`/compliance/policies` |
@@ -494,12 +495,13 @@ write_queue / event_log（统一事件模型）/ debug_dump（每次提问落库
 
 # 11. 测试体系
 
-## 11.1 门禁四件套（当前基线）
+## 11.1 门禁五件套（当前基线，2026-09-13 扩容）
 
 - **pytest**：`.venv/Scripts/python -m pytest tests -q` → **828 passed + 3 skipped**（批 8 门禁实测；冗余清剿后 watch 2 用例移除、门禁用例回归后以实测为准——演进链 24→…→513→792(git 起点)→828，全程只涨不跌）。
-- **插件 smoke**：`cd plugin && npm run smoke` → 10 段全 PASS（含 engine-guard/smoke-settings/smoke-bs-contract 等）。
+- **插件 smoke**：`cd plugin && npm run smoke` → **12 段**全 PASS（含 engine-guard/smoke-settings/smoke-bs-contract/**smoke-docimage（2026-09-13 端点接线新增，24 断言：路径解析/栅栏/字节与 X-Frac 透传/404 状态码透传+本地信封/401×2/dpi 钳制）** 与 **smoke-sanitize（同日消毒器回归，13 断言：剥壳上移节点必被过滤/占位 class 必存活/src 直剥/文本保全）** 等）。
 - **命令回归**：`cd plugin && npm run verify:commands` → 15/15。
-- **类型门禁**：`npm run typecheck` = `tsc --noEmit -p plugin/client` → 0 错误（批 8 新增，plugin/client 纳入检查）。
+- **类型门禁（TS）**：`npm run typecheck` = `tsc --noEmit -p plugin/client` → 0 错误（批 8 新增，plugin/client 纳入检查）。
+- **类型门禁（Python，2026-09-13 新建）**：`npm run typecheck:py` = `.venv\Scripts\python -m mypy` → **120 文件 0 错误**（基线演进 126→95→82→47→10→0）。非 strict 保守口径：`[tool.mypy]` 开 check_untyped_defs/no_implicit_optional/warn_redundant_casts；第三方无 stub 包 ignore_missing_imports；每处 `# type: ignore[code]` 带行内中文理由（fcntl/curl_cffi/openai-SDK/pypdf 回退等环境限制，运行时有守卫）。mypy>=1.10 已回 pyproject dev extras。修复附带捕获真实缺陷：announce.py `Path` 未导入（Excel 导出必崩 P1）、server.py 三处 `_p` int→str 变量复用、effect_report 循环变量遮蔽、write_queue `int(None)`、office_roundtrip 条款并发删除 None 崩溃。
 
 ## 11.2 测试文件清单（tests/ 80 个 test_*.py + conftest）
 
@@ -742,7 +744,7 @@ backup.py：VACUUM INTO 在线备份到 `%APPDATA%\KnowledgeStation\backups\`；
 | 剩余测试盲区 | 部分 | R61/R72/R73/R76/R-L3 等 |
 | bge-m3 升维 | 不触发 | recall@5 97.8% >> 85% 验收线 |
 | LLM advisory judge | 判定砍 | 指标已达标，省额度 |
-| 120 端点消费面四分类（2026-09-13 精确化，替换旧"约 55"粗估） | 已精确化 | LIVE-PRODUCT 44 · TEST-ONLY 54（回归保护，非死代码）· ZERO 22（未接线而非废弃：法规时效 1、批量中断 1、图/公式/表图 3、用户资产与合规 17）· SCRIPT-ONLY 0；后续项=按需补接线或补测试（见 §10.2） |
+| 120 端点消费面四分类（2026-09-13 精确化，替换旧"约 55"粗估） | 已精确化+部分接线 | LIVE-PRODUCT 47 · TEST-ONLY 54（回归保护，非死代码）· ZERO 19（未接线而非废弃：法规时效 1、批量中断 1、用户资产与合规 17）· SCRIPT-ONLY 0；图/公式/表图 3 端点 2026-09-13 已接线 ZERO→LIVE（host 代理 + 正文视图，见 §10.2）；剩余 ZERO=按需补接线或补测试 |
 | exceptions.py 4 个未 raise 的异常类 | 现状 | 契约预定义，保留 |
 | office-edit poll/commit 端点 | 已实现 | 前端入口在 DSH 侧「数据体检」tab |
 | 知识库多用户/权限 | Non-goal | v5 §6 |

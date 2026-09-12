@@ -185,6 +185,139 @@ export class EngineAuthError extends Error {
 }
 
 /* ------------------------------------------------------------------ *
+ * 端点接线（2026-09-13）：文档富文本 + 三图片端点（ZERO→LIVE）
+ *
+ *   fetchDocClauses  → 跨源 GET /api/v1/documents/{id}/clauses（Bearer）
+ *                      每条款 content_html 已由引擎注入 fig-embed / table-embed /
+ *                      katex-formula 占位（无 src——图片端点受 token 保护，
+ *                      裸 <img src> 必 401；正文视图 effect 逐个拉 blob）。
+ *   fetchDocImage    → 同源 GET /ks/doc-image/...（host 代理，token 不出 host）
+ *                      返回 objectURL + X-Frac-* 比例头（截图按原版还原）。
+ * ------------------------------------------------------------------ */
+
+/** One rich clause row from GET /api/v1/documents/{doc_id}/clauses. */
+export interface KsDocClause {
+  clause_revision_id: string
+  clause_number: string | null
+  title: string | null
+  content_text: string | null
+  content_html: string | null
+  page_start: number | null
+  page_end: number | null
+}
+
+function normalizeDocClause(value: unknown): KsDocClause | null {
+  if (value === null || typeof value !== 'object') return null
+  const o = value as Record<string, unknown>
+  const id = str(o.clause_revision_id)
+  if (id === null) return null
+  return {
+    clause_revision_id: id,
+    clause_number: str(o.clause_number),
+    title: str(o.title),
+    content_text: str(o.content_text),
+    content_html: str(o.content_html),
+    page_start: num(o.page_start),
+    page_end: num(o.page_end),
+  }
+}
+
+/**
+ * 某文档全部条款富文本（正文视图数据源）。引擎 404（无条款）→ 空数组
+ * （调用方显示空态，不是错误）；401 → EngineAuthError（会话轮换）。
+ */
+export async function fetchDocClauses(
+  port: number,
+  docId: string,
+  token: string,
+  signal?: AbortSignal,
+): Promise<KsDocClause[]> {
+  const res = await fetch(
+    `http://127.0.0.1:${port}/api/v1/documents/${encodeURIComponent(docId)}/clauses`,
+    {
+      method: 'GET',
+      headers: { Authorization: `Bearer ${token}`, accept: 'application/json' },
+      signal,
+    },
+  )
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (res.status === 404) return []
+  if (!res.ok) throw new Error(`引擎返回 HTTP ${res.status}`)
+  let body: unknown = null
+  try { body = await res.json() } catch { /* non-JSON body */ }
+  // 引擎信封 = {code:200, data:{doc_id, clauses:[…]}}——条款数组在 data.clauses
+  // （E2E 实测 2026-09-13；兼容裸数组 data——测试桩/未来形态）。
+  const envelope = body !== null && typeof body === 'object'
+    ? (body as Record<string, unknown>) : null
+  const raw = envelope?.data
+  const list = raw !== null && typeof raw === 'object'
+    && Array.isArray((raw as Record<string, unknown>).clauses)
+    ? (raw as Record<string, unknown>).clauses as unknown[]
+    : Array.isArray(raw) ? raw : []
+  return list
+    .map(normalizeDocClause)
+    .filter((c): c is KsDocClause => c !== null)
+}
+
+/** fetchDocImage 结果：objectURL 交给 <img src>；frac 头按比例还原尺寸。 */
+export interface DocImageResult {
+  url: string
+  frac: { x0: number | null, w: number | null, h: number | null }
+}
+
+/**
+ * 同源拉一张文档图（经 host /ks/doc-image 代理——引擎 token 只在 host 侧）。
+ * 404 → NOT_FOUND（调用方隐藏占位）；其他非 200 抛错。
+ * 调用方负责在卸载时 revoke objectURL。
+ */
+export const DOC_IMAGE_NOT_FOUND: unique symbol = Symbol('ks-doc-image-not-found')
+export type FetchDocImageOutcome = DocImageResult | typeof DOC_IMAGE_NOT_FOUND
+
+export async function fetchDocImage(
+  kind: 'figure' | 'formula' | 'table-image',
+  parts: { docId: string, no?: string, clause?: string, page?: number, tbl?: number },
+  dpi?: number,
+  signal?: AbortSignal,
+): Promise<FetchDocImageOutcome> {
+  const enc = encodeURIComponent
+  let path: string
+  if (kind === 'figure') {
+    path = `/ks/doc-image/${enc(parts.docId)}/figure/${enc(parts.no ?? '')}`
+  } else if (kind === 'formula') {
+    path = `/ks/doc-image/${enc(parts.docId)}/formula/${enc(parts.no ?? '')}?clause=${enc(parts.clause ?? '')}`
+  } else {
+    path = `/ks/doc-image/${enc(parts.docId)}/table-image/${parts.page ?? 0}/${parts.tbl ?? 0}`
+  }
+  const url = path + (typeof dpi === 'number' ? `&dpi=${Math.round(dpi)}` : '')
+    // formula 分支已带 ?clause=…，追加用 &；figure/table-image 无 query → ?
+    .replace(/^([^?]+)&/, '$1?')
+  const res = await fetch(url, { method: 'GET', signal })
+  if (res.status === 404) return DOC_IMAGE_NOT_FOUND
+  if (!res.ok) throw new Error(`图片代理返回 HTTP ${res.status}`)
+  const blob = await res.blob()
+  // 引擎未给 Content-Type 时 host 兜底 octet-stream——消费端必须拒绝（不猜类型）。
+  const ct = res.headers.get('content-type') ?? ''
+  if (!ct.startsWith('image/')) {
+    throw new Error(`图片代理返回了非图片内容 (content-type: ${ct || 'unknown'})`)
+  }
+  const fnum = (v: string | null): number | null => {
+    const n = typeof v === 'string' ? Number.parseFloat(v) : NaN
+    return Number.isFinite(n) ? n : null
+  }
+  return {
+    url: URL.createObjectURL(blob),
+    frac: {
+      x0: fnum(res.headers.get('x-frac-x0')),
+      w: fnum(res.headers.get('x-frac-w')),
+      h: fnum(res.headers.get('x-frac-h')),
+    },
+  }
+}
+
+/* ------------------------------------------------------------------ *
  * Bookmarks (增强③-A) — GET /api/v1/bookmarks + DELETE /api/v1/bookmarks/{id}
  * (browser-side cross-origin calls, Bearer, same trust model as fetchPdf)
  * ------------------------------------------------------------------ */

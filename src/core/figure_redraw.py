@@ -16,7 +16,7 @@ v2 核心：**内孔（hole）方案**——
 from __future__ import annotations
 
 import threading
-from typing import Optional
+from typing import List, Optional
 
 _ONE_SHOT = threading.Lock()
 _OCR = None
@@ -69,8 +69,8 @@ def try_redraw(pdf_path: str, page_no: int, rect) -> Optional[str]:
     if bw.mean() < 3 or bw.mean() > 40:
         return None
 
-    k = cv2.getStructuringElement(cv2.MORPH_RECT, (15, 15))
-    closed = cv2.morphologyEx(bw, cv2.MORPH_CLOSE, k)
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (15, 15))
+    closed = cv2.morphologyEx(bw, cv2.MORPH_CLOSE, kernel)
 
     # 1. 内孔检测（RETR_CCOMP：第二层 hole）→ 候选框
     contours, hierarchy = cv2.findContours(closed, cv2.RETR_CCOMP,
@@ -109,8 +109,8 @@ def try_redraw(pdf_path: str, page_no: int, rect) -> Optional[str]:
         return None
     if not result:
         return None
-    node_texts = [[] for _ in nodes]
-    loose_texts = []                 # 框外文本（分支条件/是否标签候选）
+    node_texts: List[List[tuple[float, float, str]]] = [[] for _ in nodes]
+    loose_texts: List[tuple[float, float, str]] = []  # 框外文本（分支条件/是否标签候选）
     for box, text, conf in result:
         if conf < 0.55 or not text.strip():
             continue
@@ -139,7 +139,7 @@ def try_redraw(pdf_path: str, page_no: int, rect) -> Optional[str]:
         x1 = min(w, nd["x"] + nd["w"] + 4); y1 = min(h, nd["y"] + nd["h"] + 4)
         mask[y0:y1, x0:x1] = 0
     n_lab, labels = cv2.connectedComponents(mask, connectivity=8)
-    raw_edges = []
+    raw_edges: list[tuple[int, int, None, int, tuple]] = []
     for lab in range(1, n_lab):
         ys, xs = np.where(labels == lab)
         if len(xs) < 60:
@@ -171,7 +171,7 @@ def try_redraw(pdf_path: str, page_no: int, rect) -> Optional[str]:
 
     # 4. 同对节点去重（保留最长）——同一箭头被框 bbox 裁断会产生多段连通域，
     #    必须先归并到一条逻辑边，标签挂接才不会落到被丢弃的分段上
-    seen = {}
+    seen: dict[tuple[int, int], int] = {}
     for k, (a, b, _l, _ln, _bb) in enumerate(raw_edges):
         key = (min(a, b), max(a, b))
         if key not in seen or raw_edges[k][3] > raw_edges[seen[key]][3]:
@@ -190,9 +190,10 @@ def try_redraw(pdf_path: str, page_no: int, rect) -> Optional[str]:
         t = max(0.0, min(1.0, ((px - x1) * vx + (py - y1) * vy) / L2))
         return _np.hypot(px - (x1 + t * vx), py - (y1 + t * vy))
 
-    edge_label_map = {}              # seen key → 标签文本
+    edge_label_map: dict[tuple[int, int], str] = {}  # seen key → 标签文本
     for (cx, cy, t) in loose_texts:
-        best, bd = None, 130.0
+        best: Optional[tuple[int, int]] = None
+        bd = 130.0
         for key, k in seen.items():
             a, b, _l, _ln, bb = raw_edges[k]
             na, nb = nodes[a], nodes[b]

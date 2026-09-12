@@ -190,7 +190,7 @@ class CurlCffiTransport:
 
     def __init__(self) -> None:
         from curl_cffi import requests as cffi_requests
-        self._session = cffi_requests.Session(impersonate="chrome")
+        self._session: Any = cffi_requests.Session(impersonate="chrome")
 
     def fetch(self, url: str, **kw: Any) -> tuple[int, Any]:
         timeout = kw.pop("timeout", DEFAULT_TIMEOUT_S)

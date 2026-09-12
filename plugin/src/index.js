@@ -40,6 +40,7 @@ import {
 } from './announce.js'
 import { registerKsReportRoutes } from './report.js'
 import { registerKsSettingsRoutes } from './settings.js'
+import { registerKsDocImageRoutes } from './docimage.js'
 import { registerKsIngestRoutes, ingestJobStartupCheck } from './ingest.js'
 import { effectiveChatMode, ensureLoaded, hasActiveForensicSessions, makeChatModeSection, registerKsChatModeCommands, registerKsChatModeRoutes } from './chatmode.js'
 
@@ -57,6 +58,9 @@ export const KS_SESSION_PATH = '/ks/session'
 export const KS_PDF_WORKER_PATH = '/ks/assets/pdf.worker.min.mjs'
 export const KS_PDF_WASM_PATH = '/ks/assets/pdf-wasm'
 export const KS_BBOX_PATH = '/ks/bbox'
+// 端点接线（2026-09-13）：文档图片同源代理前缀由 docimage.js 自持
+// （KS_DOC_IMAGE_PATH），client 硬编码同值（api.ts fetchDocImage）——
+// 跨半共享常量经 bundle 会翻倍依赖面，保持每半各自声明。
 
 // P1c-RouteA 增强①（编排拼锚点）：证据伪源锚点基址。URL 契约与 client 半
 // client/ksEvidence.ts 完全一致：http(s) + pathname /__ks_evidence__ + 非空 doc
@@ -1050,6 +1054,9 @@ export function apply(ctx, config = {}) {
       })
       // 效力报告（决策 21 修订版）：纯代理零缓存零状态文件——即时聚合快照。
       const disposeReport = registerKsReportRoutes(webCtx, manager)
+      // 文档图片同源代理（2026-09-13 端点接线）：/ks/doc-image/<doc>/(figure|formula|table-image)/…
+      // → 引擎 PNG + X-Frac-* 透传。figure/formula/table-image 三端点自此 ZERO→LIVE。
+      const disposeDocImage = registerKsDocImageRoutes(webCtx, manager)
       // API 配置（2026-09-08）：云 OCR / LLM 凭据代理——引擎写加密存储（DPAPI，
       // 2026-09-12 迁移整改后注册表只读覆盖、绝不写），host 不落盘不回显（纯代理）。
       const disposeApiSettings = registerKsSettingsRoutes(webCtx, manager)
@@ -1072,6 +1079,7 @@ export function apply(ctx, config = {}) {
         disposeInspection()
         disposeAnnounce()
         disposeReport()
+        disposeDocImage()
         disposeApiSettings()
         disposeChatMode()
         disposeIngest()

@@ -18,7 +18,7 @@ _local = threading.local()
 def load_vec_extension(conn: sqlite3.Connection) -> bool:
     """加载 sqlite-vec 扩展；失败时返回 False（检索自动降级，见 R30）。"""
     try:
-        import sqlite_vec  # type: ignore[import-untyped]
+        import sqlite_vec  # type: ignore[import-untyped]  # sqlite-vec 无 stub；忽略配置之外的双保险
         conn.enable_load_extension(True)
         sqlite_vec.load(conn)
         conn.enable_load_extension(False)

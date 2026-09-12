@@ -117,6 +117,7 @@ def fetch_ccs(standard_no: str, standard_name: str = "") -> dict | None:
                 if cm:
                     raw = cm.group(1).strip()          # 如 "P16工程防火"
                     mm = re.match(r"([A-Z]\d{2})(.*)", raw)
+                    assert mm is not None  # raw 非空且以大写字母开头（上面 strip 后必匹配）
                     code = mm.group(1)
                     sub = mm.group(2).strip() or ""
                     return {"code": code, "major": _major_from_code(code), "sub": sub}

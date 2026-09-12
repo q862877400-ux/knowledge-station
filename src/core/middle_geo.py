@@ -28,8 +28,8 @@ from typing import Any, Dict, List, Optional, Tuple
 
 logger = logging.getLogger(__name__)
 
-#: 进程内缓存：{parse_root_str: (mtime_ns, Cache)}
-_cache: Dict[str, Tuple[int, "MiddleGeo"]] = {}
+#: 进程内缓存：{parse_root_str: (mtime_ns, Cache)}——解析失败缓存 None（负缓存防重parse）
+_cache: Dict[str, Tuple[int, "Optional[MiddleGeo]"]] = {}
 
 
 class MiddleGeo:
@@ -223,7 +223,7 @@ def load(parse_root: str | Path) -> Optional[MiddleGeo]:
         return hit[1]
     mj_paths = _find_middle_jsons(root)
     if not mj_paths:
-        _cache[key] = (mtime, None)  # type: ignore[arg-type]
+        _cache[key] = (mtime, None)
         return None
     pages: Dict[int, Dict[str, Any]] = {}
     sizes: Dict[int, Tuple[float, float]] = {}
@@ -309,7 +309,7 @@ def load(parse_root: str | Path) -> Optional[MiddleGeo]:
                         entry["texts"].append((bbox, txt))
             any_ok = True
     if not any_ok:
-        _cache[key] = (mtime, None)  # type: ignore[arg-type]
+        _cache[key] = (mtime, None)
         return None
     geo = MiddleGeo(pages, sizes)
     _cache[key] = (mtime, geo)

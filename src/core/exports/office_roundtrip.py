@@ -291,6 +291,10 @@ def poll_edit_session(session_id: str) -> EditSession:
     # 白名单解析：正文+表格 与 原条款比对
     conn = get_db_connection()
     clause = fetch_full_clause(conn, sess.clause_revision_id)
+    if clause is None:  # 条款被并发删除（窗口极窄）→ 按无差异处理，用户侧零幻觉
+        sess.proposed = None
+        sess.rejected_reason = None
+        return sess
     body, tables = _docx_content_to_text(sess.docx_path)
     body_flat = body.replace("\n", "").replace(" ", "")
     orig = (clause.content_text or "").replace("\n", "").replace(" ", "")

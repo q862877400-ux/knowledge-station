@@ -264,7 +264,8 @@ def _gpu_deep_lock():
                     msvcrt.locking(fd, msvcrt.LK_NBLCK, 1)
                 else:
                     import fcntl
-                    fcntl.flock(fd, fcntl.LOCK_EX | fcntl.LOCK_NB)
+                    fcntl.flock(  # type: ignore[attr-defined]  # fcntl=POSIX-only；本分支仅 os.name!=nt 到达
+                        fd, fcntl.LOCK_EX | fcntl.LOCK_NB)  # type: ignore[attr-defined]  # 同上：fcntl=POSIX-only
                 break
             except OSError:
                 if time.monotonic() - t0 > timeout_s:
@@ -280,7 +281,7 @@ def _gpu_deep_lock():
                 msvcrt.locking(fd, msvcrt.LK_UNLCK, 1)
             else:
                 import fcntl
-                fcntl.flock(fd, fcntl.LOCK_UN)
+                fcntl.flock(fd, fcntl.LOCK_UN)  # type: ignore[attr-defined]  # fcntl=POSIX-only；本分支仅 os.name!=nt 到达
         except OSError:
             pass
         os.close(fd)

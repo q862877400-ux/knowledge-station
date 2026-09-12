@@ -257,6 +257,7 @@ def create_app(token: str) -> FastAPI:
         # chart 类型（非 image），题注在 chart 块 caption——按题注图号定位
         # bbox → clip 截图（curve 图无 image 块，此前缺失）。
         hit = None
+        _geo_c = None
         try:
             from src.core.middle_geo import load as _load_mid_c
             _geo_c = _load_mid_c(
@@ -277,6 +278,7 @@ def create_app(token: str) -> FastAPI:
                 if _pno < 0 or _pno >= len(pdf):
                     return _json_error(404, "figure_not_found", f"未定位到图{fig_no}")
                 _pg = pdf[_pno]
+                assert _geo_c is not None  # hit 非空蕴含 _geo_c 已加载
                 _sz = _geo_c.size(_pno + 1)
                 if _sz and _sz[0] > 0 and _sz[1] > 0 and len(_bbox_px) == 4:
                     _sx = _pg.rect.width / _sz[0]
@@ -328,6 +330,7 @@ def create_app(token: str) -> FastAPI:
                 with fitz.open(str(p)) as pdf:
                     if 0 <= _pno2 < len(pdf):
                         _pg2 = pdf[_pno2]
+                        assert _geo_c is not None  # _c 命中蕴含 _geo_c 已加载（_lcap 依赖其数据）
                         _sz2 = _geo_c.size(_pno2 + 1)
                         if _sz2 and _sz2[0] > 0 and _sz2[1] > 0:
                             _r2 = fitz.Rect(
@@ -1210,6 +1213,7 @@ def create_app(token: str) -> FastAPI:
             _hit = _geo.image_bbox_by_path(fname) if _geo is not None else None
             if _hit is not None:
                 _pno, _bbox = _hit
+                assert _geo is not None  # _hit 非空蕴含 _geo 已加载
                 _sz = _geo.size(_pno)
                 if _sz and _sz[0] > 0 and _sz[1] > 0 and len(_bbox) == 4:
                     hdr["X-Frac-X0"] = f"{_bbox[0] / _sz[0]:.6f}"
@@ -2286,23 +2290,23 @@ def create_app(token: str) -> FastAPI:
                 _geo = _load_middle_geo(
                     get_settings().data_dir / "parse_out" / str(doc_id))
                 if _geo is not None:
-                    for _p in dict.fromkeys(tbl_pages):
-                        _h = _geo.image_hit_tables(_p)
+                    for _tp in dict.fromkeys(tbl_pages):
+                        _h = _geo.image_hit_tables(_tp)
                         if _h:
-                            tbl_hits[_p] = _h
+                            tbl_hits[_tp] = _h
             except Exception:   # noqa: BLE001 - 深度产物缺失不阻塞展示
                 tbl_hits = {}
         tbl_queue: list[tuple[int, str]] = []
         if interleave:
             _seen: dict[int, int] = {}
-            for _p, _ch in zip(tbl_pages, tbl_chunks):
-                _k = _seen.get(_p, 0)
-                _seen[_p] = _k + 1
-                _hits = tbl_hits.get(_p) or []
+            for _tp, _ch in zip(tbl_pages, tbl_chunks):
+                _k = _seen.get(_tp, 0)
+                _seen[_tp] = _k + 1
+                _hits = tbl_hits.get(_tp) or []
                 if _k < len(_hits):
-                    _ch = (f'<img class="table-embed" data-page="{_p}" '
+                    _ch = (f'<img class="table-embed" data-page="{_tp}" '
                            f'data-tbl="{_hits[_k]}" alt="带图表格" loading="lazy"/>')
-                tbl_queue.append((_p, _ch))
+                tbl_queue.append((_tp, _ch))
         kept_rows: list[tuple[str, int | None]] = []
         ptr, cur_pg = 0, None
         for i, ln in enumerate((content_text or "").split("\n")):
@@ -2416,13 +2420,6 @@ def create_app(token: str) -> FastAPI:
                 _geo_ch = _load_mid_ch(
                     get_settings().data_dir / "parse_out" / str(doc_id))
                 if _geo_ch is not None:
-                    # 本条款页区间（page_breaks 行页 min..max），图页在区间内
-                    # 即属本条款（图页可能无文本行，故用区间而非文本行页集合）
-                    if starts:
-                        _pgset = {int(e[1]) for e in starts}
-                        _lo, _hi = min(_pgset), max(_pgset)
-                    else:
-                        _lo = _hi = None
                     # 2026-09-02 C1 根治：版面对象为唯一图源——不再参考
                     # content_text 题注（_fig_in_text，那会与新版面注入冲突），
                     # 直接按版面 figures()（图号权威，数字图全局序兜底）注入；
@@ -2549,7 +2546,7 @@ def create_app(token: str) -> FastAPI:
                 else:
                     mm.append(_pp)
             return "".join(mm)
-        merged = []
+        merged: list[str] = []
         for _p in paras:
             if not merged:
                 merged.append(_p); continue

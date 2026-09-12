@@ -47,6 +47,7 @@ import {
   widenPanelForPdf,
 } from './pdfPanel'
 import { KsFilesView } from './KsFilesTab'
+import { KsDocTextView } from './KsDocTextView'
 import {
   evidenceUrlOf,
   KS_EVIDENCE_TAB_ID,
@@ -201,6 +202,10 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
   const tocAbortRef = useRef<AbortController | null>(null)
   // 左列视图模式：'toc'=标题目录（默认） / 'files'=文件目录（库浏览，同列切换）
   const [leftMode, setLeftMode] = useState<'toc' | 'files'>('toc')
+  // 正文视图（2026-09-13 端点接线）：'pdf'=canvas 原样（默认） / 'text'=条款富文本
+  // （content_html + fig-embed/table-embed/katex-formula 占位经 /ks/doc-image 接线）。
+  // 换文档时回到 PDF 视图（正文按需再开）。
+  const [viewMode, setViewMode] = useState<'pdf' | 'text'>('pdf')
 
   /**
    * Render one page of the loaded PDF to the canvas, filling the container
@@ -541,6 +546,8 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
     // （换文档/连点证据链接不该把它又收起来）。
     setLoadedDocId(null)
     setToc(null)
+    // 正文视图随换文档回到 PDF（新文档的正文要用户主动再看）。
+    setViewMode('pdf')
     if (ev !== null) {
       setPageInput(String(ev.page ?? 1))
       // Cosmetic: better-sidebar's builtin openTab sets a hostname-derived title
@@ -1061,7 +1068,22 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
             📖 标题目录{'\u00A0'}{toc !== null && toc.length > 0 ? (tocOpen ? '▾' : '▸') : '·'}
           </button>
         )}
-        {load.status === 'ready' && (
+        {/* 正文视图切换（2026-09-13 端点接线）：PDF 原样 ↔ 条款富文本
+            （图片/公式/带图表格经 /ks/doc-image 同源代理接线）。
+            有 doc id 即可切——正文只依赖 clauses 端点，不依赖 PDF 字节。 */}
+        {evidence.current !== null && (
+          <button
+            type="button"
+            onClick={() => setViewMode(viewMode === 'pdf' ? 'text' : 'pdf')}
+            title={viewMode === 'pdf'
+              ? '切换到正文视图：条款富文本 + 原版图/公式/带图表格截图'
+              : '切换回 PDF 视图（原页渲染）'}
+            style={{ ...$btnStyle, ...(viewMode === 'text' ? { borderColor: 'var(--dsw-alias-link, #1565c0)', color: 'var(--dsw-alias-link, #1565c0)' } : {}) }}
+          >
+            {viewMode === 'pdf' ? '📄 正文' : '📑 PDF'}
+          </button>
+        )}
+        {load.status === 'ready' && viewMode === 'pdf' && (
           <>
             <button
               type="button"
@@ -1143,12 +1165,12 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
           左侧的对话框区域上——不遮 PDF，也不被 .paneContent 的 overflow:hidden 裁掉。 */}
       <div style={{ flex: 1, minHeight: 0, display: 'flex' }}>
         <div ref={containerRef} style={{ flex: 1, minWidth: 0, overflow: 'auto', padding: 12 }}>
-        {load.status === 'loading' && (
+        {load.status === 'loading' && viewMode === 'pdf' && (
           <div style={$center}>
             <div style={{ color: 'var(--dsw-alias-label-secondary, #666)' }}>载入证据 PDF…（首次可能启动引擎，需要数秒）</div>
           </div>
         )}
-        {load.status === 'error' && (
+        {load.status === 'error' && viewMode === 'pdf' && (
           <div style={{ ...$center, flexDirection: 'column', gap: 10 }}>
             <div style={{ color: 'var(--dsw-alias-label-secondary, #666)', maxWidth: 480, textAlign: 'center', wordBreak: 'break-word' }}>
               {load.message}
@@ -1156,7 +1178,16 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
             <button type="button" onClick={retry} style={$btnPrimary}>重试</button>
           </div>
         )}
-        {load.status === 'ready' && (
+        {/* 正文视图只依赖 doc id（clauses 端点），不依赖 PDF 字节——PDF 加载
+            失败/进行中的文档也能看正文（verifier 复审第 7 项）。 */}
+        {viewMode === 'text' && evidence.current !== null && (
+          <KsDocTextView
+            docId={evidence.current.doc}
+            currentPage={page}
+            onJumpPage={(p) => { goTo(p) }}
+          />
+        )}
+        {load.status === 'ready' && viewMode === 'pdf' && (
           <div style={{ position: 'relative', display: 'inline-block', contain: 'paint' }}>
             {/* display:block 消除 inline 元素的行框基线沉降（约 4px）——否则
                 "刚好铺满高度"时底部会被切掉并常驻一条竖向滚动条。

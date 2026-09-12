@@ -40,9 +40,14 @@ vision = ["numpy>=1.26", "opencv-python>=4.8", "rapidocr-onnxruntime>=1.3"]
 proc = ["psutil>=5.9"]
 # Word COM 往返（docx_adapter.py，word_com_available() 守卫，仅 Windows）
 wincom = ["pywin32>=306; sys_platform == 'win32'"]
-# dev：httpx 已上提 dependencies；mypy 已移除（声明了但从未运行/未安装/无配置，
-#   "mypy --strict 零报错" 是 REQUIREMENTS 未兑现的门禁愿景，见 REQUIREMENTS-v4.3.md 注记）
-dev = ["pytest>=8", "pytest-timeout>=2"]
+# dev：httpx 已上提 dependencies
+dev = [
+    "pytest>=8",
+    "pytest-timeout>=2",
+    # mypy 门禁 2026-09-13 真正建立（此前声明了但从未运行——已修）：
+    # 非 strict 口径（check_untyped_defs 等，见 [tool.mypy]），`python -m mypy` 零错误
+    "mypy>=1.10",
+]
 
 [build-system]
 requires = ["setuptools>=68"]
@@ -56,3 +61,18 @@ exclude = ["tests*", "scripts*", "eval*", "plugin*", "var*", "docs*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+# ── mypy 门禁（2026-09-13 立项；REQUIREMENTS 硬指标#2 的 Python 半）──
+# 非 strict 起步口径（verifier 建议）：真实暴露类型错误但不阻塞迭代。
+# strict 里程碑另立——当前 120 文件 78% 已带返回注解，缺注解面按 warn 只增不减消化。
+[tool.mypy]
+python_version = "3.12"
+files = ["src"]
+# 第三方无 stub（fitz/jieba/mineru 系）不归我们修——缺失即忽略
+ignore_missing_imports = true
+# 保守开关集：不做 strict 全家桶，只开低噪声高价值的
+warn_unused_ignores = false          # 现存 7 处历史 # type:ignore 允许不精确
+check_untyped_defs = true            # 未注解函数体内也做检查（比默认强）
+warn_redundant_casts = true
+no_implicit_optional = true         # 与现代 Python 语义对齐
+

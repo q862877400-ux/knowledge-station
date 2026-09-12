@@ -110,13 +110,14 @@ def stream_chat_completion(query: str, evidences: List[dict],
                         base_url=settings.llm_base_url)
         stream = client.chat.completions.create(
             model=settings.llm_model,
-            messages=build_messages(query, evidences, history, allow_clarify),
+            messages=build_messages(  # type: ignore[arg-type]  # openai SDK messages TypedDict 形参窄于 list[dict]（运行时结构等价）
+                query, evidences, history, allow_clarify),
             max_tokens=max_tokens,
             temperature=temperature,
             stream=True,
         )
         for chunk in stream:
-            delta = chunk.choices[0].delta if chunk.choices else None
+            delta = chunk.choices[0].delta if chunk.choices else None  # type: ignore[union-attr]  # SDK 重载返回含 tuple 的联合，stream=True 恒 ChatCompletionChunk
             if delta and delta.content:
                 yield delta.content
     except LLMError:

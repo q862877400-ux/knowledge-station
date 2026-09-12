@@ -33,6 +33,7 @@ import socket
 import threading
 import time
 from datetime import datetime
+from pathlib import Path
 from typing import Any
 from urllib.parse import urljoin, urlsplit, urlunsplit
 
@@ -215,7 +216,7 @@ def add_source(name: str, url: str, note: str = "") -> dict:
                "added_at": datetime.now().isoformat(timespec="seconds")}
         sources.append(src)
         _write_json_key(SOURCES_KEY, sources)
-    upd_log(src["id"], "announce", "INFO", "source_added", url=url_s)
+    upd_log(str(src["id"]), "announce", "INFO", "source_added", url=url_s)
     return src
 
 
@@ -369,7 +370,7 @@ def request_scan(force: bool, trigger: str, transport: Any = None) -> dict:
                             "last": state}
         scan_id = f"asc_{ULID()}"
         enabled = [s for s in get_sources() if s.get("enabled") is not False]
-        new_state = {
+        new_state: dict[str, Any] = {
             "scan_id": scan_id, "status": "running", "trigger": trigger,
             "started_at": datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S"),
             "finished_at": None, "sources_total": len(enabled), "sources_done": 0,
