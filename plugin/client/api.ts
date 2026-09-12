@@ -1476,7 +1476,7 @@ export async function exportEffectReport(
 
 /* ------------------------------------------------------------------ *
  * API 配置（2026-09-08）：云 OCR / LLM 凭据——同源走 host 代理
- * /ks/settings/api-config*（引擎写 HKCU 注册表；host 与前端均不回显 Key）。
+ * /ks/settings/api-config*（引擎写加密存储 DPAPI；host 与前端均不回显 Key）。
  * ------------------------------------------------------------------ */
 
 export interface KsApiChannelStatus {

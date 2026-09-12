@@ -58,8 +58,10 @@ def main() -> None:
   2. node_modules -> npm install（需代理见 phase1-handover）
   3. MinerU 模型  -> mineru-models-download -s modelscope -m pipeline（约2GB）
   4. fastembed 模型 -> 首次运行自动下载（约100MB）
-  5. KS_LLM_API_KEY / KS_MINERU_CLOUD_API_KEY -> 用户环境变量（HKCU\Environment），
-     切勿写入任何文件；旧的 DEEPSEEK_API_KEY 仍作只读回退（2026-09-11 命名空间化）
+  5. KS_LLM_API_KEY / KS_MINERU_CLOUD_API_KEY -> 引擎加密存储（<data_dir>/secrets.json，
+     Windows DPAPI；2026-09-12 迁移整改后注册表仅作只读覆盖、引擎绝不写），
+     切勿写入任何文件；旧名 DEEPSEEK_API_KEY 等已全部搬迁删除
+     （工具 scripts/ks-credentials-migrate.py）
 
 数据库还原：把 handoff-data/knowledge.db 复制到
   %APPDATA%\\KnowledgeStation\\database\\knowledge.db
@@ -68,7 +70,7 @@ def main() -> None:
   -> docs/onboarding/phase2-handover.md -> docs/onboarding/phase2.1-review-response.md
   -> docs/onboarding/phase3-handover.md -> docs/onboarding/phase4-handover.md -> docs/onboarding/contract.md
 
-验证环境完好：.venv\\Scripts\\python -m pytest tests/ -q  应 72 passed
+验证环境完好：.venv\\Scripts\\python -m pytest tests/ -q  应 811+ passed
 """)
         n += 1
     print(f"{out}")

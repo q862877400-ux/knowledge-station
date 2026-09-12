@@ -56,14 +56,30 @@ SEED_NAME = "ccs_seed.json"
 
 
 def _ensure_scnet_key() -> bool:
-    r"""把用户配置的 SCNET_OCR_API_KEY 注入进程环境（子解析器继承）。
+    r"""取 OCR 云通道 Key 注入进程环境（子解析器继承）。
 
-    顺序：当前进程已有 > 注册表 HKCU\Environment（setx/User 级）>
-    HKLM 会话管理器 Environment（Machine 级）。**永不打印、不落盘密钥本身**，
-    只报告来源作用域。OSI 调用时值仅透传给子进程环境。
+    2026-09-12 批4 改造（问题清单 #5；业主裁决「不要动系统层」）：读链从
+    「进程环境 > HKCU\Environment 注册表 > HKLM」改为**引擎加密存储优先**——
+    与引擎本体同一权威（src/core/settings/secret_store.py，DPAPI 加密），
+    注册表/环境变量只作显式覆盖（CI/脚本/临时调试），**与引擎绝不写系统层的
+    纪律对齐**。**永不打印、不落盘密钥本身**，只报告来源作用域。
+
+    注意：src/core 当前无 SCNET 消费者（OCR 主通道是 MinerU 云/本地双通道，
+    KS_MINERU_CLOUD_* 命名空间）；此读链为未来云 OCR 通道保留的注入点，
+    与引擎的 secret_store 读链保持同一形态。
     """
     if os.environ.get("SCNET_OCR_API_KEY"):
         return True
+    try:
+        from src.core.settings import secret_store
+        for name in ("SCNET_OCR_API_KEY", "KS_SCNET_OCR_API_KEY"):
+            if secret_store.has_value(name):
+                os.environ[name] = secret_store.read_value(name)
+                print(f"[key] {name} 取自引擎加密存储（已注入，内容不回显）", flush=True)
+                return True
+    except Exception as e:  # noqa: BLE001 - 无 secret_store 环境（理论不会）→ 继续走覆盖链
+        print(f"[key] 加密存储读取失败（{type(e).__name__}），继续探测环境覆盖链", flush=True)
+    # 显式覆盖链（registry 只读，绝不写）：本机批处理里 setx 的旧值仍可用
     try:
         import winreg
     except ImportError:          # 非 Windows（理论不会发生在本机）
@@ -82,8 +98,7 @@ def _ensure_scnet_key() -> bool:
             continue
         if isinstance(val, str) and val.strip():
             os.environ["SCNET_OCR_API_KEY"] = val.strip()
-            print(f"[key] SCNET_OCR_API_KEY 取自 {label} 作用域"
-                  f"（已注入，内容不回显）", flush=True)
+            print(f"[key] SCNET_OCR_API_KEY 取自 {label} 作用域（已注入，内容不回显）", flush=True)
             return True
     return False
 

@@ -40,7 +40,7 @@ LEGACY_ALLOWED_FILES = {
     "scripts/ks-credential-readers-scan.py",  # 读者排查工具（批 1b：检查旧名残留，只记存在性不记值）
     "scripts/ks-credential-reconcile.py",   # 对账工具（批 2c：引擎↔DSH 名字配对+指纹比对，不碰值）
     "scripts/make_handoff_zip.py",           # 交接清单文档字符串
-    "scripts/_dl_diag.py",                   # 只读探测存在性
+    "scripts/archive/_dl_diag.py",           # 只读探测存在性（批4 归档：一次性诊断，已离线）
     "plugin/scripts/verify-answer.mjs",      # 假引擎桩里的报错文案
 }
 #: 扫描射程（verifier mut9：只扫 src/ 会漏掉脚本层的裸名写入）

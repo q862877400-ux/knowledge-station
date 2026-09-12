@@ -85,7 +85,7 @@ export default function ApiConfigPanel({ engine, onClose }: { engine: EngineInfo
           <button className="mini" onClick={onClose}>关闭</button>
         </div>
         <p style={{ color: '#667', fontSize: 12, margin: '6px 0 12px' }}>
-          Key 仅存入本机用户注册表（HKCU\Environment），绝不入库/回显；保存立即生效，无需重启。
+          Key 仅存入本机加密存储（Windows DPAPI，secrets.json），绝不入库/回显；保存立即生效，无需重启。
           导入文件时：已配置云 Key → 云解析优先、本地兜底；未配置 → 直接走本地通道（纯本地不外发）。
         </p>
 

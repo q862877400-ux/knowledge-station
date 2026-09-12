@@ -908,8 +908,9 @@ function KsAnnounceSourcesSection(): JSX.Element {
  * 「API配置」组（2026-09-08）：云 OCR / LLM 凭据（可折叠，默认收起）
  *
  * 通道语义（用户修订）：导入文件时——配置了云 OCR Key → 云优先、本地兜底；
- * 未配置 → 直接本地通道（纯本地不外发）。凭据由引擎写入 HKCU 注册表，
- * 前端与 host 均不回显 Key（只显示「已配置」状态）。
+ * 未配置 → 直接本地通道（纯本地不外发）。凭据由引擎写入**加密存储**
+ * （<data_dir>/secrets.json，Windows DPAPI；2026-09-12 迁移整改后注册表
+ * 只作只读覆盖、引擎绝不写），前端与 host 均不回显 Key（只显示「已配置」状态）。
  * ------------------------------------------------------------------ */
 
 /** 按钮成对固定配色（同巡检/公告按钮：白底深字，黑白主题都清晰）。
@@ -1062,7 +1063,7 @@ function KsApiConfigSection(): JSX.Element {
         </summary>
         <p style={{ margin: '6px 0 0', fontSize: 12, color: 'var(--dsw-alias-label-secondary, #666)' }}>
           配置云 OCR Key 后，导入文件优先走云解析、本地兜底；未配置则直接走本地通道（纯本地不外发）。
-          凭据只写入本机 Windows 用户注册表，不回显、不入库。
+          凭据只写入本机加密存储（Windows DPAPI，secrets.json），不回显、不入库。
         </p>
         {chan('mineru_cloud', '☁️ 云 OCR（MinerU 官方云）', cloudKey, setCloudKey, cloudUrl, setCloudUrl)}
         {chan('llm', '🤖 LLM 问答通道', llmKey, setLlmKey, llmUrl, setLlmUrl)}

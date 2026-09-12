@@ -1052,8 +1052,8 @@ export function apply(ctx, config = {}) {
       })
       // 效力报告（决策 21 修订版）：纯代理零缓存零状态文件——即时聚合快照。
       const disposeReport = registerKsReportRoutes(webCtx, manager)
-      // API 配置（2026-09-08）：云 OCR / LLM 凭据代理——引擎写 HKCU 注册表，
-      // host 不落盘不回显（纯代理）。
+      // API 配置（2026-09-08）：云 OCR / LLM 凭据代理——引擎写加密存储（DPAPI，
+      // 2026-09-12 迁移整改后注册表只读覆盖、绝不写），host 不落盘不回显（纯代理）。
       const disposeApiSettings = registerKsSettingsRoutes(webCtx, manager)
       // 查法规模式开关（决策 14/16）：纯 host 状态（不碰引擎），落盘 ks-chatmode.json；
       // 上面的 systemPrompt 段读同一份状态。栅栏由 webCtx 统一施加。

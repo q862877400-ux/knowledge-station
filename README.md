@@ -23,7 +23,7 @@
 ## 当前状态
 
 - **阶段**：phase 1~14 全部完成（v5 路线图 25 Task 闭环）；「更新」模块与万级批量导入已交付（pipeline/ 目录全流程文档）。
-- **测试**：pytest **404 passed + 3 skipped**；`npx tsc --noEmit` 0 错误；Golden Set 门禁全绿。
+- **测试**：pytest **811+ passed + 3 skipped**（2026-09-12 整改门禁实测，只涨不跌基线）；`npx tsc --noEmit` 0 错误；插件 smoke 10 段全绿。
 - **服务**：引擎（随机端口 + 一次性 token，session 文件）+ 前端 http://127.0.0.1:5173/ 常驻。
 
 ## 目录结构（核心）
@@ -45,7 +45,7 @@ src/core/
   compliance/               # 义务清单 / 合同审查 / 差距分析 / 释义 / 批量问答
   exports/                  # report_export / office_roundtrip / backlinks
 scripts/                    # dev_launcher（一键启动）/ restart_dev / verify_highlight / verify_linkify
-tests/                      # 33 个测试文件（基线 165 passed + 2 skipped）
+tests/                      # 测试文件（2026-09-12 整改门禁 811+ passed + 3 skipped）
 src/renderer/               # React 双栏 UI：左问答右原文（App.tsx / PdfViewer / TipTap / tableText）
 ```
 
@@ -60,7 +60,7 @@ src/renderer/               # React 双栏 UI：左问答右原文（App.tsx / P
 VITE_ENGINE_PORT=<port> VITE_ENGINE_TOKEN=<token> npm run dev:vite -- --host 127.0.0.1   # 前端（必须 --host 127.0.0.1）
 
 # 测试与类型检查
-.venv/Scripts/python -m pytest -q              # 基线 398 passed + 3 skipped
+.venv/Scripts/python -m pytest -q              # 2026-09-12 门禁 811+ passed + 3 skipped
 npx tsc --noEmit -p tsconfig.json
 
 # 入库（详见 ENCYCLOPEDIA §8）
@@ -85,8 +85,10 @@ npx tsc --noEmit -p tsconfig.json
 
 ## 安全约束
 
-- DeepSeek API Key 仅存于用户环境变量 `KS_LLM_API_KEY`（Windows 用户变量，支持注册表回退；
-  旧名 `DEEPSEEK_API_KEY` 自 2026-09-11 起仅作**只读回退**），代码库无明文密钥。
+- API Key 只存于**引擎加密存储** `<data_dir>/secrets.json`（Windows DPAPI 加密，权威存储；
+  环境变量/注册表仅作**只读覆盖**，引擎**绝不写**注册表——2026-09-11/12 迁移整改后定稿）。
+  旧全局名 `DEEPSEEK_API_KEY`/`KS_MINERU_CLOUD_API_KEY`/`SCNET_OCR_API_KEY` 已全部搬入加密存储
+  并从注册表删除（搬迁与核对工具：`scripts/ks-credentials-migrate.py` / `scripts/ks-credential-reconcile.py`）。
   改名原因：写裸全局名会遮蔽 DSH 等同类工具的凭据层（继承环境变量优先级最高且只读），
   详见 `src/core/settings/api_credentials.py` 模块说明。
 - **清理旧全局名后必须重启 DSH 宿主进程**：DSH 在启动时冻结环境快照，删掉
