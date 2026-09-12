@@ -5,9 +5,12 @@
 
 批 8 同步（2026-09-12，Electron 退役）：旧前端（src/renderer、electron/、
 vite.config.ts、public/pagecmp、dist*）已整体删除，排除表里对应目录已不存在
-（保留无害，防同名目录复活）；还原说明改为 DSH 插件形态；pytest 基线刷新为
-830 passed + 3 skipped；必读文档列表同步 docs/onboarding 实际存留状态
-（仅 evidence-card-contract.md 在库，phase 系列交接文档早已散佚）。
+（保留无害，防同名目录复活）；还原说明改为 DSH 插件形态。
+
+冗余清剿同步（2026-09-12 同日）：docs/ 收敛为百科 + 产品介绍 + 需求 SSOT +
+开发简史 + 工程参考（LAW_SOURCE_PLAN/STD_STATUS_CHANNELS/CHANNEL_PROBE_REPORT）
++ pipeline/03-contract-delta.md；DSH_REINCARNATION/onboarding/loop2-design 等
+旧文档已删（结论并入百科与开发简史）；pytest 基线以实测为准。
 """
 import os
 import zipfile
@@ -75,15 +78,15 @@ Web 宿主侧栏呈现；桌面化由 DSH 整体打包承担，本项目不单�
 数据库还原：把 handoff-data/knowledge.db 复制到
   %APPDATA%\\KnowledgeStation\\database\\knowledge.db
 
-必读文档（按序）：README.md -> ENCYCLOPEDIA.md -> DSH_REINCARNATION.md
-  -> docs/onboarding/evidence-card-contract.md
-  （注：历史上引用过的 docs/onboarding/phase1-handover.md 等 phase 系列交接
-   文档已不在库中；phase1~4 的关键结论沉淀于 ENCYCLOPEDIA.md 的阶段史与
-   DSH_REINCARNATION.md 的整改台账，交接以这三份为准。）
+必读文档（按序）：README.md -> docs/ENCYCLOPEDIA.md -> docs/INTRODUCTION.md
+  -> docs/REQUIREMENTS-v4.3.md -> docs/DEVELOPMENT-HISTORY.md
+  （注：历史 phase 交接文档、DSH_REINCARNATION 台账等旧文档已随冗余清剿删除，
+   结论沉淀于 ENCYCLOPEDIA 与 DEVELOPMENT-HISTORY，交接以此为准。）
 
 验证环境完好：
-  .venv\\Scripts\\python -m pytest tests/ -q        应 830 passed + 3 skipped
-  cd plugin && npm run smoke                         应 10 段全 PASS
+  .venv\\Scripts\\python -m pytest tests/ -q        应 828 passed + 3 skipped
+  cd plugin && npm run smoke                         应 10 段全 PASS（smoke.mjs 真机段已删，
+   engine-guard 覆盖离线守护逻辑，真机连通由 ks_ping 承担）
   cd plugin && npm run verify:commands               应 15/15
   npm run typecheck                                  应 0 错误（plugin/client 门禁）
 """)
