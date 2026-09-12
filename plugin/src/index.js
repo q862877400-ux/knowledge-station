@@ -40,7 +40,7 @@ import {
 } from './announce.js'
 import { registerKsReportRoutes } from './report.js'
 import { registerKsSettingsRoutes } from './settings.js'
-import { registerKsIngestRoutes } from './ingest.js'
+import { registerKsIngestRoutes, ingestJobStartupCheck } from './ingest.js'
 import { effectiveChatMode, ensureLoaded, hasActiveForensicSessions, makeChatModeSection, registerKsChatModeCommands, registerKsChatModeRoutes } from './chatmode.js'
 
 /** Plugin identity for the cordis.yml row (matches package.json name). */
@@ -1060,7 +1060,12 @@ export function apply(ctx, config = {}) {
       const disposeChatMode = registerKsChatModeRoutes(webCtx)
       // R27 入库预览 / 批量分桶（2026-09-11）：纯代理零缓存——引擎做解析与体检，
       // host 只列目录 + 转发（含默认「待入库」目录的按需创建）。**只读**：不移动/不改写文件。
+      // 异步全量预览（2026-09-12 L239）：状态文件 ks-ingest.json + adopt/poll——
+      // 浏览器关掉后仍由 host 权威推进；引擎重启丢进程内任务 → 如实标 failed。
       const disposeIngest = registerKsIngestRoutes(webCtx, manager)
+      void ingestJobStartupCheck(ctx, manager).catch((error) => {
+        ctx.logger?.warn?.('ks-dsh-plugin: ingest job startup check failed', error)
+      })
       return () => {
         disposeSession()
         disposeWorker()

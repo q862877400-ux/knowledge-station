@@ -1068,6 +1068,75 @@ export async function fetchIngestBatch(
   return body.data
 }
 
+/** 异步全量预览任务（2026-09-12 L239）：启动/进度/中断三件套。 */
+export interface KsIngestJobView {
+  job_id: string
+  status: 'pending' | 'running' | 'done' | 'aborted' | 'failed'
+  total: number
+  done: number
+  buckets: { ok: number; warn: number; block: number }
+  rows: KsIngestBatchRow[]
+  rows_count?: number
+  error: string | null
+  stale?: boolean
+}
+
+/** POST /ks/ingest/preview/jobs — 启动异步全量预览（万级；立即返回 job_id）。 */
+export async function startIngestJob(
+  req: { dir: string; recursive?: boolean; batchSize?: number; docType?: string },
+  signal?: AbortSignal,
+): Promise<KsIngestJobView> {
+  const payload: Record<string, unknown> = { dir: req.dir }
+  if (req.recursive === true) payload.recursive = true
+  if (req.batchSize !== undefined && req.batchSize > 0) payload.batch_size = req.batchSize
+  if (req.docType !== undefined) payload.doc_type = req.docType
+  const res = await fetch('/ks/ingest/preview/jobs', {
+    method: 'POST',
+    headers: { accept: 'application/json', 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+    signal,
+  })
+  if (!res.ok) throw await parseIngestError(res)
+  const body = (await res.json().catch(() => null)) as
+    { ok?: boolean; data?: KsIngestJobView } | null
+  if (body?.ok !== true || body.data === undefined) throw new Error('全量预览启动响应异常')
+  return body.data
+}
+
+/** GET /ks/ingest/preview/jobs/{id} — 任务进度（引擎 live 值优先，镜像快照兜底）。 */
+export async function fetchIngestJob(
+  jobId: string,
+  opts: { rowsOffset?: number; rowsLimit?: number; signal?: AbortSignal } = {},
+): Promise<KsIngestJobView> {
+  const qs = new URLSearchParams({
+    rows_offset: String(opts.rowsOffset ?? 0),
+    rows_limit: String(opts.rowsLimit ?? 200),
+  })
+  const res = await fetch(`/ks/ingest/preview/jobs/${encodeURIComponent(jobId)}?${qs}`, {
+    method: 'GET', headers: { accept: 'application/json' }, signal: opts.signal,
+  })
+  if (!res.ok) throw await parseIngestError(res)
+  const body = (await res.json().catch(() => null)) as
+    { ok?: boolean; data?: KsIngestJobView } | null
+  if (body?.ok !== true || body.data === undefined) throw new Error('全量预览进度响应异常')
+  return body.data
+}
+
+/** POST /ks/ingest/preview/jobs/{id}/abort — 协作式中断（已完成行保留）。 */
+export async function abortIngestJob(jobId: string, signal?: AbortSignal): Promise<KsIngestJobView> {
+  const res = await fetch(`/ks/ingest/preview/jobs/${encodeURIComponent(jobId)}/abort`, {
+    method: 'POST',
+    headers: { accept: 'application/json', 'Content-Type': 'application/json' },
+    body: '{}',
+    signal,
+  })
+  if (!res.ok) throw await parseIngestError(res)
+  const body = (await res.json().catch(() => null)) as
+    { ok?: boolean; data?: KsIngestJobView } | null
+  if (body?.ok !== true || body.data === undefined) throw new Error('全量预览中断响应异常')
+  return body.data
+}
+
 // KS_INGEST_PATH_MARKER_R27
 export class InspectionHttpError extends Error {
   constructor(

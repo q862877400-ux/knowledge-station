@@ -29,6 +29,7 @@ import {
   KS_INGEST_BATCH_PATH,
   KS_INGEST_INBOX_DEFAULT_PATH,
   KS_INGEST_INBOX_PATH,
+  KS_INGEST_JOB_START_PATH,
   KS_INGEST_PREVIEW_PATH,
   defaultInboxDir,
   registerKsIngestRoutes,
@@ -70,7 +71,7 @@ function captureRoutes() {
   const ctx = {
     webServer: {
       register(route) {
-        byPath.set(route.path, route.handler)
+        byPath.set(route.path, { kind: route.kind, handler: route.handler })
         return () => byPath.delete(route.path)
       },
     },
@@ -84,10 +85,21 @@ function captureRoutes() {
 
 const { byPath, dispose } = captureRoutes()
 
-/** 调一次真实 handler。 */
+/** 调一次真实 handler。匹配模拟 webServer：exact 全等、prefix 前缀。 */
 async function call(path, { method = 'GET', url, body } = {}) {
+  let handler = null
+  if (byPath.has(path)) {
+    handler = byPath.get(path).handler
+  } else {
+    for (const [reg, entry] of byPath) {
+      if (entry.kind === 'prefix' && (path.startsWith(reg + '/') || path === reg)) {
+        handler = entry.handler
+        break
+      }
+    }
+  }
   const res = fakeRes()
-  await byPath.get(path)(fakeReq({ method, url: url ?? path, body }), res)
+  await handler(fakeReq({ method, url: url ?? path, body }), res)
   return res
 }
 
@@ -258,10 +270,81 @@ check('inbox-default returns the absolute default dir',
 const rDef2 = await call(KS_INGEST_INBOX_DEFAULT_PATH)
 check('inbox-default is idempotent', rDef2.status === 200 && rDef2.body?.data?.dir === rDef.body?.data?.dir)
 
-// ---------------------------------------------------------------- 8) 卸载不泄漏
+// ---------------------------------------------------------------- 8) 异步 jobs（L239）
+// POST /jobs 启动 → 镜像状态写 ks-ingest.json + adopt 轮询启动
+seen.length = 0
+scenario = () => ({
+  status: 200, body: { code: 200, status: 'success',
+    data: { job_id: 'pjob_smoke1', status: 'pending', total: 7, done: 0 } },
+})
+const rJobStart = await call(KS_INGEST_JOB_START_PATH, {
+  method: 'POST', body: JSON.stringify({ dir: inboxDir, batch_size: 7, allow_deep: true, junk: 1 }),
+})
+const jobSent = seen.find((s) => s.url.endsWith('/api/v1/ingest/preview/jobs'))
+const jobBody = jobSent ? JSON.parse(jobSent.body) : {}
+check('job start returns 200 + job_id',
+  rJobStart.status === 200 && rJobStart.body?.data?.job_id === 'pjob_smoke1',
+  `${rJobStart.status} ${JSON.stringify(rJobStart.body)}`)
+check('job start forwards dir/batch_size only (zero-egress guard)',
+  jobBody.dir === inboxDir && jobBody.batch_size === 7
+  && !('allow_deep' in jobBody) && !('junk' in jobBody)
+  && Object.keys(jobBody).sort().join(',') === 'batch_size,dir',
+  JSON.stringify(jobBody))
+
+// GET /jobs/{id}：引擎可查 → live 优先 + stale=false
+seen.length = 0
+scenario = () => ({
+  status: 200, body: { code: 200, status: 'success', data: {
+    job_id: 'pjob_smoke1', status: 'running', total: 7, done: 3,
+    buckets: { ok: 2, warn: 1, block: 0 }, rows: [], rows_count: 3,
+  } },
+})
+const rJobLive = await call(`${KS_INGEST_JOB_START_PATH}/pjob_smoke1`)
+check('job status merges live engine view (stale=false)',
+  rJobLive.status === 200 && rJobLive.body?.data?.status === 'running'
+  && rJobLive.body?.data?.done === 3 && rJobLive.body?.data?.stale === false,
+  `${rJobLive.status} ${JSON.stringify(rJobLive.body)}`)
+
+// GET /jobs/{id}：引擎死亡 → 镜像快照 + stale=true（不假装仍在跑）
+scenario = () => ({ status: 503, body: { code: 503, error: 'down', message: 'down' } })
+const rJobStale = await call(`${KS_INGEST_JOB_START_PATH}/pjob_smoke1`)
+check('job status degrades to mirror snapshot with stale=true',
+  rJobStale.status === 200 && rJobStale.body?.data?.stale === true
+  && typeof rJobStale.body?.data?.job_id === 'string',
+  `${rJobStale.status} ${JSON.stringify(rJobStale.body)}`)
+
+// GET /jobs/{unknown}：引擎 404 且无镜像 → 404 job_not_found
+scenario = () => ({ status: 404, body: { code: 404, error: 'preview_job_not_found', message: 'no' } })
+const rJob404 = await call(`${KS_INGEST_JOB_START_PATH}/pjob_ghost`)
+check('job status 404 passes through when no mirror exists',
+  rJob404.status === 404, `${rJob404.status}`)
+
+// POST /jobs/{id}/abort：转发引擎
+seen.length = 0
+scenario = () => ({
+  status: 200, body: { code: 200, status: 'success',
+    data: { job_id: 'pjob_smoke1', status: 'running', stop_flag: true } },
+})
+const rAbort = await call(`${KS_INGEST_JOB_START_PATH}/pjob_smoke1/abort`, { method: 'POST', body: '{}' })
+const abortSent = seen.find((s) => s.url.endsWith('/abort'))
+check('job abort forwards to engine',
+  rAbort.status === 200 && abortSent !== undefined,
+  `${rAbort.status}`)
+check('job abort hits the engine abort endpoint',
+  abortSent?.url.includes('/api/v1/ingest/preview/jobs/pjob_smoke1/abort') === true,
+  abortSent?.url)
+
+// 路径错形态：GET /jobs/a/b（job_id 带斜杠）→ 404
+const rBadTail = await call(`${KS_INGEST_JOB_START_PATH}/a/b`)
+check('job route rejects slashed tail with 404', rBadTail.status === 404, `${rBadTail.status}`)
+// POST /jobs/{id}/non-abort → 404 no_such_route
+const rBadOp = await call(`${KS_INGEST_JOB_START_PATH}/pjob_smoke1/pause`, { method: 'POST', body: '{}' })
+check('job dispatcher rejects unknown op with 404', rBadOp.status === 404, `${rBadOp.status}`)
+
+// ---------------------------------------------------------------- 9) 卸载不泄漏
 const before = byPath.size
 dispose()
-check('dispose removes every ingest route', byPath.size === before - 4, `${before} -> ${byPath.size}`)
+check('dispose removes every ingest route', byPath.size === before - 5, `${before} -> ${byPath.size}`)
 
 globalThis.fetch = realFetch
 

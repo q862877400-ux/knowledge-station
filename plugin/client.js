@@ -27685,6 +27685,49 @@ async function fetchIngestBatch(req, signal) {
   if (body?.ok !== true || body.data === void 0) throw new Error("\u6279\u91CF\u9884\u89C8\u54CD\u5E94\u5F02\u5E38");
   return body.data;
 }
+async function startIngestJob(req, signal) {
+  const payload = { dir: req.dir };
+  if (req.recursive === true) payload.recursive = true;
+  if (req.batchSize !== void 0 && req.batchSize > 0) payload.batch_size = req.batchSize;
+  if (req.docType !== void 0) payload.doc_type = req.docType;
+  const res = await fetch("/ks/ingest/preview/jobs", {
+    method: "POST",
+    headers: { accept: "application/json", "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+    signal
+  });
+  if (!res.ok) throw await parseIngestError(res);
+  const body = await res.json().catch(() => null);
+  if (body?.ok !== true || body.data === void 0) throw new Error("\u5168\u91CF\u9884\u89C8\u542F\u52A8\u54CD\u5E94\u5F02\u5E38");
+  return body.data;
+}
+async function fetchIngestJob(jobId, opts = {}) {
+  const qs = new URLSearchParams({
+    rows_offset: String(opts.rowsOffset ?? 0),
+    rows_limit: String(opts.rowsLimit ?? 200)
+  });
+  const res = await fetch(`/ks/ingest/preview/jobs/${encodeURIComponent(jobId)}?${qs}`, {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal: opts.signal
+  });
+  if (!res.ok) throw await parseIngestError(res);
+  const body = await res.json().catch(() => null);
+  if (body?.ok !== true || body.data === void 0) throw new Error("\u5168\u91CF\u9884\u89C8\u8FDB\u5EA6\u54CD\u5E94\u5F02\u5E38");
+  return body.data;
+}
+async function abortIngestJob(jobId, signal) {
+  const res = await fetch(`/ks/ingest/preview/jobs/${encodeURIComponent(jobId)}/abort`, {
+    method: "POST",
+    headers: { accept: "application/json", "Content-Type": "application/json" },
+    body: "{}",
+    signal
+  });
+  if (!res.ok) throw await parseIngestError(res);
+  const body = await res.json().catch(() => null);
+  if (body?.ok !== true || body.data === void 0) throw new Error("\u5168\u91CF\u9884\u89C8\u4E2D\u65AD\u54CD\u5E94\u5F02\u5E38");
+  return body.data;
+}
 var InspectionHttpError = class extends Error {
   constructor(httpStatus, code, message) {
     super(message);
@@ -30539,6 +30582,9 @@ function KsIngestTab(props) {
   const [detail, setDetail] = (0, import_react5.useState)(null);
   const [detailName, setDetailName] = (0, import_react5.useState)("");
   const [detailState, setDetailState] = (0, import_react5.useState)({ status: "idle" });
+  const [job, setJob] = (0, import_react5.useState)(null);
+  const [jobError, setJobError] = (0, import_react5.useState)(null);
+  const pollRef = (0, import_react5.useRef)(null);
   const newController = (0, import_react5.useCallback)(() => {
     abortRef.current?.abort();
     const c = new AbortController();
@@ -30598,6 +30644,45 @@ function KsIngestTab(props) {
       setDetailState({ status: "error", message: e instanceof Error ? e.message : String(e) });
     }
   }, [newController]);
+  const stopJobPolling = (0, import_react5.useCallback)(() => {
+    if (pollRef.current !== null) {
+      clearInterval(pollRef.current);
+      pollRef.current = null;
+    }
+  }, []);
+  const pollJob = (0, import_react5.useCallback)(async (jobId) => {
+    try {
+      const v = await fetchIngestJob(jobId);
+      setJob(v);
+      setJobError(null);
+      if (v.status === "done" || v.status === "aborted" || v.status === "failed") {
+        stopJobPolling();
+      }
+    } catch (e) {
+      setJobError(e instanceof Error ? e.message : String(e));
+    }
+  }, [stopJobPolling]);
+  const startFullJob = (0, import_react5.useCallback)(async () => {
+    setJobError(null);
+    setJob(null);
+    try {
+      const v = await startIngestJob({ dir });
+      setJob(v);
+      stopJobPolling();
+      pollRef.current = setInterval(() => void pollJob(v.job_id), 1500);
+    } catch (e) {
+      setJobError(e instanceof Error ? e.message : String(e));
+    }
+  }, [dir, pollJob, stopJobPolling]);
+  const abortFullJob = (0, import_react5.useCallback)(async () => {
+    if (!job) return;
+    try {
+      await abortIngestJob(job.job_id);
+    } catch (e) {
+      setJobError(e instanceof Error ? e.message : String(e));
+    }
+  }, [job]);
+  (0, import_react5.useEffect)(() => () => stopJobPolling(), [stopJobPolling]);
   const busy = listState.status === "loading" || batchState.status === "loading" || detailState.status === "loading";
   return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { style: { padding: 12, fontSize: 13, overflow: "auto", height: "100%" }, children: [
     /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { style: { fontWeight: 600, marginBottom: 4 }, children: "\u{1F4E5} \u5165\u5E93\u9884\u89C8\uFF08Dry-Run\uFF09" }),
@@ -30724,6 +30809,101 @@ function KsIngestTab(props) {
         );
       })
     ] }) : null,
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { style: { marginTop: 14, borderTop: "1px dashed #d0d7de", paddingTop: 10 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { style: { fontWeight: 600, marginBottom: 4 }, children: "\u5168\u91CF\u9884\u89C8\uFF08\u5F02\u6B65\uFF0C\u4E07\u7EA7\u53EF\u7528\uFF09" }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { style: noteStyle, children: "\u4E0A\u9762\u7684\u540C\u6B65\u9884\u89C8\u5355\u8BF7\u6C42\u4E0A\u9650 200 \u672C\uFF1B\u8FD9\u91CC\u8D70\u5F15\u64CE\u540E\u53F0\u4EFB\u52A1\uFF0C\u51E0\u4E07\u672C\u4E5F\u80FD\u8DD1\u2014\u2014 \u5173\u6389\u6D4F\u89C8\u5668 host \u4E5F\u4F1A\u7EE7\u7EED\u63A8\u8FDB\uFF0C\u56DE\u6765\u65F6\u81EA\u52A8\u6062\u590D\u8FDB\u5EA6\u663E\u793A\u3002" }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { style: { marginTop: 8 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+          "button",
+          {
+            type: "button",
+            style: btnStyle2(job !== null && (job.status === "running" || job.status === "pending")),
+            disabled: job !== null && (job.status === "running" || job.status === "pending"),
+            onClick: () => void startFullJob(),
+            children: "\u5BF9\u6574\u4E2A\u76EE\u5F55\u53D1\u8D77\u5168\u91CF\u9884\u89C8"
+          }
+        ),
+        job && (job.status === "running" || job.status === "pending") ? /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+          "button",
+          {
+            type: "button",
+            style: { ...btnStyle2(false), marginLeft: 8 },
+            onClick: () => void abortFullJob(),
+            children: "\u4E2D\u65AD"
+          }
+        ) : null
+      ] }),
+      jobError ? /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { style: { ...noteStyle, marginTop: 6, color: "#b42318" }, children: [
+        "\u4EFB\u52A1\u5931\u8D25\uFF1A",
+        jobError
+      ] }) : null,
+      job ? /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { style: { marginTop: 8 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { style: noteStyle, children: [
+          "\u72B6\u6001\uFF1A",
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("b", { children: job.status }),
+          " \xB7 ",
+          "\u5DF2\u4F53\u68C0 ",
+          job.done,
+          "/",
+          job.total,
+          job.stale === true ? " \xB7 \uFF08\u5F15\u64CE\u4E0D\u53EF\u8FBE\uFF1A\u663E\u793A host \u955C\u50CF\u5FEB\u7167\uFF09" : "",
+          job.error ? ` \xB7 ${job.error}` : ""
+        ] }),
+        job.total > 0 ? /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+          "div",
+          {
+            role: "progressbar",
+            "aria-label": "\u5168\u91CF\u9884\u89C8\u8FDB\u5EA6",
+            style: {
+              marginTop: 6,
+              height: 8,
+              borderRadius: 4,
+              background: "#eaeef2",
+              overflow: "hidden"
+            },
+            children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+              "div",
+              {
+                style: {
+                  width: `${Math.min(100, Math.round(job.done / job.total * 100))}%`,
+                  height: "100%",
+                  background: "#0969da",
+                  transition: "width 0.4s ease"
+                }
+              }
+            )
+          }
+        ) : null,
+        job.status === "done" || job.status === "aborted" || job.status === "failed" ? /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { style: { ...noteStyle, marginTop: 6 }, children: [
+          "\u4E09\u6876\u603B\u8D26\uFF1A\u2705 \u53EF\u5165\u5E93 ",
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("b", { children: job.buckets?.ok ?? 0 }),
+          " \xB7 ",
+          "\u26A0\uFE0F \u9700\u5904\u7406 ",
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("b", { children: job.buckets?.warn ?? 0 }),
+          " \xB7 ",
+          "\u274C \u963B\u65AD ",
+          /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("b", { children: job.buckets?.block ?? 0 }),
+          job.status === "aborted" ? "\uFF08\u5DF2\u4E2D\u65AD\uFF1A\u4EE5\u4E0A\u4E3A\u90E8\u5206\u7ED3\u679C\uFF09" : ""
+        ] }) : null,
+        job.rows && job.rows.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { style: { marginTop: 6 }, children: [
+          job.rows.slice(0, 10).map((row) => {
+            const meta = verdictMeta(row.verdict);
+            return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { style: { ...noteStyle, marginTop: 2 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { style: { color: meta.color }, children: meta.icon }),
+              " ",
+              row.file_name,
+              " \u2014 ",
+              row.one_line || `${row.grade} \u7EA7 \xB7 ${row.pages} \u9875`
+            ] }, row.path);
+          }),
+          job.rows_count !== void 0 && job.rows_count > 10 ? /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { style: noteStyle, children: [
+            "\u2026\u5171 ",
+            job.rows_count,
+            " \u884C\uFF08\u524D 10 \u884C\u9884\u89C8\uFF09"
+          ] }) : null
+        ] }) : null
+      ] }) : null
+    ] }),
     detailState.status === "loading" ? /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { style: { ...noteStyle, marginTop: 8 }, children: [
       "\u52A0\u8F7D ",
       detailName,

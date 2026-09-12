@@ -24,12 +24,16 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 
 import type { TabComponentProps } from 'dsh-better-sidebar/client/service'
 import {
+  abortIngestJob,
   fetchIngestBatch,
   fetchIngestInbox,
   fetchIngestInboxDefault,
+  fetchIngestJob,
   fetchIngestPreview,
+  startIngestJob,
   type KsIngestBatch,
   type KsIngestBatchRow,
+  type KsIngestJobView,
   type KsIngestReport,
 } from './api'
 
@@ -197,6 +201,10 @@ export function KsIngestTab(props: TabComponentProps): JSX.Element {
   const [detail, setDetail] = useState<KsIngestReport | null>(null)
   const [detailName, setDetailName] = useState<string>('')
   const [detailState, setDetailState] = useState<LoadState>({ status: 'idle' })
+  // 异步全量预览任务（L239）：job_id + 轮询状态 + 三桶总账
+  const [job, setJob] = useState<KsIngestJobView | null>(null)
+  const [jobError, setJobError] = useState<string | null>(null)
+  const pollRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   const newController = useCallback(() => {
     abortRef.current?.abort()
@@ -265,6 +273,53 @@ export function KsIngestTab(props: TabComponentProps): JSX.Element {
       setDetailState({ status: 'error', message: e instanceof Error ? e.message : String(e) })
     }
   }, [newController])
+
+  // ---- 异步全量预览（L239）：启动 → 轮询 → 中断 ----
+  const stopJobPolling = useCallback(() => {
+    if (pollRef.current !== null) {
+      clearInterval(pollRef.current)
+      pollRef.current = null
+    }
+  }, [])
+
+  const pollJob = useCallback(async (jobId: string) => {
+    try {
+      const v = await fetchIngestJob(jobId)
+      setJob(v)
+      setJobError(null)
+      if (v.status === 'done' || v.status === 'aborted' || v.status === 'failed') {
+        stopJobPolling()
+      }
+    } catch (e) {
+      // 轮询失败不立刻死：连续错误时如实显示（引擎可能重启中）
+      setJobError(e instanceof Error ? e.message : String(e))
+    }
+  }, [stopJobPolling])
+
+  const startFullJob = useCallback(async () => {
+    setJobError(null)
+    setJob(null)
+    try {
+      const v = await startIngestJob({ dir })
+      setJob(v)
+      stopJobPolling()
+      pollRef.current = setInterval(() => void pollJob(v.job_id), 1500)
+    } catch (e) {
+      setJobError(e instanceof Error ? e.message : String(e))
+    }
+  }, [dir, pollJob, stopJobPolling])
+
+  const abortFullJob = useCallback(async () => {
+    if (!job) return
+    try {
+      await abortIngestJob(job.job_id)
+      // 中断请求已发；状态由下一轮轮询刷新为 aborted
+    } catch (e) {
+      setJobError(e instanceof Error ? e.message : String(e))
+    }
+  }, [job])
+
+  useEffect(() => () => stopJobPolling(), [stopJobPolling])
 
   const busy = listState.status === 'loading' || batchState.status === 'loading'
     || detailState.status === 'loading'
@@ -382,6 +437,89 @@ export function KsIngestTab(props: TabComponentProps): JSX.Element {
           })}
         </>
       ) : null}
+
+      {/* ---------------- 异步全量预览（万级，L239） ---------------- */}
+      <div style={{ marginTop: 14, borderTop: '1px dashed #d0d7de', paddingTop: 10 }}>
+        <div style={{ fontWeight: 600, marginBottom: 4 }}>全量预览（异步，万级可用）</div>
+        <div style={noteStyle}>
+          上面的同步预览单请求上限 200 本；这里走引擎后台任务，几万本也能跑——
+          关掉浏览器 host 也会继续推进，回来时自动恢复进度显示。
+        </div>
+        <div style={{ marginTop: 8 }}>
+          <button
+            type="button"
+            style={btnStyle(job !== null && (job.status === 'running' || job.status === 'pending'))}
+            disabled={job !== null && (job.status === 'running' || job.status === 'pending')}
+            onClick={() => void startFullJob()}
+          >
+            对整个目录发起全量预览
+          </button>
+          {job && (job.status === 'running' || job.status === 'pending') ? (
+            <button
+              type="button"
+              style={{ ...btnStyle(false), marginLeft: 8 }}
+              onClick={() => void abortFullJob()}
+            >
+              中断
+            </button>
+          ) : null}
+        </div>
+        {jobError ? (
+          <div style={{ ...noteStyle, marginTop: 6, color: '#b42318' }}>任务失败：{jobError}</div>
+        ) : null}
+        {job ? (
+          <div style={{ marginTop: 8 }}>
+            <div style={noteStyle}>
+              状态：<b>{job.status}</b>
+              {' · '}已体检 {job.done}/{job.total}
+              {job.stale === true ? ' · （引擎不可达：显示 host 镜像快照）' : ''}
+              {job.error ? ` · ${job.error}` : ''}
+            </div>
+            {job.total > 0 ? (
+              <div
+                role="progressbar"
+                aria-label="全量预览进度"
+                style={{
+                  marginTop: 6, height: 8, borderRadius: 4,
+                  background: '#eaeef2', overflow: 'hidden',
+                }}
+              >
+                <div
+                  style={{
+                    width: `${Math.min(100, Math.round((job.done / job.total) * 100))}%`,
+                    height: '100%', background: '#0969da',
+                    transition: 'width 0.4s ease',
+                  }}
+                />
+              </div>
+            ) : null}
+            {(job.status === 'done' || job.status === 'aborted' || job.status === 'failed') ? (
+              <div style={{ ...noteStyle, marginTop: 6 }}>
+                三桶总账：✅ 可入库 <b>{job.buckets?.ok ?? 0}</b>
+                {' · '}⚠️ 需处理 <b>{job.buckets?.warn ?? 0}</b>
+                {' · '}❌ 阻断 <b>{job.buckets?.block ?? 0}</b>
+                {job.status === 'aborted' ? '（已中断：以上为部分结果）' : ''}
+              </div>
+            ) : null}
+            {job.rows && job.rows.length > 0 ? (
+              <div style={{ marginTop: 6 }}>
+                {job.rows.slice(0, 10).map((row) => {
+                  const meta = verdictMeta(row.verdict)
+                  return (
+                    <div key={row.path} style={{ ...noteStyle, marginTop: 2 }}>
+                      <span style={{ color: meta.color }}>{meta.icon}</span>
+                      {' '}{row.file_name} — {row.one_line || `${row.grade} 级 · ${row.pages} 页`}
+                    </div>
+                  )
+                })}
+                {job.rows_count !== undefined && job.rows_count > 10
+                  ? <div style={noteStyle}>…共 {job.rows_count} 行（前 10 行预览）</div>
+                  : null}
+              </div>
+            ) : null}
+          </div>
+        ) : null}
+      </div>
 
       {detailState.status === 'loading' ? (
         <div style={{ ...noteStyle, marginTop: 8 }}>加载 {detailName} 的报告…</div>

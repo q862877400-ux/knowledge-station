@@ -119,3 +119,71 @@ def register(app, json_error):
                 continue
         return {"code": 200, "status": "success",
                 "data": {"dir": str(dir), "count": len(rows), "files": rows}}
+
+    # ---------------- 异步批量预览（全量万级，2026-09-12 L239 施工）----------------
+    # 三件套：POST jobs（立即返回 job_id）→ GET jobs/{id}（进度+瘦身行分页）→
+    # POST jobs/{id}/abort（协作式中断）。任务表进程内（只读红线：不落库账本）；
+    # 僵尸语义照 announce.py（登记 running 而线程死 → GET 时自愈标 failed）。
+    @app.post("/api/v1/ingest/preview/jobs")
+    async def ingest_preview_job_start(payload: dict):
+        """启动异步批量预览任务：``{paths: [绝对路径…]}`` 或 ``{dir, recursive?}``。
+
+        ``batch_size>0`` 只跑前 N 件（试跑）；默认全量（这正是本接口的用途——
+        同步接口的 200 上限不是超时保护）。立即返回 job_id，不等结果。
+        """
+        from src.core.ingestion import preview_jobs
+        body = payload or {}
+        targets = body.get("paths")
+        directory = body.get("dir")
+        if not targets and not directory:
+            return json_error(422, "preview_bad_request",
+                              "需要 dir（目录）或 paths（文件列表）")
+        try:
+            if targets:
+                if not isinstance(targets, list) or not all(isinstance(t, str) for t in targets):
+                    return json_error(422, "preview_bad_request",
+                                      "paths 必须是字符串数组")
+                paths = [str(t) for t in targets]
+            else:
+                from src.core.ingestion import dry_run
+                files = dry_run.scan_preview_dir(
+                    str(directory), recursive=bool(body.get("recursive")))
+                paths = [str(f) for f in files]
+        except NotADirectoryError:
+            return json_error(404, "preview_dir_not_found", f"目录不存在: {directory}")
+        if not paths:
+            return json_error(404, "preview_no_candidates", "候选目录下没有 PDF")
+        try:
+            batch_size = int(body.get("batch_size") or 0)
+        except (TypeError, ValueError):
+            return json_error(422, "preview_bad_request", "batch_size 必须是整数")
+        view = preview_jobs.create_job(
+            paths, doc_type=str(body.get("doc_type") or "standard"),
+            sample=0, batch_size=batch_size)
+        return {"code": 200, "status": "success", "data": view}
+
+    @app.get("/api/v1/ingest/preview/jobs/{job_id}")
+    async def ingest_preview_job_status(job_id: str, rows_offset: int = 0,
+                                        rows_limit: int = 200):
+        """任务进度：status/total/done/三桶计数 + 瘦身行分页（默认前 200 行）。
+
+        僵尸自愈在此路径（GET 时发现线程死而状态非 terminal → 标 failed）。
+        """
+        from src.core.ingestion import preview_jobs
+        view = preview_jobs.get_job(job_id, rows_offset=rows_offset,
+                                    rows_limit=rows_limit)
+        if view is None:
+            return json_error(404, "preview_job_not_found", f"任务不存在: {job_id}")
+        return {"code": 200, "status": "success", "data": view}
+
+    @app.post("/api/v1/ingest/preview/jobs/{job_id}/abort")
+    async def ingest_preview_job_abort(job_id: str):
+        """协作式中断：置 stop_flag，worker 最多再跑 16 件后停并标 aborted。
+
+        已完成的行保留（用户拿得到部分结果）。terminal 后再 abort 是幂等 no-op。
+        """
+        from src.core.ingestion import preview_jobs
+        view = preview_jobs.abort_job(job_id)
+        if view is None:
+            return json_error(404, "preview_job_not_found", f"任务不存在: {job_id}")
+        return {"code": 200, "status": "success", "data": view}
