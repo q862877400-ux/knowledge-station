@@ -73,8 +73,13 @@ def _check_api_payload(payload: Any, op: str) -> None:
 def probe_token() -> Dict[str, Any]:
     """活体探测：申请一次签名上传 URL 验证 token（不上传、不启动解析任务）。
 
-    返回 {"ok": True, "detail": ...}；任何失败 → {"ok": False, "detail": 原因}。
+    整改批 7（问题清单 #9）：探测也是真实出网调用（api/v4/file-urls/batch），
+    按红线补登记 egress 审计——此前主链 3 处齐全、探测这一处无痕。
+    **只在真的发出过 httpx 请求后才登记**（Key 未配置的提前返回没出网，
+    登记反而制造假痕）；审计失败不阻塞探测结果。
     """
+    ok_detail: Dict[str, Any] = {"ok": False, "detail": ""}
+    went_on_the_wire = False    # 只有真正出网（httpx 已发出）才算云调用
     try:
         key, base = _resolve_settings()
         if not key:
@@ -82,20 +87,37 @@ def probe_token() -> Dict[str, Any]:
         import httpx
         body = {"files": [{"name": "probe.pdf", "is_ocr": True}],
                 "language": "ch", "enable_table": True, "enable_formula": True}
+        went_on_the_wire = True
         r = httpx.post(f"{base}/api/v4/file-urls/batch", headers=_headers(key),
                        json=body, timeout=30.0)
         if r.status_code in (401, 403):
-            return {"ok": False, "detail": f"鉴权失败 (HTTP {r.status_code})，请检查 Key"}
-        r.raise_for_status()
-        payload = r.json() if r.text else {}
-        _check_api_payload(payload, "探测申请上传地址")
-        data = payload.get("data") or {}
-        if data.get("batch_id") and data.get("file_urls"):
-            return {"ok": True, "detail": f"鉴权通过（batch {str(data['batch_id'])[:12]}…）"}
-        return {"ok": False, "detail": f"响应缺 batch_id/file_urls: {payload}"}
+            ok_detail = {"ok": False, "detail": f"鉴权失败 (HTTP {r.status_code})，请检查 Key"}
+        else:
+            r.raise_for_status()
+            payload = r.json() if r.text else {}
+            _check_api_payload(payload, "探测申请上传地址")
+            data = payload.get("data") or {}
+            if data.get("batch_id") and data.get("file_urls"):
+                ok_detail = {"ok": True, "detail": f"鉴权通过（batch {str(data['batch_id'])[:12]}…）"}
+            else:
+                ok_detail = {"ok": False, "detail": f"响应缺 batch_id/file_urls: {payload}"}
     except Exception as e:  # noqa: BLE001 —— 探测异常透出真实原因
         msg = str(e).strip().replace("\n", " ")[:200]
-        return {"ok": False, "detail": msg or type(e).__name__}
+        ok_detail = {"ok": False, "detail": msg or type(e).__name__}
+    finally:
+        if went_on_the_wire:
+            # 出网即登记（成功/失败/异常三态都留痕）；审计自身失败不阻塞探测。
+            # 注意：finally 里只登记、**不 return**——finally 的 return 会吞掉
+            # try 里的返回值与异常（Python 经典陷阱）。
+            try:
+                from src.core.llm.egress_audit import record_egress
+                record_egress("mineru_cloud", "api/v4/file-urls/batch",
+                              {"doc": "probe.pdf", "op": "probe"},
+                              response_meta={"ok": bool(ok_detail.get("ok"))},
+                              prompt_preview="[云解析(MinerU) 密钥探测]")
+            except Exception:  # noqa: BLE001
+                logger.warning("probe_token 的 egress 审计登记失败（继续）", exc_info=True)
+    return ok_detail
 
 
 def _apply_upload_url(key: str, base: str, upload_name: str) -> Tuple[str, str]:

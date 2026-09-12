@@ -13,6 +13,7 @@
 from __future__ import annotations
 
 import hashlib
+import os
 import shutil
 from datetime import datetime
 from pathlib import Path
@@ -26,7 +27,15 @@ AUTO_KEEP = 7
 
 
 def _backups_dir() -> Path:
-    d = get_settings().data_dir / "backups"
+    """备份目录。
+
+    整改批 7（问题清单 #8）：默认 `<data_dir>/backups`；环境变量 `KS_BACKUP_DIR`
+    可重定向到**数据目录之外的盘/卷**（例如另一块物理盘），这样数据盘损坏时
+    备份仍然幸存——这是"快照不可变"承诺的灾难面补全。环境变量只作显式覆盖
+    （CI/运维/临时调试），引擎绝不写 env，与凭据覆盖链同一纪律。
+    """
+    override = os.environ.get("KS_BACKUP_DIR", "").strip()
+    d = Path(override) if override else get_settings().data_dir / "backups"
     d.mkdir(parents=True, exist_ok=True)
     return d
 
