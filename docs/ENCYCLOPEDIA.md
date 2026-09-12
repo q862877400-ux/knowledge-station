@@ -16,7 +16,7 @@
 6. [LLM 层与追问机制](#6-llm-层与追问机制)
 7. [核验层](#7-核验层)
 8. [入库管线与 bbox 契约](#8-入库管线与-bbox-契约)
-9. [前端（双栏 UI / PDF 穿透 / 引用链接 / 纠错）](#9-前端)
+9. [前端（批 8 后 DSH 插件 client；旧双栏 UI 章节为历史）](#9-前端批-8-后dsh-插件client本章91~97为旧双栏-spa-的历史章节仅溯源)
 10. [合规引擎与导出](#10-合规引擎与导出)
 11. [API 与 SSE 契约](#11-api-与-sse-契约)
 12. [运维（启动 / 引擎发现 / 备份 / 外发审计）](#12-运维)
@@ -48,7 +48,9 @@
 4. （已修订）涉密/内部场景不允许把标准内容发到云端大模型——该"零外发"红线 2026-08-23 由业主决策 **D1 废止**，改为"外发可审计"（见 §16.2）。
 5. 光回答"应该做什么"不够，还要能落地：生成义务清单、检查表、制度差距分析。
 
-## 1.4 产品形态：双栏交互
+## 1.4 产品形态：双栏交互（批 8 后由 DSH 承接）
+
+> **现行形态（2026-09-12 批 8）**：「左结论右原文」的双栏语义由 **DSH 会话（左/主区，结论+三段式+可点引用）+ 侧栏证据 tab（PDF 原文，点引用自动打开跳页）** 承接；以下原文为旧 src/renderer 双栏 SPA 时代的产品描述（历史，思想延续）。
 
 - **左栏**：对话问答（微信式气泡）+ 追问卡 + 纠错编辑（Word 式，表格可操作）。
 - **右栏**：PDF 原件穿透区 + 证据卡片（置信度徽章/修订记录/收藏/批注/操作）+ 条款操作。
@@ -87,38 +89,38 @@
 | Rerank | fastembed（BAAI/bge-reranker-base） | CPU/ONNX，~400MB；离线自动降级 |
 | LLM | DeepSeek（OpenAI 兼容） | 流式；Key 存用户环境变量 `KS_LLM_API_KEY`（2026-09-11 起；旧名 `DEEPSEEK_API_KEY` 仅只读回退）或注册表回退 |
 | OCR | MinerU 2.x（`mineru` 包，magic-pdf 继任） | 深度版面分析；可降级到 PyMuPDF 文本层 |
-| 前端 | React 18 + Vite 5 + TypeScript | 双栏 SPA |
-| PDF 渲染 | pdfjs-dist 3.11 | 连续纵向渲染 + 黄标高亮 + 方向自动补偿 |
-| 编辑器 | TipTap v3（ProseMirror） | 表格增删行列/合并拆分；另走 Word/WPS 往返（D3） |
-| Electron | 28（壳） | 不 spawn 引擎（Mimosa 钩子拦截），经 env 注入连接信息 |
+| 前端 | **DSH 插件 client**（React 18 + esbuild 单文件 bundle） | 批 8（2026-09-12）起：独立 Electron/Vite 前端已退役删除；GUI = DSH Web 宿主侧栏 tab（`plugin/client/` → `plugin/client.js` ~1.1MB，ModuleLoader 加载） |
+| PDF 渲染 | pdfjs-dist **5.7.284**（插件 client） | 单页渲染 + 红色定位箭头（bbox 底部原点契约）；worker/wasm 经宿主同源路由 `/ks/assets/*`；wasm 走 getDocument 的 per-document `wasmUrl` 参数 |
+| 编辑器 | 补丁双轨（快速小改 + Word/WPS 往返） | 旧 TipTap 阅读面随批 8 退役；编辑能力由引擎补丁 + office_roundtrip API 承载 |
+| 桌面壳 | **无（DSH 整体承担）** | 业主裁决 2026-09-12（照录）：「我想的是以后把DSH整个打包成EXE，套个壳，不把本项目单独打包成EXE」 |
 | 代理 | Clash Verge `http://127.0.0.1:7897` | pip/uv 走环境变量；npm 已单独配置 proxy |
 
 ## 2.2 环境事实（换机器/重置环境前必读）
 
 | 项 | 值/位置 | 说明 |
 |---|---|---|
-| 工作目录 | `D:\AI\work space\zcode` | 非 git 仓库（业主未要求初始化；删除即真删，文档规则见 §16.1） |
+| 工作目录 | `D:\AI\work space\zcode` | **git 仓库**（批 0 起，2026-09-12 `git init`；本地身份 zegel@local，绝不 --global；tag `baseline-792` 为整改起点；删除即真删，文档规则见 §16.1） |
 | venv | `.venv/`（3.12） | 重建：`uv venv --python 3.12 .venv` + `uv pip install --python .venv/Scripts/python.exe <依赖>`（依赖清单见 `pyproject.toml`） |
 | MinerU 模型 | `C:\Users\Zegel\.cache\modelscope\models\OpenDataLab--PDF-Extract-Kit-1.0\snapshots\master`（~2GB） | 下载：`.venv/Scripts/mineru-models-download -s modelscope -m pipeline` |
 | MinerU 配置 | `~/mineru.json`（新版）+ `~/magic-pdf.json`（兼容版） | 两份都在，别删 |
 | 数据目录 | `%APPDATA%\KnowledgeStation\` | 可用 `KS_DATA_DIR` 环境变量重定向（测试隔离用） |
 | 会话文件 | `%APPDATA%\KnowledgeStation\engine.session.json` | `{port, token, pid, started_at}`；引擎重启必变 |
 | DSH 插件状态 | `%APPDATA%\KnowledgeStation\ks-{inspection,announce,chatmode}.json` | 巡检 / 公告 / **查法规模式开关**各一份文件，互不覆盖。其中 `ks-chatmode.json` 的目录可用 `KS_CHATMODE_DIR` **单独**重定向（只挪这一个文件，**不**影响引擎数据目录/库；多个 dsh 实例必须取值一致，否则各写一份、状态静默分叉） |
-| 引擎日志 | `var/engine.log` | dev_launcher 启动时写入 PORT/TOKEN 两行 |
-| Node | v26.7.0 / npm 11.19.0 | 前端依赖已装（`node_modules/`） |
+| 引擎日志 | `var/engine.log` | 引擎 spawn 时写入 PORT/TOKEN 两行（旧 dev_launcher 已随批 8 退役） |
+| Node | v26.7.0 / npm 11.19.0 | 根 `node_modules/`（插件工具链：react+react-dom 实体包 + @types + esbuild + typescript）；插件自装 `plugin/node_modules/`（pdfjs-dist 5.7.284 + esbuild） |
 
-## 2.3 常用命令（Windows，仓库根）
+## 2.3 常用命令（Windows，仓库根；批 8 后形态）
 
 ```text
-一键启动       .venv/Scripts/python scripts/dev_launcher.py
-只起引擎       .venv/Scripts/python -m src.core.main
-全量测试       .venv/Scripts/python -m pytest -q
-类型检查       npx tsc --noEmit -p tsconfig.json
-前端构建       npm run build（tsc + vite build）
-数据库查看     %APPDATA%\KnowledgeStation\database\knowledge.db（DB Browser / sqlite3）
-引擎重启       .venv/Scripts/python scripts/restart_dev.py
-高亮回归验证   .venv/Scripts/python scripts/verify_highlight.py
-引用链接回归   node scripts/verify_linkify.js
+启动 DSH 宿主  桌面「DSH复活币X1」（业主操作）→ 插件自动注册工具/侧栏/懒拉引擎
+只起引擎      .venv/Scripts/python -m src.core.main
+全量测试      .venv/Scripts/python -m pytest tests -q        # 830 passed + 3 skipped
+类型门禁      npm run typecheck                                # tsc --noEmit -p plugin/client
+插件冒烟      cd plugin && npm run smoke                       # 10 段全 PASS
+命令回归      cd plugin && npm run verify:commands             # 15/15
+前端构建      cd plugin && npm run build:client                # -> plugin/client.js (~1.1MB)
+数据库查看    %APPDATA%\KnowledgeStation\database\knowledge.db（DB Browser / sqlite3）
+高亮回归验证  .venv/Scripts/python scripts/verify_highlight.py
 ```
 
 ---
@@ -129,7 +131,8 @@
 
 ```mermaid
 flowchart LR
-  FE[前端 React 18 双栏 SPA<br/>App.tsx 状态机] -->|SSE/REST Bearer| ENG[引擎 FastAPI 本地进程<br/>随机端口 + 一次性 token]
+  FE[DSH Web GUI 宿主<br/>会话(结论) + 侧栏tab(证据PDF)] -->|同源代理 /ks/*| PLG[ks-dsh-plugin 宿主桥<br/>懒拉引擎 + 模型工具]
+  PLG -->|SSE/REST Bearer| ENG[引擎 FastAPI 本地进程<br/>随机端口 + 一次性 token]
   ENG --> DB[(SQLite 28 表 WAL<br/>clause_revision 快照 + clause_patch 补丁)]
   ENG --> LLM[DeepSeek 云端<br/>仅问题 + 证据片段<br/>payload 落库可审计]
   ING[入库管线<br/>MinerU 2.x / PyMuPDF] --> DB
@@ -142,15 +145,15 @@ flowchart LR
 - **存储**：SQLite 单文件 WAL；clause_revision 不可变快照 + clause_patch 补丁叠加层；clause_fts FTS5 + clause_vec vec0；user/审计/版本链/运维表。
 - **入库**：MinerU 2.x 版面分析（可降级）；pypdf 数字回填；三型分型/章节还原/证据边。
 
-## 3.2 进程模型与引擎发现链
+## 3.2 进程模型与连接链（批 8 后形态）
 
 - **引擎** = 独立 Python 进程（FastAPI/uvicorn），启动绑定随机空闲端口 + 生成一次性 token，写入 `engine.session.json`。
-- **前端探测链（顺序）**：Electron preload → `localStorage('engine.port'/'engine.token')` → vite env（`VITE_ENGINE_PORT`/`VITE_ENGINE_TOKEN`）→ 逐个 `/health` 探测，第一个健康者写入 localStorage 并接管。
-- **坑**：
-  - localStorage 键名是 `engine.port`/`engine.token`（曾误用 VITE_ENGINE_PORT 导致连不上）。
-  - 重启引擎后端口/token 必变：要么重启 vite 注入新 env，要么刷新浏览器靠 localStorage 更新。
-  - Windows 上 vite 默认只绑 IPv6 `[::1]`，浏览器访问 `127.0.0.1` 拒连——**dev 启动必须 `--host 127.0.0.1`**（踩过）。
-  - Electron 主进程 spawn Python 被本机 Mimosa 安全钩子拦截 → 第一阶段改为 `KS_ENGINE_PORT/KS_ENGINE_TOKEN` 环境变量注入；T09 自愈拉起待安全评审。
+- **DSH 插件宿主桥**（`plugin/src/index.js`）：按需懒拉引擎（复用存活的，死了才 spawn）→ 读 session → 工具调用与代理路由都经插件转发。
+- **client 连接链（顺序）**：DSH Web GUI 侧栏 tab → 宿主同源代理 `/ks/session`（每次载入重取——引擎重启端口/token 轮换对 tab 透明）→ `/ks/pdf`、`/ks/bbox`、`/ks/assets/*` 全部同源转发（token 不进页面，不跨源）。
+- **坑（历史留档 + 现行）**：
+  - （历史）旧前端探测链 Electron preload → localStorage → vite env 已随批 8 整体退役；坑原文留档：localStorage 键名误用 VITE_ENGINE_PORT 导致连不上；Windows vite 默认只绑 `[::1]` 必须 `--host 127.0.0.1`；Electron 主进程 spawn Python 被本机 Mimosa 安全钩子拦截 → 曾改 env 注入。
+  - （现行）引擎重启后端口/token 必变 → tab 无需刷新：插件每次 fetch 经 `/ks/session` 取新值；host 侧会话镜像 stale 时如实标注不假装。
+  - （现行）**不要杀 DSH 宿主进程**——引擎可以重启（ks_ping 会拉新引擎），宿主由业主经桌面「DSH复活币X1」管理（历史事故见 §15.6）。
 
 ## 3.3 目录与模块地图（文件 → 职责）
 
@@ -202,21 +205,20 @@ src/core/
     backlinks.py                 # 双向溯源（条款 → 被谁引用）
   vision/local_vision.py         # 图片 OCR → 检索定位（MinerU 本地，零外发）
   supervisor.py                  # 引擎看门狗（崩溃重启 + 熔断）
-src/renderer/
-  App.tsx                        # 前端状态机（对话/引用/卡片/纠错/体检/运维）
-  api.ts                         # 引擎发现链 + apiFetch/fetchPdf（Bearer 头）
-  pdf/PdfViewer.tsx              # PDF 穿透：跳页 + 黄标高亮 + 方向自动纠正
-  TipTapEditor.tsx               # Word 式纠错编辑器（表格增删行列/合并拆分）
-  tableText.ts                   # 表格统一层（normalizeWraps/stripEmbeddedTable/mdTablesToHtml/pipeTableToHtml）
-  styles.css                     # design-token 体系（:root 变量：颜色/圆角/阴影/字体）
+plugin/                          # DSH 插件（批 8 后唯一 GUI/工具面）
+  src/index.js                   # 宿主桥：懒拉引擎 + ks_* 模型工具 + /ks/* 同源代理路由
+  client/entry.ts                # tab 注册（证据 PDF/报告/收藏/入库 + 设置区）
+  client/KsEvidenceTab.tsx       # 证据 PDF 查看器（跳页 + 红色定位箭头 + 标题目录）
+  client/api.ts                  # 引擎 fetch 链（经宿主代理；Bearer 头由 host 侧注入）
+  client/dsh-better-sidebar.d.ts # dsh-better-sidebar 环境声明（宿主运行时提供；忠实镜像上游 0.18.0）
+  client.js                      # esbuild 单文件产物（~1.1MB，DSH ModuleLoader 加载）
+  scripts/                       # build:client + smoke 10 段 + verify:commands
 scripts/
-  dev_launcher.py                # 一键启动（起引擎→读 session→带 env 起 vite→开浏览器）
-  restart_dev.py                 # kill+start+verify 原子重启
+  ks-credential-{migrate,reconcile,readers-scan}.py   # 凭据迁移/对账/排查（active）
   verify_highlight.py            # 离屏 bbox 验证（框内文本==条款文本）
-  verify_linkify.js              # 引用链接化防回归（9 用例）
-  eval_contract.py               # 合同 ground truth 复评测
-  make_handoff_zip.py            # 交接打包
-  .build-electron.mjs            # Electron 构建
+  make_handoff_zip.py            # 交接打包（批 8 同步：830+3 基线 + DSH 插件形态说明）
+  dsh-host-restart.ps1           # DSH 宿主重启辅助（业主侧操作配合）
+  archive/                       # 一次性诊断脚本归档（46 个，仅溯源）
 eval/
   golden/                        # Golden Set 冻结数据集（96 条 + knowledge-snapshot.db）
   run_benchmark.py               # 评测器（支持 --disable-channel / --with-rerank）
@@ -506,7 +508,9 @@ tests/                           # 33 个测试文件（契约/检索/入库/API
 
 ---
 
-# 9. 前端
+# 9. 前端（批 8 后：DSH 插件 client；本章 9.1~9.7 为旧双栏 SPA 的历史章节，仅溯源）
+
+> **现状（2026-09-12 批 8 起）**：独立前端（src/renderer + Electron 壳 + Vite）已整体退役删除。现行 GUI = **DSH Web 宿主侧栏 tab**（`plugin/client/`）——问答对话由 DSH 会话本体承载（查法规模式/三段式渲染在 DSH 消息层），KS 侧栏提供：证据 PDF 查看器（`KsEvidenceTab`，跳页+红色定位箭头+标题目录+收藏）、效力报告（`KsReportTab`）、收藏夹（`KsBookmarksTab`）、入库（`KsIngestTab`，含万级异步预览）、设置区（`KsSettingsSection`）；pdfjs-dist 5.7.284 经宿主同源路由加载 worker/wasm（wasm 走 getDocument per-document 参数——批 8 勘误：GlobalWorkerOptions 无 wasmUrl 字段，旧配置代码是死代码已删）。**对话/引用 linkify/SSE 消费的现行形态见 DSH_REINCARNATION.md 决策台账。** 以下 9.1~9.7 为旧 src/renderer 时代的实现记录（历史，保留供溯源——其 bbox 契约、表格统一层思想仍由引擎 API 与补丁机制延续）。
 
 ## 9.1 总体结构与状态机
 
@@ -659,18 +663,18 @@ tests/                           # 33 个测试文件（契约/检索/入库/API
 
 后果约定：数据备份 = 拷数据区目录；代码升级 = 替换仓库；删除代码不影响数据，删除数据不影响代码。
 
-## 12.1 一键启动与重启
+## 12.1 启动与重启（批 8 后形态：DSH 宿主承载）
 
-- 一键启动：`scripts/dev_launcher.py`（删旧 session → 起引擎 → 读 session → 带 env 起 vite → 开浏览器）。
-- 原子重启：`scripts/restart_dev.py`（kill+start+verify）。
-- 引擎：`python -m src.core.main`（stdout 打印 PORT/TOKEN 两行；session 写 `engine.session.json`）。
-- 前端单独起：`VITE_ENGINE_PORT=<port> VITE_ENGINE_TOKEN=<token> npm run dev:vite -- --host 127.0.0.1`。
+- **正常启动**：业主打开桌面「DSH复活币X1」→ DSH Web GUI 起来 → 插件（ks-dsh-plugin）自动注册模型工具（ks_ping/ks_resolve_clause/ks_answer）+ 侧栏 tab + 设置区；**引擎按需懒拉**（首个工具调用/打开证据 tab 才 spawn，复用已存活的）。
+- **引擎单独调试**：`python -m src.core.main`（stdout 打印 PORT/TOKEN 两行；session 写 `engine.session.json`）。
+- **引擎重启**：直接 Stop-Process 即可——下次 ks_ping 拉起**新引擎**（新代码生效）；宿主侧不感知轮换（session 每次重读）。**注意**：引擎在跑批量任务（巡检/异步预览）时不要杀。
+- **DSH 宿主重启**：业主操作（桌面「DSH复活币X1」）；插件的 src 改动要宿主重启才 live。**绝不主动杀宿主**（§15.6 历史事故）。
+- （历史留档）旧一键启动 `scripts/dev_launcher.py` / 原子重启 `scripts/restart_dev.py` 已随批 8 Electron 退役删除。
 
-## 12.2 引擎发现与连接坑
+## 12.2 引擎连接与坑（批 8 后）
 
-- 前端探测链：Electron preload → localStorage(engine.port/token) → vite env；任一健康即接管并写回 localStorage。
-- 重启引擎后端口/token 必变：重启 vite 注入新 env 或刷新浏览器。
-- Windows vite 默认只绑 [::1]：dev 必须 `--host 127.0.0.1`。
+- client 连接链：DSH 侧栏 tab → 宿主同源代理 `/ks/session`（每次载入重取，引擎轮换对 tab 透明）→ `/ks/pdf`/`/ks/bbox`/`/ks/assets/*` 同源转发；token 不进页面、不跨源（CORS 见 `server.py`：允许 localhost/127.0.0.1 任意端口——DSH web GUI 3080 跨源 fetch 引擎）。
+- host 侧状态镜像（`ks-{inspection,announce,chatmode,ingest}.json`）：浏览器关掉后 host 权威推进任务；引擎不可达时镜像兜底并**如实标注 stale**，不假装在跑。
 
 ## 12.3 supervisor 与健康看板
 
@@ -692,7 +696,7 @@ tests/                           # 33 个测试文件（契约/检索/入库/API
 
 ## 12.6 日志与调试
 
-- 引擎日志 `var/engine.log`；vite 日志 `var/vite.log`。
+- 引擎日志 `var/engine.log`；（历史）`var/vite.log` 为旧前端时代产物。
 - API 调试带 Bearer token：`-H "Authorization: Bearer <token>"`；`/api/v1/health` 免 token。
 - **中文 JSON 走 httpx/requests，禁止 Git Bash curl 带中文**（GBK 编码写坏数据）。
 
@@ -700,10 +704,10 @@ tests/                           # 33 个测试文件（契约/检索/入库/API
 
 # 13. 测试体系
 
-## 13.1 测试基线（2026-09-12 整改门禁实测）
+## 13.1 测试基线（2026-09-12 批 8 门禁实测）
 
-- **pytest 811+ passed + 3 skipped**（只涨不跌基线，git tag `baseline-792` 为 2026-09-12 起点）；`npx tsc --noEmit` 0 错误；`vite build` 通过；插件 smoke 10 段全绿 + verify:commands 15/15。
-- 演进：24→28→42→54→64→72→79→89→97→101→104→112→117→118(+1)→123(+1)→138(+2)→148(+2)→152(+2)→160(+2)→162(+2)→165(+2)→166(+2)→189(+2 更新模块契约先行)→214(+2)→247(+2)→258(+2)→269(+2)→292(+2)→293(+3)→312(+3 更新模块全量交付)→322(+3 laws_db 真机+订阅+高亮修复)→331(+3 万级批量导入)→343(+3 span 校准模块+严格防重+终止批次)→351(+3 扫描上限取消+最近行校准重构)→398(+47：span 校准 v2/写队列/公告存档/路由抽离等)→404(+6：找标 LLM 按需分类与口语清洗回归)→481(批量删除 4 用例+基线漂移清零)→505(排版还原批次1 前段：B3 页界/B5 行级/B4 表格身份/C1 资产端点)→513(+8：C2 插图入库管线/C3 middle.json 兜底/figure_html+page_breaks 契约/云解析配置回归)→792(2026-09-12 git 基线 tag)→801(整改批1 密钥安全网)→806(整改批2 迁移执行)→811+(整改批3/4 引擎守护+SCNET 读链)。
+- **pytest 830 passed + 3 skipped**（只涨不跌基线，git tag `baseline-792` 为 2026-09-12 起点）；**tsc 门禁** `npm run typecheck`（plugin/client）**0 错误**（批 8 新增）；插件 smoke **10 段全绿** + verify:commands **15/15**；`build:client` 1.09MB。
+- 演进：24→28→42→54→64→72→79→89→97→101→104→112→117→118(+1)→123(+1)→138(+2)→148(+2)→152(+2)→160(+2)→162(+2)→165(+2)→166(+2)→189(+2 更新模块契约先行)→214(+2)→247(+2)→258(+2)→269(+2)→292(+2)→293(+3)→312(+3 更新模块全量交付)→322(+3 laws_db 真机+订阅+高亮修复)→331(+3 万级批量导入)→343(+3 span 校准模块+严格防重+终止批次)→351(+3 扫描上限取消+最近行校准重构)→398(+47：span 校准 v2/写队列/公告存档/路由抽离等)→404(+6：找标 LLM 按需分类与口语清洗回归)→481(批量删除 4 用例+基线漂移清零)→505(排版还原批次1 前段：B3 页界/B5 行级/B4 表格身份/C1 资产端点)→513(+8：C2 插图入库管线/C3 middle.json 兜底/figure_html+page_breaks 契约/云解析配置回归)→792(2026-09-12 git 基线 tag)→801(整改批1 密钥安全网)→806(整改批2 迁移执行)→811(整改批3/4 引擎守护+SCNET 读链)→820(整改批7 安全加固+批9/10 巡检归档)→830(整改批8 Electron 退役：credentials 守卫双向断言保持 34 用例，异步预览 10 用例已计入)。
 - ⚠ 各旧文档中的"351 passed"等数字均为历史快照，以本节为准。
 
 ## 13.2 测试文件清单（tests/ 33 个）
@@ -931,9 +935,11 @@ test_api / test_auto_tag / test_backup / test_compliance / test_contract / test_
 ## 18.2 接手阅读顺序（建议）
 
 1. **本文件（百科全书）**——先建立全局认知。
-2. `README.md`——快速开始。
-3. 需要历史细节时 → `docs/_deprecated/onboarding/`（仅溯源，以本文件为准）。
-4. 改任何 schema/API/SSE 前 → 本文件 §4/§11（原 contract.md 已归档于 _deprecated）。
+2. `README.md`——快速开始（批 8 后形态）。
+3. `docs/DSH_REINCARNATION.md`——转生规格 + 决策台账 + 整改批 0~10 全记录（批 8 Electron 退役详见其批 8 条目）。
+4. 需要历史细节时 → `docs/_deprecated/onboarding/`（仅溯源，以本文件为准）。
+5. 改任何 schema/API/SSE 前 → 本文件 §4/§11（原 contract.md 已归档于 _deprecated）。
+6. 改插件 client 前 → `plugin/client/bsContract.ts` + `plugin/client/dsh-better-sidebar.d.ts`（上游契约 + 环境声明；smoke-bs-contract 每次对真包校验）。
 
 ## 18.3 增删记录（本文件融合过程的台账，同步记入 PHASE-INDEX）
 

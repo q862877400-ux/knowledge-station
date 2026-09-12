@@ -43,10 +43,21 @@ export const PDF_WASM_DIR = '/ks/assets/pdf-wasm/'
 let configured = false
 
 /**
- * Idempotently set pdf.js's worker source (and JPX/JBIG2 wasm directory) to
- * the same-origin host routes. Call before the first getDocument(); safe to
- * call repeatedly. GB/法规扫描 PDF 大量是 JPEG2000 —— 不给 wasmUrl 会报
- * "OpenJPEG failed to initialize" 且整页空白。
+ * Idempotently set pdf.js's worker source to the same-origin host route. Call
+ * before the first getDocument(); safe to call repeatedly.
+ *
+ * 批 8 勘误（2026-09-12，tsc -p plugin/client 首次纳入门禁时抓到）：本函数
+ * 原有一段 `GlobalWorkerOptions.wasmUrl = …` —— 那是**死代码**：pdfjs 5.x 的
+ * GlobalWorkerOptions 只有 workerPort/workerSrc 两个静态属性，wasmUrl 是
+ * **DocumentInitParameters**（getDocument 的 per-document 参数）字段，不在
+ * 全局 worker 选项上。旧写法读 GlobalWorkerOptions.wasmUrl 恒得 undefined，
+ * `undefined === ''` 恒 false，赋值从未执行过；真正的 wasm 路径一直由
+ * KsEvidenceTab 的 getDocument({ data, wasmUrl }) per-document 传入（那才是
+ * 自始生效的通道）。删死代码，注释改为如实描述。
+ *
+ * GB/法规扫描 PDF 大量是 JPEG2000 —— wasm 解码器路径缺失会报
+ * "OpenJPEG failed to initialize" 且整页空白；worker 源缺失则任何 PDF
+ * 都无法渲染（连 fake worker 都要 workerSrc）。
  */
 export function configurePdfWorker(): void {
   if (configured) return
@@ -54,9 +65,6 @@ export function configurePdfWorker(): void {
   const origin = window.location.origin
   if (GlobalWorkerOptions.workerSrc === '') {
     GlobalWorkerOptions.workerSrc = new URL(PDF_WORKER_PATH, origin).href
-  }
-  if (GlobalWorkerOptions.wasmUrl === '') {
-    GlobalWorkerOptions.wasmUrl = new URL(PDF_WASM_DIR, origin).href
   }
   configured = true
 }

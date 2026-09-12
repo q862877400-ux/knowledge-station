@@ -361,7 +361,7 @@ export function KsReportTab(props: TabComponentProps): JSX.Element {
       )}
       {loadState.status === 'error' && (
         <div>
-          <p role="alert" style={{ color: '#c0392b', fontSize: 13 }}>{load.message}</p>
+          <p role="alert" style={{ color: '#c0392b', fontSize: 13 }}>{loadState.message}</p>
           <button type="button" onClick={() => void load(win, colorFilter)} style={btnStyle(false)}>重试</button>
         </div>
       )}

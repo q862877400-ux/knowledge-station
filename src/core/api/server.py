@@ -32,7 +32,9 @@ def create_app(token: str) -> FastAPI:
     app = FastAPI(title="KnowledgeStation Engine", version="0.1.0")
     init_schema()
 
-    # 开发期前端 (vite localhost) 跨域访问本引擎；引擎本身仅绑 127.0.0.1 + token
+    # DSH Web GUI（localhost，跨源访问本引擎）需要 CORS；引擎本身仅绑 127.0.0.1 + token。
+    # （原注释写的是「开发期前端 vite localhost」——Electron/Vite 已在批 8 退役，
+    #   CORS 本体按既有裁决保留：DSH web GUI 在 127.0.0.1:3080 跨源 fetch 引擎。）
     from fastapi.middleware.cors import CORSMiddleware
     app.add_middleware(
         CORSMiddleware,
@@ -40,7 +42,7 @@ def create_app(token: str) -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
         # 2026-09-02 需求2：截图原版比例头（X-Frac-*）跨源可读——
-        # 引擎端口随机、前端 5173 跨端口 fetch，自定义头默认不暴露
+        # 引擎端口随机、DSH web GUI（3080）跨端口 fetch，自定义头默认不暴露
         expose_headers=["X-Frac-X0", "X-Frac-W", "X-Frac-H"])
 
     @app.middleware("http")

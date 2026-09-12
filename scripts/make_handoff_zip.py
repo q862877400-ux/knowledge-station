@@ -2,6 +2,12 @@
 
 用法: .venv/Scripts/python scripts/make_handoff_zip.py [输出zip路径]
 默认输出到桌面 KnowledgeStation-handoff-<日期>.zip
+
+批 8 同步（2026-09-12，Electron 退役）：旧前端（src/renderer、electron/、
+vite.config.ts、public/pagecmp、dist*）已整体删除，排除表里对应目录已不存在
+（保留无害，防同名目录复活）；还原说明改为 DSH 插件形态；pytest 基线刷新为
+830 passed + 3 skipped；必读文档列表同步 docs/onboarding 实际存留状态
+（仅 evidence-card-contract.md 在库，phase 系列交接文档早已散佚）。
 """
 import os
 import zipfile
@@ -52,10 +58,13 @@ def main() -> None:
         zf.writestr("KnowledgeStation/handoff-data/还原说明.txt", """本包内容与还原步骤
 ========================
 
-包含：全部源码/测试/文档/前端工程 + handoff-data/（数据库快照与配置样例）。
+包含：引擎源码/测试/文档 + DSH 插件（plugin/：host 桥 + client tab）
++ handoff-data/（数据库快照与配置样例）。
+（批 8 起不再含独立前端工程：Electron/Vite 壳已退役，GUI 一律经 DSH
+Web 宿主侧栏呈现；桌面化由 DSH 整体打包承担，本项目不单独出 EXE。）
 不含（需在目标机重建）：
   1. .venv        -> uv venv --python 3.12 .venv 后按 pyproject.toml + README 装依赖
-  2. node_modules -> npm install（需代理见 phase1-handover）
+  2. node_modules -> 根：npm install（tsc 门禁/类型债工具链）；plugin/：cd plugin && npm install
   3. MinerU 模型  -> mineru-models-download -s modelscope -m pipeline（约2GB）
   4. fastembed 模型 -> 首次运行自动下载（约100MB）
   5. KS_LLM_API_KEY / KS_MINERU_CLOUD_API_KEY -> 引擎加密存储（<data_dir>/secrets.json，
@@ -66,11 +75,17 @@ def main() -> None:
 数据库还原：把 handoff-data/knowledge.db 复制到
   %APPDATA%\\KnowledgeStation\\database\\knowledge.db
 
-必读文档（按序）：README.md -> docs/onboarding/phase1-handover.md -> docs/onboarding/phase1-selfcheck.md
-  -> docs/onboarding/phase2-handover.md -> docs/onboarding/phase2.1-review-response.md
-  -> docs/onboarding/phase3-handover.md -> docs/onboarding/phase4-handover.md -> docs/onboarding/contract.md
+必读文档（按序）：README.md -> ENCYCLOPEDIA.md -> DSH_REINCARNATION.md
+  -> docs/onboarding/evidence-card-contract.md
+  （注：历史上引用过的 docs/onboarding/phase1-handover.md 等 phase 系列交接
+   文档已不在库中；phase1~4 的关键结论沉淀于 ENCYCLOPEDIA.md 的阶段史与
+   DSH_REINCARNATION.md 的整改台账，交接以这三份为准。）
 
-验证环境完好：.venv\\Scripts\\python -m pytest tests/ -q  应 811+ passed
+验证环境完好：
+  .venv\\Scripts\\python -m pytest tests/ -q        应 830 passed + 3 skipped
+  cd plugin && npm run smoke                         应 10 段全 PASS
+  cd plugin && npm run verify:commands               应 15/15
+  npm run typecheck                                  应 0 错误（plugin/client 门禁）
 """)
         n += 1
     print(f"{out}")

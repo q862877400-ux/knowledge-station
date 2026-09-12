@@ -275,9 +275,12 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
     canvas.style.height = `${Math.floor(viewport.height)}px`
 
     const renderContext = {
+      canvas,
       canvasContext: ctx,
       viewport,
-      transform: dpr !== 1 ? [dpr, 0, 0, dpr, 0, 0] : null,
+      // pdfjs 类型 transform 为 any[]|undefined（不收 null）；undefined 与
+      // 运行时默认值 transform=null 等价（pdf.mjs 解构默认），dpr=1 时省略。
+      transform: dpr !== 1 ? [dpr, 0, 0, dpr, 0, 0] : undefined,
     }
     const task = pdfPage.render(renderContext)
     taskRef.current = task
@@ -465,7 +468,10 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
           const row: [number, number, number, number] = [
             anchor.bbox[0], anchor.bbox[1], anchor.bbox[2], anchor.bbox[3],
           ]
-          evidence.current = { ...evidence.current, bbox: row, page: targetPage }
+          // 以已证非空的 ev 为基（spread evidence.current 时其 null 分支会
+          // 把 doc 变 optional → TS2322）：targetPage 语义 = 跳页后的当前页，
+          // 箭头绘制读的正是 evidence.current.page（见 renderPage 的 onPage）。
+          evidence.current = { ...ev, bbox: row, page: targetPage }
         }
       } catch (error) {
         // 静默降级：bbox 取回失败 → 保持无箭头，仅跳页；留痕便于排查。

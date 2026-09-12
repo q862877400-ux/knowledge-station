@@ -1,12 +1,9 @@
 .venv/
 node_modules/
-dist/
-dist-electron/
 var/
 __pycache__/
 *.pyc
 .pytest_cache/
-scripts/.build-electron.mjs
 .mimosa/
 .zcode/
 models/

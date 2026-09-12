@@ -29,13 +29,15 @@ from src.core.settings import secret_store as ss
 REPO = Path(__file__).resolve().parents[1]
 
 LEGACY_NAMES = ("DEEPSEEK_API_KEY", "DEEPSEEK_BASE_URL", "DEEPSEEK_MODEL")
-#: 允许「提及」旧名的**代码**文件（必须逐个人工复核过用途；新增引用会红）
+#: 允许「提及」旧名的**代码**文件（必须逐个人工复核过用途；新增引用会红）。
+#: 批 8（2026-09-12 Electron 退役）：src/renderer/ApiConfigPanel.tsx 已随整个
+#: 旧渲染层删除，其条目同步移除。**双向硬断言**：白名单条目指向已删除/改名的
+#: 文件会红（幽灵条目 = 白名单谎言，见 test_legacy_names_appear_only_in_reviewed_files）。
 LEGACY_ALLOWED_FILES = {
     "src/core/config.py",                    # 只读回退读取链（deprecated 层）
     "src/core/settings/api_credentials.py",  # 只读回退 + 迁移源（绝不写入系统层）
     "src/core/llm/ks_answer.py",             # 仅「未配置」报错文案
     "src/core/llm/deepseek_client.py",       # 仅「未配置」报错文案
-    "src/renderer/ApiConfigPanel.tsx",       # 旧 GUI 输入框占位提示
     "scripts/ks-credentials-migrate.py",     # 迁移工具（打印变量名，不回显值）
     "scripts/ks-credential-readers-scan.py",  # 读者排查工具（批 1b：检查旧名残留，只记存在性不记值）
     "scripts/ks-credential-reconcile.py",   # 对账工具（批 2c：引擎↔DSH 名字配对+指纹比对，不碰值）
@@ -202,8 +204,14 @@ def test_legacy_names_appear_only_in_reviewed_files():
         if re.search(r"DEEPSEEK_(API_KEY|BASE_URL|MODEL)", text):
             hits.add(rel)
     assert hits <= LEGACY_ALLOWED_FILES, (
-        f"未复核的旧名引用: {sorted(hits - LEGACY_ALLOWED_FILES)}；"
-        f"白名单里已不存在的: {sorted(LEGACY_ALLOWED_FILES - hits)}")
+        f"未复核的旧名引用: {sorted(hits - LEGACY_ALLOWED_FILES)}")
+    # 批 8 双向断言（2026-09-12）：白名单条目必须**仍然命中**——指向已删除/
+    # 改名文件的条目（幽灵条目）会红。此前消息里写了「白名单里已不存在的」却只
+    # 断言单向子集，实测删除 src/renderer/ApiConfigPanel.tsx 后该测试仍绿
+    # （幽灵条目盲点）；现在补成硬断言，白名单不再撒谎。
+    assert LEGACY_ALLOWED_FILES <= hits, (
+        f"白名单幽灵条目（文件已删除/改名/不再引用旧名）: "
+        f"{sorted(LEGACY_ALLOWED_FILES - hits)}")
     # 防空洞：扫描确实读到了文件并找到了已知命中，而不是「一个都没扫到」而通过
     assert {"src/core/config.py",
             "src/core/settings/api_credentials.py"} <= hits

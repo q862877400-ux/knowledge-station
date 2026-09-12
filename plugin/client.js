@@ -28026,9 +28026,6 @@ function configurePdfWorker() {
   if (GlobalWorkerOptions.workerSrc === "") {
     GlobalWorkerOptions.workerSrc = new URL(PDF_WORKER_PATH, origin).href;
   }
-  if (GlobalWorkerOptions.wasmUrl === "") {
-    GlobalWorkerOptions.wasmUrl = new URL(PDF_WASM_DIR, origin).href;
-  }
   configured = true;
 }
 
@@ -28865,9 +28862,12 @@ function KsEvidenceTab(props) {
     canvas.style.width = `${Math.floor(viewport.width)}px`;
     canvas.style.height = `${Math.floor(viewport.height)}px`;
     const renderContext = {
+      canvas,
       canvasContext: ctx2,
       viewport,
-      transform: dpr !== 1 ? [dpr, 0, 0, dpr, 0, 0] : null
+      // pdfjs 类型 transform 为 any[]|undefined（不收 null）；undefined 与
+      // 运行时默认值 transform=null 等价（pdf.mjs 解构默认），dpr=1 时省略。
+      transform: dpr !== 1 ? [dpr, 0, 0, dpr, 0, 0] : void 0
     };
     const task = pdfPage.render(renderContext);
     taskRef.current = task;
@@ -29006,7 +29006,7 @@ function KsEvidenceTab(props) {
             anchor.bbox[2],
             anchor.bbox[3]
           ];
-          evidence.current = { ...evidence.current, bbox: row, page: targetPage };
+          evidence.current = { ...ev, bbox: row, page: targetPage };
         }
       } catch (error) {
         console.warn("[ks:pdf] fetchBbox failed", error);
@@ -30367,7 +30367,7 @@ function KsReportTab(props) {
     exportError !== null && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 8px" }, children: exportError }),
     loadState.status === "loading" && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { style: { color: "var(--dsw-alias-label-secondary, #666)", fontSize: 13 }, children: "\u6B63\u5728\u805A\u5408\u5E93\u5185\u6548\u529B\u72B6\u6001\u2026\uFF08\u9996\u6B21\u53EF\u80FD\u9700\u8981\u62C9\u8D77\u5F15\u64CE\uFF09" }),
     loadState.status === "error" && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 13 }, children: load.message }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 13 }, children: loadState.message }),
       /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", onClick: () => void load(win, colorFilter), style: btnStyle(false), children: "\u91CD\u8BD5" })
     ] }),
     loadState.status === "ready" && report !== null && report.total === 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { style: { color: "var(--dsw-alias-label-secondary, #666)", fontSize: 13 }, children: win === "all" ? "\u5E93\u5185\u6682\u65E0\u6587\u6863" : "\u8BE5\u65F6\u95F4\u7A97\u5185\u65E0\u6587\u6863\uFF08\u5BFC\u51FA Excel \u53EF\u67E5\u770B\u5168\u91CF\uFF09" }),
