@@ -132,6 +132,9 @@ Check 'GET /ks/settings/api-config' (ProbePath 'ks/settings/api-config' '') '200
 Check 'GET /ks/report/effect'      (ProbePath 'ks/report/effect' '') '200' '效力报告路由（引擎已拉起）'
 Check 'GET /ks/ingest/inbox-default' (ProbePath 'ks/ingest/inbox-default' '') '200' 'R27 入库预览路由（本轮新增）'
 Check 'GET /ks/ingest/inbox'       (ProbePath 'ks/ingest/inbox' '') '200' 'R27 待入库目录列表（含 host 兜底）'
+# 2026-09-13 端点接线探针：区分「插件已挂载」（400 本地信封——缺 clause 是客户端
+# 不该发的非法形态）与「未挂载」（DSH 404 JSON 116B）。宿主重启后必须命中前者。
+Check 'GET /ks/doc-image (no clause)' (ProbePath 'ks/doc-image/doc_x/formula/1' '') '400' '图/公式/表图代理路由已挂载（404=未挂载）'
 Check 'forged Host /ks/session'    (ProbePath 'ks/session' @('-H', 'Host: evil.example.com')) '403' '信任栅栏'
 
 # 客户端产物：宿主按请求从磁盘读 client.js → 只需 Ctrl+F5；这里断言服务端给出的那一份
