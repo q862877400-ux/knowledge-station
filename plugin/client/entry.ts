@@ -308,6 +308,17 @@ function registerBetterSidebarSurfaces(ctx: Ctx, bs: BetterSidebar): (() => void
       // (D) 「📜 查法规模式 / 🔖 仅收藏」不再有输入框 UI：2026-10 按用户反馈删掉 dock，
       //     改由 host 的斜杠命令 /forensic、/bookmarks 调用（见 src/chatmode.js）。
 
+      // 目录常驻（2026-10-27）：每次页面加载自动开一次 PDF 查看器 tab（不带 url →
+      // idle 态，左列默认 📚 文件目录，无问答也能直接点开国标阅读）。openTab 对
+      // 已存在的 tab 是纯 focus、不覆写 path → 已打开的证据链接不受影响；用户
+      // 手动关闭后再点证据链接照常重开，不会在这里被反复拉起（每次加载仅一次）。
+      // try/catch 兜底：第三方 openTab 失败不影响其余表面。
+      try {
+        bs.openTab({ type: KS_EVIDENCE_TAB_ID, title: 'PDF 查看器' })
+      } catch (error) {
+        console.warn('[ks-dsh-plugin] 常驻打开 PDF 查看器 tab 失败（不影响其他表面）', error)
+      }
+
       // 自足接管：single:true 单例的再次 openTab 只是 focus（URL 不应用），
       // 必须自己覆写 path 才能连续跳多个证据。capture 阶段先于内置拦截?
       // 否——本 listener 注册于 apply()，晚于 better-sidebar 的 document 级

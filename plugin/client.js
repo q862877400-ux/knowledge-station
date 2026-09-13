@@ -29925,7 +29925,7 @@ function KsEvidenceTab(props) {
   const freezeTimerRef = (0, import_react4.useRef)(null);
   const historyRef = (0, import_react4.useRef)([]);
   const pathHrefRef = (0, import_react4.useRef)(null);
-  const [load, setLoad] = (0, import_react4.useState)({ status: "loading" });
+  const [load, setLoad] = (0, import_react4.useState)({ status: "idle" });
   const [page, setPage] = (0, import_react4.useState)(1);
   const [pageInput, setPageInput] = (0, import_react4.useState)("1");
   const [engineHint, setEngineHint] = (0, import_react4.useState)("");
@@ -29944,6 +29944,7 @@ function KsEvidenceTab(props) {
   const [tocOpen, setTocOpen] = (0, import_react4.useState)(false);
   const tocAbortRef = (0, import_react4.useRef)(null);
   const [leftMode, setLeftMode] = (0, import_react4.useState)("toc");
+  const leftModeTouchedRef = (0, import_react4.useRef)(false);
   const [viewMode, setViewMode] = (0, import_react4.useState)("pdf");
   const [folderPicker, setFolderPicker] = (0, import_react4.useState)(null);
   const [folderList, setFolderList] = (0, import_react4.useState)(null);
@@ -30106,7 +30107,7 @@ function KsEvidenceTab(props) {
     setLoad({ status: "loading" });
     setEngineHint("");
     if (ev === null) {
-      setLoad({ status: "error", message: "\u65E0\u6548\u7684\u8BC1\u636E\u94FE\u63A5\uFF1A\u7F3A\u5C11 doc \u53C2\u6570" });
+      setLoad({ status: "idle" });
       return;
     }
     let session;
@@ -30185,6 +30186,9 @@ function KsEvidenceTab(props) {
     setLoadedDocId(null);
     setToc(null);
     setViewMode("pdf");
+    if (ev === null && !leftModeTouchedRef.current) {
+      setLeftMode("files");
+    }
     if (ev !== null) {
       setPageInput(String(ev.page ?? 1));
       const label = `PDF \u67E5\u770B\u5668${ev.page !== void 0 ? ` \xB7 \u7B2C${ev.page}\u9875` : ""}`;
@@ -30877,6 +30881,10 @@ function KsEvidenceTab(props) {
         document.body
       ),
       /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { flex: 1, minHeight: 0, display: "flex" }, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { ref: containerRef, style: { flex: 1, minWidth: 0, overflow: "auto", padding: 12 }, children: [
+        load.status === "idle" && viewMode === "pdf" && evidence.current === null && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { ...$center3, flexDirection: "column", gap: 8 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary, #666)", fontSize: 13 }, children: "\u4ECE\u5DE6\u4FA7\u76EE\u5F55\u70B9\u5F00\u4EFB\u610F\u56FD\u6807/\u6CD5\u89C4\u5373\u53EF\u9605\u8BFB" }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 11.5, maxWidth: 420, textAlign: "center", lineHeight: 1.6 }, children: "\u{1F4DA} \u6587\u4EF6\u76EE\u5F55 = \u5E93\u5185\u5168\u90E8\u6587\u6863\u6309\u5206\u7C7B\u6D4F\u89C8 \xB7 \u{1F516} \u6536\u85CF\u76EE\u5F55 = \u4F60\u7684\u6536\u85CF\u5939 \xB7 \u{1F4D6} \u6807\u9898\u76EE\u5F55 = \u6253\u5F00\u6587\u6863\u540E\u7684\u7AE0/\u5C0F\u8282\u76EE\u5F55\u3002\u76EE\u5F55\u5217\u53EF\u5728\u5934\u90E8\u4E09\u6309\u94AE\u95F4\u968F\u65F6\u5207\u6362\u3002" })
+        ] }),
         load.status === "loading" && viewMode === "pdf" && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: $center3, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u8F7D\u5165\u8BC1\u636E PDF\u2026\uFF08\u9996\u6B21\u53EF\u80FD\u542F\u52A8\u5F15\u64CE\uFF0C\u9700\u8981\u6570\u79D2\uFF09" }) }),
         load.status === "error" && viewMode === "pdf" && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { ...$center3, flexDirection: "column", gap: 10 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary, #666)", maxWidth: 480, textAlign: "center", wordBreak: "break-word" }, children: load.message }),
@@ -30962,7 +30970,10 @@ function KsEvidenceTab(props) {
                 {
                   type: "button",
                   style: { ...$modeBtn, ...leftMode === "files" ? $modeBtnOn : {} },
-                  onClick: () => setLeftMode("files"),
+                  onClick: () => {
+                    leftModeTouchedRef.current = true;
+                    setLeftMode("files");
+                  },
                   title: "\u5E93\u5185\u6587\u6863\u5206\u7C7B\uFF08\u70B9\u6587\u6863\u6253\u5F00\uFF09",
                   children: "\u{1F4DA} \u6587\u4EF6\u76EE\u5F55"
                 }
@@ -30972,7 +30983,10 @@ function KsEvidenceTab(props) {
                 {
                   type: "button",
                   style: { ...$modeBtn, ...leftMode === "bookmarks" ? $modeBtnOn : {} },
-                  onClick: () => setLeftMode("bookmarks"),
+                  onClick: () => {
+                    leftModeTouchedRef.current = true;
+                    setLeftMode("bookmarks");
+                  },
                   title: "\u6536\u85CF\u5939\u76EE\u5F55\uFF08\u6536\u85CF\u7BA1\u7406 + \u5939\u5185\u63D0\u95EE\uFF09",
                   children: "\u{1F516} \u6536\u85CF\u76EE\u5F55"
                 }
@@ -30982,12 +30996,15 @@ function KsEvidenceTab(props) {
                 {
                   type: "button",
                   style: { ...$modeBtn, ...leftMode === "toc" ? $modeBtnOn : {} },
-                  onClick: () => setLeftMode("toc"),
+                  onClick: () => {
+                    leftModeTouchedRef.current = true;
+                    setLeftMode("toc");
+                  },
                   title: "\u5F53\u524D\u6587\u6863\u7684\u7AE0/\u5C0F\u8282\u76EE\u5F55\uFF08\u70B9\u51FB\u8DF3\u9875\uFF09",
                   children: "\u{1F4D6} \u6807\u9898\u76EE\u5F55"
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+              load.status !== "idle" && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
                 "button",
                 {
                   type: "button",
@@ -31001,7 +31018,7 @@ function KsEvidenceTab(props) {
                 }
               )
             ] }),
-            leftMode === "files" ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { flex: 1, minHeight: 0, display: "flex", flexDirection: "column", overflow: "hidden" }, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(KsFilesView, { active: showLeftCol, onOpenDoc: onFilesOpenDoc }) }) : leftMode === "bookmarks" ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { flex: 1, minHeight: 0, display: "flex", flexDirection: "column", overflow: "hidden" }, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(KsBookmarksView, { active: showLeftCol, sessionId: sessionId ?? null, onOpenEvidence: onBookmarkJump }) }) : /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: $tocList, children: toc === null ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: $tocHint, children: "\u52A0\u8F7D\u4E2D\u2026" }) : toc.map((t) => {
+            leftMode === "files" ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { flex: 1, minHeight: 0, display: "flex", flexDirection: "column", overflow: "hidden" }, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(KsFilesView, { active: showLeftCol, onOpenDoc: onFilesOpenDoc }) }) : leftMode === "bookmarks" ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { flex: 1, minHeight: 0, display: "flex", flexDirection: "column", overflow: "hidden" }, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(KsBookmarksView, { active: showLeftCol, sessionId: sessionId ?? null, onOpenEvidence: onBookmarkJump }) }) : /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: $tocList, children: loadedDocId === null && load.status !== "loading" ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { ...$tocHint, textAlign: "center", paddingTop: 18 }, children: load.status === "idle" ? "\u5C1A\u672A\u6253\u5F00\u6587\u6863\u2014\u2014\u4ECE \u{1F4DA} \u6587\u4EF6\u76EE\u5F55 \u6216 \u{1F516} \u6536\u85CF\u76EE\u5F55 \u70B9\u4E00\u4E2A\u56FD\u6807\u5F00\u59CB\u9605\u8BFB" : "\u5F53\u524D\u6587\u6863\u6CA1\u6709\u7AE0/\u5C0F\u8282\u76EE\u5F55" }) : toc === null ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: $tocHint, children: "\u52A0\u8F7D\u4E2D\u2026" }) : toc.map((t) => {
               const no = tocNoClause(t);
               const tt = tocTitleSplitClause(t);
               const lvl1 = t.level === 1;
@@ -33309,6 +33326,11 @@ function registerBetterSidebarSurfaces(ctx, bs) {
         }
       });
       const disposeSettings = registerKsSettingsSection(ctx, bs);
+      try {
+        bs.openTab({ type: KS_EVIDENCE_TAB_ID, title: "PDF \u67E5\u770B\u5668" });
+      } catch (error) {
+        console.warn("[ks-dsh-plugin] \u5E38\u9A7B\u6253\u5F00 PDF \u67E5\u770B\u5668 tab \u5931\u8D25\uFF08\u4E0D\u5F71\u54CD\u5176\u4ED6\u8868\u9762\uFF09", error);
+      }
       const onClick = (event) => {
         if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
         const target = event.target;

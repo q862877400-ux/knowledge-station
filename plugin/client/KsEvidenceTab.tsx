@@ -61,6 +61,7 @@ import {
 } from './ksEvidence'
 
 type LoadState =
+  | { status: 'idle' }
   | { status: 'loading' }
   | { status: 'ready'; pages: number }
   | { status: 'error'; message: string }
@@ -166,7 +167,7 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
   const historyRef = useRef<HistoryEntry[]>([])
   const pathHrefRef = useRef<string | null>(null)
 
-  const [load, setLoad] = useState<LoadState>({ status: 'loading' })
+  const [load, setLoad] = useState<LoadState>({ status: 'idle' })
   const [page, setPage] = useState<number>(1)
   const [pageInput, setPageInput] = useState<string>('1')
   const [engineHint, setEngineHint] = useState<string>('')
@@ -207,6 +208,9 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
   // 左列视图模式：'toc'=标题目录（默认） / 'files'=文件目录（库浏览，同列切换）
   // / 'bookmarks'=收藏目录（2026-10：夹树 + 💡夹内提问，同列第三模式）
   const [leftMode, setLeftMode] = useState<'toc' | 'files' | 'bookmarks'>('toc')
+  // 目录常驻（2026-10-27）：无证据直开 tab → 左列默认落在文件目录（可切收藏目录）。
+  // 只在「本 tab 从未有过证据」时引导一次；用户手动切过模式（或已有文档）不覆盖。
+  const leftModeTouchedRef = useRef(false)
   // 正文视图（2026-09-13 端点接线）：'pdf'=canvas 原样（默认） / 'text'=条款富文本
   // （content_html + fig-embed/table-embed/katex-formula 占位经 /ks/doc-image 接线）。
   // 换文档时回到 PDF 视图（正文按需再开）。
@@ -452,7 +456,9 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
     setEngineHint('')
 
     if (ev === null) {
-      setLoad({ status: 'error', message: '无效的证据链接：缺少 doc 参数' })
+      // 2026-10 目录常驻：tab 直接打开（无证据链接）不再是错误——进入 idle 态，
+      // 左列默认展开文件目录，用户从目录点任意国标即读（见 body idle 分支）。
+      setLoad({ status: 'idle' })
       return
     }
 
@@ -568,6 +574,11 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
     setToc(null)
     // 正文视图随换文档回到 PDF（新文档的正文要用户主动再看）。
     setViewMode('pdf')
+    // 目录常驻（2026-10-27）：本 tab 从未有过证据（无问答直接打开）→ 左列引导到
+    // 文件目录，用户可即刻浏览/点开国标阅读。有过证据或用户已手动切换则不动。
+    if (ev === null && !leftModeTouchedRef.current) {
+      setLeftMode('files')
+    }
     if (ev !== null) {
       setPageInput(String(ev.page ?? 1))
       // Cosmetic: better-sidebar's builtin openTab sets a hostname-derived title
@@ -1387,6 +1398,17 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
           左侧的对话框区域上——不遮 PDF，也不被 .paneContent 的 overflow:hidden 裁掉。 */}
       <div style={{ flex: 1, minHeight: 0, display: 'flex' }}>
         <div ref={containerRef} style={{ flex: 1, minWidth: 0, overflow: 'auto', padding: 12 }}>
+        {load.status === 'idle' && viewMode === 'pdf' && evidence.current === null && (
+          <div style={{ ...$center, flexDirection: 'column', gap: 8 }}>
+            <div style={{ color: 'var(--dsw-alias-label-secondary, #666)', fontSize: 13 }}>
+              从左侧目录点开任意国标/法规即可阅读
+            </div>
+            <div style={{ color: 'var(--dsw-alias-label-tertiary, #999)', fontSize: 11.5, maxWidth: 420, textAlign: 'center', lineHeight: 1.6 }}>
+              📚 文件目录 = 库内全部文档按分类浏览 · 🔖 收藏目录 = 你的收藏夹 ·
+              📖 标题目录 = 打开文档后的章/小节目录。目录列可在头部三按钮间随时切换。
+            </div>
+          </div>
+        )}
         {load.status === 'loading' && viewMode === 'pdf' && (
           <div style={$center}>
             <div style={{ color: 'var(--dsw-alias-label-secondary, #666)' }}>载入证据 PDF…（首次可能启动引擎，需要数秒）</div>
@@ -1484,7 +1506,7 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
               <button
                 type="button"
                 style={{ ...$modeBtn, ...(leftMode === 'files' ? $modeBtnOn : {}) }}
-                onClick={() => setLeftMode('files')}
+                onClick={() => { leftModeTouchedRef.current = true; setLeftMode('files') }}
                 title="库内文档分类（点文档打开）"
               >
                 📚 文件目录
@@ -1492,7 +1514,7 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
               <button
                 type="button"
                 style={{ ...$modeBtn, ...(leftMode === 'bookmarks' ? $modeBtnOn : {}) }}
-                onClick={() => setLeftMode('bookmarks')}
+                onClick={() => { leftModeTouchedRef.current = true; setLeftMode('bookmarks') }}
                 title="收藏夹目录（收藏管理 + 夹内提问）"
               >
                 🔖 收藏目录
@@ -1500,17 +1522,20 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
               <button
                 type="button"
                 style={{ ...$modeBtn, ...(leftMode === 'toc' ? $modeBtnOn : {}) }}
-                onClick={() => setLeftMode('toc')}
+                onClick={() => { leftModeTouchedRef.current = true; setLeftMode('toc') }}
                 title="当前文档的章/小节目录（点击跳页）"
               >
                 📖 标题目录
               </button>
-              <button
-                type="button"
-                style={$tocCollapseBtn}
-                onClick={() => { setLeftMode('toc'); toggleToc(false) }}
-                title="收起目录（回到纯 PDF 全宽）"
-              >◀</button>
+              {/* idle（无文档）时 ◀ 不显示：目录列是唯一入口，收起它 = 空屏。 */}
+              {load.status !== 'idle' && (
+                <button
+                  type="button"
+                  style={$tocCollapseBtn}
+                  onClick={() => { setLeftMode('toc'); toggleToc(false) }}
+                  title="收起目录（回到纯 PDF 全宽）"
+                >◀</button>
+              )}
             </div>
             {leftMode === 'files' ? (
               <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
@@ -1522,7 +1547,13 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
               </div>
             ) : (
               <div style={$tocList}>
-                {toc === null ? (
+                {loadedDocId === null && load.status !== 'loading' ? (
+                  <div style={{ ...$tocHint, textAlign: 'center', paddingTop: 18 }}>
+                    {load.status === 'idle'
+                      ? '尚未打开文档——从 📚 文件目录 或 🔖 收藏目录 点一个国标开始阅读'
+                      : '当前文档没有章/小节目录'}
+                  </div>
+                ) : toc === null ? (
                   <div style={$tocHint}>加载中…</div>
                 ) : (
                   toc.map((t) => {
