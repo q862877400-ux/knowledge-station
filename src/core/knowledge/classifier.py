@@ -177,8 +177,19 @@ def classify_clause(text: str, doc_type: str = "standard") -> TypedClause:
 
 
 def build_hierarchy_path(clause_number: str) -> str:
-    """E3 层级路径：5.2.1 → '5 > 5.2'（章-节-条）。"""
+    """E3 层级路径：5.2.1 → '5 > 5.2'（章-节-条）。
+
+    2026-09-13 附录细分：支持字母章号——A.5.2 → 'A > A.5'（与附录子条款
+    切分配套；此前 all(p.isdigit()) 使附录号恒返回空串，51 个附录条款
+    hierarchy_path 全空）。数字与字母段可混层（附录号首段为单个大写字母）。
+    """
     parts = clause_number.split(".")
-    if not all(p.isdigit() for p in parts) or len(parts) < 2:
+    if len(parts) < 2:
+        return ""
+    # 每段 = 纯数字 或 单个大写字母（附录章号）；其余形态（"前置1"/
+    # "表A.1"/法律条文号）不参与层级。
+    ok = all(p.isdigit() or (len(p) == 1 and p.isalpha() and p.isupper()
+                             and not p.isdigit()) for p in parts)
+    if not ok:
         return ""
     return " > ".join(".".join(parts[:i + 1]) for i in range(len(parts) - 1))

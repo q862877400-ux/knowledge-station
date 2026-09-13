@@ -20,7 +20,14 @@ CHANNEL_WEIGHTS: Dict[str, float] = {
     "modality": 0.8, "legal_element": 0.8, "behavior_scope": 1.2,
 }
 
+# 2026-09-13 附录细分配套修复：附录字母章号前置——"E.5.2" 先被截出 "5.2" 返回
+# **错标准**的正文条款（GB 30871 5.2 等，看起来对实则错——比查不到更危险）。
+# 字母章号形态（A-Z 单字母 + 点分段）优先尝试；命不中再回落数字/法条旧正则。
+# 边界（?!\\b——Python \\b 不认中文，"表E.4" 的 E 与中文之间无 \\b）：前侧
+# 只需排除字母数字（防 "TABLE.4" 之类英文词内误截），后侧数字点结尾天然截断。
 _CLAUSE_NO_RE = re.compile(r"(\d+\.[\d\.]+|第[一二三四五六七八九十百千]+条)")
+_CLAUSE_NO_APPENDIX_RE = re.compile(
+    r"(?<![A-Za-z0-9])([A-Z]\.\d+(?:\.\d+)*)(?![A-Za-z0-9])")
 _MODALTITY_RE = re.compile("严禁|禁止|不得|不应|不能|应当|必须|宜|可以|有权|鼓励|提倡|支持")
 
 # 评测/门禁用：临时覆盖库路径（eval benchmark 对快照库跑，可复现、不依赖本机 %APPDATA%）
@@ -77,9 +84,16 @@ def perform_hybrid_search(
 
     # 通道 A: 条款号/法条号精确匹配
     if "exact" in channels:
+        # 2026-09-13：附录字母章号（E.5.2）优先——先用字母形态取整号；命不中
+        # 再走旧数字/法条正则。取到字母号后不再让数字正则截短号（防双路错配）。
+        m_ann = _CLAUSE_NO_APPENDIX_RE.search(query)
         m = _CLAUSE_NO_RE.search(query)
-        if m:
+        exact_no = None
+        if m_ann:
+            exact_no = m_ann.group(1)
+        elif m:
             exact_no = m.group(1)
+        if exact_no:
             rows = conn.execute(
                 "SELECT cr.clause_revision_id FROM clause_revision cr"
                 " JOIN doc_meta dm ON dm.doc_id = cr.doc_id"

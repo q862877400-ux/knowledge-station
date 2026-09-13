@@ -38,7 +38,7 @@ logger = logging.getLogger(__name__)
 # 条款号开头（E3）：GB 风格 5.2.1 / 法律风格 第四百九十六条
 _CLAUSE_GB = re.compile(r"^(\d+(?:\.\d+){1,4})\s*(.*)$", re.S)
 _CLAUSE_LAW = re.compile(r"^(第[一二三四五六七八九十百千]+条)\s*(.*)$", re.S)
-_TABLE_CAPTION = re.compile(r"^表\s*([A-Za-z]?\d+(?:\.\d+)*)\s*(.*)$")
+_TABLE_CAPTION = re.compile(r"^表\s*([A-Za-z]?\s*\.?\s*\d+(?:\.\d+)*)\s*(.*)$")
 # 2026-08-28 续表标记（通用）：国标跨页续表的题注/页眉通行写法"表x…(续)"/"续表x"
 _TABLE_CONT = re.compile(r"[(（]\s*续\s*[)）]|^续\s*表")
 # 2026-08-28 页眉家具片段（通用）：页码+标准编号。标准编号族模式 = 1-4 个大写
@@ -96,6 +96,12 @@ def _middle_cover_blocks(mj_path: Path) -> list[dict]:
                 blocks.append({"page_number": pi + 1, "text": txt})
     return blocks
 _APPENDIX_HEAD = re.compile(r"^(附\s*录\s*[A-Z一二三四五六七八九十]?|附\s*则)")
+# 2026-09-13 附录细分：附录内子条款头 "A.1"/"E.5.2"/"B.2.1"——字母章号+点分段。
+# _CLAUSE_GB 只认 \d 开头（3654 条 normal 条款的口径，不动）；附录内全部文本
+# 因此并入附录头单块（实测 21 条 >800ch 大块全由此机制产生，2 条恰好 4000 字
+# 被 [:4000] 截断丢内容）。老前端 escDupNo 的字间空白容忍思想（"表A. 1"）在此
+# 落地为点后 \s*。词边界 (?![\d.]) 防 "A.1" 误配 "A.10"（dupNoMatches 同款）。
+_CLAUSE_APPENDIX = re.compile(r"^([A-Z]\.\s*\d+(?:\.\s*\d+){0,3})\s*(.*)$", re.S)
 # 2026-09-02 目录条目排除（GB/T 1000-2016 实测）：文件目录页写
 # "附录A (规范性附录) 绝缘子螺套…"，与真附录头"附 录 A"同形，误设 in_appendix →
 # 后续正文章级条款(1/2/3/4)被 `m_chap and not in_appendix` 跳过而全丢。
@@ -131,6 +137,34 @@ def _plausible_clause_head(num: str, rest: str | None) -> bool:
     if rest and re.match(r"[a-z]{1,3}[\u4e00-\u9fff]", rest):
         return False
     return not _TABULAR_REST.match(rest or "")
+
+
+def _plausible_appendix_head(num: str, rest: str | None) -> bool:
+    """2026-09-13 附录版 E8 闸门：字母章号 "A.1" 的三道防误切护栏。
+
+    背景：附录是表格最密处（GB/T 1028 附录B 表格 HTML 达 241KB），而主
+    _plausible_clause_head 的闸门 1（首段数字 ∈ 1..60）对字母号全部失效——
+    防护失效方向与风险最高方向重合。本闸门对附录编号形态重设防线：
+      ① 号 = 单个大写字母 + 1..4 段数字（防 "AB.1" 乱码/多字母缩写误入）；
+      ② rest 必须有标题文字（孤立编号 = 表格数据行，与主闸门闸门 2 同理）；
+      ③ rest 不得是表格数值行特征（_TABULAR_REST，与主闸门共用）；
+      ④ 排除图表题注与引用句开头——"表E.4给出了…"/"图A.1所示…"/"(见表E.2)"
+         是正文引用而非子条款头（红队 D 实证 4 条假正例：附录E 第 47 行
+         "表E.4给出了每个Uₘ值…" 若切，真 E.4 头在第 37 行的正文被拦腰截断）。
+    """
+    num = re.sub(r"\s+", "", num)  # 点后排版空格（"A. 4"→"A.4"）先归一
+    if not re.fullmatch(r"[A-Z](?:\.\d+){1,4}", num):
+        return False
+    r = (rest or "").strip()
+    if not r:
+        return False
+    if re.match(r"[图表]\s*[A-Z]", r):
+        return False
+    if re.match(r"[（(]?\s*[见如按]", r):
+        return False
+    # 号形态末检：归一后必须仍是 单字母+点分段（防空白归一掩盖 "A .1" 之类乱形）
+    return (not _TABULAR_REST.match(r)
+            and re.fullmatch(r"[A-Z](?:\.\d+){1,4}", num) is not None)
 
 
 def _std_type(legal_hierarchy: str | None) -> str:
@@ -350,8 +384,11 @@ def split_items_into_clauses(items: list[MidItem]) -> list[SplitClause]:
     in_appendix = False
     current: SplitClause | None = None
     chapter: str | None = None   # 最近章号（还原 MinerU 吞点的条款号 "41"→"4.1"）
+    skip_idxs: set[int] = set()  # 编号独行块前瞻已并入消费的标题块
 
     for idx, it in enumerate(items):
+        if idx in skip_idxs:
+            continue
         text = strip_revision_marks(it.text or "").strip()
         if not text and it.kind not in ("table", "image"):
             # 2026-08-28：表格条目 text 为空（内容在 html），不能在此跳过，
@@ -473,6 +510,52 @@ def split_items_into_clauses(items: list[MidItem]) -> list[SplitClause]:
 
         m_gb = _CLAUSE_GB.match(text)
         m_law = _CLAUSE_LAW.match(text)
+        # 2026-09-13 编号独行块前瞻（GB/T 1032-2023 重导实测）：MinerU 常把
+        # 术语条目的编号与标题拆成两个单行块（"3.1"\n"异步电机asynchronous
+        # machine"）。编号独行块本身 rest 为空 → _plausible_clause_head 闸门 2
+        # 拒绝 → 编号并入上一条款、标题也并入 → 整章术语条目坍缩成章巨条款
+        # （1032 章3 实测 1136 字吞了 3.1~3.14 十四条）。前瞻修法：块级编号
+        # 匹配且 rest 为空时，看**下一个非空块**——若它以编号开头（下一个条
+        # 目）则是表格数值块（拒绝，行为不变）；若它是纯标题/正文（不带编号），
+        # 则本块是真条款头，开新条款并把下一块作为其首段。护栏：编号段必须
+        # 带点（章号 "3" 独行不是条款头——那是章标题块，_CHAPTER_CLAUSE 管）。
+        if (m_gb and not m_gb.group(2).strip()
+                and "." in m_gb.group(1)
+                and 1 <= int(m_gb.group(1).split(".")[0]) <= _CHAPTER_MAX):
+            nxt_txt = ""
+            for j in range(idx + 1, len(items)):
+                nt = (items[j].text or "").strip()
+                if nt:
+                    nxt_txt = nt
+                    break
+            if nxt_txt and not _CLAUSE_GB.match(nxt_txt.split("\n")[0]):
+                current = SplitClause(
+                    number=normalize_clause_number(m_gb.group(1)),
+                    texts=[text, nxt_txt], items=[it, items[j]],
+                    content_type="附录" if in_appendix else "normal",
+                    rows=_rows_of(text, it)
+                    + _rows_of(nxt_txt, items[j]))
+                clauses.append(current)
+                # 下一块已被消费，跳过它
+                skip_idxs.add(j)
+                continue
+        # 2026-09-13 附录细分：in_appendix 时字母编号优先于 _CLAUSE_GB 判定。
+        # 命中即建独立子条款（content_type=附录，随父块同型），保持附录头
+        # 巨块继续存在（父条款保留——附录A 只有 82 字正文时切子块只会造空壳，
+        # test_table_binding.py:66-77 还断言表 A.1 挂附录A）。多行块（MinerU
+        # 常把子条款+正文+下一子条款并成一块）不在此 continue——落入下方行级
+        # 循环逐行切，块内后续 "B.2 …" 才不会被首行 B.1 吞掉。
+        m_ann = _CLAUSE_APPENDIX.match(text) if in_appendix else None
+        ann_head = bool(m_ann) and _plausible_appendix_head(
+            m_ann.group(1), m_ann.group(2)) if m_ann else False
+        if ann_head and m_ann is not None and "\n" not in text:
+            current = SplitClause(
+                number=normalize_clause_number(
+                    re.sub(r"\s+", "", m_ann.group(1))),
+                texts=[text], items=[it], content_type="附录",
+                rows=_rows_of(text, it))
+            clauses.append(current)
+            continue
         # 2026-08-29 章级条款（通用）：单段章号也是真实条款——"1 范围"
         # "2 术语和定义" "3 技术要求" "4 其他"。旧闸门只认带点号（len>=3 或
         # 含"."），章标题整段被吞进上一条款，"1 范围"在库里消失（25596 人工
@@ -525,6 +608,28 @@ def split_items_into_clauses(items: list[MidItem]) -> list[SplitClause]:
                     ln = lines[i].strip()
                     if not ln:
                         i += 1
+                        continue
+                    # 2026-09-13 附录细分行级：附录内多行块的行首 "A.1 …" 同样
+                    # 切独立子条款（与块级 _CLAUSE_APPENDIX 分支同款闸门）。
+                    m_ln_ann = _CLAUSE_APPENDIX.match(ln) if in_appendix else None
+                    if m_ln_ann and _plausible_appendix_head(
+                            m_ln_ann.group(1), m_ln_ann.group(2)):
+                        cur = SplitClause(
+                            number=normalize_clause_number(
+                                re.sub(r"\s+", "", m_ln_ann.group(1))),
+                            texts=[ln], items=[it], content_type="附录",
+                            rows=[(ln, it.page_idx, boxes[i])])
+                        clauses.append(cur)
+                        i += 1
+                        while i < len(lines):
+                            nxt = lines[i].strip()
+                            m2a = _CLAUSE_APPENDIX.match(nxt)
+                            if (m2a and _plausible_appendix_head(
+                                    m2a.group(1), m2a.group(2))):
+                                break
+                            cur.texts.append(nxt)
+                            cur.rows.append((nxt, it.page_idx, boxes[i]))
+                            i += 1
                         continue
                     mm = _CLAUSE_GB.match(ln)
                     num = mm.group(1) if mm else ""

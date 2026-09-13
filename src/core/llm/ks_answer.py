@@ -671,7 +671,10 @@ def _expand_title_clauses(evidences: list) -> list:
         seen.add(e.clause_revision_id)
         out.append(e)
         no = e.clause_number or ""
-        is_title = bool(_re.fullmatch(r'[0-9]+(?:[.][0-9]+)*', no)) and len(e.content_text or "") < TITLE_CLAUSE_MAXLEN
+        # 2026-09-13 附录细分配套：门控放宽接纳附录字母章号（E.1/E.5.2）——
+        # 此前 fullmatch 纯数字把附录子条款头挡在聚合外（附录细分红利白切）。
+        is_title = bool(_re.fullmatch(r'[0-9A-Z]+(?:[.][0-9A-Z]+)*', no)) \
+            and len(e.content_text or "") < TITLE_CLAUSE_MAXLEN
         if is_title:
             try:
                 subs = conn.execute(

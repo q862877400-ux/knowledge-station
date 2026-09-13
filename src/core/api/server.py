@@ -1996,7 +1996,9 @@ def create_app(token: str) -> FastAPI:
             seen.add(e.clause_revision_id)
             out.append(e)
             no = e.clause_number or ""
-            is_title = bool(_re.fullmatch(r'[0-9]+(?:[.][0-9]+)*', no)) and len(e.content_text or "") < 80
+            # 2026-09-13 附录细分配套：接纳附录字母章号（E.1/E.5.2），与
+            # ks_answer._expand_title_clauses 同步放宽。
+            is_title = bool(_re.fullmatch(r'[0-9A-Z]+(?:[.][0-9A-Z]+)*', no)) and len(e.content_text or "") < 80
             if is_title:
                 subs = conn.execute(
                     "SELECT clause_revision_id FROM clause_revision"

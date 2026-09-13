@@ -813,6 +813,7 @@ backup.py：VACUUM INTO 在线备份到 `%APPDATA%\KnowledgeStation\backups\`；
 6. **表格斜铺水印碎片**：45° 斜铺水印与表格 bbox 重叠 → 字符级截断出碎片 → span 级过滤（line dir 偏离水平 `|dir[1]|>0.01` 是最强判据——中文国标正文绝无斜排）；fitz redact 不可用（按矩形删会整表删掉）。
 7. **图形内嵌两阶段**：以题注为锚定位图区（图题"图"字收尾是最强形态锚）→ 流程图矢量重绘（**v2 内孔法**：空心闭合框在二值化+close 后必围白区，箭头不闭合无孔、散点图 U 形轴无孔——结构判别力极强；v1 外轮廓法全灭的教训：箭头连线把框连成一个连通体）→ RapidOCR → SVG；任一环不达标回退 PNG 截图。OCR 惰性单例首载 ~2s（main.py daemon 预热——曾因 import 笔误 `_get_ocr` 静默失效，2026-09-12 修复为 get_ocr）。
 8. **PS 管道改写中文文件必坏编码**：Get-Content | Set-Content 一轮确定性损坏 → 文件内容读写一律 write/edit 工具或 Python open(encoding='utf-8')。
+9. **附录子条款不切分（2026-09-13 修复，四路 verifier 评估定案）**：`_CLAUSE_GB` 只认 `\d` 开头（3654 条 normal 条款的口径，**永不修改**），附录内 `A.1/E.5.2` 字母章号全部落空 → 并入附录头单块（21 条 >800ch 附录大块全由此而来，2 条恰好 4000 字被 `[:4000]` 截断丢内容）。修复 = `_CLAUSE_APPENDIX`（字母+点分段，点后空白容忍）+ `_plausible_appendix_head` 字母版 E8 闸门（四护栏：`[A-Z]` 单字母+1..4 段数字 / rest 非空 / 排除 `表[E.4]给出了…` 图表题注与引用句 / `_TABULAR_REST` 数值行），主循环块级+行级双分支接入（多行块必须落行级循环——块级 `continue` 会吞块内后续 `B.2` 行）。配套五处：`_TABLE_CAPTION` 扩字母点号（`表A.1` 归一出 bind_no）；`build_hierarchy_path` 支持字母首段（`A.5.2 → 'A > A.5'`）；`_expand_title_clauses` 门控（两处，server.py+ks_answer.py）接纳字母号；检索 exact 通道 `_CLAUSE_NO_APPENDIX_RE`（`E.5.2` 先被 `_CLAUSE_NO_RE` 截成 `5.2` 返回**错标准**条款——比查不到更危险；边界用 `(?<![A-Za-z0-9])` 显式断言，Python `\b` 不认中文，`表E.4` 的 E 与中文之间无 `\b`）。重导 10 文档试点断言全绿：数字条款口径零变化、附录大块 1294→清零（子条款吸走）、最长 761 字。红队 D 铁律：图/表题注**不是**切分锚（47 个行首图表候选仅 ~1 真题注，`表E.4给出了…` 引用句会拦腰截断真条款）。
 
 ## B.6 运维与进程
 
