@@ -282,8 +282,8 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
   check('the scope chip passes the sessionId through its props inject',
     chip !== undefined && chip.options.inject('sess-X').sessionId === 'sess-X',
     built.registered.map((r) => String(r.options?.id)).join(','))
-  check('three tabs registered (PDF / 收藏 / settings card; 效力报告+入库预览已迁设置)',
-    bsHandlers.tabs.length === 3,
+  check('two tabs registered (PDF / settings card; 收藏目录已迁 PDF 左列第三模式)',
+    bsHandlers.tabs.length === 2,
     bsHandlers.tabs.map((t) => t.id).join(','))
   check('the PDF tab claims ks evidence links via urlTarget',
     typeof bsHandlers.tabs[0]?.urlTarget === 'function'
@@ -292,8 +292,8 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     built.injected.includes('settings.section'), built.injected.join(','))
   check('the click interception is installed globally (evidence links)',
     docListeners.includes('click'))
-  check('tab ids are the documented ones (no ks:report / ks:ingest — migrated into settings)',
-    bsHandlers.tabs.map((t) => t.id).join(',') === 'ks:pdf,ks:bookmarks,ks:settings',
+  check('tab ids are the documented ones (no ks:bookmarks / ks:report / ks:ingest — 收藏目录迁左列，报告/预览迁设置)',
+    bsHandlers.tabs.map((t) => t.id).join(',') === 'ks:pdf,ks:settings',
     bsHandlers.tabs.map((t) => t.id).join(','))
   check('the probe registered a disposer (timer can be cleaned on dispose)',
     built.effects.filter((fn) => typeof fn === 'function').length >= 2,
@@ -312,7 +312,7 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     built.listeners.map(([e]) => String(e)).join(','))
   const bs = built.provideBetterSidebar() // 服务此刻才提供 → 触发 internal/service
   check('late better-sidebar: tabs register the moment the service appears',
-    bs.tabs.length === 3 && built.injected.includes('settings.section'),
+    bs.tabs.length === 2 && built.injected.includes('settings.section'),
     `tabs=${bs.tabs.length} injected=${built.injected.join(',')}`)
   check('late better-sidebar: the settings column is registered exactly once',
     built.registered.filter((r) => r.options?.id === 'ks-dsh-plugin').length === 1,
@@ -328,7 +328,7 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     `before=${clicksBefore} after=${listenerCount('click')}`)
   const again = built.provideBetterSidebar()
   check('service re-provide: tabs come back after an unprovide/re-provide cycle',
-    again.tabs.length === 3, `tabs=${again.tabs.length}`)
+    again.tabs.length === 2, `tabs=${again.tabs.length}`)
   check('service re-provide: exactly one click listener again (no accumulation)',
     listenerCount('click') === clicksBefore, `clicks=${listenerCount('click')}`)
 }

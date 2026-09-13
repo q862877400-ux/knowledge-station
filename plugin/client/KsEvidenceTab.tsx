@@ -50,6 +50,7 @@ import {
   widenPanelForPdf,
 } from './pdfPanel'
 import { KsFilesView } from './KsFilesTab'
+import { KsBookmarksView, type KsBookmarkJump } from './KsBookmarksTab'
 import { KsDocTextView } from './KsDocTextView'
 import {
   evidenceUrlOf,
@@ -204,7 +205,8 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
   // 完全不改变 PDF 的布局尺寸 → 不可能再黑/闪/动。侧栏宽度只在"打开文档让位"时改。
   const tocAbortRef = useRef<AbortController | null>(null)
   // 左列视图模式：'toc'=标题目录（默认） / 'files'=文件目录（库浏览，同列切换）
-  const [leftMode, setLeftMode] = useState<'toc' | 'files'>('toc')
+  // / 'bookmarks'=收藏目录（2026-10：夹树 + 💡夹内提问，同列第三模式）
+  const [leftMode, setLeftMode] = useState<'toc' | 'files' | 'bookmarks'>('toc')
   // 正文视图（2026-09-13 端点接线）：'pdf'=canvas 原样（默认） / 'text'=条款富文本
   // （content_html + fig-embed/table-embed/katex-formula 占位经 /ks/doc-image 接线）。
   // 换文档时回到 PDF 视图（正文按需再开）。
@@ -651,7 +653,7 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
    * `toc === null` = 目录还在加载（未知）→ 按"有目录"处理，避免加载期间抖动。
    */
   const docHasToc = toc === null ? true : toc.length > 0
-  const showLeftCol = leftMode === 'files' || (tocOpen && docHasToc)
+  const showLeftCol = leftMode !== 'toc' || (tocOpen && docHasToc)
 
   // ---- 目录列宽度与面板宽度**同步过渡**（用户 2026-09-09：不够丝滑，要无感弹出）----
   // 面板宽度是 CSS 过渡（0.3s），若目录列瞬时出现 → 动画期间
@@ -866,6 +868,14 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
     const ev: KsEvidence = { doc: docId, page: 1 }
     evidence.current = ev
     setLeftMode('toc') // 加载后左列回到标题目录（展示新文档目录）
+    void loadEvidence(ev)
+  }, [loadEvidence])
+
+  /** 收藏目录模式：点文档/条款叶 → 本 tab 直接加载该证据（页码直达），保持收藏目录。 */
+  const onBookmarkJump = useCallback((jump: KsBookmarkJump) => {
+    const ev: KsEvidence = { doc: jump.doc, page: jump.page, rev: jump.rev }
+    evidence.current = ev
+    // 不切模式：浏览收藏目录时连续点多个文档/条款是主用例。
     void loadEvidence(ev)
   }, [loadEvidence])
 
@@ -1210,18 +1220,19 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
         {/*
           标题目录（B）：PDF ready 且本文档有目录 → 显示收起/展开切换。
           收起后回到纯 PDF 全宽（列隐藏）；再点重新展开。无目录(空树/加载失败)时禁用。
+          左列在 文件/收藏 模式时点这里 = 回到标题目录模式并展开。
         */}
         {load.status === 'ready' && (
           <button
             type="button"
             disabled={toc === null || toc.length === 0}
-            onClick={() => toggleToc(!tocOpen)}
-            title={tocOpen
-              ? '收起标题目录（收回侧栏宽度）'
+            onClick={() => { setLeftMode('toc'); toggleToc(!(tocOpen || leftMode !== 'toc')) }}
+            title={leftMode !== 'toc' || tocOpen
+              ? '收起标题目录（回到纯 PDF 全宽）'
               : '展开标题目录：侧栏向左扩张，不压缩 PDF 阅读区'}
             style={{ ...$btnStyle, ...(toc !== null && toc.length > 0 ? $tocBtnStyle : {}) }}
           >
-            📖 标题目录{'\u00A0'}{toc !== null && toc.length > 0 ? (tocOpen ? '▾' : '▸') : '·'}
+            📖 标题目录{'\u00A0'}{toc !== null && toc.length > 0 ? ((leftMode !== 'toc' || tocOpen) ? '▾' : '▸') : '·'}
           </button>
         )}
         {/* 正文视图切换（2026-09-13 端点接线）：PDF 原样 ↔ 条款富文本
@@ -1480,19 +1491,34 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
               </button>
               <button
                 type="button"
+                style={{ ...$modeBtn, ...(leftMode === 'bookmarks' ? $modeBtnOn : {}) }}
+                onClick={() => setLeftMode('bookmarks')}
+                title="收藏夹目录（收藏管理 + 夹内提问）"
+              >
+                🔖 收藏目录
+              </button>
+              <button
+                type="button"
                 style={{ ...$modeBtn, ...(leftMode === 'toc' ? $modeBtnOn : {}) }}
                 onClick={() => setLeftMode('toc')}
                 title="当前文档的章/小节目录（点击跳页）"
               >
                 📖 标题目录
               </button>
-              {leftMode === 'toc' && (
-                <button type="button" style={$tocCollapseBtn} onClick={() => toggleToc(false)} title="收起目录（回到纯 PDF 全宽）">◀</button>
-              )}
+              <button
+                type="button"
+                style={$tocCollapseBtn}
+                onClick={() => { setLeftMode('toc'); toggleToc(false) }}
+                title="收起目录（回到纯 PDF 全宽）"
+              >◀</button>
             </div>
             {leftMode === 'files' ? (
               <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
                 <KsFilesView active={showLeftCol} onOpenDoc={onFilesOpenDoc} />
+              </div>
+            ) : leftMode === 'bookmarks' ? (
+              <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+                <KsBookmarksView active={showLeftCol} sessionId={sessionId ?? null} onOpenEvidence={onBookmarkJump} />
               </div>
             ) : (
               <div style={$tocList}>

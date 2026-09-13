@@ -1,12 +1,12 @@
 /**
  * ks-dsh-plugin — client/KsBookmarksTab.tsx (2026-10 收藏目录)
  *
- * 🔖 收藏 tab = **收藏目录树**（并列于文件目录/标题目录）：整个 tab 就是一棵树。
+ * 🔖 收藏目录视图 —— **PDF 查看器左列的第三种目录模式**（与 📚 文件目录 /
+ * 📖 标题目录并列，同一悬浮左列内切换；2026-10-27 按用户指示从独立侧栏 tab
+ * 迁入，独立 tab 已删）。整个视图就是一棵收藏目录树：
  *   收藏夹（自建，名字自定义）→ 夹内挂收藏文档的文件目录分类路径
- *   （L1→L2→L3，L4 作叶子分组，复用 classify_document 口径，与文件目录同源）
+ *   （L1→L2→L3/L4，复用 classify_document 口径，与文件目录同源）
  *   → 文档节点 → 条款级收藏叶子。
- *   条款级收藏让文档本身成为目录级、条款作叶子；标准级收藏的文档整本入范围
- *   （💡提问语义），树上文档节点全展开时显示其条款叶子（仅条款级收藏）。
  *
  * 数据源：GET /api/v1/bookmark-folders/tree（夹列表 + 每夹 doc 节点 + 分类路径
  * + 条款收藏列表；未分类恒为末位伪夹）。
@@ -20,18 +20,16 @@
  *                （未分类伪夹不显示删除按钮）。
  *   ＋ 新建夹   → POST /api/v1/bookmark-folders（header 按钮）。
  *
- * 点击文档/条款叶 → 复用 ks:pdf 单例跳页（openTab + updateTab + 单调 nonce，
- * 同旧收藏列表语义）。搜索框纯前端过滤（夹名/标准号/标准名/条款号），有词时
- * 全自动展开。
+ * 点文档/条款叶 → 经 props.onOpenEvidence 交宿主（KsEvidenceTab）直接加载该
+ * 证据（本视图就在 PDF tab 内，无需 openTab）。
  *
- * 数据与信任模型照抄 KsEvidenceTab / api.ts：fetchSession() 同源 /ks/session 拿
+ * 数据与信任模型照抄 KsFilesView / api.ts：fetchSession() 同源 /ks/session 拿
  * port + token；token 跨源只发给 127.0.0.1 引擎；401 → 重取一次（EngineAuthError）。
  */
 
 import * as React from 'react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
-import type { TabComponentProps } from 'dsh-better-sidebar/client/service'
 import {
   EngineAuthError,
   createBookmarkFolder,
@@ -44,15 +42,24 @@ import {
   type KsFolderDocNode,
   type KsFolderTreeFolder,
 } from './api'
-import {
-  KS_EVIDENCE_TAB_ID,
-  evidenceUrlOf,
-  nextEvidenceClick,
-  type KsEvidence,
-} from './ksEvidence'
+import type { KsEvidence } from './ksEvidence'
 
-/** Tab id this component is registered under (see client/entry.ts). */
-export const KS_BOOKMARKS_TAB_ID = 'ks:bookmarks'
+/** 跳转意图：加载哪个证据（doc + 页 + 可选条款版本）。 */
+export interface KsBookmarkJump {
+  doc: string
+  page: number
+  rev?: string
+}
+
+/** 嵌入 PDF 查看器左列的收藏目录视图 props（由 KsEvidenceTab 挂载，同 KsFilesView 契约）。 */
+export interface KsBookmarksViewProps {
+  /** 视图是否激活（左列切到"收藏目录"模式）。变 true 时刷新数据。 */
+  active: boolean
+  /** 当前会话 id（💡提问 写 /ks/chat-mode 用；宿主从 scope 透传）。 */
+  sessionId: string | null
+  /** 点文档叶/条款叶 → 宿主加载该证据（PDF 跳页）。 */
+  onOpenEvidence: (jump: KsBookmarkJump) => void
+}
 
 type LoadState =
   | { status: 'loading' }
@@ -62,19 +69,17 @@ type LoadState =
 /** 夹头操作的确认相位（删夹）。 */
 type FolderPhase = 'confirm-delete' | 'renaming' | null
 
-/** 目录内一棵已组装的中间树节点（L1/L2/L3 三级分类 + L4 分组 + 文档叶）。 */
+/** 目录内一棵已组装的中间树节点（分类分组 + 文档叶）。 */
 interface DocGroupNode {
   name: string
-  /** 直接挂在本级的文档（L3 下无 L4 时，或 path 缺级时兜底）。 */
+  /** 直接挂在本级的文档。 */
   docs: KsFolderDocNode[]
-  /** 下一级（L4 分组容器，其 docs 为空、由 group.docs 承载）。 */
+  /** 下一级分组。 */
   groups: DocGroupNode[]
 }
 
-export function KsBookmarksTab(props: TabComponentProps): JSX.Element {
-  const { ctx, visible, scope } = props
-  /** 会话 id（💡提问 写 /ks/chat-mode 用；better-sidebar scope 透传）。 */
-  const sessionId = (scope as { sessionId?: string } | undefined)?.sessionId ?? null
+export function KsBookmarksView(props: KsBookmarksViewProps): JSX.Element {
+  const { active, sessionId, onOpenEvidence } = props
 
   const abortRef = useRef<AbortController | null>(null)
   const [tree, setTree] = useState<KsFolderTreeFolder[]>([])
@@ -91,7 +96,7 @@ export function KsBookmarksTab(props: TabComponentProps): JSX.Element {
   const [deleteId, setDeleteId] = useState<string | null>(null)
   const [folderPhase, setFolderPhase] = useState<FolderPhase>(null)
 
-  /** 拉收藏目录树 + 当前会话开关（401 自愈一次）。 */
+  /** 拉收藏目录树（401 自愈一次）。 */
   const loadAll = useCallback(async () => {
     abortRef.current?.abort()
     const controller = new AbortController()
@@ -126,9 +131,9 @@ export function KsBookmarksTab(props: TabComponentProps): JSX.Element {
     }
   }, [])
 
-  // 读当前会话开关（决定哪个夹的 💡 是亮的）——tab 激活时拉一次。
+  // 视图激活时刷新树 + 读当前会话开关（决定哪个夹的 💡 是亮的）。
   useEffect(() => {
-    if (!visible) return
+    if (!active) return
     void loadAll()
     if (sessionId === null) return
     const controller = new AbortController()
@@ -139,7 +144,7 @@ export function KsBookmarksTab(props: TabComponentProps): JSX.Element {
       } catch { /* 开关读取失败不阻断树；💡 退回未点亮态 */ }
     })()
     return () => controller.abort()
-  }, [visible, loadAll, sessionId])
+  }, [active, loadAll, sessionId])
 
   const retry = useCallback(() => { void loadAll() }, [loadAll])
 
@@ -261,26 +266,14 @@ export function KsBookmarksTab(props: TabComponentProps): JSX.Element {
     }
   }, [deleteId, busy, withSession, loadAll, sessionId, activeFolderId])
 
-  // ---- 跳转（文档叶 / 条款叶 → ks:pdf 单例跳页） ----
+  // ---- 跳转（文档叶 / 条款叶 → 宿主加载证据） ----
 
   const jumpTo = useCallback(
-    (docId: string, page: number | null, rev: string | null, label: string) => {
+    (docId: string, page: number | null, rev: string | null) => {
       if (page === null || page < 1) return
-      const ev: KsEvidence = { doc: docId, page, rev: rev ?? undefined }
-      const url = evidenceUrlOf(ev)
-      if (url === null) return
-      try {
-        ctx.betterSidebar.openTab({ type: KS_EVIDENCE_TAB_ID, url, title: `PDF 查看器 · ${label}` })
-        ctx.betterSidebar.updateTab?.(KS_EVIDENCE_TAB_ID, {
-          path: url,
-          title: `PDF 查看器 · ${label}`,
-          meta: { ksClick: nextEvidenceClick() },
-        })
-      } catch (error) {
-        setOpError(`跳转失败：${error instanceof Error ? error.message : String(error)}`)
-      }
+      onOpenEvidence({ doc: docId, page, rev: rev ?? undefined })
     },
-    [ctx],
+    [onOpenEvidence],
   )
 
   const toggleOpen = useCallback((key: string) => {
@@ -374,7 +367,7 @@ export function KsBookmarksTab(props: TabComponentProps): JSX.Element {
           <div style={{ ...$center, flexDirection: 'column', gap: 6 }}>
             <div style={{ color: 'var(--dsw-alias-label-secondary, #666)' }}>暂无收藏</div>
             <div style={{ color: 'var(--dsw-alias-label-tertiary, #999)', fontSize: 11, maxWidth: 380, textAlign: 'center', lineHeight: 1.5 }}>
-              打开证据 PDF 后点右上角「🔖 收藏」，或收藏标准/条款——收藏会按你自建的收藏夹归入目录。
+              点上方「☆ 收藏本标准」或页面左缘「收藏本条款」——收藏会按你自建的收藏夹归入目录。
             </div>
           </div>
         )}
@@ -387,7 +380,7 @@ export function KsBookmarksTab(props: TabComponentProps): JSX.Element {
           const fid = folder.folder_id
           const key = 'F:' + (fid ?? '_unfiled')
           const open = !!q || !!openMap[key]
-          const active = fid !== null && activeFolderId === fid
+          const folderActive = fid !== null && activeFolderId === fid
           const renaming = renamingId === fid
           const confirming = deleteId === fid && folderPhase === 'confirm-delete'
           return (
@@ -409,12 +402,12 @@ export function KsBookmarksTab(props: TabComponentProps): JSX.Element {
                         type="button"
                         onClick={() => void toggleAskInFolder(folder)}
                         disabled={busy || sessionId === null}
-                        style={active ? $askBtnOn : $askBtn}
-                        title={active
+                        style={folderActive ? $askBtnOn : $askBtn}
+                        title={folderActive
                           ? '正在本收藏夹内提问——点击关闭恢复全库'
                           : '在本收藏夹内提问：本会话每一轮检索都限定在该夹内容内（标准级收藏按整本计）'}
                       >
-                        {active ? '💡 已限定提问' : '💡 提问'}
+                        {folderActive ? '💡 已限定提问' : '💡 提问'}
                       </button>
                       <button type="button" onClick={() => { setRenamingId(renaming ? null : fid); setRenameValue(renaming ? '' : folder.folder_name); setFolderPhase(null) }} style={$miniBtn} title="重命名">✏️</button>
                       <button type="button" onClick={() => { setDeleteId(confirming ? null : fid); setFolderPhase(confirming ? null : 'confirm-delete') }} style={{ ...$miniBtn, color: 'var(--dsw-alias-danger, #c62828)' }} title="删除收藏夹（收藏本身保留，全部回未分类）">🗑</button>
@@ -442,7 +435,7 @@ export function KsBookmarksTab(props: TabComponentProps): JSX.Element {
                   </span>
                 </div>
               )}
-              {open && <FolderBody folder={folder} q={q} onJump={jumpTo} />}
+              {open && <FolderBody folder={folder} onJump={jumpTo} />}
             </div>
           )
         })}
@@ -451,11 +444,10 @@ export function KsBookmarksTab(props: TabComponentProps): JSX.Element {
   )
 }
 
-/** 一个夹的树体：docs → L1→L2(L3/L4) 分类 → 文档叶（→ 条款叶）。 */
+/** 一个夹的树体：docs → 分类分组 → 文档叶（→ 条款叶）。 */
 function FolderBody(props: {
   folder: KsFolderTreeFolder
-  q: string
-  onJump: (docId: string, page: number | null, rev: string | null, label: string) => void
+  onJump: (docId: string, page: number | null, rev: string | null) => void
 }): JSX.Element {
   const { folder, onJump } = props
   if (folder.docs.length === 0) {
@@ -472,7 +464,7 @@ function FolderBody(props: {
 /** 递归渲染分组列表。 */
 function GroupList(props: {
   groups: DocGroupNode[]
-  onJump: (docId: string, page: number | null, rev: string | null, label: string) => void
+  onJump: (docId: string, page: number | null, rev: string | null) => void
 }): JSX.Element {
   const { groups, onJump } = props
   return (
@@ -487,7 +479,7 @@ function GroupList(props: {
 /** 一级分组行（递归 children + 文档叶）。 */
 function GroupRow(props: {
   group: DocGroupNode
-  onJump: (docId: string, page: number | null, rev: string | null, label: string) => void
+  onJump: (docId: string, page: number | null, rev: string | null) => void
 }): JSX.Element {
   const { group, onJump } = props
   const [open, setOpen] = useState(false)
@@ -516,7 +508,7 @@ function GroupRow(props: {
 /** 文档叶：标准级收藏=整本（蓝色徽标整本）；条款级收藏=展开条款子叶。 */
 function DocLeaf(props: {
   doc: KsFolderDocNode
-  onJump: (docId: string, page: number | null, rev: string | null, label: string) => void
+  onJump: (docId: string, page: number | null, rev: string | null) => void
 }): JSX.Element {
   const { doc, onJump } = props
   const [open, setOpen] = useState(false)
@@ -527,7 +519,7 @@ function DocLeaf(props: {
       <div style={{ ...$leaf, ...(struck ? { opacity: 0.7 } : {}) }}>
         <span
           style={{ cursor: 'pointer' }}
-          onClick={() => onJump(doc.doc_id, 1, null, label)}
+          onClick={() => onJump(doc.doc_id, 1, null)}
           title="打开标准（首页）"
         >
           {doc.standard_no ?? '（无编号）'} {doc.standard_name ?? ''}
@@ -549,7 +541,7 @@ function DocLeaf(props: {
         <div key={cb.bookmark_id} style={{ ...$leaf, paddingLeft: 16, fontSize: 11 }}>
           <span
             style={{ cursor: 'pointer' }}
-            onClick={() => onJump(doc.doc_id, cb.page_start, null, `${label} ${cb.clause_number ?? ''}`)}
+            onClick={() => onJump(doc.doc_id, cb.page_start, null)}
             title="打开 PDF 证据"
           >
             {cb.clause_number ?? '（条款）'} {cb.title ?? ''}

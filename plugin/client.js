@@ -51,7 +51,7 @@ module.exports = __toCommonJS(entry_exports);
 var import_react9 = require("react");
 
 // client/KsEvidenceTab.tsx
-var import_react3 = require("react");
+var import_react4 = require("react");
 
 // node_modules/pdfjs-dist/build/pdf.mjs
 var import_meta = {};
@@ -28935,9 +28935,566 @@ var $docCheckOn = {
   borderColor: "var(--dsw-alias-danger, #c62828)"
 };
 
-// client/KsDocTextView.tsx
+// client/KsBookmarksTab.tsx
 var import_react2 = require("react");
 var import_jsx_runtime2 = require("react/jsx-runtime");
+function KsBookmarksView(props) {
+  const { active, sessionId, onOpenEvidence } = props;
+  const abortRef = (0, import_react2.useRef)(null);
+  const [tree, setTree] = (0, import_react2.useState)([]);
+  const [load, setLoad] = (0, import_react2.useState)({ status: "loading" });
+  const [query, setQuery] = (0, import_react2.useState)("");
+  const [openMap, setOpenMap] = (0, import_react2.useState)({});
+  const [activeFolderId, setActiveFolderId] = (0, import_react2.useState)(null);
+  const [opError, setOpError] = (0, import_react2.useState)(null);
+  const [busy, setBusy] = (0, import_react2.useState)(false);
+  const [newName, setNewName] = (0, import_react2.useState)("");
+  const [showNew, setShowNew] = (0, import_react2.useState)(false);
+  const [renamingId, setRenamingId] = (0, import_react2.useState)(null);
+  const [renameValue, setRenameValue] = (0, import_react2.useState)("");
+  const [deleteId, setDeleteId] = (0, import_react2.useState)(null);
+  const [folderPhase, setFolderPhase] = (0, import_react2.useState)(null);
+  const loadAll = (0, import_react2.useCallback)(async () => {
+    abortRef.current?.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
+    setLoad({ status: "loading" });
+    setOpError(null);
+    try {
+      let session = await fetchSession(controller.signal);
+      let list;
+      try {
+        list = await fetchBookmarkFolderTree(session.engine.port, session.token, controller.signal);
+      } catch (error) {
+        if (error instanceof EngineAuthError) {
+          session = await fetchSession(controller.signal);
+          list = await fetchBookmarkFolderTree(session.engine.port, session.token, controller.signal);
+        } else {
+          throw error;
+        }
+      }
+      if (controller.signal.aborted) return;
+      setTree(list);
+      setOpenMap((prev) => {
+        if (Object.keys(prev).length > 0) return prev;
+        const first = list.find((f) => f.folder_id !== null);
+        return first !== void 0 ? { ["F:" + (first.folder_id ?? "")]: true } : {};
+      });
+      setLoad({ status: "ready" });
+    } catch (error) {
+      if (controller.signal.aborted) return;
+      setLoad({ status: "error", message: error instanceof Error ? error.message : String(error) });
+    }
+  }, []);
+  (0, import_react2.useEffect)(() => {
+    if (!active) return;
+    void loadAll();
+    if (sessionId === null) return;
+    const controller = new AbortController();
+    void (async () => {
+      try {
+        const mode = await fetchChatMode(sessionId, controller.signal);
+        if (!controller.signal.aborted) setActiveFolderId(mode.folderId);
+      } catch {
+      }
+    })();
+    return () => controller.abort();
+  }, [active, loadAll, sessionId]);
+  const retry = (0, import_react2.useCallback)(() => {
+    void loadAll();
+  }, [loadAll]);
+  const withSession = (0, import_react2.useCallback)(async (fn) => {
+    let session = await fetchSession();
+    try {
+      return await fn(session.engine.port, session.token, new AbortController().signal);
+    } catch (error) {
+      if (error instanceof EngineAuthError) {
+        session = await fetchSession();
+        return await fn(session.engine.port, session.token, new AbortController().signal);
+      }
+      throw error;
+    }
+  }, []);
+  const toggleAskInFolder = (0, import_react2.useCallback)(
+    async (folder) => {
+      if (busy || sessionId === null || folder.folder_id === null) return;
+      if (sessionId.length === 0) {
+        setOpError("\u65E0\u6CD5\u786E\u5B9A\u5F53\u524D\u4F1A\u8BDD\uFF0C\u4E0D\u80FD\u5207\u6362\u5939\u5185\u63D0\u95EE");
+        return;
+      }
+      setBusy(true);
+      setOpError(null);
+      try {
+        const turningOff = activeFolderId === folder.folder_id;
+        const result = await patchChatMode(sessionId, turningOff ? { folderId: null } : { folderId: folder.folder_id, folderName: folder.folder_name });
+        setActiveFolderId(result.mode.folderId);
+        if (!result.persisted) {
+          setOpError("\u26A0\uFE0F \u5F00\u5173\u4EC5\u672C\u4F1A\u8BDD\u5185\u751F\u6548\uFF08\u72B6\u6001\u672A\u80FD\u843D\u76D8\uFF0C\u91CD\u542F dsh \u540E\u4F1A\u4E22\u5931\uFF09");
+        }
+      } catch (error) {
+        setOpError(error instanceof Error ? error.message : String(error));
+      } finally {
+        setBusy(false);
+      }
+    },
+    [busy, sessionId, activeFolderId]
+  );
+  const createFolder = (0, import_react2.useCallback)(async () => {
+    const name = newName.trim();
+    if (name.length === 0 || busy) return;
+    setBusy(true);
+    setOpError(null);
+    try {
+      await withSession((port, token, signal) => createBookmarkFolder(port, name, token, signal));
+      setNewName("");
+      setShowNew(false);
+      void loadAll();
+    } catch (error) {
+      setOpError(error instanceof Error ? error.message : String(error));
+    } finally {
+      setBusy(false);
+    }
+  }, [newName, busy, withSession, loadAll]);
+  const submitRename = (0, import_react2.useCallback)(async () => {
+    const id = renamingId;
+    const name = renameValue.trim();
+    if (id === null || name.length === 0 || busy) return;
+    setBusy(true);
+    setOpError(null);
+    try {
+      await withSession((port, token, signal) => renameBookmarkFolder(port, id, name, token, signal));
+      setRenamingId(null);
+      setRenameValue("");
+      if (sessionId !== null && activeFolderId === id) {
+        try {
+          await patchChatMode(sessionId, { folderId: id, folderName: name });
+        } catch {
+        }
+      }
+      void loadAll();
+    } catch (error) {
+      setOpError(error instanceof Error ? error.message : String(error));
+    } finally {
+      setBusy(false);
+    }
+  }, [renamingId, renameValue, busy, withSession, loadAll, sessionId, activeFolderId]);
+  const confirmDeleteFolder = (0, import_react2.useCallback)(async () => {
+    const id = deleteId;
+    if (id === null || busy) return;
+    setBusy(true);
+    setOpError(null);
+    try {
+      await withSession((port, token, signal) => deleteBookmarkFolder(port, id, token, signal));
+      if (sessionId !== null && activeFolderId === id) {
+        try {
+          await patchChatMode(sessionId, { folderId: null });
+        } catch {
+        }
+        setActiveFolderId(null);
+      }
+      setDeleteId(null);
+      setFolderPhase(null);
+      void loadAll();
+    } catch (error) {
+      setOpError(error instanceof Error ? error.message : String(error));
+      setFolderPhase(null);
+    } finally {
+      setBusy(false);
+    }
+  }, [deleteId, busy, withSession, loadAll, sessionId, activeFolderId]);
+  const jumpTo = (0, import_react2.useCallback)(
+    (docId, page, rev) => {
+      if (page === null || page < 1) return;
+      onOpenEvidence({ doc: docId, page, rev: rev ?? void 0 });
+    },
+    [onOpenEvidence]
+  );
+  const toggleOpen = (0, import_react2.useCallback)((key) => {
+    setOpenMap((s) => ({ ...s, [key]: !s[key] }));
+  }, []);
+  const q = query.trim().toLowerCase();
+  const filteredTree = (0, import_react2.useMemo)(() => {
+    if (!q) return tree;
+    const docHit = (d) => (d.standard_no ?? "").toLowerCase().includes(q) || (d.standard_name ?? "").toLowerCase().includes(q) || d.clause_bookmarks.some((cb) => (cb.clause_number ?? "").toLowerCase().includes(q) || (cb.title ?? "").toLowerCase().includes(q));
+    return tree.map((f) => {
+      const folderHit = f.folder_name.toLowerCase().includes(q);
+      const docs = folderHit ? f.docs : f.docs.filter(docHit);
+      return { ...f, docs };
+    }).filter((f) => f.docs.length > 0 || f.folder_name.toLowerCase().includes(q));
+  }, [q, tree]);
+  const ready = load.status === "ready";
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", flexDirection: "column", height: "100%", minHeight: 0, fontSize: 12 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "6px 10px", borderBottom: "1px solid var(--dsw-alias-border-l1, #eee)", flexWrap: "wrap" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u6536\u85CF\u76EE\u5F55" }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { marginLeft: "auto", display: "flex", gap: 4 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", onClick: () => {
+          setShowNew((s) => !s);
+          setNewName("");
+        }, disabled: busy, style: $btn, title: "\u65B0\u5EFA\u6536\u85CF\u5939", children: "\uFF0B \u65B0\u5EFA\u5939" }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", onClick: retry, disabled: load.status === "loading", style: $btn, children: "\u5237\u65B0" })
+      ] })
+    ] }),
+    showNew && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 4, padding: "6px 10px", borderBottom: "1px solid var(--dsw-alias-border-l1, #eee)" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        "input",
+        {
+          value: newName,
+          onChange: (e) => setNewName(e.target.value),
+          onKeyDown: (e) => {
+            if (e.key === "Enter") void createFolder();
+            if (e.key === "Escape") setShowNew(false);
+          },
+          placeholder: "\u6536\u85CF\u5939\u540D\u79F0\uFF08\u226460 \u5B57\uFF09",
+          autoFocus: true,
+          style: { ...$input, flex: 1 }
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", onClick: () => void createFolder(), disabled: busy || newName.trim().length === 0, style: $btn, children: "\u521B\u5EFA" }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", onClick: () => setShowNew(false), style: $btn, children: "\u53D6\u6D88" })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: $search2, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+        "input",
+        {
+          value: query,
+          onChange: (e) => setQuery(e.target.value),
+          placeholder: "\u{1F50D} \u641C\u7D22\u5939\u540D/\u6807\u51C6\u53F7/\u6807\u51C6\u540D/\u6761\u6B3E\u53F7",
+          style: $searchInput2
+        }
+      ),
+      query.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", onClick: () => setQuery(""), style: $searchClear2, title: "\u6E05\u7A7A", children: "\xD7" })
+    ] }),
+    opError !== null && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { padding: "6px 10px", color: "var(--dsw-alias-danger, #c62828)", borderBottom: "1px solid var(--dsw-alias-border-l1, #eee)", background: "var(--dsw-alias-danger-bg, #fff0f0)", fontSize: 11, wordBreak: "break-word" }, children: opError }),
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { flex: 1, minHeight: 0, overflow: "auto", padding: 4 }, children: [
+      load.status === "loading" && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: $center2, children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u8F7D\u5165\u6536\u85CF\u76EE\u5F55\u2026\uFF08\u9996\u6B21\u53EF\u80FD\u542F\u52A8\u5F15\u64CE\uFF0C\u9700\u8981\u6570\u79D2\uFF09" }) }),
+      load.status === "error" && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...$center2, flexDirection: "column", gap: 10 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary, #666)", maxWidth: 480, textAlign: "center", wordBreak: "break-word" }, children: load.message }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", onClick: retry, style: $btn, children: "\u91CD\u8BD5" })
+      ] }),
+      ready && tree.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...$center2, flexDirection: "column", gap: 6 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6682\u65E0\u6536\u85CF" }),
+        /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 11, maxWidth: 380, textAlign: "center", lineHeight: 1.5 }, children: "\u70B9\u4E0A\u65B9\u300C\u2606 \u6536\u85CF\u672C\u6807\u51C6\u300D\u6216\u9875\u9762\u5DE6\u7F18\u300C\u6536\u85CF\u672C\u6761\u6B3E\u300D\u2014\u2014\u6536\u85CF\u4F1A\u6309\u4F60\u81EA\u5EFA\u7684\u6536\u85CF\u5939\u5F52\u5165\u76EE\u5F55\u3002" })
+      ] }),
+      ready && filteredTree.length === 0 && q && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: $center2, children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+        "\u6CA1\u6709\u5339\u914D\u300C",
+        query.trim(),
+        "\u300D\u7684\u6536\u85CF"
+      ] }) }),
+      ready && filteredTree.map((folder) => {
+        const fid = folder.folder_id;
+        const key = "F:" + (fid ?? "_unfiled");
+        const open = !!q || !!openMap[key];
+        const folderActive = fid !== null && activeFolderId === fid;
+        const renaming = renamingId === fid;
+        const confirming = deleteId === fid && folderPhase === "confirm-delete";
+        return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...$row2, fontWeight: 700, marginTop: 4, flexWrap: "wrap" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: $caret2, onClick: () => toggleOpen(key), children: open ? "\u25BE" : "\u25B8" }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { onClick: () => toggleOpen(key), style: { cursor: "pointer" }, children: [
+              folder.folder_name,
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { fontWeight: 400, color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 10.5, marginLeft: 6 }, children: [
+                folder.doc_count > 0 ? `${folder.doc_count} \u6587\u6863` : "",
+                folder.clause_count > 0 ? ` \xB7 ${folder.clause_count} \u6761\u6B3E` : "",
+                folder.doc_count === 0 && folder.clause_count === 0 ? "\uFF08\u7A7A\uFF09" : ""
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { marginLeft: "auto", display: "flex", gap: 3, flexWrap: "wrap" }, children: fid !== null && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(import_jsx_runtime2.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+                "button",
+                {
+                  type: "button",
+                  onClick: () => void toggleAskInFolder(folder),
+                  disabled: busy || sessionId === null,
+                  style: folderActive ? $askBtnOn : $askBtn,
+                  title: folderActive ? "\u6B63\u5728\u672C\u6536\u85CF\u5939\u5185\u63D0\u95EE\u2014\u2014\u70B9\u51FB\u5173\u95ED\u6062\u590D\u5168\u5E93" : "\u5728\u672C\u6536\u85CF\u5939\u5185\u63D0\u95EE\uFF1A\u672C\u4F1A\u8BDD\u6BCF\u4E00\u8F6E\u68C0\u7D22\u90FD\u9650\u5B9A\u5728\u8BE5\u5939\u5185\u5BB9\u5185\uFF08\u6807\u51C6\u7EA7\u6536\u85CF\u6309\u6574\u672C\u8BA1\uFF09",
+                  children: folderActive ? "\u{1F4A1} \u5DF2\u9650\u5B9A\u63D0\u95EE" : "\u{1F4A1} \u63D0\u95EE"
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", onClick: () => {
+                setRenamingId(renaming ? null : fid);
+                setRenameValue(renaming ? "" : folder.folder_name);
+                setFolderPhase(null);
+              }, style: $miniBtn, title: "\u91CD\u547D\u540D", children: "\u270F\uFE0F" }),
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", onClick: () => {
+                setDeleteId(confirming ? null : fid);
+                setFolderPhase(confirming ? null : "confirm-delete");
+              }, style: { ...$miniBtn, color: "var(--dsw-alias-danger, #c62828)" }, title: "\u5220\u9664\u6536\u85CF\u5939\uFF08\u6536\u85CF\u672C\u8EAB\u4FDD\u7559\uFF0C\u5168\u90E8\u56DE\u672A\u5206\u7C7B\uFF09", children: "\u{1F5D1}" })
+            ] }) })
+          ] }),
+          renaming && fid !== null && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 4, padding: "4px 0 4px 18px" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+              "input",
+              {
+                value: renameValue,
+                onChange: (e) => setRenameValue(e.target.value),
+                onKeyDown: (e) => {
+                  if (e.key === "Enter") void submitRename();
+                  if (e.key === "Escape") setRenamingId(null);
+                },
+                autoFocus: true,
+                style: { ...$input, flex: 1 }
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", onClick: () => void submitRename(), disabled: busy || renameValue.trim().length === 0, style: $btn, children: "\u4FDD\u5B58" }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", onClick: () => setRenamingId(null), style: $btn, children: "\u53D6\u6D88" })
+          ] }),
+          confirming && fid !== null && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: $confirmBar, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { children: [
+              "\u5220\u9664\u6536\u85CF\u5939\u300C",
+              folder.folder_name,
+              "\u300D\uFF1F\u5939\u5185\u6536\u85CF",
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("b", { children: "\u4E0D\u4F1A\u88AB\u5220\u9664" }),
+              "\uFF0C\u5C06\u5168\u90E8\u79FB\u5165\u300C\u672A\u5206\u7C7B\u300D\u3002"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { display: "flex", gap: 6, marginTop: 4 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", onClick: () => void confirmDeleteFolder(), disabled: busy, style: { ...$btn, color: "var(--dsw-alias-danger, #c62828)", borderColor: "var(--dsw-alias-danger, #c62828)" }, children: "\u786E\u8BA4\u5220\u9664" }),
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", onClick: () => {
+                setDeleteId(null);
+                setFolderPhase(null);
+              }, style: $btn, children: "\u518D\u60F3\u60F3" })
+            ] })
+          ] }),
+          open && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(FolderBody, { folder, onJump: jumpTo })
+        ] }, key);
+      })
+    ] })
+  ] });
+}
+function FolderBody(props) {
+  const { folder, onJump } = props;
+  if (folder.docs.length === 0) {
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { paddingLeft: 18, padding: "4px 0", color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 11 }, children: "\u7A7A\u6536\u85CF\u5939\u2014\u2014\u6536\u85CF\u65F6\u53EF\u9009\u62E9\u653E\u5165\u6B64\u5939\u3002" });
+  }
+  const roots = buildGroupTree(folder.docs);
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(GroupList, { groups: roots, onJump });
+}
+function GroupList(props) {
+  const { groups, onJump } = props;
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { padding: "1px 0 2px 14px" }, children: groups.map((g) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(GroupRow, { group: g, onJump }, g.name)) });
+}
+function GroupRow(props) {
+  const { group, onJump } = props;
+  const [open, setOpen] = (0, import_react2.useState)(false);
+  const total = group.docs.length + group.groups.reduce((s, g) => s + g.docs.length, 0);
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...$row2, fontSize: 11.5, fontWeight: 600, color: "var(--dsw-alias-label-secondary, #666)" }, onClick: () => setOpen((s) => !s), children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: $caret2, children: total > 0 ? open ? "\u25BE" : "\u25B8" : "\xB7" }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { children: group.name }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { fontWeight: 400, color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 10 }, children: [
+        " ",
+        "(",
+        total,
+        ")"
+      ] })
+    ] }),
+    open && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { padding: "1px 0 2px 14px" }, children: [
+      group.docs.map((d) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(DocLeaf, { doc: d, onJump }, d.doc_id)),
+      group.groups.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(GroupList, { groups: group.groups, onJump })
+    ] })
+  ] });
+}
+function DocLeaf(props) {
+  const { doc, onJump } = props;
+  const [open, setOpen] = (0, import_react2.useState)(false);
+  const label = doc.standard_no ?? doc.standard_name ?? doc.doc_id;
+  const struck = doc.legal_status !== null && doc.legal_status !== "effective";
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...$leaf2, ...struck ? { opacity: 0.7 } : {} }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+        "span",
+        {
+          style: { cursor: "pointer" },
+          onClick: () => onJump(doc.doc_id, 1, null),
+          title: "\u6253\u5F00\u6807\u51C6\uFF08\u9996\u9875\uFF09",
+          children: [
+            doc.standard_no ?? "\uFF08\u65E0\u7F16\u53F7\uFF09",
+            " ",
+            doc.standard_name ?? "",
+            doc.doc_bookmarked && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: { marginLeft: 6, fontSize: 10, color: "var(--dsw-alias-link, #1565c0)" }, title: "\u6807\u51C6\u7EA7\u6536\u85CF\u2014\u2014\u{1F4A1}\u63D0\u95EE\u65F6\u6574\u672C\u5165\u8303\u56F4", children: "\u6574\u672C" })
+          ]
+        }
+      ),
+      doc.clause_bookmarks.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+        "span",
+        {
+          style: { marginLeft: 8, cursor: "pointer", color: "var(--dsw-alias-link, #1565c0)", fontSize: 10.5 },
+          onClick: () => setOpen((s) => !s),
+          title: "\u5C55\u5F00\u6761\u6B3E\u6536\u85CF",
+          children: [
+            open ? "\u25BE" : "\u25B8",
+            " ",
+            doc.clause_bookmarks.length,
+            " \u6761"
+          ]
+        }
+      )
+    ] }),
+    open && doc.clause_bookmarks.map((cb) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { ...$leaf2, paddingLeft: 16, fontSize: 11 }, children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
+      "span",
+      {
+        style: { cursor: "pointer" },
+        onClick: () => onJump(doc.doc_id, cb.page_start, null),
+        title: "\u6253\u5F00 PDF \u8BC1\u636E",
+        children: [
+          cb.clause_number ?? "\uFF08\u6761\u6B3E\uFF09",
+          " ",
+          cb.title ?? ""
+        ]
+      }
+    ) }, cb.bookmark_id))
+  ] });
+}
+function buildGroupTree(docs) {
+  const getOrCreate = (parent, name) => {
+    const found = parent.find((g) => g.name === name);
+    if (found !== void 0) return found;
+    const node = { name, docs: [], groups: [] };
+    parent.push(node);
+    return node;
+  };
+  const roots = [];
+  for (const d of docs) {
+    const p = d.path;
+    const g1 = getOrCreate(roots, p?.l1 ?? "\u672A\u5206\u7C7B\u9886\u57DF");
+    const g2 = getOrCreate(g1.groups, p?.l2 ?? "\u5176\u4ED6");
+    if (p?.l4 != null) {
+      const g3 = getOrCreate(g2.groups, p.l3 ?? p.l4);
+      getOrCreate(g3.groups, p.l4).docs.push(d);
+    } else if (p?.l3 != null) {
+      getOrCreate(g2.groups, p.l3).docs.push(d);
+    } else {
+      g2.docs.push(d);
+    }
+  }
+  return roots;
+}
+var $center2 = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  height: "100%",
+  minHeight: 160
+};
+var $btn = {
+  border: "1px solid var(--dsw-alias-border-l2, #ccc)",
+  background: "var(--dsw-alias-bg-layer-2, #fff)",
+  color: "var(--dsw-alias-label-primary, #111)",
+  borderRadius: 4,
+  padding: "4px 10px",
+  cursor: "pointer",
+  fontSize: 11.5
+};
+var $miniBtn = {
+  border: "none",
+  background: "transparent",
+  cursor: "pointer",
+  fontSize: 12,
+  padding: "1px 4px",
+  lineHeight: 1.3
+};
+var $askBtn = {
+  border: "1px solid var(--dsw-alias-border-l2, #ccc)",
+  background: "var(--dsw-alias-bg-layer-2, #fff)",
+  color: "var(--dsw-alias-label-primary, #111)",
+  borderRadius: 4,
+  padding: "1px 8px",
+  cursor: "pointer",
+  fontSize: 10.5,
+  whiteSpace: "nowrap"
+};
+var $askBtnOn = {
+  ...$askBtn,
+  // dark-theme paired fixed button colors（白底深字，两主题都读得清）
+  background: "#fff",
+  color: "#7a4a00",
+  borderColor: "#d99000",
+  fontWeight: 600
+};
+var $input = {
+  border: "1px solid var(--dsw-alias-border-l2, #ccc)",
+  borderRadius: 4,
+  padding: "4px 8px",
+  background: "var(--dsw-alias-bg-layer-1, #fff)",
+  color: "var(--dsw-alias-label-primary, #111)",
+  fontSize: 12,
+  outline: "none"
+};
+var $search2 = {
+  position: "relative",
+  margin: "6px 10px 4px"
+};
+var $searchInput2 = {
+  width: "100%",
+  boxSizing: "border-box",
+  border: "1px solid var(--dsw-alias-border-l2, #ccc)",
+  borderRadius: 4,
+  padding: "4px 8px",
+  background: "var(--dsw-alias-bg-layer-1, #fff)",
+  color: "var(--dsw-alias-label-primary, #111)",
+  fontSize: 12,
+  outline: "none"
+};
+var $searchClear2 = {
+  position: "absolute",
+  right: 4,
+  top: "50%",
+  transform: "translateY(-50%)",
+  border: "none",
+  background: "transparent",
+  color: "var(--dsw-alias-label-tertiary, #999)",
+  cursor: "pointer",
+  fontSize: 14,
+  lineHeight: 1,
+  padding: "0 4px",
+  fontWeight: 600
+};
+var $confirmBar = {
+  margin: "4px 0 4px 18px",
+  padding: "6px 8px",
+  border: "1px solid var(--dsw-alias-border-l2, #ccc)",
+  borderRadius: 4,
+  background: "var(--dsw-alias-bg-layer-2, #fff)",
+  fontSize: 11,
+  lineHeight: 1.4,
+  color: "var(--dsw-alias-label-secondary, #666)"
+};
+var $row2 = {
+  display: "flex",
+  gap: 4,
+  padding: "2px 4px",
+  fontSize: 11.5,
+  cursor: "pointer",
+  borderRadius: 4,
+  alignItems: "center",
+  lineHeight: 1.4,
+  color: "var(--dsw-alias-label-primary, #111)"
+};
+var $caret2 = {
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  width: 14,
+  height: 14,
+  marginRight: 1,
+  color: "var(--dsw-alias-link, #1565c0)",
+  cursor: "pointer",
+  fontSize: 11,
+  borderRadius: 3,
+  flexShrink: 0
+};
+var $leaf2 = {
+  padding: "2px 4px",
+  fontSize: 11.5,
+  borderRadius: 4,
+  color: "var(--dsw-alias-label-primary, #111)",
+  lineHeight: 1.35,
+  wordBreak: "break-word",
+  overflowWrap: "anywhere"
+};
+
+// client/KsDocTextView.tsx
+var import_react3 = require("react");
+var import_jsx_runtime3 = require("react/jsx-runtime");
 var ALLOWED_TAGS = /* @__PURE__ */ new Set([
   "p",
   "br",
@@ -29109,9 +29666,9 @@ function wirePlaceholders(root, docId, signal) {
 }
 function KsDocTextView(props) {
   const { docId, currentPage, onJumpPage } = props;
-  const [state, setState] = (0, import_react2.useState)({ status: "loading" });
-  const rootRef = (0, import_react2.useRef)(null);
-  (0, import_react2.useEffect)(() => {
+  const [state, setState] = (0, import_react3.useState)({ status: "loading" });
+  const rootRef = (0, import_react3.useRef)(null);
+  (0, import_react3.useEffect)(() => {
     const controller = new AbortController();
     setState({ status: "loading" });
     void (async () => {
@@ -29159,11 +29716,11 @@ function KsDocTextView(props) {
       controller.abort();
     };
   }, [docId]);
-  const renderedHtml = (0, import_react2.useMemo)(
+  const renderedHtml = (0, import_react3.useMemo)(
     () => state.status === "ready" ? state.clauses.map((c) => c.content_html ?? "").join("\n") : "",
     [state]
   );
-  (0, import_react2.useEffect)(() => {
+  (0, import_react3.useEffect)(() => {
     if (state.status !== "ready") return;
     const root = rootRef.current;
     if (root === null) return;
@@ -29175,7 +29732,7 @@ function KsDocTextView(props) {
       revoke();
     };
   }, [renderedHtml, docId, state.status]);
-  const pages = (0, import_react2.useMemo)(() => {
+  const pages = (0, import_react3.useMemo)(() => {
     if (state.status !== "ready") return [];
     const map = /* @__PURE__ */ new Map();
     for (const c of state.clauses) {
@@ -29189,10 +29746,10 @@ function KsDocTextView(props) {
     return Array.from(map.entries()).sort((a, b) => a[0] - b[0]).map(([page, items]) => ({ page, items }));
   }, [state]);
   if (state.status === "loading") {
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { display: "flex", alignItems: "center", justifyContent: "center", height: "100%", color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u8F7D\u5165\u6B63\u6587\u6761\u6B3E\u2026\uFF08\u9996\u6B21\u53EF\u80FD\u542F\u52A8\u5F15\u64CE\uFF09" });
+    return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { display: "flex", alignItems: "center", justifyContent: "center", height: "100%", color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u8F7D\u5165\u6B63\u6587\u6761\u6B3E\u2026\uFF08\u9996\u6B21\u53EF\u80FD\u542F\u52A8\u5F15\u64CE\uFF09" });
   }
   if (state.status === "error") {
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "center", height: "100%", color: "var(--dsw-alias-danger, #c00)" }, children: [
+    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "center", height: "100%", color: "var(--dsw-alias-danger, #c00)" }, children: [
       "\u6B63\u6587\u52A0\u8F7D\u5931\u8D25\uFF1A",
       state.message
     ] });
@@ -29217,8 +29774,8 @@ function KsDocTextView(props) {
     fontSize: 11,
     cursor: "pointer"
   });
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { height: "100%", overflow: "auto", fontSize: 13, lineHeight: 1.75 }, children: [
-    pages.length > 1 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: $pageNav, children: pages.map((p) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { height: "100%", overflow: "auto", fontSize: 13, lineHeight: 1.75 }, children: [
+    pages.length > 1 && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: $pageNav, children: pages.map((p) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
       "button",
       {
         type: "button",
@@ -29229,7 +29786,7 @@ function KsDocTextView(props) {
       },
       p.page
     )) }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
       "div",
       {
         ref: rootRef,
@@ -29308,7 +29865,7 @@ function parseBbox(raw) {
 }
 
 // client/KsEvidenceTab.tsx
-var import_jsx_runtime3 = require("react/jsx-runtime");
+var import_jsx_runtime4 = require("react/jsx-runtime");
 var EMPTY_EVIDENCE = null;
 var HISTORY_CAP = 20;
 var SCALE_EPSILON = 0.03;
@@ -29328,8 +29885,8 @@ function readSlowTransitionMs() {
 function KsEvidenceTab(props) {
   const { ctx, tab, visible, store, scope } = props;
   const sessionId = scope?.sessionId;
-  const showArrowPref = (0, import_react3.useSyncExternalStore)(
-    (0, import_react3.useCallback)((cb) => store?.subscribe(cb) ?? (() => {
+  const showArrowPref = (0, import_react4.useSyncExternalStore)(
+    (0, import_react4.useCallback)((cb) => store?.subscribe(cb) ?? (() => {
     }), [store]),
     () => {
       try {
@@ -29340,10 +29897,10 @@ function KsEvidenceTab(props) {
       }
     }
   );
-  const showArrowRef = (0, import_react3.useRef)(true);
+  const showArrowRef = (0, import_react4.useRef)(true);
   showArrowRef.current = showArrowPref;
-  const panelWidth = (0, import_react3.useSyncExternalStore)(
-    (0, import_react3.useCallback)((cb) => store?.subscribe(cb) ?? (() => {
+  const panelWidth = (0, import_react4.useSyncExternalStore)(
+    (0, import_react4.useCallback)((cb) => store?.subscribe(cb) ?? (() => {
     }), [store]),
     () => {
       try {
@@ -29354,47 +29911,47 @@ function KsEvidenceTab(props) {
       }
     }
   );
-  const evidence = (0, import_react3.useRef)(EMPTY_EVIDENCE);
-  const pdfDocRef = (0, import_react3.useRef)(null);
-  const taskRef = (0, import_react3.useRef)(null);
-  const abortRef = (0, import_react3.useRef)(null);
-  const canvasRef = (0, import_react3.useRef)(null);
-  const bboxRef = (0, import_react3.useRef)(null);
-  const containerRef = (0, import_react3.useRef)(null);
-  const renderSeqRef = (0, import_react3.useRef)(0);
-  const lastFitRef = (0, import_react3.useRef)(null);
-  const renderFreezeUntilRef = (0, import_react3.useRef)(0);
-  const pendingRenderRef = (0, import_react3.useRef)(false);
-  const freezeTimerRef = (0, import_react3.useRef)(null);
-  const historyRef = (0, import_react3.useRef)([]);
-  const pathHrefRef = (0, import_react3.useRef)(null);
-  const [load, setLoad] = (0, import_react3.useState)({ status: "loading" });
-  const [page, setPage] = (0, import_react3.useState)(1);
-  const [pageInput, setPageInput] = (0, import_react3.useState)("1");
-  const [engineHint, setEngineHint] = (0, import_react3.useState)("");
-  const [selBm, setSelBm] = (0, import_react3.useState)("");
-  const [selHistory, setSelHistory] = (0, import_react3.useState)("");
-  const [bmState, setBmState] = (0, import_react3.useState)("idle");
-  const [docBookmarked, setDocBookmarked] = (0, import_react3.useState)(false);
-  const [docBusy, setDocBusy] = (0, import_react3.useState)(false);
-  const [curDocId, setCurDocId] = (0, import_react3.useState)(null);
-  const [curClauseKey, setCurClauseKey] = (0, import_react3.useState)(null);
-  const [arrowPos, setArrowPos] = (0, import_react3.useState)(null);
-  const refreshMetaRef = (0, import_react3.useRef)(null);
-  const [docClauseBms, setDocClauseBms] = (0, import_react3.useState)([]);
-  const [loadedDocId, setLoadedDocId] = (0, import_react3.useState)(null);
-  const [toc, setToc] = (0, import_react3.useState)(null);
-  const [tocOpen, setTocOpen] = (0, import_react3.useState)(false);
-  const tocAbortRef = (0, import_react3.useRef)(null);
-  const [leftMode, setLeftMode] = (0, import_react3.useState)("toc");
-  const [viewMode, setViewMode] = (0, import_react3.useState)("pdf");
-  const [folderPicker, setFolderPicker] = (0, import_react3.useState)(null);
-  const [folderList, setFolderList] = (0, import_react3.useState)(null);
-  const [folderLoading, setFolderLoading] = (0, import_react3.useState)(false);
-  const [folderNewName, setFolderNewName] = (0, import_react3.useState)("");
-  const pendingClauseKeyRef = (0, import_react3.useRef)(null);
-  const pendingRevRef = (0, import_react3.useRef)(null);
-  const renderPage = (0, import_react3.useCallback)(async (doc, target) => {
+  const evidence = (0, import_react4.useRef)(EMPTY_EVIDENCE);
+  const pdfDocRef = (0, import_react4.useRef)(null);
+  const taskRef = (0, import_react4.useRef)(null);
+  const abortRef = (0, import_react4.useRef)(null);
+  const canvasRef = (0, import_react4.useRef)(null);
+  const bboxRef = (0, import_react4.useRef)(null);
+  const containerRef = (0, import_react4.useRef)(null);
+  const renderSeqRef = (0, import_react4.useRef)(0);
+  const lastFitRef = (0, import_react4.useRef)(null);
+  const renderFreezeUntilRef = (0, import_react4.useRef)(0);
+  const pendingRenderRef = (0, import_react4.useRef)(false);
+  const freezeTimerRef = (0, import_react4.useRef)(null);
+  const historyRef = (0, import_react4.useRef)([]);
+  const pathHrefRef = (0, import_react4.useRef)(null);
+  const [load, setLoad] = (0, import_react4.useState)({ status: "loading" });
+  const [page, setPage] = (0, import_react4.useState)(1);
+  const [pageInput, setPageInput] = (0, import_react4.useState)("1");
+  const [engineHint, setEngineHint] = (0, import_react4.useState)("");
+  const [selBm, setSelBm] = (0, import_react4.useState)("");
+  const [selHistory, setSelHistory] = (0, import_react4.useState)("");
+  const [bmState, setBmState] = (0, import_react4.useState)("idle");
+  const [docBookmarked, setDocBookmarked] = (0, import_react4.useState)(false);
+  const [docBusy, setDocBusy] = (0, import_react4.useState)(false);
+  const [curDocId, setCurDocId] = (0, import_react4.useState)(null);
+  const [curClauseKey, setCurClauseKey] = (0, import_react4.useState)(null);
+  const [arrowPos, setArrowPos] = (0, import_react4.useState)(null);
+  const refreshMetaRef = (0, import_react4.useRef)(null);
+  const [docClauseBms, setDocClauseBms] = (0, import_react4.useState)([]);
+  const [loadedDocId, setLoadedDocId] = (0, import_react4.useState)(null);
+  const [toc, setToc] = (0, import_react4.useState)(null);
+  const [tocOpen, setTocOpen] = (0, import_react4.useState)(false);
+  const tocAbortRef = (0, import_react4.useRef)(null);
+  const [leftMode, setLeftMode] = (0, import_react4.useState)("toc");
+  const [viewMode, setViewMode] = (0, import_react4.useState)("pdf");
+  const [folderPicker, setFolderPicker] = (0, import_react4.useState)(null);
+  const [folderList, setFolderList] = (0, import_react4.useState)(null);
+  const [folderLoading, setFolderLoading] = (0, import_react4.useState)(false);
+  const [folderNewName, setFolderNewName] = (0, import_react4.useState)("");
+  const pendingClauseKeyRef = (0, import_react4.useRef)(null);
+  const pendingRevRef = (0, import_react4.useRef)(null);
+  const renderPage = (0, import_react4.useCallback)(async (doc, target) => {
     const canvas = canvasRef.current;
     const container = containerRef.current;
     if (canvas === null || container === null) return;
@@ -29490,7 +30047,7 @@ function KsEvidenceTab(props) {
       }
     }
   }, []);
-  const pushHistory = (0, import_react3.useCallback)((rawHref, effEv) => {
+  const pushHistory = (0, import_react4.useCallback)((rawHref, effEv) => {
     let url = rawHref;
     if (url !== null) {
       const parsed = parseEvidence(url);
@@ -29506,7 +30063,7 @@ function KsEvidenceTab(props) {
     if (rest.length > HISTORY_CAP) rest.length = HISTORY_CAP;
     historyRef.current = rest;
   }, []);
-  const refreshMeta = (0, import_react3.useCallback)(async (rev) => {
+  const refreshMeta = (0, import_react4.useCallback)(async (rev) => {
     const controller = new AbortController();
     try {
       const session = await fetchSession(controller.signal);
@@ -29531,7 +30088,7 @@ function KsEvidenceTab(props) {
     }
   }, []);
   refreshMetaRef.current = refreshMeta;
-  const loadEvidence = (0, import_react3.useCallback)(async (ev) => {
+  const loadEvidence = (0, import_react4.useCallback)(async (ev) => {
     widenPanelForPdf(store, sessionId);
     freezeRender(settleMsRef.current + 60);
     abortRef.current?.abort();
@@ -29614,7 +30171,7 @@ function KsEvidenceTab(props) {
       setLoad({ status: "error", message: error instanceof Error ? error.message : String(error) });
     }
   }, [pushHistory, renderPage]);
-  (0, import_react3.useEffect)(() => {
+  (0, import_react4.useEffect)(() => {
     const rawPath = typeof tab.path === "string" ? tab.path : null;
     pathHrefRef.current = rawPath;
     const ev = parseEvidence(rawPath) ?? parseEvidence(tab.meta);
@@ -29649,14 +30206,14 @@ function KsEvidenceTab(props) {
       pdfDocRef.current = null;
     };
   }, [tab.path, tab.meta, loadEvidence]);
-  (0, import_react3.useEffect)(() => {
+  (0, import_react4.useEffect)(() => {
     if (!visible) return;
     const ev = evidence.current;
     if (ev !== null && ev.rev !== void 0) {
       void refreshMetaRef.current?.(ev.rev);
     }
   }, [visible]);
-  (0, import_react3.useEffect)(() => {
+  (0, import_react4.useEffect)(() => {
     const docId = loadedDocId;
     tocAbortRef.current?.abort();
     if (docId === null) {
@@ -29705,9 +30262,9 @@ function KsEvidenceTab(props) {
     };
   }, [loadedDocId]);
   const docHasToc = toc === null ? true : toc.length > 0;
-  const showLeftCol = leftMode === "files" || tocOpen && docHasToc;
-  const [reduceMotion, setReduceMotion] = (0, import_react3.useState)(() => typeof window !== "undefined" && typeof window.matchMedia === "function" ? window.matchMedia("(prefers-reduced-motion: reduce)").matches : false);
-  (0, import_react3.useEffect)(() => {
+  const showLeftCol = leftMode !== "toc" || tocOpen && docHasToc;
+  const [reduceMotion, setReduceMotion] = (0, import_react4.useState)(() => typeof window !== "undefined" && typeof window.matchMedia === "function" ? window.matchMedia("(prefers-reduced-motion: reduce)").matches : false);
+  (0, import_react4.useEffect)(() => {
     if (typeof window === "undefined" || typeof window.matchMedia !== "function") return void 0;
     const mql = window.matchMedia("(prefers-reduced-motion: reduce)");
     const onChange = () => setReduceMotion(mql.matches);
@@ -29715,8 +30272,8 @@ function KsEvidenceTab(props) {
     return () => mql.removeEventListener("change", onChange);
   }, []);
   const tocTransition = reduceMotion ? "none" : $tocSlideTransition;
-  const measureNowRef = (0, import_react3.useRef)(null);
-  const freezeRender = (0, import_react3.useCallback)((ms) => {
+  const measureNowRef = (0, import_react4.useRef)(null);
+  const freezeRender = (0, import_react4.useCallback)((ms) => {
     renderFreezeUntilRef.current = Math.max(renderFreezeUntilRef.current, Date.now() + ms);
     if (freezeTimerRef.current !== null) window.clearTimeout(freezeTimerRef.current);
     freezeTimerRef.current = window.setTimeout(() => {
@@ -29726,14 +30283,14 @@ function KsEvidenceTab(props) {
       measureNowRef.current?.(true);
     }, ms + 40);
   }, []);
-  const [box, setBox] = (0, import_react3.useState)(null);
-  const measureTimer = (0, import_react3.useRef)(null);
-  const reduceMotionRef = (0, import_react3.useRef)(false);
+  const [box, setBox] = (0, import_react4.useState)(null);
+  const measureTimer = (0, import_react4.useRef)(null);
+  const reduceMotionRef = (0, import_react4.useRef)(false);
   reduceMotionRef.current = reduceMotion;
-  const settleMsRef = (0, import_react3.useRef)(DEFAULT_SETTLE_MS);
+  const settleMsRef = (0, import_react4.useRef)(DEFAULT_SETTLE_MS);
   settleMsRef.current = reduceMotion ? RESIZE_SETTLE_MS : Math.max(RESIZE_SETTLE_MS, readSlowTransitionMs() + 80);
-  const [dprEpoch, setDprEpoch] = (0, import_react3.useState)(0);
-  const measureNow = (0, import_react3.useCallback)((force = false) => {
+  const [dprEpoch, setDprEpoch] = (0, import_react4.useState)(0);
+  const measureNow = (0, import_react4.useCallback)((force = false) => {
     const el = containerRef.current;
     if (el === null) return;
     const w = el.clientWidth;
@@ -29748,14 +30305,14 @@ function KsEvidenceTab(props) {
     });
   }, []);
   measureNowRef.current = measureNow;
-  const scheduleMeasure = (0, import_react3.useCallback)((delay = settleMsRef.current) => {
+  const scheduleMeasure = (0, import_react4.useCallback)((delay = settleMsRef.current) => {
     if (measureTimer.current !== null) window.clearTimeout(measureTimer.current);
     measureTimer.current = window.setTimeout(() => {
       measureTimer.current = null;
       measureNow();
     }, delay);
   }, [measureNow]);
-  (0, import_react3.useEffect)(() => {
+  (0, import_react4.useEffect)(() => {
     measureNow();
     const el = containerRef.current;
     const ro = typeof ResizeObserver !== "undefined" && el !== null ? new ResizeObserver(() => scheduleMeasure()) : null;
@@ -29777,7 +30334,7 @@ function KsEvidenceTab(props) {
       }
     };
   }, [measureNow, scheduleMeasure]);
-  (0, import_react3.useEffect)(() => {
+  (0, import_react4.useEffect)(() => {
     if (typeof window === "undefined" || typeof window.matchMedia !== "function") return;
     let mql = null;
     let stopped = false;
@@ -29800,7 +30357,7 @@ function KsEvidenceTab(props) {
       mql?.removeEventListener("change", onChange);
     };
   }, [scheduleMeasure]);
-  (0, import_react3.useEffect)(() => {
+  (0, import_react4.useEffect)(() => {
     return () => {
       let stillOpen = true;
       try {
@@ -29811,7 +30368,7 @@ function KsEvidenceTab(props) {
       if (!stillOpen) restorePanelAfterPdf(store, sessionId);
     };
   }, []);
-  (0, import_react3.useEffect)(() => {
+  (0, import_react4.useEffect)(() => {
     if (load.status !== "ready") return;
     if (!visible) return;
     const doc = pdfDocRef.current;
@@ -29820,7 +30377,7 @@ function KsEvidenceTab(props) {
       console.warn("[ks:pdf] renderPage failed", error);
     });
   }, [load.status, page, renderPage, showLeftCol, showArrowPref, box, dprEpoch, visible]);
-  const goTo = (0, import_react3.useCallback)((n) => {
+  const goTo = (0, import_react4.useCallback)((n) => {
     const doc = pdfDocRef.current;
     if (doc === null) return;
     const target = Math.max(1, Math.min(n, doc.numPages));
@@ -29831,25 +30388,30 @@ function KsEvidenceTab(props) {
     const n = parseInt(raw, 10);
     if (!Number.isNaN(n) && n >= 1) void goTo(n);
   };
-  const toggleToc = (0, import_react3.useCallback)((open) => {
+  const toggleToc = (0, import_react4.useCallback)((open) => {
     setTocOpen(open);
   }, []);
-  const tocJump = (0, import_react3.useCallback)((t) => {
+  const tocJump = (0, import_react4.useCallback)((t) => {
     const n = typeof t.page_start === "number" && Number.isFinite(t.page_start) ? t.page_start : null;
     if (n === null) return;
     goTo(n);
   }, [goTo]);
-  const onFilesOpenDoc = (0, import_react3.useCallback)((docId) => {
+  const onFilesOpenDoc = (0, import_react4.useCallback)((docId) => {
     const ev = { doc: docId, page: 1 };
     evidence.current = ev;
     setLeftMode("toc");
     void loadEvidence(ev);
   }, [loadEvidence]);
-  const retry = (0, import_react3.useCallback)(() => {
+  const onBookmarkJump = (0, import_react4.useCallback)((jump) => {
+    const ev = { doc: jump.doc, page: jump.page, rev: jump.rev };
+    evidence.current = ev;
+    void loadEvidence(ev);
+  }, [loadEvidence]);
+  const retry = (0, import_react4.useCallback)(() => {
     clearSession();
     void loadEvidence(evidence.current);
   }, [loadEvidence]);
-  const jumpHistory = (0, import_react3.useCallback)((href) => {
+  const jumpHistory = (0, import_react4.useCallback)((href) => {
     const title = `PDF \u67E5\u770B\u5668${href.ev.page !== void 0 ? ` \xB7 \u7B2C${href.ev.page}\u9875` : ""}`;
     if (href.url) {
       try {
@@ -29865,7 +30427,7 @@ function KsEvidenceTab(props) {
     evidence.current = href.ev;
     void loadEvidence(href.ev);
   }, [ctx, tab.id, loadEvidence]);
-  const loadFolders = (0, import_react3.useCallback)(async () => {
+  const loadFolders = (0, import_react4.useCallback)(async () => {
     const controller = new AbortController();
     try {
       let session = await fetchSession(controller.signal);
@@ -29883,7 +30445,7 @@ function KsEvidenceTab(props) {
       return null;
     }
   }, []);
-  const confirmDocBookmark = (0, import_react3.useCallback)(async (folderId) => {
+  const confirmDocBookmark = (0, import_react4.useCallback)(async (folderId) => {
     const docId = curDocId;
     if (docId === null) return;
     setFolderPicker(null);
@@ -29912,7 +30474,7 @@ function KsEvidenceTab(props) {
       setDocBusy(false);
     }
   }, [curDocId]);
-  const toggleDocBookmark = (0, import_react3.useCallback)(async () => {
+  const toggleDocBookmark = (0, import_react4.useCallback)(async () => {
     if (docBusy) return;
     const docId = curDocId;
     if (docId === null) return;
@@ -29953,7 +30515,7 @@ function KsEvidenceTab(props) {
     setFolderNewName("");
     setFolderPicker("doc");
   }, [docBusy, docBookmarked, curDocId, loadFolders, confirmDocBookmark]);
-  const confirmClauseBookmark = (0, import_react3.useCallback)(async (clauseKey, folderId, rev) => {
+  const confirmClauseBookmark = (0, import_react4.useCallback)(async (clauseKey, folderId, rev) => {
     setFolderPicker(null);
     setBmState("busy");
     setEngineHint("");
@@ -29981,7 +30543,7 @@ function KsEvidenceTab(props) {
       setEngineHint(`\u64CD\u4F5C\u5931\u8D25\uFF1A${error instanceof Error ? error.message : String(error)}`);
     }
   }, []);
-  const clauseBookmark = (0, import_react3.useCallback)(async () => {
+  const clauseBookmark = (0, import_react4.useCallback)(async () => {
     const ev = evidence.current;
     if (ev === null || ev.rev === void 0) return;
     if (bmState === "busy") return;
@@ -30059,7 +30621,7 @@ function KsEvidenceTab(props) {
     const pg = h.ev.page !== void 0 ? h.ev.page : 1;
     return `\u7B2C${pg}\u9875`;
   };
-  const jumpToBookmark = (0, import_react3.useCallback)((b) => {
+  const jumpToBookmark = (0, import_react4.useCallback)((b) => {
     const doc = typeof b.doc_id === "string" && b.doc_id.length > 0 ? b.doc_id : null;
     const page2 = typeof b.page_start === "number" && b.page_start >= 1 ? Math.floor(b.page_start) : null;
     if (doc === null || page2 === null) return;
@@ -30082,7 +30644,7 @@ function KsEvidenceTab(props) {
     const pg = typeof b.page_start === "number" && b.page_start >= 1 ? b.page_start : "?";
     return `\xA7${no} \xB7 \u7B2C${pg}\u9875`;
   };
-  const pickFolder = (0, import_react3.useCallback)(async (folderId) => {
+  const pickFolder = (0, import_react4.useCallback)(async (folderId) => {
     if (folderPicker === "doc") {
       await confirmDocBookmark(folderId);
     } else if (folderPicker === "clause") {
@@ -30091,7 +30653,7 @@ function KsEvidenceTab(props) {
       if (clauseKey !== null && rev !== null) await confirmClauseBookmark(clauseKey, folderId, rev);
     }
   }, [folderPicker, confirmDocBookmark, confirmClauseBookmark]);
-  const pickNewFolder = (0, import_react3.useCallback)(async () => {
+  const pickNewFolder = (0, import_react4.useCallback)(async () => {
     const name = folderNewName.trim();
     if (name.length === 0) return;
     setFolderLoading(true);
@@ -30117,16 +30679,16 @@ function KsEvidenceTab(props) {
       setEngineHint(`\u65B0\u5EFA\u6536\u85CF\u5939\u5931\u8D25\uFF1A${error instanceof Error ? error.message : String(error)}`);
     }
   }, [folderNewName, pickFolder]);
-  const closeFolderPicker = (0, import_react3.useCallback)(() => {
+  const closeFolderPicker = (0, import_react4.useCallback)(() => {
     setFolderPicker(null);
     setFolderNewName("");
     pendingClauseKeyRef.current = null;
   }, []);
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { display: "flex", flexDirection: "column", height: "100%", minHeight: 0, fontSize: 12 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "6px 10px", borderBottom: "1px solid var(--dsw-alias-border-l1, #eee)", flexWrap: "wrap" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "PDF \u67E5\u770B\u5668" }),
-        load.status === "ready" && curDocId !== null && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { display: "flex", flexDirection: "column", height: "100%", minHeight: 0, fontSize: 12 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "6px 10px", borderBottom: "1px solid var(--dsw-alias-border-l1, #eee)", flexWrap: "wrap" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "PDF \u67E5\u770B\u5668" }),
+        load.status === "ready" && curDocId !== null && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
           "button",
           {
             type: "button",
@@ -30140,22 +30702,25 @@ function KsEvidenceTab(props) {
             children: docBusy ? "\u2026" : docBookmarked ? "\u2605 \u5DF2\u6536\u85CF\u672C\u6807\u51C6" : "\u2606 \u6536\u85CF\u672C\u6807\u51C6"
           }
         ),
-        load.status === "ready" && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+        load.status === "ready" && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
           "button",
           {
             type: "button",
             disabled: toc === null || toc.length === 0,
-            onClick: () => toggleToc(!tocOpen),
-            title: tocOpen ? "\u6536\u8D77\u6807\u9898\u76EE\u5F55\uFF08\u6536\u56DE\u4FA7\u680F\u5BBD\u5EA6\uFF09" : "\u5C55\u5F00\u6807\u9898\u76EE\u5F55\uFF1A\u4FA7\u680F\u5411\u5DE6\u6269\u5F20\uFF0C\u4E0D\u538B\u7F29 PDF \u9605\u8BFB\u533A",
+            onClick: () => {
+              setLeftMode("toc");
+              toggleToc(!(tocOpen || leftMode !== "toc"));
+            },
+            title: leftMode !== "toc" || tocOpen ? "\u6536\u8D77\u6807\u9898\u76EE\u5F55\uFF08\u56DE\u5230\u7EAF PDF \u5168\u5BBD\uFF09" : "\u5C55\u5F00\u6807\u9898\u76EE\u5F55\uFF1A\u4FA7\u680F\u5411\u5DE6\u6269\u5F20\uFF0C\u4E0D\u538B\u7F29 PDF \u9605\u8BFB\u533A",
             style: { ...$btnStyle, ...toc !== null && toc.length > 0 ? $tocBtnStyle : {} },
             children: [
               "\u{1F4D6} \u6807\u9898\u76EE\u5F55",
               "\xA0",
-              toc !== null && toc.length > 0 ? tocOpen ? "\u25BE" : "\u25B8" : "\xB7"
+              toc !== null && toc.length > 0 ? leftMode !== "toc" || tocOpen ? "\u25BE" : "\u25B8" : "\xB7"
             ]
           }
         ),
-        evidence.current !== null && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        evidence.current !== null && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
           "button",
           {
             type: "button",
@@ -30165,8 +30730,8 @@ function KsEvidenceTab(props) {
             children: viewMode === "pdf" ? "\u{1F4C4} \u6B63\u6587" : "\u{1F4D1} PDF"
           }
         ),
-        load.status === "ready" && viewMode === "pdf" && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(import_jsx_runtime3.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        load.status === "ready" && viewMode === "pdf" && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
             "button",
             {
               type: "button",
@@ -30176,8 +30741,8 @@ function KsEvidenceTab(props) {
               children: "\u25C0"
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
               "input",
               {
                 value: pageInput,
@@ -30193,7 +30758,7 @@ function KsEvidenceTab(props) {
             " / ",
             total
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
             "button",
             {
               type: "button",
@@ -30204,7 +30769,7 @@ function KsEvidenceTab(props) {
             }
           )
         ] }),
-        load.status === "ready" && historyOptions.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+        load.status === "ready" && historyOptions.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
           "select",
           {
             value: selHistory,
@@ -30218,12 +30783,12 @@ function KsEvidenceTab(props) {
             "aria-label": "\u6700\u8FD1\u6253\u5F00\u7684\u8BC1\u636E",
             title: "\u6700\u8FD1\u6253\u5F00\u7684\u8BC1\u636E",
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: "", children: "\u6700\u8FD1\u8BC1\u636E\u2026" }),
-              historyOptions.map((h) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: h.url, children: historyLabel(h) }, h.url))
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("option", { value: "", children: "\u6700\u8FD1\u8BC1\u636E\u2026" }),
+              historyOptions.map((h) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("option", { value: h.url, children: historyLabel(h) }, h.url))
             ]
           }
         ),
-        load.status === "ready" && docClauseBms.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+        load.status === "ready" && docClauseBms.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
           "select",
           {
             value: selBm,
@@ -30237,35 +30802,35 @@ function KsEvidenceTab(props) {
             "aria-label": "\u672C\u6587\u6863\u5DF2\u6536\u85CF\u6761\u6B3E",
             title: "\u5DF2\u6536\u85CF\u6761\u6B3E\uFF08\u70B9\u9009\u8DF3\u8F6C\uFF09",
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("option", { value: "", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("option", { value: "", children: [
                 "\u5DF2\u6536\u85CF\u6761\u6B3E\uFF08",
                 docClauseBms.length,
                 "\uFF09\u2026"
               ] }),
-              docClauseBms.map((b) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("option", { value: b.clause_revision_id ?? "", children: bookmarkOptionLabel(b) }, b.clause_revision_id ?? b.bookmark_id))
+              docClauseBms.map((b) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("option", { value: b.clause_revision_id ?? "", children: bookmarkOptionLabel(b) }, b.clause_revision_id ?? b.bookmark_id))
             ]
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: { marginLeft: "auto", color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 11 }, children: engineHint })
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { style: { marginLeft: "auto", color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 11 }, children: engineHint })
       ] }),
       folderPicker !== null && typeof document !== "undefined" && (0, import_react_dom.createPortal)(
-        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
           "div",
           {
             onClick: closeFolderPicker,
             style: { position: "fixed", inset: 0, background: "rgba(0,0,0,0.18)", zIndex: 9e3, display: "flex", alignItems: "center", justifyContent: "center" },
-            children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+            children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
               "div",
               {
                 onClick: (e) => e.stopPropagation(),
                 style: { width: 320, maxWidth: "90vw", background: "var(--dsw-alias-bg-layer-1, #fff)", border: "1px solid var(--dsw-alias-border-l2, #ccc)", borderRadius: 8, padding: 12, boxShadow: "0 8px 32px rgba(0,0,0,0.25)" },
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 6, marginBottom: 8 }, children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: folderPicker === "doc" ? "\u6536\u85CF\u672C\u6807\u51C6\u5230\u2026" : "\u6536\u85CF\u672C\u6761\u6B3E\u5230\u2026" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { type: "button", onClick: closeFolderPicker, style: { marginLeft: "auto", border: "none", background: "transparent", cursor: "pointer", color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 14, lineHeight: 1 }, title: "\u653E\u5F03\u672C\u6B21\u6536\u85CF", children: "\xD7" })
+                  /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 6, marginBottom: 8 }, children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: folderPicker === "doc" ? "\u6536\u85CF\u672C\u6807\u51C6\u5230\u2026" : "\u6536\u85CF\u672C\u6761\u6B3E\u5230\u2026" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", onClick: closeFolderPicker, style: { marginLeft: "auto", border: "none", background: "transparent", cursor: "pointer", color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 14, lineHeight: 1 }, title: "\u653E\u5F03\u672C\u6B21\u6536\u85CF", children: "\xD7" })
                   ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: 4, maxHeight: 260, overflow: "auto" }, children: [
-                    (folderList ?? []).map((f) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+                  /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: 4, maxHeight: 260, overflow: "auto" }, children: [
+                    (folderList ?? []).map((f) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
                       "button",
                       {
                         type: "button",
@@ -30275,7 +30840,7 @@ function KsEvidenceTab(props) {
                         children: [
                           "\u{1F4C1} ",
                           f.folder_name,
-                          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { style: { color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 10, marginLeft: "auto", whiteSpace: "nowrap" }, children: [
+                          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { style: { color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 10, marginLeft: "auto", whiteSpace: "nowrap" }, children: [
                             f.doc_count > 0 ? `${f.doc_count}\u6863` : "",
                             f.clause_count > 0 ? `${f.clause_count}\u6761` : "",
                             f.doc_count === 0 && f.clause_count === 0 ? "\u7A7A" : ""
@@ -30284,13 +30849,13 @@ function KsEvidenceTab(props) {
                       },
                       f.folder_id
                     )),
-                    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("button", { type: "button", disabled: folderLoading, onClick: () => void pickFolder(null), style: { ...$folderOpt, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("button", { type: "button", disabled: folderLoading, onClick: () => void pickFolder(null), style: { ...$folderOpt, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
                       "\u{1F4CB} \u672A\u5206\u7C7B",
-                      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: { color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 10, marginLeft: "auto", whiteSpace: "nowrap" }, children: "\u4E0D\u8FDB\u4EFB\u4F55\u5939" })
+                      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { style: { color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 10, marginLeft: "auto", whiteSpace: "nowrap" }, children: "\u4E0D\u8FDB\u4EFB\u4F55\u5939" })
                     ] })
                   ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { display: "flex", gap: 4, marginTop: 8, paddingTop: 8, borderTop: "1px solid var(--dsw-alias-border-l1, #eee)" }, children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+                  /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { display: "flex", gap: 4, marginTop: 8, paddingTop: 8, borderTop: "1px solid var(--dsw-alias-border-l1, #eee)" }, children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
                       "input",
                       {
                         value: folderNewName,
@@ -30302,7 +30867,7 @@ function KsEvidenceTab(props) {
                         style: { ...$inputStyle, flex: 1 }
                       }
                     ),
-                    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { type: "button", onClick: () => void pickNewFolder(), disabled: folderLoading || folderNewName.trim().length === 0, style: { ...$btnStyle, whiteSpace: "nowrap" }, children: "\u65B0\u5EFA\u5E76\u6536\u85CF" })
+                    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", onClick: () => void pickNewFolder(), disabled: folderLoading || folderNewName.trim().length === 0, style: { ...$btnStyle, whiteSpace: "nowrap" }, children: "\u65B0\u5EFA\u5E76\u6536\u85CF" })
                   ] })
                 ]
               }
@@ -30311,13 +30876,13 @@ function KsEvidenceTab(props) {
         ),
         document.body
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { flex: 1, minHeight: 0, display: "flex" }, children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { ref: containerRef, style: { flex: 1, minWidth: 0, overflow: "auto", padding: 12 }, children: [
-        load.status === "loading" && viewMode === "pdf" && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: $center2, children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u8F7D\u5165\u8BC1\u636E PDF\u2026\uFF08\u9996\u6B21\u53EF\u80FD\u542F\u52A8\u5F15\u64CE\uFF0C\u9700\u8981\u6570\u79D2\uFF09" }) }),
-        load.status === "error" && viewMode === "pdf" && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { ...$center2, flexDirection: "column", gap: 10 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary, #666)", maxWidth: 480, textAlign: "center", wordBreak: "break-word" }, children: load.message }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { type: "button", onClick: retry, style: $btnPrimary2, children: "\u91CD\u8BD5" })
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { flex: 1, minHeight: 0, display: "flex" }, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { ref: containerRef, style: { flex: 1, minWidth: 0, overflow: "auto", padding: 12 }, children: [
+        load.status === "loading" && viewMode === "pdf" && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: $center3, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u8F7D\u5165\u8BC1\u636E PDF\u2026\uFF08\u9996\u6B21\u53EF\u80FD\u542F\u52A8\u5F15\u64CE\uFF0C\u9700\u8981\u6570\u79D2\uFF09" }) }),
+        load.status === "error" && viewMode === "pdf" && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { ...$center3, flexDirection: "column", gap: 10 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary, #666)", maxWidth: 480, textAlign: "center", wordBreak: "break-word" }, children: load.message }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", onClick: retry, style: $btnPrimary2, children: "\u91CD\u8BD5" })
         ] }),
-        viewMode === "text" && evidence.current !== null && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        viewMode === "text" && evidence.current !== null && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
           KsDocTextView,
           {
             docId: evidence.current.doc,
@@ -30327,9 +30892,9 @@ function KsEvidenceTab(props) {
             }
           }
         ),
-        load.status === "ready" && viewMode === "pdf" && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { position: "relative", display: "inline-block", contain: "paint" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("canvas", { ref: canvasRef, style: { display: "block", transform: "translateZ(0)" } }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+        load.status === "ready" && viewMode === "pdf" && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { position: "relative", display: "inline-block", contain: "paint" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("canvas", { ref: canvasRef, style: { display: "block", transform: "translateZ(0)" } }),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
             "div",
             {
               ref: bboxRef,
@@ -30347,7 +30912,7 @@ function KsEvidenceTab(props) {
               }
             }
           ),
-          arrowPos !== null && evidence.current?.rev !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          arrowPos !== null && evidence.current?.rev !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
             "button",
             {
               type: "button",
@@ -30370,7 +30935,7 @@ function KsEvidenceTab(props) {
       ] }) })
     ] }),
     (0, import_react_dom.createPortal)(
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
         "div",
         {
           style: {
@@ -30390,9 +30955,9 @@ function KsEvidenceTab(props) {
             pointerEvents: showLeftCol ? "auto" : "none",
             transition: tocTransition
           },
-          children: showLeftCol && /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: $tocColumnInner, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: $tocColumnHeader, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          children: showLeftCol && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: $tocColumnInner, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: $tocColumnHeader, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
                 "button",
                 {
                   type: "button",
@@ -30402,7 +30967,17 @@ function KsEvidenceTab(props) {
                   children: "\u{1F4DA} \u6587\u4EF6\u76EE\u5F55"
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                "button",
+                {
+                  type: "button",
+                  style: { ...$modeBtn, ...leftMode === "bookmarks" ? $modeBtnOn : {} },
+                  onClick: () => setLeftMode("bookmarks"),
+                  title: "\u6536\u85CF\u5939\u76EE\u5F55\uFF08\u6536\u85CF\u7BA1\u7406 + \u5939\u5185\u63D0\u95EE\uFF09",
+                  children: "\u{1F516} \u6536\u85CF\u76EE\u5F55"
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
                 "button",
                 {
                   type: "button",
@@ -30412,23 +30987,35 @@ function KsEvidenceTab(props) {
                   children: "\u{1F4D6} \u6807\u9898\u76EE\u5F55"
                 }
               ),
-              leftMode === "toc" && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { type: "button", style: $tocCollapseBtn, onClick: () => toggleToc(false), title: "\u6536\u8D77\u76EE\u5F55\uFF08\u56DE\u5230\u7EAF PDF \u5168\u5BBD\uFF09", children: "\u25C0" })
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                "button",
+                {
+                  type: "button",
+                  style: $tocCollapseBtn,
+                  onClick: () => {
+                    setLeftMode("toc");
+                    toggleToc(false);
+                  },
+                  title: "\u6536\u8D77\u76EE\u5F55\uFF08\u56DE\u5230\u7EAF PDF \u5168\u5BBD\uFF09",
+                  children: "\u25C0"
+                }
+              )
             ] }),
-            leftMode === "files" ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { flex: 1, minHeight: 0, display: "flex", flexDirection: "column", overflow: "hidden" }, children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(KsFilesView, { active: showLeftCol, onOpenDoc: onFilesOpenDoc }) }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: $tocList, children: toc === null ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: $tocHint, children: "\u52A0\u8F7D\u4E2D\u2026" }) : toc.map((t) => {
+            leftMode === "files" ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { flex: 1, minHeight: 0, display: "flex", flexDirection: "column", overflow: "hidden" }, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(KsFilesView, { active: showLeftCol, onOpenDoc: onFilesOpenDoc }) }) : leftMode === "bookmarks" ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { flex: 1, minHeight: 0, display: "flex", flexDirection: "column", overflow: "hidden" }, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(KsBookmarksView, { active: showLeftCol, sessionId: sessionId ?? null, onOpenEvidence: onBookmarkJump }) }) : /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: $tocList, children: toc === null ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: $tocHint, children: "\u52A0\u8F7D\u4E2D\u2026" }) : toc.map((t) => {
               const no = tocNoClause(t);
               const tt = tocTitleSplitClause(t);
               const lvl1 = t.level === 1;
-              return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+              return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
                 "div",
                 {
                   onClick: () => tocJump(t),
                   style: { ...$tocItem, ...lvl1 ? $tocItemL1 : $tocItemL2 },
                   title: t.page_start != null ? `\u8DF3\u81F3 \u7B2C${t.page_start}\u9875` : "\u65E0\u9875\u7801",
                   children: [
-                    tt.hidden ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: { display: "none" }, children: tt.hidden }) : null,
-                    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: $tocNo, children: t.clause_number || no }),
-                    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { style: $tocTitle, children: tt.rest.slice(0, 24) }),
-                    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { style: $tocPage, children: [
+                    tt.hidden ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { style: { display: "none" }, children: tt.hidden }) : null,
+                    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { style: $tocNo, children: t.clause_number || no }),
+                    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { style: $tocTitle, children: tt.rest.slice(0, 24) }),
+                    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { style: $tocPage, children: [
                       "p",
                       t.page_start ?? "?"
                     ] })
@@ -30466,7 +31053,7 @@ function tocTitleSplitClause(t) {
   if (!m) return { hidden: "", rest: title };
   return { hidden: m[1], rest: title.slice(m[1].length).trimStart() || title };
 }
-var $center2 = {
+var $center3 = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -30634,577 +31221,6 @@ var $modeBtnOn = {
   color: "var(--dsw-alias-label-primary, #111)",
   background: "var(--dsw-alias-interactive-bg-active, #e8f0fe)",
   fontWeight: 600
-};
-
-// client/KsBookmarksTab.tsx
-var import_react4 = require("react");
-var import_jsx_runtime4 = require("react/jsx-runtime");
-var KS_BOOKMARKS_TAB_ID = "ks:bookmarks";
-function KsBookmarksTab(props) {
-  const { ctx, visible, scope } = props;
-  const sessionId = scope?.sessionId ?? null;
-  const abortRef = (0, import_react4.useRef)(null);
-  const [tree, setTree] = (0, import_react4.useState)([]);
-  const [load, setLoad] = (0, import_react4.useState)({ status: "loading" });
-  const [query, setQuery] = (0, import_react4.useState)("");
-  const [openMap, setOpenMap] = (0, import_react4.useState)({});
-  const [activeFolderId, setActiveFolderId] = (0, import_react4.useState)(null);
-  const [opError, setOpError] = (0, import_react4.useState)(null);
-  const [busy, setBusy] = (0, import_react4.useState)(false);
-  const [newName, setNewName] = (0, import_react4.useState)("");
-  const [showNew, setShowNew] = (0, import_react4.useState)(false);
-  const [renamingId, setRenamingId] = (0, import_react4.useState)(null);
-  const [renameValue, setRenameValue] = (0, import_react4.useState)("");
-  const [deleteId, setDeleteId] = (0, import_react4.useState)(null);
-  const [folderPhase, setFolderPhase] = (0, import_react4.useState)(null);
-  const loadAll = (0, import_react4.useCallback)(async () => {
-    abortRef.current?.abort();
-    const controller = new AbortController();
-    abortRef.current = controller;
-    setLoad({ status: "loading" });
-    setOpError(null);
-    try {
-      let session = await fetchSession(controller.signal);
-      let list;
-      try {
-        list = await fetchBookmarkFolderTree(session.engine.port, session.token, controller.signal);
-      } catch (error) {
-        if (error instanceof EngineAuthError) {
-          session = await fetchSession(controller.signal);
-          list = await fetchBookmarkFolderTree(session.engine.port, session.token, controller.signal);
-        } else {
-          throw error;
-        }
-      }
-      if (controller.signal.aborted) return;
-      setTree(list);
-      setOpenMap((prev) => {
-        if (Object.keys(prev).length > 0) return prev;
-        const first = list.find((f) => f.folder_id !== null);
-        return first !== void 0 ? { ["F:" + (first.folder_id ?? "")]: true } : {};
-      });
-      setLoad({ status: "ready" });
-    } catch (error) {
-      if (controller.signal.aborted) return;
-      setLoad({ status: "error", message: error instanceof Error ? error.message : String(error) });
-    }
-  }, []);
-  (0, import_react4.useEffect)(() => {
-    if (!visible) return;
-    void loadAll();
-    if (sessionId === null) return;
-    const controller = new AbortController();
-    void (async () => {
-      try {
-        const mode = await fetchChatMode(sessionId, controller.signal);
-        if (!controller.signal.aborted) setActiveFolderId(mode.folderId);
-      } catch {
-      }
-    })();
-    return () => controller.abort();
-  }, [visible, loadAll, sessionId]);
-  const retry = (0, import_react4.useCallback)(() => {
-    void loadAll();
-  }, [loadAll]);
-  const withSession = (0, import_react4.useCallback)(async (fn) => {
-    let session = await fetchSession();
-    try {
-      return await fn(session.engine.port, session.token, new AbortController().signal);
-    } catch (error) {
-      if (error instanceof EngineAuthError) {
-        session = await fetchSession();
-        return await fn(session.engine.port, session.token, new AbortController().signal);
-      }
-      throw error;
-    }
-  }, []);
-  const toggleAskInFolder = (0, import_react4.useCallback)(
-    async (folder) => {
-      if (busy || sessionId === null || folder.folder_id === null) return;
-      if (sessionId.length === 0) {
-        setOpError("\u65E0\u6CD5\u786E\u5B9A\u5F53\u524D\u4F1A\u8BDD\uFF0C\u4E0D\u80FD\u5207\u6362\u5939\u5185\u63D0\u95EE");
-        return;
-      }
-      setBusy(true);
-      setOpError(null);
-      try {
-        const turningOff = activeFolderId === folder.folder_id;
-        const result = await patchChatMode(sessionId, turningOff ? { folderId: null } : { folderId: folder.folder_id, folderName: folder.folder_name });
-        setActiveFolderId(result.mode.folderId);
-        if (!result.persisted) {
-          setOpError("\u26A0\uFE0F \u5F00\u5173\u4EC5\u672C\u4F1A\u8BDD\u5185\u751F\u6548\uFF08\u72B6\u6001\u672A\u80FD\u843D\u76D8\uFF0C\u91CD\u542F dsh \u540E\u4F1A\u4E22\u5931\uFF09");
-        }
-      } catch (error) {
-        setOpError(error instanceof Error ? error.message : String(error));
-      } finally {
-        setBusy(false);
-      }
-    },
-    [busy, sessionId, activeFolderId]
-  );
-  const createFolder = (0, import_react4.useCallback)(async () => {
-    const name = newName.trim();
-    if (name.length === 0 || busy) return;
-    setBusy(true);
-    setOpError(null);
-    try {
-      await withSession((port, token, signal) => createBookmarkFolder(port, name, token, signal));
-      setNewName("");
-      setShowNew(false);
-      void loadAll();
-    } catch (error) {
-      setOpError(error instanceof Error ? error.message : String(error));
-    } finally {
-      setBusy(false);
-    }
-  }, [newName, busy, withSession, loadAll]);
-  const submitRename = (0, import_react4.useCallback)(async () => {
-    const id = renamingId;
-    const name = renameValue.trim();
-    if (id === null || name.length === 0 || busy) return;
-    setBusy(true);
-    setOpError(null);
-    try {
-      await withSession((port, token, signal) => renameBookmarkFolder(port, id, name, token, signal));
-      setRenamingId(null);
-      setRenameValue("");
-      if (sessionId !== null && activeFolderId === id) {
-        try {
-          await patchChatMode(sessionId, { folderId: id, folderName: name });
-        } catch {
-        }
-      }
-      void loadAll();
-    } catch (error) {
-      setOpError(error instanceof Error ? error.message : String(error));
-    } finally {
-      setBusy(false);
-    }
-  }, [renamingId, renameValue, busy, withSession, loadAll, sessionId, activeFolderId]);
-  const confirmDeleteFolder = (0, import_react4.useCallback)(async () => {
-    const id = deleteId;
-    if (id === null || busy) return;
-    setBusy(true);
-    setOpError(null);
-    try {
-      await withSession((port, token, signal) => deleteBookmarkFolder(port, id, token, signal));
-      if (sessionId !== null && activeFolderId === id) {
-        try {
-          await patchChatMode(sessionId, { folderId: null });
-        } catch {
-        }
-        setActiveFolderId(null);
-      }
-      setDeleteId(null);
-      setFolderPhase(null);
-      void loadAll();
-    } catch (error) {
-      setOpError(error instanceof Error ? error.message : String(error));
-      setFolderPhase(null);
-    } finally {
-      setBusy(false);
-    }
-  }, [deleteId, busy, withSession, loadAll, sessionId, activeFolderId]);
-  const jumpTo = (0, import_react4.useCallback)(
-    (docId, page, rev, label) => {
-      if (page === null || page < 1) return;
-      const ev = { doc: docId, page, rev: rev ?? void 0 };
-      const url = evidenceUrlOf(ev);
-      if (url === null) return;
-      try {
-        ctx.betterSidebar.openTab({ type: KS_EVIDENCE_TAB_ID, url, title: `PDF \u67E5\u770B\u5668 \xB7 ${label}` });
-        ctx.betterSidebar.updateTab?.(KS_EVIDENCE_TAB_ID, {
-          path: url,
-          title: `PDF \u67E5\u770B\u5668 \xB7 ${label}`,
-          meta: { ksClick: nextEvidenceClick() }
-        });
-      } catch (error) {
-        setOpError(`\u8DF3\u8F6C\u5931\u8D25\uFF1A${error instanceof Error ? error.message : String(error)}`);
-      }
-    },
-    [ctx]
-  );
-  const toggleOpen = (0, import_react4.useCallback)((key) => {
-    setOpenMap((s) => ({ ...s, [key]: !s[key] }));
-  }, []);
-  const q = query.trim().toLowerCase();
-  const filteredTree = (0, import_react4.useMemo)(() => {
-    if (!q) return tree;
-    const docHit = (d) => (d.standard_no ?? "").toLowerCase().includes(q) || (d.standard_name ?? "").toLowerCase().includes(q) || d.clause_bookmarks.some((cb) => (cb.clause_number ?? "").toLowerCase().includes(q) || (cb.title ?? "").toLowerCase().includes(q));
-    return tree.map((f) => {
-      const folderHit = f.folder_name.toLowerCase().includes(q);
-      const docs = folderHit ? f.docs : f.docs.filter(docHit);
-      return { ...f, docs };
-    }).filter((f) => f.docs.length > 0 || f.folder_name.toLowerCase().includes(q));
-  }, [q, tree]);
-  const ready = load.status === "ready";
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { display: "flex", flexDirection: "column", height: "100%", minHeight: 0, fontSize: 12 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "6px 10px", borderBottom: "1px solid var(--dsw-alias-border-l1, #eee)", flexWrap: "wrap" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u6536\u85CF\u76EE\u5F55" }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { style: { marginLeft: "auto", display: "flex", gap: 4 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", onClick: () => {
-          setShowNew((s) => !s);
-          setNewName("");
-        }, disabled: busy, style: $btn, title: "\u65B0\u5EFA\u6536\u85CF\u5939", children: "\uFF0B \u65B0\u5EFA\u5939" }),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", onClick: retry, disabled: load.status === "loading", style: $btn, children: "\u5237\u65B0" })
-      ] })
-    ] }),
-    showNew && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { display: "flex", gap: 4, padding: "6px 10px", borderBottom: "1px solid var(--dsw-alias-border-l1, #eee)" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-        "input",
-        {
-          value: newName,
-          onChange: (e) => setNewName(e.target.value),
-          onKeyDown: (e) => {
-            if (e.key === "Enter") void createFolder();
-            if (e.key === "Escape") setShowNew(false);
-          },
-          placeholder: "\u6536\u85CF\u5939\u540D\u79F0\uFF08\u226460 \u5B57\uFF09",
-          autoFocus: true,
-          style: { ...$input, flex: 1 }
-        }
-      ),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", onClick: () => void createFolder(), disabled: busy || newName.trim().length === 0, style: $btn, children: "\u521B\u5EFA" }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", onClick: () => setShowNew(false), style: $btn, children: "\u53D6\u6D88" })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: $search2, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-        "input",
-        {
-          value: query,
-          onChange: (e) => setQuery(e.target.value),
-          placeholder: "\u{1F50D} \u641C\u7D22\u5939\u540D/\u6807\u51C6\u53F7/\u6807\u51C6\u540D/\u6761\u6B3E\u53F7",
-          style: $searchInput2
-        }
-      ),
-      query.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", onClick: () => setQuery(""), style: $searchClear2, title: "\u6E05\u7A7A", children: "\xD7" })
-    ] }),
-    opError !== null && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { padding: "6px 10px", color: "var(--dsw-alias-danger, #c62828)", borderBottom: "1px solid var(--dsw-alias-border-l1, #eee)", background: "var(--dsw-alias-danger-bg, #fff0f0)", fontSize: 11, wordBreak: "break-word" }, children: opError }),
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { flex: 1, minHeight: 0, overflow: "auto", padding: 4 }, children: [
-      load.status === "loading" && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: $center3, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u8F7D\u5165\u6536\u85CF\u76EE\u5F55\u2026\uFF08\u9996\u6B21\u53EF\u80FD\u542F\u52A8\u5F15\u64CE\uFF0C\u9700\u8981\u6570\u79D2\uFF09" }) }),
-      load.status === "error" && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { ...$center3, flexDirection: "column", gap: 10 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary, #666)", maxWidth: 480, textAlign: "center", wordBreak: "break-word" }, children: load.message }),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", onClick: retry, style: $btn, children: "\u91CD\u8BD5" })
-      ] }),
-      ready && tree.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { ...$center3, flexDirection: "column", gap: 6 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6682\u65E0\u6536\u85CF" }),
-        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 11, maxWidth: 380, textAlign: "center", lineHeight: 1.5 }, children: "\u6253\u5F00\u8BC1\u636E PDF \u540E\u70B9\u53F3\u4E0A\u89D2\u300C\u{1F516} \u6536\u85CF\u300D\uFF0C\u6216\u6536\u85CF\u6807\u51C6/\u6761\u6B3E\u2014\u2014\u6536\u85CF\u4F1A\u6309\u4F60\u81EA\u5EFA\u7684\u6536\u85CF\u5939\u5F52\u5165\u76EE\u5F55\u3002" })
-      ] }),
-      ready && filteredTree.length === 0 && q && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: $center3, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
-        "\u6CA1\u6709\u5339\u914D\u300C",
-        query.trim(),
-        "\u300D\u7684\u6536\u85CF"
-      ] }) }),
-      ready && filteredTree.map((folder) => {
-        const fid = folder.folder_id;
-        const key = "F:" + (fid ?? "_unfiled");
-        const open = !!q || !!openMap[key];
-        const active = fid !== null && activeFolderId === fid;
-        const renaming = renamingId === fid;
-        const confirming = deleteId === fid && folderPhase === "confirm-delete";
-        return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { ...$row2, fontWeight: 700, marginTop: 4, flexWrap: "wrap" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { style: $caret2, onClick: () => toggleOpen(key), children: open ? "\u25BE" : "\u25B8" }),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { onClick: () => toggleOpen(key), style: { cursor: "pointer" }, children: [
-              folder.folder_name,
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { style: { fontWeight: 400, color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 10.5, marginLeft: 6 }, children: [
-                folder.doc_count > 0 ? `${folder.doc_count} \u6587\u6863` : "",
-                folder.clause_count > 0 ? ` \xB7 ${folder.clause_count} \u6761\u6B3E` : "",
-                folder.doc_count === 0 && folder.clause_count === 0 ? "\uFF08\u7A7A\uFF09" : ""
-              ] })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { style: { marginLeft: "auto", display: "flex", gap: 3, flexWrap: "wrap" }, children: fid !== null && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-                "button",
-                {
-                  type: "button",
-                  onClick: () => void toggleAskInFolder(folder),
-                  disabled: busy || sessionId === null,
-                  style: active ? $askBtnOn : $askBtn,
-                  title: active ? "\u6B63\u5728\u672C\u6536\u85CF\u5939\u5185\u63D0\u95EE\u2014\u2014\u70B9\u51FB\u5173\u95ED\u6062\u590D\u5168\u5E93" : "\u5728\u672C\u6536\u85CF\u5939\u5185\u63D0\u95EE\uFF1A\u672C\u4F1A\u8BDD\u6BCF\u4E00\u8F6E\u68C0\u7D22\u90FD\u9650\u5B9A\u5728\u8BE5\u5939\u5185\u5BB9\u5185\uFF08\u6807\u51C6\u7EA7\u6536\u85CF\u6309\u6574\u672C\u8BA1\uFF09",
-                  children: active ? "\u{1F4A1} \u5DF2\u9650\u5B9A\u63D0\u95EE" : "\u{1F4A1} \u63D0\u95EE"
-                }
-              ),
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", onClick: () => {
-                setRenamingId(renaming ? null : fid);
-                setRenameValue(renaming ? "" : folder.folder_name);
-                setFolderPhase(null);
-              }, style: $miniBtn, title: "\u91CD\u547D\u540D", children: "\u270F\uFE0F" }),
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", onClick: () => {
-                setDeleteId(confirming ? null : fid);
-                setFolderPhase(confirming ? null : "confirm-delete");
-              }, style: { ...$miniBtn, color: "var(--dsw-alias-danger, #c62828)" }, title: "\u5220\u9664\u6536\u85CF\u5939\uFF08\u6536\u85CF\u672C\u8EAB\u4FDD\u7559\uFF0C\u5168\u90E8\u56DE\u672A\u5206\u7C7B\uFF09", children: "\u{1F5D1}" })
-            ] }) })
-          ] }),
-          renaming && fid !== null && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { display: "flex", gap: 4, padding: "4px 0 4px 18px" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-              "input",
-              {
-                value: renameValue,
-                onChange: (e) => setRenameValue(e.target.value),
-                onKeyDown: (e) => {
-                  if (e.key === "Enter") void submitRename();
-                  if (e.key === "Escape") setRenamingId(null);
-                },
-                autoFocus: true,
-                style: { ...$input, flex: 1 }
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", onClick: () => void submitRename(), disabled: busy || renameValue.trim().length === 0, style: $btn, children: "\u4FDD\u5B58" }),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", onClick: () => setRenamingId(null), style: $btn, children: "\u53D6\u6D88" })
-          ] }),
-          confirming && fid !== null && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: $confirmBar, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { children: [
-              "\u5220\u9664\u6536\u85CF\u5939\u300C",
-              folder.folder_name,
-              "\u300D\uFF1F\u5939\u5185\u6536\u85CF",
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("b", { children: "\u4E0D\u4F1A\u88AB\u5220\u9664" }),
-              "\uFF0C\u5C06\u5168\u90E8\u79FB\u5165\u300C\u672A\u5206\u7C7B\u300D\u3002"
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { style: { display: "flex", gap: 6, marginTop: 4 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", onClick: () => void confirmDeleteFolder(), disabled: busy, style: { ...$btn, color: "var(--dsw-alias-danger, #c62828)", borderColor: "var(--dsw-alias-danger, #c62828)" }, children: "\u786E\u8BA4\u5220\u9664" }),
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", onClick: () => {
-                setDeleteId(null);
-                setFolderPhase(null);
-              }, style: $btn, children: "\u518D\u60F3\u60F3" })
-            ] })
-          ] }),
-          open && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(FolderBody, { folder, q, onJump: jumpTo })
-        ] }, key);
-      })
-    ] })
-  ] });
-}
-function FolderBody(props) {
-  const { folder, onJump } = props;
-  if (folder.docs.length === 0) {
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { paddingLeft: 18, padding: "4px 0", color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 11 }, children: "\u7A7A\u6536\u85CF\u5939\u2014\u2014\u6536\u85CF\u65F6\u53EF\u9009\u62E9\u653E\u5165\u6B64\u5939\u3002" });
-  }
-  const roots = buildGroupTree(folder.docs);
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(GroupList, { groups: roots, onJump });
-}
-function GroupList(props) {
-  const { groups, onJump } = props;
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { padding: "1px 0 2px 14px" }, children: groups.map((g) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(GroupRow, { group: g, onJump }, g.name)) });
-}
-function GroupRow(props) {
-  const { group, onJump } = props;
-  const [open, setOpen] = (0, import_react4.useState)(false);
-  const total = group.docs.length + group.groups.reduce((s, g) => s + g.docs.length, 0);
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { ...$row2, fontSize: 11.5, fontWeight: 600, color: "var(--dsw-alias-label-secondary, #666)" }, onClick: () => setOpen((s) => !s), children: [
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { style: $caret2, children: total > 0 ? open ? "\u25BE" : "\u25B8" : "\xB7" }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { children: group.name }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { style: { fontWeight: 400, color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 10 }, children: [
-        " ",
-        "(",
-        total,
-        ")"
-      ] })
-    ] }),
-    open && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { padding: "1px 0 2px 14px" }, children: [
-      group.docs.map((d) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(DocLeaf, { doc: d, onJump }, d.doc_id)),
-      group.groups.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(GroupList, { groups: group.groups, onJump })
-    ] })
-  ] });
-}
-function DocLeaf(props) {
-  const { doc, onJump } = props;
-  const [open, setOpen] = (0, import_react4.useState)(false);
-  const label = doc.standard_no ?? doc.standard_name ?? doc.doc_id;
-  const struck = doc.legal_status !== null && doc.legal_status !== "effective";
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { ...$leaf2, ...struck ? { opacity: 0.7 } : {} }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
-        "span",
-        {
-          style: { cursor: "pointer" },
-          onClick: () => onJump(doc.doc_id, 1, null, label),
-          title: "\u6253\u5F00\u6807\u51C6\uFF08\u9996\u9875\uFF09",
-          children: [
-            doc.standard_no ?? "\uFF08\u65E0\u7F16\u53F7\uFF09",
-            " ",
-            doc.standard_name ?? "",
-            doc.doc_bookmarked && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { style: { marginLeft: 6, fontSize: 10, color: "var(--dsw-alias-link, #1565c0)" }, title: "\u6807\u51C6\u7EA7\u6536\u85CF\u2014\u2014\u{1F4A1}\u63D0\u95EE\u65F6\u6574\u672C\u5165\u8303\u56F4", children: "\u6574\u672C" })
-          ]
-        }
-      ),
-      doc.clause_bookmarks.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
-        "span",
-        {
-          style: { marginLeft: 8, cursor: "pointer", color: "var(--dsw-alias-link, #1565c0)", fontSize: 10.5 },
-          onClick: () => setOpen((s) => !s),
-          title: "\u5C55\u5F00\u6761\u6B3E\u6536\u85CF",
-          children: [
-            open ? "\u25BE" : "\u25B8",
-            " ",
-            doc.clause_bookmarks.length,
-            " \u6761"
-          ]
-        }
-      )
-    ] }),
-    open && doc.clause_bookmarks.map((cb) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { ...$leaf2, paddingLeft: 16, fontSize: 11 }, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
-      "span",
-      {
-        style: { cursor: "pointer" },
-        onClick: () => onJump(doc.doc_id, cb.page_start, null, `${label} ${cb.clause_number ?? ""}`),
-        title: "\u6253\u5F00 PDF \u8BC1\u636E",
-        children: [
-          cb.clause_number ?? "\uFF08\u6761\u6B3E\uFF09",
-          " ",
-          cb.title ?? ""
-        ]
-      }
-    ) }, cb.bookmark_id))
-  ] });
-}
-function buildGroupTree(docs) {
-  const getOrCreate = (parent, name) => {
-    const found = parent.find((g) => g.name === name);
-    if (found !== void 0) return found;
-    const node = { name, docs: [], groups: [] };
-    parent.push(node);
-    return node;
-  };
-  const roots = [];
-  for (const d of docs) {
-    const p = d.path;
-    const g1 = getOrCreate(roots, p?.l1 ?? "\u672A\u5206\u7C7B\u9886\u57DF");
-    const g2 = getOrCreate(g1.groups, p?.l2 ?? "\u5176\u4ED6");
-    if (p?.l4 != null) {
-      const g3 = getOrCreate(g2.groups, p.l3 ?? p.l4);
-      getOrCreate(g3.groups, p.l4).docs.push(d);
-    } else if (p?.l3 != null) {
-      getOrCreate(g2.groups, p.l3).docs.push(d);
-    } else {
-      g2.docs.push(d);
-    }
-  }
-  return roots;
-}
-var $center3 = {
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  height: "100%",
-  minHeight: 160
-};
-var $btn = {
-  border: "1px solid var(--dsw-alias-border-l2, #ccc)",
-  background: "var(--dsw-alias-bg-layer-2, #fff)",
-  color: "var(--dsw-alias-label-primary, #111)",
-  borderRadius: 4,
-  padding: "4px 10px",
-  cursor: "pointer",
-  fontSize: 11.5
-};
-var $miniBtn = {
-  border: "none",
-  background: "transparent",
-  cursor: "pointer",
-  fontSize: 12,
-  padding: "1px 4px",
-  lineHeight: 1.3
-};
-var $askBtn = {
-  border: "1px solid var(--dsw-alias-border-l2, #ccc)",
-  background: "var(--dsw-alias-bg-layer-2, #fff)",
-  color: "var(--dsw-alias-label-primary, #111)",
-  borderRadius: 4,
-  padding: "1px 8px",
-  cursor: "pointer",
-  fontSize: 10.5,
-  whiteSpace: "nowrap"
-};
-var $askBtnOn = {
-  ...$askBtn,
-  // dark-theme paired fixed button colors（白底深字，两主题都读得清）
-  background: "#fff",
-  color: "#7a4a00",
-  borderColor: "#d99000",
-  fontWeight: 600
-};
-var $input = {
-  border: "1px solid var(--dsw-alias-border-l2, #ccc)",
-  borderRadius: 4,
-  padding: "4px 8px",
-  background: "var(--dsw-alias-bg-layer-1, #fff)",
-  color: "var(--dsw-alias-label-primary, #111)",
-  fontSize: 12,
-  outline: "none"
-};
-var $search2 = {
-  position: "relative",
-  margin: "6px 10px 4px"
-};
-var $searchInput2 = {
-  width: "100%",
-  boxSizing: "border-box",
-  border: "1px solid var(--dsw-alias-border-l2, #ccc)",
-  borderRadius: 4,
-  padding: "4px 8px",
-  background: "var(--dsw-alias-bg-layer-1, #fff)",
-  color: "var(--dsw-alias-label-primary, #111)",
-  fontSize: 12,
-  outline: "none"
-};
-var $searchClear2 = {
-  position: "absolute",
-  right: 4,
-  top: "50%",
-  transform: "translateY(-50%)",
-  border: "none",
-  background: "transparent",
-  color: "var(--dsw-alias-label-tertiary, #999)",
-  cursor: "pointer",
-  fontSize: 14,
-  lineHeight: 1,
-  padding: "0 4px",
-  fontWeight: 600
-};
-var $confirmBar = {
-  margin: "4px 0 4px 18px",
-  padding: "6px 8px",
-  border: "1px solid var(--dsw-alias-border-l2, #ccc)",
-  borderRadius: 4,
-  background: "var(--dsw-alias-bg-layer-2, #fff)",
-  fontSize: 11,
-  lineHeight: 1.4,
-  color: "var(--dsw-alias-label-secondary, #666)"
-};
-var $row2 = {
-  display: "flex",
-  gap: 4,
-  padding: "2px 4px",
-  fontSize: 11.5,
-  cursor: "pointer",
-  borderRadius: 4,
-  alignItems: "center",
-  lineHeight: 1.4,
-  color: "var(--dsw-alias-label-primary, #111)"
-};
-var $caret2 = {
-  display: "inline-flex",
-  alignItems: "center",
-  justifyContent: "center",
-  width: 14,
-  height: 14,
-  marginRight: 1,
-  color: "var(--dsw-alias-link, #1565c0)",
-  cursor: "pointer",
-  fontSize: 11,
-  borderRadius: 3,
-  flexShrink: 0
-};
-var $leaf2 = {
-  padding: "2px 4px",
-  fontSize: 11.5,
-  borderRadius: 4,
-  color: "var(--dsw-alias-label-primary, #111)",
-  lineHeight: 1.35,
-  wordBreak: "break-word",
-  overflowWrap: "anywhere"
 };
 
 // client/KsScopeChip.tsx
@@ -33275,13 +33291,6 @@ function registerBetterSidebarSurfaces(ctx, bs) {
         urlTarget: (url) => isKsEvidenceUrl(url),
         component: (props) => (0, import_react9.createElement)(KsEvidenceTab, props)
       });
-      const disposeBookmarks = bs.registerTab({
-        id: KS_BOOKMARKS_TAB_ID,
-        title: "\u6536\u85CF",
-        single: true,
-        icon: (size) => (0, import_react9.createElement)("span", { style: { fontSize: size } }, "\u{1F516}"),
-        component: (props) => (0, import_react9.createElement)(KsBookmarksTab, props)
-      });
       const disposeSettingsCard = bs.registerTab({
         id: KS_SETTINGS_TAB_ID,
         title: "\u6CD5\u89C4\u6807\u51C6\u77E5\u8BC6\u5E93",
@@ -33324,12 +33333,11 @@ function registerBetterSidebarSurfaces(ctx, bs) {
       return () => {
         document.removeEventListener("click", onClick, true);
         disposePdf();
-        disposeBookmarks();
         disposeSettingsCard();
         disposeSettings();
       };
     },
-    "ks-dsh-plugin: ks:pdf evidencetab + ks:bookmarks + ks:settings section + card"
+    "ks-dsh-plugin: ks:pdf evidencetab + ks:bookmarks-view + ks:settings section + card"
   );
   return typeof disposer === "function" ? disposer : void 0;
 }

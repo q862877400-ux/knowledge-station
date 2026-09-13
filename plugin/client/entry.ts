@@ -25,7 +25,6 @@ import { createElement } from 'react'
 import type { TabDescriptor } from 'dsh-better-sidebar/client/service'
 
 import { KsEvidenceTab } from './KsEvidenceTab'
-import { KsBookmarksTab, KS_BOOKMARKS_TAB_ID } from './KsBookmarksTab'
 import { KsScopeChip } from './KsScopeChip'
 import { KsSettingsSection } from './KsSettingsSection'
 
@@ -253,8 +252,9 @@ function readService<T>(ctx: Ctx, name: string): T | undefined {
   }
 }
 
-/** better-sidebar 存在时才注册的表面：2 个 tab（证据 PDF / 收藏）+ 设置栏目（含
- *  效力报告与入库预览两个内嵌折叠面板，2026-11 迁入）+ 证据链接接管。 */
+/** better-sidebar 存在时才注册的表面：1 个 tab（证据 PDF）+ 设置栏目（含
+ *  效力报告与入库预览两个内嵌折叠面板，2026-11 迁入）+ 证据链接接管。
+ *  （🔖 收藏目录已迁入 PDF 查看器左列第三模式，不再是侧栏 tab——2026-10-27。） */
 function registerBetterSidebarSurfaces(ctx: Ctx, bs: BetterSidebar): (() => void) | undefined {
   const disposer = ctx.effect(
     () => {
@@ -269,16 +269,9 @@ function registerBetterSidebarSurfaces(ctx: Ctx, bs: BetterSidebar): (() => void
         component: (props) => createElement(KsEvidenceTab, props),
       })
 
-      // 增强③-A: 收藏 tab（列出引擎收藏的条款，可跳转/删除）。图标 🔖 即语义，
-      // 标题不带重复 emoji。（2026-11 效力报告/入库预览迁入设置栏目后，侧栏
-      // tab 只剩证据 PDF 与收藏——收藏依用户指示原样保留不动。）
-      const disposeBookmarks = bs.registerTab({
-        id: KS_BOOKMARKS_TAB_ID,
-        title: '收藏',
-        single: true,
-        icon: (size: number) => createElement('span', { style: { fontSize: size } }, '🔖'),
-        component: (props) => createElement(KsBookmarksTab, props),
-      })
+      // 🔖 收藏目录（2026-10-27 按用户指示）：不再注册独立侧栏 tab——收藏目录
+      // 迁入 PDF 查看器左列，作为与 📚文件目录 / 📖标题目录 并列的第三种悬浮
+      // 目录模式（见 KsEvidenceTab 左列分段按钮 + KsBookmarksView）。
 
       // 效力报告 / 入库预览（2026-11 迁移）：不再注册为侧栏 tab——用户拍板
       // 「全部放进设置的菜单里，类目全折叠」。两面板现在由 KsSettingsSection
@@ -354,12 +347,11 @@ function registerBetterSidebarSurfaces(ctx: Ctx, bs: BetterSidebar): (() => void
       return () => {
         document.removeEventListener('click', onClick, true)
         disposePdf()
-        disposeBookmarks()
         disposeSettingsCard()
         disposeSettings()
       }
     },
-    'ks-dsh-plugin: ks:pdf evidencetab + ks:bookmarks + ks:settings section + card',
+    'ks-dsh-plugin: ks:pdf evidencetab + ks:bookmarks-view + ks:settings section + card',
   )
   return typeof disposer === 'function' ? disposer : undefined
 }
