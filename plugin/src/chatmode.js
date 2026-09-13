@@ -1,9 +1,10 @@
 /**
- * ks-dsh-plugin — src/chatmode.js (2026-09-10)
+ * ks-dsh-plugin — src/chatmode.js (2026-09-10; 2026-10 增收藏夹维度)
  *
- * 「📜 查法规模式」/「🔖 仅收藏」——**会话级**两个开关（决策 14/16 的 DSH 转生版）。
+ * 「📜 查法规模式」/「🔖 仅收藏」/「📁 收藏夹内提问」——**会话级**开关（决策 14/16 的 DSH 转生版；
+ * 收藏夹维度是 2026-10 收藏目录功能的一部分）。
  *
- * 语义（决策 14/16）：
+ * 语义（决策 14/16 + 2026-10 业主批准）：
  * - 「📜 查法规模式」：打开后，该会话每次组装系统提示都会多出一段**取证纪律**
  *   （见 FORENSIC_PROMPT）——凡涉法规/国标/合规的问题必须走 ks_answer 取证链路、
  *   只引现行有效版本、三段式（依据/推导/结论）输出、证据用 evidence_url 渲染成
@@ -12,6 +13,11 @@
  *   条款。提示词只是"说明"，真正的强制在 index.js 的工具层（ks_answer 按会话
  *   强制 `bookmarks_only`；ks_resolve_clause 对收藏集外条款打标并禁止当依据）
  *   ——工具层与提示词层共用本模块的 `effectiveChatMode()` 作为**唯一真值来源**。
+ * - 「📁 收藏夹内提问」（2026-10）：收藏目录树上每个收藏夹一个开关；开启后该会话
+ *   检索限定在**该收藏夹的内容**内——夹内标准级收藏按整本标准计、条款级收藏按
+ *   单条计（并集）。folderId 非空自动蕴含查法规模式（范围提问必然要求取证链路）。
+ *   host 强制给 ks_answer 传 `folder_id`，ks_resolve_clause 对夹外条款打
+ *   `folder_scope: "outside"` 标记。附加段优先级：夹范围段 > 仅收藏段。
  *
  * 为什么状态放 host 而不是会话日志：client 半只负责点按钮，真正生效的是 host 半
  * 注册的 `systemPrompt.section`——它的 text provider 每次组装提示都会重新求值，
@@ -61,7 +67,8 @@
  *
  * Routes（统一被 trust.js 的同源栅栏覆盖）：
  *   GET /ks/chat-mode?session=<sessionId>   读该会话开关
- *   PUT /ks/chat-mode                       写该会话开关（body: {session, forensic?, bookmarksOnly?}）
+ *   PUT /ks/chat-mode                       写该会话开关（body: {session, forensic?, bookmarksOnly?, folderId?, folderName?}）
+ *                                                          folderId: null 关闭夹范围；'bmf_…' + folderName 开启
  */
 
 import { open, readdir, readFile, rename, stat, unlink, utimes, writeFile } from 'node:fs/promises'
@@ -162,12 +169,52 @@ export const FORENSIC_BOOKMARKS_PROMPT = [
   '`ks_resolve_clause` 的 `bookmarks_scope` 只在**命中**时才非 null：查无此条时它是 null，按第 5 条如实回答即可，不要声称"该条不在收藏集内"；它返回的 `scope_notice` 是**禁令说明，不是依据**，不得引用。',
 ].join('\n')
 
+/**
+ * 「收藏夹内提问」附加段（folderId 生效时追加，优先级高于「仅收藏」——
+ * 夹范围是更具体的范围）。范围语义（业主批准）：夹内标准级收藏按**整本标准**计，
+ * 条款级收藏按**单条**计，两者并集。
+ */
+export const FORENSIC_FOLDER_PROMPT = [
+  '6. 【收藏夹内提问】本会话检索已由 host 强制传参限定在用户收藏夹「{FOLDER_NAME}」的内容内（`ks_answer` 的 `params.folder_id` 已由 host 合并，`answer_scope.folder` 回显的是 **host 是否强制传参**，不能证明引擎侧过滤一定生效）。范围语义：夹内**标准级**收藏按整本标准计（该标准全部条款都在范围内），**条款级**收藏按单条计，两者并集。',
+  '本条第 5 条的「库内无此条款」在此**不适用**：夹内没有相关条款时，必须回答「**收藏夹「{FOLDER_NAME}」内无相关条款（库内可能仍有）**」，并询问用户是否解除夹范围限制；绝不能说「库内无此条款」。',
+  '引擎会在 `notes` 里用【收藏夹】条目说明本轮是否真的限定了范围：写「未能限定」（收藏夹已被删除或范围查询失败）就必须照实转述，**绝不能把结论说成"已限收藏夹内"**；`ks_resolve_clause` 命中夹外条款会带 `folder_scope: "outside"` + `folder_notice`，该条款只能用于定位、不得写入依据区。',
+].join('\n')
+
+function renderFolderPrompt(name) {
+  const safe = String(name ?? '').replace(/}/g, '）').replace(/{/g, '（')
+  return FORENSIC_FOLDER_PROMPT.replaceAll('{FOLDER_NAME}', safe)
+}
+
 /* ------------------------------------------------------------------ *
  * 状态（进程单写者 + 合并落盘 + 原子替换 + CAS；结构漂移安全网）
  * ------------------------------------------------------------------ */
 
-const MODE_OFF = { forensic: false, bookmarksOnly: false }
+/**
+ * 全关基线。folderId/folderName（2026-10 收藏目录）：
+ * - folderId 非空 → 夹内提问激活：host 强制给 ks_answer 传 folder_id，
+ *   且自动蕴含查法规模式（夹范围 ⊃ 取证纪律——范围提问必然要求取证链路）。
+ * - folderName 是 folderId 的显示名快照（host 不查引擎也能渲染提示段与回执；
+ *   引擎侧真值永远是 folder_id，名字漂移只影响文案不影响范围）。
+ */
+const MODE_OFF = { forensic: false, bookmarksOnly: false, folderId: null, folderName: null }
 const SOURCE_NONE = 'none'
+
+/** folderId 形态校验：引擎 ULID 形（bmf_…），非空、无空白、长度受限。 */
+function normalizeFolderId(raw) {
+  if (raw === null || raw === undefined || raw === false) return null
+  const id = String(raw).trim()
+  if (id.length === 0 || id.length > 64) return null
+  // eslint-disable-next-line no-control-regex
+  if (/[\s\u0000-\u001f]/.test(id)) return null
+  return id
+}
+
+function normalizeFolderName(raw) {
+  if (raw === null || raw === undefined) return null
+  const name = String(raw).trim()
+  if (name.length === 0 || name.length > 60) return null
+  return name
+}
 
 /** sessionId → mode。进程内真值；落盘只是它的快照。 */
 let _modes = new Map()
@@ -204,10 +251,15 @@ function warn(...args) {
 
 function normalizeMode(raw) {
   const forensic = raw?.forensic === true
+  const folderId = normalizeFolderId(raw?.folderId)
   // 仅收藏依附于查法规模式：父开关关闭时自动降级（决策 16）。
+  // 夹范围是独立维度：folderId 非空时 forensic 强制为 true（夹内提问必然要求
+  // 取证链路——范围提问的答案必须带三段式与证据链接，这正是查法规模式的纪律）。
   return {
-    forensic,
-    bookmarksOnly: forensic && raw?.bookmarksOnly === true,
+    forensic: forensic || folderId !== null,
+    bookmarksOnly: (forensic || folderId !== null) && raw?.bookmarksOnly === true,
+    folderId,
+    folderName: folderId === null ? null : normalizeFolderName(raw?.folderName),
   }
 }
 
@@ -537,6 +589,8 @@ async function persistAttempt(snapshot, touched, cleared) {
       if (want === undefined) return cleared.has(sid) ? got !== undefined : false
       return got === undefined || got.forensic !== want.forensic
         || got.bookmarksOnly !== want.bookmarksOnly
+        || (got.folderId ?? null) !== (want.folderId ?? null)
+        || (got.folderName ?? null) !== (want.folderName ?? null)
     })
     return lost ? 'retry' : 'ok'
   } finally {
@@ -588,6 +642,8 @@ function persist() {
         ? live === undefined
         : live !== undefined && live.forensic === written.forensic
           && live.bookmarksOnly === written.bookmarksOnly
+          && (live.folderId ?? null) === (written.folderId ?? null)
+          && (live.folderName ?? null) === (written.folderName ?? null)
       if (same) {
         _touched.delete(sid)
         if (written === undefined) _cleared.delete(sid) // 删除意图已落到盘上
@@ -622,7 +678,14 @@ export function getMode(sessionId) {
 
 /**
  * 写某会话的开关（部分更新）。
- * @returns {{mode: {forensic: boolean, bookmarksOnly: boolean}, persist: Promise<{persisted: boolean, error?: string}>}}
+ *
+ * folderId patch 语义（2026-10 收藏目录）：
+ * - `folderId: 'bmf_…'` + `folderName: '收藏夹一'` → 开启夹内提问（forensic 自动 true）；
+ * - `folderId: null` → 关闭夹范围。**显式传 null 才是关闭**；不传（undefined）= 不动该维度。
+ * - 开启夹范围时保留 bookmarksOnly 原值（两个范围维度可叠加，引擎侧 folder 过滤
+ *   在 bookmarks 过滤之后同链执行）；关闭夹范围只清 folderId，不动 forensic/bookmarksOnly。
+ *
+ * @returns {{mode: {forensic: boolean, bookmarksOnly: boolean, folderId: string|null, folderName: string|null}, persist: Promise<{persisted: boolean, error?: string}>}}
  */
 export function setMode(sessionId, patch) {
   const id = normalizeSessionId(sessionId)
@@ -634,10 +697,25 @@ export function setMode(sessionId, patch) {
       throw new Error(`${key} 必须是布尔值`)
     }
   }
+  const patchFolderId = patch?.folderId === undefined ? undefined : normalizeFolderId(patch.folderId)
+  if (patch?.folderId !== undefined && patch?.folderId !== null && patchFolderId === null) {
+    throw new Error('folderId 必须是不含空白的合法收藏夹 id（bmf_…），或 null 表示关闭')
+  }
+  if (patchFolderId !== undefined && patchFolderId !== null
+      && normalizeFolderName(patch?.folderName) === null) {
+    throw new Error('开启夹范围时 folderName 必填（≤60 字符、非空白）')
+  }
   const current = getMode(id)
+  // folderId 维度：undefined = 不动；null = 显式关闭；字符串 = 开启
+  const nextFolderId = patchFolderId === undefined ? current.folderId : patchFolderId
   const next = normalizeMode({
     forensic: patch?.forensic === undefined ? current.forensic : patch.forensic,
     bookmarksOnly: patch?.bookmarksOnly === undefined ? current.bookmarksOnly : patch.bookmarksOnly,
+    folderId: nextFolderId,
+    folderName: nextFolderId === null ? null
+      : nextFolderId === current.folderId && patch?.folderName === undefined
+        ? current.folderName
+        : normalizeFolderName(patch?.folderName) ?? current.folderName,
   })
   if (next.forensic && !_modes.has(id) && _modes.size >= MAX_SESSIONS) {
     throw new Error(`开启查法规模式的会话已达上限（${MAX_SESSIONS}），请先关闭一些会话`)
@@ -689,13 +767,19 @@ export function effectiveChatMode(sessionId, opts = {}) {
 /**
  * 该会话本轮应注入的取证提示（关 → 空串，什么都不注入）。
  * 这是 systemPrompt.section 的 text provider 本体——每次组装提示都会重新求值。
+ * 附加段优先级：夹范围段 > 仅收藏段（夹范围是更具体的范围；两者同时开启时
+ * 引擎侧 folder 过滤在 bookmarks 过滤之后执行，提示段只讲最具体的范围以免
+ * 模型在两套范围话术间摇摆）。
  */
 export function forensicPromptFor(sessionId, opts = {}) {
   const eff = effectiveChatMode(sessionId, opts)
   if (!eff.forensic) return ''
-  const body = eff.bookmarksOnly
-    ? `${FORENSIC_PROMPT}\n${FORENSIC_BOOKMARKS_PROMPT}`
-    : FORENSIC_PROMPT
+  let body = FORENSIC_PROMPT
+  if (eff.folderId !== null && eff.folderId !== undefined) {
+    body = `${body}\n${renderFolderPrompt(eff.folderName ?? '')}`
+  } else if (eff.bookmarksOnly) {
+    body = `${body}\n${FORENSIC_BOOKMARKS_PROMPT}`
+  }
   return eff.source === 'parent'
     ? `${body}\n（本纪律继承自父会话的「查法规模式」设置。）`
     : body
@@ -749,6 +833,12 @@ const COMMAND_USAGE = '用法：`/forensic`（切换）· `/forensic on|off` · 
 /** 命令回执里的一句状态摘要。 */
 function modeSummary(mode) {
   if (!mode.forensic) return '📜 查法规模式：**已关闭**（本会话）'
+  const folder = mode.folderId != null
+    ? ` · 📁 收藏夹「${mode.folderName ?? mode.folderId}」内提问：**已开启**`
+    : ''
+  if (mode.folderId != null) {
+    return `📜 查法规模式：**已开启**${mode.bookmarksOnly ? ' · 🔖 仅收藏：**已开启**' : ''}${folder}（检索限定在收藏夹内容内，由 host 强制）`
+  }
   return mode.bookmarksOnly
     ? '📜 查法规模式：**已开启** · 🔖 仅收藏：**已开启**（检索限定在你的收藏条款内，由 host 强制）'
     : '📜 查法规模式：**已开启**（涉法规/国标问题将强制走 ks_answer 取证链路：三段式 + 只引现行版 + 可点证据链接）'

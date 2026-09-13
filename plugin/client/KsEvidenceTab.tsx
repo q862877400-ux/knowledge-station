@@ -28,7 +28,9 @@ import {
   addBookmark,
   addDocBookmark,
   clearSession,
+  createBookmarkFolder,
   fetchBbox,
+  fetchBookmarkFolders,
   fetchBookmarks,
   fetchClauseMeta,
   fetchDocTree,
@@ -37,6 +39,7 @@ import {
   removeBookmarkByClauseKey,
   removeDocBookmarkByDoc,
   type KsBookmark,
+  type KsBookmarkFolder,
   type KsClause,
 } from './api'
 import { configurePdfWorker, PDF_WASM_DIR } from './pdf-configure'
@@ -206,6 +209,21 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
   // （content_html + fig-embed/table-embed/katex-formula 占位经 /ks/doc-image 接线）。
   // 换文档时回到 PDF 视图（正文按需再开）。
   const [viewMode, setViewMode] = useState<'pdf' | 'text'>('pdf')
+
+  // ---- 收藏夹选夹（2026-10 收藏目录）----
+  // 收藏时若已有收藏夹 → 弹出选夹菜单（现有夹 / 新建 / 未分类）；
+  // 还没有任何夹 → 一键直收（不弹菜单，收藏回未分类，用户建夹后可在收藏目录里移动）。
+  // picker 为 null = 关闭；'doc' = 标准收藏选夹；'clause' = 条款收藏选夹。
+  const [folderPicker, setFolderPicker] = useState<'doc' | 'clause' | null>(null)
+  // 夹列表（点击收藏那一刻懒加载；成功收藏后下次点击重拉）。
+  const [folderList, setFolderList] = useState<KsBookmarkFolder[] | null>(null)
+  const [folderLoading, setFolderLoading] = useState(false)
+  // 选夹菜单里的「新建夹」内联输入（空串 = 未启用）。
+  const [folderNewName, setFolderNewName] = useState('')
+  // clause 选夹前的 pending clause_key（菜单确认后才发 POST）。
+  const pendingClauseKeyRef = useRef<string | null>(null)
+  // 选夹确认后 refreshMeta 需要的 clause_revision_id（存 pending 期间的 rev）。
+  const pendingRevRef = useRef<string | null>(null)
 
   /**
    * Render one page of the loaded PDF to the canvas, filling the container
@@ -876,18 +894,70 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
     void loadEvidence(href.ev)
   }, [ctx, tab.id, loadEvidence])
 
-  /** 顶部按钮：收藏/取消收藏本标准（toggle）。需要 doc_id——经 meta 端点取回
-   *  （curDocId / docBookmarked 初始态也由 meta 提供）。失败显示在 engineHint。 */
-  const toggleDocBookmark = useCallback(async () => {
-    if (docBusy) return
+  /** 拉收藏夹列表（401 自愈一次）；失败返回 null（调用方按"无夹"处理并提示）。 */
+  const loadFolders = useCallback(async (): Promise<KsBookmarkFolder[] | null> => {
+    const controller = new AbortController()
+    try {
+      let session = await fetchSession(controller.signal)
+      try {
+        return await fetchBookmarkFolders(session.engine.port, session.token, controller.signal)
+      } catch (error) {
+        if (error instanceof EngineAuthError) {
+          session = await fetchSession(controller.signal)
+          return await fetchBookmarkFolders(session.engine.port, session.token, controller.signal)
+        }
+        throw error
+      }
+    } catch (error) {
+      setEngineHint(`收藏夹列表获取失败：${error instanceof Error ? error.message : String(error)}（收藏将进入未分类）`)
+      return null
+    }
+  }, [])
+
+  /** 收藏确认（选夹后）：标准级。folderId null = 未分类。 */
+  const confirmDocBookmark = useCallback(async (folderId: string | null) => {
     const docId = curDocId
     if (docId === null) return
+    setFolderPicker(null)
     setDocBusy(true)
     setEngineHint('')
     const controller = new AbortController()
     try {
       let session = await fetchSession(controller.signal)
-      if (docBookmarked) {
+      try {
+        await addDocBookmark(session.engine.port, docId, session.token, controller.signal, folderId)
+      } catch (error) {
+        if (error instanceof EngineAuthError) {
+          session = await fetchSession(controller.signal)
+          await addDocBookmark(session.engine.port, docId, session.token, controller.signal, folderId)
+        } else {
+          throw error
+        }
+      }
+      setDocBookmarked(true)
+      setFolderList(null) // 收藏成功 → 下次点击重拉夹列表（计数变了）
+      setEngineHint(folderId === null ? '已收藏本标准（未分类）' : '已收藏本标准')
+    } catch (error) {
+      if (controller.signal.aborted) return
+      setEngineHint(`操作失败：${error instanceof Error ? error.message : String(error)}`)
+    } finally {
+      setDocBusy(false)
+    }
+  }, [curDocId])
+
+  /** 顶部按钮：收藏/取消收藏本标准（toggle）。收藏时经选夹菜单（无夹时一键直收）。
+   *  取消收藏不需要选夹。失败显示在 engineHint。 */
+  const toggleDocBookmark = useCallback(async () => {
+    if (docBusy) return
+    const docId = curDocId
+    if (docId === null) return
+    if (docBookmarked) {
+      // 取消收藏：原路径不动
+      setDocBusy(true)
+      setEngineHint('')
+      const controller = new AbortController()
+      try {
+        let session = await fetchSession(controller.signal)
         try {
           await removeDocBookmarkByDoc(session.engine.port, docId, session.token, controller.signal)
         } catch (error) {
@@ -900,41 +970,70 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
         }
         setDocBookmarked(false)
         setEngineHint('已取消收藏本标准')
-      } else {
-        try {
-          await addDocBookmark(session.engine.port, docId, session.token, controller.signal)
-        } catch (error) {
-          if (error instanceof EngineAuthError) {
-            session = await fetchSession(controller.signal)
-            await addDocBookmark(session.engine.port, docId, session.token, controller.signal)
-          } else {
-            throw error
-          }
-        }
-        setDocBookmarked(true)
-        setEngineHint('已收藏本标准')
+      } catch (error) {
+        if (controller.signal.aborted) return
+        setEngineHint(`操作失败：${error instanceof Error ? error.message : String(error)}`)
+      } finally {
+        setDocBusy(false)
       }
-    } catch (error) {
-      if (controller.signal.aborted) return
-      setEngineHint(`操作失败：${error instanceof Error ? error.message : String(error)}`)
-    } finally {
-      setDocBusy(false)
+      return
     }
-  }, [docBusy, docBookmarked, curDocId])
+    // 收藏：懒加载夹列表 → 有夹弹选夹菜单 / 无夹一键直收
+    setFolderLoading(true)
+    const folders = await loadFolders()
+    setFolderLoading(false)
+    if (folders === null || folders.length === 0) {
+      await confirmDocBookmark(null)
+      return
+    }
+    setFolderList(folders)
+    setFolderNewName('')
+    setFolderPicker('doc')
+  }, [docBusy, docBookmarked, curDocId, loadFolders, confirmDocBookmark])
 
-  /** 竖排按钮：收藏/取消收藏本条款（toggle）。收藏经 meta 取 clause_key →
-   *  POST；取消经 clause_key → DELETE by-clause。幂等。失败显示在 engineHint。 */
-  const clauseBookmark = useCallback(async () => {
-    const ev = evidence.current
-    if (ev === null || ev.rev === undefined) return
-    if (bmState === 'busy') return
+  /** 收藏确认（选夹后）：条款级。folderId null = 未分类。rev 用于收藏后刷新 meta。 */
+  const confirmClauseBookmark = useCallback(async (clauseKey: string, folderId: string | null, rev: string) => {
+    setFolderPicker(null)
     setBmState('busy')
     setEngineHint('')
     const controller = new AbortController()
     try {
       let session = await fetchSession(controller.signal)
-      // 取消：需要 clause_key（meta 里已预取 curClauseKey；保险起见仍可重取）
-      if (bmState === 'done') {
+      try {
+        await addBookmark(session.engine.port, clauseKey, session.token, controller.signal, folderId)
+      } catch (error) {
+        if (error instanceof EngineAuthError) {
+          session = await fetchSession(controller.signal)
+          await addBookmark(session.engine.port, clauseKey, session.token, controller.signal, folderId)
+        } else {
+          throw error
+        }
+      }
+      setBmState('done')
+      setCurClauseKey(clauseKey)
+      setFolderList(null)
+      setEngineHint(folderId === null ? '已收藏本条款（未分类）' : '已收藏本条款')
+      void refreshMetaRef.current?.(rev)
+    } catch (error) {
+      if (controller.signal.aborted) return
+      setBmState('idle')
+      setEngineHint(`操作失败：${error instanceof Error ? error.message : String(error)}`)
+    }
+  }, [])
+
+  /** 竖排按钮：收藏/取消收藏本条款（toggle）。收藏经 meta 取 clause_key → 选夹菜单
+   *  （无夹一键直收）→ POST；取消经 clause_key → DELETE by-clause。幂等。 */
+  const clauseBookmark = useCallback(async () => {
+    const ev = evidence.current
+    if (ev === null || ev.rev === undefined) return
+    if (bmState === 'busy') return
+    // 取消：原路径不动
+    if (bmState === 'done') {
+      setBmState('busy')
+      setEngineHint('')
+      const controller = new AbortController()
+      try {
+        let session = await fetchSession(controller.signal)
         const clauseKey = curClauseKey
         if (clauseKey === null) {
           const meta0 = await fetchClauseMeta(session.engine.port, ev.rev, session.token, controller.signal)
@@ -954,9 +1053,19 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
         setBmState('idle')
         setEngineHint('已取消收藏本条款')
         void refreshMetaRef.current?.(ev.rev)
-        return
+      } catch (error) {
+        if (controller.signal.aborted) return
+        setBmState('done')
+        setEngineHint(`操作失败：${error instanceof Error ? error.message : String(error)}`)
       }
-      // 收藏：取 clause_key → add
+      return
+    }
+    // 收藏：取 clause_key → 懒加载夹列表 → 有夹弹选夹 / 无夹一键直收
+    setBmState('busy')
+    setEngineHint('')
+    const controller = new AbortController()
+    try {
+      let session = await fetchSession(controller.signal)
       let meta
       try {
         meta = await fetchClauseMeta(session.engine.port, ev.rev, session.token, controller.signal)
@@ -968,26 +1077,25 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
           throw error
         }
       }
-      setCurClauseKey(meta.clause_key)
-      try {
-        await addBookmark(session.engine.port, meta.clause_key, session.token, controller.signal)
-      } catch (error) {
-        if (error instanceof EngineAuthError) {
-          session = await fetchSession(controller.signal)
-          await addBookmark(session.engine.port, meta.clause_key, session.token, controller.signal)
-        } else {
-          throw error
-        }
+      setFolderLoading(true)
+      const folders = await loadFolders()
+      setFolderLoading(false)
+      if (folders === null || folders.length === 0) {
+        await confirmClauseBookmark(meta.clause_key, null, ev.rev)
+      } else {
+        pendingClauseKeyRef.current = meta.clause_key
+        pendingRevRef.current = ev.rev
+        setFolderList(folders)
+        setFolderNewName('')
+        setFolderPicker('clause')
+        setBmState('idle') // 等菜单确认；期间按钮可再点（关菜单）
       }
-      setBmState('done')
-      setEngineHint('已收藏本条款')
-      void refreshMetaRef.current?.(ev.rev)
     } catch (error) {
       if (controller.signal.aborted) return
-      setBmState(bmState === 'done' ? 'done' : 'idle')
+      setBmState('idle')
       setEngineHint(`操作失败：${error instanceof Error ? error.message : String(error)}`)
     }
-  }, [bmState, curClauseKey])
+  }, [bmState, curClauseKey, loadFolders, confirmClauseBookmark])
 
   const total = load.status === 'ready' ? load.pages : 0
 
@@ -1026,6 +1134,54 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
     const pg = typeof b.page_start === 'number' && b.page_start >= 1 ? b.page_start : '?'
     return `§${no} · 第${pg}页`
   }
+
+  // ---- 选夹菜单 handlers（2026-10）----
+
+  /** 选一个已有夹 / 未分类 → 按收藏类型确认。 */
+  const pickFolder = useCallback(async (folderId: string | null) => {
+    if (folderPicker === 'doc') {
+      await confirmDocBookmark(folderId)
+    } else if (folderPicker === 'clause') {
+      const clauseKey = pendingClauseKeyRef.current
+      const rev = pendingRevRef.current
+      if (clauseKey !== null && rev !== null) await confirmClauseBookmark(clauseKey, folderId, rev)
+    }
+  }, [folderPicker, confirmDocBookmark, confirmClauseBookmark])
+
+  /** 选夹菜单里「新建夹」→ 建夹后立即用它收藏。 */
+  const pickNewFolder = useCallback(async () => {
+    const name = folderNewName.trim()
+    if (name.length === 0) return
+    setFolderLoading(true)
+    try {
+      const controller = new AbortController()
+      let session = await fetchSession(controller.signal)
+      let folder
+      try {
+        folder = await createBookmarkFolder(session.engine.port, name, session.token, controller.signal)
+      } catch (error) {
+        if (error instanceof EngineAuthError) {
+          session = await fetchSession(controller.signal)
+          folder = await createBookmarkFolder(session.engine.port, name, session.token, controller.signal)
+        } else {
+          throw error
+        }
+      }
+      setFolderLoading(false)
+      setFolderNewName('')
+      await pickFolder(folder.folder_id)
+    } catch (error) {
+      setFolderLoading(false)
+      setEngineHint(`新建收藏夹失败：${error instanceof Error ? error.message : String(error)}`)
+    }
+  }, [folderNewName, pickFolder])
+
+  /** 关闭选夹菜单（点遮罩 / ✕）。未确认 → 本次收藏放弃。 */
+  const closeFolderPicker = useCallback(() => {
+    setFolderPicker(null)
+    setFolderNewName('')
+    pendingClauseKeyRef.current = null
+  }, [])
 
   return (
     <>
@@ -1160,6 +1316,61 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
           {engineHint}
         </span>
       </div>
+
+      {/* 收藏夹选夹菜单（2026-10）：portal 到 document.body 的居中浮层。
+          打开条件 = folderPicker 非 null（收藏时已有夹）。选已有夹 / 新建并选用 /
+          未分类 / ✕ 放弃。 */}
+      {folderPicker !== null && typeof document !== 'undefined' && createPortal(
+        <div
+          onClick={closeFolderPicker}
+          style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.18)', zIndex: 9000, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            style={{ width: 320, maxWidth: '90vw', background: 'var(--dsw-alias-bg-layer-1, #fff)', border: '1px solid var(--dsw-alias-border-l2, #ccc)', borderRadius: 8, padding: 12, boxShadow: '0 8px 32px rgba(0,0,0,0.25)' }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 8 }}>
+              <span style={{ fontWeight: 600, color: 'var(--dsw-alias-label-primary, #111)' }}>
+                {folderPicker === 'doc' ? '收藏本标准到…' : '收藏本条款到…'}
+              </span>
+              <button type="button" onClick={closeFolderPicker} style={{ marginLeft: 'auto', border: 'none', background: 'transparent', cursor: 'pointer', color: 'var(--dsw-alias-label-tertiary, #999)', fontSize: 14, lineHeight: 1 }} title="放弃本次收藏">×</button>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 4, maxHeight: 260, overflow: 'auto' }}>
+              {(folderList ?? []).map((f) => (
+                <button
+                  key={f.folder_id}
+                  type="button"
+                  disabled={folderLoading}
+                  onClick={() => void pickFolder(f.folder_id)}
+                  style={$folderOpt}
+                >
+                  📁 {f.folder_name}
+                  <span style={{ color: 'var(--dsw-alias-label-tertiary, #999)', fontSize: 10, marginLeft: 'auto', whiteSpace: 'nowrap' }}>
+                    {f.doc_count > 0 ? `${f.doc_count}档` : ''}{f.clause_count > 0 ? `${f.clause_count}条` : ''}{f.doc_count === 0 && f.clause_count === 0 ? '空' : ''}
+                  </span>
+                </button>
+              ))}
+              <button type="button" disabled={folderLoading} onClick={() => void pickFolder(null)} style={{ ...$folderOpt, color: 'var(--dsw-alias-label-secondary, #666)' }}>
+                📋 未分类
+                <span style={{ color: 'var(--dsw-alias-label-tertiary, #999)', fontSize: 10, marginLeft: 'auto', whiteSpace: 'nowrap' }}>不进任何夹</span>
+              </button>
+            </div>
+            <div style={{ display: 'flex', gap: 4, marginTop: 8, paddingTop: 8, borderTop: '1px solid var(--dsw-alias-border-l1, #eee)' }}>
+              <input
+                value={folderNewName}
+                onChange={(e) => setFolderNewName(e.target.value)}
+                onKeyDown={(e) => { if (e.key === 'Enter') void pickNewFolder() }}
+                placeholder="新建收藏夹名称…"
+                style={{ ...$inputStyle, flex: 1 }}
+              />
+              <button type="button" onClick={() => void pickNewFolder()} disabled={folderLoading || folderNewName.trim().length === 0} style={{ ...$btnStyle, whiteSpace: 'nowrap' }}>
+                新建并收藏
+              </button>
+            </div>
+          </div>
+        </div>,
+        document.body,
+      )}
 
       {/* body：右侧 canvas。目录列经 createPortal 挂到 document.body，浮在侧栏
           左侧的对话框区域上——不遮 PDF，也不被 .paneContent 的 overflow:hidden 裁掉。 */}
@@ -1375,6 +1586,22 @@ const $inputStyle: React.CSSProperties = {
   padding: '2px 4px',
   background: 'var(--dsw-alias-bg-layer-1, #fff)',
   color: 'var(--dsw-alias-label-primary, #111)',
+}
+
+// 选夹菜单的夹选项按钮（横向：名称 + 右侧计数徽标）
+const $folderOpt: React.CSSProperties = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: 6,
+  border: '1px solid var(--dsw-alias-border-l2, #ccc)',
+  background: 'var(--dsw-alias-bg-layer-2, #fff)',
+  color: 'var(--dsw-alias-label-primary, #111)',
+  borderRadius: 6,
+  padding: '6px 10px',
+  cursor: 'pointer',
+  fontSize: 12,
+  textAlign: 'left',
+  width: '100%',
 }
 
 const $btnPrimary: React.CSSProperties = {

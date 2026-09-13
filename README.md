@@ -19,11 +19,22 @@
 ## 四道门禁（改代码后必跑）
 
 ```text
-.venv/Scripts/python -m pytest tests -q     # pytest：828 passed + 3 skipped（只涨不跌）
-cd plugin && npm run smoke                  # 插件冒烟：10 段
+.venv/Scripts/python -m pytest tests -q     # pytest：850 passed + 3 skipped（只涨不跌）
+.venv/Scripts/python -m mypy src            # mypy：120 文件 0 错误
+cd plugin && npm run smoke                  # 插件冒烟：9 段（392 检查）
 cd plugin && npm run verify:commands         # 命令回归：15/15
-npm run typecheck                           # tsc --noEmit -p plugin/client：0 错误
+cd plugin && npx tsc --noEmit -p client     # tsc：0 错误
 ```
+
+## 收藏目录（2026-10）：收藏夹 · 夹内提问
+
+**收藏 tab = 收藏目录树**（并列于文件目录/标题目录）：自建收藏夹（名字自定义）→ 夹内挂收藏的文件目录分类路径（L1→L2→L3→L4，与文件目录同源）→ 文档节点 → 条款叶。
+
+- **收藏时选夹**：点「收藏本标准/收藏本条款」→ 已有夹时弹选夹菜单（现有夹 / 新建并收藏 / 未分类）；还没有任何夹时一键直收（回未分类）。一条收藏只属一个夹，改选即移动。
+- **💡 提问**：每个收藏夹一个「在本收藏夹内提问」开关——激活后输入框上方出现前缀胶囊「🔖 夹名 · 仅在本收藏夹内提问 ✕」，**每一轮**对话检索都限定在该夹内容（标准级收藏 = 整本条款入范围 ∪ 条款级收藏 = 仅那几条，并集）。点 ✕ 或再点 💡 一键恢复全库。
+- **删夹不删收藏**：删除收藏夹只删夹本身，夹内收藏全部回「未分类」；旧收藏（升级前的）也全在「未分类」。
+- **依附链**：夹内提问 ⊃ 仅收藏 ⊃ 查法规模式——开夹自动开启查法规（取证链路保证），关夹只关夹维度。
+- 实现要点：引擎 `user_bookmark_folder` 表 + `folder_id` 列（PRAGMA 自迁移）；`GET /api/v1/bookmark-folders/tree` 供树；`ks_answer` 支持 `folder_id` 过滤（候选池过滤、空夹如实、夹丢失如实降级并在 notes 声明）；host `/ks/chat-mode` PUT 扩展 `folderId/folderName` 维度；工具层强制合并 `folder_id`（模型无法劫持范围）。
 
 ## 目录结构
 

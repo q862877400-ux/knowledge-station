@@ -250,11 +250,19 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
   try { entry.apply(built.facade) } catch (e) { error = e }
   check('apply() does NOT throw when better-sidebar is absent (P0 regression guard)',
     error === null, String(error?.message ?? '').slice(0, 90))
-  check('the client half no longer touches the input dock (dock UI deleted 2026-10)',
-    !built.injected.includes('conversation.input.dock'),
+  // 2026-10 收藏目录：夹内提问胶囊回来了（唯一合法的 input.dock 注入——
+  // 老的斜杠命令 dock 删除语义只针对当时的 UI；新胶囊不依赖 better-sidebar）。
+  check('the scope chip injects conversation.input.dock even without better-sidebar',
+    built.injected.includes('conversation.input.dock'),
     built.injected.join(',') || '(none)')
-  check('no tab and no settings column are registered without better-sidebar',
-    built.registered.length === 0,
+  const chipNoBs = built.registered.find((r) => r.options?.id === 'ks-scope-chip')
+  check('the scope chip registered with the right slot name + session props inject',
+    chipNoBs !== undefined
+    && chipNoBs.options?.name === 'conversation.input.dock'
+    && typeof chipNoBs.options?.inject === 'function',
+    built.registered.map((r) => String(r.options?.id)).join(',') || '(none)')
+  check('no tab and no settings column are registered without better-sidebar (chip excepted)',
+    built.registered.every((r) => r.options?.id === 'ks-scope-chip'),
     built.registered.map((r) => String(r.options?.id)).join(',') || '(none)')
 }
 
@@ -266,8 +274,14 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
   const bsHandlers = built.bsHandlers.current
   check('apply() does not throw when better-sidebar is present',
     error === null, String(error?.message ?? '').slice(0, 90))
-  check('nothing is injected into the input dock (slash commands replaced it)',
-    !built.injected.includes('conversation.input.dock'), built.injected.join(','))
+  // 2026-10：input.dock 唯一合法占用者是夹内提问胶囊（id ks-scope-chip）。
+  check('the input dock is injected exactly once (the ks scope chip)',
+    built.injected.filter((k) => k === 'conversation.input.dock').length === 1,
+    built.injected.join(','))
+  const chip = built.registered.find((r) => r.options?.id === 'ks-scope-chip')
+  check('the scope chip passes the sessionId through its props inject',
+    chip !== undefined && chip.options.inject('sess-X').sessionId === 'sess-X',
+    built.registered.map((r) => String(r.options?.id)).join(','))
   check('three tabs registered (PDF / 收藏 / settings card; 效力报告+入库预览已迁设置)',
     bsHandlers.tabs.length === 3,
     bsHandlers.tabs.map((t) => t.id).join(','))
@@ -290,8 +304,9 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
 {
   const built = buildFacade({})
   entry.apply(built.facade)
-  check('late better-sidebar: nothing registered while it is absent',
-    built.registered.length === 0, `registered=${built.registered.length}`)
+  check('late better-sidebar: nothing registered while it is absent (chip excepted)',
+    built.registered.every((r) => r.options?.id === 'ks-scope-chip'),
+    `registered=${built.registered.map((r) => String(r.options?.id)).join(',')}`)
   check('late better-sidebar: the probe subscribed to internal/service',
     built.listeners.some(([event]) => event === 'internal/service'),
     built.listeners.map(([e]) => String(e)).join(','))

@@ -531,11 +531,12 @@ export async function addBookmark(
   clauseKey: string,
   token: string,
   signal?: AbortSignal,
+  folderId?: string | null,
 ): Promise<{ existed: boolean }> {
   const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmarks`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', accept: 'application/json' },
-    body: JSON.stringify({ clause_key: clauseKey }),
+    body: JSON.stringify({ clause_key: clauseKey, ...(folderId != null ? { folder_id: folderId } : {}) }),
     signal,
   })
   if (res.status === 401) {
@@ -597,11 +598,12 @@ export async function addDocBookmark(
   docId: string,
   token: string,
   signal?: AbortSignal,
+  folderId?: string | null,
 ): Promise<{ existed: boolean }> {
   const res = await fetch(`http://127.0.0.1:${port}/api/v1/doc-bookmarks`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', accept: 'application/json' },
-    body: JSON.stringify({ doc_id: docId }),
+    body: JSON.stringify({ doc_id: docId, ...(folderId != null ? { folder_id: folderId } : {}) }),
     signal,
   })
   if (res.status === 401) {
@@ -671,6 +673,367 @@ export async function removeBookmarkByClauseKey(
     throw new Error(`取消条款收藏失败(HTTP ${res.status})`)
   }
 }
+
+/* ------------------------------------------------------------------ *
+ * 收藏夹目录 (2026-10) — /api/v1/bookmark-folders CRUD + tree + move。
+ * 一条收藏同一时间只属于一个夹（改选 = 移动）；删夹不删收藏（回未分类）。
+ * ------------------------------------------------------------------ */
+
+/** One bookmark folder row (with per-folder counts from the engine). */
+export interface KsBookmarkFolder {
+  folder_id: string
+  folder_name: string
+  created_at: string | null
+  doc_count: number
+  clause_count: number
+}
+
+/** 夹内一个文档节点（树端点返回；doc 级收藏=整本入范围，clause 级=单条）。 */
+export interface KsFolderDocNode {
+  doc_id: string
+  doc_bookmark_id: string | null
+  standard_no: string | null
+  standard_name: string | null
+  legal_status: string | null
+  doc_bookmarked: boolean
+  clause_bookmarks: Array<{
+    bookmark_id: string
+    clause_key: string
+    clause_number: string | null
+    title: string | null
+    page_start: number | null
+  }>
+  /** 文件目录同款的分类路径（L1→L2→L3→L4）；无法分类时 null。 */
+  path: { l1: string | null; l2: string | null; l3: string | null; l4: string | null } | null
+}
+
+/** One folder from the tree endpoint: folder meta + its doc nodes. */
+export interface KsFolderTreeFolder {
+  folder_id: string | null // null = 未分类 pseudo-folder
+  folder_name: string
+  created_at: string | null
+  doc_count: number
+  clause_count: number
+  docs: KsFolderDocNode[]
+}
+
+function normalizeFolder(value: unknown): KsBookmarkFolder | null {
+  if (value === null || typeof value !== 'object') return null
+  const o = value as Record<string, unknown>
+  const id = str(o.folder_id)
+  const name = str(o.folder_name)
+  if (id === null || name === null) return null
+  return {
+    folder_id: id,
+    folder_name: name,
+    created_at: typeof o.created_at === 'string' ? o.created_at : null,
+    doc_count: num(o.doc_count) ?? 0,
+    clause_count: num(o.clause_count) ?? 0,
+  }
+}
+
+function normalizeFolderTreeFolder(value: unknown): KsFolderTreeFolder | null {
+  if (value === null || typeof value !== 'object') return null
+  const o = value as Record<string, unknown>
+  const name = str(o.folder_name)
+  if (name === null) return null
+  const rawDocs = Array.isArray(o.docs) ? o.docs : []
+  const docs: KsFolderDocNode[] = []
+  for (const d of rawDocs) {
+    if (d === null || typeof d !== 'object') continue
+    const dd = d as Record<string, unknown>
+    const docId = str(dd.doc_id)
+    if (docId === null) continue
+    const rawPath = (dd.path !== null && typeof dd.path === 'object')
+      ? dd.path as Record<string, unknown>
+      : null
+    const rawClauseBms = Array.isArray(dd.clause_bookmarks) ? dd.clause_bookmarks : []
+    docs.push({
+      doc_id: docId,
+      doc_bookmark_id: str(dd.doc_bookmark_id),
+      standard_no: str(dd.standard_no),
+      standard_name: str(dd.standard_name),
+      legal_status: str(dd.legal_status),
+      doc_bookmarked: dd.doc_bookmarked === true,
+      clause_bookmarks: rawClauseBms.flatMap((cb) => {
+        if (cb === null || typeof cb !== 'object') return []
+        const c = cb as Record<string, unknown>
+        const bmId = str(c.bookmark_id)
+        const clauseKey = str(c.clause_key)
+        if (bmId === null || clauseKey === null) return []
+        return [{
+          bookmark_id: bmId,
+          clause_key: clauseKey,
+          clause_number: str(c.clause_number),
+          title: str(c.title),
+          page_start: num(c.page_start),
+        }]
+      }),
+      path: rawPath === null ? null : {
+        l1: str(rawPath.l1),
+        l2: str(rawPath.l2),
+        l3: str(rawPath.l3),
+        l4: str(rawPath.l4),
+      },
+    })
+  }
+  return {
+    folder_id: str(o.folder_id), // null = 未分类
+    folder_name: name,
+    created_at: typeof o.created_at === 'string' ? o.created_at : null,
+    doc_count: num(o.doc_count) ?? docs.length,
+    clause_count: num(o.clause_count) ?? docs.reduce((s, d) => s + d.clause_bookmarks.length, 0),
+    docs,
+  }
+}
+
+/** GET the folder list (no doc nodes). */
+export async function fetchBookmarkFolders(
+  port: number,
+  token: string,
+  signal?: AbortSignal,
+): Promise<KsBookmarkFolder[]> {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmark-folders`, {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${token}`, accept: 'application/json' },
+    signal,
+  })
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (!res.ok) throw new Error(`收藏夹列表获取失败(HTTP ${res.status})`)
+  let body: unknown = null
+  try { body = await res.json() } catch { /* non-JSON */ }
+  return unwrapList(body)
+    .map(normalizeFolder)
+    .filter((f): f is KsBookmarkFolder => f !== null)
+}
+
+/** GET the full folder tree (folder list + per-folder doc nodes). */
+export async function fetchBookmarkFolderTree(
+  port: number,
+  token: string,
+  signal?: AbortSignal,
+): Promise<KsFolderTreeFolder[]> {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmark-folders/tree`, {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${token}`, accept: 'application/json' },
+    signal,
+  })
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (!res.ok) throw new Error(`收藏目录获取失败(HTTP ${res.status})`)
+  let body: unknown = null
+  try { body = await res.json() } catch { /* non-JSON */ }
+  return unwrapList(body)
+    .map(normalizeFolderTreeFolder)
+    .filter((f): f is KsFolderTreeFolder => f !== null)
+}
+
+/** POST a new folder {folder_name} → conflict surfaces as a typed error. */
+export async function createBookmarkFolder(
+  port: number,
+  folderName: string,
+  token: string,
+  signal?: AbortSignal,
+): Promise<KsBookmarkFolder> {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmark-folders`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify({ folder_name: folderName }),
+    signal,
+  })
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (res.status === 409) {
+    throw new Error(`收藏夹「${folderName}」已存在`)
+  }
+  if (!res.ok) throw new Error(`新建收藏夹失败(HTTP ${res.status})`)
+  let body: unknown = null
+  try { body = await res.json() } catch { /* non-JSON */ }
+  const data = body !== null && typeof body === 'object'
+    ? (body as Record<string, unknown>).data
+    : null
+  const folder = normalizeFolder(data)
+  if (folder === null) throw new Error('新建收藏夹返回数据异常')
+  return folder
+}
+
+/** PUT rename a folder. */
+export async function renameBookmarkFolder(
+  port: number,
+  folderId: string,
+  folderName: string,
+  token: string,
+  signal?: AbortSignal,
+): Promise<KsBookmarkFolder> {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmark-folders/${encodeURIComponent(folderId)}`, {
+    method: 'PUT',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify({ folder_name: folderName }),
+    signal,
+  })
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (res.status === 409) throw new Error(`收藏夹「${folderName}」已存在`)
+  if (!res.ok) throw new Error(`重命名收藏夹失败(HTTP ${res.status})`)
+  let body: unknown = null
+  try { body = await res.json() } catch { /* non-JSON */ }
+  const data = body !== null && typeof body === 'object'
+    ? (body as Record<string, unknown>).data
+    : null
+  const folder = normalizeFolder(data)
+  if (folder === null) throw new Error('重命名收藏夹返回数据异常')
+  return folder
+}
+
+/** DELETE a folder. Bookmarks inside fall back to 未分类 (never deleted). */
+export async function deleteBookmarkFolder(
+  port: number,
+  folderId: string,
+  token: string,
+  signal?: AbortSignal,
+): Promise<void> {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmark-folders/${encodeURIComponent(folderId)}`, {
+    method: 'DELETE',
+    headers: { Authorization: `Bearer ${token}`, accept: 'application/json' },
+    signal,
+  })
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (!res.ok) throw new Error(`删除收藏夹失败(HTTP ${res.status})`)
+}
+
+/** POST move one clause bookmark to a folder (null = 未分类). */
+export async function moveClauseBookmark(
+  port: number,
+  clauseKey: string,
+  folderId: string | null,
+  token: string,
+  signal?: AbortSignal,
+): Promise<void> {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmark-folders/move-clause`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify({ clause_key: clauseKey, folder_id: folderId }),
+    signal,
+  })
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (!res.ok) throw new Error(`移动条款收藏失败(HTTP ${res.status})`)
+}
+
+/** POST move one doc bookmark to a folder (null = 未分类). */
+export async function moveDocBookmark(
+  port: number,
+  docId: string,
+  folderId: string | null,
+  token: string,
+  signal?: AbortSignal,
+): Promise<void> {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmark-folders/move-doc`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify({ doc_id: docId, folder_id: folderId }),
+    signal,
+  })
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (!res.ok) throw new Error(`移动标准收藏失败(HTTP ${res.status})`)
+}
+
+/* ------------------------------------------------------------------ *
+ * 会话开关（查法规/仅收藏/收藏夹内提问）— host 路由 GET/PUT /ks/chat-mode
+ * （host 状态不经引擎；folderId: null 关夹范围，'bmf_…'+folderName 开）
+ * ------------------------------------------------------------------ */
+
+/** Normalized chat-mode from the host route. */
+export interface KsChatMode {
+  forensic: boolean
+  bookmarksOnly: boolean
+  folderId: string | null
+  folderName: string | null
+}
+
+/** Read a session's chat-mode from the host route (same-origin, no token). */
+export async function fetchChatMode(sessionId: string, signal?: AbortSignal): Promise<KsChatMode> {
+  const res = await fetch(`/ks/chat-mode?session=${encodeURIComponent(sessionId)}`, {
+    method: 'GET',
+    headers: { accept: 'application/json' },
+    signal,
+  })
+  if (!res.ok) throw new Error(`会话开关读取失败(HTTP ${res.status})`)
+  const body = await res.json() as {
+    mode?: { forensic?: unknown; bookmarksOnly?: unknown; folderId?: unknown; folderName?: unknown }
+  }
+  const m = body.mode ?? {}
+  return {
+    forensic: m.forensic === true,
+    bookmarksOnly: m.bookmarksOnly === true,
+    folderId: typeof m.folderId === 'string' && m.folderId.length > 0 ? m.folderId : null,
+    folderName: typeof m.folderName === 'string' && m.folderName.length > 0 ? m.folderName : null,
+  }
+}
+
+/**
+ * Patch a session's chat-mode via the host route. Only the provided fields
+ * are updated (partial PUT). Returns the normalized mode + persist health.
+ */
+export async function patchChatMode(
+  sessionId: string,
+  patch: {
+    forensic?: boolean
+    bookmarksOnly?: boolean
+    folderId?: string | null
+    folderName?: string
+  },
+  signal?: AbortSignal,
+): Promise<{ mode: KsChatMode; persisted: boolean; persistError: string | null }> {
+  const res = await fetch('/ks/chat-mode', {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify({ session: sessionId, ...patch }),
+    signal,
+  })
+  if (!res.ok) {
+    let message = `HTTP ${res.status}`
+    try {
+      const body = await res.json() as { error?: { message?: string } }
+      if (body?.error?.message) message = body.error.message
+    } catch { /* non-JSON */ }
+    throw new Error(`会话开关更新失败: ${message}`)
+  }
+  const body = await res.json() as {
+    mode?: { forensic?: unknown; bookmarksOnly?: unknown; folderId?: unknown; folderName?: unknown }
+    persisted?: boolean
+    persist_error?: string
+  }
+  const m = body.mode ?? {}
+  return {
+    mode: {
+      forensic: m.forensic === true,
+      bookmarksOnly: m.bookmarksOnly === true,
+      folderId: typeof m.folderId === 'string' && m.folderId.length > 0 ? m.folderId : null,
+      folderName: typeof m.folderName === 'string' && m.folderName.length > 0 ? m.folderName : null,
+    },
+    persisted: body.persisted === true,
+    persistError: typeof body.persist_error === 'string' ? body.persist_error : null,
+  }
+}
+
 /* ------------------------------------------------------------------ *
  * 文件目录 (A) — 分类树 GET /documents/categories、批量删除 POST
  * batch-delete、平铺列表 GET /documents、标题目录 GET /{doc}/tree

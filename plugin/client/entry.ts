@@ -26,6 +26,7 @@ import type { TabDescriptor } from 'dsh-better-sidebar/client/service'
 
 import { KsEvidenceTab } from './KsEvidenceTab'
 import { KsBookmarksTab, KS_BOOKMARKS_TAB_ID } from './KsBookmarksTab'
+import { KsScopeChip } from './KsScopeChip'
 import { KsSettingsSection } from './KsSettingsSection'
 
 import { reportBetterSidebarCompat } from './bsContract'
@@ -131,6 +132,25 @@ function evidenceTitle(href: string): string {
  * only in page memory.
  */
 export function apply(ctx: Ctx): void {
+
+  // 收藏夹范围提问胶囊（2026-10）：注册 conversation.input.dock（输入卡片
+  // 上方全宽行）。夹内提问激活时显示「🔖 夹名 · 仅在本收藏夹内提问 ✕」。
+  // 不依赖 better-sidebar——host 的 /ks/chat-mode 与输入框同属官方 shell。
+  // slots 是本插件声明的 inject（见上方 export const inject），缺失时静默
+  // 跳过（tab/其他表面照常）。
+  try {
+    const slots = ctx.slots
+    if (slots !== undefined) {
+      slots.inject('conversation.input.dock', () => slots.register({
+        name: 'conversation.input.dock',
+        id: 'ks-scope-chip',
+        order: 10,
+        inject: (sessionId: string) => ({ sessionId }),
+      }, KsScopeChip))
+    }
+  } catch (error) {
+    console.error('[ks-dsh-plugin] 注册收藏夹范围胶囊失败（不影响其他表面）', error)
+  }
 
   // 契约体检（2026-09-09）：better-sidebar 是第三方插件，升级可能改名/删方法。
   // 启动时探一次能力面：缺必需能力 → console.error 点名；缺可选能力或版本漂移

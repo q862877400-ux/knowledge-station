@@ -67,12 +67,12 @@ const readState = async () => {
 const chat = await import(chatModuleUrl)
 await chat.ensureLoaded()
 
-check('default mode is all-off', eq(chat.getMode('sess-A'), { forensic: false, bookmarksOnly: false }))
+check('default mode is all-off', eq(chat.getMode('sess-A'), { forensic: false, bookmarksOnly: false, folderId: null, folderName: null }))
 check('default prompt is empty', chat.forensicPromptFor('sess-A') === '')
 
 const on = chat.setMode('sess-A', { forensic: true })
 await on.persist
-check('setMode forensic on', eq(on.mode, { forensic: true, bookmarksOnly: false }))
+check('setMode forensic on', eq(on.mode, { forensic: true, bookmarksOnly: false, folderId: null, folderName: null }))
 const promptOn = chat.forensicPromptFor('sess-A')
 check('forensic prompt injected after on',
   promptOn.includes('查法规模式') && promptOn.includes('ks_answer'))
@@ -83,7 +83,7 @@ check('bookmarks-only rule (rule 6) absent while 仅收藏 off',
 
 const both = chat.setMode('sess-A', { bookmarksOnly: true })
 await both.persist
-check('bookmarksOnly on (parent already on)', eq(both.mode, { forensic: true, bookmarksOnly: true }))
+check('bookmarksOnly on (parent already on)', eq(both.mode, { forensic: true, bookmarksOnly: true, folderId: null, folderName: null }))
 check('bookmarks rule present after 仅收藏 on',
   chat.forensicPromptFor('sess-A').includes('bookmarks_only = true'))
 check('bookmarks rule overrides the "库内无此条款" rule (rule 5 vs 6)',
@@ -93,11 +93,11 @@ check('session isolation', chat.forensicPromptFor('sess-OTHER') === '')
 
 const off = chat.setMode('sess-A', { forensic: false })
 await off.persist
-check('turning parent off demotes child', eq(off.mode, { forensic: false, bookmarksOnly: false }),
+check('turning parent off demotes child', eq(off.mode, { forensic: false, bookmarksOnly: false, folderId: null, folderName: null }),
   JSON.stringify(off.mode))
 check('prompt empty after off', chat.forensicPromptFor('sess-A') === '')
 check('child cannot be on without parent',
-  eq(chat.setMode('sess-C', { bookmarksOnly: true }).mode, { forensic: false, bookmarksOnly: false }))
+  eq(chat.setMode('sess-C', { bookmarksOnly: true }).mode, { forensic: false, bookmarksOnly: false, folderId: null, folderName: null }))
 
 /* --- 输入校验（verifier P2：非布尔值以前会被静默当成 false 覆盖掉用户已开的开关） --- */
 check('setMode rejects empty session', throws(() => chat.setMode('', { forensic: true })))
@@ -125,6 +125,61 @@ check('section text follows the toggle (sec)',
 check('section text empty without agent', section.text({}) === '')
 check('section text empty for a session that never toggled',
   section.text({ agent: { session: { id: 'sess-untouched' } } }) === '')
+
+/* --- 收藏夹内提问维度（2026-10 收藏目录） --- */
+chat.setMode('sess-FD', { forensic: false })
+check('folder state defaults off',
+  eq(chat.getMode('sess-FD'), { forensic: false, bookmarksOnly: false, folderId: null, folderName: null }))
+const fdOn = chat.setMode('sess-FD', { folderId: 'bmf_TEST01', folderName: '收藏夹一' })
+await fdOn.persist
+check('folderId implies forensic (夹范围 ⊃ 取证纪律)',
+  eq(fdOn.mode, { forensic: true, bookmarksOnly: false, folderId: 'bmf_TEST01', folderName: '收藏夹一' }),
+  JSON.stringify(fdOn.mode))
+const fdPrompt = chat.forensicPromptFor('sess-FD')
+check('folder prompt injected with the folder name',
+  fdPrompt.includes('收藏夹内提问') && fdPrompt.includes('收藏夹一'))
+check('folder prompt overrides rule-5 wording (夹内无 ≠ 库内无)',
+  fdPrompt.includes('夹内无相关条款') || fdPrompt.includes('内无相关条款'))
+check('bookmarks rule 6 absent while folder rule active without bookmarksOnly',
+  !fdPrompt.includes('收藏集内无相关条款'))
+check('opening a folder without folderName is rejected',
+  throws(() => chat.setMode('sess-FD2', { folderId: 'bmf_X' })))
+check('a malformed folderId is rejected (not silently dropped)',
+  throws(() => chat.setMode('sess-FD2', { folderId: 'has space', folderName: 'x' })))
+check('rejected folderId did NOT clobber the open folder',
+  chat.getMode('sess-FD').folderId === 'bmf_TEST01')
+// 关闭夹范围：显式 null 只清 folder 维度，不动 forensic（用户可能独立开着查法规模式）
+const fdKeep = chat.setMode('sess-FD', { folderId: null })
+await fdKeep.persist
+check('explicit null closes ONLY the folder dimension',
+  eq(fdKeep.mode, { forensic: true, bookmarksOnly: false, folderId: null, folderName: null }),
+  JSON.stringify(fdKeep.mode))
+check('folder prompt gone after close',
+  !chat.forensicPromptFor('sess-FD').includes('收藏夹内提问'))
+const fdOff = chat.setMode('sess-FD', { forensic: false, folderId: null })
+await fdOff.persist
+check('forensic:false + folderId:null fully off',
+  eq(fdOff.mode, { forensic: false, bookmarksOnly: false, folderId: null, folderName: null }))
+// forensic:false 但夹还开着 → normalizeMode 把 forensic 拉回 true（夹范围蕴含取证纪律）
+const fdForce = chat.setMode('sess-FD3', { folderId: 'bmf_F3', folderName: '夹三' })
+const fdConflict = chat.setMode('sess-FD3', { forensic: false })
+check('forensic:false cannot silently kill an open folder scope',
+  fdConflict.mode.forensic === true && fdConflict.mode.folderId === 'bmf_F3',
+  JSON.stringify(fdConflict.mode))
+check('closing forensic:false together with folderId:null turns fully off',
+  eq(chat.setMode('sess-FD3', { forensic: false, folderId: null }).mode,
+    { forensic: false, bookmarksOnly: false, folderId: null, folderName: null }))
+// 夹范围 + 仅收藏同时开：两个附加段都在（引擎侧两过滤同链执行，提示段以夹为主）
+const fd5 = chat.setMode('sess-FD4', { folderId: 'bmf_FD4', folderName: '夹四' })
+await fd5.persist
+const bothScope = chat.setMode('sess-FD4', { bookmarksOnly: true })
+check('bookmarksOnly can stack on an open folder scope',
+  bothScope.mode.forensic === true && bothScope.mode.bookmarksOnly === true
+    && bothScope.mode.folderId === 'bmf_FD4',
+  JSON.stringify(bothScope.mode))
+const stackedPrompt = chat.forensicPromptFor('sess-FD4')
+check('with folder active the folder section wins the prompt (narrower scope narrated)',
+  stackedPrompt.includes('收藏夹内提问') && !stackedPrompt.includes('收藏集内无相关条款'))
 
 /* --- 子会话继承（verifier P1-7） --- */
 const childCtx = (id, parent) => ({ agent: { session: { id, header: { parentSession: parent } } } })
@@ -249,14 +304,38 @@ const put = await call({
   body: putBody({ session: 'sess-W', forensic: true, bookmarksOnly: true }),
 })
 check('PUT writes and normalizes', put.status === 200
-  && eq(put.body?.mode, { forensic: true, bookmarksOnly: true }), JSON.stringify(put.body?.mode))
+  && eq(put.body?.mode, { forensic: true, bookmarksOnly: true, folderId: null, folderName: null }), JSON.stringify(put.body?.mode))
 check('PUT reports persisted:true', put.body?.persisted === true)
 check('PUT took effect in module state', chat.getMode('sess-W').forensic === true)
 check('PUT response is on disk before it returns', (await readState())?.sessions?.['sess-W']?.forensic === true)
 
 const putOff = await call({ method: 'PUT', body: putBody({ session: 'sess-W', forensic: false }) })
 check('PUT off clears both', putOff.status === 200
-  && eq(putOff.body?.mode, { forensic: false, bookmarksOnly: false }), JSON.stringify(putOff.body?.mode))
+  && eq(putOff.body?.mode, { forensic: false, bookmarksOnly: false, folderId: null, folderName: null }), JSON.stringify(putOff.body?.mode))
+
+const putFolder = await call({
+  method: 'PUT',
+  body: putBody({ session: 'sess-WF', folderId: 'bmf_ROUTE1', folderName: '路由夹' }),
+})
+check('PUT opens a folder scope (implies forensic)', putFolder.status === 200
+  && putFolder.body?.mode?.folderId === 'bmf_ROUTE1' && putFolder.body?.mode?.forensic === true,
+  JSON.stringify(putFolder.body?.mode))
+check('folder scope took effect in module state',
+  chat.getMode('sess-WF').folderName === '路由夹')
+const putFolderOff = await call({
+  method: 'PUT',
+  body: putBody({ session: 'sess-WF', folderId: null }),
+})
+check('PUT folderId:null closes only the folder dimension', putFolderOff.status === 200
+  && putFolderOff.body?.mode?.folderId === null && putFolderOff.body?.mode?.forensic === true,
+  JSON.stringify(putFolderOff.body?.mode))
+chat.setMode('sess-WF', { forensic: false })
+const putFolderNoName = await call({
+  method: 'PUT',
+  body: putBody({ session: 'sess-WF', folderId: 'bmf_NONAME' }),
+})
+check('PUT folderId without folderName → 400 (host cannot render prompts without it)',
+  putFolderNoName.status === 400, `status=${putFolderNoName.status}`)
 
 const badJson = await call({ method: 'PUT', body: '{not json' })
 check('PUT malformed JSON → 400', badJson.status === 400
@@ -660,7 +739,7 @@ check('session count is capped (refuses to grow unbounded)',
   throws(() => chat.setMode('sess-cap-overflow', { forensic: true })),
   `MAX_SESSIONS=${chat.MAX_SESSIONS}`)
 check('a capped-out session can still be turned OFF (no lock-in)',
-  eq(chat.setMode('sess-cap-0', { forensic: false }).mode, { forensic: false, bookmarksOnly: false }))
+  eq(chat.setMode('sess-cap-0', { forensic: false }).mode, { forensic: false, bookmarksOnly: false, folderId: null, folderName: null }))
 check('turning one off frees a slot',
   !throws(() => chat.setMode('sess-cap-overflow', { forensic: true })))
 

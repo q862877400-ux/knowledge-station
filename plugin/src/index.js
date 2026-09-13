@@ -153,6 +153,12 @@ function sanitizeParams(raw) {
     if (Number.isFinite(k) && k > 0) out.top_k = Math.min(Math.floor(k), 50)
   }
   if (raw.bookmarks_only !== undefined) out.bookmarks_only = Boolean(raw.bookmarks_only)
+  // folder_id（2026-10 收藏目录）：形态校验同 chatmode 的 normalizeFolderId——
+  // 非空、无空白、≤64 字符。host 强制值永远覆盖模型自传值（见 makeAnswerTool）。
+  if (typeof raw.folder_id === 'string' && raw.folder_id.length > 0 && raw.folder_id.length <= 64
+      && !/[\s\u0000-\u001f]/.test(raw.folder_id)) {
+    out.folder_id = raw.folder_id
+  }
   if (raw.max_evidence !== undefined) {
     const m = Number(raw.max_evidence)
     if (Number.isFinite(m) && m > 0) out.max_evidence = Math.min(Math.floor(m), EVIDENCE_CAP)
@@ -491,7 +497,9 @@ function makeResolveTool(manager, chatModeOf) {
       'text) or an explicit not-found marker. Args are URL-encoded by the tool. ' +
       'The hit carries legal_status, an evidence_url (clickable PDF anchor) and bookmarked; ' +
       'when 查法规模式 is on, a hit outside the user\'s bookmark collection reports ' +
-      'bookmarks_scope:"outside" and must only be used for locating, never as a 依据.',
+      'bookmarks_scope:"outside" and must only be used for locating, never as a 依据. ' +
+      'When 在本收藏夹内提问 is active, a hit outside the folder likewise reports ' +
+      'folder_scope:"outside" with the same locating-only ban.',
     parameters: {
       type: 'object',
       properties: {
@@ -519,10 +527,17 @@ function makeResolveTool(manager, chatModeOf) {
       if (!standardNo) throw new Error('ks_resolve_clause: "standard_no" is required and must be a non-empty string')
       if (!clauseNumber) throw new Error('ks_resolve_clause: "clause_number" is required and must be a non-empty string')
 
+      // 收藏夹内提问（2026-10）：夹范围激活时把 folder_id 带给引擎，让引擎对命中体
+      // 打夹范围标记（inside/outside）——host 据此对夹外条款打明文禁令（与
+      // bookmarks_scope 同款不抛错设计：resolve 是定位工具，抛错会让模型误判"查无"）。
+      const chatMode0 = chatModeOf(exec)
+      const folderActive = typeof chatMode0.folderId === 'string' && chatMode0.folderId.length > 0
+
       const session = await manager.ensureLive(exec.signal)
       const path =
         `/api/v1/clauses/resolve?standard_no=${encodeURIComponent(standardNo)}` +
-        `&clause_number=${encodeURIComponent(clauseNumber)}`
+        `&clause_number=${encodeURIComponent(clauseNumber)}` +
+        (folderActive ? `&folder_id=${encodeURIComponent(chatMode0.folderId)}` : '')
       const probe = await apiGet(originUrl(session.port), path, {
         token: session.token,
         signal: exec.signal,
@@ -544,10 +559,16 @@ function makeResolveTool(manager, chatModeOf) {
       // 「仅收藏」也要覆盖这条定位路径（verifier 二轮 P1：只圈 ks_answer 时，模型
       // 用 resolve 就能拿到库内任意条款并写进依据区）。这里**不抛错**——resolve 是
       // 定位工具，抛错会让模型误判"查无"，而是打标 + 给出明文禁令。
+      // 收藏夹范围（2026-10）同款：folder_scope 引擎标记 + 夹外禁令。
       const hit = data && typeof data === 'object' && !Array.isArray(data) ? data : null
       const chatMode = chatModeOf(exec)
       const bookmarked = hit?.bookmarked === true
       const outsideScope = chatMode.bookmarksOnly && hit !== null && !bookmarked
+      // 夹范围真值：引擎侧 inside/outside（夹不存在时引擎回 null → 如实透出 unknown）
+      const engineFolderScope = hit?.folder_scope === 'inside' ? 'inside'
+        : hit?.folder_scope === 'outside' ? 'outside' : null
+      const folderKnown = folderActive && engineFolderScope !== null
+      const outsideFolder = folderActive && engineFolderScope === 'outside'
       return {
         standard_no: standardNo,
         clause_number: clauseNumber,
@@ -572,6 +593,20 @@ function makeResolveTool(manager, chatModeOf) {
             scope_notice:
               '该条款不在用户收藏集内：本轮「仅收藏」已开启，它**只能用于定位/核对条款号**，'
               + '不得写入依据区，也不得作为结论依据。',
+          }
+          : {}),
+        // 夹范围标记（2026-10）：inside=夹内；outside=夹外（禁令见 folder_notice）；
+        // unknown=夹范围激活但引擎未给判定（旧引擎/查询失败——不得据此断言在夹内）；
+        // null=夹范围未激活。真值来自引擎（doc_ids ∪ clause_keys），不是 host 猜的。
+        folder_scope: folderActive
+          ? (engineFolderScope ?? 'unknown')
+          : null,
+        ...(folderKnown ? { folder_name: chatMode.folderName ?? hit?.folder_name ?? null } : {}),
+        ...(outsideFolder
+          ? {
+            folder_notice:
+              `该条款不在收藏夹「${chatMode.folderName ?? chatMode.folderId}」内：本轮「在本收藏夹内提问」已开启，`
+              + '它**只能用于定位/核对条款号**，不得写入依据区，也不得作为结论依据。',
           }
           : {}),
         envelope: body,
@@ -615,6 +650,12 @@ function makeAnswerTool(manager, chatModeOf) {
               type: 'boolean',
               description: 'Restrict retrieval to bookmarked clauses only (default false).',
             },
+            folder_id: {
+              type: 'string',
+              description:
+                'Restrict retrieval to one bookmark folder (bmf_… id). Host force-overrides this ' +
+                'from the session chat-mode when 在本收藏夹内提问 is active. Default absent.',
+            },
             max_evidence: {
               type: 'integer',
               description: 'Max evidence items to return (default 8; the engine hard-caps at 8).',
@@ -649,13 +690,29 @@ function makeAnswerTool(manager, chatModeOf) {
       // 否则子 agent 会拿到"提示词说已限收藏集、实际全库检索"的组合（二轮审计 P1）。
       // 强制值覆盖在 sanitizeParams 的**已校验**结果之上，故 top_k/max_evidence 的
       // 上限仍然生效（不存在绕过白名单的通道）。
+      //
+      // 收藏夹内提问（2026-10）：folderId 非空 → host 强制传 folder_id（引擎按
+      // doc_ids ∪ clause_keys 并集过滤），同样不信任模型自传值。注意**先夹后收藏**：
+      // 夹范围激活时 bookmarksOnly 若也开着则两个强制参数都带（引擎侧 folder 过滤
+      // 在 bookmarks 过滤之后同链执行——双重收紧，语义不冲突）。
       const chatMode = chatModeOf(exec)
-      const params = chatMode.bookmarksOnly
-        ? { ...(requested ?? {}), bookmarks_only: true }
-        : requested
+      const folderActive = typeof chatMode.folderId === 'string' && chatMode.folderId.length > 0
+      let params = requested
+      if (folderActive) {
+        params = { ...(params ?? {}), folder_id: chatMode.folderId }
+      }
+      if (chatMode.bookmarksOnly) {
+        params = { ...(params ?? {}), bookmarks_only: true }
+      }
       const scope = {
         forensic: chatMode.forensic === true,
         bookmarks_only: params?.bookmarks_only === true,
+        // 收藏夹范围（2026-10）：host 强制传参的真值——folder/folder_name 在夹范围
+        // 激活时非 null；folder=false 且未激活。与 bookmarks_only 一样，这是"host 是否
+        // 强制传参"的回显，不是"引擎侧过滤一定生效"的证明（引擎 notes 会如实说明）。
+        folder: folderActive,
+        folder_id: folderActive ? chatMode.folderId : null,
+        folder_name: folderActive ? (chatMode.folderName ?? null) : null,
         // 生效来源（session=本会话开的 / parent=继承自父会话）——审计与模型都可自证
         source: chatMode.source,
       }

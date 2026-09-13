@@ -544,6 +544,172 @@ async function main() {
       JSON.stringify(unmarkedCall.value.evidence?.[0]?.bookmarked))
   }
 
+  // ---- 收藏夹内提问（2026-10 收藏目录）：host 强制 folder_id + resolve 夹标记 ----
+  {
+    // 会话基线：一个开夹范围的会话 + 一个无范围的会话
+    setMode('smoke-folder', { folderId: 'bmf_SMOKE01', folderName: '冒烟夹' })
+
+    const folderCall = await captureAnswerCall(SYNTH_ANSWER,
+      { agent: { session: { id: 'smoke-folder', header: {} } } })
+    check('folder scope on → host FORCES params.folder_id',
+      folderCall.sentBody?.params?.folder_id === 'bmf_SMOKE01',
+      JSON.stringify(folderCall.sentBody?.params))
+    check('answer_scope echoes folder truth + name',
+      folderCall.value.answer_scope?.folder === true
+        && folderCall.value.answer_scope?.folder_id === 'bmf_SMOKE01'
+        && folderCall.value.answer_scope?.folder_name === '冒烟夹'
+        && folderCall.value.answer_scope?.forensic === true,
+      JSON.stringify(folderCall.value.answer_scope))
+
+    const plainCall = await captureAnswerCall(SYNTH_ANSWER,
+      { agent: { session: { id: 'smoke-plain', header: {} } } })
+    check('folder scope off → no folder_id in params, answer_scope.folder=false',
+      plainCall.sentBody?.params?.folder_id === undefined
+        && plainCall.value.answer_scope?.folder === false
+        && plainCall.value.answer_scope?.folder_id === null,
+      JSON.stringify(plainCall.value.answer_scope))
+    check('plain answer payload has no undefined', findUndefined(plainCall.value) === null,
+      findUndefined(plainCall.value) ?? '')
+
+    // 模型显式传别的 folder_id 也改不了（host 强制覆盖）
+    {
+      const realFetchF = globalThis.fetch
+      let bodyF = null
+      globalThis.fetch = async (url, init) => {
+        const u = String(url)
+        if (u.includes('/api/v1/ks/answer')) {
+          bodyF = init?.body ? JSON.parse(String(init.body)) : null
+          return { status: 200, ok: true, text: async () => JSON.stringify(SYNTH_ANSWER) }
+        }
+        return realFetchF(url, init)
+      }
+      await answer.execute(
+        { query: 'x', params: { folder_id: 'bmf_MODEL_GUESS' } },
+        { agent: { session: { id: 'smoke-folder', header: {} } } })
+      globalThis.fetch = realFetchF
+      check('a model-supplied folder_id cannot hijack the session folder',
+        bodyF?.params?.folder_id === 'bmf_SMOKE01', JSON.stringify(bodyF?.params))
+    }
+
+    // 模型传了合法 folder_id 且会话没开夹范围 → 白名单放行（模型可主动用夹范围，
+    // 但 answer_scope 如实回显 folder:false 因为这是模型自己的选择不是 host 强制）
+    {
+      const realFetchG = globalThis.fetch
+      let bodyG = null
+      globalThis.fetch = async (url, init) => {
+        const u = String(url)
+        if (u.includes('/api/v1/ks/answer')) {
+          bodyG = init?.body ? JSON.parse(String(init.body)) : null
+          return { status: 200, ok: true, text: async () => JSON.stringify(SYNTH_ANSWER) }
+        }
+        return realFetchG(url, init)
+      }
+      await answer.execute(
+        { query: 'x', params: { folder_id: 'bmf_MODEL_PICK' } },
+        { agent: { session: { id: 'smoke-plain2', header: {} } } })
+      globalThis.fetch = realFetchG
+      check('a well-formed model-supplied folder_id passes the whitelist when no session scope',
+        bodyG?.params?.folder_id === 'bmf_MODEL_PICK', JSON.stringify(bodyG?.params))
+    }
+
+    // 子会话继承夹范围（工具层与提示层同一真值）
+    fakeSessions.set('smoke-folder-child',
+      { session: { header: { parentSession: 'smoke-folder' } } })
+    const folderChildCall = await captureAnswerCall(SYNTH_ANSWER,
+      { agent: { session: { id: 'smoke-folder-child', header: { parentSession: 'smoke-folder' } } } })
+    check('a CHILD session inherits the folder scope too (enforced at tool layer)',
+      folderChildCall.sentBody?.params?.folder_id === 'bmf_SMOKE01'
+        && folderChildCall.value.answer_scope?.source === 'parent',
+      JSON.stringify(folderChildCall.value.answer_scope))
+
+    // 夹范围 + 仅收藏叠加：两个强制参数都在
+    setMode('smoke-folder', { bookmarksOnly: true })
+    const stackedCall = await captureAnswerCall(SYNTH_ANSWER,
+      { agent: { session: { id: 'smoke-folder', header: {} } } })
+    check('folder + bookmarks stack: both enforced params present',
+      stackedCall.sentBody?.params?.folder_id === 'bmf_SMOKE01'
+        && stackedCall.sentBody?.params?.bookmarks_only === true,
+      JSON.stringify(stackedCall.sentBody?.params))
+
+    // 关夹范围后参数消失（bookmarksOnly 保留——只清 folder 维度）
+    setMode('smoke-folder', { folderId: null })
+    const closedCall = await captureAnswerCall(SYNTH_ANSWER,
+      { agent: { session: { id: 'smoke-folder', header: {} } } })
+    check('folderId:null closes only the folder dimension (bookmarks kept)',
+      closedCall.sentBody?.params?.folder_id === undefined
+        && closedCall.sentBody?.params?.bookmarks_only === true,
+      JSON.stringify(closedCall.sentBody?.params))
+    setMode('smoke-folder', { bookmarksOnly: false, forensic: false })
+
+    // resolve 的夹标记：引擎回 inside / outside / 无标记（旧引擎）
+    const resolveFolderExec = { agent: { session: { id: 'smoke-resolve-folder', header: {} } } }
+    setMode('smoke-resolve-folder', { folderId: 'bmf_RSV', folderName: '定位夹' })
+    const withResolve = (engineFolderScope) => {
+      const realFetchH = globalThis.fetch
+      globalThis.fetch = async (url, init) => {
+        const u = String(url)
+        if (u.includes('/api/v1/clauses/resolve')) {
+          return { status: 200, ok: true, text: async () => JSON.stringify({
+            code: 200, status: 'success',
+            data: {
+              doc_id: 'doc_r9', page_start: 7, clause_revision_id: 'rev_r9',
+              clause_key: 'k_r9', standard_no: 'GB 2222-2020', clause_number: '3.1',
+              legal_status: 'effective', bookmarked: true,
+              ...(engineFolderScope === null ? {} : { folder_scope: engineFolderScope }),
+            },
+          }) }
+        }
+        return realFetchH(url, init)
+      }
+      return resolve.execute(
+        { standard_no: 'GB 2222-2020', clause_number: '3.1' }, resolveFolderExec)
+        .then((v) => { globalThis.fetch = realFetchH; return v },
+          (e) => { globalThis.fetch = realFetchH; throw e })
+    }
+    const rsIn = await withResolve('inside')
+    check('resolve: engine folder_scope=inside passes cleanly (no folder_notice)',
+      rsIn.folder_scope === 'inside' && rsIn.folder_notice === undefined
+        && rsIn.folder_name === '定位夹',
+      JSON.stringify({ scope: rsIn.folder_scope, name: rsIn.folder_name }))
+    const rsOut = await withResolve('outside')
+    check('resolve: engine folder_scope=outside gets the locating-only ban',
+      rsOut.folder_scope === 'outside' && typeof rsOut.folder_notice === 'string'
+        && rsOut.folder_notice.includes('不得写入依据区'),
+      JSON.stringify({ scope: rsOut.folder_scope }))
+    const rsUnknown = await withResolve(null)
+    check('resolve: engine gives no folder verdict → unknown, no ban, no fabrication',
+      rsUnknown.folder_scope === 'unknown' && rsUnknown.folder_notice === undefined
+        && rsUnknown.folder_name === undefined,
+      JSON.stringify({ scope: rsUnknown.folder_scope, name: rsUnknown.folder_name }))
+    check('resolve folder outputs have no undefined',
+      findUndefined(rsIn) === null && findUndefined(rsOut) === null
+        && findUndefined(rsUnknown) === null,
+      `${findUndefined(rsIn) ?? ''}${findUndefined(rsOut) ?? ''}${findUndefined(rsUnknown) ?? ''}`)
+    // 夹范围未激活 → folder_scope 全 null（不声称任何范围；即使引擎带回了字段）
+    setMode('smoke-resolve-folder', { folderId: null, forensic: false })
+    const realFetchI = globalThis.fetch
+    globalThis.fetch = async (url, init) => {
+      const u = String(url)
+      if (u.includes('/api/v1/clauses/resolve')) {
+        return { status: 200, ok: true, text: async () => JSON.stringify({
+          code: 200, status: 'success',
+          data: { doc_id: 'doc_r9', page_start: 7, clause_revision_id: 'rev_r9',
+            clause_key: 'k_r9', standard_no: 'GB 2222-2020', clause_number: '3.1',
+            legal_status: 'effective', bookmarked: false, folder_scope: 'inside' },
+        }) }
+      }
+      return realFetchI(url, init)
+    }
+    const rsOff = await resolve.execute(
+      { standard_no: 'GB 2222-2020', clause_number: '3.1' },
+      { agent: { session: { id: 'smoke-plain3', header: {} } } })
+    globalThis.fetch = realFetchI
+    check('folder scope inactive → resolve claims NO folder scope regardless of engine field',
+      rsOff.folder_scope === null && rsOff.folder_notice === undefined
+        && rsOff.folder_name === undefined,
+      JSON.stringify({ scope: rsOff.folder_scope }))
+  }
+
   const failed = results.filter((r) => !r.ok)
   console.log(`\n== tool smoke ${failed.length === 0 ? 'PASS' : 'FAIL'} `
     + `(${results.length - failed.length}/${results.length}) ==`)
