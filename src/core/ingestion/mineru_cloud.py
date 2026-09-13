@@ -178,15 +178,23 @@ def _download_zip(url: str, dest: Path) -> None:
     import httpx
     dest.parent.mkdir(parents=True, exist_ok=True)
     total = 0
-    with httpx.stream("GET", url, timeout=120.0, follow_redirects=True) as r:
-        r.raise_for_status()
-        with open(dest, "wb") as f:
-            for chunk in r.iter_bytes(256 * 1024):
-                total += len(chunk)
-                if total > DOWNLOAD_MAX_BYTES:
-                    raise MineruCloudError(
-                        f"云解析产物超过 {DOWNLOAD_MAX_BYTES} 字节上限")
-                f.write(chunk)
+    # 2026-09-14（执行计划 v3 阶段 2c 排障）：trust_env=False 显式绕过
+    # 本地代理（HTTP_PROXY/ALL_PROXY 指向 127.0.0.1:7897 clash 类）。
+    # 实测：矿大 OSS/CDN 国内直连可用，经代理 CONNECT 反而被间歇性
+    # SSL UNEXPECTED_EOF 掐断（原生 socket TLS ok vs httpx 走 env 代理必断）。
+    # 三处 API 调用（file-urls/extract-results/OSS PUT）同为国内端点，
+    # 统一豁免；如未来有海外端点需求，须重新评估。
+    with httpx.Client(trust_env=False, timeout=120.0,
+                      follow_redirects=True) as _client:
+        with _client.stream("GET", url) as r:
+            r.raise_for_status()
+            with open(dest, "wb") as f:
+                for chunk in r.iter_bytes(256 * 1024):
+                    total += len(chunk)
+                    if total > DOWNLOAD_MAX_BYTES:
+                        raise MineruCloudError(
+                            f"云解析产物超过 {DOWNLOAD_MAX_BYTES} 字节上限")
+                    f.write(chunk)
 
 
 def _safe_extract(zip_path: Path, dest: Path) -> None:
@@ -224,7 +232,10 @@ def _validate_middle(path: Path) -> None:
 
 
 def _find_middle(unpacked: Path) -> Path:
-    for pattern in ("*_middle.json", "middle.json"):
+    # 2026-09-14（阶段 2c 实测）：MinerU 云产物 zip 已不再带 *_middle.json，
+    # 同构产物改名 layout.json（pdf_info/_backend/_version_name 结构一致，
+    # 实测 batch 93f04cb7 产物）。按序尝试：middle 老命名 → layout 新命名。
+    for pattern in ("*_middle.json", "middle.json", "layout.json"):
         cands = sorted(unpacked.rglob(pattern))
         if cands:
             return cands[0]
@@ -232,7 +243,7 @@ def _find_middle(unpacked: Path) -> Path:
     if cands:
         return cands[0]
     raise MineruCloudError(
-        "云产物 zip 内未找到 middle.json（服务端产物结构可能已变更，需要人工介入）")
+        "云产物 zip 内未找到 middle.json/layout.json（服务端产物结构可能已变更，需要人工介入）")
 
 
 def _normalize_landing(unpacked: Path, output_dir: Path, stem: str,

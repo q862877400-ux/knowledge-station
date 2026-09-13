@@ -2197,7 +2197,12 @@ def create_app(token: str) -> FastAPI:
         conn = get_db_connection()
         rows = conn.execute(
             "SELECT dump_id, trigger_type, query, created_at, llm_output, logs"
-            " FROM debug_dump ORDER BY created_at DESC LIMIT ?", (limit,)).fetchall()
+            # 2026-09-14：rowid 作第二排序键。created_at 秒级精度下密集提问
+            # （全量测试/快节奏 GUI）同秒平局，无 tie-breaker 时 SQLite 返回
+            # 顺序不定——dumps[0] 可能拿到先写入的旧 dump（test_phase8 全量
+            # 套件偶发红的根因）。rowid 单调递增 = 写入序，语义正确。
+            " FROM debug_dump ORDER BY created_at DESC, rowid DESC LIMIT ?",
+            (limit,)).fetchall()
         return {"code": 200, "data": [dict(r) for r in rows]}
 
     def _expand_title_clauses(evidences: list) -> list:

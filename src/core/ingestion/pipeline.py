@@ -209,6 +209,11 @@ class MidItem:
     # 2026-09-01 C2 插图：MinerU image_body 的 image_path 相对引用
     # （images/<sha256>.jpg，与 middle.json 同层）。
     image_path: str | None = None
+    # 2026-09-14（执行计划 v3 阶段 2a）：OCR span 真实置信度聚合（min，
+    # 最弱环节原则——评审裁决）。深度通道 middle.json 的 span 自带
+    # score（PP-OCR rec 置信度），文本层路径无此信号 → None（不参与
+    # 质量分推导，启发式口径保持）。表/图条目为 None。
+    min_span_score: float | None = None
 
 
 def _spans_rows(node: dict) -> list[tuple[str, list[float] | None]]:
@@ -220,10 +225,18 @@ def _spans_rows(node: dict) -> list[tuple[str, list[float] | None]]:
     缺内容；逐 span '\\n' join → 一行内正文+公式被强行拆行）。公式 LaTeX
     转可读 Unicode 文本。空行（全 span 空内容）不产出。
     """
+    return [r for r in _spans_rows_scored(node) if r[0]]
+
+
+def _spans_rows_scored(node: dict) -> list[tuple[str, list[float] | None]]:
+    """_spans_rows 的带分底座：额外收集行内 span score 的 min（2026-09-14
+    阶段 2a，识别层真实置信度）。公式 span（MFR 产物）无 score，不参与；
+    文本层文档 span 无 score 字段 → 整块 None。空行不产出。"""
     from src.core.text_utils import latex_to_text
     rows: list[tuple[str, list[float] | None]] = []
     for line in node.get("lines") or []:
         parts: list[str] = []
+        scores: list[float] = []
         for span in line.get("spans") or []:
             st = span.get("type")
             content = span.get("content") or ""
@@ -231,6 +244,12 @@ def _spans_rows(node: dict) -> list[tuple[str, list[float] | None]]:
                 continue
             if st == "text":
                 parts.append(content)
+                sc = span.get("score")
+                if isinstance(sc, (int, float)):
+                    try:
+                        scores.append(float(sc))
+                    except (TypeError, ValueError):
+                        pass
             elif st in ("inline_equation", "interline_equation"):
                 # 2026-09-01 interline_equation（独立公式行）与 inline 同族：
                 # 此前只认 inline_equation，独立公式块（MinerU 抽成整块
@@ -238,11 +257,17 @@ def _spans_rows(node: dict) -> list[tuple[str, list[float] | None]]:
                 # 此处 parts 落空 → 整条公式从条目流蒸发（GB/T 24276 实测
                 # 24 条公式全部丢失，"公式没识别出来"根因）。同走
                 # latex_to_text → 可读 Unicode 文本行，作为独立行入库。
+                # score：MFR 公式置信度语义与文本 rec 不同，且公式质量已有
+                # 独立泄漏归一管线 → 不进 min 聚合。
                 parts.append(latex_to_text(content))
         if parts:
+            _g = node.setdefault("_ks_min_score", None)
+            if scores:
+                m = min(scores)
+                node["_ks_min_score"] = m if _g is None else min(_g, m)
             rows.append(("".join(parts).strip(),
                          list(line["bbox"]) if line.get("bbox") else None))
-    return [(t, b) for t, b in rows if t]
+    return rows
 
 
 def _spans_text(node: dict) -> str:
@@ -328,10 +353,14 @@ def load_middle_items(middle_path: Path) -> tuple[list[MidItem], dict[int, tuple
                     text_rows = _spans_rows(block)
                     text = "\n".join(t for t, _ in text_rows)
                     if text:
-                        items.append(MidItem(kind="title" if btype == "title" else "text",
-                                             text=text, page_idx=pidx,
-                                             bbox=list(block.get("bbox", [])),
-                                             line_boxes=[b for _, b in text_rows]))
+                        # 2026-09-14 阶段 2a：_spans_rows 内部已把 span score
+                        # min 写进 block["_ks_min_score"]（见 _spans_rows_scored）
+                        items.append(MidItem(
+                            kind="title" if btype == "title" else "text",
+                            text=text, page_idx=pidx,
+                            bbox=list(block.get("bbox", [])),
+                            line_boxes=[b for _, b in text_rows],
+                            min_span_score=block.get("_ks_min_score")))
     return items, page_sizes
 
 
@@ -747,6 +776,15 @@ def build_clause_models(doc_id: str, standard_no: str, doc_type: str,
         content = space_clause_numbers_text(
             sup_unit_exponents_text(_pua_dash(content)))
         tc = classify_clause(content, doc_type=doc_type)
+        # 2026-09-14（执行计划 v3 阶段 2a）：识别层真实置信度首次接入
+        # clause_revision.ocr_confidence（此前恒 1.0 无生产者——quality/
+        # recognition.py 模块注释记录的假绿问题）。聚合 = min（最弱环节
+        # 原则，评审裁决）：条款内任一文本 span 的 PP-OCR rec score 取最小。
+        # 文本层文档 span 无 score（min_span_score=None）→ 保持 1.0 不变
+        # （启发式预览口径不受扰，dry_run 路径行为不变）。
+        span_scores = [it.min_span_score for it in cl.items
+                       if it.min_span_score is not None]
+        ocr_conf = (round(min(span_scores), 4) if span_scores else 1.0)
         cid = f"clrev_{ULID()}"
         number_to_id[cl.number] = cid
         pages = [it.page_idx + 1 for it in cl.items]
@@ -818,6 +856,7 @@ def build_clause_models(doc_id: str, standard_no: str, doc_type: str,
             cross_refs=tc.cross_refs,
             is_mandatory=tc.is_mandatory,
             is_suspicious=tc.is_suspicious,
+            ocr_confidence=ocr_conf,
             page_start=min(pages), page_end=max(pages),
             page_breaks=page_breaks or None,
             figure_html=fig_html or None,

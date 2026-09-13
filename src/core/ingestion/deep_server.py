@@ -412,11 +412,15 @@ def _run_batch(job_dir: Path, claimed: list) -> None:  # pragma: no cover
     print(f"[deep-server] 批次开始 {len(specs)} 本："
           f"{[Path(s['pdf']).name[:40] for s in specs]}", flush=True)
     t0 = time.monotonic()
+    # 2026-09-14（执行计划 v3 阶段 1）：OCR 识别档位 ch → ch_server
+    # （PP-OCRv6 small_rec → medium_rec，模型已在 modelscope 缓存，mineru
+    #  PUBLIC_OCR_LANGUAGES 官方支持）。A/B 验收：9 历史文档冻结旧度量，
+    # 吞吐劣化 >30% 回退（改回本词即回滚）。
     try:
         with _gpu_deep_lock():
             do_parse(str(out_root), names,
                      [Path(s["pdf"]).read_bytes() for s in specs],
-                     ["ch"] * len(specs), backend="pipeline",
+                     ["ch_server"] * len(specs), backend="pipeline",
                      parse_method="auto", f_draw_layout_bbox=False,
                      f_draw_span_bbox=False, f_dump_orig_pdf=False,
                      f_dump_model_output=False)

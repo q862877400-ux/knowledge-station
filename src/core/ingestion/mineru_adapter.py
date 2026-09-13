@@ -354,7 +354,10 @@ def _mineru_deep_analyze(pdf_path: Path, output_dir: Path) -> Dict[str, Any] | N
             with _gpu_deep_lock():
                 logger.info("GPU deep 上卡 (%s, 排队 %.1fs)",
                             pdf_path.name, time.monotonic() - t_lock)
-                do_parse(str(out_dir), [pdf_path.stem], [pdf_path.read_bytes()], ["ch"],
+                # 2026-09-14（执行计划 v3 阶段 1）：ch → ch_server（v6 medium_rec），
+                # 与 deep_server.py 批量通道同步升档。
+                do_parse(str(out_dir), [pdf_path.stem], [pdf_path.read_bytes()],
+                         ["ch_server"],
                          backend="pipeline", parse_method="auto",
                          f_draw_layout_bbox=False, f_draw_span_bbox=False,
                          f_dump_orig_pdf=False, f_dump_model_output=False)
