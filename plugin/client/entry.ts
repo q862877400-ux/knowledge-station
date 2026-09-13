@@ -26,8 +26,6 @@ import type { TabDescriptor } from 'dsh-better-sidebar/client/service'
 
 import { KsEvidenceTab } from './KsEvidenceTab'
 import { KsBookmarksTab, KS_BOOKMARKS_TAB_ID } from './KsBookmarksTab'
-import { KsReportTab, KS_REPORT_TAB_ID } from './KsReportTab'
-import { KsIngestTab, KS_INGEST_TAB_ID } from './KsIngestTab'
 import { KsSettingsSection } from './KsSettingsSection'
 
 import { reportBetterSidebarCompat } from './bsContract'
@@ -235,7 +233,8 @@ function readService<T>(ctx: Ctx, name: string): T | undefined {
   }
 }
 
-/** better-sidebar 存在时才注册的表面：4 个 tab + 设置栏目 + 证据链接接管。 */
+/** better-sidebar 存在时才注册的表面：2 个 tab（证据 PDF / 收藏）+ 设置栏目（含
+ *  效力报告与入库预览两个内嵌折叠面板，2026-11 迁入）+ 证据链接接管。 */
 function registerBetterSidebarSurfaces(ctx: Ctx, bs: BetterSidebar): (() => void) | undefined {
   const disposer = ctx.effect(
     () => {
@@ -251,7 +250,8 @@ function registerBetterSidebarSurfaces(ctx: Ctx, bs: BetterSidebar): (() => void
       })
 
       // 增强③-A: 收藏 tab（列出引擎收藏的条款，可跳转/删除）。图标 🔖 即语义，
-      // 标题不带重复 emoji。
+      // 标题不带重复 emoji。（2026-11 效力报告/入库预览迁入设置栏目后，侧栏
+      // tab 只剩证据 PDF 与收藏——收藏依用户指示原样保留不动。）
       const disposeBookmarks = bs.registerTab({
         id: KS_BOOKMARKS_TAB_ID,
         title: '收藏',
@@ -260,23 +260,10 @@ function registerBetterSidebarSurfaces(ctx: Ctx, bs: BetterSidebar): (() => void
         component: (props) => createElement(KsBookmarksTab, props),
       })
 
-      // 效力报告（决策 21 修订版）：库内效力现状，按文件目录分类体系（永不混排）。
-      const disposeReport = bs.registerTab({
-        id: KS_REPORT_TAB_ID,
-        title: '效力报告',
-        single: true,
-        icon: (size: number) => createElement('span', { style: { fontSize: size } }, '📋'),
-        component: (props) => createElement(KsReportTab, props),
-      })
-
-      // 入库预览（R27 Dry-Run，2026-09-11）：只读体检 + ✅/⚠️/❌ 分桶，供人工确认后再入库。
-      const disposeIngest = bs.registerTab({
-        id: KS_INGEST_TAB_ID,
-        title: '入库预览',
-        single: true,
-        icon: (size: number) => createElement('span', { style: { fontSize: size } }, '📥'),
-        component: (props) => createElement(KsIngestTab, props),
-      })
+      // 效力报告 / 入库预览（2026-11 迁移）：不再注册为侧栏 tab——用户拍板
+      // 「全部放进设置的菜单里，类目全折叠」。两面板现在由 KsSettingsSection
+      // 的同名 <details> 类目承载（懒加载：收起零请求，展开才拉数据）。
+      // 引擎路由 /ks/report/*、/ks/ingest/* 与设置入口不变。
 
       // 「法规标准知识库」设置栏目的两处表面：
       //  (A) 顶层 `settings.section` —— 在 DSH 设置壳左侧新增一个名为「法规标准知识库」
@@ -348,13 +335,11 @@ function registerBetterSidebarSurfaces(ctx: Ctx, bs: BetterSidebar): (() => void
         document.removeEventListener('click', onClick, true)
         disposePdf()
         disposeBookmarks()
-        disposeReport()
-        disposeIngest()
         disposeSettingsCard()
         disposeSettings()
       }
     },
-    'ks-dsh-plugin: ks:pdf evidencetab + ks:bookmarks + ks:report + ks:settings section + card',
+    'ks-dsh-plugin: ks:pdf evidencetab + ks:bookmarks + ks:settings section + card',
   )
   return typeof disposer === 'function' ? disposer : undefined
 }

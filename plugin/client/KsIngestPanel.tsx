@@ -1,7 +1,8 @@
 /**
- * ks-dsh-plugin — client/KsIngestTab.tsx
+ * ks-dsh-plugin — client/KsIngestPanel.tsx
  *
- * 📥 入库预览 tab（tab id `ks:ingest`，single）：R27 Dry-Run 的人工确认界面。
+ * 📥 入库预览面板（R27 Dry-Run 的人工确认界面；2026-11 由侧栏 tab 迁入设置
+ * 栏目——用户拍板「全部进设置、类目全折叠」，收藏 tab 原样保留）。
  *
  * ## 它做什么
  *   1. 显示「待入库」目录（host 按需创建，浏览器无法浏览本机目录 → 必须给固定落点）；
@@ -9,6 +10,9 @@
  *   3. 「开始预览」→ 目录批量预览（决策 2：**先抽样几本**，默认 5），出 ✅/⚠️/❌ 三桶总账；
  *   4. 点某一行 → 拉该文件的 R27 完整报告（分级/裁决/前后 5 条样例/可疑清单/
  *      识别与版面指标/查重/标准号猜测）。
+ *
+ * 嵌入方式：由 KsSettingsSection 的「入库预览」<details> 类目承载——收起时
+ * `visible=false` 挂载但零请求；展开即拉收件箱清单。
  *
  * ## 它**不**做什么（本轮边界，UI 上也要如实告诉用户）
  *   - **不落库**：预览只读，正式入库（确认后原子写入）是下一里程碑；
@@ -22,7 +26,6 @@
 import * as React from 'react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-import type { TabComponentProps } from 'dsh-better-sidebar/client/service'
 import {
   abortIngestJob,
   fetchIngestBatch,
@@ -37,8 +40,11 @@ import {
   type KsIngestReport,
 } from './api'
 
-/** Tab id this component is registered under (see client/entry.ts). */
-export const KS_INGEST_TAB_ID = 'ks:ingest'
+/** 面板 props：宿主是 KsSettingsSection 的折叠类目。visible 由 <details
+ *  onToggle> 驱动——收起 = 挂载但零请求（懒加载门）。 */
+export interface KsIngestPanelProps {
+  visible: boolean
+}
 
 type LoadState =
   | { status: 'idle' }
@@ -187,7 +193,7 @@ function ReportDetail(props: { report: KsIngestReport }): JSX.Element {
   )
 }
 
-export function KsIngestTab(props: TabComponentProps): JSX.Element {
+export function KsIngestPanel(props: KsIngestPanelProps): JSX.Element {
   const { visible } = props
   const abortRef = useRef<AbortController | null>(null)
   const [dir, setDir] = useState<string>('')
@@ -325,8 +331,7 @@ export function KsIngestTab(props: TabComponentProps): JSX.Element {
     || detailState.status === 'loading'
 
   return (
-    <div style={{ padding: 12, fontSize: 13, overflow: 'auto', height: '100%' }}>
-      <div style={{ fontWeight: 600, marginBottom: 4 }}>📥 入库预览（Dry-Run）</div>
+    <div style={{ padding: '4px 0 2px', fontSize: 13 }}>
       <div style={noteStyle}>
         只读预览：<b>不写库、不移动文件、不外发</b>（深度通道已禁用）。
         扫描件会如实显示"无文本层"而不是偷偷上传到云解析。

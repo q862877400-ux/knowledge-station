@@ -27,10 +27,8 @@
 | tab/视图 | 内容 |
 |---|---|
 | 📖 证据 PDF | pdfjs 单页渲染 + 跳页 + 红色定位箭头（bbox 底部原点契约）+ 标题目录（纯悬浮 overlay）+ 文件目录（4 级分类树/搜索/多选批删）+ 最近证据互跳 |
-| 📊 效力报告 | 四色分组（🟢现行/🔴废止/🟡即将施行/⚪未知）+ 时间窗 + 导出 |
 | ⭐ 收藏 | 条款收藏列表 + 逐条删除 + 点击跳证据 PDF |
-| 📥 入库预览 | Dry-Run 预览 + 异步批量预览 jobs（✅/⚠️/❌ 分桶总账） |
-| 设置栏目「法规标准知识库」 | `settings.section` 顶层 nav（显示红箭头开关等）+ 「API 配置」栏目（LLM/云 OCR Key，引擎侧 DPAPI 加密存储） |
+| 设置栏目「法规标准知识库」 | `settings.section` 顶层 nav，**六个类目全折叠**（2026-11）：证据查看器（红箭头开关）· 效力报告（四色分组 🟢🔴🟡⚪ + 时间窗 + 导出，内嵌面板）· 入库预览（Dry-Run + 异步批量 jobs ✅/⚠️/❌，内嵌面板）· 每日巡检 · 公告发现 · API 配置（LLM/云 OCR Key，引擎侧 DPAPI 加密存储）。收起零请求，展开才拉数据 |
 
 斜杠命令（会话输入框）：`/forensic` 查法规模式（强制三段式）+ `/bookmarks` 仅收藏。
 
@@ -42,8 +40,8 @@ plugin/
   cordis.patch.yml    # bundle patch：insert 一行 ks-engine -> ks-dsh-plugin
   src/index.js        # 宿主桥：4 工具注册 + /ks/* 同源代理路由 + 引擎守护(ensureLive) + 异步 jobs 路由
   src/engine.js       # EngineManager：单实例判定 + 懒 spawn + 健康轮询 + idle 30min 优雅关停
-  client/entry.ts     # tab 注册 + settings.section + 证据锚点接管
-  client/KsEvidenceTab.tsx / KsBookmarksTab.tsx / KsFilesTab.tsx / KsEffectReportTab.tsx / KsIngestTab.tsx / KsSettingsSection.tsx / ApiConfigPanel.tsx
+  client/entry.ts     # tab 注册（证据 PDF + 收藏）+ settings.section（含内嵌效力报告/入库预览）+ 证据锚点接管
+  client/KsEvidenceTab.tsx / KsBookmarksTab.tsx / KsFilesTab.tsx / KsReportPanel.tsx / KsIngestPanel.tsx / KsSettingsSection.tsx / ApiConfigPanel.tsx
   client/api.ts       # 引擎 fetch 链（经宿主代理）；bsContract.ts / dsh-better-sidebar.d.ts（上游 0.18.0 契约）
   client.js           # esbuild 单文件产物（~1.1MB，DSH ModuleLoader 加载；git 跟踪）
   scripts/build-client.mjs  # 构建（改 client 后必跑）
@@ -90,7 +88,7 @@ npm run verify:commands   # 15 项命令回归
 ## 安装与验证状态
 
 - ✅ 已安装（staging junction 路径）并真实 host 加载；引擎懒加载符合预期；4 工具 + 5 tab + 设置栏目真机全通。
-- ✅ 真机已验证：蓝链点击 → PDF 跳页红箭头高亮（用户实测）、收藏互跳、效力报告、入库预览 egress:"none" 确证、斜杠命令。
+- ✅ 真机已验证：蓝链点击 → PDF 跳页红箭头高亮（用户实测）、收藏互跳、效力报告（设置栏目内嵌面板）、入库预览 egress:"none" 确证、斜杠命令。
 - ✅ 基线：仓库四门禁 828+3 / 10 段 / 15 项 / tsc 0 错误。
 
 ---

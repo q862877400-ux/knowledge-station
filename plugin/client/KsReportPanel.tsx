@@ -1,14 +1,18 @@
 /**
- * ks-dsh-plugin — client/KsReportTab.tsx
+ * ks-dsh-plugin — client/KsReportPanel.tsx
  *
- * 📋 效力报告 tab（决策 21 · 用户修订版）：按文件目录分类体系组织的库内效力
- * 现状——**永不混排**（用户拍板）。两棵树与文件目录同构（std：CCS 大类→区间→
- * 类目；law：效力等级→部门→领域），每级头部四色小计（收起态也能扫读问题大类）；
- * 文档行带色点+状态徽标+日期（有则显），点行直达 PDF 原文（证据伪源锚点机制
- * 同 KsBookmarksTab）。
+ * 📋 效力报告面板（2026-11 由侧栏 tab 迁入设置栏目，用户拍板「全部进设置、
+ * 类目全折叠」）：按文件目录分类体系组织的库内效力现状——**永不混排**（用户
+ * 拍板）。两棵树与文件目录同构（std：CCS 大类→区间→类目；law：效力等级→
+ * 部门→领域），每级头部四色小计（收起态也能扫读问题大类）；文档行带色点+
+ * 状态徽标+日期（有则显），点行直达 PDF 原文（证据伪源锚点机制同 KsBookmarksTab）。
+ *
+ * 嵌入方式：由 KsSettingsSection 的「效力报告」<details> 类目承载——收起时
+ * `visible=false`，挂载但零请求；展开（onToggle）即置 true 开始拉数据。
+ * 不再是独立 tab（ks:report 注册已撤销；收藏 tab 依用户指示原样保留）。
  *
  * 数据流（设计定案两级接口——全量万级 2.5-6MB 超 payload 红线被否）：
- *   - 打开 tab / 切换 chips → GET /ks/report/effect（骨架+统计，30-300KB）
+ *   - 打开 / 切换 chips → GET /ks/report/effect（骨架+统计，30-300KB）
  *   - 展开 L4 类目 → GET /ks/report/effect/docs（瘦身行 ≤1000，按节点缓存于
  *     组件 state，切窗口即弃——报告无跨会话状态）
  * 全程零 LLM；状态口径 = resolve_status 惰性翻转（与决策 22"只引现行"同源）。
@@ -16,8 +20,6 @@
 
 import * as React from 'react'
 import { useCallback, useEffect, useRef, useState } from 'react'
-
-import type { TabComponentProps } from 'dsh-better-sidebar/client/service'
 
 import {
   exportEffectReport,
@@ -30,9 +32,16 @@ import {
   type KsEffectWindow,
 } from './api'
 import { KS_EVIDENCE_TAB_ID, nextEvidenceClick } from './ksEvidence'
+import type { KsSettingsServiceFace } from './KsSettingsSection'
 
-/** Tab id this component is registered under (see client/entry.ts). */
-export const KS_REPORT_TAB_ID = 'ks:report'
+/** 面板 props：宿主是 KsSettingsSection 的折叠类目，不再是 better-sidebar tab。
+ *  - visible：由 <details onToggle> 驱动——收起 = 挂载但零请求（懒加载门）。
+ *  - service：betterSidebar 运行时服务（原 ctx.betterSidebar 的等价物），
+ *    点文档行跳 PDF 用；为 undefined 时行仍可读只是不可跳。 */
+export interface KsReportPanelProps {
+  visible: boolean
+  service?: KsSettingsServiceFace
+}
 
 const WINDOWS: { key: KsEffectWindow; label: string }[] = [
   { key: 'all', label: '全部' },
@@ -125,8 +134,8 @@ function DocRow({ doc, onOpenDoc }: { doc: KsEffectDoc; onOpenDoc: (docId: strin
   )
 }
 
-export function KsReportTab(props: TabComponentProps): JSX.Element {
-  const { ctx, visible } = props
+export function KsReportPanel(props: KsReportPanelProps): JSX.Element {
+  const { visible, service } = props
 
   const abortRef = useRef<AbortController | null>(null)
   const [win, setWin] = useState<KsEffectWindow>('all')
@@ -164,15 +173,18 @@ export function KsReportTab(props: TabComponentProps): JSX.Element {
 
   const onOpenDoc = useCallback((docId: string): void => {
     // 证据伪源锚点（仅 doc 参数 → PDF 查看器打开首页）；机制同 KsBookmarksTab。
+    // 嵌入设置栏目后导航走宿主注入的 service（betterSidebar 运行时服务）；
+    // 未注入（理论不可达，面板只由 KsSettingsSection 挂载）则诚实降级为不可跳。
+    if (service === undefined) return
     const url = `http://127.0.0.1:1/__ks_evidence__?doc=${encodeURIComponent(docId)}`
     try {
-      ctx.betterSidebar.openTab?.({ type: KS_EVIDENCE_TAB_ID, url })
-      ctx.betterSidebar.updateTab?.(KS_EVIDENCE_TAB_ID, {
+      service.openTab?.({ type: KS_EVIDENCE_TAB_ID, url })
+      service.updateTab?.(KS_EVIDENCE_TAB_ID, {
         path: url,
         meta: { ksClick: nextEvidenceClick() },
       })
     } catch { /* updateTab 可选；失败时首次 openTab 已能工作 */ }
-  }, [ctx])
+  }, [service])
 
   const toggle = (key: string): void => {
     setExpanded((prev) => {
@@ -283,11 +295,8 @@ export function KsReportTab(props: TabComponentProps): JSX.Element {
   }
 
   return (
-    <div style={{ padding: '12px 16px', overflowY: 'auto', height: '100%', boxSizing: 'border-box' }}>
+    <div style={{ padding: '4px 0 2px' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
-        <span style={{ fontWeight: 600, fontSize: 14, color: 'var(--dsw-alias-label-primary, #111)' }}>
-          📋 效力报告
-        </span>
         {report !== null && (
           <span style={{ fontSize: 12, color: 'var(--dsw-alias-label-secondary, #666)' }}>
             共 {report.total} 部（标准 {report.std.total} · 法规 {report.law.total}）· {fmtGenerated(report.generated_at)}
@@ -404,4 +413,4 @@ function fmtGenerated(v: string): string {
   return `生成于 ${hh}:${mi}`
 }
 
-export default KsReportTab
+export default KsReportPanel

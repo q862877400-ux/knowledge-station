@@ -61,16 +61,21 @@ import {
   updateAnnounceSource,
   updateInspectionSettings,
 } from './api'
+import { KsReportPanel } from './KsReportPanel'
+import { KsIngestPanel } from './KsIngestPanel'
 
-/** The betterSidebar slices this section needs (reactive prefs snapshot). */
+/** The betterSidebar slices this section needs (reactive prefs snapshot).
+ *  2026-11 面板迁入后新增 updateTab：效力报告文档行跳 PDF 查看器需要覆写单例
+ *  tab 的 path（同 entry.ts 证据链接接管的两步导航）。 */
 export interface KsSettingsServiceFace {
   getSnapshot(): {
     prefs: { pluginSettings?: Record<string, Record<string, unknown>> }
   }
   subscribeState(listener: () => void): () => void
-  /** 效力报告入口按钮用（runtime service IS the full betterSidebar service；
-   *  face 只收窄我们触碰的面——与 getSnapshot/subscribeState 同哲学）。 */
+  /** 打开（或聚焦单例）一个 tab——嵌入面板跳证据 PDF 用。 */
   openTab?(seed: { type: string; url?: string; title?: string }): void
+  /** Patch an open tab's display fields (a missing tab id is a no-op). */
+  updateTab?(tabId: string, patch: { title?: string; path?: string; meta?: Record<string, unknown> }): void
 }
 
 /** Injected business face: the betterSidebar service. */
@@ -124,10 +129,46 @@ async function commitShowArrow(service: KsSettingsServiceFace, next: boolean): P
 }
 
 /**
- * The「法规标准知识库」settings section body. Renders a single VISIBLE settings
- * row (showArrow) inline. Registered via `settings.section`; receives the
- * injected `{ service }`.
+ * The「法规标准知识库」settings section body. 所有类目一律 <details> 折叠
+ * （2026-11 用户拍板：「里面塞的东西太多了」）——收起时零请求、零渲染负担；
+ * summary 行给出一句副标帮助扫读。Registered via `settings.section`;
+ * receives the injected `{ service }`（betterSidebar 运行时服务——效力报告
+ * 面板跳 PDF 与红箭头开关都经它）。
  */
+
+/** 类目 summary 的统一副标样式（收起/展开都可读）。 */
+const SUMMARY_HINT: React.CSSProperties = {
+  marginLeft: 8, fontSize: 11, fontWeight: 400,
+  color: 'var(--dsw-alias-label-secondary, #888)',
+}
+
+/** 折叠类目包装：外框分隔线 + summary 标题行 + hint 副标。children 恒挂载
+ *  （details 语义），请求门由各面板自己的 visible prop（由 onToggle 驱动）
+ *  或各组的展开才拉模式保证。 */
+function KsCategory({ title, hint, open, onToggle, children }: {
+  title: string
+  hint?: React.ReactNode
+  open: boolean
+  onToggle: (next: boolean) => void
+  children: React.ReactNode
+}): JSX.Element {
+  return (
+    <details
+      open={open}
+      onToggle={(e) => onToggle((e.currentTarget as HTMLDetailsElement).open)}
+      style={{ borderTop: '1px solid var(--dsw-alias-border-l1, #eee)', marginTop: 4, paddingTop: 6 }}
+    >
+      <summary style={{ cursor: 'pointer', fontWeight: 600, color: 'var(--dsw-alias-label-primary, #111)', fontSize: 13, padding: '4px 0' }}>
+        {title}
+        {hint !== undefined && hint !== null ? <span style={SUMMARY_HINT}>{hint}</span> : null}
+      </summary>
+      <div style={{ paddingTop: 2 }}>
+        {children}
+      </div>
+    </details>
+  )
+}
+
 export function KsSettingsSection(props: KsSettingsSectionInjected): JSX.Element {
   const { service } = props
 
@@ -148,6 +189,17 @@ export function KsSettingsSection(props: KsSettingsSectionInjected): JSX.Element
   const [error, setError] = useState<string | null>(null)
   const shown = optimistic ?? stored
 
+  // 六个类目各自的展开态（全默认收起）。展开过的数据留在组件 state 里，
+  // 收起只是不再渲染/不再请求，不丢已拉到的快照。
+  const [arrowOpen, setArrowOpen] = useState(false)
+  const [reportOpen, setReportOpen] = useState(false)
+  const [ingestOpen, setIngestOpen] = useState(false)
+  const [inspectionOpen, setInspectionOpen] = useState(false)
+  const [inspectionOpenedOnce, setInspectionOpenedOnce] = useState(false)
+  const [announceOpen, setAnnounceOpen] = useState(false)
+  const [announceOpenedOnce, setAnnounceOpenedOnce] = useState(false)
+  const [apiOpen, setApiOpen] = useState(false)
+
   const onToggle = (next: boolean): void => {
     setOptimistic(next)
     setError(null)
@@ -163,48 +215,61 @@ export function KsSettingsSection(props: KsSettingsSectionInjected): JSX.Element
 
   return (
     <section style={{ padding: '8px 16px' }}>
-      <p style={{ margin: '0 0 10px', fontSize: 13, color: 'var(--dsw-alias-label-secondary, #666)' }}>
-        配置「法规标准知识库」插件在证据 PDF 中的行为。
+      <p style={{ margin: '0 0 8px', fontSize: 13, color: 'var(--dsw-alias-label-secondary, #666)' }}>
+        配置「法规标准知识库」插件：证据 PDF 行为、效力报告、入库预览与巡检。
+        各类目默认收起，点击展开。
       </p>
-      <label style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '10px 0', borderTop: '1px solid var(--dsw-alias-border-l1, #eee)' }}>
-        <span style={{ flex: 1 }}>
-          <span style={{ display: 'block', fontWeight: 600, color: 'var(--dsw-alias-label-primary, #111)' }}>显示红色定位箭头</span>
-          <span style={{ display: 'block', fontSize: 12, color: 'var(--dsw-alias-label-secondary, #666)' }}>
-            在 PDF 证据页用红箭头标出引用条款位置；关闭后仅跳页。
+
+      <KsCategory title="证据查看器" open={arrowOpen} onToggle={setArrowOpen} hint="红箭头定位开关">
+        <label style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 0' }}>
+          <span style={{ flex: 1 }}>
+            <span style={{ display: 'block', fontWeight: 600, color: 'var(--dsw-alias-label-primary, #111)' }}>显示红色定位箭头</span>
+            <span style={{ display: 'block', fontSize: 12, color: 'var(--dsw-alias-label-secondary, #666)' }}>
+              在 PDF 证据页用红箭头标出引用条款位置；关闭后仅跳页。
+            </span>
           </span>
-        </span>
-        <input
-          type="checkbox"
-          checked={shown}
-          disabled={saving}
-          aria-label="显示红色定位箭头"
-          onChange={(e) => onToggle(e.currentTarget.checked)}
-        />
-      </label>
-      {error !== null && (
-        <p role="alert" style={{ color: 'var(--dsw-alias-warn, #b8860b)', fontSize: 12 }}>
-          保存失败：{error}
-        </p>
-      )}
-      <KsInspectionPanel />
-      <KsAnnounceSourcesSection />
-      <KsApiConfigSection />
-      <div style={{ borderTop: '1px solid var(--dsw-alias-border-l1, #eee)', marginTop: 4, paddingTop: 6, display: 'flex', alignItems: 'center', gap: 10 }}>
-        <span style={{ flex: 1, fontSize: 12, color: 'var(--dsw-alias-label-secondary, #666)' }}>
-          效力报告：按文件目录分类查看库内效力现状（现行 / 即将实施 / 被替代 / 废止），可导出 Excel。
-        </span>
-        <button
-          type="button"
-          onClick={() => service.openTab?.({ type: 'ks:report', title: '效力报告' })}
-          style={{
-            padding: '4px 14px', borderRadius: 6, fontSize: 13,
-            border: '1px solid #7f7f7f', background: '#ffffff', color: '#111111',
-            cursor: 'pointer',
-          }}
-        >
-          📋 打开效力报告
-        </button>
-      </div>
+          <input
+            type="checkbox"
+            checked={shown}
+            disabled={saving}
+            aria-label="显示红色定位箭头"
+            onChange={(e) => onToggle(e.currentTarget.checked)}
+          />
+        </label>
+        {error !== null && (
+          <p role="alert" style={{ color: 'var(--dsw-alias-warn, #b8860b)', fontSize: 12 }}>
+            保存失败：{error}
+          </p>
+        )}
+      </KsCategory>
+
+      <KsCategory
+        title="效力报告"
+        open={reportOpen}
+        onToggle={setReportOpen}
+        hint="四色分组总览（🟢现行/🔴废止/🟡即将实施/⚪未知），可导出 Excel"
+      >
+        <KsReportPanel visible={reportOpen} service={service} />
+      </KsCategory>
+
+      <KsCategory
+        title="入库预览"
+        open={ingestOpen}
+        onToggle={setIngestOpen}
+        hint="入库前只读体检（✅/⚠️/❌ 分桶），不写库不外发"
+      >
+        <KsIngestPanel visible={ingestOpen} />
+      </KsCategory>
+
+      <KsCategory title="每日巡检" open={inspectionOpen} onToggle={(next) => { setInspectionOpen(next); setInspectionOpenedOnce(true) }} hint="关注标准对照官网公告">
+        <KsInspectionPanel openedOnce={inspectionOpenedOnce} />
+      </KsCategory>
+
+      <KsCategory title="公告发现" open={announceOpen} onToggle={(next) => { setAnnounceOpen(next); setAnnounceOpenedOnce(true) }} hint="自定义公告源扫描">
+        <KsAnnounceSourcesSection openedOnce={announceOpenedOnce} />
+      </KsCategory>
+
+      <KsApiConfigSection open={apiOpen} onOpenChange={setApiOpen} />
     </section>
   )
 }
@@ -273,7 +338,8 @@ function statusText(s: KsInspectionSummary): { text: string; tone: string } {
   }
 }
 
-function KsInspectionPanel(): JSX.Element {
+function KsInspectionPanel(props: { openedOnce: boolean }): JSX.Element {
+  const { openedOnce } = props
   const [summary, setSummary] = useState<KsInspectionSummary | null>(null)
   const [busy, setBusy] = useState(false)
   const [exporting, setExporting] = useState(false)
@@ -292,9 +358,11 @@ function KsInspectionPanel(): JSX.Element {
     }
   }, [])
 
+  // 折叠语义（2026-11 类目全折叠）：收起零请求；首次展开才拉 summary。
   useEffect(() => {
+    if (!openedOnce) return
     void load()
-  }, [load])
+  }, [openedOnce, load])
 
   // Running 期间自动轮询（链式 setTimeout，不重叠；离开 running 即停）。
   const isRunning = summary?.last?.status === 'running'
@@ -581,7 +649,8 @@ function sourceStatusText(p: KsAnnouncePerSource | undefined): string {
   return `⏸ ${p.reason ?? p.status}`
 }
 
-function KsAnnounceSourcesSection(): JSX.Element {
+function KsAnnounceSourcesSection(props: { openedOnce: boolean }): JSX.Element {
+  const { openedOnce } = props
   const [summary, setSummary] = useState<KsAnnounceSummary | null>(null)
   const [scanning, setScanning] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -603,9 +672,12 @@ function KsAnnounceSourcesSection(): JSX.Element {
     }
   }, [])
 
+  // 折叠语义（2026-11 类目全折叠）：收起零请求；首次展开才拉 summary。
+  // 源管理子 details 原本就是展开才拉清单，与此正交。
   useEffect(() => {
+    if (!openedOnce) return
     void load()
-  }, [load])
+  }, [openedOnce, load])
 
   // 扫描 running 期间自动轮询（链式 setTimeout 不重叠）
   const isRunning = summary?.last?.status === 'running'
@@ -926,7 +998,8 @@ function btnStyle(disabled: boolean): React.CSSProperties {
   }
 }
 
-function KsApiConfigSection(): JSX.Element {
+function KsApiConfigSection(props: { open: boolean; onOpenChange: (next: boolean) => void }): JSX.Element {
+  const { open, onOpenChange } = props
   const [status, setStatus] = useState<KsApiConfigStatus | null>(null)
   const [err, setErr] = useState<string | null>(null)
   const [busy, setBusy] = useState<string | null>(null)
@@ -944,6 +1017,15 @@ function KsApiConfigSection(): JSX.Element {
       setErr(e instanceof Error ? e.message : String(e))
     }
   }, [])
+
+  // 首次展开才拉配置状态（原 details 上的展开才拉；2026-11 open 提升到父级
+  // 后改由 props 驱动。收起零请求；再收起/再展开不重复拉）。
+  const [openedOnce, setOpenedOnce] = useState(false)
+  useEffect(() => {
+    if (!open || openedOnce) return
+    setOpenedOnce(true)
+    void load()
+  }, [open, openedOnce, load])
 
   const onSave = async (ch: KsApiChannel, key: string, url: string): Promise<void> => {
     const payload: { mineru_cloud?: { api_key?: string; base_url?: string }; llm?: { api_key?: string; base_url?: string } } = {}
@@ -1049,29 +1131,30 @@ function KsApiConfigSection(): JSX.Element {
   }
 
   return (
-    <div style={{ borderTop: '1px solid var(--dsw-alias-border-l1, #eee)', marginTop: 4, paddingTop: 6 }}>
-      <details onToggle={(e) => {
-        if ((e.currentTarget as HTMLDetailsElement).open && status === null) void load()
-      }}>
-        <summary style={{ cursor: 'pointer', fontWeight: 600, color: 'var(--dsw-alias-label-primary, #111)', fontSize: 13 }}>
-          API配置
-          {status !== null && (
-            <span style={{ marginLeft: 8, fontSize: 11, fontWeight: 400, color: status.mineru_cloud.configured ? '#2e7d32' : '#888' }}>
-              云 OCR {status.mineru_cloud.configured ? '已配置' : '未配置'}
-            </span>
-          )}
-        </summary>
-        <p style={{ margin: '6px 0 0', fontSize: 12, color: 'var(--dsw-alias-label-secondary, #666)' }}>
-          配置云 OCR Key 后，导入文件优先走云解析、本地兜底；未配置则直接走本地通道（纯本地不外发）。
-          凭据只写入本机加密存储（Windows DPAPI，secrets.json），不回显、不入库。
-        </p>
-        {chan('mineru_cloud', '☁️ 云 OCR（MinerU 官方云）', cloudKey, setCloudKey, cloudUrl, setCloudUrl)}
-        {chan('llm', '🤖 LLM 问答通道', llmKey, setLlmKey, llmUrl, setLlmUrl)}
-        {err !== null && (
-          <p role="alert" style={{ color: '#c0392b', fontSize: 12, margin: '6px 0 0' }}>{err}</p>
+    <details
+      open={open}
+      onToggle={(e) => onOpenChange((e.currentTarget as HTMLDetailsElement).open)}
+      style={{ borderTop: '1px solid var(--dsw-alias-border-l1, #eee)', marginTop: 4, paddingTop: 6 }}
+    >
+      <summary style={{ cursor: 'pointer', fontWeight: 600, color: 'var(--dsw-alias-label-primary, #111)', fontSize: 13, padding: '4px 0' }}>
+        API配置
+        <span style={SUMMARY_HINT}>云 OCR / LLM 凭据（加密存储）</span>
+        {status !== null && (
+          <span style={{ marginLeft: 8, fontSize: 11, fontWeight: 400, color: status.mineru_cloud.configured ? '#2e7d32' : '#888' }}>
+            云 OCR {status.mineru_cloud.configured ? '已配置' : '未配置'}
+          </span>
         )}
-      </details>
-    </div>
+      </summary>
+      <p style={{ margin: '6px 0 0', fontSize: 12, color: 'var(--dsw-alias-label-secondary, #666)' }}>
+        配置云 OCR Key 后，导入文件优先走云解析、本地兜底；未配置则直接走本地通道（纯本地不外发）。
+        凭据只写入本机加密存储（Windows DPAPI，secrets.json），不回显、不入库。
+      </p>
+      {chan('mineru_cloud', '☁️ 云 OCR（MinerU 官方云）', cloudKey, setCloudKey, cloudUrl, setCloudUrl)}
+      {chan('llm', '🤖 LLM 问答通道', llmKey, setLlmKey, llmUrl, setLlmUrl)}
+      {err !== null && (
+        <p role="alert" style={{ color: '#c0392b', fontSize: 12, margin: '6px 0 0' }}>{err}</p>
+      )}
+    </details>
   )
 }
 

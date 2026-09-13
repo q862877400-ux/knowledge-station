@@ -30458,10 +30458,12 @@ var $btnDelete = {
   flexShrink: 0
 };
 
-// client/KsReportTab.tsx
+// client/KsSettingsSection.tsx
+var import_react7 = require("react");
+
+// client/KsReportPanel.tsx
 var import_react5 = require("react");
 var import_jsx_runtime5 = require("react/jsx-runtime");
-var KS_REPORT_TAB_ID = "ks:report";
 var WINDOWS = [
   { key: "all", label: "\u5168\u90E8" },
   { key: "upcoming90", label: "\u5373\u5C06\u5B9E\u65BD 90 \u5929" },
@@ -30553,8 +30555,8 @@ function DocRow({ doc, onOpenDoc }) {
     }
   );
 }
-function KsReportTab(props) {
-  const { ctx, visible } = props;
+function KsReportPanel(props) {
+  const { visible, service } = props;
   const abortRef = (0, import_react5.useRef)(null);
   const [win, setWin] = (0, import_react5.useState)("all");
   const [colorFilter, setColorFilter] = (0, import_react5.useState)("");
@@ -30588,16 +30590,17 @@ function KsReportTab(props) {
     };
   }, [visible, win, colorFilter, load]);
   const onOpenDoc = (0, import_react5.useCallback)((docId) => {
+    if (service === void 0) return;
     const url = `http://127.0.0.1:1/__ks_evidence__?doc=${encodeURIComponent(docId)}`;
     try {
-      ctx.betterSidebar.openTab?.({ type: KS_EVIDENCE_TAB_ID, url });
-      ctx.betterSidebar.updateTab?.(KS_EVIDENCE_TAB_ID, {
+      service.openTab?.({ type: KS_EVIDENCE_TAB_ID, url });
+      service.updateTab?.(KS_EVIDENCE_TAB_ID, {
         path: url,
         meta: { ksClick: nextEvidenceClick() }
       });
     } catch {
     }
-  }, [ctx]);
+  }, [service]);
   const toggle = (key) => {
     setExpanded((prev) => {
       const next = { ...prev, [key]: !(prev[key] === true) };
@@ -30692,9 +30695,8 @@ function KsReportTab(props) {
     }
     return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { children: docs.map((d) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(DocRow, { doc: d, onOpenDoc: open }, d.doc_id ?? d.standard_no ?? Math.random())) });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { style: { padding: "12px 16px", overflowY: "auto", height: "100%", boxSizing: "border-box" }, children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { style: { padding: "4px 0 2px" }, children: [
     /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { style: { fontWeight: 600, fontSize: 14, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u{1F4CB} \u6548\u529B\u62A5\u544A" }),
       report !== null && /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("span", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
         "\u5171 ",
         report.total,
@@ -30797,10 +30799,9 @@ function fmtGenerated(v) {
   return `\u751F\u6210\u4E8E ${hh}:${mi}`;
 }
 
-// client/KsIngestTab.tsx
+// client/KsIngestPanel.tsx
 var import_react6 = require("react");
 var import_jsx_runtime6 = require("react/jsx-runtime");
-var KS_INGEST_TAB_ID = "ks:ingest";
 var VERDICT_META = {
   ok: { icon: "\u2705", label: "\u53EF\u5165\u5E93", color: "#1a7f37" },
   warn: { icon: "\u26A0\uFE0F", label: "\u9700\u4EBA\u5DE5\u786E\u8BA4", color: "#9a6700" },
@@ -30968,7 +30969,7 @@ function ReportDetail(props) {
     ] }) : null
   ] });
 }
-function KsIngestTab(props) {
+function KsIngestPanel(props) {
   const { visible } = props;
   const abortRef = (0, import_react6.useRef)(null);
   const [dir, setDir] = (0, import_react6.useState)("");
@@ -31084,8 +31085,7 @@ function KsIngestTab(props) {
   }, [job]);
   (0, import_react6.useEffect)(() => () => stopJobPolling(), [stopJobPolling]);
   const busy = listState.status === "loading" || batchState.status === "loading" || detailState.status === "loading";
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { style: { padding: 12, fontSize: 13, overflow: "auto", height: "100%" }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { style: { fontWeight: 600, marginBottom: 4 }, children: "\u{1F4E5} \u5165\u5E93\u9884\u89C8\uFF08Dry-Run\uFF09" }),
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { style: { padding: "4px 0 2px", fontSize: 13 }, children: [
     /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { style: noteStyle, children: [
       "\u53EA\u8BFB\u9884\u89C8\uFF1A",
       /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("b", { children: "\u4E0D\u5199\u5E93\u3001\u4E0D\u79FB\u52A8\u6587\u4EF6\u3001\u4E0D\u5916\u53D1" }),
@@ -31319,7 +31319,6 @@ function KsIngestTab(props) {
 }
 
 // client/KsSettingsSection.tsx
-var import_react7 = require("react");
 var import_jsx_runtime7 = require("react/jsx-runtime");
 var KS_SETTINGS_PREFS_KEY = "ks:settings";
 var KS_SHOW_ARROW_KEY = "showArrow";
@@ -31358,6 +31357,29 @@ async function commitShowArrow(service, next) {
     throw new Error(err?.error?.message ?? `HTTP ${res.status}`);
   }
 }
+var SUMMARY_HINT = {
+  marginLeft: 8,
+  fontSize: 11,
+  fontWeight: 400,
+  color: "var(--dsw-alias-label-secondary, #888)"
+};
+function KsCategory({ title, hint, open, onToggle, children }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+    "details",
+    {
+      open,
+      onToggle: (e) => onToggle(e.currentTarget.open),
+      style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 },
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("summary", { style: { cursor: "pointer", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)", fontSize: 13, padding: "4px 0" }, children: [
+          title,
+          hint !== void 0 && hint !== null ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: SUMMARY_HINT, children: hint }) : null
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { style: { paddingTop: 2 }, children })
+      ]
+    }
+  );
+}
 function KsSettingsSection(props) {
   const { service } = props;
   const stored = (0, import_react7.useSyncExternalStore)(
@@ -31371,6 +31393,14 @@ function KsSettingsSection(props) {
   const [saving, setSaving] = (0, import_react7.useState)(false);
   const [error, setError] = (0, import_react7.useState)(null);
   const shown = optimistic ?? stored;
+  const [arrowOpen, setArrowOpen] = (0, import_react7.useState)(false);
+  const [reportOpen, setReportOpen] = (0, import_react7.useState)(false);
+  const [ingestOpen, setIngestOpen] = (0, import_react7.useState)(false);
+  const [inspectionOpen, setInspectionOpen] = (0, import_react7.useState)(false);
+  const [inspectionOpenedOnce, setInspectionOpenedOnce] = (0, import_react7.useState)(false);
+  const [announceOpen, setAnnounceOpen] = (0, import_react7.useState)(false);
+  const [announceOpenedOnce, setAnnounceOpenedOnce] = (0, import_react7.useState)(false);
+  const [apiOpen, setApiOpen] = (0, import_react7.useState)(false);
   const onToggle = (next) => {
     setOptimistic(next);
     setError(null);
@@ -31385,50 +31415,58 @@ function KsSettingsSection(props) {
     });
   };
   return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("section", { style: { padding: "8px 16px" }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "0 0 10px", fontSize: 13, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u914D\u7F6E\u300C\u6CD5\u89C4\u6807\u51C6\u77E5\u8BC6\u5E93\u300D\u63D2\u4EF6\u5728\u8BC1\u636E PDF \u4E2D\u7684\u884C\u4E3A\u3002" }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 10, padding: "10px 0", borderTop: "1px solid var(--dsw-alias-border-l1, #eee)" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { style: { flex: 1 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: { display: "block", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u663E\u793A\u7EA2\u8272\u5B9A\u4F4D\u7BAD\u5934" }),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: { display: "block", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u5728 PDF \u8BC1\u636E\u9875\u7528\u7EA2\u7BAD\u5934\u6807\u51FA\u5F15\u7528\u6761\u6B3E\u4F4D\u7F6E\uFF1B\u5173\u95ED\u540E\u4EC5\u8DF3\u9875\u3002" })
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "0 0 8px", fontSize: 13, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u914D\u7F6E\u300C\u6CD5\u89C4\u6807\u51C6\u77E5\u8BC6\u5E93\u300D\u63D2\u4EF6\uFF1A\u8BC1\u636E PDF \u884C\u4E3A\u3001\u6548\u529B\u62A5\u544A\u3001\u5165\u5E93\u9884\u89C8\u4E0E\u5DE1\u68C0\u3002 \u5404\u7C7B\u76EE\u9ED8\u8BA4\u6536\u8D77\uFF0C\u70B9\u51FB\u5C55\u5F00\u3002" }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(KsCategory, { title: "\u8BC1\u636E\u67E5\u770B\u5668", open: arrowOpen, onToggle: setArrowOpen, hint: "\u7EA2\u7BAD\u5934\u5B9A\u4F4D\u5F00\u5173", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 10, padding: "8px 0" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { style: { flex: 1 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: { display: "block", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u663E\u793A\u7EA2\u8272\u5B9A\u4F4D\u7BAD\u5934" }),
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: { display: "block", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u5728 PDF \u8BC1\u636E\u9875\u7528\u7EA2\u7BAD\u5934\u6807\u51FA\u5F15\u7528\u6761\u6B3E\u4F4D\u7F6E\uFF1B\u5173\u95ED\u540E\u4EC5\u8DF3\u9875\u3002" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+          "input",
+          {
+            type: "checkbox",
+            checked: shown,
+            disabled: saving,
+            "aria-label": "\u663E\u793A\u7EA2\u8272\u5B9A\u4F4D\u7BAD\u5934",
+            onChange: (e) => onToggle(e.currentTarget.checked)
+          }
+        )
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-        "input",
-        {
-          type: "checkbox",
-          checked: shown,
-          disabled: saving,
-          "aria-label": "\u663E\u793A\u7EA2\u8272\u5B9A\u4F4D\u7BAD\u5934",
-          onChange: (e) => onToggle(e.currentTarget.checked)
-        }
-      )
+      error !== null && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { role: "alert", style: { color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
+        "\u4FDD\u5B58\u5931\u8D25\uFF1A",
+        error
+      ] })
     ] }),
-    error !== null && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { role: "alert", style: { color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
-      "\u4FDD\u5B58\u5931\u8D25\uFF1A",
-      error
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(KsInspectionPanel, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(KsAnnounceSourcesSection, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(KsApiConfigSection, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6, display: "flex", alignItems: "center", gap: 10 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: { flex: 1, fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6548\u529B\u62A5\u544A\uFF1A\u6309\u6587\u4EF6\u76EE\u5F55\u5206\u7C7B\u67E5\u770B\u5E93\u5185\u6548\u529B\u73B0\u72B6\uFF08\u73B0\u884C / \u5373\u5C06\u5B9E\u65BD / \u88AB\u66FF\u4EE3 / \u5E9F\u6B62\uFF09\uFF0C\u53EF\u5BFC\u51FA Excel\u3002" }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-        "button",
-        {
-          type: "button",
-          onClick: () => service.openTab?.({ type: "ks:report", title: "\u6548\u529B\u62A5\u544A" }),
-          style: {
-            padding: "4px 14px",
-            borderRadius: 6,
-            fontSize: 13,
-            border: "1px solid #7f7f7f",
-            background: "#ffffff",
-            color: "#111111",
-            cursor: "pointer"
-          },
-          children: "\u{1F4CB} \u6253\u5F00\u6548\u529B\u62A5\u544A"
-        }
-      )
-    ] })
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+      KsCategory,
+      {
+        title: "\u6548\u529B\u62A5\u544A",
+        open: reportOpen,
+        onToggle: setReportOpen,
+        hint: "\u56DB\u8272\u5206\u7EC4\u603B\u89C8\uFF08\u{1F7E2}\u73B0\u884C/\u{1F534}\u5E9F\u6B62/\u{1F7E1}\u5373\u5C06\u5B9E\u65BD/\u26AA\u672A\u77E5\uFF09\uFF0C\u53EF\u5BFC\u51FA Excel",
+        children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(KsReportPanel, { visible: reportOpen, service })
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+      KsCategory,
+      {
+        title: "\u5165\u5E93\u9884\u89C8",
+        open: ingestOpen,
+        onToggle: setIngestOpen,
+        hint: "\u5165\u5E93\u524D\u53EA\u8BFB\u4F53\u68C0\uFF08\u2705/\u26A0\uFE0F/\u274C \u5206\u6876\uFF09\uFF0C\u4E0D\u5199\u5E93\u4E0D\u5916\u53D1",
+        children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(KsIngestPanel, { visible: ingestOpen })
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(KsCategory, { title: "\u6BCF\u65E5\u5DE1\u68C0", open: inspectionOpen, onToggle: (next) => {
+      setInspectionOpen(next);
+      setInspectionOpenedOnce(true);
+    }, hint: "\u5173\u6CE8\u6807\u51C6\u5BF9\u7167\u5B98\u7F51\u516C\u544A", children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(KsInspectionPanel, { openedOnce: inspectionOpenedOnce }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(KsCategory, { title: "\u516C\u544A\u53D1\u73B0", open: announceOpen, onToggle: (next) => {
+      setAnnounceOpen(next);
+      setAnnounceOpenedOnce(true);
+    }, hint: "\u81EA\u5B9A\u4E49\u516C\u544A\u6E90\u626B\u63CF", children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(KsAnnounceSourcesSection, { openedOnce: announceOpenedOnce }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(KsApiConfigSection, { open: apiOpen, onOpenChange: setApiOpen })
   ] });
 }
 var COUNT_LABELS = {
@@ -31473,7 +31511,8 @@ function statusText(s) {
       return { text: "\u4E0A\u6B21\u5DE1\u68C0\u72B6\u6001\u672A\u77E5", tone: "var(--dsw-alias-label-secondary, #666)" };
   }
 }
-function KsInspectionPanel() {
+function KsInspectionPanel(props) {
+  const { openedOnce } = props;
   const [summary, setSummary] = (0, import_react7.useState)(null);
   const [busy, setBusy] = (0, import_react7.useState)(false);
   const [exporting, setExporting] = (0, import_react7.useState)(false);
@@ -31490,8 +31529,9 @@ function KsInspectionPanel() {
     }
   }, []);
   (0, import_react7.useEffect)(() => {
+    if (!openedOnce) return;
     void load();
-  }, [load]);
+  }, [openedOnce, load]);
   const isRunning = summary?.last?.status === "running";
   (0, import_react7.useEffect)(() => {
     if (!isRunning) return;
@@ -31723,7 +31763,8 @@ function sourceStatusText(p) {
   }
   return `\u23F8 ${p.reason ?? p.status}`;
 }
-function KsAnnounceSourcesSection() {
+function KsAnnounceSourcesSection(props) {
+  const { openedOnce } = props;
   const [summary, setSummary] = (0, import_react7.useState)(null);
   const [scanning, setScanning] = (0, import_react7.useState)(false);
   const [error, setError] = (0, import_react7.useState)(null);
@@ -31744,8 +31785,9 @@ function KsAnnounceSourcesSection() {
     }
   }, []);
   (0, import_react7.useEffect)(() => {
+    if (!openedOnce) return;
     void load();
-  }, [load]);
+  }, [openedOnce, load]);
   const isRunning = summary?.last?.status === "running";
   (0, import_react7.useEffect)(() => {
     if (!isRunning) return;
@@ -32031,7 +32073,8 @@ function btnStyle3(disabled) {
     cursor: disabled ? "default" : "pointer"
   };
 }
-function KsApiConfigSection() {
+function KsApiConfigSection(props) {
+  const { open, onOpenChange } = props;
   const [status, setStatus] = (0, import_react7.useState)(null);
   const [err, setErr] = (0, import_react7.useState)(null);
   const [busy, setBusy] = (0, import_react7.useState)(null);
@@ -32048,6 +32091,12 @@ function KsApiConfigSection() {
       setErr(e instanceof Error ? e.message : String(e));
     }
   }, []);
+  const [openedOnce, setOpenedOnce] = (0, import_react7.useState)(false);
+  (0, import_react7.useEffect)(() => {
+    if (!open || openedOnce) return;
+    setOpenedOnce(true);
+    void load();
+  }, [open, openedOnce, load]);
   const onSave = async (ch, key, url) => {
     const payload = {};
     const sec = {};
@@ -32162,21 +32211,28 @@ function KsApiConfigSection() {
       ] })
     ] });
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 }, children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("details", { onToggle: (e) => {
-    if (e.currentTarget.open && status === null) void load();
-  }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("summary", { style: { cursor: "pointer", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)", fontSize: 13 }, children: [
-      "API\u914D\u7F6E",
-      status !== null && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { style: { marginLeft: 8, fontSize: 11, fontWeight: 400, color: status.mineru_cloud.configured ? "#2e7d32" : "#888" }, children: [
-        "\u4E91 OCR ",
-        status.mineru_cloud.configured ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E"
-      ] })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "6px 0 0", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u914D\u7F6E\u4E91 OCR Key \u540E\uFF0C\u5BFC\u5165\u6587\u4EF6\u4F18\u5148\u8D70\u4E91\u89E3\u6790\u3001\u672C\u5730\u515C\u5E95\uFF1B\u672A\u914D\u7F6E\u5219\u76F4\u63A5\u8D70\u672C\u5730\u901A\u9053\uFF08\u7EAF\u672C\u5730\u4E0D\u5916\u53D1\uFF09\u3002 \u51ED\u636E\u53EA\u5199\u5165\u672C\u673A\u52A0\u5BC6\u5B58\u50A8\uFF08Windows DPAPI\uFF0Csecrets.json\uFF09\uFF0C\u4E0D\u56DE\u663E\u3001\u4E0D\u5165\u5E93\u3002" }),
-    chan("mineru_cloud", "\u2601\uFE0F \u4E91 OCR\uFF08MinerU \u5B98\u65B9\u4E91\uFF09", cloudKey, setCloudKey, cloudUrl, setCloudUrl),
-    chan("llm", "\u{1F916} LLM \u95EE\u7B54\u901A\u9053", llmKey, setLlmKey, llmUrl, setLlmUrl),
-    err !== null && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "6px 0 0" }, children: err })
-  ] }) });
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+    "details",
+    {
+      open,
+      onToggle: (e) => onOpenChange(e.currentTarget.open),
+      style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 },
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("summary", { style: { cursor: "pointer", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)", fontSize: 13, padding: "4px 0" }, children: [
+          "API\u914D\u7F6E",
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: SUMMARY_HINT, children: "\u4E91 OCR / LLM \u51ED\u636E\uFF08\u52A0\u5BC6\u5B58\u50A8\uFF09" }),
+          status !== null && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { style: { marginLeft: 8, fontSize: 11, fontWeight: 400, color: status.mineru_cloud.configured ? "#2e7d32" : "#888" }, children: [
+            "\u4E91 OCR ",
+            status.mineru_cloud.configured ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E"
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "6px 0 0", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u914D\u7F6E\u4E91 OCR Key \u540E\uFF0C\u5BFC\u5165\u6587\u4EF6\u4F18\u5148\u8D70\u4E91\u89E3\u6790\u3001\u672C\u5730\u515C\u5E95\uFF1B\u672A\u914D\u7F6E\u5219\u76F4\u63A5\u8D70\u672C\u5730\u901A\u9053\uFF08\u7EAF\u672C\u5730\u4E0D\u5916\u53D1\uFF09\u3002 \u51ED\u636E\u53EA\u5199\u5165\u672C\u673A\u52A0\u5BC6\u5B58\u50A8\uFF08Windows DPAPI\uFF0Csecrets.json\uFF09\uFF0C\u4E0D\u56DE\u663E\u3001\u4E0D\u5165\u5E93\u3002" }),
+        chan("mineru_cloud", "\u2601\uFE0F \u4E91 OCR\uFF08MinerU \u5B98\u65B9\u4E91\uFF09", cloudKey, setCloudKey, cloudUrl, setCloudUrl),
+        chan("llm", "\u{1F916} LLM \u95EE\u7B54\u901A\u9053", llmKey, setLlmKey, llmUrl, setLlmUrl),
+        err !== null && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "6px 0 0" }, children: err })
+      ]
+    }
+  );
 }
 
 // client/bsContract.ts
@@ -32375,20 +32431,6 @@ function registerBetterSidebarSurfaces(ctx, bs) {
         icon: (size) => (0, import_react8.createElement)("span", { style: { fontSize: size } }, "\u{1F516}"),
         component: (props) => (0, import_react8.createElement)(KsBookmarksTab, props)
       });
-      const disposeReport = bs.registerTab({
-        id: KS_REPORT_TAB_ID,
-        title: "\u6548\u529B\u62A5\u544A",
-        single: true,
-        icon: (size) => (0, import_react8.createElement)("span", { style: { fontSize: size } }, "\u{1F4CB}"),
-        component: (props) => (0, import_react8.createElement)(KsReportTab, props)
-      });
-      const disposeIngest = bs.registerTab({
-        id: KS_INGEST_TAB_ID,
-        title: "\u5165\u5E93\u9884\u89C8",
-        single: true,
-        icon: (size) => (0, import_react8.createElement)("span", { style: { fontSize: size } }, "\u{1F4E5}"),
-        component: (props) => (0, import_react8.createElement)(KsIngestTab, props)
-      });
       const disposeSettingsCard = bs.registerTab({
         id: KS_SETTINGS_TAB_ID,
         title: "\u6CD5\u89C4\u6807\u51C6\u77E5\u8BC6\u5E93",
@@ -32432,13 +32474,11 @@ function registerBetterSidebarSurfaces(ctx, bs) {
         document.removeEventListener("click", onClick, true);
         disposePdf();
         disposeBookmarks();
-        disposeReport();
-        disposeIngest();
         disposeSettingsCard();
         disposeSettings();
       };
     },
-    "ks-dsh-plugin: ks:pdf evidencetab + ks:bookmarks + ks:report + ks:settings section + card"
+    "ks-dsh-plugin: ks:pdf evidencetab + ks:bookmarks + ks:settings section + card"
   );
   return typeof disposer === "function" ? disposer : void 0;
 }

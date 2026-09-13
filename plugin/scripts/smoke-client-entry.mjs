@@ -11,14 +11,15 @@
  *     `dynamic ctx does not expose "..."`；
  *   - `ctx.get(name)` 是允许的（`readService(name, false)`，不要求声明），读不到返回 undefined。
  * 上一轮整改里我在 `apply()` 里写了 `typeof ctx.inject === 'function'`，在真机门面上
- * 直接抛错 → 整块客户端半（4 个 tab + 设置栏目 + 📜 查法规模式开关）全都不激活。
+ * 直接抛错 → 整块客户端半（tab + 设置栏目 + 📜 查法规模式开关）全都不激活。
  * 本冒烟用一个**逐条镜像**该门面语义的假 ctx 调 `apply()`，把这类"读了不该读的属性"
  * 变成开发期红灯。
  *
  * 覆盖：
  *   1. 门面语义自证（未声明属性抛、get 返回 undefined、白名单 verb 可用）；
  *   2. better-sidebar **不存在** → apply 不抛；不注册任何 tab；
- *   3. better-sidebar **存在** → apply 不抛；4 个 tab + 设置栏目全部注册；
+ *   3. better-sidebar **存在** → apply 不抛；3 个 tab（证据 PDF / 收藏 / settings
+ *      卡）+ 设置栏目全部注册（效力报告/入库预览 2026-11 迁入设置栏目，不再是 tab）；
  *   4. `inject` 声明只含官方服务（不把第三方插件当门禁）。
  *
  * 用法：node scripts/smoke-client-entry.mjs   （退出码 0 = 全通过）
@@ -267,8 +268,8 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     error === null, String(error?.message ?? '').slice(0, 90))
   check('nothing is injected into the input dock (slash commands replaced it)',
     !built.injected.includes('conversation.input.dock'), built.injected.join(','))
-  check('five tabs registered (PDF / 收藏 / 效力报告 / 入库预览 / settings card)',
-    bsHandlers.tabs.length === 5,
+  check('three tabs registered (PDF / 收藏 / settings card; 效力报告+入库预览已迁设置)',
+    bsHandlers.tabs.length === 3,
     bsHandlers.tabs.map((t) => t.id).join(','))
   check('the PDF tab claims ks evidence links via urlTarget',
     typeof bsHandlers.tabs[0]?.urlTarget === 'function'
@@ -277,8 +278,8 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     built.injected.includes('settings.section'), built.injected.join(','))
   check('the click interception is installed globally (evidence links)',
     docListeners.includes('click'))
-  check('tab ids are the documented ones',
-    bsHandlers.tabs.map((t) => t.id).join(',') === 'ks:pdf,ks:bookmarks,ks:report,ks:ingest,ks:settings',
+  check('tab ids are the documented ones (no ks:report / ks:ingest — migrated into settings)',
+    bsHandlers.tabs.map((t) => t.id).join(',') === 'ks:pdf,ks:bookmarks,ks:settings',
     bsHandlers.tabs.map((t) => t.id).join(','))
   check('the probe registered a disposer (timer can be cleaned on dispose)',
     built.effects.filter((fn) => typeof fn === 'function').length >= 2,
@@ -296,7 +297,7 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     built.listeners.map(([e]) => String(e)).join(','))
   const bs = built.provideBetterSidebar() // 服务此刻才提供 → 触发 internal/service
   check('late better-sidebar: tabs register the moment the service appears',
-    bs.tabs.length === 5 && built.injected.includes('settings.section'),
+    bs.tabs.length === 3 && built.injected.includes('settings.section'),
     `tabs=${bs.tabs.length} injected=${built.injected.join(',')}`)
   check('late better-sidebar: the settings column is registered exactly once',
     built.registered.filter((r) => r.options?.id === 'ks-dsh-plugin').length === 1,
@@ -312,7 +313,7 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     `before=${clicksBefore} after=${listenerCount('click')}`)
   const again = built.provideBetterSidebar()
   check('service re-provide: tabs come back after an unprovide/re-provide cycle',
-    again.tabs.length === 5, `tabs=${again.tabs.length}`)
+    again.tabs.length === 3, `tabs=${again.tabs.length}`)
   check('service re-provide: exactly one click listener again (no accumulation)',
     listenerCount('click') === clicksBefore, `clicks=${listenerCount('click')}`)
 }
