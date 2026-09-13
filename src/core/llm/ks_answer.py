@@ -472,7 +472,7 @@ def answer(query: str,
     Args:
         query: 用户问题。
         params: 可选; 支持 top_k / channels / include_superseded / rerank / history /
-              bookmarks_only / answer_scope / max_evidence。
+              bookmarks_only / answer_scope / max_evidence / folder_id（夹内提问）。
         query_mode: thorough|default|quick|guess，缺省 'default'。
 
     Returns:
@@ -491,11 +491,12 @@ def answer(query: str,
     rerank = bool(params.get("rerank", False))
     history = params.get("history") or []
     bookmarks_only = bool(params.get("bookmarks_only", False))
+    folder_id = params.get("folder_id") or None
     max_evidence = int(params.get("max_evidence", EVIDENCE_CAP))
-    # 仅收藏：检索是"全库 top-k"，收藏集只是其中的交集。默认 k=8 时收藏的那几条几乎
-    # 不可能进前 8 → 「仅收藏」会长期返回空（verifier 六轮 P1）。这里把候选池放大，
-    # 让交集有真实机会；放大的是**候选**，最终证据仍受 max_evidence 约束。
-    if bookmarks_only:
+    # 范围过滤（仅收藏 / 收藏夹）候选池放大：默认 k=8 时范围内那几条几乎不可能进前 8 →
+    # 范围提问会长期返回空（verifier 六轮 P1）。放大的是**候选**，最终证据仍受
+    # max_evidence 约束。
+    if bookmarks_only or folder_id is not None:
         top_k = max(top_k, BOOKMARKS_MIN_TOP_K)
 
     # ---- 查询理解（复用引擎现有函数）----
@@ -574,7 +575,35 @@ def answer(query: str,
     if bookmarks_only and bm is not None:
         evidence = [e for e in evidence if e.get("_clause_key", "") in bm]
         bookmarks_filter_applied = True
-    # 截断放在过滤之后（且只在收藏集内生效）
+    # ---- 夹内提问过滤（folder_id）：与 bookmarks_only 同链同序 ----
+    # 并集语义：夹内标准级收藏 → doc_ids（整本标准的条款都算）；
+    # 夹内条款级收藏 → clause_keys（仅那几条）。证据按 (doc_id ∈ doc_ids) ∪
+    # (clause_key ∈ clause_keys) 判定。folder_scope 查询失败/夹不存在 → 过滤**不执行**，
+    # notes 如实降级（绝不静默放全库，绝不谎报已限定）。
+    folder_scope_applied = False
+    folder_name: Optional[str] = None
+    folder_found = True
+    if folder_id is not None:
+        try:
+            from src.core.storage import user_data as _ud
+            _scope = _ud.folder_scope(folder_id)
+            if _scope is None:
+                # 收藏夹不存在（被删/会话残留 id）→ 如实标记，不得静默全库
+                folder_found = False
+                folder_scope_applied = False
+            else:
+                folder_name = _scope["folder_name"]
+                _doc_ids = _scope["doc_ids"]
+                _ckeys = _scope["clause_keys"]
+                evidence = [e for e in evidence
+                            if e.get("doc_id", "") in _doc_ids
+                            or e.get("_clause_key", "") in _ckeys]
+                folder_scope_applied = True
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("ks_answer: 收藏夹范围查询失败: %s", exc)
+            folder_scope_applied = False
+            folder_found = False  # 查询失败同样视为"未能限定"，不是合法空夹
+    # 截断放在过滤之后（且只在范围内生效）
     evidence = _cap(evidence, max_evidence)
     for _ev in evidence:
         _ev["bookmarked"] = (_ev.get("_clause_key", "") in bm) if bm is not None else None
@@ -631,6 +660,19 @@ def answer(query: str,
             notes.append(
                 "【仅收藏】收藏集查询失败，本轮**未能**限定在收藏集内；"
                 "结论不得声称已限定收藏集。")
+    # 夹内提问：同样把"范围过滤到底有没有生效"如实写进 notes
+    if folder_id is not None:
+        if folder_scope_applied:
+            notes.append(
+                f"【收藏夹】本次检索已限定在收藏夹「{folder_name}」的内容内"
+                "（夹内标准级收藏按整本标准计，条款级收藏按单条计）；"
+                + (f"候选池（过滤前 {candidate_count_before_filter} 条）内没有该收藏夹的条款，"
+                   "夹内可能仍有相关条款（未被检索到）。" if not evidence else ""))
+        else:
+            reason = "收藏夹不存在或已被删除" if not folder_found else "收藏夹范围查询失败"
+            notes.append(
+                f"【收藏夹】{reason}，本轮**未能**限定在收藏夹内；"
+                "结论不得声称已限定收藏夹范围。")
 
     return {
         "tier": tier,

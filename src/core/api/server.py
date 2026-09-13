@@ -28,6 +28,17 @@ import re as _re_mod
 _TBL_CAPTION_LINE = _re_mod.compile(r"^表\s*[A-Za-z]?\d+(?:\.\d+)*\s*\S")
 
 
+def _clause_number_sort_key(clause_number: str) -> list:
+    """条款号自然排序键："5.2.1" → [5,2,1]；非数字段（"前言N"/"附录A"）排最后。"""
+    parts: list = []
+    for seg in (clause_number or "").split("."):
+        try:
+            parts.append(int(seg))
+        except ValueError:
+            parts.append(10 ** 6)
+    return parts
+
+
 def create_app(token: str) -> FastAPI:
     app = FastAPI(title="KnowledgeStation Engine", version="0.1.0")
     init_schema()
@@ -135,9 +146,14 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "status": "success", "data": out}
 
     @app.get("/api/v1/clauses/resolve")
-    async def resolve_clause(standard_no: str, clause_number: str):
+    async def resolve_clause(standard_no: str, clause_number: str,
+                             folder_id: str | None = None):
         """引用兜底：按标准号+条款号解析条款（LLM 引用未进证据列表的条款时定位用）。
-        标准号做年份宽容（GB/T 3608-2008 → GB 3608-2025 现行版）。"""
+        标准号做年份宽容（GB/T 3608-2008 → GB 3608-2025 现行版）。
+
+        folder_id（2026-10 收藏目录）：可选。给定时对命中体追加夹范围标记——
+        `folder_scope`: "inside"|"outside"|null（null=夹不存在/未查），host 据此
+        对夹外条款打禁令（与 bookmarks_scope 同款不抛错设计）。"""
         from src.core.storage import clause_repo, user_data
         c = clause_repo.resolve_clause(standard_no, clause_number)
         if c is None:
@@ -145,7 +161,17 @@ def create_app(token: str) -> FastAPI:
                                f"条款不存在: {standard_no} {clause_number}")
         bm = user_data.bookmarked_clause_keys()
         ann = user_data.annotations_by_clause_keys([c.clause_key])
-        return {"code": 200, "data": _ev_dict(c, bm, ann)}
+        out = _ev_dict(c, bm, ann)
+        if folder_id:
+            scope = user_data.folder_scope(folder_id)
+            if scope is None:
+                out["folder_scope"] = None   # 夹不存在（被删）——host 如实降级
+            else:
+                inside = (c.doc_id in scope["doc_ids"]
+                          or c.clause_key in scope["clause_keys"])
+                out["folder_scope"] = "inside" if inside else "outside"
+                out["folder_name"] = scope["folder_name"]
+        return {"code": 200, "data": out}
 
     @app.get("/api/v1/data/quality-issues")
     def data_quality_issues(limit: int = 200):
@@ -881,9 +907,14 @@ def create_app(token: str) -> FastAPI:
     @app.post("/api/v1/bookmarks")
     async def add_bookmark(request: Request):
         body = await request.json()
+        from src.core.exceptions import KnowledgeStationError
         from src.core.storage import user_data
-        return {"code": 200, "data": user_data.add_bookmark(
-            body["clause_key"], body.get("remark"))}
+        try:
+            return {"code": 200, "data": user_data.add_bookmark(
+                body["clause_key"], body.get("remark"), body.get("folder_id"))}
+        except KnowledgeStationError as e:
+            status = 404 if e.code == "folder_not_found" else 422
+            return _json_error(status, e.code, str(e))
 
     @app.delete("/api/v1/bookmarks/by-clause/{clause_key}")
     async def del_bookmark_by_clause(clause_key: str):
@@ -913,9 +944,10 @@ def create_app(token: str) -> FastAPI:
         from src.core.storage import user_data
         try:
             return {"code": 200, "data": user_data.add_doc_bookmark(
-                body["doc_id"], body.get("remark"))}
+                body["doc_id"], body.get("remark"), body.get("folder_id"))}
         except KnowledgeStationError as e:
-            return _json_error(404, e.code, str(e))
+            status = 404 if e.code == "folder_not_found" else 422
+            return _json_error(status, e.code, str(e))
 
     @app.delete("/api/v1/doc-bookmarks/by-doc/{doc_id}")
     async def del_doc_bookmark_by_doc(doc_id: str):
@@ -931,6 +963,191 @@ def create_app(token: str) -> FastAPI:
             return _json_error(404, "doc_bookmark_not_found",
                                f"标准收藏不存在: {doc_bookmark_id}")
         return {"code": 200, "data": {"removed": True}}
+
+    # ===== 收藏夹目录（2026-10 收藏目录）：夹 CRUD + 收藏移动 + 收藏目录树 =====
+
+    @app.get("/api/v1/bookmark-folders")
+    async def get_bookmark_folders():
+        from src.core.storage import user_data
+        return {"code": 200, "data": user_data.list_folders()}
+
+    @app.post("/api/v1/bookmark-folders")
+    async def create_bookmark_folder(request: Request):
+        body = await request.json()
+        from src.core.exceptions import KnowledgeStationError
+        from src.core.storage import user_data
+        try:
+            return {"code": 200, "data": user_data.create_folder(
+                body.get("folder_name") or "")}
+        except KnowledgeStationError as e:
+            status = 404 if e.code == "folder_not_found" else 409 if e.code == "folder_name_conflict" else 422
+            return _json_error(status, e.code, str(e))
+
+    @app.put("/api/v1/bookmark-folders/{folder_id}")
+    async def rename_bookmark_folder(folder_id: str, request: Request):
+        body = await request.json()
+        from src.core.exceptions import KnowledgeStationError
+        from src.core.storage import user_data
+        try:
+            return {"code": 200, "data": user_data.rename_folder(
+                folder_id, body.get("folder_name") or "")}
+        except KnowledgeStationError as e:
+            status = 404 if e.code == "folder_not_found" else 409 if e.code == "folder_name_conflict" else 422
+            return _json_error(status, e.code, str(e))
+
+    @app.delete("/api/v1/bookmark-folders/{folder_id}")
+    async def delete_bookmark_folder(folder_id: str):
+        """删除收藏夹：收藏本身**不删**，全部回「未分类」。"""
+        from src.core.exceptions import KnowledgeStationError
+        from src.core.storage import user_data
+        try:
+            return {"code": 200, "data": user_data.delete_folder(folder_id)}
+        except KnowledgeStationError as e:
+            return _json_error(404, e.code, str(e))
+
+    @app.post("/api/v1/bookmark-folders/move-clause")
+    async def move_clause_bookmark(request: Request):
+        """把一条条款收藏移入夹 / 移回未分类。body: {clause_key, folder_id|null}。"""
+        body = await request.json()
+        from src.core.exceptions import KnowledgeStationError
+        from src.core.storage import user_data
+        try:
+            moved = user_data.move_bookmark_by_clause_key(
+                body["clause_key"], body.get("folder_id"))
+        except KnowledgeStationError as e:
+            status = 404 if e.code == "folder_not_found" else 422
+            return _json_error(status, e.code, str(e))
+        return {"code": 200, "data": {"moved": moved}}
+
+    @app.post("/api/v1/bookmark-folders/move-doc")
+    async def move_doc_bookmark(request: Request):
+        """把一条标准收藏移入夹 / 移回未分类。body: {doc_id, folder_id|null}。"""
+        body = await request.json()
+        from src.core.exceptions import KnowledgeStationError
+        from src.core.storage import user_data
+        try:
+            moved = user_data.move_doc_bookmark_by_doc(
+                body["doc_id"], body.get("folder_id"))
+        except KnowledgeStationError as e:
+            status = 404 if e.code == "folder_not_found" else 422
+            return _json_error(status, e.code, str(e))
+        return {"code": 200, "data": {"moved": moved}}
+
+    @app.get("/api/v1/bookmark-folders/tree")
+    async def bookmark_folders_tree():
+        """收藏目录树（收藏 tab 数据源）。
+
+        结构 = [收藏夹根节点] × N + [未分类]，夹内再挂**该夹收藏文档的文件目录分类路径**
+        （L1→L2→L3，复用 classify_document 的四级分类口径，与 /documents/categories 同源）：
+        - 标准级收藏 → 文档挂在分类叶（L4）下；条款级收藏 → 文档同样挂分类叶，
+          且文档节点带 clause_bookmarks（条款叶子列表）。
+        平铺返回（夹→文档→条款三段），前端组装树——目录折叠态由前端自持。
+        """
+        from src.core.knowledge.doc_catalog import classify_document
+        from src.core.storage import user_data
+        conn = get_db_connection()
+        folders = user_data.list_folders()
+        doc_bms = user_data.list_doc_bookmarks()
+        clause_bms = user_data.list_bookmarks()
+
+        def classify(doc_row: dict) -> dict:
+            try:
+                tags = json.loads(doc_row.get("domain_tags") or "[]")
+            except Exception:
+                tags = []
+            d = {**doc_row, "domain_tags": tags if isinstance(tags, list) else []}
+            d["legal_status"] = resolve_status(
+                d.get("legal_status"), d.get("effective_from"))
+            return classify_document(d)
+
+        # 文档分类路径缓存（doc_id -> classify dict；未入库文档/查不到行 → None → 挂「未分类文档」兜底）
+        doc_cls_cache: dict[str, dict | None] = {}
+        for bm in doc_bms + clause_bms:
+            did = bm.get("doc_id")
+            if did is not None and did not in doc_cls_cache:
+                row = conn.execute(
+                    "SELECT doc_id, standard_no, standard_name, legal_status,"
+                    " legal_hierarchy, effective_from, published_at, ccs_code,"
+                    " ccs_name, ics, superseded_by, withdrawn_date, quality_grade,"
+                    " doc_type, domain_tags, catalog_hidden FROM doc_meta"
+                    " WHERE doc_id=?", (did,)).fetchone()
+                doc_cls_cache[did] = classify(dict(row)) if row is not None else None
+
+        def build_folder(fid: str | None) -> dict:
+            """一个收藏夹（fid=None → 未分类）的树数据。"""
+            docs: dict[str, dict] = {}
+            # 标准级收藏：整本入夹
+            for bm in doc_bms:
+                if bm.get("folder_id") == fid:
+                    docs.setdefault(bm["doc_id"], {
+                        "doc_id": bm["doc_id"],
+                        "doc_bookmark_id": bm["doc_bookmark_id"],
+                        "standard_no": bm.get("standard_no"),
+                        "standard_name": bm.get("standard_name"),
+                        "legal_status": bm.get("legal_status"),
+                        "doc_bookmarked": True,
+                        "clause_bookmarks": [],
+                    })
+            # 条款级收藏：挂到对应文档下（文档未收藏也生成节点）
+            for bm in clause_bms:
+                if bm.get("folder_id") != fid or bm.get("doc_id") is None:
+                    continue
+                node = docs.setdefault(bm["doc_id"], {
+                    "doc_id": bm["doc_id"],
+                    "doc_bookmark_id": None,
+                    "standard_no": bm.get("standard_no"),
+                    "standard_name": None,  # clause JOIN 不带 standard_name，分类时补
+                    "legal_status": bm.get("legal_status"),
+                    "doc_bookmarked": False,
+                    "clause_bookmarks": [],
+                })
+                node["clause_bookmarks"].append({
+                    "bookmark_id": bm["bookmark_id"],
+                    "clause_key": bm["clause_key"],
+                    "clause_revision_id": bm.get("clause_revision_id"),
+                    "clause_number": bm.get("clause_number"),
+                    "title": bm.get("title"),
+                    "page_start": bm.get("page_start"),
+                    "remark": bm.get("remark"),
+                })
+            # 分类路径（L1/L2/L3/L4 名称）
+            out_docs = []
+            for did, node in docs.items():
+                cl = doc_cls_cache.get(did)
+                if cl is not None:
+                    node["path"] = {"l1": cl["top_name"], "l2": cl["level2"],
+                                    "l3": cl["level3"], "l4": cl["level4"]}
+                else:
+                    node["path"] = None
+                if not node.get("standard_name"):
+                    row = conn.execute(
+                        "SELECT standard_name FROM doc_meta WHERE doc_id=?",
+                        (did,)).fetchone()
+                    node["standard_name"] = row["standard_name"] if row else None
+                node["clause_bookmarks"].sort(
+                    key=lambda c: _clause_number_sort_key(c.get("clause_number") or ""))
+                out_docs.append(node)
+            return {"docs": out_docs}
+
+        out_folders = []
+        for f in folders:
+            payload = build_folder(f["folder_id"])
+            out_folders.append({
+                "folder_id": f["folder_id"],
+                "folder_name": f["folder_name"],
+                "doc_count": f["doc_count"],
+                "clause_count": f["clause_count"],
+                "docs": payload["docs"],
+            })
+        unfiled = build_folder(None)
+        out_folders.append({
+            "folder_id": None,
+            "folder_name": "未分类",
+            "doc_count": sum(1 for d in doc_bms if d.get("folder_id") is None),
+            "clause_count": sum(1 for b in clause_bms if b.get("folder_id") is None),
+            "docs": unfiled["docs"],
+        })
+        return {"code": 200, "data": out_folders}
 
     @app.get("/api/v1/annotations")
     async def get_annotations(clause_key: str | None = None):

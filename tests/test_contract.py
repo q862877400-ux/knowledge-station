@@ -66,7 +66,8 @@ def test_schema_all_tables(db):
     expected = {
         "doc_meta", "doc_page_geometry", "clause_revision", "source_span",
         "clause_fts", "clause_vec", "alias_store", "evidence_edge",
-        "user_bookmark", "user_doc_bookmark", "user_annotation", "project_list", "review_task",
+        "user_bookmark", "user_doc_bookmark", "user_bookmark_folder",
+        "user_annotation", "project_list", "review_task",
         "review_point", "obligation_list", "gap_analysis", "legal_obligation",
         "internal_policy", "app_config", "write_queue", "event_log", "debug_dump",
         "remapping_queue", "snapshot_meta", "operation_log", "audit_log",
@@ -74,6 +75,19 @@ def test_schema_all_tables(db):
     }
     missing = expected - tables
     assert not missing, f"缺少表: {missing}"
+
+
+def test_bookmark_folder_schema(db):
+    """收藏夹目录（2026-10）契约：夹表 + 两张收藏表的 folder_id 列 + 夹名 UNIQUE。"""
+    cols = {r[1] for r in db.execute("PRAGMA table_info(user_bookmark_folder)").fetchall()}
+    missing = {"folder_id", "folder_name", "created_at"} - cols
+    assert not missing, f"user_bookmark_folder 缺列: {missing}"
+    uniques = {r[1] for r in db.execute("PRAGMA index_list(user_bookmark_folder)").fetchall()}
+    assert any("user_bookmark_folder" in u for u in uniques), \
+        f"缺 folder_name UNIQUE: {uniques}"
+    for table in ("user_bookmark", "user_doc_bookmark"):
+        tcols = {r[1] for r in db.execute(f"PRAGMA table_info({table})").fetchall()}
+        assert "folder_id" in tcols, f"{table} 缺 folder_id 列: {tcols}"
 
 
 def test_doc_bookmark_columns(db):

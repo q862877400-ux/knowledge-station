@@ -150,6 +150,7 @@ CREATE TABLE IF NOT EXISTS user_bookmark (
     fixed_revision_id TEXT,
     remark TEXT,
     tags TEXT,
+    folder_id TEXT,
     created_at TEXT DEFAULT (datetime('now'))
 );
 
@@ -158,9 +159,19 @@ CREATE TABLE IF NOT EXISTS user_doc_bookmark (
     doc_bookmark_id TEXT PRIMARY KEY,
     doc_id TEXT NOT NULL,
     remark TEXT,
+    folder_id TEXT,
     created_at TEXT DEFAULT (datetime('now')),
     FOREIGN KEY(doc_id) REFERENCES doc_meta(doc_id) ON DELETE CASCADE,
     UNIQUE(doc_id)
+);
+
+-- 9c. 收藏夹目录（2026-10 收藏目录功能）：自建收藏夹；收藏夹删除 → 收藏回「未分类」
+-- （folder_id 置 NULL，绝不连坐删收藏）。UNIQUE(folder_name) 同名夹拒绝。
+CREATE TABLE IF NOT EXISTS user_bookmark_folder (
+    folder_id TEXT PRIMARY KEY,
+    folder_name TEXT NOT NULL,
+    created_at TEXT DEFAULT (datetime('now')),
+    UNIQUE(folder_name)
 );
 
 -- 10. 用户批注表

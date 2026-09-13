@@ -71,6 +71,7 @@ def init_schema(db_path: Path | None = None) -> None:
     try:
         conn.executescript(_SCHEMA_PATH.read_text(encoding="utf-8"))
         _ensure_doc_meta_columns(conn)
+        _ensure_bookmark_folder_columns(conn)
         conn.commit()
     except sqlite3.Error as e:
         raise StorageError(f"初始化 schema 失败: {e}") from e
@@ -94,6 +95,25 @@ def _ensure_doc_meta_columns(conn) -> None:
     for col, ddl_type in _DOC_META_EXTRA_COLS:
         if col not in existing:
             conn.execute(f"ALTER TABLE doc_meta ADD COLUMN {col} {ddl_type}")
+
+
+#: 收藏夹迁移（2026-10 收藏目录）：既有 user_bookmark / user_doc_bookmark 补 folder_id
+#: 列。schema.sql 的新库直接带列；老库 CREATE IF NOT EXISTS 不会改表 → PRAGMA 补列。
+#: folder_id 不设表级 FK（补列 ALTER 无法加约束）——应用层（user_data）负责引用完整，
+#: 删夹时 UPDATE ... SET folder_id=NULL（收藏回「未分类」，绝不连坐删收藏）。
+_BOOKMARK_FOLDER_COLUMNS: list[tuple[str, str, str]] = [
+    ("user_bookmark", "folder_id", "TEXT"),
+    ("user_doc_bookmark", "folder_id", "TEXT"),
+]
+
+
+def _ensure_bookmark_folder_columns(conn) -> None:
+    """幂等：仅对缺列执行 ALTER TABLE ADD COLUMN。"""
+    for table, col, ddl_type in _BOOKMARK_FOLDER_COLUMNS:
+        existing = {r[1] for r in conn.execute(
+            f"PRAGMA table_info({table})").fetchall()}
+        if col not in existing:
+            conn.execute(f"ALTER TABLE {table} ADD COLUMN {col} {ddl_type}")
 
 
 def list_tables(db_path: Path | None = None) -> list[str]:
