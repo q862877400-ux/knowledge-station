@@ -28378,13 +28378,12 @@ var tocRestore = /* @__PURE__ */ new Map();
 var import_react = require("react");
 var import_jsx_runtime = require("react/jsx-runtime");
 function KsFilesView(props) {
-  const { active, onOpenDoc } = props;
+  const { active, onOpenDoc, query } = props;
   const abortRef = (0, import_react.useRef)(null);
   const [cats, setCats] = (0, import_react.useState)([]);
   const [flatDocs, setFlatDocs] = (0, import_react.useState)([]);
   const [load, setLoad] = (0, import_react.useState)({ status: "loading" });
   const [catOpen, setCatOpen] = (0, import_react.useState)({});
-  const [catQuery, setCatQuery] = (0, import_react.useState)("");
   const [catMulti, setCatMulti] = (0, import_react.useState)(false);
   const [selDocs, setSelDocs] = (0, import_react.useState)(/* @__PURE__ */ new Set());
   const [delPhase, setDelPhase] = (0, import_react.useState)(null);
@@ -28440,6 +28439,7 @@ function KsFilesView(props) {
   const toggleCat = (0, import_react.useCallback)((key) => {
     setCatOpen((s) => ({ ...s, [key]: !s[key] }));
   }, []);
+  const catQuery = query;
   const catQ = catQuery.trim().toLowerCase();
   const catFiltered = (0, import_react.useMemo)(() => {
     if (!catQ) return cats;
@@ -28611,19 +28611,6 @@ function KsFilesView(props) {
         " \u90E8"
       ] }) : null)
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: $search, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-        "input",
-        {
-          value: catQuery,
-          onChange: (e) => setCatQuery(e.target.value),
-          placeholder: "\u{1F50D} \u641C\u7D22\u56FD\u6807\u540D\u79F0/\u7F16\u53F7",
-          title: "\u6309\u6807\u51C6\u53F7\u6216\u540D\u79F0\u8FC7\u6EE4\u6587\u4EF6\u76EE\u5F55\uFF0C\u5373\u65F6\u751F\u6548",
-          style: $searchInput
-        }
-      ),
-      catQuery && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { type: "button", style: $searchClear, onClick: () => setCatQuery(""), title: "\u6E05\u7A7A", children: "\xD7" })
-    ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: $multiTool, children: !catMulti ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
       "button",
       {
@@ -28765,35 +28752,6 @@ var $btnPrimary = {
   borderRadius: 4,
   padding: "4px 14px",
   cursor: "pointer"
-};
-var $search = {
-  position: "relative",
-  margin: "6px 10px 4px"
-};
-var $searchInput = {
-  width: "100%",
-  boxSizing: "border-box",
-  border: "1px solid var(--dsw-alias-border-l2, #ccc)",
-  borderRadius: 4,
-  padding: "4px 8px",
-  background: "var(--dsw-alias-bg-layer-1, #fff)",
-  color: "var(--dsw-alias-label-primary, #111)",
-  fontSize: 12,
-  outline: "none"
-};
-var $searchClear = {
-  position: "absolute",
-  right: 4,
-  top: "50%",
-  transform: "translateY(-50%)",
-  border: "none",
-  background: "transparent",
-  color: "var(--dsw-alias-label-tertiary, #999)",
-  cursor: "pointer",
-  fontSize: 14,
-  lineHeight: 1,
-  padding: "0 4px",
-  fontWeight: 600
 };
 var $multiTool = {
   display: "flex",
@@ -28943,7 +28901,6 @@ function KsBookmarksView(props) {
   const abortRef = (0, import_react2.useRef)(null);
   const [tree, setTree] = (0, import_react2.useState)([]);
   const [load, setLoad] = (0, import_react2.useState)({ status: "loading" });
-  const [query, setQuery] = (0, import_react2.useState)("");
   const [openMap, setOpenMap] = (0, import_react2.useState)({});
   const [activeFolderId, setActiveFolderId] = (0, import_react2.useState)(null);
   const [opError, setOpError] = (0, import_react2.useState)(null);
@@ -29112,6 +29069,7 @@ function KsBookmarksView(props) {
   const toggleOpen = (0, import_react2.useCallback)((key) => {
     setOpenMap((s) => ({ ...s, [key]: !s[key] }));
   }, []);
+  const query = props.query;
   const q = query.trim().toLowerCase();
   const filteredTree = (0, import_react2.useMemo)(() => {
     if (!q) return tree;
@@ -29151,18 +29109,6 @@ function KsBookmarksView(props) {
       ),
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", onClick: () => void createFolder(), disabled: busy || newName.trim().length === 0, style: $btn, children: "\u521B\u5EFA" }),
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", onClick: () => setShowNew(false), style: $btn, children: "\u53D6\u6D88" })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: $search2, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-        "input",
-        {
-          value: query,
-          onChange: (e) => setQuery(e.target.value),
-          placeholder: "\u{1F50D} \u641C\u7D22\u5939\u540D/\u6807\u51C6\u53F7/\u6807\u51C6\u540D/\u6761\u6B3E\u53F7",
-          style: $searchInput2
-        }
-      ),
-      query.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", onClick: () => setQuery(""), style: $searchClear2, title: "\u6E05\u7A7A", children: "\xD7" })
     ] }),
     opError !== null && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { padding: "6px 10px", color: "var(--dsw-alias-danger, #c62828)", borderBottom: "1px solid var(--dsw-alias-border-l1, #eee)", background: "var(--dsw-alias-danger-bg, #fff0f0)", fontSize: 11, wordBreak: "break-word" }, children: opError }),
     /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { flex: 1, minHeight: 0, overflow: "auto", padding: 4 }, children: [
@@ -29418,35 +29364,6 @@ var $input = {
   color: "var(--dsw-alias-label-primary, #111)",
   fontSize: 12,
   outline: "none"
-};
-var $search2 = {
-  position: "relative",
-  margin: "6px 10px 4px"
-};
-var $searchInput2 = {
-  width: "100%",
-  boxSizing: "border-box",
-  border: "1px solid var(--dsw-alias-border-l2, #ccc)",
-  borderRadius: 4,
-  padding: "4px 8px",
-  background: "var(--dsw-alias-bg-layer-1, #fff)",
-  color: "var(--dsw-alias-label-primary, #111)",
-  fontSize: 12,
-  outline: "none"
-};
-var $searchClear2 = {
-  position: "absolute",
-  right: 4,
-  top: "50%",
-  transform: "translateY(-50%)",
-  border: "none",
-  background: "transparent",
-  color: "var(--dsw-alias-label-tertiary, #999)",
-  cursor: "pointer",
-  fontSize: 14,
-  lineHeight: 1,
-  padding: "0 4px",
-  fontWeight: 600
 };
 var $confirmBar = {
   margin: "4px 0 4px 18px",
@@ -29945,6 +29862,8 @@ function KsEvidenceTab(props) {
   const tocAbortRef = (0, import_react4.useRef)(null);
   const [leftMode, setLeftMode] = (0, import_react4.useState)("toc");
   const leftModeTouchedRef = (0, import_react4.useRef)(false);
+  const [dirQuery, setDirQuery] = (0, import_react4.useState)("");
+  const [searchOpen, setSearchOpen] = (0, import_react4.useState)(false);
   const [viewMode, setViewMode] = (0, import_react4.useState)("pdf");
   const [folderPicker, setFolderPicker] = (0, import_react4.useState)(null);
   const [folderList, setFolderList] = (0, import_react4.useState)(null);
@@ -30267,6 +30186,11 @@ function KsEvidenceTab(props) {
   }, [loadedDocId]);
   const docHasToc = toc === null ? true : toc.length > 0;
   const showLeftCol = leftMode !== "toc" || tocOpen && docHasToc;
+  const tocQ = dirQuery.trim().toLowerCase();
+  const tocFiltered = (0, import_react4.useMemo)(() => {
+    if (toc === null || tocQ === "") return toc;
+    return toc.filter((t) => (t.clause_number ?? "").toLowerCase().includes(tocQ) || (t.title ?? "").toLowerCase().includes(tocQ) || String(t.page_start ?? "").includes(tocQ));
+  }, [toc, tocQ]);
   const [reduceMotion, setReduceMotion] = (0, import_react4.useState)(() => typeof window !== "undefined" && typeof window.matchMedia === "function" ? window.matchMedia("(prefers-reduced-motion: reduce)").matches : false);
   (0, import_react4.useEffect)(() => {
     if (typeof window === "undefined" || typeof window.matchMedia !== "function") return void 0;
@@ -30706,21 +30630,27 @@ function KsEvidenceTab(props) {
             children: docBusy ? "\u2026" : docBookmarked ? "\u2605 \u5DF2\u6536\u85CF\u672C\u6807\u51C6" : "\u2606 \u6536\u85CF\u672C\u6807\u51C6"
           }
         ),
-        load.status === "ready" && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
           "button",
           {
             type: "button",
-            disabled: toc === null || toc.length === 0,
             onClick: () => {
-              setLeftMode("toc");
-              toggleToc(!(tocOpen || leftMode !== "toc"));
+              if (showLeftCol) {
+                setLeftMode("toc");
+                toggleToc(false);
+              } else {
+                if ((load.status === "idle" || !docHasToc) && leftMode === "toc" && !leftModeTouchedRef.current) {
+                  setLeftMode("files");
+                }
+                toggleToc(true);
+              }
             },
-            title: leftMode !== "toc" || tocOpen ? "\u6536\u8D77\u6807\u9898\u76EE\u5F55\uFF08\u56DE\u5230\u7EAF PDF \u5168\u5BBD\uFF09" : "\u5C55\u5F00\u6807\u9898\u76EE\u5F55\uFF1A\u4FA7\u680F\u5411\u5DE6\u6269\u5F20\uFF0C\u4E0D\u538B\u7F29 PDF \u9605\u8BFB\u533A",
-            style: { ...$btnStyle, ...toc !== null && toc.length > 0 ? $tocBtnStyle : {} },
+            title: showLeftCol ? "\u6536\u8D77\u76EE\u5F55\u5217\uFF08\u56DE\u5230\u7EAF PDF \u5168\u5BBD\uFF09" : "\u5C55\u5F00\u76EE\u5F55\u5217\uFF1A\u6587\u4EF6\u76EE\u5F55 / \u6536\u85CF\u76EE\u5F55 / \u6807\u9898\u76EE\u5F55\u4E09\u6A21\u5F0F\u81EA\u7531\u5207\u6362",
+            style: { ...$btnStyle, ...showLeftCol ? $tocBtnStyle : {} },
             children: [
-              "\u{1F4D6} \u6807\u9898\u76EE\u5F55",
+              "\u{1F4D1} \u76EE\u5F55",
               "\xA0",
-              toc !== null && toc.length > 0 ? leftMode !== "toc" || tocOpen ? "\u25BE" : "\u25B8" : "\xB7"
+              showLeftCol ? "\u25BE" : "\u25B8"
             ]
           }
         ),
@@ -30982,19 +30912,6 @@ function KsEvidenceTab(props) {
                 "button",
                 {
                   type: "button",
-                  style: { ...$modeBtn, ...leftMode === "bookmarks" ? $modeBtnOn : {} },
-                  onClick: () => {
-                    leftModeTouchedRef.current = true;
-                    setLeftMode("bookmarks");
-                  },
-                  title: "\u6536\u85CF\u5939\u76EE\u5F55\uFF08\u6536\u85CF\u7BA1\u7406 + \u5939\u5185\u63D0\u95EE\uFF09",
-                  children: "\u{1F516} \u6536\u85CF\u76EE\u5F55"
-                }
-              ),
-              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
-                "button",
-                {
-                  type: "button",
                   style: { ...$modeBtn, ...leftMode === "toc" ? $modeBtnOn : {} },
                   onClick: () => {
                     leftModeTouchedRef.current = true;
@@ -31016,9 +30933,55 @@ function KsEvidenceTab(props) {
                   title: "\u6536\u8D77\u76EE\u5F55\uFF08\u56DE\u5230\u7EAF PDF \u5168\u5BBD\uFF09",
                   children: "\u25C0"
                 }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                "button",
+                {
+                  type: "button",
+                  style: { ...$modeBtn, ...leftMode === "bookmarks" ? $modeBtnOn : {} },
+                  onClick: () => {
+                    leftModeTouchedRef.current = true;
+                    setLeftMode("bookmarks");
+                  },
+                  title: "\u6536\u85CF\u5939\u76EE\u5F55\uFF08\u6536\u85CF\u7BA1\u7406 + \u5939\u5185\u63D0\u95EE\uFF09",
+                  children: "\u{1F516} \u6536\u85CF\u76EE\u5F55"
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+                "button",
+                {
+                  type: "button",
+                  style: { ...$modeBtn, ...searchOpen ? $modeBtnOn : {} },
+                  onClick: () => {
+                    setSearchOpen((s) => !s);
+                    if (searchOpen) setDirQuery("");
+                  },
+                  title: leftMode === "toc" ? "\u5728\u6807\u9898\u76EE\u5F55\u5185\u641C\u7D22\u7AE0/\u5C0F\u8282" : leftMode === "files" ? "\u5728\u6587\u4EF6\u76EE\u5F55\u5185\u641C\u7D22\u6807\u51C6\u53F7/\u540D\u79F0" : "\u5728\u6536\u85CF\u76EE\u5F55\u5185\u641C\u7D22\u5939\u540D/\u6807\u51C6\u53F7/\u6807\u51C6\u540D/\u6761\u6B3E\u53F7",
+                  children: [
+                    "\u{1F50D} \u641C\u7D22",
+                    dirQuery.trim() !== "" ? "\xB7" : ""
+                  ]
+                }
               )
             ] }),
-            leftMode === "files" ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { flex: 1, minHeight: 0, display: "flex", flexDirection: "column", overflow: "hidden" }, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(KsFilesView, { active: showLeftCol, onOpenDoc: onFilesOpenDoc }) }) : leftMode === "bookmarks" ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { flex: 1, minHeight: 0, display: "flex", flexDirection: "column", overflow: "hidden" }, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(KsBookmarksView, { active: showLeftCol, sessionId: sessionId ?? null, onOpenEvidence: onBookmarkJump }) }) : /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: $tocList, children: loadedDocId === null && load.status !== "loading" ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { ...$tocHint, textAlign: "center", paddingTop: 18 }, children: load.status === "idle" ? "\u5C1A\u672A\u6253\u5F00\u6587\u6863\u2014\u2014\u4ECE \u{1F4DA} \u6587\u4EF6\u76EE\u5F55 \u6216 \u{1F516} \u6536\u85CF\u76EE\u5F55 \u70B9\u4E00\u4E2A\u56FD\u6807\u5F00\u59CB\u9605\u8BFB" : "\u5F53\u524D\u6587\u6863\u6CA1\u6709\u7AE0/\u5C0F\u8282\u76EE\u5F55" }) : toc === null ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: $tocHint, children: "\u52A0\u8F7D\u4E2D\u2026" }) : toc.map((t) => {
+            searchOpen && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: $dirSearchRow, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                "input",
+                {
+                  value: dirQuery,
+                  onChange: (e) => setDirQuery(e.target.value),
+                  placeholder: leftMode === "toc" ? "\u{1F50D} \u641C\u7D22\u7AE0/\u5C0F\u8282\uFF08\u7F16\u53F7/\u6807\u9898/\u9875\u7801\uFF09" : leftMode === "files" ? "\u{1F50D} \u641C\u7D22\u6807\u51C6\u53F7/\u540D\u79F0" : "\u{1F50D} \u641C\u7D22\u5939\u540D/\u6807\u51C6\u53F7/\u6807\u51C6\u540D/\u6761\u6B3E\u53F7",
+                  autoFocus: true,
+                  style: $dirSearchInput
+                }
+              ),
+              dirQuery.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { type: "button", onClick: () => setDirQuery(""), style: $dirSearchClear, title: "\u6E05\u7A7A", children: "\xD7" })
+            ] }),
+            leftMode === "files" ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { flex: 1, minHeight: 0, display: "flex", flexDirection: "column", overflow: "hidden" }, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(KsFilesView, { active: showLeftCol, onOpenDoc: onFilesOpenDoc, query: dirQuery, onQueryChange: setDirQuery }) }) : leftMode === "bookmarks" ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { flex: 1, minHeight: 0, display: "flex", flexDirection: "column", overflow: "hidden" }, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(KsBookmarksView, { active: showLeftCol, sessionId: sessionId ?? null, onOpenEvidence: onBookmarkJump, query: dirQuery }) }) : /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: $tocList, children: loadedDocId === null && load.status !== "loading" ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { ...$tocHint, textAlign: "center", paddingTop: 18 }, children: load.status === "idle" ? "\u5C1A\u672A\u6253\u5F00\u6587\u6863\u2014\u2014\u4ECE \u{1F4DA} \u6587\u4EF6\u76EE\u5F55 \u6216 \u{1F516} \u6536\u85CF\u76EE\u5F55 \u70B9\u4E00\u4E2A\u56FD\u6807\u5F00\u59CB\u9605\u8BFB" : "\u5F53\u524D\u6587\u6863\u6CA1\u6709\u7AE0/\u5C0F\u8282\u76EE\u5F55" }) : toc === null ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: $tocHint, children: "\u52A0\u8F7D\u4E2D\u2026" }) : (tocFiltered ?? []).length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { ...$tocHint, textAlign: "center", paddingTop: 18 }, children: [
+              "\u6CA1\u6709\u5339\u914D\u300C",
+              dirQuery.trim(),
+              "\u300D\u7684\u7AE0/\u5C0F\u8282"
+            ] }) : (tocFiltered ?? []).map((t) => {
               const no = tocNoClause(t);
               const tt = tocTitleSplitClause(t);
               const lvl1 = t.level === 1;
@@ -31152,7 +31115,10 @@ var $tocColumnInner = {
 var $tocColumnHeader = {
   display: "flex",
   alignItems: "center",
-  gap: 6,
+  // 四宫格（2026-10-28）：第一行 文件+标题(+◀)，第二行 收藏+搜索。
+  // wrap + 每钮 flexBasis 50% → 两个一行；◀ 不参与折行（窄按钮跟在第一行尾）。
+  flexWrap: "wrap",
+  gap: 4,
   padding: "6px 8px",
   borderBottom: "1px solid var(--dsw-alias-border-l1, #eee)"
 };
@@ -31223,12 +31189,12 @@ var $tocBtnStyle = {
   borderColor: "var(--dsw-alias-link, #1565c0)"
 };
 var $modeBtn = {
-  flex: 1,
+  flex: "1 1 46%",
   border: "1px solid transparent",
   background: "transparent",
   color: "var(--dsw-alias-label-secondary, #666)",
   borderRadius: 4,
-  padding: "2px 6px",
+  padding: "3px 6px",
   cursor: "pointer",
   fontSize: 11,
   whiteSpace: "nowrap",
@@ -31237,6 +31203,35 @@ var $modeBtn = {
 var $modeBtnOn = {
   color: "var(--dsw-alias-label-primary, #111)",
   background: "var(--dsw-alias-interactive-bg-active, #e8f0fe)",
+  fontWeight: 600
+};
+var $dirSearchRow = {
+  position: "relative",
+  padding: "0 8px 6px"
+};
+var $dirSearchInput = {
+  width: "100%",
+  boxSizing: "border-box",
+  border: "1px solid var(--dsw-alias-border-l2, #ccc)",
+  borderRadius: 4,
+  padding: "4px 20px 4px 8px",
+  background: "var(--dsw-alias-bg-layer-1, #fff)",
+  color: "var(--dsw-alias-label-primary, #111)",
+  fontSize: 12,
+  outline: "none"
+};
+var $dirSearchClear = {
+  position: "absolute",
+  right: 12,
+  top: "50%",
+  transform: "translateY(-50%)",
+  border: "none",
+  background: "transparent",
+  color: "var(--dsw-alias-label-tertiary, #999)",
+  cursor: "pointer",
+  fontSize: 14,
+  lineHeight: 1,
+  padding: "0 4px",
   fontWeight: 600
 };
 

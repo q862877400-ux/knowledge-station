@@ -59,6 +59,8 @@ export interface KsBookmarksViewProps {
   sessionId: string | null
   /** 点文档叶/条款叶 → 宿主加载该证据（PDF 跳页）。 */
   onOpenEvidence: (jump: KsBookmarkJump) => void
+  /** 搜索词（2026-10-28 四宫格统一搜索：宿主持有，本视图受控过滤）。 */
+  query: string
 }
 
 type LoadState =
@@ -84,7 +86,6 @@ export function KsBookmarksView(props: KsBookmarksViewProps): JSX.Element {
   const abortRef = useRef<AbortController | null>(null)
   const [tree, setTree] = useState<KsFolderTreeFolder[]>([])
   const [load, setLoad] = useState<LoadState>({ status: 'loading' })
-  const [query, setQuery] = useState('')
   const [openMap, setOpenMap] = useState<Record<string, boolean>>({})
   const [activeFolderId, setActiveFolderId] = useState<string | null>(null)
   const [opError, setOpError] = useState<string | null>(null)
@@ -281,7 +282,8 @@ export function KsBookmarksView(props: KsBookmarksViewProps): JSX.Element {
   }, [])
 
   // ---- 搜索：纯前端过滤（夹名/标准号/标准名/条款号），有词全自动展开 ----
-
+  // （2026-10-28 四宫格统一搜索：query 改由宿主受控传入。）
+  const query = props.query
   const q = query.trim().toLowerCase()
   const filteredTree = useMemo(() => {
     if (!q) return tree
@@ -329,18 +331,7 @@ export function KsBookmarksView(props: KsBookmarksViewProps): JSX.Element {
         </div>
       )}
 
-      {/* 搜索框 */}
-      <div style={$search}>
-        <input
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="🔍 搜索夹名/标准号/标准名/条款号"
-          style={$searchInput}
-        />
-        {query.length > 0 && (
-          <button type="button" onClick={() => setQuery('')} style={$searchClear} title="清空">×</button>
-        )}
-      </div>
+      {/* 搜索框已上移到目录列顶部四宫格（宿主 KsEvidenceTab 统一搜索，本视图受控过滤）。 */}
 
       {opError !== null && (
         <div style={{ padding: '6px 10px', color: 'var(--dsw-alias-danger, #c62828)', borderBottom: '1px solid var(--dsw-alias-border-l1, #eee)', background: 'var(--dsw-alias-danger-bg, #fff0f0)', fontSize: 11, wordBreak: 'break-word' }}>
@@ -645,37 +636,8 @@ const $input: React.CSSProperties = {
   outline: 'none',
 }
 
-const $search: React.CSSProperties = {
-  position: 'relative',
-  margin: '6px 10px 4px',
-}
-
-const $searchInput: React.CSSProperties = {
-  width: '100%',
-  boxSizing: 'border-box',
-  border: '1px solid var(--dsw-alias-border-l2, #ccc)',
-  borderRadius: 4,
-  padding: '4px 8px',
-  background: 'var(--dsw-alias-bg-layer-1, #fff)',
-  color: 'var(--dsw-alias-label-primary, #111)',
-  fontSize: 12,
-  outline: 'none',
-}
-
-const $searchClear: React.CSSProperties = {
-  position: 'absolute',
-  right: 4,
-  top: '50%',
-  transform: 'translateY(-50%)',
-  border: 'none',
-  background: 'transparent',
-  color: 'var(--dsw-alias-label-tertiary, #999)',
-  cursor: 'pointer',
-  fontSize: 14,
-  lineHeight: 1,
-  padding: '0 4px',
-  fontWeight: 600,
-}
+// （2026-10-28）$search/$searchInput/$searchClear 已删——搜索框上移到目录列
+// 顶部四宫格，由宿主 KsEvidenceTab 持有；本视图经 props.query 受控过滤。
 
 const $confirmBar: React.CSSProperties = {
   margin: '4px 0 4px 18px',

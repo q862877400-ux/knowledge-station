@@ -42,17 +42,19 @@ export interface KsFilesViewProps {
   active: boolean
   /** 点文档叶（非多选态）→ 由宿主加载 PDF（本组件不再自己 openTab）。 */
   onOpenDoc: (docId: string) => void
+  /** 搜索词（2026-10-28 四宫格统一搜索：宿主持有，本视图受控过滤）。 */
+  query: string
+  onQueryChange: (v: string) => void
 }
 
 export function KsFilesView(props: KsFilesViewProps): JSX.Element {
-  const { active, onOpenDoc } = props
+  const { active, onOpenDoc, query } = props
 
   const abortRef = useRef<AbortController | null>(null)
   const [cats, setCats] = useState<KsCategoryNode[]>([])
   const [flatDocs, setFlatDocs] = useState<KsDoc[]>([])
   const [load, setLoad] = useState<LoadState>({ status: 'loading' })
   const [catOpen, setCatOpen] = useState<Record<string, boolean>>({})
-  const [catQuery, setCatQuery] = useState('')
   const [catMulti, setCatMulti] = useState(false)
   const [selDocs, setSelDocs] = useState<Set<string>>(new Set())
   const [delPhase, setDelPhase] = useState<DelPhase>(null)
@@ -123,6 +125,8 @@ export function KsFilesView(props: KsFilesViewProps): JSX.Element {
   }, [])
 
   // ---- 搜索：纯前端过滤整棵树；有词时全部自动展开 ----
+  // （2026-10-28 四宫格统一搜索：catQuery 改由宿主受控传入。）
+  const catQuery = query
   const catQ = catQuery.trim().toLowerCase()
   const catFiltered = useMemo(() => {
     if (!catQ) return cats
@@ -328,19 +332,7 @@ export function KsFilesView(props: KsFilesViewProps): JSX.Element {
         )}
       </div>
 
-      {/* 搜索框（占位「🔍 搜索国标名称/编号」，清空 ×） */}
-      <div style={$search}>
-        <input
-          value={catQuery}
-          onChange={(e) => setCatQuery(e.target.value)}
-          placeholder="🔍 搜索国标名称/编号"
-          title="按标准号或名称过滤文件目录，即时生效"
-          style={$searchInput}
-        />
-        {catQuery && (
-          <button type="button" style={$searchClear} onClick={() => setCatQuery('')} title="清空">×</button>
-        )}
-      </div>
+      {/* 搜索框已上移到目录列顶部四宫格（宿主 KsEvidenceTab 统一搜索，本视图受控过滤）。 */}
 
       {/* 多选工具行 */}
       <div style={$multiTool}>
@@ -520,37 +512,8 @@ const $btnPrimary: React.CSSProperties = {
   cursor: 'pointer',
 }
 
-const $search: React.CSSProperties = {
-  position: 'relative',
-  margin: '6px 10px 4px',
-}
-
-const $searchInput: React.CSSProperties = {
-  width: '100%',
-  boxSizing: 'border-box',
-  border: '1px solid var(--dsw-alias-border-l2, #ccc)',
-  borderRadius: 4,
-  padding: '4px 8px',
-  background: 'var(--dsw-alias-bg-layer-1, #fff)',
-  color: 'var(--dsw-alias-label-primary, #111)',
-  fontSize: 12,
-  outline: 'none',
-}
-
-const $searchClear: React.CSSProperties = {
-  position: 'absolute',
-  right: 4,
-  top: '50%',
-  transform: 'translateY(-50%)',
-  border: 'none',
-  background: 'transparent',
-  color: 'var(--dsw-alias-label-tertiary, #999)',
-  cursor: 'pointer',
-  fontSize: 14,
-  lineHeight: 1,
-  padding: '0 4px',
-  fontWeight: 600,
-}
+// （2026-10-28）$search/$searchInput/$searchClear 已删——搜索框上移到目录列
+// 顶部四宫格，由宿主 KsEvidenceTab 持有；本视图经 props.query 受控过滤。
 
 const $multiTool: React.CSSProperties = {
   display: 'flex',

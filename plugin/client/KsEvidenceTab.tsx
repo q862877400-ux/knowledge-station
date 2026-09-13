@@ -17,7 +17,7 @@
  */
 
 import * as React from 'react'
-import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
 import * as pdfjs from 'pdfjs-dist'
 import { createPortal } from 'react-dom'
 import type { PDFDocumentProxy } from 'pdfjs-dist'
@@ -211,6 +211,11 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
   // 目录常驻（2026-10-27）：无证据直开 tab → 左列默认落在文件目录（可切收藏目录）。
   // 只在「本 tab 从未有过证据」时引导一次；用户手动切过模式（或已有文档）不覆盖。
   const leftModeTouchedRef = useRef(false)
+  // 目录统一搜索（2026-10-28 四宫格）：一个搜索词作用于当前目录模式——
+  // 文件目录过滤分类树、收藏目录过滤夹树、标题目录过滤章/小节。
+  const [dirQuery, setDirQuery] = useState('')
+  // 搜索输入框是否展开（🔍 搜索按钮切换；收起时清词）。
+  const [searchOpen, setSearchOpen] = useState(false)
   // 正文视图（2026-09-13 端点接线）：'pdf'=canvas 原样（默认） / 'text'=条款富文本
   // （content_html + fig-embed/table-embed/katex-formula 占位经 /ks/doc-image 接线）。
   // 换文档时回到 PDF 视图（正文按需再开）。
@@ -665,6 +670,16 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
    */
   const docHasToc = toc === null ? true : toc.length > 0
   const showLeftCol = leftMode !== 'toc' || (tocOpen && docHasToc)
+
+  // 标题目录统一搜索（2026-10-28 四宫格）：按编号/标题/页码过滤章/小节。
+  const tocQ = dirQuery.trim().toLowerCase()
+  const tocFiltered = useMemo(() => {
+    if (toc === null || tocQ === '') return toc
+    return toc.filter((t) =>
+      (t.clause_number ?? '').toLowerCase().includes(tocQ)
+      || (t.title ?? '').toLowerCase().includes(tocQ)
+      || String(t.page_start ?? '').includes(tocQ))
+  }, [toc, tocQ])
 
   // ---- 目录列宽度与面板宽度**同步过渡**（用户 2026-09-09：不够丝滑，要无感弹出）----
   // 面板宽度是 CSS 过渡（0.3s），若目录列瞬时出现 → 动画期间
@@ -1229,23 +1244,33 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
           </button>
         )}
         {/*
-          标题目录（B）：PDF ready 且本文档有目录 → 显示收起/展开切换。
-          收起后回到纯 PDF 全宽（列隐藏）；再点重新展开。无目录(空树/加载失败)时禁用。
-          左列在 文件/收藏 模式时点这里 = 回到标题目录模式并展开。
+          目录（2026-10-28 四宫格）：常驻按钮，开关整个悬浮目录列（列头三模式
+          自由切换）。不再只绑定标题目录、不再要求本文档有目录——idle（无文档）
+          时同样可开（文件/收藏目录可进）。收起后回到纯 PDF 全宽。
         */}
-        {load.status === 'ready' && (
-          <button
-            type="button"
-            disabled={toc === null || toc.length === 0}
-            onClick={() => { setLeftMode('toc'); toggleToc(!(tocOpen || leftMode !== 'toc')) }}
-            title={leftMode !== 'toc' || tocOpen
-              ? '收起标题目录（回到纯 PDF 全宽）'
-              : '展开标题目录：侧栏向左扩张，不压缩 PDF 阅读区'}
-            style={{ ...$btnStyle, ...(toc !== null && toc.length > 0 ? $tocBtnStyle : {}) }}
-          >
-            📖 标题目录{'\u00A0'}{toc !== null && toc.length > 0 ? ((leftMode !== 'toc' || tocOpen) ? '▾' : '▸') : '·'}
-          </button>
-        )}
+        <button
+          type="button"
+          onClick={() => {
+            if (showLeftCol) {
+              // 收起 = 回标题目录模式并合上（保持语义简单：下次点开还在标题目录）。
+              setLeftMode('toc')
+              toggleToc(false)
+            } else {
+              // 展开：当前模式内容不可用（无文档 / 本文档无目录的标题目录）→
+              // 直接给文件目录（能点东西）；否则按既有模式展开。
+              if ((load.status === 'idle' || !docHasToc) && leftMode === 'toc' && !leftModeTouchedRef.current) {
+                setLeftMode('files')
+              }
+              toggleToc(true)
+            }
+          }}
+          title={showLeftCol
+            ? '收起目录列（回到纯 PDF 全宽）'
+            : '展开目录列：文件目录 / 收藏目录 / 标题目录三模式自由切换'}
+          style={{ ...$btnStyle, ...(showLeftCol ? $tocBtnStyle : {}) }}
+        >
+          📑 目录{'\u00A0'}{showLeftCol ? '▾' : '▸'}
+        </button>
         {/* 正文视图切换（2026-09-13 端点接线）：PDF 原样 ↔ 条款富文本
             （图片/公式/带图表格经 /ks/doc-image 同源代理接线）。
             有 doc id 即可切——正文只依赖 clauses 端点，不依赖 PDF 字节。 */}
@@ -1502,6 +1527,10 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
       >
         {showLeftCol && (
           <div style={$tocColumnInner}>
+            {/* 四宫格列头（2026-10-28）：两行×两个，宽度不增。
+                第一行 📚文件目录 + 📖标题目录（附 ◀ 收起）；第二行 🔖收藏目录 + 🔍搜索。
+                搜索 = 在**当前目录模式**内过滤（文件→分类树 / 收藏→夹树 / 标题→章节），
+                点开在宫格下出现内联输入框。 */}
             <div style={$tocColumnHeader}>
               <button
                 type="button"
@@ -1510,14 +1539,6 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
                 title="库内文档分类（点文档打开）"
               >
                 📚 文件目录
-              </button>
-              <button
-                type="button"
-                style={{ ...$modeBtn, ...(leftMode === 'bookmarks' ? $modeBtnOn : {}) }}
-                onClick={() => { leftModeTouchedRef.current = true; setLeftMode('bookmarks') }}
-                title="收藏夹目录（收藏管理 + 夹内提问）"
-              >
-                🔖 收藏目录
               </button>
               <button
                 type="button"
@@ -1536,14 +1557,52 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
                   title="收起目录（回到纯 PDF 全宽）"
                 >◀</button>
               )}
+              <button
+                type="button"
+                style={{ ...$modeBtn, ...(leftMode === 'bookmarks' ? $modeBtnOn : {}) }}
+                onClick={() => { leftModeTouchedRef.current = true; setLeftMode('bookmarks') }}
+                title="收藏夹目录（收藏管理 + 夹内提问）"
+              >
+                🔖 收藏目录
+              </button>
+              <button
+                type="button"
+                style={{ ...$modeBtn, ...(searchOpen ? $modeBtnOn : {}) }}
+                onClick={() => { setSearchOpen((s) => !s); if (searchOpen) setDirQuery('') }}
+                title={leftMode === 'toc'
+                  ? '在标题目录内搜索章/小节'
+                  : leftMode === 'files'
+                    ? '在文件目录内搜索标准号/名称'
+                    : '在收藏目录内搜索夹名/标准号/标准名/条款号'}
+              >
+                🔍 搜索{dirQuery.trim() !== '' ? '·' : ''}
+              </button>
             </div>
+            {searchOpen && (
+              <div style={$dirSearchRow}>
+                <input
+                  value={dirQuery}
+                  onChange={(e) => setDirQuery(e.target.value)}
+                  placeholder={leftMode === 'toc'
+                    ? '🔍 搜索章/小节（编号/标题/页码）'
+                    : leftMode === 'files'
+                      ? '🔍 搜索标准号/名称'
+                      : '🔍 搜索夹名/标准号/标准名/条款号'}
+                  autoFocus
+                  style={$dirSearchInput}
+                />
+                {dirQuery.length > 0 && (
+                  <button type="button" onClick={() => setDirQuery('')} style={$dirSearchClear} title="清空">×</button>
+                )}
+              </div>
+            )}
             {leftMode === 'files' ? (
               <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-                <KsFilesView active={showLeftCol} onOpenDoc={onFilesOpenDoc} />
+                <KsFilesView active={showLeftCol} onOpenDoc={onFilesOpenDoc} query={dirQuery} onQueryChange={setDirQuery} />
               </div>
             ) : leftMode === 'bookmarks' ? (
               <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
-                <KsBookmarksView active={showLeftCol} sessionId={sessionId ?? null} onOpenEvidence={onBookmarkJump} />
+                <KsBookmarksView active={showLeftCol} sessionId={sessionId ?? null} onOpenEvidence={onBookmarkJump} query={dirQuery} />
               </div>
             ) : (
               <div style={$tocList}>
@@ -1555,8 +1614,12 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
                   </div>
                 ) : toc === null ? (
                   <div style={$tocHint}>加载中…</div>
+                ) : (tocFiltered ?? []).length === 0 ? (
+                  <div style={{ ...$tocHint, textAlign: 'center', paddingTop: 18 }}>
+                    没有匹配「{dirQuery.trim()}」的章/小节
+                  </div>
                 ) : (
-                  toc.map((t) => {
+                  (tocFiltered ?? []).map((t) => {
                     const no = tocNoClause(t)
                     const tt = tocTitleSplitClause(t)
                     const lvl1 = t.level === 1
@@ -1719,7 +1782,10 @@ const $tocColumnInner: React.CSSProperties = {
 const $tocColumnHeader: React.CSSProperties = {
   display: 'flex',
   alignItems: 'center',
-  gap: 6,
+  // 四宫格（2026-10-28）：第一行 文件+标题(+◀)，第二行 收藏+搜索。
+  // wrap + 每钮 flexBasis 50% → 两个一行；◀ 不参与折行（窄按钮跟在第一行尾）。
+  flexWrap: 'wrap',
+  gap: 4,
   padding: '6px 8px',
   borderBottom: '1px solid var(--dsw-alias-border-l1, #eee)',
 }
@@ -1800,14 +1866,14 @@ const $tocBtnStyle: React.CSSProperties = {
   borderColor: 'var(--dsw-alias-link, #1565c0)',
 }
 
-// 左列模式分段切换按钮（标题目录 ⇄ 文件目录）
+// 目录四宫格模式按钮（2026-10-28）：flexBasis 50% → 头部两行各两个，列宽不增。
 const $modeBtn: React.CSSProperties = {
-  flex: 1,
+  flex: '1 1 46%',
   border: '1px solid transparent',
   background: 'transparent',
   color: 'var(--dsw-alias-label-secondary, #666)',
   borderRadius: 4,
-  padding: '2px 6px',
+  padding: '3px 6px',
   cursor: 'pointer',
   fontSize: 11,
   whiteSpace: 'nowrap',
@@ -1817,5 +1883,38 @@ const $modeBtn: React.CSSProperties = {
 const $modeBtnOn: React.CSSProperties = {
   color: 'var(--dsw-alias-label-primary, #111)',
   background: 'var(--dsw-alias-interactive-bg-active, #e8f0fe)',
+  fontWeight: 600,
+}
+
+// 四宫格下的内联搜索行（🔍 展开时出现在宫格与列表之间）。
+const $dirSearchRow: React.CSSProperties = {
+  position: 'relative',
+  padding: '0 8px 6px',
+}
+
+const $dirSearchInput: React.CSSProperties = {
+  width: '100%',
+  boxSizing: 'border-box',
+  border: '1px solid var(--dsw-alias-border-l2, #ccc)',
+  borderRadius: 4,
+  padding: '4px 20px 4px 8px',
+  background: 'var(--dsw-alias-bg-layer-1, #fff)',
+  color: 'var(--dsw-alias-label-primary, #111)',
+  fontSize: 12,
+  outline: 'none',
+}
+
+const $dirSearchClear: React.CSSProperties = {
+  position: 'absolute',
+  right: 12,
+  top: '50%',
+  transform: 'translateY(-50%)',
+  border: 'none',
+  background: 'transparent',
+  color: 'var(--dsw-alias-label-tertiary, #999)',
+  cursor: 'pointer',
+  fontSize: 14,
+  lineHeight: 1,
+  padding: '0 4px',
   fontWeight: 600,
 }
