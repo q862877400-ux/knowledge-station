@@ -129,20 +129,35 @@ _TOC_HEAD = re.compile(r"^目\s*次")
 # 判据与 `audit_text.dot-leader` 同源口径（`…{2,}` = '……'），保持单一判据。
 _TOC_ENTRY = re.compile(r"(?:…{2,}|[.．]{3,})\s*\d{1,3}\s*$", re.M)
 
+#: 目录条目的**第二签名**（2026-09-15 批次2 实测 GB/T 29798-2013 缺陷）：
+#: 目录被压成单行时**点线会被吞掉**，只余"条款号 + 页码"：
+#:   '10.2.3 重连接 80\n10.2.4 订阅响应 SubscribeResponse 80\n…'（无点线）
+#: 该块 `_is_toc_entry` 判 False → 目录态当行退出，**其后的点线目录块
+#: （'14.5 出错信息的扩展性 …… 108' 起 10 行）也一并倒进正文**，
+#: 产出条款号序列断裂：['前置1','10.2.3','14.5','1','2','3',…]
+#: ——'14.5' 抢占正文 14.5 的座位（正文 14.5 内容实为目录尾部）。
+#: 判据：**≥2 行**形如「条款号 + 标题 + 1–3 位数字（页码）」。两条约束缺一不可：
+#:   - 数字尾是目录行与正文行的分水岭：正文块行尾**不会**带裸页码；
+#:     少了它会把普通多行正文块吃进目录态（'3.1 原则\n3.2 方法' 即误判）。
+#:   - ≥2 行是防单行误判：正文里一句"见 4.2 条 5"也可能单行成立。
+_RE_TOC_CL_NO_DOTS = re.compile(r"^\s*\d+(?:\.\d+)*\s+\S.*?\s\d{1,3}\s*$", re.M)
+
 
 def _is_toc_entry(text: str) -> bool:
-    """该块是否为目录条目（点线 + 页码尾）。
+    """该块是否为目录条目（点线 + 页码尾，或 ≥2 行「条款号 + 页码尾」）。
 
     逐行判定而非整块匹配：MinerU 常把多个条目并进一个块
     （实测 '国家标准化管理委员会\\n11 数据共享要求……7\\n12 数据删除要求……8'），
     整块 `$` 锚定会漏判。任一行是目录条目即认——**要求点线**是关键，
     没有点线的普通条款（'3.1 驾驶自动化分级原则'）不会被误吃。
+    无点线形态另由 `_RE_TOC_CL_NO_DOTS` 兜底（≥2 行条款号+页码尾），
+    见其注释中的实测缺陷证据与反向对照。
     """
     for ln in (text or "").split("\n"):
         s = ln.strip()
         if s and _TOC_ENTRY.search(s):
             return True
-    return False
+    return len(_RE_TOC_CL_NO_DOTS.findall(text or "")) >= 2
 
 # E8 表格数值防误判（2026-08-28 生产实测）：化学分析类标准的大表被 MinerU 切成
 # 文本行后，行首单元格值（"0.10 0.030 0.002"）满足 _CLAUSE_GB 的 len≥3/含点门槛
@@ -993,6 +1008,14 @@ def strip_figure_legend_segment(text: str) -> str:
 
     保守护栏：段内必须有 **≥2 个 `符号——名称` 条目**才切（`说明：`/`图中：` 在正文里
     很常见，没有条目就不能切）；不满足则跳过该头继续找下一个头。
+
+    **2026-09-15 新语料批次2 补第四种形态：图例条目在**图题行内/紧随其后且无头**
+    （GB/T 23496-2009 实测）：
+        '…不得超过算术平均值的 10%。\\n____\\n1——碱性橙 21;2——碱性橙 2;3——碱性橙 22。\\n图 A.1 …色谱图(波长:449'
+        '图 A.2 碱性橙标准色谱图(波长:485 nm)1——碱性橙 21；2——碱性橙 2;3——碱性橙 22。'
+    旧实现只认"有头"（`标引序号说明：`/`说明：`/`图中：`）→ 这类**全部漏切**。
+    处置：见下方"无头图例"分支——**图题行内**的条目直接剥掉；**紧随图题其后**
+    的条目行（≤2 行）整行删。护栏同上：起行须含 ≥2 个条目。
     """
     if not text or "—" not in text:
         return text
@@ -1024,7 +1047,82 @@ def strip_figure_legend_segment(text: str) -> str:
         if cut is None or cut == text:
             break
         text = cut
-    return text
+    # **先有头、后无头**（顺序关键，2026-09-15 实测）：无头分支若先跑，会把条目删掉
+    # 而留下 '标引序号说明：' 头 —— 随后有头分支因"条目数 <2"不再匹配 → 头残留，
+    # 回归测试 test_caption_terminates_segment 当场变红。故无头分支只作为**兜底**，
+    # 处理"本来就没有头"的那一族（GB/T 23496-2009 图题 + 无头条目）。
+    return _strip_headerless_legend(text)
+
+
+def _strip_headerless_legend(text: str) -> str:
+    r"""切掉**无头图例**：条目贴在图题上或紧随图题，没有 `标引序号说明：` 之类的头。
+
+    实测形态（GB/T 23496-2009，新语料批次2）：
+        '…不得超过算术平均值的 10%。\n____\n1——碱性橙 21;2——碱性橙 2;3——碱性橙 22。\n图 A.1 …色谱图'
+        '图 A.2 碱性橙标准色谱图(波长:485 nm)1——碱性橙 21；2——碱性橙 2;3——碱性橙 22。'
+
+    三条护栏（**图例必属某张图**）：
+      ① 只在**图题邻域**动手（图题行内 / 图题前 1~4 行 / 图题后 1~2 行）；
+      ② 判定用**窗口内累计条目数 ≥2**（单行 1 条可能是续行，如
+         '3——阀座；7——螺栓。\n4——活塞；'）；
+      ③ 回看可跨越装饰行（分隔线）与单字母类型标注（'b) B型'）——
+         **不能一见空行就停**，否则永远够不到更前的真图例（实测图题紧邻前一行
+         恰是 'b) B型'；此前写成 break 就是"护栏变断路"）。
+    反向对照：`'—— 额定关合电流 5.12'` 这类标准引用列表**不含** `序号——名称`，
+    不满足条目判据，不会被切（实测 GB/T 25307-2010 B.1 未误切）。
+    """
+    if not text or "—" not in text:
+        return text
+    _lines = text.split("\n")
+    _drop: set[int] = set()
+    _inline: dict[int, int] = {}
+    for i, ln in enumerate(_lines):
+        cap = _RE_FIG_CAPTION_LINE.match(ln)
+        if not cap:
+            continue
+        start = cap.end()
+        if len(_RE_LEGEND_ITEM_ANY.findall(ln[start:])) >= 2:
+            _inline[i] = start
+        for k in (i + 1, i + 2):
+            if k < len(_lines) and _RE_LEGEND_ITEM_ANY.findall(_lines[k]):
+                if len(_RE_LEGEND_ITEM_ANY.findall(_lines[k])) >= 2:
+                    _drop.add(k)
+                else:
+                    break
+            else:
+                break
+        _cand: list[int] = []
+        _total = 0
+        _skipped = 0
+        for depth in range(1, 5):
+            k = i - depth
+            if k < 0:
+                break
+            ln_k = _lines[k]
+            hits = _RE_LEGEND_ITEM_ANY.findall(ln_k)
+            _st = ln_k.strip()
+            _crossable = (not _st or set(_st) <= set("_-—–~ ")
+                          or bool(re.match(r"^[a-zA-Z]\)\s*[A-Za-z]?\s*型?$", _st)))
+            if hits:
+                _cand.append(k)
+                _total += len(hits)
+                continue
+            if _crossable and _skipped < 2:
+                _skipped += 1
+                continue
+            break
+        if _total >= 2:
+            _drop.update(_cand)
+    if not (_drop or _inline):
+        return text
+    _kept: list[str] = []
+    for i, ln in enumerate(_lines):
+        if i in _drop:
+            continue
+        if i in _inline:
+            ln = ln[: _inline[i]]
+        _kept.append(ln)
+    return "\n".join(_kept)
 
 
 def build_clause_models(doc_id: str, standard_no: str, doc_type: str,

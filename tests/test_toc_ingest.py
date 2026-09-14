@@ -112,3 +112,56 @@ def test_toc_single_entry_blocks_not_ingested():
     assert "10.1" not in numbers
     assert "1" in numbers, f"正文被误吃：{numbers}"
     assert "本标准适用于高温恒温循环装置。" in texts
+
+
+# ---------------------------------------------------------------------------
+# 第二签名：无点线目录块（2026-09-15 批次2 · 500 部新语料）
+# ---------------------------------------------------------------------------
+# **缺陷证据**（GB/T 29798-2013 实测）：目录被压成单行时**点线会被吞掉**，只余
+# "条款号 + 页码"：
+#     '10.2.3 重连接 80\n10.2.4 订阅响应 SubscribeResponse 80\n10.2.5 心跳 81\n…'
+# 该块 `_is_toc_entry` 判 False → 目录态当行退出 → **其后的点线目录块**
+# （'14.5 出错信息的扩展性 …… 108' 起 10 行）也一并倒进正文，产出号序断裂：
+#     ['前置1','10.2.3','14.5','1','2','3',…]
+# ——'14.5' 抢占正文 14.5 的座位（该条款内容实为目录尾部，正文缺此条）。
+# **修法**：`_RE_TOC_CL_NO_DOTS` 认「≥2 行 条款号 + 标题 + 页码尾」为目录条目。
+_TOC_NO_DOTS = ("10.2.3 重连接 80\n10.2.4 订阅响应 SubscribeResponse 80\n"
+                "10.2.5 心跳 81\n10.2.6 书签 82")
+
+
+def test_toc_no_dots_block_is_toc_entry():
+    """无点线目录块命中第二签名（实测原文）。"""
+    assert _is_toc_entry(_TOC_NO_DOTS)
+
+
+def test_toc_no_dots_reverse_controls():
+    """**反向对照**：正文多行块不得被第二签名吃掉。
+
+    分水岭是**行尾裸页码**——正文块行尾不会带页码；且要求 ≥2 行，
+    防正文里单行"见 4.2 条 5"这类误判。
+    """
+    for keep in ["3.1 原则\n3.2 方法",
+                 "3.1 原则\n3.2 方法\n3.3 要求",           # 多行正文，行尾无数字
+                 "4.2 应符合表 5 的规定。",                  # 单行
+                 "5.1 试验方法\n见 4.2 条 5",                 # 单行带数字尾
+                 "本标准规定了恒温槽的要求。\n温度范围 5 ℃ 至 40 ℃"]:
+        assert not _is_toc_entry(keep), keep
+
+
+def test_toc_no_dots_then_dots_block_not_ingested():
+    """**缺陷现场重放**：无点线目录块 + 其后的点线目录块都不得成为条款。"""
+    items = ([_t("目 次"), _t(_TOC_NO_DOTS)]
+             + [_t("14.5 出错信息的扩展性 …… 108"),
+                _t("14.6 主要出错消息 …… 109"),
+                _t("附录 A（规范性附录） 标记约定 …… 128")]
+             + [_t("前言"), _t("本标准按照 GB/T 1.1—2009 给出的规则起草。"),
+                _t("1 范围", 2), _t("本标准规定了资源管理的要求。", 2)])
+    clauses = split_items_into_clauses(items)
+    numbers = [str(c.number or "") for c in clauses]
+    texts = "\n".join(" ".join(c.texts) for c in clauses)
+    for bad in ("10.2.3", "14.5", "14.6"):
+        assert bad not in numbers, f"目录条目被摄入成条款：{bad} → {numbers}"
+    assert "……" not in texts, f"目录尾部仍被摄入：{texts[:160]}"
+    # 正文必须照常保留
+    assert "1" in numbers, f"正文被误吃：{numbers}"
+    assert "本标准规定了资源管理的要求。" in texts
