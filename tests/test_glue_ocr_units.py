@@ -9,6 +9,36 @@ import pytest
 from src.core.text_utils import glue_ocr_spaced_units as glue
 
 
+class TestSubscriptResidue:
+    """2026-09-15 残留修复：初版单字符集只有 ASCII → 下标型公式变量漏粘。
+    实测 GB/T 10593.2（'S ₑ'/'C ₛ ᵢ ₜ'）、GB/T 1094.6、GB/T 10671。"""
+
+    def test_subscript_joins_letter(self):
+        assert glue("S ₑ = 1000") == "Sₑ = 1000"
+
+    def test_multi_subscript_variable(self):
+        assert glue("C ₛ ᵢ ₜ = α") == "Cₛᵢₜ = α"
+
+    def test_product_variables(self):
+        # C₁V₁ 乘积记法：下标并入、字母段连续
+        assert glue("( C ₁ V ₁ - C ₀ V ₀ )") == "( C₁V₁ - C₀V₀ )"
+
+    def test_superscript_on_unit(self):
+        # 与文本层 glue 的 'm ³'→'m³' 规则对齐
+        assert glue("mg / m ³ )") == "mg / m³ )"
+
+    def test_greek_variable(self):
+        assert glue("Δ t 变量") == "Δt 变量"
+
+    def test_leading_subscript_not_merged_forward(self):
+        # 段首下标遇字母 → 断段（防反序误粘）
+        assert glue("ₖ 段首") == "ₖ 段首"
+
+    def test_no_cross_type_still(self):
+        # 扩展后仍不跨型（原契约不破）
+        assert glue("s 7 9 mm") == "s 79 mm"
+
+
 class TestGlue:
     def test_decimal_digits(self):
         # 数字段含小数点：7 8 . 2 → 78.2（文本层 glue 不吃点，OCR 版必须吃）
@@ -22,7 +52,9 @@ class TestGlue:
         assert glue("± 2 0 0 r / * m i n") == "± 200 r / * min"
 
     def test_letter_units_mm(self):
-        assert glue("6 m m ² / s") == "6 mm ² / s"
+        # 2026-09-15 契约更新：上标并入段（'m ²'→'m²'），与文本层 glue 的
+        # 'm ³'→'m³' 规则对齐——初版"上标不进段"已由残留修复取代
+        assert glue("6 m m ² / s") == "6 mm² / s"
 
     def test_letter_units_ssu(self):
         assert glue("4 5 S S U 3 6 0 S S U") == "45 SSU 360 SSU"
@@ -31,9 +63,10 @@ class TestGlue:
         # 型边界即词边界：数字段与字母段分别粘，不跨型粘连
         assert glue("1 5 0 r / m i n") == "150 r / min"
 
-    def test_superscript_not_in_segment(self):
-        # 上标不进段（独立归一管线负责）；mm 粘合但 ² 原位
-        assert glue("6 m m ² / s") == "6 mm ² / s"
+    def test_superscript_joins_segment(self):
+        # 2026-09-15 契约更新（原 test_superscript_not_in_segment）：上标/下标
+        # 并入当前段——ASCII-only 的初版漏粘下标型公式变量（10593.2/1094.6 实测）
+        assert glue("6 m m ² / s") == "6 mm² / s"
 
     def test_normal_line_unchanged(self):
         # 正常行零变化（最关键契约——不能把好文本改坏）

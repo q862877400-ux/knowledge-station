@@ -230,7 +230,10 @@ def glue_ocr_spaced_units(text: str | None) -> str:
     - 数字段允许内嵌 '.'（小数：'7 8 . 2' → '78.2'——文本层 glue 不吃点）。
     - 段门槛均 ≥2（'m m'→'mm'/'7 9'→'79'。裸枚举 'A、B' 国标排版带
       顿号无空格；空格分隔枚举未见实测形态，误粘风险记录在案）。
-    - 上标 ²³ 等不进段（保留原位，已有独立归一管线）。
+    - **下标/上标/希腊字符进段**（2026-09-15 残留修复，轮次 22 实测
+      GB/T 10593.2 'S ₑ = 1000 × ( C ₁ V ₁ - C ₀ V ₀ )'、'C ₛ ᵢ ₜ = α • v ₛ ᵢ ₙ d'：
+      初版单字符集只有 ASCII，ASCII 单位治好了而下标型公式变量漏着）。
+      与文本层 glue 的 subsup/greek 规则对齐；'m ³'→'m³'、'C ₛ ᵢ ₜ'→'Cₛᵢₜ'。
     - 幂等；正常行（无逐字符空格）零变化。
     """
     if not text or " " not in text:
@@ -239,11 +242,11 @@ def glue_ocr_spaced_units(text: str | None) -> str:
     for line in text.split("\n"):
         out = []
         buf: list[str] = []
-        cur: str | None = None   # 'n' | 'a'
+        cur: str | None = None   # 'n' | 'a' | 's'（下标/上标/希腊）
 
         def _flush() -> None:
             nonlocal buf, cur
-            if buf and cur in ("n", "a") and len(buf) >= 2:
+            if buf and cur is not None and len(buf) >= 2:
                 out.append("".join(buf))
             else:
                 out.extend(buf)
@@ -251,15 +254,25 @@ def glue_ocr_spaced_units(text: str | None) -> str:
             cur = None
 
         for tok in line.split(" "):
-            m = _RE_OCR_SINGLE.match(tok)
-            if m:
-                kind = "a" if tok.isalpha() else "n"
+            if _RE_OCR_SINGLE.match(tok):
+                if _RE_OCR_SUBSUP.match(tok):
+                    kind = "s"
+                elif tok.isalpha():
+                    kind = "a"
+                else:
+                    kind = "n"
                 if cur is None:
+                    cur, buf = kind, [tok]
+                elif kind == "s":
+                    buf.append(tok)        # 下标/上标总并入当前段（'m' + '³'）
+                elif cur == "s":
+                    # 段首下标遇字母/数字 → 断段（防 '₁V' 反序误粘）
+                    _flush()
                     cur, buf = kind, [tok]
                 elif cur == kind:
                     buf.append(tok)
                 else:
-                    _flush()
+                    _flush()               # 数字段↔字母段：型边界即词边界
                     cur, buf = kind, [tok]
             elif tok == "." and cur == "n":
                 buf.append(tok)     # 数字段内小数点
@@ -272,7 +285,10 @@ def glue_ocr_spaced_units(text: str | None) -> str:
     return "\n".join(out_lines)
 
 
-_RE_OCR_SINGLE = re.compile(r"^[A-Za-z0-9]$")
+_RE_OCR_SUBSUP = re.compile(r"^[₀-₉⁰-⁹¹²³ⁿᵢₛₜₑₓᵤᵥₐₒᵣᵦᵧₚₖₘₙᵈᵍᵗʰʲᵏˡᵐˢᵛʷʸᶻ]$")
+_RE_OCR_GREEK = re.compile(r"^[\u0391-\u03c9]$")
+_RE_OCR_SINGLE = re.compile(
+    r"^(?:[A-Za-z0-9]|[₀-₉⁰-⁹¹²³ⁿᵢₛₜₑₓᵤᵥₐₒᵣᵦᵧₚₖₘₙᵈᵍᵗʰʲᵏˡᵐˢᵛʷʸᶻ]|[\u0391-\u03c9])$")
 
 
 def glue_spaced_formulas(text: str | None) -> str:
