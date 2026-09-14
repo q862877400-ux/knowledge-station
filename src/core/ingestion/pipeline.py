@@ -136,6 +136,15 @@ def _plausible_clause_head(num: str, rest: str | None) -> bool:
     # 大写、"pH的测定"后随拉丁，均不受扰）；1~3 个小写拉丁后紧跟中文即拒绝。
     if rest and re.match(r"[a-z]{1,3}[\u4e00-\u9fff]", rest):
         return False
+    # 闸门 4（2026-09-15，GB/T 12706.4-2020 收敛循环首轮实测）：标题折行后行首是
+    # **「量值 + 单位」的收尾**——原文封面/标题 "( Uₘ = 40.5 kV )挤包绝缘电力电缆…"
+    # 折行成 "40.5kV)挤包绝缘电力电缆及附件 第4部分…"，被 _CLAUSE_GB 当条款号
+    # 40.5（实测产出伪条款 40.5、553 字，且是后续序性判据毒化的引信）。
+    # 闸门 3 只认**纯小写**拉丁（"kV" 的 V 是大写 → 漏），故补一条独立形态：
+    # 短拉丁（1~4 字母，含大小写）+ 紧跟右括号 = 数值括号的收尾，非条款头。
+    # 反例保护：真条款头 "4.1 pH的测定"（拉丁后跟中文、无括号）不受影响。
+    if rest and re.match(r"\s*[A-Za-z]{1,4}\s*[\)）\]】]", rest):
+        return False
     return not _TABULAR_REST.match(rest or "")
 
 
@@ -146,9 +155,15 @@ def _plausible_clause_head(num: str, rest: str | None) -> bool:
 #: '5.1.1~5.1.19的试验结果记入表 A.2。'（波浪号）、'12.9。如未规定频率…'
 #: （句号）、'11.6.2 或11.6.3得出的值大。'（连接词）、'8.3.1.2.3.1 概述'
 #: 旧正则深度不足时的 '.1 概述'（点起头）。
+#:
+#: **2026-09-15 修正（GB/T 12706.4-2020 '7.8 如果在较低U₀值电缆…' 被误拒）**：
+#: 初版连接词分支只认词本身（或/见/按/如…）→ **合法条款标题以「如」起头也被拒**
+#: （"7.8 如果…" 整条并进上一条）。真续行的连接词后面**必然紧跟一个引用对象**
+#: （条款号或标准号），故连接词分支补这个必要条件：后面接数字或标准号前缀。
 _RE_CONT_REST = re.compile(
     r"^[\s\)）\]】》~～。，、；：,.;:·—–\-]+"
-    r"|^\s*(?:或|和|及|与|即|则|其中|式中|以及|见|按|如)"
+    r"|^\s*(?:或|和|及|与|即|则|其中|式中|以及|见|按|如)\s*"
+    r"(?:\d|[A-Z]{2,6}\s*[/\s]?\s*[A-Z]?\s*\d)"
     r"|^\s*[\d.]"
 )
 
@@ -177,23 +192,38 @@ def _is_continuation_head(num: str, rest: str | None, clauses: list) -> bool:
     两道独立判据（任一命中即拒）：
       ① 形态：rest 以续行标点（)/）/~ 。，、；: 等）、连接词（或/和/及/与…）
          或数字/点起头——真条款头的标题不会这样起头；
-      ② 序性：号 ≤ 同文档最近已产出的条款号。国标正文号严格递增
-         （1→2→…→5.1→5.1.1→5.2），重复或回退只可能是交叉引用/续行；
-         附录字母号同序（A.1<A.2<B.1），前置说明（前置N）不参与。
+      ② 序性：**重复号**或**同父回退**（见下）。
     失效方向：页序错乱的文档可能把真头并进上一条（内容保留、少切一条），
     比「伪造同号条款污染 clause_key」安全。
+
+    **2026-09-15 二次修正（收敛循环首轮实测，GB/T 12706.4-2020）**：
+    初版序性判据是「号 ≤ 最近已产出号即拒」——**顺序依赖且不可恢复**：
+    标题折行把行首电压值 "40.5kV)…" 当成条款号 40.5 后，其后所有真头
+    （4.1/5.2/附录 A.1…）都不大于 40.5 → 被全数拒绝，27 页文档从 53 条
+    塌成 3 条、正文 6489→4886 字。**一个假头毒死全文**，而且这一层没有
+    任何机制能自愈。改为两条**局部充分**判据：
+      ① 重复：该号已在本文档产出过（交叉引用/续行重号的真特征）；
+      ② 同父回退：与最近已产出号**同长且同父**（前缀相同）而更小——
+         同一父下真条款号严格递增，回退只可能是引用前面兄弟的续行。
+    跨父的大幅"回退"（40.5 → 4.1）不再拒：那是新章开始，且不受假头污染。
     """
     if _RE_CONT_REST.match((rest or "")):
         return True
     cur = _num_segments(num)
     if cur is None:
         return False
-    for cl in reversed(clauses):
-        last = _num_segments(getattr(cl, "number", "") or "")
-        if last is None:
-            continue
-        return cur <= last
-    return False
+    produced: list[tuple[int, ...]] = []
+    for cl in clauses:
+        seg = _num_segments(getattr(cl, "number", "") or "")
+        if seg is not None:
+            produced.append(seg)
+    if not produced:
+        return False
+    if cur in produced:            # ① 重复号
+        return True
+    last = produced[-1]            # ② 同父回退
+    return (len(cur) == len(last) and cur[:-1] == last[:-1]
+            and cur[-1] < last[-1])
 
 
 _RE_LEADER_RUN = re.compile(r"^[0.·\u2024\s]{6,}$")
@@ -1444,12 +1474,62 @@ def _merge_table_items(items: list[MidItem],
     return out
 
 
+def _cached_parse_result(parse_dir: Path, pdf_path: Path) -> dict[str, Any] | None:
+    """从既有解析产物重建 run_parser_isolated 的等价 result（**零 OCR**）。
+
+    2026-09-15（收敛循环 v2 立）：修复只发生在**后处理层**（条款头闸门 / 粘合 /
+    LaTeX 空格 / 引导点线 / 图例 / PUA …）时，重导整库**不需要重新 OCR**——
+    产物已缓存在 `parse_out/<doc_id>/`。本函数把缓存还原成解析器返回值形态，
+    使 `run_full_ingest(reuse_parse=True)` 跳过 `run_parser_isolated`，全库重扫
+    从「小时级云额度」降到「秒级零外发」。
+
+    两种缓存形态（与 middle_locator / 文本层路径一致）：
+    - `blocks.json` 非空 → 文本层路径（blocks + 几何自 PDF 重建）
+    - `mineru/**/*_layout.json|*_middle.json` → 深度路径（deep_output 由
+      run_full_ingest 用 middle_locator 再定位，故只需给 parse_dir）
+    两者皆无 → None（调用方回退真解析）。
+    """
+    if not parse_dir.is_dir():
+        return None
+    blocks: list = []
+    bp = parse_dir / "blocks.json"
+    if bp.exists():
+        try:
+            raw = json.loads(bp.read_text(encoding="utf-8"))
+            blocks = [b for b in raw if isinstance(b, dict) and b.get("text")]
+        except Exception:  # noqa: BLE001 —— 缓存坏了就当没有，回退真解析
+            blocks = []
+    if blocks:
+        geos: dict[int, dict] = {}
+        try:
+            import fitz
+            with fitz.open(pdf_path) as d:
+                for i, pg in enumerate(d, 1):
+                    rect = pg.rect
+                    geos[i] = {"width": rect.width, "height": rect.height,
+                               "rotation": pg.rotation, "crop_box": [], "media_box": []}
+        except Exception:
+            logger.warning("复用产物：几何重建失败 %s", pdf_path.name, exc_info=True)
+        logger.info("复用解析产物（文本层 blocks）：%d 块 (%s)", len(blocks), pdf_path.name)
+        return {"blocks": blocks, "is_ocr": False, "geometries": geos,
+                "deep_output": None, "text_layer_state": "ok",
+                "deep_fallback_skipped": False, "parse_reused": "blocks"}
+    from src.core.ingestion.middle_locator import find_middle_files
+    if find_middle_files(parse_dir):
+        logger.info("复用解析产物（深度）：%s", pdf_path.name)
+        return {"blocks": [], "geometries": {}, "deep_output": str(parse_dir),
+                "text_layer_state": "ok", "deep_fallback_skipped": False,
+                "parse_reused": "deep"}
+    return None
+
+
 def run_full_ingest(pdf_path: Path, standard_no: str, standard_name: str,
                     short_code: str | None = None, doc_type: str = "standard",
                     domain_tags: list[str] | None = None,
                     legal_hierarchy: str = "GB",
                     reingest: bool = False,
-                    force_deep: bool = True) -> dict:
+                    force_deep: bool = True,
+                    reuse_parse: bool = False) -> dict:
     settings = get_settings()
     if not pdf_path.exists():
         return {"status": "error", "message": f"文件不存在: {pdf_path}"}
@@ -1476,8 +1556,19 @@ def run_full_ingest(pdf_path: Path, standard_no: str, standard_name: str,
     # 表格重建（_extract_vector_table_items）已能逐页恢复全部表格（15 张含跨页
     # 续表/附录表），且深度解析 900s 超时会整单失败。默认 True 保持原行为；
     # 单文档重导传 False 走快路径。
-    result = run_parser_isolated(pdf_path, settings.data_dir / "parse_out" / doc_id,
-                                 force_deep=force_deep)
+    result = None
+    if reuse_parse:
+        # 2026-09-15（收敛循环 v2）：先尝试复用**既有文档**的解析产物（零 OCR）。
+        # 既有文档 = 同 file_hash（dup）或同 standard_no（same_no）；新文档无缓存 → 回退真解析。
+        for cand in (dup[0] if dup else None, same_no["doc_id"] if same_no else None):
+            if not cand:
+                continue
+            result = _cached_parse_result(settings.data_dir / "parse_out" / cand, pdf_path)
+            if result is not None:
+                break
+    if result is None:
+        result = run_parser_isolated(pdf_path, settings.data_dir / "parse_out" / doc_id,
+                                     force_deep=force_deep)
     deep_output = result.get("deep_output")
     # 2026-09-02 治本（正常入库识别流程丢字修复）：文本层完好（blocks 非空 = 非 OCR、
     # 非 PUA 错位归一化后可用）→ 正文用 fitz 文本层保真（MinerU 深度模型对文本层

@@ -12,8 +12,8 @@
 import json
 
 from src.core.ingestion.pipeline import (
-    _CLAUSE_GB, _is_continuation_head, _num_segments, load_middle_items,
-    split_items_into_clauses,
+    _CLAUSE_GB, _is_continuation_head, _num_segments, _plausible_clause_head,
+    load_middle_items, split_items_into_clauses,
 )
 
 
@@ -108,6 +108,52 @@ class TestDepthCap:
         assert m.group(2).strip() == "概述"
 
 
+class TestUnitBracketGate:
+    """闸门 4（2026-09-15 收敛循环首轮，GB/T 12706.4-2020 实测）。
+
+    封面/标题折行后行首是「量值 + 单位」的收尾：原文
+    "( Uₘ = 40.5 kV )挤包绝缘电力电缆…" → 行首 "40.5kV)挤包绝缘…" 被当条款号。
+    闸门 3 只认**纯小写**拉丁（"kV" 的 V 是大写）故漏网，补独立形态判据。
+    """
+
+    def test_unit_then_paren_rejected(self):
+        assert not _plausible_clause_head(
+            "40.5", "kV)挤包绝缘电力电缆及附件 第4部分")
+
+    def test_spaced_unit_then_paren_rejected(self):
+        assert not _plausible_clause_head("40.5", " kV )电力电缆附件试验要求》。")
+        assert not _plausible_clause_head("40.5", "mm]电力电缆附件试验要求。")
+
+    def test_title_starting_with_latin_kept(self):
+        # 反例保护："4.1 pH的测定" 是真条款头（拉丁后跟中文、无括号）
+        assert _plausible_clause_head("4.1", "pH的测定")
+        assert _plausible_clause_head("4.1", "A类评定")
+
+
+class TestCascadeResistance:
+    """假头不得毒化其后真头（2026-09-15 收敛循环首轮实测的塌缩机制）。
+
+    实测：GB/T 12706.4-2020 的 27 页产物，真头 4.1/5.2/… 全被「号 ≤ 最近已产出号」
+    判成续行 → 整篇塌成 3 条。这两条是**不可恢复**故障的护栏。
+    """
+
+    def test_real_head_after_false_head(self):
+        assert not _is_continuation_head("4.1", "基本要求", [_Fake("40.5")])
+        assert not _is_continuation_head("5.2", "要求", [_Fake("40.5")])
+        assert not _is_continuation_head("A.1", "试验方法", [_Fake("40.5")])
+
+    def test_connector_needs_reference(self):
+        # 真条款标题可以以连接词起头：'7.8 如果在较低U₀值电缆…'（实测被初版误拒）
+        assert not _is_continuation_head(
+            "7.8", "如果在较低U₀值电缆的绝缘半导电屏蔽层上的径向电场强度不大于"
+                   "试验电缆的径向电场强度，", [])
+        # 真续行：连接词后**紧跟引用对象**（条款号 / 标准号）
+        assert _is_continuation_head("11.6.2", "或11.6.3得出的值大。", [])
+        assert _is_continuation_head("3.2", "见5.1的规定。", [])
+        assert _is_continuation_head("3.2", "按GB/T 12706.1的规定。", [])
+        assert _is_continuation_head("3.2", "以及6.2的要求。", [])
+
+
 def _mk(items_text: list[str], tmp_path):
     mj = {"pdf_info": [{"page_idx": 0, "page_size": [595.0, 841.0], "para_blocks": [
         {"type": "text", "bbox": [60, 700, 530, 740],
@@ -142,3 +188,24 @@ class TestIntegration:
         items, _ = load_middle_items(p)
         nums = [c.number for c in split_items_into_clauses(items)]
         assert nums == ["5.1", "5.2"], nums
+
+    def test_false_head_does_not_collapse_document(self, tmp_path):
+        # 塌缩复现（GB/T 12706.4-2020 形态）：假头 40.5 侥幸成条款后，
+        # 其后真头 4.1/5.1 **必须**照常产出（旧序性判据会全部吞掉）。
+        p = _mk(["额定电压1kV到35kV挤包绝缘电力电缆及附件",
+                 "40.5 电力电缆附件试验要求",
+                 "4.1 试验条件", "试验条件应符合要求。",
+                 "5.1 试验样机", "试验样机应符合要求。"], tmp_path)
+        items, _ = load_middle_items(p)
+        nums = [c.number for c in split_items_into_clauses(items)]
+        assert "4.1" in nums and "5.1" in nums, f"假头毒化了后续真头: {nums}"
+
+    def test_unit_wrapped_title_not_clause(self, tmp_path):
+        # 闸门 4 端到端：折行行首的单位括号收尾不得成条款
+        p = _mk(["额定电压1kV到35kV挤包绝缘电力电缆及附件",
+                 "40.5kV)挤包绝缘电力电缆及附件 第4部分",
+                 "4.1 试验条件", "试验条件应符合要求。"], tmp_path)
+        items, _ = load_middle_items(p)
+        nums = [c.number for c in split_items_into_clauses(items)]
+        assert "40.5" not in nums, f"数值收尾成了伪条款: {nums}"
+        assert "4.1" in nums, nums

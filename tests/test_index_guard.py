@@ -44,10 +44,29 @@ class TestLeaderRun:
 
 
 class TestOrderingOnBareNumber:
-    def test_index_number_rejected(self):
-        # 索引号必然 ≤ 正文已产出号（正文在索引之前）
-        assert _is_continuation_head("8.13", "", [_Fake("14.2")])
-        assert _is_continuation_head("3.1", "", [_Fake("10.10")])
+    """序性判据的**现**契约（2026-09-15 收敛循环首轮修正）。
+
+    初版契约是「号 ≤ 最近已产出号即拒」，跨父也拒——但收敛循环首轮实测暴露它是
+    **顺序依赖且不可恢复**：假头 40.5 一旦入史，其后所有真头（4.1/5.2/附录 A.1）
+    全被判回退，GB/T 12706.4-2020 从 53 条塌成 3 条、正文 6489→4886 字。
+    现契约收窄为两条**局部充分**判据：① 重复号；② 同父回退。
+    索引行的护栏不在此处，而在前瞻分支的引点判据 —— 由
+    `TestIntegration.test_index_rows_not_clauses` 端到端保证。
+    """
+
+    def test_same_parent_backward_rejected(self):
+        # 同一父下回退 = 引用前面兄弟的续行（真条款号同父严格递增）
+        assert _is_continuation_head("8.13", "", [_Fake("8.20")])
+        assert _is_continuation_head("3.1", "", [_Fake("3.9")])
+
+    def test_duplicate_rejected(self):
+        assert _is_continuation_head("3.1", "", [_Fake("3.2"), _Fake("3.1")])
+
+    def test_cross_parent_backward_accepted(self):
+        # 跨父"回退"必须放行：那既可能是新章开始，也可能是假头之后的真头；
+        # 拒它就是让一个假头毒死全文（不可恢复）。
+        assert not _is_continuation_head("8.13", "", [_Fake("14.2")])
+        assert not _is_continuation_head("4.1", "", [_Fake("40.5")])
 
     def test_body_progression_accepted(self):
         # 正文递增号（1032 术语条目形态）不受影响
