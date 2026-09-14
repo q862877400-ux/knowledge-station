@@ -394,6 +394,8 @@ def _spans_text(node: dict) -> str:
 
 
 _RE_LEGEND_HEAD = re.compile(r"^标.{0,3}序.{0,4}[：:]?\s*$|^标.{0,3}序.{0,4}说?明?[：:]")
+#: 图注行（图例段的结束边界）：'图 B.4' / '图 12' / '图A.1'
+_RE_FIG_CAPTION_LINE = re.compile(r"^\s*图\s*[A-Z]?\.?\s*\d")
 # 图例清单项：'N——标签'（同一行可多项：'1——托架：5——辐射锥：9——控制盒：'）。
 # 前界用「非数字/字母」负向环视而非 \s ——实测多项同行时分隔符是 '：'/'；'，
 # 初版 (?:^|\s) 只匹配到第一项、整块漏判。
@@ -888,6 +890,52 @@ def split_items_into_clauses(items: list[MidItem]) -> list[SplitClause]:
     return clauses
 
 
+def strip_figure_legend_segment(text: str) -> str:
+    r"""切掉条款文本里的**图例段**（「标引序号说明」及其条目）。
+
+    2026-09-15 收敛循环第 6 轮根因（figure-neighborhood 33 部）：MinerU 常把
+    **条款正文 + 图例 + 图注压进同一个文本块**，实测形态
+    （GB/T 10002.2-2023 B.2.1.2）::
+
+        B.2.1.2 异径接头
+        异径长接头的计算值和推荐偏差见表 B.4，…见表 B.5。
+        标引序号说明：
+        dₙ₁ 、 dₙ₂ ——与异径长接头连接管材的公称外径；
+        Z ——安装长度。
+        图 B.4 …
+
+    既有 `_is_figure_legend` 对此漏判两条：① 图例头**不在块首**（在条款正文后）；
+    ② 条目是**符号**（dₙ₁/Z）而非数字，`_RE_LEGEND_ITEM` 的数字型判据数不到。
+    故不能只靠"别吸收图例块"，须在文本清洗层把图例段**切掉**。
+
+    保守性：仅当图例头之后到图注行（`图 N`）/文本结束之间**至少有一个含 `——`
+    的条目行**才切；否则原样返回（防把"…标引序号说明如下"这类正文误切）。
+    **迭代**切除：实测一个块可含**多段**图例（图注在图例前、图例后又有图注与
+    下一段图例），单次修剪只清掉第一段（GB/T 10002.2-2023 B.2.1.2 实测）。
+    """
+    if not text or "序" not in text:
+        return text
+    for _ in range(10):
+        lines = text.split("\n")
+        start = next((i for i, ln in enumerate(lines)
+                      if _RE_LEGEND_HEAD.match(ln.strip())), None)
+        if start is None:
+            break
+        end = len(lines)
+        for j in range(start + 1, len(lines)):
+            if _RE_FIG_CAPTION_LINE.match(lines[j]):
+                end = j
+                break
+        seg = lines[start + 1:end]
+        if not any(("—" in s or "–" in s) for s in seg):
+            break
+        nxt = "\n".join(lines[:start] + lines[end:]).strip("\n")
+        if nxt == text:
+            break
+        text = nxt
+    return text
+
+
 def build_clause_models(doc_id: str, standard_no: str, doc_type: str,
                         clauses: list[SplitClause],
                         page_sizes: dict[int, tuple[float, float]],
@@ -964,9 +1012,11 @@ def build_clause_models(doc_id: str, standard_no: str, doc_type: str,
             pua_bond_dash_html as _pua_dash, space_clause_numbers_text,
             strip_formula_leader as _strip_leader, sup_unit_exponents_text)
         # 2026-09-15 追加 PUA 分隔符还原（U+E011/U+E788 → '-'/' '）+ 公式编号
-        # 引导点线清洗（'……………( 1' → ' (1)'）——两者都是全库审计达线类。
+        # 引导点线清洗（'……………( 1' → ' (1)'）+ 图例段切除（条款块内混入的
+        # 「标引序号说明」条目）——三者都是全库审计达线类。
         content = space_clause_numbers_text(
-            sup_unit_exponents_text(_strip_leader(_pua_sep(_pua_dash(content)))))
+            sup_unit_exponents_text(strip_figure_legend_segment(
+                _strip_leader(_pua_sep(_pua_dash(content))))))
         tc = classify_clause(content, doc_type=doc_type)
         # 2026-09-14（执行计划 v3 阶段 2a）：识别层真实置信度首次接入
         # clause_revision.ocr_confidence（此前恒 1.0 无生产者——quality/
