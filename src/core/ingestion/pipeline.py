@@ -349,6 +349,50 @@ def _spans_text(node: dict) -> str:
     return "\n".join(t for t, _ in _spans_rows(node))
 
 
+_RE_LEGEND_HEAD = re.compile(r"^标.{0,3}序.{0,4}[：:]?\s*$|^标.{0,3}序.{0,4}说?明?[：:]")
+# 图例清单项：'N——标签'（同一行可多项：'1——托架：5——辐射锥：9——控制盒：'）。
+# 前界用「非数字/字母」负向环视而非 \s ——实测多项同行时分隔符是 '：'/'；'，
+# 初版 (?:^|\s) 只匹配到第一项、整块漏判。
+_RE_LEGEND_ITEM = re.compile(r"(?<![\dA-Za-z])\d{1,2}\s*[—\-–~]{1,3}\s*[^\d\s]")
+
+
+def _is_figure_legend(text: str) -> bool:
+    """图例块（标引序号说明 + 'N——标签' 编号清单）判定（2026-09-15 立）。
+
+    背景（OCR 循环自治循环 figure-neighborhood 类跨 3 文档达线，实测
+    GB/T 10671 / 11345）：图内标引序号说明被 OCR 成低分文本块，被当作
+    条款正文并入 → ①条款正文混入图例垃圾（'标可序影视听：/ 1 供：…下光衡：'）
+    ②条款 ocr_confidence 被图内文字拖低（虚假告警）。
+    判据：① 首行是「标引序号说明」头（含 OCR 乱码变体 '标可序影视听：'，
+    用 标.*序.*[：:] 松匹配）；② 块内 'N——标签' 编号项 ≥2（**按项计数而非
+    按行**：实测图例常压成一行多项，初版逐行 match 只数到 1 而漏判）。
+    """
+    lines = [ln for ln in (text or "").split("\n") if ln.strip()]
+    if not lines:
+        return False
+    if _RE_LEGEND_HEAD.match(lines[0].strip()):
+        return True
+    return len(_RE_LEGEND_ITEM.findall(text)) >= 2
+
+
+def _legend_follows_image(bb: list[float] | None, img_bb: list[float] | None,
+                          gap_max: float = 60.0) -> bool:
+    """几何判据：图例块紧邻图（上下任一方向），且横向有交叠。
+
+    2026-09-15 修：初版按「图下沿 = img_bb[1]」写死 y 方向假设 → 实测
+    （10671 图 bbox y 166..421、图例 y 446..459）最近边是 img[3]/bb[1]，
+    写死方向把距离算成 293 直接否掉、图例全部漏判。改为取两框**最近边距**
+    （方向无关），只要求相邻且横向不远离（图例可略宽出图，实测左伸 ~20px）。
+    """
+    if not bb or not img_bb or len(bb) != 4 or len(img_bb) != 4:
+        return False
+    vgap = min(abs(bb[3] - img_bb[1]), abs(bb[1] - img_bb[3]))
+    if vgap > gap_max:
+        return False
+    x_overlap = min(bb[2], img_bb[2]) - max(bb[0], img_bb[0])
+    return x_overlap > -40.0
+
+
 def load_middle_items(middle_path: Path) -> tuple[list[MidItem], dict[int, tuple[float, float]]]:
     """解析 middle.json → 阅读顺序条目 + 每页尺寸。
 
@@ -357,6 +401,7 @@ def load_middle_items(middle_path: Path) -> tuple[list[MidItem], dict[int, tuple
     mj = json.loads(middle_path.read_text(encoding="utf-8"))
     items: list[MidItem] = []
     page_sizes: dict[int, tuple[float, float]] = {}
+    last_img: tuple[int, list[float], MidItem] | None = None   # (page_idx, bbox, item)
     for page in mj.get("pdf_info", []):
         pidx = page.get("page_idx", len(page_sizes))
         w, h = page.get("page_size", [595.0, 841.0])
@@ -396,10 +441,12 @@ def load_middle_items(middle_path: Path) -> tuple[list[MidItem], dict[int, tuple
                                 if span.get("image_path"):
                                     img_rel = span["image_path"]
                 if img_rel:
-                    items.append(MidItem(kind="image", text=cap_text.strip(),
-                                         caption=cap_text.strip() or None,
-                                         image_path=img_rel, page_idx=pidx,
-                                         bbox=list(block.get("bbox", []))))
+                    img_item = MidItem(kind="image", text=cap_text.strip(),
+                                       caption=cap_text.strip() or None,
+                                       image_path=img_rel, page_idx=pidx,
+                                       bbox=list(block.get("bbox", [])))
+                    items.append(img_item)
+                    last_img = (pidx, list(block.get("bbox", [])), img_item)
             else:
                 # 2026-09-02 chart（曲线/图表）治本：题注在 blocks 子级 lines
                 # （chart 无顶层 lines）——用 _spans_text(sub) 提取题注入正文，
@@ -416,12 +463,26 @@ def load_middle_items(middle_path: Path) -> tuple[list[MidItem], dict[int, tuple
                     text_rows = _spans_rows(block)
                     text = "\n".join(t for t, _ in text_rows)
                     if text:
+                        blk_bb = list(block.get("bbox", []))
+                        # 2026-09-15 图例归图：紧贴图下方的「标引序号说明 +
+                        # N——标签」清单是图内容而非条款正文——并入图条目
+                        # caption（内容不丢、随图渲染），不再进条款正文
+                        # （否则正文混入图例乱码且 ocr_confidence 被图内文字拖低）。
+                        if (last_img and last_img[0] == pidx
+                                and _is_figure_legend(text)
+                                and _legend_follows_image(blk_bb, last_img[1])):
+                            it_img = last_img[2]
+                            merged = "\n".join(
+                                x for x in ((it_img.caption or ""), text) if x)
+                            it_img.text = merged
+                            it_img.caption = merged
+                            continue
                         # 2026-09-14 阶段 2a：_spans_rows 内部已把 span score
                         # min 写进 block["_ks_min_score"]（见 _spans_rows_scored）
                         items.append(MidItem(
                             kind="title" if btype == "title" else "text",
                             text=text, page_idx=pidx,
-                            bbox=list(block.get("bbox", [])),
+                            bbox=blk_bb,
                             line_boxes=[b for _, b in text_rows],
                             min_span_score=block.get("_ks_min_score")))
     return items, page_sizes
