@@ -265,8 +265,14 @@ def _spans_rows_scored(node: dict) -> list[tuple[str, list[float] | None]]:
             if scores:
                 m = min(scores)
                 node["_ks_min_score"] = m if _g is None else min(_g, m)
-            rows.append(("".join(parts).strip(),
-                         list(line["bbox"]) if line.get("bbox") else None))
+            # 2026-09-14（OCR 循环轮次 4/7/12 同类 3 次达线）：OCR 通道逐字符
+            # 拉开的单位/数字（"± 2 0 0 r / * m i n"）原样入库 → 行出口统一
+            # 保守粘合（数字/字母分段、不跨型、含小数点；详见 text_utils
+            # glue_ocr_spaced_units）。文本层路径的 glue 在 fitz 侧另有调用点。
+            from src.core.text_utils import glue_ocr_spaced_units
+            rows.append((glue_ocr_spaced_units(
+                "".join(parts).strip()),
+                list(line["bbox"]) if line.get("bbox") else None))
     return rows
 
 

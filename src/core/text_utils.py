@@ -215,6 +215,66 @@ def normalize_math_symbols(text: str | None) -> str:
     return t
 
 
+def glue_ocr_spaced_units(text: str | None) -> str:
+    """OCR 通道的保守粘合（2026-09-14，OCR 循环轮次 4/7/12 同类问题 3 次达线）。
+
+    背景：ch_server OCR 对低分 span 的单位/数字逐字符拉开——实测 GB/T
+    10058 "0 . 7 0 m / s ²0"、GB/T 10238 "± 2 0 0 r / * m i n" /
+    "T = 7 8 . 2 + 2 0 . 0 2 B"（跨 3 文档同类累计 3 次，触发根因修复）。
+    文本层路径的 glue_spaced_formulas 不覆盖此形态（点号不进 buf、跨型
+    粘合对 OCR 噪声过激）。
+
+    保守规则（与文本层 glue 的差异，全部来自 OCR 噪声实测形态）：
+    - 数字段与字母段**分别粘、不跨型**（防 "s79" 类粘连——OCR 拉开段
+      的型边界就是原词边界）；段间空格保留。
+    - 数字段允许内嵌 '.'（小数：'7 8 . 2' → '78.2'——文本层 glue 不吃点）。
+    - 段门槛均 ≥2（'m m'→'mm'/'7 9'→'79'。裸枚举 'A、B' 国标排版带
+      顿号无空格；空格分隔枚举未见实测形态，误粘风险记录在案）。
+    - 上标 ²³ 等不进段（保留原位，已有独立归一管线）。
+    - 幂等；正常行（无逐字符空格）零变化。
+    """
+    if not text or " " not in text:
+        return text or ""
+    out_lines: list[str] = []
+    for line in text.split("\n"):
+        out = []
+        buf: list[str] = []
+        cur: str | None = None   # 'n' | 'a'
+
+        def _flush() -> None:
+            nonlocal buf, cur
+            if buf and cur in ("n", "a") and len(buf) >= 2:
+                out.append("".join(buf))
+            else:
+                out.extend(buf)
+            buf = []
+            cur = None
+
+        for tok in line.split(" "):
+            m = _RE_OCR_SINGLE.match(tok)
+            if m:
+                kind = "a" if tok.isalpha() else "n"
+                if cur is None:
+                    cur, buf = kind, [tok]
+                elif cur == kind:
+                    buf.append(tok)
+                else:
+                    _flush()
+                    cur, buf = kind, [tok]
+            elif tok == "." and cur == "n":
+                buf.append(tok)     # 数字段内小数点
+            else:
+                _flush()
+                if tok:
+                    out.append(tok)
+        _flush()
+        out_lines.append(" ".join(t for t in out if t))
+    return "\n".join(out_lines)
+
+
+_RE_OCR_SINGLE = re.compile(r"^[A-Za-z0-9]$")
+
+
 def glue_spaced_formulas(text: str | None) -> str:
     """修复"公式字母被拉开"：PDF 文本层逐字符定位 → 提取出 "C a O"、"Y ₂ O ₃"。
 
