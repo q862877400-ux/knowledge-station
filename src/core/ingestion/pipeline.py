@@ -930,10 +930,15 @@ def build_clause_models(doc_id: str, standard_no: str, doc_type: str,
         # 展示由出口重放兜底——渲染同形，纯文本面（AI 引用/WPS/FTS）新档
         # 即干净。（三件套全部行内改写、不改行数 → 行号稳定，页界编码不受扰。）
         from src.core.text_utils import (
+            normalize_pua_separators as _pua_sep,
             pua_bond_dash_html as _pua_dash, space_clause_numbers_text,
             sup_unit_exponents_text)
+        # 2026-09-15 追加 PUA 分隔符还原（U+E011/U+E788 → '-'/' '）：
+        # 全库审计实测 5 部文档 27 处（'2009\\ue01103\\ue01116发布'、
+        # 'Kennard\\ue011Stone'、'内径为\\ue78876+2/0mm'）——私用区分隔符
+        # 渲染即隐形垃圾，FTS/复制/LLM 阅读全受影响。
         content = space_clause_numbers_text(
-            sup_unit_exponents_text(_pua_dash(content)))
+            sup_unit_exponents_text(_pua_sep(_pua_dash(content))))
         tc = classify_clause(content, doc_type=doc_type)
         # 2026-09-14（执行计划 v3 阶段 2a）：识别层真实置信度首次接入
         # clause_revision.ocr_confidence（此前恒 1.0 无生产者——quality/
