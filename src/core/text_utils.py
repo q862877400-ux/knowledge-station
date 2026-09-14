@@ -86,6 +86,31 @@ _RE_WM_PAGENO = re.compile(r"[IVXivx\dⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ]{1,4}")
 #: 阈值 7：strip_block_noise 在归一化（NFKC）之后调用，正文 2 字省略号
 #: '……' → NFKC = 6 个点，必须存活；引导线 ≥3 个 '…' = ≥9 点才剥。
 _RE_FORMULA_DOTS = re.compile(r"\.{7,}")
+#: 公式编号引导点线（U+2026 形态，2026-09-15 全库审计 dot-leader 44 部达线）。
+#: 两条规则按序应用：
+#: ① 点线 + 编号：**无论点数**（GB 引导线常短至 '……(7)'）→ 归一 ' (N)'，
+#:    顺带补全缺右括号（'( 1'→'(1)'）；
+#: ② 裸点线：≥7 ASCII 点 或 ≥4 个 '…'（正文省略号 '……' 最多 2 个，必须存活）。
+_RE_FORMULA_LEADER = re.compile(
+    r"(?:\.{2,}|…+)\s*[（(]\s*(\d{1,3})\s*[)）]?")
+_RE_FORMULA_LEADER_BARE = re.compile(r"(?:\.{7,}|[…]{4,})")
+
+
+def strip_formula_leader(text: str | None) -> str:
+    r"""公式编号引导点线清洗（幂等）：'……………( 1 / 式中：' → ' (1) / 式中：'。
+
+    背景（2026-09-15 全库文本审计，dot-leader 类 44 部文档 167 条达线）：
+    公式编号前的引导点线在文本层是 U+2026 连排，而既有 `_RE_FORMULA_DOTS`
+    只认 NFKC 后的 ASCII 点（`\.{7,}`）且未被内容清洗链调用 → 点线原样落库
+    （'W / = / P / S / × V1 / V2 / ....................'）。
+    本函数是该形态的规范所有者：剥点线 + 补全编号右括号。
+
+    幂等：清洗后文本不再命中两条规则。
+    """
+    if not text or ("…" not in text and "." not in text):
+        return text or ""
+    out = _RE_FORMULA_LEADER.sub(lambda m: f" ({m.group(1)})", text)
+    return _RE_FORMULA_LEADER_BARE.sub(" ", out)
 
 
 def normalize_pua_latin(text: str | None) -> str:
