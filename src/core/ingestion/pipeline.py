@@ -1057,17 +1057,19 @@ def build_clause_models(doc_id: str, standard_no: str, doc_type: str,
         # 入库快照（入库清洗属快照内容，非篡改）；存量不动（快照不可变），
         # 展示由出口重放兜底——渲染同形，纯文本面（AI 引用/WPS/FTS）新档
         # 即干净。（三件套全部行内改写、不改行数 → 行号稳定，页界编码不受扰。）
-        from src.core.text_utils import (
-            normalize_pua_separators as _pua_sep,
-            pua_bond_dash_html as _pua_dash, space_clause_numbers_text,
-            strip_formula_leader as _strip_leader, sup_unit_exponents_text,
-            normalize_label_comma as _label_comma)
         # 2026-09-15 追加 PUA 分隔符还原（U+E011/U+E788 → '-'/' '）+ 公式编号
         # 引导点线清洗（'……………( 1' → ' (1)'）+ 图例段切除（条款块内混入的
         # 「标引序号说明」条目）——三者都是全库审计达线类。
-        content = space_clause_numbers_text(
-            sup_unit_exponents_text(_label_comma(strip_figure_legend_segment(
-                _strip_leader(_pua_sep(_pua_dash(content)))))))
+        #
+        # **2026-09-15 抽为单一所有者** `text_utils.clean_clause_text`：次序原先
+        # 只写在这一处，而自进化循环的评估器（`evolve.evaluate_doc`）对 VLM
+        # 产物**原文**跑判据、从不经过本链 → 清洗器修好的类判据照旧报、留出集
+        # 永远判不通过（结构性缺陷，实测）。抽出去后入库与评估同次序同结果。
+        from src.core.text_utils import (clean_clause_text as _clean_text,
+                                         normalize_pua_separators as _pua_sep,
+                                         pua_bond_dash_html as _pua_dash)
+        content = _pua_dash(content)
+        content = _clean_text(content, legend_stripper=strip_figure_legend_segment)
         tc = classify_clause(content, doc_type=doc_type)
         # 2026-09-14（执行计划 v3 阶段 2a）：识别层真实置信度首次接入
         # clause_revision.ocr_confidence（此前恒 1.0 无生产者——quality/

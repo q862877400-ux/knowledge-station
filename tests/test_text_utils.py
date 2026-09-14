@@ -152,3 +152,92 @@ def test_exit_ingest_form_converged():
     assert space_clause_numbers_html(h1) == h1
     h2 = "<p>扫描范围包括4000cm\u207b\u00b9~10000cm\u207b\u00b9。</p>"
     assert sup_unit_exponents_html(h2) == h2
+
+
+# ---------------------------------------------------------------------------
+# 公式编号引导点线（dot-leader 所有者层，2026-09-15 第二轮）
+# ---------------------------------------------------------------------------
+def test_strip_formula_leader_label_inner_space():
+    """缺陷证据：VLM 把 'C.3' 识别成 'C. 3'，编号捕获紧排 → 整条不匹配、点线原样落库。
+
+    实测 GB/T 1094.6-2011 '……(C. 3'、GB/T 15543-2008 '……(A. 1'。
+    """
+    from src.core.text_utils import strip_formula_leader
+    assert "……" not in strip_formula_leader("L rₑₐc = X/2 f ……(C. 3")
+    assert "……" not in strip_formula_leader("……(A. 1")
+    assert "……" not in strip_formula_leader("………( A. 2")
+
+
+def test_strip_formula_leader_bare_threshold_aligned():
+    """裸点线阈值与检测器对齐：6 个 ASCII 点即剥（原 7 点 → 差一处就漏网）。
+
+    实测 GB/T 12326-2008 '………( A. 2' 剥后残留 6 点，正好卡在 6/7 的缝里。
+    """
+    from src.core.text_utils import strip_formula_leader
+    assert "......" not in strip_formula_leader("x ......( A. 2")
+    assert "." not in strip_formula_leader("x ......")
+    # 反向对照：小于阈值不视为引线
+    assert strip_formula_leader("a....b") == "a....b"
+
+
+def test_strip_formula_leader_reverse_controls():
+    """反向对照（修复纪律要求）：正文合法形态必须存活，不许被引导线规则误伤。"""
+    from src.core.text_utils import strip_formula_leader
+    for keep in [
+        "13.1 燃具旋塞阀及其他燃气手动阀 …… 11",   # 目录行：点线+页码是正常排版
+        "F = m a …… 与式(A.1)相同",                # 正文省略号后接引用
+        "正文省略号……继续",                        # 两字省略号是正常标点
+        "Δ LₚA = LₚA (S T) - LₚA (B)",            # 公式本体的空格必须保留
+        "(见 4.3 a) 的说明",                       # 普通括号内容不碰
+    ]:
+        assert strip_formula_leader(keep) == keep, keep
+
+
+def test_strip_formula_leader_idempotent():
+    """幂等：清洗后文本不再命中两条规则。"""
+    from src.core.text_utils import strip_formula_leader
+    for src in ["……………( 1 式中：", "Z = r ……(D.7)", "x ......( A. 2",
+                "13.1 燃具 …… 11"]:
+        once = strip_formula_leader(src)
+        assert strip_formula_leader(once) == once, src
+
+
+def test_clean_clause_text_is_single_owner():
+    """`clean_clause_text` = 入库与评估共用的**唯一**清洗次序。
+
+    缺陷背景：清洗链原先是 pipeline 入库处的一行嵌套调用，评估器
+    （evolve.evaluate_doc）对产物原文跑判据、从不经过它 → 清洗器修好的类
+    判据照旧报、留出集永远判不通过。抽出后两处必须逐例同结果。
+    """
+    from src.core.ingestion.pipeline import strip_figure_legend_segment
+    from src.core.text_utils import (clean_clause_text, normalize_label_comma,
+                                     normalize_pua_separators,
+                                     space_clause_numbers_text,
+                                     strip_formula_leader,
+                                     sup_unit_exponents_text)
+    cases = [
+        "……………( 1 式中：",
+        "13.1 燃具旋塞阀及其他燃气手动阀 …… 11",
+        "L rₑₐc = X/2 f ……(C. 3",
+        "2009\ue01103\ue01116发布",
+        "扫描范围包括4000cm-1~10000cm-1。",
+        "普通正文，无任何需清洗形态。",
+    ]
+    for c in cases:
+        legacy = space_clause_numbers_text(sup_unit_exponents_text(
+            normalize_label_comma(strip_figure_legend_segment(
+                strip_formula_leader(normalize_pua_separators(c))))))
+        assert clean_clause_text(c, legend_stripper=strip_figure_legend_segment) \
+            == legacy, c
+
+
+def test_clean_clause_text_shape_invariants():
+    """行数与长度不变形、空输入安全、幂等——入库靠行号定位页界，字形不得改行数。"""
+    from src.core.ingestion.pipeline import strip_figure_legend_segment
+    from src.core.text_utils import clean_clause_text
+    src = "4原理利用珍珠粉\n扫描范围包括4000cm-1~10000cm-1。\n……………( 1 式中："
+    out = clean_clause_text(src, legend_stripper=strip_figure_legend_segment)
+    assert out.count("\n") == src.count("\n")
+    assert clean_clause_text(None) == ""
+    assert clean_clause_text("") == ""
+    assert clean_clause_text(out, legend_stripper=strip_figure_legend_segment) == out

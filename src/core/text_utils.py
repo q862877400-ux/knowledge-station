@@ -107,9 +107,18 @@ _RE_FORMULA_DOTS = re.compile(r"\.{7,}")
 #: `(\d{1,3})`，漏掉**附录字母号**——VLM 实测 '……( A.1'、'……( B.1'、'……( C.2'
 #: 原样落库（GB/T 15945-2008 附录B、GB/T 10029-2010 A.1、GB/T 10002.2-2023 B.1.1）。
 #: 扩为「可选字母 + 可选点 + 数字(+点数字)」：'A.1' / 'D.7' / '1' 全部覆盖。
+#:
+#: 2026-09-15（第二轮复测，**标签内部空格**）：VLM 会把 'C.3' 识别成 'C. 3'，
+#: 而编号捕获是紧排的 `[A-Za-z]?\.?\d{1,3}` → 空格一处即整条不匹配，点线原样
+#: 落库（GB/T 1094.6-2011 '……(C. 3'、GB/T 15543-2008 '……(A. 1'、GB/T 12326-2008
+#: '………( A. 2' 实测）。故各 token 之间允许可选空格：'C. 3' / 'A. 2' / 'D . 7' 均收。
+#: **只放宽空格，不放宽字符类**——避免把正文括号内容误当编号。
 _RE_FORMULA_LEADER = re.compile(
-    r"(?:\.{2,}|…+)\s*[（(]\s*([A-Za-z]?\.?\d{1,3}(?:\.\d{1,3})?)\s*[)）]?")
-_RE_FORMULA_LEADER_BARE = re.compile(r"(?:\.{7,}|[…]{3,})")
+    r"(?:\.{2,}|…+)\s*[（(]\s*([A-Za-z]?\.?\s?\d{1,3}(?:\s?\.\s?\d{1,3})?)\s*[)）]?")
+#: 裸点线阈值：与检测器 `audit_text.CHECKS['dot-leader']` 的 `\.{6,}` 对齐
+#: （原为 `\.{7,}`——检测器 6 点即报、所有者 7 点才剥，差一处就是漏网；
+#: 实测 GB/T 12326-2008 '………( A. 2' 剥后残留 6 个 ASCII 点正好卡在缝里）。
+_RE_FORMULA_LEADER_BARE = re.compile(r"(?:\.{6,}|[…]{3,})")
 
 
 def strip_formula_leader(text: str | None) -> str:
@@ -1170,3 +1179,33 @@ def normalize_area_subscript(text: str | None) -> str:
     if not text or "°" not in text:
         return text or ""
     return _RE_AREA_SUB.sub(lambda m: m.group(1) + "\u2091", text)
+
+
+def clean_clause_text(text: str | None, *,
+                      legend_stripper=None) -> str:
+    """**入库文本清洗链的唯一所有者**（次序即契约，2026-09-15 立）。
+
+    为什么要有它：这条链原先是 `pipeline.py` 入库处的一行嵌套调用，于是
+    「谁清洗了条款正文」只存在于那个调用点。后果在自进化循环里暴露成结构性
+    缺陷——`evolve.evaluate_doc` 直接对 **VLM 产物原文**跑判据（见该函数），
+    从不经过清洗链，导致：
+
+    - 清洗器修好的类，判据照旧报（判据 → 越报越假，头部类永远"达线"）；
+    - 留出集判定的是"识别层原文有没有瑕疵"，而不是"管线输出有没有瑕疵"，
+      于是**修复永远无法被验证通过**（实测：dot-leader 留出集基线 1 → 修复后 1）。
+
+    抽成单一所有者后，入库（`pipeline._content_html` 路径）与评估
+    （`evolve.evaluate_doc`）取同一次序——判据看的就是入库后文本，口径不再错位。
+
+    `legend_stripper`（图例段切除）与条款**切分**耦合，住在
+    `pipeline.strip_figure_legend_segment`；此处以参数注入，避免 text_utils
+    反向依赖 ingestion 层。缺省不跑该步（纯文本消费者无需切分语义）。
+    """
+    if not text:
+        return text or ""
+    out = space_clause_numbers_text(
+        sup_unit_exponents_text(normalize_label_comma(
+            strip_formula_leader(normalize_pua_separators(text)))))
+    if legend_stripper is not None:
+        out = legend_stripper(out)
+    return out
