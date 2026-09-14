@@ -9,6 +9,30 @@ import pytest
 from src.core.text_utils import glue_ocr_spaced_units as glue
 
 
+class TestSplitValue:
+    """2026-09-15 全库文本审计新增：'单字符数字 + 多字符数字' 劈开形态
+    （token 级粘合只处理单字符 token，此形态漏网；实测 10 部文档 18 处）。"""
+
+    def test_split_value_with_unit(self):
+        # GB/T 10541 镀锌层附着量真值 610 g/m²（'m ²' 同时被上标规则并入）
+        assert glue("附着量至少为6 10 g / m ²") == "附着量至少为610 g / m²"
+
+    def test_split_value_micrometre(self):
+        # GB/T 11115 试样厚度真值 650 µm
+        assert glue("厚度为6 50 µ m") == "厚度为650 µ m"
+
+    def test_three_digit_split(self):
+        assert glue("为 1 00 µ 时") == "为 100 µ 时"
+
+    def test_no_unit_no_glue(self):
+        # 无单位锚定不猜：复合编号不得合并
+        assert glue("第 6 10 章") == "第 6 10 章"
+
+    def test_idempotent_split_value(self):
+        once = glue("附着量至少为6 10 g / m ²")
+        assert glue(once) == once
+
+
 class TestSubscriptResidue:
     """2026-09-15 残留修复：初版单字符集只有 ASCII → 下标型公式变量漏粘。
     实测 GB/T 10593.2（'S ₑ'/'C ₛ ᵢ ₜ'）、GB/T 1094.6、GB/T 10671。"""

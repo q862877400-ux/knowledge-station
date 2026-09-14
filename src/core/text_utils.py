@@ -114,6 +114,39 @@ def normalize_pua_latin(text: str | None) -> str:
     return unicodedata.normalize("NFKC", s)
 
 
+def normalize_pua_separators(text: str | None) -> str:
+    """PUA「分隔符类」字符还原（2026-09-15 立，全库文本审计）。
+
+    背景：部分国标 PDF 的文字层把**分隔符**画成私用区字形，提取后成为
+    不可见垃圾字符。实测两码点（全库仅此二）：
+    - U+E011：日期/人名的分隔位——'2009\\ue01103\\ue01116发布'（真值 2009-03-16）、
+      'Kennard\\ue011Stone算法'（真值 Kennard-Stone）
+    - U+E788：数值前的空格位——'内径为\\ue78876+2/0mm'（真值 内径为 76+2/0mm）
+    共 5 部文档 27 处（1031/34406/10004/10010/1019）。
+
+    还原规则（按两侧上下文，无歧义）：数字↔数字 → '-'（日期/编号）；
+    其余 → 空格（词间分隔）。其余私用区码点**不动**（未实测者不猜）。
+    """
+    if not text:
+        return ""
+    if not any(c in _PUA_SEP_CHARS for c in text):
+        return text
+    out: list[str] = []
+    n = len(text)
+    for i, ch in enumerate(text):
+        if ch in _PUA_SEP_CHARS:
+            left = text[i - 1] if i else ""
+            right = text[i + 1] if i + 1 < n else ""
+            out.append("-" if (left.isdigit() and right.isdigit()) else " ")
+        else:
+            out.append(ch)
+    return "".join(out)
+
+
+#: 分隔符类私用区字符（实测两码点；逐个判定左右上下文，不用正则防相邻漏判）
+_PUA_SEP_CHARS = "\ue011\ue788"
+
+
 def strip_block_noise(text: str | None) -> str:
     """行级通用噪音清洗（2026-08-29，GB/T 34406 实测，语料级；幂等）。
 
@@ -215,6 +248,26 @@ def normalize_math_symbols(text: str | None) -> str:
     return t
 
 
+#: '单字符数字 + 2-4 位数字 + 单位'（单位锚定，防误合并复合编号）
+_RE_SPLIT_VALUE = re.compile(
+    r"(?<![\d.])(\d)\s+(\d{2,4})(\s*)(?="
+    r"(?:µ|μ|mm|cm|kg|mg|g|ms|min|mL|mol|mmol|kV|kHz|kPa|MPa|kW|kJ"
+    r"|m|s|h|L|V|A|N|Pa|Hz|W|J|℃|°C|%|Ω|r/min)(?![A-Za-z]))")
+
+
+def _glue_split_values(line: str) -> str:
+    r"""数值被劈开的合并：'6 10 g'→'610 g'、'1 00 µ'→'100 µ'（单位锚定）。
+
+    2026-09-15 全库文本审计发现：`glue_ocr_spaced_units` 的 token 级粘合只
+    合并**单字符** token（'7 9'→'79'），而「单字符数字 + 多字符数字」形态
+    （'6 10'、'1 00'、'7 90'）不合并——实测 10 部文档 18 处（10541 镀锌层
+    附着量 '6 10 g / m ²' 真值 610 g/m²；11115 试样厚度 '6 50 µ m' 真值 650 µm）。
+    仅当后随**单位**时才合并（精度优先：无单位锚定不猜，'第 6 10 章' 类
+    复合编号不受扰）。
+    """
+    return _RE_SPLIT_VALUE.sub(lambda m: f"{m.group(1)}{m.group(2)}{m.group(3)}", line)
+
+
 def glue_ocr_spaced_units(text: str | None) -> str:
     """OCR 通道的保守粘合（2026-09-14，OCR 循环轮次 4/7/12 同类问题 3 次达线）。
 
@@ -240,6 +293,7 @@ def glue_ocr_spaced_units(text: str | None) -> str:
         return text or ""
     out_lines: list[str] = []
     for line in text.split("\n"):
+        line = _glue_split_values(line)      # 数值劈开（单位锚定）先合，再走 token 级
         out = []
         buf: list[str] = []
         cur: str | None = None   # 'n' | 'a' | 's'（下标/上标/希腊）
@@ -504,7 +558,9 @@ def _convert_frac_tag(t: str) -> str:
 
 def latex_to_text(latex: str) -> str:
     r"""MinerU <eq> LaTeX → 可读文本。
-    例：'h _ { \mathrm { ~ w ~ } } / \mathrm { m }' → 'hw/m'
+    例：'h _ { \mathrm { ~ w ~ } } / \mathrm { m }' → 'h w/m'
+    （'h' 与 'w' 为 2 字母段，按变量乘积保护规则不合并；'
+    'm i n'/'k P a' 类 ≥3 字母段合并且 'g / m' 去斜杠空格 → 'g/m'）
 
     2026-09-01 保真修复（GB/T 24276 24 条独立公式逐条实测）：
     ① 包裹命令扩容（\pmb/\bf/\mathbb/\textrm/…）并支持一层嵌套
@@ -513,6 +569,9 @@ def latex_to_text(latex: str) -> str:
     ③ 下标/上标组内容先过符号映射+剥命令再 translate——\circ/\textmu
        不再被逐字下标化残留 '\ₜₑₓₜₘᵤ'；
     ④ '\ '（LaTeX 显式空格）转空格，不再残留 '\ '。
+    2026-09-15 逐字符空格归并（_collapse_latex_spacing，全库公式审计）：
+    MinerU 对宽距字符逐字符输出空格（'6 1 0 g / m ²'），本函数在公式文本层
+    归并（'610 g/m²'），比下游按行粘合更根本。
     """
     t = latex
     # 1) 剥命令包裹：\mathrm{...} 等取其内容（支持一层嵌套，迭代处理）
@@ -548,7 +607,56 @@ def latex_to_text(latex: str) -> str:
     # 4) 符号映射 + 清理残留命令与花括号
     t = _syms(t)
     t = t.replace("{", "").replace("}", "")
-    return re.sub(r"\s+", " ", t).strip()
+    t = re.sub(r"\s+", " ", t).strip()
+    return _collapse_latex_spacing(t)
+
+
+#: 逐字符空格：≥3 个单数字（'6 1 0'→'610'）——MinerU 对宽距数字逐字符输出
+_RE_LATEX_DIGIT_RUN = re.compile(r"(?<![\d.])(\d(?: \d){2,})(?![\d.])")
+#: 逐字符空格：≥3 个单字母（'m i n'→'min'/'k P a'→'kPa'）。
+#: 门限定 ≥3 而非 ≥2 —— 2 字母段是「变量乘积」（'F = m a'）与单位（'m m'）的
+#: 同形歧义，误合并会把公式变量粘成一个词，故保守不合并 2 字母段。
+_RE_LATEX_LETTER_RUN = re.compile(r"(?<![A-Za-z\u0391-\u03c9])([A-Za-z\u0391-\u03c9](?: [A-Za-z\u0391-\u03c9]){2,})(?![A-Za-z\u0391-\u03c9])")
+#: 单位斜杠两侧空格：'g / m'→'g/m'、'r / min'→'r/min'、'm / s'→'m/s'
+_RE_LATEX_SLASH = re.compile(r"(?<=[A-Za-z\u0391-\u03c9²³])\s*/\s*(?=[A-Za-z\u0391-\u03c9])")
+#: 字母后紧跟的上下标去空格：'m ²'→'m²'（上下标永远贴前字，无歧义）
+_RE_LATEX_SCRIPT = re.compile(r"(?<=[A-Za-z\u0391-\u03c9])\s+(?=[\u00b2\u00b3\u2070-\u209c])")
+#: 微符号前缀去空格：'µ m'→'µm'（µ 后必接单位字母）
+_RE_LATEX_MICRO = re.compile(r"(?<=[\u00b5\u03bc])\s+(?=[A-Za-z])")
+#: 下标后紧跟字母去空格：'K ₘ b'→'Kₘb'（GB 量符号记法下标贴前后字）
+_RE_LATEX_SUBTAIL = re.compile(r"(?<=[\u2080-\u209c])\s+(?=[A-Za-z])")
+#: 连续下标之间去空格：'T Lₘ ₐ ₓ'→'T Lₘₐₓ'（多字符下标是一体）
+_RE_LATEX_SUBRUN = re.compile(r"(?<=[\u2080-\u209c])\s+(?=[\u2080-\u209c])")
+
+
+def _collapse_latex_spacing(t: str) -> str:
+    r"""LaTeX 转文本后的逐字符空格归并（2026-09-15，全库公式审计）。
+
+    背景：MinerU 的 LaTeX 对宽距字符**逐字符输出空格**——实测 GB/T 10541
+    `inline_equation` 原文 `6 1 0 ~ \mathrm { g / m ^ { 2 } }`（真值 610 g/m²）、
+    GB/T 11115 `6 5 0 ~ \mu \mathrm { m } \pm 1 0 0 ~ \mu \mathrm { m }`（真值
+    650 µm±100 µm）。此前 latex_to_text 只把连续空格折叠为一个，逐字符空格
+    原样落库（'6 1 0 g / m ²'、'r / m i n'、'k P a'）——本函数是本形态的
+    规范所有者（公式文本层），比在下游按行粘合更根本。
+
+    规则（三条，均保守，全部来自实测形态）：
+    - 数字段 ≥3 个单数字 → 合并（'6 1 0'→'610'）；**2 个不动**（'1/2 3' 的
+      '2 3' 不应合并，防把分数后的独立数字粘进分母）
+    - 字母段 ≥3 个单字母 → 合并（'m i n'→'min'、'k P a'→'kPa'）；2 个不动
+      （'F = m a' 的变量乘积不得粘成 'ma'）
+    - 字母/上下标与字母之间的斜杠去两侧空格（'g / m'→'g/m'、'r / min'→'r/min'）
+    - 另复用单位锚定的数值劈开规则（'6 10 g'→'610 g'）
+    """
+    t = _RE_LATEX_DIGIT_RUN.sub(lambda m: m.group(1).replace(" ", ""), t)
+    t = _RE_LATEX_LETTER_RUN.sub(lambda m: m.group(1).replace(" ", ""), t)
+    # 贴附类空格（无歧义，逐条实测）：'m ²'→'m²' · 'µ m'→'µm' · 'K ₘ b'→'Kₘb'
+    t = _RE_LATEX_SCRIPT.sub("", t)
+    t = _RE_LATEX_MICRO.sub("", t)
+    t = _RE_LATEX_SUBTAIL.sub("", t)
+    t = _RE_LATEX_SUBRUN.sub("", t)
+    t = _RE_LATEX_SLASH.sub("/", t)
+    t = t.replace("\\%", "%")
+    return _glue_split_values(t)
 
 
 def clean_eq_tags(html: str | None) -> str:
