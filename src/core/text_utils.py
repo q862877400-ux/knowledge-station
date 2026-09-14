@@ -42,6 +42,14 @@ _LATEX_SYMBOLS = {
     "\\Delta": "Δ", "\\delta": "δ", "\\bullet": "•", "\\colon": ":",
     "\\textmu": "µ", "\\kappa": "κ", "\\lambda": "λ", "\\mu": "µ",
     "\\rho": "ρ", "\\sigma": "σ", "\\tau": "τ", "\\omega": "ω",
+    # 2026-09-15 函数名命令（收敛循环第 5 轮）：通用剥离器 `\\[A-Za-z]+` 会把
+    # `\min` 整词删掉 → 公式语义丢失（实测 'z = \min(z,200)' 变 'z = (z,200)'，
+    # GB/T 10095.2-2023 E.1）。数学函数名有可读文本，必须映射而非删除。
+    "\\min": "min", "\\max": "max", "\\log": "log", "\\ln": "ln",
+    "\\exp": "exp", "\\sin": "sin", "\\cos": "cos", "\\tan": "tan",
+    "\\arctan": "arctan", "\\arcsin": "arcsin", "\\arccos": "arccos",
+    "\\lim": "lim", "\\sup": "sup", "\\inf": "inf", "\\det": "det",
+    "\\gcd": "gcd", "\\mod": "mod",
 }
 
 # 词边界单遍符号替换：长键优先 + (?![A-Za-z]) 防前缀误吃（\pm 不吃 \pmb）
@@ -642,6 +650,49 @@ def _convert_frac_tag(t: str) -> str:
     return t
 
 
+#: LaTeX 环境包装（`\begin{array}{rl}` / `\end{array}`，含可选列格式组）
+_RE_TEX_ENV = re.compile(r"\\(?:begin|end)\s*\{[A-Za-z*]+\}\s*(?:\{[^{}]*\})*")
+#: 裸露的 array 列格式残留：`array r l` / `array l z`（环境标记被上游或本函数
+#: 的命令剥离器吃掉后，只剩 `array` + 列格式）。**首 token 限定 l/r/c**（LaTeX
+#: 列格式符），防把 `array x y z = 5` 里的真变量吃掉（内容丢失比残留更糟）。
+_RE_TEX_ARRAY_SPEC = re.compile(r"\barray\s+[lrc]\b(?:\s+[a-z]{1,2}\b){0,2}")
+#: 行分隔：`\\`、`\&`、`\\ &`（array 的行结束符被截断成单反斜杠）都还原为换行
+_RE_TEX_ROWBRK = re.compile(r"\\{1,2}\s*(?=&|$)", re.M)
+#: 零宽/细空格命令（`\,` `\;` `\!` `\:`）→ 空格
+_RE_TEX_THINSP = re.compile(r"\\[,;!:>]")
+
+
+def _strip_latex_arrays(t: str) -> str:
+    r"""LaTeX `array` 环境 → 可读文本（2026-09-15 收敛循环第 5 轮根因）。
+
+    实测缺陷（GB/T 10095.2-2023 E.1/E.2，全库 45 部）：
+    公式 `\begin{array}{rl} z &= \min(z,200) \\ &= \min(40,200) \\ &= 40
+    \end{array}` 经 `latex_to_text` 后变成
+    ``array l z = * min ( z , 200 ) \ & = * min ( 40 , 200 ) \ = 40``
+    —— `array`、列格式、`&`、`\` 全部漏进条款正文（同时触发 spaced-run /
+    ocr-wide-space-units / formula-flattened 三个类，是当前最大单点缺陷）。
+
+    根因：通用命令剥离 `re.sub(r"\\[A-Za-z]+", "", s)` 把 `\begin`/`\end`
+    当普通命令删掉，**却留下 `{array}{rl}` 的花括号内容与 `&`/`\\` 分隔符**。
+    规范所有者就是本函数：环境语义必须在这里落地，而不是让下游猜。
+
+    处理顺序（先语义后清理）：
+      ① 行分隔 `\\`/`\&` → 换行（一行的推导拆成多行，不丢结构）
+      ② 列分隔 `&` → 空格
+      ③ 环境包装与裸露列格式 → 删
+      ④ 细空格命令 → 空格
+    """
+    if "array" not in t and "\\" not in t and "&" not in t:
+        return t
+    t = _RE_TEX_ENV.sub(" ", t)
+    t = _RE_TEX_ROWBRK.sub("\n", t)
+    t = t.replace("\\\\", "\n")
+    t = t.replace("&", " ")
+    t = _RE_TEX_ARRAY_SPEC.sub(" ", t)
+    t = _RE_TEX_THINSP.sub(" ", t)
+    return t
+
+
 def latex_to_text(latex: str) -> str:
     r"""MinerU <eq> LaTeX → 可读文本。
     例：'h _ { \mathrm { ~ w ~ } } / \mathrm { m }' → 'h w/m'
@@ -658,8 +709,10 @@ def latex_to_text(latex: str) -> str:
     2026-09-15 逐字符空格归并（_collapse_latex_spacing，全库公式审计）：
     MinerU 对宽距字符逐字符输出空格（'6 1 0 g / m ²'），本函数在公式文本层
     归并（'610 g/m²'），比下游按行粘合更根本。
+    2026-09-15 array 环境（_strip_latex_arrays，收敛循环第 5 轮）：
+    `\begin{array}{rl}` 的列格式与 `&`/`\\` 不再漏进正文（45 部实测缺陷）。
     """
-    t = latex
+    t = _strip_latex_arrays(latex)
     # 1) 剥命令包裹：\mathrm{...} 等取其内容（支持一层嵌套，迭代处理）
     for _ in range(3):
         t2 = re.sub(
