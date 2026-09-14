@@ -922,49 +922,67 @@ def split_items_into_clauses(items: list[MidItem]) -> list[SplitClause]:
     return clauses
 
 
+_RE_LEGEND_HEAD_ANY = re.compile(
+    r"标.{0,3}序.{0,12}[：:]"          # 标引序号说明：/ 标引序号(符号)说明：
+    r"|说\s*明\s*[：:]"                # 说明：（GB/T 10238-2015 实测）
+    r"|图\s*中\s*[：:]")               # 图中：（GB/T 16422.3-2014 实测）
+#: 图例条目（放宽到**任意符号/编号 + ——**）：'1——径向综合总公差'、'X ——温度 t'、
+#: '4——接触销'。原先只认数字型 `\d{1,2}[—\-–~]{1,3}`，符号型条目（X/Y/H/dₙ₁）数不到。
+_RE_LEGEND_ITEM_ANY = re.compile(
+    r"(?<![\w])(?:[0-9A-Za-zΑ-Ωα-ω₀-₉ᵢₙₜₑ]{1,4})\s*[—–]{2,}\s*\S")
+
+
 def strip_figure_legend_segment(text: str) -> str:
     r"""切掉条款文本里的**图例段**（「标引序号说明」及其条目）。
 
-    2026-09-15 收敛循环第 6 轮根因（figure-neighborhood 33 部）：MinerU 常把
-    **条款正文 + 图例 + 图注压进同一个文本块**，实测形态
-    （GB/T 10002.2-2023 B.2.1.2）::
+    2026-09-15 收敛循环第 6 轮立；第 17 轮（VLM 通道）按真实产物实测扩容。
+    MinerU 常把**条款正文 + 图例 + 图注压进同一个文本块**，实测形态：
 
-        B.2.1.2 异径接头
-        异径长接头的计算值和推荐偏差见表 B.4，…见表 B.5。
+        B.2.1.2 异径接头 …见表 B.5。
         标引序号说明：
         dₙ₁ 、 dₙ₂ ——与异径长接头连接管材的公称外径；
-        Z ——安装长度。
-        图 B.4 …
 
-    既有 `_is_figure_legend` 对此漏判两条：① 图例头**不在块首**（在条款正文后）；
-    ② 条目是**符号**（dₙ₁/Z）而非数字，`_RE_LEGEND_ITEM` 的数字型判据数不到。
-    故不能只靠"别吸收图例块"，须在文本清洗层把图例段**切掉**。
+    **第 17 轮扩的三处覆盖缺口**（VLM 通道实测，4 部全部漏判）：
+      ① 条目与头**同行**：'标引序号说明：X ——温度 t，单位为℃；Y ——…'
+         （GB/T 10002.1-2023）——原实现只看头的**后续行**，seg 为空 → 不切；
+      ② 头**不在行首**：'…的径向综合公差标引序号说明：'（GB/T 10095.2-2023）
+         ——原实现用 `^` 锚定，行中头匹配不到；
+      ③ 头是**别的说法**：'说明：\n4——接触销；…'（GB/T 10238-2015）、
+         '图中：1 ——CIE 85…'（GB/T 16422.3-2014）。
 
-    保守性：仅当图例头之后到图注行（`图 N`）/文本结束之间**至少有一个含 `——`
-    的条目行**才切；否则原样返回（防把"…标引序号说明如下"这类正文误切）。
-    **迭代**切除：实测一个块可含**多段**图例（图注在图例前、图例后又有图注与
-    下一段图例），单次修剪只清掉第一段（GB/T 10002.2-2023 B.2.1.2 实测）。
+    保守护栏：段内必须有 **≥2 个 `符号——名称` 条目**才切（`说明：`/`图中：` 在正文里
+    很常见，没有条目就不能切）；不满足则跳过该头继续找下一个头。
     """
-    if not text or "序" not in text:
+    if not text or "—" not in text:
         return text
     for _ in range(10):
         lines = text.split("\n")
-        start = next((i for i, ln in enumerate(lines)
-                      if _RE_LEGEND_HEAD.match(ln.strip())), None)
-        if start is None:
-            break
-        end = len(lines)
-        for j in range(start + 1, len(lines)):
-            if _RE_FIG_CAPTION_LINE.match(lines[j]):
-                end = j
+        cut = None
+        for i, ln in enumerate(lines):
+            for m in _RE_LEGEND_HEAD_ANY.finditer(ln):
+                # 段 = 头行剩余 + 后续行（至图注行或结束）
+                seg_head = ln[m.start():]
+                rest = lines[i + 1:]
+                end_rel = len(rest)
+                for j, s in enumerate(rest):
+                    if _RE_FIG_CAPTION_LINE.match(s):
+                        end_rel = j
+                        break
+                seg = [seg_head] + rest[:end_rel]
+                n_items = len(_RE_LEGEND_ITEM_ANY.findall("\n".join(seg)))
+                # 强头（"标引序号…"）本身就是图例充分信号，1 个条目即切；
+                # 弱头（"说明："/"图中："）正文里很常见，须 ≥2 条目才切。
+                strong = bool(re.match(r"^\s*标.{0,3}序", seg_head))
+                if (n_items < 2 and not (strong and n_items >= 1)):
+                    continue        # 不是图例 → 找下一个头
+                keep_before = lines[:i] + ([ln[:m.start()]] if ln[:m.start()].strip() else [])
+                cut = "\n".join(keep_before + rest[end_rel:]).strip("\n")
                 break
-        seg = lines[start + 1:end]
-        if not any(("—" in s or "–" in s) for s in seg):
+            if cut is not None:
+                break
+        if cut is None or cut == text:
             break
-        nxt = "\n".join(lines[:start] + lines[end:]).strip("\n")
-        if nxt == text:
-            break
-        text = nxt
+        text = cut
     return text
 
 
