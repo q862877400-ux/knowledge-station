@@ -244,6 +244,74 @@ def test_clean_clause_text_shape_invariants():
 
 
 # ---------------------------------------------------------------------------
+# 站点水印行剥离（2026-09-15 新语料实测 38/231 部 = 16%）
+# ---------------------------------------------------------------------------
+def test_strip_watermark_lines_removes_pirate_site_headers():
+    """盗版站水印行整行删除（裸 URL 与"短标签+URL"两族）。
+
+    缺陷证据（新语料 VLM 产物实测）：'网址 www.spc.net.cn'（23 处）、
+    'http://www.spc.net.cn'、'http://www.bzcbs.com'、
+    '龙牛网 www.longniu.com 下载'、'网址: www.spc.net.cn'。
+    """
+    from src.core.text_utils import strip_watermark_lines
+    for wm in ["网址 www.spc.net.cn", "http://www.spc.net.cn",
+               "龙牛网 www.longniu.com 下载", "网址: www.spc.net.cn",
+               "www.gb168.cn", "http://www.bzcbs.com",
+               "中国标准出版社出版 网址 www.spc.net.cn"]:
+        assert strip_watermark_lines(wm).strip() == "", wm
+
+
+def test_strip_watermark_lines_keeps_real_citations():
+    """**反向对照（关键）**：正文里的合法 URL 与参考文献引用必须一字不动。
+
+    判据靠"剥掉 URL 后的残留长度"区分——水印的残留是 '网址'/'下载' 这类短标签，
+    引用的残留是实质文字。
+    """
+    from src.core.text_utils import strip_watermark_lines
+    for keep in [
+        # W3C 命名空间（技术内容，删了正文就缺内容）
+        "本附录使用 SOAP 1.2 规范 [¹] 进行定义和描述。SOAP 规范定义的 XML 元素"
+        "命名空间为 http://www.w3.org/2003/05/soap-envelope，前缀为",
+        # 参考文献引用
+        "[1] SOAP Version 1.2 Part 1: Messaging Framework (Second Edition), "
+        "http://www.w3.org/TR/soap12/",
+        "[13] 2011年和2012年中国区域电网平均二氧化碳排放因子."
+        "http://www.ccchina.org.cn/archiver/ccchinacn/UpFile/Files/Default",
+        "[4] 卡内基梅隆大学软件工程研究所《CMMI 开发模型 2.0 版》, 2018, "
+        "www.sei.cmu.edu/cmmi.",
+        # 普通条款（**最危险的误删目标**：判据放宽成裸域名就会把这些整行删掉）
+        "4 范围 本标准适用于压力容器",
+        "2.1 较大婴儿",
+        "3.1 婴幼儿谷物辅助食品",
+    ]:
+        assert strip_watermark_lines(keep) == keep, keep
+
+
+def test_strip_watermark_lines_rejects_bare_domain_pattern():
+    """**回归护栏**：判据不得放宽为裸域名，否则普通条款被误判成 URL。
+
+    实测教训：把 URL 正则写成 `[A-Za-z0-9\\-]+(\\.[A-Za-z0-9\\-]+)+`
+    （点号后允许裸域名）后，'2.1 较大婴儿'、'3.1 婴幼儿谷物辅助食品' 全部被当成
+    域名 → **误删 10025 行**。故必须有 `www.` 或 `scheme://`。
+    """
+    from src.core.text_utils import _RE_WM_URL2
+    assert _RE_WM_URL2.search("网址 www.spc.net.cn")
+    assert _RE_WM_URL2.search("http://www.bzcbs.com")
+    for safe in ["2.1 较大婴儿", "3.1 婴幼儿谷物辅助食品", "4.1 原料要求",
+                 "5.2.3 试验方法", "表 A.1 试验条件"]:
+        assert not _RE_WM_URL2.search(safe), safe
+
+
+def test_clean_clause_text_strips_watermark_in_chain():
+    """水印剥离已接入清洗链（`clean_clause_text`），入库与评估同源生效。"""
+    from src.core.text_utils import clean_clause_text
+    out = clean_clause_text("4 范围\n网址 www.spc.net.cn\n本标准适用于压力容器。")
+    assert "www.spc.net.cn" not in out
+    assert "本标准适用于压力容器。" in out
+    assert "4 范围" in out
+
+
+# ---------------------------------------------------------------------------
 # PUA 装饰类剥离（2026-09-15 新语料复测，pua-residue 13 部 → 3 部）
 # ---------------------------------------------------------------------------
 def test_pua_decor_stripped_to_space():

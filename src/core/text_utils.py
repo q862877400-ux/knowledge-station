@@ -1208,6 +1208,51 @@ def normalize_area_subscript(text: str | None) -> str:
     return _RE_AREA_SUB.sub(lambda m: m.group(1) + "\u2091", text)
 
 
+#: 水印行判据：**必须有 `www.` 或 `scheme://`**。
+#: 不可放宽为裸域名（`[A-Za-z0-9\-]+(\.[A-Za-z0-9\-]+)+`）——实测会把普通文本
+#: `'2.1 较大婴儿'`、`'3.1 婴幼儿谷物辅助食品'` 当成域名（误判 **10025 处**！）。
+#: 这是"先做反向对照再放宽"救回来的一次：判据一宽，正常条款被整行删掉。
+_RE_WM_URL2 = re.compile(r"(?:https?://)?(?:www\.)[A-Za-z0-9\-]+"
+                         r"(?:\.[A-Za-z0-9\-]+)+(?:/[^\s，。；]*)?", re.I)
+#: 剥掉 URL 后残留多少算"短装饰"——'网址'/'网址:'/'下载'/'出版' 等标签都很短；
+#: 参考文献（`[1] SOAP Version 1.2 …, http://…`）残留很长，据此区分。
+_WM_RESIDUE_MAX = 12
+
+
+def strip_watermark_lines(text: str | None) -> str:
+    """站点水印行剥离（幂等）：整行删掉，正文行一字不动。
+
+    **缺陷证据**（2026-09-15 新语料实测，38/231 部 = 16% 命中）：VLM 把盗版标准站
+    的页眉水印读进条款正文，污染内容：
+        '网址 www.spc.net.cn'（23 处）、'http://www.bzcbs.com'、
+        '龙牛网 www.longniu.com 下载'、'网址: www.spc.net.cn'
+    形态分两族：**裸 URL 独占一行**（http://www.spc.net.cn）与**短标签+URL**
+    （'网址 www…'）。两者剥掉 URL 后残留都极短。
+
+    **反向对照（必须存活）**——判据靠"剥掉 URL 后的残留长度"区分水印与引用：
+        '本附录使用 SOAP 1.2 规范…命名空间为 http://www.w3.org/2003/05/soap-envelope'
+        '[1] SOAP Version 1.2 Part 1: Messaging Framework, http://www.w3.org/TR/soap12/'
+        '[13] 2011年和2012年中国区域电网平均二氧化碳排放因子.http://www.ccchina.org.cn/…'
+        '[4] 卡内基梅隆大学软件工程研究所《CMMI 开发模型 2.0 版》, 2018, www.sei.cmu.edu/cmmi.'
+        这些残留都是实质文字 → 一律保留。
+
+    另：已有 `strip_block_noise` 只处理"整行即水印（URL±页码±点线）"且**未被内容
+    清洗链调用**；本函数是它在正文清洗链里的对应实现（整行删除语义），
+    判据更宽（含短标签族），故作为单一所有者独立存在。
+    """
+    if not text or "www." not in text.lower() and "://" not in text:
+        return text or ""
+    out: list[str] = []
+    for ln in text.split("\n"):
+        s = ln.strip()
+        if s and _RE_WM_URL2.search(s):
+            residue = _RE_WM_URL2.sub("", s).strip(" 　:：-—,.，。;；[]()（）")
+            if len(residue) <= _WM_RESIDUE_MAX:
+                continue                      # 整行删除（水印）
+        out.append(ln)
+    return "\n".join(out)
+
+
 def clean_clause_text(text: str | None, *,
                       legend_stripper=None) -> str:
     """**入库文本清洗链的唯一所有者**（次序即契约，2026-09-15 立）。
@@ -1235,4 +1280,6 @@ def clean_clause_text(text: str | None, *,
             strip_formula_leader(normalize_pua_separators(text)))))
     if legend_stripper is not None:
         out = legend_stripper(out)
-    return out
+    # 站点水印行最后剥（放在图例切除之后：两者都是"整行/整段删除"语义，
+    # 但水印行可能落在图例段内，先切图例再剥水印更彻底）
+    return strip_watermark_lines(out)
