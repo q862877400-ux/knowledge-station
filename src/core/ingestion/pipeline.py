@@ -36,7 +36,7 @@ from src.core.storage.sqlite_db import get_db_connection, init_schema, write_tra
 logger = logging.getLogger(__name__)
 
 # 条款号开头（E3）：GB 风格 5.2.1 / 法律风格 第四百九十六条
-_CLAUSE_GB = re.compile(r"^(\d+(?:\.\d+){1,4})\s*(.*)$", re.S)
+_CLAUSE_GB = re.compile(r"^(\d+(?:\.\d+){1,7})\s*(.*)$", re.S)
 _CLAUSE_LAW = re.compile(r"^(第[一二三四五六七八九十百千]+条)\s*(.*)$", re.S)
 _TABLE_CAPTION = re.compile(r"^表\s*([A-Za-z]?\s*\.?\s*\d+(?:\.\d+)*)\s*(.*)$")
 # 2026-08-28 续表标记（通用）：国标跨页续表的题注/页眉通行写法"表x…(续)"/"续表x"
@@ -101,7 +101,7 @@ _APPENDIX_HEAD = re.compile(r"^(附\s*录\s*[A-Z一二三四五六七八九十]?
 # 因此并入附录头单块（实测 21 条 >800ch 大块全由此机制产生，2 条恰好 4000 字
 # 被 [:4000] 截断丢内容）。老前端 escDupNo 的字间空白容忍思想（"表A. 1"）在此
 # 落地为点后 \s*。词边界 (?![\d.]) 防 "A.1" 误配 "A.10"（dupNoMatches 同款）。
-_CLAUSE_APPENDIX = re.compile(r"^([A-Z]\.\s*\d+(?:\.\s*\d+){0,3})\s*(.*)$", re.S)
+_CLAUSE_APPENDIX = re.compile(r"^([A-Z]\.\s*\d+(?:\.\s*\d+){0,5})\s*(.*)$", re.S)
 # 2026-09-02 目录条目排除（GB/T 1000-2016 实测）：文件目录页写
 # "附录A (规范性附录) 绝缘子螺套…"，与真附录头"附 录 A"同形，误设 in_appendix →
 # 后续正文章级条款(1/2/3/4)被 `m_chap and not in_appendix` 跳过而全丢。
@@ -137,6 +137,63 @@ def _plausible_clause_head(num: str, rest: str | None) -> bool:
     if rest and re.match(r"[a-z]{1,3}[\u4e00-\u9fff]", rest):
         return False
     return not _TABULAR_REST.match(rest or "")
+
+
+#: 续行/交叉引用起头特征（2026-09-15，OCR 循环「重复条款号」根因修复）：
+#: OCR 折行把一句话切断，续行行首恰好是被引用条款号 → 被当新条款头，
+#: 造成同号重复条款（全库 216 组 (doc, clause_number) 重复、17 部文档受影响）。
+#: 实测形态：'3.18)，在距离全开位置10mm以内处关闭推拉构件。'（右括号起头）、
+#: '5.1.1~5.1.19的试验结果记入表 A.2。'（波浪号）、'12.9。如未规定频率…'
+#: （句号）、'11.6.2 或11.6.3得出的值大。'（连接词）、'8.3.1.2.3.1 概述'
+#: 旧正则深度不足时的 '.1 概述'（点起头）。
+_RE_CONT_REST = re.compile(
+    r"^[\s\)）\]】》~～。，、；：,.;:·—–\-]+"
+    r"|^\s*(?:或|和|及|与|即|则|其中|式中|以及|见|按|如)"
+    r"|^\s*[\d.]"
+)
+
+
+def _num_segments(num: str) -> tuple[int, ...] | None:
+    """号 → 可比较段元组；不可比较（前置N 等）返回 None。
+
+    2026-09-15：附录字母号（C.7）也参与序性比较——字母折算为 1000+ord，
+    保证 A.1 < A.2 < B.1；数字号与附录号同处一序（正文 5.1 < 附录 A.1）。
+    实测残留：GB/T 1094.6 的 'C.7'/'E.1' 重复需此扩展清除。
+    """
+    n = (num or "").strip()
+    m = re.fullmatch(r"([A-Z])(?:\.(\d+))+", n)
+    if m:
+        segs = [1000 + ord(m.group(1))]
+        segs += [int(x) for x in re.findall(r"\.(\d+)", n)]
+        return tuple(segs)
+    if not re.fullmatch(r"\d+(?:\.\d+)*", n):
+        return None
+    return tuple(int(p) for p in n.split("."))
+
+
+def _is_continuation_head(num: str, rest: str | None, clauses: list) -> bool:
+    """判断匹配到的号是否是「续行/交叉引用」而非真条款头（2026-09-15）。
+
+    两道独立判据（任一命中即拒）：
+      ① 形态：rest 以续行标点（)/）/~ 。，、；: 等）、连接词（或/和/及/与…）
+         或数字/点起头——真条款头的标题不会这样起头；
+      ② 序性：号 ≤ 同文档最近已产出的条款号。国标正文号严格递增
+         （1→2→…→5.1→5.1.1→5.2），重复或回退只可能是交叉引用/续行；
+         附录字母号同序（A.1<A.2<B.1），前置说明（前置N）不参与。
+    失效方向：页序错乱的文档可能把真头并进上一条（内容保留、少切一条），
+    比「伪造同号条款污染 clause_key」安全。
+    """
+    if _RE_CONT_REST.match((rest or "")):
+        return True
+    cur = _num_segments(num)
+    if cur is None:
+        return False
+    for cl in reversed(clauses):
+        last = _num_segments(getattr(cl, "number", "") or "")
+        if last is None:
+            continue
+        return cur <= last
+    return False
 
 
 def _plausible_appendix_head(num: str, rest: str | None) -> bool:
@@ -582,7 +639,10 @@ def split_items_into_clauses(items: list[MidItem]) -> list[SplitClause]:
         # 循环逐行切，块内后续 "B.2 …" 才不会被首行 B.1 吞掉。
         m_ann = _CLAUSE_APPENDIX.match(text) if in_appendix else None
         ann_head = bool(m_ann) and _plausible_appendix_head(
-            m_ann.group(1), m_ann.group(2)) if m_ann else False
+            m_ann.group(1), m_ann.group(2)) \
+            and not _is_continuation_head(
+                re.sub(r"\s+", "", m_ann.group(1)),
+                m_ann.group(2), clauses) if m_ann else False
         if ann_head and m_ann is not None and "\n" not in text:
             current = SplitClause(
                 number=normalize_clause_number(
@@ -615,6 +675,7 @@ def split_items_into_clauses(items: list[MidItem]) -> list[SplitClause]:
                 _sib.match(nxt) or nxt.isdigit()
                 or (not nxt and _sib.match(prv)))
         if (m_gb and _plausible_clause_head(m_gb.group(1), m_gb.group(2))
+                and not _is_continuation_head(m_gb.group(1), m_gb.group(2), clauses)
                 and (in_appendix or len(m_gb.group(1)) >= 3
                      or m_gb.group(1).count(".") >= 1)):
             number = normalize_clause_number(m_gb.group(1))
@@ -623,7 +684,9 @@ def split_items_into_clauses(items: list[MidItem]) -> list[SplitClause]:
                                   rows=_rows_of(text, it))
             clauses.append(current)
         elif m_chap and is_chapter and _plausible_clause_head(
-                m_chap.group(1), m_chap.group(2)):
+                m_chap.group(1), m_chap.group(2)) \
+                and not _is_continuation_head(
+                    m_chap.group(1), m_chap.group(2), clauses):
             current = SplitClause(number=m_chap.group(1), texts=[text],
                                   items=[it], rows=_rows_of(text, it))
             clauses.append(current)
@@ -648,7 +711,10 @@ def split_items_into_clauses(items: list[MidItem]) -> list[SplitClause]:
                     # 切独立子条款（与块级 _CLAUSE_APPENDIX 分支同款闸门）。
                     m_ln_ann = _CLAUSE_APPENDIX.match(ln) if in_appendix else None
                     if m_ln_ann and _plausible_appendix_head(
-                            m_ln_ann.group(1), m_ln_ann.group(2)):
+                            m_ln_ann.group(1), m_ln_ann.group(2)) \
+                            and not _is_continuation_head(
+                                re.sub(r"\s+", "", m_ln_ann.group(1)),
+                                m_ln_ann.group(2), clauses):
                         cur = SplitClause(
                             number=normalize_clause_number(
                                 re.sub(r"\s+", "", m_ln_ann.group(1))),
@@ -669,7 +735,9 @@ def split_items_into_clauses(items: list[MidItem]) -> list[SplitClause]:
                     mm = _CLAUSE_GB.match(ln)
                     num = mm.group(1) if mm else ""
                     is_head = (bool(mm) and (len(num) >= 3 or num.count(".") >= 1)
-                               and _plausible_clause_head(num, mm.group(2) if mm else ""))
+                               and _plausible_clause_head(num, mm.group(2) if mm else "")
+                               and not _is_continuation_head(
+                                   num, mm.group(2) if mm else "", clauses))
                     if is_head:
                         cur = SplitClause(number=normalize_clause_number(num),
                                           texts=[ln], items=[it], content_type="normal",
@@ -681,7 +749,9 @@ def split_items_into_clauses(items: list[MidItem]) -> list[SplitClause]:
                             m2 = _CLAUSE_GB.match(nxt)
                             n2 = m2.group(1) if m2 else ""
                             if (m2 and (len(n2) >= 3 or n2.count(".") >= 1)
-                                    and _plausible_clause_head(n2, m2.group(2))):
+                                    and _plausible_clause_head(n2, m2.group(2))
+                                    and not _is_continuation_head(
+                                        n2, m2.group(2), clauses)):
                                 break
                             cur.texts.append(nxt)
                             cur.rows.append((nxt, it.page_idx, boxes[i]))

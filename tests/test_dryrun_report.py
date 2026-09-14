@@ -41,14 +41,20 @@ def _save(doc, path: Path) -> Path:
 
 
 def _mk_good_pdf(tmp_path: Path, name: str = "good.pdf") -> Path:
-    """5 页、20 条规范条款（含模态词与数值）——不应被判 block。"""
+    """5 页、40 条规范条款（含模态词与数值）——不应被判 block。
+
+    2026-09-15 修：原编号 `n = pno*4 + i + 1` 每轮写两行（n 与 n+1）导致
+    **相邻轮次重复同号**（5.2.2 出现两次…）——「好文档」里不该有重复条款号
+    （重复号是条款头闸门要拒的缺陷形态：续行/交叉引用误切）。改为每页 8 个
+    连号，跨页继续递增，形态与真实国标一致。
+    """
     import fitz
     doc = fitz.open()
     for pno in range(5):
         page = doc.new_page(width=595, height=842)
         y = 80
         for i in range(4):
-            n = pno * 4 + i + 1
+            n = pno * 8 + i * 2 + 1
             page.insert_text((72, y), f"5.2.{n} 动火作业应有专人监护，作业前应办理审批手续。",
                              fontsize=12, fontname="china-s")
             y += 24
