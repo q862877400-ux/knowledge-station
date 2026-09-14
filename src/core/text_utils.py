@@ -306,6 +306,16 @@ _TWO_LETTER_UNITS = frozenset({
 #: 都是**无歧义**形态（前后必有数字锚定或混合字母数字），故可在行级先粘；
 #: 反向保护：'F = m a'（纯字母乘积）与 '2 m'（合法数值+单位间隔）不在此列。
 _RE_GLUE_DOT_SPLIT = re.compile(r"(?<=\d)[ \t]+[.][ \t]+(?=\d)")
+#: 点号**单侧**带空格的劈开：'0. 3484'（点后空格）/'0 .3484'（点前空格）。
+#: 实测 GB/T 13277.3-2015 5.1.2 'ρ = 0. 3484 × ( p b - 0. 378 p v )/T'。
+_RE_GLUE_DOT_ONE_SIDE = re.compile(r"(?<=\d)[.][ \t]+(?=\d)|(?<=\d)[ \t]+[.](?=\d)")
+#: 紧贴标点/括号/运算元的数字对被空格拆开：'(1 8 - γ)'、'过5 0 p C'、'2 3 ° C'。
+#: 关键限定：数字对**前面必须紧贴一个非空白非字母数字字符**（括号/中文/运算符），
+#: 这样 '表 5 0'（空格分隔的独立数字）不会被误粘。实测 GB/T 15371-2023 6.4
+#: '16 n c /(1 8 - γ)'、GB/T 1094.3-2017 11.3.5 '超过5 0 p C'、
+#: GB/T 14048.10-2016 9.2.1 '2 3 ° C ± 5 ° C'。
+_RE_GLUE_ATTACHED_DIGIT_PAIR = re.compile(
+    r"(?<=[^\sA-Za-z0-9])(\d)[ \t]+(\d)(?![\dA-Za-z])")
 #: 字母-数字-字母（下标数字被拆）：'P 1 E' → 'P1E'，'T E , 0' 不在此列
 _RE_GLUE_MIXED_RUN = re.compile(
     r"([A-Za-z])[ \t]+(\d)[ \t]+([A-Za-z])(?![A-Za-z])")
@@ -320,6 +330,8 @@ def _glue_formula_fragments(line: str) -> str:
     if " " not in line and "\t" not in line:
         return line
     line = _RE_GLUE_DOT_SPLIT.sub(".", line)          # '1 . 0' → '1.0'（点是内容，不能吞）
+    line = _RE_GLUE_DOT_ONE_SIDE.sub(".", line)       # '0. 3484' / '0 .3484' → '0.3484'
+    line = _RE_GLUE_ATTACHED_DIGIT_PAIR.sub(r"\1\2", line)  # '(1 8' → '(18'
     line = _RE_GLUE_UPPER_PAIR.sub(r" \1\2", line)    # '1.0 U N' → '1.0 UN'
     line = _RE_GLUE_MIXED_RUN.sub(r"\1\2\3", line)    # 'P 1 E' → 'P1E'
     return line
