@@ -301,6 +301,30 @@ def _cloud_enabled() -> bool:
     return ok
 
 
+def _local_backend() -> str:
+    """本地深度通道的 MinerU backend。
+
+    2026-09-15（用户指令）：**本次 OCR 后处理进化循环只走 VLM**——云 VLM 优先，
+    云不通则本地 VLM，**pipeline 不参与**。为此提供两个环境开关：
+
+    - `KS_VLM_ONLY=1`：强制本地 backend = `vlm-engine`（循环进化专用；同时禁止
+      任何 pipeline 兜底，见 `_pipeline_allowed`）；
+    - `KS_MINERU_LOCAL_BACKEND`：显式指定 `pipeline` / `vlm-engine` /
+      `hybrid-engine`（未设置或非法值 → 历史默认 `pipeline`，保证既有行为不变）。
+    """
+    import os
+    if os.environ.get("KS_VLM_ONLY", "") == "1":
+        return "vlm-engine"
+    v = (os.environ.get("KS_MINERU_LOCAL_BACKEND") or "").strip()
+    return v if v in ("pipeline", "vlm-engine", "hybrid-engine") else "pipeline"
+
+
+def _pipeline_allowed() -> bool:
+    """本次调用是否允许 pipeline 通道（KS_VLM_ONLY=1 时一律不允许）。"""
+    import os
+    return os.environ.get("KS_VLM_ONLY", "") != "1"
+
+
 def _mineru_deep_analyze(pdf_path: Path, output_dir: Path) -> Dict[str, Any] | None:
     """深度版面分析（2026-09-08 用户修订：**云优先 → 本地兜底**）。
 
@@ -356,9 +380,11 @@ def _mineru_deep_analyze(pdf_path: Path, output_dir: Path) -> Dict[str, Any] | N
                             pdf_path.name, time.monotonic() - t_lock)
                 # 2026-09-14（执行计划 v3 阶段 1）：ch → ch_server（v6 medium_rec），
                 # 与 deep_server.py 批量通道同步升档。
+                # 2026-09-15（用户指令）：backend 改由 _local_backend() 决定——
+                # KS_VLM_ONLY=1 时走 vlm-engine（本地 VLM），pipeline 不参与。
                 do_parse(str(out_dir), [pdf_path.stem], [pdf_path.read_bytes()],
                          ["ch_server"],
-                         backend="pipeline", parse_method="auto",
+                         backend=_local_backend(), parse_method="auto",
                          f_draw_layout_bbox=False, f_draw_span_bbox=False,
                          f_dump_orig_pdf=False, f_dump_model_output=False)
             return {"output_dir": str(out_dir)}

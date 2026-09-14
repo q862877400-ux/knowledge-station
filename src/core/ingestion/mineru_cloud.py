@@ -54,10 +54,17 @@ def _model_version() -> str:
     默认 pipeline；非 HTML 文件可选 pipeline 或 vlm。设置里非法值已在
     config._read_mineru_model_version 归一为 pipeline——这里再兜一次底，
     保证请求体永远带合法值。
+
+    2026-09-15（用户指令）：`KS_VLM_ONLY=1` 时**强制 vlm**——本次 OCR 后处理
+    进化循环只走 VLM，云端不得回落到 pipeline（否则循环评估的产物会混入
+    pipeline 输出，仪器与目标不一致）。
     """
+    import os
     from src.core.config import (
         MINERU_CLOUD_DEFAULT_MODEL_VERSION, MINERU_CLOUD_MODEL_VERSIONS,
         get_settings)
+    if os.environ.get("KS_VLM_ONLY", "") == "1":
+        return "vlm"
     v = (getattr(get_settings(), "mineru_cloud_model_version", "") or "").strip()
     for cand in MINERU_CLOUD_MODEL_VERSIONS:
         if v.lower() == cand.lower():
