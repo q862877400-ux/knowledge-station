@@ -165,26 +165,47 @@ def normalize_pua_latin(text: str | None) -> str:
 
 
 def normalize_pua_separators(text: str | None) -> str:
-    """PUA「分隔符类」字符还原（2026-09-15 立，全库文本审计）。
+    """PUA「分隔符类 / 装饰类」字符处理（2026-09-15 立，当天二次扩容）。
 
-    背景：部分国标 PDF 的文字层把**分隔符**画成私用区字形，提取后成为
-    不可见垃圾字符。实测两码点（全库仅此二）：
-    - U+E011：日期/人名的分隔位——'2009\\ue01103\\ue01116发布'（真值 2009-03-16）、
-      'Kennard\\ue011Stone算法'（真值 Kennard-Stone）
-    - U+E788：数值前的空格位——'内径为\\ue78876+2/0mm'（真值 内径为 76+2/0mm）
-    共 5 部文档 27 处（1031/34406/10004/10010/1019）。
+    背景：部分国标 PDF 的文字层把**分隔符/装饰符**画成私用区字形，提取后成为
+    不可见垃圾字符。**这些码点是 PDF 文本层原生的**（反向对照：直接 fitz 读源
+    PDF 即得 PUA，非我方管线引入），属源数据缺字形，故一律**不猜语义映射**。
 
-    还原规则（按两侧上下文，无歧义）：数字↔数字 → '-'（日期/编号）；
-    其余 → 空格（词间分隔）。其余私用区码点**不动**（未实测者不猜）。
+    两类分开处置（关键区别：能否从上下文无歧义推出真值）：
+
+    ① **分隔符类**——按左右上下文可无歧义还原（2 码点，2026-09-15 首轮实测）：
+       - U+E011：日期/人名分隔位——'2009\\ue01103\\ue01116发布'（真值 2009-03-16）、
+         'Kennard\\ue011Stone算法'（真值 Kennard-Stone）
+       - U+E788：数值前空格位——'内径为\\ue78876+2/0mm'（真值 内径为 76+2/0mm）
+       规则：数字↔数字 → '-'；其余 → 空格。
+
+    ② **装饰类**——**无真值、只能剥离**（6 码点，新语料 231 部复测新增）：
+       这些是项目符号、表格分隔、版权页位标，视觉上不代表任何字符；
+       映射为空会**并字**（'\ue5f9研究报告' → '研究报告' 尚可，但相邻数字会粘连），
+       故统一映射为**空格**（保词界、不造假数据）。
+       - U+E5F9 项目符号（'\\n\ue5f9研究报告\\n\ue5f9概念设计'）
+       - U+E79F 项目符号（'—\\n\ue79f\\n9\\n5\\n0'）
+       - U+E5CF 表格空值分隔（'—\\n\ue5cf\ue5cf\\n电力\\nkW·h'）
+       - U+E6E6/U+E6F3 表头分隔（'R1\ue6e6\ue6f3\\nNPT1\ue6e6\ue6f3'）
+       - U+E012 版权页/书号位标（'版权专有 侵权必究\\n\ue012\\n书号:'）
+
+    **仍然只报告、不映射**（拿不到确定真值，猜就是造假数据）：
+       U+E3E4 / U+E2C5 / U+E54F —— 人名缺字（'张\ue3e4\ue3e4、马洪杰'）；
+       U+E03C —— 公式位（'r2\ue03cQ=Q0-r2'，可能是减号，但不确定）。
+    这些由 `pua-residue` 判据持续上报，等待识别层（VLM 像素 OCR）取回真字。
     """
     if not text:
         return ""
-    if not any(c in _PUA_SEP_CHARS for c in text):
+    has_sep = any(c in _PUA_SEP_CHARS for c in text)
+    has_dec = any(c in _PUA_DECOR_CHARS for c in text)
+    if not (has_sep or has_dec):
         return text
     out: list[str] = []
     n = len(text)
     for i, ch in enumerate(text):
-        if ch in _PUA_SEP_CHARS:
+        if ch in _PUA_DECOR_CHARS:
+            out.append(" ")
+        elif ch in _PUA_SEP_CHARS:
             left = text[i - 1] if i else ""
             right = text[i + 1] if i + 1 < n else ""
             out.append("-" if (left.isdigit() and right.isdigit()) else " ")
@@ -195,6 +216,12 @@ def normalize_pua_separators(text: str | None) -> str:
 
 #: 分隔符类私用区字符（实测两码点；逐个判定左右上下文，不用正则防相邻漏判）
 _PUA_SEP_CHARS = "\ue011\ue788"
+
+#: 装饰类私用区字符（无真值可还原，统一映射空格）。
+#: 逐码点均来自实测证据，**不允许**把"看起来像"的码点加进来：
+#: 加错会把缺字形的人名/公式数字悄悄吃掉（比留着 PUA 更糟——留着至少还能被
+#: `pua-residue` 判据抓到）。
+_PUA_DECOR_CHARS = "\ue012\ue5cf\ue5f9\ue6e6\ue6f3\ue79f"
 
 
 def strip_block_noise(text: str | None) -> str:

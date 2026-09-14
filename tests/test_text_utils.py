@@ -241,3 +241,59 @@ def test_clean_clause_text_shape_invariants():
     assert clean_clause_text(None) == ""
     assert clean_clause_text("") == ""
     assert clean_clause_text(out, legend_stripper=strip_figure_legend_segment) == out
+
+
+# ---------------------------------------------------------------------------
+# PUA 装饰类剥离（2026-09-15 新语料复测，pua-residue 13 部 → 3 部）
+# ---------------------------------------------------------------------------
+def test_pua_decor_stripped_to_space():
+    """装饰类 PUA（项目符号/表格分隔/版权页位标）→ 空格。
+
+    缺陷证据（新语料 231 部实测，均取自 `pua-residue` 判据的命中原文）：
+    '\\n\ue5f9研究报告\\n\ue5f9概念设计'（项目符号）、
+    'R1\ue6e6\ue6f3\\nNPT1\ue6e6\ue6f3'（表头分隔）、
+    '版权专有 侵权必究\\n\ue012\\n书号:155066·1-57616'（版权页位标）。
+    反向对照：直接 fitz 读源 PDF 即得这些 PUA → **文本层原生**，非管线引入，
+    故只剥离、不映射（映射无真值依据）。
+    """
+    from src.core.text_utils import normalize_pua_separators as f
+    assert "\ue5f9" not in f("\ue5f9研究报告")
+    assert f("\ue5f9研究报告") == " 研究报告"
+    assert f("R1\ue6e6\ue6f3") == "R1  "
+    assert f("—\n\ue5cf\ue5cf\n电力") == "—\n  \n电力"
+    assert f("—\n\ue79f\n9") == "—\n \n9"
+    assert "\ue012" not in f("版权专有 侵权必究\n\ue012\n书号:1")
+
+
+def test_pua_meaningful_codepoints_survive():
+    """**反向对照（关键）**：有语义、但拿不到确定真值的码点必须原样保留。
+
+    理由：猜映射就是造假数据；留着至少还能被 `pua-residue` 判据抓到、
+    等待识别层（VLM 像素 OCR）取回真字。实测：
+    - U+E3E4/U+E2C5/U+E54F 人名缺字——'郭锐、张\ue3e4\ue3e4、马洪杰'（真值应为某字）
+    - U+E03C 公式位——'r2\ue03cQ=Q0-r2'（疑似减号，不确定）
+    若把它们也映射掉，缺字会静默消失（比留着 PUA 更糟）。
+    """
+    from src.core.text_utils import normalize_pua_separators as f
+    for keep in ["郭锐、张\ue3e4\ue3e4、马洪杰",
+                 "尚国\ue2c5、钱永刚",
+                 "GuillevicP,G\ue54fttscheF",
+                 "r2\ue03cQ=Q0-r2"]:
+        assert f(keep) == keep, keep
+
+
+def test_pua_separator_original_cases_intact():
+    """首轮两个分隔符码点的原有行为不得回归。
+
+    注：U+E011 的还原规则是「数字↔数字 → '-'，其余 → 空格」，故
+    'Kennard\\ue011Stone' 得到**空格**（原作注释写作 '真值 Kennard-Stone'
+    只是举例说明该位置是分隔符，规则本身对字母侧不产 '-'）——测试按**实际规则**
+    断言，不按注释里的举例，避免把注释笔误固化成回归。
+    """
+    from src.core.text_utils import normalize_pua_separators as f
+    assert f("2009\ue01103\ue01116发布") == "2009-03-16发布"
+    assert f("Kennard\ue011Stone算法") == "Kennard Stone算法"
+    assert f("内径为\ue78876+2/0mm") == "内径为 76+2/0mm"
+    # 无 PUA 的文本零变化（快速路径也不得改动）
+    assert f("4 原理利用珍珠粉") == "4 原理利用珍珠粉"
+    assert f(None) == ""
