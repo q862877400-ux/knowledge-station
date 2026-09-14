@@ -295,7 +295,34 @@ _RE_SPLIT_VALUE = re.compile(
 _TWO_LETTER_UNITS = frozenset({
     "mm", "cm", "km", "dm", "nm", "kg", "mg", "kV", "mV", "mA", "kW", "kJ", "Hz",
     "Pa", "mL", "kN", "ms", "ns", "pH", "kW", "dL", "µL", "μg", "µg", "µA", "µV",
+    # 2026-09-15 收敛循环第 7 轮：'in'（英寸，实测 GB/T 10238-2015 9.2.4.2
+    # '±1 / 16 i n' 真值 1/16 in）。变量乘积（'m a'）仍不在白名单 → 不受影响。
+    "in",
 })
+
+#: 公式内两类**行级**劈开（收敛循环第 7 轮，spaced-run 39 部实测）：
+#:  ① `1 . 0`（数字-点-数字，点因紧贴 CJK 未与数字同段：'尺寸应测量1 . 0 mm'）
+#:  ② `0.5U N` / `P 1 E`（下标字母/数字被空格拆开：'0.5U N'、'P 1 E'）
+#: 都是**无歧义**形态（前后必有数字锚定或混合字母数字），故可在行级先粘；
+#: 反向保护：'F = m a'（纯字母乘积）与 '2 m'（合法数值+单位间隔）不在此列。
+_RE_GLUE_DOT_SPLIT = re.compile(r"(?<=\d)[ \t]+[.][ \t]+(?=\d)")
+#: 字母-数字-字母（下标数字被拆）：'P 1 E' → 'P1E'，'T E , 0' 不在此列
+_RE_GLUE_MIXED_RUN = re.compile(
+    r"([A-Za-z])[ \t]+(\d)[ \t]+([A-Za-z])(?![A-Za-z])")
+#: 数字后**两个连续单大写字母**（下标/缩写的字母对被拆）：'1.0 U N' → '1.0 UN'。
+#: 要求**成对**：单个大写字母不粘（防把表格相邻单元 '2 B' 粘成 '2B'）。
+_RE_GLUE_UPPER_PAIR = re.compile(
+    r"(?<=\d)[ \t]+([A-Z])[ \t]+([A-Z])(?![A-Za-z])")
+
+
+def _glue_formula_fragments(line: str) -> str:
+    """行级粘合公式内无歧义的劈开形态（见上方常量注释）。"""
+    if " " not in line and "\t" not in line:
+        return line
+    line = _RE_GLUE_DOT_SPLIT.sub(".", line)          # '1 . 0' → '1.0'（点是内容，不能吞）
+    line = _RE_GLUE_UPPER_PAIR.sub(r" \1\2", line)    # '1.0 U N' → '1.0 UN'
+    line = _RE_GLUE_MIXED_RUN.sub(r"\1\2\3", line)    # 'P 1 E' → 'P1E'
+    return line
 
 
 def _glue_split_values(line: str) -> str:
@@ -429,7 +456,10 @@ def glue_ocr_spaced_units(text: str | None) -> str:
                 if tok:
                     out.append(tok)
         _flush()
-        out_lines.append(" ".join(t for t in out if t))
+        # 行级补粘必须在 **token 级之后**：'7 8 . 2' 要靠 token 级把 '7','8','.','2'
+        # 合成 '78.2'；若行级先跑会把 ' . ' 提前定型成 '7 8.2' 反而挡住它
+        # （2026-09-15 实测回归：test_glue_ocr_units 两条用例因此变红）。
+        out_lines.append(_glue_formula_fragments(" ".join(t for t in out if t)))
     return "\n".join(out_lines)
 
 
