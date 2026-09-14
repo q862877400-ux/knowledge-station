@@ -1060,13 +1060,14 @@ def build_clause_models(doc_id: str, standard_no: str, doc_type: str,
         from src.core.text_utils import (
             normalize_pua_separators as _pua_sep,
             pua_bond_dash_html as _pua_dash, space_clause_numbers_text,
-            strip_formula_leader as _strip_leader, sup_unit_exponents_text)
+            strip_formula_leader as _strip_leader, sup_unit_exponents_text,
+            normalize_label_comma as _label_comma)
         # 2026-09-15 追加 PUA 分隔符还原（U+E011/U+E788 → '-'/' '）+ 公式编号
         # 引导点线清洗（'……………( 1' → ' (1)'）+ 图例段切除（条款块内混入的
         # 「标引序号说明」条目）——三者都是全库审计达线类。
         content = space_clause_numbers_text(
-            sup_unit_exponents_text(strip_figure_legend_segment(
-                _strip_leader(_pua_sep(_pua_dash(content))))))
+            sup_unit_exponents_text(_label_comma(strip_figure_legend_segment(
+                _strip_leader(_pua_sep(_pua_dash(content)))))))
         tc = classify_clause(content, doc_type=doc_type)
         # 2026-09-14（执行计划 v3 阶段 2a）：识别层真实置信度首次接入
         # clause_revision.ocr_confidence（此前恒 1.0 无生产者——quality/

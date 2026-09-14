@@ -743,6 +743,28 @@ def _strip_latex_arrays(t: str) -> str:
     return t
 
 
+#: 标签里的**逗号代点**（2026-09-15 收敛循环第 19/20 轮，punctuation-substitution）。
+#: OCR 把标签中的点识别成逗号：公式号 '(D,8)'、表号 '表B,4'、图号 '图A,1'。
+#: 实测 GB/T 16411-2023 D.1.2.3.3：正文引用 '(D.7)' 正常，而公式编号处出现 'D,8'。
+#: 归一是**无歧义**的：`(大写字母 , 数字)` 与 `表/图 + 大写字母 , 数字` 都不是合法排版。
+_RE_LABEL_COMMA_PAREN = re.compile(r"([（(]\s*[A-Z])\s*,\s*(?=\d)")
+_RE_LABEL_COMMA_PREFIX = re.compile(r"([表图附录]\s*[A-Z])\s*,\s*(?=\d)")
+
+
+def normalize_label_comma(text: str | None) -> str:
+    r"""标签逗号代点归一：'(D,8)'→'(D.8)'、'表B,4'→'表B.4'。
+
+    类名 `punctuation-substitution` 的本意形态；检测器（classify）在排除
+    "单位符号/数字前缀"后只命中真形态（'D,8'），所有者层在此做实际清洗——
+    避免"检测器报缺陷、清洗器不清洗"的口径错位。
+    """
+    t = text or ""
+    if "," not in t:
+        return t
+    t = _RE_LABEL_COMMA_PAREN.sub(r"\1.", t)
+    return _RE_LABEL_COMMA_PREFIX.sub(r"\1.", t)
+
+
 def latex_to_text(latex: str) -> str:
     r"""MinerU <eq> LaTeX → 可读文本。
     例：'h _ { \mathrm { ~ w ~ } } / \mathrm { m }' → 'h w/m'

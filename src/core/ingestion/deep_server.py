@@ -418,9 +418,19 @@ def _run_batch(job_dir: Path, claimed: list) -> None:  # pragma: no cover
     # 吞吐劣化 >30% 回退（改回本词即回滚）。
     try:
         with _gpu_deep_lock():
+            # 2026-09-15（用户指令）：backend 由环境决定——
+            # KS_VLM_ONLY=1 → vlm-engine（本地 VLM），pipeline 不参与本次
+            # 进化循环；未设置时保持历史默认 pipeline（既有行为不变）。
+            # **刻意不 import mineru_adapter**：本函数跑在**子进程**里，
+            # 而 test_deep_server 会拉起真实子进程并断言"零错误"——加 import
+            # 会引入额外依赖面（实测因此使门禁变红）；也不额外 print，
+            # 该测试还会解析服务端输出行。
+            import os as _os
+            _be = ("vlm-engine" if _os.environ.get("KS_VLM_ONLY") == "1"
+                   else (_os.environ.get("KS_MINERU_LOCAL_BACKEND") or "pipeline"))
             do_parse(str(out_root), names,
                      [Path(s["pdf"]).read_bytes() for s in specs],
-                     ["ch_server"] * len(specs), backend="pipeline",
+                     ["ch_server"] * len(specs), backend=_be,
                      parse_method="auto", f_draw_layout_bbox=False,
                      f_draw_span_bbox=False, f_dump_orig_pdf=False,
                      f_dump_model_output=False)
