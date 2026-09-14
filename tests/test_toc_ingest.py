@@ -20,7 +20,7 @@
 带数字尾的正文行都**不带点线**，不得被判为目录条目——否则会吃掉正文。
 """
 from src.core.ingestion.pipeline import (
-    MidItem, _TOC_ENTRY, _is_toc_entry, split_items_into_clauses,
+    MidItem, _INDEX_HEAD, _TOC_ENTRY, _is_toc_entry, split_items_into_clauses,
 )
 
 
@@ -165,3 +165,72 @@ def test_toc_no_dots_then_dots_block_not_ingested():
     # 正文必须照常保留
     assert "1" in numbers, f"正文被误吃：{numbers}"
     assert "本标准规定了资源管理的要求。" in texts
+
+
+# ---------------------------------------------------------------------------
+# 文末「索引」小节（2026-09-15 批次3 · 55 部全新语料实测 1 部）
+# ---------------------------------------------------------------------------
+# **缺陷证据**（GB/T 5845.2-2008 城市公共交通标志 第2部分）：
+# 中文索引写成 `中文名称 …… 序号\nIC 卡充值站 …… 27\n…`——**点线 + 序号列**，
+# 页码位置被序号冒充，故 `_is_toc_entry` 认它（带点线页码尾），但此时**不在目录态**
+# （`in_toc` 只在文首「目次」置位），于是索引两页全被**并进前一条款**：
+# 正文 5.5 本只有一行，却吃下 126 行。
+# **修法**：`_INDEX_HEAD` 认"整块恰为「索引」"为索引起始，其后所有块都不入条款。
+_INDEX_ROWS = ("中文名称 …… 序号\nIC 卡充值站 …… 27\n保管好自己物品 …… 28\n"
+               "病残专座 …… 16\n出口 …… 03")
+
+
+def test_index_head_predicate():
+    """只有"整块恰为索引"才算索引起始（含空格变体）。"""
+    for yes in ("索引", "索 引", "索  引", "\n索引\n"):
+        assert _INDEX_HEAD.match(yes), yes
+    # **反向对照**：正文里含"索引"的句子不得被当索引起始
+    # （否则会把该块及其后全部内容误判掉，比原缺陷更严重）
+    for no in ("5.6 索引号的编制应符合规定。",
+               "见索引。",
+               "本部分索引如下：",
+               "索引号 3.2.1",
+               "附录 A（资料性附录） 索引编制规则"):
+        assert not _INDEX_HEAD.match(no), no
+
+
+def test_index_section_not_absorbed_into_clause():
+    """**缺陷现场重放**：索引小节不得并入前一条款，正文必须保留。"""
+    items = [
+        _t("5.5 本部分表示方向的图形符号，可根据实际需要转换成镜像图形符号使用。"),
+        _t("索引"),
+        _t(_INDEX_ROWS, 19),
+        _t("请勿开窗 …… 40\n请勿吸烟 …… 33", 20),
+    ]
+    clauses = split_items_into_clauses(items)
+    numbers = [str(c.number or "") for c in clauses]
+    texts = "\n".join("\n".join(c.texts or []) for c in clauses)
+    # 正文 5.5 必须保留，且**只含它自己那一行**
+    assert "5.5" in numbers, f"正文 5.5 被误吃：{numbers}"
+    c55 = next(c for c in clauses if str(c.number) == "5.5")
+    assert len(c55.rows) == 1, f"5.5 仍吃下了索引行（rows={len(c55.rows)}）"
+    assert "图形符号使用" in texts
+    # 索引内容不得出现在任何条款里
+    for bad in ("IC 卡充值站", "病残专座", "请勿吸烟"):
+        assert bad not in texts, f"索引条目被摄入条款：{bad}"
+    # 索引标题本身也不得成为条款
+    assert "索引" not in numbers, f"索引标题成了条款：{numbers}"
+
+
+def test_index_section_does_not_eat_preceding_clauses():
+    """反向对照：索引**之前**的条款必须完好（索引态不得提前置位）。"""
+    items = [
+        _t("1 范围"),
+        _t("本部分规定了城市公共交通标志的图形符号。"),
+        _t("2 规范性引用文件"),
+        _t("下列文件中的内容通过文中的规范性引用而构成本部分必不可少的条款。"),
+        _t("索引"),                     # 索引起点
+        _t(_INDEX_ROWS, 19),
+    ]
+    clauses = split_items_into_clauses(items)
+    numbers = [str(c.number or "") for c in clauses]
+    texts = "\n".join("\n".join(c.texts or []) for c in clauses)
+    assert "1" in numbers and "2" in numbers, f"索引前的条款被误吃：{numbers}"
+    assert "本部分规定了城市公共交通标志的图形符号。" in texts
+    assert "下列文件中的内容通过文中的规范性引用" in texts
+    assert "IC 卡充值站" not in texts

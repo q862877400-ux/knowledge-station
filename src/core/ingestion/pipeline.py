@@ -111,6 +111,16 @@ _DIR_ENTRY_RE = re.compile(
 _CHAPTER_HEAD = re.compile(r"^(\d+)\s*[\u4e00-\u9fff]")  # \s*：容忍 _span_norm 压掉章头数字与标题间空格（"1 范围"→"1范围"），否则章级条款被丢
 _TOC_HEAD = re.compile(r"^目\s*次")
 
+#: 文末「索引」小节标题（2026-09-15 批次3 实测缺陷）。
+#: **缺陷证据**：`GB/T 5845.2-2008 城市公共交通标志 第2部分` 的**中文索引**
+#:   `中文名称 …… 序号\nIC 卡充值站 …… 27\n…`（点线 + **序号列**，页码位置被
+#:   序号冒充）既带点线页码形、又不是条款，于是被 `_is_toc_entry` 认作目录条目
+#:   ——但此时**不在目录态**（`in_toc` 只在文首「目次」置位），故这些行全被
+#:   **并进前一条款**：正文 5.5 只有一行内容，却吃下 126 行（索引两页）。
+#: 判据：整块恰为「索引」（`索 引`/`索  引` 皆收；**必须整块**，不能是
+#:   "见索引"/"索引号" 这类正文词，否则会把正文块误判成索引起始）。
+_INDEX_HEAD = re.compile(r"^\s*索\s*引\s*$")
+
 # ---------------------------------------------------------------------------
 # 目录条目判据（2026-09-15 新语料头部类 toc-ingested-as-clauses 8 部）
 # ---------------------------------------------------------------------------
@@ -660,6 +670,7 @@ def split_items_into_clauses(items: list[MidItem]) -> list[SplitClause]:
     """
     clauses: list[SplitClause] = []
     in_toc = False
+    in_index = False
     in_appendix = False
     current: SplitClause | None = None
     chapter: str | None = None   # 最近章号（还原 MinerU 吞点的条款号 "41"→"4.1"）
@@ -688,6 +699,17 @@ def split_items_into_clauses(items: list[MidItem]) -> list[SplitClause]:
 
         if _TOC_HEAD.match(text):
             in_toc = True
+            continue
+        # 文末「索引」小节：标题与**其后全部内容**都不属于任何条款
+        # （见 `_INDEX_HEAD` 注释的实测缺陷：索引两页被并进正文 5.5）。
+        # 与目录态的区别：目录态里只有"目录条目形"的块被吃，这里索引**整段**
+        # 都不是条款——故置位后所有块都跳过（索引标题、条目、续页皆然）。
+        # 用 `continue` 而非 `break`：其后可能还有别的内容块，交给后续分支判断；
+        # 索引态一旦置位就不再复位（索引是文末小节，其后无正文条款）。
+        if _INDEX_HEAD.match(text):
+            in_index = True
+            continue
+        if in_index:
             continue
         if in_toc:
             # 目次结束判定（2026-09-15 修订）：**只要是目录条目就继续吃**。
