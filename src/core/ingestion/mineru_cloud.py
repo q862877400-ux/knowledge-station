@@ -234,14 +234,16 @@ def _validate_middle(path: Path) -> None:
 def _find_middle(unpacked: Path) -> Path:
     # 2026-09-14（阶段 2c 实测）：MinerU 云产物 zip 已不再带 *_middle.json，
     # 同构产物改名 layout.json（pdf_info/_backend/_version_name 结构一致，
-    # 实测 batch 93f04cb7 产物）。按序尝试：middle 老命名 → layout 新命名。
-    for pattern in ("*_middle.json", "middle.json", "layout.json"):
-        cands = sorted(unpacked.rglob(pattern))
-        if cands:
-            return cands[0]
-    cands = [p for p in unpacked.rglob("*.json") if "middle" in p.name.lower()]
+    # 实测 batch 93f04cb7 产物）。模式契约的单一所有者是
+    # src.core.ingestion.middle_locator（OCR 循环轮次 1 普查后统一），
+    # 本函数退化为薄壳：定位第一个 middle 产物 + 云侧专有的兜底命名扫描。
+    from src.core.ingestion.middle_locator import find_middle_files
+    cands = find_middle_files(unpacked)
     if cands:
         return cands[0]
+    cands = [p for p in unpacked.rglob("*.json") if "middle" in p.name.lower()]
+    if cands:
+        return sorted(cands)[0]
     raise MineruCloudError(
         "云产物 zip 内未找到 middle.json/layout.json（服务端产物结构可能已变更，需要人工介入）")
 
@@ -250,8 +252,10 @@ def _normalize_landing(unpacked: Path, output_dir: Path, stem: str,
                        batch_id: str) -> str:
     """云产物归一化落位为本地 deep 同构布局。
 
-    目标: output_dir/mineru/cloud_<batch12>/auto/<stem>_middle.json + images/…
-    pipeline 消费契约 rglob("*_middle.json") → 文件名必须带 <stem>_ 前缀；
+    目标: output_dir/mineru/cloud_<batch12>/auto/<stem>_layout.json + images/…
+    pipeline 消费契约由 middle_locator.MIDDLE_PATTERNS 统一承担（2026-09-14
+    OCR 循环轮次 1：改名 <stem>_middle.json 会掩盖云产物真实命名，且三个
+    消费者已有统一所有者——保留原名 + stem 前缀，不再强制改尾）；
     middle 内 image_path 相对引用 images/<hash>.jpg → images/ 同层同摆。
     """
     middle = _find_middle(unpacked)

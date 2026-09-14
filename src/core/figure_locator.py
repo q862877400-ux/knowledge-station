@@ -122,7 +122,10 @@ def locate_middle_figure_full(
         return None
     root = root.resolve()
     pat = re.compile(r"^图\s*" + re.escape(fig_no) + r"(?![0-9A-Za-z.])")
-    for mj_path in sorted(root.rglob("*_middle.json")):
+    # 2026-09-14（OCR 循环轮次 1）：middle 产物定位统一 middle_locator
+    # （云产物改名 layout.json，旧硬编码不认）。
+    from src.core.ingestion.middle_locator import iter_middle_files
+    for mj_path in iter_middle_files(root):
         try:
             mj = json.loads(mj_path.read_text(encoding="utf-8"))
         except Exception:

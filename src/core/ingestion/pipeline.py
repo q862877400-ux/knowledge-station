@@ -1323,7 +1323,11 @@ def run_full_ingest(pdf_path: Path, standard_no: str, standard_name: str,
     # 仅真正无文本层（blocks 空）才用 MinerU 深度全文（OCR 通道）。
     _has_text_layer_ok = bool(result.get("blocks"))
     if deep_output and not _has_text_layer_ok:
-        middle_files = list(Path(deep_output).rglob("*_middle.json"))
+        # 2026-09-14（OCR 循环轮次 1）：云产物改名 layout.json 后此处硬编码
+        # rglob("*_middle.json") 不认 → 云通道成功产物被误判「未找到」。
+        # 模式契约统一走 middle_locator（单一所有者）。
+        from src.core.ingestion.middle_locator import find_middle_files
+        middle_files = find_middle_files(Path(deep_output))
         if not middle_files:
             return {"status": "error", "message": f"未找到 middle.json: {deep_output}"}
         items, page_sizes = load_middle_items(middle_files[0])

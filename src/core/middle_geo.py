@@ -195,13 +195,16 @@ def _inter_area(a: List[float], b: List[float]) -> float:
 
 
 def _find_middle_jsons(parse_root: Path) -> List[Path]:
-    """定位全部 middle.json（任意深度，防穿越）。一个 parse_root 下可能有
-    多次深度解析的子任务产物（pre_ 残留），全部合并——页级 bbox 无冲突。"""
+    """定位全部 middle 产物（任意深度，防穿越）。一个 parse_root 下可能有
+    多次深度解析的子任务产物（pre_ 残留），全部合并——页级 bbox 无冲突。
+    2026-09-14（OCR 循环轮次 1）：模式统一走 middle_locator（云产物改名
+    layout.json，此处旧硬编码不认）。"""
     root = parse_root.resolve()
     if not root.is_dir():
         return []
+    from src.core.ingestion.middle_locator import find_middle_files
     out: List[Path] = []
-    for mj in sorted(root.rglob("*_middle.json")):
+    for mj in find_middle_files(root):
         try:
             mj.resolve().relative_to(root)
             out.append(mj)
