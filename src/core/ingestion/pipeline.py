@@ -196,6 +196,20 @@ def _is_continuation_head(num: str, rest: str | None, clauses: list) -> bool:
     return False
 
 
+_RE_LEADER_RUN = re.compile(r"^[0.·\u2024\s]{6,}$")
+
+
+def _is_leader_run(text: str) -> bool:
+    """纯引点填充块判定（索引行特有）。
+
+    2026-09-15：GB/T 1008-2008 索引页（中文索引 p17-24）每行是「裸号 + 引点
+    + 词条」，引点被 OCR 成 000000000000000 —— '编号独行块前瞻' 分支把
+    「裸号 + 引点块」当条款头，154 个索引号全部变成伪条款（重复号 154 组，
+    全库最大单点）。引点块本身（纯 0/点/间隔号 ≥6 位）是索引行的强特征。
+    """
+    return bool(_RE_LEADER_RUN.match((text or "").strip()))
+
+
 def _plausible_appendix_head(num: str, rest: str | None) -> bool:
     """2026-09-13 附录版 E8 闸门：字母章号 "A.1" 的三道防误切护栏。
 
@@ -681,6 +695,14 @@ def split_items_into_clauses(items: list[MidItem]) -> list[SplitClause]:
                 if nt:
                     nxt_txt = nt
                     break
+            # 2026-09-15 索引页护栏（GB/T 1008 154 组重复号根因）：索引行是
+            # 「裸号 + 引点 + 词条」，前瞻分支会把它当条款头。两道拒：
+            # ① 下一块是纯引点填充（索引行强特征）；② 序性——索引号必然 ≤
+            # 正文已产出号（索引在正文之后，按正文号排序引用）。真条款的
+            # 独行编号块（1032 术语条目）号递增，不受影响。
+            if _is_leader_run(nxt_txt) or _is_continuation_head(
+                    m_gb.group(1), "", clauses):
+                nxt_txt = ""
             if nxt_txt and not _CLAUSE_GB.match(nxt_txt.split("\n")[0]):
                 current = SplitClause(
                     number=normalize_clause_number(m_gb.group(1)),
