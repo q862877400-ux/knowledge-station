@@ -121,6 +121,25 @@ _CHAPTER_MAX = 60
 _TABULAR_REST = re.compile(r"^\s*\d+(?:\.\d+)?(?:\s+\d+(?:\.\d+)?)")
 
 
+#: 闸门 5 的单位词表（**多字符单位 + 小写单字母单位**）。
+#: 大写单字母（A/V/W/N/J/L）故意不收：`A类评定`/`A 型结构` 这类"型号标签"
+#: 标题会被误拒（实测反向对照，见 tests/test_head_unit_fragment_gate.py）。
+_RE_HEAD_UNIT = (
+    r"mm|cm|dm|km|nm|µm|μm|kg|mg|µg|μg|mL|µL|μL|dL|ms|ns|min|"
+    r"mol|mmol|ppm|kPa|MPa|GHz|kHz|kN|mA|mV|kV|kW|kJ|Pa|Hz|"
+    r"m|g|t|s|h|d|l"
+)
+#: 闸门 5：条款头后面跟的是**「数值 + 单位」的句子片段**（而非标题）。
+#: 判据两条同时成立：
+#:   ① rest 以单位 token 起头；
+#:   ② 该单位后面**不是另一个拉丁词**（`\s*[A-Za-z]` 为否）——"ppm parts per
+#:      million" 是合法术语条（英文缩写作标题），必须放行；而 "mmol/L氯化镁"、
+#:      "mL，用40%"、"m/s<v≤2.0"、"kg/m³。"、"m×全幅"、"mm 模数直齿轮" 都是
+#:      数值片段的后续（斜杠/乘号/中文标点/中文），即假条款头。
+_RE_HEAD_UNIT_FRAG = re.compile(
+    rf"^\s*(?:{_RE_HEAD_UNIT})(?!\s*[A-Za-z])")
+
+
 def _plausible_clause_head(num: str, rest: str | None) -> bool:
     """E8：判断匹配到的条款号是否是真实条款头（而非表格数值行）。"""
     first = num.split(".", 1)[0]
@@ -144,6 +163,15 @@ def _plausible_clause_head(num: str, rest: str | None) -> bool:
     # 短拉丁（1~4 字母，含大小写）+ 紧跟右括号 = 数值括号的收尾，非条款头。
     # 反例保护：真条款头 "4.1 pH的测定"（拉丁后跟中文、无括号）不受影响。
     if rest and re.match(r"\s*[A-Za-z]{1,4}\s*[\)）\]】]", rest):
+        return False
+    # 闸门 5（2026-09-15 收敛循环第 9 轮，spurious-clause-number 18 部实测）：
+    # 「数值 + 单位」的**句子片段**被当条款头——原闸门 3 只认"单位紧跟中文"
+    # （`1.5m时`），漏掉单位后跟斜杠/乘号/中文标点/空格的全部形态：
+    #   '1.5cm/m。' '1.293 kg/m³。' '1.00mL，用40%乙醇…' '2.0mmol/L氯化镁…'
+    #   '1.0m/s<v≤2.0 m/s时…' '1.5m×全幅' '1.0 mm 模数直齿轮的…'
+    # 反向保护：rest 以单位起头但**后面还跟拉丁词**的放行（'3.4 ppm parts per
+    # million' 是合法术语条，英文缩写作标题）——见 _RE_HEAD_UNIT_FRAG 注释。
+    if rest and _RE_HEAD_UNIT_FRAG.match(rest):
         return False
     return not _TABULAR_REST.match(rest or "")
 
