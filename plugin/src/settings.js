@@ -170,7 +170,8 @@ export function registerKsSettingsRoutes(ctx, manager) {
             jsonResponse(res, 400, errorBody('bad_request', 'body 必须是合法 JSON'))
             return
           }
-          // 白名单：只接受两个通道对象，字段由引擎再校验
+          // 白名单：只接受两个通道对象，字段由引擎再校验。
+          // 2026-09-15 增加 model_version（MinerU 云模式三选一，非密值）。
           const body = {}
           for (const ch of ['mineru_cloud', 'llm']) {
             const sec = raw && typeof raw === 'object' ? raw[ch] : null
@@ -178,6 +179,9 @@ export function registerKsSettingsRoutes(ctx, manager) {
               const clean = {}
               if (typeof sec.api_key === 'string') clean.api_key = sec.api_key
               if (typeof sec.base_url === 'string') clean.base_url = sec.base_url
+              if (ch === 'mineru_cloud' && typeof sec.model_version === 'string') {
+                clean.model_version = sec.model_version
+              }
               if (Object.keys(clean).length > 0) body[ch] = clean
             }
           }

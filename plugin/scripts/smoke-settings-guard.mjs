@@ -216,6 +216,24 @@ async function main() {
   check('no whitelisted field → 400', empty.status === 400
     && empty.body?.error?.code === 'empty_payload', `status=${empty.status}`)
 
+  // 2026-09-15：model_version（MinerU 云模式，非密值）必须能穿过白名单到达引擎。
+  // 引擎未起时表现为 503（= 已放行、只是引擎不在）——与 valid probe 同款判据。
+  const modeOnly = await call(config, {
+    method: 'PUT',
+    headers: { ...LOOPBACK, 'content-type': 'application/json' },
+    body: JSON.stringify({ mineru_cloud: { model_version: 'vlm' } }),
+  })
+  check('model_version-only PUT passes whitelist', modeOnly.status === 503,
+    `status=${modeOnly.status} code=${modeOnly.body?.error?.code ?? ''}`)
+
+  const modeOnLlm = await call(config, {
+    method: 'PUT',
+    headers: { ...LOOPBACK, 'content-type': 'application/json' },
+    body: JSON.stringify({ llm: { api_key: 'k', model_version: 'vlm' } }),
+  })
+  check('llm 通道不转发 model_version（仍能保存 api_key）',
+    modeOnLlm.status === 503, `status=${modeOnLlm.status}`)
+
   const badChannel = await call(test, {
     method: 'POST',
     headers: { ...LOOPBACK, 'content-type': 'application/json' },

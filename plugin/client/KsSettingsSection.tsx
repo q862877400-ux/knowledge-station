@@ -1005,6 +1005,9 @@ function KsApiConfigSection(props: { open: boolean; onOpenChange: (next: boolean
   const [busy, setBusy] = useState<string | null>(null)
   const [cloudKey, setCloudKey] = useState('')
   const [cloudUrl, setCloudUrl] = useState('')
+  // 2026-09-15：MinerU 云解析模式（用户要求「设置里除了填 KEY 还能选模式」）。
+  // 空串 = 未改动（保存时不发 model_version，保持引擎现值）。
+  const [cloudMode, setCloudMode] = useState('')
   const [llmKey, setLlmKey] = useState('')
   const [llmUrl, setLlmUrl] = useState('')
   const [tests, setTests] = useState<Record<string, { ok: boolean; detail: string } | null>>({})
@@ -1027,13 +1030,19 @@ function KsApiConfigSection(props: { open: boolean; onOpenChange: (next: boolean
     void load()
   }, [open, openedOnce, load])
 
-  const onSave = async (ch: KsApiChannel, key: string, url: string): Promise<void> => {
-    const payload: { mineru_cloud?: { api_key?: string; base_url?: string }; llm?: { api_key?: string; base_url?: string } } = {}
-    const sec: { api_key?: string; base_url?: string } = {}
+  const onSave = async (ch: KsApiChannel, key: string, url: string,
+    mode?: string): Promise<void> => {
+    const payload: {
+      mineru_cloud?: { api_key?: string; base_url?: string; model_version?: string }
+      llm?: { api_key?: string; base_url?: string }
+    } = {}
+    const sec: { api_key?: string; base_url?: string; model_version?: string } = {}
     if (key.trim()) sec.api_key = key.trim()
     if (url.trim()) sec.base_url = url.trim()
+    // 模式只在该通道且确有改动时发（'' = 未改动，保持引擎现值）
+    if (ch === 'mineru_cloud' && mode) sec.model_version = mode
     if (Object.keys(sec).length === 0) {
-      setErr('请填写 Key 或 Base URL（留空表示保持现值）')
+      setErr('请填写 Key / Base URL，或选择模式（留空表示保持现值）')
       return
     }
     payload[ch] = sec
@@ -1044,6 +1053,8 @@ function KsApiConfigSection(props: { open: boolean; onOpenChange: (next: boolean
       // verifier F7：保存后旧探测结论已失效（它测的是旧凭据）→ 清掉，防误读
       setTests((prev) => ({ ...prev, [ch]: null }))
       if (ch === 'mineru_cloud') { setCloudKey(''); setCloudUrl('') } else { setLlmKey(''); setLlmUrl('') }
+      // 模式提交后回到「未改动」态（下拉显示改为跟随 status 现值）
+      setCloudMode('')
     } catch (e) {
       setErr(e instanceof Error ? e.message : String(e))
     } finally {
@@ -1064,13 +1075,14 @@ function KsApiConfigSection(props: { open: boolean; onOpenChange: (next: boolean
   }
 
   const chan = (ch: KsApiChannel, label: string, keyVal: string, setKey: (v: string) => void,
-    urlVal: string, setUrl: (v: string) => void): JSX.Element => {
+    urlVal: string, setUrl: (v: string) => void,
+    modeSlot?: JSX.Element, modeDirty = false): JSX.Element => {
     const st = status?.[ch]
     const configured = st?.configured === true
     const t = tests[ch]
     // verifier F7：探测走的是**已保存**的凭据——有未保存输入时先拦住，
     // 否则用户会拿旧 Key 的探测结果去判断刚粘贴的新 Key（误判）。
-    const dirty = keyVal.trim().length > 0 || urlVal.trim().length > 0
+    const dirty = keyVal.trim().length > 0 || urlVal.trim().length > 0 || modeDirty
     return (
       <div style={{ marginTop: 8 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 12 }}>
@@ -1085,6 +1097,11 @@ function KsApiConfigSection(props: { open: boolean; onOpenChange: (next: boolean
           {st?.base_url && (
             <span style={{ fontSize: 11, color: 'var(--dsw-alias-label-secondary, #888)' }}>
               当前生效 {st.base_url}
+            </span>
+          )}
+          {ch === 'mineru_cloud' && st?.model_version && (
+            <span style={{ fontSize: 11, color: 'var(--dsw-alias-label-secondary, #888)' }}>
+              · 模式 {st.model_version}
             </span>
           )}
         </div>
@@ -1103,8 +1120,10 @@ function KsApiConfigSection(props: { open: boolean; onOpenChange: (next: boolean
             placeholder='Base URL（留空保持不变；输 "-" 恢复内置默认）'
             style={{ fontSize: 12, padding: '3px 8px', flex: 1, minWidth: 200 }}
           />
+          {modeSlot}
           <button type="button" disabled={busy !== null}
-            onClick={() => void onSave(ch, keyVal, urlVal)}
+            onClick={() => void onSave(ch, keyVal, urlVal,
+              ch === 'mineru_cloud' && modeDirty ? effectiveCloudMode : undefined)}
             style={btnStyle(busy !== null)}>
             {busy === `save-${ch}` ? '保存中…' : '保存'}
           </button>
@@ -1117,7 +1136,7 @@ function KsApiConfigSection(props: { open: boolean; onOpenChange: (next: boolean
         </div>
         {dirty && (
           <p style={{ margin: '3px 0 0', fontSize: 11, color: 'var(--dsw-alias-label-secondary, #888)' }}>
-            探测使用已保存的凭据；新填的 Key / Base URL 请先保存。
+            探测使用已保存的凭据；新填的 Key / Base URL / 模式请先保存。
             留空表示保持不变，输入 <code>-</code> 表示清除该值（Key 清除后回到纯本地通道）。
           </p>
         )}
@@ -1129,6 +1148,39 @@ function KsApiConfigSection(props: { open: boolean; onOpenChange: (next: boolean
       </div>
     )
   }
+
+  // ---- 云 OCR 模式（MinerU v4：pipeline 默认 / vlm 推荐 / MinerU-HTML）----
+  // 可选值由引擎给（前端不硬编码契约）；未改动时下拉跟随引擎现值。
+  const cloudModes: string[] = status?.mineru_cloud.model_versions
+    ?? ['pipeline', 'vlm', 'MinerU-HTML']
+  const savedCloudMode = status?.mineru_cloud.model_version ?? 'pipeline'
+  const effectiveCloudMode = cloudMode || savedCloudMode
+  const cloudModeDirty = cloudMode !== '' && cloudMode !== savedCloudMode
+  const MODE_HINT: Record<string, string> = {
+    pipeline: 'pipeline（默认）：版面分析 + OCR 流水线，表格/公式各走专用模型，稳定可预期。',
+    vlm: 'vlm（推荐）：端到端视觉大模型，复杂版式与扫描件更强；enable_formula 对 vlm 只影响行内公式，enable_table 仍生效。',
+    'MinerU-HTML': 'MinerU-HTML：仅用于 HTML 源文件（PDF 请勿选）。',
+  }
+  const cloudModeSlot = (
+    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 4, fontSize: 12 }}>
+      <span style={{ color: 'var(--dsw-alias-label-secondary, #666)' }}>模式</span>
+      <select
+        value={effectiveCloudMode}
+        onChange={(e) => setCloudMode(e.currentTarget.value)}
+        title={MODE_HINT[effectiveCloudMode] ?? ''}
+        style={{
+          fontSize: 12, padding: '3px 6px',
+          border: `1px solid ${cloudModeDirty ? '#c0392b' : '#b9b9b9'}`,
+          borderRadius: 6, background: '#fff', color: '#111',
+        }}
+      >
+        {cloudModes.map((m) => <option key={m} value={m}>{m}</option>)}
+      </select>
+      {cloudModeDirty && (
+        <span style={{ fontSize: 11, color: '#c0392b' }}>未保存</span>
+      )}
+    </span>
+  )
 
   return (
     <details
@@ -1147,9 +1199,12 @@ function KsApiConfigSection(props: { open: boolean; onOpenChange: (next: boolean
       </summary>
       <p style={{ margin: '6px 0 0', fontSize: 12, color: 'var(--dsw-alias-label-secondary, #666)' }}>
         配置云 OCR Key 后，导入文件优先走云解析、本地兜底；未配置则直接走本地通道（纯本地不外发）。
+        <b>模式</b>对应 MinerU 官方 v4 的 <code>model_version</code>：<code>pipeline</code>（默认）／
+        <code>vlm</code>（推荐，端到端视觉大模型）／<code>MinerU-HTML</code>（仅 HTML 源文件）。
         凭据只写入本机加密存储（Windows DPAPI，secrets.json），不回显、不入库。
       </p>
-      {chan('mineru_cloud', '☁️ 云 OCR（MinerU 官方云）', cloudKey, setCloudKey, cloudUrl, setCloudUrl)}
+      {chan('mineru_cloud', '☁️ 云 OCR（MinerU 官方云）', cloudKey, setCloudKey, cloudUrl, setCloudUrl,
+        cloudModeSlot, cloudModeDirty)}
       {chan('llm', '🤖 LLM 问答通道', llmKey, setLlmKey, llmUrl, setLlmUrl)}
       {err !== null && (
         <p role="alert" style={{ color: '#c0392b', fontSize: 12, margin: '6px 0 0' }}>{err}</p>

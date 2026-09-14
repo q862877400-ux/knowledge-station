@@ -60,8 +60,13 @@ class UnknownChannel(ValueError):
     pass
 
 
+class InvalidModelVersion(ValueError):
+    """云解析模式取值非法（官方契约三选一：pipeline / vlm / MinerU-HTML）。"""
+
+
 def set_credential(channel: str, api_key: str | None = None,
-                   base_url: str | None = None) -> None:
+                   base_url: str | None = None,
+                   model_version: str | None = None) -> None:
     """把通道凭据写进**引擎自己的加密存储**（`secret_store`，DPAPI）。
 
     **2026-09-11 起不再写系统层**：此前这里写 `HKCU\\Environment`，而 DSH 把继承来的
@@ -71,6 +76,10 @@ def set_credential(channel: str, api_key: str | None = None,
     值为 None 或空串的项跳过不覆盖（防误清空）；传 "-" 表示显式删除该值。
     verifier F13/F17（2026-09-08）：白空格 Key 曾会被写成空串、抹掉已配置的 Key
     → 与 base_url 同款守卫。
+
+    model_version（2026-09-15，仅 mineru_cloud）：非密值，但同样入加密存储
+    （引擎自有 KV，避免另立存储）；**值必须属于官方契约三选一**，非法即抛
+    InvalidModelVersion（不回显 Key，也不让脏值进存储）。
     """
     if channel not in CHANNEL_VARS:
         raise UnknownChannel(f"未知通道: {channel}")
@@ -81,6 +90,19 @@ def set_credential(channel: str, api_key: str | None = None,
             continue                       # 跳过（不覆盖）
         v = val.strip()
         changes[name] = None if v == "-" else v
+    if model_version is not None and model_version.strip():
+        if channel != "mineru_cloud":
+            raise UnknownChannel(f"通道 {channel} 不支持 model_version")
+        from src.core.config import (
+            MINERU_CLOUD_MODEL_VERSIONS, MINERU_CLOUD_MODEL_VERSION_VAR)
+        v = model_version.strip()
+        hit = next((c for c in MINERU_CLOUD_MODEL_VERSIONS
+                    if v.lower() == c.lower()), None)
+        if hit is None:
+            raise InvalidModelVersion(
+                f"model_version 必须是 {'/'.join(MINERU_CLOUD_MODEL_VERSIONS)}"
+                f" 之一，收到 {model_version!r}")
+        changes[MINERU_CLOUD_MODEL_VERSION_VAR] = hit
     if changes:
         secret_store.write_values(changes)   # 加密失败会抛 SecretStoreError，整体不写
 
@@ -324,12 +346,20 @@ def adopt_legacy(channel: str = "llm", *, delete_legacy: bool = False,
 
 
 def get_status() -> dict:
-    """脱敏状态：只给 configured 布尔与 base_url，绝不回显 Key。"""
-    from src.core.config import get_settings
+    """脱敏状态：只给 configured 布尔与 base_url，绝不回显 Key。
+
+    2026-09-15：mineru_cloud 增加 `model_version`（**非密值**，可回显）与
+    `model_versions`（可选值清单，供 UI 渲染下拉）——用户要求「设置里除了填
+    KEY 还能选模式」（MinerU 官方 v4：pipeline / vlm / MinerU-HTML）。
+    """
+    from src.core.config import (
+        MINERU_CLOUD_MODEL_VERSIONS, get_settings)
     s = get_settings()
     return {
         "mineru_cloud": {"configured": bool(s.mineru_cloud_api_key),
-                         "base_url": s.mineru_cloud_base_url},
+                         "base_url": s.mineru_cloud_base_url,
+                         "model_version": s.mineru_cloud_model_version,
+                         "model_versions": list(MINERU_CLOUD_MODEL_VERSIONS)},
         "llm": {"configured": bool(s.llm_api_key), "base_url": s.llm_base_url},
     }
 

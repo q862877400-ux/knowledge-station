@@ -47,6 +47,24 @@ def _resolve_settings() -> Tuple[str, str]:
     return key, base
 
 
+def _model_version() -> str:
+    """MinerU 云模型版本（2026-09-15 设置项）：pipeline（默认）/ vlm / MinerU-HTML。
+
+    官方 v4 契约（mineru.net 文档「请求体参数说明」）：`model_version` 三选一，
+    默认 pipeline；非 HTML 文件可选 pipeline 或 vlm。设置里非法值已在
+    config._read_mineru_model_version 归一为 pipeline——这里再兜一次底，
+    保证请求体永远带合法值。
+    """
+    from src.core.config import (
+        MINERU_CLOUD_DEFAULT_MODEL_VERSION, MINERU_CLOUD_MODEL_VERSIONS,
+        get_settings)
+    v = (getattr(get_settings(), "mineru_cloud_model_version", "") or "").strip()
+    for cand in MINERU_CLOUD_MODEL_VERSIONS:
+        if v.lower() == cand.lower():
+            return cand
+    return MINERU_CLOUD_DEFAULT_MODEL_VERSION
+
+
 def mineru_cloud_available() -> Tuple[bool, str]:
     """(可用?, Base URL 或未配置原因)。"""
     key, base = _resolve_settings()
@@ -86,7 +104,8 @@ def probe_token() -> Dict[str, Any]:
             return {"ok": False, "detail": "云解析 API Key 未配置"}
         import httpx
         body = {"files": [{"name": "probe.pdf", "is_ocr": True}],
-                "language": "ch", "enable_table": True, "enable_formula": True}
+                "language": "ch", "enable_table": True, "enable_formula": True,
+                "model_version": _model_version()}
         went_on_the_wire = True
         r = httpx.post(f"{base}/api/v4/file-urls/batch", headers=_headers(key),
                        json=body, timeout=30.0)
@@ -123,7 +142,8 @@ def probe_token() -> Dict[str, Any]:
 def _apply_upload_url(key: str, base: str, upload_name: str) -> Tuple[str, str]:
     import httpx
     body = {"files": [{"name": upload_name, "is_ocr": True}],
-            "language": "ch", "enable_table": True, "enable_formula": True}
+            "language": "ch", "enable_table": True, "enable_formula": True,
+            "model_version": _model_version()}
     r = httpx.post(f"{base}/api/v4/file-urls/batch", headers=_headers(key),
                    json=body, timeout=30.0)
     r.raise_for_status()

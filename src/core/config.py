@@ -114,6 +114,25 @@ def _read_mineru_base_url() -> str:
     return _read_secret("KS_MINERU_CLOUD_BASE_URL", (), MINERU_CLOUD_DEFAULT_BASE_URL)
 
 
+#: MinerU 云解析模型版本（官方 v4 契约：pipeline 默认 / vlm 推荐 / MinerU-HTML）。
+#: 2026-09-15 加入设置项（用户要求「设置里除了填 KEY 还能选模式」）。
+#: 非密值，但存同一加密存储（引擎自有 KV），env 可临时覆盖。
+MINERU_CLOUD_MODEL_VERSIONS: tuple[str, ...] = ("pipeline", "vlm", "MinerU-HTML")
+MINERU_CLOUD_DEFAULT_MODEL_VERSION = "pipeline"
+#: 存储/环境变量名（api_credentials / routes_settings / 本模块共用同一常量）
+MINERU_CLOUD_MODEL_VERSION_VAR = "KS_MINERU_CLOUD_MODEL_VERSION"
+
+
+def _read_mineru_model_version() -> str:
+    """读 MinerU 云模式；非法值回落到 pipeline（不因手填错值而让云请求 400）。"""
+    raw = _read_secret(MINERU_CLOUD_MODEL_VERSION_VAR, (),
+                       MINERU_CLOUD_DEFAULT_MODEL_VERSION).strip()
+    for v in MINERU_CLOUD_MODEL_VERSIONS:          # 大小写不敏感归一（vlm/VLM）
+        if raw.lower() == v.lower():
+            return v
+    return MINERU_CLOUD_DEFAULT_MODEL_VERSION
+
+
 # 云解析通道（2026-09-01 架构反转；2026-09-08 用户裁决通道优先级）：
 # 已配置云 Key → 云优先、本地兜底；未配置 → 直接本地通道（纯本地不外发）。
 # Key 存引擎自己的加密存储（secret_store，DPAPI），**不落库、不落系统层**。
@@ -131,6 +150,8 @@ class Settings:
     # ===== 云解析通道（MinerU 官方云 API；已配置则云优先、本地兜底）=====
     mineru_cloud_api_key: str = field(default_factory=_read_mineru_key)
     mineru_cloud_base_url: str = field(default_factory=_read_mineru_base_url)
+    # 模型版本：pipeline（默认）/ vlm（推荐）/ MinerU-HTML —— 官方 v4 契约
+    mineru_cloud_model_version: str = field(default_factory=_read_mineru_model_version)
 
     @property
     def db_path(self) -> Path:

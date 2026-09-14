@@ -41,9 +41,13 @@ def register(app, json_error):
             try:
                 cred.set_credential(channel,
                                     api_key=sec.get("api_key"),
-                                    base_url=sec.get("base_url"))
+                                    base_url=sec.get("base_url"),
+                                    model_version=sec.get("model_version"))
             except cred.UnknownChannel as e:
                 return json_error(422, "unknown_channel", str(e))
+            except cred.InvalidModelVersion as e:
+                # 2026-09-15：模式取值非法 → 422 明确报错（不落脏值、不回显 Key）
+                return json_error(422, "invalid_model_version", str(e))
             except cred.secret_store.SecretStoreError as e:
                 return json_error(500, "secret_store_write_failed",
                                   f"加密存储写入失败: {e}")

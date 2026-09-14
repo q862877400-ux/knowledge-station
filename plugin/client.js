@@ -32946,6 +32946,7 @@ function KsApiConfigSection(props) {
   const [busy, setBusy] = (0, import_react8.useState)(null);
   const [cloudKey, setCloudKey] = (0, import_react8.useState)("");
   const [cloudUrl, setCloudUrl] = (0, import_react8.useState)("");
+  const [cloudMode, setCloudMode] = (0, import_react8.useState)("");
   const [llmKey, setLlmKey] = (0, import_react8.useState)("");
   const [llmUrl, setLlmUrl] = (0, import_react8.useState)("");
   const [tests, setTests] = (0, import_react8.useState)({});
@@ -32963,13 +32964,14 @@ function KsApiConfigSection(props) {
     setOpenedOnce(true);
     void load();
   }, [open, openedOnce, load]);
-  const onSave = async (ch, key, url) => {
+  const onSave = async (ch, key, url, mode) => {
     const payload = {};
     const sec = {};
     if (key.trim()) sec.api_key = key.trim();
     if (url.trim()) sec.base_url = url.trim();
+    if (ch === "mineru_cloud" && mode) sec.model_version = mode;
     if (Object.keys(sec).length === 0) {
-      setErr("\u8BF7\u586B\u5199 Key \u6216 Base URL\uFF08\u7559\u7A7A\u8868\u793A\u4FDD\u6301\u73B0\u503C\uFF09");
+      setErr("\u8BF7\u586B\u5199 Key / Base URL\uFF0C\u6216\u9009\u62E9\u6A21\u5F0F\uFF08\u7559\u7A7A\u8868\u793A\u4FDD\u6301\u73B0\u503C\uFF09");
       return;
     }
     payload[ch] = sec;
@@ -32985,6 +32987,7 @@ function KsApiConfigSection(props) {
         setLlmKey("");
         setLlmUrl("");
       }
+      setCloudMode("");
     } catch (e) {
       setErr(e instanceof Error ? e.message : String(e));
     } finally {
@@ -33002,11 +33005,11 @@ function KsApiConfigSection(props) {
       setBusy(null);
     }
   };
-  const chan = (ch, label, keyVal, setKey, urlVal, setUrl) => {
+  const chan = (ch, label, keyVal, setKey, urlVal, setUrl, modeSlot, modeDirty = false) => {
     const st = status?.[ch];
     const configured2 = st?.configured === true;
     const t = tests[ch];
-    const dirty = keyVal.trim().length > 0 || urlVal.trim().length > 0;
+    const dirty = keyVal.trim().length > 0 || urlVal.trim().length > 0 || modeDirty;
     return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { marginTop: 8 }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, fontSize: 12 }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: label }),
@@ -33021,6 +33024,10 @@ function KsApiConfigSection(props) {
         st?.base_url && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
           "\u5F53\u524D\u751F\u6548 ",
           st.base_url
+        ] }),
+        ch === "mineru_cloud" && st?.model_version && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
+          "\xB7 \u6A21\u5F0F ",
+          st.model_version
         ] })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 6, marginTop: 4, flexWrap: "wrap" }, children: [
@@ -33044,12 +33051,18 @@ function KsApiConfigSection(props) {
             style: { fontSize: 12, padding: "3px 8px", flex: 1, minWidth: 200 }
           }
         ),
+        modeSlot,
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
           "button",
           {
             type: "button",
             disabled: busy !== null,
-            onClick: () => void onSave(ch, keyVal, urlVal),
+            onClick: () => void onSave(
+              ch,
+              keyVal,
+              urlVal,
+              ch === "mineru_cloud" && modeDirty ? effectiveCloudMode : void 0
+            ),
             style: btnStyle3(busy !== null),
             children: busy === `save-${ch}` ? "\u4FDD\u5B58\u4E2D\u2026" : "\u4FDD\u5B58"
           }
@@ -33067,7 +33080,7 @@ function KsApiConfigSection(props) {
         )
       ] }),
       dirty && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("p", { style: { margin: "3px 0 0", fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
-        "\u63A2\u6D4B\u4F7F\u7528\u5DF2\u4FDD\u5B58\u7684\u51ED\u636E\uFF1B\u65B0\u586B\u7684 Key / Base URL \u8BF7\u5148\u4FDD\u5B58\u3002 \u7559\u7A7A\u8868\u793A\u4FDD\u6301\u4E0D\u53D8\uFF0C\u8F93\u5165 ",
+        "\u63A2\u6D4B\u4F7F\u7528\u5DF2\u4FDD\u5B58\u7684\u51ED\u636E\uFF1B\u65B0\u586B\u7684 Key / Base URL / \u6A21\u5F0F\u8BF7\u5148\u4FDD\u5B58\u3002 \u7559\u7A7A\u8868\u793A\u4FDD\u6301\u4E0D\u53D8\uFF0C\u8F93\u5165 ",
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("code", { children: "-" }),
         " \u8868\u793A\u6E05\u9664\u8BE5\u503C\uFF08Key \u6E05\u9664\u540E\u56DE\u5230\u7EAF\u672C\u5730\u901A\u9053\uFF09\u3002"
       ] }),
@@ -33077,6 +33090,36 @@ function KsApiConfigSection(props) {
       ] })
     ] });
   };
+  const cloudModes = status?.mineru_cloud.model_versions ?? ["pipeline", "vlm", "MinerU-HTML"];
+  const savedCloudMode = status?.mineru_cloud.model_version ?? "pipeline";
+  const effectiveCloudMode = cloudMode || savedCloudMode;
+  const cloudModeDirty = cloudMode !== "" && cloudMode !== savedCloudMode;
+  const MODE_HINT = {
+    pipeline: "pipeline\uFF08\u9ED8\u8BA4\uFF09\uFF1A\u7248\u9762\u5206\u6790 + OCR \u6D41\u6C34\u7EBF\uFF0C\u8868\u683C/\u516C\u5F0F\u5404\u8D70\u4E13\u7528\u6A21\u578B\uFF0C\u7A33\u5B9A\u53EF\u9884\u671F\u3002",
+    vlm: "vlm\uFF08\u63A8\u8350\uFF09\uFF1A\u7AEF\u5230\u7AEF\u89C6\u89C9\u5927\u6A21\u578B\uFF0C\u590D\u6742\u7248\u5F0F\u4E0E\u626B\u63CF\u4EF6\u66F4\u5F3A\uFF1Benable_formula \u5BF9 vlm \u53EA\u5F71\u54CD\u884C\u5185\u516C\u5F0F\uFF0Cenable_table \u4ECD\u751F\u6548\u3002",
+    "MinerU-HTML": "MinerU-HTML\uFF1A\u4EC5\u7528\u4E8E HTML \u6E90\u6587\u4EF6\uFF08PDF \u8BF7\u52FF\u9009\uFF09\u3002"
+  };
+  const cloudModeSlot = /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { display: "inline-flex", alignItems: "center", gap: 4, fontSize: 12 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6A21\u5F0F" }),
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+      "select",
+      {
+        value: effectiveCloudMode,
+        onChange: (e) => setCloudMode(e.currentTarget.value),
+        title: MODE_HINT[effectiveCloudMode] ?? "",
+        style: {
+          fontSize: 12,
+          padding: "3px 6px",
+          border: `1px solid ${cloudModeDirty ? "#c0392b" : "#b9b9b9"}`,
+          borderRadius: 6,
+          background: "#fff",
+          color: "#111"
+        },
+        children: cloudModes.map((m) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: m, children: m }, m))
+      }
+    ),
+    cloudModeDirty && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { fontSize: 11, color: "#c0392b" }, children: "\u672A\u4FDD\u5B58" })
+  ] });
   return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
     "details",
     {
@@ -33092,8 +33135,29 @@ function KsApiConfigSection(props) {
             status.mineru_cloud.configured ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E"
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { style: { margin: "6px 0 0", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u914D\u7F6E\u4E91 OCR Key \u540E\uFF0C\u5BFC\u5165\u6587\u4EF6\u4F18\u5148\u8D70\u4E91\u89E3\u6790\u3001\u672C\u5730\u515C\u5E95\uFF1B\u672A\u914D\u7F6E\u5219\u76F4\u63A5\u8D70\u672C\u5730\u901A\u9053\uFF08\u7EAF\u672C\u5730\u4E0D\u5916\u53D1\uFF09\u3002 \u51ED\u636E\u53EA\u5199\u5165\u672C\u673A\u52A0\u5BC6\u5B58\u50A8\uFF08Windows DPAPI\uFF0Csecrets.json\uFF09\uFF0C\u4E0D\u56DE\u663E\u3001\u4E0D\u5165\u5E93\u3002" }),
-        chan("mineru_cloud", "\u2601\uFE0F \u4E91 OCR\uFF08MinerU \u5B98\u65B9\u4E91\uFF09", cloudKey, setCloudKey, cloudUrl, setCloudUrl),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+          "\u914D\u7F6E\u4E91 OCR Key \u540E\uFF0C\u5BFC\u5165\u6587\u4EF6\u4F18\u5148\u8D70\u4E91\u89E3\u6790\u3001\u672C\u5730\u515C\u5E95\uFF1B\u672A\u914D\u7F6E\u5219\u76F4\u63A5\u8D70\u672C\u5730\u901A\u9053\uFF08\u7EAF\u672C\u5730\u4E0D\u5916\u53D1\uFF09\u3002",
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("b", { children: "\u6A21\u5F0F" }),
+          "\u5BF9\u5E94 MinerU \u5B98\u65B9 v4 \u7684 ",
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("code", { children: "model_version" }),
+          "\uFF1A",
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("code", { children: "pipeline" }),
+          "\uFF08\u9ED8\u8BA4\uFF09\uFF0F",
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("code", { children: "vlm" }),
+          "\uFF08\u63A8\u8350\uFF0C\u7AEF\u5230\u7AEF\u89C6\u89C9\u5927\u6A21\u578B\uFF09\uFF0F",
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("code", { children: "MinerU-HTML" }),
+          "\uFF08\u4EC5 HTML \u6E90\u6587\u4EF6\uFF09\u3002 \u51ED\u636E\u53EA\u5199\u5165\u672C\u673A\u52A0\u5BC6\u5B58\u50A8\uFF08Windows DPAPI\uFF0Csecrets.json\uFF09\uFF0C\u4E0D\u56DE\u663E\u3001\u4E0D\u5165\u5E93\u3002"
+        ] }),
+        chan(
+          "mineru_cloud",
+          "\u2601\uFE0F \u4E91 OCR\uFF08MinerU \u5B98\u65B9\u4E91\uFF09",
+          cloudKey,
+          setCloudKey,
+          cloudUrl,
+          setCloudUrl,
+          cloudModeSlot,
+          cloudModeDirty
+        ),
         chan("llm", "\u{1F916} LLM \u95EE\u7B54\u901A\u9053", llmKey, setLlmKey, llmUrl, setLlmUrl),
         err !== null && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "6px 0 0" }, children: err })
       ]

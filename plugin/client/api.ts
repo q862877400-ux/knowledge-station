@@ -2024,6 +2024,10 @@ export async function exportEffectReport(
 export interface KsApiChannelStatus {
   configured: boolean
   base_url: string
+  /** 仅 mineru_cloud：当前云解析模式（pipeline / vlm / MinerU-HTML）。 */
+  model_version?: string
+  /** 仅 mineru_cloud：可选模式清单（由引擎给，前端不硬编码）。 */
+  model_versions?: string[]
 }
 
 export interface KsApiConfigStatus {
@@ -2049,9 +2053,13 @@ export async function fetchApiConfig(signal?: AbortSignal): Promise<KsApiConfigS
   }
 }
 
-/** PUT /ks/settings/api-config — 写入凭据（空字段跳过，留空即保持不变）。 */
+/** PUT /ks/settings/api-config — 写入凭据（空字段跳过，留空即保持不变）。
+ *  2026-09-15：mineru_cloud 增加 model_version（模式三选一，非密值）。 */
 export async function saveApiConfig(
-  payload: { mineru_cloud?: { api_key?: string; base_url?: string }; llm?: { api_key?: string; base_url?: string } },
+  payload: {
+    mineru_cloud?: { api_key?: string; base_url?: string; model_version?: string }
+    llm?: { api_key?: string; base_url?: string }
+  },
   signal?: AbortSignal,
 ): Promise<KsApiConfigStatus> {
   const res = await fetch('/ks/settings/api-config', {
