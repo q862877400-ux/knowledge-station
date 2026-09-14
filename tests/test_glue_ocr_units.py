@@ -18,8 +18,8 @@ class TestSplitValue:
         assert glue("附着量至少为6 10 g / m ²") == "附着量至少为610 g / m²"
 
     def test_split_value_micrometre(self):
-        # GB/T 11115 试样厚度真值 650 µm
-        assert glue("厚度为6 50 µ m") == "厚度为650 µ m"
+        # GB/T 11115 试样厚度真值 650 µm（'µ m' 同时按希腊/微符号贴附并入 → µm）
+        assert glue("厚度为6 50 µ m") == "厚度为650 µm"
 
     def test_three_digit_split(self):
         assert glue("为 1 00 µ 时") == "为 100 µ 时"
@@ -100,9 +100,11 @@ class TestGlue:
     def test_chinese_unchanged(self):
         assert glue("采用常压稠化仪进行水泥浆的拌合") == "采用常压稠化仪进行水泥浆的拌合"
 
-    def test_letter_pair_glues(self):
-        # 字母段门槛 ≥2：两字母单位粘（mm/cm 类单位是主流实测形态）
-        assert glue("A B 分级") == "AB 分级"
+    def test_letter_pair_not_glued_unless_unit(self):
+        # 2026-09-15 契约收紧：2 字母段只按已知单位白名单合并（'m m'→'mm'），
+        # 非单位 2 字母段（裸枚举 'A B' / 变量乘积 'F = m a'）不得粘成一个词
+        assert glue("A B 分级") == "A B 分级"
+        assert glue("F = m a") == "F = m a"
 
     def test_digit_pair_glues(self):
         # 数字段门槛 ≥2：两位数字粘

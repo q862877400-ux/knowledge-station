@@ -248,24 +248,66 @@ def normalize_math_symbols(text: str | None) -> str:
     return t
 
 
-#: '单字符数字 + 2-4 位数字 + 单位'（单位锚定，防误合并复合编号）
+#: '数字被劈开 + 单位'（单位锚定）。第二组 1-4 位；合并条件（防误合并，
+#: 见 _glue_split_values）：首组为单个数字，或次组以 0 开头（'10 00 µ'→1000 µ）。
+#: 实测反例保护：'图 23 60 Hz'（图号 23 + 频率 60 Hz）首组两位、次组不以 0 开头 → 不合并。
 _RE_SPLIT_VALUE = re.compile(
-    r"(?<![\d.])(\d)\s+(\d{2,4})(\s*)(?="
+    r"(?<![\d.])(\d{1,2})\s+(\d{1,4})(\s*)(?="
     r"(?:µ|μ|mm|cm|kg|mg|g|ms|min|mL|mol|mmol|kV|kHz|kPa|MPa|kW|kJ"
     r"|m|s|h|L|V|A|N|Pa|Hz|W|J|℃|°C|%|Ω|r/min)(?![A-Za-z]))")
+
+#: 已知 2 字母单位/符号（空格形态 → 合并）：'m m'→'mm'、'c m'→'cm'、'k g'→'kg'、
+#: 'k V'→'kV'、'p H'→'pH'。**白名单而非通用 2 字母规则**——'F = m a'（变量乘积）
+#: 与 'm m' 同形，通用规则必然误伤；白名单只认真实单位。
+_TWO_LETTER_UNITS = frozenset({
+    "mm", "cm", "km", "dm", "nm", "kg", "mg", "kV", "mV", "mA", "kW", "kJ", "Hz",
+    "Pa", "mL", "kN", "ms", "ns", "pH", "kW", "dL", "µL", "μg", "µg", "µA", "µV",
+})
 
 
 def _glue_split_values(line: str) -> str:
     r"""数值被劈开的合并：'6 10 g'→'610 g'、'1 00 µ'→'100 µ'（单位锚定）。
 
     2026-09-15 全库文本审计发现：`glue_ocr_spaced_units` 的 token 级粘合只
-    合并**单字符** token（'7 9'→'79'），而「单字符数字 + 多字符数字」形态
-    （'6 10'、'1 00'、'7 90'）不合并——实测 10 部文档 18 处（10541 镀锌层
-    附着量 '6 10 g / m ²' 真值 610 g/m²；11115 试样厚度 '6 50 µ m' 真值 650 µm）。
-    仅当后随**单位**时才合并（精度优先：无单位锚定不猜，'第 6 10 章' 类
-    复合编号不受扰）。
+    合并**单字符** token（'7 9'→'79'），而「数字 + 数字」多字符形态
+    （'6 10'、'1 00'、'10 00'、'4 0'）不合并——实测 10 部文档 18 处（10541
+    镀锌层附着量 '6 10 g / m ²' 真值 610 g/m²；11115 试样厚度 '6 50 µ m' 真值 650 µm）。
+
+    合并条件（两条独立，宁少勿滥）：
+      ① 首组为**单个数字**（'1 10 L'→110 L、'4 0 W'→40 W），或
+      ② 次组**以 0 开头**（'10 00 µ'→1000 µ——独立数字不会以 0 开头）
+    反例保护：'图 23 60 Hz'（图号 + 频率）首组两位且次组不以 0 开头 → 不合并。
+    且必须**后随单位**（无单位锚定不猜，'第 6 10 章' 类复合编号不受扰）。
     """
-    return _RE_SPLIT_VALUE.sub(lambda m: f"{m.group(1)}{m.group(2)}{m.group(3)}", line)
+    def _repl(m: re.Match) -> str:
+        first, second = m.group(1), m.group(2)
+        # ① 首组单个数字（'1 10 L'/'4 0 W'）；② 次组以 0 开头且 ≤2 位
+        # （'10 00 µ'→1000 µ）。② 限 ≤2 位是为保护合法千分位 '12 000'（3 位）。
+        if len(first) == 1 or (second.startswith("0") and len(second) <= 2):
+            return f"{first}{second}{m.group(3)}"
+        return m.group(0)
+    return _RE_SPLIT_VALUE.sub(_repl, line)
+
+
+def _glue_two_letter_units(line: str) -> str:
+    r"""已知 2 字母单位去空格（'m m'→'mm'、'k g'→'kg'、'p H'→'pH'）。
+
+    2026-09-15 残留修复：`_collapse_latex_spacing` 的字母段规则门槛 ≥3（为保护
+    'F = m a' 变量乘积），于是 2 字母单位（mm/cm/kg/kV/pH）在 LaTeX 里残留空格
+    ——全库审计 unit-midspace 17 部文档 33 处未降。改用**已知单位白名单**：
+    拼接结果在表内才合并，'m a'/'c a' 等组合不在表内 → 变量乘积仍受保护。
+    """
+    def _repl(m: re.Match) -> str:
+        joined = m.group(1) + m.group(2)
+        if joined in _TWO_LETTER_UNITS:
+            return joined + m.group(3)
+        return m.group(0)
+    return _RE_TWO_LETTER_SPLIT.sub(_repl, line)
+
+
+#: 两个单字母之间的空格 + 其后紧跟词边界（拼接后查白名单决定是否合并）
+_RE_TWO_LETTER_SPLIT = re.compile(
+    r"(?<![A-Za-z])([A-Za-zµμ])\s+([A-Za-z])(?![A-Za-z])(\s?)")
 
 
 def glue_ocr_spaced_units(text: str | None) -> str:
@@ -297,15 +339,30 @@ def glue_ocr_spaced_units(text: str | None) -> str:
         out = []
         buf: list[str] = []
         cur: str | None = None   # 'n' | 'a' | 's'（下标/上标/希腊）
+        has_script = False       # 段内含下标/上标 → 2 字母白名单规则不适用
+        has_greek = False        # 段内含希腊/微符号 → 同上（'Δ t'→'Δt'）
 
         def _flush() -> None:
-            nonlocal buf, cur
+            nonlocal buf, cur, has_script, has_greek
             if buf and cur is not None and len(buf) >= 2:
+                if cur == "a" and len(buf) == 2 and not (has_script or has_greek):
+                    # 2 字母段只按**已知单位白名单**合并（'m m'→'mm'、'p H'→'pH'）；
+                    # 非单位 2 字母段是「变量乘积」（'F = m a'），粘合会把公式
+                    # 变量粘成一个词 —— 2026-09-15 与 latex 路径统一此契约。
+                    # 下标/上标/希腊参与的段例外（贴附无歧义：'S ₑ'/'m ³'/'Δ t'）。
+                    joined = "".join(buf)
+                    if joined not in _TWO_LETTER_UNITS:
+                        out.extend(buf)
+                        buf = []
+                        cur = None
+                        has_script = has_greek = False
+                        return
                 out.append("".join(buf))
             else:
                 out.extend(buf)
             buf = []
             cur = None
+            has_script = has_greek = False
 
         for tok in line.split(" "):
             if _RE_OCR_SINGLE.match(tok):
@@ -315,6 +372,10 @@ def glue_ocr_spaced_units(text: str | None) -> str:
                     kind = "a"
                 else:
                     kind = "n"
+                if _RE_OCR_SUBSUP.match(tok):
+                    has_script = True
+                elif _RE_OCR_GREEK.match(tok) or tok == "µ":
+                    has_greek = True
                 if cur is None:
                     cur, buf = kind, [tok]
                 elif kind == "s":
@@ -340,9 +401,9 @@ def glue_ocr_spaced_units(text: str | None) -> str:
 
 
 _RE_OCR_SUBSUP = re.compile(r"^[₀-₉⁰-⁹¹²³ⁿᵢₛₜₑₓᵤᵥₐₒᵣᵦᵧₚₖₘₙᵈᵍᵗʰʲᵏˡᵐˢᵛʷʸᶻ]$")
-_RE_OCR_GREEK = re.compile(r"^[\u0391-\u03c9]$")
+_RE_OCR_GREEK = re.compile(r"^[\u0391-\u03c9\u00b5]$")
 _RE_OCR_SINGLE = re.compile(
-    r"^(?:[A-Za-z0-9]|[₀-₉⁰-⁹¹²³ⁿᵢₛₜₑₓᵤᵥₐₒᵣᵦᵧₚₖₘₙᵈᵍᵗʰʲᵏˡᵐˢᵛʷʸᶻ]|[\u0391-\u03c9])$")
+    r"^(?:[A-Za-z0-9]|[₀-₉⁰-⁹¹²³ⁿᵢₛₜₑₓᵤᵥₐₒᵣᵦᵧₚₖₘₙᵈᵍᵗʰʲᵏˡᵐˢᵛʷʸᶻ]|[\u0391-\u03c9\u00b5])$")
 
 
 def glue_spaced_formulas(text: str | None) -> str:
@@ -649,6 +710,8 @@ def _collapse_latex_spacing(t: str) -> str:
     """
     t = _RE_LATEX_DIGIT_RUN.sub(lambda m: m.group(1).replace(" ", ""), t)
     t = _RE_LATEX_LETTER_RUN.sub(lambda m: m.group(1).replace(" ", ""), t)
+    # 已知 2 字母单位（白名单）：'m m'→'mm'、'k g'→'kg'；'m a' 不在表内 → 变量乘积受保护
+    t = _glue_two_letter_units(t)
     # 贴附类空格（无歧义，逐条实测）：'m ²'→'m²' · 'µ m'→'µm' · 'K ₘ b'→'Kₘb'
     t = _RE_LATEX_SCRIPT.sub("", t)
     t = _RE_LATEX_MICRO.sub("", t)
