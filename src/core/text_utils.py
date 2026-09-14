@@ -408,6 +408,84 @@ def normalize_wraps(s: str | None) -> str:
     return "\n".join(out)
 
 
+def _find_brace_group(s: str, start: int) -> tuple[str | None, int]:
+    r"""从 s[start]（应为 '{'）读平衡花括号组；返回 (内容, 结束下标)。
+
+    \frac/\tag 参数解析用（2026-09-14，OCR 循环轮次 17 公式损伤根因）。
+    """
+    if start >= len(s) or s[start] != "{":
+        m = re.match(r"\s*(\S)", s[start:])
+        if not m:
+            return None, start
+        return m.group(1), start + len(m.group(0))
+    depth = 0
+    for i in range(start, len(s)):
+        if s[i] == "{":
+            depth += 1
+        elif s[i] == "}":
+            depth -= 1
+            if depth == 0:
+                return s[start + 1:i], i + 1
+    return None, start
+
+
+def _wrap_frac_operand(inner: str) -> str:
+    r"""\frac 分子/分母含运算符（表达式）→ 括号保护，保语义可读。"""
+    t = re.sub(r"\s+", " ", inner.strip())
+    if re.search(r"[+\-−=]", t) and len(t.replace(" ", "")) > 2:
+        return f"({t})"
+    return t
+
+
+def _convert_frac_tag(t: str) -> str:
+    r"""\frac{A}{B} → 'A/B'（表达式加括号）；\tag{…} → 尾部编号（补右括号）。
+
+    背景（2026-09-14，OCR 循环轮次 17，跨 3 文档同类 3 次达线 + 全库普查）：
+    latex_to_text 此前无 \frac/\tag 处理——\frac 的分子分母被花括号剥除
+    平铺串联（'T_Lmax-T_Lmin T_Lmax+T_Lmo'，**分数线语义丢失**，读者无法
+    辨分子分母）；\tag 的编号点线（'………(2'）残留在正文且 MFR 常丢右括号。
+    全库普查：parse_out 27,021 文档 213,946 公式 span 中 16,186 含 \frac、
+    19,676 含 \tag（4,287 文档受影响）——面修复。
+
+    必须在下标/上标转换（步骤 2/3）**之前**调用：frac 组读取依赖花括号。
+    """
+    # \frac 递归（嵌套 frac，20 层上限防极端深嵌套）
+    for _ in range(20):
+        idx = t.find("\\frac")
+        if idx < 0:
+            break
+        j = idx + 5
+        while j < len(t) and t[j].isspace():
+            j += 1
+        num, j2 = _find_brace_group(t, j)
+        if num is None:
+            t = t[:idx] + t[j:]
+            continue
+        k = j2
+        while k < len(t) and t[k].isspace():
+            k += 1
+        den, k2 = _find_brace_group(t, k)
+        if den is None:
+            t = t[:idx] + t[j:]
+            continue
+        t = t[:idx] + _wrap_frac_operand(num) + "/" + _wrap_frac_operand(den) + t[k2:]
+
+    # \tag{...} → 编号（'………(2'→'(2)'；纯数字/字母编号 → '(3)'；空 tag 消除）
+    def _tag_repl(m: re.Match) -> str:
+        inner = m.group(1).strip()
+        num = re.search(r"(\([0-9A-Za-z.\-]*?)$", inner)
+        if num:
+            s = num.group(1)
+            if not s.endswith(")"):
+                s += ")"
+            return " " + s
+        if re.fullmatch(r"[0-9A-Za-z.\-]+", inner):
+            return f" ({inner})"
+        return " " + inner if inner else ""
+    t = re.sub(r"\\tag\s*\{([^{}]*)\}", _tag_repl, t)
+    return t
+
+
 def latex_to_text(latex: str) -> str:
     r"""MinerU <eq> LaTeX → 可读文本。
     例：'h _ { \mathrm { ~ w ~ } } / \mathrm { m }' → 'hw/m'
@@ -430,6 +508,10 @@ def latex_to_text(latex: str) -> str:
         if t2 == t:
             break
         t = t2
+
+    # 1.5) \frac → 'A/B' + \tag → 编号（2026-09-14 公式语义保真；必须在
+    # 下标/上标转换前——frac 组读取依赖花括号）
+    t = _convert_frac_tag(t)
 
     # 符号映射（词边界单遍）：长键优先 + (?![A-Za-z]) 防前缀误吃
     def _syms(s: str) -> str:
