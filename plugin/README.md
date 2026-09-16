@@ -22,13 +22,17 @@
 
 成本纪律：能 `ks_resolve_clause` 快查的不调 `ks_answer`。
 
-## 侧栏 UI（better-sidebar tab + settings.section）
+## 侧栏 UI（官方 right sidebar + settings.section + 输入框 dock）
 
-| tab/视图 | 内容 |
+2026-09-16 迁移后**只注册三个座位**（均在 `client/entry.ts` 可见）：
+
+| 座位 | 内容 |
 |---|---|
-| 📖 证据 PDF | pdfjs 单页渲染 + 跳页 + 红色定位箭头（bbox 底部原点契约）+ 标题目录（纯悬浮 overlay）+ 文件目录（4 级分类树/搜索/多选批删）+ 最近证据互跳 |
-| ⭐ 收藏 | 条款收藏列表 + 逐条删除 + 点击跳证据 PDF |
-| 设置栏目「法规标准知识库」 | `settings.section` 顶层 nav，**六个类目全折叠**（2026-11）：证据查看器（红箭头开关）· 效力报告（四色分组 🟢🔴🟡⚪ + 时间窗 + 导出，内嵌面板）· 入库预览（Dry-Run + 异步批量 jobs ✅/⚠️/❌，内嵌面板）· 每日巡检 · 公告发现 · API 配置（LLM/云 OCR Key，引擎侧 DPAPI 加密存储）。收起零请求，展开才拉数据 |
+| `sidebar.right.pane.tab`（📖 证据 PDF） | 单 tab 承载多个视图：pdfjs 单页渲染 + 跳页 + 红色定位箭头（bbox 底部原点契约）· 标题目录（纯悬浮 overlay）· 文件目录（4 级分类树/搜索/多选批删）· ⭐收藏视图（`KsBookmarksView`，条款收藏列表 + 逐条删除 + 点击跳证据 PDF）· 📄正文/📑PDF 视图切换 · 最近证据互跳 |
+| `settings.section`「法规标准知识库」 | 顶层 nav，**六个类目全折叠**（2026-11）：证据查看器（红箭头开关）· 效力报告（四色分组 🟢🔴🟡⚪ + 时间窗 + 导出，内嵌面板）· 入库预览（Dry-Run + 异步批量 jobs ✅/⚠️/❌，内嵌面板）· 每日巡检 · 公告发现 · API 配置（LLM/云 OCR Key，引擎侧 DPAPI 加密存储）。收起零请求，展开才拉数据 |
+| `conversation.input.dock` | `KsScopeChip`——查法规模式作用域提示条 |
+
+> 注：收藏/文件目录**不再是独立 tab**，而是证据 tab 内的视图（`KsBookmarksView` / `KsFilesTab` 被 `KsEvidenceTab` 引用）。
 
 斜杠命令（会话输入框）：`/forensic` 查法规模式（强制三段式）+ `/bookmarks` 仅收藏。
 
@@ -36,22 +40,26 @@
 
 ```
 plugin/
-  package.json        # npm 清单（dsh.client 声明 + 13 个脚本）
+  package.json        # npm 清单（dsh.client 声明 + 14 个脚本）
   cordis.patch.yml    # bundle patch：insert 一行 ks-engine -> ks-dsh-plugin
   src/index.js        # 宿主桥：4 工具注册 + /ks/* 同源代理路由 + 引擎守护(ensureLive) + 异步 jobs 路由
   src/engine.js       # EngineManager：单实例判定 + 懒 spawn + 健康轮询 + idle 30min 优雅关停
   client/entry.ts     # tab 注册（证据 PDF + 收藏）+ settings.section（含内嵌效力报告/入库预览）+ 证据锚点接管
   client/KsEvidenceTab.tsx / KsBookmarksTab.tsx / KsFilesTab.tsx / KsReportPanel.tsx / KsIngestPanel.tsx / KsSettingsSection.tsx / ApiConfigPanel.tsx
-  client/api.ts       # 引擎 fetch 链（经宿主代理）；bsContract.ts / dsh-better-sidebar.d.ts（上游 0.18.0 契约）
+  client/api.ts       # 引擎 fetch 链（经宿主代理）
+  client/ksSidebar.ts # 官方右侧栏契约（tabs/slots 两段式注册 + 证据 tab 定义，2026-09-16 迁移）
+  client/KsEvidenceHost.tsx # 官方注入（useTabInfo/openEvidence）→ KsEvidenceProps 映射
+  client/ksPrefs.ts   # 侧栏偏好存储（localStorage，取代旧第三方 store）
   client.js           # esbuild 单文件产物（~1.1MB，DSH ModuleLoader 加载；git 跟踪）
   scripts/build-client.mjs  # 构建（改 client 后必跑）
   scripts/smoke.mjs         # 独立 host 侧冒烟（真拉引擎打 /health + /documents）
-  scripts/smoke-*.mjs       # smoke 10 段（engine-guard/bs-contract/settings/…）
+  scripts/smoke-*.mjs       # smoke 11 段（pdf-fit/pdf-panel/settings/settings-guard/effect-tool/chatmode/ingest/engine-guard/client-entry/docimage/sanitize）
   scripts/verify-commands-real.mjs  # 命令回归 15 项
 ```
 
-> 注：package.json `dsh.client.inject` 列出 dsh-better-sidebar，但 entry.ts **刻意不注入**它——
-> inject 声明是信息性的（描述依赖），运行时由宿主提供；真注入反而会重复挂载。
+> 注（2026-09-16）：`dsh.client.inject` 现列 `@deepseek-ai/dsh-client-ui-sidebar-right`
+> 等官方包，运行时由宿主提供。旧的第三方 `dsh-better-sidebar` 已下线，
+> `bsContract.ts` / `dsh-better-sidebar.d.ts` / `smoke-bs-contract.mjs` 三件同批删除。
 
 ## 安装（实测坑：路径含空格）
 
@@ -87,9 +95,10 @@ npm run verify:commands   # 15 项命令回归
 
 ## 安装与验证状态
 
-- ✅ 已安装（staging junction 路径）并真实 host 加载；引擎懒加载符合预期；4 工具 + 5 tab + 设置栏目真机全通。
-- ✅ 真机已验证：蓝链点击 → PDF 跳页红箭头高亮（用户实测）、收藏互跳、效力报告（设置栏目内嵌面板）、入库预览 egress:"none" 确证、斜杠命令。
-- ✅ 基线：仓库四门禁 828+3 / 10 段 / 15 项 / tsc 0 错误。
+- ✅ 已安装（staging junction 路径）并真实 host 加载；引擎懒加载符合预期；4 工具 + 3 座位（1 侧栏 tab / settings.section / input.dock）**迁移前**真机全通。
+- ✅ 真机已验证（迁移前的旧桥接）：蓝链点击 → PDF 跳页红箭头高亮（用户实测）、收藏互跳、效力报告（设置栏目内嵌面板）、入库预览 egress:"none" 确证、斜杠命令。
+- ⚠ **2026-09-16 官方侧栏迁移后尚未做真机复核**——运行中的 host 由 tsx 从更新前源码启动，需重启 `dsh web` 才装载新注册路径；重启前看不到 tab 不代表代码错。见 `docs/DEVELOPMENT-HISTORY.md` §八.4。
+- ✅ 离线门禁基线：pytest 1166+3 / smoke 11 段 / verify:commands 15 项 / tsc 0 错 / mypy 0 错。
 
 ---
 

@@ -107,10 +107,10 @@ Python FastAPI 引擎（sqlite + sqlite-vec 向量 + fastembed + jieba + PyMuPDF
 
 ## 八、现状与规模
 
-- 引擎 16 个子系统模块，33 张表 schema 冻结；
+- 引擎 16 个子系统模块，`schema.sql` 冻结 34 张表对象（32 实体 + 2 虚拟表；另有 1 张 `law_catalog` 由法规源模块懒建）；
 - 知识库：法规官方源 + 国标语料，支持 3.5 万级标准目录接入；
-- 测试基线 **828 passed + 3 skipped**（pytest）+ 插件 smoke 10 段 + verify:commands 15 项 + tsc 类型门禁 0 错误；
-- git 仓库 14+ commits，全程可溯。
+- 测试基线 **1166 passed + 3 skipped**（pytest）+ 插件 smoke 11 段 + verify:commands 15 项 + tsc / mypy 类型门禁 0 错误；
+- git 仓库 71 commits，全程可溯。
 
 ---
 

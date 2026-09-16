@@ -330,9 +330,14 @@ wenjianmulu/                     # GB/T 39910-2021.pdf 等——⚠ 生产库 do
 - **PRAGMA**：`journal_mode=WAL`、`foreign_keys=ON`、`busy_timeout=5000`。
 - **34 表 DDL 冻结于 `src/core/storage/schema.sql`**（**2026-09-16 实测**：32 个 `CREATE TABLE`
   + `clause_fts`/`clause_vec` 两个虚拟表；改动 = 契约变更，流程见 §10.4）。
-  ⚠ 口径提示：生产库 `sqlite_master` 里 `type='table'` 有 **45** 条 —— 多出的是 FTS5 影子表
-  （`clause_fts_data`/`_idx`/`_content`/`_docsize`/`_config`…）。**报"表数"必须说明口径**，
-  历史上 31/32/33 三个数字并存就是口径未注明所致（另 `law_catalog` 的 DDL 曾建在 `schema.sql` 之外）。
+  ⚠ 口径提示：生产库 `sqlite_master` 里 `type='table'` 有 **45** 条。**2026-09-16 实测对账**：
+  `45 = 34`（schema.sql 冻结：32 实体 + 2 虚拟）`+ 1`（`law_catalog`，由
+  `src/core/knowledge/law_source/catalog.py:70` 懒建，不在 schema.sql 内）
+  `+ 5`（FTS5 影子：`clause_fts_data`/`_idx`/`_content`/`_docsize`/`_config`）
+  `+ 4`（sqlite-vec 影子：`clause_vec_chunks`/`_info`/`_rowids`/`_vector_chunks00`）
+  `+ 1`（`sqlite_sequence`）。**报"表数"必须说明口径**——历史上 31/32/33/34/45 五个数字并存
+  就是口径未注明所致。另注：`content='clause_fts_content'` 之类的影子表**不是**业务表，
+  迁移/审计时不要当资产盘点。
 - 主键 ULID 前缀：`doc_`/`clrev_`/`span_`/`patch_`/`bm_`/`ann_`/`proj_`/`task_`/`pt_`/`obl_`/`edge_`/`list_`/`gap_`。
 - JSON 字段存 TEXT；时间统一 `datetime('now')` UTC。
 - **虚拟表不受外键级联**：删文档必须走 `clause_repo.delete_document()`（显式清 clause_vec/clause_fts）。
@@ -505,8 +510,8 @@ write_queue / event_log（统一事件模型）/ debug_dump（每次提问落库
   ⚠ **2026-09-16 起门禁自我豁免已关闭**：`test_golden_gate` 旧实现在基线缺失时
   `write_text` 重建 + skip —— **删掉 `eval/baseline.json` 即可让红线 6 失效**（全项目
   唯一"一步可破坏"的防线）。现改为：基线缺失=**失败**且不自动重建，首建走显式开关
-  `KS_BASELINE_BOOTSTRAP=1`；并新增"基线键集必须覆盖 KEYS"断言（防裁剪指标式规避）。。
-- **插件 smoke**：`cd plugin && npm run smoke` → **11 段**全 PASS（2026-09-16 移除 `smoke-bs-contract`——它只服务已下线的第三方 `dsh-better-sidebar`）（含 engine-guard/smoke-settings/smoke-bs-contract/**smoke-docimage（2026-09-13 端点接线新增，24 断言：路径解析/栅栏/字节与 X-Frac 透传/404 状态码透传+本地信封/401×2/dpi 钳制）** 与 **smoke-sanitize（同日消毒器回归，13 断言：剥壳上移节点必被过滤/占位 class 必存活/src 直剥/文本保全）** 等）。
+  `KS_BASELINE_BOOTSTRAP=1`；并新增"基线键集必须覆盖 KEYS"断言（防裁剪指标式规避）。
+- **插件 smoke**：`cd plugin && npm run smoke` → **11 段**全 PASS（2026-09-16 移除 `smoke-bs-contract`——它只服务已下线的第三方 `dsh-better-sidebar`）。11 段依次为 pdf-fit / pdf-panel / settings / settings-guard / effect-tool / chatmode / ingest / engine-guard / client-entry / **smoke-docimage（2026-09-13 端点接线新增，24 断言：路径解析/栅栏/字节与 X-Frac 透传/404 状态码透传+本地信封/401×2/dpi 钳制）** / **smoke-sanitize（同日消毒器回归，13 断言：剥壳上移节点必被过滤/占位 class 必存活/src 直剥/文本保全）**。
 - **命令回归**：`cd plugin && npm run verify:commands` → 15/15。
 - **类型门禁（TS）**：`npm run typecheck` = `tsc --noEmit -p plugin/client` → 0 错误（批 8 新增，plugin/client 纳入检查）。
 - **类型门禁（Python，2026-09-13 新建）**：`npm run typecheck:py` = `.venv\Scripts\python -m mypy` → **120 文件 0 错误**（基线演进 126→95→82→47→10→0）。非 strict 保守口径：`[tool.mypy]` 开 check_untyped_defs/no_implicit_optional/warn_redundant_casts；第三方无 stub 包 ignore_missing_imports；每处 `# type: ignore[code]` 带行内中文理由（fcntl/curl_cffi/openai-SDK/pypdf 回退等环境限制，运行时有守卫）。mypy>=1.10 已回 pyproject dev extras。修复附带捕获真实缺陷：announce.py `Path` 未导入（Excel 导出必崩 P1）、server.py 三处 `_p` int→str 变量复用、effect_report 循环变量遮蔽、write_queue `int(None)`、office_roundtrip 条款并发删除 None 崩溃。
@@ -732,7 +737,7 @@ backup.py：VACUUM INTO 在线备份到 `%APPDATA%\KnowledgeStation\backups\`；
 
 ## 16.4 工程铁律
 
-1. 测试基线只涨不跌（当前 **828 passed + 3 skipped**——权威数字以 §11.1 为准，本条不重复维护数字）。
+1. 测试基线只涨不跌（数字见 §11.1，本条不重复维护——历史上这里写死过 828，随门禁扩容即失真）。
 2. 契约变更流程：schema / 通道枚举与 RRF / SSE 顺序 / 安全条款 → 先改 pipeline/03-contract-delta.md + tests/test_contract.py。
 3. 写操作走单写者队列（write_queue），不得绕过。
 4. bbox 底部原点契约不要碰。
