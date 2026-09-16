@@ -199,10 +199,12 @@ def test_canon_standard_no(raw, expect):
 
 # ---------------------------------------------------------------- 端到端接线
 
-def _middle_with_table_cell(own: str, tmp_path):
+def _middle_with_table_cell(own: str, tmp_path, first: str | None = None):
     """一页 middle.json：正文里既有**自家页眉**（应删）又有**表格末格**（别人的标准号，应留）。"""
     import json
     from pathlib import Path
+
+    first = first or "5.2.1 材料要求：锅炉受压元件材料见表 2。"
 
     def _ln(content):
         return {"bbox": [60.0, 700.0, 530.0, 720.0],
@@ -211,7 +213,7 @@ def _middle_with_table_cell(own: str, tmp_path):
     mj = {"pdf_info": [{
         "page_idx": 0, "page_size": [595.0, 841.0],
         "para_blocks": [{"type": "text", "bbox": [60.0, 600.0, 530.0, 720.0], "lines": [
-            _ln("5.2.1 材料要求：锅炉受压元件材料见表 2。"),
+            _ln(first),
             _ln("牵条 优质碳素结构钢 20 GB/T699—2015"),
             _ln("7 " + own),
         ]}],
@@ -263,19 +265,36 @@ def test_ingest_removes_own_header_end_to_end(tmp_path):
     assert "7 " + own not in text, "端到端：自家页眉必须被删掉"
 
 
-@pytest.mark.xfail(strict=True, reason="已知：入库**家具**剥离是第二个判据所有者，未接上下文（见 §6.3 剩余风险）")
-def test_ingest_table_cell_lost_by_furniture_owner(tmp_path):
-    """⚠ **仍未修的第二个所有者**：入库链上"页码 + 标准号"还有**另一处**判据 ——
-    `pipeline._STD_CODE_FRAG`（家具剥离，`pipeline.py:66-67`），它在**清洗链之前**跑
-    且**不知道文档自己的标准号**，于是同样会把表格末格当家具切掉：
+def test_ingest_inline_furniture_keeps_foreign_standard(tmp_path):
+    """**行内**家具片段也已接上下文：引用**别的**标准的片段（表格末格）不再被剥掉。
 
-        实测（本用例的合成页）：进入 `clean_clause_text` 的文本已经是
-        `'5.2.1 材料要求：…见表 2。\\n牵条 优质碳素结构钢'` ——
-        ` 20 GB/T699—2015` 在**上游**就没了，与本文档自己的标准号无关。
+    用**长正文**（>80 字）绕开切分层的 80 字家具剥离，从而只考验 `build_clause_models`
+    里的逐行剥离（`_STD_CODE_FRAG`）—— 那一处签名里就有 `standard_no`，已接上下文。
+    """
+    from src.core.ingestion.pipeline import (
+        build_clause_models, load_middle_items, split_items_into_clauses)
 
-    这条 strict xfail 把"修了一半"的事实钉住：水印族（`text_utils`）已接上下文，
-    **家具族（`pipeline`）尚未**。修它需要把 `standard_no` 穿过切分层
-    （`split_items_into_clauses` 目前拿不到标准号）。
+    own = "GB/T 12041.1-2010"
+    long_first = ("5.2.1 材料要求：锅炉主要受压元件材料应按表 2 的规定执行，"
+                  "允许采用性能不低于表 2 规定的其他材料，具体要求由设计文件规定。")
+    items, page_sizes = load_middle_items(
+        _middle_with_table_cell(own, tmp_path, first=long_first))
+    clauses = split_items_into_clauses(items)
+    models, _ = build_clause_models("w3", own, "standard", clauses, page_sizes)
+    text = "\n".join(m.content_text for m in models)
+    assert "GB/T699—2015" in text, "行内家具剥离把表格末格（别人的标准）切掉了"
+    assert "7 " + own not in text, "自家页眉仍应被删掉"
+
+
+@pytest.mark.xfail(strict=True, reason="已知：切分层 split_items_into_clauses 的 80 字家具剥离是同一判据的第二个所有者，未接上下文")
+def test_ingest_short_block_lost_by_splitter_owner(tmp_path):
+    """⚠ **仍未修的第二个所有者**：入库链上「页码 + 标准号」这条判据在
+    `pipeline.py:735/800`（**切分层** `split_items_into_clauses` 的 ≤80 字家具剥离）里
+    还有一份实现，而**切分层拿不到 `standard_no`**，故无法消歧。
+
+    实测：短文本（≤80 字）时，进入 `clean_clause_text` 的文本**已经是**
+    `'5.2.1 材料要求：见表 2。\\n牵条 优质碳素结构钢'` —— ` 20 GB/T699—2015`
+    在**上游切分层**就没了。修它要把 `standard_no` 穿过切分层（改签名 + 其调用方）。
     """
     from src.core.ingestion.pipeline import (
         build_clause_models, load_middle_items, split_items_into_clauses)
@@ -283,6 +302,6 @@ def test_ingest_table_cell_lost_by_furniture_owner(tmp_path):
     own = "GB/T 12041.1-2010"
     items, page_sizes = load_middle_items(_middle_with_table_cell(own, tmp_path))
     clauses = split_items_into_clauses(items)
-    models, _ = build_clause_models("w3", own, "standard", clauses, page_sizes)
+    models, _ = build_clause_models("w4", own, "standard", clauses, page_sizes)
     text = "\n".join(m.content_text for m in models)
-    assert "GB/T699—2015" in text, "表格末格被上游家具剥离切掉了"
+    assert "GB/T699—2015" in text, "表格末格被切分层的家具剥离切掉了"

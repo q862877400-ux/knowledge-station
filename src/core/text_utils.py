@@ -1301,7 +1301,7 @@ def _match_std(m: "re.Match[str]") -> str:
 _RE_STD_KEY = re.compile(r"(\d{3,5}(?:\.\d+)?)\s*-?\s*(\d{2,4})\s*$")
 
 
-def _std_key(s: str | None) -> str:
+def standard_key(s: str | None) -> str:
     """把标准号压成比较键 `号-年`；压不出来就退回整串归一号（保守）。"""
     c = canon_standard_no(s)
     m = _RE_STD_KEY.search(c)
@@ -1309,7 +1309,7 @@ def _std_key(s: str | None) -> str:
 
 
 def _match_key(m: "re.Match[str]") -> str:
-    return _std_key((m.group("pfx") or "") + (m.group("mid") or "")
+    return standard_key((m.group("pfx") or "") + (m.group("mid") or "")
                     + (m.group("num") or "") + "-" + (m.group("year") or ""))
 
 
@@ -1385,7 +1385,7 @@ def strip_watermark_lines(text: str | None, *,
     """
     if not text:
         return text or ""
-    own_canon = _std_key(own_standard_no) if own_standard_no else None
+    own_canon = standard_key(own_standard_no) if own_standard_no else None
     # 早退守卫：**四类形态一个都不匹配**才不必处理。逐次修补的教训（每次都漏一族）：
     #   只判 URL → 无 URL 的工具水印整族漏网；
     #   加工具水印后 → "已被拍进行尾的页眉"仍漏（既无 URL 也无 Aspose）；

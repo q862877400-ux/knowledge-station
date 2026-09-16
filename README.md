@@ -18,12 +18,12 @@
 
 ## 四道门禁（改代码后必跑）
 
-> 数字为 **2026-09-17 实测基线**；演进链只涨不跌（24 → … → 828 → 1145 → 1166 → 1180 → **1210**）。
+> 数字为 **2026-09-17 实测基线**；演进链只涨不跌（24 → … → 828 → 1145 → 1166 → 1180 → **1211**）。
 > ⚠ 2026-09-16 起 `test_golden_gate` 的**自我豁免通道已关闭**：删 `eval/baseline.json`
 > 不再能让红线 6 失效（门禁报失败，且不自动重建基线）。
 
 ```text
-.venv/Scripts/python -m pytest tests -q     # pytest：1210 passed + 3 skipped + 0 failed（1 xfailed = 已知未修：家具剥离是"页码+标准号"判据的第二个所有者，见 DEVELOPMENT-HISTORY §八.3）
+.venv/Scripts/python -m pytest tests -q     # pytest：1211 passed + 3 skipped + 0 failed（1 xfailed = 已知未修：家具剥离是"页码+标准号"判据的第二个所有者，见 DEVELOPMENT-HISTORY §八.3）
 .venv/Scripts/python -m mypy src            # mypy：122 文件 0 错误
 cd plugin && npm run smoke                  # 插件冒烟：11 段
 cd plugin && npm run verify:commands         # 命令回归：15/15

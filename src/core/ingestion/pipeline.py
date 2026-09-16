@@ -63,11 +63,28 @@ _CHAPTER_CLAUSE = re.compile(r"^(\d{1,2})\s*([\u4e00-\u9fff（）()]{1,14})\s*$"
 # 2026-09-01 C2：插图文件名白名单（与 /assets 端点同款——图名不合规不渲染，
 # 双闸一致防注入）。
 _ASSET_FNAME_RE = re.compile(r"[0-9a-f]{64}\.(?:jpg|jpeg|png)")
+# ⚠ 这两个判据是「页码 + 标准号」的**第二份实现**（第一份在 text_utils 的水印族）。
+# 2026-09-17：给它们补上**命名捕获组**，以便用"本文档自己的标准号"消歧 ——
+# 页眉永远是**自家**标准号，而**表格末格**引用的通常是**别的**标准
+# （`'牵条 优质碳素结构钢 20 GB/T699—2015'`）。未传 standard_no 时行为不变。
 _STD_CODE_FRAG = re.compile(
-    r"\s*\d{1,3}\s+[A-Z]{1,4}(?:\s?/\s?T)?\s*\d{1,6}(?:\.\d+)*\s*[—–-]\s*\d{4}\s*")
+    r"\s*\d{1,3}\s+(?P<pfx>[A-Z]{1,4})(?:\s?/\s?(?P<mid>T))?\s*"
+    r"(?P<num>\d{1,6}(?:\.\d+)*)\s*[—–-]\s*(?P<year>\d{4})\s*")
 # 整行恰好是标准编号（页眉独立块/封面行）：GB25596—2025、GB/T 223.32—1994 等
 _STD_CODE_LINE = re.compile(
-    r"^\s*[A-Z]{1,4}(?:\s?/\s?T)?\s*\d{1,6}(?:\.\d+)*\s*[—–-]\s*\d{4}\s*$")
+    r"^\s*(?P<pfx>[A-Z]{1,4})(?:\s?/\s?(?P<mid>T))?\s*"
+    r"(?P<num>\d{1,6}(?:\.\d+)*)\s*[—–-]\s*(?P<year>\d{4})\s*$")
+
+
+def _frag_key(m: "re.Match[str] | None") -> str:
+    """家具片段的比较键 = `号-年`（与 `text_utils.standard_key` 同口径的**号+年**部分）。
+
+    这里直接从捕获组拼，不用 `standard_key` —— 因为家具判据的号允许 1–6 位，
+    而 `standard_key` 的提取正则要求 3–5 位；两边口径不一致会造成"自家页眉漏删"。
+    """
+    if m is None:
+        return ""
+    return f"{m.group('num')}-{m.group('year')}"
 # 2026-08-29 封面日期提取（通用）：GB/GB/T/行标封面通行"YYYY-MM-DD发布 /
 # YYYY-MM-DD实施"（ISO 连排或"YYYY年M月D日发布/实施"两种排版；分隔符容错
 # -/.）。此前入库从不填 published_at/effective_from → 全库 UI 发布/生效恒"—"。
@@ -1252,15 +1269,31 @@ def build_clause_models(doc_id: str, standard_no: str, doc_type: str,
         # （须"数字+空格+标准号-年"连排），长正文引用不受影响。
         # （2026-09-01 B3：在 rows 上剥离，整行丢弃时同步剔除其页号/行框，
         # 行号与页界编码不漂移。）
+        # （2026-09-17）补**上下文**：本函数签名里就有 `standard_no`，故这里能消歧 ——
+        # 只剥**自家标准号**的**行内**家具片段（`'… 4 GB25596—2025表5…'`）；
+        # 引用了**别的**标准的片段（表格末格 `'牵条 优质碳素结构钢 20 GB/T699—2015'`）保留。
+        # standard_no 为空时保持历史行为。
+        # ⚠ `_STD_CODE_LINE`（**整行就是**一个标准号）**不设条件**：整行只是一个标准号
+        # 时它就是家具，不存在"表格末格"歧义，且页眉的年份未必与库内 `standard_no` 一致
+        # （既有回归用例 `test_build_row_pipeline_furniture_strip` 正是这种：文档
+        # `GB 30871-2022` 而页眉行 `GB 30871—2025`）。**歧义只在行内片段那一侧。**
+        from src.core.text_utils import standard_key as _std_key
+        _own_key = _std_key(standard_no) if standard_no else None
         stripped_rows: list[tuple[str, int, list[float] | None]] = []
         for ln, pidx, lbox in rows:
             if _STD_CODE_LINE.match(ln):
                 continue
             if _STD_CODE_FRAG.search(ln):
-                s2 = _STD_CODE_FRAG.sub(" ", ln).strip()
-                if not s2 or (len(s2) <= 3 and s2.isdigit()):
-                    continue  # 整行即页码+标准号对，剥完只剩页码 → 丢
-                ln = s2
+                if _own_key is None:
+                    s2 = _STD_CODE_FRAG.sub(" ", ln).strip()
+                else:
+                    s2 = _STD_CODE_FRAG.sub(
+                        lambda mm: " " if _frag_key(mm) == _own_key else mm.group(0),
+                        ln).strip()
+                if s2 != ln.strip():
+                    if not s2 or (len(s2) <= 3 and s2.isdigit()):
+                        continue  # 整行即页码+标准号对，剥完只剩页码 → 丢
+                    ln = s2
             stripped_rows.append((ln, pidx, lbox))
         # [:4000] 截断（rows 语义：整行入账，末行可截半；+1 = join 换行符）
         final_rows: list[tuple[str, int, list[float] | None]] = []
