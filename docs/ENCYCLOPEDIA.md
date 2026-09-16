@@ -472,10 +472,19 @@ write_queue / event_log（统一事件模型）/ debug_dump（每次提问落库
 > `routes_update.py` 30 · `routes_law.py` 7 · `routes_ingest_preview.py` 6 · `routes_report.py` 4 ·
 > `routes_settings.py` 3。
 >
-> ⚠ **旧"消费面四分类"的口径没有留下，且已无法对账**：原文写"**120** 端点"并给
+> ⚠ **旧"消费面四分类"的口径没有留下，且底数已无法对账**：原文写"**120** 端点"并给
 > LIVE-PRODUCT 47 / TEST-ONLY 54 / ZERO 19 / SCRIPT-ONLY 0，但 47+54+19=120 ≠ 今天实测的 127，
-> 说明当时的分母与今天不同（或含未记录的排除）。**因此那组四分类只能当 2026-09-13 的历史快照，
-> 不可当现状引用**；其"ZERO 19 均为未接线而非废弃残留"的结论**未被重新验证**。
+> 说明当时的分母与今天不同（或含未记录的排除）。**故该四分类只能当 2026-09-13 历史快照，
+> 不可当现状引用。**
+>
+> ✅ **但它的 ZERO 标签经抽样复核站得住**（2026-09-16，抽查 8 条）：
+> `POST /compare`、`POST /export/citations`、`POST /laws/check-updates`、
+> `/clauses/office-edit/poll`、`/clauses/office-edit/commit`、`/documents/{id}/versions`、
+> `/clauses/{id}/backlinks`、`/annotations` CRUD —— 逐条按路径字面 + host 别名两种形式
+> 全仓（client/host/tests/scripts）搜索，**未发现反例**。
+> ⚠ 这条抽检同时暴露一个反向陷阱：**用单词做匹配会造出假反例**——Python 的
+> `from __future__ import annotations` 让 `/annotations` 看似"测试在用"，函数名
+> `compare_clause_texts` 让 `/compare` 看似"测试在用"。**匹配必须是路径级，不是词级。**
 >
 > ⚠ **重做必须用"别名感知"匹配器**，否则会得出错误的 ZERO。host 把引擎路径重写成语义不同的
 > 同源前缀（`/ks/doc-image/{doc}/figure/{no}` → `/api/v1/documents/{doc}/figure/{no}`），另有
@@ -778,7 +787,7 @@ backup.py：VACUUM INTO 在线备份到 `%APPDATA%\KnowledgeStation\backups\`；
 | 剩余测试盲区 | 部分 | R61/R72/R73/R76/R-L3 等 |
 | bge-m3 升维 | 不触发 | recall@5 97.8% >> 85% 验收线 |
 | LLM advisory judge | 判定砍 | 指标已达标，省额度 |
-| 端点消费面四分类（2026-09-13 精确化，替换旧"约 55"粗估） | ⚠ **口径丢失，待重做** | 旧快照：LIVE-PRODUCT 47 · TEST-ONLY 54 · ZERO 19 · SCRIPT-ONLY 0（合计 120）。**2026-09-16 AST 实测底数为 127 个端点 / 113 条唯一路径**，与 120 对不上 → 四分类不可当现状引用。图/公式/表图 3 端点 2026-09-13 已接线 ZERO→LIVE（host 代理 + 正文视图）这一条**仍然有效**。重做需别名感知匹配器（host 会重写路径，朴素字面匹配会误判已在用的端点为 ZERO），详见 §10.2 |
+| 端点消费面四分类（2026-09-13 精确化，替换旧"约 55"粗估） | ⚠ **底数对不上，标签仍可信** | 旧快照：LIVE-PRODUCT 47 · TEST-ONLY 54 · ZERO 19 · SCRIPT-ONLY 0（合计 120）。**2026-09-16 AST 实测底数为 127 个端点 / 113 条唯一路径**，120 与 127 对不上 → 四分类占比不可当现状引用。**但抽查 8 条 ZERO 标签全部站得住**（见 §10.2），故分类结论可用、分母须重算。图/公式/表图 3 端点 2026-09-13 已接线 ZERO→LIVE 这一条仍然有效。重算需别名感知 + 路径级匹配（词级匹配会造假反例） |
 | exceptions.py 4 个未 raise 的异常类 | 现状 | 契约预定义，保留 |
 | office-edit poll/commit 端点 | 已实现 | 前端入口在 DSH 侧「数据体检」tab |
 | 知识库多用户/权限 | Non-goal | v5 §6 |
