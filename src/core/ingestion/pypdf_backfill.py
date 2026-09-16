@@ -113,6 +113,27 @@ def _digits(t: str | None) -> int:
     return sum(ch.isdigit() for ch in (t or ""))
 
 
+def _reindex_fts(conn, clause_revision_id: str, content_text: str,
+                 title: str | None, modality: str | None,
+                 subject: str | None, behavior_scope: str | None) -> None:
+    """把补丁后的正文同步进 `clause_fts`（**只 FTS，不碰向量**）。
+
+    为什么本函数存在而不直接调 `clause_repo._reindex_clause_indexes`：
+      ① 那个函数**同时**重算向量（`embed_query` + fastembed），在 `backfill_all`
+         逐文档扫全库的路径上会把一次回填从分钟级推到小时级；
+      ② 本模块是 ingestion 层，`clause_repo` 是 storage 层，函数级 import 只为
+         一个索引同步引入跨层依赖不划算。
+    两者的 FTS 口径**必须一致**：`content_segmented = _seg(content_text)`，
+    且 modality/subject/behavior_scope 走同一列的原文（本函数不改它们）。
+    """
+    from src.core.storage.clause_repo import _seg  # noqa: PLC0415（函数级，避免跨层顶层依赖）
+    conn.execute(
+        "UPDATE clause_fts SET title=?, content_segmented=?, modality=?, subject=?,"
+        " behavior_scope_segmented=? WHERE clause_revision_id=?",
+        (title or "", _seg(content_text), modality or "", subject or "",
+         _seg(behavior_scope or ""), clause_revision_id))
+
+
 def backfill_document(doc_id: str, pdf_path: str | None, conn=None) -> int:
     """对单个文档执行回填，返回打补丁条数。
     注意：get_db_connection 返回线程局部共享连接——绝不 close（关闭会导致
@@ -126,11 +147,12 @@ def backfill_document(doc_id: str, pdf_path: str | None, conn=None) -> int:
         conn = get_db_connection()
     try:
         rows = conn.execute(
-            "SELECT clause_revision_id, clause_number, page_start, page_end, content_text"
+            "SELECT clause_revision_id, clause_number, page_start, page_end, content_text,"
+            " title, modality, subject, behavior_scope"
             " FROM clause_revision WHERE doc_id=? AND content_type='normal'", (doc_id,)).fetchall()
         cache: dict[int, dict[str, str]] = {}
         patched = 0
-        for rid, num, ps, pe, content in rows:
+        for rid, num, ps, pe, content, title, modality, subject, bscope in rows:
             if not num or "." not in num:
                 continue
             for page in {ps, pe}:
@@ -167,11 +189,29 @@ def backfill_document(doc_id: str, pdf_path: str | None, conn=None) -> int:
                     (rid,)).fetchone()
                 if exists:
                     continue
+                patched_value = ptxt[:2000]
                 conn.execute(
                     "INSERT INTO clause_patch (patch_id, clause_revision_id, field_name,"
                     " patched_value, patch_reason, created_at)"
                     " VALUES (?,?,?,?,?, datetime('now'))",
-                    ("bp_" + rid[-12:], rid, "content_text", ptxt[:2000], "OCR数字回填(pypdf)"))
+                    ("bp_" + rid[-12:], rid, "content_text", patched_value, "OCR数字回填(pypdf)"))
+                # **同步 FTS 索引**（2026-09-16 新增；本函数是一个孤立缺陷点）。
+                #
+                # 缺陷：本函数用**裸 INSERT** 写 `clause_patch`，绕过了
+                # `clause_repo.upsert_patch` 里的 `_reindex_clause_indexes` —— 而
+                # `fetch_full_clause` 读的是**补丁正文**，`clause_fts` 却仍存补丁前原文。
+                # 后果：这些条款的**全文检索命中的是旧文本**（用户按新正文里的词搜不到）。
+                # 实测口径：全库 19,981 条 content_text 补丁全部由本函数产生
+                # （`patch_reason` 100% 为 `OCR数字回填(pypdf)`），故这批条款的 FTS
+                # 从未按补丁正文同步过。
+                #
+                # 为什么只补 FTS、**不补向量**（诚实标注）：`_reindex_clause_indexes` 还会
+                # 用 `embed_query(f"{title}\\n{content[:512]}")` 重算向量，而本函数在
+                # **逐文档批量**路径上（`backfill_all` 扫全库），逐条加载 fastembed 会
+                # 把一次回填从分钟级推到小时级。且回填只改**尾部**（补数字/去水印），
+                # 而向量只看前 512 字 —— 影响远小于对全文检索的影响。
+                # 取舍：FTS 必补（用户直接可感），向量留待有需要时按文档批量重算。
+                _reindex_fts(conn, rid, patched_value, title, modality, subject, bscope)
                 # 联动：回填即复核确认，存疑转可信
                 conn.execute(
                     "INSERT INTO clause_patch (patch_id, clause_revision_id, field_name,"

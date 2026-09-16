@@ -95,16 +95,85 @@ def test_page_clauses_appendix_anchor():
 
 # ---------------------------------------------------------------- 长度护栏
 def _mem_conn():
-    """内存库 + 最小 schema（backfill_document 只碰这两张表）。"""
+    """内存库 + 最小 schema（backfill_document 碰 clause_revision / clause_patch /
+    clause_fts —— 回填现在会**同步 FTS**，见 `_reindex_fts`）。"""
     import sqlite3
     conn = sqlite3.connect(":memory:")
     conn.row_factory = sqlite3.Row
     conn.execute("CREATE TABLE clause_revision (clause_revision_id TEXT, clause_number TEXT,"
                  " page_start INT, page_end INT, content_text TEXT, doc_id TEXT,"
-                 " content_type TEXT)")
+                 " content_type TEXT, title TEXT, modality TEXT, subject TEXT,"
+                 " behavior_scope TEXT)")
     conn.execute("CREATE TABLE clause_patch (patch_id TEXT, clause_revision_id TEXT,"
                  " field_name TEXT, patched_value TEXT, patch_reason TEXT, created_at TEXT)")
+    conn.execute(
+        "CREATE VIRTUAL TABLE clause_fts USING fts5(clause_revision_id UNINDEXED,"
+        " clause_number, standard_no, title, content_segmented, modality UNINDEXED,"
+        " subject UNINDEXED, behavior_scope_segmented)")
     return conn
+
+
+def _fts_conn(monkeypatch, tmp_path, orig, good):
+    """带 clause_fts 的内存库 + 已就位的一行正文（用于验证 FTS 同步）。"""
+    from src.core.ingestion import pypdf_backfill as B
+
+    pdf = tmp_path / "x.pdf"
+    pdf.write_bytes(b"%PDF-1.4\n")
+    monkeypatch.setattr(B, "_pypdf_available", lambda: True)
+    monkeypatch.setattr(B, "pypdf_page_clauses", lambda p, n: {"4.1": good})
+
+    conn = _mem_conn()
+    conn.execute(
+        "INSERT INTO clause_revision (clause_revision_id, clause_number, page_start,"
+        " page_end, content_text, doc_id, content_type, title, modality, subject,"
+        " behavior_scope) VALUES ('r1','4.1',1,1,?,'d1','normal','试验条件','应','主体','行为域')",
+        (orig,))
+    # 索引先存**补丁前原文**（这正是缺陷状态）
+    from src.core.storage.clause_repo import _seg
+    conn.execute("INSERT INTO clause_fts VALUES ('r1','4.1','GB 1-2020','试验条件',?,"
+                 "'应','主体',?)", (_seg(orig), _seg("行为域")))
+    return B, conn, pdf
+
+
+def test_backfill_syncs_fts_with_patched_text(monkeypatch, tmp_path):
+    """**核心回归**：回填后 `clause_fts` 必须反映**补丁正文**，而不是补丁前原文。
+
+    缺陷（本函数是孤立点）：旧实现用**裸 INSERT** 写 `clause_patch`，绕过了
+    `clause_repo.upsert_patch` 里的 `_reindex_clause_indexes` —— 而
+    `fetch_full_clause` 读的是**补丁正文**。后果：这些条款的全文检索命中的是旧文本
+    （用户按新正文里的词搜不到）。实测全库 19,981 条补丁**全部**由本函数产生。
+    """
+    orig = "4.1 试验条件 在下列条件下进行。"
+    good = "4.1 试验条件 在下列条件下进行,温度为 25 ℃,时间为 30 min,湿度 65 %。"
+    B, conn, pdf = _fts_conn(monkeypatch, tmp_path, orig, good)
+
+    n = B.backfill_document("d1", str(pdf), conn=conn)
+    assert n == 1, "合理回填应被接受"
+
+    from src.core.storage.clause_repo import _seg
+    row = conn.execute(
+        "SELECT content_segmented FROM clause_fts WHERE clause_revision_id='r1'").fetchone()
+    seg = row[0]
+    assert seg == _seg(good), "FTS 必须存补丁正文的分词"
+    # 反向：不再是补丁前原文
+    assert seg != _seg(orig), "FTS 仍是补丁前原文（缺陷未修）"
+
+
+def test_backfill_fts_untouched_when_rejected(monkeypatch, tmp_path):
+    """反向对照：回填被拒（越界）时**不得**动 FTS（否则索引指向不存在的正文）。"""
+    orig = "4.1 试验条件 在下列条件下进行。"
+    huge = orig + " 页尾噪声" * 500
+    B, conn, pdf = _fts_conn(monkeypatch, tmp_path, orig, huge)
+
+    from src.core.storage.clause_repo import _seg
+    before = conn.execute(
+        "SELECT content_segmented FROM clause_fts WHERE clause_revision_id='r1'").fetchone()[0]
+
+    n = B.backfill_document("d1", str(pdf), conn=conn)
+    assert n == 0
+    after = conn.execute(
+        "SELECT content_segmented FROM clause_fts WHERE clause_revision_id='r1'").fetchone()[0]
+    assert after == before == _seg(orig), "被拒时 FTS 必须保持原样"
 
 
 def test_backfill_rejects_oversized_text(monkeypatch, tmp_path):
@@ -124,7 +193,9 @@ def test_backfill_rejects_oversized_text(monkeypatch, tmp_path):
     monkeypatch.setattr(B, "pypdf_page_clauses", lambda p, n: {"4.1": huge})
 
     conn = _mem_conn()
-    conn.execute("INSERT INTO clause_revision VALUES ('r1','4.1',1,1,?, 'd1','normal')", (orig,))
+    conn.execute("INSERT INTO clause_revision (clause_revision_id, clause_number,"
+                 " page_start, page_end, content_text, doc_id, content_type)"
+                 " VALUES ('r1','4.1',1,1,?, 'd1','normal')", (orig,))
     n = B.backfill_document("d1", str(pdf), conn=conn)
     assert n == 0, "越界文本必须被拒绝"
     assert conn.execute("SELECT count(*) FROM clause_patch").fetchone()[0] == 0
@@ -144,7 +215,9 @@ def test_backfill_accepts_reasonable_text(monkeypatch, tmp_path):
     monkeypatch.setattr(B, "pypdf_page_clauses", lambda p, n: {"4.1": good})
 
     conn = _mem_conn()
-    conn.execute("INSERT INTO clause_revision VALUES ('r1','4.1',1,1,?, 'd1','normal')", (orig,))
+    conn.execute("INSERT INTO clause_revision (clause_revision_id, clause_number,"
+                 " page_start, page_end, content_text, doc_id, content_type)"
+                 " VALUES ('r1','4.1',1,1,?, 'd1','normal')", (orig,))
     n = B.backfill_document("d1", str(pdf), conn=conn)
     assert n == 1, "合理回填必须被接受"
     row = conn.execute("SELECT patched_value FROM clause_patch WHERE field_name='content_text'").fetchone()
