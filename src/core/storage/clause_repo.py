@@ -608,30 +608,47 @@ def resolve_clause(standard_no: str, clause_number: str) -> ClauseRevisionModel 
 
     标准号做宽容匹配：先精确，再忽略发布年份按主体匹配（如 GB/T 3608-2008 → GB 3608-2025）。
     取该标准下 rowid 最新的条款（版本链下游优先）。
+
+    条款号做**原样优先 + 归一重试**（2026-09-17）：先按调用方给的写法查；只有查不到时才用
+    `normalize_clause_number` 归一（全角→半角、去空白、去前导零）再查一次。这样既能接受
+    「５．２．１」「05.2.1」「 5.2.1 」这类写法，又**不会**让库里真实存在的带前导零条款
+    （实测 520,504 条里仅 '06'/'08' 两条与归一结果不同）因归一而查不到。
+    纯增量：任何原本能命中的查询，命中结果不变。
     """
-    conn = get_db_connection()
-    # 1) 精确标准号匹配（含版本年份）
-    row = conn.execute(
-        "SELECT cr.clause_revision_id FROM clause_revision cr"
-        " JOIN doc_meta dm ON dm.doc_id = cr.doc_id"
-        " WHERE cr.clause_number = ? AND dm.standard_no = ?"
-        " ORDER BY cr.rowid DESC LIMIT 1",
-        (clause_number, standard_no)).fetchone()
-    # 2) 年份宽容：按标准数字主体模糊匹配（如 GB/T 3608-2008 → GB 3608-2025）
-    if not row:
-        import re as _re
-        m = _re.search(r"(\d{4,5})", standard_no.strip())
-        if m:
-            row = conn.execute(
-                "SELECT cr.clause_revision_id FROM clause_revision cr"
-                " JOIN doc_meta dm ON dm.doc_id = cr.doc_id"
-                " WHERE cr.clause_number = ? AND dm.standard_no LIKE ?"
-                " ORDER BY cr.rowid DESC LIMIT 1",
-                (clause_number, "%" + m.group(1) + "%")).fetchone()
-    # 3) 表格引用 fallback：clause_number 形如「表2」时，解析到正文引用该表的条款
     import re as _re
-    if not row and _re.match(r"^表\d+$", clause_number.strip()):
-        like = "%" + clause_number.strip() + "%"
+    from src.core.knowledge.classifier import normalize_clause_number
+
+    conn = get_db_connection()
+    raw = (clause_number or "").strip()
+    norm = normalize_clause_number(raw)
+
+    def _lookup(cn: str) -> Any:
+        """1) 精确标准号匹配（含版本年份）；2) 年份宽容（按标准数字主体）。"""
+        r = conn.execute(
+            "SELECT cr.clause_revision_id FROM clause_revision cr"
+            " JOIN doc_meta dm ON dm.doc_id = cr.doc_id"
+            " WHERE cr.clause_number = ? AND dm.standard_no = ?"
+            " ORDER BY cr.rowid DESC LIMIT 1",
+            (cn, standard_no)).fetchone()
+        if r:
+            return r
+        m = _re.search(r"(\d{4,5})", standard_no.strip())
+        if not m:
+            return None
+        return conn.execute(
+            "SELECT cr.clause_revision_id FROM clause_revision cr"
+            " JOIN doc_meta dm ON dm.doc_id = cr.doc_id"
+            " WHERE cr.clause_number = ? AND dm.standard_no LIKE ?"
+            " ORDER BY cr.rowid DESC LIMIT 1",
+            (cn, "%" + m.group(1) + "%")).fetchone()
+
+    row = _lookup(raw)
+    if not row and norm != raw:
+        row = _lookup(norm)
+    # 3) 表格引用 fallback：条款号形如「表2」时，解析到正文引用该表的条款
+    #    （用归一形式：这样「表 2」也能进这条分支）
+    if not row and _re.match(r"^表\d+$", norm):
+        like = "%" + norm + "%"
         row = conn.execute(
             "SELECT DISTINCT cr.clause_revision_id FROM clause_revision cr"
             " JOIN doc_meta dm ON dm.doc_id = cr.doc_id"
