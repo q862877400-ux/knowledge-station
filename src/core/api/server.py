@@ -1863,6 +1863,9 @@ def create_app(token: str) -> FastAPI:
                 "confidence_reasons": answer_confidence["reasons"],
                 "knowledge_types_involved": sorted({e["knowledge_type"] for e in ev_dicts}),
                 "unsupported_clauses": verification.unsupported_clauses,
+                # 2026-09-16 增量字段（事件顺序不变，仅加字段）：每条证据外条款号的
+                # 可操作说明（属于哪部标准 / 检索未召回 vs 模型越界）。见契约台账。
+                "unsupported_context": verification.unsupported_context,
                 "unverified_numbers": verification.unverified_numbers,
                 "modality_violations": [v.model_dump() for v in verification.modality_violations],
                 "legal_element_violations": verification.legal_element_violations,

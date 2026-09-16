@@ -153,6 +153,10 @@ class ModalityViolation(BaseModel):
 class VerificationResult(BaseModel):
     is_valid: bool
     unsupported_clauses: List[str] = []
+    #: 每条"证据外条款号"的**可操作说明**（2026-09-16 新增，见
+    #: `typed_verifier._describe_unsupported`）。`unsupported_clauses` 保持原样
+    #: 以兼容既有消费方（SSE 字段名与顺序**不变**，本字段是纯增量）。
+    unsupported_context: List[dict] = []
     unverified_numbers: List[dict] = []
     modality_violations: List[ModalityViolation] = []
     legal_element_violations: List[dict] = []

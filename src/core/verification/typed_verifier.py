@@ -84,6 +84,74 @@ def _clause_mention_window(text: str, clause_number: str) -> str:
 
 _PURE_LAW_NUM = re.compile(r"^第[一二三四五六七八九十百千]+条$")
 
+#: 输出中标准号的出现形态（用于把"孤立条款号"归因到某部标准）。
+#: 覆盖 `GB 30871-2022` / `GB/T 12345.6-2020` / `GB／T`（全角斜杠）。
+_STD_MENTION = re.compile(
+    r"(?:GB|DB|JGJ|JG|CJJ|CJ|HG|SH|SY|NB|DL|YB|TB|JT|MT|AQ|TSG)"
+    r"\s*[/／]?\s*[A-Z]?\s*\d{3,5}(?:\.\d+)?\s*[—\-–]\s*\d{2,4}", re.I)
+
+
+def _describe_unsupported(num: str, llm_output: str,
+                          evidence_clauses: List[dict]) -> dict:
+    """把一条"证据外条款号"升级为**可操作**的说明（不改拦截，只补证据）。
+
+    为什么需要（pk-eli-mcp 的启示：**先声明"有没有资格判断"，再判断**）：
+    旧输出只有一串裸条款号，用户无法区分三种**后果完全不同**的情形：
+      a) 模型引用了本轮证据**同一部标准**里的条款，但该条**没被检索出来**
+         → 可操作：补检索该条；这是检索召回问题，不是编造；
+      b) 模型引用了**本轮完全没讨论的**标准号
+         → 提示词违规（规则 2），也可能是编造；
+      c) 条款号本身形状可疑（如 `9.9.9` 这类越界层级）
+         → 更可能是编造。
+
+    判据故意保守：只用**文本内证据**（该条款号附近是否出现标准号、以及该标准号
+    是否在本轮证据里），**不查库**（核验器保持纯函数、毫秒级、无 IO）。
+    在型号附近找不到标准号时明确记为 `unknown`，而不是猜一个。
+
+    @param num - 归一后的条款号（如 `5.2.1` 或 `第四百九十六条`）。
+    @param llm_output - 模型输出全文（用于取条款号附近的上下文）。
+    @param evidence_clauses - 本轮证据条款。
+    @returns 形如 `{clause_number, standard_no, verdict, reason}` 的说明。
+    """
+    ev_stds = [str(c.get("standard_no") or "") for c in evidence_clauses]
+    # 取该条款号**最后一次**出现附近的文本窗（引用通常就近给出标准号）。
+    ctx_window = ""
+    try:
+        mentions = list(re.finditer(re.escape(num), llm_output))
+        if mentions:
+            m = mentions[-1]
+            ctx_window = llm_output[max(0, m.start() - 160): m.start() + 160]
+    except re.error:
+        ctx_window = ""
+
+    near_stds = _STD_MENTION.findall(ctx_window) if ctx_window else []
+    near_std = near_stds[0] if near_stds else None
+
+    if near_std is None:
+        return {
+            "clause_number": num, "standard_no": None, "verdict": "unknown",
+            "reason": "条款号附近未见标准号，无法判断属于哪部标准；"
+                      "它不在本轮证据集内，故不作为依据。",
+        }
+    in_evidence = any(near_std.replace(" ", "") in s.replace(" ", "")
+                      or s.replace(" ", "") in near_std.replace(" ", "")
+                      for s in ev_stds if s)
+    if in_evidence:
+        return {
+            "clause_number": num, "standard_no": near_std,
+            "verdict": "same_standard_not_retrieved",
+            "reason": f"该条款号属于本轮证据内的标准 {near_std}，但这一条**未被检索出来**"
+                      f"——属检索召回问题（可扩大检索范围/补该条），不是模型编造。"
+                      f"本次仍不作为依据（规则：只引证据内条款）。",
+        }
+    return {
+        "clause_number": num, "standard_no": near_std,
+        "verdict": "outside_evidence_standard",
+        "reason": f"该条款号指向标准 {near_std}，而本轮证据里没有这部标准"
+                  f"——模型引用了讨论范围之外的条款（违反规则 2），"
+                  f"也可能是编造；不作为依据。若确需该标准，请先入库再问。",
+    }
+
 
 def _norm_cite(num: str) -> str:
     """引用归一：'第5.2.1条'→'5.2.1'；纯中文法条'第四百九十六条'保持原样。"""
@@ -106,11 +174,22 @@ def verify_llm_output(llm_output: str, evidence_clauses: List[dict]) -> Verifica
     evidence_numbers = {c["clause_number"] for c in evidence_clauses}
 
     # 1. 条款号闭包（通用）
+    #
+    # ⚠ 语义边界（2026-09-16 补记，务必区分）：
+    #   `unsupported_clauses` 记的是**"模型引用了证据集之外的条款号"** —— 这是
+    #   **提示词级硬约束的违反**（SYSTEM_PROMPT 规则 2：严禁提及证据外条款号），
+    #   故它**就该拦**，与"本库有没有收录该标准"无关。
+    #   它**不等于**"该条款号不存在"或"本库未收录该标准"——把两者混为一谈会产出
+    #   无法执行的告警（用户既不知道是哪部标准的哪一条，也无法判断该去补什么）。
+    #   故新增 `unsupported_context` 把每条升级为可操作信息（见下）。
+    unsupported_context: List[dict] = []
     for groups in dict.fromkeys(_CITED_NUM.findall(llm_output)):
         raw = next((g for g in groups if g), "")
         num = _norm_cite(raw)
-        if num and num not in evidence_numbers:
-            unsupported.append(num)
+        if not num or num in evidence_numbers:
+            continue
+        unsupported.append(num)
+        unsupported_context.append(_describe_unsupported(num, llm_output, evidence_clauses))
 
     # 2. 分型核验
     for c in evidence_clauses:
@@ -193,6 +272,7 @@ def verify_llm_output(llm_output: str, evidence_clauses: List[dict]) -> Verifica
     return VerificationResult(
         is_valid=is_valid,
         unsupported_clauses=unsupported,
+        unsupported_context=unsupported_context,
         unverified_numbers=tampered,
         modality_violations=modality_violations,
         legal_element_violations=legal_violations)

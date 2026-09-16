@@ -181,3 +181,36 @@ schema.sql 追加第 31 号表 `bulk_import_batch`（本批只建巡检侧需要
 - 改动文件：`schema.sql`（32 号表 + 3 索引 DDL）、`tests/test_contract.py`（4 用例：表存在/列集完备/去重唯一索引与重复拒绝/ULID 前缀注释）、本文档；实现落点 `src/core/update/announce.py`（新）+ `src/core/api/routes_update.py` + 插件 host/client。
 - 存量零影响：新表无外键、不进既有任何流程；巡检/检索/收藏零行为变化。
 - 回滚：`DROP TABLE IF EXISTS announcement_observed;` 及索引（无外键无方向依赖，等价静态回滚）；测试基线只涨不跌（test_contract 31 → 35）。
+
+---
+
+## 33 号变更：`verification` SSE 事件新增 `unsupported_context` 字段（2026-09-16）
+
+**性质**：**纯增量字段**，不改事件顺序、不改既有字段名与语义、不改任何表。
+`SSE_EVENT_ORDER`（`evidence` → `status` → `delta` → `verification` → `done`）**零变化**。
+
+**动机（D 线"资格声明"）**：`unsupported_clauses` 记的是"模型引用了**证据集之外**的
+条款号"——这是**提示词级硬约束的违反**（SYSTEM_PROMPT 规则 2），故它就该拦。
+但它只给一串裸条款号，用户无法区分三种**后果完全不同**的情形：
+
+| 情形 | 后果 | 该做什么 |
+|---|---|---|
+| 该条属于**本轮证据内同一部标准**，只是没被检索出来 | 检索召回问题 | 扩大检索/补该条 |
+| 该条指向**本轮完全没讨论**的标准号 | 提示词违规，或编造 | 不接受该引用 |
+| 条款号形状可疑（如 `9.9.9`） | 更可能是编造 | 不接受该引用 |
+
+**字段形状**（`unsupported_context: Array<{clause_number, standard_no, verdict, reason}>`）：
+- `verdict` 取 `same_standard_not_retrieved` / `outside_evidence_standard` / `unknown`；
+- 判据**只用文本内证据**（条款号附近是否出现标准号、该标准号是否在本轮证据里），
+  **不查库**——核验器保持纯函数、毫秒级、零 IO；
+- 附近找不到标准号时明确记 `unknown`，**不猜**。
+
+**兼容性**：既有消费方（前端 `verification` 渲染、`debug_dump`、测试断言）读
+`unsupported_clauses` 不变；新字段为附加项，未消费者零影响。
+
+**影响面**：`src/core/domain/models.py`（`VerificationResult` 加字段）、
+`src/core/verification/typed_verifier.py`（`_describe_unsupported` + 组装）、
+`src/core/llm/ks_answer.py`（组装置透传）、`src/core/api/server.py`（SSE 体检事件透传）、
+`tests/test_unsupported_context.py`（新）。
+
+**回滚**：删该字段的三处透传即可（无 DDL、无状态、无迁移）。

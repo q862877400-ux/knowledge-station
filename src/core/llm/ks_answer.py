@@ -417,6 +417,9 @@ def _assemble_verification(derivation: str, conclusion: str,
         "answer_confidence": conf["level"],
         "confidence_reasons": reasons,
         "unsupported_clauses": list(v.unsupported_clauses),
+        # 2026-09-16：每条"证据外条款号"的可操作说明（属于哪部标准/是检索未召回
+        # 还是模型越界）。`unsupported_clauses` 保持原样以兼容既有消费方。
+        "unsupported_context": list(v.unsupported_context),
         "unverified_numbers": v.unverified_numbers,
         "modality_violations": [x.model_dump() for x in v.modality_violations],
         "legal_element_violations": v.legal_element_violations,
