@@ -75,6 +75,37 @@ def test_compare_added_removed(version_db):
     from src.core.storage.versioning import compare_docs
     out = compare_docs("vd_old", "vd_new")
     assert "6.1.1" in out["added_clause_numbers"], "新版本新增条款应列出"
+    # 2026-09-16 回归（iteration-6 自查 §7）：`removed` 曾恒等于「旧版全部条款号」——
+    # 旧实现拿 doc_a 的 revision_id 去比 idx_b 的全部 revision_id，而两者必然不同
+    # （`_clause_index` 按 doc_id 过滤），故判据恒真。本断言在旧实现下必红。
+    assert out["removed_clause_numbers"] == [], "5.2.1 已配对成功，不应报为删除"
+    assert out["stats"]["removed"] == 0
+
+
+def test_compare_removed_lists_only_truly_absent(version_db):
+    """反向对照：新版→旧版时只列出「新版有而旧版无」的条款。
+
+    6.1.1 仅存在于 vd_new；5.2.1 两侧都有（应计入 paired）。
+    旧实现下 removed 会是 ['5.2.1','6.1.1']（整版全列）。
+    """
+    from src.core.storage.versioning import compare_docs
+    out = compare_docs("vd_new", "vd_old")
+    assert out["removed_clause_numbers"] == ["6.1.1"], "只应列出真正缺失的条款"
+    assert out["added_clause_numbers"] == []
+
+
+def test_compare_paired_and_removed_are_disjoint(version_db):
+    """不变量：任何被 paired 的条款号都不得出现在 removed 里。
+
+    这是 `removed` 的语义底线——`impact.py:60` 的 `removed_clauses` 会直接进
+    `POST /api/v1/documents/impact` 的影响面报告（用户可见）。
+    """
+    from src.core.storage.versioning import compare_docs
+    for a, b in (("vd_old", "vd_new"), ("vd_new", "vd_old"), ("vd_new", "vd_next")):
+        out = compare_docs(a, b)
+        paired_nums = {p["clause_number"] for p in out["pairs"]}
+        assert not (paired_nums & set(out["removed_clause_numbers"])), \
+            f"{a}→{b}: 已配对的条款号不应出现在 removed"
 
 
 def test_cross_doc_compare_same_key(version_db):

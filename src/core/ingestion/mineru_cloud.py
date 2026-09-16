@@ -324,14 +324,34 @@ def _record_egress_safe(pdf_name: str, batch_id: str, landing: str,
 
 
 def mineru_cloud_submit_and_wait(pdf_path: Path, output_dir: Path,
-                                 timeout: float = 1800.0) -> Dict[str, Any] | None:
+                                 timeout: float = 1800.0,
+                                 api_key: str | None = None,
+                                 _retried_429: bool = False) -> Dict[str, Any] | None:
     """云解析全流程（与 deep_server_submit_and_wait 同构语义）。
+
+    `api_key`：**显式指定本次调用用哪个 key**（`None` = 沿用全局 settings 的 key）。
+    **为什么需要**（2026-09-16 实测）：批量侧有 3 个账号的 key 池，靠
+    `vlm_ocr.use_key()` 写**全局 settings** 再让本函数读——但 24 个线程各自
+    `use_key` 后并发提交，**线程 A 设的 key 会被线程 B 覆盖**，A 实际用 B 的 key 提交。
+    实测后果：key 用量严重失衡（`project 2037 / loop2 232 / loop3 6`），
+    轮转起始 key 形同虚设，且**别名与实发 key 错配**（日志出现
+    `key=project sk-HWq…`——project 别名配了 loop2 的 key）。
+    这也是历史上「多 key 并行」被判定无效并回退的根因。
+    调用方传 `api_key` 后，本函数**不再读全局**，竞态即从根上消失。
+
+    `_retried_429` 是**内部**参数（调用方不要传）：标记"本次已为 429 退避重试过"，
+    防止无限重试。**不能用 `locals()` 探测**——递归调用是新 scope，探测必然失败
+    （写的时候踩过这个坑，当场改成显式参数）。
 
     返回 {"output_dir": <landing>}；网络类失败 → 记日志返回 None（调用方
     维持既有降级链路）；产物守卫失败 → 抛 MineruCloudError（大声不静默）。
     """
     import httpx
     key, base = _resolve_settings()
+    # **显式 key 优先**（见 `api_key` 参数说明）：调用方给了就**不再读全局**，
+    # 从根上消除"24 线程各自 use_key 互相覆盖"的竞态。
+    if api_key:
+        key = api_key.strip()
     pdf_path = Path(pdf_path)
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -363,6 +383,29 @@ def mineru_cloud_submit_and_wait(pdf_path: Path, output_dir: Path,
                                 reason=f"MineruCloudError: {e}")
         raise
     except (httpx.HTTPError, TimeoutError, OSError) as e:  # noqa: BLE001
+        # **限流（429）必须与普通网络失败区分开**（2026-09-16 实测）。
+        #
+        # 现场：批 8/9 启动瞬间 24 并发齐射 → `POST /api/v4/file-urls/batch` 返回
+        # **429 Too Many Requests**，实测一分钟内 **87 条秒败**（`wall_s` 中位 0.2s），
+        # `batch8.err` 里 429 计 93 次。这些请求**全部要重投**，是纯浪费；
+        # 且秒败会瞬间占满并发槽位、把批次推进卡住一段时间。
+        # 单账号限流探针（`probe_key_limits.py`）已证明限流是**按速率**而非并发上限：
+        # 单账号 24 并发持续 40 部零 429 —— 故**短暂退避即可恢复**，不必降并发。
+        #
+        # 处理：429 在此**原地退避重试一次**（退避时长带随机抖动，避免 24 个线程
+        # 同时醒来再次齐射）；仍失败才返回 None 交上层换 key / 跨批重做。
+        # 其余网络错误路径保持不变（它们不是速率问题，退避无益）。
+        _st = getattr(getattr(e, "response", None), "status_code", None)
+        if _st == 429 and not _retried_429:
+            import random
+            import time as _t
+            _sleep = 5.0 + random.uniform(0, 5.0)     # 5–10s 抖动
+            logger.warning("云侧限流 429 → 退避 %.1fs 后重试一次：%s", _sleep, pdf_path.name)
+            _t.sleep(_sleep)
+            return mineru_cloud_submit_and_wait(
+                pdf_path, output_dir,
+                timeout=max(60.0, timeout - _sleep), api_key=api_key,
+                _retried_429=True)
         logger.warning("云解析失败（网络/超时类，回退上层降级链路）: %s", e)
         if uploaded:
             _record_egress_safe(pdf_path.name, batch_id, landing, ok=False,

@@ -395,3 +395,160 @@ def test_egress_recorded_when_poll_fails_after_upload(tmp_path, monkeypatch):
     assert egress, "上传后轮询失败必须留审计痕迹"
     meta = egress[-1][2].get("response_meta") or {}
     assert meta.get("ok") is False and "ReadTimeout" in str(meta.get("reason"))
+
+
+def test_429_backs_off_and_retries_once(tmp_path, monkeypatch):
+    """**限流 429 要原地退避重试一次**，而不是直接当网络失败返回 None。
+
+    现场（2026-09-16 批 8/9 实测）：启动瞬间 24 并发齐射 → `file-urls/batch` 返回
+    429，**一分钟内 87 条秒败**（`wall_s` 中位 0.2s），全部需重投 = 纯浪费，
+    且秒败瞬间占满并发槽位。单账号探针已证明限流是**按速率**而非并发上限
+    （单账号 24 并发持续 40 部零 429）→ 短暂退避即可恢复，不必降并发。
+
+    本用例把退避的 `time.sleep` 换掉（否则测试要真等 5–10 秒），
+    断言：**第一次抛 429 → 退避 → 第二次成功**，且**只重试一次**。
+    """
+    import httpx
+
+    from src.core.config import reset_settings
+    monkeypatch.setenv("KS_MINERU_CLOUD_API_KEY", "tok")
+    monkeypatch.setenv("KS_MINERU_CLOUD_BASE_URL", "https://example.invalid")
+    reset_settings()
+
+    sleeps: list[float] = []
+    monkeypatch.setattr("time.sleep", lambda s: sleeps.append(s))
+
+    calls = {"n": 0}
+
+    def apply_upload_url(*_a, **_k):
+        calls["n"] += 1
+        if calls["n"] == 1:
+            raise httpx.HTTPStatusError(
+                "429 Too Many Requests", request=httpx.Request("POST", "https://x"),
+                response=httpx.Response(429))
+        return ("batch-1", "https://upload.invalid/put")
+
+    monkeypatch.setattr(mineru_cloud, "_apply_upload_url", apply_upload_url)
+    monkeypatch.setattr("httpx.put", lambda *a, **k: type("R", (), {
+        "status_code": 200, "raise_for_status": lambda self: None})())
+    monkeypatch.setattr(mineru_cloud, "_poll_result", lambda *a, **k: "https://zip.invalid/z")
+    monkeypatch.setattr(mineru_cloud, "_download_zip", lambda *a, **k: None)
+    monkeypatch.setattr(mineru_cloud, "_safe_extract", lambda *a, **k: None)
+    monkeypatch.setattr(mineru_cloud, "_normalize_landing", lambda *a, **k: str(tmp_path / "land"))
+    monkeypatch.setattr(mineru_cloud, "_record_egress_safe", lambda *a, **k: None)
+
+    pdf = tmp_path / "a.pdf"
+    pdf.write_bytes(b"%PDF-1.4 minimal")
+    r = mineru_cloud.mineru_cloud_submit_and_wait(pdf, tmp_path / "out")
+    assert r is not None, "429 退避后应成功，而不是返回 None"
+    assert calls["n"] == 2, f"应恰好重试一次（实际 {calls['n']} 次）"
+    assert len(sleeps) == 1, f"应恰好退避一次（实际 {len(sleeps)} 次）"
+    assert 5.0 <= sleeps[0] <= 10.0, f"退避应有 5–10s 抖动，实测 {sleeps[0]}"
+
+
+def test_429_backoff_is_not_infinite(tmp_path, monkeypatch):
+    """**429 持续存在时不许无限重试**——退避一次后仍失败就返回 None（交上层换 key）。
+
+    判据靠显式参数 `_retried_429`（**不是 `locals()` 探测**——递归是新 scope，
+    探测必然失效；写的时候踩过这个坑）。
+    """
+    import httpx
+
+    from src.core.config import reset_settings
+    monkeypatch.setenv("KS_MINERU_CLOUD_API_KEY", "tok")
+    monkeypatch.setenv("KS_MINERU_CLOUD_BASE_URL", "https://example.invalid")
+    reset_settings()
+
+    sleeps: list[float] = []
+    monkeypatch.setattr("time.sleep", lambda s: sleeps.append(s))
+    calls = {"n": 0}
+
+    def always_429(*_a, **_k):
+        calls["n"] += 1
+        raise httpx.HTTPStatusError(
+            "429 Too Many Requests", request=httpx.Request("POST", "https://x"),
+            response=httpx.Response(429))
+
+    monkeypatch.setattr(mineru_cloud, "_apply_upload_url", always_429)
+    monkeypatch.setattr(mineru_cloud, "_record_egress_safe", lambda *a, **k: None)
+    pdf = tmp_path / "a.pdf"
+    pdf.write_bytes(b"%PDF-1.4 minimal")
+    assert mineru_cloud.mineru_cloud_submit_and_wait(pdf, tmp_path / "out") is None
+    assert calls["n"] == 2, f"应恰尝试 2 次（1 + 1 次退避重试），实际 {calls['n']}"
+    assert len(sleeps) == 1, f"只许退避一次，实际 {len(sleeps)}"
+
+
+def test_non_429_network_error_does_not_backoff(tmp_path, monkeypatch):
+    """**反向对照：非 429 的网络错误不许退避**（它们不是速率问题，退避无益且白等）。
+
+    尤其 `httpx.ConnectError` 没有 `response` → `status_code` 取不到 → 必须走原路径。
+    """
+    import httpx
+
+    from src.core.config import reset_settings
+    monkeypatch.setenv("KS_MINERU_CLOUD_API_KEY", "tok")
+    monkeypatch.setenv("KS_MINERU_CLOUD_BASE_URL", "https://example.invalid")
+    reset_settings()
+
+    sleeps: list[float] = []
+    monkeypatch.setattr("time.sleep", lambda s: sleeps.append(s))
+    monkeypatch.setattr(mineru_cloud, "_record_egress_safe", lambda *a, **k: None)
+
+    pdf = tmp_path / "a.pdf"
+    pdf.write_bytes(b"%PDF-1.4 minimal")
+    for make_exc in (
+        lambda: httpx.ConnectError("conn reset"),
+        lambda: httpx.HTTPStatusError("500 oops", request=httpx.Request("POST", "https://x"),
+                                      response=httpx.Response(500)),
+    ):
+        def boom(*_a, _mk=make_exc, **_k):
+            raise _mk()
+
+        monkeypatch.setattr(mineru_cloud, "_apply_upload_url", boom)
+        assert mineru_cloud.mineru_cloud_submit_and_wait(pdf, tmp_path / "out") is None
+    assert sleeps == [], f"非 429 不应退避，实测退避了 {sleeps}"
+
+
+def test_explicit_api_key_overrides_global(tmp_path, monkeypatch):
+    """**显式 `api_key` 必须覆盖全局 settings 的 key**（竞态治本的关键）。
+
+    现场（2026-09-16 实测）：批量侧靠 `vlm_ocr.use_key()` 写**全局 settings**，
+    而 key 在提交那一刻才读 → 24 线程各自 use_key 后并发提交，**线 A 设的 key
+    被线 B 覆盖**。实测后果：
+      · key 用量失衡到 `project 2037 / loop2 232 / loop3 6`（轮转形同虚设）；
+      · 别名与实发 key 错配（日志 `key=project sk-HWq…`——project 配了 loop2 的 key）。
+    本用例断言：**全局设的是 A、显式传的是 B → 实发必须是 B**。
+    """
+    from src.core.config import reset_settings
+    monkeypatch.setenv("KS_MINERU_CLOUD_API_KEY", "GLOBAL-KEY")
+    monkeypatch.setenv("KS_MINERU_CLOUD_BASE_URL", "https://example.invalid")
+    reset_settings()
+
+    seen: list[str] = []
+    monkeypatch.setattr(mineru_cloud, "_apply_upload_url",
+                        lambda key, base, name: (seen.append(key), ("b", "https://u"))[1])
+    monkeypatch.setattr("httpx.put", lambda *a, **k: type("R", (), {
+        "status_code": 200, "raise_for_status": lambda self: None})())
+    monkeypatch.setattr(mineru_cloud, "_poll_result", lambda *a, **k: "https://zip.invalid/z")
+    monkeypatch.setattr(mineru_cloud, "_download_zip", lambda *a, **k: None)
+    monkeypatch.setattr(mineru_cloud, "_safe_extract", lambda *a, **k: None)
+    monkeypatch.setattr(mineru_cloud, "_normalize_landing", lambda *a, **k: str(tmp_path / "l"))
+    monkeypatch.setattr(mineru_cloud, "_record_egress_safe", lambda *a, **k: None)
+
+    pdf = tmp_path / "a.pdf"
+    pdf.write_bytes(b"%PDF-1.4 minimal")
+
+    # 显式传 B → 实发必须是 B
+    mineru_cloud.mineru_cloud_submit_and_wait(pdf, tmp_path / "o1",
+                                              api_key="EXPLICIT-KEY")
+    assert seen == ["EXPLICIT-KEY"], f"显式 key 未生效，实发 {seen}"
+
+    # **反向对照**：不传 → 仍走全局（保证既有调用方语义不变）
+    seen.clear()
+    mineru_cloud.mineru_cloud_submit_and_wait(pdf, tmp_path / "o2")
+    assert seen == ["GLOBAL-KEY"], f"未传时应沿用全局，实发 {seen}"
+
+    # 传空串应视为"未指定"（走全局），而不是把 key 置空
+    seen.clear()
+    mineru_cloud.mineru_cloud_submit_and_wait(pdf, tmp_path / "o3", api_key="")
+    assert seen == ["GLOBAL-KEY"], f"空串应回退全局，实发 {seen}"

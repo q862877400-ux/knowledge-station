@@ -95,3 +95,43 @@ def test_egress_audit_export(client):
     payload = json.loads(r2.content)
     assert payload["total"] >= 1
     assert any("导出测试" in it["query"] for it in payload["items"])
+
+
+def test_ks_answer_leaves_audit_record(client, db):
+    """D2 红线回归：取证端点 `/ks/answer` 也必须落 debug_dump（user_export）。
+
+    2026-09-16（iteration-6 自查 §1，代码级核实）：该端点此前**零落库** ——
+    既不写 debug_dump，也不写 `record_egress`。而它内部会真发一次云端 LLM 调用
+    （`ks_answer._stream_llm()` → `OpenAI(api_key=...)`），且是 `/forensic`
+    强制走的取证链路（`plugin/src/chatmode.js:9`）。审计侧只认
+    `_AUDIT_TRIGGER_TYPES = ("user_export","egress")`，故该路径的外发 payload
+    在 `/api/v1/egress/audit` 与导出里**完全不可见** —— 与 `ENCYCLOPEDIA` §1.5
+    承诺 4「每次云调用的完整 payload 落库，UI 可查可导出」直接冲突。
+
+    同时覆盖 `_write_debug_dump` 的 **dict 兼容**修复：`ks_answer` 的 verification
+    是普通 dict（`_assemble_verification()` 产物），旧实现在该分支上求值
+    `verification.is_valid` 会抛 AttributeError、被 except 吞成一条 warning
+    → "看起来写了、实际没写"。故此处断言 `verification_result` 真的被序列化。
+
+    本用例在修复前必红（旧实现下 `row is None`）。
+    """
+    c, token = client
+    r = c.post("/api/v1/ks/answer",
+               json={"query": "防火间距", "params": {"top_k": 1}},
+               headers={"Authorization": f"Bearer {token}"})
+    assert r.status_code == 200, r.text
+    assert r.json()["data"].get("tier"), "取证答案应带 tier"
+
+    row = db.execute(
+        "SELECT trigger_type, query, retrieval_result, llm_output,"
+        " verification_result, logs FROM debug_dump"
+        " WHERE query=? ORDER BY created_at DESC, rowid DESC LIMIT 1",
+        ("防火间距",)).fetchone()
+    assert row is not None, "取证端点必须落 debug_dump（D2 红线，审计源）"
+    assert row["trigger_type"] == "user_export", "与 SSE 路径同口径"
+    assert row["retrieval_result"], "检索证据应落库"
+    # dict 形态的 verification 必须被正确序列化（旧实现在此抛 AttributeError）
+    vres = json.loads(row["verification_result"])
+    assert "is_valid" in vres, "verification dict 应被完整落库"
+    logs = json.loads(row["logs"])
+    assert logs["trace"]["stage"] == "ks_answer"

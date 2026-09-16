@@ -162,6 +162,34 @@ def create_app(token: str) -> FastAPI:
         bm = user_data.bookmarked_clause_keys()
         ann = user_data.annotations_by_clause_keys([c.clause_key])
         out = _ev_dict(c, bm, ann)
+        # 2026-09-16（iteration-6 自查 §8.1 的修正版）：把「能否作为依据」做成**机器可读**字段。
+        #
+        # 背景与边界（先说清，别误读成"加了过滤"）：
+        # 本端点是**定位**工具（LLM 引用未进证据列表的条款时用），它**故意不过滤**非现行版
+        # —— 用户点名问旧版时必须能解析到，并说明其状态与差异（决策 22 的括号部分）。
+        # 此前该禁令只写在 `plugin/src/chatmode.js:153` 的取证提示词里（"非 effective 只能作
+        # 历史沿革或预告说明，不得作为依据"），属**提示词级约束**；而 `hybrid_engine` 的
+        # exact 通道对同一红线是**硬过滤**（`NOT IN ('withdrawn','superseded')`）——
+        # 同一红线两条路径强度不同，是本函数此前唯一的合规缺口。
+        #
+        # 修法不是加过滤（那会破坏"点名问旧版"这个被明确设计支持的场景），而是补一个
+        # 与既有 `folder_scope`/`scope_notice` **同款**的代码级标记：让"只能定位、不得作依据"
+        # 不再依赖模型正确解读 `legal_status` 枚举。
+        # ⚠ 不改 `legal_status` 语义、不改变命中与否、不动 404 分支。
+        ls = out.get("legal_status")
+        if ls == "effective":
+            out["basis_scope"] = "usable"
+        elif ls is None:
+            # 状态未知：不猜测（与 resolve_status 的"诚实保持原状态"同哲学）
+            out["basis_scope"] = "unknown"
+            out["basis_notice"] = ("该条效力状态未知（库内未核验），只能用于定位；"
+                                   "如需作为依据，请先用 ks_answer 取证确认现行性。")
+        else:
+            out["basis_scope"] = "locate_only"
+            _label = {"superseded": "已被替代", "withdrawn": "已废止",
+                      "upcoming": "尚未生效"}.get(str(ls), str(ls))
+            out["basis_notice"] = (f"该条为「{_label}」，只能用于定位、历史沿革或预告说明，"
+                                   "不得写入依据区、不得作为合规结论的依据。")
         if folder_id:
             scope = user_data.folder_scope(folder_id)
             if scope is None:
@@ -1864,10 +1892,19 @@ def create_app(token: str) -> FastAPI:
                     'clause_number': e.get('clause_number'),
                     'modality': e.get('modality'),
                     'knowledge_type': e.get('knowledge_type')} for e in ev_dicts]
-            vres = (verification.model_dump()
-                    if verification is not None and hasattr(verification, 'model_dump')
-                    else {'is_valid': bool(verification is not None
-                                           and verification.is_valid)})
+            # 2026-09-16（iteration-6 自查 §1）：兼容 **dict** 形态的 verification。
+            # `/ks/answer` 走 `ks_answer._assemble_verification()`，返回的是**普通 dict**
+            # （不是 Pydantic 模型）——旧实现在该分支上求值 `verification.is_valid`，
+            # 对 dict 抛 AttributeError，被本函数的 except 吞成一条 warning，
+            # 结果是"看起来写了、实际什么都没写"。原三元式只覆盖了 SSE 路径的模型形态。
+            if verification is None:
+                vres = {'is_valid': False}
+            elif isinstance(verification, dict):
+                vres = dict(verification)
+            elif hasattr(verification, 'model_dump'):
+                vres = verification.model_dump()
+            else:
+                vres = {'is_valid': bool(getattr(verification, 'is_valid', False))}
             vjson = json.dumps(vres, ensure_ascii=False, default=str)
             logs = json.dumps({'trace': trace or {},
                               'answer_confidence': answer_confidence,
@@ -1888,6 +1925,50 @@ def create_app(token: str) -> FastAPI:
         except Exception as e:  # noqa: BLE001
             logger.warning("debug_dump 写入失败: %s", e)
 
+    def _write_ks_answer_dump(data: dict, history: list | None = None) -> None:
+        """把 `/ks/answer`（取证答案）落进 debug_dump —— **D2 外发审计履行**。
+
+        背景（2026-09-16，iteration-6 自查 §1，已代码级核实）：
+        本端点此前**零落库** —— 既不写 debug_dump，也不写 `record_egress`。
+        而它正是 `/forensic` 强制走的那条取证链路（`plugin/src/chatmode.js:9`
+        「凡涉法规/国标/合规的问题必须走 ks_answer 取证链路」），且内部会真发一次
+        云端 LLM 调用（`ks_answer._stream_llm()` → `OpenAI(api_key=...)`）。
+        审计侧只认 `egress_audit._AUDIT_TRIGGER_TYPES = ("user_export","egress")`，
+        故该路径的完整 payload 在 `/api/v1/egress/audit` 与导出里**完全不可见**，
+        与 `ENCYCLOPEDIA` §1.5 承诺 4 / `INTRODUCTION` §三.10 的"每次云调用（LLM/OCR）的
+        完整 payload 落库，UI 可查可导出"直接冲突。
+
+        说明两点边界（不要当它已经解决）：
+        1. `ks_answer.answer()` 返回的 `_meta` **本就注明"供已接入的 debug_dump"**
+           （`ks_answer.py:687`）——数据一直是准备好的，只是从未接线。
+        2. `trigger_type` 沿用 `'user_export'`（与 SSE 路径同口径），**无需改
+           `_AUDIT_TRIGGER_TYPES`**；但 `debug_dump` 有「1000 行滚动」保留策略，
+           而生产库 egress 记录约 50 分钟即写满一轮（实测），故本记录的**可查窗口
+           仍然很短**。保留策略是独立议题（见 reports §B.4 的旁路落点方案），
+           本函数只负责让这条路径**机械上被审计到**。
+        """
+        if not isinstance(data, dict):
+            return
+        meta = data.get("_meta") or {}
+        verification = data.get("verification")
+        vconf = verification if isinstance(verification, dict) else {}
+        derivation = data.get("derivation") or ""
+        conclusion = data.get("conclusion") or ""
+        _write_debug_dump(
+            query=meta.get("query") or "",
+            search_query=meta.get("search_query") or "",
+            ev_dicts=list(data.get("evidence") or []),
+            answer=f"{derivation}\n{conclusion}",
+            verification=verification,
+            answer_confidence={"level": vconf.get("answer_confidence"),
+                               "reasons": vconf.get("confidence_reasons") or []},
+            history=list(history or []),
+            trace={"stage": "ks_answer", "tier": data.get("tier"),
+                   "intent": meta.get("intent"), "theme": meta.get("theme"),
+                   "evidence_total": meta.get("evidence_total"),
+                   "llm_error": meta.get("llm_error"),
+                   "cite_warnings": meta.get("cite_warnings")},
+        )
 
 
     def _safe_count(conn, table: str) -> int:
@@ -1920,6 +2001,10 @@ def create_app(token: str) -> FastAPI:
         except Exception as e:  # noqa: BLE001 - 兜底：返回可审计错误，不崩引擎
             logger.exception("ks_answer 失败: %s", e)
             return _json_error(500, "ks_answer_error", f"取证答案生成失败: {e}")
+        # D2 红线履行（2026-09-16，iteration-6 自查 §1）：本端点内部会真发一次云端
+        # LLM 调用，此前**零落库** → 该路径的外发 payload 在审计面板与导出里不可见。
+        # 补一条 trigger_type='user_export'（与 SSE 路径同口径）。落库失败不阻断答案。
+        _write_ks_answer_dump(data, history=params.get("history"))
         return {"code": 200, "status": "success", "data": data}
 
     @app.get("/api/v1/egress/audit")

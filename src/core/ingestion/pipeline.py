@@ -5,8 +5,18 @@
     python -m src.core.ingestion.pipeline <pdf> --standard-no "GB 30871-2022" \
         --name "..." [--doc-type standard|法律法规] [--domain-tags 安全,消防]
 
-坐标契约: middle.json bbox 为 PDF 点、左上原点（y 向下）；source_span 直接存左上原点坐标，
-前端 PdfViewer 按「顶部原点→视口」映射高亮（勿用 convertToViewportRectangle 的底部原点翻转）。
+坐标契约（2026-09-16 更正）:
+    本节的旧文本写的是「左上原点（y 向下）…勿用底部原点翻转」——**那是错的**，
+    它与**同一个文件下方** :658-661 的废弃说明互相矛盾，也与前端
+    `plugin/client/KsEvidenceTab.tsx:477-479` 的契约注释相反（先读到的恰是错误版本）。
+
+    正确契约：MinerU middle.json 的 bbox 为 **PDF 底部原点（左下、y 向上）**；
+    `source_span` **原样直存**（不做任何翻转）；前端用 pdfjs
+    `convertToViewportPoint(x, y)` **直接映射**，**禁止再做 H−y 翻转**。
+    历史事故（两次）：曾误判为"左上原点"并加 `_flip_bbox` 翻转 → 前端又 H−y
+    → **双重翻转黄标垂直镜像**。`_flip_bbox` 已删除。
+    权威表述见 `ENCYCLOPEDIA` §9.3；`span_calibration.py` 负责把存量 span
+    归一为底部原点（最近文字行投票，幂等）。
 """
 from __future__ import annotations
 
@@ -117,9 +127,19 @@ _TOC_HEAD = re.compile(r"^目\s*次")
 #:   序号冒充）既带点线页码形、又不是条款，于是被 `_is_toc_entry` 认作目录条目
 #:   ——但此时**不在目录态**（`in_toc` 只在文首「目次」置位），故这些行全被
 #:   **并进前一条款**：正文 5.5 只有一行内容，却吃下 126 行（索引两页）。
-#: 判据：整块恰为「索引」（`索 引`/`索  引` 皆收；**必须整块**，不能是
-#:   "见索引"/"索引号" 这类正文词，否则会把正文块误判成索引起始）。
-_INDEX_HEAD = re.compile(r"^\s*索\s*引\s*$")
+#: 判据：整块恰为「索引」类词——前缀取**白名单**（`中文索引`/`英文索引`/`术语索引`/
+#:   `汉语拼音索引`），并容许字间空格（`索 引`/`索  引`）。
+#:   **必须整块**：不能是"见索引"/"索引号"这类正文词，否则会把正文块误判成索引起始。
+#:   ⚠ 白名单而非 `[\u4e00-\u9fff]{1,4}`：后者会把 `见索引` 也收进来
+#:     （自测当场抓到）。索引标题的前缀是**有限枚举**，不该用任意汉字。
+#:   （2026-09-16 扩宽，实测 GB/T 13964-2008：该标准文末为 `中文索引` … `英文索引`，
+#:    而旧判据只认整块 `索引` → 索引态从不置位 → 「英文索引」之后的整段英文索引
+#:    被当正文吞入。用 pipeline 自己的 item 加载器实测该部 item #1464=`中文索引`、
+#:    #1489=`英文索引`，均在旧判据下不置位。）
+#:   误报风险实测：40 部语料中，旧判据命中块 0 个、扩宽后仅多命中这批索引标题，
+#:   未见任何正文块被误判（见 `var/ocr-loop/probe_index_head.py`）。
+_INDEX_HEAD = re.compile(
+    r"^\s*(?:中文|英文|术语|汉语拼音|拼音|拉丁文|西文)?\s*索\s*引\s*$")
 
 # ---------------------------------------------------------------------------
 # 目录条目判据（2026-09-15 新语料头部类 toc-ingested-as-clauses 8 部）
@@ -151,6 +171,27 @@ _TOC_ENTRY = re.compile(r"(?:…{2,}|[.．]{3,})\s*\d{1,3}\s*$", re.M)
 #:     少了它会把普通多行正文块吃进目录态（'3.1 原则\n3.2 方法' 即误判）。
 #:   - ≥2 行是防单行误判：正文里一句"见 4.2 条 5"也可能单行成立。
 _RE_TOC_CL_NO_DOTS = re.compile(r"^\s*\d+(?:\.\d+)*\s+\S.*?\s\d{1,3}\s*$", re.M)
+
+#: **索引条目的签名**（2026-09-16 实测 GB/T 13964-2008 缺陷）。
+#: 形态：`词条 + 点线 + 页码`，但页码是**小数**（索引指向"条款号"而非"页号"）：
+#:   '白平衡 …… 2.78\n半峰值时间 …… 6.37\n包容角 …… 2.40\n饱和度 …… 10.49'
+#:   '压片板……9.7'（点线与数字之间**可以没有空格**）
+#: 为什么前两条签名都够不着：`_TOC_ENTRY` 要求点线后是 `\d{1,3}\s*$`（无小数点），
+#: `_RE_TOC_CL_NO_DOTS` 要求行首是**条款号** + 整数页码尾——索引条目行首是**词条**。
+#: 现状靠 `_INDEX_HEAD` 置索引起止态侥幸绕过（实测该部 416 条正文、索引未倒灌），
+#: 但**若某文档的索引没有标题块**，这些条目就会倒进正文——这是本次要堵的洞。
+#: 判据收紧点：① 必须有**点线**（正文里几乎没有连续的 `……`）；
+#:   ② 页码必须是 `数字.数字`（小数）；③ ≥2 行（单行可能是正文里的"见 3.2 …… 4.5"）。
+_RE_INDEX_ENTRY = re.compile(r"(?:…{2,}|[.．]{3,})\s*\d{1,3}\.\d{1,3}\s*$", re.M)
+
+
+def _is_index_entry(text: str) -> bool:
+    """该块是否像**索引条目**（≥2 行「词条 + 点线 + 小数页码」）。
+
+    与 `_is_toc_entry` 并列的独立签名，用于"索引没有标题块"时仍能识别并跳过。
+    ≥2 行约束见 `_RE_INDEX_ENTRY` 注释——单行在正文里可能是合法引用。
+    """
+    return len(_RE_INDEX_ENTRY.findall(text or "")) >= 2
 
 
 def _is_toc_entry(text: str) -> bool:
@@ -711,6 +752,17 @@ def split_items_into_clauses(items: list[MidItem]) -> list[SplitClause]:
             continue
         if in_index:
             continue
+        # **索引条目在"非目录态"也要收掉**（2026-09-16 实测 GB/T 13964-2008）：
+        # 索引条目形如 `白平衡 …… 2.78`（**小数页码**），`_is_toc_entry` 两条签名
+        # 都够不着 → 若该文档**没有「目次」标题**（`in_toc` 从未置位），
+        # 这些条目就会直接倒进正文。上面的 `in_toc` 分支只在目录态内生效，
+        # 故此处必须独立判一次。
+        # 判据收紧到"≥2 行「词条 + 点线 + 小数页码」"（见 `_RE_INDEX_ENTRY`），
+        # 正文里几乎不会连续出现这种形态；一旦命中即认为进入文末索引小节，
+        # 置位后其后内容都不入条款（与 `_INDEX_HEAD` 同语义）。
+        if _is_index_entry(text):
+            in_index = True
+            continue
         if in_toc:
             # 目次结束判定（2026-09-15 修订）：**只要是目录条目就继续吃**。
             # 旧判据"出现第一个章/条款头即退出"是缺陷根源——目录条目本身
@@ -719,6 +771,14 @@ def split_items_into_clauses(items: list[MidItem]) -> list[SplitClause]:
             # 目录条目的确定签名是**点线 + 页码尾**，据此判定；
             # 遇到不带页码尾的块才是正文开始。
             if _is_toc_entry(text):
+                continue
+            # **索引条目也在此收掉**（2026-09-16 实测 GB/T 13964-2008）：
+            # 该标准目录之后是 `中文索引`/`英文索引`，条目形如
+            # '白平衡 …… 2.78'（**小数页码**）——`_is_toc_entry` 两条签名都够不着，
+            # 于是目录态在此退出，索引条目开始倒向正文。
+            # 加这条后：无论索引**有没有标题块**，条目都不会进正文。
+            if _is_index_entry(text):
+                in_index = True      # 索引是文末小节，置位后不再复位（同 `_INDEX_HEAD`）
                 continue
             # 兼容：真正的章/条款头（无点线页码尾）出现 → 退出目录态
             if _CHAPTER_HEAD.match(text) or _CLAUSE_GB.match(text):
@@ -1341,7 +1401,24 @@ def build_clause_models(doc_id: str, standard_no: str, doc_type: str,
 
 
 def resolve_edges(raw_edges: list[dict[str, Any]],
-                  number_to_id: dict[str, str]) -> list[tuple[str, str, str, float, str]]:
+                  number_to_id: dict[str, str],
+                  unresolved_out: list[dict[str, Any]] | None = None
+                  ) -> list[tuple[str, str, str, float, str]]:
+    """把 raw_edges 解析成可落库的证据边元组（`(edge_type, src_id, dst_id, conf, status)`）。
+
+    ⚠ 2026-09-16（iteration-6 自查 §8.2，代码级核实）：旧实现里**未解析成功的引用被
+    静默丢弃** —— `if src and dst and src != dst:` 没有 else 分支、无日志、无计数。
+    而"引用目标解析不到"（指向外部标准 / 指向本库未收录的条款号）**本身就是合规风险**：
+    条款写着"应符合 GB XXXX 的 5.2.3"，而本库没有那一条，用户与检查者都无从知晓 ——
+    这恰好打在 KS「可溯源」的价值主张上。
+
+    参照 eyecite（BSD-2）对同族问题的纪律：**"歧义即不解析，但失败项必须留痕"**
+    （`resolve.py:288-293` + 各 resolver 的 `len(matches)==1` 唯一命中判据）。
+
+    修法保持**非破坏性**：返回值与既有调用方零改动；新增可选 `unresolved_out` ——
+    传入时把每条未解析的边连同**未解析的是哪一端**与原因追加进去，由调用方落
+    `event_log`（`run_full_ingest` 内已在同一写事务里这么做）。
+    """
     out = []
     for e in raw_edges:
         if e["edge_type"] == "clause_relation":
@@ -1349,6 +1426,17 @@ def resolve_edges(raw_edges: list[dict[str, Any]],
         src, dst = number_to_id.get(e["src"]), number_to_id.get(e["dst"])
         if src and dst and src != dst:
             out.append((e["edge_type"], src, dst, e["conf"], e["status"]))
+        elif unresolved_out is not None:
+            if not src or not dst:
+                reason = "unresolved_reference"
+                missing = [p for p, v in (("src", src), ("dst", dst)) if not v]
+            else:
+                reason = "self_loop"      # src == dst：两端解析到了同一条款
+                missing = []
+            unresolved_out.append({
+                "edge_type": e["edge_type"], "src": e["src"], "dst": e["dst"],
+                "missing": missing, "conf": e.get("conf"), "reason": reason,
+            })
     return out
 
 
@@ -1793,7 +1881,8 @@ def run_full_ingest(pdf_path: Path, standard_no: str, standard_name: str,
                     legal_hierarchy: str = "GB",
                     reingest: bool = False,
                     force_deep: bool = True,
-                    reuse_parse: bool = False) -> dict:
+                    reuse_parse: bool = False,
+                    product_dir: Path | None = None) -> dict:
     settings = get_settings()
     if not pdf_path.exists():
         return {"status": "error", "message": f"文件不存在: {pdf_path}"}
@@ -1830,6 +1919,43 @@ def run_full_ingest(pdf_path: Path, standard_no: str, standard_name: str,
             result = _cached_parse_result(settings.data_dir / "parse_out" / cand, pdf_path)
             if result is not None:
                 break
+    # **复用"已有 OCR 产物目录"（2026-09-16 新增，OCR 循环配套通道）**：
+    # 背景（实测确认，pipeline.py:1884）：不给这个入口时，入库一律走
+    # `run_parser_isolated(pdf, parse_out/<doc_id>)` —— 即**重新解析**。
+    # 而 OCR 循环因语料文档无 doc_id，产物落在 `parse_out/<_land_key(std_no)>`，
+    # 与入库默认的 `parse_out/<doc_id>` 是**两套命名、互不相认**。
+    # 于是"把循环产出的 8,484 部产物入库"会退化成**对同一批 PDF 重新 OCR 一遍**，
+    # 把已有 VLM 产物整批废掉。
+    #
+    # 给了 `product_dir` 即**零重解析**：直接把该目录当作深度产物目录，
+    # 下游经 `middle_locator.find_middle_files`（单一所有者）找到 `*_middle.json`
+    # 后走既有 `load_middle_items` 通道。
+    # `blocks` 显式置**空列表**（不是 None）：使 `_has_text_layer_ok` 为假，从而走
+    # "深度产物"分支（这条分支本就为"无文本层 → 用 OCR 产物"设计，正是本场景）。
+    # ⚠ 不能置 None：pipeline.py:2021 的封面块提取会**无条件**遍历
+    # `result["blocks"]`，None 会抛 `TypeError: 'NoneType' object is not iterable`（实测踩过）。
+    #
+    # `geometries` 必须存在且为 **dict[int, dict]**（pipeline.py:2037
+    # `insert_page_geometries` 逐个取 `g["width"]/g["height"]`，2096 还取 `len()`）。
+    # 2026-09-16：**从源 PDF 取真实页尺寸**（fitz），而不是给空 dict——
+    # 空 dict 会让 `doc_page_geometry` 无行、`pages_parsed` 记 0，
+    # 进而**按页定位证据（原文跳页/高亮）对这批文档不可用**。
+    # 实测：空 dict 时 3 部测试文档 页几何=0；用 fitz 填真实尺寸后应为真实页数。
+    if product_dir is not None:
+        pd = Path(product_dir)
+        if not pd.is_dir():
+            return {"status": "error", "message": f"产物目录不存在: {pd}"}
+        geos: dict[int, dict] = {}
+        try:
+            import fitz  # noqa: PLC0415
+            with fitz.open(str(pdf_path)) as _doc:
+                for _i, _p in enumerate(_doc, 1):
+                    _r = _p.rect
+                    geos[_i] = {"width": _r.width, "height": _r.height,
+                                "rotation": int(getattr(_p, "rotation", 0) or 0)}
+        except Exception:  # noqa: BLE001
+            geos = {}          # 取不到就退回空 dict（不阻断入库），但会记 0
+        result = {"deep_output": str(pd), "blocks": [], "geometries": geos}
     if result is None:
         result = run_parser_isolated(pdf_path, settings.data_dir / "parse_out" / doc_id,
                                      force_deep=force_deep)
@@ -1898,7 +2024,9 @@ def run_full_ingest(pdf_path: Path, standard_no: str, standard_name: str,
         logger.warning("span 坐标校准失败，保留原始坐标入库", exc_info=True)
 
     number_to_id = {m.clause_number: m.clause_revision_id for m in models}
-    edges = resolve_edges(raw_edges, number_to_id)
+    # 未解析引用留痕（iteration-6 自查 §8.2）：旧实现静默丢弃 → 引用断链不可观测。
+    unresolved_refs: list[dict[str, Any]] = []
+    edges = resolve_edges(raw_edges, number_to_id, unresolved_refs)
 
     type_dist: dict[str, int] = {}
     for m in models:
@@ -1967,6 +2095,20 @@ def run_full_ingest(pdf_path: Path, standard_no: str, standard_name: str,
         n_pre = clause_repo.insert_clauses_in_txn(txn, preface, content_type="前置说明")
         clause_repo.insert_clauses_in_txn(txn, appendix, content_type="附录")
         clause_repo.insert_edges_in_txn(txn, edges)
+        # 未解析引用落 event_log（**同一写事务**，守单写者纪律 §16.4 铁律 3）——
+        # 让"引用断链"从不可观测变成可查询（iteration-6 自查 §8.2）。
+        # items 截断 50 条：本表是审计/回溯用途，不是全量转储。
+        if unresolved_refs:
+            txn.execute(
+                "INSERT INTO event_log (event_id, event_type, actor, target_type,"
+                " target_id, metadata) VALUES (?,?,?,?,?,?)",
+                (f"evt_{ULID()}", "ingest_unresolved_refs", "pipeline", "doc", doc_id,
+                 json.dumps({"count": len(unresolved_refs),
+                             "items": unresolved_refs[:50]}, ensure_ascii=False)))
+            logger.warning(
+                "入库存在未解析引用 %d 条（已落 event_log）: %s",
+                len(unresolved_refs),
+                [f"{u['src']}->{u['dst']}" for u in unresolved_refs[:5]])
         # 目录卫生（2026-08-28 用户口径）：标准正文条款为零 = 坍缩/乱码吞没，
         # 不进目录。修复重导入产生真实条款 → 新行 DEFAULT 0 自动回归目录。
         if doc_type == "standard" and n_normal == 0:
@@ -1980,7 +2122,8 @@ def run_full_ingest(pdf_path: Path, standard_no: str, standard_name: str,
             " VALUES (?,?,?,?)",
             ("ingest", "doc", doc_id,
              json.dumps({"standard_no": standard_no, "clauses": len(models),
-                         "edges": len(edges)}, ensure_ascii=False)))
+                         "edges": len(edges),
+                         "unresolved_refs": len(unresolved_refs)}, ensure_ascii=False)))
 
     # OCR 数字回填（R58 补丁机制）：MinerU 文本层数字缺失时用 pypdf 还原打补丁
     backfilled = 0
@@ -2021,6 +2164,7 @@ def run_full_ingest(pdf_path: Path, standard_no: str, standard_name: str,
             "pypdf_backfilled": backfilled,
             "total_clauses": n_normal - n_pre, "preface_clauses": n_pre,
             "evidence_edges": len(edges),
+            "unresolved_refs": len(unresolved_refs),
             "pages_parsed": len(result["geometries"]),
             "knowledge_type_distribution": type_dist,
             "span_warning": span_warning}

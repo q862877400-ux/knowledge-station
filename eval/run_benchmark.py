@@ -1,9 +1,15 @@
 """Golden Set 评测器（Task 10.1）：检索指标 + 核验拦截率 + 合规三色准确率。
 
 零 LLM 消耗：检索指标直接用六路检索 top-K 的条款号 vs 答案集比对；
-citation_precision 用"top-K 证据命中答案的比例"代理（回答可引用范围）；
 modality_intercept_rate 用构造的 LLM 输出样本测核验器（复用 typed_verifier）；
 合规三色判定走规则引擎（复用 compliance.engine，不调 LLM）。
+
+⚠️ 2026-09-16 删除 `citation_precision@5`（iteration-6 自查 §2）：旧实现在返回值里
+直接写 `round(recall5 / n_search, 4)` —— **与 `recall@5` 是同一个数**（实测 baseline
+两者同为 0.9778），**零独立信息量**；且它**从未出现在
+`tests/test_golden_gate.py` 的 `KEYS` 里**，即从未受门禁保护。一个名字像"引用准确率
+门禁"的指标，既不独立、也不被守 —— 留着只会制造"有保护"的错觉。
+**引用侧的真实质量由答案侧指标承担**；在其落地前，本文件不再输出任何"引用精度"类指标。
 
 用法: .venv/Scripts/python eval/run_benchmark.py [--disable-channel exact|fts|...] [--out eval/result.json]
 """
@@ -109,7 +115,6 @@ def _run(disable_channel: str | None, golden_path: Path, with_rerank: bool = Fal
         "exact_hit@1": round(exact_hit / n_search, 4) if n_search else 0,
         "recall@5": round(recall5 / n_search, 4) if n_search else 0,
         "recall@10": round(recall10 / n_search, 4) if n_search else 0,
-        "citation_precision@5": round(recall5 / n_search, 4) if n_search else 0,
         "modality_intercept_rate": round(intercepted / n_adv, 4) if n_adv else 0,
         "compliance_accuracy": round(correct / n_comp, 4) if n_comp else 0,
         "red_precision": round(red_correct / n_red, 4) if n_red else 0,

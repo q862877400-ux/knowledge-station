@@ -20,7 +20,8 @@
 带数字尾的正文行都**不带点线**，不得被判为目录条目——否则会吃掉正文。
 """
 from src.core.ingestion.pipeline import (
-    MidItem, _INDEX_HEAD, _TOC_ENTRY, _is_toc_entry, split_items_into_clauses,
+    MidItem, _INDEX_HEAD, _TOC_ENTRY, _is_index_entry, _is_toc_entry,
+    split_items_into_clauses,
 )
 
 
@@ -180,6 +181,44 @@ _INDEX_ROWS = ("中文名称 …… 序号\nIC 卡充值站 …… 27\n保管好
                "病残专座 …… 16\n出口 …… 03")
 
 
+def test_index_entry_predicate():
+    """索引条目签名（词条 + 点线 + **小数页码**），且单行不认。
+
+    **缺陷现场（2026-09-16 实测 GB/T 13964-2008）**：`中文索引`/`英文索引` 之后的条目形如
+    `白平衡 …… 2.78`——页码是**小数**（索引指向条款号，不是页号）。
+    `_is_toc_entry` 的两条签名都够不着（一条要求点线后是**整数**页码尾，
+    另一条要求行首是**条款号**），于是目录态在此退出、索引条目开始倒向正文。
+    该部现实里靠 `_INDEX_HEAD` 置位侥幸绕过，但**索引若没有标题块**就会倒灌。
+    """
+    for yes in ("白平衡 …… 2.78\n半峰值时间 …… 6.37",
+                "压片板……9.7\n一步成像照相机……11.17",
+                "感光度值 …… 7.17\n感光平面 …… 9.18\n感光平面标记 …… 9.19"):
+        assert _is_index_entry(yes), yes
+    # **反向对照**：单行不认（正文里"见 4.2 …… 5.1"这类引用可能单行成立）；
+    # 整数页码尾不归索引条目（那是目录条目，归 `_is_toc_entry`）；普通正文不认
+    for no in ("白平衡 …… 2.78",                      # 单行
+               "9.1 包装 …… 13\n9.2 运输 …… 14",        # 整数页码 → 目录条目
+               "3.1 原则\n3.2 方法",                     # 正文
+               "见 4.2 …… 5.1"):                        # 正文引用
+        assert not _is_index_entry(no), no
+
+
+def test_untitled_index_entries_not_absorbed():
+    """**索引没有标题块**时，条目也不得进正文（`_is_index_entry` 的用途）。"""
+    items = [
+        _t("5 技术要求"),
+        _t("5.1 一般要求"),                      # 正文
+        _t("白平衡 …… 2.78\n半峰值时间 …… 6.37\n包容角 …… 2.40"),   # 无标题的索引条目
+        _t("饱和度 …… 10.49\n曝光 …… 7.1"),
+    ]
+    clauses = split_items_into_clauses(items)
+    texts = "\n".join("\n".join(c.texts or []) for c in clauses)
+    for bad in ("白平衡", "半峰值时间", "包容角", "饱和度"):
+        assert bad not in texts, f"无标题索引的条目被摄入条款：{bad}"
+    # 反向对照：索引之前的正文完好
+    assert "技术要求" in texts, f"索引前的正文被误吃：{texts[:60]!r}"
+
+
 def test_index_head_predicate():
     """只有"整块恰为索引"才算索引起始（含空格变体）。"""
     for yes in ("索引", "索 引", "索  引", "\n索引\n"):
@@ -192,6 +231,50 @@ def test_index_head_predicate():
                "索引号 3.2.1",
                "附录 A（资料性附录） 索引编制规则"):
         assert not _INDEX_HEAD.match(no), no
+
+
+def test_index_head_accepts_prefixed_titles():
+    """前缀白名单：`中文索引`/`英文索引`/`术语索引` 也是索引起始。
+
+    **缺陷现场（2026-09-16 实测 GB/T 13964-2008 照相机械术语）**：该标准文末为
+    `中文索引` …（大量词条）… `英文索引` …（英文词条），而旧判据只认**整块** `索引`
+    → 索引态从不置位 → 「英文索引」之后的整段英文索引被当正文吞入。
+    用 pipeline 自己的 item 加载器实测该部 item #1464=`中文索引`、#1489=`英文索引`。
+
+    ⚠ **前缀必须白名单，不能用 `[\\u4e00-\\u9fff]{1,4}`**：后者会把 `见索引` 也收进来
+    —— 本测试的正则自测当场抓到过这个误报。
+    """
+    for yes in ("中文索引", "英文索引", "术语索引", "汉语拼音索引", "拼音索引",
+                "中文索引 ", " 英文索引"):
+        assert _INDEX_HEAD.match(yes), yes
+    # **反向对照**：任意汉字前缀**不得**被当成索引标题
+    for no in ("见索引", "见中文索引", "本文索引", "参考索引", "总索引",
+               "见索引。", "附录 B 英文索引"):
+        assert not _INDEX_HEAD.match(no), no
+
+
+def test_prefixed_index_section_not_absorbed():
+    """前缀索引标题之后的词条也不得进条款（缺陷现场重放，GB/T 13964-2008 形态）。"""
+    items = [
+        _t("11 照相机械"),                # 章头（条款号需章上下文才成立）
+        _t("11.7 120 照相机"),
+        _t("中文索引"),
+        _t("白平衡 …… 2.78\n半峰值时间 …… 6.37", 19),
+        _t("英文索引"),
+        _t("white balance …… 2.78\nhalf-peak time …… 6.37", 22),
+    ]
+    clauses = split_items_into_clauses(items)
+    numbers = [str(c.number or "") for c in clauses]
+    texts = "\n".join("\n".join(c.texts or []) for c in clauses)
+    for bad in ("白平衡", "半峰值时间", "white balance", "half-peak"):
+        assert bad not in texts, f"索引词条被摄入条款：{bad}"
+    for bad in ("中文索引", "英文索引"):
+        assert bad not in numbers, f"索引标题成了条款：{bad}"
+    # 反向对照：索引**之前**的条款必须完好（索引态不得提前置位、也不得吃掉前文）。
+    # 注：`in_index` 一旦置位**不复位**（索引是文末小节，见 `_INDEX_HEAD` 注释），
+    # 故索引之后本就不应有正文——本组断言的是"索引前文完好"。
+    assert "11" in numbers, f"索引前的章被误吃：{numbers}"
+    assert "照相机械" in texts, f"索引前的正文被误吃：{texts[:80]!r}"
 
 
 def test_index_section_not_absorbed_into_clause():

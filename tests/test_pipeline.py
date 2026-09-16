@@ -261,3 +261,44 @@ def test_interline_equation_restored(tmp_path):
         "公式行不得伪造条款头（闸门兜底）"
     c524 = clauses[0]
     assert any("f =" in ln for ln in c524.texts), "公式行应并入所属条款 texts"
+
+
+def test_resolve_edges_reports_unresolved():
+    """未解析引用必须留痕（iteration-6 自查 §8.2，代码级核实）。
+
+    旧实现 `if src and dst and src != dst:` **没有 else、无日志、无计数** ——
+    引用目标解析不到时那条边直接蒸发。而"条款写着『应符合 GB XXXX 的 5.2.3』
+    而本库没有那一条"**本身就是合规风险**，且用户与检查者都无从知晓，
+    正打在 KS「可溯源」的价值主张上。
+
+    参照 eyecite（BSD-2，`resolve.py:288-293`）的纪律：**歧义即不解析，
+    但失败项必须留痕**。本用例钉住 `unresolved_out` 的语义，并确认
+    **返回值与既有调用方零改动**（不传该参数时行为逐字不变）。
+    """
+    number_to_id = {"5.2.1": "rev_a", "5.2.2": "rev_b"}
+    raw = [
+        {"edge_type": "reference_relation", "src": "5.2.1", "dst": "5.2.2",
+         "conf": 0.9, "status": "active"},                 # 两端都在 → 成边
+        {"edge_type": "reference_relation", "src": "5.2.1", "dst": "9.9.9",
+         "conf": 0.9, "status": "active"},                 # dst 不在本库 → 未解析
+        {"edge_type": "exception_relation", "src": "外部标准", "dst": "5.2.1",
+         "conf": 0.9, "status": "active"},                 # src 不在本库 → 未解析
+        {"edge_type": "reference_relation", "src": "5.2.1", "dst": "5.2.1",
+         "conf": 0.9, "status": "active"},                 # 自环 → 不成边
+        {"edge_type": "clause_relation", "src": "5.2.1", "dst": "5.2.2",
+         "conf": 0.9, "status": "active"},                 # 表绑定 → 有意跳过
+    ]
+    unresolved: list = []
+    edges = resolve_edges(raw, number_to_id, unresolved)
+
+    assert len(edges) == 1, "只有两端都解析到且非自环的边才成立"
+    assert edges[0][1] == "rev_a" and edges[0][2] == "rev_b"
+    # clause_relation 是**有意跳过**（表绑定已落在条款内部），不得计入"未解析"
+    assert len(unresolved) == 3, f"应留痕 3 条，实际 {unresolved}"
+    by = {(u["src"], u["dst"]): u for u in unresolved}
+    assert by[("5.2.1", "9.9.9")]["reason"] == "unresolved_reference"
+    assert by[("5.2.1", "9.9.9")]["missing"] == ["dst"], "要指明未解析的是哪一端"
+    assert by[("外部标准", "5.2.1")]["missing"] == ["src"]
+    assert by[("5.2.1", "5.2.1")]["reason"] == "self_loop"
+    # 非破坏：不传 unresolved_out 时返回值与旧签名逐字一致
+    assert resolve_edges(raw, number_to_id) == edges

@@ -72,6 +72,7 @@ def compare_docs(doc_a: str, doc_b: str) -> dict[str, Any]:
     idx_a, idx_b = _clause_index(conn, doc_a), _clause_index(conn, doc_b)
     pairs = []
     seen_b: set[str] = set()
+    paired_a: set[str] = set()   # 已配对的旧版 revision（removed 判据，见文件末注释）
     for key, ca in idx_a.items():
         cb = idx_b.get(key)
         if cb is None:
@@ -79,6 +80,7 @@ def compare_docs(doc_a: str, doc_b: str) -> dict[str, Any]:
         if key.startswith("no:") and (ca["clause_key"] in idx_b):
             continue  # key 已配对，跳过条款号回退项
         seen_b.add(cb["clause_revision_id"])
+        paired_a.add(ca["clause_revision_id"])
         old_text, new_text = ca["content_text"] or "", cb["content_text"] or ""
         sim = difflib.SequenceMatcher(None, old_text[:500], new_text[:500]).ratio()
         modality_changed = None
@@ -103,11 +105,16 @@ def compare_docs(doc_a: str, doc_b: str) -> dict[str, Any]:
         })
 
     # 仅存在于其中一方的条款（新增/删除）
+    # ⚠ 2026-09-16 修复（iteration-6 自查 §7）：旧实现把 doc_a 的 revision_id 与
+    # `idx_b.values()` 的全部 revision_id 比对——而 `_clause_index` 按 `WHERE doc_id=?`
+    # 建索引，两个不同文档的 revision_id **必然互不相同**，故该判据**恒真**，
+    # `removed` 恒等于「旧版全部条款号」（连两版完全相同时也报全删）。
+    # 该值经 storage/impact.py:60 进入 `POST /api/v1/documents/impact` 的影响面报告，
+    # 属用户可见输出。现改为按「该条款**是否配对成功**」判定。
     added = [v["clause_number"] for k, v in idx_b.items()
              if k.startswith("no:") and v["clause_revision_id"] not in seen_b]
     removed = [v["clause_number"] for k, v in idx_a.items()
-               if k.startswith("no:") and v["clause_revision_id"] not in
-               {c["clause_revision_id"] for c in idx_b.values()}]
+               if k.startswith("no:") and v["clause_revision_id"] not in paired_a]
 
     return {
         "a": dict(meta_a), "b": dict(meta_b),
