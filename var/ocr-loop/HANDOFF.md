@@ -1997,3 +1997,33 @@ pwsh -NoProfile -File var\ocr-loop\watchdog.ps1                 # 手动自检�
 ## 十、一句话总结
 
 **所有判断都要有原文证据与可回滚路径；区分"仪器误报"和"管线真缺陷"；修复只在规范所有者层做并过门禁；用留出集判定成败；全程不写库；VLM 唯一、pipeline 出局；35,000+ 部完美识别之前不停。**
+
+### 10.32 入库战役（2026-09-16 起，进行中）
+
+**做了什么**：打通"循环产物 → 入库"通道。原 un_full_ingest 一律走
+un_parser_isolated(pdf, parse_out/<doc_id>)（**重新解析**），而循环产物在
+parse_out/<std_no 落位>——两套命名互不相认，直接跑会把 8,484 部**重新 OCR 一遍**。
+新增 product_dir 入口即**零重解析**（详见 CONTRACT.md §5 与 pipeline.py 注释）。
+
+**三个踩过的坑（已修，注释留档）**：① 脚本缺 if __name__ == '__main__':
+→ multiprocessing spawn 报 _check_not_importing_main；② locks=None →
+封面块提取无条件遍历它抛 TypeError（改空列表）；③ geometries 缺失 →
+insert_page_geometries 抛 KeyError；**没只补空 dict**——那会让
+doc_page_geometry 无行、pages_parsed=0、**按页定位证据全废**，
+故改为**用 fitz 从源 PDF 取真实页尺寸**。
+
+**执行方式**：
+```
+python -u var/ocr-loop/ingest_from_manifest.py --limit 8484     # 全量，后台
+python -u var/ocr-loop/ingest_from_manifest.py --limit N --skip M  # 断点续跑
+python var/ocr-loop/check_ingested_clauses.py                    # 条款/几何核对
+```
+**中断续跑**：用 --skip <已成功条数>；重复项会被判 duplicate 自动跳过，不会重复入库。
+
+**对账口径（收尾时必须分四类）**：ok（新入库）· duplicate（同 hash 已在库）·
+**standard_exists（同标准号、hash 不同，已在库）**· rror（真失败）。
+**待用户决定**：standard_exists 那批是否要用我们的 VLM 产物**覆盖**库内旧版。
+
+**遗留**：最早手工试入库的 **3 部页几何为 0**（在几何修复之前入库），
+补法＝对它们单独 eingest=True 重导。
+``

@@ -1,6 +1,26 @@
 .venv/
 node_modules/
-var/
+# ---- var/ 是运行态目录：内容整体忽略；但 OCR 循环的**代码**是项目资产，必须跟踪 ----
+# 2026-09-16 固化。背景：原先 `var/` 整目录忽略，使 `vlm_ocr.py` / `batch_advance.py`
+# / `next_batch.py` / `audit_text.py` 等**执行代码不受版本控制** → 换机器或重装即
+# 全部丢失；而其中两项修复（撞键组整组弃用、needs-human 永久沉没）一旦丢失，
+# 会**再次静默丢内容**（详见 var/ocr-loop/REPORT-2026-09-16.md 第四节）。
+# 只放行代码与小配置/文档；state、日志、evolve 清单、scratch、产物索引等**仍忽略**。
+var/*
+!var/ocr-loop/
+var/ocr-loop/*
+!var/ocr-loop/*.py
+!var/ocr-loop/*.ps1
+!var/ocr-loop/fixed_classes.json
+!var/ocr-loop/HANDOFF.md
+!var/ocr-loop/REPORT-2026-09-16.md
+!var/ocr-loop/CONTRACT.md
+# 一次性探针/诊断/普查脚本**不进版本控制**：它们是当时取证的临时工具，
+# 属本机资产（结论与判据已固化进代码与 CONTRACT/HANDOFF），
+# 保留在盘上以免误删，但不让仓库变脏。
+var/ocr-loop/probe_*.py
+var/ocr-loop/diag_*.py
+var/ocr-loop/census_*.py
 __pycache__/
 *.pyc
 .pytest_cache/

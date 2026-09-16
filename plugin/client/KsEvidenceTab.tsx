@@ -43,7 +43,19 @@ import {
   type KsClause,
 } from './api'
 import { configurePdfWorker, PDF_WASM_DIR } from './pdf-configure'
-import { backingStoreDpr, fitPageScale, PAGE_PADDING } from './pdfFit'
+import {
+  backingStoreDpr,
+  continuousViewportHeight,
+  fitPageScale,
+  MANUAL_MAX_PERCENT,
+  MANUAL_MIN_PERCENT,
+  PAGE_PADDING,
+  ZOOM_PRESET_PERCENTS,
+  zoomForAutoFit,
+  zoomForManual,
+  zoomScale,
+  type ZoomState,
+} from './pdfFit'
 import {
   restorePanelAfterPdf,
   TOC_COLUMN_WIDTH,
@@ -92,6 +104,11 @@ const SCROLLBAR_NOISE_PX = 20
 const DEFAULT_SETTLE_MS = 360
 /** 窗口 resize / 最大化 / 浏览器缩放：没有 CSS 宽度过渡与之竞争，用短档保响应。 */
 const RESIZE_SETTLE_MS = 120
+/**
+ * 连续（瀑布）模式下"提前绘制"的上下余量（px）：可视区上下各预留这么多，
+ * 滚动时页面已经在旁边画好了，而不是滚到才开始解码。
+ */
+const CONTINUOUS_MARGIN_PX = 400
 
 /** 读 `--ds-transition-duration-slow`（兼容 `0.3s` / `300ms`）；读不到回退 300。 */
 function readSlowTransitionMs(): number {
@@ -149,15 +166,61 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
 
   const evidence = useRef<KsEvidence | null>(EMPTY_EVIDENCE)
   const pdfDocRef = useRef<PDFDocumentProxy | null>(null)
-  const taskRef = useRef<pdfjs.RenderTask | null>(null)
   const abortRef = useRef<AbortController | null>(null)
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const bboxRef = useRef<HTMLDivElement | null>(null)
   const containerRef = useRef<HTMLDivElement | null>(null)
-  /** 绘制世代号：过期的一帧在 await 返回后自行退出（见 renderPage）。 */
-  const renderSeqRef = useRef(0)
-  /** 最近一次**成功**绘制所用的 (页, 缩放, dpr)——用于抖动抑制。 */
-  const lastFitRef = useRef<{ page: number; scale: number; dpr: number } | null>(null)
+  /**
+   * 每页各自的 RenderTask（连续模式必需）：单 canvas 时代用一个共享的 ref
+   * "先取消上一帧"是对的，但连续模式**多页并发渲染**——共享它会让第 2 页把第 1 页
+   * 的渲染取消掉，两页都画不出来（表现为空白页）。
+   * 所以取消只针对"这一页自己上一帧"。
+   */
+  const tasksByPageRef = useRef<Map<number, pdfjs.RenderTask>>(new Map())
+  /**
+   * 文档世代号：**只在换文档 / 重载时**递增。异步帧回来后若世代不符，说明它属于
+   * 上一份文档，必须丢弃（否则旧文档的页会画进新文档的 canvas）。
+   *
+   * 刻意**不用**它做页间互斥：连续模式多页并发绘制，任何"又开了一帧"式的全局递增
+   * 都会让相邻页互相作废（两页一起白屏）。页内的过期判断见 pageTokenRef。
+   */
+  const docEpochRef = useRef(0)
+  /** 每页的绘制令牌：同一页的新一帧会把旧帧作废（换页/缩放/尺寸连续变化时）。 */
+  const pageTokenRef = useRef<Map<number, number>>(new Map())
+  /** 单调递增的令牌发号器。 */
+  const tokenSeqRef = useRef(0)
+
+  /**
+   * 最近一次**成功**绘制所用的 (页, 缩放, dpr)——用于抖动抑制。
+   * 连续模式是多 canvas（每页一个），故按页号分别记账。
+   */
+  const lastFitRef = useRef<Map<number, { scale: number; dpr: number }>>(new Map())
+  // ---- 连续（瀑布）模式的多 canvas 记账（2026-09-16）----
+  /** 页号 → 该页的 canvas 元素（连续模式下由 ref 回调登记）。 */
+  const pageCanvasRefs = useRef<Map<number, HTMLCanvasElement>>(new Map())
+  /** 当前**已提交渲染**的页号序列（1..N）；单页模式只含当前页。 */
+  const pageOrderRef = useRef<number[]>([])
+  /**
+   * 已取消的页号：这些页的 canvas 可能带着半张旧图。重新进入可视区时必须**强制**
+   * 重绘（否则缩放死区会把重绘吃掉，留下半张页）。
+   */
+  const cancelledPagesRef = useRef<Set<number>>(new Set())
+  /** 当前在（接近）可视区内的页号——只有这些页才画，滚动进出即增删。 */
+  const visiblePagesRef = useRef<Set<number>>(new Set())
+  /** 连续模式的绘制签名（页序|缩放|dpr|尺寸）：变了才重画全部可见页。 */
+  const paintSigRef = useRef<string>('')
+  /**
+   * 当前缩放状态的 ref 镜像：renderPage 是 useCallback（按依赖重建），而绘制
+   * 常常由"滚动/尺寸"这类绕过 React 的路径触发，读 ref 才不会拿到旧闭包。
+   */
+  const zoomRef = useRef<ZoomState>({ source: 'autoFit' })
+  /** 单页 → 连续切换时要滚进视野的目标页（交接给滚动 effect；null = 无需滚动）。 */
+  const pendingScrollPageRef = useRef<number | null>(null)
+  /**
+   * 文档第 1 页在 scale=1 下的原始尺寸（pt）：只喂给底部栏的百分比回显（autoFit
+   * 下要算"自适应 = 多少 %"）。真正的绘制用每页自己的尺寸，不看这个值。
+   */
+  const firstPageBaseSizeRef = useRef<{ width: number; height: number } | null>(null)
   /** 几何冻结截止时间（ms epoch）：我们自己发起的布局动画期间不重绘。 */
   const renderFreezeUntilRef = useRef(0)
   /** 冻结期间是否发生过"想重绘"——冻结结束后补测一次。 */
@@ -221,6 +284,31 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
   // 换文档时回到 PDF 视图（正文按需再开）。
   const [viewMode, setViewMode] = useState<'pdf' | 'text'>('pdf')
 
+  // ---- 翻页模式 + 缩放来源（2026-09-16 用户需求，底部常驻栏）----
+  /**
+   * 翻页模式：'continuous' = **瀑布式**（滚动连续浏览多页，**打开即默认**）；
+   * 'single' = 单页（一次只画一页）。两者互斥。
+   *
+   * 与下面的 zoom 是**两个独立状态**（用户 2026-09-16 明确要求不要混成一个）：
+   * 单页也能量手动缩放，连续也能自适应。
+   */
+  const [pagingMode, setPagingMode] = useState<'continuous' | 'single'>('continuous')
+  /**
+   * 缩放来源状态机（纯函数在 pdfFit.ts，离线可测）：
+   *   { source:'autoFit' }            = 自适应窗口（默认）——跟容器走；
+   *   { source:'manual', percent }    = 手选百分比/拖过滑块——**不再**跟容器走，
+   *                                     只有再点「自适应窗口」才恢复。
+   */
+  const [zoom, setZoom] = useState<ZoomState>({ source: 'autoFit' })
+  /** 「浏览比例」下拉是否展开（**向上**弹出，见 bottomBar 的浮层）。 */
+  const [zoomMenuOpen, setZoomMenuOpen] = useState(false)
+  /** 下拉锚点矩形（视口坐标）：按钮位置一变就重算，null = 未展开。 */
+  const [zoomAnchor, setZoomAnchor] = useState<{
+    left: number
+    bottom: number
+    width: number
+  } | null>(null)
+
   // ---- 收藏夹选夹（2026-10 收藏目录）----
   // 收藏时若已有收藏夹 → 弹出选夹菜单（现有夹 / 新建 / 未分类）；
   // 还没有任何夹 → 一键直收（不弹菜单，收藏回未分类，用户建夹后可在收藏目录里移动）。
@@ -237,49 +325,72 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
   const pendingRevRef = useRef<string | null>(null)
 
   /**
-   * Render one page of the loaded PDF to the canvas, filling the container
-   * (纵向拉满优先，见 pdfFit.ts)，and overlay the bbox (if present) as a red
-   * arrow. 尺寸每次都现读容器（不用缓存值），窗口最大化/侧栏拖宽/浏览器缩放
-   * 都通过下方测量 effect 触发重绘。
+   * Render one page of the loaded PDF into an explicit canvas（单页 = 唯一那块；
+   * 连续 = 该页自己那块），缩放取自底部栏的缩放状态机（zoomScale），并 overlay
+   * 该页的 bbox（若有）为红箭头。尺寸每次都现读容器（不用缓存值），窗口最大化/
+   * 侧栏拖宽/浏览器缩放都通过下方测量 effect 触发重绘。
+   *
+   * @param opts.force  绕过"同页同缩放跳过"的死区（缩放/尺寸/DPI 真变了时用）
+   * @param opts.bbox   是否画红箭头 + 回填 arrowPos（只有单页模式需要；连续模式
+   *                    下多页共享一个 arrowPos 状态会互相覆盖，故不画）
    */
-  const renderPage = useCallback(async (doc: PDFDocumentProxy, target: number) => {
-    const canvas = canvasRef.current
+  const renderPage = useCallback(async (
+    doc: PDFDocumentProxy,
+    target: number,
+    canvasArg?: HTMLCanvasElement | null,
+    opts?: { force?: boolean; bbox?: boolean },
+  ) => {
+    const canvas = canvasArg ?? canvasRef.current
     const container = containerRef.current
-    if (canvas === null || container === null) return
+    if (canvas === undefined || canvas === null || container === null) return
     const ctx = canvas.getContext('2d')
     if (ctx === null) return
 
-    // 同一 canvas 上并发 render 会抛 "Cannot use the same canvas during
-    // multiple render() operations"（翻页快连点 + 尺寸变化同时发生时必现）。
-    // cancel() 只作用于**已登记**的 task；上一帧若还停在 getPage 的 await 里，
-    // taskRef 仍是 null——所以再加世代号，让过期帧在 await 返回后自行退出。
-    if (taskRef.current !== null) {
-      try { taskRef.current.cancel() } catch { /* ignore */ }
-      taskRef.current = null
-    }
-    const seq = ++renderSeqRef.current
-
     const clamped = Math.max(1, Math.min(target, doc.numPages))
-    const pdfPage = await doc.getPage(clamped)
-    if (seq !== renderSeqRef.current) return
 
-    // 铺满容器（带横向溢出预算，见 pdfFit.ts）：侧栏够宽时纵向拉满。
+    // 同一 canvas 上并发 render 会抛 "Cannot use the same canvas during multiple
+    // render() operations"（翻页快连点 + 尺寸变化同时发生时必现）。取消**这一页**
+    // 自己的上一帧即可——连续模式各页并发渲染，共享一个任务槽会互相取消（见
+    // tasksByPageRef 注释）。
+    const previous = tasksByPageRef.current.get(clamped)
+    if (previous !== undefined) {
+      try { previous.cancel() } catch { /* ignore */ }
+      tasksByPageRef.current.delete(clamped)
+    }
+    // 本帧的身份：文档世代（换文档即失效）+ 本页令牌（同页更新的一帧把我作废）。
+    const epoch = docEpochRef.current
+    const token = ++tokenSeqRef.current
+    pageTokenRef.current.set(clamped, token)
+
+    const pdfPage = await doc.getPage(clamped)
+    // 过期帧自行退出：换过文档，或同一页又有更新的一帧开画了。
+    if (epoch !== docEpochRef.current || pageTokenRef.current.get(clamped) !== token) return
+
+    // 缩放：底部栏的缩放状态机（pdfFit.zoomScale）。autoFit 走既有「铺满 + 溢出
+    // 预算」；manual 直接用用户选的百分比，**不看容器尺寸**（窗口拉伸不改缩放）。
+    // 连续模式把"逻辑可视高"抬高（continuousViewportHeight），让同一套规则退化成
+    // 宽度适配——堆叠多页时不该由可视高给单页定标（见 pdfFit.ts 注释）。
     const base = pdfPage.getViewport({ scale: 1 })
-    const fit = fitPageScale({
-      availWidth: container.clientWidth - PAGE_PADDING,
-      availHeight: container.clientHeight - PAGE_PADDING,
+    const availWidth = container.clientWidth - PAGE_PADDING
+    const availHeight = pagingMode === 'single'
+      ? container.clientHeight - PAGE_PADDING
+      : continuousViewportHeight(availWidth)
+    const view = zoomScale(zoomRef.current, {
+      availWidth,
+      availHeight,
       pageWidth: base.width,
       pageHeight: base.height,
     })
     // 容器还没布局（tab 隐藏 / 0 尺寸）→ 本次不画，等测量 effect 重触发。
-    if (fit === null) return
-    const viewport = pdfPage.getViewport({ scale: fit.scale })
+    // 手动缩放有确定值，不受此限（zoomScale 在 manual 下恒有值）。
+    if (view.source === 'autoFit' && view.basis === null) return
+    const viewport = pdfPage.getViewport({ scale: view.scale })
     const dpr = backingStoreDpr(
       viewport.width, viewport.height,
       typeof window !== 'undefined' ? window.devicePixelRatio : 1,
     )
 
-    const last = lastFitRef.current
+    const last = lastFitRef.current.get(clamped)
 
     // 几何冻结（用户 2026-09-09：「目录弹出的时候 PDF 界面会黑一下」）：
     // canvas 的尺寸赋值会**先把画布清空**，真重绘要几十到几百毫秒——所以只要在
@@ -288,7 +399,7 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
     // 即便同参同帧启动，采样点落在动画中段时容器仍可能瞬时差出 190px（比例 >3%
     // 会穿透下面的死区）。故：动画期间**只标记待办、不重绘**，冻结结束后补测一次
     // ——尺寸真变了才画，没变就什么都不做（这才是"无感"）。
-    if (Date.now() < renderFreezeUntilRef.current && last !== null && last.page === clamped) {
+    if (Date.now() < renderFreezeUntilRef.current && last !== undefined) {
       pendingRenderRef.current = true
       return
     }
@@ -298,8 +409,9 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
     // 测量侧的 SCROLLBAR_NOISE_PX 已挡住主要来源，这里是第二道闸。
     // dpr 不同则必须重绘——否则跨屏/缩放后 canvas 停在旧 dpr 上（发糊），
     // 而这种情况尺度往往没变，会被缩放死区误吞。
-    if (last !== null && last.page === clamped && last.dpr === dpr
-      && Math.abs(fit.scale - last.scale) / last.scale < SCALE_EPSILON) {
+    // force：缩放/尺寸/DPI 明确变了（或该页曾被取消渲染）时绕过死区。
+    if (opts?.force !== true && last !== undefined && last.dpr === dpr
+      && Math.abs(view.scale - last.scale) / last.scale < SCALE_EPSILON) {
       return
     }
 
@@ -317,28 +429,41 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
       transform: dpr !== 1 ? [dpr, 0, 0, dpr, 0, 0] : undefined,
     }
     const task = pdfPage.render(renderContext)
-    taskRef.current = task
+    tasksByPageRef.current.set(clamped, task)
     try {
       await task.promise
     } catch (error) {
-      // 被下一次绘制取消 = 正常路径（不是错误），静默返回。
-      if (error instanceof Error && error.name === 'RenderingCancelledException') return
+      // 被下一次绘制取消 = 正常路径（不是错误），静默返回。本页的 canvas 此刻
+      // 停在半张图上 → 记入 cancelledPages，下次进入可视区强制重画。
+      if (error instanceof Error && error.name === 'RenderingCancelledException') {
+        cancelledPagesRef.current.add(clamped)
+        return
+      }
       // 渲染真失败：canvas 已被上面的尺寸赋值清空，必须让后续同尺寸重试能进来
       // （否则死区会把重试也吃掉 → 永久空白），并把失败暴露到界面上。
-      lastFitRef.current = null
+      lastFitRef.current.delete(clamped)
+      cancelledPagesRef.current.add(clamped)
       setEngineHint(`渲染失败：${error instanceof Error ? error.message : String(error)}（可切页/重试）`)
       throw error
+    } finally {
+      // 只有仍指向本帧时才摘（否则会把新一帧的登记删掉）。
+      if (tasksByPageRef.current.get(clamped) === task) {
+        tasksByPageRef.current.delete(clamped)
+      }
     }
     // 本帧已被更新的请求取代 → 不要记录缩放、也不要画箭头（否则旧帧的
     // setArrowPos 会覆盖新帧的箭头位置）。
-    if (seq !== renderSeqRef.current) return
+    if (epoch !== docEpochRef.current || pageTokenRef.current.get(clamped) !== token) return
     // 只在**成功**绘制后记录，这样被取消的那一帧不会污染抖动抑制的死区。
-    lastFitRef.current = { page: clamped, scale: fit.scale, dpr }
+    lastFitRef.current.set(clamped, { scale: view.scale, dpr })
+    cancelledPagesRef.current.delete(clamped)
 
     // Draw the red arrow marker at the anchor row's left edge (CSS-pixel
     // space, aligned with the canvas box). The arrow points right INTO the
     // cited row and is about one text line tall. Shown only when the rendered
     // page is the evidence's target page.
+    // 连续模式下多页共享同一个 arrowPos 状态会互相覆盖 → 只有单页模式画箭头。
+    if (opts?.bbox === false) return
     const box = bboxRef.current
     if (box !== null) {
       const anchor = evidence.current?.bbox
@@ -386,7 +511,7 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
         setArrowPos(null)
       }
     }
-  }, [])
+  }, [pagingMode])
 
   /**
    * 增强③-B: 记录一次成功载入的证据。优先用 tab.path 的原始 href；若该 href
@@ -446,15 +571,20 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
     widenPanelForPdf(store, sessionId)
     // 这次让位同样是一段 0.3s 宽度过渡 → 期间冻结重绘，等它停稳再按最终尺寸画一次。
     freezeRender(settleMsRef.current + 60)
-    // Abort anything in flight.
+    // Abort anything in flight.（连续模式下可能有多页在画，逐页取消。）
     abortRef.current?.abort()
-    if (taskRef.current !== null) {
-      try { taskRef.current.cancel() } catch { /* ignore */ }
-      taskRef.current = null
+    for (const task of tasksByPageRef.current.values()) {
+      try { task.cancel() } catch { /* ignore */ }
     }
+    tasksByPageRef.current.clear()
     // 换文档/重载 → 抖动抑制的基准失效（新 PDF 页尺寸可能不同），清零。
-    lastFitRef.current = null
-    renderSeqRef.current += 1
+    lastFitRef.current.clear()
+    cancelledPagesRef.current.clear()
+    visiblePagesRef.current.clear()
+    pageTokenRef.current.clear()
+    paintSigRef.current = ''
+    // 文档世代 +1：所有仍在飞的帧（旧文档的解码/绘制）回来即自我作废。
+    docEpochRef.current += 1
     const controller = new AbortController()
     abortRef.current = controller
     setLoad({ status: 'loading' })
@@ -527,6 +657,16 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
       configurePdfWorker()
       const wasmUrl = new URL(PDF_WASM_DIR, window.location.origin).href
       const doc = await pdfjs.getDocument({ data: new Uint8Array(bytes), wasmUrl }).promise
+      // 底下栏的百分比回显要用第 1 页的 scale=1 尺寸；失败不影响渲染（只是数字
+      // 回落到 default viewport 的近似值）。
+      try {
+        const firstPage = await doc.getPage(1)
+        const bv = firstPage.getViewport({ scale: 1 })
+        firstPageBaseSizeRef.current = { width: bv.width, height: bv.height }
+      } catch (error) {
+        firstPageBaseSizeRef.current = null
+        console.warn('[ks:pdf] first page base size unavailable', error)
+      }
       // verifier P1-4：换文档必须销毁旧 PDFDocumentProxy。只在 [tab.path,tab.meta]
       // 的 cleanup 里 destroy 是不够的——"文件目录打开文档"与"重试"都直接调
       // loadEvidence（tab.path/meta 不变 → cleanup 不执行），旧 doc 连同 worker
@@ -594,9 +734,10 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
     void loadEvidence(ev)
     return () => {
       abortRef.current?.abort()
-      if (taskRef.current !== null) {
-        try { taskRef.current.cancel() } catch { /* ignore */ }
+      for (const task of tasksByPageRef.current.values()) {
+        try { task.cancel() } catch { /* ignore */ }
       }
+      tasksByPageRef.current.clear()
       void pdfDocRef.current?.destroy()
       pdfDocRef.current = null
     }
@@ -845,21 +986,170 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // 首绘/翻页/尺寸变化/DPI 变化统一由本 effect 驱动：canvas 挂载完成（ready）
-  // 后再画，避免"canvas 尚未存在就渲染"的空白。page 变化 → 重绘；box 变化 →
-  // 按新尺寸重绘；dprEpoch 变化 → 按新 dpr 重绘（清晰度）；visible 变化 →
-  // 隐藏时不画，重新可见时补画。
-  useEffect(() => {
-    if (load.status !== 'ready') return
-    if (!visible) return
+  // ---- 绘制管线（2026-09-16 重构：单页 / 连续共用一套）----
+  /**
+   * 当前绘制签名：翻页模式 | 总页数 | 缩放 | 容器实测尺寸 | dpr 世代 | 首块 canvas
+   * 实测宽 | 箭头开关 | 目录列开关。签名变了 → 可见页全部**强制**重画（越过 3%
+   * 抖动死区）；签名没变 → 交给死区，滚动进出可视区时不重复解码同一页。
+   */
+  const paintSignature = useCallback((): string => {
     const doc = pdfDocRef.current
-    if (doc === null || canvasRef.current === null) return
-    void renderPage(doc, page).catch((error) => {
+    const first = pageCanvasRefs.current.get(1)
+    return [
+      pagingMode,
+      doc?.numPages ?? 0,
+      zoom.source === 'manual' ? `m${zoom.percent}` : 'auto',
+      box?.w ?? 0,
+      box?.h ?? 0,
+      dprEpoch,
+      first?.clientWidth ?? 0,
+      showArrowPref ? 1 : 0,
+      showLeftCol ? 1 : 0,
+    ].join('|')
+  }, [pagingMode, zoom, box, dprEpoch, showArrowPref, showLeftCol])
+
+  /**
+   * 画所有"接近可视区"的页（连续模式）；每页各自独立 render，互不取消。
+   * 滚动离开可视区的页不再重画——一屏只维护几张位图，几百页的国标也不吃光内存。
+   */
+  const paintVisiblePages = useCallback((force = false): void => {
+    const doc = pdfDocRef.current
+    if (doc === null) return
+    const forceAll = force || paintSigRef.current !== paintSignature()
+    paintSigRef.current = paintSignature()
+    const onFail = (error: unknown): void => {
       // 2026-09-05：曾因 pdfjs 方法名写错（convertToViewPoint）在此被静默吞掉
       // 数月无感 → 至少留痕，避免渲染层错误继续隐身。
       console.warn('[ks:pdf] renderPage failed', error)
+    }
+    for (const p of pageOrderRef.current) {
+      const el = pageCanvasRefs.current.get(p)
+      if (el === undefined) continue
+      if (!visiblePagesRef.current.has(p)) continue
+      // 曾被取消渲染的页（进出可视区高速滚动）可能停在半张旧图上 → 强制重画。
+      const pageForce = forceAll || cancelledPagesRef.current.has(p)
+      void renderPage(doc, p, el, { force: pageForce, bbox: false }).catch(onFail)
+    }
+  }, [paintSignature, renderPage])
+  /** ref 回调（挂载时机）要用的最新引用——effect 还没跑时它也得能画。 */
+  const paintVisiblePagesRef = useRef(paintVisiblePages)
+  paintVisiblePagesRef.current = paintVisiblePages
+
+  /**
+   * 单页 mode → 唯一的 canvas；连续 mode → 每页一块 canvas 各自登记。
+   * 用 ref 回调而不是"状态里存数组"，避免额外的 render 轮次。
+   *
+   * registerPageCanvas **必须**用 refForPage 缓存成"每页一个稳定函数"：
+   * React 在每次 render 时都会用 null 回调旧的 ref、再用新函数回调元素（只要函数
+   * 身份变了）。若直接传内联箭头函数，每一次重渲染（滚动、量尺寸、改缩放…）都会
+   * 把全部 canvas 注销再登记一遍 —— 缓存被清空、可见页集合被清空、每页都被强制
+   * 重绘，瀑布流会疯狂闪烁。稳定身份 = 只在元素真的挂载/卸载时才动。
+   */
+  const pageRefCallbacks = useRef<Map<number, (el: HTMLCanvasElement | null) => void>>(new Map())
+  const registerPageCanvas = useCallback((p: number, el: HTMLCanvasElement | null): void => {
+    if (el === null) {
+      pageCanvasRefs.current.delete(p)
+      visiblePagesRef.current.delete(p)
+      lastFitRef.current.delete(p)
+      cancelledPagesRef.current.delete(p)
+      return
+    }
+    pageCanvasRefs.current.set(p, el)
+    el.dataset.ksPage = String(p)
+    // 新挂上来的那块 canvas 先画一次：IO 的首轮回调是异步的，不能等它。
+    const root = containerRef.current
+    if (root === null) return
+    const rootRect = root.getBoundingClientRect()
+    const r = el.getBoundingClientRect()
+    if (r.bottom >= rootRect.top - CONTINUOUS_MARGIN_PX
+      && r.top <= rootRect.bottom + CONTINUOUS_MARGIN_PX) {
+      visiblePagesRef.current.add(p)
+      paintVisiblePagesRef.current(false)
+    }
+  }, [])
+  const refForPage = useCallback((p: number) => {
+    const hit = pageRefCallbacks.current.get(p)
+    if (hit !== undefined) return hit
+    const fn = (el: HTMLCanvasElement | null): void => registerPageCanvas(p, el)
+    pageRefCallbacks.current.set(p, fn)
+    return fn
+  }, [registerPageCanvas])
+
+  // 首绘/翻页/尺寸变化/DPI 变化/缩放变化统一由本 effect 驱动：canvas 挂载完成
+  // （ready）后再画，避免"canvas 尚未存在就渲染"的空白。page 变化 → 重绘；
+  // box 变化 → 按新尺寸重绘；dprEpoch 变化 → 按新 dpr 重绘（清晰度）；zoom 变化
+  // → 按新缩放重绘；visible 变化 → 隐藏时不画，重新可见时补画。
+  useEffect(() => {
+    if (load.status !== 'ready' || !visible) return
+    const doc = pdfDocRef.current
+    if (doc === null) return
+    // 当前缩放状态的 ref 镜像（见 zoomRef 注释）。
+    zoomRef.current = zoom
+
+    if (pagingMode === 'single') {
+      const canvas = canvasRef.current
+      if (canvas === null) return
+      // 单页：缩放/尺寸/DPI/翻页任一变化都必须真重画（越过 3% 抖动死区），
+      // 否则"手动选了个和当前自适应很接近的百分比"会被死区吞掉 → 看着没反应。
+      void renderPage(doc, page, canvas, { force: true }).catch((error) => {
+        console.warn('[ks:pdf] renderPage failed', error)
+      })
+      return
+    }
+
+    pageOrderRef.current = Array.from({ length: doc.numPages }, (_, i) => i + 1)
+    paintVisiblePages(false)
+  }, [load.status, page, renderPage, showLeftCol, showArrowPref, box, dprEpoch, visible,
+    pagingMode, zoom, paintVisiblePages])
+
+  // 连续模式：可见页集合（IntersectionObserver，root = 滚动容器）。滚动到哪就画哪。
+  useEffect(() => {
+    if (pagingMode !== 'continuous' || load.status !== 'ready' || !visible) return
+    const root = containerRef.current
+    if (root === null || typeof IntersectionObserver === 'undefined') return
+    const observed = new Set<Element>()
+    const io = new IntersectionObserver((entries) => {
+      let changed = false
+      for (const entry of entries) {
+        const el = entry.target as HTMLElement
+        const p = Number(el.dataset.ksPage ?? '')
+        if (!Number.isFinite(p) || p < 1) continue
+        if (entry.isIntersecting) {
+          if (!visiblePagesRef.current.has(p)) {
+            visiblePagesRef.current.add(p)
+            changed = true
+          }
+        } else if (visiblePagesRef.current.delete(p)) {
+          changed = true
+        }
+      }
+      // 进出可视区才需要动作；同一批里既有进也有出 → 一次画完。
+      if (changed) paintVisiblePagesRef.current(false)
+    }, {
+      root,
+      // 上下各预留约一屏：手感像"已经在旁边画好了"，而不是滚到才出现。
+      rootMargin: `${CONTINUOUS_MARGIN_PX}px 0px`,
     })
-  }, [load.status, page, renderPage, showLeftCol, showArrowPref, box, dprEpoch, visible])
+
+    const attach = (): void => {
+      let added = false
+      for (const [p, el] of pageCanvasRefs.current) {
+        if (observed.has(el)) continue
+        observed.add(el)
+        io.observe(el)
+        added = true
+        void p
+      }
+      if (added) paintVisiblePagesRef.current(false)
+    }
+    attach()
+    // rAF 补一次：ref 回调可能在本 effect 之前就跑完了，attach 兜住时序。
+    const raf = window.requestAnimationFrame(attach)
+    return () => {
+      window.cancelAnimationFrame(raf)
+      io.disconnect()
+    }
+  }, [pagingMode, load.status, visible, paintVisiblePages])
 
   // Page navigation.（只改状态；实际绘制由上方 effect 触发）
   const goTo = useCallback((n: number) => {
@@ -869,6 +1159,132 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
     setPage(target)
     setPageInput(String(target))
   }, [])
+
+  /**
+   * 切翻页模式（底部常驻栏的「单页 / 连续」）后的**阅读位置保持**：
+   *   · 连续 → 单页：以"当前在视野里的那一页"为准回填页码，否则切过去会跳回旧的
+   *     单页页码，读者瞬间丢失位置；
+   *   · 单页 → 连续：下一帧把当前页滚进视野（由 SP scroll 那段 effect 完成），
+   *     否则从"第 200 页单页"切连续会落在第 1 页顶上，页码控件与画面立刻对不上。
+   */
+  const setPagingModeAndSync = useCallback((next: 'single' | 'continuous') => {
+    setZoomMenuOpen(false)
+    if (next === pagingMode) return
+    if (next === 'single') {
+      // 连续 → 单页：取"最靠近滚动容器顶部的已挂载页"作当前页，否则切过去会跳回
+      // 旧的单页页码，读者瞬间丢失位置。
+      const container = containerRef.current
+      if (container !== null) {
+        const rootTop = container.getBoundingClientRect().top
+        let best: number | null = null
+        let bestDist = Number.POSITIVE_INFINITY
+        for (const [p, el] of pageCanvasRefs.current) {
+          const d = Math.abs(el.getBoundingClientRect().top - rootTop)
+          if (d < bestDist) { bestDist = d; best = p }
+        }
+        if (best !== null) {
+          pendingScrollPageRef.current = null
+          setPage(best)
+          setPageInput(String(best))
+        }
+      }
+    } else {
+      // 单页 → 连续：把当前页交给滚动 effect（等它挂载后滚入视野），否则从
+      // "第 200 页单页"切连续会落在第 1 页顶上，页码控件与画面立刻对不上。
+      pendingScrollPageRef.current = page
+    }
+    setPagingMode(next)
+  }, [pagingMode, page])
+
+  /**
+   * 连续 → 单页：把目标页滚进视野。延迟一帧，等滚动容器换成单页那块 canvas。
+   */
+  const singleSyncPendingRef = useRef(false)
+  useEffect(() => {
+    if (pagingMode !== 'single') return
+    singleSyncPendingRef.current = true
+  }, [pagingMode])
+  useEffect(() => {
+    // 只在这一页**绘制成功后**做一次对齐（否则量到的是旧尺寸）；且只在刚切成
+    // 单页那一次——不能每次翻页都重排滚动位置（用户手动滚过就该尊重）。
+    if (!singleSyncPendingRef.current) return
+    if (pagingMode !== 'single' || load.status !== 'ready' || !visible) return
+    const container = containerRef.current
+    const canvas = canvasRef.current
+    if (container === null || canvas === null) return
+    const raf = window.requestAnimationFrame(() => {
+      const rootTop = container.getBoundingClientRect().top
+      const r = canvas.getBoundingClientRect()
+      if (r.height <= 0) return
+      singleSyncPendingRef.current = false
+      // 页面比容器高：对齐页顶；比容器矮：垂直居中。差得不多就不动，避免把用户的
+      // 横向滚动位置抖掉。
+      const delta = r.height > container.clientHeight
+        ? r.top - rootTop
+        : r.top - rootTop - (container.clientHeight - r.height) / 2
+      if (Math.abs(delta) > 2) container.scrollTop += delta
+    })
+    return () => window.cancelAnimationFrame(raf)
+  }, [pagingMode, load.status, visible, page, box, dprEpoch])
+
+  /**
+   * 单页 → 连续：把当前页滚进视野。要在**那块 canvas 挂载之后**做，所以由
+   * pendingScrollPageRef 交接、在模式与 box 变化后重试到成功为止。
+   */
+  useEffect(() => {
+    const want = pendingScrollPageRef.current
+    if (want === null) return
+    if (pagingMode !== 'continuous' || load.status !== 'ready' || !visible) return
+    const container = containerRef.current
+    if (container === null) return
+    const el = pageCanvasRefs.current.get(want)
+    if (el === undefined) return
+    const raf = window.requestAnimationFrame(() => {
+      pendingScrollPageRef.current = null
+      const containerTop = container.scrollTop
+      const delta = el.getBoundingClientRect().top - container.getBoundingClientRect().top
+      container.scrollTop = Math.max(0, containerTop + delta)
+    })
+    return () => window.cancelAnimationFrame(raf)
+  }, [pagingMode, load.status, visible, page, box, dprEpoch])
+
+  /** 手动设比例（拖滑块 / 选下拉）→ 退出自适应（纯函数 zoomForManual）。 */
+  const applyManualZoom = useCallback((percent: number) => {
+    setZoom(zoomForManual(percent))
+  }, [])
+
+  /** 点「自适应窗口」→ 恢复自适应（此后再次跟随窗口尺寸）。 */
+  const applyAutoZoom = useCallback(() => {
+    setZoom(zoomForAutoFit())
+    setZoomMenuOpen(false)
+  }, [])
+
+  /** 打开/收起「浏览比例」下拉（**向上**弹出），并记下按钮位置作锚点。 */
+  const toggleZoomMenu = useCallback((anchorEl: HTMLElement | null) => {
+    if (zoomMenuOpen) {
+      setZoomMenuOpen(false)
+      return
+    }
+    if (anchorEl === null) return
+    const r = anchorEl.getBoundingClientRect()
+    setZoomAnchor({ left: r.left, bottom: r.bottom, width: r.width })
+    setZoomMenuOpen(true)
+  }, [zoomMenuOpen])
+
+  // 下拉展开期间：点别处 / 滚动 / 改窗口尺寸 → 收起（否则浮层会漂在旧位置）。
+  useEffect(() => {
+    if (!zoomMenuOpen) return
+    const close = (): void => setZoomMenuOpen(false)
+    const onKey = (e: KeyboardEvent): void => { if (e.key === 'Escape') close() }
+    window.addEventListener('resize', close)
+    window.addEventListener('scroll', close, true)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      window.removeEventListener('resize', close)
+      window.removeEventListener('scroll', close, true)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [zoomMenuOpen])
 
   const onInput = (raw: string): void => {
     const n = parseInt(raw, 10)
@@ -1134,6 +1550,33 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
   }, [bmState, curClauseKey, loadFolders, confirmClauseBookmark])
 
   const total = load.status === 'ready' ? load.pages : 0
+
+  /**
+   * 底部栏要回显的缩放（与画布共用同一份真值，见 pdfFit.zoomScale）：
+   * autoFit 下按容器实测尺寸现算（所以数字会随窗口变化跳动 = 用户看得见"在自适应"）；
+   * manual 下就是用户选的那个百分比。容器还没量到尺寸时用 box 的上一帧值。
+   */
+  const zoomView = useMemo(() => {
+    const container = containerRef.current
+    // 用 box（已测量）而非 container.clientWidth：首次渲染时 ref 还没挂。
+    const availWidth = (box?.w ?? container?.clientWidth ?? 0) - PAGE_PADDING
+    const availHeightRaw = (box?.h ?? container?.clientHeight ?? 0) - PAGE_PADDING
+    const availHeight = pagingMode === 'single'
+      ? availHeightRaw
+      : continuousViewportHeight(availWidth)
+    // 页尺寸：拿已加载文档第 1 页的 viewport（scale=1）。取不到就用 A4 兜底，只为
+    // 让百分比数字有个显示值；真正绘制时用的是每页自己的尺寸（renderPage 内）。
+    const base = firstPageBaseSizeRef.current
+    return zoomScale(zoom, {
+      availWidth,
+      availHeight,
+      pageWidth: base?.width ?? 595.28,
+      pageHeight: base?.height ?? 841.89,
+    })
+  }, [zoom, box, pagingMode, dprEpoch, load.status])
+  /** 滑块当前值：manual 下是用户百分比，autoFit 下是自适应算出的百分比。 */
+  const sliderPercent = Math.max(MANUAL_MIN_PERCENT,
+    Math.min(MANUAL_MAX_PERCENT, zoomView.percent))
 
   // 增强③-B: 与当前 doc 相同、且不是当前页的历史条目（空 → 控件隐藏）。
   const currentDoc = evidence.current?.doc ?? null
@@ -1456,7 +1899,7 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
             onJumpPage={(p) => { goTo(p) }}
           />
         )}
-        {load.status === 'ready' && viewMode === 'pdf' && (
+        {load.status === 'ready' && viewMode === 'pdf' && pagingMode === 'single' && (
           <div style={{ position: 'relative', display: 'inline-block', contain: 'paint' }}>
             {/* display:block 消除 inline 元素的行框基线沉降（约 4px）——否则
                 "刚好铺满高度"时底部会被切掉并常驻一条竖向滚动条。
@@ -1502,7 +1945,174 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
             )}
           </div>
         )}
+        {/*
+          连续（瀑布）模式 —— 默认模式（2026-09-16 用户需求）：
+          **每一页一块 canvas 纵向堆叠**，滚动连续浏览。尺寸未知前（还没量到容器 /
+          还没解码）先给固定高度占位，避免"先塌成 0 高、解码完再撑开"导致滚动位置
+          乱跳（这正是 PDF 瀑布流最经典的抖动来源）。
+          只绘制"接近可视区"的那几页（IntersectionObserver，见上方的绘制管线），
+          所以几百页的国标也只占几张位图的显存。
+          红箭头/条款收藏按钮仍只在**单页**模式显示：多页共享一个 arrowPos 状态会
+          相互覆盖（本页的箭头会被隔壁页的重绘清掉）。
+        */}
+        {load.status === 'ready' && viewMode === 'pdf' && pagingMode === 'continuous' && (
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 8 }}>
+            {Array.from({ length: total }, (_, i) => i + 1).map((p) => (
+              <canvas
+                key={p}
+                ref={refForPage(p)}
+                style={{
+                  // 尺寸由 renderPage 在**绘制成功后**按真实 viewport 覆写（width 的
+                  // 内联值与这里同为 '100%' 时 React 不会重写，故覆写能保住）。
+                  // 写死 100% × aspect-ratio 只是"未绘制前"的占位：给一个**接近真实
+                  // 页面**的高度，首帧的布局就是对的——否则全是 240px 的矮盒子，
+                  // "可视区附近"会一次性圈进十几页，白白解码一堆马上要丢的位图。
+                  display: 'block',
+                  width: '100%',
+                  aspectRatio: '1 / 1.414',
+                  background: 'var(--dsw-alias-bg-layer-2, #fff)',
+                  boxShadow: '0 1px 5px rgba(0, 0, 0, 0.16)',
+                  transform: 'translateZ(0)',
+                }}
+              />
+            ))}
+          </div>
+        )}
         </div>
+      </div>
+
+      {/*
+        底部常驻工具栏（2026-09-16 用户需求）：与顶部栏**同构**（同一条 border、
+        同样常驻，不随 PDF 滚动消失——它在滚动容器之外，是 flex 列的最后一格）。
+        承载：单页/连续 模式切换 · 10%–500% 拖动式缩放滑块 · 向上弹出的浏览比例下拉。
+      */}
+      <div style={$bottomBar}>
+        <span style={{ color: 'var(--dsw-alias-label-tertiary, #999)', fontSize: 11 }}>翻页</span>
+        {/* 单页 / 连续：互斥的模式切换（两个按钮一组，选中态描边高亮）。 */}
+        <div style={$segGroup} role="group" aria-label="翻页模式">
+          <button
+            type="button"
+            onClick={() => setPagingModeAndSync('single')}
+            aria-pressed={pagingMode === 'single'}
+            title="单页：一次只显示一页（◀ ▶ 翻页）"
+            style={{ ...$segBtn, ...(pagingMode === 'single' ? $segBtnOn : {}) }}
+          >
+            ▭ 单页
+          </button>
+          <button
+            type="button"
+            onClick={() => setPagingModeAndSync('continuous')}
+            aria-pressed={pagingMode === 'continuous'}
+            title="连续：滚动连续浏览多页（默认）"
+            style={{ ...$segBtn, ...(pagingMode === 'continuous' ? $segBtnOn : {}) }}
+          >
+            ☰ 连续
+          </button>
+        </div>
+
+        <span style={{ color: 'var(--dsw-alias-label-tertiary, #999)', fontSize: 11, marginLeft: 6 }}>缩放</span>
+        {/* 拖动式缩放滑块：最左 = 10%（最小可读值，0% 会渲染成空白页——已与用户
+            确认取 10%），最右 = 500%。拖动即退出自适应（zoomForManual）。 */}
+        <input
+          type="range"
+          min={MANUAL_MIN_PERCENT}
+          max={MANUAL_MAX_PERCENT}
+          step={5}
+          value={sliderPercent}
+          onChange={(e) => applyManualZoom(Number(e.target.value))}
+          disabled={load.status !== 'ready' || viewMode !== 'pdf'}
+          aria-label="缩放百分比"
+          title={`缩放 ${sliderPercent}%（拖动即退出自适应；最左 ${MANUAL_MIN_PERCENT}%、最右 ${MANUAL_MAX_PERCENT}%）`}
+          style={$zoomSlider}
+        />
+        {/* 浏览比例：**向上**弹出的自定义下拉（原生 select 的方向由浏览器决定，
+            不能保证向上），最下方一项固定是「自适应窗口」。 */}
+        <div style={{ position: 'relative' }}>
+          <button
+            type="button"
+            onClick={(e) => toggleZoomMenu(e.currentTarget)}
+            disabled={load.status !== 'ready' || viewMode !== 'pdf'}
+            aria-haspopup="listbox"
+            aria-expanded={zoomMenuOpen}
+            title="浏览比例（弹层向上展开，最下方是「自适应窗口」）"
+            style={{ ...$btnStyle, minWidth: 92, textAlign: 'left', display: 'inline-flex', alignItems: 'center', gap: 4 }}
+          >
+            <span style={{ flex: 1 }}>
+              {zoom.source === 'autoFit' ? '自适应窗口' : `${zoomView.percent}%`}
+            </span>
+            <span style={{ color: 'var(--dsw-alias-label-tertiary, #999)', fontSize: 9 }}>
+              {zoom.source === 'autoFit' ? `≈${zoomView.percent}%` : ''} ▲
+            </span>
+          </button>
+          {zoomMenuOpen && zoomAnchor !== null && typeof document !== 'undefined' && createPortal(
+            <>
+              {/* 点空白处即收起（透明遮罩，不吃滚动容器的交互——滚动自行关闭）。 */}
+              <div
+                onClick={() => setZoomMenuOpen(false)}
+                style={{ position: 'fixed', inset: 0, zIndex: 8990, background: 'transparent' }}
+              />
+              <div
+                role="listbox"
+                aria-label="浏览比例"
+                style={{
+                  position: 'fixed',
+                  // **向上弹**：菜单底边贴在按钮顶边上方 4px。
+                  left: zoomAnchor.left,
+                  bottom: Math.max(4, (typeof window === 'undefined' ? 0 : window.innerHeight)
+                    - zoomAnchor.bottom + 4),
+                  width: Math.max(zoomAnchor.width, 112),
+                  maxHeight: 260,
+                  overflowY: 'auto',
+                  zIndex: 9000,
+                  background: 'var(--dsw-alias-bg-layer-1, #fff)',
+                  border: '1px solid var(--dsw-alias-border-l2, #ccc)',
+                  borderRadius: 6,
+                  boxShadow: '0 -6px 20px rgba(0,0,0,0.22)',
+                  padding: 4,
+                }}
+              >
+                {ZOOM_PRESET_PERCENTS.map((p) => (
+                  <button
+                    key={p}
+                    type="button"
+                    role="option"
+                    aria-selected={zoom.source === 'manual' && zoomView.percent === p}
+                    onClick={() => applyManualZoom(p)}
+                    style={{
+                      ...$zoomMenuItem,
+                      ...(zoom.source === 'manual' && zoomView.percent === p ? $zoomMenuItemOn : {}),
+                    }}
+                  >
+                    {p}%
+                  </button>
+                ))}
+                <div style={{ height: 1, background: 'var(--dsw-alias-border-l1, #eee)', margin: '4px 2px' }} />
+                {/* 最下方一项：自适应窗口（默认状态）。 */}
+                <button
+                  type="button"
+                  role="option"
+                  aria-selected={zoom.source === 'autoFit'}
+                  onClick={applyAutoZoom}
+                  title="按窗口宽度自适应（默认；选中后窗口变化会重新计算缩放）"
+                  style={{
+                    ...$zoomMenuItem,
+                    ...(zoom.source === 'autoFit' ? $zoomMenuItemOn : {}),
+                  }}
+                >
+                  🪟 自适应窗口
+                </button>
+              </div>
+            </>,
+            document.body,
+          )}
+        </div>
+
+        {/* 右侧：当前缩放的来由（自适应 / 手动）——用户一眼知道自己是否还在自适应。 */}
+        <span style={{ marginLeft: 'auto', color: 'var(--dsw-alias-label-tertiary, #999)', fontSize: 11 }}>
+          {zoom.source === 'autoFit'
+            ? '缩放：自适应窗口（随窗口变化）'
+            : `缩放：手动 ${zoomView.percent}%（窗口变化不再改变）`}
+        </span>
       </div>
     </div>
     {createPortal(
@@ -1706,6 +2316,72 @@ const $inputStyle: React.CSSProperties = {
   padding: '2px 4px',
   background: 'var(--dsw-alias-bg-layer-1, #fff)',
   color: 'var(--dsw-alias-label-primary, #111)',
+}
+
+// ---- 底部常驻工具栏（2026-09-16 用户需求）----
+/** 与顶部栏同构：同一条上边框、同样常驻（在滚动容器之外，不随 PDF 滚动消失）。 */
+const $bottomBar: React.CSSProperties = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: 8,
+  padding: '6px 10px',
+  borderTop: '1px solid var(--dsw-alias-border-l1, #eee)',
+  flexWrap: 'wrap',
+  flexShrink: 0,
+}
+
+/** 单页/连续 的互斥分段控件容器。 */
+const $segGroup: React.CSSProperties = {
+  display: 'inline-flex',
+  border: '1px solid var(--dsw-alias-border-l2, #ccc)',
+  borderRadius: 4,
+  overflow: 'hidden',
+}
+
+const $segBtn: React.CSSProperties = {
+  border: 'none',
+  borderRight: '1px solid var(--dsw-alias-border-l2, #ccc)',
+  background: 'var(--dsw-alias-bg-layer-2, #fff)',
+  color: 'var(--dsw-alias-label-primary, #111)',
+  padding: '2px 8px',
+  cursor: 'pointer',
+  fontSize: 12,
+}
+
+/** 选中的那一半：描边高亮 + 淡底（与顶栏「目录」按钮的选中态同一套色）。 */
+const $segBtnOn: React.CSSProperties = {
+  background: 'var(--dsw-alias-bg-layer-1, #eef4ff)',
+  color: 'var(--dsw-alias-link, #1565c0)',
+  fontWeight: 600,
+}
+
+/** 拖动式缩放滑块：占满中间可伸缩空间，最左 10% / 最右 500%（见 pdfFit）。 */
+const $zoomSlider: React.CSSProperties = {
+  flex: 1,
+  minWidth: 90,
+  maxWidth: 280,
+  height: 18,
+  cursor: 'pointer',
+}
+
+/** 浏览比例下拉的菜单项（浮层向上弹出，见底部栏的 createPortal）。 */
+const $zoomMenuItem: React.CSSProperties = {
+  display: 'block',
+  width: '100%',
+  textAlign: 'left',
+  border: 'none',
+  background: 'transparent',
+  color: 'var(--dsw-alias-label-primary, #111)',
+  borderRadius: 4,
+  padding: '4px 8px',
+  cursor: 'pointer',
+  fontSize: 12,
+}
+
+const $zoomMenuItemOn: React.CSSProperties = {
+  background: 'var(--dsw-alias-bg-layer-1, #eef4ff)',
+  color: 'var(--dsw-alias-link, #1565c0)',
+  fontWeight: 600,
 }
 
 // 选夹菜单的夹选项按钮（横向：名称 + 右侧计数徽标）

@@ -28313,6 +28313,56 @@ function fitPageScale(input) {
   const scale = Math.max(min, Math.min(raw, max));
   return { scale, basis, clamped: scale !== raw, cappedByBudget: raw < fitHeight };
 }
+var ZOOM_AUTO = { source: "autoFit" };
+var MANUAL_MIN_PERCENT = 10;
+var MANUAL_MAX_PERCENT = 500;
+var ZOOM_PRESET_PERCENTS = [25, 50, 75, 100, 125, 150];
+function clampManualPercent(percent) {
+  if (!Number.isFinite(percent)) return MANUAL_MIN_PERCENT;
+  return Math.max(MANUAL_MIN_PERCENT, Math.min(MANUAL_MAX_PERCENT, Math.round(percent)));
+}
+function zoomForManual(percent) {
+  return { source: "manual", percent: clampManualPercent(percent) };
+}
+function zoomForAutoFit() {
+  return ZOOM_AUTO;
+}
+function zoomScale(state, input) {
+  if (state.source === "manual") {
+    const percent = clampManualPercent(state.percent);
+    return {
+      scale: percent / 100,
+      source: "manual",
+      percent,
+      basis: null,
+      clamped: false,
+      cappedByBudget: false
+    };
+  }
+  const fit = fitPageScale(input);
+  if (fit === null) {
+    return {
+      scale: input.minScale ?? MIN_SCALE,
+      source: "autoFit",
+      percent: Math.round((input.minScale ?? MIN_SCALE) * 100),
+      basis: null,
+      clamped: true,
+      cappedByBudget: false
+    };
+  }
+  return {
+    scale: fit.scale,
+    source: "autoFit",
+    percent: Math.round(fit.scale * 100),
+    basis: fit.basis,
+    clamped: fit.clamped,
+    cappedByBudget: fit.cappedByBudget
+  };
+}
+function continuousViewportHeight(availWidth) {
+  const w = Number.isFinite(availWidth) && availWidth > 0 ? availWidth : 1;
+  return w * 4;
+}
 function backingStoreDpr(cssWidth, cssHeight, deviceDpr) {
   const dpr = Number.isFinite(deviceDpr) && deviceDpr > 0 ? deviceDpr : 1;
   const area = cssWidth * cssHeight;
@@ -29789,6 +29839,7 @@ var SCALE_EPSILON = 0.03;
 var SCROLLBAR_NOISE_PX = 20;
 var DEFAULT_SETTLE_MS = 360;
 var RESIZE_SETTLE_MS = 120;
+var CONTINUOUS_MARGIN_PX = 400;
 function readSlowTransitionMs() {
   if (typeof window === "undefined" || typeof document === "undefined") return 300;
   try {
@@ -29830,13 +29881,23 @@ function KsEvidenceTab(props) {
   );
   const evidence = (0, import_react4.useRef)(EMPTY_EVIDENCE);
   const pdfDocRef = (0, import_react4.useRef)(null);
-  const taskRef = (0, import_react4.useRef)(null);
   const abortRef = (0, import_react4.useRef)(null);
   const canvasRef = (0, import_react4.useRef)(null);
   const bboxRef = (0, import_react4.useRef)(null);
   const containerRef = (0, import_react4.useRef)(null);
-  const renderSeqRef = (0, import_react4.useRef)(0);
-  const lastFitRef = (0, import_react4.useRef)(null);
+  const tasksByPageRef = (0, import_react4.useRef)(/* @__PURE__ */ new Map());
+  const docEpochRef = (0, import_react4.useRef)(0);
+  const pageTokenRef = (0, import_react4.useRef)(/* @__PURE__ */ new Map());
+  const tokenSeqRef = (0, import_react4.useRef)(0);
+  const lastFitRef = (0, import_react4.useRef)(/* @__PURE__ */ new Map());
+  const pageCanvasRefs = (0, import_react4.useRef)(/* @__PURE__ */ new Map());
+  const pageOrderRef = (0, import_react4.useRef)([]);
+  const cancelledPagesRef = (0, import_react4.useRef)(/* @__PURE__ */ new Set());
+  const visiblePagesRef = (0, import_react4.useRef)(/* @__PURE__ */ new Set());
+  const paintSigRef = (0, import_react4.useRef)("");
+  const zoomRef = (0, import_react4.useRef)({ source: "autoFit" });
+  const pendingScrollPageRef = (0, import_react4.useRef)(null);
+  const firstPageBaseSizeRef = (0, import_react4.useRef)(null);
   const renderFreezeUntilRef = (0, import_react4.useRef)(0);
   const pendingRenderRef = (0, import_react4.useRef)(false);
   const freezeTimerRef = (0, import_react4.useRef)(null);
@@ -29865,49 +29926,58 @@ function KsEvidenceTab(props) {
   const [dirQuery, setDirQuery] = (0, import_react4.useState)("");
   const [searchOpen, setSearchOpen] = (0, import_react4.useState)(false);
   const [viewMode, setViewMode] = (0, import_react4.useState)("pdf");
+  const [pagingMode, setPagingMode] = (0, import_react4.useState)("continuous");
+  const [zoom, setZoom] = (0, import_react4.useState)({ source: "autoFit" });
+  const [zoomMenuOpen, setZoomMenuOpen] = (0, import_react4.useState)(false);
+  const [zoomAnchor, setZoomAnchor] = (0, import_react4.useState)(null);
   const [folderPicker, setFolderPicker] = (0, import_react4.useState)(null);
   const [folderList, setFolderList] = (0, import_react4.useState)(null);
   const [folderLoading, setFolderLoading] = (0, import_react4.useState)(false);
   const [folderNewName, setFolderNewName] = (0, import_react4.useState)("");
   const pendingClauseKeyRef = (0, import_react4.useRef)(null);
   const pendingRevRef = (0, import_react4.useRef)(null);
-  const renderPage = (0, import_react4.useCallback)(async (doc, target) => {
-    const canvas = canvasRef.current;
+  const renderPage = (0, import_react4.useCallback)(async (doc, target, canvasArg, opts) => {
+    const canvas = canvasArg ?? canvasRef.current;
     const container = containerRef.current;
-    if (canvas === null || container === null) return;
+    if (canvas === void 0 || canvas === null || container === null) return;
     const ctx2 = canvas.getContext("2d");
     if (ctx2 === null) return;
-    if (taskRef.current !== null) {
+    const clamped = Math.max(1, Math.min(target, doc.numPages));
+    const previous = tasksByPageRef.current.get(clamped);
+    if (previous !== void 0) {
       try {
-        taskRef.current.cancel();
+        previous.cancel();
       } catch {
       }
-      taskRef.current = null;
+      tasksByPageRef.current.delete(clamped);
     }
-    const seq = ++renderSeqRef.current;
-    const clamped = Math.max(1, Math.min(target, doc.numPages));
+    const epoch = docEpochRef.current;
+    const token = ++tokenSeqRef.current;
+    pageTokenRef.current.set(clamped, token);
     const pdfPage = await doc.getPage(clamped);
-    if (seq !== renderSeqRef.current) return;
+    if (epoch !== docEpochRef.current || pageTokenRef.current.get(clamped) !== token) return;
     const base = pdfPage.getViewport({ scale: 1 });
-    const fit = fitPageScale({
-      availWidth: container.clientWidth - PAGE_PADDING,
-      availHeight: container.clientHeight - PAGE_PADDING,
+    const availWidth = container.clientWidth - PAGE_PADDING;
+    const availHeight = pagingMode === "single" ? container.clientHeight - PAGE_PADDING : continuousViewportHeight(availWidth);
+    const view = zoomScale(zoomRef.current, {
+      availWidth,
+      availHeight,
       pageWidth: base.width,
       pageHeight: base.height
     });
-    if (fit === null) return;
-    const viewport = pdfPage.getViewport({ scale: fit.scale });
+    if (view.source === "autoFit" && view.basis === null) return;
+    const viewport = pdfPage.getViewport({ scale: view.scale });
     const dpr = backingStoreDpr(
       viewport.width,
       viewport.height,
       typeof window !== "undefined" ? window.devicePixelRatio : 1
     );
-    const last = lastFitRef.current;
-    if (Date.now() < renderFreezeUntilRef.current && last !== null && last.page === clamped) {
+    const last = lastFitRef.current.get(clamped);
+    if (Date.now() < renderFreezeUntilRef.current && last !== void 0) {
       pendingRenderRef.current = true;
       return;
     }
-    if (last !== null && last.page === clamped && last.dpr === dpr && Math.abs(fit.scale - last.scale) / last.scale < SCALE_EPSILON) {
+    if (opts?.force !== true && last !== void 0 && last.dpr === dpr && Math.abs(view.scale - last.scale) / last.scale < SCALE_EPSILON) {
       return;
     }
     canvas.width = Math.floor(viewport.width * dpr);
@@ -29923,17 +29993,27 @@ function KsEvidenceTab(props) {
       transform: dpr !== 1 ? [dpr, 0, 0, dpr, 0, 0] : void 0
     };
     const task = pdfPage.render(renderContext);
-    taskRef.current = task;
+    tasksByPageRef.current.set(clamped, task);
     try {
       await task.promise;
     } catch (error) {
-      if (error instanceof Error && error.name === "RenderingCancelledException") return;
-      lastFitRef.current = null;
+      if (error instanceof Error && error.name === "RenderingCancelledException") {
+        cancelledPagesRef.current.add(clamped);
+        return;
+      }
+      lastFitRef.current.delete(clamped);
+      cancelledPagesRef.current.add(clamped);
       setEngineHint(`\u6E32\u67D3\u5931\u8D25\uFF1A${error instanceof Error ? error.message : String(error)}\uFF08\u53EF\u5207\u9875/\u91CD\u8BD5\uFF09`);
       throw error;
+    } finally {
+      if (tasksByPageRef.current.get(clamped) === task) {
+        tasksByPageRef.current.delete(clamped);
+      }
     }
-    if (seq !== renderSeqRef.current) return;
-    lastFitRef.current = { page: clamped, scale: fit.scale, dpr };
+    if (epoch !== docEpochRef.current || pageTokenRef.current.get(clamped) !== token) return;
+    lastFitRef.current.set(clamped, { scale: view.scale, dpr });
+    cancelledPagesRef.current.delete(clamped);
+    if (opts?.bbox === false) return;
     const box2 = bboxRef.current;
     if (box2 !== null) {
       const anchor = evidence.current?.bbox;
@@ -29966,7 +30046,7 @@ function KsEvidenceTab(props) {
         setArrowPos(null);
       }
     }
-  }, []);
+  }, [pagingMode]);
   const pushHistory = (0, import_react4.useCallback)((rawHref, effEv) => {
     let url = rawHref;
     if (url !== null) {
@@ -30012,15 +30092,19 @@ function KsEvidenceTab(props) {
     widenPanelForPdf(store, sessionId);
     freezeRender(settleMsRef.current + 60);
     abortRef.current?.abort();
-    if (taskRef.current !== null) {
+    for (const task of tasksByPageRef.current.values()) {
       try {
-        taskRef.current.cancel();
+        task.cancel();
       } catch {
       }
-      taskRef.current = null;
     }
-    lastFitRef.current = null;
-    renderSeqRef.current += 1;
+    tasksByPageRef.current.clear();
+    lastFitRef.current.clear();
+    cancelledPagesRef.current.clear();
+    visiblePagesRef.current.clear();
+    pageTokenRef.current.clear();
+    paintSigRef.current = "";
+    docEpochRef.current += 1;
     const controller = new AbortController();
     abortRef.current = controller;
     setLoad({ status: "loading" });
@@ -30073,6 +30157,14 @@ function KsEvidenceTab(props) {
       configurePdfWorker();
       const wasmUrl = new URL(PDF_WASM_DIR, window.location.origin).href;
       const doc = await getDocument({ data: new Uint8Array(bytes), wasmUrl }).promise;
+      try {
+        const firstPage = await doc.getPage(1);
+        const bv = firstPage.getViewport({ scale: 1 });
+        firstPageBaseSizeRef.current = { width: bv.width, height: bv.height };
+      } catch (error) {
+        firstPageBaseSizeRef.current = null;
+        console.warn("[ks:pdf] first page base size unavailable", error);
+      }
       const previous = pdfDocRef.current;
       pdfDocRef.current = doc;
       if (previous !== null && previous !== doc) {
@@ -30119,12 +30211,13 @@ function KsEvidenceTab(props) {
     void loadEvidence(ev);
     return () => {
       abortRef.current?.abort();
-      if (taskRef.current !== null) {
+      for (const task of tasksByPageRef.current.values()) {
         try {
-          taskRef.current.cancel();
+          task.cancel();
         } catch {
         }
       }
+      tasksByPageRef.current.clear();
       void pdfDocRef.current?.destroy();
       pdfDocRef.current = null;
     };
@@ -30296,15 +30389,138 @@ function KsEvidenceTab(props) {
       if (!stillOpen) restorePanelAfterPdf(store, sessionId);
     };
   }, []);
-  (0, import_react4.useEffect)(() => {
-    if (load.status !== "ready") return;
-    if (!visible) return;
+  const paintSignature = (0, import_react4.useCallback)(() => {
     const doc = pdfDocRef.current;
-    if (doc === null || canvasRef.current === null) return;
-    void renderPage(doc, page).catch((error) => {
+    const first = pageCanvasRefs.current.get(1);
+    return [
+      pagingMode,
+      doc?.numPages ?? 0,
+      zoom.source === "manual" ? `m${zoom.percent}` : "auto",
+      box?.w ?? 0,
+      box?.h ?? 0,
+      dprEpoch,
+      first?.clientWidth ?? 0,
+      showArrowPref ? 1 : 0,
+      showLeftCol ? 1 : 0
+    ].join("|");
+  }, [pagingMode, zoom, box, dprEpoch, showArrowPref, showLeftCol]);
+  const paintVisiblePages = (0, import_react4.useCallback)((force = false) => {
+    const doc = pdfDocRef.current;
+    if (doc === null) return;
+    const forceAll = force || paintSigRef.current !== paintSignature();
+    paintSigRef.current = paintSignature();
+    const onFail = (error) => {
       console.warn("[ks:pdf] renderPage failed", error);
+    };
+    for (const p of pageOrderRef.current) {
+      const el = pageCanvasRefs.current.get(p);
+      if (el === void 0) continue;
+      if (!visiblePagesRef.current.has(p)) continue;
+      const pageForce = forceAll || cancelledPagesRef.current.has(p);
+      void renderPage(doc, p, el, { force: pageForce, bbox: false }).catch(onFail);
+    }
+  }, [paintSignature, renderPage]);
+  const paintVisiblePagesRef = (0, import_react4.useRef)(paintVisiblePages);
+  paintVisiblePagesRef.current = paintVisiblePages;
+  const pageRefCallbacks = (0, import_react4.useRef)(/* @__PURE__ */ new Map());
+  const registerPageCanvas = (0, import_react4.useCallback)((p, el) => {
+    if (el === null) {
+      pageCanvasRefs.current.delete(p);
+      visiblePagesRef.current.delete(p);
+      lastFitRef.current.delete(p);
+      cancelledPagesRef.current.delete(p);
+      return;
+    }
+    pageCanvasRefs.current.set(p, el);
+    el.dataset.ksPage = String(p);
+    const root = containerRef.current;
+    if (root === null) return;
+    const rootRect = root.getBoundingClientRect();
+    const r = el.getBoundingClientRect();
+    if (r.bottom >= rootRect.top - CONTINUOUS_MARGIN_PX && r.top <= rootRect.bottom + CONTINUOUS_MARGIN_PX) {
+      visiblePagesRef.current.add(p);
+      paintVisiblePagesRef.current(false);
+    }
+  }, []);
+  const refForPage = (0, import_react4.useCallback)((p) => {
+    const hit = pageRefCallbacks.current.get(p);
+    if (hit !== void 0) return hit;
+    const fn = (el) => registerPageCanvas(p, el);
+    pageRefCallbacks.current.set(p, fn);
+    return fn;
+  }, [registerPageCanvas]);
+  (0, import_react4.useEffect)(() => {
+    if (load.status !== "ready" || !visible) return;
+    const doc = pdfDocRef.current;
+    if (doc === null) return;
+    zoomRef.current = zoom;
+    if (pagingMode === "single") {
+      const canvas = canvasRef.current;
+      if (canvas === null) return;
+      void renderPage(doc, page, canvas, { force: true }).catch((error) => {
+        console.warn("[ks:pdf] renderPage failed", error);
+      });
+      return;
+    }
+    pageOrderRef.current = Array.from({ length: doc.numPages }, (_, i) => i + 1);
+    paintVisiblePages(false);
+  }, [
+    load.status,
+    page,
+    renderPage,
+    showLeftCol,
+    showArrowPref,
+    box,
+    dprEpoch,
+    visible,
+    pagingMode,
+    zoom,
+    paintVisiblePages
+  ]);
+  (0, import_react4.useEffect)(() => {
+    if (pagingMode !== "continuous" || load.status !== "ready" || !visible) return;
+    const root = containerRef.current;
+    if (root === null || typeof IntersectionObserver === "undefined") return;
+    const observed = /* @__PURE__ */ new Set();
+    const io = new IntersectionObserver((entries) => {
+      let changed = false;
+      for (const entry of entries) {
+        const el = entry.target;
+        const p = Number(el.dataset.ksPage ?? "");
+        if (!Number.isFinite(p) || p < 1) continue;
+        if (entry.isIntersecting) {
+          if (!visiblePagesRef.current.has(p)) {
+            visiblePagesRef.current.add(p);
+            changed = true;
+          }
+        } else if (visiblePagesRef.current.delete(p)) {
+          changed = true;
+        }
+      }
+      if (changed) paintVisiblePagesRef.current(false);
+    }, {
+      root,
+      // 上下各预留约一屏：手感像"已经在旁边画好了"，而不是滚到才出现。
+      rootMargin: `${CONTINUOUS_MARGIN_PX}px 0px`
     });
-  }, [load.status, page, renderPage, showLeftCol, showArrowPref, box, dprEpoch, visible]);
+    const attach = () => {
+      let added = false;
+      for (const [p, el] of pageCanvasRefs.current) {
+        if (observed.has(el)) continue;
+        observed.add(el);
+        io.observe(el);
+        added = true;
+        void p;
+      }
+      if (added) paintVisiblePagesRef.current(false);
+    };
+    attach();
+    const raf = window.requestAnimationFrame(attach);
+    return () => {
+      window.cancelAnimationFrame(raf);
+      io.disconnect();
+    };
+  }, [pagingMode, load.status, visible, paintVisiblePages]);
   const goTo = (0, import_react4.useCallback)((n) => {
     const doc = pdfDocRef.current;
     if (doc === null) return;
@@ -30312,6 +30528,102 @@ function KsEvidenceTab(props) {
     setPage(target);
     setPageInput(String(target));
   }, []);
+  const setPagingModeAndSync = (0, import_react4.useCallback)((next) => {
+    setZoomMenuOpen(false);
+    if (next === pagingMode) return;
+    if (next === "single") {
+      const container = containerRef.current;
+      if (container !== null) {
+        const rootTop = container.getBoundingClientRect().top;
+        let best = null;
+        let bestDist = Number.POSITIVE_INFINITY;
+        for (const [p, el] of pageCanvasRefs.current) {
+          const d = Math.abs(el.getBoundingClientRect().top - rootTop);
+          if (d < bestDist) {
+            bestDist = d;
+            best = p;
+          }
+        }
+        if (best !== null) {
+          pendingScrollPageRef.current = null;
+          setPage(best);
+          setPageInput(String(best));
+        }
+      }
+    } else {
+      pendingScrollPageRef.current = page;
+    }
+    setPagingMode(next);
+  }, [pagingMode, page]);
+  const singleSyncPendingRef = (0, import_react4.useRef)(false);
+  (0, import_react4.useEffect)(() => {
+    if (pagingMode !== "single") return;
+    singleSyncPendingRef.current = true;
+  }, [pagingMode]);
+  (0, import_react4.useEffect)(() => {
+    if (!singleSyncPendingRef.current) return;
+    if (pagingMode !== "single" || load.status !== "ready" || !visible) return;
+    const container = containerRef.current;
+    const canvas = canvasRef.current;
+    if (container === null || canvas === null) return;
+    const raf = window.requestAnimationFrame(() => {
+      const rootTop = container.getBoundingClientRect().top;
+      const r = canvas.getBoundingClientRect();
+      if (r.height <= 0) return;
+      singleSyncPendingRef.current = false;
+      const delta = r.height > container.clientHeight ? r.top - rootTop : r.top - rootTop - (container.clientHeight - r.height) / 2;
+      if (Math.abs(delta) > 2) container.scrollTop += delta;
+    });
+    return () => window.cancelAnimationFrame(raf);
+  }, [pagingMode, load.status, visible, page, box, dprEpoch]);
+  (0, import_react4.useEffect)(() => {
+    const want = pendingScrollPageRef.current;
+    if (want === null) return;
+    if (pagingMode !== "continuous" || load.status !== "ready" || !visible) return;
+    const container = containerRef.current;
+    if (container === null) return;
+    const el = pageCanvasRefs.current.get(want);
+    if (el === void 0) return;
+    const raf = window.requestAnimationFrame(() => {
+      pendingScrollPageRef.current = null;
+      const containerTop = container.scrollTop;
+      const delta = el.getBoundingClientRect().top - container.getBoundingClientRect().top;
+      container.scrollTop = Math.max(0, containerTop + delta);
+    });
+    return () => window.cancelAnimationFrame(raf);
+  }, [pagingMode, load.status, visible, page, box, dprEpoch]);
+  const applyManualZoom = (0, import_react4.useCallback)((percent) => {
+    setZoom(zoomForManual(percent));
+  }, []);
+  const applyAutoZoom = (0, import_react4.useCallback)(() => {
+    setZoom(zoomForAutoFit());
+    setZoomMenuOpen(false);
+  }, []);
+  const toggleZoomMenu = (0, import_react4.useCallback)((anchorEl) => {
+    if (zoomMenuOpen) {
+      setZoomMenuOpen(false);
+      return;
+    }
+    if (anchorEl === null) return;
+    const r = anchorEl.getBoundingClientRect();
+    setZoomAnchor({ left: r.left, bottom: r.bottom, width: r.width });
+    setZoomMenuOpen(true);
+  }, [zoomMenuOpen]);
+  (0, import_react4.useEffect)(() => {
+    if (!zoomMenuOpen) return;
+    const close = () => setZoomMenuOpen(false);
+    const onKey = (e) => {
+      if (e.key === "Escape") close();
+    };
+    window.addEventListener("resize", close);
+    window.addEventListener("scroll", close, true);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("resize", close);
+      window.removeEventListener("scroll", close, true);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [zoomMenuOpen]);
   const onInput = (raw) => {
     const n = parseInt(raw, 10);
     if (!Number.isNaN(n) && n >= 1) void goTo(n);
@@ -30543,6 +30855,23 @@ function KsEvidenceTab(props) {
     }
   }, [bmState, curClauseKey, loadFolders, confirmClauseBookmark]);
   const total = load.status === "ready" ? load.pages : 0;
+  const zoomView = (0, import_react4.useMemo)(() => {
+    const container = containerRef.current;
+    const availWidth = (box?.w ?? container?.clientWidth ?? 0) - PAGE_PADDING;
+    const availHeightRaw = (box?.h ?? container?.clientHeight ?? 0) - PAGE_PADDING;
+    const availHeight = pagingMode === "single" ? availHeightRaw : continuousViewportHeight(availWidth);
+    const base = firstPageBaseSizeRef.current;
+    return zoomScale(zoom, {
+      availWidth,
+      availHeight,
+      pageWidth: base?.width ?? 595.28,
+      pageHeight: base?.height ?? 841.89
+    });
+  }, [zoom, box, pagingMode, dprEpoch, load.status]);
+  const sliderPercent = Math.max(
+    MANUAL_MIN_PERCENT,
+    Math.min(MANUAL_MAX_PERCENT, zoomView.percent)
+  );
   const currentDoc = evidence.current?.doc ?? null;
   const historyOptions = currentDoc !== null ? historyRef.current.filter((h) => h.ev.doc === currentDoc && (h.ev.page ?? 1) !== page) : [];
   const historyLabel = (h) => {
@@ -30830,7 +31159,7 @@ function KsEvidenceTab(props) {
             }
           }
         ),
-        load.status === "ready" && viewMode === "pdf" && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { position: "relative", display: "inline-block", contain: "paint" }, children: [
+        load.status === "ready" && viewMode === "pdf" && pagingMode === "single" && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { position: "relative", display: "inline-block", contain: "paint" }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("canvas", { ref: canvasRef, style: { display: "block", transform: "translateZ(0)" } }),
           /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
             "div",
@@ -30869,8 +31198,163 @@ function KsEvidenceTab(props) {
               children: bmState === "busy" ? "\u2026" : bmState === "done" ? "\u5DF2\u6536\u85CF" : "\u6536\u85CF\u672C\u6761\u6B3E"
             }
           )
-        ] })
-      ] }) })
+        ] }),
+        load.status === "ready" && viewMode === "pdf" && pagingMode === "continuous" && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 8 }, children: Array.from({ length: total }, (_, i) => i + 1).map((p) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+          "canvas",
+          {
+            ref: refForPage(p),
+            style: {
+              // 尺寸由 renderPage 在**绘制成功后**按真实 viewport 覆写（width 的
+              // 内联值与这里同为 '100%' 时 React 不会重写，故覆写能保住）。
+              // 写死 100% × aspect-ratio 只是"未绘制前"的占位：给一个**接近真实
+              // 页面**的高度，首帧的布局就是对的——否则全是 240px 的矮盒子，
+              // "可视区附近"会一次性圈进十几页，白白解码一堆马上要丢的位图。
+              display: "block",
+              width: "100%",
+              aspectRatio: "1 / 1.414",
+              background: "var(--dsw-alias-bg-layer-2, #fff)",
+              boxShadow: "0 1px 5px rgba(0, 0, 0, 0.16)",
+              transform: "translateZ(0)"
+            }
+          },
+          p
+        )) })
+      ] }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: $bottomBar, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { style: { color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 11 }, children: "\u7FFB\u9875" }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: $segGroup, role: "group", "aria-label": "\u7FFB\u9875\u6A21\u5F0F", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+            "button",
+            {
+              type: "button",
+              onClick: () => setPagingModeAndSync("single"),
+              "aria-pressed": pagingMode === "single",
+              title: "\u5355\u9875\uFF1A\u4E00\u6B21\u53EA\u663E\u793A\u4E00\u9875\uFF08\u25C0 \u25B6 \u7FFB\u9875\uFF09",
+              style: { ...$segBtn, ...pagingMode === "single" ? $segBtnOn : {} },
+              children: "\u25AD \u5355\u9875"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+            "button",
+            {
+              type: "button",
+              onClick: () => setPagingModeAndSync("continuous"),
+              "aria-pressed": pagingMode === "continuous",
+              title: "\u8FDE\u7EED\uFF1A\u6EDA\u52A8\u8FDE\u7EED\u6D4F\u89C8\u591A\u9875\uFF08\u9ED8\u8BA4\uFF09",
+              style: { ...$segBtn, ...pagingMode === "continuous" ? $segBtnOn : {} },
+              children: "\u2630 \u8FDE\u7EED"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { style: { color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 11, marginLeft: 6 }, children: "\u7F29\u653E" }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+          "input",
+          {
+            type: "range",
+            min: MANUAL_MIN_PERCENT,
+            max: MANUAL_MAX_PERCENT,
+            step: 5,
+            value: sliderPercent,
+            onChange: (e) => applyManualZoom(Number(e.target.value)),
+            disabled: load.status !== "ready" || viewMode !== "pdf",
+            "aria-label": "\u7F29\u653E\u767E\u5206\u6BD4",
+            title: `\u7F29\u653E ${sliderPercent}%\uFF08\u62D6\u52A8\u5373\u9000\u51FA\u81EA\u9002\u5E94\uFF1B\u6700\u5DE6 ${MANUAL_MIN_PERCENT}%\u3001\u6700\u53F3 ${MANUAL_MAX_PERCENT}%\uFF09`,
+            style: $zoomSlider
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { position: "relative" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+            "button",
+            {
+              type: "button",
+              onClick: (e) => toggleZoomMenu(e.currentTarget),
+              disabled: load.status !== "ready" || viewMode !== "pdf",
+              "aria-haspopup": "listbox",
+              "aria-expanded": zoomMenuOpen,
+              title: "\u6D4F\u89C8\u6BD4\u4F8B\uFF08\u5F39\u5C42\u5411\u4E0A\u5C55\u5F00\uFF0C\u6700\u4E0B\u65B9\u662F\u300C\u81EA\u9002\u5E94\u7A97\u53E3\u300D\uFF09",
+              style: { ...$btnStyle, minWidth: 92, textAlign: "left", display: "inline-flex", alignItems: "center", gap: 4 },
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { style: { flex: 1 }, children: zoom.source === "autoFit" ? "\u81EA\u9002\u5E94\u7A97\u53E3" : `${zoomView.percent}%` }),
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { style: { color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 9 }, children: [
+                  zoom.source === "autoFit" ? `\u2248${zoomView.percent}%` : "",
+                  " \u25B2"
+                ] })
+              ]
+            }
+          ),
+          zoomMenuOpen && zoomAnchor !== null && typeof document !== "undefined" && (0, import_react_dom.createPortal)(
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(import_jsx_runtime4.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                "div",
+                {
+                  onClick: () => setZoomMenuOpen(false),
+                  style: { position: "fixed", inset: 0, zIndex: 8990, background: "transparent" }
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+                "div",
+                {
+                  role: "listbox",
+                  "aria-label": "\u6D4F\u89C8\u6BD4\u4F8B",
+                  style: {
+                    position: "fixed",
+                    // **向上弹**：菜单底边贴在按钮顶边上方 4px。
+                    left: zoomAnchor.left,
+                    bottom: Math.max(4, (typeof window === "undefined" ? 0 : window.innerHeight) - zoomAnchor.bottom + 4),
+                    width: Math.max(zoomAnchor.width, 112),
+                    maxHeight: 260,
+                    overflowY: "auto",
+                    zIndex: 9e3,
+                    background: "var(--dsw-alias-bg-layer-1, #fff)",
+                    border: "1px solid var(--dsw-alias-border-l2, #ccc)",
+                    borderRadius: 6,
+                    boxShadow: "0 -6px 20px rgba(0,0,0,0.22)",
+                    padding: 4
+                  },
+                  children: [
+                    ZOOM_PRESET_PERCENTS.map((p) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+                      "button",
+                      {
+                        type: "button",
+                        role: "option",
+                        "aria-selected": zoom.source === "manual" && zoomView.percent === p,
+                        onClick: () => applyManualZoom(p),
+                        style: {
+                          ...$zoomMenuItem,
+                          ...zoom.source === "manual" && zoomView.percent === p ? $zoomMenuItemOn : {}
+                        },
+                        children: [
+                          p,
+                          "%"
+                        ]
+                      },
+                      p
+                    )),
+                    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { height: 1, background: "var(--dsw-alias-border-l1, #eee)", margin: "4px 2px" } }),
+                    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                      "button",
+                      {
+                        type: "button",
+                        role: "option",
+                        "aria-selected": zoom.source === "autoFit",
+                        onClick: applyAutoZoom,
+                        title: "\u6309\u7A97\u53E3\u5BBD\u5EA6\u81EA\u9002\u5E94\uFF08\u9ED8\u8BA4\uFF1B\u9009\u4E2D\u540E\u7A97\u53E3\u53D8\u5316\u4F1A\u91CD\u65B0\u8BA1\u7B97\u7F29\u653E\uFF09",
+                        style: {
+                          ...$zoomMenuItem,
+                          ...zoom.source === "autoFit" ? $zoomMenuItemOn : {}
+                        },
+                        children: "\u{1FA9F} \u81EA\u9002\u5E94\u7A97\u53E3"
+                      }
+                    )
+                  ]
+                }
+              )
+            ] }),
+            document.body
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { style: { marginLeft: "auto", color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 11 }, children: zoom.source === "autoFit" ? "\u7F29\u653E\uFF1A\u81EA\u9002\u5E94\u7A97\u53E3\uFF08\u968F\u7A97\u53E3\u53D8\u5316\uFF09" : `\u7F29\u653E\uFF1A\u624B\u52A8 ${zoomView.percent}%\uFF08\u7A97\u53E3\u53D8\u5316\u4E0D\u518D\u6539\u53D8\uFF09` })
+      ] })
     ] }),
     (0, import_react_dom.createPortal)(
       /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
@@ -31054,6 +31538,59 @@ var $inputStyle = {
   padding: "2px 4px",
   background: "var(--dsw-alias-bg-layer-1, #fff)",
   color: "var(--dsw-alias-label-primary, #111)"
+};
+var $bottomBar = {
+  display: "flex",
+  alignItems: "center",
+  gap: 8,
+  padding: "6px 10px",
+  borderTop: "1px solid var(--dsw-alias-border-l1, #eee)",
+  flexWrap: "wrap",
+  flexShrink: 0
+};
+var $segGroup = {
+  display: "inline-flex",
+  border: "1px solid var(--dsw-alias-border-l2, #ccc)",
+  borderRadius: 4,
+  overflow: "hidden"
+};
+var $segBtn = {
+  border: "none",
+  borderRight: "1px solid var(--dsw-alias-border-l2, #ccc)",
+  background: "var(--dsw-alias-bg-layer-2, #fff)",
+  color: "var(--dsw-alias-label-primary, #111)",
+  padding: "2px 8px",
+  cursor: "pointer",
+  fontSize: 12
+};
+var $segBtnOn = {
+  background: "var(--dsw-alias-bg-layer-1, #eef4ff)",
+  color: "var(--dsw-alias-link, #1565c0)",
+  fontWeight: 600
+};
+var $zoomSlider = {
+  flex: 1,
+  minWidth: 90,
+  maxWidth: 280,
+  height: 18,
+  cursor: "pointer"
+};
+var $zoomMenuItem = {
+  display: "block",
+  width: "100%",
+  textAlign: "left",
+  border: "none",
+  background: "transparent",
+  color: "var(--dsw-alias-label-primary, #111)",
+  borderRadius: 4,
+  padding: "4px 8px",
+  cursor: "pointer",
+  fontSize: 12
+};
+var $zoomMenuItemOn = {
+  background: "var(--dsw-alias-bg-layer-1, #eef4ff)",
+  color: "var(--dsw-alias-link, #1565c0)",
+  fontWeight: 600
 };
 var $folderOpt = {
   display: "flex",
