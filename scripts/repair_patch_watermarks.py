@@ -46,17 +46,23 @@ def main() -> int:
     a = ap.parse_args()
 
     conn = get_db_connection()
-    sql = ("SELECT p.patch_id, p.clause_revision_id, p.patched_value"
-           " FROM clause_patch p WHERE p.field_name='content_text'")
+    # 带上该文档**自己的标准号**：水印判据里"页码 + 标准号"这一族靠它消歧 ——
+    # 页眉永远是自家标准号，而**表格末格**引用的是别人的标准
+    # （实测误删样例：`'…牵条 优质碳素结构钢 20 GB/T699—2015'`）。
+    sql = ("SELECT p.patch_id, p.clause_revision_id, p.patched_value, dm.standard_no"
+           " FROM clause_patch p"
+           " JOIN clause_revision cr ON cr.clause_revision_id = p.clause_revision_id"
+           " JOIN doc_meta dm ON dm.doc_id = cr.doc_id"
+           " WHERE p.field_name='content_text'")
     if a.limit:
         sql += f" LIMIT {int(a.limit)}"
     rows = conn.execute(sql).fetchall()
     print(f"content_text 补丁共 {len(rows)} 条；dry_run={not a.apply}")
 
     changed: list[tuple[str, str, str]] = []   # (patch_id, rid, new_value)
-    for pid, rid, val in rows:
+    for pid, rid, val, std in rows:
         v = val or ""
-        new = strip_watermark_lines(v)
+        new = strip_watermark_lines(v, own_standard_no=std or None)
         if new != v:
             changed.append((pid, rid, new))
 

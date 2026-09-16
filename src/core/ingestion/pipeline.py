@@ -1290,7 +1290,8 @@ def build_clause_models(doc_id: str, standard_no: str, doc_type: str,
                                          normalize_pua_separators as _pua_sep,
                                          pua_bond_dash_html as _pua_dash)
         content = _pua_dash(content)
-        content = _clean_text(content, legend_stripper=strip_figure_legend_segment)
+        content = _clean_text(content, legend_stripper=strip_figure_legend_segment,
+                              own_standard_no=standard_no)
         tc = classify_clause(content, doc_type=doc_type)
         # 2026-09-14（执行计划 v3 阶段 2a）：识别层真实置信度首次接入
         # clause_revision.ocr_confidence（此前恒 1.0 无生产者——quality/

@@ -1244,10 +1244,12 @@ _RE_WM_TOOL = re.compile(
 #: 判据**精确到标准号前缀族**（GB/GB\///GBZ/DB/JGJ/…），**不放宽为"数字+大写字母"**：
 #: 后者会误删合法条款标题（如 `'5.2.3 试验方法'`）；且要求 `\d{3,5}` 三位以上数字，
 #: 与条款号（`5.2.3` 这类短段）天然区分。
-_RE_WM_HEADER = re.compile(
-    r"^\s*\d{1,4}\s+(?:GB|DB|JGJ|JG|CJJ|CJ|HG|SH|SY|NB|DL|YB|TB|JT|MT|AQ|TSG)"
-    r"\s*/?\s*[A-Z]?\s*\d{3,5}(?:\.\d+)?\s*[—\-–]\s*\d{2,4}\s*$",
-    re.I)
+_WM_STD_CORE = (
+    r"(?P<pfx>GB|DB|JGJ|JG|CJJ|CJ|HG|SH|SY|NB|DL|YB|TB|JT|MT|AQ|TSG)"
+    r"\s*/?\s*(?P<mid>[A-Z])?\s*(?P<num>\d{3,5}(?:\.\d+)?)"
+    r"\s*[—\-–]\s*(?P<year>\d{2,4})")
+
+_RE_WM_HEADER = re.compile(r"^\s*\d{1,4}\s+" + _WM_STD_CORE + r"\s*$", re.I)
 
 #: 文末页眉（**不锚行首**）：单行化正文（`pypdf_backfill` 的 `" ".join(buf)`）会把页眉
 #: 拍在长行尾部，此时 `^…$` 的 `_RE_WM_HEADER` 够不着（实测残留
@@ -1257,10 +1259,75 @@ _RE_WM_HEADER = re.compile(
 #: 把页码写成可选后，`'应符合 GB/T 10029—2010'`（行尾只是一个标准号引用）被整段删掉。
 #: 页眉与"正文标准号引用"的判别特征正是**页码**（`'5 GB/T 10029—2010'` vs
 #: `'应符合 GB/T 10029—2010'`）。
-_RE_WM_HEADER_TAIL = re.compile(
-    r"\s+\d{1,4}\s+(?:GB|DB|JGJ|JG|CJJ|CJ|HG|SH|SY|NB|DL|YB|TB|JT|MT|AQ|TSG)"
-    r"\s*/?\s*[A-Z]?\s*\d{3,5}(?:\.\d+)?\s*[—\-–]\s*\d{2,4}\s*$",
-    re.I)
+#:
+#: ⚠⚠ **但"有页码"还不够**（2026-09-17 复核实测）：**表格末格**同样是
+#: `<裸数字> <标准号>`（`'…牵条 优质碳素结构钢 20 GB/T699—2015'`），于是被误删。
+#: 消歧要靠**上下文**：调用方把该文档**自己的标准号**传进来（`own_standard_no`），
+#: 判据就只吃"标准号 == 本文档标准号"的尾巴 —— 页眉永远是**自家**标准号，
+#: 而表格里引用的通常是**别的**标准。不传时保持历史行为（见诚实边界注释）。
+_RE_WM_HEADER_TAIL = re.compile(r"\s+\d{1,4}\s+" + _WM_STD_CORE + r"\s*$", re.I)
+
+#: 全角 → 半角（U+FF01–U+FF5E → U+0021–U+007E）。标准号在库里可能是全角写法
+#: （实测存在 `GB／T 10067.6-2023` 这种**全角斜杠**），故比较前必须抹平。
+_FW2HW = {c: c - 0xFEE0 for c in range(0xFF01, 0xFF5F)}
+
+
+def canon_standard_no(s: str | None) -> str:
+    """标准号归一（**仅供比较**，不用于展示）：全角→半角、统一破折号、去空白与斜杠、大写。
+
+    与 `update.channels.base.norm_no` 同口径，额外抹平全角与多种破折号
+    （`—` U+2014 / `–` U+2013 / `－` U+FF0D）。
+    """
+    s = (s or "").translate(_FW2HW)
+    for d in ("\u2014", "\u2013", "\uff0d", "\u2500"):
+        s = s.replace(d, "-")
+    return re.sub(r"[\s/]+", "", s).upper()
+
+
+def _match_std(m: "re.Match[str]") -> str:
+    """从页眉判据的匹配里重建标准号（前缀族 + 可选分册字母 + 号 + 年）。"""
+    return canon_standard_no(
+        (m.group("pfx") or "") + (m.group("mid") or "")
+        + (m.group("num") or "") + "-" + (m.group("year") or ""))
+
+
+#: 比较键：只取**号 + 年**（丢弃前缀族与 `/T` 分册标记）。
+#:
+#: ⚠ 为什么不能整串比较（2026-09-17 实测踩到）：同一份标准的**页眉**常把 `GB/T` 印成
+#: `GB`（`own='GB／T 12041.1-2010'` vs 页眉 `'1 GB 12041.1—2010'`）—— OCR/排版去掉
+#: 了 `/T`。整串比较会把这些**真页眉**判成"别人的标准号"而留下：实测**226 行**会因此
+#: 漏删。只比"号 + 年"既能容纳这种写法差异，又仍能把表格里引用的**别的**标准
+#: （`GB/T699—2015` vs own `GB/T 12041.1-2010` → 号不同）正确保住。
+_RE_STD_KEY = re.compile(r"(\d{3,5}(?:\.\d+)?)\s*-?\s*(\d{2,4})\s*$")
+
+
+def _std_key(s: str | None) -> str:
+    """把标准号压成比较键 `号-年`；压不出来就退回整串归一号（保守）。"""
+    c = canon_standard_no(s)
+    m = _RE_STD_KEY.search(c)
+    return f"{m.group(1)}-{m.group(2)}" if m else c
+
+
+def _match_key(m: "re.Match[str]") -> str:
+    return _std_key((m.group("pfx") or "") + (m.group("mid") or "")
+                    + (m.group("num") or "") + "-" + (m.group("year") or ""))
+
+
+def _std_matches(m: "re.Match[str] | None", own_key: str | None) -> bool:
+    """该匹配是否可视为页眉。`own_key=None` → 不设限（历史行为）。"""
+    if m is None:
+        return False
+    if own_key is None:
+        return True
+    return _match_key(m) == own_key
+
+
+def _sub_own_header(rx: "re.Pattern[str]", text: str, own_key: str) -> str:
+    """只删"号 + 年 == 自家标准号"的行尾页眉，其余原样保留。"""
+    def repl(m: "re.Match[str]") -> str:
+        return "" if _match_key(m) == own_key else m.group(0)
+    return rx.sub(repl, text)
+
 
 _WM_TOKENS = (_RE_WM_URL2, _RE_WM_TOOL, _RE_WM_HEADER)
 
@@ -1284,8 +1351,19 @@ def _strip_wm_tokens(s: str) -> str:
     return cur
 
 
-def strip_watermark_lines(text: str | None) -> str:
+def strip_watermark_lines(text: str | None, *,
+                          own_standard_no: str | None = None) -> str:
     """站点水印行剥离（幂等）：整行删掉，正文行一字不动。
+
+    `own_standard_no`（2026-09-17 新增，**可选**）：该文本所属文档**自己的标准号**。
+    传入后，"页码 + 标准号"这一族判据只吃**标准号与之相符**的页眉 —— 页眉永远是自家
+    标准号，而**表格末格**里引用的是别人的标准。
+    不传时保持历史行为（可能误删表格末格）。
+
+    ⚠ **诚实边界**：不传 `own_standard_no` 时，本函数**无法**区分"行尾页眉"与
+    "表格末格" —— 两者都是 `<裸数字> <标准号>`。保留历史行为是为了不改变既有调用方
+    的输出；**知道文档标准号的调用方都应当传**（`pipeline.build_clause_models` 与
+    `repair_patch_watermarks.py` 已传）。
 
     **缺陷证据**（2026-09-15 新语料实测，38/231 部 = 16% 命中）：VLM 把盗版标准站
     的页眉水印读进条款正文，污染内容：
@@ -1307,6 +1385,7 @@ def strip_watermark_lines(text: str | None) -> str:
     """
     if not text:
         return text or ""
+    own_canon = _std_key(own_standard_no) if own_standard_no else None
     # 早退守卫：**四类形态一个都不匹配**才不必处理。逐次修补的教训（每次都漏一族）：
     #   只判 URL → 无 URL 的工具水印整族漏网；
     #   加工具水印后 → "已被拍进行尾的页眉"仍漏（既无 URL 也无 Aspose）；
@@ -1315,8 +1394,8 @@ def strip_watermark_lines(text: str | None) -> str:
     # 故守卫改为"把 text 当成一条**独立页眉**也试一次"。
     if ("www." not in text.lower() and "://" not in text
             and not _RE_WM_TOOL.search(text)
-            and not _RE_WM_HEADER_TAIL.search(text)
-            and not _RE_WM_HEADER.match(text.strip())):
+            and not _std_matches(_RE_WM_HEADER_TAIL.search(text), own_canon)
+            and not _std_matches(_RE_WM_HEADER.match(text.strip()), own_canon)):
         return text
     # ① **行内 token 剥离**（不依赖换行）：工具水印/页眉常被拍进长行中间——
     #    `pypdf_backfill` 用 `" ".join(buf)` 把整段合成**单行**，水印不在自己行上，
@@ -1328,8 +1407,9 @@ def strip_watermark_lines(text: str | None) -> str:
     for ln in stripped.split("\n"):
         s = ln.strip()
         # **(a) 整行就是一个页眉**（`'5 GB/T 10029—2010'`）：直接删。
-        #     页眉判据要求"页码 + 标准号前缀族 + 年份"，不会命中正文。
-        if s and _RE_WM_HEADER.match(s):
+        #     传了 own_standard_no 时只删"自家标准号"那一族（别的标准号可能只是
+        #     表格里独立成行的一格数据）。
+        if s and _std_matches(_RE_WM_HEADER.match(s), own_canon):
             continue
         if s and any(rx.search(s) for rx in _WM_TOKENS):
             residue = _strip_wm_tokens(s)
@@ -1337,15 +1417,21 @@ def strip_watermark_lines(text: str | None) -> str:
             #  ① 残留是"短装饰"（旧口径：'网址'/'下载'/空）；
             #  ② 残留**本身就是页眉**（`'5 GB/T 10029—2010'`）——仅当本行另有水印 token
             #     时才可能走到这里，故不会误删一条独立的合法正文行。
-            if len(residue) <= _WM_RESIDUE_MAX or _RE_WM_HEADER.match(residue):
+            if (len(residue) <= _WM_RESIDUE_MAX
+                    or _std_matches(_RE_WM_HEADER.match(residue), own_canon)):
                 continue                      # 整行删除（水印）
         out.append(ln)
     # ② 收尾：行级剥离在单行文本上留下**行尾页眉**（`'…执行。 5 GB/T 10029—2010'`）。
     #    用不锚行首的 _RE_WM_HEADER_TAIL 收口（只吃行尾 + 前置空白，
     #    故正文中的 `'按 GB/T 18654.1 的规定执行。'` 不受影响）。
     res = "\n".join(out).rstrip()
-    res = _RE_WM_HEADER_TAIL.sub("", res)
-    res = _RE_WM_HEADER.sub("", res)
+    if own_canon is None:
+        res = _RE_WM_HEADER_TAIL.sub("", res)
+        res = _RE_WM_HEADER.sub("", res)
+    else:
+        # 只收"自家标准号"的行尾页眉 —— 表格末格里引用的**别的**标准号必须留下
+        res = _sub_own_header(_RE_WM_HEADER_TAIL, res, own_canon)
+        res = _sub_own_header(_RE_WM_HEADER, res, own_canon)
     # ⚠ **不要**再补一条"收掉孤立尾部页码"的规则：正文以数字结尾很常见
     #   （`'见图 5'`/`'应符合 4.2'`），收掉就是误删合法内容。
     #   代价是页眉被剥后可能残留一个孤立页码（`'…执行。 5 '`）——**有意接受**，
@@ -1354,7 +1440,8 @@ def strip_watermark_lines(text: str | None) -> str:
 
 
 def clean_clause_text(text: str | None, *,
-                      legend_stripper=None) -> str:
+                      legend_stripper=None,
+                      own_standard_no: str | None = None) -> str:
     """**入库文本清洗链的唯一所有者**（次序即契约，2026-09-15 立）。
 
     为什么要有它：这条链原先是 `pipeline.py` 入库处的一行嵌套调用，于是
@@ -1372,6 +1459,10 @@ def clean_clause_text(text: str | None, *,
     `legend_stripper`（图例段切除）与条款**切分**耦合，住在
     `pipeline.strip_figure_legend_segment`；此处以参数注入，避免 text_utils
     反向依赖 ingestion 层。缺省不跑该步（纯文本消费者无需切分语义）。
+
+    `own_standard_no`（2026-09-17 新增）：本文档自己的标准号，透传给
+    `strip_watermark_lines` 用于消解"行尾页眉 vs 表格末格"的歧义。**入库调用方应当传**
+    （`pipeline.build_clause_models` 已传）。
     """
     if not text:
         return text or ""
@@ -1382,4 +1473,4 @@ def clean_clause_text(text: str | None, *,
         out = legend_stripper(out)
     # 站点水印行最后剥（放在图例切除之后：两者都是"整行/整段删除"语义，
     # 但水印行可能落在图例段内，先切图例再剥水印更彻底）
-    return strip_watermark_lines(out)
+    return strip_watermark_lines(out, own_standard_no=own_standard_no)
