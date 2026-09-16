@@ -1218,6 +1218,71 @@ _RE_WM_URL2 = re.compile(r"(?:https?://)?(?:www\.)[A-Za-z0-9\-]+"
 #: 参考文献（`[1] SOAP Version 1.2 …, http://…`）残留很长，据此区分。
 _WM_RESIDUE_MAX = 12
 
+#: 无 URL 的**工具水印**签名（2026-09-16 新增，实测来自 `pypdf_backfill` 越界抽取）。
+#:
+#: 缺陷证据：盗版标准 PDF 常由 Aspose.PDF 生成，页脚带
+#:     `Evaluation Only. Created with Aspose.PDF. Copyright 2002-2025 Aspose Pty Ltd.`
+#: 该句**不含 `www.`/`://`** → 旧守卫（`"www." not in text and "://" not in text`
+#: 直接 return）使整个函数原样返回 → 水印存活。实测库内 **12,614 条**补丁正文含它，
+#: 而**原文 0 条**（即由回填越界引入，非 OCR 原产）。
+#:
+#: 判据收紧到**厂商专名**，不放宽到"含 Copyright/Evaluation"这类通用词——
+#: 后者会误删合法正文（如引用他人文档的版权声明）。
+#: `Aspose` 是本项目语料的工具专名，作为整体 token 具备足够特异性。
+_RE_WM_TOOL = re.compile(
+    r"(?:Evaluation\s+Only\.?\s*)?(?:Created\s+with\s+)?Aspose(?:\.PDF)?"
+    r"(?:\.\s*Copyright\s+\d{4}\s*-\s*\d{4}\s+Aspose\s+Pty\s+Ltd\.?)?",
+    re.I)
+
+#: 全部"行内水印 token"（剥除后残留长度决定整行去留）。新增水印一律入此表，
+#: 使 strip_watermark_lines 只有一个判据来源。
+#:
+#: 第三族·**页眉「页码 + 标准号」**（2026-09-16）：实测 `pypdf_backfill` 越界抽取
+#: 把页眉连同工具水印一起吞进补丁正文，形态 `'5 GB/T 10029—2010 Evaluation Only…'`。
+#: 只剥工具 token 时残留 `'5 GB/T 10029—2010'`（17 字 > 阈值 12）→ 整行不删 → 水印存活。
+#:
+#: 判据**精确到标准号前缀族**（GB/GB\///GBZ/DB/JGJ/…），**不放宽为"数字+大写字母"**：
+#: 后者会误删合法条款标题（如 `'5.2.3 试验方法'`）；且要求 `\d{3,5}` 三位以上数字，
+#: 与条款号（`5.2.3` 这类短段）天然区分。
+_RE_WM_HEADER = re.compile(
+    r"^\s*\d{1,4}\s+(?:GB|DB|JGJ|JG|CJJ|CJ|HG|SH|SY|NB|DL|YB|TB|JT|MT|AQ|TSG)"
+    r"\s*/?\s*[A-Z]?\s*\d{3,5}(?:\.\d+)?\s*[—\-–]\s*\d{2,4}\s*$",
+    re.I)
+
+#: 文末页眉（**不锚行首**）：单行化正文（`pypdf_backfill` 的 `" ".join(buf)`）会把页眉
+#: 拍在长行尾部，此时 `^…$` 的 `_RE_WM_HEADER` 够不着（实测残留
+#: `'…执行。 5 GB/T 10029—2010'`）。此判据只吃**行尾**。
+#:
+#: ⚠ **前导页码是必须的，不是可选的**：本仓库的回归用例抓出过一次放宽事故——
+#: 把页码写成可选后，`'应符合 GB/T 10029—2010'`（行尾只是一个标准号引用）被整段删掉。
+#: 页眉与"正文标准号引用"的判别特征正是**页码**（`'5 GB/T 10029—2010'` vs
+#: `'应符合 GB/T 10029—2010'`）。
+_RE_WM_HEADER_TAIL = re.compile(
+    r"\s+\d{1,4}\s+(?:GB|DB|JGJ|JG|CJJ|CJ|HG|SH|SY|NB|DL|YB|TB|JT|MT|AQ|TSG)"
+    r"\s*/?\s*[A-Z]?\s*\d{3,5}(?:\.\d+)?\s*[—\-–]\s*\d{2,4}\s*$",
+    re.I)
+
+_WM_TOKENS = (_RE_WM_URL2, _RE_WM_TOOL, _RE_WM_HEADER)
+
+
+def _strip_wm_tokens(s: str) -> str:
+    """剥掉一行里的全部水印 token，返回残留。
+
+    **迭代**（而非单遍）：token 互相咬尾——剥掉工具水印后剩下的 `'5 GB/T 10029—2010 '`
+    只有在**去掉尾随空白**后才被页眉判据认出（实测单遍残留 17 字 > 阈值 12 → 漏网；
+    迭代后为 0）。上限 4 轮且要求每轮都变短，保证终止且绝不误删。
+    """
+    cur = s
+    for _ in range(4):
+        nxt = cur
+        for rx in _WM_TOKENS:
+            nxt = rx.sub("", nxt)
+        nxt = nxt.strip(" 　:：-—,.，。;；[]()（）")
+        if len(nxt) >= len(cur):
+            break            # 不再变短 → 停（防死循环/防抖）
+        cur = nxt
+    return cur
+
 
 def strip_watermark_lines(text: str | None) -> str:
     """站点水印行剥离（幂等）：整行删掉，正文行一字不动。
@@ -1238,19 +1303,54 @@ def strip_watermark_lines(text: str | None) -> str:
 
     另：已有 `strip_block_noise` 只处理"整行即水印（URL±页码±点线）"且**未被内容
     清洗链调用**；本函数是它在正文清洗链里的对应实现（整行删除语义），
-    判据更宽（含短标签族），故作为单一所有者独立存在。
+    判据更宽（含短标签族与**无 URL 的工具水印族**），故作为单一所有者独立存在。
     """
-    if not text or "www." not in text.lower() and "://" not in text:
+    if not text:
         return text or ""
+    # 早退守卫：**四类形态一个都不匹配**才不必处理。逐次修补的教训（每次都漏一族）：
+    #   只判 URL → 无 URL 的工具水印整族漏网；
+    #   加工具水印后 → "已被拍进行尾的页眉"仍漏（既无 URL 也无 Aspose）；
+    #   再加行尾页眉后 → **整行即页眉**（`'5 GB/T 10029—2010'`）又漏
+    #   ——它不匹配需要 `\s+` 前缀的 `_RE_WM_HEADER_TAIL`（回归用例抓出）。
+    # 故守卫改为"把 text 当成一条**独立页眉**也试一次"。
+    if ("www." not in text.lower() and "://" not in text
+            and not _RE_WM_TOOL.search(text)
+            and not _RE_WM_HEADER_TAIL.search(text)
+            and not _RE_WM_HEADER.match(text.strip())):
+        return text
+    # ① **行内 token 剥离**（不依赖换行）：工具水印/页眉常被拍进长行中间——
+    #    `pypdf_backfill` 用 `" ".join(buf)` 把整段合成**单行**，水印不在自己行上，
+    #    故"整行删除"判据够不着（实测：只加行级判据时全库清理数为 0）。
+    #    工具水印是厂商专名，作为整体 token 直接删除是安全的（无合法正文会包含
+    #    `Aspose` + 版权年份串）。
+    stripped = _RE_WM_TOOL.sub("", text)
     out: list[str] = []
-    for ln in text.split("\n"):
+    for ln in stripped.split("\n"):
         s = ln.strip()
-        if s and _RE_WM_URL2.search(s):
-            residue = _RE_WM_URL2.sub("", s).strip(" 　:：-—,.，。;；[]()（）")
-            if len(residue) <= _WM_RESIDUE_MAX:
+        # **(a) 整行就是一个页眉**（`'5 GB/T 10029—2010'`）：直接删。
+        #     页眉判据要求"页码 + 标准号前缀族 + 年份"，不会命中正文。
+        if s and _RE_WM_HEADER.match(s):
+            continue
+        if s and any(rx.search(s) for rx in _WM_TOKENS):
+            residue = _strip_wm_tokens(s)
+            # 整行删除的两种情形：
+            #  ① 残留是"短装饰"（旧口径：'网址'/'下载'/空）；
+            #  ② 残留**本身就是页眉**（`'5 GB/T 10029—2010'`）——仅当本行另有水印 token
+            #     时才可能走到这里，故不会误删一条独立的合法正文行。
+            if len(residue) <= _WM_RESIDUE_MAX or _RE_WM_HEADER.match(residue):
                 continue                      # 整行删除（水印）
         out.append(ln)
-    return "\n".join(out)
+    # ② 收尾：行级剥离在单行文本上留下**行尾页眉**（`'…执行。 5 GB/T 10029—2010'`）。
+    #    用不锚行首的 _RE_WM_HEADER_TAIL 收口（只吃行尾 + 前置空白，
+    #    故正文中的 `'按 GB/T 18654.1 的规定执行。'` 不受影响）。
+    res = "\n".join(out).rstrip()
+    res = _RE_WM_HEADER_TAIL.sub("", res)
+    res = _RE_WM_HEADER.sub("", res)
+    # ⚠ **不要**再补一条"收掉孤立尾部页码"的规则：正文以数字结尾很常见
+    #   （`'见图 5'`/`'应符合 4.2'`），收掉就是误删合法内容。
+    #   代价是页眉被剥后可能残留一个孤立页码（`'…执行。 5 '`）——**有意接受**，
+    #   与"误删正文"相比这是更轻的缺陷（宁缺不高灭）。
+    return res.rstrip()
 
 
 def clean_clause_text(text: str | None, *,

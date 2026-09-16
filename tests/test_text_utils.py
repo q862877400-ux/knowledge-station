@@ -302,6 +302,91 @@ def test_strip_watermark_lines_rejects_bare_domain_pattern():
         assert not _RE_WM_URL2.search(safe), safe
 
 
+# ---------------------------------------------------------------------------
+# 第二/三族水印：无 URL 的**工具水印**与**页眉**（2026-09-16）
+#
+# 缺陷证据（生产库实测，非构造）：19,981 条 content_text 补丁中 14,906 条（74.6%）
+# 含盗版站页脚/页眉，而**原文 0 条** → 由 `pypdf_backfill` 越界抽取引入。
+# 该回填把条款号到页尾之间的一切都吃进 buf（`pypdf_backfill.py:60` 的"下一条款"
+# 判据不认 `表3`/`附录A`），再用 `" ".join(buf)` 拍成**单行** → 水印不在自己行上，
+# "整行删除"判据够不着。既有两个用例覆盖不到这一族，故单列。
+_ASPOSE_FOOTER = ("Evaluation Only. Created with Aspose.PDF. "
+                  "Copyright 2002-2025 Aspose Pty Ltd.")
+
+
+def test_strip_watermark_lines_removes_aspose_tool_watermark():
+    """工具水印（无 URL）必须清除——旧守卫只认 URL 载体，使整族漏网。"""
+    from src.core.text_utils import strip_watermark_lines
+    for wm in [
+        _ASPOSE_FOOTER,
+        "Created with Aspose.PDF",
+        # 生产库实际形态：页眉（页码+标准号）+ 工具水印挤在同一单行里
+        f"5 GB/T 10029—2010 {_ASPOSE_FOOTER}",
+        # 页眉本身独立成行（`_RE_WM_HEADER` 的 `^…$` 形态）
+        "5 GB/T 10029—2010",
+    ]:
+        out = strip_watermark_lines(wm)
+        assert "Aspose" not in out, wm
+        assert "GB/T 10029" not in out, (wm, out)
+        assert out.strip() == "", (wm, out)
+
+
+def test_strip_watermark_lines_drops_header_tail_but_keeps_body_intact():
+    """**行尾页眉**（不锚行首）必须剥掉，且正文一字不动。
+
+    单行化正文把页眉拍在长行尾部（`'…执行。 5 GB/T 10029—2010'`），此时
+    `^…$` 形态的 `_RE_WM_HEADER` 够不着，靠 `_RE_WM_HEADER_TAIL` 收口。
+    **前导页码是必须的、不是可选的**：本用例同族的反向对照
+    （`'应符合 GB/T 10029—2010'`，见 keeps_standard_refs_in_body）抓出过一次放宽事故
+    ——把页码写成可选后，行尾只有一个标准号引用的正文被整段删掉。
+    """
+    from src.core.text_utils import strip_watermark_lines
+    out = strip_watermark_lines(
+        "…其他测定结果应进行综合特征判定,按 GB/T18654.1的规定执行。 5 GB/T 10029—2010")
+    assert "GB/T 10029" not in out, out
+    # 正文（含正文内的标准号引用 GB/T18654.1）一字不动
+    assert out == "…其他测定结果应进行综合特征判定,按 GB/T18654.1的规定执行。", out
+
+
+def test_strip_watermark_lines_aspose_strips_inline_but_keeps_body():
+    """**关键**：水印被拍进长单行中间时，只删水印、**正文一字不动**。
+
+    实测口径：生产库 12,614 条命中的长度差**恒为 -78**（正是该水印串长度）
+    —— 若误删正文会出现 -200 量级的差值。
+    """
+    from src.core.text_utils import strip_watermark_lines
+    body = ("能够扩增出大小分别为820bp和360bp的两个标志带。其他测定结果应进行"
+            "综合特征判定,按 GB/T18654.1的规定执行。")
+    out = strip_watermark_lines(f"{body} 5 GB/T 10029—2010 {_ASPOSE_FOOTER}")
+    assert out == body, out
+
+
+def test_strip_watermark_lines_keeps_standard_refs_in_body():
+    """**反向对照（关键）**：正文里的标准号引用/表数据不得被当成页眉删掉。
+
+    页眉判据要求"行首页码 + 标准号"或"行尾标准号"，故下面这些必须存活——
+    其中前两条是"页眉式引用句"，最容易被误伤。
+    """
+    from src.core.text_utils import strip_watermark_lines
+    for keep in [
+        "按 GB/T 18654.1 的规定执行。",
+        "见表 5 GB/T 10029—2010 的规定",
+        "应符合 GB/T 10029—2010",
+        "板、封头 承压设备用钢板 Q245R、Q345R GB/T713.2—2023 炉管、弯头 无缝钢管",
+        "摘 要 本文件按照GB/T1.1—2020《标准化工作导则》的规定起草。",
+        "5.2.3 试验方法",
+    ]:
+        assert strip_watermark_lines(keep) == keep, keep
+
+
+def test_strip_watermark_lines_aspose_idempotent():
+    """幂等：重复清洗结果不变（清洗链可重入的前提）。"""
+    from src.core.text_utils import strip_watermark_lines
+    once = strip_watermark_lines(f"正文一\n5 GB/T 10029—2010 {_ASPOSE_FOOTER}\n正文二")
+    assert once == "正文一\n正文二", once
+    assert strip_watermark_lines(once) == once
+
+
 def test_clean_clause_text_strips_watermark_in_chain():
     """水印剥离已接入清洗链（`clean_clause_text`），入库与评估同源生效。"""
     from src.core.text_utils import clean_clause_text
