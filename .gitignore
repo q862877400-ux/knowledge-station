@@ -21,6 +21,7 @@ var/ocr-loop/*
 var/ocr-loop/probe_*.py
 var/ocr-loop/diag_*.py
 var/ocr-loop/census_*.py
+var/ocr-loop/check_*.py
 __pycache__/
 *.pyc
 .pytest_cache/
