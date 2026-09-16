@@ -18,12 +18,12 @@
 
 ## 四道门禁（改代码后必跑）
 
-> 数字为 **2026-09-17 实测基线**；演进链只涨不跌（24 → … → 828 → 1145 → 1166 → **1180**）。
+> 数字为 **2026-09-17 实测基线**；演进链只涨不跌（24 → … → 828 → 1145 → 1166 → 1180 → **1208**）。
 > ⚠ 2026-09-16 起 `test_golden_gate` 的**自我豁免通道已关闭**：删 `eval/baseline.json`
 > 不再能让红线 6 失效（门禁报失败，且不自动重建基线）。
 
 ```text
-.venv/Scripts/python -m pytest tests -q     # pytest：1180 passed + 3 skipped + 4 xfailed（xfail 是"已量化但未修"的已知缺口，见 DEVELOPMENT-HISTORY §八.3）
+.venv/Scripts/python -m pytest tests -q     # pytest：1208 passed + 3 skipped + 0 failed（0 xfailed）
 .venv/Scripts/python -m mypy src            # mypy：122 文件 0 错误
 cd plugin && npm run smoke                  # 插件冒烟：11 段
 cd plugin && npm run verify:commands         # 命令回归：15/15

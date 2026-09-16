@@ -98,7 +98,7 @@ npm run verify:commands   # 15 项命令回归
 - ✅ 已安装（staging junction 路径）并真实 host 加载；引擎懒加载符合预期；4 工具 + 3 座位（1 侧栏 tab / settings.section / input.dock）**迁移前**真机全通。
 - ✅ 真机已验证（迁移前的旧桥接）：蓝链点击 → PDF 跳页红箭头高亮（用户实测）、收藏互跳、效力报告（设置栏目内嵌面板）、入库预览 egress:"none" 确证、斜杠命令。
 - ⚠ **2026-09-16 官方侧栏迁移后尚未做真机复核**——运行中的 host 由 tsx 从更新前源码启动，需重启 `dsh web` 才装载新注册路径；重启前看不到 tab 不代表代码错。见 `docs/DEVELOPMENT-HISTORY.md` §八.4。
-- ✅ 离线门禁基线：pytest 1180+3（+4 xfailed 已知缺口）/ smoke 11 段 / verify:commands 15 项 / tsc 0 错 / mypy 0 错。
+- ✅ 离线门禁基线：pytest 1208+3（0 failed / 0 xfailed）/ smoke 11 段 / verify:commands 15 项 / tsc 0 错 / mypy 0 错。
 
 ---
 
