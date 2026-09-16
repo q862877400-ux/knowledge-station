@@ -531,7 +531,7 @@ write_queue / event_log（统一事件模型）/ debug_dump（每次提问落库
 
 ## 11.1 门禁五件套（当前基线，2026-09-13 扩容）
 
-- **pytest**：`.venv/Scripts/python -m pytest tests -q` → **1208 passed + 3 skipped + 0 failed（0 xfailed）**（**2026-09-17 实测**；演进链 24→…→792→828→1145→1166→1180→**1208**，全程只涨不跌）。
+- **pytest**：`.venv/Scripts/python -m pytest tests -q` → **1210 passed + 3 skipped + 0 failed + 1 xfailed**（**2026-09-17 实测**；那 1 条 xfail 钉住"`pipeline._STD_CODE_FRAG` 家具剥离是「页码+标准号」判据的**第二个所有者**、尚未接上下文"这一已量化未修项，见 DEVELOPMENT-HISTORY §八.3。演进链 24→…→792→828→1145→1166→1180→**1210**，全程只涨不跌）。
   ⚠ **2026-09-16 起门禁自我豁免已关闭**：`test_golden_gate` 旧实现在基线缺失时
   `write_text` 重建 + skip —— **删掉 `eval/baseline.json` 即可让红线 6 失效**（全项目
   唯一"一步可破坏"的防线）。现改为：基线缺失=**失败**且不自动重建，首建走显式开关

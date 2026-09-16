@@ -195,3 +195,94 @@ def test_without_own_standard_behaviour_is_unchanged(label, text, needle):
 ])
 def test_canon_standard_no(raw, expect):
     assert canon_standard_no(raw) == expect
+
+
+# ---------------------------------------------------------------- 端到端接线
+
+def _middle_with_table_cell(own: str, tmp_path):
+    """一页 middle.json：正文里既有**自家页眉**（应删）又有**表格末格**（别人的标准号，应留）。"""
+    import json
+    from pathlib import Path
+
+    def _ln(content):
+        return {"bbox": [60.0, 700.0, 530.0, 720.0],
+                "spans": [{"type": "text", "content": content}]}
+
+    mj = {"pdf_info": [{
+        "page_idx": 0, "page_size": [595.0, 841.0],
+        "para_blocks": [{"type": "text", "bbox": [60.0, 600.0, 530.0, 720.0], "lines": [
+            _ln("5.2.1 材料要求：锅炉受压元件材料见表 2。"),
+            _ln("牵条 优质碳素结构钢 20 GB/T699—2015"),
+            _ln("7 " + own),
+        ]}],
+        "discarded_blocks": [],
+    }]}
+    p = Path(tmp_path) / "m.json"
+    p.write_text(json.dumps(mj, ensure_ascii=False), encoding="utf-8")
+    return p
+
+
+def test_ingest_wiring_passes_own_standard(tmp_path, monkeypatch):
+    """**端到端接线**：`build_clause_models(doc_id, standard_no, …)` 必须把文档自己的
+    标准号透传进清洗链 —— 否则单元测试全绿而真机入库照旧误判。
+
+    做法：截获 `text_utils.clean_clause_text`（`build_clause_models` 在函数体内
+    `from … import`，故打补丁生效），断言 kwarg 确实到了。
+    """
+    from src.core import text_utils
+    from src.core.ingestion.pipeline import (
+        build_clause_models, load_middle_items, split_items_into_clauses)
+
+    own = "GB/T 12041.1-2010"
+    seen = {}
+    real = text_utils.clean_clause_text
+
+    def spy(text, **kw):
+        seen.update(kw)
+        return real(text, **kw)
+
+    monkeypatch.setattr(text_utils, "clean_clause_text", spy)
+    items, page_sizes = load_middle_items(_middle_with_table_cell(own, tmp_path))
+    clauses = split_items_into_clauses(items)
+    build_clause_models("w1", own, "standard", clauses, page_sizes)
+
+    assert seen.get("own_standard_no") == own, \
+        "入库清洗链没拿到本文档自己的标准号（水印判据无法消歧）"
+
+
+def test_ingest_removes_own_header_end_to_end(tmp_path):
+    """自家页眉（页码 + 本文档标准号）在真链路里仍被删掉。"""
+    from src.core.ingestion.pipeline import (
+        build_clause_models, load_middle_items, split_items_into_clauses)
+
+    own = "GB/T 12041.1-2010"
+    items, page_sizes = load_middle_items(_middle_with_table_cell(own, tmp_path))
+    clauses = split_items_into_clauses(items)
+    models, _ = build_clause_models("w2", own, "standard", clauses, page_sizes)
+    text = "\n".join(m.content_text for m in models)
+    assert "7 " + own not in text, "端到端：自家页眉必须被删掉"
+
+
+@pytest.mark.xfail(strict=True, reason="已知：入库**家具**剥离是第二个判据所有者，未接上下文（见 §6.3 剩余风险）")
+def test_ingest_table_cell_lost_by_furniture_owner(tmp_path):
+    """⚠ **仍未修的第二个所有者**：入库链上"页码 + 标准号"还有**另一处**判据 ——
+    `pipeline._STD_CODE_FRAG`（家具剥离，`pipeline.py:66-67`），它在**清洗链之前**跑
+    且**不知道文档自己的标准号**，于是同样会把表格末格当家具切掉：
+
+        实测（本用例的合成页）：进入 `clean_clause_text` 的文本已经是
+        `'5.2.1 材料要求：…见表 2。\\n牵条 优质碳素结构钢'` ——
+        ` 20 GB/T699—2015` 在**上游**就没了，与本文档自己的标准号无关。
+
+    这条 strict xfail 把"修了一半"的事实钉住：水印族（`text_utils`）已接上下文，
+    **家具族（`pipeline`）尚未**。修它需要把 `standard_no` 穿过切分层
+    （`split_items_into_clauses` 目前拿不到标准号）。
+    """
+    from src.core.ingestion.pipeline import (
+        build_clause_models, load_middle_items, split_items_into_clauses)
+
+    own = "GB/T 12041.1-2010"
+    items, page_sizes = load_middle_items(_middle_with_table_cell(own, tmp_path))
+    clauses = split_items_into_clauses(items)
+    models, _ = build_clause_models("w3", own, "standard", clauses, page_sizes)
+    text = "\n".join(m.content_text for m in models)
+    assert "GB/T699—2015" in text, "表格末格被上游家具剥离切掉了"
