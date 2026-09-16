@@ -8,13 +8,45 @@ CLI: python -m src.core.ingestion.pypdf_backfill [--doc <doc_id>]
 """
 from __future__ import annotations
 
+import logging
 import os
 import re
 import sys
 
 from src.core.storage.sqlite_db import get_db_connection
 
+logger = logging.getLogger(__name__)
+
 _CLAUSE = re.compile(r"^(\d+(?:\.\d+)+)\s*(.*)$")
+
+#: 条款正文的**终止锚**：命中即认为本条款已结束、停止归并（2026-09-16 新增）。
+#
+# 缺陷证据（生产库实测）：旧实现只在下一条**数字条款号**处切分，于是
+# `表3` / `附录A` / `第5章` / 页眉 `'5 GB/T 10029—2010'` / 工具水印
+# `'Evaluation Only. Created with Aspose.PDF…'` 都不被认作边界 → buf 一路吃到
+# **页尾**，把页眉、页脚水印、后续表格与附录全并进该条款。实测：
+# 19,981 条 content_text 补丁里 **14,906 条（74.6%）** 含盗版站页脚/页眉，
+# 而原文 **0 条** —— 污染 100% 由本函数引入，再经 `fetch_full_clause` 透明覆写
+# 进入检索、引用与 LLM 提示词。
+#
+# 判据取"结构标记"而非"任意行"，避免把正文里的普通句子当边界：
+#   ① 数字条款号（原判据，保留）；
+#   ② 表/图/附录的编号行（`表3 …` / `图 4 …` / `附录A …` / `附录 B.2 …`）；
+#   ③ 页眉（页码 + 标准号前缀族 + 年份）；
+#   ④ 已知工具/站点水印。
+_ANCHOR_TABLE_FIG = re.compile(
+    r"^\s*(?:表|图)\s*[A-Za-z]?(?:\.\d+)*\s*\d*(?:\.\d+)*\s*\S")
+_ANCHOR_APPENDIX = re.compile(r"^\s*附\s*录\s*[A-Za-z]?\s*\d*(?:\.\d+)*\s*\S?")
+_ANCHOR_HEADER = re.compile(
+    r"^\s*\d{1,4}\s+(?:GB|DB|JGJ|JG|CJJ|CJ|HG|SH|SY|NB|DL|YB|TB|JT|MT|AQ|TSG)"
+    r"\s*/?\s*[A-Z]?\s*\d{3,5}(?:\.\d+)?\s*[—\-–]\s*\d{2,4}\s*$", re.I)
+_ANCHOR_WM = re.compile(r"Aspose\.PDF|Evaluation Only|Created with Aspose", re.I)
+
+
+def _is_terminator(s: str) -> bool:
+    """该行是否终止当前条款的归并（结构标记/页眉/水印）。"""
+    return bool(_ANCHOR_TABLE_FIG.match(s) or _ANCHOR_APPENDIX.match(s)
+                or _ANCHOR_HEADER.match(s) or _ANCHOR_WM.search(s))
 
 
 def _pypdf_available() -> bool:
@@ -63,6 +95,14 @@ def pypdf_page_clauses(pdf_path: str, page_no: int) -> dict[str, str]:
             cur_no = m.group(1)
             buf = [s]
         elif cur_no:
+            # **终止锚**（2026-09-16 新增）：表/图/附录编号、页眉、工具水印
+            # 出现即认为本条款已结束 —— 旧实现继续归并，把页尾一切并进条款
+            # （见 `_ANCHOR_*` 的缺陷证据）。命中即封闭本条款并清空 cur_no，
+            # 使后续内容不再挂到它名下。
+            if _is_terminator(s):
+                out[cur_no] = " ".join(buf)
+                cur_no, buf = None, []
+                continue
             buf.append(s)
     if cur_no:
         out[cur_no] = " ".join(buf)
@@ -98,6 +138,28 @@ def backfill_document(doc_id: str, pdf_path: str | None, conn=None) -> int:
                     cache[page] = pypdf_page_clauses(pdf_path, page)
             ptxt = (cache.get(ps) or {}).get(num) or (cache.get(pe) or {}).get(num)
             if not ptxt:
+                continue
+            # **回填不得严重改变文本量级**（2026-09-16 新增护栏）。
+            #
+            # 为什么用"长度量级"而不是"相似度阈值"：实测补丁与原文的相似度
+            # **中位仅 0.54**（去空白后 SequenceMatcher），任何合理阈值都会拒掉
+            # 一半以上——而"低相似度补丁是坏的"这一点**没有被证明**（数字回填天然
+            # 会插入空格与符号，相似度本就偏低）。在无证据的情况下硬设相似度阈值，
+            # 会打掉真实修复，违反本仓库"证据先于放宽"的纪律。
+            #
+            # 而"长度量级"有**直接证据**：越界抽取把"条款号 → 页尾"整体并入，
+            # 实测 69.5% 的污染补丁比原文长 50% 以上，最长者达原文的数倍；
+            # 同时回填**不会**明显缩短正文（它只是补数字），故下限取得宽松。
+            #
+            # 口径：上限 3×，但留 400 字绝对余量（短条款的 3× 太小，会误杀
+            # 真实回填——本用例 `test_backfill_accepts_reasonable_text` 抓出过）；
+            # 下限 0.5×（回填只会加字符，缩短说明抽取不完整）。
+            _n = len(content or "")
+            _hi = max(_n * 3.0, _n + 400)
+            if not (_n * 0.5 <= len(ptxt) <= _hi):
+                logger.warning(
+                    "pypdf 回填越界（长度 %d 不在原文 %d 的 [0.5×, 3×+400] 内）→ 拒绝：%s %s",
+                    len(ptxt), _n, doc_id, num)
                 continue
             if _digits(ptxt) > _digits(content) * 1.5 and _digits(ptxt) >= 3:
                 exists = conn.execute(
