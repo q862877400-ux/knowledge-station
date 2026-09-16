@@ -119,3 +119,69 @@ def test_resolve_route_accepts_fullwidth(seeded, client):
               headers={"Authorization": f"Bearer {token}"})
     assert r.status_code == 200, r.text
     assert r.json()["data"]["clause_number"] == "5.2.1"
+
+
+# ---------------------------------------------------------------------------
+# 以下三条是 verifier 抓出的**回归护栏**（第一版实现踩了 R1/R3，R2 被宽窄差异影响）。
+# ---------------------------------------------------------------------------
+
+def test_superscript_input_does_not_crash(seeded, client):
+    """R3（**曾在生产端点打 500**）：`str.isdigit()` 对上标/下标等 128 个码点为 True，
+    而 `int()` 拒绝它们 → `normalize_clause_number` 抛 ValueError。
+
+    第一版把归一放在**任何 SQL 之前**且不兜异常 → 任意这样的输入都能把端点打成 500。
+    这里两端都钉：库内函数不抛；HTTP 面必须是 404/200，**绝不能是 500**。
+    """
+    from src.core.storage import clause_repo
+    # 库内：不得抛异常
+    for probe in ("5.²", "9.²", "¹", "5.₂", "①"):
+        clause_repo.resolve_clause("GB/T 10029-2010", probe)   # 不抛即通过
+    # HTTP 面：不得 500
+    c, token = client
+    for probe in ("5.²", "9.²", "¹"):
+        r = c.get("/api/v1/clauses/resolve",
+                  params={"standard_no": "GB/T 10029-2010", "clause_number": probe},
+                  headers={"Authorization": f"Bearer {token}"})
+        assert r.status_code != 500, f"{probe} 打成 500：{r.text}"
+
+
+def test_verbatim_lookup_is_tried_first(db, seeded):
+    """R1：库里若真存在**带空白**的条款号，原样查询必须仍能命中它。
+
+    旧实现用调用方原样的字符串查；第一版实现改成用 strip 后的形式查 →
+    这种行会查不到（或被同名的另一条抢走）。故必须"原样优先"。
+    """
+    from src.core.storage import clause_repo
+    from src.core.storage.sqlite_db import write_transaction
+    with write_transaction() as conn:
+        conn.execute(
+            "INSERT INTO clause_revision (clause_revision_id, doc_revision_id, doc_id,"
+            " clause_key, clause_number, content_text, knowledge_type, modality,"
+            " modality_strength, page_start, page_end)"
+            " VALUES ('nz_pad','r','nz1','knzpad',' 5.2.1 ','带空白条款号的正文。',"
+            " 'rule','宜',2,1,1)")
+    assert _num(clause_repo.resolve_clause("GB/T 10029-2010", " 5.2.1 ")) == " 5.2.1 "
+
+
+def test_table_reference_is_consistent_with_and_without_spaces(db, seeded):
+    """R2：`'表2'` 与 `' 表2 '` 必须给出**同一个**结果。
+
+    旧实现不一致：无空格时精确匹配先命中「名为 表2 的条款」；带空格时精确匹配落空、
+    掉进"正文引用该表"的 fallback，于是同一个引用因空格而解析到不同条款。
+    本改动让带空格形式也先进精确匹配 → 两者一致（**这是一处有意的行为变更**，
+    不是纯增量；理由：精确的 `clause_number` 命中应当压过"正文 LIKE"兜底）。
+    """
+    from src.core.storage import clause_repo
+    from src.core.storage.sqlite_db import write_transaction
+    with write_transaction() as conn:
+        conn.execute(
+            "INSERT INTO clause_revision (clause_revision_id, doc_revision_id, doc_id,"
+            " clause_key, clause_number, content_text, knowledge_type, modality,"
+            " modality_strength, page_start, page_end)"
+            " VALUES ('nz_tbl','r','nz1','knztbl','表2','名为表2的条款正文。',"
+            " 'rule','宜',2,1,1)")
+    a = clause_repo.resolve_clause("GB/T 10029-2010", "表2")
+    b = clause_repo.resolve_clause("GB/T 10029-2010", " 表2 ")
+    assert a is not None and b is not None
+    assert a.clause_revision_id == b.clause_revision_id == "nz_tbl", \
+        "带空格与不带空格必须一致（精确命中优先于正文兜底）"

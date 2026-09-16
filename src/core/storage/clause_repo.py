@@ -616,11 +616,22 @@ def resolve_clause(standard_no: str, clause_number: str) -> ClauseRevisionModel 
     纯增量：任何原本能命中的查询，命中结果不变。
     """
     import re as _re
-    from src.core.knowledge.classifier import normalize_clause_number
 
     conn = get_db_connection()
-    raw = (clause_number or "").strip()
-    norm = normalize_clause_number(raw)
+    # 三个候选，**必须按"历史行为优先"的顺序试**，否则就不是纯增量：
+    #   verbatim = 调用方原样（**旧实现正是用它查的**，去空白会改变结果）；
+    #   raw      = 去首尾空白；norm = 归一（全角→半角 / 去空白 / 去前导零）。
+    verbatim = clause_number or ""
+    raw = verbatim.strip()
+    try:
+        from src.core.knowledge.classifier import normalize_clause_number
+        norm = normalize_clause_number(raw)
+    except Exception:
+        # ⚠ 归一**可能对任意用户输入抛异常**：`str.isdigit()` 对 ¹²³ / ₀-₉ / 埃塞俄比亚
+        # 数字等 128 个码点为 True，而 `int()` 拒绝它们 → ValueError。归一若放在查询之前
+        # 且不兜住，端点会被任意字符串打成 500（本改动第一版就踩了，verifier 抓出）。
+        # 降级为"不归一"，等于完全退回旧行为。
+        norm = raw
 
     def _lookup(cn: str) -> Any:
         """1) 精确标准号匹配（含版本年份）；2) 年份宽容（按标准数字主体）。"""
@@ -642,13 +653,16 @@ def resolve_clause(standard_no: str, clause_number: str) -> ClauseRevisionModel 
             " ORDER BY cr.rowid DESC LIMIT 1",
             (cn, "%" + m.group(1) + "%")).fetchone()
 
-    row = _lookup(raw)
-    if not row and norm != raw:
+    row = _lookup(verbatim)
+    if not row and raw != verbatim:
+        row = _lookup(raw)
+    if not row and norm not in (verbatim, raw):
         row = _lookup(norm)
     # 3) 表格引用 fallback：条款号形如「表2」时，解析到正文引用该表的条款
-    #    （用归一形式：这样「表 2」也能进这条分支）
-    if not row and _re.match(r"^表\d+$", norm):
-        like = "%" + norm + "%"
+    #    判据同时试 raw（旧行为）与 norm（新增，于是「表 2」也能进这条分支）
+    tbl = next((c for c in (raw, norm) if _re.match(r"^表\d+$", c)), None)
+    if not row and tbl:
+        like = "%" + tbl + "%"
         row = conn.execute(
             "SELECT DISTINCT cr.clause_revision_id FROM clause_revision cr"
             " JOIN doc_meta dm ON dm.doc_id = cr.doc_id"
