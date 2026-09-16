@@ -8,7 +8,6 @@
     "build:client": "node scripts/build-client.mjs",
     "smoke:pdf-fit": "node scripts/smoke-pdf-fit.mjs",
     "smoke:pdf-panel": "node scripts/smoke-pdf-panel.mjs",
-    "smoke:bs-contract": "node scripts/smoke-bs-contract.mjs",
     "smoke:settings": "node scripts/smoke-settings.mjs",
     "smoke:guard": "node scripts/smoke-settings-guard.mjs",
     "smoke:tools": "node scripts/smoke-effect-tool.mjs",
@@ -19,7 +18,7 @@
     "smoke:docimage": "node scripts/smoke-docimage.mjs",
     "smoke:sanitize": "node scripts/smoke-sanitize.mjs",
     "verify:commands": "node scripts/run-verify-commands.mjs",
-    "smoke": "node scripts/smoke-pdf-fit.mjs && node scripts/smoke-pdf-panel.mjs && node scripts/smoke-bs-contract.mjs && node scripts/smoke-settings.mjs && node scripts/smoke-settings-guard.mjs && node scripts/smoke-effect-tool.mjs && node scripts/smoke-chatmode.mjs && node scripts/smoke-ingest.mjs && node scripts/smoke-engine-guard.mjs && node scripts/smoke-client-entry.mjs && node scripts/smoke-docimage.mjs && node scripts/smoke-sanitize.mjs"
+    "smoke": "node scripts/smoke-pdf-fit.mjs && node scripts/smoke-pdf-panel.mjs && node scripts/smoke-settings.mjs && node scripts/smoke-settings-guard.mjs && node scripts/smoke-effect-tool.mjs && node scripts/smoke-chatmode.mjs && node scripts/smoke-ingest.mjs && node scripts/smoke-engine-guard.mjs && node scripts/smoke-client-entry.mjs && node scripts/smoke-docimage.mjs && node scripts/smoke-sanitize.mjs"
   },
   "exports": {
     ".": "./src/index.js",
@@ -41,7 +40,7 @@
         "@deepseek-ai/dsh-client-ui-slots",
         "@deepseek-ai/dsh-client-ui-conversation",
         "@deepseek-ai/dsh-client-modules",
-        "dsh-better-sidebar"
+        "@deepseek-ai/dsh-client-ui-sidebar-right"
       ]
     }
   },
@@ -64,10 +63,10 @@
     "@deepseek-ai/cordis": "^4.0.2",
     "@deepseek-ai/dsh-tools": "^0.1.2-rc.1",
     "@deepseek-ai/dsh-llm": "^0.1.2-rc.1",
-    "dsh-better-sidebar": "^0.18.0"
+    "@deepseek-ai/dsh-client-ui-sidebar-right": "^0.1.6-alpha.1"
   },
   "peerDependenciesMeta": {
-    "dsh-better-sidebar": {
+    "@deepseek-ai/dsh-client-ui-sidebar-right": {
       "optional": true
     }
   }

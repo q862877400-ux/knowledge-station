@@ -63,77 +63,49 @@ import {
 } from './api'
 import { KsReportPanel } from './KsReportPanel'
 import { KsIngestPanel } from './KsIngestPanel'
+import {
+  KS_PREFS_DEFAULT,
+  getPrefsSnapshot,
+  subscribePrefs,
+  updatePrefs,
+} from './ksPrefs'
 
-/** The betterSidebar slices this section needs (reactive prefs snapshot).
- *  2026-11 面板迁入后新增 updateTab：效力报告文档行跳 PDF 查看器需要覆写单例
- *  tab 的 path（同 entry.ts 证据链接接管的两步导航）。 */
-export interface KsSettingsServiceFace {
-  getSnapshot(): {
-    prefs: { pluginSettings?: Record<string, Record<string, unknown>> }
-  }
-  subscribeState(listener: () => void): () => void
-  /** 打开（或聚焦单例）一个 tab——嵌入面板跳证据 PDF 用。 */
-  openTab?(seed: { type: string; url?: string; title?: string }): void
-  /** Patch an open tab's display fields (a missing tab id is a no-op). */
-  updateTab?(tabId: string, patch: { title?: string; path?: string; meta?: Record<string, unknown> }): void
+/**
+ * KS 自有的**证据导航端口**（2026-09-16 官方 sidebar 迁移）。
+ *
+ * 旧实现注入整个 `betterSidebar` 服务，只为两件事：读共享 prefs（红箭头开关）
+ * 与"跳证据 PDF"。该包已被官方 `dsh-client-ui-sidebar-right` 取代：
+ *   - 偏好 → 已迁到 `./ksPrefs`（KS 自有、本地持久化、可订阅）；
+ *   - 跳证据 → 收敛成本端口（不把整个第三方服务面透进设置区）。
+ *
+ * 另：官方 `openResource` 对**同一恒定地址**天然幂等（同地址 = 同 tab，只聚焦不重开），
+ * 且每次导航会把 `navigation.revision` +1 驱动组件重载 —— 故旧模型"openTab + updateTab
+ * 覆写 path"的两步法**不再需要**，一次调用即可。
+ */
+export interface KsEvidenceNavPort {
+  /** 打开（或复用）证据 PDF 并跳页。 */
+  openEvidence: (evidenceUrl: string) => void
 }
 
-/** Injected business face: the betterSidebar service. */
+/** 设置区的注入面：只有 KS 自有的证据导航端口（其余能力走模块级 `./ksPrefs`）。 */
 export interface KsSettingsSectionInjected {
-  service: KsSettingsServiceFace
+  openEvidence: (evidenceUrl: string) => void
 }
 
-/** Prefs namespace (the plugin's settings blob key) + the key this section owns. */
+/** Prefs namespace (the plugin's settings blob key) + the key this section owns.
+ *  ⚠ 这两个常量现在只作为**偏好的逻辑命名**保留（`./ksPrefs` 里以同名键导出、同一
+ *  含义）；旧实现的宿主侧 side-card 存储与 `/sidebar/api/settings` 栅栏路由**已随
+ *  better-sidebar 一起消失**，故本文件不再有读写偏好存储的代码。 */
 export const KS_SETTINGS_PREFS_KEY = 'ks:settings'
 export const KS_SHOW_ARROW_KEY = 'showArrow'
-
-const SETTINGS_API = '/sidebar/api/settings'
-
-/** Read showArrow from the reactive snapshot. Absent/true = on (default);
- *  an explicit `false` turns the red arrow off. */
-function readShowArrow(service: KsSettingsServiceFace): boolean {
-  try {
-    const blob = service.getSnapshot().prefs.pluginSettings?.[KS_SETTINGS_PREFS_KEY] as Record<string, unknown> | undefined
-    return (blob?.[KS_SHOW_ARROW_KEY] as boolean | undefined) !== false
-  } catch {
-    return true
-  }
-}
-
-/** One commit through better-sidebar's fenced settings route (revision-guarded;
- *  the guard is best-effort — a read failure omits it, the write still lands). */
-async function commitShowArrow(service: KsSettingsServiceFace, next: boolean): Promise<void> {
-  const current = service.getSnapshot().prefs.pluginSettings ?? {}
-  const merged: Record<string, Record<string, unknown>> = {
-    ...current,
-    [KS_SETTINGS_PREFS_KEY]: { ...(current[KS_SETTINGS_PREFS_KEY] ?? {}), [KS_SHOW_ARROW_KEY]: next },
-  }
-  let expectedRevision: number | undefined
-  try {
-    const res = await fetch(`${SETTINGS_API}/get`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: '{}' })
-    const view = (await res.json().catch(() => null)) as { ok?: boolean; value?: { revision?: number } } | null
-    if (view?.ok === true && typeof view.value?.revision === 'number') expectedRevision = view.value.revision
-  } catch { /* revision is best-effort */ }
-  const res = await fetch(`${SETTINGS_API}/update`, {
-    method: 'POST',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({
-      patch: { pluginSettings: merged },
-      ...(expectedRevision !== undefined ? { expectedRevision } : {}),
-    }),
-  })
-  if (!res.ok) {
-    const err = (await res.json().catch(() => null)) as { error?: { message?: string } } | null
-    throw new Error(err?.error?.message ?? `HTTP ${res.status}`)
-  }
-}
 
 /**
  * The「法规标准知识库」settings section body. 所有类目一律 <details> 折叠
  * （2026-11 用户拍板：「里面塞的东西太多了」）——收起时零请求、零渲染负担；
- * summary 行给出一句副标帮助扫读。Registered via `settings.section`;
- * receives the injected `{ service }`（betterSidebar 运行时服务——效力报告
- * 面板跳 PDF 与红箭头开关都经它）。
+ * summary 行给出一句副标帮助扫读。Registered via 官方 `settings.section`。
+ *
+ * 注入面（2026-09-16 迁移后）：只有一个 KS 自有的证据导航端口；偏好读写改走
+ * `./ksPrefs`（模块级、可订阅），不再需要第三方服务。
  */
 
 /** 类目 summary 的统一副标样式（收起/展开都可读）。 */
@@ -170,24 +142,19 @@ function KsCategory({ title, hint, open, onToggle, children }: {
 }
 
 export function KsSettingsSection(props: KsSettingsSectionInjected): JSX.Element {
-  const { service } = props
+  const { openEvidence } = props
 
-  // Reactive read: re-renders when the shared prefs store commits (e.g. the
-  // Side card page toggles the same key).
+  // 响应式读偏好：`./ksPrefs` 在任何一端写入后都会通知（含同源其他标签页的 storage 事件）。
+  // 第三参（getServerSnapshot）：SSR/并发特性正确用法；客户端被忽略。
+  // 缺它会让 scripts/smoke-settings.mjs 的 SSR 冒烟直接抛错（无法离线验证渲染）。
   const stored = useSyncExternalStore(
-    useCallback((cb: () => void) => service.subscribeState(cb), [service]),
-    () => readShowArrow(service),
-    // 第三参（getServerSnapshot）：SSR/并发特性正确用法；客户端被忽略。
-    // 缺它会让 scripts/smoke-settings.mjs 的 SSR 冒烟直接抛错（无法离线验证渲染）。
-    () => readShowArrow(service),
+    subscribePrefs,
+    () => getPrefsSnapshot().showArrow,
+    () => KS_PREFS_DEFAULT.showArrow,
   )
-  // Optimistic override so the switch responds immediately even though a
-  // standalone-section write cannot push through `store.setPrefs`; falls back
-  // to the stored value on failure.
-  const [optimistic, setOptimistic] = useState<boolean | null>(null)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const shown = optimistic ?? stored
+  const shown = stored
 
   // 六个类目各自的展开态（全默认收起）。展开过的数据留在组件 state 里，
   // 收起只是不再渲染/不再请求，不丢已拉到的快照。
@@ -200,17 +167,18 @@ export function KsSettingsSection(props: KsSettingsSectionInjected): JSX.Element
   const [announceOpenedOnce, setAnnounceOpenedOnce] = useState(false)
   const [apiOpen, setApiOpen] = useState(false)
 
+  // 写偏好：本地存储写入是同步的，不再有"乐观覆盖 + 失败回退"的需要
+  // （旧实现要它是因为写要跨到宿主侧栅栏路由，可能失败）。
   const onToggle = (next: boolean): void => {
-    setOptimistic(next)
     setError(null)
     setSaving(true)
-    void commitShowArrow(service, next)
-      .then(() => { setOptimistic(next) })
-      .catch((err) => {
-        setOptimistic(null)
-        setError(err instanceof Error ? err.message : String(err))
-      })
-      .finally(() => { setSaving(false) })
+    try {
+      updatePrefs({ showArrow: next })
+    } catch (err) {
+      setError(err instanceof Error ? err.message : String(err))
+    } finally {
+      setSaving(false)
+    }
   }
 
   return (
@@ -249,7 +217,7 @@ export function KsSettingsSection(props: KsSettingsSectionInjected): JSX.Element
         onToggle={setReportOpen}
         hint="四色分组总览（🟢现行/🔴废止/🟡即将实施/⚪未知），可导出 Excel"
       >
-        <KsReportPanel visible={reportOpen} service={service} />
+        <KsReportPanel visible={reportOpen} openEvidence={openEvidence} />
       </KsCategory>
 
       <KsCategory

@@ -3,9 +3,11 @@ window.__ModuleLoader__.load({
   factory: (require) => {
     var module = { exports: {} };
     var exports = module.exports;
+var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __typeError = (msg) => {
   throw TypeError(msg);
@@ -23,6 +25,14 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  // If the importer is in node compatibility mode or this is not an ESM
+  // file that has been converted to a CommonJS file using a Babel-
+  // compatible transform (i.e. "__esModule" has not been set), then set
+  // "default" to the CommonJS "module.exports" for node compatibility.
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  mod
+));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
 var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError("Cannot " + msg);
@@ -48,7 +58,9 @@ __export(entry_exports, {
   inject: () => inject
 });
 module.exports = __toCommonJS(entry_exports);
-var import_react9 = require("react");
+
+// client/KsEvidenceHost.tsx
+var React = __toESM(require("react"), 1);
 
 // client/KsEvidenceTab.tsx
 var import_react4 = require("react");
@@ -28379,22 +28391,17 @@ var savedWidths = /* @__PURE__ */ new Map();
 function sessionKey(sessionId) {
   return typeof sessionId === "string" && sessionId.length > 0 ? sessionId : "(active)";
 }
-function readWidth(store) {
+function readWidth(port) {
   try {
-    const snap = store?.getSnapshot?.();
-    const w = snap?.state?.width;
+    const w = port?.getWidth();
     return typeof w === "number" && Number.isFinite(w) ? w : null;
   } catch {
     return null;
   }
 }
-function writeWidth(store, width) {
+function writeWidth(port, width) {
   try {
-    if (typeof store?.update !== "function") return false;
-    store.update((draft) => {
-      draft.width = width;
-    });
-    return true;
+    return port?.setWidth(width) === true;
   } catch {
     return false;
   }
@@ -29766,7 +29773,6 @@ function KsDocTextView(props) {
 
 // client/ksEvidence.ts
 var EVIDENCE_PATH = "/__ks_evidence__";
-var KS_EVIDENCE_TAB_ID = "ks:pdf";
 function isKsEvidenceUrl(url) {
   if (url.protocol !== "http:" && url.protocol !== "https:") return false;
   if (url.pathname !== EVIDENCE_PATH) return false;
@@ -29805,10 +29811,6 @@ function isBbox(value) {
   return Array.isArray(value) && value.length === 4 && value.every((n) => typeof n === "number" && Number.isFinite(n));
 }
 var EVIDENCE_ORIGIN = "http://127.0.0.1:1";
-var _evidenceClickNonce = 0;
-function nextEvidenceClick() {
-  return ++_evidenceClickNonce;
-}
 function evidenceUrlOf(ev) {
   if (!ev) return null;
   const doc = typeof ev.doc === "string" && ev.doc.length > 0 ? ev.doc : null;
@@ -29851,34 +29853,12 @@ function readSlowTransitionMs() {
   }
 }
 function KsEvidenceTab(props) {
-  const { ctx, tab, visible, store, scope } = props;
+  const { tab, visible, scope, prefs, panel, onUpdateTitle, onOpenEvidence, tabOpen } = props;
   const sessionId = scope?.sessionId;
-  const showArrowPref = (0, import_react4.useSyncExternalStore)(
-    (0, import_react4.useCallback)((cb) => store?.subscribe(cb) ?? (() => {
-    }), [store]),
-    () => {
-      try {
-        const blob = store?.getSnapshot().prefs.pluginSettings?.["ks:settings"];
-        return blob?.showArrow !== false;
-      } catch {
-        return true;
-      }
-    }
-  );
+  const showArrowPref = prefs?.showArrow !== false;
   const showArrowRef = (0, import_react4.useRef)(true);
   showArrowRef.current = showArrowPref;
-  const panelWidth = (0, import_react4.useSyncExternalStore)(
-    (0, import_react4.useCallback)((cb) => store?.subscribe(cb) ?? (() => {
-    }), [store]),
-    () => {
-      try {
-        const w = store?.getSnapshot?.().state?.width;
-        return typeof w === "number" && Number.isFinite(w) ? w : 0;
-      } catch {
-        return 0;
-      }
-    }
-  );
+  const panelWidth = panel?.getWidth() ?? 0;
   const evidence = (0, import_react4.useRef)(EMPTY_EVIDENCE);
   const pdfDocRef = (0, import_react4.useRef)(null);
   const abortRef = (0, import_react4.useRef)(null);
@@ -29940,8 +29920,8 @@ function KsEvidenceTab(props) {
     const canvas = canvasArg ?? canvasRef.current;
     const container = containerRef.current;
     if (canvas === void 0 || canvas === null || container === null) return;
-    const ctx2 = canvas.getContext("2d");
-    if (ctx2 === null) return;
+    const ctx = canvas.getContext("2d");
+    if (ctx === null) return;
     const clamped = Math.max(1, Math.min(target, doc.numPages));
     const previous = tasksByPageRef.current.get(clamped);
     if (previous !== void 0) {
@@ -29986,7 +29966,7 @@ function KsEvidenceTab(props) {
     canvas.style.height = `${Math.floor(viewport.height)}px`;
     const renderContext = {
       canvas,
-      canvasContext: ctx2,
+      canvasContext: ctx,
       viewport,
       // pdfjs 类型 transform 为 any[]|undefined（不收 null）；undefined 与
       // 运行时默认值 transform=null 等价（pdf.mjs 解构默认），dpr=1 时省略。
@@ -30089,7 +30069,7 @@ function KsEvidenceTab(props) {
   }, []);
   refreshMetaRef.current = refreshMeta;
   const loadEvidence = (0, import_react4.useCallback)(async (ev) => {
-    widenPanelForPdf(store, sessionId);
+    if (panel !== void 0) widenPanelForPdf(panel, sessionId);
     freezeRender(settleMsRef.current + 60);
     abortRef.current?.abort();
     for (const task of tasksByPageRef.current.values()) {
@@ -30204,7 +30184,7 @@ function KsEvidenceTab(props) {
       setPageInput(String(ev.page ?? 1));
       const label = `PDF \u67E5\u770B\u5668${ev.page !== void 0 ? ` \xB7 \u7B2C${ev.page}\u9875` : ""}`;
       try {
-        ctx.betterSidebar?.updateTab?.(tab.id, { title: label });
+        onUpdateTitle?.(label);
       } catch {
       }
     }
@@ -30380,13 +30360,14 @@ function KsEvidenceTab(props) {
   }, [scheduleMeasure]);
   (0, import_react4.useEffect)(() => {
     return () => {
+      if (panel === void 0) return;
       let stillOpen = true;
       try {
-        stillOpen = sessionId === void 0 ? true : store.tabOpen(sessionId, tab.id);
+        stillOpen = sessionId === void 0 || tabOpen === void 0 ? true : tabOpen(sessionId, tab.id);
       } catch {
         stillOpen = true;
       }
-      if (!stillOpen) restorePanelAfterPdf(store, sessionId);
+      if (!stillOpen) restorePanelAfterPdf(panel, sessionId);
     };
   }, []);
   const paintSignature = (0, import_react4.useCallback)(() => {
@@ -30655,18 +30636,16 @@ function KsEvidenceTab(props) {
     const title = `PDF \u67E5\u770B\u5668${href.ev.page !== void 0 ? ` \xB7 \u7B2C${href.ev.page}\u9875` : ""}`;
     if (href.url) {
       try {
-        ctx.betterSidebar?.updateTab?.(tab.id, {
-          path: href.url,
-          title,
-          meta: { ksClick: nextEvidenceClick() }
-        });
-        return;
+        if (onOpenEvidence !== void 0) {
+          onOpenEvidence(href.url, title);
+          return;
+        }
       } catch {
       }
     }
     evidence.current = href.ev;
     void loadEvidence(href.ev);
-  }, [ctx, tab.id, loadEvidence]);
+  }, [onOpenEvidence, loadEvidence]);
   const loadFolders = (0, import_react4.useCallback)(async () => {
     const controller = new AbortController();
     try {
@@ -30887,15 +30866,10 @@ function KsEvidenceTab(props) {
     if (url === null) return;
     const title = `PDF \u67E5\u770B\u5668 \xB7 \u7B2C${page2}\u9875`;
     try {
-      ctx.betterSidebar.openTab({ type: KS_EVIDENCE_TAB_ID, url, title });
-      ctx.betterSidebar?.updateTab?.(tab.id, {
-        path: url,
-        title,
-        meta: { ksClick: nextEvidenceClick() }
-      });
+      onOpenEvidence?.(url, title);
     } catch {
     }
-  }, [ctx, tab.id]);
+  }, [onOpenEvidence]);
   const bookmarkOptionLabel = (b) => {
     const no = typeof b.clause_number === "string" && b.clause_number.length > 0 ? b.clause_number : "?";
     const pg = typeof b.page_start === "number" && b.page_start >= 1 ? b.page_start : "?";
@@ -31772,6 +31746,36 @@ var $dirSearchClear = {
   fontWeight: 600
 };
 
+// client/KsEvidenceHost.tsx
+function KsEvidenceHost(props) {
+  const { useTabInfo, openEvidence } = props;
+  const info2 = useTabInfo();
+  const t = info2.tab;
+  const params = t.navigation?.params;
+  const evidenceUrl = typeof params?.url === "string" ? params.url : void 0;
+  const evidenceProps = React.useMemo(() => ({
+    tab: {
+      id: t.id,
+      type: t.kind,
+      title: t.title,
+      path: evidenceUrl,
+      /**
+       * 重载 nonce。旧模型是"共享单调计数器"（`nextEvidenceClick()`）；
+       * 官方模型里 `navigation.revision` 由 `tab-domain.navigate` 每次 **必递增**，
+       * 语义等价且无需我们自己维护计数器 —— 组件既有的
+       * `[tab.path, tab.meta]` effect 因此照常触发（含"同一 URL 再点一次"）。
+       */
+      meta: { ksClick: t.navigation?.revision ?? 0 }
+    },
+    // 官方只在面板展开且是本 tab 时给 `visible: true`；字段缺席按"可见"处理，
+    // 否则首次挂载会因 undefined 而整片不绘制。
+    visible: t.visible !== false,
+    prefs: { showArrow: true },
+    onOpenEvidence: (url) => openEvidence(url)
+  }), [t.id, t.kind, t.title, evidenceUrl, t.navigation?.revision, t.visible, openEvidence]);
+  return React.createElement(KsEvidenceTab, evidenceProps);
+}
+
 // client/KsScopeChip.tsx
 var import_react5 = require("react");
 var import_jsx_runtime5 = require("react/jsx-runtime");
@@ -31959,7 +31963,7 @@ function DocRow({ doc, onOpenDoc }) {
   );
 }
 function KsReportPanel(props) {
-  const { visible, service } = props;
+  const { visible, openEvidence } = props;
   const abortRef = (0, import_react6.useRef)(null);
   const [win, setWin] = (0, import_react6.useState)("all");
   const [colorFilter, setColorFilter] = (0, import_react6.useState)("");
@@ -31993,17 +31997,13 @@ function KsReportPanel(props) {
     };
   }, [visible, win, colorFilter, load]);
   const onOpenDoc = (0, import_react6.useCallback)((docId) => {
-    if (service === void 0) return;
+    if (openEvidence === void 0) return;
     const url = `http://127.0.0.1:1/__ks_evidence__?doc=${encodeURIComponent(docId)}`;
     try {
-      service.openTab?.({ type: KS_EVIDENCE_TAB_ID, url });
-      service.updateTab?.(KS_EVIDENCE_TAB_ID, {
-        path: url,
-        meta: { ksClick: nextEvidenceClick() }
-      });
+      openEvidence(url);
     } catch {
     }
-  }, [service]);
+  }, [openEvidence]);
   const toggle = (key) => {
     setExpanded((prev) => {
       const next = { ...prev, [key]: !(prev[key] === true) };
@@ -32721,45 +32721,62 @@ function KsIngestPanel(props) {
   ] });
 }
 
+// client/ksPrefs.ts
+var KS_SHOW_ARROW_KEY = "showArrow";
+var LS_KEY = "ks-dsh-plugin.prefs.v1";
+var KS_PREFS_DEFAULT = { showArrow: true };
+var listeners = /* @__PURE__ */ new Set();
+function readRaw() {
+  try {
+    const s = globalThis.localStorage?.getItem(LS_KEY);
+    if (s === null || s === void 0) return { ...KS_PREFS_DEFAULT };
+    const o = JSON.parse(s);
+    return {
+      // 只有**显式 false** 才算关（`undefined`/缺失 = 开），与旧实现同口径。
+      showArrow: o?.[KS_SHOW_ARROW_KEY] !== false
+    };
+  } catch {
+    return { ...KS_PREFS_DEFAULT };
+  }
+}
+var snapshot = readRaw();
+function emit() {
+  for (const fn of listeners) {
+    try {
+      fn();
+    } catch {
+    }
+  }
+}
+function subscribePrefs(listener) {
+  listeners.add(listener);
+  return () => {
+    listeners.delete(listener);
+  };
+}
+function getPrefsSnapshot() {
+  return snapshot;
+}
+function updatePrefs(patch) {
+  const next = { ...snapshot, ...patch };
+  snapshot = next;
+  try {
+    globalThis.localStorage?.setItem(LS_KEY, JSON.stringify(next));
+  } catch {
+  }
+  emit();
+}
+try {
+  globalThis.addEventListener?.("storage", (e) => {
+    if (e.key !== null && e.key !== LS_KEY) return;
+    snapshot = readRaw();
+    emit();
+  });
+} catch {
+}
+
 // client/KsSettingsSection.tsx
 var import_jsx_runtime8 = require("react/jsx-runtime");
-var KS_SETTINGS_PREFS_KEY = "ks:settings";
-var KS_SHOW_ARROW_KEY = "showArrow";
-var SETTINGS_API = "/sidebar/api/settings";
-function readShowArrow(service) {
-  try {
-    const blob = service.getSnapshot().prefs.pluginSettings?.[KS_SETTINGS_PREFS_KEY];
-    return blob?.[KS_SHOW_ARROW_KEY] !== false;
-  } catch {
-    return true;
-  }
-}
-async function commitShowArrow(service, next) {
-  const current = service.getSnapshot().prefs.pluginSettings ?? {};
-  const merged = {
-    ...current,
-    [KS_SETTINGS_PREFS_KEY]: { ...current[KS_SETTINGS_PREFS_KEY] ?? {}, [KS_SHOW_ARROW_KEY]: next }
-  };
-  let expectedRevision;
-  try {
-    const res2 = await fetch(`${SETTINGS_API}/get`, { method: "POST", headers: { "content-type": "application/json" }, body: "{}" });
-    const view = await res2.json().catch(() => null);
-    if (view?.ok === true && typeof view.value?.revision === "number") expectedRevision = view.value.revision;
-  } catch {
-  }
-  const res = await fetch(`${SETTINGS_API}/update`, {
-    method: "POST",
-    headers: { "content-type": "application/json" },
-    body: JSON.stringify({
-      patch: { pluginSettings: merged },
-      ...expectedRevision !== void 0 ? { expectedRevision } : {}
-    })
-  });
-  if (!res.ok) {
-    const err = await res.json().catch(() => null);
-    throw new Error(err?.error?.message ?? `HTTP ${res.status}`);
-  }
-}
 var SUMMARY_HINT = {
   marginLeft: 8,
   fontSize: 11,
@@ -32784,18 +32801,15 @@ function KsCategory({ title, hint, open, onToggle, children }) {
   );
 }
 function KsSettingsSection(props) {
-  const { service } = props;
+  const { openEvidence } = props;
   const stored = (0, import_react8.useSyncExternalStore)(
-    (0, import_react8.useCallback)((cb) => service.subscribeState(cb), [service]),
-    () => readShowArrow(service),
-    // 第三参（getServerSnapshot）：SSR/并发特性正确用法；客户端被忽略。
-    // 缺它会让 scripts/smoke-settings.mjs 的 SSR 冒烟直接抛错（无法离线验证渲染）。
-    () => readShowArrow(service)
+    subscribePrefs,
+    () => getPrefsSnapshot().showArrow,
+    () => KS_PREFS_DEFAULT.showArrow
   );
-  const [optimistic, setOptimistic] = (0, import_react8.useState)(null);
   const [saving, setSaving] = (0, import_react8.useState)(false);
   const [error, setError] = (0, import_react8.useState)(null);
-  const shown = optimistic ?? stored;
+  const shown = stored;
   const [arrowOpen, setArrowOpen] = (0, import_react8.useState)(false);
   const [reportOpen, setReportOpen] = (0, import_react8.useState)(false);
   const [ingestOpen, setIngestOpen] = (0, import_react8.useState)(false);
@@ -32805,17 +32819,15 @@ function KsSettingsSection(props) {
   const [announceOpenedOnce, setAnnounceOpenedOnce] = (0, import_react8.useState)(false);
   const [apiOpen, setApiOpen] = (0, import_react8.useState)(false);
   const onToggle = (next) => {
-    setOptimistic(next);
     setError(null);
     setSaving(true);
-    void commitShowArrow(service, next).then(() => {
-      setOptimistic(next);
-    }).catch((err) => {
-      setOptimistic(null);
+    try {
+      updatePrefs({ showArrow: next });
+    } catch (err) {
       setError(err instanceof Error ? err.message : String(err));
-    }).finally(() => {
+    } finally {
       setSaving(false);
-    });
+    }
   };
   return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("section", { style: { padding: "8px 16px" }, children: [
     /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { style: { margin: "0 0 8px", fontSize: 13, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u914D\u7F6E\u300C\u6CD5\u89C4\u6807\u51C6\u77E5\u8BC6\u5E93\u300D\u63D2\u4EF6\uFF1A\u8BC1\u636E PDF \u884C\u4E3A\u3001\u6548\u529B\u62A5\u544A\u3001\u5165\u5E93\u9884\u89C8\u4E0E\u5DE1\u68C0\u3002 \u5404\u7C7B\u76EE\u9ED8\u8BA4\u6536\u8D77\uFF0C\u70B9\u51FB\u5C55\u5F00\u3002" }),
@@ -32848,7 +32860,7 @@ function KsSettingsSection(props) {
         open: reportOpen,
         onToggle: setReportOpen,
         hint: "\u56DB\u8272\u5206\u7EC4\u603B\u89C8\uFF08\u{1F7E2}\u73B0\u884C/\u{1F534}\u5E9F\u6B62/\u{1F7E1}\u5373\u5C06\u5B9E\u65BD/\u26AA\u672A\u77E5\uFF09\uFF0C\u53EF\u5BFC\u51FA Excel",
-        children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(KsReportPanel, { visible: reportOpen, service })
+        children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(KsReportPanel, { visible: reportOpen, openEvidence })
       }
     ),
     /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
@@ -33702,83 +33714,35 @@ function KsApiConfigSection(props) {
   );
 }
 
-// client/bsContract.ts
-var BS_TESTED_VERSION = "0.18.0";
-var REQUIRED_METHODS = ["registerTab", "openTab"];
-var OPTIONAL_METHODS = [
-  "updateTab",
-  // 单例 tab 的 path 覆写（连续跳多个证据的必要条件）
-  "activateTab",
-  "closeTab",
-  "isTabEnabled",
-  "getSnapshot",
-  // 侧栏宽度让位/偏好读取（pdfPanel、showArrow 订阅）
-  "subscribeState",
-  // 偏好/状态订阅（showArrow 即时生效）
-  "getPrefs"
-];
-var REQUIRED_FEATURES = [];
-var OPTIONAL_FEATURES = ["tabMeta", "updateTab", "stateSubscription", "pluginSettings", "urlTarget"];
-function checkBetterSidebar(service) {
-  const svc = service ?? {};
-  const version2 = typeof svc.version === "string" ? svc.version : null;
-  const features = Array.isArray(svc.features) ? svc.features.map(String) : null;
-  const missingRequired = [];
-  const missingOptional = [];
-  for (const m of REQUIRED_METHODS) {
-    if (typeof svc[m] !== "function") missingRequired.push(`service.${m}()`);
-  }
-  for (const m of OPTIONAL_METHODS) {
-    if (typeof svc[m] !== "function") missingOptional.push(`service.${m}()`);
-  }
-  for (const f of REQUIRED_FEATURES) {
-    if (features !== null && !features.includes(f)) missingRequired.push(`feature:${f}`);
-  }
-  for (const f of OPTIONAL_FEATURES) {
-    if (features !== null && !features.includes(f)) missingOptional.push(`feature:${f}`);
-  }
-  return {
-    version: version2,
-    ok: missingRequired.length === 0,
-    missingRequired,
-    missingOptional,
-    versionDrifted: version2 !== null && version2 !== BS_TESTED_VERSION
-  };
+// client/ksSidebar.ts
+var KS_EVIDENCE_IMPL_ID = "ks-dsh-plugin/evidence-pdf";
+var KS_EVIDENCE_KIND = "ks-evidence";
+var KS_EVIDENCE_RESOURCE_PREFIX = "dsh-resource://ks-evidence";
+var KS_EVIDENCE_ADDRESS = KS_EVIDENCE_RESOURCE_PREFIX;
+function toNavParams(evidenceUrl) {
+  return { url: evidenceUrl };
 }
-function reportBetterSidebarCompat(service) {
-  let compat;
-  try {
-    compat = checkBetterSidebar(service);
-  } catch {
-    return {
-      version: null,
-      ok: false,
-      missingRequired: ["service(unreadable)"],
-      missingOptional: [],
-      versionDrifted: false
-    };
-  }
-  if (!compat.ok) {
-    console.error(
-      `[ks-dsh-plugin] better-sidebar \u5951\u7EA6\u4E0D\u6EE1\u8DB3\uFF1A\u7F3A\u5C11\u5FC5\u9700\u80FD\u529B ${compat.missingRequired.join("\u3001")}\uFF1BPDF \u67E5\u770B\u5668/\u6536\u85CF\u7B49 tab \u529F\u80FD\u5C06\u4E0D\u53EF\u7528\u3002\u8BF7\u8DD1 \`npm run smoke:bs-contract\` \u67E5\u770B\u5951\u7EA6\u5DEE\u5F02\u3002`
-    );
-    return compat;
-  }
-  if (compat.missingOptional.length > 0 || compat.versionDrifted) {
-    console.warn(
-      `[ks-dsh-plugin] better-sidebar \u517C\u5BB9\u6027\u63D0\u793A\uFF1A\u7248\u672C ${compat.version ?? "\u672A\u77E5"}\uFF08\u672C\u63D2\u4EF6\u9A8C\u8BC1\u4E8E ${BS_TESTED_VERSION}\uFF09` + (compat.missingOptional.length > 0 ? `\uFF0C\u4EE5\u4E0B\u53EF\u9009\u80FD\u529B\u7F3A\u5931\u3001\u76F8\u5173\u529F\u80FD\u5C06\u964D\u7EA7\uFF1A${compat.missingOptional.join("\u3001")}` : "") + "\u3002\u5EFA\u8BAE\u8DD1 `npm run smoke:bs-contract` \u590D\u6838\u3002"
-    );
-  }
-  return compat;
+function isKsEvidenceResource(address) {
+  return address === KS_EVIDENCE_ADDRESS || address.startsWith(`${KS_EVIDENCE_ADDRESS}?`) || address.startsWith(`${KS_EVIDENCE_ADDRESS}/`);
+}
+function evidenceTabTitle(_address) {
+  return "PDF \u67E5\u770B\u5668";
+}
+function ksEvidenceDefinition() {
+  return {
+    id: KS_EVIDENCE_IMPL_ID,
+    kind: KS_EVIDENCE_KIND,
+    patterns: [KS_EVIDENCE_ADDRESS],
+    priority: "extension",
+    canOpen: isKsEvidenceResource,
+    title: evidenceTabTitle
+  };
 }
 
 // client/entry.ts
 var inject = ["slots"];
 var KS_SETTINGS_TAB_ID = "ks:settings";
-function KsSettingsPlaceholder() {
-  return (0, import_react9.createElement)("div", { style: { display: "none" } });
-}
-function registerKsSettingsSection(ctx, bs) {
+function registerKsSettingsSection(ctx, openEvidence) {
   const slots = ctx.slots;
   if (slots === void 0) {
     console.warn("[ks-dsh-plugin] settings.section slot unavailable; \u6CD5\u89C4\u6807\u51C6\u77E5\u8BC6\u5E93 settings section not registered");
@@ -33789,11 +33753,11 @@ function registerKsSettingsSection(ctx, bs) {
     return slots.inject("settings.section", () => slots.register({
       name: "settings.section",
       id: "ks-dsh-plugin",
-      // After dsh-better-sidebar's own section (order 100) so the newly-added
-      // 栏目 slots in after「侧边卡片」.
+      // 排在官方各栏目之后（官方 section 用 order 100 一带）。
       order: 101,
       label: () => "\u6CD5\u89C4\u6807\u51C6\u77E5\u8BC6\u5E93",
-      inject: () => ({ service: bs })
+      // 注入面：只有 KS 自有的证据导航端口（红箭头偏好走模块级 `./ksPrefs`）。
+      inject: () => ({ openEvidence })
     }, KsSettingsSection));
   } catch (error) {
     console.error("[ks-dsh-plugin] register settings.section failed", error);
@@ -33801,11 +33765,8 @@ function registerKsSettingsSection(ctx, bs) {
     };
   }
 }
-function evidenceTitle(href) {
-  const ev = parseEvidence(href);
-  return `PDF \u67E5\u770B\u5668${ev?.page !== void 0 ? ` \xB7 \u7B2C${ev.page}\u9875` : ""}`;
-}
 function apply(ctx) {
+  const rightRef = { current: null };
   try {
     const slots = ctx.slots;
     if (slots !== void 0) {
@@ -33819,47 +33780,49 @@ function apply(ctx) {
   } catch (error) {
     console.error("[ks-dsh-plugin] \u6CE8\u518C\u6536\u85CF\u5939\u8303\u56F4\u80F6\u56CA\u5931\u8D25\uFF08\u4E0D\u5F71\u54CD\u5176\u4ED6\u8868\u9762\uFF09", error);
   }
-  let tabsRegistered = false;
-  let probeAttempts = 0;
-  let probeDisposed = false;
-  let probeTimer;
+  try {
+    const disposeSettingsEarly = registerKsSettingsSection(ctx, (url) => rightRef.current?.(url));
+    if (typeof disposeSettingsEarly === "function") {
+      ctx.effect(() => disposeSettingsEarly, "ks-dsh-plugin: \u8BBE\u7F6E\u680F\u76EE");
+    }
+  } catch (error) {
+    console.error("[ks-dsh-plugin] \u6CE8\u518C\u8BBE\u7F6E\u680F\u76EE\u5931\u8D25\uFF08\u4E0D\u5F71\u54CD\u5176\u4ED6\u8868\u9762\uFF09", error);
+  }
+  let registered = false;
+  let disposed = false;
+  let retryTimer;
   let surfacesDispose;
-  const PROBE_INTERVAL_MS = 200;
-  const PROBE_MAX_ATTEMPTS = 15;
-  const probeBetterSidebar = () => {
-    if (tabsRegistered || probeDisposed) return;
-    const bs = readService(ctx, "betterSidebar");
-    if (bs === void 0) {
-      probeAttempts += 1;
-      if (probeAttempts < PROBE_MAX_ATTEMPTS) {
-        probeTimer = setTimeout(probeBetterSidebar, PROBE_INTERVAL_MS);
+  const RETRY_INTERVAL_MS = 200;
+  const RETRY_MAX_ATTEMPTS = 15;
+  let attempts = 0;
+  const registerSurfaces = () => {
+    if (registered || disposed) return;
+    const tabs = readService(ctx, "sidebarRightTabs");
+    const right = readService(ctx, "sidebarRight");
+    if (tabs === void 0 || right === void 0) {
+      attempts += 1;
+      if (attempts < RETRY_MAX_ATTEMPTS) {
+        retryTimer = setTimeout(registerSurfaces, RETRY_INTERVAL_MS);
         return;
       }
-      console.warn(
-        "[ks-dsh-plugin] \u672A\u68C0\u6D4B\u5230 better-sidebar\uFF1A\u8DF3\u8FC7 tab / \u8BBE\u7F6E\u680F\u76EE\u6CE8\u518C\uFF08\u{1F4DC} \u67E5\u6CD5\u89C4\u6A21\u5F0F\u4E0E\u5168\u90E8 host \u529F\u80FD\u7167\u5E38\u5DE5\u4F5C\uFF1B\u7B2C\u4E09\u65B9\u63D2\u4EF6\u7A0D\u540E\u6FC0\u6D3B\u65F6\u5237\u65B0\u9875\u9762\u5373\u53EF\uFF09"
-      );
-      return;
-    }
-    const compat = reportBetterSidebarCompat(bs);
-    if (!compat.ok) {
       console.error(
-        "[ks-dsh-plugin] better-sidebar \u5951\u7EA6\u4E0D\u6EE1\u8DB3\uFF0C\u8DF3\u8FC7\u5168\u90E8 tab \u6CE8\u518C\uFF08\u{1F4DC} \u67E5\u6CD5\u89C4\u6A21\u5F0F\u7B49\u4E0D\u4F9D\u8D56\u5B83\u7684\u529F\u80FD\u7167\u5E38\u5DE5\u4F5C\uFF09"
+        "[ks-dsh-plugin] \u672A\u68C0\u6D4B\u5230\u5B98\u65B9\u53F3\u4FA7\u680F\uFF08ctx.sidebarRight / sidebarRightTabs\uFF09\uFF1APDF \u8BC1\u636E\u67E5\u770B\u5668\u4E0E\u300C\u70B9\u8BC1\u636E\u94FE\u63A5\u8DF3\u9875\u300D\u5C06\u4E0D\u53EF\u7528\u3002\u8BE5\u9762\u7531 @deepseek-ai/dsh-client-ui-sidebar-right \u63D0\u4F9B\u2014\u2014\u82E5\u5B83\u672A\u968F DSH \u4E00\u8D77\u6302\u8F7D\uFF0C\u8BF7\u68C0\u67E5 DSH \u7248\u672C\u6216\u63D2\u4EF6\u6E05\u5355\u3002\uFF08\u300C\u{1F4DC} \u67E5\u6CD5\u89C4\u6A21\u5F0F\u300D\u4E0E\u5168\u90E8 host \u4FA7\u6A21\u578B\u5DE5\u5177\u4E0D\u53D7\u5F71\u54CD\u3002\uFF09"
       );
       return;
     }
-    tabsRegistered = true;
-    if (probeTimer !== void 0) {
-      clearTimeout(probeTimer);
-      probeTimer = void 0;
+    registered = true;
+    if (retryTimer !== void 0) {
+      clearTimeout(retryTimer);
+      retryTimer = void 0;
     }
-    surfacesDispose = registerBetterSidebarSurfaces(ctx, bs);
+    surfacesDispose = registerSidebarSurfaces(ctx, tabs, right, rightRef);
   };
   ctx.effect(() => {
-    ctx.on?.("internal/service", (name, value) => {
-      if (name !== "betterSidebar") return;
+    const off = ctx.on?.("internal/service", (name, value) => {
+      if (name !== "sidebarRight" && name !== "sidebarRightTabs") return;
       if (value === void 0) {
-        if (probeDisposed) return;
-        tabsRegistered = false;
+        if (disposed) return;
+        registered = false;
         if (surfacesDispose !== void 0) {
           try {
             surfacesDispose();
@@ -33867,20 +33830,21 @@ function apply(ctx) {
           }
           surfacesDispose = void 0;
         }
-        probeAttempts = 0;
+        attempts = 0;
         return;
       }
-      probeBetterSidebar();
+      registerSurfaces();
     });
     return () => {
-      probeDisposed = true;
-      if (probeTimer !== void 0) {
-        clearTimeout(probeTimer);
-        probeTimer = void 0;
+      disposed = true;
+      void off;
+      if (retryTimer !== void 0) {
+        clearTimeout(retryTimer);
+        retryTimer = void 0;
       }
     };
-  }, "ks-dsh-plugin: better-sidebar \u63A2\u9488");
-  probeBetterSidebar();
+  }, "ks-dsh-plugin: \u5B98\u65B9\u53F3\u4FA7\u680F\u63A2\u9488");
+  registerSurfaces();
 }
 function readService(ctx, name) {
   try {
@@ -33891,39 +33855,37 @@ function readService(ctx, name) {
     return void 0;
   }
 }
-function registerBetterSidebarSurfaces(ctx, bs) {
+function registerSidebarSurfaces(ctx, tabs, right, rightRef) {
+  const openEvidence = (evidenceUrl) => {
+    right.openResource(KS_EVIDENCE_ADDRESS, {
+      kind: KS_EVIDENCE_KIND,
+      params: toNavParams(evidenceUrl)
+    });
+  };
+  rightRef.current = openEvidence;
   const disposer = ctx.effect(
     () => {
-      const disposePdf = bs.registerTab({
-        id: KS_EVIDENCE_TAB_ID,
-        title: "PDF \u67E5\u770B\u5668",
-        single: true,
-        // 不设 icon：tab 标题即说明（用户反馈：勿再叠书本小图/重复符号）
-        // Claim the pseudo-evidence link so better-sidebar opens a ks:pdf tab
-        // (not its built-in browser) when the user clicks it.
-        urlTarget: (url) => isKsEvidenceUrl(url),
-        component: (props) => (0, import_react9.createElement)(KsEvidenceTab, props)
-      });
-      const disposeSettingsCard = bs.registerTab({
-        id: KS_SETTINGS_TAB_ID,
-        title: "\u6CD5\u89C4\u6807\u51C6\u77E5\u8BC6\u5E93",
-        single: true,
-        hidden: true,
-        icon: (size) => (0, import_react9.createElement)("span", { style: { fontSize: size } }, "\u2696\uFE0F"),
-        component: () => KsSettingsPlaceholder(),
-        settings: {
-          pluginToggles: [
-            {
-              key: "showArrow",
-              title: "\u663E\u793A\u7EA2\u8272\u5B9A\u4F4D\u7BAD\u5934",
-              desc: "\u5728 PDF \u8BC1\u636E\u9875\u7528\u7EA2\u7BAD\u5934\u6807\u51FA\u5F15\u7528\u6761\u6B3E\u4F4D\u7F6E\uFF1B\u5173\u95ED\u540E\u4EC5\u8DF3\u9875\u3002"
+      const disposeType = tabs.register(ksEvidenceDefinition());
+      let disposeBody;
+      if (ctx.slots !== void 0) {
+        disposeBody = ctx.slots.inject("sidebar.right.pane.tab", () => ctx.slots.register({
+          name: "sidebar.right.pane.tab",
+          key: KS_EVIDENCE_IMPL_ID,
+          inject: (injected) => {
+            const tabInfo = injected?.hooks?.tabInfo;
+            if (typeof tabInfo !== "function") {
+              throw new Error(
+                "[ks-dsh-plugin] sidebar.right.pane.tab \u5EA7\u4F4D\u672A\u63D0\u4F9B hooks.tabInfo\u2014\u2014\u5B98\u65B9\u53F3\u4FA7\u680F\u5951\u7EA6\u53EF\u80FD\u5DF2\u53D8\u66F4\uFF0CPDF \u8BC1\u636E\u67E5\u770B\u5668\u65E0\u6CD5\u6E32\u67D3\u3002"
+              );
             }
-          ]
-        }
-      });
-      const disposeSettings = registerKsSettingsSection(ctx, bs);
+            return { useTabInfo: tabInfo, openEvidence };
+          }
+        }, KsEvidenceHost));
+      } else {
+        console.error("[ks-dsh-plugin] slots \u4E0D\u53EF\u7528\uFF1APDF \u8BC1\u636E tab body \u672A\u6CE8\u518C\uFF08tab \u7C7B\u578B\u5DF2\u6CE8\u518C\u4F46\u65E0\u5185\u5BB9\uFF09");
+      }
       try {
-        bs.openTab({ type: KS_EVIDENCE_TAB_ID, title: "PDF \u67E5\u770B\u5668" });
+        right.openResource(KS_EVIDENCE_ADDRESS, { kind: KS_EVIDENCE_KIND });
       } catch (error) {
         console.warn("[ks-dsh-plugin] \u5E38\u9A7B\u6253\u5F00 PDF \u67E5\u770B\u5668 tab \u5931\u8D25\uFF08\u4E0D\u5F71\u54CD\u5176\u4ED6\u8868\u9762\uFF09", error);
       }
@@ -33934,28 +33896,23 @@ function registerBetterSidebarSurfaces(ctx, bs) {
         const anchor = target.closest("a[href]");
         if (anchor === null) return;
         const href = anchor.href;
-        if (!isKsEvidenceUrl(new URL(href))) return;
-        event.preventDefault();
-        const title = evidenceTitle(href);
-        bs.openTab({ type: KS_EVIDENCE_TAB_ID, url: href, title });
         try {
-          bs.updateTab?.(KS_EVIDENCE_TAB_ID, {
-            path: href,
-            title,
-            meta: { ksClick: nextEvidenceClick() }
-          });
+          if (!isKsEvidenceUrl(new URL(href))) return;
         } catch {
+          return;
         }
+        event.preventDefault();
+        openEvidence(href);
       };
       document.addEventListener("click", onClick, true);
       return () => {
         document.removeEventListener("click", onClick, true);
-        disposePdf();
-        disposeSettingsCard();
-        disposeSettings();
+        rightRef.current = null;
+        disposeBody?.();
+        disposeType();
       };
     },
-    "ks-dsh-plugin: ks:pdf evidencetab + ks:bookmarks-view + ks:settings section + card"
+    "ks-dsh-plugin: \u5B98\u65B9\u53F3\u4FA7\u680F\u8BC1\u636E tab"
   );
   return typeof disposer === "function" ? disposer : void 0;
 }

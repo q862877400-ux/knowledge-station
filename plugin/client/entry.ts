@@ -5,60 +5,57 @@
  * DSH client module loader loads this bundle (served as /plugins/ks-dsh-plugin/client.js),
  * then cordis calls `apply(ctx)` with the injected services.
  *
- * The better-sidebar service (a THIRD-PARTY plugin) is read at runtime through
- * `ctx.get('betterSidebar')` and is deliberately NOT in `inject` — an inject
- * hard-gate would let a rename/uninstall of that plugin silently kill this whole
- * client half, including features that don't use it (📜 查法规模式).
- * NOTE: `package.json dsh.client.inject` is **informational only** (preflight / HMR
- * diffing, per DSH packages/client/AGENTS.md) — it neither gates nor orders
- * activation, so tab registration additionally polls for the service to appear.
+ * ## 右侧栏：官方两段式（2026-09-16 迁移）
+ * 原实现建立在第三方 `dsh-better-sidebar` 上（imperative registerTab/openTab/updateTab）。
+ * 该包**已从 DSH profile 移除**，官方以 `@deepseek-ai/dsh-client-ui-sidebar-*` 取代，
+ * 扩展模型换成 VS Code 式的「声明 tab 类型 + 注册 resolver」两段式 —— 详见
+ * `ksSidebar.ts` 的文件头（含新旧字段映射表与设计取舍）。
  *
- * 2026-09-05 修复：better-sidebar 内置链接拦截只把 URL 写入"新建"tab 的 path
- * （service.ts openTab：a FOCUS must never have its path overwritten）。本 tab
- * 声明 single:true → 同类型再次点击 = FOCUS 已有单例，新 URL 永不应用 = 点
- * 第二/第三个证据链接无反应。故这里自装 document 级 capture click listener：
- * 命中证据锚点 → preventDefault + openTab（建/聚焦）+ updateTab 强制覆写单例
- * path → KsEvidenceTab 的 [tab.path] effect 侦测变化 → 重新 loadEvidence 跳页。
+ * ⚠️ 迁移的**关键动机**是旧实现的失效模式：探针拿不到 `betterSidebar` 时只
+ * `console.warn` 然后整块 return → 官方顶替后 **PDF 证据 tab 静默消失**，
+ * 用户只看到"点证据链接没反应"。新实现拿不到官方面时**点名报错**并说明后果。
+ *
+ * 两个官方面（`ctx.sidebarRight` / `ctx.sidebarRightTabs`）刻意**不写进 `inject`**：
+ * 硬门禁会让官方列一改名/未挂载就把整个 client half 停在 pending，连与它无关的
+ * 「📜 查法规模式」也一起消失（见下方 `Ctx.get` 注释）。
  */
 
 import { createElement } from 'react'
-import type { TabDescriptor } from 'dsh-better-sidebar/client/service'
 
-import { KsEvidenceTab } from './KsEvidenceTab'
+import { KsEvidenceHost, type KsEvidenceHostInjected } from './KsEvidenceHost'
 import { KsScopeChip } from './KsScopeChip'
 import { KsSettingsSection } from './KsSettingsSection'
 
-import { reportBetterSidebarCompat } from './bsContract'
 import {
-  isKsEvidenceUrl,
-  KS_EVIDENCE_TAB_ID,
-  nextEvidenceClick,
-  parseEvidence,
-} from './ksEvidence'
+  KS_EVIDENCE_ADDRESS,
+  KS_EVIDENCE_IMPL_ID,
+  KS_EVIDENCE_KIND,
+  ksEvidenceDefinition,
+  toNavParams,
+  type KsSidebarRight,
+  type KsTabRegistry,
+  type UseKsTabInfo,
+} from './ksSidebar'
+import { isKsEvidenceUrl, parseEvidence } from './ksEvidence'
 
-/** Minimal structural `Context` mirror (no hard dep on the client runtime). */
-interface BetterSidebar {
-  registerTab(descriptor: TabDescriptor): () => void
-  openTab(seed: { type: string; url?: string; title?: string }): void
-  /** Patch an open tab's display fields (a missing tab id is a no-op). */
-  updateTab?(tabId: string, patch: { title?: string; path?: string; meta?: Record<string, unknown> }): void
-}
+/** 官方右侧栏导航面（`ctx.sidebarRight`）——由 `dsh-client-ui-sidebar-right` 提供。 */
+type SidebarRightService = KsSidebarRight
 
 interface Ctx {
   /** 注册随 fiber 撤销的副作用；cordis 的 ctx.effect 返回其 disposer。 */
   effect(fn: () => void | (() => void), label?: string): (() => void) | void
   /**
-   * cordis 的"免 inject 读服务"：`ctx.get(name, strict=false)` 读不到时返回 undefined
-   * 而不是抛错（`ctx.betterSidebar` 在**未 inject** 时会抛
-   * `cannot get property "betterSidebar" without inject`）。
-   * 本插件刻意**不** inject betterSidebar——否则第三方插件一改名/被卸载，cordis 会让
-   * 本 entry 停在 pending，`apply()` 根本不执行，连与它无关的「查法规模式」开关都会
-   * 一起消失（verifier 二轮 P1）。
+   * cordis 的"免 inject 读服务"：`ctx.get(name, strict=false)` 读不到时返回 undefined。
+   *
+   * 官方把这两个面用 `ctx.reflect.provide()` 注册（**不是** Cordis Service 类，
+   * 见 `ui-sidebar-right/src/client/index.ts:108-109`），故它们**不进 Service 目录**，
+   * 但 `ctx.get()` 能读到。刻意**不**写进 `inject`：inject 是硬门禁，官方列改名/
+   * 未挂载会让整个 client half 停在 pending，连与它无关的「查法规模式」也一起消失。
    */
   get?(name: string, strict?: boolean): unknown
   /**
-   * 订阅事件（门面白名单 verb 之一）。用 `internal/service` 做"服务出现即再探"，
-   * 比定时轮询更贴 cordis 契约（cordis 4.0.2 在 provide/撤销时真发该事件）。
+   * 订阅事件（门面白名单 verb 之一）。用 `internal/service` 做"官方面出现即再注册"，
+   * 比定时轮询更贴 cordis 契约（服务 provide/撤销时真发该事件）。
    */
   on?(event: string, listener: (...args: unknown[]) => void): unknown
   /** The client slot registry, provided by @deepseek-ai/dsh-client-ui-slots. */
@@ -69,32 +66,32 @@ interface Ctx {
 }
 
 /**
- * Services this client plugin needs. 只 inject 真实依赖：`slots`（DSH 官方）——
- * better-sidebar 是第三方，改成运行时探测 + 逐项降级（见上方 Ctx.get 注释）。
+ * Services this client plugin needs. 只 inject 真实依赖：`slots`（DSH 官方）。
+ * 右侧栏两面（`sidebarRight` / `sidebarRightTabs`）是运行时探测 + 显式报错
+ * ——见上方 `Ctx.get` 注释。
  */
 export const inject = ['slots']
 
-/** 「法规标准知识库」prefs namespace key (the plugin's settings blob in the
- *  shared Side card prefs doc). KsEvidenceTab and KsSettingsSection both use
- *  `pluginSettings['ks:settings']`. */
+/** 「法规标准知识库」prefs namespace key（设置区的持久化 blob）。 */
 export const KS_SETTINGS_TAB_ID = 'ks:settings'
 
-/** hidden 占位 tab 的 component（永不打开，仅供 registerTab 契约占位；真正的
- *  设置表面是 KsSettingsSection 的 settings.section 与这张卡的 pluginToggles）。 */
-function KsSettingsPlaceholder(): JSX.Element {
-  return createElement('div', { style: { display: 'none' } })
-}
-
 /** Register the「法规标准知识库」settings SECTION — a top-level nav 栏目 in the
- *  DSH Settings shell (the same `settings.section` mechanism dsh-better-sidebar
- *  uses for its own「侧边卡片」nav, see its client/index.tsx:430).
+ *  DSH Settings shell, via the OFFICIAL `settings.section` slot
+ *  (`@deepseek-ai/dsh-client-ui-settings`)。
  *
- *  A `TabDescriptor` card (even `hidden: true`) can only ever appear as a
- *  FEATURE card in the「侧边栏内容」grid and cannot produce a distinct 栏目 —
- *  which is why the previous hidden-tab placeholder never read as the section
- *  the user asked for. Returns the section disposer (no-op if slots are
- *  unavailable, so a missing slot never breaks the tab registration). */
-function registerKsSettingsSection(ctx: Ctx, bs: BetterSidebar): () => void {
+ *  ⚠ 2026-09-16 迁移：旧实现把 `betterSidebar` 服务作为 `{ service }` 注入，
+ *  因为它要读写 better-sidebar 的共享 side-card prefs（`pluginSettings['ks:settings']`）
+ *  并经其栅栏路由 `/sidebar/api/settings/update` 落库。该包已被官方
+ *  `dsh-client-ui-sidebar-right` 取代、**且官方没有偏好存储面**，故偏好改由
+ *  `./ksPrefs`（KS 自有、本地持久化、可订阅）承载 —— 设置区与服务组件的读写链路
+ *  不再依赖任何第三方存储。
+ *
+ *  Returns the section disposer (no-op if the slot is unavailable, so a missing
+ *  slot never breaks the tab registration). */
+function registerKsSettingsSection(
+  ctx: Ctx,
+  openEvidence: (evidenceUrl: string) => void,
+): () => void {
   const slots = ctx.slots
   if (slots === undefined) {
     console.warn('[ks-dsh-plugin] settings.section slot unavailable; 法规标准知识库 settings section not registered')
@@ -104,11 +101,11 @@ function registerKsSettingsSection(ctx: Ctx, bs: BetterSidebar): () => void {
     return slots.inject('settings.section', () => slots.register({
       name: 'settings.section',
       id: 'ks-dsh-plugin',
-      // After dsh-better-sidebar's own section (order 100) so the newly-added
-      // 栏目 slots in after「侧边卡片」.
+      // 排在官方各栏目之后（官方 section 用 order 100 一带）。
       order: 101,
       label: () => '法规标准知识库',
-      inject: () => ({ service: bs }),
+      // 注入面：只有 KS 自有的证据导航端口（红箭头偏好走模块级 `./ksPrefs`）。
+      inject: () => ({ openEvidence }),
     }, KsSettingsSection))
   } catch (error) {
     console.error('[ks-dsh-plugin] register settings.section failed', error)
@@ -132,9 +129,17 @@ function evidenceTitle(href: string): string {
  */
 export function apply(ctx: Ctx): void {
 
+  /**
+   * 右侧栏可用时的"打开证据"实现；右侧栏未挂载/被撤销时为 null。
+   *
+   * 用**可变引用**是为了让设置栏目（在下方先注册）能在右侧栏迟到后自动拿到
+   * 导航能力，而不必重新注册设置栏目。
+   */
+  const rightRef: { current: ((evidenceUrl: string) => void) | null } = { current: null }
+
   // 收藏夹范围提问胶囊（2026-10）：注册 conversation.input.dock（输入卡片
   // 上方全宽行）。夹内提问激活时显示「🔖 夹名 · 仅在本收藏夹内提问 ✕」。
-  // 不依赖 better-sidebar——host 的 /ks/chat-mode 与输入框同属官方 shell。
+  // 不依赖右侧栏——host 的 /ks/chat-mode 与输入框同属官方 shell。
   // slots 是本插件声明的 inject（见上方 export const inject），缺失时静默
   // 跳过（tab/其他表面照常）。
   try {
@@ -151,94 +156,95 @@ export function apply(ctx: Ctx): void {
     console.error('[ks-dsh-plugin] 注册收藏夹范围胶囊失败（不影响其他表面）', error)
   }
 
-  // 契约体检（2026-09-09）：better-sidebar 是第三方插件，升级可能改名/删方法。
-  // 启动时探一次能力面：缺必需能力 → console.error 点名；缺可选能力或版本漂移
-  // → console.warn 说明降级面。见 bsContract.ts（配套 `npm run smoke:bs-contract`
-  // 会对已安装版本的类型声明做同源断言）。
+  // 「法规标准知识库」设置栏目：走官方 `settings.section`，**与官方右侧栏解耦**
+  // —— 它只依赖 `ctx.slots`（我们声明的 inject），右侧栏缺席时它仍必须注册
+  // （这是既有设计刻意保持的性质：右侧栏缺失不该连带弄丢设置面板）。
   //
-  // ⚠️ 这里只能用**门面允许的原语**。DSH 的客户端半拿到的不是内核 ctx，而是
-  // cordis-client-runner 的受限门面（packages/extensions/cordis-client-runner/src/client/guard.ts）：
-  //   - 白名单 verb 只有 effect/on/once/provide/timeout/interval/setTimeout/setInterval/
-  //     throttle/debounce（`CTX_VERBS`，guard.ts:21-24）；
-  //   - 非白名单属性走 denyRead → **直接抛错**（`dynamic ctx does not expose "..."`）。
-  //     所以既不能读 `ctx.betterSidebar`（未声明 → 抛），也**不能读 `ctx.inject`**
-  //     （不在白名单 → `typeof ctx.inject` 本身就抛）。verifier 三轮实测：踩这一条会让
-  //     整个客户端半（四个 tab + 设置栏目 + 📜 查法规模式）全部不激活；
-  //   - `ctx.get(name)` 是**允许**的（guard.ts:214 `readService(name, false)`，不要求声明），
-  //     读不到就是 undefined。
-  // 因此 better-sidebar 既不做注入门禁（那会让第三方插件一改名就整块消失），也不做
-  // "等服务"（门面没有该原语、`ctx.inject` 会抛），而是**事件驱动 + 兜底轮询**：
-  // cordis 提供服务时会 emit `internal/service`（`ctx.on` 在白名单里，cordis 4.0.2
-  // lib/index.js:848 真发），兜底轮询只覆盖"提供早于我们 apply"这一种情况。
-  // 探针随 fiber dispose 自行清理（标志位 + 句柄），绝不在 dispose 之后往失效 fiber 上
-  // 注册（cordis 的 `ctx.effect` 会抛 INACTIVE_EFFECT，而那异常发生在定时器回调里）。
-  let tabsRegistered = false
-  let probeAttempts = 0
-  let probeDisposed = false
-  let probeTimer: ReturnType<typeof setTimeout> | undefined
-  /** tab/设置栏目那次 effect 的 disposer（服务被撤销时要先撤掉再重注册）。 */
+  // `openEvidence` 经**可变引用**读取：右侧栏迟到时设置面板里的"点文档行跳 PDF"
+  // 会在服务到位后自动生效，而无需重新注册设置栏目。
+  try {
+    const disposeSettingsEarly = registerKsSettingsSection(ctx, (url) => rightRef.current?.(url))
+    if (typeof disposeSettingsEarly === 'function') {
+      ctx.effect(() => disposeSettingsEarly, 'ks-dsh-plugin: 设置栏目')
+    }
+  } catch (error) {
+    console.error('[ks-dsh-plugin] 注册设置栏目失败（不影响其他表面）', error)
+  }
+
+  // ── 右侧栏：官方两段式注册（2026-09-16 迁移）──────────────────────────────
+  //
+  // 官方模型（`@deepseek-ai/dsh-client-ui-sidebar-right`，VS Code 式）：
+  //   ① `ctx.sidebarRightTabs.register(def)` —— 声明 tab 类型（kind / 地址 / 标题）；
+  //   ② `ctx.slots.register({name:'sidebar.right.pane.tab', key: def.id}, Body)`
+  //      —— 注册 body；打开用 `ctx.sidebarRight.openResource(address, {kind, params})`。
+  //
+  // ⚠️ 这两个面由官方包用 `ctx.reflect.provide()` 注册（**不是** Cordis Service 类，
+  // 见 ui-sidebar-right/src/client/index.ts:108-109），故 Service 目录里看不到它们，
+  // 但 `ctx.get()` 能读到（guard.ts 白名单允许 `ctx.get`）。**刻意不写进 `inject`**：
+  // 硬门禁会让官方列一改名/未挂载就把整个 client half 停在 pending，连与它无关的
+  // 「📜 查法规模式」也一起消失（旧实现的教训，见下方 readService 注释）。
+  //
+  // 与旧实现的差异（**静默失效 → 显式报错**）：旧探针拿不到服务时只 console.warn
+  // 然后整块跳过 —— 结果官方顶替后 tab 面静默消失，用户只看到"PDF 打不开"。
+  // 现在：拿不到就在控制台**点名报错**并说明后果；同时**事件驱动重试**
+  // （官方 provide/撤销时会 emit `internal/service`），服务迟到也能补注册。
+  let registered = false
+  let disposed = false
+  let retryTimer: ReturnType<typeof setTimeout> | undefined
   let surfacesDispose: (() => void) | undefined
-  const PROBE_INTERVAL_MS = 200
-  const PROBE_MAX_ATTEMPTS = 15
-  const probeBetterSidebar = (): void => {
-    if (tabsRegistered || probeDisposed) return
-    const bs = readService<BetterSidebar>(ctx, 'betterSidebar')
-    if (bs === undefined) {
-      probeAttempts += 1
-      if (probeAttempts < PROBE_MAX_ATTEMPTS) {
-        probeTimer = setTimeout(probeBetterSidebar, PROBE_INTERVAL_MS)
+  const RETRY_INTERVAL_MS = 200
+  const RETRY_MAX_ATTEMPTS = 15
+  let attempts = 0
+
+  const registerSurfaces = (): void => {
+    if (registered || disposed) return
+    const tabs = readService<KsTabRegistry>(ctx, 'sidebarRightTabs')
+    const right = readService<SidebarRightService>(ctx, 'sidebarRight')
+    if (tabs === undefined || right === undefined) {
+      attempts += 1
+      if (attempts < RETRY_MAX_ATTEMPTS) {
+        retryTimer = setTimeout(registerSurfaces, RETRY_INTERVAL_MS)
         return
       }
-      console.warn(
-        '[ks-dsh-plugin] 未检测到 better-sidebar：跳过 tab / 设置栏目注册'
-        + '（📜 查法规模式与全部 host 功能照常工作；第三方插件稍后激活时刷新页面即可）',
-      )
-      return
-    }
-    const compat = reportBetterSidebarCompat(bs)
-    if (!compat.ok) {
       console.error(
-        '[ks-dsh-plugin] better-sidebar 契约不满足，跳过全部 tab 注册'
-        + '（📜 查法规模式等不依赖它的功能照常工作）',
+        '[ks-dsh-plugin] 未检测到官方右侧栏（ctx.sidebarRight / sidebarRightTabs）'
+        + '：PDF 证据查看器与「点证据链接跳页」将不可用。'
+        + '该面由 @deepseek-ai/dsh-client-ui-sidebar-right 提供——'
+        + '若它未随 DSH 一起挂载，请检查 DSH 版本或插件清单。'
+        + '（「📜 查法规模式」与全部 host 侧模型工具不受影响。）',
       )
       return
     }
-    tabsRegistered = true
-    if (probeTimer !== undefined) {
-      clearTimeout(probeTimer)
-      probeTimer = undefined
-    }
-    surfacesDispose = registerBetterSidebarSurfaces(ctx, bs)
+    registered = true
+    if (retryTimer !== undefined) { clearTimeout(retryTimer); retryTimer = undefined }
+    surfacesDispose = registerSidebarSurfaces(ctx, tabs, right, rightRef)
   }
+
   ctx.effect(() => {
-    ctx.on?.('internal/service', (name: unknown, value?: unknown) => {
-      if (name !== 'betterSidebar') return
-      // 服务被**撤销**（better-sidebar 卸载/热重载）→ 复位，等它再出现时重新注册；
-      // 旧 surfaces 的 effect 先撤掉，避免点击监听器被叠加两次（verifier 五轮 P2-4：
-      // 旧实现 `tabsRegistered` 一旦置位永不回退，服务重生后 tab 再也不出现）。
+    // 事件驱动：服务被撤销（官方列热重载）→ 撤销旧表面并等它重生时重注册。
+    // 旧实现曾因"置位后永不回退"导致服务重生后 tab 再也不出现（verifier 五轮 P2-4）。
+    const off = ctx.on?.('internal/service', (name: unknown, value?: unknown) => {
+      if (name !== 'sidebarRight' && name !== 'sidebarRightTabs') return
       if (value === undefined) {
-        if (probeDisposed) return
-        tabsRegistered = false
-        // 没拿到 disposer 就不敢复位（否则旧 tab 未注销时会重复 registerTab 同 id）——
-        // verifier 六轮 P2-5
+        if (disposed) return
+        registered = false
         if (surfacesDispose !== undefined) {
           try { surfacesDispose() } catch { /* effect 可能已随 fiber 撤销 */ }
           surfacesDispose = undefined
         }
-        probeAttempts = 0 // 复位探针预算，否则第二次探针一次都不轮询就放弃
+        attempts = 0
         return
       }
-      probeBetterSidebar()
+      registerSurfaces()
     })
     return () => {
-      probeDisposed = true
-      if (probeTimer !== undefined) {
-        clearTimeout(probeTimer)
-        probeTimer = undefined
-      }
+      disposed = true
+      void off
+      if (retryTimer !== undefined) { clearTimeout(retryTimer); retryTimer = undefined }
     }
-  }, 'ks-dsh-plugin: better-sidebar 探针')
-  probeBetterSidebar()
+  }, 'ks-dsh-plugin: 官方右侧栏探针')
+
+  registerSurfaces()
 }
 
 /** 免注入读一个服务；门面缺失/抛错一律当"没有"，绝不让它带崩 apply。 */
@@ -252,78 +258,79 @@ function readService<T>(ctx: Ctx, name: string): T | undefined {
   }
 }
 
-/** better-sidebar 存在时才注册的表面：1 个 tab（证据 PDF）+ 设置栏目（含
- *  效力报告与入库预览两个内嵌折叠面板，2026-11 迁入）+ 证据链接接管。
- *  （🔖 收藏目录已迁入 PDF 查看器左列第三模式，不再是侧栏 tab——2026-10-27。） */
-function registerBetterSidebarSurfaces(ctx: Ctx, bs: BetterSidebar): (() => void) | undefined {
+/** 官方右侧栏存在时才注册的表面（2026-09-16 迁移后的**两段式**）：
+ *  ① tab 类型声明 → `ctx.sidebarRightTabs.register(...)`；
+ *  ② body 座位注册 → `slots.register({name:'sidebar.right.pane.tab', key: id})`。
+ *
+ *  设置栏目**不在这里**——它走官方 `settings.section`、与右侧栏解耦，在 `apply`
+ *  顶层就先注册（右侧栏缺席时它仍须工作）。
+ *  （🔖 收藏目录已迁入 PDF 查看器左列第三种模式，不再是侧栏 tab——2026-10-27。） */
+function registerSidebarSurfaces(
+  ctx: Ctx,
+  tabs: KsTabRegistry,
+  right: SidebarRightService,
+  rightRef: { current: ((evidenceUrl: string) => void) | null },
+): (() => void) | undefined {
+  /** 打开（或复用）单例证据 tab。
+   *
+   * 官方语义：地址恒定 → 同一 tab；每次导航把 `navigation.revision` +1
+   * （`tab-domain.ts` 的 `navigate()`），组件据此重载 —— 等价于旧模型用
+   * `updateTab({meta:{ksClick}})` 做的"同 URL 也要重载"。故这里**只需一次调用**，
+   * 不再需要旧实现那套"openTab 建/聚焦 + updateTab 覆写 path"两步。 */
+  const openEvidence = (evidenceUrl: string): void => {
+    right.openResource(KS_EVIDENCE_ADDRESS, {
+      kind: KS_EVIDENCE_KIND,
+      params: toNavParams(evidenceUrl),
+    })
+  }
+  // 供**先于本函数注册**的设置栏目调用（见 apply 里 rightRef 的注释）。
+  rightRef.current = openEvidence
+
   const disposer = ctx.effect(
     () => {
-      const disposePdf = bs.registerTab({
-        id: KS_EVIDENCE_TAB_ID,
-        title: 'PDF 查看器',
-        single: true,
-        // 不设 icon：tab 标题即说明（用户反馈：勿再叠书本小图/重复符号）
-        // Claim the pseudo-evidence link so better-sidebar opens a ks:pdf tab
-        // (not its built-in browser) when the user clicks it.
-        urlTarget: (url: URL) => isKsEvidenceUrl(url),
-        component: (props) => createElement(KsEvidenceTab, props),
-      })
+      // ① 类型声明。`register` 抛错即接线错误（同 id/同 kind 重复注册），
+      //    让它冒到下面的 catch 里点名，而不是静默少一个 tab。
+      const disposeType = tabs.register(ksEvidenceDefinition())
 
-      // 🔖 收藏目录（2026-10-27 按用户指示）：不再注册独立侧栏 tab——收藏目录
-      // 迁入 PDF 查看器左列，作为与 📚文件目录 / 📖标题目录 并列的第三种悬浮
-      // 目录模式（见 KsEvidenceTab 左列分段按钮 + KsBookmarksView）。
+      // ② body 座位。`inject.hooks.tabInfo` 由**宿主**声明（座位契约里带
+      //    `hookContext: TabHookContext`），我们把宿主给的这个 factory 原样
+      //    转交给 body 组件 —— 官方 `ui-sidebar-documentpreview` 也是这么做的。
+      let disposeBody: (() => void) | undefined
+      if (ctx.slots !== undefined) {
+        disposeBody = ctx.slots.inject('sidebar.right.pane.tab', () => ctx.slots!.register({
+          name: 'sidebar.right.pane.tab',
+          key: KS_EVIDENCE_IMPL_ID,
+          inject: (injected: { hooks?: { tabInfo?: UseKsTabInfo } }): KsEvidenceHostInjected => {
+            const tabInfo = injected?.hooks?.tabInfo
+            if (typeof tabInfo !== 'function') {
+              // 宿主没给 tabInfo（座位契约变更）→ 明确报错，别让 body 拿到 undefined
+              // 再在渲染期抛一个看不出原因的错。
+              throw new Error(
+                '[ks-dsh-plugin] sidebar.right.pane.tab 座位未提供 hooks.tabInfo'
+                + '——官方右侧栏契约可能已变更，PDF 证据查看器无法渲染。',
+              )
+            }
+            return { useTabInfo: tabInfo, openEvidence }
+          },
+        }, KsEvidenceHost))
+      } else {
+        console.error('[ks-dsh-plugin] slots 不可用：PDF 证据 tab body 未注册（tab 类型已注册但无内容）')
+      }
 
-      // 效力报告 / 入库预览（2026-11 迁移）：不再注册为侧栏 tab——用户拍板
-      // 「全部放进设置的菜单里，类目全折叠」。两面板现在由 KsSettingsSection
-      // 的同名 <details> 类目承载（懒加载：收起零请求，展开才拉数据）。
-      // 引擎路由 /ks/report/*、/ks/ingest/* 与设置入口不变。
-
-      // 「法规标准知识库」设置栏目的两处表面：
-      //  (A) 顶层 `settings.section` —— 在 DSH 设置壳左侧新增一个名为「法规标准知识库」
-      //      的独立 nav 栏目（用户真正要的「栏目」），showArrow 开关由 KsSettingsSection
-      //      内联、可见地渲染。这是本修复的核心。
-      //  (B) 一个 hidden tab 卡（保持原样）+ pluginToggles —— 它不算「栏目」，但它经由
-      //      better-sidebar 的卡片→弹层写入路径调用 store.setPrefs，是一条存储一致
-      //      且即时反应（KsEvidenceTab 的 useSyncExternalStore 订阅）的兜底写入通道。
-      //      与 (A) 读写同一 key `pluginSettings['ks:settings']`，两者保持一致。
-      const disposeSettingsCard = bs.registerTab({
-        id: KS_SETTINGS_TAB_ID,
-        title: '法规标准知识库',
-        single: true,
-        hidden: true,
-        icon: (size: number) => createElement('span', { style: { fontSize: size } }, '⚖️'),
-        component: () => KsSettingsPlaceholder(),
-        settings: {
-          pluginToggles: [
-            {
-              key: 'showArrow',
-              title: '显示红色定位箭头',
-              desc: '在 PDF 证据页用红箭头标出引用条款位置；关闭后仅跳页。',
-            },
-          ],
-        },
-      })
-      // (C) 顶层 section 独立注册，见上方注释 (A)。
-      const disposeSettings = registerKsSettingsSection(ctx, bs)
-      // (D) 「📜 查法规模式 / 🔖 仅收藏」不再有输入框 UI：2026-10 按用户反馈删掉 dock，
-      //     改由 host 的斜杠命令 /forensic、/bookmarks 调用（见 src/chatmode.js）。
-
-      // 目录常驻（2026-10-27）：每次页面加载自动开一次 PDF 查看器 tab（不带 url →
-      // idle 态，左列默认 📚 文件目录，无问答也能直接点开国标阅读）。openTab 对
-      // 已存在的 tab 是纯 focus、不覆写 path → 已打开的证据链接不受影响；用户
-      // 手动关闭后再点证据链接照常重开，不会在这里被反复拉起（每次加载仅一次）。
-      // try/catch 兜底：第三方 openTab 失败不影响其余表面。
+      // 目录常驻（2026-10-27）：页面加载后自动开一次 PDF 查看器 tab（不带证据 →
+      // idle 态，左列默认 📚 文件目录，无问答也能直接点开国标阅读）。
+      // 官方 `openResource` 对同一地址天然幂等（同地址 = 同 tab，只聚焦不重开），
+      // 故"每次加载仅一次"的语义不变；用户手动关闭后再点证据链接照常重开。
       try {
-        bs.openTab({ type: KS_EVIDENCE_TAB_ID, title: 'PDF 查看器' })
+        right.openResource(KS_EVIDENCE_ADDRESS, { kind: KS_EVIDENCE_KIND })
       } catch (error) {
         console.warn('[ks-dsh-plugin] 常驻打开 PDF 查看器 tab 失败（不影响其他表面）', error)
       }
 
-      // 自足接管：single:true 单例的再次 openTab 只是 focus（URL 不应用），
-      // 必须自己覆写 path 才能连续跳多个证据。capture 阶段先于内置拦截?
-      // 否——本 listener 注册于 apply()，晚于 better-sidebar 的 document 级
-      // capture，故以 bubble 收尾仍可能撞 defaultPrevented；这里不依赖先后：
-      // 命中证据锚点即 preventDefault 并 openTab+updateTab，行为幂等。
+      // 证据锚点接管：官方模型没有 `urlTarget` 那种"声明式认领外部链接"的面，
+      // 故仍用 document 级 capture 监听——但它现在只做**一件事**：
+      // 命中证据锚点 → 转成官方 `openResource`。不再需要"覆写单例 path"的收尾
+      // （导航 revision 已保证重载），因此比旧实现短且无竞态假设。
       const onClick = (event: MouseEvent): void => {
         if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
         const target = event.target
@@ -331,38 +338,25 @@ function registerBetterSidebarSurfaces(ctx: Ctx, bs: BetterSidebar): (() => void
         const anchor = (target as Element).closest('a[href]') as HTMLAnchorElement | null
         if (anchor === null) return
         const href = anchor.href
-        if (!isKsEvidenceUrl(new URL(href))) return
-        // 无论 better-sidebar 内置拦截是否已接管（其 capture 更早，可能已
-        // preventDefault + openTab focus），ks 链接一律归我们收尾：
-        //   - 首次：openTab 建 tab（URL 写入 path）；
-        //   - 再次：openTab 只 focus（single 单例不写 path）→ updateTab
-        //     强制覆写 path → KsEvidenceTab 的 [tab.path] effect 触发重载跳页。
-        // preventDefault 幂等；updateTab 对缺失 tab 是 no-op，无需先查。
-        event.preventDefault()
-        const title = evidenceTitle(href)
-        bs.openTab({ type: KS_EVIDENCE_TAB_ID, url: href, title })
         try {
-          // meta 带共享单调 nonce：即便 path 与上次相同（用户反复点同一条证据 /
-          // 翻页后再点同一条），tab.meta 引用也变化 → KsEvidenceTab 的
-          // [tab.path, tab.meta] effect 必然触发重载（否则 updateTab 同值
-          // path 不产生状态变化，点多少次都不跳——实测回归）。
-          bs.updateTab?.(KS_EVIDENCE_TAB_ID, {
-            path: href,
-            title,
-            meta: { ksClick: nextEvidenceClick() },
-          })
-        } catch { /* updateTab 为可选 API；失败时首次 openTab 已能工作 */ }
+          if (!isKsEvidenceUrl(new URL(href))) return
+        } catch { return }
+        // 合法证据锚点：拦掉默认导航（伪源 host 不可达），交给右侧栏打开。
+        event.preventDefault()
+        openEvidence(href)
       }
       document.addEventListener('click', onClick, true)
 
       return () => {
         document.removeEventListener('click', onClick, true)
-        disposePdf()
-        disposeSettingsCard()
-        disposeSettings()
+        // 撤销"打开证据"能力：设置栏目仍在（它不随右侧栏撤销），故必须清掉引用，
+        // 否则它会调到一个已失效的 right（旧实现同类问题的教训）。
+        rightRef.current = null
+        disposeBody?.()
+        disposeType()
       }
     },
-    'ks-dsh-plugin: ks:pdf evidencetab + ks:bookmarks-view + ks:settings section + card',
+    'ks-dsh-plugin: 官方右侧栏证据 tab',
   )
   return typeof disposer === 'function' ? disposer : undefined
 }

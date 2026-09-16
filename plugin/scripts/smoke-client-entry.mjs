@@ -45,6 +45,12 @@ const docListeners = []
 /** 真的记账的 document 桩：add/remove 都按 (type, fn) 记账，才能测"监听器有没有泄漏"。 */
 const docHandlers = new Map()
 const listenerCount = (type) => (docHandlers.get(type) ?? new Set()).size
+/** 驱动当前登记的 click 监听（entry 用 document 级 capture 接管证据锚点）。 */
+function dispatchClick(event) {
+  for (const fn of docHandlers.get('click') ?? []) {
+    fn({ preventDefault() {}, button: 0, metaKey: false, ctrlKey: false, shiftKey: false, altKey: false, ...event })
+  }
+}
 globalThis.document = {
   visibilityState: 'visible',
   addEventListener(type, fn) {
@@ -132,22 +138,20 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
   }
   const declared = new Set(['slots'])
   if (withTimer) declared.add('timer')
-  const makeBs = () => ({
-    tabs: [],
-    registerTab(descriptor) { this.tabs.push(descriptor); return () => {} },
-    openTab() {},
-    updateTab() {},
-    activateTab() {},
-    closeTab() {},
-    isTabEnabled: () => true,
-    getPrefs: () => ({}),
-    version: '0.18.0',
-    features: ['tabMeta', 'updateTab', 'stateSubscription', 'pluginSettings', 'urlTarget'],
-    getSnapshot: () => ({ width: 400, tabs: [] }),
-    subscribeState: () => () => {},
+  /** 官方 tab 类型注册表（`ctx.sidebarRightTabs`）——只需 `register`。 */
+  const makeTabs = () => ({
+    registered: [],
+    register(def) { this.registered.push(def); return () => {} },
+  })
+  /** 官方右侧栏导航面（`ctx.sidebarRight`）——只需 `openResource`。 */
+  const makeRight = () => ({
+    opened: [],
+    openResource(address, options) { this.opened.push({ address, options }); return undefined },
   })
   // 可变持有者：用来模拟"better-sidebar 在我们 apply 之后才激活"
-  const bsRef = { current: withBetterSidebar ? makeBs() : null }
+  // 可变持有者：模拟"官方右侧栏在我们 apply 之后才挂载"。
+  const tabsRef = { current: withBetterSidebar ? makeTabs() : null }
+  const rightRef = { current: withBetterSidebar ? makeRight() : null }
   const services = { slots }
   const denyRead = (prop) => {
     throw new Error(`dynamic ctx does not expose "${prop}"`)
@@ -161,7 +165,8 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     get(_t, prop) {
       if (prop === 'get') {
         return (name) => {
-          if (name === 'betterSidebar') return bsRef.current ?? undefined
+          if (name === 'sidebarRightTabs') return tabsRef.current ?? undefined
+          if (name === 'sidebarRight') return rightRef.current ?? undefined
           return declared.has(name) ? services[name] ?? undefined : undefined
         }
       }
@@ -192,23 +197,31 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
           || declared.has(prop))),
     set: () => { throw new Error('dynamic ctx is read-only') },
   })
-  /** 模拟"服务此刻才被提供"：置入服务并发出 cordis 的 internal/service 事件。 */
+  /** 模拟"服务此刻才被提供"：置入两面并发出 cordis 的 internal/service 事件。 */
   const provideBetterSidebar = () => {
-    bsRef.current = makeBs()
+    tabsRef.current = makeTabs()
+    rightRef.current = makeRight()
     for (const [event, listener] of listeners) {
-      if (event === 'internal/service') listener('betterSidebar', bsRef.current)
+      if (event === 'internal/service') {
+        listener('sidebarRightTabs', tabsRef.current)
+        listener('sidebarRight', rightRef.current)
+      }
     }
-    return bsRef.current
+    return { tabs: tabsRef.current, right: rightRef.current }
   }
   /** 模拟服务被撤销：cordis 同样发 internal/service，但 value 为 undefined。 */
   const unprovideBetterSidebar = () => {
-    bsRef.current = null
+    tabsRef.current = null
+    rightRef.current = null
     for (const [event, listener] of listeners) {
-      if (event === 'internal/service') listener('betterSidebar', undefined)
+      if (event === 'internal/service') {
+        listener('sidebarRight', undefined)
+        listener('sidebarRightTabs', undefined)
+      }
     }
   }
   return {
-    facade, slots, injected, registered, bsHandlers: bsRef, effects, listeners,
+    facade, slots, injected, registered, tabsRef, rightRef, effects, listeners,
     provideBetterSidebar, unprovideBetterSidebar,
   }
 }
@@ -222,11 +235,11 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     threw !== null && /does not expose "inject"/.test(String(threw?.message)),
     String(threw?.message ?? 'no throw').slice(0, 60))
   check('facade mirror: ctx.get on an absent service returns undefined (no throw)',
-    facade.get('betterSidebar') === undefined)
+    facade.get('sidebarRightTabs') === undefined && facade.get('sidebarRight') === undefined)
   check('facade mirror: whitelisted verbs are callable',
     typeof facade.effect === 'function' && typeof facade.on === 'function')
   check('facade mirror: `in` does not advertise undeclared properties',
-    !('inject' in facade) && !('betterSidebar' in facade))
+    !('inject' in facade) && !('sidebarRightTabs' in facade))
   // timer verb 必须声明 timer（guard.ts:25/219）——旧假门面在这里比真门面宽松，
   // 会把"没声明 timer 却用了 ctx.setTimeout"这类真机会抛的写法放过去
   let timerThrew = null
@@ -243,16 +256,16 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     String(regThrew?.message ?? 'no throw').slice(0, 50))
 }
 
-/* ---------------------------------------------------- 2. 无 better-sidebar */
+/* ---------------------------------------------------- 2. 无官方右侧栏 */
 {
   const built = buildFacade({})
   let error = null
   try { entry.apply(built.facade) } catch (e) { error = e }
-  check('apply() does NOT throw when better-sidebar is absent (P0 regression guard)',
+  check('apply() does NOT throw when the official sidebar is absent (P0 regression guard)',
     error === null, String(error?.message ?? '').slice(0, 90))
   // 2026-10 收藏目录：夹内提问胶囊回来了（唯一合法的 input.dock 注入——
-  // 老的斜杠命令 dock 删除语义只针对当时的 UI；新胶囊不依赖 better-sidebar）。
-  check('the scope chip injects conversation.input.dock even without better-sidebar',
+  // 老的斜杠命令 dock 删除语义只针对当时的 UI；新胶囊不依赖右侧栏）。
+  check('the scope chip injects conversation.input.dock even without the official sidebar',
     built.injected.includes('conversation.input.dock'),
     built.injected.join(',') || '(none)')
   const chipNoBs = built.registered.find((r) => r.options?.id === 'ks-scope-chip')
@@ -261,18 +274,23 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     && chipNoBs.options?.name === 'conversation.input.dock'
     && typeof chipNoBs.options?.inject === 'function',
     built.registered.map((r) => String(r.options?.id)).join(',') || '(none)')
-  check('no tab and no settings column are registered without better-sidebar (chip excepted)',
-    built.registered.every((r) => r.options?.id === 'ks-scope-chip'),
+  // 设置栏目走官方 `settings.section`，**不依赖右侧栏** —— 右侧栏缺席时它仍须注册
+  // （这是迁移时刻意保持的性质：右侧栏缺失不该连带弄丢设置）。
+  check('设置栏目 registers even without the official sidebar (settings.section)',
+    built.injected.includes('settings.section'), built.injected.join(','))
+  check('no tab body is registered without the official sidebar (chip + settings excepted)',
+    built.registered.every((r) => ['ks-scope-chip', 'ks-dsh-plugin'].includes(String(r.options?.id))),
     built.registered.map((r) => String(r.options?.id)).join(',') || '(none)')
 }
 
-/* ---------------------------------------------------- 3. 有 better-sidebar */
+/* ---------------------------------------------------- 3. 有官方右侧栏 */
 {
   const built = buildFacade({ withBetterSidebar: true })
   let error = null
   try { entry.apply(built.facade) } catch (e) { error = e }
-  const bsHandlers = built.bsHandlers.current
-  check('apply() does not throw when better-sidebar is present',
+  const tabs = built.tabsRef.current
+  const right = built.rightRef.current
+  check('apply() does not throw when the official sidebar is present',
     error === null, String(error?.message ?? '').slice(0, 90))
   // 2026-10：input.dock 唯一合法占用者是夹内提问胶囊（id ks-scope-chip）。
   check('the input dock is injected exactly once (the ks scope chip)',
@@ -282,53 +300,93 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
   check('the scope chip passes the sessionId through its props inject',
     chip !== undefined && chip.options.inject('sess-X').sessionId === 'sess-X',
     built.registered.map((r) => String(r.options?.id)).join(','))
-  check('two tabs registered (PDF / settings card; 收藏目录已迁 PDF 左列第三模式)',
-    bsHandlers.tabs.length === 2,
-    bsHandlers.tabs.map((t) => t.id).join(','))
-  check('the PDF tab claims ks evidence links via urlTarget',
-    typeof bsHandlers.tabs[0]?.urlTarget === 'function'
-    && bsHandlers.tabs[0].urlTarget(new URL('http://127.0.0.1:1/__ks_evidence__?doc=x')) === true)
+
+  // ── 官方两段式：① 类型注册 ② body 座位注册 ──
+  check('stage 1: exactly one tab TYPE registered (ks-evidence)',
+    tabs.registered.length === 1 && tabs.registered[0]?.kind === 'ks-evidence',
+    tabs.registered.map((d) => String(d.kind)).join(',') || '(none)')
+  check('stage 1: the type claims only our own constant resource address',
+    Array.isArray(tabs.registered[0]?.patterns)
+    && tabs.registered[0].patterns.includes('dsh-resource://ks-evidence'),
+    JSON.stringify(tabs.registered[0]?.patterns))
+  check('stage 1: canOpen accepts our address and refuses a foreign one',
+    tabs.registered[0]?.canOpen('dsh-resource://ks-evidence') === true
+    && tabs.registered[0]?.canOpen('dsh-resource://file/x.md') === false)
+  check('stage 1: the type is NOT multiple (evidence viewer is a singleton)',
+    tabs.registered[0]?.multiple === undefined)
+  const body = built.registered.find((r) => r.options?.name === 'sidebar.right.pane.tab')
+  check('stage 2: the body seat registered under the type id',
+    body !== undefined && body.options?.key === 'ks-dsh-plugin/evidence-pdf',
+    built.registered.map((r) => String(r.options?.key ?? r.options?.id)).join(','))
+
   check('设置栏目 (settings.section) registered too',
     built.injected.includes('settings.section'), built.injected.join(','))
   check('the click interception is installed globally (evidence links)',
     docListeners.includes('click'))
-  check('tab ids are the documented ones (no ks:bookmarks / ks:report / ks:ingest — 收藏目录迁左列，报告/预览迁设置)',
-    bsHandlers.tabs.map((t) => t.id).join(',') === 'ks:pdf,ks:settings',
-    bsHandlers.tabs.map((t) => t.id).join(','))
-  check('the probe registered a disposer (timer can be cleaned on dispose)',
+  check('the probe registered disposers (effects can be cleaned on dispose)',
     built.effects.filter((fn) => typeof fn === 'function').length >= 2,
     `disposers=${built.effects.filter((fn) => typeof fn === 'function').length}`)
+
+  // 常驻打开（目录常驻）：应经官方 openResource 打一次，且**不带 params**（idle 态）
+  check('the resident PDF viewer is opened through the official openResource',
+    right.opened.length === 1
+    && right.opened[0].address === 'dsh-resource://ks-evidence'
+    && right.opened[0].options?.kind === 'ks-evidence',
+    JSON.stringify(right.opened.map((o) => o.address)))
+  check('the resident open carries no evidence params (idle → file catalogue)',
+    right.opened[0]?.options?.params === undefined,
+    JSON.stringify(right.opened[0]?.options?.params))
 }
 
-/* ---------------------------- 4. better-sidebar 迟到：事件驱动重探（本轮新机制） */
+/* ---------------------------- 3b. 证据点击：一次导航即"打开或复用" */
+{
+  const built = buildFacade({ withBetterSidebar: true })
+  entry.apply(built.facade)
+  const right = built.rightRef.current
+  const url = 'http://127.0.0.1:1/__ks_evidence__?doc=doc_X&page=7'
+  // 直接驱动 entry 安装的 click 监听（门面把监听记在 docListeners 里）
+  const anchor = {
+    href: url,
+    closest: () => ({ href: url }),
+  }
+  dispatchClick({ button: 0, target: anchor })
+  check('an evidence click navigates via openResource with the SAME constant address',
+    right.opened.length === 2
+    && right.opened[1].address === 'dsh-resource://ks-evidence',
+    JSON.stringify(right.opened.map((o) => o.address)))
+  check('the evidence URL travels in params (keeps the address constant → singleton tab)',
+    right.opened[1]?.options?.params?.url === url,
+    JSON.stringify(right.opened[1]?.options?.params))
+}
+
+/* ---------------------------- 4. 官方右侧栏迟到：事件驱动重注册 */
 {
   const built = buildFacade({})
   entry.apply(built.facade)
-  check('late better-sidebar: nothing registered while it is absent (chip excepted)',
-    built.registered.every((r) => r.options?.id === 'ks-scope-chip'),
+  check('late sidebar: no tab body registered while it is absent',
+    built.registered.every((r) => r.options?.name !== 'sidebar.right.pane.tab'),
     `registered=${built.registered.map((r) => String(r.options?.id)).join(',')}`)
-  check('late better-sidebar: the probe subscribed to internal/service',
+  check('late sidebar: the probe subscribed to internal/service',
     built.listeners.some(([event]) => event === 'internal/service'),
     built.listeners.map(([e]) => String(e)).join(','))
-  const bs = built.provideBetterSidebar() // 服务此刻才提供 → 触发 internal/service
-  check('late better-sidebar: tabs register the moment the service appears',
-    bs.tabs.length === 2 && built.injected.includes('settings.section'),
-    `tabs=${bs.tabs.length} injected=${built.injected.join(',')}`)
-  check('late better-sidebar: the settings column is registered exactly once',
+  const late = built.provideBetterSidebar() // 服务此刻才提供 → 触发 internal/service
+  check('late sidebar: the tab type registers the moment the services appear',
+    late.tabs.registered.length === 1 && built.injected.includes('settings.section'),
+    `types=${late.tabs.registered.length} injected=${built.injected.join(',')}`)
+  check('late sidebar: the settings column is registered exactly once',
     built.registered.filter((r) => r.options?.id === 'ks-dsh-plugin').length === 1,
     built.registered.map((r) => String(r.options?.id)).join(','))
 
-  // 服务被撤销（better-sidebar 卸载/热重载）→ 复位；再提供时 tab 必须重新出现
-  // （verifier 五轮 P2-4：旧实现 tabsRegistered 一旦置位永不回退）
-  // 注意 click 监听的绝对条数含**别的用例块**留下的，所以这里只比对本次 cycle 的增量。
+  // 服务被撤销（官方列热重载）→ 复位；再提供时 tab 必须重新出现
+  // （verifier 五轮 P2-4：旧实现"置位后永不回退"导致重生后 tab 再也不出现）
   const clicksBefore = listenerCount('click')
   built.unprovideBetterSidebar()
   check('service unprovide: the old surfaces effect is disposed (no leaked click listener)',
     listenerCount('click') === clicksBefore - 1,
     `before=${clicksBefore} after=${listenerCount('click')}`)
   const again = built.provideBetterSidebar()
-  check('service re-provide: tabs come back after an unprovide/re-provide cycle',
-    again.tabs.length === 2, `tabs=${again.tabs.length}`)
+  check('service re-provide: the tab type comes back after an unprovide/re-provide cycle',
+    again.tabs.registered.length === 1, `types=${again.tabs.registered.length}`)
   check('service re-provide: exactly one click listener again (no accumulation)',
     listenerCount('click') === clicksBefore, `clicks=${listenerCount('click')}`)
 }
@@ -338,12 +396,11 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
   const built = buildFacade({})
   entry.apply(built.facade)
   const before = built.registered.length
-  // 跑掉探针登记的 disposer（模拟 fiber 撤销）
   for (const fn of built.effects) if (typeof fn === 'function') fn()
   const late = built.provideBetterSidebar() // 撤销之后再发 internal/service
   check('after dispose the probe registers nothing on a late service event',
-    late.tabs.length === 0 && built.registered.length === before,
-    `tabs=${late.tabs.length} registered=${built.registered.length}`)
+    late.tabs.registered.length === 0 && built.registered.length === before,
+    `types=${late.tabs.registered.length} registered=${built.registered.length}`)
 }
 
 /* ---------------------------------------------------- 5. inject 声明 */

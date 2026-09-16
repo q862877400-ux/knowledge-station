@@ -37,16 +37,16 @@ export interface KsEvidence {
 
 export const EVIDENCE_PATH = '/__ks_evidence__'
 
-/** Normalized key the tab descriptor uses to claim (and dedupe) this URL type. */
-export const KS_EVIDENCE_TAB_ID = 'ks:pdf'
-
 /**
- * Decide whether a (better-sidebar intercepted) external http(s) URL is one of
- * OUR evidence links. This is the `TabDescriptor.urlTarget` predicate. A
- * throwing predicate is swallowed by better-sidebar, so keep it pure and cheap.
+ * Decide whether an external http(s) URL is one of OUR evidence links.
  *
- * @param url - the URL object better-sidebar hands the predicate.
- * @returns true when the URL is an `/__ks_evidence__` link with a `doc`.
+ * 2026-09-16 官方 sidebar 迁移后，它的**调用方**从"better-sidebar 的
+ * `TabDescriptor.urlTarget` 认领谓词"变成"entry.ts 的 document 级 capture 监听"
+ * （官方右侧栏没有声明式认领外部链接的面）。语义不变：只认本插件的
+ * `/__ks_evidence__` 且必须带 `doc`。
+ *
+ * @param url - 从锚点 href 解析出的 URL。
+ * @returns true 表示这是我们的证据锚点。
  */
 export function isKsEvidenceUrl(url: URL): boolean {
   if (url.protocol !== 'http:' && url.protocol !== 'https:') return false
@@ -111,18 +111,6 @@ export function isBbox(value: unknown): value is [number, number, number, number
 /** Pseudo host used to RECONSTRUCT an evidence anchor URL (matches the host's
  *  KS_EVIDENCE_ORIGIN in src/index.js). */
 export const EVIDENCE_ORIGIN = 'http://127.0.0.1:1'
-
-let _evidenceClickNonce = 0
-
-/**
- * Monotonic click signal for the ks:pdf tab. Shared so chat clicks (entry.ts),
- * bookmark clicks (KsBookmarksTab) and the in-tab history jump (KsEvidenceTab)
- * ALL advance ONE counter — so the [tab.path, tab.meta] reload effect always
- * fires even when the new path value equals the previous one.
- */
-export function nextEvidenceClick(): number {
-  return ++_evidenceClickNonce
-}
 
 /**
  * Rebuild an evidence anchor URL from a parsed KsEvidence. Returns null only

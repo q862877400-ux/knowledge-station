@@ -51,15 +51,22 @@ function check(name, ok, detail) {
   console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}${detail === undefined ? '' : ` — ${detail}`}`)
 }
 
-/** 假 store：与 better-sidebar 的 getSnapshot/update 契约同形（draft 可写）。 */
+/**
+ * 假**宽度端口**：与 `pdfPanel.ts` 的 `PanelWidthPort` 同形（2026-09-16 迁移后）。
+ *
+ * 旧版假的是 better-sidebar 的 store（`getSnapshot()` 读 / `update(draft)` 写）；
+ * 该包已被官方 `dsh-client-ui-sidebar-right` 取代，且官方列**没有**宽度面，
+ * 故 pdfPanel 解耦为可选端口。本 fake 同步跟进，断言保持不变——**这正是冒烟的价值**：
+ * 端口契约一变，它立刻报红而不是静默退化。
+ */
 function fakeStore(width) {
   let w = width
   let writes = 0
   return {
     get width() { return w },
     get writes() { return writes },
-    getSnapshot: () => ({ state: { width: w } }),
-    update: (mutator) => { const draft = { width: w }; mutator(draft); w = draft.width; writes += 1 },
+    getWidth: () => w,
+    setWidth: (px) => { w = px; writes += 1; return true },
   }
 }
 

@@ -31,16 +31,17 @@ import {
   type KsEffectTreeNode,
   type KsEffectWindow,
 } from './api'
-import { KS_EVIDENCE_TAB_ID, nextEvidenceClick } from './ksEvidence'
-import type { KsSettingsServiceFace } from './KsSettingsSection'
+// 2026-09-16 迁移后不再直接引用 ksEvidence 的 tab id / 点击 nonce：跳证据收敛为
+// 宿主注入的 `openEvidence` 端口（见下方 props 注释）。
 
 /** 面板 props：宿主是 KsSettingsSection 的折叠类目，不再是 better-sidebar tab。
  *  - visible：由 <details onToggle> 驱动——收起 = 挂载但零请求（懒加载门）。
- *  - service：betterSidebar 运行时服务（原 ctx.betterSidebar 的等价物），
- *    点文档行跳 PDF 用；为 undefined 时行仍可读只是不可跳。 */
+ *  - openEvidence：**KS 自有的证据导航端口**（2026-09-16 迁移）——旧实现注入整个
+ *    betterSidebar 服务，而该包已被官方 `dsh-client-ui-sidebar-right` 取代。
+ *    省略时行仍可读，只是不可跳。 */
 export interface KsReportPanelProps {
   visible: boolean
-  service?: KsSettingsServiceFace
+  openEvidence?: (evidenceUrl: string) => void
 }
 
 const WINDOWS: { key: KsEffectWindow; label: string }[] = [
@@ -135,7 +136,7 @@ function DocRow({ doc, onOpenDoc }: { doc: KsEffectDoc; onOpenDoc: (docId: strin
 }
 
 export function KsReportPanel(props: KsReportPanelProps): JSX.Element {
-  const { visible, service } = props
+  const { visible, openEvidence } = props
 
   const abortRef = useRef<AbortController | null>(null)
   const [win, setWin] = useState<KsEffectWindow>('all')
@@ -173,18 +174,16 @@ export function KsReportPanel(props: KsReportPanelProps): JSX.Element {
 
   const onOpenDoc = useCallback((docId: string): void => {
     // 证据伪源锚点（仅 doc 参数 → PDF 查看器打开首页）；机制同 KsBookmarksTab。
-    // 嵌入设置栏目后导航走宿主注入的 service（betterSidebar 运行时服务）；
-    // 未注入（理论不可达，面板只由 KsSettingsSection 挂载）则诚实降级为不可跳。
-    if (service === undefined) return
+    // 2026-09-16 迁移：不再注入第三方服务——宿主给 KS 自有的证据导航端口；
+    // 省略时（面板单独挂载的测试场景）诚实降级为不可跳。
+    // 官方 `openResource` 对恒定地址天然幂等，故旧模型"openTab + updateTab 覆写 path"
+    // 的两步法不再需要（每次导航由 navigation.revision 驱动组件重载）。
+    if (openEvidence === undefined) return
     const url = `http://127.0.0.1:1/__ks_evidence__?doc=${encodeURIComponent(docId)}`
     try {
-      service.openTab?.({ type: KS_EVIDENCE_TAB_ID, url })
-      service.updateTab?.(KS_EVIDENCE_TAB_ID, {
-        path: url,
-        meta: { ksClick: nextEvidenceClick() },
-      })
-    } catch { /* updateTab 可选；失败时首次 openTab 已能工作 */ }
-  }, [service])
+      openEvidence(url)
+    } catch { /* 导航失败：行仍可读，只是不跳 */ }
+  }, [openEvidence])
 
   const toggle = (key: string): void => {
     setExpanded((prev) => {

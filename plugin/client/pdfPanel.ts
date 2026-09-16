@@ -10,10 +10,10 @@
  * 为什么用模块级 Map 而不是组件 state：宽度是**会话级**资源，而"恢复"这个动作
  * 发生在组件卸载之后（组件已经拿不到自己的 state 了）。
  *
- * 依赖面（对上第三方 dsh-better-sidebar 的 state 契约）：`store.getSnapshot()
- * .state.width`（读）与 `store.update(draft => draft.width = …)`（写）。两者都是
- * 上游文档化的公开面（SidebarStore.update / SidebarState.width）；任一不可用
- * 时全部调用静默降级为"不动侧栏"，绝不因此让 PDF 打不开。见 bsContract.ts。
+ * 依赖面（2026-09-16 迁移后）：本地的 `PanelWidthPort`（`getWidth`/`setWidth`），
+ * 由证据 tab 宿主注入。旧实现直接吃第三方 better-sidebar 的 store；该包已被官方
+ * `dsh-client-ui-sidebar-right` 取代，且官方列**没有**宽度面，故解耦为可选端口——
+ * 端口缺席时全部调用静默降级为"不动侧栏"，绝不因此让 PDF 打不开。见 ksSidebar.ts。
  */
 
 /** better-sidebar 的面板宽度上限（PANEL_MAX，0.18.0 为 640）。 */
@@ -30,28 +30,36 @@ function sessionKey(sessionId: string | undefined): string {
   return typeof sessionId === 'string' && sessionId.length > 0 ? sessionId : '(active)'
 }
 
-interface WidthCapableStore {
-  getSnapshot?: () => unknown
-  update?: (mutator: (draft: { width: number }) => void) => void
+/**
+ * 面板宽度能力端口（2026-09-16 官方 sidebar 迁移后新增）。
+ *
+ * 旧实现直接吃第三方 `dsh-better-sidebar` 的 store（`getSnapshot().state.width`
+ * 读 + `update(draft=>draft.width=…)` 写）。该包已被官方取代，且官方右侧栏
+ * **没有**宽度面（它是可分屏/浮动的 dock 列），故这里改为一个与上游解耦的
+ * **可选端口**：由证据 tab 宿主（`KsEvidenceHost`）决定给不给。
+ * 宿主不给 → 本模块的让位/恢复全部不执行（PDF 按当前列宽铺满）。
+ */
+export interface PanelWidthPort {
+  /** 当前宽度（px）；不可读返回 null。 */
+  getWidth(): number | null
+  /** 写入宽度；不可写返回 false。 */
+  setWidth(px: number): boolean
 }
 
-/** 读当前面板宽度；不可读（无活跃会话 / 上游改名）→ null。 */
-function readWidth(store: WidthCapableStore | undefined): number | null {
+/** 读当前面板宽度；不可读 → null。 */
+function readWidth(port: PanelWidthPort | undefined): number | null {
   try {
-    const snap = store?.getSnapshot?.() as { state?: { width?: unknown } } | undefined
-    const w = snap?.state?.width
+    const w = port?.getWidth()
     return typeof w === 'number' && Number.isFinite(w) ? w : null
   } catch {
     return null
   }
 }
 
-/** 写面板宽度；store 不可写 → false（调用方无需区分原因，静默降级）。 */
-function writeWidth(store: WidthCapableStore | undefined, width: number): boolean {
+/** 写面板宽度；不可写 → false（调用方无需区分原因，静默降级）。 */
+function writeWidth(port: PanelWidthPort | undefined, width: number): boolean {
   try {
-    if (typeof store?.update !== 'function') return false
-    store.update((draft) => { draft.width = width })
-    return true
+    return port?.setWidth(width) === true
   } catch {
     return false
   }
@@ -67,7 +75,7 @@ export function pdfPanelTargetWidth(viewportWidth: number): number {
  * 打开文档时让位：第一次调用记住"打开前的宽度"，随后每次把面板拉到目标宽度。
  * 返回是否真的写入了（false = 已经够宽 / store 不可写）。
  */
-export function widenPanelForPdf(store: WidthCapableStore | undefined,
+export function widenPanelForPdf(store: PanelWidthPort | undefined,
                                  sessionId: string | undefined): boolean {
   const key = sessionKey(sessionId)
   const current = readWidth(store)
@@ -84,7 +92,7 @@ export function widenPanelForPdf(store: WidthCapableStore | undefined,
  * 关闭 PDF 查看器时恢复：把宽度还原成打开前那个值并清掉记录（幂等——重复调用
  * 不会覆盖用户之后的手动拖拽）。
  */
-export function restorePanelAfterPdf(store: WidthCapableStore | undefined,
+export function restorePanelAfterPdf(store: PanelWidthPort | undefined,
                                      sessionId: string | undefined): boolean {
   const key = sessionKey(sessionId)
   // 关掉 PDF 查看器时目录列也随组件消失 → 它的扩宽记账一并作废（否则下次打开
@@ -133,7 +141,7 @@ const tocRestore = new Map<string, { from: number; gained: number }>()
  * 写入后**读回校验**：上游若把宽度钳制到自己的上限（例如未来把 PANEL_MAX 变成
  * 硬闸），这里会如实回报 false 而不是假装成功。
  */
-export function growPanelForToc(store: WidthCapableStore | undefined,
+export function growPanelForToc(store: PanelWidthPort | undefined,
                                 sessionId: string | undefined): boolean {
   const key = sessionKey(sessionId)
   const current = readWidth(store)
@@ -162,7 +170,7 @@ export function growPanelForToc(store: WidthCapableStore | undefined,
 }
 
 /** 关闭目录列时把之前扩出去的宽度收回（幂等；用户拖过侧栏也只收回我们加的那部分）。 */
-export function shrinkPanelAfterToc(store: WidthCapableStore | undefined,
+export function shrinkPanelAfterToc(store: PanelWidthPort | undefined,
                                     sessionId: string | undefined): boolean {
   const key = sessionKey(sessionId)
   const rec = tocRestore.get(key)

@@ -22,7 +22,7 @@ import * as pdfjs from 'pdfjs-dist'
 import { createPortal } from 'react-dom'
 import type { PDFDocumentProxy } from 'pdfjs-dist'
 
-import type { TabComponentProps } from 'dsh-better-sidebar/client/service'
+import type { KsEvidenceProps } from './ks-evidence-props'
 import {
   EngineAuthError,
   addBookmark,
@@ -66,8 +66,6 @@ import { KsBookmarksView, type KsBookmarkJump } from './KsBookmarksTab'
 import { KsDocTextView } from './KsDocTextView'
 import {
   evidenceUrlOf,
-  KS_EVIDENCE_TAB_ID,
-  nextEvidenceClick,
   parseEvidence,
   type KsEvidence,
 } from './ksEvidence'
@@ -126,43 +124,23 @@ function readSlowTransitionMs(): number {
 }
 
 
-export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
-  const { ctx, tab, visible, store, scope } = props
+export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
+  const { tab, visible, scope, prefs, panel, onUpdateTitle, onOpenEvidence, tabOpen } = props
   /** 侧栏宽度让位/恢复按会话记账（见 pdfPanel.ts）。 */
-  const sessionId = (scope as { sessionId?: string } | undefined)?.sessionId
+  const sessionId = scope?.sessionId
 
-  // 「法规标准知识库」设置：是否显示红箭头（settings.pluginSettings['ks:settings'].showArrow）。
-  // 响应式订阅 shared side-card prefs（store.subscribe）——设置页改了这个键，
-  // 本组件随即重渲染，开关即时生效。缺省开。
-  const showArrowPref = useSyncExternalStore(
-    useCallback((cb: () => void) => store?.subscribe(cb) ?? (() => {}), [store]),
-    () => {
-      try {
-        const blob = store?.getSnapshot().prefs.pluginSettings?.['ks:settings'] as Record<string, unknown> | undefined
-        return (blob?.showArrow as boolean | undefined) !== false
-      } catch {
-        return true
-      }
-    },
-  )
+  // 「法规标准知识库」设置：是否显示红箭头。官方右侧栏无共享 side-card prefs
+  // （旧模型读 `pluginSettings['ks:settings']`），改由宿主以 props 注入；
+  // 省略时缺省开（与旧行为一致）。
+  const showArrowPref = prefs?.showArrow !== false
   // 供 useCallback([]) 的 renderPage 读取（闭包锁首值问题 → 用 ref 存当前偏好）
   const showArrowRef = useRef<boolean>(true)
   showArrowRef.current = showArrowPref
 
-  // 侧栏面板当前宽度（CSS px）：目录列经 portal 固定在"面板左缘向左"的位置；
-  // 面板右锚定 → 左缘 = right: panelWidth。面板宽会随"打开文档让位"变化，
-  // 用 useSyncExternalStore 订阅，让目录列始终紧跟面板左缘。
-  const panelWidth = useSyncExternalStore(
-    useCallback((cb: () => void) => store?.subscribe(cb) ?? (() => {}), [store]),
-    () => {
-      try {
-        const w = store?.getSnapshot?.().state?.width
-        return typeof w === 'number' && Number.isFinite(w) ? w : 0
-      } catch {
-        return 0
-      }
-    },
-  )
+  // 面板当前宽度（CSS px）：目录列经 portal 固定在"面板左缘向左"的位置。
+  // 官方右侧栏不提供宽度面 → `panel` 省略时为 0（目录列退化为悬浮覆盖，
+  // 与旧行为"store 不可读"分支一致）。
+  const panelWidth = panel?.getWidth() ?? 0
 
   const evidence = useRef<KsEvidence | null>(EMPTY_EVIDENCE)
   const pdfDocRef = useRef<PDFDocumentProxy | null>(null)
@@ -565,10 +543,14 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
 
   /** Load the doc + render the requested page. Aborts in-flight work on re-run. */
   const loadEvidence = useCallback(async (ev: KsEvidence | null) => {
-    // 打开文档即让位（用户 2026-09-09）：点证据链接/从文件目录打开文档 →
-    // 立刻把侧栏拉到"文档友好宽度"，保证 PDF 可读；宽度会在关闭本 tab 时
-    // 由卸载 effect 恢复。store 不可写时静默降级（PDF 仍按当前宽度铺满）。
-    widenPanelForPdf(store, sessionId)
+  // 打开文档即让位（用户 2026-09-09 需求）：点证据链接/从文件目录打开文档 →
+  // 把侧栏拉到"文档友好宽度"，保证 PDF 可读；宽度在关闭本 tab 时由卸载 effect 恢复。
+  //
+  // ⚠ 2026-09-16 迁移：该特性依赖旧 better-sidebar 的 `state.width` 读写，官方右侧栏
+  // **无对应面**（它是可分屏/浮动的 dock 列）。故改为经可选的 `panel` 能力端口：
+  // 宿主不提供（当前官方主机即如此）→ 整条路径静默跳过，PDF 按当前列宽铺满。
+  // 特性本身记为**可复议项**（用户已裁定）。
+  if (panel !== undefined) widenPanelForPdf(panel, sessionId)
     // 这次让位同样是一段 0.3s 宽度过渡 → 期间冻结重绘，等它停稳再按最终尺寸画一次。
     freezeRender(settleMsRef.current + 60)
     // Abort anything in flight.（连续模式下可能有多页在画，逐页取消。）
@@ -726,10 +708,10 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
     }
     if (ev !== null) {
       setPageInput(String(ev.page ?? 1))
-      // Cosmetic: better-sidebar's builtin openTab sets a hostname-derived title
-      // ("127.0.0.1") for a claimed URL. Refine it to a user-friendly page label.
+      // 旧模型靠 better-sidebar 的 `updateTab` 把标签从主机名派生的标题改成页号；
+      // 官方模型下 tab 记录自带 title，由宿主经 `onUpdateTitle` 注入改法（可省略）。
       const label = `PDF 查看器${ev.page !== undefined ? ` · 第${ev.page}页` : ''}`
-      try { ctx.betterSidebar?.updateTab?.(tab.id, { title: label }) } catch { /* ignore */ }
+      try { onUpdateTitle?.(label) } catch { /* ignore */ }
     }
     void loadEvidence(ev)
     return () => {
@@ -970,19 +952,23 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
 
   // 关闭 PDF 查看器 → 恢复打开前的侧栏宽度（用户 2026-09-09 需求：不该看完 PDF
   // 还要手动把侧栏拖回去）。"关闭"的判据是 **tab 已从会话状态里消失**——不能只看
-  // 卸载：切会话/面板重挂载也会卸载组件，但 tab 还活着（store.tabOpen 为真），
+  // 卸载：切会话/面板重挂载也会卸载组件，但 tab 还活着（tabOpen 为真），
   // 那种情况必须保留宽度。恢复与让位都在 pdfPanel 模块级 Map 里配对（幂等）。
+  // 同 §loadEvidence：无 `panel` 能力时整条跳过（官方主机）。
   useEffect(() => {
     return () => {
+      if (panel === undefined) return
       let stillOpen = true
       try {
-        stillOpen = sessionId === undefined ? true : store.tabOpen(sessionId, tab.id)
+        stillOpen = sessionId === undefined || tabOpen === undefined
+          ? true
+          : tabOpen(sessionId, tab.id)
       } catch {
         stillOpen = true // 探不到状态就当作"仍打开"，绝不误改用户宽度
       }
-      if (!stillOpen) restorePanelAfterPdf(store, sessionId)
+      if (!stillOpen) restorePanelAfterPdf(panel, sessionId)
     }
-    // 只在卸载时执行一次：store/tab.id/sessionId 对一个 tab 实例是稳定的。
+    // 只在卸载时执行一次：panel/tab.id/sessionId 对一个 tab 实例是稳定的。
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -1326,25 +1312,26 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
     void loadEvidence(evidence.current)
   }, [loadEvidence])
 
-  /** 增强③-B: 从历史跳到某条证据（沿用现有 [tab.path, tab.meta] effect 重载）。 */
+  /** 增强③-B: 从历史跳到某条证据（沿用现有 [tab.path, tab.meta] 重载 effect）。 */
   const jumpHistory = useCallback((href: HistoryEntry) => {
     const title = `PDF 查看器${href.ev.page !== undefined ? ` · 第${href.ev.page}页` : ''}`
     if (href.url) {
       try {
-        // meta 带共享单调 nonce：即便 path 与上次相同，tab.meta 引用也变化 →
-        // [tab.path, tab.meta] effect 必然触发重载跳页。
-        ctx.betterSidebar?.updateTab?.(tab.id, {
-          path: href.url,
-          title,
-          meta: { ksClick: nextEvidenceClick() },
-        })
-        return
-      } catch { /* updateTab 失败 → 下方本地重载兜底 */ }
+        // 旧模型靠 better-sidebar 的 `updateTab({path, meta:{ksClick}})` 覆写单例 tab：
+        // meta 里的共享单调 nonce 让"path 与上次相同"也能触发 [tab.path, tab.meta] effect。
+        // 官方模型里等价物是**再导航一次**——`tabDomain.navigate` 每次把
+        // `navigation.revision` +1（见 ksSidebar.ts 文件头映射表），宿主经
+        // `onOpenEvidence` 注入该动作，由 KsEvidenceHost 转成 openResource。
+        if (onOpenEvidence !== undefined) {
+          onOpenEvidence(href.url, title)
+          return
+        }
+      } catch { /* 导航失败 → 下方本地重载兜底 */ }
     }
-    // 拿不到 URL（异常态）：本地直接重载，仍能跳页。
+    // 拿不到 URL（异常态）或无宿主注入：本地直接重载，仍能跳页。
     evidence.current = href.ev
     void loadEvidence(href.ev)
-  }, [ctx, tab.id, loadEvidence])
+  }, [onOpenEvidence, loadEvidence])
 
   /** 拉收藏夹列表（401 自愈一次）；失败返回 null（调用方按"无夹"处理并提示）。 */
   const loadFolders = useCallback(async (): Promise<KsBookmarkFolder[] | null> => {
@@ -1597,15 +1584,10 @@ export function KsEvidenceTab(props: TabComponentProps): JSX.Element {
     const url = evidenceUrlOf(ev)
     if (url === null) return
     const title = `PDF 查看器 · 第${page}页`
-    try {
-      ctx.betterSidebar.openTab({ type: KS_EVIDENCE_TAB_ID, url, title })
-      ctx.betterSidebar?.updateTab?.(tab.id, {
-        path: url,
-        title,
-        meta: { ksClick: nextEvidenceClick() },
-      })
-    } catch { /* ignore */ }
-  }, [ctx, tab.id])
+    // 官方模型：一次导航即"打开或复用"该资源地址；同一地址再次导航靠
+    // `navigation.revision` 递增触发重载（旧模型需要 openTab + updateTab 两步）。
+    try { onOpenEvidence?.(url, title) } catch { /* ignore */ }
+  }, [onOpenEvidence])
 
   // 下拉项标签：条款号 + 页（同页多条也能区分）
   const bookmarkOptionLabel = (b: KsBookmark): string => {
