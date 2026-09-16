@@ -860,11 +860,36 @@ def test_budget_default_500_when_unconfigured(db):
 
 
 # ================================================================ 调度器
-def _backdate_all_scheduled(db):
-    db.execute("UPDATE bulk_import_batch SET created_at=datetime('now','-30 days')"
-               " WHERE trigger_type='scheduled'")
-    db.execute("UPDATE update_check_batch SET created_at=datetime('now','-30 days')"
-               " WHERE trigger_type='scheduled'")
+def _make_iso(dt: datetime) -> str:
+    """与 sqlite `datetime('now')` 同形的 UTC 串（`YYYY-MM-DD HH:MM:SS`）。
+
+    必须同形：被测代码用 `scheduler._parse_created_at` 以
+    `strptime(..., "%Y-%m-%d %H:%M:%S")` 解析；ISO 的 `T`/`+00:00` 会解析失败 → None。
+    """
+    return dt.astimezone(timezone.utc).replace(tzinfo=None).strftime("%Y-%m-%d %H:%M:%S")
+
+
+def _backdate_all_scheduled(db, days: int = 30):
+    """把 scheduled 批次回拨到「**测试自己的现在（T0）**」之前。
+
+    ⚠ 2026-09-16 修复时间炸弹（**不是被测代码缺陷**）：
+    旧实现回拨的是**相对挂钟**的 `datetime('now','-30 days')`，而本文件的 `T0`
+    是**硬编码固定日期** `2026-08-24 12:00Z`。两者之差随真实时间一天天变小，
+    到 **today > T0 + 23 天**（即 2026-09-16 12:00Z 起）时：
+
+        (T0 - last) = (T0 - today) + 30d  <  7d 阈值
+
+    → `_create_scheduled_batches` 判定"周期未到" → `created=[]` → 断言红。
+    即该用例**必然会在某一天自行变红**，与任何代码改动无关
+    （已用 `git stash` 在 HEAD 上复现 2 红确认）。
+
+    修法：回拨锚到 **T0**，使 `(T0 - last)` 恒为 `days`，与挂钟彻底解耦。
+    """
+    stamp = _make_iso(T0 - timedelta(days=days))
+    db.execute("UPDATE bulk_import_batch SET created_at=?"
+               " WHERE trigger_type='scheduled'", (stamp,))
+    db.execute("UPDATE update_check_batch SET created_at=?"
+               " WHERE trigger_type='scheduled'", (stamp,))
 
 
 def test_scheduler_creates_due_batches_once(db):
@@ -891,9 +916,9 @@ def test_scheduler_backdated_due_again(db):
     sched = UpdateScheduler()
     acts = sched.tick(now=T0)
     assert len(acts["created"]) == 2
-    # 把刚建的批回拨 8 天 → 再 tick 应再建
-    db.execute("UPDATE bulk_import_batch SET created_at=datetime('now','-8 days')"
-               " WHERE trigger_type='scheduled'")
+    # 把刚建的批回拨 8 天（锚 T0，同样与挂钟解耦）→ 再 tick 应再建
+    db.execute("UPDATE bulk_import_batch SET created_at=?"
+               " WHERE trigger_type='scheduled'", (_make_iso(T0 - timedelta(days=8)),))
     acts2 = sched.tick(now=T0 + timedelta(days=40))
     assert len(acts2["created"]) == 2
     assert not set(acts2["created"]) & set(acts["created"])
