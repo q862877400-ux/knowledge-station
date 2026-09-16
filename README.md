@@ -18,10 +18,14 @@
 
 ## 四道门禁（改代码后必跑）
 
+> 数字为 **2026-09-16 实测基线**；演进链只涨不跌（24 → … → 828 → 1145 → **1166**）。
+> ⚠ 2026-09-16 起 `test_golden_gate` 的**自我豁免通道已关闭**：删 `eval/baseline.json`
+> 不再能让红线 6 失效（门禁报失败，且不自动重建基线）。
+
 ```text
-.venv/Scripts/python -m pytest tests -q     # pytest：850 passed + 3 skipped（只涨不跌）
-.venv/Scripts/python -m mypy src            # mypy：120 文件 0 错误
-cd plugin && npm run smoke                  # 插件冒烟：9 段（392 检查）
+.venv/Scripts/python -m pytest tests -q     # pytest：1166 passed + 3 skipped
+.venv/Scripts/python -m mypy src            # mypy：122 文件 0 错误
+cd plugin && npm run smoke                  # 插件冒烟：11 段
 cd plugin && npm run verify:commands         # 命令回归：15/15
 cd plugin && npx tsc --noEmit -p client     # tsc：0 错误
 ```
@@ -30,7 +34,7 @@ cd plugin && npx tsc --noEmit -p client     # tsc：0 错误
 
 **收藏目录 = PDF 查看器左列的第三种悬浮目录模式**（与 📚 文件目录 / 📖 标题目录 并列，同一左列内切换；**不是独立侧栏 tab**，2026-10-27 按用户指示迁入）：自建收藏夹（名字自定义）→ 夹内挂收藏的文件目录分类路径（L1→L2→L3→L4，与文件目录同源）→ 文档节点 → 条款叶。
 
-**三个目录常驻**（2026-10-27）：每次打开 GUI 自动开一次 PDF 查看器 tab（idle 态，左列默认 📚 文件目录）——**无问答也能从文件目录/收藏目录点开任意国标直接阅读**；点文档加载后可切 📖 标题目录。对话里点证据链接照常跳页覆写（openTab 已存在时纯 focus 不覆 path）。
+**三个目录常驻**（2026-10-27）：每次打开 GUI 自动开一次 PDF 查看器 tab（idle 态，左列默认 📚 文件目录）——**无问答也能从文件目录/收藏目录点开任意国标直接阅读**；点文档加载后可切 📖 标题目录。对话里点证据链接照常跳页（官方模型：证据 tab 地址**恒定**，每次导航把 `navigation.revision` +1 驱动组件重载——不再有旧 `openTab` 的单例 path 覆写问题）。
 
 - **收藏时选夹**：点「收藏本标准/收藏本条款」→ 已有夹时弹选夹菜单（现有夹 / 新建并收藏 / 未分类）；还没有任何夹时一键直收（回未分类）。一条收藏只属一个夹，改选即移动。
 - **💡 提问**：每个收藏夹一个「在本收藏夹内提问」开关——激活后输入框上方出现前缀胶囊「🔖 夹名 · 仅在本收藏夹内提问 ✕」，**每一轮**对话检索都限定在该夹内容（标准级收藏 = 整本条款入范围 ∪ 条款级收藏 = 仅那几条，并集）。点 ✕ 或再点 💡 一键恢复全库。
@@ -44,13 +48,14 @@ cd plugin && npx tsc --noEmit -p client     # tsc：0 错误
 src/core/       # 引擎本体（api/storage/retrieval/ingestion/compliance/llm/update/…）
 plugin/         # DSH 插件：宿主桥(src/index.js) + 侧栏 client(React) + 4 个模型工具
 scripts/        # 运维脚本（凭据迁移/交接打包/巡检/法规抓取/loop2 收敛环）
-tests/          # 80 个测试文件（契约/检索/入库/API/合规/凭据/门禁）
-eval/           # Golden Set 门禁三件最小集（golden/ + run_benchmark.py + baseline.json）⚠ 勿删
+tests/          # 测试文件（契约/检索/入库/API/合规/凭据/门禁；2026-09-16 实测 102 个 test_*.py）eval/           # Golden Set 门禁三件最小集（golden/ + run_benchmark.py + baseline.json）⚠ 勿删
 docs/           # ENCYCLOPEDIA(技术百科) / INTRODUCTION(产品) / REQUIREMENTS-v4.3(需求SSOT)
                 # / DEVELOPMENT-HISTORY(开发简史) / LAW_SOURCE_PLAN + STD_STATUS_CHANNELS(工程参考)
-                # / CHANNEL_PROBE_REPORT(渠道实证) / pipeline/03-contract-delta.md(契约增量台账)
+                # / CHANNEL_PROBE_REPORT(渠道实证)
+pipeline/       # 只剩 03-contract-delta.md（契约增量台账）——⚠ 在**仓库根**，不在 docs/ 下
 wenjianmulu/    # ⚠ 生产库 doc_meta.file_path 指向这里的 PDF（活数据，勿删）
 var/            # gitignore 工作区（engine.log / mineru_cli_out 测试依赖 / fixtures 活数据）
+                # 例外：var/ocr-loop/ 的**代码**与 CONTRACT/HANDOFF/REPORT 已跟踪（见 .gitignore）
 ```
 
 ## 文档地图（接手必读）
@@ -60,7 +65,9 @@ var/            # gitignore 工作区（engine.log / mineru_cli_out 测试依赖
 3. `docs/REQUIREMENTS-v4.3.md`——需求 SSOT（R1~R79 + R-L1~L14 + T00~T13；抬头注记列明已被后续裁决覆盖的条目）。
 4. `docs/DEVELOPMENT-HISTORY.md`——开发历程简史（2026-08 引擎从零 → 2026-09 DSH 转生 → 批 0~10 → 冗余清剿）。
 5. 改 schema/API/SSE 前 → ENCYCLOPEDIA §8/§10 + `pipeline/03-contract-delta.md`。
-6. 改插件 client 前 → `plugin/client/bsContract.ts` + `plugin/client/dsh-better-sidebar.d.ts`（smoke-bs-contract 对真包校验）。
+6. 改插件 client 前 → `plugin/client/ksSidebar.ts`（**官方右侧栏契约 + 新旧映射表**）
+   与 `plugin/client/ks-evidence-props.ts`（证据组件的自有 props 契约）。
+   ⚠ 2026-09-16 迁移：第三方 `dsh-better-sidebar` 已被官方 `@deepseek-ai/dsh-client-ui-sidebar-right` 取代，`bsContract.ts` / `dsh-better-sidebar.d.ts` / `smoke-bs-contract.mjs` 均已删除（git 可溯）。
 
 ## 安全约束
 

@@ -235,7 +235,7 @@ SSE `verification` 事件：`{is_valid, answer_confidence, confidence_reasons[],
 flowchart LR
   FE[DSH Web GUI 宿主<br/>会话(结论) + 侧栏tab(证据PDF)] -->|同源代理 /ks/*| PLG[ks-dsh-plugin 宿主桥<br/>懒拉引擎 + 模型工具]
   PLG -->|SSE/REST Bearer| ENG[引擎 FastAPI 本地进程<br/>随机端口 + 一次性 token]
-  ENG --> DB[(SQLite 33 表 WAL<br/>clause_revision 快照 + clause_patch 补丁)]
+  ENG --> DB[(SQLite 34 表 WAL<br/>clause_revision 快照 + clause_patch 补丁)]
   ENG --> LLM[DeepSeek 云端<br/>仅问题 + 证据片段<br/>payload 落库可审计]
   ING[入库管线<br/>MinerU 2.x / PyMuPDF] --> DB
   RET[六通道检索 + RRF + rerank] --> ENG
@@ -264,7 +264,7 @@ src/core/
   domain/models.py               # Pydantic 域模型（冻结契约）+ MODALITY_STRENGTH + SSE 事件枚举
   storage/
     sqlite_db.py                 # 连接管理（WAL/外键/busy_timeout）+ 单写者队列 + schema 权威 DDL
-    schema.sql                   # 33 表（31 CREATE TABLE + clause_fts/clause_vec 虚拟表）+ 索引（冻结）
+    schema.sql                   # 34 表（32 CREATE TABLE + clause_fts/clause_vec 虚拟表）+ 索引（冻结）
     clause_repo.py               # 条款读写 + 补丁机制（fetch_full_clause/PATCHABLE_FIELDS/migrate_patches/resolve_clause）
     user_data.py                 # 收藏/批注/项目清单/义务清单 CRUD
     versioning.py                # 版本链（R29/R42）
@@ -328,7 +328,11 @@ wenjianmulu/                     # GB/T 39910-2021.pdf 等——⚠ 生产库 do
 
 - **单文件库**：`%APPDATA%\KnowledgeStation\database\knowledge.db`。
 - **PRAGMA**：`journal_mode=WAL`、`foreign_keys=ON`、`busy_timeout=5000`。
-- **33 表 DDL 冻结于 `src/core/storage/schema.sql`**（31 张 CREATE TABLE + clause_fts/clause_vec 两个虚拟表；改动 = 契约变更，流程见 §10.4）。
+- **34 表 DDL 冻结于 `src/core/storage/schema.sql`**（**2026-09-16 实测**：32 个 `CREATE TABLE`
+  + `clause_fts`/`clause_vec` 两个虚拟表；改动 = 契约变更，流程见 §10.4）。
+  ⚠ 口径提示：生产库 `sqlite_master` 里 `type='table'` 有 **45** 条 —— 多出的是 FTS5 影子表
+  （`clause_fts_data`/`_idx`/`_content`/`_docsize`/`_config`…）。**报"表数"必须说明口径**，
+  历史上 31/32/33 三个数字并存就是口径未注明所致（另 `law_catalog` 的 DDL 曾建在 `schema.sql` 之外）。
 - 主键 ULID 前缀：`doc_`/`clrev_`/`span_`/`patch_`/`bm_`/`ann_`/`proj_`/`task_`/`pt_`/`obl_`/`edge_`/`list_`/`gap_`。
 - JSON 字段存 TEXT；时间统一 `datetime('now')` UTC。
 - **虚拟表不受外键级联**：删文档必须走 `clause_repo.delete_document()`（显式清 clause_vec/clause_fts）。
@@ -497,8 +501,12 @@ write_queue / event_log（统一事件模型）/ debug_dump（每次提问落库
 
 ## 11.1 门禁五件套（当前基线，2026-09-13 扩容）
 
-- **pytest**：`.venv/Scripts/python -m pytest tests -q` → **828 passed + 3 skipped**（批 8 门禁实测；冗余清剿后 watch 2 用例移除、门禁用例回归后以实测为准——演进链 24→…→513→792(git 起点)→828，全程只涨不跌）。
-- **插件 smoke**：`cd plugin && npm run smoke` → **12 段**全 PASS（含 engine-guard/smoke-settings/smoke-bs-contract/**smoke-docimage（2026-09-13 端点接线新增，24 断言：路径解析/栅栏/字节与 X-Frac 透传/404 状态码透传+本地信封/401×2/dpi 钳制）** 与 **smoke-sanitize（同日消毒器回归，13 断言：剥壳上移节点必被过滤/占位 class 必存活/src 直剥/文本保全）** 等）。
+- **pytest**：`.venv/Scripts/python -m pytest tests -q` → **1166 passed + 3 skipped**（**2026-09-16 实测**；演进链 24→…→513→792(git 起点)→828→1145→**1166**，全程只涨不跌）。
+  ⚠ **2026-09-16 起门禁自我豁免已关闭**：`test_golden_gate` 旧实现在基线缺失时
+  `write_text` 重建 + skip —— **删掉 `eval/baseline.json` 即可让红线 6 失效**（全项目
+  唯一"一步可破坏"的防线）。现改为：基线缺失=**失败**且不自动重建，首建走显式开关
+  `KS_BASELINE_BOOTSTRAP=1`；并新增"基线键集必须覆盖 KEYS"断言（防裁剪指标式规避）。。
+- **插件 smoke**：`cd plugin && npm run smoke` → **11 段**全 PASS（2026-09-16 移除 `smoke-bs-contract`——它只服务已下线的第三方 `dsh-better-sidebar`）（含 engine-guard/smoke-settings/smoke-bs-contract/**smoke-docimage（2026-09-13 端点接线新增，24 断言：路径解析/栅栏/字节与 X-Frac 透传/404 状态码透传+本地信封/401×2/dpi 钳制）** 与 **smoke-sanitize（同日消毒器回归，13 断言：剥壳上移节点必被过滤/占位 class 必存活/src 直剥/文本保全）** 等）。
 - **命令回归**：`cd plugin && npm run verify:commands` → 15/15。
 - **类型门禁（TS）**：`npm run typecheck` = `tsc --noEmit -p plugin/client` → 0 错误（批 8 新增，plugin/client 纳入检查）。
 - **类型门禁（Python，2026-09-13 新建）**：`npm run typecheck:py` = `.venv\Scripts\python -m mypy` → **120 文件 0 错误**（基线演进 126→95→82→47→10→0）。非 strict 保守口径：`[tool.mypy]` 开 check_untyped_defs/no_implicit_optional/warn_redundant_casts；第三方无 stub 包 ignore_missing_imports；每处 `# type: ignore[code]` 带行内中文理由（fcntl/curl_cffi/openai-SDK/pypdf 回退等环境限制，运行时有守卫）。mypy>=1.10 已回 pyproject dev extras。修复附带捕获真实缺陷：announce.py `Path` 未导入（Excel 导出必崩 P1）、server.py 三处 `_p` int→str 变量复用、effect_report 循环变量遮蔽、write_queue `int(None)`、office_roundtrip 条款并发删除 None 崩溃。
@@ -645,9 +653,14 @@ backup.py：VACUUM INTO 在线备份到 `%APPDATA%\KnowledgeStation\backups\`；
 - `entry.ts`：tab 注册（📖 证据 PDF / 📊 效力报告 / ⭐ 收藏 / 📥 入库预览）+ 设置栏目（法规标准知识库 / API 配置）。
 - `KsEvidenceTab.tsx`：证据 PDF 查看器——跳页、红色定位箭头（bbox 底部原点 + pdfFit/pdfPanel 两条几何规则）、标题目录（纯悬浮 overlay，四轮推翻后定案）、缩放、打开外部。
 - `api.ts`：引擎 fetch 链（经宿主代理，Bearer 由 host 注入）。
-- `bsContract.ts` + `dsh-better-sidebar.d.ts`：上游 better-sidebar 0.18.0 能力契约（smoke-bs-contract 每次对真包校验）。
+- ~~`bsContract.ts` + `dsh-better-sidebar.d.ts`~~ **已于 2026-09-16 删除**（第三方
+  `dsh-better-sidebar` 被官方 `@deepseek-ai/dsh-client-ui-sidebar-right` 取代）。
+  现行契约面：`ksSidebar.ts`（官方两段式注册 + 新旧映射表）/ `ks-evidence-props.ts`
+  （证据组件自有 props）/ `KsEvidenceHost.tsx`（官方座位注入 → 组件 props 的适配层）/ `ksPrefs.ts`（偏好存储）。
 - `client.js`：esbuild 单文件产物（~1.1MB），DSH ModuleLoader 加载；**git 跟踪**（dsh plugin add 直接消费）。
-- package.json dsh.client.inject 列 dsh-better-sidebar 但 entry.ts 刻意不注入（信息性声明，运行时由宿主提供）。
+- package.json `dsh.client.inject` 列官方 `@deepseek-ai/dsh-client-ui-sidebar-right`（信息性声明）；
+  `entry.ts` 仍**只用 `inject: ['slots']`**——右侧栏两面经 `ctx.get()` 运行时探测，
+  因为硬 inject 会让官方列一改名/未挂载就停住整个 client half。
 
 ## 14.2 宿主桥（plugin/src/index.js）
 
