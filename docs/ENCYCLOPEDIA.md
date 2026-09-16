@@ -463,10 +463,26 @@ write_queue / event_log（统一事件模型）/ debug_dump（每次提问落库
 
 随机端口 + 一次性 Bearer token；所有请求带 `Authorization: Bearer <token>`；**仅 `/api/v1/health` 免 token**；CORS 预检 OPTIONS 放行（允许 localhost/127.0.0.1 任意端口——DSH web GUI 3080 跨源 fetch 引擎）。响应包裹 `{"code":200,"status":"success","data":...}`。
 
-## 10.2 端点全表（要点，120 端点按消费面四分类）
+## 10.2 端点全表（要点；底数见下"枚举实测"）
 
-> **消费面四分类（2026-09-13 verifier 全量审计，AST 枚举 × 四面静态匹配；同日端点接线后修订）**：
-> **LIVE-PRODUCT 47**（host 25 / client 15，真机链路在用）· **TEST-ONLY 54**（仅回归测试调用——契约保护对象，非死代码）· **ZERO 19**（四面零消费，逐条复核均为"未接线"而非废弃残留：法规时效 1、批量入库中断 1、本地用户资产与合规审查 17）· **SCRIPT-ONLY 0**（scripts/ 全部直连业务模块，不打引擎 HTTP）。
+> **枚举实测（2026-09-16，AST 全量重扫）**：`src/core/api/` 六个模块合计 **127 个端点**
+> （method × path；**全部**在 `/api/v1/` 下），**113 个唯一路径**（14 条路径是一路径两方法，
+> 如 `GET+POST /bookmarks`）。全部以 `app.<verb>()` 装饰器注册；五个 `routes_*.py` 均由
+> `create_app()` 显式 `register(app, …)` 挂载，无遗漏。分模块：`server.py` 77 ·
+> `routes_update.py` 30 · `routes_law.py` 7 · `routes_ingest_preview.py` 6 · `routes_report.py` 4 ·
+> `routes_settings.py` 3。
+>
+> ⚠ **旧"消费面四分类"的口径没有留下，且已无法对账**：原文写"**120** 端点"并给
+> LIVE-PRODUCT 47 / TEST-ONLY 54 / ZERO 19 / SCRIPT-ONLY 0，但 47+54+19=120 ≠ 今天实测的 127，
+> 说明当时的分母与今天不同（或含未记录的排除）。**因此那组四分类只能当 2026-09-13 的历史快照，
+> 不可当现状引用**；其"ZERO 19 均为未接线而非废弃残留"的结论**未被重新验证**。
+>
+> ⚠ **重做必须用"别名感知"匹配器**，否则会得出错误的 ZERO。host 把引擎路径重写成语义不同的
+> 同源前缀（`/ks/doc-image/{doc}/figure/{no}` → `/api/v1/documents/{doc}/figure/{no}`），另有
+> host 自有路由（`/ks/session`、`/ks/bbox`、`/ks/assets/*`）根本没有对应的引擎端点。
+> **本会话实测该错法**：朴素字面匹配把 `/documents/{id}/file`、`/figure`、`/formula`、
+> `/table-image` 四个**确实在用**的端点全判成 ZERO —— 机械结果不可照抄。
+>
 > **2026-09-13 端点接线**：图/公式/表图抽取 3 端点 ZERO→LIVE（`/figure/{fig_no}`｜`/formula/{fno}`｜`/table-image/{page}/{idx}`——host 代理 `plugin/src/docimage.js`（`/ks/doc-image/*` 前缀，Bearer 只在 host 侧，X-Frac-* 逐字透传，引擎 404 状态码透传+本地信封=占位隐藏契约）+ client 正文视图（KsEvidenceTab「📄 正文」模式：KsDocTextView 渲染 content_html，fig-embed/table-embed/katex-formula 占位经同源代理拉 PNG/SVG blob 接线；HTML 经结构白名单消毒——剥 script/on*/外链 src，过滤不变量=属性过滤只在节点被 pop 时做）。E2E 实测（GB/T 34406 语料）：figure 1 SVG 矢量重绘 2601B / A.1 PNG 44KB / formula 1@3.7 PNG 3007B 带 X-Frac 三头 / 无图 404。现网语料边界：fig-embed 92 处 · katex 510 处 · asset-embed 124 处（本批不接线，只显 alt）· table-embed 0 处（代码链路通、待语料）。
 
 | 分组 | 端点 |
@@ -762,7 +778,7 @@ backup.py：VACUUM INTO 在线备份到 `%APPDATA%\KnowledgeStation\backups\`；
 | 剩余测试盲区 | 部分 | R61/R72/R73/R76/R-L3 等 |
 | bge-m3 升维 | 不触发 | recall@5 97.8% >> 85% 验收线 |
 | LLM advisory judge | 判定砍 | 指标已达标，省额度 |
-| 120 端点消费面四分类（2026-09-13 精确化，替换旧"约 55"粗估） | 已精确化+部分接线 | LIVE-PRODUCT 47 · TEST-ONLY 54（回归保护，非死代码）· ZERO 19（未接线而非废弃：法规时效 1、批量中断 1、用户资产与合规 17）· SCRIPT-ONLY 0；图/公式/表图 3 端点 2026-09-13 已接线 ZERO→LIVE（host 代理 + 正文视图，见 §10.2）；剩余 ZERO=按需补接线或补测试 |
+| 端点消费面四分类（2026-09-13 精确化，替换旧"约 55"粗估） | ⚠ **口径丢失，待重做** | 旧快照：LIVE-PRODUCT 47 · TEST-ONLY 54 · ZERO 19 · SCRIPT-ONLY 0（合计 120）。**2026-09-16 AST 实测底数为 127 个端点 / 113 条唯一路径**，与 120 对不上 → 四分类不可当现状引用。图/公式/表图 3 端点 2026-09-13 已接线 ZERO→LIVE（host 代理 + 正文视图）这一条**仍然有效**。重做需别名感知匹配器（host 会重写路径，朴素字面匹配会误判已在用的端点为 ZERO），详见 §10.2 |
 | exceptions.py 4 个未 raise 的异常类 | 现状 | 契约预定义，保留 |
 | office-edit poll/commit 端点 | 已实现 | 前端入口在 DSH 侧「数据体检」tab |
 | 知识库多用户/权限 | Non-goal | v5 §6 |
