@@ -531,7 +531,7 @@ write_queue / event_log（统一事件模型）/ debug_dump（每次提问落库
 
 ## 11.1 门禁五件套（当前基线，2026-09-13 扩容）
 
-- **pytest**：`.venv/Scripts/python -m pytest tests -q` → **1166 passed + 3 skipped**（**2026-09-16 实测**；演进链 24→…→513→792(git 起点)→828→1145→**1166**，全程只涨不跌）。
+- **pytest**：`.venv/Scripts/python -m pytest tests -q` → **1180 passed + 3 skipped + 4 xfailed**（**2026-09-17 实测**；4 条 xfail 是「水印 step ② 会误删表格末格」这一**已量化但未修**的已知缺口，`strict=True` 以便修好后强制更新标记，见 DEVELOPMENT-HISTORY §八.3。演进链 24→…→792→828→1145→1166→**1180**，全程只涨不跌）。
   ⚠ **2026-09-16 起门禁自我豁免已关闭**：`test_golden_gate` 旧实现在基线缺失时
   `write_text` 重建 + skip —— **删掉 `eval/baseline.json` 即可让红线 6 失效**（全项目
   唯一"一步可破坏"的防线）。现改为：基线缺失=**失败**且不自动重建，首建走显式开关

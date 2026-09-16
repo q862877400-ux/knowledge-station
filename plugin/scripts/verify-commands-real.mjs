@@ -106,9 +106,13 @@ check('an unknown argument is a loud error, never a silent no-op',
   bad?.result?.kind === 'error' && /无法识别/.test(bad.result.text ?? ''), String(bad?.result?.text).slice(0, 60))
 
 // ------------------------------------------------- 命令不进模型（会话日志证据）
-const lifecycle = session.events.filter((e) => e.type === 'command/run' || e.type === 'command/done')
+// ⚠ DSH 0.1.6 把 Session 上的 `events` 数组换成了 `ownEvents()`（`events` 变 undefined，
+//   于是本闸在升级后直接 TypeError 崩掉 —— 2026-09-17 实测）。这里做兼容读取：
+//   0.1.6+ 用 ownEvents()（本会话自己的事件，不含 fork 继承），旧版回退到 events。
+const sessionEvents = typeof session.ownEvents === 'function' ? session.ownEvents() : session.events
+const lifecycle = sessionEvents.filter((e) => e.type === 'command/run' || e.type === 'command/done')
 check('every dispatch logged command/run + command/done (host-side, no model turn)',
-  lifecycle.length === 12 && session.events.every((e) => e.type !== 'turn/start'),
+  lifecycle.length === 12 && sessionEvents.every((e) => e.type !== 'turn/start'),
   `${lifecycle.length} lifecycle events`)
 
 // ---------------------------------------------------------------- 不泄漏
