@@ -85,6 +85,21 @@ def _frag_key(m: "re.Match[str] | None") -> str:
     if m is None:
         return ""
     return f"{m.group('num')}-{m.group('year')}"
+
+
+def _own_key_of(standard_no: str | None) -> str | None:
+    """本文档标准号的比较键；**看着不像标准号就返回 None**（= 不设上下文）。
+
+    为什么要这道守卫：dry-run 预览在猜不出标准号时会把 `"未知标准号"` 当占位符传下去，
+    而 `standard_key("未知标准号")` 会原样返回该串 —— 非 None 却永不匹配，
+    等于把家具剥离**整体关掉**（与历史行为不符）。要求"必须含数字"即可把占位符挡回
+    None，走历史行为。
+    """
+    if not standard_no:
+        return None
+    from src.core.text_utils import standard_key
+    k = standard_key(standard_no)
+    return k if re.search(r"\d", k) else None
 # 2026-08-29 封面日期提取（通用）：GB/GB/T/行标封面通行"YYYY-MM-DD发布 /
 # YYYY-MM-DD实施"（ISO 连排或"YYYY年M月D日发布/实施"两种排版；分隔符容错
 # -/.）。此前入库从不填 published_at/effective_from → 全库 UI 发布/生效恒"—"。
@@ -716,7 +731,24 @@ def _rows_of(txt: str, it: MidItem) -> list[tuple[str, int, list[float] | None]]
     return [(ln, it.page_idx, b) for ln, b in zip(lns, boxes)]
 
 
-def split_items_into_clauses(items: list[MidItem]) -> list[SplitClause]:
+def _strip_foreign_frag(text: str, own_key: str | None) -> str:
+    """家具片段剥离（`页码 + 标准号`）的**唯一实现**（2026-09-17 收敛）。
+
+    `own_key is None` → **历史行为**：把命中的片段一律替换成空格。
+    给了 `own_key`（本文档自己的标准 - 比较键）→ **只剥自家标准号**的片段；
+    引用了别的标准的片段（表格末格 `'… 20 GB/T699—2015'`）原样保留。
+
+    为什么要这个参数：页眉永远是**自家**标准号，而表格末格引用的通常是**别的**标准，
+    两者形态完全一样（`<页码> <标准号>`），纯文本判据无法区分。
+    """
+    if own_key is None:
+        return _STD_CODE_FRAG.sub(" ", text)
+    return _STD_CODE_FRAG.sub(
+        lambda m: " " if _frag_key(m) == own_key else m.group(0), text)
+
+
+def split_items_into_clauses(items: list[MidItem], *,
+                             standard_no: str | None = None) -> list[SplitClause]:
     """E1-E7 切分主逻辑。
 
     E1 结构恢复: 依赖 MinerU 阅读顺序块（已做多栏正确排序）
@@ -725,7 +757,14 @@ def split_items_into_clauses(items: list[MidItem]) -> list[SplitClause]:
     E4 跨页拼接: 非条款开头的条目并入当前条款（页眉页脚已被 MinerU 丢弃）
     E5 表格绑定: 表 x 关联母条款，html 入 content_markdown
     E6 编号归一 / E7 修订剥离: normalize_clause_number / strip_revision_marks
+
+    `standard_no`（2026-09-17 新增，可选）：本文档自己的标准号。传了它，
+    家具剥离（`_strip_foreign_frag`）就只剥自家标准号的片段，不再把表格末格
+    （别人的标准号）当页眉切掉。**缺省 None = 历史行为**（既有调用方与测试不受影响）。
+    真入库路径 `run_full_ingest` 已传；两条 **dry-run 预览**路径没有确认过的标准号，
+    仍走历史行为（见下方调用点注释）。
     """
+    own_key = _own_key_of(standard_no)
     clauses: list[SplitClause] = []
     in_toc = False
     in_index = False
@@ -750,7 +789,7 @@ def split_items_into_clauses(items: list[MidItem]) -> list[SplitClause]:
         # 落进条款文本（"4 GB25596—2025表5其他指标"→"表5其他指标"）。仅对含
         # 标准号片段的 ≤80 字短块生效；全剥空则整块丢弃（纯页眉块）。
         if len(text) <= 80 and _STD_CODE_FRAG.search(text):
-            stripped = _STD_CODE_FRAG.sub(" ", text).strip()
+            stripped = _strip_foreign_frag(text, own_key).strip()
             if not stripped:
                 continue
             text = stripped
@@ -815,7 +854,7 @@ def split_items_into_clauses(items: list[MidItem]) -> list[SplitClause]:
             cap = (it.caption or "").strip()
             # 2026-08-28 题注同样过页眉家具剥离（"表5其他指标"前的页码+标准号）
             if len(cap) <= 80 and _STD_CODE_FRAG.search(cap):
-                cap = _STD_CODE_FRAG.sub(" ", cap).strip()
+                cap = _strip_foreign_frag(cap, own_key).strip()
             m = _TABLE_CAPTION.match(cap)
             bind_no = normalize_clause_number(m.group(1)) if m else None
             summary = (m.group(2).strip() if m and m.group(2) else cap)[:120]
@@ -1277,19 +1316,13 @@ def build_clause_models(doc_id: str, standard_no: str, doc_type: str,
         # 时它就是家具，不存在"表格末格"歧义，且页眉的年份未必与库内 `standard_no` 一致
         # （既有回归用例 `test_build_row_pipeline_furniture_strip` 正是这种：文档
         # `GB 30871-2022` 而页眉行 `GB 30871—2025`）。**歧义只在行内片段那一侧。**
-        from src.core.text_utils import standard_key as _std_key
-        _own_key = _std_key(standard_no) if standard_no else None
+        _own_key = _own_key_of(standard_no)
         stripped_rows: list[tuple[str, int, list[float] | None]] = []
         for ln, pidx, lbox in rows:
             if _STD_CODE_LINE.match(ln):
                 continue
             if _STD_CODE_FRAG.search(ln):
-                if _own_key is None:
-                    s2 = _STD_CODE_FRAG.sub(" ", ln).strip()
-                else:
-                    s2 = _STD_CODE_FRAG.sub(
-                        lambda mm: " " if _frag_key(mm) == _own_key else mm.group(0),
-                        ln).strip()
+                s2 = _strip_foreign_frag(ln, _own_key).strip()
                 if s2 != ln.strip():
                     if not s2 or (len(s2) <= 3 and s2.isdigit()):
                         continue  # 整行即页码+标准号对，剥完只剩页码 → 丢
@@ -2040,7 +2073,9 @@ def run_full_ingest(pdf_path: Path, standard_no: str, standard_name: str,
                 "message": "解析不可用：深度解析失败且无文本层"
                            "（本地未装/跑不动时可在设置中配置云解析 API Key）"}
 
-    clauses = split_items_into_clauses(items)
+    # 真入库：`standard_no` 是本函数参数（文档自己的标准号），传给切分层用于家具剥离消歧
+    # （见 `split_items_into_clauses` docstring）。两条 dry-run 预览路径不传（没有已确认的标准号）。
+    clauses = split_items_into_clauses(items, standard_no=standard_no)
     models, raw_edges = build_clause_models(doc_id, standard_no, doc_type, clauses, page_sizes)
 
     # R-B span 坐标系自动校准（pipeline/13-round3.md）：MinerU middle 同源页高，

@@ -286,22 +286,46 @@ def test_ingest_inline_furniture_keeps_foreign_standard(tmp_path):
     assert "7 " + own not in text, "自家页眉仍应被删掉"
 
 
-@pytest.mark.xfail(strict=True, reason="已知：切分层 split_items_into_clauses 的 80 字家具剥离是同一判据的第二个所有者，未接上下文")
-def test_ingest_short_block_lost_by_splitter_owner(tmp_path):
-    """⚠ **仍未修的第二个所有者**：入库链上「页码 + 标准号」这条判据在
-    `pipeline.py:735/800`（**切分层** `split_items_into_clauses` 的 ≤80 字家具剥离）里
-    还有一份实现，而**切分层拿不到 `standard_no`**，故无法消歧。
+def test_ingest_short_block_keeps_foreign_standard(tmp_path):
+    """**短块**（≤80 字）走切分层的家具剥离 —— 传了标准号后同样不再误删。
 
-    实测：短文本（≤80 字）时，进入 `clean_clause_text` 的文本**已经是**
-    `'5.2.1 材料要求：见表 2。\\n牵条 优质碳素结构钢'` —— ` 20 GB/T699—2015`
-    在**上游切分层**就没了。修它要把 `standard_no` 穿过切分层（改签名 + 其调用方）。
+    `run_full_ingest` 现在把 `standard_no` 传给切分层；本用例按同一条链调用
+    （`split_items_into_clauses(items, standard_no=own)` → `build_clause_models`）。
     """
     from src.core.ingestion.pipeline import (
         build_clause_models, load_middle_items, split_items_into_clauses)
 
     own = "GB/T 12041.1-2010"
     items, page_sizes = load_middle_items(_middle_with_table_cell(own, tmp_path))
-    clauses = split_items_into_clauses(items)
+    clauses = split_items_into_clauses(items, standard_no=own)
     models, _ = build_clause_models("w4", own, "standard", clauses, page_sizes)
     text = "\n".join(m.content_text for m in models)
-    assert "GB/T699—2015" in text, "表格末格被切分层的家具剥离切掉了"
+    assert "GB/T699—2015" in text, "短块的家具剥离把表格末格（别人的标准）切掉了"
+    assert "7 " + own not in text, "自家页眉仍应被删掉"
+
+
+def test_splitter_without_standard_keeps_historic_behaviour(tmp_path):
+    """**向后兼容**：不传 `standard_no` 时，切分层的家具剥离仍是历史行为（一律剥掉）。
+
+    既有调用方（预览路径、数十条既有用例）都走这条；不能因为新参数而悄悄改变它们。
+    """
+    from src.core.ingestion.pipeline import load_middle_items, split_items_into_clauses
+
+    own = "GB/T 12041.1-2010"
+    items, _ = load_middle_items(_middle_with_table_cell(own, tmp_path))
+    texts = [t for c in split_items_into_clauses(items) for t in c.texts]
+    assert not any("GB/T699—2015" in t for t in texts), \
+        "不传 standard_no 时应保持历史行为（否则既有调用方输出会无痕改变）"
+
+
+def test_own_key_of_rejects_placeholder():
+    """`_own_key_of` 必须把"看着不像标准号"的占位符挡回 None。
+
+    dry-run 预览在猜不出标准号时会传 `"未知标准号"`；若它变成非 None 的比较键，
+    就会**永不匹配**，等于把家具剥离整体关掉（与历史行为不符）。
+    """
+    from src.core.ingestion.pipeline import _own_key_of
+    assert _own_key_of(None) is None
+    assert _own_key_of("") is None
+    assert _own_key_of("未知标准号") is None
+    assert _own_key_of("GB/T 12041.1-2010") == "12041.1-2010"

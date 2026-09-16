@@ -23,7 +23,7 @@
 > 不再能让红线 6 失效（门禁报失败，且不自动重建基线）。
 
 ```text
-.venv/Scripts/python -m pytest tests -q     # pytest：1211 passed + 3 skipped + 0 failed（1 xfailed = 已知未修：家具剥离是"页码+标准号"判据的第二个所有者，见 DEVELOPMENT-HISTORY §八.3）
+.venv/Scripts/python -m pytest tests -q     # pytest：1214 passed + 3 skipped + 0 failed（1 xfailed = 已知未修：家具剥离是"页码+标准号"判据的第二个所有者，见 DEVELOPMENT-HISTORY §八.3）
 .venv/Scripts/python -m mypy src            # mypy：122 文件 0 错误
 cd plugin && npm run smoke                  # 插件冒烟：11 段
 cd plugin && npm run verify:commands         # 命令回归：15/15

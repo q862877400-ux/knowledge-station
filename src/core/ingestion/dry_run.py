@@ -270,8 +270,13 @@ def analyze_preview_report(pdf_path: Path | str, *, doc_type: str = "standard",
         items = _merge_table_items(items, tbl_items)
     page_sizes = {int(k) - 1: (float(v["width"]), float(v["height"]))
                   for k, v in geometries.items()}
-    split = split_items_into_clauses(items)
-    standard_no_for_key = guess["standard_no"]["value"] or "未知标准号"
+    # 2026-09-17：把（猜出的）标准号也传给切分层 —— 让预览与真入库在"家具剥离"上
+    # 同口径（真入库用已确认的标准号；预览只能用猜测值，猜不出则 None = 历史行为）。
+    # ⚠ 占位符 `"未知标准号"` **不能**传给切分层：`_own_key_of` 要求标准号含数字，
+    #   占位符会被挡回 None（否则等于把家具剥离整体关掉）。
+    _guess_no = guess["standard_no"]["value"] or None
+    split = split_items_into_clauses(items, standard_no=_guess_no)
+    standard_no_for_key = _guess_no or "未知标准号"
     models, _raw_edges = build_clause_models("preview", standard_no_for_key,
                                              doc_type, split, page_sizes)
 
