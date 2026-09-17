@@ -16,19 +16,44 @@
 
 **引擎 + DSH 插件一体，无独立 EXE**。Python FastAPI 引擎（`src/core/`，入口 `python -m src.core.main`）+ Node DSH 插件（`plugin/`）。旧 Electron/Vite/双栏 SPA 已整体退役（git `0dcb67f`）。
 
-## 四道门禁（改代码后必跑）
+## 五道门禁（改代码后必跑）
 
-> 数字为 **2026-09-17 实测基线**；演进链只涨不跌（24 → … → 828 → 1145 → 1166 → 1180 → **1211**）。
+> 数字为 **2026-09-18 实测基线**（每次改动都实测并写进 `docs/DEVELOPMENT-HISTORY.md` 对应小节）；
+> 演进链只涨不跌。
 > ⚠ 2026-09-16 起 `test_golden_gate` 的**自我豁免通道已关闭**：删 `eval/baseline.json`
 > 不再能让红线 6 失效（门禁报失败，且不自动重建基线）。
 
 ```text
-.venv/Scripts/python -m pytest tests -q     # pytest：1214 passed + 3 skipped + 0 failed（1 xfailed = 已知未修：家具剥离是"页码+标准号"判据的第二个所有者，见 DEVELOPMENT-HISTORY §八.3）
-.venv/Scripts/python -m mypy src            # mypy：122 文件 0 错误
-cd plugin && npm run smoke                  # 插件冒烟：11 段
-cd plugin && npm run verify:commands         # 命令回归：15/15
-cd plugin && npx tsc --noEmit -p client     # tsc：0 错误
+.venv/Scripts/python -m pytest tests -q     # pytest：1708 passed + 3 skipped + 0 failed
+.venv/Scripts/python -m mypy                # mypy：134 文件 0 错误（按 pyproject 配置）
+cd plugin && npm run smoke                  # 插件冒烟：19 段（含产物↔源码一致 + 锚点标记渲染级）
+cd plugin && npm run verify:commands        # 命令回归：22/22
+npm run typecheck                           # tsc：0 错误（tsc --noEmit -p plugin/client）
 ```
+
+> 另有**真机**回归两条（需要一个开了远程调试的浏览器 + 一个已打开的 DSH GUI；没浏览器则 SKIP）：
+> `cd plugin && npm run e2e:sidebar`（侧栏 PDF 阅读器）与 `npm run e2e:materials`
+> （「设置 → 法规标准知识库 → 参考资料」面板：挂载/不炸/**失败如实说**；按设计**只读**，不写用户库）。
+
+## 材料平面与通用研究（2026-09-18，方案见 `docs/MATERIALS-PLANE-PLAN.md`）
+
+除"库内法条"之外，用户**自己上传的材料**现在是一条独立平面（法条链零改动）：
+
+- **项目 + 参考资料文件夹** → 扫描收件（PDF/DOCX/TXT/MD 解析成切片，**引用可点回原文位置**）。
+- **评审是硬门**：`review_status != 'approved'` 的材料**不进检索、不进结论、不出现在产出物的引用里**；
+  批准/拒绝**只能由用户**做（没有"全部通过"）。评审在设置侧栏「参考资料」面板里。
+- **两个轴分开**：轴 A 来源可信度 `T0~T4`（原件/官方/权威转载/仅线索/不可用）× 轴 B 任务内效力
+  （本任务准则 / 仅作参考）。**未核验（`legal_status` 为 NULL）不得承重**。
+- **自采**：按网址抓一份正文（默认 `T3=仅线索`、永远 `pending`）；**Track L** 认出库内没有的标准号后，
+  经评审可**自动入库**为法条（只认标准，法规正文目前认不出，是登记在案的边界）。
+- **产出物**：研究报告（Markdown，含「三、依据」分节 + ⚠ 锚点标记）与 PPT（同一份内容块）。
+- **锚点稳定性**：材料区间是**解析结果**的坐标 ⇒ 换解析器或**源文件被换**都可能让它失效。
+  判据分三层（便宜判据 / 显式重解析比对 / 人决定重建或弃用），措辞纪律写在
+  `src/core/materials/locator.py`（`ok` 只说"未发现变化"，绝不说"保证一致"）。
+- ⚠ **诚实边界（当前真机状态）**：**活的 DSH 宿主与引擎进程都早于本平面**（启动 2026-09-17 19:06/19:14，
+  而材料建表提交在 19:33 之后）⇒ 生产库**还没有 `material*` 表**、`/ks/materials*` 路由也未注册。
+  **重启这两个进程**后引擎会由 `init_schema()` 建表 —— 也就是说**这个平面还没在真机跑过一次**，
+  第一次跑建议有人看着。客户端产物是现读现发的，无需重装。
 
 ## 收藏目录（2026-10）：收藏夹 · 夹内提问
 
@@ -48,9 +73,10 @@ cd plugin && npx tsc --noEmit -p client     # tsc：0 错误
 src/core/       # 引擎本体（api/storage/retrieval/ingestion/compliance/llm/update/…）
 plugin/         # DSH 插件：宿主桥(src/index.js) + 侧栏 client(React) + 4 个模型工具
 scripts/        # 运维脚本（凭据迁移/交接打包/巡检/法规抓取/loop2 收敛环）
-tests/          # 测试文件（契约/检索/入库/API/合规/凭据/门禁；2026-09-16 实测 102 个 test_*.py）eval/           # Golden Set 门禁三件最小集（golden/ + run_benchmark.py + baseline.json）⚠ 勿删
+tests/          # 测试文件（契约/检索/入库/API/合规/凭据/门禁；2026-09-18 实测 118 个 test_*.py）eval/           # Golden Set 门禁三件最小集（golden/ + run_benchmark.py + baseline.json）⚠ 勿删
 docs/           # ENCYCLOPEDIA(技术百科) / INTRODUCTION(产品) / REQUIREMENTS-v4.3(需求SSOT)
-                # / DEVELOPMENT-HISTORY(开发简史) / LAW_SOURCE_PLAN + STD_STATUS_CHANNELS(工程参考)
+                # / DEVELOPMENT-HISTORY(开发简史) / MATERIALS-PLANE-PLAN(材料平面方案+§12 台账)
+                # / LAW_SOURCE_PLAN + STD_STATUS_CHANNELS(工程参考)
                 # / CHANNEL_PROBE_REPORT(渠道实证)
 pipeline/       # 只剩 03-contract-delta.md（契约增量台账）——⚠ 在**仓库根**，不在 docs/ 下
 wenjianmulu/    # ⚠ 生产库 doc_meta.file_path 指向这里的 PDF（活数据，勿删）
