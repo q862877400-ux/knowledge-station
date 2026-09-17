@@ -432,7 +432,14 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
   （`python-pptx` 的依赖 lxml/Pillow 本仓已在；但它是**传递依赖**恰好满足，故按惯例
   **显式声明**）、业主明确要过。产出 `exports/slide_export.py` + 引擎/主机路由
   `/report/research/slides`（同款白名单转发）。诚实：默认版式、纯文本要点、
-  300 字/要点与 30 页是硬上限且**超限会写明**、仍无 GUI 入口。
+  300 字/要点与 30 页是硬上限且**超限会写明**（GUI 入口见 D-3b）。
+  ⚠ **行预算的宽度那一半在 step-54 修好**（复核 b9 的 MEDIUM-3，§10.55）：原先按
+  "整张幻灯片宽 720pt / 18pt = 40 字"算，**偏乐观**（文本框左右各有 0.1in 内边距，
+  真正能用 705.6pt ⇒ 39.2em），且估算时**没算渲染时自动加的 `· ` 前缀** ⇒
+  39–40 字的中文要点被估成 1 行、真排 2 行，多出来的字符**被渲染器裁掉**
+  （复核实测 18×40 字只剩 440/720 = 丢 39%）。现在按**可用宽**算并把前缀计入
+  （一行 38 个 CJK 字），用**复核的渲染级探针**复测四个输入：**字数守恒**
+  （40/39/38/78 字全对），且 38 字那种"真放得下"的页面**不会被多拆**。
 - **D-3a 自采入口进界面（已完成，§10.41）**：面板上加了「自采一条」（网址 + 可选备注），
   客户端 `collectMaterialUrl()` **不发** `source_tier`、body 只构造主机白名单的子集；
   抓取失败走**第三条琥珀色通道**（引擎刻意用 `200 + collected:false + reason`，
@@ -566,10 +573,17 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
    - **RCDATA（`<title>`/`<textarea>`）**：`<title>a<b<script>JS</script>` → 我们 `'aJS'`；
    - **未收尾的引号属性**：`<a title="x<y<script>JS</script>` → 我们 `'JS'`，浏览器不显示。
    这三条要触发都得是**畸形 HTML**，且方向是"我们多出浏览器不显示的内容"（会污染材料正文）。
-   **raw text 族**（复核 b8 的 LOW-5，实测 8/8 泄漏）：`iframe` / `xmp` / `noembed` /
-   `noframes` / `plaintext` **已收**（§10.50，浏览器不渲染它们的内容）；
-   ⚠ **有意保留** `noscript` / `textarea` / `title`——我们不执行 JS，`<noscript>` 里的
-   兜底内容恰恰是"我们会看到的"，`textarea` 是表单默认值、`title` 是页面标题。
+   **raw text 族**（复核 b8 的 LOW-5，实测 8/8 泄漏 ⇒ §10.50 曾把 5 个一起收）：
+   ⚠ **2026-09-18 更正（复核 b9 的 MEDIUM-4，§10.55）**：真机裁决（Edge headless 的
+   `innerText` = 用户真能看到的字）证明 **只有 3 个是"浏览器不显示"**——
+   `iframe` / `noembed` / `noframes` **收**（对）；**`xmp` / `plaintext` 会显示**
+   （`<xmp>` 原样显示字面文本、`<plaintext>` 之后全部当可见文本）⇒ 把它们收掉是
+   **删可见正文**，方向与本函数定位（"页面上看到什么就是正文"）**相反** ⇒ **已移出**。
+   ⚠ **有意保留** `noscript` / `textarea` / `title`——浏览器**不显示**它们，但内容是
+   可能有用文字：我们不执行 JS，`<noscript>` 里的兜底内容恰恰是"我们会看到的"，
+   `textarea` 是表单默认值、`title` 是页面标题。
+   注意这两组用的是**两条不同判据**（"浏览器不显示但我们要" vs "浏览器不显示且不要"），
+   别混成一条——上一版就是把它们混在一起，`xmp`/`plaintext` 才混了进来。
    **不丢字**的装饰性偏差：引号属性值里的字面 `<script>`（`<p title='<script>'>可见</p>`
    → `前'> 可见后`，多出 `'>` 两个字符）；`foo<!--x-->bar` → `foo bar`（多一个空格）。
 10. **`application/xhtml+xml` 被白名单接收，但按 HTML5 解析**（同上，登记而非 docstring 限定）：
@@ -599,8 +613,8 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     | MEDIUM-1 | 源文件被删/被同名替换时 `locator_health` 报 `ok` | ✅ 已修（step-53，§10.54） |
     | MEDIUM-2 | "曾有文本、现在解析不出"被降级成 `unavailable`（界面无标记） | ✅ 已修（step-53，§10.54） |
     | LOW-6 | docstring/本节仍列代码刻意去掉的 `no_text`；`unavailable` 跨词表 | ✅ 已修（step-53：本节 + 模块 docstring） |
-    | MEDIUM-3 | PPT 行预算**渲染级**仍溢出（18×40 字 ⇒ 只剩 440/720 字） | ⏳ 待修（下一步；§10.50 那次**没关掉**这条盲区） |
-    | MEDIUM-4 | `_CONTENT_HIDDEN_TAGS` 收编的 `xmp`/`plaintext` 是**可见文字** | ⏳ 待修（同上） |
+    | MEDIUM-3 | PPT 行预算**渲染级**仍溢出（18×40 字 ⇒ 只剩 440/720 字） | ✅ 已修（step-54，§10.55：容量按**可用宽** 705.6pt 算 = 39.2em，并**把 `· ` 前缀算进去** ⇒ 一行 38 个 CJK 字；渲染级复测四个输入**字数守恒**） |
+    | MEDIUM-4 | `_CONTENT_HIDDEN_TAGS` 收编的 `xmp`/`plaintext` 是**可见文字** | ✅ 已修（step-54，§10.55：两者移出；真机 `innerText` 裁决） |
     | LOW-3 | `ORDER BY dm.legal_status` 把 NULL 排最前 ⇒ 未核验条款拿最好名次 | ⏳ 待修（方向与 §10.44 相反） |
     | LOW-1 | §10.50 的 LOW-4 影响面**少报约 5879 倍**、根因写错 | ⏳ 待改记录 + 补边界枚举用例 |
     | LOW-2 | `_STD_NO_PREFIX` 边界仍是枚举（`GB-T`/`GB—T`/`ＧＢ`），生产库**0 行** | ⏳ 待修（潜性；要恢复成一般规则） |

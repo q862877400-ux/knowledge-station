@@ -131,7 +131,7 @@ class TestSlideModel:
         assert "完整清单见同名 Markdown 报告" in tail, tail
 
     def test_line_budget_matches_the_real_slide_geometry(self):
-        """**行预算必须与真实版式一致**（复核 b8 的 MEDIUM-3 的"钉法"要求）。
+        """**行预算必须与真实版式一致**（复核 b8 的 MEDIUM-3 的"钉法"要求；b9 又补了宽度那一半）。
 
         不信任常量：这里**从真实 `Presentation()` 重算**几何——幻灯片尺寸、正文框高度
         （`slide_height - 1_200_000` EMU）、行高（`LINE_HEIGHT_FACTOR × ASSUMED_FONT_PT`）
@@ -147,9 +147,57 @@ class TestSlideModel:
         assert se.SLIDE_WIDTH_EMU == prs.slide_width, (se.SLIDE_WIDTH_EMU, prs.slide_width)
         assert se.SLIDE_HEIGHT_EMU == prs.slide_height
         assert abs(se.BODY_HEIGHT_PT - body_h_pt) < 0.01
-        # 每行容量的算式：正文框宽（pt）/ 字号（pt）——中文 1 字 ≈ 1 em
-        per_line = (prs.slide_width / 12_700) / se.ASSUMED_FONT_PT
-        assert abs(per_line - se.CHARS_PER_LINE) <= 1, (per_line, se.CHARS_PER_LINE)
+        # ---- 宽度那一半（复核 b9 的 MEDIUM-3）----
+        # ⚠ **不能**拿整张幻灯片宽当时正文宽：文本框默认左右各 0.1in 内边距，
+        # 真正能用的是 `slide_width - margin_left - margin_right`。这里直接问真实的
+        # `text_frame.margin_*`（而不是相信本文件里的常量），常量若与库的默认值分叉就红。
+        blank = prs.slide_layouts[6] if len(prs.slide_layouts) > 6 else prs.slide_layouts[-1]
+        box = prs.slides.add_slide(blank).shapes.add_textbox(
+            0, 1_000_000, prs.slide_width, prs.slide_height - 1_200_000)
+        usable_emu = prs.slide_width - box.text_frame.margin_left - box.text_frame.margin_right
+        assert abs(se.BODY_WIDTH_EMU - usable_emu) <= 2, (se.BODY_WIDTH_EMU, usable_emu)
+        assert abs(se.TEXT_INSET_EMU - box.text_frame.margin_left) <= 1, (
+            se.TEXT_INSET_EMU, box.text_frame.margin_left)
+        # 每行容量 = **可用**宽（pt）/ 字号（pt）——中文 1 字 ≈ 1 em
+        per_line = (usable_emu / 12_700) / se.ASSUMED_FONT_PT
+        assert abs(per_line - se.CHARS_PER_LINE_EMS) < 0.01, (per_line, se.CHARS_PER_LINE_EMS)
+        # 并且它**小于**"整张宽 / 字号"——上一版就是拿这个偏乐观的数当了容量
+        naive = (prs.slide_width / 12_700) / se.ASSUMED_FONT_PT
+        assert se.CHARS_PER_LINE_EMS < naive, (se.CHARS_PER_LINE_EMS, naive)
+
+    def test_a_full_line_of_cjk_is_38_chars_because_the_prefix_takes_room(self):
+        """**渲染级实测的临界点**（复核 b9 的 MEDIUM-3）：一行放 **38** 个 CJK 字。
+
+        复核用 LibreOffice→PDF→PyMuPDF 量出来的：38 字/条 **完整**（684/684 字），
+        39 字起就换第二行、超出部分**被渲染器裁掉**（39 字只剩 429/702）。
+        我们这个估算器必须**复现同一个临界点**——它由两件事决定：
+        可用宽 705.6pt / 18pt = 39.2 em，再扣掉渲染时自动加的 `· ` 前缀（≈1 em）。
+        """
+        assert se.estimate_lines("字" * 38) == 1, se.estimate_lines("字" * 38)
+        assert se.estimate_lines("字" * 39) == 2, se.estimate_lines("字" * 39)
+        assert se.estimate_lines("字" * 40) == 2, se.estimate_lines("字" * 40)
+
+    def test_a_page_that_really_fits_is_not_split(self):
+        """**反向对照**：真放得下的页面不许被拆（否则上一条只是"永远多拆"）。
+
+        18 条 × 38 字 = 18 行，正好用满行预算 ⇒ **一页**（实测渲染也是完整的 684/684）。
+        """
+        slides = se.build_slides([("ul", ["字" * 38] * se.MAX_LINES_PER_SLIDE)], title="T")
+        assert len(slides) == 1, [len(s["bullets"]) for s in slides]
+
+    def test_bullets_that_would_be_clipped_are_paginated_instead(self):
+        """**这条是本步的核心**：复核 b9 实测会被裁字的输入，现在必须**续页**而不是丢字。
+
+        18 条 × 40 字：旧估算器判"18 行一页"，真排 2 行/条 ⇒ 22+ 行被塞进 20.6 行的框，
+        渲染器把多出来的**字符**裁掉（丢 39%）。被裁掉的字符**不会**出现在任何"丢了多少条"
+        的提示里——条数守恒，字符不守恒。修好之后应当**拆成两页**。
+        """
+        slides = se.build_slides([("ul", ["字" * 40] * se.MAX_LINES_PER_SLIDE)], title="T")
+        assert len(slides) == 2, [len(s["bullets"]) for s in slides]
+        for s in slides:
+            assert sum(se.estimate_lines(b) for b in s["bullets"]) <= se.MAX_LINES_PER_SLIDE, s
+        # 条数**一条不少**（续页不是删除）
+        assert sum(len(s["bullets"]) for s in slides) == se.MAX_LINES_PER_SLIDE
 
     def test_ascii_bullets_are_cheaper_than_cjk_bullets(self):
         """半角字符按 0.5 全角当量折算 ⇒ 同样**字符数**时英文占行更少。
@@ -157,10 +205,11 @@ class TestSlideModel:
         为什么值得钉：一律按"字符数"会把英文清单**高估**行数（拆得更碎），
         而它的反面（低估中文）才是危险方向——两条都要有明确行为。
         """
-        zh = "字" * 80              # 80 全角 ⇒ 2 行
-        en = "a" * 80               # 80 × 0.5 = 40 当量 ⇒ 1 行
-        assert se.estimate_lines(zh) == 2, se.estimate_lines(zh)
-        assert se.estimate_lines(en) == 1, se.estimate_lines(en)
+        zh = "字" * 80              # 80 全角（+前缀）⇒ 3 行
+        en = "a" * 80               # 80 × 0.5 = 40 当量（+前缀）⇒ 2 行
+        assert se.estimate_lines(zh) == 3, se.estimate_lines(zh)
+        assert se.estimate_lines(en) == 2, se.estimate_lines(en)
+        assert se.estimate_lines(en) < se.estimate_lines(zh)
 
     def test_line_budget_matches_the_real_slide_geometry_placeholder(self):
         pass

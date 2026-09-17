@@ -60,9 +60,29 @@ LINE_HEIGHT_FACTOR = 1.2
 #: 18 = 20.6 行的**约 88%**，留一行多的余量给项目符号间距与字体回退。
 MAX_LINES_PER_SLIDE = 18
 
-#: 每行容纳多少"**全角当量字符**"：正文框宽 10in = 720pt，18pt 的中文字宽 ≈ 18pt
-#: ⇒ `720 / 18 = 40`。ASCII 按 0.5 全角计（见 `estimate_lines`），所以这个数是**全角当量**。
-CHARS_PER_LINE = 40
+#: 文本框的**左右内边距**（python-pptx 文本框默认各 0.1in = 91440 EMU）。
+#: 正文框虽然按**整张幻灯片宽**创建，但文字真正能用的宽度要扣掉这两条内边距——
+#: 复核 b9 用 LibreOffice→PDF 量到实际换行宽度是 **9.8in = 705.6pt**，正是这个原因。
+#: 它由几何测试从**真实 `Presentation()` 的 `text_frame.margin_*`** 重算并钉住。
+TEXT_INSET_EMU = 91_440
+BODY_WIDTH_EMU = SLIDE_WIDTH_EMU - 2 * TEXT_INSET_EMU       # 8961120 EMU
+BODY_WIDTH_PT = BODY_WIDTH_EMU / 12_700                     # 705.6pt
+
+#: 每行容纳多少"**全角当量**"（em）：`705.6 / 18 = 39.2`。
+#: ⚠ 上一版写的是 **40**（拿整张幻灯片宽 720pt 除 18），注释还说它"偏保守"——
+#: **实测正好相反**：40 是**偏乐观**。再叠上"估算时根本没算 `· ` 前缀"，
+#: 正好让 39–40 字的中文要点被估成 1 行、**真排 2 行** ⇒ 渲染器把多出来的部分**裁掉**
+#: （复核 b9 实测：18 条 × 40 字只剩 440/720 字，**丢 39% 的字符**）。
+CHARS_PER_LINE_EMS = BODY_WIDTH_PT / ASSUMED_FONT_PT        # 39.2
+
+#: 渲染时给每条要点加的前缀（`write_slide_deck` 里写的是 `f"· {bullet}"`）。
+#: **估算必须算上它**：它在**行首**真实占位（约 1 em，按本文件的窄字符权重折算），
+#: 少了它就等于每条都多算一格（这正是"38 字一行"而不是"39 字一行"的原因）。
+BULLET_PREFIX = "· "
+
+#: 上面那个浮点容量 ×10 取整 ⇒ 换行模拟用**整数**比较，避免浮点在临界点上抖
+#: （39.2 em 的边界正好是"38 字放得下、39 字放不下"，抖一下就是静默裁字或浪费一整页）。
+_EMS_PER_LINE_X10 = round(CHARS_PER_LINE_EMS * 10)
 
 #: 半角字符折算成"全角当量"的系数（估：ASCII 平均字宽 ≈ 0.5 em）。
 NARROW_CHAR_WEIGHT = 0.5
@@ -84,19 +104,34 @@ def _clip(text: str, cap: int = MAX_BULLET_CHARS) -> str:
     return s if len(s) <= cap else s[:cap].rstrip() + "…"
 
 
-def estimate_lines(bullet: str) -> int:
-    """一条要点**估算**占几行（至少 1 行）。
+def _ems_x10(text: str) -> int:
+    """把一段文字折算成"**全角当量 ×10**"（整数）：全角/宽字符 10，其余 `NARROW_CHAR_WEIGHT`×10。
 
-    按"**全角当量**"折算：中文/全角标点算 1，ASCII 算 `NARROW_CHAR_WEIGHT`（0.5），
-    再除以每行容量 `CHARS_PER_LINE`。为什么不做"一律按字符数"：一份英文清单会被
-    **高估**行数（拆得更碎，安全但浪费页），而一份中英混排的会被**低估**（危险方向）。
-    单独抽出来是为了**可断言**（复核 b8 建议的钉法：断言"每页估算行数 ≤ 行预算"）。
+    用整数是为了**边界确定**（见 `_EMS_PER_LINE_X10` 的注释）。
     """
-    text = bullet or ""
     wide = sum(1 for ch in text if ord(ch) > 0x2E7F)       # 全角/宽字符（含中文、全角标点）
     narrow = len(text) - wide
-    ems = wide + narrow * NARROW_CHAR_WEIGHT
-    return max(1, int(-(-ems // CHARS_PER_LINE)))          # 向上取整，至少 1 行
+    return wide * 10 + round(narrow * NARROW_CHAR_WEIGHT * 10)
+
+
+def estimate_lines(bullet: str) -> int:
+    """一条要点**渲染后**占几行（**含**渲染时自动加的前缀 `· `；至少 1 行）。
+
+    做法是**逐行模拟换行**（首行先扣前缀，之后每行 `CHARS_PER_LINE_EMS` 个全角当量），
+    而不是"总当量 ÷ 每行容量"一次除完。差别恰好落在**临界点**上——
+    复核 b9 的 MEDIUM-3 就是栽在这里：39–40 字被估成 1 行、真排 2 行，多出来的字**被裁掉**。
+
+    换行点按**字符**走：中文本来就能任意断行（与实测吻合）；英文会被算得比真实**多**几行
+    （真实渲染器只在空格处断），方向是**安全的**（多续一页，而不是裁字）。
+    单独抽出来是为了**可断言**。
+    """
+    total = _ems_x10(BULLET_PREFIX) + _ems_x10(bullet or "")
+    lines = 1
+    remaining = total - _EMS_PER_LINE_X10               # 首行已被前缀占掉一部分
+    while remaining > 0:
+        lines += 1
+        remaining -= _EMS_PER_LINE_X10
+    return lines
 
 
 def _paginate(slides: list[dict[str, Any]]) -> list[dict[str, Any]]:

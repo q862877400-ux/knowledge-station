@@ -686,27 +686,36 @@ class TestScriptStyleStrippingEdges:
             out = html_to_text(html)
             assert "SECRET_JS" not in out, (html, out)
 
-    def test_raw_text_families_that_browsers_do_not_render_are_stripped(self):
-        """`script`/`style` 之外还有一族**浏览器不渲染**的元素（复核 b8 的 LOW-5）。
+    def test_only_the_raw_text_families_browsers_hide_are_stripped(self):
+        """**真机裁决**：这一族里只有三个是"浏览器不显示"的（复核 b8 的 LOW-5 → b9 的 MEDIUM-4）。
 
-        复核实测这一族的内容**全部**进了正文。按"页面里看到什么就是正文"的定位，
-        不渲染的就不该进来 ⇒ 一并剥掉：
-        `iframe` / `xmp` / `noembed` / `noframes` / `plaintext`
-        （`plaintext` 没有结束标签，其后全是 raw text ⇒ 走"找不到闭合就丢尾"那条逻辑）。
+        ⚠ 2026-09-18 **改正了一条我自己的错**：上一轮把 `xmp` / `plaintext` 也一起收编了，
+        依据是一句**没验证过**的注释（"浏览器不渲染其内容"）。复核 b9 用 Edge headless 的
+        `innerText`（= 用户真能看到的字）逐条量过：
+          · `iframe` / `noembed` / `noframes` ⇒ **确实不显示**（收得对）；
+          · **`xmp` ⇒ 显示**（原样字面文本）、**`plaintext` ⇒ 显示**（其后全部当可见文本）。
+        收掉可见文字与本函数的定位（"**页面上看到什么就是正文**"）**方向相反**，
+        所以这两个已从 `_CONTENT_HIDDEN_TAGS` 移出（这一轮的删除是**本区间引入的**回归）。
 
-        ⚠ **故意保留** `noscript` / `textarea` / `title`：我们**不执行 JS**，
-        所以 `<noscript>` 里那套"没有 JS 时的兜底内容"**恰恰是**我们会看到的东西；
-        `textarea` 是表单默认值、`title` 是页面标题。这三条是**有意的决定**
-        （登记在方案 §12 未决第 9 条），别当成漏掉的。
+        ⚠ **故意保留** `noscript` / `textarea` / `title`：浏览器**不显示**它们，但内容可能是
+        有用的文字——我们不执行 JS，所以 `<noscript>` 里"没有 JS 时的兜底内容"**恰恰是**
+        我们会看到的东西；`textarea` 是表单默认值、`title` 是页面标题。这两条判据**不同**
+        （"浏览器不显示但我们要" vs "浏览器不显示且不要"），别混成一条——上一版混在一起，
+        才让 `xmp`/`plaintext` 混进来。保留是**有意的决定**（方案 §12 未决第 9 条）。
         """
         from src.core.text_utils import html_to_text
-        for tag in ("iframe", "xmp", "noembed", "noframes"):
+        # ① 浏览器真机不显示的三族 ⇒ 内容必须剥掉（成对断言：剥掉了，且前后正文还在）
+        for tag in ("iframe", "noembed", "noframes"):
             out = html_to_text(f"<p>前</p><{tag}>SECRETLEAK</{tag}><p>后</p>")
             assert "SECRETLEAK" not in out, (tag, out)
             assert "前" in out and "后" in out, (tag, out)
-        # plaintext：其后全部是 raw text（没有结束标签）
-        assert "SECRETLEAK" not in html_to_text("<p>前</p><plaintext>SECRETLEAK")
-        # 有意保留的三族：内容仍要在（不许"顺手"一起剥掉）
+        # ② 浏览器**真的会显示**的两族 ⇒ 内容必须**留下**（这是本步改正的方向）
+        out = html_to_text("<p>前</p><xmp>可见的示例：<b>加粗</b></xmp><p>后</p>")
+        assert "可见的示例" in out, out
+        assert "前" in out and "后" in out, out
+        out = html_to_text("<p>前</p><plaintext>这之后的文字浏览器都当可见文本")
+        assert "这之后的文字浏览器都当可见文本" in out, out
+        # ③ 有意保留的三族：内容仍要在（不许"顺手"一起剥掉）
         for tag in ("noscript", "textarea", "title"):
             out = html_to_text(f"<p>前</p><{tag}>保留甲</{tag}><p>后</p>")
             assert "保留甲" in out, (tag, out)
