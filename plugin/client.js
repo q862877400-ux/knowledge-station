@@ -32983,6 +32983,20 @@ function KsMaterialsPanel(props) {
               /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u672A\u7ECF\u786E\u8BA4" }),
               "\u3002"
             ] }),
+            anchors[m.material_id]?.status === "health_error" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { role: "alert", style: { margin: "4px 0 0", fontSize: 12, color: RED }, children: [
+              "\u26A0 ",
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u951A\u70B9\u5065\u5EB7\u5EA6\u7B97\u4E0D\u51FA\u6765" }),
+              "\uFF1A",
+              anchors[m.material_id]?.why || "\uFF08\u540E\u7AEF\u672A\u7ED9\u539F\u56E0\uFF09",
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
+              "\u8FD9\u662F",
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5DE5\u5177\u7F3A\u9677" }),
+              "\uFF0C",
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u4EE3\u8868" }),
+              "\u6750\u6599\u6709\u95EE\u9898\u2014\u2014\u4F46\u5B83\u7684\u5F15\u7528\u4F4D\u7F6E \u76EE\u524D",
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u672A\u77E5" }),
+              "\u3002"
+            ] }),
             /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { display: "flex", gap: 6, marginTop: 8, flexWrap: "wrap" }, children: [
               /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
                 "button",

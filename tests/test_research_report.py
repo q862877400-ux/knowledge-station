@@ -144,6 +144,28 @@ class TestAnchorVisibility:
         assert not any("锚点" in w for w in out["warnings"]), out["warnings"]
         assert "⚠锚点" not in out["markdown"], out["markdown"]
 
+    def test_health_crash_is_not_reported_as_unverified(self, project, monkeypatch):
+        """**健康度算不出来 ≠ 材料未验证**（复核 b9 的 INFO-3）。
+
+        旧写法在 `_attach_locator_status` 的 `except` 里写死 `unknown` ⇒ 报告上出现
+        "⚠锚点**未验证**（不等于有问题）"，读者会去怀疑**材料**；而真相是**我们的判据抛异常**。
+        这条断言两件事：① 有独立的 `⚠锚点健康度算不出来` 标记；
+        ② 那条"未经验证"的 warning **不出现**（不许把工具缺陷算进材料的账）。
+        """
+        pid = project["project_id"]
+        _approved_article(pid, "报道", "住宿标准八百元。")
+        from src.core.materials import locator as lo
+        def _boom(_m):
+            raise RuntimeError("模拟判据崩溃")
+        monkeypatch.setattr(lo, "locator_health", _boom)
+        out = rr.build_research_report(pid, title="T")
+        assert "⚠锚点健康度算不出来" in out["markdown"], out["markdown"]
+        assert "⚠锚点未验证" not in out["markdown"], out["markdown"]
+        hit = [w for w in out["warnings"] if "算不出来" in w]
+        assert hit, out["warnings"]
+        assert "工具缺陷" in hit[0], hit[0]
+        assert not any("未经验证" in w for w in out["warnings"]), out["warnings"]
+
     def test_old_material_is_marked_unverified(self, project):
         """入库时没记指纹的老材料 ⇒ 标记 + warning（措辞必须是"未经验证"，不是"有问题"）。"""
         pid = project["project_id"]

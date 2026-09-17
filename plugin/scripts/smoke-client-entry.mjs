@@ -531,6 +531,14 @@ check('inject declares only official services (no third-party hard gate)',
   check('层级清单请求**自己落地**成败（不搭项目列表的 Promise.all）',
     /fetchMaterialTiers\(ctl\.signal\)\s*\.then\(/.test(panel),
     '清单与项目列表必须各自结算')
+
+  // ---- "结论没拿到"不许被渲染成"没有标记"（2026-09-18，INFO-3 同族，§10.57）----
+  // 后端在单份材料算不出健康度时给 `health_error`（**不是**健康状态）。界面上没有它自己的
+  // 分支的话，那种材料会**一个标记都没有**，读起来像"全都健康"——正是要防的静默。
+  check('产物里含「锚点健康度算不出来」的提示（失败不许静默）',
+    bundle.includes('锚点健康度算不出来'))
+  check('面板源码里 health_error 有独立分支（不是靠 why 兜底）',
+    /status === 'health_error'/.test(panel))
 }
 
 const failed = results.filter((r) => !r.ok)

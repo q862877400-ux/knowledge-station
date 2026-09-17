@@ -116,7 +116,16 @@ def locator_health(material: dict[str, Any]) -> dict[str, Any]:
     }
     if mr.chunk_count(mid) == 0:
         out["status"] = "no_locators"
-        out["why"] = "这份材料没有切片（没有区间可失效）"
+        # ⚠ 两种成因要分开说（复核 b9 的 INFO-5）：① 压根没解析出文本（扫描件没开 OCR）；
+        # ② 有派生文本但**切块没产出**。旧写法共用一句"没有切片（没有区间可失效）"，
+        # 读者分不清该去查解析还是查切块。判据用**入库时记的派生文本哈希**：
+        # 有它 ⇒ 当时确实产出过文本；没有 ⇒ 没产出（或入库早于该列，如实带上这一支）。
+        out["why"] = (
+            "这份材料没有切片（没有区间可失效）：入库时**没有派生文本**"
+            "（解析不出文本——扫描件？或入库早于派生哈希那一列）"
+            if recorded_hash is None else
+            "这份材料没有切片（没有区间可失效）：**有派生文本但切块没产出**"
+            "（切分参数或内容形态导致零切片）")
         return out
     if recorded_hash is None or recorded is None:
         out["status"] = "unknown"
@@ -233,8 +242,22 @@ def project_locator_summary(project_id: str) -> dict[str, Any]:
     statuses: dict[str, str] = {}
     attention: list[dict[str, Any]] = []
     for m in mr.list_materials(project_id):
-        h = locator_health(m)
         mid = str(m["material_id"])
+        try:
+            h = locator_health(m)
+        except Exception as exc:  # noqa: BLE001 — 见下：一份材料的判据挂掉不该毁掉整个总览
+            # ⚠ 与 `_attach_locator_status` 同族（2026-09-18 复核 b9 的 INFO-3 的**同型**问题，
+            # 本步顺带修）：旧写法让异常直接冒出去 ⇒ 整个项目总览 500 / 界面把这次失败
+            # **静默吞掉**（面板对总览失败是 `.catch(()=>{})`）⇒ 结果是一份**一个 ⚠ 都没有**的
+            # 材料列表，读起来像"全部健康"。**"结论没拿到"必须自己说出来**。
+            # `health_error` **不是**健康状态（`locator_health` 永远不会返回它，
+            # 它表示"我们的判据跑挂了"），所以单列一个取值、单列一条 attention。
+            statuses[mid] = "health_error"
+            counts["health_error"] = counts.get("health_error", 0) + 1
+            attention.append({"material_id": mid, "title": m.get("title"),
+                              "status": "health_error",
+                              "why": f"锚点健康度计算失败：{type(exc).__name__}: {exc}"})
+            continue
         statuses[mid] = h["status"]
         counts[h["status"]] = counts.get(h["status"], 0) + 1
         if h["status"] in ("stale", "unknown"):
@@ -243,4 +266,5 @@ def project_locator_summary(project_id: str) -> dict[str, Any]:
     return {"project_id": project_id, "counts": counts, "statuses": statuses,
             "attention": attention,
             "note": ("`unknown` 包含两类：入库时没记指纹的老材料、以及 PDF 便宜比对判不了的那些；"
+                     "`health_error` 不是健康状态，是**判据本身算不出来**（工具问题，不是材料问题）；"
                      "要给结论请对具体材料跑重解析比对")}

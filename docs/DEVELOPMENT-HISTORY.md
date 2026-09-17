@@ -3081,3 +3081,56 @@ LOW-3（NULL 排最前）、LOW-4（第三键零区分度）、LOW-5（端点索
 剩 INFO-3（健康度异常被吞成 unknown ⇒ 多报一条 ⚠）、INFO-4（报告 ⚠ 不覆盖"依据"节）、
 INFO-5（`no_locators` 两种成因文案未区分）——三条都是"更精确"而非"说谎"，登记待办。
 
+
+### 10.57 收掉 b9 的两条 INFO，并修掉它们的**同族**缺陷（"结论没拿到"不许装成材料的结论）
+
+b9 台账里剩下的是 INFO 级，但其中 INFO-3 是**真**的诚实问题（不是措辞）：本步收 INFO-3 + INFO-5，
+并顺带发现/修掉 INFO-3 的**同型**缺陷（同一个错误的第二处，b9 没提到）。
+
+**INFO-3（真问题）：判据抛异常被写成"这份材料未验证"。**
+- 旧写法：`_attach_locator_status` 的 `except` 里写死 `_locator_status = "unknown"` ⇒ 报告上出现
+  "⚠锚点**未验证**（不等于有问题）"——读者会去怀疑**材料**，而真相是**我们的判据跑挂了**。
+- 修法：新增取值 `health_error`（**明确不是**健康状态：`locator_health` 永远不会返回它，
+  与 `unavailable` 之于 `reverify` 同理），
+  报告里给独立标记 `⚠锚点健康度算不出来` + 独立 warning（"这是**工具缺陷**，不是这些材料有问题"），
+  并**断言它不再出现在"未经验证"那一条里**。
+
+**同族缺陷（b9 未提，本步自查发现）：项目总览会让一份材料毁掉整份总览。**
+- `project_locator_summary()` 逐份调 `locator_health()` 时**没有**保护 ⇒ 一份材料抛异常，
+  整个端点 500；而面板对总览失败是 `.catch(()=>{})`（"不该挡住材料列表"）⇒ 用户看到一份
+  **一个 ⚠ 都没有**的材料列表，读起来像"全都健康"。**这与 INFO-3 是同一个错误**：
+  "结论没拿到"被渲染成"没有结论要报"。
+- 修法：单份 try/except ⇒ 那一份标 `health_error` 进 `statuses`/`counts`/`attention`（带 `why`），
+  其余照常给结论；`note` 里也写明"`health_error` 不是健康状态"。
+  面板加**独立分支**（红色 `role="alert"`）——不加这一支，那种材料在界面上仍然**没有标记**。
+  ⚠ 这一步**被类型系统拦了一次**：`KsLocatorHealth['status']` 的 union 里没有 `health_error`，
+  `tsc` 直接报"两个类型没有重叠" ⇒ 扩 union 才过。**这是好事**：类型把一个"会被静默忽略"的
+  取值变成了编译期错误（注释里写明了为什么它必须在这个 union 里）。
+
+**INFO-5：`no_locators` 的两种成因不再共用一句话。**
+- ① 压根没有派生文本（扫描件没开 OCR / 入库早于该列）；② 有派生文本但**切块没产出**。
+  判据用入库时记的 `derived_text_hash`（有它 ⇒ 当时确实产出过文本），两句话分开写。
+
+**变异证据（逐字节还原，`locator.py` sha256 `9f1e890a…` / `research_report.py` `a59bc4fc…`）**：
+| 变异 | 内容 | 结果 |
+|---|---|---|
+| N1 | 报告的异常分支退回 `unknown` | `test_health_crash_is_not_reported_as_unverified` **RED** |
+| N2 | `no_locators` 两种成因退回同一句 | 两条成因断言 **RED** |
+| N3 | 总览去掉单份保护 | `test_one_crashing_material_does_not_kill_the_whole_overview` **RED** |
+
+⚠ **N2 两次返工，两次教训都记下来**（都属"变异本身没打中"）：
+① 第一版把整段字面量换成 `""  # 注释` ⇒ 把后面的字符串拼接注释掉了，**文件解析不了**
+（收集期 error），而且还原断言因为标记重复而失败、文件一度停在坏状态——**已从 pristine 快照
+byte-identical 还原**（并加了 `ast.parse` 自查）；
+② 第二版只改了括号里的补充说明，而"没有派生文本 / 有派生文本但切块没产出"在**前一行的字面量**里
+⇒ 测试**照旧全绿**。那次 GREEN **不是**"闸门空转"，是**我瞄错了目标**——第三版把锚点改成整个
+表达式才 RED。⇒ 纪律：变异红了要说清"红在哪条断言"，**绿了更要说清**"是闸门空还是我没打中"。
+
+**门禁**：pytest **1694 passed / 3 skipped**（新增 3 条）；mypy **134 files / 0 errors**；
+`npm run typecheck` **0**；`npm run smoke` **EXIT=0**（client-entry 69→**71**）；
+`verify:commands` **22/22**；`e2e:materials` **9/9**。
+
+**b9 台账现状**（方案未决第 12 条）：4 MEDIUM、LOW-1~6、INFO-3、INFO-5 **全部收口**；
+剩 INFO-4（报告 ⚠ 不覆盖「依据」节——要动 `authority.render_evidence` 这第二个所有者，**新立项**）
+与 INFO-6（模态通道没有 ORDER BY ⇒ 通道内顺序未定义，要先定"通道内该怎么排"）。
+

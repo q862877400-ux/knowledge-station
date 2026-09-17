@@ -96,6 +96,18 @@ class TestCheapHealth:
         m = mi.ingest_material_file(pid, _txt(tmp_path, "empty2.txt", ""))
         h = lo.locator_health(m)
         assert h["status"] == "no_locators", h
+        # ⚠ 两种成因要说得出来（复核 b9 的 INFO-5）：这一份是"压根没有派生文本"
+        assert "没有派生文本" in h["why"], h["why"]
+
+    def test_no_chunks_with_text_says_which_cause(self, project, tmp_path):
+        """`no_locators` 的**另一种**成因：有派生文本、但切块没产出（INFO-5）。"""
+        pid = project["project_id"]
+        m = mr.add_material(pid, "零切片材料", origin="user",
+                            derived_text_hash="h", parser_fingerprint="kind=.txt;plain=1")
+        h = lo.locator_health(mr.get_material(m["material_id"]))
+        assert h["status"] == "no_locators", h
+        assert "切块没产出" in h["why"], h["why"]
+        assert "没有派生文本" not in h["why"], h["why"]
 
     def test_pdf_cheap_check_refuses_to_claim_ok(self, project, tmp_path, monkeypatch):
         """PDF 的完整指纹含**只有解析后才知道**的 text_layer/ocr ⇒ 便宜比对**不许说 ok**。
@@ -234,6 +246,34 @@ class TestStrongReverify:
 
 
 class TestProjectSummary:
+    def test_one_crashing_material_does_not_kill_the_whole_overview(self, project, tmp_path,
+                                                                    monkeypatch):
+        """**一份材料的判据挂掉，不该毁掉整个项目总览**（INFO-3 的同型问题，2026-09-18 修）。
+
+        旧写法让异常直接冒出去 ⇒ 端点 500 / 界面把总览失败**静默吞掉**（面板对它
+        `.catch(()=>{})`）⇒ 用户看到一份**一个 ⚠ 都没有**的材料列表，读起来像"全部健康"。
+        现在：那一份单独标 `health_error`（**不是**健康状态），其余照常给结论。
+        """
+        pid = project["project_id"]
+        good = mi.ingest_material_file(pid, _txt(tmp_path, "ok2.txt", "甲。乙。"))
+        bad = mi.ingest_material_file(pid, _txt(tmp_path, "bad2.txt", "丙。丁。"))
+        real = lo.locator_health
+
+        def _maybe_boom(m):
+            if m["material_id"] == bad["material_id"]:
+                raise RuntimeError("模拟判据崩溃")
+            return real(m)
+
+        monkeypatch.setattr(lo, "locator_health", _maybe_boom)
+        s = lo.project_locator_summary(pid)
+        assert s["statuses"][bad["material_id"]] == "health_error", s["statuses"]
+        assert s["counts"].get("health_error") == 1, s["counts"]
+        assert s["statuses"][good["material_id"]] == "ok", s["statuses"]
+        hit = [a for a in s["attention"] if a["material_id"] == bad["material_id"]]
+        assert hit and "计算失败" in hit[0]["why"], s["attention"]
+        # 取值域本身**不**包含它（`locator_health` 永远不会返回 `health_error`）
+        assert "health_error" not in lo.HEALTH_STATUSES
+        assert "health_error" in s["note"], s["note"]
     def test_counts_and_attention_list(self, project, tmp_path):
         pid = project["project_id"]
         mi.ingest_material_file(pid, _txt(tmp_path, "f.txt", "甲。"))

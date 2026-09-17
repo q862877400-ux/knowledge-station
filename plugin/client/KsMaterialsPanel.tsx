@@ -701,6 +701,16 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
                 <br /><strong>不等于</strong>有问题，但引用位置<strong>未经确认</strong>。
               </p>
             )}
+            {/* ⚠ `health_error` **不是**健康状态，是"后端判据跑挂了"（复核 b9 的 INFO-3 同族）：
+                不加这一支，那种材料在界面上**一个标记都没有**，读起来像"全都健康"。
+                颜色用红：这不是材料的问题，是我们的问题，该被看见。 */}
+            {anchors[m.material_id]?.status === 'health_error' && (
+              <p role="alert" style={{ margin: '4px 0 0', fontSize: 12, color: RED }}>
+                ⚠ <strong>锚点健康度算不出来</strong>：{anchors[m.material_id]?.why || '（后端未给原因）'}
+                <br />这是<strong>工具缺陷</strong>，<strong>不代表</strong>材料有问题——但它的引用位置
+                目前<strong>未知</strong>。
+              </p>
+            )}
 
             <div style={{ display: 'flex', gap: 6, marginTop: 8, flexWrap: 'wrap' }}>
               <button

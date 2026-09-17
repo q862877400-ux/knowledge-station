@@ -620,9 +620,9 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     | LOW-2 | `_STD_NO_PREFIX` 边界仍是枚举（`GB-T`/`GB—T`/`ＧＢ`），生产库**0 行** | ✅ 已修（step-55：换回**一般规则** `(?![A-Za-z])` + NFKC；生产库上 0 行变化 ⇒ 关的是**复发风险**，20 条边界形态用例） |
     | LOW-4 | `standard_type` 第三键在区间端点上**零区分度**，"真正生效"说法不成立 | ✅ 已改（step-55：§10.50 加更正块；真正生效的是区间外 `6eede2e`） |
     | LOW-5 | 引擎模块 docstring 端点索引缺 4 条（tiers + 3 个新端点） | ✅ 已修（step-55：补全 18 条 = 18 个装饰器） |
-    | INFO-3 | `_attach_locator_status` 把异常吞成 `unknown`（多报一条 ⚠） | ⏳ 待评估（方向保守：不会漏报，只是把"算不出来"说成"未验证"） |
+    | INFO-3 | `_attach_locator_status` 把异常吞成 `unknown`（多报一条 ⚠） | ✅ 已修（step-56，§10.57：新增 `health_error`——**不是**健康状态，报告给独立标记+独立 warning"这是工具缺陷"；⚠ 顺带自查发现**同族**第二处：`project_locator_summary` 无保护 ⇒ 一份材料判据挂掉毁掉整份总览，而面板把总览失败静默吞掉 ⇒ 一份**一个 ⚠ 都没有**的列表，已一并修） |
     | INFO-4 | 报告 ⚠ 只覆盖材料清单、不覆盖「依据」节（引用真正出现处） | ⏳ 待评估（要么改准 docstring 里的理由，要么接进 `authority.render_evidence` = 动第二个所有者，**新立项**） |
-    | INFO-5 | `no_locators` 两种成因文案未区分 | ⏳ 待评估（"解析不出文本" vs "有文本但零切片"） |
+    | INFO-5 | `no_locators` 两种成因文案未区分 | ✅ 已修（step-56，§10.57：按入库时的 `derived_text_hash` 分成"没有派生文本"与"有派生文本但切块没产出"） |
     | INFO-6 | **模态通道（D）没有 ORDER BY** ⇒ 通道内 rank 顺序未定义 ⇒ 同一查询的 RRF 权重**不可复现**（step-55 顺带发现） | ⏳ 待办（要先定"通道内该怎么排"，会动检索结果分布，不夹带） |
     | INFO-2 | 三次全量里有 1 次 `1 failed`（未重现，判为抖动） | 已登记（与未决第 1 条同族） |
     | INFO-1 | 复核期间主检出前进 3 个提交（其中 `6eede2e` 改了它实测的代码） | **流程问题**：复核期间应冻结主检出，或把区间端点写进每条命令 |

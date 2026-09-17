@@ -2430,10 +2430,16 @@ export async function fetchMaterialTiers(signal?: AbortSignal): Promise<KsMateri
  * `src/core/materials/locator.py`。
  */
 
-/** 锚点健康度（便宜判据：只比指纹，不重解析）。 */
+/** 锚点健康度（便宜判据：比指纹 + 比源文件字节，不重解析）。 */
 export interface KsLocatorHealth {
   material_id: string
-  status: 'ok' | 'stale' | 'unknown' | 'no_locators'
+  /**
+   * ⚠ `health_error` **不是**健康状态，是"**后端判据跑挂了**"（复核 b9 的 INFO-3 同族）：
+   * `locator_health` 永远不会返回它，只有**总览**在单份材料算不出来时才会给（并附 `why`）。
+   * 不把它列进来，界面就**必须**在类型上忽略这种情况——而忽略它就等于把"结论没拿到"
+   * 渲染成"没有标记"，看起来像全都健康。
+   */
+  status: 'ok' | 'stale' | 'unknown' | 'no_locators' | 'health_error'
   fingerprint_recorded?: string | null
   fingerprint_current?: string | null
   derived_text_hash_recorded?: string | null
