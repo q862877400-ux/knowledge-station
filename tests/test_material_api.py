@@ -981,13 +981,19 @@ class TestSlowEndpointsAreDeclaredSync:
 
         async def collect(path: str) -> list[dict]:
             msgs: list[dict] = []
-            # ⚠ ASGI 直调的两个坑（本轮实测踩到、写在这里免得下一个人再踩）：
-            #   ① Starlette 的 `Response.__call__` 会**并发**跑一个 `listen_for_disconnect(receive)`
-            #      任务 ⇒ 若 `receive()` 永不返回 `http.disconnect`，那个任务组**永远不结束**
-            #      （测试就挂住，不报错）；
-            #   ② 但也不能一上来就回 `http.disconnect` ⇒ Starlette 会把它当成客户端提前断开、
-            #      **中止响应**（只发出 `http.response.start`，body 一条都没有）。
-            #   正确做法：等**最后一块 body 发完**再回 disconnect（下面的 `done` 事件）。
+            # ⚠ ASGI 直调的实测行为（§10.90 初版注释**写错了一条**，独立复核 b20 的 N1 已更正）：
+            #   ① `receive()` **永不**返回 `http.disconnect` **不会挂住** —— starlette 1.6 在
+            #      `StreamingResponse.__call__` 里用 `create_collapsing_task_group()`，
+            #      任一侧跑完就 `cancel_scope.cancel()`，**流式侧结束会连带取消**卡在
+            #      `listen_for_disconnect` 上的宿主任务（b20 用 6 种形状 + 不套 `wait_for` 的原始
+            #      调用实测：0.0032s 正常返回、3 块齐全）；
+            #   ② 但**一上来就回** `http.disconnect` 会被当成客户端提前断开：若流式侧随后撞到
+            #      checkpoint（本用例的 `await asyncio.sleep(0)`），响应会**被中止**（实测只发
+            #      `http.response.start`、0 块 body）；生成器与 send 都不让出时偶尔也能发完。
+            #   ⇒ 这里仍用"**等最后一块 body 发完再回 disconnect**"的写法：它**确定性**地拿到
+            #      全部分块，不依赖上面那些时序细节。
+            #   ⚠ 另：那个 listen 分支只在 ASGI `spec_version < 2.4` 下存在（b20 用 2.4 测时
+            #      任务组根本没进，压根没有 listen 任务）。
             done = asyncio.Event()
 
             async def receive():
@@ -1027,14 +1033,20 @@ class TestSlowEndpointsAreDeclaredSync:
         assert got["/def_ep"][1] == got["/async_ep"][1], (
             "两种声明方式的**分块**必须一致（逐块边界都要相同）")
 
-    def test_内联递归的深度上限有断言保护(self):
-        """§10.90（独立复核 b19 的 N4）：docstring 写的"深度上限 4"**必须有断言保护**。
+    def test_内联递归的深度上限被唯一钉住(self):
+        """§10.90/§10.91（独立复核 b19 的 N4 + b20 的 N2）："深度上限 = 4" 必须被**唯一**钉住。
 
-        b19 实测：把上限改成 2，**全量 1810 条零红** —— 说明那条边界只是文档，没人守。
-        这里钉住两个方向：
-          · **3 层**嵌套助手（每层只读 body）⇒ 一次都不让出 ⇒ `False`（该 `def`）；
-          · **6 层**同款 ⇒ 超过上限 ⇒ 按"只朝放行截断"的约定判 `True`（放行，交给量具/人工）。
-        ⇒ 把上限改成 2（或任何 <3 的值），第一条就会翻成 True ⇒ 红。
+        b19 实测：把上限改成 2，**全量 1810 条零红** ⇒ 那条边界只是文档、没人守。
+        b20 进一步实测：只钉 3 层/6 层时，**上限改成 3 或 5 也全绿**（钉住的是窗口 {3,4,5}，
+        不是 4）。所以这里同时钉**两侧的临界点**：
+
+        | 嵌套层数 | 期望 | 为什么 |
+        |---|---|---|
+        | 3 层（每层只读 body） | `False` | 没到上限 ⇒ 内联到底 ⇒ 一次都不让出 |
+        | **4 层** | `False` | 刚到上限（`depth > 4` 才截断）⇒ 仍能内联到底 |
+        | **5 层** | `True` | 第 5 层起截断 ⇒ 按"只朝放行截断"的约定判 True |
+
+        ⇒ 上限被改成 3 ⇒ 第 2 行翻成 True ⇒ 红；改成 5 ⇒ 第 3 行翻成 False ⇒ 红。
         """
         root = Path(__file__).resolve().parents[1]
         spec = importlib.util.spec_from_file_location(
@@ -1058,8 +1070,13 @@ class TestSlowEndpointsAreDeclaredSync:
 
         assert audit.effective_real_await(chain(3)) is False, (
             "3 层嵌套助手都在读 body ⇒ 判据必须仍然判 False（上限没到）")
+        assert audit.effective_real_await(chain(4)) is False, (
+            "4 层是**上限本身**（`depth > 4` 才截断）⇒ 仍必须判 False；"
+            "这一条把'上限 = 4'与'上限 = 3'区分开（b20 的 N2）")
+        assert audit.effective_real_await(chain(5)) is True, (
+            "5 层超过上限 ⇒ 按约定判 True（只朝放行截断）；这一条把'上限 = 4'与'上限 = 5'区分开")
         assert audit.effective_real_await(chain(6)) is True, (
-            "6 层超过上限 ⇒ 按约定判 True（只朝放行截断）")
+            "6 层同理（远离边界的一侧）")
 
     def test_判据本体的边界样本(self):
         """§10.86：两条判据的**边界形状**（b15 的 INFO-1 / INFO-3）。

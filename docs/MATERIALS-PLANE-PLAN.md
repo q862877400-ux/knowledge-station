@@ -1108,3 +1108,18 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     → ④ **转到产品侧**：研究报告 Word(.docx) 交付物（方案 §8）。
 
 
+37. **处理复核 b20（范围极小：H1/H3/H4 CONFIRMED，H1 的"两个坑"PARTLY）**（§10.91，step-91；
+    报告：`var/tmp/verify-b20-artifacts/VERIFY-REPORT.md`）。
+
+    | 编号 | 一句话 | 状态 |
+    |---|---|---|
+    | b20-H1 | 新用例**真钉住**分块流式：改成一次性 `Response` ⇒ 红（0 块）、只 yield 一次 ⇒ 红（1 块）、两种声明分块不同 ⇒ 红 | ✅ CONFIRMED |
+    | **b20-N1（MEDIUM）** | **我写错了一条事实**："`receive()` 永不回 `http.disconnect` 会挂住"**是假的** —— starlette 1.6 `create_collapsing_task_group()` 会在流式侧结束时取消宿主任务（b20 实测 0.0032s 正常返回、3 块齐全）；且类名写错（`StreamingResponse.__call__`）、该分支只在 `spec_version<2.4` 存在；"坑②"成立但有条件 | ✅ 注释按事实重写 + 记下"**我为什么归因错**"（那次真挂是我返回重复 `http.request`，不是"永不返回"） |
+    | b20-N2（LOW） | 深度上限只钉成**窗口 {3,4,5}**（改成 3 或 5 也全绿） | ✅ 补 `chain(4) is False` / `chain(5) is True`，唯一钉住 4；5 个值的对照表见 §10.91 §2 |
+    | b20-N3（INFO，方法学） | **同尺寸单字节变异 + `.pyc` 缓存**（校验键 = mtime 秒 + 大小）⇒ 假红/假绿；b20 第一版就拿到过"4→3 假红" | ✅ 变异脚本加固（清 `scripts/__pycache__` + `PYTHONDONTWRITEBYTECODE=1`，M5 复跑仍 RED）；写成纪律 |
+    | b20-N4/诚实边界 | httpx 合并 piece 得到证实；H3①/②、H4 门禁 CONFIRMED（收集 1811 与作者一致，差 1 条已登记环境 skip） | ✅ 接受 |
+
+    **下一步**：① 量具接名单（第二层）→ ② `asyncio.to_thread` 池不对称 → ③ 真机重启端到端（需业主）
+    → ④ **产品侧**：研究报告 Word(.docx)（§10.92，与本节同一冻结区间，由 b21 一并复核）。
+
+
