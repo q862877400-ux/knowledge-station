@@ -177,6 +177,43 @@ class TestSlideModel:
         assert se.estimate_lines("字" * 39) == 2, se.estimate_lines("字" * 39)
         assert se.estimate_lines("字" * 40) == 2, se.estimate_lines("字" * 40)
 
+    def test_ambiguous_width_punctuation_counts_as_full_width(self):
+        """**歧义宽度标点必须算全宽**（复核 b10 的新 MEDIUM，2026-09-18 修，§10.60）。
+
+        为什么这条必须存在：复核 b10 用**变异**证明过这一类**零覆盖**——把
+        `——“”‘’…` 改成全宽（朝正确方向）时 **22 条用例全绿**。
+        而它在**产品路径**上是真丢字的：18 份真实材料（标题含 `——`）→ 报告 → pptx → PDF，
+        只剩 **154/252 汉字（丢 39%）**。根因就是 `ord(ch) > 0x2E7F` 那一条分档把它们
+        整块当半角 ⇒ 低估行数 ⇒ 渲染器把多出来的部分裁掉。
+        """
+        # 39 个破折号：修前 39×0.5+1 = 20.5 ⇒ 1 行；修后 39+1 = 40 > 39.2 ⇒ 2 行
+        # ⚠ 边界与汉字**同款**（38 放得下、39 放不下）——因为它们现在都是 1 em。
+        # （我第一版把 38 也写成"2 行"，算错了：38+1 = 39.0 ≤ 39.2。）
+        assert se.estimate_lines("—" * 38) == 1, se.estimate_lines("—" * 38)
+        assert se.estimate_lines("—" * 39) == 2, se.estimate_lines("—" * 39)
+        # 整组都要算宽（每一类都对应复核实测过的一种）
+        for ch in "—‘’“”…":
+            assert se.estimate_lines(ch * 39) == 2, (ch, se.estimate_lines(ch * 39))
+            assert se.estimate_lines(ch * 38) == 1, (ch, se.estimate_lines(ch * 38))
+        # 混排：37 个汉字 + 2 个破折号 ⇒ 39 当量 + 前缀 1 = 40 > 39.2 ⇒ 2 行
+        # （修前：37 + 2×0.5 + 1 = 39 ⇒ 1 行 ⇒ **这正是被裁字的那种要点**）
+        assert se.estimate_lines("字" * 37 + "——") == 2, se.estimate_lines("字" * 37 + "——")
+
+    def test_narrow_ambiguous_punctuation_stays_narrow(self):
+        """**反向对照**：实测接近半角的那些**不许**被"顺手"也算成全宽。
+
+        为什么重要：把 `–`/`·`/`±`/`°` 也当全宽，会把
+        `test_a_full_line_of_cjk_is_38_chars_because_the_prefix_takes_room` 那条
+        **渲染实测钉住的临界点**改错（38 字被拆成两行、白多一页）。
+        没有这一条，上一条"往宽里收"就没有反向约束。
+        """
+        # 79 个 `–`（0.514 em）：79×0.5+1 = 40.5 ⇒ 2 行；若被当全宽则 80 ⇒ 也是 2 行，
+        # 所以用 `·`（0.252）这种更窄的来判别：79 个 ⇒ 修前/正确 = 2 行
+        assert se.estimate_lines("·" * 78) == 2, se.estimate_lines("·" * 78)
+        # 关键：38 个汉字仍然恰好一行（前缀扣掉后 39 ≤ 39.2）
+        assert se.estimate_lines("字" * 38) == 1, se.estimate_lines("字" * 38)
+        assert se.estimate_lines("–" * 38) == 1, se.estimate_lines("–" * 38)
+
     def test_a_page_that_really_fits_is_not_split(self):
         """**反向对照**：真放得下的页面不许被拆（否则上一条只是"永远多拆"）。
 

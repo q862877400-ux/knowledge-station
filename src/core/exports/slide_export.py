@@ -85,7 +85,24 @@ BULLET_PREFIX = "· "
 _EMS_PER_LINE_X10 = round(CHARS_PER_LINE_EMS * 10)
 
 #: 半角字符折算成"全角当量"的系数（估：ASCII 平均字宽 ≈ 0.5 em）。
+#: 实测参考（本机默认版式 + LibreOffice 字体回退，2026-09-18）：`A` = **0.578**、
+#: `字` = **1.000** ⇒ 0.5 对 ASCII 是**偏保守**（高估行数）的方向，保留。
 NARROW_CHAR_WEIGHT = 0.5
+
+#: **必须算全宽（1 em）**的"歧义宽度"标点（Unicode East Asian Width = Ambiguous）。
+#: 为什么单列一组：`ord(ch) > 0x2E7F` 那条分档会把它们整块当半角，而它们是**中文排版里的
+#: 全宽标点** ⇒ **低估行数** ⇒ 渲染时**静默裁字**。
+#: ⚠ 复核 b10 在**产品路径**上实测到这件事（18 份真材料标题含 `——` ⇒ PDF 只剩 154/252
+#: 汉字，丢 39%），本组就是冲它来的。
+#: ⚠ **这一组是"保守取值"，不是"精密测量"**：同一字符的实测宽度**随上下文/字体漂**——
+#: 本机纯标点行量到 `—` 0.921、`“` 0.434、`…` 0.706、`’` 0.265，而复核在 **CJK 上下文**
+#: 里量到 **1.000**（歧义宽度字符在中文字体里排全宽）。两种都真实，取值规则是
+#: **取宽的那个**：高估行数 ⇒ 多续一页 ⇒ 超限会**写明丢了多少条**；低估 ⇒ **静默裁字**。
+#: P1 下前者可接受、后者不可接受。
+#: ⚠ **实测接近半角的不收**：`–`(U+2013) 0.514、`·`(U+00B7) 0.252、`±` 0.514、`°` 0.338
+#: ——把它们也当全宽会把"38 字一行"这个**已由渲染实测钉住**的临界点改错（多拆页）。
+#: 要扩这一组，请附**渲染级实测**（`var/tmp/probe-step59-charwidth.py` 是量宽度的探针）。
+_WIDE_PUNCT = "—‘’“”…"
 
 #: 单条要点的字符上限（超长截断 + `…`；全文在 Markdown 报告里）。
 MAX_BULLET_CHARS = 300
@@ -107,11 +124,17 @@ def _clip(text: str, cap: int = MAX_BULLET_CHARS) -> str:
 def _ems_x10(text: str) -> int:
     """把一段文字折算成"**全角当量 ×10**"（整数）：全角/宽字符 10，其余 `NARROW_CHAR_WEIGHT`×10。
 
+    三档：① `ord(ch) > 0x2E7F`（CJK 与中文全角标点）；② `_WIDE_PUNCT`（歧义宽度标点，
+    **必须算全宽**，见那组的注释与复核 b10 的产品路径实测）；③ 其余按半角估。
     用整数是为了**边界确定**（见 `_EMS_PER_LINE_X10` 的注释）。
     """
-    wide = sum(1 for ch in text if ord(ch) > 0x2E7F)       # 全角/宽字符（含中文、全角标点）
-    narrow = len(text) - wide
-    return wide * 10 + round(narrow * NARROW_CHAR_WEIGHT * 10)
+    total = 0
+    for ch in text:
+        if ord(ch) > 0x2E7F or ch in _WIDE_PUNCT:
+            total += 10
+        else:
+            total += round(NARROW_CHAR_WEIGHT * 10)
+    return total
 
 
 def estimate_lines(bullet: str) -> int:
