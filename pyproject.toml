@@ -26,6 +26,11 @@ dependencies = [
     "python-docx>=1.0",
     # 更新检查结果 Excel 导出（report.py export_batch_report_xlsx）
     "openpyxl>=3.1",
+    # Phase D-2 研究报告 PPT 导出（exports/slide_export.py，§10.37）
+    # ⚠ **显式声明**的理由：实测本机 venv 里 `pptx` 早就在（1.0.3），但那是**传递依赖**
+    #   恰好满足——与 requests/urllib3/bs4 那条教训**同型**（干净环境重建会 ImportError）。
+    #   本模块真的 import 它（"0 import 就删依赖"的反面：**有 import 就必须声明**）。
+    "python-pptx>=1.0",
     # 已删除：python-multipart（全仓 0 import、120 端点无 multipart 表单，
     #   venv 中仅作为 mineru 传递依赖存在）
 ]

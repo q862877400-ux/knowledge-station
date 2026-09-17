@@ -230,15 +230,25 @@ class TestLawRecognition:
         assert "推断" in (m["tier_reason"] or "")
 
     def test_direct_recognizer_thresholds(self):
-        """门槛：有法规形态标题 ≥3 条；没有可用标题要 ≥10 条。"""
-        four = "\n".join(f"第{n}条 内容内容内容。" for n in ["一", "二", "三", "四"])
-        assert co.looks_like_law("某办法", four)["is_law"] is True
-        # 标题不形态化 + 只有 4 条 ⇒ 不认（否则会把"引用了一条法条的文章"当法规）
-        assert co.looks_like_law("一篇行业观察", four)["is_law"] is False
-        # 标题不形态化但条数够多 ⇒ 认（采网页常丢标题）
-        many = "\n".join("第一条 内容。" for _ in range(12))
+        """四条证据都要齐：标题/法规名 + **从第一条起** + **立法句式** + 条数门槛。"""
+        law = ("第一条 为了规范某某行为，制定本法。\n"
+               "第二条 本法适用于某某活动。\n"
+               "第三条 某某部门负责监督。\n"
+               "第四条 本法自公布之日起施行。\n")
+        assert co.looks_like_law("某办法", law)["is_law"] is True
+        # 标题不是法规名 ⇒ 不认（否则会把"引用了一条法条的文章"当法规）
+        assert co.looks_like_law("一篇行业观察", law)["is_law"] is False
+        # 标题不可用但条数够多 ⇒ 仍认（采网页常丢标题）
+        many = "\n".join(f"第{n}条 本条内容，本法另有规定的除外。"
+                        for n in ["一", "二", "三", "四", "五", "六", "七", "八",
+                                  "九", "十", "十一", "十二"])
         r = co.looks_like_law("", many)
         assert r["is_law"] is True and r["clause_count"] == 12, r
+        # 同样长的正文但**缺立法句式** ⇒ 不认（新闻/合同正是这样）
+        no_recital = "\n".join(f"第{n}条 本条规定了某某事项。" for n in
+                              ["一", "二", "三", "四", "五", "六", "七", "八",
+                               "九", "十", "十一", "十二"])
+        assert co.looks_like_law("", no_recital)["is_law"] is False
 
     def test_a_single_clause_citation_is_not_a_law(self, project):
         """**零误伤方向**：正文里顺口引用一条"第X条"的文章不许被当成法规。"""
@@ -257,6 +267,88 @@ class TestLawRecognition:
                             url="https://openstd.example/x")
         assert m["track_l"]["doc_kind"] == "standard", m["track_l"]
         assert m["track_l"]["standard_no"], m["track_l"]
+
+
+class TestLawRecognitionFalsePositives:
+    """**误伤方向**：新闻 / 合同 / 判决书都不许被认成法规（复核 step-31~34 的 MEDIUM-HIGH）。
+
+    复核给的是**端到端**后果，不只是"识别错"：那篇新闻批准后**真的往 `doc_meta` 插了一行**
+    （`standard_no=中华人民共和国安全生产法`、`standard_name=新闻标题`），此后采到真
+    《安全生产法》全文再批准时 `find_existing_law` 命中那行新闻 ⇒ `link` 而不是 `import`
+    ⇒ **真法规永远进不了库**（脏数据拦住真数据）。所以这一组用例守的是**法条库的干净**。
+    """
+
+    def test_news_quoting_law_names_is_not_a_law(self, project):
+        """新闻：标题正常、正文引了《…》+ 几条法条 ⇒ **不许**认成法规。"""
+        pid = project["project_id"]
+        body = ("据新华社报道，应急管理部今日就安全生产问题答记者问。"
+                "《中华人民共和国安全生产法》第三条规定，安全生产工作应当以人为本。"
+                "《中华人民共和国安全生产法》第四条规定，生产经营单位必须遵守本法。"
+                "《中华人民共和国安全生产法》第五条规定，生产经营单位的主要负责人对本单位的"
+                "安全生产工作全面负责。")
+        m = co.collect_text(pid, title="应急管理部就安全生产问题答记者问", text=body,
+                            url="https://news.example/1")
+        assert m["track_l"] is None, f"新闻不许被认成法规：{m['track_l']}"
+        assert m["kind"] == "other"
+
+    def test_contract_is_not_a_law(self, project):
+        """合同：有第一条/第二条、有《设备采购合同》⇒ **不许**认成法规。"""
+        pid = project["project_id"]
+        body = ("《设备采购合同》\n第一条 甲方同意向乙方采购下列设备。\n"
+                "第二条 乙方应按本合同约定的时间交付。\n"
+                "第三条 本合同自双方签字之日起生效。\n")
+        m = co.collect_text(pid, title="设备采购合同", text=body, url="https://a.example/c")
+        assert m["track_l"] is None, m["track_l"]
+
+    def test_judgment_is_not_a_law(self, project):
+        """判决书：正文引《合同法》，但自称"本院"而不是"本法"⇒ **不许**认成法规。"""
+        pid = project["project_id"]
+        body = ("本院认为，根据《合同法》第一条的规定，当事人订立合同应当遵循平等原则。\n"
+                "第一条 判决如下。\n"
+                "第二条 案件受理费由被告负担。\n"
+                "第三条 如不服本判决，可在十五日内上诉。\n")
+        m = co.collect_text(pid, title="民事判决书", text=body, url="https://court.example/1")
+        assert m["track_l"] is None, m["track_l"]
+
+    def test_law_without_the_recital_phrase_is_still_refused(self, project):
+        """缺**立法句式**（"本法"/"本条例"）就不算——这是四条证据之一，不是装饰。"""
+        pid = project["project_id"]
+        body = ("第一条 由某部门负责解释。\n第二条 自发布之日起施行。\n第三条 未尽事宜另行规定。\n")
+        m = co.collect_text(pid, title="某省安全生产条例", text=body, url="https://gov.example/x")
+        assert m["track_l"] is None, m["track_l"]
+
+    def test_must_start_at_article_one(self, project):
+        """引用的条号**不从第一条开始** ⇒ 是节选/引用，不是法规全文。"""
+        pid = project["project_id"]
+        body = ("第三条 安全生产工作应当以人为本。本条例适用于本省。\n"
+                "第四条 生产经营单位必须遵守本条例。\n"
+                "第五条 主要负责人全面负责。\n")
+        m = co.collect_text(pid, title="某省安全生产条例", text=body, url="https://gov.example/y")
+        assert m["track_l"] is None, m["track_l"]
+
+    def test_law_name_is_never_taken_from_the_body(self, project):
+        """**根因钉子**：法规名**只能**来自标题——正文里的 `《…》` 一律不算。
+
+        复核给的那条数据污染正是从这里来的：正文首行出现 `《中华人民共和国安全生产法》`
+        （新闻/判决书/合同都在正文里引法条），第一版就把那个书名号当成了法规名。
+        这条用例构造的是"**标题不可用 + 正文首行带书名号 + 四条证据里那三条都满足**"，
+        但条数只有 3（< 10）⇒ **不许**认成法规（宁可不认，也不能拿正文里的书名号当身份）。
+        """
+        pid = project["project_id"]
+        body = ("《中华人民共和国安全生产法》\n"
+                "第一条 为了加强安全生产工作，制定本法。\n"
+                "第二条 本法适用于生产经营活动。\n"
+                "第三条 某某部门负责监督本法实施。\n")
+        assert co._law_name_of("某部门通知", body) is None, "正文里的书名号不许当法规名"
+        m = co.collect_text(pid, title="某部门通知", text=body, url="https://news.example/2")
+        assert m["track_l"] is None, f"不许拿正文里的书名号当法规身份：{m['track_l']}"
+
+        """真法规（标题是法规名 + 从第一条起 + 有"本法" + ≥3 条）**必须仍然认得出**。"""
+        pid = project["project_id"]
+        assert co.looks_like_law("中华人民共和国安全生产法", TestLawRecognition._LAW)["is_law"] is True
+        m = co.collect_text(pid, title="中华人民共和国安全生产法", text=TestLawRecognition._LAW,
+                            url="https://gov.example/law")
+        assert m["track_l"]["doc_kind"] == "law", m["track_l"]
 
 
 class TestInputValidation:

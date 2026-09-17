@@ -434,6 +434,10 @@ class TestImportToLibrary:
         """
         assert tl._law_hierarchy("中华人民共和国安全生产法") == "法律"
         assert tl._law_hierarchy("最高人民法院关于适用《中华人民共和国民法典》的解释") == "司法解释"
+        # ⚠ **宪法单列**（复核 step-31~34 的 MEDIUM）：它不以"法律"归类——目录里另有
+        #   「宪法及宪法相关法」这一档，而 `_HIER_TO_TIER` 会把"法律"直映成「法律（狭义）」。
+        assert tl._law_hierarchy("中华人民共和国宪法") == "宪法"
+        assert tl._law_hierarchy("中华人民共和国宪法修正案") == "宪法"
         # 这些**都**拿不准 ⇒ 未定（既有目录层会自己按名称关键词再兜一层，兜不到显示"未定级"）
         assert tl._law_hierarchy("危险化学品安全管理条例") == "未定"
         assert tl._law_hierarchy("XX省安全生产条例") == "未定"

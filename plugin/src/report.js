@@ -36,11 +36,14 @@ export const KS_REPORT_DOCS_PATH = '/ks/report/effect/docs'
 export const KS_REPORT_EXPORT_PATH = '/ks/report/export'
 /** 研究报告（Phase D）：材料平面的产出物（Markdown + HTML）。 */
 export const KS_REPORT_RESEARCH_PATH = '/ks/report/research'
+/** 同一份内容的 PPT（Phase D-2）。 */
+export const KS_REPORT_SLIDES_PATH = '/ks/report/research/slides'
 
 const ENGINE_EFFECT_PATH = '/api/v1/report/effect'
 const ENGINE_DOCS_PATH = '/api/v1/report/effect/docs'
 const ENGINE_EXPORT_PATH = '/api/v1/report/effect/export'
 const ENGINE_RESEARCH_PATH = '/api/v1/report/research'
+const ENGINE_SLIDES_PATH = '/api/v1/report/research/slides'
 const ENGINE_DOWNLOAD_PATH = '/api/v1/export/download'
 
 const XLSX_MIME = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
@@ -266,6 +269,55 @@ function registerResearchRoute(ctx, manager) {
   })
 }
 
+/**
+ * `POST /ks/report/research/slides`：**同一份内容的 PPT**（Phase D-2，§10.37）。
+ *
+ * 与 `/ks/report/research` 的 body 完全相同，只是引擎落盘 `.pptx`。
+ * 转发规则**同款白名单**（未知键不透传）。
+ */
+function registerSlidesRoute(ctx, manager) {
+  return ctx.webServer.register({
+    kind: 'exact',
+    path: KS_REPORT_SLIDES_PATH,
+    handler: async (req, res) => {
+      if (req.method !== 'POST') {
+        jsonResponse(res, 405, errorBody('method_not_allowed', 'POST only'))
+        return
+      }
+      let raw
+      try {
+        raw = await readJsonBody(req)
+      } catch {
+        jsonResponse(res, 400, errorBody('bad_request', 'body 必须是合法 JSON'))
+        return
+      }
+      const body = {}
+      if (typeof raw.project_id === 'string' && raw.project_id.trim() !== '') {
+        body.project_id = raw.project_id.trim()
+      }
+      for (const key of ['title', 'query', 'conclusion_md']) {
+        if (typeof raw[key] === 'string' && raw[key] !== '') body[key] = raw[key]
+      }
+      if (raw.limit !== undefined) body.limit = raw.limit
+      if (body.project_id === undefined) {
+        jsonResponse(res, 400, errorBody('bad_request', '缺少 project_id'))
+        return
+      }
+      let session
+      try {
+        session = await manager.ensureLive()
+      } catch (err) {
+        jsonResponse(res, 503, errorBody('engine_unavailable',
+          err instanceof Error ? err.message : String(err)))
+        return
+      }
+      const probe = await apiPost(originUrl(session.port), ENGINE_SLIDES_PATH,
+        { token: session.token, timeoutMs: 90_000, body })
+      mapProbe(res, probe)
+    },
+  })
+}
+
 /** Register all report routes; returns the combined disposer. */
 export function registerKsReportRoutes(ctx, manager) {
   const disposers = [
@@ -273,6 +325,7 @@ export function registerKsReportRoutes(ctx, manager) {
     registerDocsRoute(ctx, manager),
     registerExportRoute(ctx, manager),
     registerResearchRoute(ctx, manager),
+    registerSlidesRoute(ctx, manager),
   ]
   return () => {
     for (const dispose of disposers) dispose()

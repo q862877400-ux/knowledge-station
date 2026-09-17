@@ -60,7 +60,18 @@ LAW_STRONG_CLAUSES = 10    # 没有可用标题时：≥10 条才算（宁可不
 #: 法规名常见结尾（**窄**：只用于"标题像不像法规"，不用于判层级）。
 #: ⚠ `法典` 必须单列：`中华人民共和国民法典` **不以"法"结尾**，而它是中国最重要的一部法律
 #: （第一版漏了它，被自己的用例抓出来）。
-LAW_NAME_SUFFIXES = ("法", "法典", "条例", "规定", "办法", "细则", "规则", "决定", "解释", "通知")
+#: ⚠ **不含 `通知`**（2026-09-17 复核后收紧）：`《…通知》` 绝大多数是公告/新闻标题，
+#: 把它算成法规名会让"某部门通知"这类标题直接变成法规候选（实测被用例抓出）。
+#: 真·规范性文件若确实是法规正文，仍能走"标题不可用 + ≥10 条 + 立法句式"那一支。
+LAW_NAME_SUFFIXES = ("法", "法典", "条例", "规定", "办法", "细则", "规则", "决定", "解释")
+
+#: **明确不是法规**的结尾（复核实测：合同/判决书/方案会被误认成法规，进而污染法条库）。
+LAW_NAME_EXCLUDE = ("合同", "协议", "订单", "标书", "招标文件", "判决书", "裁定书",
+                    "起诉书", "答辩状", "说明书", "方案", "台账", "纪要", "函")
+
+#: 立法句式：法规正文几乎一定会自称（"本法"/"本条例"/"本规定"…）。这是**必要证据之一**，
+#: 用来把"引用了法条的新闻/合同/判决书"挡在外面。
+_RE_LEGISLATIVE = re.compile(r"本(?:法|条例|规定|办法|规则|细则|决定)")
 _RE_LAW_TITLE = re.compile(r"《[^》]{2,60}》")
 
 
@@ -119,25 +130,44 @@ def _near_duplicates(project_id: str, text: str) -> list[str]:
 
 
 def _law_name_of(title: str, text: str) -> str | None:
-    """从标题（或正文首行）取**法规名**（取不到返回 None）。
+    """从**标题**取法规名（取不到返回 None）。
 
-    三条来源，按可信度排：标题里的 `《…》` → 标题本身就是法规形态 → 正文首行。
-    ⚠ 只取"名字"，**不**在这里判层级（那要发行机关，采网页拿不到；见 `track_l`）。
+    ## ⚠ 为什么**只看标题**（2026-09-17 复核 step-31~34 的 MEDIUM-HIGH，实测数据污染）
+    第一版还会扫"正文首行 120 字里的任意 `《…》`"。复核实测后果很重：
+    一篇**新闻**（首行引了三条法条）被认成 `law_name='中华人民共和国安全生产法'`，
+    批准后**真的往 `doc_meta` 插了一行**（`standard_no=中华人民共和国安全生产法`、
+    `standard_name=新闻标题`）；此后采到**真**《安全生产法》全文再批准时，
+    `find_existing_law` 命中那行新闻 ⇒ `link` 而不是 `import` ⇒ **真法规永远进不了库**。
+    合同（《设备采购合同》）、判决书（正文引《合同法》）同理。
+    ⇒ 正文里的书名号**一律不算**：法规名必须来自**标题**，且标题本身要像标题。
+
+    ## 判据（宁可不认）
+    1. 标题 ≤ 40 字、**不含句读**（`，。！？；：、`——那是新闻标题的典型特征）；
+    2. 标题里若出现 `《…》`，取里面的名字作为候选；否则标题自身就是候选；
+    3. 候选（去掉**非版本**括注后）必须以法规后缀结尾，或以「法」「条例」结尾；
+    4. 候选**不得**是合同/协议/判决书/方案这类（`LAW_NAME_EXCLUDE`）。
+    版本括注（`（2021年修正）`）**保留**——它是身份的一部分（见 `law_name_key`）。
     """
     t = (title or "").strip()
-    m = _RE_LAW_TITLE.search(t)
-    if m:
-        return m.group(0)[1:-1].strip()
-    if t and len(t) <= 40 and t.endswith(LAW_NAME_SUFFIXES):
-        return t
-    first = next((ln.strip() for ln in (text or "").splitlines() if ln.strip()), "")
-    if not first:
+    if not t or len(t) > 40:
         return None
-    m2 = _RE_LAW_TITLE.search(first[:120])
-    if m2:
-        return m2.group(0)[1:-1].strip()
-    if len(first) <= 40 and first.endswith(LAW_NAME_SUFFIXES):
-        return first
+    if any(ch in t for ch in "，。！？；：、"):
+        return None                      # 像新闻标题，不像法规名
+    m = _RE_LAW_TITLE.search(t)
+    cand = (m.group(0)[1:-1] if m else t).strip()
+    if not cand or len(cand) > 40:
+        return None
+    # 去掉**非版本**括注（`（节选）`/`(摘录)`），但保留 `（2021年修正）` 这类版本标记
+    # ——版本标记是**身份的一部分**（见 `law_name_key`），而"节选"不是。
+    ver = re.search(r"[（(]([^）)]*)[）)]\s*$", cand)
+    keeps_version = bool(ver and re.search(r"修正|修订|修改|决定|解释", ver.group(1)))
+    base_cand = cand if (ver is None or keeps_version) else cand[:ver.start()].strip()
+    if not base_cand:
+        return None
+    if base_cand.endswith(LAW_NAME_EXCLUDE):
+        return None
+    if base_cand.endswith(LAW_NAME_SUFFIXES) or "条例" in base_cand or "法" in base_cand:
+        return cand if keeps_version else base_cand
     return None
 
 
@@ -149,9 +179,17 @@ def looks_like_law(title: str, text: str) -> dict[str, Any]:
     永远认不出（`track_l.import_to_library` 自己的 docstring 就写着"当前实际只会走
     标准那一支"）。于是"采集到的法规正文自动入库"这句承诺在法规这一侧是**空的**。
 
-    ## 判据（两条信号，**都要**真有"第X条"条文；宁可不认，也不要把新闻当法规）
-    1. **有法规形态的标题**（`《…》` 或以上述后缀结尾）**且**条数 ≥ `LAW_MIN_CLAUSES`(3)；
-    2. **条数 ≥ `LAW_STRONG_CLAUSES`(10)** —— 没有可用标题也认（采网页常丢标题）。
+    ## 判据（**四条证据齐了才算**；宁可不认，也不要把新闻当法规）
+    1. **标题是法规名**（`_law_name_of`：只认标题、不含句读、不是合同/协议/判决书类）；
+    2. **条文从「第一条」开始**（`starts_at_first`）——新闻/判决书里的引用通常引第三条、第四条；
+    3. **正文有立法句式**（`本(法|条例|规定|办法|规则|细则|决定)`）**且**条数 ≥
+       `LAW_MIN_CLAUSES`(3)；
+    4. **没有可用标题时**：条数 ≥ `LAW_STRONG_CLAUSES`(10) **且**同样满足 2、3。
+
+    ⚠ 这四条是**复核 step-31~34 的 MEDIUM-HIGH 逼出来的**：只有"标题形态 + 条数"时，
+    实测有一篇新闻（正文引了三条法条）被认成《安全生产法》，批准后**真的进了法条库**，
+    还把此后采到的**真**《安全生产法》挤成 `link`（脏数据拦住了真数据）。
+    第一版 docstring 写着"宁可不认，也不要把新闻当法规"——**那句话当时是空话**，现在是判据。
 
     条数由 `ingestion.law_text.split_law_text` 数（**第X条切分的唯一所有者**，
     本函数**不新写**第二份正则——标准号那次教训就是"同一机制两份实现必然分叉"）。
@@ -162,13 +200,22 @@ def looks_like_law(title: str, text: str) -> dict[str, Any]:
     articles = split_law_text(str(text or ""))
     count = len(articles)
     name = _law_name_of(title, text)
-    if name is not None and count >= LAW_MIN_CLAUSES:
+    first_no = str(articles[0][0]) if articles else ""
+    starts_at_first = first_no.replace(" ", "") == "第一条"
+    legislative = bool(_RE_LEGISLATIVE.search(str(text or "")[:4000]))
+    core = count >= LAW_MIN_CLAUSES and starts_at_first and legislative
+    if name is not None and core:
         return {"is_law": True, "law_name": name, "clause_count": count,
-                "why": f"标题是法规形态且含 {count} 条条文"}
-    if count >= LAW_STRONG_CLAUSES:
-        return {"is_law": True, "law_name": name, "clause_count": count,
-                "why": f"含 {count} 条条文（标题不可用，按条数认）"}
-    return {"is_law": False, "clause_count": count, "law_name": name}
+                "starts_at_first": starts_at_first, "legislative": legislative,
+                "why": f"标题是法规名、从第一条起共 {count} 条、且有立法句式"}
+    if name is None and core and count >= LAW_STRONG_CLAUSES:
+        return {"is_law": True, "law_name": None, "clause_count": count,
+                "starts_at_first": starts_at_first, "legislative": legislative,
+                "why": f"标题不可用，但正文从第一条起共 {count} 条且有立法句式"}
+    return {"is_law": False, "clause_count": count, "law_name": name,
+            "starts_at_first": starts_at_first, "legislative": legislative,
+            "why": ("标题不是法规名" if name is None else "缺少立法句式或不是从第一条起"
+                    if not core else "标题不可用且条数不足 " + str(LAW_STRONG_CLAUSES))}
 
 
 def collect_text(project_id: str, *, title: str, text: str, url: str | None = None,

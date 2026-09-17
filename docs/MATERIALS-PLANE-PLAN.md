@@ -358,13 +358,24 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
   ② 采集预算/频率上限**定案**（§11.4；暂定值见 C-6）；③ 真机 GUI 端到端
   （**两道门**：引擎需重启加载新路由 + **宿主插件需重挂载**才能看到 `ks_collect`）；
   ④ 下一轮独立复核（复核 step-31~step-34）。
-- **C-11 复核 step-26~step-30 的施工单（未做，§10.34 末尾有完整清单）**：三个 MEDIUM——
-  ① `ks_collect` 缺 `collected` 字段时**不抛**（与文档相反，且会把"信封坏了"谎报成"没采到"）；
-  ② 采集端点只挡 `source_tier` **一个拼写**，同义键静默忽略 ⇒ 改请求体**白名单**（引擎+主机）；
-  ③ `_strip_script_style` 的 LEAK/OVERKILL（`<script/>` 在 HTML5 下不自闭合；
-  注释里的 `<script>`、`</script foo>`、字面 `<script>` 会**吞掉其后正文**）⇒
-  先剥注释、放宽结束标签、按 HTML5 语义判，并**回头改** §10.29 那条按 XHTML 写的用例。
-  另有若干 LOW（响应头键大小写、上限判断位置、过期注释、若干措辞过度声称）。
+- **C-11 复核 step-26~step-30 的施工单（已完成，§10.35）**：三个 MEDIUM——① `ks_collect`
+  缺 `collected` 字段时**不抛**（与文档相反，会把"信封坏了"谎报成"没采到"）⇒ 单列信封异常并抛；
+  ② 采集端点只挡 `source_tier` **一个拼写**，同义键静默忽略 ⇒ 引擎+主机两层**请求体白名单**；
+  ③ `_strip_script_style` 的 LEAK/OVERKILL ⇒ 先剥注释、放宽结束标签、按 **HTML5** 语义判
+  （并回头改了 §10.29 那条按 XHTML 写的用例）。另有若干 LOW（响应头键大小写、上限判断位置、
+  过期注释、措辞过度声称）一并收掉。
+- **C-12 复核 step-31~step-34 的施工单（部分完成，§10.37）**：
+  **已完成**：① [MEDIUM-HIGH] **法规识别误伤 ⇒ 数据污染**（新闻被认成《安全生产法》并
+  **挤掉**真法规）⇒ 四条证据（标题是法规名 / 从第一条起 / 立法句式 / 条数）+ 法规名**只看标题**；
+  ② [MEDIUM] `宪法` 被判成「法律（狭义）」⇒ `_law_hierarchy` 先判宪法。
+  **未做**：③ [MEDIUM] **Track L 入的标准进错树**（`auto_tag` 的 `GB88888-2088` 无空格过不了
+  `doc_catalog._STD_NO_PREFIX` 的 `\b` ⇒ `top='law'`）**且条款类型判成 `legal`**
+  （`ingest_law_text` 里 `classify_clause(..., doc_type="法律法规")` 写死）⇒ 需**写库拼写归一**
+  + `doc_type` 透传。**这条同时证伪了 §10.33 那句"拼写不统一不是判据问题"**；
+  ④ [MEDIUM] **网页文本落库即"现行有效 + A 级 + 强制性"**（`insert_document` 默认值）⇒
+  未核验网页文本会被当现行有效引用、效力报告算 🟢，需写诚实值并在回执/报告披露；
+  ⑤ 若干 LOW（query 未知键静默忽略、`_strip_script_style` 两处新偏差、C-11 的陈旧状态、
+  §10.35 缩了探针集的说法、xhtml 分流只写在 docstring、两个测试缺口）。
 - **C-9 顺手收掉的自家待办（已完成，§10.32）**：`materials_scan` 从 `async def` 改回 `def`
   ——它做的是**分钟级**同步解析（MinerU），而 uvicorn 是单事件循环，`async def` 会把
   **整个引擎**卡住。加了一条结构性测试（`iscoroutinefunction(endpoint)`）防回退，

@@ -140,3 +140,36 @@ def register(app, json_error):
         except KnowledgeStationError as e:
             return json_error(500, getattr(e, "code", "internal_error"), str(e))
         return {"code": 200, "status": "success", "data": data}
+
+    @app.post("/api/v1/report/research/slides")
+    async def research_report_slides(payload: dict | None = None):
+        """**同内容的 PPT**（Phase D-2，§10.37）。
+
+        内容块与 Markdown 报告**同源**（`research_report.build_report_blocks`），
+        所以不会出现"报告写的和 PPT 不一样"。Body 与 `/report/research` 相同，
+        只是落盘成 `.pptx`（超长要点会截断、页数有上限——都写在 PPT 末页）。
+        """
+        body = payload or {}
+        project_id = body.get("project_id")
+        if not isinstance(project_id, str) or not project_id.strip():
+            return json_error(422, "materials_bad_request", "缺少 project_id")
+        for key in ("title", "query", "conclusion_md"):
+            val = body.get(key)
+            if val is not None and not isinstance(val, str):
+                return json_error(422, "materials_bad_request", f"{key} 必须是字符串")
+        try:
+            limit = max(1, min(int(body.get("limit") or 8), 50))
+        except (TypeError, ValueError):
+            return json_error(422, "materials_bad_request", "limit 必须是整数")
+        from src.core.exports import slide_export
+        try:
+            data = slide_export.write_slide_deck(
+                project_id.strip(), title=body.get("title"), query=body.get("query"),
+                conclusion_md=body.get("conclusion_md"), limit=limit)
+        except ValueError as e:
+            return json_error(404, "materials_not_found", str(e))
+        except RuntimeError as e:       # 缺 python-pptx 时给可操作的错误，不出空文件
+            return json_error(500, "ppt_unavailable", str(e))
+        except KnowledgeStationError as e:
+            return json_error(500, getattr(e, "code", "internal_error"), str(e))
+        return {"code": 200, "status": "success", "data": data}

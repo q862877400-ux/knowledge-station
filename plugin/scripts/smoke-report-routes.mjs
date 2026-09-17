@@ -21,6 +21,7 @@ import {
   KS_REPORT_EFFECT_PATH,
   KS_REPORT_EXPORT_PATH,
   KS_REPORT_RESEARCH_PATH,
+  KS_REPORT_SLIDES_PATH,
   registerKsReportRoutes,
 } from '../src/report.js'
 
@@ -107,9 +108,10 @@ const lastEngine = () => seen[seen.length - 1]
 /* --------------------------- 1. 注册面 --------------------------- */
 
 {
-  check('注册了全部 4 条报告路由',
-    routes.size === 4 && [KS_REPORT_EFFECT_PATH, KS_REPORT_DOCS_PATH,
-      KS_REPORT_EXPORT_PATH, KS_REPORT_RESEARCH_PATH].every((p) => routes.has(p)),
+  check('注册了全部 5 条报告路由',
+    routes.size === 5 && [KS_REPORT_EFFECT_PATH, KS_REPORT_DOCS_PATH,
+      KS_REPORT_EXPORT_PATH, KS_REPORT_RESEARCH_PATH, KS_REPORT_SLIDES_PATH]
+      .every((p) => routes.has(p)),
     `${routes.size} routes`)
   check('全部是 kind=exact（字面路径，不会被通配吃掉）',
     [...routes.values()].every((d) => d.kind === 'exact'))
@@ -238,6 +240,49 @@ const lastEngine = () => seen[seen.length - 1]
   })
   check('引擎 200 但没有 data → 依然 200 + 空对象（与本模块其它路由同款，不伪装）',
     noData.status === 200 && noData.body.ok === true, JSON.stringify(noData.body))
+}
+
+/* --------------------------- 5. PPT（/research/slides） --------------------------- */
+
+{
+  seen.length = 0
+  responder = () => ({
+    body: { code: 200, status: 'success',
+      data: { path: 'D:\\exports\\研究报告-x.pptx', name: '研究报告-x.pptx',
+        slide_count: 4, warnings: [], counts: { approved: 1, pending: 0, rejected: 0 } } },
+  })
+  const ok = await invoke(KS_REPORT_SLIDES_PATH, {
+    method: 'POST', body: { project_id: 'prj_a', title: 'T', limit: 3, 未知: 1 },
+  })
+  check('POST /ks/report/research/slides 打到引擎正确路径',
+    lastEngine().method === 'POST'
+    && lastEngine().path === '/api/v1/report/research/slides',
+    `${lastEngine().method} ${lastEngine().path}`)
+  check('PPT 路由：白名单转发（未知键不透传）+ 原样回传文件路径/页数',
+    lastEngine().sent['未知'] === undefined
+    && ok.status === 200 && String(ok.body.data.name).endsWith('.pptx')
+    && ok.body.data.slide_count === 4,
+    JSON.stringify(ok.body.data ?? null))
+
+  seen.length = 0
+  const noPidPpt = await invoke(KS_REPORT_SLIDES_PATH, { method: 'POST', body: {} })
+  check('PPT 路由：缺 project_id → 400 且不打扰引擎',
+    noPidPpt.status === 400 && seen.length === 0,
+    `${noPidPpt.status} engineCalls=${seen.length}`)
+
+  seen.length = 0
+  const getPpt = await invoke(KS_REPORT_SLIDES_PATH, {})
+  check('PPT 路由：GET → 405（方法守卫）', getPpt.status === 405, String(getPpt.status))
+
+  // 缺 python-pptx 时引擎回 500 ppt_unavailable ⇒ 本层按 502 引擎错误如实转达（不伪装成功）
+  responder = () => ({
+    http: 500, body: { code: 500, error: 'ppt_unavailable', message: '需要 python-pptx' },
+  })
+  const noDep = await invoke(KS_REPORT_SLIDES_PATH, {
+    method: 'POST', body: { project_id: 'prj_a' },
+  })
+  check('PPT 依赖缺失（引擎 500）→ 502 engine_error（不假装导出成功）',
+    noDep.status === 502, String(noDep.status))
 }
 
 /* ------------------------------------------------------------------ */

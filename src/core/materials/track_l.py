@@ -205,7 +205,13 @@ def _law_hierarchy(name: str) -> str:
     base = re.sub(r"[（(][^）)]*[）)]\s*$", "", str(name or "").strip()).strip()
     if any(k in base for k in _LAW_HIER_SAFE):
         return "司法解释"
-    # ⚠ **endswith("法") 会误吃"办法/方法/做法"**（实测踩到：`行政处罚办法` 被判成"法律"）——
+    # ⚠ **宪法必须单列**（2026-09-17 复核 step-31~34 的 MEDIUM）：`中华人民共和国宪法`
+    # 以"法"结尾，会被下面那条判成「法律」⇒ `doc_catalog._HIER_TO_TIER` 直映到
+    # 「法律（狭义）」，而目录里**另有**「宪法及宪法相关法」这一档（那句 `if "宪法" in text`
+    # 的兜底因为层级能直映而**永不生效**）。宪法是最高位阶，不能写低。
+    if "宪法" in base:
+        return "宪法"
+    # ⚠ `endswith("法")` 会误吃"办法/方法/做法"（实测踩到：`行政处罚办法` 被判成"法律"）——
     # 那正是"猜错位阶"的典型。排除掉这些才算"以法结尾"。
     if base.endswith("法典") or (base.endswith("法") and not base.endswith(("办法", "方法", "做法"))):
         return "法律"

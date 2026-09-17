@@ -100,11 +100,14 @@ def _check_citations(text: str, assembled: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def build_research_report(project_id: str, *, title: str | None = None,
-                          query: str | None = None,
-                          conclusion_md: str | None = None,
-                          limit: int = 8) -> dict[str, Any]:
-    """组装研究报告（**不写文件**）。返回 `{title, markdown, html, citations, warnings, counts}`。
+def build_report_blocks(project_id: str, *, title: str | None = None,
+                        query: str | None = None,
+                        conclusion_md: str | None = None,
+                        limit: int = 8) -> dict[str, Any]:
+    """组装报告的**内容块**（`[(kind, payload)]`）——**唯一的内容来源**。
+
+    Markdown / HTML（本模块）与 PPT（`exports.slide_export`）都从这里渲染：
+    三种形态**同一份内容**，不会出现"报告里写的和 PPT 里写的不一样"。
 
     Args:
         project_id: 参考资料项目（`prj_…`）。
@@ -198,13 +201,30 @@ def build_research_report(project_id: str, *, title: str | None = None,
     return {
         "title": name,
         "query": (query or None),
-        "markdown": _to_markdown(doc),
-        "html": _to_html(doc, title=name),
+        "blocks": doc,
         "citations": citations,
         "warnings": warnings,
         "counts": {"approved": len(approved), "pending": len(pending),
                    "rejected": len(rejected)},
     }
+
+
+def build_research_report(project_id: str, *, title: str | None = None,
+                          query: str | None = None,
+                          conclusion_md: str | None = None,
+                          limit: int = 8) -> dict[str, Any]:
+    """**内容块 → 两种可交付形态**（Markdown / HTML）。
+
+    内容块的组装只有一处（`build_report_blocks`）；本函数与
+    `exports.slide_export.write_slide_deck()` 都从**同一份块**渲染
+    ——避免"报告一套内容、PPT 又一套内容"这种必然分叉。
+    """
+    model = build_report_blocks(project_id, title=title, query=query,
+                               conclusion_md=conclusion_md, limit=limit)
+    blocks = model["blocks"]
+    return {**{k: v for k, v in model.items() if k != "blocks"},
+            "markdown": _to_markdown(blocks),
+            "html": _to_html(blocks, title=str(model["title"]))}
 
 
 def write_research_report(project_id: str, *, title: str | None = None,
