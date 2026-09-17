@@ -3134,3 +3134,48 @@ byte-identical 还原**（并加了 `ast.parse` 自查）；
 剩 INFO-4（报告 ⚠ 不覆盖「依据」节——要动 `authority.render_evidence` 这第二个所有者，**新立项**）
 与 INFO-6（模态通道没有 ORDER BY ⇒ 通道内顺序未定义，要先定"通道内该怎么排"）。
 
+
+### 10.58 收掉 INFO-6：通道内"名次未定义"⇒ 权重不可复现（并把同族第二处一起钉住）
+
+b9 台账里 INFO-6 是 step-55 顺手发现的：**模态通道（D）那条 SQL 完全没有 `ORDER BY`**。
+本步收它，并发现**同族第二处**（通道 E），一并钉住。
+
+**问题（为什么这不是"少了句 ORDER BY"的小事）**
+`rank` 直接决定 `CHANNEL_WEIGHTS / (RRF_K + rank + 1)`。而**没有 `ORDER BY` 的 SELECT
+返回次序是未定义的**——实践中它由访问路径/rowid 决定，所以"今天看起来稳定"只是**巧合**：
+换规划器、加索引、VACUUM、甚至数据插入次序变了都可能让同一个查询给出**不同的权重分配**。
+后果是双重的：① 答案**不可复现**（同一问题两次检索可能给出不同排序）；
+② 这条行为**没法断言**（未定义的东西写不出稳定的期望值）。
+
+**修法（与通道 A 的口径一致）**
+- 通道 D（模态）：`ORDER BY (dm.legal_status IS NULL), dm.legal_status, cr.clause_revision_id`
+  ——未核验（NULL）沉底、已知状态按名排、最后用 id 兜底保证**全序**（同状态多行也确定）。
+- 通道 E（法理要素，**同族、自查发现**）：`ORDER BY clause_revision_id`。
+  ⚠ **诚实边界**：E **没有** JOIN `doc_meta`，所以这里只能给"**确定性**"，
+  **给不了**"未核验沉底"那条偏好——要那条得改查询形状（加 JOIN），属更大的改动，
+  已登记为待办，**不**在这一步夹带。
+
+**测试（行为侧证据，且刻意让"不写 ORDER BY"排错）**
+- 模态：**先插入未核验那一份**（自然/rowid 次序会把它排前）⇒ 只有真的写了排序且未核验沉底，
+  已核验那份才会在前；顺带断言"同一查询两次给出同一序列"。
+  ⚠ 用例里写明**判别力边界**：这条依赖 SQLite 的访问路径，规划器若改成从 `doc_meta` 驱动
+  可能出现**假绿** ⇒ 真正的护栏是"语句里现在就写着 ORDER BY"。
+- 法理要素：按 **id 倒序**插入（先 `c992` 再 `c991`）⇒ 真按 id 排序时返回顺序必然与插入顺序
+  **相反**；不写 ORDER BY 会给插入顺序 ⇒ 红。
+
+**变异证据（逐字节还原，`hybrid_engine.py` sha256 `333a4803…`）**：
+| 变异 | 内容 | 结果 |
+|---|---|---|
+| O1 | 去掉通道 D 的 ORDER BY | `test_modality_channel_ranks_verified_before_unverified` **RED** |
+| O2 | 去掉通道 E 的 ORDER BY | `test_legal_element_channel_order_is_deterministic` **RED** |
+
+⚠ 本步的变异驱动**新增了 `ast.parse` 自查**（step-56 那次把文件改成语法错误的教训）：
+变异施加后先确认文件仍能解析，再跑用例——避免"红在收集期 error"被误读成"断言有效"。
+
+**门禁**：pytest **1696 passed / 3 skipped**（新增 2 条）；mypy **134 files / 0 errors**
+（本步只动 Python 与测试，未动客户端 ⇒ 无需重建产物、smoke 与 tsc 不受影响）。
+
+**b9 台账现状**（方案未决第 12 条）：4 MEDIUM、LOW-1~6、INFO-3、INFO-5、INFO-6 **全部收口**；
+只剩 INFO-4（报告 ⚠ 不覆盖「依据」节——要动 `authority.render_evidence` 这第二个所有者，
+**新立项**）+ 本条新登记的待办（通道 E 的"未核验沉底"要加 JOIN）。
+
