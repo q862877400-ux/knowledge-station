@@ -119,6 +119,13 @@ export function pickQuery(reqUrl, allowed) {
  * （项目/材料 id 写错了），把它翻成 `502 engine_error` 是**归因错误**——
  * 用户看到"引擎错误"会去查引擎，而真正的原因是他给了一个不存在的 id。
  * 与 `docimage` 那条路由的既有约定一致（引擎 404 → 404）。
+ *
+ * ⚠ **影响面要说清**（2026-09-17 复核 b7 的 LOW-4）：这是**共享**的映射器，
+ * 因此这条改动**不是**只作用于当时那条材料路由——`materials_routes.js`、
+ * `report.js`、`settings.js` 等**所有**用 `mapProbe` 的路由一起变了：
+ * **凡是引擎回 404 的，主机现在也回 404**（以前是 502）。
+ * 这是**有意的全局口径**（"目标不存在"不是"引擎坏了"），但当时没写出来 ⇒ 现在写上。
+ * 若要回到旧行为，只能在**调用点**决定（别把共享映射器改成分支开关）。
  */
 export function mapProbe(res, probe, engineErrorStatus = 502, pick = null) {
   if (probe.status === 200 && probe.body && typeof probe.body === 'object') {

@@ -610,6 +610,7 @@ class TestTreeClassificationOfStandardNumbers:
         "GB12321-2021", "GB 12321-2021", "GB/T 12041.1-2010", "GBT12041.1-2010",
         "DB11/T 1234-2020", "DB11T1234-2020", "AQ 4272-2016", "JGJ 130-2011",
         "GBZ 1-2010", "GBZ1-2010",          # 职业卫生标准也是标准（原来漏在白名单外）
+        "GB",                               # 光杆前缀（退化输入）：**不许掉进法规树**（复核实测的回退）
     ])
     def test_standard_numbers_go_to_the_standard_tree(self, std_no):
         from src.core.knowledge.doc_catalog import classify_document

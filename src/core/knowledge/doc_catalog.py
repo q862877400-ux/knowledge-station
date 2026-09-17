@@ -221,10 +221,16 @@ def _law_domain_doc(doc) -> list[str]:
 # ⚠ **不能用 `\b`**（2026-09-17 复核 step-31~34 的 MEDIUM）：`auto_tag` 抽出来的归一形是
 #    **无空格**的 `GB88888-2088`，而 `GB` 与 `8` 都是词字符 ⇒ `\b` **不成立** ⇒ 被归到
 #    **法规树**（`top='law'`）。同理 `DB11/T 1234-2020`（地方标准）也过不了 `\b`。
-#    这里把边界改成"后面是空白/斜杠**或数字**"——既容纳无空格写法，也保留原有的
-#    "GBX 开头的法规名不该误判"（`GB` 后面跟字母时仍不匹配）。
+#    这里把边界改成"后面是空白/斜杠**或数字**（含字符串到此为止）"。
+# ⚠ **措辞更正**（2026-09-17 复核 b7 的 LOW-5）：上一版这段注释还写着"`GB` 后面跟字母时
+#    仍不匹配"——那句话在**加入 `GBZ` 之后不再成立**（`GBZ1-2010` 是职业卫生标准，要匹配，
+#    而它恰恰是"GB 后面跟字母"）。准确说法：**名单里的前缀后面必须是空白/斜杠/数字
+#    （或字符串结束）**，否则不匹配 ⇒ `GBX`、`DBX` 这类仍不会被误判成标准。
+#    `$` 那一支是给**退化输入**留的（`standard_no` 恰好就是光杆 `GB`）：没有它，"GB"
+#    会掉进法规树——那是复核实测的**回退**，现在按原行为（当标准）保住。
 _STD_NO_PREFIX = re.compile(
-    r"^(GB|GB/T|GBT|GBZ|AQ|JGJ|JG|CJJ|DB|SH|HG|TSG|YS|SN|JB|QB|NY|SL|DL)(?=[\s/]|\d)", re.I)
+    r"^(GB|GB/T|GBT|GBZ|AQ|JGJ|JG|CJJ|DB|SH|HG|TSG|YS|SN|JB|QB|NY|SL|DL)(?=[\s/]|\d|$)",
+    re.I)
 
 
 def classify_document(doc) -> dict:
@@ -234,7 +240,6 @@ def classify_document(doc) -> dict:
     某分类暂无文件时不显示（结构仍在）。判定标准 vs 法规以标准号格式优先
     （GB/T 3608-2008 虽被误标 doc_type=法律法规，但编号是国标 → 标准树）。"""
     std = (doc.get("standard_no") or "").strip()
-    doc_type = doc.get("doc_type") or ""
     tags = doc.get("domain_tags") or []
 
     is_standard = bool(_STD_NO_PREFIX.match(std))

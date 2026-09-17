@@ -108,10 +108,17 @@ class TestCitationChecking:
         assert out["citations"]["unchecked_law_refs"] == [1, 2]
 
     def test_conclusion_without_query_is_declared_unchecked(self, project):
-        """不给 `query` 就没有依据集可比 ⇒ **必须**说出来（不许默默放过引用）。"""
+        """不给 `query` 就没有依据集可比 ⇒ **必须**说出来（不许默默放过引用）。
+
+        ⚠ **结构化字段也要如实**（2026-09-17 复核 b7 的 LOW-3）：原来只把"有 N 个引用
+        无法校验"写进 warning 文案，而 `citations["material_refs"]` 仍是**空列表**——
+        读结构化字段的消费者会得出"结论里没有材料引用"这个**相反**的结论。
+        """
         pid = project["project_id"]
         out = rr.build_research_report(pid, conclusion_md="据 [[m:3]] 可知。")
         assert any("无法校验" in w for w in out["warnings"]), out["warnings"]
+        # 结构化字段与文案必须说同一件事
+        assert out["citations"]["material_refs"] == [3], out["citations"]
 
     def test_negative_index_is_caught(self, project):
         """负数编号也要被抓（历史缺陷：提示词侧曾漏掉 `[[m:-1]]`）。"""

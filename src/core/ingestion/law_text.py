@@ -113,7 +113,12 @@ def ingest_law_text(text: str, standard_no: str, standard_name: str,
         legal_status / quality_grade / standard_type: 落库的效力/质量/类型值。
             **不给 = 沿用 `insert_document` 的既有默认**（`effective`/`A`/`mandatory`）。
             采集路径（`materials.track_l`）应传**诚实值**——它来自网页、不是官方原件，
-            见那边的调用点；这里的默认值是为了**不改既有调用方**的行为（docx/官方法规源）。
+            见那边的调用点。
+            ⚠ **措辞更正**（2026-09-17 复核 b7 的 LOW-1）：原话写"为了不改**既有调用方**
+            （docx/官方法规源）的行为"——那两条路**根本不调用本函数**
+            （`docx_ingest.py` 与 `pipeline.py` 直接 `insert_document`）。
+            哨兵真正护住的是**仓外/未来的调用方**以及 `track_l` 的两个分支：
+            谁没显式传，就仍然拿到 `insert_document` 的默认值。
     """
     settings = get_settings()
     init_schema()

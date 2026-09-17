@@ -144,6 +144,10 @@ def build_report_blocks(project_id: str, *, title: str | None = None,
     elif conclusion:
         still = sorted({int(x) for x in _RE_MATERIAL_REF.findall(conclusion)})
         if still:
+            # ⚠ **结构化字段也要如实**（2026-09-17 复核 b7 的 LOW-3）：原来只往 warning 文案里
+            # 写了"有 N 个引用无法校验"，而 `citations["material_refs"]` 仍是空列表 ——
+            # 读结构化字段的消费者会得出"结论里没有材料引用"这个**相反的结论**。
+            citations["material_refs"] = still
             citations["unchecked_law_refs"] = sorted(
                 {int(x) for x in _RE_CLAUSE_REF.findall(conclusion)})
             warnings.append("这次没有给 `query`，所以**无法校验**结论里的 "
