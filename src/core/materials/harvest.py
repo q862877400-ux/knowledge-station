@@ -11,8 +11,14 @@
    "用户拍板严格版，**无豁免开关**"）。本模块**不提供**"允许内网"的参数——
    那等于给严格版开后门。测试要打本地服务时，用 `monkeypatch` 换掉那个函数，
    **不在生产代码里留开关**。
+   ⚠ **闸门必须在"发起每一跳之前"生效**：独立复核（2026-09-17）实测默认传输**跟随 302**
+   ⇒ 一个公网 URL 可用 `Location: http://169.254.169.254/…` 把请求引向内网，而闸门只在
+   最前面判过一次。故本模块**显式关掉重定向跟随**（`_fetch_without_redirects`），
+   把"重定向"变成一个**可见的结果**；只有**同主机**的 http→https 升级会重试一次
+   （主机没变 ⇒ 不可能被引向内网）。
 2. **抓取**走 `update.channels.base.default_transport()`（curl_cffi 浏览器指纹，
-   httpx 兜底），契约 `fetch(url, timeout=…) -> (status, body)`。**不自造 HTTP 客户端**。
+   httpx 兜底），契约 `fetch(url, timeout=…, allow_redirects=…) -> (status, body)`。
+   **不自造 HTTP 客户端**（重定向 kwarg 的名字差异由那个模块翻译）。
 3. **HTML→文本**走 `text_utils.html_to_text`（页面级规范实现；见那里关于
    "与 `clause_health_html_to_text` 的精确关系"的说明）。
 
@@ -28,15 +34,22 @@
 ## 诚实边界
 - 只在拿到 **2xx** 且正文（`str`）非空时才登记；其它情况如实返回 `status`/`reason`，
   **不建立空材料**（空材料会变成"盲签对象"）。
+- 两种"空正文"**分开报**：取回就是空的 ⇒ "响应为空"；取回来了但 HTML→文本之后为空
+  ⇒ 明确说"原文非空，转换后为空"（否则排查方向会被带偏）。
+- **不跟随重定向**（见上）；同主机 http→https 自动试一次，仍被重定向就如实拒绝并
+  要求给**最终地址**。
 - 标题优先用调用方给的；否则从 `<title>` 取（粗正则）；再否则用 URL。
 - `is_private_url` 自带已知局限（DNS rebinding 的 TOCTOU 窗口不设防，
   理由见其 docstring）——本模块**继承**那个局限，不另行声称更强。
+- **Content-Type 仍拿不到**（传输层只回 `(status, body)`）⇒ "JS/CSS/JSON 接口"这类
+  **不是网页正文**的响应本模块**认不出**（独立复核 2026-09-17 的 MEDIUM，待做：
+  给传输层一个"带响应头的取回"契约）。当前只有"明显二进制"能被开头签名挡住。
 """
 from __future__ import annotations
 
 import re
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urlsplit, urlunsplit
 
 from src.core.materials import collect as co
 from src.core.text_utils import html_to_text, looks_like_binary
@@ -61,6 +74,39 @@ def page_title(html: str) -> str | None:
     return title or None
 
 
+def _fetch_without_redirects(tp: Any, url: str, timeout: float) -> tuple[int, Any]:
+    """抓一跳，**明确不跟随重定向**（`allow_redirects=False`）。
+
+    ## 为什么必须显式关掉（2026-09-17 独立复核的 HIGH，实测可达）
+    默认的 curl_cffi `Session` 会**跟随** 302，而 SSRF 闸门只在**发起前**判过原始 URL
+    一次 ⇒ 一个公网地址只要返回 `302 Location: http://169.254.169.254/…`，引擎就会
+    **真的向云元数据端点发起连接**（复核实测 curl 52/28），闸门被整条绕过。
+    关掉跟随之后，"重定向"变成一个**可见的结果**（3xx），由调用方决定怎么办。
+
+    ⚠ kwarg 名由 transport 自己翻译（curl_cffi 用 `allow_redirects`、httpx 用
+    `follow_redirects`——见 `update.channels.base` 的说明）。注入的测试替身只要接受
+    `**kw` 就能被同等对待；**不接受**的替身会在这里抛 `TypeError`（被上层如实回报），
+    这是**故意**的 fail-closed：宁可抓不到，也不在"重定向可能已跟随"的情况下登记材料。
+    """
+    return tp.fetch(url, timeout=timeout, allow_redirects=False)
+
+
+def _https_upgrade(url: str) -> str | None:
+    """`http://x/y` → `https://x/y`（**只改协议**）；不是 http 就没有可升级的。
+
+    为什么"同主机升级"不算跟随重定向：**主机没变** ⇒ `is_private_url` 的结论不变，
+    这条请求**不可能**被引向内网。而 `.gov` 站点 http→https 的 301/302 很常见，
+    不试一次会把大量正常页面当成"重定向"丢掉（P1 与 P2 的折中：安全性不受影响）。
+    """
+    parts = urlsplit(url)
+    if parts.scheme.lower() != "http" or not parts.hostname:
+        return None
+    host = parts.hostname
+    port = parts.port
+    netloc = host if port in (None, 80) else f"{host}:{port}"
+    return urlunsplit(("https", netloc, parts.path, parts.query, parts.fragment))
+
+
 def collect_url(project_id: str, url: str, *, title: str | None = None,
                 source_tier: str | None = None, transport: Any = None,
                 timeout: float = PAGE_TIMEOUT_S,
@@ -81,13 +127,26 @@ def collect_url(project_id: str, url: str, *, title: str | None = None,
     if _announce.is_private_url(target):
         return {"collected": False, "reason": "URL 被 SSRF 纪律拒绝（仅 http/https 且禁内网/保留地址）"}
 
-    # ② 抓取（复用既有 transport；测试可注入）
+    # ② 抓取（复用既有 transport；测试可注入）。**不跟随重定向** + 同主机 http→https 重试。
     tp = transport if transport is not None else _default_transport()
+    fetched = target
     try:
-        status, body = tp.fetch(target, timeout=timeout)
+        status, body = _fetch_without_redirects(tp, fetched, timeout)
+        if 300 <= int(status) < 400:
+            upgraded = _https_upgrade(fetched)
+            if upgraded is not None:
+                status, body = _fetch_without_redirects(tp, upgraded, timeout)
+                fetched = upgraded            # 留痕用**实际抓到的**地址
     except Exception as exc:  # noqa: BLE001 — 网络异常如实回报，不抛给上层
         return {"collected": False, "reason": f"抓取失败：{exc}"}
 
+    if 300 <= int(status) < 400:
+        # **不跟随**重定向（独立复核 2026-09-17 的 HIGH）：跟随会让公网 URL 把请求
+        # 引向内网（实测 302 → 169.254.169.254 真的连上了），而闸门只在发起前判一次。
+        return {"collected": False, "status": int(status),
+                "reason": f"HTTP {int(status)} 重定向——**不跟随**（跟随会绕过 SSRF 闸门："
+                          "实测一个公网 URL 可用 302 把请求引向内网元数据端点）。"
+                          "同主机 http→https 已自动试过一次；请给出**最终地址**"}
     if int(status) < 200 or int(status) >= 300:
         return {"collected": False, "status": int(status),
                 "reason": f"HTTP {status}（不登记未成功取回的页面）"}
@@ -98,7 +157,12 @@ def collect_url(project_id: str, url: str, *, title: str | None = None,
 
     text = html_to_text(body)
     if not text.strip():
-        return {"collected": False, "status": int(status), "reason": "页面没有可提取的正文"}
+        # ⚠ 两种"空"要**分开**（独立复核 2026-09-17 指出的归因误导）：原文本身没有内容，
+        # 与"转换后没剩下东西"（例如脚本/样式剥离过头）是**不同**的故障，原因串必须能区分。
+        return {"collected": False, "status": int(status),
+                "reason": ("页面没有可提取的正文（响应为空）" if not (body or "").strip()
+                           else "页面没有可提取的正文（原文非空，但 HTML→文本后为空"
+                                "——可能是只有标签/脚本/样式的页面）")}
     # 传输层把响应统一压成 `str`（Content-Type 在那里就丢了），所以"这不是网页正文"
     # 只能靠**开头字节**认——判据的所有者在 `text_utils.looks_like_binary`。
     # 实测踩到：`/x.pdf` 的 `%PDF-1.7` 头会被 `html_to_text` 原样当正文，
@@ -112,14 +176,16 @@ def collect_url(project_id: str, url: str, *, title: str | None = None,
     if truncated:
         text = text[:MAX_TEXT_CHARS]
 
-    resolved_title = (title or "").strip() or page_title(body) or urlparse(target).path or target
+    resolved_title = ((title or "").strip() or page_title(body)
+                      or urlparse(fetched).path or fetched)
 
     note_parts = [p for p in [note] if p]
-    note_parts.append(f"自采：HTTP {int(status)} 来自 {urlparse(target).hostname or '?'}"
+    note_parts.append(f"自采：HTTP {int(status)} 来自 {urlparse(fetched).hostname or '?'}"
+                      + ("（同主机 http→https 升级后取到）" if fetched != target else "")
                       + ("（正文已截断到上限）" if truncated else ""))
 
     material = co.collect_text(
-        project_id, title=resolved_title, text=text, url=target,
+        project_id, title=resolved_title, text=text, url=fetched,
         source_tier=source_tier, published_at=published_at,
         note="；".join(note_parts),
     )

@@ -186,6 +186,14 @@ class CurlCffiTransport:
     掐 Python 客户端（httpx 直连与走代理均 SSL UNEXPECTED_EOF）；curl_cffi 复刻
     Chrome 指纹可正常建连。fetch 契约与 HttpxTransport 一致：
     ``(status:int, body:dict|str)``，HTTP 状态不抛、异常交由 adapter._fetch 归一。
+
+    ⚠ **重定向策略是显式参数**（2026-09-17 独立复核 HIGH）：调用方传
+    ``allow_redirects=False`` 就能让这一跳**不跟随** 302——采集侧靠它堵住
+    "公网 URL 302 到 169.254.169.254"的 SSRF 绕道（实测默认跟随会**真的连上去**，
+    而 `is_private_url` 只在**发起前**判过一次）。
+    两家 HTTP 栈的 kwarg 名不同（curl_cffi/requests 是 `allow_redirects`、httpx 是
+    `follow_redirects`），**只有本模块知道这件事**，所以对外统一用 `allow_redirects`
+    这个名字；默认 `True` = 既有行为不变（公告扫描依赖跟随重定向）。
     """
 
     def __init__(self) -> None:
@@ -196,10 +204,13 @@ class CurlCffiTransport:
         timeout = kw.pop("timeout", DEFAULT_TIMEOUT_S)
         method = str(kw.pop("method", "get") or "get").lower()
         json_body = kw.pop("json", None)
+        allow_redirects = bool(kw.pop("allow_redirects", True))
         if method == "post":
-            resp = self._session.post(url, json=json_body, timeout=timeout, **kw)
+            resp = self._session.post(url, json=json_body, timeout=timeout,
+                                      allow_redirects=allow_redirects, **kw)
         else:
-            resp = self._session.get(url, timeout=timeout, **kw)
+            resp = self._session.get(url, timeout=timeout,
+                                     allow_redirects=allow_redirects, **kw)
         try:
             body: Any = resp.json()
         except Exception:  # 非 JSON 响应 → 原文文本
@@ -209,22 +220,31 @@ class CurlCffiTransport:
     def fetch_bytes(self, url: str, **kw: Any) -> tuple[int, bytes]:
         """原始字节下载（公告 PDF 存档用）：返回 (status, content)，不解析。"""
         timeout = kw.pop("timeout", DEFAULT_TIMEOUT_S)
-        resp = self._session.get(url, timeout=timeout, **kw)
+        allow_redirects = bool(kw.pop("allow_redirects", True))
+        resp = self._session.get(url, timeout=timeout,
+                                 allow_redirects=allow_redirects, **kw)
         return resp.status_code, resp.content
 
 
 class HttpxTransport:
-    """回退真实传输（curl_cffi 不可导入时兜底；离线单测不触达）。"""
+    """回退真实传输（curl_cffi 不可导入时兜底；离线单测不触达）。
+
+    重定向策略与 `CurlCffiTransport` 同款（统一收 `allow_redirects`，这里翻译成
+    httpx 的 `follow_redirects`）——见那边的说明。
+    """
 
     def fetch(self, url: str, **kw: Any) -> tuple[int, Any]:
         import httpx
         timeout = kw.pop("timeout", DEFAULT_TIMEOUT_S)
         method = str(kw.pop("method", "get") or "get").lower()
         json_body = kw.pop("json", None)
+        allow_redirects = bool(kw.pop("allow_redirects", True))
         if method == "post":
-            resp = httpx.post(url, json=json_body, timeout=timeout, **kw)
+            resp = httpx.post(url, json=json_body, timeout=timeout,
+                              follow_redirects=allow_redirects, **kw)
         else:
-            resp = httpx.get(url, timeout=timeout, **kw)
+            resp = httpx.get(url, timeout=timeout,
+                             follow_redirects=allow_redirects, **kw)
         try:
             body: Any = resp.json()
         except Exception:
@@ -235,7 +255,9 @@ class HttpxTransport:
         """原始字节下载（公告 PDF 存档用）。"""
         import httpx
         timeout = kw.pop("timeout", DEFAULT_TIMEOUT_S)
-        resp = httpx.get(url, timeout=timeout, **kw)
+        allow_redirects = bool(kw.pop("allow_redirects", True))
+        resp = httpx.get(url, timeout=timeout,
+                         follow_redirects=allow_redirects, **kw)
         return resp.status_code, resp.content
 
 

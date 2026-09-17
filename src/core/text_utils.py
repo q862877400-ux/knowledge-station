@@ -1382,6 +1382,43 @@ def standard_no_key(value: str | None) -> str:
     return re.sub(r"[‐‑‒–—―－]", "-", s)
 
 
+_RE_SCRIPT_STYLE_OPEN = re.compile(r"<(script|style)\b(?P<attrs>[^>]*)>", re.IGNORECASE)
+
+
+def _strip_script_style(html: str) -> str:
+    """丢掉 `script`/`style` **及其内容**（含**自闭合**与**未闭合**两种形态）。
+
+    ## 为什么不能用一句 `re.sub(r"<(script|style)\\b[^>]*>.*?</\\1>", " ", s)`
+    独立复核（2026-09-17）实测两种真实页面会出事，且都是**静默**的：
+    1. **自闭合** `<script src="a.js"/>`：那条正则从自闭合标签一路吃到**后面第一个**
+       `</script>`，把中间**可见正文全吃掉** ⇒ 采集器随后报"没有可提取的正文"，
+       **丢材料 + 归因误导**（实测：`new=''` vs 旧实现保留"重要正文：住宿标准八百元。"）。
+    2. **未闭合** `<script>`：没有闭合标签就**匹配不上** ⇒ JS 源码被当成正文**进了材料**
+       （正是采集最脏的来源）。按 HTML 解析规则，未闭合的 `<script>` **之后全是脚本文本**
+       （浏览器不渲染），所以这里把**它之后的部分整段丢掉**——这是有意的行为，有测试钉住。
+
+    ⚠ 局限（粗，与 `html_to_text` 整体定位一致）：属性值里带 `>` 的写法（`data-x="a>b"`）
+    仍可能定位偏差；不解析 DOM。要更准得引 HTML 解析器（未立项）。
+    """
+    out: list[str] = []
+    pos = 0
+    while True:
+        m = _RE_SCRIPT_STYLE_OPEN.search(html, pos)
+        if m is None:
+            out.append(html[pos:])
+            return "".join(out)
+        out.append(html[pos:m.start()])
+        if m.group("attrs").rstrip().endswith("/"):
+            # 自闭合（XHTML 风格 `<script ... />`）：**没有内容**，只丢标签本身。
+            pos = m.end()
+            continue
+        close = re.compile(rf"</{m.group(1)}\s*>", re.IGNORECASE).search(html, m.end())
+        if close is None:
+            # 未闭合 ⇒ 其后全部是脚本文本（HTML 规则），整段丢掉
+            return "".join(out)
+        pos = close.end()
+
+
 def html_to_text(html: str | None, limit: int | None = None) -> str:
     """HTML → 紧凑纯文本（**页面/表格通用**的规范实现）。
 
@@ -1397,10 +1434,14 @@ def html_to_text(html: str | None, limit: int | None = None) -> str:
     **没有**顺手改那三处的调用点（各自 limit 与语义是当场选的，改动面大于收益）——
     登记为待办。
 
-    ⚠ **与 `clause_health_html_to_text` 的关系要精确说**：在同一 limit 下，对
-    **不含 `script`/`style` 的**输入逐字符等价（有测试钉住）；含 `script`/`style` 时
-    **本函数会丢掉它们的内容**，而那三份不会 —— 这是**有意的改进**：页面里的 JS/CSS
-    被当成正文塞进材料，是采集最脏的来源。**别**把这条差异当成 bug"修回去"。
+    ⚠ **与 `clause_health_html_to_text` 的关系要精确说**（2026-09-17 独立复核指出：原措辞
+    只说了 script/style 一条差异，**不够精确**）。同一 `limit` 下，两者**逐字符等价**，
+    **除了两处有意的改进**（各有测试钉住，别当成 bug 改回去）：
+      1. **含 `script`/`style` 时**：本函数**丢掉它们的内容**（那三份会把 JS/CSS 当正文）；
+      2. **大写的 `</TD>`/`</TR>`**：本函数照样转成表格分隔（那三份的正则只认小写，
+         实测 `'<TD>甲</TD><TD>乙</TD>'` → 本函数 `'甲 | 乙'` vs 旧 `'甲乙'`）。
+         真实页面两种大小写都有，故这同样是改进。
+    除此之外**不要**再引入第三处差异；发现第三处就说明两边开始分叉，必须收口。
 
     ⚠ **它是粗的**：不解析 DOM、不做正文抽取（readability）、不去导航/页脚样板。
     采集件默认只是**线索**（T3 起），这个精度与那个定位是匹配的；
@@ -1413,7 +1454,9 @@ def html_to_text(html: str | None, limit: int | None = None) -> str:
     t = re.sub(r"</tr>", "\n", t, flags=re.IGNORECASE)
     # 先整体丢掉**内容不该进正文**的两类标签（含其内容）：script/style。
     # 不做这一步的话，页面里的 JS/CSS 会被当成正文塞进材料（采集最脏的来源）。
-    t = re.sub(r"<(script|style)\b[^>]*>.*?</\1>", " ", t, flags=re.IGNORECASE | re.DOTALL)
+    # ⚠ 用 `_strip_script_style` 而**不是**一句正则：自闭合/未闭合两种形态会让
+    # 那句正则**静默**吃掉可见正文或漏掉 JS（见那个函数的 docstring）。
+    t = _strip_script_style(t)
     t = re.sub(r"<[^>]+>", "", t)
     t = html_unescape(t)
     t = re.sub(r"[ \t\u3000]+", " ", t)
