@@ -162,6 +162,83 @@ def test_unverified_clause_does_not_outrank_an_effective_one(seeded_db):
         clause_repo.delete_document("d12")
 
 
+def test_modality_channel_ranks_verified_before_unverified(seeded_db):
+    """模态通道（D）的**通道内名次**必须是确定的，且未核验不占优（复核 b9 的 INFO-6）。
+
+    背景：这条 SQL 原先**完全没有 ORDER BY**，而 `rank` 直接决定
+    `CHANNEL_WEIGHTS/(RRF_K+rank+1)` ⇒ 权重分配**由 SQLite 的返回次序决定**（未定义），
+    同一查询的排序**不可复现、也无法断言**。
+
+    构造方式刻意让"不写 ORDER BY"排错：**先插入未核验那一份**（自然/rowid 次序会它在前），
+    于是只有真的写了排序、且排序把未核验沉底，`c22` 才会排在 `c21` 前面。
+    ⚠ 判别力说明：这条断言的判别力依赖 SQLite 的访问路径（这里是按 `clause_revision`
+    的 rowid 顺序扫）。规划器若改成从 `doc_meta` 驱动，可能出现**假绿**——所以真正的护栏是
+    "语句里现在就写着 ORDER BY"，本用例只是它的**行为侧**证据。
+    """
+    from src.core.retrieval.hybrid_engine import perform_hybrid_search
+    from src.core.storage import clause_repo
+    from src.core.storage.sqlite_db import get_db_connection
+    conn = get_db_connection()
+    clause_repo.insert_document(conn, dict(
+        doc_id="d21", standard_no="GB 33333-2020", standard_name="采集件标准",
+        short_code="GB33333", current_revision_id="r21", legal_status=None,
+        file_path="collected.pdf", file_hash="h21"))
+    clause_repo.insert_document(conn, dict(
+        doc_id="d22", standard_no="GB 44444-2020", standard_name="已核验标准",
+        short_code="GB44444", current_revision_id="r22", legal_status="effective",
+        file_path="verified.pdf", file_hash="h22"))
+    try:
+        clause_repo.insert_clauses([
+            _clause("c21", "8.8.8", "未核验的严禁条款", doc="d21",
+                    modality="严禁", standard="GB 33333-2020", legal_status_of_doc=None),
+            _clause("c22", "8.8.9", "已核验的严禁条款", doc="d22",
+                    modality="严禁", standard="GB 44444-2020"),
+        ])
+        rows = [r.clause_revision_id for r in perform_hybrid_search(
+            "严禁 测试", top_k=10, channels=["modality"], modality_filter="严禁")]
+        assert "c21" in rows and "c22" in rows, rows
+        assert rows.index("c22") < rows.index("c21"), (
+            f"未核验条款在模态通道里排在已核验有效条款之前 ⇒ 通道内名次未定义/给反了: {rows}")
+        # 同一条查询跑两次必须给出**同一个序列**（权重分配可复现）
+        again = [r.clause_revision_id for r in perform_hybrid_search(
+            "严禁 测试", top_k=10, channels=["modality"], modality_filter="严禁")]
+        assert again == rows, (rows, again)
+    finally:
+        clause_repo.delete_document("d21")
+        clause_repo.delete_document("d22")
+
+
+def test_legal_element_channel_order_is_deterministic(seeded_db):
+    """法理要素通道（E）**同族缺陷、自查发现**：它原先也没有 ORDER BY。
+
+    判别方式：按 **id 倒序**插入（先 `c992` 再 `c991`）⇒ 若真的按 `clause_revision_id`
+    排序，返回顺序必然与插入顺序**相反**；不写 ORDER BY 时这里会给出插入顺序 ⇒ 红。
+    （这条只钉"确定性"，**不**钉"未核验沉底"——E 没有 JOIN `doc_meta`，给不了那个偏好，
+    见 `hybrid_engine.py` 里那段诚实边界。）
+    """
+    from src.core.retrieval.hybrid_engine import perform_hybrid_search
+    from src.core.storage import clause_repo
+    from src.core.storage.sqlite_db import get_db_connection
+    conn = get_db_connection()
+    clause_repo.insert_document(conn, dict(
+        doc_id="d31", standard_no="GB 55555-2020", standard_name="要素测试标准",
+        short_code="GB55555", current_revision_id="r31", legal_status="effective",
+        file_path="e.pdf", file_hash="h31"))
+    try:
+        clause_repo.insert_clauses([
+            _clause("c992", "9.9.2", "主体条款乙", doc="d31", ktype="legal",
+                    subject="测试主体X", standard="GB 55555-2020"),
+            _clause("c991", "9.9.1", "主体条款甲", doc="d31", ktype="legal",
+                    subject="测试主体X", standard="GB 55555-2020"),
+        ])
+        rows = [r.clause_revision_id for r in perform_hybrid_search(
+            "测试主体X", top_k=10, channels=["legal_element"], subject_filter="测试主体X")]
+        assert rows[:2] == ["c991", "c992"], (
+            f"通道内顺序不是按 id（说明没有 ORDER BY，顺序未定义）: {rows}")
+    finally:
+        clause_repo.delete_document("d31")
+
+
 def test_fts_channel(seeded_db):
     from src.core.retrieval.hybrid_engine import perform_hybrid_search
     res = perform_hybrid_search("防火间距 多少", top_k=5, channels=["fts"])

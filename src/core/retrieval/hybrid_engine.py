@@ -149,7 +149,15 @@ def perform_hybrid_search(
             + ("" if include_superseded
                # 同上（通道 A 那条注释）：NULL 是"未核验"，不是"已废止"。
                else " AND (dm.legal_status IS NULL OR dm.legal_status"
-                    " NOT IN ('withdrawn','superseded'))"),
+                    " NOT IN ('withdrawn','superseded'))")
+            # ⚠ 这一条**原先完全没有 ORDER BY**（复核 b9 的 LOW-3 顺带指出、本步修，
+            # 方案未决第 12 条的 INFO-6）：`rank` 直接决定
+            # `CHANNEL_WEIGHTS / (RRF_K + rank + 1)`，而**没有 ORDER BY 的 SELECT 返回次序
+            # 是未定义的**（实际由访问路径/rowid 决定，改规划器、加索引、VACUUM 都可能变）
+            # ⇒ 同一个查询的权重分配**不可复现**，而且**无法断言**。
+            # 排序口径与通道 A 一致：未核验（NULL）沉底，已知状态按名排，最后用 id 兜底
+            # 保证**全序**（同状态多行时也确定）。
+            + " ORDER BY (dm.legal_status IS NULL), dm.legal_status, cr.clause_revision_id",
             (modality_filter,)).fetchall()
         for rank, row in enumerate(rows):
             scores[row[0]] = scores.get(row[0], 0.0) + CHANNEL_WEIGHTS["modality"] / (RRF_K + rank + 1)
@@ -158,7 +166,14 @@ def perform_hybrid_search(
     if "legal_element" in channels and subject_filter:
         rows = conn.execute(
             "SELECT clause_revision_id FROM clause_revision"
-            " WHERE subject = ? AND knowledge_type = 'legal'", (subject_filter,)).fetchall()
+            " WHERE subject = ? AND knowledge_type = 'legal'"
+            # ⚠ **同族缺陷，自查发现**（b9 只点了通道 D；本步顺手把 E 也钉住）：
+            # 这条原先也没有 ORDER BY ⇒ 通道内名次未定义、权重不可复现。
+            # ⚠ **诚实边界**：这条**没有** JOIN `doc_meta`，所以这里只能给"确定性"
+            # （按 id 全序），**给不了**"未核验沉底"那条偏好——要那条得改查询形状（加 JOIN），
+            # 属更大的改动，登记为待办而**不**在这一步夹带。
+            " ORDER BY clause_revision_id",
+            (subject_filter,)).fetchall()
         for rank, row in enumerate(rows):
             scores[row[0]] = scores.get(row[0], 0.0) + CHANNEL_WEIGHTS["legal_element"] / (RRF_K + rank + 1)
 

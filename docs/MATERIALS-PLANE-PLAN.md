@@ -623,7 +623,7 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     | INFO-3 | `_attach_locator_status` 把异常吞成 `unknown`（多报一条 ⚠） | ✅ 已修（step-56，§10.57：新增 `health_error`——**不是**健康状态，报告给独立标记+独立 warning"这是工具缺陷"；⚠ 顺带自查发现**同族**第二处：`project_locator_summary` 无保护 ⇒ 一份材料判据挂掉毁掉整份总览，而面板把总览失败静默吞掉 ⇒ 一份**一个 ⚠ 都没有**的列表，已一并修） |
     | INFO-4 | 报告 ⚠ 只覆盖材料清单、不覆盖「依据」节（引用真正出现处） | ⏳ 待评估（要么改准 docstring 里的理由，要么接进 `authority.render_evidence` = 动第二个所有者，**新立项**） |
     | INFO-5 | `no_locators` 两种成因文案未区分 | ✅ 已修（step-56，§10.57：按入库时的 `derived_text_hash` 分成"没有派生文本"与"有派生文本但切块没产出"） |
-    | INFO-6 | **模态通道（D）没有 ORDER BY** ⇒ 通道内 rank 顺序未定义 ⇒ 同一查询的 RRF 权重**不可复现**（step-55 顺带发现） | ⏳ 待办（要先定"通道内该怎么排"，会动检索结果分布，不夹带） |
+    | INFO-6 | **模态通道（D）没有 ORDER BY** ⇒ 通道内 rank 顺序未定义 ⇒ 同一查询的 RRF 权重**不可复现**（step-55 顺带发现；**b10 独立确认**，并指出 D 的注释写"同上"却只同步了 WHERE 没同步 ORDER BY） | ✅ 已修（step-57，§10.58：D 补 `(legal_status IS NULL), legal_status, id` 全序；⚠ **同族第二处、自查发现**：通道 E 也没有 ORDER BY，已补 `ORDER BY clause_revision_id`；E **没有** JOIN `doc_meta` ⇒ 只能给确定性、给不了"未核验沉底"，**新登记待办**） |
     | INFO-2 | 三次全量里有 1 次 `1 failed`（未重现，判为抖动） | 已登记（与未决第 1 条同族） |
     | INFO-1 | 复核期间主检出前进 3 个提交（其中 `6eede2e` 改了它实测的代码） | **流程问题**：复核期间应冻结主检出，或把区间端点写进每条命令 |
 
