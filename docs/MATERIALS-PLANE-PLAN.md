@@ -825,3 +825,18 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     图片/字节，改 `def` 要顺带确认 `Response`/`FileResponse` 语义不变）→ 落盘/导出族 →
     `dry_run` 同文件并发 → `bulk-db` 一族逐条实测。
 
+
+21. **PDF 渲染/读盘族去阻塞化（5 条）+ 一条"判定不改"**（§10.75，step-75）。
+
+    | 项 | 一句话 | 状态 |
+    |---|---|---|
+    | 改 `def` | `/documents/{doc_id}/` 的 `figure`｜`formula`｜`table-image`｜`tree`｜`assets`（都是 PyMuPDF 逐页取字 / 截图 / middle.json 读回 / 资产 glob） | ✅ 实测 `/figure/1`：请求 0.2324s 不变、**事件循环空档 0.232s → 0.036s**（回到噪声底）；AF1–AF3 变异 RED |
+    | **判定不改** | `/documents/{doc_id}/file` 只查询 + `FileResponse`，字节由 Starlette 流式读出 ⇒ 本来不占事件循环；当初进候选只因调用链上有 `fs-copy` **轻标记** | ✅ 理由写进 docstring + 闸门注释：**审计给的是"值得看一眼"的清单，不是待办清单** |
+    | 量具增强 | `scripts/measure-endpoint-blocking.py` 支持**带种子数据**的用例（`setup` 钩子，不计入被测空档）+ `document_figure`（题注在末页的 150 页密排 PDF + 一行 doc_meta ⇒ 走真路径出 PNG） | ✅ 已加；⚠ 合成 PDF、**未触发 `try_redraw` 的 OCR 路径** ⇒ 0.232s 是**下界** |
+    | HTTP 覆盖缺口 | `/formula` 与 `/table-image` **没有 HTTP 测试**（`/figure` 由量具真跑、`/assets`+`/tree` 有仓内测试） | ⏳ 登记，下一步补 |
+
+    **下一步（按族推进）**：① 落盘/导出族（`/export/obligations|review`、`/egress/audit/export`、
+    `/update/report[-xlsx]/{batch_id}`、`/snapshots/{id}/restore`）→ ② `dry_run` 同文件并发按哈希加锁
+    → ③ 补 `/formula`、`/table-image` 的 HTTP 测试 → ④ 审计标记表补"库内部网络"族（`fastembed`/
+    `huggingface_hub` 那类盲区）→ ⑤ 派一次独立复核（b13，按新纪律**先冻区间**）。
+

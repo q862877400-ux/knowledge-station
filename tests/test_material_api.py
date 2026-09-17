@@ -533,6 +533,20 @@ class TestSlowEndpointsAreDeclaredSync:
         # **同步 I/O**，留在事件循环里就会占住循环。⚠ 收益**不大**（本机实测总耗时 0.017s、
         # `import mineru` 0.000s、30 万行 COUNT ≈1.1ms），这里守的是**一般纪律**，不是"很慢"。
         "/api/v1/diagnostics/health-board",
+        # PDF 渲染/读盘族（§10.75）：这四条都在事件循环里做 PyMuPDF 的重活
+        # （逐页 `get_text("dict")` 找题注、`get_pixmap` 截图、`middle.json` 读回、`glob` 资产）。
+        # 实测（150 页密排 PDF，题注在末页）：`/figure/1` 请求 0.2324s、事件循环空档 **0.232s**
+        # ⇒ 改 `def` 后空档 **0.036s**（回到噪声底）。真机文档更重（真扫描件 + `try_redraw` 的 OCR
+        # 路径），所以那个数字是**下界**。
+        "/api/v1/documents/{doc_id}/figure/{fig_no}",
+        "/api/v1/documents/{doc_id}/formula/{fno}",
+        "/api/v1/documents/{doc_id}/table-image/{page_no}/{tbl_idx}",
+        "/api/v1/documents/{doc_id}/tree",
+        "/api/v1/documents/{doc_id}/assets/{fname}",
+        # ⚠ **`/api/v1/documents/{doc_id}/file` 故意不在表里**：它只做查询 + 返回 `FileResponse`，
+        # 字节由 Starlette 用 anyio 流式读出 ⇒ 本来就不占事件循环。审计把它列进候选是因为
+        # 调用链上有 `fs-copy` **轻标记**——**读代码 + 量过之后判定"不用改"**。
+        # 候选清单不是待办清单：留下的每一条都要写清为什么。
     ])
     def test_declared_sync(self, client, path):
         import asyncio

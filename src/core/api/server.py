@@ -284,7 +284,13 @@ def create_app(token: str) -> FastAPI:
 
     @app.get("/api/v1/documents/{doc_id}/file")
     async def get_document_file(doc_id: int | str):
-        """PDF 原件字节流（R7 穿透高亮用；受 token 保护）。"""
+        """PDF 原件字节流（R7 穿透高亮用；受 token 保护）。
+
+        ⚠ **故意保持 `async def`**（§10.75）：本端点**只做查询 + 返回 `FileResponse`**，
+        文件字节由 Starlette 用 anyio 流式读出（**本来就不占事件循环**）。
+        审计把它列进"候选"是因为它的调用链上出现过 `fs-copy` 轻标记——**读代码 + 量过之后
+        判定"这条不用改"**，这也是"先看清楚再动手"的一部分：候选清单不是待办清单。
+        """
         conn = get_db_connection()
         row = conn.execute(
             "SELECT file_path FROM doc_meta WHERE doc_id=?", (str(doc_id),)).fetchone()
@@ -297,7 +303,7 @@ def create_app(token: str) -> FastAPI:
         return FileResponse(str(p), media_type="application/pdf", filename=p.name)
 
     @app.get("/api/v1/documents/{doc_id}/figure/{fig_no}")
-    async def get_document_figure(doc_id: int | str, fig_no: str, dpi: int = 144):
+    def get_document_figure(doc_id: int | str, fig_no: str, dpi: int = 144):
         """图形呈现（2026-08-29，GB/T 34406 图1/图A.1/图A.2 实测，语料级）。
 
         扫描双层图形无独立图像对象，按图题锚定图区：**流程图先尝试矢量
@@ -451,7 +457,7 @@ def create_app(token: str) -> FastAPI:
                                               (rect[3] - rect[1]) / ph))
 
     @app.get("/api/v1/documents/{doc_id}/formula/{fno}")
-    async def get_document_formula(doc_id: int | str, fno: str, clause: str, dpi: int = 144):
+    def get_document_formula(doc_id: int | str, fno: str, clause: str, dpi: int = 144):
         """公式原图呈现（2026-08-29 起，2026-09-02 定稿）。
 
         双层扫描文字层把二维公式压平（24276 实测正文公式行**无编号结尾**，
@@ -513,7 +519,7 @@ def create_app(token: str) -> FastAPI:
                 "X-Frac-H": f"{r.height / ph:.6f}",
             })
     @app.get("/api/v1/documents/{doc_id}/table-image/{page_no}/{tbl_idx}")
-    async def get_document_table_image(doc_id: int | str, page_no: int,
+    def get_document_table_image(doc_id: int | str, page_no: int,
                                        tbl_idx: int, dpi: int = 144):
         """带图表格整表截图（2026-09-02 用户契约：凡单元格含图片的表格，
         整个表格也一起当图片处理）。
@@ -691,7 +697,7 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "status": "success", "data": result}
 
     @app.get("/api/v1/documents/{doc_id}/tree")
-    async def document_tree(doc_id: str):
+    def document_tree(doc_id: str):
         """R37 目录树：优先读 PDF 自带书签（最全最准，含层级+页码），
         无书签时回退「库内 N.M 小节标题 + 文本层猜章标题」；法规类（law-text）用库内「第X章」。
 
@@ -1446,7 +1452,7 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": {"doc_id": str(doc_id), "clauses": clauses}}
 
     @app.get("/api/v1/documents/{doc_id}/assets/{fname}")
-    async def doc_asset(doc_id: str, fname: str):
+    def doc_asset(doc_id: str, fname: str):
         """C1 解析图片资产回源（2026-09-01 排版还原批次1）。
 
         MinerU 深度解析把插图落盘 parse_out/<doc_id>/**/images/<sha256>.jpg

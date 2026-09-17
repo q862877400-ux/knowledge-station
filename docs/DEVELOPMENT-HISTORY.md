@@ -4200,3 +4200,76 @@ embedder.is_available()`、入库时的 `embed_batch` 这些**真要拿模型**�
    而不是"把加载挪到线程池"。它剩下的活是 `SELECT 1`（µs 级）。
 5. **真机仍是旧进程**（DSH 宿主 pid 37268 / 引擎 pid 32564，09-17 启动）⇒ 本批要业主重启才生效。
 
+
+## §10.75 PDF 渲染/读盘族去阻塞化（5 条）+ 把"候选清单不是待办清单"写成结论
+
+**一句话**：审计里最重的一档（PyMuPDF 逐页取字、截图渲染、middle.json 读回、资产 glob）5 条端点
+改 `def`：`/figure/1` 实测**事件循环空档 0.232s → 0.036s**（请求耗时不变）。同时**判定并留下**
+一条不改的（`/documents/{doc_id}/file`），把"为什么它可以不改"写进代码——因为审计的候选清单
+**不是**待办清单。
+
+### 1. 先读代码再动手（这一步有一半价值在"不改"）
+
+| 端点 | 读代码的结论 | 处置 |
+|---|---|---|
+| `/documents/{doc_id}/figure/{fig_no}` | `middle_geo.load`（读 JSON）+ 逐页 `get_text("dict")` 找题注 + `get_pixmap(clip, dpi)` 出 PNG，还有 `try_redraw` 的矢量重绘（含 OCR）路径 | **改 `def`** |
+| `/documents/{doc_id}/formula/{fno}` | middle.json 公式块定位 + `get_pixmap` 截图 | **改 `def`** |
+| `/documents/{doc_id}/table-image/{page_no}/{tbl_idx}` | middle.json 表格 bbox + `get_pixmap` | **改 `def`** |
+| `/documents/{doc_id}/tree` | 库内条款 + 无书签时用 fitz 扫**文本层**猜章标题 | **改 `def`** |
+| `/documents/{doc_id}/assets/{fname}` | 校验 + `glob("**/images/…")` + `middle_geo.load` 取比例头 + `FileResponse` | **改 `def`** |
+| `/documents/{doc_id}/file` | **只做一次查询 + `FileResponse`**：字节由 Starlette 用 anyio 流式读出，**本来就不占事件循环** | **不改**（并把理由写进 docstring） |
+
+⚠ `/file` 当初进候选是因为调用链上出现过 `fs-copy` **轻标记**（`get_db_connection()` 里就有
+`mkdir`，会传染到任何碰库的助手）。这一条留在这里的意义：**审计给的是"值得看一眼"的清单，
+最终每条都要落到"改"或"不改 + 为什么"**。
+
+### 2. 量具加了"带种子数据"的能力，然后量
+
+`scripts/measure-endpoint-blocking.py` 新增：用例可带 `setup` 钩子（在**量之前**跑完，不计入
+被测端点的空档）+ `document_figure` 用例——造一份"**题注在最后一页**"的密排 PDF（150 页 × 28 行）
++ 种一行 `doc_meta`，于是走**真路径**：`middle_geo.load` 返回 None → `locate_figure` 逐页扫 →
+命中 → `get_pixmap` 出 PNG（HTTP 200）。
+
+| `--case document_figure --pages 150` | 改前（`async def`） | 改后（`def`） |
+|---|---|---|
+| 请求耗时 | 0.2324s | 0.2324s（**活照干**） |
+| 事件循环最大空档 | **0.2321s**（≈整条请求） | **0.036s**（空闲基线 0.0066s ⇒ 已在噪声底） |
+| 心跳样本数 | 5 | 15（心跳一直在跳） |
+
+**诚实边界（写在这里，别让这个数字被读大了）**：这是**合成 PDF**（文字密排、无插图、无矢量
+流程图）⇒ 它量的是"逐页取字 + 一次截图"的下界；真机文档更重（真扫描件、以及 `try_redraw`
+的 **OCR** 路径——本条用例没有触发它）。所以 0.232s 是**下界**，真实代价通常更高。
+
+### 3. 闸门与变异
+
+`TestSlowEndpointsAreDeclaredSync` 逐条表加 5 条（figure / formula / table-image / tree / assets），
+并在**同一个注释块里**写明 `/file` 为什么**不在**表里。
+
+变异（全 RED、还原字节一致）：**AF1** `/figure` 改回 `async def` ⇒ 指名该路径；
+**AF2** `/tree` 改回 ⇒ 红（证明覆盖不是只有第一条）；**AF3** `/assets` 改回 ⇒ 红。
+
+### 4. 证据
+
+`pytest` **1736 passed / 3 skipped / 0 failed**（1731 → +5）；`mypy` **134 / 0**；`tsc` 0；
+`smoke` **EXIT=0（19 段）**；`verify:commands` **22/22**。`src/core/api/server.py` 的改动
+= 5 个 `async` 一词 + 1 段 docstring。
+
+### 5. 诚实边界
+
+1. 合成 PDF（见 §2）；真机重启后才生效（两个门仍是旧进程）。
+2. **HTTP 层覆盖不均**：`/figure` 由量具真跑（200 + PNG）；`/assets`、`/tree` 有仓内测试
+   （`test_assets_endpoint.py` / `test_phase4.py`）；**`/formula` 与 `/table-image` 没有 HTTP 测试**
+   ——它们现在走线程池、返回的也是 `Response`/`FileResponse`（与已验的 `/figure` 同形），
+   但**未逐条验过**，登记为下一次补测。
+3. 本步**零前端改动**。
+
+### 6. 下一步（继续按族推进，先量再改）
+
+1. **落盘/导出族**：`/export/obligations/{list_id}`、`/export/review/{task_id}`、
+   `/egress/audit/export`、`/update/report/{batch_id}`、`/update/report-xlsx/{batch_id}`、
+   `/snapshots/{snapshot_id}/restore`。
+2. **`dry_run` 同一文件的并发**（§10.73 §6 登记项）：按哈希加锁。
+3. **给 `/formula`、`/table-image` 补 HTTP 测试**。
+4. **审计标记表补"库内部网络/重活"族**（§10.74 §5 的盲区：`fastembed`/`huggingface_hub` 这类
+   藏在库里的外发，`requests.`/`httpx.` 那套标记扫不到）。
+

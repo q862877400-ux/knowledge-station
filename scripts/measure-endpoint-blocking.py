@@ -155,6 +155,56 @@ def health_board(ctx: dict) -> dict:
     return {"method": "GET", "path": "/api/v1/diagnostics/health-board", "body": None}
 
 
+@case
+def document_figure(ctx: dict) -> dict:
+    """`GET /api/v1/documents/{doc_id}/figure/1`：**真渲染**（PyMuPDF 按题注定位 + 截图）。
+
+    种一行 `doc_meta`（`file_path` 指向生成的 PDF）就够：`parse_out/<doc_id>` 不存在 ⇒
+    `middle_geo.load` 返回 None ⇒ 走 `figure_locator.locate_figure`（**逐页 `get_text("dict")`**
+    找题注）⇒ 命中后 `get_pixmap(clip, dpi=144)` 出 PNG。所以 PDF 页数直接决定耗时
+    ——把题注放在**最后一页**，好让扫描真的走完全部页。
+    """
+    return {"method": "GET", "path": f"/api/v1/documents/{ctx.setdefault('doc_id', 'doc_figbench')}/figure/1",
+            "body": None, "setup": _seed_figure_doc}
+
+
+def _seed_figure_doc(ctx: dict) -> None:
+    """造一份"题注在最后一页"的 PDF + 库内 doc_meta 行（只碰临时库）。"""
+    import fitz
+    from src.core.storage.sqlite_db import get_db_connection
+
+    pages = ctx.get("pages") or 150
+    path = ctx["tmp"] / "figure_bench.pdf"
+    doc = fitz.open()
+    body = ("本标准规定了动火作业的分级、审批、监护与作业后检查要求，"
+            "适用于生产经营单位在禁火区内的动火作业。")
+    # ⚠ 每页**写满**（28 行）而不是 1 行：真实标准页是密排文本，`get_text("dict")` 的
+    # 成本随文字量走——第一版只写 1 行，量出 0.13s，**不足以代表真机**（诚实边界写在 §10.75）。
+    for i in range(max(1, pages - 1)):
+        page = doc.new_page()
+        y = 72.0
+        for ln in range(28):
+            page.insert_text((56, y), f"{i + 1}-{ln + 1} {body}", fontname="china-s", fontsize=10.5)
+            y += 24.0
+    last = doc.new_page()
+    last.insert_text((56, 100), "本页给出动火作业流程图。", fontname="china-s", fontsize=11)
+    last.insert_text((56, 180), "图1 动火作业流程图", fontname="china-s", fontsize=11)
+    doc.save(str(path))
+    doc.close()
+
+    ctx["doc_id"] = "doc_figbench"
+    ctx["pdf"] = path
+    conn = get_db_connection()
+    conn.execute("DELETE FROM doc_meta WHERE doc_id=?", (ctx["doc_id"],))
+    conn.execute(
+        "INSERT INTO doc_meta (doc_id, standard_no, standard_name, short_code,"
+        " current_revision_id, domain_tags, file_path, file_hash)"
+        " VALUES (?,?,?,?,?,?,?,?)",
+        (ctx["doc_id"], "GB FIGBENCH-2025", "图渲染基准", "FIGBENCH", "r1", "[]",
+         str(path), "h_figbench"))
+    conn.commit()
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--case", default="ingest_preview", choices=sorted(CASES))
@@ -169,8 +219,13 @@ def main() -> int:
     from src.core.api.server import create_app
 
     app = create_app(TOKEN)
-    ctx = {"pdf": make_pdf(tmp / "measure.pdf", args.pages)}
+    ctx = {"pdf": make_pdf(tmp / "measure.pdf", args.pages), "tmp": tmp}
     spec = CASES[args.case](ctx)
+    # 需要库内数据的用例自带 `setup`（种一行 doc_meta 等）——在**量之前**跑完，
+    # 它的耗时不计入被测端点的空档。
+    setup = spec.pop("setup", None)
+    if setup is not None:
+        setup(ctx)
     out = {"case": args.case, "pages": args.pages,
            "pdf_bytes": ctx["pdf"].stat().st_size, **asyncio.run(measure(app, **spec))}
     if args.json:
