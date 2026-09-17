@@ -84,17 +84,24 @@ def _material_line(m: dict[str, Any]) -> str:
 
 
 def _attach_locator_status(materials: list[dict[str, Any]]) -> None:
-    """给材料行挂上 `_locator_status`（**便宜**判据；判不了就是 `unknown`）。
+    """给材料行挂上 `_locator_status`（判据本身不重解析，但**会读一次源文件**；判不了就是 `unknown`）。
 
-    为什么放在报告这一层：报告要能"引用前校验"。但**重解析比对太贵**（子进程解析），
-    不能放进报告路径 ⇒ 这里只用 `locator.locator_health()`（比指纹 + 比源文件字节），
-    并把结论**如实**标出来（`stale`/`unknown` 都有标记，`ok` 不加噪声）。
-    ⚠ `unknown` **不**等于有问题，只等于"便宜判据下不了结论"——措辞见 `locator.py`。
+    ⚠ **这里要改准一句旧话**（复核 b11 的 INFO-4，2026-09-18）：旧版写"报告要能**引用前校验**"，
+    但实际标出来的位置是**材料清单行**（`_material_line`），而**真正的引用在「三、依据」节**
+    ——那一节由 `authority.render_evidence()` 渲染，**这一层不碰它**（它是另一个所有者）。
+    ⇒ 准确说法是：**本函数只保证"材料清单里看得见"，不保证"引用点上看得见"**。
+    要把标记放到引用点上，得让 `render_evidence` 认识锚点状态（**跨所有者改动**），
+    已作为**新立项**登记在方案 §12（不在这一步夹带）。
+
+    为什么粒度放在这里：`reverify` 太贵（子进程解析），不能进报告路径 ⇒
+    只用 `locator.locator_health()`（比指纹 + 比源文件字节），并把结论**如实**标出来
+    （`stale`/`unknown`/`health_error` 都有标记，`ok`/`no_locators` 不加噪声）。
+    ⚠ `unknown` **不**等于有问题，只等于"判据下不了结论"——措辞见 `locator.py`。
 
     ⚠ `health_error` **不是**健康状态，是"**我们的判据跑挂了**"（复核 b9 的 INFO-3）：
     旧写法把异常吞成 `unknown` ⇒ 报告上会出现"⚠锚点**未验证**（不等于有问题）"，
     等于把**我们自己的**异常算到材料头上（"这份材料没验证过" vs "我们没算出来"）。
-    现在单独取值 + 单独警告，界面/报告都不许把它混进 `unknown`。
+    现在单独取值 + 单独警告（**并把原因也说出来**，复核 b11 的 LOW-1），界面/报告都不许把它混进 `unknown`。
     （取值域仍以 `locator.HEALTH_STATUSES` 为准：那个词表是 `locator_health` 的**结论**，
       `health_error` 是"结论没拿到"，与 `unavailable` 之于 `reverify` 同理。）
     """
