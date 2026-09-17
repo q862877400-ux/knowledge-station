@@ -116,11 +116,31 @@ def build_document(pages: list[tuple[int, str]]) -> tuple[str, list[tuple[int, i
 
 
 def page_of(offset: int, spans: list[tuple[int, int, int]]) -> int | None:
-    """字符偏移 → 页号（落在页间连接符上时归上一页）。"""
+    """字符偏移 → 页号。
+
+    ⚠ 精确契约（2026-09-17 被 verifier 抓过：旧 docstring 写的是"归上一页"，与代码**不符**）：
+    - 偏移**落在某页区间内** → 该页页号；
+    - 偏移落在**页间连接符上**（空白，不属于任何页区间）→ 返回**最后一页**的页号，而不是上一页；
+    - `spans` 为空 → `None`。
+
+    **为什么没影响**：切片起点经 `emit()` 收紧到非空白字符上，永远不会落在页间分隔符里。
+    docstring 改准是为了下一个人别照着错契约推行为（无行为变更）。
+    """
     for start, end, page in spans:
         if start <= offset < end:
             return page
     return spans[-1][2] if spans else None
+
+
+def _require_positive_max_chars(max_chars: int) -> None:
+    """`max_chars` 的**唯一**校验点（参数规则的单一所有者）。
+
+    `max_chars <= 0` 会让硬切循环的指针不前进（`seg_end == off`）⇒ **死循环**。
+    两个公开入口（`chunk_text` / `ingest_material_file`）都调本函数，
+    避免"空文本早退就不校验"这种**同一参数两种命运**的漏洞。
+    """
+    if isinstance(max_chars, bool) or not isinstance(max_chars, int) or max_chars < 1:
+        raise ValueError(f"max_chars 必须是 >= 1 的整数（收到 {max_chars!r}）")
 
 
 def chunk_text(text: str, spans: list[tuple[int, int, int]],
@@ -136,7 +156,16 @@ def chunk_text(text: str, spans: list[tuple[int, int, int]],
     - 逐行累加；再加一行会超 `max_chars` 就先落一块（**不跨越超限**）；
     - 单行本身超 `max_chars` 时**硬切**（否则一行几万字的材料只出一块，检索粒度退化）；
     - 空行只是分隔符（不进块首尾），但**块区间内的原始分隔符原样保留**。
+
+    ⚠ `max_chars < 1` **直接抛 `ValueError`**（2026-09-17 修）：硬切循环里
+    `seg_end = min(off + max_chars, line_end)`，当 `max_chars <= 0` 时 `seg_end == off`
+    ⇒ 指针**不前进**、**死循环**。verifier 用 subprocess+12s 超时实测：
+    `max_chars=0/-5` 均不终止（`100→1` 块、`1→10` 块正常）。
+    这里**抛错而不夹紧到 1**：静默夹紧会把调用方的参数 bug 藏起来，而本层的纪律是
+    "宁可显式拒绝，不假装正常"。校验放在**最前面**——否则空文本会先走早退分支，
+    把非法参数放过去（同一个参数两种命运）。规则本体见 `_require_positive_max_chars`。
     """
+    _require_positive_max_chars(max_chars)
     blocks: list[dict[str, Any]] = []
     if not text.strip():
         return blocks
@@ -197,6 +226,9 @@ def ingest_material_file(project_id: str, path: Path, *, origin: str = "user",
         raise FileNotFoundError(f"材料文件不存在: {src}")
     if src.suffix.lower() not in SUPPORTED_SUFFIXES:
         raise ValueError(f"不支持的材料格式 {src.suffix!r}（支持 {SUPPORTED_SUFFIXES}）")
+    # 先校验参数，再碰文件：否则"解析不出文本"时 `chunk_text` 根本不会被调用
+    # （见下方 `if text.strip() else []`），非法 max_chars 就会被**静默放过**。
+    _require_positive_max_chars(max_chars)
 
     content_hash = file_hash(src)
     for existing in mr.list_materials(project_id):

@@ -97,7 +97,7 @@ PDF（识别版/扫描版自动分流）、Word(docx 官方公文)、监听目�
 
 ## 六、技术底座（一段话）
 
-Python FastAPI 引擎（sqlite + sqlite-vec 向量 + fastembed + jieba + PyMuPDF + MinerU 解析）+ Node DSH 插件（宿主桥 + 侧栏 React tab）+ Golden Set 检索质量门禁 + 828 项测试基线只涨不跌。数据与代码彻底分离：运行产物全在 `%APPDATA%\KnowledgeStation\`。
+Python FastAPI 引擎（sqlite + sqlite-vec 向量 + fastembed + jieba + PyMuPDF + MinerU 解析）+ Node DSH 插件（宿主桥 + 侧栏 React tab）+ Golden Set 检索质量门禁 + 测试基线只涨不跌。数据与代码彻底分离：运行产物全在 `%APPDATA%\KnowledgeStation\`。
 
 ## 七、差异化
 
@@ -107,10 +107,12 @@ Python FastAPI 引擎（sqlite + sqlite-vec 向量 + fastembed + jieba + PyMuPDF
 
 ## 八、现状与规模
 
-- 引擎 16 个子系统模块，`schema.sql` 冻结 34 张表对象（32 实体 + 2 虚拟表；另有 1 张 `law_catalog` 由法规源模块懒建）；
-- 知识库：法规官方源 + 国标语料，支持 3.5 万级标准目录接入；
-- 测试基线 **1214 passed + 3 skipped + 1 xfailed**（pytest）+ 插件 smoke 11 段 + verify:commands 15 项 + tsc / mypy 类型门禁 0 错误；
-- git 仓库 71 commits，全程可溯。
+- 引擎 16 个子系统模块，`schema.sql` 冻结 **38 张表对象**（35 实体 + 3 虚拟表：`clause_fts`/`clause_vec`/`material_fts`；另有 1 张 `law_catalog` 由法规源模块懒建）；
+- 知识库：法规官方源 + 国标语料，支持 3.5 万级标准目录接入；**材料平面**（2026-09-17 起）另立一套：项目 / 参考资料 / 切片 + **评审硬门**，与法条链隔离；
+- 测试基线 **1308 passed + 3 skipped**（pytest）+ 插件 smoke **12 段** + verify:commands 15 项 + tsc / mypy 类型门禁 0 错误；
+- git 仓库 **103 commits**，全程可溯。
+
+> ⚠ **上面四个数字是快照（取值 2026-09-17）**，会随门禁演进失真——`ENCYCLOPEDIA.md` §11.1 已明令"不重复维护写死的基线"，本节曾长期停留在 `828` 就是教训。**要引用请以 `DEVELOPMENT-HISTORY.md` **最新一步**的门禁段为准**，或直接跑门禁现取。
 
 ---
 

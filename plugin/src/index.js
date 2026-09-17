@@ -30,6 +30,9 @@ import {
   KS_ANSWER_PATH,
 } from './engine.js'
 import { guardWebServer } from './trust.js'
+// ks_answer 的纯函数裁剪层。单列模块的理由（可测）+ **白名单纪律**见该文件头。
+// 特别地：引擎算出的核验字段只有进了 trimVerification 的白名单才到得了模型眼前。
+import { trimVerification } from './trim.js'
 import {
   inspectionStartupCheck,
   registerKsInspectionRoutes,
@@ -108,9 +111,6 @@ const DEFAULTS = {
 /** Legal `query_mode` values (engine contract: R9 four-tier). */
 const QUERY_MODES = ['default', 'thorough', 'quick', 'guess']
 
-/** Cap for each verification list we hand back to the model. */
-const VERIFY_LIST_CAP = 8
-
 /** Cap evidence we keep (the engine already caps at 8; this is a hard belt). */
 const EVIDENCE_CAP = 8
 
@@ -166,27 +166,6 @@ function sanitizeParams(raw) {
   return Object.keys(out).length > 0 ? out : null
 }
 
-/** Compact a single verification-list item (string, number, or object). */
-function compact(item) {
-  if (item === null || item === undefined) return null
-  if (typeof item === 'string') return item
-  if (typeof item === 'object') {
-    try {
-      const s = JSON.stringify(item)
-      return s.length > 160 ? `${s.slice(0, 157)}…` : s
-    } catch {
-      return String(item)
-    }
-  }
-  return item
-}
-
-/** Truncate a verification list to a bounded, JSON-safe form. */
-function shortList(arr, cap = VERIFY_LIST_CAP) {
-  if (!Array.isArray(arr) || arr.length === 0) return []
-  return arr.slice(0, cap).map(compact)
-}
-
 /** Trim one evidence item to the model-relevant fields (no internal `_` fields). */
 function trimEvidence(ev) {
   if (!ev || typeof ev !== 'object') return null
@@ -208,21 +187,6 @@ function trimEvidence(ev) {
     // "answer_scope.bookmarks_only=true + evidence[].bookmarked=false" 会让模型每次
     // 都误报"范围过滤未生效"（把 host 的转换 bug 变成模型的事实性虚假陈述）。
     bookmarked: typeof ev.bookmarked === 'boolean' ? ev.bookmarked : null,
-  }
-}
-
-/** Trim the verification block: keep the verdict, truncate/compact the lists. */
-function trimVerification(v) {
-  if (!v || typeof v !== 'object') return null
-  return {
-    is_valid: !!v.is_valid,
-    answer_confidence: v.answer_confidence ?? 'unknown',
-    confidence_reasons: shortList(v.confidence_reasons),
-    unsupported_clauses: shortList(v.unsupported_clauses),
-    unverified_numbers: shortList(v.unverified_numbers),
-    modality_violations: shortList(v.modality_violations),
-    legal_element_violations: shortList(v.legal_element_violations),
-    citation_index_warnings: shortList(v.citation_index_warnings),
   }
 }
 
@@ -630,7 +594,15 @@ function makeAnswerTool(manager, chatModeOf) {
       'current provision (returned as a structured empty result, not a hard error). ' +
       'When citing an evidence item in your answer, render its evidence_url as a clickable ' +
       'Markdown link, e.g. [依据：<standard_no> <clause_number>](<evidence_url>) — the GUI ' +
-      'opens the original PDF at that page when the user clicks it.',
+      'opens the original PDF at that page when the user clicks it. ' +
+      'IMPORTANT — verification.unsupported_context: if it lists a clause number you cited, ' +
+      'that citation is NOT supported and you MUST disclose it in your own words rather than ' +
+      'silently dropping it: name the standard, then say which case it is — ' +
+      'same_standard_not_retrieved means the clause belongs to a standard that IS in the ' +
+      'evidence but the clause itself was not retrieved (a retrieval gap, not a fabrication); ' +
+      'outside_evidence_standard means it points at a standard outside the retrieved evidence ' +
+      '(out of scope, or possibly invented). Never present such a citation as support, and ' +
+      'never omit the fact that it was raised.',
     parameters: {
       type: 'object',
       properties: {

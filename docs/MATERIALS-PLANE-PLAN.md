@@ -215,3 +215,61 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
 **风险**：
 - 最大风险是**材料层反向污染法条链**（把非权威内容混进证据卡）⇒ §5 的"零改动 + 独立平面"就是针对它；
 - 次大风险是**评审闸门被绕过**（做成提示而非硬门）⇒ §6 明确要求不可绕过。
+
+---
+
+## 12. 施工进度（每步一提交一快照，`docs/DEVELOPMENT-HISTORY.md` 有完整记录）
+
+### 已完成
+
+| 步 | 标签 | 内容 |
+|---|---|---|
+| 01 | `step-01-plan-v1` | 本方案 v1 |
+| 02–04 | `step-02..04-d5-*` | **外发政策改制**（§1 的前置）：红线 4 从"禁止外发"改为"**无留痕外发**"；`egress` 字段如实标注；修掉三处"零外发"陈旧注释 + 一处**静默外发**（`analyze_preview` 默认 `deep_fallback=True`）+ 一处**布尔解析漏洞**（`allow_deep="false"` 被当真） |
+| 05 | `step-05-f1-plugin-bridge` | `allow_deep` 打通到插件三处白名单 + client 开关 + 诚实文案 |
+| 06–07 | `step-06..07-*` | 标准名后缀清理（`(1)`/`(1)(1)`）+ 生产库 139 行改名（带快照与写后复核） |
+| 08–11 | `step-08..11-phaseA*` | **Phase A 完成**：`material_project`/`material`/`material_chunk` 表 + `material_repo` + 材料解析切片（保真不变量：`full_text[a:b] == chunk.text` 逐字相等）+ **评审硬门写进 SQL**（`JOIN … review_status='approved'`）+ 13 个 API 端点 |
+
+### Phase B（进行中）
+
+- **B-1 两轴权威模型（已完成）**：`src/core/materials/authority.py`。
+  `TIER_BEHAVIOUR` 是**承重规则的唯一所有者**；`assemble_evidence()` 按**承重能力分组**（不是排序）；
+  **本模块刻意不提供"按一个分数排序材料"的函数**——那必然把两轴压成一个（§5 的业主裁定）。
+  T3 互证按**域名**判（同站转载两篇**不算**互证）。逐主张级互证需语义聚类，**未做**，
+  当下用**批级**判定并已在代码里注明：批级互证只把线索升到"辅证"，**不会**升到"可作依据"。
+- **B-2 `unsupported_context` 接通（上下文半，已完成）**：审计发现该字段**算出来但被静默丢弃**。
+  - 纯函数裁剪层抽到 `plugin/src/trim.js`（零依赖 ⇒ 冒烟可调**真代码**，不复刻、不漂移）；
+  - 新增 `trimUnsupportedContext()`：**逐字段**透出，**不走**通用 `compact()`——后者把整条
+    JSON 化再截 160 字符，实测 `len=158` **切断中文原因**（真代码对照，见 `smoke:trim`）；
+  - `ks_answer` 工具描述新增**强制披露**指令（`MUST disclose` + 两种 verdict 的含义）；
+  - `plugin/scripts/smoke-trim.mjs`（25 项）**从 `ks_answer.py` 源码解析引擎字段集**并逐键探测
+    ⇒ 将来引擎新增字段而桥忘了转发，**冒烟立刻红**，不依赖任何人记得。
+- **B-3 `unsupported_context` 接通（UI 半，未做）**：座位已查明=**`tool.call.toolview`**，
+  `key='ks_answer'`（该 key **当前无人占用**）。⚠ 该座位 `replaceRisk: shadows-shipped-ui`
+  ⇒ 注册它会**顶掉**该工具调用的默认渲染，**必须整卡自绘**（不是只加一段）。
+  故**单独一步**做，不塞进 B-2。同理，`knowledge_types_involved`（SSE 专有）与
+  `sidebar.right.pane.tab` 上的核验展示一并那时评估。
+- **B-4 独立复核 Phase A 后的收口（已完成）**：见 `DEVELOPMENT-HISTORY.md` §10.13。修掉 1 个
+  MEDIUM（`chunk_text` 死循环）+ 3 个 LOW（兜底 except 伪装"没命中"、坏参数静默变空结果、
+  `page_of` docstring 与代码不符），并把 docstring 里"唯一入口"的**过头表述**改成
+  精确边界与点名禁用清单。
+
+### 已知未决 / 诚实边界
+
+1. **`tests/test_deep_server.py` 有间歇性失败**（全量跑出现过 1 次，同文件单独跑 8/8 通过，
+   下一轮全量又全绿；随后连跑 3 轮全绿）。失败用例名被控制台编码打乱**未能确证**，故此处**不点名**。
+   该文件与本次改动无调用关系（本步只新增测试文件与独立模块），但**它会给每一步的门禁带来噪声**。
+   ⇒ 待办：用 `PYTHONIOENCODING=utf-8` 重跑以取得确证用例名并加固超时。
+2. 逐主张级 T3 互证（语义聚类）未做；材料与法条检索**是否共池**仍未定（§11.1）。
+3. 材料评审 UI 的最终落位（官方侧栏 vs `conversation.input.dock`）**仍未定**。
+4. PPT 依赖仍未立项（§8）。
+5. **⚠ Phase B 必解：材料引用的"锚点稳定性"**（独立复核 2026-09-17 提出，LOW-MEDIUM 但后果重）。
+   `material` 表**不存派生全文**，也**没有解析器指纹**；`content_hash` 是**源文件字节**的哈希。
+   而切片区间/页号是**解析结果**的坐标 ⇒ 一旦换解析器（PyMuPDF 版本、MinerU、或开
+   `deep_fallback` 走云解析），**所有已存区间会静默作废**，而产出的引用看起来仍然"正常"。
+   现在没爆是因为重解析当下确定性（多次复算 SHA 一致），**不是因为被钉住**。
+   ⇒ 候选做法：`material` 增列 `derived_text_hash` + `parser_fingerprint`，引用前校验；
+   或落库存派生全文。**须先决策再动答案链**，否则报告里的引用是不可信的。
+6. **`material_chunks()` / `list_materials()` / `get_material()` 不设评审门**（故意，供评审人
+   读正文用）。生产代码今天没有分析路径用它们 ⇒ 一旦 Phase B 的答案链接到其中任何一个，
+   **就是绕过评审且不报错**。接答案链时必须只经 `approved_materials()` / `search_materials()`。

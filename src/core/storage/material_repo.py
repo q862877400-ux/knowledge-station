@@ -15,15 +15,26 @@ Track L（采到库内没有的法规标准）评审通过后仍走既有 ingest
 制度来源层级低于国标，但对"我们公司报销怎么走"它才是准绳 —— 单轴排序必然错一个，
 故这里**不提供**任何"按一个分数排序材料"的函数。
 
-## 评审是**硬门**，不是提示
-`approved_materials()` 与 `search_materials()` 是检索/分析的**唯一入口**
-（前者的 SQL 只返回 `review_status='approved'`，后者把该条件**写死在 JOIN 里**）。
-凡是要"给分析用的材料"的调用方都必须经它们，不得自己拼 `list_materials()` 再过滤
-—— 分散判据早晚会分叉，而分叉的后果是把没批准的材料当依据。
+## 评审是**硬门**，不是提示——但要说准"硬"到什么程度
+检索/分析必须走 `approved_materials()` / `search_materials()`：前者的 SQL 只返回
+`review_status='approved'`，后者把该条件**写死在 JOIN 里**（所以批准/撤销**立即**生效，
+不给调用方"记得过滤"的机会）。
+
+⚠ **精确边界（2026-09-17 verifier 复核后改正，原先的 docstring 说过头了）**：
+1. 硬门是**函数内**保证，**不是数据库强制**——没有 view、没有 trigger。**任何手写 SQL
+   或直接查 `material_fts` 都能绕过它**（`schema.sql` 里也写了这条警告）。
+2. 本模块**故意**另有三处**不设门**的读函数，**只准评审流程用**（评审人必须先读到正文
+   才能判断，盲签等于没评审）：
+   `material_chunks()`（第 330 行）、`list_materials()`、`get_material()`。
+   ⇒ **任何要产出结论/答案的路径都不得使用它们**；用了就是绕过评审，且**不会有任何报错**。
+   今天生产代码里还没有这样的消费方——Phase B 接答案链时，这是最容易悄悄出错的接缝。
+3. 因此"唯一入口"指的是**给分析用的那对函数**，不是"本模块所有函数都设了门"。
 """
 from __future__ import annotations
 
 import json
+import logging
+import sqlite3
 from pathlib import Path
 from typing import Any
 
@@ -31,6 +42,8 @@ from ulid import ULID
 
 from src.core.config import get_settings
 from src.core.storage.sqlite_db import get_db_connection, write_transaction
+
+logger = logging.getLogger(__name__)
 
 #: 轴 A 的层（顺序即"来源可信度"由高到低；**不等于**任务内效力）
 TIERS = ("T0", "T1", "T2", "T3", "T4")
@@ -288,6 +301,15 @@ def search_materials(project_id: str, query: str, *, limit: int = 8) -> list[dic
     这些字段就是产出物里那条引用要显示与"点回原文"的全部依据（可见性硬需求）。
     """
     from src.core.text_utils import segment_for_fts
+    if not isinstance(query, str):
+        # 显式拒绝而不是让 jieba 深处抛 AttributeError（verifier 2026-09-17 报的：
+        # 非 str 会从 segment_for_fts 内部冒 AttributeError，契约很差）。
+        raise TypeError(f"query 必须是 str（收到 {type(query).__name__}）")
+    # ⚠ `limit` 的归一**必须在 try 之外**：原先 `int(limit)` 在 try 内，于是
+    # `limit=None` 的 TypeError 被兜底 except 吃掉、静默返回 [] —— 与本次战役修掉的
+    # `allow_deep="false"` 同一类 bug：**坏参数静默变成"什么都没找到"**。
+    if isinstance(limit, bool) or not isinstance(limit, int):
+        raise TypeError(f"limit 必须是 int（收到 {type(limit).__name__}）")
     q = segment_for_fts(query)
     if not q.strip():
         return []
@@ -302,8 +324,12 @@ def search_materials(project_id: str, query: str, *, limit: int = 8) -> list[dic
             " JOIN material_chunk c ON c.chunk_id = material_fts.chunk_id"
             " JOIN material m ON m.material_id = c.material_id"
             " WHERE material_fts MATCH ? AND m.project_id = ? AND m.review_status = 'approved'"
-            " ORDER BY score LIMIT ?", (q, project_id, int(limit))).fetchall()
-    except Exception:  # noqa: BLE001 — FTS 语法异常不该把提问打崩（无命中优于报错）
+            " ORDER BY score LIMIT ?", (q, project_id, limit)).fetchall()
+    except sqlite3.OperationalError as e:
+        # 与法条侧同款（`hybrid_engine` 的 FTS 通道：`except sqlite3.OperationalError`
+        # + warning）：畸形 MATCH 不该把提问打崩，但**必须留痕**——兜住 `Exception`
+        # 会把"表没了 / SQL 写错了"伪装成"材料里没有命中"，那是最坏的一种失真。
+        logger.warning("材料 FTS 查询失败: %s", e)
         return []
     return [{"chunk_id": r[0], "material_id": r[1], "text": r[2],
              "char_start": r[3], "char_end": r[4], "page": r[5],

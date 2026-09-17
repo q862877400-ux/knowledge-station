@@ -258,6 +258,58 @@ class TestSearch:
         mr.set_review(m["material_id"], "approved")
         assert len(mr.search_materials(pid, "营业收入", limit=2)) == 2
 
+    def test_bad_arguments_raise_instead_of_silently_finding_nothing(self, project):
+        """**坏参数不许静默变成"没有命中"**（verifier 2026-09-17 报的 LOW）。
+
+        原先 `int(limit)` 在 try 内，`limit=None` 的 TypeError 被兜底 `except Exception`
+        吃掉 → 静默 `[]`。这与本次战役修掉的 `allow_deep="false"` 是**同一类 bug**：
+        调用方参数写错，用户被告知"材料里没找到"，而不是"你的调用坏了"。
+        非 `str` 的 query 原先会从 jieba 深处冒 `AttributeError`（契约差）→ 现在显式 `TypeError`。
+        """
+        pid = project["project_id"]
+        with pytest.raises(TypeError, match="limit"):
+            mr.search_materials(pid, "营业收入", limit=None)      # type: ignore[arg-type]
+        with pytest.raises(TypeError, match="limit"):
+            mr.search_materials(pid, "营业收入", limit="3")        # type: ignore[arg-type]
+        with pytest.raises(TypeError, match="limit"):
+            mr.search_materials(pid, "营业收入", limit=True)       # type: ignore[arg-type]
+        for bad in (None, 3, ["营业收入"], {"q": "x"}):
+            with pytest.raises(TypeError, match="query"):
+                mr.search_materials(pid, bad)                      # type: ignore[arg-type]
+
+    def test_real_sql_failure_is_loud_not_empty(self, project, monkeypatch, caplog):
+        """**表/SQL 真坏了必须留痕**，不能伪装成"材料里没有命中"。
+
+        兜底 `except Exception` 的最坏后果就是这个：把
+        "material_fts 不存在 / SQL 写错列名" 变成一次安静的空结果，而空结果会被
+        上层解释成"材料不支持这个结论"。现按法条侧同款只兜 `sqlite3.OperationalError`
+        并 warning。
+        """
+        import sqlite3
+        pid = project["project_id"]
+
+        class _Boom:
+            def execute(self, *_a, **_k):
+                raise sqlite3.OperationalError("no such table: material_fts")
+
+        monkeypatch.setattr(mr, "get_db_connection", lambda: _Boom())
+        with caplog.at_level("WARNING"):
+            assert mr.search_materials(pid, "营业收入") == []
+        assert any("材料 FTS 查询失败" in r.message for r in caplog.records), \
+            "真 SQL 失败必须留下 warning，否则'没有命中'与'检索坏了'无法区分"
+
+    def test_programming_error_is_not_swallowed(self, project, monkeypatch):
+        """**非 sqlite 异常必须冒出来**（这是从兜底 `Exception` 收窄的全部意义）。"""
+        pid = project["project_id"]
+
+        class _Boom:
+            def execute(self, *_a, **_k):
+                raise RuntimeError("SQL 里写错了列名（模拟编程错误）")
+
+        monkeypatch.setattr(mr, "get_db_connection", lambda: _Boom())
+        with pytest.raises(RuntimeError):
+            mr.search_materials(pid, "营业收入")
+
 
 # ------------------------------------------------------------------ 删除
 class TestDelete:

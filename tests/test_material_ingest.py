@@ -235,8 +235,16 @@ class TestPhaseAAcceptance:
     """方案 §9 的 Phase A 验收：**放一份 PDF → 评审通过 → 提问 → 引用能点回该 PDF 的位置**。
 
     这条把"平面"的四个部件串起来跑一遍（收件 → 切片 → 评审硬门 → 检索 → 引用字段），
-    并逐字验证"点回原文"是真的：用引用里的 `char_start/char_end` 在**重新解析出的全文**上
+    并**逐字**验证"点回原文"是真的：用引用里的 `char_start/char_end` 在**重新解析出的全文**上
     取回文本，必须与命中切片一致；`page` 必须落在该 PDF 的真实页上。
+
+    ⚠ **本类的边界（verifier 2026-09-17 指出，务必别读过头）**：
+    1. "提问"这里是 `search_materials()` 的**关键词检索**——**还没有任何答案生成路径消费材料**
+       （见 `DEVELOPMENT-HISTORY` §10.10 诚实边界②，Phase B 才接）；
+    2. 引用是在**重新解析**出的全文上验证的，而 `material` 表**不存**派生全文、也**没有**
+       解析器指纹（`content_hash` 是**源文件字节**的哈希）。今天重解析是确定性的，
+       但**换解析器/开云深度解析会静默作废所有已存区间** —— 这是 Phase B 的风险项；
+    3. `page` 是拿写入时同一个 `page_of()` 推的（**一致性**，不是独立的 PDF 几何核对）。
     """
 
     def test_pdf_gate_search_and_citation_point_back(self, project):
@@ -269,8 +277,87 @@ class TestPhaseAAcceptance:
         # ⑤ **点回原文位置是真的**：用引用区间在重新解析的全文上取回同一段文本
         pages = mi.extract_pages(Path(mr.get_material(mid)["raw_path"]))
         text, spans = mi.build_document(pages)
-        assert text[h["char_start"]:h["char_end"]].strip() == h["text"]
+        # 逐字相等（不 strip）——口径与 docstring 的"逐字"一致；strip 会掩盖空白差异，
+        # 而空白差异正是"点回原文"会失真的地方（verifier 2026-09-17 指出旧断言用了 strip）。
+        assert text[h["char_start"]:h["char_end"]] == h["text"]
         assert mi.page_of(h["char_start"], spans) == h["page"]
+
+    def test_pdf_citation_is_exact_without_strip(self, project):
+        """引用区间必须**逐字**取回（不是"去掉空白后相等"）。
+
+        verifier 2026-09-17 指出上面那条用的是 `.strip()`，与 docstring 的"逐字验证"
+        口径不一致（当时恰好逐字也成立，所以没假通过）。这里把**最强口径**钉死：
+        不 strip 也必须相等——否则"点回原文"会把空白差异一起带出去。
+        同时用 `page_of` **独立**核对页号（同一条断言里两个量分开写，失败时能分辨）。
+        """
+        pid = project["project_id"]
+        d = mr.materials_dir(pid)
+        _make_pdf(d / "报告.pdf", ["营业收入一百亿元。\n\n净利润十亿元。"])
+        out = mi.ingest_project_dir(pid)[0]
+        mr.set_review(out["material_id"], "approved")
+        hits = mr.search_materials(pid, "营业收入")
+        assert hits
+        h = hits[0]
+        pages = mi.extract_pages(Path(mr.get_material(out["material_id"])["raw_path"]))
+        text, spans = mi.build_document(pages)
+        assert text[h["char_start"]:h["char_end"]] == h["text"]     # 无 strip
+        assert mi.page_of(h["char_start"], spans) == h["page"]
+
+    def test_page_of_contract_on_separator(self):
+        """`page_of` 的精确契约：落在**页间分隔符**上返回**最后一页**（不是上一页）。
+
+        这是 verifier 报的 docstring/代码不符（LOW，无行为影响）——把代码的**真实**
+        行为钉住，免得下一个人照着旧 docstring 推行为。
+        """
+        pages = [(1, "aa"), (2, "bb")]
+        text, spans = mi.build_document(pages)
+        assert [s[2] for s in spans] == [1, 2]
+        assert mi.page_of(spans[0][0], spans) == 1        # 页内
+        assert mi.page_of(2, spans) == 2                  # 分隔符上 → 最后一页
+        assert mi.page_of(3, spans) == 2
+        assert mi.page_of(0, []) is None                  # 无页 → None
+        assert text  # 保持变量被使用（可读性）
+
+
+class TestMaxCharsGuard:
+    """verifier 报的 **MEDIUM** 缺陷回归：`max_chars<=0` 曾让硬切循环**死循环**。
+
+    实测（subprocess + 12s 超时）：`max_chars=0/-5` 均不终止。故这里断言的是
+    "**明确拒绝**"而不是"夹紧到 1"——静默夹紧会把调用方的参数 bug 藏起来。
+    """
+
+    @pytest.mark.parametrize("bad", [0, -5, -1])
+    def test_chunk_text_rejects_non_positive(self, bad):
+        with pytest.raises(ValueError, match="max_chars"):
+            mi.chunk_text("x" * 10, [], max_chars=bad)
+
+    @pytest.mark.parametrize("bad", [0, -1])
+    def test_rejected_even_when_text_is_empty(self, bad):
+        """**同一参数只能有一种命运**：空文本早退也不得放过非法参数。"""
+        with pytest.raises(ValueError, match="max_chars"):
+            mi.chunk_text("   \n  ", [], max_chars=bad)
+
+    def test_bool_is_rejected(self):
+        """`True` 是 int 的子类但不是合法块大小——别把它当 1 悄悄接受。"""
+        with pytest.raises(ValueError, match="max_chars"):
+            mi.chunk_text("abc", [], max_chars=True)
+
+    @pytest.mark.parametrize("bad", [0, -3])
+    def test_ingest_file_rejects_before_touching_content(self, project, tmp_path, bad):
+        """公开入口同样拒绝——**即使该文件解析不出文本**（那时 `chunk_text` 不会被调用）。
+
+        这正是漏洞的另一半：`ingest_material_file` 里 `chunk_text(...) if text.strip() else []`
+        会让空文本绕过校验。故校验前置到碰文件之前。
+        """
+        p = _make_txt(tmp_path / "空.txt", "   ")
+        with pytest.raises(ValueError, match="max_chars"):
+            mi.ingest_material_file(project["project_id"], p, max_chars=bad)
+
+    def test_legal_small_value_still_works(self):
+        """合法小值照常硬切（修复不能把正常能力一起砍掉）。"""
+        blocks = mi.chunk_text("x" * 10, [], max_chars=1)
+        assert len(blocks) == 10
+        assert all(b["text"] == "x" for b in blocks)
 
     def test_scan_pdf_needs_explicit_deep_and_is_flagged(self, project):
         """扫描件（无文本层）在**默认不外发**下拿不到内容 —— 但材料仍登记并如实标注。

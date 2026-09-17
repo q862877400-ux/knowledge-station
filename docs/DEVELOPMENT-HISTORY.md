@@ -471,6 +471,116 @@ Phase A 前三步把引擎做通了，但**业主碰不到**——验收句里�
 "把文件放进项目文件夹再 scan"（与方案 §9 的"先走放文件夹+扫描，GUI 上传留后"一致）；⑤ 未做分页
 之外的排序/筛选（按创建时间倒序）。
 
+### 10.12 Phase B 第一步：把"可信度"从标签变成**可执行规则** + `unsupported_context` 接通上下文
+
+业主的原话是"**要对材料可信度进行判别，而不是随便找个什么网络文章就当权威信源**"。
+光给材料贴 T0~T4 标签**不够**——必须有人按标签拒绝/降级，否则标签只是装饰。
+
+**① 两轴权威模型**（`src/core/materials/authority.py`，新）
+- `TIER_BEHAVIOUR` 是**承重规则的唯一所有者**：T0/T1/T2 = 可作依据；T3 = **只作线索**，
+  **≥2 个独立来源**才可作辅证；T4 = **禁止用于结论**（仍如实列出，标"已知不可用"——
+  不假装它不存在）。
+- `assemble_evidence()` 按**承重能力分组**（准则 / 可作依据 / 互证辅证 / 仅线索 / 已排除），
+  **不是排序**。本模块**刻意不提供"按一个分数排序材料"的函数**：那必然把业主裁定的两个轴
+  （来源可信度 × 任务内效力）压成一个，公司制度例必错。
+- **独立来源按域名判**：同一站点转载两篇**不算**互证（最常见的假互证，有专门用例钉住）。
+- `usable_hits()` 是"要产出结论"的安全入口（准则+依据+辅证），`leads_only` 与 `excluded`
+  **不在**里面——并在 docstring 里警告：要展示线索请用完整结构，别用本函数（否则把
+  "只能当线索"的东西漏到可见性之外）。
+- **测试 17 条**（`tests/test_material_authority.py`）。
+
+> **我自己的测试先红了一次**，红得对：断言写"渲染里要有『参考』"，而该材料的 `task_role`
+> **未声明**，诚实标注应是「未声明效力」。**代码是对的，测试是错的**——改成断言 `role_label`
+> 本身，并补一条"声明了轴 B 之后渲染出『本任务准则』"的用例。
+
+**② `unsupported_context` 接通（上下文半）**——审计结论是"**算出来但没人看得见**"：
+引擎算了、SSE 也发了，却在 `plugin/src/index.js` 的 `trimVerification` 白名单里被**静默丢弃**。
+- 把纯函数裁剪层抽成 `plugin/src/trim.js`（**零依赖**）⇒ `plugin/scripts/smoke-trim.mjs` 能调
+  **真代码**。抽出来的理由就是可测：原先埋在 `index.js`（顶层 import DSH 包）里，node 只能
+  "复刻算法"或"字符串匹配源码"，两者都会漂移。
+- 新增 `trimUnsupportedContext()`：**逐字段**透出（clause_number / standard_no / verdict /
+  reason），`reason` 单独给 400 字符上限并**显式标 `[已截断]`**。
+  **不走**通用 `compact()` 的理由是实测出来的：后者把整条 JSON 化再截 160，
+  这条真实 reason 走通用路径后 `len=158`、**中文原因被切断**——正好复现该字段本要修掉的
+  "告警不可执行"毛病。**冒烟里用真 `shortList` 做对照**（不是手算）钉住这个差别。
+- `ks_answer` 工具描述加**强制披露**指令：`MUST disclose`、两种 verdict 的含义
+  （`same_standard_not_retrieved`=检索漏召回，不是编造；`outside_evidence_standard`=越界或可能编造）、
+  `Never present such a citation as support`。**只送字段不指示动作 = 把"静默丢弃"换成"静默不理会"。**
+- **反回归的机制**（这是本步最值钱的部分）：冒烟**从 `src/core/llm/ks_answer.py` 源码解析**
+  引擎的真实 verification 字段集，**逐键探测**是否被转发；将来引擎加字段而桥忘了转发，
+  **冒烟立刻红**，不依赖任何人记得。反向也查（白名单里不许有引擎不发的键 = 死转发）。
+
+> **冒烟第一次跑就抓到我一条不成立的论断**：我断言"真实 reason >160 字符所以通用路径必切断"，
+> 实测 **94 字符**。让它失效的不是 reason 长度，而是**整条 JSON 化后的长度（201）**——
+> 键名+标点就占掉近百字符。断言改成用**真代码**对照 + 断言正确的量，并在注释里写明实测数值。
+
+**③ UI 半**：座位已查明（`cordis_inspect` 查 Slot 树）= **`tool.call.toolview`**，`key='ks_answer'`
+（该 key **当前无人占用**）。⚠ 但它 `replaceRisk: shadows-shipped-ui` ⇒ 注册会**顶掉**该工具
+调用的默认渲染，**必须整卡自绘**，不是"只加一段"。故**单独一步**做（B-3），不塞进本步。
+
+**门禁**：`pytest` **1308 passed / 3 skipped / 0 failed**（1291 → 1308，+17）；`mypy` 0 errors（125 files）；
+`tsc --noEmit` 0；`smoke:trim` **25/25**；`smoke` 全链 12 段；`node --check` 两个宿主模块语法 OK。
+
+**诚实边界**：① 逐主张级 T3 互证（语义聚类）**未做**——当下是**批级**判定，已在代码里注明
+（批级互证只把线索升到"辅证"，**不会**升到"可作依据"，故偏保守）；② **答案生成仍未消费材料**
+（`assemble_evidence` 已可用，但答案链尚未接它——那是 Phase B 的下一步）；③ UI 半未做（见③）；
+④ 引擎仍在跑旧代码，新路由/新表**要重启才生效**；⑤ `knowledge_types_involved`（SSE 专有）仍未转发，
+与 UI 展示一并评估。
+
+> **门禁噪声（如实记）**：全量跑出现过 **1 次** `tests/test_deep_server.py` 失败，同文件单独跑
+> **8/8 通过**，紧接着的全量跑又全绿 ⇒ 判定为**既有间歇性失败**（该文件用 10s 超时 + 轮询线程，
+> 对 CPU 争用敏感；本步只新增测试与独立模块，与它无调用关系，但新增 17 条测试**改变了整轮时序**、
+> 可能把它暴露出来）。失败用例名被控制台编码打乱，**未能确证**，故不点名。
+> 随后用 `PYTHONIOENCODING=utf-8` **连跑 3 轮全量：1308 passed / 3 skipped / 0 failed ×3** ⇒ 未复现。
+> 见 `MATERIALS-PLANE-PLAN.md` §12 待办。
+
+### 10.13 独立复核 Phase A 的结论与收口（verifier 参与，2026-09-17）
+
+独立子代理在**隔离 worktree**（钉在 `b8579f6`，独立 `KS_DATA_DIR`，未改任何受控文件）复核
+Phase A 的三次提交，7 项声明全部给出结论。**CONFIRMED**：法条链零改动（静态正则 0 命中 +
+行为级 5 张表内容 SHA/DDL 哈希不变）、切片保真（**4000 份模糊文档，0 反例**）、
+脏查询打不崩提问（54 个畸形查询全部返回列表）、schema 对既有库**只增不改**
+（16 个新对象全为 `material*`，旧表行数与列清单逐项相同、二次初始化幂等）、
+分词重构**与生产库 200 行真实语料逐字节一致**。
+
+**被复核推翻/收窄的**：① 我原先在 `material_repo` 的 docstring 里写"`approved_materials()` /
+`search_materials()` 是**唯一入口**"——**说过头了**：硬门是**函数内**保证，**不是数据库强制**
+（无 view / trigger），且本模块**故意**另有三处不设门的读函数（评审人要读正文才不是盲签）。
+已把 docstring 改成**精确边界**并点名那三个函数"任何产出结论的路径都不得使用它们"（缺陷②）。
+② 验收测试 docstring 写"逐字验证"而断言用了 `.strip()` ⇒ 断言的量改成**不 strip 的逐字相等**，
+并在类 docstring 里写明该验收**读不到**的三件事（无答案链、引用基于重解析文本、页号非独立几何核对）。
+
+**修掉的缺陷**（按严重度）：
+1. **MEDIUM — `chunk_text(max_chars<=0)` 死循环**（`material_ingest.py`）。硬切循环里
+   `seg_end = min(off + max_chars, line_end)`，`max_chars<=0` 时 `seg_end == off` ⇒ 指针不前进。
+   **我自己复现过**（subprocess + 12s 超时：`100→1` 块、`1→10` 块正常，**`0`/`-5` 超时不终止**），
+   修复后再跑同一探针：`0`/`-5` 改为 **exit=1 + `ValueError`**。
+   修法：新增 **`_require_positive_max_chars()` 作为参数规则的唯一所有者**，两个公开入口都调它
+   （关键：`ingest_material_file` 里 `chunk_text(...) if text.strip() else []` 会让**空文本绕过校验**
+   ——同一个参数两种命运，校验因此前置到碰文件之前）。**抛错而不夹紧到 1**：静默夹紧会把调用方的
+   参数 bug 藏起来。回归测试 9 条（含 bool 也被拒、空文本也拒、合法小值仍能硬切）。
+2. **LOW-MEDIUM — `search_materials` 的兜底 `except Exception`** 会把"表没了 / SQL 写错列名"
+   伪装成"材料里没有命中"（最坏的一种失真）。按**法条侧同款**（`hybrid_engine` 的 FTS 通道）
+   收窄为 `except sqlite3.OperationalError` + `logger.warning`，并加测试：真 SQL 失败**必须留痕**、
+   非 sqlite 的编程错误**必须冒出来**。
+3. **LOW — 坏参数静默变成"没找到"**：`int(limit)` 原先在 `try` 内，`limit=None` 的 `TypeError`
+   被兜底 except 吃掉 → 静默 `[]`。这与本次战役修掉的 `allow_deep="false"` 是**同一类 bug**。
+   现 `limit` / `query` 的类型校验前置到 `try` 之外并显式 `TypeError`（非 str query 原先会从
+   jieba 深处冒 `AttributeError`，契约很差）。
+4. **LOW — `page_of()` docstring 与代码不符**（写"归上一页"，实际返回**最后一页**）。无行为影响
+   （切片起点经 `emit()` 收紧到非空白字符，不会落在页间分隔符里）。docstring 改准 + 一条测试钉住
+   **代码的真实**行为（免得下一个人照旧 docstring 推行为）。
+
+**未修、已登记为 Phase B 必解**（诚实边界）：`material` 表不存派生全文、无解析器指纹，
+而切片区间是**解析结果的坐标** ⇒ 换解析器/开云深度解析会**静默作废所有已存引用**（今天不爆
+只是因为重解析当下确定性）。⇒ 已在 `MATERIALS-PLANE-PLAN.md` §12 列为**动答案链之前必须先决策**的项。
+另：deferred `knowledge_types_involved`（SSE 专有）与核验 UI 仍待做。
+
+**门禁（收口后）**：`pytest` **1322 passed / 3 skipped / 0 failed**（1308 → 1322，**+14**：
+`max_chars` 守卫 9 + 逐字引用/`page_of` 契约 2 + `search_materials` 参数与留痕 3）；
+`mypy` 127 files 0 errors；`tsc --noEmit` 0；`smoke` 12 段全过（含新增 `smoke:trim` 25 项）；
+死循环探针复跑：`max_chars=0/-5` 由 **TIMEOUT → exit=1 + ValueError**。
+
 
 
 
