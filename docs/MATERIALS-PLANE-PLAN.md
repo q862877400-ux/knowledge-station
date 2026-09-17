@@ -1066,3 +1066,24 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     超阈值即红）→ ② `asyncio.to_thread` 池不对称 + 重活前缀表 → ③ 真机重启后端到端复验（需业主）。
 
 
+35. **处理复核 b18（4 CONFIRMED / 3 PARTLY，无 HIGH）**（§10.89，step-89；
+    报告：`var/tmp/verify-b18-artifacts/VERIFY-REPORT.md`）。
+
+    | 编号 | 一句话 | 状态 |
+    |---|---|---|
+    | **b18-MEDIUM-1** | 名单第二关会判红一条**真会让出的流式端点**（嵌套 async 生成器被**装饰器/模块级注册表**登记 ⇒ 判据的"被引用"只看 `Name` 节点，看不见它）；b18 认为"误红 > 漏放" | ✅ **不放宽判据**（放宽会让 H5 那种"端点体先跑 0.65s 同步活再返回流"混过去），改**用框架事实收口**：实测 `def` 端点返回 `StreamingResponse(async_gen())` 与 `async def` **逐字节相同**（200 + `chunk0|chunk1|chunk2|`）⇒ 判红的补救（改 `def`）**无害**；offenders 文案改成可执行；新用例 `test_def端点返回StreamingResponse仍然真流式` 钉住该前提 |
+    | b18-LOW-2 | docstring"比 `never_yields` **严一档**"不处处成立（H5 / `async for` 上**更宽**） | ✅ 改成"两个方向都写明" + 逐条判据顺序 + 三条能力边界；并注明 §10.87 §1 的 H5 行说的是**旧**第二关 |
+    | b18-INFO-2 | 换判据留下两个**死代码**（`_own_awaits`/`_scope_suspends`）——b17 刚因 `_free_port` 死代码提过 LOW，**同族再现** | ✅ 删；教训写进 §10.89 §3："换实现"要与"删旧实现"同一笔提交 |
+    | b18-LOW-1 | pytest pass/skip 拆分差 1（`test_golden_set.py:31` 环境 skip，本区间未改该文件） | 📝 环境差，不改口径 |
+    | b18-LOW-3 | `package.json` 的 `typecheck:py` 是 Windows 相对路径（非本轮改动） | 📝 已知、保留（桌面 Windows 单机是目标） |
+    | b18-INFO-1 | 内联递归深度上限 4 ⇒ 第 5 层起放行（只朝放行截断，不误红） | ✅ 写进 docstring 边界 |
+    | b18-INFO-3 | `smoke-chatmode.mjs:613` 并发断言偶发失败一次（`durable=23/24`；随后 6 次全过；`plugin/**` 本区间零改动） | 📝 登记为既有 flake |
+    | b18-F1/F3/F4/F5/F6/F8 | 按循环收窄有鉴别力（重建旧实现得 `[16,40,40]`、40 线程端到端峰值 16、弱引用全回收、全库无同族漏网）；名单四关 + 5 变异全红、零漂移；§10.87 四处更正落地；三条 LOW 属实；三条"新问题"经查都不构成缺陷 | ✅ CONFIRMED（细节见报告） |
+
+    **变异 M4**：往 b18 建议的方向注入（任何嵌套 async **生成器**都算被引用）⇒ H3"从不被引用的
+    嵌套生成器必须判成没有真挂起点"**变红**（守住本轮选择保留的严格性）。逐字节还原。
+
+    **下一步**：① 量具接名单（第二层，b17/b18 都指向它）→ ② `asyncio.to_thread` 池不对称
+    → ③ 真机重启后端到端复验（需业主）。
+
+

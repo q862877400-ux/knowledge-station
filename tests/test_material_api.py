@@ -722,7 +722,10 @@ class TestSlowEndpointsAreDeclaredSync:
             # ④ 被引用的嵌套 async 生成器（真流式）算。
             if not audit.effective_real_await(src):
                 offenders.append((path, "名单说它必须 async，但它的 await 全是读 body"
-                                       "（或只调用了同样只读 body 的嵌套助手）——那是 `def` 的活"))
+                                       "（或只调用了同样只读 body 的嵌套助手）——那是 `def` 的活。"
+                                       "**若它是流式端点**（`return StreamingResponse(async_gen())`）："
+                                       "`def` 一样能真流式（见 test_def端点返回StreamingResponse"
+                                       "仍然真流式），所以改 `def` 是无害的补救"))
         # 名单本身也要与现状一致：写在名单里、但已经不是 async 的 ⇒ 也要红（防止名单腐烂）
         for path in self._ASYNC_ENDPOINTS:
             if path not in seen:
@@ -937,6 +940,53 @@ class TestSlowEndpointsAreDeclaredSync:
                 return heavy(body)
         ''') is False, "只有读 body 的 await ⇒ 该 def"
         assert _f("async def ep(:\n") is False, "解析失败必须 fail-closed"
+
+    def test_def端点返回StreamingResponse仍然真流式(self):
+        """§10.89（独立复核 b18 的 MEDIUM-1）：**`def` 端点也能真流式** —— 这是判据的前提。
+
+        b18 构造了一条"真会让出的流式端点"（嵌套 async 生成器被装饰器/模块级注册表登记），
+        指出名单第二关会判它红。作者**没有**放宽判据，理由是：闸门问的是"**必须** async 吗"，
+        而**否** —— 本用例实测：`def` 端点返回 `StreamingResponse(async_gen())` 与 `async def`
+        **逐字节相同**（都是 200 + 逐块 `chunk0|chunk1|chunk2|`）。⇒ 判红的补救（改 `def`）
+        **无害**；反过来放宽判据会让 H5 那种"端点体里先跑 0.65s 同步活、再返回流"的形状混过去。
+
+        ⚠ 这条用例钉的是**框架事实**（Starlette 对异步可迭代对象一律 `async for` 迭代，
+        与端点是不是 `async def` 无关）；框架升级后若它红了，说明上面那个理由要重新论证。
+        """
+        import asyncio
+
+        import httpx
+        from fastapi import FastAPI
+        from fastapi.responses import StreamingResponse
+
+        async def gen():
+            for i in range(3):
+                await asyncio.sleep(0)               # 真挂起点在生成器里
+                yield f"chunk{i}|".encode()
+
+        app = FastAPI()
+
+        @app.get("/def_ep")
+        def def_ep():
+            return StreamingResponse(gen())
+
+        @app.get("/async_ep")
+        async def async_ep():
+            return StreamingResponse(gen())
+
+        async def main() -> dict[str, tuple[int, bytes]]:
+            out: dict[str, tuple[int, bytes]] = {}
+            async with httpx.AsyncClient(transport=httpx.ASGITransport(app=app),
+                                         base_url="http://stream", timeout=10) as c:
+                for path in ("/def_ep", "/async_ep"):
+                    async with c.stream("GET", path) as r:
+                        body = b"".join([ch async for ch in r.aiter_bytes()])
+                    out[path] = (r.status_code, body)
+            return out
+
+        got = asyncio.run(main())
+        assert got["/def_ep"] == (200, b"chunk0|chunk1|chunk2|"), got
+        assert got["/def_ep"] == got["/async_ep"], got
 
     def test_判据本体的边界样本(self):
         """§10.86：两条判据的**边界形状**（b15 的 INFO-1 / INFO-3）。

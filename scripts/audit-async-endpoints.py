@@ -321,16 +321,6 @@ def _call_name(value: ast.AST) -> str | None:
     return None
 
 
-def _own_awaits(fn: ast.AST) -> list[ast.Await]:
-    return [n for n in _own_scope_nodes(fn) if isinstance(n, ast.Await)]
-
-
-def _scope_suspends(fn: ast.AST) -> bool:
-    """这个函数**自己作用域**里有会让出控制权的语法吗（await / async for / async with / yield）？"""
-    return any(isinstance(n, (ast.Await, ast.AsyncFor, ast.AsyncWith, ast.Yield, ast.YieldFrom))
-               for n in _own_scope_nodes(fn))
-
-
 def _real_suspension(fn: ast.AST, nested: dict, depth: int = 0) -> bool:
     """`fn`（含它**调用的**嵌套助手）在自己的执行路径上有没有**真**挂起点？
 
@@ -361,21 +351,33 @@ def _real_suspension(fn: ast.AST, nested: dict, depth: int = 0) -> bool:
 def effective_real_await(src: str) -> bool:
     """这条 async 端点**执行路径上**真的会让出控制权吗？（§10.88：名单第二关的判据）
 
-    比 `never_yields()` 严一档：
-      ① `async for` / `async with` / `yield` ⇒ **算**（等待点常常在库源码里，源码里看不到
-         `Await` 节点）。⚠ 这一条是独立复核 b17 的 MEDIUM-2：旧版第二关用 `never_yields`，
-         而它对"只有 `async for`"的**合法**形状返回 True ⇒ 那种端点在名单里**永远无法自证**
-         （误红、且名单不可满足）。
-      ② 否则看 `Await`：读 body（`x.json()`/`x.body()`）不算；**调用本端点内嵌套的 async 助手**
-         要**内联进去**再看（b16 的 H1 形状 `await _read_json(request)` 靠这一层才判准——助手
-         内部只读 body ⇒ 整条链一次都不让出）；其它一律算。
-      ③ 本端点**引用了**的嵌套 async 生成器（真流式）也算——迭代它时会 await。
-      ④ 解析失败 ⇒ 返回 **False**（不算"有" ⇒ 名单判红，fail-closed）。
+    ⚠ **它不是 `never_yields()` 的"加严版"——两个方向都有**（独立复核 b18 的 LOW-2：
+    原 docstring 写"比 `never_yields` 严一档"，**不处处成立**）：
+      · 更**严**：`await _read_json(request)` 这类**本端点内嵌套的 async 助手**会被内联，
+        内联后只剩读 body ⇒ 判"没有真挂起点"（H1 形状；b16 实测它堵 0.650s）；
+      · 更**宽**：`async for`/`async with`/`yield` 算挂起点（`never_yields` 只数 `Await` **节点**，
+        对"只有 `async for`"的**合法**端点会误红，见 b17 的 E3/E6 —— 这是"名单不可满足"那一条）。
 
-    ⚠ **能力边界**（写在明面上）：只内联**同一段源码里嵌套的** async 助手。
-    `await read_json(request)`（模块级/跨模块助手）仍算"有"——过程间分析不在本判据能力内；
-    那类逃逸由**量具**（`scripts/measure-endpoint-blocking.py` 能对任意端点量事件循环空档，
-    b17 实测 H1 形状 **0.6504s**）与人工复核兜，见 §10.88 §3。
+    判据顺序：
+      ① `async for` / `async with` / `yield` ⇒ **算**（等待点常在库源码里，源码里看不到 `Await`）；
+      ② 读 body 的 `await`（`x.json()`/`x.body()`）**不算**；
+      ③ **调用本端点内嵌套的 async 助手 ⇒ 内联进去再看**（H1 靠这一层判准）；
+      ④ 本端点**引用了的**（名字出现在自己作用域的 `Name` 节点里）嵌套 async 生成器 ⇒ **算**；
+      ⑤ 解析失败 ⇒ **False**（fail-closed ⇒ 名单判红）。
+
+    ⚠ **能力边界**（写在明面上）：
+      · 只内联**同一段源码里嵌套的** async 助手；`await read_json(request)`（模块级/跨模块）算"有"
+        ——过程间分析不在能力内；
+      · ④ 的"引用"只看 `Name` 节点：若那条生成器是被**装饰器/模块级注册表**登记的
+        （`@register async def stream(): …` + `return StreamingResponse(REGISTRY[-1]())`），
+        判据**看不到它** ⇒ 判 False ⇒ **名单会红**（独立复核 b18 的 MEDIUM-1）。
+        **这一条是有意保留的**：闸门问的是"**必须** async 吗"，而答案是否定的 ——
+        实测(`var/tmp/probe-def-streaming.py`) `def` 端点返回 `StreamingResponse(async_gen())`
+        **一样能真流式**（200 + 逐块 `chunk0|chunk1|chunk2|`，与 `async def` 逐字节相同）
+        ⇒ 补救是"改成 `def`"，**无害**；所以这里**不放宽**判据（放宽会让 H5 那种
+        "端点体里先跑 0.65s 同步活、再返回流"的形状也混过去）。有一条用例钉这个前提：
+        `tests/test_material_api.py::test_def端点返回StreamingResponse仍然真流式`。
+      · 递归深度上限 4：超过就当"有"（放行；只朝放行截断，不会误红；b18 的 INFO-1 实测第 5 层起放行）。
     """
     try:
         tree = ast.parse(textwrap.dedent(src))
