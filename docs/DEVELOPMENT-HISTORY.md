@@ -4401,3 +4401,64 @@ embedder.is_available()`、入库时的 `embed_batch` 这些**真要拿模型**�
 3. 真机仍是旧进程，需重启后生效。
 4. 本步**零前端改动**。
 
+
+## §10.78 给审计补上"库内部重活"这一族（并修掉它的假阳性）——顺带重新盘点
+
+**一句话**：审计的标记表原先只认**裸调用**（`requests.`/`httpx.`/`open(`），于是"每次调用都去
+加载一个模型"这种最贵的活**完全扫不到**（§10.74 那个 `/health` 6.79s 就是这么漏掉的）。
+补了 `model-load` / `ml-runtime` 两族标记；补的过程中又发现标记会**被注释骗到**（我自己在
+`health()` 的 docstring 里写了"原先调 `is_available()`"⇒ `/health` 被误判），于是把判据改成
+**只看代码**（删 docstring 与注释）。
+
+### 1. 两处改动（都在 `scripts/audit-async-endpoints.py`）
+
+1. **补标记族**：`model-load`（`fastembed`/`TextEmbedding`/`huggingface_hub`/`snapshot_download`/
+   `sentence_transformers`/`CrossEncoder`/`reranker.`/`_get_model`/`is_available(`）与
+   `ml-runtime`（`torch.`/`transformers.`/`whisper`/`jieba.`/`onnxruntime`）。
+   理由写在注释里：**判据是名字**——项目自己与常见库的加载入口。
+2. **只看代码**（`_code_only`）：`ast.unparse` 天然丢注释，docstring 手动摘掉。
+   **假阳性实证**：改之前 `/health` 被新标记判成"要加载模型"，而它恰恰是 §10.74 **修好之后
+   不加载**的那一条——它命中的是 docstring 里那句话。**注释不是行为**，判据得先自己去掉。
+
+### 2. 重新盘点（step-71 之后累计 25 条端点已转 `def`）
+
+| 指标 | §10.71 测的基线 | 现在 | 变化 |
+|---|---|---|---|
+| `async def` 端点 | 140 | **115** | −25（report 6 + ingest/preview 6 + documents 5 + 诊断 1 + 落盘/导出 7） |
+| T1（函数体里没有 `await`） | 89 | **66** | −23 |
+| **T1 且带重标记**（"必然卡 + 真做重活"） | 36 | **16** | −20 |
+| T2（有 `await` + 重标记） | 41 | **41** | 未动（本批还没碰 T2） |
+
+**剩下的 T1+重 16 条**（下一步的清单）：其中 **13 条只有 `bulk-db`**（单行删除/更新走
+`write_transaction`：正常情况是**毫秒级**，只有写锁竞争时 `BEGIN IMMEDIATE` 才可能等到
+`busy_timeout=60s`）；另外 3 条是 `/clauses/office-edit/poll`（file-io+hashing）、
+`/update/announce-export`（office/render）、`/clauses/patches/{patch_id}`（ml-runtime+model-load）。
+
+**新标记命中的 12 条**（`model-load`/`ml-runtime`）：`/ks/answer`、`/chat/completions`、
+`/batch/qa`、`/aliases/extract`、`/vision/locate`、`/compliance/review/{id}/execute`、
+`/compliance/obligations`、`/compliance/gap-analysis`、`/clauses/patches`×2、
+`/clauses/office-edit/commit`、`/ingest/bulk/{id}/resume`——这些**基本都该慢**（调模型/LLM），
+它们的问题不是"不该慢"，而是"**慢的时候谁在等**"（多数已有 `def` 或走后台任务，下一步逐条判）。
+
+### 3. 取舍：`bulk-db` 一族为什么**不**照单全改
+
+单行 `DELETE`/`UPDATE` 的同步写事务正常是**毫秒级**，把 13 条全改成 `def` 的收益接近于零；
+而它真正危险的那一面（写锁竞争最长等 60s）**和是否 `def` 无关**——`def` 只保证"等的时候不冻结
+事件循环"。所以这一族的正确做法是：**先量一条代表的争用代价**（下一步），再决定是否值得动。
+本步**没有**顺手全改：照单全改会让闸门表变成"什么都往里塞"，那就失去筛选意义了。
+
+### 4. 证据
+
+`scripts/audit-async-endpoints.py` 重跑（只读、临时 `KS_DATA_DIR`、约 3s）；
+`/health` 的假阳性已消失（13 → 12 条命中）。本步**零产品代码改动**（只改审计工具），
+所以门禁数字与 §10.77 一致：`pytest` **1755 / 3 skipped**、`mypy` **134 / 0**、`tsc` 0、
+`smoke` EXIT=0（19 段）、`verify:commands` 22/22。
+
+### 5. 诚实边界
+
+1. 标记仍是**启发式**：按名字匹配，且深度上限 7 会截断长链；`unresolved` **2045** 处
+   （"扫不到 ≠ 没有"）。
+2. 新标记族会**多报**（凡调用链上出现过 `is_available(`/`_get_model` 的端点都会亮），
+   所以它只用于**排序**，实测仍是唯一裁决。
+3. 本步只做"看得更准"，**没有**改变任何端点行为。
+

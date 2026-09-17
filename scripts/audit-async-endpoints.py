@@ -54,6 +54,14 @@ MARKERS: list[tuple[str, str]] = [
     (r"os\.walk|\.rglob\(|\.glob\(", "walk"),
     (r"shutil\.|zipfile|\.unlink\(|\.mkdir\(", "fs-copy"),
     (r"executemany|executescript|BEGIN IMMEDIATE", "bulk-db"),
+    # ⚠ §10.78 补的**盲区**族：**藏在库内部的**重活。标记表原先只认裸调用
+    # （`requests.`/`httpx.`/`open(`），于是"每次调用都去加载/下载一个模型"
+    # 这种最贵的活**完全扫不到**——§10.74 那个 `/health` 6.79s 就是这么漏掉的
+    # （`fastembed.TextEmbedding(...)` 经 `huggingface_hub` 外发）。
+    # 判据是**名字**：项目自己与常见库的加载入口。
+    (r"fastembed|TextEmbedding|huggingface_hub|hf_hub_download|snapshot_download|"
+     r"sentence_transformers|\bCrossEncoder\b|reranker\.|_get_model|is_available\(", "model-load"),
+    (r"\btorch\.|transformers\.|\bwhisper\b|jieba\.|onnxruntime", "ml-runtime"),
 ]
 
 #: 已知的异步等待（await 之后就让出控制权），不参与 T2 判定——但**不豁免** T1。
@@ -94,8 +102,31 @@ def _call_names(tree: ast.AST) -> list[tuple[str, str | None]]:
     return names
 
 
+def _code_only(src: str) -> str:
+    """只留**代码**：删掉 docstring 与注释（§10.78 补的一个**假阳性**来源）。
+
+    为什么必须做：标记是**按名字**匹配的，而注释里天天出现这些名字——
+    §10.74 我在 `embedder.health()` 的 docstring 里写了"这里原先调 `is_available()`"，
+    于是 `/health` 被新标记判成"要加载模型"，而它恰恰是**修好之后不加载**的那条。
+    注释不是行为：判据自己得先把它们去掉（`ast.unparse` 天然丢注释；docstring 要手动摘）。
+    """
+    tree = ast.parse(src)
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef, ast.Module)):
+            body = getattr(node, "body", None)
+            if (body and isinstance(body[0], ast.Expr)
+                    and isinstance(body[0].value, ast.Constant)
+                    and isinstance(body[0].value.value, str)):
+                node.body = body[1:] or [ast.Pass()]
+    return ast.unparse(tree)
+
+
 def _markers_in(src: str) -> set[str]:
-    return {label for pat, label in MARKERS if re.search(pat, src)}
+    try:
+        code = _code_only(src)
+    except SyntaxError:                     # pragma: no cover - 源码读坏时退回原文
+        code = src
+    return {label for pat, label in MARKERS if re.search(pat, code)}
 
 
 def _local_aliases(fsrc: str, pkg: str) -> tuple[dict[str, object], dict[str, object]]:

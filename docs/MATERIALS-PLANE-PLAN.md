@@ -862,3 +862,17 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     | 渲染端点 HTTP 契约（§10.75 登记项） | `/formula` 与 `/table-image` 此前**零 HTTP 测试** | ✅ `tests/test_doc_render_api.py` **9 条**：两条**确定性 happy path**（真造最小 middle.json ⇒ 200 + PNG 魔数 + `X-Frac-*`）+ 全部失败码（`table_geo_not_found`/`table_not_found`/`doc_not_found`/`clause_not_found`/`formula_not_found`/缺参 422）；AI1–AI3 变异 RED |
     | 过程中的两个坑（已写进注释） | ① 替身打错对象（`dry_run.run_parser_isolated` 这个名字**不存在**，实际是函数内 import）⇒ `calls=0`，差点当成"锁生效了"；② 假 PDF 字节过不了体检里的 fitz 解析 ⇒ 必须造真 PDF | 📝 已记录 |
 
+
+24. **审计补"库内部重活"族 + 修掉它的假阳性 + 重新盘点**（§10.78，step-78）。
+
+    | 项 | 一句话 | 状态 |
+    |---|---|---|
+    | 补标记族 | 原标记只认裸调用 ⇒ "每次调用都加载模型"这类**最贵的活扫不到**（§10.74 的 `/health` 6.79s 就是这么漏的）。新增 `model-load`（fastembed/huggingface_hub/snapshot_download/…）与 `ml-runtime`（torch/transformers/jieba/onnxruntime） | ✅ 命中 12 条（`/ks/answer`、`/chat/completions`、`/batch/qa`、`/vision/locate`、`/aliases/extract` …） |
+    | 修假阳性 | 标记是**按名字**匹配，而注释里天天出现这些名字：`embedder.health()` 的 docstring 写了"原先调 `is_available()`"⇒ `/health`（**修好之后不加载**的那条）被误判 | ✅ `_code_only()`：`ast.unparse` 丢注释 + 手动摘 docstring；`/health` 从命中列表消失（13 → 12） |
+    | **重新盘点** | step-71 之后累计 25 条端点转 `def`：`async def` **140 → 115**；T1 **89 → 66**；**T1+重 36 → 16**；T2+重 41（未动） | 📊 已入账 |
+    | 取舍：`bulk-db` 一族**不照单全改** | 剩下 16 条里 **13 条只有 `bulk-db`**（单行写事务、正常毫秒级；凭"可能等 60s"全改收益≈0 且会把闸门表塞成"什么都进"） | 📝 决定：先量一条代表的争用代价再定 |
+
+    **下一步（step-79 起）**：① 量 `bulk-db` 一族的**写锁争用**代价（举一条代表）→ ② T2+重 41 条里
+    挑"`await request.json()` + 随后重活"形状的（`awaits==1`）批量改 `def` + body 走签名
+    → ③ `/clauses/office-edit/poll`、`/update/announce-export` 两条 T1+重 → ④ 派独立复核 **b13**。
+
