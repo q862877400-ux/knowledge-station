@@ -10,6 +10,9 @@
 """
 from __future__ import annotations
 
+import importlib.util
+import inspect
+import textwrap
 from pathlib import Path
 
 import pytest
@@ -510,39 +513,39 @@ class TestSlowEndpointsAreDeclaredSync:
     判据是 `iscoroutinefunction(endpoint)`：async 端点就是在事件循环里跑。
     """
 
-    @pytest.mark.parametrize("path", [
-        "/api/v1/materials/projects/{project_id}/scan",
-        "/api/v1/materials/projects/{project_id}/collect",
-        "/api/v1/materials/{material_id}/review",
+    @pytest.mark.parametrize("path,method", [
+        ("/api/v1/materials/projects/{project_id}/scan", "POST"),
+        ("/api/v1/materials/projects/{project_id}/collect", "POST"),
+        ("/api/v1/materials/{material_id}/review", "POST"),
         # 重解析比对会**子进程解析**（秒级到分钟级），与 scan 同款 ⇒ 必须 `def`
-        "/api/v1/materials/{material_id}/reverify",
+        ("/api/v1/materials/{material_id}/reverify", "POST"),
         # ⚠ 锚点健康度这两条**也是**（2026-09-18 复核 b10 的 MEDIUM-2）：
         # §10.54 给它加了"源文件字节"那一轴 ⇒ 它会**流式 sha256 每份源文件**，
         # 几十份 PDF 就是一次真实磁盘读。作者当时只想着"比字符串很便宜"，
         # 把它留在 `async def` 里 ⇒ 整个引擎会被卡住（这正是本类存在的理由）。
-        "/api/v1/materials/projects/{project_id}/locators",
-        "/api/v1/materials/{material_id}/locators",
+        ("/api/v1/materials/projects/{project_id}/locators", "GET"),
+        ("/api/v1/materials/{material_id}/locators", "GET"),
         # 报告这两条（2026-09-18 复核 b12 的 MEDIUM-2）：内容块组装会经
         # `research_report._attach_locator_status` → `locator.locator_health` **逐份流式 sha256
         # 材料源文件**（复核实测 3 份材料 = 3 次读盘），再叠加 openpyxl/pptx 落盘 ⇒ 与上面
         # locators 两条**同族**。教训写在这里：§10.59 那轮**只修了 2 条、没有审计调用方**，
         # 于是同一个洞在产出物这一侧又留了一个月。
-        "/api/v1/report/research",
-        "/api/v1/report/research/slides",
+        ("/api/v1/report/research", "POST"),
+        ("/api/v1/report/research/slides", "POST"),
         # 健康看板（§10.74）：七条 `COUNT(*)` + `mineru_available()` 的 import 探测——都是
         # **同步 I/O**，留在事件循环里就会占住循环。⚠ 收益**不大**（本机实测总耗时 0.017s、
         # `import mineru` 0.000s、30 万行 COUNT ≈1.1ms），这里守的是**一般纪律**，不是"很慢"。
-        "/api/v1/diagnostics/health-board",
+        ("/api/v1/diagnostics/health-board", "GET"),
         # PDF 渲染/读盘族（§10.75）：这四条都在事件循环里做 PyMuPDF 的重活
         # （逐页 `get_text("dict")` 找题注、`get_pixmap` 截图、`middle.json` 读回、`glob` 资产）。
         # 实测（150 页密排 PDF，题注在末页）：`/figure/1` 请求 0.2324s、事件循环空档 **0.232s**
         # ⇒ 改 `def` 后空档 **0.036s**（回到噪声底）。真机文档更重（真扫描件 + `try_redraw` 的 OCR
         # 路径），所以那个数字是**下界**。
-        "/api/v1/documents/{doc_id}/figure/{fig_no}",
-        "/api/v1/documents/{doc_id}/formula/{fno}",
-        "/api/v1/documents/{doc_id}/table-image/{page_no}/{tbl_idx}",
-        "/api/v1/documents/{doc_id}/tree",
-        "/api/v1/documents/{doc_id}/assets/{fname}",
+        ("/api/v1/documents/{doc_id}/figure/{fig_no}", "GET"),
+        ("/api/v1/documents/{doc_id}/formula/{fno}", "GET"),
+        ("/api/v1/documents/{doc_id}/table-image/{page_no}/{tbl_idx}", "GET"),
+        ("/api/v1/documents/{doc_id}/tree", "GET"),
+        ("/api/v1/documents/{doc_id}/assets/{fname}", "GET"),
         # ⚠ **`/api/v1/documents/{doc_id}/file` 故意不在表里**：它只做查询 + 返回 `FileResponse`，
         # 字节由 Starlette 用 anyio 流式读出 ⇒ 本来就不占事件循环。审计把它列进候选是因为
         # 调用链上有 `fs-copy` **轻标记**——**读代码 + 量过之后判定"不用改"**。
@@ -554,59 +557,79 @@ class TestSlowEndpointsAreDeclaredSync:
         # 0.030s → 改后 0.016s（已在噪声底）。其余几条要有生产规模的更新批次 / 义务清单 /
         # 2.2GB 库快照才有意义，量具跑临时空库只会给出**假小**的数字 ⇒ 那几条按**结构性**判据
         # 进表（同族的 office/render + sha256 已在 §10.71/§10.73/§10.74 实测过）。
-        "/api/v1/export/obligations/{list_id}",
-        "/api/v1/export/review/{task_id}",
+        ("/api/v1/export/obligations/{list_id}", "POST"),
+        ("/api/v1/export/review/{task_id}", "POST"),
         # 这条原是 `async def` 只为 `await request.json()`，且随后就跑 docx 落盘（与 §10.71 的
         # `/report/effect/export` 同款）⇒ body 改走签名，非法 JSON 由"吞成空 body"变成 422。
-        "/api/v1/export/citations",
-        "/api/v1/egress/audit/export",
-        "/api/v1/snapshots/{snapshot_id}/restore",
-        "/api/v1/update/report/{batch_id}",
-        "/api/v1/update/report-xlsx/{batch_id}",
+        ("/api/v1/export/citations", "POST"),
+        ("/api/v1/egress/audit/export", "GET"),
+        ("/api/v1/snapshots/{snapshot_id}/restore", "POST"),
+        ("/api/v1/update/report/{batch_id}", "POST"),
+        ("/api/v1/update/report-xlsx/{batch_id}", "POST"),
         # ---- T2 批次（§10.79）：这 20 条的 `async def` **只为了 `await request.json()`**，
         # 读完 body 之后全是同步重活（LLM 调用 / python-docx / 抽别名 / 快照落盘 / 网络探测…）。
         # 判据形状与 §10.71/§10.76 同款：body 走签名，坏 body 由 FastAPI 直接 422。
-        "/api/v1/clauses/patches",
-        "/api/v1/compliance/obligations",
-        "/api/v1/compliance/gap-analysis",
-        "/api/v1/aliases/extract",
-        "/api/v1/ks/answer",
-        "/api/v1/documents/{old_doc_id}/migrate-patches",
-        "/api/v1/clauses/{clause_revision_id}/office-edit",
-        "/api/v1/clauses/office-edit/commit",
-        "/api/v1/batch/qa",
-        "/api/v1/vision/locate",
-        "/api/v1/snapshots",
-        "/api/v1/update/announce-sources",
-        "/api/v1/update/announce-sources/{source_id}",
-        "/api/v1/discover/classify",
-        "/api/v1/ingest/bulk",
-        "/api/v1/ingest/bulk/{batch_id}/resume",
-        "/api/v1/data/package/export",
-        "/api/v1/data/package/import",
-        "/api/v1/settings/api-config",
-        "/api/v1/settings/api-config/test",
+        ("/api/v1/clauses/patches", "POST"),   # ⚠ 同路径还有 GET 故意仍是 async
+        ("/api/v1/compliance/obligations", "POST"),
+        ("/api/v1/compliance/gap-analysis", "POST"),
+        ("/api/v1/aliases/extract", "POST"),
+        ("/api/v1/ks/answer", "POST"),
+        ("/api/v1/documents/{old_doc_id}/migrate-patches", "POST"),
+        ("/api/v1/clauses/{clause_revision_id}/office-edit", "POST"),
+        ("/api/v1/clauses/office-edit/commit", "POST"),
+        ("/api/v1/batch/qa", "POST"),
+        ("/api/v1/vision/locate", "POST"),
+        ("/api/v1/snapshots", "POST"),   # ⚠ 同路径还有 GET 故意仍是 async
+        ("/api/v1/update/announce-sources", "GET"),
+        ("/api/v1/update/announce-sources", "POST"),
+        ("/api/v1/update/announce-sources/{source_id}", "PUT"),
+        ("/api/v1/update/announce-sources/{source_id}", "DELETE"),
+        ("/api/v1/discover/classify", "POST"),
+        ("/api/v1/ingest/bulk", "POST"),
+        ("/api/v1/ingest/bulk/{batch_id}/resume", "POST"),
+        ("/api/v1/data/package/export", "POST"),
+        ("/api/v1/data/package/import", "POST"),
+        ("/api/v1/settings/api-config", "GET"),
+        ("/api/v1/settings/api-config", "PUT"),
+        ("/api/v1/settings/api-config/test", "POST"),
         # ---- T1+重里**非 bulk-db** 的最后两条（§10.79 收尾）：一条要读 Office 会话文件 + 比哈希，
         # 一条要 openpyxl 落盘。剩下 13 条 T1+重**只有 bulk-db**（单行写事务、毫秒级），
         # 按 §10.78 的取舍**故意不转**——闸门不是"什么都往里塞"的筐。
-        "/api/v1/clauses/office-edit/poll",
-        "/api/v1/update/announce-export",
+        ("/api/v1/clauses/office-edit/poll", "GET"),
+        ("/api/v1/update/announce-export", "POST"),
         # 这条**不是** bulk-db：`clause_repo.delete_patch` 在补丁改的是 `content_text` 时会
         # `_reindex_clause_indexes`（重算 FTS + **重算向量**）⇒ 要加载嵌入模型并推理。
-        "/api/v1/clauses/patches/{patch_id}",
+        ("/api/v1/clauses/patches/{patch_id}", "DELETE"),
         # SSE（§10.80）：外层 `def` + **同步生成器**。原先外层只 `await request.json()`、
         # 内层 `async def event_stream()` 里没有一个 `await` ⇒ 一次逐点 LLM 评审把引擎冻住。
         # 它现在同时在**通则之一**（只读 body 的 async）与**通则之二**（无 await 的异步生成器）的
         # 判据之外——**两条通则都不再需要白名单**。
-        "/api/v1/compliance/review/{task_id}/execute",
+        ("/api/v1/compliance/review/{task_id}/execute", "POST"),
     ])
-    def test_declared_sync(self, client, path):
+    def test_declared_sync(self, client, path, method):
+        """这条路径上**这个 HTTP 方法**的端点必须是 `def`（线程池），不能是 `async def`。
+
+        ⚠ **必须精确到方法**（独立复核 b14 的 LOW-2）：表原先只写路径、断言只看
+        `routes[0].endpoint` —— 同一条路径挂多个方法时（`/settings/api-config` 有 GET+PUT、
+        `/update/announce-sources` 有 GET+POST、`/clauses/patches` 有 GET+POST、
+        `/snapshots` 有 GET+POST），只有**第一个** Route 对象被断言，同路径的**兄弟方法**
+        可以悄悄改回 `async def` 而表仍然 GREEN。§10.79 那 2 条兄弟方法（GET 读凭据文件 /
+        GET 读配置）当时正是这样"转换了但没被表验到"——25 条转换只对应 23 行参数，就是它们。
+
+        现在参数是 `(路径, 方法)`：**表也不再声称**同路径的其它方法是 `def`。两条被判定为
+        廉价而**故意留着 `async def`** 的兄弟（`GET /clauses/patches` 列补丁表、
+        `GET /snapshots` 列快照文件）因此在表里**根本不存在**——而不是被悄悄放行：
+        它们的形状（T1 且只有 `bulk-db`/`fs-copy` 轻标记）由**通则之一**的取舍覆盖（§10.78）。
+        """
         import asyncio
         c, _ = client
-        routes = [r for r in c.app.routes if getattr(r, "path", None) == path]
-        assert routes, f"路由不存在: {path}"
+        routes = [r for r in c.app.routes
+                  if getattr(r, "path", None) == path
+                  and method in (getattr(r, "methods", None) or ())]
+        assert routes, f"路由不存在: {method} {path}"
+        assert len(routes) == 1, f"{method} {path} 匹配到 {len(routes)} 个 Route（表不再唯一）"
         assert not asyncio.iscoroutinefunction(routes[0].endpoint), (
-            f"{path} 做同步重活，必须是 `def`（线程池），不能是 `async def`")
+            f"{method} {path} 做同步重活，必须是 `def`（线程池），不能是 `async def`")
 
     #: 「唯一 await 只是读 body」的例外：**必须在这里写清理由**，否则通则会把它判红。
     #: ⚠ **目前为空**——`/compliance/review/{task_id}/execute`（原先唯一的例外，SSE）已在 §10.80
@@ -637,10 +660,6 @@ class TestSlowEndpointsAreDeclaredSync:
         真要留一个 `async def`，必须在那里写清"为什么它不会占住事件循环"，不许默默加。
         """
         import asyncio
-        import importlib.util
-        import inspect
-        import textwrap
-        from pathlib import Path
 
         c, _ = client
         root = Path(__file__).resolve().parents[1]
@@ -664,10 +683,11 @@ class TestSlowEndpointsAreDeclaredSync:
                 src = textwrap.dedent(inspect.getsource(ep))
             except (OSError, TypeError):        # pragma: no cover
                 continue
-            awaits = [ln for ln in src.splitlines() if "await " in ln]
-            never_yields = (not awaits) or all(
-                ("request.json()" in ln or "request.body()" in ln) for ln in awaits)
-            if not never_yields:
+            # ⚠ 判据走**审计脚本的 AST 实现**（§10.85 修 b14 的 MEDIUM-2）：原先这里读
+            # **原始源码文本**（`"await " in ln`）⇒ 一句含 `await ` 的 docstring/注释就能
+            # **静默豁免**整个端点（复核实测：docstring 写"本端点唯一的 await 只是读 body"
+            # ⇒ 闸门 GREEN）。`never_yields()` 用 AST 数 `Await` 节点 ⇒ 注释骗不过它。
+            if not audit.never_yields(src):
                 continue
             info = audit.audit_endpoint(ep)
             heavy = {k for k in info.get("markers", {}) if k != "fs-copy"}
@@ -696,11 +716,14 @@ class TestSlowEndpointsAreDeclaredSync:
         若整段没有 `Await` ⇒ 命中。
         ⚠ 这条是**零假阳性**的结构判据（有 await 的异步生成器不受影响），所以**没有白名单**。
         """
-        import ast
-        import inspect
-        import textwrap
-
         c, _ = client
+        root = Path(__file__).resolve().parents[1]
+        spec = importlib.util.spec_from_file_location(
+            "ks_audit_probe", root / "scripts" / "audit-async-endpoints.py")
+        assert spec and spec.loader
+        audit = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(audit)
+
         offenders = []
         for r in c.app.routes:
             ep = getattr(r, "endpoint", None)
@@ -709,21 +732,88 @@ class TestSlowEndpointsAreDeclaredSync:
                 continue
             try:
                 src = textwrap.dedent(inspect.getsource(ep))
-                tree = ast.parse(src)
-            except (OSError, TypeError, SyntaxError):    # pragma: no cover
+            except (OSError, TypeError):    # pragma: no cover
                 continue
-            for node in ast.walk(tree):
-                if not isinstance(node, ast.AsyncFunctionDef):
-                    continue
-                has_yield = any(isinstance(n, (ast.Yield, ast.YieldFrom))
-                                for n in ast.walk(node))
-                has_await = any(isinstance(n, ast.Await) for n in ast.walk(node))
-                if has_yield and not has_await:
-                    offenders.append((path, node.name))
+            for name in audit.nested_async_gen_without_await(src):
+                offenders.append((path, name))
         assert not offenders, (
             "这些端点里有**没有 await 的 async 生成器**（它在事件循环里逐条产出，会占住引擎；"
             "`StreamingResponse` 对**同步**生成器会用线程池迭代 ⇒ 把它写成 `def` 生成器）：\n"
             + "\n".join(f"  {p}  内嵌 {name}()" for p, name in offenders))
+
+    def test_没有函数叠着两个_docstring(self):
+        """**结构判据**：一个函数/类体里不许**连着两个字符串常量语句**（b14 的 LOW-3）。
+
+        来历：§10.79 批量把 `async def` 改成 `def` 时，有的是在**原 docstring 上面**插了一句
+        "为什么改 `def`"，于是变成两个 docstring 上下叠着。Python 只把**第一个**当 `__doc__`，
+        第二个成了**死字符串表达式**：不报错、测试全绿，但 `inspect.getdoc()` / 未来的
+        OpenAPI 摘要 / 读代码的人都只看到第一句——"文档写了但其实不在文档里"。
+        复核当时只在 `announce_export` 上撞见；这里**全库**扫，将来谁再叠一个会红。
+        """
+        import ast
+
+        offenders = []
+        for p in sorted((Path(__file__).resolve().parents[1] / "src").rglob("*.py")):
+            try:
+                tree = ast.parse(p.read_text(encoding="utf-8"))
+            except SyntaxError as e:                              # pragma: no cover
+                offenders.append(f"{p}: 语法错误 {e}")
+                continue
+            for node in ast.walk(tree):
+                if not isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef,
+                                         ast.ClassDef)):
+                    continue
+                body = node.body
+                if len(body) >= 2 and all(
+                        isinstance(s, ast.Expr) and isinstance(s.value, ast.Constant)
+                        and isinstance(s.value.value, str) for s in body[:2]):
+                    offenders.append(f"{p.relative_to(p.parents[1])}:{body[1].lineno} "
+                                     f"{node.name}()")
+        assert not offenders, (
+            "这些函数体里叠着两个字符串常量（只有第一个是 docstring，第二个是死代码）：\n"
+            + "\n".join(f"  {o}" for o in offenders))
+
+    def test_两条通则的判据走_AST_不会被注释骗(self):
+        """§10.85：判据本身也要验——**注释不是行为**（独立复核 b14 的 MEDIUM-2）。
+
+        复核的对照实验：同一个"只读 body"形状，只改 docstring/注释文本，闸门就放行。
+        根因是判据读的是**源码文本**。现在两条判据都在审计脚本里用 AST 实现，这里钉住它：
+        ① 含"await"字样的 docstring/注释**不能**让"从不 yield"变成 False；
+        ② 真有 `await` 的函数**必须**被判成 False（否则判据会把真异步端点也拖进来）。
+        """
+        root = Path(__file__).resolve().parents[1]
+        spec = importlib.util.spec_from_file_location("ks_audit_probe2",
+                                                      root / "scripts" / "audit-async-endpoints.py")
+        assert spec and spec.loader
+        audit = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(audit)
+
+        # ① 注释/docstring 里出现 await ⇒ 仍然是"从不 yield"（真值：它没有 await）
+        docstring_case = textwrap.dedent('''
+            async def f(body: dict | None = None):
+                """本端点唯一的 await 只是读 body（这句是注释，不是行为）"""
+                # 这里不 await 任何东西
+                return body or {}
+        ''')
+        assert audit.never_yields(docstring_case) is True, "注释里出现 await 就把判据骗了"
+        # ② 真有 await ⇒ False
+        real = textwrap.dedent('''
+            async def f(body: dict | None = None):
+                """注释里写着 await 但这句不生效"""
+                x = await something_real()
+                return x
+        ''')
+        assert audit.never_yields(real) is False, "真异步端点被判成'从不 yield'"
+        # ③ 嵌套 async 生成器的判据同样不吃注释
+        gen_doc = textwrap.dedent('''
+            def f():
+                async def event_stream():
+                    """注释里写 await"""
+                    yield 1
+                return event_stream
+        ''')
+        assert audit.nested_async_gen_without_await(gen_doc) == ["event_stream"]
+
 
     @pytest.mark.parametrize("module,min_routes", [
         # 这个文件里的每一件事都是同步重活（秒级 SQL 聚合 / openpyxl·pptx 落盘 / 逐份 sha256），

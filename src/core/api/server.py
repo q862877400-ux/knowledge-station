@@ -7,6 +7,7 @@ import logging
 import os
 import secrets
 import time
+import weakref
 from datetime import datetime
 from pathlib import Path
 
@@ -89,7 +90,12 @@ HEAVY_PREFIXES: tuple[str, ...] = (
     "/api/v1/update/report",                  # 更新检查报告（docx/xlsx）
 )
 
-_heavy_limiters: dict[int, object] = {}
+#: **按事件循环缓存**的重活闸门。⚠ 键用**循环对象本身**（`WeakKeyDictionary`），
+#: **不用 `id(loop)`**（独立复核 b14 的 LOW-4）：`id()` 在旧循环被回收后**会被新循环复用**
+#: （CPython 按地址分配），于是新循环可能拿到一个**绑在死循环上**的 limiter——anyio 的
+#: `CapacityLimiter` 内部用 RunVar（只在创建它的循环上有效），表现是闸门行为诡异而**不是报错**。
+#: 弱引用键同时避免 id 复用与"每个循环永久留在字典里"。
+_heavy_limiters: weakref.WeakKeyDictionary = weakref.WeakKeyDictionary()
 
 #: **例外：前缀命中但其实是廉价活**的路径（**必须写理由**）。
 #: `/ingest/preview/inbox` 只是列一下目录（毫秒级），把它关在 4 个令牌后面会让
@@ -102,14 +108,12 @@ HEAVY_SKIP: tuple[str, ...] = (
 def _get_heavy_limiter():
     """取**本事件循环**的重活闸门（按 loop 缓存：anyio 的 limiter 绑定后端/循环，
     测试里一个进程会开很多循环，全局单例会在第二个循环上出问题）。"""
-    import asyncio
-
     import anyio
-    key = id(asyncio.get_running_loop())
-    lim = _heavy_limiters.get(key)
+    loop = asyncio.get_running_loop()
+    lim = _heavy_limiters.get(loop)
     if lim is None:
         lim = anyio.CapacityLimiter(HEAVY_TOKENS)
-        _heavy_limiters[key] = lim
+        _heavy_limiters[loop] = lim
     return lim
 
 
@@ -117,6 +121,52 @@ def is_heavy_path(path: str) -> bool:
     if any(path.startswith(p) for p in HEAVY_SKIP):
         return False
     return any(path.startswith(p) for p in HEAVY_PREFIXES)
+
+
+class _HeavyGateMiddleware:
+    """重活专用闸门（**纯 ASGI**，不是 `BaseHTTPMiddleware`）。
+
+    ⚠ **为什么必须是纯 ASGI**（独立复核 b14 的 MEDIUM-1，2026-09-18）：`@app.middleware("http")`
+    走的是 starlette 的 `BaseHTTPMiddleware`，它的 `call_next` **只等到 `http.response.start`
+    就返回**（base.py），响应体的流式发送发生在 `dispatch_func` **之后**——于是中间件里的
+    `finally: release()` 会在**响应体开流之前**跑完，**流式（SSE）重活的令牌立刻被放掉**，
+    闸门对它等于不存在。复核实测：12 条并发**非流式**重活峰值恰为 **4**，
+    12 条并发**流式**重活峰值 **12**；等量工作的受害者放大比 非流式 ×0.5–1.2 / 流式 **×477–483**。
+    而 `HEAVY_PREFIXES` 里的 `/compliance/review/{id}/execute`（逐点 LLM 的 SSE）与
+    `/ks/answer`（引擎侧生成器）**正是这个形状**——所以这是"自称已消除的饿死形状换个入口回来"。
+
+    纯 ASGI 中间件的 `await self.app(...)` 会**一直等到响应体发完**（router 内部会
+    `await response(scope, receive, send)`），`finally` 的释放时机因此正确；
+    另外再在 `http.response.body` + `more_body=False` 时提前释放（正常路径更早、更精确）。
+    """
+
+    def __init__(self, app):
+        self.app = app
+
+    async def __call__(self, scope, receive, send):
+        if scope.get("type") != "http" or not is_heavy_path(str(scope.get("path") or "")):
+            await self.app(scope, receive, send)
+            return
+        limiter = _get_heavy_limiter()
+        await limiter.acquire()
+        released = False
+
+        async def _send(message):
+            nonlocal released
+            try:
+                await send(message)
+            finally:
+                if (not released and message.get("type") == "http.response.body"
+                        and not message.get("more_body", False)):
+                    released = True
+                    limiter.release()
+
+        try:
+            await self.app(scope, receive, _send)
+        finally:
+            if not released:
+                released = True
+                limiter.release()
 
 
 # 2026-08-28 表题行（通用）："表1…"、"表B.1…(续)"——编号紧随表字才认定，
@@ -183,16 +233,13 @@ def create_app(token: str) -> FastAPI:
         auth = request.headers.get("Authorization", "")
         if not secrets.compare_digest(auth, f"Bearer {token}"):
             return _json_error(401, "unauthorized", "缺少或无效的 token")
-        # ⚠ **重活专用闸门**（§10.82）：只在"重活路径"上排队等待，**等待是异步的**（不占线程），
-        # 所以"16 条长解析把线程池占满、顺带把 PDF 加载也卡住"这个形状被拆开了。
-        if is_heavy_path(request.url.path):
-            limiter = _get_heavy_limiter()
-            await limiter.acquire()
-            try:
-                return await call_next(request)
-            finally:
-                limiter.release()
         return await call_next(request)
+
+    # ⚠ **重活专用闸门**用**纯 ASGI** 中间件（§10.85 修 b14 的 MEDIUM-1）：见类 docstring。
+    # 它**不在** `@app.middleware("http")` 里——那条路是 `BaseHTTPMiddleware`，会在响应体
+    # 开流之前就 release，**流式（SSE）重活因此完全不受闸门约束**（复核实测：12 条并发流式
+    # 重活的并发峰值是 **12**，而非流式恰好是 4）。
+    app.add_middleware(_HeavyGateMiddleware)
 
     def _json_error(status: int, code: str, message: str):
         from fastapi.responses import JSONResponse

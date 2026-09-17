@@ -336,10 +336,17 @@ def register(app, json_error):
 
     @app.post("/api/v1/update/announce-export")
     def announce_export():
-        """公告扫描结果导出 xlsx（§10.79：openpyxl 落盘 ⇒ `def`）。"""
-        """生成《公告发现》Excel(.xlsx) 到 exports 目录（最近扫描源状态 +
+        """公告扫描结果导出 xlsx（§10.79：openpyxl 落盘 ⇒ `def`）。
+
+        生成《公告发现》Excel(.xlsx) 到 exports 目录（最近扫描源状态 +
         公告明细全量，发布日期 DESC），返回下载文件名（配合既有
-        GET /export/download 下载）；空库同样出文件；纯只读聚合零库写入。"""
+        GET /export/download 下载）；空库同样出文件；纯只读聚合零库写入。
+
+        ⚠ 原先这里是**两个 docstring 上下叠着**（§10.79 转换时把"为什么改 `def`"那句
+        加在了原 docstring 上面）——Python 只把**第一个**当 `__doc__`，第二个成了**死字符串
+        表达式**（不报错，但读代码的人会以为它在文档里，而 `inspect.getdoc` / 未来的
+        OpenAPI 摘要只看第一个）。独立复核 b14 的 LOW-3 抓到；此处**合并成一条**。
+        """
         from src.core.update import announce
         path = announce.export_announce_xlsx()
         return {"code": 200, "status": "success",

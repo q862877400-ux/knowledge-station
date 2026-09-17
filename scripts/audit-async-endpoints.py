@@ -174,6 +174,58 @@ def _local_aliases(fsrc: str, pkg: str) -> tuple[dict[str, object], dict[str, ob
     return mods, funcs
 
 
+def never_yields(src: str) -> bool:
+    """这段 `async def` 端点源码**永远不会真正让出控制权**吗？
+
+    判据（**AST，不看文本**）：源码里**没有** `Await`，或者每个 `Await` 都是
+    `xxx.json()` / `xxx.body()` 这种"读 body"。
+
+    ⚠ **必须走 AST**（独立复核 b14 的 MEDIUM-2）：判据原先写在测试里、读的是**原始源码文本**
+    （`[ln for ln in src.splitlines() if "await " in ln]`）——于是
+    **一句含 `await ` 的 docstring 或注释就能静默豁免整个端点**（复核实测：同族端点
+    docstring 写"本端点唯一的 await 只是读 body" ⇒ 闸门 GREEN 放行）。而 `_code_only()`
+    早就为审计脚本修过同一课（"注释不是行为"）——**闸门自己没吃这一课**。
+
+    ⚠ **范围是整段源码，包含嵌套函数**（这是**有意的**，不是漏网）：`/api/v1/chat/completions`
+    的外层体内唯一 `await` 只是读 body，但它的嵌套 `async def event_stream()` 里有
+    `await anyio.to_thread.run_sync(...)` ⇒ 这条请求在**流式迭代**期间**真会**把事件循环让出去
+    （逐块从线程池取 LLM 输出）。若只数外层自己的 `await`，这个端点会被误判成"从不 yield"。
+    真正"从不 yield"的坏形状是：外层读 body + 嵌套**同步**生成器/纯同步体（§10.80 的
+    `/compliance/review/{task_id}/execute`）——那种形状这里**没有**任何非读-body 的 `await`，
+    照样命中。
+    """
+    try:
+        tree = ast.parse(src)
+    except SyntaxError:                      # pragma: no cover
+        return False
+    awaits = [n for n in ast.walk(tree) if isinstance(n, ast.Await)]
+    if not awaits:
+        return True
+    for a in awaits:
+        v = a.value
+        if not (isinstance(v, ast.Call) and isinstance(v.func, ast.Attribute)
+                and v.func.attr in ("json", "body")):
+            return False
+    return True
+
+
+def nested_async_gen_without_await(src: str) -> list[str]:
+    """端点里那些**没有 await 的 async 生成器**的名字（§10.80 的判据，也走 AST）。"""
+    out: list[str] = []
+    try:
+        tree = ast.parse(src)
+    except SyntaxError:                      # pragma: no cover
+        return out
+    for node in ast.walk(tree):
+        if not isinstance(node, ast.AsyncFunctionDef):
+            continue
+        has_yield = any(isinstance(n, (ast.Yield, ast.YieldFrom)) for n in ast.walk(node))
+        has_await = any(isinstance(n, ast.Await) for n in ast.walk(node))
+        if has_yield and not has_await:
+            out.append(node.name)
+    return out
+
+
 def _is_local(fn, name: str) -> bool:
     """名字是不是这个函数的**局部/闭包变量**（`body.get`、`project_id.strip` 这类）。
 

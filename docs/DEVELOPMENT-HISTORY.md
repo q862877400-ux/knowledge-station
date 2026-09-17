@@ -4474,30 +4474,38 @@ embedder.is_available()`、入库时的 `embed_batch` 这些**真要拿模型**�
 3. 本步只做"看得更准"，**没有**改变任何端点行为。
 
 
-## §10.79 T2 批次：24 条"只 await 一下 body 就在做重活"的端点改 `def` —— 并加了一条**能自己发现同类**的通则闸门
+## §10.79 T2 批次：25 条"只 await 一下 body 就在做重活"的端点改 `def` —— 并加了一条**能自己发现同类**的通则闸门
 
 **一句话**：把"`async def` 里唯一的 `await` 只是 `request.json()`，读完 body 全是同步重活"的
-**24 条**端点（LLM 调用 / 抽别名 / 快照落盘 / 包导入导出 / 网络探测 / 重算向量 …）一次收口，
+**25 条**端点（LLM 调用 / 抽别名 / 快照落盘 / 包导入导出 / 网络探测 / 重算向量 …）一次收口，
 body 改走函数签名；并且这次**没有**再抄一份 24 行白名单，而是加了一条**通则闸门**
 （`test_async_endpoints_that_only_read_body_are_not_heavy`）——它用审计的标记族扫整个 API 面，
 **将来谁再写一条同族端点会自动红**。
 
-### 1. 先说分类：43 条"只读 body"，为什么只改 24 条
+> ⚠ **计数更正**（独立复核 b14 的 LOW-1，2026-09-18）：本节原先写"**24 条**（20 条 T2 + 4 条
+> 闸门抓出来的）"，**两个数字都错**。按 `git show d43d14f -- src/core/api/` 逐个数
+> `async def` → `def`：**实际转了 25 条** = 20 条 T2 + **5** 条闸门抓出来的
+> （原文那个 bullet 自己就列了 **5** 个路径，只是前面的数字写成 4——**同一行里自相矛盾**）。
+> 下面的正文已按实测改正；"24"这个数字的来历是**新增测试条数**（23 条逐条参数 + 1 条通则）
+> 与**转换条数**被我混为一谈，见 §6 与 §8。
+
+### 1. 先说分类：43 条"只读 body"，为什么只改 25 条
 
 全库 `async def` 里"唯一的 await 是读 body"的有 **43 条**。按 §10.78 定的取舍：
 **只改"带重标记且不只是 `bulk-db`"的那些**（单行写事务是毫秒级，全改的收益≈0 且会把闸门表塞成
-"什么都进"）。最终改 **24 条**（20 条 T2 + 4 条在这次核对中**被闸门抓出来的**）：
+"什么都进"）。最终改 **25 条**（20 条 T2 + 5 条在这次核对中**被闸门抓出来的**）：
 
 - **T2（40 条里的 20 条）**：`clauses/patches`(POST)｜`compliance/obligations`｜`gap-analysis`｜
   `aliases/extract`｜`ks/answer`｜`documents/{old}/migrate-patches`｜`clauses/{id}/office-edit`｜
   `office-edit/commit`｜`batch/qa`｜`vision/locate`｜`snapshots`(POST)｜`announce-sources`(POST/PUT)｜
   `discover/classify`｜`ingest/bulk`｜`ingest/bulk/{id}/resume`｜`data/package/export`｜
   `data/package/import`｜`settings/api-config`(PUT)｜`settings/api-config/test`
-- **闸门抓出来的 4 条**（我按路径找候选时漏掉的**同路径兄弟/纯 T1**）：
+- **闸门抓出来的 5 条**（我按路径找候选时漏掉的**同路径兄弟/纯 T1**）：
   `settings/api-config`(**GET** 要读凭据文件)｜`announce-sources`(**GET** 要读配置)｜
   `clauses/office-edit/poll`(读会话文件 + 比哈希)｜`update/announce-export`(openpyxl)｜
   `clauses/patches/{patch_id}`(DELETE ⇒ `_reindex_clause_indexes` **重算 FTS + 向量**)
   —— 最后这条尤其值得记：审计的 `ml-runtime/model-load` 标记**不是误报**。
+
 
 **没改的**（都写清了理由）：23 条**只有 `bulk-db`** 的（毫秒级写事务，§10.78 的取舍）、
 `/chat/completions`（真异步：`anyio.to_thread` + 流式）、`/laws/*` 5 条（用 `asyncio.to_thread`
@@ -4513,7 +4521,7 @@ body 改走函数签名；并且这次**没有**再抄一份 24 行白名单，�
   收那种等于顺手改行为。
 - **语义变化（有意）**：坏 body 一律变成 **FastAPI 直接 422**。
   ⚠ **措辞更正**（独立复核 b13 的 LOW-1）：本节原先写"从'被 `except` 吞成空 body'（或 500）
-  变成 422"——**只对了一半**。这 24 条里**有 `try/except` 的那些**改前确实是"吞成空 body"（200）；
+  变成 422"——**只对了一半**。这 25 条里**有 `try/except` 的那些**改前确实是"吞成空 body"（200）；
   **没有的**（例如 §10.76 的 `/export/citations`）改前是**未捕获异常 → 500**，连"没有 body"也是 500。
   所以正确说法是：**改前两种形状（200-空 body / 500），改后一律 422**。方向不变，
   事实以复核实测为准（它三种输入各发了一次）。
@@ -4565,10 +4573,20 @@ request.json()`），**只跑通则那条** ⇒ RED（指名该端点）。AJ1�
 
 ### 6. 证据
 
-`pytest` **1779 passed / 3 skipped / 0 failed**（1755 → +24：20 条 T2 逐条 + 5 条兄弟/T1 逐条... 
-合计 24 条逐条 + 1 条通则）；`mypy` **134 / 0**；`tsc` 0；`smoke` EXIT=0（19 段）；
+`pytest` **1779 passed / 3 skipped / 0 failed**（1755 → **+24** = 23 条逐条参数
++ 1 条通则闸门）；`mypy` **134 / 0**；`tsc` 0；`smoke` EXIT=0（19 段）；
 `verify:commands` 22/22。变异 AJ1–AJ5 全 RED、还原字节一致。转换器干跑记录与审计 JSON 在
 `var/tmp/`（脚手架区）。
+
+⚠ **"+24"与"转 25 条"不矛盾，别再把它们混起来**（b14 的 LOW-1 就是这么来的）：
+逐条参数表只加了 **23** 条，因为 `settings/api-config`(GET) 与 `announce-sources`(GET)
+这两个**兄弟方法**的**路径**已经在表里了（`/settings/api-config`、`/update/announce-sources`
+各只有**一行**参数），所以 25 条转换只产生 23 行参数；再加通则那条 = 24 条新测试。
+
+⚠ **更进一步：那 2 条兄弟方法当时其实"没被表验到"**（b14 的 LOW-2）：`test_declared_sync`
+原先只看 `routes[0]`（同一路径有多个方法时只有第一个 Route 对象被断言）⇒ 若只把 GET 那条改回
+`async def`，表仍然 GREEN。**§10.85 已改成遍历该路径上的全部 Route 对象**（并配了变异）。
+
 
 ### 7. 诚实边界
 
@@ -4863,4 +4881,145 @@ async def  ∧  带"重"标记（非 fs-copy）  ∧  （函数体没有 await �
 3. 这 32 条里**没有一条**做了"改前/改后空档"的逐条实测（做的是那一条代表 + 结构性判据）；
    它们的收益只在**争用**时体现，无争用时本来就 1ms。
 4. 真机重启后才生效。
+
+
+## §10.84 真 uvicorn 下的引擎验证：进程内量具覆盖不到的那一层（4/4 PASS）
+
+**一句话**：§10.73–§10.83 的 before/after 全部来自 `httpx.ASGITransport`（**进程内**调用）——
+没有真 socket、没有 uvicorn 的并发限制、`FileResponse` 也没真流过一次。真机端到端要等业主重启
+两个门，在那之前能自己做的是：**另起一个独立引擎实例**（绝不碰在跑的那个），
+验那些**只有真 server 才能暴露**的东西。4 项全过。
+
+### 1. 安全边界（硬约束，写进脚本 docstring）
+
+- 只监听 `127.0.0.1` + **随机空闲端口**；`KS_DATA_DIR` 指向**临时目录** ⇒ 不碰生产库、不占引擎端口；
+- **绝不** kill 既有引擎 / DSH 宿主：只 kill 本脚本自己 spawn 的子进程（`finally` 里 `terminate`）；
+- 只读：只写自己的临时目录。
+
+⚠ **与真入口的刻意差异**：不用 `python -m src.core.main`（它会**预热流程图 OCR**，后台线程加载
+RapidOCR、冷启动约 60s，会污染计时），改用等价启动器：同样 `bind_random()`（随机端口 + 一次性 token）
++ `create_app(token)` + 真 uvicorn，只去掉预热。差异写在脚本里，不藏着。
+
+### 2. 结果（2026-09-18 复跑，`--heavy 12`）
+
+| 检查项 | 结果 | 实测 |
+|---|---|---|
+| `/health` 廉价三态且 <1s | ✅ | `status=200 vector_engine=unknown 0.0014s`（没在健康检查里加载模型） |
+| `FileResponse` 字节数/sha256 与磁盘一致 | ✅ | `HTTP=200 85483B vs 85483B`（`def` 化 + 中间件改造都没把它弄坏） |
+| 12 条重活在飞时 `/health` 仍毫秒级 | ✅ | `p95=0.0500s max=0.0500s heavy_http=[200]` |
+| 坏 JSON ⇒ 422（body 走签名后的契约） | ✅ | `HTTP=422` |
+
+### 3. 诚实边界
+
+1. **SSE 那条没做**：要种一整套合规评审数据，属 `tests/test_compliance.py` 的覆盖，本脚本不重复造
+   ——**如实说明，不假装验过**。
+2. **这仍不是"真机端到端"**：是同一台机器上的**另一个**进程 + 真 socket；业主重启后才是。
+3. 重活用**合成的 12 页 PDF**，真机文档更重 ⇒ `p95=0.05s` 只说明"轻请求没被拖到秒级"，
+   不是真机负载下的上界。
+4. ⚠ **本条是"迟记"**：脚本在 step-83 那个窗口就写好并用过（当时是它给出的 4/4），
+   但**既没提交进仓库、也没写章节**，脚本 docstring 里还引用了不存在的"§10.84"。
+   本步补上：脚本入库 + 本节 + 台账第 30 条。**这是流程失误**（工具与结论必须同批落盘），
+   记在这里而不是悄悄补掉。
+
+
+## §10.85 处理复核 b14 的发现：闸门对流式不生效（MEDIUM-1）、判据能被注释骗（MEDIUM-2）+ 4 条 LOW
+
+**一句话**：独立复核 b14（冻结在 `verify-freeze-b14` = `0efbcd0`）判 **2 MEDIUM + 4 LOW**，
+并自己做了 16 个变异、逐字节还原。两条 MEDIUM 都是"**自称已消除的形状换个入口回来**"：
+① 重活闸门**对流式响应完全不生效**（`BaseHTTPMiddleware.call_next` 在 `http.response.start`
+就返回 ⇒ 令牌在响应体开流前被放掉；实测 12 条并发非流式峰值 **4**、流式峰值 **12**，
+等量工作下受害者放大 **×477–483**）；② 通则闸门的"只读 body"判据读的是**源码文本** ⇒
+**一句含 `await ` 的 docstring/注释就能静默豁免整个端点**。本步把两条都收口，并顺手修掉 4 条 LOW。
+
+### 1. MEDIUM-1：闸门改成**纯 ASGI** 中间件
+
+`@app.middleware("http")` 走 `BaseHTTPMiddleware`，`call_next` 只等到 `http.response.start`；
+于是中间件 `finally: release()` 在**响应体开流之前**执行——对 `/compliance/review/{id}/execute`
+（逐点 LLM 的 SSE）与 `/ks/answer` 这类**流式重活**，闸门等于不存在。
+
+修法：`class _HeavyGateMiddleware`（**纯 ASGI**，`await self.app(scope, receive, send)`）——
+纯 ASGI 的 `await self.app(...)` 会**一直等到响应体发完**（router 内部
+`await response(scope, receive, send)`），`finally` 的释放时机因此正确；**另加**一条更早的
+精确释放：在 `http.response.body` 且 `more_body=False` 时释放（用 `released` 标志保证**只放一次**）。
+中间件栈：`_HeavyGateMiddleware → BaseHTTPMiddleware(auth) → CORSMiddleware`。
+
+**为什么这条不改判据、只改中间件**：流式端点"真的会 await"（`/chat/completions` 的
+`await anyio.to_thread.run_sync(...)`），所以它不是"从不 yield"那一族；它的问题是**令牌持有时间**
+——那只能由中间件治。两者的分工写在 `never_yields()` 的 docstring 里。
+
+### 2. MEDIUM-2：两条通则的判据从"读文本"改成 **AST**
+
+判据原先写在测试里：`awaits = [ln for ln in src.splitlines() if "await " in ln]`。
+复核的对照实验：同一形状、只改 docstring/注释文本 ⇒ 闸门 GREEN（N3/N4 两个变异）。
+而审计脚本的 `_code_only()` **早就**为同一课修过（"注释不是行为"）——**闸门自己没吃这一课**。
+
+修法：把两条判据搬进 `scripts/audit-async-endpoints.py`，都用 AST 实现：
+`never_yields(src)`（数 `Await` 节点；每个都必须是 `xxx.json()`/`xxx.body()`）
+与 `nested_async_gen_without_await(src)`（`AsyncFunctionDef` + 含 `Yield` 且无 `Await`）。
+
+⚠ **一处必须写清的范围判断**：`never_yields` 数的是**整段源码里**的 `Await`，**包含嵌套函数**。
+这不是漏网，是**有意**：`/api/v1/chat/completions` 外层唯一的 `await` 只是读 body，而它的嵌套
+`async def event_stream()` 里有 `await anyio.to_thread.run_sync(...)` ⇒ 这条请求在**流式迭代**
+期间**真会**让出事件循环；只数外层会把它误判成"从不 yield"（AST 版第一稿正是这样，一跑就红）。
+真正"从不 yield"的坏形状（外层读 body + 嵌套**同步**生成器/纯同步体）**没有任何非读-body 的
+`await`**，照样命中。这个取舍写在函数 docstring 里。
+
+### 3. 四条 LOW + 两条 INFO
+
+| 编号 | 一句话 | 处置 |
+|---|---|---|
+| b14-LOW-1 | §10.79 的数量词与 diff 不符："24 条 / 4 条"实为 **25 条 / 5 条**（`git show d43d14f` 正则计数：删 `async def` **25** 个；§1 标题写"4 条"却**列了 5 条**） | ✅ §10.79 正文/标题/§6 按实测改写 + 加"计数更正"块；台账第 25 条同步 |
+| b14-LOW-2 | `test_declared_sync` 按**路径**取 `routes[0]` ⇒ 同路径**兄弟方法**逃逸（b14 的 S1 变异：`PUT /settings/api-config` 还原成 `async def` ⇒ 该表 **GREEN**，只被通则兜住） | ✅ 表改成 **`(路径, 方法)`** 参数（45 条路径 → 48 条参数）；断言按方法选 Route 并要求唯一匹配 |
+| b14-LOW-3 | `announce_export` **双 docstring**（只有第一个是 `__doc__`，第二个是死字符串） | ✅ 合并成一条；并加**全库**结构判据 `test_没有函数叠着两个_docstring`（扫 `src/**/*.py`） |
+| b14-LOW-4 | `_heavy_limiters` 按 `id(loop)` 缓存：id 复用极频繁（实测 200 循环 → **5 个不同 id**），硬拆丢令牌后新循环会拿到**陈旧 limiter** 永久排队 | ✅ 键改成**弱引用的循环对象**（`weakref.WeakKeyDictionary`）+ 判据（跑完的循环不许留在缓存里） |
+| b14-INFO-1 | `test_重活闸门真的把并发卡在_HEAVY_TOKENS` 的 docstring 写"真发 **10** 条"，代码是 `HEAVY_TOKENS * 3` = **12** 条 | ✅ docstring 改成"`HEAVY_TOKENS * 3` 条"，并补上"这条看不见流式"的说明 |
+| b14-INFO-4 | 闸门的行为级判据**只覆盖非流式**，对 MEDIUM-1 天然不可见；建议给流式补一条行为级判据 | ✅ 新增 `test_流式响应的令牌要等响应体发完才放`（**假 ASGI app 直接驱动中间件**：分 3 块发 body，`more_body=True` 期间必须**仍持有**、最后一块才归零、且**恰好释放一次**） |
+| b14-INFO-5 | 两条 MEDIUM 在冻结提交之后的 `252d5a6` 上依然存在 | ✅ 本步正是收口（`server.py` 中间件 + `tests/test_material_api.py` 判据） |
+| b14-INFO-2 | LOW-3 的修复把 `"pages"` 放进 `ctx` 后，量具的 `snapshot_create` 用例也吃 `--pages`（默认 12 下行为不变，非回归） | 📝 已知的连带影响，不改（默认值不变） |
+| b14-INFO-3 | 文档 `1789/3` 与复核 `1788/4` 总数一致（1792），差异是本地少下一个 reranker 模型 | 📝 接受，不改口径（b13 已登记同款） |
+
+### 4. 变异与取证（全 RED 且命中**预期断言**，逐字节还原）
+
+`var/tmp/mutate-step85.py`（M1–M6）：
+
+| 变异 | 改了什么 | 红在哪条判据上 |
+|---|---|---|
+| **M1** | `never_yields` 顶部加 `if "await" in src: return False`（= 退回"读文本"的老判据） | `test_两条通则的判据走_AST_不会被注释骗`：**注释里出现 await 就把判据骗了** |
+| **M2** | `_send` 去掉 `and not message.get("more_body")`（= 响应体没发完就放令牌，`BaseHTTPMiddleware` 的效果） | `test_流式响应的令牌要等响应体发完才放`：**流式期间令牌必须一直被持有** |
+| **M3** | 外层 `finally` 无条件 `release()`（= 同一个请求放两次） | 同上：**闸门被撑大** |
+| **M4** | 缓存键两处一起退回 `id(loop)` + 普通 dict（只改 getter 会造出一个新 bug ⇒ RED 但"红在别处"，第一稿踩到后就改成两处一起） | `test_闸门缓存不会把死循环留在字典里` |
+| **M5** | `POST /update/announce-sources` 改回 `async def + await request.json()` | `test_declared_sync`：**POST /api/v1/update/announce-sources** |
+| **M6** | `announce_export` 再叠一个 docstring | `test_没有函数叠着两个_docstring` |
+
+**LOW-2 的取证**（`var/tmp/low2-forensics.py`，打完 M5 后逐字节还原）：同一条路径上的 Route 顺序是
+`[GET(def), POST(ASYNC)]` ⇒ **旧断言（路径 + `routes[0]`）GREEN（放行）**，
+**新断言（按方法选）RED（抓住）**。这就是 b14 那条 LOW 的形状。
+
+### 5. 证据
+
+⚠ **快照标签的编号对应**：本步的提交同时承担 §10.84 与 §10.85（§10.84 那份 uvicorn 验证
+此前没有自己的提交），而 `scripts/snapshot-project.ps1` 是"最大 `step-NN` + 1" ⇒
+这一步的快照标签是 **`step-84-b14-findings-closed`**（指向 `ec5cfc2`）。
+**标签号比章节号小 1**，不是漏做快照。
+
+`pytest` **1798 passed / 3 skipped / 0 failed**（1792 → 1801 收集：**+9** = 6 条新测试 +
+3 条新的逐条参数——多方法路径拆成 `GET/POST`、`PUT/DELETE`、`GET/PUT` 各一条）；
+`mypy` **134 / 0**；`tsc` 0；`smoke` **EXIT=0（19 段）**；`verify:commands` **22/22**；
+真 uvicorn 验证 **4/4**（§10.84，本步复跑）。审计重跑（`var/tmp/audit-after-85.json`）：
+终盘与 §10.83 一致——`async` **57** / T1 **48** / **T1+重 0** / **T2+重 1**（`/chat/completions`），
+说明本步只动中间件与判据，**没有碰端点的 async 形状**。
+
+### 6. 诚实边界
+
+1. **两条改动都在服务端 ⇒ 真机重启（DSH 宿主 + 引擎）后才生效**；重启前的"端到端"都还是进程内。
+2. §10.79 那笔提交（`d43d14f`）的 **commit message 里"24 条"改不了**（历史不动），
+   只能在文档里更正——所以"25"这个正确数字出现在 §10.79 正文、本节与台账里。
+3. 流式那条判据是**直接驱动中间件**（假 ASGI app），**不是**一条真 SSE 端点的端到端行为级用例；
+   真 SSE 现场要业主重启 + 真 LLM，属未覆盖项。
+4. M2 的变异是"早放令牌"的**等价形状**，不是真的把中间件换回 `BaseHTTPMiddleware`
+   （换回去要动整个装配，且中间件栈里还有 auth 的 `BaseHTTPMiddleware`）。
+5. `never_yields` 的"整段源码含嵌套"是**有意**取舍（§2 已写清）；代价是"外层同步重活 +
+   嵌套 async 生成器真的在 await"这种混血形状仍会豁免——**这一族由中间件的令牌持有治，不由判据治**。
+6. b14 未覆盖项照旧：§10.79 §4 的两行量具数字、§10.81 LOW-2 的"7 行"、真机并发写行为、
+   `/formula` 识别版回退、C2 的 FAIL 分支、`dry_run` 真实撕裂读。
 

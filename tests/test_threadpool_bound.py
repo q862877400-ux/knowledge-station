@@ -123,11 +123,19 @@ class TestHeavyGate:
         assert server.is_heavy_path("/api/v1/ingest/preview/batch")
 
     def test_重活闸门真的把并发卡在_HEAVY_TOKENS(self, tmp_path, monkeypatch):
-        """**行为级**：真发 10 条并发重活请求，并发峰值必须**恰好**是 `HEAVY_TOKENS`。
+        """**行为级**：真发 `HEAVY_TOKENS * 3` 条并发重活请求，并发峰值必须**恰好**是 `HEAVY_TOKENS`。
 
         为什么这条比"接线断言"更硬：接线对了但令牌数写成 40，前面几条全绿而闸门等于没有。
         这里用一个**替身**替换 `/ingest/preview` 真正调用的那个函数（模块级，端点内部
         `from ... import dry_run` ⇒ 补模块属性有效），替身记录"同时在跑几个"。
+
+        ⚠ 独立性：这条（以及本类其余几条）**用真 app + 真中间件**，但走的是
+        `httpx.ASGITransport`（进程内）——它**看得见非流式**的早放/漏放，看不见"流式响应
+        期间令牌被提前放掉"（b14 的 MEDIUM-1：`BaseHTTPMiddleware.call_next` 在
+        `http.response.start` 就返回）。流式那条由下面的
+        `test_流式响应的令牌要等响应体发完才放` 用**假 ASGI app 直接驱动中间件**覆盖
+        （为什么不走真端点：起一条真 SSE 流要种一整套合规评审数据，那是
+        `tests/test_compliance.py` 的覆盖，这里只钉**闸门对流的时序**）。
         """
         import asyncio
         import threading
@@ -176,5 +184,167 @@ class TestHeavyGate:
         asyncio.run(main())
         assert peak["max"] == server.HEAVY_TOKENS, (
             f"{n} 条并发的并发峰值 = {peak['max']}，应为 {server.HEAVY_TOKENS}")
+
+    # ------------------------------------------------ 流式响应必须把令牌**持到响应体发完**
+    @staticmethod
+    def _spy(server, monkeypatch):
+        """一个记账替身 limiter + 让它成为闸门用的 limiter。"""
+
+        class _Spy:
+            def __init__(self) -> None:
+                self.live = 0
+                self.acquires = 0
+                self.releases = 0
+
+            def acquire(self):
+                async def _a() -> None:
+                    self.live += 1
+                    self.acquires += 1
+                return _a()
+
+            def release(self) -> None:
+                self.live -= 1
+                self.releases += 1
+
+        spy = _Spy()
+        monkeypatch.setattr(server, "_get_heavy_limiter", lambda: spy)
+        return spy
+
+    def test_流式响应的令牌要等响应体发完才放(self, monkeypatch):
+        """**为什么闸门必须是纯 ASGI**（b14 的 MEDIUM-1）。
+
+        `BaseHTTPMiddleware.call_next` **只等到 `http.response.start` 就返回**，响应体的
+        流式发送发生在那**之后** ⇒ `@app.middleware("http")` 里的 `finally: release()` 会在
+        **响应体开流之前**跑完，SSE 重活（`/compliance/review/{id}/execute`、`/ks/answer`）
+        的令牌**立刻被放掉**，闸门对它等于不存在（复核实测：非流式峰值 4、流式峰值 12）。
+
+        判据用**假 ASGI app** 直接驱动真中间件，不靠计时：响应体分 3 块发，前两块
+        `more_body=True` 期间闸门必须**仍持有**，最后一块（`more_body=False`）发完才归零，
+        且**恰好释放一次**（多放会把闸门撑大 —— 同样是静默失效）。
+        """
+        import asyncio
+
+        from src.core.api import server
+
+        spy = self._spy(server, monkeypatch)
+        sent: list[dict] = []
+        live_at_send: list[int] = []
+
+        async def fake_app(scope, receive, send):
+            await send({"type": "http.response.start", "status": 200, "headers": []})
+            live_at_send.append(spy.live)
+            await send({"type": "http.response.body", "body": b"a", "more_body": True})
+            live_at_send.append(spy.live)
+            await send({"type": "http.response.body", "body": b"b", "more_body": True})
+            live_at_send.append(spy.live)
+            await send({"type": "http.response.body", "body": b"", "more_body": False})
+            live_at_send.append(spy.live)
+
+        async def send(message):
+            sent.append(message)
+
+        async def main() -> None:
+            mw = server._HeavyGateMiddleware(fake_app)
+            await mw({"type": "http", "path": "/api/v1/ingest/preview", "headers": []},
+                     None, send)
+
+        asyncio.run(main())
+        assert (spy.acquires, spy.releases) == (1, 1), (
+            "同一个请求只能 acquire 一次、release 一次（多放 = 闸门被撑大，"
+            f"同样是静默失效）：{spy.acquires}/{spy.releases}")
+        assert live_at_send == [1, 1, 1, 0], (
+            f"流式期间令牌必须一直被持有，最后一块发完才放：{live_at_send}")
+        assert spy.live == 0
+        # 包装层不许改动/吞掉 ASGI 消息
+        assert [m["type"] for m in sent] == [
+            "http.response.start", "http.response.body",
+            "http.response.body", "http.response.body"]
+        assert [m.get("more_body") for m in sent[1:]] == [True, True, False]
+
+    def test_异常或截断路径也必须释放且只放一次(self, monkeypatch):
+        """`app` 中途抛错（或从不发最后一块）⇒ `finally` 兜底释放，**且只放一次**。
+
+        为什么要有这条：闸门漏放 = 4 个令牌被永久吃掉 ⇒ 剩下 3 条重活（**越用越慢**，
+        且没有任何报错）。而"释放两次"同样坏：令牌数会越放越多 ⇒ 闸门静默失效。
+        """
+        import asyncio
+
+        import pytest as _pytest
+
+        from src.core.api import server
+
+        spy = self._spy(server, monkeypatch)
+        sent: list[dict] = []
+
+        async def boom_app(scope, receive, send):
+            await send({"type": "http.response.start", "status": 200, "headers": []})
+            await send({"type": "http.response.body", "body": b"a", "more_body": True})
+            raise RuntimeError("渲染中途炸了")
+
+        async def send(message):
+            sent.append(message)
+
+        async def main() -> None:
+            mw = server._HeavyGateMiddleware(boom_app)
+            with _pytest.raises(RuntimeError, match="渲染中途炸了"):
+                await mw({"type": "http", "path": "/api/v1/report/research", "headers": []},
+                         None, send)
+
+        asyncio.run(main())
+        assert spy.acquires == 1 and spy.releases == 1, (spy.acquires, spy.releases)
+        assert spy.live == 0
+        assert [m["type"] for m in sent] == ["http.response.start", "http.response.body"]
+
+    def test_闸门缓存不会把死循环留在字典里(self):
+        """LOW-4：缓存键必须是**循环对象**（弱引用字典），不是 `id(loop)`。
+
+        判据（行为级）：跑完一个事件循环后，缓存里**不该**多出它——`WeakKeyDictionary`
+        随循环被回收而清场；而拿 `id(loop)` 做键的普通 dict 会**永久留着**那一项，
+        且地址复用后新循环会拿到一个**绑在死循环上**的 limiter（anyio 的 limiter 内部是
+        RunVar，只在创建它的循环上有效）⇒ 行为诡异而**不报错**。
+        顺带钉住缓存真的在起作用：同一循环里两次取，必须是**同一个** limiter。
+        """
+        import gc
+
+        from src.core.api import server
+
+        async def main() -> None:
+            a = server._get_heavy_limiter()
+            b = server._get_heavy_limiter()
+            assert a is b, "同一个事件循环里两次取到了不同的重活闸门（缓存没生效）"
+            assert a.total_tokens == server.HEAVY_TOKENS
+
+        gc.collect()
+        before = len(server._heavy_limiters)
+        asyncio.run(main())
+        gc.collect()
+        assert len(server._heavy_limiters) <= before, (
+            "重活闸门缓存把已结束的事件循环留在字典里（键应改成弱引用的循环对象，"
+            "不能用 id(loop)——地址复用会让新循环拿到死循环上的 limiter）")
+
+    def test_非重活路径在中间件这一层就不碰闸门(self, monkeypatch):
+        """轻活路径连 `acquire` 都不该调（不是"调了又立刻放"——那也会排队）。"""
+        import asyncio
+
+        from src.core.api import server
+
+        spy = self._spy(server, monkeypatch)
+        called: list[str] = []
+
+        async def fake_app(scope, receive, send):
+            called.append("app")
+            await send({"type": "http.response.start", "status": 200, "headers": []})
+            await send({"type": "http.response.body", "body": b"{}", "more_body": False})
+
+        async def send(message):
+            pass
+
+        async def main() -> None:
+            mw = server._HeavyGateMiddleware(fake_app)
+            await mw({"type": "http", "path": "/api/v1/health", "headers": []}, None, send)
+
+        asyncio.run(main())
+        assert called == ["app"]
+        assert (spy.acquires, spy.releases, spy.live) == (0, 0, 0)
 
 
