@@ -236,9 +236,17 @@ function registerTier(ctx, manager) {
       }
       // `source` 由**调用方**声明（'user' = 用户改的）。前端固定传 user，
       // 免得"用户改的层级"和"系统判的层级"在留痕里混掉（轴 A 的判据必须可追）。
+      //
+      // ⚠ **`reason` 必须转发**（独立复核 2026-09-17 报的 LOW，实测是真的数据丢失）：
+      // 引擎的 `set_tier(..., reason=...)` 会**把 `tier_reason` 写成传入的 reason**，
+      // 而本路由原先只发 `{tier, source}` ⇒ 每次用户改级都把原判据（如"系统判据：域名可回溯"）
+      // **擦成 None**，界面上那行"判级说明"随之消失、审计链断掉。
+      // 现在把调用方给的 `reason` 透传（界面会带上 `T1 → T2` 这样的变更说明）。
+      const reason = typeof body?.reason === 'string' && body.reason !== '' ? body.reason : null
       mapProbe(res, await engineCall(manager, 'POST',
         `${ENGINE_MATERIALS}/${encodeURIComponent(q.material_id)}/tier`,
-        { tier: body.tier, source: typeof body?.source === 'string' ? body.source : 'user' }))
+        { tier: body.tier, source: typeof body?.source === 'string' ? body.source : 'user',
+          reason }))
     }),
   })
 }
@@ -257,12 +265,24 @@ function registerRole(ctx, manager) {
       }
       const body = await readBodyOr400(req, res)
       if (body === undefined) return
-      if (typeof body?.role !== 'string' || body.role === '') {
-        jsonResponse(res, 400, errorBody('bad_request', '缺少 role（criterion / reference）'))
+      // ⚠ **`role: null` 是合法的（= 撤销声明）**，独立复核 2026-09-17 报的 MEDIUM：
+      // 原实现要求"非空字符串"，于是面板上那个「未声明效力」选项（它按 api.ts 的类型
+      // `'criterion'|'reference'|null` 发 `null`）**每次都被 400 打回**、界面显示"操作失败"
+      // —— 一个装了却用不了的选项。引擎侧本来就支持 `None`（"null=撤销"）。
+      // 现在的契约：**键必须在**（缺键 = 调用方没说要设什么）；值可以是 null（撤销）
+      // 或非空字符串；空串按"调用方写错了"拒绝（含混的值不该猜）。
+      if (!Object.prototype.hasOwnProperty.call(body ?? {}, 'role')) {
+        jsonResponse(res, 400, errorBody('bad_request', '缺少 role（criterion / reference / null）'))
+        return
+      }
+      const role = body.role
+      if (role !== null && (typeof role !== 'string' || role === '')) {
+        jsonResponse(res, 400, errorBody('bad_request',
+          'role 只能是 criterion / reference / null（null = 撤销声明）'))
         return
       }
       mapProbe(res, await engineCall(manager, 'POST',
-        `${ENGINE_MATERIALS}/${encodeURIComponent(q.material_id)}/role`, { role: body.role }))
+        `${ENGINE_MATERIALS}/${encodeURIComponent(q.material_id)}/role`, { role }))
     }),
   })
 }

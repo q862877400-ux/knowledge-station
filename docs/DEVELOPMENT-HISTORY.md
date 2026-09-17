@@ -1133,6 +1133,62 @@ client 插件改动只有在 `pnpm run dev:web` 同时在跑时才会免刷新�
 **门禁**：`pytest` **1462 passed / 3 skipped / 0 failed**（1454 → 1462，**+8**）；
 `mypy` **130 files** 0 errors。
 
+### 10.25 收口独立复核 step-17/18：一个 MEDIUM + 四个 LOW + 两处**覆盖缺口**
+
+复核（隔离 worktree，钉 `a6e91c2`）给出 8 项结论：**C1/C2/C7/C8 CONFIRMED**、
+C3/C5/C6 **PARTLY**、C4 **REFUTED**（就是 §10.21 那个 P0，已修）。本步收口余下各条。
+
+**MEDIUM —— 轴 B 在界面上**永远无法撤销**（面板上那个选项装了用不了）。**
+面板的「未声明效力」按 `api.ts` 的类型（`'criterion'|'reference'|null`）发 `{role: null}`，
+引擎与仓库本来就支持 `None`（"null=撤销"），**但我的主机路由要求"非空字符串"** ⇒ 每次 400，
+界面显示"操作失败"。修：键**必须在**（缺键 = 调用方没说要设什么 → 400），
+值允许 `null`（撤销）或非空字符串；空串按"写错了"拒绝（含混的值不猜）。
+
+**LOW —— `tier` 每次改级都把原判级说明**擦成空**（真实的数据丢失）。**
+引擎的 `set_tier(..., reason=...)` 会**把 `tier_reason` 写成**传入的 reason，
+而我的路由只发 `{tier, source}` ⇒ 原来那句"系统判据：域名可回溯"变成 `None`，
+界面上"判级说明"那行随之消失、轴 A 的审计链断掉。修：路由转发 `reason`（缺省发 `null`，
+**显式**而不是漏字段），界面带上变更说明（`用户改级：T1 → T2`）。
+
+**LOW —— 收件箱读取失败被**静默渲染成「未登记 0 个文件」**，而代码注释却写着"但要**说**"。**
+那与"文件夹确实是空的"长得一模一样，用户会以为文件没放对。修：如实报错，
+并说明"这个计数不可信——不是没有文件，是没读到"。
+
+**LOW —— `run()` 的过期闭包**每建一个项目白发一次请求**。**
+`run` 捕获 `projectId`，而「新建项目」在 `run` 内部才 `setProjectId(新 id)`（尚未提交）
+⇒ 刷新用的是旧 id，发出 `GET /ks/materials/list?project_id=`（空 id，主机 400）。
+修：把要刷新的 id 作为**显式参数**传入，新建时传 `null`（新项目必然没有材料）。
+
+**INFO —— 打包脚本的注释是假的**：产物走的是 **automatic JSX runtime**
+（`react/jsx-runtime` 的 `_jsx`），不是 classic `React.createElement`——
+`client/tsconfig.json` 的 `"jsx": "react-jsx"` 覆盖了 `build-client.mjs` 的 API 选项。
+已把注释改成事实，免得下一个人照着错前提写代码。
+
+**INFO —— 超限请求体变成"连接被重置"而不是 400**：`readJsonBody` 在读超 `cap` 时调
+`req.destroy()`，于是调用方随后写的 400 **送不到客户端**（`chatmode.js` 里也有同样的告诫）。
+改成 `req.resume()`（读掉但不用），连接保住、400 能发出去。
+
+**两处复核指出的**覆盖缺口**（都是"改了也全绿"的盲区）**：
+1. **冒烟从不发引擎的字段名 `status`** ⇒ 一个 `.status` 兜底（`decision ?? status`）
+   能把评审白名单整个绕过去而冒烟仍全绿。补：`{status:'approved'}` 必须**仍然 400**；
+   同时给 `{status:'pending', decision:'approved'}` 断言"以 `decision` 为准、不给 `status` 留缝"。
+2. **"产物与源码同步"那组只证明"产物里有字符串"** ⇒ 抓不到"源码里把面板**删了**"
+   （源码不再挂载、产物是旧的）与"忘了重新构建"。补：**源码级断言**
+   （`KsSettingsSection.tsx` 里真的 `import` 并挂载了 `<KsMaterialsPanel`、真的有
+   「参考资料」类目），并**当场验证非空转**——把挂载那一行删掉，冒烟立刻 **48/49 FAIL**。
+
+**门禁**：`smoke` **14 段**全过（`smoke:materials-routes` 43 → **50**、
+`smoke:client-entry` 46 → **49**）；`verify:commands` 22/22；`e2e:sidebar` 13/13；
+`tsc --noEmit` 0；`pytest` **1462 passed / 3 skipped / 0 failed**（本步零 Python 改动，复跑确认）。
+
+**仍未做（复核也确认了）**：**真机 GUI 端到端**没验过（复核只能在
+`renderToStaticMarkup` + 它自写的 hook runtime 里跑，不是 React scheduler 证据）；
+**引擎仍需重启**（复核实测：那些路由在活进程里 404，与"不存在的路由"同形 ⇒
+`routes_materials` 根本没加载；磁盘上的文件比进程启动时间新 30 分钟）。
+复核给的两条后续建议已记：**GUI 验证前先钉住产物身份**（活动 GUI 读的是主检出的
+`client.js`，可能不是你要验的那个提交），以及**轴 A 的 reason 值得改成必填**
+（Phase C 的"强制评审"叙事会正好踩在"用户覆盖系统判级"这个点上）。
+
 
 
 

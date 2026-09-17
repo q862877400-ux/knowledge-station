@@ -5,7 +5,12 @@
  *   window.__ModuleLoader__.load({ id:'ks-dsh-plugin', factory:(require)=>{...}})
  * - react / react-dom / @deepseek-ai/* 保持 external（由 loader 的 require 提供）；
  * - pdfjs-dist 打进产物（loader 不提供它）；worker 走 host 路由 /ks/assets/pdf.worker.min.mjs；
- * - classic JSX（React.createElement），entry 与含 JSX 的模块需有 React 命名空间导入。
+ * - **JSX 走 automatic runtime**（`react/jsx-runtime` 的 `_jsx`），**不是** classic
+ *   `React.createElement`：本文件里的 `jsx:'transform'/jsxFactory` 只是 API 默认，
+ *   会被 `client/tsconfig.json` 的 `"jsx": "react-jsx"` 覆盖（独立复核 2026-09-17 实测：
+ *   产物里 9× `require("react/jsx-runtime")`、561× `_jsx`，只有 3× 手写的 `React.createElement`）。
+ *   ⇒ 含 JSX 的模块**仍需** `import * as React from 'react'`（各组件本来就有），
+ *   但**不要**以为产物里能看到 `React.createElement`。旧注释写的是 classic，与事实不符。
  * 用法：node scripts/build-client.mjs（cwd=plugin 根）。
  */
 import { build } from 'esbuild'

@@ -114,9 +114,14 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
   const reloadInbox = useCallback(async (pid: string, signal?: AbortSignal) => {
     try {
       setInbox(await fetchMaterialInbox(pid, signal))
-    } catch {
-      // 收件箱读取失败不该把整个面板打成错误态（材料列表仍然可用），但要**说**
+    } catch (err) {
+      // ⚠ 这里原先**只清空不报错**，而注释却写着"但要**说**"——独立复核 2026-09-17 报的 LOW：
+      // 收件箱读取失败会渲染成「未登记 0 个文件」，与"文件夹确实是空的"**长得一模一样**
+      // （用户会以为文件没放对）。现在如实说，并把"0"的来源讲清楚。
+      if (err instanceof Error && err.name === 'AbortError') return
       setInbox({ dir: '', files: [] })
+      setError(`收件箱读取失败：${err instanceof Error ? err.message : String(err)}`
+        + '（下面的"未登记"计数不可信——不是"没有文件"，是**没读到**）')
     }
   }, [])
 
@@ -172,31 +177,42 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
     return () => { alive = false; ctl.abort() }
   }, [visible, projectId, reloadMaterials, reloadInbox])
 
-  /** 统一的"做一件事 → 刷新 → 报错如实说"包装（避免每个按钮各写一遍 try）。 */
-  const run = useCallback(async (label: string, fn: () => Promise<string>) => {
+  /**
+   * 统一的"做一件事 → 刷新 → 报错如实说"包装（避免每个按钮各写一遍 try）。
+   *
+   * ⚠ `refreshFor` 必须由调用方**显式给**要刷新的项目 id（独立复核 2026-09-17 报的 LOW）：
+   * 原先这里闭包捕获 `projectId`，而「新建项目」在 `run` 内部才 `setProjectId(新 id)`，
+   * 那个 setState 还没提交 ⇒ 刷新用的是**旧 id**，于是每建一个项目就白发一次
+   * `GET /ks/materials/list?project_id=`（空 id，主机回 400），纯浪费往返。
+   * 现在 `refreshFor: null` 表示"不需要刷新列表"（新建项目时列表本来就该空）。
+   */
+  const run = useCallback(async (
+    label: string, fn: () => Promise<string>, refreshFor: string | null = null,
+  ) => {
     setBusy(label)
     setError('')
     setNotice('')
     try {
       setNotice(await fn())
-      await reloadMaterials(projectId)
+      if (refreshFor !== null) await reloadMaterials(refreshFor)
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err))
     } finally {
       setBusy('')
     }
-  }, [projectId, reloadMaterials])
+  }, [reloadMaterials])
 
   const onCreate = useCallback(() => {
     const name = newName.trim()
     if (name === '') { setError('请先填项目名'); return }
+    // 新建时**不刷新材料列表**（新项目必然没有材料；刷旧 id 只会白发一次请求）
     void run('create', async () => {
       const proj = await createMaterialProject(name)
       setNewName('')
       await reloadProjects()
       setProjectId(proj.project_id)
       return `已建项目「${proj.name}」。把材料文件放进它的参考资料文件夹后点「扫描收件」。`
-    })
+    }, null)
   }, [newName, reloadProjects, run])
 
   const onScan = useCallback(() => {
@@ -206,7 +222,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
       await reloadInbox(projectId)
       return `扫描完成：登记 ${r.registered} / 共 ${r.scanned} 个文件。**新登记的材料是待评审状态**，`
         + '需你在下方逐份批准后才会进入作答。'
-    })
+    }, projectId)
   }, [projectId, reloadInbox, run])
 
   const onReview = useCallback((m: KsMaterial, decision: 'approved' | 'rejected') => {
@@ -214,22 +230,25 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
       const out = await reviewMaterial(m.material_id, decision)
       const label = reviewLabel(out.review_status).text
       return `「${m.title}」→ ${label}`
-    })
-  }, [run])
+    }, projectId)
+  }, [projectId, run])
 
   const onTier = useCallback((m: KsMaterial, tier: string) => {
     void run(`tier:${m.material_id}`, async () => {
-      const out = await setMaterialTier(m.material_id, tier)
+      // ⚠ 必须带 `reason`：引擎会把 `tier_reason` **写成**这个值，不带就把原判据擦成空
+      // （独立复核 2026-09-17 实测的数据丢失）。带上"从哪改到哪"，审计链才不断。
+      const out = await setMaterialTier(
+        m.material_id, tier, `用户改级：${m.source_tier ?? '未判级'} → ${tier}`)
       return `「${m.title}」来源层级 → ${out.tier_label ?? out.source_tier}（已记为**用户改的**）`
-    })
-  }, [run])
+    }, projectId)
+  }, [projectId, run])
 
   const onRole = useCallback((m: KsMaterial, role: string) => {
     void run(`role:${m.material_id}`, async () => {
       await setMaterialRole(m.material_id, role === '' ? null : (role as 'criterion' | 'reference'))
       return `「${m.title}」任务内效力已更新`
-    })
-  }, [run])
+    }, projectId)
+  }, [projectId, run])
 
   const onToggleChunks = useCallback((m: KsMaterial) => {
     const cur = openChunks[m.material_id]

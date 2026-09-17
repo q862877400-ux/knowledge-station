@@ -5,18 +5,24 @@
  * query 白名单清洗、引擎探测结果映射。
  *
  * ## 为什么要有这个文件（以及为什么现在只有两个模块用它）
- * 2026-09-17 查了一遍：`jsonResponse` / `errorBody` / `readJsonBody` 在
- * **6 个模块**里各有一份私有拷贝（announce / chatmode / ingest / inspection /
- * report / settings），且 `BODY_CAP` 有 **3 个不同取值**（4096 / 16384 / 65536）。
+ * 2026-09-17 查了一遍，并把**计数核准**（独立复核复核过一遍，见下）：
+ *   · `jsonResponse` / `readJsonBody` 私有拷贝在 **5 个模块**里
+ *     （announce / chatmode / ingest / inspection / settings；report 已切走）；
+ *   · `errorBody` 只在 **4 个**里（announce / ingest / inspection / settings）
+ *     —— **chatmode 没有它**；
+ *   · `BODY_CAP` 有 **3 个**取值（4096 chatmode / 16384 settings / 65536 其余）。
+ *   · 另外 `trust.js` 有一个**同名但不同形状**的 `jsonResponse(res,status,code,message)`，
+ *     不算拷贝。
  * 那是历史积累，一次性合并风险大于收益（每个 cap 都是当场选的）。
  *
  * 本模块的做法是**只把新代码统一到这里**：
  *   · 新模块（materials_routes.js）从这里取；
  *   · 顺手把**最接近的一份**（report.js，同 cap=65536、helpers 逐字相同）切过来，
  *     让这里不是一个"只有一个用户的假共享模块"。
- *   · 其余 4 个模块（announce/chatmode/ingest/inspection/settings）**仍带各自私有拷贝**，
- *     **未合并**——这是**登记在案的遗留**（见 DEVELOPMENT-HISTORY §10.18），
- *     不是"我忘了"。
+ *   · 其余 **5 个**模块**仍带各自私有拷贝**，**未合并**——这是**登记在案的遗留**
+ *     （见 DEVELOPMENT-HISTORY §10.18），不是"我忘了"。
+ *   · 复核确认：那 5 份的 `end` 分支都直接用 `reject(err)`，**没有**本模块 §10.21
+ *     修掉的那个"永不 settle"缺陷。
  *
  * 依赖面：只用 node 内建 + 无 cordis（与 engine.js 同款，便于离线冒烟）。
  */
@@ -62,7 +68,11 @@ export function readJsonBody(req, cap = ROUTE_BODY_CAP) {
       size += chunk.length
       if (size > cap) {
         settle(reject, new Error('request body too large'))
-        req.destroy()
+        // ⚠ **不要 `req.destroy()`**（独立复核 2026-09-17 实测的 INFO；`chatmode.js` 里
+        // 也有同样的告诫）：destroy 会**重置连接**，调用方随后写的 400 送不到客户端
+        // —— 调用者看到的是"连接被重置"，而不是"请求体太大"这条可读的错误。
+        // 改成 `resume()`：剩余数据**读掉但不用**，连接保住，400 能发出去。
+        req.resume()
         return
       }
       chunks.push(chunk)

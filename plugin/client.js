@@ -28372,12 +28372,12 @@ async function reviewMaterial(materialId, decision, note, signal) {
   });
   return ksJson(res, "\u8BC4\u5BA1");
 }
-async function setMaterialTier(materialId, tier, signal) {
+async function setMaterialTier(materialId, tier, reason, signal) {
   const q = new URLSearchParams({ material_id: materialId });
   const res = await fetch(`/ks/materials/tier?${q.toString()}`, {
     method: "POST",
     headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify({ tier, source: "user" }),
+    body: JSON.stringify({ tier, source: "user", reason: reason ?? null }),
     signal
   });
   return ksJson(res, "\u8BBE\u7F6E\u6765\u6E90\u5C42\u7EA7");
@@ -32409,8 +32409,10 @@ function KsMaterialsPanel(props) {
   const reloadInbox = (0, import_react7.useCallback)(async (pid, signal) => {
     try {
       setInbox(await fetchMaterialInbox(pid, signal));
-    } catch {
+    } catch (err) {
+      if (err instanceof Error && err.name === "AbortError") return;
       setInbox({ dir: "", files: [] });
+      setError(`\u6536\u4EF6\u7BB1\u8BFB\u53D6\u5931\u8D25\uFF1A${err instanceof Error ? err.message : String(err)}\uFF08\u4E0B\u9762\u7684"\u672A\u767B\u8BB0"\u8BA1\u6570\u4E0D\u53EF\u4FE1\u2014\u2014\u4E0D\u662F"\u6CA1\u6709\u6587\u4EF6"\uFF0C\u662F**\u6CA1\u8BFB\u5230**\uFF09`);
     }
   }, []);
   (0, import_react7.useEffect)(() => {
@@ -32467,19 +32469,19 @@ function KsMaterialsPanel(props) {
       ctl.abort();
     };
   }, [visible, projectId, reloadMaterials, reloadInbox]);
-  const run = (0, import_react7.useCallback)(async (label, fn) => {
+  const run = (0, import_react7.useCallback)(async (label, fn, refreshFor = null) => {
     setBusy(label);
     setError("");
     setNotice("");
     try {
       setNotice(await fn());
-      await reloadMaterials(projectId);
+      if (refreshFor !== null) await reloadMaterials(refreshFor);
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err));
     } finally {
       setBusy("");
     }
-  }, [projectId, reloadMaterials]);
+  }, [reloadMaterials]);
   const onCreate = (0, import_react7.useCallback)(() => {
     const name = newName.trim();
     if (name === "") {
@@ -32492,7 +32494,7 @@ function KsMaterialsPanel(props) {
       await reloadProjects();
       setProjectId(proj.project_id);
       return `\u5DF2\u5EFA\u9879\u76EE\u300C${proj.name}\u300D\u3002\u628A\u6750\u6599\u6587\u4EF6\u653E\u8FDB\u5B83\u7684\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u540E\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\u3002`;
-    });
+    }, null);
   }, [newName, reloadProjects, run]);
   const onScan = (0, import_react7.useCallback)(() => {
     if (projectId === "") return;
@@ -32500,27 +32502,31 @@ function KsMaterialsPanel(props) {
       const r = await scanMaterialProject(projectId);
       await reloadInbox(projectId);
       return `\u626B\u63CF\u5B8C\u6210\uFF1A\u767B\u8BB0 ${r.registered} / \u5171 ${r.scanned} \u4E2A\u6587\u4EF6\u3002**\u65B0\u767B\u8BB0\u7684\u6750\u6599\u662F\u5F85\u8BC4\u5BA1\u72B6\u6001**\uFF0C\u9700\u4F60\u5728\u4E0B\u65B9\u9010\u4EFD\u6279\u51C6\u540E\u624D\u4F1A\u8FDB\u5165\u4F5C\u7B54\u3002`;
-    });
+    }, projectId);
   }, [projectId, reloadInbox, run]);
   const onReview = (0, import_react7.useCallback)((m, decision) => {
     void run(`${decision}:${m.material_id}`, async () => {
       const out = await reviewMaterial(m.material_id, decision);
       const label = reviewLabel(out.review_status).text;
       return `\u300C${m.title}\u300D\u2192 ${label}`;
-    });
-  }, [run]);
+    }, projectId);
+  }, [projectId, run]);
   const onTier = (0, import_react7.useCallback)((m, tier) => {
     void run(`tier:${m.material_id}`, async () => {
-      const out = await setMaterialTier(m.material_id, tier);
+      const out = await setMaterialTier(
+        m.material_id,
+        tier,
+        `\u7528\u6237\u6539\u7EA7\uFF1A${m.source_tier ?? "\u672A\u5224\u7EA7"} \u2192 ${tier}`
+      );
       return `\u300C${m.title}\u300D\u6765\u6E90\u5C42\u7EA7 \u2192 ${out.tier_label ?? out.source_tier}\uFF08\u5DF2\u8BB0\u4E3A**\u7528\u6237\u6539\u7684**\uFF09`;
-    });
-  }, [run]);
+    }, projectId);
+  }, [projectId, run]);
   const onRole = (0, import_react7.useCallback)((m, role) => {
     void run(`role:${m.material_id}`, async () => {
       await setMaterialRole(m.material_id, role === "" ? null : role);
       return `\u300C${m.title}\u300D\u4EFB\u52A1\u5185\u6548\u529B\u5DF2\u66F4\u65B0`;
-    });
-  }, [run]);
+    }, projectId);
+  }, [projectId, run]);
   const onToggleChunks = (0, import_react7.useCallback)((m) => {
     const cur = openChunks[m.material_id];
     if (cur !== void 0) {

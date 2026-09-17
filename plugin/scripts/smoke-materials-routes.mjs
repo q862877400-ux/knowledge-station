@@ -221,6 +221,25 @@ const lastEngine = () => seen[seen.length - 1]
       r.status === 400 && seen.length === 0, `${r.status} engineCalls=${seen.length}`)
   }
 
+  // ⚠ **引擎的字段名不许能当后门**（独立复核 2026-09-17 报的覆盖缺口）：
+  // 本冒烟原来**从不发** `status`（引擎侧那个字段名），于是一个 `.status` 兜底
+  // （`decision ?? status`）能把白名单整个绕过去而冒烟仍然全绿。
+  // 现在把"直接说引擎的话"这条路也钉死：发了 `status` 必须**仍然 400**。
+  seen.length = 0
+  const viaEngineField = await invoke('/ks/materials/review', {
+    method: 'POST', search: '?material_id=mat_1', body: { status: 'approved' },
+  })
+  check('用引擎字段名 `status` 直接调也必须 400（白名单不可绕）',
+    viaEngineField.status === 400 && seen.length === 0,
+    `${viaEngineField.status} engineCalls=${seen.length}`)
+  seen.length = 0
+  const bothFields = await invoke('/ks/materials/review', {
+    method: 'POST', search: '?material_id=mat_1', body: { status: 'pending', decision: 'approved' },
+  })
+  check('同时给 status=pending 与 decision=approved ⇒ 以 decision 为准（不给 status 留缝）',
+    bothFields.status === 200 && lastEngine().sent.status === 'approved'
+    && lastEngine().sent.decision === undefined, JSON.stringify(lastEngine().sent))
+
   seen.length = 0
   const noMid = await invoke('/ks/materials/review', { method: 'POST', body: { decision: 'approved' } })
   check('POST /review 缺 material_id → 400 且不打扰引擎',
@@ -294,6 +313,47 @@ const lastEngine = () => seen[seen.length - 1]
   check('轴 B（role）独立于轴 A 单独设置',
     lastEngine().path === '/api/v1/materials/mat_1/role'
     && lastEngine().sent.role === 'criterion', JSON.stringify(lastEngine().sent))
+
+  // ⚠ **`role: null` 必须放行**（独立复核 2026-09-17 报的 MEDIUM）：面板上「未声明效力」
+  // 这个选项发的就是 `null`（撤销声明），而引擎/仓库本来就支持 None。
+  // 原实现要求"非空字符串" ⇒ 那个选项**每次都被 400 打回**，装了却用不了。
+  seen.length = 0
+  responder = () => ({ body: { code: 200, data: { task_role: null } } })
+  const cleared = await invoke('/ks/materials/role', {
+    method: 'POST', search: '?material_id=mat_1', body: { role: null },
+  })
+  check('role: null（撤销声明）放行到引擎，不再 400',
+    cleared.status === 200 && lastEngine().sent.role === null,
+    `${cleared.status} sent=${JSON.stringify(lastEngine()?.sent)}`)
+  seen.length = 0
+  const noRoleKey = await invoke('/ks/materials/role', {
+    method: 'POST', search: '?material_id=mat_1', body: {},
+  })
+  check('缺 role 键 → 400（"没说要设什么"与"要撤销"是两回事）',
+    noRoleKey.status === 400 && seen.length === 0, String(noRoleKey.status))
+  seen.length = 0
+  const emptyRole = await invoke('/ks/materials/role', {
+    method: 'POST', search: '?material_id=mat_1', body: { role: '' },
+  })
+  check('role 为空串 → 400（含混的值不猜）',
+    emptyRole.status === 400 && seen.length === 0, String(emptyRole.status))
+
+  // tier 的 `reason` 必须转发：引擎把 tier_reason **写成**它，不传就擦掉原判据
+  seen.length = 0
+  responder = () => ({ body: { code: 200, data: { source_tier: 'T2' } } })
+  await invoke('/ks/materials/tier', {
+    method: 'POST', search: '?material_id=mat_1',
+    body: { tier: 'T2', reason: '用户改级：T1 → T2' },
+  })
+  check('tier 的 reason 被转发（否则原判级说明被擦成空）',
+    lastEngine().sent.reason === '用户改级：T1 → T2', JSON.stringify(lastEngine().sent))
+  seen.length = 0
+  await invoke('/ks/materials/tier', {
+    method: 'POST', search: '?material_id=mat_1', body: { tier: 'T2' },
+  })
+  check('不给 reason 时发 null（显式，而不是漏字段）',
+    'reason' in lastEngine().sent && lastEngine().sent.reason === null,
+    JSON.stringify(lastEngine().sent))
 
   seen.length = 0
   const noTier = await invoke('/ks/materials/tier', {

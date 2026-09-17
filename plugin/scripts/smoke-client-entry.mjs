@@ -465,6 +465,20 @@ check('inject declares only official services (no third-party hard gate)',
   ]) {
     check(`client.js 已重新构建并含${what}`, bundle.includes(marker), marker)
   }
+
+  // ⚠ **源码侧的接线断言**（独立复核 2026-09-17 报的覆盖缺口）：上面那组只证明
+  // "提交进仓库的产物里有这些字符串"，它**抓不到**两件事：
+  //   ① 有人把 `<KsMaterialsPanel … />` 从设置栏目里删了（源码不再挂载，产物却是旧的）；
+  //   ② 忘了重新构建（源码改了、产物没跟上）。
+  // ①由下面的源码断言覆盖；②由"产物里同时有挂载点与面板标记"间接覆盖
+  // （少任何一半都说明两者不同步）。
+  const settings = await readFile(join(pluginRoot, 'client', 'KsSettingsSection.tsx'), 'utf8')
+  check('设置栏目源码里**挂载**了参考资料面板（不是只有产物里有）',
+    settings.includes("import { KsMaterialsPanel }") && settings.includes('<KsMaterialsPanel'))
+  check('设置栏目源码里有「参考资料」类目（用户在设置里找得到入口）',
+    settings.includes('title="参考资料"'))
+  check('产物里同时含面板标记与设置侧文案（源码↔产物同步的间接证据）',
+    bundle.includes('评审是硬门') && bundle.includes('/materials use '))
 }
 
 const failed = results.filter((r) => !r.ok)

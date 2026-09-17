@@ -2275,23 +2275,33 @@ export async function reviewMaterial(
   return ksJson<KsMaterial>(res, '评审')
 }
 
-/** POST /ks/materials/tier?material_id= — 改**来源可信度**（轴 A，用户可改并留痕）。 */
+/**
+ * POST /ks/materials/tier?material_id= — 改**来源可信度**（轴 A，用户可改并留痕）。
+ *
+ * ⚠ `reason` **要传**：引擎把 `tier_reason` **写成**它，不传就把原判据擦成空
+ * （独立复核 2026-09-17 实测的数据丢失）。界面应带"从哪改到哪"。
+ */
 export async function setMaterialTier(
   materialId: string,
   tier: string,
+  reason?: string,
   signal?: AbortSignal,
 ): Promise<KsMaterial> {
   const q = new URLSearchParams({ material_id: materialId })
   const res = await fetch(`/ks/materials/tier?${q.toString()}`, {
     method: 'POST',
     headers: { 'content-type': 'application/json', accept: 'application/json' },
-    body: JSON.stringify({ tier, source: 'user' }),
+    body: JSON.stringify({ tier, source: 'user', reason: reason ?? null }),
     signal,
   })
   return ksJson<KsMaterial>(res, '设置来源层级')
 }
 
-/** POST /ks/materials/role?material_id= — 声明**任务内效力**（轴 B，与轴 A 正交）。 */
+/**
+ * POST /ks/materials/role?material_id= — 声明**任务内效力**（轴 B，与轴 A 正交）。
+ *
+ * `role: null` **是合法的**（撤销声明）——主机路由与引擎都明确支持，不是"没填"。
+ */
 export async function setMaterialRole(
   materialId: string,
   role: 'criterion' | 'reference' | null,
