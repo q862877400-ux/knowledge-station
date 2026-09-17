@@ -377,6 +377,24 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
   （批准会**自动写进法条库**，静默通过=用户不知情）。`materials_review` 同时并入
   "慢端点必须是 `def`"的结构性测试。
 
+### Phase D（进行中）
+
+- **D-1 研究报告导出（已完成，§10.36）**：`src/core/exports/research_report.py` +
+  引擎 `POST /api/v1/report/research` + 主机 `POST /ks/report/research`。
+  六节：研究问题 / 结论（调用方给）/ **依据按承重能力分组**（复用 `authority`，
+  分组判据不另写一份）/ 已批准清单 / **未批准如实列出** / 已知限制。
+  Markdown 与 HTML 从**同一份结构化文档**渲染（零新增依赖，HTML 全转义）。
+  **引用逐条校验**：`[[m:i]]` 不存在或落在"仅线索/不可用"⇒ 进 `warnings`（绝不静默）；
+  `[[c:i]]` 本次**无法校验**，如实计数。顺带补掉 `/ks/report/*` **此前零冒烟**的覆盖缺口
+  （新增 `smoke-report-routes` 19 项），并修掉 `mapProbe` 把引擎 404 翻成 502 的**归因错误**。
+- **D-2 PPT 立项（未做，待决策）**：方案 §8 要求"单独立项、先论证值不值"。
+  候选：新增 `python-pptx`（纯 Python、无网络）；替代：本步已交付的 Markdown/HTML
+  由用户自行转（Marp/pandoc/PowerPoint）。**本仓有"0 import 就删依赖"的纪律**，
+  所以要么论证清楚使用频次与场景，要么就走替代路线。
+- **D-3 报告进界面（未做）**：路由已同源可达，但**面板上没有按钮**（与 `collect` 同一现状）；
+  另：`.docx` 侧仍是"问答依据 / 审查报告"两条，未扩到材料平面（**没有**顺手合并，
+  三条导出用途不同）。
+
 ### 已知未决 / 诚实边界
 
 1. **`tests/test_deep_server.py` 有间歇性失败**（全量跑出现过 1 次，同文件单独跑 8/8 通过，

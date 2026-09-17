@@ -114,6 +114,11 @@ export function pickQuery(reqUrl, allowed) {
  *
  * `okData` 可给定一个"取哪些字段"的函数（默认 `body.data ?? {}`）：
  * 材料路由有些端点返回数组，直接透传更省事。
+ *
+ * ⚠ **404 原样透传**（2026-09-17 补）：引擎的 404 是"你要的东西不存在"
+ * （项目/材料 id 写错了），把它翻成 `502 engine_error` 是**归因错误**——
+ * 用户看到"引擎错误"会去查引擎，而真正的原因是他给了一个不存在的 id。
+ * 与 `docimage` 那条路由的既有约定一致（引擎 404 → 404）。
  */
 export function mapProbe(res, probe, engineErrorStatus = 502, pick = null) {
   if (probe.status === 200 && probe.body && typeof probe.body === 'object') {
@@ -121,11 +126,17 @@ export function mapProbe(res, probe, engineErrorStatus = 502, pick = null) {
     jsonResponse(res, 200, { ok: true, data })
     return
   }
+  const code = probe.body && typeof probe.body === 'object' ? probe.body.error : null
+  const message = probe.body && typeof probe.body === 'object' && probe.body.message
+    ? String(probe.body.message) : ''
+  if (probe.status === 404) {
+    jsonResponse(res, 404, errorBody(typeof code === 'string' ? code : 'not_found',
+      message || '目标不存在'))
+    return
+  }
   if (probe.status === 422) {
-    const code = probe.body && typeof probe.body === 'object' ? probe.body.error : null
-    const message = probe.body && typeof probe.body === 'object' && probe.body.message
-      ? String(probe.body.message) : '非法参数'
-    jsonResponse(res, 400, errorBody(typeof code === 'string' ? code : 'invalid_params', message))
+    jsonResponse(res, 400, errorBody(typeof code === 'string' ? code : 'invalid_params',
+      message || '非法参数'))
     return
   }
   jsonResponse(res, engineErrorStatus, errorBody('engine_error',

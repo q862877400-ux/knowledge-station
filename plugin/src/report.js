@@ -34,10 +34,13 @@ import {
 export const KS_REPORT_EFFECT_PATH = '/ks/report/effect'
 export const KS_REPORT_DOCS_PATH = '/ks/report/effect/docs'
 export const KS_REPORT_EXPORT_PATH = '/ks/report/export'
+/** 研究报告（Phase D）：材料平面的产出物（Markdown + HTML）。 */
+export const KS_REPORT_RESEARCH_PATH = '/ks/report/research'
 
 const ENGINE_EFFECT_PATH = '/api/v1/report/effect'
 const ENGINE_DOCS_PATH = '/api/v1/report/effect/docs'
 const ENGINE_EXPORT_PATH = '/api/v1/report/effect/export'
+const ENGINE_RESEARCH_PATH = '/api/v1/report/research'
 const ENGINE_DOWNLOAD_PATH = '/api/v1/export/download'
 
 const XLSX_MIME = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
@@ -207,12 +210,69 @@ function registerExportRoute(ctx, manager) {
   })
 }
 
-/** Register all three report routes; returns the combined disposer. */
+/**
+ * `POST /ks/report/research`：**研究报告**（Phase D，§10.36）。
+ *
+ * 与 `/ks/report/export`（效力报告 Excel）不同：这条是**材料平面**的产出物——
+ * 把"这一轮用了哪些参考资料、两个轴是什么、还有哪些没批准"落成一份自包含文件
+ * （Markdown + HTML，引擎本地生成、零新增依赖；方案 §8 的退路）。
+ *
+ * ⚠ **白名单转发**（不是整包透传）：只把认识的键发给引擎。与采集端点同一个立论——
+ * 静默透传未知键会让调用方以为自己设上了（`sanitizeParams` 同款坑）。
+ * `dry_run=true` 时引擎只组装不落盘（预览用）。
+ */
+function registerResearchRoute(ctx, manager) {
+  return ctx.webServer.register({
+    kind: 'exact',
+    path: KS_REPORT_RESEARCH_PATH,
+    handler: async (req, res) => {
+      if (req.method !== 'POST') {
+        jsonResponse(res, 405, errorBody('method_not_allowed', 'POST only'))
+        return
+      }
+      let raw
+      try {
+        raw = await readJsonBody(req)
+      } catch {
+        jsonResponse(res, 400, errorBody('bad_request', 'body 必须是合法 JSON'))
+        return
+      }
+      const body = {}
+      if (typeof raw.project_id === 'string' && raw.project_id.trim() !== '') {
+        body.project_id = raw.project_id.trim()
+      }
+      for (const key of ['title', 'query', 'conclusion_md']) {
+        if (typeof raw[key] === 'string' && raw[key] !== '') body[key] = raw[key]
+      }
+      if (raw.limit !== undefined) body.limit = raw.limit
+      if (raw.dry_run !== undefined) body.dry_run = raw.dry_run === true
+      if (body.project_id === undefined) {
+        jsonResponse(res, 400, errorBody('bad_request', '缺少 project_id'))
+        return
+      }
+      let session
+      try {
+        session = await manager.ensureLive()
+      } catch (err) {
+        jsonResponse(res, 503, errorBody('engine_unavailable',
+          err instanceof Error ? err.message : String(err)))
+        return
+      }
+      // 生成可能要跑一遍检索/分组：给足超时（与导出 Excel 同量级）
+      const probe = await apiPost(originUrl(session.port), ENGINE_RESEARCH_PATH,
+        { token: session.token, timeoutMs: 90_000, body })
+      mapProbe(res, probe)
+    },
+  })
+}
+
+/** Register all report routes; returns the combined disposer. */
 export function registerKsReportRoutes(ctx, manager) {
   const disposers = [
     registerEffectRoute(ctx, manager),
     registerDocsRoute(ctx, manager),
     registerExportRoute(ctx, manager),
+    registerResearchRoute(ctx, manager),
   ]
   return () => {
     for (const dispose of disposers) dispose()
