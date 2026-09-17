@@ -335,8 +335,15 @@ def register(app, json_error):
 
     # ------------------------------------------------ 引用锚点稳定性（§12 未决第 5 条）
     @app.get("/api/v1/materials/projects/{project_id}/locators")
-    async def materials_locator_summary(project_id: str):
-        """项目级**锚点健康度总览**（便宜：只比指纹，不重解析）。
+    def materials_locator_summary(project_id: str):
+        """项目级**锚点健康度总览**（不重解析，但**不是零 I/O**）。
+
+        ⚠ 声明成 `def`（2026-09-18，复核 b10 的 MEDIUM-2）：这个判据**已不只是"比字符串"**——
+        §10.54 给锚点判据加了"源文件字节"这一轴，于是它会对**每份材料**流式 sha256 一次源文件。
+        几十份 PDF 就是一次真实的磁盘读 ⇒ 放进 `async def` 会把**整个引擎**卡住
+        （与 `scan`/`collect`/`reverify` 同款理由，判据见
+        `tests/test_material_api.py::TestSlowEndpointsAreDeclaredSync`）。
+        ⚠ 本文件与 `locator.py` 里"很便宜（PRAGMA + 比字符串）"的旧说法一并改准。
 
         ⚠ `unknown` **不是** `ok`：它包含"入库时没记指纹的老材料"与"PDF 便宜比对判不了"
         两类。要给一份材料下结论，走 `POST .../{mid}/reverify`（显式、贵）。
@@ -348,8 +355,12 @@ def register(app, json_error):
                 "data": lo.project_locator_summary(project_id)}
 
     @app.get("/api/v1/materials/{material_id}/locators")
-    async def materials_locator_health(material_id: str):
-        """单份材料的**锚点健康度**（便宜）。措辞纪律见 `materials/locator.py`。"""
+    def materials_locator_health(material_id: str):
+        """单份材料的**锚点健康度**（不重解析，但会读一次源文件比字节）。
+
+        ⚠ 同样声明成 `def`：单份也要 sha256 源文件（大 PDF 可能秒级），
+        不能占单事件循环。措辞纪律见 `materials/locator.py`。
+        """
         mat = mr.get_material(material_id)
         if mat is None:
             return json_error(404, "materials_not_found", f"材料不存在: {material_id}")

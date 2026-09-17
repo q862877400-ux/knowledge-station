@@ -516,6 +516,12 @@ class TestSlowEndpointsAreDeclaredSync:
         "/api/v1/materials/{material_id}/review",
         # 重解析比对会**子进程解析**（秒级到分钟级），与 scan 同款 ⇒ 必须 `def`
         "/api/v1/materials/{material_id}/reverify",
+        # ⚠ 锚点健康度这两条**也是**（2026-09-18 复核 b10 的 MEDIUM-2）：
+        # §10.54 给它加了"源文件字节"那一轴 ⇒ 它会**流式 sha256 每份源文件**，
+        # 几十份 PDF 就是一次真实磁盘读。作者当时只想着"比字符串很便宜"，
+        # 把它留在 `async def` 里 ⇒ 整个引擎会被卡住（这正是本类存在的理由）。
+        "/api/v1/materials/projects/{project_id}/locators",
+        "/api/v1/materials/{material_id}/locators",
     ])
     def test_declared_sync(self, client, path):
         import asyncio

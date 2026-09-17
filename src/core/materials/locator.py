@@ -233,10 +233,16 @@ def reverify_material_locators(material_id: str) -> dict[str, Any]:
 
 
 def project_locator_summary(project_id: str) -> dict[str, Any]:
-    """项目级**便宜**总览（每份材料的状态 + 计数 + 有问题的清单）——给界面/报告用。
+    """项目级锚点总览（每份材料的状态 + 计数 + 有问题的清单）——给界面/报告用。
 
     ⚠ 一次给**全部**材料的状态（`statuses`），而不是只给有问题的：界面每行都要画标记，
-    而"每行发一次请求"在有几十份材料时就是请求风暴。这个判据本身很便宜（PRAGMA + 比字符串）。
+    而"每行发一次请求"在有几十份材料时就是请求风暴。
+    ⚠ **但它不是"零 I/O"**（2026-09-18 复核 b10 的 MEDIUM-2）：这里对**每份材料**调
+    `locator_health`，而那个判据会**流式 sha256 一次源文件**（§10.54 加的"源文件字节"轴）
+    ⇒ 几十份 PDF 就是一次真实磁盘读。所以调用它的端点**必须声明成 `def`**（线程池），
+    不能是 `async def`——判据见
+    `tests/test_material_api.py::TestSlowEndpointsAreDeclaredSync`。
+    真嫌贵，正确的优化是**缓存源文件 size/mtime**（登记为待办），**不是**删掉那条判据。
     """
     counts: dict[str, int] = {s: 0 for s in HEALTH_STATUSES}
     statuses: dict[str, str] = {}
