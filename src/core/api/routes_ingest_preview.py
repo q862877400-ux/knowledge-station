@@ -16,6 +16,15 @@
 - 文件不存在 → 404 `preview_file_not_found`；
 - **坏文档不是 HTTP 错误**：解析失败也返回 200，由报告里的 `verdict="block"` 表达
   （HTTP 层错误会让"100% 拦截"变成"看到报错不知道拦了什么"）。
+
+## ⚠ 这六条端点**一律声明成 `def`**（§10.73，2026-09-18）
+本文件的每一件事都是**同步重活**：单文件预览要 sha256 + 真解析一份 PDF、批量要扫目录、
+jobs 三件套要读任务表。uvicorn 是**单事件循环** ⇒ 写成 `async def` 会把**整个引擎**卡住。
+这不是理论：`scripts/measure-endpoint-blocking.py` 在**改前**实测 12 页 PDF
+——请求 0.474s、事件循环**空档 0.468s**（≈整条请求全堵）；改 `def` 之后同一条用例的空档
+掉回**心跳分辨率**（§10.73 有 before/after 表）。而本文件上面那句"负载下可达 135s"
+意味着：**最坏情况下整个引擎会静默死两分钟**。
+闸门：`tests/test_material_api.py::TestSlowEndpointsAreDeclaredSync`（逐条 + 文件级各一条）。
 """
 from __future__ import annotations
 
@@ -48,7 +57,7 @@ def _parse_allow_deep(body: dict | None) -> tuple[bool, str]:
 
 def register(app, json_error):
     @app.post("/api/v1/ingest/preview")
-    async def ingest_preview(payload: dict):
+    def ingest_preview(payload: dict):
         """单文件预览报告（R27）：总页数/条款数/质量分级/前后 5 条样例/可疑清单/分型预览/
         法理要素质量/标准号猜测/查重。只读；**默认不外发**，`allow_deep=true` 才走云深度通道。"""
         from src.core.ingestion import dry_run
@@ -80,7 +89,7 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": data}
 
     @app.post("/api/v1/ingest/preview/batch")
-    async def ingest_preview_batch(payload: dict):
+    def ingest_preview_batch(payload: dict):
         """目录批量预览 + 分桶（决策 2）：先抽样几本，再看 ✅/⚠️/❌ 总账。
 
         单文件失败不中断整批；`sample=0` 表示不抽样（全量，受 `limit_files` 上限约束）。
@@ -127,7 +136,7 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": data}
 
     @app.get("/api/v1/ingest/preview/inbox")
-    async def ingest_preview_inbox(dir: str, recursive: bool = False, limit: int = 200):
+    def ingest_preview_inbox(dir: str, recursive: bool = False, limit: int = 200):
         """列出候选目录下的 PDF（只列名与大小，不做体检——体检走 POST 端点）。"""
         from src.core.ingestion import dry_run
         try:
@@ -151,7 +160,7 @@ def register(app, json_error):
     # POST jobs/{id}/abort（协作式中断）。任务表进程内（只读红线：不落库账本）；
     # 僵尸语义照 announce.py（登记 running 而线程死 → GET 时自愈标 failed）。
     @app.post("/api/v1/ingest/preview/jobs")
-    async def ingest_preview_job_start(payload: dict):
+    def ingest_preview_job_start(payload: dict):
         """启动异步批量预览任务：``{paths: [绝对路径…]}`` 或 ``{dir, recursive?}``。
 
         ``batch_size>0`` 只跑前 N 件（试跑）；默认全量（这正是本接口的用途——
@@ -194,7 +203,7 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": view}
 
     @app.get("/api/v1/ingest/preview/jobs/{job_id}")
-    async def ingest_preview_job_status(job_id: str, rows_offset: int = 0,
+    def ingest_preview_job_status(job_id: str, rows_offset: int = 0,
                                         rows_limit: int = 200):
         """任务进度：status/total/done/三桶计数 + 瘦身行分页（默认前 200 行）。
 
@@ -208,7 +217,7 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": view}
 
     @app.post("/api/v1/ingest/preview/jobs/{job_id}/abort")
-    async def ingest_preview_job_abort(job_id: str):
+    def ingest_preview_job_abort(job_id: str):
         """协作式中断：置 stop_flag，worker 最多再跑 16 件后停并标 aborted。
 
         已完成的行保留（用户拿得到部分结果）。terminal 后再 abort 是幂等 no-op。

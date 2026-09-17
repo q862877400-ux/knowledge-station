@@ -538,14 +538,23 @@ class TestSlowEndpointsAreDeclaredSync:
         assert not asyncio.iscoroutinefunction(routes[0].endpoint), (
             f"{path} 做同步重活，必须是 `def`（线程池），不能是 `async def`")
 
-    def test_routes_report_module_has_no_async_endpoint(self, client):
-        """**文件级**闸门：`routes_report.py` 注册的端点，**一个都不许是 `async def`**。
+    @pytest.mark.parametrize("module,min_routes", [
+        # 这个文件里的每一件事都是同步重活（秒级 SQL 聚合 / openpyxl·pptx 落盘 / 逐份 sha256），
+        # 所以往这里新加端点**默认就该是 `def`**。
+        ("src.core.api.routes_report", 6),
+        # §10.73（2026-09-18）：入库预览那一族同理——单文件预览 = sha256 + **真解析一份 PDF**
+        # （该文件自述"负载下可达 135s"），批量要扫目录，jobs 三件套要读任务表。
+        # 改前实测（`scripts/measure-endpoint-blocking.py`，12 页 PDF）：事件循环被堵 **0.468s**
+        # ≈整条请求；改 `def` 后掉回噪声底（§10.73 的 before/after 表）。
+        ("src.core.api.routes_ingest_preview", 6),
+    ])
+    def test_module_has_no_async_endpoint(self, client, module, min_routes):
+        """**文件级**闸门：这些模块注册的端点，**一个都不许是 `async def`**。
 
-        为什么不接着加白名单条目：b12 的 MEDIUM-2 本身就是"漏了一条、没人发现"。这个文件里
-        的每一件事——秒级 SQL 聚合、openpyxl/pptx 落盘、逐份 sha256 材料源文件——都是同步
-        重活，所以往这里**新加端点时默认就该是 `def`**；逐条白名单挡不住新端点，文件级判据挡得住。
+        为什么不接着加白名单条目：b12 的 MEDIUM-2 本身就是"漏了一条、没人发现"。逐条白名单
+        挡不住**将来新加**的端点，文件级判据挡得住——这些文件里的每一件事都是同步重活。
 
-        ⚠ 反向断言（`seen >= 6`）**不可省**：路由一条都没扫到时"全绿"是**假绿**
+        ⚠ 反向断言（`seen >= min_routes`）**不可省**：路由一条都没扫到时"全绿"是**假绿**
         （b12 的 `e2e:materials` C2 就是这么空过的）。
         真要在这里放一个 `async def`（例如将来接了原生异步 I/O）：请在**本测试里**写清它为什么
         不阻塞事件循环，再把它挪进白名单——**不要默默删掉这条**。
@@ -556,15 +565,15 @@ class TestSlowEndpointsAreDeclaredSync:
         bad: list[str] = []
         for r in c.app.routes:
             ep = getattr(r, "endpoint", None)
-            if ep is None or getattr(ep, "__module__", None) != "src.core.api.routes_report":
+            if ep is None or getattr(ep, "__module__", None) != module:
                 continue
             path = getattr(r, "path", "?")
             seen.append(path)
             if asyncio.iscoroutinefunction(ep):
                 bad.append(path)
-        assert len(seen) >= 6, (
-            f"只扫到 {len(seen)} 条 routes_report 端点（{seen}）——判据可能空过，先确认路由注册")
-        assert not bad, f"routes_report.py 里的端点做同步重活，必须全部是 `def`（线程池）：{bad}"
+        assert len(seen) >= min_routes, (
+            f"{module} 只扫到 {len(seen)} 条端点（{seen}）——判据可能空过，先确认路由注册")
+        assert not bad, f"{module} 里的端点做同步重活，必须全部是 `def`（线程池）：{bad}"
 
 
 class TestEndpointIndexMatchesReality:

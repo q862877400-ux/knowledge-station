@@ -792,3 +792,19 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     按"**先量 → 再改 → 再量**"小批推进，从 PDF 渲染/读盘那一族开始；
     `bulk-db` 一族逐条实测再决定，`/chat/completions` 那类有理由的 `async` **不动**。
 
+
+19. **造量具 + 第一批端点（`ingest/preview` 六条）落地**（§10.73，step-73）。
+
+    | 项 | 一句话 | 状态 |
+    |---|---|---|
+    | 量具 | `scripts/measure-endpoint-blocking.py`：心跳协程 + `ASGITransport`，量"**事件循环被占住多久**"（不是"谁慢"）；静态审计给候选、这把尺给**数字与证据** | ✅ 入仓；**自带闸门** `tests/test_measure_harness.py`（合成对照：`async def+sleep` 必堵、`def+sleep` 必不堵且耗时相同）+ 两条量具变异 AC1/AC2 |
+    | 第一批改动 | `routes_ingest_preview.py` **六条** `async def → def`（该文件自述"负载下可达 135s"⇒ 最坏整个引擎静默死两分钟） | ✅ 实测：12 页 PDF 请求 0.4736→0.4605s，**事件循环空档 0.4679s → 0.0320s**（改后已回到噪声底：空闲基线 0.0191s）；AB1–AB3 变异 RED |
+    | 闸门泛化 | 文件级那条从写死 `routes_report` 改成**参数化** `[(routes_report,6), (routes_ingest_preview,6)]`，反向断言（`seen>=min_routes`）逐模块保留 | ✅ 已完成 |
+    | **新缺陷（审计看不见）** | `GET /health` 是 `async def`，却经 `embedder.is_available() → _get_model() → fastembed.TextEmbedding` 做**一次 6.6s 阻塞式取模型**（实测可复现，空缓存时在下载）；且 `_load_error` **只记不缓存** ⇒ 失败后**每次调用都重试** | ⏳ **待修**（下一步）：端点改 `def` + 负缓存/冷却窗口（设计决定）+ "健康检查不许触发全量模型加载"的判据。⚠ 6.6s 是**空缓存**实测；真机 `models_dir` 已有 bge 模型，故"离线上每次重试"是**推断**（推理链写在 §10.73） |
+    | 审计盲区（记录） | 标记表只认裸网络调用（`requests.`/`httpx.`/`urlopen`），**藏在库内部的外发**扫不到（`fastembed`/`huggingface_hub`）——"扫不到 ≠ 没有"又一例 | 📝 已登记 |
+    | 连带核查（`def` ⇒ 线程池并发） | `preview_jobs` 已有 `threading.Lock` ✅；sqlite 线程局部连接 ✅；`dry_run` 的**按哈希共享临时目录**：默认路径只写不读且输入逐字节相同 ⇒ 无可证明损害，**显式 `allow_deep=true`** 时深通道落地目录会被读回 ⇒ 同一文件并发有**理论撕裂读**（且该并发**改动前就存在**：jobs worker 线程 vs 同步请求，本步只是变宽） | 📝 **登记**，修法（按哈希加锁，保留每文件一目录的磁盘上界）留给下一步 |
+
+    **下一步顺序**：① `/health` + `embedder`（含负缓存设计）→ ② PDF 渲染/读盘族
+    （`/documents/{doc_id}/figure|formula|table-image|tree|assets`，**先量改前**再动）→
+    ③ 落盘/导出族 → ④ `dry_run` 同文件并发 → ⑤ `bulk-db` 一族逐条实测（`/chat/completions` 那类不动）。
+
