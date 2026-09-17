@@ -374,3 +374,26 @@ def _list(c, pid):
     r = c.get(f"/api/v1/materials/projects/{pid}/materials", headers=HDR)
     return r.json()["data"]
 
+
+class TestSlowEndpointsAreDeclaredSync:
+    """**结构性约束**：做同步重活的端点必须声明成 `def`（Starlette 才会丢进线程池）。
+
+    为什么这条重要（2026-09-17 自查 + 复核都指向同一处）：uvicorn 是**单事件循环**，
+    `async def` 端点里的同步 I/O 会把**整个引擎**卡住——扫描要跑 MinerU（分钟级）、
+    采集要抓网（最长 15 秒），期间**别的请求一起等**（GUI 看起来"死掉"）。
+    判据是 `iscoroutinefunction(endpoint)`：async 端点就是在事件循环里跑。
+    """
+
+    @pytest.mark.parametrize("path", [
+        "/api/v1/materials/projects/{project_id}/scan",
+        "/api/v1/materials/projects/{project_id}/collect",
+    ])
+    def test_declared_sync(self, client, path):
+        import asyncio
+        c, _ = client
+        routes = [r for r in c.app.routes if getattr(r, "path", None) == path]
+        assert routes, f"路由不存在: {path}"
+        assert not asyncio.iscoroutinefunction(routes[0].endpoint), (
+            f"{path} 做同步重活，必须是 `def`（线程池），不能是 `async def`")
+
+

@@ -79,8 +79,16 @@ def register(app, json_error):
                 "data": {"dir": str(mr.materials_dir(project_id)), "files": files}}
 
     @app.post("/api/v1/materials/projects/{project_id}/scan")
-    async def materials_scan(project_id: str, payload: dict | None = None):
-        """扫描收件：把文件夹里的文件登记成材料（**默认 pending，未评审不可用**）。"""
+    def materials_scan(project_id: str, payload: dict | None = None):
+        """扫描收件：把文件夹里的文件登记成材料（**默认 pending，未评审不可用**）。
+
+        ⚠ **声明成 `def` 而不是 `async def`**（2026-09-17 修，与 `collect` 同款理由）：
+        这个端点会**同步**解析每个 PDF（MinerU 子进程，可能**分钟级**），而 uvicorn 是
+        **单事件循环**——`async def` 里做同步重活会把**整个引擎**卡住（连 GUI 的
+        "列项目"都要等）。Starlette 对非 async 端点丢进线程池，慢只慢这一个请求。
+        （这个坑是自己在写 `collect` 时发现的：同一文件里两种写法并排，
+        对读者也是提示——**凡是做同步重活的端点都该是 `def`**。）
+        """
         if mr.get_project(project_id) is None:
             return json_error(404, "materials_not_found", f"项目不存在: {project_id}")
         body = payload or {}
@@ -104,8 +112,7 @@ def register(app, json_error):
     # 所以"慢"只会慢这一个请求。
     # 代价（诚实说）：线程池每个工作线程会拿一条自己的 SQLite 连接（本仓库是线程局部连接），
     # 所以并发采集时连接数上界 = anyio 线程池大小（默认 40），不是无界。
-    # （`materials_scan` 同样做同步重活却声明成 `async def`，属同类问题——
-    #  改它超出本步范围，登记为待办。）
+    # （`materials_scan` 也做同步重活，已在本步一并改成 `def`——见那个端点的说明。）
     @app.post("/api/v1/materials/projects/{project_id}/collect")
     def materials_collect(project_id: str, payload: dict | None = None):
         """按 URL **自采**一份材料（抓取纪律全在 `materials.harvest`，本层只取参数、转错误）。
