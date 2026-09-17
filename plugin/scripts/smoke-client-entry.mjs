@@ -541,6 +541,51 @@ check('inject declares only official services (no third-party hard gate)',
     /status === 'health_error'/.test(panel))
 }
 
+/* ---------------------------------------------------------------- 产物 ↔ 源码一致性
+ * ⚠ 这一节是**复核 b11 的 LOW-3**（"闸门空"）逼出来的（2026-09-18）：
+ *   上面那些断言只查**产物里有没有那句文案**。于是存在一个**假绿**形状——
+ *   只改**产物**（把分支条件改成永不成立），`.tsx` 一个字节不动 ⇒ 文案还在、
+ *   断言全绿，而**交付到界面上的标记再也不会出现**。
+ *   同理反向：改了 `.tsx` 忘了重新构建 ⇒ 产物是旧的 ⇒ 也全绿。
+ *   两种都是"门禁说没事、用户看不到东西"。
+ *
+ * 做法：**从源码现构建一份**（`KS_CLIENT_OUT` 指到临时文件，绝不覆盖被跟踪的 `client.js`），
+ * 把"关键标记"在**两份产物**里各查一遍：
+ *   · 交付的 `client.js` 必须有（那才是发出去的东西）；
+ *   · 现构建的那份也必须有（源码真的这么写）；
+ *   · 两者**必须一致**（不一致就是"产物陈旧或被改过"）。
+ * ⚠ **诚实边界**：这仍是**字符串级**检查。它能挡住"删掉/改掉条件"与"忘了重建"，
+ *   挡不住"条件后面偷偷加 `&& false`"——那种要**渲染级**用例（b11 用 jsdom 建过一份，
+ *   但 jsdom 本仓未安装，收编它需要先决定依赖策略）。这条边界写在台账里，不在这里假装关掉。
+ */
+{
+  const tmpOut = join(tmpdir(), `ks-client-fresh-${process.pid}-${Date.now()}.js`)
+  process.env.KS_CLIENT_OUT = tmpOut
+  await import(pathToFileURL(join(pluginRoot, 'scripts', 'build-client.mjs')).href)
+  const freshRaw = await readFile(tmpOut, 'utf8')
+  await rm(tmpOut, { force: true })
+  const decode = (s) => s.replace(/\\u([0-9a-fA-F]{4})/g,
+    (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+  const fresh = decode(freshRaw)
+  const delivered = decode(await readFile(join(pluginRoot, 'client.js'), 'utf8'))
+
+  // 关键标记：三条 ⚠ 分支的**条件**（不是文案）+ 两条纪律文案
+  const CRITICAL = [
+    ['stale 分支的条件', 'status === "stale"'],
+    ['unknown 分支的条件', 'status === "unknown"'],
+    ['health_error 分支的条件', 'status === "health_error"'],
+    ['health_error 的提示文案', '锚点健康度算不出来'],
+    ['"需复算 ≠ 已坏"的纪律文案', '不代表已经坏了'],
+  ]
+  for (const [what, marker] of CRITICAL) {
+    const inDelivered = delivered.includes(marker)
+    const inFresh = fresh.includes(marker)
+    check(`交付产物里有${what}`, inDelivered, marker)
+    check(`${what}在源码现构建里也在（产物↔源码一致）`, inFresh && inDelivered,
+      `现构建含=${inFresh} 交付产物含=${inDelivered}`)
+  }
+}
+
 const failed = results.filter((r) => !r.ok)
 console.log(`\n== client-entry smoke ${failed.length === 0 ? 'PASS' : 'FAIL'} `
   + `(${results.length - failed.length}/${results.length}) ==`)

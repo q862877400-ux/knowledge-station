@@ -12,15 +12,21 @@
  *   ⇒ 含 JSX 的模块**仍需** `import * as React from 'react'`（各组件本来就有），
  *   但**不要**以为产物里能看到 `React.createElement`。旧注释写的是 classic，与事实不符。
  * 用法：node scripts/build-client.mjs（cwd=plugin 根）。
+ * ⚠ `KS_CLIENT_OUT` 可把产物写到别处（默认仍是 `plugin/client.js`）：这是给**冒烟**用的——
+ *   `smoke-client-entry.mjs` 要"从源码现构建一份"来与仓库里的产物**比关键标记**，
+ *   而**不能**在跑门禁时覆盖被跟踪的 `client.js`（复核 b11 的 LOW-3：只查产物里的文案
+ *   是**空闸门**——把产物里的条件改掉、别的都不动，门禁照样全绿）。
  */
 import { build } from 'esbuild'
 import { readFile, writeFile, rm } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
-import { dirname, join } from 'node:path'
+import { dirname, join, resolve } from 'node:path'
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
 const TMP = join(root, '.client.tmp.js')
-const OUT = join(root, 'client.js')
+const OUT = process.env.KS_CLIENT_OUT
+  ? resolve(process.env.KS_CLIENT_OUT)
+  : join(root, 'client.js')
 const entry = join(root, 'client', 'entry.ts')
 
 const HEADER = `window.__ModuleLoader__.load({

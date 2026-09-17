@@ -665,3 +665,12 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     | b11-INFO-1 | `anchorNote` 是**死状态**（2 写 0 读）⇒ `locator.py` 的 `note` 从不进 UI（面板红分支独立承载同样信息） | ⏳ 待办 |
     | b11-方法 | 我记录的"逐字节还原 sha256"是 **git blob(LF) 哈希**（工作树 CRLF ⇒ 哈希不同）；另：`KS_E2E_NO_RELOAD=1` 跑 e2e 时面板**未发任何请求** ⇒ C1/C2 **空过**，结论里必须说明"e2e 通过时它实际发了哪些请求" | 已采纳（写进 §10.60 与 e2e 诊断输出） |
 
+
+    **b11-LOW-3 已修（step-60，§10.61）**：`build-client.mjs` 加 `KS_CLIENT_OUT`（冒烟可"从源码现构建
+    一份"到临时文件、不覆盖被跟踪产物）；`smoke-client-entry.mjs` 新增"**产物 ↔ 源码一致性**"一节
+    （5 个关键标记：三条 ⚠ 分支的**条件** + 两条纪律文案，两份产物各查一遍并断言一致），
+    断言 71 → **81**。变异：**只改产物**让条件永不成立（= b11 的 M4）修前 GREEN 71/71、修后 **RED**；
+    **只改源码不重建**修前 GREEN、修后 **RED**（且只有同步断言响 ⇒ 它独立承重）。
+    ⚠ **诚实边界**：仍是字符串级——挡得住"删/改条件"与"忘了重建"，**挡不住"条件后加 `&& false`"**；
+    要那一层得收编 b11 的 jsdom 渲染用例（`var/tmp/verify-b11-artifacts/render-b11.mjs`），
+    而本仓 `plugin/` 没有 jsdom ⇒ **是否为零依赖门禁引入新依赖，留给业主拍板**。
