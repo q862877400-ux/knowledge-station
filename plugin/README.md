@@ -32,6 +32,19 @@
 | `settings.section`「法规标准知识库」 | 顶层 nav，**六个类目全折叠**（2026-11）：证据查看器（红箭头开关）· 效力报告（四色分组 🟢🔴🟡⚪ + 时间窗 + 导出，内嵌面板）· 入库预览（Dry-Run + 异步批量 jobs ✅/⚠️/❌，内嵌面板）· 每日巡检 · 公告发现 · API 配置（LLM/云 OCR Key，引擎侧 DPAPI 加密存储）。收起零请求，展开才拉数据 |
 | `conversation.input.dock` | `KsScopeChip`——查法规模式作用域提示条 |
 
+另在侧栏**「开始」页**贡献一个**手动入口胶囊**（2026-09-17）——它**不是独立座位**，
+而是上面那个 tab 类型自带的 `guide` 声明（官方 `SidebarRightTabDefinition.guide`）：
+
+| 项 | 值 | 说明 |
+|---|---|---|
+| 胶囊 | 「PDF 查看器」 | 标题与 tab 初始标题**同源**（`evidenceTabTitle`）——点开后就是同一个 tab，不能两处不同名 |
+| 说明 | 「打开国标 / 法规 PDF 阅读原文（无需先有证据链接）」 | 官方只在条目 ≤4 个时显示说明 |
+| `order` | **30** | 官方**升序**排；实测 `ui-sidebar-files`=10、`ui-sidebar-terminal`=**20（新建终端）** ⇒ 30 落在它**下面**。⚠ 跨插件共享的排序空间 |
+| 图标 | `client/KsPdfGuideIcon.tsx` | 官方 `IconProps`（方形边长 + class，随 `currentColor`） |
+
+点胶囊时官方**按 kind 打开、不带地址** → `KsEvidenceHost` 把缺失的 `params.url` 映射为
+`tab.path = undefined` → `KsEvidenceTab` 走既有 idle 态（左列文件目录），故**无需先有证据链接**。
+
 > 注：收藏/文件目录**不再是独立 tab**，而是证据 tab 内的视图（`KsBookmarksView` / `KsFilesTab` 被 `KsEvidenceTab` 引用）。
 
 斜杠命令（会话输入框）：`/forensic` 查法规模式（强制三段式）+ `/bookmarks` 仅收藏。

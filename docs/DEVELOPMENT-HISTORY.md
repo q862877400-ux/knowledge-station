@@ -137,6 +137,13 @@ verifier 全面审计产出 25 项问题清单 → 5 verifier 编制方案 → v
      **(R2，有意的行为变更，已声明)** `'表2'` 与 `' 表2 '` 现在给同一结果 —— 旧实现本身不一致（无空格时精确命中"名为 表2 的条款"，带空格时掉进"正文引用该表"的兜底）。**这就是"纯增量"说法被推翻的地方**，故不得再自称纯增量。
      **教训**："纯增量"是**需要证明的断言**，不是自评；一个 20 行的改动照样能引入 500。
 
+9. **侧栏「开始」页手动入口（`75c8828`）**：需求是"把 PDF 阅读器的手动入口放到官方侧边栏开始界面的「新建终端」按钮下面"。
+   - **先说清扩展点（读 DSH 检出确认，不靠猜）**：侧栏「开始」页 = `ui-sidebar-right` 的 guide tab，body（`GuideBody.tsx`）把**每个已注册 tab 类型贡献的入口胶囊**排成一列；胶囊来自 `SidebarRightTabDefinition.guide?: SidebarRightGuideEntry[]`（契约原文："Entry boxes for the guide page. **Omit to stay off it.**"）；排序 `tab-registry.refresh()` 里 `.sort((l, r) => l.order - r.order)` 是**升序**；点击走 `tab.actions.openTab(entry.kind, {replaceTab:true})`，**不带地址**。实测在用的 order：`ui-sidebar-files`=**10**、`ui-sidebar-terminal`=**20（新建终端）** ⇒ 取 **30** 即落在它下面。
+   - **改动**：`ksSidebar.ts` 补 `KsGuideEntry`/`KsIconProps` 最小契约 + `KsTabDefinition.guide`，`ksEvidenceDefinition()` 贡献一条胶囊（`id:'pdf'`, `order:30`, 标题**与 tab 初始标题同源**、说明、图标）；新增 `KsPdfGuideIcon.tsx`（官方 `IconProps`：方形边长 + class，随 `currentColor`；对 ksSidebar 只做 `import type` ⇒ **无运行时循环依赖**）。`KS_GUIDE_ORDER_PDF` 显式导出并注明"跨插件共享排序空间"。
+   - **为什么点胶囊能直接用**：官方按 **kind** 打开（无地址）→ `KsEvidenceHost` 把缺失的 `params.url` 映射为 `tab.path = undefined` → `KsEvidenceTab` 走既有 idle 态（左列文件目录）——**这正是"手动入口"**，不需要先有证据链接。
+   - **验证**：`smoke-client-entry` **36/36 → 40/40**（新增 4 条：恰好一条胶囊 / `order=30` 且严格大于 files(10) 与 terminal(20) / id 唯一且 title·description·icon 齐备 / **胶囊标题 == tab 标题**）；全 smoke 11 段 PASS；tsc 0 错；bundle 内确认含该注册。
+   - **部署与生效**：profile 的 `ks-dsh-plugin` 是仓库 `plugin/` 的 **junction**，实测重建后两侧 `client.js` SHA-256 一致 ⇒ 无需 copy；纯 client 半改动 ⇒ **刷新浏览器页面即生效，不用重启 DSH 宿主**。
+
 ## 九、外部借鉴调研的落点与边界（2026-09-16）
 
 独立复审了一批开源项目（**实测 15 个上游浅克隆 + 41 份报告、合计 2.43MB**，全部在仓库之外的 `D:\AI\oss-refs\`）的**可借鉴能力**，逐条回本仓库核实，**不采信既有结论**：
