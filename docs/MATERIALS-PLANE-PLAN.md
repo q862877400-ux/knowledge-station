@@ -615,14 +615,15 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     | LOW-6 | docstring/本节仍列代码刻意去掉的 `no_text`；`unavailable` 跨词表 | ✅ 已修（step-53：本节 + 模块 docstring） |
     | MEDIUM-3 | PPT 行预算**渲染级**仍溢出（18×40 字 ⇒ 只剩 440/720 字） | ✅ 已修（step-54，§10.55：容量按**可用宽** 705.6pt 算 = 39.2em，并**把 `· ` 前缀算进去** ⇒ 一行 38 个 CJK 字；渲染级复测四个输入**字数守恒**） |
     | MEDIUM-4 | `_CONTENT_HIDDEN_TAGS` 收编的 `xmp`/`plaintext` 是**可见文字** | ✅ 已修（step-54，§10.55：两者移出；真机 `innerText` 裁决） |
-    | LOW-3 | `ORDER BY dm.legal_status` 把 NULL 排最前 ⇒ 未核验条款拿最好名次 | ⏳ 待修（方向与 §10.44 相反） |
-    | LOW-1 | §10.50 的 LOW-4 影响面**少报约 5879 倍**、根因写错 | ⏳ 待改记录 + 补边界枚举用例 |
-    | LOW-2 | `_STD_NO_PREFIX` 边界仍是枚举（`GB-T`/`GB—T`/`ＧＢ`），生产库**0 行** | ⏳ 待修（潜性；要恢复成一般规则） |
-    | LOW-4 | `standard_type` 第三键在区间端点上**零区分度**，"真正生效"说法不成立 | ⏳ 待改记录（真正的变化在区间外 `6eede2e`） |
-    | LOW-5 | 引擎模块 docstring 端点索引缺 4 条（tiers + 3 个新端点） | ⏳ 待修（纯文档） |
-    | INFO-3 | `_attach_locator_status` 把异常吞成 `unknown`（多报一条 ⚠） | ⏳ 待评估 |
-    | INFO-4 | 报告 ⚠ 只覆盖材料清单、不覆盖「依据」节（引用真正出现处） | ⏳ 待评估（措辞理由要改准，或接进 `authority.render_evidence`） |
-    | INFO-5 | `no_locators` 两种成因文案未区分 | ⏳ 待评估 |
+    | LOW-3 | `ORDER BY dm.legal_status` 把 NULL 排最前 ⇒ 未核验条款拿最好名次 | ✅ 已修（step-55，§10.56：`(dm.legal_status IS NULL)` 沉底；⚠ 另发现**模态通道根本没有 ORDER BY** ⇒ 权重顺序不可复现，**单独登记**） |
+    | LOW-1 | §10.50 的 LOW-4 影响面**少报约 5879 倍**、根因写错 | ✅ 已改（step-55：实测 5879/6417 = **91.6%**，根因是**上一区间把 `\b` 换成枚举**） |
+    | LOW-2 | `_STD_NO_PREFIX` 边界仍是枚举（`GB-T`/`GB—T`/`ＧＢ`），生产库**0 行** | ✅ 已修（step-55：换回**一般规则** `(?![A-Za-z])` + NFKC；生产库上 0 行变化 ⇒ 关的是**复发风险**，20 条边界形态用例） |
+    | LOW-4 | `standard_type` 第三键在区间端点上**零区分度**，"真正生效"说法不成立 | ✅ 已改（step-55：§10.50 加更正块；真正生效的是区间外 `6eede2e`） |
+    | LOW-5 | 引擎模块 docstring 端点索引缺 4 条（tiers + 3 个新端点） | ✅ 已修（step-55：补全 18 条 = 18 个装饰器） |
+    | INFO-3 | `_attach_locator_status` 把异常吞成 `unknown`（多报一条 ⚠） | ⏳ 待评估（方向保守：不会漏报，只是把"算不出来"说成"未验证"） |
+    | INFO-4 | 报告 ⚠ 只覆盖材料清单、不覆盖「依据」节（引用真正出现处） | ⏳ 待评估（要么改准 docstring 里的理由，要么接进 `authority.render_evidence` = 动第二个所有者，**新立项**） |
+    | INFO-5 | `no_locators` 两种成因文案未区分 | ⏳ 待评估（"解析不出文本" vs "有文本但零切片"） |
+    | INFO-6 | **模态通道（D）没有 ORDER BY** ⇒ 通道内 rank 顺序未定义 ⇒ 同一查询的 RRF 权重**不可复现**（step-55 顺带发现） | ⏳ 待办（要先定"通道内该怎么排"，会动检索结果分布，不夹带） |
     | INFO-2 | 三次全量里有 1 次 `1 failed`（未重现，判为抖动） | 已登记（与未决第 1 条同族） |
     | INFO-1 | 复核期间主检出前进 3 个提交（其中 `6eede2e` 改了它实测的代码） | **流程问题**：复核期间应冻结主检出，或把区间端点写进每条命令 |
 

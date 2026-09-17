@@ -16,6 +16,7 @@ CCS 具体类目 → 所属区间（权威，来自 CCS 分类表；库内文档
 from __future__ import annotations
 
 import re
+import unicodedata
 
 # CCS 24 大类（权威）
 CCS_MAJORS: dict[str, str] = {
@@ -221,21 +222,32 @@ def _law_domain_doc(doc) -> list[str]:
 # ⚠ **不能用 `\b`**（2026-09-17 复核 step-31~34 的 MEDIUM）：`auto_tag` 抽出来的归一形是
 #    **无空格**的 `GB88888-2088`，而 `GB` 与 `8` 都是词字符 ⇒ `\b` **不成立** ⇒ 被归到
 #    **法规树**（`top='law'`）。同理 `DB11/T 1234-2020`（地方标准）也过不了 `\b`。
-#    这里把边界改成"后面是空白/斜杠**或数字**（含字符串到此为止）"。
-# ⚠ **措辞更正**（2026-09-17 复核 b7 的 LOW-5）：上一版这段注释还写着"`GB` 后面跟字母时
-#    仍不匹配"——那句话在**加入 `GBZ` 之后不再成立**（`GBZ1-2010` 是职业卫生标准，要匹配，
-#    而它恰恰是"GB 后面跟字母"）。准确说法：**名单里的前缀后面必须是空白/斜杠/数字
-#    （或字符串结束）**，否则不匹配 ⇒ `GBX`、`DBX` 这类仍不会被误判成标准。
-#    `$` 那一支是给**退化输入**留的（`standard_no` 恰好就是光杆 `GB`）：没有它，"GB"
-#    会掉进法规树——那是复核实测的**回退**，现在按原行为（当标准）保住。
-# ⚠ **全角斜杠也要认**（2026-09-17 独立复核 b8 的 LOW-4）：生产库实测有 `'GBZ／T'`
-#    （U+FF0F）这一行，它落进了**法规树**。兄弟函数（`_hier_from_no` / `_std_type`）
-#    都做了全角归一，只有这里漏了 ⇒ 把 `／` 加进边界类（比"先归一整串"更小：
-#    这一处只需要判前缀，不必改 `standard_no` 本身）。
+# ⚠ **但把它换成一串枚举分隔符是更糟的一步**（2026-09-18 复核 b9 的 LOW-1/LOW-2 实测）：
+#    当初写成 `(?=[\s/／]|\d|$)`，于是 `\b` 本来接受的**一整类"非词分隔符"**全丢了——
+#    `GB-T`、`GB—T`、全角字母 `ＧＢ` 都掉进法规树；而 `／` 那一支在生产库实测影响
+#    **5879/6417 行（91.6%）**（全角斜杠是常态）。这是**上一区间把一般规则换成枚举类**
+#    引入的回归，不是"两个所有者归一不一致"。
+# ⇒ 现在恢复**一般规则**：前缀后面**只要不是字母**就算标准号（`(?![A-Za-z])`）。
+#    它同时覆盖 `\b` 当年接受的全部形态（分隔符/数字/结束）与"无空格接数字"这个新需求；
+#    `GBX`/`DBX` 这类"前缀后面还跟着字母"仍然**不**匹配（它们不是这些标准的编号）。
+#    再叠一层 **NFKC 归一**（只作用于判定用的副本，不改写 `standard_no` 本身）：
+#    全角字母 `ＧＢ`、全角斜杠 `／`、分数斜杠 `⁄` 都归一成 ASCII ⇒ 不必再枚举全角形态
+#    （兄弟函数 `_hier_from_no` / `_std_type` 本来就走归一，这里与它们一致）。
+# ⚠ 名单顺序**长的在前**（`GB/T` / `GBT` / `GBZ` 先于 `GB`）：否则 `GBT 1` 会先被 `GB`
+#    匹配、再被 `(?![A-Za-z])` 拒掉，虽然回溯也能救，但顺序写对就少一层依赖。
 _STD_NO_PREFIX = re.compile(
-    r"^(GB|GB/T|GBT|GBZ|AQ|JGJ|JG|CJJ|DB|SH|HG|TSG|YS|SN|JB|QB|NY|SL|DL)"
-    r"(?=[\s/\uFF0F]|\d|$)",
+    r"^(GB/T|GBT|GBZ|GB|AQ|JGJ|JG|CJJ|DB|SH|HG|TSG|YS|SN|JB|QB|NY|SL|DL)(?![A-Za-z])",
     re.I)
+
+
+def _is_standard_no(standard_no: str) -> bool:
+    """这个 `standard_no` 是**标准编号**（而不是法规名）吗？见 `_STD_NO_PREFIX` 的注释。
+
+    独立出来是为了**可断言**（复核 b9 的 LOW-2 建议：把"修前被 `\\b` 接受过的全部边界形态"
+    做成用例，这样"一般规则被换成枚举类"这类改动**必然**留下证据）。
+    """
+    s = unicodedata.normalize("NFKC", str(standard_no or "")).strip()
+    return bool(_STD_NO_PREFIX.match(s))
 
 
 def classify_document(doc) -> dict:
@@ -247,7 +259,7 @@ def classify_document(doc) -> dict:
     std = (doc.get("standard_no") or "").strip()
     tags = doc.get("domain_tags") or []
 
-    is_standard = bool(_STD_NO_PREFIX.match(std))
+    is_standard = _is_standard_no(std)
 
     if not is_standard:
         # ---- 法规树（三级体系）：效力层级 → 法律部门 → 业务领域 → 文档 ----

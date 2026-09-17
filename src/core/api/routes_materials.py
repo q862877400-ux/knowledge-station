@@ -6,6 +6,9 @@ Phase A 前三步把引擎侧做通了，但**用户碰不到**——"放一份 
 "放"和"评审"都只能由代码干。本模块把那条链开成端点，让 GUI 能真正驱动。
 
 ## 端点
+⚠ 这个索引**曾经漏过 4 条**（复核 b9 的 LOW-5：`tiers` 早就漏了，本步新增的
+`locators`×2 与 `reverify` 也没列）——它是这一层的"地图"，下一轮接线/复核会照它找端点，
+所以**新增端点时必须同时补这里**（或直接数一遍 `@router` 装饰器）。
 - POST   /api/v1/materials/projects                    建项目
 - GET    /api/v1/materials/projects                    列项目
 - GET    /api/v1/materials/projects/{pid}/inbox        列出项目参考资料文件夹里的文件
@@ -14,8 +17,12 @@ Phase A 前三步把引擎侧做通了，但**用户碰不到**——"放一份 
                                                       **不接受 `source_tier`**，见端点 docstring）
 - GET    /api/v1/materials/projects/{pid}/materials    列材料（**评审/管理视图**，含 pending）
 - GET    /api/v1/materials/projects/{pid}/search       在**已批准**材料里检索（见下方硬门）
+- GET    /api/v1/materials/projects/{pid}/locators     项目级**锚点健康度总览**（便宜判据，§10.49）
+- GET    /api/v1/materials/tiers                       来源可信度层级定义（界面下拉的选项来源）
 - GET    /api/v1/materials/{mid}                       单份材料
 - GET    /api/v1/materials/{mid}/chunks                切片分页（评审时要能读到内容）
+- GET    /api/v1/materials/{mid}/locators              单份材料的锚点健康度（便宜判据）
+- POST   /api/v1/materials/{mid}/reverify              **重解析比对**锚点（贵，显式动作，`def`）
 - POST   /api/v1/materials/{mid}/review                批准/拒绝
 - POST   /api/v1/materials/{mid}/tier                  改来源可信度（轴 A，用户可改）
 - POST   /api/v1/materials/{mid}/role                  声明任务内效力（轴 B）

@@ -101,7 +101,14 @@ def perform_hybrid_search(
                    # **另一条 SQL 通道**，两处判据要一致。
                    else " AND (dm.legal_status IS NULL OR dm.legal_status"
                         " NOT IN ('withdrawn','superseded'))")
-                + " ORDER BY dm.legal_status", (exact_no,)).fetchall()
+                # ⚠ 排序必须**显式把"未核验"放最后**（2026-09-18 复核 b9 的 LOW-3）：
+                # SQLite 的 `ORDER BY x` 把 **NULL 排在最前**，而 `rank` 直接决定
+                # `CHANNEL_WEIGHTS / (RRF_K + rank + 1)` ⇒ 上面那两处刚把 NULL **放进来**，
+                # 它们就会**排第一**、拿到通道内最好的名次——方向与 §10.44 建立的
+                # "未核验不得承重"**相反**。`(dm.legal_status IS NULL)` 对 NULL 求值为 1、
+                # 其余为 0 ⇒ 未核验沉到最后，已知状态的按名排（effective 在前）。
+                + " ORDER BY (dm.legal_status IS NULL), dm.legal_status",
+                (exact_no,)).fetchall()
             for rank, row in enumerate(rows):
                 scores[row[0]] = scores.get(row[0], 0.0) + CHANNEL_WEIGHTS["exact"] / (RRF_K + rank + 1)
 

@@ -126,6 +126,42 @@ def test_null_legal_status_is_not_silently_excluded(seeded_db):
         clause_repo.delete_document("d9")
 
 
+def test_unverified_clause_does_not_outrank_an_effective_one(seeded_db):
+    """**未核验不许在通道内占优**（复核 b9 的 LOW-3，2026-09-18 修）。
+
+    背景是同一条 SQL 上两个方向相反的修复：`NOT IN (…)` 对 NULL 求值是 NULL ⇒
+    未核验条款曾被**静默排除**（b8 的 LOW，已修，把它们**放进来**）；而 SQLite 的
+    `ORDER BY x` 把 **NULL 排在最前**，`rank` 又直接决定 `CHANNEL_WEIGHTS/(RRF_K+rank+1)`
+    ⇒ 刚被放进来的未核验条款反而拿到**通道内最好的名次**。两个方向必须一致：
+    §10.44 的口径是"未核验不得承重"。
+    """
+    from src.core.retrieval.hybrid_engine import perform_hybrid_search
+    from src.core.storage import clause_repo
+    from src.core.storage.sqlite_db import get_db_connection
+    conn = get_db_connection()
+    clause_repo.insert_document(conn, dict(
+        doc_id="d11", standard_no="GB 11111-2020", standard_name="已核验标准",
+        short_code="GB11111", current_revision_id="r11", legal_status="effective",
+        file_path="verified.pdf", file_hash="h11"))
+    clause_repo.insert_document(conn, dict(
+        doc_id="d12", standard_no="GB 22222-2021", standard_name="采集件标准",
+        short_code="GB22222", current_revision_id="r12", legal_status=None,
+        file_path="collected.pdf", file_hash="h12"))
+    clause_repo.insert_clauses([
+        _clause("c11", "7.7.7", "正文甲", doc="d11", standard="GB 11111-2020"),
+        _clause("c12", "7.7.7", "正文乙", doc="d12",
+                standard="GB 22222-2021", legal_status_of_doc=None)])
+    try:
+        rows = [r.clause_revision_id for r in
+                perform_hybrid_search("查 7.7.7", top_k=5, channels=["exact"])]
+        assert "c11" in rows and "c12" in rows, rows
+        assert rows.index("c11") < rows.index("c12"), (
+            f"未核验条款排在已核验有效条款之前 ⇒ 通道内权重给反了: {rows}")
+    finally:
+        clause_repo.delete_document("d11")
+        clause_repo.delete_document("d12")
+
+
 def test_fts_channel(seeded_db):
     from src.core.retrieval.hybrid_engine import perform_hybrid_search
     res = perform_hybrid_search("防火间距 多少", top_k=5, channels=["fts"])
