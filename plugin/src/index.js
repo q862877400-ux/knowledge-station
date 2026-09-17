@@ -37,6 +37,7 @@ import { trimVerification } from './trim.js'
 // 材料平面只读工具（`ks_materials`）。**只读是纪律**：评审是用户的判断，
 // 把"批准/拒绝"开成模型工具等于让模型自己发许可（见 materials.js 头注）。
 import { makeMaterialsTool } from './materials.js'
+import { makeCollectTool } from './collect.js'
 import {
   inspectionStartupCheck,
   registerKsInspectionRoutes,
@@ -1070,6 +1071,10 @@ export function apply(ctx, config = {}) {
   // 材料平面只读工具：让模型能按名字**发现**项目 id（否则 `material_project_id`
   // 只能靠用户手抄），并看清每份材料的评审状态。只读——评审是用户的判断。
   ctx.tools.register(makeMaterialsTool(manager))
+  // 采集工具（**写**）：业主裁定"采集默认开、但必须经用户判断或系统评审"。
+  // 与 ks_materials 分成两个工具是**权限边界**：读一个、写一个，名字即权限。
+  // 它只能登记 pending，发不出批准；也不发 source_tier（不得自 claim 可信度）。
+  ctx.tools.register(makeCollectTool(manager, chatModeOf))
 
   // 提示段：**根上下文注册一次**，text provider 每次组装提示时按 `context.agent.session.id`
   // 现查开关 —— 开关一打开，下一轮请求就带上取证纪律（无需重启会话）。与 plan-mode 的

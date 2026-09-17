@@ -1,0 +1,225 @@
+/**
+ * ks-dsh-plugin — src/collect.js
+ *
+ * 模型侧采集工具 `ks_collect`（Phase C-6：让"**自己能搜集材料**"这句话成真）。
+ *
+ * ## 为什么与 `ks_materials` 分成两个工具（不是把 action 塞进去）
+ * `ks_materials` 的纪律是**只读**（那个模块的头注写着：批准/拒绝不能开给模型，
+ * 否则模型自己给自己发许可、硬门形同虚设）。采集是**写**操作——把两种权限混进
+ * 一个工具，会让"这个工具到底会不会改东西"变成要逐 action 判断的问题，
+ * 复核者也难一眼看出边界。所以：**读一个工具、写一个工具**，名字即权限。
+ *
+ * ## 采集能做什么、绝不能做什么
+ * - 能：把**一个** URL 的正文抓回来，登记成该项目的**待评审**材料（`pending`）。
+ * - **不能**：批准/拒绝（本工具没有这条路径，引擎侧也没有给它留口子）、
+ *   不能自 claim 可信度（**不发 `source_tier`**：轴 A 由系统判据起 T3，
+ *   要改只能由用户在界面上改）、不能批量（方案 §11.4 的采集预算未定）。
+ *
+ * ## 为什么要强调"一条一条、且要原始出处"
+ * 采到的东西默认 **T3（线索）**：按 `authority` 的绝对规则，**仅线索不得单独支撑结论**，
+ * 且"身份未知（没有域名/URL）不能互证"。所以本工具在回执里**如实**告诉模型
+ * "它现在只是线索、要用户批准才会被用到"，并把 `review_status` 原样带出来。
+ *
+ * ## 目标项目怎么定（**不猜**）
+ * 优先用会话绑定的项目（`/materials use <prj_id>` 设的会话级真值，与 `ks_answer` 同源）。
+ * 模型也可以显式给 `project_id`（用 `ks_materials` 查到的）。两者**冲突时报错**，
+ * 不偷偷换项目——"材料进了别的项目"是一种静默失真，比报错坏得多。
+ */
+
+import { apiPost, combineSignals, originUrl } from './engine.js'
+
+/**
+ * **暂定**上限：一个会话最多采集多少次（方案 §11.4 的采集预算**尚未定案**）。
+ *
+ * 为什么要有一个：引擎端点只收**单条** URL，但模型可以**反复调用**本工具——
+ * 于是"没有批量入口"在模型这一侧其实等于"可以无限次单条"。那不是批量入口，
+ * 却同样能把机器变成一个不停往外抓的爬虫（也烧网络与时间）。
+ * 所以在预算定案之前，给一个**宽松但有界**的默认值，并在超出时**响亮报错**。
+ *
+ * ⚠ **这是暂定值，不是产品决定**：业主定案后改这一行即可（回执里会显示已用/上限，
+ * 让用户看得见节奏）。**不**做成"静默截断"——那会让模型以为采到了其实没有。
+ */
+export const MAX_COLLECT_PER_SESSION = 20
+
+/** 会话级计数器（进程内；插件重载后归零——它不是账本，是**刹车**）。 */
+const _collectedBySession = new Map()
+
+/** 只留模型判断需要的字段（别把整行塞进上下文）。 */
+function trimCollected(m) {
+  if (!m || typeof m !== 'object') return null
+  return {
+    material_id: m.material_id ?? null,
+    title: m.title ?? null,
+    review_status: m.review_status ?? null,
+    source_tier: m.source_tier ?? null,
+    origin: m.origin ?? null,
+    lifecycle: m.lifecycle ?? null,
+    url: m.url ?? null,
+    domain: m.domain ?? null,
+    tier_reason: m.tier_reason ?? null,
+  }
+}
+
+/**
+ * Build the writing `ks_collect` tool.
+ *
+ * @param {object} manager EngineManager（与其它工具同一个）。
+ * @param {(exec: object) => object} chatModeOf 读本会话生效的 chatmode（取绑定的项目）。
+ */
+export function makeCollectTool(manager, chatModeOf) {
+  return {
+    name: 'ks_collect',
+    description:
+      '抓取**一个** URL 的正文，登记为该参考资料项目的一条**待评审**材料（pending）。' +
+      '用途：当你需要"自己搜集材料"时——先用你自己的检索能力找到**原始出处**的网址，' +
+      '再用本工具把它登记进来，最后由**用户**评审决定能不能用。' +
+      '纪律（必须照做）：① 一次只登记**一条**（没有批量；采集预算未定，' +
+      '本工具另有**会话级暂定上限**，超出会直接报错）；' +
+      '② 采到的材料是 **T3=仅线索**，**不得单独支撑结论**，也不能因为"我采过"就当它是权威；' +
+      '③ 本工具**不能批准**——登记后必须**如实告诉用户**"这条还没评审、不会进入结论"，' +
+      '并请他决定；④ URL 必须指向**网页正文**——PDF/图片/压缩包等二进制会被引擎按开头签名' +
+      '如实拒绝，**但别指望它替你分辨一切**：传输层拿不到 Content-Type，"JS/CSS/JSON 接口"这类' +
+      '响应引擎**认不出来**（会被当成正文登记）。所以只给你**确认过是网页**的地址，' +
+      '不要拿下载链接或接口地址来试；' +
+      '⑤ 优先**原始出处**（政府/机构/期刊原文），不要用转载、聚合页、内容农场。' +
+      '参数：url（必填）；project_id 省略时用本会话绑定的项目（`/materials use` 设的）——' +
+      '两者冲突时本工具会报错而不是替你换项目；title 可用你自己的标题；' +
+      'note 写清"你为什么认为这条值得采"（评审人会看到它）。',
+    parameters: {
+      type: 'object',
+      properties: {
+        url: {
+          type: 'string',
+          description: '要采集的网页 URL（http/https；内网/保留地址会被 SSRF 纪律拒绝）。',
+        },
+        project_id: {
+          type: 'string',
+          description: '目标参考资料项目 id（prj_…）。省略=用本会话绑定的项目。',
+        },
+        title: {
+          type: 'string',
+          description: '材料标题（省略则取页面 <title>）。',
+        },
+        note: {
+          type: 'string',
+          description: '采集说明：为什么采它、它与本次问题的关系（评审人第一眼看的就是这个）。',
+        },
+      },
+      required: ['url'],
+      additionalProperties: false,
+    },
+    output: {
+      schema: { type: 'object', additionalProperties: true },
+      render: (_args, value) => [{ type: 'text', text: JSON.stringify(value, null, 2) }],
+    },
+    timeoutMs: 60_000,
+    async execute(args, exec) {
+      const url = typeof args?.url === 'string' ? args.url.trim() : ''
+      if (url === '') throw new Error('ks_collect: 需要 url（要采集的网页地址）')
+
+      // 目标项目：会话绑定优先（那是**用户**设的），显式 id 次之；冲突**报错**。
+      const bound = (() => {
+        try {
+          const id = chatModeOf(exec)?.materialProjectId
+          return typeof id === 'string' && id.length > 0 ? id : ''
+        } catch {
+          return ''
+        }
+      })()
+      const asked = typeof args?.project_id === 'string' ? args.project_id.trim() : ''
+      if (bound !== '' && asked !== '' && bound !== asked) {
+        throw new Error(
+          `ks_collect: project_id（${asked}）与本会话绑定的参考资料项目（${bound}）**不一致**——`
+          + '不替你换项目。要么去掉 project_id（用绑定的那个），要么请用户先 `/materials use '
+          + `${asked}` + '`。')
+      }
+      const projectId = bound !== '' ? bound : asked
+      if (projectId === '') {
+        throw new Error(
+          'ks_collect: 没有目标项目——本会话未绑定参考资料项目，调用时也没给 project_id。'
+          + '请先用 ks_materials 的 action="projects" 查项目，或请用户 `/materials use <prj_id>`。')
+      }
+
+      const signal = combineSignals(exec?.signal)
+      const session = await manager.ensureLive(signal)
+      // 会话级刹车（暂定上限；见 MAX_COLLECT_PER_SESSION 的说明）
+      const sessionId = (() => {
+        try {
+          const id = exec?.agent?.session?.id
+          return typeof id === 'string' && id !== '' ? id : '_'
+        } catch {
+          return '_'
+        }
+      })()
+      const used = _collectedBySession.get(sessionId) ?? 0
+      if (used >= MAX_COLLECT_PER_SESSION) {
+        throw new Error(
+          `ks_collect: 本会话已采集 ${used} 次，达到**暂定**上限 ${MAX_COLLECT_PER_SESSION} 次`
+          + '（采集预算尚未定案，方案 §11.4）。请停下并告诉用户：需要更多就由他决定'
+          + '（继续请让他明说）。**不要**把它当成"已经采够了"或"没有更多资料"。')
+      }
+      const path = `/api/v1/materials/projects/${encodeURIComponent(projectId)}/collect`
+      // ⚠ **不发 `source_tier`**（引擎端点会 422；这里连试都不试）：
+      // 采集者不得自 claim 可信度——轴 A 由系统判据起 T3，要改只能由用户在界面上改。
+      const probe = await apiPost(
+        originUrl(session.port),
+        path,
+        {
+          token: session.token,
+          signal,
+          timeoutMs: 60_000,
+          body: {
+            url,
+            title: typeof args?.title === 'string' && args.title !== '' ? args.title : null,
+            note: typeof args?.note === 'string' && args.note !== '' ? args.note : null,
+          },
+        })
+
+      const env = probe.status === 200 && probe.body && typeof probe.body === 'object'
+        ? probe.body : null
+      if (!env || env.code !== 200 || env.data === undefined) {
+        // 与 `ks_materials` 同一套加固（那边踩过一次就写成纪律了）：**不得**把
+        // "引擎版本不匹配/信封坏了"伪装成"没采到"或"已经采到了"。
+        throw new Error(
+          `ks_collect: ${path} 响应异常 HTTP ${probe.status || 'no-response'} `
+          + `${probe.error || ''}（期望 {code:200,data:…}）。`
+          + '请先 ks_ping 确认引擎版本/状态；**不要**把本次结果当成"已经采到了"。')
+      }
+      const data = env.data
+      // 计数的是"**发起到引擎的采集请求**"（无论抓到没有）——刹车宁可多算不可少算；
+      // SSRF 被拒那种连网都没出的也计入，理由是"模型该停止反复试内网地址"。
+      const usedNow = used + 1
+      _collectedBySession.set(sessionId, usedNow)
+      const budget = { session_collected: usedNow, session_limit: MAX_COLLECT_PER_SESSION }
+      if (data.collected !== true) {
+        // 抓取失败是**结果**不是异常：如实回报原因，让模型去换来源或告诉用户。
+        return {
+          ok: true,
+          project_id: projectId,
+          collected: false,
+          status: typeof data.status === 'number' ? data.status : null,
+          reason: data.reason ?? null,
+          ...budget,
+          hint: '这条**没有**登记成材料（原因见 reason）。不要把它算作已获取的证据；'
+            + '可以换个**原始出处**的网址再试，或如实告诉用户没采到。',
+        }
+      }
+      const material = trimCollected(data.material)
+      return {
+        ok: true,
+        project_id: projectId,
+        collected: true,
+        duplicate: data.duplicate === true,
+        truncated: data.truncated === true,
+        material,
+        ...budget,
+        hint: (data.duplicate === true
+          ? '这个网址的内容**与项目里已有的一份相同**（引擎按内容判重），没有重复登记。'
+          : '已登记为**待评审**材料。')
+          + '它现在是 **T3=仅线索**（不得单独支撑结论），**不会**进入任何结论——'
+          + '必须由**用户**评审批准后才可能被用到（本工具不能代批）。'
+          + '请如实告诉用户「我采了一条，还没评审」，并把 material.review_status 一起说清。',
+      }
+    },
+  }
+}

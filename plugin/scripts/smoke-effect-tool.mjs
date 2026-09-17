@@ -127,6 +127,17 @@ async function main() {
     registeredCommands.map((d) => '/' + d.name).join(',') || '(none)')
   check('outer timeout covers spawn + inner calls', tool.timeoutMs === 90_000,
     `timeoutMs=${tool.timeoutMs}`)
+  // 工具**注册面**：这条防的是"模块写好了但忘了在 apply() 里注册"——
+  // `smoke-collect-tool.mjs` 是直接 import 模块的，**抓不到**那种漏（改了自己跑不起来）。
+  // 所以这里按**名字**点名断言（加工具时要显式改这一行，是刻意的摩擦）。
+  check('model tools registered: ping/resolve/answer/effect_report/materials/collect',
+    ['ks_ping', 'ks_resolve_clause', 'ks_answer', 'ks_effect_report',
+      'ks_materials', 'ks_collect'].every((n) => tools.has(n)),
+    [...tools.keys()].join(','))
+  check('写权限只给了 ks_collect 一个（读/写工具分开，名字即权限）',
+    typeof tools.get('ks_collect')?.execute === 'function'
+    && tools.get('ks_materials')?.description.includes('只读'),
+    [...tools.keys()].join(','))
 
   // ---------------------------------------------- 命令注册的爆炸半径护栏（2026-09-11）
   // host 侧 ctx.commands.register 会走 normalizeDefinition 校验并**抛 TypError**。
