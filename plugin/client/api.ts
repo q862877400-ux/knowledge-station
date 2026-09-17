@@ -2271,6 +2271,67 @@ export async function scanMaterialProject(
 }
 
 /**
+ * 自采一次的结果（Phase C-5/D-3 的界面接线）。
+ *
+ * ⚠ **"抓取失败"不是异常**：引擎刻意用 `HTTP 200 + collected:false + reason` 表达它
+ * （原因要**显示给人看**）。所以本类型把 `reason` 放在**正常返回**上，
+ * 而不是让 `ksJson` 抛错——抛错会把"没采到"和"引擎挂了"混成同一种红字。
+ */
+export interface KsCollectOutcome {
+  collected: boolean
+  /** 抓取时的 HTTP 状态（`collected:false` 时也常有，用来区分 404/403/超时）。 */
+  status?: number
+  /** **未采到时**的原因（SSRF 拒绝 / HTTP 4xx / 不是文本 / 正文空…）。 */
+  reason?: string
+  /** 正文是否被截断到上限（真了要说，否则用户以为拿到全文）。 */
+  truncated?: boolean
+  /** 同内容已在项目里（引擎按内容判重）——**没有**重复登记。 */
+  duplicate?: boolean
+  material?: {
+    material_id?: string
+    title?: string
+    review_status?: string | null
+    source_tier?: string | null
+    chunk_count?: number
+  } | null
+}
+
+/**
+ * POST /ks/materials/collect?project_id= — 按 URL **自采一份**材料（登记为**待评审**）。
+ *
+ * ## 三条与主机/引擎同源的纪律（**不要在界面层另起一套**）
+ * 1. **不发 `source_tier`**（连试都不试）：采集者不得自 claim 可信度。轴 A 由系统判据起
+ *    （采集默认 T3=仅线索），要改只能由**用户**在界面上改（走 `setMaterialTier`）。
+ *    主机侧对 `source_tier` 与任何未知字段**响亮拒绝**（400），静默忽略会让调用方
+ *    以为自己设上了。
+ * 2. **只收四个键**（`url`/`title`/`note`/`published_at`）——与主机白名单逐字一致；
+ *    多传一个键就是 400，不是"被忽略"。本函数因此**只构造这四个**。
+ * 3. **一次只采一条**：方案 §11.4 的采集预算未定，**没有**批量入口（不提供 urls 数组）。
+ */
+export async function collectMaterialUrl(
+  projectId: string,
+  input: { url: string; title?: string; note?: string },
+  signal?: AbortSignal,
+): Promise<KsCollectOutcome> {
+  const q = new URLSearchParams({ project_id: projectId })
+  const body: Record<string, string> = { url: input.url }
+  if (input.title !== undefined && input.title !== '') body.title = input.title
+  if (input.note !== undefined && input.note !== '') body.note = input.note
+  const res = await fetch(`/ks/materials/collect?${q.toString()}`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify(body),
+    signal,
+  })
+  const data = await ksJson<KsCollectOutcome>(res, '自采')
+  if (typeof data?.collected !== 'boolean') {
+    // 形状不认识 ⇒ **抛**（别把"信封坏了"渲染成"没采到"——那会让人以为换个网址就行）
+    throw new Error('自采响应异常：缺少 collected 字段（不要把这次结果当成"已经采到了"）')
+  }
+  return data
+}
+
+/**
  * POST /ks/materials/review?material_id= — **用户的评审决定**（本面板的核心动作）。
  *
  * 只允许 `approved` / `rejected`：`pending` 是"还没评"，不是可以"评成"的状态；

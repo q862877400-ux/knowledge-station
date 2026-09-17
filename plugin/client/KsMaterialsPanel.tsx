@@ -27,6 +27,7 @@ import * as React from 'react'
 import { useCallback, useEffect, useState } from 'react'
 
 import {
+  collectMaterialUrl,
   createMaterialProject,
   fetchMaterialChunks,
   fetchMaterialInbox,
@@ -97,7 +98,17 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
   const [busy, setBusy] = useState<string>('')          // 正在操作的材料/动作标签
   const [error, setError] = useState<string>('')
   const [notice, setNotice] = useState<string>('')
+  /**
+   * 第三条反馈通道（**琥珀色**）：请求本身成功，但结果**不是成功**。
+   *
+   * 为什么需要它：引擎刻意把"没采到"表达成 `HTTP 200 + collected:false + reason`
+   * （原因要给**人**看），既不是异常也不该被读成成功。塞进 `error` 会把
+   * "网址抓不到"与"引擎/网络挂了"混成同一种红字；塞进 `notice`（灰）又太弱。
+   */
+  const [warn, setWarn] = useState<string>('')
   const [newName, setNewName] = useState('')
+  const [collectUrl, setCollectUrl] = useState('')
+  const [collectNote, setCollectNote] = useState('')
   const [openChunks, setOpenChunks] = useState<Record<string, KsMaterialChunk[] | 'loading'>>({})
 
   const reloadProjects = useCallback(async (signal?: AbortSignal): Promise<KsMaterialProject[]> => {
@@ -192,6 +203,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
     setBusy(label)
     setError('')
     setNotice('')
+    setWarn('')
     try {
       setNotice(await fn())
       if (refreshFor !== null) await reloadMaterials(refreshFor)
@@ -224,6 +236,44 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
         + '需你在下方逐份批准后才会进入作答。'
     }, projectId)
   }, [projectId, reloadInbox, run])
+
+  /**
+   * 按网址**自采一份**（Phase D-3 的界面接线；纪律与主机/引擎同源）。
+   *
+   * 三条**刻意**的设计：
+   * 1. **不提供任何"可信度"输入框**：轴 A 由系统判据起（T3=仅线索），
+   *    要改只能采完之后在这里改（`onTier`）。给个下拉框等于让"自采"变成自评。
+   * 2. **没采到走琥珀色 `warn`**（不是红）：原因要**显示给人看**（HTTP 404 / SSRF 拒绝 /
+   *    不是文本 / 正文空），且这条**没有**登记成材料——不说清用户会以为白采了一次。
+   * 3. **一次一条**：没有批量（方案 §11.4 的采集预算未定），界面也不暗示能批量。
+   */
+  const onCollect = useCallback(() => {
+    if (projectId === '') return
+    const url = collectUrl.trim()
+    if (url === '') { setError('请先填网址（要**原始出处**的网页地址）'); return }
+    void run('collect', async () => {
+      const out = await collectMaterialUrl(projectId, {
+        url, note: collectNote.trim() === '' ? undefined : collectNote.trim(),
+      })
+      if (!out.collected) {
+        // 请求成功、结果不是成功 ⇒ 如实说，并明确"这次没有登记任何东西"
+        setWarn(`没有采到：${out.reason ?? '原因未给'}`
+          + (out.status !== undefined ? `（HTTP ${out.status}）` : '')
+          + '。这条**没有**登记成材料——可以换个**原始出处**的网址再试，'
+          + '或把正文粘贴/保存成文件放进上面的参考资料文件夹。')
+        return ''
+      }
+      setCollectUrl('')
+      const title = out.material?.title ?? '（标题取自页面）'
+      const chunks = out.material?.chunk_count ?? 0
+      return `已登记「${title}」（${chunks} 个切片，来源层级 **T3=仅线索**）`
+        + (out.duplicate === true
+          ? '——⚠ 这个网址的内容**与项目里已有的一份相同**，引擎**没有**重复登记。'
+          : '。')
+        + (out.truncated === true ? '⚠ 正文被截断到长度上限（不是全文）。' : '')
+        + '它现在是**待评审**、**不会**进入任何结论，需你在下方批准（本面板不能代批）。'
+    }, projectId)
+  }, [collectNote, collectUrl, projectId, run])
 
   const onReview = useCallback((m: KsMaterial, decision: 'approved' | 'rejected') => {
     void run(`${decision}:${m.material_id}`, async () => {
@@ -369,6 +419,44 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
               {inbox.files.length > 10 && <li>… 另有 {inbox.files.length - 10} 个</li>}
             </ul>
           )}
+
+          {/* ------------------------------------------------ 自采（按网址） */}
+          <div style={{
+            marginTop: 10, paddingTop: 8,
+            borderTop: '1px dashed var(--dsw-alias-border, #e0e0e0)',
+          }}>
+            <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+              <strong>自采一份</strong>
+              <input
+                aria-label="自采网址"
+                placeholder="https://…（要「原始出处」的网页正文）"
+                value={collectUrl}
+                onChange={(e) => setCollectUrl(e.currentTarget.value)}
+                style={{ padding: '3px 6px', fontSize: 12, width: 320 }}
+              />
+              <input
+                aria-label="自采备注"
+                placeholder="备注（可选，评审人会看到这条是怎么来的）"
+                value={collectNote}
+                onChange={(e) => setCollectNote(e.currentTarget.value)}
+                style={{ padding: '3px 6px', fontSize: 12, width: 220 }}
+              />
+              <button
+                type="button"
+                style={btnStyle(busy !== '' || collectUrl.trim() === '')}
+                disabled={busy !== '' || collectUrl.trim() === ''}
+                onClick={onCollect}
+              >
+                自采一条
+              </button>
+            </div>
+            <p style={{ margin: '6px 0 0', fontSize: 12, color: GRAY }}>
+              采回来的是 <strong>待评审</strong>材料，来源层级由系统判为 <strong>T3=仅线索</strong>
+              （<strong>不得单独支撑结论</strong>、不能与其它网页互证）；批准前<strong>不会</strong>进入作答或产出。
+              {' '}只收<strong>一条</strong>（预算未定，没有批量），且只收<strong>网页正文</strong>：
+              PDF / 图片 / 压缩包请下载后放进上面的文件夹。
+            </p>
+          </div>
         </div>
       )}
 
@@ -376,6 +464,11 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
       {error !== '' && (
         <p role="alert" style={{ margin: '0 0 8px', color: RED, fontSize: 12 }}>
           操作失败：{error}
+        </p>
+      )}
+      {warn !== '' && (
+        <p role="status" style={{ margin: '0 0 8px', color: 'var(--dsw-alias-warn, #b8860b)', fontSize: 12 }}>
+          ⚠ {warn}
         </p>
       )}
       {notice !== '' && (
@@ -391,7 +484,8 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
       )}
       {projectId !== '' && !loading && materials.length === 0 && (
         <p style={{ fontSize: 12, color: GRAY }}>
-          这个项目里还没有已登记的材料。把文件放进参考资料文件夹后点「扫描收件」。
+          这个项目里还没有已登记的材料：把文件放进参考资料文件夹后点「扫描收件」，
+          或用上面的「自采一条」按网址抓一份网页正文（同样要**你**批准后才算数）。
         </p>
       )}
 

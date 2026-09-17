@@ -28362,6 +28362,23 @@ async function scanMaterialProject(projectId, signal) {
   const data = await ksJson(res, "\u626B\u63CF\u6536\u4EF6");
   return { scanned: data.scanned ?? 0, registered: data.registered ?? 0 };
 }
+async function collectMaterialUrl(projectId, input, signal) {
+  const q = new URLSearchParams({ project_id: projectId });
+  const body = { url: input.url };
+  if (input.title !== void 0 && input.title !== "") body.title = input.title;
+  if (input.note !== void 0 && input.note !== "") body.note = input.note;
+  const res = await fetch(`/ks/materials/collect?${q.toString()}`, {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify(body),
+    signal
+  });
+  const data = await ksJson(res, "\u81EA\u91C7");
+  if (typeof data?.collected !== "boolean") {
+    throw new Error('\u81EA\u91C7\u54CD\u5E94\u5F02\u5E38\uFF1A\u7F3A\u5C11 collected \u5B57\u6BB5\uFF08\u4E0D\u8981\u628A\u8FD9\u6B21\u7ED3\u679C\u5F53\u6210"\u5DF2\u7ECF\u91C7\u5230\u4E86"\uFF09');
+  }
+  return data;
+}
 async function reviewMaterial(materialId, decision, note, signal) {
   const q = new URLSearchParams({ material_id: materialId });
   const res = await fetch(`/ks/materials/review?${q.toString()}`, {
@@ -32395,7 +32412,10 @@ function KsMaterialsPanel(props) {
   const [busy, setBusy] = (0, import_react7.useState)("");
   const [error, setError] = (0, import_react7.useState)("");
   const [notice, setNotice] = (0, import_react7.useState)("");
+  const [warn2, setWarn] = (0, import_react7.useState)("");
   const [newName, setNewName] = (0, import_react7.useState)("");
+  const [collectUrl, setCollectUrl] = (0, import_react7.useState)("");
+  const [collectNote, setCollectNote] = (0, import_react7.useState)("");
   const [openChunks, setOpenChunks] = (0, import_react7.useState)({});
   const reloadProjects = (0, import_react7.useCallback)(async (signal) => {
     const list = await fetchMaterialProjects(signal);
@@ -32473,6 +32493,7 @@ function KsMaterialsPanel(props) {
     setBusy(label);
     setError("");
     setNotice("");
+    setWarn("");
     try {
       setNotice(await fn());
       if (refreshFor !== null) await reloadMaterials(refreshFor);
@@ -32504,6 +32525,28 @@ function KsMaterialsPanel(props) {
       return `\u626B\u63CF\u5B8C\u6210\uFF1A\u767B\u8BB0 ${r.registered} / \u5171 ${r.scanned} \u4E2A\u6587\u4EF6\u3002**\u65B0\u767B\u8BB0\u7684\u6750\u6599\u662F\u5F85\u8BC4\u5BA1\u72B6\u6001**\uFF0C\u9700\u4F60\u5728\u4E0B\u65B9\u9010\u4EFD\u6279\u51C6\u540E\u624D\u4F1A\u8FDB\u5165\u4F5C\u7B54\u3002`;
     }, projectId);
   }, [projectId, reloadInbox, run]);
+  const onCollect = (0, import_react7.useCallback)(() => {
+    if (projectId === "") return;
+    const url = collectUrl.trim();
+    if (url === "") {
+      setError("\u8BF7\u5148\u586B\u7F51\u5740\uFF08\u8981**\u539F\u59CB\u51FA\u5904**\u7684\u7F51\u9875\u5730\u5740\uFF09");
+      return;
+    }
+    void run("collect", async () => {
+      const out = await collectMaterialUrl(projectId, {
+        url,
+        note: collectNote.trim() === "" ? void 0 : collectNote.trim()
+      });
+      if (!out.collected) {
+        setWarn(`\u6CA1\u6709\u91C7\u5230\uFF1A${out.reason ?? "\u539F\u56E0\u672A\u7ED9"}` + (out.status !== void 0 ? `\uFF08HTTP ${out.status}\uFF09` : "") + "\u3002\u8FD9\u6761**\u6CA1\u6709**\u767B\u8BB0\u6210\u6750\u6599\u2014\u2014\u53EF\u4EE5\u6362\u4E2A**\u539F\u59CB\u51FA\u5904**\u7684\u7F51\u5740\u518D\u8BD5\uFF0C\u6216\u628A\u6B63\u6587\u7C98\u8D34/\u4FDD\u5B58\u6210\u6587\u4EF6\u653E\u8FDB\u4E0A\u9762\u7684\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u3002");
+        return "";
+      }
+      setCollectUrl("");
+      const title = out.material?.title ?? "\uFF08\u6807\u9898\u53D6\u81EA\u9875\u9762\uFF09";
+      const chunks = out.material?.chunk_count ?? 0;
+      return `\u5DF2\u767B\u8BB0\u300C${title}\u300D\uFF08${chunks} \u4E2A\u5207\u7247\uFF0C\u6765\u6E90\u5C42\u7EA7 **T3=\u4EC5\u7EBF\u7D22**\uFF09` + (out.duplicate === true ? "\u2014\u2014\u26A0 \u8FD9\u4E2A\u7F51\u5740\u7684\u5185\u5BB9**\u4E0E\u9879\u76EE\u91CC\u5DF2\u6709\u7684\u4E00\u4EFD\u76F8\u540C**\uFF0C\u5F15\u64CE**\u6CA1\u6709**\u91CD\u590D\u767B\u8BB0\u3002" : "\u3002") + (out.truncated === true ? "\u26A0 \u6B63\u6587\u88AB\u622A\u65AD\u5230\u957F\u5EA6\u4E0A\u9650\uFF08\u4E0D\u662F\u5168\u6587\uFF09\u3002" : "") + "\u5B83\u73B0\u5728\u662F**\u5F85\u8BC4\u5BA1**\u3001**\u4E0D\u4F1A**\u8FDB\u5165\u4EFB\u4F55\u7ED3\u8BBA\uFF0C\u9700\u4F60\u5728\u4E0B\u65B9\u6279\u51C6\uFF08\u672C\u9762\u677F\u4E0D\u80FD\u4EE3\u6279\uFF09\u3002";
+    }, projectId);
+  }, [collectNote, collectUrl, projectId, run]);
   const onReview = (0, import_react7.useCallback)((m, decision) => {
     void run(`${decision}:${m.material_id}`, async () => {
       const out = await reviewMaterial(m.material_id, decision);
@@ -32647,16 +32690,76 @@ function KsMaterialsPanel(props) {
           inbox.files.length - 10,
           " \u4E2A"
         ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: {
+        marginTop: 10,
+        paddingTop: 8,
+        borderTop: "1px dashed var(--dsw-alias-border, #e0e0e0)"
+      }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u81EA\u91C7\u4E00\u4EFD" }),
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+            "input",
+            {
+              "aria-label": "\u81EA\u91C7\u7F51\u5740",
+              placeholder: "https://\u2026\uFF08\u8981\u300C\u539F\u59CB\u51FA\u5904\u300D\u7684\u7F51\u9875\u6B63\u6587\uFF09",
+              value: collectUrl,
+              onChange: (e) => setCollectUrl(e.currentTarget.value),
+              style: { padding: "3px 6px", fontSize: 12, width: 320 }
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+            "input",
+            {
+              "aria-label": "\u81EA\u91C7\u5907\u6CE8",
+              placeholder: "\u5907\u6CE8\uFF08\u53EF\u9009\uFF0C\u8BC4\u5BA1\u4EBA\u4F1A\u770B\u5230\u8FD9\u6761\u662F\u600E\u4E48\u6765\u7684\uFF09",
+              value: collectNote,
+              onChange: (e) => setCollectNote(e.currentTarget.value),
+              style: { padding: "3px 6px", fontSize: 12, width: 220 }
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+            "button",
+            {
+              type: "button",
+              style: btnStyle2(busy !== "" || collectUrl.trim() === ""),
+              disabled: busy !== "" || collectUrl.trim() === "",
+              onClick: onCollect,
+              children: "\u81EA\u91C7\u4E00\u6761"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
+          "\u91C7\u56DE\u6765\u7684\u662F ",
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5F85\u8BC4\u5BA1" }),
+          "\u6750\u6599\uFF0C\u6765\u6E90\u5C42\u7EA7\u7531\u7CFB\u7EDF\u5224\u4E3A ",
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "T3=\u4EC5\u7EBF\u7D22" }),
+          "\uFF08",
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u5F97\u5355\u72EC\u652F\u6491\u7ED3\u8BBA" }),
+          "\u3001\u4E0D\u80FD\u4E0E\u5176\u5B83\u7F51\u9875\u4E92\u8BC1\uFF09\uFF1B\u6279\u51C6\u524D",
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u4F1A" }),
+          "\u8FDB\u5165\u4F5C\u7B54\u6216\u4EA7\u51FA\u3002",
+          " ",
+          "\u53EA\u6536",
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E00\u6761" }),
+          "\uFF08\u9884\u7B97\u672A\u5B9A\uFF0C\u6CA1\u6709\u6279\u91CF\uFF09\uFF0C\u4E14\u53EA\u6536",
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u7F51\u9875\u6B63\u6587" }),
+          "\uFF1A PDF / \u56FE\u7247 / \u538B\u7F29\u5305\u8BF7\u4E0B\u8F7D\u540E\u653E\u8FDB\u4E0A\u9762\u7684\u6587\u4EF6\u5939\u3002"
+        ] })
       ] })
     ] }),
     error !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { role: "alert", style: { margin: "0 0 8px", color: RED, fontSize: 12 }, children: [
       "\u64CD\u4F5C\u5931\u8D25\uFF1A",
       error
     ] }),
+    warn2 !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { role: "status", style: { margin: "0 0 8px", color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
+      "\u26A0 ",
+      warn2
+    ] }),
     notice !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "0 0 8px", color: "var(--dsw-alias-label-secondary, #666)", fontSize: 12 }, children: notice }),
     loading && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "0 0 8px", fontSize: 12, color: GRAY }, children: "\u52A0\u8F7D\u4E2D\u2026" }),
     projectId === "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { fontSize: 12, color: GRAY }, children: "\u5148\u9009\u4E00\u4E2A\u9879\u76EE\uFF08\u6216\u5728\u4E0A\u9762\u65B0\u5EFA\uFF09\u3002" }),
-    projectId !== "" && !loading && materials.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { fontSize: 12, color: GRAY }, children: "\u8FD9\u4E2A\u9879\u76EE\u91CC\u8FD8\u6CA1\u6709\u5DF2\u767B\u8BB0\u7684\u6750\u6599\u3002\u628A\u6587\u4EF6\u653E\u8FDB\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u540E\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\u3002" }),
+    projectId !== "" && !loading && materials.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { fontSize: 12, color: GRAY }, children: "\u8FD9\u4E2A\u9879\u76EE\u91CC\u8FD8\u6CA1\u6709\u5DF2\u767B\u8BB0\u7684\u6750\u6599\uFF1A\u628A\u6587\u4EF6\u653E\u8FDB\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u540E\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\uFF0C \u6216\u7528\u4E0A\u9762\u7684\u300C\u81EA\u91C7\u4E00\u6761\u300D\u6309\u7F51\u5740\u6293\u4E00\u4EFD\u7F51\u9875\u6B63\u6587\uFF08\u540C\u6837\u8981**\u4F60**\u6279\u51C6\u540E\u624D\u7B97\u6570\uFF09\u3002" }),
     materials.map((m) => {
       const rev = reviewLabel(m.review_status);
       const chunks = openChunks[m.material_id];
