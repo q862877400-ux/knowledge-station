@@ -516,8 +516,13 @@ class TestImportToLibrary:
     def test_imported_collected_doc_is_marked_unknown_not_effective(self, project, law_docs):
         """采集件落库后：效力**未知**（不是 effective）、质量 **C**、类型**不声明**。
 
-        这三条决定"未核验的网页文本会不会被当成现行有效"——复核指出这条路径
-        （Track L 自动入库）是本批第一次接通，默认值很容易被忽略。
+        ⚠ **本测试的 docstring 曾被复核 b7 判为过度声称**（§10.44）：原文写"这三条**决定**
+        '未核验的网页文本会不会被当成现行有效'"，而当时它**只**钉了 `doc_meta` 那一列——
+        **答案链上的洗白发生在另一处**：`clause_repo.fetch_full_clause` 里
+        `legal_status=row["legal_status"] or "effective"` 把 NULL 又变回现行有效
+        （`ClauseRevisionModel.legal_status` 当时还是非可选 `str`），于是它照样通过
+        `ks_answer._is_effective`（`== "effective"`）进证据、进提示词。
+        ⇒ 现在这条**跑到底**：库列、条款模型、答案链的可引性，三处都断言。
         """
         pid = project["project_id"]
         std = "GB 12421-2021"
@@ -535,6 +540,21 @@ class TestImportToLibrary:
         # 效力报告的口径：None ⇒ gray（⚪ 状态未知/未登记），不是 🟢 现行有效
         from src.core.exports.effect_report import STATUS_COLOR
         assert STATUS_COLOR[None] == "gray"
+
+        # ---- ② 条款模型必须如实带出 NULL（不是被洗白成 "effective"）----
+        cid = get_db_connection().execute(
+            "SELECT clause_revision_id FROM clause_revision WHERE doc_id=? LIMIT 1",
+            (out["doc_id"],)).fetchone()["clause_revision_id"]
+        clause = cr.fetch_full_clause(get_db_connection(), cid)
+        assert clause is not None
+        assert clause.legal_status is None, clause.legal_status
+
+        # ---- ③ **行为级**：它不得被 `ks_answer` 当现行版引用 ----
+        from src.core.llm import ks_answer as ka
+        ev = ka._clause_to_evidence(clause)
+        assert ev["legal_status"] is None, ev["legal_status"]
+        assert ka._is_effective(ev) is False, ev
+        assert ka._filter_effective([ev]) == [], "未核验的采集件不得进证据集"
 
     def test_collected_standard_lands_in_the_standard_tree(self, project, law_docs):
         """**进对树**：`auto_tag` 的归一形 `GB12321-2021`（无空格）也要被认成标准。

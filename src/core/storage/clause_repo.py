@@ -614,7 +614,15 @@ def fetch_full_clause(conn: sqlite3.Connection,
         is_mandatory=bool(row["is_mandatory"]),
         is_suspicious=is_suspicious,
         ocr_confidence=row["ocr_confidence"] or 1.0,
-        legal_status=row["legal_status"] or "effective",
+        # ⚠ **不要**写成 `row["legal_status"] or "effective"`（2026-09-17 独立复核 b7 的 HIGH，
+        # §10.44）：`doc_meta.legal_status` 允许 NULL，采集件（Track L 入库的网页文本）
+        # 写的**就是** NULL = 未核验。把它洗白成 "effective" 会让它通过
+        # `ks_answer._is_effective`（`legal_status == "effective"`）⇒ 进证据集、
+        # 进提示词（`效力=effective`）——**"未核验的网页文本被当现行法条引用"**，
+        # 而这正是 §10.39 那条修复的动机（当时只钉到 `doc_meta` 那一列，没跑到底）。
+        # 现在 NULL 原样返回：`resolve_status(None, …)` 返回 None，
+        # `STATUS_COLOR[None] == 'gray'`（效力报告 ⚪），`_is_effective` 为 False（不入证）。
+        legal_status=row["legal_status"],
         legal_hierarchy=row["legal_hierarchy"] or "GB",
         effective_from=row["effective_from"] or None,
         page_start=row["page_start"],

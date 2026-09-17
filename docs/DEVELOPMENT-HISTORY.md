@@ -2302,4 +2302,71 @@ HTTP 状态都在、缺 `collected` **抛**、`data` 缺失 **抛**、HTTP 502 *
 新开若干"JS 进正文"的路径；PPT 的"30 页上限"对交付物不成立（实际 31 页）
 且尾页"已知限制"是**手写的第二份内容**。**这些都留到下一步逐条处置**（不在本步夹带）。
 
+### 10.44 复核 b7 的 **HIGH**：采集件在**答案链**上仍被当"现行有效"（§10.39 的自述被证伪）
+
+**复核怎么打中的（它的原话值得抄下来）**：§10.39 我写了"这三条（`legal_status=None` /
+`quality_grade='C'` / `standard_type=None`）**决定**'未核验的网页文本会不会被当成现行有效'"，
+测试 docstring 也这么写。复核没有停在读代码，它**跑了端到端**（真 `ks_answer.answer()`
++ 打桩 LLM）：`D2 fetch_full_clause(...).legal_status='effective'`、
+`D3 本采集件入证=True / 提示词效力=effective`，`resolve_clause(...)` 同样。
+⇒ **我那句自述是过度声称**：那三处只决定 `doc_meta` 那一列（与效力报告的 ⚪），
+**答案链上的洗白发生在另一处**，而那条路径**零测试覆盖**（复核用它自己的变异体 X1
+证明了：删掉洗白那一行**没有任何测试变红**）。
+
+**洗白点（一行）**：`storage/clause_repo.fetch_full_clause` 里
+`legal_status=row["legal_status"] or "effective"`。
+`doc_meta.legal_status` 允许 NULL（Track L 入库的采集件**写的就是** NULL），
+而 `ClauseRevisionModel.legal_status` 当时是**非可选 `str`**——于是读取时把 NULL
+变回"现行有效"，它随即通过 `ks_answer._is_effective`（`legal_status == "effective"`）
+进证据集、进提示词。**效力报告显示 ⚪（未核验），而同一个库里的答案链把它当现行法条**：
+两份输出对同一行的判断相反，这是最坏的一种不一致。
+
+**修法（契约级，一次收口）**
+1. `domain/models.py`：`ClauseRevisionModel.legal_status: Optional[str] = "effective"`。
+   **默认值保持不变**——写入方（`docx_ingest` / `pipeline` / `ingest_law_text` 里构造
+   `ClauseRevisionModel(...)` 的三处）都不传该字段，所以**既有入库行为一字未变**；
+   变的只是**读取**能如实带回 NULL。
+2. `clause_repo.fetch_full_clause`：`row["legal_status"]`（去掉 `or "effective"`）。
+3. **读者审计**（`Optional` 之后逐个看，而不是只看 mypy 绿）：
+   - `resolve_status(clause.legal_status, …)` —— 三处（`ks_answer._clause_to_evidence`、
+     `server.py:1673`、`server.py:2975`）：签名本来就是 `str | None`，None 原样返回；
+   - `hybrid_engine` 的时效过滤：`in ("superseded", "withdrawn")`，None **不在**其中
+     ⇒ **不会被误删**（未核验 ≠ 已废止，这条边界要保住）；
+   - `user_data` / `effect_report` 读的是 `doc_meta`（SQL 层，不受本改动影响）；
+   - `understanding` 的排序项与 `standard_type` 无关（那条是另一个 MEDIUM，见下）。
+   `mypy`（`Optional` 已生效）**133 files / 0 errors**：没有读者把该字段当字符串拼接。
+
+**后果（这正是我们要的）**：采集件入库后，它的条款**进不了 `ks_answer` 的证据集**
+（`_filter_effective` 会剔除并打 warning），效力报告显示 ⚪，两条链的口径**一致**。
+
+**测试（跑到底，三级断言）**：`tests/test_material_track_l.py` 那条
+`test_imported_collected_doc_is_marked_unknown_not_effective` 从"只钉 `doc_meta` 一列"
+扩成三级——① `doc_meta.legal_status is None`；② `fetch_full_clause(...).legal_status is None`；
+③ **行为级**：`_clause_to_evidence(...)["legal_status"] is None`、
+`_is_effective(...) is False`、`_filter_effective([ev]) == []`。
+docstring 里**写明了它曾被判过度声称**（不删旧话，改掉并说明为什么）。
+
+**测试非空转（2 个变异体，on/off 成对，逐字节还原）**：`var/tmp/mutate-step43.py`
+- O：把洗白写回去 ⇒ **红**，且失败点正是新断言
+  `assert clause.legal_status is None` → `AssertionError: effective`（复核的 X1 从此有主）；
+- P：模型退回非可选 `str` ⇒ **红**（pydantic 对 None 报校验错）
+  ——证明"契约允许 NULL"本身也是承重的，不只是注释。
+
+**不需要数据迁移（值得说明）**：洗白发生在**读取**，库里存的一直是 NULL ⇒
+**既有库不需要修正任何行**，重启即生效。这也是"当初写 `None` 而不是写个哨兵字符串"
+的一个回报（复核建议的方案 3 要改数据契约，影响面反而更大）。
+
+**诚实边界**：
+- 修完的语义是**"未核验 ⇒ 不得进证据集"**（保守）；**没有**做"进证据集但显式标注未核验"
+  ——那要让 `_filter_effective` 从"二值门"变成"带标注的通道"，属于另一个决定，**未立项**。
+- 本步**没有**改 `DocumentMetaModel.legal_status: str`（它在 `src/` 里**没有任何构造点**，
+  是死模型）——登记而不是顺手改。
+- 活引擎仍未重启 ⇒ **它上面两份输出不一致的现状会持续到重启为止**。
+- 本步**没有**碰 b7 的其余 MEDIUM（`_inside_unclosed_tag` 的新泄漏路径、PPT 页数/尾页、
+  `standard_type` 死项）——它们排在下一步，**不在本步夹带**。
+
+**门禁（本步）**：`pytest` **1622 passed / 3 skipped / 0 failed**（`test_material_track_l`
+49 → **55**）；`mypy src` **133 files / 0 errors**；`smoke` 18 段（未改 `plugin/`）；
+`verify:commands` 22/22；`tsc --noEmit` 0。变异实验 O/P 全 RED 且逐字节还原。
+
 

@@ -81,7 +81,16 @@ class ClauseRevisionModel(BaseModel):
     is_mandatory: bool = False
     is_suspicious: bool = False
     ocr_confidence: float = 1.0
-    legal_status: str = "effective"
+    legal_status: Optional[str] = "effective"
+    # ⚠ `Optional` 是**契约级**的诚实（2026-09-17 独立复核 b7 的 HIGH，§10.44）：
+    # `doc_meta.legal_status` 允许 NULL（采集件走 Track L 入库时就是 NULL = **未核验**），
+    # 而读路径 `clause_repo.fetch_full_clause` 以前写的是 `row["legal_status"] or "effective"`
+    # —— 把 NULL **洗白成现行有效**，于是它通过 `ks_answer._is_effective`
+    # （`== "effective"`）进证据、进提示词（`效力=effective`）：
+    # **未核验的网页文本会被当现行法条引用**。
+    # 写入方（docx/pipeline/law_text 的 `ClauseRevisionModel(...)`）不传该字段，
+    # 因此**默认值仍是 "effective"**，既有入库行为一字未变；改变的是**读取**：
+    # NULL 就是 NULL，由 `resolve_status` 原样返回、由 `_is_effective` 判为"不得入证"。
     legal_hierarchy: str = "GB"
     effective_from: Optional[str] = None   # 实施日期（到期翻转 upcoming→effective 依据）
     page_start: int
