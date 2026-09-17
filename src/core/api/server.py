@@ -58,6 +58,67 @@ def bound_threadpool_once() -> None:
         pass
 
 
+#: **重活专用闸门**的令牌数（§10.82）。
+#:
+#: 为什么在"线程池 16"之外还要再来一层：§10.81 那把全局上限治的是"40 子进程风暴"，但它把
+#: **长活**与**文件流式读取**（`FileResponse`，也吃同一口池子）放在一个队里——
+#: 16 条长解析在飞时，加载一份 PDF 就得排队（最长可等到一条 135s 的预览跑完）。
+#: 这一层把两类活分开：**重活最多 4 条**，其余 12 个线程留给文件流与廉价 DB 操作；
+#: 排队发生在**中间件里 `await`**（异步等，**不占线程**），所以"等"本身不消耗任何池子额度。
+#: 4 的取法：单用户桌面场景同时发起的重活通常 1–2 条；4 足够容纳"批量预览 + 顺手看一眼图"，
+#: 又把最坏情况的子进程数压到 4。
+HEAVY_TOKENS = 4
+
+#: **重活路径**（前缀匹配，唯一所有者在这一处）。判据是"这条端点会解析 PDF / 渲染图 /
+#: 逐点调 LLM / 打整包 / 逐份 sha256"，即 §10.71–§10.80 里那些被量出"秒级到分钟级"的活。
+HEAVY_PREFIXES: tuple[str, ...] = (
+    "/api/v1/ingest/preview",                 # 单文件/批量/异步预览（最长可达分钟级）
+    "/api/v1/ingest/bulk",                    # 全量入库
+    "/api/v1/documents/",                     # figure/formula/table-image/tree/assets（渲染/读盘）
+    "/api/v1/materials/projects/",            # scan / collect / locators（子进程解析 + 逐份 sha256）
+    "/api/v1/materials/",                     # reverify / locators（同上）
+    "/api/v1/report/",                        # 效力报告聚合 / 研究报告 / PPT（落盘 + 逐份 sha256）
+    "/api/v1/export/",                        # docx/xlsx/JSON 落盘
+    "/api/v1/snapshots",                      # 造/恢复快照（打整包 + sha256）
+    "/api/v1/ks/answer",                      # 取证答案（引擎侧推理，120s 契约）
+    "/api/v1/batch/qa",                       # 批量问答
+    "/api/v1/compliance/review",              # 逐点评审（SSE，逐点调 LLM）
+    "/api/v1/vision/locate",                  # 视觉定位（模型 + 渲染）
+    "/api/v1/aliases/extract",                # 术语抽取（全库拼接）
+    "/api/v1/data/package/",                  # 数据包导出/导入
+    "/api/v1/update/report",                  # 更新检查报告（docx/xlsx）
+)
+
+_heavy_limiters: dict[int, object] = {}
+
+#: **例外：前缀命中但其实是廉价活**的路径（**必须写理由**）。
+#: `/ingest/preview/inbox` 只是列一下目录（毫秒级），把它关在 4 个令牌后面会让
+#: "打开预览面板"排在 4 条长解析后面——那是**闸门自己造出来的**排队。
+HEAVY_SKIP: tuple[str, ...] = (
+    "/api/v1/ingest/preview/inbox",
+)
+
+
+def _get_heavy_limiter():
+    """取**本事件循环**的重活闸门（按 loop 缓存：anyio 的 limiter 绑定后端/循环，
+    测试里一个进程会开很多循环，全局单例会在第二个循环上出问题）。"""
+    import asyncio
+
+    import anyio
+    key = id(asyncio.get_running_loop())
+    lim = _heavy_limiters.get(key)
+    if lim is None:
+        lim = anyio.CapacityLimiter(HEAVY_TOKENS)
+        _heavy_limiters[key] = lim
+    return lim
+
+
+def is_heavy_path(path: str) -> bool:
+    if any(path.startswith(p) for p in HEAVY_SKIP):
+        return False
+    return any(path.startswith(p) for p in HEAVY_PREFIXES)
+
+
 # 2026-08-28 表题行（通用）："表1…"、"表B.1…(续)"——编号紧随表字才认定，
 # "表面积"等普通词、动词开头的正文引用（"符合表1…"）都不匹配。
 import re as _re_mod
@@ -122,6 +183,15 @@ def create_app(token: str) -> FastAPI:
         auth = request.headers.get("Authorization", "")
         if not secrets.compare_digest(auth, f"Bearer {token}"):
             return _json_error(401, "unauthorized", "缺少或无效的 token")
+        # ⚠ **重活专用闸门**（§10.82）：只在"重活路径"上排队等待，**等待是异步的**（不占线程），
+        # 所以"16 条长解析把线程池占满、顺带把 PDF 加载也卡住"这个形状被拆开了。
+        if is_heavy_path(request.url.path):
+            limiter = _get_heavy_limiter()
+            await limiter.acquire()
+            try:
+                return await call_next(request)
+            finally:
+                limiter.release()
         return await call_next(request)
 
     def _json_error(status: int, code: str, message: str):
