@@ -1468,14 +1468,27 @@ def _inside_raw_text(s: str, at: int) -> bool:
     ⚠ 代价（诚实登记）：这个判据每遇到一个 script/style 匹配就**回扫一遍前缀**，
     复杂度 O(n·k)；页面上的 script/style 通常是个位数 ⇒ 可接受。
     真要快得写成**单遍状态机**（未立项）。
+
+    ⚠ **两个"守卫被打开"的形状**（2026-09-18 复核 b12 的 MEDIUM-1；本函数**第一版就是这么错的**，
+    它让真脚本漏进了正文，属回归）：
+    ① **属性值里的 `<xmp>` 不是标签**：`<p title="<xmp>">…<script>真脚本</script>` 里那个
+       `<xmp>` 只是 `title` 的值 ⇒ 当成"我们在 xmp 里"就会把**真脚本**漏进正文。
+       ⇒ 每个候选边界先过 `_inside_unclosed_tag(...)`（与第 4 条同一套判据）。
+    ② **raw text 元素不嵌套**：`<textarea><xmp></textarea><script>真脚本</script>` 里，
+       `<textarea>` 打开后其 raw text **一直吃到 `</textarea>`**，中间那个 `<xmp>` 是**文字**。
+       ⇒ 已在某个 raw text 元素内部时**不许被另一个开始标签覆盖**（第一版无条件覆盖，
+       于是 `</textarea>` 关不掉 `xmp`、后面那个真脚本又被漏进正文）。
     """
     open_tag: str | None = None
     for m in _RE_RAW_TEXT_BOUNDARY.finditer(s, 0, at):
+        # ① 候选边界自己也得是**真标签**（不在属性值 / 未闭合标签里）
+        if _inside_unclosed_tag(s, 0, m.start()):
+            continue
         tag = m.group(2).lower()
         if m.group(1):                       # 结束标签
             if open_tag == tag:
                 open_tag = None
-        else:                                # 开始标签
+        elif open_tag is None:               # ② 只有"当前不在里面"时，开始标签才生效
             open_tag = tag
             if tag == "plaintext":           # 永不闭合 ⇒ 其后全是 raw text
                 return True

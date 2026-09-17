@@ -742,6 +742,26 @@ class TestScriptStyleStrippingEdges:
         out = html_to_text("<textarea><script>var T=3;</script>表单默认值</textarea>")
         assert "var T=3;" in out and "表单默认值" in out, out
 
+    def test_raw_text_guard_is_not_opened_by_attribute_values_or_nesting(self):
+        """**守卫不许被打开**：两种形状里那个"raw text 元素"都不是真元素（复核 b12 的 MEDIUM-1）。
+
+        第一版 `_inside_raw_text` 太朴素，这两种形状会让**真脚本漏进正文**（实测回归）：
+        ① **属性值里的 `<xmp>` 不是标签**：`<p title="<xmp>">…<script>…` 里那个 `<xmp>` 只是
+           `title` 的值 ⇒ 若当成"我们在 xmp 里"，后面的真脚本就不剥了；
+        ② **raw text 元素不嵌套**：`<textarea><xmp></textarea><script>…` 里，`<textarea>` 一直
+           吃到 `</textarea>`，中间那个 `<xmp>` 是**文字** ⇒ 被覆盖成 `xmp` 后 `</textarea>` 关不掉它，
+           后面的真脚本又不剥了。
+        浏览器裁决（复核用 CDP 量过）：这两处都是**真脚本**（`scriptEls=1`）。
+        """
+        from src.core.text_utils import html_to_text
+        out = html_to_text('<p title="<xmp>">前</p><script>var ATTR=1;</script><p>后</p>')
+        assert "ATTR=1" not in out, out
+        out = html_to_text("<textarea><xmp></textarea><script>var NEST=2;</script>")
+        assert "NEST=2" not in out, out
+        # 正向仍在：真是 raw text 元素内部的字面 script **要留**（别为了堵上面两个把正路堵死）
+        out = html_to_text("<xmp><script>var KEEP=1;</script></xmp>")
+        assert "KEEP=1" in out, out
+
     def test_real_script_outside_raw_text_is_still_stripped(self):
         """**反向对照**：元素**外面**的 `<script>`/`<style>` 仍必须剥掉。
 

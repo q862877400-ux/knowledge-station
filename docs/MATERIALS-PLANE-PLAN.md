@@ -735,3 +735,18 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     （不传 map ⇒ 渲染里"锚点"零出现，且传 map 的结果 == 不传的结果 + 那一段）。
     变异 X1（报告不传 map）/X2（渲染器忽略 map）均 RED；pytest **1708**。
     ⇒ **b9/b10/b11 报的条目全部收口**。
+
+16. **复核 b12（区间 `48bbc05..83dda24`，step-58~64）的处置台账**（报告：`var/tmp/verify-b12-artifacts/VERIFY-REPORT.md`）。
+    8 条声称：**5 CONFIRMED + 2 PARTLY**（它同时报了**我自己引入的一个回归**）。新发现 2 MEDIUM + 若干 LOW/INFO：
+
+    | 编号 | 一句话 | 状态 |
+    |---|---|---|
+    | b12-MEDIUM-1 | **回归**：`_inside_raw_text` 把守卫打开了——属性值里的 `<xmp>`、raw text 元素嵌套两种形状下**真脚本漏进正文**（修前不漏） | ✅ 已修（step-70，§10.70：候选边界先过 `_inside_unclosed_tag` + 开始标签不许覆盖已开状态；Y1/Y2 变异 RED；pytest **1709**） |
+    | b12-MEDIUM-2 | 报告两条端点 `POST /api/v1/report/research` 与 `/report/research/slides` 仍是 `async def`，却经 `_attach_locator_status → locator_health → file_hash` **逐份 sha256 源文件**（实测 3 份 = 3 次）——与 §10.59 同族，上次**只修了 2 条、没审计调用方** | ⏳ **待修**（改 `def` + 加进 `TestSlowEndpointsAreDeclaredSync`） |
+    | b12-LOW-1 | step-64 的两条冒烟断言**是钉字符串**：语义等价重写（`String(a.why \|\| '')`、`Boolean(anchorNote)`）会**假红** | ⏳ 待改（改成钉行为/结构） |
+    | b12-LOW-2 | 仍有 **23 条"文案在场"型断言**（清单在报告里） | 登记（不是错，但要知道它们挡不住什么） |
+    | b12-LOW-3 | `AnchorMark` 之外还有一处 `status === 'no_locators'`（禁用复算按钮）**不受穷尽性保护** | ⏳ 待修（并进 switch 或加 never 断言） |
+    | b12-LOW-4 | `—×39` 的测试注释说"放不下"与渲染实测（标点压缩后只占 1 行）不符——**方向安全**（我们高估行数），但注释误导 | ⏳ 待改注释 |
+    | b12-LOW-5 | step-57 排序口径的取舍（`include_superseded=True` 时**已废止排未核验之前**）没写进注释 | ⏳ 待补注释 |
+    | b12-流程 | **第三次复发**：主检出在复核期间前进 4 个提交 + 2 批 WIP；且**任务书的区间描述与事实不符**（说"8 个提交"，实为 9 个且不含 step-57 的代码，它在父提交 `5e270f4`） | ⏳ 规矩硬化：派复核前先 `git tag` 冻结 + 用 `git rev-list` 数提交数写进任务书 |
+    | b12-INFO | 我记录里的 "sha256" 实为 **sha256(LF 规范化后的 blob 内容)**（5/5 吻合），**不是**工作树 sha256（本检出 CRLF）也不是 git sha1 ⇒ b11 的"git blob 哈希"说法需修正；另：`e2e:materials` 的 **C2 空过**（那轮只发了 2 条 404 请求、0 条 2xx） | 已采纳并写进记录口径 |

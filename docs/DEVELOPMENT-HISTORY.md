@@ -3660,3 +3660,45 @@ Node 要沿**它自己的路径**往上找 `node_modules`，放 TEMP 树上直�
 方案 §12 的"已知未决"里，只剩**需要业主拍板**的运行/产品决策，以及
 "业主模板/WPS 下的 PPT 渲染阈值重测"这类**只能在您环境里做**的事。
 
+
+
+### 10.70 收 b12 的 MEDIUM-1：我上一轮**把守卫打开了**（真脚本漏进材料正文）——回归修复
+
+复核 b12 判定 step-63 的 raw text 改动 **PARTLY**：正向修法**对**（真浏览器 CDP ground truth 证实
+`xmp`/`plaintext` 里的字面 script 是**可见文字**，该留），**但 `_inside_raw_text` 太朴素，
+两种形状下把守卫打开了**——而且这两种在**修前不漏、现在漏**，是**本步引入的回归**：
+
+| 形状 | 现象 | 浏览器裁决 |
+|---|---|---|
+| ① 属性值里的 `<xmp>` | `<p title="<xmp>">前</p><script>var ATTR=1;</script><p>后</p>` ⇒ 我们输出含 `var ATTR=1;` | 那个 `<xmp>` 只是 `title` 的**值** ⇒ 后面是**真脚本**（`scriptEls=1`） |
+| ② raw text 元素不嵌套 | `<textarea><xmp></textarea><script>var NEST=2;</script>` ⇒ 输出含 `var NEST=2;` | `<textarea>` 一直吃到 `</textarea>`，中间 `<xmp>` 是**文字** ⇒ 后面是**真脚本** |
+
+**根因（两条，正好对应我第一版代码的两个疏忽）**：
+① 回扫时**没检查候选边界自己是不是真标签**（属性值里的 `<xmp>` 也会被算成"进入 xmp"）；
+② 开始标签**无条件覆盖** `open_tag` ⇒ `<textarea>` 里的 `<xmp>` 把状态改成 `xmp`，
+于是 `</textarea>` 关不掉它（raw text 元素**不能嵌套**，先开的那个一直管到自己那个结束标签）。
+
+**修法（各一行）**：
+① 每个候选边界先过 `_inside_unclosed_tag(s, 0, m.start())`（与函数里第 4 条**同一套判据**，
+   不为这件事再写第二个"这算不算标签"的判断）；
+② 只有 `open_tag is None` 时开始标签才生效（已在 raw text 里 ⇒ 那个开始标签是**文字**）。
+
+**测试（补上复核指出的零覆盖形状，成对）**：
+`test_raw_text_guard_is_not_opened_by_attribute_values_or_nesting` —— 两种形状**都不许**泄漏，
+并附**正向对照**（`<xmp><script>var KEEP=1;</script></xmp>` 的 `KEEP=1` **必须留着**），
+免得"为堵上面两个把正路堵死"。
+
+**变异证据（逐字节还原，`text_utils.py` sha256 `e89a18f9…`）**：
+| 变异 | 内容 | 结果 |
+|---|---|---|
+| **Y1** | 去掉属性值判据（`if _inside_unclosed_tag(...): continue`） | 该用例 **RED** |
+| **Y2** | 开始标签恢复无条件覆盖（`elif open_tag is None` → `elif True`） | 该用例 **RED** |
+
+**门禁**：pytest **1709 passed / 3 skipped**（新增 1 条）；mypy **134 files / 0 errors**。
+
+**⚠ 教训（写下来，因为这是本战役第 N 次"修一个方向、开另一个方向"）**：
+我加 `_inside_raw_text` 时只想着"别删可见正文"，**没有回头问"这个新判据会不会让别的东西漏进来"**。
+凡是**在守卫上加例外**的改动，都必须**同时给出反向用例**——本步的 Y1/Y2 就是这么补的。
+同一轮 b12 还报了 **MEDIUM-2**（报告两条端点仍是 `async def` 却逐份 sha256 源文件，
+与 §10.59 同族、只是上次没审计调用方），**登记待修**（见方案未决第 12 条的 b12 台账）。
+
