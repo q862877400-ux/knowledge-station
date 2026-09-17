@@ -290,6 +290,28 @@ check('job start forwards dir/batch_size only (zero-egress guard)', …)
 **门禁**：`pytest` **1217 passed / 3 skipped / 0 failed**；`mypy` 122 files 0 errors；`tsc` 0；`smoke` 11 段全 PASS（**ingest 37 → 38**）；`verify:commands` 15/15。
 **诚实边界**：① 新增的 UI 开关与文案**未做真机点击验证**（E2E 脚本已同步断言，但本轮没起 GUI 跑）；② 未对真实云端做端到端验证；③ "允许云深度解析"是**每页面板的临时勾选**，不落盘、不开记忆——刷新即回到"不外发"，这是刻意的（默认安全优先于便利）。
 
+### 10.6 步骤 4：`standard_name` 副本后缀——先归一派生，再修数据（代码半）
+
+方案 §4.1 说这是 Track L"自动入库"的前置项。**先修数据是错的顺序**：查清后发现这些脏名不是从内容里读出来的，而是**入库时从文件名派生**的，且**各调用方各派生各的**——不先归一派生，灌一次库又脏一次。
+
+**清查出四个派生点**（都不干净）：
+- `src/core/storage/write_queue_bootstrap.py:31`（watcher 闭环，**未来数据的主要来源**）：`name = path.stem` —— 原始 stem，同时带着标准号前缀与副本后缀 `(1)`；
+- `scripts/_stdparse.py:24-27`（`driver_v2` 用）：先算出干净名，**紧接着又用原始 `stem` 覆盖回去**（`name = stem.replace(std_no, "", 1)`）⇒ `(1)` 回来了；而且 `std_no` 是 ASCII `/` 而 stem 是全角 `／`，那次 `replace` **根本不命中**；
+- `scripts/std_bulk_import.py:175`：`meta.get("name") or p.stem` —— 两者都可能带后缀；
+- 库里已有 **:139 行**（数字随灌库在涨；独立复核时报 135）`standard_name` 形如 `电梯技术条件(1)`。
+
+**新增共享归一派生**（`src/core/text_utils.py`，就在 `canon_standard_no`/`standard_key` 旁边）：
+- `strip_duplicate_suffix(name)`：**只吃结尾**的 `(数字)`（半角/全角括号都认）。库内有 **:312 行**合法括号名（`聚丙烯(PP)树脂`、`湿式(非金属类)摩擦材料`、`额定电压1kV(Um=1.2kV)…`）**必须原样保留**——测试逐条钉住；
+- `clean_standard_name(raw, *, standard_no=None)`：全角斜杠归一并压空白 → 去结尾副本后缀 → **按"号 + 年"剥开头标准号**（容忍 `GB` vs `GB/T` vs `GBZ` 与各类破折号）。三个调用方改走它。
+
+**过程中被自检抓到的两个错（都已修，值得记）**：
+1. **复用了错的判据**：我最初拿 `_RE_STD_KEY` 去取"号 + 年"，但它要求号是 **3~5 位**（那是为"从页眉抽比较键"设计的）⇒ 真实标准号里的 **1 位号**（`GBZ 1-2010`、`GB/T 1.1-2020`）**永远剥不掉**。自检报告直接暴露（`GBZ 1-2010 工业企业设计卫生标准` 原样返回），改为宽松判据后即通过。
+2. **作用域越界**：`clean_standard_name` 会顺带把**表意空格 `U+3000` 与全角斜杠**归一，于是 312 行里有 **3 行**也会被"改动"——那不是本次要做的。⇒ **数据回填只允许用 `strip_duplicate_suffix`**（它按定义只动结尾 `(N)`，那 312 行可证明不受影响）；`clean_standard_name` 只用于**入库派生**。这条分工写进了函数注释。
+
+**门禁**：`pytest` **1220 passed / 3 skipped / 0 failed**（1217 → 1220，新增 3 条）；`mypy` 122 files 0 errors。
+**诚实边界**：① 本轮**只改代码，还没动库**——那 139 行仍然是脏的（下一步做回填，单独提交、单独快照）；② `derive_standard` 产出的标准号**不带空格**（`GB/T10058-2023`）与 `doc_meta` 的写法不一致，这是**既有**行为（`driver_v2.py:185` 有注释），本次**故意不动**（改它会影响 bulk import 查重），只在测试里钉住；③ `write_queue_bootstrap` 是 watcher 闭环入口，其派生路径**未做端到端真机验证**（要触发 watcher 灌一份 `…(1).pdf`）。
+
+
 
 
 

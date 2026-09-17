@@ -1308,6 +1308,63 @@ def standard_key(s: str | None) -> str:
     return f"{m.group(1)}-{m.group(2)}" if m else c
 
 
+#: 「副本后缀」：浏览器/资源管理器重复下载产生的 `xxx(1).pdf` / `xxx（2）.pdf`。
+#:
+#: ⚠ **只吃结尾**的 `(数字)`（半角/全角括号都算），**不吃中间的**——库内大量**合法**
+#: 括号名（`聚丙烯(PP)树脂`、`湿式(非金属)摩擦材料`、`额定电压1kV(Um=1.2kV)…`）
+#: 必须原样保留。实测（2026-09-17 生产库）`:264` 行 `standard_name` 含括号，
+#: 其中**结尾是 `(数字)`** 的 :139 行才是副本后缀（数字随灌库在涨）。
+_RE_DUP_SUFFIX = re.compile(r"\s*[（(]\s*\d{1,3}\s*[)）]\s*$")
+
+
+def strip_duplicate_suffix(name: str | None) -> str:
+    """去掉名称**结尾**的副本后缀 `(1)`/`（2）`（只动结尾，中间的合法括号不动）。"""
+    return _RE_DUP_SUFFIX.sub("", name or "").strip()
+
+
+def clean_standard_name(raw: str | None, *, standard_no: str | None = None) -> str:
+    """文件名（或原始串）→ **干净的标准名称**（展示用，不改内容）。
+
+    做三件事，顺序固定：
+      1. 全角斜杠 `／` → ASCII `/`、压缩连续空白；
+      2. 去掉**结尾**的副本后缀（`…(1)`）；
+      3. 若给了 `standard_no`：把**开头**那个标准号前缀去掉（`GB／T 10058-2023 电梯技术条件`
+         → `电梯技术条件`）。
+
+    为什么要有这个函数（2026-09-17 前置清理）：库内 :139 行 `standard_name` 是
+    `电梯技术条件(1)` 这种形态，而它**不是**从内容里读出来的——是入库时**从文件名派生**的，
+    且各个调用方各派生各的（`write_queue_bootstrap` 直接 `name = path.stem`；
+    `scripts/_stdparse.derive_standard` 先清理、下一行又用**原始 stem** 覆盖回去；
+    `std_bulk_import` 用 manifest 里的 `name`）。⇒ 修数据前先把**派生**归一，否则灌一次库又脏一次。
+
+    **关于第 3 步的容错**：库内真实文件名常是全角斜杠（`GB／T 10058-2023 电梯技术条件(1).pdf`），
+    而 `standard_no` 已归一成 ASCII `/`，直接 `stem.replace(std_no, "")` **永远匹配不上**
+    （这正是 `_stdparse` 那个 bug 的成因）。这里改为按**号 + 年**匹配前缀，容忍前缀族差异
+    （`GB` vs `GB/T` vs `GBZ`）与各类破折号，且**只剥开头**。
+
+    结果为空时**回退**到"只去了副本后缀"的串——绝不返回空名（调用方常拿它当展示名）。
+    """
+    s = (raw or "").replace("／", "/")
+    s = re.sub(r"\s+", " ", s).strip()
+    s = strip_duplicate_suffix(s)
+    if standard_no:
+        # ⚠ 不能复用 `_RE_STD_KEY`：它要求号是 **3~5 位**（那是为"从页眉里抽比较键"设计的），
+        # 而真实标准号有 1~2 位的（`GBZ 1-2010`、`GB/T 1.1-2020`）——用它会让这些标准号
+        # **永远剥不掉**（2026-09-17 自检实测：`GBZ 1-2010 工业企业设计卫生标准` 原样返回）。
+        # 这里单独用一个**宽松**的号+年判据。
+        m = re.search(r"(\d{1,5}(?:\.\d+)*)\s*[-–—－]\s*(\d{4})",
+                      canon_standard_no(standard_no))
+        if m:
+            num, year = m.group(1), m.group(2)
+            # 前缀族随便（GB/GBT/GBZ/DB11/T…）+ 号 + 破折号 + 年，只要求出现在**开头**
+            rx = re.compile(
+                r"^\s*[A-Za-z]{0,8}\s*(?:[/\s]\s*[A-Za-z]{0,2}\s*)*"
+                + re.escape(num) + r"\s*[-–—－]\s*" + re.escape(year) + r"\s*[-–—－:：]?\s*",
+                re.I)
+            s = rx.sub("", s, count=1).strip(" -_‐—－:：")
+    return s or strip_duplicate_suffix((raw or "").replace("／", "/"))
+
+
 def _match_key(m: "re.Match[str]") -> str:
     return standard_key((m.group("pfx") or "") + (m.group("mid") or "")
                     + (m.group("num") or "") + "-" + (m.group("year") or ""))

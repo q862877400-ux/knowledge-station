@@ -450,3 +450,69 @@ def test_pua_separator_original_cases_intact():
     # 无 PUA 的文本零变化（快速路径也不得改动）
     assert f("4 原理利用珍珠粉") == "4 原理利用珍珠粉"
     assert f(None) == ""
+
+
+# ---------------------------------------------------------------- 副本后缀 / 标准名派生
+# 2026-09-17 前置清理（方案 §4.1）：库内 :139 行 standard_name 带副本后缀
+# （`电梯技术条件(1)`），而它是入库时**从文件名派生**的。修数据前先把派生归一，
+# 否则灌一次库又脏一次。下面两组测试钉住"派生"的边界。
+
+def test_strip_duplicate_suffix_only_touches_the_tail():
+    """只吃**结尾**的 `(数字)`；中间的合法括号一个都不许动。"""
+    from src.core.text_utils import strip_duplicate_suffix as f
+    assert f("电梯技术条件(1)") == "电梯技术条件"
+    assert f("给水用硬聚氯乙烯（PVC-U）管件(1)") == "给水用硬聚氯乙烯（PVC-U）管件"
+    assert f("家具力学性能试验 第4部分：柜类稳定性(2)") == "家具力学性能试验 第4部分：柜类稳定性"
+    # 全角括号也认
+    assert f("油井水泥（1）") == "油井水泥"
+    # ⚠ 合法括号（库内真实存在，312 行）必须原样返回
+    for keep in ("聚丙烯(PP)树脂",
+                 "湿式(非金属类)摩擦材料",
+                 "额定电压1kV(Um=1.2kV)到35kV(Um=40.5kV)挤包绝缘电力电缆及附件 第1部分：电缆",
+                 "化妆品通用检验方法 颗粒度（细度）的测定",
+                 "低压灌溉用硬聚氯乙烯（PVC-U)管材"):
+        assert f(keep) == keep, keep
+    # 结尾括号里不是纯数字 → 不动
+    assert f("某规定(2024年)") == "某规定(2024年)"
+    assert f(None) == ""
+
+
+def test_clean_standard_name_strips_prefix_and_dup_suffix():
+    """文件名 → 干净名：剥开头标准号 + 去结尾副本后缀。
+
+    关键回归：**全角斜杠**文件名（库内真实形态）——`standard_no` 已归一为 ASCII `/`，
+    直接 `stem.replace(std_no, "")` 永远匹配不上（`scripts/_stdparse.py` 的老 bug）。
+    """
+    from src.core.text_utils import clean_standard_name as f
+    assert f("GB／T 10058-2023 电梯技术条件(1)", standard_no="GB/T 10058-2023") == "电梯技术条件"
+    assert f("GB／T 10002.2-2023 给水用硬聚氯乙烯（PVC-U）管件(1)",
+             standard_no="GB/T 10002.2-2023") == "给水用硬聚氯乙烯（PVC-U）管件"
+    assert f("GB 50016-2014 建筑设计防火规范", standard_no="GB 50016-2014") == "建筑设计防火规范"
+    # ⚠ 1 位号：`_RE_STD_KEY` 要求 3~5 位号，复用它会**永远剥不掉**（实测踩到）
+    assert f("GBZ 1-2010 工业企业设计卫生标准", standard_no="GBZ 1-2010") == "工业企业设计卫生标准"
+    assert f("GB/T 1.1-2020 标准化工作导则", standard_no="GB/T 1.1-2020") == "标准化工作导则"
+    # 前缀族不同（文件名/页眉常把 GB/T 写成 GB）也能剥：按"号 + 年"匹配
+    assert f("GB 12041.1-2010 信息技术", standard_no="GB/T 12041.1-2010") == "信息技术"
+    # 不带 standard_no：只归一去后缀
+    assert f("电梯技术条件(1)") == "电梯技术条件"
+    # 结果为空时回退（绝不返回空名）
+    assert f("GB/T 10058-2023", standard_no="GB/T 10058-2023") == "GB/T 10058-2023"
+
+
+def test_derive_standard_keeps_cleaned_name():
+    """`scripts/_stdparse.derive_standard`：清理过的名**不许**被原始 stem 覆盖回去。
+
+    老实现先算出干净名，紧接着又用**原始 stem** 重算（`stem.replace(std_no, ...)`）——
+    两处都错：① 把 `(1)` 带回来；② std_no 是 ASCII `/` 而 stem 是全角 `／`，replace
+    从不命中。文件名带标准号前缀时这两点会合起来污染 `standard_name`。
+    """
+    from scripts._stdparse import derive_standard
+    std, name = derive_standard("GB／T 10058-2023 电梯技术条件(1).pdf")
+    # ⚠ 既有行为（不在本次范围内，故钉住而不是"顺手改"）：derive_standard 产出的标准号
+    # **不带空格**（`GB/T10058-2023`），而 doc_meta 里存的是带空格的 `GB/T 10058-2023`
+    # ——`scripts/loop2/driver_v2.py:185` 已就此有注释。本次只修"名称派生"，标准号写法不动
+    # （动它会影响 bulk import 的查重匹配）。
+    assert std.replace(" ", "") == "GB/T10058-2023", std
+    assert "(1)" not in name and "（1）" not in name, name
+    assert "10058" not in name, name
+    assert name == "电梯技术条件", name

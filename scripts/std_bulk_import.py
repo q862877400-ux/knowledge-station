@@ -47,6 +47,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from src.core.update.channels.base import norm_no  # noqa: E402
+from src.core.text_utils import clean_standard_name  # noqa: E402
 
 #: 文件名标准号提取（与 std_status_check.py 保持一致；兼容全角斜杠 ／）
 _STD_RE = re.compile(
@@ -172,7 +173,10 @@ def scan_matching(root: Path, info: dict[str, dict]) -> tuple[list[tuple[str, Pa
             dup_files += 1                # 同标准多文件（不同副本/扫描版）只导第一个
             continue
         seen.add(n)
-        out.append((std, p, meta.get("name") or p.stem))
+        # ⚠ 2026-09-17：`meta["name"]` 本身可能就是从文件名派生的（带副本后缀），
+        # 回退值 `p.stem` 更是原始 stem（含标准号前缀 + `(1)`）。统一过一次归一派生。
+        raw_name = meta.get("name") or p.stem
+        out.append((std, p, clean_standard_name(raw_name, standard_no=std)))
     return out, dup_files
 
 

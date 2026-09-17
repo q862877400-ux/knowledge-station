@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any
 
 from src.core.storage.write_queue import WriteWorker
+from src.core.text_utils import clean_standard_name
 
 log = logging.getLogger(__name__)
 _worker: WriteWorker | None = None
@@ -28,7 +29,11 @@ def _ingest_doc(payload: dict[str, Any]) -> dict[str, Any]:
     # 标准号/标签从文件名推断（auto_tag 规则层）；内容级标准号在入库后由 auto_tag 落 doc_meta
     tags = auto_tag("", filename=path.name)
     std = tags.standard_no or path.stem
-    name = path.stem
+    # ⚠ 2026-09-17 修：原为 `name = path.stem`（**原始 stem**，同时带着标准号前缀与
+    # 副本后缀 `(1)`）——这正是库内 :139 行 `standard_name` 变成 `电梯技术条件(1)` 的来源。
+    # 监听到的文件名普遍形如 `GB／T 10058-2023 电梯技术条件(1).pdf`（全角斜杠），
+    # 故必须走归一派生（剥开头标准号 + 去结尾副本后缀）。
+    name = clean_standard_name(path.stem, standard_no=std) or path.stem
     if path.suffix.lower() == ".pdf":
         return run_full_ingest(path, std, name)
     if path.suffix.lower() == ".docx":
