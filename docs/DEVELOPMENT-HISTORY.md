@@ -1908,3 +1908,43 @@ HTML 侧一律 `html.escape`。落盘到既有 `exports/` 目录（**不外发**
 **门禁（本步）**：`pytest` **1594 passed / 3 skipped / 0 failed**（主检出）；`mypy src`
 **133 files / 0 errors**；`smoke` **16 段全过**（`smoke-report-routes` 24/24）；
 `verify:commands` 22/22；`tsc --noEmit` 0。
+
+### 10.38 Phase D 第二步：**PPT 导出**（"报告、PPT"里最后那块）+ 一次**提交混装**的自记
+
+**⚠ 先说流程上的自记**：这一段的改动**与 §10.37 的法规修复混在同一个提交里**
+（`dc1935d`），而那条提交信息与快照标签（`step-36-law-false-positive-fix`）**只写了法规**。
+原因是"PPT 写完 → 复核结论回来 → 直接接着修"而中间没有提交。**代码与测试都在**，
+但历史把两件事记在一起了 ⇒ 本节补上 PPT 那半的记录，并把这次混装**写出来**（下次先提交再开新活）。
+
+**立项论证（方案 §8 要求 PPT"单独立项、先论证值不值"——这就是论证）**：
+1. **内容模型已经有了**：§10.36 的 `research_report.build_report_blocks()` 产出结构化内容块，
+   PPT 只做"块 → 幻灯片"的映射（**不重新组织内容**）⇒ 边际成本是一个薄映射 + 一次落盘，
+   **不是**一条新管线；也保证"报告写的和 PPT 写的是同一份内容"。
+2. **依赖几乎不新增**：`python-pptx` 是纯 Python 包，其依赖（`lxml`、`Pillow`）在本仓
+   已因 `python-docx` 等存在（实测 `lxml 6.1.2`、`PIL 12.3.0`）。⚠ 实测本机 venv 里
+   `pptx` **早就在**（1.0.3），但那是**传递依赖**恰好满足——与 `requests/bs4` 那条教训**同型**
+   ⇒ 按 `pyproject.toml` 既有惯例**显式声明** `python-pptx>=1.0` 并写明调用文件
+   （"0 import 就删依赖"的反面：**有 import 就必须声明**）。
+3. **业主明确要过**（原始要求"报告、PPT"），而 §10.36 只交付了 Markdown/HTML（"自行转"）。
+
+**做了什么**：`src/core/exports/slide_export.py`（`build_slides` 纯映射 + `write_slide_deck`
+落盘）+ 引擎 `POST /api/v1/report/research/slides` + 主机 `POST /ks/report/research/slides`
+（同款白名单转发）+ `pyproject.toml` 声明依赖 + `tests/test_slide_export.py`（**11 条**）
++ 冒烟 +5（`smoke-report-routes` 19 → **24**）。三条纪律写进了模块头注：
+**内容只从 `build_report_blocks` 来**；**诚实**（要点 >300 字截断并标 `…`、页数 >30 时
+**在 PPT 里**写明"后续见 Markdown 报告"、末页固定写"本机生成未外发 / 两个轴分开看 /
+仅线索不得单独支撑结论 / 待评审不进结论"）；**不假装 pptx 可用**（缺依赖抛**可操作**的错误）。
+**测试非空转**：`_check_citations` 恒空 ⇒ 4 条引用用例红；`_to_html` 不转义 ⇒ 转义用例红
+（§10.36 那批）；本步 PPT 侧的 `build_slides` 用"空页会掉 / 截断带 `…` / 超限写在末页"
+三条断言钉住。
+
+**诚实边界**：
+- **还没有 GUI 入口**（与 `collect`、Markdown 报告同一现状）：路由同源可达（脚本/模型工具可调）。
+- PPT 用的是 python-pptx 的**默认版式**（没有做设计/母版）；要点是**纯文本**（不做富文本、
+  不插图、不嵌表格）——要更好看得引入模板（未立项）。
+- 300 字/要点、30 页是**硬上限**（写死在常量里，超了会**说明**而不是静默丢）。
+- `.docx` 侧仍未扩到材料平面（三条导出用途不同，**没有**顺手合并）。
+
+**门禁（这段）**：`pytest` **1594 passed / 3 skipped / 0 failed**（其中 PPT 侧 +11）；
+`mypy src` **133 files / 0 errors**；`smoke` **16 段全过**（`smoke-report-routes` **24/24**）；
+`verify:commands` 22/22；`tsc --noEmit` 0。
