@@ -698,3 +698,12 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     是**文字**不是标签，不再剥（浏览器 `innerText` 会显示它们）。正向用例 + **反向对照**
     （元素外面的真 script 仍必须剥，含未闭合的）成对；变异 T1 ⇒ 正向 RED、反向仍绿。
     门禁 1703 passed / 3 skipped。**b10 至此只剩 LOW-2（§10.56 表 `A→B0` 记错）与 G3/G4（两处零闸门）。**
+
+    **本表收尾（step-64，§10.65）**：b10-G3（端点索引**零闸门** ⇒ 新增
+    `TestEndpointIndexMatchesReality`：docstring 索引与真实注册路由**逐条相等**，占位名归一后比较）、
+    b10-G4（面板 `why` 接线**零闸门** ⇒ 冒烟新增两条**钉接线本身**的断言）、
+    b10-LOW-2（§10.56 表 `A→B0` 由"0 行"改为正确的 **5879 行 `std→law`**，并写明那个格子原先
+    **抵消了该节要立的根因结论**）、b11-INFO-1（`anchorNote` 死状态 ⇒ 现在**真的渲染出来**）。
+    变异 U1/U2 均 RED；门禁 pytest **1704**、smoke client-entry **84/84**。
+    ⇒ **b10 四条 + b11 五条 + INFO-1 全部收口**；**只剩** INFO-4（报告 ⚠ 不覆盖「依据」节，
+    要动 `authority.render_evidence` ⇒ **新立项**）与通道 E 的"未核验沉底"（要加 JOIN `doc_meta`）。
