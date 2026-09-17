@@ -68,9 +68,13 @@ class TestRules:
 
     def test_two_independent_domains_promote_t3_to_corroborated(self, project):
         pid = project["project_id"]
-        _add(pid, "媒体A", "营业收入一百亿元", tier="T3", domain="a-news.com")
-        _add(pid, "媒体B", "营业收入一百亿元", tier="T3", domain="b-news.com")
-        a = au.assemble_evidence(pid, "营业收入")
+        # ⚠ **必须是两篇措辞不同的报道**：内容近似会被判成"同一篇稿子"而合并成一个来源
+        # （见 TestSameStoryIsNotIndependentSources）。测"独立来源"就得让它们真的独立。
+        _add(pid, "媒体A", "据当地通报，住宿标准每晚不超过八百元，自下月起执行。",
+             tier="T3", domain="a-news.com")
+        _add(pid, "媒体B", "有关部门答复称，住宿费用上限调整为八百元一晚。",
+             tier="T3", domain="b-news.com")
+        a = au.assemble_evidence(pid, "住宿标准")
         assert a["counts"]["corroborated"] == 2
         assert len(au.usable_hits(a)) == 2          # 可作**辅证**
         assert all(h["behaviour_label"] == au.BEHAVIOUR_LABELS["corroborated"]
@@ -238,8 +242,10 @@ class TestCorroborationIsFalsifiable:
 
     def test_url_provides_identity_so_two_domains_corroborate(self, project):
         pid = project["project_id"]
-        _add(pid, "媒体A", "住宿标准每晚八百元", tier="T3", url="https://a-news.com/x/1")
-        _add(pid, "媒体B", "住宿标准每晚八百元", tier="T3", url="http://b-news.com/y?z=1")
+        _add(pid, "媒体A", "据通报，住宿标准每晚不超过八百元，自下月起执行。",
+             tier="T3", url="https://a-news.com/x/1")
+        _add(pid, "媒体B", "有关部门答复称，住宿费用上限调整为八百元一晚。",
+             tier="T3", url="http://b-news.com/y?z=1")
         a = au.assemble_evidence(pid, "住宿标准")
         assert a["counts"]["corroborated"] == 2
         assert len(au.usable_hits(a)) == 2
@@ -257,13 +263,69 @@ class TestCorroborationIsFalsifiable:
     def test_unknown_identity_does_not_drag_down_known_corroboration(self, project):
         """混合场景：两个已知域名互证 ⇒ 那两条升为辅证；身份未知的那条仍只是线索。"""
         pid = project["project_id"]
-        _add(pid, "媒体A", "住宿标准每晚八百元", tier="T3", domain="a-news.com")
-        _add(pid, "媒体B", "住宿标准每晚八百元", tier="T3", domain="b-news.com")
+        _add(pid, "媒体A", "据通报，住宿标准每晚不超过八百元，自下月起执行。",
+             tier="T3", domain="a-news.com")
+        _add(pid, "媒体B", "有关部门答复称，住宿费用上限调整为八百元一晚。",
+             tier="T3", domain="b-news.com")
         _add(pid, "无出处", "住宿标准每晚八百元", tier="T3")
         a = au.assemble_evidence(pid, "住宿标准")
         assert a["counts"]["corroborated"] == 2
         assert a["counts"]["leads_only"] == 1
         assert len(au.usable_hits(a)) == 2
+
+
+class TestSameStoryIsNotIndependentSources:
+    """**一稿多发不是多源互证**（2026-09-17 加近重复检测后钉住）。
+
+    独立复核实测：只按域名判"独立来源"时，**同一篇通稿被两个站点转载**会被算成
+    两个独立来源，于是二手转述被升成"多源互证"。域名这一层挡不住一稿多发——必须看内容。
+    """
+
+    def test_identical_text_on_two_domains_is_ONE_source(self, project):
+        pid = project["project_id"]
+        same = "据通报，住宿标准每晚不超过八百元，自下月起执行。"
+        _add(pid, "转载A", same, tier="T3", domain="a-news.com")
+        _add(pid, "转载B", same, tier="T3", domain="b-news.com")
+        a = au.assemble_evidence(pid, "住宿标准")
+        assert a["counts"]["corroborated"] == 0, "同一篇稿子两个域名 ≠ 两个独立来源"
+        assert a["counts"]["leads_only"] == 2
+        assert au.usable_hits(a) == []
+        assert any("一稿多发" in n or "内容近似" in n for n in a["notes"]), a["notes"]
+
+    def test_copy_with_reworded_punctuation_is_still_ONE_source(self, project):
+        """只改标点/空白/全半角的"转载"仍是同一篇（归一化后相等）。"""
+        pid = project["project_id"]
+        _add(pid, "转载A", "据通报，住宿标准每晚不超过八百元，自下月起执行。",
+             tier="T3", domain="a-news.com")
+        _add(pid, "转载B", "据通报  住宿标准每晚不超过八百元 ； 自下月起执行！",
+             tier="T3", domain="b-news.com")
+        a = au.assemble_evidence(pid, "住宿标准")
+        assert a["counts"]["corroborated"] == 0, "改了标点仍是同一篇稿子"
+        assert a["counts"]["leads_only"] == 2
+
+    def test_same_domain_two_articles_is_still_ONE_source(self, project):
+        """同一家媒体的两篇不同文章 = 一个来源（这是域名图的节点语义）。"""
+        pid = project["project_id"]
+        _add(pid, "同站A", "据通报，住宿标准每晚不超过八百元，自下月起执行。",
+             tier="T3", domain="a-news.com")
+        _add(pid, "同站B", "有关部门答复称，住宿费用上限调整为八百元一晚。",
+             tier="T3", domain="a-news.com")
+        a = au.assemble_evidence(pid, "住宿标准")
+        assert a["counts"]["corroborated"] == 0, "同一家媒体的两篇不算两个来源"
+        assert a["counts"]["leads_only"] == 2
+
+    def test_syndicated_pair_plus_one_real_second_source(self, project):
+        """`a.com` X + `b.com` 转载 X + `c.com` **另一篇** ⇒ 合并后是 **2** 个来源 ⇒ 可互证。"""
+        pid = project["project_id"]
+        x = "据通报，住宿标准每晚不超过八百元，自下月起执行。"
+        _add(pid, "原发", x, tier="T3", domain="a-news.com")
+        _add(pid, "转载", x, tier="T3", domain="b-news.com")
+        _add(pid, "另一家", "有关部门答复称，住宿费用上限调整为八百元一晚。",
+             tier="T3", domain="c-news.com")
+        a = au.assemble_evidence(pid, "住宿标准")
+        assert a["counts"]["corroborated"] == 3          # a/b 合并成一个来源 + c = 2 来源
+        assert any("a-news.com" in n and "b-news.com" in n and "同一来源" in n
+                   for n in a["notes"]), a["notes"]
 
 
 class TestNoSingleScoreSorting:

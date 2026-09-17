@@ -35,6 +35,7 @@ from __future__ import annotations
 
 from typing import Any
 
+from src.core.materials import dedup
 from src.core.storage import material_repo as mr
 
 #: 轴的取值 → 承重行为。**规则只有一个所有者**（改这里即改全局判据）。
@@ -160,14 +161,20 @@ def assemble_evidence(project_id: str, question: str, *, limit: int = 8) -> dict
             usable.append(h)
 
     # T3 的互证判定：按"该主张"分组——这里用**检索命中的共性**近似：
-    # 只要出现 ≥2 个**身份已知且互异**的来源，就认为这批线索获得多源互证。
+    # 只要出现 ≥2 个**内容各自独立**的来源，就认为这批线索获得多源互证。
     # ⚠ 这是**批级**判定，不是逐主张级（逐主张需要语义聚类，属后续；
     #   当下宁可保守——批级互证只把线索升到"辅证"，不会升到"可作依据"）。
     # ⚠ **身份未知（无域名/URL）的 T3 不参与互证**（见 `_source_identity` 的 None 语义）。
+    # ⚠ **内容近似的域名要合并**（`dedup.independent_source_count`）：独立复核实测，
+    #   只按域名判会把"**同一篇通稿被两个站点转载**"算成两个独立来源 ⇒ 假互证。
+    #   现在"独立"要求**域名不同且不是同一篇稿子**。
     identities = {h["source_identity"] for h in leads}
     identities.discard(None)
+    source_count, merged_domains = dedup.independent_source_count(
+        [h["source_identity"] for h in leads],
+        [str(h.get("text") or "") for h in leads])
     corroborated: list[dict] = []
-    if len(identities) >= 2:
+    if source_count >= 2:
         # ⚠ **逐条**判定，不是整批一起升：身份未知的那条**没有**被互证
         # （它无法与任何来源配对）。整批一起升会让"无出处的帖子"搭上别人的互证
         # ——本文件第一版就是这么错的，被 test_unknown_identity_does_not_drag_down… 抓住。
@@ -185,9 +192,22 @@ def assemble_evidence(project_id: str, question: str, *, limit: int = 8) -> dict
         notes.append(f"⚠ {len(blocked)} 条材料被声明为「本任务准则」，但来源**不可回溯（T4）**，"
                      "故**未按准则承重**（T4 禁用于结论是绝对规则）——它们列在"
                      "「已知不可用」一节，请自行判断是否需要换用可回溯的来源。")
+    merged_groups = [g for g in merged_domains if len(g) > 1]
+    merged_note = ("；".join(f"{'、'.join(g)} 承载**内容近似**的转述" for g in merged_groups)
+                   if merged_groups else "")
     if corroborated:
-        notes.append(f"二手转述 {len(corroborated)} 条获 **{len(identities)} 个独立来源**互证，"
+        notes.append(f"二手转述 {len(corroborated)} 条获 **{source_count} 个独立来源**互证，"
                      f"可作辅证（来源：{'、'.join(sorted(identities))}）。")
+        # 被合并的域名要说出来：用户才知道"为什么两个域名只算一个来源"
+        if merged_note:
+            notes.append(f"其中 {merged_note}，已按**同一来源**计（疑似同稿转载）"
+                         "——一稿多发**不是**多源互证。")
+    elif source_count == 1 and merged_groups:
+        # **合并挡住了互证**时更要说明**为什么**（这正是最需要解释的情形：
+        # 用户看到两个域名，会以为已经有互证了）。旧写法只在互证成立时说明，
+        # 于是"为什么不算两个来源"在最该解释的时候没有解释——被测试抓到。
+        notes.append(f"有 {merged_note}，已按**同一来源**计（疑似同稿转载）"
+                     f"⇒ 实际只有 **1 个**独立来源，**不构成互证**，只能当线索。")
     if leads:
         unknown = [h for h in leads if h["source_identity"] is None]
         notes.append(f"二手转述 {len(leads)} 条**仅单一来源**，只能当线索，**未用于支撑结论**。")
