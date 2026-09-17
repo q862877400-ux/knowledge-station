@@ -2717,4 +2717,62 @@ raw text 族 1、行预算 2、掉条数声明 1、SQL NULL 1、全角斜杠 1�
 **变异实验**：Y1 / Y2 / Y3 / Z1 / Z2 **全部 RED 且逐字节还原**（每一条都先用
 `Copy-Item` 备份、跑完比对 sha256）。
 
+### 10.51 把复核的"两处未评测"补上：PPT 行预算**钉到真实版式**，`standard_type` 做**只读实测**
+
+复核 b7/b8 都点了同两件事：**PPT 的溢出只有估算**、**`standard_type` 排序从来没有评测**。
+这一节把两件事都做成"有证据"，顺带**发现并修掉一个排序缺陷**。
+
+**① PPT：行预算不再只是拍脑袋的常数（用真实版式反算 + 独立断言）**
+- 从真实 `Presentation()` 量出：幻灯片 `9144000 × 6858000` EMU（10in × 7.5in），
+  正文框是 `add_textbox(0, 1_000_000, slide_width, slide_height - 1_200_000)`
+  ⇒ 高 `5658000` EMU = **445.5pt**；不设字号（`size=None`）⇒ 版式默认 **18pt**；
+  行高按 1.2 倍 ⇒ 21.6pt/行 ⇒ 容量 **≈20.6 行**，取 **18** 作预算（留一行多余量）。
+- 这些数字**进了常量并带注释**（`SLIDE_*_EMU` / `BODY_HEIGHT_PT` / `ASSUMED_FONT_PT` /
+  `LINE_HEIGHT_FACTOR`），并新增 `test_line_budget_matches_the_real_slide_geometry`：
+  **从真实模板重算**并断言"行预算 × 行高 ≤ 正文框高"、"每行容量 = 框宽/字号"一致
+  ——常量与版式**不会各自漂移**。
+- `estimate_lines()` 也改成**全角当量**模型（中文 1.0、ASCII 0.5）：一律按字符数会把英文
+  清单**高估**（拆得更碎，只是浪费），而它的反面（低估中文）才是危险方向；两条都有断言
+  （`test_ascii_bullets_are_cheaper_than_cjk_bullets`）。
+- **变异实验**：`CHARS_PER_LINE=100` / `MAX_LINES_PER_SLIDE=25` / `estimate_lines` 退回字符数
+  ⇒ **三个变异体全 RED**且逐字节还原。
+
+**② `standard_type` 排序：只读实测（不是"读代码觉得它有用"）**
+只读聚合生产库（`mode=ro`，两条 `GROUP BY`，不写库、不做大扫描）：
+```
+doc_meta.standard_type : recommended 6130 / mandatory 287
+按 legal_hierarchy     : GB/T 6130 份（全 recommended） / GB 287 份（全 mandatory）
+条款级                 : GB/T 486,587 条（全 recommended） / GB 33,917 条（全 mandatory）
+```
+**结论（对复核那个问题的正面回答）**：在**当时的代码**下，`standard_type` 这个排序键
+**在生产库里等于没作用**——不是因为库小，而是因为两个档被 `rank` 完全分开了
+（`GB`=6、`GB/T`=99）⇒ 第三键**没有竞争对象**，既不会变好也不会变坏。
+**但同一份数据也暴露出一个真缺陷**：`GB/T` **不在** `HIERARCHY_RANK` 里
+（`.get(..., 99)`）⇒ **486,587 条条款**（库里的绝大多数）**排在企标（10）之后**。
+
+**修法（缺陷修复，不是口味）**：`HIERARCHY_RANK` 补 `'GB/T': 6` 与 `'GB/Z': 6`
+（三者都是**国家标准**；强制/推荐/指导的区分交给第②键 `is_mandatory` 与第③键
+`standard_type` —— 那正是它们存在的意义）。补上之后：
+- `GB/T` 回到与 `GB` 同档 ⇒ **第三键第一次真正有区分度**，且方向（GB 在前）与
+  实测的"GB 全 mandatory / GB/T 全 recommended"一致 ⇒ **启用它不会引入相关性风险**；
+- `hierarchy_label` 用 `<= 5` 判"法律类"，6 不受影响（不会把 GB/T 误标成法律层级）。
+新增 `test_rank_with_hierarchy_gbt_is_a_national_standard`（含"法律 > GB/T > 企标"的
+顺序断言）；变异体 H1（去掉 `GB/T`/`GB/Z`）**RED** 且逐字节还原。
+
+**诚实边界**：
+- ①的几何仍然是**按默认模板 + 默认字号 + 1.2 行高**的估算，**没有渲染级测量**
+  （要渲染得引 LibreOffice/真机 PowerPoint，未立项）；它现在钉住的是"**常量与版式一致**"
+  与"**不再用条数当代理**"，不是"保证不溢出"。
+- ②的评估是**分布统计**（只读），**不是**相关性 A/B：我证明的是"改前无竞争对象、
+  改后方向与数据一致"，**没有**用真实问题做人工相关性打分（那需要评测集与标注，
+  本仓没有）。若将来 `standard_type` 与 `hierarchy` 不再高度相关（例如同层级里混入
+  两种类型），**应重新评估**再决定是否保留这个键。
+- 生产库只读聚合用了 `%APPDATA%\KnowledgeStation\database\knowledge.db`（一条 `GROUP BY`），
+  **未写库**（`mode=ro`）。
+
+**门禁（本步）**：`pytest` **1661 passed / 3 skipped / 0 failed**（+4：几何一致性、
+全角当量、GB/T 位阶、以及一条重写）；`mypy src` **134 files / 0 errors**；
+`smoke` 18 段（未改 `plugin/`）；`verify:commands` 22/22；`tsc --noEmit` 0。
+变异实验 G1/G2/G3/H1 **全 RED 且逐字节还原**。
+
 

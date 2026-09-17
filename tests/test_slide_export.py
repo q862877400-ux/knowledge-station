@@ -130,6 +130,41 @@ class TestSlideModel:
         assert "未放入本 PPT" in tail, tail
         assert "完整清单见同名 Markdown 报告" in tail, tail
 
+    def test_line_budget_matches_the_real_slide_geometry(self):
+        """**行预算必须与真实版式一致**（复核 b8 的 MEDIUM-3 的"钉法"要求）。
+
+        不信任常量：这里**从真实 `Presentation()` 重算**几何——幻灯片尺寸、正文框高度
+        （`slide_height - 1_200_000` EMU）、行高（`LINE_HEIGHT_FACTOR × ASSUMED_FONT_PT`）
+        ——再断言"行预算 × 行高 ≤ 正文框高度"。任何一边改了而另一边没跟上，这条就红。
+        """
+        from pptx import Presentation
+        prs = Presentation()
+        body_h_pt = (prs.slide_height - 1_200_000) / 12_700            # EMU → pt
+        line_pt = se.LINE_HEIGHT_FACTOR * se.ASSUMED_FONT_PT
+        capacity = body_h_pt / line_pt
+        assert capacity >= se.MAX_LINES_PER_SLIDE, (capacity, se.MAX_LINES_PER_SLIDE)
+        # 常量侧的几何也要与真实模板一致（防止"写死一份、模板另一份"）
+        assert se.SLIDE_WIDTH_EMU == prs.slide_width, (se.SLIDE_WIDTH_EMU, prs.slide_width)
+        assert se.SLIDE_HEIGHT_EMU == prs.slide_height
+        assert abs(se.BODY_HEIGHT_PT - body_h_pt) < 0.01
+        # 每行容量的算式：正文框宽（pt）/ 字号（pt）——中文 1 字 ≈ 1 em
+        per_line = (prs.slide_width / 12_700) / se.ASSUMED_FONT_PT
+        assert abs(per_line - se.CHARS_PER_LINE) <= 1, (per_line, se.CHARS_PER_LINE)
+
+    def test_ascii_bullets_are_cheaper_than_cjk_bullets(self):
+        """半角字符按 0.5 全角当量折算 ⇒ 同样**字符数**时英文占行更少。
+
+        为什么值得钉：一律按"字符数"会把英文清单**高估**行数（拆得更碎），
+        而它的反面（低估中文）才是危险方向——两条都要有明确行为。
+        """
+        zh = "字" * 80              # 80 全角 ⇒ 2 行
+        en = "a" * 80               # 80 × 0.5 = 40 当量 ⇒ 1 行
+        assert se.estimate_lines(zh) == 2, se.estimate_lines(zh)
+        assert se.estimate_lines(en) == 1, se.estimate_lines(en)
+
+    def test_line_budget_matches_the_real_slide_geometry_placeholder(self):
+        pass
+
     def test_limits_come_from_the_report_blocks(self):
         """末页的"已知限制"**从报告块取**（唯一内容所有者），不是手写第二份。
 

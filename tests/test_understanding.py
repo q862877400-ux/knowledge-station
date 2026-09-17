@@ -81,6 +81,33 @@ def test_condition_filter_and_rank():
     assert ranked[0].clause_revision_id == "c"
 
 
+def test_rank_with_hierarchy_gbt_is_a_national_standard():
+    """**`GB/T` 必须与国家标准的位阶相符**（2026-09-17 实测补漏，§10.51）。
+
+    这张表原来只有 `'GB'`，而 `pipeline._hier_from_no()` 会产生 `'GB/T'` / `'GB/Z'`
+    ⇒ `.get(..., 99)` 把它们排到 **99**，即**排在企标（10）之后**。
+    生产库实测（只读聚合）：`GB/T` **6130 份 / 486,587 条条款**（库里的绝大多数）
+    都落在这个位置——这是排序缺陷，不是口味问题。
+    """
+    from src.core.domain.models import ClauseRevisionModel
+    from src.core.query.understanding import HIERARCHY_RANK, rank_with_hierarchy
+
+    assert HIERARCHY_RANK['GB/T'] == HIERARCHY_RANK['GB'] == 6, HIERARCHY_RANK
+    assert HIERARCHY_RANK['GB/Z'] == 6, HIERARCHY_RANK
+    assert HIERARCHY_RANK['GB/T'] < HIERARCHY_RANK['企标']
+
+    def mk(cid, hier):
+        return ClauseRevisionModel(
+            clause_revision_id=cid, doc_id="d", clause_key=cid, standard_no="S",
+            clause_number="1", content_text="t", knowledge_type="rule",
+            modality="应", modality_strength=3, page_start=1, page_end=1,
+            legal_hierarchy=hier)
+
+    ranked = rank_with_hierarchy([mk("qi", "企标"), mk("gbt", "GB/T"), mk("law", "法律")])
+    assert [c.clause_revision_id for c in ranked] == ["law", "gbt", "qi"], \
+        [c.clause_revision_id for c in ranked]
+
+
 def test_standard_type_is_a_real_sort_term_not_a_dead_one():
     """`standard_type` 那一项**曾经是死项**（2026-09-17 独立复核 b7 的 MEDIUM-4）。
 

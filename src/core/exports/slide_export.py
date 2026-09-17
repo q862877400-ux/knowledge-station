@@ -34,17 +34,38 @@ from src.core.exports import research_report as rr
 #: `build_slides` 最多产出 `MAX_SLIDES - 1` 张**内容页**，`write_slide_deck` 再加 1 张末页。
 MAX_SLIDES = 30
 
+#: **版式几何（默认 python-pptx 模板，实测值）**——`MAX_LINES_PER_SLIDE` 不是拍脑袋来的：
+#:   · 幻灯片 10in × 7.5in = `9144000` × `6858000` EMU；
+#:   · 正文框在 `write_slide_deck` 里是 `add_textbox(0, 1_000_000, slide_width,
+#:     slide_height - 1_200_000)`（顶部留标题、底部留边）⇒ 高 `5658000` EMU = **445.5pt**；
+#:   · 我们不设字号（`font.size = None`）⇒ 用版式默认 **18pt**；
+#:   · 行高按 1.2 倍估 ⇒ 21.6pt/行 ⇒ 容量 `445.5 / 21.6 ≈ 20.6` 行。
+#: ⚠ 这几个数字有**独立测试**从真实 `Presentation()` 重算并断言一致
+#: （`test_slide_export.py::test_line_budget_matches_the_real_slide_geometry`），
+#: 所以常量与版式**不会各自漂移**。⚠ 仍是**估算**（默认模板 + 默认字号 + 1.2 行高），
+#: **没有**做渲染级测量 ⇒ 是"**减少溢出**"，不是"保证不溢出"。
+SLIDE_WIDTH_EMU = 9_144_000
+SLIDE_HEIGHT_EMU = 6_858_000
+BODY_TOP_EMU = 1_000_000
+BODY_HEIGHT_EMU = SLIDE_HEIGHT_EMU - 1_200_000          # 5658000 EMU
+BODY_HEIGHT_PT = BODY_HEIGHT_EMU / 12_700               # 445.51pt
+ASSUMED_FONT_PT = 18
+LINE_HEIGHT_FACTOR = 1.2
+
 #: 单张内容页的**行预算**（超了就续页，标题加"（续 N）"）。
 #: 为什么是"行"而不是"条数"（2026-09-17 独立复核 b8 的 MEDIUM-3，实测打回）：
-#: 上一版写的是"每页 ≤ 12 条"，而按默认版式的**几何**算——正文框可用高度 ≈ 6.19in，
-#: 一行 ≈ 0.30in（18pt + 行距）⇒ 约 20 行；而 12 条 × 40 字 ≈ 24 行 ≈ 7.20in **已经溢出**。
-#: 也就是说那个常量**本身就不够**（与 b7 的"30 页假上界"同型：看起来有上界，其实不是）。
-#: ⚠ 这里的两个数字都是**估算**（按 python-pptx 默认版式 + 默认字号），**没有**做渲染级测量
-#: ——所以它是"**减少溢出**"，不是"保证不溢出"；真排版要引模板/渲染测量（未立项）。
+#: 上一版写的是"每页 ≤ 12 条"，而复核算过几何：12 条 × 40 字 ≈ 24 行 ≈ 7.20in **已经溢出**
+#: （可用只有 6.19in ≈ 20.6 行）。也就是说那个常量**本身就不够**
+#: （与 b7 的"30 页假上界"同型：看起来有上界，其实不是）。
+#: 18 = 20.6 行的**约 88%**，留一行多的余量给项目符号间距与字体回退。
 MAX_LINES_PER_SLIDE = 18
 
-#: 估算的**每行字符数**（正文框宽 ≈ 8.7in；中文按 18pt 字符宽估得 ≈ 35，取 40 偏保守）。
+#: 每行容纳多少"**全角当量字符**"：正文框宽 10in = 720pt，18pt 的中文字宽 ≈ 18pt
+#: ⇒ `720 / 18 = 40`。ASCII 按 0.5 全角计（见 `estimate_lines`），所以这个数是**全角当量**。
 CHARS_PER_LINE = 40
+
+#: 半角字符折算成"全角当量"的系数（估：ASCII 平均字宽 ≈ 0.5 em）。
+NARROW_CHAR_WEIGHT = 0.5
 
 #: 单条要点的字符上限（超长截断 + `…`；全文在 Markdown 报告里）。
 MAX_BULLET_CHARS = 300
@@ -64,12 +85,18 @@ def _clip(text: str, cap: int = MAX_BULLET_CHARS) -> str:
 
 
 def estimate_lines(bullet: str) -> int:
-    """一条要点**估算**占几行（按 `CHARS_PER_LINE` 折算，至少 1 行）。
+    """一条要点**估算**占几行（至少 1 行）。
 
+    按"**全角当量**"折算：中文/全角标点算 1，ASCII 算 `NARROW_CHAR_WEIGHT`（0.5），
+    再除以每行容量 `CHARS_PER_LINE`。为什么不做"一律按字符数"：一份英文清单会被
+    **高估**行数（拆得更碎，安全但浪费页），而一份中英混排的会被**低估**（危险方向）。
     单独抽出来是为了**可断言**（复核 b8 建议的钉法：断言"每页估算行数 ≤ 行预算"）。
     """
-    n = len(bullet or "")
-    return max(1, -(-n // CHARS_PER_LINE))       # 向上取整
+    text = bullet or ""
+    wide = sum(1 for ch in text if ord(ch) > 0x2E7F)       # 全角/宽字符（含中文、全角标点）
+    narrow = len(text) - wide
+    ems = wide + narrow * NARROW_CHAR_WEIGHT
+    return max(1, int(-(-ems // CHARS_PER_LINE)))          # 向上取整，至少 1 行
 
 
 def _paginate(slides: list[dict[str, Any]]) -> list[dict[str, Any]]:

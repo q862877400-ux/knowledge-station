@@ -191,8 +191,18 @@ def apply_condition_filter(clauses: list[Any], slots: dict) -> list[Any]:
 
 HIERARCHY_RANK = {
     '宪法': 1, '法律': 2, '行政法规': 3, '地方性法规': 4, '部门规章': 5,
-    'GB': 6, 'JGJ': 7, 'DB': 8, 'T': 9, '企标': 10,
+    'GB': 6, 'GB/T': 6, 'GB/Z': 6,          # 三者都是**国家标准**（强制/推荐/指导由后面两个键分）
+    'JGJ': 7, 'DB': 8, 'T': 9, '企标': 10,
 }
+# ⚠ **`GB/T` / `GB/Z` 是 2026-09-17 的实测补漏**（复核 b8 未覆盖项 + 本步的只读评估）：
+# 这两个码由 `pipeline._hier_from_no()` 产生，而这张表里**没有它们** ⇒ `.get(..., 99)`
+# 把它们排到 **99**，也就是**排在企标（10）之后**。生产库实测（只读 `doc_meta` 聚合）：
+#   `GB`   287 份 / **33,917** 条条款（全 mandatory）
+#   `GB/T` 6130 份 / **486,587** 条条款（全 recommended）
+# ⇒ 库里**绝大多数条款**此前都落在 rank 99 —— 这是**排序缺陷**，不是口味问题
+#   （推荐性国标不可能低于企标）。补上之后它们回到 6，与 GB 同级；
+#   强制/推荐/指导的区分交给下面第②③个键（这正是它们存在的意义）。
+# ⚠ `hierarchy_label` 用 `<= 5` 判"法律类"⇒ 6 不会把 GB/T 误标成【法律层级】。
 
 def rank_with_hierarchy(clauses: list[Any]) -> list[Any]:
     """按"位阶 → 是否强制 → 标准类型是否强制"排序。
@@ -202,6 +212,10 @@ def rank_with_hierarchy(clauses: list[Any]) -> list[Any]:
     ⇒ 恒取默认 `'mandatory'` ⇒ 对所有条款都是 0，**零区分度**。
     现在字段已补（`fetch_full_clause` 从 `doc_meta.standard_type` 填），并且
     **`None`（未登记/采集件）判为不优先**——不知道就别替它加分。
+    ⚠ 它**真的起作用**是在 `GB/T`/`GB/Z` 补进 `HIERARCHY_RANK` **之后**：
+    在此之前 GB 与 GB/T 的 rank 分别是 6 / 99，根本不在同一档，第三项没有用武之地。
+    生产库实测（只读）：GB 33,917 条全 mandatory、GB/T 486,587 条全 recommended
+    ⇒ 这一档里"强制在前"就是"GB 在前"，与第②键（条款级 `is_mandatory`）方向一致。
     """
     def key(c: Any):
         rank = HIERARCHY_RANK.get(getattr(c, 'legal_hierarchy', '') or '', 99)

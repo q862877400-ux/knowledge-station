@@ -478,6 +478,12 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
    **仍未做**：`mismatch` 之后的**重建流程**（重解析重建区间）、以及把锚点判据接进
    **答案链**（`ks_answer` 的证据里目前不带锚点状态——材料进证据集走的是材料检索，
    与条款区间不是同一套坐标，这条要单独想清楚再动）。
+6. **`standard_type` 排序项**（复核 b7 的 MEDIUM-4 / b8 的未覆盖项）：字段已补、
+   `fetch_full_clause` 已填（§10.46）。**2026-09-17 只读评估后的结论**（§10.51）：
+   在这之前它**在生产库里等于没作用**（`GB`=rank6 全 mandatory、`GB/T`=rank**99** 全
+   recommended ⇒ 两档已被 rank 完全分开，第三键无竞争对象）；本步把 `GB/T`/`GB/Z`
+   补进 `HIERARCHY_RANK`（**缺陷修复**：486,587 条条款此前排在企标之后）**之后**，
+   第三键才真正有区分度，且方向与第②键一致。
 6. **`material_chunks()` / `list_materials()` / `get_material()` 不设评审门**（故意，供评审人
    读正文用）。生产代码今天没有分析路径用它们 ⇒ 一旦 Phase B 的答案链接到其中任何一个，
    **就是绕过评审且不报错**。接答案链时必须只经 `approved_materials()` / `search_materials()`。
