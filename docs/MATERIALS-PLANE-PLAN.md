@@ -1150,3 +1150,43 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     → ③ `asyncio.to_thread` 池不对称 → ④ **自动成文**（由系统得出结论）是否立项（触及答案链，P1）。
 
 
+39. **§10.93 收口两个遗留结构洞（`/laws/*` 回 `def` + 重活前缀表）＋ 处理复核 b21 ＋ 三条既存假红/假绿**
+    （step-93，同一提交；历史：`docs/DEVELOPMENT-HISTORY.md` §10.93；快照标签
+    `step-92-laws-def-and-heavy-table`，标签号比章节号小 1）。
+
+    **A. 结构洞（从 §10.85/b16 起每轮"下一步"都挂着的那两条，本步一起收）**
+
+    | 项 | 一句话 | 状态 |
+    |---|---|---|
+    | `asyncio.to_thread` 池不对称 | 5 条 `/laws/*` 写 `async def + await asyncio.to_thread(...)`：**看着**让出了事件循环，实际换到 asyncio 默认执行器（`min(32,cpu+4)`）⇒ 既不受 `THREADPOOL_TOKENS=16` 约束、也不吃重活闸门 | ✅ 5 条改回 `def` ⇒ 回到有界池；**全库 `asyncio.to_thread` 零使用** |
+    | 实测立论 | limiter 收到 **2**、各 8 条并发：anyio 峰值 **2**（0.403s）／`asyncio.to_thread` 峰值 **8**（0.119s）／反事实改走 anyio 峰值 **2** | ✅ `var/tmp/probe-to-thread-asymmetry.py` |
+    | 重活前缀表 | `/api/v1/laws/` 不在表里 | ✅ **逐条**加 5 条重活路径；`GET /laws/catalog`（本地快读）与 `GET /laws/sources`（静态字典）**故意不加**（用前缀+SKIP 会把最重的 `/catalog/refresh` 一起豁免） |
+    | 判据（通则三） | 端点里不许出现 `asyncio.to_thread` / `run_in_executor` —— **AST 判据**（注释/docstring 不算）+ 6 个合成正负样本 + 一条**带缩进源码**样本（`inspect.getsource()` 对闭包内端点是缩进的，第一版就炸在这） | ✅ 新用例；理由也有回归锚（令牌=2 ⇒ anyio≤2 / asyncio≥4） |
+    | 名单 | `_ASYNC_ENDPOINTS` 从 **6 条降到 1 条**（只剩 SSE 的 `/chat/completions`）；连带把"async 端点 ≥4/≥5 条"这种**魔数哨兵**换成"扫到的 async 集合 == 名单" | ✅ |
+
+    **B. 三条既存假红/假绿（都不是本步主题，本步顺手修掉）**
+
+    | 编号 | 一句话 | 状态 |
+    |---|---|---|
+    | ① 顺序依赖假绿 | `test_refresh_full_crawl_dedup_and_result` 断言**全表** `by_category`，而库是会话级共享 ⇒ 只要 `test_law_source_api.py` 先跑（留一行 `API测试`）就红、全量跑（字母序）却绿。**在 HEAD 的干净树里复现过**（api 在前 1 failed／倒序 22 passed） | ✅ 改成"基线 + 本次增量"（该文件自己开头就写了这条纪律） |
+    | ② 时序假红（方案"已知未决 §1"那条） | `_fake_daemon` 在**循环里**每次读 `ds._job_dir()`（现读 env）⇒ 上一用例的残留 daemon 可能动**下一个用例**的目录（`fail=True` 那个会写 `.error.json` 让下一个用例返回 None） | ✅ 启动时捕获目录 + `stop.set()` 后 `join(2.0)`；整文件 8/8、连跑 **20 次 0 红**。⚠ **原始红没复现出来**，机制是读代码推的 |
+    | ③ 硬编码路径（**b21-MEDIUM**） | `tests/test_ks_answer.py` 写死 `sys.path.insert(0, r"D:\AI\work space\zcode")` ⇒ 冻结树里单跑时 `src`/`ks_answer` **从工作区加载**，"27 passed"是绿在对工作区的测试上 | ✅ `Path(__file__).resolve().parent.parent`；来源对照探针（修前=工作区／修后=提取树） |
+
+    **C. 处理复核 b21**（报告 `var/tmp/verify-b21-artifacts/VERIFY-REPORT.md`，500 行）
+
+    | 编号 | 一句话 | 状态 |
+    |---|---|---|
+    | b21-H1..H6 | **6 条全部 CONFIRMED**：先渲染后落盘（反事实改回旧顺序 ⇒ 唯一守卫红、盘上恰好 2 个孤儿）；三形态同源（`h2→h4` 变异 ⇒ 红）；模板契约（删样式 ⇒ 同一个 `KeyError`）；扁平错误信封（读的是 `error`）；门禁数字全复现（自制收集数 **1815 = 1811+4**）；三条标签 peel 正确且"补打"有时间线证据 | ✅ 复核方总评："**本区间可以信**" |
+    | b21-MEDIUM | `test_ks_answer.py` 硬编码路径（同 B③，**非本区间引入**） | ✅ 已修 |
+    | b21-LOW | §10.92 §4 把 `client.js` 的**字符数**当字节数记（1280561 vs blob 1282106） | ✅ 根因是构建脚本 `out.length` 假"bytes"⇒ 改成同时打印两者；文档就地更正（与 b20 差 5 字节 = 多出的 `/Word`） |
+    | b21-INFO-1/2/3 | `core.autocrlf` 下提取树是 CRLF（别拿工作区当树备份）；"工作区被本会话之外的写者改了 7 个文件"**那个写者就是我**（同时间做本节）；4 条 skip 是机器口径 | 📝 登记（INFO-1 只记在 §10.93 §7.7，**未写进复核模板**） |
+
+    **门禁**：pytest **1820 passed / 3 skipped / 0 failed（收集 1823）**；mypy 134/0；tsc 0；
+    smoke EXIT=0（19 段/11 段 PASS）；verify:commands 22/22；uvicorn 4/4。
+    ⚠ 修 §4.5 之前那次全量跑是 **1819 passed / 1 failed / 3 skipped**（红的就是残留 daemon 那条）。
+
+    **下一步**：① **量具接名单（第二层）**——要么给出真正可测的种子数据，要么明确写成"名单里哪些端点
+    不可量、为什么"（**不许**做成"请求早早失败 ⇒ 空档≈0 ⇒ 假绿"）；② **自动成文**是否立项（触及答案链，P1）
+    → ③ 真机重启后端到端/人眼确认 Word+PPT（需业主）。
+
+

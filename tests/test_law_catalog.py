@@ -66,6 +66,22 @@ def _patch_aggregate(monkeypatch, payload: dict, urls: list | None = None):
     monkeypatch.setattr(cat, "fetch_json", fake_fetch_json)
 
 
+def _by_cat() -> dict[str, int]:
+    """库内 `law_catalog` 按分类计数（**与生产同一句 SQL**，用来取"基线"）。
+
+    ⚠ 为什么必须有它：`refresh_catalog()` 的 `by_category` 是**全表**分组计数
+    （`catalog.py` 里那句 `SELECT category, COUNT(*) … GROUP BY category`），而 conftest 的库
+    是**会话级共享**的 ⇒ 断言写死全表字典就会变成"**顺序依赖的假绿**"：
+    `pytest tests/test_law_source_api.py tests/test_law_catalog.py`（api 文件在前，它会往
+    `law_catalog` 里留下一行 `API测试`）时，`test_refresh_full_crawl_dedup_and_result` **红**；
+    而全量跑/按字母序（`law_catalog` 在前）**绿**。本文件开头的纪律早就写了
+    "涉及全局计数的断言一律用「基线 + 本次增量」"——这条断言当时没照做，2026-09-18 已改齐。
+    """
+    from src.core.storage.sqlite_db import get_db_connection
+    return {r["category"] or "": r["n"] for r in get_db_connection().execute(
+        "SELECT category, COUNT(*) AS n FROM law_catalog GROUP BY category").fetchall()}
+
+
 # ---------------------------------------------------------------------------
 # 枚举叶子解析 / sxx 映射 / 对账解析
 # ---------------------------------------------------------------------------
@@ -130,6 +146,7 @@ def test_refresh_full_crawl_dedup_and_result(monkeypatch):
     ]}}, urls=agg_urls)
 
     baseline = cat.query_catalog(page_size=1)["total"]   # 会话共享库基线
+    baseline_by_cat = _by_cat()                          # 同上：按分类的基线（见 `_by_cat`）
     events: list[dict] = []
     out = cat.refresh_catalog(events.append)
     stages = [e["stage"] for e in events]
@@ -144,7 +161,11 @@ def test_refresh_full_crawl_dedup_and_result(monkeypatch):
     assert agg_urls == [cat._AGGREGATE_URL]
 
     assert out["total"] == baseline + 282
-    assert out["by_category"] == {"法律T1": 250, "行政法规T1": 30, "法律解释T1": 2}
+    # `by_category` 是**全表**分组计数 ⇒ 只能断言"本次增量"（基线相减，非零项）
+    delta_by_cat = {k: v - baseline_by_cat.get(k, 0)
+                    for k, v in out["by_category"].items()
+                    if v - baseline_by_cat.get(k, 0) != 0}
+    assert delta_by_cat == {"法律T1": 250, "行政法规T1": 30, "法律解释T1": 2}
     assert out["warnings"] == []                   # 对账一致 + 无抓取失败
     assert out["duplicate_seen"] == 1              # 同页重复走 pending 去重
     assert out["skipped"] == 1                     # 跨分类重复走账本增量跳过

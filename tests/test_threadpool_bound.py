@@ -97,10 +97,98 @@ class TestHeavyGate:
                   "/api/v1/materials/projects/prj_x/scan",
                   "/api/v1/report/research",
                   "/api/v1/ks/answer",
-                  "/api/v1/compliance/review/t1/execute"):
+                  "/api/v1/compliance/review/t1/execute",
+                  # §10.93：这 5 条从 `async def + asyncio.to_thread` 改回 `def`（回到这口有界池）
+                  # ⇒ 也必须吃重活令牌：分钟级全量爬取 / 下载+转 PDF+入库 / 逐次网络请求。
+                  "/api/v1/laws/catalog/refresh",
+                  "/api/v1/laws/ingest",
+                  "/api/v1/laws/search",
+                  "/api/v1/laws/check-updates",
+                  "/api/v1/laws/verify"):
             assert server.is_heavy_path(p), p
         assert server.HEAVY_TOKENS < server.THREADPOOL_TOKENS, (
             "重活闸门必须**小于**线程池上限，否则等于没有给文件流留位")
+
+    def test_laws_里两条廉价端点不被关进闸门(self):
+        """§10.93：`/laws/*` **只逐条列重活**，不用前缀——否则会顺手把两条廉价端点也关起来。
+
+        两条要**故意**留在闸门外的：
+          · `GET /laws/catalog`：本地一读 + 索引已就绪的快路径（§10.88 起读路径不拿写锁）；
+          · `GET /laws/sources`：纯静态字典。
+        把它们排到一条分钟级爬取后面，正是 §10.82 记的"**闸门自己造排队**"那个坑。
+        ⚠ 反面：若图省事写成前缀 `/api/v1/laws/` + 用 `/api/v1/laws/catalog` 去 `HEAVY_SKIP`，
+        `startswith` 会**连 `/laws/catalog/refresh` 一起豁免**（把最重的那条放跑）——
+        下面最后一条断言就是钉这个的。
+        """
+        from src.core.api import server
+        assert not server.is_heavy_path("/api/v1/laws/catalog")
+        assert not server.is_heavy_path("/api/v1/laws/sources")
+        assert server.is_heavy_path("/api/v1/laws/catalog/refresh"), (
+            "`/laws/catalog/refresh` 必须仍是重活（前缀写宽了就会漏掉它）")
+
+    def test_asyncio_to_thread_绕过_anyio_闸门(self):
+        """**§10.93 的立论**：`asyncio.to_thread` 不受 anyio 那道 16 令牌的约束（所以禁用）。
+
+        这条是"判据的理由"，不是"判据"（判据是 `tests/test_material_api.py::
+        test_端点上不许用_asyncio_to_thread` 的 AST 扫描）。做法：
+        在**新事件循环**里把 anyio 默认 limiter 收到 **2**，再各起 8 条并发去跑同一个
+        "睡 0.1s"的函数——`anyio.to_thread.run_sync` 的并发峰值必须 **≤ 2**，
+        而 `asyncio.to_thread` 会明显超过它（它走 asyncio 默认执行器，
+        worker 数 = `min(32, cpu+4) ≥ 5`）。
+
+        ⚠ 为什么这条值得留着：两处注释（§10.81/§10.86）**早就写着**这个不对称，但直到 §10.93
+        才把它变成判据——期间 `/laws/*` 五条一直"自称让出了事件循环"。这类
+        "**文档知道、代码没管**"的缺口会复发，所以理由本身也要有回归锚。
+        """
+        import asyncio
+        import os
+        import threading
+        import time
+
+        import anyio.to_thread
+
+        N = 8
+        SLEEP = 0.1
+
+        def _probe(runner) -> int:
+            """跑 N 条并发，返回并发峰值。"""
+            peak = {"live": 0, "max": 0}
+            lock = threading.Lock()
+
+            def work():
+                with lock:
+                    peak["live"] += 1
+                    peak["max"] = max(peak["max"], peak["live"])
+                try:
+                    time.sleep(SLEEP)
+                finally:
+                    with lock:
+                        peak["live"] -= 1
+
+            async def main() -> None:
+                anyio.to_thread.current_default_thread_limiter().total_tokens = 2
+                assert anyio.to_thread.current_default_thread_limiter().total_tokens == 2
+                await asyncio.gather(*[runner(work) for _ in range(N)])
+
+            asyncio.run(main())
+            return peak["max"]
+
+        async def via_anyio(fn):
+            return await anyio.to_thread.run_sync(fn)
+
+        async def via_asyncio(fn):
+            return await asyncio.to_thread(fn)
+
+        workers = min(32, (os.cpu_count() or 1) + 4)
+        peak_anyio = _probe(via_anyio)
+        peak_asyncio = _probe(via_asyncio)
+        assert peak_anyio <= 2, (
+            f"anyio 池被设成 2 个令牌，并发峰值却是 {peak_anyio}（收窄没生效？）")
+        assert peak_asyncio >= 4, (
+            f"`asyncio.to_thread` 的并发峰值只有 {peak_asyncio}（默认执行器 worker={workers}）："
+            "这条用例是在证明它**绕过** anyio 的令牌数；若它不再绕过，"
+            "§10.93 的判据就该重新论证，而不是继续禁用")
+
 
     def test_轻活路径不占重活闸门(self, client, monkeypatch):
         from src.core.api import server

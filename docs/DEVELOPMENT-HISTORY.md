@@ -5796,7 +5796,7 @@ md.write_text(...); html.write_text(...); docx.write_bytes(docx_bytes)
 | `plugin/src/report.js` | 路由注释（主机侧白名单转发**不用改代码**——`files` 是引擎回包，主机只透传） |
 | `plugin/scripts/smoke-report-ui.mjs` | fixture 2→3 文件 + 新增一条"三形态都带出"断言（15→**16/16**） |
 | `plugin/scripts/smoke-client-entry.mjs` | ⚠ **按钮文案断言**（`生成研究报告（Markdown/HTML）`）——这条**不跟着改就会红**：它按界面文案扫**构建产物**，是"产物↔源码一致"的那道关 |
-| `plugin/client.js` | 重新构建（1280561 字节） |
+| `plugin/client.js` | 重新构建（⚠ 构建脚本打印的 `1280561` 是**字符串长度**；落盘/入库的 **UTF-8 字节数 = 1282106**——772 个 CJK 字多占 1545 字节。独立复核 b21 的 LOW 就是拿这两个数对不上：与 b20 的 1282101 相差 **5 字节**，正是文案里多出来的 `/Word`。本节初稿只写了脚本打印的那个数，已更正） |
 | 文档 | 本 §10.92、方案 D-1 / D-3b 两处、方案 §12 账本第 38 条 |
 
 ⚠ 一处**没改**也值得记：主机路由的白名单转发只认 `project_id`/`title`/`query`/`conclusion_md`/
@@ -5845,4 +5845,179 @@ md.write_text(...); html.write_text(...); docx.write_bytes(docx_bytes)
 6. `files`/`names` 的**顺序**（md, html, docx）是**约定**而不是契约字段；界面按顺序显示。
 7. 本步**没有**做 `templates/research-report.docx` 的样板文件（业主想自备版式时得自己放）——
    方案 §8 没要求，先不发明。
+
+
+## §10.93 收口两个遗留结构洞：`/laws/*` 回到 `def`（`asyncio.to_thread` 全库清零）＋ 重活前缀表补齐
+
+**一句话**：从 §10.85（b16）到 §10.91（b20）每一轮都把同两条写进"下一步"——
+「`asyncio.to_thread` 的池不对称」与「`/api/v1/laws/` 不在重活前缀表」。本步把它俩当**一件事**收掉：
+5 条 `/laws/*` 从 `async def + await asyncio.to_thread(...)` 改回 `def` ⇒ 回到那口**有界**的池子；
+重活前缀表**逐条**补上它们 ⇒ 同时吃重活令牌。副产品：`_ASYNC_ENDPOINTS` 从 **6 条降到 1 条**
+（只剩 `/chat/completions`）——"async 是例外"这条纪律第一次真的把例外压到个位数。
+
+### 1. 为什么 `await asyncio.to_thread(...)` 是最容易骗过复核的形状
+
+它**看着**完全正确：真的 `await` 了（审计判据 `effective_real_await()` 也判它 True ⇒
+名单第二关过），事件循环**确实**没被冻住（这是 §10.79 那一轮的真实收益）。问题在**界**：
+
+| | 用的池 | 谁在管 |
+|---|---|---|
+| `def` 端点（Starlette 丢进 anyio） | anyio 默认 limiter | `THREADPOOL_TOKENS = 16`（§10.81/§10.88）+ 重活闸门 4（§10.82） |
+| `await anyio.to_thread.run_sync(...)` | 同一口 anyio limiter | 同上 |
+| `await asyncio.to_thread(...)` | **asyncio 默认执行器** | **没人管**（`min(32, cpu+4)` 个 worker） |
+
+**实测**（`var/tmp/probe-to-thread-asymmetry.py`：把 anyio 默认 limiter 收到 **2**，
+各起 8 条并发跑同一个"睡 0.1s"的活）：
+
+| 写法 | 并发峰值 | 总耗时 |
+|---|---|---|
+| `anyio.to_thread.run_sync` | **2** | 0.403s |
+| `asyncio.to_thread` | **8** | 0.119s |
+| 反事实：同一段路改走 anyio | **2** | 0.403s |
+
+⇒ `asyncio.to_thread` **完全绕过**那道令牌数（本机 anyio 默认 worker = 32）。
+也就是说：这 5 条端点的"让出事件循环"是**真的**，但"并发有界"是**假的**——
+最坏情况下 5 条分钟级的 `/laws/catalog/refresh` 会各占一个池位同时跑。
+改回 `def` 之后它们进有界池、并且**同时**吃重活令牌 ⇒ 最坏 4 条。
+
+### 2. 代价（与 §10.86 那 51 条同款，诚实登记）
+
+1. **报错形状变了**：body 由 FastAPI 在派发进线程池**之前**解析 ⇒ 非法 JSON 现在是 FastAPI 自己的
+   422，不再是本文件的 `json_error(422, "bad_json", ...)`；空 body 变成 `payload is None`
+   ⇒ 走各端点自己的"缺少 xxx"分支（状态码仍是 422）。仓内**无消费者**：`plugin` 里那个
+   `bad_json` 是**主机侧**自己的 body 闸，与引擎无关（已 grep 核对）。
+2. **排队语义变了**：单条 `/laws/*` 从"默认执行器（32 位）"变成"有界池（16）+ 重活闸门（4）"。
+   5 条并发的 `/laws/catalog/refresh` 现在会**排队**（是队列不是报错）——这正是那道界的作用。
+3. `GET /laws/catalog` 与 `GET /laws/sources` **故意没进**重活表（一个是本地快读、一个是静态字典），
+   否则"开法规目录要排在一条分钟级爬取后面"，就是 §10.82 记的"**闸门自己造排队**"。
+
+### 3. 判据升级：从"看记号"→"看有没有 await"→**"看它用的是哪口池"**
+
+| 层 | 判据 | 位置 |
+|---|---|---|
+| 通则一 | `async def` 零 await-like ⇒ 必须 `def` | `test_T1_零await的async端点必须是def` |
+| 通则二 | `async` 是例外，必须在 `_ASYNC_ENDPOINTS` 写理由且过 `effective_real_await` | `test_async端点必须在显式名单里` |
+| **通则三（本步）** | **端点里不许出现 `asyncio.to_thread` / `run_in_executor`** | `test_端点上不许用_asyncio_to_thread` |
+| 通则三的**理由**（回归锚） | 令牌=2 时 anyio ≤2、`asyncio.to_thread` ≥4 | `tests/test_threadpool_bound.py::test_asyncio_to_thread_绕过_anyio_闸门` |
+
+⚠ **通则三的判据是 AST**（不是文本扫描）：注释/docstring 里提到这些名字不算（§10.78 那个假阳性
+就是注释被当行为），并带 6 个合成正负样本 + 一条**带缩进源码**的样本。
+⚠ 那条带缩进的样本是**踩出来的**：`inspect.getsource()` 对闭包内定义的端点（`create_app()`/
+`register()` 里的那些）返回**带缩进**的源码，直接 `ast.parse` 就是 `IndentationError`
+（本节第一版就这么炸的）。`scripts/audit-async-endpoints.py` 第 187 行早就记过这个坑，
+但**新写的判据不会自动继承前人的注释**——所以合成样本里也钉一条。
+
+**顺带修掉一个失效的哨兵**：两条通则原先用"扫到 ≥4/≥5 条 async 端点"当**防假绿**的反向断言，
+async 只剩 1 条之后这种魔数就没意义了（1 条也能"扫过"）。现在改成
+`扫到的 async 集合 == set(_ASYNC_ENDPOINTS)`——比魔数更贴事实，也不会随端点增减而失效。
+
+### 4. 顺带发现并修掉一条**既存**的顺序依赖假绿（与本步改动无关）
+
+`tests/test_law_catalog.py::test_refresh_full_crawl_dedup_and_result` 断言
+`out["by_category"] == {法律T1:250, 行政法规T1:30, 法律解释T1:2}`，但 `by_category` 是
+**全表**分组计数（`catalog.py` 那句 `SELECT category, COUNT(*) … GROUP BY category`），
+而 conftest 的库是**会话级共享**的 ⇒ 只要在它前面跑过 `tests/test_law_source_api.py`
+（它会往 `law_catalog` 里留下一行 `API测试`），这条就**红**；全量跑（字母序 `law_catalog` 在前）
+却**绿**。
+
+**取证**（`var/tmp/probe-preexisting-pollution.py`：在 **`HEAD` 的干净树**里跑同样两个文件）：
+
+| 顺序 | 结果 |
+|---|---|
+| `test_law_source_api.py` → `test_law_catalog.py` | **1 failed** |
+| 倒序 | 22 passed |
+
+⇒ 与本节改动**无关**，`HEAD` 上就复现。修法照**该文件自己开头写的纪律**（第 8–9 行：
+"涉及全局计数的断言一律用「基线 + 本次增量」"）：改成与基线相减的**增量字典**相等。
+这是本步的第二条教训：**全量绿 ≠ 每个子集都绿**（这条只有在按非字母序挑文件跑时才会露出来）。
+
+### 4.5 顺带修掉第二条既存的**时序假红**：`test_deep_server` 的"残留 daemon"
+
+同一次全量跑里还有一条红：`tests/test_deep_server.py::test_提交与等待拆分_先投后收`
+——这条**方案"已知未决 §1"早就登记过**（"全量跑里红过一次、单跑 8/8 绿，时序/GIL 敏感"），
+但一直没人定位到具体机制。本步把它读明白了：
+
+`_fake_daemon()` 在**循环里**每次调 `ds._job_dir()`，而 `_job_dir()` 是**现读环境变量**
+`KS_DEEP_JOBS_DIR`；本文件每个用例靠 `monkeypatch.setenv` 拿自己的目录。于是：
+上一用例 `stop.set()` 之后、线程真正退出之前，monkeypatch 可能已经把环境变量切给了**下一个用例**
+⇒ 这个"残留 daemon"会去动**别人的**任务目录。`fail=True` 那个更狠（它给下一个用例的任务写
+`.error.json` ⇒ 那个用例的 `deep_server_wait` 返回 `None` ⇒ 断言红）。窗口只有几十微秒，
+所以表现为"几千条用例里偶发红一次"。
+
+**修法**（不放松任何断言）：① `_fake_daemon` 启动时就把目录**捕获一次**，此后只认自己那个；
+② 三处调用方 `stop.set()` 之后 `t.join(2.0)`，把窗口关死。
+**验证**：整文件 8/8 绿；连跑 **20 次整文件 0 红**（`var/tmp/repro-deep-server-flake.py`）。
+
+### 4.6 顺带修掉第三条既存假绿：`test_ks_answer` 硬编码仓库路径（**复核 b21 的 MEDIUM**）
+
+`tests/test_ks_answer.py:18` 原写 `sys.path.insert(0, r"D:\AI\work space\zcode")`。这会
+把**工作区**顶到 `sys.path[0]` ⇒ 在 `git archive` 抽出的冻结树里**单文件跑**时，
+`src` / `src.core.llm.ks_answer` 全部从**工作区**加载——用例**绿在对另一棵树的测试上**，
+输出只有一句 `27 passed`。**我自己复现过**（`var/tmp/probe-ksanswer-syspath.py`：抽 `HEAD` 的树，
+用小 pytest 插件打印模块来源）：
+
+| | `src.core.llm.ks_answer.__file__` |
+|---|---|
+| 修前（树里跑） | `D:\AI\work space\zcode\src\core\llm\ks_answer.py`（**工作区**） |
+| 修后（树里跑） | `<提取树>\src\core\llm\ks_answer.py` |
+
+修法：`ROOT = Path(__file__).resolve().parent.parent`（与 `tests/test_golden_gate.py` 同款），
+并把"这里曾经硬编码过"写进该文件 docstring。
+⚠ 这条是**复核纪律的元缺陷**：它让"在冻结树里独立复核"这件事本身失真。
+
+### 5. 证据
+
+- 探针：`var/tmp/probe-to-thread-asymmetry.py`（上表）；`var/tmp/probe-preexisting-pollution.py`（上表）；
+  `var/tmp/probe-ksanswer-syspath.py`（§4.6 的来源对照）；`var/tmp/repro-deep-server-flake.py`（§4.5 的 20 连跑）。
+- `pytest` **1820 passed / 3 skipped / 0 failed**（收集 **1823** = 上一步 1815 + 本步 3 条新用例 **+5 个
+  `test_declared_sync` 参数**；⚠ 我第一版把通过数写成 1822——那次全量跑里有 **1 条红**
+  （就是 §4.5 那条残留 daemon 假红），修掉之后才是 1820/0 failed；复核实测 1823 也纠正了我
+  漏算参数化 5 条的错）；其中 async 集合与名单一致的断言、`test_declared_sync` 表 **48 → 53** 行。
+- `mypy` **134 / 0**；`tsc` **0**；`smoke` **EXIT=0**（19 段，11 段打印 `== … PASS ==`）；
+  `verify:commands` **22/22**；`scripts/verify-engine-uvicorn.py` **4/4**。
+- `plugin/client.js` 重新构建后 **字节不变**（构建脚本的假"bytes"输出已修：现在同时打印
+  `1282106 bytes (1280561 chars)`，见 §10.92 §4 的更正）。
+
+⚠ **本步的快照标签是 `step-92-laws-def-and-heavy-table`**（标签号比章节号小 1，见 §10.85 §5）。
+
+### 6. 附：处理复核 b21（区间 `verify-freeze-b20`..`verify-freeze-b21`，6 条**全部 CONFIRMED**）
+
+复核报告 `var/tmp/verify-b21-artifacts/VERIFY-REPORT.md`（500 行 + 原始日志）。
+它**自己写变异**证明：把"先渲染后落盘"改回旧顺序 ⇒ 唯一守卫
+（`tests/test_research_report.py` 的 `assert list(tmp_path.iterdir()) == []`）红、盘上恰好 **2 个孤儿**；
+同尺寸变异 `h2→h4`（docx 里静默丢二级标题）⇒ 两条用例红；用真缺样式模板走全路径 ⇒
+`docx_render_failed` + 导出目录 0 文件；`git hash-object` 校验变异复原；
+自制收集数 **1815 = 1811 + 4**（与该文件 27→31 算术吻合）。它判**"本区间可以信"**。
+
+它的两条 finding 与 2 条 INFO（**均已收口或已记录**）：
+
+| 编号 | 一句话 | 处理 |
+|---|---|---|
+| **b21-MEDIUM** | `tests/test_ks_answer.py` 硬编码仓库路径 ⇒ 冻结树里单跑时**从工作区加载 `src`**，"27 passed"是绿在对工作区的测试上（**非本区间引入**，baseline 起就有） | ✅ §4.6 修（`__file__` 反推树根）+ 我自己复现过来源对照 |
+| b21-LOW | §10.92 §4 记 `client.js` = 1280561 "字节"，而 git blob 是 1282106（差 1545） | ✅ 真相是构建脚本把**字符数**当字节数打印（`out.length`）：改成同时打印两者；§10.92 §4 就地更正（与 b20 的 1282101 差 **5 字节** = 多出的 `/Word`） |
+| b21-INFO-1 | `git archive` 在 `core.autocrlf` 下导出 **CRLF**、工作区是 LF（同文件 30015 vs 29506 B）⇒ **别拿工作区文件当提取树备份** | 📝 已登记（复核纪律） |
+| b21-INFO-2 | 复核期间工作区被"本会话之外的写者"改了 7 个文件 | 📝 **那个写者就是我**（同一时间我在做 §10.93）；HEAD 未动、冻结区间完好。⇒ 纪律：**冻结标签是"只读"的，但工作区不是**；复核方只看提取树是对的 |
+| b21-INFO-3 | 4 条 skip 逐条列出（作者 3 条）⇒ 机器口径差（本机多一条 reranker 模型未下载的 skip） | 📝 接受（收集数与 0 failed 一致） |
+
+### 7. 诚实边界
+
+1. **判据是源码级的**：它挡得住"在端点里直接写 `asyncio.to_thread`"，挡不住"封装进一个被调用的
+   助手模块"。**扫不到 ≠ 没有**——所以 offenders 文案直接给出两条替代写法，而不是只说"别用"。
+2. **没有真机端到端**：这 5 条的真实网络耗时（秒级/分钟级）**本步没有实测**；把它们放进重活表用的是
+   **结构性**判据（同族网络/长跑活已在 §10.71–§10.80 被量过）。要拿到真数字得等业主重启后跑真机。
+3. 唯一剩下的 async 端点 `/chat/completions`（SSE）**不在**重活表里，**故意**：它占线程的时间是
+   "逐块取 LLM 输出"的毫秒级，不吃线程的分钟级长跑；哪天真在本进程里跑同步重活，通则一/通则二/
+   通则三会先红。⚠ 但它**没有**一条"measured"证据说明它不吃线程——这是**结构性判断**。
+4. `anyio.to_thread.run_sync` 仍是**允许**的写法（它进同一口有界池）——判据禁的是"换池"，不是"用线程"。
+5. 本步**没有**做 §10.85 起就一直挂着的另一项「量具（`measure-endpoint-blocking.py`）接名单当第二层」：
+   本步的判据是**静态**的（AST）。量具那条要按端点造种子数据，否则会变成"请求早早失败⇒空档≈0⇒假绿"，
+   反而引入**假覆盖**——留在下一步（要么给出真正可测的用例，要么明确写成"名单里哪些端点不可量、为什么"）。
+6. **三条"顺带修掉的既存问题"都不是本步主题**，各自的守卫强度不一样（如实说）：
+   · §4 顺序依赖假绿：修后**两个文件顺序都跑过**（各 22 passed）⇒ 有直接证据；
+   · §4.5 残留 daemon：**原始红没复现出来**（40 次单跑 + 20 次整文件跑 0 红），机制是**读代码**推的
+     （`_job_dir()` 现读 env + 线程在循环里调用），修法把那个窗口关死了 ⇒ 结论是"修法与机制自洽"，
+     **不等于**"已证明那就是历史那次红的成因"；
+   · §4.6 硬编码路径：有**来源对照**（修前工作区 / 修后提取树）⇒ 直接证据，且这正是复核方报的 MEDIUM。
+7. b21 的 INFO-1（`core.autocrlf` 下提取树是 **CRLF**、工作区是 LF ⇒ 别拿工作区文件当提取树备份）
+   **只记在本节**，没有写进任何复核模板 ⇒ 下一轮复核方仍可能踩到。已登记。
 

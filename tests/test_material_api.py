@@ -605,6 +605,19 @@ class TestSlowEndpointsAreDeclaredSync:
         # 它现在同时在**通则之一**（只读 body 的 async）与**通则之二**（无 await 的异步生成器）的
         # 判据之外——**两条通则都不再需要白名单**。
         ("/api/v1/compliance/review/{task_id}/execute", "POST"),
+        # ---- §10.93：`/laws/*` 那 5 条（网络 / 长跑）从 `async def + asyncio.to_thread` 改回 `def`。
+        # 它们原先**自称**"已经让出事件循环"，但 `asyncio.to_thread` 走的是 asyncio 默认执行器
+        # （`min(32, cpu+4)` 个 worker）——**不是**被 `THREADPOOL_TOKENS = 16` 收窄的那口池，
+        # 也**不吃**重活闸门的令牌 ⇒ 2026-09-18 建的两道界在这一族上等于不存在。
+        # 改回 `def` 后回到有界池子，并**同时**进了重活前缀表（见 `HEAVY_PREFIXES`）。
+        # ⚠ 代价（与 §10.86 那 51 条同款）：非法 JSON / 空 body 由 FastAPI 直接 422，
+        # 不再是各端点自己的 `bad_json` 分支（仓内无消费者；`plugin` 里那个 `bad_json` 是
+        # **主机侧**自己的 body 闸，与引擎无关）。
+        ("/api/v1/laws/search", "POST"),
+        ("/api/v1/laws/ingest", "POST"),
+        ("/api/v1/laws/check-updates", "POST"),
+        ("/api/v1/laws/catalog/refresh", "POST"),
+        ("/api/v1/laws/verify", "GET"),
     ])
     def test_declared_sync(self, client, path, method):
         """这条路径上**这个 HTTP 方法**的端点必须是 `def`（线程池），不能是 `async def`。
@@ -651,16 +664,11 @@ class TestSlowEndpointsAreDeclaredSync:
         "/api/v1/chat/completions":
             "SSE 流式：嵌套 `async def event_stream()` 里有 `await anyio.to_thread.run_sync(...)`"
             "（逐块从线程池取 LLM 输出），迭代期间**真的**让出事件循环",
-        "/api/v1/laws/search":
-            "两条网络检索走 `await asyncio.to_thread(...)`（§10.79 特意留下的范本形状）",
-        "/api/v1/laws/ingest":
-            "法规入库（网络下载 + 解析）走 `await asyncio.to_thread(...)`",
-        "/api/v1/laws/check-updates":
-            "批量比对（网络 + DB）走 `await asyncio.to_thread(...)`",
-        "/api/v1/laws/catalog/refresh":
-            "全量目录刷新（长时间网络爬取）走 `await asyncio.to_thread(...)`",
-        "/api/v1/laws/verify":
-            "单条法规核验（网络）走 `await asyncio.to_thread(...)`",
+        # ⚠ §10.93 之后名单只剩这一条：原先把 5 条 `/laws/*` 也写在这里（理由都是
+        # "走 `await asyncio.to_thread(...)`"）——那个形状**看着**让出了事件循环，其实换到了
+        # **asyncio 默认执行器**那口**无界**的池（`min(32, cpu+4)`），既不受
+        # `THREADPOOL_TOKENS = 16` 约束、也不吃重活闸门的令牌 ⇒ 它们已改回 `def`。
+        # 名单腐烂由下面那条用例的第二个环节强制（写在名单里但已不是 async ⇒ 红）。
     }
 
     def test_async端点必须在显式名单里(self, client):
@@ -737,6 +745,106 @@ class TestSlowEndpointsAreDeclaredSync:
             + "\n".join(f"  {p}  {why}" for p, why in offenders)
             + "\n（要新增 async 端点：加进 _ASYNC_ENDPOINTS 并写清它**为什么必须**让出控制权）")
 
+    @staticmethod
+    def _unbounded_pool_calls(src: str) -> list[str]:
+        """在一段端点源码里找出"把同步活丢进**无界**池"的写法（§10.93）。
+
+        **为什么这两条禁**：`asyncio.to_thread(...)` 与 `loop.run_in_executor(...)` 用的是
+        **asyncio 的默认执行器**（`min(32, cpu+4)` 个 worker），它
+        **不是**被 `THREADPOOL_TOKENS = 16` 收窄的那口 anyio 池，也**不吃**重活闸门的令牌
+        ⇒ 2026-09-18 建的两道界对这种写法**等于不存在**。而且它比 `def` **更坏**：
+        `def` 端点进入有界池（最坏 16 条），这种写法最坏 32 条。
+
+        **允许的替代**：① 端点写成 `def`（Starlette 丢进那口有界的池，首选）；
+        ② `await anyio.to_thread.run_sync(...)`（同一口池；真流式端点里用它，
+        见 `/chat/completions`）。
+
+        判据是 **AST**（不是文本扫描）：注释/docstring 里提到这些名字**不算**
+        （§10.78 那个假阳性就是注释被当行为）。
+        ⚠ **必须先 `dedent`**：`inspect.getsource()` 对**闭包内**定义的端点（`create_app()`/
+        `register()` 里那些）给的是**带缩进**的源码，直接 `ast.parse` 会
+        `IndentationError`（本节第一版就这么炸的；`scripts/audit-async-endpoints.py`
+        第 187 行早就记了这个坑）。
+        """
+        import ast as _ast
+        import textwrap
+
+        found: list[str] = []
+        for node in _ast.walk(_ast.parse(textwrap.dedent(src))):
+            if not isinstance(node, _ast.Call):
+                continue
+            f = node.func
+            if not isinstance(f, _ast.Attribute):
+                continue
+            if f.attr == "run_in_executor":
+                found.append("run_in_executor")
+            elif (f.attr == "to_thread" and isinstance(f.value, _ast.Name)
+                    and f.value.id == "asyncio"):
+                found.append("asyncio.to_thread")
+        return found
+
+    def test_端点上不许用_asyncio_to_thread(self, client):
+        """**通则之三（§10.93）**：`/api/` 端点不许用 `asyncio.to_thread` / `run_in_executor`
+        ——那两口池收窄不到、也不进重活闸门。
+
+        来历：`/laws/*` 那 5 条原先写成 `async def` + `await asyncio.to_thread(...)`，
+        理由写的是"走 to_thread（§10.79 特意留下的范本形状）"。**那个理由本身是错的**：
+        `asyncio.to_thread` 根本不是 §10.81 收窄的那口 anyio 池（两处都记着这条，但没人把它
+        变成判据）。本步把那 5 条改回 `def`，并把"不许再这么写"钉成用例——`_ASYNC_ENDPOINTS`
+        名单里"理由看起来成立"不再够，**理由本身也要能过判据**。
+
+        ⚠ 判据是**源码级**的：它能挡住"在端点里直接这么写"，挡不住"封装在一个被调用的助手模块里"
+        （那要看整个调用图）。**扫不到 ≠ 没有**——所以本用例的 `offenders` 文案点名要求
+        "要么写成 `def`、要么 `anyio.to_thread.run_sync`"，而不是只说"别用"。
+        """
+        import asyncio
+        import ast as _ast
+
+        # ---- 先证明判据不空转（合成正/负样本，含"注释里提到"的假阳性形状）----
+        assert self._unbounded_pool_calls(
+            "import asyncio\nasync def ep():\n    return await asyncio.to_thread(f)\n") == \
+            ["asyncio.to_thread"]
+        assert self._unbounded_pool_calls(
+            "def ep(loop):\n    return loop.run_in_executor(None, f)\n") == ["run_in_executor"]
+        assert self._unbounded_pool_calls(
+            "async def ep():\n    return await anyio.to_thread.run_sync(f)\n") == []   # 允许
+        assert self._unbounded_pool_calls(
+            "def ep():\n    return f()\n") == []                                     # 本就 `def`
+        assert self._unbounded_pool_calls(
+            'def ep():\n    """这里提到 asyncio.to_thread() 只是说明，不是行为。"""\n'
+            "    # asyncio.to_thread(f)\n    return 1\n") == []                       # 注释/docstring 不算
+        assert self._unbounded_pool_calls("async def ep():\n    await f()\n") == []
+        # ⚠ **带缩进的源码**（`inspect.getsource()` 对闭包内端点的真实形状）必须也能解析
+        assert self._unbounded_pool_calls(
+            '    @app.post("/x")\n    async def ep():\n'
+            "        return await asyncio.to_thread(f)\n") == ["asyncio.to_thread"]
+        # 判据自己要能解析真实源码（否则合成样本过了、真扫描却静默空转）
+        assert _ast.parse("async def ep():\n    await asyncio.to_thread(f)\n")
+
+        c, _ = client
+        offenders: list[tuple[str, str]] = []
+        examined = 0
+        for r in c.app.routes:
+            ep = getattr(r, "endpoint", None)
+            path = getattr(r, "path", None)
+            if ep is None or path is None or not path.startswith("/api/"):
+                continue
+            examined += 1
+            try:
+                src = inspect.getsource(ep)
+            except (OSError, TypeError):        # pragma: no cover
+                continue
+            hits = self._unbounded_pool_calls(src)
+            if hits:
+                offenders.append((path, f"用了 {hits}（无界池 + 不过重活闸门）"))
+        assert examined >= 140, f"只枚举到 {examined} 条 API 路由（实测 147）——枚举可能坏了"
+        assert not offenders, (
+            "这些端点把同步活丢进了**无界**池（`asyncio.to_thread` / `run_in_executor`）：\n"
+            + "\n".join(f"  {p}  {why}" for p, why in offenders)
+            + "\n（补救二选一：① 端点改成 `def`——Starlette 会把它丢进 anyio 那口"
+              "被 THREADPOOL_TOKENS=16 收窄的池，首选；② 确实必须是 async 就写 "
+              "`await anyio.to_thread.run_sync(...)`，同一口池。）")
+
     def test_T1_零await的async端点必须是def(self, client):
         """**通则之一（§10.86，修复核 b15 的 MEDIUM-1）**：`async def` 且源码里**没有任何
         会让出控制权的语法**（`await` / `async for` / `async with`）⇒ 必须 `def`。
@@ -770,7 +878,7 @@ class TestSlowEndpointsAreDeclaredSync:
 
         offenders = []
         examined = 0
-        scanned = 0
+        async_seen: set[str] = set()
         for r in c.app.routes:
             ep = getattr(r, "endpoint", None)
             path = getattr(r, "path", None)
@@ -779,7 +887,7 @@ class TestSlowEndpointsAreDeclaredSync:
             examined += 1
             if not asyncio.iscoroutinefunction(ep):
                 continue
-            scanned += 1
+            async_seen.add(path)
             try:
                 src = inspect.getsource(ep)
             except (OSError, TypeError):        # pragma: no cover
@@ -790,9 +898,14 @@ class TestSlowEndpointsAreDeclaredSync:
             elif n == 0 and path not in self._T1_ASYNC_ALLOWLIST:
                 offenders.append((path, ["零 await-like（T1）"]))
         # ⚠ **反向断言**（防假绿）：枚举坏掉时"全绿"毫无意义。判据从"只看 async"扩到"看全部
-        # API 路由"，因为 T1 清零后 async 只剩个位数（9 条），拿 async 条数当哨兵已经不稳。
+        # API 路由"，因为 T1 清零后 async 只剩个位数。§10.93 又降到 **1 条**（`/laws/*` 那 5 条
+        # 也改回 `def`）⇒ 条数哨兵彻底失效，改成**与 `_ASYNC_ENDPOINTS` 集合相等**
+        # （识别/枚举任一坏掉都会红；不再随端点增减而失效，也不再需要维护魔数）。
         assert examined >= 140, f"只枚举到 {examined} 条 API 路由（实测 147）——枚举/筛选可能坏了"
-        assert scanned >= 5, f"只剩 {scanned} 条 async 端点——判据扫的面太窄（枚举坏了？）"
+        assert async_seen == set(self._ASYNC_ENDPOINTS), (
+            "扫到的 async 端点集合与 `_ASYNC_ENDPOINTS` 不一致：\n"
+            f"  扫到  {sorted(async_seen)}\n"
+            f"  名单  {sorted(self._ASYNC_ENDPOINTS)}")
         assert not offenders, (
             "这些 `async def` 端点**从不真正让出控制权**（零 await/async for/async with），"
             "应改 `def`（Starlette 才会丢进线程池）：\n"
@@ -838,7 +951,7 @@ class TestSlowEndpointsAreDeclaredSync:
 
         offenders = []
         examined = 0
-        scanned = 0
+        async_seen: set[str] = set()
         for r in c.app.routes:
             ep = getattr(r, "endpoint", None)
             path = getattr(r, "path", None)
@@ -847,7 +960,7 @@ class TestSlowEndpointsAreDeclaredSync:
             examined += 1
             if not asyncio.iscoroutinefunction(ep):
                 continue
-            scanned += 1
+            async_seen.add(path)
             try:
                 src = textwrap.dedent(inspect.getsource(ep))
             except (OSError, TypeError):        # pragma: no cover
@@ -865,11 +978,16 @@ class TestSlowEndpointsAreDeclaredSync:
             if not audit.never_yields(src) or path in self._BODY_ONLY_ASYNC_ALLOWLIST:
                 continue
             offenders.append((path, ["零有效 await（T1 或只读 body）"]))
-        # ⚠ **反向断言**（防假绿）：枚举坏掉时"全绿"毫无意义。§10.86 起 T1 已全部转 `def`
-        # ⇒ async 端点只剩 6 条（都有真 await），拿 async 条数当哨兵已经不稳，所以改成
-        # "枚举到的 API 路由数"（它与端点的增减无关，只与枚举本身有关）。
+        # ⚠ **反向断言**（防假绿）：枚举坏掉时"全绿"毫无意义。原先拿"async 端点 ≥ 4 条"当哨兵，
+        # 但 §10.93 把那 5 条 `/laws/*` 也转成 `def` 之后**全库只剩 1 条 async 端点**
+        # ——用条数当哨兵已经没有意义（1 条也能"扫过"）。现在改成**集合相等**：
+        # 这里扫到的 async 端点集合必须与 `_ASYNC_ENDPOINTS` **完全一致**
+        # （识别/枚举任一坏掉都会红；比魔数更贴事实，也不会随端点增减而失效）。
         assert examined >= 140, f"只枚举到 {examined} 条 API 路由（实测 147）——枚举/筛选可能坏了"
-        assert scanned >= 4, f"只剩 {scanned} 条 async 端点——这条通则扫的面太窄（枚举坏了？）"
+        assert async_seen == set(self._ASYNC_ENDPOINTS), (
+            "扫到的 async 端点集合与 `_ASYNC_ENDPOINTS` 不一致：\n"
+            f"  扫到  {sorted(async_seen)}\n"
+            f"  名单  {sorted(self._ASYNC_ENDPOINTS)}")
         assert not offenders, (
             "这些 `async def` 端点的 await **全都只是读 body**（或根本没有 await）⇒ 它其实"
             "从不让出控制权，后面全是同步活在事件循环里跑（应改 `def`；带 body 的顺带把 "
@@ -888,7 +1006,7 @@ class TestSlowEndpointsAreDeclaredSync:
         | H3 外层读 body + 嵌套 async 生成器**从不被引用** | **False** | 它执行路径上没有挂起点 |
         | H4 只有 `async for` | **True** | 编译成 `await __anext__`，等待点常在库源码里（旧判据在这里**误红**） |
         | H2 真流式：嵌套生成器被引用、里面有真 await | **True** | 迭代时真的让出（**不许误伤**） |
-        | `await asyncio.to_thread(...)`（`/laws/*` 的形状） | **True** | 属性调用 ⇒ 未知但确实会 await |
+        | `await asyncio.to_thread(...)`（属性调用形状；§10.93 后仓内**已无端点**这么写） | **True** | 属性调用 ⇒ 未知但确实会 await |
         | 只有 `await request.json()` | **False** | 读完 body 全是同步活 ⇒ 该 `def` |
         | 解析失败 | **False** | fail-closed（不算"有"⇒ 名单判红） |
         """

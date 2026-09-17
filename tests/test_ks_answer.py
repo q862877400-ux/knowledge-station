@@ -1,8 +1,14 @@
 # -*- coding: utf-8 -*-
 """P1a 取证答案 ks_answer 单测。
 
-运行（仓库根，便于解析 src）：:
-    cd D:\\AI\\work space\\zcode && .venv\\Scripts\\python.exe -m pytest ".p1rollout\\p1_ks_answer_130632\\test_ks_answer.py" -q
+运行（仓库根或**任意提取树**的根，便于解析 src）：:
+    .venv\\Scripts\\python.exe -m pytest tests/test_ks_answer.py -q
+
+⚠ **这里曾经硬编码过 `sys.path.insert(0, r"D:\\AI\\work space\\zcode")`**
+（独立复核 b21 的 MEDIUM，§10.93 修）：那样写会把**工作区**顶到 `sys.path[0]`，
+于是"在 `git archive` 抽出的冻结树里跑这个文件"时，`src` / `src.core.llm.ks_answer`
+全部从**工作区**加载——用例**绿在对另一棵树的测试上**，而输出只写 `27 passed`。
+现在按 `__file__` 反推树根（与 `tests/test_golden_gate.py` 同一个写法）。
 
 策略：
   * 临时库（KS_DATA_DIR 重定向）种子数据 + monkeypatch 假 LLM 流（零真实 LLM 消耗）；
@@ -15,7 +21,9 @@ import sys
 import tempfile
 from pathlib import Path
 
-sys.path.insert(0, r"D:\AI\work space\zcode")
+#: 树根 = 本文件的上上级（**不许**写死盘符：复核要在提取树里跑同一份用例）。
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
 
 import pytest
 from pydantic import BaseModel

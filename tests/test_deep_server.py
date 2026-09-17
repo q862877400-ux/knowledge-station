@@ -24,18 +24,30 @@ def _job_env(tmp_path, monkeypatch):
 
 
 def _fake_daemon(stop: threading.Event, fail: bool = False) -> threading.Thread:
-    """监视任务目录，攒批窗口后直接写 done/error（不碰 mineru）。"""
+    """监视任务目录，攒批窗口后直接写 done/error（不碰 mineru）。
+
+    ⚠ **目录必须在启动时捕获一次**（§10.93，修一条既存的时序假红）：
+    `ds._job_dir()` 每次调用都**现读**环境变量 `KS_DEEP_JOBS_DIR`，而本文件的测试靠
+    `monkeypatch.setenv` 给每个用例一个独立目录。原先这个线程在**循环里**每次调
+    `ds._job_dir()` ⇒ 上一用例 `stop.set()` 之后、线程真正退出之前，monkeypatch 可能已经把
+    环境变量切给了**下一个用例**，于是这个"残留 daemon"会去动**别人的**任务目录
+    （`fail=True` 那个更狠：它会给下一个用例的任务写 `.error.json` ⇒ 那个用例的
+    `deep_server_wait` 返回 None）。窗口只有几十微秒，所以表现为"全量跑里偶发红一次"。
+    ⇒ 现在启动时捕获自己的目录；并且调用方在 `stop.set()` 之后**join 一下**，把窗口关死。
+    """
+    job_dir = ds._job_dir()          # ⚠ 只读一次：本线程只认**自己这个用例**的目录
+
     def run():
         while not stop.is_set():
-            jobs = sorted(ds._job_dir().glob("*.job.json"))
+            jobs = sorted(job_dir.glob("*.job.json"))
             if len(jobs) >= 2 or (jobs and time.time() - jobs[0].stat().st_mtime > 0.2):
                 for j in jobs:
                     spec = json.loads(j.read_text(encoding="utf-8"))
                     jid = spec["job_id"]
                     if fail:
-                        ds._mark_error(ds._job_dir(), jid, "boom")
+                        ds._mark_error(job_dir, jid, "boom")
                     else:
-                        (ds._job_dir() / f"{jid}.done.json").write_text(
+                        (job_dir / f"{jid}.done.json").write_text(
                             json.dumps({"output_dir": spec["out_dir"]}),
                             encoding="utf-8")
                     j.unlink()
@@ -54,10 +66,11 @@ def _bypass_alive(monkeypatch):
 def test_提交_攒批_返回_output_dir(tmp_path, monkeypatch):
     _bypass_alive(monkeypatch)
     stop = threading.Event()
-    _fake_daemon(stop)
+    t = _fake_daemon(stop)
     r = ds.deep_server_submit_and_wait(
         tmp_path / "a.pdf", tmp_path / "out1", timeout=10.0)
     stop.set()
+    t.join(2.0)                      # §10.93：关死"残留 daemon 动下一个用例目录"的窗口
     assert r == {"output_dir": str(tmp_path / "out1")}
     assert not list(ds._job_dir().glob("*.json")) or all(
         p.name == "server.json" for p in ds._job_dir().glob("*.json"))
@@ -66,10 +79,11 @@ def test_提交_攒批_返回_output_dir(tmp_path, monkeypatch):
 def test_任务失败_返回_None_回退信号(tmp_path, monkeypatch):
     _bypass_alive(monkeypatch)
     stop = threading.Event()
-    _fake_daemon(stop, fail=True)
+    t = _fake_daemon(stop, fail=True)
     r = ds.deep_server_submit_and_wait(
         tmp_path / "b.pdf", tmp_path / "out2", timeout=10.0)
     stop.set()
+    t.join(2.0)
     assert r is None
 
 
@@ -101,9 +115,10 @@ def test_提交与等待拆分_先投后收(tmp_path, monkeypatch):
     # 任务文件立即在盘（不等 daemon）
     assert (ds._job_dir() / f"{sub['job_id']}.job.json").exists()
     stop = threading.Event()
-    _fake_daemon(stop)
+    t = _fake_daemon(stop)
     r = ds.deep_server_wait(sub, timeout=10.0)
     stop.set()
+    t.join(2.0)
     assert r == {"output_dir": str(tmp_path / "out9")}
     assert not list(ds._job_dir().glob("*.job.json"))
 

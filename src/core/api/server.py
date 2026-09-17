@@ -40,8 +40,12 @@ _STARTED_AT = time.monotonic()
 #: 也就是说 —— **"池子有界"从一条性能纪律，变成了 §10.86 那个收益的前提**：
 #: 把它调大（尤其调回 anyio 默认的 40）等于**同时取消 §10.86 的收益**（"整类端点在事件循环
 #: 里等锁"会换成"整类端点在无界池里并发等锁"）。改这个数字前请先读 §10.81/§10.86。
-#: ⚠ 另：`asyncio.to_thread(...)`（`/laws/*` 那 5 条在用）走的是 **asyncio 的默认执行器**，
-#: **不是**这口 anyio 池，所以**不受**本常量约束（b15/b16 均已核实；见 §10.86 §8 的遗留项）。
+#: ⚠ `asyncio.to_thread(...)` 走的是 **asyncio 的默认执行器**（`min(32, cpu+4)` 个 worker），
+#: **不是**这口 anyio 池 ⇒ **不受**本常量约束、也不吃重活闸门的令牌。
+#: §10.93 之前 `/laws/*` 那 5 条正是这么写的（"看着已经让出事件循环，其实换了一口无界的池"）；
+#: 现在那 5 条已改回 `def`，**全库 `asyncio.to_thread` 零使用**，并由
+#: `tests/test_material_api.py::test_端点上不许用_asyncio_to_thread` 静态钉住
+#: （`tests/test_threadpool_bound.py::test_asyncio_to_thread_绕过_anyio_闸门` 是它的理由）。
 THREADPOOL_TOKENS = 16
 
 #: **按事件循环**记录"线程池已收窄"（§10.88 修 b17 的 MEDIUM-1）。
@@ -102,6 +106,23 @@ HEAVY_PREFIXES: tuple[str, ...] = (
     "/api/v1/aliases/extract",                # 术语抽取（全库拼接）
     "/api/v1/data/package/",                  # 数据包导出/导入
     "/api/v1/update/report",                  # 更新检查报告（docx/xlsx）
+    # ---- §10.93：`/laws/*` 里**真的会打网络/长跑**的那 5 条 ----
+    # 它们原先写成 `async def` + `await asyncio.to_thread(...)` ⇒ 既绕过本表，
+    # 又绕过"线程池 16"（走 asyncio 默认执行器）。改回 `def` 之后回到有界的池子，
+    # 因此也必须吃重活令牌：`/laws/catalog/refresh` 是分钟级全量爬取、`/laws/ingest`
+    # 要下载+转 PDF+走入库管线，`/laws/search`、`/laws/check-updates`、`/laws/verify`
+    # 是逐次网络请求（秒级）。
+    # ⚠ **故意只列这 5 条，不用前缀 `/api/v1/laws/`**：同一个前缀下还有两条**廉价**端点——
+    # `GET /laws/catalog`（本地一读 + 索引已就绪的快路径）与 `GET /laws/sources`（纯静态字典），
+    # 把它们关在 4 个令牌后面就会重现 §10.82 那个"**闸门自己造排队**"的坑
+    # （开法规目录要排在一条分钟级爬取后面）。这里用**逐条列出**而不是"前缀 + SKIP"来表达：
+    # `is_heavy_path` 是 `startswith`，加 `/api/v1/laws/` 再用 `/api/v1/laws/catalog` 去 SKIP
+    # 会**连 `/laws/catalog/refresh` 一起豁免**（前缀包含关系），那是把重活放跑的经典错法。
+    "/api/v1/laws/search",
+    "/api/v1/laws/ingest",
+    "/api/v1/laws/check-updates",
+    "/api/v1/laws/catalog/refresh",
+    "/api/v1/laws/verify",
 )
 
 #: **按事件循环缓存**的重活闸门。⚠ 键用**循环对象本身**（`WeakKeyDictionary`），

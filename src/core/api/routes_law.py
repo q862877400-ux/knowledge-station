@@ -2,10 +2,23 @@
 
 - /api/v1/laws/sources|search|ingest|check-updates（LAW_SOURCE_PLAN P2）
 - /api/v1/laws/catalog|refresh|verify（LAW_CATALOG_ONDEMAND_PLAN 任务 1/2）
+
+⚠ **本文件的端点一律声明成 `def`**（§10.93 收口 §10.79 的遗留项）：
+这 5 条原先写成 `async def` **只为了** `await request.json()`（search/ingest）或
+`await asyncio.to_thread(...)`（全部 5 条）。后者看起来像"已经让出事件循环了"，
+其实**换错了一口池子**——`asyncio.to_thread` 走的是 **asyncio 的默认执行器**
+（`min(32, cpu+4)` 个 worker），**不是** Starlette/anyio 那口被 `THREADPOOL_TOKENS = 16`
+收窄过的池，也**不吃**重活闸门（`HEAVY_TOKENS = 4`）的令牌 ⇒ 这两道 2026-09-18 建立的
+界在这一族端点上等于不存在（详见 §10.93；`tests/test_threadpool_bound.py` 有一条
+**行为级**用例把这个不对称钉住）。改回 `def` 之后它们回到那口有界的池子。
+
+代价（与 §10.86 那 51 条同款，诚实登记）：body 由 FastAPI 在派发进线程池**之前**解析，
+所以**非法 JSON / 空 body 的报错形状变了**——原先是本文件的
+`json_error(422, "bad_json", "请求体非 JSON")`，现在是 FastAPI 自己的 422 校验错误
+（空 body ⇒ `payload is None` ⇒ 走各端点自己的"缺少 xxx"分支，状态码仍是 422）。
 """
 from __future__ import annotations
 
-import asyncio
 import logging
 
 from fastapi import Request
@@ -29,39 +42,34 @@ def register(app, json_error):
         ]}
 
     @app.post("/api/v1/laws/search")
-    async def law_search(request: Request):
+    def law_search(payload: dict | None = None):
         """官方源搜索候选（dry-run，不落库）。
         flk:  {source:'flk', query, effective?}
         govcn: {source:'govcn', query, childtype?, year?, department?}"""
         from src.core.knowledge.law_source import flk_client as flk
         from src.core.knowledge.law_source import govcn_client as govcn
-        try:
-            body = await request.json()
-        except Exception:
-            return json_error(422, "bad_json", "请求体非 JSON")
+        body = payload or {}
         source = str(body.get("source") or "flk")
         query = str(body.get("query") or "").strip()
         if not query:
             return json_error(422, "missing_query", "缺少 query")
         try:
             if source == "flk":
-                data = await asyncio.to_thread(
-                    flk.search, query,
-                    search_range=int(body.get("field", 1)),
-                    sxx=[3] if body.get("effective") else None,
-                    page=int(body.get("page", 1)),
-                    page_size=min(int(body.get("size", 20)), 100))
+                data = flk.search(query,
+                                  search_range=int(body.get("field", 1)),
+                                  sxx=[3] if body.get("effective") else None,
+                                  page=int(body.get("page", 1)),
+                                  page_size=min(int(body.get("size", 20)), 100))
                 return {"code": 200, "status": "success",
                         "data": flk.parse_rows(data), "total": data.get("total", 0)}
             if source == "govcn":
-                data = await asyncio.to_thread(
-                    govcn.search, query,
-                    field=str(body.get("field", "title")),
-                    page=int(body.get("page", 0)),
-                    size=min(int(body.get("size", 20)), 100),
-                    childtype=str(body.get("childtype") or ""),
-                    year=str(body.get("year") or ""),
-                    department=str(body.get("department") or ""))
+                data = govcn.search(query,
+                                    field=str(body.get("field", "title")),
+                                    page=int(body.get("page", 0)),
+                                    size=min(int(body.get("size", 20)), 100),
+                                    childtype=str(body.get("childtype") or ""),
+                                    year=str(body.get("year") or ""),
+                                    department=str(body.get("department") or ""))
                 rows = govcn.parse_rows(data)
                 return {"code": 200, "status": "success",
                         "data": rows, "total": len(rows)}
@@ -72,17 +80,14 @@ def register(app, json_error):
         return json_error(400, "bad_source", "source 仅支持 flk / govcn")
 
     @app.post("/api/v1/laws/ingest")
-    async def law_ingest(request: Request):
+    def law_ingest(payload: dict | None = None):
         """官方源下载 docx → 转 PDF → 现有管线入库（同步，长任务）。
         flk:  {source:'flk', bbbs, standard_name?, domain_tags?, reingest?}
         govcn: {source:'govcn', url, standard_name?, domain_tags?, reingest?}"""
         from src.core.knowledge.law_source.ingest import (
             ingest_law_from_flk, ingest_law_from_govcn,
         )
-        try:
-            body = await request.json()
-        except Exception:
-            return json_error(422, "bad_json", "请求体非 JSON")
+        body = payload or {}
         source = str(body.get("source") or "")
         tags = [str(t).strip() for t in (body.get("domain_tags") or []) if str(t).strip()]
         reingest = bool(body.get("reingest"))
@@ -91,16 +96,16 @@ def register(app, json_error):
                 bbbs = str(body.get("bbbs") or "")
                 if not bbbs:
                     return json_error(422, "missing_bbbs", "缺少 bbbs")
-                out = await asyncio.to_thread(
-                    ingest_law_from_flk, bbbs,
+                out = ingest_law_from_flk(
+                    bbbs,
                     standard_name=body.get("standard_name") or None,
                     domain_tags=tags, reingest=reingest)
             elif source == "govcn":
                 url = str(body.get("url") or "")
                 if not url:
                     return json_error(422, "missing_url", "缺少 url")
-                out = await asyncio.to_thread(
-                    ingest_law_from_govcn, url,
+                out = ingest_law_from_govcn(
+                    url,
                     standard_name=body.get("standard_name") or None,
                     domain_tags=tags, reingest=reingest)
             else:
@@ -115,11 +120,11 @@ def register(app, json_error):
                 "data": out}
 
     @app.post("/api/v1/laws/check-updates")
-    async def law_check_updates():
+    def law_check_updates():
         """法规更新检查（只读）：库内官方来源文档 vs 官方源现状 → 时效变更/新版本。"""
         from src.core.knowledge.law_source.update import check_law_updates
         return {"code": 200, "status": "success",
-                "data": await asyncio.to_thread(check_law_updates)}
+                "data": check_law_updates()}
 
     # ===== 法规总目录 + 点开即核验（docs/LAW_CATALOG_ONDEMAND_PLAN.md 任务 1/2）=====
 
@@ -143,18 +148,18 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": data}
 
     @app.post("/api/v1/laws/catalog/refresh")
-    async def law_catalog_refresh():
+    def law_catalog_refresh():
         """全量遍历 flk 官方清单入本地目录（同步长任务；分类级账本断点续传，可重复执行）。
         返回 {total, by_category, warnings, fetched, skipped, elapsed_sec, ...}。"""
         from src.core.knowledge.law_source.catalog import refresh_catalog
         try:
-            data = await asyncio.to_thread(refresh_catalog)
+            data = refresh_catalog()
         except Exception as e:  # noqa: BLE001 枚举/网络整体失败 → 明确报错
             return json_error(502, "catalog_refresh_failed", f"法规目录刷新失败: {e}")
         return {"code": 200, "status": "success", "data": data}
 
     @app.get("/api/v1/laws/verify")
-    async def law_verify(request: Request):
+    def law_verify(request: Request):
         """点开即核验（任务 2）：查单个 bbbs 官方效力状态，完全透传 verify_law dict。
         status=effective/superseded/withdrawn/upcoming/unmarked/not_found/unverified；
         unverified 时 retryable=true；evidence_url=官方证据页供打开。绝不抛错。"""
@@ -163,4 +168,4 @@ def register(app, json_error):
         if not bbbs:
             return json_error(422, "missing_bbbs", "缺少 bbbs")
         return {"code": 200, "status": "success",
-                "data": await asyncio.to_thread(verify_law, bbbs)}
+                "data": verify_law(bbbs)}

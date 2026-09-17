@@ -62,4 +62,7 @@ body = body.replace(/^"use strict";\s*/m, '')
 const out = HEADER + body + FOOTER
 await writeFile(OUT, out, 'utf8')
 await rm(TMP, { force: true })
-console.log(`client.js written: ${out.length} bytes`)
+console.log(`client.js written: ${Buffer.byteLength(out, 'utf8')} bytes`
+  + ` (${out.length} chars)`)   // ⚠ `out.length` 是**字符数**不是字节数：产物里有大量 CJK，
+                                //    两者差 ~1500（§10.92 的复核 LOW 就是因为这里把字符数
+                                //    当字节数打印，文档照抄后与 git blob 大小对不上）
