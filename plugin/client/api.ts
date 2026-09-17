@@ -2420,3 +2420,103 @@ export async function fetchMaterialTiers(signal?: AbortSignal): Promise<KsMateri
   const data = await ksJson<KsMaterialTierDef[]>(res, '层定义')
   return Array.isArray(data) ? data : []
 }
+
+/* ------------------------------------------------------------------ 产出（Phase D-3b）
+ *
+ * ⚠ 与 `/ks/materials/*` 的**参数位置不同**：产出路由把 `project_id` 放在 **body** 里
+ * （材料路由放 query）。这不是笔误——两条路由是不同时间写的，各自的白名单也各自持有
+ * （`plugin/src/materials_routes.js` 用 `pickQuery`，`plugin/src/report.js` 从 body 取）。
+ * 客户端这一层必须**逐条跟随**，冒烟把位置钉死（`smoke-report-ui`）。
+ */
+
+/** 产出物里对"这一轮用了什么"的计数（**界面要如实显示**，尤其 pending）。 */
+export interface KsReportCounts {
+  approved?: number
+  pending?: number
+  rejected?: number
+}
+
+/** 一份研究报告的组装/落盘结果（`write_` 比 `build_` 多 `files`/`names`）。 */
+export interface KsResearchReport {
+  title?: string
+  query?: string | null
+  /** 引用逐条校验的结论（不存在 / 指向仅线索或不可用 ⇒ 进 warnings）。 */
+  citations?: {
+    checked_material_refs?: number
+    bad_material_refs?: number
+    unchecked_law_refs?: number
+    unknown?: number
+  }
+  /** ⚠ **必须显示给用户**：引用对不上、或无法核验的法规引用都在这儿。 */
+  warnings?: string[]
+  counts?: KsReportCounts
+  markdown?: string
+  html?: string
+  /** 落盘的绝对路径（`dry_run` 时没有）。 */
+  files?: string[]
+  names?: string[]
+}
+
+/** PPT 的落盘结果（缺 python-pptx 时引擎回 500 `ppt_unavailable`，不产生空文件）。 */
+export interface KsSlideDeck {
+  path?: string
+  name?: string
+  slide_count?: number
+  warnings?: string[]
+  counts?: KsReportCounts
+}
+
+/** 两个产出端点共用的入参（`limit` 是"按 research 问题检索几条材料"，不是页数）。 */
+interface KsReportInput {
+  title?: string
+  query?: string
+  conclusionMd?: string
+  limit?: number
+  /** true = 只组装不落盘（预览用；返回的 `markdown`/`html` 照样有）。 */
+  dryRun?: boolean
+}
+
+/** 把界面入参翻成**主机白名单认识**的那几个键（不认识的键一个都不发）。 */
+function reportBody(projectId: string, input: KsReportInput): Record<string, unknown> {
+  const body: Record<string, unknown> = { project_id: projectId }
+  if (input.title !== undefined && input.title !== '') body.title = input.title
+  if (input.query !== undefined && input.query !== '') body.query = input.query
+  if (input.conclusionMd !== undefined && input.conclusionMd !== '')
+    body.conclusion_md = input.conclusionMd
+  if (input.limit !== undefined) body.limit = input.limit
+  if (input.dryRun !== undefined) body.dry_run = input.dryRun
+  return body
+}
+
+async function postReport<T>(path: string, projectId: string, input: KsReportInput,
+                             what: string, signal?: AbortSignal): Promise<T> {
+  const res = await fetch(path, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify(reportBody(projectId, input)),
+    signal,
+  })
+  return ksJson<T>(res, what)
+}
+
+/**
+ * POST /ks/report/research — **生成研究报告**（Markdown + HTML，本机落盘）。
+ *
+ * 内容只吃**已批准**的材料（硬门在引擎侧的检索里）；未批准的自会出现在
+ * "尚未批准的材料（不会进入任何结论）"一节。`conclusion_md` 里的 `[[m:i]]` 会被
+ * 引擎逐条校验，对不上的进 `warnings`——**界面必须显示**，否则用户会以为引用都成立。
+ */
+export async function exportResearchReport(
+  projectId: string, input: KsReportInput = {}, signal?: AbortSignal,
+): Promise<KsResearchReport> {
+  return postReport<KsResearchReport>('/ks/report/research', projectId, input,
+    '研究报告', signal)
+}
+
+/** POST /ks/report/research/slides — **同一份内容的 PPT**（超长要点截断、页数有上限）。 */
+export async function exportResearchSlides(
+  projectId: string, input: KsReportInput = {}, signal?: AbortSignal,
+): Promise<KsSlideDeck> {
+  return postReport<KsSlideDeck>('/ks/report/research/slides', projectId, input,
+    '研究报告 PPT', signal)
+}

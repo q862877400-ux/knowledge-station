@@ -29,6 +29,8 @@ import { useCallback, useEffect, useState } from 'react'
 import {
   collectMaterialUrl,
   createMaterialProject,
+  exportResearchReport,
+  exportResearchSlides,
   fetchMaterialChunks,
   fetchMaterialInbox,
   fetchMaterialProjects,
@@ -42,6 +44,8 @@ import {
   type KsMaterialChunk,
   type KsMaterialProject,
   type KsMaterialTierDef,
+  type KsResearchReport,
+  type KsSlideDeck,
 } from './api'
 
 export interface KsMaterialsPanelProps {
@@ -109,6 +113,12 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
   const [newName, setNewName] = useState('')
   const [collectUrl, setCollectUrl] = useState('')
   const [collectNote, setCollectNote] = useState('')
+  // ---- 产出（Phase D-3b）：研究问题 + 结论（可选）+ 上一次的产出物 ----
+  const [researchQuery, setResearchQuery] = useState('')
+  const [conclusionMd, setConclusionMd] = useState('')
+  const [report, setReport] = useState<KsResearchReport | null>(null)
+  const [slides, setSlides] = useState<KsSlideDeck | null>(null)
+  const [showReport, setShowReport] = useState(false)
   const [openChunks, setOpenChunks] = useState<Record<string, KsMaterialChunk[] | 'loading'>>({})
 
   const reloadProjects = useCallback(async (signal?: AbortSignal): Promise<KsMaterialProject[]> => {
@@ -275,6 +285,45 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
     }, projectId)
   }, [collectNote, collectUrl, projectId, run])
 
+  /**
+   * 生成**研究报告**（Markdown + HTML，本机落盘）。
+   *
+   * 三条与引擎同源的纪律，界面这一层也要守住：
+   * 1. **引用警告必须显示**（`warnings`）：`[[m:i]]` 对不上、或落在"仅线索/不可用"上，
+   *    引擎会把它列出来而**不是静默改掉**——不显示就等于用户以为引用都成立。
+   * 2. **计数必须显示**（approved/pending/rejected）：报告里"待评审"是单列一节、
+   *    **不进任何结论**，界面要让用户看见这个分离。
+   * 3. **落盘路径必须显示**：产物在**本机**、不外发；用户得知道文件在哪。
+   */
+  const onExportReport = useCallback(() => {
+    if (projectId === '') return
+    void run('report', async () => {
+      const out = await exportResearchReport(projectId, {
+        query: researchQuery.trim() === '' ? undefined : researchQuery.trim(),
+        conclusionMd: conclusionMd.trim() === '' ? undefined : conclusionMd,
+      })
+      setReport(out)
+      setShowReport(false)
+      const bad = (out.warnings ?? []).length
+      return `研究报告已生成（已批准 ${out.counts?.approved ?? 0} / 待评审 ${out.counts?.pending ?? 0}）`
+        + (bad > 0 ? `——⚠ 有 ${bad} 条引用警告，见下方（报告里**原样保留**了那些引用）` : '')
+    }, null)
+  }, [conclusionMd, projectId, researchQuery, run])
+
+  /** 生成**同一份内容的 PPT**（缺依赖时引擎回可操作的错误，这里原样报出来）。 */
+  const onExportSlides = useCallback(() => {
+    if (projectId === '') return
+    void run('slides', async () => {
+      const out = await exportResearchSlides(projectId, {
+        query: researchQuery.trim() === '' ? undefined : researchQuery.trim(),
+        conclusionMd: conclusionMd.trim() === '' ? undefined : conclusionMd,
+      })
+      setSlides(out)
+      return `PPT 已生成：${out.name ?? ''}（${out.slide_count ?? 0} 页）`
+        + (out.path !== undefined ? ` → ${out.path}` : '')
+    }, null)
+  }, [conclusionMd, projectId, researchQuery, run])
+
   const onReview = useCallback((m: KsMaterial, decision: 'approved' | 'rejected') => {
     void run(`${decision}:${m.material_id}`, async () => {
       const out = await reviewMaterial(m.material_id, decision)
@@ -309,8 +358,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
     }, projectId)
   }, [projectId, run])
 
-  const onToggleChunks = useCallback((m: KsMaterial) => {
-    const cur = openChunks[m.material_id]
+  const onToggleChunks = useCallback((m: KsMaterial) => {    const cur = openChunks[m.material_id]
     if (cur !== undefined) {
       setOpenChunks((prev) => {
         const next = { ...prev }
@@ -600,6 +648,119 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
           </div>
         )
       })}
+
+      {/* ---------------------------------------------------- 产出（Phase D-3b）
+          只吃**已批准**材料（硬门在引擎的检索里）；未批准的自会出现在报告的
+          "尚未批准的材料（不会进入任何结论）"一节。 */}
+      {projectId !== '' && (
+        <div style={{
+          marginTop: 12, padding: '8px 10px',
+          border: '1px solid var(--dsw-alias-border, #e0e0e0)', borderRadius: 6,
+        }}>
+          <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+            <strong>产出</strong>
+            <span style={{ fontSize: 12, color: GRAY }}>
+              （只吃<strong>已批准</strong>材料；未批准的在报告里单列一节）
+            </span>
+          </div>
+          <div style={{ display: 'flex', gap: 8, marginTop: 6, flexWrap: 'wrap' }}>
+            <input
+              aria-label="研究问题"
+              placeholder="研究问题（可选；给了就按它检索已批准材料并分组）"
+              value={researchQuery}
+              onChange={(e) => setResearchQuery(e.currentTarget.value)}
+              style={{ padding: '3px 6px', fontSize: 12, width: 340 }}
+            />
+          </div>
+          <div style={{ marginTop: 6 }}>
+            <textarea
+              aria-label="结论正文"
+              placeholder="结论（可选，Markdown）。里面可以用 [[m:编号]] 引用依据；编号对不上引擎会警告。"
+              value={conclusionMd}
+              onChange={(e) => setConclusionMd(e.currentTarget.value)}
+              rows={3}
+              style={{ padding: '3px 6px', fontSize: 12, width: '100%', boxSizing: 'border-box' }}
+            />
+          </div>
+          <div style={{ display: 'flex', gap: 6, marginTop: 6, flexWrap: 'wrap' }}>
+            <button
+              type="button"
+              style={btnStyle(busy !== '')}
+              disabled={busy !== ''}
+              onClick={onExportReport}
+            >
+              生成研究报告（Markdown/HTML）
+            </button>
+            <button
+              type="button"
+              style={btnStyle(busy !== '')}
+              disabled={busy !== ''}
+              onClick={onExportSlides}
+            >
+              生成 PPT
+            </button>
+            {report?.markdown !== undefined && (
+              <button
+                type="button"
+                style={btnStyle(false)}
+                onClick={() => setShowReport((v) => !v)}
+              >
+                {showReport ? '收起 Markdown' : '看 Markdown'}
+              </button>
+            )}
+          </div>
+          {report !== null && (
+            <p style={{ margin: '6px 0 0', fontSize: 12, color: GRAY }}>
+              已批准 {report.counts?.approved ?? 0} / 待评审 {report.counts?.pending ?? 0} /
+              已拒绝 {report.counts?.rejected ?? 0}；
+              引用核验：材料引用 {report.citations?.checked_material_refs ?? 0} 条
+              {report.citations?.unchecked_law_refs
+                ? ` · 法规引用 ${report.citations.unchecked_law_refs} 条**本次无法核验**` : ''}
+              {(report.citations?.unknown ?? 0) > 0
+                ? ` · ${report.citations?.unknown} 条**无法判定**` : ''}
+              {report.files !== undefined && report.files.length > 0 && (
+                <>
+                  <br />
+                  已落盘：{report.files.map((f) => <code key={f} style={{ marginRight: 6 }}>{f}</code>)}
+                </>
+              )}
+            </p>
+          )}
+          {report !== null && (report.warnings ?? []).length > 0 && (
+            <p role="status" style={{ margin: '6px 0 0', color: 'var(--dsw-alias-warn, #b8860b)', fontSize: 12 }}>
+              ⚠ 引用警告（这些引用**不成立**或无法核验，报告里也照原样列出了）：
+              <br />
+              {(report.warnings ?? []).join('；')}
+            </p>
+          )}
+          {slides !== null && (
+            <p style={{ margin: '6px 0 0', fontSize: 12, color: GRAY }}>
+              PPT：{slides.name ?? ''}（{slides.slide_count ?? 0} 页）
+              {slides.path !== undefined ? <> → <code>{slides.path}</code></> : null}
+              {(slides.warnings ?? []).length > 0 && (
+                <>
+                  <br />
+                  ⚠ {(slides.warnings ?? []).join('；')}
+                </>
+              )}
+            </p>
+          )}
+          {showReport && report?.markdown !== undefined && (
+            <pre style={{
+              marginTop: 6, maxHeight: 320, overflow: 'auto', fontSize: 11,
+              whiteSpace: 'pre-wrap', background: 'var(--dsw-alias-bg-secondary, #f7f7f7)',
+              padding: 8, borderRadius: 4,
+            }}>
+              {report.markdown}
+            </pre>
+          )}
+          <p style={{ margin: '6px 0 0', fontSize: 12, color: GRAY }}>
+            报告与 PPT <strong>同一份内容</strong>（都从引擎的同一份内容块渲染），
+            <strong>本机</strong>生成与保存、<strong>不外发</strong>；PPT 用默认版式，
+            超长要点会截断、页数有上限（都写在 PPT 末页）。
+          </p>
+        </div>
+      )}
     </div>
   )
 }

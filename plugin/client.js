@@ -28432,6 +28432,43 @@ async function fetchMaterialTiers(signal) {
   const data = await ksJson(res, "\u5C42\u5B9A\u4E49");
   return Array.isArray(data) ? data : [];
 }
+function reportBody(projectId, input) {
+  const body = { project_id: projectId };
+  if (input.title !== void 0 && input.title !== "") body.title = input.title;
+  if (input.query !== void 0 && input.query !== "") body.query = input.query;
+  if (input.conclusionMd !== void 0 && input.conclusionMd !== "")
+    body.conclusion_md = input.conclusionMd;
+  if (input.limit !== void 0) body.limit = input.limit;
+  if (input.dryRun !== void 0) body.dry_run = input.dryRun;
+  return body;
+}
+async function postReport(path, projectId, input, what, signal) {
+  const res = await fetch(path, {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify(reportBody(projectId, input)),
+    signal
+  });
+  return ksJson(res, what);
+}
+async function exportResearchReport(projectId, input = {}, signal) {
+  return postReport(
+    "/ks/report/research",
+    projectId,
+    input,
+    "\u7814\u7A76\u62A5\u544A",
+    signal
+  );
+}
+async function exportResearchSlides(projectId, input = {}, signal) {
+  return postReport(
+    "/ks/report/research/slides",
+    projectId,
+    input,
+    "\u7814\u7A76\u62A5\u544A PPT",
+    signal
+  );
+}
 
 // client/pdf-configure.ts
 var PDF_WORKER_PATH = "/ks/assets/pdf.worker.min.mjs";
@@ -32416,6 +32453,11 @@ function KsMaterialsPanel(props) {
   const [newName, setNewName] = (0, import_react7.useState)("");
   const [collectUrl, setCollectUrl] = (0, import_react7.useState)("");
   const [collectNote, setCollectNote] = (0, import_react7.useState)("");
+  const [researchQuery, setResearchQuery] = (0, import_react7.useState)("");
+  const [conclusionMd, setConclusionMd] = (0, import_react7.useState)("");
+  const [report, setReport] = (0, import_react7.useState)(null);
+  const [slides, setSlides] = (0, import_react7.useState)(null);
+  const [showReport, setShowReport] = (0, import_react7.useState)(false);
   const [openChunks, setOpenChunks] = (0, import_react7.useState)({});
   const reloadProjects = (0, import_react7.useCallback)(async (signal) => {
     const list = await fetchMaterialProjects(signal);
@@ -32547,6 +32589,30 @@ function KsMaterialsPanel(props) {
       return `\u5DF2\u767B\u8BB0\u300C${title}\u300D\uFF08${chunks} \u4E2A\u5207\u7247\uFF0C\u6765\u6E90\u5C42\u7EA7 **T3=\u4EC5\u7EBF\u7D22**\uFF09` + (out.duplicate === true ? "\u2014\u2014\u26A0 \u8FD9\u4E2A\u7F51\u5740\u7684\u5185\u5BB9**\u4E0E\u9879\u76EE\u91CC\u5DF2\u6709\u7684\u4E00\u4EFD\u76F8\u540C**\uFF0C\u5F15\u64CE**\u6CA1\u6709**\u91CD\u590D\u767B\u8BB0\u3002" : "\u3002") + (out.truncated === true ? "\u26A0 \u6B63\u6587\u88AB\u622A\u65AD\u5230\u957F\u5EA6\u4E0A\u9650\uFF08\u4E0D\u662F\u5168\u6587\uFF09\u3002" : "") + "\u5B83\u73B0\u5728\u662F**\u5F85\u8BC4\u5BA1**\u3001**\u4E0D\u4F1A**\u8FDB\u5165\u4EFB\u4F55\u7ED3\u8BBA\uFF0C\u9700\u4F60\u5728\u4E0B\u65B9\u6279\u51C6\uFF08\u672C\u9762\u677F\u4E0D\u80FD\u4EE3\u6279\uFF09\u3002";
     }, projectId);
   }, [collectNote, collectUrl, projectId, run]);
+  const onExportReport = (0, import_react7.useCallback)(() => {
+    if (projectId === "") return;
+    void run("report", async () => {
+      const out = await exportResearchReport(projectId, {
+        query: researchQuery.trim() === "" ? void 0 : researchQuery.trim(),
+        conclusionMd: conclusionMd.trim() === "" ? void 0 : conclusionMd
+      });
+      setReport(out);
+      setShowReport(false);
+      const bad = (out.warnings ?? []).length;
+      return `\u7814\u7A76\u62A5\u544A\u5DF2\u751F\u6210\uFF08\u5DF2\u6279\u51C6 ${out.counts?.approved ?? 0} / \u5F85\u8BC4\u5BA1 ${out.counts?.pending ?? 0}\uFF09` + (bad > 0 ? `\u2014\u2014\u26A0 \u6709 ${bad} \u6761\u5F15\u7528\u8B66\u544A\uFF0C\u89C1\u4E0B\u65B9\uFF08\u62A5\u544A\u91CC**\u539F\u6837\u4FDD\u7559**\u4E86\u90A3\u4E9B\u5F15\u7528\uFF09` : "");
+    }, null);
+  }, [conclusionMd, projectId, researchQuery, run]);
+  const onExportSlides = (0, import_react7.useCallback)(() => {
+    if (projectId === "") return;
+    void run("slides", async () => {
+      const out = await exportResearchSlides(projectId, {
+        query: researchQuery.trim() === "" ? void 0 : researchQuery.trim(),
+        conclusionMd: conclusionMd.trim() === "" ? void 0 : conclusionMd
+      });
+      setSlides(out);
+      return `PPT \u5DF2\u751F\u6210\uFF1A${out.name ?? ""}\uFF08${out.slide_count ?? 0} \u9875\uFF09` + (out.path !== void 0 ? ` \u2192 ${out.path}` : "");
+    }, null);
+  }, [conclusionMd, projectId, researchQuery, run]);
   const onReview = (0, import_react7.useCallback)((m, decision) => {
     void run(`${decision}:${m.material_id}`, async () => {
       const out = await reviewMaterial(m.material_id, decision);
@@ -32879,7 +32945,132 @@ function KsMaterialsPanel(props) {
         },
         m.material_id
       );
-    })
+    }),
+    projectId !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: {
+      marginTop: 12,
+      padding: "8px 10px",
+      border: "1px solid var(--dsw-alias-border, #e0e0e0)",
+      borderRadius: 6
+    }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4EA7\u51FA" }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { style: { fontSize: 12, color: GRAY }, children: [
+          "\uFF08\u53EA\u5403",
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5DF2\u6279\u51C6" }),
+          "\u6750\u6599\uFF1B\u672A\u6279\u51C6\u7684\u5728\u62A5\u544A\u91CC\u5355\u5217\u4E00\u8282\uFF09"
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { style: { display: "flex", gap: 8, marginTop: 6, flexWrap: "wrap" }, children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        "input",
+        {
+          "aria-label": "\u7814\u7A76\u95EE\u9898",
+          placeholder: "\u7814\u7A76\u95EE\u9898\uFF08\u53EF\u9009\uFF1B\u7ED9\u4E86\u5C31\u6309\u5B83\u68C0\u7D22\u5DF2\u6279\u51C6\u6750\u6599\u5E76\u5206\u7EC4\uFF09",
+          value: researchQuery,
+          onChange: (e) => setResearchQuery(e.currentTarget.value),
+          style: { padding: "3px 6px", fontSize: 12, width: 340 }
+        }
+      ) }),
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { style: { marginTop: 6 }, children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        "textarea",
+        {
+          "aria-label": "\u7ED3\u8BBA\u6B63\u6587",
+          placeholder: "\u7ED3\u8BBA\uFF08\u53EF\u9009\uFF0CMarkdown\uFF09\u3002\u91CC\u9762\u53EF\u4EE5\u7528 [[m:\u7F16\u53F7]] \u5F15\u7528\u4F9D\u636E\uFF1B\u7F16\u53F7\u5BF9\u4E0D\u4E0A\u5F15\u64CE\u4F1A\u8B66\u544A\u3002",
+          value: conclusionMd,
+          onChange: (e) => setConclusionMd(e.currentTarget.value),
+          rows: 3,
+          style: { padding: "3px 6px", fontSize: 12, width: "100%", boxSizing: "border-box" }
+        }
+      ) }),
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { display: "flex", gap: 6, marginTop: 6, flexWrap: "wrap" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+          "button",
+          {
+            type: "button",
+            style: btnStyle2(busy !== ""),
+            disabled: busy !== "",
+            onClick: onExportReport,
+            children: "\u751F\u6210\u7814\u7A76\u62A5\u544A\uFF08Markdown/HTML\uFF09"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+          "button",
+          {
+            type: "button",
+            style: btnStyle2(busy !== ""),
+            disabled: busy !== "",
+            onClick: onExportSlides,
+            children: "\u751F\u6210 PPT"
+          }
+        ),
+        report?.markdown !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+          "button",
+          {
+            type: "button",
+            style: btnStyle2(false),
+            onClick: () => setShowReport((v) => !v),
+            children: showReport ? "\u6536\u8D77 Markdown" : "\u770B Markdown"
+          }
+        )
+      ] }),
+      report !== null && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
+        "\u5DF2\u6279\u51C6 ",
+        report.counts?.approved ?? 0,
+        " / \u5F85\u8BC4\u5BA1 ",
+        report.counts?.pending ?? 0,
+        " / \u5DF2\u62D2\u7EDD ",
+        report.counts?.rejected ?? 0,
+        "\uFF1B \u5F15\u7528\u6838\u9A8C\uFF1A\u6750\u6599\u5F15\u7528 ",
+        report.citations?.checked_material_refs ?? 0,
+        " \u6761",
+        report.citations?.unchecked_law_refs ? ` \xB7 \u6CD5\u89C4\u5F15\u7528 ${report.citations.unchecked_law_refs} \u6761**\u672C\u6B21\u65E0\u6CD5\u6838\u9A8C**` : "",
+        (report.citations?.unknown ?? 0) > 0 ? ` \xB7 ${report.citations?.unknown} \u6761**\u65E0\u6CD5\u5224\u5B9A**` : "",
+        report.files !== void 0 && report.files.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
+          "\u5DF2\u843D\u76D8\uFF1A",
+          report.files.map((f) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("code", { style: { marginRight: 6 }, children: f }, f))
+        ] })
+      ] }),
+      report !== null && (report.warnings ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { role: "status", style: { margin: "6px 0 0", color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
+        "\u26A0 \u5F15\u7528\u8B66\u544A\uFF08\u8FD9\u4E9B\u5F15\u7528**\u4E0D\u6210\u7ACB**\u6216\u65E0\u6CD5\u6838\u9A8C\uFF0C\u62A5\u544A\u91CC\u4E5F\u7167\u539F\u6837\u5217\u51FA\u4E86\uFF09\uFF1A",
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
+        (report.warnings ?? []).join("\uFF1B")
+      ] }),
+      slides !== null && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
+        "PPT\uFF1A",
+        slides.name ?? "",
+        "\uFF08",
+        slides.slide_count ?? 0,
+        " \u9875\uFF09",
+        slides.path !== void 0 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
+          " \u2192 ",
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("code", { children: slides.path })
+        ] }) : null,
+        (slides.warnings ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
+          "\u26A0 ",
+          (slides.warnings ?? []).join("\uFF1B")
+        ] })
+      ] }),
+      showReport && report?.markdown !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("pre", { style: {
+        marginTop: 6,
+        maxHeight: 320,
+        overflow: "auto",
+        fontSize: 11,
+        whiteSpace: "pre-wrap",
+        background: "var(--dsw-alias-bg-secondary, #f7f7f7)",
+        padding: 8,
+        borderRadius: 4
+      }, children: report.markdown }),
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
+        "\u62A5\u544A\u4E0E PPT ",
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u540C\u4E00\u4EFD\u5185\u5BB9" }),
+        "\uFF08\u90FD\u4ECE\u5F15\u64CE\u7684\u540C\u4E00\u4EFD\u5185\u5BB9\u5757\u6E32\u67D3\uFF09\uFF0C",
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u672C\u673A" }),
+        "\u751F\u6210\u4E0E\u4FDD\u5B58\u3001",
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u5916\u53D1" }),
+        "\uFF1BPPT \u7528\u9ED8\u8BA4\u7248\u5F0F\uFF0C \u8D85\u957F\u8981\u70B9\u4F1A\u622A\u65AD\u3001\u9875\u6570\u6709\u4E0A\u9650\uFF08\u90FD\u5199\u5728 PPT \u672B\u9875\uFF09\u3002"
+      ] })
+    ] })
   ] });
 }
 

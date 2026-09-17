@@ -478,6 +478,13 @@ check('inject declares only official services (no third-party hard gate)',
     // 这条证明**新的 api 函数真的被打进产物**（只有 api.ts 里那一份措辞）
     ['client 侧自采接线（响应形状不认识时抛，不谎报"没采到"）',
       '自采响应异常：缺少 collected 字段'],
+    // ---- Phase D-3b：产出入口（研究报告 / PPT，2026-09-17）----
+    ['产出按钮：研究报告', '生成研究报告（Markdown/HTML）'],
+    ['产出按钮：PPT', '生成 PPT'],
+    // 同一份内容这句话必须在界面上说（否则用户会怀疑"报告和 PPT 是不是两套东西"）
+    ['报告与 PPT **同源**这件事在界面上写明', '同一份内容'],
+    ['引用警告必须显示（不许静默）', '引用警告'],
+    ['"只吃已批准材料"在界面上写明', '只吃'],
   ]) {
     check(`client.js 已重新构建并含${what}`, bundle.includes(marker), marker)
   }
@@ -495,6 +502,13 @@ check('inject declares only official services (no third-party hard gate)',
     settings.includes('title="参考资料"'))
   check('产物里同时含面板标记与设置侧文案（源码↔产物同步的间接证据）',
     bundle.includes('评审是硬门') && bundle.includes('/materials use '))
+  // ⚠ 产出侧同理：源码里那两个 handler 必须真的接在两个按钮上（否则按钮点了没反应，
+  // 而产物里的文案仍然在——只查字符串抓不到"按钮没接 handler"）。
+  const panel = await readFile(join(pluginRoot, 'client', 'KsMaterialsPanel.tsx'), 'utf8')
+  check('产出按钮在源码里**接了 handler**（不是只有文案）',
+    panel.includes('onClick={onExportReport}') && panel.includes('onClick={onExportSlides}'))
+  check('产出用**两个不同**的路由函数（报告 ≠ PPT）',
+    panel.includes('exportResearchReport(') && panel.includes('exportResearchSlides('))
 }
 
 const failed = results.filter((r) => !r.ok)
