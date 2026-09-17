@@ -32508,7 +32508,9 @@ function KsMaterialsPanel(props) {
     void run(`${decision}:${m.material_id}`, async () => {
       const out = await reviewMaterial(m.material_id, decision);
       const label = reviewLabel(out.review_status).text;
-      return `\u300C${m.title}\u300D\u2192 ${label}`;
+      const tl = out.track_l ?? null;
+      const tlText = tl === null ? "" : tl.action === "import" ? "\uFF1B\u5DF2\u81EA\u52A8\u5165\u5E93\u4E3A\u6CD5\u6761\uFF08Track L\uFF09" : tl.action === "link" ? "\uFF1B\u5E93\u5185\u5DF2\u6709\uFF0C\u5DF2\u56DE\u6307\u8BE5\u6CD5\u6761" : tl.action === "skip" ? "\uFF1B\u672A\u8BC6\u522B\u4E3A\u6CD5\u89C4/\u6807\u51C6\uFF0C\u672A\u52A8\u6CD5\u6761\u5E93" : `\uFF1B\u26A0 Track L \u672A\u5B8C\u6210\uFF08${tl.action ?? "\u672A\u77E5"}\uFF09\uFF1A${tl.why ?? "\u539F\u56E0\u672A\u7ED9"}`;
+      return `\u300C${m.title}\u300D\u2192 ${label}${tlText}`;
     }, projectId);
   }, [projectId, run]);
   const onTier = (0, import_react7.useCallback)((m, tier) => {

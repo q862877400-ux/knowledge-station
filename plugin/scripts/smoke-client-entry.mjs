@@ -462,6 +462,8 @@ check('inject declares only official services (no third-party hard gate)',
     ['逐份评审的动作（没有"全部通过"）', '读正文（评审前必看）'],
     ['会话绑定提示', '/materials use '],
     ['材料路由前缀', 'ks/materials/list'],
+    // Track L 的**后果**必须在界面上说（批准会**自动写进法条库**，静默通过=用户不知情）
+    ['批准后 Track L 结果的可见文案', '已自动入库为法条'],
   ]) {
     check(`client.js 已重新构建并含${what}`, bundle.includes(marker), marker)
   }

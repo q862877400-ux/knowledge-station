@@ -2149,6 +2149,23 @@ export interface KsMaterial {
   domain?: string | null
   tier_reason?: string | null
   lifecycle?: string | null
+  /** Track L 回指的法条文档 id（入库/回指成功后由引擎写入）。 */
+  doc_id?: string | null
+  /**
+   * 批准时 Track L 的**结果**（引擎在 `data.track_l` 里报告"自动入库"的后果）。
+   *
+   * ⚠ 为什么界面必须显示它：批准一个采到的标准/法规会**自动写进法条库**——
+   * 那是批准的**副作用**，静默通过等于用户不知道自己的法规库里多了东西（方案 §7）。
+   * 拒绝时**没有**这个字段（"没决策"与"决策=skip"必须能区分）。
+   */
+  track_l?: {
+    action?: string | null
+    imported?: boolean
+    linked?: boolean
+    doc_id?: string | null
+    standard_no?: string | null
+    why?: string | null
+  } | null
 }
 
 export interface KsMaterialChunk {

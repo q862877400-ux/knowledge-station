@@ -36,6 +36,23 @@ from __future__ import annotations
 from src.core.exceptions import KnowledgeStationError
 
 
+def _run_track_l(material_id: str) -> dict:
+    """批准后跑 Track L（采到的法规/标准要不要进法条库），**异常也翻成如实结果**。
+
+    为什么不让它抛：`materials_review` 的**主旨已经完成**（材料的评审状态已落库），
+    这时 Track L 抛错不该把响应变成 500——那会让界面显示"评审失败"，而用户明明批准成功了。
+    但**也绝不吞掉**：异常被翻成 `action='error'` + 原因，随 `data.track_l` 一起回去。
+
+    ⚠ 唯一的写库发生在 `track_l.reconcile` 内部，且它自己守着"必须已批准"这道门。
+    """
+    try:
+        from src.core.materials import track_l as tl
+        return tl.reconcile(material_id)
+    except Exception as exc:  # noqa: BLE001 — 见上：主旨已完成，异常只作如实报告
+        return {"action": "error", "material_id": material_id,
+                "why": f"Track L 处理异常：{type(exc).__name__}: {exc}"}
+
+
 def register(app, json_error):
     from src.core.storage import material_repo as mr
 
@@ -217,8 +234,16 @@ def register(app, json_error):
                          "chunks": all_chunks[off:off + lim]}}
 
     @app.post("/api/v1/materials/{material_id}/review")
-    async def materials_review(material_id: str, payload: dict):
-        """批准/拒绝。这是**硬门的开关**：批准之后该材料才可能被检索到。"""
+    def materials_review(material_id: str, payload: dict):
+        """批准/拒绝。这是**硬门的开关**：批准之后该材料才可能被检索到。
+
+        ⚠ **批准会触发 Track L**（业主裁定 J5：采到库内没有的法规标准 → **评审通过后自动
+        入库**）。三条纪律：
+        1. **只有 `approved` 触发**（`rejected`/`pending` 一律不碰法条链）；
+        2. Track L 的失败**不改写评审结果**（批准是用户对**材料**的判断，入库是它的**后果**）
+           ——但必须出现在返回体的 `data.track_l` 里，**绝不静默**；
+        3. 端点是 `def`（入库要写库、可能秒级；见 `collect` 端点关于单事件循环的说明）。
+        """
         body = payload or {}
         status = body.get("status")
         if status not in ("pending", "approved", "rejected"):
@@ -231,7 +256,17 @@ def register(app, json_error):
             return json_error(422, "materials_bad_request", str(e))
         if not ok:
             return json_error(404, "materials_not_found", f"材料不存在: {material_id}")
-        return {"code": 200, "status": "success", "data": mr.get_material(material_id)}
+        row = mr.get_material(material_id)
+        if row is not None and status == "approved":
+            outcome = _run_track_l(material_id)
+            # ⚠ **必须重读**：Track L 成功后 `link_doc` 会写 `material.doc_id`，
+            # 而上面那次读取发生在它之前——不重读就会把"已回指"显示成 `doc_id: null`
+            # （本步的测试当场抓到了这个：入库成功、返回体却说自己没关联）。
+            row = dict(mr.get_material(material_id) or row)
+            # 放进 `data` **里面**（不是顶层）：主机侧 `mapProbe` 只转发 `body.data`，
+            # 顶层字段会被**静默丢掉**（那是本战役反复打的"算了但看不见"的坑）。
+            row["track_l"] = outcome
+        return {"code": 200, "status": "success", "data": row}
 
     @app.post("/api/v1/materials/{material_id}/tier")
     async def materials_set_tier(material_id: str, payload: dict):

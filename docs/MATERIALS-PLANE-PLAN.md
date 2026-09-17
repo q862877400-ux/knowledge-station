@@ -360,6 +360,13 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
   ——它做的是**分钟级**同步解析（MinerU），而 uvicorn 是单事件循环，`async def` 会把
   **整个引擎**卡住。加了一条结构性测试（`iscoroutinefunction(endpoint)`）防回退，
   并与 `collect` 一起被钉住（凡做同步重活的端点都该是 `def`）。
+- **C-10 Track L 接线（已完成，§10.33）**：**本步修掉一条"其实是死的"的功能**——
+  `track_l.reconcile()` 此前**没有任何生产调用方**，于是 C-3 记的"入库已完成"在**产品里
+  是死的**（批准采到的国标 ⇒ 能当材料检索，**永远不会**进法条库）。现在
+  `materials_review` 在**批准后**触发它，结果放进 `data.track_l`（不是响应顶层——
+  主机侧只转发 `data`），失败**不改写评审结果但如实回传**；面板批准回执也显示这条后果
+  （批准会**自动写进法条库**，静默通过=用户不知情）。`materials_review` 同时并入
+  "慢端点必须是 `def`"的结构性测试。
 
 ### 已知未决 / 诚实边界
 

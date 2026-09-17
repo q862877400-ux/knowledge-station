@@ -375,6 +375,115 @@ def _list(c, pid):
     return r.json()["data"]
 
 
+@pytest.fixture()
+def track_l_docs(db):
+    """登记本类测试往**法条链**写的 doc_id，**测完删干净**（同 `test_material_track_l`）。
+
+    ⚠ 必须清：`db` 是**会话级共用库**，而 `test_quality_rules` 里有一个**全局**断言
+    （"质量问题的条款恰好 5 条"）——本类测试是又一处往 `doc_meta`/`clause_revision`
+    写东西的材料测试。清理走既有的 `clause_repo.delete_document`（它会连虚拟表孤儿行一起清）。
+    """
+    created: list[str] = []
+    yield created
+    from src.core.storage import clause_repo as cr
+    for doc_id in created:
+        try:
+            cr.delete_document(doc_id)
+        except Exception:  # noqa: BLE001 — 清理失败不该把测试结论改写成失败
+            pass
+
+
+_STD_TEXT = (
+    "GB 88888-2088 某安全技术规范\n"
+    "1 范围\n本文件规定了某安全技术要求。\n"
+    "3.1 术语\n某术语的定义。\n"
+    "3.2 又一条术语\n又一条定义。\n"
+    "4.1 要求\n应满足下列要求。\n"
+    "4.2 试验方法\n按下列方法试验。\n"
+)
+
+
+def _collect_text_material(c, pid, *, title, text):
+    """用**采集门**登记一份文本材料（走 `collect_text` 的公共入口，不经网络）。
+
+    为什么不用 `collect` 路由：那条要真抓网。这里用 `co.collect_text` 直接登记，
+    与"AI 自己采到的东西"是**同一条**入库路径（同一个门、同样的 pending/ephemeral）。
+    """
+    from src.core.materials import collect as co
+    return co.collect_text(pid, title=title, text=text, url="https://a.example/1")
+
+
+class TestApprovalTriggersTrackL:
+    """**批准 → Track L 自动跑**（业主裁定 J5："采到库内没有的法规标准，评审通过后自动入库"）。
+
+    ⚠ 这条是本步补的**接线**：`track_l.reconcile()` 此前**没有任何生产调用方**
+    （§10.24 写了它、§10.28 还在说"库级能力"），于是"自动入库"这句承诺实际上
+    **是死的**——批准之后材料能被检索到，但**永远不会**进法条库。
+    """
+
+    def test_standard_material_is_imported_on_approval(self, client, project, track_l_docs):
+        c, _ = client
+        pid = project["project_id"]
+        mid = _collect_text_material(c, pid, title="GB 88888-2088 某安全技术规范",
+                                     text=_STD_TEXT)["material_id"]
+        r = c.post(f"/api/v1/materials/{mid}/review", json={"status": "approved"}, headers=HDR)
+        assert r.status_code == 200, r.text
+        data = r.json()["data"]
+        tl = data.get("track_l")
+        assert isinstance(tl, dict), data
+        assert tl["action"] in ("import", "link"), tl
+        assert tl.get("imported") is True or tl.get("linked") is True, tl
+        # 回指必须落库（`doc_id` 是材料侧的列，法条链零改动）
+        assert data.get("doc_id"), data
+        if tl.get("imported"):
+            track_l_docs.append(str(data["doc_id"]))
+        # 库内此刻真的有它（按比较键）
+        from src.core.materials import track_l as tl_mod
+        assert tl_mod.find_existing_doc("GB 88888-2088"), "入库后必须能按比较键查到"
+
+    def test_plain_material_is_skipped_on_approval(self, client, project, db):
+        c, _ = client
+        pid = project["project_id"]
+        before = db.execute("SELECT COUNT(*) FROM doc_meta").fetchone()[0]
+        mid = _collect_text_material(c, pid, title="一篇报道",
+                                     text="据当地通报，住宿标准每晚不超过八百元，自下月起执行。")["material_id"]
+        r = c.post(f"/api/v1/materials/{mid}/review", json={"status": "approved"}, headers=HDR)
+        tl = r.json()["data"].get("track_l")
+        assert isinstance(tl, dict) and tl["action"] == "skip", tl
+        after = db.execute("SELECT COUNT(*) FROM doc_meta").fetchone()[0]
+        assert after == before, "不是标准的材料绝不许碰法条链"
+
+    def test_rejection_does_not_run_track_l(self, client, project):
+        """拒绝**不触发**：返回体里连 `track_l` 键都不该有（"没决策"与"决策=skip"是两回事）。"""
+        c, _ = client
+        pid = project["project_id"]
+        mid = _collect_text_material(c, pid, title="GB 88888-2088 某安全技术规范",
+                                     text=_STD_TEXT)["material_id"]
+        r = c.post(f"/api/v1/materials/{mid}/review", json={"status": "rejected"}, headers=HDR)
+        assert r.status_code == 200
+        assert "track_l" not in r.json()["data"], r.json()["data"]
+
+    def test_track_l_failure_is_reported_not_raised(self, client, project, monkeypatch):
+        """Track L 抛错**不改写评审结果**，但必须在 `data.track_l` 里如实报出来。"""
+        c, _ = client
+        pid = project["project_id"]
+        mid = _collect_text_material(c, pid, title="GB 88888-2088 某安全技术规范",
+                                     text=_STD_TEXT)["material_id"]
+
+        from src.core.materials import track_l as tl_mod
+
+        def boom(_mid):
+            raise RuntimeError("模拟入库炸了")
+
+        monkeypatch.setattr(tl_mod, "reconcile", boom)
+        r = c.post(f"/api/v1/materials/{mid}/review", json={"status": "approved"}, headers=HDR)
+        assert r.status_code == 200, r.text
+        data = r.json()["data"]
+        assert data["review_status"] == "approved", data          # 评审结果保住了
+        assert data["track_l"]["action"] == "error"
+        assert "模拟入库炸了" in data["track_l"]["why"]
+
+
 class TestSlowEndpointsAreDeclaredSync:
     """**结构性约束**：做同步重活的端点必须声明成 `def`（Starlette 才会丢进线程池）。
 
@@ -387,6 +496,7 @@ class TestSlowEndpointsAreDeclaredSync:
     @pytest.mark.parametrize("path", [
         "/api/v1/materials/projects/{project_id}/scan",
         "/api/v1/materials/projects/{project_id}/collect",
+        "/api/v1/materials/{material_id}/review",
     ])
     def test_declared_sync(self, client, path):
         import asyncio

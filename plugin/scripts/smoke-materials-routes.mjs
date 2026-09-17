@@ -312,6 +312,27 @@ const lastEngine = () => seen[seen.length - 1]
   check('POST /review 缺 material_id → 400 且不打扰引擎',
     noMid.status === 400 && seen.length === 0, `${noMid.status} engineCalls=${seen.length}`)
 
+  // ⚠ **`data` 里的每个字段都要能到界面**（"算了但看不见"是本战役反复打的坑）：
+  // 批准后引擎会在 `data.track_l` 里报告 Track L（自动入库）的结果，本层必须原样转发。
+  // 用一个**多字段**的 data 钉住：将来谁给 mapProbe 加个 `pick` 白名单，这条会红。
+  seen.length = 0
+  responder = () => ({
+    body: {
+      code: 200,
+      data: {
+        material_id: 'mat_1', review_status: 'approved', doc_id: 'doc_x',
+        track_l: { action: 'import', imported: true, why: '已走既有 ingest 管线入库并回指' },
+      },
+    },
+  })
+  const withTl = await invoke('/ks/materials/review', {
+    method: 'POST', search: '?material_id=mat_1', body: { decision: 'approved' },
+  })
+  check('批准响应里的 `track_l`（自动入库结果）被转发给界面',
+    withTl.status === 200 && withTl.body.data?.track_l?.action === 'import'
+    && withTl.body.data?.doc_id === 'doc_x',
+    JSON.stringify(withTl.body.data ?? null))
+
   seen.length = 0
   const badJson = await invoke('/ks/materials/review', {
     method: 'POST', search: '?material_id=mat_1', body: undefined,

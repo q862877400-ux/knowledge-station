@@ -229,7 +229,16 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
     void run(`${decision}:${m.material_id}`, async () => {
       const out = await reviewMaterial(m.material_id, decision)
       const label = reviewLabel(out.review_status).text
-      return `「${m.title}」→ ${label}`
+      // ⚠ Track L 的**后果**必须让用户看到（方案 §7 可见性硬需求）：批准一份采到的
+      // 标准/法规会**自动写进法条库**——那是批准的副作用，静默通过等于用户不知道
+      // 库里多了东西。失败尤其要说（否则"批准成功"会被读成"入库成功"）。
+      const tl = out.track_l ?? null
+      const tlText = tl === null ? ''
+        : tl.action === 'import' ? '；已自动入库为法条（Track L）'
+          : tl.action === 'link' ? '；库内已有，已回指该法条'
+            : tl.action === 'skip' ? '；未识别为法规/标准，未动法条库'
+              : `；⚠ Track L 未完成（${tl.action ?? '未知'}）：${tl.why ?? '原因未给'}`
+      return `「${m.title}」→ ${label}${tlText}`
     }, projectId)
   }, [projectId, run])
 
