@@ -133,9 +133,14 @@ def main() -> None:
         if not mids:
             continue
         items, ps = load_middle_items(mids[0])
+        # 与入库同参（2026-09-17）：切分层与清洗链都要拿到本文档标准号，
+        # 否则"页码 + 标准号"那一族判据无法消歧 —— 上面这层 `clean_clause_text`
+        # 是对**已清洗过的** model 文本再洗一遍，不传标准号时那第二遍会把
+        # 入库刻意保留的表格末格删掉（继承自父版本的"不幂等"那 4 行）。
         models, _ = build_clause_models("q", d["std_no"], "standard",
-                                        split_items_into_clauses(items), ps)
-        texts = [clean_clause_text(m.content_text or "") for m in models]
+                                        split_items_into_clauses(items, standard_no=d["std_no"]), ps)
+        texts = [clean_clause_text(m.content_text or "", own_standard_no=d["std_no"])
+                 for m in models]
         total_clauses += len(texts)
         total_chars += sum(len(t) for t in texts)
         flags = []

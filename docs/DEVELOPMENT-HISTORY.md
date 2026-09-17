@@ -153,6 +153,9 @@ verifier 全面审计产出 25 项问题清单 → 5 verifier 编制方案 → v
      **回归护栏（这条闸以前抓不到它，因为 smoke 的假框架从不调用 body 的 inject）**：`smoke-client-entry` 新增一条 —— 用"像真框架那样"的第一个参数调用 body 的 `inject`，断言**不抛**、返回 `openEvidence`、且**不谎称提供 `useTabInfo`**。`smoke-client-entry` **40/40 → 41/41**。
      **真机复证**：修后同样流程 —— 点胶囊 → pane 子树出现 `📑 目录 ▾ 从左侧目录点开任意国标/法规即可阅读`（idle 态如期渲染），且**页面 console 无任何报错**。
    - **顺带记录（未修、与本缺陷无关）**：页面加载时"目录常驻"自动开 tab 的那次调用报 `sidebarRight: no session surface is mounted`（宿主还没挂载会话面），故**开局不会自动开 PDF tab**——手动入口已覆盖该需求，故本次不动它。另全 smoke 串联跑时 `smoke-chatmode` 偶发 1 条 `a session closed by this process is not resurrected from disk` 失败，**单跑 144/144 通过**，属既有的顺序/环境相关抖动。
+10. **两处收尾（2026-09-17，承 §八.9 与独立 verifier 报告）**：
+   - **删掉"目录常驻"的自动开 tab**：原实现在 `apply()` 里直接 `right.openResource(...)`，而那一刻**会话面还没挂载** → 真机每次都抛 `sidebarRight: no session surface is mounted` 并留一条 `console.warn`。也就是说**它从来没有生效过**（只是每次加载吵一句），而它的用途（"无证据也能进 PDF 阅读器"）现已由**开始页手动入口胶囊**承担；自动开还会把开始页顶掉，与"开始页＝入口"的设计冲突。**若将来确实要"开局常驻 tab"，正确位置是会话面挂载后的回调**，不是 `apply()`。smoke 里两条钉住"自动开"的断言随之改成钉住"**加载时不自动开**"（`client-entry` 41→40 条，全绿）。真机复证：刷新后页面 console **一条 KS 消息都没有**（原来的 warn 消失），点胶囊仍正常渲染 `📑 目录 ▾`。
+   - **评估侧与入库侧口径对齐（verifier 点名的 8 处中的 3 个被跟踪文件）**：`var/ocr-loop/evolve.py`（两处）、`fidelity_census.py`、`verify_batch.py` 原先调 `split_items_into_clauses(items)` / `clean_clause_text(...)` **不传标准号**，于是评估与入库**分叉** —— 水印/家具判据里"页码 + 标准号"那一族无法消歧，评估会把**表格末格**（引用别的标准）当页眉删掉，**持续报一个入库里已经不存在的缺陷**（违反 `clean_clause_text` docstring 立的"入库与评估同一次序同结果"）。已按各文件已有的标准号变量（`doc["std_no"]` / `stem` / `d["std_no"]`）补传 `own_standard_no=` 与 `standard_no=`。**特别地 `verify_batch.py:138` 是对"已清洗过的 model 文本"再洗一遍**——不传标准号时那第二遍会把入库刻意保留的表格末格删掉（正是父版本继承来的"不幂等那 4 行"）。另 5 处（`probe_quality.py` 等）**未被 git 跟踪**（scratch 探针），未改。
 
 ## 九、外部借鉴调研的落点与边界（2026-09-16）
 

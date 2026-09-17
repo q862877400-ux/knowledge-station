@@ -299,9 +299,16 @@ def evaluate_doc(doc: dict, index: dict, scratch_root: Path,
     import classify as C
 
     def _clean_clause(t: str) -> str:
-        """评估前把条款文本过**入库同一条清洗链**（单一所有者，见调用点注释）。"""
+        """评估前把条款文本过**入库同一条清洗链**（单一所有者，见调用点注释）。
+
+        ⚠ `own_standard_no` **必须传**（2026-09-17）：入库侧 `run_full_ingest` 会传本文档
+        标准号给清洗链与切分层；评估侧不传就与入库**分叉** —— 水印/家具判据里
+        "页码 + 标准号"那一族无法消歧，会把**表格末格**（引用别的标准）当页眉删掉，
+        于是评估持续报一个**入库里已经不存在**的缺陷。
+        """
         from src.core.text_utils import clean_clause_text
-        return clean_clause_text(t, legend_stripper=strip_figure_legend_segment)
+        return clean_clause_text(t, legend_stripper=strip_figure_legend_segment,
+                                 own_standard_no=doc["std_no"])
 
     rec: dict[str, Any] = {
         "i": doc["i"], "std_no": doc["std_no"], "doc_id": doc["doc_id"],
@@ -341,7 +348,8 @@ def evaluate_doc(doc: dict, index: dict, scratch_root: Path,
             geos = res.get("geometries") or {}
             page_sizes = {int(k) - 1: (float(v["width"]), float(v["height"]))
                           for k, v in geos.items()}
-        split = split_items_into_clauses(items)
+        # 与入库同参：传本文档标准号给切分层（家具剥离消歧），否则评估与入库分叉。
+        split = split_items_into_clauses(items, standard_no=doc["std_no"])
         models, _ = build_clause_models("probe", doc["std_no"], "standard",
                                         split, page_sizes)
         # **"读不到的表"必须与"本来没有表"区分开**（2026-09-16 审计提出，本循环实现）。

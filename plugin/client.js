@@ -33930,11 +33930,6 @@ function registerSidebarSurfaces(ctx, tabs, right, rightRef) {
       } else {
         console.error("[ks-dsh-plugin] slots \u4E0D\u53EF\u7528\uFF1APDF \u8BC1\u636E tab body \u672A\u6CE8\u518C\uFF08tab \u7C7B\u578B\u5DF2\u6CE8\u518C\u4F46\u65E0\u5185\u5BB9\uFF09");
       }
-      try {
-        right.openResource(KS_EVIDENCE_ADDRESS, { kind: KS_EVIDENCE_KIND });
-      } catch (error) {
-        console.warn("[ks-dsh-plugin] \u5E38\u9A7B\u6253\u5F00 PDF \u67E5\u770B\u5668 tab \u5931\u8D25\uFF08\u4E0D\u5F71\u54CD\u5176\u4ED6\u8868\u9762\uFF09", error);
-      }
       const onClick = (event) => {
         if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
         const target = event.target;

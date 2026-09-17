@@ -361,15 +361,13 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     built.effects.filter((fn) => typeof fn === 'function').length >= 2,
     `disposers=${built.effects.filter((fn) => typeof fn === 'function').length}`)
 
-  // 常驻打开（目录常驻）：应经官方 openResource 打一次，且**不带 params**（idle 态）
-  check('the resident PDF viewer is opened through the official openResource',
-    right.opened.length === 1
-    && right.opened[0].address === 'dsh-resource://ks-evidence'
-    && right.opened[0].options?.kind === 'ks-evidence',
+  // 2026-09-17 起**不再自动开 tab**（"目录常驻"）：原实现每次页面加载都抛
+  //   `sidebarRight: no session surface is mounted`（会话面尚未挂载）—— 也就是它
+  //   **从未生效**，只留一条 console.warn。手动入口已由开始页胶囊承担（见 stage 1 的
+  //   guide 断言），而自动开还会把开始页顶掉。故这里改为钉住"**加载时不自动开**"。
+  check('the plugin does NOT auto-open a tab at load (start page stays the doorway)',
+    right.opened.length === 0,
     JSON.stringify(right.opened.map((o) => o.address)))
-  check('the resident open carries no evidence params (idle → file catalogue)',
-    right.opened[0]?.options?.params === undefined,
-    JSON.stringify(right.opened[0]?.options?.params))
 }
 
 /* ---------------------------- 3b. 证据点击：一次导航即"打开或复用" */
@@ -385,12 +383,12 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
   }
   dispatchClick({ button: 0, target: anchor })
   check('an evidence click navigates via openResource with the SAME constant address',
-    right.opened.length === 2
-    && right.opened[1].address === 'dsh-resource://ks-evidence',
+    right.opened.length === 1
+    && right.opened[0].address === 'dsh-resource://ks-evidence',
     JSON.stringify(right.opened.map((o) => o.address)))
   check('the evidence URL travels in params (keeps the address constant → singleton tab)',
-    right.opened[1]?.options?.params?.url === url,
-    JSON.stringify(right.opened[1]?.options?.params))
+    right.opened[0]?.options?.params?.url === url,
+    JSON.stringify(right.opened[0]?.options?.params))
 }
 
 /* ---------------------------- 4. 官方右侧栏迟到：事件驱动重注册 */

@@ -266,7 +266,10 @@ def main() -> None:
         mid = mid_files[0]
         try:
             items, page_sizes = load_middle_items(mid)
-            split = split_items_into_clauses(items)
+            # 与入库同参：传本文档标准号给切分层与清洗链（家具/水印判据消歧）。
+            # 不传就与入库分叉：评估会把「表格末格」（引用别的标准）当页眉删掉，
+            # 于是报出一个入库里已经不存在的缺陷（2026-09-17）。
+            split = split_items_into_clauses(items, standard_no=stem)
             models, _ = build_clause_models("probe", stem, "standard", split, page_sizes)
         except Exception as ex:  # noqa: BLE001
             print(f"  [跳过] {stem[:40]}: {type(ex).__name__}: {str(ex)[:60]}")
@@ -277,7 +280,8 @@ def main() -> None:
             clauses_total += 1
             rt = m.content_text or ""
             audited_chars += len(rt)
-            ct = clean_clause_text(rt, legend_stripper=strip_figure_legend_segment)
+            ct = clean_clause_text(rt, legend_stripper=strip_figure_legend_segment,
+                                   own_standard_no=stem)
             doc_raw.update(census(rt))
             doc_clean.update(census(ct))
             for cls in A.audit_clause(ct):

@@ -311,15 +311,14 @@ function registerSidebarSurfaces(
         console.error('[ks-dsh-plugin] slots 不可用：PDF 证据 tab body 未注册（tab 类型已注册但无内容）')
       }
 
-      // 目录常驻（2026-10-27）：页面加载后自动开一次 PDF 查看器 tab（不带证据 →
-      // idle 态，左列默认 📚 文件目录，无问答也能直接点开国标阅读）。
-      // 官方 `openResource` 对同一地址天然幂等（同地址 = 同 tab，只聚焦不重开），
-      // 故"每次加载仅一次"的语义不变；用户手动关闭后再点证据链接照常重开。
-      try {
-        right.openResource(KS_EVIDENCE_ADDRESS, { kind: KS_EVIDENCE_KIND })
-      } catch (error) {
-        console.warn('[ks-dsh-plugin] 常驻打开 PDF 查看器 tab 失败（不影响其他表面）', error)
-      }
+      // ⚠ 已删除"目录常驻"的**自动开 tab**（2026-09-17）。原实现（2026-10-27）在
+      //   `apply()` 里直接 `right.openResource(...)`，但那一刻**会话面还没挂载**，
+      //   真机每次都抛 `sidebarRight: no session surface is mounted` 并留一条
+      //   console.warn —— 也就是**它从来没有生效过**（只是每次加载吵一句）。
+      //   而它的用途（"无证据也能进 PDF 阅读器"）现在由**侧栏开始页的手动入口胶囊**
+      //   承担（见 `ksSidebar.ts` 的 `guide`）：胶囊是"门"，用户点才进；自动开反而会
+      //   把开始页顶掉，与"开始页＝入口"的设计相冲突。
+      //   若将来确实要"开局常驻 tab"，正确位置是**会话面挂载后的回调**，而不是这里。
 
       // 证据锚点接管：官方模型没有 `urlTarget` 那种"声明式认领外部链接"的面，
       // 故仍用 document 级 capture 监听——但它现在只做**一件事**：
