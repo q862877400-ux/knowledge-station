@@ -3024,6 +3024,11 @@ def create_app(token: str) -> FastAPI:
     from src.core.api import routes_ingest_preview
     routes_ingest_preview.register(app, _json_error)
 
+    # 材料平面（2026-09-17 定位转移 Phase A）：项目 / 参考资料收件 / 评审硬门 / 已批准材料检索。
+    # **不碰法条链**——它只读写 material_project/material/material_chunk/material_fts 四张新表。
+    from src.core.api import routes_materials
+    routes_materials.register(app, _json_error)
+
 
     return app
 

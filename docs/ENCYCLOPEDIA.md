@@ -477,6 +477,10 @@ write_queue / event_log（统一事件模型）/ debug_dump（每次提问落库
 > 说明当时的分母与今天不同（或含未记录的排除）。**故该四分类只能当 2026-09-13 历史快照，
 > 不可当现状引用。**
 >
+> ⚠ **又被超过一次（2026-09-17）**：新增 `routes_materials.py`（材料平面，Phase A）
+> 带来 **13 个端点**（`/api/v1/materials/…`），故上面的 127/113 也**已过期**。
+> ⇒ 引用任何端点底数前必须重扫；**这里只保留"怎么数"的方法**，数字一律以现场重扫为准。
+>
 > ✅ **但它的 ZERO 标签经抽样复核站得住**（2026-09-16，抽查 8 条）：
 > `POST /compare`、`POST /export/citations`、`POST /laws/check-updates`、
 > `/clauses/office-edit/poll`、`/clauses/office-edit/commit`、`/documents/{id}/versions`、
