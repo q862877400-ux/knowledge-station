@@ -22,6 +22,21 @@
  * | `panel`（宽度能力） | **不给** —— 官方右侧栏无宽度面，见 `ks-evidence-props.ts` |
  * | `onOpenEvidence` | `ctx.sidebarRight.openResource`（同一地址再导航 → revision +1 → 组件重载） |
  *
+ * ## ⚠ `useTabInfo` 是**运行时 prop**，不是 inject 面（2026-09-17 修空白 pane）
+ * 官方座位契约（`ui-sidebar-right/src/client/contract/slots.ts:50-54`）：
+ * ```
+ * 'sidebar.right.pane.tab': { hookContext: TabHookContext, inject: SidebarRightTabInjected }
+ * ```
+ * `hookContext: TabHookContext` ⇒ 框架把 `useTabInfo` **直接作为组件运行时 prop** 交给 body
+ * （官方 `TextPreview.tsx:96`、`GuideBody.tsx:80` 都是这样解构的）。
+ * `inject` 工厂的**第一个参数是 `sessionId`**（官方 `ui-sidebar-documentpreview/src/client/index.ts:104`
+ * 写作 `inject: (sessionId, actions) => …`），其**返回值才是本插件贡献给组件的面**。
+ *
+ * 我们曾把 `inject` 的第一参数当成"聚合面"并断言 `hooks.tabInfo` 存在 —— 那个值**永远是
+ * undefined**，于是自设的守卫在挂载时抛错 → 官方 `slot entry crashed` → **开始页点进来的
+ * PDF pane 全白**（2026-09-17 真机实测：console 明确报此错）。修法见下：
+ * `useTabInfo` 走 props，`openEvidence` 才是我们的 inject 面。
+ *
  * ## 为什么不用 `tab.actions`
  * 官方 `SidebarRightTabActions` 面向"改标题/关 tab"等布局动作；本组件需要的是
  * **再导航**，那属于 `ctx.sidebarRight` 服务面（已由宿主闭包持有），故不绕 actions。
@@ -33,19 +48,45 @@ import type { KsEvidenceProps } from './ks-evidence-props'
 import type { KsEvidenceNavParams, UseKsTabInfo } from './ksSidebar'
 
 /**
- * 官方 `sidebar.right.pane.tab` 座位注入给 body 的成员（我们用到的最小面）。
+ * 官方座位**运行时**交给 body 的成员（框架给，不经 inject）。
  *
- * `useTabInfo` 由宿主在注册时经 `inject: { hooks: { tabInfo } }` 提供
- * （官方 `sidebar.right.pane.tab` 座位声明带 `hookContext: TabHookContext`）。
+ * `hookContext: TabHookContext` 决定它：官方所有 pane body 都这样拿 `useTabInfo`。
  */
-export interface KsEvidenceHostInjected {
+export interface KsEvidenceHostRuntime {
   useTabInfo: UseKsTabInfo
+}
+
+/** 本插件**贡献**给该座位的 inject 面（工厂返回值即此形状）。 */
+export interface KsEvidenceHostInjected {
   /** 再导航一条证据（把新 URL 送进同一个单例 tab）。 */
   openEvidence: (evidenceUrl: string) => void
 }
 
-/** 宿主组件：官方座位 props + 注入面。 */
-export type KsEvidenceHostProps = KsEvidenceHostInjected
+/** 宿主组件：运行时 props + 本插件的 inject 面。 */
+export type KsEvidenceHostProps = KsEvidenceHostRuntime & KsEvidenceHostInjected
+
+/**
+ * 座位守卫：只在**契约被破坏**时显示一句人话。
+ *
+ * 为什么不在这里 `throw`：座位里抛错会被官方包成 `slot entry crashed`，用户看到的是
+ * **空白面板**（2026-09-17 实测）。守卫的目的本来就是"别让用户看见无因的空白"，
+ * 抛错恰好违背这个目的 —— 故改为**渲染可见的错误文案**。
+ *
+ * 为什么拆成两个组件：`useTabInfo()` 必须在 body 里**无条件**调用（React hooks 规则），
+ * 而守卫要先判断它是不是函数。守卫自己不调 hook，body 无条件调 —— 顺序稳定。
+ */
+export function KsEvidenceHost(props: KsEvidenceHostProps): React.ReactElement {
+  const { useTabInfo, openEvidence } = props
+  if (typeof useTabInfo !== 'function') {
+    return React.createElement(
+      'div',
+      { style: { padding: '12px', fontSize: '12px', lineHeight: 1.6, opacity: 0.8 } },
+      '[ks-dsh-plugin] 官方 sidebar.right.pane.tab 座位未提供运行时 prop `useTabInfo`'
+      + '——右侧栏契约可能已变更，PDF 证据查看器无法渲染。',
+    )
+  }
+  return React.createElement(KsEvidenceBody, { useTabInfo, openEvidence })
+}
 
 /**
  * 渲染证据 PDF tab。
@@ -56,7 +97,7 @@ export type KsEvidenceHostProps = KsEvidenceHostInjected
  * 已被移除（见文件头）；组件对 `scope` 缺失是安全的（`sessionId === undefined`
  * 时 `tabOpen` 分诊退化为"仍打开"，绝不误改宽度）。
  */
-export function KsEvidenceHost(props: KsEvidenceHostProps): React.ReactElement {
+function KsEvidenceBody(props: KsEvidenceHostProps): React.ReactElement {
   const { useTabInfo, openEvidence } = props
   const info = useTabInfo()
   const t = info.tab

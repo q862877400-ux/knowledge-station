@@ -337,6 +337,21 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
   check('stage 2: the body seat registered under the type id',
     body !== undefined && body.options?.key === 'ks-dsh-plugin/evidence-pdf',
     built.registered.map((r) => String(r.options?.key ?? r.options?.id)).join(','))
+  // ⚠ 这条是 2026-09-17「点开始页胶囊 → 面板全白」的回归护栏。
+  //   真机根因：body 的 `inject` 工厂把**第一参数（sessionId）**当成"框架聚合面"，
+  //   断言 `hooks.tabInfo` 存在 → 永远 undefined → 自设守卫挂载即抛 →
+  //   官方 `slot entry crashed` → 空白。官方契约里 `useTabInfo` 是**运行时 prop**
+  //   （座位 `hookContext: TabHookContext`），inject 工厂的**返回值**才是本插件的面。
+  //   这里用"像真框架那样"的第一个参数调用一次，钉住：不抛、且不谎称提供 useTabInfo。
+  let bodyFace = null
+  let bodyThrew = null
+  try { bodyFace = body?.options?.inject?.('session-1', undefined) } catch (error) { bodyThrew = error }
+  check('stage 2: the body inject factory takes a sessionId and contributes ONLY openEvidence',
+    bodyThrew === null
+    && typeof bodyFace?.openEvidence === 'function'
+    && bodyFace?.useTabInfo === undefined,
+    bodyThrew !== null ? `threw: ${String(bodyThrew?.message).slice(0, 80)}`
+      : `keys=${Object.keys(bodyFace ?? {}).join(',')}`)
 
   check('设置栏目 (settings.section) registered too',
     built.injected.includes('settings.section'), built.injected.join(','))

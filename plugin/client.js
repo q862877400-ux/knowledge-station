@@ -31749,6 +31749,17 @@ var $dirSearchClear = {
 // client/KsEvidenceHost.tsx
 function KsEvidenceHost(props) {
   const { useTabInfo, openEvidence } = props;
+  if (typeof useTabInfo !== "function") {
+    return React.createElement(
+      "div",
+      { style: { padding: "12px", fontSize: "12px", lineHeight: 1.6, opacity: 0.8 } },
+      "[ks-dsh-plugin] \u5B98\u65B9 sidebar.right.pane.tab \u5EA7\u4F4D\u672A\u63D0\u4F9B\u8FD0\u884C\u65F6 prop `useTabInfo`\u2014\u2014\u53F3\u4FA7\u680F\u5951\u7EA6\u53EF\u80FD\u5DF2\u53D8\u66F4\uFF0CPDF \u8BC1\u636E\u67E5\u770B\u5668\u65E0\u6CD5\u6E32\u67D3\u3002"
+    );
+  }
+  return React.createElement(KsEvidenceBody, { useTabInfo, openEvidence });
+}
+function KsEvidenceBody(props) {
+  const { useTabInfo, openEvidence } = props;
   const info2 = useTabInfo();
   const t = info2.tab;
   const params = t.navigation?.params;
@@ -33913,15 +33924,8 @@ function registerSidebarSurfaces(ctx, tabs, right, rightRef) {
         disposeBody = ctx.slots.inject("sidebar.right.pane.tab", () => ctx.slots.register({
           name: "sidebar.right.pane.tab",
           key: KS_EVIDENCE_IMPL_ID,
-          inject: (injected) => {
-            const tabInfo = injected?.hooks?.tabInfo;
-            if (typeof tabInfo !== "function") {
-              throw new Error(
-                "[ks-dsh-plugin] sidebar.right.pane.tab \u5EA7\u4F4D\u672A\u63D0\u4F9B hooks.tabInfo\u2014\u2014\u5B98\u65B9\u53F3\u4FA7\u680F\u5951\u7EA6\u53EF\u80FD\u5DF2\u53D8\u66F4\uFF0CPDF \u8BC1\u636E\u67E5\u770B\u5668\u65E0\u6CD5\u6E32\u67D3\u3002"
-              );
-            }
-            return { useTabInfo: tabInfo, openEvidence };
-          }
+          // 只贡献我们自己的那一个面；`useTabInfo` 由框架按 hookContext 给。
+          inject: () => ({ openEvidence })
         }, KsEvidenceHost));
       } else {
         console.error("[ks-dsh-plugin] slots \u4E0D\u53EF\u7528\uFF1APDF \u8BC1\u636E tab body \u672A\u6CE8\u518C\uFF08tab \u7C7B\u578B\u5DF2\u6CE8\u518C\u4F46\u65E0\u5185\u5BB9\uFF09");

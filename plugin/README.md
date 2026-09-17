@@ -61,7 +61,7 @@ plugin/
   client/KsEvidenceTab.tsx / KsBookmarksTab.tsx / KsFilesTab.tsx / KsReportPanel.tsx / KsIngestPanel.tsx / KsSettingsSection.tsx / ApiConfigPanel.tsx
   client/api.ts       # 引擎 fetch 链（经宿主代理）
   client/ksSidebar.ts # 官方右侧栏契约（tabs/slots 两段式注册 + 证据 tab 定义，2026-09-16 迁移）
-  client/KsEvidenceHost.tsx # 官方注入（useTabInfo/openEvidence）→ KsEvidenceProps 映射
+  client/KsEvidenceHost.tsx # 官方座位适配：运行时 prop useTabInfo + 本插件的 inject 面 openEvidence → KsEvidenceProps
   client/ksPrefs.ts   # 侧栏偏好存储（localStorage，取代旧第三方 store）
   client.js           # esbuild 单文件产物（~1.1MB，DSH ModuleLoader 加载；git 跟踪）
   scripts/build-client.mjs  # 构建（改 client 后必跑）

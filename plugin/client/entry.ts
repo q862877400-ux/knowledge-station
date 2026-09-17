@@ -34,7 +34,6 @@ import {
   toNavParams,
   type KsSidebarRight,
   type KsTabRegistry,
-  type UseKsTabInfo,
 } from './ksSidebar'
 import { isKsEvidenceUrl, parseEvidence } from './ksEvidence'
 
@@ -292,26 +291,21 @@ function registerSidebarSurfaces(
       //    让它冒到下面的 catch 里点名，而不是静默少一个 tab。
       const disposeType = tabs.register(ksEvidenceDefinition())
 
-      // ② body 座位。`inject.hooks.tabInfo` 由**宿主**声明（座位契约里带
-      //    `hookContext: TabHookContext`），我们把宿主给的这个 factory 原样
-      //    转交给 body 组件 —— 官方 `ui-sidebar-documentpreview` 也是这么做的。
+      // ② body 座位。**两个面必须分清**（2026-09-17 修空白 pane 的根因）：
+      //    - `hookContext: TabHookContext`（座位契约）⇒ 框架把 `useTabInfo` **作为
+      //      组件运行时 prop** 交给 body —— 我们**不需要**、也**拿不到**它；
+      //    - `inject` 工厂的**第一个参数是 `sessionId`**，其**返回值**才是本插件贡献
+      //      给组件的面（官方 `ui-sidebar-documentpreview/src/client/index.ts:104`
+      //      写作 `inject: (sessionId, actions) => …`）。
+      //    旧实现把第一参数当"聚合面"并断言 `hooks.tabInfo` —— 那值永远是 undefined，
+      //    自设守卫于是挂载即抛 → 官方 `slot entry crashed` → **点进来全白**（真机实测）。
       let disposeBody: (() => void) | undefined
       if (ctx.slots !== undefined) {
         disposeBody = ctx.slots.inject('sidebar.right.pane.tab', () => ctx.slots!.register({
           name: 'sidebar.right.pane.tab',
           key: KS_EVIDENCE_IMPL_ID,
-          inject: (injected: { hooks?: { tabInfo?: UseKsTabInfo } }): KsEvidenceHostInjected => {
-            const tabInfo = injected?.hooks?.tabInfo
-            if (typeof tabInfo !== 'function') {
-              // 宿主没给 tabInfo（座位契约变更）→ 明确报错，别让 body 拿到 undefined
-              // 再在渲染期抛一个看不出原因的错。
-              throw new Error(
-                '[ks-dsh-plugin] sidebar.right.pane.tab 座位未提供 hooks.tabInfo'
-                + '——官方右侧栏契约可能已变更，PDF 证据查看器无法渲染。',
-              )
-            }
-            return { useTabInfo: tabInfo, openEvidence }
-          },
+          // 只贡献我们自己的那一个面；`useTabInfo` 由框架按 hookContext 给。
+          inject: (): KsEvidenceHostInjected => ({ openEvidence }),
         }, KsEvidenceHost))
       } else {
         console.error('[ks-dsh-plugin] slots 不可用：PDF 证据 tab body 未注册（tab 类型已注册但无内容）')

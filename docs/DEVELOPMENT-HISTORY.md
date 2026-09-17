@@ -143,6 +143,16 @@ verifier 全面审计产出 25 项问题清单 → 5 verifier 编制方案 → v
    - **为什么点胶囊能直接用**：官方按 **kind** 打开（无地址）→ `KsEvidenceHost` 把缺失的 `params.url` 映射为 `tab.path = undefined` → `KsEvidenceTab` 走既有 idle 态（左列文件目录）——**这正是"手动入口"**，不需要先有证据链接。
    - **验证**：`smoke-client-entry` **36/36 → 40/40**（新增 4 条：恰好一条胶囊 / `order=30` 且严格大于 files(10) 与 terminal(20) / id 唯一且 title·description·icon 齐备 / **胶囊标题 == tab 标题**）；全 smoke 11 段 PASS；tsc 0 错；bundle 内确认含该注册。
    - **部署与生效**：profile 的 `ks-dsh-plugin` 是仓库 `plugin/` 的 **junction**，实测重建后两侧 `client.js` SHA-256 一致 ⇒ 无需 copy；纯 client 半改动 ⇒ **刷新浏览器页面即生效，不用重启 DSH 宿主**。
+   - **⚠ 上线后第一次真机点击就暴露一个 P0：pane 全白（`e6f0d4e` 系列修复）**。用户反馈"按钮有了、点开也开了 bar，但打开之后是空白"。按系统排错走：抓**完整错误**（CDP 接 headless Edge，`Runtime.consoleAPICalled`）拿到两条决定性日志：
+     ```
+     [console.error] Error: [ks-dsh-plugin] sidebar.right.pane.tab 座位未提供 hooks.tabInfo
+     [console.error] slot entry crashed in 'sidebar.right.pane.tab': <同上>
+     ```
+     **根因**：body 的 `inject` 工厂把**第一个参数当成"框架聚合面"**并断言 `hooks.tabInfo` 存在 —— 而官方契约里 `inject` 工厂的**第一参数是 `sessionId`**（`ui-sidebar-documentpreview/src/client/index.ts:104` 写作 `inject: (sessionId, actions) => …`），其**返回值才是本插件贡献的面**；`useTabInfo` 则来自座位的 `hookContext: TabHookContext`，框架**直接作为组件运行时 prop** 交给 body（官方 `TextPreview.tsx:96`、`GuideBody.tsx:80` 都这样解构）。于是 `hooks.tabInfo` **永远是 undefined** → 迁移时自设的"契约变更守卫"**挂载即抛** → 官方包成 `slot entry crashed` → 空白。
+     **修法（规范所有者＝我们的 body 注册 + 适配层，不是官方）**：`inject: (): KsEvidenceHostInjected => ({ openEvidence })`（只贡献自己那一个面），`useTabInfo` 走 props；并把守卫从"抛错"改成"**渲染一句人话**"（抛错恰好造成它本想避免的空白），拆成 `KsEvidenceHost`（只判断，不调 hook）+ `KsEvidenceBody`（无条件 `useTabInfo()`）以满足 hooks 规则。
+     **回归护栏（这条闸以前抓不到它，因为 smoke 的假框架从不调用 body 的 inject）**：`smoke-client-entry` 新增一条 —— 用"像真框架那样"的第一个参数调用 body 的 `inject`，断言**不抛**、返回 `openEvidence`、且**不谎称提供 `useTabInfo`**。`smoke-client-entry` **40/40 → 41/41**。
+     **真机复证**：修后同样流程 —— 点胶囊 → pane 子树出现 `📑 目录 ▾ 从左侧目录点开任意国标/法规即可阅读`（idle 态如期渲染），且**页面 console 无任何报错**。
+   - **顺带记录（未修、与本缺陷无关）**：页面加载时"目录常驻"自动开 tab 的那次调用报 `sidebarRight: no session surface is mounted`（宿主还没挂载会话面），故**开局不会自动开 PDF tab**——手动入口已覆盖该需求，故本次不动它。另全 smoke 串联跑时 `smoke-chatmode` 偶发 1 条 `a session closed by this process is not resurrected from disk` 失败，**单跑 144/144 通过**，属既有的顺序/环境相关抖动。
 
 ## 九、外部借鉴调研的落点与边界（2026-09-16）
 
