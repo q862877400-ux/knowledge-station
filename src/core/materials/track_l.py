@@ -218,6 +218,27 @@ def _law_hierarchy(name: str) -> str:
     return "未定"
 
 
+def _collected_doc_meta() -> dict[str, Any]:
+    """采集件入库时要写的**诚实元数据**（2026-09-17 复核 step-31~34 的 MEDIUM）。
+
+    ## 为什么不能吃 `insert_document` 的默认值
+    默认是 `legal_status='effective'`、`quality_grade='A'`、`standard_type='mandatory'`。
+    对**官方原件**（docx/官方法规源走的那条路）那是合理的；但**采集件来自网页**，
+    我们并不知道它是否现行有效、是否清晰、是不是强制性——
+    吃默认值的后果是：未核验的网页文本被 `ks_answer` 当**现行有效**引用、
+    效力报告把它算成 **🟢 现行有效**（而它的真实状态是"未知"）。
+
+    ⇒ 这里显式写：
+    - `legal_status=None`：**未知** ⇒ 效力报告落在 ⚪「状态未知/未登记，建议补全元数据」
+      （`resolve_status(None, …)` 原样返回 None，`STATUS_COLOR[None] = 'gray'`）；
+    - `quality_grade='C'`：机器入库/未核验，与既有 `ingestion.bulk` 的骨架行**同口径**
+      （`doc_meta.quality_grade` 的契约是 A|B|C，A 要求清晰度/OCR ≥0.95——采网页没这回事）；
+    - `standard_type=None`：**不声明**强制/推荐（`query/understanding.py` 用
+      `== 'mandatory'` 加权，None 自然不加权——正是我们要的"不知道就别加权"）。
+    """
+    return {"legal_status": None, "quality_grade": "C", "standard_type": None}
+
+
 def import_to_library(material_id: str) -> dict[str, Any]:
     """**Track L 入库**：把已批准、库内没有的标准/法规正文灌进法条库。
 
@@ -262,9 +283,11 @@ def import_to_library(material_id: str) -> dict[str, Any]:
             legal_hierarchy=_law_hierarchy(law_name),
             domain_tags=None,
             doc_type="法律法规",
+            clause_doc_type="法律法规",
             short_code=None,                      # 法规口径（既有管线的默认截断规则）
             source_marker="material-collected://track-l",
             source_url=mat.get("url"),
+            **_collected_doc_meta(),
         )
     else:
         standard_no = str(plan.get("standard_no") or "").strip()
@@ -275,10 +298,15 @@ def import_to_library(material_id: str) -> dict[str, Any]:
             legal_hierarchy=_hier_from_no(standard_no, fallback="GB"),
             domain_tags=None,
             doc_type="standard",
+            # ⚠ 条款分型**跟随 `doc_type='standard'`**（2026-09-17 复核）：原来 `ingest_law_text`
+            # 里写死 `classify_clause(..., doc_type="法律法规")` ⇒ 标准条款被判成
+            # `knowledge_type='legal'` 而不是 `'rule'`（标准条款不是法条）。
+            clause_doc_type="standard",
             # 短码口径与 `docx_ingest` 一致（去空格去连字符）
             short_code=standard_no.replace(" ", "").replace("-", ""),
             source_marker="material-collected://track-l",
             source_url=mat.get("url"),
+            **_collected_doc_meta(),
         )
     status = result.get("status")
     # `standard_exists` 说明库内其实已有（归一化判据与既有查重口径不同导致的边界），

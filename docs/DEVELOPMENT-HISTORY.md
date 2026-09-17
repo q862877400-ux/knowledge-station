@@ -1749,7 +1749,12 @@ A/C/D②/E/I **PARTLY**；B/D①/F/G/H/J **CONFIRMED**（含 10 个自做变异�
 本函数选 **HTML5**（浏览器怎么解析，正文就怎么算），代价（XHTML 页面会丢一段正文）
 写在 docstring 里并**登记为待办**（按 Content-Type 分流需要把 content-type 传进来）。
 ⇒ 我把 §10.29 那条按 XHTML 写的用例**改了方向**并写明为什么（不写清就等于埋雷）。
-复核的 5 组异常现在**全过**（16 组探针 0 BAD）。
+⚠ **本行的更正（2026-09-17，见 §10.39 末）**：原文写"复核的 5 组异常现在**全过**
+（16 组探针 0 BAD）"——那是**缩了探针集**的说法。把复核自己的 `probeD.py`
+（**21 组**）原样拿回来复跑，实测是 **20 OK / 1 OVERKILL**：剩下那 1 组是
+"正文里**未转义**地提到 `<script>` 标签"（`<p>关于 <script> 标签的说明</p>`）——
+按 HTML5 它就是**脚本开始**、吞掉后文，**与浏览器一致**，属于本选择已登记的代价，
+不是回归。原句容易读成"21 组全过"，故在此改正。
 
 **④ [LOW/INFO] 其余一并收掉**：`_content_type_of` 改成**键名大小写不敏感**
 （否则替身/未来传输层传 `Content-Type` 会**整道白名单静默跳过**）；
@@ -1948,3 +1953,90 @@ HTML 侧一律 `html.escape`。落盘到既有 `exports/` 目录（**不外发**
 **门禁（这段）**：`pytest` **1594 passed / 3 skipped / 0 failed**（其中 PPT 侧 +11）；
 `mypy src` **133 files / 0 errors**；`smoke` **16 段全过**（`smoke-report-routes` **24/24**）；
 `verify:commands` 22/22；`tsc --noEmit` 0。
+
+### 10.39 复核 step-31~34 的 ③④：**采集件进对树、判对型、写诚实元数据**
+
+**为什么这两条是 MEDIUM 而不是"小瑕疵"**：它们都是**新接通的那条路**（§10.33 才把
+`track_l` 接到评审批准之后）上的默认值/判据问题，而**默认值不会报错**——
+错误会**静默地写进库里**，再被 `ks_answer` 和效力报告当成事实用。两条：
+
+**③ 进错树 + 判错条款类型**（复核实测）
+- `doc_catalog._STD_NO_PREFIX` 用 `\b` 收尾：`auto_tag` 抽出来的归一形是**无空格**的
+  `GB12321-2021`，而 `GB` 与 `1` **都是词字符** ⇒ `\b` **不成立** ⇒ 标准被归到
+  **法规树**（`classify_document` 的 `top='law'`）。`DB11/T 1234-2020`（地方标准）
+  同样过不了；`GBZ`（职业卫生）压根**不在白名单**里。
+- `ingest_law_text` 里 `classify_clause(..., doc_type="法律法规")` 是**写死**的 ⇒
+  Track L 入的**标准**条款拿到 `knowledge_type='legal'`（**标准条款不是法条**）。
+
+**④ 落库即"现行有效 + A 级 + 强制性"**
+`clause_repo.insert_document` 的默认是 `legal_status='effective'`、`quality_grade='A'`、
+`standard_type='mandatory'`。对**官方原件**（docx/官方法规源）那是合理的；但采集件
+**来自网页**，我们并不知道它是否现行、是否清晰、是不是强制 ⇒ 吃默认值的后果是
+`ks_answer` 把它当**现行有效**引用、效力报告把它算 **🟢**（真实状态是"**未知**"）。
+§10.33 的诚实边界**没有披露这一层默认**（复核补的）。
+
+**做了什么**（4 文件，+173/−11）
+1. **修在判据的所有者**：改 `doc_catalog._STD_NO_PREFIX` 的边界为
+   `(?=[\s/]|\d)`（后面是空白/斜杠**或数字**），并补 `GBZ`。**没有**改成"把
+   `standard_no` 写个空格"——那样只是让**这一条**数据好看，任何未来的无空格写法
+   照错（`DB11/T` 就是同一个家族）。
+2. `ingest_law_text` 加 `clause_doc_type`（条款分型用哪个 `doc_type`，**不给就跟随
+   `doc_type`**），`track_l` 两个分支分别显式传 `"法律法规"` / `"standard"`。
+3. 加三个**落库值**参数（`legal_status`/`quality_grade`/`standard_type`），用
+   `"__default__"` **哨兵**区分"调用方没给"（沿用既有默认，docx/官方法规源**行为不变**）
+   与"调用方要给 `NULL`"（采集路径就是要 `None`）。为什么不用"不传 `None` 就写 `None`"：
+   那样会把既有调用方的默认**悄悄改掉**，属于另一条改动。
+4. `track_l._collected_doc_meta()` → `{legal_status: None, quality_grade: 'C',
+   standard_type: None}`，**两个**入库分支都带上。为什么是 `C` 不是 `B`：`doc_meta`
+   的 `quality_grade` 契约里 A 要求清晰度/OCR ≥0.95，采网页没这回事；
+   `C` 与既有 `ingestion.bulk` 的骨架行**同口径**。为什么 `standard_type=None`：
+   `query/understanding.py` 用 `== 'mandatory'` 加权，`None` 自然**不加权**
+   ——正是"不知道就别加权"。
+5. 测试 **+16**（`tests/test_material_track_l.py` 33 → **49**）。
+
+**测试非空转（4 个变异体，on/off 成对，逐字节还原）**：`var/tmp/mutate-step38.py`
++ `var/tmp/run-mutations-step38.py`
+- A（`\b` 退回）⇒ **6 failed**（`TestTreeClassificationOfStandardNumbers` 5 例 +
+  落库那条的树断言）；
+- B（写死 `"法律法规"`）⇒ **1 failed**（`test_imported_standard_clauses_are_rules_not_legal`）；
+- C（**标准**分支去掉 `**_collected_doc_meta()`）⇒ **1 failed**；
+- D（**法规**分支同上）⇒ **1 failed**（见下"当场抓到的假绿"）。
+四个变异体跑完，三个源文件 sha256 **与变异前逐字节一致**。
+
+**⚠ 当场抓到一次"假绿"，这条方法论值得记**：C 的**第一版**锚点打在**法规分支**上
+（`**_collected_doc_meta(),` 在文件里出现两次，脚本只替换第一处），而当时的测试用的
+采集件是**标准** ⇒ 变异根本没进被测路径 ⇒ **全绿**。我据此差点把"诚实元数据"记为
+"测不到"。修法两条：①锚点改成靠 `status = result.get("status")` **唯一定位标准分支**；
+②**这不是脚本 bug 而是测试缺口**——法规分支的元数据**一行断言都没有**（`**_collected_doc_meta(),`
+整行删掉不会红）。于是在 `test_collected_LAW_text_is_now_recognized_and_imported`
+里补 `legal_status is None / quality_grade == 'C' / standard_type is None` 三条，
+D 随即变红。
+> 教训：变异体"绿"有两种原因——**修复是空转的**，或者**变异体没打在路径上**。
+> 不查清是哪一种就把结论写成前者，是**用方法论给自己的漏洞背书**。
+
+**诚实边界**：
+- **两个"未知"的口径是保守的，不是完备的**：`legal_status=None` 让效力报告落 ⚪
+  「状态未知/未登记」。它表示"我们没核验"，**不表示**"它已废止"。要真正给出效力，
+  得回到官方来源逐条核验（未立项）。
+- **`quality_grade='C'` 是"未核验"的代理值**，不是对文本质量的实测评级。
+- 层级（`legal_hierarchy`）仍是**名称推断**：`条例`/`办法` 一律 `未定`
+  （判位阶要看**发行机关**，采网页拿不到）——**不假装知道**。
+- **没有做写库拼写归一**（复核原话里提到的那种）：改的是**判据**，`doc_meta` 里
+  仍然存采集时那个写法（`GB12321-2021`）。归一要动的是入库管线的既有契约，
+  影响面比这两条 MEDIUM 大（未立项）。
+- **GUI 与真机接线仍未验证**（与 §10.36/§10.38 同一现状，两道门：引擎重启、
+  宿主插件重挂载）；**本步没有跑真机**。
+- 采集预算（§11.4 的 `MAX_COLLECT_PER_SESSION = 20`）仍是**暂定值**。
+
+**门禁（本步）**：`pytest` **1610 passed / 3 skipped / 0 failed**（`test_material_track_l`
+33 → **49**）；`mypy src` **133 files / 0 errors**；`smoke` **16 段全过**
+（`smoke-report-routes` 24/24、`smoke-collect-tool` 35/35）；
+`verify:commands` 22/22；`tsc --noEmit` 0。变异实验 4 个全 RED 且逐字节还原。
+
+**遗留（C-12 ⑤ 的若干 LOW，留给下一步）**：query 串未知键静默忽略
+（`?source_tier=T0` → 200）、`_strip_script_style` 的两处非 HTML5-精确边角
+（无引号属性值里的 `<script>`、`foo<!--x-->bar` → `foo bar`）、方案 §12 的 C-11
+陈旧状态、`application/xhtml+xml` 分流只写在 docstring、两个测试缺口
+（优先级契约在**真冲突**下无覆盖、`law_name_key` 保留修正年份无**直接**断言）。
+`_strip_script_style` 那两处要精确只能**写一个 HTML 分词器**——本步**没有**做，
+它们与本步的"判据归属"问题不同族，登记而不是顺手改。

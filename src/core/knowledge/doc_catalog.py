@@ -218,7 +218,13 @@ def _law_domain_doc(doc) -> list[str]:
 
 
 # 标准号格式（GB/GB/T/AQ/JGJ/DB 等编号开头 = 标准文献；否则为法律法规）
-_STD_NO_PREFIX = re.compile(r"^(GB|GB/T|GBT|AQ|JGJ|JG|CJJ|DB|SH|HG|TSG|YS|SN|JB|QB|NY|SL|DL)\b", re.I)
+# ⚠ **不能用 `\b`**（2026-09-17 复核 step-31~34 的 MEDIUM）：`auto_tag` 抽出来的归一形是
+#    **无空格**的 `GB88888-2088`，而 `GB` 与 `8` 都是词字符 ⇒ `\b` **不成立** ⇒ 被归到
+#    **法规树**（`top='law'`）。同理 `DB11/T 1234-2020`（地方标准）也过不了 `\b`。
+#    这里把边界改成"后面是空白/斜杠**或数字**"——既容纳无空格写法，也保留原有的
+#    "GBX 开头的法规名不该误判"（`GB` 后面跟字母时仍不匹配）。
+_STD_NO_PREFIX = re.compile(
+    r"^(GB|GB/T|GBT|GBZ|AQ|JGJ|JG|CJJ|DB|SH|HG|TSG|YS|SN|JB|QB|NY|SL|DL)(?=[\s/]|\d)", re.I)
 
 
 def classify_document(doc) -> dict:

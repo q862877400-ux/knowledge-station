@@ -400,11 +400,18 @@ class TestImportToLibrary:
         assert out["doc_kind"] == "law"
         # 法规口径：`doc_type='法律法规'`、`standard_no` 存**名称**（与既有法规管线一致）
         row = get_db_connection().execute(
-            "SELECT doc_type, standard_no, legal_hierarchy FROM doc_meta WHERE doc_id=?",
+            "SELECT doc_type, standard_no, legal_hierarchy, legal_status, quality_grade,"
+            " standard_type FROM doc_meta WHERE doc_id=?",
             (out["doc_id"],)).fetchone()
         assert row["doc_type"] == "法律法规", dict(row)
         assert row["standard_no"] == "中华人民共和国民法典", dict(row)
         assert row["legal_hierarchy"] == "法律", dict(row)      # 以"法"结尾 ⇒ 安全推断
+        # **法规分支的诚实元数据同样要有断言**（2026-09-17）：两个分支调的是同一个
+        # `_collected_doc_meta()`，但只钉标准分支的话，法规分支的调用点整行删掉
+        # **不会有任何测试变红**（复核式的"对称缺口"）。采网页不知道效力 ⇒ 未知。
+        assert row["legal_status"] is None, dict(row)
+        assert row["quality_grade"] == "C", dict(row)
+        assert row["standard_type"] is None, dict(row)
         assert tl.find_existing_law("《中华人民共和国民法典》") == out["doc_id"]
         # 再跑一次 ⇒ 既有管线的查重命中 ⇒ 退化为回指，不造第二部
         again = tl.reconcile(m["material_id"])
@@ -426,6 +433,81 @@ class TestImportToLibrary:
         assert out["imported"] is False and "law_name" in out["why"], out
         assert after == before, "拒绝时必须一份都不写"
 
+    def test_hierarchy_and_clause_type_are_honest(self):
+        """复核 step-31~34 的两条 MEDIUM：**标准条款的类型**与**采集件的效力/质量默认值**。
+
+        ① `ingest_law_text` 里 `classify_clause(..., doc_type="法律法规")` 原是**写死**的 ⇒
+           Track L 入的**标准**条款被判成 `knowledge_type='legal'`（标准条款不是法条）；
+        ② 采集件原来吃 `insert_document` 的默认 `legal_status='effective'`/`quality_grade='A'`/
+           `standard_type='mandatory'` ⇒ 未核验的网页文本被当**现行有效**引用、
+           效力报告算 🟢。现在显式写诚实值（未知 / C / 不声明类型）。
+        """
+        assert tl._collected_doc_meta() == {"legal_status": None, "quality_grade": "C",
+                                            "standard_type": None}
+
+    def test_imported_standard_clauses_are_rules_not_legal(self, project, law_docs):
+        """标准入库后，条款的 `knowledge_type` 必须是 `rule`（不是 `legal`）。"""
+        pid = project["project_id"]
+        std = "GB 12321-2021"
+        m = _collect_standard(pid, std)
+        mr.set_review(m["material_id"], "approved")
+        out = tl.import_to_library(m["material_id"])
+        assert out["imported"] is True, out
+        law_docs.append(out["doc_id"])
+        kinds = {r[0] for r in get_db_connection().execute(
+            "SELECT DISTINCT knowledge_type FROM clause_revision WHERE doc_id=?",
+            (out["doc_id"],)).fetchall()}
+        # 正例：不含 `legal`（法条型）。`data` 是分类器对"含数值/单位"的条款的正常判法
+        # （`classify_clause` 的既有语义），所以这里只钉"**不是法条**"。
+        assert kinds and "legal" not in kinds, kinds
+        assert kinds <= {"rule", "data"}, kinds
+
+    def test_imported_collected_doc_is_marked_unknown_not_effective(self, project, law_docs):
+        """采集件落库后：效力**未知**（不是 effective）、质量 **C**、类型**不声明**。
+
+        这三条决定"未核验的网页文本会不会被当成现行有效"——复核指出这条路径
+        （Track L 自动入库）是本批第一次接通，默认值很容易被忽略。
+        """
+        pid = project["project_id"]
+        std = "GB 12421-2021"
+        m = _collect_standard(pid, std)
+        mr.set_review(m["material_id"], "approved")
+        out = tl.import_to_library(m["material_id"])
+        assert out["imported"] is True, out
+        law_docs.append(out["doc_id"])
+        row = get_db_connection().execute(
+            "SELECT legal_status, quality_grade, standard_type FROM doc_meta WHERE doc_id=?",
+            (out["doc_id"],)).fetchone()
+        assert row["legal_status"] is None, dict(row)
+        assert row["quality_grade"] == "C", dict(row)
+        assert row["standard_type"] is None, dict(row)
+        # 效力报告的口径：None ⇒ gray（⚪ 状态未知/未登记），不是 🟢 现行有效
+        from src.core.exports.effect_report import STATUS_COLOR
+        assert STATUS_COLOR[None] == "gray"
+
+    def test_collected_standard_lands_in_the_standard_tree(self, project, law_docs):
+        """**进对树**：`auto_tag` 的归一形 `GB12321-2021`（无空格）也要被认成标准。
+
+        复核实测：`doc_catalog._STD_NO_PREFIX` 用 `\\b` 判定 ⇒ `GB12321-2021` 里
+        `GB` 与 `1` 之间没有词边界 ⇒ 被归到**法规树**（`top='law'`），效力报告同源。
+        修在**判据的所有者**（`doc_catalog`）而不是"把数据改个写法"。
+        """
+        from src.core.knowledge.doc_catalog import classify_document
+        pid = project["project_id"]
+        std = "GB 12321-2021"           # 采集侧写库的形态（auto_tag 归一形）
+        m = _collect_standard(pid, std)
+        mr.set_review(m["material_id"], "approved")
+        out = tl.import_to_library(m["material_id"])
+        assert out["imported"] is True, out
+        law_docs.append(out["doc_id"])
+        row = get_db_connection().execute(
+            "SELECT standard_no, standard_name, doc_type, legal_hierarchy, domain_tags"
+            " FROM doc_meta WHERE doc_id=?", (out["doc_id"],)).fetchone()
+        doc = {"standard_no": row["standard_no"], "standard_name": row["standard_name"],
+               "doc_type": row["doc_type"], "legal_hierarchy": row["legal_hierarchy"],
+               "domain_tags": []}
+        assert classify_document(doc)["top"] == "std", (row["standard_no"], classify_document(doc))
+
     def test_law_hierarchy_is_conservative_and_says_undecided(self):
         """层级推断**只用不会错的规则**，其余一律 `未定`（**不假装知道位阶**）。
 
@@ -443,3 +525,33 @@ class TestImportToLibrary:
         assert tl._law_hierarchy("XX省安全生产条例") == "未定"
         assert tl._law_hierarchy("安全生产违法行为行政处罚办法") == "未定"
         assert tl._law_hierarchy("") == "未定"
+
+
+class TestTreeClassificationOfStandardNumbers:
+    """`doc_catalog._STD_NO_PREFIX` 的判据要容纳**无空格写法**（复核 step-31~34 的 MEDIUM）。
+
+    原来用 `\\b` 收尾 ⇒ `GB12321-2021`（`auto_tag` 的归一形）与 `DB11/T 1234-2020`
+    （地方标准）都过不了 ⇒ 被归到**法规树**（效力报告同源）。
+    修在**判据的所有者**，而不是"把数据改个写法"——这样任何未来形态也不会再错。
+    """
+
+    @pytest.mark.parametrize("std_no", [
+        "GB12321-2021", "GB 12321-2021", "GB/T 12041.1-2010", "GBT12041.1-2010",
+        "DB11/T 1234-2020", "DB11T1234-2020", "AQ 4272-2016", "JGJ 130-2011",
+        "GBZ 1-2010", "GBZ1-2010",          # 职业卫生标准也是标准（原来漏在白名单外）
+    ])
+    def test_standard_numbers_go_to_the_standard_tree(self, std_no):
+        from src.core.knowledge.doc_catalog import classify_document
+        doc = {"standard_no": std_no, "standard_name": "某标准", "doc_type": "standard",
+               "legal_hierarchy": "GB", "domain_tags": []}
+        assert classify_document(doc)["top"] == "std", (std_no, classify_document(doc))
+
+    @pytest.mark.parametrize("std_no", [
+        "中华人民共和国安全生产法", "危险化学品安全管理条例",
+    ])
+    def test_law_names_do_not_become_standards(self, std_no):
+        """反方向也不能错：法规名不许被当成标准号（白名单**不是**"任何带数字的东西"）。"""
+        from src.core.knowledge.doc_catalog import classify_document
+        doc = {"standard_no": std_no, "standard_name": std_no, "doc_type": "法律法规",
+               "legal_hierarchy": "法律", "domain_tags": []}
+        assert classify_document(doc)["top"] == "law", (std_no, classify_document(doc))

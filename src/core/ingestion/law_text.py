@@ -88,7 +88,11 @@ def ingest_law_text(text: str, standard_no: str, standard_name: str,
                     *, doc_type: str = "法律法规",
                     short_code: str | None = None,
                     source_marker: str = "law-text://inline",
-                    source_url: str | None = None) -> dict:
+                    source_url: str | None = None,
+                    clause_doc_type: str | None = None,
+                    legal_status: str | None = "__default__",
+                    quality_grade: str | None = "__default__",
+                    standard_type: str | None = "__default__") -> dict:
     """法规纯文本 → 切分 → 分型 → 单事务原子入库（无源 PDF，file_path 记录来源标记）。
 
     Args:
@@ -102,6 +106,14 @@ def ingest_law_text(text: str, standard_no: str, standard_name: str,
             `standard_no.replace(" ","").replace("-","")`（与 `docx_ingest` 同口径）。
         source_marker: 落 `file_path` 的来源标记（本通道没有源文件，用标记占位）。
         source_url: 采集来源 URL（有则落 `doc_meta.source_url`，**溯源要看得到**）。
+        clause_doc_type: **条款分型**用的 `doc_type`（`classify_clause` 的入参）。
+            不给则**跟随 `doc_type`**。⚠ 2026-09-17 复核发现这里原来**写死**
+            `"法律法规"`：于是 Track L 入的**标准**条款被判成 `knowledge_type='legal'`
+            而不是 `'rule'`（标准条款不是法条）。
+        legal_status / quality_grade / standard_type: 落库的效力/质量/类型值。
+            **不给 = 沿用 `insert_document` 的既有默认**（`effective`/`A`/`mandatory`）。
+            采集路径（`materials.track_l`）应传**诚实值**——它来自网页、不是官方原件，
+            见那边的调用点；这里的默认值是为了**不改既有调用方**的行为（docx/官方法规源）。
     """
     settings = get_settings()
     init_schema()
@@ -125,12 +137,13 @@ def ingest_law_text(text: str, standard_no: str, standard_name: str,
     if not articles:
         return {"status": "error", "message": "未识别到任何'第X条'条文"}
 
+    clause_type = clause_doc_type or doc_type
     models: list[ClauseRevisionModel] = []
     number_to_id: dict[str, str] = {}
     for no, body in articles:
         if len(body.strip()) < 4:
             continue
-        tc = classify_clause(f"{no} {body}", doc_type="法律法规")
+        tc = classify_clause(f"{no} {body}", doc_type=clause_type)
         cid = f"clrev_{ULID()}"
         number_to_id[no] = cid
         models.append(ClauseRevisionModel(
@@ -154,15 +167,25 @@ def ingest_law_text(text: str, standard_no: str, standard_name: str,
              for t, src, ref in raw_edges
              if src in number_to_id and ref in number_to_id]
 
+    doc_row: dict = {
+        "doc_id": doc_id, "standard_no": standard_no, "standard_name": standard_name,
+        "short_code": short_code or standard_no.replace("(", "").replace(")", "")[:24],
+        "current_revision_id": f"rev_{ULID()}", "doc_type": doc_type,
+        "legal_hierarchy": legal_hierarchy, "domain_tags": domain_tags or ["法律"],
+        "effective_from": effective_from,
+        "file_path": source_marker, "file_hash": file_hash,
+        "source_url": source_url}
+    # `__default__` 哨兵：**显式**区分"调用方没给"（沿用既有默认）与"调用方要给 NULL"
+    # （采集路径就要 NULL ⇒ 效力状态"未知" ⇒ 效力报告显示 ⚪ 而不是 🟢）。
+    if legal_status != "__default__":
+        doc_row["legal_status"] = legal_status
+    if quality_grade != "__default__":
+        doc_row["quality_grade"] = quality_grade
+    if standard_type != "__default__":
+        doc_row["standard_type"] = standard_type
+
     with write_transaction() as txn:
-        clause_repo.insert_document(txn, {
-            "doc_id": doc_id, "standard_no": standard_no, "standard_name": standard_name,
-            "short_code": short_code or standard_no.replace("(", "").replace(")", "")[:24],
-            "current_revision_id": f"rev_{ULID()}", "doc_type": doc_type,
-            "legal_hierarchy": legal_hierarchy, "domain_tags": domain_tags or ["法律"],
-            "effective_from": effective_from,
-            "file_path": source_marker, "file_hash": file_hash,
-            "source_url": source_url})
+        clause_repo.insert_document(txn, doc_row)
         clause_repo.insert_clauses_in_txn(txn, models)
         clause_repo.insert_edges_in_txn(
             txn, [(t, s, d, 0.9, "active") for t, s, d in edges])

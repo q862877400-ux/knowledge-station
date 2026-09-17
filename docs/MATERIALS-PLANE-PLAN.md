@@ -357,25 +357,31 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
   `law_name_key` + `track_l` 法规分支，层级**保守推断**、不确定写 `未定`）；
   ② 采集预算/频率上限**定案**（§11.4；暂定值见 C-6）；③ 真机 GUI 端到端
   （**两道门**：引擎需重启加载新路由 + **宿主插件需重挂载**才能看到 `ks_collect`）；
-  ④ 下一轮独立复核（复核 step-31~step-34）。
+  ④ 下一轮独立复核（复核 **step-35~step-38**：§10.36 研究报告、§10.38 PPT、
+  §10.37 法规识别修复、§10.39 采集件树/型/元数据）；
 - **C-11 复核 step-26~step-30 的施工单（已完成，§10.35）**：三个 MEDIUM——① `ks_collect`
   缺 `collected` 字段时**不抛**（与文档相反，会把"信封坏了"谎报成"没采到"）⇒ 单列信封异常并抛；
   ② 采集端点只挡 `source_tier` **一个拼写**，同义键静默忽略 ⇒ 引擎+主机两层**请求体白名单**；
   ③ `_strip_script_style` 的 LEAK/OVERKILL ⇒ 先剥注释、放宽结束标签、按 **HTML5** 语义判
   （并回头改了 §10.29 那条按 XHTML 写的用例）。另有若干 LOW（响应头键大小写、上限判断位置、
   过期注释、措辞过度声称）一并收掉。
-- **C-12 复核 step-31~step-34 的施工单（部分完成，§10.37）**：
+- **C-12 复核 step-31~step-34 的施工单（④ 已完成，§10.37 + §10.39）**：
   **已完成**：① [MEDIUM-HIGH] **法规识别误伤 ⇒ 数据污染**（新闻被认成《安全生产法》并
   **挤掉**真法规）⇒ 四条证据（标题是法规名 / 从第一条起 / 立法句式 / 条数）+ 法规名**只看标题**；
-  ② [MEDIUM] `宪法` 被判成「法律（狭义）」⇒ `_law_hierarchy` 先判宪法。
-  **未做**：③ [MEDIUM] **Track L 入的标准进错树**（`auto_tag` 的 `GB88888-2088` 无空格过不了
-  `doc_catalog._STD_NO_PREFIX` 的 `\b` ⇒ `top='law'`）**且条款类型判成 `legal`**
-  （`ingest_law_text` 里 `classify_clause(..., doc_type="法律法规")` 写死）⇒ 需**写库拼写归一**
-  + `doc_type` 透传。**这条同时证伪了 §10.33 那句"拼写不统一不是判据问题"**；
-  ④ [MEDIUM] **网页文本落库即"现行有效 + A 级 + 强制性"**（`insert_document` 默认值）⇒
-  未核验网页文本会被当现行有效引用、效力报告算 🟢，需写诚实值并在回执/报告披露；
-  ⑤ 若干 LOW（query 未知键静默忽略、`_strip_script_style` 两处新偏差、C-11 的陈旧状态、
-  §10.35 缩了探针集的说法、xhtml 分流只写在 docstring、两个测试缺口）。
+  ② [MEDIUM] `宪法` 被判成「法律（狭义）」⇒ `_law_hierarchy` 先判宪法；
+  ③ [MEDIUM] **Track L 入的标准进错树 + 条款类型判错**（§10.39）⇒ 判据改在**所有者**
+  （`doc_catalog._STD_NO_PREFIX` 的边界由 `\b` 改成 `(?=[\s/]|\d)` 并补 `GBZ`；
+  `ingest_law_text` 新增 `clause_doc_type` 透传，`track_l` 两分支分别传
+  `"法律法规"`/`"standard"`）。**这条同时证伪了 §10.33 那句"拼写不统一不是判据问题"**；
+  ④ [MEDIUM] **网页文本落库即"现行有效 + A 级 + 强制性"**（§10.39）⇒ 新增
+  `legal_status`/`quality_grade`/`standard_type` 三个落库参数（`"__default__"` 哨兵
+  保住既有调用方行为）+ `track_l._collected_doc_meta()` 写诚实值（未知 / C / 不声明），
+  4 个变异体证明非空转。
+  **未做**：⑤ 若干 LOW（query 未知键静默忽略、`_strip_script_style` 两处非 HTML5-精确边角
+  ——要精确得写 HTML 分词器、§10.35 缩了探针集的说法【**已更正**，见该节末：
+  复核自己的 `probeD.py` 21 组复跑实测 **20 OK / 1 OVERKILL**，剩下那 1 组是 HTML5 语义下
+  与浏览器一致的**有意代价**】、`application/xhtml+xml` 分流只写在 docstring、
+  两个测试缺口）。⚠ 原文里"C-11 的陈旧状态"**已不再是问题**（`4153735` 已收口）。
 - **C-9 顺手收掉的自家待办（已完成，§10.32）**：`materials_scan` 从 `async def` 改回 `def`
   ——它做的是**分钟级**同步解析（MinerU），而 uvicorn 是单事件循环，`async def` 会把
   **整个引擎**卡住。加了一条结构性测试（`iscoroutinefunction(endpoint)`）防回退，
@@ -426,7 +432,8 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
    已在该断言详情里带上 `persisted=…`，下次红时能一眼分清"写盘失败"与"复活逻辑错"。
 2. 逐主张级 T3 互证（语义聚类）未做；材料与法条检索**是否共池**仍未定（§11.1）。
 3. 材料评审 UI 的最终落位（官方侧栏 vs `conversation.input.dock`）**仍未定**。
-4. PPT 依赖仍未立项（§8）。
+4. ~~PPT 依赖仍未立项（§8）~~ ⇒ **已立项并落地**（§10.38：D-2 论证 + `pyproject.toml`
+   显式声明 `python-pptx>=1.0`）。仍未做的：PPT 的**模板/母版**（现在用 python-pptx 默认版式）。
 5. **⚠ Phase B 必解：材料引用的"锚点稳定性"**（独立复核 2026-09-17 提出，LOW-MEDIUM 但后果重）。
    `material` 表**不存派生全文**，也**没有解析器指纹**；`content_hash` 是**源文件字节**的哈希。
    而切片区间/页号是**解析结果**的坐标 ⇒ 一旦换解析器（PyMuPDF 版本、MinerU、或开
