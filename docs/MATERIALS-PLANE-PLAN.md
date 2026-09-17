@@ -389,3 +389,12 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
    PostScript 源码、含 NUL 的 CSV）写进了 `looks_like_binary` 的 docstring 并有测试钉住。
    另：HTML→文本的规范实现虽已收敛到 `text_utils.html_to_text`，但**旧的三份调用点没改**
    （各自 `limit`/语义是当场选的）——它们仍在，是登记在案的重复。
+8. **⚠ 环境相关发现（2026-09-17 自查，尚未修）**：`HttpxTransport`（curl_cffi 不可用时的
+   **回退**传输）在本机会对**任意 URL** 抛 `httpx.InvalidURL: Invalid port: ':1]'`。
+   根因不在我们的代码：本机环境变量 `NO_PROXY` 含**带方括号的 IPv6** 项（`[::1]`），
+   httpx 0.28.1 解析它时按 `:` 切分而炸；`trust_env=False` 即可正常工作（实测
+   `https://example.com/` 在 `trust_env=False` 下返回 200）。
+   影响面：本机 curl_cffi 可用 ⇒ **生产路径不受影响**；但一旦回退到 httpx，
+   公告扫描与材料采集会**整体失败**（报错信息还不会指向 NO_PROXY）。
+   ⇒ 待决策：回退传输是否 `trust_env=False`（换取"可用"但**放弃 env 代理**），
+   或在构造时**清洗** NO_PROXY / 在失败时给出可诊断的提示。**须业主拍板**（涉及代理策略）。
