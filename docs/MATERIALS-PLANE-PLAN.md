@@ -895,3 +895,15 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     （需业主，我这一侧已就绪）→ ③ 处理 b13 复核发现（后台在跑）→ ④ 若还有余量：`bulk-db` 一族
     挑一条量"写锁争用"的代价再决定。
 
+
+26. **SSE 那条（`/compliance/review/{task_id}/execute`）**（§10.80，step-80）。
+
+    | 项 | 一句话 | 状态 |
+    |---|---|---|
+    | 真洞 | 外层 `async def`（唯一 await 是读 body）+ 内层 `async def event_stream()` **零 await** ⇒ 逐点调 LLM 的评审**全程占事件循环**（§10.79 只把它**白名单**了，没治） | ✅ 已修：外层 `def` + body 签名 + **同步生成器**（starlette 对非异步可迭代对象用 `iterate_in_threadpool` ⇒ 逐条在线程池产出，事件循环空闲） |
+    | 通则之二（新闸门） | AST 判据：端点内嵌套的 **async 生成器**（含 `yield`）若整段无 `Await` ⇒ 红。**零假阳性 ⇒ 无白名单** | ✅ AK2 变异 RED（指名内嵌生成器） |
+    | 白名单清空 | §10.79 留的那唯一一条例外已修掉 ⇒ `_BODY_ONLY_ASYNC_ALLOWLIST` 现在是**空集**（机制留着，注释写明"下一条同族必须写清理由，不许默默加"） | ✅ |
+    | 语义不变 | SSE 事件顺序/分帧由 `tests/test_compliance.py::test_review_api_sse` 钉住（`point_verdict` → `report_ready` → `done`） | ✅ 55 passed |
+
+    **未量**：这条没造 before/after 时长数字（要真 LLM 逐点评审才慢）——证据是**结构性**的，已写进 §10.80 §5。
+

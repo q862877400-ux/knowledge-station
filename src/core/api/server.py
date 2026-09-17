@@ -595,12 +595,25 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "status": "success", "data": out}
 
     @app.post("/api/v1/compliance/review/{task_id}/execute")
-    async def execute_review(task_id: str, request: Request):
-        body = await request.json()
+    def execute_review(task_id: str, body: dict | None = None):
+        """逐点评审 + SSE 推流。
+
+        ⚠ **两个"必须是同步"的点**（§10.80）：
+
+        1. 外层 `def` + body 走签名（§10.71/§10.76/§10.79 同口径）；
+        2. **生成器也是同步的**（`def event_stream()`）——这一条最要紧：它原先写成
+           `async def event_stream()` 却**整个函数体里一个 `await` 都没有**，于是
+           **每产出一条事件都在事件循环里跑**；而 `run_review(...)` 是**逐点调 LLM** 的同步生成器
+           ⇒ 一次评审（可能几十秒到几分钟）会把**整个引擎**冻住。
+           `StreamingResponse` 对**非异步**可迭代对象会用 `iterate_in_threadpool(...)`
+           （starlette 1.6 的 `__init__` 里就这一句判定）⇒ 同步生成器 = 逐条在**线程池**里产出，
+           事件循环全程空闲，且 SSE 语义（事件顺序/分帧）逐字不变。
+        """
+        body = body or {}
         confirmed = body.get("confirmed_point_ids")
         from src.core.compliance.engine import execute_review as run_review
 
-        async def event_stream():
+        def event_stream():
             for item in run_review(task_id, confirmed):
                 yield _sse("point_verdict", item)
             conn = get_db_connection()

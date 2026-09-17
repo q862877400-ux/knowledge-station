@@ -594,6 +594,11 @@ class TestSlowEndpointsAreDeclaredSync:
         # 这条**不是** bulk-db：`clause_repo.delete_patch` 在补丁改的是 `content_text` 时会
         # `_reindex_clause_indexes`（重算 FTS + **重算向量**）⇒ 要加载嵌入模型并推理。
         "/api/v1/clauses/patches/{patch_id}",
+        # SSE（§10.80）：外层 `def` + **同步生成器**。原先外层只 `await request.json()`、
+        # 内层 `async def event_stream()` 里没有一个 `await` ⇒ 一次逐点 LLM 评审把引擎冻住。
+        # 它现在同时在**通则之一**（只读 body 的 async）与**通则之二**（无 await 的异步生成器）的
+        # 判据之外——**两条通则都不再需要白名单**。
+        "/api/v1/compliance/review/{task_id}/execute",
     ])
     def test_declared_sync(self, client, path):
         import asyncio
@@ -604,12 +609,10 @@ class TestSlowEndpointsAreDeclaredSync:
             f"{path} 做同步重活，必须是 `def`（线程池），不能是 `async def`")
 
     #: 「唯一 await 只是读 body」的例外：**必须在这里写清理由**，否则通则会把它判红。
-    _BODY_ONLY_ASYNC_ALLOWLIST = {
-        # SSE：外层虽然只 `await request.json()`，但**重活在嵌套的 `async def event_stream()` 里**
-        # ——把外层改成 `def` 解决不了任何事（生成器还是在事件循环里跑）。要治得把生成器改成
-        # **同步生成器**（Starlette 会用线程池迭代），那是一条独立的、需要单独验 SSE 的改动。
-        "/api/v1/compliance/review/{task_id}/execute",
-    }
+    #: ⚠ **目前为空**——`/compliance/review/{task_id}/execute`（原先唯一的例外，SSE）已在 §10.80
+    #: 修掉（外层 `def` + **同步生成器**）。留着这个机制是因为：下一条同族端点出现时，
+    #: 要么改 `def`，要么在这里写清"为什么它不会占住事件循环"——**不许默默加白名单**。
+    _BODY_ONLY_ASYNC_ALLOWLIST: set[str] = set()
 
     def test_async_endpoints_that_only_read_body_are_not_heavy(self, client):
         """**通则**：`async def` 里若**唯一的 await 只是读 body**，它就不会让出控制权 ⇒
@@ -665,6 +668,50 @@ class TestSlowEndpointsAreDeclaredSync:
             "这些 `async def` 只读了一下 body 就在做同步重活（应改 `def` + body 走签名）：\n"
             + "\n".join(f"  {p}  {m}" for p, m in offenders)
             + f"\n（若确有理由保留 async，请加进 _BODY_ONLY_ASYNC_ALLOWLIST 并写清原因）")
+
+    def test_nested_async_generators_without_await_are_rejected(self, client):
+        """**通则之二**：端点里嵌套的 `async def` **生成器**若**一个 `await` 都没有** ⇒ 红。
+
+        为什么（§10.80）：`StreamingResponse` 对**异步**可迭代对象是 `async for` 直接迭代
+        （starlette 1.6 的 `stream_response`）；一个"没有 await 的 async 生成器"每次 `yield`
+        都在**事件循环**里跑。`/compliance/review/{task_id}/execute` 原先正是这个形状：
+        它的 `run_review(...)` 是**逐点调 LLM** 的同步生成器 ⇒ 一次评审（几十秒到几分钟）
+        把整个引擎冻住，而所有"async def / 只读 body / 重标记"的判据**都看不见它**
+        （外层端点当时就是 `async def`，但**唯一的 await 只是 `request.json()`**，
+        被判据当成"廉价"）。
+
+        判据：AST 里找 `AsyncFunctionDef` 且体内含 `Yield`（= 异步生成器），
+        若整段没有 `Await` ⇒ 命中。
+        ⚠ 这条是**零假阳性**的结构判据（有 await 的异步生成器不受影响），所以**没有白名单**。
+        """
+        import ast
+        import inspect
+        import textwrap
+
+        c, _ = client
+        offenders = []
+        for r in c.app.routes:
+            ep = getattr(r, "endpoint", None)
+            path = getattr(r, "path", None)
+            if ep is None or path is None or not path.startswith("/api/"):
+                continue
+            try:
+                src = textwrap.dedent(inspect.getsource(ep))
+                tree = ast.parse(src)
+            except (OSError, TypeError, SyntaxError):    # pragma: no cover
+                continue
+            for node in ast.walk(tree):
+                if not isinstance(node, ast.AsyncFunctionDef):
+                    continue
+                has_yield = any(isinstance(n, (ast.Yield, ast.YieldFrom))
+                                for n in ast.walk(node))
+                has_await = any(isinstance(n, ast.Await) for n in ast.walk(node))
+                if has_yield and not has_await:
+                    offenders.append((path, node.name))
+        assert not offenders, (
+            "这些端点里有**没有 await 的 async 生成器**（它在事件循环里逐条产出，会占住引擎；"
+            "`StreamingResponse` 对**同步**生成器会用线程池迭代 ⇒ 把它写成 `def` 生成器）：\n"
+            + "\n".join(f"  {p}  内嵌 {name}()" for p, name in offenders))
 
     @pytest.mark.parametrize("module,min_routes", [
         # 这个文件里的每一件事都是同步重活（秒级 SQL 聚合 / openpyxl·pptx 落盘 / 逐份 sha256），

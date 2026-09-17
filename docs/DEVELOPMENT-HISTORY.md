@@ -4562,3 +4562,66 @@ request.json()`），**只跑通则那条** ⇒ RED（指名该端点）。AJ1�
 3. 量的是小库（§4）；真机重启后才生效。
 4. 本步**零前端改动**。
 
+
+## §10.80 SSE 那条：把"没有 await 的异步生成器"修掉，并加第二条通则闸门
+
+**一句话**：`/api/v1/compliance/review/{task_id}/execute` 原先外层 `async def`（唯一 await 是读
+body）、内层 `async def event_stream()` **一个 `await` 都没有** ⇒ 它**逐点调 LLM** 的评审
+（几十秒到几分钟）**全程在事件循环里跑**，把整个引擎冻住。改成"外层 `def` + **同步生成器**"
+（`StreamingResponse` 对非异步可迭代对象会 `iterate_in_threadpool`），并补了一条
+**零假阳性的通则闸门**让这个形状以后自动红。
+
+### 1. 为什么前面所有判据都看不见它
+
+| 判据 | 为什么漏 |
+|---|---|
+| T1（`async def` 且**函数体**无 await） | 外层**有** await（`request.json()`）⇒ 不算 T1 |
+| 通则之一（唯一 await 是读 body + 带重标记） | 它**命中**了！但当时把它当"SSE 例外"**白名单**了（§10.79） |
+| `bulk-db`/`model-load` 标记 | 命中，但标记只影响"要不要看一眼" |
+
+真正的洞在**嵌套生成器**里：`StreamingResponse` 对**异步**可迭代对象是 `async for` 直接迭代
+（starlette 1.6 `stream_response`），所以"没有 await 的 async 生成器"每次 `yield` 都占着事件循环。
+**§10.79 的白名单只是把症状登记了，没有治它**——这一步治了，并把白名单**清空**。
+
+### 2. 改法（两行 + 一段理由）
+
+```python
+def execute_review(task_id: str, body: dict | None = None):   # 外层：def + 签名取 body
+    ...
+    def event_stream():                                        # 内层：**同步**生成器
+        for item in run_review(task_id, confirmed):
+            yield _sse("point_verdict", item)
+```
+`StreamingResponse(event_stream(), ...)`：starlette 1.6 的 `__init__` 里就一句
+`if isinstance(content, AsyncIterable): ... else: self.body_iterator = iterate_in_threadpool(content)`
+⇒ 同步生成器**逐条在线程池里产出**，事件循环全程空闲；SSE 的**事件顺序与分帧逐字不变**
+（`tests/test_compliance.py::test_review_api_sse` 断言 `events[0]=="point_verdict"`、
+`events[-2]=="report_ready"`、`events[-1]=="done"` ⇒ 55 passed）。
+
+### 3. 新闸门：通则之二（AST，零假阳性）
+
+```python
+# 端点里嵌套的 async def 生成器（体内含 yield）若整段没有 Await ⇒ 红
+```
+理由：**异步生成器**逐条产出，没有 await 就等于**每条都在事件循环里**；而 `StreamingResponse`
+对同步生成器会用线程池 ⇒ 这种形状**应当写成 `def` 生成器**。
+它不像"重标记"那样是启发式：**有 await 的异步生成器完全不受影响**，所以**没有白名单**。
+
+变异：**AK2**（把内层生成器改回 `async def`）⇒ 通则之二红（指名 `event_stream()`）；
+**AK1**（外层改回 `async def`）⇒ 逐条表红（我复核了那句失败消息确实是
+`做同步重活，必须是 def` 那条断言，不是"路由不存在"）。
+
+### 4. 证据
+
+`pytest` **1781 passed / 3 skipped / 0 failed**（1779 → +2：SSE 逐条 + 通则之二）；
+`mypy` **134 / 0**；`tsc` 0；`smoke` EXIT=0（19 段）；`verify:commands` 22/22。
+变异 AK1/AK2 全 RED、还原字节一致。
+
+### 5. 诚实边界
+
+1. 量具**没有**为这条端点造 before/after 数字（它要跑真 LLM 逐点评审才慢）——本步的证据是
+   **结构性的**（AST 判据 + SSE 测试的语义等价），不是时长实测。这是本步唯一"没量"的地方，
+   写在这里而不是含糊过去。
+2. 同步生成器在**线程池**里迭代 ⇒ 它现在也要吃 §10.81 要处理的那口池子的额度（见下一条）。
+3. 真机重启后才生效。
+
