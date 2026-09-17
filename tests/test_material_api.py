@@ -522,6 +522,13 @@ class TestSlowEndpointsAreDeclaredSync:
         # 把它留在 `async def` 里 ⇒ 整个引擎会被卡住（这正是本类存在的理由）。
         "/api/v1/materials/projects/{project_id}/locators",
         "/api/v1/materials/{material_id}/locators",
+        # 报告这两条（2026-09-18 复核 b12 的 MEDIUM-2）：内容块组装会经
+        # `research_report._attach_locator_status` → `locator.locator_health` **逐份流式 sha256
+        # 材料源文件**（复核实测 3 份材料 = 3 次读盘），再叠加 openpyxl/pptx 落盘 ⇒ 与上面
+        # locators 两条**同族**。教训写在这里：§10.59 那轮**只修了 2 条、没有审计调用方**，
+        # 于是同一个洞在产出物这一侧又留了一个月。
+        "/api/v1/report/research",
+        "/api/v1/report/research/slides",
     ])
     def test_declared_sync(self, client, path):
         import asyncio
@@ -530,6 +537,34 @@ class TestSlowEndpointsAreDeclaredSync:
         assert routes, f"路由不存在: {path}"
         assert not asyncio.iscoroutinefunction(routes[0].endpoint), (
             f"{path} 做同步重活，必须是 `def`（线程池），不能是 `async def`")
+
+    def test_routes_report_module_has_no_async_endpoint(self, client):
+        """**文件级**闸门：`routes_report.py` 注册的端点，**一个都不许是 `async def`**。
+
+        为什么不接着加白名单条目：b12 的 MEDIUM-2 本身就是"漏了一条、没人发现"。这个文件里
+        的每一件事——秒级 SQL 聚合、openpyxl/pptx 落盘、逐份 sha256 材料源文件——都是同步
+        重活，所以往这里**新加端点时默认就该是 `def`**；逐条白名单挡不住新端点，文件级判据挡得住。
+
+        ⚠ 反向断言（`seen >= 6`）**不可省**：路由一条都没扫到时"全绿"是**假绿**
+        （b12 的 `e2e:materials` C2 就是这么空过的）。
+        真要在这里放一个 `async def`（例如将来接了原生异步 I/O）：请在**本测试里**写清它为什么
+        不阻塞事件循环，再把它挪进白名单——**不要默默删掉这条**。
+        """
+        import asyncio
+        c, _ = client
+        seen: list[str] = []
+        bad: list[str] = []
+        for r in c.app.routes:
+            ep = getattr(r, "endpoint", None)
+            if ep is None or getattr(ep, "__module__", None) != "src.core.api.routes_report":
+                continue
+            path = getattr(r, "path", "?")
+            seen.append(path)
+            if asyncio.iscoroutinefunction(ep):
+                bad.append(path)
+        assert len(seen) >= 6, (
+            f"只扫到 {len(seen)} 条 routes_report 端点（{seen}）——判据可能空过，先确认路由注册")
+        assert not bad, f"routes_report.py 里的端点做同步重活，必须全部是 `def`（线程池）：{bad}"
 
 
 class TestEndpointIndexMatchesReality:

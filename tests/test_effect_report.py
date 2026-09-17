@@ -277,3 +277,39 @@ def test_eff_12_by_color_per_color_multi(world):
     # 单色 + per_color 退化为普通路径（不谎报 per_color）
     single = effect_report.collect_effect_by_color("red", limit=5, per_color=True)
     assert "per_color" not in single and len(single["docs"]) == 2
+
+
+# ---------------------------------------------------------------- HTTP 层（body 取法）
+class TestExportEndpointBody:
+    """`POST /report/effect/export` 的 **HTTP 层**契约（2026-09-18，§10.71）。
+
+    为什么补这一组：这条端点**此前一个 HTTP 测试都没有**（只有模块级
+    `export_effect_report_xlsx()` 的用例），而 §10.71 改了它**取 body 的方式**——
+    从 `async def` + `await request.json()` 改成 `def` + 签名取 body（端点要做
+    openpyxl 落盘，必须留在线程池里，理由见 `routes_report` 模块 docstring）。
+    改法带一个**语义变化**，必须钉住：**非法 JSON 以前被 `except Exception` 吞成空 body
+    （照常出文件），现在由 FastAPI 直接 422**（fail-closed）。"合法 body"与"没有 body"
+    两条正常路径同时钉住，免得"收紧"顺手把正常调用也拒了。
+    """
+
+    HDR = {"Authorization": "Bearer test-token-123"}
+
+    def test_no_body_still_exports(self, client):
+        """完全没有 body（host 侧老调用点就是这么发的）⇒ 照常出文件。"""
+        c, _ = client
+        r = c.post("/api/v1/report/effect/export", headers=self.HDR)
+        assert r.status_code == 200, r.text
+        assert r.json()["data"]["name"].endswith(".xlsx")
+
+    def test_explicit_window_body(self, client):
+        c, _ = client
+        r = c.post("/api/v1/report/effect/export", json={"window": "all"}, headers=self.HDR)
+        assert r.status_code == 200, r.text
+        assert r.json()["data"]["name"].endswith(".xlsx")
+
+    def test_malformed_json_is_422_not_silently_empty(self, client):
+        """非法 JSON：**422**（不是"当成空 body 照常出文件"）——这是 §10.71 的有意收紧。"""
+        c, _ = client
+        r = c.post("/api/v1/report/effect/export", content=b"{not json",
+                   headers={**self.HDR, "Content-Type": "application/json"})
+        assert r.status_code == 422, r.text

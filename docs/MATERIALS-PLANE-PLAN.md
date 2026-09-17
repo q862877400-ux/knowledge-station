@@ -750,3 +750,24 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     | b12-LOW-5 | step-57 排序口径的取舍（`include_superseded=True` 时**已废止排未核验之前**）没写进注释 | ⏳ 待补注释 |
     | b12-流程 | **第三次复发**：主检出在复核期间前进 4 个提交 + 2 批 WIP；且**任务书的区间描述与事实不符**（说"8 个提交"，实为 9 个且不含 step-57 的代码，它在父提交 `5e270f4`） | ⏳ 规矩硬化：派复核前先 `git tag` 冻结 + 用 `git rev-list` 数提交数写进任务书 |
     | b12-INFO | 我记录里的 "sha256" 实为 **sha256(LF 规范化后的 blob 内容)**（5/5 吻合），**不是**工作树 sha256（本检出 CRLF）也不是 git sha1 ⇒ b11 的"git blob 哈希"说法需修正；另：`e2e:materials` 的 **C2 空过**（那轮只发了 2 条 404 请求、0 条 2xx） | 已采纳并写进记录口径 |
+
+17. **复核 b12 的 MEDIUM-2 处置 + 全量端点审计**（§10.71，step-71）。
+    b12 报的两条只是**症状**，这一步把它所在的**整个文件**收口，并把"审计调用方"做成可重跑的工具。
+
+    | 编号 | 一句话 | 状态 |
+    |---|---|---|
+    | b12-MEDIUM-2 | 产出物两条端点 `POST /report/research`、`/report/research/slides` 是 `async def` 却在**逐份 sha256 材料源文件** + 落盘；与 §10.59 同族（那轮**只修了 2 条、没审计调用方**） | ✅ 已修（step-71，§10.71）：`routes_report.py` **六条端点全部 `def`**；`/effect/export` 的 body 改走签名（**非法 JSON 由"吞成空 body"收紧为 422**，补了 3 条 HTTP 契约测试）；闸门 = 逐条白名单 + **文件级**（该文件不许有 `async def`）+ 反向断言（`seen >= 6`，防假绿）；Z1–Z4 变异全 RED |
+    | b12-流程 | "派复核前先冻结区间"这条规矩**落到工具上**：`scripts/audit-async-endpoints.py` 现在能独立复现复核结论（不看报告也能点出同一处），并给出 74 条同族候选 | ✅ 已建（审计工具入仓，~2.4s 跑完）；区间冻结仍待硬化（派复核前 `git tag` + `git rev-list` 数提交数） |
+
+    **审计基线（可重跑复核）**：`async def` 端点 140 → **134**；T1（无 `await`）89 → **84**；
+    T1**且**有重阻塞标记 **36 → 34**；T2（有 `await` + 重标记）**41 → 40**。
+    命令：`.venv\Scripts\python.exe scripts\audit-async-endpoints.py`（只读，临时 KS_DATA_DIR）。
+
+    **⚠ 下一步（step-72）工作清单**（审计剩下的 34 + 40 条，按严重度）：
+    - **PDF 渲染/读盘**：`/documents/{doc_id}/figure|formula|table-image|tree|assets`、`/documents/{doc_id}/file`；
+    - **落盘/导出**：`/export/obligations|review`、`/egress/audit/export`、`/update/report[-xlsx]/{batch_id}`、`/snapshots/{id}/restore`；
+    - **扫描/采集**：`/ingest/preview*`（同步跑解析）、`/ingest/bulk/{batch_id}/resume`、`/vision/locate`、`/aliases/extract`；
+    - **`bulk-db` 一族**（最弱标记，`BEGIN IMMEDIATE` 在竞争下最长 60s）：**逐条实测**再决定，**不要照单全改**；
+    - **反例**：`/chat/completions`、`/compliance/review/{task_id}/execute` 的 `async def` **是有理由的**（流式/后台），盲改会弄坏 SSE。
+    做法与这一步一致：**先量（改前卡多久）→ 再改 → 再量**，小批提交。
+

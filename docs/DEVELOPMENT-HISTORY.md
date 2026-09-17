@@ -3702,3 +3702,141 @@ Node 要沿**它自己的路径**往上找 `node_modules`，放 TEMP 树上直�
 同一轮 b12 还报了 **MEDIUM-2**（报告两条端点仍是 `async def` 却逐份 sha256 源文件，
 与 §10.59 同族、只是上次没审计调用方），**登记待修**（见方案未决第 12 条的 b12 台账）。
 
+
+## §10.71 产出物那两条端点改 `def` —— 并把"审计调用方"从口头纪律做成工具（复核 b12 的 MEDIUM-2）
+
+**一句话**：b12 报的 MEDIUM-2 修了（不是只修它报的两条，而是把它所在的**整个文件**六条端点
+一次收口），并且这次**真的把全部端点扫了一遍**——扫的工具进了仓库
+（`scripts/audit-async-endpoints.py`），它**独立复现**了复核的结论，还给出 74 条同族候选
+（下一步的工作清单）。
+
+### 1. 缺陷：同一个洞，第二次被发现
+
+uvicorn 是**单事件循环**。`async def` 端点里做同步重活（读盘、哈希、渲染、落盘）会**卡住整个引擎**
+——GUI 看起来"死掉"。判据是 `iscoroutinefunction(endpoint)`。
+
+- §10.59（复核 b10 的 MEDIUM-2）修了 **2 条**：`/materials/projects/{pid}/locators`、
+  `/materials/{mid}/locators`——因为 §10.54 给锚点健康度加了"源文件字节"那一轴，
+  它会**流式 sha256 每份源文件**。
+- §10.71（复核 b12 的 MEDIUM-2）发现**产出物那一侧**还有两条同族的：
+  `POST /report/research`、`POST /report/research/slides` —— 内容块组装会经
+  `research_report._attach_locator_status` → `locator.locator_health` → `file_hash`
+  **逐份 sha256 材料源文件**（复核实测 3 份材料 = 3 次读盘），再叠加 Markdown/HTML/pptx 落盘。
+
+**根因不是"漏了一条"，而是"从来没有人把全部端点扫过一遍"**：每次靠复核撞见一条修一条，
+就永远有下一条。所以这一步除了修，还要把"扫一遍"变成可重跑的东西。
+
+### 2. 改了什么
+
+**`src/core/api/routes_report.py`：六条端点全部 `def`**（不是只改报出来的两条）。
+同一个文件里另外四条（`/report/effect`、`/effect/docs`、`/effect/color`、`/effect/export`）
+是**同族**：秒级 SQL 聚合 + openpyxl 落盘。只修两条等于把"下次再报"留给下一次。
+
+`/effect/export` 的改法带一个**语义变化**，必须钉住：它原先写成 `async def`
+**只为了 `await request.json()`**（`except Exception: body = {}`）。现在把 body 写进函数签名
+（`body: dict | None = None`）——FastAPI 在派发进线程池**之前**就把 body 解析好。代价：
+
+| | 改前 | 改后 |
+|---|---|---|
+| 没有 body | 200（空 body） | 200（`None` → `{}`） |
+| 合法 JSON | 200 | 200 |
+| **非法 JSON** | 200（被 `except` 吞成空 body，**照常出文件**） | **422**（FastAPI 直接拒） |
+
+这是**有意的收紧**（fail-closed，与库里其它端点同口径）。这条端点此前**一个 HTTP 测试都没有**
+（只有模块级 `export_effect_report_xlsx()` 的用例），所以补了一组
+`tests/test_effect_report.py::TestExportEndpointBody`（3 条：无 body / 合法 body / 非法 JSON→422）。
+
+### 3. 新闸门：逐条 + **文件级** + 反向断言
+
+`tests/test_material_api.py::TestSlowEndpointsAreDeclaredSync` 里加了两层：
+
+1. **逐条**：把报出来的两条加进 `parametrize` 白名单（沿用原样式）。
+2. **文件级**（新）：`routes_report.py` 注册的端点**一个都不许是 `async def`**。
+   理由写在测试里：白名单挡不住**将来新加**的端点，文件级判据挡得住；这个文件里的每一件事
+   （聚合 / 落盘 / 哈希）都是同步重活，往里加端点**默认就该是 `def`**。
+3. **反向断言**：`assert len(seen) >= 6` —— 路由一条都没扫到时"全绿"是**假绿**
+   （b12 的 `e2e:materials` C2 就是这么空过的）。
+
+### 4. 审计工具：把"扫一遍"做成可重跑的（`scripts/audit-async-endpoints.py`）
+
+判据两层，都只看静态代码：
+
+- **T1**：`async def` 但**整个函数体里一个 `await` 都没有** ⇒ 永远不会让出控制权，纯属惯性。
+- **T2**：有 `await`，但**可达路径上**有阻塞标记（文件 I/O / 哈希 / 子进程 / openpyxl / pptx /
+  网络 / sleep / 遍历 / 大事务）——与 `/effect/export` 原来的形状一模一样。
+
+**这个工具自己先栽了三次，三次都修了（都是"审计的盲区正好盖住它要抓的东西"）**：
+
+| 症状 | 原因 | 修法 |
+|---|---|---|
+| `/report/effect/export` 在审计里**完全隐形** | 端点写成 `from src.core.exports import effect_report`（**函数体内** import），模块 globals 里没有这个名字 ⇒ 丢进 unresolved | 解析**函数体内的 import**（`_local_aliases`） |
+| `/report/research` 仍是"仅轻标记" | `from src.core.exports import research_report as rrep` 里的 **`research_report` 是子模块**，`getattr(pkg, name)` **拿不到**（`from pkg import x` 能成是靠 import 系统的回退） | 子模块回退：`importlib.import_module(f"{pkg}.{name}")` |
+| 同上，还不亮 | 两个原因叠加：① 链太长被 `depth_max=3` 截断（`locator_health` 在 depth 4、`source_bytes_match` 5、`file_hash` 6）；② **标记表只认 `sha256`/`hashlib` 字面量**，而项目自己的哈希入口叫 `file_hash`（字面量在 `material_ingest.py` 里） | 深度 3 → 7；并把项目自己的哈希入口名 `file_hash` / `_sha256_file` 加进 hashing 标记（深度 5 时两个原因各占一半，单改深度不亮） |
+
+**它独立复现了复核的结论**（这是这一步最有价值的一行证据）：把 `routes_report.py` 还原到 HEAD
+再跑，审计自己点出
+
+```
+  /api/v1/report/research         awaits=0 heavy=file-io,hashing,pdf/ocr
+  /api/v1/report/research/slides  awaits=0 heavy=file-io,hashing,office/render,pdf/ocr
+  /api/v1/report/effect/export    awaits=1 heavy=office/render
+```
+
+——**没看过复核报告**，纯粹从源码调用链推出来的。
+
+| 指标 | 修前 | 修后 |
+|---|---|---|
+| `async def` 端点 | 140 | **134** |
+| T1（无 `await`） | 89 | **84** |
+| T1 **且**有重阻塞标记（"必然卡 + 真做重活"） | 36 | **34** |
+| T2（有 `await` + 重标记） | 41 | **40** |
+
+### 5. 下一步（step-72）的工作清单已经现成
+
+审计剩下 **34 条 T1+重** 与 **40 条 T2+重**，按严重度排在最前面的几类：
+
+- **PDF 渲染/读盘**（最重）：`/documents/{doc_id}/figure/{fig_no}`、`/formula/{fno}`、
+  `/table-image/{page}/{idx}`、`/tree`、`/assets/{fname}` —— PyMuPDF 渲染一张图就是秒级，
+  现在全在事件循环里；`/documents/{doc_id}/file`（发 PDF 字节）也在其中。
+- **落盘/导出**：`/export/obligations/{list_id}`、`/export/review/{task_id}`、
+  `/egress/audit/export`、`/update/report/{batch_id}`、`/update/report-xlsx/{batch_id}`、
+  `/snapshots/{snapshot_id}/restore`（含 sha256）。
+- **扫描/采集**：`/ingest/preview*`（同步跑解析！）、`/ingest/bulk/{batch_id}/resume`、
+  `/vision/locate`、`/aliases/extract`。
+- **`bulk-db` 一族**（最弱的一档标记：短事务本身不算重活，但 `BEGIN IMMEDIATE` 在写竞争下
+  最长可等到 `busy_timeout=60s`）——需要**逐条实测**再决定，不要照单全改。
+
+**不要照单全改**：`/chat/completions`、`/compliance/review/{task_id}/execute` 这类
+`async def` 是**有理由的**（流式/后台任务），改错了会把 SSE 弄坏。下一步的做法与这一步一样：
+**先量（改前卡多久）→ 再改 → 再量**，一条一提交或一小批一提交。
+
+### 6. 证据
+
+- **门禁**：`pytest` **1715 passed / 3 skipped / 0 failed**（1709 → +6：3 条 body 契约 +
+  2 条逐条白名单 + 1 条文件级）；`mypy` **134 files / 0 errors**；`tsc --noEmit` 0；
+  `smoke` **EXIT=0（19 段脚本全过）**；`verify:commands` **22/22**。
+- **变异（全部按预期变红，还原字节一致）**：
+  - **Z1** `/report/research` 改回 `async def` ⇒ 逐条闸门红（指名该路径）；
+  - **Z2** `/report/effect/export` 改回 `async def` ⇒ **只有文件级闸门**红（逐条白名单里没它
+    ——这正是"白名单挡不住新端点"的实证）；
+  - **Z3** 把文件级闸门的模块筛改成不存在的名字（人为"空过"）⇒ **反向断言**红（`只扫到 0 条`）；
+  - **Z4** 把 export 端点**忠实**还原成旧的 `async` + `await request.json()` 形状 ⇒
+    `test_malformed_json_is_422_not_silently_empty` 红（证明这条契约测试不是装饰）。
+  - Z4 第一次做得不干净（插了 `Request` 注解却没导入，红的原因是另一回事），**重做**成忠实还原。
+- **审计**：`scripts/audit-async-endpoints.py`（只读、临时 KS_DATA_DIR、~2.4s 跑完）。
+
+### 7. 诚实边界（必须一起读）
+
+1. **真机上这次修复还没生效**：DSH 宿主（pid 37268，09-17 19:06 启动）与引擎
+   （pid 32564，19:14 启动）**都早于**这些提交，跑的是旧代码。要等业主重启两个门才生效——
+   与材料平面本身同一个待办。
+2. **审计是启发式的，不是证明**：它只看"**I/O 形状**"的重活。**纯 CPU / 纯 SQL 聚合看不见**
+   ——`/report/effect` 这类"秒级同步聚合"在审计里是 `heavy=-`（它照样在 T1 里，但"重"这一栏
+   不亮）。深度上限（7）也会截断长链；`unresolved` 名字 **2690 处**（跨模块实例方法等，
+   已把纯局部变量排除）；轻标记 `fs-copy` 单独出现**不算重活**（`get_db_connection()` 里就有
+   一个 `mkdir`，会传染到任何碰库的助手）。**扫不到 ≠ 没有。**
+3. **两条 `async` 可能是对的**：`/chat/completions` 之类**不能**盲改（见 §5 末）。
+4. **`e2e:materials` 的 C2 仍是空过**（真机路由 404、那轮只发了 2 条 404 请求），
+   `e2e:sidebar` 也只测了宿主侧——两条端点的 `def` 化**没有**经过真机浏览器验证。
+5. 本步**零前端改动**（`plugin/` 一个字节没动）。
+
