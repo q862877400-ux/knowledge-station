@@ -62,6 +62,7 @@ import {
   updateInspectionSettings,
 } from './api'
 import { KsReportPanel } from './KsReportPanel'
+import { KsMaterialsPanel } from './KsMaterialsPanel'
 import { KsIngestPanel } from './KsIngestPanel'
 import {
   KS_PREFS_DEFAULT,
@@ -160,6 +161,7 @@ export function KsSettingsSection(props: KsSettingsSectionInjected): JSX.Element
   // 收起只是不再渲染/不再请求，不丢已拉到的快照。
   const [arrowOpen, setArrowOpen] = useState(false)
   const [reportOpen, setReportOpen] = useState(false)
+  const [materialsOpen, setMaterialsOpen] = useState(false)
   const [ingestOpen, setIngestOpen] = useState(false)
   const [inspectionOpen, setInspectionOpen] = useState(false)
   const [inspectionOpenedOnce, setInspectionOpenedOnce] = useState(false)
@@ -218,6 +220,17 @@ export function KsSettingsSection(props: KsSettingsSectionInjected): JSX.Element
         hint="四色分组总览（🟢现行/🔴废止/🟡即将实施/⚪未知），可导出 Excel"
       >
         <KsReportPanel visible={reportOpen} openEvidence={openEvidence} />
+      </KsCategory>
+
+      {/* 材料平面（2026-09-17）：评审闸门的用户界面。放在「效力报告」旁边是刻意的——
+          两者都是"库内东西的管理台"；评审与选项目同处一地，硬门才不会被分到两处而形同虚设。 */}
+      <KsCategory
+        title="参考资料"
+        open={materialsOpen}
+        onToggle={setMaterialsOpen}
+        hint="上传的财报/制度/文章在这里逐份评审——只有「已批准」的材料会进入作答与产出物"
+      >
+        <KsMaterialsPanel visible={materialsOpen} />
       </KsCategory>
 
       <KsCategory

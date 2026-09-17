@@ -2113,3 +2113,222 @@ export async function testApiChannel(
     detail: typeof body.result?.detail === 'string' ? body.result.detail : '',
   }
 }
+
+/* ------------------------------------------------------------------ *
+ * 材料平面（Phase B，2026-09-17）
+ *
+ * 走 host 的同源代理 `/ks/materials/*`（client 拿不到引擎 Bearer token）。
+ * ⚠ **评审只走 `reviewMaterial`**，它的决定值只有 approved/rejected：
+ * `pending` 是"还没评"，不是可以"评成"的状态（host 侧会 400 拒掉别的值）。
+ * ------------------------------------------------------------------ */
+
+export interface KsMaterialProject {
+  project_id: string
+  name: string
+  note?: string | null
+  authority_policy?: Record<string, unknown> | null
+  created_at?: string | null
+}
+
+export interface KsMaterial {
+  material_id: string
+  title: string
+  origin?: string | null
+  kind?: string | null
+  /** 轴 A：来源可信度 T0~T4。 */
+  source_tier?: string | null
+  /** 轴 A 的中文说明（由引擎给，前端不抄一份措辞）。 */
+  tier_label?: string | null
+  /** 层级的判据来源（'user' = 用户改的，用于留痕）。 */
+  tier_source?: string | null
+  /** 轴 B：任务内效力（'criterion' = 本任务准则）。 */
+  task_role?: string | null
+  review_status?: string | null
+  chunk_count?: number | null
+  url?: string | null
+  domain?: string | null
+  tier_reason?: string | null
+  lifecycle?: string | null
+}
+
+export interface KsMaterialChunk {
+  chunk_id?: string
+  text: string
+  char_start: number
+  char_end: number
+  page?: number | null
+}
+
+export interface KsMaterialChunks {
+  total: number
+  offset: number
+  chunks: KsMaterialChunk[]
+}
+
+export interface KsMaterialTierDef {
+  tier: string
+  label: string
+}
+
+/** 同源 `/ks/*` 响应信封的统一解包（`{ok:true,data}`，否则抛）。 */
+async function ksJson<T>(res: Response, what: string): Promise<T> {
+  if (!res.ok) throw await parseInspectionError(res)
+  const body = (await res.json().catch(() => null)) as { ok?: boolean; data?: T } | null
+  if (body === null || body.ok !== true || body.data === undefined) {
+    throw new Error(`${what}响应异常`)
+  }
+  return body.data
+}
+
+/** GET /ks/materials/projects — 列项目。 */
+export async function fetchMaterialProjects(signal?: AbortSignal): Promise<KsMaterialProject[]> {
+  const res = await fetch('/ks/materials/projects', {
+    method: 'GET', headers: { accept: 'application/json' }, signal,
+  })
+  const data = await ksJson<KsMaterialProject[]>(res, '参考资料项目')
+  return Array.isArray(data) ? data : []
+}
+
+/** POST /ks/materials/projects — 新建项目（authority_policy 可声明"本项目以谁为准"）。 */
+export async function createMaterialProject(
+  name: string,
+  opts: { note?: string; authorityPolicy?: Record<string, unknown> | null } = {},
+  signal?: AbortSignal,
+): Promise<KsMaterialProject> {
+  const res = await fetch('/ks/materials/projects', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify({
+      name,
+      note: opts.note ?? null,
+      authority_policy: opts.authorityPolicy ?? null,
+    }),
+    signal,
+  })
+  return ksJson<KsMaterialProject>(res, '新建项目')
+}
+
+/** GET /ks/materials/list?project_id= — 某项目的材料（**含未批准**：不列出来就没法批）。 */
+export async function fetchMaterials(
+  projectId: string,
+  status?: 'pending' | 'approved' | 'rejected',
+  signal?: AbortSignal,
+): Promise<KsMaterial[]> {
+  const q = new URLSearchParams({ project_id: projectId })
+  if (status !== undefined) q.set('status', status)
+  const res = await fetch(`/ks/materials/list?${q.toString()}`, {
+    method: 'GET', headers: { accept: 'application/json' }, signal,
+  })
+  const data = await ksJson<KsMaterial[]>(res, '材料列表')
+  return Array.isArray(data) ? data : []
+}
+
+/** GET /ks/materials/inbox?project_id= — 参考资料文件夹里**尚未登记**的文件。 */
+export async function fetchMaterialInbox(
+  projectId: string,
+  signal?: AbortSignal,
+): Promise<{ dir: string; files: { path: string; file_name: string; size: number }[] }> {
+  const q = new URLSearchParams({ project_id: projectId })
+  const res = await fetch(`/ks/materials/inbox?${q.toString()}`, {
+    method: 'GET', headers: { accept: 'application/json' }, signal,
+  })
+  const data = await ksJson<{ dir?: string; files?: { path: string; file_name: string; size: number }[] }>(
+    res, '收件箱')
+  return { dir: typeof data.dir === 'string' ? data.dir : '', files: data.files ?? [] }
+}
+
+/** POST /ks/materials/scan?project_id= — 扫描收件（登记为**待评审**，不会自动批准）。 */
+export async function scanMaterialProject(
+  projectId: string,
+  signal?: AbortSignal,
+): Promise<{ scanned: number; registered: number }> {
+  const q = new URLSearchParams({ project_id: projectId })
+  const res = await fetch(`/ks/materials/scan?${q.toString()}`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify({ origin: 'user' }),
+    signal,
+  })
+  const data = await ksJson<{ scanned?: number; registered?: number }>(res, '扫描收件')
+  return { scanned: data.scanned ?? 0, registered: data.registered ?? 0 }
+}
+
+/**
+ * POST /ks/materials/review?material_id= — **用户的评审决定**（本面板的核心动作）。
+ *
+ * 只允许 `approved` / `rejected`：`pending` 是"还没评"，不是可以"评成"的状态；
+ * host 侧对其它值一律 400（所以这里把类型也收紧成两个字面量，写错编译期就红）。
+ */
+export async function reviewMaterial(
+  materialId: string,
+  decision: 'approved' | 'rejected',
+  note?: string,
+  signal?: AbortSignal,
+): Promise<KsMaterial> {
+  const q = new URLSearchParams({ material_id: materialId })
+  const res = await fetch(`/ks/materials/review?${q.toString()}`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify({ decision, note: note ?? null }),
+    signal,
+  })
+  return ksJson<KsMaterial>(res, '评审')
+}
+
+/** POST /ks/materials/tier?material_id= — 改**来源可信度**（轴 A，用户可改并留痕）。 */
+export async function setMaterialTier(
+  materialId: string,
+  tier: string,
+  signal?: AbortSignal,
+): Promise<KsMaterial> {
+  const q = new URLSearchParams({ material_id: materialId })
+  const res = await fetch(`/ks/materials/tier?${q.toString()}`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify({ tier, source: 'user' }),
+    signal,
+  })
+  return ksJson<KsMaterial>(res, '设置来源层级')
+}
+
+/** POST /ks/materials/role?material_id= — 声明**任务内效力**（轴 B，与轴 A 正交）。 */
+export async function setMaterialRole(
+  materialId: string,
+  role: 'criterion' | 'reference' | null,
+  signal?: AbortSignal,
+): Promise<KsMaterial> {
+  const q = new URLSearchParams({ material_id: materialId })
+  const res = await fetch(`/ks/materials/role?${q.toString()}`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify({ role }),
+    signal,
+  })
+  return ksJson<KsMaterial>(res, '设置任务内效力')
+}
+
+/** GET /ks/materials/chunks?material_id= — 切片分页（**评审前必须能读到正文**）。 */
+export async function fetchMaterialChunks(
+  materialId: string,
+  offset = 0,
+  limit = 20,
+  signal?: AbortSignal,
+): Promise<KsMaterialChunks> {
+  const q = new URLSearchParams({
+    material_id: materialId, offset: String(offset), limit: String(limit),
+  })
+  const res = await fetch(`/ks/materials/chunks?${q.toString()}`, {
+    method: 'GET', headers: { accept: 'application/json' }, signal,
+  })
+  const data = await ksJson<KsMaterialChunks>(res, '材料切片')
+  return { total: data.total ?? 0, offset: data.offset ?? 0, chunks: data.chunks ?? [] }
+}
+
+/** GET /ks/materials/tiers — 轴 A 的层定义（**从引擎取**，前端不抄一份措辞）。 */
+export async function fetchMaterialTiers(signal?: AbortSignal): Promise<KsMaterialTierDef[]> {
+  const res = await fetch('/ks/materials/tiers', {
+    method: 'GET', headers: { accept: 'application/json' }, signal,
+  })
+  const data = await ksJson<KsMaterialTierDef[]>(res, '层定义')
+  return Array.isArray(data) ? data : []
+}

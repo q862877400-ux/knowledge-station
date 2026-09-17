@@ -282,8 +282,12 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
   approved/rejected**（`pending` 不是"可以评成的状态"）；轴 A 改动默认留痕 `source:user`。
   与只读的 `ks_materials`（模型用）分工明确：**批准只能从用户界面这条进来**。
   桩引擎冒烟 37 项。
-- **B-8 剩余（未做）**：① **`KsMaterialsPanel` 界面**（通道已通，面板未做）；
-  ② 核验 UI 半 / `tool.call.toolview`。
+- **B-11 评审界面（已完成，§10.19）**：`KsMaterialsPanel` 进设置「参考资料」折叠类目
+  （紧挨「效力报告」）。逐份批准/拒绝（**没有"全部通过"**）、两个轴分开设置且层级选项
+  从引擎取、评审前可读切片正文、T4+准则的违规组合行内红字提示。
+  另加"构建产物与源码同步"的冒烟（改 .tsx 忘了 build 是静默失效）。
+- **B-8 剩余（未做）**：① **真机 GUI 端到端未验证**（面板要在浏览器里实际点一遍；
+  且要**刷新 GUI** 才加载新 client.js）；② 核验 UI 半 / `tool.call.toolview`。
 
 ### 已知未决 / 诚实边界
 

@@ -24,7 +24,7 @@
  *
  * 用法：node scripts/smoke-client-entry.mjs   （退出码 0 = 全通过）
  */
-import { mkdtemp, rm, writeFile } from 'node:fs/promises'
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
@@ -439,6 +439,33 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
 check('inject declares only official services (no third-party hard gate)',
   Array.isArray(entry.inject) && entry.inject.length === 1 && entry.inject[0] === 'slots',
   JSON.stringify(entry.inject))
+
+/* ---------------------------------------------------- 6. 打包产物与源码同步
+ *
+ * `plugin/client.js` 是**提交进仓库的构建产物**（GUI 直接加载它）。
+ * 于是有一类静默失效：改了 `.tsx` 却忘了 `npm run build:client` —— 源码"看起来做了"、
+ * GUI 里什么都没有，而 tsc 全绿（它只看源码）。这里用一个**只可能来自面板文案的标记串**
+ * 断言产物里真的有它（2026-09-17 加参考资料面板时发现值得钉）。
+ *
+ * ⚠ **必须先把 `\uXXXX` 解码再找**：esbuild 默认 `charset:'ascii'`，中文在产物里是
+ * 转义序列（`\u8BC4\u5BA1…`）。第一版我直接 `bundle.includes('评审是硬门')` —— 假红，
+ * 而 ASCII 标记（`ks/materials/list`）却是绿的，看起来像"面板没打进去"，实则只是编码。
+ */
+{
+  const raw = await readFile(join(pluginRoot, 'client.js'), 'utf8')
+  const bundle = raw.replace(/\\u([0-9a-fA-F]{4})/g,
+    (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+  for (const [what, marker] of [
+    ['参考资料面板', '评审是硬门'],
+    ['两个轴的标签（不是合成一个"可信度"）', '轴 A 来源可信度'],
+    ['轴 B 标签', '轴 B 任务内效力'],
+    ['逐份评审的动作（没有"全部通过"）', '读正文（评审前必看）'],
+    ['会话绑定提示', '/materials use '],
+    ['材料路由前缀', 'ks/materials/list'],
+  ]) {
+    check(`client.js 已重新构建并含${what}`, bundle.includes(marker), marker)
+  }
+}
 
 const failed = results.filter((r) => !r.ok)
 console.log(`\n== client-entry smoke ${failed.length === 0 ? 'PASS' : 'FAIL'} `

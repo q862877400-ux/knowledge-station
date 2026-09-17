@@ -28297,6 +28297,124 @@ async function testApiChannel(channel, signal) {
     detail: typeof body.result?.detail === "string" ? body.result.detail : ""
   };
 }
+async function ksJson(res, what) {
+  if (!res.ok) throw await parseInspectionError(res);
+  const body = await res.json().catch(() => null);
+  if (body === null || body.ok !== true || body.data === void 0) {
+    throw new Error(`${what}\u54CD\u5E94\u5F02\u5E38`);
+  }
+  return body.data;
+}
+async function fetchMaterialProjects(signal) {
+  const res = await fetch("/ks/materials/projects", {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  const data = await ksJson(res, "\u53C2\u8003\u8D44\u6599\u9879\u76EE");
+  return Array.isArray(data) ? data : [];
+}
+async function createMaterialProject(name, opts = {}, signal) {
+  const res = await fetch("/ks/materials/projects", {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify({
+      name,
+      note: opts.note ?? null,
+      authority_policy: opts.authorityPolicy ?? null
+    }),
+    signal
+  });
+  return ksJson(res, "\u65B0\u5EFA\u9879\u76EE");
+}
+async function fetchMaterials(projectId, status, signal) {
+  const q = new URLSearchParams({ project_id: projectId });
+  if (status !== void 0) q.set("status", status);
+  const res = await fetch(`/ks/materials/list?${q.toString()}`, {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  const data = await ksJson(res, "\u6750\u6599\u5217\u8868");
+  return Array.isArray(data) ? data : [];
+}
+async function fetchMaterialInbox(projectId, signal) {
+  const q = new URLSearchParams({ project_id: projectId });
+  const res = await fetch(`/ks/materials/inbox?${q.toString()}`, {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  const data = await ksJson(
+    res,
+    "\u6536\u4EF6\u7BB1"
+  );
+  return { dir: typeof data.dir === "string" ? data.dir : "", files: data.files ?? [] };
+}
+async function scanMaterialProject(projectId, signal) {
+  const q = new URLSearchParams({ project_id: projectId });
+  const res = await fetch(`/ks/materials/scan?${q.toString()}`, {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ origin: "user" }),
+    signal
+  });
+  const data = await ksJson(res, "\u626B\u63CF\u6536\u4EF6");
+  return { scanned: data.scanned ?? 0, registered: data.registered ?? 0 };
+}
+async function reviewMaterial(materialId, decision, note, signal) {
+  const q = new URLSearchParams({ material_id: materialId });
+  const res = await fetch(`/ks/materials/review?${q.toString()}`, {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ decision, note: note ?? null }),
+    signal
+  });
+  return ksJson(res, "\u8BC4\u5BA1");
+}
+async function setMaterialTier(materialId, tier, signal) {
+  const q = new URLSearchParams({ material_id: materialId });
+  const res = await fetch(`/ks/materials/tier?${q.toString()}`, {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ tier, source: "user" }),
+    signal
+  });
+  return ksJson(res, "\u8BBE\u7F6E\u6765\u6E90\u5C42\u7EA7");
+}
+async function setMaterialRole(materialId, role, signal) {
+  const q = new URLSearchParams({ material_id: materialId });
+  const res = await fetch(`/ks/materials/role?${q.toString()}`, {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ role }),
+    signal
+  });
+  return ksJson(res, "\u8BBE\u7F6E\u4EFB\u52A1\u5185\u6548\u529B");
+}
+async function fetchMaterialChunks(materialId, offset = 0, limit = 20, signal) {
+  const q = new URLSearchParams({
+    material_id: materialId,
+    offset: String(offset),
+    limit: String(limit)
+  });
+  const res = await fetch(`/ks/materials/chunks?${q.toString()}`, {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  const data = await ksJson(res, "\u6750\u6599\u5207\u7247");
+  return { total: data.total ?? 0, offset: data.offset ?? 0, chunks: data.chunks ?? [] };
+}
+async function fetchMaterialTiers(signal) {
+  const res = await fetch("/ks/materials/tiers", {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  const data = await ksJson(res, "\u5C42\u5B9A\u4E49");
+  return Array.isArray(data) ? data : [];
+}
 
 // client/pdf-configure.ts
 var PDF_WORKER_PATH = "/ks/assets/pdf.worker.min.mjs";
@@ -31897,7 +32015,7 @@ function KsScopeChip(props) {
 }
 
 // client/KsSettingsSection.tsx
-var import_react8 = require("react");
+var import_react9 = require("react");
 
 // client/KsReportPanel.tsx
 var import_react6 = require("react");
@@ -32233,9 +32351,430 @@ function fmtGenerated(v) {
   return `\u751F\u6210\u4E8E ${hh}:${mi}`;
 }
 
-// client/KsIngestPanel.tsx
+// client/KsMaterialsPanel.tsx
 var import_react7 = require("react");
 var import_jsx_runtime7 = require("react/jsx-runtime");
+var GREEN = "#2e7d32";
+var RED = "#c0392b";
+var GRAY = "#888";
+var REVIEW_LABEL = {
+  approved: { text: "\u2705 \u5DF2\u6279\u51C6\uFF08\u53EF\u8FDB\u5165\u4F5C\u7B54\uFF09", color: GREEN },
+  pending: { text: "\u23F3 \u5F85\u8BC4\u5BA1\uFF08\u4E0D\u4F1A\u8FDB\u5165\u4F5C\u7B54\uFF09", color: "#b8860b" },
+  rejected: { text: "\u274C \u5DF2\u62D2\u7EDD\uFF08\u4E0D\u4F1A\u8FDB\u5165\u4F5C\u7B54\uFF09", color: RED }
+};
+var ROLE_OPTIONS = [
+  { value: "", label: "\u672A\u58F0\u660E\u6548\u529B" },
+  { value: "criterion", label: "\u672C\u4EFB\u52A1\u51C6\u5219\uFF08\u8F74 B\uFF1A\u4EE5\u5B83\u4E3A\u51C6\u7EF3\uFF09" },
+  { value: "reference", label: "\u53C2\u8003\uFF08\u4E0D\u4F5C\u51C6\u7EF3\uFF09" }
+];
+function reviewLabel(status) {
+  return REVIEW_LABEL[status ?? ""] ?? { text: `\u672A\u77E5\u72B6\u6001\uFF08${status ?? "null"}\uFF09`, color: GRAY };
+}
+function btnStyle2(disabled = false) {
+  return {
+    padding: "3px 10px",
+    fontSize: 12,
+    borderRadius: 4,
+    border: "1px solid var(--dsw-alias-border, #ccc)",
+    background: "transparent",
+    color: "inherit",
+    cursor: disabled ? "not-allowed" : "pointer",
+    opacity: disabled ? 0.5 : 1
+  };
+}
+function KsMaterialsPanel(props) {
+  const { visible, onUseProject } = props;
+  const [projects, setProjects] = (0, import_react7.useState)([]);
+  const [projectId, setProjectId] = (0, import_react7.useState)("");
+  const [materials, setMaterials] = (0, import_react7.useState)([]);
+  const [tiers, setTiers] = (0, import_react7.useState)([]);
+  const [inbox, setInbox] = (0, import_react7.useState)(
+    { dir: "", files: [] }
+  );
+  const [loading, setLoading] = (0, import_react7.useState)(false);
+  const [busy, setBusy] = (0, import_react7.useState)("");
+  const [error, setError] = (0, import_react7.useState)("");
+  const [notice, setNotice] = (0, import_react7.useState)("");
+  const [newName, setNewName] = (0, import_react7.useState)("");
+  const [openChunks, setOpenChunks] = (0, import_react7.useState)({});
+  const reloadProjects = (0, import_react7.useCallback)(async (signal) => {
+    const list = await fetchMaterialProjects(signal);
+    setProjects(list);
+    return list;
+  }, []);
+  const reloadMaterials = (0, import_react7.useCallback)(async (pid, signal) => {
+    const list = await fetchMaterials(pid, void 0, signal);
+    setMaterials(list);
+  }, []);
+  const reloadInbox = (0, import_react7.useCallback)(async (pid, signal) => {
+    try {
+      setInbox(await fetchMaterialInbox(pid, signal));
+    } catch {
+      setInbox({ dir: "", files: [] });
+    }
+  }, []);
+  (0, import_react7.useEffect)(() => {
+    if (!visible) return void 0;
+    const ctl = new AbortController();
+    let alive = true;
+    setLoading(true);
+    setError("");
+    void (async () => {
+      try {
+        const [list, tierDefs] = await Promise.all([
+          reloadProjects(ctl.signal),
+          fetchMaterialTiers(ctl.signal).catch(() => [])
+        ]);
+        if (!alive) return;
+        setTiers(tierDefs);
+        const first = list.length > 0 ? list[0].project_id : "";
+        setProjectId((cur) => cur !== "" && list.some((p) => p.project_id === cur) ? cur : first);
+      } catch (err) {
+        if (alive) setError(err instanceof Error ? err.message : String(err));
+      } finally {
+        if (alive) setLoading(false);
+      }
+    })();
+    return () => {
+      alive = false;
+      ctl.abort();
+    };
+  }, [visible, reloadProjects]);
+  (0, import_react7.useEffect)(() => {
+    if (!visible || projectId === "") {
+      setMaterials([]);
+      setInbox({ dir: "", files: [] });
+      return void 0;
+    }
+    const ctl = new AbortController();
+    let alive = true;
+    setLoading(true);
+    setError("");
+    void (async () => {
+      try {
+        await Promise.all([
+          reloadMaterials(projectId, ctl.signal),
+          reloadInbox(projectId, ctl.signal)
+        ]);
+      } catch (err) {
+        if (alive) setError(err instanceof Error ? err.message : String(err));
+      } finally {
+        if (alive) setLoading(false);
+      }
+    })();
+    return () => {
+      alive = false;
+      ctl.abort();
+    };
+  }, [visible, projectId, reloadMaterials, reloadInbox]);
+  const run = (0, import_react7.useCallback)(async (label, fn) => {
+    setBusy(label);
+    setError("");
+    setNotice("");
+    try {
+      setNotice(await fn());
+      await reloadMaterials(projectId);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : String(err));
+    } finally {
+      setBusy("");
+    }
+  }, [projectId, reloadMaterials]);
+  const onCreate = (0, import_react7.useCallback)(() => {
+    const name = newName.trim();
+    if (name === "") {
+      setError("\u8BF7\u5148\u586B\u9879\u76EE\u540D");
+      return;
+    }
+    void run("create", async () => {
+      const proj = await createMaterialProject(name);
+      setNewName("");
+      await reloadProjects();
+      setProjectId(proj.project_id);
+      return `\u5DF2\u5EFA\u9879\u76EE\u300C${proj.name}\u300D\u3002\u628A\u6750\u6599\u6587\u4EF6\u653E\u8FDB\u5B83\u7684\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u540E\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\u3002`;
+    });
+  }, [newName, reloadProjects, run]);
+  const onScan = (0, import_react7.useCallback)(() => {
+    if (projectId === "") return;
+    void run("scan", async () => {
+      const r = await scanMaterialProject(projectId);
+      await reloadInbox(projectId);
+      return `\u626B\u63CF\u5B8C\u6210\uFF1A\u767B\u8BB0 ${r.registered} / \u5171 ${r.scanned} \u4E2A\u6587\u4EF6\u3002**\u65B0\u767B\u8BB0\u7684\u6750\u6599\u662F\u5F85\u8BC4\u5BA1\u72B6\u6001**\uFF0C\u9700\u4F60\u5728\u4E0B\u65B9\u9010\u4EFD\u6279\u51C6\u540E\u624D\u4F1A\u8FDB\u5165\u4F5C\u7B54\u3002`;
+    });
+  }, [projectId, reloadInbox, run]);
+  const onReview = (0, import_react7.useCallback)((m, decision) => {
+    void run(`${decision}:${m.material_id}`, async () => {
+      const out = await reviewMaterial(m.material_id, decision);
+      const label = reviewLabel(out.review_status).text;
+      return `\u300C${m.title}\u300D\u2192 ${label}`;
+    });
+  }, [run]);
+  const onTier = (0, import_react7.useCallback)((m, tier) => {
+    void run(`tier:${m.material_id}`, async () => {
+      const out = await setMaterialTier(m.material_id, tier);
+      return `\u300C${m.title}\u300D\u6765\u6E90\u5C42\u7EA7 \u2192 ${out.tier_label ?? out.source_tier}\uFF08\u5DF2\u8BB0\u4E3A**\u7528\u6237\u6539\u7684**\uFF09`;
+    });
+  }, [run]);
+  const onRole = (0, import_react7.useCallback)((m, role) => {
+    void run(`role:${m.material_id}`, async () => {
+      await setMaterialRole(m.material_id, role === "" ? null : role);
+      return `\u300C${m.title}\u300D\u4EFB\u52A1\u5185\u6548\u529B\u5DF2\u66F4\u65B0`;
+    });
+  }, [run]);
+  const onToggleChunks = (0, import_react7.useCallback)((m) => {
+    const cur = openChunks[m.material_id];
+    if (cur !== void 0) {
+      setOpenChunks((prev) => {
+        const next = { ...prev };
+        delete next[m.material_id];
+        return next;
+      });
+      return;
+    }
+    setOpenChunks((prev) => ({ ...prev, [m.material_id]: "loading" }));
+    void (async () => {
+      try {
+        const page = await fetchMaterialChunks(m.material_id, 0, 20);
+        setOpenChunks((prev) => ({ ...prev, [m.material_id]: page.chunks }));
+      } catch (err) {
+        setError(err instanceof Error ? err.message : String(err));
+        setOpenChunks((prev) => {
+          const next = { ...prev };
+          delete next[m.material_id];
+          return next;
+        });
+      }
+    })();
+  }, [openChunks]);
+  if (!visible) {
+    return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { fontSize: 12, color: GRAY, margin: 0 }, children: "\u5C55\u5F00\u540E\u52A0\u8F7D\u53C2\u8003\u8D44\u6599\uFF08\u6536\u8D77\u65F6\u4E0D\u53D1\u4EFB\u4F55\u8BF7\u6C42\uFF09\u3002" });
+  }
+  const current = projects.find((p) => p.project_id === projectId);
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { fontSize: 13 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "0 0 10px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u8BC4\u5BA1\u662F\u786C\u95E8" }),
+      "\uFF1A\u53EA\u6709",
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5DF2\u6279\u51C6" }),
+      "\u7684\u6750\u6599\u4F1A\u8FDB\u5165\u4F5C\u7B54\u4E0E\u4EA7\u51FA\u7269\u3002 \u672A\u6279\u51C6\u7684\u6750\u6599\u4E0D\u4F1A\u88AB\u68C0\u7D22\u3001\u4E0D\u4F1A\u88AB\u5F15\u7528\u3002\u6240\u6709\u51B3\u5B9A\u90FD\u7531",
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4F60" }),
+      '\u505A\u51FA\uFF08\u672C\u9762\u677F\u6CA1\u6709"\u5168\u90E8\u901A\u8FC7"\uFF09\u3002'
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { marginBottom: 12 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("label", { style: { display: "flex", gap: 6, alignItems: "center" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { children: "\u53C2\u8003\u8D44\u6599\u9879\u76EE" }),
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+            "select",
+            {
+              "aria-label": "\u53C2\u8003\u8D44\u6599\u9879\u76EE",
+              value: projectId,
+              onChange: (e) => setProjectId(e.currentTarget.value),
+              style: { padding: "3px 6px", fontSize: 12, maxWidth: 320 },
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("option", { value: "", children: "\uFF08\u672A\u9009\u62E9\uFF09" }),
+                projects.map((p) => /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("option", { value: p.project_id, children: [
+                  p.name,
+                  "\uFF08",
+                  p.project_id,
+                  "\uFF09"
+                ] }, p.project_id))
+              ]
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+          "input",
+          {
+            "aria-label": "\u65B0\u5EFA\u9879\u76EE\u540D",
+            placeholder: "\u65B0\u5EFA\u9879\u76EE\u540D",
+            value: newName,
+            onChange: (e) => setNewName(e.currentTarget.value),
+            style: { padding: "3px 6px", fontSize: 12, width: 160 }
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { type: "button", style: btnStyle2(busy !== ""), disabled: busy !== "", onClick: onCreate, children: "\u65B0\u5EFA\u9879\u76EE" }),
+        current !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+          "button",
+          {
+            type: "button",
+            style: btnStyle2(false),
+            title: "\u628A\u8FD9\u4E2A id \u4EA4\u7ED9\u4F1A\u8BDD\u7EA7\u7ED1\u5B9A\uFF08\u7B49\u6548\u4E8E\u8F93\u5165 /materials use <id>\uFF09",
+            onClick: () => onUseProject?.(current.project_id, current.name),
+            children: "\u5728\u4F1A\u8BDD\u4E2D\u4F7F\u7528"
+          }
+        )
+      ] }),
+      current !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+        "\u4F1A\u8BDD\u91CC\u95EE\u95EE\u9898\u65F6\u60F3\u7528\u672C\u9879\u76EE\u7684\u6750\u6599\uFF0C\u8F93\u5165 ",
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("code", { children: [
+          "/materials use ",
+          current.project_id,
+          " ",
+          current.name
+        ] }),
+        "\uFF08\u672A\u7ED1\u5B9A\u65F6\u6750\u6599",
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5B8C\u5168\u4E0D\u53C2\u4E0E" }),
+        "\u4F5C\u7B54\uFF09\u3002"
+      ] })
+    ] }),
+    projectId !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { marginBottom: 12, padding: "8px 10px", border: "1px solid var(--dsw-alias-border, #e0e0e0)", borderRadius: 6 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939" }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { style: { fontSize: 12, color: GRAY }, children: [
+          "\u672A\u767B\u8BB0 ",
+          inbox.files.length,
+          " \u4E2A\u6587\u4EF6"
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { type: "button", style: btnStyle2(busy !== ""), disabled: busy !== "", onClick: onScan, children: "\u626B\u63CF\u6536\u4EF6" })
+      ] }),
+      inbox.dir !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
+        "\u628A PDF / DOCX / TXT / MD \u653E\u8FDB ",
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("code", { children: inbox.dir }),
+        " \u518D\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\u3002"
+      ] }),
+      inbox.files.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("ul", { style: { margin: "6px 0 0", paddingLeft: 18, fontSize: 12, color: GRAY }, children: [
+        inbox.files.slice(0, 10).map((f) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("li", { children: f.file_name }, f.file_name)),
+        inbox.files.length > 10 && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("li", { children: [
+          "\u2026 \u53E6\u6709 ",
+          inbox.files.length - 10,
+          " \u4E2A"
+        ] })
+      ] })
+    ] }),
+    error !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { role: "alert", style: { margin: "0 0 8px", color: RED, fontSize: 12 }, children: [
+      "\u64CD\u4F5C\u5931\u8D25\uFF1A",
+      error
+    ] }),
+    notice !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "0 0 8px", color: "var(--dsw-alias-label-secondary, #666)", fontSize: 12 }, children: notice }),
+    loading && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "0 0 8px", fontSize: 12, color: GRAY }, children: "\u52A0\u8F7D\u4E2D\u2026" }),
+    projectId === "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { fontSize: 12, color: GRAY }, children: "\u5148\u9009\u4E00\u4E2A\u9879\u76EE\uFF08\u6216\u5728\u4E0A\u9762\u65B0\u5EFA\uFF09\u3002" }),
+    projectId !== "" && !loading && materials.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { fontSize: 12, color: GRAY }, children: "\u8FD9\u4E2A\u9879\u76EE\u91CC\u8FD8\u6CA1\u6709\u5DF2\u767B\u8BB0\u7684\u6750\u6599\u3002\u628A\u6587\u4EF6\u653E\u8FDB\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u540E\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\u3002" }),
+    materials.map((m) => {
+      const rev = reviewLabel(m.review_status);
+      const chunks = openChunks[m.material_id];
+      return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+        "div",
+        {
+          style: {
+            border: "1px solid var(--dsw-alias-border, #e0e0e0)",
+            borderRadius: 6,
+            padding: "8px 10px",
+            marginBottom: 8
+          },
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "baseline", flexWrap: "wrap" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: m.title }),
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: { fontSize: 12, color: rev.color }, children: rev.text }),
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { style: { fontSize: 12, color: GRAY }, children: [
+                m.chunk_count ?? 0,
+                " \u4E2A\u5207\u7247 \xB7 ",
+                m.origin ?? "user",
+                " / ",
+                m.kind ?? "other"
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap", marginTop: 6 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("label", { style: { display: "flex", gap: 4, alignItems: "center", fontSize: 12 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { children: "\u8F74 A \u6765\u6E90\u53EF\u4FE1\u5EA6" }),
+                /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+                  "select",
+                  {
+                    "aria-label": `\u6765\u6E90\u5C42\u7EA7 ${m.title}`,
+                    value: m.source_tier ?? "",
+                    onChange: (e) => onTier(m, e.currentTarget.value),
+                    disabled: busy !== "",
+                    style: { fontSize: 12, maxWidth: 260 },
+                    children: [
+                      tiers.length === 0 && m.source_tier != null && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("option", { value: m.source_tier, children: m.tier_label ?? m.source_tier }),
+                      tiers.map((t) => /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("option", { value: t.tier, children: [
+                        t.tier,
+                        " ",
+                        t.label
+                      ] }, t.tier))
+                    ]
+                  }
+                ),
+                m.tier_source === "user" && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: { color: GRAY }, children: "\uFF08\u4F60\u6539\u7684\uFF09" })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("label", { style: { display: "flex", gap: 4, alignItems: "center", fontSize: 12 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { children: "\u8F74 B \u4EFB\u52A1\u5185\u6548\u529B" }),
+                /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+                  "select",
+                  {
+                    "aria-label": `\u4EFB\u52A1\u5185\u6548\u529B ${m.title}`,
+                    value: m.task_role ?? "",
+                    onChange: (e) => onRole(m, e.currentTarget.value),
+                    disabled: busy !== "",
+                    style: { fontSize: 12, maxWidth: 260 },
+                    children: ROLE_OPTIONS.map((o) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("option", { value: o.value, children: o.label }, o.value))
+                  }
+                )
+              ] })
+            ] }),
+            m.tier_reason != null && m.tier_reason !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: GRAY }, children: [
+              "\u5224\u7EA7\u8BF4\u660E\uFF1A",
+              m.tier_reason
+            ] }),
+            m.source_tier === "T4" && m.task_role === "criterion" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: RED }, children: [
+              "\u26A0 \u4F60\u628A\u6765\u6E90\u4E0D\u53EF\u56DE\u6EAF\uFF08T4\uFF09\u7684\u6750\u6599\u58F0\u660E\u4E3A\u51C6\u7EF3\u2014\u2014\u6309\u7EAA\u5F8B\u5B83",
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u4F1A\u6309\u51C6\u5219\u627F\u91CD" }),
+              "\uFF0C \u53EA\u5217\u5728\u300C\u5DF2\u77E5\u4E0D\u53EF\u7528\u300D\u91CC\u3002\u8981\u8BA9\u5B83\u627F\u91CD\uFF0C\u8BF7\u5148\u628A\u5B83\u6539\u6210\u53EF\u56DE\u6EAF\u7684\u6765\u6E90\u5C42\u7EA7\u3002"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { display: "flex", gap: 6, marginTop: 8, flexWrap: "wrap" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+                "button",
+                {
+                  type: "button",
+                  style: btnStyle2(busy !== "" || m.review_status === "approved"),
+                  disabled: busy !== "" || m.review_status === "approved",
+                  onClick: () => onReview(m, "approved"),
+                  children: "\u6279\u51C6\uFF08\u53EF\u8FDB\u5165\u4F5C\u7B54\uFF09"
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+                "button",
+                {
+                  type: "button",
+                  style: btnStyle2(busy !== "" || m.review_status === "rejected"),
+                  disabled: busy !== "" || m.review_status === "rejected",
+                  onClick: () => onReview(m, "rejected"),
+                  children: "\u62D2\u7EDD"
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { type: "button", style: btnStyle2(false), onClick: () => onToggleChunks(m), children: chunks === void 0 ? "\u8BFB\u6B63\u6587\uFF08\u8BC4\u5BA1\u524D\u5FC5\u770B\uFF09" : "\u6536\u8D77\u6B63\u6587" })
+            ] }),
+            chunks === "loading" && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: "\u8BFB\u53D6\u5207\u7247\u2026" }),
+            Array.isArray(chunks) && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { marginTop: 6, maxHeight: 240, overflow: "auto", fontSize: 12 }, children: [
+              chunks.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: 0, color: GRAY }, children: [
+                "\u6CA1\u6709\u5207\u7247\u2014\u2014\u8BE5\u6587\u4EF6\u53EF\u80FD\u6CA1\u89E3\u6790\u51FA\u6587\u672C\uFF08\u626B\u63CF\u4EF6\uFF1F\uFF09\u3002",
+                /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u6CA1\u6709\u6B63\u6587\u5C31\u65E0\u6CD5\u8BC4\u5BA1" }),
+                "\u3002"
+              ] }),
+              chunks.map((c, i) => /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "0 0 4px" }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { style: { color: GRAY }, children: [
+                  "[",
+                  i,
+                  "] ",
+                  c.page != null ? `\u7B2C${c.page}\u9875 ` : "",
+                  c.char_start,
+                  "-",
+                  c.char_end
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
+                c.text
+              ] }, `${c.char_start}-${i}`))
+            ] })
+          ]
+        },
+        m.material_id
+      );
+    })
+  ] });
+}
+
+// client/KsIngestPanel.tsx
+var import_react8 = require("react");
+var import_jsx_runtime8 = require("react/jsx-runtime");
 var VERDICT_META = {
   ok: { icon: "\u2705", label: "\u53EF\u5165\u5E93", color: "#1a7f37" },
   warn: { icon: "\u26A0\uFE0F", label: "\u9700\u4EBA\u5DE5\u786E\u8BA4", color: "#9a6700" },
@@ -32244,7 +32783,7 @@ var VERDICT_META = {
 function verdictMeta(v) {
   return VERDICT_META[v] ?? { icon: "\u2754", label: v || "\u672A\u77E5", color: "#57606a" };
 }
-function btnStyle2(disabled) {
+function btnStyle3(disabled) {
   return {
     padding: "3px 12px",
     borderRadius: 6,
@@ -32281,18 +32820,18 @@ function fmtSize(n) {
 }
 function BucketBar(props) {
   const { batch } = props;
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { margin: "8px 0" }, children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { margin: "8px 0" }, children: [
     ["ok", "warn", "block"].map((k) => {
       const meta = verdictMeta(k);
-      return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { style: { ...chipStyle, borderColor: meta.color }, children: [
+      return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { ...chipStyle, borderColor: meta.color }, children: [
         meta.icon,
         " ",
         meta.label,
         " ",
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("b", { children: batch.buckets[k] ?? 0 })
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("b", { children: batch.buckets[k] ?? 0 })
       ] }, k);
     }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { style: { ...noteStyle, marginLeft: 4 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { ...noteStyle, marginLeft: 4 }, children: [
       "\u5171\u8BC4\u4F30 ",
       batch.evaluated,
       " \u672C",
@@ -32312,8 +32851,8 @@ function ReportDetail(props) {
   const rec = r.recognition ?? {};
   const lay = r.layout ?? {};
   const dist = r.knowledge_type_distribution ?? {};
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { border: "1px solid #d0d7de", borderRadius: 6, padding: 10, marginTop: 8 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { fontSize: 13, fontWeight: 600 }, children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { border: "1px solid #d0d7de", borderRadius: 6, padding: 10, marginTop: 8 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { fontSize: 13, fontWeight: 600 }, children: [
       meta.icon,
       " ",
       meta.label,
@@ -32321,10 +32860,10 @@ function ReportDetail(props) {
       r.grade,
       " \u7EA7 \xB7 ",
       r.status === "ok" ? "\u89E3\u6790\u6210\u529F" : "\u89E3\u6790\u5931\u8D25",
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: { ...noteStyle, fontWeight: 400, marginLeft: 8 }, children: r.one_line ?? "" })
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { ...noteStyle, fontWeight: 400, marginLeft: 8 }, children: r.one_line ?? "" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { style: { ...noteStyle, marginTop: 6 }, children: r.verdict_reasons.map((x) => `[${x.code}] ${x.reason}`).join(" \xB7 ") }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { ...noteStyle, marginTop: 6 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { style: { ...noteStyle, marginTop: 6 }, children: r.verdict_reasons.map((x) => `[${x.code}] ${x.reason}`).join(" \xB7 ") }),
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { ...noteStyle, marginTop: 6 }, children: [
       "\u9875\u6570 ",
       r.pages,
       " \xB7 \u6761\u6B3E ",
@@ -32343,9 +32882,9 @@ function ReportDetail(props) {
       " \u5B57",
       typeof lay.tables_rebuilt === "number" && lay.tables_rebuilt > 0 ? ` \xB7 \u8868\u683C ${lay.tables_rebuilt}` : "",
       " \xB7 ",
-      r.egress === "none" ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { children: "\u4E0D\u5916\u53D1\uFF08\u672A\u542F\u7528\u4E91\u6DF1\u5EA6\u901A\u9053\uFF09" }) : /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: { color: "#9a6700" }, children: "\u5DF2\u5141\u8BB8\u4E91\u6DF1\u5EA6\u901A\u9053\u2014\u2014\u626B\u63CF\u4EF6\u4F1A\u4E0A\u4F20\u4E91\u7AEF\uFF08\u672C\u6B21\u662F\u5426\u771F\u7684\u4E0A\u4F20\u53D6\u51B3\u4E8E\u8BE5\u6587\u6863\u6709\u65E0\u6587\u672C\u5C42\uFF1B \u7CBE\u786E\u8BB0\u5F55\u89C1\u5916\u53D1\u5BA1\u8BA1\uFF09" })
+      r.egress === "none" ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { children: "\u4E0D\u5916\u53D1\uFF08\u672A\u542F\u7528\u4E91\u6DF1\u5EA6\u901A\u9053\uFF09" }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { color: "#9a6700" }, children: "\u5DF2\u5141\u8BB8\u4E91\u6DF1\u5EA6\u901A\u9053\u2014\u2014\u626B\u63CF\u4EF6\u4F1A\u4E0A\u4F20\u4E91\u7AEF\uFF08\u672C\u6B21\u662F\u5426\u771F\u7684\u4E0A\u4F20\u53D6\u51B3\u4E8E\u8BE5\u6587\u6863\u6709\u65E0\u6587\u672C\u5C42\uFF1B \u7CBE\u786E\u8BB0\u5F55\u89C1\u5916\u53D1\u5BA1\u8BA1\uFF09" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { ...noteStyle, marginTop: 6 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { ...noteStyle, marginTop: 6 }, children: [
       "\u6807\u51C6\u53F7\u731C\u6D4B ",
       r.standard_no_guess?.value ?? "\uFF08\u672A\u8BC6\u522B\uFF09",
       " \xB7 ",
@@ -32355,20 +32894,20 @@ function ReportDetail(props) {
       "\u5206\u578B ",
       Object.entries(dist).map(([k, v]) => `${k}${v}`).join(" ") || "-"
     ] }),
-    r.duplicate?.kind && r.duplicate.kind !== "none" ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { ...noteStyle, marginTop: 6, color: "#9a6700" }, children: [
+    r.duplicate?.kind && r.duplicate.kind !== "none" ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { ...noteStyle, marginTop: 6, color: "#9a6700" }, children: [
       "\u5E93\u5185\u91CD\u590D\uFF08",
       r.duplicate.kind,
       "\uFF09\uFF1A",
       r.duplicate.message ?? ""
     ] }) : null,
-    r.head_samples?.length ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { marginTop: 8 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { fontSize: 12, fontWeight: 600 }, children: [
+    r.head_samples?.length ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { marginTop: 8 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { fontSize: 12, fontWeight: 600 }, children: [
         "\u524D ",
         r.head_samples.length,
         " \u6761\u6837\u4F8B"
       ] }),
-      r.head_samples.map((s) => /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { ...noteStyle, marginTop: 2 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: monoStyle, children: s.number }),
+      r.head_samples.map((s) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { ...noteStyle, marginTop: 2 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: monoStyle, children: s.number }),
         " \xB7 ",
         s.knowledge_type,
         "\uFF08",
@@ -32379,24 +32918,24 @@ function ReportDetail(props) {
         "\u7F6E\u4FE1 ",
         s.ocr_confidence,
         s.suspicious ? " \xB7 \u53EF\u7591" : "",
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { style: { paddingLeft: 12 }, children: s.head })
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { style: { paddingLeft: 12 }, children: s.head })
       ] }, `h${s.ordinal}`))
     ] }) : null,
-    r.ocr_suspects?.length ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { marginTop: 8 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { fontSize: 12, fontWeight: 600, color: "#9a6700" }, children: [
+    r.ocr_suspects?.length ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { marginTop: 8 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { fontSize: 12, fontWeight: 600, color: "#9a6700" }, children: [
         "\u53EF\u7591\u6761\u6B3E ",
         r.ocr_suspects.length,
         r.ocr_suspects_truncated ? "\uFF08\u5DF2\u622A\u65AD\uFF09" : ""
       ] }),
-      r.ocr_suspects.slice(0, 8).map((s) => /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { ...noteStyle, marginTop: 2 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: monoStyle, children: s.number }),
+      r.ocr_suspects.slice(0, 8).map((s) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { ...noteStyle, marginTop: 2 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: monoStyle, children: s.number }),
         " \xB7 ",
         s.ocr_confidence,
         " \xB7 ",
         s.reasons.join("/")
       ] }, `s${s.ordinal}`))
     ] }) : null,
-    r.collected_signals && Object.keys(r.collected_signals).length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { ...noteStyle, marginTop: 8 }, children: [
+    r.collected_signals && Object.keys(r.collected_signals).length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { ...noteStyle, marginTop: 8 }, children: [
       "\u4F53\u68C0\u6807\u7B7E\uFF1A",
       Object.entries(r.collected_signals).filter(([k]) => k !== "table_anomaly_clauses").map(([k, v]) => `${k}\xD7${String(v)}`).join(" \xB7 ") || "\uFF08\u65E0\uFF09"
     ] }) : null
@@ -32404,29 +32943,29 @@ function ReportDetail(props) {
 }
 function KsIngestPanel(props) {
   const { visible } = props;
-  const abortRef = (0, import_react7.useRef)(null);
-  const [dir, setDir] = (0, import_react7.useState)("");
-  const [dirInput, setDirInput] = (0, import_react7.useState)("");
-  const [files, setFiles] = (0, import_react7.useState)([]);
-  const [degraded, setDegraded] = (0, import_react7.useState)(null);
-  const [listState, setListState] = (0, import_react7.useState)({ status: "idle" });
-  const [batchState, setBatchState] = (0, import_react7.useState)({ status: "idle" });
-  const [batch, setBatch] = (0, import_react7.useState)(null);
-  const [sample, setSample] = (0, import_react7.useState)(5);
-  const [detail, setDetail] = (0, import_react7.useState)(null);
-  const [detailName, setDetailName] = (0, import_react7.useState)("");
-  const [detailState, setDetailState] = (0, import_react7.useState)({ status: "idle" });
-  const [job, setJob] = (0, import_react7.useState)(null);
-  const [jobError, setJobError] = (0, import_react7.useState)(null);
-  const [allowDeep, setAllowDeep] = (0, import_react7.useState)(false);
-  const pollRef = (0, import_react7.useRef)(null);
-  const newController = (0, import_react7.useCallback)(() => {
+  const abortRef = (0, import_react8.useRef)(null);
+  const [dir, setDir] = (0, import_react8.useState)("");
+  const [dirInput, setDirInput] = (0, import_react8.useState)("");
+  const [files, setFiles] = (0, import_react8.useState)([]);
+  const [degraded, setDegraded] = (0, import_react8.useState)(null);
+  const [listState, setListState] = (0, import_react8.useState)({ status: "idle" });
+  const [batchState, setBatchState] = (0, import_react8.useState)({ status: "idle" });
+  const [batch, setBatch] = (0, import_react8.useState)(null);
+  const [sample, setSample] = (0, import_react8.useState)(5);
+  const [detail, setDetail] = (0, import_react8.useState)(null);
+  const [detailName, setDetailName] = (0, import_react8.useState)("");
+  const [detailState, setDetailState] = (0, import_react8.useState)({ status: "idle" });
+  const [job, setJob] = (0, import_react8.useState)(null);
+  const [jobError, setJobError] = (0, import_react8.useState)(null);
+  const [allowDeep, setAllowDeep] = (0, import_react8.useState)(false);
+  const pollRef = (0, import_react8.useRef)(null);
+  const newController = (0, import_react8.useCallback)(() => {
     abortRef.current?.abort();
     const c = new AbortController();
     abortRef.current = c;
     return c;
   }, []);
-  const loadInbox = (0, import_react7.useCallback)(async (override) => {
+  const loadInbox = (0, import_react8.useCallback)(async (override) => {
     const c = newController();
     setListState({ status: "loading" });
     try {
@@ -32446,12 +32985,12 @@ function KsIngestPanel(props) {
       setListState({ status: "error", message: e instanceof Error ? e.message : String(e) });
     }
   }, [dir, newController]);
-  (0, import_react7.useEffect)(() => {
+  (0, import_react8.useEffect)(() => {
     if (!visible) return;
     if (listState.status === "idle") void loadInbox();
   }, [visible, listState.status, loadInbox]);
-  (0, import_react7.useEffect)(() => () => abortRef.current?.abort(), []);
-  const startBatch = (0, import_react7.useCallback)(async () => {
+  (0, import_react8.useEffect)(() => () => abortRef.current?.abort(), []);
+  const startBatch = (0, import_react8.useCallback)(async () => {
     const c = newController();
     setBatchState({ status: "loading" });
     setDetail(null);
@@ -32465,7 +33004,7 @@ function KsIngestPanel(props) {
       setBatchState({ status: "error", message: e instanceof Error ? e.message : String(e) });
     }
   }, [dir, sample, allowDeep, newController]);
-  const openDetail = (0, import_react7.useCallback)(async (row) => {
+  const openDetail = (0, import_react8.useCallback)(async (row) => {
     const c = newController();
     setDetailName(row.file_name);
     setDetail(null);
@@ -32479,13 +33018,13 @@ function KsIngestPanel(props) {
       setDetailState({ status: "error", message: e instanceof Error ? e.message : String(e) });
     }
   }, [allowDeep, newController]);
-  const stopJobPolling = (0, import_react7.useCallback)(() => {
+  const stopJobPolling = (0, import_react8.useCallback)(() => {
     if (pollRef.current !== null) {
       clearInterval(pollRef.current);
       pollRef.current = null;
     }
   }, []);
-  const pollJob = (0, import_react7.useCallback)(async (jobId) => {
+  const pollJob = (0, import_react8.useCallback)(async (jobId) => {
     try {
       const v = await fetchIngestJob(jobId);
       setJob(v);
@@ -32497,7 +33036,7 @@ function KsIngestPanel(props) {
       setJobError(e instanceof Error ? e.message : String(e));
     }
   }, [stopJobPolling]);
-  const startFullJob = (0, import_react7.useCallback)(async () => {
+  const startFullJob = (0, import_react8.useCallback)(async () => {
     setJobError(null);
     setJob(null);
     try {
@@ -32509,7 +33048,7 @@ function KsIngestPanel(props) {
       setJobError(e instanceof Error ? e.message : String(e));
     }
   }, [dir, allowDeep, pollJob, stopJobPolling]);
-  const abortFullJob = (0, import_react7.useCallback)(async () => {
+  const abortFullJob = (0, import_react8.useCallback)(async () => {
     if (!job) return;
     try {
       await abortIngestJob(job.job_id);
@@ -32517,20 +33056,20 @@ function KsIngestPanel(props) {
       setJobError(e instanceof Error ? e.message : String(e));
     }
   }, [job]);
-  (0, import_react7.useEffect)(() => () => stopJobPolling(), [stopJobPolling]);
+  (0, import_react8.useEffect)(() => () => stopJobPolling(), [stopJobPolling]);
   const busy = listState.status === "loading" || batchState.status === "loading" || detailState.status === "loading";
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { padding: "4px 0 2px", fontSize: 13 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: noteStyle, children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { padding: "4px 0 2px", fontSize: 13 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: noteStyle, children: [
       "\u53EA\u8BFB\u9884\u89C8\uFF1A",
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("b", { children: "\u4E0D\u5199\u5E93\u3001\u4E0D\u79FB\u52A8\u6587\u4EF6\u3001\u9ED8\u8BA4\u4E0D\u5916\u53D1" }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("b", { children: "\u4E0D\u5199\u5E93\u3001\u4E0D\u79FB\u52A8\u6587\u4EF6\u3001\u9ED8\u8BA4\u4E0D\u5916\u53D1" }),
       '\u3002 \u626B\u63CF\u4EF6\u9ED8\u8BA4\u53EA\u62A5"\u65E0\u6587\u672C\u5C42"\uFF0C',
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("b", { children: "\u4E0D\u4F1A" }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("b", { children: "\u4E0D\u4F1A" }),
       "\u5077\u5077\u4E0A\u4F20\u5230\u4E91\u89E3\u6790\uFF1B\u786E\u9700\u4E91\u6DF1\u5EA6\u89E3\u6790\u65F6\uFF0C \u52FE\u9009\u4E0B\u9762\u7684",
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("b", { children: "\u300C\u5141\u8BB8\u4E91\u6DF1\u5EA6\u89E3\u6790\u300D" }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("b", { children: "\u300C\u5141\u8BB8\u4E91\u6DF1\u5EA6\u89E3\u6790\u300D" }),
       "\u663E\u5F0F\u5F00\u542F\uFF08\u4F1A\u5916\u53D1\uFF0C\u62A5\u544A\u91CC\u4F1A\u5982\u5B9E\u6807\u6CE8 `egress`\uFF09\u3002 \u6B63\u5F0F\u5165\u5E93\uFF08\u786E\u8BA4\u540E\u539F\u5B50\u5199\u5165\uFF09\u662F\u4E0B\u4E00\u91CC\u7A0B\u7891\uFF0C\u6B64\u9875\u4E0D\u63D0\u4F9B\u3002"
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("label", { style: { ...noteStyle, display: "flex", alignItems: "center", gap: 6, marginTop: 6, cursor: "pointer" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("label", { style: { ...noteStyle, display: "flex", alignItems: "center", gap: 6, marginTop: 6, cursor: "pointer" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
         "input",
         {
           type: "checkbox",
@@ -32539,16 +33078,16 @@ function KsIngestPanel(props) {
           "aria-label": "\u5141\u8BB8\u4E91\u6DF1\u5EA6\u89E3\u6790"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { children: [
         "\u5141\u8BB8\u4E91\u6DF1\u5EA6\u89E3\u6790\uFF08",
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("b", { children: "\u4F1A\u628A\u626B\u63CF\u4EF6\u4E0A\u4F20\u5230\u4E91\u7AEF" }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("b", { children: "\u4F1A\u628A\u626B\u63CF\u4EF6\u4E0A\u4F20\u5230\u4E91\u7AEF" }),
         "\uFF1B\u9ED8\u8BA4\u5173\u95ED\uFF09\u3002",
         allowDeep ? "\u672C\u6B21\u9884\u89C8\u5C06\u5982\u5B9E\u6807\u6CE8 egress=deep_channel\u3002" : "\u672C\u6B21\u9884\u89C8\u4E0D\u5916\u53D1\uFF08egress=none\uFF09\u3002"
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { marginTop: 10 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: noteStyle, children: "\u5F85\u5165\u5E93\u76EE\u5F55\uFF1A" }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { marginTop: 10 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: noteStyle, children: "\u5F85\u5165\u5E93\u76EE\u5F55\uFF1A" }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
         "input",
         {
           value: dirInput,
@@ -32558,38 +33097,38 @@ function KsIngestPanel(props) {
           "aria-label": "\u5F85\u5165\u5E93\u76EE\u5F55"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
         "button",
         {
           type: "button",
-          style: btnStyle2(busy),
+          style: btnStyle3(busy),
           disabled: busy,
           onClick: () => void loadInbox(dirInput),
           children: "\u5237\u65B0\u5217\u8868"
         }
       )
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { ...noteStyle, marginTop: 8 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { ...noteStyle, marginTop: 8 }, children: [
       "\u8BE5\u76EE\u5F55\u4E0B PDF\uFF1A",
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("b", { children: files.length }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("b", { children: files.length }),
       " \u4E2A",
       degraded === "engine_unavailable" ? "\uFF08\u5F15\u64CE\u672A\u542F\u52A8\uFF1A\u4EE5\u4E0B\u4E3A host \u76F4\u63A5\u5217\u76EE\u5F55\u7684\u7ED3\u679C\uFF09" : ""
     ] }),
-    files.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { style: { ...noteStyle, marginTop: 4 }, children: "\u628A\u8981\u5165\u5E93\u7684 PDF \u653E\u8FDB\u4E0A\u9762\u7684\u76EE\u5F55\uFF0C\u7136\u540E\u70B9\u300C\u5237\u65B0\u5217\u8868\u300D\u3002" }) : /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { ...noteStyle, marginTop: 4 }, children: [
-      files.slice(0, 12).map((f) => /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { ...monoStyle, marginTop: 2 }, children: [
+    files.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { style: { ...noteStyle, marginTop: 4 }, children: "\u628A\u8981\u5165\u5E93\u7684 PDF \u653E\u8FDB\u4E0A\u9762\u7684\u76EE\u5F55\uFF0C\u7136\u540E\u70B9\u300C\u5237\u65B0\u5217\u8868\u300D\u3002" }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { ...noteStyle, marginTop: 4 }, children: [
+      files.slice(0, 12).map((f) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { ...monoStyle, marginTop: 2 }, children: [
         f.file_name,
         " ",
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: { color: "#57606a" }, children: fmtSize(f.size) })
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { color: "#57606a" }, children: fmtSize(f.size) })
       ] }, f.path)),
-      files.length > 12 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { children: [
+      files.length > 12 ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { children: [
         "\u2026\u8FD8\u6709 ",
         files.length - 12,
         " \u4E2A"
       ] }) : null
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { marginTop: 12 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: noteStyle, children: "\u62BD\u6837\uFF08\u672C\uFF09" }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { marginTop: 12 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: noteStyle, children: "\u62BD\u6837\uFF08\u672C\uFF09" }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
         "input",
         {
           type: "number",
@@ -32600,36 +33139,36 @@ function KsIngestPanel(props) {
           "aria-label": "\u62BD\u6837\u672C\u6570"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: { ...noteStyle, marginRight: 8 }, children: "0 = \u4E0D\u62BD\u6837\uFF08\u5168\u90E8\uFF0C\u4E0A\u9650 200\uFF09" }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { ...noteStyle, marginRight: 8 }, children: "0 = \u4E0D\u62BD\u6837\uFF08\u5168\u90E8\uFF0C\u4E0A\u9650 200\uFF09" }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
         "button",
         {
           type: "button",
-          style: btnStyle2(busy || files.length === 0),
+          style: btnStyle3(busy || files.length === 0),
           disabled: busy || files.length === 0,
           onClick: () => void startBatch(),
           children: "\u5F00\u59CB\u9884\u89C8"
         }
       ),
-      batchState.status === "loading" ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: { ...noteStyle, marginLeft: 8 }, children: "\u9884\u89C8\u4E2D\u2026\uFF08\u89E3\u6790 + \u4F53\u68C0\uFF0C\u626B\u63CF\u4EF6\u53EF\u80FD\u8981\u51E0\u79D2\uFF09" }) : null
+      batchState.status === "loading" ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { ...noteStyle, marginLeft: 8 }, children: "\u9884\u89C8\u4E2D\u2026\uFF08\u89E3\u6790 + \u4F53\u68C0\uFF0C\u626B\u63CF\u4EF6\u53EF\u80FD\u8981\u51E0\u79D2\uFF09" }) : null
     ] }),
-    batchState.status === "error" ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { ...noteStyle, marginTop: 8, color: "#b42318" }, children: [
+    batchState.status === "error" ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { ...noteStyle, marginTop: 8, color: "#b42318" }, children: [
       "\u9884\u89C8\u5931\u8D25\uFF1A",
       batchState.message
     ] }) : null,
-    batch ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(BucketBar, { batch }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { style: { ...noteStyle, marginBottom: 4 }, children: "\u70B9\u6587\u4EF6\u540D\u770B\u8BE5\u672C\u7684\u5B8C\u6574\u4F53\u68C0\u62A5\u544A\uFF08\u5206\u7EA7/\u88C1\u51B3\u7406\u7531/\u6837\u4F8B/\u53EF\u7591\u6761\u6B3E/\u67E5\u91CD\uFF09\u3002" }),
+    batch ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(BucketBar, { batch }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { style: { ...noteStyle, marginBottom: 4 }, children: "\u70B9\u6587\u4EF6\u540D\u770B\u8BE5\u672C\u7684\u5B8C\u6574\u4F53\u68C0\u62A5\u544A\uFF08\u5206\u7EA7/\u88C1\u51B3\u7406\u7531/\u6837\u4F8B/\u53EF\u7591\u6761\u6B3E/\u67E5\u91CD\uFF09\u3002" }),
       batch.files.map((row) => {
         const meta = verdictMeta(row.verdict);
-        return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+        return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
           "div",
           {
             style: { borderTop: "1px solid #eaeef2", padding: "6px 0", display: "flex", gap: 8 },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: { color: meta.color, minWidth: 18 }, children: meta.icon }),
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { flex: 1 }, children: [
-                /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { color: meta.color, minWidth: 18 }, children: meta.icon }),
+              /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { flex: 1 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
                   "button",
                   {
                     type: "button",
@@ -32646,7 +33185,7 @@ function KsIngestPanel(props) {
                     children: row.file_name
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: noteStyle, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: noteStyle, children: [
                   row.grade,
                   " \u7EA7 \xB7 ",
                   row.pages,
@@ -32664,38 +33203,38 @@ function KsIngestPanel(props) {
         );
       })
     ] }) : null,
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { marginTop: 14, borderTop: "1px dashed #d0d7de", paddingTop: 10 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { style: { fontWeight: 600, marginBottom: 4 }, children: "\u5168\u91CF\u9884\u89C8\uFF08\u5F02\u6B65\uFF0C\u4E07\u7EA7\u53EF\u7528\uFF09" }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { style: noteStyle, children: "\u4E0A\u9762\u7684\u540C\u6B65\u9884\u89C8\u5355\u8BF7\u6C42\u4E0A\u9650 200 \u672C\uFF1B\u8FD9\u91CC\u8D70\u5F15\u64CE\u540E\u53F0\u4EFB\u52A1\uFF0C\u51E0\u4E07\u672C\u4E5F\u80FD\u8DD1\u2014\u2014 \u5173\u6389\u6D4F\u89C8\u5668 host \u4E5F\u4F1A\u7EE7\u7EED\u63A8\u8FDB\uFF0C\u56DE\u6765\u65F6\u81EA\u52A8\u6062\u590D\u8FDB\u5EA6\u663E\u793A\u3002" }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { marginTop: 8 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { marginTop: 14, borderTop: "1px dashed #d0d7de", paddingTop: 10 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { style: { fontWeight: 600, marginBottom: 4 }, children: "\u5168\u91CF\u9884\u89C8\uFF08\u5F02\u6B65\uFF0C\u4E07\u7EA7\u53EF\u7528\uFF09" }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { style: noteStyle, children: "\u4E0A\u9762\u7684\u540C\u6B65\u9884\u89C8\u5355\u8BF7\u6C42\u4E0A\u9650 200 \u672C\uFF1B\u8FD9\u91CC\u8D70\u5F15\u64CE\u540E\u53F0\u4EFB\u52A1\uFF0C\u51E0\u4E07\u672C\u4E5F\u80FD\u8DD1\u2014\u2014 \u5173\u6389\u6D4F\u89C8\u5668 host \u4E5F\u4F1A\u7EE7\u7EED\u63A8\u8FDB\uFF0C\u56DE\u6765\u65F6\u81EA\u52A8\u6062\u590D\u8FDB\u5EA6\u663E\u793A\u3002" }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { marginTop: 8 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
           "button",
           {
             type: "button",
-            style: btnStyle2(job !== null && (job.status === "running" || job.status === "pending")),
+            style: btnStyle3(job !== null && (job.status === "running" || job.status === "pending")),
             disabled: job !== null && (job.status === "running" || job.status === "pending"),
             onClick: () => void startFullJob(),
             children: "\u5BF9\u6574\u4E2A\u76EE\u5F55\u53D1\u8D77\u5168\u91CF\u9884\u89C8"
           }
         ),
-        job && (job.status === "running" || job.status === "pending") ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        job && (job.status === "running" || job.status === "pending") ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
           "button",
           {
             type: "button",
-            style: { ...btnStyle2(false), marginLeft: 8 },
+            style: { ...btnStyle3(false), marginLeft: 8 },
             onClick: () => void abortFullJob(),
             children: "\u4E2D\u65AD"
           }
         ) : null
       ] }),
-      jobError ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { ...noteStyle, marginTop: 6, color: "#b42318" }, children: [
+      jobError ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { ...noteStyle, marginTop: 6, color: "#b42318" }, children: [
         "\u4EFB\u52A1\u5931\u8D25\uFF1A",
         jobError
       ] }) : null,
-      job ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { marginTop: 8 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: noteStyle, children: [
+      job ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { marginTop: 8 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: noteStyle, children: [
           "\u72B6\u6001\uFF1A",
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("b", { children: job.status }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("b", { children: job.status }),
           " \xB7 ",
           "\u5DF2\u4F53\u68C0 ",
           job.done,
@@ -32704,7 +33243,7 @@ function KsIngestPanel(props) {
           job.stale === true ? " \xB7 \uFF08\u5F15\u64CE\u4E0D\u53EF\u8FBE\uFF1A\u663E\u793A host \u955C\u50CF\u5FEB\u7167\uFF09" : "",
           job.error ? ` \xB7 ${job.error}` : ""
         ] }),
-        job.total > 0 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        job.total > 0 ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
           "div",
           {
             role: "progressbar",
@@ -32716,7 +33255,7 @@ function KsIngestPanel(props) {
               background: "#eaeef2",
               overflow: "hidden"
             },
-            children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+            children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
               "div",
               {
                 style: {
@@ -32729,29 +33268,29 @@ function KsIngestPanel(props) {
             )
           }
         ) : null,
-        job.status === "done" || job.status === "aborted" || job.status === "failed" ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { ...noteStyle, marginTop: 6 }, children: [
+        job.status === "done" || job.status === "aborted" || job.status === "failed" ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { ...noteStyle, marginTop: 6 }, children: [
           "\u4E09\u6876\u603B\u8D26\uFF1A\u2705 \u53EF\u5165\u5E93 ",
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("b", { children: job.buckets?.ok ?? 0 }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("b", { children: job.buckets?.ok ?? 0 }),
           " \xB7 ",
           "\u26A0\uFE0F \u9700\u5904\u7406 ",
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("b", { children: job.buckets?.warn ?? 0 }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("b", { children: job.buckets?.warn ?? 0 }),
           " \xB7 ",
           "\u274C \u963B\u65AD ",
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("b", { children: job.buckets?.block ?? 0 }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("b", { children: job.buckets?.block ?? 0 }),
           job.status === "aborted" ? "\uFF08\u5DF2\u4E2D\u65AD\uFF1A\u4EE5\u4E0A\u4E3A\u90E8\u5206\u7ED3\u679C\uFF09" : ""
         ] }) : null,
-        job.rows && job.rows.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { marginTop: 6 }, children: [
+        job.rows && job.rows.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { marginTop: 6 }, children: [
           job.rows.slice(0, 10).map((row) => {
             const meta = verdictMeta(row.verdict);
-            return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { ...noteStyle, marginTop: 2 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: { color: meta.color }, children: meta.icon }),
+            return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { ...noteStyle, marginTop: 2 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { color: meta.color }, children: meta.icon }),
               " ",
               row.file_name,
               " \u2014 ",
               row.one_line || `${row.grade} \u7EA7 \xB7 ${row.pages} \u9875`
             ] }, row.path);
           }),
-          job.rows_count !== void 0 && job.rows_count > 10 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: noteStyle, children: [
+          job.rows_count !== void 0 && job.rows_count > 10 ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: noteStyle, children: [
             "\u2026\u5171 ",
             job.rows_count,
             " \u884C\uFF08\u524D 10 \u884C\u9884\u89C8\uFF09"
@@ -32759,17 +33298,17 @@ function KsIngestPanel(props) {
         ] }) : null
       ] }) : null
     ] }),
-    detailState.status === "loading" ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { ...noteStyle, marginTop: 8 }, children: [
+    detailState.status === "loading" ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { ...noteStyle, marginTop: 8 }, children: [
       "\u52A0\u8F7D ",
       detailName,
       " \u7684\u62A5\u544A\u2026"
     ] }) : null,
-    detailState.status === "error" ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { ...noteStyle, marginTop: 8, color: "#b42318" }, children: [
+    detailState.status === "error" ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { ...noteStyle, marginTop: 8, color: "#b42318" }, children: [
       detailName,
       " \u62A5\u544A\u5931\u8D25\uFF1A",
       detailState.message
     ] }) : null,
-    detail ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(ReportDetail, { report: detail }) : null
+    detail ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(ReportDetail, { report: detail }) : null
   ] });
 }
 
@@ -32828,7 +33367,7 @@ try {
 }
 
 // client/KsSettingsSection.tsx
-var import_jsx_runtime8 = require("react/jsx-runtime");
+var import_jsx_runtime9 = require("react/jsx-runtime");
 var SUMMARY_HINT = {
   marginLeft: 8,
   fontSize: 11,
@@ -32836,40 +33375,41 @@ var SUMMARY_HINT = {
   color: "var(--dsw-alias-label-secondary, #888)"
 };
 function KsCategory({ title, hint, open, onToggle, children }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
     "details",
     {
       open,
       onToggle: (e) => onToggle(e.currentTarget.open),
       style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("summary", { style: { cursor: "pointer", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)", fontSize: 13, padding: "4px 0" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("summary", { style: { cursor: "pointer", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)", fontSize: 13, padding: "4px 0" }, children: [
           title,
-          hint !== void 0 && hint !== null ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: SUMMARY_HINT, children: hint }) : null
+          hint !== void 0 && hint !== null ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: SUMMARY_HINT, children: hint }) : null
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { style: { paddingTop: 2 }, children })
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { paddingTop: 2 }, children })
       ]
     }
   );
 }
 function KsSettingsSection(props) {
   const { openEvidence } = props;
-  const stored = (0, import_react8.useSyncExternalStore)(
+  const stored = (0, import_react9.useSyncExternalStore)(
     subscribePrefs,
     () => getPrefsSnapshot().showArrow,
     () => KS_PREFS_DEFAULT.showArrow
   );
-  const [saving, setSaving] = (0, import_react8.useState)(false);
-  const [error, setError] = (0, import_react8.useState)(null);
+  const [saving, setSaving] = (0, import_react9.useState)(false);
+  const [error, setError] = (0, import_react9.useState)(null);
   const shown = stored;
-  const [arrowOpen, setArrowOpen] = (0, import_react8.useState)(false);
-  const [reportOpen, setReportOpen] = (0, import_react8.useState)(false);
-  const [ingestOpen, setIngestOpen] = (0, import_react8.useState)(false);
-  const [inspectionOpen, setInspectionOpen] = (0, import_react8.useState)(false);
-  const [inspectionOpenedOnce, setInspectionOpenedOnce] = (0, import_react8.useState)(false);
-  const [announceOpen, setAnnounceOpen] = (0, import_react8.useState)(false);
-  const [announceOpenedOnce, setAnnounceOpenedOnce] = (0, import_react8.useState)(false);
-  const [apiOpen, setApiOpen] = (0, import_react8.useState)(false);
+  const [arrowOpen, setArrowOpen] = (0, import_react9.useState)(false);
+  const [reportOpen, setReportOpen] = (0, import_react9.useState)(false);
+  const [materialsOpen, setMaterialsOpen] = (0, import_react9.useState)(false);
+  const [ingestOpen, setIngestOpen] = (0, import_react9.useState)(false);
+  const [inspectionOpen, setInspectionOpen] = (0, import_react9.useState)(false);
+  const [inspectionOpenedOnce, setInspectionOpenedOnce] = (0, import_react9.useState)(false);
+  const [announceOpen, setAnnounceOpen] = (0, import_react9.useState)(false);
+  const [announceOpenedOnce, setAnnounceOpenedOnce] = (0, import_react9.useState)(false);
+  const [apiOpen, setApiOpen] = (0, import_react9.useState)(false);
   const onToggle = (next) => {
     setError(null);
     setSaving(true);
@@ -32881,15 +33421,15 @@ function KsSettingsSection(props) {
       setSaving(false);
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("section", { style: { padding: "8px 16px" }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { style: { margin: "0 0 8px", fontSize: 13, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u914D\u7F6E\u300C\u6CD5\u89C4\u6807\u51C6\u77E5\u8BC6\u5E93\u300D\u63D2\u4EF6\uFF1A\u8BC1\u636E PDF \u884C\u4E3A\u3001\u6548\u529B\u62A5\u544A\u3001\u5165\u5E93\u9884\u89C8\u4E0E\u5DE1\u68C0\u3002 \u5404\u7C7B\u76EE\u9ED8\u8BA4\u6536\u8D77\uFF0C\u70B9\u51FB\u5C55\u5F00\u3002" }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(KsCategory, { title: "\u8BC1\u636E\u67E5\u770B\u5668", open: arrowOpen, onToggle: setArrowOpen, hint: "\u7EA2\u7BAD\u5934\u5B9A\u4F4D\u5F00\u5173", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 10, padding: "8px 0" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { flex: 1 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { display: "block", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u663E\u793A\u7EA2\u8272\u5B9A\u4F4D\u7BAD\u5934" }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { display: "block", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u5728 PDF \u8BC1\u636E\u9875\u7528\u7EA2\u7BAD\u5934\u6807\u51FA\u5F15\u7528\u6761\u6B3E\u4F4D\u7F6E\uFF1B\u5173\u95ED\u540E\u4EC5\u8DF3\u9875\u3002" })
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("section", { style: { padding: "8px 16px" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { style: { margin: "0 0 8px", fontSize: 13, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u914D\u7F6E\u300C\u6CD5\u89C4\u6807\u51C6\u77E5\u8BC6\u5E93\u300D\u63D2\u4EF6\uFF1A\u8BC1\u636E PDF \u884C\u4E3A\u3001\u6548\u529B\u62A5\u544A\u3001\u5165\u5E93\u9884\u89C8\u4E0E\u5DE1\u68C0\u3002 \u5404\u7C7B\u76EE\u9ED8\u8BA4\u6536\u8D77\uFF0C\u70B9\u51FB\u5C55\u5F00\u3002" }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(KsCategory, { title: "\u8BC1\u636E\u67E5\u770B\u5668", open: arrowOpen, onToggle: setArrowOpen, hint: "\u7EA2\u7BAD\u5934\u5B9A\u4F4D\u5F00\u5173", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 10, padding: "8px 0" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { flex: 1 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { display: "block", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u663E\u793A\u7EA2\u8272\u5B9A\u4F4D\u7BAD\u5934" }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { display: "block", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u5728 PDF \u8BC1\u636E\u9875\u7528\u7EA2\u7BAD\u5934\u6807\u51FA\u5F15\u7528\u6761\u6B3E\u4F4D\u7F6E\uFF1B\u5173\u95ED\u540E\u4EC5\u8DF3\u9875\u3002" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
           "input",
           {
             type: "checkbox",
@@ -32900,40 +33440,50 @@ function KsSettingsSection(props) {
           }
         )
       ] }),
-      error !== null && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("p", { role: "alert", style: { color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
+      error !== null && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("p", { role: "alert", style: { color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
         "\u4FDD\u5B58\u5931\u8D25\uFF1A",
         error
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
       KsCategory,
       {
         title: "\u6548\u529B\u62A5\u544A",
         open: reportOpen,
         onToggle: setReportOpen,
         hint: "\u56DB\u8272\u5206\u7EC4\u603B\u89C8\uFF08\u{1F7E2}\u73B0\u884C/\u{1F534}\u5E9F\u6B62/\u{1F7E1}\u5373\u5C06\u5B9E\u65BD/\u26AA\u672A\u77E5\uFF09\uFF0C\u53EF\u5BFC\u51FA Excel",
-        children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(KsReportPanel, { visible: reportOpen, openEvidence })
+        children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KsReportPanel, { visible: reportOpen, openEvidence })
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+      KsCategory,
+      {
+        title: "\u53C2\u8003\u8D44\u6599",
+        open: materialsOpen,
+        onToggle: setMaterialsOpen,
+        hint: "\u4E0A\u4F20\u7684\u8D22\u62A5/\u5236\u5EA6/\u6587\u7AE0\u5728\u8FD9\u91CC\u9010\u4EFD\u8BC4\u5BA1\u2014\u2014\u53EA\u6709\u300C\u5DF2\u6279\u51C6\u300D\u7684\u6750\u6599\u4F1A\u8FDB\u5165\u4F5C\u7B54\u4E0E\u4EA7\u51FA\u7269",
+        children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KsMaterialsPanel, { visible: materialsOpen })
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
       KsCategory,
       {
         title: "\u5165\u5E93\u9884\u89C8",
         open: ingestOpen,
         onToggle: setIngestOpen,
         hint: "\u5165\u5E93\u524D\u53EA\u8BFB\u4F53\u68C0\uFF08\u2705/\u26A0\uFE0F/\u274C \u5206\u6876\uFF09\uFF0C\u4E0D\u5199\u5E93\uFF1B\u9ED8\u8BA4\u4E0D\u5916\u53D1\uFF08\u53EF\u663E\u5F0F\u5F00\u542F\u4E91\u6DF1\u5EA6\u89E3\u6790\uFF09",
-        children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(KsIngestPanel, { visible: ingestOpen })
+        children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KsIngestPanel, { visible: ingestOpen })
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(KsCategory, { title: "\u6BCF\u65E5\u5DE1\u68C0", open: inspectionOpen, onToggle: (next) => {
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KsCategory, { title: "\u6BCF\u65E5\u5DE1\u68C0", open: inspectionOpen, onToggle: (next) => {
       setInspectionOpen(next);
       setInspectionOpenedOnce(true);
-    }, hint: "\u5173\u6CE8\u6807\u51C6\u5BF9\u7167\u5B98\u7F51\u516C\u544A", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(KsInspectionPanel, { openedOnce: inspectionOpenedOnce }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(KsCategory, { title: "\u516C\u544A\u53D1\u73B0", open: announceOpen, onToggle: (next) => {
+    }, hint: "\u5173\u6CE8\u6807\u51C6\u5BF9\u7167\u5B98\u7F51\u516C\u544A", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KsInspectionPanel, { openedOnce: inspectionOpenedOnce }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KsCategory, { title: "\u516C\u544A\u53D1\u73B0", open: announceOpen, onToggle: (next) => {
       setAnnounceOpen(next);
       setAnnounceOpenedOnce(true);
-    }, hint: "\u81EA\u5B9A\u4E49\u516C\u544A\u6E90\u626B\u63CF", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(KsAnnounceSourcesSection, { openedOnce: announceOpenedOnce }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(KsApiConfigSection, { open: apiOpen, onOpenChange: setApiOpen })
+    }, hint: "\u81EA\u5B9A\u4E49\u516C\u544A\u6E90\u626B\u63CF", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KsAnnounceSourcesSection, { openedOnce: announceOpenedOnce }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KsApiConfigSection, { open: apiOpen, onOpenChange: setApiOpen })
   ] });
 }
 var COUNT_LABELS = {
@@ -32980,13 +33530,13 @@ function statusText(s) {
 }
 function KsInspectionPanel(props) {
   const { openedOnce } = props;
-  const [summary, setSummary] = (0, import_react8.useState)(null);
-  const [busy, setBusy] = (0, import_react8.useState)(false);
-  const [exporting, setExporting] = (0, import_react8.useState)(false);
-  const [error, setError] = (0, import_react8.useState)(null);
-  const [expError, setExpError] = (0, import_react8.useState)(null);
-  const [loadError, setLoadError] = (0, import_react8.useState)(false);
-  const load = (0, import_react8.useCallback)(async () => {
+  const [summary, setSummary] = (0, import_react9.useState)(null);
+  const [busy, setBusy] = (0, import_react9.useState)(false);
+  const [exporting, setExporting] = (0, import_react9.useState)(false);
+  const [error, setError] = (0, import_react9.useState)(null);
+  const [expError, setExpError] = (0, import_react9.useState)(null);
+  const [loadError, setLoadError] = (0, import_react9.useState)(false);
+  const load = (0, import_react9.useCallback)(async () => {
     try {
       const s = await fetchInspectionSummary();
       setSummary(s);
@@ -32995,12 +33545,12 @@ function KsInspectionPanel(props) {
       setLoadError(true);
     }
   }, []);
-  (0, import_react8.useEffect)(() => {
+  (0, import_react9.useEffect)(() => {
     if (!openedOnce) return;
     void load();
   }, [openedOnce, load]);
   const isRunning = summary?.last?.status === "running";
-  (0, import_react8.useEffect)(() => {
+  (0, import_react9.useEffect)(() => {
     if (!isRunning) return;
     let alive = true;
     let timer;
@@ -33041,8 +33591,8 @@ function KsInspectionPanel(props) {
   const last = summary?.last ?? null;
   const overdue = summary?.overdue_days ?? 0;
   const settings = summary?.settings ?? null;
-  const [autoSaving, setAutoSaving] = (0, import_react8.useState)(false);
-  const [autoError, setAutoError] = (0, import_react8.useState)(null);
+  const [autoSaving, setAutoSaving] = (0, import_react9.useState)(false);
+  const [autoError, setAutoError] = (0, import_react9.useState)(null);
   const patchSettings = async (patch) => {
     setAutoSaving(true);
     setAutoError(null);
@@ -33070,32 +33620,32 @@ function KsInspectionPanel(props) {
       setExporting(false);
     }
   };
-  const colorDot = (c, n) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { title: COUNT_LABELS[c], style: { display: "inline-flex", alignItems: "center", gap: 4, color: c, fontSize: 12 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { width: 8, height: 8, borderRadius: "50%", background: c, display: "inline-block" } }),
+  const colorDot = (c, n) => /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { title: COUNT_LABELS[c], style: { display: "inline-flex", alignItems: "center", gap: 4, color: c, fontSize: 12 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { width: 8, height: 8, borderRadius: "50%", background: c, display: "inline-block" } }),
     n
   ] }, c);
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "8px 0 2px" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u6BCF\u65E5\u5DE1\u68C0\uFF08\u5173\u6CE8\u6807\u51C6\uFF09" }),
-      overdue > 0 && last?.status === "done" && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { fontSize: 12, color: "#b8860b", border: "1px solid #b8860b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "8px 0 2px" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u6BCF\u65E5\u5DE1\u68C0\uFF08\u5173\u6CE8\u6807\u51C6\uFF09" }),
+      overdue > 0 && last?.status === "done" && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { fontSize: 12, color: "#b8860b", border: "1px solid #b8860b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: [
         "\u5DF2\u903E\u671F ",
         overdue,
         " \u5929"
       ] }),
-      summary?.stale_run === true && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { fontSize: 12, color: "#c0392b", border: "1px solid #c0392b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: "\u4E0A\u6B21\u7591\u4F3C\u4E2D\u65AD" })
+      summary?.stale_run === true && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { fontSize: 12, color: "#c0392b", border: "1px solid #c0392b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: "\u4E0A\u6B21\u7591\u4F3C\u4E2D\u65AD" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { style: { margin: "2px 0 8px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u5BF9\u7167\u5B98\u7F51\u516C\u544A\u68C0\u67E5\u5173\u6CE8\u6807\u51C6/\u6536\u85CF\u6807\u51C6\u662F\u5426\u51FA\u73B0\u65B0\u7248\u3001\u5E9F\u6B62\u6216\u66FF\u4EE3\uFF1B\u4EC5\u6BD4\u5BF9\u4E0D\u6539\u5E93\uFF0C\u53D8\u66F4\u4EE5\u4E09\u8272\u5217\u51FA\u3002" }),
-    loadError && summary === null && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 6px" }, children: "\u5DE1\u68C0\u72B6\u6001\u8BFB\u53D6\u5931\u8D25\uFF08host \u8DEF\u7531\u4E0D\u53EF\u7528\uFF1F\u8BF7\u5237\u65B0\u91CD\u8BD5\uFF09" }),
-    last !== null && last.status === "failed" && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 6px" }, children: last.error ?? "\u5DE1\u68C0\u6279\u6B21\u5931\u8D25" }),
-    status !== null && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "2px 0 4px" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { color: status.tone, fontSize: 13 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { style: { margin: "2px 0 8px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u5BF9\u7167\u5B98\u7F51\u516C\u544A\u68C0\u67E5\u5173\u6CE8\u6807\u51C6/\u6536\u85CF\u6807\u51C6\u662F\u5426\u51FA\u73B0\u65B0\u7248\u3001\u5E9F\u6B62\u6216\u66FF\u4EE3\uFF1B\u4EC5\u6BD4\u5BF9\u4E0D\u6539\u5E93\uFF0C\u53D8\u66F4\u4EE5\u4E09\u8272\u5217\u51FA\u3002" }),
+    loadError && summary === null && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 6px" }, children: "\u5DE1\u68C0\u72B6\u6001\u8BFB\u53D6\u5931\u8D25\uFF08host \u8DEF\u7531\u4E0D\u53EF\u7528\uFF1F\u8BF7\u5237\u65B0\u91CD\u8BD5\uFF09" }),
+    last !== null && last.status === "failed" && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 6px" }, children: last.error ?? "\u5DE1\u68C0\u6279\u6B21\u5931\u8D25" }),
+    status !== null && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "2px 0 4px" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { color: status.tone, fontSize: 13 }, children: [
         isRunning ? "\u23F3" : last?.status === "done" ? "\u2705" : last?.status === "failed" ? "\u274C" : "",
         " ",
         status.text
       ] }),
-      last !== null && last.total > 0 && last.status !== "running" && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { display: "inline-flex", gap: 10 }, children: ["red", "yellow", "green", "gray"].map((k) => colorDot(k, last.counts[k])) })
+      last !== null && last.total > 0 && last.status !== "running" && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { display: "inline-flex", gap: 10 }, children: ["red", "yellow", "green", "gray"].map((k) => colorDot(k, last.counts[k])) })
     ] }),
-    last !== null && last.by_type !== null && last.status !== "running" && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)", padding: "0 0 4px", lineHeight: "18px" }, children: (() => {
+    last !== null && last.by_type !== null && last.status !== "running" && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)", padding: "0 0 4px", lineHeight: "18px" }, children: (() => {
       const bt = last.by_type;
       if (last.total === 0) {
         return "\u672C\u6B21\u5DE1\u68C0\u6E05\u5355\u4E3A\u7A7A\uFF1A\u5173\u6CE8\u9762\u6682\u65E0\u6807\u51C6\u3001\u4E5F\u65E0\u65B0\u5165\u5E93\u5F85\u9996\u68C0\u6587\u6863\u2014\u2014\u6536\u85CF\u6807\u51C6\u6216\u5BFC\u5165\u65B0\u6587\u6863\u540E\u518D\u5DE1\u68C0";
@@ -33119,8 +33669,8 @@ function KsInspectionPanel(props) {
       const otherText = other.length > 0 ? ` \xB7 ${other.join(" / ")}` : "";
       return `\u5171\u68C0 ${last.total} \u9879${focusText}${otherText}`;
     })() }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "4px 0", flexWrap: "wrap" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "4px 0", flexWrap: "wrap" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
         "button",
         {
           type: "button",
@@ -33140,7 +33690,7 @@ function KsInspectionPanel(props) {
           children: busy ? "\u542F\u52A8\u4E2D\u2026" : isRunning ? "\u5DE1\u68C0\u4E2D\u2026" : overdue > 0 ? "\u8865\u8DD1\u4ECA\u65E5\u5DE1\u68C0" : "\u4ECA\u65E5\u5DE1\u68C0\uFF08tier0\uFF09"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
         "button",
         {
           type: "button",
@@ -33159,20 +33709,20 @@ function KsInspectionPanel(props) {
           children: exporting ? "\u5BFC\u51FA\u4E2D\u2026" : "\u5BFC\u51FA\u5DE1\u67E5\u7ED3\u679C\uFF08Excel\uFF09"
         }
       ),
-      expError !== null && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: expError }),
-      error !== null && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: error })
+      expError !== null && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: expError }),
+      error !== null && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: error })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 6, paddingTop: 2 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 10, padding: "8px 0 2px" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { flex: 1 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { display: "block", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u6BCF\u65E5\u81EA\u52A8\u5DE1\u68C0" }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { display: "block", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 6, paddingTop: 2 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 10, padding: "8px 0 2px" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { flex: 1 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { display: "block", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u6BCF\u65E5\u81EA\u52A8\u5DE1\u68C0" }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { display: "block", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
             "\u5F00\u542F\u540E\u6BCF\u65E5 ",
             settings?.time ?? "08:30",
             " \u81EA\u52A8\u68C0\u67E5\u5173\u6CE8\u9762\uFF1Bdsh \u672A\u5F00\u542F\u65F6\uFF0C\u4E0B\u6B21\u542F\u52A8\u8865\u8DD1\u5F53\u5929\u4E00\u6B21\u3002"
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
           "input",
           {
             type: "checkbox",
@@ -33183,9 +33733,9 @@ function KsInspectionPanel(props) {
           }
         )
       ] }),
-      settings?.autoEnabled === true && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 10, padding: "2px 0" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6BCF\u65E5\u65F6\u70B9" }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+      settings?.autoEnabled === true && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 10, padding: "2px 0" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6BCF\u65E5\u65F6\u70B9" }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
           "input",
           {
             type: "time",
@@ -33199,9 +33749,9 @@ function KsInspectionPanel(props) {
             style: { fontSize: 12, padding: "2px 6px" }
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #999)" }, children: "\u5468\u65E5 tier1 \u5168\u5E93\u6EDA\u52A8\uFF08P2 \u5F00\u653E\uFF09" })
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #999)" }, children: "\u5468\u65E5 tier1 \u5168\u5E93\u6EDA\u52A8\uFF08P2 \u5F00\u653E\uFF09" })
       ] }),
-      autoError !== null && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "2px 0 0" }, children: [
+      autoError !== null && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "2px 0 0" }, children: [
         "\u4FDD\u5B58\u5931\u8D25\uFF1A",
         autoError
       ] })
@@ -33232,17 +33782,17 @@ function sourceStatusText(p) {
 }
 function KsAnnounceSourcesSection(props) {
   const { openedOnce } = props;
-  const [summary, setSummary] = (0, import_react8.useState)(null);
-  const [scanning, setScanning] = (0, import_react8.useState)(false);
-  const [error, setError] = (0, import_react8.useState)(null);
-  const [loadError, setLoadError] = (0, import_react8.useState)(false);
-  const [sources, setSources] = (0, import_react8.useState)(null);
-  const [sourcesError, setSourcesError] = (0, import_react8.useState)(null);
-  const [newName, setNewName] = (0, import_react8.useState)("");
-  const [newUrl, setNewUrl] = (0, import_react8.useState)("");
-  const [adding, setAdding] = (0, import_react8.useState)(false);
-  const [addError, setAddError] = (0, import_react8.useState)(null);
-  const load = (0, import_react8.useCallback)(async () => {
+  const [summary, setSummary] = (0, import_react9.useState)(null);
+  const [scanning, setScanning] = (0, import_react9.useState)(false);
+  const [error, setError] = (0, import_react9.useState)(null);
+  const [loadError, setLoadError] = (0, import_react9.useState)(false);
+  const [sources, setSources] = (0, import_react9.useState)(null);
+  const [sourcesError, setSourcesError] = (0, import_react9.useState)(null);
+  const [newName, setNewName] = (0, import_react9.useState)("");
+  const [newUrl, setNewUrl] = (0, import_react9.useState)("");
+  const [adding, setAdding] = (0, import_react9.useState)(false);
+  const [addError, setAddError] = (0, import_react9.useState)(null);
+  const load = (0, import_react9.useCallback)(async () => {
     try {
       const s = await fetchAnnounceSummary();
       setSummary(s);
@@ -33251,12 +33801,12 @@ function KsAnnounceSourcesSection(props) {
       setLoadError(true);
     }
   }, []);
-  (0, import_react8.useEffect)(() => {
+  (0, import_react9.useEffect)(() => {
     if (!openedOnce) return;
     void load();
   }, [openedOnce, load]);
   const isRunning = summary?.last?.status === "running";
-  (0, import_react8.useEffect)(() => {
+  (0, import_react9.useEffect)(() => {
     if (!isRunning) return;
     let alive = true;
     let timer;
@@ -33289,8 +33839,8 @@ function KsAnnounceSourcesSection(props) {
       setScanning(false);
     }
   };
-  const [exportingAnn, setExportingAnn] = (0, import_react8.useState)(false);
-  const [annExportError, setAnnExportError] = (0, import_react8.useState)(null);
+  const [exportingAnn, setExportingAnn] = (0, import_react9.useState)(false);
+  const [annExportError, setAnnExportError] = (0, import_react9.useState)(null);
   const onAnnExport = async () => {
     if (exportingAnn) return;
     setExportingAnn(true);
@@ -33303,7 +33853,7 @@ function KsAnnounceSourcesSection(props) {
       setExportingAnn(false);
     }
   };
-  const loadSources = (0, import_react8.useCallback)(async () => {
+  const loadSources = (0, import_react9.useCallback)(async () => {
     setSourcesError(null);
     try {
       const d = await fetchAnnounceSources();
@@ -33348,44 +33898,44 @@ function KsAnnounceSourcesSection(props) {
   };
   const last = summary?.last ?? null;
   const failedCount = last?.per_source.filter((p) => p.status === "failed").length ?? 0;
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "8px 0 2px", flexWrap: "wrap" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u516C\u544A\u53D1\u73B0\uFF08\u81EA\u5B9A\u4E49\u516C\u544A\u6E90\uFF09" }),
-      summary?.stale_run === true && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { fontSize: 12, color: "#c0392b", border: "1px solid #c0392b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: "\u4E0A\u6B21\u626B\u63CF\u7591\u4F3C\u4E2D\u65AD" })
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "8px 0 2px", flexWrap: "wrap" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u516C\u544A\u53D1\u73B0\uFF08\u81EA\u5B9A\u4E49\u516C\u544A\u6E90\uFF09" }),
+      summary?.stale_run === true && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { fontSize: 12, color: "#c0392b", border: "1px solid #c0392b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: "\u4E0A\u6B21\u626B\u63CF\u7591\u4F3C\u4E2D\u65AD" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "2px 0 4px", flexWrap: "wrap", fontSize: 13 }, children: isRunning ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { color: "var(--dsw-alias-label-primary, #111)" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "2px 0 4px", flexWrap: "wrap", fontSize: 13 }, children: isRunning ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { color: "var(--dsw-alias-label-primary, #111)" }, children: [
       "\u23F3 \u626B\u63CF\u4E2D \xB7 ",
       last?.sources_done ?? 0,
       "/",
       last?.sources_total ?? 0,
       " \u6E90"
-    ] }) : last?.status === "done" ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+    ] }) : last?.status === "done" ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
         "\u6700\u8FD1\u626B\u63CF ",
         fmtTs(last.finished_at)
       ] }),
-      last.baseline_count > 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)", fontSize: 12 }, children: [
+      last.baseline_count > 0 && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)", fontSize: 12 }, children: [
         "\u6536\u5F55 ",
         last.baseline_count
       ] }),
-      last.new_count > 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { fontSize: 12, color: "#b8860b", border: "1px solid #b8860b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: [
+      last.new_count > 0 && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { fontSize: 12, color: "#b8860b", border: "1px solid #b8860b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: [
         "\u65B0 ",
         last.new_count,
         " \u6761"
       ] }),
-      failedCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { fontSize: 12, color: "#c0392b", border: "1px solid #c0392b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: [
+      failedCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { fontSize: 12, color: "#c0392b", border: "1px solid #c0392b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: [
         "\u5931\u8D25 ",
         failedCount,
         " \u4E2A\u6E90"
       ] })
-    ] }) : last?.status === "failed" ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { color: "#c0392b", fontSize: 13 }, children: [
+    ] }) : last?.status === "failed" ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { color: "#c0392b", fontSize: 13 }, children: [
       "\u4E0A\u6B21\u626B\u63CF\u5931\u8D25",
       last.error ? `\uFF1A${last.error}` : ""
-    ] }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u5C1A\u672A\u626B\u63CF" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { style: { margin: "2px 0 8px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6DFB\u52A0\u5B98\u65B9\u516C\u544A\u5217\u8868\u9875\u5730\u5740\uFF0C\u968F\u6BCF\u65E5\u5DE1\u68C0\u81EA\u52A8\u68C0\u67E5\u65B0\u516C\u544A\uFF1B\u4EC5\u652F\u6301\u516C\u7F51 http/https\uFF0C\u89E3\u6790\u5931\u8D25\u4F1A\u5982\u5B9E\u663E\u793A\u539F\u56E0\u3002" }),
-    loadError && summary === null && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 6px" }, children: "\u516C\u544A\u72B6\u6001\u8BFB\u53D6\u5931\u8D25\uFF08host \u8DEF\u7531\u4E0D\u53EF\u7528\uFF1F\u8BF7\u5237\u65B0\u91CD\u8BD5\uFF09" }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "4px 0" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+    ] }) : /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u5C1A\u672A\u626B\u63CF" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { style: { margin: "2px 0 8px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6DFB\u52A0\u5B98\u65B9\u516C\u544A\u5217\u8868\u9875\u5730\u5740\uFF0C\u968F\u6BCF\u65E5\u5DE1\u68C0\u81EA\u52A8\u68C0\u67E5\u65B0\u516C\u544A\uFF1B\u4EC5\u652F\u6301\u516C\u7F51 http/https\uFF0C\u89E3\u6790\u5931\u8D25\u4F1A\u5982\u5B9E\u663E\u793A\u539F\u56E0\u3002" }),
+    loadError && summary === null && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 6px" }, children: "\u516C\u544A\u72B6\u6001\u8BFB\u53D6\u5931\u8D25\uFF08host \u8DEF\u7531\u4E0D\u53EF\u7528\uFF1F\u8BF7\u5237\u65B0\u91CD\u8BD5\uFF09" }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "4px 0" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
         "button",
         {
           type: "button",
@@ -33404,7 +33954,7 @@ function KsAnnounceSourcesSection(props) {
           children: scanning ? "\u542F\u52A8\u4E2D\u2026" : isRunning ? "\u626B\u63CF\u4E2D\u2026" : "\u626B\u63CF\u516C\u544A\u6E90"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
         "button",
         {
           type: "button",
@@ -33423,27 +33973,27 @@ function KsAnnounceSourcesSection(props) {
           children: exportingAnn ? "\u5BFC\u51FA\u4E2D\u2026" : "\u5BFC\u51FA\u516C\u544A\u53D1\u73B0\uFF08Excel\uFF09"
         }
       ),
-      annExportError !== null && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: annExportError }),
-      error !== null && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: error })
+      annExportError !== null && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: annExportError }),
+      error !== null && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: error })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("details", { style: { fontSize: 12, margin: "2px 0", color: "var(--dsw-alias-label-secondary, #666)" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("summary", { style: { cursor: "pointer" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("details", { style: { fontSize: 12, margin: "2px 0", color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("summary", { style: { cursor: "pointer" }, children: [
         "\u6700\u8FD1\u516C\u544A\uFF08",
         last?.recent.length ?? 0,
         " \u6761\uFF0C\u70B9\u51FB\u5C55\u5F00\uFF09"
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("ul", { style: { margin: "6px 0 0", paddingLeft: 18 }, children: [
-        (last?.recent ?? []).map((r, i) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("li", { style: { lineHeight: "20px" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("a", { href: r.url, target: "_blank", rel: "noreferrer", style: { color: "var(--dsw-alias-label-primary, #111)" }, children: r.title }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #888)" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("ul", { style: { margin: "6px 0 0", paddingLeft: 18 }, children: [
+        (last?.recent ?? []).map((r, i) => /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("li", { style: { lineHeight: "20px" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("a", { href: r.url, target: "_blank", rel: "noreferrer", style: { color: "var(--dsw-alias-label-primary, #111)" }, children: r.title }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #888)" }, children: [
             r.source_name ? ` \xB7 ${r.source_name}` : "",
             r.published_date ? ` \xB7 ${r.published_date}` : ""
           ] })
         ] }, `${r.url}-${i}`)),
-        (last?.recent.length ?? 0) === 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("li", { style: { listStyle: "none", marginLeft: -18 }, children: "\u6682\u65E0\u8BB0\u5F55\uFF08\u626B\u63CF\u540E\u663E\u793A\u6700\u8FD1 5 \u6761\uFF09" })
+        (last?.recent.length ?? 0) === 0 && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("li", { style: { listStyle: "none", marginLeft: -18 }, children: "\u6682\u65E0\u8BB0\u5F55\uFF08\u626B\u63CF\u540E\u663E\u793A\u6700\u8FD1 5 \u6761\uFF09" })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
       "details",
       {
         style: { fontSize: 12, margin: "2px 0", color: "var(--dsw-alias-label-secondary, #666)" },
@@ -33453,15 +34003,15 @@ function KsAnnounceSourcesSection(props) {
           }
         },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("summary", { style: { cursor: "pointer" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("summary", { style: { cursor: "pointer" }, children: [
             "\u6E90\u7BA1\u7406\uFF08",
             sources === null ? "\u5C55\u5F00\u52A0\u8F7D" : `${sources.length} \u4E2A`,
             "\uFF09"
           ] }),
-          sources === null ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { style: { margin: "6px 0 0" }, children: "\u52A0\u8F7D\u4E2D\u2026" }) : sources.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { style: { margin: "6px 0 0" }, children: "\u8FD8\u6CA1\u6709\u516C\u544A\u6E90\u2014\u2014\u5728\u4E0B\u65B9\u6DFB\u52A0\u7B2C\u4E00\u4E2A\u3002" }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { style: { margin: "6px 0 0" }, children: sources.map((src) => {
+          sources === null ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { style: { margin: "6px 0 0" }, children: "\u52A0\u8F7D\u4E2D\u2026" }) : sources.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { style: { margin: "6px 0 0" }, children: "\u8FD8\u6CA1\u6709\u516C\u544A\u6E90\u2014\u2014\u5728\u4E0B\u65B9\u6DFB\u52A0\u7B2C\u4E00\u4E2A\u3002" }) : /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { margin: "6px 0 0" }, children: sources.map((src) => {
             const ps = last?.per_source.find((p) => p.id === src.id);
-            return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "3px 0", flexWrap: "wrap" }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "3px 0", flexWrap: "wrap" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
                 "input",
                 {
                   type: "checkbox",
@@ -33470,10 +34020,10 @@ function KsAnnounceSourcesSection(props) {
                   onChange: (e) => void onToggleEnabled(src, e.currentTarget.checked)
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { color: "var(--dsw-alias-label-primary, #111)", minWidth: 90 }, children: src.name }),
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { title: src.url, style: { color: "var(--dsw-alias-label-secondary, #888)", maxWidth: 260, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: src.url }),
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { children: sourceStatusText(ps) }),
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { color: "var(--dsw-alias-label-primary, #111)", minWidth: 90 }, children: src.name }),
+              /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { title: src.url, style: { color: "var(--dsw-alias-label-secondary, #888)", maxWidth: 260, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: src.url }),
+              /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { children: sourceStatusText(ps) }),
+              /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
                 "button",
                 {
                   type: "button",
@@ -33484,9 +34034,9 @@ function KsAnnounceSourcesSection(props) {
               )
             ] }, src.id);
           }) }),
-          sourcesError !== null && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: sourcesError }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, marginTop: 8, flexWrap: "wrap" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+          sourcesError !== null && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: sourcesError }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, marginTop: 8, flexWrap: "wrap" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
               "input",
               {
                 value: newName,
@@ -33495,7 +34045,7 @@ function KsAnnounceSourcesSection(props) {
                 style: { fontSize: 12, padding: "3px 8px", width: 170 }
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
               "input",
               {
                 value: newUrl,
@@ -33504,7 +34054,7 @@ function KsAnnounceSourcesSection(props) {
                 style: { fontSize: 12, padding: "3px 8px", flex: 1, minWidth: 220 }
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
               "button",
               {
                 type: "button",
@@ -33523,13 +34073,13 @@ function KsAnnounceSourcesSection(props) {
               }
             )
           ] }),
-          addError !== null && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: addError })
+          addError !== null && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: addError })
         ]
       }
     )
   ] });
 }
-function btnStyle3(disabled) {
+function btnStyle4(disabled) {
   return {
     padding: "3px 12px",
     borderRadius: 6,
@@ -33542,16 +34092,16 @@ function btnStyle3(disabled) {
 }
 function KsApiConfigSection(props) {
   const { open, onOpenChange } = props;
-  const [status, setStatus] = (0, import_react8.useState)(null);
-  const [err, setErr] = (0, import_react8.useState)(null);
-  const [busy, setBusy] = (0, import_react8.useState)(null);
-  const [cloudKey, setCloudKey] = (0, import_react8.useState)("");
-  const [cloudUrl, setCloudUrl] = (0, import_react8.useState)("");
-  const [cloudMode, setCloudMode] = (0, import_react8.useState)("");
-  const [llmKey, setLlmKey] = (0, import_react8.useState)("");
-  const [llmUrl, setLlmUrl] = (0, import_react8.useState)("");
-  const [tests, setTests] = (0, import_react8.useState)({});
-  const load = (0, import_react8.useCallback)(async () => {
+  const [status, setStatus] = (0, import_react9.useState)(null);
+  const [err, setErr] = (0, import_react9.useState)(null);
+  const [busy, setBusy] = (0, import_react9.useState)(null);
+  const [cloudKey, setCloudKey] = (0, import_react9.useState)("");
+  const [cloudUrl, setCloudUrl] = (0, import_react9.useState)("");
+  const [cloudMode, setCloudMode] = (0, import_react9.useState)("");
+  const [llmKey, setLlmKey] = (0, import_react9.useState)("");
+  const [llmUrl, setLlmUrl] = (0, import_react9.useState)("");
+  const [tests, setTests] = (0, import_react9.useState)({});
+  const load = (0, import_react9.useCallback)(async () => {
     try {
       setStatus(await fetchApiConfig());
       setErr(null);
@@ -33559,8 +34109,8 @@ function KsApiConfigSection(props) {
       setErr(e instanceof Error ? e.message : String(e));
     }
   }, []);
-  const [openedOnce, setOpenedOnce] = (0, import_react8.useState)(false);
-  (0, import_react8.useEffect)(() => {
+  const [openedOnce, setOpenedOnce] = (0, import_react9.useState)(false);
+  (0, import_react9.useEffect)(() => {
     if (!open || openedOnce) return;
     setOpenedOnce(true);
     void load();
@@ -33611,10 +34161,10 @@ function KsApiConfigSection(props) {
     const configured2 = st?.configured === true;
     const t = tests[ch];
     const dirty = keyVal.trim().length > 0 || urlVal.trim().length > 0 || modeDirty;
-    return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { marginTop: 8 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, fontSize: 12 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: label }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: {
+    return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { marginTop: 8 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, fontSize: 12 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: label }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: {
           fontSize: 11,
           padding: "0 6px",
           lineHeight: "17px",
@@ -33622,17 +34172,17 @@ function KsApiConfigSection(props) {
           color: configured2 ? "#2e7d32" : "#888",
           border: `1px solid ${configured2 ? "#2e7d3255" : "#88888855"}`
         }, children: configured2 ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E" }),
-        st?.base_url && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
+        st?.base_url && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
           "\u5F53\u524D\u751F\u6548 ",
           st.base_url
         ] }),
-        ch === "mineru_cloud" && st?.model_version && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
+        ch === "mineru_cloud" && st?.model_version && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
           "\xB7 \u6A21\u5F0F ",
           st.model_version
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 6, marginTop: 4, flexWrap: "wrap" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 6, marginTop: 4, flexWrap: "wrap" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
           "input",
           {
             type: "password",
@@ -33643,7 +34193,7 @@ function KsApiConfigSection(props) {
             style: { fontSize: 12, padding: "3px 8px", width: 220 }
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
           "input",
           {
             value: urlVal,
@@ -33653,7 +34203,7 @@ function KsApiConfigSection(props) {
           }
         ),
         modeSlot,
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
           "button",
           {
             type: "button",
@@ -33664,28 +34214,28 @@ function KsApiConfigSection(props) {
               urlVal,
               ch === "mineru_cloud" && modeDirty ? effectiveCloudMode : void 0
             ),
-            style: btnStyle3(busy !== null),
+            style: btnStyle4(busy !== null),
             children: busy === `save-${ch}` ? "\u4FDD\u5B58\u4E2D\u2026" : "\u4FDD\u5B58"
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
           "button",
           {
             type: "button",
             disabled: busy !== null || dirty,
             title: dirty ? "\u6709\u672A\u4FDD\u5B58\u7684\u4FEE\u6539\uFF1A\u5148\u70B9\u300C\u4FDD\u5B58\u300D\u518D\u6D4B\u8BD5" : void 0,
             onClick: () => void onTest(ch),
-            style: btnStyle3(busy !== null || dirty),
+            style: btnStyle4(busy !== null || dirty),
             children: busy === `test-${ch}` ? "\u6D4B\u8BD5\u4E2D\u2026" : dirty ? "\u5148\u4FDD\u5B58\u518D\u6D4B\u8BD5" : "\u{1F9EA} \u6D4B\u8BD5\u8FDE\u901A"
           }
         )
       ] }),
-      dirty && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("p", { style: { margin: "3px 0 0", fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
+      dirty && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("p", { style: { margin: "3px 0 0", fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
         "\u63A2\u6D4B\u4F7F\u7528\u5DF2\u4FDD\u5B58\u7684\u51ED\u636E\uFF1B\u65B0\u586B\u7684 Key / Base URL / \u6A21\u5F0F\u8BF7\u5148\u4FDD\u5B58\u3002 \u7559\u7A7A\u8868\u793A\u4FDD\u6301\u4E0D\u53D8\uFF0C\u8F93\u5165 ",
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("code", { children: "-" }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("code", { children: "-" }),
         " \u8868\u793A\u6E05\u9664\u8BE5\u503C\uFF08Key \u6E05\u9664\u540E\u56DE\u5230\u7EAF\u672C\u5730\u901A\u9053\uFF09\u3002"
       ] }),
-      t && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("p", { style: { margin: "3px 0 0", fontSize: 12, color: t.ok ? "#2e7d32" : "#c0392b" }, children: [
+      t && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("p", { style: { margin: "3px 0 0", fontSize: 12, color: t.ok ? "#2e7d32" : "#c0392b" }, children: [
         t.ok ? "\u2705 " : "\u274C ",
         t.detail
       ] })
@@ -33700,9 +34250,9 @@ function KsApiConfigSection(props) {
     vlm: "vlm\uFF08\u63A8\u8350\uFF09\uFF1A\u7AEF\u5230\u7AEF\u89C6\u89C9\u5927\u6A21\u578B\uFF0C\u590D\u6742\u7248\u5F0F\u4E0E\u626B\u63CF\u4EF6\u66F4\u5F3A\uFF1Benable_formula \u5BF9 vlm \u53EA\u5F71\u54CD\u884C\u5185\u516C\u5F0F\uFF0Cenable_table \u4ECD\u751F\u6548\u3002",
     "MinerU-HTML": "MinerU-HTML\uFF1A\u4EC5\u7528\u4E8E HTML \u6E90\u6587\u4EF6\uFF08PDF \u8BF7\u52FF\u9009\uFF09\u3002"
   };
-  const cloudModeSlot = /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { display: "inline-flex", alignItems: "center", gap: 4, fontSize: 12 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6A21\u5F0F" }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+  const cloudModeSlot = /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { display: "inline-flex", alignItems: "center", gap: 4, fontSize: 12 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6A21\u5F0F" }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
       "select",
       {
         value: effectiveCloudMode,
@@ -33716,37 +34266,37 @@ function KsApiConfigSection(props) {
           background: "#fff",
           color: "#111"
         },
-        children: cloudModes.map((m) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: m, children: m }, m))
+        children: cloudModes.map((m) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("option", { value: m, children: m }, m))
       }
     ),
-    cloudModeDirty && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { fontSize: 11, color: "#c0392b" }, children: "\u672A\u4FDD\u5B58" })
+    cloudModeDirty && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { fontSize: 11, color: "#c0392b" }, children: "\u672A\u4FDD\u5B58" })
   ] });
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
     "details",
     {
       open,
       onToggle: (e) => onOpenChange(e.currentTarget.open),
       style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("summary", { style: { cursor: "pointer", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)", fontSize: 13, padding: "4px 0" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("summary", { style: { cursor: "pointer", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)", fontSize: 13, padding: "4px 0" }, children: [
           "API\u914D\u7F6E",
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: SUMMARY_HINT, children: "\u4E91 OCR / LLM \u51ED\u636E\uFF08\u52A0\u5BC6\u5B58\u50A8\uFF09" }),
-          status !== null && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { marginLeft: 8, fontSize: 11, fontWeight: 400, color: status.mineru_cloud.configured ? "#2e7d32" : "#888" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: SUMMARY_HINT, children: "\u4E91 OCR / LLM \u51ED\u636E\uFF08\u52A0\u5BC6\u5B58\u50A8\uFF09" }),
+          status !== null && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { marginLeft: 8, fontSize: 11, fontWeight: 400, color: status.mineru_cloud.configured ? "#2e7d32" : "#888" }, children: [
             "\u4E91 OCR ",
             status.mineru_cloud.configured ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E"
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
           "\u914D\u7F6E\u4E91 OCR Key \u540E\uFF0C\u5BFC\u5165\u6587\u4EF6\u4F18\u5148\u8D70\u4E91\u89E3\u6790\u3001\u672C\u5730\u515C\u5E95\uFF1B\u672A\u914D\u7F6E\u5219\u76F4\u63A5\u8D70\u672C\u5730\u901A\u9053\uFF08\u7EAF\u672C\u5730\u4E0D\u5916\u53D1\uFF09\u3002",
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("b", { children: "\u6A21\u5F0F" }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("b", { children: "\u6A21\u5F0F" }),
           "\u5BF9\u5E94 MinerU \u5B98\u65B9 v4 \u7684 ",
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("code", { children: "model_version" }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("code", { children: "model_version" }),
           "\uFF1A",
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("code", { children: "pipeline" }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("code", { children: "pipeline" }),
           "\uFF08\u9ED8\u8BA4\uFF09\uFF0F",
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("code", { children: "vlm" }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("code", { children: "vlm" }),
           "\uFF08\u63A8\u8350\uFF0C\u7AEF\u5230\u7AEF\u89C6\u89C9\u5927\u6A21\u578B\uFF09\uFF0F",
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("code", { children: "MinerU-HTML" }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("code", { children: "MinerU-HTML" }),
           "\uFF08\u4EC5 HTML \u6E90\u6587\u4EF6\uFF09\u3002 \u51ED\u636E\u53EA\u5199\u5165\u672C\u673A\u52A0\u5BC6\u5B58\u50A8\uFF08Windows DPAPI\uFF0Csecrets.json\uFF09\uFF0C\u4E0D\u56DE\u663E\u3001\u4E0D\u5165\u5E93\u3002"
         ] }),
         chan(
@@ -33760,7 +34310,7 @@ function KsApiConfigSection(props) {
           cloudModeDirty
         ),
         chan("llm", "\u{1F916} LLM \u95EE\u7B54\u901A\u9053", llmKey, setLlmKey, llmUrl, setLlmUrl),
-        err !== null && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "6px 0 0" }, children: err })
+        err !== null && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "6px 0 0" }, children: err })
       ]
     }
   );
