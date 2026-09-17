@@ -116,8 +116,12 @@ function assertNever(status: never): never {
  * ⚠ 理由**照抄后端**（`locator.py` 的 `why`），界面**不自己解释 status**：
  * 早先这里写死过"解析器身份变了"，而 `stale` 有**两个**成因（解析器变了 / **源文件字节变了**，
  * 后者是**确定**失效不是"可能"）——写死一句就等于替后端下了它没下的结论。
+ *
+ * ⚠ **导出**只是为了离线**渲染级**冒烟（`scripts/smoke-anchor-mark.mjs` 用 `react-dom/server`
+ * 真渲染它）——这就是 b11 建议"收编渲染用例"的**零依赖版本**：不装 jsdom，
+ * 用仓库根 `node_modules` 里已有的 react/react-dom 做静态渲染。
  */
-function AnchorMark(props: { status?: KsLocatorHealth['status']; why?: string }): React.ReactElement | null {
+export function AnchorMark(props: { status?: KsLocatorHealth['status']; why?: string }): React.ReactElement | null {
   const why = props.why || '（后端未给原因）'
   switch (props.status) {
     // 没问题 / 没有区间可失效 ⇒ 不加噪声

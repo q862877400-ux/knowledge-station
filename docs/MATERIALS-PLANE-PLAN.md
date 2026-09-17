@@ -716,3 +716,12 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     确定性那条仍绿；V2（去掉 LEFT JOIN）⇒ `OperationalError` 3 条红。门禁 pytest **1705**。
     ⇒ **方案 §12 里"我自己能推进的"只剩 INFO-4**（报告 ⚠ 不覆盖「依据」节，要动
     `authority.render_evidence` 这**第二个所有者** ⇒ 新立项，不夹带）。
+
+    **b11-LOW-3 后半句已收（step-67，§10.68）**：零依赖做出**渲染级**闸门——
+    `plugin/scripts/smoke-anchor-mark.mjs`（`react-dom/server` 静态渲染 `AnchorMark`，15 条，
+    已进 `npm run smoke` 链 **18 → 19 段**；react/react-dom 用**仓库根** node_modules，
+    缺了就**明确 FAIL**、不静默 SKIP）。变异 **W1**（面板自己编一句原因、JSX 文案不动）：
+    **渲染级 11/15 RED，而字符串级 84/84 全绿** ⇒ 实测证明它覆盖了字符串级看不见的那一类。
+    ⚠ 边界：它渲染的是**标记组件**，不是整块面板的端到端（那才需要 jsdom 或浏览器；
+    真机那条已由 `e2e:materials` 覆盖"面板挂载 + 不炸 + 失败如实说"）⇒ **"是否引入 jsdom"
+    这件事的价值被这一步削掉了一大半**，剩下的只有"端到端渲染（effect/事件）"那一小块。
