@@ -45,7 +45,6 @@ import {
 import { configurePdfWorker, PDF_WASM_DIR } from './pdf-configure'
 import {
   backingStoreDpr,
-  continuousViewportHeight,
   fitPageScale,
   MANUAL_MAX_PERCENT,
   MANUAL_MIN_PERCENT,
@@ -383,15 +382,14 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
     // 过期帧自行退出：换过文档，或同一页又有更新的一帧开画了。
     if (epoch !== docEpochRef.current || pageTokenRef.current.get(clamped) !== token) return
 
-    // 缩放：底部栏的缩放状态机（pdfFit.zoomScale）。autoFit 走既有「铺满 + 溢出
-    // 预算」；manual 直接用用户选的百分比，**不看容器尺寸**（窗口拉伸不改缩放）。
-    // 连续模式把"逻辑可视高"抬高（continuousViewportHeight），让同一套规则退化成
-    // 宽度适配——堆叠多页时不该由可视高给单页定标（见 pdfFit.ts 注释）。
+    // 缩放：底部栏的缩放状态机（pdfFit.zoomScale）。autoFit = **宽度铺满**
+    // （2026-09-17 规则：高度不参与，见 pdfFit.fitPageScale）；manual 直接用用户选的
+    // 百分比，**不看容器尺寸**（窗口拉伸不改缩放）。
+    // 单页/连续两种翻页模式的定标现在完全相同 —— 自适应不再读高度，故不再需要
+    // 旧版那个"抬高逻辑可视高"的 `continuousViewportHeight` 适配（已退休）。
     const base = pdfPage.getViewport({ scale: 1 })
     const availWidth = container.clientWidth - PAGE_PADDING
-    const availHeight = pagingMode === 'single'
-      ? container.clientHeight - PAGE_PADDING
-      : continuousViewportHeight(availWidth)
+    const availHeight = container.clientHeight - PAGE_PADDING
     const view = zoomScale(zoomRef.current, {
       availWidth,
       availHeight,
@@ -885,7 +883,7 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
   }, [])
 
 
-  // ---- 布局测量（2026-09-09 用户反馈「PDF 默认太小，要高度尽可能高」）----
+  // ---- 布局测量（2026-09-09 用户反馈「PDF 默认太小」；2026-09-17 起只按宽度定标）----
   // 旧实现只在 [load.status, page, showLeftCol] 变化时重绘 → 窗口最大化/还原、
   // 侧栏拖宽、浏览器缩放（Ctrl+±）都不会重算，窄侧栏下页面小且纵向留白。
   // 现在统一由容器实测尺寸驱动：ResizeObserver（侧栏拖拽/最大化/布局变化）+
@@ -1596,10 +1594,7 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
     const container = containerRef.current
     // 用 box（已测量）而非 container.clientWidth：首次渲染时 ref 还没挂。
     const availWidth = (box?.w ?? container?.clientWidth ?? 0) - PAGE_PADDING
-    const availHeightRaw = (box?.h ?? container?.clientHeight ?? 0) - PAGE_PADDING
-    const availHeight = pagingMode === 'single'
-      ? availHeightRaw
-      : continuousViewportHeight(availWidth)
+    const availHeight = (box?.h ?? container?.clientHeight ?? 0) - PAGE_PADDING
     // 页尺寸：拿已加载文档第 1 页的 viewport（scale=1）。取不到就用 A4 兜底，只为
     // 让百分比数字有个显示值；真正绘制时用的是每页自己的尺寸（renderPage 内）。
     const base = firstPageBaseSizeRef.current

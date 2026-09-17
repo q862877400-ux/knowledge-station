@@ -1,35 +1,33 @@
 /**
- * ks-dsh-plugin — client/pdfFit.ts (2026-09-09)
+ * ks-dsh-plugin — client/pdfFit.ts (2026-09-09，规则三次修订，末次 2026-09-17)
  *
- * PDF 页「默认铺满」缩放规则（用户反馈：默认打开后 PDF 太小，希望高度尽可能高，
- * 且要随窗口最大化 / 侧栏拖宽 / 浏览器缩放自适应）。
+ * PDF 页「默认铺满」缩放规则。需求起点是"默认打开后 PDF 太小"，且要随窗口最大化 /
+ * 侧栏拖宽 / 浏览器缩放自适应。**"铺满"的具体含义改过两次，以 v3 为准（见下）。**
  *
- * 旧行为：只按容器**宽度**适配（fit-width）→ 侧栏 400px 时 A4 页只有 ~0.63 倍、
- * 纵向一大片留白；且只在翻页/切目录时重算，最大化窗口或拖宽侧栏都不会重绘。
- *
- * 新规则（铺满 + 溢出预算）：`scale = max(fitWidth, min(fitHeight, fitWidth × 1.25))`
- *   - 宽窗口（宽比高富余）：fitHeight 小于 fitWidth，取 fitWidth —— 等同传统
- *     fit-width，不产生横向滚动；
- *   - 侧栏够宽（fitHeight 在上限内）：取 fitHeight，页面纵向拉满 —— 即用户要的
- *     「高度尽可能高」；
- *   - 侧栏很窄（fitHeight 超上限）：退回「可视宽 +25%」，保证至少 80% 行宽可见。
- * 为什么必须有上限（verifier P1-2, 2026-09-09）：纯 cover 在 400px 侧栏（目录列
- * 展开时 PDF 区仅 ~186px）会把页面放到可视宽的 3.5 倍 —— 每行都要左右拖，且页面
- * 左缘的红箭头/收藏按钮直接滚出视野，定位功能退化。上限让「铺满」只在真的装得下
- * 时生效；面板拖到上限 640 时 fitHeight 恰好落在上限内 → 仍按高度拉满。
+ * 演进：
+ *   v1（fit-width）：只按容器**宽度**适配，纵向一大片留白；用户反馈"PDF 太小"。
+ *   v2（2026-09-09，铺满 + 溢出预算）：`max(fitWidth, min(fitHeight, fitWidth×1.25))`
+ *      —— 高度优先，允许横向溢出。副作用：只要侧栏"高瘦"（`fitHeight > fitWidth`）页宽就
+ *      超出可视宽，溢出比例 `min(fitHeight/fitWidth, 1.25) − 1 ∈ (0, 25%]` —— 窄侧栏恒为
+ *      满额 25%（400px 侧栏实测切 94px，每行末尾 20% 字符在滚动区外）。且只在
+ *      翻页/切目录时重算，最大化窗口或拖宽侧栏都不会重绘（后由 ResizeObserver 解决）。
+ *   v3（2026-09-17，现行）：用户据实反馈"自适应窗口模式下 PDF 的右边一部分显示不出来"
+ *      并裁定 **"宽度铺满，高度不用管——万一 sidebar 拉得很宽，高度再怎么样都匹配不上"**。
+ *      ⇒ 回到**纯 fit-width**，但保留 v2 引入的自适应重算能力。理由：长页本来就得
+ *      纵向滚动，为"高度优先"牺牲横向完整性没有意义。规则见 fitPageScale 的注释。
  *
  * 纯函数、零 DOM 依赖：便于离线冒烟（scripts/smoke-pdf-fit.mjs）。
  *
  * ---- 2026-09-16 追加：缩放状态机（底部常驻栏的滑块 / 浏览比例下拉）----
  * 「翻页模式（单页|连续）」与「缩放来源（自适应|手动）」是**两个正交状态**，
  * 本文件只负责后者：`zoomScale()` 把 (ZoomState, 容器尺寸) 解算成实际 scale。
- *   · 默认 `{ source:'autoFit' }` → 就是上面那套铺满规则（一字未改）；
+ *   · 默认 `{ source:'autoFit' }` → **宽度铺满**（2026-09-17 规则，见 fitPageScale）；
  *   · 一旦手动选百分比 / 拖滑块 → `{ source:'manual', percent }`，此后**不再读
  *     容器尺寸**（窗口拉伸不改缩放），只有再选「自适应窗口」才回到 autoFit。
  * 手动百分比钳制在 **[10, 500]**（不是 0——0% 会渲染成空白页，已与用户确认
  * 左端取最小可读值 10%，见 MANUAL_MIN_PERCENT）。
- * 连续模式下"可视高"约束的是滚动窗口而非单页，故用 continuousViewportHeight()
- * 把逻辑高抬高、让同一个 fitPageScale 退化成"宽度适配 + 溢出预算"。
+ * 2026-09-17：因自适应不再读高度，单页/连续两种翻页模式的定标**完全相同**，
+ * 原先用于"把旧规则压回宽度适配"的 `continuousViewportHeight()` 已删除。
  */
 
 /** 容器 padding（上下/左右各 12px）合计，需从可用空间里扣掉。 */
@@ -38,11 +36,6 @@ export const PAGE_PADDING = 24
 export const MIN_SCALE = 0.5
 /** 缩放上限：避免容器极大时把页面拉成马赛克。 */
 export const MAX_SCALE = 2.5
-/**
- * 允许的横向溢出倍率：页面最多比可视宽多 25%（≈80% 行宽始终可见）。
- * 1.25 的取舍见文件头——再大就该只按宽度适配了。
- */
-export const MAX_WIDTH_OVERFLOW = 1.25
 /**
  * canvas 后备位图像素上限（含 dpr 放大）。超限时降 dpr——否则 2.5 倍 × dpr 3
  * 的 A4 页会产生 ~9000×12000 的画布（浏览器直接拒绝或吃光内存）。
@@ -64,17 +57,41 @@ export interface FitInput {
 
 export interface FitResult {
   scale: number
-  /** 由哪个方向决定缩放（'height' = 纵向拉满；'width' = 横向适配）。 */
+  /**
+   * 由哪个方向决定缩放。2026-09-17 起**恒为 'width'**（高度不再参与定标）；
+   * 保留该字段是因为 UI 文案（"宽度铺满"提示）与冒烟断言按它分支。
+   */
   basis: 'width' | 'height'
-  /** 是否被上下限钳制（钳制时 basis 仅供参考）。 */
+  /** 是否被 MIN/MAX 钳制（钳制时 basis 仅供参考）。 */
   clamped: boolean
-  /** 本可以纵向拉满，但被横向溢出上限拦住（退化为按宽适配）。 */
+  /** 历史字段：旧规则里表示"本可按高度拉满但被横向预算拦住"。规则 v3 起恒为 false。 */
   cappedByBudget: boolean
 }
 
 /**
- * 计算「铺满」缩放。容器尚未布局（宽或高 <= 0）→ 返回 null，调用方应跳过本次
- * 绘制，等 ResizeObserver / visible 变化再画（绝不用 0 尺寸算出畸形缩放）。
+ * 计算「自适应窗口」缩放。
+ *
+ * ---- 2026-09-17 规则变更（用户裁定："宽度铺满，高度不用管"）----
+ * 现行规则只有一句：**`scale = 可用宽 / 页宽`**（再被 MIN/MAX 钳制），**高度完全不参与**。
+ *
+ * 为什么改：旧规则是 `max(fitWidth, min(fitHeight, fitWidth×1.25))`（"高度优先铺满 +
+ * 1.25 横向溢出预算"）。它的副作用是：只要侧栏"高瘦"（`fitHeight > fitWidth`）页宽就超出
+ * 可视宽，溢出比例 `min(fitHeight/fitWidth, 1.25) − 1 ∈ (0, 25%]` —— 窄侧栏恒为满额 25%，
+ * 其余是递减到 0（A4、可视高 883 下的拐点在侧栏 ~648px）。用真实函数实测：
+ *     侧栏 400 → scale 0.790 → 页宽 470 vs 可视 376 → **右侧切 94px（可视宽的 25%）**
+ *     侧栏 520 → scale 1.042 → 页宽 620 vs 可视 496 → **右侧切 124px（同为满额 25%）**
+ *     侧栏 709 → scale 1.151 → 页宽 685 vs 可视 685 → 不切
+ * 用户据实反馈"自适应窗口模式下 PDF 的右边一部分显示不出来"，并裁定：
+ * **"宽度铺满，高度不用管——万一 sidebar 拉得很宽，高度再怎么样都匹配不上"**。
+ * 即：长页本来就得纵向滚动，为"高度优先"牺牲横向完整性没有意义。
+ * ⇒ 旧规则里"按高度定标"与"1.25 溢出预算"一起退休；`MAX_WIDTH_OVERFLOW` 与
+ *   `continuousViewportHeight`（后者本是为了把旧规则人为压回宽度适配）随之删除。
+ *
+ * 保留 `availHeight > 0` 的检查：它是**"容器已布局"的守卫**（0/负值 → 返回 null，
+ * 调用方跳过本次绘制），不再参与缩放。
+ *
+ * `MIN_SCALE`(0.5) 仍是可读性下限：侧栏窄到 < ~322px（可用宽 < 297.6 = 0.5×595.28）时才钳到 0.5，那时会重新出现
+ * 横向滚动——"看不清 vs 看不全"的取舍，取前者。
  */
 export function fitPageScale(input: FitInput): FitResult | null {
   const { availWidth, availHeight, pageWidth, pageHeight } = input
@@ -82,14 +99,12 @@ export function fitPageScale(input: FitInput): FitResult | null {
   const max = input.maxScale ?? MAX_SCALE
   if (!(availWidth > 0) || !(availHeight > 0)) return null
   if (!(pageWidth > 0) || !(pageHeight > 0)) return null
-  const fitWidth = availWidth / pageWidth
-  const fitHeight = availHeight / pageHeight
-  const widthCap = fitWidth * MAX_WIDTH_OVERFLOW
-  // 先按高度拉满，再被横向预算压回；fitHeight < fitWidth（宽窗口）时 max 取 fitWidth。
-  const raw = Math.max(fitWidth, Math.min(fitHeight, widthCap))
-  const basis: 'width' | 'height' = raw === fitHeight ? 'height' : 'width'
+  // 宽度铺满；高度不参与（见上方 2026-09-17 规则变更）。
+  const raw = availWidth / pageWidth
   const scale = Math.max(min, Math.min(raw, max))
-  return { scale, basis, clamped: scale !== raw, cappedByBudget: raw < fitHeight }
+  // basis / cappedByBudget 保留字段以兼容既有消费者，但在这条规则下恒为定值：
+  // 定标永远来自宽度；也不存在"被横向预算拦住"这回事（预算已退休）。
+  return { scale, basis: 'width', clamped: scale !== raw, cappedByBudget: false }
 }
 
 // ---------------------------------------------------------------- 缩放状态机
@@ -97,7 +112,7 @@ export function fitPageScale(input: FitInput): FitResult | null {
  * 缩放来源（2026-09-16 用户需求：底部常驻栏的「浏览比例」下拉 + 拖动式滑块）。
  *
  *   'autoFit' = **自适应窗口**：跟着容器走（窗口拉伸 / 侧栏拖宽 / 目录列开合都重算），
- *               算法就是上面那套 fitPageScale「铺满 + 溢出预算」——**默认态**；
+ *               算法就是上面那套 fitPageScale「宽度铺满」——**默认态**；
  *   'manual'  = 用户手选百分比或拖过滑块：此后容器尺寸变化**不再**改缩放，
  *               只有再点「自适应窗口」才恢复自动。
  *
@@ -150,16 +165,16 @@ export function zoomForAutoFit(): ZoomState {
 
 /** 当前生效的缩放（scale）与它从哪来，供 UI 与画布共用同一份真值。 */
 export interface ZoomView {
-  /** **实际要应用的**缩放：manual = 用户百分比（已钳制）/100；autoFit = 上面那套铺满规则。 */
+  /** **实际要应用的**缩放：manual = 用户百分比（已钳制）/100；autoFit = 宽度铺满（见 fitPageScale）。 */
   scale: number
   source: ZoomSource
   /** 要回显给用户看的百分比（已四舍五入；manual 下等于用户选的值）。 */
   percent: number
-  /** autoFit 才有意义：由哪个方向决定的（见 FitResult）。 */
+  /** autoFit 才有意义：由哪个方向决定的（规则 v3 起恒为 'width'，见 FitResult）。 */
   basis: 'width' | 'height' | null
   /** autoFit 才有意义：是否被上下限钳制。 */
   clamped: boolean
-  /** autoFit 才有意义：是否被横向溢出预算拦住（见 fitPageScale）。 */
+  /** 历史字段（见 FitResult.cappedByBudget）：规则 v3 起恒为 false。 */
   cappedByBudget: boolean
 }
 
@@ -168,7 +183,8 @@ export interface ZoomView {
  *
  * **手动百分比就是真值**：manual 下直接返回用户选的百分比，**不再看容器尺寸**
  * ——这正是"窗口拉伸后缩放不再自动变"的机制（窗口变化 → 容器尺寸变 → 这里
- * 仍然返回同一个 scale）。autoFit 下才走 fitPageScale（原规则一字未改）。
+ * 仍然返回同一个 scale）。autoFit 下才走 fitPageScale（规则以 fitPageScale 的注释为准，
+ * 2026-09-17 由「高度优先铺满」改为「宽度铺满」）。
  *
  * 容器尚未布局（fitPageScale 返回 null）时不假装有值：scale 回落到自适应规则的
  * 下限 MIN_SCALE 并把 clamped 置真，调用方按既有 null 语义跳过本次绘制即可。
@@ -204,28 +220,6 @@ export function zoomScale(state: ZoomState, input: FitInput): ZoomView {
     clamped: fit.clamped,
     cappedByBudget: fit.cappedByBudget,
   }
-}
-
-/**
- * 连续（瀑布）模式下的"逻辑容器高度"。
- *
- * 连续模式是把 N 页**纵向堆叠**在一个滚动容器里——此时"可视高"约束的是**滚动窗口**
- * 而不是某一页，若照旧把容器高喂给 fitPageScale，窄侧栏会走到 `min(fitHeight, …)`：
- * 抽屉正好塞满一屏高，却比可视宽宽出 1.25 倍，堆叠后每页都要左右拖。
- *
- * 所以连续模式取"宽定标"：把逻辑高抬到远超任何一页的高度，让 fitPageScale 里的
- * `raw = max(fitWidth, min(fitHeight, widthCap))` 恒等于 `widthCap`（横向溢出预算），
- * 也就是**宽度适配 + 至多 25% 横向溢出**。
- *
- * 刻意不改 fitPageScale 本身（用户 2026-09-16 明确要求"不要顺带破坏这套规则"）：
- * 这只是喂给同一个纯函数的输入，规则一字未动。
- * 倍率 4 的余量：只要 `4 × availWidth ≥ availWidth/pageWidth × 1.25`，即
- * `pageWidth ≥ 0.3125`，宽就不会被高反超——pdf.js 的 viewport scale=1 尺寸（pt）
- * 最小也有几百，恒成立；真出现极窄长条页也只是退化为高度定标，不会算崩。
- */
-export function continuousViewportHeight(availWidth: number): number {
-  const w = Number.isFinite(availWidth) && availWidth > 0 ? availWidth : 1
-  return w * 4
 }
 
 /**

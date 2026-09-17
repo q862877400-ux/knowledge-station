@@ -1,11 +1,11 @@
 /**
  * ks-dsh-plugin — scripts/smoke-pdf-fit.mjs
  *
- * PDF 缩放规则离线冒烟（用户反馈「默认打开 PDF 太小，要高度尽可能高」）。
+ * PDF 缩放规则离线冒烟（用户反馈「默认打开 PDF 太小」）。
  *
  * pdfFit.ts 是纯函数（零 DOM），用 esbuild 打包成 node 可执行 ESM 后直接断言
- * 真实 A4 尺寸下的缩放结果：窄侧栏必须纵向拉满、宽窗口必须横向铺满、上下限
- * 钳制、未布局返回 null、后备位图 dpr 不超预算。
+ * 真实 A4 尺寸下的缩放结果：自适应一律**宽度铺满**（2026-09-17 用户裁定"高度不用管"）、
+ * 高度不参与定标、上下限钳制、未布局返回 null、后备位图 dpr 不超预算。
  *
  * 用法：node scripts/smoke-pdf-fit.mjs   （退出码 0 = 全通过）
  */
@@ -19,8 +19,8 @@ const pluginRoot = resolve(here, '..')
 
 const entry = `
 export {
-  fitPageScale, backingStoreDpr, PAGE_PADDING, MIN_SCALE, MAX_SCALE, MAX_WIDTH_OVERFLOW, MAX_BACKING_PIXELS,
-  zoomScale, zoomForManual, zoomForAutoFit, clampManualPercent, continuousViewportHeight,
+  fitPageScale, backingStoreDpr, PAGE_PADDING, MIN_SCALE, MAX_SCALE, MAX_BACKING_PIXELS,
+  zoomScale, zoomForManual, zoomForAutoFit, clampManualPercent,
   ZOOM_AUTO, MANUAL_MIN_PERCENT, MANUAL_MAX_PERCENT, ZOOM_PRESET_PERCENTS,
 } from './client/pdfFit.ts'
 `
@@ -50,8 +50,8 @@ const mod = await import(pathToFileURL(outPath).href)
 await rm(outPath, { force: true })
 
 const {
-  fitPageScale, backingStoreDpr, PAGE_PADDING, MAX_SCALE, MAX_WIDTH_OVERFLOW,
-  zoomScale, zoomForManual, zoomForAutoFit, clampManualPercent, continuousViewportHeight,
+  fitPageScale, backingStoreDpr, PAGE_PADDING, MAX_SCALE,
+  zoomScale, zoomForManual, zoomForAutoFit, clampManualPercent,
   ZOOM_AUTO, MANUAL_MIN_PERCENT, MANUAL_MAX_PERCENT, ZOOM_PRESET_PERCENTS,
 } = mod
 
@@ -65,37 +65,36 @@ function check(name, ok, detail) {
 }
 const near = (a, b, eps = 1e-6) => Math.abs(a - b) <= eps
 
-// ---- 1. 默认 400px 侧栏、无目录列（可视宽 376）→ 被横向溢出预算接住
+// ---- 1. 默认 400px 侧栏（可视宽 376）→ **宽度铺满**：页宽 == 可视宽，右侧不再被切
+//    （2026-09-17 规则变更：用户裁定"宽度铺满，高度不用管"，见 pdfFit.fitPageScale）
 const narrow = fitPageScale({ availWidth: 400 - PAGE_PADDING, availHeight: 900 - PAGE_PADDING, ...A4 })
-check('narrow panel: capped by the width budget',
-  narrow !== null && narrow.cappedByBudget === true,
-  `cappedByBudget=${narrow?.cappedByBudget}`)
-check('narrow panel: overflow never exceeds the budget', narrow !== null
-  && A4.pageWidth * narrow.scale <= (400 - PAGE_PADDING) * MAX_WIDTH_OVERFLOW + 0.5,
-  `pageW=${(A4.pageWidth * narrow.scale).toFixed(1)} vs cap ${((400 - PAGE_PADDING) * MAX_WIDTH_OVERFLOW).toFixed(1)}`)
-check('narrow panel: still taller than legacy fit-width',
-  narrow !== null && narrow.scale > (400 - PAGE_PADDING) / A4.pageWidth,
-  `scale=${narrow?.scale.toFixed(3)} vs fitWidth=${((400 - PAGE_PADDING) / A4.pageWidth).toFixed(3)}`)
+check('narrow panel: the page fills the visible width exactly (nothing cut off)',
+  narrow !== null && near(A4.pageWidth * narrow.scale, 400 - PAGE_PADDING, 0.5),
+  `pageW=${(A4.pageWidth * narrow.scale).toFixed(1)} vs avail ${400 - PAGE_PADDING}`)
+check('narrow panel: no horizontal overflow at all',
+  narrow !== null && A4.pageWidth * narrow.scale <= (400 - PAGE_PADDING) + 0.5,
+  `pageW=${(A4.pageWidth * narrow.scale).toFixed(1)}`)
+check('narrow panel: basis is always width now (height no longer decides the scale)',
+  narrow !== null && narrow.basis === 'width' && narrow.cappedByBudget === false,
+  `basis=${narrow?.basis} capped=${narrow?.cappedByBudget}`)
 
-// ---- 2. 面板拉满 640（PANEL_MAX）→ 纵向拉满，等价"高度尽可能高"
+// ---- 2. 面板拉满 640 → 同样只按宽度定标（旧的"按高度拉满"已退休）
 const maxPanel = fitPageScale({ availWidth: 640 - PAGE_PADDING, availHeight: 900 - PAGE_PADDING, ...A4 })
-check('640 panel: fits by height (full fill)', maxPanel !== null
-  && maxPanel.basis === 'height' && maxPanel.cappedByBudget === false,
-  `basis=${maxPanel?.basis} capped=${maxPanel?.cappedByBudget}`)
-check('640 panel: page fills the height', maxPanel !== null
-  && near(Math.round(A4.pageHeight * maxPanel.scale), 876, 1),
-  `pageH=${Math.round(A4.pageHeight * maxPanel.scale)} vs avail 876`)
-check('640 panel: both axes nearly filled', maxPanel !== null
-  && Math.abs(A4.pageWidth * maxPanel.scale - 616) < 8,
+check('640 panel: still width-driven (height is ignored)',
+  maxPanel !== null && near(A4.pageWidth * maxPanel.scale, 616, 0.5),
   `pageW=${(A4.pageWidth * maxPanel.scale).toFixed(1)} vs avail 616`)
+check('640 panel: 高度不再参与 —— 同宽不同高必须给出同一个 scale', (() => {
+  const tall = fitPageScale({ availWidth: 616, availHeight: 876, ...A4 })
+  const short = fitPageScale({ availWidth: 616, availHeight: 200, ...A4 })
+  return tall !== null && short !== null && near(tall.scale, short.scale)
+})(), 'height ignored')
 
-// ---- 3. 宽窗口 → 横向铺满（不产生横向滚动，等同传统 fit-width）
+// ---- 3. 宽窗口 → 横向铺满（不产生横向滚动）
 const wide = fitPageScale({ availWidth: 1200 - PAGE_PADDING, availHeight: 700 - PAGE_PADDING, ...A4 })
 check('wide window: fit-width basis', wide !== null && wide.basis === 'width', `basis=${wide?.basis}`)
 check('wide window: page fills the width', wide !== null
   && near(Math.round(A4.pageWidth * wide.scale), 1176, 1),
   `pageW=${Math.round(A4.pageWidth * wide.scale)} vs avail 1176`)
-check('wide window: budget is inert', wide !== null && wide.cappedByBudget === false)
 
 // ---- 4. 极窄（目录列展开时 PDF 区只剩 ~186px）→ 受 MIN_SCALE 兜底，与旧行为一致
 const tinyCol = fitPageScale({ availWidth: 186 - PAGE_PADDING, availHeight: 876, ...A4 })
@@ -190,29 +189,28 @@ check('zoom: preset list is the documented one, ascending, inside the range',
   ZOOM_PRESET_PERCENTS.join(',') === '25,50,75,100,125,150'
   && ZOOM_PRESET_PERCENTS.every((p) => p > MANUAL_MIN_PERCENT && p < MANUAL_MAX_PERCENT))
 
-// 8.6 连续模式的逻辑高度：把 fitPageScale 退化成"宽度定标"，与可视高无关
-const contH = continuousViewportHeight(fitA.availWidth)
-const cont = fitPageScale({ ...fitA, availHeight: contH, ...A4 })
-check('zoom: continuous mode is height-independent (可视高不再定标)',
-  cont !== null && cont.basis === 'width', `basis=${cont?.basis}`)
-check('zoom: continuous mode sits exactly on the width budget',
-  cont !== null && near(cont.scale, fitA.availWidth / A4.pageWidth * MAX_WIDTH_OVERFLOW, 1e-9),
-  `scale=${cont?.scale.toFixed(4)}`)
-check('zoom: continuous mode never exceeds the overflow budget',
-  cont !== null && A4.pageWidth * cont.scale <= fitA.availWidth * MAX_WIDTH_OVERFLOW + 0.5)
-// 连续模式的取法（与 KsEvidenceTab 一致）：可视高先经 continuousViewportHeight 抬高。
-const contScale = (availWidth) => zoomScale(ZOOM_AUTO, {
-  availWidth, availHeight: continuousViewportHeight(availWidth), ...A4,
-}).scale
-check('zoom: continuous mode is the same answer for any real container height',
-  contScale(fitA.availWidth) === cont.scale,
-  `scale=${contScale(fitA.availWidth).toFixed(4)}`)
-// 对照：单页模式下可视高**确实**参与（既有「高度尽可能高」规则），证明连续模式
-// 的"与高无关"是模式差异、而不是把规则改坏了。
-check('zoom: single mode still lets the visible height drive the scale (规则未被破坏)',
-  fitPageScale({ ...fitA, availHeight: 400, ...A4 }).scale
-    !== fitPageScale({ ...fitA, availHeight: 4000, ...A4 }).scale
-  && fitPageScale({ availWidth: 640 - PAGE_PADDING, availHeight: 900 - PAGE_PADDING, ...A4 }).basis === 'height')
+// 8.6 单页 / 连续**定标相同**（2026-09-17：自适应不再读高度，旧版那个
+//     `continuousViewportHeight()` 抬高逻辑高的适配已随规则一起退休）
+//
+// ⚠ 这里**有意删掉**了一对旧断言，不是漏了：
+//   · `continuous mode sits exactly on the width budget` / `… never exceeds the budget`
+//     —— 它们断言的"允许溢出 ×1.25"正是用户这次否掉的规则；
+//   · `single mode still lets the visible height drive the scale (规则未被破坏)`
+//     —— 它守护的是"单页模式按高度定标"这一行为，而该行为就是本次要删的东西。
+//   三者的替代断言是**反向**的（"同宽不同高必须给出同一个 scale" + "页宽 == 可视宽"），
+//   所以断言数从 41 降到 37 是契约收窄的结果，覆盖面没有下降。
+const singleTall = fitPageScale({ ...fitA, availHeight: 876, ...A4 })
+const singleShort = fitPageScale({ ...fitA, availHeight: 200, ...A4 })
+const contLike = fitPageScale({ ...fitA, availHeight: 4000, ...A4 })
+check('zoom: the visible height no longer decides the scale (三者同值)',
+  singleTall !== null && singleShort !== null && contLike !== null
+  && near(singleTall.scale, singleShort.scale) && near(singleShort.scale, contLike.scale),
+  `${singleTall?.scale.toFixed(4)} / ${singleShort?.scale.toFixed(4)} / ${contLike?.scale.toFixed(4)}`)
+check('zoom: autoFit sits exactly on the visible width',
+  singleTall !== null && near(singleTall.scale, fitA.availWidth / A4.pageWidth, 1e-9),
+  `scale=${singleTall?.scale.toFixed(4)}`)
+check('zoom: autoFit never exceeds the visible width (右侧不会被切)',
+  singleTall !== null && A4.pageWidth * singleTall.scale <= fitA.availWidth + 0.5)
 
 // 8.7 未布局（容器 0 尺寸）时手动仍有确定值、自适应不装懂
 check('zoom: manual survives an unlaid-out container',

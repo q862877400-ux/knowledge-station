@@ -28309,7 +28309,6 @@ function configurePdfWorker() {
 var PAGE_PADDING = 24;
 var MIN_SCALE = 0.5;
 var MAX_SCALE = 2.5;
-var MAX_WIDTH_OVERFLOW = 1.25;
 var MAX_BACKING_PIXELS = 24e6;
 function fitPageScale(input) {
   const { availWidth, availHeight, pageWidth, pageHeight } = input;
@@ -28317,13 +28316,9 @@ function fitPageScale(input) {
   const max = input.maxScale ?? MAX_SCALE;
   if (!(availWidth > 0) || !(availHeight > 0)) return null;
   if (!(pageWidth > 0) || !(pageHeight > 0)) return null;
-  const fitWidth = availWidth / pageWidth;
-  const fitHeight = availHeight / pageHeight;
-  const widthCap = fitWidth * MAX_WIDTH_OVERFLOW;
-  const raw = Math.max(fitWidth, Math.min(fitHeight, widthCap));
-  const basis = raw === fitHeight ? "height" : "width";
+  const raw = availWidth / pageWidth;
   const scale = Math.max(min, Math.min(raw, max));
-  return { scale, basis, clamped: scale !== raw, cappedByBudget: raw < fitHeight };
+  return { scale, basis: "width", clamped: scale !== raw, cappedByBudget: false };
 }
 var ZOOM_AUTO = { source: "autoFit" };
 var MANUAL_MIN_PERCENT = 10;
@@ -28370,10 +28365,6 @@ function zoomScale(state, input) {
     clamped: fit.clamped,
     cappedByBudget: fit.cappedByBudget
   };
-}
-function continuousViewportHeight(availWidth) {
-  const w = Number.isFinite(availWidth) && availWidth > 0 ? availWidth : 1;
-  return w * 4;
 }
 function backingStoreDpr(cssWidth, cssHeight, deviceDpr) {
   const dpr = Number.isFinite(deviceDpr) && deviceDpr > 0 ? deviceDpr : 1;
@@ -29954,7 +29945,7 @@ function KsEvidenceTab(props) {
     if (epoch !== docEpochRef.current || pageTokenRef.current.get(clamped) !== token) return;
     const base = pdfPage.getViewport({ scale: 1 });
     const availWidth = container.clientWidth - PAGE_PADDING;
-    const availHeight = pagingMode === "single" ? container.clientHeight - PAGE_PADDING : continuousViewportHeight(availWidth);
+    const availHeight = container.clientHeight - PAGE_PADDING;
     const view = zoomScale(zoomRef.current, {
       availWidth,
       availHeight,
@@ -30857,8 +30848,7 @@ function KsEvidenceTab(props) {
   const zoomView = (0, import_react4.useMemo)(() => {
     const container = containerRef.current;
     const availWidth = (box?.w ?? container?.clientWidth ?? 0) - PAGE_PADDING;
-    const availHeightRaw = (box?.h ?? container?.clientHeight ?? 0) - PAGE_PADDING;
-    const availHeight = pagingMode === "single" ? availHeightRaw : continuousViewportHeight(availWidth);
+    const availHeight = (box?.h ?? container?.clientHeight ?? 0) - PAGE_PADDING;
     const base = firstPageBaseSizeRef.current;
     return zoomScale(zoom, {
       availWidth,
