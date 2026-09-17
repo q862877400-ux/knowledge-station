@@ -10,6 +10,8 @@ Phase A 前三步把引擎侧做通了，但**用户碰不到**——"放一份 
 - GET    /api/v1/materials/projects                    列项目
 - GET    /api/v1/materials/projects/{pid}/inbox        列出项目参考资料文件夹里的文件
 - POST   /api/v1/materials/projects/{pid}/scan         扫描收件（登记为 pending 材料）
+- POST   /api/v1/materials/projects/{pid}/collect      按 URL **自采**一份（Phase C-5 接线；
+                                                      **不接受 `source_tier`**，见端点 docstring）
 - GET    /api/v1/materials/projects/{pid}/materials    列材料（**评审/管理视图**，含 pending）
 - GET    /api/v1/materials/projects/{pid}/search       在**已批准**材料里检索（见下方硬门）
 - GET    /api/v1/materials/{mid}                       单份材料
@@ -93,6 +95,55 @@ def register(app, json_error):
         ok = [r for r in rows if r.get("status") != "error"]
         return {"code": 200, "status": "success",
                 "data": {"scanned": len(rows), "registered": len(ok), "rows": rows}}
+
+    # ---------------------------------------------------------------- 自采（Phase C 接线）
+    # ⚠ **这个端点写成 `def` 而不是 `async def`**（本文件其它端点是 async，但**不是**没有先例：
+    # `server.data_quality_issues` 也是 `def`）：它会做一次**最长 15 秒的网络抓取**，
+    # 而 uvicorn 是**单事件循环**——`async def` 里做同步 I/O 会把**整个引擎**卡住
+    # （期间别的请求一起等）。Starlette 对非 async 端点是丢进线程池跑的，
+    # 所以"慢"只会慢这一个请求。
+    # 代价（诚实说）：线程池每个工作线程会拿一条自己的 SQLite 连接（本仓库是线程局部连接），
+    # 所以并发采集时连接数上界 = anyio 线程池大小（默认 40），不是无界。
+    # （`materials_scan` 同样做同步重活却声明成 `async def`，属同类问题——
+    #  改它超出本步范围，登记为待办。）
+    @app.post("/api/v1/materials/projects/{project_id}/collect")
+    def materials_collect(project_id: str, payload: dict | None = None):
+        """按 URL **自采**一份材料（抓取纪律全在 `materials.harvest`，本层只取参数、转错误）。
+
+        **三条契约**：
+        1. 抓回来的东西**一律 pending**——登记路径是 `collect.collect_text`，它没有设置
+           评审状态的通道（硬门在那一层，本层也无法绕过）；
+        2. **不接收 `source_tier`**（给了就 422，不静默忽略）：采集者（模型/脚本）
+           **不得自 claim 可信度**——轴 A 由系统判据起（采集默认 T3），要改只能由
+           **用户**在界面上改（`/tier`）。静默忽略更坏：调用方会以为自己设上了；
+        3. 抓取失败（非 2xx / 非文本 / 空正文 / SSRF 拒绝）**不是 500**：如实回
+           `collected:false` + 原因（HTTP 200），与 `scan` 的"逐条结果"同款——
+           调用方需要把原因**显示给人看**，而不是收到一个没有内容可展示的错误码。
+        """
+        if mr.get_project(project_id) is None:
+            return json_error(404, "materials_not_found", f"项目不存在: {project_id}")
+        body = payload or {}
+        if "source_tier" in body:
+            return json_error(422, "materials_bad_request",
+                              "采集不得自 claim 可信度（不接受 source_tier）——"
+                              "轴 A 由系统判据起（采集默认 T3），要改请由用户在界面上改（/tier）")
+        url = body.get("url")
+        if not isinstance(url, str) or not url.strip():
+            return json_error(422, "materials_bad_request", "缺少 url")
+        for key in ("title", "note", "published_at"):
+            val = body.get(key)
+            if val is not None and not isinstance(val, str):
+                return json_error(422, "materials_bad_request", f"{key} 必须是字符串或 null")
+        try:
+            from src.core.materials import harvest as hv
+            out = hv.collect_url(project_id, url, title=body.get("title"),
+                                 note=body.get("note"),
+                                 published_at=body.get("published_at"))
+        except ValueError as e:
+            return json_error(422, "materials_bad_request", str(e))
+        except KnowledgeStationError as e:
+            return json_error(500, getattr(e, "code", "internal_error"), str(e))
+        return {"code": 200, "status": "success", "data": out}
 
     # ---------------------------------------------------------------- 材料列表
     @app.get("/api/v1/materials/projects/{project_id}/materials")

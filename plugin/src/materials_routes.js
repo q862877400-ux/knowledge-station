@@ -180,6 +180,53 @@ function registerScan(ctx, manager) {
 }
 
 /**
+ * `POST /ks/materials/collect?project_id=`：按 URL **自采**一份材料（Phase C-5 接线）。
+ *
+ * 三条要点（与引擎端点同源，别在这一层另起一套）：
+ * 1. **不转发 `source_tier`**（连试都不试）：采集者不得自 claim 可信度——轴 A 由系统
+ *    判据起（采集默认 T3），要改只能由用户在界面上改（走 `/ks/materials/tier`）。
+ *    这里显式 400 而不是"悄悄丢掉那个字段"：静默丢弃会让调用方以为自己设上了
+ *    （本战役已经在 `sanitizeParams` 上栽过一次同款：字段被吞、功能全死、无人报错）。
+ * 2. **"抓取失败"不是错误码**：引擎回 HTTP 200 + `collected:false` + 原因，本层原样
+ *    透传（`mapProbe`）——界面要能把"SSRF 拒绝/HTTP 404/不是文本"显示给人看。
+ * 3. 只做**单条**：方案 §11.4 的采集预算/频率上限**还没定**，所以**没有批量入口**
+ *    （要批量，先定预算）。这里刻意不提供数组形式的 url。
+ */
+function registerCollect(ctx, manager) {
+  return ctx.webServer.register({
+    kind: 'exact',
+    path: `${KS_MATERIALS_PATH}/collect`,
+    handler: guard(async (req, res) => {
+      if (!methodOnly(req, res, ['POST'])) return
+      const q = pickQuery(req.url, ['project_id'])
+      if (!q.project_id) {
+        jsonResponse(res, 400, errorBody('bad_request', '缺少 project_id'))
+        return
+      }
+      const body = await readBodyOr400(req, res)
+      if (body === undefined) return
+      if (typeof body?.url !== 'string' || body.url.trim() === '') {
+        jsonResponse(res, 400, errorBody('bad_request', '缺少 url'))
+        return
+      }
+      if (Object.prototype.hasOwnProperty.call(body, 'source_tier')) {
+        jsonResponse(res, 400, errorBody('bad_request',
+          '采集不得自 claim 可信度（不接受 source_tier）——轴 A 由系统判据起，'
+          + '要改请走 /ks/materials/tier（用户动作）'))
+        return
+      }
+      mapProbe(res, await engineCall(manager, 'POST',
+        `${ENGINE_MATERIALS}/projects/${encodeURIComponent(q.project_id)}/collect`,
+        { url: body.url.trim(),
+          title: typeof body?.title === 'string' && body.title !== '' ? body.title : null,
+          note: typeof body?.note === 'string' && body.note !== '' ? body.note : null,
+          published_at: typeof body?.published_at === 'string' && body.published_at !== ''
+            ? body.published_at : null }))
+    }),
+  })
+}
+
+/**
  * `POST /ks/materials/review?material_id=`：**用户的评审决定**（本模块的核心）。
  *
  * 只收 `approved` / `rejected`：`pending` 是"还没评"，不是可以"评成"的状态；
@@ -330,6 +377,7 @@ export function registerKsMaterialsRoutes(ctx, manager) {
     registerListMaterials(ctx, manager),
     registerInbox(ctx, manager),
     registerScan(ctx, manager),
+    registerCollect(ctx, manager),
     registerReview(ctx, manager),
     registerTier(ctx, manager),
     registerRole(ctx, manager),
@@ -347,6 +395,7 @@ export const KS_MATERIALS_PATHS = [
   `${KS_MATERIALS_PATH}/list`,
   `${KS_MATERIALS_PATH}/inbox`,
   `${KS_MATERIALS_PATH}/scan`,
+  `${KS_MATERIALS_PATH}/collect`,
   `${KS_MATERIALS_PATH}/review`,
   `${KS_MATERIALS_PATH}/tier`,
   `${KS_MATERIALS_PATH}/role`,

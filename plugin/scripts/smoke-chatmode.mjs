@@ -663,10 +663,23 @@ check('the pre-existing good state was left byte-identical', (await readFile(sta
     .filter((n) => n.includes('.corrupt-') && !namesBeforeCorrupt.has(n))
   check('a corrupt reload creates exactly one NEW backup of the damaged file',
     newBackups.length === 1, newBackups.join(',') || '(none)')
-  await new Promise((resolve) => { setTimeout(resolve, 80) }) // sweep 是 fire-and-forget
+  // sweep 是 fire-and-forget（`sweepStaleArtifacts()` **故意**不 await —— best-effort，绝不抛），
+  // 所以这里只能"等它跑完"。⚠ 原先等的是**固定 80ms**，实测在机器有负载时会不够
+  // （2026-09-17 本冒烟挂在 `npm run smoke` 串行链里报 172/173，单独跑 173/173 全绿）——
+  // 一条**时序**断言会给整条门禁带来随机红。改成**轮询到超时**：语义不变
+  // （sweep 没跑起来仍然会红），但不再依赖"80ms 够不够"。
+  const staleGone = async (limitMs = 3000) => {
+    const deadline = Date.now() + limitMs
+    for (;;) {
+      if (!(await readdir(dataDir)).includes('ks-chatmode.json.999999.1.tmp')) return true
+      if (Date.now() > deadline) return false
+      await new Promise((resolve) => { setTimeout(resolve, 25) })
+    }
+  }
+  const swept = await staleGone()
   const namesNow = await readdir(dataDir)
   check('the corrupt load path reaches the artifact sweep (round-6 P2-1)',
-    !namesNow.includes('ks-chatmode.json.999999.1.tmp'), namesNow.join(','))
+    swept, namesNow.join(','))
   check('the sweep respects the 24h threshold (keeps fresh artifacts)',
     namesNow.includes('ks-chatmode.json.999999.2.tmp'), namesNow.join(','))
   await rm(freshArtifact, { force: true })

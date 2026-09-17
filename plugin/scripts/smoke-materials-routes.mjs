@@ -113,7 +113,7 @@ const lastEngine = () => seen[seen.length - 1]
 /* --------------------------- 1. 注册面 --------------------------- */
 
 {
-  check('注册了全部 9 条材料路由',
+  check(`注册了全部 ${KS_MATERIALS_PATHS.length} 条材料路由`,
     routes.size === KS_MATERIALS_PATHS.length
     && KS_MATERIALS_PATHS.every((p) => routes.has(p)),
     `${routes.size} routes`)
@@ -187,6 +187,73 @@ const lastEngine = () => seen[seen.length - 1]
   check('POST /scan 默认 origin=user（扫描**不会**自动批准，只是登记）',
     lastEngine().method === 'POST' && lastEngine().sent.origin === 'user',
     JSON.stringify(lastEngine().sent))
+}
+
+/* --------------------------- 3b. 自采（C-5 接线） --------------------------- */
+
+{
+  // 抓取失败是**结果**不是错误码：引擎回 200 + collected:false，本层必须原样透传
+  // （界面要把"SSRF 拒绝/404/不是文本"显示给人看）。
+  seen.length = 0
+  responder = () => ({
+    body: { code: 200, data: { collected: false, status: 403, reason: 'URL 被 SSRF 纪律拒绝' } },
+  })
+  const failed = await invoke('/ks/materials/collect', {
+    method: 'POST', search: '?project_id=prj_a', body: { url: 'http://127.0.0.1:9/x' },
+  })
+  check('POST /collect 打到引擎正确路径',
+    lastEngine().method === 'POST'
+    && lastEngine().path === '/api/v1/materials/projects/prj_a/collect',
+    `${lastEngine().method} ${lastEngine().path}`)
+  check('POST /collect **原样透传** collected:false + 原因（不当成 HTTP 错误吞掉）',
+    failed.status === 200 && failed.body.ok === true
+    && failed.body.data.collected === false && /SSRF/.test(failed.body.data.reason),
+    JSON.stringify(failed.body))
+
+  seen.length = 0
+  responder = () => ({ body: { code: 200, data: { collected: true, material: {} } } })
+  await invoke('/ks/materials/collect', {
+    method: 'POST', search: '?project_id=prj_a',
+    body: { url: '  https://a.example/x  ', title: 'T', note: '', published_at: '' },
+  })
+  check('POST /collect 去空白、空串归 null（不发含混的空值）',
+    lastEngine().sent.url === 'https://a.example/x'
+    && lastEngine().sent.title === 'T'
+    && lastEngine().sent.note === null
+    && lastEngine().sent.published_at === null,
+    JSON.stringify(lastEngine().sent))
+
+  // ⚠ 本战役在 `sanitizeParams` 上栽过同款：字段被静默吞掉、功能全死、无人报错。
+  // 所以"不接受 source_tier"必须是**响亮**的 400。
+  seen.length = 0
+  const tier = await invoke('/ks/materials/collect', {
+    method: 'POST', search: '?project_id=prj_a',
+    body: { url: 'https://a.example/x', source_tier: 'T0' },
+  })
+  check('POST /collect 带 source_tier → 400 且**不打扰引擎**（采集不得自 claim 可信度）',
+    tier.status === 400 && tier.body.error.code === 'bad_request' && seen.length === 0,
+    `${tier.status} engineCalls=${seen.length}`)
+
+  seen.length = 0
+  const urls = await invoke('/ks/materials/collect', {
+    method: 'POST', search: '?project_id=prj_a', body: { urls: ['https://a.example/1'] },
+  })
+  check('POST /collect 批量形式 → 400（预算未定之前没有批量入口，§11.4）',
+    urls.status === 400 && seen.length === 0, `${urls.status} engineCalls=${seen.length}`)
+
+  seen.length = 0
+  const noUrl = await invoke('/ks/materials/collect', {
+    method: 'POST', search: '?project_id=prj_a', body: { url: '   ' },
+  })
+  check('POST /collect 空 url → 400 且不打扰引擎',
+    noUrl.status === 400 && seen.length === 0, `${noUrl.status} engineCalls=${seen.length}`)
+
+  seen.length = 0
+  const noPid = await invoke('/ks/materials/collect', {
+    method: 'POST', body: { url: 'https://a.example/x' },
+  })
+  check('POST /collect 缺 project_id → 400 且不打扰引擎',
+    noPid.status === 400 && seen.length === 0, `${noPid.status} engineCalls=${seen.length}`)
 }
 
 /* --------------------------- 4. 评审（核心） --------------------------- */
@@ -270,6 +337,7 @@ const lastEngine = () => seen[seen.length - 1]
     ['/ks/materials/tier', { method: 'POST', search: '?material_id=mat_1' }],
     ['/ks/materials/role', { method: 'POST', search: '?material_id=mat_1' }],
     ['/ks/materials/scan', { method: 'POST', search: '?project_id=prj_a' }],
+    ['/ks/materials/collect', { method: 'POST', search: '?project_id=prj_a' }],
     ['/ks/materials/projects', { method: 'POST' }],
   ]) {
     seen.length = 0
@@ -389,6 +457,7 @@ const lastEngine = () => seen[seen.length - 1]
     ['/ks/materials/projects', 'DELETE'],
     ['/ks/materials/chunks', 'POST'],
     ['/ks/materials/tiers', 'POST'],
+    ['/ks/materials/collect', 'GET'],
   ]) {
     const r = await invoke(path, { method, search: '?project_id=prj_a&material_id=mat_1' })
     check(`${method} ${path} → 405（方法守卫）`, r.status === 405, String(r.status))
