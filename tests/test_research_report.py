@@ -165,6 +165,10 @@ class TestAnchorVisibility:
         assert hit, out["warnings"]
         assert "工具缺陷" in hit[0], hit[0]
         assert not any("未经验证" in w for w in out["warnings"]), out["warnings"]
+        # ⚠ 原因也要说出来（复核 b11 的 LOW-1：`_locator_why` 原先只写不读，2 写 0 读）
+        assert "模拟判据崩溃" in hit[0], hit[0]
+        # ⚠ 作用域要**明写**（复核 b11 的 LOW-2：它故意与 `_unknown` 不同，别让读者猜）
+        assert "含待评审/已拒绝的在内" in hit[0], hit[0]
 
     def test_old_material_is_marked_unverified(self, project):
         """入库时没记指纹的老材料 ⇒ 标记 + warning（措辞必须是"未经验证"，不是"有问题"）。"""

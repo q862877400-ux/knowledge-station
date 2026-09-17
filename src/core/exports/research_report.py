@@ -194,9 +194,24 @@ def build_report_blocks(project_id: str, *, title: str | None = None,
     if _health_error:
         # ⚠ 这条**不是**材料的问题，是**我们**的判据跑挂了（复核 b9 的 INFO-3）。
         # 旧写法把它并进 `unknown` ⇒ 报告说"未经验证"，读者会去怀疑材料。
+        # ⚠ **把原因也说出来**（复核 b11 的 LOW-1）：`_locator_why` 原先只写不读（2 写 0 读）
+        # ⇒ 面板会把异常说出来、报告却不说，两个通道不对称。去重后最多列 3 条。
+        _reasons: list[str] = []
+        for _m in _health_error:
+            _r = str(_m.get("_locator_why") or "").strip()
+            if _r and _r not in _reasons:
+                _reasons.append(_r)
+        _detail = ""
+        if _reasons:
+            _detail = "；原因：" + "；".join(_reasons[:3]) + ("…" if len(_reasons) > 3 else "")
         warnings.append(f"⚠ {len(_health_error)} 份材料的**锚点健康度算不出来**"
                         "（判据抛异常——这是**工具缺陷**，不是这些材料有问题；"
-                        "报告仍照原样列出，请把这几份当'引用位置未知'看）")
+                        "报告仍照原样列出，请把这几份当'引用位置未知'看；"
+                        # ⚠ 作用域**故意**与上面那条 `_unknown` 不同（复核 b11 的 LOW-2）：
+                        # `unknown` 只扫**已批准**（只有已批准承重；待评审的未经验证不影响结论），
+                        # 而"判据崩溃"是**我们自己的**失败，无论评审状态都该被看见，
+                        # 所以这里把待评审/已拒绝的也算进来——**明写出来**，别让读者猜。
+                        "含待评审/已拒绝的在内）" + _detail)
     citations: dict[str, Any] = {"material_refs": [], "unknown": [],
                                  "not_load_bearing": [], "unchecked_law_refs": []}
     conclusion = str(conclusion_md or "").strip()

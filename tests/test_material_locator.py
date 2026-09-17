@@ -109,6 +109,23 @@ class TestCheapHealth:
         assert "切块没产出" in h["why"], h["why"]
         assert "没有派生文本" not in h["why"], h["why"]
 
+    def test_missing_content_hash_is_not_a_missing_file(self, project, tmp_path):
+        """**文件在、但没有字节哈希** ≠ **文件不在**（复核 b10 的 LOW-3）。
+
+        两种成因过去共用一句"源文件不在磁盘上" ⇒ 文件明明在那儿，读者会去翻目录，
+        而给的恢复建议（"把源文件放回原位"）对它**完全没用**。两种都仍是 `unknown`（不是 ok）。
+        """
+        pid = project["project_id"]
+        p = tmp_path / "nohash.txt"
+        p.write_text("甲。乙。", encoding="utf-8")
+        m = mr.add_material(pid, "无哈希材料", origin="user", raw_path=str(p),
+                            derived_text_hash="h", parser_fingerprint="kind=.txt;plain=1")
+        mr.add_chunks(m["material_id"], [{"text": "甲", "char_start": 0, "char_end": 1}])
+        h = lo.locator_health(mr.get_material(m["material_id"]))
+        assert h["status"] == "unknown", h
+        assert "源文件不在磁盘上" not in h["why"], h["why"]
+        assert "**在**磁盘上" in h["why"] and "没有登记" in h["why"], h["why"]
+
     def test_pdf_cheap_check_refuses_to_claim_ok(self, project, tmp_path, monkeypatch):
         """PDF 的完整指纹含**只有解析后才知道**的 text_layer/ocr ⇒ 便宜比对**不许说 ok**。
 

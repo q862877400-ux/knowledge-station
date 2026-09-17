@@ -121,8 +121,8 @@ def locator_health(material: dict[str, Any]) -> dict[str, Any]:
         # 读者分不清该去查解析还是查切块。判据用**入库时记的派生文本哈希**：
         # 有它 ⇒ 当时确实产出过文本；没有 ⇒ 没产出（或入库早于该列，如实带上这一支）。
         out["why"] = (
-            "这份材料没有切片（没有区间可失效）：入库时**没有派生文本**"
-            "（解析不出文本——扫描件？或入库早于派生哈希那一列）"
+            "这份材料没有切片（没有区间可失效）：入库时**没有派生文本记录**"
+            "（两种可能：解析不出文本——扫描件？；或入库早于派生哈希那一列，那时**有文本也不会记**）"
             if recorded_hash is None else
             "这份材料没有切片（没有区间可失效）：**有派生文本但切块没产出**"
             "（切分参数或内容形态导致零切片）")
@@ -137,13 +137,24 @@ def locator_health(material: dict[str, Any]) -> dict[str, Any]:
     raw = str(material.get("raw_path") or "")
     is_web = (material.get("origin") or "") == "collected" and raw == ""
     if raw and not is_web:
-        match = source_bytes_match(material)
-        out["source_bytes_match"] = match
-        if match is None:
+        # ⚠ 两种"判不了"的成因要分开说（复核 b10 的 LOW-3）：
+        #   ① 文件**真的不在**磁盘上；② 文件在、但**入库时没登记字节哈希**（content_hash 为空）。
+        # 旧写法把第二种也说成"源文件不在磁盘上"——文件明明在那儿，读者会去翻目录，
+        # 而且恢复建议（"把源文件放回原位"）对它**完全没用**。两种都仍是 `unknown`（**不是 ok**）。
+        if not Path(raw).is_file():
             out["status"] = "unknown"
             out["why"] = (f"源文件不在磁盘上（{raw}）⇒ 取不到当前指纹、也无法复算——"
                           "**不是 ok**；要恢复请把源文件放回原位，或重新入库")
             return out
+        if not material.get("content_hash"):
+            out["status"] = "unknown"
+            out["source_bytes_match"] = None
+            out["why"] = (f"源文件**在**磁盘上（{raw}），但入库时**没有登记它的字节哈希**"
+                          "（`content_hash` 为空）⇒ 判不出这份文件有没有被换过——"
+                          "**不是 ok**；要恢复这条判据请重新入库，或走 reverify（重解析比对）")
+            return out
+        match = source_bytes_match(material)
+        out["source_bytes_match"] = match
         if match is False:
             out["status"] = "stale"
             out["why"] = ("**源文件字节已变**（与入库时记的 content_hash 不一致）⇒ "
