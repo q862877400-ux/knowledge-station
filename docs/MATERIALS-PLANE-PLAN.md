@@ -707,3 +707,12 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     变异 U1/U2 均 RED；门禁 pytest **1704**、smoke client-entry **84/84**。
     ⇒ **b10 四条 + b11 五条 + INFO-1 全部收口**；**只剩** INFO-4（报告 ⚠ 不覆盖「依据」节，
     要动 `authority.render_evidence` ⇒ **新立项**）与通道 E 的"未核验沉底"（要加 JOIN `doc_meta`）。
+
+    **通道 E 已收口（step-65，§10.66）**：`LEFT JOIN doc_meta` + 排序口径与通道 A/D 对齐
+    （`(legal_status IS NULL), legal_status, clause_revision_id`）。
+    ⚠ 用 **LEFT JOIN 而不是 JOIN**：内连接会让"缺 `doc_meta` 行"的条款在**更前面**被静默丢掉
+    ——与 §10.44/§10.49 栽过的"未核验被静默排除"**症状一样**；LEFT JOIN 下缺行的
+    `legal_status` 为 NULL ⇒ 落进"未核验"并沉底。变异 V1（退回只按 id）⇒ 新用例 RED、
+    确定性那条仍绿；V2（去掉 LEFT JOIN）⇒ `OperationalError` 3 条红。门禁 pytest **1705**。
+    ⇒ **方案 §12 里"我自己能推进的"只剩 INFO-4**（报告 ⚠ 不覆盖「依据」节，要动
+    `authority.render_evidence` 这**第二个所有者** ⇒ 新立项，不夹带）。

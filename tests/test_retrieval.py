@@ -239,6 +239,42 @@ def test_legal_element_channel_order_is_deterministic(seeded_db):
         clause_repo.delete_document("d31")
 
 
+def test_legal_element_channel_ranks_verified_before_unverified(seeded_db):
+    """法理要素通道（E）也要"未核验沉底 + 确定"（§10.65 补齐；§10.58 只补了确定性）。
+
+    构造让"没有 ORDER BY / 只按 id"都排错：**先插入未核验那份、且它的 id 更小**
+    （`c990` < `c991`）⇒ 自然顺序与"按 id"顺序都把未核验排前面；只有真的按
+    "状态优先、再 id"排，已核验的 `c991` 才会在前。
+    """
+    from src.core.retrieval.hybrid_engine import perform_hybrid_search
+    from src.core.storage import clause_repo
+    from src.core.storage.sqlite_db import get_db_connection
+    conn = get_db_connection()
+    clause_repo.insert_document(conn, dict(
+        doc_id="d41", standard_no="GB 66666-2020", standard_name="采集件标准",
+        short_code="GB66666", current_revision_id="r41", legal_status=None,
+        file_path="c.pdf", file_hash="h41"))
+    clause_repo.insert_document(conn, dict(
+        doc_id="d42", standard_no="GB 77777-2020", standard_name="已核验标准",
+        short_code="GB77777", current_revision_id="r42", legal_status="effective",
+        file_path="v.pdf", file_hash="h42"))
+    try:
+        clause_repo.insert_clauses([
+            _clause("c990", "9.9.0", "未核验的主体条款", doc="d41", ktype="legal",
+                    subject="测试主体Y", standard="GB 66666-2020", legal_status_of_doc=None),
+            _clause("c991", "9.9.1", "已核验的主体条款", doc="d42", ktype="legal",
+                    subject="测试主体Y", standard="GB 77777-2020"),
+        ])
+        rows = [r.clause_revision_id for r in perform_hybrid_search(
+            "测试主体Y", top_k=10, channels=["legal_element"], subject_filter="测试主体Y")]
+        assert "c990" in rows and "c991" in rows, rows
+        assert rows.index("c991") < rows.index("c990"), (
+            f"未核验条款在法理要素通道里排在已核验有效条款之前 ⇒ 通道内名次给反了: {rows}")
+    finally:
+        clause_repo.delete_document("d41")
+        clause_repo.delete_document("d42")
+
+
 def test_fts_channel(seeded_db):
     from src.core.retrieval.hybrid_engine import perform_hybrid_search
     res = perform_hybrid_search("防火间距 多少", top_k=5, channels=["fts"])

@@ -3516,3 +3516,36 @@ INFO-4（报告 ⚠ 不覆盖「依据」节 —— 要动 `authority.render_evi
 与通道 E 的"未核验沉底"（要给它加 JOIN `doc_meta`）。
 其余都是**需要业主拍板**的事（两道门重启 / B-3 / `NO_PROXY` / 采集预算 / 是否引入 jsdom）。
 
+
+### 10.66 收尾第二项：通道 E 补齐"未核验沉底"（此前只能给确定性，给不了偏好）
+
+**背景**：§10.58 给通道 E（法理要素召回）补了 `ORDER BY clause_revision_id`（**确定性**），
+但当时如实登记了一条边界——**E 没有 JOIN `doc_meta`，所以给不了"未核验沉底"那条偏好**。
+本步把它补齐：`LEFT JOIN doc_meta dm ON dm.doc_id = cr.doc_id`，
+排序口径与通道 A/D **完全对齐**：`(dm.legal_status IS NULL), dm.legal_status, cr.clause_revision_id`。
+
+**为什么是 `LEFT JOIN` 而不是 `JOIN`（这一条比排序本身更重要）**：
+本项目**已经栽过两次**"未核验条款被静默排除"——§10.44/§10.49 那次是 `NOT IN (…)` 对 NULL
+求值为 NULL；这一次若用**内连接**，缺 `doc_meta` 行的条款会在**更前面**被丢掉，
+**症状一模一样**（行少了、没人报错、答案悄悄变窄）。
+`LEFT JOIN` 保证**绝不因为元数据缺行而丢条款**；缺行时 `dm.legal_status` 为 NULL
+⇒ 正好落进"未核验"那一档并**沉底**，语义也对。
+
+**测试（构造让"不写 ORDER BY"与"只按 id"都排错）**：
+**先插入未核验那份、且它的 id 更小**（`c990` < `c991`）⇒ 自然顺序与"按 id"顺序都把未核验排前；
+只有真的"状态优先、再 id"排，已核验的 `c991` 才会在前。
+
+**变异证据（逐字节还原，`hybrid_engine.py` sha256 `c28d9be5…`）**：
+| 变异 | 内容 | 结果 |
+|---|---|---|
+| **V1** | 排序退回 `ORDER BY cr.clause_revision_id`（丢掉状态偏好） | 新用例 **RED**，而"确定性"那条**仍绿**（1 failed / 2 passed）⇒ 判别力精确 |
+| **V2** | 去掉 `LEFT JOIN`（只留 ORDER BY 里的 `dm.`） | **`sqlite3.OperationalError`** ⇒ 3 条红 ⇒ 证明那个 JOIN 是这条排序的**前提** |
+
+**门禁**：pytest **1705 passed / 3 skipped**（新增 1 条）；mypy **134 files / 0 errors**；
+本步只动检索层与测试 ⇒ `tsc`/smoke 不受影响。
+
+**台账**：通道 E 这一项**收口**。方案 §12 里"我自己能推进"的只剩 **INFO-4**——
+报告里的 ⚠ 只覆盖**材料清单**、不覆盖「**三、依据**」节（引用真正出现的地方）；
+它要动 `authority.render_evidence`（**第二个所有者**），已按"**新立项**"登记，**不夹带**。
+其余全部是**需要业主拍板**的事（两道门重启 / B-3 / `NO_PROXY` / 采集预算 / 是否引入 jsdom）。
+

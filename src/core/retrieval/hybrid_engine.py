@@ -165,14 +165,19 @@ def perform_hybrid_search(
     # 通道 E: 法理要素召回 (义务主体)
     if "legal_element" in channels and subject_filter:
         rows = conn.execute(
-            "SELECT clause_revision_id FROM clause_revision"
-            " WHERE subject = ? AND knowledge_type = 'legal'"
-            # ⚠ **同族缺陷，自查发现**（b9 只点了通道 D；本步顺手把 E 也钉住）：
-            # 这条原先也没有 ORDER BY ⇒ 通道内名次未定义、权重不可复现。
-            # ⚠ **诚实边界**：这条**没有** JOIN `doc_meta`，所以这里只能给"确定性"
-            # （按 id 全序），**给不了**"未核验沉底"那条偏好——要那条得改查询形状（加 JOIN），
-            # 属更大的改动，登记为待办而**不**在这一步夹带。
-            " ORDER BY clause_revision_id",
+            "SELECT cr.clause_revision_id FROM clause_revision cr"
+            # ⚠ **LEFT JOIN，不是 JOIN**（2026-09-18 补齐通道 E 的状态偏好）：
+            # `LEFT` 保证"`doc_meta` 缺行"**不会把条款静默丢掉**——本项目已经栽过两次
+            # "未核验被静默排除"（§10.44/§10.49），那次是 `NOT IN` 对 NULL 求值，
+            # 这次若用内连接，缺行会在**更前面**被丢掉，症状一模一样（少了行、没人报错）。
+            # 缺行时 `dm.legal_status` 为 NULL ⇒ 正好落进"未核验"那一档（沉底），语义也对。
+            " LEFT JOIN doc_meta dm ON dm.doc_id = cr.doc_id"
+            " WHERE cr.subject = ? AND cr.knowledge_type = 'legal'"
+            # ⚠ 这条原先**没有 ORDER BY**（复核 b9 的 LOW-3 顺带指出、§10.58 先补了"确定性"）：
+            # `rank` 直接决定 `CHANNEL_WEIGHTS / (RRF_K + rank + 1)`，没有 ORDER BY 的返回次序
+            # 是未定义的 ⇒ 同一查询的权重分配不可复现。
+            # 本步把**口径与通道 A/D 对齐**：未核验（NULL）沉底、已知状态按名排、id 兜底成全序。
+            " ORDER BY (dm.legal_status IS NULL), dm.legal_status, cr.clause_revision_id",
             (subject_filter,)).fetchall()
         for rank, row in enumerate(rows):
             scores[row[0]] = scores.get(row[0], 0.0) + CHANNEL_WEIGHTS["legal_element"] / (RRF_K + rank + 1)
