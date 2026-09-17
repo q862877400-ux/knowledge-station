@@ -37,11 +37,12 @@
 """
 from __future__ import annotations
 
+import re
 from typing import Any
 
 from src.core.storage import material_repo as mr
 from src.core.storage.sqlite_db import get_db_connection
-from src.core.text_utils import standard_no_key
+from src.core.text_utils import law_name_key, standard_no_key
 
 #: 可能的动作（给 UI/日志用；**唯一一处**定义）。
 ACTIONS = ("skip", "blocked", "link", "import")
@@ -85,13 +86,41 @@ def find_existing_doc(standard_no: str | None) -> str | None:
     return None
 
 
+def find_existing_law(law_name: str | None) -> str | None:
+    """库内是否已有这部**法规**（按 `law_name_key` 比对 `standard_no`/`standard_name`）。
+
+    为什么法规的"身份"在 `standard_no` 列里：既有法规管线 `law_source.ingest` 就是这么存的
+    （`standard_no=standard_no or d.title`——法规没有号，**用名称当号**）。所以主判据是
+    `standard_no`；`standard_name` 只在**法规类**文档上兜底（防同一部法两处写法不一致）。
+    ⚠ **不**拿 `standard_name` 去匹配 `doc_type='standard'` 的行：那会把一部法规
+    误判成"库内有"（标准名与法规名偶合），于是**该入库的法规被跳过**。
+    """
+    key = law_name_key(law_name)
+    if not key:
+        return None
+    rows = get_db_connection().execute(
+        "SELECT doc_id, standard_no, standard_name, doc_type FROM doc_meta").fetchall()
+    for doc_id, std_no, name, doc_type in rows:
+        if law_name_key(std_no) == key:
+            return str(doc_id)
+        if str(doc_type or "") != "standard" and law_name_key(name) == key:
+            return str(doc_id)
+    return None
+
+
 def plan_import(material_id: str) -> dict[str, Any]:
     """**决策**（不产生任何写入）：这份材料在 Track L 下该做什么。
 
+    两种意图（`doc_kind`）走**两条身份判据**，互不混用：
+    - `standard`：按 `standard_no` 的**比较键**（`standard_no_key`，含年份/部分号）；
+    - `law`：按**法规名的比较键**（`law_name_key`，**保留修正年份**——见那个函数的说明）。
+    ⚠ 旧行可能没有 `doc_kind`（本字段是 2026-09-17 加的）：那时按"有 `standard_no`
+    就当标准"回退，**不猜**法规。
+
     Returns:
-        `{action, material_id, standard_no?, existing_doc_id?, why}`，
+        `{action, material_id, doc_kind, standard_no?|law_name?, existing_doc_id?, why}`，
         其中 `action ∈ ACTIONS`：
-        - `skip`    —— 不是标准正文（没有 track_l 意图）；
+        - `skip`    —— 不是标准/法规正文（没有 track_l 意图）；
         - `blocked` —— **未批准**（评审硬门，绝不越过）；
         - `link`    —— 库内已有 ⇒ 只需从材料侧回指；
         - `import`  —— 库内没有 ⇒ 需要入库（`import_to_library` 走既有 ingest 管线）。
@@ -103,23 +132,36 @@ def plan_import(material_id: str) -> dict[str, Any]:
     intent = track_l_intent(mat)
     if intent is None:
         return {"action": "skip", "material_id": material_id,
-                "why": "没有 track_l 意图（不是被认出的标准正文）"}
+                "why": "没有 track_l 意图（不是被认出的标准/法规正文）"}
+
+    kind = str(intent.get("doc_kind") or ("standard" if intent.get("standard_no") else "law"))
+    standard_no = intent.get("standard_no")
+    law_name = intent.get("law_name")
+    identity: dict[str, Any] = {"doc_kind": kind, "standard_no": standard_no,
+                                "law_name": law_name}
 
     if mat.get("review_status") != "approved":
         return {
-            "action": "blocked", "material_id": material_id,
-            "standard_no": intent.get("standard_no"),
+            "action": "blocked", "material_id": material_id, **identity,
             "why": f"材料未批准（review_status={mat.get('review_status')!r}）——"
                    "评审硬门：未批准的材料不可能进法条库",
         }
 
-    standard_no = intent.get("standard_no")
+    if kind == "law":
+        existing = find_existing_law(law_name)
+        if existing is not None:
+            return {"action": "link", "material_id": material_id, **identity,
+                    "existing_doc_id": existing,
+                    "why": "库内已有这部法规（按名称比较键匹配）⇒ 只需从材料侧回指"}
+        return {"action": "import", "material_id": material_id, **identity,
+                "why": "库内没有这部法规 ⇒ 需走既有 ingest 管线入库（按法规口径）"}
+
     existing = find_existing_doc(standard_no)
     if existing is not None:
-        return {"action": "link", "material_id": material_id, "standard_no": standard_no,
+        return {"action": "link", "material_id": material_id, **identity,
                 "existing_doc_id": existing,
                 "why": "库内已有这部标准（按比较键匹配）⇒ 只需从材料侧回指"}
-    return {"action": "import", "material_id": material_id, "standard_no": standard_no,
+    return {"action": "import", "material_id": material_id, **identity,
             "why": "库内没有这部标准 ⇒ 需走既有 ingest 管线入库（本模块不做，见模块头注）"}
 
 
@@ -147,6 +189,29 @@ def _material_text(material_id: str) -> str:
     return "\n".join(str(c.get("text") or "") for c in chunks)
 
 
+#: 法规名的**安全**层级推断（**只用不会错的规则**）。
+#:
+#: ⚠ 为什么这么保守：判效力层级（法律 / 行政法规 / 部门规章 / 地方性法规…）要看
+#: **发行机关**，而采网页拿不到（`条例` 既可能是国务院行政法规、也可能是省人大地方性法规）。
+#: 猜错等于把一个错误的位阶写进法规库——P1 上比"不写"坏得多。
+#: ⇒ 只有"以 `法` 结尾 ⇒ 法律（狭义）"与"含司法解释字样 ⇒ 司法解释"两条是安全的，
+#: 其余一律 **`未定`**（`doc_catalog._law_tier` 对未知值会自己按名称关键词再兜一层，
+#: 兜不到就显示"未定级"——**不假装知道**）。
+_LAW_HIER_SAFE = ("司法解释", "最高人民法院", "最高人民检察院")
+
+
+def _law_hierarchy(name: str) -> str:
+    """法规名 → `legal_hierarchy` 存储值（**保守**；不确定返回 `未定`）。"""
+    base = re.sub(r"[（(][^）)]*[）)]\s*$", "", str(name or "").strip()).strip()
+    if any(k in base for k in _LAW_HIER_SAFE):
+        return "司法解释"
+    # ⚠ **endswith("法") 会误吃"办法/方法/做法"**（实测踩到：`行政处罚办法` 被判成"法律"）——
+    # 那正是"猜错位阶"的典型。排除掉这些才算"以法结尾"。
+    if base.endswith("法典") or (base.endswith("法") and not base.endswith(("办法", "方法", "做法"))):
+        return "法律"
+    return "未定"
+
+
 def import_to_library(material_id: str) -> dict[str, Any]:
     """**Track L 入库**：把已批准、库内没有的标准/法规正文灌进法条库。
 
@@ -157,13 +222,11 @@ def import_to_library(material_id: str) -> dict[str, Any]:
     两个 `doc_type` 口径（**别混**，生产库 6417 行全是 `standard`）：
     - **标准**（`GB 88888-2088` 这类）→ `doc_type='standard'` +
       `legal_hierarchy` 用既有的 `pipeline._hier_from_no`（复用，不新写一份前缀判断）；
-    - **法规**（`第X条` 形态）→ `doc_type='法律法规'`，走 `ingest_law_text` 的默认口径。
-
-    ⚠ **当前实际只会走"标准"这一支**：`track_l` 意图是 `collect.looks_like_standard`
-    认出来的，而那个判据复用 `auto_tag` 的**标准号正则** ⇒ **法规正文不会被认出**
-    （`民法典` 之类没有标准号）。所以"采集到的法规正文入库"目前**走不通**——
-    这是**已知边界**，不是"实现了但没测到"。要支持它，得先给 `collect` 加一个
-    法规识别（`law_text.split_law_text` 已有切分能力，缺的只是"认出这是法规"）。
+    - **法规**（`第X条` 形态，2026-09-17 起可识别）→ `doc_type='法律法规'`，
+      `standard_no` **用法规名**（既有法规管线就是这个口径：
+      `law_source.ingest._ingest(standard_no=standard_no or d.title)`），
+      `legal_hierarchy` 由 `_law_hierarchy` 保守推断（不确定就是 `未定`，
+      见那里的说明——**不假装知道位阶**）。
 
     ⚠ 采集件正文**来自网页、不是官方原件**：这里只负责"灌进去，
     使它能被检索/引用"，不替既有管线决定效力判据（那是 `doc_meta` 规则的事）。
@@ -179,23 +242,38 @@ def import_to_library(material_id: str) -> dict[str, Any]:
         return {**plan, "imported": False,
                 "why": "材料没有切片（没有正文）——入库会造出一部空标准"}
 
-    standard_no = str(plan.get("standard_no") or "").strip()
-    if not standard_no:
-        return {**plan, "imported": False, "why": "track_l 意图里没有 standard_no"}
-
     from src.core.ingestion.law_text import ingest_law_text
     from src.core.ingestion.pipeline import _hier_from_no
 
-    result = ingest_law_text(
-        body, standard_no, str(mat.get("title") or standard_no),
-        legal_hierarchy=_hier_from_no(standard_no, fallback="GB"),
-        domain_tags=None,
-        doc_type="standard",
-        # 短码口径与 `docx_ingest` 一致（去空格去连字符）
-        short_code=standard_no.replace(" ", "").replace("-", ""),
-        source_marker="material-collected://track-l",
-        source_url=mat.get("url"),
-    )
+    if plan.get("doc_kind") == "law":
+        law_name = str(plan.get("law_name") or "").strip()
+        if not law_name:
+            return {**plan, "imported": False,
+                    "why": "track_l 意图里没有 law_name（法规名没取到）——"
+                           "没有名字就没法在库里认它，宁可不入库"}
+        result = ingest_law_text(
+            body, law_name, str(mat.get("title") or law_name),
+            legal_hierarchy=_law_hierarchy(law_name),
+            domain_tags=None,
+            doc_type="法律法规",
+            short_code=None,                      # 法规口径（既有管线的默认截断规则）
+            source_marker="material-collected://track-l",
+            source_url=mat.get("url"),
+        )
+    else:
+        standard_no = str(plan.get("standard_no") or "").strip()
+        if not standard_no:
+            return {**plan, "imported": False, "why": "track_l 意图里没有 standard_no"}
+        result = ingest_law_text(
+            body, standard_no, str(mat.get("title") or standard_no),
+            legal_hierarchy=_hier_from_no(standard_no, fallback="GB"),
+            domain_tags=None,
+            doc_type="standard",
+            # 短码口径与 `docx_ingest` 一致（去空格去连字符）
+            short_code=standard_no.replace(" ", "").replace("-", ""),
+            source_marker="material-collected://track-l",
+            source_url=mat.get("url"),
+        )
     status = result.get("status")
     # `standard_exists` 说明库内其实已有（归一化判据与既有查重口径不同导致的边界），
     # 那就退回"只回指"——**不要**把既有文档覆盖掉。

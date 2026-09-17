@@ -37,10 +37,12 @@
 from __future__ import annotations
 
 import hashlib
+import re
 from typing import Any
 from urllib.parse import urlparse
 
 from src.core.ingestion import material_ingest as mi
+from src.core.ingestion.law_text import split_law_text
 from src.core.materials import dedup
 from src.core.storage import material_repo as mr
 from src.core.text_utils import looks_like_binary
@@ -50,6 +52,16 @@ NEAR_DUP_WINDOW = 200
 
 #: 近重复判定的阈值（与 `dedup` 默认一致；写成常量以便一处调）。
 NEAR_DUP_THRESHOLD = dedup.DEFAULT_THRESHOLD
+
+#: 认法规的**条数门槛**（两个信号各一个门槛，见 `looks_like_law`）。
+LAW_MIN_CLAUSES = 3        # 有法规形态标题时：≥3 条就算
+LAW_STRONG_CLAUSES = 10    # 没有可用标题时：≥10 条才算（宁可不认）
+
+#: 法规名常见结尾（**窄**：只用于"标题像不像法规"，不用于判层级）。
+#: ⚠ `法典` 必须单列：`中华人民共和国民法典` **不以"法"结尾**，而它是中国最重要的一部法律
+#: （第一版漏了它，被自己的用例抓出来）。
+LAW_NAME_SUFFIXES = ("法", "法典", "条例", "规定", "办法", "细则", "规则", "决定", "解释", "通知")
+_RE_LAW_TITLE = re.compile(r"《[^》]{2,60}》")
 
 
 def domain_of(url: str | None) -> str | None:
@@ -106,6 +118,59 @@ def _near_duplicates(project_id: str, text: str) -> list[str]:
     return out
 
 
+def _law_name_of(title: str, text: str) -> str | None:
+    """从标题（或正文首行）取**法规名**（取不到返回 None）。
+
+    三条来源，按可信度排：标题里的 `《…》` → 标题本身就是法规形态 → 正文首行。
+    ⚠ 只取"名字"，**不**在这里判层级（那要发行机关，采网页拿不到；见 `track_l`）。
+    """
+    t = (title or "").strip()
+    m = _RE_LAW_TITLE.search(t)
+    if m:
+        return m.group(0)[1:-1].strip()
+    if t and len(t) <= 40 and t.endswith(LAW_NAME_SUFFIXES):
+        return t
+    first = next((ln.strip() for ln in (text or "").splitlines() if ln.strip()), "")
+    if not first:
+        return None
+    m2 = _RE_LAW_TITLE.search(first[:120])
+    if m2:
+        return m2.group(0)[1:-1].strip()
+    if len(first) <= 40 and first.endswith(LAW_NAME_SUFFIXES):
+        return first
+    return None
+
+
+def looks_like_law(title: str, text: str) -> dict[str, Any]:
+    """认出"这可能是一部**法规**的正文"（Track L 的**法规入口**，Phase C 第八步）。
+
+    ## 为什么需要它（这是 C-3 留下的一句"走不通"）
+    `looks_like_standard` 复用 `auto_tag` 的**标准号正则** ⇒ **法规没有标准号**，
+    永远认不出（`track_l.import_to_library` 自己的 docstring 就写着"当前实际只会走
+    标准那一支"）。于是"采集到的法规正文自动入库"这句承诺在法规这一侧是**空的**。
+
+    ## 判据（两条信号，**都要**真有"第X条"条文；宁可不认，也不要把新闻当法规）
+    1. **有法规形态的标题**（`《…》` 或以上述后缀结尾）**且**条数 ≥ `LAW_MIN_CLAUSES`(3)；
+    2. **条数 ≥ `LAW_STRONG_CLAUSES`(10)** —— 没有可用标题也认（采网页常丢标题）。
+
+    条数由 `ingestion.law_text.split_law_text` 数（**第X条切分的唯一所有者**，
+    本函数**不新写**第二份正则——标准号那次教训就是"同一机制两份实现必然分叉"）。
+
+    ⚠ **优先级在调用方**：若同时认成标准（有标准号），走**标准**那一支
+    （标准号的判据更精确；有标准号的文本不该被当法规入库）。
+    """
+    articles = split_law_text(str(text or ""))
+    count = len(articles)
+    name = _law_name_of(title, text)
+    if name is not None and count >= LAW_MIN_CLAUSES:
+        return {"is_law": True, "law_name": name, "clause_count": count,
+                "why": f"标题是法规形态且含 {count} 条条文"}
+    if count >= LAW_STRONG_CLAUSES:
+        return {"is_law": True, "law_name": name, "clause_count": count,
+                "why": f"含 {count} 条条文（标题不可用，按条数认）"}
+    return {"is_law": False, "clause_count": count, "law_name": name}
+
+
 def collect_text(project_id: str, *, title: str, text: str, url: str | None = None,
                  source_tier: str | None = None, published_at: str | None = None,
                  kind: str | None = None, note: str | None = None,
@@ -146,9 +211,13 @@ def collect_text(project_id: str, *, title: str, text: str, url: str | None = No
             existing["chunk_count"] = mr.chunk_count(existing["material_id"])
             return existing
 
-    # ---- 认出可能是标准（Track L 的入口；**不**在这里入库）----
+    # ---- 认出可能是标准/法规（Track L 的入口；**不**在这里入库）----
+    # ⚠ **优先级**：有标准号 ⇒ 走标准那一支（判据更精确；带标准号的文本不该被当法规）。
+    # 只有认不出标准时才试着认法规（`第X条` 形态），否则"法规正文入库"这句承诺是空的。
     std = looks_like_standard(title, body)
-    resolved_kind = kind or ("legal" if std.get("is_standard") else "other")
+    law = {"is_law": False} if std.get("is_standard") else looks_like_law(title, body)
+    is_legal = bool(std.get("is_standard") or law.get("is_law"))
+    resolved_kind = kind or ("legal" if is_legal else "other")
 
     # ---- 近似判重（标注给人看，不做自动决定）----
     near = _near_duplicates(project_id, body)
@@ -161,7 +230,12 @@ def collect_text(project_id: str, *, title: str, text: str, url: str | None = No
     if near:
         evidence["near_duplicate_of"] = near
     if std.get("is_standard"):
-        evidence["track_l"] = {"standard_no": std.get("standard_no"), "year": std.get("year"),
+        evidence["track_l"] = {"doc_kind": "standard",
+                               "standard_no": std.get("standard_no"), "year": std.get("year"),
+                               "status": "pending_review"}
+    elif law.get("is_law"):
+        evidence["track_l"] = {"doc_kind": "law", "law_name": law.get("law_name"),
+                               "clause_count": law.get("clause_count"),
                                "status": "pending_review"}
 
     reason_parts = [p for p in [note] if p]
@@ -170,6 +244,11 @@ def collect_text(project_id: str, *, title: str, text: str, url: str | None = No
     if std.get("is_standard"):
         reason_parts.append(f"疑似标准正文（{std.get('standard_no')}）——"
                             "批准后才会自动入库为法条（Track L）")
+    elif law.get("is_law"):
+        reason_parts.append(f"疑似**法规**正文（{law.get('law_name') or '名称未取到'}，"
+                            f"{law.get('clause_count')} 条）——批准后才会自动入库为法条（Track L）；"
+                            "⚠ 效力层级由本系统按名称**推断**（采网页拿不到发行机关），"
+                            "不确定时记为「未定」")
 
     mat = mr.add_material(
         project_id,

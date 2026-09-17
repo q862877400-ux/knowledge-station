@@ -1382,6 +1382,24 @@ def standard_no_key(value: str | None) -> str:
     return re.sub(r"[‐‑‒–—―－]", "-", s)
 
 
+def law_name_key(value: str | None) -> str:
+    """**法规名**的比较键（只用于"是不是同一部法规"，**不是**存储格式）。
+
+    ⚠ **与 `standard_no_key` 的关键区别：这里保留版本/修正标记**。
+    标准靠"号 + 年"区分版本（`GB 10769-2010` vs `-2025`），法规靠**名称里的修正年份**
+    （`安全生产法（2021年修正）` vs `（2014年修正）`）。**不能**把括号里的年份去掉：
+    那会把"库里有 2014 版"当成"这部法已经有了"，于是**把 2021 修正版指到旧版上**
+    ——P1 准确性上最坏的一种后果（引用的法条是过时的）。
+    跨版本关联是 `doc_meta.short_code` 的事，不是本函数的事。
+
+    规则（保守）：NFKC（全角→半角）→ 去掉所有空白 → 去掉书名号 `《》` → 统一连字符。
+    """
+    s = unicodedata.normalize("NFKC", str(value or ""))
+    s = re.sub(r"\s+", "", s)
+    s = s.replace("《", "").replace("》", "")
+    return re.sub(r"[‐‑‒–—―－]", "-", s)
+
+
 _RE_SCRIPT_STYLE_OPEN = re.compile(r"<(script|style)\b(?P<attrs>[^>]*)>", re.IGNORECASE)
 
 

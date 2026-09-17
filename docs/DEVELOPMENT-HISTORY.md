@@ -1638,3 +1638,81 @@ pytest 数字**注明是哪棵树**——干净工作树是 **1491/4**、主检�
 - 仍然**没有**法规正文的识别（`looks_like_standard` 只认标准号）⇒ 今天能自动入库的只有
   **带标准号的正文**；法规（`第X条` 形态）会被 `skip`。这是下一步（C-8 ①）。
 - Track L 的失败**不回滚**、也没有重试队列：失败只在当次响应里报出（要重试就再评一次）。
+
+### 10.34 法规正文识别（Track L 终于覆盖法规）+ 复核 step-26~step-30 的施工单
+
+**做了什么**：`collect.looks_like_law()` 补上 C-3 留下的那句"走不通"——此前
+`looks_like_standard` 复用 `auto_tag` 的**标准号正则**，法规没有号 ⇒ **永远认不出来**
+（`track_l.import_to_library` 自己的 docstring 就写着"当前实际只会走标准那一支"）。
+现在：
+
+- **识别**（`collect.looks_like_law`，两条信号，都要真有"第X条"）：
+  ① 标题是法规形态（`《…》` 或以 `LAW_NAME_SUFFIXES` 结尾）**且**条数 ≥ 3；
+  ② 条数 ≥ 10（采网页常丢标题）。条数由 `ingestion.law_text.split_law_text` 数
+  ——**第X条切分的唯一所有者**，本函数不新写第二份正则。
+- **优先级**：**有标准号就走标准那一支**（标准号判据更精确；带标准号的文本不该被当法规入库）。
+- **身份**：`text_utils.law_name_key`（NFKC + 去空白 + 去书名号），
+  ⚠ **保留修正年份**——法规靠名称里的年份区分版本，去掉括号会把"库里有 2014 版"
+  当成"这部法已经有了"，于是**把 2021 修正版指到旧版上**（引用到过时法条，P1 最坏的后果）。
+  跨版本关联是 `doc_meta.short_code` 的事。
+- **库内查重**（`track_l.find_existing_law`）：主判据是 `standard_no`（既有法规管线就是
+  **用名称当号**：`law_source.ingest._ingest(standard_no=standard_no or d.title)`）；
+  `standard_name` 只在**法规类**文档上兜底——**不**拿它去匹配 `doc_type='standard'` 的行，
+  否则标准名与法规名偶合时会把该入库的法规**静默跳过**。
+- **入库**：法规走 `ingest_law_text(..., doc_type='法律法规', short_code=None)`，
+  `standard_no` 传法规名；**层级由 `_law_hierarchy` 保守推断**——只有
+  "以 `法`/`法典` 结尾 ⇒ 法律（狭义）"与"含司法解释字样 ⇒ 司法解释"两条安全规则，
+  其余（`条例`/`办法`/`规定`：国务院的？省人大的？部门规章？**要看发行机关，采网页拿不到**）
+  一律 **`未定`**，并把这句"层级是我们推断的"写进材料的判级说明（评审人看得到）。
+
+**被自己的测试抓到的两处错（都已修 + 钉住）**：
+1. `中华人民共和国民法典` **不以"法"结尾**（结尾是"典"）⇒ 第一版**取不到法规名**，
+   `is_law=False`（中国最重要的一部法律认不出来）。已把 `法典` 单列进后缀表。
+2. `_law_hierarchy` 用 `endswith("法")` 会把 **`安全生产违法行为行政处罚办法`** 判成
+   **"法律"**——一个**写进法规库的错误位阶**（`办法` 是规章）。已排除 `办法/方法/做法`。
+   这条正是"保守推断"存在的理由：宁可写 `未定`，也不猜。
+
+**改了一条旧测试（并说明为什么必须改）**：`test_collected_LAW_text_is_out_of_scope_today`
+原来**钉住"法规走不通"**（C-3 的已知边界）。本步把它换成
+`test_collected_LAW_text_is_now_recognized_and_imported`——**旧断言如果不改，它会变成
+一条阻止修复的假门**（修复一落地它就红）。新测试断言：识别（`doc_kind='law'` + 名称）、
+未批准仍 `blocked`、入库后 `doc_meta` 里 `doc_type='法律法规'`/`standard_no=名称`/
+`legal_hierarchy='法律'`、`find_existing_law` 找得到、**再评一次退化为 `link` 不造第二部**。
+
+**⚠ 独立复核 step-26~step-30 的结论（2026-09-17，`var/tmp/verify-b5-artifacts/`）**：
+A/C/D②/E/I **PARTLY**；B/D①/F/G/H/J **CONFIRMED**（含 10 个自做变异体 9 RED / 1 GREEN，
+以及真 uvicorn 下的并发测量：`collect` 睡 2.0s 时 `tiers` **0.004s** 返回，
+而 async 对照组挡住 **1.188s**——§10.29 那条"慢端点必须是 def"的立论被**实测证实**）。
+**三个 MEDIUM 与若干 LOW 是下一步的施工单**（按"静默失效 + 安全"优先）：
+
+- **[MEDIUM] `ks_collect` 对"`data` 里没有 `collected` 字段"不抛**，返回 `collected:false`
+  ——与 §10.28 写明的"抛"**相反**，且会把"引擎信封形状变了/版本不匹配"**谎报成"没采到"**
+  （引擎那边可能**已经登记了** pending 材料）。更糟的是**我的冒烟把相反行为钉住了**
+  （复核按文档加抛后 M7 变红）。⇒ 单列信封异常并抛 + 改冒烟。
+- **[MEDIUM] 采集端点只挡 `source_tier` 一个拼写**：`sourceTier`/`tier`/`review_status`/
+  `origin` 等一律 200 + **静默忽略**——与"响亮拒绝、绝不静默丢弃（`sanitizeParams` 同款坑）"
+  的立论直接冲突（硬门未松动，危害是误导调用方）。⇒ 请求体**白名单**校验（未知键 422），
+  引擎与主机两层都做。
+- **[MEDIUM] `_strip_script_style` 两个方向都留缺口**（21 组边角 5 组异常）：
+  **LEAK** `text/html` 下 `<script src="a.js"/>…</script>`（HTML5 里 `/` 不自闭合，
+  到 `</script>` 之间**是**脚本内容，我却按 XHTML 当自闭合 ⇒ JS 进正文）；
+  **OVERKILL** `<!-- <script> -->`（注释里的脚本标签让我把其后正文**整段吞掉**=丢材料）、
+  `</script foo>`（合法结束标签认不出）、正文里字面 `<script>`。⇒ 先剥 HTML 注释、
+  结束标签放宽为 `</(script|style)\b[^>]*>`、自闭合判定按 **HTML5 语义**（我们收的是 text/html），
+  并**回头改**§10.29 那条按 XHTML 语义写的用例与措辞。
+- **[LOW]** `_content_type_of` 只认已小写的 `content-type` 键（传输层会小写，但替身/未来
+  传输层传混合大小写就**整道白名单被静默跳过**）；会话上限判断在 `ensureLive()` **之后**
+  （超限时仍会拉起引擎）；`harvest.py` 模块头注**过期**（仍称拿不到 Content-Type，
+  属**低报自身能力**）；`looks_like_binary` 的 ASCII 清单少列 3 个；上限数值 `20` 无钉子；
+  `ks_collect` 对硬塞的 `source_tier` 静默忽略；§10.27"三条契约"vs 正文"四条"、
+  §10.26"6 组样本"实为 8 组、§10.26 残留"零误伤"未标更正、§10.27/方案"界面侧已通"
+  **过度声称**（全仓**无任何 GUI 调用** `/ks/materials/collect`）。
+- **[INFO/未覆盖]** 真公网传输（gzip 实解压、`charset=gbk` 中文站、TLS 指纹）仍未验；
+  `HttpxTransport` 因本机 `NO_PROXY` 无法运行时验证（§10.31 的自我更正确认成立）；
+  **当前 DSH 会话的工具表里没有 `ks_collect`/`ks_materials`** ⇒ 宿主插件也要重挂载
+  （复核点出：作者只登记了"引擎需重启"）——**这是"真机可用"的最后一道门**。
+
+**门禁（本步）**：`pytest` **1546 passed / 3 skipped / 0 failed**（主检出；上一步 1540 ⇒ **+6**：
+`test_material_collect` 新增 4 条法规识别用例、`test_material_track_l` 新增 3 条
+（法规入库 / 无名拒绝 / 层级保守），并**替换**掉原来那条"钉住走不通"的用例）；
+`mypy src` **131 files / 0 errors**。本步**零 JS 改动**。

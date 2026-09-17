@@ -203,6 +203,62 @@ class TestTrackL:
         assert m["kind"] == "legal"
 
 
+class TestLawRecognition:
+    """**法规识别**（2026-09-17，Phase C 第八步）：让 Track L 也覆盖法规。
+
+    判据的"第X条"切分复用 `ingestion.law_text.split_law_text`（**不新写第二份正则**），
+    这里钉的是**门槛**与**优先级**——宁可漏认，也不要把新闻或标准当法规。
+    """
+
+    _LAW = ("《中华人民共和国安全生产法》\n"
+            "第一条 为了加强安全生产工作，防止和减少生产安全事故，制定本法。\n"
+            "第二条 在中华人民共和国领域内从事生产经营活动的单位，适用本法。\n"
+            "第三条 安全生产工作坚持中国共产党的领导。\n"
+            "第四条 生产经营单位必须遵守本法和其他有关安全生产的法律法规。\n")
+
+    def test_law_text_is_recognized_with_name_and_clause_count(self, project):
+        pid = project["project_id"]
+        m = co.collect_text(pid, title="中华人民共和国安全生产法", text=self._LAW,
+                            url="https://gov.example/law")
+        assert m["kind"] == "legal"
+        tl = m["track_l"]
+        assert tl["doc_kind"] == "law" and tl["status"] == "pending_review", tl
+        assert tl["law_name"] == "中华人民共和国安全生产法", tl
+        assert tl["clause_count"] == 4, tl
+        # 判级说明必须**如实**写出"层级是我们推断的"（评审人要能看出这一点）
+        assert "法规" in (m["tier_reason"] or "")
+        assert "推断" in (m["tier_reason"] or "")
+
+    def test_direct_recognizer_thresholds(self):
+        """门槛：有法规形态标题 ≥3 条；没有可用标题要 ≥10 条。"""
+        four = "\n".join(f"第{n}条 内容内容内容。" for n in ["一", "二", "三", "四"])
+        assert co.looks_like_law("某办法", four)["is_law"] is True
+        # 标题不形态化 + 只有 4 条 ⇒ 不认（否则会把"引用了一条法条的文章"当法规）
+        assert co.looks_like_law("一篇行业观察", four)["is_law"] is False
+        # 标题不形态化但条数够多 ⇒ 认（采网页常丢标题）
+        many = "\n".join("第一条 内容。" for _ in range(12))
+        r = co.looks_like_law("", many)
+        assert r["is_law"] is True and r["clause_count"] == 12, r
+
+    def test_a_single_clause_citation_is_not_a_law(self, project):
+        """**零误伤方向**：正文里顺口引用一条"第X条"的文章不许被当成法规。"""
+        pid = project["project_id"]
+        m = co.collect_text(pid, title="行业观察",
+                            text="根据《安全生产法》第三条的规定，安全生产工作应当以人为本。"
+                                 "本文讨论该条款在实践中的适用问题。",
+                            url="https://a.example/1")
+        assert m["track_l"] is None and m["kind"] == "other", m
+
+    def test_standard_number_wins_over_law_shape(self, project):
+        """**优先级**：同时像标准与法规时，走**标准**那一支（标准号判据更精确）。"""
+        pid = project["project_id"]
+        body = ("GB 88888-2088 某安全技术规范\n" + self._LAW)
+        m = co.collect_text(pid, title="GB 88888-2088 某安全技术规范", text=body,
+                            url="https://openstd.example/x")
+        assert m["track_l"]["doc_kind"] == "standard", m["track_l"]
+        assert m["track_l"]["standard_no"], m["track_l"]
+
+
 class TestInputValidation:
     def test_blank_title_is_refused(self, project):
         with pytest.raises(ValueError, match="title"):

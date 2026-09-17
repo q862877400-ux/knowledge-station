@@ -372,13 +372,15 @@ class TestImportToLibrary:
         assert "第X条" in (out.get("why") or ""), out
         assert after == before, "切不出条款时不得留下半部文档"
 
-    def test_collected_LAW_text_is_out_of_scope_today(self, project):
-        """**已知边界（钉住，别当 bug 反复"修"）**：Track L 今天只认**标准**。
+    def test_collected_LAW_text_is_now_recognized_and_imported(self, project, law_docs):
+        """**法规正文现在能走通了**（2026-09-17 起）。
 
-        `track_l` 意图来自 `collect.looks_like_standard`，而复用的是 `auto_tag` 的
-        **标准号正则** ⇒ 没有标准号的**法规正文**（`民法典` 那种 `第X条`）**认不出来**
-        ⇒ `plan_import` 返回 `skip`，入库路径根本不会启动。
-        要支持它得先给 `collect` 加法规识别（`law_text.split_law_text` 已有切分能力）。
+        ⚠ 这条替换掉旧测试 `test_collected_LAW_text_is_out_of_scope_today`：
+        当时（C-3）这里钉的是**已知边界**——`track_l` 意图来自 `looks_like_standard`，
+        而复用的是 `auto_tag` 的**标准号正则** ⇒ 没有标准号的法规**认不出来**、
+        `plan_import` 直接 `skip`。现在 `collect.looks_like_law` 补上了那个识别，
+        所以这条从"钉住走不通"改成"钉住走得通"（**旧断言必须跟着改，否则它会变成
+        一条阻止修复的假门**）。
         """
         pid = project["project_id"]
         body = ("中华人民共和国民法典\n" + "第一条 为了保护民事主体的合法权益，制定本法。\n"
@@ -386,8 +388,54 @@ class TestImportToLibrary:
                 "第三条 民事主体的人身权利、财产权利以及其他合法权益受法律保护。")
         m = co.collect_text(pid, title="中华人民共和国民法典(节选)", text=body,
                             url="https://gov.example/law")
-        assert m["track_l"] is None, "法规正文不该被当成标准（当前识别只管标准号）"
+        assert m["kind"] == "legal"
+        assert m["track_l"]["doc_kind"] == "law", m["track_l"]
+        assert m["track_l"]["law_name"] == "中华人民共和国民法典", m["track_l"]
+        # 未批准 ⇒ 仍然 blocked（硬门没有例外）
+        assert tl.plan_import(m["material_id"])["action"] == "blocked"
         mr.set_review(m["material_id"], "approved")
-        plan = tl.plan_import(m["material_id"])
-        assert plan["action"] == "skip"
-        assert tl.import_to_library(m["material_id"])["imported"] is False
+        out = tl.import_to_library(m["material_id"])
+        assert out["imported"] is True, out
+        law_docs.append(out["doc_id"])          # 共享库：测完删干净
+        assert out["doc_kind"] == "law"
+        # 法规口径：`doc_type='法律法规'`、`standard_no` 存**名称**（与既有法规管线一致）
+        row = get_db_connection().execute(
+            "SELECT doc_type, standard_no, legal_hierarchy FROM doc_meta WHERE doc_id=?",
+            (out["doc_id"],)).fetchone()
+        assert row["doc_type"] == "法律法规", dict(row)
+        assert row["standard_no"] == "中华人民共和国民法典", dict(row)
+        assert row["legal_hierarchy"] == "法律", dict(row)      # 以"法"结尾 ⇒ 安全推断
+        assert tl.find_existing_law("《中华人民共和国民法典》") == out["doc_id"]
+        # 再跑一次 ⇒ 既有管线的查重命中 ⇒ 退化为回指，不造第二部
+        again = tl.reconcile(m["material_id"])
+        assert again["action"] == "link" and again["imported"] is False
+
+    def test_import_of_law_without_a_name_refuses_loudly(self, project, monkeypatch):
+        """法规名没取到 ⇒ **拒绝入库**（没有名字就没法在库里认它，宁可不入）。"""
+        pid = project["project_id"]
+        m = co.collect_text(pid, title="某地方规定节选",
+                            text="第一条 为了规范某某行为。\n第二条 适用于本区域。\n第三条 由某部门负责解释。",
+                            url="https://gov.example/x")
+        mr.set_review(m["material_id"], "approved")
+        monkeypatch.setattr(tl, "plan_import", lambda _mid: {
+            "action": "import", "material_id": m["material_id"], "doc_kind": "law",
+            "law_name": None, "why": "（测试构造）"})
+        before = get_db_connection().execute("SELECT count(*) FROM doc_meta").fetchone()[0]
+        out = tl.import_to_library(m["material_id"])
+        after = get_db_connection().execute("SELECT count(*) FROM doc_meta").fetchone()[0]
+        assert out["imported"] is False and "law_name" in out["why"], out
+        assert after == before, "拒绝时必须一份都不写"
+
+    def test_law_hierarchy_is_conservative_and_says_undecided(self):
+        """层级推断**只用不会错的规则**，其余一律 `未定`（**不假装知道位阶**）。
+
+        为什么：判效力层级要看**发行机关**（`条例` 可能是国务院行政法规、也可能是省人大
+        地方性法规），采网页拿不到 ⇒ 猜错就是把错误的位阶写进法规库。
+        """
+        assert tl._law_hierarchy("中华人民共和国安全生产法") == "法律"
+        assert tl._law_hierarchy("最高人民法院关于适用《中华人民共和国民法典》的解释") == "司法解释"
+        # 这些**都**拿不准 ⇒ 未定（既有目录层会自己按名称关键词再兜一层，兜不到显示"未定级"）
+        assert tl._law_hierarchy("危险化学品安全管理条例") == "未定"
+        assert tl._law_hierarchy("XX省安全生产条例") == "未定"
+        assert tl._law_hierarchy("安全生产违法行为行政处罚办法") == "未定"
+        assert tl._law_hierarchy("") == "未定"
