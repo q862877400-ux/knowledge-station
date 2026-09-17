@@ -575,3 +575,17 @@ CREATE INDEX IF NOT EXISTS idx_material_review ON material(review_status);
 CREATE INDEX IF NOT EXISTS idx_material_hash ON material(content_hash);
 CREATE INDEX IF NOT EXISTS idx_material_chunk_mat ON material_chunk(material_id, ord);
 
+-- 材料全文检索（口径与 clause_fts 完全一致：**先 jieba 分词存 segmented 列**，
+-- 再交给 tokenize='ascii' 的 FTS5）。分词实现只有一份
+-- （`text_utils.segment_for_fts`），两条检索线不得各自漂移。
+--
+-- ⚠ 检索**必须**经 `material_repo.search_materials()`：它在 SQL 里 join `material`
+-- 并强制 `review_status='approved'`（评审硬门）。直接查本虚拟表会绕过评审。
+CREATE VIRTUAL TABLE IF NOT EXISTS material_fts USING fts5(
+    chunk_id UNINDEXED,
+    material_id UNINDEXED,
+    title,
+    content_segmented,
+    tokenize = 'ascii'
+);
+

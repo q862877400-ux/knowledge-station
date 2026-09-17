@@ -186,6 +186,94 @@ class TestChunks:
         assert (c["char_start"], c["char_end"]) == (7, 12)
 
 
+# ------------------------------------------------------------------ 检索（硬门 + 引用字段）
+class TestSearch:
+    def _seed(self, pid):
+        m = mr.add_material(pid, "2025年报", origin="user")
+        mr.add_chunks(m["material_id"], [
+            {"text": "公司营业收入为一百亿元，同比增长百分之十。", "char_start": 0,
+             "char_end": 22, "page": 12},
+            {"text": "主要风险：原材料价格波动。", "char_start": 23, "char_end": 38, "page": 30},
+        ])
+        mr.set_review(m["material_id"], "approved")
+        return m
+
+    def test_search_only_returns_approved(self, project):
+        """**硬门写在 SQL 里**：未批准的材料不可能被搜出来。"""
+        pid = project["project_id"]
+        self._seed(pid)                                   # approved
+        pend = mr.add_material(pid, "未批准的研报", origin="collected")
+        mr.add_chunks(pend["material_id"],
+                      [{"text": "公司营业收入为二百亿元，翻倍增长。", "char_start": 0,
+                        "char_end": 20, "page": 1}])
+        hits = mr.search_materials(pid, "营业收入")
+        assert hits, "已批准材料应能搜到"
+        assert {h["material_id"] for h in hits} == {h["material_id"] for h in hits}
+        assert all(h["title"] != "未批准的研报" for h in hits)
+
+    def test_rejected_material_is_not_searchable(self, project):
+        pid = project["project_id"]
+        m = self._seed(pid)
+        mr.set_review(m["material_id"], "rejected")
+        assert mr.search_materials(pid, "营业收入") == []
+
+    def test_search_returns_citation_fields(self, project):
+        """命中的每一项都要带"能标注 + 能点回原文"的字段（可见性硬需求）。"""
+        pid = project["project_id"]
+        self._seed(pid)
+        h = mr.search_materials(pid, "营业收入")[0]
+        for k in ("material_id", "chunk_id", "text", "char_start", "char_end", "page",
+                  "title", "source_tier", "task_role", "tier_label", "role_label"):
+            assert k in h, k
+        assert h["page"] == 12 and h["char_start"] == 0 and h["char_end"] == 22
+        assert h["tier_label"] == mr.TIER_LABELS["T1"]
+        assert h["role_label"] == "未声明效力"
+
+    def test_search_labelling_shows_both_axes(self, project):
+        pid = project["project_id"]
+        m = self._seed(pid)
+        mr.set_task_role(m["material_id"], "criterion")     # 轴 B
+        mr.set_tier(m["material_id"], "T2", source="user", reason="归到权威第三方")
+        h = mr.search_materials(pid, "营业收入")[0]
+        assert h["source_tier"] == "T2" and h["role_label"] == "本任务准则"
+
+    def test_search_is_project_scoped(self, project):
+        """A 项目的材料不该出现在 B 项目的检索结果里。"""
+        other = mr.create_project("另一个项目")
+        self._seed(project["project_id"])
+        assert mr.search_materials(other["project_id"], "营业收入") == []
+
+    def test_search_junk_query_does_not_raise(self, project):
+        self._seed(project["project_id"])
+        assert mr.search_materials(project["project_id"], "") == []
+        # FTS 语法字符不应把提问打崩（无命中优于 500）
+        assert mr.search_materials(project["project_id"], '"(') == []
+
+    def test_limit_respected(self, project):
+        pid = project["project_id"]
+        m = mr.add_material(pid, "多段材料")
+        mr.add_chunks(m["material_id"], [
+            {"text": f"营业收入 第{i}段", "char_start": i * 10, "char_end": i * 10 + 8}
+            for i in range(6)])
+        mr.set_review(m["material_id"], "approved")
+        assert len(mr.search_materials(pid, "营业收入", limit=2)) == 2
+
+
+# ------------------------------------------------------------------ 删除
+class TestDelete:
+    def test_delete_material_removes_chunks_and_index(self, project):
+        pid = project["project_id"]
+        m = mr.add_material(pid, "待删材料")
+        mr.add_chunks(m["material_id"], [{"text": "营业收入一百亿", "char_start": 0,
+                                          "char_end": 7}])
+        mr.set_review(m["material_id"], "approved")
+        assert mr.search_materials(pid, "营业收入")
+        assert mr.delete_material(m["material_id"])
+        assert mr.get_material(m["material_id"]) is None
+        assert mr.chunk_count(m["material_id"]) == 0
+        assert mr.search_materials(pid, "营业收入") == []
+
+
 # ------------------------------------------------------------------ 隔离
 class TestLawChainIsolation:
     def test_material_ops_do_not_touch_law_chain(self, project):

@@ -127,51 +127,54 @@ def chunk_text(text: str, spans: list[tuple[int, int, int]],
                *, max_chars: int = DEFAULT_MAX_CHARS) -> list[dict[str, Any]]:
     """按**段落**聚合成块，保留全文绝对字符区间与页号。
 
-    规则很简单但明确：
-    - 逐行累加；再加一行会超 `max_chars` 就先落一块（**不**跨越超限）；
+    **不变量（最强口径）**：`text[块.char_start:块.char_end] == 块.text`，**逐字相等**
+    （不是"去掉空白后相等"）。做法是**从原文切片**得到块文本，而不是把行 `join` 回去——
+    2026-09-17 被 Phase A 验收测试抓到：跨页块原先用 `"\\n".join(...)` 重建，而规范全文的
+    页间分隔是 `"\\n\\n"`，于是块文本与区间**对不上**（这正是"引用点回原文"会失真的地方）。
+
+    规则：
+    - 逐行累加；再加一行会超 `max_chars` 就先落一块（**不跨越超限**）；
     - 单行本身超 `max_chars` 时**硬切**（否则一行几万字的材料只出一块，检索粒度退化）；
-    - 空行只是分隔符，不进块内容（但**不改变**已记录区间——区间是对全文的绝对偏移）。
+    - 空行只是分隔符（不进块首尾），但**块区间内的原始分隔符原样保留**。
     """
     blocks: list[dict[str, Any]] = []
     if not text.strip():
         return blocks
 
-    def flush(buf: list[str], start: int, end: int) -> None:
-        body = "\n".join(buf).strip()
-        if body:
-            blocks.append({"text": body, "char_start": start, "char_end": end,
-                           "page": page_of(start, spans)})
+    def emit(start: int, end: int) -> None:
+        """把 `[start,end)` 这段原文落成一块；区间收紧到 strip 后的实际内容。"""
+        raw = text[start:end]
+        body = raw.strip()
+        if not body:
+            return
+        lead = len(raw) - len(raw.lstrip())
+        s = start + lead
+        blocks.append({"text": body, "char_start": s, "char_end": s + len(body),
+                       "page": page_of(s, spans)})
 
-    buf: list[str] = []
-    buf_start = 0
+    lines: list[tuple[int, int]] = []       # 当前缓冲里各非空行的 (start, end)
     cursor = 0
     for raw_line in text.split("\n"):
-        line_len = len(raw_line)
-        line_start, line_end = cursor, cursor + line_len
-        cursor = line_end + 1  # +1 吃掉换行符
+        line_start, line_end = cursor, cursor + len(raw_line)
+        cursor = line_end + 1               # +1 吃掉换行符
         if not raw_line.strip():
             continue
-        # 超长单行：先落掉手上的，再硬切成 max_chars 段
-        if line_len > max_chars:
-            flush(buf, buf_start, line_start)
-            buf = []
+        if len(raw_line) > max_chars:       # 超长单行：先落缓冲，再硬切
+            if lines:
+                emit(lines[0][0], lines[-1][1])
+                lines = []
             off = line_start
             while off < line_end:
                 seg_end = min(off + max_chars, line_end)
-                blocks.append({"text": raw_line[off - line_start:seg_end - line_start],
-                               "char_start": off, "char_end": seg_end,
-                               "page": page_of(off, spans)})
+                emit(off, seg_end)
                 off = seg_end
-            buf_start = cursor
             continue
-        if buf and (line_end - buf_start) > max_chars:
-            flush(buf, buf_start, line_start - 1 if line_start else 0)
-            buf = []
-            buf_start = line_start
-        if not buf:
-            buf_start = line_start
-        buf.append(raw_line)
-    flush(buf, buf_start, len(text))
+        if lines and (line_end - lines[0][0]) > max_chars:
+            emit(lines[0][0], lines[-1][1])
+            lines = []
+        lines.append((line_start, line_end))
+    if lines:
+        emit(lines[0][0], lines[-1][1])
     return blocks
 
 

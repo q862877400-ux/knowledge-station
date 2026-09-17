@@ -16,8 +16,10 @@ Track L（采到库内没有的法规标准）评审通过后仍走既有 ingest
 故这里**不提供**任何"按一个分数排序材料"的函数。
 
 ## 评审是**硬门**，不是提示
-`approved_materials()` 是检索/分析的**唯一入口**（只返回 `review_status='approved'`）。
-凡是要"给分析用的材料列表"的调用方都必须用它，不得自己拼 `list_materials()` 再过滤。
+`approved_materials()` 与 `search_materials()` 是检索/分析的**唯一入口**
+（前者的 SQL 只返回 `review_status='approved'`，后者把该条件**写死在 JOIN 里**）。
+凡是要"给分析用的材料"的调用方都必须经它们，不得自己拼 `list_materials()` 再过滤
+—— 分散判据早晚会分叉，而分叉的后果是把没批准的材料当依据。
 """
 from __future__ import annotations
 
@@ -243,12 +245,15 @@ def link_doc(material_id: str, doc_id: str) -> bool:
 
 # --------------------------------------------------------------------- 切片
 def add_chunks(material_id: str, chunks: list[dict[str, Any]]) -> int:
-    """写入切片。每片须含 `text` / `char_start` / `char_end`（可选 `page`）。
+    """写入切片（并同步 `material_fts`）。每片须含 `text` / `char_start` / `char_end`（可选 `page`）。
 
     字符区间是**引用可点回原文位置**的基础（与法条链 source_span 同精神）：
     没有区间就没法把结论指回材料的哪个位置，那就不算"按我们的流程引用"。
     """
+    from src.core.text_utils import segment_for_fts
+    mat = get_material(material_id)
     rows = []
+    fts_rows = []
     for i, c in enumerate(chunks):
         text = str(c.get("text") or "")
         # 空白片（含只有空格的）一律不入库：它们没有内容，进了检索只会稀释结果。
@@ -257,15 +262,69 @@ def add_chunks(material_id: str, chunks: list[dict[str, Any]]) -> int:
             continue
         cs = int(c.get("char_start", 0))
         ce = int(c.get("char_end", cs + len(text)))
-        rows.append((f"mch_{ULID()}", material_id, int(c.get("ord", i)), text, cs, ce,
-                     c.get("page")))
+        cid = f"mch_{ULID()}"
+        rows.append((cid, material_id, int(c.get("ord", i)), text, cs, ce, c.get("page")))
+        fts_rows.append((cid, material_id, (mat or {}).get("title") or "",
+                         segment_for_fts(text)))
     if not rows:
         return 0
     with write_transaction() as conn:
         conn.executemany(
             "INSERT INTO material_chunk(chunk_id, material_id, ord, text, char_start,"
             " char_end, page) VALUES (?,?,?,?,?,?,?)", rows)
+        conn.executemany(
+            "INSERT INTO material_fts(chunk_id, material_id, title, content_segmented)"
+            " VALUES (?,?,?,?)", fts_rows)
     return len(rows)
+
+
+def search_materials(project_id: str, query: str, *, limit: int = 8) -> list[dict[str, Any]]:
+    """在**已批准**材料里做全文检索，返回带**引用所需字段**的命中。
+
+    **评审硬门写死在 SQL 里**：`JOIN material ... AND review_status='approved'`。
+    这样即使调用方忘了过滤，也**拿不到未批准的材料**——硬门不能靠"调用方记得"。
+
+    返回每项含：切片文本与字符区间、页号、材料标题/来源/层级（轴 A）/任务效力（轴 B）。
+    这些字段就是产出物里那条引用要显示与"点回原文"的全部依据（可见性硬需求）。
+    """
+    from src.core.text_utils import segment_for_fts
+    q = segment_for_fts(query)
+    if not q.strip():
+        return []
+    conn = get_db_connection()
+    try:
+        rows = conn.execute(
+            "SELECT c.chunk_id, c.material_id, c.text, c.char_start, c.char_end, c.page,"
+            "       m.title, m.url, m.domain, m.source_tier, m.tier_source, m.task_role,"
+            "       m.origin, m.kind, m.doc_id,"
+            "       bm25(material_fts) AS score"
+            " FROM material_fts"
+            " JOIN material_chunk c ON c.chunk_id = material_fts.chunk_id"
+            " JOIN material m ON m.material_id = c.material_id"
+            " WHERE material_fts MATCH ? AND m.project_id = ? AND m.review_status = 'approved'"
+            " ORDER BY score LIMIT ?", (q, project_id, int(limit))).fetchall()
+    except Exception:  # noqa: BLE001 — FTS 语法异常不该把提问打崩（无命中优于报错）
+        return []
+    return [{"chunk_id": r[0], "material_id": r[1], "text": r[2],
+             "char_start": r[3], "char_end": r[4], "page": r[5],
+             "title": r[6], "url": r[7], "domain": r[8],
+             "source_tier": r[9], "tier_source": r[10], "task_role": r[11],
+             "origin": r[12], "kind": r[13], "doc_id": r[14],
+             "score": r[15],
+             # 引用标注（把两个轴**同时**摆出来，别让读者以为只有一个"可信度"）
+             "tier_label": TIER_LABELS.get(r[9], r[9]),
+             "role_label": ("本任务准则" if r[11] == "criterion"
+                            else "参考" if r[11] == "reference" else "未声明效力")}
+            for r in rows]
+
+
+def delete_material(material_id: str) -> bool:
+    """删除材料（连同切片与检索索引）。**只动材料平面**，不碰法条链。"""
+    with write_transaction() as conn:
+        conn.execute("DELETE FROM material_fts WHERE material_id=?", (material_id,))
+        conn.execute("DELETE FROM material_chunk WHERE material_id=?", (material_id,))
+        cur = conn.execute("DELETE FROM material WHERE material_id=?", (material_id,))
+    return cur.rowcount > 0
 
 
 def material_chunks(material_id: str) -> list[dict[str, Any]]:

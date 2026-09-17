@@ -48,7 +48,10 @@ def _make_pdf(p: Path, pages: list[str]) -> Path:
 # ------------------------------------------------------------------ 切片算法
 class TestChunking:
     def test_offsets_round_trip_exactly(self):
-        """**保真不变量**：全文[块.start:块.end] 必须逐字等于块文本（去掉首尾空白后）。"""
+        """**保真不变量（最强口径）**：全文[块.start:块.end] **逐字**等于块文本。
+
+        不用 `.strip()` 兜底——区间必须**收紧到实际内容**，否则"引用点回原文"会有偏差。
+        """
         text = ("第一段：营业收入 100 亿元。\n"
                 "第二段：净利润 10 亿元。\n"
                 "\n"
@@ -57,7 +60,16 @@ class TestChunking:
         chunks = mi.chunk_text(text, spans, max_chars=40)
         assert chunks, "应至少切出一块"
         for c in chunks:
-            assert text[c["char_start"]:c["char_end"]].strip() == c["text"]
+            assert text[c["char_start"]:c["char_end"]] == c["text"]
+
+    def test_chunk_spanning_blank_line_keeps_original_separators(self):
+        """跨空行/跨页的块必须**原样保留**原文分隔符（2026-09-17 被验收测试抓到的 bug：
+        原先用 `"\\n".join(行)` 重建，把页间的 `"\\n\\n"` 压成了 `"\\n"` ⇒ 区间对不上）。"""
+        text = "甲段\n\n乙段"
+        chunks = mi.chunk_text(text, [(0, len(text), 1)], max_chars=1000)
+        assert len(chunks) == 1
+        assert chunks[0]["text"] == text            # 含空行本身
+        assert text[chunks[0]["char_start"]:chunks[0]["char_end"]] == chunks[0]["text"]
 
     def test_short_lines_pack_into_one_chunk(self):
         text = "\n".join(f"第{i}行内容" for i in range(5))
@@ -71,7 +83,7 @@ class TestChunking:
         for c in chunks:
             # 允许单行本身超限时硬切的段，故只断言"没有把多段无脑堆到远超上限"
             assert len(c["text"]) <= max(60, len(max(text.split("\n"), key=len)))
-            assert text[c["char_start"]:c["char_end"]].strip() == c["text"]
+            assert text[c["char_start"]:c["char_end"]] == c["text"]
 
     def test_overlong_single_line_is_hard_split(self):
         text = "甲" * 250
@@ -136,7 +148,7 @@ class TestIngest:
         pages = mi.extract_pages(Path(m["raw_path"]))
         text, spans = mi.build_document(pages)
         for c in mr.material_chunks(m["material_id"]):
-            assert text[c["char_start"]:c["char_end"]].strip() == c["text"]
+            assert text[c["char_start"]:c["char_end"]] == c["text"]
 
     def test_title_strips_duplicate_suffix(self, project, tmp_path):
         p = _make_txt(tmp_path / "年报(1).txt", "内容")
@@ -216,3 +228,66 @@ class TestIngest:
         m = mr.list_materials(pid)[0]
         mr.set_review(m["material_id"], "approved", note="看过")
         assert [x["material_id"] for x in mr.approved_materials(pid)] == [m["material_id"]]
+
+
+# ------------------------------------------------------------------ Phase A 验收
+class TestPhaseAAcceptance:
+    """方案 §9 的 Phase A 验收：**放一份 PDF → 评审通过 → 提问 → 引用能点回该 PDF 的位置**。
+
+    这条把"平面"的四个部件串起来跑一遍（收件 → 切片 → 评审硬门 → 检索 → 引用字段），
+    并逐字验证"点回原文"是真的：用引用里的 `char_start/char_end` 在**重新解析出的全文**上
+    取回文本，必须与命中切片一致；`page` 必须落在该 PDF 的真实页上。
+    """
+
+    def test_pdf_gate_search_and_citation_point_back(self, project):
+        pid = project["project_id"]
+        d = mr.materials_dir(pid)
+        _make_pdf(d / "年度报告.pdf", ["营业收入为一百亿元", "净利润为十亿元"])
+
+        # ① 收件：进材料平面，默认 pending
+        ingested = mi.ingest_project_dir(pid)
+        # 成功项不带 "status" 键（只有失败项才有 status="error"）——故用 .get
+        assert len(ingested) == 1 and ingested[0].get("status") != "error"
+        mid = ingested[0]["material_id"]
+        assert mr.approved_materials(pid) == []
+
+        # ② 未批准时**搜不到**（硬门）
+        assert mr.search_materials(pid, "营业收入") == []
+
+        # ③ 评审通过
+        assert mr.set_review(mid, "approved", note="核对过原件")
+
+        # ④ 提问式检索：能命中，且字段足够标注
+        hits = mr.search_materials(pid, "营业收入")
+        assert hits, "批准后应能检索到"
+        h = hits[0]
+        assert h["material_id"] == mid
+        assert h["title"] == "年度报告"
+        assert h["page"] == 1                       # 该 PDF 第 1 页
+        assert h["tier_label"] == mr.TIER_LABELS["T1"]
+
+        # ⑤ **点回原文位置是真的**：用引用区间在重新解析的全文上取回同一段文本
+        pages = mi.extract_pages(Path(mr.get_material(mid)["raw_path"]))
+        text, spans = mi.build_document(pages)
+        assert text[h["char_start"]:h["char_end"]].strip() == h["text"]
+        assert mi.page_of(h["char_start"], spans) == h["page"]
+
+    def test_scan_pdf_needs_explicit_deep_and_is_flagged(self, project):
+        """扫描件（无文本层）在**默认不外发**下拿不到内容 —— 但材料仍登记并如实标注。
+
+        这就是"既不假装可用、也不悄悄丢掉"的端到端体现。
+        """
+        import fitz
+        pid = project["project_id"]
+        d = mr.materials_dir(pid)
+        doc = fitz.open()
+        doc.new_page()
+        doc.save(str(d / "扫描件.pdf"))
+        doc.close()
+        out = mi.ingest_project_dir(pid)[0]
+        assert out["chunk_count"] == 0
+        assert "扫描件" in (out["tier_reason"] or "")
+        mr.set_review(out["material_id"], "approved")
+        # 没有切片 ⇒ 即使批准了也搜不到内容（不是把空内容当依据）
+        assert mr.search_materials(pid, "营业收入") == []
+

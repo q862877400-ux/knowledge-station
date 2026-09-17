@@ -123,8 +123,13 @@ def _ensure_content_hash_once() -> None:
 
 
 def _seg(text: str) -> str:
-    import jieba
-    return " ".join(w.strip() for w in jieba.cut_for_search(text or "") if w.strip())
+    """FTS 分词：**委托给 text_utils 的唯一实现**（2026-09-17）。
+
+    保留这个私有名只是为了不动既有调用点；实现只有一份，`material_fts` 用同一个函数
+    ——否则法条与材料两条检索线会各自漂移（同一句话一边搜得到一边搜不到）。
+    """
+    from src.core.text_utils import segment_for_fts
+    return segment_for_fts(text)
 
 
 def insert_document(conn: sqlite3.Connection, doc: dict[str, Any]) -> None:

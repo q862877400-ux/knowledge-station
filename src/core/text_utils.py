@@ -1308,6 +1308,20 @@ def standard_key(s: str | None) -> str:
     return f"{m.group(1)}-{m.group(2)}" if m else c
 
 
+def segment_for_fts(text: str | None) -> str:
+    """FTS 用的**唯一**分词实现：jieba `cut_for_search` + 空格连接。
+
+    为什么集中在这里（2026-09-17）：`clause_fts` 与新建的 `material_fts` 都靠
+    "先分词、再交给 `tokenize='ascii'` 的 FTS5"这条口径。**只要出现第二份实现，
+    两条检索线早晚会分叉**（分叉了就是"同一句话在法条里搜得到、在材料里搜不到"这种
+    最难查的 bug）。故 clause 侧原有的私有 `_seg` 改为委托本函数。
+
+    jieba 首次导入较慢（要建词典），故**函数内延迟导入**——不要提到模块顶层。
+    """
+    import jieba
+    return " ".join(w.strip() for w in jieba.cut_for_search(text or "") if w.strip())
+
+
 #: 「副本后缀」：浏览器/资源管理器重复下载产生的 `xxx(1).pdf` / `xxx（2）.pdf`。
 #:
 #: ⚠ **只吃结尾**的 `(数字)`（半角/全角括号都算），**不吃中间的**——库内大量**合法**
