@@ -523,34 +523,75 @@ def test_derive_standard_keeps_cleaned_name():
 
 
 # ========== 采集入口的"这不是文本"判据（2026-09-17，harvest 接线实测）==========
-def test_looks_like_binary_on_real_container_heads():
-    """已知容器签名一律认出（PDF 是最常见的那个：政府网站直接给附件）。"""
+#: 一张**真实**的 1×1 PNG（与 test_material_harvest.py 用同一份字节）。
+_PNG = bytes.fromhex(
+    "89504e470d0a1a0a0000000d49484452000000010000000108060000001f15c4"
+    "890000000a4944415478da6360000002000154a24f6f0000000049454e44ae426082")
+
+
+def test_looks_like_binary_bytes_is_the_real_byte_path():
+    """**字节**入口才认得出 PNG/JPEG（文本入口那些签名是死分支）。
+
+    独立复核 2026-09-17 的 REFUTED：真实传输把响应解成 `str` 时，非 UTF-8 首字节
+    已经变成 U+FFFD ⇒ `'\\x89PNG'` 那个分支在**文本路径**上永远命中不了。
+    所以采集器现在两条都走：字节走本函数，文本走下一个函数。
+    """
+    from src.core.text_utils import looks_like_binary_bytes as f
+    assert f(_PNG) is True
+    assert f(b"%PDF-1.7\n%\xe2\xe3\xcf\xd3") is True
+    assert f(b"PK\x03\x04\x14\x00") is True
+    assert f(b"\xff\xd8\xff\xe0") is True
+    assert f(b"\x7fELF\x02\x01") is True
+    assert f(b"\xd0\xcf\x11\xe0\xa1\xb1") is True
+    assert f(b"\x00\x01\x02") is True, "含 NUL 的裸字节不是正文"
+    assert f("住宿标准每晚不超过八百元。".encode()) is False
+    assert f(b"   \n%PDF-1.7") is True, "前导空白不该骗过判据"
+    assert f(b"") is False and f(None) is False
+
+
+def test_looks_like_binary_bytes_only_reads_the_head():
+    """签名必须在**开头**；正文中间出现不算（保守：宁可漏）。
+    且 NUL 只在开头 4096 字节内才算。"""
+    from src.core.text_utils import looks_like_binary_bytes as f
+    assert f(b"see below\n%PDF-1.7") is False
+    assert f(b"x" * 3000 + b"\x00") is True
+    assert f(b"x" * 5000 + b"\x00") is False
+
+
+def test_looks_like_binary_text_path_reaches_only_ascii_heads_and_nul():
+    """**文本**入口的诚实边界（复核指出原测试制造了假信心）。
+
+    这条**不**断言"PNG 文本能被认出"（那在生产路径上做不到），而是钉住：
+    文本入口真正承重的是 **ASCII 签名 + NUL**；PNG/JPEG 那几条在真传输下拿不到
+    （`errors='replace'` 会先把首字节换成 U+FFFD）。同时把**误伤面**写进断言。
+    """
     from src.core.text_utils import looks_like_binary as f
+    # ASCII 签名（真传输能产生的形态）
     assert f("%PDF-1.7\n%âãÏÓ") is True
     assert f("   \n\t%PDF-1.4 x") is True, "前导空白不该骗过判据"
-    assert f("PK\x03\x04\x14\x00") is True          # docx/xlsx/odt
-    assert f("\x89PNG\r\n\x1a\n") is True
-    assert f("GIF89a\x01\x00") is True
-    assert f("\xff\xd8\xff\xe0") is True            # JPEG
-    assert f("\x7fELF\x02\x01") is True
-    assert f("%!PS-Adobe-3.0") is True
+    assert f("PK\x03\x04\x14\x00") is True
     assert f("a\x00b") is True, "含 NUL 的一律不是正文"
-    # NUL 只在**开头 4096** 内才算（判据是"整篇像二进制"，不是"全文扫描"）
     assert f("正常正文" + "x" * 3000 + "\x00") is True
     assert f("正常正文" + "x" * 5000 + "\x00") is False
-
-
-def test_looks_like_binary_does_not_eat_real_text():
-    """**零误伤**比认全更重要：这判据挡在唯一的采集门上，误判=丢材料。"""
-    from src.core.text_utils import looks_like_binary as f
+    # 正常文本零误伤
     assert f("关于住宿标准的通知\n住宿标准每晚不超过八百元。") is False
     assert f("<html><body>正文</body></html>") is False
     assert f("") is False and f(None) is False and f("   \n  ") is False
-    # 正文里**提到**这些词（不带签名字节）不算
     assert f("本文件为 PDF 格式，请用阅读器打开。") is False
-    assert f("附件：PK 压缩包说明") is False
-    # 签名必须在**开头**：中间出现不算（把它想成"整篇都是二进制"的保守判据）
-    assert f("说明见下\n%PDF-1.7\n") is False
-    # 控制字符之外的白名单：制表/换行/回车/换页都不是"NUL"
+    assert f("说明见下\n%PDF-1.7\n") is False, "签名必须在开头"
     assert f("第一行\t第二行\r\n第三行\f") is False
+
+
+def test_looks_like_binary_known_false_positives_are_documented():
+    """**已知误伤**（复核 2026-09-17 的 LOW）：不再声称"零误伤"，而是把它们钉成事实。
+
+    这些输入是**真文本**，但会被判成二进制而**被采集门拒收**（= 丢材料）。
+    取舍见 `looks_like_binary` 的 docstring：采集路径上"把二进制当正文"的后果更坏。
+    钉住这些行为，是为了让以后"放宽判据"的决定有据可依（而不是被当成 bug 顺手改掉）。
+    """
+    from src.core.text_utils import looks_like_binary as f
+    assert f("%PDF- 是一种文件格式的开头标志，本文讲解它的结构。") is True
+    assert f("%!PS-Adobe-3.0\n%%Title: 纯文本的 PostScript 源码") is True
+    assert f("a,b\nc\x00d") is True
+
 

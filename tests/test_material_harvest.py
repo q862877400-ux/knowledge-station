@@ -33,23 +33,52 @@ def project(db):
     return mr.create_project("采集器测试")
 
 
+#: 一张**真实**的 PNG（1×1）：用来证明"真实字节"的 magic 判据真的在工作
+#: （`errors='replace'` 之后 PNG 的签名在文本里根本不存在——复核的 REFUTED 那条）。
+PNG_BYTES = bytes.fromhex(
+    "89504e470d0a1a0a0000000d49484452000000010000000108060000001f15c4"
+    "890000000a4944415478da6360000002000154a24f6f0000000049454e44ae426082")
+
+#: 假 PDF（ASCII 头 + 正文）：Content-Type 与字节两条路径都能认出它。
+PDF_BYTES = b"%PDF-1.7\n1 0 obj\n<< /Type /Catalog >>\nstream\nendstream\nendobj\n"
+
+
 @pytest.fixture()
 def site():
-    """极简本地站点：/ok 正常页、/boom 500、/empty 空正文、/pdf 二进制、/json JSON。"""
+    """极简本地站点：正常页 / 各种"不是网页正文"的形态 / 302 / 无 Content-Type。"""
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, *a):  # 静音
             return
+
         def do_GET(self):  # noqa: N802
+            omit_ctype = False
             if self.path == "/ok":
                 body, ctype, code = PAGE.encode("utf-8"), "text/html; charset=utf-8", 200
+            elif self.path == "/plain":
+                body, ctype, code = "住宿标准每晚不超过八百元。".encode(), \
+                    "text/plain; charset=utf-8", 200
+            elif self.path == "/nomime":
+                # 服务端**没给** Content-Type：白名单放行（None），由字节/文本判据兜底。
+                body, ctype, code, omit_ctype = PAGE.encode("utf-8"), "", 200, True
             elif self.path == "/boom":
                 body, ctype, code = b"err", "text/plain", 500
             elif self.path == "/empty":
                 body, ctype, code = b"<html><body>   </body></html>", "text/html", 200
             elif self.path == "/pdf":
-                body, ctype, code = b"%PDF-1.7 not really", "application/pdf", 200
+                body, ctype, code = PDF_BYTES, "application/pdf", 200
+            elif self.path == "/pdf-mislabeled":
+                # Content-Type 撒谎说自己是 html：只能靠**真实字节**认出来。
+                body, ctype, code = PDF_BYTES, "text/html; charset=utf-8", 200
+            elif self.path == "/png-mislabeled":
+                body, ctype, code = PNG_BYTES, "text/html; charset=utf-8", 200
+            elif self.path == "/js":
+                body, ctype, code = b"var x = 1; console.log('hi');", "application/javascript", 200
+            elif self.path == "/css":
+                body, ctype, code = b".a { color: red }", "text/css", 200
             elif self.path == "/json":
                 body, ctype, code = b'{"a": 1}', "application/json", 200
+            elif self.path == "/jsonstr":
+                body, ctype, code = b'"just a string"', "application/json", 200
             elif self.path == "/redir":
                 # 302 → **内网**地址：独立复核实测"跟随重定向"会真的连上 169.254.169.254。
                 # 这里用它证明**没有**跟随（拿到的是 302 本身）。
@@ -64,7 +93,8 @@ def site():
             else:
                 body, ctype, code = b"nope", "text/plain", 404
             self.send_response(code)
-            self.send_header("Content-Type", ctype)
+            if not omit_ctype:
+                self.send_header("Content-Type", ctype)
             self.send_header("Content-Length", str(len(body)))
             self.end_headers()
             self.wfile.write(body)
@@ -74,6 +104,27 @@ def site():
     t.start()
     yield f"http://127.0.0.1:{srv.server_address[1]}"
     srv.shutdown()
+
+
+def page_transport(fn=None, *, ctype="text/html; charset=utf-8", raw=None):
+    """把 `fn(url, **kw) -> (status, text)` 包成一个**最小 transport 替身**。
+
+    ⚠ 采集走的是 `fetch_page`（一次请求要回 status/headers/text/raw 四样）——
+    替身也必须实现它：合约是**严格**的，没有 `fetch_page` 的 transport 会被如实拒绝
+    （那条本身有专门用例）。想造"旧式替身"就只写 `fetch`。
+    """
+    class T:
+        def fetch_page(self, url, **kw):
+            assert kw.get("allow_redirects") is False, "采集必须显式不跟随重定向"
+            if fn is None:
+                status, text = 200, PAGE
+            else:
+                status, text = fn(url, **kw)
+            data = raw if raw is not None else text.encode("utf-8")
+            return status, {"content-type": ctype} if ctype else {}, text, data
+
+    return T()
+
 
 
 @pytest.fixture()
@@ -164,23 +215,98 @@ class TestHappyPath:
 
     def test_injected_transport_is_used(self, project, allow_local):
         """不需要真网络：注入一个假 transport 就能测通路。"""
-        class Fake:
-            def __init__(self): self.seen = []
-            def fetch(self, url, **_kw):
-                self.seen.append(url)
-                return 200, "<html><title>T</title><body>正文内容足够长。</body></html>"
-        fake = Fake()
-        out = hv.collect_url(project["project_id"], "https://news.example/a", transport=fake)
-        assert fake.seen == ["https://news.example/a"]
+        seen: list[str] = []
+        tp = page_transport(lambda url, **_kw: (seen.append(url), (200, PAGE))[1])
+        out = hv.collect_url(project["project_id"], "https://news.example/a", transport=tp)
+        assert seen == ["https://news.example/a"]
         assert out["collected"] is True
+
+    def test_content_type_is_recorded_for_the_reviewer(self, project, site, allow_local):
+        """Content-Type 进 `tier_reason`：判据**可见**，评审人能自己复核白名单判得对不对。"""
+        out = hv.collect_url(project["project_id"], f"{site}/ok")
+        assert "Content-Type: text/html" in (out["material"]["tier_reason"] or "")
+
+    def test_missing_content_type_is_stated_honestly(self, project, site, allow_local):
+        """服务端没给 Content-Type ⇒ 放行，但**如实写明"未给"**（不是假装检查过）。"""
+        out = hv.collect_url(project["project_id"], f"{site}/nomime")
+        assert out["collected"] is True, out
+        assert "服务端未给 Content-Type" in (out["material"]["tier_reason"] or "")
+
+    def test_text_plain_page_is_accepted(self, project, site, allow_local):
+        """纯文本通知（`text/plain`）是**合法**的资料来源，白名单必须放它。"""
+        out = hv.collect_url(project["project_id"], f"{site}/plain")
+        assert out["collected"] is True, out
+        body = "\n".join(c["text"] for c in mr.material_chunks(out["material"]["material_id"]))
+        assert "住宿标准" in body
+
+
+class TestNotAPageIsRefused:
+    """**独立复核 2026-09-17 的 MEDIUM**：以前 JS/CSS/JSON 接口会被当成网页正文登记。
+
+    复核实测 11 条样本里 9 条溜过去。现在两条判据挡住它们：
+    ① **Content-Type 白名单**（响应头，不是猜）；② **真实字节**的 magic
+    （`errors='replace'` 之后的文本里 PNG/JPEG 的签名根本不存在 —— 复核的 REFUTED 那条）。
+    """
+
+    @pytest.mark.parametrize("path,needle", [
+        ("/js", "不是网页正文"),
+        ("/css", "不是网页正文"),
+        ("/json", "不是网页正文"),
+        ("/jsonstr", "不是网页正文"),
+        ("/pdf", "不是网页正文"),            # application/pdf：白名单挡
+    ])
+    def test_non_page_content_types_are_refused(self, path, needle, project, site, allow_local):
+        out = hv.collect_url(project["project_id"], f"{site}{path}")
+        assert out["collected"] is False, out
+        assert needle in out["reason"], out
+        assert mr.list_materials(project["project_id"]) == []
+
+    def test_real_bytes_gate_catches_a_mislabeled_png(self, project, site, allow_local):
+        """**Content-Type 撒谎说自己是 html**：只有真实字节能认出 PNG。
+
+        这条正是复核 REFUTED 的那件事：文本路径上 `\\x89PNG` **永远**不出现
+        （首字节被 `errors='replace'` 换成 U+FFFD），所以以前这条能**注册成材料**。
+        """
+        out = hv.collect_url(project["project_id"], f"{site}/png-mislabeled")
+        assert out["collected"] is False, out
+        assert "真实字节" in out["reason"], out
+        assert mr.list_materials(project["project_id"]) == []
+
+    def test_real_bytes_gate_catches_a_mislabeled_pdf(self, project, site, allow_local):
+        out = hv.collect_url(project["project_id"], f"{site}/pdf-mislabeled")
+        assert out["collected"] is False, out
+        assert "真实字节" in out["reason"], out
+
+    def test_the_type_gate_is_not_bypassed_by_a_title(self, project, site, allow_local):
+        """调用方给了 title 也不能让"不是网页"的东西变成材料（标题不是通行证）。"""
+        out = hv.collect_url(project["project_id"], f"{site}/js", title="看起来很正规的通知")
+        assert out["collected"] is False and mr.list_materials(project["project_id"]) == []
+
+
+class TestTransportContractIsStrict:
+    def test_transport_without_fetch_page_is_refused_loudly(self, project, allow_local):
+        """**严格**契约：只有 `fetch`（拿不到 Content-Type/真实字节）的 transport ⇒ 拒绝。
+
+        为什么不"退回 fetch 继续登记"：那等于**在不知道响应是什么的情况下**把材料
+        送进评审队列——正是复核报的那条 MEDIUM。宁可抓不到，也不静默降级。
+        """
+        class Legacy:
+            def fetch(self, url, **_kw):
+                return 200, PAGE
+        out = hv.collect_url(project["project_id"], "https://news.example/a",
+                             transport=Legacy())
+        assert out["collected"] is False
+        assert "fetch_page" in out["reason"] and "抓取失败" in out["reason"], out
+        assert mr.list_materials(project["project_id"]) == []
+
 
 
 class TestFailsLoudlyAndRegistersNothing:
     @pytest.mark.parametrize("path,needle", [
         ("/boom", "HTTP 500"),
         ("/empty", "没有可提取的正文"),
-        ("/pdf", "不是文本"),
-        ("/json", "不是文本"),
+        ("/pdf", "不是网页正文"),
+        ("/json", "不是网页正文"),
     ])
     def test_bad_responses_do_not_create_material(self, path, needle, project, site, allow_local):
         out = hv.collect_url(project["project_id"], f"{site}{path}")
@@ -189,10 +315,11 @@ class TestFailsLoudlyAndRegistersNothing:
         assert mr.list_materials(project["project_id"]) == [], "失败不得留下材料"
 
     def test_transport_exception_is_reported_not_raised(self, project, allow_local):
-        class Boom:
-            def fetch(self, url, **_kw):
-                raise TimeoutError("模拟超时")
-        out = hv.collect_url(project["project_id"], "https://news.example/a", transport=Boom())
+        def boom(_url, **_kw):
+            raise TimeoutError("模拟超时")
+
+        out = hv.collect_url(project["project_id"], "https://news.example/a",
+                             transport=page_transport(boom))
         assert out["collected"] is False and "抓取失败" in out["reason"]
         assert mr.list_materials(project["project_id"]) == []
 
@@ -205,12 +332,8 @@ class TestTruncation:
     def test_long_page_is_truncated_and_says_so(self, project, allow_local, monkeypatch):
         monkeypatch.setattr(hv, "MAX_TEXT_CHARS", 120)
         long_body = "<html><title>长文</title><body>" + ("住宿标准" * 200) + "</body></html>"
-
-        class Big:
-            def fetch(self, url, **_kw):
-                return 200, long_body
         out = hv.collect_url(project["project_id"], "https://news.example/long",
-                             transport=Big())
+                             transport=page_transport(lambda _u, **_k: (200, long_body)))
         assert out["collected"] is True and out["truncated"] is True
         assert "截断" in (out["material"]["tier_reason"] or "")
         body = "\n".join(c["text"] for c in mr.material_chunks(out["material"]["material_id"]))
@@ -293,12 +416,14 @@ class TestRedirectsAreNotFollowed:
     """
 
     def test_contract_forwards_allow_redirects_false(self, project, allow_local):
+        """`allow_redirects=False` 是**承重**的（`page_transport` 内部就断言了这一点，
+        这条再用一个显式记录的替身把实参留下来给报告看）。"""
         seen: list[dict] = []
 
         class Fake:
-            def fetch(self, url, **kw):
+            def fetch_page(self, url, **kw):
                 seen.append({"url": url, **kw})
-                return 200, "<html><body>正文内容足够长。</body></html>"
+                return 200, {"content-type": "text/html"}, PAGE, PAGE.encode("utf-8")
 
         out = hv.collect_url(project["project_id"], "https://news.example/a", transport=Fake())
         assert out["collected"] is True
@@ -308,15 +433,14 @@ class TestRedirectsAreNotFollowed:
     def test_http_is_retried_on_https_same_host(self, project, allow_local):
         seen: list[str] = []
 
-        class Fake:
-            def fetch(self, url, **kw):
-                seen.append(url)
-                if url.startswith("http://"):
-                    return 302, ""
-                return 200, "<html><title>T</title><body>正文内容足够长。</body></html>"
+        def fn(url, **_kw):
+            seen.append(url)
+            if url.startswith("http://"):
+                return 302, ""
+            return 200, "<html><title>T</title><body>正文内容足够长。</body></html>"
 
         out = hv.collect_url(project["project_id"], "http://news.example/a?b=1",
-                             transport=Fake())
+                             transport=page_transport(fn))
         assert seen == ["http://news.example/a?b=1", "https://news.example/a?b=1"], seen
         assert out["collected"] is True
         # 留痕用**实际抓到的**地址（不是用户给的那个）——否则审计链说不清到底抓了谁
@@ -324,12 +448,8 @@ class TestRedirectsAreNotFollowed:
         assert "同主机 http→https 升级后取到" in (out["material"]["tier_reason"] or "")
 
     def test_redirect_after_upgrade_is_refused_not_followed(self, project, allow_local):
-        class Always302:
-            def fetch(self, url, **kw):
-                return 301, ""
-
         out = hv.collect_url(project["project_id"], "http://news.example/a",
-                             transport=Always302())
+                             transport=page_transport(lambda _u, **_k: (301, "")))
         assert out["collected"] is False and out["status"] == 301
         assert "重定向" in out["reason"] and "不跟随" in out["reason"], out
         assert mr.list_materials(project["project_id"]) == []
@@ -338,12 +458,12 @@ class TestRedirectsAreNotFollowed:
         """https 没有可升级的空间 ⇒ 直接拒绝（不给"再试一次"的假动作）。"""
         seen: list[str] = []
 
-        class R:
-            def fetch(self, url, **kw):
-                seen.append(url)
-                return 302, ""
+        def fn(url, **_kw):
+            seen.append(url)
+            return 302, ""
 
-        out = hv.collect_url(project["project_id"], "https://news.example/a", transport=R())
+        out = hv.collect_url(project["project_id"], "https://news.example/a",
+                             transport=page_transport(fn))
         assert out["collected"] is False and seen == ["https://news.example/a"], seen
 
     def test_https_upgrade_only_changes_the_scheme(self):
@@ -378,12 +498,8 @@ class TestEmptyReasonDistinguishesTwoKinds:
 
     def test_original_body_empty(self, project, allow_local):
         """**原文本身为空**（连标签都没有）→ 原因串说"响应为空"。"""
-
-        class Empty:
-            def fetch(self, url, **_kw):
-                return 200, "   "
-
-        out = hv.collect_url(project["project_id"], "https://a.example/e", transport=Empty())
+        out = hv.collect_url(project["project_id"], "https://a.example/e",
+                             transport=page_transport(lambda _u, **_k: (200, "   ")))
         assert out["collected"] is False and "响应为空" in out["reason"], out
 
     def test_tag_only_body_is_reported_as_converted_empty(self, project, allow_local):
@@ -392,23 +508,15 @@ class TestEmptyReasonDistinguishesTwoKinds:
         与上一条是**不同**的故障（一个是取回就没内容，一个是转换把它清空了），
         合并成一句话就会把排查方向带偏。
         """
-
-        class TagsOnly:
-            def fetch(self, url, **_kw):
-                return 200, "<html><body>   </body></html>"
-
-        out = hv.collect_url(project["project_id"], "https://a.example/t",
-                             transport=TagsOnly())
+        tp = page_transport(lambda _u, **_k: (200, "<html><body>   </body></html>"))
+        out = hv.collect_url(project["project_id"], "https://a.example/t", transport=tp)
         assert out["collected"] is False
         assert "原文非空" in out["reason"] and "响应为空" not in out["reason"], out
 
     def test_nonempty_body_that_becomes_empty_after_conversion(self, project, allow_local):
-        class OnlyScript:
-            def fetch(self, url, **_kw):
-                return 200, "<html><body><script>var a=1;</script></body></html>"
-
-        out = hv.collect_url(project["project_id"], "https://a.example/s",
-                             transport=OnlyScript())
+        tp = page_transport(
+            lambda _u, **_k: (200, "<html><body><script>var a=1;</script></body></html>"))
+        out = hv.collect_url(project["project_id"], "https://a.example/s", transport=tp)
         assert out["collected"] is False
         assert "原文非空" in out["reason"] and "脚本/样式" in out["reason"], out
 

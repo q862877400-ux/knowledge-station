@@ -225,6 +225,27 @@ class CurlCffiTransport:
                                  allow_redirects=allow_redirects, **kw)
         return resp.status_code, resp.content
 
+    def fetch_page(self, url: str, **kw: Any) -> tuple[int, dict[str, str], str, bytes]:
+        """取回一个**页面**，把同一个响应的四样东西一起给出：
+        `(status, headers, text, raw_bytes)`。
+
+        ## 为什么必须有它（2026-09-17 独立复核的 MEDIUM）
+        `fetch()` 只回 `(status, body)` ⇒ **Content-Type 与真实字节都在那一层丢了**。
+        后果是采集侧**无法判断"这是不是网页正文"**，只能拿**转换后的文本**猜：
+        `application/javascript` / `text/css` / JSON 标量会被当成正文登记进材料，
+        而 PNG/JPEG 的 magic 也永远认不出（非 ASCII 首字节已被 `errors='replace'`
+        变成 U+FFFD）。四样一起给 ⇒ 判据可以落在**响应头**与**真实字节**上。
+
+        ⚠ 这**不是**第二个 HTTP 客户端：与 `fetch` 同一次请求、同一个 session，
+        只是把响应上本来就有的两个字段多暴露出来。重定向策略同上（`allow_redirects`）。
+        """
+        timeout = kw.pop("timeout", DEFAULT_TIMEOUT_S)
+        allow_redirects = bool(kw.pop("allow_redirects", True))
+        resp = self._session.get(url, timeout=timeout,
+                                 allow_redirects=allow_redirects, **kw)
+        return resp.status_code, {str(k).lower(): str(v) for k, v in resp.headers.items()}, \
+            resp.text, resp.content
+
 
 class HttpxTransport:
     """回退真实传输（curl_cffi 不可导入时兜底；离线单测不触达）。
@@ -259,6 +280,16 @@ class HttpxTransport:
         resp = httpx.get(url, timeout=timeout,
                          follow_redirects=allow_redirects, **kw)
         return resp.status_code, resp.content
+
+    def fetch_page(self, url: str, **kw: Any) -> tuple[int, dict[str, str], str, bytes]:
+        """同 `CurlCffiTransport.fetch_page`（契约一致：`(status, headers, text, raw)`）。"""
+        import httpx
+        timeout = kw.pop("timeout", DEFAULT_TIMEOUT_S)
+        allow_redirects = bool(kw.pop("allow_redirects", True))
+        resp = httpx.get(url, timeout=timeout,
+                         follow_redirects=allow_redirects, **kw)
+        return resp.status_code, {str(k).lower(): str(v) for k, v in resp.headers.items()}, \
+            resp.text, resp.content
 
 
 def default_transport():

@@ -239,6 +239,13 @@ class ProxyCurlTransport:
         resp = self._session.get(url, timeout=timeout, **kw)
         return resp.status_code, resp.content
 
+    def fetch_page(self, url: str, **kw: Any) -> tuple[int, dict[str, str], str, bytes]:
+        """与 `base.CurlCffiTransport.fetch_page` 同契约（采集侧要 Content-Type 与真实字节）。"""
+        timeout = kw.pop("timeout", 30)
+        resp = self._session.get(url, timeout=timeout, **kw)
+        return resp.status_code, {str(k).lower(): str(v) for k, v in resp.headers.items()}, \
+            resp.text, resp.content
+
 
 def build_rotator(proxies_file: str | None = None) -> Any | None:
     """按配置构建旋转器：--proxies 文件优先，否则尝试 Clash；都不可用返回 None。"""

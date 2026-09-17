@@ -235,9 +235,15 @@ def site():
                 body, ctype = _PAGE.encode("utf-8"), "text/html; charset=utf-8"
             elif self.path == "/pdf":
                 body, ctype = b"%PDF-1.7 not really", "application/pdf"
+            elif self.path == "/png-mislabeled":
+                # Content-Type 撒谎说自己是 html ⇒ 只能靠**真实字节**认出（复核 REFUTED 那条）
+                body, ctype = bytes.fromhex(
+                    "89504e470d0a1a0a0000000d49484452000000010000000108060000001f15c4"
+                    "890000000a4944415478da6360000002000154a24f6f0000000049454e44ae426082"), \
+                    "text/html; charset=utf-8"
             else:
                 body, ctype = b"nope", "text/plain"
-            self.send_response(200 if self.path in ("/ok", "/pdf") else 404)
+            self.send_response(200 if self.path in ("/ok", "/pdf", "/png-mislabeled") else 404)
             self.send_header("Content-Type", ctype)
             self.send_header("Content-Length", str(len(body)))
             self.end_headers()
@@ -331,13 +337,23 @@ class TestCollectEndpoint:
         assert "tracker" not in "\n".join(ch["text"] for ch in chunks)
 
     def test_binary_response_is_refused_over_the_route(self, client, project, site, allow_local):
-        """PDF 头那条缺陷在**路由层**也挡住了（判据在唯一采集门 + 采集器两处）。"""
+        """"不是网页正文"在**路由层**也挡住了（两条判据：Content-Type 白名单 + 真实字节）。"""
         c, _ = client
         pid = project["project_id"]
         r = _collect(c, pid, {"url": f"{site}/pdf"})
         assert r.status_code == 200, r.text
         data = r.json()["data"]
-        assert data["collected"] is False and "不是文本" in data["reason"], data
+        assert data["collected"] is False, data
+        assert "不是网页正文" in data["reason"] and "application/pdf" in data["reason"], data
+        assert _list(c, pid) == []
+
+    def test_mislabeled_binary_is_refused_by_real_bytes(self, client, project, site, allow_local):
+        """Content-Type 撒谎（说自己是 html）也挡得住——判据落在**真实字节**上。"""
+        c, _ = client
+        pid = project["project_id"]
+        r = _collect(c, pid, {"url": f"{site}/png-mislabeled"})
+        data = r.json()["data"]
+        assert data["collected"] is False and "真实字节" in data["reason"], data
         assert _list(c, pid) == []
 
     def test_route_does_not_offer_a_batch_entry(self, client, project, site, allow_local):

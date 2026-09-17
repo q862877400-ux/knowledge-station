@@ -1218,7 +1218,7 @@ Track L 的决策与入库，但**没有任何东西真的去抓**——"能自�
 `text_utils`。**没有**顺手改那三处的调用点（各自 `limit` 与语义是当场选的，改动面大于收益）
 ——登记为待办。
 与 `clause_health_html_to_text` 的关系在 docstring 里**精确**写明并被测试**双向**钉住：
-同一 `limit` 下、**不含 `script`/`style`** 的输入逐字符等价（5 组样本：表格 / 实体 / 空 /
+同一 `limit` 下、**不含 `script`/`style`** 的输入逐字符等价（6 组样本：表格 / 实体 / 空 /
 `None` / 裸 `<td>`）；含 `script`/`style` 时**本函数丢掉它们的内容**而旧的那份不会——
 这是**有意的改进**（页面里的 JS/CSS 被当成正文塞进材料，是采集最脏的来源），
 并有一条测试专门把这条差异钉死，免得后人发现"不等价"后当成 bug 改回去。
@@ -1241,11 +1241,14 @@ Track L 的决策与入库，但**没有任何东西真的去抓**——"能自�
 正文**中间**提到签名的会漏——**宁可漏也不误伤**（判据挡在唯一的门上，误判=丢材料）；
 完整判断要 magic 库（未立项）。
 测试：2 条在 `test_text_utils.py`（认全 + **零误伤**，含"签名在中间不算"与"NUL 只在开头
-4096 内才算"）、1 条在 `test_material_collect.py`（门自己拒收，且**不碰 `doc_meta`**
-——Track L 只在批准后入库）。
+4096 内才算"）、**2 条**在 `test_material_collect.py`（门自己拒收且**不碰 `doc_meta`**
+——Track L 只在批准后入库；另一条钉住"签名在正文**中间**不算"，即不许误杀）。
 
-**门禁（本步）**：`pytest` **1492 passed / 3 skipped / 0 failed**（上一步 1462 ⇒ **+30**，
-基线**只涨**）；`mypy src` **131 files / 0 errors**（上一步 130；新增 `harvest.py`）。
+**门禁（本步）**：`pytest` **1492 passed / 3 skipped / 0 failed**（**主检出**；上一步 1462 ⇒ **+30**，
+基线**只涨**）。⚠ **更正**（见 §10.29）：**干净工作树**跑出来是 **1491 passed / 4 skipped**
+——总数同为 1495，差的 1 条是 `test_pipeline.py::test_real_middle_json_integration` 的
+`skipif` 依赖被 `.gitignore` 忽略、**只在主检出存在**的 `var/mineru_cli_out/…_middle.json`，
+属**环境依赖**而非缺陷。⇒ 引用 pytest 数字必须注明是哪棵树。；`mypy src` **131 files / 0 errors**（上一步 130；新增 `harvest.py`）。
 本步**零 JS 改动**，故 `smoke` / `verify:commands` / `e2e:sidebar` / `tsc --noEmit` 未复跑
 （数字同上一步：冒烟 14 段全过、22/22、13/13、0）。
 
@@ -1467,3 +1470,66 @@ M1/M1b/M2/M4/M5/M6 **RED**（测试非空转），两条 **GREEN**（空转守�
 本步**零 JS 改动**，故 JS 门禁未复跑（数字同上一步：冒烟 15 段全过、`verify:commands` 22/22、
 `tsc` 0）。两个 HIGH 的修复都用**变异实验**证明非空转（M1 重定向 kwarg、M2 剥离实现、
 M7' 判据调用），且**实验后逐字节确认文件已还原**。
+### 10.30 收口复核第二批：Content-Type 与**真实字节**（+ 把"零误伤"改成写实）
+
+**做了什么**：给传输层一个**带响应头的取回**，采集侧据此把"这是不是网页正文"的判据
+从"猜文本"换成"看事实"。
+
+**① `fetch_page` 契约（`update.channels.base`，两个 transport + 代理版各一份）**
+`fetch_page(url, timeout=…, allow_redirects=False) -> (status, headers, text, raw)`。
+⚠ 这**不是**第二个 HTTP 客户端：与 `fetch` **同一次请求、同一个 session**，只是把响应上
+本来就有的两个字段多暴露出来（`fetch` 只回 `(status, body)`——Content-Type 与真实字节
+都在那一层丢了）。三个实现（curl_cffi / httpx / 代理版）契约一致，`fetch` 的老调用方
+（公告扫描等）**一行没动**。
+
+**② 采集侧两条新判据（`harvest`）**
+- **Content-Type 白名单**：只收 `text/html`、`application/xhtml+xml`、`text/plain`、
+  `application/xml`、`text/xml`。**不收**脚本/样式（`text/css`、`*javascript`）、接口
+  （`application/json`）、附件（`application/pdf`、`image/*`、`application/zip`）。
+  为什么是**白名单**：黑名单永远漏——复核实测 11 条样本里 **9 条**能溜过去。
+  服务端**没给** Content-Type 时放行，但 `tier_reason` 里**如实写明"服务端未给"**
+  （不是假装检查过）。
+- **真实字节的 magic**（`text_utils.looks_like_binary_bytes`）：PNG/JPEG/ELF/OLE2 这些
+  **非 UTF-8 首字节**在 `resp.text` 里早被 `errors='replace'` 换成 U+FFFD，
+  **文本路径永远认不出**（复核的 REFUTED 那条）。现在按 `resp.content` 判 ⇒
+  "Content-Type 撒谎说自己是 html"的 PNG/PDF 也挡得住（有测试与变异实验）。
+- Content-Type **记进 `tier_reason`**（`Content-Type: text/html`）：判据**可见 = 可审计**，
+  评审人能自己复核白名单判得对不对。
+
+**③ 契约变成**严格**的：没有 `fetch_page` 的 transport ⇒ 抓不了（如实报错）**
+不退回 `fetch` 继续登记。理由：退回去就意味着"**在拿不到 Content-Type 与真实字节的情况下**
+把材料送进评审队列"——正是这条 MEDIUM 本身，不能因为"换了个传输层"就悄悄复活。
+代价：测试替身必须实现 `fetch_page`（本步统一成 `page_transport()` 一个包装，
+顺带在那里断言 `allow_redirects is False`——把上一批的契约也一起钉住）。
+
+**④ `looks_like_binary` 的"零误伤"改成**写实**（复核的 LOW）**
+docstring 现在写明：文本路径上真正有效的只有 **ASCII 签名 + NUL**（PNG/JPEG 那几条是
+死分支，由字节函数兑现）；并**列出已知误伤**——以 `%PDF-` 开头的**讲解文**、`%!PS` 的
+**PostScript 源码**、前 4096 字符含 NUL 的 **CSV** 都会被拒收（= 丢材料）。
+取舍写明：采集路径上"把二进制当正文"比"拒掉几篇讲文件格式的文章"更坏，所以宁可误伤，
+但**不再声称零误伤**，而且把这三条钉成测试（以后要放宽判据，得先改那些断言）。
+
+**⑤ §10.26 的三处计数/措辞已就地更正**（复核的 LOW）："5 组样本"→6 组；
+"1 条在 `test_material_collect.py`"→**2 条**（另一条钉"签名在正文**中间**不算"）；
+pytest 数字**注明是哪棵树**——干净工作树是 **1491/4**、主检出是 1492/3，差的 1 条是
+`test_pipeline.py::test_real_middle_json_integration` 的 `skipif` 依赖被 `.gitignore`
+忽略、只在主检出存在的 `var/mineru_cli_out/…_middle.json`（**环境依赖，不是缺陷**）。
+
+**变异实验（三条新判据都非空转，且实验后逐字节确认还原）**：
+关掉 Content-Type 白名单 ⇒ **9 failed**；关掉字节 magic ⇒ **3 failed**；
+把"缺 `fetch_page`"改回静默降级 ⇒ **1 failed**。
+（本步的变异实验**不再用 `git checkout --`**——上一批的事故写在 §10.29 第 ⑦ 条；
+这里用 `Copy-Item` 备份 + 收尾 `bytes` 比对，全部逐字节相同。）
+
+**门禁（本步）**：`pytest` **1533 passed / 3 skipped / 0 failed**（主检出；上一步 1518 ⇒
+**+15**：`test_material_harvest` 45→57、`test_material_api` 22→23、`test_text_utils` 新增 3 条判据用例）；
+`mypy src` **131 files / 0 errors**。JS 侧只改了 `ks_collect` 的**描述**（原来那句
+"引擎认不出 JS/CSS/JSON"现在**不成立**了——判据已加强，描述必须跟着改，
+否则模型会照着过期前提行事）：冒烟 `smoke:collect` 32/32、`smoke:materials-tool` 34/34。
+
+**诚实边界（仍然成立）**：
+- 白名单是**人工列举**的；新类型要**显式**加（漏了就拒收，属"宁可拒"方向）。
+- "只看开头"的签名判据认不出**没有签名**的二进制；完整判断要 magic 库（未立项）。
+- **Content-Type 撒谎**且**无签名**的组合仍会溜过去（例如伪装成 text/html 的 JSON 接口）。
+- 本次仍**没做真联网**：真实公网页面的 gzip 传输、`charset=gbk/gb2312` 中文站点、
+  TLS 指纹路径都未验（复核也点出过）⇒ 乱码材料的风险面**未被排除**，只是没证据说它坏。

@@ -52,7 +52,7 @@ from typing import Any
 from urllib.parse import urlparse, urlsplit, urlunsplit
 
 from src.core.materials import collect as co
-from src.core.text_utils import html_to_text, looks_like_binary
+from src.core.text_utils import html_to_text, looks_like_binary, looks_like_binary_bytes
 from src.core.update import announce as _announce
 
 #: 单页超时（与公告扫描同量级；采集是一次性动作，不必更宽）。
@@ -74,8 +74,11 @@ def page_title(html: str) -> str | None:
     return title or None
 
 
-def _fetch_without_redirects(tp: Any, url: str, timeout: float) -> tuple[int, Any]:
-    """抓一跳，**明确不跟随重定向**（`allow_redirects=False`）。
+def _fetch_without_redirects(tp: Any, url: str, timeout: float) -> tuple[int, Any, Any, Any]:
+    """抓一跳，**明确不跟随重定向**（`allow_redirects=False`），并把四样都拿回来。
+
+    返回 `(status, headers, text, raw_bytes)`——headers 与 raw 是 Content-Type 白名单
+    与"真实字节"magic 判据的输入（见 `_content_type_ok` / `looks_like_binary_bytes`）。
 
     ## 为什么必须显式关掉（2026-09-17 独立复核的 HIGH，实测可达）
     默认的 curl_cffi `Session` 会**跟随** 302，而 SSRF 闸门只在**发起前**判过原始 URL
@@ -83,12 +86,48 @@ def _fetch_without_redirects(tp: Any, url: str, timeout: float) -> tuple[int, An
     **真的向云元数据端点发起连接**（复核实测 curl 52/28），闸门被整条绕过。
     关掉跟随之后，"重定向"变成一个**可见的结果**（3xx），由调用方决定怎么办。
 
-    ⚠ kwarg 名由 transport 自己翻译（curl_cffi 用 `allow_redirects`、httpx 用
-    `follow_redirects`——见 `update.channels.base` 的说明）。注入的测试替身只要接受
-    `**kw` 就能被同等对待；**不接受**的替身会在这里抛 `TypeError`（被上层如实回报），
-    这是**故意**的 fail-closed：宁可抓不到，也不在"重定向可能已跟随"的情况下登记材料。
+    ⚠ **契约是严格的**：transport 没有 `fetch_page` 就**抓不了**（如实报错），
+    而不是"退回 `fetch` 继续登记"。理由：退回去就意味着"在拿不到 Content-Type 与真实
+    字节的情况下把材料登记进评审队列"——那正是复核报的那条 MEDIUM，不能因为"换了个
+    传输层"就悄悄复活。测试替身实现 `fetch_page` 同样只需一行。
+    重定向 kwarg 的名字差异由 transport 自己翻译（curl_cffi 用 `allow_redirects`、
+    httpx 用 `follow_redirects`——见 `update.channels.base`）。
     """
-    return tp.fetch(url, timeout=timeout, allow_redirects=False)
+    page = getattr(tp, "fetch_page", None)
+    if page is None:
+        raise TypeError(
+            "这个 transport 没有 fetch_page(url, timeout=…, allow_redirects=…) —— "
+            "采集需要 Content-Type 与真实字节才能判断“这是不是网页正文”；"
+            "拒绝在拿不到它们的情况下登记材料（见 harvest 模块头注）")
+    return page(url, timeout=timeout, allow_redirects=False)
+
+
+#: 允许当"网页正文"处理的 Content-Type（**白名单**，不是黑名单）。
+#:
+#: 为什么是白名单：黑名单永远漏（独立复核实测 11 条样本里 9 条能溜过去）。
+#: - 放：`text/html` / `application/xhtml+xml`（网页）、`text/plain`（纯文本通知/公告）、
+#:   `application/xml` / `text/xml`（政府站点的 XML 公告）。
+#: - **不放**：`text/css` 与 `*javascript`（样式/脚本文件）、`application/json`（接口）、
+#:   `application/pdf`、`image/*`、`application/zip`（附件）。
+_PAGE_CONTENT_TYPES = (
+    "text/html", "application/xhtml+xml", "text/plain", "application/xml", "text/xml",
+)
+
+
+def _content_type_of(headers: Any) -> str | None:
+    """从响应头取 Content-Type 的**主类型**（小写；取不到返回 None）。"""
+    if not isinstance(headers, dict):
+        return None
+    raw = headers.get("content-type")
+    if not isinstance(raw, str) or not raw.strip():
+        return None
+    return raw.split(";", 1)[0].strip().lower() or None
+
+
+def _content_type_ok(ctype: str | None) -> bool:
+    """这个 Content-Type 能不能当网页正文？`None`（服务端没给）交给字节判据。"""
+    return ctype is None or ctype in _PAGE_CONTENT_TYPES
+
 
 
 def _https_upgrade(url: str) -> str | None:
@@ -131,13 +170,13 @@ def collect_url(project_id: str, url: str, *, title: str | None = None,
     tp = transport if transport is not None else _default_transport()
     fetched = target
     try:
-        status, body = _fetch_without_redirects(tp, fetched, timeout)
+        status, headers, body, raw = _fetch_without_redirects(tp, fetched, timeout)
         if 300 <= int(status) < 400:
             upgraded = _https_upgrade(fetched)
             if upgraded is not None:
-                status, body = _fetch_without_redirects(tp, upgraded, timeout)
+                status, headers, body, raw = _fetch_without_redirects(tp, upgraded, timeout)
                 fetched = upgraded            # 留痕用**实际抓到的**地址
-    except Exception as exc:  # noqa: BLE001 — 网络异常如实回报，不抛给上层
+    except Exception as exc:  # noqa: BLE001 — 网络异常/契约不符如实回报，不抛给上层
         return {"collected": False, "reason": f"抓取失败：{exc}"}
 
     if 300 <= int(status) < 400:
@@ -150,8 +189,23 @@ def collect_url(project_id: str, url: str, *, title: str | None = None,
     if int(status) < 200 or int(status) >= 300:
         return {"collected": False, "status": int(status),
                 "reason": f"HTTP {status}（不登记未成功取回的页面）"}
+
+    # ③ Content-Type 白名单（独立复核 2026-09-17 的 MEDIUM）：JS/CSS/JSON 接口这些
+    # **不是网页正文**的响应，以前会被当成正文登记进材料（复核 11 条样本里 9 条溜过去了）。
+    ctype = _content_type_of(headers)
+    if not _content_type_ok(ctype):
+        return {"collected": False, "status": int(status),
+                "reason": f"响应不是网页正文（Content-Type: {ctype}）——"
+                          "本模块只收网页/纯文本/XML 公告，不收脚本、样式、接口数据与附件"}
+    # ④ **真实字节**的 magic（不是转换后的文本）：PNG/JPEG/ELF/OLE2 这些非 UTF-8 首字节
+    # 在 `resp.text` 里早被替换成 U+FFFD，只有 raw 才认得出（复核的 REFUTED 那条）。
+    if looks_like_binary_bytes(raw):
+        return {"collected": False, "status": int(status),
+                "reason": "响应不是文本（真实字节是 PDF/图片/压缩包等二进制容器）"
+                          "——本模块不解析附件（Content-Type 可能没写对，故按字节判）"}
+
     if not isinstance(body, str):
-        # JSON / 二进制（PDF 等）：**不把非文本当正文**
+        # 非文本对象（例如 transport 把 JSON 解析成了 dict）：**不把非文本当正文**
         return {"collected": False, "status": int(status),
                 "reason": f"响应不是文本（{type(body).__name__}）——本模块不解析 PDF/JSON 附件"}
 
@@ -163,10 +217,8 @@ def collect_url(project_id: str, url: str, *, title: str | None = None,
                 "reason": ("页面没有可提取的正文（响应为空）" if not (body or "").strip()
                            else "页面没有可提取的正文（原文非空，但 HTML→文本后为空"
                                 "——可能是只有标签/脚本/样式的页面）")}
-    # 传输层把响应统一压成 `str`（Content-Type 在那里就丢了），所以"这不是网页正文"
-    # 只能靠**开头字节**认——判据的所有者在 `text_utils.looks_like_binary`。
-    # 实测踩到：`/x.pdf` 的 `%PDF-1.7` 头会被 `html_to_text` 原样当正文，
-    # 登记成一条"看起来有内容、其实一个字都读不了"的材料（比空材料更坏）。
+    # ⑤ 文本层面的兜底（字节判据的补充）：登记门 `collect_text` 也调同一判据，
+    # 这里提前以**页面的**语境给出更具体的理由。
     if looks_like_binary(text):
         return {"collected": False, "status": int(status),
                 "reason": "响应不是文本（看起来是 PDF/图片/压缩包等二进制容器）"
@@ -180,7 +232,10 @@ def collect_url(project_id: str, url: str, *, title: str | None = None,
                       or urlparse(fetched).path or fetched)
 
     note_parts = [p for p in [note] if p]
+    # 把 Content-Type 记进判级说明：评审人看得到"这条是怎么来的"，也能自己复核
+    # 白名单判得对不对（判据可见 = 可审计）。
     note_parts.append(f"自采：HTTP {int(status)} 来自 {urlparse(fetched).hostname or '?'}"
+                      + (f"（Content-Type: {ctype}）" if ctype else "（服务端未给 Content-Type）")
                       + ("（同主机 http→https 升级后取到）" if fetched != target else "")
                       + ("（正文已截断到上限）" if truncated else ""))
 

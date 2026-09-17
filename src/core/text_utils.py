@@ -1467,36 +1467,47 @@ def html_to_text(html: str | None, limit: int | None = None) -> str:
 
 #: 二进制容器在"文本"里的开头签名（采集侧唯一能拿到的线索，见 `looks_like_binary`）。
 #:
-#: 只收**开头就能认**、且**不可能出现在正常正文里**的那些：PDF/PostScript、ZIP 族
-#: （`PK\x03\x04`：docx/xlsx/odt 都是它）、RAR、PNG/GIF/JPEG、ELF、OLE2（旧 Office）。
+#: ⚠ **哪些在文本路径上真的可达**（2026-09-17 独立复核指出原叙述会制造假信心）：
+#: 只有**纯 ASCII** 的那几个（`%PDF-` / `%!PS` / `PK\x03\x04` / `Rar!\x1a`）能在
+#: `resp.text`（`errors='replace'` 解出来的 str）里原样出现；`\x89PNG`、`\xff\xd8\xff`、
+#: `\x7fELF`、OLE2 这些**非 UTF-8 首字节**在真实传输路径上早被替换成 U+FFFD，
+#: **永远命中不了**——它们只对**真实字节**有意义（见 `looks_like_binary_bytes`）。
+#: 保留在同一个元组里是为了让"字节判据"复用一份签名表（**一个所有者**）。
 _BINARY_HEADS = (
     "%PDF-", "%!PS", "PK\x03\x04", "Rar!\x1a",
     "\x89PNG", "GIF87a", "GIF89a", "\xff\xd8\xff", "\x7fELF", "\xd0\xcf\x11\xe0",
 )
 
+#: 上面那张表的**字节**形态（字节级 magic 用；顺序与内容一一对应）。
+_BINARY_HEADS_BYTES = tuple(h.encode("latin-1") for h in _BINARY_HEADS)
+
 
 def looks_like_binary(text: str | None) -> bool:
-    """这段"文本"其实是**二进制容器**（PDF/图片/压缩包…）吗？
+    """这段"文本"其实是**二进制容器**吗？（**文本入口**用；字节入口见下一个函数）
 
     ## 为什么需要这个判据（2026-09-17，采集器接线时实测踩到）
-    传输层（`update.channels.base`）把响应统一收敛成 `str`：先试 `resp.json()`，
-    失败就取 `resp.text`。**Content-Type 在那一层就丢了**。于是"这是不是 PDF"
-    **无法**靠响应头判断——只能靠**开头字节**。
-    不判的后果实测是：`%PDF-1.7 …`（PDF 的 ASCII 头 + 被 `errors='replace'` 解出来的
-    乱码）会被 `html_to_text` 原样当成正文，登记成一条"**看起来有内容、其实一个字都读不了**"
-    的材料 —— 比空材料**更坏**：空材料至少一眼看得出有问题，这个要等分析时才发现，
-    而那时它已经进了评审队列、甚至被批准。
+    传输层（`update.channels.base.fetch`）把响应统一收敛成 `str`（先试 `resp.json()`，
+    失败取 `resp.text`）。采集的**登记门**（`collect_text`）拿到的是 `str`，所以那里
+    只能按文本判。不判的后果实测是：`%PDF-1.7 …`（PDF 的 ASCII 头 + 解出来的乱码）
+    会被 `html_to_text` 原样当成正文，登记成一条"**看起来有内容、其实一个字都读不了**"
+    的材料 —— 比空材料**更坏**：空材料一眼看得出有问题，这个要等分析时才发现。
 
-    ## 判据（窄，宁可漏也不误伤）
+    ## 判据（窄）
     1. 去掉前导空白后以 `_BINARY_HEADS` 里的签名开头；或
     2. 前 4096 字符里含 `NUL`（`\\x00`）—— 正常正文不会有。
 
-    ## 诚实边界（这是启发式，不是文件类型识别）
-    - 只认**开头**：一个把 PDF 从**中间**开始吐出来的东西认不出；
-    - 认不出**没有签名的**二进制（某些加密/私有格式）；
-    - 反过来，正文里**真的提到**这些签名的文章会被误判 —— 所以本判据只用在
-      **采集入口**（那里的文本应当是从页面渲染出来的文字），**不要**拿它去清洗已入库正文；
-    - 完整判断要 magic 库 + 更多字节（未立项：当前的定位是"别把明显不是正文的东西当正文"）。
+    ## 诚实边界（这一节是独立复核 2026-09-17 逼出来的，别再写成"零误伤"）
+    - **文本路径上真正有效的只有两条**：ASCII 签名（`%PDF-`/`%!PS`/`PK\\x03\\x04`/`Rar!`）
+      与 NUL 规则。`\\x89PNG`/JPEG/ELF/OLE2 那几条在 `str` 上**基本不可能命中**
+      （非 UTF-8 首字节已被替换成 U+FFFD）——它们由 `looks_like_binary_bytes` 在
+      **真实字节**上兑现（采集器现在两条都走）。
+    - **会误伤**（实测，不再声称"零误伤"）：以 `%PDF-` 开头的**讲解文**、
+      `%!PS` 的 **PostScript 源码**（纯 ASCII 文本）、前 4096 字符含 NUL 的 **CSV**，
+      都会被判成二进制而**被采集门拒收**（= 丢材料）。取舍是：采集路径上"把二进制当正文"
+      的后果（脏材料进评审队列）比"拒掉几篇讲 PDF 格式的文章"更坏，所以宁可漏/宁可误伤，
+      并把这些情形**写出来**而不是假装没有。
+    - 只认**开头**；认不出**没有签名**的二进制；完整判断要 magic 库（未立项）。
+    - **不要**拿它去清洗已入库正文：那里的文本不是"刚抓回来的响应"。
     """
     s = (text or "").lstrip()
     if not s:
@@ -1504,6 +1515,25 @@ def looks_like_binary(text: str | None) -> bool:
     if s.startswith(_BINARY_HEADS):
         return True
     return "\x00" in s[:4096]
+
+
+def looks_like_binary_bytes(data: bytes | None) -> bool:
+    """**真实字节**是不是二进制容器（采集器在拿到 `resp.content` 时用这个）。
+
+    与 `looks_like_binary` 是**同一份签名表**（`_BINARY_HEADS`）的两个入口：
+    文本入口只能认 ASCII 签名 + NUL，字节入口才能真正兑现 PNG/JPEG/ELF/OLE2 那几条。
+    分开的原因见 `looks_like_binary` 的诚实边界——**合并成一个函数会让"文本路径上
+    永远命中不了的分支"看起来像在工作**（那正是复核报的假信心）。
+
+    ⚠ 同样的局限：只看开头；无签名的二进制认不出。
+    """
+    if not data:
+        return False
+    head = data[:64].lstrip()
+    if head.startswith(_BINARY_HEADS_BYTES):
+        return True
+    return b"\x00" in data[:4096]
+
 
 
 #: 「副本后缀」：浏览器/资源管理器重复下载产生的 `xxx(1).pdf` / `xxx（2）.pdf`。
