@@ -103,6 +103,43 @@ if (typeof AnchorMark === 'function') {
     && render('health_error', undefined).includes('锚点健康度算不出来'))
 }
 
+/* ---------------------------------------------------------------- statusDisablesReverify
+ * 复核 b12 的 LOW-4b：穷尽性过去只保护 `AnchorMark` 的 `switch`，面板里"要不要禁用『复算锚点』"
+ * 那一处是**直接 `=== 'no_locators'`**，`tsc` 管不到 ⇒ 新增状态时静默。
+ * 现在那一处走 `statusDisablesReverify`（自身也是穷尽 `switch` + `assertNever`）。
+ * ⚠ 这里验的是**行为**（逐档调用），不是"源码里有这个函数名"——字符串级判据挡不住
+ * "函数还在但调用点又写回了 `===`"，那条由 `smoke-client-entry.mjs` 的结构断言兜。
+ */
+{
+  const fn = mod.statusDisablesReverify
+  check('面板导出了 statusDisablesReverify（禁用复算按钮的唯一判据）', typeof fn === 'function')
+  if (typeof fn === 'function') {
+    check('no_locators ⇒ 禁用复算（没有区间可算，点它没意义）', fn('no_locators') === true)
+    for (const status of [undefined, 'ok', 'stale', 'unknown', 'health_error']) {
+      check(`${String(status)} ⇒ 不禁用复算`, fn(status) === false)
+    }
+  }
+}
+
+/* ---------------------------------------------------------------- AnchorNoteLine
+ * 复核 b12 的 LOW-1 + 一次变异 AA5：`anchorNote` 那条断言过去是字符串级，把条件改成
+ * `{false && …}`（永不上屏）时源码里**照样"读"到它** ⇒ 看不见。抽成组件后这里**真渲染**。
+ */
+{
+  const Line = mod.AnchorNoteLine
+  check('面板导出了 AnchorNoteLine（后端 note 的渲染入口）', typeof Line === 'function')
+  if (typeof Line === 'function') {
+    const NOTE = '后端给的锚点总览说明-NOTE-XYZ'
+    const empty = renderToStaticMarkup(React.createElement(Line, { note: '' }))
+    check('note 为空 ⇒ 什么都不渲染（不占位）', empty === '', JSON.stringify(empty).slice(0, 60))
+    const undef = renderToStaticMarkup(React.createElement(Line, {}))
+    check('note 缺省 ⇒ 同样不乱渲染', undef === '', JSON.stringify(undef).slice(0, 60))
+    const shown = renderToStaticMarkup(React.createElement(Line, { note: NOTE }))
+    check('note 非空 ⇒ **原样**渲染出后端那段字（不是只存不读）', shown.includes(NOTE),
+      shown.slice(0, 90))
+  }
+}
+
 const failed = results.filter((r) => !r.ok)
 console.log(`\n== anchor-mark smoke ${failed.length === 0 ? 'PASS' : 'FAIL'} `
   + `(${results.length - failed.length}/${results.length}) ==`)

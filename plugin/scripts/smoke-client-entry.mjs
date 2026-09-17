@@ -450,6 +450,13 @@ check('inject declares only official services (no third-party hard gate)',
  * ⚠ **必须先把 `\uXXXX` 解码再找**：esbuild 默认 `charset:'ascii'`，中文在产物里是
  * 转义序列（`\u8BC4\u5BA1…`）。第一版我直接 `bundle.includes('评审是硬门')` —— 假红，
  * 而 ASCII 标记（`ks/materials/list`）却是绿的，看起来像"面板没打进去"，实则只是编码。
+ *
+ * ⚠⚠ **诚实边界（复核 b12 的 LOW-2 清点：下面这一类共 23 条）**：这些是"**文案在场**"断言
+ * ——`bundle.includes(某句字)`。它们挡得住"这句字被删了/改了名"，**挡不住**任何
+ * "字还在、渲染不出来"的形状（复核的变异 M13 已证）。**行为级**那一半由
+ * `smoke-anchor-mark.mjs`（真渲染锚点标记）与下面的**产物↔源码一致**那节承担；
+ * 这 23 条的定位就是**措辞纪律 + 产物新鲜度**（改了 `.tsx` 忘了重建 ⇒ 这里会红），
+ * 别把它们读成"界面验过了"。
  */
 {
   const raw = await readFile(join(pluginRoot, 'client.js'), 'utf8')
@@ -544,13 +551,28 @@ check('inject declares only official services (no third-party hard gate)',
   check('面板源码里有穷尽性断言（新增 status 忘加分支应编译报错）',
     /assertNever\(/.test(panel) && /default:\s*\n?\s*return assertNever\(/.test(panel))
   // ⚠ `why` 的**接线**要有闸门（复核 b10 的 G4）：把面板里那段 `attention → why` 的映射退回
-  // 写死 `why: ''`，冒烟仍是 69/69 全绿——而界面上就再也说不出"为什么需要复算"。
-  // 这里钉的是**映射本身**（读 `s.attention`、按 material_id 取 `a.why`），不是某句文案。
-  check('面板源码把后端的 why 接进锚点映射（不是写死空串）',
-    /for \(const a of s\.attention\)/.test(panel) && /why\[a\.material_id\] = a\.why/.test(panel))
-  // ⚠ 后端的 note 也不能是死状态（b11 的 INFO-1）：它要真的渲染出来
-  check('面板源码把后端 anchorNote 渲染出来（不是只存不读）',
-    /\{anchorNote !== '' &&/.test(panel))
+  // 写死 `''`，冒烟仍是 69/69 全绿——而界面上就再也说不出"为什么需要复算"。
+  // ⚠ 判据从"钉右侧表达式原文"**放宽成结构级**（2026-09-18 复核 b12 的 LOW-1）：
+  // 原先写死 `/why\[a\.material_id\] = a\.why/`，于是**语义等价**的重写（`String(a.why || '')`）
+  // 会**假红**（复核的变异 M10 实测 RED 83/84）。假红的门禁会被训练成"忽略它"。
+  // 现在只要求结构：① 真的遍历 `s.attention`；② 在循环里把 `a.why`（任何取自它的写法）
+  // 写进某个以 material_id 为键的映射。**行为级**那条（渲染出来的是不是后端那个 why）
+  // 由 `smoke-anchor-mark.mjs` 的真渲染用例负责（它用一个假字符串做对照）。
+  check('面板源码把后端的 why 接进锚点映射（结构级：遍历 attention 且取自 a.why）',
+    /for \(const a of s\.attention\)/.test(panel) && /why\[[^\]]+\]\s*=[^\n]*\ba\.why\b/.test(panel))
+  // ⚠ 后端的 note 也不能是死状态（b11 的 INFO-1）：它要真的渲染出来。
+  // 2026-09-18（复核 b12 的 LOW-1 + 变异 AA5）把判据**拆成两层**：
+  //   · 这里（调用点）钉"那个 state 真的被交给了渲染入口"；
+  //   · 行为（空串不出、非空原样出）由 `smoke-anchor-mark.mjs` **真渲染** `AnchorNoteLine` 验。
+  // 为什么不再用 `/\{[^}\n]*anchorNote/`：把条件改成 `{false && …}` 时源码里**照样"读"到**
+  // `anchorNote`（内层 `<p>{anchorNote}</p>` 还在）⇒ 那种永不上屏的改法能骗过它。
+  check('面板源码把后端 anchorNote 交给 AnchorNoteLine 渲染（行为另有渲染级用例）',
+    /<AnchorNoteLine\s+note=\{anchorNote\}/.test(panel))
+  // ⚠ 禁用复算按钮的判据必须是那个**穷尽**函数（复核 b12 的 LOW-4b）：只在调用点写
+  // `=== 'no_locators'` 时 `tsc` 管不到 ⇒ 后端新增状态时那一处**静默**。
+  // 这条挡"函数还在、调用点又写回直接比较"；函数本身被删则由 anchor-mark 冒烟挡。
+  check('面板源码用 statusDisablesReverify 判禁用（不直接比较状态名）',
+    /statusDisablesReverify\(/.test(panel) && !/===\s*'no_locators'/.test(panel))
 }
 
 /* ---------------------------------------------------------------- 产物 ↔ 源码一致性

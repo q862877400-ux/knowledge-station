@@ -37,6 +37,10 @@
  * **没有可连的浏览器时本脚本不算失败**：打印 SKIP 并以 0 退出（与 e2e-sidebar-pdf 同款，
  * 不进 `npm run smoke`，避免把真机依赖塞进离线门禁）。
  *
+ * **三态**：`PASS` / `FAIL` / **`INCONCLUSIVE`**（判据前提没满足——例如一条成功的
+ * `/ks/materials` 请求都没有时，C2 无从验证）。INCONCLUSIVE **不影响退出码**，但会单独计数并
+ * 打印：绝不能让它被"全绿"的总结尾吞成"验过了"（复核 b12 的 INFO-1 抓的就是这个假绿）。
+ *
  * 用法：node scripts/e2e-materials-panel.mjs
  */
 const PORT = Number(process.env.KS_E2E_CDP_PORT ?? 9333)
@@ -57,8 +61,23 @@ if (!page) skip(`CDP 端口 ${PORT} 上没有 URL 含 "${URL_MATCH}" 的页面 t
 
 const results = []
 const check = (name, ok, detail) => {
-  results.push({ name, ok: ok === true, detail })
+  results.push({ name, ok: ok === true, inconclusive: false, detail })
   console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}${detail !== undefined ? ` — ${detail}` : ''}`)
+}
+/**
+ * **INCONCLUSIVE**：判据的**前提没满足**，所以既不是 PASS 也不是 FAIL。
+ *
+ * 为什么需要它（2026-09-18 复核 b12 的 INFO-1）：C2 原先是
+ * `succeeded.length === 0 || …` —— **一条成功请求都没有时它照样 PASS**。
+ * 实测就是这个形状：那一轮只发了 2 条请求、**两条都是 404**、2xx 0 条，C2 依然绿。
+ * 这种"没数据也算过"的假绿比 FAIL 更坏：它让人以为接线验过了。
+ * ⚠ INCONCLUSIVE **不影响退出码**（退出码只看 FAIL）——但它会**单独计数并打印**，
+ * 不许被"全绿"的总结尾吞掉。
+ */
+const checkMaybe = (name, verdict, detail) => {
+  results.push({ name, ok: verdict === true, inconclusive: verdict === null, detail })
+  const tag = verdict === null ? 'INCONCLUSIVE' : verdict ? 'PASS' : 'FAIL'
+  console.log(`${tag}  ${name}${detail !== undefined ? ` — ${detail}` : ''}`)
 }
 
 let nextId = 0
@@ -179,9 +198,18 @@ check('C1 失败的请求没有被伪装成"没有材料"（界面出现 操作�
   failed.length === 0 || honest,
   `失败请求 ${failed.length} 条 / 可见 alert ${state.alerts.length} 条`)
 const succeeded = ksRequests.filter((r) => r.status >= 200 && r.status < 300)
-check('C2 成功的项目列表请求确实喂进了下拉框（有项目时可选项 > 1）',
-  succeeded.length === 0 || state.optionCount > 1 || honest,
-  `2xx ${succeeded.length} 条 / optionCount=${state.optionCount}`)
+// ⚠ C2 **不能**在"0 条 2xx"时算过（复核 b12 的 INFO-1：它过去正是这么空过的）：
+// 没有一条成功的项目列表请求 ⇒ 这条判据**无从验证** ⇒ INCONCLUSIVE（不是 PASS）。
+// ⚠ 剩下的**诚实边界**（登记，不在本脚本里假装解决）：即便有 2xx，本脚本也**读不到响应体**，
+// 于是"库里确实一个项目都没有"与"接线坏了"分不开——那种要靠拿响应体数项目条数，
+// 属**下一步**（真机路由目前 404，写了也验不了）。
+const c2 = succeeded.length === 0
+  ? null
+  : (state.optionCount > 1 || honest)
+checkMaybe('C2 成功的项目列表请求确实喂进了下拉框（有项目时可选项 > 1）', c2,
+  succeeded.length === 0
+    ? `2xx 0 条（无法验证：一条成功的项目列表请求都没有）`
+    : `2xx ${succeeded.length} 条 / optionCount=${state.optionCount}`)
 
 // C3 是本战役"静默降级"那一族在**真机**上的护栏（2026-09-18 由本脚本抓出来）：
 // `/ks/materials/tiers` 失败时，层级下拉只剩"当前值"一个选项。若面板不说话，
@@ -212,6 +240,13 @@ if (bad.length > 0) {
   console.log('     要重启 DSH 进程（本插件的宿主）才会注册 /ks/materials* 路由。')
 }
 
-const failedChecks = results.filter((r) => !r.ok)
-console.log(`\n== e2e-materials-panel ${failedChecks.length === 0 ? 'PASS' : 'FAIL'} (${results.length - failedChecks.length}/${results.length}) ==`)
+const failedChecks = results.filter((r) => !r.ok && !r.inconclusive)
+const inconclusive = results.filter((r) => r.inconclusive)
+if (inconclusive.length > 0) {
+  console.log(`\n⚠ ${inconclusive.length} 条 INCONCLUSIVE（**没验证过**，不是通过）：`
+    + inconclusive.map((r) => r.name.split(' ')[0]).join(', '))
+}
+console.log(`\n== e2e-materials-panel ${failedChecks.length === 0 ? 'PASS' : 'FAIL'} `
+  + `(${results.length - failedChecks.length - inconclusive.length}/${results.length - inconclusive.length}`
+  + `${inconclusive.length > 0 ? ` + ${inconclusive.length} INCONCLUSIVE` : ''}) ==`)
 process.exit(failedChecks.length === 0 ? 0 : 1)

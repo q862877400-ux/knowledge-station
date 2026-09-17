@@ -771,3 +771,24 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     - **反例**：`/chat/completions`、`/compliance/review/{task_id}/execute` 的 `async def` **是有理由的**（流式/后台），盲改会弄坏 SSE。
     做法与这一步一致：**先量（改前卡多久）→ 再改 → 再量**，小批提交。
 
+
+18. **复核 b12 的 LOW/INFO 收口**（§10.72，step-72）。三条是**真护栏**，四条是"别误导人"，
+    外加一条**连续三轮复发**的流程问题写成纪律。⚠ 编号按本台账；报告编号在括号里。
+
+    | 编号 | 一句话 | 状态 |
+    |---|---|---|
+    | b12-LOW-1（报告 LOW-1） | step-64 那两条断言是**钉字符串**：语义等价重写假红；而**放宽成结构级后又丢了真检测**（我的变异 AA5：`{false && (<p>{anchorNote}</p>)}` 仍"读"到变量） | ✅ 已收口（step-72）：`why` 走结构级（等价重写绿、写死空串红）；`anchorNote` **抽成 `AnchorNoteLine` 组件**，调用点结构级 + **渲染级**行为断言（`note=''` 不出、原样出）；AA4/AA5/AA6 RED |
+    | b12-LOW-3（报告 LOW-4b） | 穷尽性只保护 `AnchorMark`，**"要不要禁用复算按钮"**那处直接比较不受保护 ⇒ 后端加状态时静默 | ✅ 已修（step-72）：抽出穷尽函数 `statusDisablesReverify`（`switch`+`assertNever`）+ 行为级逐档渲染断言 + 调用点结构断言；AA1/AA2/AA3 RED |
+    | b12-INFO-1（报告 INFO-1） | `e2e:materials` 的 **C2 是假绿**：0 条成功请求时照样 PASS（实测那轮 2 条全 404、2xx 0） | ✅ 已修（step-72）：脚本引入 **`INCONCLUSIVE`** 三态；**真机实测** C2 由 `PASS 9/9` 变 `INCONCLUSIVE`（总结 `8/8 + 1 INCONCLUSIVE`）；⚠ FAIL 分支未在真机验过（路由仍 404），其表达式与改前**逐字相同** |
+    | b12-LOW-4（报告 LOW-3） | `test_slide_export.py` 的"39 放不下"理由与渲染实测不符（动画器对纯破折号行做标点压缩 ⇒ 实测 1 行） | ✅ 已改注释：**模型≠渲染**、方向**安全**（多续页不裁字）；断言仍钉模型（可复现），不再暗示"渲染必然 2 行" |
+    | b12-LOW-5（报告 LOW-4） | `hybrid_engine.py` 没写"因此**已废止排在未核验之前**"这个取舍（另有 INFO：D 是全序、A 不是） | ✅ 已补（口径的**唯一所有者在通道 A**，D/E 只指向它）；要改口径是**新口径**、需业主拍板 |
+    | b12-LOW-2（报告 LOW-2） | 仍有 **23 条**"文案在场"型断言 | 📝 **不清算**：边界写进 `smoke-client-entry.mjs` 注释（挡得住"删掉这句字"，挡不住"字还在、渲染不出来"）；行为级那一半由 `smoke-anchor-mark.mjs` + 产物↔源码一致承担 |
+    | b12-INFO-2（报告 INFO-2） | `_inside_raw_text` 的 docstring 读起来像"完整 raw text 名单"（其实还有 `iframe`/`noembed`/`noframes`，由 `_CONTENT_HIDDEN_TAGS` 那条路径处理，今天无害） | ✅ 已写明名单边界 + "要动得两边一起看" |
+    | b12-流程（报告 LOW-5） | b9/b10/b12 **连续三轮**"任务书区间与事实不符" + 复核期间主检出漂移 | ✅ 已写成纪律：`DEVELOPMENT-HISTORY` §五**第 6 条**——派复核前 `git tag verify-freeze-<批次>` 冻结 + `git rev-list --count` 数出条数写进任务书（**流程纪律，不进自动门禁**） |
+
+    ⇒ **b12 报的条目（2 MEDIUM + LOW/INFO）全部收口**，无遗留登记项（除上表两条已说明的诚实边界）。
+
+    **下一步（step-73 起）**：回到 §12 第 17 条那份**端点工作清单**（34 条 T1+重 / 40 条 T2+重），
+    按"**先量 → 再改 → 再量**"小批推进，从 PDF 渲染/读盘那一族开始；
+    `bulk-db` 一族逐条实测再决定，`/chat/completions` 那类有理由的 `async` **不动**。
+

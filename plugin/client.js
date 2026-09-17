@@ -32515,6 +32515,25 @@ function AnchorMark(props) {
       return assertNever(props.status);
   }
 }
+function statusDisablesReverify(status) {
+  switch (status) {
+    case void 0:
+    case "ok":
+    case "stale":
+    case "unknown":
+    case "health_error":
+      return false;
+    case "no_locators":
+      return true;
+    default:
+      return assertNever(status);
+  }
+}
+function AnchorNoteLine(props) {
+  const note = props.note || "";
+  if (note === "") return null;
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "0 0 8px", fontSize: 12, color: GRAY }, children: note });
+}
 function KsMaterialsPanel(props) {
   const { visible, onUseProject } = props;
   const [projects, setProjects] = (0, import_react7.useState)([]);
@@ -32938,7 +32957,7 @@ function KsMaterialsPanel(props) {
     ] }),
     notice !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "0 0 8px", color: "var(--dsw-alias-label-secondary, #666)", fontSize: 12 }, children: notice }),
     loading && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "0 0 8px", fontSize: 12, color: GRAY }, children: "\u52A0\u8F7D\u4E2D\u2026" }),
-    anchorNote !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "0 0 8px", fontSize: 12, color: GRAY }, children: anchorNote }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(AnchorNoteLine, { note: anchorNote }),
     tierListFailed && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { role: "status", style: { margin: "0 0 8px", color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
       "\u26A0 \u6765\u6E90\u5C42\u7EA7\u6E05\u5355\uFF08T0\u2013T4\uFF09**\u6CA1\u8BFB\u5230**\uFF1A\u6750\u6599\u8868\u91CC\u6BCF\u4EFD\u6750\u6599\u7684\u300C\u8F74 A \u6765\u6E90\u53EF\u4FE1\u5EA6\u300D\u4E0B\u62C9\u4F1A\u53EA\u5269\u5F53\u524D\u503C\u3001",
       /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u6539\u4E0D\u4E86\u7EA7" }),
@@ -33045,8 +33064,8 @@ function KsMaterialsPanel(props) {
                 "button",
                 {
                   type: "button",
-                  style: btnStyle2(busy !== "" || anchors[m.material_id]?.status === "no_locators"),
-                  disabled: busy !== "" || anchors[m.material_id]?.status === "no_locators",
+                  style: btnStyle2(busy !== "" || statusDisablesReverify(anchors[m.material_id]?.status)),
+                  disabled: busy !== "" || statusDisablesReverify(anchors[m.material_id]?.status),
                   title: "\u7528\u5F53\u524D\u89E3\u6790\u5668\u91CD\u65B0\u89E3\u6790\u6E90\u6587\u4EF6\u5E76\u6BD4\u5BF9\u6D3E\u751F\u5168\u6587\uFF08PDF \u662F\u5B50\u8FDB\u7A0B\uFF0C\u53EF\u80FD\u8981\u51E0\u5341\u79D2\uFF09",
                   onClick: () => onReverify(m),
                   children: "\u590D\u7B97\u951A\u70B9"

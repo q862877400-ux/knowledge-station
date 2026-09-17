@@ -1465,6 +1465,12 @@ def _inside_raw_text(s: str, at: int) -> bool:
     - `textarea` / `title`：浏览器不显示，但它们的文本是**我们有意保留**的（表单默认值 / 页面标题）
       ⇒ 在里面剥 script 同样是在删我们决定要留的字。
     `plaintext` 没有结束标签（其后全是 raw text，HTML5 规则）。
+
+    ⚠ **名单边界**（2026-09-18 复核 b12 的 INFO-2）：HTML5 的 raw text / RCDATA 元素
+    **不止这四个**——还有 `iframe` / `noembed` / `noframes`（RCDATA 家族也有 `title`，此处已收）。
+    它们**不在本函数**里，是因为另一条路径已经处理：那三个在 `_CONTENT_HIDDEN_TAGS` 里整块被剥，
+    而浏览器**不渲染**它们的回退内容 ⇒ 今天**无害**。写在这里是为了别把上面那句话读成
+    "这就是完整名单"——**要动就得两边一起看**（`_CONTENT_HIDDEN_TAGS` 与本函数的名单）。
     ⚠ 代价（诚实登记）：这个判据每遇到一个 script/style 匹配就**回扫一遍前缀**，
     复杂度 O(n·k)；页面上的 script/style 通常是个位数 ⇒ 可接受。
     真要快得写成**单遍状态机**（未立项）。

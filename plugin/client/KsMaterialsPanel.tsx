@@ -158,6 +158,57 @@ export function AnchorMark(props: { status?: KsLocatorHealth['status']; why?: st
   }
 }
 
+/**
+ * **「这个状态要不要禁用『复算锚点』按钮」**——把这一处也纳入**穷尽性**保护
+ * （2026-09-18 复核 b12 的 LOW-4b）。
+ *
+ * 为什么不留在调用点直接写"状态名相等比较"：`assertNever` 只保证 `AnchorMark`
+ * 那个 `switch` 穷尽，面板里**另有一处**直接比较（`disabled={…}` 里的相等判断）——
+ * 将来后端**新增一个状态**且它**也该**禁用按钮时，那一处**一声不响**（今天不是 bug：
+ * 按设计只有 `no_locators` 禁用，因为只有它"没有任何区间可复算"）。这类"新增取值只在某几处
+ * 生效"正是本文件一直在防的静默。
+ * ⚠ 本注释**故意不写出那个比较表达式**（连注释里的字面量也算数）：离线冒烟有一条
+ * `smoke-client-entry` 断言"面板源码里不许再出现 `no_locators` 的相等比较"——写进来会自己撞自己。
+ *
+ * 判据：**没有区间可复算** ⇒ 禁用（点它没有意义）；其余状态都能点（`stale` 正是要点它的时候，
+ * `unknown`/`health_error` 点一次可能就变清楚，`ok` 重算一遍无害）。
+ * 行为由 `scripts/smoke-anchor-mark.mjs` **逐档真渲染/真调用**验过；穷尽性由 `tsc` 保证
+ * （往 union 加成员 ⇒ 这里 `default` 分支不再是 `never` ⇒ `npm run typecheck` 红）。
+ */
+export function statusDisablesReverify(status?: KsLocatorHealth['status']): boolean {
+  switch (status) {
+    case undefined:
+    case 'ok':
+    case 'stale':
+    case 'unknown':
+    case 'health_error':
+      return false
+    case 'no_locators':
+      return true
+    default:
+      return assertNever(status)
+  }
+}
+
+/**
+ * **锚点总览的后端说明**（`locator.py` 的 `note`）——一个**能单独渲染**的组件。
+ *
+ * 为什么要抽出来（2026-09-18，复核 b12 的 LOW-1 + 一次变异 AA5）：
+ * 这段状态**曾经是死的**（b11 的 INFO-1：shell 两处写、零处读 ⇒ 后端的解释从没上过屏）。
+ * 修好之后判据只是"源码里有没有 `anchorNote` 这串字"——于是把条件改成
+ * `{false && (<p>{anchorNote}</p>)}`（永不上屏）时，源码里**照样"读"到了它** ⇒ 字符串级
+ * 断言**看不见**。抽成组件后，这条断言变成**真渲染**：
+ * `smoke-anchor-mark.mjs` 分别渲染 `note=''`（必须什么都不出）与 `note='后端原文'`
+ * （必须**原样**出现那段字）——行为级，且不需要 jsdom。
+ *
+ * 语义与抽出来之前**逐字一致**：空串不渲染（避免占位空行），非空原样显示。
+ */
+export function AnchorNoteLine(props: { note?: string }): React.ReactElement | null {
+  const note = props.note || ''
+  if (note === '') return null
+  return <p style={{ margin: '0 0 8px', fontSize: 12, color: GRAY }}>{note}</p>
+}
+
 export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactElement {
   const { visible, onUseProject } = props
   const [projects, setProjects] = useState<KsMaterialProject[]>([])
@@ -660,9 +711,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
           `health_error` 不是健康状态。⚠ 这段状态**曾经是死的**（shell 2 处写、0 处读 ⇒
           b11 的 INFO-1）：后端的解释从来没上过屏，而它正是"别把不知道当成没问题"那件事的说明。
           ⇒ 现在渲染出来（只在选了项目、拿到总览之后显示）。 */}
-      {anchorNote !== '' && (
-        <p style={{ margin: '0 0 8px', fontSize: 12, color: GRAY }}>{anchorNote}</p>
-      )}
+      <AnchorNoteLine note={anchorNote} />
 
       {/* 层级清单没读到（真机 e2e 抓出来的静默失败，见 `tierListFailed` 的注释）。
           **不加"选了项目才显示"的门**：失败是真实发生的事，闸门只会让它可被隐藏——
@@ -783,8 +832,8 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
               </button>
               <button
                 type="button"
-                style={btnStyle(busy !== '' || (anchors[m.material_id]?.status === 'no_locators'))}
-                disabled={busy !== '' || anchors[m.material_id]?.status === 'no_locators'}
+                style={btnStyle(busy !== '' || statusDisablesReverify(anchors[m.material_id]?.status))}
+                disabled={busy !== '' || statusDisablesReverify(anchors[m.material_id]?.status)}
                 title="用当前解析器重新解析源文件并比对派生全文（PDF 是子进程，可能要几十秒）"
                 onClick={() => onReverify(m)}
               >

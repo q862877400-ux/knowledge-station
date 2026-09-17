@@ -107,6 +107,14 @@ def perform_hybrid_search(
                 # 它们就会**排第一**、拿到通道内最好的名次——方向与 §10.44 建立的
                 # "未核验不得承重"**相反**。`(dm.legal_status IS NULL)` 对 NULL 求值为 1、
                 # 其余为 0 ⇒ 未核验沉到最后，已知状态的按名排（effective 在前）。
+                # ⚠ **口径取舍补记**（2026-09-18 复核 b12 的 LOW-4）："已知状态按名排"= **字符串序**
+                # `effective < superseded < withdrawn < NULL` ⇒ **已废止/已替代排在"未核验"之前**。
+                # 这不是某一步引入的（§10.58 之前 A 就是这样），D/E 只是**对齐**它；
+                # 也不与"未核验不得承重"冲突——那是"谁排前面"，这是"能不能承重"（承重判据在
+                # `authority`/`evidence` 那一侧，不在排序里）。若要"已废止也沉到未核验之后"，
+                # 那是**新口径**，需业主拍板（不是"顺手改一下"）。
+                # ⚠ 另一处不对称：**A 这条没有 id 兜底** ⇒ 同状态多行时次序仍不保证（非全序）；
+                # D/E 用 `cr.clause_revision_id` 兜底成全序（见各自注释）。
                 + " ORDER BY (dm.legal_status IS NULL), dm.legal_status",
                 (exact_no,)).fetchall()
             for rank, row in enumerate(rows):
@@ -156,7 +164,8 @@ def perform_hybrid_search(
             # 是未定义的**（实际由访问路径/rowid 决定，改规划器、加索引、VACUUM 都可能变）
             # ⇒ 同一个查询的权重分配**不可复现**，而且**无法断言**。
             # 排序口径与通道 A 一致：未核验（NULL）沉底，已知状态按名排，最后用 id 兜底
-            # 保证**全序**（同状态多行时也确定）。
+            # 保证**全序**（同状态多行时也确定）。取舍（已废止排在未核验之前）与 A 相同，
+            # 见通道 A 那条注释——**口径的唯一所有者在 A**，这里只负责"更全"（多了 id 兜底）。
             + " ORDER BY (dm.legal_status IS NULL), dm.legal_status, cr.clause_revision_id",
             (modality_filter,)).fetchall()
         for rank, row in enumerate(rows):
@@ -177,6 +186,8 @@ def perform_hybrid_search(
             # `rank` 直接决定 `CHANNEL_WEIGHTS / (RRF_K + rank + 1)`，没有 ORDER BY 的返回次序
             # 是未定义的 ⇒ 同一查询的权重分配不可复现。
             # 本步把**口径与通道 A/D 对齐**：未核验（NULL）沉底、已知状态按名排、id 兜底成全序。
+            # 取舍（已废止排在未核验之前）见通道 A 注释（唯一所有者）；本处与 A 的差别是
+            # **多了 id 兜底** ⇒ 这条是**全序**，A 不是（复核 b12 的 INFO）。
             " ORDER BY (dm.legal_status IS NULL), dm.legal_status, cr.clause_revision_id",
             (subject_filter,)).fetchall()
         for rank, row in enumerate(rows):
