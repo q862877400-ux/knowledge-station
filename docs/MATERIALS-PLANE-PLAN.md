@@ -853,3 +853,12 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     → ③ 审计标记表补"库内部网络/重活"族 → ④ 派独立复核 **b13**（先 `git tag` 冻区间 +
     `git rev-list --count` 数提交数写进任务书）。
 
+
+23. **`dry_run` 同文件并发加锁 + 渲染端点补 HTTP 契约**（§10.77，step-77；两件登记项的收口）。
+
+    | 项 | 一句话 | 状态 |
+    |---|---|---|
+    | `dry_run` 同文件并发（§10.73 §6 登记项） | 临时目录按**源文件哈希**命名 ⇒ 同文件并发预览写同一目录（显式深通道还会**读回**落地目录）。改为按哈希**分片加锁**（64 把，只包住 `run_parser_isolated`）；分片是为了**内存有界**且不同文件仍可并行 | ✅ 行为级测试（真两线程 + 替身记并发峰值）：同文件峰值 **1**、不同文件峰值 **2**；AH1（去锁）与 AH2（改全局一把锁）变异 RED |
+    | 渲染端点 HTTP 契约（§10.75 登记项） | `/formula` 与 `/table-image` 此前**零 HTTP 测试** | ✅ `tests/test_doc_render_api.py` **9 条**：两条**确定性 happy path**（真造最小 middle.json ⇒ 200 + PNG 魔数 + `X-Frac-*`）+ 全部失败码（`table_geo_not_found`/`table_not_found`/`doc_not_found`/`clause_not_found`/`formula_not_found`/缺参 422）；AI1–AI3 变异 RED |
+    | 过程中的两个坑（已写进注释） | ① 替身打错对象（`dry_run.run_parser_isolated` 这个名字**不存在**，实际是函数内 import）⇒ `calls=0`，差点当成"锁生效了"；② 假 PDF 字节过不了体检里的 fitz 解析 ⇒ 必须造真 PDF | 📝 已记录 |
+

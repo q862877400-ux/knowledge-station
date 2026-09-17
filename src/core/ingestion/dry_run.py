@@ -32,6 +32,7 @@
 from __future__ import annotations
 
 import hashlib
+import threading
 import time
 from pathlib import Path
 from typing import Any, Iterable
@@ -71,6 +72,20 @@ SAMPLE_N = 5
 MAX_SUSPECTS = 200
 #: head 展示截断（仅展示，绝不入库）
 HEAD_CHARS = 80
+
+#: 同一份源文件的解析锁——按哈希**分片**（§10.77）。
+#: 为什么是分片而不是"每个目录一把"：后者要为进程见过的**每个文件**留一个锁对象，
+#: 万级批量预览就是万级条目（虽然小，但无界）；分片表**内存有界**，且不同文件几乎不撞。
+#: 为什么不是"全局一把"：那会把**不同文件**的预览也串起来（批量预览与手动预览互相等），
+#: 属于"为了安全把吞吐也一起牺牲"——而这里的风险是**同一目录**的并发写，不是全局状态。
+_PARSE_LOCK_STRIPES = 64
+_PARSE_LOCKS = [threading.Lock() for _ in range(_PARSE_LOCK_STRIPES)]
+
+
+def _parse_lock(tmp_dir: Path) -> threading.Lock:
+    """取 `tmp_dir` 对应的分片锁（同一目录 → 同一把；不同目录大概率不同把）。"""
+    key = hashlib.sha256(str(tmp_dir).encode("utf-8")).digest()
+    return _PARSE_LOCKS[int.from_bytes(key[:4], "big") % _PARSE_LOCK_STRIPES]
 
 
 def _sha256_file(path: Path) -> str:
@@ -218,17 +233,24 @@ def analyze_preview_report(pdf_path: Path | str, *, doc_type: str = "standard",
     from src.core.ingestion.parser_worker import run_parser_isolated
     tmp_dir = (get_settings().data_dir / "dryrun" / "tmp"
                / str(report["source"]["file_hash"])[:16])
-    try:
-        parsed = run_parser_isolated(path, tmp_dir, force_deep=False,
-                                     deep_fallback=deep_fallback)
-    except Exception as e:  # noqa: BLE001 — 解析失败是"可判定的坏文档"，转 block
-        code = "parser_error"
-        name = type(e).__name__
-        if "Timeout" in name:
-            code = "parser_timeout"
-        report.update(status="error", error_code=code,
-                      error_message=f"{name}: {e}")
-        return _finalize(report, t0)
+    # ⚠ **同一份源文件的解析必须串行**（§10.77，§10.73 登记的连带风险）：
+    # 临时目录按**源文件哈希**命名 ⇒ 同一文件的两个并发预览会写同一个目录；显式走深通道时
+    # 那个落地目录还会被**读回**（`layout.json` + `images/`）⇒ 理论上有撕裂读。
+    # 默认路径（`deep_fallback=False`）只写不读、且同一哈希的输入**逐字节相同**，所以危害
+    # 查不出来；但并发**本来就有**（jobs 的 worker 线程 vs 同步请求），§10.73 把预览端点改成
+    # `def` 之后更宽（两次点击即可）。这里按哈希**分片**加锁：同文件串行、不同文件照常并行。
+    with _parse_lock(tmp_dir):
+        try:
+            parsed = run_parser_isolated(path, tmp_dir, force_deep=False,
+                                         deep_fallback=deep_fallback)
+        except Exception as e:  # noqa: BLE001 — 解析失败是"可判定的坏文档"，转 block
+            code = "parser_error"
+            name = type(e).__name__
+            if "Timeout" in name:
+                code = "parser_timeout"
+            report.update(status="error", error_code=code,
+                          error_message=f"{name}: {e}")
+            return _finalize(report, t0)
 
     blocks = parsed.get("blocks") or []
     geometries = parsed.get("geometries") or {}
