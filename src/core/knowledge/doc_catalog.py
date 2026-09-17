@@ -228,8 +228,13 @@ def _law_domain_doc(doc) -> list[str]:
 #    （或字符串结束）**，否则不匹配 ⇒ `GBX`、`DBX` 这类仍不会被误判成标准。
 #    `$` 那一支是给**退化输入**留的（`standard_no` 恰好就是光杆 `GB`）：没有它，"GB"
 #    会掉进法规树——那是复核实测的**回退**，现在按原行为（当标准）保住。
+# ⚠ **全角斜杠也要认**（2026-09-17 独立复核 b8 的 LOW-4）：生产库实测有 `'GBZ／T'`
+#    （U+FF0F）这一行，它落进了**法规树**。兄弟函数（`_hier_from_no` / `_std_type`）
+#    都做了全角归一，只有这里漏了 ⇒ 把 `／` 加进边界类（比"先归一整串"更小：
+#    这一处只需要判前缀，不必改 `standard_no` 本身）。
 _STD_NO_PREFIX = re.compile(
-    r"^(GB|GB/T|GBT|GBZ|AQ|JGJ|JG|CJJ|DB|SH|HG|TSG|YS|SN|JB|QB|NY|SL|DL)(?=[\s/]|\d|$)",
+    r"^(GB|GB/T|GBT|GBZ|AQ|JGJ|JG|CJJ|DB|SH|HG|TSG|YS|SN|JB|QB|NY|SL|DL)"
+    r"(?=[\s/\uFF0F]|\d|$)",
     re.I)
 
 

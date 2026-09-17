@@ -686,6 +686,52 @@ class TestScriptStyleStrippingEdges:
             out = html_to_text(html)
             assert "SECRET_JS" not in out, (html, out)
 
+    def test_raw_text_families_that_browsers_do_not_render_are_stripped(self):
+        """`script`/`style` 之外还有一族**浏览器不渲染**的元素（复核 b8 的 LOW-5）。
+
+        复核实测这一族的内容**全部**进了正文。按"页面里看到什么就是正文"的定位，
+        不渲染的就不该进来 ⇒ 一并剥掉：
+        `iframe` / `xmp` / `noembed` / `noframes` / `plaintext`
+        （`plaintext` 没有结束标签，其后全是 raw text ⇒ 走"找不到闭合就丢尾"那条逻辑）。
+
+        ⚠ **故意保留** `noscript` / `textarea` / `title`：我们**不执行 JS**，
+        所以 `<noscript>` 里那套"没有 JS 时的兜底内容"**恰恰是**我们会看到的东西；
+        `textarea` 是表单默认值、`title` 是页面标题。这三条是**有意的决定**
+        （登记在方案 §12 未决第 9 条），别当成漏掉的。
+        """
+        from src.core.text_utils import html_to_text
+        for tag in ("iframe", "xmp", "noembed", "noframes"):
+            out = html_to_text(f"<p>前</p><{tag}>SECRETLEAK</{tag}><p>后</p>")
+            assert "SECRETLEAK" not in out, (tag, out)
+            assert "前" in out and "后" in out, (tag, out)
+        # plaintext：其后全部是 raw text（没有结束标签）
+        assert "SECRETLEAK" not in html_to_text("<p>前</p><plaintext>SECRETLEAK")
+        # 有意保留的三族：内容仍要在（不许"顺手"一起剥掉）
+        for tag in ("noscript", "textarea", "title"):
+            out = html_to_text(f"<p>前</p><{tag}>保留甲</{tag}><p>后</p>")
+            assert "保留甲" in out, (tag, out)
+
+    def test_guard_requirement_one_is_load_bearing(self):
+        """守卫的**要求①**（`<` 之后必须紧跟字母或 `/`）是**承重的**，必须有正面用例。
+
+        ⚠ 这一条是被**独立复核 b8 打回来的**（REFUTED）：§10.45 声称"新增的表格形态用例
+        让『删掉要求①』这条变异有主"，实测那条变异**全绿**——而同一个改动**真的**新开了
+        4 条"JS 进正文"。差别在这里：下面这些输入里，`<script>` 之前那个 `<` 后面跟的是
+        **空格**（`a < b` / `3 < 5`），要求①把它判为"不是标签开头" ⇒ 真 `<script>` 仍被剥；
+        一旦去掉要求①，"有一个未闭合的 `<`"成立 ⇒ 误判成"在标签里" ⇒ **JS 就漏了**。
+        复核给的正是这四组（`probeG_req1.py`），这里逐组钉住。
+        """
+        from src.core.text_utils import html_to_text
+        js = "var SECRET_JS=9;"
+        for html in (
+            f"<p>a < b<script>{js}</script>",
+            f"<p>a < /b<script>{js}</script>",
+            f"<p>3 < 5<script>{js}</script>",
+            f"<p>a <= b<script>{js}</script>",
+        ):
+            out = html_to_text(html)
+            assert "SECRET_JS" not in out, (html, out)
+
     def test_unclosed_script_swallows_the_tail_like_a_browser(self):
         """未闭合 ⇒ 其后全部是脚本文本（HTML5），**不得**把 JS 当正文留下来。
 

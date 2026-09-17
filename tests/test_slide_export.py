@@ -80,23 +80,55 @@ class TestSlideModel:
         assert "只放了前" in slides[-1]["bullets"][0]
 
     def test_a_page_with_too_many_bullets_is_paginated(self):
-        """**真正的无界轴**是每页要点数（复核实测单页 120 条）⇒ 超了就续页。
+        """**真正的无界轴**是每页要点数（复核实测单页 120 条）⇒ 按**行预算**续页。
 
-        页数上限防不住这种形态：真报告的 h2 数 ≤7，页数永远够用，而一页塞 120 条
-        在 PPT 里必然溢出文本框。续页标题带"（续 N）"，条数上限是常量。
+        ⚠ 判据在 2026-09-17 改过一次（复核 b8 的 MEDIUM-3）：上一版按"条数 ≤ 12"分页，
+        而复核算过几何——正文框可用 ≈ 6.19in、一行 ≈ 0.30in ⇒ 约 20 行，
+        12 条 × 40 字 ≈ **24 行 ≈ 7.20in 已经溢出**。现在按**估算行数**分页，
+        并且断言"每页估算行数 ≤ 行预算"（这正是复核建议的钉法）。
         """
         blocks: list[tuple[str, object]] = [
             ("h1", "T"), ("h2", "依据"),
-            ("ul", [f"第 {i} 条依据" for i in range(se.MAX_BULLETS_PER_SLIDE * 3 + 1)]),
+            # 每条 6 字 ≈ 1 行 ⇒ 需要约 MAX_LINES_PER_SLIDE × 3 条才撑出 4 页
+            ("ul", [f"第 {i} 条依据" for i in range(se.MAX_LINES_PER_SLIDE * 3 + 1)]),
         ]
         slides = se.build_slides(blocks, title="T")
-        assert all(len(s["bullets"]) <= se.MAX_BULLETS_PER_SLIDE for s in slides), \
-            [len(s["bullets"]) for s in slides]
-        # 1 首页（无要点）+ ⌈37/12⌉ = 4 页内容（第 4 页只 1 条）
+        lines = [sum(se.estimate_lines(b) for b in s["bullets"]) for s in slides]
+        assert all(n <= se.MAX_LINES_PER_SLIDE for n in lines), lines
+        # 1 首页（无要点）+ 4 页内容（第 4 页只 1 条）
         assert len(slides) == 5, [s["title"] for s in slides]
-        assert "（续 2）" in slides[-3]["title"], [s["title"] for s in slides]
-        # 续页不许丢内容（条数守恒）
-        assert sum(len(s["bullets"]) for s in slides) == se.MAX_BULLETS_PER_SLIDE * 3 + 1
+        assert "（续 2）" in slides[2]["title"], [s["title"] for s in slides]
+        # 没触发页数上限时**条数守恒**（续页不丢内容）
+        assert sum(len(s["bullets"]) for s in slides) == se.MAX_LINES_PER_SLIDE * 3 + 1
+
+    def test_long_bullets_are_split_by_the_line_budget_not_a_bullet_count(self):
+        """**长要点**也要按行算：10 条 × 120 字 ≈ 30 行 ⇒ 必须拆成至少两页。
+
+        这是复核 b8 的 MEDIUM-3 的正面形态：只数条数会放过"少量超长要点"的溢出。
+        """
+        blocks: list[tuple[str, object]] = [
+            ("h1", "T"), ("h2", "依据"), ("ul", ["字" * 120 for _ in range(10)]),
+        ]
+        slides = se.build_slides(blocks, title="T")
+        body = [s for s in slides if s["bullets"]]
+        assert len(body) >= 2, [len(s["bullets"]) for s in body]
+        lines = [sum(se.estimate_lines(b) for b in s["bullets"]) for s in body]
+        assert all(n <= se.MAX_LINES_PER_SLIDE for n in lines), lines
+
+    def test_overflow_page_declares_how_many_bullets_were_dropped(self):
+        """**页数上限触发时丢的条数必须写在页上**（复核 b8 的 MEDIUM-2）。
+
+        复核给的是**报告设计范围内**的输入（三份清单各填到 `LIST_CAP`）而丢了 47% 的要点，
+        而上一版只说"只放了前 N 页"——不说丢了多少条，用户没法判断损失。
+        """
+        blocks: list[tuple[str, object]] = [("h1", "T")]
+        for i in range(se.MAX_SLIDES + 40):
+            blocks.extend([("h2", f"第 {i} 节"), ("ul", [f"条目 {i}-{j}" for j in range(6)])])
+        slides = se.build_slides(blocks, title="T")
+        assert len(slides) <= se.MAX_SLIDES - 1, len(slides)
+        tail = " ".join(slides[-1]["bullets"])
+        assert "未放入本 PPT" in tail, tail
+        assert "完整清单见同名 Markdown 报告" in tail, tail
 
     def test_limits_come_from_the_report_blocks(self):
         """末页的"已知限制"**从报告块取**（唯一内容所有者），不是手写第二份。

@@ -90,6 +90,42 @@ def test_exact_superseded_excluded(seeded_db):
     assert "c3" in [r.clause_revision_id for r in res_all]
 
 
+def test_null_legal_status_is_not_silently_excluded(seeded_db):
+    """**NULL（未核验）≠ 已废止**：它也要能被精确命中抓到。
+
+    ⚠ 这条是**独立复核 b8 的 LOW**：`NOT IN ('withdrawn','superseded')` 对 NULL 求值是
+    **NULL**（不是 true）⇒ 未核验的条款（采集件走 Track L 入库后 `legal_status IS NULL`）
+    会被**静默排除**在精确命中与模态召回之外。有意思的是：这恰好是**与 §10.44 相反的
+    方向**——上层（`fetch_full_clause`）已经如实带出 NULL，而这条 SQL 通道又把它筛掉了，
+    于是"未核验"在两条通道上得到两种待遇。
+    反向断言同样重要：**已废止的仍然要被排除**（修复不能把那条边界一起放松）。
+    """
+    from src.core.retrieval.hybrid_engine import perform_hybrid_search
+    from src.core.storage import clause_repo
+    from src.core.storage.sqlite_db import get_db_connection
+    conn = get_db_connection()
+    clause_repo.insert_document(conn, dict(
+        doc_id="d9", standard_no="GB 99999-2099", standard_name="采集件标准",
+        short_code="GB99999", current_revision_id="r9", legal_status=None,
+        file_path="collected.pdf", file_hash="h9"))
+    clause_repo.insert_clauses([
+        _clause("c9", "9.9.9", "采集件条款正文", doc="d9",
+                standard="GB 99999-2099", legal_status_of_doc=None)])
+    try:
+        found = [r.clause_revision_id for r in
+                 perform_hybrid_search("查 9.9.9", top_k=5, channels=["exact"])]
+        assert "c9" in found, "未核验（NULL）的条款被静默排除了"
+        # 模态通道同款 SQL，也要能命中
+        model = perform_hybrid_search("查 9.9.9", top_k=5, channels=["modality"],
+                                      modality_filter="严禁")
+        assert isinstance(model, list)      # 只是别因为 NULL 报错/空集合异常
+        gone = [r.clause_revision_id for r in
+                perform_hybrid_search("查 6.4.2", top_k=5, channels=["exact"])]
+        assert "c3" not in gone, "已废止条款不能被放回来"
+    finally:
+        clause_repo.delete_document("d9")
+
+
 def test_fts_channel(seeded_db):
     from src.core.retrieval.hybrid_engine import perform_hybrid_search
     res = perform_hybrid_search("防火间距 多少", top_k=5, channels=["fts"])

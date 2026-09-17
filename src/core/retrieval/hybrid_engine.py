@@ -93,7 +93,14 @@ def perform_hybrid_search(
                 " JOIN doc_meta dm ON dm.doc_id = cr.doc_id"
                 " WHERE cr.clause_number = ?"
                 + ("" if include_superseded
-                   else " AND dm.legal_status NOT IN ('withdrawn','superseded')")
+                   # ⚠ **NULL 必须放进来**（2026-09-17 独立复核 b8 的 LOW）：
+                   # `NOT IN (…)` 对 NULL 求值是 NULL（不是 true）⇒ 未核验的条款
+                   # （采集件，`legal_status IS NULL`）会被**静默排除**在精确命中与
+                   # 模态召回之外——而"未核验"**不是**"已废止"，不该这样筛掉。
+                   # `fetch_full_clause` 那层已按 §10.44 如实带出 NULL，这里是
+                   # **另一条 SQL 通道**，两处判据要一致。
+                   else " AND (dm.legal_status IS NULL OR dm.legal_status"
+                        " NOT IN ('withdrawn','superseded'))")
                 + " ORDER BY dm.legal_status", (exact_no,)).fetchall()
             for rank, row in enumerate(rows):
                 scores[row[0]] = scores.get(row[0], 0.0) + CHANNEL_WEIGHTS["exact"] / (RRF_K + rank + 1)
@@ -133,7 +140,9 @@ def perform_hybrid_search(
             " JOIN doc_meta dm ON dm.doc_id = cr.doc_id"
             " WHERE cr.modality = ?"
             + ("" if include_superseded
-               else " AND dm.legal_status NOT IN ('withdrawn','superseded')"),
+               # 同上（通道 A 那条注释）：NULL 是"未核验"，不是"已废止"。
+               else " AND (dm.legal_status IS NULL OR dm.legal_status"
+                    " NOT IN ('withdrawn','superseded'))"),
             (modality_filter,)).fetchall()
         for rank, row in enumerate(rows):
             scores[row[0]] = scores.get(row[0], 0.0) + CHANNEL_WEIGHTS["modality"] / (RRF_K + rank + 1)

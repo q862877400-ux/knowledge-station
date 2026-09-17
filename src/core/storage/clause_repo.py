@@ -108,19 +108,23 @@ def ensure_additive_columns() -> None:
     """**追加列**迁移的**唯一入口**：保证"读代码需要的列"都存在（纯 ALTER，**不回填**）。
 
     ## 为什么需要这么一个入口（2026-09-17 冷启动缺陷）
-    `schema.sql` 用的是 `CREATE TABLE IF NOT EXISTS`，而 `catalog_hidden` / `page_breaks` /
-    `figure_html` 这三列**不在 `schema.sql` 里**——它们只由本模块的迁移函数添加。
-    在此之前，那条迁移只挂在**写路径**上（`_ensure_content_hash_once()`，由
-    `insert_document` 触发）⇒ **一个全新的库（还没有任何入库）里这三列根本不存在**，
-    而**读者**照样用它们：
+    `schema.sql` 用的是 `CREATE TABLE IF NOT EXISTS`，而 **`catalog_hidden` 不在
+    `schema.sql` 里**——它只由本模块的迁移函数添加。
+    ⚠ **措辞更正**（独立复核 b8 的 LOW-2）：这里原先写"三列"，实测
+    `figure_html` / `page_breaks` **从基线起就在 `schema.sql` 里**（schema.sql:60 / :87）
+    ——真实缺口只有 `catalog_hidden` **一列**，影响 **3** 个读取端点。
+    在此之前，那条迁移只挂在**写路径**上（`_ensure_content_hash_once()`，
+    ⚠ 真触发点是 `insert_clauses_in_txn`——复核 b8 的 LOW-6 更正了这一处的归因；
+    `insert_document` / `delete_document` **不会**触发它）⇒ **一个全新的库
+    （还没有任何条款入库）里这一列根本不存在**，而**读者**照样用它：
 
       · `exports/effect_report._load_docs()`：`... WHERE catalog_hidden = 0` ⇒
         `/api/v1/report/effect` 直接 **500 `no such column: catalog_hidden`**
         （界面上的「效力报告」第一眼就是服务器错误）；
-      · `api/server.py` 的目录端点（3 处）同理。
+      · `api/server.py` 的目录端点（2 处）同理。
 
-    实测（§10.43）：一次性引擎 + 空 KS_DATA_DIR，`GET /api/v1/report/effect?window=all`
-    → 500，traceback 落在 `effect_report.py:133`。
+    实测（§10.43 + 复核 b8 的"59 个 GET 端点 × 迁移开关两轮"）：
+    关迁移时**恰好 3 个**端点 500，开迁移时 **0 个**。
 
     ## 为什么不把 `ensure_content_hash_column()` 也并进来
     那个函数**会回填**（全表扫 + UPDATE）：那是**写路径**的事，放在启动路径上会把

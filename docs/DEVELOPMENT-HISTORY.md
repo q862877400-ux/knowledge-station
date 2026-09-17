@@ -2247,14 +2247,18 @@ HTTP 状态都在、缺 `collected` **抛**、`data` 缺失 **抛**、HTTP 502 *
     → **批准后检索到（命中 1）** ✓ → 报告落盘 ✓（counts approved=1，warnings=1）
     → **PPT 8 页** ✓ → 最后一步 `/api/v1/report/effect` → **500**
 
-**缺陷本身**：`schema.sql` 是 `CREATE TABLE IF NOT EXISTS`，而 `catalog_hidden` /
-`page_breaks` / `figure_html` **不在 schema.sql 里**——只由 `storage/clause_repo` 的迁移
-函数添加。而那条迁移此前**只挂在写路径**（`insert_document` → `_ensure_content_hash_once`）⇒
-**一个还没入库过任何文档的新库，这三列根本不存在**，读者照用：
+**缺陷本身**：`schema.sql` 是 `CREATE TABLE IF NOT EXISTS`，而 **`catalog_hidden` 这一列
+不在 `schema.sql` 里**——只由 `storage/clause_repo` 的迁移函数添加。而那条迁移此前
+**只挂在写路径**（`insert_clauses_in_txn` → `_ensure_content_hash_once`）⇒
+**一个还没入库过任何条款的新库，这一列根本不存在**，读者照用：
 `exports/effect_report.py:137` 的 `WHERE catalog_hidden = 0` 直接
 `sqlite3.OperationalError: no such column`（`api/server.py` 的两个目录端点同理）。
 ⇒ 新装的库，"效力报告"第一眼就是服务器错误。**独立复核（b7）也复现了同一缺陷**
 （它的 INFO ①，探针 `probeG2_latent_500.py`）。
+⚠ **本段在 §10.50 被更正**（复核 b8 的 LOW-2 / LOW-6）：原文写的是"三列"，
+而 `page_breaks` / `figure_html` **从基线起就在 `schema.sql` 里**（:60 / :87）——
+真实缺口**只有 `catalog_hidden` 一列**；写路径迁移的真触发点也是 `insert_clauses_in_txn`
+（**不是** `insert_document`）。原文保留在下面这段的措辞里只作对照，**以本更正为准**。
 
 **修法（判据只有一个所有者）**：`clause_repo.ensure_additive_columns()` 作为**追加列
 迁移的唯一入口**（纯 ALTER、**不回填**——回填是写路径的事，见该函数 docstring），
@@ -2607,5 +2611,110 @@ PPT 里必然溢出文本框）。
 **门禁（本步）**：`pytest` **1651 passed / 3 skipped / 0 failed**；`mypy src`
 **134 files / 0 errors**；`smoke` **18 段全过**（`materials-routes` **71/71**、
 `client-entry` **66/66**）；`verify:commands` 22/22；`tsc --noEmit` 0。
+
+### 10.50 处置复核 b8（step-40~46）：3 个 MEDIUM + 6 个 LOW，以及它**打回我的三句话**
+
+复核 b8 报了 3 个 MEDIUM + 6 个 LOW，并**证伪了我三条自述**。逐条处置如下（先记被证伪的，
+因为那是最该写清的部分）。
+
+**① 被证伪：§10.45 说"新增的表格形态用例让『删掉守卫要求①』有主"——实测那条变异全绿**
+（复核的 `mutate_b8.py Y1`：**GREEN 64 passed**），而同一个改动**真的**新开 4 条"JS 进正文"
+（`a < b<script>` / `a < /b<script>` / `3 < 5<script>` / `a <= b<script>`）。
+**差别在于**：我那条用例里 `<script>` 之前有 `</p>` 收尾 ⇒ 守卫的第②条（"其后没有 `>`"）
+先不成立，**根本走不到要求①**。**修法**：按复核给的四组输入新增
+`test_guard_requirement_one_is_load_bearing`；变异体 Y1 现在**红**。
+> 教训：**"有主"必须用变异证明**——否则"加了用例"与"加对了用例"看起来一模一样。
+
+**② 被证伪：§10.43 说 `catalog_hidden`/`page_breaks`/`figure_html` "三列不在 schema.sql"**
+——`git log -S` 证明后两列**从基线起就在**（`schema.sql:60` / `:87`），真实缺口**只有一列**
+（影响 3 个端点），而这句话在**五处**重复过。**修法**：`server.py` 的引导注释与
+`clause_repo.ensure_additive_columns()` 的 docstring 都改成"**只缺 `catalog_hidden` 一列**"，
+并注明这是复核的更正；顺带按复核的 LOW-6 更正写路径迁移的**真触发点**
+（是 `insert_clauses_in_txn`，不是 `insert_document`/`delete_document`）。
+> 复核同时独立确认：**59 个 GET 端点 × 迁移开关两轮 ⇒ 关时恰好 3 个 500、开时 0 个**
+> ——修复面完整，但我的描述夸大了。
+
+**③ 被证伪：§10.47 说 `mapProbe` 的 404 改动影响了 `settings.js`**——它**有自己的一份
+私有 `mapProbe`**（`settings.js:113`），那份**仍然**是 404→502。**修法**：`route_util.js`
+的注释改成"真正共用的是 `materials_routes.js` 与 `report.js`；`settings.js` **不共用**"
+并把那份私有实现**登记为同一判据的第二份实现**（只登记不合并：合并要动设置面板的
+错误语义，属另一件事）。
+
+**MEDIUM-1（守卫要求①零覆盖）** —— 见上面①。另外复核用 `probeG_req1.py` 证明
+**去掉要求①真会漏 JS**，所以这不是"为了覆盖而覆盖"。
+
+**MEDIUM-2：`_paginate` 让页数上限**变成可达** ⇒ 在报告自己的设计范围内丢 47% 的要点，
+而我的措辞是"条数守恒（续页不丢内容）"**。复核的输入是"三份清单各填到 `LIST_CAP`"
+（**不是畸形输入**）⇒ 609 条要点只放进去 323 条。**修法**：溢出页现在**算出并写明丢了多少条**
+（"另有 N 条要点未放入本 PPT（共 M 条，这里放了 K 条）"），并新增用例钉住这句话；
+措辞也改成"**续页不丢内容；页数上限触发时会写明丢了多少**"。
+
+**MEDIUM-3：`MAX_BULLETS_PER_SLIDE = 12` 经几何测量就不够**（12 条 × 40 字 ≈ 7.20in >
+正文框可用 6.19in ≈ 20 行）——与 b7 的"30 页假上界"**同型**（看起来有上界，其实不是）。
+**修法**：**删掉那个常量**，改按**行预算**分页：`MAX_LINES_PER_SLIDE = 18` +
+`CHARS_PER_LINE = 40`（`estimate_lines()` 单独抽出来**是为了可断言**——正是复核建议的钉法：
+断言"每页估算行数 ≤ 行预算"）。新增两条用例（少量超长要点、条数与行数两种形态）。
+⚠ **诚实边界**：这两个数字仍是**估算**（按 python-pptx 默认版式与默认字号），
+**没有**做渲染级测量 ⇒ 它是"**减少溢出**"，不是"保证不溢出"。
+
+**LOW-1（SQL `NOT IN` 静默排除 NULL 行）** —— 这条**是功能缺陷**，不是措辞：
+`hybrid_engine` 的精确命中与模态召回两条 SQL 用 `legal_status NOT IN ('withdrawn','superseded')`，
+而 `NOT IN` 对 NULL 求值是 NULL ⇒ **未核验的条款被静默排除**。
+有意思的是这与 §10.44 的修复**方向相反**：上层（`fetch_full_clause`）已如实带出 NULL，
+这条 SQL 又把它筛掉了。**修法**：两条 SQL 都改成
+`(dm.legal_status IS NULL OR dm.legal_status NOT IN (…))`，
+新增 `test_null_legal_status_is_not_silently_excluded`（**含反向断言**：已废止的仍要被排除），
+变异体 Y3 **红在新增那条用例上**。
+
+**LOW-4（全角斜杠）** —— 复核在生产库实测有一行 `'GBZ／T'`（U+FF0F）落进了法规树：
+兄弟函数（`_hier_from_no` / `_std_type`）都做了全角归一，只有 `_STD_NO_PREFIX` 漏了。
+**修法**：边界类补 `\uFF0F`，并把 `'GBZ／T'` 加进参数化用例（变异体 Y2 **红在那一组**）。
+
+**LOW-5（raw text 族）** —— 复核实测 `iframe`/`xmp`/`noembed`/`noframes`/`noscript`/
+`textarea`/`title`/`plaintext` 等的内容**全部**进正文。本步实测 **8/8 泄漏**，
+处置成**两类**（不是一把全剥）：
+- **收**（浏览器不渲染其内容）：`iframe` / `xmp` / `noembed` / `noframes` / `plaintext`
+  （`plaintext` 无结束标签，正好走"找不到闭合就丢尾"那条既有逻辑）；
+- **有意保留**（内容**可能有用**）：`noscript`（**我们不执行 JS**，它里面的兜底内容
+  恰恰是"我们会看到的"）/ `textarea`（表单默认值）/ `title`（页面标题）。
+⇒ 实测从 8/8 泄漏变成 **3/8**，而那 3 条是**决定的**，不是漏的（登记在方案 §12 未决第 9 条）。
+变异体 Z2（只留 `script|style`）**红**。
+
+**复核独立确认的三条（比我的自述更强，记下来）**：
+1. §10.44 的修复在**真答案链**上成立，且它**补了我没做的反向控制**：同库另一条正常
+   `effective` 条款**仍然入证** ⇒ 排除"修成谁都不进"；全仓只有**一处**从 SQL 构造条款模型
+   ⇒ **没有第二条洗白路径**。
+2. §10.45 的**顺序**修复是硬修复：**915 组语料 + 自写 HTML5 词法参照 + lxml + html.parser**
+   三参照对表 ⇒ `new LEAK=0 / old LEAK=52 / 净修 64 / 引入 0`，并有**单调性论证**
+   （那三个替换只删 `>` 不增 `>` ⇒ 新顺序的误判集合 ⊆ 旧顺序）。**我只做了 10 组。**
+3. §10.43 的真实缺陷面是 **1 列 / 3 端点**，且 `init_schema()` 的 4 个非测试调用点都会
+   经 `insert_clauses_in_txn` 自愈、脚本层无 `catalog_hidden` 读者 ⇒ **修复面完整**。
+
+**我自己的流程失误（记下来，因为两次都差点变成"改坏文件"）**：
+- 用 PowerShell 的 here-string 往源码里插含**反引号**的注释 ⇒ 反引号被当转义吃掉，
+  行被拼坏（`# （etch_full_clause …）`、甚至把 `else` 语句并进注释行）；
+- 用 `edit` 时 `old_string` 末尾带 `\n` 而 `new_string` 不带 ⇒ **吞掉换行**，
+  把 `def`/`def` 挤成一行（`onToggleChunks`、`test_the_guard_runs_…` 各一次）。
+⇒ 两次都靠 **`git checkout -- <file>` 从 HEAD 恢复后重做**（这两个文件当时的未提交改动
+只有我先前的意图改动）+ `ast.parse` 校验；**教训**：往代码里写含 `$`/反引号的中文注释
+要用 `edit` 工具或 `.py` 文件，别用 PowerShell 字符串；`edit` 的锚点**首尾换行要对齐**。
+（另：`git checkout --` 在本仓的纪律是"**别对未提交且有价值的改动用**"——这两次之所以
+安全，是因为改动本身要重做，且我先把坏文件备份到了 `var/tmp/`。）
+
+**仍未做（复核指出、本步**不改**的）**：
+- **`standard_type` 排序的生产 A/B 评测**：复核只能证"排序真的变了"（旧 `['u','r','m']`
+  → 新 `['m','u','r']`）与机制（`is_mandatory` 是第二键），**相关性会不会变坏需要真实评测**
+  ——本步**没有**做（不是"忽略"，是**明确留待**）。
+- PPT 的**渲染级**溢出测量（现在只有几何估算）。
+- §10.45 登记的三态（未闭合注释 / RCDATA / 未收尾引号属性）与 `noscript`/`textarea`/`title`
+  的**有意保留**：都是**决定**，不是遗留 bug。
+
+**门禁（本步）**：`pytest` **1657 passed / 3 skipped / 0 failed**（+6：守卫要求① 1、
+raw text 族 1、行预算 2、掉条数声明 1、SQL NULL 1、全角斜杠 1，另有若干重写）；
+`mypy src` **134 files / 0 errors**；`smoke` **18 段全过**（`materials-routes` 71/71、
+`client-entry` 66/66，本步改了 `plugin/src/route_util.js` 的注释 ⇒ 重跑确认）；
+`verify:commands` 22/22；`tsc --noEmit` 0。
+**变异实验**：Y1 / Y2 / Y3 / Z1 / Z2 **全部 RED 且逐字节还原**（每一条都先用
+`Copy-Item` 备份、跑完比对 sha256）。
 
 

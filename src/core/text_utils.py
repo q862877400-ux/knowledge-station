@@ -1400,12 +1400,25 @@ def law_name_key(value: str | None) -> str:
     return re.sub(r"[‐‑‒–—―－]", "-", s)
 
 
+#: "内容不进正文"的标签名（**一个列表，两处正则共用**）。
+#: - `script` / `style`：脚本与样式（本函数存在的原本理由）；
+#: - `iframe` / `xmp` / `noembed` / `noframes` / `plaintext`：**浏览器不渲染其内容**的元素
+#:   （2026-09-17 独立复核 b8 的 LOW-5 实测：这一族的内容**全部**进了正文，8/8）。
+#:   `plaintext` 没有结束标签（其后全是 raw text）——正好落进下面"找不到闭合 ⇒ 丢尾"那条逻辑。
+#: ⚠ **故意不收** `noscript` / `textarea` / `title`（三者内容**可能是有用的文字**）：
+#:   我们**不执行 JS**，所以 `<noscript>` 里那套"没有 JS 时的兜底内容"恰恰是"我们会看到的东西"；
+#:   `textarea` 是表单默认值、`title` 是页面标题（采集侧另有标题通道，正文里留着无害）。
+#:   这三条是**有意的保留**，别当成漏掉的——登记在方案 §12 未决第 9 条。
+_CONTENT_HIDDEN_TAGS = r"script|style|iframe|xmp|noembed|noframes|plaintext"
+
 #: 开标签。⚠ `(?<!["'])` 挡的是"**属性值里**的字面 `<script>`"（`title='<script>'`）：
 #: 那不是标签，当成标签会把其后正文整段吞掉（复核 D② 的第 5 组边角，实测丢"可见"）。
-_RE_SCRIPT_STYLE_OPEN = re.compile(r"(?<![\"'])<(script|style)\b(?P<attrs>[^>]*)>", re.IGNORECASE)
+_RE_SCRIPT_STYLE_OPEN = re.compile(
+    rf"(?<![\"'])<({_CONTENT_HIDDEN_TAGS})\b(?P<attrs>[^>]*)>", re.IGNORECASE)
 
 #: 结束标签：`</script>` / `</script >` / `</script foo>`（浏览器都接受这种写法）。
-_RE_SCRIPT_STYLE_CLOSE_ANY = re.compile(r"</(script|style)\b[^>]*>", re.IGNORECASE)
+_RE_SCRIPT_STYLE_CLOSE_ANY = re.compile(
+    rf"</({_CONTENT_HIDDEN_TAGS})\b[^>]*>", re.IGNORECASE)
 
 #: HTML 注释：**必须先剥**（注释里的 `<script>` 不是标签；不剥会吞掉其后正文）。
 _RE_HTML_COMMENT = re.compile(r"<!--.*?-->", re.DOTALL)

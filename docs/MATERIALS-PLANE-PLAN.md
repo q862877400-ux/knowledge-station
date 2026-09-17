@@ -513,6 +513,10 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
    - **RCDATA（`<title>`/`<textarea>`）**：`<title>a<b<script>JS</script>` → 我们 `'aJS'`；
    - **未收尾的引号属性**：`<a title="x<y<script>JS</script>` → 我们 `'JS'`，浏览器不显示。
    这三条要触发都得是**畸形 HTML**，且方向是"我们多出浏览器不显示的内容"（会污染材料正文）。
+   **raw text 族**（复核 b8 的 LOW-5，实测 8/8 泄漏）：`iframe` / `xmp` / `noembed` /
+   `noframes` / `plaintext` **已收**（§10.50，浏览器不渲染它们的内容）；
+   ⚠ **有意保留** `noscript` / `textarea` / `title`——我们不执行 JS，`<noscript>` 里的
+   兜底内容恰恰是"我们会看到的"，`textarea` 是表单默认值、`title` 是页面标题。
    **不丢字**的装饰性偏差：引号属性值里的字面 `<script>`（`<p title='<script>'>可见</p>`
    → `前'> 可见后`，多出 `'>` 两个字符）；`foo<!--x-->bar` → `foo bar`（多一个空格）。
 10. **`application/xhtml+xml` 被白名单接收，但按 HTML5 解析**（同上，登记而非 docstring 限定）：

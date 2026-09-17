@@ -34,10 +34,17 @@ from src.core.exports import research_report as rr
 #: `build_slides` 最多产出 `MAX_SLIDES - 1` 张**内容页**，`write_slide_deck` 再加 1 张末页。
 MAX_SLIDES = 30
 
-#: 单张内容页最多几条要点（超了就**续页**，标题加"（续）"）。
-#: 为什么要有它：复核实测"60 份已批准材料 ⇒ 7 页、单页 **120** 条"——那种页在 PPT 里
-#: 必然溢出文本框，而"有页数上限"给人的安心感是假的（真正的无界轴是**每页要点数**）。
-MAX_BULLETS_PER_SLIDE = 12
+#: 单张内容页的**行预算**（超了就续页，标题加"（续 N）"）。
+#: 为什么是"行"而不是"条数"（2026-09-17 独立复核 b8 的 MEDIUM-3，实测打回）：
+#: 上一版写的是"每页 ≤ 12 条"，而按默认版式的**几何**算——正文框可用高度 ≈ 6.19in，
+#: 一行 ≈ 0.30in（18pt + 行距）⇒ 约 20 行；而 12 条 × 40 字 ≈ 24 行 ≈ 7.20in **已经溢出**。
+#: 也就是说那个常量**本身就不够**（与 b7 的"30 页假上界"同型：看起来有上界，其实不是）。
+#: ⚠ 这里的两个数字都是**估算**（按 python-pptx 默认版式 + 默认字号），**没有**做渲染级测量
+#: ——所以它是"**减少溢出**"，不是"保证不溢出"；真排版要引模板/渲染测量（未立项）。
+MAX_LINES_PER_SLIDE = 18
+
+#: 估算的**每行字符数**（正文框宽 ≈ 8.7in；中文按 18pt 字符宽估得 ≈ 35，取 40 偏保守）。
+CHARS_PER_LINE = 40
 
 #: 单条要点的字符上限（超长截断 + `…`；全文在 Markdown 报告里）。
 MAX_BULLET_CHARS = 300
@@ -56,8 +63,17 @@ def _clip(text: str, cap: int = MAX_BULLET_CHARS) -> str:
     return s if len(s) <= cap else s[:cap].rstrip() + "…"
 
 
+def estimate_lines(bullet: str) -> int:
+    """一条要点**估算**占几行（按 `CHARS_PER_LINE` 折算，至少 1 行）。
+
+    单独抽出来是为了**可断言**（复核 b8 建议的钉法：断言"每页估算行数 ≤ 行预算"）。
+    """
+    n = len(bullet or "")
+    return max(1, -(-n // CHARS_PER_LINE))       # 向上取整
+
+
 def _paginate(slides: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """把要点过多的页**续页**（标题加"（续 N）"），使每页 ≤ `MAX_BULLETS_PER_SLIDE`。
+    """按**行预算**把一页拆成多页（标题加"（续 N）"）。
 
     为什么在**模型层**做而不是在写 pptx 时做：页数是**可断言的交付物属性**
     （`slide_count` 与 `len(prs.slides)`），测试要能在不装 python-pptx 的路径上验它。
@@ -65,12 +81,23 @@ def _paginate(slides: list[dict[str, Any]]) -> list[dict[str, Any]]:
     out: list[dict[str, Any]] = []
     for s in slides:
         bullets = s["bullets"]
-        if len(bullets) <= MAX_BULLETS_PER_SLIDE:
+        if sum(estimate_lines(b) for b in bullets) <= MAX_LINES_PER_SLIDE:
             out.append(s)
             continue
-        for i in range(0, len(bullets), MAX_BULLETS_PER_SLIDE):
-            chunk = bullets[i:i + MAX_BULLETS_PER_SLIDE]
-            title = s["title"] if i == 0 else f"{s['title']}（续 {i // MAX_BULLETS_PER_SLIDE + 1}）"
+        chunk: list[str] = []
+        used = 0
+        part = 1
+        for b in bullets:
+            need = estimate_lines(b)
+            if chunk and used + need > MAX_LINES_PER_SLIDE:
+                title = s["title"] if part == 1 else f"{s['title']}（续 {part}）"
+                out.append({"title": title, "bullets": chunk})
+                part += 1
+                chunk, used = [], 0
+            chunk.append(b)
+            used += need
+        if chunk:
+            title = s["title"] if part == 1 else f"{s['title']}（续 {part}）"
             out.append({"title": title, "bullets": chunk})
     return out
 
@@ -107,9 +134,19 @@ def build_slides(blocks: list[tuple[str, Any]], *, title: str) -> list[dict[str,
     cap = MAX_SLIDES - 1          # 留 1 张给末页（交付物总数因此 ≤ MAX_SLIDES）
     if len(out) > cap:
         kept = out[:cap - 1]
+        # ⚠ **丢了多少条要点必须写在页上**（2026-09-17 独立复核 b8 的 MEDIUM-2）：
+        # 页数上限一旦触发，超出的内容就**真的没了**——复核实测"三份清单各 200 条"
+        # 这个**在报告自己的设计范围内**的输入会丢掉 47% 的要点，而上一版的措辞是
+        # "条数守恒（续页不丢内容）"，只说了续页那一半。现在把丢的条数算出来写清。
+        total_bullets = sum(len(s["bullets"]) for s in out)
+        kept_bullets = sum(len(s["bullets"]) for s in kept)
+        dropped = total_bullets - kept_bullets
         kept.append({"title": "（内容较多，后续请见 Markdown 报告）",
                      "bullets": [f"完整报告共 {len(out)} 页内容，本 PPT 只放了前 "
-                                 f"{cap - 1} 页。" + "（末页之外的完整内容见 Markdown 报告）"]})
+                                 f"{cap - 1} 页。",
+                                 f"**另有 {dropped} 条要点未放入本 PPT**"
+                                 f"（共 {total_bullets} 条，这里放了 {kept_bullets} 条）"
+                                 "——完整清单见同名 Markdown 报告。"]})
         return kept
     return out
 
