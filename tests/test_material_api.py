@@ -636,6 +636,91 @@ class TestSlowEndpointsAreDeclaredSync:
     #: 真要留一个"零 await 的 async 端点"，必须在这里写清"它为什么不会占住事件循环"。
     _T1_ASYNC_ALLOWLIST: set[str] = set()
 
+    #: **async 端点的显式名单**（§10.87，修 b16 的 D4）：`{路径: 为什么它必须是 async}`。
+    #:
+    #: 为什么从"静态判据"退回到"显式声明"：b16 构造出两条**静态判据不可能判准**的形状——
+    #: ① 唯一的 `await` 是 `await _read_json(request)`（助手内部才读 body）；
+    #: ② 外层只读 body，嵌套 `async def` 里有真 await 但**从不被迭代**。
+    #: 两者实测都堵事件循环 **0.650s**，而"源码里存在非读-body 的 await"这条判据把它们放行。
+    #: 根因是**"执行路径上有没有 await"在静态上不可判**（要正确的过程间分析 + 可达性）。
+    #: ⇒ 与其继续打补丁，不如把**举证责任反过来**：**async 是例外，必须在名单里写明理由**。
+    #: 新出现的 async 端点（不管它长成 H1/H3 还是别的形状）**默认红**。
+    #: 名单里的每一条还要满足第二条：**真的有一个非读-body 的 await**（`never_yields` 为 False），
+    #: 否则它连"为什么必须是 async"都答不上来。
+    _ASYNC_ENDPOINTS: dict[str, str] = {
+        "/api/v1/chat/completions":
+            "SSE 流式：嵌套 `async def event_stream()` 里有 `await anyio.to_thread.run_sync(...)`"
+            "（逐块从线程池取 LLM 输出），迭代期间**真的**让出事件循环",
+        "/api/v1/laws/search":
+            "两条网络检索走 `await asyncio.to_thread(...)`（§10.79 特意留下的范本形状）",
+        "/api/v1/laws/ingest":
+            "法规入库（网络下载 + 解析）走 `await asyncio.to_thread(...)`",
+        "/api/v1/laws/check-updates":
+            "批量比对（网络 + DB）走 `await asyncio.to_thread(...)`",
+        "/api/v1/laws/catalog/refresh":
+            "全量目录刷新（长时间网络爬取）走 `await asyncio.to_thread(...)`",
+        "/api/v1/laws/verify":
+            "单条法规核验（网络）走 `await asyncio.to_thread(...)`",
+    }
+
+    def test_async端点必须在显式名单里(self, client):
+        """**通则（§10.87）**：每条 `async def` 端点都必须在 `_ASYNC_ENDPOINTS` 里**写明理由**。
+
+        来历：§10.86 想用一条静态判据（"零有效 await ⇒ 必须 `def`"）把这一整类消灭掉，
+        但独立复核 b16 构造出两条**静态不可判**的逃逸形状（助手包装的 await、从不迭代的嵌套
+        async 生成器），各自实测仍能冻结事件循环 **0.650s**——**"执行路径上有没有 await"在静态上
+        本来就不可判**。所以这里换一种更强的形状：**async 是例外，必须显式声明 + 写理由**；
+        任何新 async 端点（无论什么形状）默认红。
+
+        名单里的每一条还要过第二关：**必须真的有一个非读-body 的 `await`**（`never_yields`
+        为 False）——否则"为什么必须 async"就答不上来（那种端点应是 `def`）。
+        """
+        import asyncio
+
+        c, _ = client
+        root = Path(__file__).resolve().parents[1]
+        spec = importlib.util.spec_from_file_location(
+            "ks_audit_probe_allow", root / "scripts" / "audit-async-endpoints.py")
+        assert spec and spec.loader
+        audit = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(audit)
+
+        offenders: list[tuple[str, str]] = []
+        examined = 0
+        seen: set[str] = set()
+        for r in c.app.routes:
+            ep = getattr(r, "endpoint", None)
+            path = getattr(r, "path", None)
+            if ep is None or path is None or not path.startswith("/api/"):
+                continue
+            examined += 1
+            if not asyncio.iscoroutinefunction(ep):
+                continue
+            seen.add(path)
+            reason = self._ASYNC_ENDPOINTS.get(path)
+            if reason is None:
+                offenders.append((path, "**不在名单里**（async 是例外，必须写明理由）"))
+                continue
+            if not reason.strip():
+                offenders.append((path, "名单里的理由**是空的**（等于没写）"))
+                continue
+            try:
+                src = inspect.getsource(ep)
+            except (OSError, TypeError):        # pragma: no cover
+                continue
+            if audit.never_yields(src):
+                offenders.append((path, "名单说它必须 async，但它**没有非读-body 的 await**"
+                                       "（那就是 `def` 的活）"))
+        # 名单本身也要与现状一致：写在名单里、但已经不是 async 的 ⇒ 也要红（防止名单腐烂）
+        for path in self._ASYNC_ENDPOINTS:
+            if path not in seen:
+                offenders.append((path, "名单里有它，但它**已经不是 async 端点**（名单腐烂）"))
+        assert examined >= 140, f"只枚举到 {examined} 条 API 路由（实测 147）——枚举可能坏了"
+        assert not offenders, (
+            "async 端点的名单对不上：\n"
+            + "\n".join(f"  {p}  {why}" for p, why in offenders)
+            + "\n（要新增 async 端点：加进 _ASYNC_ENDPOINTS 并写清它**为什么必须**让出控制权）")
+
     def test_T1_零await的async端点必须是def(self, client):
         """**通则之一（§10.86，修复核 b15 的 MEDIUM-1）**：`async def` 且源码里**没有任何
         会让出控制权的语法**（`await` / `async for` / `async with`）⇒ 必须 `def`。

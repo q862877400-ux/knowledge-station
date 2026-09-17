@@ -203,7 +203,7 @@ def never_yields(src: str) -> bool:
     ⚠ **名字比语义强**（b15 的 INFO-1/INFO-2，两处都**偏保守**）：
       · 只数 `Await` ⇒ 只写了 `async for`/`async with` 的端点会被判成"从不 yield"（多红）；
       · `body = await read_json(request)`（助手内部才 `await request.json()`）被判成"会 yield"（放行）。
-    这一条是**T2 规则**（有 await + 带重标记）用的；"零 await"那一档由 `awaits_like()` 判
+    这一条是**诊断量**；"零 await"那一档由 `awaits_like()` 判
     （它把 `async for`/`async with` 也算上），所以那个多红的方向不会漏东西。
 
     ⚠ **必须走 AST**（独立复核 b14 的 MEDIUM-2）：判据原先写在测试里、读的是**原始源码文本**
@@ -212,13 +212,20 @@ def never_yields(src: str) -> bool:
     docstring 写"本端点唯一的 await 只是读 body" ⇒ 闸门 GREEN 放行）。而 `_code_only()`
     早就为审计脚本修过同一课（"注释不是行为"）——**闸门自己没吃这一课**。
 
-    ⚠ **范围是整段源码，包含嵌套函数**（这是**有意的**，不是漏网）：`/api/v1/chat/completions`
+    ⚠ **范围是整段源码，包含嵌套函数**（**有意**，代价已量化）：`/api/v1/chat/completions`
     的外层体内唯一 `await` 只是读 body，但它的嵌套 `async def event_stream()` 里有
     `await anyio.to_thread.run_sync(...)` ⇒ 这条请求在**流式迭代**期间**真会**把事件循环让出去
     （逐块从线程池取 LLM 输出）。若只数外层自己的 `await`，这个端点会被误判成"从不 yield"。
-    真正"从不 yield"的坏形状是：外层读 body + 嵌套**同步**生成器/纯同步体（§10.80 的
-    `/compliance/review/{task_id}/execute`）——那种形状这里**没有**任何非读-body 的 `await`，
-    照样命中。
+
+    ⚠ **但"源码里存在" ≠ "执行路径上存在"——这是本判据的能力边界**（独立复核 b16 的 D4）：
+    b16 构造出两条静态**判不准**的形状，实测都能冻结事件循环 **0.650s**：
+      ① 唯一的 `await` 是 `await _read_json(request)`（助手内部才 `await request.json()`）；
+      ② 外层只读 body，嵌套 `async def` 里有真 `await` 但**从不被迭代**。
+    两者都因为"源码里出现了一个非读-body 的 await"被判成"会 yield"⇒ 放行。
+    ⇒ 所以本函数**只是诊断量**（审计报告 + 名单条目的第二关），**不是闸门**。闸门在
+    `tests/test_material_api.py::test_async端点必须在显式名单里`：**async 端点必须在显式名单里
+    写明理由，任何新形状默认红**——正确的过程间 + 可达性分析静态上做不到，与其继续打补丁，
+    不如把举证责任反过来。
 
     ⚠ **解析失败 ⇒ 返回 True（判成"从不 yield"= 红）**：`SyntaxError` 下**没有**任何依据说
     "它会让出控制权"，fail-open（返回 False）会让一个将来忘记 `dedent` 的调用点**静默放行**

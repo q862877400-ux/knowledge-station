@@ -1027,3 +1027,22 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     → ③ 其余未覆盖项见台账第 29 条末尾。
 
 
+33. **处理复核 b16（7 CONFIRMED / 4 PARTLY）："async 必须显式申报" + 并发 DDL 竞态修复**（§10.87，step-87；
+    报告：`var/tmp/verify-b16-artifacts/VERIFY-REPORT.md`）。
+
+    | 编号 | 一句话 | 状态 |
+    |---|---|---|
+    | **b16-D4**（最重要） | §10.86 声称"这一类就没了"**强度不成立**：b16 构造出两条**静态判不准**的形状（H1 助手包装 await；H3 从不迭代的嵌套 async 生成器），各实测冻结事件循环 **0.650s** | ✅ **不再打补丁，改要申报**：`test_async端点必须在显式名单里`——每条 async 端点必须在 `_ASYNC_ENDPOINTS`（路径→理由）里，理由不许空，且必须真的有一个非读-body 的 await；**名单腐烂也红**。当前名单 **6 条**（`/chat/completions` + 5 条 `/laws/*`） |
+    | **b16-INFO-3** | **本步引入的新可达路径**：`GET /laws/catalog` 变 `def` 后可并发进 `ensure_catalog_schema()`，"PRAGMA 缺列→ALTER"读-改-写竞态 ⇒ 缺列旧库上 **31/32 抛 `duplicate column name`**（会成 500） | ✅ 修：迁移收进 `write_transaction()` + 幂等兜底；自测 before **31/32** → after **0/32（连跑 28 次）**；新闸门 `test_并发ensure_catalog_schema在缺列旧表上不抛异常` |
+    | b16-LOW-2 | uvicorn 脚本"临时目录已删除"是**假事实**（Windows `-wal/-shm` 句柄 ⇒ rmtree 只删一半） | ✅ 删完**回读**+重试 5 次，仍不行就**如实打印"删除失败"** |
+    | b16-LOW-1 | `get_document_file` 已是 `def`，docstring 仍写"故意保持 `async def`"（全库唯一残留） | ✅ 改过去时 + 写清判据变更 + 附 b16 的 72MB 行为证据 |
+    | b16-INFO-2 | §10.86 后 141 条同步端点共享 16 令牌池 ⇒ "池子有界"成了 §10.86 收益的**前提** | ✅ 写在 `THREADPOOL_TOKENS` 定义处（并注明 `asyncio.to_thread` **不在**这口池里） |
+    | b16-D8 | `_code_only()` 的"7 处"b16 复现不出（它得 44/13 或 38/12） | ✅ **口径不同，两个数都对**：口径 A（端点级）= **7** `{model-load:1,pdf/ocr:5,hashing:1}`；口径 B（函数级）= **35**。纪律更正：**未写明口径的计数不可复现**；探针要么进仓库要么写清算法 |
+    | b16-D1/D2/D3/D5/D7/D9/D10 | 转换/终盘、锁争用 before-after、代价、三条 LOW、作用域修复、门禁、文档一致性 | ✅ 全部 CONFIRMED（详见报告） |
+
+    **变异 N7–N11**：全 RED 且命中预期断言、逐字节还原。
+
+    **下一步**：① `asyncio.to_thread` 池不对称 + `/api/v1/laws/` 不在重活前缀表（b16 判不必升级，
+    但缺口真实）→ ② 真机重启后端到端复验（需业主）→ ③ 其余未覆盖项见台账第 29 条末尾。
+
+

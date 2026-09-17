@@ -21,6 +21,7 @@ from __future__ import annotations
 import json
 import logging
 import math
+import sqlite3
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -80,14 +81,66 @@ CREATE TABLE IF NOT EXISTS law_catalog (
 """
 
 
+_CATALOG_COLUMNS = ("category", "updated_at")
+_CATALOG_INDEXES = ("idx_law_catalog_title", "idx_law_catalog_cat", "idx_law_catalog_sxx")
+
+
 def ensure_catalog_schema(conn=None) -> None:
-    """幂等迁移建表 law_catalog + 索引；旧表缺列时 PRAGMA 检查后补列。"""
-    conn = conn or get_db_connection()
+    """幂等迁移建表 law_catalog + 索引；旧表缺列时 PRAGMA 检查后补列。
+
+    ⚠ **并发安全**（§10.87，独立复核 b16 的 INFO-3）：`GET /api/v1/laws/catalog` 在 §10.86
+    从 `async def` 改成 `def` 之后**可以并发进来**（anyio 池 16 个线程），而
+    "`PRAGMA table_info` 看到缺列 → `ALTER TABLE ADD COLUMN`"是**读-改-写竞态**：
+    b16 实测 32 线程并发在"旧库缺列"分支上 **31/32 抛 `sqlite3.OperationalError:
+    duplicate column name: category`**（`query_catalog` 不 catch、路由只 catch
+    `TypeError/ValueError` ⇒ 会变成 500）。改前它在事件循环里**串行**执行，走不到这个竞态。
+
+    修法（三层）：
+      ⓪ **只读快路径**：这条函数被 `query_catalog()` **每个请求**调用，而它在稳态下什么都不用做
+         ⇒ 先用 `PRAGMA table_info` + `PRAGMA index_list`（**都是读**）确认"表/列/索引都齐"
+         就直接返回。**不拿写锁**——否则每次翻法规目录都要 `BEGIN IMMEDIATE`，把一条纯读端点的
+         延迟绑到"当前有没有别的写者"上（那是本步第一版修法自己引入的问题，已改掉）。
+      ① 需要迁移时，整个迁移收进 `write_transaction()`（`BEGIN IMMEDIATE`）⇒ 同一时刻只有一个
+         写者做读-改-写，竞态从根上消失；
+      ② 仍对 `duplicate column name` 兜底 —— 迁移本来就该容忍"别人已经补上了"。
+    ⚠ 调用方显式传了 `conn` 时不再套一层（SQLite 不支持嵌套 `BEGIN`），只做 ②；
+    `conn` 已在事务里时同理（`write_transaction` 会先提交遗留的隐式事务，那会破坏调用方的事务）。
+    """
+    c = conn if conn is not None else get_db_connection()
+    if _catalog_schema_current(c):
+        return                                  # ⓪ 稳态：纯读检查后直接返回，不拿写锁
+    if conn is None:
+        with write_transaction() as w:
+            _catalog_migration(w)
+        return
+    _catalog_migration(conn)
+
+
+def _catalog_schema_current(conn) -> bool:
+    """表、两列、三条索引都在吗？（**只读**；表不存在 ⇒ False）"""
+    try:
+        cols = {r[1] for r in conn.execute("PRAGMA table_info(law_catalog)").fetchall()}
+        if not cols or not set(_CATALOG_COLUMNS) <= cols:
+            return False
+        idx = {r[1] for r in conn.execute("PRAGMA index_list(law_catalog)").fetchall()}
+        return set(_CATALOG_INDEXES) <= idx
+    except sqlite3.Error:                        # pragma: no cover - 库坏了就交给迁移去报错
+        return False
+
+
+def _catalog_migration(conn) -> None:
     conn.execute(_DDL)
     cols = {r[1] for r in conn.execute("PRAGMA table_info(law_catalog)").fetchall()}
-    for col in ("category", "updated_at"):   # 存量旧版本表补列（新增列一律可空，幂等）
-        if col not in cols:
+    for col in _CATALOG_COLUMNS:      # 存量旧版本表补列（新增列一律可空，幂等）
+        if col in cols:
+            continue
+        try:
             conn.execute(f"ALTER TABLE law_catalog ADD COLUMN {col} TEXT")
+        except sqlite3.OperationalError as e:
+            # 并发下另一个写者刚好补上了同一列 ⇒ 目标状态已达成，按幂等处理
+            if "duplicate column name" not in str(e):
+                raise
+            logger.debug("law_catalog.%s 已由并发写者补上（幂等跳过）", col)
     conn.execute("CREATE INDEX IF NOT EXISTS idx_law_catalog_title ON law_catalog(title)")
     conn.execute("CREATE INDEX IF NOT EXISTS idx_law_catalog_cat ON law_catalog(category)")
     conn.execute("CREATE INDEX IF NOT EXISTS idx_law_catalog_sxx ON law_catalog(sxx)")

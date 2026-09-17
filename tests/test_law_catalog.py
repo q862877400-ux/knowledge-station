@@ -16,7 +16,6 @@ import pytest
 # ---------------------------------------------------------------------------
 # fake 源数据构造
 # ---------------------------------------------------------------------------
-
 def _mk_rows(prefix: str, start: int, n: int, *, title_mark: str,
              flxz: str = "法律", gbrq: str | None = "2024-01-01", sxx: int | None = 3):
     return [{"bbbs": f"{prefix}{i:05d}", "title": f"{title_mark}第{i}号测试法",
@@ -305,3 +304,96 @@ def test_progress_events_shape(monkeypatch):
     assert crawl and crawl[0]["category"] == "P分类" and crawl[0]["page"] == 1
     done = seen[-1]
     assert done["stage"] == "done" and done["total"] == out["total"]
+
+
+def test_并发ensure_catalog_schema在缺列旧表上不抛异常(client):
+    """§10.87（独立复核 b16 的 INFO-3）：32 线程并发建表/补列，不许抛 `duplicate column name`。
+
+    为什么必须有这条：`GET /api/v1/laws/catalog` 在 §10.86 从 `async def` 改成 `def` 之后
+    **可以并发进来**（anyio 池 16 个线程），而"`PRAGMA table_info` 看到缺列 → `ALTER TABLE
+    ADD COLUMN`"是**读-改-写竞态**。b16 的实测（`var/tmp/probe-ddl-race.py`，本次也复现）：
+    修复前 32 线程 **31/32 抛 `OperationalError: duplicate column name: category`**
+    （`query_catalog` 不 catch、路由只 catch `TypeError/ValueError` ⇒ 用户看到 500）；
+    修复后（`write_transaction()` 串行化 + 幂等兜底）同一探针连跑 28 次全 0 异常。
+
+    ⚠ 判据是**确定性**的（不靠计时）：任何一条线程抛出即红；并回读最终列确认迁移完成。
+    ⚠ 为了让竞态**真的有机会发生**，这里把 GIL 切换间隔压到 1µs（`sys.setswitchinterval`）——
+    否则 32 条线程可能被 GIL 串行化到"第一条已经迁完、其余走只读快路径"，竞态就测不出来
+    （§10.87 实测：不压切换间隔时，把两层修法都撤掉的变异也测不出来）。
+    """
+    import sys as _sys
+    import threading
+
+    from src.core.knowledge.law_source import catalog as cat
+    from src.core.storage.sqlite_db import get_db_connection
+
+    c, _ = client                                    # 建 app（顺带初始化 schema）
+    assert c.get("/api/v1/health").status_code == 200
+    conn = get_db_connection()
+    conn.execute("DROP TABLE IF EXISTS law_catalog")
+    conn.execute("CREATE TABLE law_catalog (title TEXT, bbbs TEXT NOT NULL UNIQUE,"
+                 " flxz TEXT, sxx INTEGER, gbrq TEXT, sxrq TEXT,"
+                 " updated_at TEXT DEFAULT (datetime('now')))")   # 旧版：缺 category
+    conn.commit()
+
+    n = 32
+    errors: list[str] = []
+    lock = threading.Lock()
+    barrier = threading.Barrier(n)
+
+    def worker() -> None:
+        barrier.wait()                               # 尽量让 32 条同时冲进去
+        try:
+            cat.ensure_catalog_schema()
+        except Exception as e:                       # noqa: BLE001 - 记下来再断言
+            with lock:
+                errors.append(f"{type(e).__name__}: {e}")
+
+    old_interval = _sys.getswitchinterval()
+    _sys.setswitchinterval(1e-6)                     # 逼出交错（见 docstring）
+    try:
+        ths = [threading.Thread(target=worker) for _ in range(n)]
+        for t in ths:
+            t.start()
+        for t in ths:
+            t.join()
+    finally:
+        _sys.setswitchinterval(old_interval)
+    assert not errors, f"并发补列竞态复现（{len(errors)}/{n}）：{errors[:3]}"
+    cols = {r[1] for r in conn.execute("PRAGMA table_info(law_catalog)").fetchall()}
+    assert {"category", "updated_at"} <= cols, cols
+
+
+def test_稳态下ensure_catalog_schema不拿写锁(client):
+    """§10.87：表/列/索引都齐（**稳态**）时，它必须走**只读快路径**，不碰写锁。
+
+    为什么这条必要：`ensure_catalog_schema()` 被 `query_catalog()` **每个请求**调用，
+    而 `GET /api/v1/laws/catalog` 是一条**纯读**端点。本步第一版修法把整个函数收进
+    `write_transaction()`（`BEGIN IMMEDIATE`）⇒ **每次翻目录都要先拿写锁**，把一条读端点的
+    延迟绑到"当前有没有别的写者"上（`busy_timeout=60s` ⇒ 理论上可以等几十秒）。
+    所以加了"⓪ 只读快路径"（`PRAGMA table_info` + `PRAGMA index_list` 都齐就直接返回）。
+
+    判据（**确定性**，靠"另一个连接持写锁 + 本连接 busy_timeout 很短"）：若它仍走写路径，
+    `BEGIN IMMEDIATE` 会在 300ms 后抛 `database is locked` ⇒ 红。
+    """
+    import sqlite3
+
+    from src.core.knowledge.law_source import catalog as cat
+    from src.core.storage.sqlite_db import get_db_connection, get_settings
+
+    c, _ = client
+    assert c.get("/api/v1/health").status_code == 200
+    cat.ensure_catalog_schema()                        # 先迁到稳态（表、列、索引都齐）
+
+    conn = get_db_connection()
+    conn.execute("PRAGMA busy_timeout=300")            # 本连接：等锁最多 0.3s
+    other = sqlite3.connect(str(get_settings().db_path), timeout=30)
+    try:
+        other.execute("PRAGMA journal_mode=WAL")
+        other.execute("BEGIN IMMEDIATE")               # 另一个写者持锁
+        other.execute("UPDATE law_catalog SET title = title WHERE 0")
+        cat.ensure_catalog_schema()                    # 稳态 ⇒ 只读快路径 ⇒ 立刻返回
+    finally:
+        other.rollback()
+        other.close()
+        conn.execute("PRAGMA busy_timeout=60000")      # 还原，别泄给后面的用例

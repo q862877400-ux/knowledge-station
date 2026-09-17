@@ -5185,3 +5185,169 @@ hashing: 1}` ——与 b13 的原话**逐字吻合**。⇒ 该登记项关闭。
 6. b15 未覆盖项照旧（真机端到端、真 SSE + 真 LLM、`/formula` 识别版回退、C2 的 FAIL 分支、
    `dry_run` 真实撕裂读、§10.79 §4 的两行量具数字）。
 
+
+## §10.87 处理复核 b16：**"async 必须显式申报"**（判据静态上判不准就改要申报）＋ 并发 DDL 竞态修复
+
+**一句话**：独立复核 b16（冻结在 `verify-freeze-b16` = `0873225`）**7 CONFIRMED / 4 PARTLY /
+0 REFUTED**。最有价值的一条 PARTLY 是 **D4**：§10.86 声称"把必要条件换成充分条件，这一类就没了"
+——**这个强度不成立**。b16 构造出两条**静态判据不可能判准**的形状，各实测冻结事件循环
+**0.650s**：① 唯一的 `await` 是 `await _read_json(request)`（助手内部才读 body）；
+② 外层只读 body、嵌套 `async def` 里有真 await 但**从不被迭代**。本步的处置**不再是再打一层补丁**
+（那是第 5 次），而是**把举证责任反过来**：
+
+> **`async def` 是例外**：每条 async 端点都必须在 `_ASYNC_ENDPOINTS` 名单里**写明理由**，
+> 任何新形状（H1/H3/以及将来没想到的）**默认红**。
+
+外加修掉 b16 的 3 条新发现：**并发 DDL 竞态**（本步引入的新可达路径，已修 + 有闸门）、
+uvicorn 脚本"删了却说已删"的**假事实**、`get_document_file` 的过时 docstring；并给
+`THREADPOOL_TOKENS` 补上"它已是 §10.86 收益的前提"的注。
+
+### 1. D4：为什么放弃"静态判准"，改成"必须申报"
+
+b16 的量具（它自己造的端点 + 真 app + 事件循环空档）：
+
+| 形状 | 旧判据判定 | 实测空档 |
+|---|---|---|
+| **H1** 唯一 await 是 `await _read_json(request)`（助手内部才读 body）+ 0.65s 同步重活 | `never_yields=False`（**放行**） | **0.6501s** |
+| **H3** 外层唯一 await 是读 body；嵌套 `async def stream()` 有真 await 但**从不迭代** | `never_yields=False`（**放行**） | **0.6501s** |
+| H2 真流式（嵌套生成器里有真 await） | `False`（放行，**不允许误伤**） | 0.0202s ✅ |
+| H4 只有 `async for` | `False`（放行 ✅，由 `awaits_like` 兜住） | 0.0000s ✅ |
+| H5 真流式形状，但嵌套生成器的唯一 await 是读 body | `True`（红，**判红是对的**） | 0.6501s |
+
+根因写进 `never_yields` docstring：**"源码里存在一个非读-body 的 await" ≠ "执行路径上存在"**。
+要判准就得做**过程间 + 可达性**分析（还要判"这个生成器会不会被迭代"），**静态上做不到**。
+
+⇒ 所以闸门换成 **`test_async端点必须在显式名单里`**（`tests/test_material_api.py`）：
+1. 每条 `async def` 端点都必须在 `_ASYNC_ENDPOINTS`（**路径 → 理由**）里，否则红；
+2. 名单里的理由**不许为空**；
+3. 名单里的每条还要过**第二关**：`never_yields(src)` 必须是 `False`（真的有一个非读-body 的
+   await）——否则"为什么必须 async"答不上来；
+4. **名单腐烂也要红**：写在名单里但已经不是 async 的路径 ⇒ 红。
+
+现在的名单（**6 条**，每条都写了理由）：`/chat/completions`（SSE + `anyio.to_thread.run_sync`）、
+`/laws/search`、`/laws/ingest`、`/laws/check-updates`、`/laws/catalog/refresh`、`/laws/verify`
+（这 5 条是 §10.79 特意留下的 `await asyncio.to_thread(...)` 范本）。
+§10.86 的 T1 判据（`awaits_like==0 ⇒ 必须 def`）**保留**——它给最常见的形状一个更直白的失败信息。
+
+⚠ **诚实**：这**不是**"静态判据更强了"，而是**放弃静态判准**（把"证明你无害"换成"申报 + 写理由"）。
+代价是将来新增 async 端点要过一道人工理由；收益是 H1/H3 这类**未知形状**也进不来。
+
+### 2. b16-INFO-3：并发 DDL 竞态（本步**引入**的新可达路径，已修 + 有闸门）
+
+`GET /api/v1/laws/catalog` → `query_catalog()` → `ensure_catalog_schema()`：`PRAGMA table_info`
+看到缺列 → `ALTER TABLE ADD COLUMN` 是**读-改-写竞态**。改前那条端点在事件循环里**串行**执行，
+**走不到**这个竞态；§10.86 把它变成 `def` 之后，16 个工作线程可以同时进来。
+
+**自测（`var/tmp/probe-ddl-race.py`，旧版表缺 `category` 列 + 32 线程并发）**：
+
+| 树 | 抛异常 |
+|---|---|
+| `verify-freeze-b16`（修复前） | **21–31 / 32**（`OperationalError: duplicate column name: category`；多次跑 23/29/31 都有） |
+| 本步（三层修复后） | **0 / 32**，**连跑 28+ 次全 0** |
+
+修法（三层，**第一版只做了 ① + ②**）：
+- ⓪ **只读快路径**：这条函数被 `query_catalog()` **每个请求**调用，稳态下什么都不用做
+  ⇒ 先用 `PRAGMA table_info` + `PRAGMA index_list`（**都是读**）确认"表/列/索引都齐"就直接返回。
+  ⚠ **第一版没做这一步，是个自己引入的问题**：`ensure_catalog_schema()` 被包进
+  `write_transaction()` 之后，**每次翻法规目录都要先拿写锁**——一条纯读端点的延迟被绑到
+  "当前有没有别的写者"上（`busy_timeout=60s`）。快路径把稳态拉回纯读；`_catalog_schema_current()`
+  检查 5 个前提（表存在 + 两列 + 三条索引），任何一个不满足才走迁移路径。
+  闸门：`test_稳态下ensure_catalog_schema不拿写锁`（另一个连接持写锁 + 本连接 `busy_timeout=300ms`
+  ⇒ 若它走写路径就会 `database is locked`，确定性判据）。
+- ① 需要迁移时，整个迁移收进 `write_transaction()`（`BEGIN IMMEDIATE`）⇒ 同一时刻只有一个写者
+  做读-改-写；
+- ② 仍对 `duplicate column name` 幂等兜底（迁移本来就该容忍"别人已经补上了"）。
+
+**两层修法各自都够**（这算是意外的收获）：把 ① 单独撤掉（留兜底）⇒ 探针 **0/32**；
+把 ② 单独撤掉（留事务）⇒ **0/32**；**两层都撤** ⇒ **21–25/32**。所以这条修复是**纵深防御**，
+而变异实验必须**同时**撤掉两层才复现（`var/tmp/debug-n8b.py` 记录了三档对照）。
+
+⚠ 另一个量具教训：`test_并发ensure…` 第一版**测不出**两层都撤的变异——32 条线程被 GIL 串行化到
+"第一条已经迁完、其余走只读快路径"。加 `sys.setswitchinterval(1e-6)` 逼出交错之后，
+同一变异稳定 RED（29/23/24 条异常）。**"并发测试"不等于"测出了并发"**，这条记进 §10.87 §6 的纪律。
+
+`conn` 显式传入或已在事务里时不再套一层（SQLite 不支持嵌套 `BEGIN`）。
+**闸门**：`tests/test_law_catalog.py::test_并发ensure_catalog_schema在缺列旧表上不抛异常`
+（32 线程 + 回读最终列，确定性、不计时）+ `::test_稳态下ensure_catalog_schema不拿写锁`。
+
+⚠ **一次未能归因的残留**：修复后第一次跑出现过 **1/32 异常**，但我的探针当时只打印前 3 条、
+又被 `Select-Object -Last 2` 截断，**异常原文丢了**（取证失误）。随后 **28 次连跑全 0**。
+按惯例登记为**未归因**，不写成"彻底 0"。
+
+### 3. b16-LOW-2：uvicorn 脚本"删了却说已删"
+
+`shutil.rmtree(tmp, ignore_errors=True)` 在 Windows 上因 SQLite `-wal/-shm` 句柄延迟释放，
+**只删掉一部分就返回**（留下 `database/`），而脚本接着打印"临时目录 …（已删除）"——
+**主动报告假事实，比不删更糟**。现在：`rmtree` 后**回读目录是否真的没了**、不行就重试 5 次
+（每次 0.3s），仍不行就**如实打印"删除失败"**（并说明多半是 `-wal/-shm` 句柄）。
+
+### 4. b16-LOW-1：`get_document_file` 的过时 docstring
+
+它已被 §10.86 转成 `def`，docstring 却还写着"⚠ **故意保持 `async def`**（§10.75）…判定'这条
+不用改'"——**以现在时陈述、与相邻一行的 `def` 直接矛盾**。改成过去时 + 写清 §10.86 的判据变更，
+并附上 b16 的行为证据（2.5MB / 18MB / **72MB** PDF 字节与 sha256 全对、非 PDF 仍 404）。
+
+### 5. b16-INFO-2：`THREADPOOL_TOKENS` 的地位变了
+
+§10.86 把那 51 条廉价端点也搬进了这口池（全库 141 条同步端点共享它）⇒ **"池子有界"从一条性能
+纪律变成了 §10.86 收益的前提**：把它调大（尤其调回 anyio 默认 40）等于**同时取消 §10.86 的收益**
+（"在事件循环里等锁"会换成"在无界池里并发等锁"）。这条注已写在 `THREADPOOL_TOKENS` 定义处，
+并把"`asyncio.to_thread` 不在**这口**池里"一并写明。
+
+### 6. b16-D8：`_code_only()` 的"7 处"——**口径不同，两个数都对**
+
+b16 复现不出"7 处"（它得到 44/13 或 38/12）。本步把**口径**写明并两个都量了
+（`var/tmp/verify-1078-code-only.py`，`fdfce3b` 提取树）：
+
+| 口径 | 定义 | 结果 |
+|---|---|---|
+| **A 端点级**（b13 与 §10.85 用的那个） | 每个 **async 端点**的**可达路径标记集合**（`audit_endpoint()['markers']`）在"删注释"前后的差 | **7 处** = `{model-load:1, pdf/ocr:5, hashing:1}` ✅ 与 b13 逐字吻合 |
+| **B 函数级** | 可达路径上**每个函数**的 `_markers_in()` 集合差 | **35 处** = `{pdf/ocr:23, model-load:6, hashing:2, network:2, bulk-db:1, ml-runtime:1}` |
+
+⇒ b16 与我的差异来自**口径**（它换了几种公平口径都没落在 A 上），不是数字造假；
+**实质**（注释里的词被当成代码行为、造成假阳性）双方都确认。
+⚠ **纪律更正**：一条没有**写明口径**的计数**不可复现**——以后凡引用计数，都要写清"数的是什么"
+（本条已回填口径 A 的定义；b15/b16 的报告也都点名了这一点）。
+⚠ 另一条相关的取证失误：我的探针在 `var/tmp/`（**不进仓库**），复核拿不到源码 ⇒
+**引用计数时，探针要么进仓库、要么在文档里写清算法**。
+
+### 7. 变异（全 RED 且命中**预期断言**，逐字节还原）
+
+`var/tmp/mutate-step87.py`：
+
+| 变异 | 改了什么 | 红在哪条判据上 |
+|---|---|---|
+| **N7** | `/laws/verify` 去掉真 await（`await asyncio.to_thread(verify_law, bbbs)` → `verify_law(bbbs)`） | 名单第二关：它**答不上来"为什么必须 async"** |
+| **N8** | `ensure_catalog_schema` 退回"裸 PRAGMA + ALTER"（去掉 `write_transaction` 与兜底） | 新并发闸门（32 线程复现 31/32 异常） |
+| **N9** | uvicorn 脚本退回 `rmtree(ignore_errors=True)` 且照打"（已删除）" | 见 §8 的证据：真跑一次后目录仍在而打印说已删 |
+| **N10** | 名单里加一条**已经不存在**的路径（名单腐烂） | `test_async端点必须在显式名单里` |
+| **N11** | 把一个**不在名单**里的端点改回 `async def`（H1 形状） | 同上（指名该路径） |
+
+### 8. 证据
+
+`pytest` **1804 passed / 3 skipped / 0 failed**（收集 1807；1804 → 1807 = **+3**：名单闸门
+`test_async端点必须在显式名单里` + 并发 DDL 闸门 `test_并发ensure_catalog_schema在缺列旧表上不抛异常`
++ 稳态快路径闸门 `test_稳态下ensure_catalog_schema不拿写锁`）；
+`mypy` **134 / 0**；`tsc` 0；`smoke` EXIT=0（19 段）；
+`verify:commands` 22/22；真 uvicorn 验证 **4/4**（并**首次验证"临时目录真的被删掉"这条声明**：
+连跑两次，`%TEMP%` 里的 `ks_uvicorn_*` 计数 before=10 / after=10，两次都打印"（已删除）"
+——声明与事实一致）。
+审计重跑：`async` **6** / T1 **0** / T2+重 **1**；6 条全在名单里。
+
+⚠ **本步的快照标签是 `step-86-async-must-declare`**（标签号比章节号小 1，原因见 §10.85 §5）。
+
+### 9. 诚实边界
+
+1. **H1/H3 我修的是"闸门"，不是"判据"**：`never_yields` 仍然会把这两种形状判成"会 yield"
+   （docstring 已如实写清它是**诊断量**）。它们现在进不来，是因为**不在名单里**——
+   **如果一个新 async 端点被写进名单、理由写得漂亮、但其实是 H1/H3 形状，闸门拦不住**
+   （只有人工复核能拦）。这是"显式申报"模型的固有代价。
+2. **并发 DDL 的那次 1/32 未归因**（异常原文丢了，随后 28 次全 0）。
+3. **`asyncio.to_thread` 的池不对称仍未动**（5 条 `/laws/*` 在 asyncio 默认执行器、不受 16 约束，
+   且 `/api/v1/laws/` **不在 `HEAVY_PREFIXES`** 里 ⇒ 也不受 4 令牌闸门约束）：b16 判"不必升级严重度"，
+   我接受，登记为下一步（要么换成 `anyio.to_thread.run_sync` 进有界池，要么补进重活表）。
+4. **真机重启（DSH 宿主 + 引擎）后才生效**；本步的 DDL 竞态修复在真机上还需要"老库 + 并发首请求"
+   才能端到端复现（b16 也只做到函数级）。
+5. b16 未覆盖项照旧（真机端到端、真 SSE + 真 LLM、72MB 走的是进程内 ASGITransport、
+   `to_thread` 32 线程池未压力实测、smoke 的"19 段"只有 11 个具名小结）。
+

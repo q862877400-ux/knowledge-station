@@ -228,11 +228,28 @@ def main() -> int:
         log.close()
         # 临时目录默认删掉（§10.86 修复核 b15 的 INFO-4：第一版跑一次留一个含
         # knowledge.db / verify.pdf / uvicorn.log 的目录，从不清理）。要事后取证就 `--keep-tmp`。
+        #
+        # ⚠ **第二版仍然没删干净，而且还在打印"（已删除）"—— 这是 b16 的 LOW-2**：
+        # Windows 上 SQLite 的 `-wal/-shm` 句柄在子进程退出后可能**延迟释放** ⇒
+        # `shutil.rmtree(ignore_errors=True)` 只删掉一部分、**静默留下** `database/`，
+        # 而本脚本接着打印"已删除"（**主动报告假事实**，比不删更糟）。
+        # 现在：删完**回读**目录是否真的没了；没删掉就**重试几次**，仍不行就**如实打印**，
+        # 绝不把失败说成成功。
         if not args.keep_tmp:
-            shutil.rmtree(tmp, ignore_errors=True)
+            for attempt in range(5):
+                shutil.rmtree(tmp, ignore_errors=True)
+                if not tmp.exists():
+                    break
+                time.sleep(0.3)
+        tmp_gone = not tmp.exists()
 
     failed = [r for r in results if not r[1]]
-    tmp_note = f"临时目录 {tmp}" if args.keep_tmp else f"临时目录 {tmp}（已删除）"
+    if args.keep_tmp:
+        tmp_note = f"临时目录 {tmp}（--keep-tmp 保留）"
+    elif tmp_gone:
+        tmp_note = f"临时目录 {tmp}（已删除）"
+    else:
+        tmp_note = f"临时目录 {tmp}（**删除失败**：多半是 SQLite -wal/-shm 句柄还在，可手动删）"
     if args.json:
         print(json.dumps([{"check": n, "ok": ok, "detail": d} for n, ok, d in results],
                          ensure_ascii=False, indent=1))
