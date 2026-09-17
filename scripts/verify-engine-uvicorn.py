@@ -70,11 +70,9 @@ _PORT_PREFIX = "KNOWLEDGE_STATION_PORT="
 _TOKEN_PREFIX = "KNOWLEDGE_STATION_TOKEN="
 
 
-
-def _free_port() -> int:
-    with socket.socket() as s:
-        s.bind(("127.0.0.1", 0))
-        return int(s.getsockname()[1])
+# ⚠ 这里原来有个 `_free_port()`：**死代码**（端口实际由子进程里的 `bind_random()` 决定），
+# 而且它用 `socket` 而这个文件**没有** `import socket`（第一版有过，改写启动器时删了 import）
+# —— 一旦有人调用它就 `NameError`。§10.88 按独立复核 b17 的 LOW-1 **删掉**。
 
 
 def _req(url: str, method: str = "GET", body: bytes | None = None, hdr: dict | None = None,

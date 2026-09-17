@@ -44,24 +44,31 @@ _STARTED_AT = time.monotonic()
 #: **不是**这口 anyio 池，所以**不受**本常量约束（b15/b16 均已核实；见 §10.86 §8 的遗留项）。
 THREADPOOL_TOKENS = 16
 
-_bound_once = False
+#: **按事件循环**记录"线程池已收窄"（§10.88 修 b17 的 MEDIUM-1）。
+#: ⚠ 为什么不能用一个**进程级布尔**：anyio 的 `current_default_thread_limiter()` 是 **RunVar**
+#: （**按事件循环**），而 `bound_threadpool_once()` 是每请求调一次。b17 实测：进程级标记置位后，
+#: **第二个事件循环**里 `total_tokens` 仍是 anyio 默认的 **40** ⇒ "池子有界"从第二个循环起
+#: **静默失效**（生产只有一条长驻循环，所以现网没暴露；但测试/嵌入式多循环会）。
+#: 键用**循环对象**（`WeakKeyDictionary`，弱引用）——与 `_get_heavy_limiter()` 同款（b14 的 LOW-4）。
+_bound_loops: weakref.WeakKeyDictionary = weakref.WeakKeyDictionary()
 
 
 def bound_threadpool_once() -> None:
-    """把 anyio 默认线程池收窄到 `THREADPOOL_TOKENS`（**幂等**；只能在事件循环里调用）。
+    """把 anyio 默认线程池收窄到 `THREADPOOL_TOKENS`（**按事件循环幂等**；只能在循环里调用）。
 
     ⚠ anyio 的 limiter 是 **RunVar**：事件循环外读写会抛 `NoEventLoopError`（实测 anyio 4.14）。
     所以它挂在**已有的 HTTP 中间件**里（每请求一次、幂等、跑在循环内）——而不是
     `create_app()`（那是同步上下文，且 `httpx.ASGITransport` 默认**不跑 lifespan**，
     挂 lifespan 会让量具与真实路径行为不一致）。
+    ⚠ **幂等的粒度是"每事件循环"**（§10.88）：`_bound_loops` 按循环缓存，第二个循环会**再收窄一次**。
     """
-    global _bound_once
-    if _bound_once:
-        return
     try:
         import anyio.to_thread
+        loop = asyncio.get_running_loop()
+        if _bound_loops.get(loop) is True:
+            return
         anyio.to_thread.current_default_thread_limiter().total_tokens = THREADPOOL_TOKENS
-        _bound_once = True
+        _bound_loops[loop] = True
     except Exception:      # noqa: BLE001 — 拿不到 limiter 不该让请求失败；下一次请求还会再试
         pass
 

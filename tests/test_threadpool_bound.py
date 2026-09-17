@@ -27,12 +27,41 @@ def test_收窄函数真的把线程池设成常量():
     async def check() -> int:
         # 先还原成 anyio 默认，确认函数的**效果**（而不是"本来就是 16"）
         anyio.to_thread.current_default_thread_limiter().total_tokens = 40
-        server._bound_once = False
+        server._bound_loops.clear()                 # §10.88：幂等标记现在**按事件循环**缓存
         server.bound_threadpool_once()
         return anyio.to_thread.current_default_thread_limiter().total_tokens
 
     got = asyncio.run(check())
     assert got == server.THREADPOOL_TOKENS, (got, server.THREADPOOL_TOKENS)
+
+
+def test_线程池收窄是按事件循环的():
+    """§10.88（独立复核 b17 的 MEDIUM-1）：**第二个事件循环**也必须被收窄到 16。
+
+    为什么必须有这条：anyio 的 `current_default_thread_limiter()` 是 **RunVar（按事件循环）**，
+    而收窄函数原先用一个**进程级布尔**做幂等标记 ⇒ 第二个循环里它直接 `return`，
+    池子停在 anyio 默认的 **40** —— "池子有界"从第二个循环起**静默失效**
+    （b17 实测：loop#1=16、loop#2=40）。生产只有一条长驻循环所以没暴露，但这类
+    "按 loop 的 RunVar + 按进程的幂等标记"错配是可复发的（b14 的 LOW-4 是同一族的另一处）。
+    """
+    import anyio.to_thread
+
+    from src.core.api import server
+
+    seen: list[int] = []
+
+    def one_loop() -> None:
+        async def check() -> None:
+            anyio.to_thread.current_default_thread_limiter().total_tokens = 40   # 先还原成默认
+            server.bound_threadpool_once()
+            seen.append(anyio.to_thread.current_default_thread_limiter().total_tokens)
+
+        asyncio.run(check())
+
+    one_loop()
+    one_loop()                                       # 第二个循环：旧实现会在这里停在 40
+    assert seen == [server.THREADPOOL_TOKENS] * 2, (
+        f"每个事件循环都必须被收窄到 {server.THREADPOOL_TOKENS}，实测 {seen}")
 
 
 def test_常量不会比默认值更大():

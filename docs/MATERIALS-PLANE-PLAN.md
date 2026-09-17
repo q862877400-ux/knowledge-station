@@ -1046,3 +1046,23 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     但缺口真实）→ ② 真机重启后端到端复验（需业主）→ ③ 其余未覆盖项见台账第 29 条末尾。
 
 
+34. **处理复核 b17（7 CONFIRMED / 3 PARTLY / 1 REFUTED）**（§10.88，step-88；
+    报告：`var/tmp/verify-b17-artifacts/VERIFY-REPORT.md`）。
+
+    | 编号 | 一句话 | 状态 |
+    |---|---|---|
+    | **b17-MEDIUM-1** | **真缺陷**：`THREADPOOL_TOKENS` 的收窄用**进程级**幂等标记，而 anyio limiter 是**按事件循环**的 RunVar ⇒ **第二个循环起池子停在 40**（"池子有界"静默失效）。b14 的 LOW-4 是同一族另一处 | ✅ `_bound_loops`（弱引用键 = 循环对象）；新闸门 `test_线程池收窄是按事件循环的`（两个循环各断言 16） |
+    | **b17-MEDIUM-2 / E3 REFUTED** | 名单第二关用 `never_yields` ⇒ 对"只有 `async for`"的**合法**端点**误红且名单不可满足**；§10.87 §1 的 H4 行与代码冲突（我转抄 b16 表格时的错） | ✅ 新判据 `effective_real_await()`（`async for/with/yield` 算、读 body 不算、**内联嵌套 async 助手**、被引用嵌套生成器算、解析失败 fail-closed）+ 六形状单测；H4 行就地更正 |
+    | **b17-MEDIUM-3** | §10.87 的"**只有**人工复核能拦"**说过头**：仓库自带量具对 H1 形状实测 **0.6504s** ⇒ 自动化第二层已存在 | ✅ 就地更正 + 新判据已能自动抓 H1/H3 的**构造形状** + "量具接名单"登记为下一层 |
+    | b17-LOW-1 | `_free_port()` 死代码且用未 import 的 `socket` | ✅ 删 |
+    | b17-LOW-2 | 只读快路径去掉了无条件 `commit()`（未登记的行为变化） | ✅ 写进 docstring（无依赖方） |
+    | b17-LOW-3 | `never_yields` 是 **may** 分析（`if False: await x` 一行逃逸） | ✅ 写进 docstring + 说明为何要三层（判据/量具/人工） |
+    | b17-INFO | 并发测试无 join 超时；"21–31/32"不稳定（不压 GIL 时 0–31）；"5 个前提"实为 6；闸门范围是 `/api/` | ✅ 全部收口 |
+    | b17-E1/E4/E5/E6/E7/E8/E9/E10 | 名单闸门六变异全承重、DDL before/after、三层修法三档对照、uvicorn 临时目录真删、注释事实、D8 两口径 7/35、门禁 | ✅ CONFIRMED（细节见报告） |
+
+    **变异 M1–M3**：全 RED 且命中预期断言、逐字节还原。
+
+    **下一步**：① 把量具（`measure-endpoint-blocking.py`）接到名单上当第二层（对名单端点量空档，
+    超阈值即红）→ ② `asyncio.to_thread` 池不对称 + 重活前缀表 → ③ 真机重启后端到端复验（需业主）。
+
+

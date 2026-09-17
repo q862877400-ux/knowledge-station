@@ -356,9 +356,13 @@ def test_并发ensure_catalog_schema在缺列旧表上不抛异常(client):
         for t in ths:
             t.start()
         for t in ths:
-            t.join()
+            # ⚠ 带超时的 join（独立复核 b17 的 INFO）：某条线程若卡在锁上，测试不该无限挂住
+            # （那会变成"CI 卡死"而不是"红"）。30s 足够——正常迁移是毫秒级。
+            t.join(30)
     finally:
         _sys.setswitchinterval(old_interval)
+    alive = [t for t in ths if t.is_alive()]
+    assert not alive, f"有 {len(alive)} 条线程 30s 内没结束（卡在锁上了？）"
     assert not errors, f"并发补列竞态复现（{len(errors)}/{n}）：{errors[:3]}"
     cols = {r[1] for r in conn.execute("PRAGMA table_info(law_catalog)").fetchall()}
     assert {"category", "updated_at"} <= cols, cols

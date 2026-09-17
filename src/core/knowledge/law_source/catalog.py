@@ -105,6 +105,11 @@ def ensure_catalog_schema(conn=None) -> None:
       ② 仍对 `duplicate column name` 兜底 —— 迁移本来就该容忍"别人已经补上了"。
     ⚠ 调用方显式传了 `conn` 时不再套一层（SQLite 不支持嵌套 `BEGIN`），只做 ②；
     `conn` 已在事务里时同理（`write_transaction` 会先提交遗留的隐式事务，那会破坏调用方的事务）。
+
+    ⚠ **一处有意的行为变化**（独立复核 b17 的 LOW-2）：旧实现**每次**都 `conn.commit()`
+    （哪怕它什么都没做）。只读快路径**不再提交**——若调用方之前留了一个悬而未决的隐式事务，
+    旧代码会顺手替它提交，新代码不会。全库查过没有依赖该副作用的调用方（唯一热路径
+    `query_catalog()` 是纯读），但这是**有意的**变化，写在这里而不是悄悄发生。
     """
     c = conn if conn is not None else get_db_connection()
     if _catalog_schema_current(c):
@@ -117,7 +122,7 @@ def ensure_catalog_schema(conn=None) -> None:
 
 
 def _catalog_schema_current(conn) -> bool:
-    """表、两列、三条索引都在吗？（**只读**；表不存在 ⇒ False）"""
+    """**六个**前提都齐了吗（表存在 + 两列 + 三条索引）？（**只读**；表不存在 ⇒ False）"""
     try:
         cols = {r[1] for r in conn.execute("PRAGMA table_info(law_catalog)").fetchall()}
         if not cols or not set(_CATALOG_COLUMNS) <= cols:

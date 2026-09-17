@@ -227,6 +227,13 @@ def never_yields(src: str) -> bool:
     写明理由，任何新形状默认红**——正确的过程间 + 可达性分析静态上做不到，与其继续打补丁，
     不如把举证责任反过来。
 
+    ⚠ **它是"may"分析**（独立复核 b17 的 LOW-3）：只要源码里**存在**一个非读-body 的 `await`
+    就算"会让出"，哪怕那段代码**永远执行不到**——`if False: await x` **一行**就能豁免整条端点；
+    同族的还有"await 一个已完成的 Future"、"`try:` 里必然抛的 await"。
+    ⇒ 残余逃逸面比 §10.87 §9 登记的两条（助手包装、从不迭代的嵌套生成器）**更宽**。
+    这正是闸门在 §10.87 改成**名单制**、并在 §10.88 把第二关换成 `effective_real_await()`
+    （会把嵌套助手内联进去）的原因——但**判据永远只是第一道**，量具与人工复核仍是必需的。
+
     ⚠ **解析失败 ⇒ 返回 True（判成"从不 yield"= 红）**：`SyntaxError` 下**没有**任何依据说
     "它会让出控制权"，fail-open（返回 False）会让一个将来忘记 `dedent` 的调用点**静默放行**
     全部缩进端点（b15 的 INFO-3 实测）。安全侧是 fail-closed。
@@ -290,6 +297,96 @@ def nested_async_gen_without_await(src: str) -> list[str]:
         if has_yield and not has_await:
             out.append(node.name)
     return out
+
+
+# ---------------------------------------------------------------- §10.88：名单的"第二关"判据
+def _endpoint_node(tree: ast.AST) -> ast.AST | None:
+    """源码里的**第一个**函数定义（= 端点自己）。"""
+    for node in ast.walk(tree):
+        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+            return node
+    return None
+
+
+def _body_read(a: ast.Await) -> bool:
+    v = a.value
+    return (isinstance(v, ast.Call) and isinstance(v.func, ast.Attribute)
+            and v.func.attr in ("json", "body"))
+
+
+def _call_name(value: ast.AST) -> str | None:
+    """`f(...)` ⇒ `"f"`；其它（属性调用、非调用）⇒ None。"""
+    if isinstance(value, ast.Call) and isinstance(value.func, ast.Name):
+        return value.func.id
+    return None
+
+
+def _own_awaits(fn: ast.AST) -> list[ast.Await]:
+    return [n for n in _own_scope_nodes(fn) if isinstance(n, ast.Await)]
+
+
+def _scope_suspends(fn: ast.AST) -> bool:
+    """这个函数**自己作用域**里有会让出控制权的语法吗（await / async for / async with / yield）？"""
+    return any(isinstance(n, (ast.Await, ast.AsyncFor, ast.AsyncWith, ast.Yield, ast.YieldFrom))
+               for n in _own_scope_nodes(fn))
+
+
+def _real_suspension(fn: ast.AST, nested: dict, depth: int = 0) -> bool:
+    """`fn`（含它**调用的**嵌套助手）在自己的执行路径上有没有**真**挂起点？
+
+    "真"= 不是读 body 的 `await`，或 `async for`/`async with`/`yield`（迭代时会让出）。
+    ⚠ 递归深度上限 4：超过就当"有"（放行）——这种情况交给量具与人工复核，别在这里猜。
+    """
+    if depth > 4:
+        return True
+    own = list(_own_scope_nodes(fn))
+    if any(isinstance(n, (ast.AsyncFor, ast.AsyncWith, ast.Yield, ast.YieldFrom)) for n in own):
+        return True
+    for a in (n for n in own if isinstance(n, ast.Await)):
+        if _body_read(a):
+            continue
+        helper = nested.get(_call_name(a.value) or "")
+        if helper is not None:
+            if _real_suspension(helper, nested, depth + 1):
+                return True
+            continue                       # 内联后只是读 body ⇒ 不算
+        return True                        # 其它任何 await（to_thread / sleep / 未知调用）都算
+    used = {n.id for n in own if isinstance(n, ast.Name)}
+    for name, node in nested.items():
+        if name in used and _real_suspension(node, nested, depth + 1):
+            return True                    # 被引用（例如交给 StreamingResponse）的嵌套生成器
+    return False
+
+
+def effective_real_await(src: str) -> bool:
+    """这条 async 端点**执行路径上**真的会让出控制权吗？（§10.88：名单第二关的判据）
+
+    比 `never_yields()` 严一档：
+      ① `async for` / `async with` / `yield` ⇒ **算**（等待点常常在库源码里，源码里看不到
+         `Await` 节点）。⚠ 这一条是独立复核 b17 的 MEDIUM-2：旧版第二关用 `never_yields`，
+         而它对"只有 `async for`"的**合法**形状返回 True ⇒ 那种端点在名单里**永远无法自证**
+         （误红、且名单不可满足）。
+      ② 否则看 `Await`：读 body（`x.json()`/`x.body()`）不算；**调用本端点内嵌套的 async 助手**
+         要**内联进去**再看（b16 的 H1 形状 `await _read_json(request)` 靠这一层才判准——助手
+         内部只读 body ⇒ 整条链一次都不让出）；其它一律算。
+      ③ 本端点**引用了**的嵌套 async 生成器（真流式）也算——迭代它时会 await。
+      ④ 解析失败 ⇒ 返回 **False**（不算"有" ⇒ 名单判红，fail-closed）。
+
+    ⚠ **能力边界**（写在明面上）：只内联**同一段源码里嵌套的** async 助手。
+    `await read_json(request)`（模块级/跨模块助手）仍算"有"——过程间分析不在本判据能力内；
+    那类逃逸由**量具**（`scripts/measure-endpoint-blocking.py` 能对任意端点量事件循环空档，
+    b17 实测 H1 形状 **0.6504s**）与人工复核兜，见 §10.88 §3。
+    """
+    try:
+        tree = ast.parse(textwrap.dedent(src))
+    except SyntaxError:
+        return False
+    fn = _endpoint_node(tree)
+    if fn is None:                                          # pragma: no cover
+        return False
+    nested = {n.name: n for n in ast.walk(fn)
+              if isinstance(n, ast.AsyncFunctionDef) and n is not fn}
+    return _real_suspension(fn, nested)
 
 
 def _is_local(fn, name: str) -> bool:

@@ -664,7 +664,11 @@ class TestSlowEndpointsAreDeclaredSync:
     }
 
     def test_async端点必须在显式名单里(self, client):
-        """**通则（§10.87）**：每条 `async def` 端点都必须在 `_ASYNC_ENDPOINTS` 里**写明理由**。
+        """**通则（§10.87）**：`/api/` 路由上的每条 `async def` 端点都必须在 `_ASYNC_ENDPOINTS`
+        里**写明理由**。
+
+        ⚠ 范围是 `/api/` 前缀下的路由（独立复核 b17 的 INFO：框架自带的 4 条 async 路由不在扫描
+        范围内，所以"整条 API 面上每条 async 端点"这种字面说法不成立——本用例的判据就是 `/api/`）。
 
         来历：§10.86 想用一条静态判据（"零有效 await ⇒ 必须 `def`"）把这一整类消灭掉，
         但独立复核 b16 构造出两条**静态不可判**的逃逸形状（助手包装的 await、从不迭代的嵌套
@@ -672,8 +676,10 @@ class TestSlowEndpointsAreDeclaredSync:
         本来就不可判**。所以这里换一种更强的形状：**async 是例外，必须显式声明 + 写理由**；
         任何新 async 端点（无论什么形状）默认红。
 
-        名单里的每一条还要过第二关：**必须真的有一个非读-body 的 `await`**（`never_yields`
-        为 False）——否则"为什么必须 async"就答不上来（那种端点应是 `def`）。
+        名单里的每一条还要过第二关：**必须真的有一个非读-body 的 `await`**（或 `async for` 之类的
+        真挂起点）——判据是 `audit.effective_real_await()`（§10.88），它比 `never_yields` 严一档：
+        `async for/with` 算挂起点、读 body 的 await 不算、**调用本端点内嵌套 async 助手要内联
+        进去再看**（b16 的 H1 形状靠这一层判准）、被引用的嵌套 async 生成器（真流式）算。
         """
         import asyncio
 
@@ -708,9 +714,15 @@ class TestSlowEndpointsAreDeclaredSync:
                 src = inspect.getsource(ep)
             except (OSError, TypeError):        # pragma: no cover
                 continue
-            if audit.never_yields(src):
-                offenders.append((path, "名单说它必须 async，但它**没有非读-body 的 await**"
-                                       "（那就是 `def` 的活）"))
+            # ⚠ **第二关的判据是 `effective_real_await`**（§10.88，修 b17 的 MEDIUM-2 + MEDIUM-3）：
+            # 旧版用 `never_yields`，它对"只有 `async for`/`async with`"的**合法**形状返回 True
+            # ⇒ 那种端点在名单里**永远无法自证**（误红、名单不可满足，b17 的 E3 REFUTED）。
+            # 新版判据：① `async for/with/yield` 算挂起点；② 读 body 的 await 不算；
+            # ③ **调用本端点内嵌套 async 助手**要内联进去再看（b16 的 H1 形状靠这一层判准）；
+            # ④ 被引用的嵌套 async 生成器（真流式）算。
+            if not audit.effective_real_await(src):
+                offenders.append((path, "名单说它必须 async，但它的 await 全是读 body"
+                                       "（或只调用了同样只读 body 的嵌套助手）——那是 `def` 的活"))
         # 名单本身也要与现状一致：写在名单里、但已经不是 async 的 ⇒ 也要红（防止名单腐烂）
         for path in self._ASYNC_ENDPOINTS:
             if path not in seen:
@@ -860,6 +872,71 @@ class TestSlowEndpointsAreDeclaredSync:
             "body 走签名）：\n"
             + "\n".join(f"  {p}  {m}" for p, m in offenders)
             + "\n（若确有理由保留 async，请加进 _BODY_ONLY_ASYNC_ALLOWLIST 并写清原因）")
+
+    def test_名单第二关的判据_effective_real_await(self):
+        """§10.88：名单第二关的判据在**六种形状**上都必须判对（b17 的 MEDIUM-2 + MEDIUM-3）。
+
+        这是名单里"理由成不成立"的唯一自动判据，所以它自己的边界必须先钉住：
+
+        | 形状 | 期望 | 为什么 |
+        |---|---|---|
+        | H1 `await _read_json(request)`（**嵌套**助手内部才读 body） | **False** | 内联后一次都不让出（b16 实测这种形状堵 0.650s） |
+        | H3 外层读 body + 嵌套 async 生成器**从不被引用** | **False** | 它执行路径上没有挂起点 |
+        | H4 只有 `async for` | **True** | 编译成 `await __anext__`，等待点常在库源码里（旧判据在这里**误红**） |
+        | H2 真流式：嵌套生成器被引用、里面有真 await | **True** | 迭代时真的让出（**不许误伤**） |
+        | `await asyncio.to_thread(...)`（`/laws/*` 的形状） | **True** | 属性调用 ⇒ 未知但确实会 await |
+        | 只有 `await request.json()` | **False** | 读完 body 全是同步活 ⇒ 该 `def` |
+        | 解析失败 | **False** | fail-closed（不算"有"⇒ 名单判红） |
+        """
+        root = Path(__file__).resolve().parents[1]
+        spec = importlib.util.spec_from_file_location(
+            "ks_audit_probe_eff", root / "scripts" / "audit-async-endpoints.py")
+        assert spec and spec.loader
+        audit = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(audit)
+
+        def _f(src: str) -> bool:
+            return audit.effective_real_await(textwrap.dedent(src))
+
+        assert _f('''
+            async def ep(request):
+                body = await _read_json(request)
+                heavy(body)
+
+                async def _read_json(r):
+                    return await r.json()
+        ''') is False, "H1（嵌套助手包装读 body）必须判成'没有真挂起点'"
+        assert _f('''
+            async def ep(request):
+                body = await request.json()
+                async def stream():
+                    await something()
+                    yield 1
+                heavy(body)
+        ''') is False, "H3（从不被引用的嵌套 async 生成器）必须判成'没有真挂起点'"
+        assert _f('''
+            async def ep():
+                async for chunk in reader:
+                    out.append(chunk)
+        ''') is True, "只有 async for 也是真的会让出（b17 的 MEDIUM-2：旧判据在这里误红）"
+        assert _f('''
+            async def ep(request):
+                body = await request.json()
+                async def stream():
+                    async for c in gen(body):
+                        yield c
+                return StreamingResponse(stream())
+        ''') is True, "真流式（被引用的嵌套生成器里有真 await）不许被判红"
+        assert _f('''
+            async def ep():
+                return await asyncio.to_thread(f, 1, x=2)
+        ''') is True, "属性调用（to_thread）算真挂起点"
+        assert _f('''
+            async def ep(request):
+                body = await request.json()
+                return heavy(body)
+        ''') is False, "只有读 body 的 await ⇒ 该 def"
+        assert _f("async def ep(:\n") is False, "解析失败必须 fail-closed"
 
     def test_判据本体的边界样本(self):
         """§10.86：两条判据的**边界形状**（b15 的 INFO-1 / INFO-3）。
