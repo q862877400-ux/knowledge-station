@@ -266,5 +266,30 @@ verifier 全面审计产出 25 项问题清单 → 5 verifier 编制方案 → v
 
 **本步（步骤 2.5/引擎收口）**：修 F4 + F2 + F3 + F5（引擎侧），新增 1 条 API 严格性测试 + 2 条异步 egress 断言。**F1 留作下一步**（产品桥 + UI 文案 + E2E 断言）。
 
+### 10.5 步骤 3：打通产品桥（F1）+ 修掉给限制站岗的测试 + 修既有 flaky
+
+**这是 D5 真正"能被用到"的一步。** 上一个提交只把引擎做对；独立复核指出**能力在用户可见产品上仍不可达**——锁从引擎搬到了插件桥。
+
+**根因（比"漏改一处"更值得记）**：`plugin/scripts/smoke-ingest.mjs` **主动断言了这个限制**，还把它命名为护栏：
+```
+check('preview DROPS allow_deep / deep_fallback / unknown keys (zero-egress guard)', …)
+check('job start forwards dir/batch_size only (zero-egress guard)', …)
+```
+⇒ 桥丢弃 `allow_deep` 是**被测试保护的"特性"**，所以引擎侧解开后**没有任何红灯**，缺陷完全隐形。
+**教训：清查"自设限制"时必须连测试一起看——限制常常被写成断言，撤掉限制反而会先撞红。**
+
+**改动**：
+- `plugin/src/ingest.js` 三处白名单（单文件 :251-261 / 批量 :333-334 / 异步任务 :612-613）改为**转发 `allow_deep`**；桥只做**严格布尔**转发（`body.allow_deep === true`），不替引擎下判断。
+- `plugin/client/api.ts`：三个调用函数加 `allowDeep`（**只为真时才发字段**）、`KsIngestPreview.egress` 类型由 `'none' | 'mineru_cloud'` 改正为 `'none' | 'deep_channel'`（原类型与引擎实际返回值不符）、`KsIngestJobView` 补 `egress`、陈旧注释（"恒 true"）改正。
+- `plugin/client/KsIngestPanel.tsx`：**新增「允许云深度解析」复选框（默认关闭）**——把"会外发"直接写在标签里；`egress` 的渲染不再打印原始枚举（"外发 deep_channel"读起来像"本次真的发出去了"），改为如实措辞："已允许云深度通道——扫描件会上传云端（本次是否真的上传取决于该文档有无文本层；精确记录见外发审计）"；模块 docstring 与 `:336` 文案同步。
+- `plugin/client/KsSettingsSection.tsx`：hint 由"不写库不外发"改为"不写库；默认不外发（可显式开启云深度解析）"。
+- `scripts/dsh-gui-e2e-ingest.ps1`：原断言钉的是旧承诺文案（"不写库、不移动文件、不外发"），改为钉**新**口径，并**加一条**断言检查开关存在（`允许云深度解析`）。
+- `plugin/scripts/smoke-ingest.mjs`：两条 `zero-egress guard` 断言改为**反向**（`allow_deep` 必须转发；`deep_fallback` 与未知字段必须丢），并**新增一条**"非布尔 `allow_deep` 不得被转发"（桥不放大真值；权威校验在引擎）。**37 → 38 条**。
+- **F6 既有 flaky 修掉**：`test_preview_jobs.py` 的 abort 用例原先只等 `status=='running'` 就中断，而 worker 是**先置 running 再处理第 1 件** ⇒ `done` 常为 0 ⇒ `assert done >= 1` 约**一半概率红**（复核在改动前的提交上同样复现，与本次无关）。改为**等"至少完成 1 件"再 abort**——本用例要证的就是"已完成的行被保留"，先有已完成的行是把不确定性消掉，而不是放宽断言。实测**连跑 6 次全绿**。
+
+**门禁**：`pytest` **1217 passed / 3 skipped / 0 failed**；`mypy` 122 files 0 errors；`tsc` 0；`smoke` 11 段全 PASS（**ingest 37 → 38**）；`verify:commands` 15/15。
+**诚实边界**：① 新增的 UI 开关与文案**未做真机点击验证**（E2E 脚本已同步断言，但本轮没起 GUI 跑）；② 未对真实云端做端到端验证；③ "允许云深度解析"是**每页面板的临时勾选**，不落盘、不开记忆——刷新即回到"不外发"，这是刻意的（默认安全优先于便利）。
+
+
 
 

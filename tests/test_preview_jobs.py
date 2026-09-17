@@ -102,17 +102,26 @@ class TestAbort:
         paths = [str(_make_pdf(tmp_path / f"{i}.pdf", pages=2)) for i in range(100)]
         view = preview_jobs.create_job(paths)
         job_id = view["job_id"]
-        # 等 worker 真正开始跑（status=running）
-        deadline = time.monotonic() + 10
+        # 等 worker 真正开始跑**且至少完成 1 件**再 abort。
+        # ⚠ 原先只等 `status == "running"` 就 abort，而 worker 是**先置 running、再处理第 1 件**
+        # （见 preview_jobs worker 开头），于是 abort 常常落在第 1 件完成之前 → `done == 0`
+        # → 下面的 `done >= 1` 变成**概率性失败**（独立复核实测约一半概率红；在改动前的提交上
+        # 同样复现 ⇒ 既有 flaky，非本次引入）。本测试要证的是"**已完成的行被保留**"，
+        # 那就必须先有已完成的行——等它是把不确定性消掉，不是放宽断言。
+        deadline = time.monotonic() + 20
         while time.monotonic() < deadline:
             cur = preview_jobs.get_job(job_id)
-            if cur["status"] == "running":
+            if cur["status"] == "running" and cur["done"] >= 1:
+                break
+            if cur["status"] in ("done", "aborted", "failed"):
                 break
             time.sleep(0.02)
         r = preview_jobs.abort_job(job_id)
         assert r is not None
         fin = _wait_terminal(job_id, timeout_s=30)
-        assert fin["status"] == "aborted"
+        assert fin["status"] == "aborted", (
+            f"没能在任务跑完前中断（status={fin['status']}, done={fin['done']}/100）——"
+            "若机器快到 100 件跑完都没轮到 abort，请加大工作量而不是放宽断言")
         # 已完成的行保留（部分结果可拿）
         assert fin["done"] >= 1
         assert fin["done"] <= 100

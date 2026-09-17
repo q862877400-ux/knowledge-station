@@ -224,7 +224,7 @@ export function KsSettingsSection(props: KsSettingsSectionInjected): JSX.Element
         title="入库预览"
         open={ingestOpen}
         onToggle={setIngestOpen}
-        hint="入库前只读体检（✅/⚠️/❌ 分桶），不写库不外发"
+        hint="入库前只读体检（✅/⚠️/❌ 分桶），不写库；默认不外发（可显式开启云深度解析）"
       >
         <KsIngestPanel visible={ingestOpen} />
       </KsCategory>

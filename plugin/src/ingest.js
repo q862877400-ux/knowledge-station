@@ -248,12 +248,17 @@ function registerPreviewRoute(ctx, manager) {
         jsonResponse(res, 400, errorBody(code, '请求体必须是 JSON'))
         return
       }
-      // 只透传白名单字段；`allow_deep` 不暴露（预览零外发是产品性质，不给开关）
+      // 白名单透传。`allow_deep` **要转发**（2026-09-17 独立复核 F1）：
+      // 原先这里写"不暴露（预览零外发是产品性质，不给开关）"，把引擎已解开的能力又
+      // 在桥这一层掐掉了——锁只是从引擎搬到了桥。现行口径（D5）：**默认不外发，
+      // 显式 allow_deep=true 才走云深度通道并如实回 egress**；桥只做**严格布尔**转发，
+      // 不下判断（判断在引擎侧，且引擎会拒非布尔值）。
       const payload = {}
       if (typeof body.path === 'string' && body.path.trim()) payload.path = body.path.trim()
       if (typeof body.doc_type === 'string' && body.doc_type.trim()) {
         payload.doc_type = body.doc_type.trim()
       }
+      if (body.allow_deep === true) payload.allow_deep = true
       if (!payload.path) {
         jsonResponse(res, 400, errorBody('missing_path', '需要 path（要预览的 PDF 绝对路径）'))
         return
@@ -325,6 +330,8 @@ function registerBatchRoute(ctx, manager) {
         payload.doc_type = body.doc_type.trim()
       }
       if (body.recursive === true) payload.recursive = true
+      // allow_deep 同单文件路由：严格布尔转发，默认不外发（F1）
+      if (body.allow_deep === true) payload.allow_deep = true
       try {
         const probe = await enginePostWithRetry(manager, ENGINE_BATCH_PATH, payload,
           BATCH_TIMEOUT_MS)
@@ -602,6 +609,8 @@ async function handleJobStart(req, res, manager) {
   if (typeof body.doc_type === 'string' && body.doc_type.trim()) {
     payload.doc_type = body.doc_type.trim()
   }
+  // allow_deep 同前两条路由：严格布尔转发，默认不外发（F1）
+  if (body.allow_deep === true) payload.allow_deep = true
   try {
     const probe = await enginePostWithRetry(manager, '/api/v1/ingest/preview/jobs', payload, 30_000)
     if (probe.status !== 200 || !probe.body?.data?.job_id) {

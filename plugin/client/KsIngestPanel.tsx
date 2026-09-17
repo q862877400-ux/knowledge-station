@@ -16,8 +16,10 @@
  *
  * ## 它**不**做什么（本轮边界，UI 上也要如实告诉用户）
  *   - **不落库**：预览只读，正式入库（确认后原子写入）是下一里程碑；
- *   - **不外发**：预览禁用深度通道（该通道云优先）；扫描件因此只能报"无文本层"，
- *     不会偷偷上传到云解析；
+ *   - **默认不外发**：预览默认不调深度通道（该通道云优先）；扫描件因此只报"无文本层"，
+ *     不会偷偷上传到云解析。**2026-09-17 D5/F1 起**：确需云深度解析时可由用户显式勾选
+ *     「允许云深度解析」开启（`allow_deep`），此时报告会如实标注 `egress=deep_channel`
+ *     ——**不禁止，但必须留痕、且必须由人显式选择**；
  *   - **不动文件**：不移动/复制/改名（判为 ❌ 的文件只标记候选，移动是正式批量入库的事）。
  *
  * 信任模型同 KsBookmarksTab：只跟同源 `/ks/*` 说话，token 由 host 持有。
@@ -142,7 +144,16 @@ function ReportDetail(props: { report: KsIngestReport }): JSX.Element {
         {' · '}每页 {lay.chars_per_page} 字
         {typeof lay.tables_rebuilt === 'number' && lay.tables_rebuilt > 0
           ? ` · 表格 ${lay.tables_rebuilt}` : ''}
-        {' · '}外发 {r.egress}
+        {' · '}
+        {/* 不要直接把枚举值印给用户看（"外发 deep_channel" 读起来像"本次真的发出去了"）：
+            egress=deep_channel 是**保守高报**——只表示本次**允许**了云深度通道，
+            该文档是否需要深度解析是另一回事。措辞要如实反映这一点。 */}
+        {r.egress === 'none'
+          ? <span>不外发（未启用云深度通道）</span>
+          : <span style={{ color: '#9a6700' }}>
+              已允许云深度通道——扫描件会上传云端（本次是否真的上传取决于该文档有无文本层；
+              精确记录见外发审计）
+            </span>}
       </div>
       <div style={{ ...noteStyle, marginTop: 6 }}>
         标准号猜测 {r.standard_no_guess?.value ?? '（未识别）'}
@@ -210,6 +221,8 @@ export function KsIngestPanel(props: KsIngestPanelProps): JSX.Element {
   // 异步全量预览任务（L239）：job_id + 轮询状态 + 三桶总账
   const [job, setJob] = useState<KsIngestJobView | null>(null)
   const [jobError, setJobError] = useState<string | null>(null)
+  /** 是否显式允许云深度解析（= 引擎的 allow_deep）。**默认 false = 不外发**（D5/F1）。 */
+  const [allowDeep, setAllowDeep] = useState<boolean>(false)
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   const newController = useCallback(() => {
@@ -256,14 +269,14 @@ export function KsIngestPanel(props: KsIngestPanelProps): JSX.Element {
     setDetail(null)
     setDetailState({ status: 'idle' })
     try {
-      const out = await fetchIngestBatch({ dir, sample }, c.signal)
+      const out = await fetchIngestBatch({ dir, sample, allowDeep }, c.signal)
       setBatch(out)
       setBatchState({ status: 'ready' })
     } catch (e) {
       if ((e as { name?: string }).name === 'AbortError') return
       setBatchState({ status: 'error', message: e instanceof Error ? e.message : String(e) })
     }
-  }, [dir, sample, newController])
+  }, [dir, sample, allowDeep, newController])
 
   const openDetail = useCallback(async (row: KsIngestBatchRow) => {
     const c = newController()
@@ -271,14 +284,14 @@ export function KsIngestPanel(props: KsIngestPanelProps): JSX.Element {
     setDetail(null)
     setDetailState({ status: 'loading' })
     try {
-      const rep = await fetchIngestPreview(row.path, { signal: c.signal })
+      const rep = await fetchIngestPreview(row.path, { allowDeep, signal: c.signal })
       setDetail(rep)
       setDetailState({ status: 'ready' })
     } catch (e) {
       if ((e as { name?: string }).name === 'AbortError') return
       setDetailState({ status: 'error', message: e instanceof Error ? e.message : String(e) })
     }
-  }, [newController])
+  }, [allowDeep, newController])
 
   // ---- 异步全量预览（L239）：启动 → 轮询 → 中断 ----
   const stopJobPolling = useCallback(() => {
@@ -306,14 +319,14 @@ export function KsIngestPanel(props: KsIngestPanelProps): JSX.Element {
     setJobError(null)
     setJob(null)
     try {
-      const v = await startIngestJob({ dir })
+      const v = await startIngestJob({ dir, allowDeep })
       setJob(v)
       stopJobPolling()
       pollRef.current = setInterval(() => void pollJob(v.job_id), 1500)
     } catch (e) {
       setJobError(e instanceof Error ? e.message : String(e))
     }
-  }, [dir, pollJob, stopJobPolling])
+  }, [dir, allowDeep, pollJob, stopJobPolling])
 
   const abortFullJob = useCallback(async () => {
     if (!job) return
@@ -333,10 +346,27 @@ export function KsIngestPanel(props: KsIngestPanelProps): JSX.Element {
   return (
     <div style={{ padding: '4px 0 2px', fontSize: 13 }}>
       <div style={noteStyle}>
-        只读预览：<b>不写库、不移动文件、不外发</b>（深度通道已禁用）。
-        扫描件会如实显示"无文本层"而不是偷偷上传到云解析。
+        只读预览：<b>不写库、不移动文件、默认不外发</b>。
+        扫描件默认只报"无文本层"，<b>不会</b>偷偷上传到云解析；确需云深度解析时，
+        勾选下面的<b>「允许云深度解析」</b>显式开启（会外发，报告里会如实标注 `egress`）。
         正式入库（确认后原子写入）是下一里程碑，此页不提供。
       </div>
+
+      {/* 2026-09-17 独立复核 F1：原先桥这一层把 allow_deep 直接掐掉，
+          引擎解开的云深度通道在界面上**点不到**。现补上开关，**默认关闭**，
+          并把"会外发"写在标签里——不给开关和偷偷给开关都不对，要的是明说的开关。 */}
+      <label style={{ ...noteStyle, display: 'flex', alignItems: 'center', gap: 6, marginTop: 6, cursor: 'pointer' }}>
+        <input
+          type="checkbox"
+          checked={allowDeep}
+          onChange={(e) => setAllowDeep(e.target.checked)}
+          aria-label="允许云深度解析"
+        />
+        <span>
+          允许云深度解析（<b>会把扫描件上传到云端</b>；默认关闭）。
+          {allowDeep ? '本次预览将如实标注 egress=deep_channel。' : '本次预览不外发（egress=none）。'}
+        </span>
+      </label>
 
       <div style={{ marginTop: 10 }}>
         <span style={noteStyle}>待入库目录：</span>

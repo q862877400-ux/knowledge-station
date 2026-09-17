@@ -91,7 +91,10 @@ if ($clicked -ne 'clicked') {
 Check '点到「📥 入库预览」tab' ($clicked -eq 'clicked') $clicked
 Start-Sleep -Seconds 2
 Check 'Tab 渲染出标题' (BodyHas '入库预览（Dry-Run）') ''
-Check 'Tab 渲染出只读声明' (BodyHas '不写库、不移动文件、不外发') ''
+# 2026-09-17 D5/F1：原断言钉的是"不外发"这句**产品承诺**，而该承诺已改为
+# "默认不外发 + 可显式开启云深度解析"。断言改为钉**新**口径（否则测试会拦住正确改动）。
+Check 'Tab 渲染出只读 + 默认不外发声明' (BodyHas '不写库、不移动文件、默认不外发') ''
+Check 'Tab 渲染出云深度解析开关（默认关闭）' (BodyHas '允许云深度解析') ''
 Check 'Tab 渲染出待入库目录行' (BodyHas '待入库目录') ''
 
 # ---------------------------------------------------------------- 2) 刷新列表

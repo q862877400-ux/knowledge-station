@@ -1398,11 +1398,15 @@ export interface KsIngestReport {
   standard_name_guess: { value: string | null; source?: string }
   duplicate: { kind: string; doc_id?: string | null; message?: string }
   quarantine_candidate: boolean
-  /** 请求级：本次预览禁用了深度通道（恒 true——深度通道云优先 = 外发） */
+  /** 请求级：本次预览**是否禁用**深度通道。默认 true（不外发）；
+   *  仅当调用方显式 `allow_deep=true` 时为 false（2026-09-17 D5 前恒为 true） */
   deep_fallback_disabled?: boolean
   /** 文档级：这份文档真的走到「本该深度分析却被跳过」的分支（无文本层才 true） */
   deep_fallback_skipped: boolean
-  egress: 'none' | 'mineru_cloud'
+  /** 外发标注（D5）。`none` = 本次不可能外发（默认）；
+   *  `deep_channel` = 本次**允许**了云优先的深度通道（**保守高报**：哪怕该文档恰好有文本层、
+   *  深度通道并未真的被调用，也报这个值）。真实外发以 `egress_audit` 落库为准。 */
+  egress: 'none' | 'deep_channel'
   elapsed_ms: number
   error_code: string | null
   error_message: string | null
@@ -1436,7 +1440,8 @@ export interface KsIngestBatch {
   conservation_ok: boolean
   elapsed_ms: number
   doc_type: string
-  egress: 'none'
+  /** 批量总账的外发标注（同单文件口径，见 `KsIngestPreview.egress`） */
+  egress: 'none' | 'deep_channel'
 }
 
 /** 同源 host 代理的错误（保留 host/引擎的错误码，UI 才能给出可行动提示）。 */
@@ -1504,12 +1509,19 @@ export async function fetchIngestInbox(
 
 /** POST /ks/ingest/preview — 单本 R27 完整体检报告（只读、零外发）。 */
 export async function fetchIngestPreview(
-  path: string, opts: { docType?: string; signal?: AbortSignal } = {},
+  path: string,
+  opts: { docType?: string; allowDeep?: boolean; signal?: AbortSignal } = {},
 ): Promise<KsIngestReport> {
+  // allowDeep 只在为真时才发（与 host 桥的严格布尔转发一致）：默认"字段不出现"，
+  // 语义与"显式 false"等价，但请求体最小、也不给引擎的严格校验添麻烦。
+  const payload: Record<string, unknown> = {
+    path, doc_type: opts.docType ?? 'standard',
+  }
+  if (opts.allowDeep === true) payload.allow_deep = true
   const res = await fetch('/ks/ingest/preview', {
     method: 'POST',
     headers: { accept: 'application/json', 'Content-Type': 'application/json' },
-    body: JSON.stringify({ path, doc_type: opts.docType ?? 'standard' }),
+    body: JSON.stringify(payload),
     signal: opts.signal,
   })
   if (!res.ok) throw await parseIngestError(res)
@@ -1521,13 +1533,14 @@ export async function fetchIngestPreview(
 
 /** POST /ks/ingest/preview/batch — 目录批量预览 + ✅/⚠️/❌ 分桶（决策 2）。 */
 export async function fetchIngestBatch(
-  req: { dir: string; sample?: number; limitFiles?: number; docType?: string },
+  req: { dir: string; sample?: number; limitFiles?: number; docType?: string; allowDeep?: boolean },
   signal?: AbortSignal,
 ): Promise<KsIngestBatch> {
   const payload: Record<string, unknown> = { dir: req.dir }
   if (req.sample !== undefined) payload.sample = req.sample
   if (req.limitFiles !== undefined) payload.limit_files = req.limitFiles
   if (req.docType !== undefined) payload.doc_type = req.docType
+  if (req.allowDeep === true) payload.allow_deep = true
   const res = await fetch('/ks/ingest/preview/batch', {
     method: 'POST',
     headers: { accept: 'application/json', 'Content-Type': 'application/json' },
@@ -1550,19 +1563,23 @@ export interface KsIngestJobView {
   buckets: { ok: number; warn: number; block: number }
   rows: KsIngestBatchRow[]
   rows_count?: number
+  /** 外发标注（D5/F3）：与单文件预览同口径——`none` = 不可能外发；
+   *  `deep_channel` = 本任务**允许**了云深度通道（保守高报，真实外发见外发审计）。 */
+  egress?: 'none' | 'deep_channel'
   error: string | null
   stale?: boolean
 }
 
 /** POST /ks/ingest/preview/jobs — 启动异步全量预览（万级；立即返回 job_id）。 */
 export async function startIngestJob(
-  req: { dir: string; recursive?: boolean; batchSize?: number; docType?: string },
+  req: { dir: string; recursive?: boolean; batchSize?: number; docType?: string; allowDeep?: boolean },
   signal?: AbortSignal,
 ): Promise<KsIngestJobView> {
   const payload: Record<string, unknown> = { dir: req.dir }
   if (req.recursive === true) payload.recursive = true
   if (req.batchSize !== undefined && req.batchSize > 0) payload.batch_size = req.batchSize
   if (req.docType !== undefined) payload.doc_type = req.docType
+  if (req.allowDeep === true) payload.allow_deep = true
   const res = await fetch('/ks/ingest/preview/jobs', {
     method: 'POST',
     headers: { accept: 'application/json', 'Content-Type': 'application/json' },

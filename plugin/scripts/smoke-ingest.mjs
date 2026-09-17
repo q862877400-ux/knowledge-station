@@ -6,8 +6,9 @@
  * 判据（每条都要求"可证 FAIL"，不做恒真断言）：
  *   1. 方法闸：三条路由对错误 method 一律 405；
  *   2. 请求体闸：非 JSON → 400 bad_json、超限 → 400 body_too_large；
- *   3. **白名单**：`allow_deep` / 未知字段**不得**被转发给引擎（预览零外发在代理层的护栏）、
- *      `path`/`doc_type` 必须逐字段转发；
+ *   3. **白名单**：`path`/`doc_type` 必须逐字段转发；`allow_deep` 作为**公开契约**也要转发
+ *      （2026-09-17 D5/F1 改正——此前本文件把"丢弃 allow_deep"当护栏来断言，等于给限制站岗）；
+ *      **未知字段**与引擎内部名 `deep_fallback` 仍然不得被转发，且 `allow_deep` 只认真布尔 `true`；
  *   4. 引擎错误码透传：引擎 422 → 400、404 → 404、5xx/异常 → 502/503（不许把 422 说成 500）；
  *   5. 目录兜底：引擎不可用时 `GET /ks/ingest/inbox` 仍返回 host 侧列表（degraded 标记），
  *      且只列 .pdf；
@@ -184,9 +185,24 @@ check('preview happy path returns 200 + data', rOk.status === 200 && rOk.body?.d
   `${rOk.status} ${JSON.stringify(rOk.body)}`)
 check('preview forwards path + doc_type verbatim',
   sentBody.path === 'C:/x/a.pdf' && sentBody.doc_type === 'standard', JSON.stringify(sentBody))
-check('preview DROPS allow_deep / deep_fallback / unknown keys (zero-egress guard)',
-  !('allow_deep' in sentBody) && !('deep_fallback' in sentBody) && !('evil' in sentBody)
-  && Object.keys(sentBody).sort().join(',') === 'doc_type,path', JSON.stringify(sentBody))
+// 2026-09-17 D5/F1：这条**原先断言的是相反的**——它把"桥丢弃 allow_deep"当成
+// "zero-egress guard"来钉。后果是：引擎解开了能力，桥却把它掐掉，而**测试替这个
+// 限制站岗**，缺陷因此完全隐形。新口径：`allow_deep` 是**公开契约的一部分，要转发**；
+// 仍然必须丢的是**引擎内部名** `deep_fallback` 与任何未知字段（那才是白名单的意义）。
+check('preview forwards allow_deep (public contract) but DROPS deep_fallback / unknown keys',
+  sentBody.allow_deep === true && !('deep_fallback' in sentBody) && !('evil' in sentBody)
+  && Object.keys(sentBody).sort().join(',') === 'allow_deep,doc_type,path', JSON.stringify(sentBody))
+
+// 严格布尔：只有真 `true` 才转发（字符串 "true"/1 等一律不转发）。
+// 注意桥不负责报错——引擎侧才是权威校验（会 422）；桥只保证**不把它放大成真值**。
+seen.length = 0
+await call(KS_INGEST_PREVIEW_PATH, {
+  method: 'POST',
+  body: JSON.stringify({ path: 'C:/x/a.pdf', allow_deep: 'true' }),
+})
+const looseSent = JSON.parse(seen.find((s) => s.url.includes('/api/v1/ingest/preview')).body)
+check('preview does NOT forward a non-boolean allow_deep (string "true")',
+  !('allow_deep' in looseSent), JSON.stringify(looseSent))
 
 seen.length = 0
 const rBatch = await call(KS_INGEST_BATCH_PATH, {
@@ -196,10 +212,11 @@ const rBatch = await call(KS_INGEST_BATCH_PATH, {
 })
 const batchSent = JSON.parse(seen.find((s) => s.url.includes('/api/v1/ingest/preview/batch')).body)
 check('batch happy path returns 200', rBatch.status === 200, `${rBatch.status}`)
-check('batch forwards dir/sample/limit_files/doc_type only',
+check('batch forwards dir/sample/limit_files/doc_type + allow_deep, drops junk',
   batchSent.dir === inboxDir && batchSent.sample === 2 && batchSent.limit_files === 10
-  && batchSent.doc_type === 'standard'
-  && Object.keys(batchSent).sort().join(',') === 'dir,doc_type,limit_files,sample',
+  && batchSent.doc_type === 'standard' && batchSent.allow_deep === true
+  && !('junk' in batchSent)
+  && Object.keys(batchSent).sort().join(',') === 'allow_deep,dir,doc_type,limit_files,sample',
   JSON.stringify(batchSent))
 
 // ---------------------------------------------------------------- 4) batch 参数校验
@@ -285,10 +302,10 @@ const jobBody = jobSent ? JSON.parse(jobSent.body) : {}
 check('job start returns 200 + job_id',
   rJobStart.status === 200 && rJobStart.body?.data?.job_id === 'pjob_smoke1',
   `${rJobStart.status} ${JSON.stringify(rJobStart.body)}`)
-check('job start forwards dir/batch_size only (zero-egress guard)',
+check('job start forwards dir/batch_size + allow_deep, drops junk (D5/F1)',
   jobBody.dir === inboxDir && jobBody.batch_size === 7
-  && !('allow_deep' in jobBody) && !('junk' in jobBody)
-  && Object.keys(jobBody).sort().join(',') === 'batch_size,dir',
+  && jobBody.allow_deep === true && !('junk' in jobBody)
+  && Object.keys(jobBody).sort().join(',') === 'allow_deep,batch_size,dir',
   JSON.stringify(jobBody))
 
 // GET /jobs/{id}：引擎可查 → live 优先 + stale=false

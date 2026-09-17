@@ -27934,10 +27934,15 @@ async function fetchIngestInbox(dir, signal) {
   };
 }
 async function fetchIngestPreview(path, opts = {}) {
+  const payload = {
+    path,
+    doc_type: opts.docType ?? "standard"
+  };
+  if (opts.allowDeep === true) payload.allow_deep = true;
   const res = await fetch("/ks/ingest/preview", {
     method: "POST",
     headers: { accept: "application/json", "Content-Type": "application/json" },
-    body: JSON.stringify({ path, doc_type: opts.docType ?? "standard" }),
+    body: JSON.stringify(payload),
     signal: opts.signal
   });
   if (!res.ok) throw await parseIngestError(res);
@@ -27950,6 +27955,7 @@ async function fetchIngestBatch(req, signal) {
   if (req.sample !== void 0) payload.sample = req.sample;
   if (req.limitFiles !== void 0) payload.limit_files = req.limitFiles;
   if (req.docType !== void 0) payload.doc_type = req.docType;
+  if (req.allowDeep === true) payload.allow_deep = true;
   const res = await fetch("/ks/ingest/preview/batch", {
     method: "POST",
     headers: { accept: "application/json", "Content-Type": "application/json" },
@@ -27966,6 +27972,7 @@ async function startIngestJob(req, signal) {
   if (req.recursive === true) payload.recursive = true;
   if (req.batchSize !== void 0 && req.batchSize > 0) payload.batch_size = req.batchSize;
   if (req.docType !== void 0) payload.doc_type = req.docType;
+  if (req.allowDeep === true) payload.allow_deep = true;
   const res = await fetch("/ks/ingest/preview/jobs", {
     method: "POST",
     headers: { accept: "application/json", "Content-Type": "application/json" },
@@ -32336,8 +32343,7 @@ function ReportDetail(props) {
       " \u5B57",
       typeof lay.tables_rebuilt === "number" && lay.tables_rebuilt > 0 ? ` \xB7 \u8868\u683C ${lay.tables_rebuilt}` : "",
       " \xB7 ",
-      "\u5916\u53D1 ",
-      r.egress
+      r.egress === "none" ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { children: "\u4E0D\u5916\u53D1\uFF08\u672A\u542F\u7528\u4E91\u6DF1\u5EA6\u901A\u9053\uFF09" }) : /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: { color: "#9a6700" }, children: "\u5DF2\u5141\u8BB8\u4E91\u6DF1\u5EA6\u901A\u9053\u2014\u2014\u626B\u63CF\u4EF6\u4F1A\u4E0A\u4F20\u4E91\u7AEF\uFF08\u672C\u6B21\u662F\u5426\u771F\u7684\u4E0A\u4F20\u53D6\u51B3\u4E8E\u8BE5\u6587\u6863\u6709\u65E0\u6587\u672C\u5C42\uFF1B \u7CBE\u786E\u8BB0\u5F55\u89C1\u5916\u53D1\u5BA1\u8BA1\uFF09" })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { ...noteStyle, marginTop: 6 }, children: [
       "\u6807\u51C6\u53F7\u731C\u6D4B ",
@@ -32412,6 +32418,7 @@ function KsIngestPanel(props) {
   const [detailState, setDetailState] = (0, import_react7.useState)({ status: "idle" });
   const [job, setJob] = (0, import_react7.useState)(null);
   const [jobError, setJobError] = (0, import_react7.useState)(null);
+  const [allowDeep, setAllowDeep] = (0, import_react7.useState)(false);
   const pollRef = (0, import_react7.useRef)(null);
   const newController = (0, import_react7.useCallback)(() => {
     abortRef.current?.abort();
@@ -32450,28 +32457,28 @@ function KsIngestPanel(props) {
     setDetail(null);
     setDetailState({ status: "idle" });
     try {
-      const out = await fetchIngestBatch({ dir, sample }, c.signal);
+      const out = await fetchIngestBatch({ dir, sample, allowDeep }, c.signal);
       setBatch(out);
       setBatchState({ status: "ready" });
     } catch (e) {
       if (e.name === "AbortError") return;
       setBatchState({ status: "error", message: e instanceof Error ? e.message : String(e) });
     }
-  }, [dir, sample, newController]);
+  }, [dir, sample, allowDeep, newController]);
   const openDetail = (0, import_react7.useCallback)(async (row) => {
     const c = newController();
     setDetailName(row.file_name);
     setDetail(null);
     setDetailState({ status: "loading" });
     try {
-      const rep = await fetchIngestPreview(row.path, { signal: c.signal });
+      const rep = await fetchIngestPreview(row.path, { allowDeep, signal: c.signal });
       setDetail(rep);
       setDetailState({ status: "ready" });
     } catch (e) {
       if (e.name === "AbortError") return;
       setDetailState({ status: "error", message: e instanceof Error ? e.message : String(e) });
     }
-  }, [newController]);
+  }, [allowDeep, newController]);
   const stopJobPolling = (0, import_react7.useCallback)(() => {
     if (pollRef.current !== null) {
       clearInterval(pollRef.current);
@@ -32494,14 +32501,14 @@ function KsIngestPanel(props) {
     setJobError(null);
     setJob(null);
     try {
-      const v = await startIngestJob({ dir });
+      const v = await startIngestJob({ dir, allowDeep });
       setJob(v);
       stopJobPolling();
       pollRef.current = setInterval(() => void pollJob(v.job_id), 1500);
     } catch (e) {
       setJobError(e instanceof Error ? e.message : String(e));
     }
-  }, [dir, pollJob, stopJobPolling]);
+  }, [dir, allowDeep, pollJob, stopJobPolling]);
   const abortFullJob = (0, import_react7.useCallback)(async () => {
     if (!job) return;
     try {
@@ -32515,8 +32522,29 @@ function KsIngestPanel(props) {
   return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { padding: "4px 0 2px", fontSize: 13 }, children: [
     /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: noteStyle, children: [
       "\u53EA\u8BFB\u9884\u89C8\uFF1A",
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("b", { children: "\u4E0D\u5199\u5E93\u3001\u4E0D\u79FB\u52A8\u6587\u4EF6\u3001\u4E0D\u5916\u53D1" }),
-      '\uFF08\u6DF1\u5EA6\u901A\u9053\u5DF2\u7981\u7528\uFF09\u3002 \u626B\u63CF\u4EF6\u4F1A\u5982\u5B9E\u663E\u793A"\u65E0\u6587\u672C\u5C42"\u800C\u4E0D\u662F\u5077\u5077\u4E0A\u4F20\u5230\u4E91\u89E3\u6790\u3002 \u6B63\u5F0F\u5165\u5E93\uFF08\u786E\u8BA4\u540E\u539F\u5B50\u5199\u5165\uFF09\u662F\u4E0B\u4E00\u91CC\u7A0B\u7891\uFF0C\u6B64\u9875\u4E0D\u63D0\u4F9B\u3002'
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("b", { children: "\u4E0D\u5199\u5E93\u3001\u4E0D\u79FB\u52A8\u6587\u4EF6\u3001\u9ED8\u8BA4\u4E0D\u5916\u53D1" }),
+      '\u3002 \u626B\u63CF\u4EF6\u9ED8\u8BA4\u53EA\u62A5"\u65E0\u6587\u672C\u5C42"\uFF0C',
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("b", { children: "\u4E0D\u4F1A" }),
+      "\u5077\u5077\u4E0A\u4F20\u5230\u4E91\u89E3\u6790\uFF1B\u786E\u9700\u4E91\u6DF1\u5EA6\u89E3\u6790\u65F6\uFF0C \u52FE\u9009\u4E0B\u9762\u7684",
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("b", { children: "\u300C\u5141\u8BB8\u4E91\u6DF1\u5EA6\u89E3\u6790\u300D" }),
+      "\u663E\u5F0F\u5F00\u542F\uFF08\u4F1A\u5916\u53D1\uFF0C\u62A5\u544A\u91CC\u4F1A\u5982\u5B9E\u6807\u6CE8 `egress`\uFF09\u3002 \u6B63\u5F0F\u5165\u5E93\uFF08\u786E\u8BA4\u540E\u539F\u5B50\u5199\u5165\uFF09\u662F\u4E0B\u4E00\u91CC\u7A0B\u7891\uFF0C\u6B64\u9875\u4E0D\u63D0\u4F9B\u3002"
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("label", { style: { ...noteStyle, display: "flex", alignItems: "center", gap: 6, marginTop: 6, cursor: "pointer" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        "input",
+        {
+          type: "checkbox",
+          checked: allowDeep,
+          onChange: (e) => setAllowDeep(e.target.checked),
+          "aria-label": "\u5141\u8BB8\u4E91\u6DF1\u5EA6\u89E3\u6790"
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { children: [
+        "\u5141\u8BB8\u4E91\u6DF1\u5EA6\u89E3\u6790\uFF08",
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("b", { children: "\u4F1A\u628A\u626B\u63CF\u4EF6\u4E0A\u4F20\u5230\u4E91\u7AEF" }),
+        "\uFF1B\u9ED8\u8BA4\u5173\u95ED\uFF09\u3002",
+        allowDeep ? "\u672C\u6B21\u9884\u89C8\u5C06\u5982\u5B9E\u6807\u6CE8 egress=deep_channel\u3002" : "\u672C\u6B21\u9884\u89C8\u4E0D\u5916\u53D1\uFF08egress=none\uFF09\u3002"
+      ] })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { marginTop: 10 }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: noteStyle, children: "\u5F85\u5165\u5E93\u76EE\u5F55\uFF1A" }),
@@ -32893,7 +32921,7 @@ function KsSettingsSection(props) {
         title: "\u5165\u5E93\u9884\u89C8",
         open: ingestOpen,
         onToggle: setIngestOpen,
-        hint: "\u5165\u5E93\u524D\u53EA\u8BFB\u4F53\u68C0\uFF08\u2705/\u26A0\uFE0F/\u274C \u5206\u6876\uFF09\uFF0C\u4E0D\u5199\u5E93\u4E0D\u5916\u53D1",
+        hint: "\u5165\u5E93\u524D\u53EA\u8BFB\u4F53\u68C0\uFF08\u2705/\u26A0\uFE0F/\u274C \u5206\u6876\uFF09\uFF0C\u4E0D\u5199\u5E93\uFF1B\u9ED8\u8BA4\u4E0D\u5916\u53D1\uFF08\u53EF\u663E\u5F0F\u5F00\u542F\u4E91\u6DF1\u5EA6\u89E3\u6790\uFF09",
         children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(KsIngestPanel, { visible: ingestOpen })
       }
     ),
