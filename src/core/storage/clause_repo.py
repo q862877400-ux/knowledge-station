@@ -541,7 +541,7 @@ def fetch_full_clause(conn: sqlite3.Connection,
                       clause_revision_id: str) -> ClauseRevisionModel | None:
     row = conn.execute(
         "SELECT cr.*, dm.standard_no, dm.legal_status, dm.legal_hierarchy, dm.doc_type,"
-        " dm.effective_from"
+        " dm.standard_type, dm.effective_from"
         " FROM clause_revision cr JOIN doc_meta dm ON dm.doc_id = cr.doc_id"
         " WHERE cr.clause_revision_id = ?", (clause_revision_id,)).fetchone()
     if row is None:
@@ -624,6 +624,11 @@ def fetch_full_clause(conn: sqlite3.Connection,
         # `STATUS_COLOR[None] == 'gray'`（效力报告 ⚪），`_is_effective` 为 False（不入证）。
         legal_status=row["legal_status"],
         legal_hierarchy=row["legal_hierarchy"] or "GB",
+        # ⚠ 这一列以前**根本没读**，而 `query/understanding.rank_with_hierarchy` 却按
+        # `getattr(c, 'standard_type', 'mandatory')` 排序 ⇒ 恒取默认值 ⇒ 该项零区分度
+        # （2026-09-17 独立复核 b7 的 MEDIUM-4）。现在如实带出：NULL（未登记/采集件）
+        # 就是"不知道"，排序时**不优先**。
+        standard_type=row["standard_type"],
         effective_from=row["effective_from"] or None,
         page_start=row["page_start"],
         page_end=row["page_end"],

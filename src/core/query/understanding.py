@@ -195,10 +195,18 @@ HIERARCHY_RANK = {
 }
 
 def rank_with_hierarchy(clauses: list[Any]) -> list[Any]:
+    """按"位阶 → 是否强制 → 标准类型是否强制"排序。
+
+    ⚠ 第三项曾经是**死项**（2026-09-17 独立复核 b7 的 MEDIUM-4）：它取
+    `getattr(c, 'standard_type', 'mandatory')`，而 `ClauseRevisionModel` **没有该字段**
+    ⇒ 恒取默认 `'mandatory'` ⇒ 对所有条款都是 0，**零区分度**。
+    现在字段已补（`fetch_full_clause` 从 `doc_meta.standard_type` 填），并且
+    **`None`（未登记/采集件）判为不优先**——不知道就别替它加分。
+    """
     def key(c: Any):
         rank = HIERARCHY_RANK.get(getattr(c, 'legal_hierarchy', '') or '', 99)
         mandatory = 0 if getattr(c, 'is_mandatory', False) else 1
-        std_type = 0 if getattr(c, 'standard_type', 'mandatory') == 'mandatory' else 1
+        std_type = 0 if getattr(c, 'standard_type', None) == 'mandatory' else 1
         return (rank, mandatory, std_type)
     return sorted(clauses, key=key)
 

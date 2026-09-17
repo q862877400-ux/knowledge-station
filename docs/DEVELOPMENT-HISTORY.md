@@ -2411,4 +2411,56 @@ HTML5 的**词法状态**，属"分词器"范畴 ⇒ 已连同**实测值**登�
 63 → **64**）；`mypy src` **133 files / 0 errors**；`smoke` 18 段（未改 `plugin/`）；
 `verify:commands` 22/22；`tsc --noEmit` 0。变异实验 Q RED 且逐字节还原。
 
+### 10.46 复核 b7 的 MEDIUM-2/3/4：PPT 页数与末页内容、`standard_type` 死项
+
+**MEDIUM-2「30 页硬上限」对交付物不成立**：`build_slides` 给到 30 张**内容页**，
+`write_slide_deck` 再加 1 张末页 ⇒ 落盘 **31** 页（`slide_count` 也报 31），
+而常量与文档都写 30 —— **过度声称**。而且真报告的 `h2` 数 ≤7 ⇒ 页数上限**生产不可达**，
+真正会崩的形态是**每页要点数**（复核实测：60 份已批准材料 ⇒ 单页 **120** 条，
+PPT 里必然溢出文本框）。
+**修法**：`build_slides` 的内容页上限改成 `MAX_SLIDES - 1`（交付物总页数因此 ≤ `MAX_SLIDES`）；
+新增 `MAX_BULLETS_PER_SLIDE = 12` 与 `_paginate()`——超了就**续页**（标题加"（续 N）"），
+并且**条数守恒**（续页不丢内容）。为什么放在**模型层**：页数是**可断言的交付物属性**，
+测试要能在不装 python-pptx 的路径上验它。
+
+**MEDIUM-3 末页是手写的第二份内容**：那 4 句与报告 §六 分叉（PPT 多 3 句、报告多 2 句）
+——与 §10.38 立下的"内容只从 `build_report_blocks` 来"直接冲突。
+**修法**：新增 `limits_from_blocks(blocks)`（从报告块里取 `## 六、已知限制` 之后的第一个 `ul`），
+末页 = 生成时间 + **报告里的限制** + "与 Markdown 报告同一份内容"。
+另外把 PPT 独有的那句"**待评审**材料不会进入任何结论"**搬进报告**的 `limits`
+（内容只有一个所有者：要加就加在报告里，PTT 自动跟上）。
+取不到那一节时**不编造**，返回一条"报告里没有『已知限制』一节（异常，请核对）"。
+
+**MEDIUM-4 `standard_type` 是死项**：`rank_with_hierarchy` 写
+`getattr(c, 'standard_type', 'mandatory') == 'mandatory'`，而 `ClauseRevisionModel`
+**根本没有该字段** ⇒ 恒取默认 `'mandatory'` ⇒ 该项对**所有**条款都是 0
+——"按强制性排前"**从来没生效过**（复核实测 `std_term=0`）。
+**修法**：模型补 `standard_type: Optional[str] = None`，`fetch_full_clause` 从
+`doc_meta.standard_type` 填，排序项改成 `getattr(c, 'standard_type', None) == 'mandatory'`
+（**未登记 ⇒ 不优先**）。⚠ **这是一处排序行为变化**（以前恒等、现在真的区分）——
+如实记下：它恢复的是**本来就这么写**的意图，不是新引入的偏好。
+
+**测试非空转（4 个变异体，on/off 成对，逐字节还原）**：`var/tmp/mutate-step45.py`
+- R：内容页上限退回 `MAX_SLIDES` ⇒ `test_too_many_slides_is_declared_inside_the_deck` 红；
+- S：拿掉 `_paginate` ⇒ 续页用例红；
+- T：末页退回手写那 4 句 ⇒ "报告→PPT 逐条包含"红；
+- V：`fetch_full_clause` 不填 `standard_type` ⇒ `test_fetch_full_clause_fills_standard_type` 红。
+⚠ **另有 U 是等价变异体**（把排序项写回 `getattr(..., 'mandatory')`）⇒ **GREEN，而且应该 GREEN**：
+字段存在之后 `getattr` 的默认值**再也没有机会生效**（属性在、值是 `None`）。
+这条顺带**证明**了原来的缺陷是"**字段缺失**"而不是"getattr 默认值写错"——
+即"绿"的第三种原因（等价变异体）在这里又一次出现，按 §10.40 的三种原因逐条判清。
+
+**诚实边界**：
+- 页数/续页解决的是"**一页塞太多**"；PPT 仍用**默认版式**，`MAX_BULLETS_PER_SLIDE = 12`
+  是**估计值**（按默认版式文本框高度估的），**没有**做真实的溢出测量（要测量得渲染）。
+- 末页"已知限制"现在与报告**逐条一致**，但**顺序/措辞**取决于报告（这是我们要的）。
+- `standard_type` 排序**生效后**的真实效果**没有做 A/B 评测**（本步只钉"它在起作用"）。
+- `.docx` 侧仍未扩到材料平面（既有边界，未变）。
+
+**门禁（本步）**：`pytest` **1628 passed / 3 skipped / 0 failed**
+（`test_slide_export` 11 → **15**、`test_understanding` 13 → **16**、`test_research_report` +0）；
+`mypy src` **133 files / 0 errors**；`smoke` 18 段（未改 `plugin/`）；`verify:commands` 22/22；
+`tsc --noEmit` 0。变异实验 R/S/T/V 全 RED、U 为等价变异体（并说明为什么），
+5 个源文件逐字节还原。
+
 

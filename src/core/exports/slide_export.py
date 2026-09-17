@@ -12,10 +12,13 @@
 3. **业主明确要过**（原始要求："报告、PPT"），而 §10.36 交付的是 Markdown/HTML（"自行转"）。
 
 ## 三条纪律
-1. **内容只从 `build_report_blocks` 来**（同一份块，三种形态）。
-2. **诚实**：单张幻灯片最多 `MAX_SLIDES` 张，**截断要写在 slide 上**；
-   每条要点超长会截断并标 `…`（PPT 不是全文容器，全文在 Markdown 报告里）；
-   每份 PPT 末尾一页写清"本机生成、未外发、两个轴不得合并看"。
+1. **内容只从 `build_report_blocks` 来**（同一份块，三种形态）——**包括末页的"已知限制"**
+   （2026-09-17 复核 b7 的 MEDIUM-3 之前，末页那 4 句是这里**手写**的第二份内容，
+   实测与报告 §六 分叉：PPT 里多 3 句、报告里多 2 句 ⇒ 各自的诚实边界会各自漂移）。
+2. **诚实**：**交付的 `.pptx` 总页数 ≤ `MAX_SLIDES`**（含末页——复核实测过旧实现
+   落盘 31 页而常量写 30，属"过度声称"）；一页要点过多会**自动续页**（不超过
+   `MAX_BULLETS_PER_SLIDE` 条，因为旧实现实测出现过**单页 120 条**，PPT 里必然溢出文本框）；
+   截断要写在 slide 上；每条要点超长会截断并标 `…`（PPT 不是全文容器，全文在 Markdown 里）。
 3. **不假装 pptx 可用**：缺依赖时抛**可操作**的错误（告诉你怎么装），不静默出一个空文件。
 """
 from __future__ import annotations
@@ -27,8 +30,14 @@ from typing import Any
 
 from src.core.exports import research_report as rr
 
-#: 幻灯片张数上限（超出就停，并在末页写明"后续见报告"——不假装全放得下）。
+#: **交付物**（含末页）的幻灯片张数上限。
+#: `build_slides` 最多产出 `MAX_SLIDES - 1` 张**内容页**，`write_slide_deck` 再加 1 张末页。
 MAX_SLIDES = 30
+
+#: 单张内容页最多几条要点（超了就**续页**，标题加"（续）"）。
+#: 为什么要有它：复核实测"60 份已批准材料 ⇒ 7 页、单页 **120** 条"——那种页在 PPT 里
+#: 必然溢出文本框，而"有页数上限"给人的安心感是假的（真正的无界轴是**每页要点数**）。
+MAX_BULLETS_PER_SLIDE = 12
 
 #: 单条要点的字符上限（超长截断 + `…`；全文在 Markdown 报告里）。
 MAX_BULLET_CHARS = 300
@@ -47,6 +56,25 @@ def _clip(text: str, cap: int = MAX_BULLET_CHARS) -> str:
     return s if len(s) <= cap else s[:cap].rstrip() + "…"
 
 
+def _paginate(slides: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """把要点过多的页**续页**（标题加"（续 N）"），使每页 ≤ `MAX_BULLETS_PER_SLIDE`。
+
+    为什么在**模型层**做而不是在写 pptx 时做：页数是**可断言的交付物属性**
+    （`slide_count` 与 `len(prs.slides)`），测试要能在不装 python-pptx 的路径上验它。
+    """
+    out: list[dict[str, Any]] = []
+    for s in slides:
+        bullets = s["bullets"]
+        if len(bullets) <= MAX_BULLETS_PER_SLIDE:
+            out.append(s)
+            continue
+        for i in range(0, len(bullets), MAX_BULLETS_PER_SLIDE):
+            chunk = bullets[i:i + MAX_BULLETS_PER_SLIDE]
+            title = s["title"] if i == 0 else f"{s['title']}（续 {i // MAX_BULLETS_PER_SLIDE + 1}）"
+            out.append({"title": title, "bullets": chunk})
+    return out
+
+
 def build_slides(blocks: list[tuple[str, Any]], *, title: str) -> list[dict[str, Any]]:
     """内容块 → 幻灯片模型（**纯函数，可离线测**）。
 
@@ -54,6 +82,8 @@ def build_slides(blocks: list[tuple[str, Any]], *, title: str) -> list[dict[str,
       · `h1` → 首页标题；`h2` → **新开一页**（标题用 h2 的文字）；
       · `h3` → 当页的一级要点（加 `【】` 前缀）；
       · `ul` → 要点列表；`p` → 一段要点；`pre`（依据区）→ 逐行要点。
+    ⚠ 返回的是**内容页**（≤ `MAX_SLIDES - 1` 张）；末页由 `write_slide_deck` 加，
+    这样**交付物总页数 ≤ `MAX_SLIDES`**（复核 b7 的 MEDIUM-2）。
     """
     slides: list[dict[str, Any]] = [{"title": _clip(title, 120), "bullets": []}]
     for kind, payload in blocks:
@@ -73,13 +103,33 @@ def build_slides(blocks: list[tuple[str, Any]], *, title: str) -> list[dict[str,
                     slides[-1]["bullets"].append(_clip(line))
     # 去掉空页（只有标题没内容的页在 PPT 里是噪声），但首页永远保留
     out = [slides[0]] + [s for s in slides[1:] if s["bullets"]]
-    if len(out) > MAX_SLIDES:
-        kept = out[:MAX_SLIDES - 1]
+    out = _paginate(out)
+    cap = MAX_SLIDES - 1          # 留 1 张给末页（交付物总数因此 ≤ MAX_SLIDES）
+    if len(out) > cap:
+        kept = out[:cap - 1]
         kept.append({"title": "（内容较多，后续请见 Markdown 报告）",
                      "bullets": [f"完整报告共 {len(out)} 页内容，本 PPT 只放了前 "
-                                 f"{MAX_SLIDES - 1} 页。"]})
+                                 f"{cap - 1} 页。" + "（末页之外的完整内容见 Markdown 报告）"]})
         return kept
     return out
+
+
+def limits_from_blocks(blocks: list[tuple[str, Any]]) -> list[str]:
+    """从报告块里取**"已知限制"那一节**（`## 六、已知限制` 之后的第一个 `ul`）。
+
+    ⚠ 这是"内容只有一个所有者"的落点（复核 b7 的 MEDIUM-3）：末页那几句以前是**手写**的，
+    于是 PPT 与报告各说各的。现在从**同一份块**取——报告改了什么，PPT 跟着变。
+
+    取不到时**不编造**：返回一条说明"报告里没有这一节"（那是异常状态，要看得见）。
+    """
+    hit = False
+    for kind, payload in blocks:
+        if kind == "h2":
+            hit = "已知限制" in str(payload)
+            continue
+        if hit and kind == "ul":
+            return [_plain(str(x)) for x in payload]
+    return ["（报告里没有『已知限制』一节——这本身是异常，请核对报告）"]
 
 
 def _presentation() -> Any:
@@ -119,20 +169,18 @@ def write_slide_deck(project_id: str, *, title: str | None = None,
             p = bf.paragraphs[0] if first else bf.add_paragraph()
             first = False
             p.text = f"· {bullet}"
-    # 末页：把"这份 PPT 不保证什么"写进去（诚实边界要跟上产出物，不能只写在文档里）
+    # 末页：把"这份 PPT 不保证什么"写进去（诚实边界要跟上产出物，不能只写在文档里）。
+    # ⚠ 内容**从报告块里取**（`limits_from_blocks`），不是在这里手写第二份
+    #   ——复核 b7 的 MEDIUM-3：手写的那 4 句与报告 §六 分叉（PPT 多 3 句、报告多 2 句）。
     tail = prs.slides.add_slide(blank)
     tf = tail.shapes.add_textbox(0, 0, prs.slide_width, 900_000).text_frame
     tf.text = "说明"
     bf = tail.shapes.add_textbox(0, 1_000_000, prs.slide_width,
                                  prs.slide_height - 1_200_000).text_frame
     bf.word_wrap = True
-    notes = [
-        f"生成时间：{datetime.now():%Y-%m-%d %H:%M}（本机生成，未外发）",
-        "两个轴分开看：轴 A 来源可信度（T0~T4）决定能不能承重；轴 B 任务内效力决定它在"
-        "本任务里说话的分量。",
-        "仅线索（T3 未互证）与不可用（T4）的材料不得单独支撑结论。",
-        "待评审材料不会进入任何结论（评审是用户的判断）。",
-    ]
+    notes = [f"生成时间：{datetime.now():%Y-%m-%d %H:%M}（本机生成，未外发）"]
+    notes.extend(limits_from_blocks(model["blocks"]))
+    notes.append("本 PPT 与同名 Markdown 报告**同一份内容**（同一份内容块渲染）。")
     for i, line in enumerate(notes):
         p = bf.paragraphs[0] if i == 0 else bf.add_paragraph()
         p.text = f"· {line}"

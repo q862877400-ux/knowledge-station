@@ -81,6 +81,66 @@ def test_condition_filter_and_rank():
     assert ranked[0].clause_revision_id == "c"
 
 
+def test_standard_type_is_a_real_sort_term_not_a_dead_one():
+    """`standard_type` 那一项**曾经是死项**（2026-09-17 独立复核 b7 的 MEDIUM-4）。
+
+    `rank_with_hierarchy` 写的是 `getattr(c, 'standard_type', 'mandatory')`，而
+    `ClauseRevisionModel` **没有这个字段** ⇒ 恒取默认 `'mandatory'` ⇒ 对所有条款都算 0。
+    也就是说"按强制性排前"这句话**从来没生效过**（复核实测 `std_term=0`），
+    而它的写法让读者以为它在起作用——本用例把"它真的在起作用"钉住：
+
+      · `standard_type='mandatory'` 排在 `None`（未登记/采集件）**之前**；
+      · `None` 排在 `'recommended'` 之前或之后都行吗？——**不行**：只有 `'mandatory'` 优先，
+        其余（含未知）一视同仁，所以这里只断言前一条（外加"未知不得被当作强制"）。
+    """
+    from src.core.domain.models import ClauseRevisionModel
+    from src.core.query.understanding import rank_with_hierarchy
+
+    def mk(cid, std_type):
+        return ClauseRevisionModel(
+            clause_revision_id=cid, doc_id="d", clause_key=cid, standard_no="S",
+            clause_number="1", content_text="t", knowledge_type="rule",
+            modality="应", modality_strength=3, page_start=1, page_end=1,
+            legal_hierarchy="GB", is_mandatory=False, standard_type=std_type)
+
+    unknown = mk("u", None)                 # 采集件：doc_meta.standard_type 是 NULL
+    mandatory = mk("m", "mandatory")
+    recommended = mk("r", "recommended")
+    ranked = rank_with_hierarchy([unknown, recommended, mandatory])
+    ids = [c.clause_revision_id for c in ranked]
+    assert ids[0] == "m", ids                 # 强制性在前（这一项现在**真的**承重）
+    assert ids[1:] == ["u", "r"], ids          # 未知与推荐同档（未知**不**被当强制）
+
+
+def test_fetch_full_clause_fills_standard_type(db):
+    """`fetch_full_clause` 必须把 `doc_meta.standard_type` 带出来（否则排序项又成死项）。
+
+    ⚠ 条款表**没有** `standard_type` 列（它在 `doc_meta`）——所以这里走**真实入库路径**
+    （`insert_clauses_in_txn`），而不是手拼 INSERT（第一版手拼了 `standard_no`，
+    而 `clause_revision` 根本没这一列，当场红）。
+    """
+    from src.core.domain.models import ClauseRevisionModel
+    from src.core.storage import clause_repo as cr
+    from src.core.storage.sqlite_db import get_db_connection
+    conn = get_db_connection()
+    cr.insert_document(conn, {
+        "doc_id": "doc_st_1", "standard_no": "GB 99999-2099", "standard_name": "排序测试",
+        "short_code": "GB99999", "current_revision_id": "rev_st_1", "doc_type": "standard",
+        "legal_status": "effective", "legal_hierarchy": "GB", "standard_type": "mandatory",
+        "file_path": "/tmp/st.pdf", "file_hash": "h_st"})
+    from src.core.storage.sqlite_db import write_transaction
+    with write_transaction() as txn:
+        cr.insert_clauses_in_txn(txn, [ClauseRevisionModel(
+            clause_revision_id="clrev_st_1", doc_id="doc_st_1", clause_key="k1",
+            standard_no="GB 99999-2099", clause_number="1", title="t", content_text="正文",
+            knowledge_type="rule", page_start=1, page_end=1)])
+    try:
+        got = cr.fetch_full_clause(conn, "clrev_st_1")
+        assert got is not None and got.standard_type == "mandatory", got
+    finally:
+        cr.delete_document("doc_st_1")
+
+
 def test_sufficiency_note():
     from src.core.query.understanding import sufficiency_note
     assert sufficiency_note("data_query", 1) is not None

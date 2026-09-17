@@ -65,14 +65,50 @@ class TestSlideModel:
         assert bullet.endswith("…") and len(bullet) <= se.MAX_BULLET_CHARS + 1
 
     def test_too_many_slides_is_declared_inside_the_deck(self):
-        """页数超限时**在 PPT 里**写明"后续见报告"——不假装全放得下。"""
+        """页数超限时**在 PPT 里**写明"后续见报告"——不假装全放得下。
+
+        ⚠ 上限是**交付物**的（含末页）⇒ `build_slides` 只给 `MAX_SLIDES - 1` 张内容页
+        （复核 b7 的 MEDIUM-2：旧实现 `build_slides` 给 30 张、`write_slide_deck` 再加末页
+        ⇒ 落盘 **31** 页，而常量与文档都写 30，属过度声称）。
+        """
         blocks: list[tuple[str, object]] = [("h1", "T")]
         for i in range(se.MAX_SLIDES + 10):
             blocks.extend([("h2", f"第 {i} 节"), ("p", f"内容 {i}")])
         slides = se.build_slides(blocks, title="T")
-        assert len(slides) <= se.MAX_SLIDES
+        assert len(slides) <= se.MAX_SLIDES - 1, len(slides)
         assert "Markdown 报告" in slides[-1]["title"]
         assert "只放了前" in slides[-1]["bullets"][0]
+
+    def test_a_page_with_too_many_bullets_is_paginated(self):
+        """**真正的无界轴**是每页要点数（复核实测单页 120 条）⇒ 超了就续页。
+
+        页数上限防不住这种形态：真报告的 h2 数 ≤7，页数永远够用，而一页塞 120 条
+        在 PPT 里必然溢出文本框。续页标题带"（续 N）"，条数上限是常量。
+        """
+        blocks: list[tuple[str, object]] = [
+            ("h1", "T"), ("h2", "依据"),
+            ("ul", [f"第 {i} 条依据" for i in range(se.MAX_BULLETS_PER_SLIDE * 3 + 1)]),
+        ]
+        slides = se.build_slides(blocks, title="T")
+        assert all(len(s["bullets"]) <= se.MAX_BULLETS_PER_SLIDE for s in slides), \
+            [len(s["bullets"]) for s in slides]
+        # 1 首页（无要点）+ ⌈37/12⌉ = 4 页内容（第 4 页只 1 条）
+        assert len(slides) == 5, [s["title"] for s in slides]
+        assert "（续 2）" in slides[-3]["title"], [s["title"] for s in slides]
+        # 续页不许丢内容（条数守恒）
+        assert sum(len(s["bullets"]) for s in slides) == se.MAX_BULLETS_PER_SLIDE * 3 + 1
+
+    def test_limits_come_from_the_report_blocks(self):
+        """末页的"已知限制"**从报告块取**（唯一内容所有者），不是手写第二份。
+
+        `**粗体**` 会被压成纯文本（PPT 不做富文本解析）——所以断言写"压平之后"的值。
+        """
+        blocks = [("h1", "T"), ("h2", "六、已知限制（这份报告**不**保证什么）"),
+                  ("ul", ["甲限制", "**乙**限制"])]
+        assert se.limits_from_blocks(blocks) == ["甲限制", "乙限制"]
+        # 取不到时**不编造**（返回一条说明，异常要看得见）
+        bad = se.limits_from_blocks([("h1", "T")])
+        assert len(bad) == 1 and "异常" in bad[0], bad
 
 
 class TestWriteDeck:
@@ -95,7 +131,14 @@ class TestWriteDeck:
         assert out["counts"]["approved"] == 1
 
     def test_last_slide_carries_the_honest_notes(self, project, tmp_path, monkeypatch):
-        """诚实边界要跟到产出物里（不能只写在文档里）。"""
+        """诚实边界要跟到产出物里（不能只写在文档里）。
+
+        ⚠ **本用例的断言在 2026-09-17 改过一次方向**（复核 b7 的 MEDIUM-3）：末页那几句
+        以前是 `slide_export` **手写**的第二份内容（PPT 里多 3 句、报告里多 2 句）。
+        现在末页从**报告的块**取（`limits_from_blocks`）⇒ 断言要对着**报告里的那一份**说，
+        而不是对着当初手写的那份措辞说；并且**反过来**断言"报告里的每条限制都在 PPT 里"
+        ——那才是"同一份内容"的可检验形态。
+        """
         pid = project["project_id"]
         monkeypatch.setattr(rr, "_exports_dir", lambda: tmp_path)
         out = se.write_slide_deck(pid, title="T")
@@ -103,7 +146,21 @@ class TestWriteDeck:
         prs = Presentation(out["path"])
         last = prs.slides[-1]
         text = "\n".join(sh.text_frame.text for sh in last.shapes if sh.has_text_frame)
-        assert "未外发" in text and "两个轴分开看" in text and "评审是用户的判断" in text
+        assert "未外发" in text and "两个轴" in text and "待评审" in text
+        # 报告 → PPT 的**逐条**包含（唯一内容所有者的可检验形态）
+        model = rr.build_report_blocks(pid, title="T")
+        for line in se.limits_from_blocks(model["blocks"]):
+            assert se._plain(line) in text, line
+
+    def test_delivered_page_count_never_exceeds_the_cap(self, project, tmp_path, monkeypatch):
+        """**交付物**总页数 ≤ `MAX_SLIDES`（复核 b7 的 MEDIUM-2：旧实现落盘 31 页）。"""
+        pid = project["project_id"]
+        monkeypatch.setattr(rr, "_exports_dir", lambda: tmp_path)
+        out = se.write_slide_deck(pid, title="T")
+        from pptx import Presentation
+        prs = Presentation(out["path"])
+        assert len(prs.slides._sldIdLst) <= se.MAX_SLIDES          # noqa: SLF001
+        assert out["slide_count"] == len(prs.slides._sldIdLst)      # noqa: SLF001
 
     def test_missing_project_raises_valueerror(self, db):
         with pytest.raises(ValueError, match="项目不存在"):

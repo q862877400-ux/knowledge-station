@@ -82,6 +82,14 @@ class ClauseRevisionModel(BaseModel):
     is_suspicious: bool = False
     ocr_confidence: float = 1.0
     legal_status: Optional[str] = "effective"
+    # ⚠ `standard_type` 是**排序真的会看**的字段（2026-09-17 独立复核 b7 的 MEDIUM-4）：
+    # `query/understanding.rank_with_hierarchy` 里那一项写的是
+    # `getattr(c, 'standard_type', 'mandatory') == 'mandatory'`，而本模型**从前没有这个字段**
+    # ⇒ `getattr` 恒取默认 `'mandatory'` ⇒ 该项对**所有**条款都算 0（**恒等，零区分度**），
+    # 也就是说"按强制排前"这句话在排序里**从来没生效过**。
+    # 现在补上字段、由 `fetch_full_clause` 从 `doc_meta.standard_type` 填；
+    # **`None`（未登记，含采集件）判为"不优先"**（不知道就别替它加分——与 §10.39 同一原则）。
+    standard_type: Optional[str] = None
     # ⚠ `Optional` 是**契约级**的诚实（2026-09-17 独立复核 b7 的 HIGH，§10.44）：
     # `doc_meta.legal_status` 允许 NULL（采集件走 Track L 入库时就是 NULL = **未核验**），
     # 而读路径 `clause_repo.fetch_full_clause` 以前写的是 `row["legal_status"] or "effective"`
