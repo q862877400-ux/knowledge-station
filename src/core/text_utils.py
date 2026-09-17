@@ -1400,39 +1400,58 @@ def law_name_key(value: str | None) -> str:
     return re.sub(r"[‐‑‒–—―－]", "-", s)
 
 
-_RE_SCRIPT_STYLE_OPEN = re.compile(r"<(script|style)\b(?P<attrs>[^>]*)>", re.IGNORECASE)
+#: 开标签。⚠ `(?<!["'])` 挡的是"**属性值里**的字面 `<script>`"（`title='<script>'`）：
+#: 那不是标签，当成标签会把其后正文整段吞掉（复核 D② 的第 5 组边角，实测丢"可见"）。
+_RE_SCRIPT_STYLE_OPEN = re.compile(r"(?<![\"'])<(script|style)\b(?P<attrs>[^>]*)>", re.IGNORECASE)
+
+#: 结束标签：`</script>` / `</script >` / `</script foo>`（浏览器都接受这种写法）。
+_RE_SCRIPT_STYLE_CLOSE_ANY = re.compile(r"</(script|style)\b[^>]*>", re.IGNORECASE)
+
+#: HTML 注释：**必须先剥**（注释里的 `<script>` 不是标签；不剥会吞掉其后正文）。
+_RE_HTML_COMMENT = re.compile(r"<!--.*?-->", re.DOTALL)
 
 
 def _strip_script_style(html: str) -> str:
     """丢掉 `script`/`style` **及其内容**（含**自闭合**与**未闭合**两种形态）。
 
     ## 为什么不能用一句 `re.sub(r"<(script|style)\\b[^>]*>.*?</\\1>", " ", s)`
-    独立复核（2026-09-17）实测两种真实页面会出事，且都是**静默**的：
-    1. **自闭合** `<script src="a.js"/>`：那条正则从自闭合标签一路吃到**后面第一个**
-       `</script>`，把中间**可见正文全吃掉** ⇒ 采集器随后报"没有可提取的正文"，
-       **丢材料 + 归因误导**（实测：`new=''` vs 旧实现保留"重要正文：住宿标准八百元。"）。
-    2. **未闭合** `<script>`：没有闭合标签就**匹配不上** ⇒ JS 源码被当成正文**进了材料**
-       （正是采集最脏的来源）。按 HTML 解析规则，未闭合的 `<script>` **之后全是脚本文本**
-       （浏览器不渲染），所以这里把**它之后的部分整段丢掉**——这是有意的行为，有测试钉住。
+    独立复核实测两种真实页面会出事，且都是**静默**的：
+    1. **未闭合** `<script>`：没有闭合标签就**匹配不上** ⇒ JS 源码被当成正文**进了材料**；
+    2. 属性里带 `>` 等写法会让它定位偏差，一路吃到**后面第一个** `</script>`。
 
-    ⚠ 局限（粗，与 `html_to_text` 整体定位一致）：属性值里带 `>` 的写法（`data-x="a>b"`）
-    仍可能定位偏差；不解析 DOM。要更准得引 HTML 解析器（未立项）。
+    ## 三条语义（第二版，2026-09-17 复核 D② 之后）
+    1. **先剥 HTML 注释** `<!-- … -->`：注释里的 `<script>` **不是**标签
+       （第一版没剥 ⇒ `<!-- <script> -->` 会让我把**其后的正文整段吞掉**，实测丢材料）。
+    2. **自闭合按 HTML5 语义**（我们收的是 `text/html`）：`<script … />` 里的 `/` **被忽略**，
+       它**不是**自闭合，内容到下一个 `</script>` 为止。第一版按 XHTML 当自闭合 ⇒
+       `<script src="a.js"/>var x=1;</script>` 会把 **JS 留在正文里**（复核 LEAK）。
+       ⇒ 两种读法**直接冲突**，本函数选 **HTML5**：浏览器就是这么解析的，
+       而"页面里看到什么"才是我们要的正文。
+       ⚠ 代价（诚实登记）：一份 **XHTML** 风格的页面（`<script src=x/>` 之后紧跟可见正文、
+       且**另有**一个 `</script>`）会因此丢掉中间那段正文。这种页面在浏览器里同样什么都
+       不显示（`/` 被忽略 ⇒ 那一段是脚本），所以**跟着浏览器走**；要按 XHTML 语义分流，
+       得把 Content-Type 传进来（`application/xhtml+xml`），**未做**（登记为待办）。
+    3. **结束标签放宽**为 `</(script|style)\\b[^>]*>`：`</script foo>` 这种（浏览器接受的）
+       写法第一版认不出 ⇒ 找不到闭合 ⇒ **其后正文被整段吞掉**（复核 OVERKILL）。
+    未闭合 ⇒ 其后整段丢弃（HTML5：未闭合的 `<script>` 吞到文档末尾，浏览器不渲染）。
+
+    ⚠ 其余局限（粗，与 `html_to_text` 整体定位一致）：属性值里带 `>` 的写法仍可能定位偏差；
+    不解析 DOM。要更准得引 HTML 解析器（未立项）。
     """
+    # ① 先剥注释：注释里的 `<script>` 不是标签（不剥会把其后正文全吞掉，实测丢材料）
+    s = _RE_HTML_COMMENT.sub(" ", html)
     out: list[str] = []
     pos = 0
     while True:
-        m = _RE_SCRIPT_STYLE_OPEN.search(html, pos)
+        m = _RE_SCRIPT_STYLE_OPEN.search(s, pos)
         if m is None:
-            out.append(html[pos:])
+            out.append(s[pos:])
             return "".join(out)
-        out.append(html[pos:m.start()])
-        if m.group("attrs").rstrip().endswith("/"):
-            # 自闭合（XHTML 风格 `<script ... />`）：**没有内容**，只丢标签本身。
-            pos = m.end()
-            continue
-        close = re.compile(rf"</{m.group(1)}\s*>", re.IGNORECASE).search(html, m.end())
+        out.append(s[pos:m.start()])
+        # ② 自闭合**不特殊处理**（HTML5：`<script/>` 里的 `/` 被忽略，它不是自闭合）
+        close = _RE_SCRIPT_STYLE_CLOSE_ANY.search(s, m.end())
         if close is None:
-            # 未闭合 ⇒ 其后全部是脚本文本（HTML 规则），整段丢掉
+            # 未闭合 ⇒ 其后全部是脚本文本（HTML5 规则），整段丢掉
             return "".join(out)
         pos = close.end()
 
@@ -1485,12 +1504,15 @@ def html_to_text(html: str | None, limit: int | None = None) -> str:
 
 #: 二进制容器在"文本"里的开头签名（采集侧唯一能拿到的线索，见 `looks_like_binary`）。
 #:
-#: ⚠ **哪些在文本路径上真的可达**（2026-09-17 独立复核指出原叙述会制造假信心）：
-#: 只有**纯 ASCII** 的那几个（`%PDF-` / `%!PS` / `PK\x03\x04` / `Rar!\x1a`）能在
-#: `resp.text`（`errors='replace'` 解出来的 str）里原样出现；`\x89PNG`、`\xff\xd8\xff`、
-#: `\x7fELF`、OLE2 这些**非 UTF-8 首字节**在真实传输路径上早被替换成 U+FFFD，
-#: **永远命中不了**——它们只对**真实字节**有意义（见 `looks_like_binary_bytes`）。
-#: 保留在同一个元组里是为了让"字节判据"复用一份签名表（**一个所有者**）。
+#: ⚠ **哪些在文本路径上真的可达**（2026-09-17 独立复核指出原叙述会制造假信心，
+#: 第二轮复核又指出清单**少列了三个**——按复核的实测，可达的是**七个**）：
+#: 只有**纯 ASCII** 的那些能在 `resp.text`（`errors='replace'` 解出来的 str）里原样出现：
+#: `%PDF-` / `%!PS` / `PK\x03\x04` / `Rar!\x1a` / `GIF87a` / `GIF89a` / `\x7fELF`
+#: （ELF 的头是 ASCII 的 DEL + "ELF"，`\x7f` 在 UTF-8 里合法）。
+#: 而 `\x89PNG`、`\xff\xd8\xff`（JPEG）、`\xd0\xcf\x11\xe0`（OLE2）这些**非 UTF-8 首字节**
+#: 在真实传输路径上早被替换成 U+FFFD，**永远命中不了**——它们只对**真实字节**有意义
+#: （见 `looks_like_binary_bytes`）。保留在同一个元组里是为了让"字节判据"复用一份签名表
+#: （**一个所有者**）。
 _BINARY_HEADS = (
     "%PDF-", "%!PS", "PK\x03\x04", "Rar!\x1a",
     "\x89PNG", "GIF87a", "GIF89a", "\xff\xd8\xff", "\x7fELF", "\xd0\xcf\x11\xe0",

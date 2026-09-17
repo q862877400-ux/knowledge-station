@@ -234,6 +234,18 @@ const lastEngine = () => seen[seen.length - 1]
     tier.status === 400 && tier.body.error.code === 'bad_request' && seen.length === 0,
     `${tier.status} engineCalls=${seen.length}`)
 
+  // ⚠ 只挡 `source_tier` 一个拼写不够（复核 A 的 MEDIUM）：同义/同名键会被**静默忽略**，
+  // 而"响亮拒绝、绝不静默丢弃"正是本路由的立论。这里逐个钉。
+  for (const key of ['sourceTier', 'tier', 'review_status', 'origin', 'lifecycle']) {
+    seen.length = 0
+    const r = await invoke('/ks/materials/collect', {
+      method: 'POST', search: '?project_id=prj_a',
+      body: { url: 'https://a.example/x', [key]: 'x' },
+    })
+    check(`POST /collect 未知字段 ${key} → 400 且不打扰引擎`,
+      r.status === 400 && seen.length === 0, `${r.status} engineCalls=${seen.length}`)
+  }
+
   seen.length = 0
   const urls = await invoke('/ks/materials/collect', {
     method: 'POST', search: '?project_id=prj_a', body: { urls: ['https://a.example/1'] },

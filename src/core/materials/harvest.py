@@ -28,8 +28,12 @@
   所以这里刻意不提供批量入口——要批量，先定预算。
 - 抓回来的东西**默认不可信**（交给 `collect_text` ⇒ T3 起、pending、`ephemeral`）。
 - **不解析 PDF/附件**：正文非 HTML（如 PDF）时如实说明"没抓到正文"，
-  而不是把二进制当文本塞进材料。⚠ 判据是**开头签名**（`text_utils.looks_like_binary`）——
-  传输层已经把 Content-Type 丢了（见那里），所以这是启发式：**没有签名**的二进制认不出。
+  而不是把二进制当文本塞进材料。判据现在有**两条**（2026-09-17 复核之后加强）：
+  ① **Content-Type 白名单**（网页/纯文本/XML 放行，脚本/样式/接口/附件拒收）；
+  ② **真实字节**的 magic（`text_utils.looks_like_binary_bytes`）。
+  ⚠ 早先的版本只能靠**转换后的文本**猜（Content-Type 在传输层丢了）——那条限制**已经不成立**
+  （传输层新增了 `fetch_page`，一次请求同时给出 headers/text/raw）；剩下的局限是：
+  签名判据只看**开头**、无签名的二进制认不出、Content-Type 撒谎且无签名的组合仍会溜过。
 
 ## 诚实边界
 - 只在拿到 **2xx** 且正文（`str`）非空时才登记；其它情况如实返回 `status`/`reason`，
@@ -41,9 +45,10 @@
 - 标题优先用调用方给的；否则从 `<title>` 取（粗正则）；再否则用 URL。
 - `is_private_url` 自带已知局限（DNS rebinding 的 TOCTOU 窗口不设防，
   理由见其 docstring）——本模块**继承**那个局限，不另行声称更强。
-- **Content-Type 仍拿不到**（传输层只回 `(status, body)`）⇒ "JS/CSS/JSON 接口"这类
-  **不是网页正文**的响应本模块**认不出**（独立复核 2026-09-17 的 MEDIUM，待做：
-  给传输层一个"带响应头的取回"契约）。当前只有"明显二进制"能被开头签名挡住。
+- **Content-Type 拿不到**这件事**已解决**（`fetch_page` 契约，2026-09-17 复核的 MEDIUM）：
+  现在按响应头的白名单 + 真实字节判。剩余局限（诚实登记）：白名单是**人工列举**的
+  （新类型要显式加）、Content-Type 撒谎且**无签名**的组合仍会溜过、charset 转换仍由
+  传输层负责（`charset=gbk` 之类**未被真实测试验证**）。
 """
 from __future__ import annotations
 
@@ -115,10 +120,17 @@ _PAGE_CONTENT_TYPES = (
 
 
 def _content_type_of(headers: Any) -> str | None:
-    """从响应头取 Content-Type 的**主类型**（小写；取不到返回 None）。"""
+    """从响应头取 Content-Type 的**主类型**（小写；取不到返回 None）。
+
+    ⚠ **键名大小写不敏感**（2026-09-17 复核 E 的 LOW）：HTTP 头名本来就不区分大小写，
+    而第一版只查 `headers["content-type"]`。默认传输会把键小写化，所以生产路径没暴露；
+    但**替身或未来的传输层**传 `Content-Type` 时，白名单会被**整道静默跳过**
+    （表现是"JS/CSS 又能进材料了"，且没有任何报错）。这里自己兜住，不依赖调用方。
+    """
     if not isinstance(headers, dict):
         return None
-    raw = headers.get("content-type")
+    low = {str(k).lower(): v for k, v in headers.items()}
+    raw = low.get("content-type")
     if not isinstance(raw, str) or not raw.strip():
         return None
     return raw.split(";", 1)[0].strip().lower() or None

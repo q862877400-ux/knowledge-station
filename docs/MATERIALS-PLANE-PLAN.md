@@ -328,8 +328,8 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
   被当正文登记；新增 `text_utils.looks_like_binary`（开头签名 + NUL），在**唯一采集门**
   `collect_text`（拒收）与采集器两处调同一实现。测试 26 条（采集器）+ 3 条（判据与门）。
   ⚠ **尚未接线**：没有 API 路由、没有模型工具 ⇒ 今天产品里**没有人能触发它**。
-- **C-5 采集接线（界面侧已通，§10.27）**：引擎 `POST /api/v1/materials/projects/{pid}/collect`
-  + 主机 `POST /ks/materials/collect`——§10.26 的采集器从"库级能力"变成**可达端点**。
+- **C-5 采集接线（同源路由已通，§10.27）**：引擎 `POST /api/v1/materials/projects/{pid}/collect`
+  + 主机 `POST /ks/materials/collect`——§10.26 的采集器从"库级能力"变成**可达端点**（⚠ 更正：调用者是**同源 HTTP 路由**，当时**没有**任何 GUI 调用它；见复核 step-26~30）。
   四条契约**写死在代码里**（每条都对应一次踩坑）：① **不接受 `source_tier`**（采集者不得
   自 claim 可信度；静默丢弃正是本战役在 `sanitizeParams` 上栽过的坑 ⇒ **响亮拒绝**）；
   ② **抓取失败 = 200 + `collected:false` + 原因**（不是错误码：原因要**显示给人看**）；
@@ -380,12 +380,19 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
 ### 已知未决 / 诚实边界
 
 1. **`tests/test_deep_server.py` 有间歇性失败**（全量跑出现过 1 次，同文件单独跑 8/8 通过，
-   下一轮全量又全绿；随后连跑 3 轮全绿）。失败用例名被控制台编码打乱**未能确证**，故此处**不点名**。
-   该文件与本次改动无调用关系（本步只新增测试文件与独立模块），但**它会给每一步的门禁带来噪声**。
-   ⇒ 待办：用 `PYTHONIOENCODING=utf-8` 重跑以取得确证用例名并加固超时。
+   下一轮全量又全绿；随后连跑 3 轮全绿）。
+   ⚠ **2026-09-17 已确证用例名**（原来因控制台编码打乱而"不点名"）：
+   **`test_提交与等待拆分_先投后收`**——全量跑里红过一次，之后单独跑该文件 **8 passed**、
+   该用例单独跑 **3/3 passed**（0.28~0.56s）。判断：**时序/GIL 敏感**（那个用例把
+   `ds.time.sleep` patch 成空操作，让 fake daemon 与主线程一起忙转抢 GIL）。
+   与本战役的改动**无调用关系**。⇒ 待办：加固（例如别把 daemon 线程用的 sleep 一起 no-op、
+   或把 fake daemon 改成事件驱动）——**先把它从"无名的噪声"变成"有名字的待办"**。
    ⚠ 同类噪声还有一条**已确证并修掉**（§10.27）：`smoke-chatmode` 等 sweep 用的是**固定 80ms**，
    而 sweep 是 fire-and-forget ⇒ 有负载时偶发 `172/173`；已改成轮询到超时，
    并用变异实验证明仍然非空转。**凡"固定 sleep 等异步"的断言都按同一标准排查。**
+   ⚠ 另有第二条 chatmode 偶发（§10.35 末）：`a session closed by this process is not resurrected
+   from disk` 在**串行链**里红过一次（单独跑与高负载并发跑都 3/3 绿），**未能复现**；
+   已在该断言详情里带上 `persisted=…`，下次红时能一眼分清"写盘失败"与"复活逻辑错"。
 2. 逐主张级 T3 互证（语义聚类）未做；材料与法条检索**是否共池**仍未定（§11.1）。
 3. 材料评审 UI 的最终落位（官方侧栏 vs `conversation.input.dock`）**仍未定**。
 4. PPT 依赖仍未立项（§8）。

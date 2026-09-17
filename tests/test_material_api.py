@@ -291,6 +291,23 @@ class TestCollectEndpoint:
         assert "source_tier" in r.text
         assert _list(c, pid) == [], "被拒的调用不得留下材料"
 
+    @pytest.mark.parametrize("key", [
+        "sourceTier", "tier", "review_status", "origin", "lifecycle", "kind", "doc_id",
+    ])
+    def test_unknown_body_keys_are_refused_not_ignored(self, key, client, project):
+        """**未知字段一律拒绝**（2026-09-17 复核 A 的 MEDIUM）。
+
+        原来只挡 `source_tier` **一个拼写**，同义/同名键全部 200 + **静默忽略**——
+        与"响亮拒绝、绝不静默丢弃"的立论冲突（硬门未松动，危害是**误导调用方**：
+        它以为自己设上了 `review_status='approved'` 之类）。白名单比黑名单可靠。
+        """
+        c, _ = client
+        pid = project["project_id"]
+        r = _collect(c, pid, {"url": "https://a.example/x", key: "x"})
+        assert r.status_code == 422, f"{key}: {r.status_code} {r.text}"
+        assert key in r.text, r.text
+        assert _list(c, pid) == []
+
     def test_ssrf_refusal_is_a_reason_not_an_error_code(self, client, project):
         """SSRF 拒绝对是**本次**抓取的结果，不是"你的请求写错了"⇒ 200 + 原因。
 

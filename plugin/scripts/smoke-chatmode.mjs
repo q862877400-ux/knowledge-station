@@ -522,11 +522,14 @@ check('merge keeps this process\'s sessions',
     sessions: { ...(afterOtherWrite?.sessions ?? {}), 'sess-GONE': { forensic: true, bookmarksOnly: false } },
   }, null, 2), 'utf8')
   chat.setMode('sess-GONE', { forensic: true })
-  await chat.setMode('sess-GONE', { forensic: false }).persist
+  const goneRes = await chat.setMode('sess-GONE', { forensic: false }).persist
   const afterDelete = await readState()
+  // ⚠ 详情里带上 `persisted`：本文件在**串行链**（`npm run smoke`）里偶发过一次这条变红
+  // （单独跑 / 在高负载下并发跑都复现不出来）。若写盘其实**报了失败**（锁竞争超时），
+  // 那断言红是"写没成功"而不是"复活逻辑错"——把这一点打进详情，下次红时一眼能分。
   check('a session closed by this process is not resurrected from disk',
     afterDelete?.sessions?.['sess-GONE'] === undefined,
-    JSON.stringify(Object.keys(afterDelete?.sessions ?? {})))
+    `persisted=${goneRes?.persisted} keys=${JSON.stringify(Object.keys(afterDelete?.sessions ?? {}))}`)
 }
 
 // 3c. 原子写：不留 .tmp 残骸

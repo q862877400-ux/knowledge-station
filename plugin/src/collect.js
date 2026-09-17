@@ -116,6 +116,13 @@ export function makeCollectTool(manager, chatModeOf) {
     async execute(args, exec) {
       const url = typeof args?.url === 'string' ? args.url.trim() : ''
       if (url === '') throw new Error('ks_collect: 需要 url（要采集的网页地址）')
+      // ⚠ 硬塞进来的 `source_tier` 必须**响亮拒绝**（不是静默忽略）：采集者不得自 claim
+      // 可信度（2026-09-17 复核的 INFO）。schema 里没有这个键，但"模型/宿主绕过 schema"
+      // 是现实存在的路径——静默忽略会让调用方以为自己设上了（`sanitizeParams` 同款坑）。
+      if (args !== null && typeof args === 'object' && 'source_tier' in args) {
+        throw new Error('ks_collect: 不接受 source_tier——采集不得自 claim 可信度'
+          + '（轴 A 由系统判据起 T3，要改请让用户在界面上改 /ks/materials/tier）')
+      }
 
       // 目标项目：会话绑定优先（那是**用户**设的），显式 id 次之；冲突**报错**。
       const bound = (() => {
@@ -140,9 +147,6 @@ export function makeCollectTool(manager, chatModeOf) {
           + '请先用 ks_materials 的 action="projects" 查项目，或请用户 `/materials use <prj_id>`。')
       }
 
-      const signal = combineSignals(exec?.signal)
-      const session = await manager.ensureLive(signal)
-      // 会话级刹车（暂定上限；见 MAX_COLLECT_PER_SESSION 的说明）
       const sessionId = (() => {
         try {
           const id = exec?.agent?.session?.id
@@ -151,6 +155,8 @@ export function makeCollectTool(manager, chatModeOf) {
           return '_'
         }
       })()
+      // ⚠ **上限判断必须在 `ensureLive()` 之前**（2026-09-17 复核 C4 的 LOW）：
+      // 放在后面的话，超限的那次调用仍会把引擎**拉起来**（"不打扰引擎"就不成立了）。
       const used = _collectedBySession.get(sessionId) ?? 0
       if (used >= MAX_COLLECT_PER_SESSION) {
         throw new Error(
@@ -158,6 +164,8 @@ export function makeCollectTool(manager, chatModeOf) {
           + '（采集预算尚未定案，方案 §11.4）。请停下并告诉用户：需要更多就由他决定'
           + '（继续请让他明说）。**不要**把它当成"已经采够了"或"没有更多资料"。')
       }
+      const signal = combineSignals(exec?.signal)
+      const session = await manager.ensureLive(signal)
       const path = `/api/v1/materials/projects/${encodeURIComponent(projectId)}/collect`
       // ⚠ **不发 `source_tier`**（引擎端点会 422；这里连试都不试）：
       // 采集者不得自 claim 可信度——轴 A 由系统判据起 T3，要改只能由用户在界面上改。
@@ -186,6 +194,16 @@ export function makeCollectTool(manager, chatModeOf) {
           + '请先 ks_ping 确认引擎版本/状态；**不要**把本次结果当成"已经采到了"。')
       }
       const data = env.data
+      // ⚠ **"没有 `collected` 字段"是信封/版本问题，不是"没采到"**（2026-09-17 复核的
+      // MEDIUM，且复核实测**文档与实现相反**：文档说抛、实现却回了 `collected:false`）。
+      // 为什么必须抛：形状不认识时引擎可能**已经登记了**一条 pending 材料，而回
+      // `collected:false` 会让模型对用户说"没采到"——一句可能是假的话（P1 准确性）。
+      if (data === null || typeof data !== 'object' || data.collected === undefined) {
+        throw new Error(
+          `ks_collect: 引擎回了 HTTP 200 但响应**形状不认识**（${path} 的 data 里没有 `
+          + '`collected` 字段）——这通常是**引擎版本/接口不匹配**，不是"没采到"。'
+          + '请先 ks_ping 确认引擎状态；**不要**把它当成"没有采到材料"。')
+      }
       // 计数的是"**发起到引擎的采集请求**"（无论抓到没有）——刹车宁可多算不可少算；
       // SSRF 被拒那种连网都没出的也计入，理由是"模型该停止反复试内网地址"。
       const usedNow = used + 1

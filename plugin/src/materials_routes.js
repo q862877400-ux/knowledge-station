@@ -215,6 +215,16 @@ function registerCollect(ctx, manager) {
           + '要改请走 /ks/materials/tier（用户动作）'))
         return
       }
+      // ⚠ **未知字段一律拒绝**（2026-09-17 复核 A 的 MEDIUM）：原来只挡 `source_tier`
+      // 一个拼写，`tier`/`review_status`/`origin` 等会**静默忽略**——与"响亮拒绝"的立论冲突。
+      const allowed = ['url', 'title', 'note', 'published_at']
+      const unknown = Object.keys(body ?? {}).filter((k) => !allowed.includes(k))
+      if (unknown.length > 0) {
+        jsonResponse(res, 400, errorBody('bad_request',
+          `不认识的字段：${JSON.stringify(unknown)}——本路由只收 ${JSON.stringify(allowed)}`
+          + '（未知字段一律拒绝，不静默忽略）'))
+        return
+      }
       mapProbe(res, await engineCall(manager, 'POST',
         `${ENGINE_MATERIALS}/projects/${encodeURIComponent(q.project_id)}/collect`,
         { url: body.url.trim(),

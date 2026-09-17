@@ -282,6 +282,24 @@ class TestNotAPageIsRefused:
         out = hv.collect_url(project["project_id"], f"{site}/js", title="看起来很正规的通知")
         assert out["collected"] is False and mr.list_materials(project["project_id"]) == []
 
+    def test_content_type_header_key_case_does_not_skip_the_gate(self, project, allow_local):
+        """响应头的**键名大小写**不许决定白名单是否生效（2026-09-17 复核 E 的 LOW）。
+
+        默认传输会把键名小写化 ⇒ 生产路径没暴露；但**替身或未来的传输层**传
+        `Content-Type` 时，第一版只查小写的 `content-type` ⇒ 白名单被**整道静默跳过**
+        （表现是"JS/CSS 又能进材料了"，且没有任何报错）。
+        """
+
+        class UpperKey:
+            def fetch_page(self, url, **kw):
+                return 200, {"Content-Type": "application/json"}, '{"a": 1}', b'{"a": 1}'
+
+        out = hv.collect_url(project["project_id"], "https://a.example/j",
+                             transport=UpperKey())
+        assert out["collected"] is False, out
+        assert "不是网页正文" in out["reason"], out
+        assert mr.list_materials(project["project_id"]) == []
+
 
 class TestTransportContractIsStrict:
     def test_transport_without_fetch_page_is_refused_loudly(self, project, allow_local):
@@ -566,25 +584,65 @@ class TestHtmlToTextOwner:
 
 
 class TestScriptStyleStrippingEdges:
-    """`_strip_script_style` 的两种**真实页面**形态（独立复核 2026-09-17 的两个 HIGH 之一）。
+    """`_strip_script_style` 的边角语义（**两轮复核**都在这里抓到问题，故钉得细）。
 
-    旧实现是一句 `re.sub(r"<(script|style)\\b[^>]*>.*?</\\1>", …)`，两种形态都错，
-    且都是**静默**的：自闭合会吃掉可见正文（丢材料 + 归因误导），未闭合会把 JS 留在材料里。
+    第一版是一句 `re.sub(r"<(script|style)\\b[^>]*>.*?</\\1>", …)`：未闭合时**匹配不上**
+    ⇒ JS 留在材料里；属性里带 `>` 时**定位偏差** ⇒ 吃掉可见正文。
+    第二版（2026-09-17 复核 D② 之后）改成：**先剥注释** + **结束标签放宽** +
+    **自闭合按 HTML5 语义**（`<script/>` 里的 `/` 被忽略，**不是**自闭合）。
+    ⚠ 第二轮复核提的两组边角（LEAK 与 OVERKILL）都在这条语义下修掉了；
+    剩下的"未闭合就吞到末尾"是 **HTML5 的规则**，演示见最后两条。
     """
 
-    def test_self_closing_script_does_not_eat_visible_text(self):
-        from src.core.text_utils import html_to_text
-        s = '<script src="a.js"/>重要正文：住宿标准八百元。<script>var t=1;</script>'
-        out = html_to_text(s)
-        assert "住宿标准八百元" in out, out
-        assert "t=1" not in out, out
+    def test_html5_semantics_slash_does_not_self_close(self):
+        """**HTML5**：`<script src="a.js"/>` 里的 `/` 被忽略 ⇒ 到 `</script>` 之间是**脚本**。
 
-    def test_self_closing_style_tag(self):
+        ⚠ 这条是**第二轮复核**（LEAK）之后**改过方向**的断言——第一版按 XHTML 把
+        `<script …/>` 当自闭合，于是 `<script src="a.js"/>var x=1;</script>` 会把
+        **JS 留在正文里**。两种读法直接冲突，本函数选 HTML5（浏览器怎么解析，正文就怎么算）；
+        代价（XHTML 页面会丢一段正文）写在 `_strip_script_style` 的 docstring 里。
+        """
         from src.core.text_utils import html_to_text
-        assert html_to_text("<style/>可见") == "可见"
+        out = html_to_text('<script src="a.js"/>var x=1;</script>可见')
+        assert out == "可见", out
+        assert "var x=1" not in out
+        out2 = html_to_text('<script data-x=a/>var y=2;</script>后面')
+        assert out2 == "后面", out2
+
+    def test_style_self_closing_slash_also_does_not_self_close(self):
+        """同一条语义的 style 版：`<style/>` 之后的可见文字**属于样式内容**，浏览器不显示。"""
+        from src.core.text_utils import html_to_text
+        assert html_to_text("<style/>可见") == ""
+        assert html_to_text("<style/>隐藏</style>可见") == "可见"
+
+    def test_html_comment_does_not_hide_a_script_from_the_sweep(self):
+        """**OVERKILL-1**（复核 D②）：注释里的 `<script>` **不是标签**，不许吞掉其后正文。"""
+        from src.core.text_utils import html_to_text
+        out = html_to_text("<!-- <script> -->重要正文：住宿标准八百元。")
+        assert "住宿标准八百元" in out, out
+        out2 = html_to_text("<!-- 注释里的文字 -->正文")
+        assert out2 == "正文", out2
+
+    def test_end_tag_with_junk_is_recognized(self):
+        """**OVERKILL-2**：`</script foo>` 是浏览器接受的结束标签，第一版认不出 ⇒ 吞掉其后正文。"""
+        from src.core.text_utils import html_to_text
+        assert html_to_text("<script>var a=1;</script foo>可见") == "可见"
+        assert html_to_text("<script>var a=1;</SCRIPT >可见") == "可见"
+
+    def test_literal_script_inside_an_attribute_is_not_a_tag(self):
+        """**OVERKILL-3**：属性值里的字面 `<script>` 不是标签（否则其后正文被吞）。"""
+        from src.core.text_utils import html_to_text
+        out = html_to_text("<div title='<script>'>可见</div>")
+        assert "可见" in out, out
+        assert "<script>" not in out, out
 
     def test_unclosed_script_swallows_the_tail_like_a_browser(self):
-        """未闭合 ⇒ 其后全部是脚本文本（HTML 规则），**不得**把 JS 当正文留下来。"""
+        """未闭合 ⇒ 其后全部是脚本文本（HTML5），**不得**把 JS 当正文留下来。
+
+        ⚠ 这**不是**保守估计而是浏览器行为：正文里出现一个字面 `<script>`（没有闭合）
+        在浏览器里同样会让后面全部不渲染。所以"吞掉"= 与浏览器一致；
+        真要在这种脏页面上抢救正文，得引 HTML 解析器（未立项）。
+        """
         from src.core.text_utils import html_to_text
         out = html_to_text("可见正文<script>var SECRET_JS = 1;")
         assert out == "可见正文", out
@@ -609,4 +667,5 @@ class TestScriptStyleStrippingEdges:
         from src.core.text_utils import html_to_text
         assert html_to_text('<script src="a.js"></script>可见') == "可见"
         assert html_to_text("<script>a</script>中间<style>b</style>后面") == "中间后面"
+        assert html_to_text("正文<script>var SECRET=1;</script>后面") == "正文后面"
 

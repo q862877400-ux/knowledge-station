@@ -242,7 +242,10 @@ class ProxyCurlTransport:
     def fetch_page(self, url: str, **kw: Any) -> tuple[int, dict[str, str], str, bytes]:
         """与 `base.CurlCffiTransport.fetch_page` 同契约（采集侧要 Content-Type 与真实字节）。"""
         timeout = kw.pop("timeout", 30)
-        resp = self._session.get(url, timeout=timeout, **kw)
+        # 与 base 的两个 transport 一致地**显式**收下重定向策略（curl_cffi 本就认这个名字，
+        # 显式 pop 是为了三处实现读起来一样、不靠"**kw 恰好透传"这种隐性契约）。
+        allow_redirects = bool(kw.pop("allow_redirects", True))
+        resp = self._session.get(url, timeout=timeout, allow_redirects=allow_redirects, **kw)
         return resp.status_code, {str(k).lower(): str(v) for k, v in resp.headers.items()}, \
             resp.text, resp.content
 

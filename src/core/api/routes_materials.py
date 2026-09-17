@@ -137,12 +137,12 @@ def register(app, json_error):
         **三条契约**：
         1. 抓回来的东西**一律 pending**——登记路径是 `collect.collect_text`，它没有设置
            评审状态的通道（硬门在那一层，本层也无法绕过）；
-        2. **不接收 `source_tier`**（给了就 422，不静默忽略）：采集者（模型/脚本）
-           **不得自 claim 可信度**——轴 A 由系统判据起（采集默认 T3），要改只能由
-           **用户**在界面上改（`/tier`）。静默忽略更坏：调用方会以为自己设上了；
-        3. 抓取失败（非 2xx / 非文本 / 空正文 / SSRF 拒绝）**不是 500**：如实回
-           `collected:false` + 原因（HTTP 200），与 `scan` 的"逐条结果"同款——
-           调用方需要把原因**显示给人看**，而不是收到一个没有内容可展示的错误码。
+        2. **不接收 `source_tier` 及任何未知字段**（给了就 422，不静默忽略）：采集者
+           （模型/脚本）**不得自 claim 可信度**——轴 A 由系统判据起（采集默认 T3），
+           要改只能由**用户**在界面上改（`/tier`）。静默忽略更坏：调用方会以为自己设上了；
+        3. 抓取失败（非 2xx / 非文本 / 空正文 / SSRF 拒绝 / Content-Type 不是网页）**不是
+           500**：如实回 `collected:false` + 原因（HTTP 200），与 `scan` 的"逐条结果"同款
+           ——调用方需要把原因**显示给人看**，而不是收到一个没有内容可展示的错误码。
         """
         if mr.get_project(project_id) is None:
             return json_error(404, "materials_not_found", f"项目不存在: {project_id}")
@@ -151,6 +151,17 @@ def register(app, json_error):
             return json_error(422, "materials_bad_request",
                               "采集不得自 claim 可信度（不接受 source_tier）——"
                               "轴 A 由系统判据起（采集默认 T3），要改请由用户在界面上改（/tier）")
+        # ⚠ **未知字段一律拒绝**（2026-09-17 复核 A 的 MEDIUM）：原来只挡 `source_tier`
+        # **一个拼写**，于是 `sourceTier`/`tier`/`review_status`/`origin`/`lifecycle`
+        # 这些同义/同名键全部 **200 + 静默忽略**——与"响亮拒绝、绝不静默丢弃"
+        # （`sanitizeParams` 同款坑：字段被吞、功能全死、无人报错）的立论直接冲突。
+        # 白名单比黑名单可靠：以后新增字段必须**显式**加进来。
+        _COLLECT_KEYS = {"url", "title", "note", "published_at"}
+        unknown = sorted(k for k in body if k not in _COLLECT_KEYS)
+        if unknown:
+            return json_error(422, "materials_bad_request",
+                              f"不认识的字段：{unknown}——本端点只收 "
+                              f"{sorted(_COLLECT_KEYS)}（未知字段一律拒绝，不静默忽略）")
         url = body.get("url")
         if not isinstance(url, str) or not url.strip():
             return json_error(422, "materials_bad_request", "缺少 url")

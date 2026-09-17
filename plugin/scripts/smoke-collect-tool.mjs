@@ -243,12 +243,42 @@ const call = (args, mode = baseMode, sessionId = `sess-${_sessSeq += 1}`) =>
   check('404（旧引擎未加载路由）→ 抛错并建议 ks_ping',
     threw2 !== null && String(threw2.message).includes('ks_ping'), String(threw2?.message))
 
-  // data 是对象但既没有 collected 字段：**不得**当成成功
+  // ⚠ **`data` 里没有 `collected` 字段 ≠ "没采到"**（2026-09-17 复核的 MEDIUM）：
+  // 那是**信封/版本**问题，而引擎可能**已经登记了**一条 pending 材料 ⇒ 必须**抛**，
+  // 不能回 `collected:false` 让模型对用户说"没采到"（可能是一句假话）。
+  // 本文件原先钉的正是**相反**的行为（复核按文档加抛后冒烟变红，M7 RED）——已改正。
   responder = () => ({ body: { code: 200, data: { reason: 'x' } } })
-  const odd = await call({ url: 'https://a.example/x' },
-    { ...baseMode, materialProjectId: 'prj_a' })
-  check('data 没有 collected=true ⇒ 按失败如实回报（不默认成功）',
-    odd.collected === false, JSON.stringify(odd))
+  let missing = null
+  try {
+    await call({ url: 'https://a.example/x' }, { ...baseMode, materialProjectId: 'prj_a' },
+      'sess-missing-collected')
+  } catch (e) { missing = e }
+  check('data 缺 `collected` 字段 ⇒ **抛**（不谎报成"没采到"）',
+    missing !== null && String(missing.message).includes('形状不认识'),
+    String(missing?.message).slice(0, 60))
+
+  // 合法的"抓取失败"：**有** `collected:false` ⇒ 如实回报（不抛）
+  responder = () => ({
+    body: { code: 200, data: { collected: false, status: 404, reason: 'HTTP 404' } },
+  })
+  const legitFail = await call({ url: 'https://a.example/x' },
+    { ...baseMode, materialProjectId: 'prj_a' }, 'sess-legit-fail')
+  check('合法的抓取失败（`collected:false` + reason）⇒ 如实回报，不抛',
+    legitFail.ok === true && legitFail.collected === false
+    && legitFail.reason === 'HTTP 404', JSON.stringify(legitFail))
+
+  // 硬塞 `source_tier` 必须响亮拒绝（schema 里没有该键，但绕过 schema 是现实路径）
+  let injected = null
+  try {
+    await call({ url: 'https://a.example/x', source_tier: 'T0' },
+      { ...baseMode, materialProjectId: 'prj_a' }, 'sess-inject-tier')
+  } catch (e) { injected = e }
+  check('硬塞 source_tier ⇒ 响亮拒绝（不静默忽略）',
+    injected !== null && String(injected.message).includes('source_tier'),
+    String(injected?.message).slice(0, 50))
+
+  check('暂定上限的**数值**有钉子（改成 1e6 会让这条红，逼着决定被显式做出来）',
+    MAX_COLLECT_PER_SESSION === 20, String(MAX_COLLECT_PER_SESSION))
 }
 
 /* --------------------------- 7. 会话级刹车（暂定上限） --------------------------- */
