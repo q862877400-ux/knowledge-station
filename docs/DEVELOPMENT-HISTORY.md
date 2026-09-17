@@ -2803,3 +2803,70 @@ doc_meta.standard_type : recommended 6130 / mandatory 287
 改的是 UI 落位（迁移面板）或检索架构（合并两池），两者都不是小改。
 
 
+
+### 10.53 真机 GUI 第一次真的点了面板：抓到两个真缺陷，并把"两道门"量化
+
+**背景**：方案 §12 里"真机 GUI 端到端未验证"挂了很久。这次发现本机 **CDP 端口 9333 上有活的
+浏览器**（既有 `e2e-sidebar-pdf.mjs` 就是为它写的），于是把材料面板也接进同一个马具。
+
+**先量清楚"真机在跑哪一版"**（这决定了能验证什么）：
+- **客户端半是现读现发的**：抓下 DSH 发出去的 `/plugins/??…ks-dsh-plugin/client.js`，
+  解码 `\uXXXX` 后与本地产物**逐段比对** ⇒ 除尾部空白外**逐字一致**，
+  连 `复算锚点` / `自采一条` / `ks/materials/locators` 都在。
+- **宿主半是启动时载入的**：`/ks/materials*` 与 `/ks/report/research*` 一律 **404**，
+  而 `/ks/chat-mode`、`/ks/session`、`/ks/inspection/*`、`/ks/announce/*`、`/ks/report/effect`
+  正常 ⇒ 活的宿主（pid 37268，**19:06:12** 启动）早于材料提交（**23:19** 起）。
+- 引擎（pid 32564，**19:14:53**）同理：活实例 `/openapi.json` 113 条路径、0 条 materials。
+⇒ 这就是"代码全绿、真机 404"的全部原因；**不是**构建或接线错。已写进方案未决第 11 条。
+
+**新增真机 e2e**：`plugin/scripts/e2e-materials-panel.mjs`（`npm run e2e:materials`，
+与 PDF 那条同款：没浏览器就 SKIP 且退出 0，不进 `npm run smoke`）。9 条断言，其中三条是这轮的重点：
+- A3 面板**真的挂进了设置界面**（`设置 → 法规标准知识库 → 参考资料`）且 `console.error` /
+  未捕获异常为 **0**——这是该组件**第一次被真实浏览器渲染**（离线冒烟只跑得到纯函数与路由表）。
+- B1 硬门文案 `评审是硬门` 在位：这句是"谁批准了才进结论"的**用户可见承诺**。
+- C1/C3 **失败必须如实说**：任何 `/ks/materials/*` 失败 ⇒ 界面必须有 `操作失败：…`；
+  层级清单失败 ⇒ 必须有 `来源层级清单…没读到`。
+
+**它当场抓出两个真缺陷**（都是"静默降级"族，P1 最不能接受的形状）：
+1. `fetchMaterialTiers(...).catch(() => [])` 把"清单没读到"变成"清单就是空的" ⇒ 材料行的
+   「轴 A 来源可信度」下拉只剩**当前值一个选项**，用户看到的是"这份材料只有一个层级可选"，
+   而真相是"这份清单没取到"。（与 `legal_status` 的 NULL 洗白同族。）
+2. **我自己的第一版修复仍然不显示**：我把失败记进局部变量、等 `Promise.all` 的 `await`
+   回来再落地——项目列表也失败时 `Promise.all` 先 reject，函数直接跳进 catch，
+   "清单没读到"**永远说不出口**（静默只是从一层挪到另一层）。e2e 的 C3 当场把它证伪。
+   ⇒ 修法：**两条请求各自结算**，清单自己 `then/catch`、自己落地。
+   顺带把"清单没取到时"的下拉**禁用**并给 `title`（留着可点会让"改不了级"看起来像点了没反应）。
+
+**马具本身的一个坑（值得单独记）**：`Page.reload({ ignoreCache: true })` **拦不住**插件
+bundle——它是 `import('/plugins/??…&rev=…')` 动态取的，浏览器内存缓存会继续喂**旧产物**，
+于是"改了代码却仍在测旧产物" ⇒ 假红（也意味着可能假绿）。
+修法：`Network.setCacheDisabled({ cacheDisabled: true })`；已同时补进 PDF 那条 e2e。
+诊断过程：本地产物里**有**新文案、页面渲染里**没有** ⇒ 再用 `rev` 变了（旧 rev 404）
+这一步定位到缓存，而不是构建。
+
+**变异证据**（都做过、都 byte-identical 还原）：
+- **M1**（把 warn 渲染条件 `tierListFailed &&` 改成 `false &&`，重建）：真机 e2e **C3 RED**
+  （8/9，exit 1）；⚠ 产物内的字符串断言**仍绿**——因为它只删"渲染"不删"文案"。
+  ⇒ 这正好量出**两条闸门的分工**：e2e 管"渲染有没有说"，离线串断言管"文案有没有被删"。
+- **M2**（把两条请求各自结算改回 `.catch(() => [] as KsMaterialTierDef[])`，不重建）：
+  离线两条源码护栏**同时 RED**（67/69），还原后 **69/69**。
+
+**新增离线护栏 3 条**（`smoke-client-entry.mjs`，66 → 69）：产物含诚实文案、
+源码里没有 `fetchMaterialTiers(...).catch(() => [])` 这种写法、清单请求自己落地成败
+（用 `\s*` 而不是写死 `\n`——本仓 TSX 是 LF 但同类文件有 CRLF，写死换行会静默匹配不上）。
+
+**顺带一条诚实记录**：串行 `npm run smoke` 里 chatmode 那条老偶发
+（`a session closed by this process is not resurrected from disk`）这轮又红一次，
+而详情 `persisted=false` **第一次真的分清了**：是**写盘没成功**（锁等待 3s 超时），
+不是"复活逻辑错"；单独跑 173/173，紧接着整条链 **EXIT=0**。当时并发跑着两轮真机 e2e
+（Edge 渲染 PDF）+ 复核方 pytest。**故意不改**生产侧 `LOCK_WAIT_MS`——为让测试变绿而放松
+一把真锁，方向是错的。
+
+**本轮门禁（全绿）**：pytest **1661 passed / 3 skipped**；mypy **134 files / 0 errors**；
+`npm run typecheck` **0**；`npm run smoke` **EXIT=0**（client-entry 69/69）；
+`verify:commands` **22/22**；`e2e:sidebar` **13/13**；`e2e:materials` **9/9**。
+
+**诚实边界**：happy path（建项目 → 扫描收件 → 批准 → 产出报告/PPT）**仍未在真机走通**，
+卡在两道门（宿主 + 引擎都早于本战役）；今天真机验证的是**失败路径的诚实性**与
+**面板能不能挂进设置界面**——比"没验证"强，但**不等于功能可用**。另外 `tool.call.toolview`
+（核验 UI 半）仍未动：它 `replaceRisk: shadows-shipped-ui`，要画整张卡，必须先能看见。

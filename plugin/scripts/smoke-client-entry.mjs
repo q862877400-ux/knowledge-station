@@ -515,6 +515,22 @@ check('inject declares only official services (no third-party hard gate)',
     panel.includes('onClick={onExportReport}') && panel.includes('onClick={onExportSlides}'))
   check('产出用**两个不同**的路由函数（报告 ≠ PPT）',
     panel.includes('exportResearchReport(') && panel.includes('exportResearchSlides('))
+
+  // ---- 静默降级护栏（2026-09-18 由**真机** e2e 抓出来的那两处，见 §10.53）----
+  // 行为上的真正闸门是 `scripts/e2e-materials-panel.mjs` 的 C3（它要一个浏览器，
+  // 没浏览器就 SKIP），所以这里补两条**廉价、离线**的护栏，挡"再写回去"：
+  check('层级清单的诚实文案进了产物（失败不许静默）', bundle.includes('来源层级清单'))
+  // ⚠ 负向断言：`.catch(() => [] …)` 把"清单没读到"变成"清单就是空的"——
+  // 请求失败被渲染成"功能就是这样"。没有任何正当理由这么写。
+  check('源码里没有"静默吞掉层级清单失败"的写法',
+    !/fetchMaterialTiers\([^)]*\)\s*\.catch\(\(\)\s*=>\s*\[\]/.test(panel))
+  // ⚠ 第二条静默路径（更隐蔽）：把失败记进局部变量、等 `Promise.all` 的 await 回来再落地——
+  // 项目列表也失败时 `Promise.all` 先 reject，清单失败**永远说不出口**。
+  // 真机上就是这么复现的：第一版"修好了"仍然不显示。所以清单必须自己 then/catch。
+  // ⚠ 用 `\s*` 而不是 `\n`：仓库里的 TSX 是 CRLF，写死 `\n` 会**静默**匹配不上（本项目栽过）。
+  check('层级清单请求**自己落地**成败（不搭项目列表的 Promise.all）',
+    /fetchMaterialTiers\(ctl\.signal\)\s*\.then\(/.test(panel),
+    '清单与项目列表必须各自结算')
 }
 
 const failed = results.filter((r) => !r.ok)

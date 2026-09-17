@@ -32468,6 +32468,7 @@ function KsMaterialsPanel(props) {
   const [projectId, setProjectId] = (0, import_react7.useState)("");
   const [materials, setMaterials] = (0, import_react7.useState)([]);
   const [tiers, setTiers] = (0, import_react7.useState)([]);
+  const [tierListFailed, setTierListFailed] = (0, import_react7.useState)(false);
   const [inbox, setInbox] = (0, import_react7.useState)(
     { dir: "", files: [] }
   );
@@ -32512,13 +32513,20 @@ function KsMaterialsPanel(props) {
     setLoading(true);
     setError("");
     void (async () => {
+      void fetchMaterialTiers(ctl.signal).then((defs) => {
+        if (alive) {
+          setTiers(defs);
+          setTierListFailed(false);
+        }
+      }).catch(() => {
+        if (alive) {
+          setTiers([]);
+          setTierListFailed(true);
+        }
+      });
       try {
-        const [list, tierDefs] = await Promise.all([
-          reloadProjects(ctl.signal),
-          fetchMaterialTiers(ctl.signal).catch(() => [])
-        ]);
+        const list = await reloadProjects(ctl.signal);
         if (!alive) return;
-        setTiers(tierDefs);
         const first = list.length > 0 ? list[0].project_id : "";
         setProjectId((cur) => cur !== "" && list.some((p) => p.project_id === cur) ? cur : first);
       } catch (err) {
@@ -32875,6 +32883,11 @@ function KsMaterialsPanel(props) {
     ] }),
     notice !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "0 0 8px", color: "var(--dsw-alias-label-secondary, #666)", fontSize: 12 }, children: notice }),
     loading && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "0 0 8px", fontSize: 12, color: GRAY }, children: "\u52A0\u8F7D\u4E2D\u2026" }),
+    tierListFailed && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { role: "status", style: { margin: "0 0 8px", color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
+      "\u26A0 \u6765\u6E90\u5C42\u7EA7\u6E05\u5355\uFF08T0\u2013T4\uFF09**\u6CA1\u8BFB\u5230**\uFF1A\u6750\u6599\u8868\u91CC\u6BCF\u4EFD\u6750\u6599\u7684\u300C\u8F74 A \u6765\u6E90\u53EF\u4FE1\u5EA6\u300D\u4E0B\u62C9\u4F1A\u53EA\u5269\u5F53\u524D\u503C\u3001",
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u6539\u4E0D\u4E86\u7EA7" }),
+      "\u3002\u8FD9**\u4E0D\u4EE3\u8868**\u6750\u6599\u6CA1\u6709\u5C42\u7EA7\uFF0C\u662F\u8FD9\u4EFD\u6E05\u5355\u6CA1\u53D6\u5230\u2014\u2014 \u91CD\u5F00\u9762\u677F\u6216\u91CD\u542F\u5F15\u64CE\u540E\u518D\u8BD5\u3002"
+    ] }),
     projectId === "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { fontSize: 12, color: GRAY }, children: "\u5148\u9009\u4E00\u4E2A\u9879\u76EE\uFF08\u6216\u5728\u4E0A\u9762\u65B0\u5EFA\uFF09\u3002" }),
     projectId !== "" && !loading && materials.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { fontSize: 12, color: GRAY }, children: "\u8FD9\u4E2A\u9879\u76EE\u91CC\u8FD8\u6CA1\u6709\u5DF2\u767B\u8BB0\u7684\u6750\u6599\uFF1A\u628A\u6587\u4EF6\u653E\u8FDB\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u540E\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\uFF0C \u6216\u7528\u4E0A\u9762\u7684\u300C\u81EA\u91C7\u4E00\u6761\u300D\u6309\u7F51\u5740\u6293\u4E00\u4EFD\u7F51\u9875\u6B63\u6587\uFF08\u540C\u6837\u8981**\u4F60**\u6279\u51C6\u540E\u624D\u7B97\u6570\uFF09\u3002" }),
     materials.map((m) => {
@@ -32910,7 +32923,8 @@ function KsMaterialsPanel(props) {
                     "aria-label": `\u6765\u6E90\u5C42\u7EA7 ${m.title}`,
                     value: m.source_tier ?? "",
                     onChange: (e) => onTier(m, e.currentTarget.value),
-                    disabled: busy !== "",
+                    disabled: busy !== "" || tiers.length === 0,
+                    title: tiers.length === 0 ? "\u6765\u6E90\u5C42\u7EA7\u6E05\u5355\u6CA1\u8BFB\u5230\uFF0C\u6682\u65F6\u6539\u4E0D\u4E86\u7EA7" : void 0,
                     style: { fontSize: 12, maxWidth: 260 },
                     children: [
                       tiers.length === 0 && m.source_tier != null && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("option", { value: m.source_tier, children: m.tier_label ?? m.source_tier }),

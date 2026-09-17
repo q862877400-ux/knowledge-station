@@ -295,8 +295,18 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
   **"独立来源数 ≥2"**（内容近似的域名先合并）。诚实边界写死在模块头注：
   判的是"文字是否几乎一样"、**不是**"事实是否相同"；大改后重发的抓不到；
   只用于**降级**，绝不用于自动批准或自动判定造假。测试 28 条 + 4 条。
-- **B-8 剩余（未做）**：① **真机 GUI 端到端未验证**（面板要在浏览器里实际点一遍；
-  且要**刷新 GUI** 才加载新 client.js）；② 核验 UI 半 / `tool.call.toolview`。
+- **B-8 剩余（未做）**：① ~~**真机 GUI 端到端未验证**（面板要在浏览器里实际点一遍；
+  且要**刷新 GUI** 才加载新 client.js）~~ ⇒ **2026-09-18 做到了"能做的部分"**（§10.53）：
+  新增真机 e2e `plugin/scripts/e2e-materials-panel.mjs`（`npm run e2e:materials`，9 条断言），
+  真机已证实**面板挂得进设置界面、不炸、失败如实说**；它当场抓出两个真缺陷（见 §10.53）。
+  **仍未做到的是"happy path"**（建项目 → 扫描收件 → 批准 → 产出报告/PPT 走一遍）——
+  卡在**两道门**上（见未决第 11 条：宿主路由今天 404）。
+  ⚠ 两条**实测更正**：(a) 宿主**确实**按请求现读 `plugin/client.js`（不需要"重挂载才换 client"），
+  **但**必须 `Network.setCacheDisabled`——`Page.reload({ignoreCache:true})` 拦不住那份
+  `import('/plugins/??…&rev=…')`，会让测试**跑旧产物**（假红/假绿都出现过）；
+  (b) `plugin/src/*.js`（宿主半）是 DSH 进程启动时载入的 ⇒ 改路由**必须重挂载宿主**。
+  ② 核验 UI 半 / `tool.call.toolview`（仍未动；它 `replaceRisk: shadows-shipped-ui`，
+  要画整张卡 ⇒ 必须先在浏览器里看得见，仍待真机）。
 
 ### Phase C（进行中）
 
@@ -431,6 +441,11 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
   字符串断言抓不到"`project_id` 挪进 body / 多发 `source_tier`"这类**请求契约漂移**。
   ⚠ **真机点击未验证**，且今天点下去很可能 404（活的引擎实例早于材料路由那次提交）⇒
   仍要**两道门**：引擎重启 + 宿主插件重挂载。
+  ⚠ **2026-09-18 更新（§10.53，已实测）**：真机点下去**确实** 404，但只差一道门——
+  客户端产物是**现读现发**的，`/ks/materials/*` 404 是因为 **DSH 宿主进程（pid 37268，
+  2026-09-17 19:06:12 启动）早于材料路由那次提交**；引擎实例（pid 32564，19:14:53 启动）
+  是第二道门。**失败路径已真机验证**：面板显示 `操作失败：HTTP 404`，
+  **没有**把"读不到"渲染成"没有材料"。happy path 仍要两道门。
 - **D-3b 研究报告 / PPT 进界面（已完成，§10.42）**：面板底部加了**产出**一块
   （研究问题 / 结论 / 两个按钮 / 生成后的计数·引用核验数·落盘路径·引用警告·可展开 Markdown）。
   ⚠ 这条接线上最容易错得很安静的一点：**产出路由的 `project_id` 在 body，材料路由在 query**
@@ -454,6 +469,14 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
    ⚠ 另有第二条 chatmode 偶发（§10.35 末）：`a session closed by this process is not resurrected
    from disk` 在**串行链**里红过一次（单独跑与高负载并发跑都 3/3 绿），**未能复现**；
    已在该断言详情里带上 `persisted=…`，下次红时能一眼分清"写盘失败"与"复活逻辑错"。
+   ⚠ **2026-09-18 又红一次，而这次 `persisted=…` 真的分清了**（§10.53）：详情是
+   `persisted=false keys=[…sess-GONE…]` ⇒ **写盘本身没成功**（锁等待 3s 超时），
+   不是"复活逻辑错"；单独跑 173/173，同一条链紧接着再跑 **EXIT=0**。
+   负载条件：当时**同时**跑着两轮真机 e2e（Edge 渲染 PDF）+ 复核方的 pytest。
+   ⇒ 判定：**环境/计时敏感**，与本战役改动无调用关系；**故意不改**生产侧的
+   `LOCK_WAIT_MS`（为让测试变绿而放松一把真锁，方向是错的）。
+   待办（未做）：让这条断言在 `persisted=false` 时**重试一次再判**——但必须
+   **打印发生过重试**，否则就把"真的写不进去"也一起盖住了。
 2. **✅ 材料与法条检索"是否共池"——已决策：不共池，分节并列**（2026-09-17，§10.52）。
    事实（代码即证据）：两条检索线各有自己的表与所有者——`clause_fts`（法条链，
    `clause_repo`）与 `material_fts`（材料平面，`material_repo`），两者共用**同一个分词实现**
@@ -546,3 +569,16 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
    （政府站点的 XHTML/XML 公告是真实存在的，拒收会**丢资料**；而这条偏差的方向是
    **丢内容不是造内容**），代价如实写在这里与 docstring 里。要按 Content-Type 分流
    得把它传进 `html_to_text`（跨层签名改动，**未立项**）。
+11. **两道门（业主动作，2026-09-18 已实测并量化）**：真机要跑通 happy path，
+   必须重启两个**早于本战役**的进程——它们不是"可能旧"，而是**逐个端点量过**：
+
+   | 门 | 进程 | 启动时刻 | 缺什么（实测） |
+   |---|---|---|---|
+   | 宿主半（`plugin/src/*.js`） | DSH host pid **37268** | 2026-09-17 **19:06:12** | `/ks/materials`、`/ks/materials/locators`、`/ks/materials/reverify`、`/ks/report/research`、`/ks/report/research/slides` 全部 **404**；而 `/ks/chat-mode`、`/ks/session`、`/ks/inspection/*`、`/ks/announce/*`、`/ks/report/effect` 正常 200 |
+   | 引擎半（`src/core`） | KS engine pid **32564** | 2026-09-17 **19:14:53** | 活着实例的 `/openapi.json` = 113 条路径、0 条 materials；HEAD 冷启动 = 128 条（13 materials + 2 report/research） |
+
+   **客户端半不需要重挂载**（实测：DSH 按请求现读 `plugin/client.js`，服务出去的 ks
+   段落与本地产物逐字一致）。⇒ 业主只需**重启 DSH 进程 + 重启引擎**，无需重装/重构建。
+   ⚠ 本战役的所有材料提交都在 **23:19 之后**，两个进程都早于它们——这就是"代码全绿、
+   真机 404"的全部原因，**不是**构建或接线错误。
+   ⚠ 重启 DSH 会中断当前会话（本 Agent 跑在它里面）⇒ **由业主选择时机**。

@@ -100,6 +100,19 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
   const [projectId, setProjectId] = useState<string>('')
   const [materials, setMaterials] = useState<KsMaterial[]>([])
   const [tiers, setTiers] = useState<KsMaterialTierDef[]>([])
+  /**
+   * 层级清单（T0–T4）**没读到**。
+   *
+   * ⚠ 这条是 2026-09-18 的**真机 e2e** 抓出来的（`scripts/e2e-materials-panel.mjs`，
+   * 当时的真机主机还没挂载 `/ks/materials*`）：层级清单的失败原先被
+   * `.catch(() => [])` **静默吞掉**，于是下拉框只剩"当前值"这一个选项——
+   * 用户看到的是"这份材料只有一个层级可选"，而**真相是"这份清单没取到"**。
+   * 请求失败被渲染成"功能就是这样"，正是 P1 准确性最不能接受的形状
+   * （同一族的缺陷本战役已栽过一次：`legal_status` 的 NULL 洗白）。
+   *
+   * 纪律：**失败可以不阻塞**（清单失败不该挡住材料表），但**不能不说话**。
+   */
+  const [tierListFailed, setTierListFailed] = useState(false)
   const [inbox, setInbox] = useState<{ dir: string; files: { file_name: string; size: number }[] }>(
     { dir: '', files: [] })
   const [loading, setLoading] = useState(false)
@@ -165,13 +178,17 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
     setLoading(true)
     setError('')
     void (async () => {
+      // 两条请求**各自结算**。第一版把清单失败记在一个局部变量里、等
+      // `Promise.all` 的 `await` 回来再落地——真机 e2e 当场证伪：项目列表
+      // 也失败时 `Promise.all` 先 reject，函数直接跳进 catch，
+      // 「清单没读到」**永远说不出口**（静默降级只是从一层挪到了另一层）。
+      // 所以清单这条必须自己 then/catch、自己落地，与另一条的成败无关。
+      void fetchMaterialTiers(ctl.signal)
+        .then((defs) => { if (alive) { setTiers(defs); setTierListFailed(false) } })
+        .catch(() => { if (alive) { setTiers([]); setTierListFailed(true) } })
       try {
-        const [list, tierDefs] = await Promise.all([
-          reloadProjects(ctl.signal),
-          fetchMaterialTiers(ctl.signal).catch(() => [] as KsMaterialTierDef[]),
-        ])
+        const list = await reloadProjects(ctl.signal)
         if (!alive) return
-        setTiers(tierDefs)
         const first = list.length > 0 ? list[0].project_id : ''
         setProjectId((cur) => (cur !== '' && list.some((p) => p.project_id === cur) ? cur : first))
       } catch (err) {
@@ -569,6 +586,18 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
       )}
       {loading && <p style={{ margin: '0 0 8px', fontSize: 12, color: GRAY }}>加载中…</p>}
 
+      {/* 层级清单没读到（真机 e2e 抓出来的静默失败，见 `tierListFailed` 的注释）。
+          **不加"选了项目才显示"的门**：失败是真实发生的事，闸门只会让它可被隐藏——
+          而且真机 e2e 里"项目列表本身也没读到"（没有任何项目可选）正是要能断言它的场景。
+          代价是没选项目时它描述的下拉还没上屏；宁可多说一句，也不静默降级。 */}
+      {tierListFailed && (
+        <p role="status" style={{ margin: '0 0 8px', color: 'var(--dsw-alias-warn, #b8860b)', fontSize: 12 }}>
+          ⚠ 来源层级清单（T0–T4）**没读到**：材料表里每份材料的「轴 A 来源可信度」下拉会只剩当前值、
+          <strong>改不了级</strong>。这**不代表**材料没有层级，是这份清单没取到——
+          重开面板或重启引擎后再试。
+        </p>
+      )}
+
       {/* ---------------------------------------------------- 材料表 */}
       {projectId === '' && (
         <p style={{ fontSize: 12, color: GRAY }}>先选一个项目（或在上面新建）。</p>
@@ -607,7 +636,10 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
                   aria-label={`来源层级 ${m.title}`}
                   value={m.source_tier ?? ''}
                   onChange={(e) => onTier(m, e.currentTarget.value)}
-                  disabled={busy !== ''}
+                  // 清单没取到时**只有当前值一个选项**：留着可点会让"改不了级"看起来像
+                  // "点了没反应"的 bug，而不是"清单没读到"。禁用并给出原因（见上面的琥珀提示）。
+                  disabled={busy !== '' || tiers.length === 0}
+                  title={tiers.length === 0 ? '来源层级清单没读到，暂时改不了级' : undefined}
                   style={{ fontSize: 12, maxWidth: 260 }}
                 >
                   {tiers.length === 0 && m.source_tier != null && (

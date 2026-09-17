@@ -72,6 +72,11 @@ const ev = async (expr) => {
 }
 const wait = (ms) => new Promise((r) => setTimeout(r, ms))
 await call('Runtime.enable')
+// ⚠ 禁缓存：插件 bundle 是动态 `import('/plugins/??…&rev=…')` 取的，
+// `Page.reload({ ignoreCache: true })` 对它**不够**——浏览器内存缓存会继续喂旧 bundle
+// （2026-09-18 在 e2e-materials-panel.mjs 上实测：改了代码却仍在测旧产物 ⇒ 假红）。
+await call('Network.enable')
+await call('Network.setCacheDisabled', { cacheDisabled: true })
 
 // ---------------------------------------------------------------- 页面探针片段
 const COL = `[...document.body.children].find(d => /📚 文件目录/.test(d.textContent||'') && /共 \\d+ 部/.test(d.textContent||''))`
