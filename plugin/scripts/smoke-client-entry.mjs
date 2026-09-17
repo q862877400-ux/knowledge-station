@@ -543,6 +543,14 @@ check('inject declares only official services (no third-party hard gate)',
     /case 'health_error':/.test(panel))
   check('面板源码里有穷尽性断言（新增 status 忘加分支应编译报错）',
     /assertNever\(/.test(panel) && /default:\s*\n?\s*return assertNever\(/.test(panel))
+  // ⚠ `why` 的**接线**要有闸门（复核 b10 的 G4）：把面板里那段 `attention → why` 的映射退回
+  // 写死 `why: ''`，冒烟仍是 69/69 全绿——而界面上就再也说不出"为什么需要复算"。
+  // 这里钉的是**映射本身**（读 `s.attention`、按 material_id 取 `a.why`），不是某句文案。
+  check('面板源码把后端的 why 接进锚点映射（不是写死空串）',
+    /for \(const a of s\.attention\)/.test(panel) && /why\[a\.material_id\] = a\.why/.test(panel))
+  // ⚠ 后端的 note 也不能是死状态（b11 的 INFO-1）：它要真的渲染出来
+  check('面板源码把后端 anchorNote 渲染出来（不是只存不读）',
+    /\{anchorNote !== '' &&/.test(panel))
 }
 
 /* ---------------------------------------------------------------- 产物 ↔ 源码一致性

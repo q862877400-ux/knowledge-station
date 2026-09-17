@@ -32938,6 +32938,7 @@ function KsMaterialsPanel(props) {
     ] }),
     notice !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "0 0 8px", color: "var(--dsw-alias-label-secondary, #666)", fontSize: 12 }, children: notice }),
     loading && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "0 0 8px", fontSize: 12, color: GRAY }, children: "\u52A0\u8F7D\u4E2D\u2026" }),
+    anchorNote !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "0 0 8px", fontSize: 12, color: GRAY }, children: anchorNote }),
     tierListFailed && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { role: "status", style: { margin: "0 0 8px", color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
       "\u26A0 \u6765\u6E90\u5C42\u7EA7\u6E05\u5355\uFF08T0\u2013T4\uFF09**\u6CA1\u8BFB\u5230**\uFF1A\u6750\u6599\u8868\u91CC\u6BCF\u4EFD\u6750\u6599\u7684\u300C\u8F74 A \u6765\u6E90\u53EF\u4FE1\u5EA6\u300D\u4E0B\u62C9\u4F1A\u53EA\u5269\u5F53\u524D\u503C\u3001",
       /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u6539\u4E0D\u4E86\u7EA7" }),

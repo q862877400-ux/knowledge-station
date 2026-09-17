@@ -532,6 +532,45 @@ class TestSlowEndpointsAreDeclaredSync:
             f"{path} 做同步重活，必须是 `def`（线程池），不能是 `async def`")
 
 
+class TestEndpointIndexMatchesReality:
+    """模块 docstring 的**端点索引**必须与真实注册的路由**逐条对齐**。
+
+    为什么要有这条（复核 b10 的 G3）：§10.56 补全了那份索引（原先漏了 `tiers` 与三个新端点），
+    但**零闸门**——把补上的 4 行删掉，测试套件**全绿**（42 passed）。
+    而那个索引就是这一层的"地图"：下一轮接线/复核会照它找端点。
+
+    ⚠ 占位名要**归一**：索引里写的是简写 `{pid}`/`{mid}`，代码里是 `{project_id}`/`{material_id}`
+    ——它们指的是同一个位置参数，比较前统一成 `{}`（复核 b10 也是这么对齐的）。
+    """
+
+    def test_docstring_index_equals_registered_routes(self, client):
+        import re
+
+        from src.core.api import routes_materials
+
+        c, _ = client
+        doc = routes_materials.__doc__ or ""
+        listed = set()
+        for m in re.finditer(r"^\s*-\s+(GET|POST|DELETE|PUT|PATCH)\s+(/api/v1/materials\S*)",
+                             doc, re.M):
+            path = re.sub(r"\{[^}]*\}", "{}", m.group(2))
+            listed.add((m.group(1).upper(), path))
+
+        registered = set()
+        for r in c.app.routes:
+            path = getattr(r, "path", "") or ""
+            if not path.startswith("/api/v1/materials"):
+                continue
+            for verb in (getattr(r, "methods", None) or set()):
+                if verb in ("GET", "POST", "DELETE", "PUT", "PATCH"):
+                    registered.add((verb, re.sub(r"\{[^}]*\}", "{}", path)))
+
+        assert listed == registered, (
+            "docstring 的端点索引与真实路由不一致：\n"
+            f"  只在索引里: {sorted(listed - registered)}\n"
+            f"  只在路由里: {sorted(registered - listed)}")
+
+
 class TestLocatorEndpoints:
     """引用锚点稳定性的三个端点（方案 §12 未决第 5 条，§10.48）。"""
 

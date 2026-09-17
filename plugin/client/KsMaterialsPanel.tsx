@@ -652,6 +652,14 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
       )}
       {loading && <p style={{ margin: '0 0 8px', fontSize: 12, color: GRAY }}>加载中…</p>}
 
+      {/* 锚点总览的**后端说明**（`locator.py` 的 `note`）：它解释 `unknown` 里包含哪几类、
+          `health_error` 不是健康状态。⚠ 这段状态**曾经是死的**（shell 2 处写、0 处读 ⇒
+          b11 的 INFO-1）：后端的解释从来没上过屏，而它正是"别把不知道当成没问题"那件事的说明。
+          ⇒ 现在渲染出来（只在选了项目、拿到总览之后显示）。 */}
+      {anchorNote !== '' && (
+        <p style={{ margin: '0 0 8px', fontSize: 12, color: GRAY }}>{anchorNote}</p>
+      )}
+
       {/* 层级清单没读到（真机 e2e 抓出来的静默失败，见 `tierListFailed` 的注释）。
           **不加"选了项目才显示"的门**：失败是真实发生的事，闸门只会让它可被隐藏——
           而且真机 e2e 里"项目列表本身也没读到"（没有任何项目可选）正是要能断言它的场景。
