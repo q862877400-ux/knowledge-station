@@ -269,8 +269,11 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": announce.get_scan_state()}
 
     @app.get("/api/v1/update/announce-sources")
-    async def announce_sources_list():
-        """源清单（app_config announce.sources；引擎为唯一真值）。"""
+    def announce_sources_list():
+        """源清单（app_config announce.sources；引擎为唯一真值）。
+
+        §10.79：`announce.get_sources()` 要读配置文件 ⇒ 同步 I/O ⇒ `def`。
+        """
         from src.core.update import announce
         sources = announce.get_sources()
         return {"code": 200, "status": "success",
@@ -279,32 +282,33 @@ def register(app, json_error):
                                                if s.get("enabled") is not False])}}
 
     @app.post("/api/v1/update/announce-sources")
-    async def announce_sources_add(request: Request):
+    def announce_sources_add(body: dict | None = None):
         """添加公告源（校验：必填/http(s)/公网——默认禁内网/上限 50/URL 归一化去重）。
         非法 → 422/UPD-3008。"""
         from src.core.exceptions import KnowledgeStationError
         from src.core.update import announce
+        body = body or {}
         try:
-            body = await request.json()
-        except Exception:
-            body = {}
-        try:
-            src = announce.add_source(body.get("name"), body.get("url"),
+            # ⚠ `# type: ignore[arg-type]` 的理由（§10.79，mypy 在转换后新报的两处）：
+            # 转换前 `body` 是 `Any`（`await request.json()`）⇒ 从不报错；现在是 `dict | None`
+            # ⇒ `body.get(...)` 是 `Any | None`，而 `add_source` 形参声明为 `str`。
+            # **缺参/非字符串的校验在 `add_source` 内部做**（`_validate_source_payload` → 422/UPD-3008），
+            # 所以这里刻意保持与转换前**逐字相同**的宽松传参，不替它先猜（先猜就会把"缺 name"
+            # 变成 `""`，那是**改行为**）。
+            src = announce.add_source(body.get("name"),  # type: ignore[arg-type]
+                                      body.get("url"),  # type: ignore[arg-type]
                                       note=str(body.get("note") or ""))
         except KnowledgeStationError as e:
             return _upd_error(e, json_error)
         return {"code": 200, "status": "success", "data": {"source": src}}
 
     @app.put("/api/v1/update/announce-sources/{source_id}")
-    async def announce_sources_update(source_id: str, request: Request):
+    def announce_sources_update(source_id: str, body: dict | None = None):
         """部分更新源（name/enabled/note/url）；改 URL → 重置首扫基线
         （响应带 rebaselined:true）。不存在 → 404/UPD-2005。"""
         from src.core.exceptions import KnowledgeStationError
         from src.core.update import announce
-        try:
-            body = await request.json()
-        except Exception:
-            body = {}
+        body = body or {}
         try:
             src = announce.update_source(source_id, body)
         except KnowledgeStationError as e:
@@ -331,7 +335,8 @@ def register(app, json_error):
                 "data": announce.list_items(limit=limit, source_id=source_id)}
 
     @app.post("/api/v1/update/announce-export")
-    async def announce_export():
+    def announce_export():
+        """公告扫描结果导出 xlsx（§10.79：openpyxl 落盘 ⇒ `def`）。"""
         """生成《公告发现》Excel(.xlsx) 到 exports 目录（最近扫描源状态 +
         公告明细全量，发布日期 DESC），返回下载文件名（配合既有
         GET /export/download 下载）；空库同样出文件；纯只读聚合零库写入。"""
@@ -343,13 +348,10 @@ def register(app, json_error):
     # ---- 找标（F-15~F-18）----
 
     @app.post("/api/v1/discover/classify")
-    async def discover_classify(request: Request):
+    def discover_classify(body: dict | None = None):
         """口语描述 → CCS 分类路径或一轮追问（协议对齐问答追问 v2）。"""
         from src.core.update import discover
-        try:
-            body = await request.json()
-        except Exception:
-            body = {}
+        body = body or {}
         result = discover.classify(str(body.get("description") or ""))
         return {"code": 200, "status": "success", "data": result}
 
@@ -445,14 +447,11 @@ def register(app, json_error):
     # ---- 万级批量导入（pipeline/11：快扫→异步解析→首检入列）----
 
     @app.post("/api/v1/ingest/bulk")
-    async def bulk_ingest_start(request: Request):
+    def bulk_ingest_start(body: dict | None = None):
         """启动批量导入：``{src_dir, batch_size?=200}`` → 后台线程快扫建目录，返回 {batch_id}。"""
         from src.core.exceptions import KnowledgeStationError
         from src.core.ingestion import bulk as bulk_ingest
-        try:
-            body = await request.json()
-        except Exception:
-            body = {}
+        body = body or {}
         src_dir = str(body.get("src_dir") or "").strip()
         if not src_dir:
             return json_error(422, "missing_src_dir", "缺少 src_dir")
@@ -499,14 +498,11 @@ def register(app, json_error):
                 }}
 
     @app.post("/api/v1/ingest/bulk/{batch_id}/resume")
-    async def bulk_ingest_resume(batch_id: str, request: Request):
+    def bulk_ingest_resume(batch_id: str, body: dict | None = None):
         """恢复解析（快扫完成后调用）：后台线程逐件解析，日预算耗尽转 paused。"""
         from src.core.exceptions import KnowledgeStationError
         from src.core.ingestion import bulk as bulk_ingest
-        try:
-            body = await request.json()
-        except Exception:
-            body = {}
+        body = body or {}
         try:
             bulk_ingest.pause_batch(batch_id)  # 幂等：把 pending/running 统一为可控点
             b = bulk_ingest.load_batch(batch_id)
@@ -539,15 +535,12 @@ def register(app, json_error):
     # ---- 数据打包 / 还原（F-26）----
 
     @app.post("/api/v1/data/package/export")
-    async def data_package_export(request: Request):
+    def data_package_export(body: dict | None = None):
         """全量数据包导出：``{dest_dir?}`` 缺省落 exports 目录；
         返回包目录 + manifest（含七项简报计数与 SHA-256 校验和）。"""
         from src.core.config import get_settings
         from src.core.update import data_package
-        try:
-            body = await request.json()
-        except Exception:
-            body = {}
+        body = body or {}
         dest = body.get("dest_dir") or (get_settings().data_dir / "exports")
         try:
             pkg, manifest = data_package.export_package(dest)
@@ -558,15 +551,12 @@ def register(app, json_error):
                 "data": {"path": str(pkg), "name": pkg.name, "manifest": manifest}}
 
     @app.post("/api/v1/data/package/import")
-    async def data_package_import(request: Request):
+    def data_package_import(body: dict | None = None):
         """数据包导入（strict：目标库非空 → 422/UPD-3003 拒绝）：
         ``{src_path, mode?}``；成功返回含导入简报的 manifest（prepared 语义）。"""
         from src.core.exceptions import KnowledgeStationError
         from src.core.update import data_package
-        try:
-            body = await request.json()
-        except Exception:
-            body = {}
+        body = body or {}
         src = body.get("src_path")
         if not src:
             return json_error(422, "missing_src_path", "缺少 src_path")

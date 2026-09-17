@@ -876,3 +876,22 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     挑"`await request.json()` + 随后重活"形状的（`awaits==1`）批量改 `def` + body 走签名
     → ③ `/clauses/office-edit/poll`、`/update/announce-export` 两条 T1+重 → ④ 派独立复核 **b13**。
 
+
+25. **T2 批次 24 条端点去阻塞化 + 一条"能自己发现同类"的通则闸门**（§10.79，step-79）。
+
+    | 项 | 一句话 | 状态 |
+    |---|---|---|
+    | 改 `def`（24 条） | `async def` 里**唯一的 await 只是 `request.json()`** ⇒ 读完 body 全是同步重活（LLM 调用 / 抽别名 / 快照落盘 / 包导入导出 / 网络探测 / **重算向量**…）；body 改走签名 | ✅ AJ1–AJ5 变异全 RED；`async def` **115 → 90** |
+    | **闸门抓出 4 条**作者漏掉的 | `/settings/api-config`(**GET**)、`/update/announce-sources`(**GET**)、`/clauses/office-edit/poll`、`/update/announce-export`，以及 `DELETE /clauses/patches/{patch_id}`（`delete_patch` → `_reindex_clause_indexes` **重算 FTS+向量** ⇒ 审计的 `ml-runtime/model-load` **不是误报**） | ✅ 已一并转换（"闸门帮我抓的"） |
+    | **通则闸门（新）** | `test_async_endpoints_that_only_read_body_are_not_heavy`：用审计标记族扫整个 API 面，"async + 唯一 await 是读 body + 带重标记（且不只 bulk-db）⇒ 必须 def"；**白名单只有 1 条**且必须写理由 | ✅ AJ5 专门证明它承重 |
+    | 新登记的缺陷 | `/compliance/review/{task_id}/execute`：外层只 `await request.json()`，但**重活在嵌套的 `async def event_stream()`** 里 ⇒ 改外层 `def` 无用；要治得把生成器改成**同步生成器**（Starlette 用线程池迭代） | ⏳ 登记（需单独验 SSE 行为） |
+    | 转型带来的 mypy 收紧 | `add_source(body.get("name"), …)`：`body` 从 `Any` → `dict | None` ⇒ `Any | None` 传 `str`。修法**保留宽松传参** + `# type: ignore[arg-type]` + 理由（校验在 `add_source` 内部做，先猜会把"缺 name"变成 `""` = 改行为） | ✅ 已修 |
+    | 死 `try` 清理 | 多数端点原来把读 body 包在 `try/except` 里 ⇒ 转完变死代码。只收**纯死**的四行形状（8 处），**不碰**"try 里还有别的行"的 | ✅ 已收 |
+
+    **终盘**：`async def` **140 → 90**；T1 **89 → 61**；**T1+重 36 → 13**（只剩纯 `bulk-db`，按 §10.78 取舍故意不转）；
+    T2+重 **41 → 21**（19 纯 bulk-db + `/execute` SSE + 1）。
+
+    **下一步（step-80 起）**：① `/execute` 的 SSE 生成器（新登记）→ ② 真机重启后的端到端复验
+    （需业主，我这一侧已就绪）→ ③ 处理 b13 复核发现（后台在跑）→ ④ 若还有余量：`bulk-db` 一族
+    挑一条量"写锁争用"的代价再决定。
+

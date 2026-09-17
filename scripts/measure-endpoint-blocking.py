@@ -232,6 +232,39 @@ def _seed_egress_audit(ctx: dict) -> None:
     ctx["seeded_rows"] = len(rows)
 
 
+@case
+def snapshot_create(ctx: dict) -> dict:
+    """`POST /api/v1/snapshots`：造快照 = 读整个库 + sha256 + 落盘（§10.79）。
+
+    ⚠ **本机量的是"小库"**：种 2 万条条款让临时库长到几 MB 量级；真机库是 **2.2GB**，
+    那条路是**秒级**（本用例给的是**下界**，别读成"生产只要几十毫秒"）。
+    """
+    return {"method": "POST", "path": "/api/v1/snapshots",
+            "body": {"type": "manual"}, "setup": _seed_bulk_clauses}
+
+
+def _seed_bulk_clauses(ctx: dict) -> None:
+    """往临时库塞一批条款（把"读库+哈希"的代价撑起来；只碰临时库）。"""
+    from src.core.storage.sqlite_db import get_db_connection
+
+    n = ctx.get("pages", 12) * 1700          # 默认 ≈2 万条
+    conn = get_db_connection()
+    conn.execute("DELETE FROM doc_meta WHERE doc_id='doc_bench'")
+    conn.execute(
+        "INSERT INTO doc_meta (doc_id, standard_no, standard_name, short_code,"
+        " current_revision_id, domain_tags, file_path, file_hash)"
+        " VALUES ('doc_bench','GB BENCH-2025','基准','BENCH','r1','[]','/x.pdf','h_bench')")
+    conn.executemany(
+        "INSERT OR REPLACE INTO clause_revision (clause_revision_id, doc_revision_id, doc_id,"
+        " clause_key, clause_number, content_text, content_markdown, page_start, page_end)"
+        " VALUES (?,?,?,?,?,?,?,?,?)",
+        [(f"cr_bench_{i:06d}", "r1", "doc_bench", f"k{i}", f"4.{i}",
+          f"第 {i} 条 生产经营单位应当建立动火作业审批制度并落实监护措施。", "", 1, 1)
+         for i in range(n)])
+    conn.commit()
+    ctx["seeded_rows"] = n
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--case", default="ingest_preview", choices=sorted(CASES))

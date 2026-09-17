@@ -113,12 +113,12 @@ def create_app(token: str) -> FastAPI:
     # ===== 阶段2.1 纠错补丁 API（外部评审响应：OCR/解析错误人工纠偏）=====
 
     @app.post("/api/v1/clauses/patches")
-    async def create_patch(request: Request):
+    def create_patch(body: dict | None = None):
         """创建纠错补丁。内置防乱检测（patch guard）：
         - reject：与原文几乎无关/大量乱码 → 422 拒绝落库
         - warning：长度/语言突变 → 首次返回 code=466 + 警告原因，
           前端二次确认后带 force=true 重新提交才落库（P1 红线：不写脏补丁）。"""
-        body = await request.json()
+        body = body or {}
         from src.core.storage import clause_repo
         from src.core.exceptions import KnowledgeStationError
         from src.core.verification.patch_guard import check_patch
@@ -272,7 +272,13 @@ def create_app(token: str) -> FastAPI:
                 "data": clause_repo.list_patches(clause_revision_id, limit)}
 
     @app.delete("/api/v1/clauses/patches/{patch_id}")
-    async def remove_patch(patch_id: str):
+    def remove_patch(patch_id: str):
+        """删除补丁（回滚到不可变原始值）。
+
+        ⚠ §10.79：`clause_repo.delete_patch` 在补丁改的是 `content_text` 时会走
+        `_reindex_clause_indexes` ⇒ **重算 FTS + 重算向量**（要加载嵌入模型 + 推理，秒级）
+        ⇒ 必须是 `def`。审计的 `ml-runtime/model-load` 标记在这里**不是**误报。
+        """
         from src.core.storage import clause_repo
         ok = clause_repo.delete_patch(patch_id)
         if not ok:
@@ -1261,8 +1267,8 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": out}
 
     @app.post("/api/v1/compliance/obligations")
-    async def gen_obligations(request: Request):
-        body = await request.json()
+    def gen_obligations(body: dict | None = None):
+        body = body or {}
         from src.core.compliance.obligation import generate_obligation_list
         return {"code": 200, "data": generate_obligation_list(body["business_description"])}
 
@@ -1312,8 +1318,8 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": [dict(r) for r in rows]}
 
     @app.post("/api/v1/compliance/gap-analysis")
-    async def run_gap(request: Request):
-        body = await request.json()
+    def run_gap(body: dict | None = None):
+        body = body or {}
         from src.core.compliance.gap_analysis import run_gap_analysis
         from src.core.exceptions import KnowledgeStationError
         try:
@@ -1521,9 +1527,9 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": [dict(r) for r in rows]}
 
     @app.post("/api/v1/aliases/extract")
-    async def aliases_extract(request: Request):
+    def aliases_extract(body: dict | None = None):
         """R48 术语抽取（对库内已有文档的'术语和定义'章节）。"""
-        body = await request.json()
+        body = body or {}
         doc_id = body.get("doc_id")
         conn = get_db_connection()
         # 整文档按 rowid 拼接再抽取：MinerU 切分会把"编号/术语/定义"拆到
@@ -2014,7 +2020,7 @@ def create_app(token: str) -> FastAPI:
             return 0
 
     @app.post("/api/v1/ks/answer")
-    async def ks_answer_endpoint(request: Request):
+    def ks_answer_endpoint(body: dict | None = None):
         """取证答案（P1a 同步端点，DSH 转生 ks_answer 引擎侧）。
 
         与 /api/v1/chat/completions（SSE）并存；SSE 事件顺序契约不动。
@@ -2022,7 +2028,7 @@ def create_app(token: str) -> FastAPI:
         响应包裹：{"code":200,"status":"success","data":{tier,evidence,derivation,conclusion,
         verification,notes,...}}。只引现行版条款；涉即将生效版本进 notes 单独说明。
         """
-        body = await request.json()
+        body = body or {}
         query = body.get("query", "")
         if not query or not str(query).strip():
             return _json_error(422, "query_required", "query 不能为空")
@@ -2060,9 +2066,9 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": {"name": path.name, "path": str(path)}}
 
     @app.post("/api/v1/documents/{old_doc_id}/migrate-patches")
-    async def migrate_patches_api(old_doc_id: str, request: Request):
+    def migrate_patches_api(old_doc_id: str, body: dict | None = None):
         """Task 10.4：旧版文档补丁跨修订平移到新版（三分支：平移/冲突入队/孤儿入队）。"""
-        body = await request.json()
+        body = body or {}
         new_doc_id = body.get("to")
         if not new_doc_id:
             return _json_error(422, "missing_target", "缺少目标文档 id (to)")
@@ -2073,12 +2079,12 @@ def create_app(token: str) -> FastAPI:
     # ===== Task 12.1 Office 往返编辑 =====
 
     @app.post("/api/v1/clauses/{clause_revision_id}/office-edit")
-    async def office_edit_start(clause_revision_id: str, request: Request):
+    def office_edit_start(clause_revision_id: str, body: dict | None = None):
         from src.core.exports.office_roundtrip import create_edit_session
         from src.core.exceptions import KnowledgeStationError
         rect = None
         try:
-            body = await request.json()
+            body = body or {}
             rect = body.get("rect") if isinstance(body, dict) else None
         except Exception:
             rect = None
@@ -2089,7 +2095,8 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": sess.to_dict()}
 
     @app.get("/api/v1/clauses/office-edit/poll")
-    async def office_edit_poll(session_id: str):
+    def office_edit_poll(session_id: str):
+        """轮询 Office 编辑会话（§10.79：要读会话文件 + 比对哈希 ⇒ 同步 I/O ⇒ `def`）。"""
         from src.core.exports.office_roundtrip import poll_edit_session
         from src.core.exceptions import KnowledgeStationError
         try:
@@ -2099,8 +2106,8 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": sess.to_dict()}
 
     @app.post("/api/v1/clauses/office-edit/commit")
-    async def office_edit_commit(request: Request):
-        body = await request.json()
+    def office_edit_commit(body: dict | None = None):
+        body = body or {}
         from src.core.exports.office_roundtrip import commit_edit_session
         from src.core.exceptions import KnowledgeStationError
         try:
@@ -2215,8 +2222,8 @@ def create_app(token: str) -> FastAPI:
     # ===== Task 12.3 批量问答 =====
 
     @app.post("/api/v1/batch/qa")
-    async def batch_qa(request: Request):
-        body = await request.json()
+    def batch_qa(body: dict | None = None):
+        body = body or {}
         questions = body.get("questions") or []
         from src.core.compliance.batch_qa import run_batch_qa
         from src.core.exceptions import KnowledgeStationError
@@ -2229,9 +2236,9 @@ def create_app(token: str) -> FastAPI:
     # ===== Task 11.4 本地视觉反查（截图 OCR → 检索，零云端） =====
 
     @app.post("/api/v1/vision/locate")
-    async def vision_locate(request: Request):
+    def vision_locate(body: dict | None = None):
         """截图/图纸反查：本地 MinerU OCR → 混合检索 → 条款定位。"""
-        body = await request.json()
+        body = body or {}
         image_path = body.get("image_path")
         if not image_path or not Path(image_path).exists():
             return _json_error(422, "missing_image", "缺少有效的 image_path")
@@ -2245,8 +2252,8 @@ def create_app(token: str) -> FastAPI:
     # ===== Task 13.5 快照备份与回滚 =====
 
     @app.post("/api/v1/snapshots")
-    async def create_snapshot(request: Request):
-        body = await request.json()
+    def create_snapshot(body: dict | None = None):
+        body = body or {}
         from src.core.storage.backup import create_snapshot as do_snapshot
         snap_type = body.get("type", "manual")
         return {"code": 200, "data": do_snapshot(snap_type)}

@@ -563,6 +563,37 @@ class TestSlowEndpointsAreDeclaredSync:
         "/api/v1/snapshots/{snapshot_id}/restore",
         "/api/v1/update/report/{batch_id}",
         "/api/v1/update/report-xlsx/{batch_id}",
+        # ---- T2 批次（§10.79）：这 20 条的 `async def` **只为了 `await request.json()`**，
+        # 读完 body 之后全是同步重活（LLM 调用 / python-docx / 抽别名 / 快照落盘 / 网络探测…）。
+        # 判据形状与 §10.71/§10.76 同款：body 走签名，坏 body 由 FastAPI 直接 422。
+        "/api/v1/clauses/patches",
+        "/api/v1/compliance/obligations",
+        "/api/v1/compliance/gap-analysis",
+        "/api/v1/aliases/extract",
+        "/api/v1/ks/answer",
+        "/api/v1/documents/{old_doc_id}/migrate-patches",
+        "/api/v1/clauses/{clause_revision_id}/office-edit",
+        "/api/v1/clauses/office-edit/commit",
+        "/api/v1/batch/qa",
+        "/api/v1/vision/locate",
+        "/api/v1/snapshots",
+        "/api/v1/update/announce-sources",
+        "/api/v1/update/announce-sources/{source_id}",
+        "/api/v1/discover/classify",
+        "/api/v1/ingest/bulk",
+        "/api/v1/ingest/bulk/{batch_id}/resume",
+        "/api/v1/data/package/export",
+        "/api/v1/data/package/import",
+        "/api/v1/settings/api-config",
+        "/api/v1/settings/api-config/test",
+        # ---- T1+重里**非 bulk-db** 的最后两条（§10.79 收尾）：一条要读 Office 会话文件 + 比哈希，
+        # 一条要 openpyxl 落盘。剩下 13 条 T1+重**只有 bulk-db**（单行写事务、毫秒级），
+        # 按 §10.78 的取舍**故意不转**——闸门不是"什么都往里塞"的筐。
+        "/api/v1/clauses/office-edit/poll",
+        "/api/v1/update/announce-export",
+        # 这条**不是** bulk-db：`clause_repo.delete_patch` 在补丁改的是 `content_text` 时会
+        # `_reindex_clause_indexes`（重算 FTS + **重算向量**）⇒ 要加载嵌入模型并推理。
+        "/api/v1/clauses/patches/{patch_id}",
     ])
     def test_declared_sync(self, client, path):
         import asyncio
@@ -571,6 +602,69 @@ class TestSlowEndpointsAreDeclaredSync:
         assert routes, f"路由不存在: {path}"
         assert not asyncio.iscoroutinefunction(routes[0].endpoint), (
             f"{path} 做同步重活，必须是 `def`（线程池），不能是 `async def`")
+
+    #: 「唯一 await 只是读 body」的例外：**必须在这里写清理由**，否则通则会把它判红。
+    _BODY_ONLY_ASYNC_ALLOWLIST = {
+        # SSE：外层虽然只 `await request.json()`，但**重活在嵌套的 `async def event_stream()` 里**
+        # ——把外层改成 `def` 解决不了任何事（生成器还是在事件循环里跑）。要治得把生成器改成
+        # **同步生成器**（Starlette 会用线程池迭代），那是一条独立的、需要单独验 SSE 的改动。
+        "/api/v1/compliance/review/{task_id}/execute",
+    }
+
+    def test_async_endpoints_that_only_read_body_are_not_heavy(self, client):
+        """**通则**：`async def` 里若**唯一的 await 只是读 body**，它就不会让出控制权 ⇒
+        这种端点**做重活就必须是 `def`**。
+
+        为什么要这条（而不是再抄一份白名单）：这个洞被发现过**两次**（复核 b12 的 MEDIUM-2、
+        §10.71 的审计），每次都是"复核撞见一条、修一条"。逐条白名单挡不住**将来新加**的端点；
+        这条通则用 `scripts/audit-async-endpoints.py` 的标记族自动覆盖整个 API 面。
+
+        判据（全部从**代码**取，不看注释——`_code_only` 已删 docstring/注释）：
+        1. 端点是 `async def`；
+        2. 它的 `await` **只有** `request.json()` / `request.body()` 这种"读 body"；
+        3. 它的可达路径上有**重**标记，且**不是**只有 `bulk-db`
+           （单行写事务是毫秒级 —— 那一族的取舍见 §10.78，这里不重复判）。
+        命中且不在白名单 ⇒ 红。
+        """
+        import asyncio
+        import importlib.util
+        import inspect
+        import textwrap
+        from pathlib import Path
+
+        c, _ = client
+        root = Path(__file__).resolve().parents[1]
+        spec = importlib.util.spec_from_file_location(
+            "ks_audit_probe", root / "scripts" / "audit-async-endpoints.py")
+        assert spec and spec.loader
+        audit = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(audit)
+
+        offenders = []
+        for r in c.app.routes:
+            ep = getattr(r, "endpoint", None)
+            path = getattr(r, "path", None)
+            if ep is None or path is None or not path.startswith("/api/"):
+                continue
+            if not asyncio.iscoroutinefunction(ep):
+                continue
+            try:
+                src = textwrap.dedent(inspect.getsource(ep))
+            except (OSError, TypeError):        # pragma: no cover
+                continue
+            awaits = [ln for ln in src.splitlines() if "await " in ln]
+            body_only = awaits and all(
+                ("request.json()" in ln or "request.body()" in ln) for ln in awaits)
+            if not body_only:
+                continue
+            info = audit.audit_endpoint(ep)
+            heavy = {k for k in info.get("markers", {}) if k not in ("fs-copy", "bulk-db")}
+            if heavy and path not in self._BODY_ONLY_ASYNC_ALLOWLIST:
+                offenders.append((path, sorted(heavy)))
+        assert not offenders, (
+            "这些 `async def` 只读了一下 body 就在做同步重活（应改 `def` + body 走签名）：\n"
+            + "\n".join(f"  {p}  {m}" for p, m in offenders)
+            + f"\n（若确有理由保留 async，请加进 _BODY_ONLY_ASYNC_ALLOWLIST 并写清原因）")
 
     @pytest.mark.parametrize("module,min_routes", [
         # 这个文件里的每一件事都是同步重活（秒级 SQL 聚合 / openpyxl·pptx 落盘 / 逐份 sha256），

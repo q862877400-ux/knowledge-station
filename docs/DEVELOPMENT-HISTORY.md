@@ -4462,3 +4462,103 @@ embedder.is_available()`、入库时的 `embed_batch` 这些**真要拿模型**�
    所以它只用于**排序**，实测仍是唯一裁决。
 3. 本步只做"看得更准"，**没有**改变任何端点行为。
 
+
+## §10.79 T2 批次：24 条"只 await 一下 body 就在做重活"的端点改 `def` —— 并加了一条**能自己发现同类**的通则闸门
+
+**一句话**：把"`async def` 里唯一的 `await` 只是 `request.json()`，读完 body 全是同步重活"的
+**24 条**端点（LLM 调用 / 抽别名 / 快照落盘 / 包导入导出 / 网络探测 / 重算向量 …）一次收口，
+body 改走函数签名；并且这次**没有**再抄一份 24 行白名单，而是加了一条**通则闸门**
+（`test_async_endpoints_that_only_read_body_are_not_heavy`）——它用审计的标记族扫整个 API 面，
+**将来谁再写一条同族端点会自动红**。
+
+### 1. 先说分类：43 条"只读 body"，为什么只改 24 条
+
+全库 `async def` 里"唯一的 await 是读 body"的有 **43 条**。按 §10.78 定的取舍：
+**只改"带重标记且不只是 `bulk-db`"的那些**（单行写事务是毫秒级，全改的收益≈0 且会把闸门表塞成
+"什么都进"）。最终改 **24 条**（20 条 T2 + 4 条在这次核对中**被闸门抓出来的**）：
+
+- **T2（40 条里的 20 条）**：`clauses/patches`(POST)｜`compliance/obligations`｜`gap-analysis`｜
+  `aliases/extract`｜`ks/answer`｜`documents/{old}/migrate-patches`｜`clauses/{id}/office-edit`｜
+  `office-edit/commit`｜`batch/qa`｜`vision/locate`｜`snapshots`(POST)｜`announce-sources`(POST/PUT)｜
+  `discover/classify`｜`ingest/bulk`｜`ingest/bulk/{id}/resume`｜`data/package/export`｜
+  `data/package/import`｜`settings/api-config`(PUT)｜`settings/api-config/test`
+- **闸门抓出来的 4 条**（我按路径找候选时漏掉的**同路径兄弟/纯 T1**）：
+  `settings/api-config`(**GET** 要读凭据文件)｜`announce-sources`(**GET** 要读配置)｜
+  `clauses/office-edit/poll`(读会话文件 + 比哈希)｜`update/announce-export`(openpyxl)｜
+  `clauses/patches/{patch_id}`(DELETE ⇒ `_reindex_clause_indexes` **重算 FTS + 向量**)
+  —— 最后这条尤其值得记：审计的 `ml-runtime/model-load` 标记**不是误报**。
+
+**没改的**（都写清了理由）：23 条**只有 `bulk-db`** 的（毫秒级写事务，§10.78 的取舍）、
+`/chat/completions`（真异步：`anyio.to_thread` + 流式）、`/laws/*` 5 条（用 `asyncio.to_thread`
+包同步活——**正确写法**，本次特意留着当范本）、`/compliance/review/{id}/execute`（SSE，见 §3）。
+
+### 2. 怎么改的（不靠手抄，也不靠"改完再说"）
+
+- 写了个**干跑**转换器（`var/tmp/convert-t2-batch.py`，脚手架区）：先打印**每一处要动的两行**
+  （43 条里筛出 20 条），我逐条看过才 `--apply`；每步都做 `ast.parse` 语法自检。
+- 转换后发现**多数原本有 `try/except` 包着读 body** ⇒ 留了个"永远不抛"的死 `try`。
+  第二个脚本（`collapse-dead-try.py`）只收**纯死**的那种四行形状（收了 8 处），
+  **不碰**"try 里还有别的行"的（例如 `vision_locate` 那个 `try` 还护着 `rect = body.get(...)`）——
+  收那种等于顺手改行为。
+- **语义变化（有意）**：坏 body 从"被 `except` 吞成空 body"（或 500）变成 **FastAPI 直接 422**，
+  与 §10.71/§10.76 同口径。`routes_settings.api_config_put` 原来那句自定义 422
+  （"body 必须为 JSON"）随之删掉（它已成死代码）——全库无测试钉那句话（已 grep 确认）。
+- **mypy 抓到 2 处**（转型带来的真实收紧）：`announce.add_source(body.get("name"), ...)`
+  ——`body` 从 `Any` 变成 `dict | None` ⇒ `Any | None` 传给 `str` 形参。修法是**保留宽松传参** +
+  `# type: ignore[arg-type]` 并写清理由：**缺参/非字符串的校验在 `add_source` 内部做**
+  （`_validate_source_payload` → 422/UPD-3008），先猜会把"缺 name"变成 `""`，那是**改行为**。
+
+### 3. 通则闸门（本步最有价值的产出）
+
+```
+async def  +  唯一的 await 只是读 body  +  可达路径上有"重"标记（且不只是 bulk-db）
+⇒ 必须是 def（白名单只有一条，且必须写理由）
+```
+它 import 审计脚本的标记族（含 §10.78 新加的 `model-load`/`ml-runtime`）在**整个 API 面**上跑，
+所以**不用维护白名单**。白名单目前**只有一条**：
+`/api/v1/compliance/review/{task_id}/execute` —— **SSE**：外层虽然只 `await request.json()`，
+但重活在**嵌套的 `async def event_stream()`** 里；把外层改 `def` 解决不了任何事。
+**这是一条新登记的缺陷**：要治得把那个生成器改成**同步生成器**（Starlette 会用线程池迭代它），
+属于需要单独验 SSE 行为的改动 —— 留给下一步。
+
+变异证明它真的承重：**AJ5** 把 `aliases/extract` 还原成完整旧形状（`async def` + `await
+request.json()`），**只跑通则那条** ⇒ RED（指名该端点）。AJ1–AJ4 分别还原 3 个不同文件的端点
+⇒ 逐条表 RED。
+
+### 4. 量到的
+
+`POST /api/v1/snapshots`（造快照 = 读库 + sha256 + 落盘），量具新增 `snapshot_create` 用例
+（种 2 万条条款把临时库撑到 MB 级）：
+
+| | 改前 | 改后 |
+|---|---|---|
+| 请求耗时 | 0.0324s | 0.0343s |
+| 事件循环最大空档 | 0.0266s | 0.0158s（空闲基线 0.0065s） |
+
+⚠ **本机量的是"小库"**：真机库 **2.2GB**，那条路是**秒级**——这个用例给的是**下界**。
+本批其余端点的收益同理（LLM 调用/向量重算/包导入导出在真机上都是秒级）。
+
+### 5. 终盘（累计）
+
+| 指标 | §10.71 基线 | 现在 |
+|---|---|---|
+| `async def` 端点 | 140 | **90** |
+| T1（函数体无 `await`） | 89 | **61** |
+| **T1 且重** | 36 | **13**（**全部**只剩 `bulk-db`，按取舍故意不转） |
+| T2（有 `await` + 重） | 41 | **21**（19 纯 bulk-db + `/execute` SSE + 1） |
+
+### 6. 证据
+
+`pytest` **1779 passed / 3 skipped / 0 failed**（1755 → +24：20 条 T2 逐条 + 5 条兄弟/T1 逐条... 
+合计 24 条逐条 + 1 条通则）；`mypy` **134 / 0**；`tsc` 0；`smoke` EXIT=0（19 段）；
+`verify:commands` 22/22。变异 AJ1–AJ5 全 RED、还原字节一致。转换器干跑记录与审计 JSON 在
+`var/tmp/`（脚手架区）。
+
+### 7. 诚实边界
+
+1. `/execute`（SSE）**没修**（见 §3），已登记；这是本批唯一"知道有问题但故意留着"的。
+2. 23 条纯 `bulk-db` 的也**没转**（§10.78 的取舍），它们**不在**通则闸门的判据里
+   （闸门把 `bulk-db` 排除），所以不会造成"闸门一直红"的噪声。
+3. 量的是小库（§4）；真机重启后才生效。
+4. 本步**零前端改动**。
+
