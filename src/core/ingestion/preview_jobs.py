@@ -214,6 +214,10 @@ def _public_view(job: dict, *, rows_offset: int = 0, rows_limit: int = 200) -> d
         "rows_offset": off,
         "error": job["error"],
         "doc_type": job["doc_type"],
+        # 外发标注（2026-09-17 独立复核 F3）：异步路径此前**不外露 egress**，而
+        # routes 的 docstring 声称"响应里始终带 egress"——调用方开启外发后拿不到任何标注。
+        # 与 dry_run 同口径（默认 none；允许深度通道即 deep_channel，保守高报）。
+        "egress": "none" if not job.get("deep_fallback", False) else "deep_channel",
         "created_at": job["created_at"],
         "started_at": job["started_at"],
         "finished_at": job["finished_at"],

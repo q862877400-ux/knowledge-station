@@ -29,6 +29,23 @@ from src.core.exceptions import KnowledgeStationError
 _BATCH_LIMIT = 200
 
 
+def _parse_allow_deep(body: dict | None) -> tuple[bool, str]:
+    """严格取 `allow_deep`：返回 ``(值, 错误消息)``，错误消息非空即应 422。
+
+    ⚠ **必须是严格布尔**（2026-09-17 独立复核 F4）：原实现是
+    ``bool(body.get("allow_deep") or False)``，而 JSON 字符串 ``"false"`` 是**真值**
+    ⇒ "传 false" 反而**开启了外发**，与"默认安全"的设计意图直接冲突（已实测复现）。
+    同文件对 `paths`/`sample`/`limit_files`/`batch_size` 都做了严格校验，这里是唯一破口。
+    只接受 JSON 的 `true`/`false`（Python `bool`）；`1`/`0`/`"true"`/`"false"` 一律拒绝
+    ——整数 1 在别的语言里虽是常见真值写法，但"猜他想要什么"正是出事的根源。
+    """
+    raw = (body or {}).get("allow_deep", False)
+    if isinstance(raw, bool):
+        return raw, ""
+    return False, (f"allow_deep 必须是布尔值 true/false，收到 {type(raw).__name__}"
+                   f"（{raw!r}）；不接受 \"true\"/\"false\" 字符串或 1/0")
+
+
 def register(app, json_error):
     @app.post("/api/v1/ingest/preview")
     async def ingest_preview(payload: dict):
@@ -49,7 +66,10 @@ def register(app, json_error):
         # 显式允许深度通道（云优先 = 可能外发）。2026-09-17 D5：原先这里直接 422 拒绝，
         # 现在**真的接线**，并把决定权交还调用方——但**默认仍是 False**（不外发），
         # 且报告里的 `egress` 会如实标成 `deep_channel`（红线 4 / D2：不禁止，但必须留痕）。
-        allow_deep = bool((payload or {}).get("allow_deep") or False)
+        # F4：严格布尔，防 "false" 字符串被当成开启。
+        allow_deep, deep_err = _parse_allow_deep(payload)
+        if deep_err:
+            return json_error(422, "preview_bad_request", deep_err)
         try:
             data = dry_run.analyze_preview_report(p, doc_type=doc_type,
                                                  deep_fallback=allow_deep)
@@ -97,9 +117,12 @@ def register(app, json_error):
         if not paths:
             return json_error(404, "preview_no_candidates", "候选目录下没有 PDF")
 
+        allow_deep, deep_err = _parse_allow_deep(body)
+        if deep_err:
+            return json_error(422, "preview_bad_request", deep_err)
         data = dry_run.preview_batch(paths, sample=sample,
                                     doc_type=str(body.get("doc_type") or "standard"),
-                                    deep_fallback=bool(body.get("allow_deep") or False),
+                                    deep_fallback=allow_deep,
                                     limit_files=limit_files)
         return {"code": 200, "status": "success", "data": data}
 
@@ -161,9 +184,12 @@ def register(app, json_error):
             batch_size = int(body.get("batch_size") or 0)
         except (TypeError, ValueError):
             return json_error(422, "preview_bad_request", "batch_size 必须是整数")
+        allow_deep, deep_err = _parse_allow_deep(body)
+        if deep_err:
+            return json_error(422, "preview_bad_request", deep_err)
         view = preview_jobs.create_job(
             paths, doc_type=str(body.get("doc_type") or "standard"),
-            deep_fallback=bool(body.get("allow_deep") or False),
+            deep_fallback=allow_deep,
             sample=0, batch_size=batch_size)
         return {"code": 200, "status": "success", "data": view}
 

@@ -210,6 +210,9 @@ class TestEgressContract:
         fin = _wait_terminal(view["job_id"])
         assert fin["status"] == "done"
         assert seen == [False], f"异步路径默认必须不外发，实测 {seen}"
+        # 控制面必须能拿到外发标注（独立复核 F3：此前 _public_view 不外露 egress，
+        # 而 routes 的 docstring 声称"响应里始终带 egress"）
+        assert fin["egress"] == "none", fin.get("egress")
 
     def test_explicit_optin_reaches_parser_and_is_recorded(self, tmp_path, monkeypatch):
         from src.core.ingestion import dry_run
@@ -231,4 +234,6 @@ class TestEgressContract:
         assert seen == [True], f"显式开启没有透传到解析层（假修）：{seen}"
         # 决定被记录在任务里（不是只存在于调用栈里）
         assert preview_jobs._preview_jobs[fin["job_id"]]["deep_fallback"] is True
+        # 且控制面能看到它（F3）
+        assert fin["egress"] == "deep_channel", fin.get("egress")
 

@@ -1510,15 +1510,30 @@ def resolve_edges(raw_edges: list[dict[str, Any]],
 def analyze_preview(pdf_path: Path) -> dict:
     """R27 入库预览 Dry-Run（Task 11.5）：解析但不落库，输出切分/分型/质量预览。
 
-    走快速文本层路径（force_deep=False，不调 MinerU 深度模型），秒级返回；
-    供入库前人工确认（拦截乱码/严重倾斜文档）。
+    走快速文本层路径，秒级返回；供入库前人工确认（拦截乱码/严重倾斜文档）。
+
+    ⚠ **两条历史坑（2026-09-17 独立复核 F2 修）**：
+    1. 原 docstring 写"`force_deep=False`，不调 MinerU 深度模型"——**这是把
+       `force_deep` 误当成深度通道的开关**。深度通道的真实触发条件是
+       `if not blocks:`（见 `dry_run` 模块 docstring 与 `mineru_adapter.py:466-483`），
+       **与 `force_deep` 无关**。
+    2. 原实现**不传 `deep_fallback`** ⇒ 吃到 `parser_worker` 的默认值 **True** ⇒
+       扫描件（无文本层）会走**云优先**的深度通道，即**默认就可能外发**，且返回体里
+       **没有 `egress` 字段**，调用方无从知情。这是 D5 未覆盖的一个兄弟入口（可达性
+       当前为 0：非测试调用者不存在，属**潜在**缺陷而非活的 P0）。
+    ⇒ 现显式传 `deep_fallback=False`（与 docstring 声明的意图一致：只要快速文本层）。
+       返回体**不加 `egress` 字段**——它是被冻结的老接口
+       （`tests/test_dryrun_report.py::test_dry_analyze_preview_contract_frozen` 钉住键集合），
+       而本函数既然恒不外发，调用方也不需要这个字段；为"口径好看"去动冻结契约不划算。
+       若将来本函数要支持外发，**那时**再走契约变更流程加字段。
     """
     from src.core.ingestion.parser_worker import run_parser_isolated
     from src.core.knowledge.classifier import classify_clause
     if not pdf_path.exists():
         return {"status": "error", "message": f"文件不存在: {pdf_path}"}
+    # deep_fallback=False：无文本层就不解析，绝不静默走云深度通道（F2）
     result = run_parser_isolated(pdf_path, get_settings().data_dir / "preview_tmp",
-                                 force_deep=False)
+                                 force_deep=False, deep_fallback=False)
     items, _ = load_middle_items_from_blocks(result["blocks"])
     clauses = split_items_into_clauses(items)
     previews = []

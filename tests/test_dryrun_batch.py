@@ -308,6 +308,30 @@ def test_api_preview_allow_deep_is_wired_and_reported(client, db, tmp_path):
     assert data["deep_fallback_disabled"] is False, data.get("deep_fallback_disabled")
 
 
+def test_api_preview_allow_deep_non_bool_is_rejected(client, db, tmp_path):
+    """`allow_deep` 必须**严格布尔**，且**只有真布尔 true 才开启**（独立复核 F4）。
+
+    原实现是 `bool(body.get("allow_deep") or False)` ⇒ JSON 字符串 `"false"`
+    是**真值**，于是"传了 false"反而**开启了外发**——与"默认安全"的设计意图直接冲突。
+    同文件对 `paths`/`sample`/`limit_files`/`batch_size` 都做了严格校验，这里是唯一破口。
+    ⇒ 非布尔一律 422（与其余字段的错误码一致：`preview_bad_request`）。
+    """
+    c, token = client
+    p = _mk_good_pdf(tmp_path, "api_deep_type.pdf")
+
+    for bad in ("false", "true", 1, 0, [], {}):
+        r = c.post("/api/v1/ingest/preview",
+                   json={"path": str(p), "allow_deep": bad}, headers=HDR)
+        assert r.status_code == 422, f"allow_deep={bad!r} 应被拒绝，实际 {r.status_code}"
+        assert "preview_bad_request" in r.text, r.text
+
+    # 真布尔 true 仍然正常工作（不能被这次收紧误伤）
+    r2 = c.post("/api/v1/ingest/preview",
+                json={"path": str(p), "allow_deep": True}, headers=HDR)
+    assert r2.status_code == 200, r2.text
+    assert r2.json()["data"]["egress"] != "none"
+
+
 def test_api_preview_accepts_extensionless_pdf(client, db, tmp_path):
     """**无扩展名的 PDF 必须被接受**（真机发现）：DSH 附件是哈希文件名。
 

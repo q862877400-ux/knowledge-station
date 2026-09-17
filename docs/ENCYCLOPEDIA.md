@@ -426,7 +426,7 @@ write_queue / event_log（统一事件模型）/ debug_dump（每次提问落库
 
 ## 9.5 Dry-Run 预览（Phase 11.5 / R27 红线落地 2026-09-11）
 
-`pipeline.analyze_preview()`：快速文本层路径秒级预览（条款数/分型分布/可疑数/样本）——**不落库断言**（测试用全表行数差分 + sqlite_master 差分证明）+ **零外发断言**（egress:"none" 真机确证）。批量场景：异步预览 jobs（preview_jobs.py 引擎侧 + host 侧推进 + 📥 入库预览 tab 三半边）+ 批量分桶（✅/⚠️/❌ 总账）。
+`pipeline.analyze_preview()`：快速文本层路径秒级预览（条款数/分型分布/可疑数/样本）——**不落库断言**（测试用全表行数差分 + sqlite_master 差分证明）+ **`egress:"none"` 为默认属性**（2026-09-17 D5 起：默认不外发；显式 `allow_deep=true` 才走云深度通道并如实标注 `deep_channel`——原表述"零外发断言"已不再是无条件性质，勿再当政策引用）。批量场景：异步预览 jobs（preview_jobs.py 引擎侧 + host 侧推进 + 📥 入库预览 tab 三半边）+ 批量分桶（✅/⚠️/❌ 总账）。
 
 ## 9.6 数据体检
 

@@ -1,6 +1,7 @@
 """DeepSeek 官方 API 流式客户端（openai SDK 协议）。
 
-零外发红线：Prompt 仅含用户问题 + 检索出的最小必要证据片段。
+Prompt 最小化（**成本与准确性口径，不是外发禁令**——2026-09-17 起"零外发"红线已撤销，
+改为"外发可审计"）：Prompt 仅含用户问题 + 检索出的最小必要证据片段。
 Key 仅从环境变量/Settings 读取；未配置时抛 LLMError，由上层降级为占位答案。
 """
 from __future__ import annotations

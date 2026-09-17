@@ -3019,7 +3019,8 @@ def create_app(token: str) -> FastAPI:
     from src.core.api import routes_settings
     routes_settings.register(app, _json_error)
 
-    # R27 入库预览（Dry-Run）+ 批量分桶（决策 1/2）——只读、零外发
+    # R27 入库预览（Dry-Run）+ 批量分桶（决策 1/2）——只读；
+    # 外发**默认关闭**，`allow_deep=true` 才走云深度通道并如实标注 egress（2026-09-17 D5）
     from src.core.api import routes_ingest_preview
     routes_ingest_preview.register(app, _json_error)
 
