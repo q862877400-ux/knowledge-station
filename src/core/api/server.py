@@ -158,6 +158,55 @@ def is_heavy_path(path: str) -> bool:
     return any(path.startswith(p) for p in HEAVY_PREFIXES)
 
 
+def warm_retrieval_stack() -> int:
+    """把检索要用的**两件慢初始化**做掉（**必须在线程里调**，见 §10.94 的调用点）。
+
+    ## 为什么需要它（实测，不是推断）
+    `/api/v1/chat/completions` 是**唯一**剩下的 `async def` 端点（§10.93 之后），而它在进
+    生成器之前要跑一遍**同步**检索。冷启动时那一段里有两次一次性慢初始化：
+
+    | 事 | 实测耗时（`var/tmp/probe-chat-blocking.py`，本机） |
+    |---|---|
+    | fastembed 下载/加载 `BAAI/bge-small-zh-v1.5`（"Fetching 5 files"） | ≈ **5.2s** |
+    | jieba 建前缀词典 | ≈ **0.33s** |
+    | **合计：事件循环被占** | **6.79s**（`max_gap_s`） |
+
+    这两件事**本该只发生一次**——问题不在"一次"，在**发生的位置**：`def` 端点（如
+    `/api/v1/ks/answer`）天生跑在**线程池**里，所以它冷启动只是"这条请求慢"；
+    而这条 `async def` 端点把同样的活放在**事件循环**里 ⇒ **启动后第一次提问会把整个引擎
+    冻住 ≈7s**（期间连 `/health` 都不响应）。预热之后同一条链路的空档回到 **0.020s**
+    （3×0.3s 的分块活照做，耗时 0.91s）。
+
+    ## 为什么不是"在 lifespan 里预热"
+    ① `httpx.ASGITransport` **不跑 lifespan**（量具与真实路径会不一致，§10.81 已经踩过）；
+    ② 离线机器上启动会卡在一次下载超时；③ `/health` 必须廉价，启动变慢会牵动插件侧的
+    就绪握手。**每请求调一次**是幂等的（`is_available()` 热态只读一个全局；jieba 自己认
+    `dt.initialized`），热态代价是一次线程跳（实测 0.1–0.15ms，§10.87 的数字）。
+
+    ## 失败怎么办
+    **绝不影响请求**：`embedder.is_available()` 自己吞异常并进 60s 冷却（返回 False），
+    jieba 那条也包起来。离线机器上最坏是"每 60s 有一次请求在线程里付一次网络超时"——
+    与 `def` 端点今天的语义一致，且**不再冻事件循环**。
+
+    返回**实际做过加载尝试的次数**（0 或 1）——给用例/探针一个可断言的返回值，
+    而不是靠"没报错就算成了"。
+    """
+    tried = 0
+    try:
+        from src.core.retrieval import embedder
+        if embedder.health() != "ok":        # 已加载 ⇒ 连 _get_model 都不进
+            embedder.is_available()
+            tried += 1
+    except Exception:                        # noqa: BLE001 — 预热失败不该让请求失败
+        pass
+    try:
+        from src.core.text_utils import segment_for_fts
+        segment_for_fts("预热")               # jieba 词典（幂等；jieba 自己缓存）
+    except Exception:                        # noqa: BLE001
+        pass
+    return tried
+
+
 class _HeavyGateMiddleware:
     """重活专用闸门（**纯 ASGI**，不是 `BaseHTTPMiddleware`）。
 
@@ -1829,6 +1878,12 @@ def create_app(token: str) -> FastAPI:
         """
         body = await request.json()
         query = body.get("query", "")
+        # ⚠ §10.94：本端点**唯一**剩下的 `async def`，而它进生成器前要跑同步检索。
+        # 冷启动的两次一次性慢初始化（fastembed 下载/加载 ≈5.2s + jieba 词典 ≈0.33s）
+        # **必须在进循环体之前、在线程里**付掉——否则启动后第一次提问把整个引擎冻住 ≈6.8s
+        # （实测见 `warm_retrieval_stack()` 的 docstring）。
+        import anyio as _anyio
+        await _anyio.to_thread.run_sync(warm_retrieval_stack)
         history = body.get("history") or []   # R60: 多轮历史 [{role, content}]（可选）
         top_k = body.get("top_k", 3)
         channels = body.get("channels")

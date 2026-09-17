@@ -1190,3 +1190,27 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     → ③ 真机重启后端到端/人眼确认 Word+PPT（需业主）。
 
 
+40. **§10.94 量具接名单（第二层）——尺子第一次跑就抓出并修掉一个真缺陷**
+    （step-94；历史：`docs/DEVELOPMENT-HISTORY.md` §10.94；快照标签
+    `step-93-chat-warmup-and-measured-allowlist`，标签号比章节号小 1）。
+
+    | 项 | 一句话 | 状态 |
+    |---|---|---|
+    | 第二层落地 | `_MEASURED_ASYNC`（量过）与 `_NOT_MEASURABLE_ASYNC`（写明为什么量不了）**恰好覆盖**名单、互斥、理由非空 ⇒ 名单新增一条就红（逼作者做决定，不许"点名一条放过其余"） | ✅ 名单只剩 1 条（§10.93 的功劳），本条可完成 |
+    | 量法 | 心跳 + `ASGITransport`；两个慢点**都是自塞的定值**（假 LLM 每块 0.3s×3、假 fastembed 加载 1.0s）⇒ 不依赖机器性能、不联网；断言"耗时 ≥ 活的总量"**且**"空档 < 单笔一半"（只满足一边就是假绿/漏放） | ✅ |
+    | **抓出的真缺陷** | `/chat/completions`（唯一剩下的 async 端点）**冷启动第一次提问把事件循环占 6.79s**（fastembed 下载/加载 5.2s + jieba 词典 0.33s 都在 `async def` 端点体里）；第 2/3 次只要 0.020s ⇒ **一次性初始化放错了位置**（`def` 端点天然在线程池里，所以只有这一条有此问题） | ✅ 已修 |
+    | 修法 | `warm_retrieval_stack()`（幂等，`health()=="ok"` 就不进 `_get_model()`）+ 端点进循环体前 `await anyio.to_thread.run_sync(...)`；不在 lifespan 预热（`ASGITransport` 不跑 lifespan、离线会卡启动、`/health` 必须廉价） | ✅ 改后首请求空档 **6.79s → 0.056s**（耗时仍 8.14s：下载照做，但引擎是活的——544 个心跳样本 vs 82） |
+    | 判据承重 | 两个反事实都做：删预热 ⇒ `max_gap 1.3382s` 红；把逐块 `run_sync` 改成直接调用 ⇒ `0.6011s` 红；两次变异都**逐字节复原**（前后 sha256 相同） | ✅ |
+    | 门禁 | pytest **1821 passed / 3 skipped / 0 failed（收集 1824）**；mypy 134/0；tsc 0；smoke EXIT=0；22/22；uvicorn 4/4；chat 一族 + material_api + threadpool **184 passed** | ✅ |
+
+    **诚实边界**：① 修的是**一次性初始化**，热态检索**仍在循环里**（空库 ≈14ms，**真实大库未量**；
+    若偏大，正确修法是把整段检索挪进线程，独立一步）；② 判据是**计时**的（阈值 0.5s，余量 10× 以上，
+    偶发红应**调大常数**而不是放松断言）；③ 离线机器上预热会在**线程里**付一次网络超时（**未实测**）；
+    ④ `/chat/completions` 仍不在重活表里（它占线程是毫秒级）；⑤ 全部数字来自进程内 `ASGITransport`
+    + 假 LLM/假 fastembed，**无真机 e2e**。
+
+    **下一步**：① **自动成文（系统起草、用户批准）**是否立项（触及答案链 P1）→ ② 真机重启后端到端 +
+    人眼确认 Word/PPT，并在真机上量"热态检索在循环里占多久"（需业主）→ ③ 把复核纪律的 INFO-1
+    （`git archive` 在 autocrlf 下是 CRLF）写进复核模板。
+
+

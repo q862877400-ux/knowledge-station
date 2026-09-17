@@ -845,6 +845,129 @@ class TestSlowEndpointsAreDeclaredSync:
               "被 THREADPOOL_TOKENS=16 收窄的池，首选；② 确实必须是 async 就写 "
               "`await anyio.to_thread.run_sync(...)`，同一口池。）")
 
+    #: **名单第二层（§10.94）**：名单里的 async 端点**要么被量过、要么写明为什么量不了**。
+    #:
+    #: 为什么要有这一层：通则一/二/三都是**静态**判据（"有没有真 await"、"在不在名单里"、
+    #: "用不用无界池"），它们能拦住"形状不对"，但拦不住"**形状对、实际仍然堵住事件循环**"。
+    #: b17/b18/b21 三轮都对这条提过同一句：把仓里那把量具（`scripts/measure-endpoint-blocking.py`，
+    #: 心跳协程 + `ASGITransport`）接到名单上当第二层。
+    #: ⚠ 诚实前提：名单里**量不出来的**端点必须写进 `_NOT_MEASURABLE_ASYNC` 并说明理由——
+    #: 否则"量具接名单"会退化成"点名一条、其余默认放过"，比不做更坏（假覆盖）。
+    #: 现在名单只剩 1 条，而且它**量得出来**（下面那条用例真的量）。
+    _MEASURED_ASYNC: dict[str, str] = {
+        "/api/v1/chat/completions":
+            "假 LLM 流每块在**线程**里阻塞 0.3s ×3 + 假 fastembed 加载阻塞 1.0s（两个都 monkeypatch）"
+            "⇒ 端点耗时 ≥1.9s，而事件循环最大空档 <0.5s（**加载与分块活都不在循环里**）。"
+            "两个反事实都验过（字节级变异 + 复原）：① 把 server.py 里 "
+            "`part = await anyio.to_thread.run_sync(_next_chunk)` 改成直接 "
+            "`part = _next_chunk()` ⇒ 空档 **0.6011s**；"
+            "② 删掉端点开头的 `await anyio.to_thread.run_sync(warm_retrieval_stack)` ⇒ "
+            "空档 **1.3382s**（都 ≥0.5s 阈值 ⇒ 用例红在预期断言上）",
+    }
+    _NOT_MEASURABLE_ASYNC: dict[str, str] = {}   # 目前为空：名单里唯一那条是量得出来的
+
+    def test_名单里的_async_端点要么量过要么写明不可量(self, client, monkeypatch):
+        """**量具接名单（第二层，§10.94）**：名单里的每条 async 端点，要么被**量**过，
+        要么在 `_NOT_MEASURABLE_ASYNC` 里写明**为什么量不了**（不许静默放过）。
+
+        判据（分两段）：
+          1. **口径**：`_MEASURED_ASYNC` 与 `_NOT_MEASURABLE_ASYNC` 必须**恰好覆盖**名单、
+             两两不交、理由非空（名单新增一条时这条会红 ⇒ 逼作者做决定）；
+          2. **真的量**（`scripts/measure-endpoint-blocking.py` 的心跳 + `ASGITransport`）：
+             两个"工作"都放在**线程/缝**后面——
+             · 假 LLM 流每块阻塞 0.3s ×3（`stream_chat_completion` 被 monkeypatch）；
+             · 假 fastembed `__init__` 阻塞 1.0s（`embedder._import_text_embedding` 这个
+               **文档里写明的唯一缝**，不联网、不真装模型）。
+             于是要求：端点耗时 ≥ 1.0 + 0.9×0.8（**活真的干了**——否则"空档小"毫无意义）；
+             事件循环最大空档 **< 0.5s**（≈ 假加载单笔耗时的一半）。
+
+        ⚠ 这条用例**同时**钉住 §10.94 修的那个缺陷：`/chat/completions` 冷启动时
+        fastembed 加载 + jieba 词典都在 `async def` 端点体里 ⇒ 实测把事件循环占了 **6.79s**
+        （`var/tmp/probe-chat-blocking.py`：第一次 6.79s / 第二次 0.020s，同进程）。
+        现在端点开头有一次 `await anyio.to_thread.run_sync(warm_retrieval_stack)`；
+        **把它删掉，这条用例就会红在 0.5s 那个阈值上**。
+
+        ⚠ 为什么这条**允许**用计时：它量的就是"时间"。这里两个慢点都是**自己塞进去的定值**
+        （0.3s / 1.0s，不是"机器有多快"），阈值取单笔的 1/2 ⇒ 机器再卡也不会把 20ms 抖成 500ms
+        （仓里 `tests/test_measure_harness.py` 的尺子闸门用同款余量）。
+        真出现偶发红：**先把这两个常数调大**，不要放松断言。
+        """
+        import asyncio
+        import time as _time
+
+        c, _ = client
+        # ---- 1. 口径：覆盖、互斥、理由非空 ----
+        measured, unmeasurable = set(self._MEASURED_ASYNC), set(self._NOT_MEASURABLE_ASYNC)
+        assert not (measured & unmeasurable), f"同一条既量过又不可量：{measured & unmeasurable}"
+        assert measured | unmeasurable == set(self._ASYNC_ENDPOINTS), (
+            "名单第二层的口径对不上：\n"
+            f"  名单        {sorted(self._ASYNC_ENDPOINTS)}\n"
+            f"  已量        {sorted(measured)}\n"
+            f"  声明不可量  {sorted(unmeasurable)}\n"
+            "（新增 async 端点时必须二选一：真的量一次，或写明为什么量不了）")
+        for path, why in {**self._MEASURED_ASYNC, **self._NOT_MEASURABLE_ASYNC}.items():
+            assert why.strip(), f"{path} 的理由是空的（等于没写）"
+
+        # ---- 2a. 把"冷启动"造出来（不联网）：假 fastembed 的加载要 1.0s ----
+        from src.core.api import server
+        from src.core.config import get_settings
+        from src.core.retrieval import embedder
+
+        CHUNK_S, N_CHUNKS, MODEL_LOAD_S = 0.3, 3, 1.0
+
+        class _SlowTextEmbedding:
+            """替身 fastembed：**加载要 1.0s**、向量维度按真模型的 512。"""
+
+            def __init__(self, *a, **k):
+                _time.sleep(MODEL_LOAD_S)
+
+            def embed(self, texts):
+                for _ in texts:
+                    yield [0.0] * 512
+
+        monkeypatch.setattr(embedder, "_model", None)       # 模拟"本进程还没加载过"
+        monkeypatch.setattr(embedder, "_load_error", None)
+        monkeypatch.setattr(embedder, "_error_at", 0.0)
+        monkeypatch.setattr(embedder, "_import_text_embedding", lambda: _SlowTextEmbedding)
+
+        # ---- 2b. 假 LLM 流：每块在线程里阻塞 0.3s（生产里这段也发生在**线程**里）----
+        def fake_stream(query, evidences, history=None, max_tokens=1024,
+                        temperature=0.1, allow_clarify=True):
+            for i in range(N_CHUNKS):
+                _time.sleep(CHUNK_S)
+                yield f"第{i + 1}块：监护人不应擅自离开作业现场 [引用:GB-4.10]。"
+
+        monkeypatch.setattr(
+            "src.core.llm.deepseek_client.stream_chat_completion", fake_stream)
+        monkeypatch.setattr(get_settings(), "llm_api_key", "sk-test")
+
+        root = Path(__file__).resolve().parents[1]
+        spec = importlib.util.spec_from_file_location(
+            "ks_measure_harness_for_allowlist",
+            root / "scripts" / "measure-endpoint-blocking.py")
+        assert spec and spec.loader
+        harness = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(harness)
+
+        # ⚠ 用**新建**的 app（不在别的循环里跑过）+ 独立事件循环：量的是"这条端点在循环里的行为"
+        app = server.create_app("test-token-123")
+        out = asyncio.run(harness.measure(
+            app, "POST", "/api/v1/chat/completions",
+            body={"query": "动火作业监护", "top_k": 1}, headers=HDR))
+        assert out["status"] == 200, out
+        # ① 活真的干了（否则"空档小"毫无意义）
+        assert out["duration_s"] >= MODEL_LOAD_S + CHUNK_S * N_CHUNKS * 0.8, (
+            f"端点耗时只有 {out['duration_s']}s，而假加载 {MODEL_LOAD_S}s + 假 LLM 3×{CHUNK_S}s "
+            "的活都得跑完 ⇒ 这次测量证明不了任何事（多半替身没被 patch 上）")
+        # ⚠ `body_head` 只有前 120 字符（`measure()` 的封顶）⇒ 只能核**首事件形状**，
+        # 不能指望它里面出现 `delta`（那是后面的事件）。
+        assert out["body_head"].startswith("event: evidence"), out["body_head"]
+        # ② 循环没被占住（模型加载与逐块活都不在循环里）
+        assert out["samples"] >= 5, out
+        assert out["max_gap_s"] < max(MODEL_LOAD_S, CHUNK_S) / 2, (
+            f"名单里的 async 端点把事件循环占了 {out['max_gap_s']}s"
+            f"（单笔假加载才 {MODEL_LOAD_S}s、单块 {CHUNK_S}s）——它有活**在循环里**跑：{out}")
+
     def test_T1_零await的async端点必须是def(self, client):
         """**通则之一（§10.86，修复核 b15 的 MEDIUM-1）**：`async def` 且源码里**没有任何
         会让出控制权的语法**（`await` / `async for` / `async with`）⇒ 必须 `def`。
