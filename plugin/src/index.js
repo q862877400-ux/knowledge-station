@@ -572,8 +572,14 @@ function makeResolveTool(manager, chatModeOf) {
   }
 }
 
-/** Build the `ks_answer` tool definition (P1b forensic-answer). */
-function makeAnswerTool(manager, chatModeOf) {
+/**
+ * Build the `ks_answer` tool definition (P1b forensic-answer).
+ *
+ * 导出它是为了**可测**：`scripts/smoke-materials-tool.mjs` 用桩引擎直接驱动本工具，
+ * 断言"会话级范围（收藏夹 / 参考资料项目）确实被 host 强制写进了请求体"——
+ * 这条链是"用户以为在用公司制度、其实没用"最容易静默失效的地方，不能只靠读代码相信。
+ */
+export function makeAnswerTool(manager, chatModeOf) {
   return {
     name: 'ks_answer',
     description:
@@ -679,6 +685,16 @@ function makeAnswerTool(manager, chatModeOf) {
       if (folderActive) {
         params = { ...(params ?? {}), folder_id: chatMode.folderId }
       }
+      // 参考资料项目（2026-09-17 材料平面，`/materials use <prj_id>` 设的会话级真值）：
+      // 同样**由 host 强制**传给引擎，不信任模型自传值——理由与收藏夹完全一致：
+      // 只靠提示词会被漏传/覆盖而**静默失效**，而"以为在用公司制度、其实没用"是
+      // 本战役反复打的失真。引擎侧只把 review_status='approved' 的材料送进提示词，
+      // 故 host 传参**不等于**绕过评审（评审硬门在引擎的 SQL 里）。
+      const materialActive = typeof chatMode.materialProjectId === 'string'
+        && chatMode.materialProjectId.length > 0
+      if (materialActive) {
+        params = { ...(params ?? {}), material_project_id: chatMode.materialProjectId }
+      }
       if (chatMode.bookmarksOnly) {
         params = { ...(params ?? {}), bookmarks_only: true }
       }
@@ -691,6 +707,12 @@ function makeAnswerTool(manager, chatModeOf) {
         folder: folderActive,
         folder_id: folderActive ? chatMode.folderId : null,
         folder_name: folderActive ? (chatMode.folderName ?? null) : null,
+        // 参考资料项目（2026-09-17）：同款回显——material=false 且未绑定时明确是
+        // false/null，而不是"不确定"。**这不是"材料一定进了提示词"的证明**：
+        // 项目里可能一条已批准材料都没有，引擎的 notes/material_usage 才是真值。
+        material: materialActive,
+        material_project_id: materialActive ? chatMode.materialProjectId : null,
+        material_project_name: materialActive ? (chatMode.materialProjectName ?? null) : null,
         // 生效来源（session=本会话开的 / parent=继承自父会话）——审计与模型都可自证
         source: chatMode.source,
       }

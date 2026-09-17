@@ -32,7 +32,8 @@ const { default: SessionStore, SessionId } = await import('@deepseek-ai/dsh-sess
 const { createScope } = await import('@deepseek-ai/dsh-scope')
 
 const chatmodeUrl = pathToFileURL('D:/AI/work space/zcode/plugin/src/chatmode.js').href
-const { registerKsChatModeCommands, getMode, effectiveChatMode } = await import(chatmodeUrl)
+const { registerKsChatModeCommands, getMode, effectiveChatMode, forensicPromptFor } =
+  await import(chatmodeUrl)
 
 const results = []
 function check(name, ok, detail) {
@@ -45,7 +46,7 @@ const guardLogs = []
 const realError = console.error
 console.error = (...args) => { guardLogs.push(args.map(String).join(' ')); realError(...args) }
 
-console.log('=== 真实 CommandRuntime 验证：/forensic · /bookmarks ===\n')
+console.log('=== 真实 CommandRuntime 验证：/forensic · /bookmarks · /materials ===\n')
 
 const ctx = new Context()
 await ctx.plugin(SessionStore)
@@ -59,16 +60,20 @@ await ctx.plugin(Object.assign((inner) => { scope = createScope(inner, agent) },
 // 走插件真正的那段注册代码（含逐条兜底）
 const disposers = registerKsChatModeCommands(ctx, { parentSessionOf: () => undefined })
 
-check('real register() accepted BOTH definitions', disposers.length === 2, `${disposers.length} disposers`)
+// 期望条数**跟着声明走**，别写死 2：加命令时这里不该变红，
+// 该红的是新命令自己的那组断言（2026-09-17 加 /materials 时踩过一次）。
+const expectedNames = ['bookmarks', 'forensic', 'materials']
+check('real register() accepted EVERY declared definition',
+  disposers.length === expectedNames.length, `${disposers.length} disposers`)
 check('no guard fallback fired (no silently-missing command)', guardLogs.length === 0,
   guardLogs.join(' | ') || 'clean')
 
 const listed = ctx.commands.list(agent)
 const names = listed.map((d) => d.name)
-check('the ` / ` menu source lists exactly forensic + bookmarks', names.join(',') === 'bookmarks,forensic',
+check('the ` / ` menu source lists every declared command', names.join(',') === expectedNames.join(','),
   names.join(',') || '(none)')
-check('both descriptors carry a description and an input hint',
-  listed.length === 2 && listed.every((d) => typeof d.description === 'string'
+check('every descriptor carries a description and an input hint',
+  listed.length === expectedNames.length && listed.every((d) => typeof d.description === 'string'
     && d.description.length > 0 && typeof d.input?.hint === 'string' && d.input.hint.length > 0),
   JSON.stringify(listed.map((d) => ({ n: d.name, hint: d.input?.hint }))))
 
@@ -105,6 +110,39 @@ const bad = await fire('/forensic maybe')
 check('an unknown argument is a loud error, never a silent no-op',
   bad?.result?.kind === 'error' && /无法识别/.test(bad.result.text ?? ''), String(bad?.result?.text).slice(0, 60))
 
+// ------------------------------------------------- /materials（2026-09-17 材料平面）
+const matStatus0 = await fire('/materials status')
+check('/materials status on an unbound session says so (no silent success)',
+  matStatus0?.result?.kind === 'success'
+  && /未绑定/.test(matStatus0.result.text ?? ''), String(matStatus0?.result?.text).slice(0, 60))
+
+const matUse = await fire('/materials use prj_REAL 真实项目')
+check('/materials use binds the session-scoped store',
+  matUse?.result?.kind === 'success' && getMode(session.id).materialProjectId === 'prj_REAL'
+  && getMode(session.id).materialProjectName === '真实项目', String(matUse?.result?.text).slice(0, 60))
+check('binding a project implies forensic in the effective mode (single source of truth)',
+  effectiveChatMode(session.id).materialProjectId === 'prj_REAL'
+  && effectiveChatMode(session.id).forensic === true)
+check('the host prompt section carries the material rules when bound',
+  forensicPromptFor(session.id).includes('【参考资料项目】')
+  && forensicPromptFor(session.id).includes('真实项目'))
+
+const matWrong = await fire('/materials use bmf_FOLDER')
+check('/materials rejects a folder id as a project id (actionable, not silent)',
+  matWrong?.result?.kind === 'error' && /prj_/.test(matWrong.result.text ?? ''),
+  String(matWrong?.result?.text).slice(0, 70))
+
+const matOff = await fire('/materials off')
+check('/materials off unbinds the session',
+  matOff?.result?.kind === 'success' && getMode(session.id).materialProjectId === null,
+  String(matOff?.result?.text).slice(0, 50))
+check('the material prompt section disappears after unbinding',
+  !forensicPromptFor(session.id).includes('【参考资料项目】'))
+
+// 所有派发收进一个列表：生命周期事件数**由它推**，加命令时不用改魔数
+const dispatched = [on, status, bm, bmOff, zh, bad,
+  matStatus0, matUse, matWrong, matOff]
+
 // ------------------------------------------------- 命令不进模型（会话日志证据）
 // ⚠ DSH 0.1.6 把 Session 上的 `events` 数组换成了 `ownEvents()`（`events` 变 undefined，
 //   于是本闸在升级后直接 TypeError 崩掉 —— 2026-09-17 实测）。这里做兼容读取：
@@ -112,12 +150,12 @@ check('an unknown argument is a loud error, never a silent no-op',
 const sessionEvents = typeof session.ownEvents === 'function' ? session.ownEvents() : session.events
 const lifecycle = sessionEvents.filter((e) => e.type === 'command/run' || e.type === 'command/done')
 check('every dispatch logged command/run + command/done (host-side, no model turn)',
-  lifecycle.length === 12 && sessionEvents.every((e) => e.type !== 'turn/start'),
-  `${lifecycle.length} lifecycle events`)
+  lifecycle.length === dispatched.length * 2 && sessionEvents.every((e) => e.type !== 'turn/start'),
+  `${lifecycle.length} lifecycle events for ${dispatched.length} dispatches`)
 
 // ---------------------------------------------------------------- 不泄漏
 for (const dispose of disposers) dispose()
-check('dispose removes both commands from the registry',
+check('dispose removes every command from the registry',
   ctx.commands.list(agent).length === 0, String(ctx.commands.list(agent).length))
 check('a disposed command no longer dispatches',
   (await fire('/forensic')) === undefined)

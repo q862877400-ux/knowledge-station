@@ -268,10 +268,13 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
   （`projects` / `materials` / `inbox`），让模型能按名字找到 project_id 并看清每份材料的
   评审状态。**刻意只读**：批准/拒绝/扫描不开成模型工具——那等于让模型自己发许可，
   §6 的硬门会立刻形同虚设。桩引擎冒烟 24 项。
-- **B-7 让用户真的用得上（下一步，未做）**：**GUI 项目选择器** + chatmode 级项目绑定
-  （仿"夹内提问"：host 强制给 ks_answer 传 `material_project_id`），
-  以及**材料评审界面**（当前审批只能走 API ⇒ "能用但不好用"）。
-  核验 UI 半 / `tool.call.toolview` 一并评估。
+- **B-7 用户侧会话级绑定（已完成，§10.16）**：`chatmode` 新增 `materialProjectId` 维度
+  （与收藏夹同款）+ host 强制传参 + 提示段 + **`/materials use|off|status` 斜杠命令**。
+  于是"这一轮以哪个项目为准"成了**用户**能设的会话级真值，不再靠模型每次自传。
+  命令**只选项目、不代批材料**（评审仍是用户的判断）。
+- **B-8 剩余（未做）**：① **GUI 项目选择器**（现在只有斜杠命令）；
+  ② **材料评审界面**（当前批准只能走 API ⇒ "能用但不好用"）；
+  ③ 核验 UI 半 / `tool.call.toolview`。
 
 ### 已知未决 / 诚实边界
 

@@ -185,18 +185,51 @@ function renderFolderPrompt(name) {
   return FORENSIC_FOLDER_PROMPT.replaceAll('{FOLDER_NAME}', safe)
 }
 
+/**
+ * 「参考资料项目」附加段（`materialProjectId` 生效时追加）。
+ *
+ * 与「收藏夹内提问」并列，但语义**不同**：夹范围是"只在收藏集里找"，
+ * 材料范围是"**另加**一个平面的证据"。故这里不说"检索限定在"，而说"另附"。
+ *
+ * 措辞纪律（照抄 folder 段的分寸）：host 能证明的只是"**已强制传参**"
+ * （`answer_scope.material` 回显），**不能**证明材料一定进了提示词——
+ * 项目里可能一条已批准材料都没有。真值在引擎返回的 `notes` 与 `material_usage` 里。
+ */
+export const FORENSIC_MATERIALS_PROMPT = [
+  '6. 【参考资料项目】本会话已由 host 强制给 `ks_answer` 传 `params.material_project_id`（项目「{PROJECT_NAME}」），`answer_scope.material` 回显的只是 **host 是否强制传参**，它**不能**证明材料真的进了提示词——项目里可能一条已批准材料都没有。',
+  '材料会以「参考资料（**非法规证据**）」另起一节出现，引用它必须用 `[[m:i]]`（法条用 `[[c:i]]`，两套编号别混）。材料按**承重能力**分组，必须照组说话：标为**本任务准则（轴 B）**的对其自身事项**优先于法条**，冲突时要**显式说明冲突**而不是静默取舍；**仅作线索**的不得单独支撑结论（引用须写明「（单一来源，未经互证）」）；**已知不可用**的不得用于结论。',
+  '判断这一轮到底用上了什么，看**机器字段**：`material_usage.counts` 是各组条数、`usable_indices` 是可承重材料的编号、`material_project_id` 是绑定的项目；`notes` 里的【参考资料】条目会说明命中几条、或"没有命中"、或"项目**不存在**"、或"材料**载入失败**"——**这四种必须如实区分**，绝不能在载入失败或项目不存在时说成"项目里没有材料"。',
+  '**评审是硬门**：只有 `review_status` 为 `approved` 的材料会进来。若用户问「我上传的材料呢」，用 `ks_materials` 查 `review_status`（本工具只读，**不能代批**）——有 pending 就如实说「尚未评审、不会进入结论」，由用户决定。',
+].join('\n')
+
+function renderMaterialsPrompt(name) {
+  const safe = String(name ?? '').replace(/}/g, '）').replace(/{/g, '（')
+  return FORENSIC_MATERIALS_PROMPT.replaceAll('{PROJECT_NAME}', safe)
+}
+
 /* ------------------------------------------------------------------ *
  * 状态（进程单写者 + 合并落盘 + 原子替换 + CAS；结构漂移安全网）
  * ------------------------------------------------------------------ */
 
 /**
- * 全关基线。folderId/folderName（2026-10 收藏目录）：
+ * 全关基线。三个**独立维度**：forensic / bookmarksOnly / 范围（folderId 与
+ * materialProjectId 是同一类的"范围"维度，各自独立、可同时开）。
+ *
  * - folderId 非空 → 夹内提问激活：host 强制给 ks_answer 传 folder_id，
  *   且自动蕴含查法规模式（夹范围 ⊃ 取证纪律——范围提问必然要求取证链路）。
  * - folderName 是 folderId 的显示名快照（host 不查引擎也能渲染提示段与回执；
  *   引擎侧真值永远是 folder_id，名字漂移只影响文案不影响范围）。
+ * - **materialProjectId（2026-09-17 材料平面）** 同款：非空 → host 强制给 ks_answer 传
+ *   `material_project_id`，于是本会话的问答会带上该项目的**已批准**参考资料
+ *   （分组承重：准则/可作依据/互证辅证/仅线索/不可用）。同样自动蕴含查法规模式，
+ *   理由同 folderId：材料只在 ks_answer 这条链上参与作答。
+ *   `materialProjectName` 与 folderName 一样只是**显示快照**，引擎侧真值永远是 id。
  */
-const MODE_OFF = { forensic: false, bookmarksOnly: false, folderId: null, folderName: null }
+const MODE_OFF = {
+  forensic: false, bookmarksOnly: false,
+  folderId: null, folderName: null,
+  materialProjectId: null, materialProjectName: null,
+}
 const SOURCE_NONE = 'none'
 
 /** folderId 形态校验：引擎 ULID 形（bmf_…），非空、无空白、长度受限。 */
@@ -210,6 +243,30 @@ function normalizeFolderId(raw) {
 }
 
 function normalizeFolderName(raw) {
+  if (raw === null || raw === undefined) return null
+  const name = String(raw).trim()
+  if (name.length === 0 || name.length > 60) return null
+  return name
+}
+
+/**
+ * materialProjectId 形态校验（2026-09-17）：引擎 ULID 形（`prj_…`）。
+ *
+ * ⚠ 与 folderId **分开**校验而不是共用一个 normalizeId：两者的前缀语义不同，
+ * 且**必须能报错**（用户把收藏夹 id 当项目 id 传时要看得见，而不是静默不生效）。
+ * 这里只做"形态合法"判定，前缀检查放在调用方（见 setMode 的报错）——
+ * 本函数只回答"像不像一个 id"。
+ */
+function normalizeMaterialProjectId(raw) {
+  if (raw === null || raw === undefined || raw === false) return null
+  const id = String(raw).trim()
+  if (id.length === 0 || id.length > 64) return null
+  // eslint-disable-next-line no-control-regex
+  if (/[\s\u0000-\u001f]/.test(id)) return null
+  return id
+}
+
+function normalizeMaterialProjectName(raw) {
   if (raw === null || raw === undefined) return null
   const name = String(raw).trim()
   if (name.length === 0 || name.length > 60) return null
@@ -252,14 +309,19 @@ function warn(...args) {
 function normalizeMode(raw) {
   const forensic = raw?.forensic === true
   const folderId = normalizeFolderId(raw?.folderId)
+  const materialProjectId = normalizeMaterialProjectId(raw?.materialProjectId)
   // 仅收藏依附于查法规模式：父开关关闭时自动降级（决策 16）。
-  // 夹范围是独立维度：folderId 非空时 forensic 强制为 true（夹内提问必然要求
-  // 取证链路——范围提问的答案必须带三段式与证据链接，这正是查法规模式的纪律）。
+  // 任一**范围**维度非空时 forensic 强制为 true——这两个范围都只在 ks_answer 这条链上
+  // 生效（材料靠 host 强制传 material_project_id），范围提问的答案必须带三段式与证据链接。
+  const scoped = folderId !== null || materialProjectId !== null
   return {
-    forensic: forensic || folderId !== null,
-    bookmarksOnly: (forensic || folderId !== null) && raw?.bookmarksOnly === true,
+    forensic: forensic || scoped,
+    bookmarksOnly: (forensic || scoped) && raw?.bookmarksOnly === true,
     folderId,
     folderName: folderId === null ? null : normalizeFolderName(raw?.folderName),
+    materialProjectId,
+    materialProjectName: materialProjectId === null
+      ? null : normalizeMaterialProjectName(raw?.materialProjectName),
   }
 }
 
@@ -591,6 +653,8 @@ async function persistAttempt(snapshot, touched, cleared) {
         || got.bookmarksOnly !== want.bookmarksOnly
         || (got.folderId ?? null) !== (want.folderId ?? null)
         || (got.folderName ?? null) !== (want.folderName ?? null)
+        || (got.materialProjectId ?? null) !== (want.materialProjectId ?? null)
+        || (got.materialProjectName ?? null) !== (want.materialProjectName ?? null)
     })
     return lost ? 'retry' : 'ok'
   } finally {
@@ -685,7 +749,13 @@ export function getMode(sessionId) {
  * - 开启夹范围时保留 bookmarksOnly 原值（两个范围维度可叠加，引擎侧 folder 过滤
  *   在 bookmarks 过滤之后同链执行）；关闭夹范围只清 folderId，不动 forensic/bookmarksOnly。
  *
- * @returns {{mode: {forensic: boolean, bookmarksOnly: boolean, folderId: string|null, folderName: string|null}, persist: Promise<{persisted: boolean, error?: string}>}}
+ * `materialProjectId` patch 语义（2026-09-17 材料平面）**完全同款**：
+ * - `materialProjectId: 'prj_…'` + `materialProjectName: '财报分析'` → 绑定项目（forensic 自动 true）；
+ * - `materialProjectId: null` → 解绑；不传 = 不动该维度。
+ * - ⚠ id **必须**以 `prj_` 开头，否则**抛错**：把收藏夹 id 当项目 id 传时若静默通过，
+ *   结果是"开着但永不生效"，而用户会以为材料已经参与作答了（最坏的一种）。
+ *
+ * @returns {{mode: {forensic: boolean, bookmarksOnly: boolean, folderId: string|null, folderName: string|null, materialProjectId: string|null, materialProjectName: string|null}, persist: Promise<{persisted: boolean, error?: string}>}}
  */
 export function setMode(sessionId, patch) {
   const id = normalizeSessionId(sessionId)
@@ -705,9 +775,32 @@ export function setMode(sessionId, patch) {
       && normalizeFolderName(patch?.folderName) === null) {
     throw new Error('开启夹范围时 folderName 必填（≤60 字符、非空白）')
   }
+  // materialProjectId 维度：与 folderId 同款语义（undefined=不动 / null=关闭 / 字符串=开启）。
+  // ⚠ 前缀**必须**校验并报错：用户把收藏夹 id（bmf_…）当项目 id 传时，
+  // 静默"开着但永不生效"是最坏的结果（他会以为材料已经参与作答了）。
+  const patchMatId = patch?.materialProjectId === undefined
+    ? undefined : normalizeMaterialProjectId(patch.materialProjectId)
+  if (patch?.materialProjectId !== undefined && patch?.materialProjectId !== null
+      && patchMatId === null) {
+    throw new Error('materialProjectId 必须是不含空白的合法项目 id（prj_…），或 null 表示关闭')
+  }
+  if (patchMatId !== undefined && patchMatId !== null && !patchMatId.startsWith('prj_')) {
+    throw new Error(`materialProjectId 必须以 prj_ 开头（收到 ${JSON.stringify(patchMatId)}）`
+      + '——收藏夹 id（bmf_…）不是项目 id，项目 id 可用 ks_materials 的 projects 查到')
+  }
+  const patchMatName = patch?.materialProjectName === undefined
+    ? undefined : normalizeMaterialProjectName(patch.materialProjectName)
+  if (patchMatId !== undefined && patchMatId !== null && patchMatName === undefined
+      && normalizeMaterialProjectName(patch?.materialProjectName) === null
+      && getMode(id).materialProjectId !== patchMatId) {
+    // 名字只是显示快照，但**换了项目却没给名字**会让回执与提示段显示旧项目的名字
+    // ⇒ 宁可要求给名字（调用方总能拿到：ks_materials projects 里有 name）。
+    throw new Error('开启材料范围时 materialProjectName 必填（≤60 字符、非空白）')
+  }
   const current = getMode(id)
   // folderId 维度：undefined = 不动；null = 显式关闭；字符串 = 开启
   const nextFolderId = patchFolderId === undefined ? current.folderId : patchFolderId
+  const nextMatId = patchMatId === undefined ? current.materialProjectId : patchMatId
   const next = normalizeMode({
     forensic: patch?.forensic === undefined ? current.forensic : patch.forensic,
     bookmarksOnly: patch?.bookmarksOnly === undefined ? current.bookmarksOnly : patch.bookmarksOnly,
@@ -716,6 +809,11 @@ export function setMode(sessionId, patch) {
       : nextFolderId === current.folderId && patch?.folderName === undefined
         ? current.folderName
         : normalizeFolderName(patch?.folderName) ?? current.folderName,
+    materialProjectId: nextMatId,
+    materialProjectName: nextMatId === null ? null
+      : nextMatId === current.materialProjectId && patch?.materialProjectName === undefined
+        ? current.materialProjectName
+        : normalizeMaterialProjectName(patch?.materialProjectName) ?? current.materialProjectName,
   })
   if (next.forensic && !_modes.has(id) && _modes.size >= MAX_SESSIONS) {
     throw new Error(`开启查法规模式的会话已达上限（${MAX_SESSIONS}），请先关闭一些会话`)
@@ -767,9 +865,13 @@ export function effectiveChatMode(sessionId, opts = {}) {
 /**
  * 该会话本轮应注入的取证提示（关 → 空串，什么都不注入）。
  * 这是 systemPrompt.section 的 text provider 本体——每次组装提示都会重新求值。
- * 附加段优先级：夹范围段 > 仅收藏段（夹范围是更具体的范围；两者同时开启时
- * 引擎侧 folder 过滤在 bookmarks 过滤之后执行，提示段只讲最具体的范围以免
- * 模型在两套范围话术间摇摆）。
+ *
+ * 「范围」附加段的选择（2026-09-17 加入材料范围后明确）：
+ * - 夹范围段（folderId）与仅收藏段是**互斥**的：夹范围更具体，两者同开时只讲最具体的，
+ *   免得模型在两套范围话术间摇摆（引擎侧两个过滤仍都执行）。
+ * - 材料段（materialProjectId）**可以与上面任一段并存**，因为它不是"缩小检索范围"，
+ *   而是"**另加一个证据平面**"——语义不同，所以不是 else-if，而是独立追加。
+ *   这也意味着用户同时开夹范围与材料时会看到两个附加段，那是**如实**的。
  */
 export function forensicPromptFor(sessionId, opts = {}) {
   const eff = effectiveChatMode(sessionId, opts)
@@ -779,6 +881,9 @@ export function forensicPromptFor(sessionId, opts = {}) {
     body = `${body}\n${renderFolderPrompt(eff.folderName ?? '')}`
   } else if (eff.bookmarksOnly) {
     body = `${body}\n${FORENSIC_BOOKMARKS_PROMPT}`
+  }
+  if (eff.materialProjectId !== null && eff.materialProjectId !== undefined) {
+    body = `${body}\n${renderMaterialsPrompt(eff.materialProjectName ?? '')}`
   }
   return eff.source === 'parent'
     ? `${body}\n（本纪律继承自父会话的「查法规模式」设置。）`
@@ -817,7 +922,7 @@ export function __sweepArtifactsForTests(nowMs = Date.now()) {
  * 斜杠命令（2026-09-10，用户反馈：输入框上方的按钮太丑 → 改成 / 调用）
  *
  * DSH 的命令名契约是 `^[a-z][a-z0-9_-]*$`（**只允许小写 ASCII**，中文名注册会抛），
- * 所以用 `/forensic` 与 `/bookmarks`；描述与回执文案用中文，在 `/` 面板里可发现。
+ * 所以用 `/forensic` / `/bookmarks` / `/materials`；描述与回执文案用中文，在 `/` 面板里可发现。
  * 命令走 host 的 `ctx.commands`：不进模型、不产生对话消息，只在会话日志留
  * `command/run` + `command/done` 两个事件（DSH 自带），结果由 composer 直接渲染。
  * 状态仍然是会话级（`invocation.agent.session.id`），与提示段/工具层同一份真值。
@@ -827,8 +932,11 @@ export function __sweepArtifactsForTests(nowMs = Date.now()) {
 export const FORENSIC_COMMAND = 'forensic'
 /** 「仅收藏」命令名。 */
 export const BOOKMARKS_COMMAND = 'bookmarks'
+/** 「参考资料项目」命令名（2026-09-17 材料平面）。 */
+export const MATERIALS_COMMAND = 'materials'
 
 const COMMAND_USAGE = '用法：`/forensic`（切换）· `/forensic on|off` · `/forensic bookmarks on|off` · `/forensic status`'
+const MATERIALS_USAGE = '用法：`/materials`（看当前绑定）· `/materials use <prj_id>` · `/materials off` · `/materials status`'
 
 /** 命令回执里的一句状态摘要。 */
 function modeSummary(mode) {
@@ -836,8 +944,15 @@ function modeSummary(mode) {
   const folder = mode.folderId != null
     ? ` · 📁 收藏夹「${mode.folderName ?? mode.folderId}」内提问：**已开启**`
     : ''
+  const mat = mode.materialProjectId != null
+    ? ` · 📚 参考资料项目「${mode.materialProjectName ?? mode.materialProjectId}」：**已绑定**`
+    : ''
   if (mode.folderId != null) {
-    return `📜 查法规模式：**已开启**${mode.bookmarksOnly ? ' · 🔖 仅收藏：**已开启**' : ''}${folder}（检索限定在收藏夹内容内，由 host 强制）`
+    return `📜 查法规模式：**已开启**${mode.bookmarksOnly ? ' · 🔖 仅收藏：**已开启**' : ''}${folder}${mat}（检索限定在收藏夹内容内，由 host 强制）`
+  }
+  if (mode.materialProjectId != null) {
+    return `📜 查法规模式：**已开启**${mode.bookmarksOnly ? ' · 🔖 仅收藏：**已开启**' : ''}${mat}`
+      + '（本项目**已批准**的参考资料会随作答送入，按承重能力分组：准则/可作依据/互证辅证/仅线索/不可用）'
   }
   return mode.bookmarksOnly
     ? '📜 查法规模式：**已开启** · 🔖 仅收藏：**已开启**（检索限定在你的收藏条款内，由 host 强制）'
@@ -919,6 +1034,55 @@ export function makeChatModeCommands(opts = {}) {
     return { kind: 'success', text: want ? `已同时开启查法规模式（仅收藏在其内生效）。\n\n${text}` : text }
   }
 
+  /**
+   * `/materials` —— 绑定/解绑本会话的参考资料项目（**用户**动作）。
+   *
+   * 为什么这条命令是**必要的**：引擎侧要按 `params.material_project_id` 用材料，
+   * 但那个参数一直只能由模型猜或用户手抄 id。宿主绑定（见 index.js 的 makeAnswerTool）
+   * 需要一个**会话级真值**，而唯一能可靠设置它的入口就是用户自己——故做成命令。
+   *
+   * 为什么**不**在这里做批准/拒绝：那是评审，是用户的判断（方案 §6 硬门）。
+   * 命令只负责"用哪个项目"，不代替"批不批这份材料"。
+   */
+  const materialsHandler = async (invocation) => {
+    const { sessionId, error } = await resolve(invocation)
+    if (error !== undefined) return error
+    const words = String(invocation?.rawInput ?? '').trim().split(/\s+/).filter((w) => w.length > 0)
+    const head = words[0]?.toLowerCase()
+
+    if (head === undefined || head === 'status' || head === '状态') {
+      const eff = effectiveChatMode(sessionId, opts)
+      if (eff.materialProjectId == null) {
+        return { kind: 'success', text: '📚 参考资料项目：**未绑定**（本会话的问答不会使用任何项目材料）\n'
+          + `用 \`/materials use <prj_id>\` 绑定。项目 id 与项目名可用 ks_materials（action=projects）查。` }
+      }
+      const scope = eff.source === 'parent' ? '（继承自父会话）' : ''
+      return { kind: 'success', text: `📚 参考资料项目：**已绑定**「${eff.materialProjectName ?? eff.materialProjectId}」`
+        + `（\`${eff.materialProjectId}\`）${scope}` }
+    }
+    if (head === 'off' || head === '关' || head === '关闭' || head === 'none' || head === '清空') {
+      const { text } = await applyAndReport(sessionId, { materialProjectId: null })
+      return { kind: 'success', text: `已解绑参考资料项目。\n\n${text}` }
+    }
+    if (head === 'use' || head === '用' || head === '绑定') {
+      const id = words[1]
+      if (id === undefined) return { kind: 'error', text: `缺少项目 id。${MATERIALS_USAGE}` }
+      // 名字：`/materials use prj_x 财报分析` —— 名字只是显示快照，但换项目时必须给，
+      // 否则回执/提示段会显示**上一个项目**的名字（见 setMode 的同款校验）。
+      const name = words.slice(2).join(' ').trim()
+      try {
+        const { text } = await applyAndReport(sessionId, {
+          materialProjectId: id,
+          materialProjectName: name.length > 0 ? name : id,
+        })
+        return { kind: 'success', text: `已绑定参考资料项目。\n\n${text}` }
+      } catch (e) {
+        return { kind: 'error', text: `${e instanceof Error ? e.message : String(e)}\n\n${MATERIALS_USAGE}` }
+      }
+    }
+    return { kind: 'error', text: `无法识别 "${words[0]}"。${MATERIALS_USAGE}` }
+  }
+
   return [
     {
       name: FORENSIC_COMMAND,
@@ -931,6 +1095,13 @@ export function makeChatModeCommands(opts = {}) {
       description: '🔖 仅收藏：检索只在你收藏的条款内进行（由 host 强制，自动开启查法规模式）',
       input: { hint: 'on | off' },
       handler: bookmarksHandler,
+    },
+    {
+      name: MATERIALS_COMMAND,
+      description: '📚 参考资料项目：绑定某项目后，本会话问答会带上它**已批准**的材料'
+        + '（按承重能力分组；仅线索/不可用两组不会支撑结论）',
+      input: { hint: 'use <prj_id> [项目名] | off | status' },
+      handler: materialsHandler,
     },
   ]
 }

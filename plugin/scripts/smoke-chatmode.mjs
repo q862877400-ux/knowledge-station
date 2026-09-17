@@ -58,6 +58,20 @@ const eq = (a, b) => JSON.stringify(a) === JSON.stringify(b)
 const throws = (fn) => {
   try { fn(); return false } catch { return true }
 }
+/**
+ * 全关基线的**唯一**来源。
+ *
+ * 原先这里把 4 个字段的字面量抄了 12 遍，于是 2026-09-17 给 mode 加
+ * `materialProjectId/materialProjectName` 两个维度时，14 条断言一起变红——
+ * 全是"测试写死了形状"而不是行为出错。改成一个基座 + `mode({...})` 覆盖，
+ * 以后再加维度只改这一处。
+ */
+const ALL_OFF = {
+  forensic: false, bookmarksOnly: false, folderId: null, folderName: null,
+  materialProjectId: null, materialProjectName: null,
+}
+/** 期望值构造器：只写**要变的**维度。 */
+const mode = (over = {}) => ({ ...ALL_OFF, ...over })
 const readState = async () => {
   const text = await readFile(statePath, 'utf8').catch(() => '')
   try { return JSON.parse(text) } catch { return null }
@@ -67,12 +81,12 @@ const readState = async () => {
 const chat = await import(chatModuleUrl)
 await chat.ensureLoaded()
 
-check('default mode is all-off', eq(chat.getMode('sess-A'), { forensic: false, bookmarksOnly: false, folderId: null, folderName: null }))
+check('default mode is all-off', eq(chat.getMode('sess-A'), ALL_OFF))
 check('default prompt is empty', chat.forensicPromptFor('sess-A') === '')
 
 const on = chat.setMode('sess-A', { forensic: true })
 await on.persist
-check('setMode forensic on', eq(on.mode, { forensic: true, bookmarksOnly: false, folderId: null, folderName: null }))
+check('setMode forensic on', eq(on.mode, mode({ forensic: true })))
 const promptOn = chat.forensicPromptFor('sess-A')
 check('forensic prompt injected after on',
   promptOn.includes('查法规模式') && promptOn.includes('ks_answer'))
@@ -83,7 +97,7 @@ check('bookmarks-only rule (rule 6) absent while 仅收藏 off',
 
 const both = chat.setMode('sess-A', { bookmarksOnly: true })
 await both.persist
-check('bookmarksOnly on (parent already on)', eq(both.mode, { forensic: true, bookmarksOnly: true, folderId: null, folderName: null }))
+check('bookmarksOnly on (parent already on)', eq(both.mode, mode({ forensic: true, bookmarksOnly: true })))
 check('bookmarks rule present after 仅收藏 on',
   chat.forensicPromptFor('sess-A').includes('bookmarks_only = true'))
 check('bookmarks rule overrides the "库内无此条款" rule (rule 5 vs 6)',
@@ -93,11 +107,11 @@ check('session isolation', chat.forensicPromptFor('sess-OTHER') === '')
 
 const off = chat.setMode('sess-A', { forensic: false })
 await off.persist
-check('turning parent off demotes child', eq(off.mode, { forensic: false, bookmarksOnly: false, folderId: null, folderName: null }),
+check('turning parent off demotes child', eq(off.mode, ALL_OFF),
   JSON.stringify(off.mode))
 check('prompt empty after off', chat.forensicPromptFor('sess-A') === '')
 check('child cannot be on without parent',
-  eq(chat.setMode('sess-C', { bookmarksOnly: true }).mode, { forensic: false, bookmarksOnly: false, folderId: null, folderName: null }))
+  eq(chat.setMode('sess-C', { bookmarksOnly: true }).mode, ALL_OFF))
 
 /* --- 输入校验（verifier P2：非布尔值以前会被静默当成 false 覆盖掉用户已开的开关） --- */
 check('setMode rejects empty session', throws(() => chat.setMode('', { forensic: true })))
@@ -129,11 +143,11 @@ check('section text empty for a session that never toggled',
 /* --- 收藏夹内提问维度（2026-10 收藏目录） --- */
 chat.setMode('sess-FD', { forensic: false })
 check('folder state defaults off',
-  eq(chat.getMode('sess-FD'), { forensic: false, bookmarksOnly: false, folderId: null, folderName: null }))
+  eq(chat.getMode('sess-FD'), ALL_OFF))
 const fdOn = chat.setMode('sess-FD', { folderId: 'bmf_TEST01', folderName: '收藏夹一' })
 await fdOn.persist
 check('folderId implies forensic (夹范围 ⊃ 取证纪律)',
-  eq(fdOn.mode, { forensic: true, bookmarksOnly: false, folderId: 'bmf_TEST01', folderName: '收藏夹一' }),
+  eq(fdOn.mode, mode({ forensic: true, folderId: 'bmf_TEST01', folderName: '收藏夹一' })),
   JSON.stringify(fdOn.mode))
 const fdPrompt = chat.forensicPromptFor('sess-FD')
 check('folder prompt injected with the folder name',
@@ -152,14 +166,14 @@ check('rejected folderId did NOT clobber the open folder',
 const fdKeep = chat.setMode('sess-FD', { folderId: null })
 await fdKeep.persist
 check('explicit null closes ONLY the folder dimension',
-  eq(fdKeep.mode, { forensic: true, bookmarksOnly: false, folderId: null, folderName: null }),
+  eq(fdKeep.mode, mode({ forensic: true })),
   JSON.stringify(fdKeep.mode))
 check('folder prompt gone after close',
   !chat.forensicPromptFor('sess-FD').includes('收藏夹内提问'))
 const fdOff = chat.setMode('sess-FD', { forensic: false, folderId: null })
 await fdOff.persist
 check('forensic:false + folderId:null fully off',
-  eq(fdOff.mode, { forensic: false, bookmarksOnly: false, folderId: null, folderName: null }))
+  eq(fdOff.mode, ALL_OFF))
 // forensic:false 但夹还开着 → normalizeMode 把 forensic 拉回 true（夹范围蕴含取证纪律）
 const fdForce = chat.setMode('sess-FD3', { folderId: 'bmf_F3', folderName: '夹三' })
 const fdConflict = chat.setMode('sess-FD3', { forensic: false })
@@ -168,7 +182,7 @@ check('forensic:false cannot silently kill an open folder scope',
   JSON.stringify(fdConflict.mode))
 check('closing forensic:false together with folderId:null turns fully off',
   eq(chat.setMode('sess-FD3', { forensic: false, folderId: null }).mode,
-    { forensic: false, bookmarksOnly: false, folderId: null, folderName: null }))
+    ALL_OFF))
 // 夹范围 + 仅收藏同时开：两个附加段都在（引擎侧两过滤同链执行，提示段以夹为主）
 const fd5 = chat.setMode('sess-FD4', { folderId: 'bmf_FD4', folderName: '夹四' })
 await fd5.persist
@@ -180,6 +194,114 @@ check('bookmarksOnly can stack on an open folder scope',
 const stackedPrompt = chat.forensicPromptFor('sess-FD4')
 check('with folder active the folder section wins the prompt (narrower scope narrated)',
   stackedPrompt.includes('收藏夹内提问') && !stackedPrompt.includes('收藏集内无相关条款'))
+
+/* ================================================ 1b. 参考资料项目绑定（2026-09-17 材料平面）
+ *
+ * 这一维度的存在理由：`material_project_id` 只能由 host 强制传给 ks_answer（模型自传不可信），
+ * 而 host 需要一个**会话级真值**——唯一能可靠设置它的就是用户自己（`/materials use`）。
+ * 所以这些断言测的是"用户能不能可靠地把项目绑上/解绑，且错了会报错而不是静默不生效"。
+ */
+{
+  // ⚠ **不要**在这里 __resetChatModeForTests() / 覆盖状态文件：脚本后面的
+  // "子会话继承"断言依赖前面段落攒下的父会话状态，中途清空会把它们一起打红
+  // （本冒烟第一版就这么错过一次）。用不冲突的新会话 id 即可。
+  check('material project defaults to unbound',
+    chat.getMode('sess-MAT').materialProjectId === null)
+
+  // 绑定蕴含查法规模式（材料只在 ks_answer 这条链上参与作答）
+  const matOn = chat.setMode('sess-MAT', {
+    materialProjectId: 'prj_TEST01', materialProjectName: '财报分析',
+  })
+  await matOn.persist
+  check('binding a material project implies forensic (材料只在 ks_answer 链上生效)',
+    matOn.mode.forensic === true && matOn.mode.materialProjectId === 'prj_TEST01'
+      && matOn.mode.materialProjectName === '财报分析',
+    JSON.stringify(matOn.mode))
+
+  // 落盘后回读：绑定必须真的在磁盘上（重启 dsh 不该丢）
+  const matState = await readState()
+  const matDisk = matState?.modes?.['sess-MAT'] ?? matState?.sessions?.['sess-MAT']
+    ?? (Array.isArray(matState?.sessions)
+      ? matState.sessions.find((s) => (s.session ?? s.id) === 'sess-MAT') : undefined)
+  check('binding is persisted to disk (survives a dsh restart)',
+    matDisk !== undefined && matDisk !== null
+      && (matDisk.materialProjectId ?? matDisk.mode?.materialProjectId) === 'prj_TEST01',
+    JSON.stringify(matDisk ?? null))
+
+  check('opening a material scope without a name is rejected (否则回执会显示上一个项目的名字)',
+    throws(() => chat.setMode('sess-MAT2', { materialProjectId: 'prj_X' })))
+  check('a malformed materialProjectId is rejected (not silently dropped)',
+    throws(() => chat.setMode('sess-MAT2',
+      { materialProjectId: 'has space', materialProjectName: 'x' })))
+  // **最容易踩的坑**：把收藏夹 id 当项目 id 传。静默"开着但永不生效"是最坏结果
+  // （用户会以为材料已经参与作答了），故必须报错且指向正确的 id 来源。
+  let prefixErr = null
+  try {
+    chat.setMode('sess-MAT2', { materialProjectId: 'bmf_FOLDER', materialProjectName: '夹' })
+  } catch (e) { prefixErr = e }
+  check('a folder id used as a project id is REJECTED with a pointer to the right source',
+    prefixErr !== null && String(prefixErr.message).includes('prj_')
+      && String(prefixErr.message).includes('bmf_'), String(prefixErr?.message))
+  check('rejected materialProjectId did not clobber the bound project',
+    chat.getMode('sess-MAT').materialProjectId === 'prj_TEST01')
+
+  // 显式 null 只清该维度（与 folderId 同款语义），不动 forensic
+  const matKeep = chat.setMode('sess-MAT', { materialProjectId: null })
+  await matKeep.persist
+  check('explicit null closes ONLY the material dimension (forensic stays on)',
+    eq(matKeep.mode, mode({ forensic: true })), JSON.stringify(matKeep.mode))
+
+  // 两个范围维度**互不干扰**：同时开、单独关（每步都先把两个都开上，
+  // 否则"关掉 A 后 B 还在"会因为 A 上一步已经被关而变成假断言）
+  const both = chat.setMode('sess-MATB', {
+    folderId: 'bmf_B', folderName: '夹B',
+    materialProjectId: 'prj_B', materialProjectName: '项目B',
+  })
+  check('folder + material scopes coexist (independent dimensions)',
+    both.mode.folderId === 'bmf_B' && both.mode.materialProjectId === 'prj_B',
+    JSON.stringify(both.mode))
+  const dropMat = chat.setMode('sess-MATB', { materialProjectId: null })
+  check('closing the material scope leaves the folder scope intact',
+    dropMat.mode.folderId === 'bmf_B' && dropMat.mode.materialProjectId === null,
+    JSON.stringify(dropMat.mode))
+  const bothAgain = chat.setMode('sess-MATB', {
+    materialProjectId: 'prj_B2', materialProjectName: '项目B2',
+  })
+  check('re-binding material with the folder open keeps both',
+    bothAgain.mode.folderId === 'bmf_B' && bothAgain.mode.materialProjectId === 'prj_B2',
+    JSON.stringify(bothAgain.mode))
+  const dropFolder = chat.setMode('sess-MATB', { folderId: null })
+  check('closing the folder scope leaves the material scope intact',
+    dropFolder.mode.folderId === null && dropFolder.mode.materialProjectId === 'prj_B2',
+    JSON.stringify(dropFolder.mode))
+
+  // 回执 + 提示段：绑定必须**看得见**（否则用户不知道自己绑了没有）
+  chat.setMode('sess-MATS', { materialProjectId: 'prj_S', materialProjectName: '制度库' })
+  const matSummary = chat.forensicPromptFor('sess-MATS')
+  check('material scope adds its own prompt section (starts 另加一个平面，不是"限定检索")',
+    matSummary.includes('【参考资料项目】') && matSummary.includes('制度库'),
+    matSummary.slice(-120))
+  check('material prompt section teaches the two planes and the marker split',
+    matSummary.includes('[[m:i]]') && matSummary.includes('[[c:i]]')
+    && matSummary.includes('本任务准则') && matSummary.includes('不得单独支撑结论'))
+  check('material prompt section is honest about host-side forcing ≠ material actually used',
+    matSummary.includes('不能') && matSummary.includes('material_usage'))
+  check('material prompt section says review is a hard gate and the tool cannot approve',
+    matSummary.includes('review_status') && matSummary.includes('不能代批'))
+
+  // 材料段与夹段**并存**（材料是"另一个平面"，不是"更小的范围"）
+  chat.setMode('sess-MATX', {
+    folderId: 'bmf_X', folderName: '夹X',
+    materialProjectId: 'prj_X', materialProjectName: '项目X',
+  })
+  const bothSections = chat.forensicPromptFor('sess-MATX')
+  check('folder section and material section coexist (independent semantics)',
+    bothSections.includes('【收藏夹内提问】') && bothSections.includes('【参考资料项目】'),
+    '两者同开时如实给两段')
+
+  check('unbound session gets NO material section',
+    !chat.forensicPromptFor('sess-MATU').includes('【参考资料项目】'))
+}
 
 /* --- 子会话继承（verifier P1-7） --- */
 const childCtx = (id, parent) => ({ agent: { session: { id, header: { parentSession: parent } } } })
@@ -304,14 +426,14 @@ const put = await call({
   body: putBody({ session: 'sess-W', forensic: true, bookmarksOnly: true }),
 })
 check('PUT writes and normalizes', put.status === 200
-  && eq(put.body?.mode, { forensic: true, bookmarksOnly: true, folderId: null, folderName: null }), JSON.stringify(put.body?.mode))
+  && eq(put.body?.mode, mode({ forensic: true, bookmarksOnly: true })), JSON.stringify(put.body?.mode))
 check('PUT reports persisted:true', put.body?.persisted === true)
 check('PUT took effect in module state', chat.getMode('sess-W').forensic === true)
 check('PUT response is on disk before it returns', (await readState())?.sessions?.['sess-W']?.forensic === true)
 
 const putOff = await call({ method: 'PUT', body: putBody({ session: 'sess-W', forensic: false }) })
 check('PUT off clears both', putOff.status === 200
-  && eq(putOff.body?.mode, { forensic: false, bookmarksOnly: false, folderId: null, folderName: null }), JSON.stringify(putOff.body?.mode))
+  && eq(putOff.body?.mode, ALL_OFF), JSON.stringify(putOff.body?.mode))
 
 const putFolder = await call({
   method: 'PUT',
@@ -739,7 +861,7 @@ check('session count is capped (refuses to grow unbounded)',
   throws(() => chat.setMode('sess-cap-overflow', { forensic: true })),
   `MAX_SESSIONS=${chat.MAX_SESSIONS}`)
 check('a capped-out session can still be turned OFF (no lock-in)',
-  eq(chat.setMode('sess-cap-0', { forensic: false }).mode, { forensic: false, bookmarksOnly: false, folderId: null, folderName: null }))
+  eq(chat.setMode('sess-cap-0', { forensic: false }).mode, ALL_OFF))
 check('turning one off frees a slot',
   !throws(() => chat.setMode('sess-cap-overflow', { forensic: true })))
 
@@ -779,9 +901,12 @@ check('turning one off frees a slot',
   await chat.ensureLoaded()
 
   const commands = chat.makeChatModeCommands()
-  check('two slash commands are declared (lowercase ASCII per DSH contract)',
-    commands.length === 2
-    && commands.map((c) => c.name).join(',') === `${chat.FORENSIC_COMMAND},${chat.BOOKMARKS_COMMAND}`
+  // 命令条数**跟着声明走**（而不是写死 2）：新增一条命令时这里不该变红，
+  // 该红的是"新命令自己那组断言"。故断言的是"声明的每条都在、且命名合法"。
+  const expectedNames = [chat.FORENSIC_COMMAND, chat.BOOKMARKS_COMMAND, chat.MATERIALS_COMMAND]
+  check('slash commands are declared (lowercase ASCII per DSH contract)',
+    commands.length === expectedNames.length
+    && commands.map((c) => c.name).join(',') === expectedNames.join(',')
     && commands.every((c) => /^[a-z][a-z0-9_-]*$/.test(c.name)),
     commands.map((c) => '/' + c.name).join(', '))
   check('both commands carry a description + input hint (discoverable in the / panel)',
@@ -853,16 +978,75 @@ check('turning one off frees a slot',
     }
   }
 
-  // 注册面：两条命令都要真的进命令表，且 disposer 可撤销
+  // 注册面：每个声明的命令都要真的进命令表，且 disposer 可撤销
   {
     const registered = []
     const disposers = chat.registerKsChatModeCommands({
       commands: { register(def) { registered.push(def); return () => {} } },
     })
-    check('registerKsChatModeCommands registers both into the host command table',
-      registered.length === 2 && typeof disposers[0] === 'function', registered.map((d) => d.name).join(','))
+    check('registerKsChatModeCommands registers every declared command into the host table',
+      registered.length === expectedNames.length && typeof disposers[0] === 'function',
+      registered.map((d) => d.name).join(','))
     check('the client half no longer touches the input dock (dock UI was deleted)',
       !(await readFile(join(pluginRoot, 'client', 'entry.ts'), 'utf8')).includes('registerKsChatModeDock'))
+  }
+
+  /* ---- /materials：用户绑定参考资料项目（2026-09-17 材料平面） ---- */
+  {
+    const materials = commands.find((c) => c.name === chat.MATERIALS_COMMAND)
+    check('/materials is registered with a discoverable description',
+      materials !== undefined && materials.description.includes('参考资料')
+      && materials.input.hint.includes('prj_id'), JSON.stringify(materials?.input ?? null))
+
+    // 未绑定时看状态：必须明说"不会使用任何项目材料"
+    const before = await materials.handler(inv('', 'cmd-mat'))
+    check('/materials (no args) reports unbound honestly',
+      before.kind === 'success' && before.text.includes('未绑定')
+      && before.text.includes('不会使用任何项目材料'), before.text)
+
+    // 绑定
+    const bound = await materials.handler(inv('use prj_CMD 测试项目', 'cmd-mat'))
+    check('/materials use <prj_id> <name> binds the session',
+      bound.kind === 'success' && chat.getMode('cmd-mat').materialProjectId === 'prj_CMD'
+      && chat.getMode('cmd-mat').materialProjectName === '测试项目', bound.text)
+    check('binding via command implies forensic (so ks_answer is the path used)',
+      chat.getMode('cmd-mat').forensic === true)
+
+    // 状态回显名字
+    const status = await materials.handler(inv('status', 'cmd-mat'))
+    check('/materials status echoes the bound project name',
+      status.kind === 'success' && status.text.includes('测试项目')
+      && status.text.includes('prj_CMD'), status.text)
+
+    // 换项目时若不改名字，回执不能显示上一个项目的名字（prefix 校验的同族问题）
+    const rebound = await materials.handler(inv('use prj_CMD2', 'cmd-mat'))
+    check('/materials use without a name falls back to the id (not the stale name)',
+      rebound.kind === 'success' && chat.getMode('cmd-mat').materialProjectName === 'prj_CMD2',
+      rebound.text)
+
+    // **最容易踩的坑**：拿收藏夹 id 当项目 id → 必须是 error 且指向正确来源
+    const wrongKind = await materials.handler(inv('use bmf_FOLDER', 'cmd-mat'))
+    check('/materials rejects a folder id with an actionable message',
+      wrongKind.kind === 'error' && wrongKind.text.includes('prj_')
+      && wrongKind.text.includes('bmf_'), wrongKind.text)
+
+    // 解绑：只清该维度
+    const off = await materials.handler(inv('off', 'cmd-mat'))
+    check('/materials off unbinds (and does not silently keep the old binding)',
+      off.kind === 'success' && chat.getMode('cmd-mat').materialProjectId === null, off.text)
+
+    // 参数缺失/无法识别 → 明确报错（不静默什么都不做）
+    const noId = await materials.handler(inv('use', 'cmd-mat'))
+    check('/materials use without an id is an error with usage',
+      noId.kind === 'error' && noId.text.includes('用法'), noId.text)
+    const unknown = await materials.handler(inv('approve mat_1', 'cmd-mat'))
+    check('/materials cannot approve/reject — 评审是用户的判断，不是命令',
+      unknown.kind === 'error' && unknown.text.includes('无法识别'), unknown.text)
+
+    // 会话 id 缺失时的兜底（与其它命令同款）
+    const noSession = await materials.handler({ rawInput: 'status' })
+    check('/materials without a resolvable session fails loudly',
+      noSession.kind === 'error' && noSession.text.includes('会话'), noSession.text)
   }
 }
 /* --- 落盘隔离自检（比的是 chatModeFilePath() 的真值，不是局部常量） --- */

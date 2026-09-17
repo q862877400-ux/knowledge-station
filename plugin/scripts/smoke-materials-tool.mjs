@@ -1,10 +1,13 @@
 /**
  * ks-dsh-plugin — scripts/smoke-materials-tool.mjs
  *
- * `ks_materials`（材料平面只读工具，Phase B 第二步配套）回归。
+ * 材料平面的**宿主侧**回归，两块：
+ *   A. `ks_materials`（只读工具）：路径/透传/异常信封的确定性映射；
+ *   B. `ks_answer` 的**范围强制**：会话级绑定的参考资料项目（与收藏夹同款）
+ *      是否真的被 host 写进了请求体。
  *
  * ## 为什么用**桩引擎**而不是真引擎
- * 本工具的价值全在"路径拼对没、状态过滤有没有透传、异常信封会不会被伪装成空结果"
+ * 这两块的价值全在"路径拼对没、绑定有没有真的强制下发、异常信封会不会被伪装成空结果"
  * ——这些都是**确定性**的映射问题，桩引擎能把每个分支都覆盖到（真引擎反而只能覆盖
  * 它当前恰好有的数据），且不依赖引擎是否已重启加载新路由。
  * 真引擎通道由 `smoke-effect-tool.mjs` 那类脚本覆盖；这里刻意做成零依赖。
@@ -14,6 +17,7 @@
 
 import { createServer } from 'node:http'
 
+import { makeAnswerTool } from '../src/index.js'
 import { makeMaterialsTool } from '../src/materials.js'
 
 const results = []
@@ -24,7 +28,7 @@ function check(name, ok, detail) {
 
 /* ------------------------------- 桩引擎 ------------------------------- */
 
-const seen = []          // 记录每次请求的 path + Authorization
+const seen = []          // 记录每次请求的 path + Authorization（+ POST body）
 // 响应器统一返回 `{ http?, body }`：**别用 `status` 当 HTTP 状态**——信封里已有一个
 // 同名 `status:'success'` 字段，混用会让桩服务器写出非法状态码（本冒烟第一版就踩了）。
 let responder = () => ({ body: { code: 200, status: 'success', data: [] } })
@@ -33,7 +37,10 @@ const server = createServer((req, res) => {
   const chunks = []
   req.on('data', (c) => chunks.push(c))
   req.on('end', () => {
-    seen.push({ path: req.url, auth: req.headers.authorization ?? null })
+    const raw = Buffer.concat(chunks).toString('utf8')
+    let sent = null
+    try { sent = raw.length > 0 ? JSON.parse(raw) : null } catch { sent = { __unparsed: raw } }
+    seen.push({ path: req.url, auth: req.headers.authorization ?? null, sent })
     const r = responder(req.url)
     res.writeHead(r.http ?? 200, { 'content-type': 'application/json' })
     res.end(JSON.stringify(r.body ?? r))
@@ -195,9 +202,106 @@ const call = (args) => tool.execute(args, { signal: new AbortController().signal
     threw6 !== null && String(threw6.message).includes('期望对象'), String(threw6?.message))
 }
 
-server.close()
+/* ==================================================================== *
+ * B. `ks_answer` 的会话级范围强制（2026-09-17）
+ *
+ * 这是"用户以为在用公司制度、其实没用"最容易静默失效的一环：范围是**会话级真值**，
+ * 由 `/materials use <prj_id>` 设置，必须由 host **强制**写进请求体——模型自传值不可信。
+ * 故这里直接驱动真工具、截请求体断言。
+ * ==================================================================== */
+
+{
+  // 桩引擎：回答信封（形状足够 trimAnswer 走通）
+  responder = () => ({
+    body: {
+      code: 200, status: 'success',
+      data: {
+        tier: 'found', evidence: [], derivation: 'd', conclusion: 'c',
+        verification: null, notes: [], material_usage: null, _meta: {},
+      },
+    },
+  })
+
+  /** 用给定的会话级 chatMode 造工具（chatModeOf 在这里被替换成固定值）。 */
+  const answerWith = async (chatMode, params) => {
+    seen.length = 0
+    const tool = makeAnswerTool(fakeManager, () => chatMode)
+    await tool.execute({ query: '住宿标准是多少', params }, {
+      signal: new AbortController().signal,
+      agent: { session: { id: 'sess-smoke' } },
+    })
+    return seen[0]?.sent ?? null
+  }
+
+  const baseMode = {
+    forensic: true, bookmarksOnly: false, folderId: null, folderName: null,
+    materialProjectId: null, materialProjectName: null, source: 'session',
+  }
+
+  // ① 未绑定：请求体里**不能**出现 material_project_id 这个键
+  //    （"没有绑定"与"绑了个空值"必须能区分；后者会让引擎按空项目查）
+  const unbound = await answerWith(baseMode, { top_k: 5 })
+  check('unbound session sends NO material_project_id key at all',
+    unbound !== null && !('material_project_id' in (unbound.params ?? {})),
+    JSON.stringify(unbound?.params ?? null))
+
+  // ② 已绑定：host 强制写入
+  const bound = await answerWith(
+    { ...baseMode, materialProjectId: 'prj_bound', materialProjectName: '财报分析' },
+    { top_k: 5 })
+  check('bound session forces params.material_project_id into the request body',
+    bound?.params?.material_project_id === 'prj_bound', JSON.stringify(bound?.params ?? null))
+  check('the forced binding leaves the other params intact',
+    bound?.params?.top_k === 5, JSON.stringify(bound?.params ?? null))
+
+  // ③ **模型自传值必须被 host 覆盖**（不可信输入）
+  const overridden = await answerWith(
+    { ...baseMode, materialProjectId: 'prj_bound', materialProjectName: '财报分析' },
+    { material_project_id: 'prj_model_invented' })
+  check('host binding OVERRIDES a model-supplied material_project_id',
+    overridden?.params?.material_project_id === 'prj_bound',
+    JSON.stringify(overridden?.params ?? null))
+
+  // ④ 同一份强制逻辑对收藏夹同样成立（回归：别在重构里把它弄丢）
+  const folder = await answerWith(
+    { ...baseMode, folderId: 'bmf_F', folderName: '夹F' }, {})
+  check('folder scope is still forced too (regression guard)',
+    folder?.params?.folder_id === 'bmf_F', JSON.stringify(folder?.params ?? null))
+
+  // ⑤ 两个范围维度可同时强制下发
+  const bothScopes = await answerWith(
+    { ...baseMode, folderId: 'bmf_F', folderName: '夹F',
+      materialProjectId: 'prj_both', materialProjectName: '双' }, {})
+  check('both scopes can be forced in the same call',
+    bothScopes?.params?.folder_id === 'bmf_F'
+    && bothScopes?.params?.material_project_id === 'prj_both',
+    JSON.stringify(bothScopes?.params ?? null))
+
+  // ⑥ 工具的**范围回显**（answer_scope）：这是"host 是否强制传参"的真值，
+  //    不是"材料一定进了提示词"的证明——回显必须存在且如实
+  seen.length = 0
+  const tool = makeAnswerTool(fakeManager,
+    () => ({ ...baseMode, materialProjectId: 'prj_scope', materialProjectName: '回声' }))
+  const out = await tool.execute({ query: 'q' }, {
+    signal: new AbortController().signal, agent: { session: { id: 'sess-smoke' } },
+  })
+  check('answer_scope echoes the material binding (true + id + name)',
+    out.answer_scope?.material === true
+    && out.answer_scope?.material_project_id === 'prj_scope'
+    && out.answer_scope?.material_project_name === '回声',
+    JSON.stringify(out.answer_scope ?? null))
+  check('answer_scope.material is false (not "unknown") when unbound',
+    (await (async () => {
+      const t = makeAnswerTool(fakeManager, () => baseMode)
+      return t.execute({ query: 'q' }, {
+        signal: new AbortController().signal, agent: { session: { id: 'sess-smoke' } },
+      })
+    })()).answer_scope?.material === false)
+}
 
 /* ------------------------------------------------------------------ */
+
+server.close()
 
 const failed = results.filter((r) => !r.ok)
 if (failed.length > 0) {

@@ -121,7 +121,9 @@ async function main() {
   const tool = tools.get('ks_effect_report')
   check('tool registered', typeof tool?.execute === 'function')
   check('slash commands registered on the host command table',
-    registeredCommands.map((d) => d.name).join(',') === 'forensic,bookmarks',
+    // 期望集合**跟着声明走**（别写死两份名字）：加命令时这里不该变红
+    registeredCommands.map((d) => d.name).join(',')
+      === ['forensic', 'bookmarks', 'materials'].join(','),
     registeredCommands.map((d) => '/' + d.name).join(',') || '(none)')
   check('outer timeout covers spawn + inner calls', tool.timeoutMs === 90_000,
     `timeoutMs=${tool.timeoutMs}`)
@@ -154,8 +156,8 @@ async function main() {
       let threwA = null
       try { apply(hostileA, {}) } catch (error) { threwA = error }
       check('a failing command definition cannot abort apply()', threwA === null, String(threwA))
-      check('the other command still registers (per-command fallback)',
-        partial.join(',') === 'bookmarks', partial.join(',') || '(none)')
+      check('the other commands still register (per-command fallback)',
+        partial.join(',') === 'bookmarks,materials', partial.join(',') || '(none)')
       check('model tools still register despite the command failure',
         seenTools.includes('ks_effect_report') && seenTools.length >= 3, seenTools.join(','))
       check('the skipped command is reported loudly', errors.length >= 1, `${errors.length} console.error`)
