@@ -157,6 +157,12 @@ verifier 全面审计产出 25 项问题清单 → 5 verifier 编制方案 → v
    - **删掉"目录常驻"的自动开 tab**：原实现在 `apply()` 里直接 `right.openResource(...)`，而那一刻**会话面还没挂载** → 真机每次都抛 `sidebarRight: no session surface is mounted` 并留一条 `console.warn`。也就是说**它从来没有生效过**（只是每次加载吵一句），而它的用途（"无证据也能进 PDF 阅读器"）现已由**开始页手动入口胶囊**承担；自动开还会把开始页顶掉，与"开始页＝入口"的设计冲突。**若将来确实要"开局常驻 tab"，正确位置是会话面挂载后的回调**，不是 `apply()`。smoke 里两条钉住"自动开"的断言随之改成钉住"**加载时不自动开**"（`client-entry` 41→40 条，全绿）。真机复证：刷新后页面 console **一条 KS 消息都没有**（原来的 warn 消失），点胶囊仍正常渲染 `📑 目录 ▾`。
    - **评估侧与入库侧口径对齐（verifier 点名的 8 处中的 3 个被跟踪文件）**：`var/ocr-loop/evolve.py`（两处）、`fidelity_census.py`、`verify_batch.py` 原先调 `split_items_into_clauses(items)` / `clean_clause_text(...)` **不传标准号**，于是评估与入库**分叉** —— 水印/家具判据里"页码 + 标准号"那一族无法消歧，评估会把**表格末格**（引用别的标准）当页眉删掉，**持续报一个入库里已经不存在的缺陷**（违反 `clean_clause_text` docstring 立的"入库与评估同一次序同结果"）。已按各文件已有的标准号变量（`doc["std_no"]` / `stem` / `d["std_no"]`）补传 `own_standard_no=` 与 `standard_no=`。**特别地 `verify_batch.py:138` 是对"已清洗过的 model 文本"再洗一遍**——不传标准号时那第二遍会把入库刻意保留的表格末格删掉（正是父版本继承来的"不幂等那 4 行"）。另 5 处（`probe_quality.py` 等）**未被 git 跟踪**（scratch 探针），未改。
 
+11. **目录列定位修正（`acad2fc`）——"从屏幕最右边向左弹出"**：用户反馈"目录是从屏幕最右边向左弹出的，而不是从 sidebar 左边向左弹出"。先按系统排错**量真机再改**（CDP）：目录列是 `position: fixed` 的 portal，实测 `left=1384 / right=1574 = window.innerWidth`、`cssRight=0px` —— 它贴在**视口最右边**。
+    **根因**：旧模型把面板钉死在视口右侧，于是用 `right: panelWidth`（面板宽度）反推"面板左缘向左"的位置；而**官方侧栏没有宽度面**（`KsEvidenceHost` 不注入 `panel`）→ `panelWidth = panel?.getWidth() ?? 0` **恒为 0** → `right: 0` = 屏幕最右边。
+    **修法**：新增**实测锚点** `tocAnchorRight = window.innerWidth − 容器所在侧栏列的左缘`，由既有测量链同步（`useLayoutEffect` 保证首帧绘制前就位，避免先在最右边闪一帧；`measureNow` 的 ResizeObserver / `window.resize` 负责拖宽·缩放·最大化跟随）；`panelWidth` 只留作未测量时的兜底。
+    ⚠ **坑（第一次修完仍是 `cssRight: 0px`）**：不能直接用容器自己的 `getBoundingClientRect().left` —— 官方侧栏把 body 挂进一层**尺寸为 0** 的包裹层（实测 `rightbarCol` 的内层 div 是 0×0，而它自己 709×907），容器宽 0 时它的 `left` 落到视口最右 → 锚点算成 0。故加 `paneLeftEdge()`：**向上取第一个宽度 > 1px 的祖先**的左缘。
+    **真机复证**：列从 `[1384, 1574]` 变为 `[676, 866]`，**右缘正好等于侧栏列左缘 866（重叠 0px）**；三点命中测试（上/中/下）均落在列内 ⇒ 绘制在对话区之上且可交互，内容为文件目录树。门禁：tsc 0 错；smoke 11 段全 PASS（pdf-fit 41/41、pdf-panel 29/29、client-entry 40/40…）。
+
 ## 九、外部借鉴调研的落点与边界（2026-09-16）
 
 独立复审了一批开源项目（**实测 15 个上游浅克隆 + 41 份报告、合计 2.43MB**，全部在仓库之外的 `D:\AI\oss-refs\`）的**可借鉴能力**，逐条回本仓库核实，**不采信既有结论**：

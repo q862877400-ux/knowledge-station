@@ -29852,6 +29852,15 @@ function readSlowTransitionMs() {
     return 300;
   }
 }
+function paneLeftEdge(el) {
+  let node = el;
+  for (let i = 0; i < 12 && node !== null; i += 1) {
+    const rect = node.getBoundingClientRect();
+    if (rect.width > 1) return rect.left;
+    node = node.parentElement;
+  }
+  return el.getBoundingClientRect().left;
+}
 function KsEvidenceTab(props) {
   const { tab, visible, scope, prefs, panel, onUpdateTitle, onOpenEvidence, tabOpen } = props;
   const sessionId = scope?.sessionId;
@@ -29859,12 +29868,19 @@ function KsEvidenceTab(props) {
   const showArrowRef = (0, import_react4.useRef)(true);
   showArrowRef.current = showArrowPref;
   const panelWidth = panel?.getWidth() ?? 0;
+  const [tocAnchorRight, setTocAnchorRight] = (0, import_react4.useState)(null);
   const evidence = (0, import_react4.useRef)(EMPTY_EVIDENCE);
   const pdfDocRef = (0, import_react4.useRef)(null);
   const abortRef = (0, import_react4.useRef)(null);
   const canvasRef = (0, import_react4.useRef)(null);
   const bboxRef = (0, import_react4.useRef)(null);
   const containerRef = (0, import_react4.useRef)(null);
+  const syncTocAnchor = (0, import_react4.useCallback)(() => {
+    const el = containerRef.current;
+    if (el === null || typeof window === "undefined") return;
+    const next = Math.max(0, Math.round(window.innerWidth - paneLeftEdge(el)));
+    setTocAnchorRight((prev) => prev === next ? prev : next);
+  }, []);
   const tasksByPageRef = (0, import_react4.useRef)(/* @__PURE__ */ new Map());
   const docEpochRef = (0, import_react4.useRef)(0);
   const pageTokenRef = (0, import_react4.useRef)(/* @__PURE__ */ new Map());
@@ -30296,6 +30312,7 @@ function KsEvidenceTab(props) {
     if (el === null) return;
     const w = el.clientWidth;
     const h = el.clientHeight;
+    syncTocAnchor();
     setBox((prev) => {
       if (force && prev !== null) return { w, h };
       if (prev === null) return { w, h };
@@ -30313,6 +30330,9 @@ function KsEvidenceTab(props) {
       measureNow();
     }, delay);
   }, [measureNow]);
+  (0, import_react4.useLayoutEffect)(() => {
+    syncTocAnchor();
+  }, [syncTocAnchor]);
   (0, import_react4.useEffect)(() => {
     measureNow();
     const el = containerRef.current;
@@ -31338,7 +31358,7 @@ function KsEvidenceTab(props) {
             position: "fixed",
             top: 0,
             bottom: 0,
-            right: panelWidth,
+            right: tocAnchorRight ?? panelWidth,
             width: TOC_COLUMN_WIDTH,
             zIndex: 50,
             background: "var(--dsw-alias-bg-layer-2, #fff)",

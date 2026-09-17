@@ -17,7 +17,7 @@
  */
 
 import * as React from 'react'
-import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react'
 import * as pdfjs from 'pdfjs-dist'
 import { createPortal } from 'react-dom'
 import type { PDFDocumentProxy } from 'pdfjs-dist'
@@ -124,6 +124,26 @@ function readSlowTransitionMs(): number {
 }
 
 
+/**
+ * 目录列锚点用：本容器"所在侧栏列"的左缘。
+ *
+ * ⚠ 不能直接用 `containerRef.current.getBoundingClientRect().left`：官方侧栏把 body
+ * 挂进一层**尺寸可能为 0** 的包裹层（2026-09-17 真机实测：`rightbarCol` 的内层 div
+ * 是 0×0，而它自己 709×907）。容器宽度为 0 时它的 `left` 会落到**视口最右** →
+ * 锚点算成 0 → 目录列又贴回屏幕右边（本次修的正是这个现象）。故**向上找到第一个
+ * 宽度 > 1px 的祖先**，用它的左缘。
+ */
+function paneLeftEdge(el: HTMLElement): number {
+  let node: HTMLElement | null = el
+  for (let i = 0; i < 12 && node !== null; i += 1) {
+    const rect = node.getBoundingClientRect()
+    if (rect.width > 1) return rect.left
+    node = node.parentElement
+  }
+  return el.getBoundingClientRect().left
+}
+
+
 export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
   const { tab, visible, scope, prefs, panel, onUpdateTitle, onOpenEvidence, tabOpen } = props
   /** 侧栏宽度让位/恢复按会话记账（见 pdfPanel.ts）。 */
@@ -137,10 +157,22 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
   const showArrowRef = useRef<boolean>(true)
   showArrowRef.current = showArrowPref
 
-  // 面板当前宽度（CSS px）：目录列经 portal 固定在"面板左缘向左"的位置。
-  // 官方右侧栏不提供宽度面 → `panel` 省略时为 0（目录列退化为悬浮覆盖，
-  // 与旧行为"store 不可读"分支一致）。
+  // 面板当前宽度（CSS px）：旧模型用它把目录列钉在"面板左缘向左"的位置。
+  // ⚠ 官方右侧栏**没有宽度面**（`panel` 不注入）→ `panelWidth` 恒为 0，
+  // 于是 `right: panelWidth` 会变成 `right: 0`，把目录列贴到**屏幕最右边**
+  // （2026-09-17 真机实测：column left=1384/right=1574=innerWidth，cssRight=0px；
+  // 用户观感＝"从屏幕最右边向左弹出"）。故新增下面的实测锚点，`panelWidth` 只作兜底。
   const panelWidth = panel?.getWidth() ?? 0
+  /**
+   * 目录列的锚点：**本 tab 容器左缘**的视口右偏移（= `innerWidth - rect.left`）。
+   *
+   * 目录列是 `position: fixed` 的 portal（必须脱离侧栏的裁剪），所以它没法用
+   * "父容器百分比"定位，只能在**视口坐标**里表达"贴在侧栏左缘、向左展开"：
+   * `right = innerWidth - 容器左缘` ⇒ 列的右边缘正好落在容器左缘。
+   * 容器左缘由既有测量链（`measureNow` / ResizeObserver / window.resize）同步，
+   * 故侧栏拖宽、窗口缩放、最大化都会跟着走。
+   */
+  const [tocAnchorRight, setTocAnchorRight] = useState<number | null>(null)
 
   const evidence = useRef<KsEvidence | null>(EMPTY_EVIDENCE)
   const pdfDocRef = useRef<PDFDocumentProxy | null>(null)
@@ -148,6 +180,13 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const bboxRef = useRef<HTMLDivElement | null>(null)
   const containerRef = useRef<HTMLDivElement | null>(null)
+  /** 把目录列锚点同步到"容器所在侧栏列的左缘"（见 `paneLeftEdge` 的坑注释）。 */
+  const syncTocAnchor = useCallback(() => {
+    const el = containerRef.current
+    if (el === null || typeof window === 'undefined') return
+    const next = Math.max(0, Math.round(window.innerWidth - paneLeftEdge(el)))
+    setTocAnchorRight((prev) => (prev === next ? prev : next))
+  }, [])
   /**
    * 每页各自的 RenderTask（连续模式必需）：单 canvas 时代用一个共享的 ref
    * "先取消上一帧"是对的，但连续模式**多页并发渲染**——共享它会让第 2 页把第 1 页
@@ -869,6 +908,9 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
     if (el === null) return
     const w = el.clientWidth
     const h = el.clientHeight
+    // 目录列的视口锚点：容器**左缘**（不是宽/高）——它与尺寸死区无关，必须每次都更新，
+    // 否则侧栏被拖宽（宽度变但死区吃掉）时目录列会留在旧位置。
+    syncTocAnchor()
     setBox((prev) => {
       // force：冻结结束时无条件换一个新对象，逼渲染 effect 重跑一次
       // （否则"冻结期间 box 已经被更新过"会让 effect 不再触发 → PDF 停在旧尺寸）。
@@ -894,6 +936,13 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
       measureNow()
     }, delay)
   }, [measureNow])
+
+  // 目录列锚点必须在**首帧绘制前**就位：否则它会先在 `right: panelWidth`(=0) 处
+  // 画一帧（屏幕最右边）再跳到侧栏左缘，用户看到一次闪烁。useLayoutEffect 的 setState
+  // 在下一次绘制前冲刷，所以没有那一帧。
+  useLayoutEffect(() => {
+    syncTocAnchor()
+  }, [syncTocAnchor])
 
   useEffect(() => {
     measureNow() // 首帧立即量一次，不等防抖
@@ -2103,7 +2152,7 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
           position: 'fixed',
           top: 0,
           bottom: 0,
-          right: panelWidth,
+          right: tocAnchorRight ?? panelWidth,
           width: TOC_COLUMN_WIDTH,
           zIndex: 50,
           background: 'var(--dsw-alias-bg-layer-2, #fff)',
