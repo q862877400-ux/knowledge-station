@@ -24,10 +24,48 @@ def project(db):
     return mr.create_project("Track L 测试")
 
 
+@pytest.fixture()
+def law_docs(db):
+    """登记本测试往**法条链**写的 doc_id，**测完删干净**。
+
+    ⚠ 为什么必须清（2026-09-17 被既有测试抓到）：`db` 是**会话级共用库**，
+    而材料平面其它测试只写材料表、**不碰** `doc_meta`/`clause_revision`。
+    Track L 的入库测试是**第一处**往法条链写东西的材料测试，于是
+    `tests/test_quality_rules.py::test_qh_02_quality_issues_endpoint_shape`
+    （断言"质量问题的条款恰好 5 条"——一个**全局**假设）当场变红：
+    它数到了 8 条（我插的 `GB66666-2066` 的条款也在里面）。
+    清理走**既有的** `clause_repo.delete_document`（它自己会清 `clause_fts`/`clause_vec`
+    孤儿行——那两处虚拟表不受外键级联约束，手写 DELETE 很容易漏）。
+    """
+    created: list[str] = []
+    yield created
+    for doc_id in created:
+        try:
+            cr.delete_document(doc_id)
+        except Exception:  # noqa: BLE001 — 清理失败不该把测试结论改写成失败
+            pass
+
+
 def _std_body(std_no: str) -> str:
+    """一份**像真的**标准正文。
+
+    ⚠ 必须含**两级**条款号（`3.1`/`4.2`）：GB 切分器（`law_text._GB_SPLIT`）要的是
+    `\\d+[．.]\\d+`（两级），而 `1 范围` / `2 术语和定义` 这种**单级**章标题**切不出来**。
+    本测试第一版只写了单级标题，于是入库返回 `error: 未识别到任何'第X条'条文`
+    ——**那是测试用了不真实的正文**，不是代码的错。
+    （真 GB 标准正文确实带两级条款号；这条限制本身是有意义的边界，见下面
+    `test_unparsable_body_fails_loudly_instead_of_silently`。）
+    """
     return (f"{std_no} 食品安全国家标准 食用动物油脂\n"
-            "1 范围 本标准适用于食用动物油脂。\n"
-            "2 术语和定义 下列术语和定义适用于本文件。" * 3)
+            "1 范围\n本标准适用于食用动物油脂。\n"
+            "2 规范性引用文件\n下列文件中的条款通过本标准的引用而成为本标准的条款。\n"
+            "3 术语和定义\n"
+            "3.1 食用动物油脂 指以动物脂肪为原料加工的油脂。\n"
+            "3.2 酸价 指中和1克油脂中游离脂肪酸所需的氢氧化钾毫克数。\n"
+            "4 技术要求\n"
+            "4.1 感官要求 应符合表1的规定。\n"
+            "4.2 理化指标 酸价应不超过3.0 mg/g。\n"
+            "4.3 污染物限量 应符合GB 2762的规定。")
 
 
 def _collect_standard(pid: str, std_no: str = "GB 10146-2015") -> dict:
@@ -41,7 +79,7 @@ def _collect_standard(pid: str, std_no: str = "GB 10146-2015") -> dict:
                            text=_std_body(std_no), url="https://openstd.example/x")
 
 
-def _seed_doc(standard_no: str, name: str = "食用动物油脂") -> str:
+def _seed_doc(standard_no: str, name: str = "食用动物油脂", register: list | None = None) -> str:
     """往法条链塞一条最小 doc_meta（模拟"库内已有"），返回 doc_id。
 
     ⚠ 这是**测试自己**造的既有数据，不是被测代码写的——用来验证"已有则只回指"。
@@ -49,11 +87,14 @@ def _seed_doc(standard_no: str, name: str = "食用动物油脂") -> str:
     **必须幂等**：`doc_meta.standard_no` 是 UNIQUE，而 `db` fixture 在同一个文件内
     共用一套库（多个测试会重复种同一条标准）——第二次直接复用既有 doc_id，
     否则就是 `UNIQUE constraint failed`（本测试第一版就这么红的）。
+    `register` 传入时把新建的 doc_id 记进去，由 `law_docs` fixture 测完删干净。
     """
     existing = tl.find_existing_doc(standard_no)
     if existing is not None:
         return existing
     doc_id = f"doc_test_{standard_no.replace(' ', '')}"
+    if register is not None:
+        register.append(doc_id)
     cr.insert_document(get_db_connection(), {
         "doc_id": doc_id, "standard_no": standard_no, "standard_name": name,
         "short_code": standard_no.replace(" ", ""), "legal_status": "effective",
@@ -102,18 +143,18 @@ class TestGates:
 
 
 class TestLinkWhenLibraryAlreadyHasIt:
-    def test_approved_standard_already_in_library_links_only(self, project):
+    def test_approved_standard_already_in_library_links_only(self, project, law_docs):
         pid = project["project_id"]
-        doc_id = _seed_doc("GB 10146-2015")
+        doc_id = _seed_doc("GB 10146-2015", register=law_docs)
         m = _collect_standard(pid)
         mr.set_review(m["material_id"], "approved")
         plan = tl.plan_import(m["material_id"])
         assert plan["action"] == "link"
         assert plan["existing_doc_id"] == doc_id
 
-    def test_apply_link_points_the_material_at_the_doc(self, project):
+    def test_apply_link_points_the_material_at_the_doc(self, project, law_docs):
         pid = project["project_id"]
-        doc_id = _seed_doc("GB 10146-2015")
+        doc_id = _seed_doc("GB 10146-2015", register=law_docs)
         m = _collect_standard(pid)
         mr.set_review(m["material_id"], "approved")
         out = tl.apply_link(m["material_id"])
@@ -169,9 +210,9 @@ class TestStandardNoKey:
         assert standard_no_key(None) == ""
         assert standard_no_key("   ") == ""
 
-    def test_find_existing_doc_matches_across_writings(self, project):
+    def test_find_existing_doc_matches_across_writings(self, project, law_docs):
         """库内写 `GB 10146-2015`，采集侧给 `GB10146-2015` —— 必须能匹配上。"""
-        _seed_doc("GB 10146-2015")
+        _seed_doc("GB 10146-2015", register=law_docs)
         assert tl.find_existing_doc("GB10146-2015") is not None
         assert tl.find_existing_doc("gb／t 10146-2015") is None   # 前缀不同 → 不该匹配
 
@@ -197,3 +238,156 @@ class TestIntentParsing:
 
     def test_actions_constant_is_the_single_definition(self):
         assert set(tl.ACTIONS) == {"skip", "blocked", "link", "import"}
+
+
+class TestImportToLibrary:
+    """Track L 的**入库**那一半：走既有 `law_text.ingest_law_text`（不重写切分/分型/建边）。"""
+
+    def test_unapproved_never_touches_the_law_chain(self, project):
+        """**最要紧的一条**：未批准时入库函数必须彻底不动法条链。"""
+        pid = project["project_id"]
+        m = _collect_standard(pid, "GB 88888-2088")
+        before_docs = get_db_connection().execute(
+            "SELECT count(*) FROM doc_meta").fetchone()[0]
+        before_clauses = get_db_connection().execute(
+            "SELECT count(*) FROM clause_revision").fetchone()[0]
+        out = tl.import_to_library(m["material_id"])
+        after_docs = get_db_connection().execute(
+            "SELECT count(*) FROM doc_meta").fetchone()[0]
+        after_clauses = get_db_connection().execute(
+            "SELECT count(*) FROM clause_revision").fetchone()[0]
+        assert out["action"] == "blocked" and out["imported"] is False
+        assert (after_docs, after_clauses) == (before_docs, before_clauses), \
+            "未批准的材料绝不可能进法条库"
+
+    def test_approved_standard_is_imported_and_linked(self, project, law_docs):
+        pid = project["project_id"]
+        std = "GB 88888-2088"
+        m = _collect_standard(pid, std)
+        mr.set_review(m["material_id"], "approved")
+        out = tl.import_to_library(m["material_id"])
+        assert out["imported"] is True, out
+        law_docs.append(out["doc_id"])          # 测完删干净（共享库！）
+        assert out["doc_id"]
+        assert out["linked"] is True
+        assert out["total_clauses"] and out["total_clauses"] > 0
+        # 回指真的写进了材料平面的列
+        assert mr.get_material(m["material_id"])["doc_id"] == out["doc_id"]
+        # 落库口径与全库一致：doc_type=standard（生产库 6417 行全是 standard）
+        row = get_db_connection().execute(
+            "SELECT doc_type, standard_no, legal_hierarchy, source_url FROM doc_meta"
+            " WHERE doc_id=?", (out["doc_id"],)).fetchone()
+        assert row["doc_type"] == "standard"
+        # ⚠ 落库写法是 `auto_tag` 的**归一形**（无空格），而库内既有行是 `GB 10146-2015`（带空格）
+        # ——这是**已知的观感不一致**（判重走 standard_no_key，不受影响）。
+        # 钉住实际行为，免得有人以为是笔误而"顺手"改坏。
+        assert row["standard_no"] == "GB88888-2088", row["standard_no"]
+        assert tl.find_existing_doc(std) is not None, "两种写法必须被比较键认作同一部"
+        assert row["source_url"] == "https://openstd.example/x", "溯源必须落库"
+        # 条款也真的进去了（能被检索/解析）
+        n = get_db_connection().execute(
+            "SELECT count(*) FROM clause_revision WHERE doc_id=?", (out["doc_id"],)).fetchone()[0]
+        assert n > 0
+
+    def test_imported_standard_is_resolvable_by_the_law_chain(self, project, law_docs):
+        """入库之后，法条链**自己**的查询要能找到它（否则"入库"没有意义）。"""
+        pid = project["project_id"]
+        std = "GB 77777-2077"
+        m = _collect_standard(pid, std)
+        mr.set_review(m["material_id"], "approved")
+        out = tl.import_to_library(m["material_id"])
+        assert out["imported"] is True
+        law_docs.append(out["doc_id"])          # 测完删干净（共享库！）
+        # 用标准号比较键能找到（库里是 GB 77777-2077 这种写法）
+        assert tl.find_existing_doc(std) == out["doc_id"]
+
+    def test_second_import_of_same_material_is_idempotent(self, project, law_docs):
+        """再跑一次不该造出第二部标准（既有管线的查重会让它退化为回指）。
+
+        第二次用 **`reconcile`**（Track L 的单一入口）：此时库里已有 ⇒ 决策变 `link`
+        ⇒ 它只回指、不重复入库。这也测到了 `reconcile` 的分派。
+        """
+        pid = project["project_id"]
+        std = "GB 66666-2066"
+        m = _collect_standard(pid, std)
+        mr.set_review(m["material_id"], "approved")
+        first = tl.import_to_library(m["material_id"])
+        assert first["imported"] is True
+        law_docs.append(first["doc_id"])        # 测完删干净（共享库！）
+        docs_after_first = get_db_connection().execute(
+            "SELECT count(*) FROM doc_meta").fetchone()[0]
+        second = tl.reconcile(m["material_id"])
+        docs_after_second = get_db_connection().execute(
+            "SELECT count(*) FROM doc_meta").fetchone()[0]
+        assert docs_after_second == docs_after_first, "第二次不该再插一部"
+        assert second["action"] == "link" and second["imported"] is False
+        assert second["linked"] is True
+
+    def test_reconcile_dispatches_link_and_never_writes_for_blocked(self, project, law_docs):
+        """`reconcile` 的分派：link 走回指；blocked/skip 什么都不做且如实回报。"""
+        pid = project["project_id"]
+        # link 分支
+        std = "GB 33333-2033"
+        _seed_doc(std, register=law_docs)
+        m = _collect_standard(pid, std)
+        mr.set_review(m["material_id"], "approved")
+        out = tl.reconcile(m["material_id"])
+        assert out["action"] == "link" and out["linked"] is True and out["imported"] is False
+        # blocked 分支
+        m2 = _collect_standard(pid, "GB 22222-2022")
+        blocked = tl.reconcile(m2["material_id"])
+        assert blocked["action"] == "blocked"
+        assert blocked["imported"] is False and blocked["linked"] is False
+
+    def test_material_without_chunks_refuses_to_import(self, project):
+        """没有正文的采集件不得入库——那会造出一部空标准。"""
+        pid = project["project_id"]
+        m = _collect_standard(pid, "GB 55555-2055")
+        mr.set_review(m["material_id"], "approved")
+        # 手动清掉切片，模拟"解析不出正文"
+        with __import__("src.core.storage.sqlite_db", fromlist=["x"]).write_transaction() as txn:
+            txn.execute("DELETE FROM material_chunk WHERE material_id=?", (m["material_id"],))
+        out = tl.import_to_library(m["material_id"])
+        assert out["imported"] is False
+        assert "没有切片" in out["why"] or "没有正文" in out["why"]
+
+    def test_unparsable_body_fails_loudly_instead_of_silently(self, project, law_docs):
+        """切不出条款时必须**如实报错**，不能静默"成功"或造出一部空标准。
+
+        这也钉住一条**真限制**：GB 切分器要**两级**条款号，只有单级章标题
+        （`1 范围` / `2 术语和定义`）的正文**切不出来**。网页抓来的正文很可能长这样，
+        所以这条路径必须能被看到，而不是变成一部空标准。
+        """
+        pid = project["project_id"]
+        m = co.collect_text(pid, title="GB 44444-2044 某标准",
+                            text="GB 44444-2044 某标准\n1 范围\n本标准适用于某物。\n"
+                                 "2 术语和定义\n下列术语适用于本文件。",
+                            url="https://openstd.example/x")
+        mr.set_review(m["material_id"], "approved")
+        before = get_db_connection().execute("SELECT count(*) FROM doc_meta").fetchone()[0]
+        out = tl.import_to_library(m["material_id"])
+        after = get_db_connection().execute("SELECT count(*) FROM doc_meta").fetchone()[0]
+        assert out["imported"] is False
+        assert out.get("import_status") == "error"
+        assert "第X条" in (out.get("why") or ""), out
+        assert after == before, "切不出条款时不得留下半部文档"
+
+    def test_collected_LAW_text_is_out_of_scope_today(self, project):
+        """**已知边界（钉住，别当 bug 反复"修"）**：Track L 今天只认**标准**。
+
+        `track_l` 意图来自 `collect.looks_like_standard`，而复用的是 `auto_tag` 的
+        **标准号正则** ⇒ 没有标准号的**法规正文**（`民法典` 那种 `第X条`）**认不出来**
+        ⇒ `plan_import` 返回 `skip`，入库路径根本不会启动。
+        要支持它得先给 `collect` 加法规识别（`law_text.split_law_text` 已有切分能力）。
+        """
+        pid = project["project_id"]
+        body = ("中华人民共和国民法典\n" + "第一条 为了保护民事主体的合法权益，制定本法。\n"
+                "第二条 民法调整平等主体的自然人、法人和非法人组织之间的人身关系和财产关系。\n"
+                "第三条 民事主体的人身权利、财产权利以及其他合法权益受法律保护。")
+        m = co.collect_text(pid, title="中华人民共和国民法典(节选)", text=body,
+                            url="https://gov.example/law")
+        assert m["track_l"] is None, "法规正文不该被当成标准（当前识别只管标准号）"
+        mr.set_review(m["material_id"], "approved")
+        plan = tl.plan_import(m["material_id"])
+        assert plan["action"] == "skip"
+        assert tl.import_to_library(m["material_id"])["imported"] is False

@@ -1091,6 +1091,48 @@ client 插件改动只有在 `pnpm run dev:web` 同时在跑时才会免刷新�
 **门禁**：`pytest` **1454 passed / 3 skipped / 0 failed**（1431 → 1454，**+23**）；
 `mypy` **130 files** 0 errors；本步只动 Python，插件侧门禁不受影响。
 
+### 10.24 Phase C 第三步：**Track L 入库**（采到的标准真的进法条库了）
+
+§10.23 只会"决定"，不会"入库"。本步补上另一半：走**既有** `law_text.ingest_law_text`
+（切分/分型/建边/事务/查重全在那里），成功后再从材料侧 `link_doc` 回指。
+
+**没有重写第二份切分逻辑**（这是本步的关键决定）：`ingest_law_text` 把 `doc_type`
+**写死成 `法律法规`**，而生产库 6417 行 `doc_meta` **全是 `standard`**（6130 GB/T + 287 GB）。
+本可以照着它的结构再写一份"标准版"，但那正是本战役反复栽的坑。于是把它
+**参数化**（`doc_type` / `short_code` / `source_marker` / `source_url`，全部关键字参数、
+默认值保持原行为向后兼容），Track L 传 `doc_type="standard"` +
+`legal_hierarchy=_hier_from_no(...)`（复用既有前缀判据）+ `source_url`（**溯源要落库**）。
+
+**单一入口 `reconcile(material_id)`**：按决策分派（`link`→回指 / `import`→入库 / 其余什么都不做），
+返回体恒有 `imported`/`linked` 两个布尔 ⇒ "没做任何事"与"做了但没成功"**看得出来**。
+调用方（评审后的钩子）不必自己判该走哪条——那会分叉。
+
+> **两条"测试自己错"，都是被既有测试或真实数据抓出来的**：
+> ① 我的标准正文夹具只写了**单级**章标题（`1 范围`），而 GB 切分器要的是**两级**（`3.1`）
+>    ⇒ 入库返回 `error: 未识别到任何'第X条'条文`。**是夹具不真实，不是代码错**。
+>    顺手把这条**真限制**钉成一条测试（只有单级标题的网页正文切不出来 ⇒ 必须**如实报错**，
+>    不能造出一部空标准）。
+> ② 更值钱的一条：Track L 入库测试是**第一处往法条链写东西的材料测试**，于是
+>    `tests/test_quality_rules.py::test_qh_02_quality_issues_endpoint_shape`
+>    （断言"质量问题的条款恰好 5 条"——一个**全局**假设）当场变红：它数到了 8。
+>    **这是我污染了会话级共享库**，不是它的错 ⇒ 新增 `law_docs` fixture，
+>    用**既有的** `clause_repo.delete_document`（它自己会清 `clause_fts`/`clause_vec`
+>    孤儿行）在测后删干净。
+
+**已知边界（钉住，别当 bug 反复"修"）**：
+- **Track L 今天只认标准**：`track_l` 意图来自 `collect.looks_like_standard`，而复用的是
+  `auto_tag` 的**标准号正则** ⇒ 没有标准号的**法规正文**（`民法典` 那种 `第X条`）认不出来，
+  `plan_import` 返回 `skip`。`law_text.split_law_text` 已有法规切分能力，缺的只是
+  "认出这是法规"——留给后续一步（有测试 `test_collected_LAW_text_is_out_of_scope_today` 钉住）。
+- **落库的 `standard_no` 写法与库内既有行不一致**：新增行用 `auto_tag` 归一形
+  `GB88888-2088`（无空格），库内既有 6417 行是 `GB 10146-2015`（带空格）。
+  判重/比较走 `standard_no_key`，**不受影响**，但拼写不统一。需要一个 canonicalizer，
+  而它必须正确处理 `DB11/T 1234` 这类**前缀带数字**的号段（一行正则会把 `DB11/T` 变成
+  `DB 11/T`，比不统一更糟）⇒ **没有**糊一个上去，登记为待办。
+
+**门禁**：`pytest` **1462 passed / 3 skipped / 0 failed**（1454 → 1462，**+8**）；
+`mypy` **130 files** 0 errors。
+
 
 
 

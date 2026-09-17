@@ -24,6 +24,13 @@
 ## 诚实边界
 - 判"库内有没有"只按 `standard_no` 的**比较键**（`text_utils.standard_no_key`）——
   它是 Exact 匹配（含年份与部分号），**不做**"同一标准的不同版本/勘误"的模糊关联。
+- **落库的 `standard_no` 写法与库内既有行不一致**（这是一个**已知的观感问题**，不是判据问题）：
+  新入库的行用的是 `auto_tag` 的归一形 **`GB88888-2088`**（无空格），
+  而库内既有 6417 行是 **`GB 10146-2015`**（带空格）。
+  判重/比较走 `standard_no_key`，**不受影响**；但拼写不统一，将来若做"按标准号列目录"
+  会看到两种写法。⇒ 需要写一个**canonicalizer**，而它必须正确处理 `DB11/T 1234` 这类
+  "前缀里带数字"的号段——所以**没有**用一行正则糊上去（那会把 `DB11/T` 变成 `DB 11/T`，
+  比不统一更糟）。这是留给后续的一个明确待办。
 - 采集件的正文来自网页 ⇒ **不是**官方原件。即使入库，`doc_meta` 的
   `legal_status`/`legal_hierarchy` 等判据仍应由既有管线的规则给，**本模块不代它决定**。
 - 本模块**不抓网、不解析 PDF**。
@@ -87,7 +94,7 @@ def plan_import(material_id: str) -> dict[str, Any]:
         - `skip`    —— 不是标准正文（没有 track_l 意图）；
         - `blocked` —— **未批准**（评审硬门，绝不越过）；
         - `link`    —— 库内已有 ⇒ 只需从材料侧回指；
-        - `import`  —— 库内没有 ⇒ 需要入库（**本模块不做**，下一步复用既有管线）。
+        - `import`  —— 库内没有 ⇒ 需要入库（`import_to_library` 走既有 ingest 管线）。
     """
     mat = mr.get_material(material_id)
     if mat is None:
@@ -128,3 +135,101 @@ def apply_link(material_id: str) -> dict[str, Any]:
         return {**plan, "linked": False}
     ok = mr.link_doc(material_id, str(plan["existing_doc_id"]))
     return {**plan, "linked": bool(ok)}
+
+
+def _material_text(material_id: str) -> str:
+    """把材料的切片拼回正文（**切片就是存档副本**——采集件没有源文件）。
+
+    拼接用 `"\\n"` 而不是原分隔符：这里只要"能切出条款"的正文，不需要保真
+    （法条侧会重新切分；保真不变量只在**材料侧引用**那条链上要求）。
+    """
+    chunks = mr.material_chunks(material_id)
+    return "\n".join(str(c.get("text") or "") for c in chunks)
+
+
+def import_to_library(material_id: str) -> dict[str, Any]:
+    """**Track L 入库**：把已批准、库内没有的标准/法规正文灌进法条库。
+
+    **必须已批准**（复用 `plan_import` 的门，不另判一次）。
+    入库走**既有** `ingestion.law_text.ingest_law_text`（切分/分型/建边/事务都在那里，
+    本函数不重写任何一段），成功后再回到材料侧 `link_doc` 回指。
+
+    两个 `doc_type` 口径（**别混**，生产库 6417 行全是 `standard`）：
+    - **标准**（`GB 88888-2088` 这类）→ `doc_type='standard'` +
+      `legal_hierarchy` 用既有的 `pipeline._hier_from_no`（复用，不新写一份前缀判断）；
+    - **法规**（`第X条` 形态）→ `doc_type='法律法规'`，走 `ingest_law_text` 的默认口径。
+
+    ⚠ **当前实际只会走"标准"这一支**：`track_l` 意图是 `collect.looks_like_standard`
+    认出来的，而那个判据复用 `auto_tag` 的**标准号正则** ⇒ **法规正文不会被认出**
+    （`民法典` 之类没有标准号）。所以"采集到的法规正文入库"目前**走不通**——
+    这是**已知边界**，不是"实现了但没测到"。要支持它，得先给 `collect` 加一个
+    法规识别（`law_text.split_law_text` 已有切分能力，缺的只是"认出这是法规"）。
+
+    ⚠ 采集件正文**来自网页、不是官方原件**：这里只负责"灌进去，
+    使它能被检索/引用"，不替既有管线决定效力判据（那是 `doc_meta` 规则的事）。
+    """
+    plan = plan_import(material_id)
+    if plan["action"] != "import":
+        # blocked / skip / link 一律**不动法条链**（blocked 尤其重要：未批准不得入库）
+        return {**plan, "imported": False}
+
+    mat = mr.get_material(material_id) or {}
+    body = _material_text(material_id)
+    if not body.strip():
+        return {**plan, "imported": False,
+                "why": "材料没有切片（没有正文）——入库会造出一部空标准"}
+
+    standard_no = str(plan.get("standard_no") or "").strip()
+    if not standard_no:
+        return {**plan, "imported": False, "why": "track_l 意图里没有 standard_no"}
+
+    from src.core.ingestion.law_text import ingest_law_text
+    from src.core.ingestion.pipeline import _hier_from_no
+
+    result = ingest_law_text(
+        body, standard_no, str(mat.get("title") or standard_no),
+        legal_hierarchy=_hier_from_no(standard_no, fallback="GB"),
+        domain_tags=None,
+        doc_type="standard",
+        # 短码口径与 `docx_ingest` 一致（去空格去连字符）
+        short_code=standard_no.replace(" ", "").replace("-", ""),
+        source_marker="material-collected://track-l",
+        source_url=mat.get("url"),
+    )
+    status = result.get("status")
+    # `standard_exists` 说明库内其实已有（归一化判据与既有查重口径不同导致的边界），
+    # 那就退回"只回指"——**不要**把既有文档覆盖掉。
+    if status == "standard_exists":
+        doc_id = str(result.get("existing_doc_id") or "")
+        linked = mr.link_doc(material_id, doc_id) if doc_id else False
+        return {**plan, "action": "link", "existing_doc_id": doc_id,
+                "imported": False, "linked": bool(linked),
+                "why": "库内已有这部标准（既有管线的原样查重命中）⇒ 只回指"}
+    if status != "ok":
+        return {**plan, "imported": False, "import_status": status,
+                "why": f"入库未成功（{status}）：{result.get('message') or '见引擎返回'}"}
+
+    doc_id = str(result.get("doc_id") or "")
+    linked = mr.link_doc(material_id, doc_id) if doc_id else False
+    return {**plan, "imported": True, "doc_id": doc_id, "linked": bool(linked),
+            "total_clauses": result.get("total_clauses"),
+            "why": "已走既有 ingest 管线入库并回指"}
+
+
+def reconcile(material_id: str) -> dict[str, Any]:
+    """**Track L 的单一入口**：评审之后调用它，由它按决策分派。
+
+    - `link`   → `apply_link`（只回指）；
+    - `import` → `import_to_library`（走既有管线入库 + 回指）；
+    - `skip` / `blocked` → **什么都不做**，原样返回决策。
+
+    为什么要这个函数：调用方（评审后的钩子/工具）不该自己去判"这次该 link 还是 import"
+    ——那是本模块的判据，分散出去早晚分叉。返回体里恒有 `imported`/`linked` 两个布尔，
+    让"没做任何事"与"做了但没成功"**看得出来**。
+    """
+    plan = plan_import(material_id)
+    if plan["action"] == "link":
+        return {**apply_link(material_id), "imported": False}
+    if plan["action"] == "import":
+        return import_to_library(material_id)
+    return {**plan, "imported": False, "linked": False}

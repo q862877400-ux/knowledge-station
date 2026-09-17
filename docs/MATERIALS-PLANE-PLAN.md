@@ -306,9 +306,14 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
   采集侧是 `GB10146-2015`，且**保留年份/部分号**——库里 `GB 10769-2010` 与 `-2025` 同时存在）。
   四动作 `skip`/`blocked`/`link`/`import`；**未批准一律 blocked**（评审硬门没有例外）；
   `apply_link` 是唯一会写的操作且只写 `material.doc_id`。测试 23 条。
-- **C-3 剩余（未做）**：① **谁去抓**（采集器/工具接线，含 SSRF 与外发纪律）；
-  ② **Track L 入库**（写 `doc_meta`，必须复用既有 ingest 管线）；
-  ③ 采集预算/频率上限（方案 §11.4 未定）。
+- **C-3 Track L 入库（已完成，§10.24）**：走**既有** `law_text.ingest_law_text`
+  （把它 `doc_type`/`short_code`/`source_url` 参数化，**没有**另写一份切分逻辑），
+  成功后 `link_doc` 回指。单一入口 `reconcile()` 分派 link/import，返回体恒有
+  `imported`/`linked`。**只认标准**：法规正文（`第X条`）目前认不出来（`skip`），
+  是已知边界、有测试钉住。落库标准号写法与库内既有行不统一（判重不受影响），
+  canonicalizer 登记为待办（必须能处理 `DB11/T` 这类前缀带数字的号段）。
+- **C-4 剩余（未做）**：① **谁去抓**（采集器/工具接线，含 SSRF 与外发纪律）；
+  ② 法规正文的识别（让 Track L 也覆盖法规）；③ 采集预算/频率上限（方案 §11.4 未定）。
 
 ### 已知未决 / 诚实边界
 

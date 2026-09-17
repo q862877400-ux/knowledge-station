@@ -84,13 +84,33 @@ def split_law_text(text: str) -> list[tuple[str, str]]:
 def ingest_law_text(text: str, standard_no: str, standard_name: str,
                     legal_hierarchy: str = "法律",
                     domain_tags: list[str] | None = None,
-                    effective_from: str | None = None) -> dict:
-    """法规纯文本 → 切分 → 分型 → 单事务原子入库（无源 PDF，file_path 记录来源标记）。"""
+                    effective_from: str | None = None,
+                    *, doc_type: str = "法律法规",
+                    short_code: str | None = None,
+                    source_marker: str = "law-text://inline",
+                    source_url: str | None = None) -> dict:
+    """法规纯文本 → 切分 → 分型 → 单事务原子入库（无源 PDF，file_path 记录来源标记）。
+
+    Args:
+        doc_type: 落 `doc_meta.doc_type`。默认 `法律法规`。
+            **2026-09-17 新增**（Track L）：自采到的**标准**正文走同一条通道时必须传
+            `standard` —— 生产库里 6417 行 `doc_meta` **全是** `standard`
+            （6130 GB/T + 287 GB），把标准写成 `法律法规` 会与全库不一致。
+            参数化而不是另写一份：切分/分型/建边/事务这段逻辑**只该有一份**
+            （本战役已因"同一机制两份实现"栽过多次）。
+        short_code: 跨版本稳定的短码。不给时用法规口径（去括号截断）；标准应传
+            `standard_no.replace(" ","").replace("-","")`（与 `docx_ingest` 同口径）。
+        source_marker: 落 `file_path` 的来源标记（本通道没有源文件，用标记占位）。
+        source_url: 采集来源 URL（有则落 `doc_meta.source_url`，**溯源要看得到**）。
+    """
     settings = get_settings()
     init_schema()
     conn = get_db_connection()
     file_hash = hashlib.sha256(text.encode("utf-8")).hexdigest()
 
+    # ⚠ 这里的查重按 `standard_no` **原样**比对（`doc_meta` 的口径是 `GB 10146-2015`）。
+    # Track L 的调用方负责先用 `text_utils.standard_no_key` 判过"库里有没有"，
+    # 并传**库里那种写法**进来——两处判据不要混。
     if conn.execute("SELECT doc_id FROM doc_meta WHERE file_hash=?", (file_hash,)).fetchone():
         return {"status": "duplicate"}
     same_no = conn.execute(
@@ -137,11 +157,12 @@ def ingest_law_text(text: str, standard_no: str, standard_name: str,
     with write_transaction() as txn:
         clause_repo.insert_document(txn, {
             "doc_id": doc_id, "standard_no": standard_no, "standard_name": standard_name,
-            "short_code": standard_no.replace("(", "").replace(")", "")[:24],
-            "current_revision_id": f"rev_{ULID()}", "doc_type": "法律法规",
+            "short_code": short_code or standard_no.replace("(", "").replace(")", "")[:24],
+            "current_revision_id": f"rev_{ULID()}", "doc_type": doc_type,
             "legal_hierarchy": legal_hierarchy, "domain_tags": domain_tags or ["法律"],
             "effective_from": effective_from,
-            "file_path": "law-text://inline", "file_hash": file_hash})
+            "file_path": source_marker, "file_hash": file_hash,
+            "source_url": source_url})
         clause_repo.insert_clauses_in_txn(txn, models)
         clause_repo.insert_edges_in_txn(
             txn, [(t, s, d, 0.9, "active") for t, s, d in edges])
