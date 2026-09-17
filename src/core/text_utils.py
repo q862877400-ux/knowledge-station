@@ -1410,6 +1410,25 @@ _RE_SCRIPT_STYLE_CLOSE_ANY = re.compile(r"</(script|style)\b[^>]*>", re.IGNORECA
 #: HTML 注释：**必须先剥**（注释里的 `<script>` 不是标签；不剥会吞掉其后正文）。
 _RE_HTML_COMMENT = re.compile(r"<!--.*?-->", re.DOTALL)
 
+#: 标签开头：`<` 后面紧跟字母或 `/`（HTML5：`<` 后面是空白/数字/`=` 等**不是**标签开头）。
+_RE_TAG_START = re.compile(r"<[A-Za-z/]")
+
+
+def _inside_unclosed_tag(s: str, start: int, at: int) -> bool:
+    """`s[start:at]` 里是否有一个**未闭合的标签开头**（⇒ `at` 处的 `<` 在标签内部）。
+
+    判据（与 `_strip_script_style` 的 docstring 第 4 条同源）：
+    取 `s[start:at]` 里**最后一个** `<`；它必须①紧跟字母或 `/`（像标签开头）、
+    ②其后**没有** `>`（标签还没结束）——两条都成立才算"我们在那个标签里面"。
+    ⚠ ② 不能省：`<a title="a>b"><script>` 里那个 `<a` 后面有 `>`（哪怕是引号里的），
+    这时我们**不在**标签内部，`<script>` 是真的标签（在它旁边少判一次就会漏 JS 进正文）。
+    """
+    seg = s[start:at]
+    lt = seg.rfind("<")
+    if lt < 0:
+        return False
+    return ">" not in seg[lt:] and bool(_RE_TAG_START.match(seg, lt))
+
 
 def _strip_script_style(html: str) -> str:
     """丢掉 `script`/`style` **及其内容**（含**自闭合**与**未闭合**两种形态）。
@@ -1435,8 +1454,20 @@ def _strip_script_style(html: str) -> str:
        写法第一版认不出 ⇒ 找不到闭合 ⇒ **其后正文被整段吞掉**（复核 OVERKILL）。
     未闭合 ⇒ 其后整段丢弃（HTML5：未闭合的 `<script>` 吞到文档末尾，浏览器不渲染）。
 
-    ⚠ 其余局限（粗，与 `html_to_text` 整体定位一致）：属性值里带 `>` 的写法仍可能定位偏差；
-    不解析 DOM。要更准得引 HTML 解析器（未立项）。
+    ⚠ 其余局限（粗，与 `html_to_text` 整体定位一致）：不解析 DOM；**引号内**的
+    `>`（`<a title="a>b">`）仍可能让标签边界定位偏差。要更准得引 HTML 解析器（未立项）。
+
+    ## 第 4 条语义（2026-09-17 复核 LOW 顺带实测，v3 加）
+    **"还在一个未闭合的标签里"的 `<script>` 不是标签**。复核给的那组
+    `<p title=<script> 可见甲</p><p>后</p>`（**无引号**属性值里带字面 `<script>`）
+    第一版会把它当标签 ⇒ 其后正文**整段丢掉**（实测只留 `'前<p title='`，丢了"可见甲"与"后"）。
+    HTML5 的实际解析是：`<` 在无引号属性值里属于**属性值**（parse error 但继续），
+    标签在下一个 `>` 处结束 ⇒ `<p title=<script` 是一个完整标签，**"可见甲"是正文**。
+    ⇒ 判据：匹配点之前若有一个 `<` 是**未闭合的标签开头**（后面紧跟字母或 `/`，
+    且其后没有 `>`），则我们还在那个标签内部，本次匹配**不是**标签，跳过。
+    ⚠ 为什么要求"紧跟字母/`/`"：正文里的裸 `<`（`a < b <script>…`）后面跟的是空格，
+    那不是标签开头，**不能**因此把真 `<script>` 当文本——那会把 JS **漏进正文**
+    （本函数要防的正是这个方向）。两个方向都实测过，见 §10.40。
     """
     # ① 先剥注释：注释里的 `<script>` 不是标签（不剥会把其后正文全吞掉，实测丢材料）
     s = _RE_HTML_COMMENT.sub(" ", html)
@@ -1447,6 +1478,12 @@ def _strip_script_style(html: str) -> str:
         if m is None:
             out.append(s[pos:])
             return "".join(out)
+        # ④ 还在一个**未闭合的标签**里 ⇒ 这次匹配是属性值里的字面文本，不是标签
+        #    （见 docstring 第 4 条；跳过一个字符继续找，保证循环终止）
+        if _inside_unclosed_tag(s, pos, m.start()):
+            out.append(s[pos:m.start() + 1])
+            pos = m.start() + 1
+            continue
         out.append(s[pos:m.start()])
         # ② 自闭合**不特殊处理**（HTML5：`<script/>` 里的 `/` 被忽略，它不是自闭合）
         close = _RE_SCRIPT_STYLE_CLOSE_ANY.search(s, m.end())

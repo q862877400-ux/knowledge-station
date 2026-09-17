@@ -260,13 +260,29 @@ class TestLawRecognition:
         assert m["track_l"] is None and m["kind"] == "other", m
 
     def test_standard_number_wins_over_law_shape(self, project):
-        """**优先级**：同时像标准与法规时，走**标准**那一支（标准号判据更精确）。"""
+        """**优先级**：同时像标准与法规时，走**标准**那一支（标准号判据更精确）。
+
+        ⚠ 这条同时回答一个**复核误判**（2026-09-17）：复核的 M13 把
+        `if std…: / elif law…:` 的 `elif` 改成 `if`，测试**全绿**，于是被记成
+        "优先级契约在真冲突下无覆盖"。**不是**：冲突在上游就被消掉了——
+        `collect_text` 里 `law = {"is_law": False} if std.get("is_standard") else …`
+        这行守卫保证"认成标准时 `law` 恒为假"，所以那个 `elif` 在 std 为真时
+        **不可达**，M13 是**等价变异体**（equivalent mutant），本来就不该指望它变红。
+        真正承重的是那行守卫（复核的 M12 删掉它 ⇒ **RED**）。
+        这里把断言**加严**到"没有法规字段漏出来"，让"标准赢"这条契约更锋利。
+        """
         pid = project["project_id"]
         body = ("GB 88888-2088 某安全技术规范\n" + self._LAW)
         m = co.collect_text(pid, title="GB 88888-2088 某安全技术规范", text=body,
                             url="https://openstd.example/x")
         assert m["track_l"]["doc_kind"] == "standard", m["track_l"]
         assert m["track_l"]["standard_no"], m["track_l"]
+        # 「赢」要**赢得干净**：法规那一支的字段一个都不许混进来（混进来就会写错库）
+        assert "law_name" not in m["track_l"], m["track_l"]
+        assert "clause_count" not in m["track_l"], m["track_l"]
+        # 判据本身也要说清是"标准赢"，理由要能给人看
+        assert "标准" in (m["tier_reason"] or ""), m["tier_reason"]
+        assert "法规" not in (m["tier_reason"] or ""), m["tier_reason"]
 
 
 class TestLawRecognitionFalsePositives:

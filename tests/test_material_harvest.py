@@ -636,6 +636,37 @@ class TestScriptStyleStrippingEdges:
         assert "可见" in out, out
         assert "<script>" not in out, out
 
+    def test_literal_script_in_an_UNQUOTED_attribute_is_not_a_tag_either(self):
+        """**OVERKILL-4**（2026-09-17 复核 LOW 顺带实测，v3 修）：**无引号**属性值同理。
+
+        `<p title=<script> 可见甲</p><p>后</p>`：HTML5 里 `<` 在无引号属性值中是
+        **属性值的一部分**（parse error 但继续），标签在下一个 `>` 处结束 ⇒
+        `<p title=<script` 是完整标签、**"可见甲"是正文**。
+        修前实测只留 `'前<p title='`（"可见甲"与"后"**整段丢掉**），是一条**静默的内容损失**。
+        """
+        from src.core.text_utils import html_to_text
+        out = html_to_text("<p>前</p><p title=<script> 可见甲</p><p>后</p>")
+        assert "可见甲" in out and "后" in out, out
+        assert "script" not in out, out
+        out2 = html_to_text("<p>前</p><p title=<style> 可见乙</p>")
+        assert "可见乙" in out2, out2
+
+    def test_a_bare_less_than_in_the_text_does_not_disable_the_sweep(self):
+        """**上面那条守卫的风险方向**：正文里的裸 `<` **不许**让真 `<script>` 变成文本。
+
+        守卫的判据是"未闭合的**标签开头**"（`<` 紧跟字母或 `/`）。`a < b` 里的 `<`
+        后面是空格 ⇒ 不是标签开头 ⇒ `<script>` 仍是真标签、JS 仍被剥掉。
+        ⚠ 若判据放宽成"有 `<` 就算在标签里"，**JS 会漏进正文**——那是本函数要防的方向，
+        所以这条与上一条是**成对**的（一个防 OVERKILL，一个防 LEAK）。
+        """
+        from src.core.text_utils import html_to_text
+        out = html_to_text("<p>前 3 < 5</p><script>var SECRET_JS=1;</script><p>后</p>")
+        assert "SECRET_JS" not in out, out
+        assert "前" in out and "后" in out, out
+        # 引号里的 `>` 也算"标签已闭合" ⇒ 不能因此把后面的真 script 当文本
+        out2 = html_to_text('<a title="a>b">x</a><script>var SECRET_JS=2;</script>后')
+        assert "SECRET_JS" not in out2, out2
+
     def test_unclosed_script_swallows_the_tail_like_a_browser(self):
         """未闭合 ⇒ 其后全部是脚本文本（HTML5），**不得**把 JS 当正文留下来。
 

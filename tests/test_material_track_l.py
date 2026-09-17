@@ -79,7 +79,8 @@ def _collect_standard(pid: str, std_no: str = "GB 10146-2015") -> dict:
                            text=_std_body(std_no), url="https://openstd.example/x")
 
 
-def _seed_doc(standard_no: str, name: str = "食用动物油脂", register: list | None = None) -> str:
+def _seed_doc(standard_no: str, name: str = "食用动物油脂", register: list | None = None,
+              doc_type: str = "standard", legal_hierarchy: str = "GB") -> str:
     """往法条链塞一条最小 doc_meta（模拟"库内已有"），返回 doc_id。
 
     ⚠ 这是**测试自己**造的既有数据，不是被测代码写的——用来验证"已有则只回指"。
@@ -88,6 +89,9 @@ def _seed_doc(standard_no: str, name: str = "食用动物油脂", register: list
     共用一套库（多个测试会重复种同一条标准）——第二次直接复用既有 doc_id，
     否则就是 `UNIQUE constraint failed`（本测试第一版就这么红的）。
     `register` 传入时把新建的 doc_id 记进去，由 `law_docs` fixture 测完删干净。
+
+    法规也走这个助手（`doc_type="法律法规"` + 名称当 `standard_no`，与既有法规管线一致）
+    ——法规那侧的"库内已有"判据不同（`find_existing_law` 按名称），但**种子数据的形状**相同。
     """
     existing = tl.find_existing_doc(standard_no)
     if existing is not None:
@@ -98,7 +102,7 @@ def _seed_doc(standard_no: str, name: str = "食用动物油脂", register: list
     cr.insert_document(get_db_connection(), {
         "doc_id": doc_id, "standard_no": standard_no, "standard_name": name,
         "short_code": standard_no.replace(" ", ""), "legal_status": "effective",
-        "legal_hierarchy": "GB", "doc_type": "standard",
+        "legal_hierarchy": legal_hierarchy, "doc_type": doc_type,
         "file_path": f"/tmp/{doc_id}.pdf", "file_hash": f"hash_{doc_id}",
     })
     return doc_id
@@ -215,6 +219,53 @@ class TestStandardNoKey:
         _seed_doc("GB 10146-2015", register=law_docs)
         assert tl.find_existing_doc("GB10146-2015") is not None
         assert tl.find_existing_doc("gb／t 10146-2015") is None   # 前缀不同 → 不该匹配
+
+
+class TestLawNameKey:
+    """法规比较键：**保留版本/修正标记**（与标准号键的方向**相反**）。
+
+    为什么要有**直接**断言（2026-09-17 复核的 LOW）：复核的 M11 把本函数改成
+    "去掉括号里的内容"之后，测试只因为**别的**用例撞上 `doc_meta.standard_no` 的
+    UNIQUE 约束才变红——那是**连带**，判据本身**没有被钉住**。
+    这条判据的后果很重（P1 准确性上最坏的一种）：`（2021年修正）` 与 `（2014年修正）`
+    归一成同一个键 ⇒ "库里有 2014 版"会被当成"新版已经有了" ⇒ 新版正文**不入库**、
+    引用**指向旧版**，而报告看起来一切正常。
+    """
+
+    def test_the_amendment_year_is_part_of_the_identity(self):
+        from src.core.text_utils import law_name_key
+        assert law_name_key("安全生产法（2021年修正）") != law_name_key("安全生产法（2014年修正）")
+        # 反向：**同一年**的两种写法仍是一部法（括号/书名号/空白不该造成分歧）
+        assert (law_name_key("安全生产法（2021年修正）")
+                == law_name_key("《安全生产法》（2021年修正）"))
+
+    @pytest.mark.parametrize("a,b", [
+        ("《中华人民共和国安全生产法》", "中华人民共和国安全生产法"),
+        ("中华人民共和国 安全生产法", "中华人民共和国安全生产法"),
+        ("中华人民共和国安全生产法", "中华人民共和国安全生产法"),
+    ])
+    def test_same_law_in_different_writings_shares_a_key(self, a, b):
+        from src.core.text_utils import law_name_key
+        assert law_name_key(a) == law_name_key(b)
+
+    def test_empty_is_empty(self):
+        from src.core.text_utils import law_name_key
+        assert law_name_key(None) == ""
+        assert law_name_key("   ") == ""
+
+    def test_find_existing_law_does_not_point_a_new_amendment_at_an_old_one(
+            self, project, law_docs):
+        """库里只有 **2014 修正版**时，**2021 修正版**必须判成"库内没有"。
+
+        这是 `law_name_key` 保留年份的**行为级**后果：判成"已有"就只会 `link`，
+        新版正文永远进不了库（与复核 step-31~34 那条"脏数据拦住真数据"同型，
+        只是这次拦的是**旧版本**）。
+        """
+        _seed_doc("中华人民共和国安全生产法（2014年修正）",
+                  name="中华人民共和国安全生产法（2014年修正）",
+                  register=law_docs, doc_type="法律法规", legal_hierarchy="法律")
+        assert tl.find_existing_law("中华人民共和国安全生产法（2014年修正）") is not None
+        assert tl.find_existing_law("《中华人民共和国安全生产法》（2021年修正）") is None
 
 
 class TestIntentParsing:
