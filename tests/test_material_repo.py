@@ -1,0 +1,230 @@
+# -*- coding: utf-8 -*-
+"""材料平面仓库测试（2026-09-17 定位转移 Phase A）。
+
+覆盖四件必须成立的事：
+  1. **评审是硬门**：`approved_materials()` 只返回已批准的——未批准材料不得进入分析；
+  2. **两个权威轴不合并**：来源可信度（T0~T4）与任务内效力（criterion/reference）各自独立，
+     且**用户可改层级并留痕**（`tier_source='user'`）；
+  3. **引用可点回原文**：切片保留字符区间（`char_start/char_end`）与页号；
+  4. **与法条链零耦合**：操作材料**不改动** `doc_meta` / `clause_revision` / `source_span`
+     一行（行为级验证，不是靠"我记得没写"）。
+"""
+from __future__ import annotations
+
+import pytest
+
+from src.core.storage import material_repo as mr
+
+
+@pytest.fixture()
+def project(db):
+    return mr.create_project("测试项目", note="仅测试用")
+
+
+# ------------------------------------------------------------------ 项目
+class TestProject:
+    def test_create_and_get(self, db):
+        p = mr.create_project("财报分析", authority_policy={"criterion": ["公司制度"]})
+        assert p["project_id"].startswith("prj_")
+        assert p["name"] == "财报分析"
+        # 轴 B 的项目级声明要能往返（JSON）
+        assert p["authority_policy"] == {"criterion": ["公司制度"]}
+        assert mr.get_project(p["project_id"])["name"] == "财报分析"
+
+    def test_list_contains_created(self, db):
+        a = mr.create_project("A")
+        b = mr.create_project("B")
+        ids = {p["project_id"] for p in mr.list_projects()}
+        assert {a["project_id"], b["project_id"]} <= ids
+
+    def test_get_unknown_is_none(self, db):
+        assert mr.get_project("prj_不存在") is None
+
+
+# ------------------------------------------------------------------ 材料默认值
+class TestMaterialDefaults:
+    def test_new_material_is_pending_not_usable(self, project):
+        """新材料默认 **pending** —— 未经评审不得使用（这是硬门的前提）。"""
+        m = mr.add_material(project["project_id"], "某财报.pdf")
+        assert m["review_status"] == "pending"
+        assert m["lifecycle"] == "ephemeral"          # 默认仅本次任务参考
+        assert m["doc_id"] is None
+
+    def test_user_material_defaults_to_t1_system(self, project):
+        """用户自有原件默认 T1（对其自身内容是初级证据），由 system 判。"""
+        m = mr.add_material(project["project_id"], "本公司2025年报.pdf", origin="user")
+        assert m["source_tier"] == "T1"
+        assert m["tier_source"] == "system"
+
+    def test_collected_material_is_not_trusted_by_default(self, project):
+        """**自采默认不可信**（T3 起）：网上找来的在没证据前不该默认可信。"""
+        m = mr.add_material(project["project_id"], "某论坛帖子", origin="collected")
+        assert m["source_tier"] == "T3"
+
+    def test_invalid_enums_rejected(self, project):
+        with pytest.raises(ValueError):
+            mr.add_material(project["project_id"], "x", origin="robot")
+        with pytest.raises(ValueError):
+            mr.add_material(project["project_id"], "x", kind="random")
+        with pytest.raises(ValueError):
+            mr.add_material(project["project_id"], "x", source_tier="T9")
+
+    def test_tier_evidence_roundtrips(self, project):
+        ev = {"domain": "sse.com.cn", "has_original_url": True, "is_primary": True}
+        m = mr.add_material(project["project_id"], "公告", origin="collected",
+                            source_tier="T2", tier_evidence=ev)
+        assert m["tier_evidence"] == ev
+
+
+# ------------------------------------------------------------------ 硬门
+class TestReviewGate:
+    def test_approved_materials_is_the_hard_gate(self, project):
+        pid = project["project_id"]
+        ok = mr.add_material(pid, "已批准")
+        pend = mr.add_material(pid, "待评审")
+        no = mr.add_material(pid, "被拒绝")
+        mr.set_review(ok["material_id"], "approved")
+        mr.set_review(no["material_id"], "rejected")
+
+        usable = {m["material_id"] for m in mr.approved_materials(pid)}
+        assert usable == {ok["material_id"]}, usable
+        # 管理/评审界面仍应看得见 pending 与 rejected（否则没法批）
+        assert len(mr.list_materials(pid)) == 3
+        assert {m["material_id"] for m in mr.list_materials(pid, review_status="pending")} == {pend["material_id"]}
+
+    def test_default_pending_is_not_in_gate(self, project):
+        mr.add_material(project["project_id"], "还没人看过")
+        assert mr.approved_materials(project["project_id"]) == []
+
+    def test_review_note_and_timestamp_recorded(self, project):
+        m = mr.add_material(project["project_id"], "x")
+        assert mr.set_review(m["material_id"], "approved", note="看了原件，可用")
+        got = mr.get_material(m["material_id"])
+        assert got["review_status"] == "approved"
+        assert got["review_note"] == "看了原件，可用"
+        assert got["reviewed_at"]
+
+    def test_set_review_unknown_id_returns_false(self, db):
+        assert mr.set_review("mat_不存在", "approved") is False
+
+    def test_invalid_status_rejected(self, project):
+        m = mr.add_material(project["project_id"], "x")
+        with pytest.raises(ValueError):
+            mr.set_review(m["material_id"], "maybe")
+
+
+# ------------------------------------------------------------------ 两个轴
+class TestTwoAxes:
+    def test_task_role_is_independent_of_source_tier(self, project):
+        """公司制度例：**来源层级低**但**是本任务的准则**——两轴必须能并存。
+
+        这正是"不能把材料按一个分数排序"的原因。
+        """
+        pid = project["project_id"]
+        m = mr.add_material(pid, "公司差旅制度", origin="user")
+        assert m["source_tier"] == "T1"          # 轴 A：低于国标（T0）
+        assert m["task_role"] is None            # 轴 B：还没声明
+        assert mr.set_task_role(m["material_id"], "criterion")
+        got = mr.get_material(m["material_id"])
+        assert got["task_role"] == "criterion"
+        assert got["source_tier"] == "T1"        # 两轴互不影响
+
+    def test_user_can_override_tier_and_it_is_recorded(self, project):
+        """业主明说"用户可以改效力层级"⇒ 改完要能看出是**人**定的（留痕）。"""
+        m = mr.add_material(project["project_id"], "某白皮书", origin="collected")
+        assert m["tier_source"] == "system"
+        assert mr.set_tier(m["material_id"], "T2", source="user", reason="监管机构官网原文")
+        got = mr.get_material(m["material_id"])
+        assert (got["source_tier"], got["tier_source"]) == ("T2", "user")
+        assert got["tier_reason"] == "监管机构官网原文"
+
+    def test_invalid_tier_and_role_rejected(self, project):
+        m = mr.add_material(project["project_id"], "x")
+        with pytest.raises(ValueError):
+            mr.set_tier(m["material_id"], "T9")
+        with pytest.raises(ValueError):
+            mr.set_tier(m["material_id"], "T2", source="god")
+        with pytest.raises(ValueError):
+            mr.set_task_role(m["material_id"], "boss")
+
+    def test_lifecycle_promote(self, project):
+        m = mr.add_material(project["project_id"], "x")
+        assert m["lifecycle"] == "ephemeral"
+        assert mr.set_lifecycle(m["material_id"], "promoted")
+        assert mr.get_material(m["material_id"])["lifecycle"] == "promoted"
+        with pytest.raises(ValueError):
+            mr.set_lifecycle(m["material_id"], "forever")
+
+    def test_tier_labels_cover_all_tiers(self):
+        assert set(mr.TIER_LABELS) == set(mr.TIERS)
+
+
+# ------------------------------------------------------------------ 切片 / 引用
+class TestChunks:
+    def test_chunks_keep_char_offsets_and_order(self, project):
+        m = mr.add_material(project["project_id"], "财报.pdf")
+        n = mr.add_chunks(m["material_id"], [
+            {"text": "营业收入 100 亿元", "char_start": 0, "char_end": 14, "page": 3},
+            {"text": "净利润 10 亿元", "char_start": 15, "char_end": 27, "page": 4},
+        ])
+        assert n == 2
+        got = mr.material_chunks(m["material_id"])
+        assert [c["ord"] for c in got] == [0, 1]
+        assert got[0]["char_start"] == 0 and got[0]["char_end"] == 14
+        assert got[1]["page"] == 4
+        assert mr.chunk_count(m["material_id"]) == 2
+
+    def test_empty_text_chunks_are_skipped(self, project):
+        m = mr.add_material(project["project_id"], "x")
+        assert mr.add_chunks(m["material_id"], [{"text": ""}, {"text": "  "}]) == 0
+        assert mr.chunk_count(m["material_id"]) == 0
+
+    def test_char_end_defaults_to_text_length(self, project):
+        m = mr.add_material(project["project_id"], "x")
+        mr.add_chunks(m["material_id"], [{"text": "abcde", "char_start": 7}])
+        c = mr.material_chunks(m["material_id"])[0]
+        assert (c["char_start"], c["char_end"]) == (7, 12)
+
+
+# ------------------------------------------------------------------ 隔离
+class TestLawChainIsolation:
+    def test_material_ops_do_not_touch_law_chain(self, project):
+        """**行为级**证明零耦合：材料操作前后，法条链三张表行数完全不变。
+
+        为什么值得单测：本平面存在的**全部理由**就是"别污染法条链"
+        （doc_meta.standard_no NOT NULL UNIQUE 装不下财报，且它是取证链承重墙）。
+        """
+        conn = db = None  # noqa: F841 — 见下方 fixture 取连接
+        from src.core.storage.sqlite_db import get_db_connection
+        conn = get_db_connection()
+        tables = ("doc_meta", "clause_revision", "source_span")
+        before = {t: conn.execute(f"SELECT COUNT(*) FROM {t}").fetchone()[0] for t in tables}
+
+        pid = project["project_id"]
+        m = mr.add_material(pid, "财报.pdf", origin="user",
+                            content_hash="deadbeef", raw_path="C:/x/财报.pdf")
+        mr.add_chunks(m["material_id"], [{"text": "正文", "char_start": 0, "char_end": 2}])
+        mr.set_review(m["material_id"], "approved")
+        mr.set_tier(m["material_id"], "T2", source="user", reason="r")
+        mr.set_task_role(m["material_id"], "reference")
+        mr.set_lifecycle(m["material_id"], "promoted")
+        mr.link_doc(m["material_id"], "doc_故意不存在的回指")
+
+        after = {t: conn.execute(f"SELECT COUNT(*) FROM {t}").fetchone()[0] for t in tables}
+        assert before == after, (before, after)
+
+    def test_link_doc_only_writes_material_side(self, project):
+        """Track L 的回指**写在材料侧**（doc_id 列），不改 doc_meta。"""
+        m = mr.add_material(project["project_id"], "某国标", origin="collected", kind="legal")
+        assert mr.link_doc(m["material_id"], "doc_abc123")
+        assert mr.get_material(m["material_id"])["doc_id"] == "doc_abc123"
+
+
+# ------------------------------------------------------------------ 存储位置
+class TestStorageLocation:
+    def test_materials_dir_is_under_data_dir_and_per_project(self, project, _isolate_data_dir):
+        """材料原件放数据区（代码树零运行产物），且**按项目分目录**。"""
+        d = mr.materials_dir(project["project_id"])
+        assert d.exists() and d.is_dir()
+        assert project["project_id"] in str(d)
+        assert str(mr.materials_root()).startswith(str(_isolate_data_dir))

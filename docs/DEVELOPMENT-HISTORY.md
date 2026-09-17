@@ -344,6 +344,36 @@ check('job start forwards dir/batch_size only (zero-egress guard)', …)
 **门禁**：`pytest` **1220 passed / 3 skipped / 0 failed**（双重后缀的断言加在**既有**测试函数里，故用例数不变；仍是只涨不跌：本轮起点 1217 → 1220）；`mypy` 122 files 0 errors。
 **诚实边界**：① **生产库已被修改**（139 行 `standard_name`）——回滚路径 = 快照 `snap_01M2QH8EA6MRVWXHSV5CB31W4S`，但**恢复动作需停写后替换 db 并重连**（`restore_snapshot` 只返回路径，替换由上层做），我**没有实测回滚流程**；② `file_path` / 磁盘文件名**一律未动**（那些文件确实叫 `…(1).pdf`，改名会牵动路径与查重，超出本步范围）；③ 手动快照**永不被自动清理**，每份约 2.2GB —— 已在 `backups/` 累积 9 份，建议你定期人工清理旧的手动快照（这是**设计如此**，不是 bug）；④ 那 139 行改名后，**引用/检索侧未做回归验证**（标准名只用于展示与匹配，`standard_no` 未动；但"名称参与匹配"的路径未逐一排查）。
 
+### 10.8 Phase A 起步：材料平面建表 + 仓库层（第一步）
+
+**先立"平面"，不碰法条链。** 新增三张**全新**表（`schema.sql`，`CREATE TABLE IF NOT EXISTS` ⇒ 对既有库是纯增量，无需 ALTER）：
+- `material_project`：项目（含 `authority_policy` = **轴 B 的项目级效力声明**，JSON）；
+- `material`：材料。**轴 A** `source_tier`(T0~T4) + `tier_source`(system/user) + `tier_evidence`(JSON)；
+  **轴 B** `task_role`(criterion/reference)；`review_status`(pending/approved/rejected)；
+  `lifecycle`(ephemeral/promoted)；`doc_id`（Track L 入法规库后**从材料侧回指**）；
+- `material_chunk`：切片 + **字符区间** `char_start/char_end` + `page`（引用要能点回原文位置）。
+
+**为什么另立平面**（写进 schema 注释）：`doc_meta.standard_no TEXT NOT NULL UNIQUE` **结构上装不下**
+财报/新闻；且 `doc_meta`/`clause_revision`/`source_span` 是取证链承重墙（bbox 契约 §9.3 踩坑两次）。
+
+新增 `src/core/storage/material_repo.py`（**只碰这三张新表**）：
+- 默认值体现两条纪律：新材料 **`pending`**（未经评审不得用）、**自采默认 T3**（网上找来的没证据前不该默认可信；用户自有原件才是 T1）；
+- **`approved_materials()` 是硬门**——凡要拿材料去"用"的路径都必须经它，不许自己拼条件过滤；
+- `set_tier(..., source='user')` 记录**是谁定的层级**（业主明说"用户可以改"，留痕是为了日后看得懂当时的判断，不是限制）；
+- `set_task_role` 独立于 `source_tier`——**两个轴不合并**（公司制度例：来源 T1 低，却是本任务的准则）。
+
+**测试 24 条**（`tests/test_material_repo.py`），其中三条是"纪律级"的：
+① **硬门**：`approved_materials()` 恰好只含 approved（pending 与 rejected 都进不去），而管理列表仍看得见它们（否则没法批）；
+② **两轴不合并**：`task_role='criterion'` 不影响 `source_tier`（可同时成立）；
+③ **与法条链零耦合是行为级证明**：跑一遍材料操作（建材料/切片/评审/改层级/声明效力/升长期/回指 doc_id）前后，
+`doc_meta`/`clause_revision`/`source_span` **三张表行数完全不变**——不是靠"我记得没写"。
+
+**过程中暴露并修好一个真实交互**：加入 FK 后，`tests/test_retrieval.py` 的 `seeded_db` fixture 让 **10 个用例在 setup 阶段 ERROR**（`FOREIGN KEY constraint failed`）。根因：该 fixture **逐表 DROP**，而 `sqlite_master` 是**创建顺序**——我按 `material_project → material → material_chunk` 建表，于是先 DROP 被引用者、引用者还在，`foreign_keys=ON` 下直接失败。修法：**DROP 前先 `PRAGMA foreign_keys=OFF`，建完 schema 再打开**（"一次删光所有表"本就与外键顺序无关）。全仓只有这一处用该模式（已 grep 确认）。
+
+**门禁**：`pytest` **1244 passed / 3 skipped / 0 failed**（1220 → 1244，新增 24 条）；`mypy` **123 files** 0 errors（+1 新模块）。
+**诚实边界**：① 只有**表 + 仓库层**——**没有解析、没有 API、没有 UI**，所以现在还"用不了"（下一步做材料解析切片）；② 新表对**既有库**要等引擎下次 `init_schema()` 才建出来（本次**未重启引擎验证**）；③ `materials_dir()` 只保证目录在 `data_dir` 下并按项目分目录，**尚未接入收件/复制逻辑**；④ T0~T4 的**判级规则**（域名权威清单等）**尚未实现**，目前层级只能由调用方传入或用户手改。
+
+
 
 
 

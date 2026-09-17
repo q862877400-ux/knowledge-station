@@ -27,11 +27,18 @@ def seeded_db(_isolate_data_dir):
     conn = get_db_connection()
     from src.core.storage.sqlite_db import load_vec_extension
     load_vec_extension(conn)  # DROP clause_vec 虚拟表需要 vec0 扩展
+    # ⚠ 逐表 DROP 必须**先关外键**（2026-09-17 材料平面引入 FK 后暴露）：
+    # `sqlite_master` 是**创建顺序**，而 material_project 建在 material 之前 ⇒ 先 DROP
+    # 被引用者、引用者还在，`PRAGMA foreign_keys=ON` 下直接 `FOREIGN KEY constraint failed`
+    # （当时 10 个用例在 setup 阶段 ERROR）。"一次删光所有表"本来就与外键顺序无关，
+    # 关掉外键再删才是正确做法；建完 schema 再打开。
+    conn.execute("PRAGMA foreign_keys=OFF")
     for (t,) in conn.execute(
             "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'").fetchall():
         conn.execute(f'DROP TABLE IF EXISTS "{t}"')
     conn.commit()
     init_schema()
+    conn.execute("PRAGMA foreign_keys=ON")
 
     docs = [
         dict(doc_id="d1", standard_no="GB 50016-2022", standard_name="建筑设计防火规范",

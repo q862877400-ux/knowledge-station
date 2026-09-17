@@ -493,3 +493,85 @@ CREATE INDEX IF NOT EXISTS idx_doc_file_hash ON doc_meta(file_hash);
 -- ③④ 时间线 UNION ALL 排序需要 created_at 索引，否则两表全扫 + 临时 B 树
 CREATE INDEX IF NOT EXISTS idx_event_log_created ON event_log(created_at);
 CREATE INDEX IF NOT EXISTS idx_operation_log_created ON operation_log(created_at);
+
+-- ============================================================================
+-- 材料平面（2026-09-17 定位转移：通用资料研究 + 交付）
+-- ============================================================================
+-- 为什么**另立平面**而不复用 doc_meta：`doc_meta.standard_no TEXT NOT NULL UNIQUE`
+-- **结构上就装不下**财报/新闻这类非标准文件；且 doc_meta/clause_revision/source_span
+-- 是取证链承重墙（bbox 契约 §9.3 已踩坑两次）。本平面与法条链**零耦合**：
+-- Track L（采到库内没有的法规标准）经评审后仍走既有 ingest 入 doc_meta，再由
+-- `material.doc_id` **从材料侧回指**——**不改 doc_meta 一个字段**。
+--
+-- 权威性是**两个正交轴**（业主 2026-09-17 裁定的公司制度例）：
+--   · 轴 A 来源可信度 source_tier：T0 法定/官方 · T1 用户自有原件 · T2 权威第三方
+--     · T3 二手转述（需≥2 独立来源互证）· T4 不可回溯（禁用于结论）
+--     决定"引用时怎么标注、能不能承重"；
+--   · 轴 B 任务内效力 task_role：criterion=本任务的准则 / reference=参考。
+--     决定"谁说话"——制度来源层级低于国标，但对"我们公司报销怎么走"它是准绳。
+-- 二者不可合并成一个分数排序（单轴必然错一个）。
+CREATE TABLE IF NOT EXISTS material_project (
+    project_id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    -- JSON：轴 B 的**项目级**效力声明（本项目以哪些材料/规则为准绳）
+    authority_policy TEXT,
+    note TEXT,
+    created_at TEXT DEFAULT (datetime('now')),
+    updated_at TEXT DEFAULT (datetime('now'))
+);
+
+CREATE TABLE IF NOT EXISTS material (
+    material_id TEXT PRIMARY KEY,
+    project_id TEXT NOT NULL REFERENCES material_project(project_id),
+    -- 来源：用户给的 / 系统自采（自采默认开启，但**必须评审**才可用）
+    origin TEXT NOT NULL CHECK(origin IN ('user','collected')),
+    -- 分轨：legal=Track L（可评审后入法规库）/ other=Track M（只作参考资料）
+    kind TEXT NOT NULL DEFAULT 'other' CHECK(kind IN ('legal','other')),
+    title TEXT NOT NULL,
+    url TEXT,
+    domain TEXT,
+    fetched_at TEXT,
+    published_at TEXT,
+    content_hash TEXT,
+    raw_path TEXT,
+    mime TEXT,
+    -- 轴 A：来源可信度（默认 T1 = 用户自有原件；自采的默认由采集侧按判据给）
+    source_tier TEXT NOT NULL DEFAULT 'T1'
+        CHECK(source_tier IN ('T0','T1','T2','T3','T4')),
+    -- 层级是谁定的：system=规则/系统判，user=用户改（用户可改，留痕以便日后看懂当时的判断）
+    tier_source TEXT NOT NULL DEFAULT 'system' CHECK(tier_source IN ('system','user')),
+    tier_reason TEXT,
+    tier_evidence TEXT,                 -- JSON：判级的机器可查证据（域名/原文URL/时间/是否原文/可交叉验证）
+    -- 轴 B：本任务里的角色（null = 未声明，按参考处理）
+    task_role TEXT CHECK(task_role IN ('criterion','reference')),
+    -- 评审闸门：**未 approved 的材料不得进入检索/分析/引用**（硬门，非提示）
+    review_status TEXT NOT NULL DEFAULT 'pending'
+        CHECK(review_status IN ('pending','approved','rejected')),
+    review_note TEXT,
+    reviewed_at TEXT,
+    -- 生命周期：默认仅本次任务参考；用户可提名升为长期
+    lifecycle TEXT NOT NULL DEFAULT 'ephemeral'
+        CHECK(lifecycle IN ('ephemeral','promoted')),
+    -- Track L 入法规库后回指 doc_meta（法条链零改动；回指放在材料侧）
+    doc_id TEXT,
+    created_at TEXT DEFAULT (datetime('now')),
+    updated_at TEXT DEFAULT (datetime('now'))
+);
+
+CREATE TABLE IF NOT EXISTS material_chunk (
+    chunk_id TEXT PRIMARY KEY,
+    material_id TEXT NOT NULL REFERENCES material(material_id),
+    ord INTEGER NOT NULL,
+    text TEXT NOT NULL,
+    -- 字符区间（材料内绝对偏移）：引用要能**点回原文位置**，与法条链的 source_span 同精神
+    char_start INTEGER NOT NULL,
+    char_end INTEGER NOT NULL,
+    page INTEGER,
+    created_at TEXT DEFAULT (datetime('now'))
+);
+
+CREATE INDEX IF NOT EXISTS idx_material_project ON material(project_id, review_status);
+CREATE INDEX IF NOT EXISTS idx_material_review ON material(review_status);
+CREATE INDEX IF NOT EXISTS idx_material_hash ON material(content_hash);
+CREATE INDEX IF NOT EXISTS idx_material_chunk_mat ON material_chunk(material_id, ord);
+
