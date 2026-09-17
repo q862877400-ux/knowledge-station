@@ -414,6 +414,9 @@ function makePingTool(manager) {
     description:
       'Probe the local KnowledgeStation engine. Returns the live engine session ' +
       '(port, pid, reused) and the /api/v1/health payload (status, uptime, db_status, vector_engine, parser_worker). ' +
+      'vector_engine is CHEAP tri-state and is NOT a load test: "ok" = this process really loaded the ' +
+      'vector model at least once, "offline" = the last load attempt failed, "unknown" = never attempted ' +
+      '(the engine deliberately does NOT load the model just to answer a health check). ' +
       'Use it to confirm the engine is up before querying clauses.',
     parameters: {
       type: 'object',

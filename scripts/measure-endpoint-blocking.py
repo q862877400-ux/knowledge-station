@@ -136,8 +136,23 @@ def ingest_preview_inbox(ctx: dict) -> dict:
 
 @case
 def health(ctx: dict) -> dict:
-    """**对照**：一条几乎不干活的端点（它的 `max_gap` 就是心跳的分辨率底线）。"""
+    """`GET /api/v1/health`。
+
+    §10.74 之前它**不是**廉价端点：`embedder.is_available()` 会真加载模型
+    （空缓存实测：耗时 6.79s、事件循环空档 6.79s）。现在走廉价的 `embedder.health()`。
+    """
     return {"method": "GET", "path": "/api/v1/health", "body": None}
+
+
+@case
+def health_board(ctx: dict) -> dict:
+    """`GET /api/v1/diagnostics/health-board`：七条 `COUNT(*)` + `mineru_available()`。
+
+    ⚠ 别指望这条量大：本机实测总耗时 **0.017s**、`import mineru` **0.000s**
+    （CLI 包不是重依赖库）、30 万行 COUNT ≈1.1ms。它进这里是因为"**同步 I/O 不该在
+    事件循环里**"这条一般纪律，以及"改完要能证明**没**变慢"。
+    """
+    return {"method": "GET", "path": "/api/v1/diagnostics/health-board", "body": None}
 
 
 def main() -> int:

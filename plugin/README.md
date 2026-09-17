@@ -15,7 +15,7 @@
 
 | 工具 | 职责 | 超时 |
 |---|---|---|
-| `ks_ping` | 引擎健康探测（status/uptime/db_status/vector_engine/parser_worker） | 毫秒级 |
+| `ks_ping` | 引擎健康探测（status/uptime/db_status/vector_engine/parser_worker） | 毫秒级（`vector_engine` 是**廉价三态** ok/offline/unknown，**不做加载测试**——§10.74） |
 | `ks_resolve_clause` | 条款快查（standard_no + clause_number → 机器证据 + PDF 锚链接） | 毫秒级 |
 | `ks_answer` | **取证答案**：引擎侧检索 + DeepSeek 推理 + typed_verifier 核验 → 裁剪三段式（依据区 → 推导区 → 结论区） | **120s 契约下限**（引擎自带推理实测可达 120s 量级；低于此值长推理被杀） |
 | `ks_effect_report` | 效力报告（库内标准/法规现行快照总览，host 侧裁剪——只回统计+红黄清单 top-N，绝不回传全量分类树） | 秒级 |

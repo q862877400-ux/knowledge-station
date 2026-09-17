@@ -529,6 +529,10 @@ class TestSlowEndpointsAreDeclaredSync:
         # 于是同一个洞在产出物这一侧又留了一个月。
         "/api/v1/report/research",
         "/api/v1/report/research/slides",
+        # 健康看板（§10.74）：七条 `COUNT(*)` + `mineru_available()` 的 import 探测——都是
+        # **同步 I/O**，留在事件循环里就会占住循环。⚠ 收益**不大**（本机实测总耗时 0.017s、
+        # `import mineru` 0.000s、30 万行 COUNT ≈1.1ms），这里守的是**一般纪律**，不是"很慢"。
+        "/api/v1/diagnostics/health-board",
     ])
     def test_declared_sync(self, client, path):
         import asyncio

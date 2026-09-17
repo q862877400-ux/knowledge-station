@@ -402,7 +402,11 @@ def search_with_details(query: str, **kwargs: Any) -> Dict[str, Any]:
         "expanded": expanded,
         "debug": {
             "modality_filter": modality_filter,
-            "vector_engine": "ok" if embedder.is_available() else "offline",
+            # ⚠ **廉价三态**（§10.74）：`health()` 不加载模型。这里原先调 `is_available()`
+            # ⇒ 一次失败的检索之后，**每次**检索的 debug 块都再重试一次加载（离线机器上
+            # 每次付一次网络超时）。真值另有来源：向量通道**用过**就有结论（成功 ⇒ ok；
+            # 用不了则在 `degraded` 里如实标 offline）。
+            "vector_engine": embedder.health(),
             "channels": kwargs.get("channels") or list(SEARCH_CHANNELS),
             "result_count": len(results),
             "expanded_count": len(expanded),

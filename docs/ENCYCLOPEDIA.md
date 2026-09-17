@@ -500,7 +500,7 @@ write_queue / event_log（统一事件模型）/ debug_dump（每次提问落库
 
 | 分组 | 端点 |
 |---|---|
-| 健康 | `GET /api/v1/health`（status/uptime/db_status/vector_engine/parser_worker） |
+| 健康 | `GET /api/v1/health`（status/uptime/db_status/vector_engine/parser_worker）。⚠ `vector_engine` 是**廉价三态** `ok`/`offline`/`unknown`（**不加载模型**：`ok`=本进程加载成功过、`offline`=最近一次失败、`unknown`=还没试过；§10.74） |
 | 入库预览（全 LIVE） | `POST /ingest/preview`｜`/preview/batch`｜`GET /preview/inbox`｜`POST /preview/jobs`｜`GET /preview/jobs/{id}`｜`POST /preview/jobs/{id}/abort`（Dry-Run + 异步预览 jobs） |
 | 批量入库（TEST-ONLY 3 + ZERO 1） | `POST /ingest/bulk`（万级三阶段）｜`GET /ingest/bulk/{id}`｜`POST /ingest/bulk/{id}/resume`｜`/abort`（ZERO） |
 | 检索问答 | `POST /chat/completions`（SSE；history/query_mode/answer_scope/免追问语法）｜`POST /ks/answer`（取证答案）｜`POST /batch/qa`｜`POST /compare`（R42，ZERO）｜`POST /aliases/extract` |

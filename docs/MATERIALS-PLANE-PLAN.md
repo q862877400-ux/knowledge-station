@@ -808,3 +808,20 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     （`/documents/{doc_id}/figure|formula|table-image|tree|assets`，**先量改前**再动）→
     ③ 落盘/导出族 → ④ `dry_run` 同文件并发 → ⑤ `bulk-db` 一族逐条实测（`/chat/completions` 那类不动）。
 
+
+20. **健康检查回到"廉价" + 失败不再无限重试**（§10.74，step-74；缺陷由 §10.73 的量具抓出）。
+
+    | 项 | 一句话 | 状态 |
+    |---|---|---|
+    | `/health` 阻塞加载模型 | 原先 `embedder.is_available()` ⇒ **每次调用**都加载模型（空缓存实测 6.79s，全程占着事件循环，而该端点当时是 `async def`） | ✅ 已修：新增**廉价三态** `embedder.health()`（`ok`=本进程加载成功过 / `offline`=最近一次失败 / `unknown`=没试过，**绝不为了猜去加载**）；实测 **6.7918s → 0.0064s**、空档 **6.7912s → 0.006s**；AE1/AE3 变异 RED |
+    | 失败不缓存（每次重试） | `_load_error` **只记不判断** ⇒ 一次失败后每次调用都重试；离线机器上每次健康检查/每次检索都付一次网络超时 | ✅ 已修：`RETRY_COOLDOWN_S = 60.0` 冷却窗口（窗口内复用上次失败，窗口过后允许再试 ⇒ **一分钟内自愈、不永久拉黑**）；成功时清 `_load_error`；AE2 变异 RED（"窗口内重试了 3 次"正是原形状） |
+    | 同一缺陷的第二/第三处 | `diagnostics/health-board` 的 `engines.vector`、`hybrid_engine` 检索 debug 块也在调 `is_available()` | ✅ 一并改用 `health()`；健康看板同时改 `def`（结构性纪律）+ 进同步闸门（AE4 RED） |
+    | **我自己写错的一句注释** | 我给 `health_board → def` 写的理由是"`import mineru` 首次导入几秒"——**错的**：实测 **0.000s**（CLI 包）；`health_board` 总耗时 **0.017s**；30 万行 `COUNT(*)` ≈1.1ms（代理测量） | ✅ 三处注释按实测改写并标明"**别夸大收益**"；这条改动降级为**结构性纪律**，不是战果 |
+    | 测试缝 | `_import_text_embedding()`：让单测不必真装 fastembed / 连网 | ✅ 已加（`tests/test_embedder_health.py` **11 条**，全行为级） |
+    | 消费方同步 | `unknown` 是新取值，界面/MCP 不许当布尔用 | ✅ `plugin/src/index.js` 的 `ks_ping` 描述、`plugin/README.md`、`docs/ENCYCLOPEDIA.md` 都写明三态与"不做加载测试" |
+
+    **下一步（step-75 起）**：回到 §12 第 19 条的清单——PDF 渲染/读盘族
+    （`/documents/{doc_id}/figure|formula|table-image|tree|assets`，**先量改前**再动；注意它们返回
+    图片/字节，改 `def` 要顺带确认 `Response`/`FileResponse` 语义不变）→ 落盘/导出族 →
+    `dry_run` 同文件并发 → `bulk-db` 一族逐条实测。
+

@@ -102,7 +102,11 @@ def create_app(token: str) -> FastAPI:
             "status": "healthy" if db_status == "ok" else "degraded",
             "uptime_seconds": int(time.monotonic() - _STARTED_AT),
             "db_status": db_status,
-            "vector_engine": "ok" if embedder.is_available() else "offline",
+            # ⚠ **廉价三态**（§10.74）：`health()` 只读已有证据，**不加载模型**。
+            # 这里原先调 `embedder.is_available()` —— 那是"加载一个模型来判断它能不能加载"：
+            # 量具实测空缓存下一次 = **6.6s 且全程占着事件循环**（而本端点当时是 `async def`）。
+            # 取值：ok（本进程加载成功过）/ offline（最近一次尝试失败）/ unknown（还没试过）。
+            "vector_engine": embedder.health(),
             "parser_worker": "ok",
         }
 
@@ -2259,8 +2263,19 @@ def create_app(token: str) -> FastAPI:
             return _json_error(404, "impact_error", str(e))
 
     @app.get("/api/v1/diagnostics/health-board")
-    async def health_board():
-        """P8 健康看板：六引擎状态 + 知识库统计。"""
+    def health_board():
+        """P8 健康看板：六引擎状态 + 知识库统计。
+
+        ⚠ **`def` 而不是 `async def`**（§10.74）：判据是**结构性**的——本端点做的是同步 I/O
+        （七条 `COUNT(*)` + `mineru_available()` 的 import 探测），uvicorn 是单事件循环，
+        同步 I/O 留在这里就会占住循环。
+        ⚠ **但别夸大收益**（本步实测）：本机 `health_board` 总耗时 **0.017s**；
+        `import mineru` 实测 **0.000s**（它是 CLI 包，不是重依赖库——我原先写在注释里的
+        "首次导入几秒"是**错的**，已删）；30 万行表上一条 `COUNT(*)` ≈ **1.1ms**（代理测量）
+        ⇒ 统计块是**几十毫秒量级**，不是秒级。改成 `def` 是"别把同步 I/O 放事件循环里"的
+        一般纪律，不是因为这里很慢。真正的秒级重活在别处（见 §10.73/§10.74 的 before/after）。
+        `vector` 那一格改用**廉价三态** `embedder.health()`（不再"加载模型来判断模型"）。
+        """
         from src.core.retrieval import embedder
         from src.core.ingestion.mineru_adapter import mineru_available
         conn = get_db_connection()
@@ -2276,7 +2291,7 @@ def create_app(token: str) -> FastAPI:
                 "status": "healthy" if db_ok else "degraded",
                 "engines": {
                     "db": "ok" if db_ok else "error",
-                    "vector": "ok" if embedder.is_available() else "offline",
+                    "vector": embedder.health(),
                     "fts": "ok",
                     "parser": "ok" if mineru_available() else "not-installed",
                     "llm": "configured" if get_settings().llm_api_key else "not-configured",

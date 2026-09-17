@@ -4096,3 +4096,107 @@ stderr: Fetching 5 files: 100%|██████████| 5/5 [00:05<00:00,
 4. **`dry_run` 同一文件的并发**（§6 登记项）。
 5. **`bulk-db` 一族**逐条实测再决定；`/chat/completions` 那类有理由的 `async` **不动**。
 
+
+## §10.74 让健康检查回到"廉价"：`/health` 6.79s → 0.0064s；失败的加载不再无限重试 —— 并把一句我自己写错的注释当场改掉
+
+**一句话**：§10.73 的量具抓到的两条缺陷都修了——(1) `/health` 不再"**加载一个模型来判断它能不能
+加载**"（`embedder.health()` 廉价三态），实测请求 **6.7918s → 0.0064s**、事件循环空档
+**6.7912s → 0.006s**；(2) 加载失败**进 60s 冷却窗口**，不再每次调用重试。顺带：我写在注释里的
+"`import mineru` 首次导入要几秒"**是错的**（实测 0.000s），量完就改掉了——这条比修好本身更值得记。
+
+### 1. 缺陷（§10.73 量具抓的，静态审计看不见）
+
+```
+GET /api/v1/health  →  embedder.is_available()  →  _get_model()  →  fastembed.TextEmbedding(...)
+```
+- 这条链**每次调用**都走一遍：`TextEmbedding(...)` 首次要下载/装载模型。量具实测空缓存下
+  **6.79s，且全程占着事件循环**（`/health` 当时是 `async def`）⇒ 每次健康检查把引擎堵 6.8 秒。
+- `_load_error` **只记不缓存**（记了却从不参与判断）⇒ 一次失败之后**每次调用都重试**。
+  离线机器上，这意味着**每次 `/health`、每次检索**都付一次网络超时。
+- 静态审计漏它的原因：标记表认的是裸网络调用（`requests.`/`httpx.`/`urlopen`），而这里的外发
+  藏在 `fastembed`/`huggingface_hub` 内部——**"扫不到 ≠ 没有"**又一例（已登记）。
+
+### 2. 修法（两条纪律写进 `embedder` 的模块 docstring）
+
+**① 廉价路径不许触发加载。** 新增三态判据 `health()`：
+
+| 取值 | 含义 | 依据 |
+|---|---|---|
+| `ok` | 本进程**真的加载成功过** | `_model is not None`（**唯一**能证明"能用"的证据） |
+| `offline` | **最近一次**加载尝试失败 | `_load_error is not None`（`offline_reason()` 给原因） |
+| `unknown` | 本进程**还没试过** | 其余情况——如实说"没验证"，**绝不为了猜去加载** |
+
+改用它的三处：`GET /api/v1/health`、`GET /api/v1/diagnostics/health-board`（`engines.vector`）、
+以及 `hybrid_engine` 检索 debug 块（那里原来是"一次失败之后**每次检索**都再重试一次加载"）。
+`is_available()` **保留原语义**（会真的加载）——向量通道 `if "vec" in channels and
+embedder.is_available()`、入库时的 `embed_batch` 这些**真要拿模型**的路径继续用它。
+
+**② 失败进冷却窗口。** `RETRY_COOLDOWN_S = 60.0`：失败后记住 `_error_at`，窗口内
+`_get_model()` **直接复用上次失败**（不重试），窗口过去后允许再试一次——**瞬时故障一分钟内自愈，
+不永久拉黑向量引擎**；成功时清掉 `_load_error`。另加一个测试缝 `_import_text_embedding()`，
+让单测不必真装 fastembed、更不必连网。
+
+### 3. 实测（同一把尺，同一条用例）
+
+| `case=health` | 改前 | 改后 |
+|---|---|---|
+| 请求耗时 | **6.7918s** | **0.0064s** |
+| 事件循环最大空档 | **6.7912s** | **0.006s**（空闲基线 0.0149s ⇒ 已在噪声底） |
+
+### 4. ⚠ 当场纠正一句我自己写错的话（"先量再吹"）
+
+我最初给 `health_board → def` 写的理由是"`mineru_available()` 是 `import mineru`，**首次导入几秒**"。
+量了之后：
+
+- `import mineru` 实测 **0.000s**（它是 **CLI 包**，不是重依赖库）——**那句话是错的**；
+- `health_board` 总耗时实测 **0.017s**（本机、空测试库）；
+- 30 万行表上一条 `COUNT(*)` ≈ **1.1ms**（代理测量）⇒ 七条约 **7ms** 量级。
+
+⇒ `health_board` **从来不是严重阻塞**。改 `def` 的判据降级为**结构性纪律**（"同步 I/O 不该写在
+`async def` 里"），而不是"这里很慢"；三处注释（端点 docstring / 闸门条目 / 量具用例）
+**全部按实测改写**，并明确写"**别夸大收益**"。留这条记录是因为：**差点把一次测不出来收益的改动
+写成战果**——量具的价值不只是证明"改好了"，也包括证明"**没你想的那么好**"。
+
+### 5. 闸门与变异
+
+`tests/test_embedder_health.py`（**11 条**，~0.6s，判据全是**行为级**，不是"源码里有那个词"）：
+- `TestHealthIsCheap`：没试过 ⇒ `unknown` **且替身没被调用**；加载成功过 ⇒ `ok`；失败过 ⇒
+  `offline` + 原因含原文；
+- `TestFailureCooldown`：窗口内三次 `is_available()` ⇒ 加载替身**只被调用 1 次**；
+  把 `_error_at` 拨回窗口外 ⇒ 再试一次（**不永久拉黑**）；先失败后成功 ⇒ `_load_error` 被清掉、
+  `health()` 变 `ok`；
+- `TestHealthEndpointsDoNotLoad`：`/health` 与 `/diagnostics/health-board` **都不许触发加载**
+  （替身被调用即失败）+ 两条端点的取值必须在三态之内。
+
+`/api/v1/diagnostics/health-board` 进 `TestSlowEndpointsAreDeclaredSync` 的逐条表（它现在是 `def`）。
+
+变异（全 RED、还原字节一致）：**AE1** 让 `health()` 退回 `"ok" if is_available() else "offline"`
+⇒ "不许加载"红；**AE2** 删掉冷却窗口 ⇒ "窗口内重试了 **3 次**"红（正是那个洞的形状）；
+**AE3** 只把 `/health` 退回 `is_available()`（共享函数没动）⇒ HTTP 层那条红；
+**AE4** 健康看板改回 `async def` ⇒ 同步闸门红。
+
+消费方同步（"`unknown` 是新取值，别让界面把它当布尔用"）：`plugin/src/index.js` 的 `ks_ping`
+工具描述、`plugin/README.md`、`docs/ENCYCLOPEDIA.md` 都写明三态与"**不做加载测试**"。
+
+### 6. 证据
+
+- **门禁**：`pytest` **1731 passed / 3 skipped / 0 failed**（1719 → +12）；`mypy` **134 / 0**；
+  `tsc --noEmit` 0；`smoke` **EXIT=0（19 段）**；`node --check plugin/src/index.js` 通过；
+  `verify:commands` **22/22**。
+- 变异 AE1–AE4 全 RED。
+- 量具：`--case health`（前后对照见 §3）、新增 `--case health_board`。
+
+### 7. 诚实边界
+
+1. **6.79s 是"空缓存"下的数字**（临时 `KS_DATA_DIR` ⇒ 真去下载 5 个文件）。真机 `models_dir`
+   **已有** `models--Qdrant--bge-small-zh-v1.5` ⇒ 改前在真机上的代价是**装载**（秒级量级但**未测**）
+   而不是下载。**修法本身与缓存状态无关**（健康路径再也不加载了），所以结论不受影响；
+   但**不要**把这句读成"生产 `/health` 曾经 6.79s"。
+2. "离线机器上每次调用都重试一次网络超时"：**重试行为**已被单测证明（AE2 的"3 次"），
+   但**超时的代价**是在本机测不出来的（要一台 DNS 被黑洞的机器）。
+3. `unknown` 是**新增取值**：仓内消费方只有字符串插值/透传（已核对），但**任何外部脚本**若把
+   `vector_engine == "ok"` 当唯一真值，会看到 `unknown`；这是**有意的**（没验证就说没验证）。
+4. **`/health` 仍是 `async def`**，且**没有**进同步闸门——这是刻意的：修法是"**别在这里加载**"，
+   而不是"把加载挪到线程池"。它剩下的活是 `SELECT 1`（µs 级）。
+5. **真机仍是旧进程**（DSH 宿主 pid 37268 / 引擎 pid 32564，09-17 启动）⇒ 本批要业主重启才生效。
+
