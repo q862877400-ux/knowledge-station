@@ -9,13 +9,22 @@
 而引用、报告、界面看起来一切正常。**这是"看起来很正常的错引用"，比报错危险得多。**
 
 ## 三道判据（代价从低到高，**不要跳级下结论**）
-1. `locator_health(material)` —— 只比**指纹**（入库时记的 vs 现在这台机器的）：
-   `ok` / `stale` / `unknown`（入库时没记 = 2026-09-17 之前的材料）/ `no_locators`
-   / `no_text`（解析不出文本，没有区间可言）。**便宜**，可以在报告/界面里逐条跑。
+1. `locator_health(material)` —— 便宜判据，比**两样**东西：
+   - **解析器指纹**：入库时记的 vs 现在这台机器的（判"**解析器**有没有变"）；
+   - **源文件字节哈希**：`material.content_hash`（入库时的源文件 sha256）vs 现在磁盘上的
+     （判"**输入**有没有变"）。一次**流式** sha256（`material_ingest.file_hash`），
+     不像重解析那样起子进程。
+   取值 `ok` / `stale` / `unknown`（入库时没记 = 2026-09-17 之前的材料）/ `no_locators`。
+   ⚠ **只比指纹是不够的**（独立复核 b9 的 MEDIUM-1，2026-09-18 修）：`current_fingerprint_for`
+   只看**后缀**，所以"用户把更新版 PDF 放回项目目录再扫一次"（正常操作）或"源文件被删"
+   都会让指纹**一字不变**——只比指纹会报 `ok`，而那正是本模块要防的**静默失效**。
+   ⚠ 因此它比"只比字符串"贵一点（每个材料一次源文件读取）；换来的是
+   "**输入变了不会被说成 ok**"。真嫌贵，正确的优化是**缓存源文件的 size/mtime**（登记为待办），
+   **不是**把这条判据删掉。
 2. `reverify_material_locators(material_id)` —— **重解析比对**：用当前的解析器重新解析
    **留存的源文件**，算派生全文哈希，与入库时记的 `derived_text_hash` 比：
    `match` / `mismatch`（**已存区间失效了，必须修数据**）/ `unavailable`
-   （没有源文件——网页材料就是这样；或解析不出文本）。**贵**（PDF 是子进程 + 秒级到分钟级），
+   （没有源文件——网页材料就是这样）。**贵**（PDF 是子进程 + 秒级到分钟级），
    所以它是**显式动作**，不是每次回答都跑。
 3. 人（业主）看到 `mismatch`/`stale` 之后决定怎么办：重解析并重建区间，或把这份材料弃用。
 
@@ -24,7 +33,11 @@
   （环境里的隐藏变量、非确定性 OCR 都可能不在指纹里）⇒ `ok` 的措辞是
   "**未发现变化**"，不是"保证一致"。真正的保证只有 ② 的 `match`。
 - 指纹**不同**也**不等于**区间一定坏了 ⇒ `stale` 的措辞是"**需要复算**"，不是"已经坏了"。
-- `unavailable` **不是** `ok`：网页材料没有留存原始字节，**无法**复算 —— 如实说"验不了"。
+- **源文件字节变了**（`content_hash` 对不上）⇒ `stale`，且措辞点明是**源文件**变了：
+  这比"指纹变了"更确定——已存区间是按**旧字节**解析出来的，对新文件不再成立。
+- **源文件不在磁盘上** ⇒ `unknown`（取不到当前指纹，更无法复算），**不是 ok**。
+- `unavailable` **不是** `ok`：它是 `REVERIFY_STATUSES` 的词（`locator_health` **永远不会**
+  返回它）——网页材料没有留存原始字节，**无法**复算，如实说"验不了"。
 - 老材料（NULL）一律 `unknown`：**不假装 ok**（这与 §10.39 那条"不知道就别当好"同一原则）。
 """
 from __future__ import annotations
@@ -66,8 +79,29 @@ def current_fingerprint_for(material: dict[str, Any]) -> str | None:
     return mi._provenance_fingerprint(suffix, deep_fallback=False)  # noqa: SLF001 — 同一所有者
 
 
+def source_bytes_match(material: dict[str, Any]) -> bool | None:
+    """磁盘上的源文件字节**是否与入库时记的一致**（`None` = 判不了）。
+
+    - `True`：一致（`material.content_hash` 与现在的流式 sha256 相同）；
+    - `False`：**不一致** ⇒ 输入变了，已存区间是按旧字节算出来的；
+    - `None`：判不了——没有源文件（网页采集件）、路径为空、或文件**不在磁盘上**。
+
+    ⚠ 与"解析器指纹"是**两条独立的轴**（独立复核 b9 的 MEDIUM-1）：
+    指纹只看**后缀**，所以"换成另一份同名 PDF 再扫一次"不会让指纹变动。
+    便宜判据必须**两条都比**，否则"看起来很正常的错引用"恰好出现在输入已经换掉的时候。
+    """
+    raw = str(material.get("raw_path") or "")
+    recorded = material.get("content_hash")
+    if not raw or not recorded:
+        return None
+    path = Path(raw)
+    if not path.is_file():
+        return None
+    return mi.file_hash(path) == str(recorded)  # noqa: SLF001 — 同一个所有者（源文件字节哈希）
+
+
 def locator_health(material: dict[str, Any]) -> dict[str, Any]:
-    """**便宜**的锚点健康度：只比指纹，不重解析。见模块 docstring 的三道判据。"""
+    """**便宜**的锚点健康度：比指纹 + 比源文件字节，不重解析。见模块 docstring。"""
     mid = str(material.get("material_id") or "")
     recorded = material.get("parser_fingerprint")
     recorded_hash = material.get("derived_text_hash")
@@ -77,6 +111,7 @@ def locator_health(material: dict[str, Any]) -> dict[str, Any]:
         "fingerprint_recorded": recorded,
         "fingerprint_current": None,
         "derived_text_hash_recorded": recorded_hash,
+        "source_bytes_match": None,
         "why": "",
     }
     if mr.chunk_count(mid) == 0:
@@ -89,6 +124,23 @@ def locator_health(material: dict[str, Any]) -> dict[str, Any]:
                       "（2026-09-17 之前的材料）——**不知道**区间还对不对，"
                       "要下结论请走 reverify（重解析比对）")
         return out
+    # ---- 输入这一轴：源文件还在不在 / 字节还是不是原来那份（MEDIUM-1）----
+    raw = str(material.get("raw_path") or "")
+    is_web = (material.get("origin") or "") == "collected" and raw == ""
+    if raw and not is_web:
+        match = source_bytes_match(material)
+        out["source_bytes_match"] = match
+        if match is None:
+            out["status"] = "unknown"
+            out["why"] = (f"源文件不在磁盘上（{raw}）⇒ 取不到当前指纹、也无法复算——"
+                          "**不是 ok**；要恢复请把源文件放回原位，或重新入库")
+            return out
+        if match is False:
+            out["status"] = "stale"
+            out["why"] = ("**源文件字节已变**（与入库时记的 content_hash 不一致）⇒ "
+                          "已存区间是按**旧字节**解析出来的，对新文件不再成立 ⇒ "
+                          "**需要复算**（走 reverify 重建区间，或弃用这份材料）")
+            return out
     current = current_fingerprint_for(material)
     out["fingerprint_current"] = current
     if current is None:
@@ -144,6 +196,15 @@ def reverify_material_locators(material_id: str) -> dict[str, Any]:
     pages, _fp = mi.extract_pages_with_provenance(path, deep_fallback=False)
     text, _spans = mi.build_document(pages)
     if not text.strip():
+        # ⚠ 顺序很要紧（独立复核 b9 的 MEDIUM-2）：入库时**有**派生文本、而现在重解析
+        # **一个字都得不到** ⇒ 这是**确定的失效**（存留文件被截断/换成扫描件/文本层丢了），
+        # 不是"验不了"。原先无条件回 `unavailable`，于是这条在界面/报告里**一个标记都没有**
+        # （`unavailable` 不是 health 状态 ⇒ attention 与 ⚠ 都不收它）。
+        if recorded is not None:
+            out["status"] = "mismatch"
+            out["why"] = ("入库时**有**派生文本，而重解析**一个字都得不到** ⇒ "
+                          "已存区间**必然失效**（不是'验不了'：基准是存在的，对不上）")
+            return out
         out["why"] = "重解析没有得到任何文本（扫描件？）⇒ 无法复算"
         return out
     recomputed = mi.text_hash(text)

@@ -221,9 +221,15 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
           // 锚点健康度：**一次请求拿全项目**（便宜判据，不重解析）
           fetchProjectLocators(projectId, ctl.signal).then((s) => {
             if (!alive) return
+            // ⚠ `why` **必须来自后端**（`attention` 里就带着）：界面这一层不许自己解释
+            // status。2026-09-18 之前这里写死 `why: ''`，于是界面只能说一句笼统的
+            // "解析器身份变了"——而 `stale` 现在有**两个**成因（解析器变了 / **源文件字节变了**，
+            // 后者是**确定**失效而非"可能"）。把后端的理由带出来，界面就不再替后端下结论。
+            const why: Record<string, string> = {}
+            for (const a of s.attention) why[a.material_id] = a.why
             const map: Record<string, KsLocatorHealth> = {}
             for (const [mid, status] of Object.entries(s.statuses)) {
-              map[mid] = { material_id: mid, status, why: '' } as KsLocatorHealth
+              map[mid] = { material_id: mid, status, why: why[mid] ?? '' } as KsLocatorHealth
             }
             setAnchors(map)
             setAnchorNote(s.note)
@@ -677,17 +683,22 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
               </p>
             )}
             {/* 引用锚点：⚠ 只在**有问题/判不了**时显示（`ok` 不加噪声）。
-                语义严格分开：需复算 ≠ 已坏；未验证 ≠ 有问题。 */}
+                语义严格分开：需复算 ≠ 已坏；未验证 ≠ 有问题。
+
+                ⚠ 理由**照抄后端**（`locator.py` 的 `why`），界面**不自己解释 status**：
+                2026-09-18 之前这里写死"解析器身份变了"——而 `stale` 现在有**两个**成因
+                （解析器变了 / **源文件字节变了**，后者是**确定**失效，不是"可能"），
+                写死一句就等于替后端下了它没下的结论（本仓"措辞唯一所有者"纪律）。 */}
             {anchors[m.material_id]?.status === 'stale' && (
               <p style={{ margin: '4px 0 0', fontSize: 12, color: 'var(--dsw-alias-warn, #b8860b)' }}>
-                ⚠ <strong>引用锚点需复算</strong>：解析器身份变了，已存区间<strong>可能</strong>失效
-                （不代表已经坏了）。点「复算锚点」用当前解析器重算比对。
+                ⚠ <strong>引用锚点需复算</strong>：{anchors[m.material_id]?.why || '（后端未给原因）'}
+                <br />（需复算**不代表已经坏了**。）点「复算锚点」用当前解析器重算比对。
               </p>
             )}
             {anchors[m.material_id]?.status === 'unknown' && (
               <p style={{ margin: '4px 0 0', fontSize: 12, color: GRAY }}>
-                ⚠ <strong>引用锚点未验证</strong>：入库时没记解析器指纹（或 PDF 的便宜判据下不了
-                结论）——<strong>不等于</strong>有问题，但引用位置<strong>未经确认</strong>。
+                ⚠ <strong>引用锚点未验证</strong>：{anchors[m.material_id]?.why || '（后端未给原因）'}
+                <br /><strong>不等于</strong>有问题，但引用位置<strong>未经确认</strong>。
               </p>
             )}
 

@@ -98,9 +98,17 @@ class TestCheapHealth:
         assert h["status"] == "no_locators", h
 
     def test_pdf_cheap_check_refuses_to_claim_ok(self, project, tmp_path, monkeypatch):
-        """PDF 的完整指纹含**只有解析后才知道**的 text_layer/ocr ⇒ 便宜比对**不许说 ok**。"""
+        """PDF 的完整指纹含**只有解析后才知道**的 text_layer/ocr ⇒ 便宜比对**不许说 ok**。
+
+        ⚠ 这个 fixture 必须写**真的文件**（2026-09-18 改）：原先给的是不存在的路径，
+        于是 MEDIUM-1 修好之后它会先落进"源文件不在"那条分支——**测试还在绿，却不再测它宣称的东西**
+        （正是本仓反复强调的"假绿"）。现在先写文件，才真的走到 PDF 前缀比对那一段。
+        """
         pid = project["project_id"]
-        m = mr.add_material(pid, "PDF 材料", origin="user", raw_path=str(tmp_path / "x.pdf"),
+        p = tmp_path / "x.pdf"
+        p.write_bytes(b"%PDF-1.4 placeholder")
+        m = mr.add_material(pid, "PDF 材料", origin="user", raw_path=str(p),
+                            content_hash=mi.file_hash(p),
                             derived_text_hash="h", parser_fingerprint="kind=.pdf;pymupdf=1")
         mr.add_chunks(m["material_id"], [{"text": "甲", "char_start": 0, "char_end": 1}])
         monkeypatch.setattr(lo, "current_fingerprint_for",
@@ -108,6 +116,72 @@ class TestCheapHealth:
         h = lo.locator_health(mr.get_material(m["material_id"]))
         assert h["status"] == "unknown", h
         assert "重解析比对" in h["why"], h["why"]
+
+
+class TestSourceFileIdentity:
+    """**输入**这一轴（独立复核 b9 的 MEDIUM-1，2026-09-18 修）。
+
+    只比"解析器指纹"会漏掉整个这一类：指纹是从**后缀**推出来的，所以
+    "用户把更新版放回项目目录再扫一次"（**正常操作**）与"源文件被删"都不会让指纹变动。
+    旧实现于是在这两种情况下报 `ok`（"未发现变化"）——而本模块的立论正是
+    "**看起来很正常的错引用比报错危险得多**"。
+    """
+
+    def test_deleted_source_file_is_not_ok(self, project, tmp_path):
+        pid = project["project_id"]
+        m = mi.ingest_material_file(pid, _txt(tmp_path, "del.txt", "甲。乙。"))
+        Path(m["raw_path"]).unlink()          # 材料目录被清理 / 文件被移走
+        h = lo.locator_health(mr.get_material(m["material_id"]))
+        assert h["status"] == "unknown", h
+        assert "源文件不在" in h["why"], h["why"]
+        assert h["source_bytes_match"] is None, h
+
+    def test_replaced_source_file_is_stale_not_ok(self, project, tmp_path):
+        """换成另一份同名文件 ⇒ `stale`，且**说清是源文件变了**（不是"解析器变了"）。"""
+        pid = project["project_id"]
+        m = mi.ingest_material_file(pid, _txt(tmp_path, "rep.txt", "甲。乙。"))
+        Path(m["raw_path"]).write_text("完全不同的内容。", encoding="utf-8")
+        h = lo.locator_health(mr.get_material(m["material_id"]))
+        assert h["status"] == "stale", h
+        assert h["source_bytes_match"] is False, h
+        assert "源文件字节已变" in h["why"], h["why"]
+        assert "需要复算" in h["why"], h["why"]
+
+    def test_replaced_pdf_is_stale_not_unknown(self, project, tmp_path, monkeypatch):
+        """PDF 也一样：**字节变了就是 stale**，不许因为"指纹前缀相同"停在 unknown。"""
+        pid = project["project_id"]
+        p = tmp_path / "r.pdf"
+        p.write_bytes(b"%PDF-1.4 first")
+        m = mr.add_material(pid, "PDF", origin="user", raw_path=str(p),
+                            content_hash=mi.file_hash(p),
+                            derived_text_hash="h", parser_fingerprint="kind=.pdf;pymupdf=1")
+        mr.add_chunks(m["material_id"], [{"text": "甲", "char_start": 0, "char_end": 1}])
+        monkeypatch.setattr(lo, "current_fingerprint_for", lambda _m: "kind=.pdf;pymupdf=1")
+        assert lo.locator_health(mr.get_material(m["material_id"]))["status"] == "unknown"
+        p.write_bytes(b"%PDF-1.4 second")     # 用户把更新版放回同一个文件名
+        h = lo.locator_health(mr.get_material(m["material_id"]))
+        assert h["status"] == "stale", h
+        assert "源文件字节已变" in h["why"], h["why"]
+
+    def test_unchanged_source_still_ok(self, project, tmp_path):
+        """**反向对照**：文件真的没变时必须仍然给 `ok`。
+
+        没有这一条，上面三条"不是 ok"的断言可能只是"永远不是 ok"——
+        反向对照正是把"判据坏成正/负两个方向"分别钉住。
+        """
+        pid = project["project_id"]
+        m = mi.ingest_material_file(pid, _txt(tmp_path, "same.txt", "甲。乙。"))
+        h = lo.locator_health(mr.get_material(m["material_id"]))
+        assert h["status"] == "ok", h
+        assert h["source_bytes_match"] is True, h
+
+    def test_web_material_has_no_source_axis(self, project):
+        """网页件没有源文件 ⇒ 这一轴**不参与**（不是"源文件不在"的告警）。"""
+        pid = project["project_id"]
+        m = co.collect_text(pid, title="报道", text="住宿八百元。", url="https://a.example/3")
+        h = lo.locator_health(mr.get_material(m["material_id"]))
+        assert h["status"] == "ok", h
+        assert h["source_bytes_match"] is None, h
 
 
 class TestStrongReverify:
@@ -138,6 +212,21 @@ class TestStrongReverify:
         r = lo.reverify_material_locators(m["material_id"])
         assert r["status"] == "unavailable", r
         assert "不是 ok" in r["why"], r["why"]
+
+    def test_text_then_blank_reparse_is_a_mismatch(self, project, tmp_path, monkeypatch):
+        """入库时**有**文本、现在重解析**一个字都得不到** ⇒ **确定的失效**。
+
+        独立复核 b9 的 MEDIUM-2：原先这条无条件回 `unavailable`（"验不了"），
+        而 `unavailable` **不是** health 状态 ⇒ 界面与报告**一个标记都不出**。
+        触发场景很真实：存留文件被截断、被换成扫描件、PDF 文本层丢了。
+        """
+        pid = project["project_id"]
+        m = mi.ingest_material_file(pid, _txt(tmp_path, "trunc.txt", "甲。乙。"))
+        monkeypatch.setattr(mi, "extract_pages_with_provenance",
+                            lambda *a, **kw: ([], "kind=.txt;plain=1"))
+        r = lo.reverify_material_locators(m["material_id"])
+        assert r["status"] == "mismatch", r
+        assert "必然失效" in r["why"], r["why"]
 
     def test_missing_material_raises(self, db):
         with pytest.raises(ValueError, match="材料不存在"):

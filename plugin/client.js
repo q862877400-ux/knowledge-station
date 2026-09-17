@@ -32560,9 +32560,11 @@ function KsMaterialsPanel(props) {
           // 锚点健康度：**一次请求拿全项目**（便宜判据，不重解析）
           fetchProjectLocators(projectId, ctl.signal).then((s) => {
             if (!alive) return;
+            const why = {};
+            for (const a of s.attention) why[a.material_id] = a.why;
             const map = {};
             for (const [mid, status] of Object.entries(s.statuses)) {
-              map[mid] = { material_id: mid, status, why: "" };
+              map[mid] = { material_id: mid, status, why: why[mid] ?? "" };
             }
             setAnchors(map);
             setAnchorNote(s.note);
@@ -32965,14 +32967,17 @@ function KsMaterialsPanel(props) {
             anchors[m.material_id]?.status === "stale" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: "var(--dsw-alias-warn, #b8860b)" }, children: [
               "\u26A0 ",
               /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5F15\u7528\u951A\u70B9\u9700\u590D\u7B97" }),
-              "\uFF1A\u89E3\u6790\u5668\u8EAB\u4EFD\u53D8\u4E86\uFF0C\u5DF2\u5B58\u533A\u95F4",
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u53EF\u80FD" }),
-              "\u5931\u6548 \uFF08\u4E0D\u4EE3\u8868\u5DF2\u7ECF\u574F\u4E86\uFF09\u3002\u70B9\u300C\u590D\u7B97\u951A\u70B9\u300D\u7528\u5F53\u524D\u89E3\u6790\u5668\u91CD\u7B97\u6BD4\u5BF9\u3002"
+              "\uFF1A",
+              anchors[m.material_id]?.why || "\uFF08\u540E\u7AEF\u672A\u7ED9\u539F\u56E0\uFF09",
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
+              "\uFF08\u9700\u590D\u7B97**\u4E0D\u4EE3\u8868\u5DF2\u7ECF\u574F\u4E86**\u3002\uFF09\u70B9\u300C\u590D\u7B97\u951A\u70B9\u300D\u7528\u5F53\u524D\u89E3\u6790\u5668\u91CD\u7B97\u6BD4\u5BF9\u3002"
             ] }),
             anchors[m.material_id]?.status === "unknown" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: GRAY }, children: [
               "\u26A0 ",
               /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5F15\u7528\u951A\u70B9\u672A\u9A8C\u8BC1" }),
-              "\uFF1A\u5165\u5E93\u65F6\u6CA1\u8BB0\u89E3\u6790\u5668\u6307\u7EB9\uFF08\u6216 PDF \u7684\u4FBF\u5B9C\u5224\u636E\u4E0B\u4E0D\u4E86 \u7ED3\u8BBA\uFF09\u2014\u2014",
+              "\uFF1A",
+              anchors[m.material_id]?.why || "\uFF08\u540E\u7AEF\u672A\u7ED9\u539F\u56E0\uFF09",
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
               /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u7B49\u4E8E" }),
               "\u6709\u95EE\u9898\uFF0C\u4F46\u5F15\u7528\u4F4D\u7F6E",
               /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u672A\u7ECF\u786E\u8BA4" }),

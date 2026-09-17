@@ -165,13 +165,17 @@ def build_report_blocks(project_id: str, *, title: str | None = None,
     _stale = [m for m in approved + pending + rejected if m.get("_locator_status") == "stale"]
     _unknown = [m for m in approved if m.get("_locator_status") == "unknown"]
     if _stale:
-        warnings.append(f"⚠ {len(_stale)} 份材料的**引用锚点需要复算**（解析器身份变了，"
-                        "已存区间可能失效——见清单里的「⚠锚点需复算」；"
-                        "要不要重建请先跑重解析比对）")
+        # ⚠ **不写死成因**（2026-09-18，复核 b9 的 MEDIUM-1 带来第二个成因）：`stale` 既可能是
+        # "解析器身份变了"，也可能是"**源文件字节变了**"（后者是**确定**失效，不是"可能"）。
+        # 这里只报"状态 + 该怎么办"，具体成因逐条在 `locator_health(...)['why']` 里（唯一所有者）。
+        warnings.append(f"⚠ {len(_stale)} 份材料的**引用锚点需要复算**"
+                        "（成因逐条见各条的便宜判据：解析器身份变了，或**源文件字节已变**）"
+                        "——**不代表已经坏了**，但已存区间与当前解析器/文件不一定对得上："
+                        "要不要重建请先跑重解析比对（见清单里的「⚠锚点需复算」）")
     if _unknown:
         warnings.append(f"⚠ {len(_unknown)} 份**已批准**材料的引用锚点**未经验证**"
-                        "（入库时没记解析器指纹，或 PDF 的便宜判据下不了结论）——"
-                        "**不等于**有问题，但报告里的引用位置**未经确认**")
+                        "（入库时没记解析器指纹、源文件不在磁盘上，或 PDF 的便宜判据下不了"
+                        "结论）——**不等于**有问题，但报告里的引用位置**未经确认**")
     citations: dict[str, Any] = {"material_refs": [], "unknown": [],
                                  "not_load_bearing": [], "unchecked_law_refs": []}
     conclusion = str(conclusion_md or "").strip()

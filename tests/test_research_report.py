@@ -173,7 +173,11 @@ class TestAnchorVisibility:
         assert "⚠锚点需复算" in out["markdown"], out["markdown"]
         hit = [w for w in out["warnings"] if "需要复算" in w]
         assert hit, out["warnings"]
-        assert "可能失效" in hit[0], hit[0]
+        # ⚠ 断言从 `"可能失效"` 改成 `"不代表已经坏了"`（2026-09-18，复核 b9 的 MEDIUM-1）：
+        # `stale` 现在有**两个**成因——"解析器身份变了"（可能失效）与"**源文件字节已变**"
+        # （**确定**失效）——"可能"会把后者说轻。被钉住的**语义**是
+        # "措辞不许升级成'已经坏了'"，这层意思现在由这句话承担。
+        assert "不代表已经坏了" in hit[0], hit[0]
 
 
 class TestWrite:

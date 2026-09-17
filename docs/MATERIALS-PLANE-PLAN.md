@@ -503,12 +503,21 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
    现在没爆是因为重解析当下确定性（多次复算 SHA 一致），**不是因为被钉住**。
    **决策（2026-09-17）**：选**增列**方案（`derived_text_hash` + `parser_fingerprint`），
    **不**落派生全文（省一倍存储、且足够**判定**）。三道判据见 `src/core/materials/locator.py`：
-   ① `locator_health()`——便宜，只比指纹（`ok`/`stale`/`unknown`/`no_locators`/`no_text`）；
+   ① `locator_health()`——便宜判据，比**两条独立的轴**：**解析器指纹**（判"解析器有没有变"）
+   与**源文件字节哈希**（`material.content_hash`，判"**输入**有没有变"）。
+   取值 `ok` / `stale` / `unknown` / `no_locators`（⚠ **没有** `no_text`：解析不出文本**必然**
+   `chunk_count == 0` ⇒ 落 `no_locators`。原先把 `no_text` 列在这里，是代码**刻意不要**的
+   一个永远不会被返回的取值 ⇒ 2026-09-18 同步掉，见 §10.54 的 LOW-6）；
    ② `reverify_material_locators()`——**重解析比对**（`match`/`mismatch`/`unavailable`），
    是**显式动作**（PDF 秒级到分钟级，不做进每次回答）；③ 人决定重建还是弃用。
    ⚠ 措辞纪律：指纹相同只说"**未发现变化**"（不等于保证一致），指纹不同只说"**需要复算**"
    （不等于已经坏了）；网页材料（无留存源文件）**只能** `unavailable`，老材料（NULL）**只能**
    `unknown`——**都不许当 `ok`**。
+   ⚠ **源文件这一轴是复核 b9 补上的**（MEDIUM-1/2，2026-09-18 修，§10.54）：只比指纹会漏掉
+   "源文件被**删**／被**同名替换**"（把更新版 PDF 放回项目目录再扫一次是**正常操作**），
+   那时旧实现报 `ok`。现在：文件不在 ⇒ `unknown`；**字节变了 ⇒ `stale`**，且措辞点明是
+   **源文件**变了（这比"解析器变了"更**确定**）。同理 `reverify` 遇到"入库时**有**文本、
+   重解析**为空**"⇒ `mismatch`（**确定**失效），不再是"验不了"。
    **已接进产品**（§10.49）：引擎三个端点（`GET /materials/{mid}/locators`、
    `GET /materials/projects/{pid}/locators`、`POST /materials/{mid}/reverify`）+ 主机三条
    `/ks/materials/*` 路由 + 参考资料面板的材料行标记与「复算锚点」按钮 + **研究报告里的
@@ -582,3 +591,30 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
    ⚠ 本战役的所有材料提交都在 **23:19 之后**，两个进程都早于它们——这就是"代码全绿、
    真机 404"的全部原因，**不是**构建或接线错误。
    ⚠ 重启 DSH 会中断当前会话（本 Agent 跑在它里面）⇒ **由业主选择时机**。
+12. **复核 b9（区间 `d976cb0..f55b5de`）的处置台账**（报告：`var/tmp/verify-b9-artifacts/VERIFY-REPORT.md`）。
+    它给的是 **4 MEDIUM + 6 LOW + 5 INFO**，逐条都有实测证据；**分步修**，不并成一个大提交：
+
+    | 编号 | 一句话 | 状态 |
+    |---|---|---|
+    | MEDIUM-1 | 源文件被删/被同名替换时 `locator_health` 报 `ok` | ✅ 已修（step-53，§10.54） |
+    | MEDIUM-2 | "曾有文本、现在解析不出"被降级成 `unavailable`（界面无标记） | ✅ 已修（step-53，§10.54） |
+    | LOW-6 | docstring/本节仍列代码刻意去掉的 `no_text`；`unavailable` 跨词表 | ✅ 已修（step-53：本节 + 模块 docstring） |
+    | MEDIUM-3 | PPT 行预算**渲染级**仍溢出（18×40 字 ⇒ 只剩 440/720 字） | ⏳ 待修（下一步；§10.50 那次**没关掉**这条盲区） |
+    | MEDIUM-4 | `_CONTENT_HIDDEN_TAGS` 收编的 `xmp`/`plaintext` 是**可见文字** | ⏳ 待修（同上） |
+    | LOW-3 | `ORDER BY dm.legal_status` 把 NULL 排最前 ⇒ 未核验条款拿最好名次 | ⏳ 待修（方向与 §10.44 相反） |
+    | LOW-1 | §10.50 的 LOW-4 影响面**少报约 5879 倍**、根因写错 | ⏳ 待改记录 + 补边界枚举用例 |
+    | LOW-2 | `_STD_NO_PREFIX` 边界仍是枚举（`GB-T`/`GB—T`/`ＧＢ`），生产库**0 行** | ⏳ 待修（潜性；要恢复成一般规则） |
+    | LOW-4 | `standard_type` 第三键在区间端点上**零区分度**，"真正生效"说法不成立 | ⏳ 待改记录（真正的变化在区间外 `6eede2e`） |
+    | LOW-5 | 引擎模块 docstring 端点索引缺 4 条（tiers + 3 个新端点） | ⏳ 待修（纯文档） |
+    | INFO-3 | `_attach_locator_status` 把异常吞成 `unknown`（多报一条 ⚠） | ⏳ 待评估 |
+    | INFO-4 | 报告 ⚠ 只覆盖材料清单、不覆盖「依据」节（引用真正出现处） | ⏳ 待评估（措辞理由要改准，或接进 `authority.render_evidence`） |
+    | INFO-5 | `no_locators` 两种成因文案未区分 | ⏳ 待评估 |
+    | INFO-2 | 三次全量里有 1 次 `1 failed`（未重现，判为抖动） | 已登记（与未决第 1 条同族） |
+    | INFO-1 | 复核期间主检出前进 3 个提交（其中 `6eede2e` 改了它实测的代码） | **流程问题**：复核期间应冻结主检出，或把区间端点写进每条命令 |
+
+    ⚠ **我因它被证伪的三句话**（诚实记账，别让后人以为这些说法成立）：
+    ① "§10.50 的 LOW-4 影响面是一行"——**错约 5879 倍**（实测 5879/6417 = 91.6%），
+    根因也不是"两个所有者归一不一致"，而是**上一区间 §10.47 把 `\b` 换成枚举边界**引入的回归；
+    ② "`standard_type` 第三键第一次真正生效"——在区间端点上生产语料**零区分度**（真正生效要
+    `GB/T` 进 rank 6，那是区间外的 `6eede2e`）；
+    ③ "18 条/页 × 40 字是**偏保守**"——**相反**，40 是偏乐观（真实首行只放 38 个 CJK 字）。
