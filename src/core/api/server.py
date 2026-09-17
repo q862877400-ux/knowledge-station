@@ -21,6 +21,43 @@ from src.core.storage.sqlite_db import init_schema, get_db_connection
 
 _STARTED_AT = time.monotonic()
 
+#: 线程池**上限**（anyio 默认 40，这里显式收窄）。
+#:
+#: 为什么（独立复核 b13 的 MEDIUM-1，2026-09-18）：§10.71–§10.80 把一批**同步重活**从
+#: "在事件循环里跑"改成"在线程池里跑"。改前这些活的**并发度天然是 1**（都在事件循环里排队），
+#: 改后它们可以**同时开满 anyio 的默认令牌数 40** —— 40 个 MinerU 解析子进程 / 40 份 PDF 渲染
+#: 同时来。那是**改动前不存在的形态**，而且吃掉的是**内存与 CPU**（不是延迟）。
+#: 复核实测（进程内 ASGI，受害者是真实的 `def` 端点 `/ingest/preview/inbox`）：
+#: 无载入 0.0105s → 39 条慢活在飞 0.0014s（不受影响）→ **40 条 0.6595s**（池满后开始排队）。
+#:
+#: 取 16 的理由：单用户桌面场景同时发起的重活很少超过个位数；16 既掐掉"40 个子进程"的风暴，
+#: 又给**文件流式读取**（`FileResponse` 也吃这口池子）留了余量。
+#: ⚠ **取舍（诚实登记）**：池子更小 ⇒ "若干条长解析在飞时加载 PDF"会排队。真要同时治好两头，
+#: 得给**最长的那几条**挂**专用** `CapacityLimiter`（留出一条"文件流"专用位），见 §10.81 §5。
+THREADPOOL_TOKENS = 16
+
+_bound_once = False
+
+
+def bound_threadpool_once() -> None:
+    """把 anyio 默认线程池收窄到 `THREADPOOL_TOKENS`（**幂等**；只能在事件循环里调用）。
+
+    ⚠ anyio 的 limiter 是 **RunVar**：事件循环外读写会抛 `NoEventLoopError`（实测 anyio 4.14）。
+    所以它挂在**已有的 HTTP 中间件**里（每请求一次、幂等、跑在循环内）——而不是
+    `create_app()`（那是同步上下文，且 `httpx.ASGITransport` 默认**不跑 lifespan**，
+    挂 lifespan 会让量具与真实路径行为不一致）。
+    """
+    global _bound_once
+    if _bound_once:
+        return
+    try:
+        import anyio.to_thread
+        anyio.to_thread.current_default_thread_limiter().total_tokens = THREADPOOL_TOKENS
+        _bound_once = True
+    except Exception:      # noqa: BLE001 — 拿不到 limiter 不该让请求失败；下一次请求还会再试
+        pass
+
+
 # 2026-08-28 表题行（通用）："表1…"、"表B.1…(续)"——编号紧随表字才认定，
 # "表面积"等普通词、动词开头的正文引用（"符合表1…"）都不匹配。
 import re as _re_mod
@@ -74,6 +111,10 @@ def create_app(token: str) -> FastAPI:
 
     @app.middleware("http")
     async def auth_middleware(request: Request, call_next):
+        # ⚠ 线程池容量收窄（§10.81，独立复核 b13 的 MEDIUM-1）：放在**这里**是刻意的——
+        # 中间件跑在事件循环里（anyio 的 limiter 只能在循环内设），且**每个请求**都会经过，
+        # 包括 `/health`、CORS 预检与 `httpx.ASGITransport` 下的量具请求。幂等，代价一次分支。
+        bound_threadpool_once()
         if request.url.path == "/api/v1/health":
             return await call_next(request)
         if request.method == "OPTIONS":
@@ -1583,8 +1624,12 @@ def create_app(token: str) -> FastAPI:
         """R19 引用块 + R35 问答依据 Word 导出。
 
         ⚠ §10.76：body 走**函数签名**而不是 `await request.json()`——本端点要跑
-        python-docx 落盘，必须留在**线程池**里（与 `/report/effect/export` 同款收紧：
-        非法 JSON 由"吞成空 body"变成 FastAPI 直接 422）。
+        python-docx 落盘，必须留在**线程池**里。
+        ⚠ **措辞更正**（独立复核 b13 的 LOW-1）：这里原先写"非法 JSON 由**吞成空 body**
+        变成 422"——**错了**。实测这条端点**从来没有** `except` 包着读 body ⇒ 改前
+        **坏 JSON 是未捕获异常 → 500**（连**没有 body** 也是 500，同一句也抄进了
+        `test_phase7.py` 与台账）。方向（收紧成 422）不变，但事实是 **500 → 422**，
+        而且顺带修掉了一个没人注意的"没 body 就 500"。
         """
         body = body or {}
         from src.core.exports.report_export import build_citation_block, export_qa_citations_docx

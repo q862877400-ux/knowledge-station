@@ -42,6 +42,16 @@ TOKEN = "measure-token"
 HDR = {"Authorization": f"Bearer {TOKEN}"}
 
 
+def _pdf_pages(path: Path) -> int:
+    """**实际**页数（复核 b13 的 LOW-3：输出里必须报事实，不能照抄 CLI 参数）。"""
+    try:
+        import fitz
+        with fitz.open(str(path)) as d:
+            return int(d.page_count)
+    except Exception:            # noqa: BLE001 — 读不出就如实报 -1，不编一个数
+        return -1
+
+
 def make_pdf(path: Path, pages: int) -> Path:
     """造一份**文本量可控**的 PDF（不依赖仓库里的任何 fixture，跑在哪都一样）。"""
     import fitz
@@ -279,20 +289,28 @@ def main() -> int:
     from src.core.api.server import create_app
 
     app = create_app(TOKEN)
-    ctx = {"pdf": make_pdf(tmp / "measure.pdf", args.pages), "tmp": tmp}
+    # ⚠ `pages` 必须放进 ctx（复核 b13 的 LOW-3 抓的**假数据**）：`_seed_figure_doc` 读
+    # `ctx.get("pages")`，而第一版 ctx 里**没有这个键** ⇒ 它永远回落 150 页，于是
+    # `--pages 12` 与 `--pages 150` 生成出**逐字节相同**的 PDF，而输出里却照抄 CLI 参数报页数
+    # ⇒ **报出来的页数是假的**。现在既放进去，也在输出里报**实际页数**（双保险）。
+    ctx = {"pdf": make_pdf(tmp / "measure.pdf", args.pages), "tmp": tmp,
+           "pages": args.pages}
     spec = CASES[args.case](ctx)
     # 需要库内数据的用例自带 `setup`（种一行 doc_meta 等）——在**量之前**跑完，
     # 它的耗时不计入被测端点的空档。
     setup = spec.pop("setup", None)
     if setup is not None:
         setup(ctx)
+    # **实际页数**（不是 CLI 参数）：复核 b13 的 LOW-3 就是"报的是参数、不是事实"。
     out = {"case": args.case, "pages": args.pages,
-           "pdf_bytes": ctx["pdf"].stat().st_size, **asyncio.run(measure(app, **spec))}
+           "pdf_bytes": ctx["pdf"].stat().st_size,
+           "pdf_pages": _pdf_pages(ctx["pdf"]),
+           **asyncio.run(measure(app, **spec))}
     if args.json:
         print(json.dumps(out, ensure_ascii=False))
     else:
-        print(f"case={out['case']}  pages={out['pages']}  pdf={out['pdf_bytes']}B  "
-              f"HTTP={out['status']}")
+        print(f"case={out['case']}  pages(参数)={out['pages']}  pages(实际)={out['pdf_pages']}  "
+              f"pdf={out['pdf_bytes']}B  HTTP={out['status']}")
         print(f"  请求耗时        : {out['duration_s']}s")
         print(f"  事件循环最大空档 : {out['max_gap_s']}s   "
               f"(空闲基线 {out['idle_max_gap_s']}s / 中位 {out['p50_gap_s']}s / "

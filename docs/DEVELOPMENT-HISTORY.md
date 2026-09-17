@@ -67,6 +67,13 @@ verifier 全面审计产出 25 项问题清单 → 5 verifier 编制方案 → v
    不含——它的代码在父提交里），而主检出在复核期间又前进了若干提交 ⇒ 复核对象的身份**不确定**，
    报告里那句 CONFIRMED 到底确认的是哪份代码就说不清。这是**流程**纪律，不进自动门禁（没人能自动
    判断任务书写得对不对），但它比任何一条断言都便宜。
+   **2026-09-18 再补一句（复核 b13 的 INFO-1，当场就撞上了）**：verifier **必须在冻结提交的
+   *提取树*上验证**（`git archive <frozen> | tar -x -C <tmp>` 或 `git worktree add`），
+   并在报告**首尾各记一次 `git rev-parse HEAD` + `git status --short`**。
+   理由：b13 复核期间主检出又被另一个工作流（同一晚的 §10.79）改了 5 个文件，b13 第一次
+   在本工作树上普查路由量到 **95 条 async 端点**、与文档写明的 **115** 不符——**差点报出一个假的
+   REFUTED**；它改用提取树后逐字复现。**"在同一个目录里边改边验"是双向污染**：施工方污染
+   复核对象，复核方的变异也污染施工方的工作树。
 
 ---
 
@@ -4288,7 +4295,7 @@ embedder.is_available()`、入库时的 `embed_batch` 这些**真要拿模型**�
 |---|---|---|
 | `POST /api/v1/export/obligations/{list_id}` | python-docx 生成 + 落盘 | `def` |
 | `POST /api/v1/export/review/{task_id}` | python-docx 报告 + 落盘 | `def` |
-| `POST /api/v1/export/citations` | **原为 `async def` 只为 `await request.json()`**，随后 docx 落盘 | `def` + **body 改走签名**（非法 JSON：吞成空 body → **422**，与 §10.71 同口径） |
+| `POST /api/v1/export/citations` | **原为 `async def` 只为 `await request.json()`**，随后 docx 落盘 | `def` + **body 改走签名**（⚠ **措辞更正**见下：改前**坏 JSON/没有 body 都是 500**，不是"吞成空 body"） |
 | `GET /api/v1/egress/audit/export` | 查审计行 + 写 JSON | `def` |
 | `POST /api/v1/snapshots/{snapshot_id}/restore` | 读快照包 + sha256 + 落库 | `def` |
 | `POST /api/v1/update/report/{batch_id}` | python-docx 生成 + 落盘 | `def` |
@@ -4417,8 +4424,7 @@ embedder.is_available()`、入库时的 `embed_batch` 这些**真要拿模型**�
    `ml-runtime`（`torch.`/`transformers.`/`whisper`/`jieba.`/`onnxruntime`）。
    理由写在注释里：**判据是名字**——项目自己与常见库的加载入口。
 2. **只看代码**（`_code_only`）：`ast.unparse` 天然丢注释，docstring 手动摘掉。
-   **假阳性实证**：改之前 `/health` 被新标记判成"要加载模型"，而它恰恰是 §10.74 **修好之后
-   不加载**的那一条——它命中的是 docstring 里那句话。**注释不是行为**，判据得先自己去掉。
+   **假阳性实证**：改之前 `/health` 被新标记判成"要加载模型"，而它恰恰是 §10.74 **修好之后   不加载**的那一条——它命中的是 docstring 里那句话。**注释不是行为**，判据得先自己去掉。
 
 ### 2. 重新盘点（step-71 之后累计 25 条端点已转 `def`）
 
@@ -4450,7 +4456,12 @@ embedder.is_available()`、入库时的 `embed_batch` 这些**真要拿模型**�
 ### 4. 证据
 
 `scripts/audit-async-endpoints.py` 重跑（只读、临时 `KS_DATA_DIR`、约 3s）；
-`/health` 的假阳性已消失（13 → 12 条命中）。本步**零产品代码改动**（只改审计工具），
+`/health` 的假阳性已消失（13 → 12 条命中）。
+⚠ **收益更正**（独立复核 b13 的 LOW-2）：本节原先只写了 `/health` 那一条，把 `_code_only()`
+的收益**写小了**——复核逐条比对标记集合，实测它一共改了 **7 行**：
+`/health` 的 `model-load` + **5 处 `pdf/ocr`** + **1 处 `hashing`**（都不只是"假阳性"，
+而是**真把注释里的词当成了代码行为**）。`unresolved` 两种跑法都是 2045（自洽）。
+本步**零产品代码改动**（只改审计工具），
 所以门禁数字与 §10.77 一致：`pytest` **1755 / 3 skipped**、`mypy` **134 / 0**、`tsc` 0、
 `smoke` EXIT=0（19 段）、`verify:commands` 22/22。
 
@@ -4500,7 +4511,12 @@ body 改走函数签名；并且这次**没有**再抄一份 24 行白名单，�
   第二个脚本（`collapse-dead-try.py`）只收**纯死**的那种四行形状（收了 8 处），
   **不碰**"try 里还有别的行"的（例如 `vision_locate` 那个 `try` 还护着 `rect = body.get(...)`）——
   收那种等于顺手改行为。
-- **语义变化（有意）**：坏 body 从"被 `except` 吞成空 body"（或 500）变成 **FastAPI 直接 422**，
+- **语义变化（有意）**：坏 body 一律变成 **FastAPI 直接 422**。
+  ⚠ **措辞更正**（独立复核 b13 的 LOW-1）：本节原先写"从'被 `except` 吞成空 body'（或 500）
+  变成 422"——**只对了一半**。这 24 条里**有 `try/except` 的那些**改前确实是"吞成空 body"（200）；
+  **没有的**（例如 §10.76 的 `/export/citations`）改前是**未捕获异常 → 500**，连"没有 body"也是 500。
+  所以正确说法是：**改前两种形状（200-空 body / 500），改后一律 422**。方向不变，
+  事实以复核实测为准（它三种输入各发了一次）。
   与 §10.71/§10.76 同口径。`routes_settings.api_config_put` 原来那句自定义 422
   （"body 必须为 JSON"）随之删掉（它已成死代码）——全库无测试钉那句话（已 grep 确认）。
 - **mypy 抓到 2 处**（转型带来的真实收紧）：`announce.add_source(body.get("name"), ...)`
@@ -4624,4 +4640,89 @@ def execute_review(task_id: str, body: dict | None = None):   # 外层：def + �
    写在这里而不是含糊过去。
 2. 同步生成器在**线程池**里迭代 ⇒ 它现在也要吃 §10.81 要处理的那口池子的额度（见下一条）。
 3. 真机重启后才生效。
+
+
+## §10.81 处理复核 b13 的发现：线程池容量有界（MEDIUM-1）+ 三处措辞更正 + 流程纪律加一条
+
+**一句话**：b13 报的 8 条声称**全部 CONFIRMED**，但它找出一个**我自己没写的 MEDIUM**：
+去阻塞化把一批长活搬进了 anyio 那口**默认 40 令牌、且全仓无闸门**的共享线程池 ⇒
+**40 个 MinerU 子进程/40 份渲染可以同时来**（这是改动前不存在的形态）。本步给它**显式收个上限**，
+并把三处"理由写错"的地方按实测更正。
+
+### 1. MEDIUM-1：线程池必须显式有界（`THREADPOOL_TOKENS = 16`）
+
+b13 的实测（进程内 ASGI，受害者是**真实产品 `def` 端点** `/ingest/preview/inbox`）：
+
+| 在飞的慢 `def` 请求 | 受害者耗时 |
+|---|---|
+| 0 | 0.0105s |
+| 39 | 0.0014s（**不受影响**） |
+| **40** | **0.6595s** |
+| 45 | 0.6702s |
+| （对照）`async def` 受害者 | 0.0007s 不受影响 |
+
+机制：`def` 端点在 **anyio 默认线程池**（40 令牌）里跑；池满后**开始排队**。
+**关键不是延迟而是形态**：改前这些活在事件循环里**天然串行（并发度 1）**，改后允许 **40 条同时跑**
+——`ingest/preview` 的最坏情况是"40 个解析子进程同时启动"，那是内存/CPU 的风暴。
+而 §10.73 §6 的"连带核查"表只核查了锁/sqlite/临时目录，**漏了线程池容量**（这一栏现已补上）。
+
+修法：
+```python
+THREADPOOL_TOKENS = 16          # anyio 默认 40 → 显式收窄
+def bound_threadpool_once():    # 幂等；anyio 的 limiter 是 RunVar ⇒ 只能在事件循环里设
+    ...
+```
+挂在**已有的 HTTP 中间件**里（每请求一次、幂等、跑在循环内）——而不是 `create_app()`（同步上下文）
+也不是 lifespan（`httpx.ASGITransport` **默认不跑 lifespan**，挂那里会让量具与真实路径行为不一致）。
+
+**取 16 的理由**：单用户桌面场景同时发起的重活很少超过个位数；16 既掐掉"40 子进程"的风暴，
+又给**文件流式读取**（`FileResponse` 也吃这口池子）留了余量。
+**取舍（诚实登记）**：池子更小 ⇒ "若干条长解析在飞时加载 PDF"会排队。要同时治好两头，得给
+**最长的那几条**（`ingest/preview*`、`bulk`、PDF 渲染）挂**专用** `CapacityLimiter`、
+留一条"文件流"专用位——那是**下一步**（见 §5），不在本步假装解决。
+
+闸门 `tests/test_threadpool_bound.py`（3 条，**确定性、不计时**）：
+收窄函数真的把 limiter 设成常量（循环内读回来核对）、常量 ≤ 40 且 ≠ 40（"收窄成 40 = 没收窄"）、
+**每个请求都会走一次收窄**（拿替身记录调用 ⇒ 挡"有人把中间件那行删了"）。
+
+### 2. 三处措辞更正（b13 的 LOW-1/LOW-2/LOW-3）
+
+| 编号 | 我原来写的 | 实测（b13） | 更正 |
+|---|---|---|---|
+| **LOW-1** | §10.76：`/export/citations` 改前"非法 JSON 被 `except` **吞成空 body** 照常 200" | **错**：这条**从来没有** `except` ⇒ 改前**坏 JSON 与"没有 body"都是未捕获异常 → 500**（三种输入实测） | 改 `server.py` docstring、`test_phase7.py` docstring、§10.76 表格、§10.79 的"语义变化"段、台账第 22 条：**正确说法是"改前两种形状（200-空 body / 500），改后一律 422"** |
+| **LOW-2** | §10.78：`_code_only()` 的收益 = `/health` 那一条假阳性 | 写**小**了：逐条比对标记集合，它一共改了 **7 行**（`/health` 的 `model-load` + **5 处 `pdf/ocr`** + **1 处 `hashing`**）——那些是**真把注释里的词当成了代码行为** | §10.78 §4 已按实测改写 |
+| **LOW-3** | 量具 `document_figure` 报 `pages` | **假数据**：`ctx` 里根本没有 `pages` 键 ⇒ 永远回落 150 页，于是 `--pages 12` 与 `--pages 150` 生成**逐字节相同**的 PDF，而输出照抄 CLI 参数报页数 | 修：`ctx["pages"]` 补上 + 输出改成 **`pages(参数)` 与 `pages(实际)` 两个都报**（实际页数用 fitz 数）；实测 `--pages 12` → 12 页/91549B、`--pages 60` → 60 页/489214B |
+
+### 3. 流程纪律加一条（b13 的 INFO-1，当场就撞上了）
+
+b13 复核期间**主检出又被另一个工作流（同一晚的 §10.79）改了 5 个文件**；它第一次在本工作树上
+普查路由量到 **95 条 async 端点**、与文档写明的 **115** 不符——**差点报出一个假的 REFUTED**，
+改用 `git archive` 提取 pristine 提交后才逐字复现。
+⇒ 已写进 §五第 6 条：**verifier 必须在冻结提交的提取树上验证**，报告**首尾各记一次
+`git rev-parse HEAD` + `git status --short`**。理由一句话：**"在同一个目录里边改边验"是双向污染**。
+
+### 4. 顺带修掉 b13 的 INFO-4（既有问题，但它违反本项目自己的纪律）
+
+`tests/test_golden_gate.py` 直接在**仓库内**的 `eval/golden/knowledge-snapshot.db` 上开库，
+而 `get_db_connection()` 会对库跑 `PRAGMA journal_mode=WAL`（**那是写**）⇒ 留下 `-shm`/`-wal`，
+**违反纪律 5「代码树零运行产物」**。修：跑前**拷到临时目录**，并在收尾 `set_db_override(None)`
+（复核同一点时发现：那个覆盖是**模块级全局**，不复位会**泄给后面的测试**，让它们读到快照库）。
+已验证：跑完 `eval/golden/` 里只剩三个原有文件、无 `-wal/-shm`。
+
+### 5. b13 的判定与我下一步
+
+**8 条声称全部 CONFIRMED**（含 §10.78 盘点表逐字复现、**C2 假绿的 before/after 同机当场跑出**、
+16 条变异全红在预期断言且**字节级还原**：提取树 432 文件 0 不一致）。它自己列的 honest boundaries
+（真机未重启、6.79s 用 0.8s 替身复现机制、pristine 树 1754 passed/4 skipped 而文档 1755/3——
+差异在"跳过哪一条"、0 failed 一致）**我全部接受，不改口径**。
+
+**下一步**：① 给最长的几条挂**专用** `CapacityLimiter`（留出文件流专用位，见 §1 的取舍）；
+② 真机重启后端到端复验（需业主）；③ b13 未覆盖的：`/formula` 识别版回退、C2 的 FAIL 分支、
+uvicorn 下 `FileResponse` 语义、`dry_run` 真实撕裂读。
+
+### 6. 证据
+
+`pytest` **1784 passed / 3 skipped / 0 failed**（1781 → +3：线程池三条）；`mypy` **134 / 0**；
+`tsc` 0；`smoke` EXIT=0（19 段）；`verify:commands` 22/22；
+`eval/golden/` 跑后无 `-wal/-shm`（新增验证）。
 

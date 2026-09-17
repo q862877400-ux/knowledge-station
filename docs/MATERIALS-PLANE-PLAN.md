@@ -846,7 +846,7 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     | 项 | 一句话 | 状态 |
     |---|---|---|
     | 改 `def` | `export/obligations`｜`export/review`｜`export/citations`｜`egress/audit/export`｜`snapshots/{id}/restore`｜`update/report`｜`update/report-xlsx`（docx/xlsx/JSON 落盘 + 读包 sha256） | ✅ 完成；AG1–AG4 变异 RED（含**跨文件**的 `routes_update.py`） |
-    | `export/citations` 取 body | 原是 `async def` **只为** `await request.json()`，随后 docx 落盘（与 §10.71 的 `/report/effect/export` 同款）⇒ body 改走**签名**；非法 JSON 由"吞成空 body"变 **422** | ✅ 并补了此前**缺失的** HTTP 契约测试（`test_phase7.py::test_export_citations_body_contract`，3 断言） |
+    | `export/citations` 取 body | 原是 `async def` **只为** `await request.json()`，随后 docx 落盘（与 §10.71 的 `/report/effect/export` 同款）⇒ body 改走**签名**。⚠ **措辞更正**（b13 的 LOW-1）：改前**坏 JSON 与"没有 body"都是 500**（这条从来没有那个 `except`），不是"吞成空 body"；改后 **422** | ✅ 并补了此前**缺失的** HTTP 契约测试（`test_phase7.py::test_export_citations_body_contract`，3 断言） |
     | **本族收益很小（如实记）** | 唯一能铺满量的是 `/egress/audit/export`（`debug_dump` 保留上限 1000 行）：实测请求 0.0305s、空档 0.030s → 改后 0.016s（噪声底）。**另外 6 条未测**——要有生产规模的批次/清单/2.2GB 库快照才有意义，临时空库只会给出**假小**数字 | 📝 已写进闸门注释与 §10.76：这一族进表靠**结构性**判据，不是战果 |
 
     **下一步**：① `dry_run` 同文件并发按哈希加锁 → ② 补 `/formula`、`/table-image` HTTP 测试
@@ -906,4 +906,27 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     | 语义不变 | SSE 事件顺序/分帧由 `tests/test_compliance.py::test_review_api_sse` 钉住（`point_verdict` → `report_ready` → `done`） | ✅ 55 passed |
 
     **未量**：这条没造 before/after 时长数字（要真 LLM 逐点评审才慢）——证据是**结构性**的，已写进 §10.80 §5。
+
+
+27. **处理复核 b13 的发现**（§10.81，step-81；报告：`var/tmp/verify-b13-artifacts/VERIFY-REPORT.md`）。
+
+    b13 判定：**8 条声称全部 CONFIRMED，无 PARTLY/REFUTED**；新发现 **1 MEDIUM + 3 LOW + 4 INFO**。
+
+    | 编号 | 一句话 | 状态 |
+    |---|---|---|
+    | **b13-MEDIUM-1** | `def` 化把"最长 135s 的入库预览 / PDF 渲染 / docx 落盘"搬进 anyio **默认 40 令牌、全仓无闸门**的共享线程池 ⇒ 改前事件循环把这些活**串行化（并发度 1）**，改后允许 **40 条同时跑**（40 个 MinerU 子进程）。复核实测：受害者（真实产品 `def` 端点）0.0105s → 39 条在飞 0.0014s → **40 条 0.6595s**；`async def` 受害者不受影响 | ✅ 已修：`THREADPOOL_TOKENS = 16` + `bound_threadpool_once()`（幂等，挂在已有 HTTP 中间件里——anyio limiter 是 RunVar，只能在循环内设；挂 lifespan 会让 `ASGITransport` 量具走另一条路）；闸门 `tests/test_threadpool_bound.py` 3 条（确定性、不计时） |
+    | b13-LOW-1 | §10.76 说 `/export/citations` 改前"被 `except` 吞成空 body 照常 200" —— **错**：该端点从无那个 `except`，改前**坏 JSON/没有 body 都是 500** | ✅ 五处更正（`server.py` docstring、`test_phase7.py` docstring、§10.76 表、§10.79 语义段、台账第 22 条）；口径改成"**改前两种形状（200-空 body / 500），改后一律 422**" |
+    | b13-LOW-2 | §10.78 把 `_code_only()` 的收益写小了：实测它改了 **7 行**（`/health` 的 model-load + 5 处 `pdf/ocr` + 1 处 `hashing`） | ✅ §10.78 §4 按实测改写 |
+    | b13-LOW-3 | 量具 `document_figure` **忽略 `--pages`**（`ctx` 无 `pages` 键 ⇒ 永远 150 页），却照抄 CLI 参数报页数 = **假数据** | ✅ 已修：`ctx["pages"]` 补上 + 输出同时报 `pages(参数)`/`pages(实际)`（fitz 数）；实测 12 页 91549B / 60 页 489214B |
+    | b13-INFO-1（流程） | 复核期间主检出又被另一个工作流改了 5 个文件；b13 在工作树上量到 95 条 async、与文档 115 不符，**差点报假 REFUTED**，改用 `git archive` 提取树后逐字复现 | ✅ 纪律 §五第 6 条再加一条：**在冻结提交的提取树上验证**，报告首尾各记 `HEAD`+`status` |
+    | b13-INFO-4（既有） | `test_golden_gate.py` 在**仓库内**快照库上开库，`PRAGMA journal_mode=WAL` 会留下 `-shm/-wal`（**违反纪律 5"代码树零运行产物"**）；且 `set_db_override` 是模块级全局、不复位会**泄给后面的测试** | ✅ 已修：拷到临时目录 + 收尾 `set_db_override(None)`；已验证跑后无 `-wal/-shm` |
+    | b13-INFO-2 | `debug.vector_engine`（三态）与 `degraded.vector_engine`（二态）**同名不同义** | ✅ 就地写明差异（改名要动 `ks_answer` 的消费方，故先注释） |
+
+    **b13 的诚实边界我全部接受、不改口径**：真机未重启（after 数字是进程内 ASGI，非端到端）；
+    6.79s 是用 0.8s 替身复现机制（未触发 5 文件下载）；pristine 树 `1754 passed / 4 skipped / 0 failed`
+    而文档记 1755/3（差异在"跳过哪一条"，0 failed 一致）。
+
+    **下一步**：① 给最长的几条挂**专用** `CapacityLimiter`（留文件流专用位——§10.81 §1 登记的取舍）
+    → ② 真机重启后端到端复验（需业主）→ ③ b13 未覆盖项：`/formula` 识别版回退、C2 的 FAIL 分支、
+    uvicorn 下 `FileResponse` 语义、`dry_run` 真实撕裂读。
 

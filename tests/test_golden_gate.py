@@ -40,13 +40,26 @@ def _baseline_tracked_by_git() -> bool | None:
 
 
 @pytest.fixture(scope="module")
-def current():
+def current(tmp_path_factory):
     if not SNAPSHOT.exists():
         pytest.skip("快照库缺失：先运行 eval/golden/build_golden.py 并生成 knowledge-snapshot.db")
+    import shutil
     import sys
     sys.path.insert(0, str(ROOT))
     from eval.run_benchmark import run_benchmark
-    return run_benchmark(db_path=SNAPSHOT)
+    from src.core.retrieval.hybrid_engine import set_db_override
+
+    # ⚠ **拷到临时目录再跑**（独立复核 b13 的 INFO-4）：`get_db_connection()` 会对库跑
+    # `PRAGMA journal_mode=WAL` ——那是**写**，直接在仓库里的快照上开会留下 `-shm`/`-wal`，
+    # **违反纪律 5「代码树零运行产物」**，而且每跑一次就多一份垃圾。
+    tmp_db = tmp_path_factory.mktemp("golden") / SNAPSHOT.name
+    shutil.copy2(SNAPSHOT, tmp_db)
+    try:
+        yield run_benchmark(db_path=tmp_db)
+    finally:
+        # ⚠ 同一个复核点顺带发现：`set_db_override` 是**模块级全局**，跑完不复位会**泄给后面的
+        # 测试**（让它们读到快照库而不是临时库）——这是个顺序依赖的隐患，收尾清掉。
+        set_db_override(None)
 
 
 def test_golden_gate_baseline_present(current):

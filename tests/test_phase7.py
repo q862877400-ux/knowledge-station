@@ -127,8 +127,12 @@ def test_export_citations_body_contract(client, path):
     python-docx 落盘、必须留在线程池里）。改法带一个**语义变化**，必须钉住：
 
     * **没有 body** ⇒ 照常 200（`citation_text` 是空证据块的文本、`docx` 为 None）；
-    * **非法 JSON** ⇒ **422**（以前被 `except` 吞成空 body 照常 200 —— 这是有意的收紧，
-      与 §10.71 的 `/report/effect/export` 同口径）。
+    * **非法 JSON** ⇒ **422**。
+
+    ⚠ **措辞更正**（独立复核 b13 的 LOW-1）：这里原先跟着 §10.76 写"改前被 `except` 吞成空
+    body 照常 200"——**错了**。这条端点从来没有那个 `except`：改前**坏 JSON 与"没有 body"
+    都是未捕获异常 → 500**（复核三种输入实测：no-body / 坏 JSON / `[]` 全 500）。
+    方向（收紧成 422）不变，但**事实是 500 → 422**，顺带修掉了"没 body 就 500"。
     """
     c, token = client
     h = {"Authorization": f"Bearer {token}"}

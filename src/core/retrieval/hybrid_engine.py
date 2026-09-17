@@ -402,10 +402,12 @@ def search_with_details(query: str, **kwargs: Any) -> Dict[str, Any]:
         "expanded": expanded,
         "debug": {
             "modality_filter": modality_filter,
-            # ⚠ **廉价三态**（§10.74）：`health()` 不加载模型。这里原先调 `is_available()`
-            # ⇒ 一次失败的检索之后，**每次**检索的 debug 块都再重试一次加载（离线机器上
-            # 每次付一次网络超时）。真值另有来源：向量通道**用过**就有结论（成功 ⇒ ok；
-            # 用不了则在 `degraded` 里如实标 offline）。
+            # ⚠ **同名不同义**（复核 b13 的 INFO-2）：这里的 `vector_engine` 是**三态**
+            # （`ok`/`offline`/`unknown`，`embedder.health()` 的结论）；而同一个 dict 之外的
+            # `degraded["vector_engine"]`（本函数上面）是**二态** `ok`/`offline`，且含义不同
+            # ——那是"**这次检索真的用过向量通道**"的结论（用过才知道）。两者**都不加载模型**，
+            # 但"没试过"在 `degraded` 里不会出现。改名要动消费方（`ks_answer` 读 `debug`），
+            # 所以先在这里写明差异，别当成同一个东西用。
             "vector_engine": embedder.health(),
             "channels": kwargs.get("channels") or list(SEARCH_CHANNELS),
             "result_count": len(results),
