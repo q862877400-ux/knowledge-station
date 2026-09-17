@@ -351,12 +351,14 @@ def _real_suspension(fn: ast.AST, nested: dict, depth: int = 0) -> bool:
 def effective_real_await(src: str) -> bool:
     """这条 async 端点**执行路径上**真的会让出控制权吗？（§10.88：名单第二关的判据）
 
-    ⚠ **它不是 `never_yields()` 的"加严版"——两个方向都有**（独立复核 b18 的 LOW-2：
-    原 docstring 写"比 `never_yields` 严一档"，**不处处成立**）：
+    ⚠ **它不是 `never_yields()` 的"加严版"——两个方向都有**（独立复核 b18 的 LOW-2 + b19 的 N1：
+    原 docstring 写"比 `never_yields` 严一档"，**不处处成立**，同一句错话当时还留在
+    `tests/test_material_api.py` 里，b19 一并指出、已一起改）：
       · 更**严**：`await _read_json(request)` 这类**本端点内嵌套的 async 助手**会被内联，
         内联后只剩读 body ⇒ 判"没有真挂起点"（H1 形状；b16 实测它堵 0.650s）；
       · 更**宽**：`async for`/`async with`/`yield` 算挂起点（`never_yields` 只数 `Await` **节点**，
-        对"只有 `async for`"的**合法**端点会误红，见 b17 的 E3/E6 —— 这是"名单不可满足"那一条）。
+        对"只有 `async for`"的**合法**端点会误红，见 b17 的 **E3** —— 这是"名单不可满足"那一条；
+        ⚠ b19 的 N2：这里原写"E3/E6"，**E6 是 `setswitchinterval`/GIL flaky，与 `async for` 无关**）。
 
     判据顺序：
       ① `async for` / `async with` / `yield` ⇒ **算**（等待点常在库源码里，源码里看不到 `Await`）；

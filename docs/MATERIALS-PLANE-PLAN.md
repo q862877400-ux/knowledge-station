@@ -1087,3 +1087,24 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     → ③ 真机重启后端到端复验（需业主）。
 
 
+36. **处理复核 b19（收窄范围；G1 CONFIRMED，6 条 INFO，无 HIGH/MEDIUM）**（§10.90，step-90；
+    报告：`var/tmp/verify-b19-artifacts/VERIFY-REPORT.md`）。
+
+    | 编号 | 一句话 | 状态 |
+    |---|---|---|
+    | **b19-G1（核心）** | 它**自己写两把尺**证实"`def` 端点返回 `StreamingResponse` 与 `async def` 行为相同"：逐块边界各 6 次 `http.response.body`（httpx 会合并 ⇒ 它改用 ASGI `send()` 边界）、body 逐字节同；`def` 流式期间空档 **0.0160s ≈ 空闲基线 0.0182s**；端点体塞 0.3s 同步活时 `def` **0.0163/0.0322s** vs `async def` **0.3013/0.3005s** ⇒ "改 def 无害"成立；还实测"放宽判据会放行 H5" ⇒ 不放宽的理由成立 | ✅ CONFIRMED（§10.89 的论证被独立补强） |
+    | b19-N1 | 错话"比 `never_yields` 严一档"**仍活在** `tests/test_material_api.py`（只改了审计脚本那份） | ✅ 按两方向改写 |
+    | b19-N2 | 审计 docstring 的"见 b17 的 E3/**E6**"半错（E6 是 GIL flaky） | ✅ 只引 E3 |
+    | b19-N3 | 新用例只钉"两种声明都 200 + 拼接 body 同"，**钉不住"真流式"**（MUT-D 仍绿） | ✅ 改成 ASGI 层**分块边界**断言（≥3 块 + 分块序列相同）；踩到并写下 ASGI 直调两坑（`listen_for_disconnect` 会挂死 / 立刻回 disconnect 会中止响应）；CF1 反事实证明抓得住 |
+    | b19-N4 | "内联递归深度上限 4"**无断言保护**（改到 2 全量零红） | ✅ 新用例钉 3 层⇒False / 6 层⇒True；M5（上限→2）RED |
+    | b19-N5 | CPU 型同步活在 `def` 下仍留 0.032–0.046s 空档（GIL） | 📝 登记（线程池方案固有上限） |
+    | b19-N6 | `smoke-chatmode.mjs:613` 的 flake 9 次未复现 | 📝 保持登记 |
+    | b19-G3/G4/G5 | 死代码清零（21 个顶层名全有引用）；mypy 134/0、tsc 0、smoke EXIT=0（链恰 19 段）、22/22、uvicorn 4/4；§4 表与 b18 原文逐条对上 | ✅（pytest 拆分差 1 条＝环境 skip） |
+
+    **变异**：M5（深度上限 4→2）RED 且命中预期断言；CF1（一次性 `Response` ⇒ 分块 0）证明强化后的
+    用例抓得住 b19 的 MUT-D。
+
+    **下一步**：① 量具接名单（第二层）→ ② `asyncio.to_thread` 池不对称 → ③ 真机重启后端到端复验（需业主）
+    → ④ **转到产品侧**：研究报告 Word(.docx) 交付物（方案 §8）。
+
+

@@ -677,9 +677,10 @@ class TestSlowEndpointsAreDeclaredSync:
         任何新 async 端点（无论什么形状）默认红。
 
         名单里的每一条还要过第二关：**必须真的有一个非读-body 的 `await`**（或 `async for` 之类的
-        真挂起点）——判据是 `audit.effective_real_await()`（§10.88），它比 `never_yields` 严一档：
-        `async for/with` 算挂起点、读 body 的 await 不算、**调用本端点内嵌套 async 助手要内联
-        进去再看**（b16 的 H1 形状靠这一层判准）、被引用的嵌套 async 生成器（真流式）算。
+        真挂起点）——判据是 `audit.effective_real_await()`（§10.88）。
+        ⚠ **它不是 `never_yields` 的"加严版"——两个方向都有**（独立复核 b19 的 N1：这句话原写作
+        "比 `never_yields` 严一档"，**不处处成立**）：它在 H1（嵌套助手包装读 body）上更**严**，
+        但在 `async for`/H5 上更**宽**。判据细节见 `effective_real_await()` 的 docstring。
         """
         import asyncio
 
@@ -947,15 +948,19 @@ class TestSlowEndpointsAreDeclaredSync:
         b18 构造了一条"真会让出的流式端点"（嵌套 async 生成器被装饰器/模块级注册表登记），
         指出名单第二关会判它红。作者**没有**放宽判据，理由是：闸门问的是"**必须** async 吗"，
         而**否** —— 本用例实测：`def` 端点返回 `StreamingResponse(async_gen())` 与 `async def`
-        **逐字节相同**（都是 200 + 逐块 `chunk0|chunk1|chunk2|`）。⇒ 判红的补救（改 `def`）
-        **无害**；反过来放宽判据会让 H5 那种"端点体里先跑 0.65s 同步活、再返回流"的形状混过去。
+        **逐块行为相同**。⇒ 判红的补救（改 `def`）**无害**；反过来放宽判据会让 H5 那种
+        "端点体里先跑 0.65s 同步活、再返回流"的形状混过去。
 
-        ⚠ 这条用例钉的是**框架事实**（Starlette 对异步可迭代对象一律 `async for` 迭代，
-        与端点是不是 `async def` 无关）；框架升级后若它红了，说明上面那个理由要重新论证。
+        ⚠ **判据是 ASGI `send()` 消息边界，不是 body 拼接**（独立复核 b19 的 N3：第一版只断言
+        "两种声明都 200 + 拼接后的 body 相同"，把生成器换成一次性 `Response(同样字节)` 也照样绿
+        ⇒ **钉不住"流式"**；b19 还指出 httpx 会把流合并成一个 piece，所以"逐块"在客户端侧
+        观测不到）。这里直接调 app（ASGI 层）数 `http.response.body` 且 `more_body=True` 的条数。
+
+        ⚠ 它钉的是**框架事实**（Starlette 对异步可迭代对象一律分块发送，与端点是不是 `async def`
+        无关）；框架升级后若它红了，§10.89 §1 的论证要重做。
         """
         import asyncio
 
-        import httpx
         from fastapi import FastAPI
         from fastapi.responses import StreamingResponse
 
@@ -974,19 +979,87 @@ class TestSlowEndpointsAreDeclaredSync:
         async def async_ep():
             return StreamingResponse(gen())
 
-        async def main() -> dict[str, tuple[int, bytes]]:
-            out: dict[str, tuple[int, bytes]] = {}
-            async with httpx.AsyncClient(transport=httpx.ASGITransport(app=app),
-                                         base_url="http://stream", timeout=10) as c:
-                for path in ("/def_ep", "/async_ep"):
-                    async with c.stream("GET", path) as r:
-                        body = b"".join([ch async for ch in r.aiter_bytes()])
-                    out[path] = (r.status_code, body)
+        async def collect(path: str) -> list[dict]:
+            msgs: list[dict] = []
+            # ⚠ ASGI 直调的两个坑（本轮实测踩到、写在这里免得下一个人再踩）：
+            #   ① Starlette 的 `Response.__call__` 会**并发**跑一个 `listen_for_disconnect(receive)`
+            #      任务 ⇒ 若 `receive()` 永不返回 `http.disconnect`，那个任务组**永远不结束**
+            #      （测试就挂住，不报错）；
+            #   ② 但也不能一上来就回 `http.disconnect` ⇒ Starlette 会把它当成客户端提前断开、
+            #      **中止响应**（只发出 `http.response.start`，body 一条都没有）。
+            #   正确做法：等**最后一块 body 发完**再回 disconnect（下面的 `done` 事件）。
+            done = asyncio.Event()
+
+            async def receive():
+                await done.wait()
+                return {"type": "http.disconnect"}
+
+            async def send(m):
+                msgs.append(m)
+                if m["type"] == "http.response.body" and not m.get("more_body"):
+                    done.set()
+
+            scope = {"type": "http", "asgi": {"version": "3.0", "spec_version": "2.3"},
+                     "http_version": "1.1", "method": "GET", "scheme": "http",
+                     "path": path, "raw_path": path.encode(), "query_string": b"",
+                     "root_path": "", "headers": [],
+                     "client": ("127.0.0.1", 12345), "server": ("127.0.0.1", 80)}
+            await app(scope, receive, send)
+            return msgs
+
+        async def main() -> dict[str, tuple[int, list[bytes]]]:
+            out: dict[str, tuple[int, list[bytes]]] = {}
+            for path in ("/def_ep", "/async_ep"):
+                msgs = await collect(path)
+                start = next(m for m in msgs if m["type"] == "http.response.start")
+                chunks = [m.get("body", b"") for m in msgs
+                          if m["type"] == "http.response.body" and m.get("more_body")]
+                out[path] = (start["status"], chunks)
             return out
 
         got = asyncio.run(main())
-        assert got["/def_ep"] == (200, b"chunk0|chunk1|chunk2|"), got
-        assert got["/def_ep"] == got["/async_ep"], got
+        for path in ("/def_ep", "/async_ep"):
+            status, chunks = got[path]
+            assert status == 200, got
+            assert len(chunks) >= 3, (
+                f"{path} 只发出 {len(chunks)} 块（应 ≥3）——那就不是流式，本用例的前提不成立")
+            assert b"".join(chunks) == b"chunk0|chunk1|chunk2|", got
+        assert got["/def_ep"][1] == got["/async_ep"][1], (
+            "两种声明方式的**分块**必须一致（逐块边界都要相同）")
+
+    def test_内联递归的深度上限有断言保护(self):
+        """§10.90（独立复核 b19 的 N4）：docstring 写的"深度上限 4"**必须有断言保护**。
+
+        b19 实测：把上限改成 2，**全量 1810 条零红** —— 说明那条边界只是文档，没人守。
+        这里钉住两个方向：
+          · **3 层**嵌套助手（每层只读 body）⇒ 一次都不让出 ⇒ `False`（该 `def`）；
+          · **6 层**同款 ⇒ 超过上限 ⇒ 按"只朝放行截断"的约定判 `True`（放行，交给量具/人工）。
+        ⇒ 把上限改成 2（或任何 <3 的值），第一条就会翻成 True ⇒ 红。
+        """
+        root = Path(__file__).resolve().parents[1]
+        spec = importlib.util.spec_from_file_location(
+            "ks_audit_probe_depth", root / "scripts" / "audit-async-endpoints.py")
+        assert spec and spec.loader
+        audit = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(audit)
+
+        def chain(depth: int) -> str:
+            # ep → h1 → h2 → … 每层都只 await request.json()（读 body，不让出）
+            lines = ["async def ep(request):", "    body = await h1(request)",
+                     "    return heavy(body)", ""]
+            for i in range(1, depth + 1):
+                nxt = f"h{i + 1}" if i < depth else None
+                lines.append(f"    async def h{i}(request):")
+                if nxt:
+                    lines.append(f"        return await {nxt}(request)")
+                else:
+                    lines.append("        return await request.json()")
+            return "\n".join(lines)
+
+        assert audit.effective_real_await(chain(3)) is False, (
+            "3 层嵌套助手都在读 body ⇒ 判据必须仍然判 False（上限没到）")
+        assert audit.effective_real_await(chain(6)) is True, (
+            "6 层超过上限 ⇒ 按约定判 True（只朝放行截断）")
 
     def test_判据本体的边界样本(self):
         """§10.86：两条判据的**边界形状**（b15 的 INFO-1 / INFO-3）。
