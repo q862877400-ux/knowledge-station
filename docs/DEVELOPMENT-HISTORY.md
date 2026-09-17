@@ -971,6 +971,32 @@ client 插件改动只有在 `pnpm run dev:web` 同时在跑时才会免刷新�
 **门禁**：`pytest` **1405 passed / 3 skipped / 0 failed**（1373 → 1405，**+32**）；
 `mypy` **128 files** 0 errors；其余门禁不受影响（本步只动 Python）。
 
+### 10.21 **P0 修复：畸形 JSON 会永久挂住请求**（独立复核在步骤 17/18 上抓到的）
+
+独立复核在 §10.18/§10.19 的提交上做**中途报告**（P0/HIGH），内容是我引进的**真 bug**：
+
+`plugin/src/route_util.js` 的 `readJsonBody` 在 `end` 回调里先 `done = true`，
+再把解析异常交给一个"**见 `done` 就 return**"的出口 ⇒ **promise 永不 settle**。
+后果：**畸形 JSON 的请求永久挂住**——9 条材料路由**加上既有路由 `/ks/report/export`**
+一起被打挂（客户端只能超时，且 handler 与连接被永久占住、面板的 `busy` 永不清空）。
+`materials_routes.js` 的 `readBodyOr400` 与 `report.js` 的 `catch { 400 }` 在这条路上**都是死代码**。
+
+- **根因是我"顺手改进"**：基线 `report.js` 的同一处在 catch 里是**裸 `reject(err)`**，
+  我把它改道经过一个会自行判重入的 helper —— 那个 helper 眼里"已经结束了"，于是静默什么都不做。
+- **修法**：`readJsonBody` 改为**只有一个出口** `settle(fn, arg)`（先判重入再置位），
+  "置了位又走另一条路"这种顺序错误在**结构上**不可能再发生。
+- **为什么我的冒烟没抓到（复核明确指出）**：`smoke-materials-routes.mjs` 的 `invoke()`
+  只会 `JSON.stringify`，**畸形 body 那条路零覆盖**；那条"空 body → 400"的断言是真的，
+  但它测的是**空**body（走 `{}` 分支），与畸形 JSON 是两条路。
+- **补的覆盖（并且当场验证非空转）**：给 `invoke()` 加 `rawBody`（不过 stringify），
+  对 5 条写路由 + 非 JSON 文本各断言"**有响应（400）且不打扰引擎**"，
+  并用 **`Promise.race` + 1.5s 超时**把"挂死"变成**一条会红的断言**（而不是把冒烟本身挂住）。
+  > **非空转是实测的**：我把修复临时换回有 bug 的版本（忠实复现：`resolve` 直调、
+  > 只有 catch 走那个出口），冒烟立刻 **6/43 FAILED，detail 全是 `status=HANG`**；
+  > 换回修复版后 43/43 PASS（文件哈希前后一致，已核对）。**这条覆盖以后抓得住同类回归。**
+
+**门禁**：`smoke` **14 段**全过（`smoke:materials-routes` 37 → **43**）；本步零 Python 改动。
+
 
 
 

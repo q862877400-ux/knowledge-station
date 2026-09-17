@@ -85,7 +85,7 @@ function makeRes() {
 }
 
 /** 造一个假请求并**等** handler 跑完（POST body 通过事件推给它）。 */
-async function invoke(path, { method = 'GET', body = undefined, search = '' } = {}) {
+async function invoke(path, { method = 'GET', body = undefined, rawBody = undefined, search = '' } = {}) {
   const def = routes.get(path)
   if (def === undefined) throw new Error(`路由未注册: ${path}`)
   const req = new EventEmitter()
@@ -96,7 +96,12 @@ async function invoke(path, { method = 'GET', body = undefined, search = '' } = 
   const p = def.handler(req, res)
   // 下一拍再推 body：让 handler 先把监听挂上
   setImmediate(() => {
-    if (body !== undefined) req.emit('data', Buffer.from(JSON.stringify(body), 'utf8'))
+    // `rawBody` 用来送**畸形 JSON**（身体不过 JSON.stringify）。
+    // ⚠ 这个能力是独立复核要求补上的：本冒烟原先只会 `JSON.stringify`，
+    // 于是"畸形 body"这条路径**零覆盖**，而 `readJsonBody` 正好在那条路上挂死过（P0）。
+    const payload = rawBody !== undefined ? rawBody
+      : (body !== undefined ? JSON.stringify(body) : undefined)
+    if (payload !== undefined) req.emit('data', Buffer.from(payload, 'utf8'))
     req.emit('end')
   })
   await p
@@ -227,6 +232,45 @@ const lastEngine = () => seen[seen.length - 1]
   })
   check('POST /review 空 body → 400（解析不出 decision，不当默认批准）',
     badJson.status === 400 && seen.length === 0, `${badJson.status} engineCalls=${seen.length}`)
+}
+
+/* ---------------- 4b. 畸形 JSON：**必须**有响应，绝不能挂死 ----------------
+ *
+ * 独立复核 2026-09-17 报的 **P0**：`route_util.readJsonBody` 第一版在 `end` 里先
+ * `done = true` 再走一个"见 done 就 return"的 `fail()`，于是**畸形 JSON 的请求永不 settle**
+ * —— 9 条材料路由与既有 `/ks/report/export` 一起挂死（客户端只能超时，且 handler 与
+ * 连接被永久占住）。
+ *
+ * ⚠ 这个 bug **逃过了本冒烟的第一版**：`invoke()` 只会 `JSON.stringify`，
+ * 畸形 body 那条路**零覆盖**。所以这里既补覆盖，也用**超时竞赛**保证
+ * "挂死"表现为**一条会红的断言**，而不是把冒烟本身挂住。
+ */
+{
+  for (const [path, opts] of [
+    ['/ks/materials/review', { method: 'POST', search: '?material_id=mat_1' }],
+    ['/ks/materials/tier', { method: 'POST', search: '?material_id=mat_1' }],
+    ['/ks/materials/role', { method: 'POST', search: '?material_id=mat_1' }],
+    ['/ks/materials/scan', { method: 'POST', search: '?project_id=prj_a' }],
+    ['/ks/materials/projects', { method: 'POST' }],
+  ]) {
+    seen.length = 0
+    const result = await Promise.race([
+      invoke(path, { ...opts, rawBody: '{"decision":' }),      // 截断的 JSON
+      new Promise((resolve) => setTimeout(() => resolve({ status: 'HANG' }), 1500)),
+    ])
+    check(`畸形 JSON → ${path} 有响应（400），不挂死`,
+      result.status === 400 && seen.length === 0,
+      `status=${result.status} engineCalls=${seen.length}`)
+  }
+
+  // 非 JSON 的纯文本同样要走 400 而不是崩/挂
+  const notJson = await Promise.race([
+    invoke('/ks/materials/review', {
+      method: 'POST', search: '?material_id=mat_1', rawBody: 'not json at all',
+    }),
+    new Promise((resolve) => setTimeout(() => resolve({ status: 'HANG' }), 1500)),
+  ])
+  check('非 JSON 文本 → 400，不挂死', notJson.status === 400, String(notJson.status))
 }
 
 /* --------------------------- 5. 两个轴 --------------------------- */

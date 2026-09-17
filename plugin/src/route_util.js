@@ -38,22 +38,30 @@ export function errorBody(code, message) {
 /**
  * 读请求体并解析 JSON（带大小上限；超限即销毁连接并在 promise 上拒绝）。
  * `cap` 显式传入而不吃模块常量——不同路由的合理上限不同。
+ *
+ * ⚠ **只有一个出口**（`settle`）：本函数第一版让 `end` 回调自己 `done = true`，
+ * 再把解析异常交给 `fail()` —— 而 `fail()` 见 `done` 已置位就**直接 return**，
+ * 于是 promise **永不 settle**：畸形 JSON 会让请求永久挂住（独立复核 P0，实测
+ * 连 `/ks/report/export` 这种既有路由都被打挂，客户端只能超时）。
+ * 现在**任何**settle 都走同一个 `settle(fn, arg)`，先判重入再置位，
+ * "置了位又走另一条路"这种顺序错误在结构上不可能再发生。
  */
 export function readJsonBody(req, cap = ROUTE_BODY_CAP) {
   return new Promise((resolve, reject) => {
     const chunks = []
     let size = 0
     let done = false
-    const fail = (err) => {
+    /** 唯一出口：第一次调用生效，之后是 no-op。 */
+    const settle = (fn, arg) => {
       if (done) return
       done = true
-      reject(err)
+      fn(arg)
     }
     req.on('data', (chunk) => {
       if (done) return
       size += chunk.length
       if (size > cap) {
-        fail(new Error('request body too large'))
+        settle(reject, new Error('request body too large'))
         req.destroy()
         return
       }
@@ -61,15 +69,16 @@ export function readJsonBody(req, cap = ROUTE_BODY_CAP) {
     })
     req.on('end', () => {
       if (done) return
-      done = true
       try {
         const text = Buffer.concat(chunks).toString('utf8')
-        resolve(text.length === 0 ? {} : JSON.parse(text))
+        settle(resolve, text.length === 0 ? {} : JSON.parse(text))
       } catch (err) {
-        fail(err instanceof Error ? err : new Error(String(err)))
+        // **直接** settle 成 reject（不要再绕一个会自行判重入的 helper——
+        // 那正是本函数第一版挂死的原因）
+        settle(reject, err instanceof Error ? err : new Error(String(err)))
       }
     })
-    req.on('error', fail)
+    req.on('error', (err) => settle(reject, err))
   })
 }
 
