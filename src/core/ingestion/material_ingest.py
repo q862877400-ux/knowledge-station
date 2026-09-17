@@ -1,0 +1,252 @@
+# -*- coding: utf-8 -*-
+"""材料解析与切片（2026-09-17 定位转移 Phase A 第二步）。
+
+## 它做什么
+把"放进项目参考资料文件夹"的文件解析成**带字符区间与页号的切片**，登记进材料平面
+（**默认 `pending`** —— 未评审不得使用，硬门在 `material_repo.approved_materials()`）。
+
+## 与法条入库的根本区别（**不要复用条款切分**）
+法规入库要按**条款号**切成三型知识单元（`split_items_into_clauses`），因为要逐条取证；
+**材料不是条文**（财报、公告、帖子、研报），硬套条款切分只会切出一堆碎片且丢掉上下文。
+故这里按**段落**聚合成块，只保留"能指回原文位置"的最小契约：`char_start/char_end/page`。
+
+## 默认不外发
+PDF 解析走 `run_parser_isolated(..., deep_fallback=False)` —— **无文本层就不解析**，
+如实报 `text_layer_state`，绝不因为"用户只是丢了个文件进来"就把它传上去。需要云深度解析
+时必须**显式**传 `deep_fallback=True`（与 D5 的口径一致：默认安全、可显式开启、如实标注）。
+
+## 存储
+材料原件放 `<data_dir>/materials/<project_id>/`（按项目分目录，与法规语料分开）。
+文件若已在项目目录内则**原地引用**；在外面的会**复制进来**，保证材料平面自包含。
+"""
+from __future__ import annotations
+
+import hashlib
+from pathlib import Path
+from typing import Any
+
+from src.core.config import get_settings
+from src.core.storage import material_repo as mr
+from src.core.text_utils import strip_duplicate_suffix
+
+#: 支持的收件后缀。**故意保守**：只收能拿到纯文本的格式；暂不收图片（要走 OCR 另议）。
+SUPPORTED_SUFFIXES = (".pdf", ".docx", ".txt", ".md")
+
+#: 单块目标字数（超长段落会被硬切）。材料检索不像法条那样逐条取证，块大一点上下文更完整。
+DEFAULT_MAX_CHARS = 900
+
+
+def scan_project_dir(project_id: str) -> list[Path]:
+    """列出项目参考资料文件夹里受支持的文件（按名排序，结果稳定）。"""
+    d = mr.materials_dir(project_id)
+    out = [p for p in sorted(d.iterdir())
+           if p.is_file() and p.suffix.lower() in SUPPORTED_SUFFIXES]
+    return out
+
+
+# ------------------------------------------------------------------ 解析（页 → 文本）
+def extract_pages(path: Path, *, deep_fallback: bool = False,
+                  work_dir: Path | None = None) -> list[tuple[int, str]]:
+    """解析成 `[(page_number, page_text)]`。
+
+    - PDF：走既有解析器（子进程隔离），按 `page_number` 聚合 blocks；**默认不外发**
+      （`deep_fallback=False`：无文本层就如实返回空文本，不偷偷上云）；
+    - DOCX：用 python-docx 取段落，**整体算第 1 页**（docx 本身没有页的概念——
+      不要假装有页号，那是编造）；
+    - TXT/MD：整体第 1 页。
+    """
+    suffix = path.suffix.lower()
+    if suffix == ".pdf":
+        from src.core.ingestion.parser_worker import run_parser_isolated
+        out_dir = (work_dir or (get_settings().data_dir / "material_tmp")) / _short_hash(path)
+        result = run_parser_isolated(path, out_dir, force_deep=False,
+                                     deep_fallback=deep_fallback)
+        blocks = result.get("blocks") or []
+        by_page: dict[int, list[str]] = {}
+        for b in blocks:
+            page = int(b.get("page_number") or 1)
+            text = (b.get("text") or "").strip()
+            if text:
+                by_page.setdefault(page, []).append(text)
+        return [(p, "\n".join(by_page[p])) for p in sorted(by_page)]
+
+    if suffix == ".docx":
+        from docx import Document
+        doc = Document(str(path))
+        paras = [p.text.strip() for p in doc.paragraphs if p.text and p.text.strip()]
+        return [(1, "\n".join(paras))] if paras else []
+
+    # txt / md：按 utf-8 读，容错替换（bad bytes 不该让整份材料消失）
+    text = path.read_text(encoding="utf-8", errors="replace")
+    return [(1, text)] if text.strip() else []
+
+
+def _short_hash(path: Path) -> str:
+    return hashlib.sha256(str(path).encode("utf-8")).hexdigest()[:16]
+
+
+def file_hash(path: Path) -> str:
+    """文件内容 SHA-256（用于查重：同一份材料重复放进来不应重复登记）。"""
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for chunk in iter(lambda: f.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+# ------------------------------------------------------------------ 切片
+def build_document(pages: list[tuple[int, str]]) -> tuple[str, list[tuple[int, int, int]]]:
+    """把 `[(page, text)]` 拼成**规范全文**，并给出每页在全文中的字符区间。
+
+    返回 `(text, [(page_start, page_end, page_number)])`。页与页之间用 `"\n\n"` 连接
+    （切块时它也是天然的段落边界）。**这些偏移量是"引用可点回原文位置"的唯一依据**，
+    所以必须与 `text` 严格自洽（有测试逐块回验 `text[start:end]`）。
+    """
+    parts: list[str] = []
+    spans: list[tuple[int, int, int]] = []
+    cursor = 0
+    for i, (page, ptext) in enumerate(pages):
+        if i:
+            parts.append("\n\n")
+            cursor += 2
+        parts.append(ptext)
+        spans.append((cursor, cursor + len(ptext), page))
+        cursor += len(ptext)
+    return "".join(parts), spans
+
+
+def page_of(offset: int, spans: list[tuple[int, int, int]]) -> int | None:
+    """字符偏移 → 页号（落在页间连接符上时归上一页）。"""
+    for start, end, page in spans:
+        if start <= offset < end:
+            return page
+    return spans[-1][2] if spans else None
+
+
+def chunk_text(text: str, spans: list[tuple[int, int, int]],
+               *, max_chars: int = DEFAULT_MAX_CHARS) -> list[dict[str, Any]]:
+    """按**段落**聚合成块，保留全文绝对字符区间与页号。
+
+    规则很简单但明确：
+    - 逐行累加；再加一行会超 `max_chars` 就先落一块（**不**跨越超限）；
+    - 单行本身超 `max_chars` 时**硬切**（否则一行几万字的材料只出一块，检索粒度退化）；
+    - 空行只是分隔符，不进块内容（但**不改变**已记录区间——区间是对全文的绝对偏移）。
+    """
+    blocks: list[dict[str, Any]] = []
+    if not text.strip():
+        return blocks
+
+    def flush(buf: list[str], start: int, end: int) -> None:
+        body = "\n".join(buf).strip()
+        if body:
+            blocks.append({"text": body, "char_start": start, "char_end": end,
+                           "page": page_of(start, spans)})
+
+    buf: list[str] = []
+    buf_start = 0
+    cursor = 0
+    for raw_line in text.split("\n"):
+        line_len = len(raw_line)
+        line_start, line_end = cursor, cursor + line_len
+        cursor = line_end + 1  # +1 吃掉换行符
+        if not raw_line.strip():
+            continue
+        # 超长单行：先落掉手上的，再硬切成 max_chars 段
+        if line_len > max_chars:
+            flush(buf, buf_start, line_start)
+            buf = []
+            off = line_start
+            while off < line_end:
+                seg_end = min(off + max_chars, line_end)
+                blocks.append({"text": raw_line[off - line_start:seg_end - line_start],
+                               "char_start": off, "char_end": seg_end,
+                               "page": page_of(off, spans)})
+                off = seg_end
+            buf_start = cursor
+            continue
+        if buf and (line_end - buf_start) > max_chars:
+            flush(buf, buf_start, line_start - 1 if line_start else 0)
+            buf = []
+            buf_start = line_start
+        if not buf:
+            buf_start = line_start
+        buf.append(raw_line)
+    flush(buf, buf_start, len(text))
+    return blocks
+
+
+# ------------------------------------------------------------------ 收件入库
+def ingest_material_file(project_id: str, path: Path, *, origin: str = "user",
+                         deep_fallback: bool = False,
+                         source_tier: str | None = None,
+                         max_chars: int = DEFAULT_MAX_CHARS) -> dict[str, Any]:
+    """把一个文件登记为材料（**默认 pending**）+ 建切片。
+
+    - **查重**：同项目内 `content_hash` 已存在 → 直接返回既有材料并标 `duplicate=True`
+      （重复放同一份文件不该产生两份材料）；
+    - **自包含存储**：文件不在项目目录内就复制进来（材料平面要能被独立备份/清理）；
+    - 解析不出文本（扫描件且未开云深度解析）→ **仍登记材料**，但 `chunk_count=0` 且
+      在 `tier_reason`/返回里如实说明原因——**不能假装它可用**，也不能因此把它丢掉
+      （用户得看得见"这份没解析出文字"）。
+    """
+    src = Path(path)
+    if not src.is_file():
+        raise FileNotFoundError(f"材料文件不存在: {src}")
+    if src.suffix.lower() not in SUPPORTED_SUFFIXES:
+        raise ValueError(f"不支持的材料格式 {src.suffix!r}（支持 {SUPPORTED_SUFFIXES}）")
+
+    content_hash = file_hash(src)
+    for existing in mr.list_materials(project_id):
+        if existing["content_hash"] == content_hash:
+            existing["duplicate"] = True
+            existing["chunk_count"] = mr.chunk_count(existing["material_id"])
+            return existing
+
+    # 自包含：项目目录外的文件复制进来
+    target_dir = mr.materials_dir(project_id)
+    stored = src
+    if src.parent.resolve() != target_dir.resolve():
+        stored = target_dir / src.name
+        if not stored.exists() or file_hash(stored) != content_hash:
+            stored.write_bytes(src.read_bytes())
+
+    pages = extract_pages(stored, deep_fallback=deep_fallback)
+    text, spans = build_document(pages)
+    chunks = chunk_text(text, spans, max_chars=max_chars) if text.strip() else []
+
+    note = None
+    if not chunks:
+        note = ("未解析出文本（可能是扫描件）；默认不走云深度解析，"
+                "如需云解析请显式允许（allow_deep）后再试")
+    mat = mr.add_material(
+        project_id,
+        strip_duplicate_suffix(stored.stem),
+        origin=origin,
+        kind="other",
+        source_tier=source_tier,
+        content_hash=content_hash,
+        raw_path=str(stored),
+        mime=stored.suffix.lower().lstrip("."),
+        tier_reason=note,
+        tier_evidence={"from_file": str(src.name), "pages": len(pages)},
+    )
+    n = mr.add_chunks(mat["material_id"], chunks)
+    out = mr.get_material(mat["material_id"]) or mat
+    out["chunk_count"] = n
+    out["duplicate"] = False
+    out["parsed_pages"] = len(pages)
+    return out
+
+
+def ingest_project_dir(project_id: str, *, origin: str = "user",
+                       deep_fallback: bool = False) -> list[dict[str, Any]]:
+    """收件箱式入库：把项目参考资料文件夹里的受支持文件逐份登记（单份失败不中断整批）。"""
+    out: list[dict[str, Any]] = []
+    for p in scan_project_dir(project_id):
+        try:
+            out.append(ingest_material_file(project_id, p, origin=origin,
+                                            deep_fallback=deep_fallback))
+        except Exception as e:  # noqa: BLE001 — 单份失败不得中断整批（与批量预览同范式）
+            out.append({"raw_path": str(p), "status": "error",
+                        "error": f"{type(e).__name__}: {e}"})
+    return out
