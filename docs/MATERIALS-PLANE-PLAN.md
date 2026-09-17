@@ -264,10 +264,14 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     （`GB 30871-2022` / `5.2.3` 实测）。根因是**同一机制写了两份** ⇒ 收敛为唯一所有者
     `text_utils.fts_match_expr()`，法条侧改为委托（15 输入比对证明行为不变），
     死代码 `hybrid_engine._seg` **删除**。
-- **B-6 让用户真的用得上（下一步）**：模型**无法发现项目**（没有列项目的工具），所以
-  现在只能靠用户手输 `prj_…` id。要仿"夹内提问"做 **chatmode 项目绑定 + UI 选择器**，
-  才谈得上验收句里的"用户声明本项目以公司制度为准"。（同时把核验 UI 半 / `tool.call.toolview`
-  一并评估。）
+- **B-6 让模型发现项目（已完成，§10.15）**：新增只读工具 `ks_materials`
+  （`projects` / `materials` / `inbox`），让模型能按名字找到 project_id 并看清每份材料的
+  评审状态。**刻意只读**：批准/拒绝/扫描不开成模型工具——那等于让模型自己发许可，
+  §6 的硬门会立刻形同虚设。桩引擎冒烟 24 项。
+- **B-7 让用户真的用得上（下一步，未做）**：**GUI 项目选择器** + chatmode 级项目绑定
+  （仿"夹内提问"：host 强制给 ks_answer 传 `material_project_id`），
+  以及**材料评审界面**（当前审批只能走 API ⇒ "能用但不好用"）。
+  核验 UI 半 / `tool.call.toolview` 一并评估。
 
 ### 已知未决 / 诚实边界
 

@@ -25,6 +25,7 @@ import {
   EngineManager,
   apiGet,
   apiPost,
+  combineSignals,
   originUrl,
   HEALTH_PATH,
   KS_ANSWER_PATH,
@@ -33,6 +34,9 @@ import { guardWebServer } from './trust.js'
 // ks_answer 的纯函数裁剪层。单列模块的理由（可测）+ **白名单纪律**见该文件头。
 // 特别地：引擎算出的核验字段只有进了 trimVerification 的白名单才到得了模型眼前。
 import { trimVerification } from './trim.js'
+// 材料平面只读工具（`ks_materials`）。**只读是纪律**：评审是用户的判断，
+// 把"批准/拒绝"开成模型工具等于让模型自己发许可（见 materials.js 头注）。
+import { makeMaterialsTool } from './materials.js'
 import {
   inspectionStartupCheck,
   registerKsInspectionRoutes,
@@ -113,25 +117,6 @@ const QUERY_MODES = ['default', 'thorough', 'quick', 'guess']
 
 /** Cap evidence we keep (the engine already caps at 8; this is a hard belt). */
 const EVIDENCE_CAP = 8
-
-/**
- * 合并多个 AbortSignal：任一 abort 即 abort。自己实现而不依赖
- * `AbortSignal.any`（Node 20.3+ 才有），保持插件对 DSH 各 Node 版本可用。
- */
-function combineSignals(...signals) {
-  const list = signals.filter((s) => s && typeof s.addEventListener === 'function')
-  if (list.length === 0) return undefined
-  if (list.length === 1) return list[0]
-  const controller = new AbortController()
-  for (const s of list) {
-    if (s.aborted) {
-      controller.abort()
-      break
-    }
-    s.addEventListener('abort', () => controller.abort(), { once: true })
-  }
-  return controller.signal
-}
 
 /** Coerce any query_mode into one of the four legal values. */
 function normalizeQueryMode(raw) {
@@ -1047,6 +1032,9 @@ export function apply(ctx, config = {}) {
   ctx.tools.register(makeResolveTool(manager, chatModeOf))
   ctx.tools.register(makeAnswerTool(manager, chatModeOf))
   ctx.tools.register(makeEffectReportTool(manager))
+  // 材料平面只读工具：让模型能按名字**发现**项目 id（否则 `material_project_id`
+  // 只能靠用户手抄），并看清每份材料的评审状态。只读——评审是用户的判断。
+  ctx.tools.register(makeMaterialsTool(manager))
 
   // 提示段：**根上下文注册一次**，text provider 每次组装提示时按 `context.agent.session.id`
   // 现查开关 —— 开关一打开，下一轮请求就带上取证纪律（无需重启会话）。与 plan-mode 的

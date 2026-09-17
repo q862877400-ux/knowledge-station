@@ -112,6 +112,30 @@ export function killPid(pid) {
   return r.status === 0
 }
 
+/**
+ * 合并多个 AbortSignal：任一 abort 即 abort。自己实现而不依赖
+ * `AbortSignal.any`（Node 20.3+ 才有），保持插件对 DSH 各 Node 版本可用。
+ *
+ * 放在 engine.js 的理由（2026-09-17）：它服务于"给引擎调用配超时/取消"这件事，
+ * 而各工具的 HTTP 调用都过本模块。原先它在 index.js 里，于是**任何**新工具模块
+ * （如 materials.js）要么 import index.js 成环，要么靠"依赖注入"绕——两者都比
+ * 把它放到唯一的自然归属地差。
+ */
+export function combineSignals(...signals) {
+  const list = signals.filter((s) => s && typeof s.addEventListener === 'function')
+  if (list.length === 0) return undefined
+  if (list.length === 1) return list[0]
+  const controller = new AbortController()
+  for (const s of list) {
+    if (s.aborted) {
+      controller.abort()
+      break
+    }
+    s.addEventListener('abort', () => controller.abort(), { once: true })
+  }
+  return controller.signal
+}
+
 /** GET one JSON endpoint through the local FastAPI, returning status + body. */
 export async function apiGet(base, path, { token, signal, timeoutMs = 10000 } = {}) {
   const controller = new AbortController()
