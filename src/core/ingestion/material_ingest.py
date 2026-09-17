@@ -45,16 +45,47 @@ def scan_project_dir(project_id: str) -> list[Path]:
 
 
 # ------------------------------------------------------------------ 解析（页 → 文本）
-def extract_pages(path: Path, *, deep_fallback: bool = False,
-                  work_dir: Path | None = None) -> list[tuple[int, str]]:
-    """解析成 `[(page_number, page_text)]`。
+def _pkg_version(dist: str) -> str:
+    """包的**分发名**取版本（取不到就 `unknown`——不编造）。"""
+    try:
+        from importlib.metadata import version
+        return version(dist)
+    except Exception:  # noqa: BLE001 — 版本探测失败不该让入库失败
+        return "unknown"
 
-    - PDF：走既有解析器（子进程隔离），按 `page_number` 聚合 blocks；**默认不外发**
-      （`deep_fallback=False`：无文本层就如实返回空文本，不偷偷上云）；
-    - DOCX：用 python-docx 取段落，**整体算第 1 页**（docx 本身没有页的概念——
-      不要假装有页号，那是编造）；
-    - TXT/MD：整体第 1 页。
+
+def _provenance_fingerprint(suffix: str, *, deep_fallback: bool,
+                            result: dict | None = None) -> str:
+    """**决定这段派生文本的解析器身份**（引用锚点稳定性的判据，方案 §12 未决第 5 条）。
+
+    为什么要把这些字段拼进来：`material_chunk` 的 `char_start/char_end/page` 是
+    **解析结果**的坐标；只要**任何**一个影响解析输出的东西变了，已存区间就可能失效。
+    所以指纹要覆盖：解析通道（文本层 / OCR）、本地 backend 版本、`deep_fallback` 开关、
+    以及**实测到的** `text_layer_state`（那是"这段文本是怎么来的"的直接证据）。
+
+    ⚠ 取不到的版本写 `unknown`——**不写一个看起来像版本的假值**（那会让"指纹相同"
+    变成假保证）。指纹**不同**只说明"可能变了"，出结论前必须走
+    `locator.reverify_material_locators()` 那条**重解析比对**。
     """
+    parts = [f"kind={suffix or '?'}"]
+    if suffix == ".pdf":
+        parts.append(f"pymupdf={_pkg_version('PyMuPDF')}")
+        parts.append(f"mineru={_pkg_version('mineru')}")
+        parts.append(f"deep_fallback={'1' if deep_fallback else '0'}")
+        if result is not None:
+            parts.append(f"text_layer={result.get('text_layer_state') or 'unknown'}")
+            parts.append(f"ocr={'1' if result.get('is_ocr') else '0'}")
+    elif suffix == ".docx":
+        parts.append(f"python-docx={_pkg_version('python-docx')}")
+    else:
+        parts.append("plain=1")
+    return ";".join(str(p) for p in parts)
+
+
+def extract_pages_with_provenance(path: Path, *, deep_fallback: bool = False,
+                                  work_dir: Path | None = None
+                                  ) -> tuple[list[tuple[int, str]], str]:
+    """`(页文本, 解析器指纹)`。**解析逻辑只有这一份**（`extract_pages` 是它的薄包装）。"""
     suffix = path.suffix.lower()
     if suffix == ".pdf":
         from src.core.ingestion.parser_worker import run_parser_isolated
@@ -68,17 +99,36 @@ def extract_pages(path: Path, *, deep_fallback: bool = False,
             text = (b.get("text") or "").strip()
             if text:
                 by_page.setdefault(page, []).append(text)
-        return [(p, "\n".join(by_page[p])) for p in sorted(by_page)]
+        pages = [(p, "\n".join(by_page[p])) for p in sorted(by_page)]
+        return pages, _provenance_fingerprint(suffix, deep_fallback=deep_fallback,
+                                              result=result)
 
     if suffix == ".docx":
         from docx import Document
         doc = Document(str(path))
         paras = [p.text.strip() for p in doc.paragraphs if p.text and p.text.strip()]
-        return [(1, "\n".join(paras))] if paras else []
+        pages = [(1, "\n".join(paras))] if paras else []
+        return pages, _provenance_fingerprint(suffix, deep_fallback=deep_fallback)
 
     # txt / md：按 utf-8 读，容错替换（bad bytes 不该让整份材料消失）
     text = path.read_text(encoding="utf-8", errors="replace")
-    return [(1, text)] if text.strip() else []
+    pages = [(1, text)] if text.strip() else []
+    return pages, _provenance_fingerprint(suffix, deep_fallback=deep_fallback)
+
+
+def extract_pages(path: Path, *, deep_fallback: bool = False,
+                  work_dir: Path | None = None) -> list[tuple[int, str]]:
+    """解析成 `[(page_number, page_text)]`（**薄包装**，保留既有调用点与测试）。
+
+    - PDF：走既有解析器（子进程隔离），按 `page_number` 聚合 blocks；**默认不外发**
+      （`deep_fallback=False`：无文本层就如实返回空文本，不偷偷上云）；
+    - DOCX：用 python-docx 取段落，**整体算第 1 页**（docx 本身没有页的概念——
+      不要假装有页号，那是编造）；
+    - TXT/MD：整体第 1 页。
+    ⚠ 需要**解析器指纹**时用 `extract_pages_with_provenance()`（同一条实现）。
+    """
+    return extract_pages_with_provenance(path, deep_fallback=deep_fallback,
+                                         work_dir=work_dir)[0]
 
 
 def _short_hash(path: Path) -> str:
@@ -92,6 +142,19 @@ def file_hash(path: Path) -> str:
         for chunk in iter(lambda: f.read(1 << 20), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+def text_hash(text: str) -> str:
+    """**派生全文**的 SHA-256（引用锚点稳定性的判据之一，见 `materials/locator.py`）。
+
+    ⚠ 与 `file_hash`（源文件字节）**不是一回事**：源文件没变而解析器变了，
+    派生文本会变，`char_start/char_end/page` 就跟着失效——这正是要能发现的那种静默失效。
+
+    ⚠ **实现不在这里**：委托给 `storage.clause_repo.content_hash`（法条快照的既有所有者）
+    ——"文本哈希"这件事全仓只该有一份实现，别在这里再抄一个 sha256 出来。
+    """
+    from src.core.storage.clause_repo import content_hash
+    return content_hash(text or "")
 
 
 # ------------------------------------------------------------------ 切片
@@ -245,7 +308,7 @@ def ingest_material_file(project_id: str, path: Path, *, origin: str = "user",
         if not stored.exists() or file_hash(stored) != content_hash:
             stored.write_bytes(src.read_bytes())
 
-    pages = extract_pages(stored, deep_fallback=deep_fallback)
+    pages, fingerprint = extract_pages_with_provenance(stored, deep_fallback=deep_fallback)
     text, spans = build_document(pages)
     chunks = chunk_text(text, spans, max_chars=max_chars) if text.strip() else []
 
@@ -264,6 +327,10 @@ def ingest_material_file(project_id: str, path: Path, *, origin: str = "user",
         mime=stored.suffix.lower().lstrip("."),
         tier_reason=note,
         tier_evidence={"from_file": str(src.name), "pages": len(pages)},
+        # 引用锚点（§12 未决第 5 条）：派生全文的哈希 + 解析器指纹。
+        # ⚠ 解析不出文本时 `derived_text_hash` 存 **NULL**（没有派生文本，不是"空文本"）。
+        derived_text_hash=text_hash(text) if text.strip() else None,
+        parser_fingerprint=fingerprint,
     )
     n = mr.add_chunks(mat["material_id"], chunks)
     out = mr.get_material(mat["material_id"]) or mat

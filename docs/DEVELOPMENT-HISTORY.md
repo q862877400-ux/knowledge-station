@@ -2511,4 +2511,57 @@ PPT 里必然溢出文本框）。
 的注释 ⇒ 重跑确认）；`verify:commands` 22/22；`tsc --noEmit` 0。
 变异实验 W/X 全 RED 且逐字节还原。
 
+### 10.48 Phase B 必解：**材料引用的"锚点稳定性"**（方案 §12 未决第 5 条 —— 决策 + 判据落地）
+
+**问题（复核 2026-09-17 提出，标 LOW-MEDIUM 但后果重）**：`material.content_hash` 是
+**源文件字节**的哈希，而 `material_chunk` 的 `char_start/char_end/page` 是**解析结果**的坐标。
+两者之间隔着解析器：换 PyMuPDF 版本、换 MinerU backend、开 `deep_fallback` 走云解析，
+都可能让同一份 PDF 解析出**不一样的文本** ⇒ 已存区间**悄悄指向别处**，而引用、报告、界面
+看起来一切正常。**"看起来很正常的错引用"比报错危险得多**，而且当时**没有任何东西能发现它**。
+
+**决策（我拍的，记理由）**：选**增列**（`material` 增 `derived_text_hash` + `parser_fingerprint`），
+**不**落派生全文——落全文要多一倍存储，而"能不能判定"并不需要全文。
+⚠ 代价如实说：判据只能**发现**失效，**不能修复**；`mismatch` 之后的重建流程**仍未做**。
+
+**做了什么**（7 文件）
+1. `schema.sql`：`material` 增两列（带注释说明它们对应哪条未决）；
+2. `material_repo.ensure_additive_columns()`（**老库**补列；纯 ALTER、**不回填**——
+   老材料就是"未登记"，那比编一个假指纹诚实），并在 `create_app()` 里与 clause_repo 的
+   同一个时间点被调（§10.43 的教训：追加列必须在任何请求之前）；
+3. `material_ingest`：`extract_pages_with_provenance()` 返回 `(页文本, 指纹)`
+   （`extract_pages` 变成薄包装，**解析逻辑仍只有一份**）；`text_hash()` 是派生全文哈希，
+   **委托**给 `clause_repo.content_hash`（不在这里再抄一个 sha256）；
+   指纹 = 解析通道 + 库版本（取不到写 `unknown`） + `deep_fallback` + 实测的
+   `text_layer_state`/`is_ocr`；
+4. `materials/collect.py`：网页材料记 `COLLECT_PARSER_FINGERPRINT`，派生文本哈希
+   **复用已有的 `chash`**（网页材料的"派生文本"就是采到的正文）；
+5. **新模块 `materials/locator.py`**：三道判据（模块 docstring 逐条写了措辞纪律）；
+6. `tests/test_material_locator.py`（**14 条**）+ 引导契约里加上材料表那两列。
+
+**措辞纪律（这一层的核心，写进 docstring 与测试）**：
+- 指纹**相同** ⇒ `ok` 的措辞是"**未发现变化**"，**不是**"保证一致"（真正的保证只有重解析比对）；
+- 指纹**不同** ⇒ `stale` 是"**需要复算**"，**不是**"已经坏了"；
+- 网页材料（没有留存源文件）⇒ 只能 `unavailable`，**不是 ok**；
+- 老材料（NULL，2026-09-17 之前）⇒ 只能 `unknown`，**不假装 ok**；
+- PDF 的便宜比对**拒绝给 ok**（完整指纹含只有解析后才知道的 `text_layer`/`ocr`）——
+  这可能是本步最要紧的一条：**"能便宜判的就判，判不了就说判不了"**。
+
+**测试非空转（4 个变异体，on/off 成对，逐字节还原）**：`var/tmp/mutate-step47.py`
+- Y：老材料当 `ok` ⇒ 2 条红；Z：网页材料当 `match` ⇒ 1 条红；
+- AA：不比哈希就宣布 `match` ⇒ 1 条红；AB：入库不写 `derived_text_hash` ⇒ 4 条红。
+
+**诚实边界**：
+- **判据还没有接进产品**：本步只交付**模块 + 测试**；API/界面/报告里**还没有**那个标记
+  （「这份材料的引用锚点未验证/已失效」），也**没有** `mismatch` 之后的重建流程。**下一步**。
+- 指纹是**人工列举**的影响因子，不可能穷举（隐藏的环境变量、非确定性 OCR 都不在里面）
+  ⇒ 它**只能用来提示"要复算"**，不能当保证——这句话写在 docstring 里。
+- 老材料（现有库里的那些）**全是 `unknown`**：这是**故意的**（不知道就说不知道），
+  但也意味着**上线后第一眼会看到一批 unknown**——不是回归，是如实。
+- `reverify` 是**子进程解析**（PDF 秒级到分钟级）⇒ 它只能是**显式动作**；
+  本步**没有**做批量入口（避免有人把它挂进请求路径）。
+
+**门禁（本步）**：`pytest` **1643 passed / 3 skipped / 0 failed**（+14）；
+`mypy src` **134 files / 0 errors**（新模块 +1 文件）；`smoke` 18 段（未改 `plugin/`）；
+`verify:commands` 22/22；`tsc --noEmit` 0。变异实验 Y/Z/AA/AB 全 RED 且逐字节还原。
+
 

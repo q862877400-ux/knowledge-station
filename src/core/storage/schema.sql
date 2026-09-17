@@ -554,6 +554,15 @@ CREATE TABLE IF NOT EXISTS material (
         CHECK(lifecycle IN ('ephemeral','promoted')),
     -- Track L 入法规库后回指 doc_meta（法条链零改动；回指放在材料侧）
     doc_id TEXT,
+    -- 引用锚点稳定性（2026-09-17，方案 §12 未决第 5 条 = Phase B 必解）：
+    -- `content_hash` 是**源文件字节**的哈希，而 `material_chunk` 的 char_start/char_end/page
+    -- 是**解析结果**的坐标 ⇒ 换解析器（PyMuPDF 版本 / MinerU / 开 deep_fallback）会让
+    -- 已存区间**静默作废**。这两列让"锚点还对不对"变成**可判定的**：
+    --   · derived_text_hash：入库时**派生全文**（build_document 的输出）的 SHA-256；
+    --   · parser_fingerprint：**决定这段文本的解析器身份**（引擎/版本/OCR/deep_fallback 等）。
+    -- NULL = 未登记（2026-09-17 之前的材料）⇒ 如实报"未知"，**不假装 ok**。
+    derived_text_hash TEXT,
+    parser_fingerprint TEXT,
     created_at TEXT DEFAULT (datetime('now')),
     updated_at TEXT DEFAULT (datetime('now'))
 );

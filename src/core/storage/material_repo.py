@@ -111,6 +111,24 @@ def _project_row(r) -> dict[str, Any]:
 
 
 # --------------------------------------------------------------------- 材料
+def ensure_additive_columns() -> None:
+    """**追加列**迁移的唯一入口（本模块的表由本模块自己管）。
+
+    与 `clause_repo.ensure_additive_columns()` 同一个时间点被调（`create_app()` 里
+    `init_schema()` 之后），理由也同一个：`schema.sql` 只是 `CREATE TABLE IF NOT EXISTS`，
+    **老库**不会因此长出新列。本函数补的是方案 §12 未决第 5 条那两列
+    （`derived_text_hash` / `parser_fingerprint`）：**纯 ALTER、无回填**——
+    老材料就是"未登记"（NULL），那比给它编一个假指纹诚实得多。幂等。
+    """
+    conn = get_db_connection()
+    cols = {r[1] for r in conn.execute("PRAGMA table_info(material)").fetchall()}
+    for col in ("derived_text_hash", "parser_fingerprint"):
+        if col not in cols:
+            conn.execute(f"ALTER TABLE material ADD COLUMN {col} TEXT")
+    if conn.in_transaction:
+        conn.commit()
+
+
 def add_material(project_id: str, title: str, *, origin: str = "user",
                  kind: str = "other", source_tier: str | None = None,
                  tier_evidence: dict[str, Any] | None = None,
@@ -119,11 +137,16 @@ def add_material(project_id: str, title: str, *, origin: str = "user",
                  content_hash: str | None = None, raw_path: str | None = None,
                  mime: str | None = None, page: int | None = None,
                  published_at: str | None = None,
-                 material_id: str | None = None) -> dict[str, Any]:
+                 material_id: str | None = None,
+                 derived_text_hash: str | None = None,
+                 parser_fingerprint: str | None = None) -> dict[str, Any]:
     """登记一份材料。**默认 `review_status='pending'`** —— 未经评审不得使用（硬门）。
 
     层级默认：用户自有原件 T1；自采（collected）由调用方按判据给（不给则 T3 起，
     因为"网上找来的"在没证据前不该默认可信）。**默认不可信、靠证据升级。**
+
+    `derived_text_hash` / `parser_fingerprint`：引用锚点的可判定性（见
+    `materials/locator.py` 与方案 §12 未决第 5 条）。**不给 = NULL = 未登记**。
     """
     if origin not in ("user", "collected"):
         raise ValueError(f"origin 只能是 user/collected，收到 {origin!r}")
@@ -137,10 +160,11 @@ def add_material(project_id: str, title: str, *, origin: str = "user",
         conn.execute(
             "INSERT INTO material(material_id, project_id, origin, kind, title, url, domain,"
             " content_hash, raw_path, mime, source_tier, tier_evidence, tier_reason,"
-            " published_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+            " published_at, derived_text_hash, parser_fingerprint)"
+            " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
             (mid, project_id, origin, kind, title, url, domain, content_hash, raw_path,
              mime, tier, json.dumps(tier_evidence, ensure_ascii=False) if tier_evidence else None,
-             tier_reason, published_at))
+             tier_reason, published_at, derived_text_hash, parser_fingerprint))
     return get_material(mid) or {}
 
 
@@ -154,7 +178,8 @@ def get_material(material_id: str) -> dict[str, Any] | None:
 _MAT_COLS = ("material_id, project_id, origin, kind, title, url, domain, fetched_at,"
              " published_at, content_hash, raw_path, mime, source_tier, tier_source,"
              " tier_reason, tier_evidence, task_role, review_status, review_note,"
-             " reviewed_at, lifecycle, doc_id, created_at, updated_at")
+             " reviewed_at, lifecycle, doc_id, derived_text_hash, parser_fingerprint,"
+             " created_at, updated_at")
 
 
 def _material_row(r) -> dict[str, Any]:
@@ -163,7 +188,7 @@ def _material_row(r) -> dict[str, Any]:
          "fetched_at", "published_at", "content_hash", "raw_path", "mime",
          "source_tier", "tier_source", "tier_reason", "tier_evidence", "task_role",
          "review_status", "review_note", "reviewed_at", "lifecycle", "doc_id",
-         "created_at", "updated_at"), r))
+         "derived_text_hash", "parser_fingerprint", "created_at", "updated_at"), r))
     d["tier_evidence"] = json.loads(d["tier_evidence"]) if d["tier_evidence"] else None
     return d
 

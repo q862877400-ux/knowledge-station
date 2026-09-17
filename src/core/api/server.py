@@ -51,6 +51,10 @@ def create_app(token: str) -> FastAPI:
     # 时间点，任何请求都晚于它。这是**纯 ALTER**（不回填，见该函数的说明）。
     from src.core.storage import clause_repo as _clause_repo
     _clause_repo.ensure_additive_columns()
+    # 材料表自己的追加列由**它自己的所有者**补（同一时间点、同一理由）：
+    # `derived_text_hash` / `parser_fingerprint`（引用锚点稳定性，方案 §12 未决第 5 条）。
+    from src.core.storage import material_repo as _material_repo
+    _material_repo.ensure_additive_columns()
 
     # DSH Web GUI（localhost，跨源访问本引擎）需要 CORS；引擎本身仅绑 127.0.0.1 + token。
     # （原注释写的是「开发期前端 vite localhost」——Electron/Vite 已在批 8 退役，

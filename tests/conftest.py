@@ -34,8 +34,10 @@ def db(_isolate_data_dir):
     """
     from src.core.storage.sqlite_db import init_schema, get_db_connection, close_thread_connection
     from src.core.storage.clause_repo import ensure_additive_columns
+    from src.core.storage.material_repo import ensure_additive_columns as ensure_material_columns
     init_schema()
     ensure_additive_columns()
+    ensure_material_columns()
     yield get_db_connection()
     close_thread_connection()
 

@@ -57,6 +57,11 @@ NEAR_DUP_THRESHOLD = dedup.DEFAULT_THRESHOLD
 LAW_MIN_CLAUSES = 3        # 有法规形态标题时：≥3 条就算
 LAW_STRONG_CLAUSES = 10    # 没有可用标题时：≥10 条才算（宁可不认）
 
+#: 采集通道的**解析器指纹**（引用锚点稳定性，方案 §12 未决第 5 条）。
+#: 网页材料没有留存原始字节 ⇒ 指纹不匹配时**无法**重解析复算（`locator` 会如实回
+#: `unavailable`）。改这里就等于声明"采集侧派生文本的算法变了"。
+COLLECT_PARSER_FINGERPRINT = "web:collect-v1"
+
 #: 法规名常见结尾（**窄**：只用于"标题像不像法规"，不用于判层级）。
 #: ⚠ `法典` 必须单列：`中华人民共和国民法典` **不以"法"结尾**，而它是中国最重要的一部法律
 #: （第一版漏了它，被自己的用例抓出来）。
@@ -309,6 +314,12 @@ def collect_text(project_id: str, *, title: str, text: str, url: str | None = No
         published_at=published_at,
         tier_evidence=evidence,
         tier_reason="；".join(reason_parts) if reason_parts else None,
+        # 引用锚点（方案 §12 未决第 5 条）：网页材料的"派生全文"就是**调用方交给我们的
+        # 这段文本**（`html_to_text` 的产物在调用方那一层完成），所以指纹记的是
+        # **本采集入口**的身份；网页没有留存原始字节 ⇒ 指纹不同时**无法**重解析复算，
+        # `locator.reverify_material_locators()` 会如实回 `unavailable`（不是 ok）。
+        derived_text_hash=chash,
+        parser_fingerprint=COLLECT_PARSER_FINGERPRINT,
     )
     n = mr.add_chunks(mat["material_id"], chunks)
     out = mr.get_material(mat["material_id"]) or mat

@@ -458,13 +458,21 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
 3. 材料评审 UI 的最终落位（官方侧栏 vs `conversation.input.dock`）**仍未定**。
 4. ~~PPT 依赖仍未立项（§8）~~ ⇒ **已立项并落地**（§10.38：D-2 论证 + `pyproject.toml`
    显式声明 `python-pptx>=1.0`）。仍未做的：PPT 的**模板/母版**（现在用 python-pptx 默认版式）。
-5. **⚠ Phase B 必解：材料引用的"锚点稳定性"**（独立复核 2026-09-17 提出，LOW-MEDIUM 但后果重）。
+5. **✅ 材料引用的"锚点稳定性"（已决策并落地判据，§10.48）**（独立复核 2026-09-17 提出）。
    `material` 表**不存派生全文**，也**没有解析器指纹**；`content_hash` 是**源文件字节**的哈希。
    而切片区间/页号是**解析结果**的坐标 ⇒ 一旦换解析器（PyMuPDF 版本、MinerU、或开
    `deep_fallback` 走云解析），**所有已存区间会静默作废**，而产出的引用看起来仍然"正常"。
    现在没爆是因为重解析当下确定性（多次复算 SHA 一致），**不是因为被钉住**。
-   ⇒ 候选做法：`material` 增列 `derived_text_hash` + `parser_fingerprint`，引用前校验；
-   或落库存派生全文。**须先决策再动答案链**，否则报告里的引用是不可信的。
+   **决策（2026-09-17）**：选**增列**方案（`derived_text_hash` + `parser_fingerprint`），
+   **不**落派生全文（省一倍存储、且足够**判定**）。三道判据见 `src/core/materials/locator.py`：
+   ① `locator_health()`——便宜，只比指纹（`ok`/`stale`/`unknown`/`no_locators`/`no_text`）；
+   ② `reverify_material_locators()`——**重解析比对**（`match`/`mismatch`/`unavailable`），
+   是**显式动作**（PDF 秒级到分钟级，不做进每次回答）；③ 人决定重建还是弃用。
+   ⚠ 措辞纪律：指纹相同只说"**未发现变化**"（不等于保证一致），指纹不同只说"**需要复算**"
+   （不等于已经坏了）；网页材料（无留存源文件）**只能** `unavailable`，老材料（NULL）**只能**
+   `unknown`——**都不许当 `ok`**。
+   **仍未做**：把这三道判据**接进**答案链/报告的可见位置（现在只有模块与测试，
+   没有 API/界面/报告里的标记），以及 `mismatch` 之后的**重建流程**（重解析重建区间）。
 6. **`material_chunks()` / `list_materials()` / `get_material()` 不设评审门**（故意，供评审人
    读正文用）。生产代码今天没有分析路径用它们 ⇒ 一旦 Phase B 的答案链接到其中任何一个，
    **就是绕过评审且不报错**。接答案链时必须只经 `approved_materials()` / `search_materials()`。
