@@ -17,7 +17,7 @@ def register(app, json_error):
     # ===== 官方法规来源（LAW_SOURCE_PLAN P2）：搜索候选 / 入库 =====
 
     @app.get("/api/v1/laws/sources")
-    async def law_sources():
+    def law_sources():
         """官方来源白名单元信息（前端法规抓取面板数据源）。"""
         return {"code": 200, "status": "success", "data": [
             {"source": "flk", "name": "国家法律法规数据库",
@@ -124,7 +124,7 @@ def register(app, json_error):
     # ===== 法规总目录 + 点开即核验（docs/LAW_CATALOG_ONDEMAND_PLAN.md 任务 1/2）=====
 
     @app.get("/api/v1/laws/catalog")
-    async def law_catalog(request: Request):
+    def law_catalog(request: Request):
         """法规总目录查询（本地 law_catalog 表；flk 全量清单，任务 1）。
         ?q=标题子串 & category=分类 & sxx=时效(1废止/2已修改/3现行/4未生效)
         & page= & page_size=（上限 200；缺省 50）。"""

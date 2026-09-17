@@ -248,7 +248,7 @@ def create_app(token: str) -> FastAPI:
                                      "message": message})
 
     @app.get("/api/v1/health")
-    async def health():
+    def health():
         from src.core.retrieval import embedder
         try:
             conn = get_db_connection()
@@ -324,8 +324,8 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "status": "success", "data": out}
 
     @app.get("/api/v1/clauses/resolve")
-    async def resolve_clause(standard_no: str, clause_number: str,
-                             folder_id: str | None = None):
+    def resolve_clause(standard_no: str, clause_number: str,
+                       folder_id: str | None = None):
         """引用兜底：按标准号+条款号解析条款（LLM 引用未进证据列表的条款时定位用）。
         标准号做年份宽容（GB/T 3608-2008 → GB 3608-2025 现行版）。
 
@@ -424,7 +424,7 @@ def create_app(token: str) -> FastAPI:
                 "data": issues, "total": len(issues)}
 
     @app.get("/api/v1/clauses/patches")
-    async def get_patches(clause_revision_id: str | None = None, limit: int = 100):
+    def get_patches(clause_revision_id: str | None = None, limit: int = 100):
         from src.core.storage import clause_repo
         return {"code": 200, "status": "success",
                 "data": clause_repo.list_patches(clause_revision_id, limit)}
@@ -447,7 +447,7 @@ def create_app(token: str) -> FastAPI:
     # ===== T06a 合规审查接口（契约 7.3）=====
 
     @app.get("/api/v1/documents/{doc_id}/file")
-    async def get_document_file(doc_id: int | str):
+    def get_document_file(doc_id: int | str):
         """PDF 原件字节流（R7 穿透高亮用；受 token 保护）。
 
         ⚠ **故意保持 `async def`**（§10.75）：本端点**只做查询 + 返回 `FileResponse`**，
@@ -684,7 +684,7 @@ def create_app(token: str) -> FastAPI:
             })
     @app.get("/api/v1/documents/{doc_id}/table-image/{page_no}/{tbl_idx}")
     def get_document_table_image(doc_id: int | str, page_no: int,
-                                       tbl_idx: int, dpi: int = 144):
+                                 tbl_idx: int, dpi: int = 144):
         """带图表格整表截图（2026-09-02 用户契约：凡单元格含图片的表格，
         整个表格也一起当图片处理）。
 
@@ -788,7 +788,7 @@ def create_app(token: str) -> FastAPI:
     # ===== 阶段4 "能用"档：用户资产 / 导出 / 义务清单 / 目录树 =====
 
     @app.get("/api/v1/documents")
-    async def doc_list():
+    def doc_list():
         """知识库文档列表（对比选择器/知识库浏览用）。"""
         conn = get_db_connection()
         rows = conn.execute(
@@ -805,7 +805,7 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": data}
 
     @app.get("/api/v1/documents/categories")
-    async def doc_categories():
+    def doc_categories():
         """文件目录面板数据源（4 级树）：
         标准：L1 国家标准·行标·团标 → L2 CCS 大类 → L3 CCS 区间 → L4 CCS 具体类目+文档
         法规：L1 法律法规 → L2 效力等级 → L3 领域 → **文档叶节点**（法规名称不再作为目录级别，2026-08-24）
@@ -1131,7 +1131,7 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": _with_appendix(items)}
 
     @app.get("/api/v1/bookmarks")
-    async def get_bookmarks():
+    def get_bookmarks():
         from src.core.storage import user_data
         return {"code": 200, "data": user_data.list_bookmarks()}
 
@@ -1164,7 +1164,7 @@ def create_app(token: str) -> FastAPI:
     # ===== 标准级书签（增强③-A：DSH「收藏本标准」；区别于条款收藏） =====
 
     @app.get("/api/v1/doc-bookmarks")
-    async def get_doc_bookmarks():
+    def get_doc_bookmarks():
         from src.core.storage import user_data
         return {"code": 200, "data": user_data.list_doc_bookmarks()}
 
@@ -1198,7 +1198,7 @@ def create_app(token: str) -> FastAPI:
     # ===== 收藏夹目录（2026-10 收藏目录）：夹 CRUD + 收藏移动 + 收藏目录树 =====
 
     @app.get("/api/v1/bookmark-folders")
-    async def get_bookmark_folders():
+    def get_bookmark_folders():
         from src.core.storage import user_data
         return {"code": 200, "data": user_data.list_folders()}
 
@@ -1265,7 +1265,7 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": {"moved": moved}}
 
     @app.get("/api/v1/bookmark-folders/tree")
-    async def bookmark_folders_tree():
+    def bookmark_folders_tree():
         """收藏目录树（收藏 tab 数据源）。
 
         结构 = [收藏夹根节点] × N + [未分类]，夹内再挂**该夹收藏文档的文件目录分类路径**
@@ -1381,7 +1381,7 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": out_folders}
 
     @app.get("/api/v1/annotations")
-    async def get_annotations(clause_key: str | None = None):
+    def get_annotations(clause_key: str | None = None):
         from src.core.storage import user_data
         return {"code": 200, "data": user_data.list_annotations(clause_key)}
 
@@ -1405,7 +1405,7 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": {"removed": True}}
 
     @app.get("/api/v1/projects")
-    async def get_projects():
+    def get_projects():
         from src.core.storage import user_data
         return {"code": 200, "data": user_data.list_projects()}
 
@@ -1444,7 +1444,7 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": generate_obligation_list(body["business_description"])}
 
     @app.get("/api/v1/compliance/obligations/{list_id}")
-    async def get_obligations(list_id: str):
+    def get_obligations(list_id: str):
         from src.core.storage import user_data
         data = user_data.get_obligation_list(list_id)
         if data is None:
@@ -1481,7 +1481,7 @@ def create_app(token: str) -> FastAPI:
             body["policy_name"], body["policy_text"])}
 
     @app.get("/api/v1/compliance/policies")
-    async def list_policies():
+    def list_policies():
         conn = get_db_connection()
         rows = conn.execute(
             "SELECT policy_id, policy_name, file_path, created_at"
@@ -1527,7 +1527,7 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": {"path": str(out), "name": out.name}}
 
     @app.get("/api/v1/documents/{doc_id}/versions")
-    async def doc_versions(doc_id: str):
+    def doc_versions(doc_id: str):
         """R29 版本替代链（旧→新）。"""
         from src.core.storage.versioning import version_chain
         chain = version_chain(doc_id)
@@ -1537,7 +1537,7 @@ def create_app(token: str) -> FastAPI:
                                         "has_versions": len(chain) > 1}}
 
     @app.get("/api/v1/documents/{doc_id}/clauses-by-prefix")
-    async def clauses_by_prefix(doc_id: str, prefix: str):
+    def clauses_by_prefix(doc_id: str, prefix: str):
         """目录展开：某章/节前缀下的全部条款（如 prefix=5 → 5.x 全部；prefix=5.1 → 5.1.x 全部）。
         目录点小三角时懒加载；每项含 clause_number/page_start 供跳转。"""
         prefix = (prefix or "").strip().rstrip(".")
@@ -1555,7 +1555,7 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": [dict(r) for r in rows]}
 
     @app.get("/api/v1/documents/{doc_id}/clauses")
-    async def doc_full_clauses(doc_id: str):
+    def doc_full_clauses(doc_id: str):
         """某文档全部条款富文本（2026-08-27 页级文本预览主视图）。
 
         返回每条 clause_revision_id/clause_number/title/content_text/content_html/page_start。
@@ -1672,9 +1672,15 @@ def create_app(token: str) -> FastAPI:
         return FileResponse(str(target), media_type=media, headers=hdr)
 
     @app.post("/api/v1/compare")
-    async def compare_docs_endpoint(request: Request):
-        """R42 版本对照 / R16 跨标准对比（含 R49 模态变化清单）。"""
-        body = await request.json()
+    def compare_docs_endpoint(body: dict | None = None):
+        """R42 版本对照 / R16 跨标准对比（含 R49 模态变化清单）。
+
+        ⚠ `def` 而不是 `async def`（§10.86 通则之一）：本端点**唯一**的 `await` 只是
+        `request.json()` ⇒ 读完 body 之后全是同步活，留在事件循环里只会占住它。
+        body 改走签名（坏 body 由 FastAPI 直接 422，与 §10.79/§10.83 同口径；
+        缺 `doc_a`/`doc_b` 仍是 `KeyError` → 500，与改前一致）。
+        """
+        body = body or {}
         from src.core.storage.versioning import compare_docs
         from src.core.exceptions import KnowledgeStationError
         try:
@@ -1684,7 +1690,7 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": data}
 
     @app.get("/api/v1/operation-log")
-    async def operation_log(limit: int = 50):
+    def operation_log(limit: int = 50):
         """R8/R11 知识库更新时间线（operation_log + event_log 聚合，倒序）。"""
         conn = get_db_connection()
         rows = conn.execute(
@@ -1766,7 +1772,7 @@ def create_app(token: str) -> FastAPI:
                                       "docx": str(path) if path else None}}
 
     @app.get("/api/v1/export/download")
-    async def download_export(name: str):
+    def download_export(name: str):
         """下载导出文件（严格限制在 exports 目录内，防路径穿越）。"""
         from src.core.exports.report_export import _exports_dir
         base = _exports_dir().resolve()
@@ -2224,7 +2230,7 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "status": "success", "data": data}
 
     @app.get("/api/v1/egress/audit")
-    async def egress_audit(limit: int = 50, offset: int = 0, cursor: str | None = None):
+    def egress_audit(limit: int = 50, offset: int = 0, cursor: str | None = None):
         """外发审计（Task 10.0 / 红线 v2 #4）：云端调用记录只读聚合。
         cursor="created_at|dump_id"（keyset 深翻页，见 query_egress）；旧客户端可继续用 offset。"""
         from src.core.llm.egress_audit import query_egress
@@ -2292,7 +2298,7 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": out}
 
     @app.delete("/api/v1/clauses/office-edit/{session_id}")
-    async def office_edit_cancel(session_id: str):
+    def office_edit_cancel(session_id: str):
         from src.core.exports.office_roundtrip import cancel_edit_session
         if not cancel_edit_session(session_id):
             return _json_error(404, "session_not_found", "会话不存在")
@@ -2301,7 +2307,7 @@ def create_app(token: str) -> FastAPI:
     # ===== Task 12.2 双向溯源 =====
 
     @app.get("/api/v1/clauses/{clause_revision_id}/backlinks")
-    async def clause_backlinks(clause_revision_id: str):
+    def clause_backlinks(clause_revision_id: str):
         from src.core.exports.backlinks import query_backlinks
         from src.core.exceptions import KnowledgeStationError
         try:
@@ -2313,7 +2319,7 @@ def create_app(token: str) -> FastAPI:
     # ===== P1c-RouteA bbox 黄框轻端点（只读 GET，零副作用）=====
 
     @app.get("/api/v1/clauses/{clause_revision_id}/spans")
-    async def clause_spans(clause_revision_id: str):
+    def clause_spans(clause_revision_id: str):
         """某条款在 PDF 原件上的行级/块级 bbox（黄框证据锚点）。
 
         只读、零副作用。返回 source_span 中该条款本轮次的所有 bbox —— PDF
@@ -2354,7 +2360,7 @@ def create_app(token: str) -> FastAPI:
     # ===== P1c-RouteA 收藏元数据（只读 GET，零副作用）=====
 
     @app.get("/api/v1/clauses/{clause_revision_id}/meta")
-    async def clause_meta(clause_revision_id: str):
+    def clause_meta(clause_revision_id: str):
         """某条款的收藏元数据：clause_key + doc_id/page_start + 标准号/条款号/标题。
 
         只读、零副作用。供前端「收藏此条款」按钮用：收藏 POST /api/v1/bookmarks
@@ -2434,7 +2440,7 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": do_snapshot(snap_type)}
 
     @app.get("/api/v1/snapshots")
-    async def list_snapshots():
+    def list_snapshots():
         from src.core.storage.backup import list_snapshots as do_list
         return {"code": 200, "data": do_list()}
 
@@ -2450,9 +2456,14 @@ def create_app(token: str) -> FastAPI:
             return _json_error(status, e.code, str(e))
 
     @app.post("/api/v1/documents/impact")
-    async def impact_analysis(request: Request):
-        """R49 影响面分析：旧版被新版替代的影响统计。"""
-        body = await request.json()
+    def impact_analysis(body: dict | None = None):
+        """R49 影响面分析：旧版被新版替代的影响统计。
+
+        ⚠ `def` 而不是 `async def`（§10.86 通则之一）：唯一的 `await` 只是 `request.json()`。
+        body 改走签名（坏 body ⇒ 422；缺字段仍是 `KeyError` → 被下面的 `except` 收成 404，
+        与改前一致）。
+        """
+        body = body or {}
         from src.core.storage.impact import analyze_impact
         try:
             return {"code": 200, "data": analyze_impact(
@@ -2510,7 +2521,7 @@ def create_app(token: str) -> FastAPI:
         }
 
     @app.get("/api/v1/diagnostics/debug-dumps")
-    async def debug_dumps(limit: int = 20):
+    def debug_dumps(limit: int = 20):
         conn = get_db_connection()
         rows = conn.execute(
             "SELECT dump_id, trigger_type, query, created_at, llm_output, logs"

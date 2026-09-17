@@ -174,11 +174,37 @@ def _local_aliases(fsrc: str, pkg: str) -> tuple[dict[str, object], dict[str, ob
     return mods, funcs
 
 
+def awaits_like(src: str) -> int | None:
+    """源码里"**会真正让出事件循环**"的三类语法节点总数（§10.86）。
+
+    三类：`Await`（`await x`）、`AsyncFor`（`async for`）、`AsyncWith`（`async with`）。
+    ⚠ **`async for` / `async with` 必须算**：它们编译成 `await __anext__` / `__aenter__`，
+    但 AST 里**没有 `Await` 节点**——只数 `Await` 会把"只写了 `async for` 的 async 端点"
+    误判成"零 await ⇒ 该改 `def`"，而改成 `def` 会直接**语法/语义上不成立**（b15 的 INFO-1）。
+
+    返回 `None` = **源码读不出来**（`ast.parse` 抛 `SyntaxError`）。调用方必须把它当**红**
+    （fail-closed），**不许**当"没有 await"（那是静默放行，b15 的 INFO-3）。
+    内部先 `textwrap.dedent`：`inspect.getsource()` 对闭包内定义的端点会给**带缩进**的源码。
+    """
+    try:
+        tree = ast.parse(textwrap.dedent(src))
+    except SyntaxError:
+        return None
+    return sum(1 for n in ast.walk(tree)
+               if isinstance(n, (ast.Await, ast.AsyncFor, ast.AsyncWith)))
+
+
 def never_yields(src: str) -> bool:
     """这段 `async def` 端点源码**永远不会真正让出控制权**吗？
 
     判据（**AST，不看文本**）：源码里**没有** `Await`，或者每个 `Await` 都是
     `xxx.json()` / `xxx.body()` 这种"读 body"。
+
+    ⚠ **名字比语义强**（b15 的 INFO-1/INFO-2，两处都**偏保守**）：
+      · 只数 `Await` ⇒ 只写了 `async for`/`async with` 的端点会被判成"从不 yield"（多红）；
+      · `body = await read_json(request)`（助手内部才 `await request.json()`）被判成"会 yield"（放行）。
+    这一条是**T2 规则**（有 await + 带重标记）用的；"零 await"那一档由 `awaits_like()` 判
+    （它把 `async for`/`async with` 也算上），所以那个多红的方向不会漏东西。
 
     ⚠ **必须走 AST**（独立复核 b14 的 MEDIUM-2）：判据原先写在测试里、读的是**原始源码文本**
     （`[ln for ln in src.splitlines() if "await " in ln]`）——于是
@@ -193,11 +219,15 @@ def never_yields(src: str) -> bool:
     真正"从不 yield"的坏形状是：外层读 body + 嵌套**同步**生成器/纯同步体（§10.80 的
     `/compliance/review/{task_id}/execute`）——那种形状这里**没有**任何非读-body 的 `await`，
     照样命中。
+
+    ⚠ **解析失败 ⇒ 返回 True（判成"从不 yield"= 红）**：`SyntaxError` 下**没有**任何依据说
+    "它会让出控制权"，fail-open（返回 False）会让一个将来忘记 `dedent` 的调用点**静默放行**
+    全部缩进端点（b15 的 INFO-3 实测）。安全侧是 fail-closed。
     """
     try:
-        tree = ast.parse(src)
-    except SyntaxError:                      # pragma: no cover
-        return False
+        tree = ast.parse(textwrap.dedent(src))
+    except SyntaxError:
+        return True                          # 读不出来 ⇒ 当成"从不 yield"（红），不静默放行
     awaits = [n for n in ast.walk(tree) if isinstance(n, ast.Await)]
     if not awaits:
         return True
@@ -209,8 +239,36 @@ def never_yields(src: str) -> bool:
     return True
 
 
+def _own_scope_nodes(fn: ast.AST):
+    """`fn` **自己作用域**里的节点（跳过嵌套函数/lambda 的内部）。
+
+    为什么必须这么数（§10.86 自查发现，当时 b15 复核在跑）：`ast.walk(fn)` 会把**嵌套函数**里的
+    `Yield`/`Await` 也算到外层头上 ⇒
+      ① 一个 `async def helper()` 里若嵌了一个**同步**生成器 `def inner(): yield 1`，
+         它会被误判成"没有 await 的 async 生成器"（**假阳性**：`helper` 根本不是生成器；
+         实测 `nested_async_gen_without_await` 会返回 `['helper']`）；
+      ② 反过来，一个**真** async 生成器若唯一的 `await` 写在嵌套 async 函数里，会被误判成
+         "无 await" ⇒ 判据放行（**假阴性**，闸门静默失效）。
+    本条判据问的是"**这个函数自己的 body** 有没有 yield/await"，所以按作用域切。
+    （`never_yields()` 是**有意**数整段源码的——它的语义是"这条请求会不会让出事件循环"，
+    嵌套 async 生成器里的 await 真的会让出；两者的差别写在各自 docstring 里。）
+    """
+    stack: list[ast.AST] = [fn]
+    while stack:
+        node = stack.pop()
+        yield node
+        for child in ast.iter_child_nodes(node):
+            if isinstance(child, (ast.FunctionDef, ast.AsyncFunctionDef, ast.Lambda)):
+                continue
+            stack.append(child)
+
+
 def nested_async_gen_without_await(src: str) -> list[str]:
-    """端点里那些**没有 await 的 async 生成器**的名字（§10.80 的判据，也走 AST）。"""
+    """端点里那些**没有 await 的 async 生成器**的名字（§10.80 的判据，也走 AST）。
+
+    ⚠ `yield`/`await` 都只数**该函数自己作用域**里的（`_own_scope_nodes`）——
+    嵌套函数里的 `yield` 不能把外层 `async def` 变成"生成器"。
+    """
     out: list[str] = []
     try:
         tree = ast.parse(src)
@@ -219,8 +277,9 @@ def nested_async_gen_without_await(src: str) -> list[str]:
     for node in ast.walk(tree):
         if not isinstance(node, ast.AsyncFunctionDef):
             continue
-        has_yield = any(isinstance(n, (ast.Yield, ast.YieldFrom)) for n in ast.walk(node))
-        has_await = any(isinstance(n, ast.Await) for n in ast.walk(node))
+        own = list(_own_scope_nodes(node))
+        has_yield = any(isinstance(n, (ast.Yield, ast.YieldFrom)) for n in own)
+        has_await = any(isinstance(n, ast.Await) for n in own)
         if has_yield and not has_await:
             out.append(node.name)
     return out

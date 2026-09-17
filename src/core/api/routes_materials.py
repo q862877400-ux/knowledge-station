@@ -65,7 +65,7 @@ def register(app, json_error):
 
     # ---------------------------------------------------------------- 项目
     @app.post("/api/v1/materials/projects")
-    async def materials_create_project(payload: dict):
+    def materials_create_project(payload: dict):
         body = payload or {}
         name = body.get("name")
         if not isinstance(name, str) or not name.strip():
@@ -83,11 +83,11 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": proj}
 
     @app.get("/api/v1/materials/projects")
-    async def materials_list_projects():
+    def materials_list_projects():
         return {"code": 200, "status": "success", "data": mr.list_projects()}
 
     @app.get("/api/v1/materials/projects/{project_id}/inbox")
-    async def materials_inbox(project_id: str):
+    def materials_inbox(project_id: str):
         """列出**参考资料文件夹**里受支持的文件（用户往这里丢文件，界面照它显示）。"""
         if mr.get_project(project_id) is None:
             return json_error(404, "materials_not_found", f"项目不存在: {project_id}")
@@ -189,7 +189,7 @@ def register(app, json_error):
 
     # ---------------------------------------------------------------- 材料列表
     @app.get("/api/v1/materials/projects/{project_id}/materials")
-    async def materials_list(project_id: str, status: str | None = None):
+    def materials_list(project_id: str, status: str | None = None):
         """材料列表（**评审视图**：默认全列，含 pending/rejected——否则没法批）。"""
         if mr.get_project(project_id) is None:
             return json_error(404, "materials_not_found", f"项目不存在: {project_id}")
@@ -203,7 +203,7 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": rows}
 
     @app.get("/api/v1/materials/projects/{project_id}/search")
-    async def materials_search(project_id: str, q: str = "", limit: int = 8):
+    def materials_search(project_id: str, q: str = "", limit: int = 8):
         """在**已批准**材料里检索（评审硬门由 `search_materials` 的 SQL 保证）。"""
         if mr.get_project(project_id) is None:
             return json_error(404, "materials_not_found", f"项目不存在: {project_id}")
@@ -220,14 +220,14 @@ def register(app, json_error):
     # 否则字面量路径 `tiers` 会被 `{material_id}` 捕获（表现是"取 tiers 却得到 404 材料不存在"）。
     # 被自己的 API 测试抓到过（`test_tiers_endpoint_lists_all`）。
     @app.get("/api/v1/materials/tiers")
-    async def materials_tiers():
+    def materials_tiers():
         """层级定义（给 UI 直接用，避免前端再抄一份措辞）。"""
         return {"code": 200, "status": "success",
                 "data": [{"tier": t, "label": mr.TIER_LABELS[t]} for t in mr.TIERS]}
 
     # ---------------------------------------------------------------- 单份材料
     @app.get("/api/v1/materials/{material_id}")
-    async def materials_get(material_id: str):
+    def materials_get(material_id: str):
         m = mr.get_material(material_id)
         if m is None:
             return json_error(404, "materials_not_found", f"材料不存在: {material_id}")
@@ -237,7 +237,7 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": m}
 
     @app.get("/api/v1/materials/{material_id}/chunks")
-    async def materials_chunks(material_id: str, offset: int = 0, limit: int = 50):
+    def materials_chunks(material_id: str, offset: int = 0, limit: int = 50):
         """切片分页——**评审时必须能读到内容**（否则"批准"是盲签）。"""
         if mr.get_material(material_id) is None:
             return json_error(404, "materials_not_found", f"材料不存在: {material_id}")
@@ -287,7 +287,7 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": row}
 
     @app.post("/api/v1/materials/{material_id}/tier")
-    async def materials_set_tier(material_id: str, payload: dict):
+    def materials_set_tier(material_id: str, payload: dict):
         """改**来源可信度**（轴 A）。业主明说用户可以改；`source='user'` 会留痕。"""
         body = payload or {}
         tier = body.get("tier")
@@ -303,7 +303,7 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": mr.get_material(material_id)}
 
     @app.post("/api/v1/materials/{material_id}/role")
-    async def materials_set_role(material_id: str, payload: dict):
+    def materials_set_role(material_id: str, payload: dict):
         """声明**任务内效力**（轴 B）：criterion=本任务准则 / reference=参考 / null=撤销。"""
         body = payload or {}
         role = body.get("role")
@@ -316,7 +316,7 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": mr.get_material(material_id)}
 
     @app.post("/api/v1/materials/{material_id}/lifecycle")
-    async def materials_set_lifecycle(material_id: str, payload: dict):
+    def materials_set_lifecycle(material_id: str, payload: dict):
         """`ephemeral`（默认，仅本次任务）↔ `promoted`（升为长期参考）。"""
         body = payload or {}
         try:
@@ -328,7 +328,7 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": mr.get_material(material_id)}
 
     @app.delete("/api/v1/materials/{material_id}")
-    async def materials_delete(material_id: str):
+    def materials_delete(material_id: str):
         if not mr.delete_material(material_id):
             return json_error(404, "materials_not_found", f"材料不存在: {material_id}")
         return {"code": 200, "status": "success", "data": {"deleted": material_id}}

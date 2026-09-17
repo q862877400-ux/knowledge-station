@@ -87,7 +87,7 @@ def register(app, json_error):
                          "status": batch["status"], "total": batch["total"]}}
 
     @app.get("/api/v1/update/batch/{batch_id}")
-    async def update_batch_progress(batch_id: str):
+    def update_batch_progress(batch_id: str):
         """进度+统计（前端任务小卡片 1s 轮询，契约明确不走 SSE）。"""
         from src.core.update import inspector
         batch = inspector.get_inspect_batch(batch_id)
@@ -140,15 +140,15 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": batch}
 
     @app.get("/api/v1/update/batches")
-    async def update_batches(limit: int = 20):
+    def update_batches(limit: int = 20):
         """历史批次（created_at 倒序）。"""
         from src.core.update import change_repo
         return {"code": 200, "status": "success",
                 "data": change_repo.list_batches(limit)}
 
     @app.get("/api/v1/update/changes")
-    async def update_changes(batch_id: str | None = None,
-                             change_type: str | None = None, limit: int = 200):
+    def update_changes(batch_id: str | None = None,
+                       change_type: str | None = None, limit: int = 200):
         """变更明细（三色列表数据源）；可按批次 / change_type 过滤。"""
         conn = get_db_connection()
         where: list[str] = []
@@ -263,7 +263,7 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": out}
 
     @app.get("/api/v1/update/announce-scan/last")
-    async def announce_scan_last():
+    def announce_scan_last():
         """最近一次公告扫描快照（host 轮询；从未扫过 → {status:'never'}，恒 200）。"""
         from src.core.update import announce
         return {"code": 200, "status": "success", "data": announce.get_scan_state()}
@@ -328,7 +328,7 @@ def register(app, json_error):
                 "data": {"sources": left, "total": len(left)}}
 
     @app.get("/api/v1/update/announce-items")
-    async def announce_items(limit: int = 20, source_id: str | None = None):
+    def announce_items(limit: int = 20, source_id: str | None = None):
         """已见公告查询（first_seen 倒序；limit ≤200；可按源过滤）。"""
         from src.core.update import announce
         return {"code": 200, "status": "success",
@@ -363,14 +363,17 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": result}
 
     @app.post("/api/v1/discover/search")
-    async def discover_search(request: Request):
-        """按分类路径查网络渠道出结果卡片；drill_level>3 → 422/UPD-3002。"""
+    def discover_search(body: dict | None = None):
+        """按分类路径查网络渠道出结果卡片；drill_level>3 → 422/UPD-3002。
+
+        ⚠ `def` 而不是 `async def`（§10.86 通则之一）：唯一的 `await` 只是 `request.json()`
+        ⇒ 读完 body 之后是同步的**网络检索**（秒级），留在事件循环里会把引擎堵住。
+        body 改走签名 ⇒ 坏 JSON 由 FastAPI 直接 422（改前是被 `except` 吞成 `{}`、再报
+        `missing_category_path`；两者都是 422，但**错误码不同**，与 §10.79 同口径）。
+        """
         from src.core.exceptions import KnowledgeStationError
         from src.core.update import discover
-        try:
-            body = await request.json()
-        except Exception:
-            body = {}
+        body = body or {}
         raw_path = body.get("category_path")
         if isinstance(raw_path, str):
             path = [p for p in raw_path.split("/") if p.strip()]
@@ -386,7 +389,7 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": cards}
 
     @app.get("/api/v1/discover/watchlist")
-    async def watchlist_get():
+    def watchlist_get():
         """待下载清单（F-18 暂存批量处理）。"""
         from src.core.update import discover
         return {"code": 200, "status": "success",
@@ -423,7 +426,7 @@ def register(app, json_error):
     # ---- 领域订阅（F-13/A15）----
 
     @app.get("/api/v1/update/subscriptions")
-    async def subscriptions_get():
+    def subscriptions_get():
         """领域订阅列表：vocab 全量 + 每域 enabled 开关（缺省全开）。"""
         from src.core.update import subscriptions
         active = set(subscriptions.get_subscriptions())
@@ -483,7 +486,7 @@ def register(app, json_error):
                 "data": {"batch_id": bid, "total": batch.get("total", 0)}}
 
     @app.get("/api/v1/ingest/bulk/{batch_id}")
-    async def bulk_ingest_status(batch_id: str):
+    def bulk_ingest_status(batch_id: str):
         """批量导入进度：快扫 checked/total + 解析队列统计 + 隔离/重复错误数。"""
         from src.core.ingestion import bulk as bulk_ingest
         b = bulk_ingest.load_batch(batch_id)

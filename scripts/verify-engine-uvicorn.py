@@ -22,7 +22,7 @@
    （SSE 那一条没做：它要种一套合规评审数据，属 `tests/test_compliance.py` 的覆盖，
    本脚本不重复造——**如实说明**，不假装验过。）
 
-用法：`.venv\\Scripts\\python.exe scripts\\verify-engine-uvicorn.py [--heavy 12] [--json]`
+用法：`.venv\\Scripts\\python.exe scripts\\verify-engine-uvicorn.py [--heavy 12] [--json] [--keep-tmp]`
 退出码 0 = 全过。
 """
 from __future__ import annotations
@@ -31,7 +31,7 @@ import argparse
 import hashlib
 import json
 import os
-import socket
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -41,20 +41,34 @@ import urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
+#: ⚠ 本脚本要打印**中文 + `⇒`**；Windows 默认控制台编码是 GBK ⇒ 不重设会在**最后打印结果时**
+#: `UnicodeEncodeError` 崩掉（检查其实已经跑完，拿不到结论——§10.86 实测踩到）。所以在最前面
+#: 把 stdout/stderr 重设为 UTF-8（替换不可编码字符，绝不因为"打不出来"而丢结果）。
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")   # type: ignore[union-attr]
+    except Exception:                                             # pragma: no cover
+        pass
+
 ROOT = Path(__file__).resolve().parents[1]
 
-#: 真入口 `python -m src.core.main` 之前会**预热流程图 OCR**（后台线程加载 RapidOCR，
-#: 冷启动约 60s）——那会让本脚本的计时被 CPU 抢占污染。所以这里用**与 `run()` 等价的启动器**：
-#: 同样 `bind_random()`（随机端口 + 一次性 token）+ `create_app(token)` + 真 uvicorn，
-#: 只去掉预热。⚠ 这是刻意的差异，写在明面上。
-_LAUNCHER = (
-    "import uvicorn;"
-    "from src.core.api.server import bind_random, create_app;"
-    "port, token = bind_random();"
-    "print(f'PORT={port}', flush=True);"
-    "print(f'TOKEN={token}', flush=True);"
-    "uvicorn.run(create_app(token), host='127.0.0.1', port=port, log_level='warning')"
-)
+#: 真入口 `python -m src.core.main` = `_warmup_figure_ocr()` + `run()`。预热是**后台线程**加载
+#: RapidOCR（冷启动约 60s，会抢 CPU 污染计时），所以这里**只去掉预热**，其余**逐步照抄**：
+#: 直接调 `run()`（它自己做 `bind_random()` → `create_app(token)` → `start_write_worker()`
+#: → 打 `KNOWLEDGE_STATION_PORT/TOKEN` + 写 `engine.session.json` → `uvicorn.run(...)` →
+#: `finally: stop_write_worker()`），连**握手前缀**都用真的。
+#:
+#: ⚠ **这是第二版**（§10.86 修复核 b15 的 B3）：第一版用自己拼的启动器（只 `bind_random` +
+#: `create_app` + `uvicorn.run`），**漏了** `start_write_worker()`（单写者队列消费端）、
+#: `engine.session.json`、`stop_write_worker()`，把握手前缀写成 `PORT=`/`TOKEN=`
+#: （真入口是 `KNOWLEDGE_STATION_PORT=`/`KNOWLEDGE_STATION_TOKEN=`）⇒ 复核判"刻意差异"为
+#: **PARTLY**：它验的并不是真入口的启动路径。现在**逐字调 `run()`**，差异只剩"不预热 OCR"。
+_LAUNCHER = "from src.core.api.server import run; run()"
+
+#: 真入口的握手前缀（照抄，别自己发明一个 —— 那样连"握手格式"都没被验到）。
+_PORT_PREFIX = "KNOWLEDGE_STATION_PORT="
+_TOKEN_PREFIX = "KNOWLEDGE_STATION_TOKEN="
+
 
 
 def _free_port() -> int:
@@ -107,6 +121,8 @@ def main() -> int:
     ap.add_argument("--heavy", type=int, default=12, help="并发重活条数")
     ap.add_argument("--pages", type=int, default=12)
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--keep-tmp", action="store_true",
+                    help="保留临时目录（默认跑完删掉；它含 knowledge.db / verify.pdf / uvicorn.log）")
     args = ap.parse_args()
 
     tmp = Path(tempfile.mkdtemp(prefix="ks_uvicorn_"))
@@ -125,15 +141,15 @@ def main() -> int:
             if not line:
                 break
             log.write(line)
-            if line.startswith("PORT="):
+            if line.startswith(_PORT_PREFIX):
                 port = int(line.strip().split("=", 1)[1])
-            elif line.startswith("TOKEN="):
+            elif line.startswith(_TOKEN_PREFIX):
                 token = line.strip().split("=", 1)[1]
             if port and token:
                 break
         if not (port and token):
             log.close()
-            print("引擎没起来（没读到 PORT/TOKEN）；日志尾部：")
+            print(f"引擎没起来（没读到 {_PORT_PREFIX}/{_TOKEN_PREFIX}）；日志尾部：")
             print("\n".join((tmp / "uvicorn.log").read_text(encoding="utf-8",
                                                            errors="replace").splitlines()[-20:]))
             return 2
@@ -210,8 +226,13 @@ def main() -> int:
         except subprocess.TimeoutExpired:
             proc.kill()
         log.close()
+        # 临时目录默认删掉（§10.86 修复核 b15 的 INFO-4：第一版跑一次留一个含
+        # knowledge.db / verify.pdf / uvicorn.log 的目录，从不清理）。要事后取证就 `--keep-tmp`。
+        if not args.keep_tmp:
+            shutil.rmtree(tmp, ignore_errors=True)
 
     failed = [r for r in results if not r[1]]
+    tmp_note = f"临时目录 {tmp}" if args.keep_tmp else f"临时目录 {tmp}（已删除）"
     if args.json:
         print(json.dumps([{"check": n, "ok": ok, "detail": d} for n, ok, d in results],
                          ensure_ascii=False, indent=1))
@@ -219,7 +240,7 @@ def main() -> int:
         for n, ok, d in results:
             print(f"{'PASS' if ok else 'FAIL'}  {n} — {d}")
         print(f"\n== verify-engine-uvicorn {len(results) - len(failed)}/{len(results)} "
-              f"{'PASS' if not failed else 'FAIL'} ==（临时目录 {tmp}，端口 {port}）")
+              f"{'PASS' if not failed else 'FAIL'} ==（{tmp_note}，端口 {port}）")
     return 0 if not failed else 1
 
 

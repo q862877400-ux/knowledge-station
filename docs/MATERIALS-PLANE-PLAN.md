@@ -997,3 +997,33 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     （需业主 + 真 LLM）→ ③ 未覆盖项见台账第 29 条末尾。
 
 
+32. **处理复核 b15（1 MEDIUM + 3 LOW + 5 INFO）：判据从"看标记"换成"看有没有 await"**（§10.86，step-86；
+    报告：`var/tmp/verify-b15-artifacts/VERIFY-REPORT.md`）。
+
+    b15 判定：19 条声称 **0 REFUTED**（2 条 PARTLY：uvicorn 启动器漏了真入口的三件事、
+    门禁 passed/skipped 差 1 是本机环境）。
+
+    | 编号 | 一句话 | 状态 |
+    |---|---|---|
+    | **b15-MEDIUM-1** | **标记表盲区**：`async def` + **零 await** + 真写锁的两条端点（`DELETE /materials/{id}` 裸 `DELETE FROM`、`GET /laws/catalog` 的 `CREATE INDEX`）**一条重标记都命不中** ⇒ 一直在事件循环里等库写锁（实测空档 **0.651–0.704s**，上限 `busy_timeout=60s`） | ✅ **换判据而不是补标记**：`async` 且"零有效 await"⇒ 必须 `def`（`awaits_like()` 计 `Await/AsyncFor/AsyncWith`）；转 **51 条**，`async` **57 → 6**（6 条全有真 await）；before/after 空档 **0.651→0.019s**、**0.704→0.016s** |
+    | b15-LOW-1 | §10.79 §7 仍写"闸门把 `bulk-db` 排除"（与 §10.83 起的事实相反） | ✅ 加过时标注并指向 §10.83/§10.86 |
+    | b15-LOW-2 | §10.85 §5 快照哈希写成 `ec5cfc2`（amend 前的游离提交），实际 `423985a` | ✅ 更正 |
+    | b15-LOW-3 | `GET /snapshots`、`GET /clauses/patches` 当时无任何闸门 | ✅ 被新判据覆盖（一并转 `def`），文档/测试的"故意留 async"表述同步改 |
+    | b15-INFO-1/3 | `never_yields` 对 `async for` 漏判（保守）；非 dedent 源码上**静默 fail-open** | ✅ 新增 `awaits_like()`（三类语法都算）+ 两个函数内 dedent + 解析失败 **fail-closed** + 单测 |
+    | b15-INFO-4 | uvicorn 脚本临时目录不清理 / `_free_port()` 死代码 | ✅ 删死代码；临时目录默认删除（`--keep-tmp` 保留） |
+    | b15-INFO-5 | §10.85 的 +9 分解不精确（收集数正确） | ✅ 按实测改写 |
+    | b15-B3 | uvicorn 启动器漏了 `start_write_worker()` / `engine.session.json` / `stop_write_worker()`，握手前缀也不对 | ✅ 改成**逐字调 `run()`**，差异只剩"不预热 OCR" |
+    | 自查（等报告时发现） | `nested_async_gen_without_await` 把**嵌套函数**里的 `yield`/`await` 算到外层 ⇒ 假阳性 + 假阴性各一类 | ✅ `_own_scope_nodes()` 按作用域切 + 单测 |
+    | 顺手关闭登记项 | §10.81 LOW-2 的"`_code_only()` 改了 7 行"（b14 标未验证） | ✅ 在 `fdfce3b` 提取树实测 = **7 处**（`model-load`×1 + `pdf/ocr`×5 + `hashing`×1），与 b13 逐字吻合 |
+
+    **变异 N1–N6**：全 RED 且命中预期断言、逐字节还原（含"把判据改回读文本/只看 Await/
+    回 `ast.walk`/fail-open"四种**判据本体**的变异）。
+
+    **遗留（已登记）**：`asyncio.to_thread` 那 5 条用的是 **asyncio 默认执行器**，
+    不在 `THREADPOOL_TOKENS=16` 的 anyio 池里 ⇒ 并发不受 16 约束（I/O 密集，风险较低，
+    本步没动——要么收敛成 `def`，要么显式加闸门）。
+
+    **下一步**：① 上述 `asyncio.to_thread` 池不对称的取舍 → ② 真机重启后端到端复验（需业主）
+    → ③ 其余未覆盖项见台账第 29 条末尾。
+
+

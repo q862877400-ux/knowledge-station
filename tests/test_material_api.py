@@ -569,7 +569,7 @@ class TestSlowEndpointsAreDeclaredSync:
         # ---- T2 批次（§10.79）：这 20 条的 `async def` **只为了 `await request.json()`**，
         # 读完 body 之后全是同步重活（LLM 调用 / python-docx / 抽别名 / 快照落盘 / 网络探测…）。
         # 判据形状与 §10.71/§10.76 同款：body 走签名，坏 body 由 FastAPI 直接 422。
-        ("/api/v1/clauses/patches", "POST"),   # ⚠ 同路径还有 GET 故意仍是 async
+        ("/api/v1/clauses/patches", "POST"),
         ("/api/v1/compliance/obligations", "POST"),
         ("/api/v1/compliance/gap-analysis", "POST"),
         ("/api/v1/aliases/extract", "POST"),
@@ -579,7 +579,7 @@ class TestSlowEndpointsAreDeclaredSync:
         ("/api/v1/clauses/office-edit/commit", "POST"),
         ("/api/v1/batch/qa", "POST"),
         ("/api/v1/vision/locate", "POST"),
-        ("/api/v1/snapshots", "POST"),   # ⚠ 同路径还有 GET 故意仍是 async
+        ("/api/v1/snapshots", "POST"),
         ("/api/v1/update/announce-sources", "GET"),
         ("/api/v1/update/announce-sources", "POST"),
         ("/api/v1/update/announce-sources/{source_id}", "PUT"),
@@ -616,10 +616,11 @@ class TestSlowEndpointsAreDeclaredSync:
         可以悄悄改回 `async def` 而表仍然 GREEN。§10.79 那 2 条兄弟方法（GET 读凭据文件 /
         GET 读配置）当时正是这样"转换了但没被表验到"——25 条转换只对应 23 行参数，就是它们。
 
-        现在参数是 `(路径, 方法)`：**表也不再声称**同路径的其它方法是 `def`。两条被判定为
-        廉价而**故意留着 `async def`** 的兄弟（`GET /clauses/patches` 列补丁表、
-        `GET /snapshots` 列快照文件）因此在表里**根本不存在**——而不是被悄悄放行：
-        它们的形状（T1 且只有 `bulk-db`/`fs-copy` 轻标记）由**通则之一**的取舍覆盖（§10.78）。
+        现在参数是 `(路径, 方法)`：**表也不再声称**同路径的其它方法是 `def`。
+        ⚠ **§10.86 起**：那两条曾"廉价而故意留 async"的兄弟（`GET /clauses/patches`、
+        `GET /snapshots`）已经**一并转成 `def`** —— 因为通则之一改成了"零有效 await ⇒ 必须
+        `def`"，不再看轻/重标记（b15 实测标记表会漏）。所以现在**整条 API 面上没有一条
+        `async def` 是"零有效 await"的**；这张表仍然只声称它自己列出的 `(路径, 方法)`。
         """
         import asyncio
         c, _ = client
@@ -631,6 +632,72 @@ class TestSlowEndpointsAreDeclaredSync:
         assert not asyncio.iscoroutinefunction(routes[0].endpoint), (
             f"{method} {path} 做同步重活，必须是 `def`（线程池），不能是 `async def`")
 
+    #: T1（零 `await`-like）必须 `def`；**白名单为空**。
+    #: 真要留一个"零 await 的 async 端点"，必须在这里写清"它为什么不会占住事件循环"。
+    _T1_ASYNC_ALLOWLIST: set[str] = set()
+
+    def test_T1_零await的async端点必须是def(self, client):
+        """**通则之一（§10.86，修复核 b15 的 MEDIUM-1）**：`async def` 且源码里**没有任何
+        会让出控制权的语法**（`await` / `async for` / `async with`）⇒ 必须 `def`。
+
+        为什么把判据从"看标记"换成"看有没有 await"：标记表是**启发式**，而它已经漏过四次
+        （b12 的 MEDIUM-2、§10.71、§10.79，以及 b15 这次的 MEDIUM-1）。b15 实测的两条**一条
+        重标记都命不中**却真会堵库：
+          · `DELETE /api/v1/materials/{material_id}` → `write_transaction()`（`BEGIN IMMEDIATE`
+            + 3×`DELETE`，裸 `DELETE FROM` 不在任何标记正则里）：持锁 0.6s 时**事件循环空档
+            0.647–0.657s**（连 404 都堵）；
+          · `GET /api/v1/laws/catalog` → `ensure_catalog_schema()`（`CREATE TABLE/INDEX`，同样
+            命不中）：首次请求空档 **0.697s**。
+        而"**零 await**"是"必然占住事件循环"的**充分条件**，不依赖任何标记表 ⇒ 盲区消失。
+        代价只是把毫秒级的活挪进线程池（P5 性能最低优先），收益是"引擎静默死几十秒"这一整类
+        缺陷不再可能出现。
+
+        ⚠ `async for` / `async with` **必须**算"会让出控制权"：它们编译成 `await __anext__` /
+        `__aenter__`，但 AST 里**没有 `Await` 节点**——只数 `Await` 会误判成该改 `def`
+        （而那种代码改成 `def` 根本不成立）。判据由 `audit.awaits_like()` 提供（b15 的 INFO-1）。
+        ⚠ 源码解析失败时 `awaits_like()` 返回 `None` ⇒ **判红**（fail-closed），不放行。
+        """
+        import asyncio
+
+        c, _ = client
+        root = Path(__file__).resolve().parents[1]
+        spec = importlib.util.spec_from_file_location(
+            "ks_audit_probe_t1", root / "scripts" / "audit-async-endpoints.py")
+        assert spec and spec.loader
+        audit = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(audit)
+
+        offenders = []
+        examined = 0
+        scanned = 0
+        for r in c.app.routes:
+            ep = getattr(r, "endpoint", None)
+            path = getattr(r, "path", None)
+            if ep is None or path is None or not path.startswith("/api/"):
+                continue
+            examined += 1
+            if not asyncio.iscoroutinefunction(ep):
+                continue
+            scanned += 1
+            try:
+                src = inspect.getsource(ep)
+            except (OSError, TypeError):        # pragma: no cover
+                continue
+            n = audit.awaits_like(src)
+            if n is None:
+                offenders.append((path, ["源码解析失败——判据无法生效（fail-closed）"]))
+            elif n == 0 and path not in self._T1_ASYNC_ALLOWLIST:
+                offenders.append((path, ["零 await-like（T1）"]))
+        # ⚠ **反向断言**（防假绿）：枚举坏掉时"全绿"毫无意义。判据从"只看 async"扩到"看全部
+        # API 路由"，因为 T1 清零后 async 只剩个位数（9 条），拿 async 条数当哨兵已经不稳。
+        assert examined >= 140, f"只枚举到 {examined} 条 API 路由（实测 147）——枚举/筛选可能坏了"
+        assert scanned >= 5, f"只剩 {scanned} 条 async 端点——判据扫的面太窄（枚举坏了？）"
+        assert not offenders, (
+            "这些 `async def` 端点**从不真正让出控制权**（零 await/async for/async with），"
+            "应改 `def`（Starlette 才会丢进线程池）：\n"
+            + "\n".join(f"  {p}  {m}" for p, m in offenders)
+            + "\n（若确有理由保留 async，请加进 _T1_ASYNC_ALLOWLIST 并写清原因）")
+
     #: 「唯一 await 只是读 body」的例外：**必须在这里写清理由**，否则通则会把它判红。
     #: ⚠ **目前为空**——`/compliance/review/{task_id}/execute`（原先唯一的例外，SSE）已在 §10.80
     #: 修掉（外层 `def` + **同步生成器**）。留着这个机制是因为：下一条同族端点出现时，
@@ -638,16 +705,8 @@ class TestSlowEndpointsAreDeclaredSync:
     _BODY_ONLY_ASYNC_ALLOWLIST: set[str] = set()
 
     def test_async_endpoints_that_only_read_body_are_not_heavy(self, client):
-        """**通则**：`async def` 端点若**从不真正让出控制权**（函数体没有 `await`，或唯一的
-        `await` 只是读 body），却带着**任何重标记** ⇒ 必须是 `def`。
-
-        为什么要这条（而不是再抄一份白名单）：这个洞被发现过**三次**（复核 b12 的 MEDIUM-2、
-        §10.71 的审计、§10.79 的通则），每次都是"复核撞见一条、修一条"。逐条白名单挡不住
-        **将来新加**的端点；这条通则用 `scripts/audit-async-endpoints.py` 的标记族自动覆盖
-        整个 API 面。**§10.83 起把 `bulk-db` 也算"重"**——实测（`var/tmp/probe-write-lock.py`）：
-        单行写事务无争用时 0.0013s（可忽略），但**另一个写者持锁 0.5s 时这个 async 端点把事件
-        循环堵了 0.5489s**；而 `busy_timeout` 是 60s ⇒ 真机上"批量入库持锁"期间点一下删除，
-        整引擎可以静默死几十秒。转换成本为零，尾风险却是秒到分钟级。
+        """**通则之三（T2）**：`async def` 端点若**唯一的 `await` 只是读 body**（或没有 await），
+        却带着**任何重标记** ⇒ 必须是 `def`。
 
         判据（全部从**代码**取，不看注释——`_code_only` 已删 docstring/注释）：
         1. 端点是 `async def`；
@@ -655,6 +714,13 @@ class TestSlowEndpointsAreDeclaredSync:
         3. 它的可达路径上有重标记（`fs-copy` 这类"轻标记"不算——`get_db_connection()` 里就有
            一个 `mkdir`，会传染到任何碰库的助手）。
         命中且不在白名单 ⇒ 红。
+
+        **§10.86 起判据加强（本步）：不再要求"带重标记"** —— 标记表是启发式，b15 实测它漏了
+        （裸 `DELETE FROM` / `CREATE INDEX` 都命不中 ⇒ 两条真会堵库的端点被放行）。现在只看
+        一件事：**这条 async 端点有没有一个真会让出控制权的 `await`**（`never_yields()` 为
+        True = 没有 ⇒ 红）。重标记退居审计报告里的**优先级信号**。判据的来源与理由见上一条
+        （`test_T1_零await的async端点必须是def`）；这条留在原名字下，是因为 §10.79–§10.85 的
+        历史记录都按这个名字引用它——**名字是历史的，判据是当前的**。
 
         **白名单**（`_BODY_ONLY_ASYNC_ALLOWLIST`）**目前为空**——那是好事：说明"该转的都转了"。
         真要留一个 `async def`，必须在那里写清"为什么它不会占住事件循环"，不许默默加。
@@ -670,12 +736,14 @@ class TestSlowEndpointsAreDeclaredSync:
         spec.loader.exec_module(audit)
 
         offenders = []
+        examined = 0
         scanned = 0
         for r in c.app.routes:
             ep = getattr(r, "endpoint", None)
             path = getattr(r, "path", None)
             if ep is None or path is None or not path.startswith("/api/"):
                 continue
+            examined += 1
             if not asyncio.iscoroutinefunction(ep):
                 continue
             scanned += 1
@@ -687,19 +755,63 @@ class TestSlowEndpointsAreDeclaredSync:
             # **原始源码文本**（`"await " in ln`）⇒ 一句含 `await ` 的 docstring/注释就能
             # **静默豁免**整个端点（复核实测：docstring 写"本端点唯一的 await 只是读 body"
             # ⇒ 闸门 GREEN）。`never_yields()` 用 AST 数 `Await` 节点 ⇒ 注释骗不过它。
-            if not audit.never_yields(src):
+            #
+            # ⚠ **§10.86 起判据加强**：不再要求"带重标记"。b15 实测两条端点（`DELETE
+            # /materials/{id}` 的裸 `DELETE FROM`、`GET /laws/catalog` 的 `CREATE INDEX`）
+            # **一条重标记都命不中**却在事件循环里等库写锁 0.65–0.70s ⇒ 标记表当必要条件
+            # 就会漏。现在只问一件事：**这条 async 端点有没有一个真会让出控制权的 await**。
+            # 重标记仍然有用——但只在审计报告里当**优先级信号**，不再当闸门。
+            if not audit.never_yields(src) or path in self._BODY_ONLY_ASYNC_ALLOWLIST:
                 continue
-            info = audit.audit_endpoint(ep)
-            heavy = {k for k in info.get("markers", {}) if k != "fs-copy"}
-            if heavy and path not in self._BODY_ONLY_ASYNC_ALLOWLIST:
-                offenders.append((path, sorted(heavy)))
-        # ⚠ **反向断言**（防假绿）：一次都没扫到 async 端点时"全绿"毫无意义。
-        assert scanned >= 40, f"只扫到 {scanned} 条 async 端点——枚举/筛选可能坏了"
+            offenders.append((path, ["零有效 await（T1 或只读 body）"]))
+        # ⚠ **反向断言**（防假绿）：枚举坏掉时"全绿"毫无意义。§10.86 起 T1 已全部转 `def`
+        # ⇒ async 端点只剩 6 条（都有真 await），拿 async 条数当哨兵已经不稳，所以改成
+        # "枚举到的 API 路由数"（它与端点的增减无关，只与枚举本身有关）。
+        assert examined >= 140, f"只枚举到 {examined} 条 API 路由（实测 147）——枚举/筛选可能坏了"
+        assert scanned >= 4, f"只剩 {scanned} 条 async 端点——这条通则扫的面太窄（枚举坏了？）"
         assert not offenders, (
-            "这些 `async def` 从不真正让出控制权却在做同步重活（应改 `def`；"
-            "带 body 的顺带把 body 走签名）：\n"
+            "这些 `async def` 端点的 await **全都只是读 body**（或根本没有 await）⇒ 它其实"
+            "从不让出控制权，后面全是同步活在事件循环里跑（应改 `def`；带 body 的顺带把 "
+            "body 走签名）：\n"
             + "\n".join(f"  {p}  {m}" for p, m in offenders)
-            + f"\n（若确有理由保留 async，请加进 _BODY_ONLY_ASYNC_ALLOWLIST 并写清原因）")
+            + "\n（若确有理由保留 async，请加进 _BODY_ONLY_ASYNC_ALLOWLIST 并写清原因）")
+
+    def test_判据本体的边界样本(self):
+        """§10.86：两条判据的**边界形状**（b15 的 INFO-1 / INFO-3）。
+
+        ① `async for` / `async with` **必须**算"会让出控制权"：它们编译成 `await __anext__` /
+           `__aenter__`，但 AST 里没有 `Await` 节点 ⇒ 只数 `Await` 会把这种端点判成"零 await
+           该改 `def`"，而那种代码改成 `def` **根本不成立**（Info-1）。
+        ② **解析失败 ⇒ fail-closed**：`awaits_like → None`（调用方判红）、`never_yields → True`
+           （"当它从不 yield"）。旧实现是 `return False`（静默放行）。
+        ③ 判据内部必须自己 `dedent`：`inspect.getsource()` 对闭包里的端点给**带缩进**的源码，
+           不 dedent 就解析失败 ⇒ 在旧实现下等于**全部缩进端点被放行**。
+        """
+        root = Path(__file__).resolve().parents[1]
+        spec = importlib.util.spec_from_file_location(
+            "ks_audit_probe_edges", root / "scripts" / "audit-async-endpoints.py")
+        assert spec and spec.loader
+        audit = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(audit)
+
+        # ① async for / async with
+        assert audit.awaits_like(
+            "async def f():\n    async for x in g():\n        pass\n") == 1, \
+            "async for 必须算'会让出控制权'（它编译成 await __anext__，AST 里却没有 Await 节点）"
+        assert audit.awaits_like(
+            "async def f():\n    async with s():\n        pass\n") == 1, \
+            "async with 同理（await __aenter__）"
+        assert audit.never_yields(
+            "async def f():\n    async for x in g():\n        pass\n") is True, \
+            "只写了 async for 的端点确实'零 Await 节点'——所以判据必须由 awaits_like 兜住"
+        # ② 坏源码 ⇒ fail-closed
+        assert audit.awaits_like("async def f(:\n") is None, "解析失败必须返回 None（判红）"
+        assert audit.never_yields("async def f(:\n") is True, \
+            "解析失败必须判成'从不 yield'（fail-closed），不许静默放行"
+        # ③ 缩进源码（闭包里的端点就是这种形状）
+        indented = "    async def f(r):\n        return await r.json()\n"
+        assert audit.awaits_like(indented) == 1
+        assert audit.never_yields(indented) is True
 
     def test_nested_async_generators_without_await_are_rejected(self, client):
         """**通则之二**：端点里嵌套的 `async def` **生成器**若**一个 `await` 都没有** ⇒ 红。
@@ -813,6 +925,56 @@ class TestSlowEndpointsAreDeclaredSync:
                 return event_stream
         ''')
         assert audit.nested_async_gen_without_await(gen_doc) == ["event_stream"]
+
+    def test_嵌套生成器判据只数自己作用域(self):
+        """§10.86 自查：`yield`/`await` 必须只数**该函数自己作用域**里的。
+
+        为什么（b15 复核期间我自己打出来的两个反例）：
+        ① **假阳性**——`async def helper()` 里嵌了一个**同步**生成器 `def inner(): yield 1`；
+           `ast.walk(helper)` 会看见那个 `yield` ⇒ 把 `helper` 误判成"没有 await 的 async 生成器"
+           （实测旧实现返回 `['helper']`，而 `helper` **根本不是生成器**）。
+        ② **假阴性**——一个真 async 生成器，唯一的 `await` 写在嵌套 async 函数里；
+           旧实现把嵌套的 `Await` 也算成它自己的 ⇒ 判据放行（闸门静默失效）。
+        """
+        root = Path(__file__).resolve().parents[1]
+        spec = importlib.util.spec_from_file_location("ks_audit_probe3",
+                                                      root / "scripts" / "audit-async-endpoints.py")
+        assert spec and spec.loader
+        audit = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(audit)
+
+        # ① async 函数 + 嵌套**同步**生成器 ⇒ 不该被当成异步生成器（假阳性）
+        fp = textwrap.dedent('''
+            def endpoint(body=None):
+                async def helper():
+                    def inner():
+                        yield 1
+                    return inner
+                return helper
+        ''')
+        assert audit.nested_async_gen_without_await(fp) == [], \
+            "嵌套同步生成器的 yield 被算到外层 async 函数头上了（假阳性）"
+
+        # ② 真 async 生成器 + 唯一的 await 在嵌套函数里 ⇒ 仍须命中（假阴性）
+        fn = textwrap.dedent('''
+            def endpoint(body=None):
+                async def stream():
+                    yield 1
+                    async def inner():
+                        await something()
+                    return inner
+        ''')
+        assert audit.nested_async_gen_without_await(fn) == ["stream"], \
+            "嵌套函数里的 await 把外层异步生成器豁免了（假阴性）"
+
+        # ③ 真异步生成器（自己有 await）不受影响（零假阳性）
+        ok = textwrap.dedent('''
+            def endpoint(body=None):
+                async def stream():
+                    await asyncio.sleep(0)
+                    yield 1
+        ''')
+        assert audit.nested_async_gen_without_await(ok) == []
 
 
     @pytest.mark.parametrize("module,min_routes", [

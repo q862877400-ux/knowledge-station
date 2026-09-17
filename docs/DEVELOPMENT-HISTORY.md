@@ -4593,6 +4593,9 @@ request.json()`），**只跑通则那条** ⇒ RED（指名该端点）。AJ1�
 1. `/execute`（SSE）**没修**（见 §3），已登记；这是本批唯一"知道有问题但故意留着"的。
 2. 23 条纯 `bulk-db` 的也**没转**（§10.78 的取舍），它们**不在**通则闸门的判据里
    （闸门把 `bulk-db` 排除），所以不会造成"闸门一直红"的噪声。
+   ⚠ **这句已过时**（独立复核 b15 的 LOW-1，2026-09-18）：`bulk-db` 的排除**只在 §10.79 那一版**
+   成立——**§10.83 起"不再排除"并把那一族 32 条全部转成 `def`**，§10.86 起"重标记"更不再是闸门
+   的必要条件。保留这句是为了不改写历史章节，但读者请以 **§10.83 / §10.86** 为准。
 3. 量的是小库（§4）；真机重启后才生效。
 4. 本步**零前端改动**。
 
@@ -4999,11 +5002,17 @@ RapidOCR、冷启动约 60s，会污染计时），改用等价启动器：同�
 
 ⚠ **快照标签的编号对应**：本步的提交同时承担 §10.84 与 §10.85（§10.84 那份 uvicorn 验证
 此前没有自己的提交），而 `scripts/snapshot-project.ps1` 是"最大 `step-NN` + 1" ⇒
-这一步的快照标签是 **`step-84-b14-findings-closed`**（指向 `ec5cfc2`）。
+这一步的快照标签是 **`step-84-b14-findings-closed`**（指向 **`423985a`**）。
 **标签号比章节号小 1**，不是漏做快照。
+⚠ **哈希更正**（独立复核 b15 的 LOW-2）：这里原写 `ec5cfc2`——那是**同一内容的更早一笔**
+（打完标签后我又补了这几行说明并 amend 成 `423985a`，`ec5cfc2` 成了**游离提交**）。
+标签实际指向 `423985a`，已按 `git cat-file -p step-84-b14-findings-closed` 更正。
 
-`pytest` **1798 passed / 3 skipped / 0 failed**（1792 → 1801 收集：**+9** = 6 条新测试 +
-3 条新的逐条参数——多方法路径拆成 `GET/POST`、`PUT/DELETE`、`GET/PUT` 各一条）；
+`pytest` **1798 passed / 3 skipped / 0 failed**（1792 → 1801 收集：**+9**，精确分解 =
+**3 条新的逐条参数**（多方法路径拆成 `GET/POST`、`PUT/DELETE`、`GET/PUT`）+ **2 条新的测试函数**
+（`tests/test_material_api.py`）+ **4 条新的 `TestHeavyGate` 用例**（`tests/test_threadpool_bound.py`）；
+⚠ 这个分解按复核 b15 的 INFO-5 更正过——原先写的"6 条新测试 + 3 条参数"与 `git show` 的
+**7 个新 `def test_`** 对不上，收集数（+9）则一直是对的）；
 `mypy` **134 / 0**；`tsc` 0；`smoke` **EXIT=0（19 段）**；`verify:commands` **22/22**；
 真 uvicorn 验证 **4/4**（§10.84，本步复跑）。审计重跑（`var/tmp/audit-after-85.json`）：
 终盘与 §10.83 一致——`async` **57** / T1 **48** / **T1+重 0** / **T2+重 1**（`/chat/completions`），
@@ -5022,4 +5031,157 @@ RapidOCR、冷启动约 60s，会污染计时），改用等价启动器：同�
    嵌套 async 生成器真的在 await"这种混血形状仍会豁免——**这一族由中间件的令牌持有治，不由判据治**。
 6. b14 未覆盖项照旧：§10.79 §4 的两行量具数字、§10.81 LOW-2 的"7 行"、真机并发写行为、
    `/formula` 识别版回退、C2 的 FAIL 分支、`dry_run` 真实撕裂读。
+
+
+## §10.86 处理复核 b15：把判据从"看标记"换成"看有没有 await" —— 一次性消掉"零 await 占着事件循环"这一整类
+
+**一句话**：独立复核 b15（冻结在 `verify-freeze-b15` = `423985a`）**19 条声称里 0 条 REFUTED**
+（2 条 PARTLY），新发现 **1 MEDIUM + 3 LOW + 5 INFO**。那条 MEDIUM 是这一个系列里第**四**次
+同型漏网："`async def` + **零 await** + 真同步重活"，因为通则的第三个合取项要求"带重标记"，
+而 b15 实测的两条端点**一条标记都命不中**（裸 `DELETE FROM`、`CREATE INDEX`）——它们仍在
+事件循环里**等库写锁 0.65–0.70s**（上限 `busy_timeout=60s`）。本步**不再给标记表打补丁**，
+而是把判据换成结构性的那一句：
+
+> **`async def` 端点若"零有效 await"（没有 `await`，或所有 `await` 都只是读 body）⇒ 必须 `def`。**
+
+一次性转 **51 条**（48 条 T1 + 3 条只读 body），终盘 **`async` 57 → 6**，且**6 条全部有真
+`await`**（1 条 LLM 流式 + 5 条 `asyncio.to_thread`）——盲区随判据一起消失，而不是等下一次复核
+再撞见一条。
+
+### 1. MEDIUM-1：为什么不再给标记表打补丁
+
+标记表已经漏过**四次**（b12 的 MEDIUM-2、§10.71、§10.79，以及本次 b15）——每次都"复核撞见一条、
+补一条"。根因是**它在问一个问不出答案的问题**："这段代码重不重？"（静态上不可判）。
+而"**有没有一个真会让出控制权的 `await`**"是**可判的结构事实**：没有 ⇒ 这条端点从进到出都占着
+事件循环，无论它干的是 1ms 的读还是 60s 的锁等。**把必要条件换成充分条件**，这一类就没了。
+
+**before/after（我自己量的，独立于 b15；`var/tmp/probe-t1-lock-gap.py`）**：
+另一条连接 `BEGIN IMMEDIATE` 持写锁 0.6s，心跳线程量事件循环最大空档。
+
+| 端点 | before 空档 | after 空档 | 说明 |
+|---|---|---|---|
+| `DELETE /api/v1/materials/{id}` | **0.651 / 0.668 / 0.656s** | **0.019 / 0.016 / 0.017s** | b15 点名的那条（裸 `DELETE FROM`，标记命不中） |
+| `GET /api/v1/laws/catalog`（首次） | **0.704s** | **0.016s** | b15 点名的另一条（`ensure_catalog_schema` 的 DDL） |
+| 对照：`DELETE /projects/{p}/clauses/{c}`（§10.83 已转 `def`） | 0.021 / 0.016 / 0.016s | 0.016 / 0.016 / 0.016s | 同一把锁、同一时长：**空档本来就应该在噪声底** |
+
+⚠ **请求耗时不变**（0.64–0.67s）：等锁的时间**还在**，只是从"堵住整个引擎"挪到了"那个工作线程
+在等"。这一点必须说清——修的**不是**"用户不用等"，而是"**别人不用陪着等**"。
+
+**代价也要量**（`var/tmp/probe-t1-latency-cost.py`，同一份顺序请求在两棵树上各跑 25 次、
+前 5 次热身避开线程冷启动）：`def` 端点每次多一趟线程跳转 ⇒
+
+| 端点 | before p50 | after p50 |
+|---|---|---|
+| `GET /health` | 0.26ms | **0.36ms** |
+| `GET /documents` | 0.26ms | **0.41ms** |
+| `GET /clauses/resolve?...` | 0.34ms | **0.47ms** |
+| `GET /materials/tiers` | 0.34ms | **0.44ms** |
+
+⇒ 每次廉价请求 **+0.1–0.13ms**（P5 性能最低优先，换的是"整类 0.65–0.70s 冻结"不再可能出现）。
+⚠ 新起进程的**第一次**请求还要额外付一次线程创建（§10.84 的 uvicorn 验证里 `/health`
+首测 **0.0164s**，而进程内热身后的 p50 是 0.36ms）——那不是稳态成本。
+
+**转换与终盘**：
+```
+async 端点  57 → 6        T1（零 await）  48 → 0
+T1+重标记   0 → 0         6 条剩下的：/chat/completions（LLM 流式）
+                          + /laws/search、/laws/ingest、/laws/check-updates、
+                            /laws/catalog/refresh、/laws/verify（`asyncio.to_thread` 范本）
+```
+转换用一个**自动选取 + 干跑**的脚本（`var/tmp/convert-t1-batch.py`）：判据 = 审计模块的
+`awaits_like(src) == 0`；干跑逐条打印 (文件, 函数, 路径, 方法) 我看过才 `--apply`；
+只做**一处单点替换**（`    async def <name>(` → `    def <name>(`），每步 `ast.parse`，收尾逐条
+复核"已不是 `AsyncDef`"。那 3 条"只读 body"的（`/compare`、`/documents/impact`、`/discover/search`）
+按 §10.79/§10.83 同款手改：body 走签名、坏 JSON 由 FastAPI 直接 **422**。
+
+### 2. 判据本体也修了两处（b15 的 INFO-1 / INFO-3）
+
+- **`awaits_like()` 必须把 `async for` / `async with` 算成"会让出控制权"**（INFO-1）：
+  它们编译成 `await __anext__` / `__aenter__`，但 AST 里**没有 `Await` 节点**——只数 `Await`
+  会把"只写了 `async for` 的 async 端点"判成该改 `def`，而那种代码改成 `def` **根本不成立**。
+  现在判据是 `Await | AsyncFor | AsyncWith`。
+- **解析失败 ⇒ 判红（fail-closed）**（INFO-3）：`never_yields` 原先在 `SyntaxError` 下
+  `return False`（= "会 yield" = 放行）。两个现有调用点都先 `dedent` 所以没实际逃逸，但那是
+  **静默 fail-open**：将来谁把 `inspect.getsource()` 直接喂进去，全部缩进端点一起被放行。
+  现在两个函数都**自己 dedent**，且解析失败时 `never_yields → True`、`awaits_like → None`
+  （调用方判红）。配了单测（含"缩进源码"与"坏源码"两种形状）。
+
+### 3. 三条 LOW + 五条 INFO 的处置
+
+| 编号 | 一句话 | 处置 |
+|---|---|---|
+| b15-LOW-1 | §10.79 §7 第 2 条仍写"闸门把 `bulk-db` 排除"，与 §10.83 起的事实相反（现在时陈述，会误导） | ✅ 就地加**过时标注**并指向 §10.83/§10.86（**不改写历史章节**，只钉"以谁为准"） |
+| b15-LOW-2 | §10.85 §5 写快照标签指向 `ec5cfc2`，实际是 `423985a`（`ec5cfc2` 是 amend 前的**游离提交**） | ✅ 按 `git cat-file -p <tag>` 更正哈希 + 写清来历 |
+| b15-LOW-3 | `GET /snapshots`、`GET /clauses/patches` 当时"表里没有 + 通则不红"⇒ **没有任何闸门** | ✅ **已被本步的结构性判据覆盖**（两条都是零 await ⇒ 一并转 `def`）；测试与文档里的"故意留 async"表述同步改掉 |
+| b15-INFO-1 | `never_yields` 对 `async for` 漏判（方向保守） | ✅ 见 §2：新增 `awaits_like()` 把三类语法都算上；`never_yields` 的保守性在 docstring 里写明 |
+| b15-INFO-2 | 对"助手包装读 body"会误判 False（保守） | 📝 docstring 写明"名字比语义强"，两处偏差都是保守方向 |
+| b15-INFO-3 | 非 dedent 源码上静默 fail-open | ✅ 见 §2（两个函数内 dedent + fail-closed + 单测） |
+| b15-INFO-4 | `verify-engine-uvicorn.py` 临时目录从不清理；`_free_port()` 死代码 | ✅ 删死代码；临时目录**默认删除**、`--keep-tmp` 才留（打印路径） |
+| b15-INFO-5 | §10.85 §5 的"+9 = 6 条新测试 + 3 参数"分解与 `git show` 的 7 个新 `def test_` 不符 | ✅ 按实测分解改写（3 参数 + 2 函数 + 4 `TestHeavyGate`）；收集数 +9 本来就对 |
+| b15-B3 | uvicorn 脚本的"刻意差异"是 **PARTLY**：真入口还做 `start_write_worker()` / `engine.session.json` / `stop_write_worker()`，第一版三件都没做 | ✅ 启动器**改成逐字调 `run()`**（只去掉 OCR 预热），连握手前缀都改成真的 `KNOWLEDGE_STATION_PORT=/TOKEN=` |
+
+### 4. 我自查出来的一个缺陷（等 b15 报告时发现的）：嵌套作用域
+
+`nested_async_gen_without_await()` 原先用 `ast.walk(node)` 数 `yield`/`await` ⇒ **把嵌套函数里的
+也算到外层头上**，实测两个反例（`var/tmp/evidence-1086-scope.py`）：
+
+| 形状 | 旧实现 | 新实现 | 性质 |
+|---|---|---|---|
+| `async def helper()` 里嵌**同步**生成器 `def inner(): yield 1` | `['helper']` | `[]` | **假阳性**（`helper` 根本不是生成器） |
+| 真 async 生成器，唯一的 `await` 写在嵌套 async 函数里 | `[]` | `['stream']` | **假阴性**（判据放行 = 闸门静默失效） |
+
+修法：新增 `_own_scope_nodes()`（跳过嵌套 `FunctionDef`/`AsyncFunctionDef`/`Lambda`），
+`yield`/`await` 只数**该函数自己作用域**里的。配了单测钉住这三个形状（含"自己有 await ⇒ 不红"）。
+
+### 5. 顺手关掉一条登记项：§10.81 LOW-2 的"7 行"
+
+b14 把"`_code_only()` 实测改了 7 行"标为**未验证**。本步在 `fdfce3b`（§10.78）的提取树里
+用两种跑法逐端点比标记集合（`var/tmp/verify-1078-code-only.py`，比的是 `audit_endpoint()` 的
+完整可达路径，不是端点自身源码）：**差异 = 7 处**，按标记分 `{model-load: 1, pdf/ocr: 5,
+hashing: 1}` ——与 b13 的原话**逐字吻合**。⇒ 该登记项关闭。
+
+### 6. 变异（全 RED 且命中**预期断言**，逐字节还原）
+
+`var/tmp/mutate-step86.py`：
+
+| 变异 | 改了什么 | 红在哪条判据上 |
+|---|---|---|
+| **N1** | `DELETE /materials/{id}` 改回 `async def`（= b15 的 MEDIUM-1 原形状） | `test_T1_零await的async端点必须是def` + 通则（指名该路径） |
+| **N2** | `GET /laws/catalog` 改回 `async def` | 同上 |
+| **N3** | `/compare` 改回 `async def + await request.json()`（"只读 body"形状） | `test_async_endpoints_that_only_read_body_are_not_heavy` |
+| **N4** | `awaits_like()` 只看 `Await`（丢掉 `AsyncFor`/`AsyncWith`） | 单测：`async for` 样本被判成"零 await" |
+| **N5** | `never_yields()` 的 `SyntaxError` 分支改回 `return False` | 单测：坏源码被判成"会 yield"（fail-open） |
+| **N6** | `_own_scope_nodes()` 改回 `ast.walk`（嵌套作用域缺陷复现） | `test_嵌套生成器判据只数自己作用域` |
+
+### 7. 证据
+
+⚠ **本步的快照标签是 `step-85-no-await-async-gone`**（指向本步提交）：标签号仍比章节号小 1
+——原因与 §10.85 §5 写的是同一个（`scripts/snapshot-project.ps1` 按"已有最大 `step-NN` + 1"
+递增，而 §10.84 与 §10.85 共用了一笔提交）。**不是漏做快照**，也不是编号写错。
+
+`pytest` **1801 passed / 3 skipped / 0 failed**（1801 → 1804 收集：**+3 条新测试**，都是判据本体
+与作用域的边界样本）；`mypy` **134 / 0**；`tsc` 0；`smoke` EXIT=0（19 段）；
+`verify:commands` 22/22；真 uvicorn 验证 **4/4**（第二版启动器，逐字调 `run()`）。
+审计重跑（`var/tmp/audit-after-86.json`）：`async` **6** / T1 **0** / T1+重 **0** / T2+重 **1**。
+转换清单与干跑记录在 `var/tmp/convert-t1-batch.py`；锁争用 before/after 探针在
+`var/tmp/probe-t1-lock-gap.py`（before 树 = `git archive verify-freeze-b15` 的提取树）。
+
+### 8. 诚实边界
+
+1. **真机重启（DSH 宿主 + 引擎）后才生效**；asgi 量具里的数字不是端到端。
+2. **请求耗时没有变快**（等锁还是要等 0.65s）：修的是"**别人不被陪着堵**"。若要让那个用户也
+   不等，得改数据模型（乐观写/队列），不在本步范围。
+3. **新增 51 条 `def` 端点会多占线程池令牌**（每个请求一次线程跳转）：进程内实测每次
+   **+0.1–0.13ms**（见 §1 的表），`THREADPOOL_TOKENS=16` 里恒有 ≥12 个位子留给它们
+   （重活最多 4）；**没有在真机负载下量过**高并发时的排队，这是**取舍**而非测量结论
+   （P5 性能最低优先）。
+4. **`asyncio.to_thread` 那 5 条用的是 asyncio 的默认执行器**（`loop.run_in_executor(None, …)`），
+   **与我们那把 `THREADPOOL_TOKENS=16` 的 anyio 池不是同一个池** ⇒ 它们的并发**不受** 16 约束。
+   它们做的是网络/入库（I/O 密集，风险低于 MinerU 那类子进程风暴），且这个写法是 §10.79 特意
+   留下的"范本"，本步**没动**。⇒ **登记为未决**：要么把它们也收敛成 `def`（进有界池），
+   要么显式给那条路加闸门。
+5. `awaits_like`/`never_yields` 都是**语法层**判据：把 await 藏进助手函数
+   （`await read_json(request)`）仍会被判成"会 yield"（INFO-2，保守方向，未修）。
+6. b15 未覆盖项照旧（真机端到端、真 SSE + 真 LLM、`/formula` 识别版回退、C2 的 FAIL 分支、
+   `dry_run` 真实撕裂读、§10.79 §4 的两行量具数字）。
 
