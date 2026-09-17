@@ -144,6 +144,18 @@ function sanitizeParams(raw) {
       && !/[\s\u0000-\u001f]/.test(raw.folder_id)) {
     out.folder_id = raw.folder_id
   }
+  // material_project_id（2026-09-17 材料平面）：**必须在这里**，否则本白名单会静默丢弃它，
+  // 而工具 schema 却向模型承诺了这个参数 —— 那正是本战役反复打的"算出来没人看得见"的
+  // **输入端**版本（独立复核 2026-09-17 实测：sanitizeParams({material_project_id}) === null，
+  // 即整条材料链在插件这一层是死的、且不报错）。
+  // 形态校验与 chatmode 的 normalizeMaterialProjectId 同口径；`prj_` 前缀在这里**不强制**
+  // （前缀的权威判定在引擎的仓库层与 chatmode 的会话绑定处，这里只做"不像 id 就丢"）。
+  // host 强制值永远覆盖模型自传值（见 makeAnswerTool）。
+  if (typeof raw.material_project_id === 'string' && raw.material_project_id.length > 0
+      && raw.material_project_id.length <= 64
+      && !/[\s\u0000-\u001f]/.test(raw.material_project_id)) {
+    out.material_project_id = raw.material_project_id
+  }
   if (raw.max_evidence !== undefined) {
     const m = Number(raw.max_evidence)
     if (Number.isFinite(m) && m > 0) out.max_evidence = Math.min(Math.floor(m), EVIDENCE_CAP)

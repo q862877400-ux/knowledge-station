@@ -750,6 +750,84 @@ node 可直接 import），拿 `ks_answer.py` 源码解析出的顶层键逐个�
 ③ 宿主绑定只回答"用哪个项目"，**不证明**该项目里真有可承重材料（真值在引擎的
 `material_usage` 与 `notes`）。
 
+### 10.17 独立复核 step-12/13 的收口：一个"功能其实是死的"+ 两个设计漏洞
+
+独立子代理（隔离 worktree `var/tmp/verify_b2`，钉在 `5e1cd13`，未改受控文件）
+复核 step-12/13，7 项声明里 **6 项 CONFIRMED、4 项 PARTLY、0 项被整体推翻**。
+它对**每一步都做了真实复现**（下表引用的实测数字都来自它）。收口如下。
+
+**① MEDIUM —— `sanitizeParams` 静默丢弃 `material_project_id`：整个功能在插件层是死的。**
+`plugin/src/index.js` 的 `sanitizeParams`（把模型参数过白名单后才进请求体）**没有**
+`material_project_id`，而它自己的注释就写着"unknown keys are silently dropped"；
+与此同时工具 schema **向模型承诺**了这个参数。实测
+`sanitizeParams({material_project_id:'prj_X'}) === null` ⇒ 在 `5e1cd13` 上，
+"材料进答案"这条链**从模型侧根本走不通**，`material_usage` 永远是 null，**且不报错**——
+正是本战役反复打的"算出来没人看得见"，只不过这次在**输入端**。
+（step-15 的宿主强制绑定绕过了这个白名单，所以用户侧能用；但 schema 与桥互相矛盾。）
+- 修：把 `material_project_id` 加进白名单（与 `folder_id` 完全同款：形态校验 + host 强制值覆盖）。
+- **反回归**：新增"把工具 schema 当契约、逐个键探测桥是否转发"的冒烟断言
+  （外加一条"探针必须覆盖全部 schema 键"的防假绿断言）。这类缺陷从此会红。
+
+**② MEDIUM —— T4 被声明为准则时会**压过国标**（轴 A 的绝对禁令被轴 B 重置）。**
+`authority.py` 原先**先判** `task_role=='criterion'`，于是 `source_tier='T4'` +
+`task_role='criterion'` 落进 `criteria`（渲染为「本任务准则」），进 `usable_hits()`，
+**不进** `excluded` —— 而提示词规则 8 说"本任务准则**优先于法条**"。
+实测：`counts {'criteria':1,'excluded':0}`、`usable_hits==1`、渲染里只有「本任务准则」、
+**「已知不可用」那节根本不出现**。等于一篇匿名内容农场的帖子能压过国标。
+- 修：**T4 优先于轴 B**（写进模块表头，作为不可被覆盖的绝对规则）。T4 一律进 `excluded`，
+  且**保留用户的声明痕迹**：`criterion_blocked_by_tier=True` + 行内标注
+  「⛔你声明它为准绳，但来源不可回溯（T4），**未按准则承重**」+ notes 说明。
+  **不是悄悄推翻用户的声明，而是不承重 + 说清楚**。T3 当准则的正常用法有专门测试保证不被误伤。
+
+**③ MEDIUM —— "≥2 个独立来源互证"是**不可证伪**的（假互证）。**
+`_source_identity` 在无域名/URL 时退到 `material:<id>`，而**生产代码从不设置 domain/url**
+（唯一的写入方 `ingest_material_file` 两个都不传）⇒ 兜底等于"任意两份材料都算两个独立来源"。
+实测：同一篇文章的两份副本被报成「二手转述 2 条获 **2 个独立来源**互证」；
+而 `A.COM` 与 `a.com`、`www.a.com` 与 `a.com`、`news.a.com` 与 `blog.a.com` 都被算作不同来源。
+- 修（**两处**，且都是被新测试当场抓出来的）：
+  1. **身份未知 ⇒ 不能互证**（`_source_identity` 返回 `None`；`None` 不进互证集合）——
+     宁可保守为"仅线索"，也不要报一个不可证伪的"多源互证"；notes 会说明"身份未知者不能互证"。
+  2. **一律**过域名归一（去 scheme/userinfo/端口/路径/前导 `www.`）：第一版我写成
+     "含 `://` 才归一"，于是 `www.a.com` 原样返回、三种写法仍算三个来源 —— **我自己的测试当场红了**。
+  3. 互证**逐条**判定而非整批提升：身份未知那条不能搭上别人的互证（同样被自己的测试抓住）。
+- **诚实局限**：这不是 eTLD+1（需公共后缀表，未引入），`news.a.com` 与 `blog.a.com` 仍算两个域名。
+
+**④ LOW —— 引用标记的两处漏检。**
+(a) 旧正则 `\d+` **匹配不到负数** ⇒ `[[m:-1]]`/`[[c:-1]]` 既不算标记、也永远不被越界校验抓到
+（`i < 0` 那条分支是**死代码**）；(b) **只扫 `derivation`**，于是把越界标记写在 `conclusion`
+里时 `warnings == []` —— 而 SYSTEM_PROMPT 规则 1 恰恰要求"每条结论后紧跟引用标记"，
+**最该被检查的位置反而没查**。
+- 修：正则改 `-?\d+`（共用一个 `_MARK_NUM`），且**两个字段都扫**；三条测试钉住。
+
+**⑤ LOW —— 冒烟自身的脆弱点（会让门禁在不同检出上给不同结论）。**
+(a) 键名正则 `([a-z_]+)` 漏掉含数字/大写的键（复核用 scratch 镜像验证：新增
+`vb2field`/`materialCount2` 这类未转发字段时冒烟**仍 32/32 PASS**，是瞎的）；
+(b) 本仓库 `core.autocrlf=true`，**全新 clone 是 CRLF**，而冒烟用 `}\n` 找字典结尾 ⇒
+CRLF 下 `indexOf` 返回 **-1**，块被**静默**扩到文件末尾，键集失真（LF 工作树上却全绿）。
+- 修：键名正则放宽为 `[A-Za-z_][A-Za-z0-9_]*`；解析改为**吃文本的纯函数 + 内部自我归一换行**，
+  并**新增两条 CRLF 自检**（"键解析对 CRLF 免疫"+"块边界在 CRLF 下也找得到"）。
+  ⚠ 这两条自检**第一版就红了**——因为我只归一了"读取"，没归一"解析"；这正说明这类
+  自检值得留着（它把静默失效变成会红的检查）。
+
+**⑥ 其余确认项（不修，记录以备忘）**：无 scope 提示词与旧实现**逐字一致**（756 用例矩阵 0 差异）；
+评审硬门在答案链上成立（运行时探针：只调 `get_project` + `search_materials`，从不碰
+`list_materials`/`get_material`/`material_chunks`）；`fts_match_expr` 迁移**5528 个输入 0 差异**；
+OR 化未开洞（77 个畸形查询无崩溃、无越权、无跨项目）；`chunk_text` 守卫 + `search_materials`
+收窄异常均如实成立；测试非空转（注入式回归分别打红 2~10 条）。
+
+**门禁**：`pytest` **1373 passed / 3 skipped / 0 failed**（1362 → 1373，**+11**：T4 优先 3 +
+互证可证伪 4 + 两轴行为护栏 1 + 引用标记 3）；`mypy` 127 files 0 errors；
+`tsc --noEmit` 0；`smoke` 13 段全过（`smoke:trim` **34/34**、`smoke:materials-tool` **34/34**）；
+`verify:commands` **22/22**；`e2e:sidebar` 13/13。
+
+> **关于"pytest 1362 还是 1361"**（复核 C11 提出的口径问题，如实记录）：
+> **干净检出**跑出来是 **1361 passed / 4 skipped**，比我在**实时工作树**里报的 1362/3
+> 少一条通过、多一条跳过。差的正是 `tests/test_pipeline.py::test_real_middle_json_integration`：
+> 它的 `skipif` 判的是一个**相对路径**的 MinerU 产物
+> （`var/mineru_cli_out/GB30871-2022识别版/…_middle.json`），而该文件是**未受控的运行产物**，
+> 只在我的工作树里存在；复核把该文件拷进 worktree 后它立刻变成 11 passed / 0 skipped。
+> ⇒ **两个数字都对**，只是口径不同；写进文档的数字今后要注明**是在哪种检出上取的**。
+
 
 
 

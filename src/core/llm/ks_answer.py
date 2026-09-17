@@ -46,12 +46,15 @@ TITLE_CLAUSE_MAXLEN = 80       # 标题条款判定（<80 字且纯数字条款�
 
 _TITLE_CLAUSE_NO = re.compile(r'^\d+(?:\.\d+)*$')
 
-# 取证三段式输出的引用标记格式：[[c:i]] 指 evidence[i]
-_CITE_MARK = re.compile(r'\[\[c:(\d+)\]\]')
+# 取证三段式输出的引用标记格式：[[c:i]] 指 evidence[i]。
+# ⚠ 必须是 `-?\d+`（独立复核 2026-09-17）：旧写法 `\d+` **匹配不到负数**，
+# 于是 `[[c:-1]]` 既不算标记、也就永远不会被越界校验抓到（下面 `i < 0` 的分支是死代码）。
+_MARK_NUM = r'(-?\d+)'
+_CITE_MARK = re.compile(r'\[\[c:' + _MARK_NUM + r'\]\]')
 # 参考资料的引用标记：[[m:i]] 指参考资料第 i 条（编号由 materials.authority 分配）。
 # ⚠ 与 [[c:i]] **必须是不同的标记**：法条证据与材料是**两个平面**，混用会让
 # `parse_llm_answer` 的越界校验把材料序号当成法条序号（或反之）。
-_MATERIAL_MARK = re.compile(r'\[\[m:(\d+)\]\]')
+_MATERIAL_MARK = re.compile(r'\[\[m:' + _MARK_NUM + r'\]\]')
 
 #: 材料在提示词里出现时**追加**给 SYSTEM_PROMPT 的规则（措辞的唯一所有者）。
 #:
@@ -388,18 +391,24 @@ def parse_llm_answer(text: str, evidence_count: int,
             conclusion = ""
         warnings.append("llm_json_unparsed: 按正文/标题兜底解析")
 
-    # 越界引用校验（法条证据 [[c:i]]）
-    idxs = sorted({int(x) for x in _CITE_MARK.findall(derivation or "")})
+    # 越界引用校验：**两个平面 × 两个字段**都要扫。
+    # ⚠ 只扫 `derivation` 是漏的（独立复核 2026-09-17 实测）：把越界标记写在
+    # `conclusion` 里时 `warnings == []` —— 而 SYSTEM_PROMPT 规则 1 恰恰要求
+    # "每条结论后紧跟引用标记"，也就是说**最该被检查的位置反而没查**。
+    scanned = f"{derivation or ''}\n{conclusion or ''}"
+    idxs = sorted({int(x) for x in _CITE_MARK.findall(scanned)})
     for i in idxs:
         if i < 0 or i >= evidence_count:
-            warnings.append(f"citation_index_out_of_range: [[c:{i}]] 越界 (evidence_count={evidence_count})")
+            warnings.append(
+                f"citation_index_out_of_range: [[c:{i}]] 越界 (evidence_count={evidence_count})")
     # 越界引用校验（参考资料 [[m:i]]）——与法条侧**对称**：材料序号同样可能被编造。
     # 注意：`material_count==0` 且出现 [[m:i]] 也算越界（模型想象了不存在的材料）。
-    midxs = sorted({int(x) for x in _MATERIAL_MARK.findall(derivation or "")})
+    midxs = sorted({int(x) for x in _MATERIAL_MARK.findall(scanned)})
     for i in midxs:
         if i < 0 or i >= material_count:
             warnings.append(
                 f"citation_index_out_of_range: [[m:{i}]] 越界 (material_count={material_count})")
+    # "一个标记都没有"只在 derivation 上判（保持既有语义：规则 1 要求推导正文里带标记）
     if parsed_ok and idxs and not _CITE_MARK.search(derivation or ""):
         warnings.append("llm_json_no_citation_marker: derivation 未出现 [[c:i]] 引用标记")
 

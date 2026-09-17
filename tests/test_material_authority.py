@@ -178,16 +178,127 @@ class TestRendering:
         assert "已知不可用" in text
 
 
+class TestT4BeatsAxisB:
+    """**T4 优先于轴 B**（独立复核 2026-09-17 报的 MEDIUM）。
+
+    旧实现先判 `task_role=='criterion'`，于是 T4+准则落进 `criteria`、进 `usable_hits()`，
+    而提示词规则 8 说"本任务准则**优先于法条**"——一篇匿名内容农场的帖子就能压过国标。
+    """
+
+    def test_t4_declared_criterion_is_NOT_load_bearing(self, project):
+        pid = project["project_id"]
+        _add(pid, "匿名帖", "住宿标准每晚八百元", tier="T4", domain="anon.example",
+             role="criterion")
+        a = au.assemble_evidence(pid, "住宿标准")
+        assert a["counts"]["criteria"] == 0, "T4 不得按准则承重"
+        assert a["counts"]["excluded"] == 1
+        assert au.usable_hits(a) == [], "T4 绝不可进入承重集合"
+        assert a["excluded"][0].get("criterion_blocked_by_tier") is True
+
+    def test_t4_criterion_is_visibly_marked_in_both_notes_and_text(self, project):
+        pid = project["project_id"]
+        _add(pid, "匿名帖", "住宿标准每晚八百元", tier="T4", domain="anon.example",
+             role="criterion")
+        a = au.assemble_evidence(pid, "住宿标准")
+        text = au.render_evidence(a)
+        # 行内标记：模型不能只看到「本任务准则」+ 规则 8 就照办
+        assert "未按准则承重" in text
+        assert "已知不可用" in text
+        # notes 里也要说清"不是悄悄推翻你的声明"
+        assert any("未按准则承重" in n for n in a["notes"]), a["notes"]
+
+    def test_t3_criterion_still_governs(self, project):
+        """轴 B 的**正常**用法不能被上一条误伤：T3 单一来源当准则仍然算准则。"""
+        pid = project["project_id"]
+        _add(pid, "公司制度摘录", "住宿标准每晚五百元", tier="T3", domain="x.example",
+             role="criterion")
+        a = au.assemble_evidence(pid, "住宿标准")
+        assert a["counts"]["criteria"] == 1
+        assert a["criteria"][0]["index"] in [h["index"] for h in au.usable_hits(a)]
+
+
+class TestCorroborationIsFalsifiable:
+    """**身份未知不能互证**（独立复核 2026-09-17 报的 MEDIUM）。
+
+    旧口径在无域名/URL 时退到 `material:<id>`，而生产代码**从不设置** domain/url
+    ⇒ "任意两份材料都算两个独立来源"，把核心纪律变成不可证伪的装饰：
+    实测同一篇文章的两份副本被报成「**2 个独立来源**互证」。
+    """
+
+    def test_two_copies_without_any_source_identity_do_NOT_corroborate(self, project):
+        pid = project["project_id"]
+        # 两份内容几乎相同的 T3，都没有 domain/url（= 现实里所有本地上传材料的样子）
+        _add(pid, "文章A", "住宿标准每晚八百元", tier="T3")
+        _add(pid, "文章B", "住宿标准每晚八百元。", tier="T3")
+        a = au.assemble_evidence(pid, "住宿标准")
+        assert a["counts"]["corroborated"] == 0, "身份未知者不得互证"
+        assert a["counts"]["leads_only"] == 2
+        assert au.usable_hits(a) == []
+        assert any("不能互证" in n for n in a["notes"]), a["notes"]
+
+    def test_url_provides_identity_so_two_domains_corroborate(self, project):
+        pid = project["project_id"]
+        _add(pid, "媒体A", "住宿标准每晚八百元", tier="T3", url="https://a-news.com/x/1")
+        _add(pid, "媒体B", "住宿标准每晚八百元", tier="T3", url="http://b-news.com/y?z=1")
+        a = au.assemble_evidence(pid, "住宿标准")
+        assert a["counts"]["corroborated"] == 2
+        assert len(au.usable_hits(a)) == 2
+
+    def test_url_identity_normalizes_scheme_www_and_case(self, project):
+        """`A.COM` / `www.a.com` / `http://a.com` 是**同一个**来源（旧口径算 3 个）。"""
+        pid = project["project_id"]
+        _add(pid, "A1", "住宿标准每晚八百元", tier="T3", domain="A.COM")
+        _add(pid, "A2", "住宿标准每晚八百元", tier="T3", domain="www.a.com")
+        _add(pid, "A3", "住宿标准每晚八百元", tier="T3", url="http://a.com/p?q=1")
+        a = au.assemble_evidence(pid, "住宿标准")
+        assert a["counts"]["corroborated"] == 0, "同一域名的三种写法不是三个来源"
+        assert a["counts"]["leads_only"] == 3
+
+    def test_unknown_identity_does_not_drag_down_known_corroboration(self, project):
+        """混合场景：两个已知域名互证 ⇒ 那两条升为辅证；身份未知的那条仍只是线索。"""
+        pid = project["project_id"]
+        _add(pid, "媒体A", "住宿标准每晚八百元", tier="T3", domain="a-news.com")
+        _add(pid, "媒体B", "住宿标准每晚八百元", tier="T3", domain="b-news.com")
+        _add(pid, "无出处", "住宿标准每晚八百元", tier="T3")
+        a = au.assemble_evidence(pid, "住宿标准")
+        assert a["counts"]["corroborated"] == 2
+        assert a["counts"]["leads_only"] == 1
+        assert len(au.usable_hits(a)) == 2
+
+
 class TestNoSingleScoreSorting:
     def test_module_exposes_no_tier_sorting_helper(self):
         """**两轴不可压成一个分数**：本模块不得提供"按层级/综合分排序材料"的函数。
 
         这条是**结构性约束**（业主裁定"用户可以改层级 + 制度是准则"）：一旦有了单一排序，
         公司制度就会被国标压到后面，正是要避免的错误。
+        ⚠ 这条只是**命名级**检查（独立复核 2026-09-17 指出：它抓不到
+        `order_materials_by_tier()`）。真正抓得住的是下面那条**行为级**断言。
         """
         offenders = [n for n in dir(au)
                      if n.startswith("sort") or "rank" in n.lower() or "score" in n.lower()]
         assert offenders == [], f"不应存在按分数排序材料的 API: {offenders}"
+
+    def test_usable_order_follows_groups_not_tiers(self, project):
+        """**行为级**两轴护栏：承重集合的顺序按"组"（准则在前）而**不是**按层级。
+
+        构造一个"按层级排"与"按组排"结论**相反**的场景：
+          · T1 材料被声明为准则（轴 B）→ 应排在 criteria
+          · T0 材料是一般可作依据 → 排在 usable
+        任何"按来源层级排序"的实现都会把 T0 排到 T1 前面 —— 本断言立刻红。
+        """
+        pid = project["project_id"]
+        _add(pid, "公司制度", "住宿标准每晚五百元", tier="T1", origin="user",
+             role="criterion")
+        _add(pid, "官方国标", "住宿标准每晚五百元", tier="T0")
+        a = au.assemble_evidence(pid, "住宿标准")
+        hits = au.usable_hits(a)
+        assert [h["index"] for h in hits] == [0, 1], \
+            "准则组必须先于依据组（按层级排会把 T0 提到最前）"
+        assert hits[0]["source_tier"] == "T1" and hits[0]["task_role"] == "criterion"
+        assert hits[1]["source_tier"] == "T0"
+        # 两组各自独立存在，没有被合并成一个跨层级的排序表
+        assert a["counts"]["criteria"] == 1 and a["counts"]["usable"] == 1
 
 
 class TestCitationIndices:

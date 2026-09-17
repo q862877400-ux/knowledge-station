@@ -19,8 +19,15 @@
 | T0 法定/官方原文 | 可作依据 |
 | T1 用户自有原始件 | 可作依据（对**其自身内容**是初级证据） |
 | T2 权威第三方 | 可作依据 |
-| T3 二手转述 | **只作线索**；**≥2 个独立来源互证**才可作辅证 |
+| T3 二手转述 | **只作线索**；**≥2 个来源身份已知且互异**（按域名）才可作辅证 |
 | T4 不可回溯 | **禁止用于结论**（仍如实列出，标"已知不可用"——不假装它不存在） |
+
+**两条不可被其他轴覆盖的绝对规则**（2026-09-17 独立复核后写死，别再改回顺序）：
+1. **T4 优先于轴 B**：即使某条材料被声明为 `task_role='criterion'`，只要它是 T4，
+   就**不按准则承重**（列在"已知不可用"，并在行内标出"你声明它为准绳但来源不可回溯"）。
+   否则一篇匿名内容农场的帖子会因为"用户把它定为准绳"而压过国标——T4 的禁令是绝对的。
+2. **身份未知不能互证**：没有域名/URL 的 T3 **不参与互证**（见 `_source_identity` 的
+   `None` 语义）。宁可保守为"仅线索"，也不要报一个**不可证伪**的"多源互证"。
 
 **可信度 ≠ 相关性**：本模块**不因"相关"而提级**，也不因为层级低就丢掉线索。
 """
@@ -62,19 +69,47 @@ GROUP_ORDER: tuple[tuple[str, str], ...] = (
 )
 
 
-def _source_identity(hit: dict[str, Any]) -> str:
-    """判"独立来源"的口径：优先域名；没有域名则退到材料本身。
+def _domain_of(url: str) -> str:
+    """从 URL 里取**来源域名**（小写、去 scheme/userinfo/端口/路径、去前导 `www.`）。
+
+    ⚠ 这不是 eTLD+1（那要公共后缀表，未引入）：`news.a.com` 与 `blog.a.com` 仍算
+    两个域名。**如实记这条局限**——但比"原文比较"强得多：
+    独立复核 2026-09-17 实测旧口径把 `A.COM` 与 `a.com` 算两个，`www.a.com` 与
+    `a.com` 也算两个（都是假"独立来源"）。
+    """
+    s = url.strip().lower()
+    if "://" in s:
+        s = s.split("://", 1)[1]
+    s = s.split("/", 1)[0]           # 去路径
+    s = s.split("@")[-1]             # 去 userinfo
+    s = s.split(":", 1)[0]           # 去端口
+    if s.startswith("www."):
+        s = s[4:]
+    return s
+
+
+def _source_identity(hit: dict[str, Any]) -> str | None:
+    """判"独立来源"的口径：优先 `domain`，其次从 `url` 取域名；**都没有 → None**。
 
     为什么用域名而不是 URL：同一站点转载同一篇稿子**不是**互证（那是最常见的假互证）。
-    同一域名的多篇也**只算一个来源**。
+
+    ⚠ **`None` 的语义（2026-09-17 独立复核后改，很关键）**：身份未知的来源**不能参与互证**。
+    原先身份未知时退到 `material:<id>`，而**生产代码从不设置 domain/url**
+    （`ingest_material_file` 两个都不传）⇒ 那份兜底等于"任意两份材料都算两个独立来源"，
+    把"≥2 个独立来源"这条核心纪律变成了**不可证伪**的装饰：实测同一篇文章的两份副本
+    被报成「二手转述 2 条获 **2 个独立来源**互证」。
+    现在宁可保守：**身份未知 ⇒ 只作线索**（准确性优先于"看起来有互证"）。
     """
     domain = (hit.get("domain") or "").strip().lower()
     if domain:
-        return f"domain:{domain}"
+        # ⚠ **一律**过 `_domain_of`，别写"含 :// 才归一"的分支——那样 `www.a.com`
+        # （无 scheme 无路径）会被原样返回，于是 `A.COM` / `www.a.com` / `http://a.com`
+        # 被算成**三个**来源（本文件第一版就这么错了，被自己的测试当场抓住）。
+        return _domain_of(domain) or None
     url = (hit.get("url") or "").strip()
     if url:
-        return f"url:{url.split('?')[0]}"
-    return f"material:{hit.get('material_id')}"
+        return _domain_of(url) or None
+    return None
 
 
 def assemble_evidence(project_id: str, question: str, *, limit: int = 8) -> dict[str, Any]:
@@ -104,24 +139,40 @@ def assemble_evidence(project_id: str, question: str, *, limit: int = 8) -> dict
         h = dict(h)
         h["behaviour"] = TIER_BEHAVIOUR.get(h.get("source_tier") or "", "excluded")
         h["behaviour_label"] = BEHAVIOUR_LABELS.get(h["behaviour"], "")
-        if h.get("task_role") == "criterion":
-            criteria.append(h)                     # 准则单列（轴 B），与层级无关
-        elif h["behaviour"] == "excluded":
+        h["source_identity"] = _source_identity(h)
+        declared_criterion = h.get("task_role") == "criterion"
+        # ⚠ **T4 优先于轴 B**（2026-09-17 独立复核报的 MEDIUM）：T4 = 来源不可回溯，
+        # "禁用于结论"是**绝对规则**，不能被"用户把它声明为准绳"重置。旧实现先判
+        # `task_role=='criterion'`，于是 T4+准则会落进 `criteria`、进 `usable_hits()`，
+        # 而提示词里"本任务准则**优先于法条**"——等于让一篇匿名内容农场的帖子压过国标。
+        # 现在 T4 一律进 `excluded`，**但保留用户声明的痕迹**（`criterion_blocked_by_tier`），
+        # 并在渲染与 notes 里显式说明"你声明它为准绳，但它来源不可回溯、未按准则承重"
+        # —— 不是悄悄推翻用户的声明，而是**不承重 + 说清楚**。
+        if declared_criterion and h["behaviour"] == "excluded":
+            h["criterion_blocked_by_tier"] = True
+        if h["behaviour"] == "excluded":
             excluded.append(h)
+        elif declared_criterion:
+            criteria.append(h)          # 准则单列（轴 B），与层级无关（T4 除外，见上）
         elif h["behaviour"] == "needs_corroboration":
             leads.append(h)
         else:
             usable.append(h)
 
     # T3 的互证判定：按"该主张"分组——这里用**检索命中的共性**近似：
-    # 只要出现 ≥2 个**独立来源**的 T3 命中，就认为这批线索获得多源互证。
+    # 只要出现 ≥2 个**身份已知且互异**的来源，就认为这批线索获得多源互证。
     # ⚠ 这是**批级**判定，不是逐主张级（逐主张需要语义聚类，属后续；
     #   当下宁可保守——批级互证只把线索升到"辅证"，不会升到"可作依据"）。
-    domains = {_source_identity(h) for h in leads}
+    # ⚠ **身份未知（无域名/URL）的 T3 不参与互证**（见 `_source_identity` 的 None 语义）。
+    identities = {h["source_identity"] for h in leads}
+    identities.discard(None)
     corroborated: list[dict] = []
-    if len(domains) >= 2:
-        corroborated = leads
-        leads = []
+    if len(identities) >= 2:
+        # ⚠ **逐条**判定，不是整批一起升：身份未知的那条**没有**被互证
+        # （它无法与任何来源配对）。整批一起升会让"无出处的帖子"搭上别人的互证
+        # ——本文件第一版就是这么错的，被 test_unknown_identity_does_not_drag_down… 抓住。
+        corroborated = [h for h in leads if h["source_identity"] is not None]
+        leads = [h for h in leads if h["source_identity"] is None]
         for h in corroborated:
             h["behaviour"] = "corroborated"
             h["behaviour_label"] = BEHAVIOUR_LABELS["corroborated"]
@@ -129,11 +180,20 @@ def assemble_evidence(project_id: str, question: str, *, limit: int = 8) -> dict
     notes: list[str] = []
     if criteria:
         notes.append(f"本任务准则材料 {len(criteria)} 条（轴 B：以它为准绳，不按来源层级降级）。")
+    blocked = [h for h in excluded if h.get("criterion_blocked_by_tier")]
+    if blocked:
+        notes.append(f"⚠ {len(blocked)} 条材料被声明为「本任务准则」，但来源**不可回溯（T4）**，"
+                     "故**未按准则承重**（T4 禁用于结论是绝对规则）——它们列在"
+                     "「已知不可用」一节，请自行判断是否需要换用可回溯的来源。")
     if corroborated:
-        notes.append(f"二手转述 {len(corroborated)} 条获 **{len(domains)} 个独立来源**互证，"
-                     f"可作辅证（来源：{'、'.join(sorted(domains))}）。")
+        notes.append(f"二手转述 {len(corroborated)} 条获 **{len(identities)} 个独立来源**互证，"
+                     f"可作辅证（来源：{'、'.join(sorted(identities))}）。")
     if leads:
+        unknown = [h for h in leads if h["source_identity"] is None]
         notes.append(f"二手转述 {len(leads)} 条**仅单一来源**，只能当线索，**未用于支撑结论**。")
+        if unknown:
+            notes.append(f"其中 {len(unknown)} 条**没有可回溯的来源标识（无域名/URL）**，"
+                         "身份未知者**不能互证**——请勿把它们当成多个独立来源。")
     if excluded:
         notes.append(f"不可回溯来源 {len(excluded)} 条已排除在结论之外（仍如实列出以便你判断）。")
     if not project_found:
@@ -176,7 +236,11 @@ def render_evidence(assembled: dict[str, Any]) -> str:
         loc = f"{h.get('title')}#{h.get('material_id')}@{h.get('char_start')}-{h.get('char_end')}"
         if h.get("page"):
             loc += f"(第{h['page']}页)"
-        return (f"- [[m:{h.get('index')}]] [{h.get('tier_label')}·{h.get('role_label')}] {loc}\n"
+        # 被层级挡下的"准则"必须**在行内**就能看出来，不能只靠 notes 或所在小节：
+        # 否则模型读到 role_label「本任务准则」+ 提示词规则 8（准则优先于法条）就会照办。
+        mark = " ⛔你声明它为准绳，但来源不可回溯（T4），**未按准则承重**" \
+            if h.get("criterion_blocked_by_tier") else ""
+        return (f"- [[m:{h.get('index')}]] [{h.get('tier_label')}·{h.get('role_label')}] {loc}{mark}\n"
                 f"  {h.get('text', '').strip()}")
 
     parts: list[str] = []

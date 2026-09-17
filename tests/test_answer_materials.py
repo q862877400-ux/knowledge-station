@@ -110,6 +110,31 @@ class TestCitationMarkers:
                                      evidence_count=1)
         assert any("[[c:5]] 越界" in w for w in parsed["warnings"])
 
+    @pytest.mark.parametrize("marker,expect", [
+        ("[[m:-1]]", "[[m:-1]] 越界"),
+        ("[[c:-1]]", "[[c:-1]] 越界"),
+    ])
+    def test_negative_indices_are_flagged(self, marker, expect):
+        """**负数越界必须被抓**（独立复核 2026-09-17 报的缺陷）。
+
+        旧正则 `\\d+` 匹配不到 `-1`，于是 `[[m:-1]]` 既不算标记、也不会被越界校验抓到
+        （`i < 0` 那条分支是**死代码**）。
+        """
+        parsed = ka.parse_llm_answer(f'{{"derivation":"见 {marker}。","conclusion":"x"}}',
+                                     evidence_count=3, material_count=3)
+        assert any(expect in w for w in parsed["warnings"]), parsed["warnings"]
+
+    def test_conclusion_is_scanned_too(self):
+        """**结论区也要扫**：规则 1 要求"每条结论后紧跟引用标记"，而旧实现只扫推导区。
+
+        独立复核实测：越界标记只写在 conclusion 里时 `warnings == []` ——
+        **最该被检查的位置反而没查**。
+        """
+        parsed = ka.parse_llm_answer(
+            '{"derivation":"没有标记","conclusion":"按参考资料 [[m:0]] 应为 500 元"}',
+            evidence_count=1, material_count=0)
+        assert any("material_count=0" in w for w in parsed["warnings"]), parsed["warnings"]
+
 
 class TestAnswerIntegration:
     """端到端（LLM 用假生成器）：范围 → 取材料 → 进提示词 → 记录可审计。"""

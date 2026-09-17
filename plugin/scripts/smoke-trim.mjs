@@ -37,6 +37,21 @@ import {
 const HERE = dirname(fileURLToPath(import.meta.url))
 const REPO = join(HERE, '..', '..')
 
+/**
+ * 读源码并**统一换行为 LF**。
+ *
+ * ⚠ 为什么必须归一（独立复核 2026-09-17 报的缺陷）：本仓库 `core.autocrlf=true`，
+ * **全新 clone 出来是 CRLF**。而本脚本下面用 `}\n` 找字典结尾——CRLF 下匹配不到，
+ * `indexOf` 返回 -1，代码会**静默**把"块"扩到文件末尾，键集随之失真；
+ * 在 LF 工作树上却全绿。于是同一个提交在不同检出上给出不同结论。
+ */
+function readSource(rel) {
+  return readFileSync(join(REPO, rel), 'utf8').replace(/\r\n/g, '\n')
+}
+
+/** 顶层键名：字母/下划线开头，允许数字与大小写（`([a-z_]+)` 会漏 `foo2`/`fooBar`）。 */
+const KEY_RE_SRC = '([A-Za-z_][A-Za-z0-9_]*)'
+
 const results = []
 function check(name, ok, detail) {
   results.push({ name, ok })
@@ -47,15 +62,43 @@ function check(name, ok, detail) {
  * 引擎侧真实字段集：从源码解析，而不是手抄（手抄会随引擎漂移）
  * ------------------------------------------------------------------ */
 
-/** 取 `ks_answer.py` 里 verification 字典的键（工具走的正是这条路径）。 */
-function engineAnswerKeys() {
-  const src = readFileSync(join(REPO, 'src/core/llm/ks_answer.py'), 'utf8')
+/** 统一换行为 LF。解析函数**自己**归一，不依赖调用方先读过 `readSource`。 */
+const LF = (s) => String(s).replace(/\r\n/g, '\n')
+
+/**
+ * 从 `ks_answer.py` 源码文本里取 **verification 字典**的键（工具走的正是这条路径）。
+ *
+ * 做成"吃文本、返回键数组"的纯函数，是为了能在下面用 **CRLF 变体**自检——
+ * 本仓库 `core.autocrlf=true`，全新 clone 是 CRLF，而这条解析一旦对换行敏感就会
+ * **静默**给出错误键集（见 `readSource` 的注释）。
+ */
+function verificationKeysFrom(rawSrc) {
+  const src = LF(rawSrc)
   const m = src.match(/return\s*\{\s*\n\s*"is_valid"[\s\S]*?\n\s*\}\n/)
   if (m === null) return []
-  return [...m[0].matchAll(/^\s*"([a-z_]+)":/gm)].map((x) => x[1])
+  return [...m[0].matchAll(new RegExp(`^\\s*"${KEY_RE_SRC}":`, 'gm'))].map((x) => x[1])
 }
 
-const ENGINE_KEYS = engineAnswerKeys()
+/**
+ * 取 `answer()` 顶层 `return {...}` 的键，**并回报块边界**。
+ *
+ * 为什么要把 `end` 一起报出来：`}\n` 找不到时 `indexOf` 返回 -1，旧实现会
+ * **静默**用"文件剩余部分"当块（键集被污染却仍"看起来通过"）。把边界暴露给断言，
+ * 才能把这种静默失效变成一条会红的检查。
+ */
+function answerKeysFrom(rawSrc) {
+  const src = LF(rawSrc)
+  const tierLine = src.match(/\n(\s*)"tier": tier,/)
+  if (tierLine === null) return { keys: [], start: -1, end: -1 }
+  const indent = tierLine[1]
+  const start = src.indexOf(tierLine[0])
+  const end = src.indexOf(`\n${indent.slice(0, -4)}}\n`, start)
+  const block = src.slice(start, end === -1 ? src.length : end)
+  const keys = [...block.matchAll(new RegExp(`^${indent}"${KEY_RE_SRC}":`, 'gm'))].map((x) => x[1])
+  return { keys, start, end }
+}
+
+const ENGINE_KEYS = verificationKeysFrom(readSource('src/core/llm/ks_answer.py'))
 
 /* ------------------------------------------------------------------ *
  * 样本：与引擎 `_describe_unsupported` 真实产出同形（含长中文 reason）
@@ -197,6 +240,17 @@ const ENGINE_PAYLOAD = {
   check('从 ks_answer.py 解析到引擎字段集',
     ENGINE_KEYS.length >= 8, `${ENGINE_KEYS.length} keys: ${ENGINE_KEYS.join(',')}`)
 
+  // **CRLF 自检**（独立复核 2026-09-17 报的脆弱点）：本仓库 core.autocrlf=true，
+  // 全新 clone 出来是 CRLF。若解析对换行敏感，键集会**静默**变成空/错，
+  // 于是"漏转发检测"看起来通过而实际瞎了。这里用 CRLF 变体对照，永久钉住。
+  {
+    const lf = readSource('src/core/llm/ks_answer.py')
+    const crlf = lf.replace(/\n/g, '\r\n')
+    check('verification 键解析对 CRLF 免疫',
+      verificationKeysFrom(crlf).join(',') === ENGINE_KEYS.join(','),
+      `crlf=${verificationKeysFrom(crlf).length} lf=${ENGINE_KEYS.length}`)
+  }
+
   // 逐键探测：把该键单独喂进去，看裁剪结果里还在不在。
   const dropped = ENGINE_KEYS.filter((k) => {
     const probe = { [k]: k === 'is_valid' ? true : [{ x: 1 }] }
@@ -223,7 +277,7 @@ const ENGINE_PAYLOAD = {
  * ------------------------------------------------------------------ */
 
 {
-  const src = readFileSync(join(REPO, 'plugin/src/index.js'), 'utf8')
+  const src = readSource('plugin/src/index.js')
   const m = src.match(/name: 'ks_answer',[\s\S]*?parameters:/)
   const desc = m === null ? '' : m[0]
   check('ks_answer 描述提到 unsupported_context', desc.includes('unsupported_context'))
@@ -251,21 +305,22 @@ const ENGINE_PAYLOAD = {
   // ⚠ 必须**按缩进**只取顶层键：这个 `return {...}` 里的 `_meta` 是**嵌套字典**，
   // 用 `^\s*"key":` 会把 `_meta` 的子键（query/intent/…）一并抓进来，于是断言会
   // 误报"这些字段被丢弃"——本冒烟第一版就是这么红了一次（是测试的错，不是代码的错）。
-  const src = readFileSync(join(REPO, 'src/core/llm/ks_answer.py'), 'utf8')
-  const tierLine = src.match(/\n(\s*)"tier": tier,/)
-  let answerKeys = []
-  if (tierLine !== null) {
-    const indent = tierLine[1]
-    const start = src.indexOf(tierLine[0])
-    const end = src.indexOf(`\n${indent.slice(0, -4)}}\n`, start)
-    const block = src.slice(start, end === -1 ? src.length : end)
-    answerKeys = [...block.matchAll(new RegExp(`^${indent}"([a-z_]+)":`, 'gm'))]
-      .map((x) => x[1])
-  }
+  const src = readSource('src/core/llm/ks_answer.py')
+  const { keys: answerKeys } = answerKeysFrom(src)
   check('从 ks_answer.py 解析到答案字段集（仅顶层键）', answerKeys.length >= 7,
     `${answerKeys.length} keys: ${answerKeys.join(',')}`)
   check('嵌套的 _meta 子键未被误当顶层字段',
     !answerKeys.includes('query') && !answerKeys.includes('intent'), answerKeys.join(','))
+  // CRLF 自检（同上）：块边界必须真找得到——找不到时旧实现会静默扩到文件末尾。
+  {
+    const lf = readSource('src/core/llm/ks_answer.py')
+    const crlf = lf.replace(/\n/g, '\r\n')
+    const a = answerKeysFrom(lf)
+    const b = answerKeysFrom(crlf)
+    check('答案块边界在 CRLF 下也找得到（避免静默扩块）',
+      a.end !== -1 && b.end !== -1 && a.keys.join(',') === b.keys.join(','),
+      `lfEnd=${a.end} crlfEnd=${b.end}`)
+  }
 
   // `_meta` 是唯一**有意**不直接转发的键（折成 meta_summary）；其余必须逐个在场。
   const INTENTIONAL = new Set(['_meta'])

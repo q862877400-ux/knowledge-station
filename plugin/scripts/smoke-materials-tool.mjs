@@ -290,13 +290,34 @@ const call = (args) => tool.execute(args, { signal: new AbortController().signal
     && out.answer_scope?.material_project_id === 'prj_scope'
     && out.answer_scope?.material_project_name === '回声',
     JSON.stringify(out.answer_scope ?? null))
-  check('answer_scope.material is false (not "unknown") when unbound',
-    (await (async () => {
-      const t = makeAnswerTool(fakeManager, () => baseMode)
-      return t.execute({ query: 'q' }, {
-        signal: new AbortController().signal, agent: { session: { id: 'sess-smoke' } },
-      })
-    })()).answer_scope?.material === false)
+  // ⑦ **schema 与桥必须一致**：模型看到的每个 params 键都必须真能到引擎。
+  //    独立复核 2026-09-17 实测：sanitizeParams 白名单缺 material_project_id，
+  //    于是 schema 向模型承诺了一个桥会**静默丢弃**的参数，整条材料链在这一层是死的。
+  //    这里直接驱动真工具（host 未绑定），断言模型自传的值真的进了请求体。
+  {
+    const passthrough = await answerWith(baseMode, { material_project_id: 'prj_from_model' })
+    check('a MODEL-supplied material_project_id is forwarded (schema/bridge agree)',
+      passthrough?.params?.material_project_id === 'prj_from_model',
+      JSON.stringify(passthrough?.params ?? null))
+
+    // 反向（这条才是真正会抓到本次缺陷的检查）：把工具 schema 当**契约**，
+    // 逐个键探测桥是否真的转发。sanitizeParams 漏键时这条立刻红。
+    const advertised = Object.keys(
+      makeAnswerTool(fakeManager, () => baseMode).parameters.properties.params.properties)
+    const probes = {
+      top_k: 3, bookmarks_only: true, folder_id: 'bmf_x', max_evidence: 2,
+      material_project_id: 'prj_x',
+    }
+    const forwarded = (await answerWith(baseMode, probes))?.params ?? {}
+    const notForwarded = advertised.filter((k) => !(k in forwarded))
+    check('every params key the schema advertises is actually forwarded to the engine',
+      notForwarded.length === 0,
+      notForwarded.length === 0 ? `${advertised.length} keys checked` : `DROPPED: ${notForwarded}`)
+    // 探针本身要覆盖全部 schema 键，否则上面那条会因"没测到"而假绿
+    const untested = advertised.filter((k) => !(k in probes))
+    check('the probe set covers every advertised params key (no blind spot)',
+      untested.length === 0, untested.length === 0 ? 'ok' : `UNTESTED: ${untested.join(',')}`)
+  }
 }
 
 /* ------------------------------------------------------------------ */
