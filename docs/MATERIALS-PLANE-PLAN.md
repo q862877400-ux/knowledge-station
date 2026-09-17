@@ -312,8 +312,21 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
   `imported`/`linked`。**只认标准**：法规正文（`第X条`）目前认不出来（`skip`），
   是已知边界、有测试钉住。落库标准号写法与库内既有行不统一（判重不受影响），
   canonicalizer 登记为待办（必须能处理 `DB11/T` 这类前缀带数字的号段）。
-- **C-4 剩余（未做）**：① **谁去抓**（采集器/工具接线，含 SSRF 与外发纪律）；
-  ② 法规正文的识别（让 Track L 也覆盖法规）；③ 采集预算/频率上限（方案 §11.4 未定）。
+- **C-4 网页采集器（已完成，§10.26）**：`src/core/materials/harvest.py`。§10.22 有自采入口、
+  §10.23/§10.24 有 Track L 的决策与入库，但**没有任何东西真的去抓**——这一步补上那半句。
+  三条纪律**全部复用既有所有者**：SSRF 走 `announce.is_private_url`（**不提供**"允许内网"
+  的开关，有结构性测试钉住签名与"不做第二份地址判断"）；抓取走 `channels.base.default_transport()`
+  （**不自造 HTTP 客户端**，测试注入 transport，不依赖真网络）；HTML→文本走新的页面级规范实现
+  `text_utils.html_to_text`（此前同一算法有**三份**，拦住了第四份；与 `clause_health` 的
+  等价/有意差异被双向测试钉住）。硬门未被松动：一律 `pending`/`collected`/`ephemeral`、
+  来源留痕、**未批准检索不到**。
+  **顺带修掉一个缺陷**：传输层把响应收敛成 `str`（Content-Type 在那里丢了）⇒ `%PDF-1.7`
+  被当正文登记；新增 `text_utils.looks_like_binary`（开头签名 + NUL），在**唯一采集门**
+  `collect_text`（拒收）与采集器两处调同一实现。测试 26 条（采集器）+ 3 条（判据与门）。
+  ⚠ **尚未接线**：没有 API 路由、没有模型工具 ⇒ 今天产品里**没有人能触发它**。
+- **C-5 剩余（未做）**：① **接线**（`/ks/materials/collect` 路由 + 模型侧采集工具，
+  含"模型只提线索、批准只能从界面来"的分工）；② 法规正文的识别（让 Track L 也覆盖法规，
+  今天只认标准）；③ 采集预算/频率上限（方案 §11.4 未定——未定之前**刻意不提供批量入口**）。
 
 ### 已知未决 / 诚实边界
 
@@ -334,3 +347,8 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
 6. **`material_chunks()` / `list_materials()` / `get_material()` 不设评审门**（故意，供评审人
    读正文用）。生产代码今天没有分析路径用它们 ⇒ 一旦 Phase B 的答案链接到其中任何一个，
    **就是绕过评审且不报错**。接答案链时必须只经 `approved_materials()` / `search_materials()`。
+7. **"这不是文本"只是启发式**（§10.26）：采集侧拿不到 Content-Type（传输层已收敛成 `str`），
+   只能靠**开头签名** + NUL 判断 ⇒ 认不出**没有签名**的二进制、也只认**开头**
+   （正文中间出现的签名不算，这是刻意的"宁可漏不误伤"）。完整判断要 magic 库（未立项）。
+   另：HTML→文本的规范实现虽已收敛到 `text_utils.html_to_text`，但**旧的三份调用点没改**
+   （各自 `limit`/语义是当场选的）——它们仍在，是登记在案的重复。

@@ -1188,13 +1188,75 @@ C3/C5/C6 **PARTLY**、C4 **REFUTED**（就是 §10.21 那个 P0，已修）。�
 复核给的两条后续建议已记：**GUI 验证前先钉住产物身份**（活动 GUI 读的是主检出的
 `client.js`，可能不是你要验的那个提交），以及**轴 A 的 reason 值得改成必填**
 （Phase C 的"强制评审"叙事会正好踩在"用户覆盖系统判级"这个点上）。
+### 10.26 Phase C 第四步：**网页采集器**（"能自己搜集材料"的后半句）+ 一个"读不了的正文"缺陷
 
+**做了什么**：新增 `src/core/materials/harvest.py`。§10.22 有自采入口、§10.23/§10.24 有
+Track L 的决策与入库，但**没有任何东西真的去抓**——"能自己搜集材料"当时只是半句话。
+`collect_url(project_id, url, ...)` 现在真的取回一个 URL 并交给 `collect_text` 登记。
 
+**三条纪律，全部复用既有所有者**（这一段的价值主要在这里，不在代码量）：
+1. **SSRF** 走 `update.announce.is_private_url`（那个模块的 docstring 已写明"用户拍板严格版、
+   **无豁免开关**"）。本模块**不提供**任何"允许内网"参数——那等于给严格版开后门。
+   有一条**结构性**测试钉住签名里不许出现 `allow`/`private`/`local`/`unsafe` 这类词，
+   另一条钉住"只调用那个所有者、自己不实现地址判断"（源码里不许出现 `socket.`/`ipaddress`）。
+2. **抓取**走 `update.channels.base.default_transport()`（curl_cffi 浏览器指纹 / httpx 兜底），
+   契约 `fetch(url, timeout=…) -> (status, body)`。**不自造 HTTP 客户端**。
+   测试用注入 transport（`Fake`/`Boom`/`Spy`）跑通路，**不依赖真网络**；
+   要打本地站点时才用 `monkeypatch` 换掉判据函数——**生产代码里没有开关**。
+3. **HTML→文本**走新的**页面级规范实现** `text_utils.html_to_text`（见下）。
 
+**硬门没有被采集松动**：抓回来的东西一律 `pending` / `origin='collected'` /
+`lifecycle='ephemeral'` / 来源留痕（`url` + `domain`），且**未批准就检索不到**（测试钉住
+`search_materials` 返回空）。`collect_text` 的"永远 pending"结构性约束原样生效——
+本模块连设置评审状态的通道都没有。
 
+**顺带把"HTML→文本"的第四份实现拦住了**：同一算法此前在**三处**各有一份
+（`server._html_to_text`、`ks_answer._html_to_text_compact`、
+`quality.clause_health.clause_health_html_to_text`），而 `clause_health` 自己的 docstring
+就写着"**逐字符等价于** `server.py` 的原 `_html_to_text`"——那是承认了的重复。
+采集器需要**页面级**转换（不是小片段、也不是表格），与其再写第四份，不如把规范实现放进
+`text_utils`。**没有**顺手改那三处的调用点（各自 `limit` 与语义是当场选的，改动面大于收益）
+——登记为待办。
+与 `clause_health_html_to_text` 的关系在 docstring 里**精确**写明并被测试**双向**钉住：
+同一 `limit` 下、**不含 `script`/`style`** 的输入逐字符等价（5 组样本：表格 / 实体 / 空 /
+`None` / 裸 `<td>`）；含 `script`/`style` 时**本函数丢掉它们的内容**而旧的那份不会——
+这是**有意的改进**（页面里的 JS/CSS 被当成正文塞进材料，是采集最脏的来源），
+并有一条测试专门把这条差异钉死，免得后人发现"不等价"后当成 bug 改回去。
 
+**本步挖出并修掉一个缺陷（测试红了才暴露）：PDF 头被当成正文登记。**
+现象：`collect_url` 对 `Content-Type: application/pdf` 的响应返回 `collected=True`，
+`%PDF-1.7` 连同乱码被 `html_to_text` 原样留下、**登记成一条材料**。
+根因**不在采集器**：**传输层把响应统一收敛成 `str`**（`CurlCffiTransport.fetch` 先试
+`resp.json()`，失败取 `resp.text`），**Content-Type 在那一层就丢了**。所以"这是不是 PDF"
+**无法**靠响应头判断，只能靠**开头字节**。
+修法：新增判据 `text_utils.looks_like_binary`（去前导空白后以已知容器签名开头——
+`%PDF-` / `PK\x03\x04`（docx/xlsx/odt）/ `\x89PNG` / JPEG / `\x7fELF` / OLE2 / PostScript——
+或前 4096 字符内含 NUL），在**两处**调用（**同一实现**，不新写第二份）：
+① `collect_text`（**唯一的采集门**，拒收并抛 `ValueError`）；② `harvest.collect_url`
+（它才知道自己刚抓过一个 URL，给得出"响应不是文本"这个具体理由）。
+**为什么挡在唯一那扇门上**：登记进去的东西**直接进评审队列**，而"读不了的正文"要等到
+分析时才暴露——那时它可能**已经被批准了**。这也**比空材料更坏**：空材料一眼看得出有问题，
+这个看起来"有内容"。
+诚实边界写进 docstring：这是**启发式**、只认**开头**、认不出**没有签名**的二进制、
+正文**中间**提到签名的会漏——**宁可漏也不误伤**（判据挡在唯一的门上，误判=丢材料）；
+完整判断要 magic 库（未立项）。
+测试：2 条在 `test_text_utils.py`（认全 + **零误伤**，含"签名在中间不算"与"NUL 只在开头
+4096 内才算"）、1 条在 `test_material_collect.py`（门自己拒收，且**不碰 `doc_meta`**
+——Track L 只在批准后入库）。
 
+**门禁（本步）**：`pytest` **1492 passed / 3 skipped / 0 failed**（上一步 1462 ⇒ **+30**，
+基线**只涨**）；`mypy src` **131 files / 0 errors**（上一步 130；新增 `harvest.py`）。
+本步**零 JS 改动**，故 `smoke` / `verify:commands` / `e2e:sidebar` / `tsc --noEmit` 未复跑
+（数字同上一步：冒烟 14 段全过、22/22、13/13、0）。
 
-
-
-
+**诚实边界（本步明确未做）**：
+- **没有接线**：`collect_url` 目前是**库级能力**——没有 API 路由、也没有模型工具。
+  今天的产品里**没有人能触发它**（`routes_materials.py` 的 14 个端点里没有采集；
+  `ks_materials` 是只读的）。⇒ 下一步（C-5）才是接线。
+- **不是爬虫**：不排队、不重试、不递归跟链接、**不限速**、不做 robots/ToS 判断。
+  **采集预算与频率上限仍未定**（方案 §11.4），所以刻意**不提供批量入口**——要批量，先定预算。
+- **不解析附件**：PDF/docx 交给文档解析管线（`ingestion.material_ingest`，走 MinerU 子进程），
+  采集器只收网页正文。
+- **标题是粗的**：`<title>` 正则 + `html_to_text`，不解析 DOM、不做正文抽取（readability）。
+- **继承** `is_private_url` 的已知局限（DNS rebinding 的 TOCTOU 窗口不设防），**不声称更强**。
+- 正文超 `MAX_TEXT_CHARS`(200_000) 会**显式**截断（返回值带 `truncated`、`tier_reason` 写明）。

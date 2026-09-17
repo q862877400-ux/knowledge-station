@@ -228,6 +228,30 @@ class TestInputValidation:
         with pytest.raises(ValueError, match="max_chars"):
             co.collect_text(project["project_id"], title="x", text=_ARTICLE, max_chars=0)
 
+    def test_binary_container_is_refused_at_the_door(self, project, db):
+        """**唯一的采集门**自己就要挡住二进制（不能只靠采集器自觉）。
+
+        为什么挡在这扇门上：登记进去的东西**直接进评审队列**，而"读不了的正文"要等到
+        分析时才暴露——那时它可能已经被批准了。判据的所有者是
+        `text_utils.looks_like_binary`（采集器也调它，两处同一个实现）。
+        """
+        pdf = "%PDF-1.7\n1 0 obj\n<< /Type /Catalog >>\nstream\nâãÏÓ\x00\nendstream"
+        before = db.execute("SELECT COUNT(*) FROM doc_meta").fetchone()[0]
+
+        with pytest.raises(ValueError, match="不是文本"):
+            co.collect_text(project["project_id"], title="某附件",
+                            text=pdf, url="https://a.example/x.pdf")
+        assert mr.list_materials(project["project_id"]) == [], "拒收不得留下材料"
+        after = db.execute("SELECT COUNT(*) FROM doc_meta").fetchone()[0]
+        assert after == before, "拒收不得碰 doc_meta（Track L 只在批准后入库）"
+
+    def test_binary_signature_in_the_middle_is_not_refused(self, project):
+        """保守：签名只在**开头**算——正文中间提到 `%PDF-` 的文章不该被误杀。"""
+        text = _ARTICLE + "\n附件请提供 %PDF- 格式的原文。"
+        m = co.collect_text(project["project_id"], title="报道", text=text,
+                            url="https://a.example/1")
+        assert m["material_id"].startswith("mat_")
+
 
 class TestDomainHelper:
     @pytest.mark.parametrize("url,expect", [

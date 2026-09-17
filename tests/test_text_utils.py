@@ -520,3 +520,37 @@ def test_derive_standard_keeps_cleaned_name():
     assert "(1)" not in name and "（1）" not in name, name
     assert "10058" not in name, name
     assert name == "电梯技术条件", name
+
+
+# ========== 采集入口的"这不是文本"判据（2026-09-17，harvest 接线实测）==========
+def test_looks_like_binary_on_real_container_heads():
+    """已知容器签名一律认出（PDF 是最常见的那个：政府网站直接给附件）。"""
+    from src.core.text_utils import looks_like_binary as f
+    assert f("%PDF-1.7\n%âãÏÓ") is True
+    assert f("   \n\t%PDF-1.4 x") is True, "前导空白不该骗过判据"
+    assert f("PK\x03\x04\x14\x00") is True          # docx/xlsx/odt
+    assert f("\x89PNG\r\n\x1a\n") is True
+    assert f("GIF89a\x01\x00") is True
+    assert f("\xff\xd8\xff\xe0") is True            # JPEG
+    assert f("\x7fELF\x02\x01") is True
+    assert f("%!PS-Adobe-3.0") is True
+    assert f("a\x00b") is True, "含 NUL 的一律不是正文"
+    # NUL 只在**开头 4096** 内才算（判据是"整篇像二进制"，不是"全文扫描"）
+    assert f("正常正文" + "x" * 3000 + "\x00") is True
+    assert f("正常正文" + "x" * 5000 + "\x00") is False
+
+
+def test_looks_like_binary_does_not_eat_real_text():
+    """**零误伤**比认全更重要：这判据挡在唯一的采集门上，误判=丢材料。"""
+    from src.core.text_utils import looks_like_binary as f
+    assert f("关于住宿标准的通知\n住宿标准每晚不超过八百元。") is False
+    assert f("<html><body>正文</body></html>") is False
+    assert f("") is False and f(None) is False and f("   \n  ") is False
+    # 正文里**提到**这些词（不带签名字节）不算
+    assert f("本文件为 PDF 格式，请用阅读器打开。") is False
+    assert f("附件：PK 压缩包说明") is False
+    # 签名必须在**开头**：中间出现不算（把它想成"整篇都是二进制"的保守判据）
+    assert f("说明见下\n%PDF-1.7\n") is False
+    # 控制字符之外的白名单：制表/换行/回车/换页都不是"NUL"
+    assert f("第一行\t第二行\r\n第三行\f") is False
+

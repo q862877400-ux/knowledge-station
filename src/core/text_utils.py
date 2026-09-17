@@ -1382,6 +1382,87 @@ def standard_no_key(value: str | None) -> str:
     return re.sub(r"[‐‑‒–—―－]", "-", s)
 
 
+def html_to_text(html: str | None, limit: int | None = None) -> str:
+    """HTML → 紧凑纯文本（**页面/表格通用**的规范实现）。
+
+    算法：`<eq>` 公式转可读 → 单元格/行转分隔 → **丢 script/style** → 剥标签 → 解实体
+    → 折叠空白。
+
+    ⚠ **为什么放到这里**（2026-09-17）：此前同一算法在**三处**各有一份
+    （`server._html_to_text`、`ks_answer._html_to_text_compact`、
+    `quality.clause_health.clause_health_html_to_text`），而 `clause_health` 的
+    docstring 自己就写着"**逐字符等价于** `server.py` 的原 `_html_to_text`"
+    —— 那是承认了的重复。采集器需要**页面级**转换（不是小片段、也不是表格），
+    与其再写第四份，不如把规范实现放这里。
+    **没有**顺手改那三处的调用点（各自 limit 与语义是当场选的，改动面大于收益）——
+    登记为待办。
+
+    ⚠ **与 `clause_health_html_to_text` 的关系要精确说**：在同一 limit 下，对
+    **不含 `script`/`style` 的**输入逐字符等价（有测试钉住）；含 `script`/`style` 时
+    **本函数会丢掉它们的内容**，而那三份不会 —— 这是**有意的改进**：页面里的 JS/CSS
+    被当成正文塞进材料，是采集最脏的来源。**别**把这条差异当成 bug"修回去"。
+
+    ⚠ **它是粗的**：不解析 DOM、不做正文抽取（readability）、不去导航/页脚样板。
+    采集件默认只是**线索**（T3 起），这个精度与那个定位是匹配的；
+    要更干净得引入正文抽取库（未立项）。
+    """
+    if not html:
+        return ""
+    t = clean_eq_tags(html)
+    t = re.sub(r"</t[dh]>", " | ", t, flags=re.IGNORECASE)
+    t = re.sub(r"</tr>", "\n", t, flags=re.IGNORECASE)
+    # 先整体丢掉**内容不该进正文**的两类标签（含其内容）：script/style。
+    # 不做这一步的话，页面里的 JS/CSS 会被当成正文塞进材料（采集最脏的来源）。
+    t = re.sub(r"<(script|style)\b[^>]*>.*?</\1>", " ", t, flags=re.IGNORECASE | re.DOTALL)
+    t = re.sub(r"<[^>]+>", "", t)
+    t = html_unescape(t)
+    t = re.sub(r"[ \t\u3000]+", " ", t)
+    t = re.sub(r"(?m) \| +$", "", t)
+    t = re.sub(r"\n{2,}", "\n", t).strip()
+    return t if limit is None else t[:limit]
+
+
+#: 二进制容器在"文本"里的开头签名（采集侧唯一能拿到的线索，见 `looks_like_binary`）。
+#:
+#: 只收**开头就能认**、且**不可能出现在正常正文里**的那些：PDF/PostScript、ZIP 族
+#: （`PK\x03\x04`：docx/xlsx/odt 都是它）、RAR、PNG/GIF/JPEG、ELF、OLE2（旧 Office）。
+_BINARY_HEADS = (
+    "%PDF-", "%!PS", "PK\x03\x04", "Rar!\x1a",
+    "\x89PNG", "GIF87a", "GIF89a", "\xff\xd8\xff", "\x7fELF", "\xd0\xcf\x11\xe0",
+)
+
+
+def looks_like_binary(text: str | None) -> bool:
+    """这段"文本"其实是**二进制容器**（PDF/图片/压缩包…）吗？
+
+    ## 为什么需要这个判据（2026-09-17，采集器接线时实测踩到）
+    传输层（`update.channels.base`）把响应统一收敛成 `str`：先试 `resp.json()`，
+    失败就取 `resp.text`。**Content-Type 在那一层就丢了**。于是"这是不是 PDF"
+    **无法**靠响应头判断——只能靠**开头字节**。
+    不判的后果实测是：`%PDF-1.7 …`（PDF 的 ASCII 头 + 被 `errors='replace'` 解出来的
+    乱码）会被 `html_to_text` 原样当成正文，登记成一条"**看起来有内容、其实一个字都读不了**"
+    的材料 —— 比空材料**更坏**：空材料至少一眼看得出有问题，这个要等分析时才发现，
+    而那时它已经进了评审队列、甚至被批准。
+
+    ## 判据（窄，宁可漏也不误伤）
+    1. 去掉前导空白后以 `_BINARY_HEADS` 里的签名开头；或
+    2. 前 4096 字符里含 `NUL`（`\\x00`）—— 正常正文不会有。
+
+    ## 诚实边界（这是启发式，不是文件类型识别）
+    - 只认**开头**：一个把 PDF 从**中间**开始吐出来的东西认不出；
+    - 认不出**没有签名的**二进制（某些加密/私有格式）；
+    - 反过来，正文里**真的提到**这些签名的文章会被误判 —— 所以本判据只用在
+      **采集入口**（那里的文本应当是从页面渲染出来的文字），**不要**拿它去清洗已入库正文；
+    - 完整判断要 magic 库 + 更多字节（未立项：当前的定位是"别把明显不是正文的东西当正文"）。
+    """
+    s = (text or "").lstrip()
+    if not s:
+        return False
+    if s.startswith(_BINARY_HEADS):
+        return True
+    return "\x00" in s[:4096]
+
+
 #: 「副本后缀」：浏览器/资源管理器重复下载产生的 `xxx(1).pdf` / `xxx（2）.pdf`。
 #:
 #: ⚠ **只吃结尾**的 `(数字)`（半角/全角括号都算），**不吃中间的**——库内大量**合法**

@@ -43,6 +43,7 @@ from urllib.parse import urlparse
 from src.core.ingestion import material_ingest as mi
 from src.core.materials import dedup
 from src.core.storage import material_repo as mr
+from src.core.text_utils import looks_like_binary
 
 #: 一次采集最多拿多少条做近似比对（避免在大项目上 O(k²) 失控）。
 NEAR_DUP_WINDOW = 200
@@ -128,6 +129,14 @@ def collect_text(project_id: str, *, title: str, text: str, url: str | None = No
     body = str(text or "")
     if not body.strip():
         raise ValueError("collect_text: text 为空——没有正文的采集件不该登记（会变成盲签对象）")
+    # 二进制容器当作正文送来 ⇒ **拒收**（不是"清洗"，是"这不是正文"）。
+    # 判据的所有者是 `text_utils.looks_like_binary`（采集侧也调它，理由见那里）。
+    # 为什么要挡在**这扇唯一的门**上：登记进来的东西直接进评审队列，
+    # 而一条"读不了的正文"要等到分析时才暴露——那时它可能已经被批准了。
+    if looks_like_binary(body):
+        raise ValueError(
+            "collect_text: 正文不是文本（看起来是 PDF/图片/压缩包等二进制容器）——"
+            "本入口不接收二进制，请先走文档解析管线（`ingestion.material_ingest`）")
 
     # ---- 判重（完全相同）----
     chash = text_hash(body)
