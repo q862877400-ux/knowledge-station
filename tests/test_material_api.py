@@ -615,19 +615,26 @@ class TestSlowEndpointsAreDeclaredSync:
     _BODY_ONLY_ASYNC_ALLOWLIST: set[str] = set()
 
     def test_async_endpoints_that_only_read_body_are_not_heavy(self, client):
-        """**通则**：`async def` 里若**唯一的 await 只是读 body**，它就不会让出控制权 ⇒
-        这种端点**做重活就必须是 `def`**。
+        """**通则**：`async def` 端点若**从不真正让出控制权**（函数体没有 `await`，或唯一的
+        `await` 只是读 body），却带着**任何重标记** ⇒ 必须是 `def`。
 
-        为什么要这条（而不是再抄一份白名单）：这个洞被发现过**两次**（复核 b12 的 MEDIUM-2、
-        §10.71 的审计），每次都是"复核撞见一条、修一条"。逐条白名单挡不住**将来新加**的端点；
-        这条通则用 `scripts/audit-async-endpoints.py` 的标记族自动覆盖整个 API 面。
+        为什么要这条（而不是再抄一份白名单）：这个洞被发现过**三次**（复核 b12 的 MEDIUM-2、
+        §10.71 的审计、§10.79 的通则），每次都是"复核撞见一条、修一条"。逐条白名单挡不住
+        **将来新加**的端点；这条通则用 `scripts/audit-async-endpoints.py` 的标记族自动覆盖
+        整个 API 面。**§10.83 起把 `bulk-db` 也算"重"**——实测（`var/tmp/probe-write-lock.py`）：
+        单行写事务无争用时 0.0013s（可忽略），但**另一个写者持锁 0.5s 时这个 async 端点把事件
+        循环堵了 0.5489s**；而 `busy_timeout` 是 60s ⇒ 真机上"批量入库持锁"期间点一下删除，
+        整引擎可以静默死几十秒。转换成本为零，尾风险却是秒到分钟级。
 
         判据（全部从**代码**取，不看注释——`_code_only` 已删 docstring/注释）：
         1. 端点是 `async def`；
-        2. 它的 `await` **只有** `request.json()` / `request.body()` 这种"读 body"；
-        3. 它的可达路径上有**重**标记，且**不是**只有 `bulk-db`
-           （单行写事务是毫秒级 —— 那一族的取舍见 §10.78，这里不重复判）。
+        2. 它**没有** `await`，或者它的 `await` **全部**只是 `request.json()` / `request.body()`；
+        3. 它的可达路径上有重标记（`fs-copy` 这类"轻标记"不算——`get_db_connection()` 里就有
+           一个 `mkdir`，会传染到任何碰库的助手）。
         命中且不在白名单 ⇒ 红。
+
+        **白名单**（`_BODY_ONLY_ASYNC_ALLOWLIST`）**目前为空**——那是好事：说明"该转的都转了"。
+        真要留一个 `async def`，必须在那里写清"为什么它不会占住事件循环"，不许默默加。
         """
         import asyncio
         import importlib.util
@@ -644,6 +651,7 @@ class TestSlowEndpointsAreDeclaredSync:
         spec.loader.exec_module(audit)
 
         offenders = []
+        scanned = 0
         for r in c.app.routes:
             ep = getattr(r, "endpoint", None)
             path = getattr(r, "path", None)
@@ -651,21 +659,25 @@ class TestSlowEndpointsAreDeclaredSync:
                 continue
             if not asyncio.iscoroutinefunction(ep):
                 continue
+            scanned += 1
             try:
                 src = textwrap.dedent(inspect.getsource(ep))
             except (OSError, TypeError):        # pragma: no cover
                 continue
             awaits = [ln for ln in src.splitlines() if "await " in ln]
-            body_only = awaits and all(
+            never_yields = (not awaits) or all(
                 ("request.json()" in ln or "request.body()" in ln) for ln in awaits)
-            if not body_only:
+            if not never_yields:
                 continue
             info = audit.audit_endpoint(ep)
-            heavy = {k for k in info.get("markers", {}) if k not in ("fs-copy", "bulk-db")}
+            heavy = {k for k in info.get("markers", {}) if k != "fs-copy"}
             if heavy and path not in self._BODY_ONLY_ASYNC_ALLOWLIST:
                 offenders.append((path, sorted(heavy)))
+        # ⚠ **反向断言**（防假绿）：一次都没扫到 async 端点时"全绿"毫无意义。
+        assert scanned >= 40, f"只扫到 {scanned} 条 async 端点——枚举/筛选可能坏了"
         assert not offenders, (
-            "这些 `async def` 只读了一下 body 就在做同步重活（应改 `def` + body 走签名）：\n"
+            "这些 `async def` 从不真正让出控制权却在做同步重活（应改 `def`；"
+            "带 body 的顺带把 body 走签名）：\n"
             + "\n".join(f"  {p}  {m}" for p, m in offenders)
             + f"\n（若确有理由保留 async，请加进 _BODY_ONLY_ASYNC_ALLOWLIST 并写清原因）")
 

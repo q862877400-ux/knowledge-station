@@ -697,8 +697,8 @@ def create_app(token: str) -> FastAPI:
             })
 
     @app.post("/api/v1/compliance/review")
-    async def create_review(request: Request):
-        body = await request.json()
+    def create_review(body: dict | None = None):
+        body = body or {}
         from src.core.compliance.engine import create_review_task
         out = create_review_task(
             body.get("review_type", "contract"), body.get("object_name", ""),
@@ -804,14 +804,14 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": out}
 
     @app.post("/api/v1/documents/batch-delete")
-    async def documents_batch_delete(request: Request):
+    def documents_batch_delete(body: dict | None = None):
         """批量删除文档（2026-08-31 批量删除 UI 接线）。显式级联见 doc_delete.py 模块注释：
         clause 级 span/patch/obligation/edge/fts(rowid)/vec/revision + doc 级几何/变更事件/关注/元数据。
         用户资产（收藏/批注/项目）不删；不 VACUUM（空间回收走维护面）。
         body: {"doc_ids": [...], "confirm": true}——confirm 必须显式 true（防脚本误调一刀删库）。"""
         from src.core.storage.doc_delete import delete_documents
         try:
-            body = await request.json()
+            body = body or {}
         except Exception:
             return _json_error(422, "DOC-3001", "请求体必须是 JSON")
         doc_ids = body.get("doc_ids")
@@ -1089,8 +1089,8 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": user_data.list_bookmarks()}
 
     @app.post("/api/v1/bookmarks")
-    async def add_bookmark(request: Request):
-        body = await request.json()
+    def add_bookmark(body: dict | None = None):
+        body = body or {}
         from src.core.exceptions import KnowledgeStationError
         from src.core.storage import user_data
         try:
@@ -1101,14 +1101,14 @@ def create_app(token: str) -> FastAPI:
             return _json_error(status, e.code, str(e))
 
     @app.delete("/api/v1/bookmarks/by-clause/{clause_key}")
-    async def del_bookmark_by_clause(clause_key: str):
+    def del_bookmark_by_clause(clause_key: str):
         """按 clause_key 取消收藏（toggle 用；无此收藏为 no-op）。"""
         from src.core.storage import user_data
         removed = user_data.remove_bookmark_by_clause_key(clause_key)
         return {"code": 200, "data": {"removed": removed}}
 
     @app.delete("/api/v1/bookmarks/{bookmark_id}")
-    async def del_bookmark(bookmark_id: str):
+    def del_bookmark(bookmark_id: str):
         from src.core.storage import user_data
         if not user_data.remove_bookmark(bookmark_id):
             return _json_error(404, "bookmark_not_found", f"收藏不存在: {bookmark_id}")
@@ -1122,8 +1122,8 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": user_data.list_doc_bookmarks()}
 
     @app.post("/api/v1/doc-bookmarks")
-    async def add_doc_bookmark(request: Request):
-        body = await request.json()
+    def add_doc_bookmark(body: dict | None = None):
+        body = body or {}
         from src.core.exceptions import KnowledgeStationError
         from src.core.storage import user_data
         try:
@@ -1134,14 +1134,14 @@ def create_app(token: str) -> FastAPI:
             return _json_error(status, e.code, str(e))
 
     @app.delete("/api/v1/doc-bookmarks/by-doc/{doc_id}")
-    async def del_doc_bookmark_by_doc(doc_id: str):
+    def del_doc_bookmark_by_doc(doc_id: str):
         """按 doc_id 取消收藏（顶部按钮 toggle 用；无此收藏为 no-op）。"""
         from src.core.storage import user_data
         removed = user_data.remove_doc_bookmark_by_doc(doc_id)
         return {"code": 200, "data": {"removed": removed}}
 
     @app.delete("/api/v1/doc-bookmarks/{doc_bookmark_id}")
-    async def del_doc_bookmark(doc_bookmark_id: str):
+    def del_doc_bookmark(doc_bookmark_id: str):
         from src.core.storage import user_data
         if not user_data.remove_doc_bookmark(doc_bookmark_id):
             return _json_error(404, "doc_bookmark_not_found",
@@ -1156,8 +1156,8 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": user_data.list_folders()}
 
     @app.post("/api/v1/bookmark-folders")
-    async def create_bookmark_folder(request: Request):
-        body = await request.json()
+    def create_bookmark_folder(body: dict | None = None):
+        body = body or {}
         from src.core.exceptions import KnowledgeStationError
         from src.core.storage import user_data
         try:
@@ -1168,8 +1168,8 @@ def create_app(token: str) -> FastAPI:
             return _json_error(status, e.code, str(e))
 
     @app.put("/api/v1/bookmark-folders/{folder_id}")
-    async def rename_bookmark_folder(folder_id: str, request: Request):
-        body = await request.json()
+    def rename_bookmark_folder(folder_id: str, body: dict | None = None):
+        body = body or {}
         from src.core.exceptions import KnowledgeStationError
         from src.core.storage import user_data
         try:
@@ -1180,7 +1180,7 @@ def create_app(token: str) -> FastAPI:
             return _json_error(status, e.code, str(e))
 
     @app.delete("/api/v1/bookmark-folders/{folder_id}")
-    async def delete_bookmark_folder(folder_id: str):
+    def delete_bookmark_folder(folder_id: str):
         """删除收藏夹：收藏本身**不删**，全部回「未分类」。"""
         from src.core.exceptions import KnowledgeStationError
         from src.core.storage import user_data
@@ -1190,9 +1190,9 @@ def create_app(token: str) -> FastAPI:
             return _json_error(404, e.code, str(e))
 
     @app.post("/api/v1/bookmark-folders/move-clause")
-    async def move_clause_bookmark(request: Request):
+    def move_clause_bookmark(body: dict | None = None):
         """把一条条款收藏移入夹 / 移回未分类。body: {clause_key, folder_id|null}。"""
-        body = await request.json()
+        body = body or {}
         from src.core.exceptions import KnowledgeStationError
         from src.core.storage import user_data
         try:
@@ -1204,9 +1204,9 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": {"moved": moved}}
 
     @app.post("/api/v1/bookmark-folders/move-doc")
-    async def move_doc_bookmark(request: Request):
+    def move_doc_bookmark(body: dict | None = None):
         """把一条标准收藏移入夹 / 移回未分类。body: {doc_id, folder_id|null}。"""
-        body = await request.json()
+        body = body or {}
         from src.core.exceptions import KnowledgeStationError
         from src.core.storage import user_data
         try:
@@ -1339,8 +1339,8 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": user_data.list_annotations(clause_key)}
 
     @app.post("/api/v1/annotations")
-    async def add_annotation(request: Request):
-        body = await request.json()
+    def add_annotation(body: dict | None = None):
+        body = body or {}
         from src.core.storage import user_data
         from src.core.exceptions import KnowledgeStationError
         try:
@@ -1351,7 +1351,7 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": out}
 
     @app.delete("/api/v1/annotations/{annotation_id}")
-    async def del_annotation(annotation_id: str):
+    def del_annotation(annotation_id: str):
         from src.core.storage import user_data
         if not user_data.delete_annotation(annotation_id):
             return _json_error(404, "annotation_not_found", f"批注不存在: {annotation_id}")
@@ -1363,15 +1363,15 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": user_data.list_projects()}
 
     @app.post("/api/v1/projects")
-    async def create_project(request: Request):
-        body = await request.json()
+    def create_project(body: dict | None = None):
+        body = body or {}
         from src.core.storage import user_data
         return {"code": 200, "data": user_data.create_project(
             body["project_name"], body.get("project_type", "engineering"))}
 
     @app.post("/api/v1/projects/{project_id}/clauses")
-    async def project_add_clause(project_id: str, request: Request):
-        body = await request.json()
+    def project_add_clause(project_id: str, body: dict | None = None):
+        body = body or {}
         from src.core.storage import user_data
         from src.core.exceptions import KnowledgeStationError
         try:
@@ -1381,7 +1381,7 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": out}
 
     @app.delete("/api/v1/projects/{project_id}/clauses/{clause_revision_id}")
-    async def project_remove_clause(project_id: str, clause_revision_id: str):
+    def project_remove_clause(project_id: str, clause_revision_id: str):
         from src.core.storage import user_data
         from src.core.exceptions import KnowledgeStationError
         try:
@@ -1405,7 +1405,7 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": data}
 
     @app.post("/api/v1/compliance/obligations/{list_id}/checklist")
-    async def to_checklist(list_id: str):
+    def to_checklist(list_id: str):
         from src.core.compliance.obligation import to_checklist
         from src.core.exceptions import KnowledgeStationError
         try:
@@ -1414,8 +1414,8 @@ def create_app(token: str) -> FastAPI:
             return _json_error(404, e.code, str(e))
 
     @app.post("/api/v1/compliance/obligations/{list_id}/check")
-    async def toggle_check(list_id: str, request: Request):
-        body = await request.json()
+    def toggle_check(list_id: str, body: dict | None = None):
+        body = body or {}
         from src.core.compliance.obligation import toggle_check
         ok = toggle_check(list_id, body["clause_revision_id"], body["checked"])
         if not ok:
@@ -1427,8 +1427,8 @@ def create_app(token: str) -> FastAPI:
     # ===== Phase 7：合规审查纵深（R-L11~14）=====
 
     @app.post("/api/v1/compliance/policies")
-    async def import_policy(request: Request):
-        body = await request.json()
+    def import_policy(body: dict | None = None):
+        body = body or {}
         from src.core.compliance.gap_analysis import import_internal_policy
         return {"code": 200, "data": import_internal_policy(
             body["policy_name"], body["policy_text"])}
@@ -1452,7 +1452,7 @@ def create_app(token: str) -> FastAPI:
             return _json_error(404, e.code, str(e))
 
     @app.post("/api/v1/compliance/obligations/build")
-    async def build_obligations():
+    def build_obligations():
         from src.core.compliance.gap_analysis import build_obligations
         return {"code": 200, "data": {"obligations": build_obligations()}}
 

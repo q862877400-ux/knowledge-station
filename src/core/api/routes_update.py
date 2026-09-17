@@ -36,7 +36,7 @@ def _upd_error(e: Exception, json_error):
 
 def register(app, json_error):
     @app.post("/api/v1/update/check")
-    async def update_check(request: Request):
+    def update_check(body: dict | None = None):
         """一键检查更新（F-01）：建 manual 巡检批次 → 后台线程执行，响应立即返回。
 
         - 已有运行中的巡检批次（DB running 或本进程在跑）→ 409/UPD-2001 拒绝，
@@ -49,7 +49,7 @@ def register(app, json_error):
         from src.core.update import inspector
         from src.core.update.channels.base import UPD_BATCH_ALREADY_RUNNING
         try:
-            body = await request.json()
+            body = body or {}
         except Exception:
             body = {}
         tier = body.get("tier") or "tier0"
@@ -105,7 +105,7 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": out}
 
     @app.post("/api/v1/update/batch/{batch_id}/pause")
-    async def update_batch_pause(batch_id: str):
+    def update_batch_pause(batch_id: str):
         """断点暂停：运行中在块边界落 checkpoint 后转 paused；幂等；不存在 → 404。"""
         from src.core.exceptions import KnowledgeStationError
         from src.core.update import inspector
@@ -116,7 +116,7 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": out}
 
     @app.post("/api/v1/update/batch/{batch_id}/resume")
-    async def update_batch_resume(batch_id: str):
+    def update_batch_resume(batch_id: str):
         """断点恢复：仅 paused 可续跑（后台线程执行，不阻塞响应）；
         不存在 → 404/UPD-2003；终态 → 422/UPD-3005；running/pending 原样返回。"""
         import threading
@@ -169,12 +169,12 @@ def register(app, json_error):
                 "data": [dict(r) for r in rows], "total": len(rows)}
 
     @app.post("/api/v1/update/changes/{change_id}/ack")
-    async def update_change_ack(change_id: str, request: Request):
+    def update_change_ack(change_id: str, body: dict | None = None):
         """用户确认变更事件（body 可选 {"ack": bool}，缺省确认）。"""
         from src.core.exceptions import KnowledgeStationError
         from src.core.update import change_repo
         try:
-            body = await request.json()
+            body = body or {}
         except Exception:
             body = {}
         try:
@@ -184,7 +184,7 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": out}
 
     @app.post("/api/v1/update/changes/{change_id}/manual")
-    async def update_change_manual(change_id: str, request: Request):
+    def update_change_manual(change_id: str, body: dict | None = None):
         """人工维护法律状态 ``{legal_status,note}``（manual 渠道语义）。
 
         非法枚举 → 422/UPD-3001（base.py 冻结错误码表：3001=illegal_legal_status；
@@ -193,7 +193,7 @@ def register(app, json_error):
         from src.core.exceptions import KnowledgeStationError
         from src.core.update import change_repo
         try:
-            body = await request.json()
+            body = body or {}
         except Exception:
             body = {}
         legal_status = body.get("legal_status")
@@ -240,7 +240,7 @@ def register(app, json_error):
     # ---- 公告发现（自定义公告源；契约增量见 pipeline/03「公告发现」节）----
 
     @app.post("/api/v1/update/announce-scan")
-    async def announce_scan(request: Request):
+    def announce_scan(body: dict | None = None):
         """公告源扫描（F-公告发现）：fire-and-forget daemon 线程执行，响应立即返回。
 
         - ``force``（默认 false）：false 走时间闸（announce.min_interval_hours 默认 6h
@@ -250,7 +250,7 @@ def register(app, json_error):
         """
         from src.core.update import announce
         try:
-            body = await request.json()
+            body = body or {}
         except Exception:
             body = {}
         force = bool(body.get("force"))
@@ -316,7 +316,7 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": {"source": src}}
 
     @app.delete("/api/v1/update/announce-sources/{source_id}")
-    async def announce_sources_remove(source_id: str):
+    def announce_sources_remove(source_id: str):
         """删除源（announcement_observed 历史记录保留）。不存在 → 404/UPD-2005。"""
         from src.core.exceptions import KnowledgeStationError
         from src.core.update import announce
@@ -386,13 +386,13 @@ def register(app, json_error):
                 "data": discover.download_later_list()}
 
     @app.post("/api/v1/discover/watchlist")
-    async def watchlist_post(request: Request):
+    def watchlist_post(body: dict | None = None):
         """加入/移除待下载清单：``{action:'add'|'remove', standard_no, name?}``。
         add 按 norm_no 幂等去重；remove 不存在项为无操作；均返回移除后的剩余清单。"""
         from src.core.exceptions import KnowledgeStationError
         from src.core.update import discover
         try:
-            body = await request.json()
+            body = body or {}
         except Exception:
             body = {}
         action = body.get("action")
@@ -426,11 +426,11 @@ def register(app, json_error):
                                      for t in subscriptions.DOMAIN_VOCAB]}}
 
     @app.put("/api/v1/update/subscriptions")
-    async def subscriptions_put(request: Request):
+    def subscriptions_put(body: dict | None = None):
         """全量替换式保存订阅：``{tags: ["消防","危化"]}``；非法 tag → 422/UPD-3001。"""
         from src.core.update import subscriptions
         try:
-            body = await request.json()
+            body = body or {}
         except Exception:
             body = {}
         tags = body.get("tags")
@@ -523,7 +523,7 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": {"batch_id": bid}}
 
     @app.post("/api/v1/ingest/bulk/{batch_id}/abort")
-    async def bulk_ingest_abort(batch_id: str):
+    def bulk_ingest_abort(batch_id: str):
         """终止批次（人工清场）：pending/running/paused → failed；终止后同目录可立即新建批次。"""
         from src.core.ingestion import bulk as bulk_ingest
         b = bulk_ingest.abort_batch(batch_id)

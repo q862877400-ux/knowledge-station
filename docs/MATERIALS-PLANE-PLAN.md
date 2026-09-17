@@ -943,3 +943,17 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     **⚠ 一个未复现的偶发**：本步门禁里 `smoke` 曾 **EXIT=1**，但我只记了退出码没留输出（取证失误）；
     随后**三次重跑全绿**（11 段汇总全 PASS），且本步**零前端改动** ⇒ **未复现、未归因**，按惯例登记。
 
+
+29. **`bulk-db` 一族的争用取证 + 32 条全转 `def` + 通则收成单一条规则**（§10.83，step-83）。
+
+    | 项 | 一句话 | 状态 |
+    |---|---|---|
+    | **先量再改**（§10.78 登记的项） | `DELETE /projects/{pid}/clauses/{rev}`：无争用 **0.0013s / 空档 0.0011s**；另一写者持锁 0.5s ⇒ 请求 0.5492s、**空档 0.5489s**（`busy_timeout=60s` ⇒ 真机可静默死几十秒） | ✅ 取证脚本 `var/tmp/probe-write-lock.py`（只碰临时库） |
+    | 32 条全转 `def` | T1 无 body 19 条 + T2 只读 body 13 条（`bookmarks`/`annotations`/`projects`/`compliance`/`update/*`/`discover/watchlist`…）；**自动选取**（= 两条通则的并集，不再手抄名单）+ 干跑逐条过目 + `ast.parse` + "残留 `request` 引用"检查（**0 处**） | ✅ AM1–AM3 变异 RED |
+    | 通则加强 | `test_async_endpoints_that_only_read_body_are_not_heavy` 现在判：`async ∧（无 await ∨ await 全是读 body）∧ 带重标记（`fs-copy` 除外，**`bulk-db` 不再排除**）⇒ 必须 def`；加反向断言 `scanned >= 40`；**白名单空集** | ✅ |
+    | **终盘** | `async def` **140 → 57**；T1 **89 → 48**（全部**零重标记**）；**T1+重 36 → 0**；T2+重 **41 → 1**（`/chat/completions`，真异步） | 📊 |
+
+    **下一步**：① 处理 b14 复核发现（后台在跑）→ ② 真机重启后端到端复验（需业主）→
+    ③ 未覆盖项：`/formula` 识别版回退、C2 的 FAIL 分支、uvicorn 下 `FileResponse` 语义、
+    `dry_run` 真实撕裂读、**进程内并发写**的真机行为。
+

@@ -4790,3 +4790,77 @@ limiter 按 **loop** 缓存（anyio 的 limiter 绑后端/循环；测试里一�
    本步的证据是**行为级并发峰值**（峰值恰好 4）与接线，不是延迟数字。
 4. 真机重启后才生效。
 
+
+## §10.83 `bulk-db` 一族：**先量了争用代价，再全部转 `def`** —— 并把通则收成"单一条规则"
+
+**一句话**：§10.78 当时决定"`bulk-db` 一族先别照单全改、量一条代表的争用代价再定"。本步量了：
+**无争用 0.0013s（可忽略），但另一个写者持锁 0.5s 时，这个 `async` 端点把事件循环堵了 0.5489s**
+——而 `busy_timeout = 60s`，所以真机上"批量入库持锁"期间点一下删除，**整个引擎可以静默死几十秒**。
+于是把剩下 **32 条**（T1 无 body 19 条 + T2 只读 body 13 条）全部转 `def`，
+并把通则**加强成单一条规则**（含 T1、含 `bulk-db`）——现在 `async` 且带重标记的端点**只剩 1 条**：
+`/chat/completions`（真异步：流式 + `anyio.to_thread`）。
+
+### 1. 取证（`var/tmp/probe-write-lock.py`，只碰临时库）
+
+用例：`DELETE /api/v1/projects/{pid}/clauses/{rev}`（`bulk-db` 家族的典型形状），
+另一个连接 `BEGIN IMMEDIATE` 持写锁 0.5s。
+
+| 用例 | HTTP | 请求耗时 | 事件循环空档 | 空闲基线 |
+|---|---|---|---|---|
+| A 无争用 | 200 | 0.0013s | **0.0011s** | 0.0160s |
+| B 争用（另一写者持锁 0.5s） | 200 | 0.5492s | **0.5489s** | 0.0119s |
+
+⇒ 结论清楚了：**常见情况确实可忽略（§10.78 的判断没错），但尾风险是"锁等多久就堵多久"**，
+上限是 `busy_timeout=60000ms`。转换成本为零（同样的两行）⇒ **该转**。
+
+### 2. 转换（自动选取 + 干跑，不再手抄名单）
+
+`var/tmp/convert-remaining.py` 的选择规则 = **两条通则的并集**，直接跑审计模块：
+```
+async def  ∧  带"重"标记（非 fs-copy）  ∧  （函数体没有 await ∨ 唯一 await 是读 body）
+```
+干跑打印 **32 条**（`server.py` 22 + `routes_update.py` 10；两种形状都有），我逐条看过才 `--apply`；
+每步 `ast.parse` 自检；改完再跑一次"残留 `request` 引用"检查（**0 处**——这一点很要紧：
+把这些端点的 `request: Request` 参数换成 `body: dict | None = None` 时，若函数体里还有别处用
+`request`，就会 `NameError`）。
+
+### 3. 通则加强：从"body-only"到"**从不真正让出控制权**"
+
+`test_async_endpoints_that_only_read_body_are_not_heavy` 现在的判据：
+**`async def` ∧（没有 `await` ∨ `await` 全是读 body）∧ 带重标记（`fs-copy` 除外，`bulk-db` **不再**排除）**
+⇒ 必须是 `def`。并且加了**反向断言** `scanned >= 40`（枚举坏掉时"全绿"没有意义）。
+白名单 `_BODY_ONLY_ASYNC_ALLOWLIST` **目前是空集**——这本身是个好信号：该转的都转了。
+
+变异（全 RED、逐字节还原）：**AM1** 把无 body 的 `del_bookmark` 改回 `async def`；
+**AM2** 把有 body 的 `add_bookmark` 还原成 `async def + await request.json()`；
+**AM3** 把另一个文件里的 `subscriptions_put` 改回 `async def`。
+
+### 4. 终盘（累计，从 §10.71 的基线起）
+
+| 指标 | §10.71 基线 | 现在 |
+|---|---|---|
+| `async def` 端点 | 140 | **57** |
+| T1（函数体无 `await`） | 89 | **48**（**全部零重标记**：廉价 DB 读 / `FileResponse`） |
+| **T1 且重** | 36 | **0** |
+| **T2+重** | 41 | **1**（`/chat/completions`，真异步） |
+| `async` 且带重标记 | — | **1** |
+
+剩下的 56 条 `async` 端点**全部不带重标记**（`/health`、`/documents`、`/clauses/resolve`、
+`/documents/{id}/file`…）⇒ 它们是"查一下、返回"，留在事件循环里是对的。
+
+### 5. 证据
+
+`pytest` **1789 passed / 3 skipped / 0 failed**；`mypy` **134 / 0**；`tsc` 0；
+`smoke` EXIT=0（19 段）；`verify:commands` 22/22。变异 AM1–AM3 全 RED。
+审计重跑（`var/tmp/audit-after-83.json`）：`async` 57 / T1 48 / **T1+重 0** / T2+重 1。
+
+### 6. 诚实边界
+
+1. 争用是**人为制造**的（另一连接持锁）；真机上"批量入库持锁"的**实际时长未测**，
+   但上限由 `busy_timeout=60s` 界定。
+2. 转换**让进程内并发写成为可能**（改前事件循环把它们串行化了）：两条写请求现在可以在两个
+   工作线程里同时进 DB，一条等锁。WAL + `busy_timeout` 正是为此准备的，但**真机并发写行为未测**。
+3. 这 32 条里**没有一条**做了"改前/改后空档"的逐条实测（做的是那一条代表 + 结构性判据）；
+   它们的收益只在**争用**时体现，无争用时本来就 1ms。
+4. 真机重启后才生效。
+
