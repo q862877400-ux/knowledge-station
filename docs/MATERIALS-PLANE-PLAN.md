@@ -424,6 +424,9 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
   六节：研究问题 / 结论（调用方给）/ **依据按承重能力分组**（复用 `authority`，
   分组判据不另写一份）/ 已批准清单 / **未批准如实列出** / 已知限制。
   Markdown 与 HTML 从**同一份结构化文档**渲染（零新增依赖，HTML 全转义）。
+  ⚠ **§10.92 补上第三种形态 Word（`.docx`）**：还是从**同一份内容块**渲染
+  （`build_report_blocks` 仍是唯一内容来源），走 `exports/report_export._open_document`
+  既有那条 `python-docx` 通路 ⇒ 依旧零新增依赖；`dry_run` 仍只回 markdown/html。
   **引用逐条校验**：`[[m:i]]` 不存在或落在"仅线索/不可用"⇒ 进 `warnings`（绝不静默）；
   `[[c:i]]` 本次**无法校验**，如实计数。顺带补掉 `/ks/report/*` **此前零冒烟**的覆盖缺口
   （新增 `smoke-report-routes` 19 项），并修掉 `mapProbe` 把引擎 404 翻成 502 的**归因错误**。
@@ -458,7 +461,8 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
   ⚠ 这条接线上最容易错得很安静的一点：**产出路由的 `project_id` 在 body，材料路由在 query**
   （不同时间写的两条路由）——冒烟把"路径里不许出现 `project_id`"钉成断言。
   新冒烟 `smoke-report-ui` 15 条（含 `dry_run` 必须是布尔、空串不发、缺 pptx 抛可操作错误）。
-  仍未做：`.docx` 侧未扩到材料平面；**自动成文**（由系统得出结论）**未立项**（触及答案链，P1）。
+  仍未做：**自动成文**（由系统得出结论）**未立项**（触及答案链，P1）。
+  ✅ ~~`.docx` 侧未扩到材料平面~~ —— **§10.92 已闭合**（同一份内容块的第三种形态）。
 
 ### 已知未决 / 诚实边界
 
@@ -1121,5 +1125,28 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
 
     **下一步**：① 量具接名单（第二层）→ ② `asyncio.to_thread` 池不对称 → ③ 真机重启端到端（需业主）
     → ④ **产品侧**：研究报告 Word(.docx)（§10.92，与本节同一冻结区间，由 b21 一并复核）。
+
+
+38. **产品侧：研究报告第三种形态 Word（`.docx`）**（§10.92，step-92；快照标签
+    `step-91-docx-third-form`，标签号比章节号小 1，见 §10.85 §5）。
+
+    | 项 | 一句话 | 状态 |
+    |---|---|---|
+    | D-3b 记的缺口 | "`.docx` 侧未扩到材料平面" | ✅ 闭合（方案 §8 那一行的"报告：`python-docx`"） |
+    | 同源 | `build_report_blocks` 仍是**唯一**内容来源；h1/h2/h3→`add_heading`、p→段落、pre→Consolas、ul→内置 `List Bullet` | ✅（三条渲染器覆盖六种块的用例钉住） |
+    | 零新增依赖 | 走 `report_export._open_document` 既有 python-docx 通路（三条既有导出早已在用） | ✅ |
+    | `dry_run` | **不含 docx**（二进制不进 JSON 响应）⇒ 响应形状**故意**不统一 | ✅ 有意 |
+    | **新引入的失败模式** | 原顺序 `md→html→docx`：docx 抛异常 ⇒ 回 500 而盘上留**两个孤儿文件** | ✅ 改成**先渲染后落盘**（抛了一个文件都不留）+ 异常翻成 `docx_render_failed`（带模板路径与所需样式名） |
+    | 模板契约 | 自备 `templates/research-report.docx` 必须保留 `Heading 1/2/3` + `List Bullet`；缺了**大声失败**而不是静默降级 | ✅ 实测（删掉该样式 ⇒ `KeyError: "no style with name 'List Bullet'"`）；本机无 `templates/` 目录故**真机未触发** |
+    | 连带必改 | `smoke-client-entry.mjs` 的**按钮文案断言**（不跟着改就红——它扫构建产物） | ✅ 已改；`report-ui` 15→16 项、`client-entry` 85/85 |
+    | **我自己的记录事故** | 核对本步标签时发现 **`step-90-*` 根本不存在**：§10.91 文档写了"快照标签是 `step-90-fix-asgi-note-and-depth-pin`"，当时**并没真跑脚本** | ✅ 已补打在 `9b57d4c`（附注写明是补打）+ §10.91 §4 就地更正 + 纪律"快照后立刻 `git tag --list 'step-*'` 核一眼" |
+    | 门禁 | pytest 1812/3skip/0fail（收集 **1815**；对账：HEAD 1811 + 本文件 27→31）；mypy 134/0；tsc 0；smoke EXIT=0；22/22；uvicorn 4/4 | ✅ |
+
+    **诚实边界**：① 无真机端到端（业主重启两道门后才在界面上跑）；② "能生成 Word" ≠ "排版好看"
+    （真 Word/WPS 观感未验）；③ 模板缺样式会让**整份**报告导出失败（故意的）；④ 写盘阶段失败仍
+    可能留下不完整产物集合（非原子，已登记未加固）；⑤ `files`/`names` 顺序是约定不是契约。
+
+    **下一步**：① 真机重启后**人眼确认** Word 交付物 + PPT（需业主）→ ② 量具接名单（第二层）
+    → ③ `asyncio.to_thread` 池不对称 → ④ **自动成文**（由系统得出结论）是否立项（触及答案链，P1）。
 
 

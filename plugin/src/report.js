@@ -34,7 +34,7 @@ import {
 export const KS_REPORT_EFFECT_PATH = '/ks/report/effect'
 export const KS_REPORT_DOCS_PATH = '/ks/report/effect/docs'
 export const KS_REPORT_EXPORT_PATH = '/ks/report/export'
-/** 研究报告（Phase D）：材料平面的产出物（Markdown + HTML）。 */
+/** 研究报告（Phase D）：材料平面的产出物（Markdown + HTML + Word，§10.36/§10.92）。 */
 export const KS_REPORT_RESEARCH_PATH = '/ks/report/research'
 /** 同一份内容的 PPT（Phase D-2）。 */
 export const KS_REPORT_SLIDES_PATH = '/ks/report/research/slides'
@@ -218,7 +218,8 @@ function registerExportRoute(ctx, manager) {
  *
  * 与 `/ks/report/export`（效力报告 Excel）不同：这条是**材料平面**的产出物——
  * 把"这一轮用了哪些参考资料、两个轴是什么、还有哪些没批准"落成一份自包含文件
- * （Markdown + HTML，引擎本地生成、零新增依赖；方案 §8 的退路）。
+ * （Markdown + HTML + **Word**，引擎本地生成、零新增依赖；方案 §8 的退路）。
+ * §10.92：三种形态**同一份内容块**，`files`/`names` 因此是**三个**（`.md`/`.html`/`.docx`）。
  *
  * ⚠ **白名单转发**（不是整包透传）：只把认识的键发给引擎。与采集端点同一个立论——
  * 静默透传未知键会让调用方以为自己设上了（`sanitizeParams` 同款坑）。

@@ -33141,7 +33141,7 @@ function KsMaterialsPanel(props) {
             style: btnStyle2(busy !== ""),
             disabled: busy !== "",
             onClick: onExportReport,
-            children: "\u751F\u6210\u7814\u7A76\u62A5\u544A\uFF08Markdown/HTML\uFF09"
+            children: "\u751F\u6210\u7814\u7A76\u62A5\u544A\uFF08Markdown/HTML/Word\uFF09"
           }
         ),
         /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(

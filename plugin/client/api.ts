@@ -2538,7 +2538,7 @@ export interface KsResearchReport {
   counts?: KsReportCounts
   markdown?: string
   html?: string
-  /** 落盘的绝对路径（`dry_run` 时没有）。 */
+  /** 落盘的绝对路径（`dry_run` 时没有）。落盘是**三个**：`.md` / `.html` / `.docx`（§10.92）。 */
   files?: string[]
   names?: string[]
 }
@@ -2586,11 +2586,12 @@ async function postReport<T>(path: string, projectId: string, input: KsReportInp
 }
 
 /**
- * POST /ks/report/research — **生成研究报告**（Markdown + HTML，本机落盘）。
+ * POST /ks/report/research — **生成研究报告**（Markdown + HTML + Word，本机落盘）。
  *
  * 内容只吃**已批准**的材料（硬门在引擎侧的检索里）；未批准的自会出现在
  * "尚未批准的材料（不会进入任何结论）"一节。`conclusion_md` 里的 `[[m:i]]` 会被
  * 引擎逐条校验，对不上的进 `warnings`——**界面必须显示**，否则用户会以为引用都成立。
+ * `files`/`names` 是**三个**（`.md` / `.html` / `.docx`，§10.92，顺序固定）。
  */
 export async function exportResearchReport(
   projectId: string, input: KsReportInput = {}, signal?: AbortSignal,

@@ -108,16 +108,19 @@ const ALLOWED = ['project_id', 'title', 'query', 'conclusion_md', 'limit', 'dry_
 {
   nextResponse = envelope({
     title: '住宿标准研究', markdown: '# 报告', html: '<h1>报告</h1>',
-    files: ['D:\\exports\\研究报告-x.md', 'D:\\exports\\研究报告-x.html'],
-    names: ['研究报告-x.md', '研究报告-x.html'],
+    files: ['D:\\exports\\研究报告-x.md', 'D:\\exports\\研究报告-x.html',
+      'D:\\exports\\研究报告-x.docx'],
+    names: ['研究报告-x.md', '研究报告-x.html', '研究报告-x.docx'],
     counts: { approved: 3, pending: 2, rejected: 1 },
     warnings: ['结论里的 [[m:9]] 在本次依据集里不存在'],
     citations: { checked_material_refs: 4, bad_material_refs: 1, unchecked_law_refs: 2 },
   })
   const out = await api.exportResearchReport(PROJ, {})
   check('成功：markdown/files/counts **原样带出**（界面要显示落盘路径与计数）',
-    out.markdown === '# 报告' && out.files?.length === 2 && out.counts?.pending === 2,
+    out.markdown === '# 报告' && out.files?.length === 3 && out.counts?.pending === 2,
     JSON.stringify({ files: out.files, counts: out.counts }))
+  check('三形态（.md/.html/.docx）都带出——界面逐条显示落盘路径（§10.92）',
+    out.files?.[2]?.endsWith('.docx') === true, JSON.stringify(out.files))
   check('⚠ warnings 带出（引用对不上**不许**静默——界面必须显示）',
     Array.isArray(out.warnings) && out.warnings.length === 1, JSON.stringify(out.warnings))
   check('引用核验计数带出（含"本次无法核验"的法规引用）',

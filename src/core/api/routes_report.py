@@ -5,7 +5,8 @@
 - GET  /api/v1/report/effect/color  全库按色取 top-N（`ks_effect_report` 的数据源）
 - POST /api/v1/report/effect/export openpyxl 落 exports 目录（空库也出文件），
   下载走既有 GET /export/download（穿越防护已有）。
-- POST /api/v1/report/research      **研究报告**（Phase D，§10.36）：Markdown + HTML 落盘，
+- POST /api/v1/report/research      **研究报告**（Phase D，§10.36 + §10.92）：
+  Markdown + HTML + **Word** 三形态落盘（同一份内容块），
   材料依据按承重能力分组、引用标记逐条校验、未批准材料如实列出（零新增依赖）。
 - POST /api/v1/report/research/slides **同内容的 PPT**（Phase D-2，§10.37）。
 
@@ -110,18 +111,22 @@ def register(app, json_error):
     # ---------------------------------------------------------------- 研究报告（Phase D）
     @app.post("/api/v1/report/research")
     def research_report(payload: dict | None = None):
-        """**生成一份研究报告**（Markdown + HTML，本地落盘，零新增依赖）。
+        """**生成一份研究报告**（Markdown + HTML + Word，本地落盘，零新增依赖）。
 
         这套东西到 §10.35 为止只能"把材料收进来、评审、分组"，**产出物**这一侧还是空的
         （业主的原始要求是"经用户评审确认参考资料可用后再做**分析/产出**（报告、PPT）"）。
         方案 §8 说 PPT 要单独立项、退路是"先出 Markdown/HTML"——**本端点就是那条退路**。
+        §10.92 又按方案 §8 那一行（"报告：`python-docx`（Word）"）补上了 **`.docx`**：
+        三种形态**同一份内容块**（`research_report.build_report_blocks`），
+        所以 `files`/`names` 是**三个**（`.md` / `.html` / `.docx`），顺序固定。
 
         Body：`{project_id, title?, query?, conclusion_md?, limit?, dry_run?}`
         - `query`：给了就按它检索**已批准**材料并按**承重能力**分组（复用 `authority`，
           分组判据不另写一份）；不给就只列清单；
         - `conclusion_md`：结论正文，里面的 `[[m:i]]` 会被**逐条校验**
           （不存在 / 指向仅线索或不可用 ⇒ 进 `warnings`，绝不静默）；
-        - `dry_run=true`：只组装不落盘（返回 markdown/html 供预览）。
+        - `dry_run=true`：只组装不落盘（返回 markdown/html 供预览）——
+          **不含 docx**：docx 是二进制，塞进 JSON 响应没有意义（§10.92）。
 
         ⚠ 本端点**逐份流式 sha256 材料源文件**（`_attach_locator_status` → `locator_health`
         的"源文件字节"轴）⇒ 必须是 `def`（§10.71）：几十份 PDF 就是一次真实磁盘读，

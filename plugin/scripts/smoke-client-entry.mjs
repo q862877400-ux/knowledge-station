@@ -485,8 +485,8 @@ check('inject declares only official services (no third-party hard gate)',
     // 这条证明**新的 api 函数真的被打进产物**（只有 api.ts 里那一份措辞）
     ['client 侧自采接线（响应形状不认识时抛，不谎报"没采到"）',
       '自采响应异常：缺少 collected 字段'],
-    // ---- Phase D-3b：产出入口（研究报告 / PPT，2026-09-17）----
-    ['产出按钮：研究报告', '生成研究报告（Markdown/HTML）'],
+    // ---- Phase D-3b：产出入口（研究报告 / PPT，2026-09-17；§10.92 加 Word）----
+    ['产出按钮：研究报告（三形态）', '生成研究报告（Markdown/HTML/Word）'],
     ['产出按钮：PPT', '生成 PPT'],
     // 同一份内容这句话必须在界面上说（否则用户会怀疑"报告和 PPT 是不是两套东西"）
     ['报告与 PPT **同源**这件事在界面上写明', '同一份内容'],

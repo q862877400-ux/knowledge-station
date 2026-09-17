@@ -5700,6 +5700,10 @@ CPython 的 `.pyc` 校验键是 **(mtime 秒, 文件大小)**；`tests/test_mate
 `verify:commands` 22/22。
 
 ⚠ **本步的快照标签是 `step-90-fix-asgi-note-and-depth-pin`**（标签号比章节号小 1，见 §10.85 §5）。
+⚠ **2026-09-18 更正（§10.92 发现）：这条标签当时其实"漏打"了**——文档先写了名字，脚本没跑。
+§10.92 在核对标签时发现（`git tag --list` 里根本没有 `step-90-*`），**已补打**并指向本节提交
+`9b57d4c`（标签附注里写明是补打）。教训与 §10.85 §5 那条同型：**"文档说打了"不等于"真的打了"**，
+每次快照后应立刻 `git tag --list 'step-*' | tail` 核一眼。
 
 ### 5. 诚实边界
 
@@ -5711,4 +5715,134 @@ CPython 的 `.pyc` 校验键是 **(mtime 秒, 文件大小)**；`tests/test_mate
    （RED 且命中预期断言）与本次"清缓存后重跑"一致，但我**没有**把每一轮的缓存状态都回溯核对过；
    可能的残留影响是"某次假红被当成真红"。⇒ 后续变异一律按 §3 的加固跑。
 4. 本步仍**没有**真机端到端（需业主重启两道门）。
+
+
+## §10.92 产品侧：研究报告的第三种形态 Word（`.docx`）——同一份内容块，且失败不留半份产物
+
+**一句话**：方案 §8 明写"报告：`python-docx`（Word）…扩展现有 `exports/` 即可"，而 D-1
+（§10.36）只交付了"先出 Markdown/HTML"那条**退路**，D-3b 自己记的缺口就是"`.docx` 侧未扩到
+材料平面"。本步把它补上——**第三种形态不是第二套内容**（`build_report_blocks` 仍是唯一内容来源），
+并顺手把本步**新引入的那一种失败模式**（docx 渲染失败会在盘上留下两个孤儿文件）堵死。
+
+### 1. 补什么、为什么不新增依赖
+
+| 内容块 | Word 落地 | 依据 |
+|---|---|---|
+| `h1` / `h2` / `h3` | `add_heading(level=1/2/3)` | 六节标题层级与 MD/HTML 一致，不另设一套层级 |
+| `p` | `add_paragraph` | — |
+| `pre` | 段落 + `run.font.name = "Consolas"` | 代码块/证据原文在 Word 里也要等宽（对齐才看得清） |
+| `ul` | `add_paragraph(style="List Bullet")` | 用**内置**样式，不自造 numbering（自造要写 numbering.xml） |
+
+**零新增依赖**：走的是 `exports/report_export._open_document("research-report")` 那条
+`python-docx` 通路——效力报告 Excel、合规审查报告 Word、问答依据清单 Word **三条既有导出**
+早就在用（`pyproject.toml` 里 `python-docx>=1.0` 也早就显式声明）。文本渲染里**不**手工设
+中文字体（与 `export_review_report_docx` 保持一致：交给 Word 的字体回退与模板；硬设字体名
+在没装该字体的机器上会**静默换字**，比不设更难查）。
+
+`dry_run=true` **仍然只回 markdown/html**：`.docx` 只在**落盘**路径产生——docx 是二进制，
+塞进 JSON 响应没有意义（响应形状的这一处**故意**不统一，已写进端点 docstring）。
+
+### 2. "先渲染后落盘" —— 本步唯一一处**新引入**的失败模式
+
+原写法（本步第一版）是：
+
+```text
+md.write_text(...) → html.write_text(...) → docx.write_bytes(_to_docx(...))   # 错的顺序
+```
+
+`.docx` 是三步里**唯一**会因**外部原因**失败的一步（业主自备模板缺内置样式），上面这个顺序
+一旦抛异常 ⇒ 接口回 500，而盘上**已经躺着两个孤儿 `.md`/`.html`**。"接口说失败、盘上却有半份
+产物"是最难查的一种状态。现在改成**先把 docx 字节渲染出来，再写三个文件**：
+
+```text
+docx_bytes = _to_docx(...)   # 先渲染；抛了 ⇒ 一个文件都不落
+md.write_text(...); html.write_text(...); docx.write_bytes(docx_bytes)
+```
+
+并且把异常**翻成可操作的错误码**（`docx_render_failed`，信息里带模板绝对路径与需要的样式名）
+——否则调用方只会看到 FastAPI 那句什么都不说的裸 500。
+
+**为什么不做"静默降级"**（`try: List Bullet / except: 退成普通段落`）：那样会产出一份"看着成功、
+其实丢了全部小标题与项目符号"的文件，正是本战役一路在堵的坑（P1 准确性 > P3 体验）。
+⇒ 选择**大声失败**。代价也写进边界（§6.3）：这份报告**整个**导出会失败，不会只少 Word 一种形态。
+
+### 3. 取证：模板缺样式时究竟是哪种行为（**实测**，不是推断）
+
+`var/tmp/probe-docx-template.py`（把 `KS_DATA_DIR` 指到临时目录，手工造模板，**不碰**真实
+`%APPDATA%`）：把默认模板里 `word/styles.xml` 的 `ListBullet` / `ListBullet2` / `ListBullet3`
+三个 `<w:style>` 删掉当模板，然后调 `_to_docx`：
+
+| 模板 | `Document(tpl).styles["List Bullet"]` | `_to_docx(...)` |
+|---|---|---|
+| 默认（未删） | 找得到 | **正常**出字节（36,671 B，条目文本在正文里、`ListBullet` 样式被引用） |
+| 删掉那三个样式 | 抛 `KeyError: "no style with name 'List Bullet'"` | **抛同一个 `KeyError`**（不静默降级） |
+
+⇒ python-docx 是**按样式名查**的，缺样式就是异常；这正是 §2 那个 `except` 要接住的东西
+（`tests/test_research_report.py` 里两条新用例各自把短路点与 HTTP 边界钉住）。
+
+内容探针 `var/tmp/probe-docx.py`（8 个块，含 CJK 标点、`[[m:1]]`、代码块）：**37,001 字节**、
+`PK` 头、`word/document.xml` 等 6 个 `word/` 条目，**11/11 项全过**
+（Heading1/2/3、ListBullet、Consolas、四级文本、列表项、引用标记原样）。
+
+### 4. 改到的每一处（含"哪些地方**必须**跟着改"）
+
+| 位置 | 改了什么 |
+|---|---|
+| `src/core/exports/research_report.py` | `_to_docx()`、`_docx_template_path()`、先渲染后落盘、`docx_render_failed`；模块 docstring「依赖」一节补第三种形态 |
+| `src/core/api/routes_report.py` | 端点 docstring（三形态、`files`=3、`dry_run` 不含 docx）；路由清单第 8 行同步 |
+| `tests/test_research_report.py` | 2→3 处断言（`write_` + 端点各一处）+ **4 条新用例**（内容同源、六种块、失败不留半份产物、错误码过 HTTP） |
+| `plugin/client/KsMaterialsPanel.tsx` | 按钮文案 `Markdown/HTML` → `Markdown/HTML/Word` + 注释 |
+| `plugin/client/api.ts` | `KsResearchReport.files` 注释写清"落盘是三个、顺序固定" |
+| `plugin/src/report.js` | 路由注释（主机侧白名单转发**不用改代码**——`files` 是引擎回包，主机只透传） |
+| `plugin/scripts/smoke-report-ui.mjs` | fixture 2→3 文件 + 新增一条"三形态都带出"断言（15→**16/16**） |
+| `plugin/scripts/smoke-client-entry.mjs` | ⚠ **按钮文案断言**（`生成研究报告（Markdown/HTML）`）——这条**不跟着改就会红**：它按界面文案扫**构建产物**，是"产物↔源码一致"的那道关 |
+| `plugin/client.js` | 重新构建（1280561 字节） |
+| 文档 | 本 §10.92、方案 D-1 / D-3b 两处、方案 §12 账本第 38 条 |
+
+⚠ 一处**没改**也值得记：主机路由的白名单转发只认 `project_id`/`title`/`query`/`conclusion_md`/
+`limit`/`dry_run` 六个**请求**键，而 `files`/`names` 是**响应**内容 ⇒ 主机侧一行都不用动
+（"新形态"没有引入任何新的请求参数）。
+
+### 5. 证据
+
+- `pytest` **1812 passed / 3 skipped / 0 failed**（收集 **1815**）；
+- `mypy` **134 / 0**；`tsc` **0**；
+- `npm --prefix plugin run smoke` **EXIT=0**（19 段，其中 11 段打印 `== … PASS ==`；
+  `report-ui` **16/16**、`client-entry` **85/85**）；
+- `npm --prefix plugin run verify:commands` **22/22**；
+- `scripts/verify-engine-uvicorn.py` **4/4**（`/health` 三态、FileResponse 字节一致、
+  12 条重活在飞时 p95 0.0503s、坏 JSON 422）。
+
+⚠ **收集数 +4 的对账**（避免"数字对不上"）：`HEAD`（本步之前）收集 **1811**，
+本步收集 **1815**；差 4 全部来自 `tests/test_research_report.py` 的 **27 → 31**——
+2 条是"能生成 Word / 三种渲染器覆盖六种块"，2 条是"失败不留半份产物 / 错误码过 HTTP"。
+对账脚本 `var/tmp/collect-head-count.py`（用 `git archive` 抽 `HEAD` 与 `verify-freeze-b20`
+各自的树，在两个树里 `pytest --collect-only -q` 各数一次：**1811 / 1811**）。
+
+⚠ **本步的快照标签是 `step-91-docx-third-form`**（标签号比章节号小 1，见 §10.85 §5）。
+
+⚠ **顺带补了一条漏打的快照**：核对标签时发现 `step-90-*` **根本不存在**——§10.91 的文档写了
+"快照标签是 `step-90-fix-asgi-note-and-depth-pin`"，但**当时并没有真的跑快照脚本**
+（`git tag --points-at 9b57d4c` 当时是空的）。已用 `scripts/snapshot-project.ps1` 补打在
+§10.91 的提交 `9b57d4c` 上（附注里写明是补打），§10.91 §4 也**就地更正**了。
+这是"我自己的记录与磁盘事实不一致"的第二次同型事故（第一次见 §10.85 §5 的游离提交哈希误记）
+⇒ 已把"快照后立刻 `git tag --list 'step-*'` 核一眼"写成纪律。
+
+### 6. 诚实边界
+
+1. **没有真机端到端**：本步全部证据都在**测试夹具 + 内存字节**里。业主重启两道门之前，
+   界面上那个按钮**还没跑过本步的代码**（引擎 pid 32564 与 DSH 主机 pid 37268 都早于本步）。
+2. **"能生成 Word" ≠ "Word 里排版好看"**：只断言了 zip 结构、`word/document.xml`、样式 id、
+   文本与等宽字体。字体回退、行距、分页、中文在**真 Word / WPS** 里的观感**未验**
+   （与 PPT 那条边界同型）。
+3. **模板契约**：`%APPDATA%/KnowledgeStation/templates/research-report.docx` 若存在，必须保留
+   内置样式 `Heading 1/2/3` + `List Bullet`；缺了会**整个报告导出失败**（`docx_render_failed`），
+   **不会**只少 Word 一种形态——这是"不静默降级"的**故意**代价（§2）。本机当前**没有**
+   `templates/` 目录（=走默认模板），所以这条在真机上**还没被触发过**。
+4. `.docx` 只在落盘路径产生 ⇒ `dry_run` 的响应形状**仍然是两种形态**（有意，不是漏改）。
+5. **不是原子写入**："先渲染后落盘"只挡住了**渲染**失败；**写盘阶段**失败（磁盘满/权限/
+   写第二个文件时断电）仍可能留下不完整的产物集合。已登记，未加固。
+6. `files`/`names` 的**顺序**（md, html, docx）是**约定**而不是契约字段；界面按顺序显示。
+7. 本步**没有**做 `templates/research-report.docx` 的样板文件（业主想自备版式时得自己放）——
+   方案 §8 没要求，先不发明。
 

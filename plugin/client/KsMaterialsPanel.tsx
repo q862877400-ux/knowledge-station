@@ -447,7 +447,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
   }, [collectNote, collectUrl, projectId, run])
 
   /**
-   * 生成**研究报告**（Markdown + HTML，本机落盘）。
+   * 生成**研究报告**（Markdown + HTML + Word 三形态，本机落盘）。
    *
    * 三条与引擎同源的纪律，界面这一层也要守住：
    * 1. **引用警告必须显示**（`warnings`）：`[[m:i]]` 对不上、或落在"仅线索/不可用"上，
@@ -906,7 +906,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
               disabled={busy !== ''}
               onClick={onExportReport}
             >
-              生成研究报告（Markdown/HTML）
+              生成研究报告（Markdown/HTML/Word）
             </button>
             <button
               type="button"
