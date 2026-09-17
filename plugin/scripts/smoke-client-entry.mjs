@@ -537,8 +537,12 @@ check('inject declares only official services (no third-party hard gate)',
   // 分支的话，那种材料会**一个标记都没有**，读起来像"全都健康"——正是要防的静默。
   check('产物里含「锚点健康度算不出来」的提示（失败不许静默）',
     bundle.includes('锚点健康度算不出来'))
-  check('面板源码里 health_error 有独立分支（不是靠 why 兜底）',
-    /status === 'health_error'/.test(panel))
+  // ⚠ 源码侧的判据跟着 §10.62 的重构改过：标记现在是**一个 switch**（不再是三串 `status === x &&`），
+  // 穷尽性由 `assertNever` 在编译期保证 ⇒ 这里钉的是"那个 case 真的在源码里"。
+  check('面板源码里 health_error 有独立 case（不是靠 why 兜底）',
+    /case 'health_error':/.test(panel))
+  check('面板源码里有穷尽性断言（新增 status 忘加分支应编译报错）',
+    /assertNever\(/.test(panel) && /default:\s*\n?\s*return assertNever\(/.test(panel))
 }
 
 /* ---------------------------------------------------------------- 产物 ↔ 源码一致性
@@ -569,11 +573,11 @@ check('inject declares only official services (no third-party hard gate)',
   const fresh = decode(freshRaw)
   const delivered = decode(await readFile(join(pluginRoot, 'client.js'), 'utf8'))
 
-  // 关键标记：三条 ⚠ 分支的**条件**（不是文案）+ 两条纪律文案
+  // 关键标记：锚点标记 switch 的**三个 case**（条件，不是文案）+ 两条纪律文案
   const CRITICAL = [
-    ['stale 分支的条件', 'status === "stale"'],
-    ['unknown 分支的条件', 'status === "unknown"'],
-    ['health_error 分支的条件', 'status === "health_error"'],
+    ['stale 分支的 case', 'case "stale":'],
+    ['unknown 分支的 case', 'case "unknown":'],
+    ['health_error 分支的 case', 'case "health_error":'],
     ['health_error 的提示文案', '锚点健康度算不出来'],
     ['"需复算 ≠ 已坏"的纪律文案', '不代表已经坏了'],
   ]

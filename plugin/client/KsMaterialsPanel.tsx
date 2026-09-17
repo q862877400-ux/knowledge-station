@@ -94,6 +94,66 @@ function btnStyle(disabled = false): React.CSSProperties {
   }
 }
 
+/**
+ * 编译期穷尽性断言（复核 b11 的 LOW-4，2026-09-18）。
+ *
+ * 为什么需要它：后端的状态**取值域会增长**（`unknown` → 加 `no_locators` → 加 `health_error`），
+ * 而界面过去是一串 `status === 'x' && <p/>`。新增一个取值却忘了加分支时，**什么都不报**
+ * ——那一类材料在界面上**一个标记都没有**，读起来像"全都健康"（实测过：只改产物让条件
+ * 永不成立时，离线门禁仍 71/71 全绿）。`tsc` 也**不会**报错（b11 的变异 M5b 证实：
+ * 往 union 里加一个没人渲染的成员，`tsc` 仍 GREEN 0）。
+ *
+ * 用法：`switch` 的 `default` 里调它。只要 union 多出一个没人处理的成员，
+ * `status` 在 default 分支里就**不再是 `never`** ⇒ 类型不匹配 ⇒ `npm run typecheck` 直接红。
+ */
+function assertNever(status: never): never {
+  throw new Error(`未处理的锚点状态（新增取值必须同时加分支）: ${String(status)}`)
+}
+
+/**
+ * 锚点标记（**唯一出口**）：`switch` + 穷尽性断言，见 `assertNever` 的注释。
+ *
+ * ⚠ 理由**照抄后端**（`locator.py` 的 `why`），界面**不自己解释 status**：
+ * 早先这里写死过"解析器身份变了"，而 `stale` 有**两个**成因（解析器变了 / **源文件字节变了**，
+ * 后者是**确定**失效不是"可能"）——写死一句就等于替后端下了它没下的结论。
+ */
+function AnchorMark(props: { status?: KsLocatorHealth['status']; why?: string }): React.ReactElement | null {
+  const why = props.why || '（后端未给原因）'
+  switch (props.status) {
+    // 没问题 / 没有区间可失效 ⇒ 不加噪声
+    case undefined:
+    case 'ok':
+    case 'no_locators':
+      return null
+    case 'stale':
+      return (
+        <p style={{ margin: '4px 0 0', fontSize: 12, color: 'var(--dsw-alias-warn, #b8860b)' }}>
+          ⚠ <strong>引用锚点需复算</strong>：{why}
+          <br />（需复算**不代表已经坏了**。）点「复算锚点」用当前解析器重算比对。
+        </p>
+      )
+    case 'unknown':
+      return (
+        <p style={{ margin: '4px 0 0', fontSize: 12, color: GRAY }}>
+          ⚠ <strong>引用锚点未验证</strong>：{why}
+          <br /><strong>不等于</strong>有问题，但引用位置<strong>未经确认</strong>。
+        </p>
+      )
+    // ⚠ `health_error` **不是**健康状态，是"后端判据跑挂了"：不加这一支那种材料在界面上
+    // **一个标记都没有**，读起来像"全都健康"。颜色用红：这不是材料的问题，是我们的问题。
+    case 'health_error':
+      return (
+        <p role="alert" style={{ margin: '4px 0 0', fontSize: 12, color: RED }}>
+          ⚠ <strong>锚点健康度算不出来</strong>：{why}
+          <br />这是<strong>工具缺陷</strong>，<strong>不代表</strong>材料有问题——但它的引用位置
+          目前<strong>未知</strong>。
+        </p>
+      )
+    default:
+      return assertNever(props.status)
+  }
+}
+
 export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactElement {
   const { visible, onUseProject } = props
   const [projects, setProjects] = useState<KsMaterialProject[]>([])
@@ -682,35 +742,12 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
                 只列在「已知不可用」里。要让它承重，请先把它改成可回溯的来源层级。
               </p>
             )}
-            {/* 引用锚点：⚠ 只在**有问题/判不了**时显示（`ok` 不加噪声）。
-                语义严格分开：需复算 ≠ 已坏；未验证 ≠ 有问题。
-
-                ⚠ 理由**照抄后端**（`locator.py` 的 `why`），界面**不自己解释 status**：
-                2026-09-18 之前这里写死"解析器身份变了"——而 `stale` 现在有**两个**成因
-                （解析器变了 / **源文件字节变了**，后者是**确定**失效，不是"可能"），
-                写死一句就等于替后端下了它没下的结论（本仓"措辞唯一所有者"纪律）。 */}
-            {anchors[m.material_id]?.status === 'stale' && (
-              <p style={{ margin: '4px 0 0', fontSize: 12, color: 'var(--dsw-alias-warn, #b8860b)' }}>
-                ⚠ <strong>引用锚点需复算</strong>：{anchors[m.material_id]?.why || '（后端未给原因）'}
-                <br />（需复算**不代表已经坏了**。）点「复算锚点」用当前解析器重算比对。
-              </p>
-            )}
-            {anchors[m.material_id]?.status === 'unknown' && (
-              <p style={{ margin: '4px 0 0', fontSize: 12, color: GRAY }}>
-                ⚠ <strong>引用锚点未验证</strong>：{anchors[m.material_id]?.why || '（后端未给原因）'}
-                <br /><strong>不等于</strong>有问题，但引用位置<strong>未经确认</strong>。
-              </p>
-            )}
-            {/* ⚠ `health_error` **不是**健康状态，是"后端判据跑挂了"（复核 b9 的 INFO-3 同族）：
-                不加这一支，那种材料在界面上**一个标记都没有**，读起来像"全都健康"。
-                颜色用红：这不是材料的问题，是我们的问题，该被看见。 */}
-            {anchors[m.material_id]?.status === 'health_error' && (
-              <p role="alert" style={{ margin: '4px 0 0', fontSize: 12, color: RED }}>
-                ⚠ <strong>锚点健康度算不出来</strong>：{anchors[m.material_id]?.why || '（后端未给原因）'}
-                <br />这是<strong>工具缺陷</strong>，<strong>不代表</strong>材料有问题——但它的引用位置
-                目前<strong>未知</strong>。
-              </p>
-            )}
+            {/* 引用锚点标记：**唯一出口**是 `AnchorMark`（见文件下半部分）。
+                为什么不在这里直接写 if：`AnchorMark` 用 `switch` + `assertNever` ⇒
+                新增一个 `status` 却忘了加分支，会在 `npm run typecheck` **直接报错**，
+                而不是在界面上**静默少一个标记**（复核 b11 的 LOW-4：加一个没人渲染的成员时
+                `tsc` 仍 GREEN）。语义严格分开：需复算 ≠ 已坏；未验证 ≠ 有问题。 */}
+            <AnchorMark status={anchors[m.material_id]?.status} why={anchors[m.material_id]?.why} />
 
             <div style={{ display: 'flex', gap: 6, marginTop: 8, flexWrap: 'wrap' }}>
               <button

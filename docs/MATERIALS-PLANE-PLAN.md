@@ -674,3 +674,11 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     ⚠ **诚实边界**：仍是字符串级——挡得住"删/改条件"与"忘了重建"，**挡不住"条件后加 `&& false`"**；
     要那一层得收编 b11 的 jsdom 渲染用例（`var/tmp/verify-b11-artifacts/render-b11.mjs`），
     而本仓 `plugin/` 没有 jsdom ⇒ **是否为零依赖门禁引入新依赖，留给业主拍板**。
+
+    **b11-LOW-4 已修（step-61，§10.62）**：锚点标记收成唯一出口 `AnchorMark`（`switch` +
+    `default: return assertNever(status)`）⇒ 往 union 加一个没人渲染的成员会**编译报错**。
+    变异：**M5b**（= b11 的 LOW-4 形状）修前 `tsc` GREEN 0、修后 **RED**（TS2345
+    `'"future_status"' not assignable to 'never'`）；R1/R2 复跑确认 step-60 的"产物↔源码一致性"
+    闸门在重构后仍有效；断言 81 → **82**（含新增"源码里有穷尽性断言"）。
+    **仍待修**：b11-LOW-1（`_locator_why` 只写不读 ⇒ 报告不说失败原因）、b11-LOW-2（warning
+    作用域不对称）、b11-LOW-5（`no_locators` 把"入库早于该列"说进主句）、b11-INFO-1（`anchorNote` 死状态）。

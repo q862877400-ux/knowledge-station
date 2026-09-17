@@ -3346,3 +3346,38 @@ b11 **四条声称全部 CONFIRMED、零 REFUTED**，且它用**父/子对照**�
 ⚠ 本步**没有**重新构建 `client.js`（改的是构建脚本的"输出到哪"，默认路径与产物内容都不变）
 ⇒ 工作区只动了两个 `scripts/*.mjs`，`git status` 可证。
 
+
+### 10.62 收 b11 的 LOW-4：状态取值域增长了，界面却不会报错（改成编译期穷尽）
+
+**问题（复核 b11 的变异 M5b 证明的）**：锚点标记过去是**三串 `status === 'x' && <p/>`**。
+后端的状态取值域**已经长过两次**（`unknown` → 加 `no_locators` → 加 `health_error`），
+而**新增一个取值却忘了加分支时什么都不会报**：那一类材料在界面上**一个标记都没有**，
+读起来像"全都健康"。b11 往 union 里加一个没人渲染的成员 ⇒ **`tsc` 仍 GREEN 0**。
+
+**修法**：把标记收成**唯一出口** `AnchorMark`：`switch` + `default: return assertNever(status)`。
+`assertNever(status: never)` 让"union 里多出一个没人处理的成员"变成**类型不匹配** ⇒
+`npm run typecheck` **直接红**（不是运行时静默）。
+`undefined` / `ok` / `no_locators` 三个 case 明确返回 `null`（不加噪声），
+`stale` / `unknown` / `health_error` 各自一块（理由**照抄后端 `why`**，界面不解释 status）。
+
+**变异证据（全部逐字节还原）**：
+| 变异 | 内容 | 修前 | 修后 |
+|---|---|---|---|
+| **M5b**（= b11 的 LOW-4） | 往 `KsLocatorHealth['status']` 加一个**没人渲染**的成员 | `tsc` **GREEN 0** | **RED**：`TS2345: Argument of type '"future_status"' is not assignable to parameter of type 'never'`（KsMaterialsPanel.tsx:153），exit 2 |
+| **R1**（step-60 的闸门在重构后仍有效） | **只改产物**：`case "health_error":` → `case "__never__":` | — | 冒烟 **RED**（"交付产物里有 case" + 同步断言双红，exit 1） |
+| **R2** | **只改源码**：`case 'stale':` → `'stale_x'`，**不重建** | — | 冒烟 **RED**（只有同步断言响：`现构建含=false 交付产物含=true`） |
+
+**顺带处理的重构涟漪（不藏）**：
+- `client.js`（**被跟踪的产物**）随源码重建 —— 这本来就是"改 .tsx 必须重建"的纪律；
+- step-60 那节的**关键标记换成 switch 的 case**（`case "stale":` 等），源码侧断言从
+  `status === 'health_error'` 改成 `case 'health_error':`，并**新增一条**"源码里有穷尽性断言"
+  （`assertNever(` + `default: return assertNever(`）⇒ 断言 **81 → 82**。
+
+**门禁**：pytest **1700 passed / 3 skipped**、`npm run typecheck` **0**、
+`npm run smoke` **EXIT=0**（client-entry **82/82**）。
+
+**仍未做（b11 台账）**：LOW-1（`_locator_why` 只写不读 ⇒ 报告从不把失败原因说出来，面板会说）、
+LOW-2（warning 作用域不对称：`_unknown` 只扫 approved、`_health_error` 扫三态）、
+LOW-5（`no_locators` 把"入库早于该列"说进主句）、INFO-1（`anchorNote` 死状态）
+——以及 b10 的 LOW-1/2/3 与 G3/G4。
+

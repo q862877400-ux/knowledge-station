@@ -32462,6 +32462,59 @@ function btnStyle2(disabled = false) {
     opacity: disabled ? 0.5 : 1
   };
 }
+function assertNever(status) {
+  throw new Error(`\u672A\u5904\u7406\u7684\u951A\u70B9\u72B6\u6001\uFF08\u65B0\u589E\u53D6\u503C\u5FC5\u987B\u540C\u65F6\u52A0\u5206\u652F\uFF09: ${String(status)}`);
+}
+function AnchorMark(props) {
+  const why = props.why || "\uFF08\u540E\u7AEF\u672A\u7ED9\u539F\u56E0\uFF09";
+  switch (props.status) {
+    // 没问题 / 没有区间可失效 ⇒ 不加噪声
+    case void 0:
+    case "ok":
+    case "no_locators":
+      return null;
+    case "stale":
+      return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: "var(--dsw-alias-warn, #b8860b)" }, children: [
+        "\u26A0 ",
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5F15\u7528\u951A\u70B9\u9700\u590D\u7B97" }),
+        "\uFF1A",
+        why,
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
+        "\uFF08\u9700\u590D\u7B97**\u4E0D\u4EE3\u8868\u5DF2\u7ECF\u574F\u4E86**\u3002\uFF09\u70B9\u300C\u590D\u7B97\u951A\u70B9\u300D\u7528\u5F53\u524D\u89E3\u6790\u5668\u91CD\u7B97\u6BD4\u5BF9\u3002"
+      ] });
+    case "unknown":
+      return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: GRAY }, children: [
+        "\u26A0 ",
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5F15\u7528\u951A\u70B9\u672A\u9A8C\u8BC1" }),
+        "\uFF1A",
+        why,
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u7B49\u4E8E" }),
+        "\u6709\u95EE\u9898\uFF0C\u4F46\u5F15\u7528\u4F4D\u7F6E",
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u672A\u7ECF\u786E\u8BA4" }),
+        "\u3002"
+      ] });
+    // ⚠ `health_error` **不是**健康状态，是"后端判据跑挂了"：不加这一支那种材料在界面上
+    // **一个标记都没有**，读起来像"全都健康"。颜色用红：这不是材料的问题，是我们的问题。
+    case "health_error":
+      return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { role: "alert", style: { margin: "4px 0 0", fontSize: 12, color: RED }, children: [
+        "\u26A0 ",
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u951A\u70B9\u5065\u5EB7\u5EA6\u7B97\u4E0D\u51FA\u6765" }),
+        "\uFF1A",
+        why,
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
+        "\u8FD9\u662F",
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5DE5\u5177\u7F3A\u9677" }),
+        "\uFF0C",
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u4EE3\u8868" }),
+        "\u6750\u6599\u6709\u95EE\u9898\u2014\u2014\u4F46\u5B83\u7684\u5F15\u7528\u4F4D\u7F6E \u76EE\u524D",
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u672A\u77E5" }),
+        "\u3002"
+      ] });
+    default:
+      return assertNever(props.status);
+  }
+}
 function KsMaterialsPanel(props) {
   const { visible, onUseProject } = props;
   const [projects, setProjects] = (0, import_react7.useState)([]);
@@ -32964,39 +33017,7 @@ function KsMaterialsPanel(props) {
               /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u4F1A\u6309\u51C6\u5219\u627F\u91CD" }),
               "\uFF0C \u53EA\u5217\u5728\u300C\u5DF2\u77E5\u4E0D\u53EF\u7528\u300D\u91CC\u3002\u8981\u8BA9\u5B83\u627F\u91CD\uFF0C\u8BF7\u5148\u628A\u5B83\u6539\u6210\u53EF\u56DE\u6EAF\u7684\u6765\u6E90\u5C42\u7EA7\u3002"
             ] }),
-            anchors[m.material_id]?.status === "stale" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: "var(--dsw-alias-warn, #b8860b)" }, children: [
-              "\u26A0 ",
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5F15\u7528\u951A\u70B9\u9700\u590D\u7B97" }),
-              "\uFF1A",
-              anchors[m.material_id]?.why || "\uFF08\u540E\u7AEF\u672A\u7ED9\u539F\u56E0\uFF09",
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
-              "\uFF08\u9700\u590D\u7B97**\u4E0D\u4EE3\u8868\u5DF2\u7ECF\u574F\u4E86**\u3002\uFF09\u70B9\u300C\u590D\u7B97\u951A\u70B9\u300D\u7528\u5F53\u524D\u89E3\u6790\u5668\u91CD\u7B97\u6BD4\u5BF9\u3002"
-            ] }),
-            anchors[m.material_id]?.status === "unknown" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: GRAY }, children: [
-              "\u26A0 ",
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5F15\u7528\u951A\u70B9\u672A\u9A8C\u8BC1" }),
-              "\uFF1A",
-              anchors[m.material_id]?.why || "\uFF08\u540E\u7AEF\u672A\u7ED9\u539F\u56E0\uFF09",
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u7B49\u4E8E" }),
-              "\u6709\u95EE\u9898\uFF0C\u4F46\u5F15\u7528\u4F4D\u7F6E",
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u672A\u7ECF\u786E\u8BA4" }),
-              "\u3002"
-            ] }),
-            anchors[m.material_id]?.status === "health_error" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { role: "alert", style: { margin: "4px 0 0", fontSize: 12, color: RED }, children: [
-              "\u26A0 ",
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u951A\u70B9\u5065\u5EB7\u5EA6\u7B97\u4E0D\u51FA\u6765" }),
-              "\uFF1A",
-              anchors[m.material_id]?.why || "\uFF08\u540E\u7AEF\u672A\u7ED9\u539F\u56E0\uFF09",
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
-              "\u8FD9\u662F",
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5DE5\u5177\u7F3A\u9677" }),
-              "\uFF0C",
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u4EE3\u8868" }),
-              "\u6750\u6599\u6709\u95EE\u9898\u2014\u2014\u4F46\u5B83\u7684\u5F15\u7528\u4F4D\u7F6E \u76EE\u524D",
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u672A\u77E5" }),
-              "\u3002"
-            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(AnchorMark, { status: anchors[m.material_id]?.status, why: anchors[m.material_id]?.why }),
             /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { display: "flex", gap: 6, marginTop: 8, flexWrap: "wrap" }, children: [
               /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
                 "button",
