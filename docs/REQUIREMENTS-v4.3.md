@@ -49,7 +49,9 @@
 #### 0.1 六条系统核心红线 (MUST NOT)
 
 1. **[MUST NOT] 无 Evidence 不出结论 (Zero Hallucination)**：大模型生成的每一条结论，必须严格绑定本地数据库返回的不可变条款快照；禁止在无依据情况下强行作答。
-2. **[MUST NOT] 原始文档零外发 (Data Egress Zero-Trust)**：用户导入的任何 PDF、合同、图纸及生成的本地数据库，**绝对禁止**上传至任何云端服务器；发往 DeepSeek 官方 API 的 Prompt 中仅允许包含"当前问题 + 检索出的最小必要文本片段"。
+2. **[MUST NOT] 无留痕外发 (No Unaudited Egress)**：任何云端调用（LLM / rerank / 云解析）都**禁止不留痕**——每次调用的完整 payload 必须落库，用户可在 UI 查看并导出（= `ENCYCLOPEDIA.md` §1.5 红线 4「外发可审计」/ §16.2 决策 D2）。
+   > **2026-09-17 业主撤销原「原始文档零外发 (Data Egress Zero-Trust)」禁令**（见 `ENCYCLOPEDIA.md` §16.2 新增 **D5**）。原表述为"用户导入的任何 PDF、合同、图纸及生成的本地数据库**绝对禁止**上传至任何云端服务器"——它与同仓库既有的 **D1**（2026-08-23 已删除"零外发"验收红线）**自相矛盾**，且代码按它**结构性地锁着**深度解析通道（`dry_run.py` / `preview_jobs.py` / `routes_ingest_preview.py`）。撤销后：**是否把原始文档送往云端由用户自行决定，系统不再代为禁止，但必须留痕。**
+   > 发往 DeepSeek 官方 API 的 Prompt 仍按"当前问题 + 检索出的最小必要文本片段"组织——但这是**成本与准确性**的工程口径（送全库既贵又稀释相关性），**不再是外发禁令**。
 3. **[MUST NOT] 分型核验门禁 (Typed Verification Gate)**：大模型输出必须经过**分型核验器**校验——数据型核数值、规则型核模态、法理型核要素完整性；**Prompt 约束不是唯一的安全层**。
 4. **[MUST NOT] 核验前禁可复制 (No Copy Before Verification)**：SSE 流式输出阶段，前端必须显示"核验中"水印并禁用复制按钮；核验事件 (`verification`) 通过后，方解锁复制与导出。杜绝用户复制尚未核验的错误答案。
 5. **[MUST NOT] 零外部环境依赖 (Zero External Setup)**：最终交付必须为 Windows 11 单一可执行安装包（Setup.exe），内置嵌入式 Python 运行时；模型权重采用"基础包 + 模型管理器按需下载"策略，严禁安装包内置全部模型导致体积爆炸。
