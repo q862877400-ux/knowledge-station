@@ -1523,14 +1523,21 @@ def html_to_text(html: str | None, limit: int | None = None) -> str:
     """
     if not html:
         return ""
-    t = clean_eq_tags(html)
+    # ⚠ **顺序是承重的**（2026-09-17 独立复核 b7 的 MEDIUM）：`_strip_script_style`
+    # **必须最先**做。它内部的 `_inside_unclosed_tag` 判的是"我是不是还在一个未闭合的
+    # 标签里"（看最后一个 `<` 之后有没有 `>`）；而下面那三步
+    # （`clean_eq_tags` / `</td>` / `</tr>`）**会把 `>` 删掉** ⇒ 若先做它们，
+    # 原串里**已经闭合**的 `<b` / `<div` 会变成"未闭合的标签开头"，守卫误判 ⇒
+    # **JS 反而漏进正文**（复核实测 7 组，例：`<td>a<b</td><script>JS</script>` → `'aJS'`）。
+    # 先剥 script/style 就没有这个窗口：守卫看到的是**原始**字符串。
+    t = _strip_script_style(html)
+    t = clean_eq_tags(t)
     t = re.sub(r"</t[dh]>", " | ", t, flags=re.IGNORECASE)
     t = re.sub(r"</tr>", "\n", t, flags=re.IGNORECASE)
-    # 先整体丢掉**内容不该进正文**的两类标签（含其内容）：script/style。
+    # ① 整体丢掉**内容不该进正文**的两类标签（含其内容）：script/style。
     # 不做这一步的话，页面里的 JS/CSS 会被当成正文塞进材料（采集最脏的来源）。
     # ⚠ 用 `_strip_script_style` 而**不是**一句正则：自闭合/未闭合两种形态会让
     # 那句正则**静默**吃掉可见正文或漏掉 JS（见那个函数的 docstring）。
-    t = _strip_script_style(t)
     t = re.sub(r"<[^>]+>", "", t)
     t = html_unescape(t)
     t = re.sub(r"[ \t\u3000]+", " ", t)

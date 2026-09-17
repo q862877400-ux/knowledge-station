@@ -667,6 +667,25 @@ class TestScriptStyleStrippingEdges:
         out2 = html_to_text('<a title="a>b">x</a><script>var SECRET_JS=2;</script>后')
         assert "SECRET_JS" not in out2, out2
 
+    def test_the_guard_runs_on_the_ORIGINAL_string_not_a_rewritten_one(self):
+        """**顺序是承重的**（2026-09-17 独立复核 b7 的 MEDIUM）。
+
+        `html_to_text` 里 `clean_eq_tags` / `</td>` / `</tr>` 三个替换**会删掉 `>`**；
+        若它们在 `_strip_script_style` **之前**跑，原串里**已经闭合**的 `<b` / `<div`
+        会变成"未闭合的标签开头" ⇒ 守卫误判 ⇒ **JS 反而漏进正文**
+        （正是那个守卫要防的方向）。复核实测 4 组，这里逐组钉住。
+        """
+        from src.core.text_utils import html_to_text
+        js = "var SECRET_JS=3;"
+        for html in (
+            f"<b</td>x<script>{js}</script>",              # </td> 替换删掉 >
+            f"<td>a<b</td><script>{js}</script>",          # 同上（表格单元里未闭合的 <x）
+            f"<b</tr>x<script>{js}</script>",              # </tr> 替换删掉 >
+            f"<div <eq>x</eq><script>{js}</script>",        # clean_eq_tags 删掉 >
+        ):
+            out = html_to_text(html)
+            assert "SECRET_JS" not in out, (html, out)
+
     def test_unclosed_script_swallows_the_tail_like_a_browser(self):
         """未闭合 ⇒ 其后全部是脚本文本（HTML5），**不得**把 JS 当正文留下来。
 

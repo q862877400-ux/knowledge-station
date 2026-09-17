@@ -2369,4 +2369,46 @@ docstring 里**写明了它曾被判过度声称**（不删旧话，改掉并说
 49 → **55**）；`mypy src` **133 files / 0 errors**；`smoke` 18 段（未改 `plugin/`）；
 `verify:commands` 22/22；`tsc --noEmit` 0。变异实验 O/P 全 RED 且逐字节还原。
 
+### 10.45 复核 b7 的 **MEDIUM-1**：`_inside_unclosed_tag` 曾对**被上游改写过的字符串**求值
+
+**复核怎么打中的**：它给 `_inside_unclosed_tag`（§10.40 新加的守卫）做了**归因实验**——
+把守卫关掉（v2）与留着（v3）各跑一遍，并用 lxml / `html.parser` 两个独立参照对表。
+结论：守卫在**生产路径**上**新开 7 条"JS 进正文"**，而方向**正是它要防的那个**。
+其中 4 条的根因是**顺序**：`html_to_text` 里 `clean_eq_tags` / `</td>`→` | ` / `</tr>`→`\n`
+这三个替换**跑在 `_strip_script_style` 之前**，而它们**会删掉 `>`** ⇒
+原串里**已经闭合**的 `<b` / `<div` 在守卫眼里变成"未闭合的标签开头" ⇒ 误判 ⇒ JS 漏进正文。
+例：`<td>a<b</td><script>JS</script>` → 修前 `'aJS'`（浏览器 `'a'`）。
+
+**修法（一行顺序）**：`html_to_text` 里把 `_strip_script_style(html)` 提到**最前**，
+之后再做那三个替换。守卫看到的就是**原始**字符串。**没有**去写分词器
+（复核的另一个建议是"按 HTML5 的 tag/comment/attribute 三态判定"——那是**新写一个解析器**，
+与本项目"要更准得引 HTML 解析器（未立项）"的既有裁决冲突，登记而不做）。
+
+**实测（`var/tmp/probe-step44-order.py`，10 组）**：复核实测的 4 组（31/32/34/35）
+全部由"JS 进正文"变成**不含 JS**；反向的 3 组（正常 script、正文裸 `<` 后跟真 script、
+表格正常闭合）**仍然把 JS 剥干净**（修顺序不许换来"漏 JS"，所以正反都要跑）。
+**仍有 3 组**（36 未闭合注释 / 37 RCDATA `<title>` / 38 未收尾引号属性）需要建模
+HTML5 的**词法状态**，属"分词器"范畴 ⇒ 已连同**实测值**登记进方案 §12 未决第 9 条
+（方向是"我们多出浏览器不显示的内容"，触发需畸形 HTML）。
+
+**测试非空转（1 个变异体，on/off 成对，逐字节还原）**：`var/tmp/mutate-step44.py`
+- Q：把顺序换回复核之前那样 ⇒ **红**，失败点正是新增的顺序回归用例
+  （`AssertionError: ('<b</td>x<script>var SECRET_JS=3;</script>', 'var SECRET_JS=3;')`）。
+
+**另外补上复核的 LOW-2（守卫要求①零覆盖）**：复核指出我 §10.40 的"反例1"
+（`<p>前 3 < 5</p><script>…`）被 `</p>` 收尾 ⇒ **没真正测到**要求①"`<` 后紧跟字母/`/`"。
+`test_a_bare_less_than_in_the_text_does_not_disable_the_sweep` 里那条注释现在**说清了盲区**，
+并新增的表格形态用例让"删掉要求①"这条变异**有主**（复核的 F1 从 GREEN 变可抓）。
+
+**诚实边界**：
+- 修的是**顺序**；`html_to_text` 仍是**近似解析**，§12 未决第 9 条列的三态**仍在**
+  （未闭合注释 / RCDATA / 未收尾引号属性）——本条**没有**把它们变好。
+- 本步**没有**动 `clause_health_html_to_text`（那一份**不剥 script/style**，
+  是既有裁决：它做的是"条款健康度"、不是采集正文），所以两边的**有意差异**仍是两处。
+- b7 的其余 MEDIUM（PPT 页数/尾页、`standard_type` 死项）与若干 LOW **不在本步**。
+
+**门禁（本步）**：`pytest` **1623 passed / 3 skipped / 0 failed**（`test_material_harvest`
+63 → **64**）；`mypy src` **133 files / 0 errors**；`smoke` 18 段（未改 `plugin/`）；
+`verify:commands` 22/22；`tsc --noEmit` 0。变异实验 Q RED 且逐字节还原。
+
 

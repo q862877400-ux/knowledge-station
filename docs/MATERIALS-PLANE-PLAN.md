@@ -489,12 +489,19 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
    或在构造时**清洗** NO_PROXY / 在失败时给出可诊断的提示。**须业主拍板**（涉及代理策略）。
 9. **HTML→文本仍是"跟着 HTML5 走"的近似解析，不是分词器**（2026-09-17 实测登记；
    此前只写在 `_strip_script_style` 的 docstring 里，方案里没有条目 ⇒ 复核说"待办只写在
-   docstring"）。已修掉的那条（无引号属性值里的字面 `<script>`，实测丢正文，§10.40）之外，
-   **仍未修**的有两处，都是**不丢字**的装饰性偏差（实测）：
-   - 引号属性值里的字面 `<script>`：`<p title='<script>'>可见</p>` → `前'> 可见后`
-     （多出 `'>` 两个字符；缺的是通用剥标签那一步的 DOM 感知）；
-   - 注释夹在文字中间：`foo<!--x-->bar` → `foo bar`（浏览器渲染成 `foobar`，多一个空格）。
-   ⇒ 要精确只有写 HTML 分词器/引解析器（**未立项**，本战役不做）。
+   docstring"）。**已修的三类**：无引号属性值里的字面 `<script>`（实测丢正文，§10.40）；
+   `_inside_unclosed_tag` 在**被上游改写过的字符串**上求值（§10.45，把顺序改成
+   "先剥 script/style 再做 `</td>`/`</tr>`/`<eq>` 替换"）；注释夹在文字中间多一个空格一类
+   属于"不丢字"的装饰性偏差，见下。
+   **仍未修（要精确只有写 HTML 分词器 ⇒ 未立项）**——实测的**造内容**方向（危险方向）
+   还有三态没建模，都给**实测值**（复核 b7 的 MEDIUM-1 探针，本仓 `var/tmp/probe-step44-order.py`）：
+   - **未闭合注释**：`<div><!-- x <b<script>JS</script><p>正文</p>` → 我们 `'JS正文'`，
+     浏览器**什么都不显示**（注释吃到 EOF）；
+   - **RCDATA（`<title>`/`<textarea>`）**：`<title>a<b<script>JS</script>` → 我们 `'aJS'`；
+   - **未收尾的引号属性**：`<a title="x<y<script>JS</script>` → 我们 `'JS'`，浏览器不显示。
+   这三条要触发都得是**畸形 HTML**，且方向是"我们多出浏览器不显示的内容"（会污染材料正文）。
+   **不丢字**的装饰性偏差：引号属性值里的字面 `<script>`（`<p title='<script>'>可见</p>`
+   → `前'> 可见后`，多出 `'>` 两个字符）；`foo<!--x-->bar` → `foo bar`（多一个空格）。
 10. **`application/xhtml+xml` 被白名单接收，但按 HTML5 解析**（同上，登记而非 docstring 限定）：
    XHTML 的 `<script src=x/>` 是**真自闭合**，而 HTML5 读法会把它当"未闭合"吞掉后文
    （实测 `'<p>前</p><script src="a.js"/><p>后</p>'` → `前`）。**选择保留接收**
