@@ -301,8 +301,13 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
   来源必须交代（无出处 = 身份未知 = 不能互证）、判重（相同不新建 / 近似仍登记并标注）。
   Track L 只**认出并记录意图**（复用 `auto_tag` 的判据，不新写正则），**不在采集路径上入库**。
   测试 26 条。
-- **C-2 剩余（未做）**：① **谁去抓**（采集器/工具接线，含 SSRF 与外发纪律）；
-  ② **Track L 评审后自动入库**（走既有 ingest 管线进 `doc_meta` + `material.doc_id` 回指）；
+- **C-2 Track L 决策（已完成，§10.23）**：`src/core/materials/track_l.py` +
+  `text_utils.standard_no_key()`（比较键；**先查真库**才定规则：库内是 `GB 10146-2015`、
+  采集侧是 `GB10146-2015`，且**保留年份/部分号**——库里 `GB 10769-2010` 与 `-2025` 同时存在）。
+  四动作 `skip`/`blocked`/`link`/`import`；**未批准一律 blocked**（评审硬门没有例外）；
+  `apply_link` 是唯一会写的操作且只写 `material.doc_id`。测试 23 条。
+- **C-3 剩余（未做）**：① **谁去抓**（采集器/工具接线，含 SSRF 与外发纪律）；
+  ② **Track L 入库**（写 `doc_meta`，必须复用既有 ingest 管线）；
   ③ 采集预算/频率上限（方案 §11.4 未定）。
 
 ### 已知未决 / 诚实边界

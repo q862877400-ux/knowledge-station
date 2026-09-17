@@ -1045,6 +1045,52 @@ client 插件改动只有在 `pnpm run dev:web` 同时在跑时才会免刷新�
 **门禁**：`pytest` **1431 passed / 3 skipped / 0 failed**（1405 → 1431，**+26**）；
 `mypy` **129 files** 0 errors。
 
+### 10.23 Phase C 第二步：**Track L 的决策**（采到的标准要不要 / 怎么进法条库）
+
+§10.22 把 `tier_evidence['track_l']` 记下了，但**没有任何东西会去用它**。本步补上决策：
+库内已有 ⇒ 只回指；库内没有 ⇒ 需要入库。**入库本身仍不做**（下一步复用既有 ingest 管线）。
+
+**三道门（顺序即优先级，写在一处以免别处再判一次）**：
+1. 材料必须存在；
+2. **必须已批准** —— 评审硬门**没有例外**。这是最要紧的一条：若能绕开评审把东西塞进
+   `doc_meta`，整个闸门就废了。有专门断言（pending **与** rejected 都得 `blocked`）；
+3. 必须带 `track_l` 意图（没认出是标准的普通资料 ⇒ `skip`）。
+
+**动作只有四个**（`ACTIONS` 常量是唯一定义）：`skip` / `blocked` / `link` / `import`。
+`apply_link` 是**唯一会写的操作**，且只写材料平面的 `material.doc_id`（法条链零改动）；
+`import` 分支**什么都不写**并如实回报"还没入库"——有断言守着"本调用没写 `doc_meta`"
+（用前后差值，不用"库是空的"那种全局断言）。
+
+**标准号比较键**：新增 `text_utils.standard_no_key()`。**先查了真库再定规则**——
+实测生产库 `doc_meta.standard_no` 是 **`GB 10146-2015`**（带空格带连字符，6417 行里 6400 行含空格），
+而 `knowledge.auto_tag` 抽出来的却是 **`GB10146-2015`**（去空格去斜杠）——不归一就永远比不上。
+规则保守：NFKC + 大写 + 去空白 + 去 `/` + 统一各种连字符；**保留年份与部分号**
+（实测库里 `GB 10769-2010` 与 `GB 10769-2025` **同时存在**，是两部文件）。
+既有的几处就地归一**没有合并**（`_hier_from_no` 取前缀、`short_code` 去连字符、
+`ccs_fetcher._seed_key` 给种子表），各有用语义，已在 docstring 里逐一点明。
+
+**测试**：`tests/test_material_track_l.py` **23 条**。
+
+> **又是"测试自己错"的三次，而且都很有代表性**：
+> ① 我按记忆写了 `upsert_document` —— 真名是 `insert_document(conn, doc)` 且需要
+> `file_path`/`file_hash`（NOT NULL）⇒ 补齐占位值；
+> ② `doc_meta.standard_no` 是 **UNIQUE**，而 `db` fixture 在**同一个文件内共用一套库**，
+> 于是第二个测试重复种同一条标准就 `UNIQUE constraint failed` ⇒ 把种数据的 helper 改成**幂等**；
+> ③ 承 ②，那条"库内没有 ⇒ import"的用例**永远走成 link**（前面的测试已经把该标准种进去了）
+> ⇒ 标准号参数化，import 用**没有任何测试种过**的号。
+> 教训：**共用测试库 + UNIQUE 约束**会让"按顺序发生的副作用"决定断言结果，
+> 这类测试必须自己保证前置状态，而不是假设"库里本来没有"。
+
+**诚实边界**：
+- 判"库内有没有"是 `standard_no_key` 的**Exact 匹配**（含年份/部分号），
+  **不做**跨版本、勘误、替代关系的关联（那是 `short_code` 与 `superseded_by` 的事）。
+- 采集件正文来自网页 ⇒ **不是官方原件**；即使将来入库，`legal_status`/`legal_hierarchy`
+  等判据仍应由既有管线的规则给，**本模块不代它决定**。
+- **入库（写 `doc_meta`）仍未实现**——这是 Track L 剩下的一半，必须复用既有 ingest 管线。
+
+**门禁**：`pytest` **1454 passed / 3 skipped / 0 failed**（1431 → 1454，**+23**）；
+`mypy` **130 files** 0 errors；本步只动 Python，插件侧门禁不受影响。
+
 
 
 
