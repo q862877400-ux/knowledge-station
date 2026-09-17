@@ -376,6 +376,58 @@ function registerTiers(ctx, manager) {
 }
 
 /**
+ * `GET /ks/materials/locators?material_id=` 与 `?project_id=`：**引用锚点健康度**（§10.49）。
+ *
+ * 两者共用一个字面路径（材料 id 与项目 id **必给其一**），因为 `kind:'exact'` 不支持
+ * 通配段——这与本文件其它路由一致（它们全用 query 传 id）。
+ * 便宜的判据（只比指纹），界面可以直接画。
+ */
+function registerLocators(ctx, manager) {
+  return ctx.webServer.register({
+    kind: 'exact',
+    path: `${KS_MATERIALS_PATH}/locators`,
+    handler: guard(async (req, res) => {
+      if (!methodOnly(req, res, ['GET'])) return
+      const q = pickQuery(req.url, ['material_id', 'project_id'])
+      if (q.material_id) {
+        mapProbe(res, await engineCall(manager, 'GET',
+          `${ENGINE_MATERIALS}/${encodeURIComponent(q.material_id)}/locators`))
+        return
+      }
+      if (q.project_id) {
+        mapProbe(res, await engineCall(manager, 'GET',
+          `${ENGINE_MATERIALS}/projects/${encodeURIComponent(q.project_id)}/locators`))
+        return
+      }
+      jsonResponse(res, 400, errorBody('bad_request', '缺少 material_id 或 project_id'))
+    }),
+  })
+}
+
+/**
+ * `POST /ks/materials/reverify?material_id=`：**重解析比对**（贵、显式动作，§10.49）。
+ *
+ * ⚠ 这条会真的重新解析源文件（PDF 是子进程，秒级到分钟级）⇒ 界面必须**由用户点**，
+ * 不许挂在加载路径上。引擎侧同款理由声明成 `def`（线程池）。
+ */
+function registerReverify(ctx, manager) {
+  return ctx.webServer.register({
+    kind: 'exact',
+    path: `${KS_MATERIALS_PATH}/reverify`,
+    handler: guard(async (req, res) => {
+      if (!methodOnly(req, res, ['POST'])) return
+      const q = pickQuery(req.url, ['material_id'])
+      if (!q.material_id) {
+        jsonResponse(res, 400, errorBody('bad_request', '缺少 material_id'))
+        return
+      }
+      mapProbe(res, await engineCall(manager, 'POST',
+        `${ENGINE_MATERIALS}/${encodeURIComponent(q.material_id)}/reverify`, {}))
+    }),
+  })
+}
+
+/**
  * 注册全部材料路由，返回合并 disposer（cordis effect 会调用）。
  *
  * 注意注册顺序**无关**：这里全是 `kind:'exact'` 的字面路径（没有 `{id}` 通配），
@@ -393,6 +445,8 @@ export function registerKsMaterialsRoutes(ctx, manager) {
     registerRole(ctx, manager),
     registerChunks(ctx, manager),
     registerTiers(ctx, manager),
+    registerLocators(ctx, manager),
+    registerReverify(ctx, manager),
   ]
   return () => {
     for (const dispose of disposers) dispose()
@@ -411,4 +465,6 @@ export const KS_MATERIALS_PATHS = [
   `${KS_MATERIALS_PATH}/role`,
   `${KS_MATERIALS_PATH}/chunks`,
   `${KS_MATERIALS_PATH}/tiers`,
+  `${KS_MATERIALS_PATH}/locators`,
+  `${KS_MATERIALS_PATH}/reverify`,
 ]

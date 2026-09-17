@@ -33,13 +33,17 @@ import {
   exportResearchSlides,
   fetchMaterialChunks,
   fetchMaterialInbox,
+  fetchMaterialLocators,
   fetchMaterialProjects,
   fetchMaterialTiers,
   fetchMaterials,
+  fetchProjectLocators,
+  reverifyMaterialLocators,
   reviewMaterial,
   scanMaterialProject,
   setMaterialRole,
   setMaterialTier,
+  type KsLocatorHealth,
   type KsMaterial,
   type KsMaterialChunk,
   type KsMaterialProject,
@@ -119,6 +123,13 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
   const [report, setReport] = useState<KsResearchReport | null>(null)
   const [slides, setSlides] = useState<KsSlideDeck | null>(null)
   const [showReport, setShowReport] = useState(false)
+  /**
+   * 引用锚点健康度（**便宜**判据：只比指纹）。
+   * ⚠ 只在**项目列表加载后**拉一次（`fetchProjectLocators`），材料行上按 id 显示缓存值
+   * ——每行单独发请求会在有几十份材料时把面板变成请求风暴。
+   */
+  const [anchors, setAnchors] = useState<Record<string, KsLocatorHealth>>({})
+  const [anchorNote, setAnchorNote] = useState('')
   const [openChunks, setOpenChunks] = useState<Record<string, KsMaterialChunk[] | 'loading'>>({})
 
   const reloadProjects = useCallback(async (signal?: AbortSignal): Promise<KsMaterialProject[]> => {
@@ -177,6 +188,8 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
     if (!visible || projectId === '') {
       setMaterials([])
       setInbox({ dir: '', files: [] })
+      setAnchors({})
+      setAnchorNote('')
       return undefined
     }
     const ctl = new AbortController()
@@ -188,6 +201,16 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
         await Promise.all([
           reloadMaterials(projectId, ctl.signal),
           reloadInbox(projectId, ctl.signal),
+          // 锚点健康度：**一次请求拿全项目**（便宜判据，不重解析）
+          fetchProjectLocators(projectId, ctl.signal).then((s) => {
+            if (!alive) return
+            const map: Record<string, KsLocatorHealth> = {}
+            for (const [mid, status] of Object.entries(s.statuses)) {
+              map[mid] = { material_id: mid, status, why: '' } as KsLocatorHealth
+            }
+            setAnchors(map)
+            setAnchorNote(s.note)
+          }).catch(() => { /* 锚点总览失败不该挡住材料列表 */ }),
         ])
       } catch (err) {
         if (alive) setError(err instanceof Error ? err.message : String(err))
@@ -358,7 +381,27 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
     }, projectId)
   }, [projectId, run])
 
-  const onToggleChunks = useCallback((m: KsMaterial) => {    const cur = openChunks[m.material_id]
+  /**
+   * **重解析比对**（贵、显式动作，§10.49）：用当前解析器复算派生全文并比对。
+   *
+   * 三条结果**措辞不许混**（所有者是引擎的 `materials/locator.py`）：
+   * `match` = 逐字节一致（这才是保证）；`mismatch` = **已存区间失效**（引用会指错）；
+   * `unavailable` = **验不了**（网页件没有留存源文件）——**不是**"没问题"。
+   */
+  const onReverify = useCallback((m: KsMaterial) => {
+    void run(`reverify:${m.material_id}`, async () => {
+      const out = await reverifyMaterialLocators(m.material_id)
+      if (out.status === 'match') return `「${m.title}」锚点复算：**逐字节一致**（区间仍有效）`
+      if (out.status === 'mismatch') {
+        return `「${m.title}」锚点复算：⚠ **已存区间已失效**（引用位置会指错）——`
+          + '需要重建这份材料（重新解析并重建切片），或把它弃用'
+      }
+      return `「${m.title}」锚点复算：**验不了**（${out.why}）`
+    }, null)
+  }, [run])
+
+  const onToggleChunks = useCallback((m: KsMaterial) => {
+    const cur = openChunks[m.material_id]
     if (cur !== undefined) {
       setOpenChunks((prev) => {
         const next = { ...prev }
@@ -601,6 +644,20 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
                 只列在「已知不可用」里。要让它承重，请先把它改成可回溯的来源层级。
               </p>
             )}
+            {/* 引用锚点：⚠ 只在**有问题/判不了**时显示（`ok` 不加噪声）。
+                语义严格分开：需复算 ≠ 已坏；未验证 ≠ 有问题。 */}
+            {anchors[m.material_id]?.status === 'stale' && (
+              <p style={{ margin: '4px 0 0', fontSize: 12, color: 'var(--dsw-alias-warn, #b8860b)' }}>
+                ⚠ <strong>引用锚点需复算</strong>：解析器身份变了，已存区间<strong>可能</strong>失效
+                （不代表已经坏了）。点「复算锚点」用当前解析器重算比对。
+              </p>
+            )}
+            {anchors[m.material_id]?.status === 'unknown' && (
+              <p style={{ margin: '4px 0 0', fontSize: 12, color: GRAY }}>
+                ⚠ <strong>引用锚点未验证</strong>：入库时没记解析器指纹（或 PDF 的便宜判据下不了
+                结论）——<strong>不等于</strong>有问题，但引用位置<strong>未经确认</strong>。
+              </p>
+            )}
 
             <div style={{ display: 'flex', gap: 6, marginTop: 8, flexWrap: 'wrap' }}>
               <button
@@ -621,6 +678,15 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
               </button>
               <button type="button" style={btnStyle(false)} onClick={() => onToggleChunks(m)}>
                 {chunks === undefined ? '读正文（评审前必看）' : '收起正文'}
+              </button>
+              <button
+                type="button"
+                style={btnStyle(busy !== '' || (anchors[m.material_id]?.status === 'no_locators'))}
+                disabled={busy !== '' || anchors[m.material_id]?.status === 'no_locators'}
+                title="用当前解析器重新解析源文件并比对派生全文（PDF 是子进程，可能要几十秒）"
+                onClick={() => onReverify(m)}
+              >
+                复算锚点
               </button>
             </div>
 

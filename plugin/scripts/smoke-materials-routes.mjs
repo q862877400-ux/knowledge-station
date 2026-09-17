@@ -479,6 +479,30 @@ const lastEngine = () => seen[seen.length - 1]
   await invoke('/ks/materials/tiers')
   check('GET /tiers 从引擎取层定义（判据只有一个所有者，前端不抄一份）',
     lastEngine().path === '/api/v1/materials/tiers', lastEngine().path)
+
+  // ---- 引用锚点稳定性（§10.49）：两个 id 走**同一个字面路径**，必给其一 ----
+  seen.length = 0
+  responder = () => ({ body: { code: 200, data: { material_id: 'mat_1', status: 'ok' } } })
+  await invoke('/ks/materials/locators', { search: '?material_id=mat_1' })
+  check('GET /locators?material_id= 打到单份材料的锚点健康度',
+    lastEngine().path === '/api/v1/materials/mat_1/locators', lastEngine().path)
+
+  seen.length = 0
+  responder = () => ({ body: { code: 200, data: { project_id: 'prj_a', counts: {} } } })
+  await invoke('/ks/materials/locators', { search: '?project_id=prj_a' })
+  check('GET /locators?project_id= 打到项目级总览（一次拿全，界面不逐行发请求）',
+    lastEngine().path === '/api/v1/materials/projects/prj_a/locators', lastEngine().path)
+
+  seen.length = 0
+  const noId = await invoke('/ks/materials/locators')
+  check('两者都不给 → 400 且不打扰引擎（不猜）',
+    noId.status === 400 && seen.length === 0, String(noId.status))
+
+  seen.length = 0
+  responder = () => ({ body: { code: 200, data: { status: 'unavailable', why: '验不了' } } })
+  await invoke('/ks/materials/reverify', { method: 'POST', search: '?material_id=mat_1' })
+  check('POST /reverify 打到重解析比对（**贵**动作，只由用户点）',
+    lastEngine().path === '/api/v1/materials/mat_1/reverify', lastEngine().path)
 }
 
 /* --------------------------- 6. 方法与错误映射 --------------------------- */
@@ -491,6 +515,8 @@ const lastEngine = () => seen[seen.length - 1]
     ['/ks/materials/chunks', 'POST'],
     ['/ks/materials/tiers', 'POST'],
     ['/ks/materials/collect', 'GET'],
+    ['/ks/materials/locators', 'POST'],
+    ['/ks/materials/reverify', 'GET'],
   ]) {
     const r = await invoke(path, { method, search: '?project_id=prj_a&material_id=mat_1' })
     check(`${method} ${path} → 405（方法守卫）`, r.status === 405, String(r.status))

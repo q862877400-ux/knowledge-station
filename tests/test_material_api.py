@@ -514,6 +514,8 @@ class TestSlowEndpointsAreDeclaredSync:
         "/api/v1/materials/projects/{project_id}/scan",
         "/api/v1/materials/projects/{project_id}/collect",
         "/api/v1/materials/{material_id}/review",
+        # 重解析比对会**子进程解析**（秒级到分钟级），与 scan 同款 ⇒ 必须 `def`
+        "/api/v1/materials/{material_id}/reverify",
     ])
     def test_declared_sync(self, client, path):
         import asyncio
@@ -522,5 +524,76 @@ class TestSlowEndpointsAreDeclaredSync:
         assert routes, f"路由不存在: {path}"
         assert not asyncio.iscoroutinefunction(routes[0].endpoint), (
             f"{path} 做同步重活，必须是 `def`（线程池），不能是 `async def`")
+
+
+class TestLocatorEndpoints:
+    """引用锚点稳定性的三个端点（方案 §12 未决第 5 条，§10.48）。"""
+
+    def _ingest(self, client, project, tmp_path, body: str = "甲。乙。") -> dict:
+        c, _ = client
+        p = _txt(tmp_path / "doc.txt", body)
+        r = c.post(f"/api/v1/materials/projects/{project['project_id']}/scan",
+                   json={"origin": "user"}, headers=HDR)
+        assert r.status_code == 200, r.text
+        # scan 扫的是项目目录；这里直接把文件放进去再扫（与既有端到端用例同款）
+        return {"scanned": r.json()["data"]["scanned"], "path": p}
+
+    def test_project_summary_and_single_health(self, client, project, tmp_path):
+        """⚠ **不抓网**：材料直接用 `collect_text` 造（离线也要能验端点形状）。
+
+        第一版走了 HTTP `collect` 端点 ⇒ 离线时只能 `skip`，而"跳过的用例"等于
+        **没有保证**（本仓的规矩：宁可换成确定的构造方式，也不要一条会跳的断言）。
+        """
+        c, _ = client
+        pid = project["project_id"]
+        from src.core.materials import collect as co
+        m = co.collect_text(pid, title="报道", text="住宿标准八百元。",
+                            url="https://a.example/1")
+        mid = m["material_id"]
+
+        h = c.get(f"/api/v1/materials/{mid}/locators", headers=HDR)
+        assert h.status_code == 200, h.text
+        data = h.json()["data"]
+        assert data["status"] in ("ok", "stale", "unknown", "no_locators"), data
+        # 网页材料刚入库 ⇒ 指纹一致 ⇒ ok（且措辞不许说成"保证一致"）
+        assert data["status"] == "ok", data
+        assert "未发现变化" in data["why"], data["why"]
+
+        s = c.get(f"/api/v1/materials/projects/{pid}/locators", headers=HDR)
+        assert s.status_code == 200, s.text
+        body = s.json()["data"]
+        assert body["project_id"] == pid and body["counts"]["ok"] == 1, body
+        assert "重解析比对" in body["note"], body["note"]
+
+    def test_old_material_shows_up_as_unknown_in_the_summary(self, client, project):
+        """老材料（入库时没记指纹）在总览里算 **unknown** ——**不假装 ok**。"""
+        c, _ = client
+        pid = project["project_id"]
+        from src.core.storage import material_repo as mr
+        m = mr.add_material(pid, "老材料", origin="user")
+        mr.add_chunks(m["material_id"], [{"text": "甲", "char_start": 0, "char_end": 1}])
+        s = c.get(f"/api/v1/materials/projects/{pid}/locators", headers=HDR)
+        body = s.json()["data"]
+        assert body["counts"]["unknown"] == 1, body
+        assert any(a["material_id"] == m["material_id"] for a in body["attention"]), body
+        h = c.get(f"/api/v1/materials/{m['material_id']}/locators", headers=HDR)
+        assert h.json()["data"]["status"] == "unknown", h.json()
+
+    def test_unknown_material_is_404(self, client, project):
+        c, _ = client
+        assert c.get("/api/v1/materials/mat_缺少/locators", headers=HDR).status_code == 404
+        assert c.post("/api/v1/materials/mat_缺少/reverify", headers=HDR).status_code == 404
+
+    def test_reverify_reports_unavailable_without_a_source_file(self, client, project):
+        """**没有留存源文件** ⇒ `unavailable`（不是 match）——这条语义必须在端点上如实。"""
+        c, _ = client
+        from src.core.materials import collect as co
+        m = co.collect_text(project["project_id"], title="网页件", text="住宿八百元。",
+                            url="https://a.example/2")
+        r = c.post(f"/api/v1/materials/{m['material_id']}/reverify", headers=HDR)
+        assert r.status_code == 200, r.text
+        data = r.json()["data"]
+        assert data["status"] == "unavailable", data
+        assert "不是 ok" in data["why"], data["why"]
 
 

@@ -2421,6 +2421,86 @@ export async function fetchMaterialTiers(signal?: AbortSignal): Promise<KsMateri
   return Array.isArray(data) ? data : []
 }
 
+/* ------------------------------------------------------------------ 引用锚点稳定性
+ * （方案 §12 未决第 5 条 = Phase B 必解，§10.48/§10.49）
+ *
+ * ⚠ 界面这一层**不许**自己解释 status：`ok` 的语义是"**未发现变化**"（不是"保证一致"），
+ * `stale` 是"**需要复算**"（不是"已经坏了"），`unknown` 是"**验证不了**"
+ * （老材料没记指纹 / PDF 的便宜判据下不了结论）。措辞的唯一所有者在
+ * `src/core/materials/locator.py`。
+ */
+
+/** 锚点健康度（便宜判据：只比指纹，不重解析）。 */
+export interface KsLocatorHealth {
+  material_id: string
+  status: 'ok' | 'stale' | 'unknown' | 'no_locators'
+  fingerprint_recorded?: string | null
+  fingerprint_current?: string | null
+  derived_text_hash_recorded?: string | null
+  why: string
+}
+
+/** 项目级总览。 */
+export interface KsLocatorSummary {
+  project_id: string
+  counts: Partial<Record<KsLocatorHealth['status'], number>>
+  /** 每份材料的状态（一次给全：界面每行都要画标记，逐行发请求会变请求风暴）。 */
+  statuses: Record<string, KsLocatorHealth['status']>
+  attention: { material_id: string; title?: string; status: string; why: string }[]
+  note: string
+}
+
+/** **重解析比对**的结果（贵、显式动作）。`mismatch` = 已存区间不再可信。 */
+export interface KsReverifyResult {
+  material_id: string
+  status: 'match' | 'mismatch' | 'unavailable'
+  recorded?: string | null
+  recomputed?: string | null
+  why: string
+}
+
+/** GET /ks/materials/locators?material_id= — 单份材料的锚点健康度（便宜）。 */
+export async function fetchMaterialLocators(
+  materialId: string, signal?: AbortSignal,
+): Promise<KsLocatorHealth> {
+  const q = new URLSearchParams({ material_id: materialId })
+  const res = await fetch(`/ks/materials/locators?${q.toString()}`, {
+    method: 'GET', headers: { accept: 'application/json' }, signal,
+  })
+  return ksJson<KsLocatorHealth>(res, '锚点健康度')
+}
+
+/** GET /ks/materials/locators?project_id= — 项目级总览（便宜）。 */
+export async function fetchProjectLocators(
+  projectId: string, signal?: AbortSignal,
+): Promise<KsLocatorSummary> {
+  const q = new URLSearchParams({ project_id: projectId })
+  const res = await fetch(`/ks/materials/locators?${q.toString()}`, {
+    method: 'GET', headers: { accept: 'application/json' }, signal,
+  })
+  const data = await ksJson<KsLocatorSummary>(res, '锚点总览')
+  return { project_id: data.project_id ?? projectId, counts: data.counts ?? {},
+           statuses: data.statuses ?? {}, attention: data.attention ?? [],
+           note: data.note ?? '' }
+}
+
+/**
+ * POST /ks/materials/reverify?material_id= — **重解析比对**（会真的重新解析源文件）。
+ * ⚠ 用户点了才发（PDF 秒级到分钟级），**不许**挂在加载路径上。
+ */
+export async function reverifyMaterialLocators(
+  materialId: string, signal?: AbortSignal,
+): Promise<KsReverifyResult> {
+  const q = new URLSearchParams({ material_id: materialId })
+  const res = await fetch(`/ks/materials/reverify?${q.toString()}`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify({}),
+    signal,
+  })
+  return ksJson<KsReverifyResult>(res, '重解析比对')
+}
+
 /* ------------------------------------------------------------------ 产出（Phase D-3b）
  *
  * ⚠ 与 `/ks/materials/*` 的**参数位置不同**：产出路由把 `project_id` 放在 **body** 里

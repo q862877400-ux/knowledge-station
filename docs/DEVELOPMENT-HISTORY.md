@@ -2564,4 +2564,48 @@ PPT 里必然溢出文本框）。
 `mypy src` **134 files / 0 errors**（新模块 +1 文件）；`smoke` 18 段（未改 `plugin/`）；
 `verify:commands` 22/22；`tsc --noEmit` 0。变异实验 Y/Z/AA/AB 全 RED 且逐字节还原。
 
+### 10.49 把锚点判据**接进产品**：引擎端点 + 主机路由 + 面板标记 + 报告里的 ⚠
+
+**为什么必须紧接着做（§10.48 的判据当时是"死"的）**：上一节只交付了模块与测试——
+按本项目自己的标准（§10.33 的 Track L 教训："有实现、没有生产调用方 = 死功能"），
+判据不接进任何产品路径就等于**没做**。
+
+**做了什么**
+1. **引擎三个端点**：`GET /api/v1/materials/{mid}/locators`（单份，便宜）、
+   `GET /api/v1/materials/projects/{pid}/locators`（项目级总览，**一次给全项目状态**——
+   界面每行都要画标记，逐行发请求就是请求风暴）、
+   `POST /api/v1/materials/{mid}/reverify`（**重解析比对**，声明成 `def`：
+   PDF 是子进程解析，与 `scan`/`collect` 同款理由；已加进那条结构性测试的参数表）。
+2. **主机三条路由**（`/ks/materials/locators` 用 query 区分两个 id、`/ks/materials/reverify`），
+   并进 `KS_MATERIALS_PATHS`（那条"注册了全部 N 条"的断言自动覆盖新路径）。
+3. **参考资料面板**：材料行在 `stale`/`unknown` 时显示 ⚠（`ok` **不加噪声**）+
+   「复算锚点」按钮（**贵动作，只由用户点**；`no_locators` 时禁用）。
+4. **研究报告**：材料清单行带 `⚠锚点需复算` / `⚠锚点未验证`，并**在 warnings 里也出现一次**
+   （清单里的标记要逐条读才看得到，而"引用位置可能失效"该被一眼看到）。
+   报告只跑**便宜判据**（重解析太贵，不能进报告路径）。
+
+**措辞纪律在前端也守住**（这是本步最容易做错的地方）：界面文案里
+「需复算」必须同时说"**不代表已经坏了**"，「未验证」必须同时说"**不等于有问题**"
+——两句话都进了 `smoke-client-entry` 的标记断言（少一句就等于把"不确定"说成"有问题"）。
+
+**测试**：`tests/test_material_locator.py`（14）+ `tests/test_material_api.py`
+（新增 `TestLocatorEndpoints` 3 条 + 结构性测试参数 +1）+
+`tests/test_research_report.py`（新增 `TestAnchorVisibility` 3 条）；
+`smoke-materials-routes` 65 → **71**；`smoke-client-entry` 63 → **66**。
+⚠ 其中一条 API 用例第一版走 HTTP `collect` 端点 ⇒ 离线时只能 `skip`，而"会跳的断言"
+等于没有保证 ⇒ 改成用 `collect_text` 直接造材料（**不抓网**）。
+
+**诚实边界**：
+- **真机仍未点过**（两道门不变）：新端点要引擎重启才在活实例上出现。
+- **`mismatch` 之后没有重建流程**：本步只让它**看得见**；重建（重解析 + 重建切片）
+  与"把锚点状态接进答案链"都**未做**（后者要单独想清楚：材料进证据集走的是材料检索，
+  与条款区间不是同一套坐标）。
+- 面板只在**选中项目时**拉一次总览：之后新入库的材料要走"重新选一次项目"才会带上标记
+  （**没有**做自动失效刷新——登记为已知粗糙点）。
+- 报告里的 ⚠ 是**便宜判据**的结论：`unknown` **不等于**有问题（老材料全都会是它）。
+
+**门禁（本步）**：`pytest` **1651 passed / 3 skipped / 0 failed**；`mypy src`
+**134 files / 0 errors**；`smoke` **18 段全过**（`materials-routes` **71/71**、
+`client-entry` **66/66**）；`verify:commands` 22/22；`tsc --noEmit` 0。
+
 

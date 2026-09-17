@@ -36,7 +36,9 @@ from src.core.ingestion import material_ingest as mi
 from src.core.storage import material_repo as mr
 
 #: `locator_health` 的取值（**判据的取值域写在一处**，界面/报告别自己发明词）。
-HEALTH_STATUSES = ("ok", "stale", "unknown", "no_locators", "no_text")
+#: ⚠ 没有 `no_text` 这一档：解析不出文本的材料**必然** `chunk_count == 0` ⇒ 落到
+#: `no_locators`（没有区间可言）。少一个**永远不会被返回**的取值，就少一处"看起来覆盖了"。
+HEALTH_STATUSES = ("ok", "stale", "unknown", "no_locators")
 
 #: `reverify_material_locators` 的取值域。
 REVERIFY_STATUSES = ("match", "mismatch", "unavailable")
@@ -161,15 +163,23 @@ def reverify_material_locators(material_id: str) -> dict[str, Any]:
 
 
 def project_locator_summary(project_id: str) -> dict[str, Any]:
-    """项目级**便宜**总览（按状态计数 + 有问题的清单）——给界面/报告用。"""
+    """项目级**便宜**总览（每份材料的状态 + 计数 + 有问题的清单）——给界面/报告用。
+
+    ⚠ 一次给**全部**材料的状态（`statuses`），而不是只给有问题的：界面每行都要画标记，
+    而"每行发一次请求"在有几十份材料时就是请求风暴。这个判据本身很便宜（PRAGMA + 比字符串）。
+    """
     counts: dict[str, int] = {s: 0 for s in HEALTH_STATUSES}
+    statuses: dict[str, str] = {}
     attention: list[dict[str, Any]] = []
     for m in mr.list_materials(project_id):
         h = locator_health(m)
+        mid = str(m["material_id"])
+        statuses[mid] = h["status"]
         counts[h["status"]] = counts.get(h["status"], 0) + 1
         if h["status"] in ("stale", "unknown"):
-            attention.append({"material_id": m["material_id"], "title": m.get("title"),
+            attention.append({"material_id": mid, "title": m.get("title"),
                               "status": h["status"], "why": h["why"]})
-    return {"project_id": project_id, "counts": counts, "attention": attention,
+    return {"project_id": project_id, "counts": counts, "statuses": statuses,
+            "attention": attention,
             "note": ("`unknown` 包含两类：入库时没记指纹的老材料、以及 PDF 便宜比对判不了的那些；"
                      "要给结论请对具体材料跑重解析比对")}

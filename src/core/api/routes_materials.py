@@ -325,3 +325,45 @@ def register(app, json_error):
         if not mr.delete_material(material_id):
             return json_error(404, "materials_not_found", f"材料不存在: {material_id}")
         return {"code": 200, "status": "success", "data": {"deleted": material_id}}
+
+    # ------------------------------------------------ 引用锚点稳定性（§12 未决第 5 条）
+    @app.get("/api/v1/materials/projects/{project_id}/locators")
+    async def materials_locator_summary(project_id: str):
+        """项目级**锚点健康度总览**（便宜：只比指纹，不重解析）。
+
+        ⚠ `unknown` **不是** `ok`：它包含"入库时没记指纹的老材料"与"PDF 便宜比对判不了"
+        两类。要给一份材料下结论，走 `POST .../{mid}/reverify`（显式、贵）。
+        """
+        if mr.get_project(project_id) is None:
+            return json_error(404, "materials_not_found", f"项目不存在: {project_id}")
+        from src.core.materials import locator as lo
+        return {"code": 200, "status": "success",
+                "data": lo.project_locator_summary(project_id)}
+
+    @app.get("/api/v1/materials/{material_id}/locators")
+    async def materials_locator_health(material_id: str):
+        """单份材料的**锚点健康度**（便宜）。措辞纪律见 `materials/locator.py`。"""
+        mat = mr.get_material(material_id)
+        if mat is None:
+            return json_error(404, "materials_not_found", f"材料不存在: {material_id}")
+        from src.core.materials import locator as lo
+        return {"code": 200, "status": "success", "data": lo.locator_health(mat)}
+
+    @app.post("/api/v1/materials/{material_id}/reverify")
+    def materials_reverify_locators(material_id: str):
+        """**重解析比对**（贵，显式动作）：用当前解析器复算派生全文哈希并比对。
+
+        ⚠ 声明成 `def`：PDF 那条路是**子进程解析**（秒级到分钟级），
+        uvicorn 单事件循环经不起 `async def` 里做同步重活（与 `scan`/`collect` 同款理由）。
+        `mismatch` 的含义很重：**这份材料的已存区间不再可信**。
+        """
+        if mr.get_material(material_id) is None:
+            return json_error(404, "materials_not_found", f"材料不存在: {material_id}")
+        from src.core.materials import locator as lo
+        try:
+            data = lo.reverify_material_locators(material_id)
+        except ValueError as e:
+            return json_error(404, "materials_not_found", str(e))
+        except KnowledgeStationError as e:
+            return json_error(500, getattr(e, "code", "internal_error"), str(e))
+        return {"code": 200, "status": "success", "data": data}

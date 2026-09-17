@@ -471,8 +471,13 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
    ⚠ 措辞纪律：指纹相同只说"**未发现变化**"（不等于保证一致），指纹不同只说"**需要复算**"
    （不等于已经坏了）；网页材料（无留存源文件）**只能** `unavailable`，老材料（NULL）**只能**
    `unknown`——**都不许当 `ok`**。
-   **仍未做**：把这三道判据**接进**答案链/报告的可见位置（现在只有模块与测试，
-   没有 API/界面/报告里的标记），以及 `mismatch` 之后的**重建流程**（重解析重建区间）。
+   **已接进产品**（§10.49）：引擎三个端点（`GET /materials/{mid}/locators`、
+   `GET /materials/projects/{pid}/locators`、`POST /materials/{mid}/reverify`）+ 主机三条
+   `/ks/materials/*` 路由 + 参考资料面板的材料行标记与「复算锚点」按钮 + **研究报告里的
+   ⚠ 标记与 warnings**（报告要能"引用前校验"，但只跑便宜判据，重解析仍是显式动作）。
+   **仍未做**：`mismatch` 之后的**重建流程**（重解析重建区间）、以及把锚点判据接进
+   **答案链**（`ks_answer` 的证据里目前不带锚点状态——材料进证据集走的是材料检索，
+   与条款区间不是同一套坐标，这条要单独想清楚再动）。
 6. **`material_chunks()` / `list_materials()` / `get_material()` 不设评审门**（故意，供评审人
    读正文用）。生产代码今天没有分析路径用它们 ⇒ 一旦 Phase B 的答案链接到其中任何一个，
    **就是绕过评审且不报错**。接答案链时必须只经 `approved_materials()` / `search_materials()`。

@@ -56,17 +56,44 @@ def _safe_name(name: str) -> str:
 
 
 def _material_line(m: dict[str, Any]) -> str:
-    """参考**材料**条目的一行说明（带两个轴——合成一个"可信度"必错）。"""
+    """参考**材料**条目的一行说明（带两个轴——合成一个"可信度"必错）。
+
+    ⚠ 还带**引用锚点健康度**（方案 §12 未决第 5 条）：`char_start/char_end/page` 是
+    解析结果的坐标，换解析器就可能失效 ⇒ 报告里必须**看得见**这件事，否则"引用看起来
+    正常"本身就是误导。只在**有问题**时加标记（`ok` 不加噪声）：
+      · `stale` ⇒ ⚠锚点需复算；`unknown` ⇒ ⚠锚点未验证（含"入库时没记指纹"）。
+    """
     role = m.get("task_role") or "未声明效力"
     role_label = {"criterion": "本任务准则", "reference": "仅作参考"}.get(role, role)
     bits = [f"{m.get('title') or '(无题)'}",
             f"[{m.get('source_tier') or '?'}·{m.get('tier_label') or ''} / {role_label}]",
             f"评审={m.get('review_status')}"]
+    anchor = m.get("_locator_status")
+    if anchor == "stale":
+        bits.append("⚠锚点需复算")
+    elif anchor == "unknown":
+        bits.append("⚠锚点未验证")
     if m.get("url"):
         bits.append(str(m["url"]))
     if m.get("doc_id"):
         bits.append(f"法条={m['doc_id']}")
     return "，".join(bits)
+
+
+def _attach_locator_status(materials: list[dict[str, Any]]) -> None:
+    """给材料行挂上 `_locator_status`（**便宜**判据；判不了就是 `unknown`）。
+
+    为什么放在报告这一层：报告要能"引用前校验"。但**重解析比对太贵**（子进程解析），
+    不能放进报告路径 ⇒ 这里只用 `locator.locator_health()`（比指纹），
+    并把结论**如实**标出来（`stale`/`unknown` 都有标记，`ok` 不加噪声）。
+    ⚠ `unknown` **不**等于有问题，只等于"便宜判据下不了结论"——措辞见 `locator.py`。
+    """
+    from src.core.materials import locator as lo
+    for m in materials:
+        try:
+            m["_locator_status"] = lo.locator_health(m)["status"]
+        except Exception:  # noqa: BLE001 — 健康度算不出来不该让报告失败
+            m["_locator_status"] = "unknown"
 
 
 def _check_citations(text: str, assembled: dict[str, Any]) -> dict[str, Any]:
@@ -124,12 +151,27 @@ def build_report_blocks(project_id: str, *, title: str | None = None,
     approved = mr.list_materials(project_id, review_status="approved")
     pending = mr.list_materials(project_id, review_status="pending")
     rejected = mr.list_materials(project_id, review_status="rejected")
+    # 引用锚点的**便宜**健康度（方案 §12 未决第 5 条）：只比指纹，不重解析（报告不能慢成
+    # 解析器）。⚠ 这里**不**下"引用有效"的结论，只把 stale/unknown **标出来**给人看。
+    _attach_locator_status(approved + pending + rejected)
 
     assembled: dict[str, Any] | None = None
     if (query or "").strip():
         assembled = authority.assemble_evidence(project_id, str(query).strip(), limit=limit)
 
     warnings: list[str] = []
+    # 锚点问题要**在 warnings 里也出现一次**：清单里的 ⚠ 标记只有逐条读才看得到，
+    # 而"引用位置可能失效"属于该被一眼看到的事（措辞严格区分"需复算"与"未验证"）。
+    _stale = [m for m in approved + pending + rejected if m.get("_locator_status") == "stale"]
+    _unknown = [m for m in approved if m.get("_locator_status") == "unknown"]
+    if _stale:
+        warnings.append(f"⚠ {len(_stale)} 份材料的**引用锚点需要复算**（解析器身份变了，"
+                        "已存区间可能失效——见清单里的「⚠锚点需复算」；"
+                        "要不要重建请先跑重解析比对）")
+    if _unknown:
+        warnings.append(f"⚠ {len(_unknown)} 份**已批准**材料的引用锚点**未经验证**"
+                        "（入库时没记解析器指纹，或 PDF 的便宜判据下不了结论）——"
+                        "**不等于**有问题，但报告里的引用位置**未经确认**")
     citations: dict[str, Any] = {"material_refs": [], "unknown": [],
                                  "not_load_bearing": [], "unchecked_law_refs": []}
     conclusion = str(conclusion_md or "").strip()

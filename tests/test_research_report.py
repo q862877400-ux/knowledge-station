@@ -128,6 +128,54 @@ class TestCitationChecking:
         assert out["citations"]["unknown"] == [-1], out["citations"]
 
 
+class TestAnchorVisibility:
+    """**引用锚点**要在报告里看得见（方案 §12 未决第 5 条，§10.48）。
+
+    为什么放在报告里：报告的用途就是"引用可核"。而 `char_start/char_end/page` 是**解析结果**
+    的坐标 ⇒ 换解析器可能让它失效，**而报告看起来一切正常**——那正是最坏的一种。
+    便宜的指纹比对可以在报告路径上跑（重解析比对太贵，属显式动作）。
+    """
+
+    def test_fresh_material_has_no_anchor_noise(self, project):
+        """刚入库的材料锚点 `ok` ⇒ **不许**加标记（标记得只在有问题时出现，否则人人无视）。"""
+        pid = project["project_id"]
+        _approved_article(pid, "报道", "住宿标准八百元。")
+        out = rr.build_research_report(pid, title="T")
+        assert not any("锚点" in w for w in out["warnings"]), out["warnings"]
+        assert "⚠锚点" not in out["markdown"], out["markdown"]
+
+    def test_old_material_is_marked_unverified(self, project):
+        """入库时没记指纹的老材料 ⇒ 标记 + warning（措辞必须是"未经验证"，不是"有问题"）。"""
+        pid = project["project_id"]
+        from src.core.storage import material_repo as mr
+        m = mr.add_material(pid, "老材料", origin="user")
+        mr.add_chunks(m["material_id"], [{"text": "甲", "char_start": 0, "char_end": 1}])
+        mr.set_review(m["material_id"], "approved")
+        out = rr.build_research_report(pid, title="T")
+        assert "⚠锚点未验证" in out["markdown"], out["markdown"]
+        hit = [w for w in out["warnings"] if "未经验证" in w]
+        assert hit, out["warnings"]
+        assert "**不等于**有问题" in hit[0], hit[0]
+
+    def test_changed_fingerprint_is_marked_needing_recompute(self, project, monkeypatch):
+        """指纹变了 ⇒ 「⚠锚点需复算」+ warning（措辞："需要复算"，不是"已经坏了"）。
+
+        ⚠ 这里改的是**采集通道**那个常量：网页材料的当前指纹就是它
+        （`locator.current_fingerprint_for` 对网页件返回 `COLLECT_PARSER_FINGERPRINT`），
+        所以模拟"采集侧算法变了"要改它——第一版改了 `mi._provenance_fingerprint`，
+        对网页件**不生效**（那条路走的是文件指纹），当场红。
+        """
+        pid = project["project_id"]
+        _approved_article(pid, "报道", "住宿标准八百元。")
+        from src.core.materials import collect as co
+        monkeypatch.setattr(co, "COLLECT_PARSER_FINGERPRINT", "web:collect-v999")
+        out = rr.build_research_report(pid, title="T")
+        assert "⚠锚点需复算" in out["markdown"], out["markdown"]
+        hit = [w for w in out["warnings"] if "需要复算" in w]
+        assert hit, out["warnings"]
+        assert "可能失效" in hit[0], hit[0]
+
+
 class TestWrite:
     def test_files_are_written_and_named(self, project, tmp_path, monkeypatch):
         pid = project["project_id"]

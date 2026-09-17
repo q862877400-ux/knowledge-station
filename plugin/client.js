@@ -28432,6 +28432,32 @@ async function fetchMaterialTiers(signal) {
   const data = await ksJson(res, "\u5C42\u5B9A\u4E49");
   return Array.isArray(data) ? data : [];
 }
+async function fetchProjectLocators(projectId, signal) {
+  const q = new URLSearchParams({ project_id: projectId });
+  const res = await fetch(`/ks/materials/locators?${q.toString()}`, {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  const data = await ksJson(res, "\u951A\u70B9\u603B\u89C8");
+  return {
+    project_id: data.project_id ?? projectId,
+    counts: data.counts ?? {},
+    statuses: data.statuses ?? {},
+    attention: data.attention ?? [],
+    note: data.note ?? ""
+  };
+}
+async function reverifyMaterialLocators(materialId, signal) {
+  const q = new URLSearchParams({ material_id: materialId });
+  const res = await fetch(`/ks/materials/reverify?${q.toString()}`, {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify({}),
+    signal
+  });
+  return ksJson(res, "\u91CD\u89E3\u6790\u6BD4\u5BF9");
+}
 function reportBody(projectId, input) {
   const body = { project_id: projectId };
   if (input.title !== void 0 && input.title !== "") body.title = input.title;
@@ -32458,6 +32484,8 @@ function KsMaterialsPanel(props) {
   const [report, setReport] = (0, import_react7.useState)(null);
   const [slides, setSlides] = (0, import_react7.useState)(null);
   const [showReport, setShowReport] = (0, import_react7.useState)(false);
+  const [anchors, setAnchors] = (0, import_react7.useState)({});
+  const [anchorNote, setAnchorNote] = (0, import_react7.useState)("");
   const [openChunks, setOpenChunks] = (0, import_react7.useState)({});
   const reloadProjects = (0, import_react7.useCallback)(async (signal) => {
     const list = await fetchMaterialProjects(signal);
@@ -32508,6 +32536,8 @@ function KsMaterialsPanel(props) {
     if (!visible || projectId === "") {
       setMaterials([]);
       setInbox({ dir: "", files: [] });
+      setAnchors({});
+      setAnchorNote("");
       return void 0;
     }
     const ctl = new AbortController();
@@ -32518,7 +32548,18 @@ function KsMaterialsPanel(props) {
       try {
         await Promise.all([
           reloadMaterials(projectId, ctl.signal),
-          reloadInbox(projectId, ctl.signal)
+          reloadInbox(projectId, ctl.signal),
+          // 锚点健康度：**一次请求拿全项目**（便宜判据，不重解析）
+          fetchProjectLocators(projectId, ctl.signal).then((s) => {
+            if (!alive) return;
+            const map = {};
+            for (const [mid, status] of Object.entries(s.statuses)) {
+              map[mid] = { material_id: mid, status, why: "" };
+            }
+            setAnchors(map);
+            setAnchorNote(s.note);
+          }).catch(() => {
+          })
         ]);
       } catch (err) {
         if (alive) setError(err instanceof Error ? err.message : String(err));
@@ -32638,6 +32679,16 @@ function KsMaterialsPanel(props) {
       return `\u300C${m.title}\u300D\u4EFB\u52A1\u5185\u6548\u529B\u5DF2\u66F4\u65B0`;
     }, projectId);
   }, [projectId, run]);
+  const onReverify = (0, import_react7.useCallback)((m) => {
+    void run(`reverify:${m.material_id}`, async () => {
+      const out = await reverifyMaterialLocators(m.material_id);
+      if (out.status === "match") return `\u300C${m.title}\u300D\u951A\u70B9\u590D\u7B97\uFF1A**\u9010\u5B57\u8282\u4E00\u81F4**\uFF08\u533A\u95F4\u4ECD\u6709\u6548\uFF09`;
+      if (out.status === "mismatch") {
+        return `\u300C${m.title}\u300D\u951A\u70B9\u590D\u7B97\uFF1A\u26A0 **\u5DF2\u5B58\u533A\u95F4\u5DF2\u5931\u6548**\uFF08\u5F15\u7528\u4F4D\u7F6E\u4F1A\u6307\u9519\uFF09\u2014\u2014\u9700\u8981\u91CD\u5EFA\u8FD9\u4EFD\u6750\u6599\uFF08\u91CD\u65B0\u89E3\u6790\u5E76\u91CD\u5EFA\u5207\u7247\uFF09\uFF0C\u6216\u628A\u5B83\u5F03\u7528`;
+      }
+      return `\u300C${m.title}\u300D\u951A\u70B9\u590D\u7B97\uFF1A**\u9A8C\u4E0D\u4E86**\uFF08${out.why}\uFF09`;
+    }, null);
+  }, [run]);
   const onToggleChunks = (0, import_react7.useCallback)((m) => {
     const cur = openChunks[m.material_id];
     if (cur !== void 0) {
@@ -32897,6 +32948,22 @@ function KsMaterialsPanel(props) {
               /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u4F1A\u6309\u51C6\u5219\u627F\u91CD" }),
               "\uFF0C \u53EA\u5217\u5728\u300C\u5DF2\u77E5\u4E0D\u53EF\u7528\u300D\u91CC\u3002\u8981\u8BA9\u5B83\u627F\u91CD\uFF0C\u8BF7\u5148\u628A\u5B83\u6539\u6210\u53EF\u56DE\u6EAF\u7684\u6765\u6E90\u5C42\u7EA7\u3002"
             ] }),
+            anchors[m.material_id]?.status === "stale" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: "var(--dsw-alias-warn, #b8860b)" }, children: [
+              "\u26A0 ",
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5F15\u7528\u951A\u70B9\u9700\u590D\u7B97" }),
+              "\uFF1A\u89E3\u6790\u5668\u8EAB\u4EFD\u53D8\u4E86\uFF0C\u5DF2\u5B58\u533A\u95F4",
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u53EF\u80FD" }),
+              "\u5931\u6548 \uFF08\u4E0D\u4EE3\u8868\u5DF2\u7ECF\u574F\u4E86\uFF09\u3002\u70B9\u300C\u590D\u7B97\u951A\u70B9\u300D\u7528\u5F53\u524D\u89E3\u6790\u5668\u91CD\u7B97\u6BD4\u5BF9\u3002"
+            ] }),
+            anchors[m.material_id]?.status === "unknown" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: GRAY }, children: [
+              "\u26A0 ",
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5F15\u7528\u951A\u70B9\u672A\u9A8C\u8BC1" }),
+              "\uFF1A\u5165\u5E93\u65F6\u6CA1\u8BB0\u89E3\u6790\u5668\u6307\u7EB9\uFF08\u6216 PDF \u7684\u4FBF\u5B9C\u5224\u636E\u4E0B\u4E0D\u4E86 \u7ED3\u8BBA\uFF09\u2014\u2014",
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u7B49\u4E8E" }),
+              "\u6709\u95EE\u9898\uFF0C\u4F46\u5F15\u7528\u4F4D\u7F6E",
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u672A\u7ECF\u786E\u8BA4" }),
+              "\u3002"
+            ] }),
             /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { display: "flex", gap: 6, marginTop: 8, flexWrap: "wrap" }, children: [
               /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
                 "button",
@@ -32918,7 +32985,18 @@ function KsMaterialsPanel(props) {
                   children: "\u62D2\u7EDD"
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { type: "button", style: btnStyle2(false), onClick: () => onToggleChunks(m), children: chunks === void 0 ? "\u8BFB\u6B63\u6587\uFF08\u8BC4\u5BA1\u524D\u5FC5\u770B\uFF09" : "\u6536\u8D77\u6B63\u6587" })
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { type: "button", style: btnStyle2(false), onClick: () => onToggleChunks(m), children: chunks === void 0 ? "\u8BFB\u6B63\u6587\uFF08\u8BC4\u5BA1\u524D\u5FC5\u770B\uFF09" : "\u6536\u8D77\u6B63\u6587" }),
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+                "button",
+                {
+                  type: "button",
+                  style: btnStyle2(busy !== "" || anchors[m.material_id]?.status === "no_locators"),
+                  disabled: busy !== "" || anchors[m.material_id]?.status === "no_locators",
+                  title: "\u7528\u5F53\u524D\u89E3\u6790\u5668\u91CD\u65B0\u89E3\u6790\u6E90\u6587\u4EF6\u5E76\u6BD4\u5BF9\u6D3E\u751F\u5168\u6587\uFF08PDF \u662F\u5B50\u8FDB\u7A0B\uFF0C\u53EF\u80FD\u8981\u51E0\u5341\u79D2\uFF09",
+                  onClick: () => onReverify(m),
+                  children: "\u590D\u7B97\u951A\u70B9"
+                }
+              )
             ] }),
             chunks === "loading" && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: "\u8BFB\u53D6\u5207\u7247\u2026" }),
             Array.isArray(chunks) && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { marginTop: 6, maxHeight: 240, overflow: "auto", fontSize: 12 }, children: [
