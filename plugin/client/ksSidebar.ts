@@ -32,6 +32,10 @@
  * 分屏/浮动（`split`/`float`/`dock`），比拉宽更结构化。
  */
 
+import type { ComponentType } from 'react'
+
+import { KsPdfGuideIcon } from './KsPdfGuideIcon'
+
 /** 本类型的实现身份（body/title 座位的 key）与类型判别符。 */
 export const KS_EVIDENCE_IMPL_ID = 'ks-dsh-plugin/evidence-pdf'
 export const KS_EVIDENCE_KIND = 'ks-evidence'
@@ -96,6 +100,32 @@ export interface KsTabDefinition {
   readonly priority?: 'extension' | 'builtin' | 'fallback'
   readonly canOpen?: (address: string) => boolean
   readonly title: (address: string) => string
+  /**
+   * 侧栏**开始页**（「开始」tab）上的入口胶囊；不填就**不出现在开始页**。
+   *
+   * 官方 `GuideBody` 把每个已注册类型贡献的胶囊排成一列，点一个就
+   * `openTab(kind)`（没有地址）在本栏里把它打开 —— 于是这正好是"手动入口"：
+   * 不需要任何证据链接，也能把 PDF 阅读器点出来（我们的 tab 在无 `url` 参数时
+   * 走 idle 态＝左列文件目录，见 `KsEvidenceHost`）。
+   */
+  readonly guide?: readonly KsGuideEntry[]
+}
+
+/** 图标组件的最小面（官方 `IconProps`：方形边长 + 布局 class；颜色随 currentColor）。 */
+export interface KsIconProps {
+  readonly size?: number
+  readonly className?: string
+}
+
+/** 开始页上的一个入口胶囊（官方 `SidebarRightGuideEntry` 的最小面）。 */
+export interface KsGuideEntry {
+  /** 类型内唯一即可（官方按 `id` 校验同一类型内不重复）。 */
+  readonly id: string
+  /** **升序**排列（官方 `refresh()` 里 `.sort((l, r) => l.order - r.order)`）。 */
+  readonly order: number
+  readonly title: () => string
+  readonly description?: () => string
+  readonly icon?: ComponentType<KsIconProps>
 }
 
 /** 官方 tab 类型注册表（`ctx.sidebarRightTabs`）。 */
@@ -151,12 +181,41 @@ export function evidenceTabTitle(_address: string): string {
 }
 
 /**
+ * 开始页入口胶囊的排序值。
+ *
+ * 官方开始页把各类型贡献的胶囊按 `order` **升序**排（`tab-registry.refresh()`：
+ * `.sort((left, right) => left.order - right.order)`）。实测在用的两个值：
+ * `ui-sidebar-files` = **10**（工作区文件夹）、`ui-sidebar-terminal` = **20**（新建终端）。
+ * 取 **30** ⇒ 紧跟在「新建终端」下面（这正是本次需求）。
+ * ⚠ 这个值是**跨插件共享的排序空间**，上游新增条目时可能需要重排。
+ */
+export const KS_GUIDE_ORDER_PDF = 30
+
+/**
+ * 开始页入口胶囊的标题。
+ *
+ * **与 tab 初始标题同源**（都走 `evidenceTabTitle`）：胶囊点开后就是同一个 tab，
+ * 两处叫法必须一致，否则用户会以为是两个不同的东西。
+ */
+export function ksGuideEntryTitle(): string {
+  return evidenceTabTitle(KS_EVIDENCE_ADDRESS)
+}
+
+/**
+ * 开始页入口胶囊的说明（官方只在条目 ≤4 个时才显示说明，多了只留标题）。
+ */
+export function ksGuideEntryDescription(): string {
+  return '打开国标 / 法规 PDF 阅读原文（无需先有证据链接）'
+}
+
+/**
  * 构造本 tab 类型的官方声明。
  *
  * - `patterns` 只匹配**本插件自己的**恒定地址；
  * - `canOpen` 再确认一次（双保险）；
  * - `priority: 'extension'`（外部类型最高档，也是默认值——显式写出以自文档化）；
- * - **不设 `multiple`**：证据查看器是单例（`contentId` 恒定本身就保证了幂等打开）。
+ * - **不设 `multiple`**：证据查看器是单例（`contentId` 恒定本身就保证了幂等打开）；
+ * - `guide`：在侧栏**开始页**贡献一个手动入口（order 30 = 「新建终端」(20) 下面）。
  */
 export function ksEvidenceDefinition(): KsTabDefinition {
   return {
@@ -166,5 +225,12 @@ export function ksEvidenceDefinition(): KsTabDefinition {
     priority: 'extension',
     canOpen: isKsEvidenceResource,
     title: evidenceTabTitle,
+    guide: [{
+      id: 'pdf',
+      order: KS_GUIDE_ORDER_PDF,
+      title: ksGuideEntryTitle,
+      description: ksGuideEntryDescription,
+      icon: KsPdfGuideIcon,
+    }],
   }
 }

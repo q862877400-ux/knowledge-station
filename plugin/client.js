@@ -33714,6 +33714,34 @@ function KsApiConfigSection(props) {
   );
 }
 
+// client/KsPdfGuideIcon.tsx
+var React2 = __toESM(require("react"), 1);
+function KsPdfGuideIcon({ size = 26, className }) {
+  const s = String(size);
+  return React2.createElement(
+    "svg",
+    {
+      width: s,
+      height: s,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: 1.6,
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      className,
+      "aria-hidden": true,
+      focusable: false
+    },
+    // 页面轮廓（右上折角）
+    React2.createElement("path", { d: "M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" }),
+    React2.createElement("path", { d: "M14 3v5h5" }),
+    // 正文两行
+    React2.createElement("path", { d: "M9 13h6" }),
+    React2.createElement("path", { d: "M9 17h3" })
+  );
+}
+
 // client/ksSidebar.ts
 var KS_EVIDENCE_IMPL_ID = "ks-dsh-plugin/evidence-pdf";
 var KS_EVIDENCE_KIND = "ks-evidence";
@@ -33728,6 +33756,13 @@ function isKsEvidenceResource(address) {
 function evidenceTabTitle(_address) {
   return "PDF \u67E5\u770B\u5668";
 }
+var KS_GUIDE_ORDER_PDF = 30;
+function ksGuideEntryTitle() {
+  return evidenceTabTitle(KS_EVIDENCE_ADDRESS);
+}
+function ksGuideEntryDescription() {
+  return "\u6253\u5F00\u56FD\u6807 / \u6CD5\u89C4 PDF \u9605\u8BFB\u539F\u6587\uFF08\u65E0\u9700\u5148\u6709\u8BC1\u636E\u94FE\u63A5\uFF09";
+}
 function ksEvidenceDefinition() {
   return {
     id: KS_EVIDENCE_IMPL_ID,
@@ -33735,7 +33770,14 @@ function ksEvidenceDefinition() {
     patterns: [KS_EVIDENCE_ADDRESS],
     priority: "extension",
     canOpen: isKsEvidenceResource,
-    title: evidenceTabTitle
+    title: evidenceTabTitle,
+    guide: [{
+      id: "pdf",
+      order: KS_GUIDE_ORDER_PDF,
+      title: ksGuideEntryTitle,
+      description: ksGuideEntryDescription,
+      icon: KsPdfGuideIcon
+    }]
   };
 }
 

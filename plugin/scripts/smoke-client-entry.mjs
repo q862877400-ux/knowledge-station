@@ -314,6 +314,25 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     && tabs.registered[0]?.canOpen('dsh-resource://file/x.md') === false)
   check('stage 1: the type is NOT multiple (evidence viewer is a singleton)',
     tabs.registered[0]?.multiple === undefined)
+  // ── 侧栏「开始页」手动入口（官方 guide 胶囊）──
+  // 官方 GuideBody 把每个类型贡献的胶囊按 `order` 升序排；实测在用的值：
+  // ui-sidebar-files = 10、ui-sidebar-terminal = 20（新建终端）。故 30 = 紧跟在它下面。
+  const guide = tabs.registered[0]?.guide
+  check('stage 1: the type contributes exactly one guide entry (start-page capsule)',
+    Array.isArray(guide) && guide.length === 1,
+    JSON.stringify(guide?.map?.((g) => g.id)))
+  check('stage 1: the guide entry sorts directly BELOW 新建终端 (files 10 < terminal 20 < ours 30)',
+    guide?.[0]?.order === 30 && guide[0].order > 20 && guide[0].order > 10,
+    `order=${guide?.[0]?.order}`)
+  check('stage 1: the guide entry has a unique id, live title/description and an icon component',
+    guide?.[0]?.id === 'pdf'
+    && typeof guide[0].title === 'function' && guide[0].title().length > 0
+    && typeof guide[0].description === 'function' && guide[0].description().length > 0
+    && typeof guide[0].icon === 'function',
+    `id=${guide?.[0]?.id} title=${guide?.[0]?.title?.()} icon=${typeof guide?.[0]?.icon}`)
+  check('stage 1: the guide capsule and the tab chip use the SAME name (one thing, one label)',
+    guide?.[0]?.title?.() === tabs.registered[0]?.title?.('dsh-resource://ks-evidence'),
+    `guide=${guide?.[0]?.title?.()} tab=${tabs.registered[0]?.title?.('dsh-resource://ks-evidence')}`)
   const body = built.registered.find((r) => r.options?.name === 'sidebar.right.pane.tab')
   check('stage 2: the body seat registered under the type id',
     body !== undefined && body.options?.key === 'ks-dsh-plugin/evidence-pdf',
