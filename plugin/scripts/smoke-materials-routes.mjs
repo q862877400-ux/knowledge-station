@@ -1,0 +1,326 @@
+/**
+ * ks-dsh-plugin — scripts/smoke-materials-routes.mjs
+ *
+ * `/ks/materials/*` 同源路由回归（Phase B 第五步：**界面用的材料读写通道**）。
+ *
+ * ## 这一层为什么必须有自己的冒烟
+ * 它是**评审硬门**在界面侧的唯一入口：批准/拒绝只能从这里进来。
+ * 所以这里要钉的不是"每个端点 200"，而是：
+ *   ① **方法守卫**（GET-only 的端点收 POST 必须 405）；
+ *   ② **必填参数缺失时 400 且不打扰引擎**（不能拿空 project_id 去查）；
+ *   ③ **评审决定只收 approved/rejected**（`pending`/`auto` 一律 400——
+ *      否则"自动通过"会从界面这条缝里漏进来，硬门形同虚设）；
+ *   ④ **轴 A 改动留痕**（tier 的 `source` 默认 `user`，用户改的与系统判的不能混）；
+ *   ⑤ **query 白名单**（未知键不得透传）；
+ *   ⑥ 引擎侧 422/5xx/不可达 → 400/502/503 如实映射。
+ *
+ * ## 做法
+ * `registerKsMaterialsRoutes` 收一个假 `ctx.webServer.register`，把注册进来的
+ * `{kind,path,handler}` 收下，然后**直接调 handler**（配假 req/res），
+ * 引擎侧用**本地桩 HTTP 服务**——这样 URL/query/body 的构造走的是**真 apiGet/apiPost**，
+ * 不是复刻。
+ *
+ * 跑法：node scripts/smoke-materials-routes.mjs   （退出码 0 = 全通过）
+ */
+
+import { EventEmitter } from 'node:events'
+import { createServer } from 'node:http'
+
+import {
+  KS_MATERIALS_PATHS,
+  REVIEW_DECISIONS,
+  registerKsMaterialsRoutes,
+} from '../src/materials_routes.js'
+
+const results = []
+function check(name, ok, detail) {
+  results.push({ name, ok })
+  console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}${detail === undefined ? '' : ` — ${detail}`}`)
+}
+
+/* ------------------------------- 桩引擎 ------------------------------- */
+
+const seen = []
+let responder = () => ({ body: { code: 200, status: 'success', data: {} } })
+
+const server = createServer((req, res) => {
+  const chunks = []
+  req.on('data', (c) => chunks.push(c))
+  req.on('end', () => {
+    const raw = Buffer.concat(chunks).toString('utf8')
+    let sent = null
+    try { sent = raw.length > 0 ? JSON.parse(raw) : null } catch { sent = { __unparsed: raw } }
+    seen.push({ method: req.method, path: req.url, sent })
+    const r = responder(req.url)
+    res.writeHead(r.http ?? 200, { 'content-type': 'application/json' })
+    res.end(JSON.stringify(r.body ?? r))
+  })
+})
+await new Promise((r) => server.listen(0, '127.0.0.1', r))
+const PORT = server.address().port
+
+/* --------------------------- 捕获注册的路由 --------------------------- */
+
+const routes = new Map()
+const ctx = {
+  webServer: {
+    register(def) {
+      routes.set(def.path, def)
+      return () => {}
+    },
+  },
+}
+const manager = { ensureLive: async () => ({ port: PORT, token: 'tok_stub' }) }
+const dispose = registerKsMaterialsRoutes(ctx, manager)
+
+/* ----------------------------- 假 req / res ----------------------------- */
+
+function makeRes() {
+  const out = { status: null, body: null }
+  return {
+    out,
+    writeHead(status) { out.status = status },
+    end(text) { try { out.body = JSON.parse(text) } catch { out.body = text } },
+  }
+}
+
+/** 造一个假请求并**等** handler 跑完（POST body 通过事件推给它）。 */
+async function invoke(path, { method = 'GET', body = undefined, search = '' } = {}) {
+  const def = routes.get(path)
+  if (def === undefined) throw new Error(`路由未注册: ${path}`)
+  const req = new EventEmitter()
+  req.method = method
+  req.url = `${path}${search}`
+  req.destroy = () => {}
+  const res = makeRes()
+  const p = def.handler(req, res)
+  // 下一拍再推 body：让 handler 先把监听挂上
+  setImmediate(() => {
+    if (body !== undefined) req.emit('data', Buffer.from(JSON.stringify(body), 'utf8'))
+    req.emit('end')
+  })
+  await p
+  return { status: res.out.status, body: res.out.body }
+}
+
+const lastEngine = () => seen[seen.length - 1]
+
+/* --------------------------- 1. 注册面 --------------------------- */
+
+{
+  check('注册了全部 9 条材料路由',
+    routes.size === KS_MATERIALS_PATHS.length
+    && KS_MATERIALS_PATHS.every((p) => routes.has(p)),
+    `${routes.size} routes`)
+  check('全部是 kind=exact（字面路径，不会被通配吃掉）',
+    [...routes.values()].every((d) => d.kind === 'exact'))
+  check('评审决定白名单只有 approved/rejected',
+    REVIEW_DECISIONS.join(',') === 'approved,rejected', REVIEW_DECISIONS.join(','))
+  check('dispose 可调用（cordis effect 契约）', typeof dispose === 'function')
+}
+
+/* --------------------------- 2. 项目 --------------------------- */
+
+{
+  seen.length = 0
+  responder = () => ({ body: { code: 200, data: [{ project_id: 'prj_a', name: '财报' }] } })
+  const r = await invoke('/ks/materials/projects')
+  check('GET /projects 透传引擎结果', r.status === 200 && r.body.ok === true
+    && r.body.data[0].project_id === 'prj_a', JSON.stringify(r.body))
+  check('GET /projects 打到引擎正确路径',
+    lastEngine().method === 'GET' && lastEngine().path === '/api/v1/materials/projects',
+    `${lastEngine().method} ${lastEngine().path}`)
+
+  seen.length = 0
+  responder = () => ({ body: { code: 200, data: { project_id: 'prj_new' } } })
+  const created = await invoke('/ks/materials/projects', {
+    method: 'POST', body: { name: ' 财报分析 ', note: 'n', authority_policy: { a: 1 } },
+  })
+  check('POST /projects 建项目并**去空白**',
+    created.status === 200 && lastEngine().method === 'POST'
+    && lastEngine().sent.name === '财报分析'
+    && lastEngine().sent.note === 'n'
+    && JSON.stringify(lastEngine().sent.authority_policy) === '{"a":1}',
+    JSON.stringify(lastEngine().sent))
+
+  seen.length = 0
+  const noName = await invoke('/ks/materials/projects', { method: 'POST', body: {} })
+  check('缺 name → 400 且**不打扰引擎**',
+    noName.status === 400 && noName.body.error.code === 'bad_request' && seen.length === 0,
+    `${noName.status} engineCalls=${seen.length}`)
+}
+
+/* --------------------------- 3. 材料列表 / 收件 --------------------------- */
+
+{
+  seen.length = 0
+  responder = () => ({ body: { code: 200, data: [{ material_id: 'mat_1' }] } })
+  const r = await invoke('/ks/materials/list', {
+    search: '?project_id=prj_a&status=pending&evil=1',
+  })
+  check('GET /list 透传 project_id 与 status，**未知 query 键被丢弃**',
+    r.status === 200
+    && lastEngine().path === '/api/v1/materials/projects/prj_a/materials?project_id=prj_a&status=pending',
+    lastEngine().path)
+  check('未知 query 键没有透传（防透传面扩大）', !lastEngine().path.includes('evil'),
+    lastEngine().path)
+
+  seen.length = 0
+  const noPid = await invoke('/ks/materials/list')
+  check('GET /list 缺 project_id → 400 且不打扰引擎',
+    noPid.status === 400 && seen.length === 0, `${noPid.status} engineCalls=${seen.length}`)
+
+  seen.length = 0
+  responder = () => ({ body: { code: 200, data: { dir: 'D:\\x', files: [] } } })
+  await invoke('/ks/materials/inbox', { search: '?project_id=prj_a' })
+  check('GET /inbox 打到引擎 inbox 路径',
+    lastEngine().path === '/api/v1/materials/projects/prj_a/inbox', lastEngine().path)
+
+  seen.length = 0
+  responder = () => ({ body: { code: 200, data: { scanned: 1, registered: 1, rows: [] } } })
+  await invoke('/ks/materials/scan', { method: 'POST', search: '?project_id=prj_a' })
+  check('POST /scan 默认 origin=user（扫描**不会**自动批准，只是登记）',
+    lastEngine().method === 'POST' && lastEngine().sent.origin === 'user',
+    JSON.stringify(lastEngine().sent))
+}
+
+/* --------------------------- 4. 评审（核心） --------------------------- */
+
+{
+  seen.length = 0
+  responder = () => ({ body: { code: 200, data: { review_status: 'approved' } } })
+  const ok = await invoke('/ks/materials/review', {
+    method: 'POST', search: '?material_id=mat_1', body: { decision: 'approved', note: '看过' },
+  })
+  check('POST /review 批准：**翻译成引擎的 status 字段**并带上 note',
+    ok.status === 200 && lastEngine().path === '/api/v1/materials/mat_1/review'
+    && lastEngine().sent.status === 'approved' && lastEngine().sent.note === '看过',
+    JSON.stringify(lastEngine().sent))
+  check('POST /review **不发** decision 字段（引擎只认 status，发错就每次 422）',
+    lastEngine().sent.decision === undefined, JSON.stringify(lastEngine().sent))
+
+  responder = () => ({ body: { code: 200, data: { review_status: 'rejected' } } })
+  const rej = await invoke('/ks/materials/review', {
+    method: 'POST', search: '?material_id=mat_1', body: { decision: 'rejected' },
+  })
+  check('POST /review 拒绝同样翻译成 status=rejected', rej.status === 200
+    && lastEngine().sent.status === 'rejected', JSON.stringify(lastEngine().sent))
+
+  // **核心纪律**：pending 不是"可以评成的状态"；任何别的值都不许过
+  for (const bad of ['pending', 'auto', 'APPROVED', '', 'approve']) {
+    seen.length = 0
+    const r = await invoke('/ks/materials/review', {
+      method: 'POST', search: '?material_id=mat_1', body: { decision: bad },
+    })
+    check(`评审决定 ${JSON.stringify(bad)} 被拒（400）且不打扰引擎`,
+      r.status === 400 && seen.length === 0, `${r.status} engineCalls=${seen.length}`)
+  }
+
+  seen.length = 0
+  const noMid = await invoke('/ks/materials/review', { method: 'POST', body: { decision: 'approved' } })
+  check('POST /review 缺 material_id → 400 且不打扰引擎',
+    noMid.status === 400 && seen.length === 0, `${noMid.status} engineCalls=${seen.length}`)
+
+  seen.length = 0
+  const badJson = await invoke('/ks/materials/review', {
+    method: 'POST', search: '?material_id=mat_1', body: undefined,
+  })
+  check('POST /review 空 body → 400（解析不出 decision，不当默认批准）',
+    badJson.status === 400 && seen.length === 0, `${badJson.status} engineCalls=${seen.length}`)
+}
+
+/* --------------------------- 5. 两个轴 --------------------------- */
+
+{
+  seen.length = 0
+  responder = () => ({ body: { code: 200, data: { source_tier: 'T2' } } })
+  await invoke('/ks/materials/tier', {
+    method: 'POST', search: '?material_id=mat_1', body: { tier: 'T2' },
+  })
+  check('轴 A（tier）改动**默认留痕为 user**（用户改的与系统判的不能混）',
+    lastEngine().path === '/api/v1/materials/mat_1/tier'
+    && lastEngine().sent.tier === 'T2' && lastEngine().sent.source === 'user',
+    JSON.stringify(lastEngine().sent))
+
+  seen.length = 0
+  responder = () => ({ body: { code: 200, data: { task_role: 'criterion' } } })
+  await invoke('/ks/materials/role', {
+    method: 'POST', search: '?material_id=mat_1', body: { role: 'criterion' },
+  })
+  check('轴 B（role）独立于轴 A 单独设置',
+    lastEngine().path === '/api/v1/materials/mat_1/role'
+    && lastEngine().sent.role === 'criterion', JSON.stringify(lastEngine().sent))
+
+  seen.length = 0
+  const noTier = await invoke('/ks/materials/tier', {
+    method: 'POST', search: '?material_id=mat_1', body: {},
+  })
+  check('缺 tier → 400 且不打扰引擎', noTier.status === 400 && seen.length === 0)
+  seen.length = 0
+  const noRole = await invoke('/ks/materials/role', {
+    method: 'POST', search: '?material_id=mat_1', body: {},
+  })
+  check('缺 role → 400 且不打扰引擎', noRole.status === 400 && seen.length === 0)
+
+  seen.length = 0
+  responder = () => ({ body: { code: 200, data: { chunks: [] } } })
+  await invoke('/ks/materials/chunks', { search: '?material_id=mat_1&offset=0&limit=5' })
+  check('GET /chunks 透传分页（评审必须能读到正文，否则是盲签）',
+    lastEngine().path === '/api/v1/materials/mat_1/chunks?material_id=mat_1&offset=0&limit=5',
+    lastEngine().path)
+
+  seen.length = 0
+  responder = () => ({ body: { code: 200, data: { T0: '法定/官方原文' } } })
+  await invoke('/ks/materials/tiers')
+  check('GET /tiers 从引擎取层定义（判据只有一个所有者，前端不抄一份）',
+    lastEngine().path === '/api/v1/materials/tiers', lastEngine().path)
+}
+
+/* --------------------------- 6. 方法与错误映射 --------------------------- */
+
+{
+  for (const [path, method] of [
+    ['/ks/materials/list', 'POST'],
+    ['/ks/materials/inbox', 'POST'],
+    ['/ks/materials/projects', 'DELETE'],
+    ['/ks/materials/chunks', 'POST'],
+    ['/ks/materials/tiers', 'POST'],
+  ]) {
+    const r = await invoke(path, { method, search: '?project_id=prj_a&material_id=mat_1' })
+    check(`${method} ${path} → 405（方法守卫）`, r.status === 405, String(r.status))
+  }
+
+  seen.length = 0
+  responder = () => ({ http: 422, body: { code: 422, error: 'tier_invalid', message: '非法层级' } })
+  const bad = await invoke('/ks/materials/tier', {
+    method: 'POST', search: '?material_id=mat_1', body: { tier: 'T9' },
+  })
+  check('引擎 422 → 400 并**原样带出引擎的错误信息**',
+    bad.status === 400 && bad.body.error.code === 'tier_invalid'
+    && bad.body.error.message === '非法层级', JSON.stringify(bad.body))
+
+  responder = () => ({ http: 500, body: { code: 500, error: 'internal_error' } })
+  const boom = await invoke('/ks/materials/projects')
+  check('引擎 5xx → 502 engine_error', boom.status === 502
+    && boom.body.error.code === 'engine_error', JSON.stringify(boom.body))
+
+  const savedPort = manager.ensureLive
+  manager.ensureLive = async () => { throw new Error('引擎没起来（模拟）') }
+  const down = await invoke('/ks/materials/projects')
+  manager.ensureLive = savedPort
+  check('引擎不可达 → 503 engine_unavailable（不抛到框架）',
+    down.status === 503 && down.body.error.code === 'engine_unavailable',
+    JSON.stringify(down.body))
+}
+
+server.close()
+
+/* ------------------------------------------------------------------ */
+
+const failed = results.filter((r) => !r.ok)
+if (failed.length > 0) {
+  console.error(`\nsmoke-materials-routes: ${failed.length}/${results.length} FAILED`)
+  for (const f of failed) console.error(`  - ${f.name}`)
+  process.exit(1)
+}
+console.log(`\nsmoke-materials-routes: ${results.length}/${results.length} PASS`)

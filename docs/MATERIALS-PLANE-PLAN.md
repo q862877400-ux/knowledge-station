@@ -277,9 +277,13 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
   （T4 被声明为准绳时压过国标；"≥2 个独立来源互证"不可证伪——同文两份副本被算成两个来源）
   + 引用标记的两处漏检（负数不被抓、结论区不扫）+ 冒烟自身的 CRLF/键名脆弱点。
   **两条绝对规则写死在 `authority.py` 表头**：T4 优先于轴 B；身份未知不能互证。
-- **B-8 剩余（未做）**：① **GUI 项目选择器**（现在只有斜杠命令）；
-  ② **材料评审界面**（当前批准只能走 API ⇒ "能用但不好用"）；
-  ③ 核验 UI 半 / `tool.call.toolview`。
+- **B-10 界面用的材料读写通道（已完成，§10.18）**：`/ks/materials/*` 9 条同源路由
+  （projects/list/inbox/scan/**review**/tier/role/chunks/tiers）。评审决定**只收
+  approved/rejected**（`pending` 不是"可以评成的状态"）；轴 A 改动默认留痕 `source:user`。
+  与只读的 `ks_materials`（模型用）分工明确：**批准只能从用户界面这条进来**。
+  桩引擎冒烟 37 项。
+- **B-8 剩余（未做）**：① **`KsMaterialsPanel` 界面**（通道已通，面板未做）；
+  ② 核验 UI 半 / `tool.call.toolview`。
 
 ### 已知未决 / 诚实边界
 

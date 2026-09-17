@@ -828,6 +828,58 @@ OR 化未开洞（77 个畸形查询无崩溃、无越权、无跨项目）；`c
 > 只在我的工作树里存在；复核把该文件拷进 worktree 后它立刻变成 11 passed / 0 skipped。
 > ⇒ **两个数字都对**，只是口径不同；写进文档的数字今后要注明**是在哪种检出上取的**。
 
+### 10.18 Phase B 第五步：`/ks/materials/*` 同源路由（界面用的材料读写通道）
+
+界面要能**评审材料**，但 client 半边**拿不到引擎 Bearer token**（token 只在 host↔引擎之间），
+所以必须由 host 做同源代理——与 `/ks/report/*`、`/ks/ingest/*` 同款。本步交付这一层。
+
+**9 条路由**（全部 `kind:'exact'` 字面路径）：`projects`（GET 列 / POST 建）、`list`
+（某项目材料，**含未批准**——否则没法批）、`inbox`（尚未登记的文件）、`scan`、
+`review`（**核心**）、`tier`（轴 A）、`role`（轴 B）、`chunks`（切片分页，评审要读正文）、
+`tiers`（层定义）。
+
+**与 `ks_materials`（模型工具）的分工，写进模块头注**：
+`ks_materials` 是**只读**的（模型不能批准——那等于让模型自己发许可）；
+本模块**可写**，因为它的调用者是**用户界面**，而评审正是**用户的判断**（方案 §6 硬门）。
+
+> **评审决定只收 `approved` / `rejected`**，`pending`/`auto`/`APPROVED`/`approve`/空
+> **一律 400 且不打扰引擎**（冒烟逐个钉住）。`pending` 是"还没评"，**不是可以"评成"的状态**；
+> 不设白名单的话，"自动通过"就能从界面这条缝里漏进来，硬门形同虚设。
+
+> ⚠ **一步之遥踩中的字段名不匹配**（本步最值钱的检查）：对界面的契约我用 `decision`
+> （语义明确、且不会与响应信封里的 `status:"success"` 混淆），但**引擎侧收的是 `status`**
+> （`routes_materials.py` 的 `materials_review` 读 `body["status"]`）。
+> 我最初直接把 `{decision}` 发过去 ⇒ 引擎会对**每一次**审批回 422，界面表现为"批准失败"。
+> 上线前逐个核对了**每个端点的引擎侧键名**（projects 的 name/note/authority_policy、
+> tier 的 tier/source、role 的 role、scan 的 origin、chunks 的 offset/limit 全部吻合），
+> 只有 review 这一处不吻合。现在 host 侧**显式翻译** `decision → status`，并留了注释与两条
+> 断言（"翻译成 status"+"**不发** decision 字段"）防止有人"顺手改回直接透传"。
+
+**顺手消掉一处多份实现**：`jsonResponse` / `errorBody` / `readJsonBody` 在 **6 个模块**里
+各有一份私有拷贝，且 `BODY_CAP` 有 **3 个不同取值**（4096 / 16384 / 65536）。
+一次性合并风险大于收益（每个 cap 都是当场选的），故本步：
+新增 `route_util.js` 作为**新代码的唯一来源**（`readJsonBody(req, cap)` 显式传 cap，
+不藏模块常量），并把**最接近的一份**（`report.js`：同 cap、helpers 逐字相同）切了过去，
+使这里不是一个"只有一个用户的假共享模块"。
+**其余 5 个模块仍带私有拷贝，未合并**——这是**登记在案的遗留**，不是遗漏。
+
+**测试**：`smoke-materials-routes.mjs`（**37 项**，注册为 `smoke:materials-routes` 并并入链）。
+做法：给假 `ctx.webServer.register` 收下 `{kind,path,handler}` 后**直接调 handler**（配假
+req/res），引擎侧用**本地桩 HTTP 服务** ⇒ URL/query/body 的构造走的是**真 `apiGet`/`apiPost`**，
+不是复刻。覆盖：注册面、方法守卫（5 组 405）、必填参数缺失 **400 且 engineCalls=0**、
+评审白名单 5 个非法值、轴 A 改动**默认留痕 `source:user`**、未知 query 键不透传、
+引擎 422→400（**原样带出引擎错误信息**）/5xx→502/不可达→503（不抛到框架）。
+
+**门禁**：`smoke` **14 段**全过（新增段 37/37）；`verify:commands` 22/22；`tsc --noEmit` 0；
+`node --check` 四个模块 OK。**本步零 Python 改动**（`git diff --name-only` 可验），
+故 pytest 基线不变（1373 passed / 3 skipped / 0 failed）。
+
+**诚实边界**：① **界面还没做**——本步只交付"界面能调用的通道"，`KsMaterialsPanel` 是下一步；
+② 没有"撤回为待评审"的入口（引擎允许三态，界面契约只开 approved/rejected）；
+③ 材料路由不带任何缓存，每个请求现拉引擎（与效力报告同款：宁可慢，不要"看出了旧状态"
+就批准了）；④ 生产引擎仍跑旧代码，`/api/v1/materials/*` 要**重启引擎**才在真机上通
+——本步全部验证都在桩引擎与离线 handler 层完成。
+
 
 
 

@@ -46,6 +46,7 @@ import {
   registerKsAnnounceRoutes,
 } from './announce.js'
 import { registerKsReportRoutes } from './report.js'
+import { registerKsMaterialsRoutes } from './materials_routes.js'
 import { registerKsSettingsRoutes } from './settings.js'
 import { registerKsDocImageRoutes } from './docimage.js'
 import { registerKsIngestRoutes, ingestJobStartupCheck } from './ingest.js'
@@ -1126,6 +1127,10 @@ export function apply(ctx, config = {}) {
       })
       // 效力报告（决策 21 修订版）：纯代理零缓存零状态文件——即时聚合快照。
       const disposeReport = registerKsReportRoutes(webCtx, manager)
+      // 材料平面（Phase B 第五步）：**界面用**的同源读写通道。
+      // 与 ks_materials（模型工具，只读）**分工明确**：批准/拒绝只能从这里进来，
+      // 因为它的调用者是用户界面，而评审是**用户的判断**（方案 §6 硬门）。
+      const disposeMaterials = registerKsMaterialsRoutes(webCtx, manager)
       // 文档图片同源代理（2026-09-13 端点接线）：/ks/doc-image/<doc>/(figure|formula|table-image)/…
       // → 引擎 PNG + X-Frac-* 透传。figure/formula/table-image 三端点自此 ZERO→LIVE。
       const disposeDocImage = registerKsDocImageRoutes(webCtx, manager)
@@ -1150,6 +1155,7 @@ export function apply(ctx, config = {}) {
         disposeBbox()
         disposeInspection()
         disposeAnnounce()
+        disposeMaterials()
         disposeReport()
         disposeDocImage()
         disposeApiSettings()

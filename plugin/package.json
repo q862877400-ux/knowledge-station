@@ -19,9 +19,10 @@
     "smoke:sanitize": "node scripts/smoke-sanitize.mjs",
     "smoke:trim": "node scripts/smoke-trim.mjs",
     "smoke:materials": "node scripts/smoke-materials-tool.mjs",
+    "smoke:materials-routes": "node scripts/smoke-materials-routes.mjs",
     "verify:commands": "node scripts/run-verify-commands.mjs",
     "e2e:sidebar": "node scripts/e2e-sidebar-pdf.mjs",
-    "smoke": "node scripts/smoke-pdf-fit.mjs && node scripts/smoke-pdf-panel.mjs && node scripts/smoke-settings.mjs && node scripts/smoke-settings-guard.mjs && node scripts/smoke-effect-tool.mjs && node scripts/smoke-chatmode.mjs && node scripts/smoke-ingest.mjs && node scripts/smoke-engine-guard.mjs && node scripts/smoke-client-entry.mjs && node scripts/smoke-docimage.mjs && node scripts/smoke-sanitize.mjs && node scripts/smoke-trim.mjs && node scripts/smoke-materials-tool.mjs"
+    "smoke": "node scripts/smoke-pdf-fit.mjs && node scripts/smoke-pdf-panel.mjs && node scripts/smoke-settings.mjs && node scripts/smoke-settings-guard.mjs && node scripts/smoke-effect-tool.mjs && node scripts/smoke-chatmode.mjs && node scripts/smoke-ingest.mjs && node scripts/smoke-engine-guard.mjs && node scripts/smoke-client-entry.mjs && node scripts/smoke-docimage.mjs && node scripts/smoke-sanitize.mjs && node scripts/smoke-trim.mjs && node scripts/smoke-materials-tool.mjs && node scripts/smoke-materials-routes.mjs"
   },
   "exports": {
     ".": "./src/index.js",

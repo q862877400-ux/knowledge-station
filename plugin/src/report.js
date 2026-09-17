@@ -19,6 +19,17 @@
  */
 
 import { apiGet, apiPost, originUrl } from './engine.js'
+// 共用路由小工具（2026-09-17 抽到 route_util.js）。本模块原先自带一份逐字相同的
+// 拷贝：`BODY_CAP=65536`、jsonResponse/errorBody/readJsonBody/pickQuery/mapProbe
+// 全部同形，故这次是**纯粹的搬家**，行为不变（smoke-tools/verify:commands 兜底）。
+import {
+  ROUTE_BODY_CAP,
+  errorBody,
+  jsonResponse,
+  mapProbe,
+  pickQuery,
+  readJsonBody as readJsonBodyUtil,
+} from './route_util.js'
 
 export const KS_REPORT_EFFECT_PATH = '/ks/report/effect'
 export const KS_REPORT_DOCS_PATH = '/ks/report/effect/docs'
@@ -29,54 +40,19 @@ const ENGINE_DOCS_PATH = '/api/v1/report/effect/docs'
 const ENGINE_EXPORT_PATH = '/api/v1/report/effect/export'
 const ENGINE_DOWNLOAD_PATH = '/api/v1/export/download'
 
-const BODY_CAP = 65_536
 const XLSX_MIME = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
 
 /* ------------------------------------------------------------------ *
- * Helpers（与 announce.js 同款独立 helper：模块保持 smoke 可加载纯度）
+ * Helpers
+ *
+ * 三个原语（jsonResponse / errorBody / readJsonBody）与 pickQuery / mapProbe
+ * 都从 `route_util.js` 取——**本模块不再自带拷贝**。下面只保留本模块特有的
+ * `readJsonBody(req)` 形状（固定 cap），让调用点不必到处传常量。
  * ------------------------------------------------------------------ */
 
-function jsonResponse(res, status, body) {
-  res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' })
-  res.end(JSON.stringify(body))
-}
-
-function errorBody(code, message) {
-  return { ok: false, error: { code, message } }
-}
-
+/** 固定 cap 的请求体读取（与迁移前的 `BODY_CAP` 同值）。 */
 function readJsonBody(req) {
-  return new Promise((resolve, reject) => {
-    const chunks = []
-    let size = 0
-    let done = false
-    const fail = (err) => {
-      if (done) return
-      done = true
-      reject(err)
-    }
-    req.on('data', (chunk) => {
-      if (done) return
-      size += chunk.length
-      if (size > BODY_CAP) {
-        fail(new Error('request body too large'))
-        req.destroy()
-        return
-      }
-      chunks.push(chunk)
-    })
-    req.on('end', () => {
-      if (done) return
-      done = true
-      try {
-        const text = Buffer.concat(chunks).toString('utf8')
-        resolve(text.length === 0 ? {} : JSON.parse(text))
-      } catch (err) {
-        reject(err)
-      }
-    })
-    req.on('error', fail)
-  })
+  return readJsonBodyUtil(req, ROUTE_BODY_CAP)
 }
 
 /** GET with one 401 self-heal retry（token 轮换 → ensureLive 重读 session）。 */
@@ -112,39 +88,6 @@ async function fetchBinary(base, path, { token, timeoutMs = 30_000 } = {}) {
   } finally {
     clearTimeout(timer)
   }
-}
-
-/** query 白名单清洗：只保留允许键且值非空（未知键丢弃，防透传面扩大）。 */
-/** query 白名单清洗：只保留允许键且值非空（未知键丢弃，防透传面扩大）。
- *  用 URLSearchParams 解析——标准语义会把 + 还原为空格。真机回归教训：
- *  旧实现 decodeURIComponent 不还原 +，而 client 的 URLSearchParams 把空格
- *  编码为 +，含空格的类目名（"C 医药…"）到引擎变成 "C+医药…"，精确匹配
- *  落空 → UI 全显示"（无文档）"。 */
-function pickQuery(reqUrl, allowed) {
-  const out = {}
-  const qs = (reqUrl || '').split('?')[1]
-  if (!qs) return out
-  for (const [k, v] of new URLSearchParams(qs).entries()) {
-    if (allowed.includes(k) && v !== '') out[k] = v
-  }
-  return out
-}
-
-/** 引擎 GET 聚合结果 → 同源响应统一映射（401 已在 engineGetWithRetry 自愈）。 */
-function mapProbe(res, probe, engineErrorStatus = 502) {
-  if (probe.status === 200 && probe.body && typeof probe.body === 'object') {
-    jsonResponse(res, 200, { ok: true, data: probe.body.data ?? {} })
-    return
-  }
-  if (probe.status === 422) {
-    const code = probe.body && typeof probe.body === 'object' ? probe.body.error : null
-    const message = probe.body && typeof probe.body === 'object' && probe.body.message
-      ? String(probe.body.message) : '非法参数'
-    jsonResponse(res, 400, errorBody(typeof code === 'string' ? code : 'invalid_params', message))
-    return
-  }
-  jsonResponse(res, engineErrorStatus, errorBody('engine_error',
-    `引擎返回 HTTP ${probe.status}: ${probe.error || probe.text || 'no response'}`))
 }
 
 /* ------------------------------------------------------------------ *
