@@ -20,8 +20,8 @@ const pluginRoot = resolve(here, '..')
 const entry = `
 export {
   fitPageScale, backingStoreDpr, PAGE_PADDING, MIN_SCALE, MAX_SCALE, MAX_BACKING_PIXELS,
-  zoomScale, zoomForManual, zoomForAutoFit, clampManualPercent,
-  ZOOM_AUTO, MANUAL_MIN_PERCENT, MANUAL_MAX_PERCENT, ZOOM_PRESET_PERCENTS,
+  zoomScale, zoomForManual, zoomForAutoFit, clampManualPercent, isOnSliderGrid,
+  ZOOM_AUTO, MANUAL_MIN_PERCENT, MANUAL_MAX_PERCENT, ZOOM_PRESET_PERCENTS, ZOOM_SLIDER_STEP,
 } from './client/pdfFit.ts'
 `
 const entryPath = join(pluginRoot, '.smoke-pdf-fit-entry.mjs')
@@ -51,8 +51,8 @@ await rm(outPath, { force: true })
 
 const {
   fitPageScale, backingStoreDpr, PAGE_PADDING, MAX_SCALE,
-  zoomScale, zoomForManual, zoomForAutoFit, clampManualPercent,
-  ZOOM_AUTO, MANUAL_MIN_PERCENT, MANUAL_MAX_PERCENT, ZOOM_PRESET_PERCENTS,
+  zoomScale, zoomForManual, zoomForAutoFit, clampManualPercent, isOnSliderGrid,
+  ZOOM_AUTO, MANUAL_MIN_PERCENT, MANUAL_MAX_PERCENT, ZOOM_PRESET_PERCENTS, ZOOM_SLIDER_STEP,
 } = mod
 
 /** A4（GB 标准正文版心常用）在 scale=1 下的 pdf.js viewport 尺寸。 */
@@ -211,6 +211,24 @@ check('zoom: autoFit sits exactly on the visible width',
   `scale=${singleTall?.scale.toFixed(4)}`)
 check('zoom: autoFit never exceeds the visible width (右侧不会被切)',
   singleTall !== null && A4.pageWidth * singleTall.scale <= fitA.availWidth + 0.5)
+
+// 8.6b 滑块必须能**如实表示** autoFit 算出的百分比（2026-09-17 独立复核 P1）
+//   autoFit 的百分比是 Math.round 后的任意整数；而 <input type=range> 会把 value 吸附到
+//   min + k·step。若 step>1，滑块就会出现"thumb 在 80 / label 写 82% / 实际渲染也是 82%"
+//   的分裂（thumb 是用户对"现在多大"的第一读数）。
+check('slider: step is 1 — the grid can represent every integer percent',
+  ZOOM_SLIDER_STEP === 1 && isOnSliderGrid(MANUAL_MIN_PERCENT) && isOnSliderGrid(MANUAL_MAX_PERCENT),
+  `step=${ZOOM_SLIDER_STEP}`)
+check('slider: every percentage autoFit can produce is representable (无吸附)',
+  (() => {
+    // 扫一批"非 5 倍数"的真实几何：400/430/520/610px 侧栏下 autoFit 的百分比
+    const offGrid = [400, 430, 520, 610].map((pw) => {
+      const v = zoomScale(ZOOM_AUTO, { availWidth: pw - PAGE_PADDING, availHeight: 883, ...A4 })
+      return v.percent
+    }).filter((p) => p % 5 !== 0)
+    return offGrid.length > 0 && offGrid.every((p) => isOnSliderGrid(p))
+  })(),
+  `非 5 倍数样本=${[400, 430, 520, 610].map((pw) => zoomScale(ZOOM_AUTO, { availWidth: pw - PAGE_PADDING, availHeight: 883, ...A4 }).percent).join('/')}`)
 
 // 8.7 未布局（容器 0 尺寸）时手动仍有确定值、自适应不装懂
 check('zoom: manual survives an unlaid-out container',

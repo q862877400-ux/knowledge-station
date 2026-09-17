@@ -28323,6 +28323,7 @@ function fitPageScale(input) {
 var ZOOM_AUTO = { source: "autoFit" };
 var MANUAL_MIN_PERCENT = 10;
 var MANUAL_MAX_PERCENT = 500;
+var ZOOM_SLIDER_STEP = 1;
 var ZOOM_PRESET_PERCENTS = [25, 50, 75, 100, 125, 150];
 function clampManualPercent(percent) {
   if (!Number.isFinite(percent)) return MANUAL_MIN_PERCENT;
@@ -29903,6 +29904,7 @@ function KsEvidenceTab(props) {
   const [curClauseKey, setCurClauseKey] = (0, import_react4.useState)(null);
   const [arrowPos, setArrowPos] = (0, import_react4.useState)(null);
   const refreshMetaRef = (0, import_react4.useRef)(null);
+  const loadEvidenceRef = (0, import_react4.useRef)(null);
   const [docClauseBms, setDocClauseBms] = (0, import_react4.useState)([]);
   const [loadedDocId, setLoadedDocId] = (0, import_react4.useState)(null);
   const [toc, setToc] = (0, import_react4.useState)(null);
@@ -30170,6 +30172,7 @@ function KsEvidenceTab(props) {
       setLoad({ status: "error", message: error instanceof Error ? error.message : String(error) });
     }
   }, [pushHistory, renderPage]);
+  loadEvidenceRef.current = loadEvidence;
   (0, import_react4.useEffect)(() => {
     const rawPath = typeof tab.path === "string" ? tab.path : null;
     pathHrefRef.current = rawPath;
@@ -30195,7 +30198,7 @@ function KsEvidenceTab(props) {
       } catch {
       }
     }
-    void loadEvidence(ev);
+    void loadEvidenceRef.current?.(ev);
     return () => {
       abortRef.current?.abort();
       for (const task of tasksByPageRef.current.values()) {
@@ -30208,7 +30211,7 @@ function KsEvidenceTab(props) {
       void pdfDocRef.current?.destroy();
       pdfDocRef.current = null;
     };
-  }, [tab.path, tab.meta, loadEvidence]);
+  }, [tab.path, tab.meta]);
   (0, import_react4.useEffect)(() => {
     if (!visible) return;
     const ev = evidence.current;
@@ -31237,7 +31240,7 @@ function KsEvidenceTab(props) {
             type: "range",
             min: MANUAL_MIN_PERCENT,
             max: MANUAL_MAX_PERCENT,
-            step: 5,
+            step: ZOOM_SLIDER_STEP,
             value: sliderPercent,
             onChange: (e) => applyManualZoom(Number(e.target.value)),
             disabled: load.status !== "ready" || viewMode !== "pdf",

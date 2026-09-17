@@ -18,6 +18,7 @@
     "smoke:docimage": "node scripts/smoke-docimage.mjs",
     "smoke:sanitize": "node scripts/smoke-sanitize.mjs",
     "verify:commands": "node scripts/run-verify-commands.mjs",
+    "e2e:sidebar": "node scripts/e2e-sidebar-pdf.mjs",
     "smoke": "node scripts/smoke-pdf-fit.mjs && node scripts/smoke-pdf-panel.mjs && node scripts/smoke-settings.mjs && node scripts/smoke-settings-guard.mjs && node scripts/smoke-effect-tool.mjs && node scripts/smoke-chatmode.mjs && node scripts/smoke-ingest.mjs && node scripts/smoke-engine-guard.mjs && node scripts/smoke-client-entry.mjs && node scripts/smoke-docimage.mjs && node scripts/smoke-sanitize.mjs"
   },
   "exports": {

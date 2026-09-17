@@ -50,6 +50,7 @@ import {
   MANUAL_MIN_PERCENT,
   PAGE_PADDING,
   ZOOM_PRESET_PERCENTS,
+  ZOOM_SLIDER_STEP,
   zoomForAutoFit,
   zoomForManual,
   zoomScale,
@@ -271,6 +272,11 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
   } | null>(null)
   // refreshMeta 的引用（loadEvidence 在函数定义前调用它）
   const refreshMetaRef = useRef<((rev: string) => void) | null>(null)
+  /**
+   * `loadEvidence` 的引用：给那些**不该因它身份变化而重跑**的 effect 用
+   * （identity 不稳定的原因见 loadEvidence 定义处）。null 表示尚未定义（首次渲染早期）。
+   */
+  const loadEvidenceRef = useRef<((ev: KsEvidence | null) => void) | null>(null)
   // 本文档已收藏条款（顶部「已收藏条款」下拉数据源）
   const [docClauseBms, setDocClauseBms] = useState<KsBookmark[]>([])
   // 标题目录（B）：已载入文档的目录树 + 列可见性。
@@ -714,6 +720,14 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
       setLoad({ status: 'error', message: error instanceof Error ? error.message : String(error) })
     }
   }, [pushHistory, renderPage])
+  /**
+   * `loadEvidence` 的**身份不稳定**（它依赖 renderPage，而 renderPage 依赖 pagingMode /
+   * zoom / box / dprEpoch…）。凡是把 `loadEvidence` 放进依赖数组的 effect，都会因此被
+   * 那些**无关状态**反复触发 —— 这正是 2026-09-17 抓到的那个 bug 的机理（见下方
+   * "Re-parse evidence" effect 的注释）。需要调用它的地方一律经这个 ref 取最新实现，
+   * 而不是把它的身份写进依赖数组。
+   */
+  loadEvidenceRef.current = loadEvidence
 
   // Re-parse evidence whenever the tab's path/meta changes, then load.
   useEffect(() => {
@@ -750,7 +764,7 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
       const label = `PDF 查看器${ev.page !== undefined ? ` · 第${ev.page}页` : ''}`
       try { onUpdateTitle?.(label) } catch { /* ignore */ }
     }
-    void loadEvidence(ev)
+    void loadEvidenceRef.current?.(ev)
     return () => {
       abortRef.current?.abort()
       for (const task of tasksByPageRef.current.values()) {
@@ -760,7 +774,14 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
       void pdfDocRef.current?.destroy()
       pdfDocRef.current = null
     }
-  }, [tab.path, tab.meta, loadEvidence])
+    // ⚠ 本 effect **只在 tab 的地址（path/meta）真的变化时**才能重跑，所以依赖数组里
+    // **绝不能**放 `loadEvidence` —— 它的身份随 renderPage←pagingMode/zoom/box/dprEpoch
+    // 变化，而这些与本 effect 的职责无关。放进去的后果是实测过的 P0（2026-09-17）：
+    // 从**文件目录**打开文档时 tab 无地址（rawPath=null），于是点一下「单页」→ 本 effect
+    // 被无关的身份变化触发 → 重新解析出 ev=null → evidence.current=null → 文档被卸载
+    // （连 cleanup 里的 pdfDoc.destroy() 一起），阅读器直接回到"从左侧目录点开…"空态，
+    // 且切回「连续」也不会恢复。改用 ref 取最新实现即可让本 effect 只认地址变化。
+  }, [tab.path, tab.meta])
 
   // 增强③-A: tab 重新可见（如从 🔖 收藏 tab 删除后切回）→ 重拉 meta 刷新收藏真值，
   // 避免"已在收藏 tab 删除但这里仍显示已收藏"的跨 tab 状态漂移。
@@ -2038,12 +2059,14 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
 
         <span style={{ color: 'var(--dsw-alias-label-tertiary, #999)', fontSize: 11, marginLeft: 6 }}>缩放</span>
         {/* 拖动式缩放滑块：最左 = 10%（最小可读值，0% 会渲染成空白页——已与用户
-            确认取 10%），最右 = 500%。拖动即退出自适应（zoomForManual）。 */}
+            确认取 10%），最右 = 500%。拖动即退出自适应（zoomForManual）。
+            step 必须是 1：autoFit 会算出任意整数百分比，step>1 时 range input 会把
+            显示值吸附到刻度上 → thumb 与 label / 实际渲染不一致（见 ZOOM_SLIDER_STEP）。 */}
         <input
           type="range"
           min={MANUAL_MIN_PERCENT}
           max={MANUAL_MAX_PERCENT}
-          step={5}
+          step={ZOOM_SLIDER_STEP}
           value={sliderPercent}
           onChange={(e) => applyManualZoom(Number(e.target.value))}
           disabled={load.status !== 'ready' || viewMode !== 'pdf'}

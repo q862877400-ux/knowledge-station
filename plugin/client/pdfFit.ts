@@ -59,7 +59,8 @@ export interface FitResult {
   scale: number
   /**
    * 由哪个方向决定缩放。2026-09-17 起**恒为 'width'**（高度不再参与定标）；
-   * 保留该字段是因为 UI 文案（"宽度铺满"提示）与冒烟断言按它分支。
+   * 保留该字段的唯一消费者是冒烟断言与 `zoomScale` 下游的类型完整性 ——
+   * **没有任何 UI 文案读它**（界面上只区分"自适应窗口 / N%"，见 KsEvidenceTab 底部栏）。
    */
   basis: 'width' | 'height'
   /** 是否被 MIN/MAX 钳制（钳制时 basis 仅供参考）。 */
@@ -90,8 +91,14 @@ export interface FitResult {
  * 保留 `availHeight > 0` 的检查：它是**"容器已布局"的守卫**（0/负值 → 返回 null，
  * 调用方跳过本次绘制），不再参与缩放。
  *
- * `MIN_SCALE`(0.5) 仍是可读性下限：侧栏窄到 < ~322px（可用宽 < 297.6 = 0.5×595.28）时才钳到 0.5，那时会重新出现
- * 横向滚动——"看不清 vs 看不全"的取舍，取前者。
+ * `MIN_SCALE`(0.5) 仍是可读性下限，故本函数**不保证"永不横向滚动"**：钳制发生在
+ * `可用宽 < MIN_SCALE × 页宽`，即侧栏 paneW < `0.5 × 页宽 + 24`。这个阈值**随页宽变**，
+ * 不是一个固定数：A4 纵向（595.28pt）≈ **322px**；而真实库里那种 ~826pt 的横向国标页
+ * ≈ **437px**。低于阈值时页宽会被定在 297.6/413px 而超出可用宽 ⇒ 重新出现横向滚动
+ * （容器 overflow:auto，滚得动）。取舍是"看不清 vs 看不全"，取前者。
+ *
+ * 输入校验：`pageWidth/pageHeight > 0` 仍要求成立（0/负值是坏输入 → 返回 null）；
+ * **但 `pageHeight` 已不参与定标**，它现在只是一项合理性校验，别误以为它还在起作用。
  */
 export function fitPageScale(input: FitInput): FitResult | null {
   const { availWidth, availHeight, pageWidth, pageHeight } = input
@@ -143,6 +150,23 @@ export const ZOOM_AUTO: ZoomState = { source: 'autoFit' }
 export const MANUAL_MIN_PERCENT = 10
 /** 手动缩放的右端 = 500%（滑块最右）。 */
 export const MANUAL_MAX_PERCENT = 500
+
+/**
+ * 缩放滑块的步长 —— **必须是 1**，不能为了"拖起来顺手"改成 5。
+ *
+ * `<input type="range">` 按规范把 `value` 吸附到 `min + k·step`。滑块在 autoFit 下显示的是
+ * fitPageScale 现算的百分比（`Math.round` 后的**任意整数**），所以只要 step > 1，就会出现
+ * 「thumb 在 80、label 写着 82%、实际渲染也是 82%」这种自相矛盾的状态（thumb 位置 = 用户
+ * 对"现在多大"的第一读数，见 2026-09-17 的独立复核 P1）。
+ * 实测（CDP，step=5）：写入 82→读回 80、99→100、113→115；改成 step=1 后这些整数原值保留。
+ * 拖动时的"顺手"用不着 5 —— 1% 粒度对 10..500 的行程仍然够用，而准确性优先。
+ */
+export const ZOOM_SLIDER_STEP = 1
+
+/** 某个整数百分比是否落在滑块刻度上（= 滑块能否**如实**表示它）。供冒烟与复核使用。 */
+export function isOnSliderGrid(percent: number): boolean {
+  return (percent - MANUAL_MIN_PERCENT) % ZOOM_SLIDER_STEP === 0
+}
 
 /** 「浏览比例」下拉选项，最下方一项固定是「自适应窗口」。 */
 export const ZOOM_PRESET_PERCENTS = [25, 50, 75, 100, 125, 150] as const
