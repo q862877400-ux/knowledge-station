@@ -720,6 +720,42 @@ class TestScriptStyleStrippingEdges:
             out = html_to_text(f"<p>前</p><{tag}>保留甲</{tag}><p>后</p>")
             assert "保留甲" in out, (tag, out)
 
+    def test_script_inside_raw_text_elements_is_text_not_a_tag(self):
+        """**raw text 元素里的字面 `<script>` 是文字**（复核 b10 的 LOW-1，2026-09-18 修）。
+
+        §10.55 把 `xmp`/`plaintext` 从"内容不进正文"的名单里移出（它们是**可见文字**），
+        但 `_strip_script_style` **在那之前**就已经把 script/style 整串剥掉了
+        ⇒ `<xmp><script>var x=1;</script></xmp>` 里那段字面文本照样被删 ⇒ **仍在丢可见正文**。
+        复核实测：浏览器 `innerText` 对这段是**会显示**的（`xmp` 原样字面显示）。
+        判据是"匹配点落在 raw text / RCDATA 元素内部就跳过"。
+
+        ⚠ 反向对照同样重要（下一条用例）：**元素外面**的 `<script>` 仍必须被剥掉
+        ——这个改动不能把守卫的方向搞松。
+        """
+        from src.core.text_utils import html_to_text
+        out = html_to_text("<p>前</p><xmp><script>var LEAK=1;</script>可见甲</xmp><p>后</p>")
+        assert "var LEAK=1;" in out, out          # 浏览器会把它当文字显示出来
+        assert "可见甲" in out and "前" in out and "后" in out, out
+        out = html_to_text("<p>前</p><plaintext><script>var P=2;</script>尾")
+        assert "var P=2;" in out and "尾" in out, out
+        # textarea / title 同理（它们的内容是我们**有意保留**的，在里面剥 script 也是删我们要留的字）
+        out = html_to_text("<textarea><script>var T=3;</script>表单默认值</textarea>")
+        assert "var T=3;" in out and "表单默认值" in out, out
+
+    def test_real_script_outside_raw_text_is_still_stripped(self):
+        """**反向对照**：元素**外面**的 `<script>`/`<style>` 仍必须剥掉。
+
+        没有这一条，"raw text 里跳过"这个改动就可能被写成"到处都跳过"——那等于把守卫反过来。
+        """
+        from src.core.text_utils import html_to_text
+        out = html_to_text("<p>前</p><script>var OUT=9;</script><p>后</p>")
+        assert "OUT=9" not in out, out
+        out = html_to_text("<p>前</p><style>.x{color:red}</style><p>后</p>")
+        assert "color:red" not in out, out
+        # 未闭合的真 script（HTML5：吞到文档末尾）——同样不许漏进正文
+        out = html_to_text("<p>前</p><script>var UNCLOSED=1;")
+        assert "UNCLOSED" not in out, out
+
     def test_guard_requirement_one_is_load_bearing(self):
         """守卫的**要求①**（`<` 之后必须紧跟字母或 `/`）是**承重的**，必须有正面用例。
 

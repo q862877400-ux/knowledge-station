@@ -692,3 +692,9 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     **仍开着**：b10-LOW-1（`xmp`/`plaintext` 内部字面 `<script>` 仍被剥）、b10-LOW-2（§10.56 表
     `A→B0` 记成"0 行"实为 5879 行）、b10-G3/G4（两处零闸门）、b11-INFO-1（`anchorNote` 死状态）、
     INFO-4（报告 ⚠ 不覆盖「依据」节 ⇒ 新立项）、通道 E 的"未核验沉底"（要加 JOIN）。
+
+    **b10-LOW-1 已修（step-63，§10.64）**：`_strip_script_style` 增加 `_inside_raw_text(...)` 判据
+    ——raw text / RCDATA（`xmp`/`plaintext`/`textarea`/`title`）内部字面的 `<script>`/`<style>`
+    是**文字**不是标签，不再剥（浏览器 `innerText` 会显示它们）。正向用例 + **反向对照**
+    （元素外面的真 script 仍必须剥，含未闭合的）成对；变异 T1 ⇒ 正向 RED、反向仍绿。
+    门禁 1703 passed / 3 skipped。**b10 至此只剩 LOW-2（§10.56 表 `A→B0` 记错）与 G3/G4（两处零闸门）。**

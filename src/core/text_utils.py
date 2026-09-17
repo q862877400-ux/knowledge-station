@@ -1452,6 +1452,36 @@ def _inside_unclosed_tag(s: str, start: int, at: int) -> bool:
     return ">" not in seg[lt:] and bool(_RE_TAG_START.match(seg, lt))
 
 
+_RE_RAW_TEXT_BOUNDARY = re.compile(r"<(/?)(xmp|plaintext|textarea|title)\b[^>]*>", re.I)
+
+
+def _inside_raw_text(s: str, at: int) -> bool:
+    """`at` 是否落在**内容按原样显示**的元素内部（复核 b10 的 LOW-1）。
+
+    这些元素的内容是 **raw text / RCDATA**：浏览器**不解析**里面的标签 ⇒
+    里面字面的 `<script>` / `<style>` 是**文字**，不是脚本。
+    - `xmp` / `plaintext`：浏览器**会显示**这段文字 ⇒ 剥掉它就是**丢可见正文**
+      （复核实测 `<xmp><script>var LEAK=1;</script></xmp>` 的 `innerText` 就是那段字面文本）；
+    - `textarea` / `title`：浏览器不显示，但它们的文本是**我们有意保留**的（表单默认值 / 页面标题）
+      ⇒ 在里面剥 script 同样是在删我们决定要留的字。
+    `plaintext` 没有结束标签（其后全是 raw text，HTML5 规则）。
+    ⚠ 代价（诚实登记）：这个判据每遇到一个 script/style 匹配就**回扫一遍前缀**，
+    复杂度 O(n·k)；页面上的 script/style 通常是个位数 ⇒ 可接受。
+    真要快得写成**单遍状态机**（未立项）。
+    """
+    open_tag: str | None = None
+    for m in _RE_RAW_TEXT_BOUNDARY.finditer(s, 0, at):
+        tag = m.group(2).lower()
+        if m.group(1):                       # 结束标签
+            if open_tag == tag:
+                open_tag = None
+        else:                                # 开始标签
+            open_tag = tag
+            if tag == "plaintext":           # 永不闭合 ⇒ 其后全是 raw text
+                return True
+    return open_tag is not None
+
+
 def _strip_script_style(html: str) -> str:
     """丢掉 `script`/`style` **及其内容**（含**自闭合**与**未闭合**两种形态）。
 
@@ -1490,6 +1520,13 @@ def _strip_script_style(html: str) -> str:
     ⚠ 为什么要求"紧跟字母/`/`"：正文里的裸 `<`（`a < b <script>…`）后面跟的是空格，
     那不是标签开头，**不能**因此把真 `<script>` 当文本——那会把 JS **漏进正文**
     （本函数要防的正是这个方向）。两个方向都实测过，见 §10.40。
+
+    ## 第 5 条语义（2026-09-18 复核 b10 的 LOW-1，v4 加）
+    **raw text / RCDATA 元素内部的 `<script>` 是字面文本**，不是标签。
+    上一轮把 `xmp`/`plaintext` 从"内容不进正文"的名单里移出（它们是**可见文字**，见 §10.55），
+    但**这个函数在此之前就先把 script/style 剥掉了** ⇒ `<xmp><script>var x=1;</script></xmp>`
+    里那段字面文本仍然被删 ⇒ **仍在丢可见正文**（复核实测：浏览器 `innerText` 会显示它）。
+    ⇒ 判据：匹配点落在 `_inside_raw_text(...)` 为真的位置就跳过（同第 4 条的做法）。
     """
     # ① 先剥注释：注释里的 `<script>` 不是标签（不剥会把其后正文全吞掉，实测丢材料）
     s = _RE_HTML_COMMENT.sub(" ", html)
@@ -1502,7 +1539,9 @@ def _strip_script_style(html: str) -> str:
             return "".join(out)
         # ④ 还在一个**未闭合的标签**里 ⇒ 这次匹配是属性值里的字面文本，不是标签
         #    （见 docstring 第 4 条；跳过一个字符继续找，保证循环终止）
-        if _inside_unclosed_tag(s, pos, m.start()):
+        # ⑤ 或者在**raw text / RCDATA 元素内部**（`xmp`/`plaintext`/`textarea`/`title`）⇒
+        #    那里的 `<script>` 也是**字面文本**（浏览器不解析），不是标签（docstring 第 5 条）
+        if _inside_unclosed_tag(s, pos, m.start()) or _inside_raw_text(s, m.start()):
             out.append(s[pos:m.start() + 1])
             pos = m.start() + 1
             continue
