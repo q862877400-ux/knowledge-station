@@ -1322,6 +1322,37 @@ def segment_for_fts(text: str | None) -> str:
     return " ".join(w.strip() for w in jieba.cut_for_search(text or "") if w.strip())
 
 
+def fts_match_expr(text: str | None) -> str:
+    """FTS5 `MATCH` 表达式的**唯一**构造器（2026-09-17 集中到此处）。
+
+    为什么必须只有一个：这是"分词"之后的第二道**检索口径**，两条检索线若各写一份，
+    症状是"同一句话在法条里搜得到、在材料里搜不到"——最难查的一类 bug。
+    本函数由 `clause_repo`/`hybrid_engine` 侧与 `material_repo` 侧**共用**。
+
+    三条被实测证明必需的规则：
+    1. **每个词加引号**：裸 `-` 会被 FTS5 当语法（实测 `'GB 30871-2022'` → 报
+       `no such column: 2022`）；`. ` 亦然（实测 `'5.2.3'` → `syntax error near "."`）。
+       而这类错误**会被兜底 except 吞成"没有命中"**——静默失效，最坏的一种。
+    2. **用 `OR` 连接**：FTS5 的多个词是**隐式 AND**，于是"住宿标准是多少"（材料里只有
+       "住宿标准…"）会 0 命中——自然语言提问基本检索不到东西。要召回，排序交给 bm25。
+    3. **剥掉非字母数字/非中文的字符**、且**丢弃单字符词**（`的`/`是` 之类纯噪声）。
+       ⇒ 已知代价：`'5.2.3'` 这种**整个表达式都是单字符**的查询会得到空串 ⇒ 该查询在
+       FTS 上**无命中**（法条侧靠"精确条款号通道"补上，材料侧目前没有对应通道，
+       见 `material_repo.search_materials` 的诚实边界）。
+
+    本函数的契约与"与旧法条侧实现逐字等价"的回归都在 `tests/test_answer_materials.py`
+    的 `TestFtsMatchExprIsTheSingleOwner` / `TestNaturalLanguageRecall` 里。
+    """
+    words = segment_for_fts(text).split()
+    quoted: list[str] = []
+    for w in words:
+        safe = re.sub(r"[^\w\u4e00-\u9fff]", " ", w)   # 只留字母数字/下划线/中文
+        for tok in safe.split():
+            if len(tok) > 1:
+                quoted.append(f'"{tok}"')
+    return " OR ".join(quoted)
+
+
 #: 「副本后缀」：浏览器/资源管理器重复下载产生的 `xxx(1).pdf` / `xxx（2）.pdf`。
 #:
 #: ⚠ **只吃结尾**的 `(数字)`（半角/全角括号都算），**不吃中间的**——库内大量**合法**

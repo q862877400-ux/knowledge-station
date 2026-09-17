@@ -214,8 +214,12 @@ function metaSummary(meta) {
  * citation-relevant fields, the verification lists are truncated + compacted).
  * This keeps a single tool return far under the prompt budget (evidence <= 8,
  * snippet <= 800 chars each are already enforced by the engine).
+ *
+ * ⚠ **白名单纪律（与 `trimVerification` 同一条）**：引擎 `answer()` 返回的键若没进
+ * 本函数，就等于没算——`unsupported_context` 与 `material_usage` 都栽过/差点栽在这里。
+ * 导出它是为了让 `scripts/smoke-trim.mjs` 能**调用真函数**逐键核对（不是字符串匹配）。
  */
-function trimAnswer(data) {
+export function trimAnswer(data) {
   if (!data || typeof data !== 'object') return null
   const evidence = (Array.isArray(data.evidence) ? data.evidence : [])
     .map(trimEvidence)
@@ -228,6 +232,10 @@ function trimAnswer(data) {
     conclusion: String(data.conclusion ?? '').trim(),
     verification: trimVerification(data.verification),
     notes: (Array.isArray(data.notes) ? data.notes : []).map((n) => String(n)),
+    // 材料平面使用记录（引擎侧 Phase B）。**必须转发**：模型要能如实说出
+    // "本次用了哪个项目的哪几条参考资料、哪些只算线索"，否则又是一个"算出来没人看得见"。
+    // 没给项目范围时引擎给 null —— "没用材料"与"用了但没命中"必须能区分。
+    material_usage: data.material_usage ?? null,
     meta_summary: metaSummary(data._meta),
   }
 }
@@ -631,6 +639,19 @@ function makeAnswerTool(manager, chatModeOf) {
             max_evidence: {
               type: 'integer',
               description: 'Max evidence items to return (default 8; the engine hard-caps at 8).',
+            },
+            material_project_id: {
+              type: 'string',
+              description:
+                'Scope this ask to one 参考资料 project (prj_… id) so the answer also uses that ' +
+                'project\'s APPROVED materials. Omitted = materials are not consulted at all ' +
+                '(the prompt is then byte-identical to a plain law-only ask). Materials arrive ' +
+                'in a separate 参考资料 section with their own [[m:i]] citations, grouped by ' +
+                'how much weight they may carry: 本任务准则 (declared criterion, outranks the ' +
+                'statutes for this task), 可作依据, 已获多源互证的辅证, 仅作线索 (must NOT ' +
+                'support a conclusion on its own), 已知不可用 (must NOT be used in the ' +
+                'conclusion). Unapproved material is never included. The result carries ' +
+                'material_usage so you can report what was actually used.',
             },
           },
           additionalProperties: false,

@@ -47,6 +47,20 @@ BEHAVIOUR_LABELS: dict[str, str] = {
     "excluded": "不可用于结论（来源不可回溯）",
 }
 
+#: 分组顺序的**唯一所有者**：既决定渲染次序，也决定 `[[m:i]]` 的编号。
+#:
+#: ⚠ 为什么必须固定：`[[m:i]]` 是给模型的引用标记，编号一漂移，产出物里的引用就全指错。
+#: 故编号按**本元组顺序**分配，且**包含 leads_only / excluded**——这两组也可能被引用
+#: （线索要带"单一来源"声明，排除项只能在"已知不可用"的意义上提及），
+#: 若不给它们编号，模型就只能靠文字指代，引用就不可核验了。
+GROUP_ORDER: tuple[tuple[str, str], ...] = (
+    ("criteria", "本任务准则（轴 B：以它为准绳）"),
+    ("usable", "可作依据的材料"),
+    ("corroborated", "已获多源互证的辅证"),
+    ("leads_only", "仅供参考的线索（单一来源，未用于支撑结论）"),
+    ("excluded", "已知不可用（不可用于结论）"),
+)
+
 
 def _source_identity(hit: dict[str, Any]) -> str:
     """判"独立来源"的口径：优先域名；没有域名则退到材料本身。
@@ -78,12 +92,14 @@ def assemble_evidence(project_id: str, question: str, *, limit: int = 8) -> dict
     检索本身走 `material_repo.search_materials()` ⇒ **评审硬门在那一层已经保证**
     （未批准材料根本不会出现在这里的输入里）。
     """
-    hits = mr.search_materials(project_id, question, limit=limit)
+    # 项目不存在 vs 项目里没命中——**是两件不同的事**，不能都报成"没有命中"
+    # （那会让调用方以为"这个项目确实没有可用材料"）。故先确证项目存在。
+    project_found = mr.get_project(project_id) is not None
+    hits = mr.search_materials(project_id, question, limit=limit) if project_found else []
     criteria: list[dict] = []
     usable: list[dict] = []
     leads: list[dict] = []
     excluded: list[dict] = []
-
     for h in hits:
         h = dict(h)
         h["behaviour"] = TIER_BEHAVIOUR.get(h.get("source_tier") or "", "excluded")
@@ -120,11 +136,16 @@ def assemble_evidence(project_id: str, question: str, *, limit: int = 8) -> dict
         notes.append(f"二手转述 {len(leads)} 条**仅单一来源**，只能当线索，**未用于支撑结论**。")
     if excluded:
         notes.append(f"不可回溯来源 {len(excluded)} 条已排除在结论之外（仍如实列出以便你判断）。")
-    if not hits:
+    if not project_found:
+        notes.append(f"项目 {project_id} 不存在——本轮**没有**可用的参考资料"
+                     "（不是「项目里没有命中」，两者不同）。")
+    elif not hits:
         notes.append("本项目已批准材料中没有命中；结论不得建立在材料之上。")
 
-    return {
+    assembled: dict[str, Any] = {
         "question": question,
+        "project_id": project_id,
+        "project_found": project_found,
         "criteria": criteria,
         "usable": usable,
         "corroborated": corroborated,
@@ -135,28 +156,32 @@ def assemble_evidence(project_id: str, question: str, *, limit: int = 8) -> dict
                    "corroborated": len(corroborated), "leads_only": len(leads),
                    "excluded": len(excluded), "total": len(hits)},
     }
+    # `[[m:i]]` 编号：按 GROUP_ORDER 顺序**全局**递增（跨组连续，模型好数）。
+    idx = 0
+    for key, _title in GROUP_ORDER:
+        for h in assembled[key]:
+            h["index"] = idx
+            idx += 1
+    return assembled
 
 
 def render_evidence(assembled: dict[str, Any]) -> str:
-    """把分组结果渲染成**给提示词/产出物用的文本**（每条都带两个轴的标注与可点回的位置）。
+    """把分组结果渲染成**给提示词/产出物用的文本**（每条都带两个轴的标注、`[[m:i]]` 与位置）。
 
     为什么渲染时要带 `材料#id@起-止`：产出物里的引用要能**点回原文位置**，
     那就必须把材料 id 与字符区间一起带出去（与法条侧"标准号-条款号可点回"同精神）。
+    `[[m:i]]` 的 `i` 就是 `hit["index"]`（由 `assemble_evidence()` 按 GROUP_ORDER 分配）。
     """
     def line(h: dict[str, Any]) -> str:
         loc = f"{h.get('title')}#{h.get('material_id')}@{h.get('char_start')}-{h.get('char_end')}"
         if h.get("page"):
             loc += f"(第{h['page']}页)"
-        return (f"- [{h.get('tier_label')}·{h.get('role_label')}] {loc}\n"
+        return (f"- [[m:{h.get('index')}]] [{h.get('tier_label')}·{h.get('role_label')}] {loc}\n"
                 f"  {h.get('text', '').strip()}")
 
     parts: list[str] = []
-    sec = [("本任务准则（轴 B：以它为准绳）", assembled["criteria"]),
-           ("可作依据的材料", assembled["usable"]),
-           ("已获多源互证的辅证", assembled["corroborated"]),
-           ("仅供参考的线索（单一来源，未用于支撑结论）", assembled["leads_only"]),
-           ("已知不可用（不可用于结论）", assembled["excluded"])]
-    for title, group in sec:
+    for key, title in GROUP_ORDER:
+        group = assembled[key]
         if group:
             parts.append(f"### {title}")
             parts.extend(line(h) for h in group)

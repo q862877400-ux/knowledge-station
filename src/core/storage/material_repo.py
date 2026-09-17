@@ -300,7 +300,7 @@ def search_materials(project_id: str, query: str, *, limit: int = 8) -> list[dic
     返回每项含：切片文本与字符区间、页号、材料标题/来源/层级（轴 A）/任务效力（轴 B）。
     这些字段就是产出物里那条引用要显示与"点回原文"的全部依据（可见性硬需求）。
     """
-    from src.core.text_utils import segment_for_fts
+    from src.core.text_utils import fts_match_expr
     if not isinstance(query, str):
         # 显式拒绝而不是让 jieba 深处抛 AttributeError（verifier 2026-09-17 报的：
         # 非 str 会从 segment_for_fts 内部冒 AttributeError，契约很差）。
@@ -310,8 +310,16 @@ def search_materials(project_id: str, query: str, *, limit: int = 8) -> list[dic
     # `allow_deep="false"` 同一类 bug：**坏参数静默变成"什么都没找到"**。
     if isinstance(limit, bool) or not isinstance(limit, int):
         raise TypeError(f"limit 必须是 int（收到 {type(limit).__name__}）")
-    q = segment_for_fts(query)
+    # MATCH 表达式走**唯一构造器**（与法条侧同一份口径）。
+    # 这里一度是"裸分词直传"，后果实测（2026-09-17）：`'GB 30871-2022'` 触发
+    # `no such column: 2022`、`'5.2.3'` 触发 `syntax error near "."`，都被兜底 except
+    # 吞成"没有命中"；而隐式 AND 让「住宿标准是多少」搜不到含「住宿标准…」的材料。
+    q = fts_match_expr(query)
     if not q.strip():
+        # **已知边界（诚实记录）**：整个表达式都是单字符词时（如 `5.2.3`，
+        # 分词后只剩 `5`/`2`/`3`）本构造器按设计丢弃单字符词 ⇒ 空表达式 ⇒ 无命中。
+        # 法条侧靠"精确条款号通道"覆盖这种查询，材料侧**暂无**对应通道。
+        logger.info("材料检索：查询 %r 的分词全为单字符，FTS 无表达式（无命中）", query)
         return []
     conn = get_db_connection()
     try:

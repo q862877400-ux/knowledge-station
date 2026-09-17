@@ -48,6 +48,27 @@ _TITLE_CLAUSE_NO = re.compile(r'^\d+(?:\.\d+)*$')
 
 # 取证三段式输出的引用标记格式：[[c:i]] 指 evidence[i]
 _CITE_MARK = re.compile(r'\[\[c:(\d+)\]\]')
+# 参考资料的引用标记：[[m:i]] 指参考资料第 i 条（编号由 materials.authority 分配）。
+# ⚠ 与 [[c:i]] **必须是不同的标记**：法条证据与材料是**两个平面**，混用会让
+# `parse_llm_answer` 的越界校验把材料序号当成法条序号（或反之）。
+_MATERIAL_MARK = re.compile(r'\[\[m:(\d+)\]\]')
+
+#: 材料在提示词里出现时**追加**给 SYSTEM_PROMPT 的规则（措辞的唯一所有者）。
+#:
+#: 为什么必须显式写这四条：材料平面的两个轴（来源可信度 × 任务内效力）只有在**答案里**
+#: 被执行才有意义。若不写，模型会把"仅作线索"的 T3 当依据、或把 T4 当事实，
+#: 那 §5 的两轴模型就退化成"又一个 RAG 塞上下文"。业主原话：
+#: **"不是随便找个什么网络文章就当权威信源"**。
+MATERIAL_SYSTEM_ADDENDUM = (
+    "\n7. 若下方另有「参考资料」（非法规证据），引用它用 [[m:i]] 标记，i 为参考资料序号；\n"
+    "8. 标为「本任务准则（轴 B）」的参考资料**对本任务优先于法条**：两者冲突时以它为准，"
+    "并**必须显式说明冲突**（不得静默取舍）；\n"
+    "9. 标为「仅作线索」的参考资料**不得单独支撑结论**；确需引用时必须写明"
+    "「（单一来源，未经互证）」；\n"
+    "10. 标为「已知不可用」的参考资料**不得用于结论**；只在「用户需知」的意义上提及它存在；\n"
+    "11. 参考资料与法条**分属两个平面**：不得把参考资料的层级当成法条的效力，"
+    "也不得因为某条写在参考资料里就当作法规原文引用。"
+)
 
 # 取证模式 SYSTEM_PROMPT 精神对齐 ENCYCLOPEDIA §6.2 规则 1~5 + 取证三段式约束，
 # 且取证模式不复用「追问」规则（规则 6/8/9 是轻模式双轨追问机制，取证答案不催问）。
@@ -216,8 +237,13 @@ def _decide_tier(
 # Prompt 构造（对齐 SYSTEM_PROMPT 1~5 精神 + 三段式输出约束）
 # ---------------------------------------------------------------------------
 
-def _build_evidence_prompt(query: str, evidence: List[Dict[str, Any]]) -> str:
-    """组装用户侧证据 Prompt：每条约 800 字截断 + 附表 300 字，引用标记 [c:i]。"""
+def _build_evidence_prompt(query: str, evidence: List[Dict[str, Any]],
+                           materials_text: Optional[str] = None) -> str:
+    """组装用户侧证据 Prompt：每条约 800 字截断 + 附表 300 字，引用标记 [c:i]。
+
+    `materials_text` 非空时**另起一节**追加参考资料（**不混进条款列表**）：
+    两个平面分开摆，模型才分得清"法条"与"材料"，`[[c:i]]`/`[[m:i]]` 也才对得上。
+    """
     lines = [f"用户问题：{query}", "", "证据条款："]
     for i, ev in enumerate(evidence):
         content = ev.get("snippet") or (ev.get("_full_text") or "")[:EVIDENCE_SNIPPET_MAX]
@@ -228,20 +254,32 @@ def _build_evidence_prompt(query: str, evidence: List[Dict[str, Any]]) -> str:
             f"[c:{i}] {ev.get('standard_no')} 第{ev.get('clause_number')}条"
             f"（第{ev.get('page_start')}页，效力={ev.get('legal_status')}）：{content}{table}")
     lines.append("")
-    lines.append("请仅基于以上证据给出三段式取证答案（JSON），引用处用 [[c:i]] 标记。")
+    if materials_text:
+        lines.append("参考资料（**非法规证据**，按承重能力分组；引用用 [[m:i]]）：")
+        lines.append(materials_text)
+        lines.append("")
+    lines.append("请仅基于以上证据给出三段式取证答案（JSON），引用处用 [[c:i]] 标记"
+                 + ("；引用参考资料用 [[m:i]] 标记。" if materials_text else "。"))
     return "\n".join(lines)
 
 
 def build_messages(query: str, evidence: List[Dict[str, Any]],
-                   query_mode: str = "default") -> List[Dict[str, str]]:
-    """组装 messages。query_mode 仅影响提示措辞（guess 强制作答；这里取证档位不催问）。"""
+                   query_mode: str = "default",
+                   materials_text: Optional[str] = None) -> List[Dict[str, str]]:
+    """组装 messages。query_mode 仅影响提示措辞（guess 强制作答；这里取证档位不催问）。
+
+    `materials_text` 为空时，产出与**没有材料平面之前完全一致**（逐字）——
+    这条不变量是回归保证：不带项目范围的提问，提示词一个字都不变。
+    """
     system = FORENSIC_SYSTEM_PROMPT
+    if materials_text:
+        system += MATERIAL_SYSTEM_ADDENDUM
     if query_mode == "guess":
         system += "\n（用户档位 guess：信息疑缺也请先给最接近的结论，并标注（假设）。）"
     elif query_mode == "quick":
         system += "\n（用户档位 quick：除非证据完全缺失，否则直接作答。）"
     return [{"role": "system", "content": system},
-            {"role": "user", "content": _build_evidence_prompt(query, evidence)}]
+            {"role": "user", "content": _build_evidence_prompt(query, evidence, materials_text)}]
 
 
 # ---------------------------------------------------------------------------
@@ -294,7 +332,8 @@ def _strip_code_fences(text: str) -> str:
     return t.strip()
 
 
-def parse_llm_answer(text: str, evidence_count: int) -> Dict[str, Any]:
+def parse_llm_answer(text: str, evidence_count: int,
+                     material_count: int = 0) -> Dict[str, Any]:
     """解析 LLM 输出为 {derivation, conclusion} + 校验 warnings。
 
     容错顺序：
@@ -303,7 +342,8 @@ def parse_llm_answer(text: str, evidence_count: int) -> Dict[str, Any]:
       3) 从文本中截取首个 '{'..末个 '}' 再 json.loads；
       4) 按 [推导]/[结论] 或 依据/推导/结论 标题切分；
       5) 兜底：全文作为 derivation，conclusion 置空。
-    同时校验 [[c:i]] 标记序号是否越界（越界 → citation_warning）。
+    同时校验 `[[c:i]]` **与** `[[m:i]]` 的序号是否越界（越界 → citation_warning）。
+    `material_count=0` 时若出现 `[[m:i]]`，同样判越界——那说明模型凭想象引了不存在的材料。
     """
     text = text or ""
     body = _strip_code_fences(text)
@@ -348,11 +388,18 @@ def parse_llm_answer(text: str, evidence_count: int) -> Dict[str, Any]:
             conclusion = ""
         warnings.append("llm_json_unparsed: 按正文/标题兜底解析")
 
-    # 越界引用校验
+    # 越界引用校验（法条证据 [[c:i]]）
     idxs = sorted({int(x) for x in _CITE_MARK.findall(derivation or "")})
     for i in idxs:
         if i < 0 or i >= evidence_count:
             warnings.append(f"citation_index_out_of_range: [[c:{i}]] 越界 (evidence_count={evidence_count})")
+    # 越界引用校验（参考资料 [[m:i]]）——与法条侧**对称**：材料序号同样可能被编造。
+    # 注意：`material_count==0` 且出现 [[m:i]] 也算越界（模型想象了不存在的材料）。
+    midxs = sorted({int(x) for x in _MATERIAL_MARK.findall(derivation or "")})
+    for i in midxs:
+        if i < 0 or i >= material_count:
+            warnings.append(
+                f"citation_index_out_of_range: [[m:{i}]] 越界 (material_count={material_count})")
     if parsed_ok and idxs and not _CITE_MARK.search(derivation or ""):
         warnings.append("llm_json_no_citation_marker: derivation 未出现 [[c:i]] 引用标记")
 
@@ -613,8 +660,39 @@ def answer(query: str,
 
     tier = _decide_tier(evidence, retr_meta)
 
+    # ---- 参考资料（材料平面，Phase B）----
+    # **门控纪律**：只有显式给了项目范围才取材料。不给 ⇒ `materials_text` 保持 None
+    # ⇒ system prompt / user prompt 与"没有材料平面之前"**逐字一致**（回归保证）。
+    materials_text: Optional[str] = None
+    material_usage: Optional[Dict[str, Any]] = None
+    material_count = 0
+    material_project_id = params.get("material_project_id") or None
+    if material_project_id:
+        try:
+            from src.core.materials import authority as mat_auth
+            assembled = mat_auth.assemble_evidence(str(material_project_id), query)
+            materials_text = mat_auth.render_evidence(assembled)
+            material_count = assembled["counts"]["total"]
+            material_usage = {
+                "project_id": str(material_project_id),
+                "project_found": assembled.get("project_found", True),
+                "counts": assembled["counts"],
+                "notes": assembled["notes"],
+                # 可承重的编号（产出物按它拼引用）。线索/排除项**不在此列**——
+                # 下游若想引用它们，必须自己承担"仅线索"的声明义务。
+                "usable_indices": [h["index"] for h in mat_auth.usable_hits(assembled)],
+            }
+        except Exception as exc:  # noqa: BLE001
+            # **不许静默降级**：用户既然限定了项目，材料取不到就必须说出来——
+            # 否则会产出一份"看着正常、其实没用上项目制度"的答案（本战役反复打的失真）。
+            logger.warning("ks_answer: 项目材料载入失败 project=%s: %s", material_project_id, exc)
+            material_usage = {"project_id": str(material_project_id),
+                              "counts": None, "notes": [],
+                              "usable_indices": [],
+                              "error": f"项目材料载入失败: {exc}"}
+
     # ---- prompt + LLM（monkeypatch-able）----
-    messages = build_messages(query, evidence, mode)
+    messages = build_messages(query, evidence, mode, materials_text)
     llm_error: Optional[str] = None
     raw_text = ""
     try:
@@ -626,7 +704,7 @@ def answer(query: str,
         llm_error = f"LLM 调用异常: {e}"
 
     if raw_text.strip():
-        parsed = parse_llm_answer(raw_text, len(evidence))
+        parsed = parse_llm_answer(raw_text, len(evidence), material_count)
         derivation = parsed["derivation"]
         conclusion = parsed["conclusion"]
         cite_warnings = parsed["warnings"]
@@ -676,6 +754,27 @@ def answer(query: str,
             notes.append(
                 f"【收藏夹】{reason}，本轮**未能**限定在收藏夹内；"
                 "结论不得声称已限定收藏夹范围。")
+    # 材料平面：把"有没有真的用上项目材料"如实写进 notes（可见性硬需求）。
+    # 措辞纪律：**不能**因为"取到了材料"就说"结论已依据公司制度"——那只证明材料进了提示词。
+    if material_usage is not None:
+        if material_usage.get("error"):
+            notes.append(f"【参考资料】项目 {material_usage['project_id']} 的材料载入失败，"
+                         f"本轮**未使用**任何参考资料；结论不得声称依据了项目材料。"
+                         f"（{material_usage['error']}）")
+        elif material_count == 0:
+            if material_usage.get("project_found") is False:
+                notes.append(f"【参考资料】项目 {material_usage['project_id']} **不存在**，"
+                             "本轮没有可用参考资料；结论不得声称依据了项目材料。")
+            else:
+                notes.append("【参考资料】本项目已批准材料中没有命中；结论未依据任何参考资料。")
+        else:
+            cnt = material_usage["counts"]
+            notes.append(
+                f"【参考资料】本项目命中 {material_count} 条参考资料"
+                f"（准则 {cnt['criteria']} / 可作依据 {cnt['usable']} / "
+                f"互证辅证 {cnt['corroborated']} / 仅线索 {cnt['leads_only']} / "
+                f"不可用 {cnt['excluded']}）；承重规则见参考资料分组，"
+                "「仅线索」与「不可用」两组**未用于支撑结论**。")
 
     return {
         "tier": tier,
@@ -687,6 +786,9 @@ def answer(query: str,
         "conclusion": conclusion,
         "verification": verification,
         "notes": notes,
+        # 材料平面的使用记录（**可审计**：用了哪个项目、各组几条、为什么被降级）。
+        # 没给项目范围时是 None——"没用材料"与"用了但没命中"必须能区分。
+        "material_usage": material_usage,
         # 内部调试/审计信息（供已接入的 debug_dump / 前端隐去）
         "_meta": {
             "query": query, "search_query": search_query,
@@ -694,6 +796,8 @@ def answer(query: str,
             "evidence_total": len(evidence), "retrieval": retr_meta,
             "llm_error": llm_error, "llm_raw_length": len(raw_text),
             "cite_warnings": cite_warnings,
+            "material_project_id": material_project_id,
+            "material_total": material_count,
         },
     }
 

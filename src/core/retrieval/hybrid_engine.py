@@ -44,22 +44,16 @@ def _conn():
     return get_db_connection(_DB_OVERRIDE)
 
 
-def _seg(text: str) -> str:
-    import jieba
-    return " ".join(w.strip() for w in jieba.cut_for_search(text or "") if len(w.strip()) > 1)
-
-
 def _fts_query(text: str) -> str:
-    """构建 FTS5 MATCH 表达式：对每个分词加引号，避免点号/连字符等触发语法错误。"""
-    import re as _re
-    words = _seg(text).split()
-    quoted = []
-    for w in words:
-        safe = _re.sub(r'[^\w\u4e00-\u9fff]', ' ', w)  # 只留字母数字/中文
-        for tok in safe.split():
-            if len(tok) > 1:
-                quoted.append(f'"{tok}"')
-    return " OR ".join(quoted)
+    """构建 FTS5 MATCH 表达式：对每个分词加引号，避免点号/连字符等触发语法错误。
+
+    实现已**迁到** `text_utils.fts_match_expr`（2026-09-17，与材料侧共用一份口径），
+    本函数只做委托。**行为逐字不变**（迁移时用 12 个输入钉住过）——
+    这么改的理由：材料侧一度自己写了一份**更差**的实现（裸词 + 隐式 AND），
+    于是"同一句话在法条里搜得到、在材料里搜不到"。
+    """
+    from src.core.text_utils import fts_match_expr
+    return fts_match_expr(text)
 
 
 def perform_hybrid_search(

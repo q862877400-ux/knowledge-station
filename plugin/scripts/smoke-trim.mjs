@@ -234,6 +234,62 @@ const ENGINE_PAYLOAD = {
     desc.includes('MUST disclose') && desc.includes('Never present such a citation as support'))
 }
 
+/* ------------------------------------------------------------------ *
+ * 8. 答案层（`trimAnswer`）不许漏字段——**同一个失败模式，上一层**
+ *
+ * `trimVerification` 漏字段的症状是"模型看不到核验结论"；`trimAnswer` 漏字段的症状
+ * 更外面一层：整个 `material_usage`（材料平面用了什么）在工具返回值里**消失**。
+ * 所以这里直接**调真函数**（index.js 顶层没有 DSH import，node 可以 import），
+ * 并拿引擎源码解析出的键逐个核对。
+ * ------------------------------------------------------------------ */
+
+{
+  const { trimAnswer } = await import('../src/index.js')
+
+  // 引擎 `answer()` 真实返回的键（含 `_meta`，它在桥侧被折成 meta_summary）。
+  //
+  // ⚠ 必须**按缩进**只取顶层键：这个 `return {...}` 里的 `_meta` 是**嵌套字典**，
+  // 用 `^\s*"key":` 会把 `_meta` 的子键（query/intent/…）一并抓进来，于是断言会
+  // 误报"这些字段被丢弃"——本冒烟第一版就是这么红了一次（是测试的错，不是代码的错）。
+  const src = readFileSync(join(REPO, 'src/core/llm/ks_answer.py'), 'utf8')
+  const tierLine = src.match(/\n(\s*)"tier": tier,/)
+  let answerKeys = []
+  if (tierLine !== null) {
+    const indent = tierLine[1]
+    const start = src.indexOf(tierLine[0])
+    const end = src.indexOf(`\n${indent.slice(0, -4)}}\n`, start)
+    const block = src.slice(start, end === -1 ? src.length : end)
+    answerKeys = [...block.matchAll(new RegExp(`^${indent}"([a-z_]+)":`, 'gm'))]
+      .map((x) => x[1])
+  }
+  check('从 ks_answer.py 解析到答案字段集（仅顶层键）', answerKeys.length >= 7,
+    `${answerKeys.length} keys: ${answerKeys.join(',')}`)
+  check('嵌套的 _meta 子键未被误当顶层字段',
+    !answerKeys.includes('query') && !answerKeys.includes('intent'), answerKeys.join(','))
+
+  // `_meta` 是唯一**有意**不直接转发的键（折成 meta_summary）；其余必须逐个在场。
+  const INTENTIONAL = new Set(['_meta'])
+  const probe = Object.fromEntries(answerKeys.map((k) => [
+    k, k === '_meta' ? {} : (k === 'material_usage' ? { project_id: 'p', counts: {} } : null)]))
+  const out = trimAnswer(probe)
+  const missing = answerKeys.filter((k) => !INTENTIONAL.has(k) && !(k in (out ?? {})))
+  check('引擎答案字段全部被转发（含 material_usage）',
+    missing.length === 0, missing.length === 0 ? 'none' : `DROPPED: ${missing.join(',')}`)
+
+  // 有意的映射必须在场（否则 `_meta` 的丢弃就没有替代物 = 审计信息丢失）。
+  check('_meta 被折成 meta_summary（不是简单丢弃）', out !== null && 'meta_summary' in out)
+
+  // 真值语义：material_usage 缺席 → null（"没用材料"与"用了没命中"要能区分）
+  const bare = trimAnswer({ tier: 'reference', notes: [] })
+  check('material_usage 缺席时给 null（不造、不省略）',
+    bare !== null && bare.material_usage === null)
+  // 给了就要原样带上（不被裁剪、不被丢）
+  const withMat = trimAnswer({ material_usage: { project_id: 'prj_x', counts: { total: 2 } } })
+  check('material_usage 给定时原样转发',
+    withMat.material_usage?.project_id === 'prj_x' && withMat.material_usage.counts.total === 2)
+  check('trimAnswer(null/"x") === null 不抛', trimAnswer(null) === null && trimAnswer('x') === null)
+}
+
 /* ------------------------------------------------------------------ */
 
 const failed = results.filter((r) => !r.ok)

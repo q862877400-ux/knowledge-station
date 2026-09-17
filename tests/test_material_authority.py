@@ -188,3 +188,43 @@ class TestNoSingleScoreSorting:
         offenders = [n for n in dir(au)
                      if n.startswith("sort") or "rank" in n.lower() or "score" in n.lower()]
         assert offenders == [], f"不应存在按分数排序材料的 API: {offenders}"
+
+
+class TestCitationIndices:
+    """`[[m:i]]` 编号：模型的引用标记靠它，编号一漂移引用就全指错 ⇒ 钉死。"""
+
+    def test_indices_are_contiguous_across_groups_in_group_order(self, project):
+        pid = project["project_id"]
+        _add(pid, "制度", "住宿标准每晚不超过五百元", tier="T1", origin="user", role="criterion")
+        _add(pid, "年报", "住宿标准每晚不超过五百元", tier="T1", origin="user")
+        _add(pid, "媒体A", "住宿标准每晚不超过五百元", tier="T3", domain="a.example")
+        _add(pid, "媒体B", "住宿标准每晚不超过五百元", tier="T3", domain="b.example")
+        _add(pid, "匿名", "住宿标准每晚不超过五百元", tier="T4", domain="anon.example")
+        _add(pid, "某帖", "住宿标准每晚不超过五百元", tier="T3", domain="solo.example")
+        a = au.assemble_evidence(pid, "住宿标准", limit=20)
+
+        # 组内顺序 = GROUP_ORDER，编号跨组连续从 0 起
+        seq = [h["index"] for key, _t in au.GROUP_ORDER for h in a[key]]
+        assert seq == list(range(len(seq))), seq
+        # 且**每个**命中都有编号（含 leads_only / excluded——它们也可能被引用）
+        assert all("index" in h for key, _t in au.GROUP_ORDER for h in a[key])
+        assert a["counts"]["total"] == len(seq)
+
+    def test_render_marks_every_hit_with_its_index(self, project):
+        pid = project["project_id"]
+        _add(pid, "年报", "营业收入一百亿元", tier="T1", origin="user")
+        _add(pid, "匿名", "营业收入一百亿元", tier="T4", domain="anon.example")
+        a = au.assemble_evidence(pid, "营业收入")
+        text = au.render_evidence(a)
+        for key, _t in au.GROUP_ORDER:
+            for h in a[key]:
+                assert f"[[m:{h['index']}]]" in text, (key, h["index"])
+        assert "[[m:0]]" in text and "[[m:1]]" in text
+
+    def test_index_matches_usable_hits_order(self, project):
+        """`usable_hits()` 的返回顺序必须与编号一致（下游按它拼引用，不一致就错位）。"""
+        pid = project["project_id"]
+        _add(pid, "制度", "住宿标准", tier="T1", origin="user", role="criterion")
+        _add(pid, "年报", "住宿标准", tier="T1", origin="user")
+        a = au.assemble_evidence(pid, "住宿标准")
+        assert [h["index"] for h in au.usable_hits(a)] == [0, 1]
