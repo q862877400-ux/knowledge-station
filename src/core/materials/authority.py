@@ -245,12 +245,25 @@ def assemble_evidence(project_id: str, question: str, *, limit: int = 8) -> dict
     return assembled
 
 
-def render_evidence(assembled: dict[str, Any]) -> str:
+def render_evidence(assembled: dict[str, Any],
+                    locator_status: dict[str, str] | None = None) -> str:
     """把分组结果渲染成**给提示词/产出物用的文本**（每条都带两个轴的标注、`[[m:i]]` 与位置）。
 
     为什么渲染时要带 `材料#id@起-止`：产出物里的引用要能**点回原文位置**，
     那就必须把材料 id 与字符区间一起带出去（与法条侧"标准号-条款号可点回"同精神）。
     `[[m:i]]` 的 `i` 就是 `hit["index"]`（由 `assemble_evidence()` 按 GROUP_ORDER 分配）。
+
+    ## `locator_status`（可选，**默认 None**）——2026-09-18 加，收复核 b11 的 INFO-4
+    材料 id → 锚点状态（`locator.HEALTH_STATUSES` 或 `health_error`）。**只有报告传它**
+    （`research_report` 里那一处调用）——这样「⚠锚点…」标记才会出现在**引用行**上，
+    也就是引用**真正出现的地方**；此前它只出现在"已批准参考资料清单"里，
+    而 b11 指出：那正是"报告要能引用前校验"这句理由与实际不符之处。
+
+    ⚠ **为什么是可选参数（这一条比功能本身重要）**：本函数的输出**同时喂给答案链的提示词**
+    （`ks_answer` 那一处调用）。答案链**不传**这个参数 ⇒ 提示词**逐字节不变**，
+    B-5 那条"不给 `params.material_project_id` 时提示词逐字不变"的保证**不受影响**。
+    原先我把"标记放到引用点"与"改提示词"当成一件事（所以登记为需要立项），
+    其实**解耦就行**：**谁要标记谁传 map**。`tests/...::TestEvidenceAnchorMarks` 把这条钉住了。
     """
     def line(h: dict[str, Any]) -> str:
         loc = f"{h.get('title')}#{h.get('material_id')}@{h.get('char_start')}-{h.get('char_end')}"
@@ -260,6 +273,13 @@ def render_evidence(assembled: dict[str, Any]) -> str:
         # 否则模型读到 role_label「本任务准则」+ 提示词规则 8（准则优先于法条）就会照办。
         mark = " ⛔你声明它为准绳，但来源不可回溯（T4），**未按准则承重**" \
             if h.get("criterion_blocked_by_tier") else ""
+        # 锚点状态（**只有传了 map 才会出现**，见 docstring）：短标记的措辞所有者是
+        # `locator.STATUS_MARKS`（与材料清单行用的是同一份，免得两处漂开）。
+        if locator_status:
+            from src.core.materials.locator import STATUS_MARKS
+            st = locator_status.get(str(h.get("material_id") or ""))
+            if st in STATUS_MARKS:
+                mark += f" {STATUS_MARKS[st]}"
         return (f"- [[m:{h.get('index')}]] [{h.get('tier_label')}·{h.get('role_label')}] {loc}{mark}\n"
                 f"  {h.get('text', '').strip()}")
 

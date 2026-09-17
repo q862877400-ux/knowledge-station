@@ -55,6 +55,13 @@ def _safe_name(name: str) -> str:
     return re.sub(r'[\\/:*?"<>|\s]+', "_", name)[:60] or "report"
 
 
+def _status_marks() -> dict[str, str]:
+    """`locator.STATUS_MARKS` 的**惰性**取用（延迟 import：本模块在材料层之上，
+    顶层 import 容易绕成环）。措辞的唯一所有者仍是 `locator.py`。"""
+    from src.core.materials.locator import STATUS_MARKS
+    return STATUS_MARKS
+
+
 def _material_line(m: dict[str, Any]) -> str:
     """参考**材料**条目的一行说明（带两个轴——合成一个"可信度"必错）。
 
@@ -70,12 +77,11 @@ def _material_line(m: dict[str, Any]) -> str:
             f"[{m.get('source_tier') or '?'}·{m.get('tier_label') or ''} / {role_label}]",
             f"评审={m.get('review_status')}"]
     anchor = m.get("_locator_status")
-    if anchor == "stale":
-        bits.append("⚠锚点需复算")
-    elif anchor == "unknown":
-        bits.append("⚠锚点未验证")
-    elif anchor == "health_error":
-        bits.append("⚠锚点健康度算不出来")
+    # ⚠ 短标记的措辞**从 `locator.STATUS_MARKS` 取**（唯一所有者）：证据行
+    # （`authority.render_evidence`）用的是同一份，免得两处各写一份慢慢漂开（b11 的 INFO-4）。
+    _marks = _status_marks()
+    if anchor in _marks:
+        bits.append(_marks[anchor])
     if m.get("url"):
         bits.append(str(m["url"]))
     if m.get("doc_id"):
@@ -259,7 +265,15 @@ def build_report_blocks(project_id: str, *, title: str | None = None,
         doc.append(("p", conclusion))
     if assembled is not None:
         doc.append(("h2", "三、依据（按**承重能力**分组；每条的编号就是 `[[m:i]]`）"))
-        rendered = authority.render_evidence(assembled)
+        # ⚠ **把锚点状态传进证据渲染**（复核 b11 的 INFO-4）：标记要出现在**引用行**上，
+        # 也就是引用**真正出现的地方**——此前它只在下面的"已批准参考资料清单"里，
+        # 而那句"报告要能引用前校验"的理由说的正是这里。
+        # ⚠ 只有**报告**这一处传 map；答案链（`ks_answer`）不传 ⇒ **提示词逐字节不变**
+        # （B-5 的保证不受影响）。见 `authority.render_evidence` 的 docstring。
+        _status_map = {str(m.get("material_id")): str(m.get("_locator_status"))
+                       for m in approved + pending + rejected
+                       if m.get("_locator_status")}
+        rendered = authority.render_evidence(assembled, _status_map)
         doc.append(("pre", rendered) if rendered.strip() else ("p", "（没有命中任何材料）"))
         if assembled.get("notes"):
             doc.append(("h3", "说明"))

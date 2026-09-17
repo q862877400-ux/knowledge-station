@@ -56,6 +56,16 @@ HEALTH_STATUSES = ("ok", "stale", "unknown", "no_locators")
 #: `reverify_material_locators` 的取值域。
 REVERIFY_STATUSES = ("match", "mismatch", "unavailable")
 
+#: 产出物里给"有问题的三种状态"用的**短标记**（措辞的**唯一所有者**就在这儿）。
+#: 放这个模块的理由：这里是状态词表的定义处；报告的**材料行**（`research_report._material_line`）
+#: 与**证据行**（`authority.render_evidence`）都从这儿取，免得两处各写一份、慢慢漂开。
+#: ⚠ `ok` / `no_locators` **故意不在**里面：它们不加噪声（"没问题"与"没有区间"都不该刷屏）。
+STATUS_MARKS = {
+    "stale": "⚠锚点需复算",
+    "unknown": "⚠锚点未验证",
+    "health_error": "⚠锚点健康度算不出来",
+}
+
 
 def current_fingerprint_for(material: dict[str, Any]) -> str | None:
     """**现在这台机器**会用什么指纹解析这份材料的源文件（取不到就 None）。

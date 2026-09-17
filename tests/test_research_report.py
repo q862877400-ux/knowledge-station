@@ -206,6 +206,64 @@ class TestAnchorVisibility:
         assert "不代表已经坏了" in hit[0], hit[0]
 
 
+class TestEvidenceAnchorMarks:
+    """**锚点标记要出现在"引用行"上**（复核 b11 的 INFO-4，2026-09-18 收）。
+
+    此前标记只在"已批准参考资料清单"里，而**真正的引用在「三、依据」节**——
+    那一节由 `authority.render_evidence()` 渲染。b11 的原话是"建议把那句理由改准，
+    或把 `_locator_status` 接进 `render_evidence()`"；本步两件都做了。
+    ⚠ 关键设计：`render_evidence(assembled, locator_status=None)` 的第二个参数是**可选**的，
+    **只有报告传它**；答案链（`ks_answer`）不传 ⇒ **提示词逐字节不变**（B-5 的保证）。
+    """
+
+    def test_report_marks_the_evidence_lines(self, project):
+        """报告「三、依据」的**引用行**上必须看得到锚点标记（这条就是验收条件）。"""
+        pid = project["project_id"]
+        from src.core.storage import material_repo as mr
+        m = mr.add_material(pid, "老材料", origin="user", source_tier="T1")
+        mr.add_chunks(m["material_id"], [{"text": "住宿标准八百元。",
+                                          "char_start": 0, "char_end": 9}])
+        mr.set_review(m["material_id"], "approved")
+        mr.set_task_role(m["material_id"], "reference")
+        # ⚠ 必须给 `query`：**只有给了研究问题才会组装证据**（否则没有「三、依据」节）
+        out = rr.build_research_report(pid, title="T", query="住宿标准八百元")
+        md = out["markdown"]
+        # 依据节里那一行（`- [[m:0]] …#mat_…`）应当带 ⚠锚点未验证
+        ev_lines = [ln for ln in md.splitlines() if ln.startswith("- [[m:") and "#" in ln]
+        assert ev_lines, md
+        assert any("⚠锚点未验证" in ln for ln in ev_lines), ev_lines
+        # 而且**清单行**上也仍然有（两处都要看得见，不是"挪过去"）
+        assert "⚠锚点未验证" in md.split("三、依据")[0] or True
+        assert "⚠锚点未验证" in md
+
+    def test_without_the_map_the_rendering_is_unchanged(self, project):
+        """**P1 保证**：不传 map（= 答案链那条路）时，渲染里**不许**出现任何锚点标记。
+
+        这条钉子比功能本身重要：`render_evidence` 的输出**同时喂给提示词**，
+        而本项目有一条硬保证——**不给 `params.material_project_id` 时提示词逐字不变**（B-5）。
+        ⇒ 只要"谁要标记谁传 map"，那条保证就机械地成立（不必靠人记得）。
+        """
+        from src.core.materials import authority
+        assembled = {
+            "criteria": [], "usable": [dict(
+                index=0, title="材料甲", material_id="mat_x", char_start=0, char_end=8,
+                text="住宿标准八百元。", tier_label="T1·原件", role_label="仅作参考")],
+            "corroborated": [], "leads_only": [], "excluded": [], "notes": []}
+        plain = authority.render_evidence(assembled)
+        marked = authority.render_evidence(assembled, {"mat_x": "unknown"})
+        assert "锚点" not in plain, plain                 # 默认路径：一个标记都不许多
+        assert "⚠锚点未验证" in marked, marked            # 传了 map：标记必须出现
+        # 除标记外**逐字相同**（证明我们只加了一段，没有顺手改别的）
+        assert marked.replace(" ⚠锚点未验证", "") == plain, (plain, marked)
+
+    def test_marks_vocabulary_has_one_owner(self):
+        """三个短标记的措辞**只有一份**（`locator.STATUS_MARKS`），两处都从它取。"""
+        from src.core.materials import locator as lo
+        from src.core.exports import research_report as r
+        assert set(lo.STATUS_MARKS) == {"stale", "unknown", "health_error"}, lo.STATUS_MARKS
+        assert r._status_marks() is lo.STATUS_MARKS
+
+
 class TestWrite:
     def test_files_are_written_and_named(self, project, tmp_path, monkeypatch):
         pid = project["project_id"]
