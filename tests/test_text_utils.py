@@ -474,6 +474,10 @@ def test_strip_duplicate_suffix_only_touches_the_tail():
         assert f(keep) == keep, keep
     # 结尾括号里不是纯数字 → 不动
     assert f("某规定(2024年)") == "某规定(2024年)"
+    # ⚠ 双重后缀必须**一次调用**就剥干净（2026-09-17 回填漏网 5 行就是只剥了一次）
+    assert f("绝缘油中溶解气体组分含量的气相色谱测定法(1)(1)") == "绝缘油中溶解气体组分含量的气相色谱测定法"
+    assert f("某某规范(1)(2)(3)") == "某某规范"
+    assert f("某某规范（1）(2)") == "某某规范"
     assert f(None) == ""
 
 

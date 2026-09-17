@@ -1318,8 +1318,19 @@ _RE_DUP_SUFFIX = re.compile(r"\s*[（(]\s*\d{1,3}\s*[)）]\s*$")
 
 
 def strip_duplicate_suffix(name: str | None) -> str:
-    """去掉名称**结尾**的副本后缀 `(1)`/`（2）`（只动结尾，中间的合法括号不动）。"""
-    return _RE_DUP_SUFFIX.sub("", name or "").strip()
+    """去掉名称**结尾**的副本后缀 `(1)`/`（2）`（只动结尾，中间的合法括号不动）。
+
+    ⚠ **要反复剥，不能只剥一次**（2026-09-17 回填时被自己的写后复验抓到）：库内真实存在
+    **双重后缀** `…测定法(1)(1)`。`re.sub` 一趟只吃掉一个（锚定 `$` 的匹配在引擎扫过之后
+    就不再回头），所以只剥一次会留下 `…测定法(1)`——5 行就是这样漏网的。
+    循环剥到稳定为止（每轮长度严格减小，必然终止）。
+    """
+    s = name or ""
+    while True:
+        nxt = _RE_DUP_SUFFIX.sub("", s).strip()
+        if nxt == s:
+            return s
+        s = nxt
 
 
 def clean_standard_name(raw: str | None, *, standard_no: str | None = None) -> str:
