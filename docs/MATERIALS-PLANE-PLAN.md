@@ -294,6 +294,17 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
 - **B-8 剩余（未做）**：① **真机 GUI 端到端未验证**（面板要在浏览器里实际点一遍；
   且要**刷新 GUI** 才加载新 client.js）；② 核验 UI 半 / `tool.call.toolview`。
 
+### Phase C（进行中）
+
+- **C-1 自采入口（已完成，§10.22）**：`src/core/materials/collect.py`。
+  四条**结构性**约束：永远 pending（有 AST 级断言 + 检测器自测）、默认 `ephemeral`、
+  来源必须交代（无出处 = 身份未知 = 不能互证）、判重（相同不新建 / 近似仍登记并标注）。
+  Track L 只**认出并记录意图**（复用 `auto_tag` 的判据，不新写正则），**不在采集路径上入库**。
+  测试 26 条。
+- **C-2 剩余（未做）**：① **谁去抓**（采集器/工具接线，含 SSRF 与外发纪律）；
+  ② **Track L 评审后自动入库**（走既有 ingest 管线进 `doc_meta` + `material.doc_id` 回指）；
+  ③ 采集预算/频率上限（方案 §11.4 未定）。
+
 ### 已知未决 / 诚实边界
 
 1. **`tests/test_deep_server.py` 有间歇性失败**（全量跑出现过 1 次，同文件单独跑 8/8 通过，
