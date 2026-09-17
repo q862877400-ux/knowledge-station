@@ -6,8 +6,10 @@
 
 ## 只读纪律（与 `src/core/ingestion/dry_run.py` 一致）
 不写库、不建表、不动用户文件；临时解析产物只落 `data_dir/dryrun/tmp/<hash16>/`。
-响应里始终带 `egress`（固定 `none`：预览不调云通道）与 `deep_fallback_skipped`，
-让前端能如实告诉用户"这次没有外发"。
+响应里始终带 `egress`：**默认 `none`**（预览不调云通道），调用方显式传 `allow_deep=true`
+时如实变成 `deep_channel`（2026-09-17 D5 前这里是恒 `none` + 直接 422 拒绝深度通道）。
+另有 `deep_fallback_skipped` 表示"这份文档真的本该深度分析却被跳过"。
+⇒ 前端能如实告诉用户"这次有没有可能外发"。
 
 ## 校验语义
 - 非法请求（缺 path / 非 PDF / 路径不是文件 / 目录不存在）→ 422 `preview_bad_request`；
@@ -31,7 +33,7 @@ def register(app, json_error):
     @app.post("/api/v1/ingest/preview")
     async def ingest_preview(payload: dict):
         """单文件预览报告（R27）：总页数/条款数/质量分级/前后 5 条样例/可疑清单/分型预览/
-        法理要素质量/标准号猜测/查重。只读、零外发。"""
+        法理要素质量/标准号猜测/查重。只读；**默认不外发**，`allow_deep=true` 才走云深度通道。"""
         from src.core.ingestion import dry_run
         raw_path = (payload or {}).get("path")
         if not isinstance(raw_path, str) or not raw_path.strip():
@@ -44,13 +46,13 @@ def register(app, json_error):
         # 「是不是 PDF」的判定**只有一个所有者**（`dry_run`，按内容魔数——DSH 附件是
         # 无扩展名的哈希文件，只卡 `.pdf` 会误拒真实语料）。这里只把它的判定转成请求级 422。
         doc_type = str((payload or {}).get("doc_type") or "standard")
+        # 显式允许深度通道（云优先 = 可能外发）。2026-09-17 D5：原先这里直接 422 拒绝，
+        # 现在**真的接线**，并把决定权交还调用方——但**默认仍是 False**（不外发），
+        # 且报告里的 `egress` 会如实标成 `deep_channel`（红线 4 / D2：不禁止，但必须留痕）。
         allow_deep = bool((payload or {}).get("allow_deep") or False)
-        if allow_deep:
-            # 显式要求深度通道（会外发）——当下不做：先把"零外发预览"这条性质立住。
-            return json_error(422, "preview_deep_not_supported",
-                              "预览暂不支持深度通道（会外发到云解析）；如需扫描件分型请先本地 OCR")
         try:
-            data = dry_run.analyze_preview_report(p, doc_type=doc_type)
+            data = dry_run.analyze_preview_report(p, doc_type=doc_type,
+                                                 deep_fallback=allow_deep)
         except KnowledgeStationError as e:
             return json_error(500, getattr(e, "code", "internal_error"), str(e))
         if data.get("status") == "error" and data.get("error_code") == "unsupported_type":
@@ -97,6 +99,7 @@ def register(app, json_error):
 
         data = dry_run.preview_batch(paths, sample=sample,
                                     doc_type=str(body.get("doc_type") or "standard"),
+                                    deep_fallback=bool(body.get("allow_deep") or False),
                                     limit_files=limit_files)
         return {"code": 200, "status": "success", "data": data}
 
@@ -130,6 +133,7 @@ def register(app, json_error):
 
         ``batch_size>0`` 只跑前 N 件（试跑）；默认全量（这正是本接口的用途——
         同步接口的 200 上限不是超时保护）。立即返回 job_id，不等结果。
+        ``allow_deep=true`` 才允许走云深度通道（**默认不外发**，2026-09-17 D5）。
         """
         from src.core.ingestion import preview_jobs
         body = payload or {}
@@ -159,6 +163,7 @@ def register(app, json_error):
             return json_error(422, "preview_bad_request", "batch_size 必须是整数")
         view = preview_jobs.create_job(
             paths, doc_type=str(body.get("doc_type") or "standard"),
+            deep_fallback=bool(body.get("allow_deep") or False),
             sample=0, batch_size=batch_size)
         return {"code": 200, "status": "success", "data": view}
 

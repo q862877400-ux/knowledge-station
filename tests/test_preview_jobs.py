@@ -182,3 +182,53 @@ class TestPagination:
             assert set(row.keys()) == {"path", "file_name", "verdict", "grade",
                                        "pages", "total_clauses", "doc_confidence",
                                        "one_line", "reasons", "error"}
+
+
+class TestEgressContract:
+    """异步路径的外发口径（2026-09-17 D5）：
+
+    原口径是"零外发是**结构性事实**"——异步路径恒以 `deep_fallback=False` 调用，
+    调用方**无从开启**。D5 改为「**默认安全 + 显式可开 + 如实标注**」，
+    故这里钉住三件事：默认 False / 显式 True 真的透传到解析层 / 任务里记下了这个决定。
+    """
+
+    def test_default_job_is_no_egress(self, tmp_path, monkeypatch):
+        from src.core.ingestion import dry_run
+        seen: list[bool] = []
+
+        def _fake(pdf_path, *, doc_type="standard", deep_fallback=False, **kw):
+            seen.append(deep_fallback)
+            return {"status": "ok", "verdict": "ok", "grade": "A", "pages": 1,
+                    "total_clauses": 0, "doc_confidence": 1.0, "one_line": "",
+                    "verdict_reasons": [], "layout": {"pages": 1},
+                    "ocr_suspects": [], "typing_quality": {"distribution": {}},
+                    "egress": "none" if not deep_fallback else "deep_channel"}
+
+        monkeypatch.setattr(dry_run, "analyze_preview_report", _fake)
+        p = _make_pdf(tmp_path / "a.pdf")
+        view = preview_jobs.create_job([str(p)])
+        fin = _wait_terminal(view["job_id"])
+        assert fin["status"] == "done"
+        assert seen == [False], f"异步路径默认必须不外发，实测 {seen}"
+
+    def test_explicit_optin_reaches_parser_and_is_recorded(self, tmp_path, monkeypatch):
+        from src.core.ingestion import dry_run
+        seen: list[bool] = []
+
+        def _fake(pdf_path, *, doc_type="standard", deep_fallback=False, **kw):
+            seen.append(deep_fallback)
+            return {"status": "ok", "verdict": "ok", "grade": "A", "pages": 1,
+                    "total_clauses": 0, "doc_confidence": 1.0, "one_line": "",
+                    "verdict_reasons": [], "layout": {"pages": 1},
+                    "ocr_suspects": [], "typing_quality": {"distribution": {}},
+                    "egress": "none" if not deep_fallback else "deep_channel"}
+
+        monkeypatch.setattr(dry_run, "analyze_preview_report", _fake)
+        p = _make_pdf(tmp_path / "a.pdf")
+        view = preview_jobs.create_job([str(p)], deep_fallback=True)
+        fin = _wait_terminal(view["job_id"])
+        assert fin["status"] == "done"
+        assert seen == [True], f"显式开启没有透传到解析层（假修）：{seen}"
+        # 决定被记录在任务里（不是只存在于调用栈里）
+        assert preview_jobs._preview_jobs[fin["job_id"]]["deep_fallback"] is True
+

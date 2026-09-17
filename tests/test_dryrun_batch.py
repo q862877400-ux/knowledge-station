@@ -142,10 +142,11 @@ def test_batch_scan_preview_dir_sorted_and_filtered(batch_dir):
 
 
 def test_batch_never_asks_for_deep(db, batch_dir, monkeypatch):
-    """**批量路径零外发是结构性事实**：每个文件都必须以 deep_fallback=False 解析。
+    """**批量路径默认不外发**：不传 deep_fallback 时每个文件都必须以 False 解析。
 
-    verifier 审计 P0-2 的回归网：原先 `preview_batch` 留了一个没人传的死参数，
-    一旦默认值被改就会静默外发，而批量侧没有测试网。
+    这是 verifier 审计 P0-2 的回归网（2026-09-11）。2026-09-17 D5 后口径由
+    "结构性禁止"改为"**默认安全 + 显式可开 + 如实标注**"，但**本条不变**：
+    默认必须是 False，否则就是静默外发。
     """
     from src.core.ingestion import parser_worker
     calls: list[dict] = []
@@ -166,11 +167,48 @@ def test_batch_never_asks_for_deep(db, batch_dir, monkeypatch):
     assert out["egress"] == "none"
 
 
-def test_batch_preview_batch_has_no_deep_switch():
-    """接口层面也不该存在能让批量去调云通道的开关（结构性，而不是靠默认值）。"""
+def test_batch_deep_switch_defaults_off_and_optin_really_wires_through(
+        db, batch_dir, monkeypatch):
+    """D5 后的新契约（**替代**原 `test_batch_preview_batch_has_no_deep_switch`）。
+
+    原来靠"函数签名里**不接受** deep_fallback"来保证批量路径不外发——安全，但
+    代价是**永久封死**该能力。2026-09-11 审计当时担心的其实是"改了默认值会**静默**
+    外发、而批量侧没有测试网"。D5 改为把**缺的那张网补上**，能力交还调用方：
+
+      ① 参数存在，但**默认必须为 False**（防静默外发——这条替代了"结构性禁止"）；
+      ② **显式传 True 必须真的透传**到解析层（防"参数加了却不接线"这种假修）；
+      ③ 开启了就必须**如实标注**（`egress != "none"`，红线 4 / D2：不禁止但必须留痕）。
+    """
     import inspect
+
+    from src.core.ingestion import parser_worker
+
+    # ① 默认必须为 False
     sig = inspect.signature(dry_run.preview_batch)
-    assert "deep_fallback" not in sig.parameters, list(sig.parameters)
+    assert "deep_fallback" in sig.parameters, list(sig.parameters)
+    assert sig.parameters["deep_fallback"].default is False, (
+        "preview_batch 的 deep_fallback 默认值必须是 False，否则默认路径会静默外发")
+
+    # ② 显式 True 必须真的到达解析层
+    calls: list[dict] = []
+
+    def _fake(pdf_path, output_dir, timeout=900, force_deep=False, deep_fallback=True):
+        calls.append({"force_deep": force_deep, "deep_fallback": deep_fallback})
+        return {"blocks": [{"page_number": 1, "text": "5.1 动火作业应有专人监护。",
+                            "bbox": [0.0, 0.0, 100.0, 20.0], "source": "pymupdf"}],
+                "geometries": {1: {"width": 595.0, "height": 842.0, "rotation": 0,
+                                   "crop_box": [], "media_box": []}},
+                "is_ocr": False, "deep_output": None,
+                "text_layer_state": "ok", "deep_fallback_skipped": False}
+
+    monkeypatch.setattr(parser_worker, "run_parser_isolated", _fake)
+    out = dry_run.preview_batch(dry_run.scan_preview_dir(batch_dir), sample=3,
+                                deep_fallback=True)
+    assert calls, "批量预览必须真的调用解析"
+    assert all(c["deep_fallback"] is True for c in calls), (
+        f"显式开启没有透传到解析层（假修）：{calls}")
+    # ③ 开启了必须如实标注，不能还报 none
+    assert out["egress"] != "none", out.get("egress")
 
 
 def test_batch_limit_files_negative_is_clamped(db, batch_dir):
@@ -240,13 +278,34 @@ def test_api_blocked_doc_is_200_not_5xx(client, db, tmp_path):
     assert data["quarantine_candidate"] is True
 
 
-def test_api_preview_deep_not_supported(client, db, tmp_path):
-    """显式要求深度通道（会外发）→ 明确拒绝，而不是偷偷外发。"""
+def test_api_preview_allow_deep_is_wired_and_reported(client, db, tmp_path):
+    """D5：`allow_deep=true` 从"422 拒绝"改为**真接线 + 如实标注**（替代原
+    `test_api_preview_deep_not_supported`）。
+
+    原契约是"显式要求深度通道 → 明确拒绝"，本意是**不偷偷外发**。D5 后安全性由
+    三条共同保证，而不是靠拒绝：
+      ① 不传 `allow_deep` ⇒ `egress == "none"`（默认绝不外发）；
+      ② 传了 `allow_deep=true` ⇒ 请求被接受（不再 422）；
+      ③ 此时 `egress` **必须如实变成非 `none`**，且 `deep_fallback_disabled is False`
+         —— 即"不禁止，但必须留痕"（红线 4 / D2）。**偷偷外发仍然是被禁止的**。
+    """
     c, token = client
     p = _mk_good_pdf(tmp_path, "api_deep.pdf")
-    r = c.post("/api/v1/ingest/preview", json={"path": str(p), "allow_deep": True}, headers=HDR)
-    assert r.status_code == 422, r.text
-    assert "preview_deep_not_supported" in r.text
+
+    # ① 默认：不外发
+    r0 = c.post("/api/v1/ingest/preview", json={"path": str(p)}, headers=HDR)
+    assert r0.status_code == 200, r0.text
+    d0 = r0.json()["data"]
+    assert d0["egress"] == "none", d0.get("egress")
+    assert d0["deep_fallback_disabled"] is True
+
+    # ②③ 显式开启：接受 + 如实标注
+    r = c.post("/api/v1/ingest/preview",
+               json={"path": str(p), "allow_deep": True}, headers=HDR)
+    assert r.status_code == 200, r.text
+    data = r.json()["data"]
+    assert data["egress"] != "none", data.get("egress")
+    assert data["deep_fallback_disabled"] is False, data.get("deep_fallback_disabled")
 
 
 def test_api_preview_accepts_extensionless_pdf(client, db, tmp_path):

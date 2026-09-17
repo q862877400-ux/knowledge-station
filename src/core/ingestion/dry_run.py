@@ -7,11 +7,18 @@
 - 临时解析产物只落在 `settings.data_dir/dryrun/tmp/<sha256[:16]>/`（按文件哈希隔离，
   避免并发预览互相覆盖），24h 后可由运维清理。
 
-## 零外发（为什么不用 force_deep=False 就完事）
+## 外发（2026-09-17 由"零外发"改为"默认不外发 + 可显式开启 + 如实标注"）
 `parse_pdf_with_mineru` 的深度通道触发条件是 `if not blocks:`（与 `force_deep` 无关），
 而深度通道**云优先** → 若预览直接调它，扫描件的 PDF 会被上传到云端解析，而用户以为
-"我只是在本地看一眼"。所以预览一律传 `deep_fallback=False`：无文本层就不解析，
-如实报 `text_layer_state="empty"` + `deep_fallback_skipped=True`（零外发、零 GPU）。
+"我只是在本地看一眼"。所以：**默认 `deep_fallback=False`**——无文本层就不解析，如实报
+`text_layer_state="empty"` + `deep_fallback_skipped=True`（零外发、零 GPU）；调用方**显式**
+传 `deep_fallback=True` 才走深度通道，此时报告里的 `egress` **如实标成非 `none`**。
+
+> **为什么改**（业主 2026-09-17 裁定，`ENCYCLOPEDIA` §16.2 **D5**）：原实现把"零外发"做成
+> **结构性事实**（函数**不接受** `deep_fallback` 参数），本意是防"有人改默认值导致静默外发"，
+> 但那也**永久封死了**扫描件在预览里走深度解析的能力。现行口径：**默认保持安全**（默认值
+> 仍是 `False`，且**补上了当年缺的测试网**——断言默认 False 且显式 True 真的透传到解析层），
+> 把"能不能外发"的决定权交还调用方并留痕，而不是由结构禁止。
 
 ## 与正式入库的一致性纪律
 - 分型口径必须与入库一致：预览调 `classify_clause(content, doc_type)` 也**传 doc_type**
@@ -140,10 +147,13 @@ def analyze_preview_report(pdf_path: Path | str, *, doc_type: str = "standard",
                            deep_fallback: bool = False, skew_pages: int = 40,
                            sample_n: int = SAMPLE_N,
                            max_suspects: int = MAX_SUSPECTS) -> dict[str, Any]:
-    """生成 R27 入库预览报告。**只读、零外发**；解析异常不抛，转为 status=error + block。
+    """生成 R27 入库预览报告。**只读**（默认不外发，见下方 `deep_fallback`）；
+    解析异常不抛，转为 status=error + block。
 
     :param doc_type: 传给分型器的文档类型（standard|law），必须与入库一致
-    :param deep_fallback: False（默认）= 无文本层时**不调深度通道**（零外发）
+    :param deep_fallback: False（默认）= 无文本层时**不调深度通道**（不外发）；
+        True = 允许走云优先的深度通道，报告里 `egress` 会如实变成非 `none`
+        （2026-09-17 D5 前的实现恒为 False，且调用方无从开启）
     """
     t0 = time.monotonic()
     path = Path(pdf_path)
@@ -165,11 +175,15 @@ def analyze_preview_report(pdf_path: Path | str, *, doc_type: str = "standard",
         "standard_no_guess": {}, "standard_name_guess": {}, "cover_meta": {},
         "duplicate": {"kind": "none"},
         "quarantine_candidate": False,
-        # 请求级：本次预览**禁用**了深度通道（预览恒为 True —— 云优先的深度通道 = 外发）
+        # 请求级：本次预览**是否禁用**了深度通道（默认 True；显式 deep_fallback=True 才 False）
         "deep_fallback_disabled": not deep_fallback,
         # 文档级：这份文档**真的**走到"本该深度分析却被跳过"的分支（无文本层才会 True）
         "deep_fallback_skipped": False,
-        "egress": "none", "elapsed_ms": 0,
+        # 外发如实标注（2026-09-17 D5）：**保守口径**——只要本次**允许**深度通道就报
+        # `deep_channel`，哪怕这份文档恰好有文本层、根本不需要走深度分析。
+        # 宁可高报不可漏报：真实外发以 `egress_audit` 落库为准（红线 4 / D2）。
+        "egress": "none" if not deep_fallback else "deep_channel",
+        "elapsed_ms": 0,
         "error_code": None, "error_message": None, "one_line": "",
     }
 
@@ -403,17 +417,23 @@ def _stride_sample(items: list[Path], n: int) -> list[Path]:
 
 
 def preview_batch(paths: Iterable[Path | str], *, sample: int = BATCH_DEFAULT_SAMPLE,
-                  doc_type: str = "standard",
+                  doc_type: str = "standard", deep_fallback: bool = False,
                   limit_files: int = BATCH_MAX_FILES) -> dict[str, Any]:
     """批量 Dry-Run（决策 2：总账分桶 ✅/⚠️/❌，⚠️ 集中处理；新语料源先抽样几本）。
 
     **单文件失败不中断整批**（逐件 try，沿用 `bulk.parse_loop` 的既有范式）。
     只读：不写库、不落文件账本（账本是异步版本的事，见台账已知缺口）。
 
-    **零外发是结构性事实，不是默认值**：本函数**不接受** `deep_fallback` 参数，
-    内部恒以 `deep_fallback=False` 调单本预览——批量路径没有任何开关能让它去调
-    云优先的深度通道（2026-09-11 verifier 审计 P0-2：原先留了一个没人传的死参数，
-    一旦有人改默认值就会静默外发，而批量侧没有任何测试网）。
+    **外发口径（2026-09-17 D5 修订）**：`deep_fallback` **默认 `False`** ⇒ 批量路径
+    **默认不外发**（无文本层就不解析，如实报 `deep_fallback_skipped=True`）；调用方显式传
+    `True` 才允许走云优先的深度通道，此时每件的 `egress` 会如实标成 `deep_channel`。
+
+    历史（保留以防重犯）：2026-09-11 verifier 审计 P0-2 曾**要求删掉**这个参数——理由是
+    "原先留了一个没人传的死参数，一旦有人改默认值就会静默外发，而批量侧没有任何测试网"。
+    删参数能消除风险，但代价是**永久封死**该能力。D5 后改为**把缺的那张网补上**：
+    `tests/test_dryrun_batch.py` 同时断言①**默认必须为 False**（防静默外发）
+    ②**显式 True 必须真的透传**到 `analyze_preview_report`（防"参数加了却不接线"）。
+    ⇒ 安全性质由**测试**保证，而不是由"函数不接受该参数"保证。
     """
     t0 = time.monotonic()
     all_paths = [Path(p) for p in paths]
@@ -427,8 +447,8 @@ def preview_batch(paths: Iterable[Path | str], *, sample: int = BATCH_DEFAULT_SA
     files: list[dict[str, Any]] = []
     for p in sampled:
         try:
-            # 恒 deep_fallback=False（见 docstring：零外发是结构性事实）
-            rep = analyze_preview_report(p, doc_type=doc_type, deep_fallback=False)
+            # 透传调用方的决定（默认 False ⇒ 默认不外发，见 docstring）
+            rep = analyze_preview_report(p, doc_type=doc_type, deep_fallback=deep_fallback)
         except Exception as e:  # noqa: BLE001 — 单件崩溃不得中断整批
             rep = {"status": "error", "error_code": "unexpected", "verdict": "block",
                    "error_message": f"{type(e).__name__}: {e}", "grade": "D",
@@ -463,5 +483,7 @@ def preview_batch(paths: Iterable[Path | str], *, sample: int = BATCH_DEFAULT_SA
         "conservation_ok": counts["ok"] + counts["warn"] + counts["block"] == len(files),
         "elapsed_ms": int((time.monotonic() - t0) * 1000),
         "doc_type": doc_type,
-        "egress": "none",
+        # 批量总账的外发标注（与每件报告同口径，2026-09-17 D5）：默认 none；
+        # 只要本次允许深度通道就如实标成 deep_channel（保守高报，见 analyze_preview_report）。
+        "egress": "none" if not deep_fallback else "deep_channel",
     }

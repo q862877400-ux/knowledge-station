@@ -227,3 +227,22 @@ verifier 全面审计产出 25 项问题清单 → 5 verifier 编制方案 → v
 **为什么这一步单独提交**：解开代码锁要改**三个测试文件**（`test_dryrun_batch.py:173` 甚至直接断言批量函数签名里**不许**有 `deep_fallback` 参数——钉的就是那个结构锁本身），属契约变更，按"小步走"拆成独立一步做。
 **诚实边界**：本步**没有任何行为变化**——文档说可以了，代码仍然锁着，这个不一致要等步骤 2 才消除。
 
+### 10.3 步骤 2：解开三处模块锁（代码 + 测试，契约变更）
+
+**关键设计判断**：不能简单"把参数加回来"。读代码发现 2026-09-11 verifier 审计 P0-2 **是故意删掉**这个参数的，原话是"一旦有人改默认值就会**静默外发**，而批量侧**没有任何测试网**"。⇒ 旧修法用**结构禁止**换安全，代价是**永久封死**扫描件在预览里走深度解析。
+新口径把它拆开：**默认值保持 `False`（安全性质不变）+ 补上当年缺的那张测试网 + 如实标注**，把"能不能外发"的决定权交还调用方并留痕，而不是由结构禁止。
+
+**改动（4 处源码）**：
+- `dry_run.py`：模块 docstring 从"零外发"改为"默认不外发 + 可显式开启 + 如实标注"（并写明改的理由与历史）；`analyze_preview_report` 的 `egress` 由**硬编码 `"none"`** 改为 `"none" if not deep_fallback else "deep_channel"`（**保守高报**：只要本次*允许*深度通道就报，哪怕该文档恰好有文本层根本不需要——宁可高报不可漏报，真实外发以 `egress_audit` 为准）；`preview_batch` **加回** `deep_fallback: bool = False` 并透传，批量总账的 `egress` 同口径。
+- `preview_jobs.py`：`create_job(..., deep_fallback: bool = False)`，任务里记下该决定，worker 透传（用 `.get(..., False)` 兼容手工构造的旧任务字典）。
+- `routes_ingest_preview.py`：`allow_deep=true` 从 **422 拒绝**改为**真接线**（单文件 / 批量 / 异步任务三处）。API 里**本来就有** `allow_deep` 字段，只是被拒绝——所以改动比预想小。
+
+**测试（2 处替换 + 1 处新增，全部是"更可证伪"而不是放宽）**：
+- `test_dryrun_batch.py`：原 `test_batch_preview_batch_has_no_deep_switch`（断言签名里不许有该参数）→ 换成 `test_batch_deep_switch_defaults_off_and_optin_really_wires_through`，断言**①默认值必须是 `False`（替代"结构性禁止"，防静默外发）②显式 `True` 必须真的透传到解析层（防"参数加了却不接线"的假修）③开启了必须如实标注**。原 `test_api_preview_deep_not_supported`（断言 422）→ 换成 `test_api_preview_allow_deep_is_wired_and_reported`（默认 `egress=="none"` + 显式开启 200 且 `egress != "none"`）。
+- `test_preview_jobs.py`：**新增** `TestEgressContract` 两条 —— 异步路径默认必须是 `False`、显式 `True` 真的透传且被记进任务。**异步路径此前完全没有外发口径的测试**（这正是 2026-09-11 那句"批量侧没有任何测试网"的同一个洞）。
+- 实测：改动后**只有 2 条测试红**（就是钉住旧契约的那两条），**61 条其余全绿**——反证"默认值保持 `False`"这个决定是对的，它让所有既有安全断言继续成立。
+
+**验证**：`pytest` **1216 passed / 3 skipped / 0 failed**（基线 1214 → **1216，只涨不跌**，新增 2 条）；`mypy` 122 files 0 errors；本次未触碰 TS/前端 ⇒ tsc 与 smoke 段不受影响。
+**诚实边界**：① 未对**真实云端**做端到端验证——测试全部用 monkeypatch 拦在解析层之前，即"参数确实透传到了解析入口"是实测的，而"云通道真的被调用并留痕"**未实测**（`test_mineru_cloud.py` 已有覆盖，属另一条链）。② `egress` 是**请求级保守口径**而非"本次真的外发了"；要精确答案看 `egress_audit`。③ 前端尚未消费 `egress != none`（可见性需求属 Phase B）。
+
+

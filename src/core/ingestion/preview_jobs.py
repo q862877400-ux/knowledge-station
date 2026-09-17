@@ -10,8 +10,8 @@
    不写 `update_check_batch`。代价（如实声明）：引擎重启丢任务——host 侧
    `ks-ingest.json` 会如实把它标成 stale（不假装仍在跑）。
 3. **单件失败不中断整批**：逐件 try，沿用 `preview_batch` 的既有范式。
-4. **零外发是结构性事实**：内部恒以 `deep_fallback=False` 调单本预览——
-   异步路径同样没有任何开关能让它去调云深度通道。
+4. **外发口径**（2026-09-17 D5 修订）：默认 `deep_fallback=False` ⇒ **默认不外发**；
+   调用方显式开启才允许走云优先的深度通道（同 `dry_run.preview_batch` 的口径与理由）。
 5. **僵尸语义（照 announce.py 的"登记在而线程死 → 自愈"）**：
    进程内版本——GET 时发现 `status=='running'` 且 `thread_alive is False`
    → 标 failed（线程异常退出却没来得及写终态；照 announce 的口径如实报告，
@@ -51,12 +51,13 @@ def _prune_jobs_locked() -> None:
         _job_paths.pop(dead, None)
 
 
-def create_job(paths: List[str], *, doc_type: str = "standard",
+def create_job(paths: List[str], *, doc_type: str = "standard", deep_fallback: bool = False,
                sample: int = 0, batch_size: int = 0) -> dict:
     """创建异步预览任务并立即返回（worker 后台跑）。
 
     ``sample``/``batch_size`` 沿用同步接口语义：sample=0 全量（这正是本接口的
     用途）；batch_size>0 时只跑前 N 件（少量试跑）。
+    ``deep_fallback`` 默认 ``False`` ⇒ 默认不外发（见模块 docstring 第 4 点 / D5）。
     """
     from ulid import ULID
     job_id = f"pjob_{ULID()}"
@@ -71,6 +72,7 @@ def create_job(paths: List[str], *, doc_type: str = "standard",
         "rows": [],                   # 瘦身行（同步接口同形态）
         "error": None,
         "doc_type": doc_type,
+        "deep_fallback": bool(deep_fallback),   # 默认 False ⇒ 默认不外发（D5）
         "sample": 0,                  # 异步全量：恒 0（抽样是同步接口的事）
         "thread_alive": False,        # 僵尸判定：登记的线程是否还在
         "created_at": time.strftime("%Y-%m-%d %H:%M:%S"),
@@ -102,6 +104,7 @@ def _worker(job_id: str) -> None:
     try:
         paths = [Path(p) for p in _candidate_paths(job_id)]
         doc_type = job["doc_type"]
+        deep_fallback = bool(job.get("deep_fallback", False))
         for i, p in enumerate(paths):
             if i % _ABORT_CHECK_EVERY == 0 and job["stop_flag"]:
                 job["status"] = "aborted"
@@ -109,7 +112,7 @@ def _worker(job_id: str) -> None:
                 return
             try:
                 rep = dry_run.analyze_preview_report(p, doc_type=doc_type,
-                                                     deep_fallback=False)
+                                                     deep_fallback=deep_fallback)
             except Exception as e:  # noqa: BLE001 — 单件崩溃不得中断整批
                 rep = {"status": "error", "error_code": "unexpected",
                        "verdict": "block", "error_message": f"{type(e).__name__}: {e}",
