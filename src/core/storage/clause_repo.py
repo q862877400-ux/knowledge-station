@@ -104,6 +104,34 @@ def ensure_catalog_hidden_column() -> None:
 _MIGRATED: set[str] = set()
 
 
+def ensure_additive_columns() -> None:
+    """**追加列**迁移的**唯一入口**：保证"读代码需要的列"都存在（纯 ALTER，**不回填**）。
+
+    ## 为什么需要这么一个入口（2026-09-17 冷启动缺陷）
+    `schema.sql` 用的是 `CREATE TABLE IF NOT EXISTS`，而 `catalog_hidden` / `page_breaks` /
+    `figure_html` 这三列**不在 `schema.sql` 里**——它们只由本模块的迁移函数添加。
+    在此之前，那条迁移只挂在**写路径**上（`_ensure_content_hash_once()`，由
+    `insert_document` 触发）⇒ **一个全新的库（还没有任何入库）里这三列根本不存在**，
+    而**读者**照样用它们：
+
+      · `exports/effect_report._load_docs()`：`... WHERE catalog_hidden = 0` ⇒
+        `/api/v1/report/effect` 直接 **500 `no such column: catalog_hidden`**
+        （界面上的「效力报告」第一眼就是服务器错误）；
+      · `api/server.py` 的目录端点（3 处）同理。
+
+    实测（§10.43）：一次性引擎 + 空 KS_DATA_DIR，`GET /api/v1/report/effect?window=all`
+    → 500，traceback 落在 `effect_report.py:133`。
+
+    ## 为什么不把 `ensure_content_hash_column()` 也并进来
+    那个函数**会回填**（全表扫 + UPDATE）：那是**写路径**的事，放在启动路径上会把
+    "一次全表扫"摊到每次启动。启动只需要**形状**对。回填仍留在写路径
+    （`_ensure_content_hash_once`）。
+    """
+    ensure_catalog_hidden_column()
+    ensure_page_breaks_column()
+    ensure_figure_html_column()
+
+
 def _ensure_content_hash_once() -> None:
     """迁移在进程内只执行一次。
 
@@ -114,9 +142,7 @@ def _ensure_content_hash_once() -> None:
     if "content_hash" in _MIGRATED:
         return
     ensure_content_hash_column()
-    ensure_catalog_hidden_column()
-    ensure_page_breaks_column()
-    ensure_figure_html_column()
+    ensure_additive_columns()
     _MIGRATED.add("content_hash")
     _MIGRATED.add("page_breaks")
     _MIGRATED.add("figure_html")

@@ -42,6 +42,15 @@ def _clause_number_sort_key(clause_number: str) -> list:
 def create_app(token: str) -> FastAPI:
     app = FastAPI(title="KnowledgeStation Engine", version="0.1.0")
     init_schema()
+    # ⚠ **追加列迁移必须在任何请求之前跑过一次**（2026-09-17 冷启动缺陷，§10.43）：
+    # `schema.sql` 只是 `CREATE TABLE IF NOT EXISTS`，而 `catalog_hidden`/`page_breaks`/
+    # `figure_html` 三列**不在 schema.sql 里**（只由 clause_repo 的迁移添加）。此前那条
+    # 迁移只挂在**写路径**上 ⇒ **全新库（一次都没入库过）**里这三列不存在，
+    # 而读者照用：`/api/v1/report/effect` 当场 500 `no such column: catalog_hidden`
+    # （界面上「效力报告」第一眼就是服务器错误）。放在这里 = 与 `init_schema()` 同一个
+    # 时间点，任何请求都晚于它。这是**纯 ALTER**（不回填，见该函数的说明）。
+    from src.core.storage import clause_repo as _clause_repo
+    _clause_repo.ensure_additive_columns()
 
     # DSH Web GUI（localhost，跨源访问本引擎）需要 CORS；引擎本身仅绑 127.0.0.1 + token。
     # （原注释写的是「开发期前端 vite localhost」——Electron/Vite 已在批 8 退役，

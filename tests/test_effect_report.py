@@ -50,9 +50,10 @@ def _mk_doc(db, no: str, name: str, *, status: str | None = "effective",
 @pytest.fixture()
 def world(db):
     """混合文档世界：标准树/法规树/各状态/翻转边界/隐藏文档/无 CCS 兜底。"""
-    # catalog_hidden 是 ensure 迁移列（clause_repo 幂等 ALTER）——与真实运行时一致先迁移
-    from src.core.storage.clause_repo import ensure_catalog_hidden_column
-    ensure_catalog_hidden_column()
+    # ⚠ 这里以前显式调 `ensure_catalog_hidden_column()`（注释写着"与真实运行时一致先迁移"）
+    # —— 那正是**顺序依赖**的来源：别的用例靠它就绿了，而**单跑空库那条**会红。
+    # 现在迁移统一在 `db` fixture 里（与 `create_app()` 同一个入口 `ensure_additive_columns`），
+    # 这里不再自己迁移（也不该自己迁移：夹具要做的是**镜像生产引导**，不是补生产的漏）。
     # 标准树（CCS: C80 消防）
     _mk_doc(db, "GB 4715-2024", "点型感烟火灾探测器", status="effective",
             published_at="2024-01-01", ccs="C80 消防",
@@ -217,7 +218,13 @@ def test_eff_08_export_xlsx_reopenable(world):
 
 
 def test_eff_09_export_empty_db(db):
-    """空库：出文件、汇总全 0、明细仅表头（镜像"空批次同样出报告"）。"""
+    """空库：出文件、汇总全 0、明细仅表头（镜像"空批次同样出报告"）。
+
+    ⚠ 这条**曾经单跑就红**（2026-09-17 冷启动缺陷，§10.43）：
+    `no such column: catalog_hidden`。它以前是靠**同文件前一条用例**触发了写路径迁移
+    才绿的 —— 典型的**顺序依赖假绿**。现在夹具与生产走同一个启动入口
+    （`ensure_additive_columns`），所以它单跑也绿，而且是**因为对**才绿。
+    """
     from openpyxl import load_workbook
 
     out = effect_report.export_effect_report_xlsx()

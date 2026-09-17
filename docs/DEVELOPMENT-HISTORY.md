@@ -2236,4 +2236,70 @@ HTTP 状态都在、缺 `collected` **抛**、`data` 缺失 **抛**、HTTP 502 *
 `report-ui` **15/15** 新增）；`verify:commands` 22/22；`tsc --noEmit` 0。
 变异实验 J/K/L 全 RED 且逐字节还原。
 
+### 10.43 冷启动缺陷：**全新库上 `/api/v1/report/effect` 直接 500**（`no such column: catalog_hidden`）
+
+**怎么发现的（值得记）**：修完 D-3b 之后我没有停在"单测全绿"，而是**起了一个一次性引擎
+做真机端到端**（独立 `KS_DATA_DIR` + 随机端口，**只碰那个临时实例**；活引擎 pid 32564
+只读探测、session 文件哈希前后一致、探完即杀）。那条端到端把业主的主环走通了：
+
+    建项目 ✓ → 空项目报告如实说"没有已批准的材料" ✓ → **真网络自采** example.com ✓
+    （T3/pending/1 切片）→ **未批准检索不到（命中 0）** ✓ → 批准 ✓（track_l=skip，对）
+    → **批准后检索到（命中 1）** ✓ → 报告落盘 ✓（counts approved=1，warnings=1）
+    → **PPT 8 页** ✓ → 最后一步 `/api/v1/report/effect` → **500**
+
+**缺陷本身**：`schema.sql` 是 `CREATE TABLE IF NOT EXISTS`，而 `catalog_hidden` /
+`page_breaks` / `figure_html` **不在 schema.sql 里**——只由 `storage/clause_repo` 的迁移
+函数添加。而那条迁移此前**只挂在写路径**（`insert_document` → `_ensure_content_hash_once`）⇒
+**一个还没入库过任何文档的新库，这三列根本不存在**，读者照用：
+`exports/effect_report.py:137` 的 `WHERE catalog_hidden = 0` 直接
+`sqlite3.OperationalError: no such column`（`api/server.py` 的两个目录端点同理）。
+⇒ 新装的库，"效力报告"第一眼就是服务器错误。**独立复核（b7）也复现了同一缺陷**
+（它的 INFO ①，探针 `probeG2_latent_500.py`）。
+
+**修法（判据只有一个所有者）**：`clause_repo.ensure_additive_columns()` 作为**追加列
+迁移的唯一入口**（纯 ALTER、**不回填**——回填是写路径的事，见该函数 docstring），
+在 `create_app()` 里紧跟 `init_schema()` 调一次：与 schema 初始化同一时间点，
+**任何请求都晚于它**。没有把三个列抄进 `schema.sql`（那会造出第二份列定义）。
+
+**⚠ 顺带修掉一条**顺序依赖的假绿**（同一缺陷的另一面）**：
+`tests/test_effect_report.py::test_eff_09_export_empty_db` **单跑是红的**，
+放在文件里跑是绿的——因为它靠**同文件前一条用例**触发了写路径迁移。
+`world` 夹具里那句 `ensure_catalog_hidden_column()` （注释写着"与真实运行时一致先迁移"）
+正是这种补丁。现在：
+- 迁移统一在 `db` 夹具（与 `create_app()` **同一个入口**）；
+- `world` 不再自己迁移；
+- 新增 `tests/test_api_cold_start.py`（**4 条**，用**自己的一次性数据目录**，
+  只走 HTTP）。⚠ 第一版我用会话共享的 `client` 夹具，**全量跑时红**——
+  因为 `_isolate_data_dir` 是 **session 级**的，先跑过的入库用例会把列补上，
+  于是"未迁移的空库"这个前提不成立（而且 `test_effect_report.py` 的 autouse 夹具
+  会拉起 `db`，把要验的启动路径整个遮住 ⇒ 变异体 M 假 GREEN）。
+  改成"本用例自己的目录 + 丢掉线程局部连接"之后，**顺序无关**。
+
+**测试非空转（2 个变异体，on/off 成对，逐字节还原）**：`var/tmp/mutate-step42.py`
+- M：`create_app()` 里去掉 `ensure_additive_columns()` ⇒ `test_api_cold_start` **3 条红**
+  （`no such column: catalog_hidden`）；
+- N：`db` 夹具里去掉 ⇒ `test_eff_09_export_empty_db` **红**。
+  ⚠ 变异体 M 的**第一版锚点带 `\n`**，而 `server.py` 是 **CRLF** 文件 ⇒ 锚点不匹配、
+  变异根本没打上，脚本却报"GREEN"（我按 exit code 判读时才发现）。**锚点必须与文件行尾一致**
+  ——这条与 §10.39 的"变异体没打在路径上"是同一类坑，再记一次。
+
+**诚实边界**：
+- 修的是**启动引导**；`create_app()` 之外如果还有别的入口直接建库（脚本/批处理），
+  它们仍走写路径迁移——本步**没有**逐个排查那些入口（写路径本身会迁移，风险低但未穷举）。
+- 活引擎（pid 32564）**没有重启**，所以**它上面这个 500 仍然存在**
+  （它的作用是"重启后才生效"）；真机验证仍未做。
+- 本步只动 schema 引导与测试夹具，**没有**碰答案链。
+
+**门禁（本步）**：`pytest` **1622 passed / 3 skipped / 0 failed**（+4：冷启动 3 + 引导契约 1）；
+`mypy src` **133 files / 0 errors**；`smoke` 18 段（本步未改 `plugin/`，与 §10.42 同值）；
+`tsc --noEmit` 0。变异实验 M/N 全 RED 且逐字节还原。
+
+**⚠ 下一步的输入（b7 独立复核已回，按严重度排队）**：复核报了 1 个 **HIGH** + 4 个 MEDIUM，
+其中 **[HIGH] 采集件在答案链上仍被当"现行有效"**（`clause_repo.py:617` 的
+`row["legal_status"] or "effective"` 把 NULL 洗白，`ClauseRevisionModel.legal_status`
+是非可选 `str`）——**这条直接证伪了 §10.39 的一句自述**（我那时只钉到 `doc_meta` 那一列，
+没有跑到底）。另两条同批：`_inside_unclosed_tag` 在**被上游改写过的字符串**上求值，
+新开若干"JS 进正文"的路径；PPT 的"30 页上限"对交付物不成立（实际 31 页）
+且尾页"已知限制"是**手写的第二份内容**。**这些都留到下一步逐条处置**（不在本步夹带）。
+
 
