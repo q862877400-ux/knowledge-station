@@ -1327,8 +1327,8 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": {"obligations": build_obligations()}}
 
     @app.post("/api/v1/export/obligations/{list_id}")
-    async def export_obligations(list_id: str):
-        """R-L10 义务清单导出 Word。"""
+    def export_obligations(list_id: str):
+        """R-L10 义务清单导出 Word（§10.76：python-docx 落盘 ⇒ `def`，别占事件循环）。"""
         from src.core.storage import user_data
         from src.core.exports.report_export import _exports_dir
         from datetime import datetime
@@ -1549,7 +1549,8 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": {"extracted": total, "alias_total": n}}
 
     @app.post("/api/v1/export/review/{task_id}")
-    async def export_review(task_id: str):
+    def export_review(task_id: str):
+        """审查报告导出 docx（§10.76：python-docx 落盘 ⇒ `def`）。"""
         from src.core.exports.report_export import export_review_report_docx
         from src.core.exceptions import KnowledgeStationError
         try:
@@ -1559,9 +1560,14 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": {"path": str(path), "name": Path(path).name}}
 
     @app.post("/api/v1/export/citations")
-    async def export_citations(request: Request):
-        """R19 引用块 + R35 问答依据 Word 导出。"""
-        body = await request.json()
+    def export_citations(body: dict | None = None):
+        """R19 引用块 + R35 问答依据 Word 导出。
+
+        ⚠ §10.76：body 走**函数签名**而不是 `await request.json()`——本端点要跑
+        python-docx 落盘，必须留在**线程池**里（与 `/report/effect/export` 同款收紧：
+        非法 JSON 由"吞成空 body"变成 FastAPI 直接 422）。
+        """
+        body = body or {}
         from src.core.exports.report_export import build_citation_block, export_qa_citations_docx
         conn = get_db_connection()
         ids = body.get("clause_revision_ids") or []
@@ -2044,8 +2050,11 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": query_egress(limit=limit, offset=offset, cursor=cursor)}
 
     @app.get("/api/v1/egress/audit/export")
-    async def egress_audit_export():
-        """导出全部外发记录为 JSON（落 exports 目录，经 /export/download 下载）。"""
+    def egress_audit_export():
+        """导出全部外发记录为 JSON（落 exports 目录，经 /export/download 下载）。
+
+        §10.76：写文件 ⇒ `def`（审计/导出这一族一律别占事件循环）。
+        """
         from src.core.llm.egress_audit import export_egress
         path = export_egress()
         return {"code": 200, "data": {"name": path.name, "path": str(path)}}
@@ -2248,7 +2257,8 @@ def create_app(token: str) -> FastAPI:
         return {"code": 200, "data": do_list()}
 
     @app.post("/api/v1/snapshots/{snapshot_id}/restore")
-    async def restore_snapshot(snapshot_id: str):
+    def restore_snapshot(snapshot_id: str):
+        """恢复快照（§10.76：要读+校验+落盘整包、还做 sha256 ⇒ `def`）。"""
         from src.core.storage.backup import restore_snapshot as do_restore
         from src.core.exceptions import KnowledgeStationError
         try:

@@ -547,6 +547,22 @@ class TestSlowEndpointsAreDeclaredSync:
         # 字节由 Starlette 用 anyio 流式读出 ⇒ 本来就不占事件循环。审计把它列进候选是因为
         # 调用链上有 `fs-copy` **轻标记**——**读代码 + 量过之后判定"不用改"**。
         # 候选清单不是待办清单：留下的每一条都要写清为什么。
+        #
+        # 落盘/导出族（§10.76）：docx / xlsx / JSON 都是**同步落盘**（python-docx、openpyxl、
+        # 写文件），快照恢复还要读包 + sha256。⚠ **本族基本没测出大收益**——唯一能铺满量的是
+        # `/egress/audit/export`（`debug_dump` 有保留上限 1000 行），实测请求 0.0305s、空档
+        # 0.030s → 改后 0.016s（已在噪声底）。其余几条要有生产规模的更新批次 / 义务清单 /
+        # 2.2GB 库快照才有意义，量具跑临时空库只会给出**假小**的数字 ⇒ 那几条按**结构性**判据
+        # 进表（同族的 office/render + sha256 已在 §10.71/§10.73/§10.74 实测过）。
+        "/api/v1/export/obligations/{list_id}",
+        "/api/v1/export/review/{task_id}",
+        # 这条原是 `async def` 只为 `await request.json()`，且随后就跑 docx 落盘（与 §10.71 的
+        # `/report/effect/export` 同款）⇒ body 改走签名，非法 JSON 由"吞成空 body"变成 422。
+        "/api/v1/export/citations",
+        "/api/v1/egress/audit/export",
+        "/api/v1/snapshots/{snapshot_id}/restore",
+        "/api/v1/update/report/{batch_id}",
+        "/api/v1/update/report-xlsx/{batch_id}",
     ])
     def test_declared_sync(self, client, path):
         import asyncio

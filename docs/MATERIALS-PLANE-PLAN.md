@@ -840,3 +840,16 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     → ③ 补 `/formula`、`/table-image` 的 HTTP 测试 → ④ 审计标记表补"库内部网络"族（`fastembed`/
     `huggingface_hub` 那类盲区）→ ⑤ 派一次独立复核（b13，按新纪律**先冻区间**）。
 
+
+22. **落盘/导出族（7 条）+ `export/citations` 的 body 收紧**（§10.76，step-76）。
+
+    | 项 | 一句话 | 状态 |
+    |---|---|---|
+    | 改 `def` | `export/obligations`｜`export/review`｜`export/citations`｜`egress/audit/export`｜`snapshots/{id}/restore`｜`update/report`｜`update/report-xlsx`（docx/xlsx/JSON 落盘 + 读包 sha256） | ✅ 完成；AG1–AG4 变异 RED（含**跨文件**的 `routes_update.py`） |
+    | `export/citations` 取 body | 原是 `async def` **只为** `await request.json()`，随后 docx 落盘（与 §10.71 的 `/report/effect/export` 同款）⇒ body 改走**签名**；非法 JSON 由"吞成空 body"变 **422** | ✅ 并补了此前**缺失的** HTTP 契约测试（`test_phase7.py::test_export_citations_body_contract`，3 断言） |
+    | **本族收益很小（如实记）** | 唯一能铺满量的是 `/egress/audit/export`（`debug_dump` 保留上限 1000 行）：实测请求 0.0305s、空档 0.030s → 改后 0.016s（噪声底）。**另外 6 条未测**——要有生产规模的批次/清单/2.2GB 库快照才有意义，临时空库只会给出**假小**数字 | 📝 已写进闸门注释与 §10.76：这一族进表靠**结构性**判据，不是战果 |
+
+    **下一步**：① `dry_run` 同文件并发按哈希加锁 → ② 补 `/formula`、`/table-image` HTTP 测试
+    → ③ 审计标记表补"库内部网络/重活"族 → ④ 派独立复核 **b13**（先 `git tag` 冻区间 +
+    `git rev-list --count` 数提交数写进任务书）。
+

@@ -116,3 +116,34 @@ def test_obligation_export_docx(gap_db, client):
                headers={"Authorization": f"Bearer {token}"})
     assert r.status_code == 200
     assert r.json()["data"]["name"].endswith(".docx")
+
+
+@pytest.mark.parametrize("path", ["/api/v1/export/citations"])
+def test_export_citations_body_contract(client, path):
+    """`POST /export/citations` 的 **HTTP 层**契约（§10.76）。
+
+    为什么补这一组：这条端点此前**没有 HTTP 测试**，而本步改了它**取 body 的方式**
+    （`async def` + `await request.json()` → `def` + 签名取 body，因为随后就要跑
+    python-docx 落盘、必须留在线程池里）。改法带一个**语义变化**，必须钉住：
+
+    * **没有 body** ⇒ 照常 200（`citation_text` 是空证据块的文本、`docx` 为 None）；
+    * **非法 JSON** ⇒ **422**（以前被 `except` 吞成空 body 照常 200 —— 这是有意的收紧，
+      与 §10.71 的 `/report/effect/export` 同口径）。
+    """
+    c, token = client
+    h = {"Authorization": f"Bearer {token}"}
+    r = c.post(path, headers=h)
+    assert r.status_code == 200, r.text
+    assert "citation_text" in r.json()["data"]
+    # 有证据时的正常路径（给一个真实条款 id）
+    from src.core.storage.sqlite_db import get_db_connection
+    conn = get_db_connection()
+    row = conn.execute("SELECT clause_revision_id FROM clause_revision LIMIT 1").fetchone()
+    if row is not None:
+        r2 = c.post(path, headers=h,
+                    json={"query": "消防", "clause_revision_ids": [row["clause_revision_id"]]})
+        assert r2.status_code == 200, r2.text
+        assert r2.json()["data"]["docx"]
+    bad = c.post(path, content=b"{not json",
+                 headers={**h, "Content-Type": "application/json"})
+    assert bad.status_code == 422, bad.text

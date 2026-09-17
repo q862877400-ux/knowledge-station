@@ -4273,3 +4273,68 @@ embedder.is_available()`、入库时的 `embed_batch` 这些**真要拿模型**�
 4. **审计标记表补"库内部网络/重活"族**（§10.74 §5 的盲区：`fastembed`/`huggingface_hub` 这类
    藏在库里的外发，`requests.`/`httpx.` 那套标记扫不到）。
 
+
+## §10.76 落盘/导出族去阻塞化（7 条）——并如实记下"这一族**没测出大收益**"
+
+**一句话**：docx / xlsx / JSON 落盘与快照恢复 7 条端点改 `def`（含一条原先只为
+`await request.json()` 而写成 `async def` 的）。**但这一族没测出大收益**：唯一能把量铺满的
+`/egress/audit/export` 实测只有 **0.030s**（它读的 `debug_dump` 有 1000 行保留上限），其余几条
+要有**生产规模**的更新批次 / 义务清单 / 2.2GB 库快照才有意义。所以本步的判据是**结构性**的
+（同步落盘不该放事件循环里），不是战果。
+
+### 1. 改了什么
+
+| 端点 | 重活 | 处置 |
+|---|---|---|
+| `POST /api/v1/export/obligations/{list_id}` | python-docx 生成 + 落盘 | `def` |
+| `POST /api/v1/export/review/{task_id}` | python-docx 报告 + 落盘 | `def` |
+| `POST /api/v1/export/citations` | **原为 `async def` 只为 `await request.json()`**，随后 docx 落盘 | `def` + **body 改走签名**（非法 JSON：吞成空 body → **422**，与 §10.71 同口径） |
+| `GET /api/v1/egress/audit/export` | 查审计行 + 写 JSON | `def` |
+| `POST /api/v1/snapshots/{snapshot_id}/restore` | 读快照包 + sha256 + 落库 | `def` |
+| `POST /api/v1/update/report/{batch_id}` | python-docx 生成 + 落盘 | `def` |
+| `POST /api/v1/update/report-xlsx/{batch_id}` | openpyxl 生成 + 落盘 | `def` |
+
+### 2. 量到的（以及**没**量到的）
+
+量具新增 `egress_audit_export` 用例：把 `debug_dump` 的审计行**铺到保留上限 1000 行**
+（`trigger_type in ('user_export','egress')`），再量。
+
+| `--case egress_audit_export`（1000 行） | 改前 | 改后 |
+|---|---|---|
+| 请求耗时 | 0.0305s | 0.0338s |
+| 事件循环最大空档 | 0.0301s | 0.0164s（空闲基线 0.0198s ⇒ 噪声底） |
+
+⇒ **这条本来就不大**（30ms 量级、上限就有界）。**另外 6 条未测**，原因写在闸门注释里：
+要有生产规模的批次/清单/2.2GB 库快照才有意义，量具跑**临时空库只会给出假小的数字**——
+那比不量更坏。它们按**结构性**判据进表（同族的 office/render + sha256 已在
+§10.71/§10.73/§10.74 实测过：一次 docx/xlsx 落盘 + 逐份 sha256 是**秒级**那一类）。
+
+### 3. 闸门与变异
+
+逐条表 +7（并写明"这一族基本没测出大收益"）。变异全 RED、还原字节一致：
+**AG1** `/export/obligations` 改回 `async def`；**AG2** `/snapshots/{id}/restore` 改回；
+**AG3** `/update/report-xlsx` 改回（**另一个文件** ⇒ 跨模块也管）；
+**AG4** `/export/citations` 改回。
+
+另补 **HTTP 层契约测试**：`tests/test_phase7.py::test_export_citations_body_contract`
+——这条端点此前**没有 HTTP 测试**，而本步改了它取 body 的方式，必须钉住：
+无 body ⇒ 200；有证据 ⇒ 200 且 `docx` 非空；**非法 JSON ⇒ 422**（有意的收紧）。
+
+### 4. 证据
+
+`pytest` **1744 passed / 3 skipped / 0 failed**（1736 → +8：7 条闸门 + 1 条契约测试）；
+`mypy` **134 / 0**；`tsc` 0；`smoke` **EXIT=0（19 段）**；`verify:commands` **22/22**。
+
+### 5. 诚实边界
+
+1. 6 条**未测**（见 §2）；真机重启后才生效。
+2. `/export/citations` 的 422 是**行为变化**：此前非法 JSON 会被当成空 body 照常出结果。
+   与 §10.71 的 `/report/effect/export` 一致（fail-closed），且如今有测试钉住。
+3. 本步**零前端改动**。
+
+### 6. 下一步
+
+① `dry_run` 同一文件的并发按哈希加锁（§10.73 §6 登记项）；② 补 `/formula`、`/table-image`
+的 HTTP 测试；③ 审计标记表补"库内部网络/重活"族（`fastembed`/`huggingface_hub` 盲区）；
+④ 派一次独立复核 **b13**（按 §五第 6 条纪律：**先冻结区间**再写任务书）。
+

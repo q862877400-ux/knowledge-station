@@ -205,6 +205,33 @@ def _seed_figure_doc(ctx: dict) -> None:
     conn.commit()
 
 
+@case
+def egress_audit_export(ctx: dict) -> dict:
+    """`GET /api/v1/egress/audit/export`：把外发记录导成 JSON 落盘（§10.76）。
+
+    ⚠ **这条本来就不大**：`export_egress()` 读 `debug_dump` 里 `trigger_type in
+    ('user_export','egress')` 的行，而那张表有保留策略（最多 1000 行）⇒ 上限就有界。
+    种子 1000 行只是把上界铺满，好让"改 `def` 有没有意义"有个数字（而不是靠感觉）。
+    """
+    return {"method": "GET", "path": "/api/v1/egress/audit/export",
+            "body": None, "setup": _seed_egress_audit}
+
+
+def _seed_egress_audit(ctx: dict) -> None:
+    """把 `debug_dump` 的审计行铺到保留上限（1000 行），只碰临时库。"""
+    from src.core.storage.sqlite_db import get_db_connection
+
+    conn = get_db_connection()
+    rows = [(f"dump_{i:05d}", "egress" if i % 2 else "user_export",
+             f"问题 {i}", "x" * 400, "y" * 400, "z" * 200, f"2026-09-18 00:{i % 60:02d}:00")
+            for i in range(1000)]
+    conn.executemany(
+        "INSERT OR REPLACE INTO debug_dump (dump_id, trigger_type, query, prompt,"
+        " llm_output, logs, created_at) VALUES (?,?,?,?,?,?,?)", rows)
+    conn.commit()
+    ctx["seeded_rows"] = len(rows)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--case", default="ingest_preview", choices=sorted(CASES))

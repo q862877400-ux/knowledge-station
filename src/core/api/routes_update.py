@@ -207,9 +207,11 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": out}
 
     @app.post("/api/v1/update/report/{batch_id}")
-    async def update_report(batch_id: str):
+    def update_report(batch_id: str):
         """生成《更新检查报告》docx 到 exports 目录，返回下载文件名
-        （配合既有 GET /export/download 下载）；批次不存在 → 404/UPD-2003。"""
+        （配合既有 GET /export/download 下载）；批次不存在 → 404/UPD-2003。
+
+        §10.76：python-docx 落盘 ⇒ `def`（本文件的报告端点都是同步重活）。"""
         from src.core.exceptions import KnowledgeStationError
         from src.core.update import report as upd_report
         try:
@@ -220,10 +222,12 @@ def register(app, json_error):
                 "data": {"path": str(path), "name": Path(path).name}}
 
     @app.post("/api/v1/update/report-xlsx/{batch_id}")
-    async def update_report_xlsx(batch_id: str):
+    def update_report_xlsx(batch_id: str):
         """生成《更新检查结果》Excel(.xlsx) 到 exports 目录，返回下载文件名
         （配合既有 GET /export/download 下载）；批次不存在 → 404/UPD-2003。
-        与 docx 版共用聚合：巡检汇总/变更明细全量/月度趋势三 sheet。"""
+        与 docx 版共用聚合：巡检汇总/变更明细全量/月度趋势三 sheet。
+
+        §10.76：openpyxl 落盘 ⇒ `def`。"""
         from src.core.exceptions import KnowledgeStationError
         from src.core.update import report as upd_report
         try:
