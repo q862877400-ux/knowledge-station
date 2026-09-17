@@ -682,3 +682,13 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     闸门在重构后仍有效；断言 81 → **82**（含新增"源码里有穷尽性断言"）。
     **仍待修**：b11-LOW-1（`_locator_why` 只写不读 ⇒ 报告不说失败原因）、b11-LOW-2（warning
     作用域不对称）、b11-LOW-5（`no_locators` 把"入库早于该列"说进主句）、b11-INFO-1（`anchorNote` 死状态）。
+
+    **本表四条已修（step-62，§10.63）**：b11-LOW-1（`_locator_why` 只写不读 ⇒ `health_error` 那条
+    warning 现在**带上异常原因**，去重最多 3 条）、b11-LOW-2（作用域不对称**保留但写明**
+    "含待评审/已拒绝的在内" + 代码里写清理由）、b11-LOW-5（`no_locators` 主句改成"没有派生文本
+    **记录**"，两种成因都进括号）、b10-LOW-3（`content_hash` 为空时不再谎称"源文件不在磁盘上"，
+    与"文件真不在"分开说）。变异 S1b（原因拼接恒空）与 S2（`content_hash` 分支禁用）均 RED，
+    逐字节还原；⚠ S1 第一版只加了注释、属"没打中的变异"，如实记在 §10.63。
+    **仍开着**：b10-LOW-1（`xmp`/`plaintext` 内部字面 `<script>` 仍被剥）、b10-LOW-2（§10.56 表
+    `A→B0` 记成"0 行"实为 5879 行）、b10-G3/G4（两处零闸门）、b11-INFO-1（`anchorNote` 死状态）、
+    INFO-4（报告 ⚠ 不覆盖「依据」节 ⇒ 新立项）、通道 E 的"未核验沉底"（要加 JOIN）。
