@@ -78,7 +78,6 @@ def _docx_content_to_text(docx_path: Path) -> tuple[str, list[str]]:
 def _contains_disallowed(docx_path: Path) -> str | None:
     """越界检测：图片/形状/公式对象（简单探测：drawing 元素）。"""
     import zipfile
-    from xml.etree import ElementTree
     try:
         with zipfile.ZipFile(str(docx_path)) as z:
             names = z.namelist()

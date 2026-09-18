@@ -1,7 +1,7 @@
 # KnowledgeStation 技术百科全书（ENCYCLOPEDIA）
 
 > **文档地图**：本文件 = 技术事实唯一权威（架构/契约/坑/规则）。并行文档仅四份——
-> `README.md`（快速开始）、`docs/INTRODUCTION.md`（产品介绍）、`docs/REQUIREMENTS-v4.3.md`（需求 SSOT，历史基线）、`docs/DEVELOPMENT-HISTORY.md`（开发简史）。
+> `README.md`（快速开始）、`docs/INTRODUCTION.md`（产品介绍）、`docs/VISION-TREE.md`（功能愿景，客户视角）、`docs/DEVELOPMENT-HISTORY.md`（开发简史）。
 > ⚠ 本仓库**不存在** `docs/_deprecated/` 或旧 phase 交接文档——历史只存在于 git 提交（`git log`）与 `docs/DEVELOPMENT-HISTORY.md`。
 
 ## 目录
@@ -738,7 +738,7 @@ backup.py：VACUUM INTO 在线备份到 `%APPDATA%\KnowledgeStation\backups\`；
 
 ## 16.1 文档规则（2026-09-12 修订）
 
-1. **事实源文档 = 本文件 + README.md + docs/INTRODUCTION.md + docs/REQUIREMENTS-v4.3.md + docs/DEVELOPMENT-HISTORY.md**（直接修订保持最新，不搞无限追加附录）。⚠ 旧规则引用的 MAINTAINER-GUIDE / contract.md / coverage-matrix / PHASE-INDEX / FRAMEWORK-v5 / ROADMAP-v5 均已散佚（见附录 A），其有效内容已固化进本文件。
+1. **事实源文档 = 本文件 + README.md + docs/INTRODUCTION.md + docs/VISION-TREE.md + docs/DEVELOPMENT-HISTORY.md**（直接修订保持最新，不搞无限追加附录）。⚠ 旧规则引用的 MAINTAINER-GUIDE / contract.md / coverage-matrix / PHASE-INDEX / FRAMEWORK-v5 / ROADMAP-v5 均已散佚（见附录 A），其有效内容已固化进本文件。
 2. 施工日志照常逐阶段写；失去参考价值的旧日志可压缩合并。
 3. 删除前置条件：内容已失效或已被更高层文档吸收；冗余清剿删除走 git（历史可溯）。
 4. **本仓库是 git 仓库**（2026-09-12 批 0 起，tag baseline-792）——删除 tracked 文件可从 git 恢复；var/ 等 gitignore 区**删除即真删**，拿不准的先备份再删。
@@ -752,7 +752,7 @@ backup.py：VACUUM INTO 在线备份到 `%APPDATA%\KnowledgeStation\backups\`；
 | D2 | **外发可审计**成为替代性信任承诺（所有外发 payload 落库、可见、可导出） |
 | D3 | 复杂编辑走 MS Word / WPS 往返通道；快速小改走补丁双轨 |
 | D4 | 保留 LLM/embedding/reranker 的 backend 抽象 seam（OpenAI 兼容） |
-| D5 | **撤销残留的"原始文档零外发"禁令**（2026-09-17 业主裁决）。D1 当时只删了**验收红线**，`REQUIREMENTS-v4.3.md` §0.1 第 2 条的 `[MUST NOT] 原始文档零外发` 与代码里的**结构性锁**（`dry_run.py` 不接受 `deep_fallback`、`preview_jobs.py`、`routes_ingest_preview.py:49`）一直留到 2026-09-17，**持续压制深度解析通道**。业主裁定："不能外发的红线不要……我也不知道为啥之前要这样限制自己"。⇒ 该红线改写为 `[MUST NOT] 无留痕外发`（= D2 外发可审计），**是否把原始文档送云端由用户决定，系统不再代为禁止，但必须留痕**。 |
+| D5 | **撤销残留的"原始文档零外发"禁令**（2026-09-17 业主裁决）。D1 当时只删了**验收红线**，旧主计划 v4.3（**2026-09-19 大清洗中移除**）§0.1 第 2 条的 `[MUST NOT] 原始文档零外发` 与代码里的**结构性锁**（`dry_run.py` 不接受 `deep_fallback`、`preview_jobs.py`、`routes_ingest_preview.py:49`）一直留到 2026-09-17，**持续压制深度解析通道**。业主裁定："不能外发的红线不要……我也不知道为啥之前要这样限制自己"。⇒ 该红线改写为 `[MUST NOT] 无留痕外发`（= D2 外发可审计），**是否把原始文档送云端由用户决定，系统不再代为禁止，但必须留痕**。 |
 
 ## 16.3 优先级宪法（冲突裁决）
 
@@ -781,7 +781,7 @@ backup.py：VACUUM INTO 在线备份到 `%APPDATA%\KnowledgeStation\backups\`；
 
 # 17. 未实现 / 挂起 / 条件触发清单
 
-> 需求状态以 docs/REQUIREMENTS-v4.3.md + 本表为准（原 coverage-matrix 94 项已散佚）。
+> 需求状态以 docs/VISION-TREE.md + 本表为准（原 coverage-matrix 94 项已散佚）。
 
 | 项 | 状态 | 卡点/建议 |
 |---|---|---|

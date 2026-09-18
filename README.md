@@ -74,7 +74,7 @@ src/core/       # 引擎本体（api/storage/retrieval/ingestion/compliance/llm/
 plugin/         # DSH 插件：宿主桥(src/index.js) + 侧栏 client(React) + 4 个模型工具
 scripts/        # 运维脚本（凭据迁移/交接打包/巡检/法规抓取/loop2 收敛环）
 tests/          # 测试文件（契约/检索/入库/API/合规/凭据/门禁；2026-09-18 实测 118 个 test_*.py）eval/           # Golden Set 门禁三件最小集（golden/ + run_benchmark.py + baseline.json）⚠ 勿删
-docs/           # ENCYCLOPEDIA(技术百科) / INTRODUCTION(产品) / REQUIREMENTS-v4.3(需求SSOT)
+docs/           # ENCYCLOPEDIA(技术百科) / INTRODUCTION(产品) / VISION-TREE(功能愿景)
                 # / DEVELOPMENT-HISTORY(开发简史) / MATERIALS-PLANE-PLAN(材料平面方案+§12 台账)
                 # / LAW_SOURCE_PLAN + STD_STATUS_CHANNELS(工程参考)
                 # / CHANNEL_PROBE_REPORT(渠道实证)
@@ -88,7 +88,7 @@ var/            # gitignore 工作区（engine.log / mineru_cli_out 测试依赖
 
 1. **`docs/ENCYCLOPEDIA.md`**——技术百科全书（架构/数据契约/检索/入库/坑全集/红线宪法），先读。
 2. `docs/INTRODUCTION.md`——产品介绍（是什么/为什么可信/能力清单）。
-3. `docs/REQUIREMENTS-v4.3.md`——需求 SSOT（R1~R79 + R-L1~L14 + T00~T13；抬头注记列明已被后续裁决覆盖的条目）。
+3. `docs/VISION-TREE.md`——功能愿景（客户视角：每条能力标注"今天点得到吗"；取代已移除的旧主计划 v4.3）。
 4. `docs/DEVELOPMENT-HISTORY.md`——开发历程简史（2026-08 引擎从零 → 2026-09 DSH 转生 → 批 0~10 → 冗余清剿）。
 5. 改 schema/API/SSE 前 → ENCYCLOPEDIA §8/§10 + `pipeline/03-contract-delta.md`。
 6. 改插件 client 前 → `plugin/client/ksSidebar.ts`（**官方右侧栏契约 + 新旧映射表**）

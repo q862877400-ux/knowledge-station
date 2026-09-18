@@ -35,7 +35,7 @@
 | `docs/ENCYCLOPEDIA.md` | §1.5 验收红线 v2 | 见 §2（外发条） |
 | `docs/ENCYCLOPEDIA.md` | §2.3 明确不做（Non-goal） | **「非官方渠道下载」要按语料分层重写**（见 §4.1），否则新功能与它直接冲突 |
 | `docs/ENCYCLOPEDIA.md` | §2.2 决策台账 | 追加 D3（本方案 §2）与 D4（材料平面）两条裁定记录 |
-| `docs/REQUIREMENTS-v4.3.md` | `:52` `[MUST NOT] 原始文档零外发` | **删除/替换**（见 §2） |
+| 旧主计划 v4.3（2026-09-19 大清洗中移除） | `:52` `[MUST NOT] 原始文档零外发` | **删除/替换**（见 §2） |
 | `README.md` / `docs/INTRODUCTION.md` | 定位段 | 同步措辞 |
 
 ---
@@ -46,7 +46,7 @@
 
 - `ENCYCLOPEDIA.md:747` 决策台账已记 **D1｜删除"零外发"验收红线（2026-08-23 业主裁决）**；
 - `INTRODUCTION.md:85` 记 **D1→D2："零外发"改为"外发可审计"**；
-- **但** `REQUIREMENTS-v4.3.md:52` 仍写着 `[MUST NOT] 原始文档零外发 (Data Egress Zero-Trust)`：用户导入的任何 PDF/合同/图纸及本地数据库，**绝对禁止**上传至云端；
+- **但** 已移除的旧主计划 v4.3 `:52` 仍写着 `[MUST NOT] 原始文档零外发 (Data Egress Zero-Trust)`：用户导入的任何 PDF/合同/图纸及本地数据库，**绝对禁止**上传至云端；
 - 且代码**按这条结构性地锁着**：`dry_run.py:413`「本函数**不接受** `deep_fallback` 参数」+ `:430` 恒 `False`；`preview_jobs.py:13`「零外发是**结构性事实**」；`routes_ingest_preview.py:49-51` 直接拒绝深度通道。
   ⇒ **一条早该随 D1 一起删掉的 `[MUST NOT]`，还留在 REQUIREMENTS 里，并且真的在限制功能。**
 

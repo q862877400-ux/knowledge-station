@@ -1354,7 +1354,6 @@ def build_clause_models(doc_id: str, standard_no: str, doc_type: str,
         # 产物**原文**跑判据、从不经过本链 → 清洗器修好的类判据照旧报、留出集
         # 永远判不通过（结构性缺陷，实测）。抽出去后入库与评估同次序同结果。
         from src.core.text_utils import (clean_clause_text as _clean_text,
-                                         normalize_pua_separators as _pua_sep,
                                          pua_bond_dash_html as _pua_dash)
         content = _pua_dash(content)
         content = _clean_text(content, legend_stripper=strip_figure_legend_segment,

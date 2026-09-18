@@ -11,7 +11,6 @@
 from __future__ import annotations
 
 import json
-from collections import Counter
 
 from src.core.storage.sqlite_db import get_db_connection
 

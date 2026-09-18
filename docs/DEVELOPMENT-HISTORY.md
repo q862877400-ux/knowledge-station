@@ -91,7 +91,7 @@ verifier 全面审计产出 25 项问题清单 → 5 verifier 编制方案 → v
 
 上节两项遗留的当日清账（均在 0f90972 之上，verifier 纪律全程）：
 
-1. **mypy 门禁从无到有（REQUIREMENTS 硬指标 #2 的 Python 半兑现）**：安装 mypy 2.3.1 → `[tool.mypy]` 非 strict 保守口径（check_untyped_defs / no_implicit_optional / warn_redundant_casts；fitz/jieba/mineru 系/curl_cffi/openai SDK 等无 stub 包 ignore_missing_imports）→ 基线 **126 错误分 7 轮清零**（126→95→82→47→10→0，120 文件全绿）。每处 `# type: ignore[code]` 带行内中文理由注释；`mypy>=1.10` 回 pyproject dev extras；`npm run typecheck:py` 脚本入 package.json；REQUIREMENTS-v4.3 L2929 注记改"已建立"（`--strict` 愿景降级为非 strict 起步——~612 处未注解面按 warn 只增不减消化，strict 另立里程碑）。
+1. **mypy 门禁从无到有（REQUIREMENTS 硬指标 #2 的 Python 半兑现）**：安装 mypy 2.3.1 → `[tool.mypy]` 非 strict 保守口径（check_untyped_defs / no_implicit_optional / warn_redundant_casts；fitz/jieba/mineru 系/curl_cffi/openai SDK 等无 stub 包 ignore_missing_imports）→ 基线 **126 错误分 7 轮清零**（126→95→82→47→10→0，120 文件全绿）。每处 `# type: ignore[code]` 带行内中文理由注释；`mypy>=1.10` 回 pyproject dev extras；`npm run typecheck:py` 脚本入 package.json；旧主计划 v4.3 L2929（该文档已于 2026-09-19 大清洗中移除）注记改"已建立"（`--strict` 愿景降级为非 strict 起步——~612 处未注解面按 warn 只增不减消化，strict 另立里程碑）。
    - **真实缺陷战果**（超越注解噪音）：announce.py `export_announce_xlsx` 用 `Path` 未导入（**每次 Excel 导出必 NameError 的 P1 崩溃**）；server.py 三处 `_p` int→str 循环变量复用 + 死 `_lo/_hi` 块；effect_report 循环变量 `c` 遮蔽 COLOR_ORDER 键；write_queue `int(cur.lastrowid)` 无 None 守卫；figure_redraw `k`（ndarray 核）与去重循环 `k` 同名类型漂移；office_roundtrip 条款并发删除 None 崩溃（加 None 守卫）；bulk 六处 `load_batch` 返回 None 撒谎路径（`_reload` assert 化）；supervisor ChildHandle Protocol 只读属性化。
    - pytest 回归 828+3 不变（annotation-only + assert 守卫，零行为变化）。
 2. **图/公式/表图三端点 ZERO→LIVE 接线**：引擎 `/figure/{fig_no}`｜`/formula/{fno}?clause=`｜`/table-image/{page}/{idx}`（2026-09-02 实现完备，旧 App.tsx 退役后无 GUI 消费者）。
@@ -231,12 +231,12 @@ verifier 全面审计产出 25 项问题清单 → 5 verifier 编制方案 → v
 
 **先查清"不能外发"到底限制了什么**，结果是一处**三份文档自相矛盾**：
 - `ENCYCLOPEDIA.md` §16.2 **D1**：**删除"零外发"验收红线（2026-08-23 业主裁决）**；`INTRODUCTION.md:85` 记 D1→D2"外发可审计"；
-- **但** `REQUIREMENTS-v4.3.md` §0.1 第 2 条仍写着 `[MUST NOT] 原始文档零外发 (Data Egress Zero-Trust)`：任何 PDF/合同/图纸**绝对禁止**上传至云端；
+- **但** 已移除的旧主计划 v4.3 §0.1 第 2 条仍写着 `[MUST NOT] 原始文档零外发 (Data Egress Zero-Trust)`：任何 PDF/合同/图纸**绝对禁止**上传至云端；
 - 且**代码按它结构性地锁着**：`dry_run.py:413`「本函数**不接受** `deep_fallback` 参数」+ `:430` 恒 `False`、`preview_jobs.py:13`「零外发是**结构性事实**」、`routes_ingest_preview.py:49-51` 直接拒绝会外发的深度通道。
 ⇒ 业主的直觉是对的：**一条早该随 D1 一起删的 `[MUST NOT]` 留在了 REQUIREMENTS 里，并且真的在压制深度解析通道。**
 
 **本步只改政策文档（不动代码）**：
-- `REQUIREMENTS-v4.3.md` §0.1 第 2 条 → `[MUST NOT] 无留痕外发 (No Unaudited Egress)`：**禁止的从"外发"变成"不留痕的外发"**（= D2）。原文保留在引用块里存证。同时点明"Prompt 只含最小必要片段"是**成本与准确性的工程口径，不再是外发禁令**（送全库既贵又稀释相关性）。
+- 旧主计划 v4.3 §0.1 第 2 条 → `[MUST NOT] 无留痕外发 (No Unaudited Egress)`：**禁止的从"外发"变成"不留痕的外发"**（= D2）。原文保留在引用块里存证。同时点明"Prompt 只含最小必要片段"是**成本与准确性的工程口径，不再是外发禁令**（送全库既贵又稀释相关性）。
 - `ENCYCLOPEDIA.md` §16.2 追加 **D5** 记录该撤销；§1.5 红线 4 补一句交叉引用并注明"**它不是禁止外发，是要求外发留痕**"。
 
 **为什么这一步单独提交**：解开代码锁要改测试（`test_dryrun_batch.py:173` 甚至直接断言批量函数签名里**不许**有 `deep_fallback` 参数——钉的就是那个结构锁本身），属契约变更，按"小步走"拆成独立一步做。
@@ -7453,3 +7453,55 @@ R6c-7 又把它修准了——**但面板从头到尾没读过它**（批次收�
 
 ⚠ 边界：本轮只量了"**链**能不能到"（静态路由），**没有**量"渠道实际能不能答"（要真机请求）；
 别把这两件事混起来读。
+
+---
+
+## §10.122 全项目大清洗（业主指令）：临时数据 / 旧文档 / 死代码 / 旧备份
+
+业主原话：把项目清洗一遍，死代码、老文档、旧版本该删就删；**做之前把现状备份 ZIP，只保留一个最新的**；
+文档只描述当下的，**不要出现"老版本需求留着"**（上一轮我据旧主计划 R 编号画愿景树，把老界面当成了今天的能力）。
+
+**先备份**：`D:\AI\zcode-backups\zcode-clean-20260919-0212.zip`（827.2 MB / 43095 条目），
+排除 `.venv / node_modules / .git / __pycache__ / .mypy_cache / .pytest_cache / .mimosa / .browser4-cli`。
+备份目录里另外 3 份 9/13 的旧备份（2 个 `.bundle` + 1 个 `.zip`）按指令删除，**只留这一份**。
+
+**删了什么**
+
+| 类别 | 对象 | 量 |
+|---|---|---|
+| 临时数据 | `var/tmp/`（**每个独立验证者 b10–b42 都把自己的整份工作树副本解压在这里**）+ var 下诊断输出/小产物 + 4 类缓存 | **释放 2738 MB**（3127 → 389 MB） |
+| 旧文档 | `REQUIREMENTS-v4.3.md`（旧主计划：Win11 单 exe 形态已不存在，且含 **2026-09-17 已被业主撤销**的 `[MUST NOT] 原始文档零外发`）、`INCIDENT-20260905-boot-failure.md`（0 引用）、`LLM_REQUIREMENTS_AND_SMALL_MODEL_FEASIBILITY.md`（0 引用） | 3 份 |
+| 死代码 | vulture 报 6 处 → **真死代码只有 3 个没用的 import**（`pipeline.py:1357` `_pua_sep`、`office_roundtrip.py:81` `ElementTree`、`fewshot.py:14` `Counter`） | 3 行 |
+
+**留了什么，为什么**
+
+- `REALTIME_VALIDITY_VERIFY_RESEARCH.md`：**代码里 3 处引用它**当权威映射来源（`law_source/verify.py`、`catalog.py`）；
+- `WSL2_VLM_BACKEND_DECISION.md`：活跃 OCR 工作流的决策记录；
+- `LAW_SOURCE_PLAN` / `STD_STATUS_CHANNELS` / `CHANNEL_PROBE_REPORT`：ENCYCLOPEDIA §6/§9 明写「保留原文件」作工程证据；
+- `DEVELOPMENT-HISTORY.md`：项目记忆（被 33 处引用）——**若要连它一起删需业主明确**；
+- `var/ocr-loop/`：**是活的**——`vlm_ocr.py` 最后修改 **2026-09-18 22:06**，约 50 个被跟踪 `.py` + `fixed_classes.json`；
+  `.gitignore` 特意放行并写明理由：丢了会「**再次静默丢内容**」。故未动其数据目录。
+
+**我造成并修好的一个错（教训）**：清 `var/` 时把 `var/mineru_cli_out/` 删了，而 `tests/test_pipeline.py:219`
+用 `skipif` 依赖其中的 `GB30871-2022识别版_middle.json`（README:83 也写明"测试依赖"）——
+**那会让一个测试从"运行"静默变成"跳过"（掉覆盖）**。已从备份 ZIP 逐路径恢复并验证存在。
+⇒ **纪律：清 `var/` 之前必须先查代码里对它的 `skipif`／路径依赖。**
+
+**发现一个真 bug（本轮未修，登记）**：`src/core/update/inspector.py:437-443` 的
+「至少一个渠道给出确定性『查无』⇒ 判 `judged / gray / not_found`，与 hard-fail 严格区分」这一段
+**永远执行不到**——上面 428 行已无条件 `return ProbeOutcome(kind="failed", …)`。
+即**「查无此号」被错报成「失败」**。删掉这段等于把错误固化，故**保留原样并登记**，等业主定是否修。
+
+**vulture 的 2 处误报（不能删）**：`office_roundtrip.py:131` 的 `lparam` 是 **Win32 回调签名必需参数**（ctypes 传两个参数）；
+`ks_answer.py:220` 的 `retrieval_meta` 是 docstring 里明确「只影响 confidence_reasons、不改 tier 主体」的**刻意保留参数**。
+
+**引用修复**：被删文档共 **13 处引用**（README×2 / INTRODUCTION / ENCYCLOPEDIA×4 / MATERIALS-PLANE-PLAN×2 /
+DEVELOPMENT-HISTORY×3 / `research/plan-vs-reality.md`），全部改指向当下文档（`docs/VISION-TREE.md` 等）；
+用脚本做**字面替换 + 「恰好命中一次」断言**，改完复核**残留 0**。顺手删掉 `scripts/make_handoff_zip.py` 里
+**写死的旧基线数字**（"828 passed"）——它违反项目自己的规矩（INTRODUCTION §八：不重复维护写死的基线）。
+
+**门禁（清洗后，全部零回退）**：pytest **2136 passed / 3 skipped**（与清洗前一致）· mypy **142 文件 0 错** ·
+tsc exit 0 · plugin smoke 全链 PASS · verify:commands **22/22** · verify-engine-uvicorn **4/4**。
+
+⚠ 边界：本轮删的是"**确证无引用**"的东西；`DEVELOPMENT-HISTORY` 与 `var/ocr-loop` 属**有意保留**（记忆与活工作流），
+不是漏删。inspect 那个 bug 只是**登记**，未改代码。

@@ -1,7 +1,7 @@
 # KnowledgeStation 产品介绍 —— 让每一句合规结论，都有法可依
 
 > 本文是产品的**详细介绍**：它是什么、解决什么问题、怎么做到可信、用起来什么样。
-> 技术细节见 `ENCYCLOPEDIA.md`；需求源头见 `REQUIREMENTS-v4.3.md`；开发历程见 `DEVELOPMENT-HISTORY.md`。
+> 技术细节见 `ENCYCLOPEDIA.md`；功能愿景见 `VISION-TREE.md`；开发历程见 `DEVELOPMENT-HISTORY.md`。
 
 ## 一、我们解决的问题
 

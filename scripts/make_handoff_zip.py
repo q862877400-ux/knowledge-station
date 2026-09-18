@@ -79,12 +79,12 @@ Web 宿主侧栏呈现；桌面化由 DSH 整体打包承担，本项目不单�
   %APPDATA%\\KnowledgeStation\\database\\knowledge.db
 
 必读文档（按序）：README.md -> docs/ENCYCLOPEDIA.md -> docs/INTRODUCTION.md
-  -> docs/REQUIREMENTS-v4.3.md -> docs/DEVELOPMENT-HISTORY.md
+  -> docs/VISION-TREE.md -> docs/DEVELOPMENT-HISTORY.md
   （注：历史 phase 交接文档、DSH_REINCARNATION 台账等旧文档已随冗余清剿删除，
    结论沉淀于 ENCYCLOPEDIA 与 DEVELOPMENT-HISTORY，交接以此为准。）
 
 验证环境完好：
-  .venv\\Scripts\\python -m pytest tests/ -q        应 828 passed + 3 skipped
+  .venv\\Scripts\\python -m pytest tests/ -q        （**不写死数字**：以 DEVELOPMENT-HISTORY 最新一步的门禁段为准）
   cd plugin && npm run smoke                         应 10 段全 PASS（smoke.mjs 真机段已删，
    engine-guard 覆盖离线守护逻辑，真机连通由 ks_ping 承担）
   cd plugin && npm run verify:commands               应 15/15
