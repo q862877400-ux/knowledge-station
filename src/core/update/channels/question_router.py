@@ -108,24 +108,35 @@ def _states(rows: list[dict[str, Any]] | None) -> dict[str, Any]:
 def _order_by_ability(cands: list[str], cls: str,
                       table: dict[str, dict[str, Any]] | None,
                       keep_first: str | None = None) -> list[str]:
-    """同一类里把**能力判定为 `partial`** 的排到后面（组内保持链序）。
+    """同一类里按**能力判定**排：`supported` → 未审计 → `partial`（组内保持链序）。
 
     ⚠ **前缀专用渠道永远留在最前**（`keep_first`）：`mee` 对 HJ 号就是专门渠道，
     而它的「发布」被判 `partial`（它给的是实施日期）；若按判定全局排序，
     HJ 号的"发布"就会先去问 `official_gb`——**把专门渠道降级**，与路由设计相悖。
     ⇒ 规则是"**专门渠道先，其余按能力排**"，不是"一律按能力排"。
+    ⚠ `keep_first` 在 `chain=` 注入路径上也必须生效（复核 b37 的 A①：我第一版只在
+    `chain is None` 时算它，于是"台账驱动链"那条路会把专门渠道降级——而那正是 R6c-4 要走的路）。
+
+    ⚠ **三档，不是两档**（复核 b37 的 A②）：我第一版把"没审计（`None`）"与 `supported` 同键，
+    于是 `None` 会**越过** `partial` 前移——而 docstring 写的是"`None` 不参与排序"，
+    **代码与说明不符**。现在 `supported=0 / None=1 / partial=2`：未审计的棒保持与链序一致的相对位置。
 
     为什么需要按能力排（§11.0 R6c-4c，**模拟过再启用**）：`废止` 类上 `official_gb` 只有状态串
     （b35 判 `partial`）、`ndls` 有废止日期（`supported`）；对 `GB/T` 这种**没有前缀专门渠道**的号，
-    链序是 `official_gb` 在前 ⇒ 按类问会问到那根答不全的棒。
-    ⚠ 这一步**曾经会把 `发布` 类改坏**（`official_gb` 判 supported 却产出实施日期）——
-    那是**判定过期**造成的，不是排序本身错：R6c-3e 补了 `published_date` 并重评「发布」判定后，
-    重新模拟只剩 `废止` 那一类会翻（12 号 ×5 类 = 60 格里 8 格），才启用的。
-    后来者若改动判定表，**请先重跑 `var/tmp/r6c5-sim.py` 看会不会翻别的类**。
+    链序是 `official_gb` 在前。
+    ⚠⚠ **这条排序今天只影响"谁被记成这一类的答复者"与 CLI 展示，不影响巡检实际去问谁**
+    （`inspector._probe_number` 仍按 `select_chain` 顺序探到第一根命中即止——复核 b37 的 A③）。
+    我曾在提交信息里写"从此问对的那根"，**那句不成立**，已更正。
+    要让它真的影响探测，得按类探"该类第一候选"（多数号会从 1 次探测变 2 次）；那是单独一步。
     """
     head = [keep_first] if keep_first and keep_first in cands else []
     rest = [c for c in cands if c not in head]
-    return head + sorted(rest, key=lambda cid: 1 if ca.verdict_of(cid, cls, table) == "partial" else 0)
+
+    def _key(cid: str) -> int:
+        v = ca.verdict_of(cid, cls, table)
+        return 0 if v == "supported" else (2 if v == "partial" else 1)
+
+    return head + sorted(rest, key=_key)
 
 
 def channels_for(classes: Iterable[str] | None = None, standard_no: str = "", *,
@@ -150,7 +161,9 @@ def channels_for(classes: Iterable[str] | None = None, standard_no: str = "", *,
     cls_list = _norm_classes(classes)
     tbl = table if table is not None else ca.load_answers()
     chain_ids = _chain_ids(standard_no, chain)
-    first = _to_channel_id(first_route(standard_no)) if chain is None else None
+    # ⚠ 前缀首选**两条路都要算**（复核 b37 的 A①）：`chain=` 注入路径正是 R6c-4 要走的
+    #   "台账驱动链"，我第一版只在 `chain is None` 时算它 ⇒ 那条路上专门渠道会被能力排序降级。
+    first = _to_channel_id(first_route(standard_no))
     state = _states(rows) if only_ok else {}
     result: dict[str, list[str]] = {}
     for cls in cls_list:
@@ -184,7 +197,7 @@ def route_report(classes: Iterable[str] | None = None, standard_no: str = "", *,
     cls_list = _norm_classes(classes)
     tbl = table if table is not None else ca.load_answers()
     chain_ids = _chain_ids(standard_no, chain)
-    first = _to_channel_id(first_route(standard_no)) if chain is None else None
+    first = _to_channel_id(first_route(standard_no))
     state = _states(rows) if only_ok else {}
     report: dict[str, dict[str, Any]] = {}
     for cls in cls_list:

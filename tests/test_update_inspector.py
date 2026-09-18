@@ -815,6 +815,62 @@ def test_灰号的五类记录说清为什么没答(db, t):
     assert classes["废止"]["reason"] == "not_probed"
 
 
+def test_台账记down但真答了_五类仍如实记answered(db, t):
+    """⚠ 复核 b37 的 C 项（它列为最高风险）：**归因不能看台账 state**。
+
+    我第一版按默认 `only_ok=True` 算候选 ⇒ 台账把应答渠道记成 `down`、而它其实**真答了**时，
+    `channel_id` 不在候选里 ⇒ 五类被记成"没问/答不出来"，还列出一串**从没被问过的**棒；
+    极端情况（三棒全 down 却有一根答了）会给出 `classes_unanswerable=五类 all_down`，
+    而该号明明是 green。下一步那条"有 unanswerable 不算 done"的恒等式会据此把它判成没做完。
+
+    这条用例直接把台账里那三根都标成 down，然后跑一次真答得出的批次。
+    """
+    from src.core.storage import channel_repo as cr
+    it = add_doc(db, "r6c4c", 1)
+    no = it["standard_no"]
+    cr.seed_channels()
+    db.execute("UPDATE update_channel SET state='down'")
+    db.commit()
+    t.configure("official_gb", no, [r_eff(no)])
+    run_batch(create_inspect_batch(tier="tier0", items=mk_items(it))["batch_id"],
+              transport=t)
+    ev = change_events(db, no)[0]
+    classes = json.loads(ev["latest_info_json"])["classes"]
+    # 它确实答了 ⇒ 「现行性」必须记 answered（**不能**因为台账说它 down 就记成没问）
+    assert classes["现行性"]["status"] == "answered", classes["现行性"]
+    assert classes["现行性"]["channel"] == "ch:official_gb"
+    assert classes["废止"]["status"] == "answered"      # 否定结论也是结论
+    # 而且**不该**出现结构性"答不出来"（那会把 green 号判成没做完）
+    assert "classes_unanswerable" not in json.loads(ev["latest_info_json"])
+
+
+def test_台账读失败要出声(db, t, monkeypatch, caplog):
+    """⚠ 复核 b37 的 B 项：台账读失败时**零告警** ⇒ 与"本来就不该记"不可区分。
+
+    现在必须出一条 WARN（`classes_ledger_unavailable`），批次照常跑完。
+    ⚠ 断言用 `caplog`（`upd_log` 走的是 `ks.upd` 日志器，**不写 `event_log` 表**——
+    我第一版去查表，结果明明有告警却断言 0 条，属"断言找错了地方"）。
+    """
+    import logging
+
+    from src.core.storage import channel_repo as cr
+    it = add_doc(db, "r6c4d", 1)
+    no = it["standard_no"]
+
+    def _boom(*a, **k):
+        raise RuntimeError("台账读不动")
+
+    monkeypatch.setattr(cr, "list_channels", _boom)
+    t.configure("official_gb", no, [r_eff(no)])
+    with caplog.at_level(logging.WARNING, logger="ks.upd"):
+        run_batch(create_inspect_batch(tier="tier0", items=mk_items(it))["batch_id"],
+                  transport=t)
+    assert any("classes_ledger_unavailable" in r.getMessage() for r in caplog.records), \
+        [r.getMessage() for r in caplog.records]
+    ev = change_events(db, no)[0]
+    assert "classes" not in json.loads(ev["latest_info_json"])   # 如实不记
+
+
 def test_ins_d_05_all_channels_miss_gray(db, t):
     """/INS-D-05 三渠道查无 → gray，legal_status 保持 NULL，末渠道 govcn 兜底。"""
     it = add_doc(db, "d05", 1)

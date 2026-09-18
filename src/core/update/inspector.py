@@ -449,12 +449,19 @@ def _classes_info(no: str, channel_id: str, result: ChannelResult,
 
     ⚠ **这里不做任何 DB 访问**：台账行是调用方传进来的（见 `_probe_number` 的 docstring）。
     ⚠ 台账没传 ⇒ 返回 `{}`（旧调用路径行为不变，不记五类），**不是**记一份假的"全没答"。
+    ⚠⚠ **归因用 `only_ok=False`（不看台账 state）**——这是复核 b37 的 C 项抓到的口径错：
+    我第一版按默认 `only_ok=True` 算候选，于是**台账把应答渠道记成 down、而它其实真答了**时
+    （探针的 state 与"这一批到底问了谁"是两回事），`channel_id` 就不在候选里，
+    五类会被记成"没问/答不出来"，还列出一串**从没被问过的**棒；
+    极端情况（三棒全被记 down 却有一根答了）会给出 `classes_unanswerable=五类全 all_down`
+    而该号明明是 green。⇒ **"这一类答没答"只取决于能力与链，与台账今天的 state 无关**；
+    state 是**选谁去探**时的轴，不该参与**归因**。
     """
     if ledger_rows is None:
         return {}
     from src.core.update.channels import class_outcomes
     from src.core.update.channels import question_router as qr
-    report = qr.route_report(standard_no=no, rows=ledger_rows)
+    report = qr.route_report(standard_no=no, rows=ledger_rows, only_ok=False)
     built = class_outcomes.build_classes(report, channel_id=channel_id, result=result)
     out = {"classes": built["classes"]}
     if built["unanswered"]:
@@ -465,13 +472,17 @@ def _classes_info(no: str, channel_id: str, result: ChannelResult,
 
 
 def _classes_info_for_miss(no: str, ledger_rows: list[dict] | None) -> dict:
-    """整链都没命中（灰号）时的五类记录：说清"每一类为什么没答"（§11.0 R6c-4c）。"""
+    """整链都没命中（灰号）时的五类记录：说清"每一类为什么没答"（§11.0 R6c-4c）。
+
+    同样用 `only_ok=False`（见上一条的 ⚠⚠）：灰号该记的是"**链上有没有棒能答**"，
+    不是"今天台账说哪几根活着"——后者会把"没问"写成"答不出来"。
+    """
     if ledger_rows is None:
         return {}
     from src.core.update.channels import class_outcomes
     from src.core.update.channels import question_router as qr
     built = class_outcomes.build_classes_for_miss(
-        qr.route_report(standard_no=no, rows=ledger_rows))
+        qr.route_report(standard_no=no, rows=ledger_rows, only_ok=False))
     out = {"classes": built["classes"]}
     if built["unanswerable"]:
         out["classes_unanswerable"] = built["unanswerable"]
@@ -723,12 +734,17 @@ def run_batch(batch_id: str, transport=None, max_workers: int = CONCURRENCY) -> 
         _RUNS[batch_id] = handle
     adapters = _build_adapters(transport)
     # 台账行**一次读好**传给工作线程：`_probe_number` 要按五类算"这一号该问谁"，
-    # 而它自己只触网不触 DB（§11.0 R6c-4c）。读失败不该让整批判失败 ⇒ 降级为 None（不记五类）。
+    # 而它自己只触网不触 DB（§11.0 R6c-4c）。读失败不该让整批判失败 ⇒ 降级为 None，
+    # 但**必须出声**：复核 b37 的 B 项指出"静默丢弃"——批次照报 done、四色照绿、
+    # `latest_info` 只是**没有** `classes` 键，与"本来就不该记"完全不可区分。
     try:
         from src.core.storage import channel_repo as _cr
         ledger_rows: list[dict] | None = _cr.list_channels()
-    except Exception:  # noqa: BLE001
+    except Exception as exc:  # noqa: BLE001
         ledger_rows = None
+        upd_log(batch_id, "inspector", "WARN", "classes_ledger_unavailable",
+                note=f"读台账失败 ⇒ 本批**不记五类结论**（latest_info 里不会有 classes 键）："
+                     f"{type(exc).__name__}: {exc}")
     error_trail: list[dict] = [e for e in (ckpt.get("errors") or [])
                                if isinstance(e, dict)]
     upd_log(batch_id, "inspector", "INFO", "batch_running",

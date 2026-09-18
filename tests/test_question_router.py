@@ -212,6 +212,34 @@ class Test真机对照:
         # 而尾巴里仍然按能力排（official_gb 的发布是 supported，排在 ndls 前——两者都 supported，保持链序）
         assert got[1:] == ["ch:official_gb", "ch:ndls", "ch:govcn"], got
 
+    def test_注入链也要保专门渠道在先(self):
+        """⚠ 复核 b37 的 A①：我第一版只在 `chain is None` 时算 `keep_first`，
+        于是**注入链那条路**（R6c-4 的台账驱动链要走的就是它）会把专门渠道降级。
+
+        用 `chain=("mee","official_gb","ndls","govcn")` 模拟台账给的链：HJ 号的「发布」
+        必须仍以 `ch:mee` 打头。
+        """
+        got = qr.channels_for(["发布"], "HJ 819-2017", table=ca.load_answers(),
+                              chain=("mee", "official_gb", "ndls", "govcn"),
+                              only_ok=False)["发布"]
+        assert got[0] == "ch:mee", got
+
+    def test_未审计的棒不越过partial(self):
+        """⚠ 复核 b37 的 A②：我第一版把"没审计（None）"与 `supported` 同键，
+        于是 `None` 会**越过** `partial` 前移，而 docstring 写的是"`None` 不参与排序"。
+
+        现在三档：`supported=0 / None=1 / partial=2`（组内仍按链序）。
+        """
+        table = ca.load_answers()
+        # 造一条注入链：supported（ndls）、**无审计**（任取一条 R1 种子渠道，它声明废止但没 answers_detail）、
+        # partial（official_gb）。未审计那根应当**留在中间**（既不越过 supported，也不被 partial 反超）。
+        unaudited = next(cid for cid, v in table.items()
+                         if "废止" in (v.get("answers") or []) and "answers_detail" not in v)
+        got = qr.channels_for(["废止"], "XYZ 1-2020", table=table,
+                              chain=("official_gb", unaudited, "ndls"),
+                              only_ok=False)["废止"]
+        assert got == ["ch:ndls", unaudited, "ch:official_gb"], got
+
     def test_已知缺口已被兜底链补掉_HJ不再一判死就丢两类(self, table):
         """**记录型用例：它按设计红过一次，这里是红过之后**有意**改成的样子。**
 
