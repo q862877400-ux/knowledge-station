@@ -1637,3 +1637,43 @@ C（名称折法）/E（清单诚实度）成立**，其中它自己抽 7 个号
 
 **诚实边界**：`official_gb` 与 `ndls` 在"废止号的关键日期"上口径不同（上面 B-残留），
 **本轮只登记不改**——怎么统一是产品口径问题，且现在"按类选渠道"已能表达（废止类问 ndls）。
+
+---
+
+### R6c-4b（2026-09-18）：五类**结论**的组装模块 + 一次"拿真机改语义"
+
+新增 `src/core/update/channels/class_outcomes.py`（14 条用例）：
+把"这一次探测"（`route_report` + 哪根棒答的 + 那根棒的结果）翻成"五类各自答成什么样"。
+
+**词汇表（封闭）**：每类 `status ∈ {answered, not_answered}`；`reason ∈ {ok, no_capability,
+off_chain, all_down, not_probed, channel_gave_no_field}`。后三个的区分是**本模块存在的理由**：
+- `not_probed` = **没问**（候选在，但第一棒先命中了）；
+- `channel_gave_no_field` = **问了、但这根棒对这类该给的东西没给**；
+- 前三个来自路由器 = **结构性答不出来**。
+只有后一类进 `unanswerable`；`not_probed` 只进 `unanswered`——**"没问"与"问不出来"不能混**。
+
+**⚠ 一次"拿真机改语义"（这轮最值钱的一步）**：我第一版只在"命中"时才算答了，
+真机演示（`var/tmp/r6c4-demo.py`，3 个真号）立刻暴露问题：
+`GB/T 38496-2020` 由 `official_gb` 命中并给出"现行"，可我的口径把 `废止` 判成 **not_answered**
+——而**"现行"本身就是"没有废止"的依据**（这一类问的正是"有没有废止日期或依据"）。
+按第一版口径，几乎每个号都会背着两个"没答出来"，设计稿那条"有未答不算 done"的恒等式
+就会把绝大多数号判成**没做完**——那是**语义搞错**，不是数据缺。
+⇒ 改成：**渠道只要给出这一类相关的判断就算 `answered`**（正面或否定），
+可信到什么程度由 `completeness`（b35 的 supported/partial）如实带出。改后真机结果：
+
+| 号 | 谁答的 | 五类结果 |
+|---|---|---|
+| `GB/T 38496-2020` | `official_gb` | 五类**全部 answered**（发布 2020-03-06；修订 no_change；废止 effective 且无废止日期[partial]；现行性 effective；编号核验存在[partial]）⇒ `unanswered=[]` |
+| `GB 18218-2018` | `ndls` | 发布 2018-11-19（[partial]，见下重评）、现行性 effective、废止 effective；修订/废止无日期侧信息如实标 partial |
+| `HJ 819-2017` | `mee` | **发布 = channel_gave_no_field**（mee 只有"实施时间"列，**不许拿实施顶发布**——这正是 R6c-3c/3e 那条规矩在真机上的体现）；其余四类 `not_probed`（mee 不声明它们，后面的棒没被问） |
+
+**「发布」verdict 的重评（9 条）**：b35 的审计是在加 `published_date` **之前**做的，
+它给 `ndls`/`cssn` 等的「发布」判 `partial`，理由原文就是"a101 在 raw 里、**不是一等字段**"。
+R6c-3e 把那个槽补上 ⇒ 这 9 条的「发布」升 `supported`（`mee` **不动**，它的列是实施时间），
+每条 note 里追加了重评原因，计划 JSON `var/backup/r6c3e-pub-verdict-20260918-221656.json`。
+**这不是"改判定去迎合实现"**：判定依据（代码行为）真的变了，而证据原文保留着。
+
+**重评后再模拟 verdict 排序**（`var/tmp/r6c5-sim.py` 改为从**能力表**读判定）：
+12 个号 × 5 类 = 60 格，**只有 `废止` 一格/号发生变化**（`official_gb(partial) → ndls(supported)`，
+8 个号），**`发布` 的 8 格坏变化全部消失** ⇒ 原先"先补字段、再重评、再启用排序"的顺序**被模拟证实**。
+⇒ 结论：verdict 排序现在**可以**启用（等 b36 复核完 743d2dd 就做，免得动到它正在核的 `question_router` 输出）。
