@@ -871,6 +871,67 @@ def test_台账读失败要出声(db, t, monkeypatch, caplog):
     assert "classes" not in json.loads(ev["latest_info_json"])   # 如实不记
 
 
+def test_结构性unanswerable_不算done(db, t, monkeypatch):
+    """§11.0 R6c-4d：五类里有**结构性答不出来**（`no_capability`/`off_chain`）的号 ⇒ 批次不算 done。
+
+    设计稿 §3.2.2 第 2 条（与"红黄绿灰=total"**并列、不替代**）。构造方式：把
+    `question_router.route_report` 换成"`编号核验` 的候选为空（`off_chain`）"，
+    模拟一类**结构上问不到**的缺口。
+    """
+    from src.core.update.channels import question_router as qr
+    real = qr.route_report
+
+    def _fake(classes=None, standard_no="", **kw):
+        rep = real(classes=classes, standard_no=standard_no, **kw)
+        if standard_no == no:
+            rep["编号核验"] = {**rep["编号核验"], "channels": [], "reason": "off_chain",
+                               "unanswerable": True}
+        return rep
+
+    it = add_doc(db, "r6c4e", 1)
+    no = it["standard_no"]
+    monkeypatch.setattr(qr, "route_report", _fake)
+    t.configure("official_gb", no, [r_eff(no)])
+    done = run_batch(create_inspect_batch(tier="tier0", items=mk_items(it))["batch_id"],
+                     transport=t)
+    # 号本身判定了（四色照记），但批次**不是 done**
+    assert done["green_count"] == 1
+    assert done["status"] == "failed"
+    ckpt = json.loads(done["checkpoint_json"])
+    assert ckpt["unanswerable"] == [f"{no}:编号核验"], ckpt.get("unanswerable")
+
+
+def test_only_not_probed_不出现在unanswerable(db):
+    """⚠ **`not_probed` 不许算进 `classes_unanswerable`**：那是"这次没轮到问"，不是"答不出来"。
+
+    构造（**用假适配器直接打 `_probe_number`**，不走 mock transport——`InspectTransport._route`
+    只认 openstd/bing/其它，**路由不到 `mee`/`ndls`**，我第一版用 transport 写的这条用例
+    其实没打到目标分支，变异测试证明它挡不住"把 not_probed 混进 unanswerable"）：
+    `mee` 命中 HJ 号，而它只声明「发布」⇒ 其余四类是 `not_probed`。
+    若把它们也算欠账，几乎所有号都会被判成"没做完"——那正是 R6c-4b 拿真机演示改掉的语义错。
+    """
+    from src.core.update import inspector as insp
+    from src.core.update.channels.base import ChannelResult
+    from src.core.storage import channel_repo as cr
+
+    class _Mee:
+        name = "mee"
+
+        def probe(self, standard_no: str, standard_name: str = "") -> ChannelResult:
+            return ChannelResult(channel="mee", found=True, legal_status=None,
+                                 effective_date="2017-06-01")
+
+    rows = cr.list_channels()
+    out = insp._probe_number({"mee": _Mee()},
+                             {"standard_no": "HJ 819-2017", "standard_name": "生态"}, rows)
+    assert out.kind == "judged"
+    classes = out.latest_info.get("classes")
+    assert classes is not None
+    assert classes["修订"]["reason"] == "not_probed", classes["修订"]
+    # 关键断言：没问 ≠ 答不出来 ⇒ **不许**出现在 unanswerable 里（变异测试会红）
+    assert "classes_unanswerable" not in out.latest_info, out.latest_info
+
+
 def test_ins_d_05_all_channels_miss_gray(db, t):
     """/INS-D-05 三渠道查无 → gray，legal_status 保持 NULL，末渠道 govcn 兜底。"""
     it = add_doc(db, "d05", 1)

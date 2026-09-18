@@ -747,6 +747,11 @@ def run_batch(batch_id: str, transport=None, max_workers: int = CONCURRENCY) -> 
                      f"{type(exc).__name__}: {exc}")
     error_trail: list[dict] = [e for e in (ckpt.get("errors") or [])
                                if isinstance(e, dict)]
+    # §11.0 R6c-4d：**"有结构性 `unanswerable` 的号不算 done"**（设计稿 §3.2.2 第 2 条）。
+    # 与 `error_trail`（**未判定**号）**并列、不替代**：那些号是**判定了**、但五类里有
+    # `no_capability`/`off_chain` 这种**结构性答不出来**（不是"没问"——`not_probed` 不算）。
+    # 随断点持久化（否则 resume 会把之前那批的欠账丢掉）。
+    unanswerable_nos: list[str] = [str(x) for x in (ckpt.get("unanswerable") or [])]
     upd_log(batch_id, "inspector", "INFO", "batch_running",
             tier=tier, pending=len(queue))
     try:
@@ -778,6 +783,9 @@ def run_batch(batch_id: str, transport=None, max_workers: int = CONCURRENCY) -> 
                         if out.kind == "failed":  # 失败记账单点在主循环（随终态落盘）
                             error_trail.append({"standard_no": out.standard_no,
                                                 "code": out.error_code})
+                        # §11.0 R6c-4d：这个号五类里有结构性答不出来的 ⇒ 记进"欠账"清单
+                        for cls in (out.latest_info.get("classes_unanswerable") or []):
+                            unanswerable_nos.append(f"{out.standard_no}:{cls}")
                     except Exception as exc:  # noqa: BLE001 — 单号提交异常隔离（INS-A-08）
                         # 提交失败该号不入账不入断点，留审计后继续，批次仍可达终态
                         error_trail.append({"standard_no": out.standard_no,
@@ -798,12 +806,14 @@ def run_batch(batch_id: str, transport=None, max_workers: int = CONCURRENCY) -> 
                 _transition_status(batch_id, "paused",
                                    {"queue": queue, "captcha_pending": [],
                                     "errors": error_trail,
+                                    "unanswerable": sorted(set(unanswerable_nos)),
                                     "pause_reason": "captcha"})
                 upd_log(batch_id, "inspector", "WARN", "batch_paused_captcha")
             elif stop_reason == "budget":
                 _transition_status(batch_id, "paused",
                                    {"queue": queue, "captcha_pending": [],
                                     "errors": error_trail,
+                                    "unanswerable": sorted(set(unanswerable_nos)),
                                     "pause_reason": "budget"})
                 upd_log(batch_id, "inspector", "INFO", "batch_paused_budget",
                         tier=tier)
@@ -811,6 +821,7 @@ def run_batch(batch_id: str, transport=None, max_workers: int = CONCURRENCY) -> 
                 _transition_status(batch_id, "paused",
                                    {"queue": queue, "captcha_pending": [],
                                     "errors": error_trail,
+                                    "unanswerable": sorted(set(unanswerable_nos)),
                                     "pause_reason": "user"})
                 upd_log(batch_id, "inspector", "INFO", "batch_paused", where="boundary")
             else:
@@ -818,14 +829,30 @@ def run_batch(batch_id: str, transport=None, max_workers: int = CONCURRENCY) -> 
                 # 凡存在未判定号（探测 failed / 提交隔离，均留痕 error_trail），
                 # 一律终态 failed（finished_at 照盖、审计已在 event_log/checkpoint），
                 # 绝不以 done 假报全绿。
-                terminal = "failed" if error_trail else "done"
+                # §11.0 R6c-4d **附加条件（并列、不替代）**：五类里有**结构性答不出来**
+                # （`no_capability`/`off_chain`）的号，同样**不算 done** ⇒ 也走 failed。
+                # ⚠ 不把 `not_probed` 算进来：那是"这次没轮到问"，不是"答不出来"。
+                if error_trail:
+                    terminal = "failed"
+                elif unanswerable_nos:
+                    terminal = "failed"
+                else:
+                    terminal = "done"
                 _transition_status(batch_id, terminal,
                                    {"queue": [], "captcha_pending": [],
                                     "errors": error_trail,
+                                    "unanswerable": sorted(set(unanswerable_nos)),
                                     "pause_reason": None})
-                upd_log(batch_id, "inspector", "INFO",
-                        "batch_done" if terminal == "done"
-                        else "batch_failed_unjudged", unjudged=len(error_trail))
+                if terminal == "done":
+                    upd_log(batch_id, "inspector", "INFO", "batch_done")
+                elif error_trail:
+                    upd_log(batch_id, "inspector", "INFO",
+                            "batch_failed_unjudged", unjudged=len(error_trail))
+                else:
+                    upd_log(batch_id, "inspector", "INFO",
+                            "batch_failed_unanswerable",
+                            unanswerable=len(set(unanswerable_nos)),
+                            sample=sorted(set(unanswerable_nos))[:5])
     finally:
         handle.done.set()
         with _RUNS_LOCK:
