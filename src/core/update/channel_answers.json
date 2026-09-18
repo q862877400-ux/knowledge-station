@@ -285,7 +285,7 @@
         },
         "废止": {
           "verdict": "supported",
-          "evidence": "hbba.py:118-121 withdrawn_date=_epoch_ms_to_date(row.get('fzDate'))（仅废止行；fzDate 是一手真值）；hbba.py:128-130 实施槽只放 actDate。R6c-7 改：旧写法把 fzDate 塞进 effective_date；hbba.py:65 map_state_text('废止')→withdrawn",
+          "evidence": "hbba.py:118-121 withdrawn_date=_epoch_ms_to_date(row.get('fzDate'))（仅废止行；fzDate 是一手真值）；hbba.py:128-130 实施槽只放 actDate。R6c-7 改：旧写法把 fzDate 塞进 effective_date；hbba.py:66 map_state_text('废止')→withdrawn",
           "note": "废止日期真一级落地（fzDate），加上状态串——这一类是真的全。"
         },
         "现行性": {
@@ -330,7 +330,7 @@
         },
         "废止": {
           "verdict": "supported",
-          "evidence": "hbba.py:118-121 fzDate → withdrawn_date（dbba 共用同一解析）；hbba.py:65 map_state_text。R6c-7 改：不再进 effective_date",
+          "evidence": "hbba.py:118-121 fzDate → withdrawn_date（dbba 共用同一解析）；hbba.py:66 map_state_text。R6c-7 改：不再进 effective_date",
           "note": "同 hbba。"
         },
         "现行性": {
