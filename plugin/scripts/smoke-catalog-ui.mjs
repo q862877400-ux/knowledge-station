@@ -232,6 +232,17 @@ const panelMod = await loadModule('client/KsMaterialsPanel.tsx')
   const apiSrc = await readFile(join(pluginRoot, 'client', 'api.ts'), 'utf8')
   check('KsChannelRecord 暴露 has_probe_target（引擎 R6 起返回）',
     /has_probe_target\?: boolean/.test(apiSrc))
+
+  // D6 ⚠ 面板**可见文案**里不许出现 markdown 粗体：JSX 不渲染 markdown，`**x**` 会原样显示。
+  //    R4b 修过 7 处，R6b 我又在新加的说明里写了两处（真机复验时才看见）——这次把它变成闸门。
+  //    判据：去掉块注释与整行注释后，源码里不该再出现 `**`。
+  const srcNoComments = src
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .split('\n').filter((l) => !l.trim().startsWith('//')).join('\n')
+  const boldInText = srcNoComments.split('\n')
+    .map((l, i) => [i + 1, l.trim()]).filter(([, l]) => l.includes('**'))
+  check('可见文案里没有 markdown 粗体（JSX 不渲染它，R4b/R6b 的教训）',
+    boldInText.length === 0, JSON.stringify(boldInText).slice(0, 200))
 }
 
 const failed = results.filter((r) => !r.ok)
