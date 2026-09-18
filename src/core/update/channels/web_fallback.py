@@ -20,6 +20,7 @@ from src.core.update.channels.base import (
     derive_change_type,
     map_state_text,
     norm_no,
+    query_no,
     strip_year,
 )
 
@@ -46,7 +47,9 @@ class WebFallbackAdapter(ChannelAdapter):
 
     def probe(self, standard_no: str, standard_name: str = "") -> ChannelResult:
         t0 = perf_counter()
-        query = f"{standard_no} {standard_name}".strip()
+        # ⚠ 查询值用 `query_no`（§11.0 R6c-2b 补，独立复核 b31 点名的第二处反例）：
+        #   本渠道已从降级链摘除（R5c），影响≈0，但"送出去的请求里没有全角"这条口径要一致。
+        query = f"{query_no(standard_no)} {standard_name}".strip()
         status, body = self._fetch(self.SEARCH_URL, params={"q": query})
 
         results: list = []

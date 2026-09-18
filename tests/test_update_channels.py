@@ -598,3 +598,40 @@ class TestQueryUsesHalfWidthForm:
         assert query_no("GB／T 17098-1997") == "GB/T 17098-1997"
         assert query_no("HJ 819-2017") == "HJ 819-2017"
         assert query_no("") == "" and query_no(None) == ""
+
+    # ---- R6c-2b 补：独立复核 b31 抓到"送出去的请求里仍有全角"的两处反例 ----
+    def test_ndls_搜索体与_web_的_q_也必须用规范形(self):
+        """b31 的反例：`ndls` 的 **JSON 搜索体**（可达渠道！）与 `web` 的 `q` 仍是原始全角。
+
+        上一轮我只改了 `ndls` 的 Referer；这次把请求体也折了、并把 web 一并收口
+        （web 已不在链里，影响≈0，但"口径一致"不该有例外）。
+        """
+        from src.core.update.channels.web_fallback import WebFallbackAdapter
+        from src.core.update.channels.ndls import NdlsAdapter
+
+        t1 = self._Cap({"code": 0, "message": "成功", "data": {"results": []}})
+        NdlsAdapter(transport=t1).probe(self.FULL)
+        body = t1.calls[0][1]["json"]
+        assert "／" not in json.dumps(body, ensure_ascii=False), body.get("keyword")
+
+        t2 = self._Cap({"results": []})
+        WebFallbackAdapter(transport=t2).probe(self.FULL)
+        assert "／" not in str(t2.calls[0][1]["params"]), t2.calls[0][1]["params"]
+
+
+class TestNormNoDashes:
+    """独立复核 b31 抓到的**真失配**：`norm_no` 原先**不折连字符**，而 `query_no` 与
+    `text_utils.canon_standard_no` 都折 ⇒ **只有匹配侧漏了**，且表现为静默的"查得到但匹配不上"。
+    （它评价这条"比全角斜杠那条更像真失配"，因为全角斜杠至少还有 query 侧暴露。）
+    """
+
+    @pytest.mark.parametrize("raw", ["GB/T—17098", "GB/T–17098", "GB/T－17098", "GB/T─17098"])
+    def test_各种连字符都折成半角减号(self, raw):
+        from src.core.update.channels.base import norm_no
+        assert norm_no(raw) == norm_no("GB/T-17098") == "GBT-17098"
+
+    def test_与_canon_standard_no_在这些输入上一致(self):
+        from src.core.text_utils import canon_standard_no
+        from src.core.update.channels.base import norm_no
+        for raw in ("GB／T 17098－1997", "GB/T—17098", "HJ 819–2017"):
+            assert norm_no(raw) == canon_standard_no(raw), raw

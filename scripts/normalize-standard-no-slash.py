@@ -23,6 +23,7 @@
 from __future__ import annotations
 
 import json
+import sqlite3
 import sys
 from datetime import datetime
 from pathlib import Path
@@ -31,11 +32,30 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")  # noqa: UP026
 
+from src.core.config import get_settings  # noqa: E402
 from src.core.storage.sqlite_db import get_db_connection, write_transaction  # noqa: E402
 
 COLS = ("standard_no", "short_code", "standard_name")
 FW = "／"
 OUT_DIR = ROOT / "var" / "backup"
+
+
+def _db_stat() -> dict:
+    """库文件的 (大小, mtime, sha256)。
+
+    ⚠ 独立复核 b31 的收尾建议：**"可回滚"不能只是口头承诺**——回滚清单必须逐行记 doc_id→原值，
+    并且**带上写前/写后的库指纹**，否则事后无法证明"改的就是这些行、库也没被别的东西动过"。
+    （2.3GB 的库哈希一次约十几秒；这一步只在 `--apply` 时做两次。）
+    """
+    import hashlib
+    p = Path(get_settings().db_path)
+    h = hashlib.sha256()
+    with p.open("rb") as f:
+        for chunk in iter(lambda: f.read(1 << 22), b""):
+            h.update(chunk)
+    return {"path": str(p), "size": p.stat().st_size,
+            "mtime": datetime.fromtimestamp(p.stat().st_mtime).isoformat(timespec="seconds"),
+            "sha256": h.hexdigest()}
 
 
 def _plan(conn) -> tuple[list[dict], list[dict]]:
@@ -85,7 +105,9 @@ def main() -> int:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     plan_path = OUT_DIR / f"r6c2c-normalize-slash-{stamp}.json"
+    before = _db_stat() if apply else None
     plan_path.write_text(json.dumps({"generated_at": stamp, "apply": apply,
+                                     "db_before": before,
                                      "changes": changes, "skipped": skipped},
                                     ensure_ascii=False, indent=2), encoding="utf-8")
     print("变更清单:", plan_path.relative_to(ROOT))
@@ -99,8 +121,25 @@ def main() -> int:
     conn2 = get_db_connection()
     left = {col: conn2.execute(
         f"SELECT COUNT(*) n FROM doc_meta WHERE {col} LIKE '%／%'").fetchone()["n"] for col in COLS}
+    integrity = conn2.execute("PRAGMA integrity_check").fetchone()[0]
+    # ⚠ **必须在 checkpoint 之后再取指纹**（2026-09-18 自己踩到并更正）：
+    #   第一次跑时我在写完立刻 `_db_stat()`，而那时改动还在 WAL 里、主库文件**一个字节都没变**
+    #   ⇒ 记下的 "after" 指纹与 "before" **完全相同**（看起来像"什么都没写"）。
+    #   指纹只有在 WAL 落盘后才有证据价值：先 checkpoint(TRUNCATE) 再关连接，最后取 stat。
+    try:
+        conn2.execute("PRAGMA wal_checkpoint(TRUNCATE)")
+    except sqlite3.Error as e:  # noqa: F821 —— 少见：库不是 WAL 模式
+        print("（wal_checkpoint 跳过：", e, "）")
+    conn2.close()
+    after = _db_stat()
+    plan_path.write_text(json.dumps({"generated_at": stamp, "apply": True,
+                                     "db_before": before, "db_after": after,
+                                     "integrity_check": integrity, "remaining_fullwidth": left,
+                                     "changes": changes, "skipped": skipped},
+                                    ensure_ascii=False, indent=2), encoding="utf-8")
     print("\n写库完成。剩余含全角斜杠的行:", left)
-    print("integrity_check(后):", conn2.execute("PRAGMA integrity_check").fetchone()[0])
+    print("integrity_check(后):", integrity)
+    print("库指纹(写后):", {k: after[k] for k in ("size", "mtime", "sha256")})
     print("（跳过的那几处仍在 —— 那是**故意**留的，见清单 skipped）")
     return 0
 

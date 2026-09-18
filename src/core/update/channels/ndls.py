@@ -43,6 +43,7 @@ from src.core.update.channels.base import (
     looks_like_captcha,
     map_state_text,
     norm_no,
+    query_no,
     strip_year,
     upd_log,
 )
@@ -83,10 +84,15 @@ class NdlsAdapter(ChannelAdapter):
         t0 = perf_counter()
 
         # 1) 按标准号搜索 → id（POST JSON，站点前端同款请求体）
+        # ⚠ **请求体里的关键词也要用 `query_no`**（§11.0 R6c-2b 补，独立复核 b31 抓到的反例）：
+        #   上一轮只改了 Referer，请求体仍带原始全角 `／`——"送出去的请求里没有全角"这条声明
+        #   因此对 ndls **不成立**（而它是 routing 会把 AQ/GB 送过去的可达渠道）。
+        #   站点两种写法都收（复核实测 3 号×2 写法全 found=True），所以这不是"修好才能用"，
+        #   而是**口径一致**：查询值一律用规范形，别留下"有的渠道折了、有的没折"的缝。
         status, body = self._fetch(
             self.SEARCH_URL,
             method="post",
-            json=self._search_body(standard_no),
+            json=self._search_body(query_no(standard_no)),
             # ⚠ Referer 里的关键词必须**转义成 ASCII**（§11.0 R6c-2a，独立复核 b30 定位）：
             #   真库 92% 的标准号含全角斜杠 `／`，而 HTTP 头按 latin-1 编码 ⇒ 带着原始号拼 Referer
             #   会在**请求发出之前**抛 `UnicodeEncodeError`：这条渠道对那 92% 的号**根本发不出请求**，
