@@ -23,6 +23,8 @@
 import { createElement } from 'react'
 
 import { KsEvidenceHost, type KsEvidenceHostInjected } from './KsEvidenceHost'
+import { KsKnowledgeGuide } from './KsKnowledgeGuide'
+import { KsKnowledgePage } from './KsKnowledgePage'
 import { KsScopeChip } from './KsScopeChip'
 import { KsSettingsSection } from './KsSettingsSection'
 
@@ -30,8 +32,11 @@ import {
   KS_EVIDENCE_ADDRESS,
   KS_EVIDENCE_IMPL_ID,
   KS_EVIDENCE_KIND,
+  KS_KB_IMPL_ID,
   ksEvidenceDefinition,
+  ksKbDefinition,
   toNavParams,
+  type KsKbInjected,
   type KsSidebarRight,
   type KsTabRegistry,
 } from './ksSidebar'
@@ -290,6 +295,9 @@ function registerSidebarSurfaces(
       // ① 类型声明。`register` 抛错即接线错误（同 id/同 kind 重复注册），
       //    让它冒到下面的 catch 里点名，而不是静默少一个 tab。
       const disposeType = tabs.register(ksEvidenceDefinition())
+      // ①b 「知识库」类型（2026-09-19）：开始页那张卡的落点，按 params.page 分发四个二级页。
+      //     与证据类型**分开注册**的理由见 ksSidebar.ts 的 KS_KB_* 段注释。
+      const disposeKbType = tabs.register(ksKbDefinition())
 
       // ② body 座位。**两个面必须分清**（2026-09-17 修空白 pane 的根因）：
       //    - `hookContext: TabHookContext`（座位契约）⇒ 框架把 `useTabInfo` **作为
@@ -300,6 +308,8 @@ function registerSidebarSurfaces(
       //    旧实现把第一参数当"聚合面"并断言 `hooks.tabInfo` —— 那值永远是 undefined，
       //    自设守卫于是挂载即抛 → 官方 `slot entry crashed` → **点进来全白**（真机实测）。
       let disposeBody: (() => void) | undefined
+      let disposeKbBody: (() => void) | undefined
+      let disposeGuideCard: (() => void) | undefined
       if (ctx.slots !== undefined) {
         disposeBody = ctx.slots.inject('sidebar.right.pane.tab', () => ctx.slots!.register({
           name: 'sidebar.right.pane.tab',
@@ -307,6 +317,24 @@ function registerSidebarSurfaces(
           // 只贡献我们自己的那一个面；`useTabInfo` 由框架按 hookContext 给。
           inject: (): KsEvidenceHostInjected => ({ openEvidence }),
         }, KsEvidenceHost))
+
+        // ②b 「知识库」pane body。注意它**不注入任何引擎面**：本轮只有 UI，
+        //     页面数据是组件内的占位常量（`dataSource: 'mock'`），
+        //     将来接引擎时换成注入的数据函数即可，页面形状不用改。
+        disposeKbBody = ctx.slots.inject('sidebar.right.pane.tab', () => ctx.slots!.register({
+          name: 'sidebar.right.pane.tab',
+          key: KS_KB_IMPL_ID,
+          inject: (): KsKbInjected => ({ dataSource: 'mock' }),
+        }, KsKnowledgePage))
+
+        // ②c 开始页那张卡（「知识库」+ ▾ 二级目录）。
+        //     官方 README：'开始页按当前生效的**定义 id** 渲染 sidebar.right.tab.guide.entry…
+        //     provider 可按自己的定义 id 注册自定义卡片'。故 key 用**定义 id**（不是 kind）——
+        //     与宿主 ui-sidebar-terminal/src/client/index.ts:62 的 `key: id` 同法。
+        disposeGuideCard = ctx.slots.inject('sidebar.right.tab.guide.entry', () => ctx.slots!.register({
+          name: 'sidebar.right.tab.guide.entry',
+          key: KS_EVIDENCE_IMPL_ID,
+        }, KsKnowledgeGuide))
       } else {
         console.error('[ks-dsh-plugin] slots 不可用：PDF 证据 tab body 未注册（tab 类型已注册但无内容）')
       }
@@ -345,7 +373,10 @@ function registerSidebarSurfaces(
         // 撤销"打开证据"能力：设置栏目仍在（它不随右侧栏撤销），故必须清掉引用，
         // 否则它会调到一个已失效的 right（旧实现同类问题的教训）。
         rightRef.current = null
+        disposeGuideCard?.()
+        disposeKbBody?.()
         disposeBody?.()
+        disposeKbType()
         disposeType()
       }
     },

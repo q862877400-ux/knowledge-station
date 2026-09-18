@@ -34,7 +34,7 @@
 
 import type { ComponentType } from 'react'
 
-import { KsPdfGuideIcon } from './KsPdfGuideIcon'
+import { KsKnowledgeGuideIcon } from './KsKnowledgeGuideIcon'
 
 /** 本类型的实现身份（body/title 座位的 key）与类型判别符。 */
 export const KS_EVIDENCE_IMPL_ID = 'ks-dsh-plugin/evidence-pdf'
@@ -66,6 +66,34 @@ export const KS_EVIDENCE_RESOURCE_PREFIX = 'dsh-resource://ks-evidence'
 /** 单例证据 tab 的地址（恒定，见上）。 */
 export const KS_EVIDENCE_ADDRESS = KS_EVIDENCE_RESOURCE_PREFIX
 
+/* ============================================================================
+   「知识库」类型（2026-09-19 新增，业主指令：把开始页那张「PDF 查看器」卡改成
+   「知识库」并加一个二级目录）。
+
+   它与 PDF 证据 tab 是**两个类型**，刻意不合并：
+   - `ks-evidence`（原有）：单例、地址恒定、**由证据链接驱动**（点引用跳那一页）；
+   - `ks-knowledge`（新增）：知识库管理/导入/报告/渠道台账的**页面容器**，按
+     `params.page` 分发四种页。
+   合并会让"点证据跳页"和"打开管理页"抢同一个地址，重载语义立刻打结。
+   ============================================================================ */
+
+/** 知识库页的四个二级页（对应 ▾ 菜单里除 PDF 之外的四项）。 */
+export type KsKbPage = 'manage' | 'ingest' | 'report' | 'channels'
+
+/** 知识库 tab 的实现身份与类型判别符。 */
+export const KS_KB_IMPL_ID = 'ks-dsh-plugin/knowledge'
+export const KS_KB_KIND = 'ks-knowledge'
+
+/** 知识库 tab 的地址（与证据 tab 同理：地址恒定，二级页走 `params.page`）。 */
+export const KS_KB_RESOURCE_PREFIX = 'dsh-resource://ks-knowledge'
+export const KS_KB_ADDRESS = KS_KB_RESOURCE_PREFIX
+
+/** 知识库 tab 的导航参数。 */
+export interface KsKbNavParams {
+  readonly page?: KsKbPage
+}
+
+
 /**
  * 一次证据导航的官方 `params`（`openResource` 的 `options.params`）。
  * 字段语义与 `ksEvidence.ts` 的 `KsEvidence` 一致，故解析仍是那一处所有者。
@@ -83,7 +111,25 @@ export interface UseKsTabInfo {
       kind: string
       title: string
       /** 导航记录：地址 + 参数；`revision` 每次 navigate 递增 → 作为重载信号。 */
-      navigation: { address: string; revision: number; params?: KsEvidenceNavParams }
+      navigation: {
+        address: string
+        revision: number
+        params?: KsEvidenceNavParams | KsKbNavParams
+      }
+      /**
+       * tab 级动作。**开始页的卡片必须用它**：官方 `GuideBody` 的胶囊被点后就是
+       * `openTab(kind)`（见 `KsTabDefinition.guide` 的注释），而"卡片刻的画法"是
+       * provider 自己负责的（官方 README 原话），所以从卡片里打开别的页也只能走这里。
+       *
+       * 形状取自宿主已发货的 `ui-sidebar-terminal/src/client/TerminalGuide.tsx`：
+       * `tab.actions.openTab('terminal', { replaceTab: true, params: { shellPath } })`。
+       */
+      actions: {
+        openTab(kind: string, options?: {
+          replaceTab?: boolean
+          params?: KsEvidenceNavParams | KsKbNavParams | Record<string, unknown>
+        }): void
+      }
       /** tab 记录生命周期的 AbortSignal（组件清理应挂它）。 */
       signal: AbortSignal
       visible?: boolean
@@ -192,20 +238,23 @@ export function evidenceTabTitle(_address: string): string {
 export const KS_GUIDE_ORDER_PDF = 30
 
 /**
- * 开始页入口胶囊的标题。
+ * 开始页入口卡片的标题。
  *
- * **与 tab 初始标题同源**（都走 `evidenceTabTitle`）：胶囊点开后就是同一个 tab，
- * 两处叫法必须一致，否则用户会以为是两个不同的东西。
+ * ⚠ **2026-09-19 起不再与 tab 标题同源**（原来两处都走 `evidenceTabTitle`）。
+ * 业主把开始页那张卡从「PDF 查看器」改成「**知识库**」——因为它现在是一个**入口**
+ * （下挂知识库管理/文件导入/效力报告/渠道台账 + PDF 查看器），不再是 PDF 阅读器本身。
+ * PDF 阅读器的 tab 标题**仍是**「PDF 查看器」（`evidenceTabTitle`），两者刻意分开：
+ * 卡片管"进哪个门"，tab 标题管"我正看着什么"，混用会让用户以为卡片刻的就是 PDF。
  */
 export function ksGuideEntryTitle(): string {
-  return evidenceTabTitle(KS_EVIDENCE_ADDRESS)
+  return '知识库'
 }
 
 /**
- * 开始页入口胶囊的说明（官方只在条目 ≤4 个时才显示说明，多了只留标题）。
+ * 开始页入口卡片的说明（官方只在条目 ≤4 个时才显示说明，多了只留标题）。
  */
 export function ksGuideEntryDescription(): string {
-  return '打开国标 / 法规 PDF 阅读原文（无需先有证据链接）'
+  return '法规标准与自有资料：目录、标签、导入、效力报告'
 }
 
 /**
@@ -226,11 +275,77 @@ export function ksEvidenceDefinition(): KsTabDefinition {
     canOpen: isKsEvidenceResource,
     title: evidenceTabTitle,
     guide: [{
-      id: 'pdf',
+      id: 'kb',
       order: KS_GUIDE_ORDER_PDF,
       title: ksGuideEntryTitle,
       description: ksGuideEntryDescription,
-      icon: KsPdfGuideIcon,
+      icon: KsKnowledgeGuideIcon,
     }],
   }
+}
+
+/**
+ * 知识库 tab 的标题（恒定：二级页名走页面内标题，不进 tab 标题，
+ * 否则同一 tab 在四个二级页之间切换时标题会跳）。
+ */
+export function ksKbTabTitle(_address: string): string {
+  return '知识库'
+}
+
+/** 知识库地址判据（只认我们自己的地址，避免接管外来链接）。 */
+export function isKsKbResource(address: string): boolean {
+  return address === KS_KB_ADDRESS
+    || address.startsWith(`${KS_KB_ADDRESS}?`)
+    || address.startsWith(`${KS_KB_ADDRESS}/`)
+}
+
+/**
+ * 构造「知识库」tab 类型的官方声明。
+ *
+ * 与证据 tab 的差别：**不设 `patterns` 到证据地址**，用自己的地址；
+ * 同样不设 `multiple`（单例：二级页是同一 tab 的四个面，不是四个 tab）。
+ */
+export function ksKbDefinition(): KsTabDefinition {
+  return {
+    id: KS_KB_IMPL_ID,
+    kind: KS_KB_KIND,
+    patterns: [KS_KB_ADDRESS],
+    priority: 'extension',
+    canOpen: isKsKbResource,
+    title: ksKbTabTitle,
+    // 不出现在开始页：开始页只保留一张「知识库」卡（它就是本类型的门），
+    // 否则同一个入口会在开始页出现两次。
+  }
+}
+
+/**
+ * 框架转发给**开始页卡片**组件的运行时 props（官方 `sidebar.right.tab.guide.entry` 座位）。
+ *
+ * 字段依据官方 README：「按当前生效的定义 id 渲染…传入入口 id、解析后的标题、
+ * 可选描述，以及框架提供的 `useTabInfo` hook」。
+ */
+export interface KsGuideCardProps {
+  /** 解析后的入口标题（来自我们声明的 `guide[].title()`）。 */
+  readonly title: string
+  /** 解析后的说明；官方在条目多时会**不给**这个字段。 */
+  readonly description?: string
+  /** 贡献这张卡的类型判别符（官方会写进 `data-sidebar-right-guide-entry`）。 */
+  readonly kind: string
+  readonly useTabInfo: UseKsTabInfo
+}
+
+/** 框架转发给 **pane body** 组件的运行时 props（官方 `sidebar.right.pane.tab` 座位）。 */
+export interface KsPaneBodyProps {
+  readonly kind: string
+  readonly useTabInfo: UseKsTabInfo
+}
+
+/**
+ * 「知识库」页当前注入的面。
+ *
+ * ⚠ 本轮**只有 UI**：`dataSource` 恒为 `'mock'`，页面数据是组件内的占位常量，
+ * 没有任何 `/ks/*` 调用。将来接引擎时把数据源换成注入的函数，页面的形状不用改。
+ */
+export interface KsKbInjected {
+  readonly dataSource: 'mock'
 }

@@ -87,6 +87,21 @@ await writeFile(pdfStubPath, [
   'export default { GlobalWorkerOptions, version, getDocument, RenderingCancelledException }',
   '',
 ].join('\n'), 'utf8')
+
+// 宿主的 `@deepseek-ai/dsh-client-ui-primitives`（Button / Menu / IconChevronDownOutline14 …）
+// ——**这是 baseline 模块**（官方 docs/subsystems/client-modules.zh.md：`external` 只管
+// "non-baseline module specifiers"；这一个是 `packages/client/web/src/seed.ts` 里那 9 个
+// 平台单例之一），所以浏览器里 require 得到，**不需要在 package.json 里声明**。
+// 但本冒烟在 **Node** 里跑、没有宿主模块表，故同样换桩——与上面 pdfjs 的处理同一个理由：
+// 我们测的是 apply() 的接线，不是渲染。桩里的三个成员只需**存在**（本冒烟不渲染它们）。
+const primitivesStubPath = join(stubDir, 'primitives-stub.mjs')
+await writeFile(primitivesStubPath, [
+  'const Null = () => null',
+  'export const Button = Null',
+  'export const Menu = Null',
+  'export const IconChevronDownOutline14 = Null',
+  '',
+].join('\n'), 'utf8')
 await writeFile(entryPath,
   "export { apply, inject } from './client/entry.ts'\n", 'utf8')
 try {
@@ -94,7 +109,7 @@ try {
     entryPoints: [entryPath], bundle: true, platform: 'node', format: 'esm',
     outfile: outPath, absWorkingDir: pluginRoot, jsx: 'automatic',
     external: ['react', 'react-dom'],
-    alias: { 'pdfjs-dist': pdfStubPath },
+    alias: { 'pdfjs-dist': pdfStubPath, '@deepseek-ai/dsh-client-ui-primitives': primitivesStubPath },
     loader: { '.tsx': 'tsx', '.ts': 'ts' }, logLevel: 'warning',
   })
 } catch (err) {
@@ -302,8 +317,14 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     built.registered.map((r) => String(r.options?.id)).join(','))
 
   // ── 官方两段式：① 类型注册 ② body 座位注册 ──
-  check('stage 1: exactly one tab TYPE registered (ks-evidence)',
-    tabs.registered.length === 1 && tabs.registered[0]?.kind === 'ks-evidence',
+  // ⚠ 2026-09-19 起本插件注册**两个**类型（原来只断言 1 个）：
+  //   ① ks-evidence —— PDF 证据阅读器（单例、由证据链接驱动）；
+  //   ② ks-knowledge —— 知识库页（开始页那张卡片的落点，按 params.page 分发二级页）。
+  //   断言**有序的完整集合**而不是"长度=1"：既允许新增，又让"悄悄多/少一个类型"照样红。
+  check('stage 1: exactly the two expected tab TYPES registered (ks-evidence, ks-knowledge)',
+    tabs.registered.length === 2
+    && tabs.registered[0]?.kind === 'ks-evidence'
+    && tabs.registered[1]?.kind === 'ks-knowledge',
     tabs.registered.map((d) => String(d.kind)).join(',') || '(none)')
   check('stage 1: the type claims only our own constant resource address',
     Array.isArray(tabs.registered[0]?.patterns)
@@ -314,6 +335,25 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     && tabs.registered[0]?.canOpen('dsh-resource://file/x.md') === false)
   check('stage 1: the type is NOT multiple (evidence viewer is a singleton)',
     tabs.registered[0]?.multiple === undefined)
+
+  // ── 第二个类型（知识库，2026-09-19）也必须有同样的契约断言 ──
+  // 不加这段，门禁对它就**是空的**：改坏它的地址/canOpen/单例性都不会红。
+  const kb = tabs.registered[1]
+  check('stage 1: the knowledge type claims only its own address',
+    Array.isArray(kb?.patterns) && kb.patterns.length === 1
+    && kb.patterns[0] === 'dsh-resource://ks-knowledge',
+    JSON.stringify(kb?.patterns))
+  check('stage 1: the knowledge type canOpen accepts its address and refuses a foreign one',
+    kb?.canOpen('dsh-resource://ks-knowledge') === true
+    && kb?.canOpen('dsh-resource://file/x.md') === false
+    && kb?.canOpen('dsh-resource://ks-evidence') === false)
+  check('stage 1: the knowledge type is NOT multiple (二级页是同一 tab 的四个面，不是四个 tab)',
+    kb?.multiple === undefined)
+  // 开始页只该有**一张**来自本插件的卡（它就是知识库类型的门）。
+  // 若知识库类型也贡献 guide，开始页会出现两张几乎同名的卡。
+  check('stage 1: the knowledge type contributes NO guide entry (start page keeps ONE card from us)',
+    kb?.guide === undefined || kb.guide.length === 0,
+    JSON.stringify(kb?.guide?.map?.((g) => g.id) ?? null))
   // ── 侧栏「开始页」手动入口（官方 guide 胶囊）──
   // 官方 GuideBody 把每个类型贡献的胶囊按 `order` 升序排；实测在用的值：
   // ui-sidebar-files = 10、ui-sidebar-terminal = 20（新建终端）。故 30 = 紧跟在它下面。
@@ -325,13 +365,20 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     guide?.[0]?.order === 30 && guide[0].order > 20 && guide[0].order > 10,
     `order=${guide?.[0]?.order}`)
   check('stage 1: the guide entry has a unique id, live title/description and an icon component',
-    guide?.[0]?.id === 'pdf'
+    guide?.[0]?.id === 'kb'
     && typeof guide[0].title === 'function' && guide[0].title().length > 0
     && typeof guide[0].description === 'function' && guide[0].description().length > 0
     && typeof guide[0].icon === 'function',
     `id=${guide?.[0]?.id} title=${guide?.[0]?.title?.()} icon=${typeof guide?.[0]?.icon}`)
-  check('stage 1: the guide capsule and the tab chip use the SAME name (one thing, one label)',
-    guide?.[0]?.title?.() === tabs.registered[0]?.title?.('dsh-resource://ks-evidence'),
+  // ⚠ 2026-09-19 **故意反转**的一条旧断言。
+  //   旧断言："开始页胶囊与 tab 标题必须同名（一个东西一个名字）"——当时两者都是「PDF 查看器」。
+  //   业主指令：把开始页那张卡改成「**知识库**」并挂二级目录。于是它们是**两件事**：
+  //     卡片 = 入口（进知识库），tab = 你正看着的东西（PDF 阅读器）。
+  //   故不再断言相等，而是**各自钉死字面量** —— 比原来的"相等"更强：任一侧被误改都会红，
+  //   且"哪一侧改错了"从输出里一眼可辨。
+  check('stage 1: guide card and tab chip carry their OWN pinned labels (decoupled on purpose)',
+    guide?.[0]?.title?.() === '知识库'
+    && tabs.registered[0]?.title?.('dsh-resource://ks-evidence') === 'PDF 查看器',
     `guide=${guide?.[0]?.title?.()} tab=${tabs.registered[0]?.title?.('dsh-resource://ks-evidence')}`)
   const body = built.registered.find((r) => r.options?.name === 'sidebar.right.pane.tab')
   check('stage 2: the body seat registered under the type id',
@@ -403,7 +450,7 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     built.listeners.map(([e]) => String(e)).join(','))
   const late = built.provideBetterSidebar() // 服务此刻才提供 → 触发 internal/service
   check('late sidebar: the tab type registers the moment the services appear',
-    late.tabs.registered.length === 1 && built.injected.includes('settings.section'),
+    late.tabs.registered.length === 2 && built.injected.includes('settings.section'),
     `types=${late.tabs.registered.length} injected=${built.injected.join(',')}`)
   check('late sidebar: the settings column is registered exactly once',
     built.registered.filter((r) => r.options?.id === 'ks-dsh-plugin').length === 1,
@@ -418,7 +465,7 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     `before=${clicksBefore} after=${listenerCount('click')}`)
   const again = built.provideBetterSidebar()
   check('service re-provide: the tab type comes back after an unprovide/re-provide cycle',
-    again.tabs.registered.length === 1, `types=${again.tabs.registered.length}`)
+    again.tabs.registered.length === 2, `types=${again.tabs.registered.length}`)
   check('service re-provide: exactly one click listener again (no accumulation)',
     listenerCount('click') === clicksBefore, `clicks=${listenerCount('click')}`)
 }

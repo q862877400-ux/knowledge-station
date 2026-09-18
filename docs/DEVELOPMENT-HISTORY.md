@@ -7656,3 +7656,75 @@ CCS 分类号/区间名**取自 `doc_catalog.py` 的真实全表**（非我编�
 
 ⚠ 边界：**我没有在浏览器里渲染过它**（只做了语法与 token 对账）——真机像素请业主打开确认。
 本轮**仍未动一行实现代码**。
+
+## §10.126 UI 真落地：开始页那张卡改成「知识库 + ▾」二级目录（真插件、真宿主机制）
+
+业主先给了右侧栏的**真机截图**，指出我一直在错的地方建原型：
+> 「图片是右侧边栏点开后的界面，下面那个 PDF 查看器变成知识库，然后又下拉菜单，菜单里是刚刚说的东西」
+> 「你能不能把 DSH 的前端文件复制一份，然后直接按照真实落地的方式做 UI，只做 UI，后端接口留着不写。
+>  这样就**百分百是最终视觉效果**」
+> （我此前只交了 HTML 仿真，业主判为不合格："啥呀这是"。）
+
+⇒ 本轮**不再做 HTML 仿真，直接改真插件**：`plugin/client/*`。因为"100% 最终视觉效果"只有一条路——
+跑在真宿主里。
+
+### 三处关键机制（全部一手，含官方文档依据）
+
+1. **开始页那张卡是"槽位"，provider 可自己画。**
+   官方 `ui-sidebar-right/README.zh.md:101` 原话：「开始页按当前生效的**定义 id** 渲染
+   `sidebar.right.tab.guide.entry`… **provider 可按自己的定义 id 注册自定义卡片**；未注册时使用
+   默认图标与标题按钮。侧栏负责宽度和排列，**自定义组件负责内部结构和交互**。」
+   ⇒ 「新建终端」右边的 ▾ 就是这么来的（`ui-sidebar-terminal/src/client/TerminalGuide.tsx` +
+   `index.ts:62` 的 `key: id`）。**照它做**，而不是自己发明。
+2. **宿主 `Button`/`Menu`/`IconChevronDownOutline14` 是我们能 require 的。**
+   官方 `docs/subsystems/client-modules.zh.md`：`external` 只管 "**non-baseline** module specifiers"；
+   baseline 是 `packages/client/web/src/seed.ts` 里那 9 个（注释原话 "the **ONLY** entities the shell
+   shares into the frozen module table"），`@deepseek-ai/dsh-client-ui-primitives` 在其中。
+   ⇒ **下拉就是宿主那个 Menu**，风格同源而非我抄像素。
+   ⚠ 但 `plugin/node_modules/@deepseek-ai/` 里**没有**它 ⇒ 直接 import 会让 `tsc` 红；
+   故加 `ksHostPrimitives.d.ts` 用 `declare module` 自持类型（运行时是真货）——
+   与 `ksSidebar.ts` 对 sidebar 契约"只声明我们调用的最小面"同一手法。
+3. **样式只能运行时注入**：我们的 esbuild（`build-client.mjs`）**没有 CSS loader**，
+   import `.css` 会产出**第二个文件**、而宿主只加载 `client.js` ⇒ 样式永远不生效。
+   ⇒ `ksGuideStyles.ts` 运行时注入 `<style>`；颜色全走**宿主活 token**（`var(--dsw-alias-*)`，
+   深浅色自动跟随）；卡片几何逐条抄 `TerminalGuide.module.css`（radius 24px / min-height 56px /
+   padding 14px 20px / ▾ 宽 44px）。
+
+### 改了什么
+
+| 文件 | 事 |
+|---|---|
+| `KsKnowledgeGuide.tsx`（新） | 开始页那张卡：「知识库」+ ▾（知识库管理/文件导入/效力报告/渠道台账/打开 PDF 查看器） |
+| `KsKnowledgePage.tsx`（新） | 知识库页 body：自带两棵树（层级名用 `doc_catalog` 的权威 CCS 表）+ 自建夹 |
+| `KsKnowledgeGuideIcon.tsx`、`ksGuideStyles.ts`、`ksHostPrimitives.d.ts`（新） | 图标 / 注入样式 / 宿主 primitives 的最小面声明 |
+| `ksSidebar.ts` | 新增 `ks-knowledge` 类型（`KS_KB_*`）、`actions.openTab`、guide 卡与 tab 标题**解耦** |
+| `entry.ts` | 注册第二类型 + 第二 body + **guide 卡片槽位**（key 用**定义 id**，与 terminal 同法） |
+| `scripts/smoke-client-entry.mjs` | 见下 |
+
+**PDF 阅读器没删**：从"开始页一张卡"变成"知识库入口下的一个去处"（菜单最后一项），
+符合业主"原件查看窗口 + 目录保留"的要求。
+
+### 门禁抓到的两处**真缺陷**（不是门禁碍事）
+
+1. **smoke 的 external 清单与真实构建不一致**：主构建 external `@deepseek-ai/*` 全量，
+   smoke 只 external `['react','react-dom']`。它以前没暴露，因为我们对宿主模块一直只做**类型**导入
+   （会被擦除）。⇒ 按它**已有的 pdfjs 桩做法**补 primitives 桩（同一理由：测的是 `apply()` 接线，不是渲染）。
+2. **5 条断言写死了旧不变量**（"有且仅有一个类型"、"卡片标题必须等于 tab 标题"）。
+   **没有放宽，而是重写成更强的**：类型断言 → **有序完整集合**；标题 → **各自钉死字面量**
+   （任一侧误改都红，且"哪侧错"从输出一眼可辨）；并**给新类型补 4 条断言**
+   （地址只认自己 / `canOpen` 拒外来 / 单例 / 不贡献第二个卡片）——否则门禁对新类型**是空的**。
+
+### 门禁（全部零回退）
+
+`tsc -p plugin/client` **0 错** · `npm run smoke` 全链 PASS（`client-entry` **94/94**，原有 90 条 +
+新类型 4 条）· `verify:commands` **22/22** · `verify-engine-uvicorn` **4/4** ·
+`mypy` **142 文件 0 错** · `pytest` **2136 passed / 3 skipped**（与基线一致）。
+
+### ⚠ 边界（必须照实说）
+
+- **要看到它得重启 DSH 宿主**：官方文档明写「生产环境的图完全不含 HMR 行；module host 自身从不监视文件」，
+  插件 bundle 的 rev 只在**启动时组合**。重启会结束当前会话，故这一步留给业主定
+  （或开 `pnpm run dev:web` 走 HMR，但不确定它是否同端口，不敢拿业主正在用的 GUI 赌）。
+- **知识库页是纯 UI**：页首黄条写明「数据是占位，后端接口未接」，`＋ 新建文件夹` 是 **disabled**，
+  导入/效力报告/渠道台账三项是**诚实的占位页**（真入口、空内容）。**一个引擎接口都没调。**
+- **我没有在浏览器里渲染过它**（门禁证明的是接线与产物一致，不是像素）。

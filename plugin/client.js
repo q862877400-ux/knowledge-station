@@ -32195,15 +32195,432 @@ function KsEvidenceBody(props) {
   return React.createElement(KsEvidenceTab, evidenceProps);
 }
 
-// client/KsScopeChip.tsx
+// client/KsKnowledgeGuide.tsx
 var import_react5 = require("react");
+var import_dsh_client_ui_primitives = require("@deepseek-ai/dsh-client-ui-primitives");
+
+// client/ksGuideStyles.ts
+var STYLE_ID = "ks-dsh-plugin-styles";
+var KS_STYLES = `
+/* ---------- \u5F00\u59CB\u9875\u5165\u53E3\u5361\uFF08\u7167 TerminalGuide.module.css \u7684\u6570\u503C\uFF09 ---------- */
+.ks-guide-entry{box-sizing:border-box;display:flex;align-items:stretch;width:100%;overflow:hidden;
+  border:.5px solid var(--dsw-alias-border-l4);border-radius:24px;background:var(--dsw-alias-bg-layer-1)}
+.ks-guide-main{flex:1;justify-content:flex-start;gap:14px;min-width:0;height:auto;min-height:56px;
+  padding:14px 20px;border-radius:24px 0 0 24px;text-align:left}
+.ks-guide-icon{flex:none;color:var(--dsw-alias-label-secondary)}
+.ks-guide-text{display:flex;flex-direction:column;gap:3px;min-width:0}
+.ks-guide-title{overflow:hidden;color:var(--dsw-alias-label-primary);font-size:15px;line-height:1.4;
+  white-space:nowrap;text-overflow:ellipsis}
+.ks-guide-desc{overflow:hidden;color:var(--dsw-alias-label-caption);font-size:13px;line-height:1.4;
+  white-space:nowrap;text-overflow:ellipsis}
+.ks-guide-trigger{align-self:stretch;flex:none;height:auto;width:44px;padding:0;border-radius:0 24px 24px 0}
+
+/* ---------- \u77E5\u8BC6\u5E93\u9875 ---------- */
+.ks-kb{display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--dsw-alias-label-primary)}
+.ks-kb-banner{font-size:12px;line-height:1.5;color:var(--dsw-alias-state-warn-label);
+  background:var(--dsw-alias-state-warn-tertiary);border:1px solid var(--dsw-alias-border-l2);
+  border-radius:8px;padding:7px 9px}
+.ks-kb-row{display:flex;align-items:center;gap:8px}
+.ks-kb-grow{flex:1;min-width:0}
+.ks-kb-hint{font-size:12px;color:var(--dsw-alias-label-tertiary)}
+.ks-kb-btn{border:1px solid var(--dsw-alias-border-l4);border-radius:8px;padding:4px 10px;font-size:12px;
+  color:var(--dsw-alias-label-secondary);background:transparent;cursor:pointer}
+.ks-kb-btn:hover{background:var(--dsw-alias-interactive-bg-hover)}
+.ks-kb-btn-primary{background:var(--dsw-alias-brand-primary);color:var(--dsw-alias-bg-base);
+  border-color:transparent;font-weight:600}
+.ks-kb-card{border:1px solid var(--dsw-alias-border-l2);border-radius:10px;padding:9px 10px;
+  background:var(--dsw-alias-bg-base)}
+.ks-kb-card:hover{border-color:var(--dsw-alias-border-l4)}
+.ks-kb-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.ks-kb-sec{font-size:12px;color:var(--dsw-alias-label-tertiary);margin-top:4px}
+.ks-kb-tree{font-size:13px}
+.ks-kb-tline{display:flex;align-items:center;gap:6px;padding:3px 6px;border-radius:6px;cursor:pointer}
+.ks-kb-tline:hover{background:var(--dsw-alias-interactive-bg-hover)}
+.ks-kb-tw{width:12px;flex:none;text-align:center;font-size:10px;color:var(--dsw-alias-label-caption)}
+.ks-kb-tn{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ks-kb-tc{font-size:11px;color:var(--dsw-alias-label-caption)}
+.ks-kb-doc{display:flex;gap:7px;padding:5px 6px;border-radius:6px}
+.ks-kb-doc:hover{background:var(--dsw-alias-interactive-bg-hover)}
+.ks-kb-no{flex:none;font-weight:600;font-family:ui-monospace,Consolas,monospace;font-size:12px}
+.ks-kb-nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  color:var(--dsw-alias-label-secondary)}
+.ks-kb-badge{flex:none;font-size:11px;border-radius:4px;padding:0 5px;
+  background:var(--dsw-alias-markdown-tag);color:var(--dsw-alias-label-secondary)}
+.ks-kb-badge-ok{background:var(--dsw-alias-state-success-tertiary);color:var(--dsw-alias-state-success-primary)}
+.ks-kb-badge-warn{background:var(--dsw-alias-state-warn-tertiary);color:var(--dsw-alias-state-warn-label)}
+.ks-kb-badge-bad{background:var(--dsw-alias-state-error-tertiary);color:var(--dsw-alias-state-error-primary)}
+`;
+function ensureKsStyles() {
+  if (typeof document === "undefined") return;
+  if (document.getElementById(STYLE_ID) !== null) return;
+  const el = document.createElement("style");
+  el.id = STYLE_ID;
+  el.textContent = KS_STYLES;
+  document.head.appendChild(el);
+}
+
+// client/KsKnowledgeGuideIcon.tsx
 var import_jsx_runtime5 = require("react/jsx-runtime");
+function KsKnowledgeGuideIcon({ size = 26, className }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+    "svg",
+    {
+      className,
+      width: size,
+      height: size,
+      viewBox: "0 0 24 24",
+      fill: "none",
+      stroke: "currentColor",
+      strokeWidth: "1.6",
+      strokeLinecap: "round",
+      strokeLinejoin: "round",
+      "aria-hidden": "true",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("path", { d: "M4 5.5A1.5 1.5 0 0 1 5.5 4H9v16H5.5A1.5 1.5 0 0 1 4 18.5z" }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("path", { d: "M11 4h7.5A1.5 1.5 0 0 1 20 5.5v13a1.5 1.5 0 0 1-1.5 1.5H11z" }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("path", { d: "M13.5 8.5h4M13.5 12h4" })
+      ]
+    }
+  );
+}
+
+// client/ksSidebar.ts
+var KS_EVIDENCE_IMPL_ID = "ks-dsh-plugin/evidence-pdf";
+var KS_EVIDENCE_KIND = "ks-evidence";
+var KS_EVIDENCE_RESOURCE_PREFIX = "dsh-resource://ks-evidence";
+var KS_EVIDENCE_ADDRESS = KS_EVIDENCE_RESOURCE_PREFIX;
+var KS_KB_IMPL_ID = "ks-dsh-plugin/knowledge";
+var KS_KB_KIND = "ks-knowledge";
+var KS_KB_RESOURCE_PREFIX = "dsh-resource://ks-knowledge";
+var KS_KB_ADDRESS = KS_KB_RESOURCE_PREFIX;
+function toNavParams(evidenceUrl) {
+  return { url: evidenceUrl };
+}
+function isKsEvidenceResource(address) {
+  return address === KS_EVIDENCE_ADDRESS || address.startsWith(`${KS_EVIDENCE_ADDRESS}?`) || address.startsWith(`${KS_EVIDENCE_ADDRESS}/`);
+}
+function evidenceTabTitle(_address) {
+  return "PDF \u67E5\u770B\u5668";
+}
+var KS_GUIDE_ORDER_PDF = 30;
+function ksGuideEntryTitle() {
+  return "\u77E5\u8BC6\u5E93";
+}
+function ksGuideEntryDescription() {
+  return "\u6CD5\u89C4\u6807\u51C6\u4E0E\u81EA\u6709\u8D44\u6599\uFF1A\u76EE\u5F55\u3001\u6807\u7B7E\u3001\u5BFC\u5165\u3001\u6548\u529B\u62A5\u544A";
+}
+function ksEvidenceDefinition() {
+  return {
+    id: KS_EVIDENCE_IMPL_ID,
+    kind: KS_EVIDENCE_KIND,
+    patterns: [KS_EVIDENCE_ADDRESS],
+    priority: "extension",
+    canOpen: isKsEvidenceResource,
+    title: evidenceTabTitle,
+    guide: [{
+      id: "kb",
+      order: KS_GUIDE_ORDER_PDF,
+      title: ksGuideEntryTitle,
+      description: ksGuideEntryDescription,
+      icon: KsKnowledgeGuideIcon
+    }]
+  };
+}
+function ksKbTabTitle(_address) {
+  return "\u77E5\u8BC6\u5E93";
+}
+function isKsKbResource(address) {
+  return address === KS_KB_ADDRESS || address.startsWith(`${KS_KB_ADDRESS}?`) || address.startsWith(`${KS_KB_ADDRESS}/`);
+}
+function ksKbDefinition() {
+  return {
+    id: KS_KB_IMPL_ID,
+    kind: KS_KB_KIND,
+    patterns: [KS_KB_ADDRESS],
+    priority: "extension",
+    canOpen: isKsKbResource,
+    title: ksKbTabTitle
+    // 不出现在开始页：开始页只保留一张「知识库」卡（它就是本类型的门），
+    // 否则同一个入口会在开始页出现两次。
+  };
+}
+
+// client/KsKnowledgeGuide.tsx
+var import_jsx_runtime6 = require("react/jsx-runtime");
+var MENU_ITEMS = [
+  { id: "manage", label: "\u77E5\u8BC6\u5E93\u7BA1\u7406" },
+  { id: "ingest", label: "\u6587\u4EF6\u5BFC\u5165" },
+  { id: "report", label: "\u6548\u529B\u62A5\u544A" },
+  { id: "channels", label: "\u6E20\u9053\u53F0\u8D26" },
+  { id: "pdf", label: "\u6253\u5F00 PDF \u67E5\u770B\u5668" }
+];
+function KsKnowledgeGuide({ title, description, kind, useTabInfo }) {
+  ensureKsStyles();
+  const { tab } = useTabInfo();
+  const [open, setOpen] = (0, import_react5.useState)(false);
+  const go = (page) => {
+    setOpen(false);
+    if (page === "pdf") {
+      tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true });
+      return;
+    }
+    tab.actions.openTab(KS_KB_KIND, { replaceTab: true, params: { page } });
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "ks-guide-entry", "data-sidebar-right-guide-entry": kind, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_dsh_client_ui_primitives.Button, { variant: "ghost", className: "ks-guide-main", onClick: () => {
+      go("manage");
+    }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(KsKnowledgeGuideIcon, { size: description === void 0 ? 22 : 26, className: "ks-guide-icon" }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { className: "ks-guide-text", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "ks-guide-title", children: title }),
+        description !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "ks-guide-desc", children: description })
+      ] })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+      import_dsh_client_ui_primitives.Menu,
+      {
+        open,
+        portal: true,
+        autoFocus: true,
+        align: "end",
+        items: MENU_ITEMS,
+        onClose: () => {
+          setOpen(false);
+        },
+        onSelect: (id) => {
+          go(id);
+        },
+        anchor: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+          import_dsh_client_ui_primitives.Button,
+          {
+            variant: "ghost",
+            className: "ks-guide-trigger",
+            "aria-label": "\u77E5\u8BC6\u5E93\u4E8C\u7EA7\u76EE\u5F55",
+            "aria-haspopup": "menu",
+            "aria-expanded": open,
+            onClick: () => {
+              setOpen((value) => !value);
+            },
+            children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_dsh_client_ui_primitives.IconChevronDownOutline14, {})
+          }
+        )
+      }
+    )
+  ] });
+}
+
+// client/KsKnowledgePage.tsx
+var import_react6 = require("react");
+var import_jsx_runtime7 = require("react/jsx-runtime");
+var STD_TREE = [
+  {
+    name: "P \u571F\u6728\u3001\u5EFA\u7B51",
+    children: [
+      {
+        name: "P15/19 \u5DE5\u7A0B\u6297\u9707\u3001\u5DE5\u7A0B\u9632\u706B\u3001\u4EBA\u9632\u5DE5\u7A0B",
+        children: [
+          {
+            name: "P16 \u5DE5\u7A0B\u9632\u706B",
+            docs: [
+              { no: "GB 50016-2014", name: "\u5EFA\u7B51\u8BBE\u8BA1\u9632\u706B\u89C4\u8303", st: "current" },
+              { no: "GB 55037-2022", name: "\u5EFA\u7B51\u9632\u706B\u901A\u7528\u89C4\u8303", st: "current" },
+              { no: "GB 50084-2017", name: "\u81EA\u52A8\u55B7\u6C34\u706D\u706B\u7CFB\u7EDF\u8BBE\u8BA1\u89C4\u8303", st: "current" },
+              { no: "GB 50016-2006", name: "\u5EFA\u7B51\u8BBE\u8BA1\u9632\u706B\u89C4\u8303\uFF082006 \u7248\uFF09", st: "withdrawn" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name: "C \u533B\u836F\u3001\u536B\u751F\u3001\u52B3\u52A8\u4FDD\u62A4",
+    children: [
+      {
+        name: "C65/74 \u52B3\u52A8\u5B89\u5168\u6280\u672F",
+        docs: [{ no: "GB 30871-2022", name: "\u5371\u9669\u5316\u5B66\u54C1\u4F01\u4E1A\u7279\u6B8A\u4F5C\u4E1A\u5B89\u5168\u89C4\u8303", st: "current" }]
+      }
+    ]
+  },
+  {
+    name: "Z \u73AF\u5883\u4FDD\u62A4",
+    children: [
+      {
+        name: "Z60/79 \u6C61\u67D3\u7269\u6392\u653E\u6807\u51C6",
+        docs: [
+          { no: "GB 8978-1996", name: "\u6C61\u6C34\u7EFC\u5408\u6392\u653E\u6807\u51C6", st: "current" },
+          { no: "GB 3095-2012", name: "\u73AF\u5883\u7A7A\u6C14\u8D28\u91CF\u6807\u51C6", st: "upcoming" }
+        ]
+      }
+    ]
+  }
+];
+var LAW_TREE = [
+  {
+    name: "\u6CD5\u5F8B",
+    children: [
+      {
+        name: "\u5BAA\u6CD5\u4E0E\u884C\u653F\u6CD5",
+        children: [
+          {
+            name: "\u5B89\u5168\u751F\u4EA7",
+            docs: [
+              { no: "", name: "\u4E2D\u534E\u4EBA\u6C11\u5171\u548C\u56FD\u5B89\u5168\u751F\u4EA7\u6CD5", st: "current" },
+              { no: "", name: "\u4E2D\u534E\u4EBA\u6C11\u5171\u548C\u56FD\u6D88\u9632\u6CD5", st: "current" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name: "\u884C\u653F\u6CD5\u89C4",
+    children: [
+      {
+        name: "\u5BAA\u6CD5\u4E0E\u884C\u653F\u6CD5",
+        docs: [{ no: "", name: "\u5371\u9669\u5316\u5B66\u54C1\u5B89\u5168\u7BA1\u7406\u6761\u4F8B", st: "current" }]
+      }
+    ]
+  }
+];
+var USER_FOLDERS = [
+  { name: "\u516C\u53F8\u5236\u5EA6", n: 23, desc: "\u96C6\u56E2\u5B89\u5168\u7BA1\u7406\u5236\u5EA6\u3001\u8D23\u4EFB\u5236\u3001\u8003\u6838\u529E\u6CD5" },
+  { name: "\u5185\u90E8\u64CD\u4F5C\u89C4\u7A0B", n: 11, desc: "\u5404\u8F66\u95F4\u5C97\u4F4D\u64CD\u4F5C\u89C4\u7A0B\u4E0E\u4F5C\u4E1A\u6307\u5BFC\u4E66" },
+  { name: "\u4F9B\u5E94\u5546\u8D44\u6599", n: 4, desc: "\u4F9B\u5E94\u5546\u8D44\u8D28\u4E0E\u68C0\u6D4B\u62A5\u544A" }
+];
+var BADGE = {
+  current: { cls: "ks-kb-badge ks-kb-badge-ok", text: "\u73B0\u884C" },
+  upcoming: { cls: "ks-kb-badge ks-kb-badge-warn", text: "\u5373\u5C06\u5B9E\u65BD" },
+  withdrawn: { cls: "ks-kb-badge ks-kb-badge-bad", text: "\u5DF2\u5E9F\u6B62" },
+  superseded: { cls: "ks-kb-badge ks-kb-badge-bad", text: "\u88AB\u66FF\u4EE3" }
+};
+function renderNodes(nodes, open, toggle, depth = 0) {
+  return nodes.map((node) => {
+    const isOpen = open.has(node.name);
+    const kids = node.children ?? [];
+    const leafCount = kids.length > 0 || (node.docs ?? []).length > 0;
+    return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+        "div",
+        {
+          className: "ks-kb-tline",
+          role: "button",
+          tabIndex: 0,
+          onClick: () => {
+            toggle(node.name);
+          },
+          onKeyDown: (event) => {
+            if (event.key === "Enter" || event.key === " ") toggle(node.name);
+          },
+          style: { paddingLeft: 6 + depth * 12 },
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { className: "ks-kb-tw", children: leafCount ? isOpen ? "\u25BE" : "\u25B8" : "\xB7" }),
+            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { className: "ks-kb-tn", title: node.name, children: node.name })
+          ]
+        }
+      ),
+      isOpen && kids.length > 0 && renderNodes(kids, open, toggle, depth + 1),
+      isOpen && (node.docs ?? []).map((doc) => /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-kb-doc", style: { paddingLeft: 18 + depth * 12 }, children: [
+        doc.no !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { className: "ks-kb-no", children: doc.no }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { className: "ks-kb-nm", title: doc.name, children: doc.name }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { className: BADGE[doc.st].cls, children: BADGE[doc.st].text })
+      ] }, node.name + doc.name))
+    ] }, node.name);
+  });
+}
+function LibCard({ title, sub, nodes, open, toggle }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-kb-card", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-kb-row", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { className: "ks-kb-grow", children: title }),
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { className: "ks-kb-badge", children: "\u81EA\u5E26" })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-kb-hint", style: { margin: "3px 0 6px" }, children: sub }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-kb-tree", children: renderNodes(nodes, open, toggle) })
+  ] });
+}
+function KsKnowledgePage({ useTabInfo, dataSource }) {
+  ensureKsStyles();
+  const { tab } = useTabInfo();
+  const page = tab.navigation.params?.page ?? "manage";
+  const [open, setOpen] = (0, import_react6.useState)(
+    () => /* @__PURE__ */ new Set(["P \u571F\u6728\u3001\u5EFA\u7B51", "C \u533B\u836F\u3001\u536B\u751F\u3001\u52B3\u52A8\u4FDD\u62A4", "Z \u73AF\u5883\u4FDD\u62A4", "\u6CD5\u5F8B"])
+  );
+  const toggle = (name) => {
+    setOpen((prev) => {
+      const next = new Set(prev);
+      if (next.has(name)) next.delete(name);
+      else next.add(name);
+      return next;
+    });
+  };
+  if (page !== "manage") {
+    const LABELS = {
+      ingest: "\u6587\u4EF6\u5BFC\u5165",
+      report: "\u6548\u529B\u62A5\u544A",
+      channels: "\u6E20\u9053\u53F0\u8D26"
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-kb", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-kb-banner", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "UI \u5148\u884C\uFF0C\u540E\u7AEF\u672A\u63A5\u3002" }),
+        "\u672C\u9875\u53EA\u843D\u4E86\u5165\u53E3\u4E0E\u5916\u58F3\uFF0C\u6570\u636E\u662F\u9875\u9762\u5185\u7684\u5360\u4F4D\u5E38\u91CF\u3002"
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-kb-card", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: LABELS[page] ?? page }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-kb-hint", style: { marginTop: 6 }, children: [
+          "\u8FD9\u4E00\u9875\u5C1A\u672A\u5B9E\u73B0\u3002\u5B83\u4F1A\u843D\u5728\u540C\u4E00\u4E2A tab \u7C7B\u578B\u91CC\uFF08\u6309 ",
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("code", { children: "params.page" }),
+          " \u5206\u53D1\uFF09\uFF0C \u6240\u4EE5\u5165\u53E3\u73B0\u5728\u662F**\u771F\u7684**\u3001\u5185\u5BB9\u662F**\u7A7A\u7684**\u2014\u2014\u800C\u4E0D\u662F\u4E00\u4E2A\u5047\u6309\u94AE\u3002"
+        ] })
+      ] })
+    ] });
+  }
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-kb", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-kb-banner", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "UI \u5148\u884C\uFF1A\u6570\u636E\u662F\u5360\u4F4D\uFF0C\u540E\u7AEF\u63A5\u53E3\u672A\u63A5" }),
+      "\uFF08dataSource=",
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("code", { children: dataSource }),
+      "\uFF09\u3002 \u5C42\u7EA7\u540D\u53D6\u81EA ",
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("code", { children: "doc_catalog" }),
+      " \u7684\u6743\u5A01 CCS \u8868\uFF1B\u5C06\u6765\u8FD9\u9875\u63A5",
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("code", { children: " GET /api/v1/documents/categories" }),
+      " \u5373\u53EF\uFF0C\u4E0D\u5FC5\u91CD\u753B\u5206\u7C7B\u6CD5\u3002"
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-kb-row", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { className: "ks-kb-grow", style: { fontSize: 14 }, children: "\u77E5\u8BC6\u5E93" }),
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        "button",
+        {
+          type: "button",
+          className: "ks-kb-btn ks-kb-btn-primary",
+          disabled: true,
+          title: "\u540E\u7AEF\u672A\u63A5\uFF1A\u6587\u4EF6\u5939\u76EE\u524D\u662F\u53EA\u8BFB\u5C55\u793A",
+          children: "\uFF0B \u65B0\u5EFA\u6587\u4EF6\u5939"
+        }
+      )
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-kb-sec", children: "\u81EA\u5E26\u4E24\u68F5\u6811\uFF08\u4E0D\u53EF\u6539\u540D/\u5220\u9664 \u2014\u2014 \u540D\u5B57\u5C31\u662F\u5206\u7C7B\u5C42\u7EA7\u540D\uFF09" }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(LibCard, { title: "\u6807\u51C6", sub: "\u56FD\u5BB6\u6807\u51C6\xB7\u884C\u4E1A\u6807\u51C6\xB7\u56E2\u4F53\u6807\u51C6", nodes: STD_TREE, open, toggle }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(LibCard, { title: "\u6CD5\u5F8B\u6CD5\u89C4", sub: "\u6CD5\u5F8B / \u884C\u653F\u6CD5\u89C4 / \u90E8\u95E8\u89C4\u7AE0 / \u5730\u65B9\u6027\u6CD5\u89C4", nodes: LAW_TREE, open, toggle }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-kb-sec", children: "\u6211\u5EFA\u7684\uFF08\u771F\u6587\u4EF6\u5939\uFF0C\u53EF\u6539\u540D/\u5220\u9664\uFF1B\u4E0E\u4E0A\u9762\u4E24\u68F5\u5E73\u7EA7\uFF09" }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-kb-cards", children: USER_FOLDERS.map((folder) => /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-kb-card", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { style: { fontSize: 13 }, children: folder.name }),
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-kb-hint", style: { margin: "4px 0 6px" }, children: folder.desc }),
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-kb-hint", children: [
+        folder.n,
+        " \u7BC7"
+      ] })
+    ] }, folder.name)) })
+  ] });
+}
+
+// client/KsScopeChip.tsx
+var import_react7 = require("react");
+var import_jsx_runtime8 = require("react/jsx-runtime");
 function KsScopeChip(props) {
   const { sessionId } = props;
-  const [folderName, setFolderName] = (0, import_react5.useState)(null);
-  const [busy, setBusy] = (0, import_react5.useState)(false);
-  const abortRef = (0, import_react5.useRef)(null);
-  (0, import_react5.useEffect)(() => {
+  const [folderName, setFolderName] = (0, import_react7.useState)(null);
+  const [busy, setBusy] = (0, import_react7.useState)(false);
+  const abortRef = (0, import_react7.useRef)(null);
+  (0, import_react7.useEffect)(() => {
     abortRef.current?.abort();
     const controller = new AbortController();
     abortRef.current = controller;
@@ -32222,7 +32639,7 @@ function KsScopeChip(props) {
     })();
     return () => controller.abort();
   }, [sessionId]);
-  const close = (0, import_react5.useCallback)(async () => {
+  const close = (0, import_react7.useCallback)(async () => {
     if (sessionId === void 0 || busy) return;
     setBusy(true);
     try {
@@ -32234,7 +32651,7 @@ function KsScopeChip(props) {
     }
   }, [sessionId, busy]);
   if (folderName === null) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
     "div",
     {
       "data-ks-scope-chip": "",
@@ -32254,10 +32671,10 @@ function KsScopeChip(props) {
       },
       title: `\u672C\u4F1A\u8BDD\u6BCF\u4E00\u8F6E\u68C0\u7D22\u90FD\u9650\u5B9A\u5728\u6536\u85CF\u5939\u300C${folderName}\u300D\u7684\u5185\u5BB9\u5185\uFF08\u6807\u51C6\u7EA7\u6536\u85CF\u6309\u6574\u672C\u8BA1\uFF09\u3002\u70B9 \u2715 \u6062\u590D\u5168\u5E93\u3002`,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { "aria-hidden": true, children: "\u{1F516}" }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { style: { fontWeight: 600 }, children: folderName }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { style: { color: "#9c6b1f" }, children: "\xB7 \u4EC5\u5728\u672C\u6536\u85CF\u5939\u5185\u63D0\u95EE" }),
-        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { "aria-hidden": true, children: "\u{1F516}" }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { fontWeight: 600 }, children: folderName }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { color: "#9c6b1f" }, children: "\xB7 \u4EC5\u5728\u672C\u6536\u85CF\u5939\u5185\u63D0\u95EE" }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
           "button",
           {
             type: "button",
@@ -32285,11 +32702,11 @@ function KsScopeChip(props) {
 }
 
 // client/KsSettingsSection.tsx
-var import_react10 = require("react");
+var import_react12 = require("react");
 
 // client/KsReportPanel.tsx
-var import_react6 = require("react");
-var import_jsx_runtime6 = require("react/jsx-runtime");
+var import_react8 = require("react");
+var import_jsx_runtime9 = require("react/jsx-runtime");
 var WINDOWS = [
   { key: "all", label: "\u5168\u90E8" },
   { key: "upcoming90", label: "\u5373\u5C06\u5B9E\u65BD 90 \u5929" },
@@ -32318,8 +32735,8 @@ function ColorDots({ colors, size = 11 }) {
     ["green", colors.green],
     ["gray", colors.gray]
   ];
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { style: { display: "inline-flex", gap: 8, alignItems: "center" }, children: items.map(([c, n]) => n > 0 ? /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { style: { display: "inline-flex", alignItems: "center", gap: 3, color: COLOR_DOT[c], fontSize: size }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { style: { width: size - 3, height: size - 3, borderRadius: "50%", background: COLOR_DOT[c], display: "inline-block" } }),
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { display: "inline-flex", gap: 8, alignItems: "center" }, children: items.map(([c, n]) => n > 0 ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { display: "inline-flex", alignItems: "center", gap: 3, color: COLOR_DOT[c], fontSize: size }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { width: size - 3, height: size - 3, borderRadius: "50%", background: COLOR_DOT[c], display: "inline-block" } }),
     n
   ] }, c) : null) });
 }
@@ -32327,7 +32744,7 @@ function DocRow({ doc, onOpenDoc }) {
   const color = COLOR_DOT[doc.color] ?? "#888";
   const badge = STATUS_BADGE[doc.status ?? ""] ?? "\u72B6\u6001\u672A\u77E5";
   const clickable = doc.doc_id !== null && doc.doc_id !== "";
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
     "div",
     {
       onClick: () => {
@@ -32344,10 +32761,10 @@ function DocRow({ doc, onOpenDoc }) {
       },
       title: clickable ? "\u70B9\u51FB\u5728 PDF \u67E5\u770B\u5668\u6253\u5F00\u539F\u6587" : void 0,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { style: { width: 9, height: 9, borderRadius: "50%", background: color, display: "inline-block", flexShrink: 0 } }),
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { style: { color: "var(--dsw-alias-label-primary, #111)", fontFamily: "monospace" }, children: doc.standard_no ?? "?" }),
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { style: { color: "var(--dsw-alias-label-primary, #111)" }, children: doc.standard_name }),
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { style: {
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { width: 9, height: 9, borderRadius: "50%", background: color, display: "inline-block", flexShrink: 0 } }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { color: "var(--dsw-alias-label-primary, #111)", fontFamily: "monospace" }, children: doc.standard_no ?? "?" }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { color: "var(--dsw-alias-label-primary, #111)" }, children: doc.standard_name }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: {
           fontSize: 11,
           color,
           border: `1px solid ${color}55`,
@@ -32356,24 +32773,24 @@ function DocRow({ doc, onOpenDoc }) {
           lineHeight: "17px",
           flexShrink: 0
         }, children: badge }),
-        doc.status === "upcoming" && doc.effective_from ? /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+        doc.status === "upcoming" && doc.effective_from ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
           "\u5B9E\u65BD ",
           doc.effective_from,
           "\uFF08\u5F53\u524D\u4E0D\u53EF\u5F15\u7528\uFF09"
         ] }) : null,
-        doc.status !== "upcoming" && doc.effective_from ? /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #888)" }, children: [
+        doc.status !== "upcoming" && doc.effective_from ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #888)" }, children: [
           "\u5B9E\u65BD ",
           doc.effective_from
         ] }) : null,
-        doc.published_at ? /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #888)" }, children: [
+        doc.published_at ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #888)" }, children: [
           "\u53D1\u5E03 ",
           doc.published_at
         ] }) : null,
-        doc.superseded_by ? /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+        doc.superseded_by ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
           "\u88AB\u4EE3\u66FF\u4E3A ",
           doc.superseded_by
         ] }) : null,
-        doc.withdrawn_date ? /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+        doc.withdrawn_date ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
           "\u5E9F\u6B62 ",
           doc.withdrawn_date
         ] }) : null
@@ -32383,16 +32800,16 @@ function DocRow({ doc, onOpenDoc }) {
 }
 function KsReportPanel(props) {
   const { visible, openEvidence } = props;
-  const abortRef = (0, import_react6.useRef)(null);
-  const [win, setWin] = (0, import_react6.useState)("all");
-  const [colorFilter, setColorFilter] = (0, import_react6.useState)("");
-  const [report, setReport] = (0, import_react6.useState)(null);
-  const [loadState, setLoadState] = (0, import_react6.useState)({ status: "loading" });
-  const [expanded, setExpanded] = (0, import_react6.useState)({});
-  const [docsCache, setDocsCache] = (0, import_react6.useState)({});
-  const [exporting, setExporting] = (0, import_react6.useState)(false);
-  const [exportError, setExportError] = (0, import_react6.useState)(null);
-  const load = (0, import_react6.useCallback)(async (w, color) => {
+  const abortRef = (0, import_react8.useRef)(null);
+  const [win, setWin] = (0, import_react8.useState)("all");
+  const [colorFilter, setColorFilter] = (0, import_react8.useState)("");
+  const [report, setReport] = (0, import_react8.useState)(null);
+  const [loadState, setLoadState] = (0, import_react8.useState)({ status: "loading" });
+  const [expanded, setExpanded] = (0, import_react8.useState)({});
+  const [docsCache, setDocsCache] = (0, import_react8.useState)({});
+  const [exporting, setExporting] = (0, import_react8.useState)(false);
+  const [exportError, setExportError] = (0, import_react8.useState)(null);
+  const load = (0, import_react8.useCallback)(async (w, color) => {
     abortRef.current?.abort();
     const ac = new AbortController();
     abortRef.current = ac;
@@ -32408,14 +32825,14 @@ function KsReportPanel(props) {
       setLoadState({ status: "error", message: err instanceof Error ? err.message : String(err) });
     }
   }, []);
-  (0, import_react6.useEffect)(() => {
+  (0, import_react8.useEffect)(() => {
     if (!visible) return;
     void load(win, colorFilter);
     return () => {
       abortRef.current?.abort();
     };
   }, [visible, win, colorFilter, load]);
-  const onOpenDoc = (0, import_react6.useCallback)((docId) => {
+  const onOpenDoc = (0, import_react8.useCallback)((docId) => {
     if (openEvidence === void 0) return;
     const url = `http://127.0.0.1:1/__ks_evidence__?doc=${encodeURIComponent(docId)}`;
     try {
@@ -32448,8 +32865,8 @@ function KsReportPanel(props) {
     }
   };
   const useL4Docs = (params, cacheKey) => {
-    const [docs, setDocs] = (0, import_react6.useState)(void 0);
-    (0, import_react6.useEffect)(() => {
+    const [docs, setDocs] = (0, import_react8.useState)(void 0);
+    (0, import_react8.useEffect)(() => {
       if (expanded[cacheKey] !== true || docsCache[cacheKey] !== void 0) return;
       let alive = true;
       void fetchEffectDocs({ top: params.topKey, l2: params.l2, l3: params.l3, l4: params.l4, window: win, color: colorFilter || void 0 }).then((d) => {
@@ -32471,8 +32888,8 @@ function KsReportPanel(props) {
     const isLeaf = node.count !== void 0;
     const children = node.items ?? [];
     const rootKey = topKey || node.top || "";
-    return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { style: { paddingLeft: depth === 0 ? 0 : 12 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { paddingLeft: depth === 0 ? 0 : 12 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
         "div",
         {
           onClick: () => toggle(key),
@@ -32486,19 +32903,19 @@ function KsReportPanel(props) {
             flexWrap: "wrap"
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { style: { fontSize: 10, color: "var(--dsw-alias-label-secondary, #666)", width: 10 }, children: isOpen ? "\u25BE" : "\u25B8" }),
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { style: {
+            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { fontSize: 10, color: "var(--dsw-alias-label-secondary, #666)", width: 10 }, children: isOpen ? "\u25BE" : "\u25B8" }),
+            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: {
               fontWeight: depth <= 1 ? 600 : 500,
               color: "var(--dsw-alias-label-primary, #111)",
               fontSize: depth <= 1 ? 13 : 12
             }, children: node.name }),
-            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ColorDots, { colors: node.colors })
+            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(ColorDots, { colors: node.colors })
           ]
         }
       ),
-      isOpen && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
+      isOpen && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { children: [
         children.map((child) => renderNode(child, [...path, node.name], depth + 1, rootKey)),
-        isLeaf && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(L4Docs, { params: {
+        isLeaf && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(L4Docs, { params: {
           topKey: rootKey,
           l2: path[1] ?? "",
           l3: path[2] ?? "",
@@ -32510,16 +32927,16 @@ function KsReportPanel(props) {
   function L4Docs({ params, cacheKey, useL4Docs: useDocs, onOpenDoc: open }) {
     const docs = useDocs(params, cacheKey);
     if (docs === void 0) {
-      return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { style: { padding: "2px 0 2px 30px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #888)" }, children: "\u52A0\u8F7D\u4E2D\u2026" });
+      return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { padding: "2px 0 2px 30px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #888)" }, children: "\u52A0\u8F7D\u4E2D\u2026" });
     }
     if (docs.length === 0) {
-      return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { style: { padding: "2px 0 2px 30px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #888)" }, children: "\uFF08\u65E0\u6587\u6863\uFF09" });
+      return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { padding: "2px 0 2px 30px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #888)" }, children: "\uFF08\u65E0\u6587\u6863\uFF09" });
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { children: docs.map((d) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(DocRow, { doc: d, onOpenDoc: open }, d.doc_id ?? d.standard_no ?? Math.random())) });
+    return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { children: docs.map((d) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(DocRow, { doc: d, onOpenDoc: open }, d.doc_id ?? d.standard_no ?? Math.random())) });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { style: { padding: "4px 0 2px" }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }, children: [
-      report !== null && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { padding: "4px 0 2px" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }, children: [
+      report !== null && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
         "\u5171 ",
         report.total,
         " \u90E8\uFF08\u6807\u51C6 ",
@@ -32529,12 +32946,12 @@ function KsReportPanel(props) {
         "\uFF09\xB7 ",
         fmtGenerated(report.generated_at)
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { style: { flex: 1 } }),
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("button", { type: "button", onClick: () => void load(win, colorFilter), style: btnStyle(false), children: "\u27F3 \u5237\u65B0" })
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { flex: 1 } }),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("button", { type: "button", onClick: () => void load(win, colorFilter), style: btnStyle(false), children: "\u27F3 \u5237\u65B0" })
     ] }),
-    report !== null && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { style: { display: "flex", alignItems: "center", gap: 12, margin: "8px 0", flexWrap: "wrap" }, children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ColorDots, { colors: report.colors, size: 12 }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 6, margin: "4px 0 10px", flexWrap: "wrap" }, children: [
-      WINDOWS.map((w) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+    report !== null && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { display: "flex", alignItems: "center", gap: 12, margin: "8px 0", flexWrap: "wrap" }, children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(ColorDots, { colors: report.colors, size: 12 }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 6, margin: "4px 0 10px", flexWrap: "wrap" }, children: [
+      WINDOWS.map((w) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
         "button",
         {
           type: "button",
@@ -32552,13 +32969,13 @@ function KsReportPanel(props) {
         },
         w.key
       )),
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { style: { flex: 1 } }),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { flex: 1 } }),
       [
         ["red", "\u{1F534} \u7EA2"],
         ["yellow", "\u{1F7E1} \u9EC4"],
         ["green", "\u{1F7E2} \u7EFF"],
         ["gray", "\u26AA \u767D"]
-      ].map(([c, label]) => /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+      ].map(([c, label]) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
         "button",
         {
           type: "button",
@@ -32577,7 +32994,7 @@ function KsReportPanel(props) {
         },
         c
       )),
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
         "button",
         {
           type: "button",
@@ -32588,16 +33005,16 @@ function KsReportPanel(props) {
         }
       )
     ] }),
-    exportError !== null && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 8px" }, children: exportError }),
-    loadState.status === "loading" && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { style: { color: "var(--dsw-alias-label-secondary, #666)", fontSize: 13 }, children: "\u6B63\u5728\u805A\u5408\u5E93\u5185\u6548\u529B\u72B6\u6001\u2026\uFF08\u9996\u6B21\u53EF\u80FD\u9700\u8981\u62C9\u8D77\u5F15\u64CE\uFF09" }),
-    loadState.status === "error" && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 13 }, children: loadState.message }),
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("button", { type: "button", onClick: () => void load(win, colorFilter), style: btnStyle(false), children: "\u91CD\u8BD5" })
+    exportError !== null && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 8px" }, children: exportError }),
+    loadState.status === "loading" && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { style: { color: "var(--dsw-alias-label-secondary, #666)", fontSize: 13 }, children: "\u6B63\u5728\u805A\u5408\u5E93\u5185\u6548\u529B\u72B6\u6001\u2026\uFF08\u9996\u6B21\u53EF\u80FD\u9700\u8981\u62C9\u8D77\u5F15\u64CE\uFF09" }),
+    loadState.status === "error" && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 13 }, children: loadState.message }),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("button", { type: "button", onClick: () => void load(win, colorFilter), style: btnStyle(false), children: "\u91CD\u8BD5" })
     ] }),
-    loadState.status === "ready" && report !== null && report.total === 0 && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { style: { color: "var(--dsw-alias-label-secondary, #666)", fontSize: 13 }, children: win === "all" ? "\u5E93\u5185\u6682\u65E0\u6587\u6863" : "\u8BE5\u65F6\u95F4\u7A97\u5185\u65E0\u6587\u6863\uFF08\u5BFC\u51FA Excel \u53EF\u67E5\u770B\u5168\u91CF\uFF09" }),
-    loadState.status === "ready" && report !== null && report.total > 0 && /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
+    loadState.status === "ready" && report !== null && report.total === 0 && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { style: { color: "var(--dsw-alias-label-secondary, #666)", fontSize: 13 }, children: win === "all" ? "\u5E93\u5185\u6682\u65E0\u6587\u6863" : "\u8BE5\u65F6\u95F4\u7A97\u5185\u65E0\u6587\u6863\uFF08\u5BFC\u51FA Excel \u53EF\u67E5\u770B\u5168\u91CF\uFF09" }),
+    loadState.status === "ready" && report !== null && report.total > 0 && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { children: [
       report.tree.map((t) => renderNode(t, [], 0, t.top ?? "")),
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("p", { style: { margin: "10px 0 0", fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: "\u53E3\u5F84\u6CE8\u811A\uFF1A\u72B6\u6001\u4EE5\u8BFB\u53D6\u65F6\u60F0\u6027\u7FFB\u8F6C\uFF08resolve_status\uFF09\u4E3A\u51C6\uFF1B\u26AA = \u5E93\u5185\u672A\u767B\u8BB0\u6548\u529B\u72B6\u6001 \uFF08\u4E0E\u5DE1\u68C0\u300C\u5B98\u65B9\u67E5\u65E0\u6B64\u53F7\u300D\u8BED\u4E49\u4E0D\u540C\uFF09\u3002\u9EC4\u884C\u5728\u5B9E\u65BD\u65E5\u524D\u4E0D\u53EF\u5F15\u7528\u3002" })
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { style: { margin: "10px 0 0", fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: "\u53E3\u5F84\u6CE8\u811A\uFF1A\u72B6\u6001\u4EE5\u8BFB\u53D6\u65F6\u60F0\u6027\u7FFB\u8F6C\uFF08resolve_status\uFF09\u4E3A\u51C6\uFF1B\u26AA = \u5E93\u5185\u672A\u767B\u8BB0\u6548\u529B\u72B6\u6001 \uFF08\u4E0E\u5DE1\u68C0\u300C\u5B98\u65B9\u67E5\u65E0\u6B64\u53F7\u300D\u8BED\u4E49\u4E0D\u540C\uFF09\u3002\u9EC4\u884C\u5728\u5B9E\u65BD\u65E5\u524D\u4E0D\u53EF\u5F15\u7528\u3002" })
     ] })
   ] });
 }
@@ -32622,8 +33039,8 @@ function fmtGenerated(v) {
 }
 
 // client/KsMaterialsPanel.tsx
-var import_react7 = require("react");
-var import_jsx_runtime7 = require("react/jsx-runtime");
+var import_react9 = require("react");
+var import_jsx_runtime10 = require("react/jsx-runtime");
 var GREEN = "#2e7d32";
 var RED = "#c0392b";
 var GRAY = "#888";
@@ -32664,41 +33081,41 @@ function AnchorMark(props) {
     case "no_locators":
       return null;
     case "stale":
-      return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: "var(--dsw-alias-warn, #b8860b)" }, children: [
+      return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: "var(--dsw-alias-warn, #b8860b)" }, children: [
         "\u26A0 ",
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5F15\u7528\u951A\u70B9\u9700\u590D\u7B97" }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u5F15\u7528\u951A\u70B9\u9700\u590D\u7B97" }),
         "\uFF1A",
         why,
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("br", {}),
         "\uFF08\u9700\u590D\u7B97**\u4E0D\u4EE3\u8868\u5DF2\u7ECF\u574F\u4E86**\u3002\uFF09\u70B9\u300C\u590D\u7B97\u951A\u70B9\u300D\u7528\u5F53\u524D\u89E3\u6790\u5668\u91CD\u7B97\u6BD4\u5BF9\u3002"
       ] });
     case "unknown":
-      return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: GRAY }, children: [
+      return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: GRAY }, children: [
         "\u26A0 ",
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5F15\u7528\u951A\u70B9\u672A\u9A8C\u8BC1" }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u5F15\u7528\u951A\u70B9\u672A\u9A8C\u8BC1" }),
         "\uFF1A",
         why,
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u7B49\u4E8E" }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("br", {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u4E0D\u7B49\u4E8E" }),
         "\u6709\u95EE\u9898\uFF0C\u4F46\u5F15\u7528\u4F4D\u7F6E",
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u672A\u7ECF\u786E\u8BA4" }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u672A\u7ECF\u786E\u8BA4" }),
         "\u3002"
       ] });
     // ⚠ `health_error` **不是**健康状态，是"后端判据跑挂了"：不加这一支那种材料在界面上
     // **一个标记都没有**，读起来像"全都健康"。颜色用红：这不是材料的问题，是我们的问题。
     case "health_error":
-      return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { role: "alert", style: { margin: "4px 0 0", fontSize: 12, color: RED }, children: [
+      return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { role: "alert", style: { margin: "4px 0 0", fontSize: 12, color: RED }, children: [
         "\u26A0 ",
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u951A\u70B9\u5065\u5EB7\u5EA6\u7B97\u4E0D\u51FA\u6765" }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u951A\u70B9\u5065\u5EB7\u5EA6\u7B97\u4E0D\u51FA\u6765" }),
         "\uFF1A",
         why,
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("br", {}),
         "\u8FD9\u662F",
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5DE5\u5177\u7F3A\u9677" }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u5DE5\u5177\u7F3A\u9677" }),
         "\uFF0C",
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u4EE3\u8868" }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u4E0D\u4EE3\u8868" }),
         "\u6750\u6599\u6709\u95EE\u9898\u2014\u2014\u4F46\u5B83\u7684\u5F15\u7528\u4F4D\u7F6E \u76EE\u524D",
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u672A\u77E5" }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u672A\u77E5" }),
         "\u3002"
       ] });
     default:
@@ -32763,46 +33180,46 @@ function draftReducer(prev, action) {
 function AnchorNoteLine(props) {
   const note = props.note || "";
   if (note === "") return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "0 0 8px", fontSize: 12, color: GRAY }, children: note });
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { style: { margin: "0 0 8px", fontSize: 12, color: GRAY }, children: note });
 }
 function KsMaterialsPanel(props) {
   const { visible, onUseProject } = props;
-  const [projects, setProjects] = (0, import_react7.useState)([]);
-  const [projectId, setProjectId] = (0, import_react7.useState)("");
-  const [materials, setMaterials] = (0, import_react7.useState)([]);
-  const [tiers, setTiers] = (0, import_react7.useState)([]);
-  const [tierListFailed, setTierListFailed] = (0, import_react7.useState)(false);
-  const [inbox, setInbox] = (0, import_react7.useState)(
+  const [projects, setProjects] = (0, import_react9.useState)([]);
+  const [projectId, setProjectId] = (0, import_react9.useState)("");
+  const [materials, setMaterials] = (0, import_react9.useState)([]);
+  const [tiers, setTiers] = (0, import_react9.useState)([]);
+  const [tierListFailed, setTierListFailed] = (0, import_react9.useState)(false);
+  const [inbox, setInbox] = (0, import_react9.useState)(
     { dir: "", files: [] }
   );
-  const [loading, setLoading] = (0, import_react7.useState)(false);
-  const [busy, setBusy] = (0, import_react7.useState)("");
-  const [error, setError] = (0, import_react7.useState)("");
-  const [notice, setNotice] = (0, import_react7.useState)("");
-  const [warn2, setWarn] = (0, import_react7.useState)("");
-  const [newName, setNewName] = (0, import_react7.useState)("");
-  const [collectUrl, setCollectUrl] = (0, import_react7.useState)("");
-  const [collectNote, setCollectNote] = (0, import_react7.useState)("");
-  const [researchQuery, setResearchQuery] = (0, import_react7.useState)("");
-  const [flow, dispatch] = (0, import_react7.useReducer)(draftReducer, emptyDraftFlow);
+  const [loading, setLoading] = (0, import_react9.useState)(false);
+  const [busy, setBusy] = (0, import_react9.useState)("");
+  const [error, setError] = (0, import_react9.useState)("");
+  const [notice, setNotice] = (0, import_react9.useState)("");
+  const [warn2, setWarn] = (0, import_react9.useState)("");
+  const [newName, setNewName] = (0, import_react9.useState)("");
+  const [collectUrl, setCollectUrl] = (0, import_react9.useState)("");
+  const [collectNote, setCollectNote] = (0, import_react9.useState)("");
+  const [researchQuery, setResearchQuery] = (0, import_react9.useState)("");
+  const [flow, dispatch] = (0, import_react9.useReducer)(draftReducer, emptyDraftFlow);
   const conclusionMd = flow.conclusionMd;
   const draft = flow.draft;
-  const [report, setReport] = (0, import_react7.useState)(null);
-  const [slides, setSlides] = (0, import_react7.useState)(null);
-  const [showReport, setShowReport] = (0, import_react7.useState)(false);
-  const [anchors, setAnchors] = (0, import_react7.useState)({});
-  const [anchorNote, setAnchorNote] = (0, import_react7.useState)("");
-  const [openChunks, setOpenChunks] = (0, import_react7.useState)({});
-  const reloadProjects = (0, import_react7.useCallback)(async (signal) => {
+  const [report, setReport] = (0, import_react9.useState)(null);
+  const [slides, setSlides] = (0, import_react9.useState)(null);
+  const [showReport, setShowReport] = (0, import_react9.useState)(false);
+  const [anchors, setAnchors] = (0, import_react9.useState)({});
+  const [anchorNote, setAnchorNote] = (0, import_react9.useState)("");
+  const [openChunks, setOpenChunks] = (0, import_react9.useState)({});
+  const reloadProjects = (0, import_react9.useCallback)(async (signal) => {
     const list = await fetchMaterialProjects(signal);
     setProjects(list);
     return list;
   }, []);
-  const reloadMaterials = (0, import_react7.useCallback)(async (pid, signal) => {
+  const reloadMaterials = (0, import_react9.useCallback)(async (pid, signal) => {
     const list = await fetchMaterials(pid, void 0, signal);
     setMaterials(list);
   }, []);
-  const reloadInbox = (0, import_react7.useCallback)(async (pid, signal) => {
+  const reloadInbox = (0, import_react9.useCallback)(async (pid, signal) => {
     try {
       setInbox(await fetchMaterialInbox(pid, signal));
     } catch (err) {
@@ -32811,7 +33228,7 @@ function KsMaterialsPanel(props) {
       setError(`\u6536\u4EF6\u7BB1\u8BFB\u53D6\u5931\u8D25\uFF1A${err instanceof Error ? err.message : String(err)}\uFF08\u4E0B\u9762\u7684"\u672A\u767B\u8BB0"\u8BA1\u6570\u4E0D\u53EF\u4FE1\u2014\u2014\u4E0D\u662F"\u6CA1\u6709\u6587\u4EF6"\uFF0C\u662F**\u6CA1\u8BFB\u5230**\uFF09`);
     }
   }, []);
-  (0, import_react7.useEffect)(() => {
+  (0, import_react9.useEffect)(() => {
     if (!visible) return void 0;
     const ctl = new AbortController();
     let alive = true;
@@ -32845,7 +33262,7 @@ function KsMaterialsPanel(props) {
       ctl.abort();
     };
   }, [visible, reloadProjects]);
-  (0, import_react7.useEffect)(() => {
+  (0, import_react9.useEffect)(() => {
     if (!visible || projectId === "") {
       setMaterials([]);
       setInbox({ dir: "", files: [] });
@@ -32887,7 +33304,7 @@ function KsMaterialsPanel(props) {
       ctl.abort();
     };
   }, [visible, projectId, reloadMaterials, reloadInbox]);
-  const run = (0, import_react7.useCallback)(async (label, fn, refreshFor = null) => {
+  const run = (0, import_react9.useCallback)(async (label, fn, refreshFor = null) => {
     setBusy(label);
     setError("");
     setNotice("");
@@ -32901,7 +33318,7 @@ function KsMaterialsPanel(props) {
       setBusy("");
     }
   }, [reloadMaterials]);
-  const onCreate = (0, import_react7.useCallback)(() => {
+  const onCreate = (0, import_react9.useCallback)(() => {
     const name = newName.trim();
     if (name === "") {
       setError("\u8BF7\u5148\u586B\u9879\u76EE\u540D");
@@ -32915,7 +33332,7 @@ function KsMaterialsPanel(props) {
       return `\u5DF2\u5EFA\u9879\u76EE\u300C${proj.name}\u300D\u3002\u628A\u6750\u6599\u6587\u4EF6\u653E\u8FDB\u5B83\u7684\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u540E\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\u3002`;
     }, null);
   }, [newName, reloadProjects, run]);
-  const onScan = (0, import_react7.useCallback)(() => {
+  const onScan = (0, import_react9.useCallback)(() => {
     if (projectId === "") return;
     void run("scan", async () => {
       const r = await scanMaterialProject(projectId);
@@ -32923,7 +33340,7 @@ function KsMaterialsPanel(props) {
       return `\u626B\u63CF\u5B8C\u6210\uFF1A\u767B\u8BB0 ${r.registered} / \u5171 ${r.scanned} \u4E2A\u6587\u4EF6\u3002**\u65B0\u767B\u8BB0\u7684\u6750\u6599\u662F\u5F85\u8BC4\u5BA1\u72B6\u6001**\uFF0C\u9700\u4F60\u5728\u4E0B\u65B9\u9010\u4EFD\u6279\u51C6\u540E\u624D\u4F1A\u8FDB\u5165\u4F5C\u7B54\u3002`;
     }, projectId);
   }, [projectId, reloadInbox, run]);
-  const onCollect = (0, import_react7.useCallback)(() => {
+  const onCollect = (0, import_react9.useCallback)(() => {
     if (projectId === "") return;
     const url = collectUrl.trim();
     if (url === "") {
@@ -32945,7 +33362,7 @@ function KsMaterialsPanel(props) {
       return `\u5DF2\u767B\u8BB0\u300C${title}\u300D\uFF08${chunks} \u4E2A\u5207\u7247\uFF0C\u6765\u6E90\u5C42\u7EA7 **T3=\u4EC5\u7EBF\u7D22**\uFF09` + (out.duplicate === true ? "\u2014\u2014\u26A0 \u8FD9\u4E2A\u7F51\u5740\u7684\u5185\u5BB9**\u4E0E\u9879\u76EE\u91CC\u5DF2\u6709\u7684\u4E00\u4EFD\u76F8\u540C**\uFF0C\u5F15\u64CE**\u6CA1\u6709**\u91CD\u590D\u767B\u8BB0\u3002" : "\u3002") + (out.truncated === true ? "\u26A0 \u6B63\u6587\u88AB\u622A\u65AD\u5230\u957F\u5EA6\u4E0A\u9650\uFF08\u4E0D\u662F\u5168\u6587\uFF09\u3002" : "") + "\u5B83\u73B0\u5728\u662F**\u5F85\u8BC4\u5BA1**\u3001**\u4E0D\u4F1A**\u8FDB\u5165\u4EFB\u4F55\u7ED3\u8BBA\uFF0C\u9700\u4F60\u5728\u4E0B\u65B9\u6279\u51C6\uFF08\u672C\u9762\u677F\u4E0D\u80FD\u4EE3\u6279\uFF09\u3002";
     }, projectId);
   }, [collectNote, collectUrl, projectId, run]);
-  const onExportReport = (0, import_react7.useCallback)(() => {
+  const onExportReport = (0, import_react9.useCallback)(() => {
     if (projectId === "") return;
     void run("report", async () => {
       const out = await exportResearchReport(projectId, {
@@ -32958,7 +33375,7 @@ function KsMaterialsPanel(props) {
       return `\u7814\u7A76\u62A5\u544A\u5DF2\u751F\u6210\uFF08\u5DF2\u6279\u51C6 ${out.counts?.approved ?? 0} / \u5F85\u8BC4\u5BA1 ${out.counts?.pending ?? 0}\uFF09` + (bad > 0 ? `\u2014\u2014\u26A0 \u6709 ${bad} \u6761\u5F15\u7528\u8B66\u544A\uFF0C\u89C1\u4E0B\u65B9\uFF08\u62A5\u544A\u91CC**\u539F\u6837\u4FDD\u7559**\u4E86\u90A3\u4E9B\u5F15\u7528\uFF09` : "");
     }, null);
   }, [conclusionMd, projectId, researchQuery, run]);
-  const onExportSlides = (0, import_react7.useCallback)(() => {
+  const onExportSlides = (0, import_react9.useCallback)(() => {
     if (projectId === "") return;
     void run("slides", async () => {
       const out = await exportResearchSlides(projectId, {
@@ -32969,7 +33386,7 @@ function KsMaterialsPanel(props) {
       return `PPT \u5DF2\u751F\u6210\uFF1A${out.name ?? ""}\uFF08${out.slide_count ?? 0} \u9875\uFF09` + (out.path !== void 0 ? ` \u2192 ${out.path}` : "");
     }, null);
   }, [conclusionMd, projectId, researchQuery, run]);
-  const onDraftConclusion = (0, import_react7.useCallback)(() => {
+  const onDraftConclusion = (0, import_react9.useCallback)(() => {
     if (projectId === "") return;
     const q = researchQuery.trim();
     if (q === "") {
@@ -32986,7 +33403,7 @@ function KsMaterialsPanel(props) {
       return "\u8349\u7A3F\u5DF2\u751F\u6210\uFF08**\u672A\u7ECF\u6279\u51C6**\uFF0C\u4E0D\u5F97\u4F5C\u4E3A\u4F9D\u636E\uFF09" + (n > 0 ? `\u2014\u2014\u26A0 ${n} \u6761\u63D0\u793A\uFF0C\u89C1\u4E0B\u65B9` : "");
     }, null);
   }, [projectId, researchQuery, run]);
-  const onReview = (0, import_react7.useCallback)((m, decision) => {
+  const onReview = (0, import_react9.useCallback)((m, decision) => {
     void run(`${decision}:${m.material_id}`, async () => {
       const out = await reviewMaterial(m.material_id, decision);
       const label = reviewLabel(out.review_status).text;
@@ -32995,7 +33412,7 @@ function KsMaterialsPanel(props) {
       return `\u300C${m.title}\u300D\u2192 ${label}${tlText}`;
     }, projectId);
   }, [projectId, run]);
-  const onTier = (0, import_react7.useCallback)((m, tier) => {
+  const onTier = (0, import_react9.useCallback)((m, tier) => {
     void run(`tier:${m.material_id}`, async () => {
       const out = await setMaterialTier(
         m.material_id,
@@ -33005,13 +33422,13 @@ function KsMaterialsPanel(props) {
       return `\u300C${m.title}\u300D\u6765\u6E90\u5C42\u7EA7 \u2192 ${out.tier_label ?? out.source_tier}\uFF08\u5DF2\u8BB0\u4E3A**\u7528\u6237\u6539\u7684**\uFF09`;
     }, projectId);
   }, [projectId, run]);
-  const onRole = (0, import_react7.useCallback)((m, role) => {
+  const onRole = (0, import_react9.useCallback)((m, role) => {
     void run(`role:${m.material_id}`, async () => {
       await setMaterialRole(m.material_id, role === "" ? null : role);
       return `\u300C${m.title}\u300D\u4EFB\u52A1\u5185\u6548\u529B\u5DF2\u66F4\u65B0`;
     }, projectId);
   }, [projectId, run]);
-  const onReverify = (0, import_react7.useCallback)((m) => {
+  const onReverify = (0, import_react9.useCallback)((m) => {
     void run(`reverify:${m.material_id}`, async () => {
       const out = await reverifyMaterialLocators(m.material_id);
       if (out.status === "match") return `\u300C${m.title}\u300D\u951A\u70B9\u590D\u7B97\uFF1A**\u9010\u5B57\u8282\u4E00\u81F4**\uFF08\u533A\u95F4\u4ECD\u6709\u6548\uFF09`;
@@ -33021,7 +33438,7 @@ function KsMaterialsPanel(props) {
       return `\u300C${m.title}\u300D\u951A\u70B9\u590D\u7B97\uFF1A**\u9A8C\u4E0D\u4E86**\uFF08${out.why}\uFF09`;
     }, null);
   }, [run]);
-  const onToggleChunks = (0, import_react7.useCallback)((m) => {
+  const onToggleChunks = (0, import_react9.useCallback)((m) => {
     const cur = openChunks[m.material_id];
     if (cur !== void 0) {
       setOpenChunks((prev) => {
@@ -33047,23 +33464,23 @@ function KsMaterialsPanel(props) {
     })();
   }, [openChunks]);
   if (!visible) {
-    return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { fontSize: 12, color: GRAY, margin: 0 }, children: "\u5C55\u5F00\u540E\u52A0\u8F7D\u53C2\u8003\u8D44\u6599\uFF08\u6536\u8D77\u65F6\u4E0D\u53D1\u4EFB\u4F55\u8BF7\u6C42\uFF09\u3002" });
+    return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { style: { fontSize: 12, color: GRAY, margin: 0 }, children: "\u5C55\u5F00\u540E\u52A0\u8F7D\u53C2\u8003\u8D44\u6599\uFF08\u6536\u8D77\u65F6\u4E0D\u53D1\u4EFB\u4F55\u8BF7\u6C42\uFF09\u3002" });
   }
   const current = projects.find((p) => p.project_id === projectId);
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { fontSize: 13 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "0 0 10px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u8BC4\u5BA1\u662F\u786C\u95E8" }),
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { fontSize: 13 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { style: { margin: "0 0 10px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u8BC4\u5BA1\u662F\u786C\u95E8" }),
       "\uFF1A\u53EA\u6709",
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5DF2\u6279\u51C6" }),
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u5DF2\u6279\u51C6" }),
       "\u7684\u6750\u6599\u4F1A\u8FDB\u5165\u4F5C\u7B54\u4E0E\u4EA7\u51FA\u7269\u3002 \u672A\u6279\u51C6\u7684\u6750\u6599\u4E0D\u4F1A\u88AB\u68C0\u7D22\u3001\u4E0D\u4F1A\u88AB\u5F15\u7528\u3002\u6240\u6709\u51B3\u5B9A\u90FD\u7531",
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4F60" }),
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u4F60" }),
       '\u505A\u51FA\uFF08\u672C\u9762\u677F\u6CA1\u6709"\u5168\u90E8\u901A\u8FC7"\uFF09\u3002'
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { marginBottom: 12 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("label", { style: { display: "flex", gap: 6, alignItems: "center" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { children: "\u53C2\u8003\u8D44\u6599\u9879\u76EE" }),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { marginBottom: 12 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("label", { style: { display: "flex", gap: 6, alignItems: "center" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { children: "\u53C2\u8003\u8D44\u6599\u9879\u76EE" }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
             "select",
             {
               "aria-label": "\u53C2\u8003\u8D44\u6599\u9879\u76EE",
@@ -33071,8 +33488,8 @@ function KsMaterialsPanel(props) {
               onChange: (e) => setProjectId(e.currentTarget.value),
               style: { padding: "3px 6px", fontSize: 12, maxWidth: 320 },
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("option", { value: "", children: "\uFF08\u672A\u9009\u62E9\uFF09" }),
-                projects.map((p) => /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("option", { value: p.project_id, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("option", { value: "", children: "\uFF08\u672A\u9009\u62E9\uFF09" }),
+                projects.map((p) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("option", { value: p.project_id, children: [
                   p.name,
                   "\uFF08",
                   p.project_id,
@@ -33082,7 +33499,7 @@ function KsMaterialsPanel(props) {
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
           "input",
           {
             "aria-label": "\u65B0\u5EFA\u9879\u76EE\u540D",
@@ -33092,8 +33509,8 @@ function KsMaterialsPanel(props) {
             style: { padding: "3px 6px", fontSize: 12, width: 160 }
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { type: "button", style: btnStyle2(busy !== ""), disabled: busy !== "", onClick: onCreate, children: "\u65B0\u5EFA\u9879\u76EE" }),
-        current !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("button", { type: "button", style: btnStyle2(busy !== ""), disabled: busy !== "", onClick: onCreate, children: "\u65B0\u5EFA\u9879\u76EE" }),
+        current !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
           "button",
           {
             type: "button",
@@ -33104,50 +33521,50 @@ function KsMaterialsPanel(props) {
           }
         )
       ] }),
-      current !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+      current !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
         "\u4F1A\u8BDD\u91CC\u95EE\u95EE\u9898\u65F6\u60F3\u7528\u672C\u9879\u76EE\u7684\u6750\u6599\uFF0C\u8F93\u5165 ",
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("code", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("code", { children: [
           "/materials use ",
           current.project_id,
           " ",
           current.name
         ] }),
         "\uFF08\u672A\u7ED1\u5B9A\u65F6\u6750\u6599",
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5B8C\u5168\u4E0D\u53C2\u4E0E" }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u5B8C\u5168\u4E0D\u53C2\u4E0E" }),
         "\u4F5C\u7B54\uFF09\u3002"
       ] })
     ] }),
-    projectId !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { marginBottom: 12, padding: "8px 10px", border: "1px solid var(--dsw-alias-border, #e0e0e0)", borderRadius: 6 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939" }),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { style: { fontSize: 12, color: GRAY }, children: [
+    projectId !== "" && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { marginBottom: 12, padding: "8px 10px", border: "1px solid var(--dsw-alias-border, #e0e0e0)", borderRadius: 6 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939" }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { fontSize: 12, color: GRAY }, children: [
           "\u672A\u767B\u8BB0 ",
           inbox.files.length,
           " \u4E2A\u6587\u4EF6"
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { type: "button", style: btnStyle2(busy !== ""), disabled: busy !== "", onClick: onScan, children: "\u626B\u63CF\u6536\u4EF6" })
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("button", { type: "button", style: btnStyle2(busy !== ""), disabled: busy !== "", onClick: onScan, children: "\u626B\u63CF\u6536\u4EF6" })
       ] }),
-      inbox.dir !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
+      inbox.dir !== "" && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
         "\u628A PDF / DOCX / TXT / MD \u653E\u8FDB ",
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("code", { children: inbox.dir }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("code", { children: inbox.dir }),
         " \u518D\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\u3002"
       ] }),
-      inbox.files.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("ul", { style: { margin: "6px 0 0", paddingLeft: 18, fontSize: 12, color: GRAY }, children: [
-        inbox.files.slice(0, 10).map((f) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("li", { children: f.file_name }, f.file_name)),
-        inbox.files.length > 10 && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("li", { children: [
+      inbox.files.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("ul", { style: { margin: "6px 0 0", paddingLeft: 18, fontSize: 12, color: GRAY }, children: [
+        inbox.files.slice(0, 10).map((f) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("li", { children: f.file_name }, f.file_name)),
+        inbox.files.length > 10 && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("li", { children: [
           "\u2026 \u53E6\u6709 ",
           inbox.files.length - 10,
           " \u4E2A"
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: {
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: {
         marginTop: 10,
         paddingTop: 8,
         borderTop: "1px dashed var(--dsw-alias-border, #e0e0e0)"
       }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u81EA\u91C7\u4E00\u4EFD" }),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u81EA\u91C7\u4E00\u4EFD" }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
             "input",
             {
               "aria-label": "\u81EA\u91C7\u7F51\u5740",
@@ -33157,7 +33574,7 @@ function KsMaterialsPanel(props) {
               style: { padding: "3px 6px", fontSize: 12, width: 320 }
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
             "input",
             {
               "aria-label": "\u81EA\u91C7\u5907\u6CE8",
@@ -33167,7 +33584,7 @@ function KsMaterialsPanel(props) {
               style: { padding: "3px 6px", fontSize: 12, width: 220 }
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
             "button",
             {
               type: "button",
@@ -33178,47 +33595,47 @@ function KsMaterialsPanel(props) {
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
           "\u91C7\u56DE\u6765\u7684\u662F ",
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5F85\u8BC4\u5BA1" }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u5F85\u8BC4\u5BA1" }),
           "\u6750\u6599\uFF0C\u6765\u6E90\u5C42\u7EA7\u7531\u7CFB\u7EDF\u5224\u4E3A ",
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "T3=\u4EC5\u7EBF\u7D22" }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "T3=\u4EC5\u7EBF\u7D22" }),
           "\uFF08",
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u5F97\u5355\u72EC\u652F\u6491\u7ED3\u8BBA" }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u4E0D\u5F97\u5355\u72EC\u652F\u6491\u7ED3\u8BBA" }),
           "\u3001\u4E0D\u80FD\u4E0E\u5176\u5B83\u7F51\u9875\u4E92\u8BC1\uFF09\uFF1B\u6279\u51C6\u524D",
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u4F1A" }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u4E0D\u4F1A" }),
           "\u8FDB\u5165\u4F5C\u7B54\u6216\u4EA7\u51FA\u3002",
           " ",
           "\u53EA\u6536",
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E00\u6761" }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u4E00\u6761" }),
           "\uFF08\u9884\u7B97\u672A\u5B9A\uFF0C\u6CA1\u6709\u6279\u91CF\uFF09\uFF0C\u4E14\u53EA\u6536",
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u7F51\u9875\u6B63\u6587" }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u7F51\u9875\u6B63\u6587" }),
           "\uFF1A PDF / \u56FE\u7247 / \u538B\u7F29\u5305\u8BF7\u4E0B\u8F7D\u540E\u653E\u8FDB\u4E0A\u9762\u7684\u6587\u4EF6\u5939\u3002"
         ] })
       ] })
     ] }),
-    error !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { role: "alert", style: { margin: "0 0 8px", color: RED, fontSize: 12 }, children: [
+    error !== "" && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { role: "alert", style: { margin: "0 0 8px", color: RED, fontSize: 12 }, children: [
       "\u64CD\u4F5C\u5931\u8D25\uFF1A",
       error
     ] }),
-    warn2 !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { role: "status", style: { margin: "0 0 8px", color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
+    warn2 !== "" && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { role: "status", style: { margin: "0 0 8px", color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
       "\u26A0 ",
       warn2
     ] }),
-    notice !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "0 0 8px", color: "var(--dsw-alias-label-secondary, #666)", fontSize: 12 }, children: notice }),
-    loading && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "0 0 8px", fontSize: 12, color: GRAY }, children: "\u52A0\u8F7D\u4E2D\u2026" }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(AnchorNoteLine, { note: anchorNote }),
-    tierListFailed && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { role: "status", style: { margin: "0 0 8px", color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
+    notice !== "" && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { style: { margin: "0 0 8px", color: "var(--dsw-alias-label-secondary, #666)", fontSize: 12 }, children: notice }),
+    loading && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { style: { margin: "0 0 8px", fontSize: 12, color: GRAY }, children: "\u52A0\u8F7D\u4E2D\u2026" }),
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(AnchorNoteLine, { note: anchorNote }),
+    tierListFailed && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { role: "status", style: { margin: "0 0 8px", color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
       "\u26A0 \u6765\u6E90\u5C42\u7EA7\u6E05\u5355\uFF08T0\u2013T4\uFF09**\u6CA1\u8BFB\u5230**\uFF1A\u6750\u6599\u8868\u91CC\u6BCF\u4EFD\u6750\u6599\u7684\u300C\u8F74 A \u6765\u6E90\u53EF\u4FE1\u5EA6\u300D\u4E0B\u62C9\u4F1A\u53EA\u5269\u5F53\u524D\u503C\u3001",
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u6539\u4E0D\u4E86\u7EA7" }),
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u6539\u4E0D\u4E86\u7EA7" }),
       "\u3002\u8FD9**\u4E0D\u4EE3\u8868**\u6750\u6599\u6CA1\u6709\u5C42\u7EA7\uFF0C\u662F\u8FD9\u4EFD\u6E05\u5355\u6CA1\u53D6\u5230\u2014\u2014 \u91CD\u5F00\u9762\u677F\u6216\u91CD\u542F\u5F15\u64CE\u540E\u518D\u8BD5\u3002"
     ] }),
-    projectId === "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { fontSize: 12, color: GRAY }, children: "\u5148\u9009\u4E00\u4E2A\u9879\u76EE\uFF08\u6216\u5728\u4E0A\u9762\u65B0\u5EFA\uFF09\u3002" }),
-    projectId !== "" && !loading && materials.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { fontSize: 12, color: GRAY }, children: "\u8FD9\u4E2A\u9879\u76EE\u91CC\u8FD8\u6CA1\u6709\u5DF2\u767B\u8BB0\u7684\u6750\u6599\uFF1A\u628A\u6587\u4EF6\u653E\u8FDB\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u540E\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\uFF0C \u6216\u7528\u4E0A\u9762\u7684\u300C\u81EA\u91C7\u4E00\u6761\u300D\u6309\u7F51\u5740\u6293\u4E00\u4EFD\u7F51\u9875\u6B63\u6587\uFF08\u540C\u6837\u8981**\u4F60**\u6279\u51C6\u540E\u624D\u7B97\u6570\uFF09\u3002" }),
+    projectId === "" && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { style: { fontSize: 12, color: GRAY }, children: "\u5148\u9009\u4E00\u4E2A\u9879\u76EE\uFF08\u6216\u5728\u4E0A\u9762\u65B0\u5EFA\uFF09\u3002" }),
+    projectId !== "" && !loading && materials.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { style: { fontSize: 12, color: GRAY }, children: "\u8FD9\u4E2A\u9879\u76EE\u91CC\u8FD8\u6CA1\u6709\u5DF2\u767B\u8BB0\u7684\u6750\u6599\uFF1A\u628A\u6587\u4EF6\u653E\u8FDB\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u540E\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\uFF0C \u6216\u7528\u4E0A\u9762\u7684\u300C\u81EA\u91C7\u4E00\u6761\u300D\u6309\u7F51\u5740\u6293\u4E00\u4EFD\u7F51\u9875\u6B63\u6587\uFF08\u540C\u6837\u8981**\u4F60**\u6279\u51C6\u540E\u624D\u7B97\u6570\uFF09\u3002" }),
     materials.map((m) => {
       const rev = reviewLabel(m.review_status);
       const chunks = openChunks[m.material_id];
-      return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+      return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
         "div",
         {
           style: {
@@ -33228,10 +33645,10 @@ function KsMaterialsPanel(props) {
             marginBottom: 8
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "baseline", flexWrap: "wrap" }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: m.title }),
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: { fontSize: 12, color: rev.color }, children: rev.text }),
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { style: { fontSize: 12, color: GRAY }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "baseline", flexWrap: "wrap" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: m.title }),
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { fontSize: 12, color: rev.color }, children: rev.text }),
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { fontSize: 12, color: GRAY }, children: [
                 m.chunk_count ?? 0,
                 " \u4E2A\u5207\u7247 \xB7 ",
                 m.origin ?? "user",
@@ -33239,10 +33656,10 @@ function KsMaterialsPanel(props) {
                 m.kind ?? "other"
               ] })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap", marginTop: 6 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("label", { style: { display: "flex", gap: 4, alignItems: "center", fontSize: 12 }, children: [
-                /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { children: "\u8F74 A \u6765\u6E90\u53EF\u4FE1\u5EA6" }),
-                /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap", marginTop: 6 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("label", { style: { display: "flex", gap: 4, alignItems: "center", fontSize: 12 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { children: "\u8F74 A \u6765\u6E90\u53EF\u4FE1\u5EA6" }),
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
                   "select",
                   {
                     "aria-label": `\u6765\u6E90\u5C42\u7EA7 ${m.title}`,
@@ -33252,8 +33669,8 @@ function KsMaterialsPanel(props) {
                     title: tiers.length === 0 ? "\u6765\u6E90\u5C42\u7EA7\u6E05\u5355\u6CA1\u8BFB\u5230\uFF0C\u6682\u65F6\u6539\u4E0D\u4E86\u7EA7" : void 0,
                     style: { fontSize: 12, maxWidth: 260 },
                     children: [
-                      tiers.length === 0 && m.source_tier != null && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("option", { value: m.source_tier, children: m.tier_label ?? m.source_tier }),
-                      tiers.map((t) => /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("option", { value: t.tier, children: [
+                      tiers.length === 0 && m.source_tier != null && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("option", { value: m.source_tier, children: m.tier_label ?? m.source_tier }),
+                      tiers.map((t) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("option", { value: t.tier, children: [
                         t.tier,
                         " ",
                         t.label
@@ -33261,11 +33678,11 @@ function KsMaterialsPanel(props) {
                     ]
                   }
                 ),
-                m.tier_source === "user" && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: { color: GRAY }, children: "\uFF08\u4F60\u6539\u7684\uFF09" })
+                m.tier_source === "user" && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: GRAY }, children: "\uFF08\u4F60\u6539\u7684\uFF09" })
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("label", { style: { display: "flex", gap: 4, alignItems: "center", fontSize: 12 }, children: [
-                /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { children: "\u8F74 B \u4EFB\u52A1\u5185\u6548\u529B" }),
-                /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("label", { style: { display: "flex", gap: 4, alignItems: "center", fontSize: 12 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { children: "\u8F74 B \u4EFB\u52A1\u5185\u6548\u529B" }),
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
                   "select",
                   {
                     "aria-label": `\u4EFB\u52A1\u5185\u6548\u529B ${m.title}`,
@@ -33273,23 +33690,23 @@ function KsMaterialsPanel(props) {
                     onChange: (e) => onRole(m, e.currentTarget.value),
                     disabled: busy !== "",
                     style: { fontSize: 12, maxWidth: 260 },
-                    children: ROLE_OPTIONS.map((o) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("option", { value: o.value, children: o.label }, o.value))
+                    children: ROLE_OPTIONS.map((o) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("option", { value: o.value, children: o.label }, o.value))
                   }
                 )
               ] })
             ] }),
-            m.tier_reason != null && m.tier_reason !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: GRAY }, children: [
+            m.tier_reason != null && m.tier_reason !== "" && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: GRAY }, children: [
               "\u5224\u7EA7\u8BF4\u660E\uFF1A",
               m.tier_reason
             ] }),
-            m.source_tier === "T4" && m.task_role === "criterion" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: RED }, children: [
+            m.source_tier === "T4" && m.task_role === "criterion" && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: RED }, children: [
               "\u26A0 \u4F60\u628A\u6765\u6E90\u4E0D\u53EF\u56DE\u6EAF\uFF08T4\uFF09\u7684\u6750\u6599\u58F0\u660E\u4E3A\u51C6\u7EF3\u2014\u2014\u6309\u7EAA\u5F8B\u5B83",
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u4F1A\u6309\u51C6\u5219\u627F\u91CD" }),
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u4E0D\u4F1A\u6309\u51C6\u5219\u627F\u91CD" }),
               "\uFF0C \u53EA\u5217\u5728\u300C\u5DF2\u77E5\u4E0D\u53EF\u7528\u300D\u91CC\u3002\u8981\u8BA9\u5B83\u627F\u91CD\uFF0C\u8BF7\u5148\u628A\u5B83\u6539\u6210\u53EF\u56DE\u6EAF\u7684\u6765\u6E90\u5C42\u7EA7\u3002"
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(AnchorMark, { status: anchors[m.material_id]?.status, why: anchors[m.material_id]?.why }),
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { display: "flex", gap: 6, marginTop: 8, flexWrap: "wrap" }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(AnchorMark, { status: anchors[m.material_id]?.status, why: anchors[m.material_id]?.why }),
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", gap: 6, marginTop: 8, flexWrap: "wrap" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
                 "button",
                 {
                   type: "button",
@@ -33299,7 +33716,7 @@ function KsMaterialsPanel(props) {
                   children: "\u6279\u51C6\uFF08\u53EF\u8FDB\u5165\u4F5C\u7B54\uFF09"
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
                 "button",
                 {
                   type: "button",
@@ -33309,8 +33726,8 @@ function KsMaterialsPanel(props) {
                   children: "\u62D2\u7EDD"
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { type: "button", style: btnStyle2(false), onClick: () => onToggleChunks(m), children: chunks === void 0 ? "\u8BFB\u6B63\u6587\uFF08\u8BC4\u5BA1\u524D\u5FC5\u770B\uFF09" : "\u6536\u8D77\u6B63\u6587" }),
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("button", { type: "button", style: btnStyle2(false), onClick: () => onToggleChunks(m), children: chunks === void 0 ? "\u8BFB\u6B63\u6587\uFF08\u8BC4\u5BA1\u524D\u5FC5\u770B\uFF09" : "\u6536\u8D77\u6B63\u6587" }),
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
                 "button",
                 {
                   type: "button",
@@ -33322,15 +33739,15 @@ function KsMaterialsPanel(props) {
                 }
               )
             ] }),
-            chunks === "loading" && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: "\u8BFB\u53D6\u5207\u7247\u2026" }),
-            Array.isArray(chunks) && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { marginTop: 6, maxHeight: 240, overflow: "auto", fontSize: 12 }, children: [
-              chunks.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: 0, color: GRAY }, children: [
+            chunks === "loading" && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: "\u8BFB\u53D6\u5207\u7247\u2026" }),
+            Array.isArray(chunks) && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { marginTop: 6, maxHeight: 240, overflow: "auto", fontSize: 12 }, children: [
+              chunks.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { style: { margin: 0, color: GRAY }, children: [
                 "\u6CA1\u6709\u5207\u7247\u2014\u2014\u8BE5\u6587\u4EF6\u53EF\u80FD\u6CA1\u89E3\u6790\u51FA\u6587\u672C\uFF08\u626B\u63CF\u4EF6\uFF1F\uFF09\u3002",
-                /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u6CA1\u6709\u6B63\u6587\u5C31\u65E0\u6CD5\u8BC4\u5BA1" }),
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u6CA1\u6709\u6B63\u6587\u5C31\u65E0\u6CD5\u8BC4\u5BA1" }),
                 "\u3002"
               ] }),
-              chunks.map((c, i) => /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "0 0 4px" }, children: [
-                /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { style: { color: GRAY }, children: [
+              chunks.map((c, i) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { style: { margin: "0 0 4px" }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { color: GRAY }, children: [
                   "[",
                   i,
                   "] ",
@@ -33339,7 +33756,7 @@ function KsMaterialsPanel(props) {
                   "-",
                   c.char_end
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("br", {}),
                 c.text
               ] }, `${c.char_start}-${i}`))
             ] })
@@ -33348,21 +33765,21 @@ function KsMaterialsPanel(props) {
         m.material_id
       );
     }),
-    projectId !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: {
+    projectId !== "" && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: {
       marginTop: 12,
       padding: "8px 10px",
       border: "1px solid var(--dsw-alias-border, #e0e0e0)",
       borderRadius: 6
     }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4EA7\u51FA" }),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { style: { fontSize: 12, color: GRAY }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u4EA7\u51FA" }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { fontSize: 12, color: GRAY }, children: [
           "\uFF08\u53EA\u5403",
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5DF2\u6279\u51C6" }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u5DF2\u6279\u51C6" }),
           "\u6750\u6599\uFF1B\u672A\u6279\u51C6\u7684\u5728\u62A5\u544A\u91CC\u5355\u5217\u4E00\u8282\uFF09"
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { style: { display: "flex", gap: 8, marginTop: 6, flexWrap: "wrap" }, children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { style: { display: "flex", gap: 8, marginTop: 6, flexWrap: "wrap" }, children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
         "input",
         {
           "aria-label": "\u7814\u7A76\u95EE\u9898",
@@ -33372,7 +33789,7 @@ function KsMaterialsPanel(props) {
           style: { padding: "3px 6px", fontSize: 12, width: 340 }
         }
       ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { style: { marginTop: 6 }, children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { style: { marginTop: 6 }, children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
         "textarea",
         {
           "aria-label": "\u7ED3\u8BBA\u6B63\u6587",
@@ -33383,8 +33800,8 @@ function KsMaterialsPanel(props) {
           style: { padding: "3px 6px", fontSize: 12, width: "100%", boxSizing: "border-box" }
         }
       ) }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { display: "flex", gap: 6, marginTop: 6, flexWrap: "wrap" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", gap: 6, marginTop: 6, flexWrap: "wrap" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
           "button",
           {
             type: "button",
@@ -33394,7 +33811,7 @@ function KsMaterialsPanel(props) {
             children: "\u8D77\u8349\u7ED3\u8BBA\uFF08\u8349\u7A3F\uFF09"
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
           "button",
           {
             type: "button",
@@ -33404,7 +33821,7 @@ function KsMaterialsPanel(props) {
             children: "\u751F\u6210\u7814\u7A76\u62A5\u544A\uFF08Markdown/HTML/Word\uFF09"
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
           "button",
           {
             type: "button",
@@ -33414,7 +33831,7 @@ function KsMaterialsPanel(props) {
             children: "\u751F\u6210 PPT"
           }
         ),
-        report?.markdown !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        report?.markdown !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
           "button",
           {
             type: "button",
@@ -33424,7 +33841,7 @@ function KsMaterialsPanel(props) {
           }
         )
       ] }),
-      draft !== null && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+      draft !== null && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
         "div",
         {
           role: "status",
@@ -33436,21 +33853,21 @@ function KsMaterialsPanel(props) {
             background: "var(--dsw-alias-bg-secondary, #fafafa)"
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: 0, fontSize: 12, color: "var(--dsw-alias-warn, #b8860b)" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { style: { margin: 0, fontSize: 12, color: "var(--dsw-alias-warn, #b8860b)" }, children: [
               "\u26A0 ",
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u672A\u6279\u51C6\u8349\u7A3F" }),
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u672A\u6279\u51C6\u8349\u7A3F" }),
               "\u2014\u2014\u7531\u7CFB\u7EDF\u57FA\u4E8E",
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5DF2\u6279\u51C6\u6750\u6599" }),
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u5DF2\u6279\u51C6\u6750\u6599" }),
               "\u8D77\u8349\uFF0C",
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u5F97\u4F5C\u4E3A\u4F9D\u636E" }),
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u4E0D\u5F97\u4F5C\u4E3A\u4F9D\u636E" }),
               "\uFF1B \u8BF7\u5148\u6539/\u6838\uFF0C\u518D\u70B9\u300C\u7528\u8FD9\u6BB5\u586B\u8FDB\u7ED3\u8BBA\u6846\u300D\u3002"
             ] }),
-            draft.llm_called === false ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: GRAY }, children: [
+            draft.llm_called === false ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: GRAY }, children: [
               "\u6CA1\u6709\u53EF\u627F\u91CD\u7684\u5DF2\u6279\u51C6\u6750\u6599\uFF0C\u5F15\u64CE",
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u6CA1\u6709\u8D77\u8349" }),
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u6CA1\u6709\u8D77\u8349" }),
               "\uFF08\u4E00\u6B21\u6A21\u578B\u90FD\u6CA1\u8C03\uFF09\u3002"
-            ] }) : /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("pre", { style: {
+            ] }) : /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_jsx_runtime10.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("pre", { style: {
                 marginTop: 4,
                 maxHeight: 200,
                 overflow: "auto",
@@ -33460,22 +33877,22 @@ function KsMaterialsPanel(props) {
                 padding: 6,
                 borderRadius: 4
               }, children: canApplyDraft(draft) ? draft.draft_md : "\uFF08\u6A21\u578B\u6CA1\u6709\u4EA7\u51FA\u7ED3\u8BBA\u6BB5\u2014\u2014\u89C1\u4E0B\u65B9\u63D0\u793A\uFF0C\u53EF\u770B derivation_md\uFF09" }),
-              (draft.warnings ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: {
+              (draft.warnings ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { style: {
                 margin: "4px 0 0",
                 fontSize: 12,
                 color: "var(--dsw-alias-warn, #b8860b)"
               }, children: [
                 "\u26A0 \u8D77\u8349\u63D0\u793A\uFF08\u5F15\u7528\u4E0D\u6210\u7ACB / \u6750\u6599\u4E0D\u8DB3 / \u6A21\u578B\u8F93\u51FA\u95EE\u9898\uFF0C**\u539F\u6837\u5217\u51FA\u3001\u4E0D\u9759\u9ED8\u6539\u8349\u7A3F**\uFF09\uFF1A",
-                /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("br", {}),
                 (draft.warnings ?? []).join("\uFF1B")
               ] }),
-              flow.pendingOverwrite ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { marginTop: 4 }, children: [
-                /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: {
+              flow.pendingOverwrite ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { marginTop: 4 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { style: {
                   margin: "0 0 4px",
                   fontSize: 12,
                   color: "var(--dsw-alias-warn, #b8860b)"
                 }, children: "\u26A0 \u7ED3\u8BBA\u6846\u91CC\u5DF2\u6709\u5185\u5BB9\uFF08\u53EF\u80FD\u662F\u4F60\u81EA\u5DF1\u5199\u7684\uFF09\u2014\u2014\u586B\u8349\u7A3F\u4F1A**\u8986\u76D6**\u5B83\uFF0C\u4E14**\u4E0D\u80FD\u64A4\u9500**\u3002 \u786E\u8BA4\u8981\u8986\u76D6\u5417\uFF1F" }),
-                /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
                   "button",
                   {
                     type: "button",
@@ -33484,7 +33901,7 @@ function KsMaterialsPanel(props) {
                     children: "\u786E\u8BA4\u8986\u76D6"
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+                /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
                   "button",
                   {
                     type: "button",
@@ -33493,7 +33910,7 @@ function KsMaterialsPanel(props) {
                     children: "\u53D6\u6D88\uFF08\u4FDD\u7559\u6211\u5199\u7684\uFF09"
                   }
                 )
-              ] }) : /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+              ] }) : /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
                 "button",
                 {
                   type: "button",
@@ -33507,7 +33924,7 @@ function KsMaterialsPanel(props) {
           ]
         }
       ),
-      report !== null && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
+      report !== null && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
         "\u5DF2\u6279\u51C6 ",
         report.counts?.approved ?? 0,
         " / \u5F85\u8BC4\u5BA1 ",
@@ -33519,27 +33936,27 @@ function KsMaterialsPanel(props) {
         " \u6761",
         report.citations?.unchecked_law_refs ? ` \xB7 \u6CD5\u89C4\u5F15\u7528 ${report.citations.unchecked_law_refs} \u6761**\u672C\u6B21\u65E0\u6CD5\u6838\u9A8C**` : "",
         (report.citations?.unknown ?? 0) > 0 ? ` \xB7 ${report.citations?.unknown} \u6761**\u65E0\u6CD5\u5224\u5B9A**` : "",
-        report.names !== void 0 && report.names.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(Deliverables, { names: report.names, paths: report.files ?? [] })
+        report.names !== void 0 && report.names.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Deliverables, { names: report.names, paths: report.files ?? [] })
       ] }),
-      report !== null && (report.warnings ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { role: "status", style: { margin: "6px 0 0", color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
+      report !== null && (report.warnings ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { role: "status", style: { margin: "6px 0 0", color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
         "\u26A0 \u5F15\u7528\u8B66\u544A\uFF08\u8FD9\u4E9B\u5F15\u7528**\u4E0D\u6210\u7ACB**\u6216\u65E0\u6CD5\u6838\u9A8C\uFF0C\u62A5\u544A\u91CC\u4E5F\u7167\u539F\u6837\u5217\u51FA\u4E86\uFF09\uFF1A",
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("br", {}),
         (report.warnings ?? []).join("\uFF1B")
       ] }),
-      slides !== null && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
+      slides !== null && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
         "PPT\uFF1A",
         slides.name ?? "",
         "\uFF08",
         slides.slide_count ?? 0,
         " \u9875\uFF09",
-        (slides.warnings ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
+        (slides.warnings ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_jsx_runtime10.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("br", {}),
           "\u26A0 ",
           (slides.warnings ?? []).join("\uFF1B")
         ] })
       ] }),
-      slides?.name !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(Deliverables, { names: [slides.name], paths: slides.path !== void 0 ? [slides.path] : [] }),
-      showReport && report?.markdown !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("pre", { style: {
+      slides?.name !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(Deliverables, { names: [slides.name], paths: slides.path !== void 0 ? [slides.path] : [] }),
+      showReport && report?.markdown !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("pre", { style: {
         marginTop: 6,
         maxHeight: 320,
         overflow: "auto",
@@ -33549,13 +33966,13 @@ function KsMaterialsPanel(props) {
         padding: 8,
         borderRadius: 4
       }, children: report.markdown }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
         "\u62A5\u544A\u4E0E PPT ",
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u540C\u4E00\u4EFD\u5185\u5BB9" }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u540C\u4E00\u4EFD\u5185\u5BB9" }),
         "\uFF08\u90FD\u4ECE\u5F15\u64CE\u7684\u540C\u4E00\u4EFD\u5185\u5BB9\u5757\u6E32\u67D3\uFF09\uFF0C",
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u672C\u673A" }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u672C\u673A" }),
         "\u751F\u6210\u4E0E\u4FDD\u5B58\u3001",
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u5916\u53D1" }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: "\u4E0D\u5916\u53D1" }),
         "\uFF1BPPT \u7528\u9ED8\u8BA4\u7248\u5F0F\uFF0C \u8D85\u957F\u8981\u70B9\u4F1A\u622A\u65AD\u3001\u9875\u6570\u6709\u4E0A\u9650\uFF08\u90FD\u5199\u5728 PPT \u672B\u9875\uFF09\u3002"
       ] })
     ] })
@@ -33577,11 +33994,11 @@ function downloadBlob(url, name) {
 }
 function Deliverables(props) {
   const { names, paths } = props;
-  const [busy, setBusy] = (0, import_react7.useState)("");
-  const [error, setError] = (0, import_react7.useState)("");
-  const [copied, setCopied] = (0, import_react7.useState)(false);
+  const [busy, setBusy] = (0, import_react9.useState)("");
+  const [error, setError] = (0, import_react9.useState)("");
+  const [copied, setCopied] = (0, import_react9.useState)(false);
   const folder = paths.length > 0 ? folderOf(paths[0]) : "";
-  const open = (0, import_react7.useCallback)((name) => {
+  const open = (0, import_react9.useCallback)((name) => {
     if (busy !== "") return;
     setBusy(name);
     setError("");
@@ -33610,7 +34027,7 @@ function Deliverables(props) {
       }
     })();
   }, [busy]);
-  const copyFolder = (0, import_react7.useCallback)(() => {
+  const copyFolder = (0, import_react9.useCallback)(() => {
     if (folder === "") return;
     void navigator.clipboard.writeText(folder).then(
       () => {
@@ -33620,10 +34037,10 @@ function Deliverables(props) {
       (e) => setError(`\u590D\u5236\u5931\u8D25\uFF0C\u8BF7\u624B\u52A8\u9009\u4E2D\u4E0B\u9762\u7684\u8DEF\u5F84\uFF1A${e instanceof Error ? e.message : String(e)}`)
     );
   }, [folder]);
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { margin: "6px 0 0", fontSize: 12 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: { color: GRAY }, children: "\u4EA7\u7269\uFF1A" }),
-      names.map((n) => /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { margin: "6px 0 0", fontSize: 12 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: GRAY }, children: "\u4EA7\u7269\uFF1A" }),
+      names.map((n) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
         "button",
         {
           type: "button",
@@ -33649,11 +34066,11 @@ function Deliverables(props) {
         n
       ))
     ] }),
-    folder !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { marginTop: 4, color: GRAY }, children: [
+    folder !== "" && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { marginTop: 4, color: GRAY }, children: [
       "\u4FDD\u5B58\u76EE\u5F55\uFF1A",
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("code", { style: { wordBreak: "break-all" }, children: folder }),
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("code", { style: { wordBreak: "break-all" }, children: folder }),
       " ",
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
         "button",
         {
           type: "button",
@@ -33672,17 +34089,17 @@ function Deliverables(props) {
         }
       )
     ] }),
-    error !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { role: "alert", style: { margin: "4px 0 0", color: "#c0392b", fontSize: 11.5 }, children: [
+    error !== "" && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { role: "alert", style: { margin: "4px 0 0", color: "#c0392b", fontSize: 11.5 }, children: [
       "\u6253\u5F00\u5931\u8D25\uFF1A",
       error
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "4px 0 0", color: GRAY, fontSize: 11 }, children: "Word / PPT \u6D4F\u89C8\u5668\u6E32\u67D3\u4E0D\u4E86\uFF1A\u4E0A\u9762\u7ED9\u7684\u662F**\u4E0B\u8F7D\u4E00\u4EFD**\uFF08\u672C\u673A\u539F\u4EF6\u4ECD\u5728\u4FDD\u5B58\u76EE\u5F55\u91CC\uFF09\u3002 \u300C\u7528\u7CFB\u7EDF\u9ED8\u8BA4\u7A0B\u5E8F\u4E00\u952E\u6253\u5F00\u300D\u9700\u8981\u5728\u5BBF\u4E3B\u4FA7\u52A0\u8DEF\u7531\uFF08\u8981\u91CD\u542F\u5BBF\u4E3B\uFF09\uFF0C\u672C\u8F6E\u672A\u505A\u3002" })
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { style: { margin: "4px 0 0", color: GRAY, fontSize: 11 }, children: "Word / PPT \u6D4F\u89C8\u5668\u6E32\u67D3\u4E0D\u4E86\uFF1A\u4E0A\u9762\u7ED9\u7684\u662F**\u4E0B\u8F7D\u4E00\u4EFD**\uFF08\u672C\u673A\u539F\u4EF6\u4ECD\u5728\u4FDD\u5B58\u76EE\u5F55\u91CC\uFF09\u3002 \u300C\u7528\u7CFB\u7EDF\u9ED8\u8BA4\u7A0B\u5E8F\u4E00\u952E\u6253\u5F00\u300D\u9700\u8981\u5728\u5BBF\u4E3B\u4FA7\u52A0\u8DEF\u7531\uFF08\u8981\u91CD\u542F\u5BBF\u4E3B\uFF09\uFF0C\u672C\u8F6E\u672A\u505A\u3002" })
   ] });
 }
 
 // client/KsChannelsPanel.tsx
-var import_react8 = require("react");
-var import_jsx_runtime8 = require("react/jsx-runtime");
+var import_react10 = require("react");
+var import_jsx_runtime11 = require("react/jsx-runtime");
 var LINE = "var(--dsw-alias-border-l2, #ccc)";
 var CATEGORY_LABEL = {
   law: "\u6CD5\u89C4",
@@ -33738,19 +34155,19 @@ function sortChannels(rows) {
 }
 function KsChannelsPanel(props) {
   const { visible } = props;
-  const [data, setData] = (0, import_react8.useState)(null);
-  const [error, setError] = (0, import_react8.useState)("");
-  const [busy, setBusy] = (0, import_react8.useState)(false);
-  const [probeBusy, setProbeBusy] = (0, import_react8.useState)(false);
-  const [notice, setNotice] = (0, import_react8.useState)("");
-  const [cat, setCat] = (0, import_react8.useState)("");
-  const [state, setState] = (0, import_react8.useState)("");
-  const [adding, setAdding] = (0, import_react8.useState)(false);
-  const [newName, setNewName] = (0, import_react8.useState)("");
-  const [newUrl, setNewUrl] = (0, import_react8.useState)("");
-  const [newNote, setNewNote] = (0, import_react8.useState)("");
-  const [mutating, setMutating] = (0, import_react8.useState)(false);
-  const load = (0, import_react8.useCallback)(async (signal) => {
+  const [data, setData] = (0, import_react10.useState)(null);
+  const [error, setError] = (0, import_react10.useState)("");
+  const [busy, setBusy] = (0, import_react10.useState)(false);
+  const [probeBusy, setProbeBusy] = (0, import_react10.useState)(false);
+  const [notice, setNotice] = (0, import_react10.useState)("");
+  const [cat, setCat] = (0, import_react10.useState)("");
+  const [state, setState] = (0, import_react10.useState)("");
+  const [adding, setAdding] = (0, import_react10.useState)(false);
+  const [newName, setNewName] = (0, import_react10.useState)("");
+  const [newUrl, setNewUrl] = (0, import_react10.useState)("");
+  const [newNote, setNewNote] = (0, import_react10.useState)("");
+  const [mutating, setMutating] = (0, import_react10.useState)(false);
+  const load = (0, import_react10.useCallback)(async (signal) => {
     setBusy(true);
     setError("");
     try {
@@ -33765,13 +34182,13 @@ function KsChannelsPanel(props) {
       if (!signal?.aborted) setBusy(false);
     }
   }, [cat, state]);
-  (0, import_react8.useEffect)(() => {
+  (0, import_react10.useEffect)(() => {
     if (!visible) return void 0;
     const controller = new AbortController();
     void load(controller.signal);
     return () => controller.abort();
   }, [visible, load]);
-  const probe = (0, import_react8.useCallback)(() => {
+  const probe = (0, import_react10.useCallback)(() => {
     if (probeBusy) return;
     setProbeBusy(true);
     setNotice("");
@@ -33790,7 +34207,7 @@ function KsChannelsPanel(props) {
   }, [load, probeBusy]);
   const rows = data ? sortChannels(data.items) : [];
   const s = data?.summary;
-  const runMutation = (0, import_react8.useCallback)(async (label, fn) => {
+  const runMutation = (0, import_react10.useCallback)(async (label, fn) => {
     if (mutating) return;
     setMutating(true);
     setNotice("");
@@ -33804,7 +34221,7 @@ function KsChannelsPanel(props) {
       setMutating(false);
     }
   }, [load, mutating]);
-  const submitCreate = (0, import_react8.useCallback)(async () => {
+  const submitCreate = (0, import_react10.useCallback)(async () => {
     const name = newName.trim();
     if (name === "") return;
     await runMutation("\u65B0\u589E\u6E20\u9053", async () => {
@@ -33819,19 +34236,19 @@ function KsChannelsPanel(props) {
       setAdding(false);
     });
   }, [newName, newUrl, newNote, runMutation]);
-  const toggleEnabled = (0, import_react8.useCallback)(async (r) => {
+  const toggleEnabled = (0, import_react10.useCallback)(async (r) => {
     await runMutation(
       r.enabled === 0 ? "\u542F\u7528\u6E20\u9053" : "\u505C\u7528\u6E20\u9053",
       () => setChannelEnabled(r.channel_id, r.enabled === 0)
     );
   }, [runMutation]);
-  const editNote = (0, import_react8.useCallback)(async (r) => {
+  const editNote = (0, import_react10.useCallback)(async (r) => {
     const next = window.prompt(`\u6539\u5907\u6CE8\uFF08${r.name}\uFF09
 \u7559\u7A7A\u5219\u6E05\u7A7A\u8BE5\u5B57\u6BB5\uFF1A`, r.note ?? "");
     if (next === null) return;
     await runMutation("\u6539\u5907\u6CE8", () => updateChannel(r.channel_id, { note: next }));
   }, [runMutation]);
-  const remove = (0, import_react8.useCallback)(async (r) => {
+  const remove = (0, import_react10.useCallback)(async (r) => {
     const ok = window.confirm(
       `\u786E\u5B9A\u5220\u9664\u300C${r.name}\u300D\uFF1F
 
@@ -33843,18 +34260,18 @@ function KsChannelsPanel(props) {
     if (!ok) return;
     await runMutation("\u5220\u9664\u6E20\u9053", () => deleteChannel(r.channel_id));
   }, [runMutation]);
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: 8, fontSize: 12 }, children: [
-    s && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { color: GRAY2, lineHeight: 1.7 }, children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: 8, fontSize: 12 }, children: [
+    s && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { color: GRAY2, lineHeight: 1.7 }, children: [
       "\u53F0\u8D26 ",
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("b", { children: s.total }),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("b", { children: s.total }),
       " \u6761 \xB7 \u80FD\u5E72\u6D3B\uFF08\u5DF2\u63A5\u7EBF\uFF09",
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("b", { children: s.by_wiring.wired ?? 0 }),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("b", { children: s.by_wiring.wired ?? 0 }),
       " \u6761 \xB7 \u5DF2\u77E5\u5931\u6548 ",
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("b", { children: s.by_wiring.broken ?? 0 }),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("b", { children: s.by_wiring.broken ?? 0 }),
       " \u6761 \xB7 \u4EC5\u767B\u8BB0 ",
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("b", { children: s.by_wiring.seed_only ?? 0 }),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("b", { children: s.by_wiring.seed_only ?? 0 }),
       " \u6761",
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("br", {}),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("br", {}),
       "\u5DF2\u5B9E\u6D4B\u6709\u6548\u6027\uFF1A\u{1F7E2} ",
       s.by_state.ok ?? 0,
       " \xB7 \u{1F7E1} ",
@@ -33863,11 +34280,11 @@ function KsChannelsPanel(props) {
       s.by_state.down ?? 0,
       " \xB7 \u26AA \u672A\u63A2 ",
       s.by_state.unknown ?? 0,
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("br", {}),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { color: FAINT }, children: "\u26A0\u300C\u63A5\u7EBF\u300D\u662F\u6211\u4EEC\u7684\u4EE3\u7801\u63A5\u6CA1\u63A5\u4E0A\uFF08\u5DE1\u68C0\u4F1A\u4E0D\u4F1A\u8C03\u7528\u5B83\uFF09\uFF1B\u300C\u6709\u6548\u6027\u300D\u662F\u6E20\u9053\u672C\u8EAB\u4ECA\u5929\u80FD\u4E0D\u80FD\u6293\u3002 \u4E24\u8005\u662F\u4E24\u6839\u8F74\uFF1A\u7AD9\u70B9\u6D3B\u7740\u800C\u6211\u4EEC\u7684\u89E3\u6790\u5668\u574F\u4E86\uFF08\u6216\u53CD\u4E4B\uFF09\u90FD\u4F1A\u53D1\u751F\uFF0C\u6240\u4EE5\u5206\u5217\u663E\u793A\u3002" })
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("br", {}),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { style: { color: FAINT }, children: "\u26A0\u300C\u63A5\u7EBF\u300D\u662F\u6211\u4EEC\u7684\u4EE3\u7801\u63A5\u6CA1\u63A5\u4E0A\uFF08\u5DE1\u68C0\u4F1A\u4E0D\u4F1A\u8C03\u7528\u5B83\uFF09\uFF1B\u300C\u6709\u6548\u6027\u300D\u662F\u6E20\u9053\u672C\u8EAB\u4ECA\u5929\u80FD\u4E0D\u80FD\u6293\u3002 \u4E24\u8005\u662F\u4E24\u6839\u8F74\uFF1A\u7AD9\u70B9\u6D3B\u7740\u800C\u6211\u4EEC\u7684\u89E3\u6790\u5668\u574F\u4E86\uFF08\u6216\u53CD\u4E4B\uFF09\u90FD\u4F1A\u53D1\u751F\uFF0C\u6240\u4EE5\u5206\u5217\u663E\u793A\u3002" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
         "select",
         {
           value: cat,
@@ -33875,12 +34292,12 @@ function KsChannelsPanel(props) {
           style: $select,
           title: "\u6309\u7C7B\u522B\u7B5B\u9009\uFF08\u670D\u52A1\u7AEF\u7B5B\u9009\uFF09",
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: "", children: "\u5168\u90E8\u7C7B\u522B" }),
-            Object.entries(CATEGORY_LABEL).map(([k, v]) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: k, children: v }, k))
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("option", { value: "", children: "\u5168\u90E8\u7C7B\u522B" }),
+            Object.entries(CATEGORY_LABEL).map(([k, v]) => /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("option", { value: k, children: v }, k))
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
         "select",
         {
           value: state,
@@ -33888,13 +34305,13 @@ function KsChannelsPanel(props) {
           style: $select,
           title: "\u6309\u6709\u6548\u6027\u7B5B\u9009\uFF08\u670D\u52A1\u7AEF\u7B5B\u9009\uFF09",
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: "", children: "\u5168\u90E8\u6709\u6548\u6027" }),
-            Object.entries(STATE_LABEL).map(([k, v]) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("option", { value: k, children: v }, k))
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("option", { value: "", children: "\u5168\u90E8\u6709\u6548\u6027" }),
+            Object.entries(STATE_LABEL).map(([k, v]) => /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("option", { value: k, children: v }, k))
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("button", { type: "button", onClick: () => void load(), disabled: busy, style: $btn2, children: busy ? "\u8BFB\u53D6\u4E2D\u2026" : "\u27F3 \u5237\u65B0" }),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("button", { type: "button", onClick: () => void load(), disabled: busy, style: $btn2, children: busy ? "\u8BFB\u53D6\u4E2D\u2026" : "\u27F3 \u5237\u65B0" }),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
         "button",
         {
           type: "button",
@@ -33905,7 +34322,7 @@ function KsChannelsPanel(props) {
           children: probeBusy ? "\u63A2\u6D4B\u4E2D\u2026\uFF08\u7EA6 10\u201330 \u79D2\uFF09" : "\u{1FA7A} \u7ACB\u5373\u63A2\u6D4B"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
         "button",
         {
           type: "button",
@@ -33916,7 +34333,7 @@ function KsChannelsPanel(props) {
         }
       )
     ] }),
-    adding && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: {
+    adding && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: {
       display: "flex",
       gap: 6,
       flexWrap: "wrap",
@@ -33925,7 +34342,7 @@ function KsChannelsPanel(props) {
       borderRadius: 6,
       padding: 6
     }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
         "input",
         {
           value: newName,
@@ -33935,7 +34352,7 @@ function KsChannelsPanel(props) {
           "aria-label": "\u6E20\u9053\u540D\u79F0"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
         "input",
         {
           value: newUrl,
@@ -33945,7 +34362,7 @@ function KsChannelsPanel(props) {
           "aria-label": "\u6E20\u9053\u94FE\u63A5"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
         "input",
         {
           value: newNote,
@@ -33955,7 +34372,7 @@ function KsChannelsPanel(props) {
           "aria-label": "\u5907\u6CE8"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
         "button",
         {
           type: "button",
@@ -33965,67 +34382,67 @@ function KsChannelsPanel(props) {
           children: mutating ? "\u63D0\u4EA4\u4E2D\u2026" : "\u63D0\u4EA4"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { color: FAINT }, children: "\u65B0\u589E\u7684\u6E20\u9053\u9ED8\u8BA4\uFF1A\u63A5\u7EBF `user`\uFF08\u662F\u4EBA\u52A0\u7684\uFF09\u3001\u6709\u6548\u6027 `unverified`\uFF08\u4EBA\u5DE5\u5F55\u5165\u2260\u5DF2\u6838\u5B9E\uFF09\u3001 \u63A2\u9488\u72B6\u6001 `unknown`\uFF08\u8FD8\u6CA1\u63A2\u8FC7\uFF09\u3002" })
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { style: { color: FAINT }, children: "\u65B0\u589E\u7684\u6E20\u9053\u9ED8\u8BA4\uFF1A\u63A5\u7EBF `user`\uFF08\u662F\u4EBA\u52A0\u7684\uFF09\u3001\u6709\u6548\u6027 `unverified`\uFF08\u4EBA\u5DE5\u5F55\u5165\u2260\u5DF2\u6838\u5B9E\uFF09\u3001 \u63A2\u9488\u72B6\u6001 `unknown`\uFF08\u8FD8\u6CA1\u63A2\u8FC7\uFF09\u3002" })
     ] }),
-    notice !== "" && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { role: "status", style: { margin: 0, color: GRAY2 }, children: notice }),
-    error !== "" && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("p", { role: "alert", style: { margin: 0, color: "#c0392b" }, children: [
+    notice !== "" && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { role: "status", style: { margin: 0, color: GRAY2 }, children: notice }),
+    error !== "" && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { role: "alert", style: { margin: 0, color: "#c0392b" }, children: [
       "\u8BFB\u53D6\u5931\u8D25\uFF1A",
       error,
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("br", {}),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { color: FAINT }, children: "\uFF08\u6E20\u9053\u53F0\u8D26\u7AEF\u70B9\u8981\u5BBF\u4E3B/\u5F15\u64CE\u91CD\u542F\u540E\u624D\u5728\u7EBF\uFF1B\u82E5\u521A\u66F4\u65B0\u8FC7\u800C\u6CA1\u91CD\u542F\uFF0C\u8FD9\u91CC\u5C31\u4F1A\u62A5\u9519\u3002\uFF09" })
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("br", {}),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { style: { color: FAINT }, children: "\uFF08\u6E20\u9053\u53F0\u8D26\u7AEF\u70B9\u8981\u5BBF\u4E3B/\u5F15\u64CE\u91CD\u542F\u540E\u624D\u5728\u7EBF\uFF1B\u82E5\u521A\u66F4\u65B0\u8FC7\u800C\u6CA1\u91CD\u542F\uFF0C\u8FD9\u91CC\u5C31\u4F1A\u62A5\u9519\u3002\uFF09" })
     ] }),
-    data && rows.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { style: { color: GRAY2, margin: 0 }, children: "\u6CA1\u6709\u7B26\u5408\u6761\u4EF6\u7684\u6E20\u9053\u3002" }),
-    rows.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { style: { overflowX: "auto" }, children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("table", { style: { borderCollapse: "collapse", width: "100%", fontSize: 11.5 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("tr", { style: { color: FAINT, textAlign: "left" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("th", { style: $th, children: "\u6E20\u9053" }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("th", { style: $th, children: "\u7C7B\u522B" }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("th", { style: $th, children: "\u63A5\u7EBF" }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("th", { style: $th, children: "\u6709\u6548\u6027" }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("th", { style: $th, children: "\u4E0A\u6B21\u6210\u529F(UTC)" }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("th", { style: $th, children: "\u5931\u8D25\u539F\u56E0" }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("th", { style: $th, children: "\u94FE\u63A5" }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("th", { style: $th, children: "\u7EF4\u62A4" })
+    data && rows.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { color: GRAY2, margin: 0 }, children: "\u6CA1\u6709\u7B26\u5408\u6761\u4EF6\u7684\u6E20\u9053\u3002" }),
+    rows.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { style: { overflowX: "auto" }, children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("table", { style: { borderCollapse: "collapse", width: "100%", fontSize: 11.5 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("tr", { style: { color: FAINT, textAlign: "left" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("th", { style: $th, children: "\u6E20\u9053" }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("th", { style: $th, children: "\u7C7B\u522B" }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("th", { style: $th, children: "\u63A5\u7EBF" }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("th", { style: $th, children: "\u6709\u6548\u6027" }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("th", { style: $th, children: "\u4E0A\u6B21\u6210\u529F(UTC)" }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("th", { style: $th, children: "\u5931\u8D25\u539F\u56E0" }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("th", { style: $th, children: "\u94FE\u63A5" }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("th", { style: $th, children: "\u7EF4\u62A4" })
       ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("tbody", { children: rows.map((r) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("tr", { style: needsAttention(r) ? $trWarn : void 0, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("td", { style: $td, title: r.note ?? void 0, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("tbody", { children: rows.map((r) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("tr", { style: needsAttention(r) ? $trWarn : void 0, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("td", { style: $td, title: r.note ?? void 0, children: [
           r.name,
-          r.enabled === 0 ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { color: FAINT }, children: "\uFF08\u5DF2\u505C\u7528\uFF09" }) : null
+          r.enabled === 0 ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { style: { color: FAINT }, children: "\uFF08\u5DF2\u505C\u7528\uFF09" }) : null
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("td", { style: $td, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("td", { style: $td, children: [
           CATEGORY_LABEL[r.category] ?? r.category,
-          r.category_raw && r.category_raw !== r.category ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { color: FAINT }, title: `\u8C03\u7814\u539F\u6587\uFF1A${r.category_raw}`, children: "*" }) : null
+          r.category_raw && r.category_raw !== r.category ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { style: { color: FAINT }, title: `\u8C03\u7814\u539F\u6587\uFF1A${r.category_raw}`, children: "*" }) : null
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("td", { style: $td, title: r.wiring === "broken" ? r.note ?? "" : void 0, children: WIRING_LABEL[r.wiring] ?? r.wiring }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("td", { style: $td, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("td", { style: $td, title: r.wiring === "broken" ? r.note ?? "" : void 0, children: WIRING_LABEL[r.wiring] ?? r.wiring }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("td", { style: $td, children: [
           STATE_LABEL[r.state] ?? r.state,
-          r.state === "unknown" && r.has_probe_target === false ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { color: FAINT }, title: "\u8BE5\u6E20\u9053\u6CA1\u6709\u63A2\u9488\u76EE\u6807\uFF08\u4EE3\u7801\u4ED3\u5E93/\u6211\u65B9\u4EE3\u7801\u901A\u8DEF\u7B49\uFF09\uFF0C\u4E0D\u662F'\u8FD8\u6CA1\u8F6E\u5230\u5B83'", children: "\uFF08\u65E0\u63A2\u9488\uFF09" }) : null,
-          r.latency_ms != null ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { color: FAINT }, children: [
+          r.state === "unknown" && r.has_probe_target === false ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { style: { color: FAINT }, title: "\u8BE5\u6E20\u9053\u6CA1\u6709\u63A2\u9488\u76EE\u6807\uFF08\u4EE3\u7801\u4ED3\u5E93/\u6211\u65B9\u4EE3\u7801\u901A\u8DEF\u7B49\uFF09\uFF0C\u4E0D\u662F'\u8FD8\u6CA1\u8F6E\u5230\u5B83'", children: "\uFF08\u65E0\u63A2\u9488\uFF09" }) : null,
+          r.latency_ms != null ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { style: { color: FAINT }, children: [
             " ",
             r.latency_ms,
             "ms"
           ] }) : null
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("td", { style: $td, title: r.last_ok_at ?? "", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("td", { style: $td, title: r.last_ok_at ?? "", children: [
           describeWhen(r.last_ok_at),
-          r.last_try_at && r.last_try_at !== r.last_ok_at ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { color: FAINT }, children: [
+          r.last_try_at && r.last_try_at !== r.last_ok_at ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { style: { color: FAINT }, children: [
             "\uFF08\u8BD5\u8FC7 ",
             describeWhen(r.last_try_at),
             "\uFF09"
           ] }) : null
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("td", { style: { ...$td, color: r.last_error ? "#c0392b" : FAINT, maxWidth: 220 }, children: [
-          r.last_error_code ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("code", { children: r.last_error_code }) : "\u2014",
-          r.last_error ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("td", { style: { ...$td, color: r.last_error ? "#c0392b" : FAINT, maxWidth: 220 }, children: [
+          r.last_error_code ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("code", { children: r.last_error_code }) : "\u2014",
+          r.last_error ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { children: [
             " ",
             r.last_error.slice(0, 60)
           ] }) : null,
-          r.consecutive_failures > 1 ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { style: { color: FAINT }, children: [
+          r.consecutive_failures > 1 ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { style: { color: FAINT }, children: [
             "\uFF08\u8FDE\u7EED ",
             r.consecutive_failures,
             " \u6B21\uFF09"
           ] }) : null
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("td", { style: $td, children: r.url ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("td", { style: $td, children: r.url ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
           "a",
           {
             href: r.url.split(/[（\s]/)[0],
@@ -34035,8 +34452,8 @@ function KsChannelsPanel(props) {
             children: "\u6253\u5F00"
           }
         ) : "\u2014" }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("td", { style: { ...$td, whiteSpace: "nowrap" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("td", { style: { ...$td, whiteSpace: "nowrap" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
             "button",
             {
               type: "button",
@@ -34047,7 +34464,7 @@ function KsChannelsPanel(props) {
               children: r.enabled === 0 ? "\u542F\u7528" : "\u505C\u7528"
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
             "button",
             {
               type: "button",
@@ -34058,7 +34475,7 @@ function KsChannelsPanel(props) {
               children: "\u6539\u5907\u6CE8"
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
             "button",
             {
               type: "button",
@@ -34072,7 +34489,7 @@ function KsChannelsPanel(props) {
         ] })
       ] }, r.channel_id)) })
     ] }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { style: { margin: 0, color: FAINT, lineHeight: 1.6 }, children: '\u65F6\u95F4\u5217\u662F UTC\uFF08\u5E93\u5185 `datetime(\'now\')` \u7684\u65E2\u6709\u53E3\u5F84\uFF09\uFF0C\u65C1\u8FB9\u6309"\u591A\u4E45\u4E4B\u524D"\u663E\u793A\u3002 \u300C\u7ACB\u5373\u63A2\u6D4B\u300D\u53EA\u63A2\u914D\u4E86\u63A2\u9488\u76EE\u6807\u7684\u6E20\u9053\uFF08\u951A\u70B9\u5FC5\u987B\u5B9E\u6D4B\u770B\u5230\u8FC7\uFF0C\u4E0D\u8BB8\u51ED\u60F3\u8C61\u5199\uFF09\uFF1B \u6CA1\u914D\u7684\u663E\u793A \u26AA \u672A\u63A2 \u2014\u2014 \u90A3\u662F"\u8FD8\u6CA1\u6D4B\u8FC7"\uFF0C\u4E0D\u662F"\u6D4B\u8FC7\u4E86\u6CA1\u95EE\u9898"\uFF1B \u6807\u4E86\u300C\uFF08\u65E0\u63A2\u9488\uFF09\u300D\u7684\u662F\u6309\u8BBE\u8BA1\u5C31\u6CA1\u6709\u63A2\u9488\u76EE\u6807\uFF08\u4EE3\u7801\u4ED3\u5E93\u3001\u6211\u65B9\u4EE3\u7801\u901A\u8DEF\u7B49\uFF09\uFF0C \u4E0E"\u8FD8\u6CA1\u8F6E\u5230\u5B83"\u4E0D\u662F\u4E00\u56DE\u4E8B\uFF1B \u8FD8\u6709\u4E00\u79CD \u26AA \u662F\u80FD\u8FDE\u901A\u3001\u4F46\u6211\u4EEC\u6CA1\u7ED9\u5B83\u914D\u8BED\u4E49\u671F\u671B\uFF08\u5931\u8D25\u539F\u56E0\u5217\u5199 `no_anchor_configured`\uFF09 \u2014\u2014 \u5B83\u540C\u6837\u4E0D\u7B97\u300C\u53EF\u6293\u300D\uFF0C\u4F46\u4E5F\u4E0D\u662F\u6B20\u8D26\u3002' })
+    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { margin: 0, color: FAINT, lineHeight: 1.6 }, children: '\u65F6\u95F4\u5217\u662F UTC\uFF08\u5E93\u5185 `datetime(\'now\')` \u7684\u65E2\u6709\u53E3\u5F84\uFF09\uFF0C\u65C1\u8FB9\u6309"\u591A\u4E45\u4E4B\u524D"\u663E\u793A\u3002 \u300C\u7ACB\u5373\u63A2\u6D4B\u300D\u53EA\u63A2\u914D\u4E86\u63A2\u9488\u76EE\u6807\u7684\u6E20\u9053\uFF08\u951A\u70B9\u5FC5\u987B\u5B9E\u6D4B\u770B\u5230\u8FC7\uFF0C\u4E0D\u8BB8\u51ED\u60F3\u8C61\u5199\uFF09\uFF1B \u6CA1\u914D\u7684\u663E\u793A \u26AA \u672A\u63A2 \u2014\u2014 \u90A3\u662F"\u8FD8\u6CA1\u6D4B\u8FC7"\uFF0C\u4E0D\u662F"\u6D4B\u8FC7\u4E86\u6CA1\u95EE\u9898"\uFF1B \u6807\u4E86\u300C\uFF08\u65E0\u63A2\u9488\uFF09\u300D\u7684\u662F\u6309\u8BBE\u8BA1\u5C31\u6CA1\u6709\u63A2\u9488\u76EE\u6807\uFF08\u4EE3\u7801\u4ED3\u5E93\u3001\u6211\u65B9\u4EE3\u7801\u901A\u8DEF\u7B49\uFF09\uFF0C \u4E0E"\u8FD8\u6CA1\u8F6E\u5230\u5B83"\u4E0D\u662F\u4E00\u56DE\u4E8B\uFF1B \u8FD8\u6709\u4E00\u79CD \u26AA \u662F\u80FD\u8FDE\u901A\u3001\u4F46\u6211\u4EEC\u6CA1\u7ED9\u5B83\u914D\u8BED\u4E49\u671F\u671B\uFF08\u5931\u8D25\u539F\u56E0\u5217\u5199 `no_anchor_configured`\uFF09 \u2014\u2014 \u5B83\u540C\u6837\u4E0D\u7B97\u300C\u53EF\u6293\u300D\uFF0C\u4F46\u4E5F\u4E0D\u662F\u6B20\u8D26\u3002' })
   ] });
 }
 var $select = {
@@ -34118,8 +34535,8 @@ var $trWarn = {
 };
 
 // client/KsIngestPanel.tsx
-var import_react9 = require("react");
-var import_jsx_runtime9 = require("react/jsx-runtime");
+var import_react11 = require("react");
+var import_jsx_runtime12 = require("react/jsx-runtime");
 var VERDICT_META = {
   ok: { icon: "\u2705", label: "\u53EF\u5165\u5E93", color: "#1a7f37" },
   warn: { icon: "\u26A0\uFE0F", label: "\u9700\u4EBA\u5DE5\u786E\u8BA4", color: "#9a6700" },
@@ -34165,18 +34582,18 @@ function fmtSize(n) {
 }
 function BucketBar(props) {
   const { batch } = props;
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { margin: "8px 0" }, children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { margin: "8px 0" }, children: [
     ["ok", "warn", "block"].map((k) => {
       const meta = verdictMeta(k);
-      return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { ...chipStyle, borderColor: meta.color }, children: [
+      return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { style: { ...chipStyle, borderColor: meta.color }, children: [
         meta.icon,
         " ",
         meta.label,
         " ",
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("b", { children: batch.buckets[k] ?? 0 })
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("b", { children: batch.buckets[k] ?? 0 })
       ] }, k);
     }),
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { ...noteStyle, marginLeft: 4 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { style: { ...noteStyle, marginLeft: 4 }, children: [
       "\u5171\u8BC4\u4F30 ",
       batch.evaluated,
       " \u672C",
@@ -34196,8 +34613,8 @@ function ReportDetail(props) {
   const rec = r.recognition ?? {};
   const lay = r.layout ?? {};
   const dist = r.knowledge_type_distribution ?? {};
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { border: "1px solid #d0d7de", borderRadius: 6, padding: 10, marginTop: 8 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { fontSize: 13, fontWeight: 600 }, children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { border: "1px solid #d0d7de", borderRadius: 6, padding: 10, marginTop: 8 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { fontSize: 13, fontWeight: 600 }, children: [
       meta.icon,
       " ",
       meta.label,
@@ -34205,10 +34622,10 @@ function ReportDetail(props) {
       r.grade,
       " \u7EA7 \xB7 ",
       r.status === "ok" ? "\u89E3\u6790\u6210\u529F" : "\u89E3\u6790\u5931\u8D25",
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { ...noteStyle, fontWeight: 400, marginLeft: 8 }, children: r.one_line ?? "" })
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { ...noteStyle, fontWeight: 400, marginLeft: 8 }, children: r.one_line ?? "" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { ...noteStyle, marginTop: 6 }, children: r.verdict_reasons.map((x) => `[${x.code}] ${x.reason}`).join(" \xB7 ") }),
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { ...noteStyle, marginTop: 6 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { style: { ...noteStyle, marginTop: 6 }, children: r.verdict_reasons.map((x) => `[${x.code}] ${x.reason}`).join(" \xB7 ") }),
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { ...noteStyle, marginTop: 6 }, children: [
       "\u9875\u6570 ",
       r.pages,
       " \xB7 \u6761\u6B3E ",
@@ -34227,9 +34644,9 @@ function ReportDetail(props) {
       " \u5B57",
       typeof lay.tables_rebuilt === "number" && lay.tables_rebuilt > 0 ? ` \xB7 \u8868\u683C ${lay.tables_rebuilt}` : "",
       " \xB7 ",
-      r.egress === "none" ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { children: "\u4E0D\u5916\u53D1\uFF08\u672A\u542F\u7528\u4E91\u6DF1\u5EA6\u901A\u9053\uFF09" }) : /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { color: "#9a6700" }, children: "\u5DF2\u5141\u8BB8\u4E91\u6DF1\u5EA6\u901A\u9053\u2014\u2014\u626B\u63CF\u4EF6\u4F1A\u4E0A\u4F20\u4E91\u7AEF\uFF08\u672C\u6B21\u662F\u5426\u771F\u7684\u4E0A\u4F20\u53D6\u51B3\u4E8E\u8BE5\u6587\u6863\u6709\u65E0\u6587\u672C\u5C42\uFF1B \u7CBE\u786E\u8BB0\u5F55\u89C1\u5916\u53D1\u5BA1\u8BA1\uFF09" })
+      r.egress === "none" ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { children: "\u4E0D\u5916\u53D1\uFF08\u672A\u542F\u7528\u4E91\u6DF1\u5EA6\u901A\u9053\uFF09" }) : /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { color: "#9a6700" }, children: "\u5DF2\u5141\u8BB8\u4E91\u6DF1\u5EA6\u901A\u9053\u2014\u2014\u626B\u63CF\u4EF6\u4F1A\u4E0A\u4F20\u4E91\u7AEF\uFF08\u672C\u6B21\u662F\u5426\u771F\u7684\u4E0A\u4F20\u53D6\u51B3\u4E8E\u8BE5\u6587\u6863\u6709\u65E0\u6587\u672C\u5C42\uFF1B \u7CBE\u786E\u8BB0\u5F55\u89C1\u5916\u53D1\u5BA1\u8BA1\uFF09" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { ...noteStyle, marginTop: 6 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { ...noteStyle, marginTop: 6 }, children: [
       "\u6807\u51C6\u53F7\u731C\u6D4B ",
       r.standard_no_guess?.value ?? "\uFF08\u672A\u8BC6\u522B\uFF09",
       " \xB7 ",
@@ -34239,20 +34656,20 @@ function ReportDetail(props) {
       "\u5206\u578B ",
       Object.entries(dist).map(([k, v]) => `${k}${v}`).join(" ") || "-"
     ] }),
-    r.duplicate?.kind && r.duplicate.kind !== "none" ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { ...noteStyle, marginTop: 6, color: "#9a6700" }, children: [
+    r.duplicate?.kind && r.duplicate.kind !== "none" ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { ...noteStyle, marginTop: 6, color: "#9a6700" }, children: [
       "\u5E93\u5185\u91CD\u590D\uFF08",
       r.duplicate.kind,
       "\uFF09\uFF1A",
       r.duplicate.message ?? ""
     ] }) : null,
-    r.head_samples?.length ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { marginTop: 8 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { fontSize: 12, fontWeight: 600 }, children: [
+    r.head_samples?.length ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { marginTop: 8 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { fontSize: 12, fontWeight: 600 }, children: [
         "\u524D ",
         r.head_samples.length,
         " \u6761\u6837\u4F8B"
       ] }),
-      r.head_samples.map((s) => /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { ...noteStyle, marginTop: 2 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: monoStyle, children: s.number }),
+      r.head_samples.map((s) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { ...noteStyle, marginTop: 2 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: monoStyle, children: s.number }),
         " \xB7 ",
         s.knowledge_type,
         "\uFF08",
@@ -34263,24 +34680,24 @@ function ReportDetail(props) {
         "\u7F6E\u4FE1 ",
         s.ocr_confidence,
         s.suspicious ? " \xB7 \u53EF\u7591" : "",
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { paddingLeft: 12 }, children: s.head })
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { style: { paddingLeft: 12 }, children: s.head })
       ] }, `h${s.ordinal}`))
     ] }) : null,
-    r.ocr_suspects?.length ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { marginTop: 8 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { fontSize: 12, fontWeight: 600, color: "#9a6700" }, children: [
+    r.ocr_suspects?.length ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { marginTop: 8 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { fontSize: 12, fontWeight: 600, color: "#9a6700" }, children: [
         "\u53EF\u7591\u6761\u6B3E ",
         r.ocr_suspects.length,
         r.ocr_suspects_truncated ? "\uFF08\u5DF2\u622A\u65AD\uFF09" : ""
       ] }),
-      r.ocr_suspects.slice(0, 8).map((s) => /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { ...noteStyle, marginTop: 2 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: monoStyle, children: s.number }),
+      r.ocr_suspects.slice(0, 8).map((s) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { ...noteStyle, marginTop: 2 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: monoStyle, children: s.number }),
         " \xB7 ",
         s.ocr_confidence,
         " \xB7 ",
         s.reasons.join("/")
       ] }, `s${s.ordinal}`))
     ] }) : null,
-    r.collected_signals && Object.keys(r.collected_signals).length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { ...noteStyle, marginTop: 8 }, children: [
+    r.collected_signals && Object.keys(r.collected_signals).length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { ...noteStyle, marginTop: 8 }, children: [
       "\u4F53\u68C0\u6807\u7B7E\uFF1A",
       Object.entries(r.collected_signals).filter(([k]) => k !== "table_anomaly_clauses").map(([k, v]) => `${k}\xD7${String(v)}`).join(" \xB7 ") || "\uFF08\u65E0\uFF09"
     ] }) : null
@@ -34288,29 +34705,29 @@ function ReportDetail(props) {
 }
 function KsIngestPanel(props) {
   const { visible } = props;
-  const abortRef = (0, import_react9.useRef)(null);
-  const [dir, setDir] = (0, import_react9.useState)("");
-  const [dirInput, setDirInput] = (0, import_react9.useState)("");
-  const [files, setFiles] = (0, import_react9.useState)([]);
-  const [degraded, setDegraded] = (0, import_react9.useState)(null);
-  const [listState, setListState] = (0, import_react9.useState)({ status: "idle" });
-  const [batchState, setBatchState] = (0, import_react9.useState)({ status: "idle" });
-  const [batch, setBatch] = (0, import_react9.useState)(null);
-  const [sample, setSample] = (0, import_react9.useState)(5);
-  const [detail, setDetail] = (0, import_react9.useState)(null);
-  const [detailName, setDetailName] = (0, import_react9.useState)("");
-  const [detailState, setDetailState] = (0, import_react9.useState)({ status: "idle" });
-  const [job, setJob] = (0, import_react9.useState)(null);
-  const [jobError, setJobError] = (0, import_react9.useState)(null);
-  const [allowDeep, setAllowDeep] = (0, import_react9.useState)(false);
-  const pollRef = (0, import_react9.useRef)(null);
-  const newController = (0, import_react9.useCallback)(() => {
+  const abortRef = (0, import_react11.useRef)(null);
+  const [dir, setDir] = (0, import_react11.useState)("");
+  const [dirInput, setDirInput] = (0, import_react11.useState)("");
+  const [files, setFiles] = (0, import_react11.useState)([]);
+  const [degraded, setDegraded] = (0, import_react11.useState)(null);
+  const [listState, setListState] = (0, import_react11.useState)({ status: "idle" });
+  const [batchState, setBatchState] = (0, import_react11.useState)({ status: "idle" });
+  const [batch, setBatch] = (0, import_react11.useState)(null);
+  const [sample, setSample] = (0, import_react11.useState)(5);
+  const [detail, setDetail] = (0, import_react11.useState)(null);
+  const [detailName, setDetailName] = (0, import_react11.useState)("");
+  const [detailState, setDetailState] = (0, import_react11.useState)({ status: "idle" });
+  const [job, setJob] = (0, import_react11.useState)(null);
+  const [jobError, setJobError] = (0, import_react11.useState)(null);
+  const [allowDeep, setAllowDeep] = (0, import_react11.useState)(false);
+  const pollRef = (0, import_react11.useRef)(null);
+  const newController = (0, import_react11.useCallback)(() => {
     abortRef.current?.abort();
     const c = new AbortController();
     abortRef.current = c;
     return c;
   }, []);
-  const loadInbox = (0, import_react9.useCallback)(async (override) => {
+  const loadInbox = (0, import_react11.useCallback)(async (override) => {
     const c = newController();
     setListState({ status: "loading" });
     try {
@@ -34330,12 +34747,12 @@ function KsIngestPanel(props) {
       setListState({ status: "error", message: e instanceof Error ? e.message : String(e) });
     }
   }, [dir, newController]);
-  (0, import_react9.useEffect)(() => {
+  (0, import_react11.useEffect)(() => {
     if (!visible) return;
     if (listState.status === "idle") void loadInbox();
   }, [visible, listState.status, loadInbox]);
-  (0, import_react9.useEffect)(() => () => abortRef.current?.abort(), []);
-  const startBatch = (0, import_react9.useCallback)(async () => {
+  (0, import_react11.useEffect)(() => () => abortRef.current?.abort(), []);
+  const startBatch = (0, import_react11.useCallback)(async () => {
     const c = newController();
     setBatchState({ status: "loading" });
     setDetail(null);
@@ -34349,7 +34766,7 @@ function KsIngestPanel(props) {
       setBatchState({ status: "error", message: e instanceof Error ? e.message : String(e) });
     }
   }, [dir, sample, allowDeep, newController]);
-  const openDetail = (0, import_react9.useCallback)(async (row) => {
+  const openDetail = (0, import_react11.useCallback)(async (row) => {
     const c = newController();
     setDetailName(row.file_name);
     setDetail(null);
@@ -34363,13 +34780,13 @@ function KsIngestPanel(props) {
       setDetailState({ status: "error", message: e instanceof Error ? e.message : String(e) });
     }
   }, [allowDeep, newController]);
-  const stopJobPolling = (0, import_react9.useCallback)(() => {
+  const stopJobPolling = (0, import_react11.useCallback)(() => {
     if (pollRef.current !== null) {
       clearInterval(pollRef.current);
       pollRef.current = null;
     }
   }, []);
-  const pollJob = (0, import_react9.useCallback)(async (jobId) => {
+  const pollJob = (0, import_react11.useCallback)(async (jobId) => {
     try {
       const v = await fetchIngestJob(jobId);
       setJob(v);
@@ -34381,7 +34798,7 @@ function KsIngestPanel(props) {
       setJobError(e instanceof Error ? e.message : String(e));
     }
   }, [stopJobPolling]);
-  const startFullJob = (0, import_react9.useCallback)(async () => {
+  const startFullJob = (0, import_react11.useCallback)(async () => {
     setJobError(null);
     setJob(null);
     try {
@@ -34393,7 +34810,7 @@ function KsIngestPanel(props) {
       setJobError(e instanceof Error ? e.message : String(e));
     }
   }, [dir, allowDeep, pollJob, stopJobPolling]);
-  const abortFullJob = (0, import_react9.useCallback)(async () => {
+  const abortFullJob = (0, import_react11.useCallback)(async () => {
     if (!job) return;
     try {
       await abortIngestJob(job.job_id);
@@ -34401,20 +34818,20 @@ function KsIngestPanel(props) {
       setJobError(e instanceof Error ? e.message : String(e));
     }
   }, [job]);
-  (0, import_react9.useEffect)(() => () => stopJobPolling(), [stopJobPolling]);
+  (0, import_react11.useEffect)(() => () => stopJobPolling(), [stopJobPolling]);
   const busy = listState.status === "loading" || batchState.status === "loading" || detailState.status === "loading";
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { padding: "4px 0 2px", fontSize: 13 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: noteStyle, children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { padding: "4px 0 2px", fontSize: 13 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: noteStyle, children: [
       "\u53EA\u8BFB\u9884\u89C8\uFF1A",
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("b", { children: "\u4E0D\u5199\u5E93\u3001\u4E0D\u79FB\u52A8\u6587\u4EF6\u3001\u9ED8\u8BA4\u4E0D\u5916\u53D1" }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("b", { children: "\u4E0D\u5199\u5E93\u3001\u4E0D\u79FB\u52A8\u6587\u4EF6\u3001\u9ED8\u8BA4\u4E0D\u5916\u53D1" }),
       '\u3002 \u626B\u63CF\u4EF6\u9ED8\u8BA4\u53EA\u62A5"\u65E0\u6587\u672C\u5C42"\uFF0C',
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("b", { children: "\u4E0D\u4F1A" }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("b", { children: "\u4E0D\u4F1A" }),
       "\u5077\u5077\u4E0A\u4F20\u5230\u4E91\u89E3\u6790\uFF1B\u786E\u9700\u4E91\u6DF1\u5EA6\u89E3\u6790\u65F6\uFF0C \u52FE\u9009\u4E0B\u9762\u7684",
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("b", { children: "\u300C\u5141\u8BB8\u4E91\u6DF1\u5EA6\u89E3\u6790\u300D" }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("b", { children: "\u300C\u5141\u8BB8\u4E91\u6DF1\u5EA6\u89E3\u6790\u300D" }),
       "\u663E\u5F0F\u5F00\u542F\uFF08\u4F1A\u5916\u53D1\uFF0C\u62A5\u544A\u91CC\u4F1A\u5982\u5B9E\u6807\u6CE8 `egress`\uFF09\u3002 \u6B63\u5F0F\u5165\u5E93\uFF08\u786E\u8BA4\u540E\u539F\u5B50\u5199\u5165\uFF09\u662F\u4E0B\u4E00\u91CC\u7A0B\u7891\uFF0C\u6B64\u9875\u4E0D\u63D0\u4F9B\u3002"
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("label", { style: { ...noteStyle, display: "flex", alignItems: "center", gap: 6, marginTop: 6, cursor: "pointer" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("label", { style: { ...noteStyle, display: "flex", alignItems: "center", gap: 6, marginTop: 6, cursor: "pointer" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
         "input",
         {
           type: "checkbox",
@@ -34423,16 +34840,16 @@ function KsIngestPanel(props) {
           "aria-label": "\u5141\u8BB8\u4E91\u6DF1\u5EA6\u89E3\u6790"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { children: [
         "\u5141\u8BB8\u4E91\u6DF1\u5EA6\u89E3\u6790\uFF08",
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("b", { children: "\u4F1A\u628A\u626B\u63CF\u4EF6\u4E0A\u4F20\u5230\u4E91\u7AEF" }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("b", { children: "\u4F1A\u628A\u626B\u63CF\u4EF6\u4E0A\u4F20\u5230\u4E91\u7AEF" }),
         "\uFF1B\u9ED8\u8BA4\u5173\u95ED\uFF09\u3002",
         allowDeep ? "\u672C\u6B21\u9884\u89C8\u5C06\u5982\u5B9E\u6807\u6CE8 egress=deep_channel\u3002" : "\u672C\u6B21\u9884\u89C8\u4E0D\u5916\u53D1\uFF08egress=none\uFF09\u3002"
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { marginTop: 10 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: noteStyle, children: "\u5F85\u5165\u5E93\u76EE\u5F55\uFF1A" }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { marginTop: 10 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: noteStyle, children: "\u5F85\u5165\u5E93\u76EE\u5F55\uFF1A" }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
         "input",
         {
           value: dirInput,
@@ -34442,7 +34859,7 @@ function KsIngestPanel(props) {
           "aria-label": "\u5F85\u5165\u5E93\u76EE\u5F55"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
         "button",
         {
           type: "button",
@@ -34453,27 +34870,27 @@ function KsIngestPanel(props) {
         }
       )
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { ...noteStyle, marginTop: 8 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { ...noteStyle, marginTop: 8 }, children: [
       "\u8BE5\u76EE\u5F55\u4E0B PDF\uFF1A",
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("b", { children: files.length }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("b", { children: files.length }),
       " \u4E2A",
       degraded === "engine_unavailable" ? "\uFF08\u5F15\u64CE\u672A\u542F\u52A8\uFF1A\u4EE5\u4E0B\u4E3A host \u76F4\u63A5\u5217\u76EE\u5F55\u7684\u7ED3\u679C\uFF09" : ""
     ] }),
-    files.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { ...noteStyle, marginTop: 4 }, children: "\u628A\u8981\u5165\u5E93\u7684 PDF \u653E\u8FDB\u4E0A\u9762\u7684\u76EE\u5F55\uFF0C\u7136\u540E\u70B9\u300C\u5237\u65B0\u5217\u8868\u300D\u3002" }) : /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { ...noteStyle, marginTop: 4 }, children: [
-      files.slice(0, 12).map((f) => /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { ...monoStyle, marginTop: 2 }, children: [
+    files.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { style: { ...noteStyle, marginTop: 4 }, children: "\u628A\u8981\u5165\u5E93\u7684 PDF \u653E\u8FDB\u4E0A\u9762\u7684\u76EE\u5F55\uFF0C\u7136\u540E\u70B9\u300C\u5237\u65B0\u5217\u8868\u300D\u3002" }) : /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { ...noteStyle, marginTop: 4 }, children: [
+      files.slice(0, 12).map((f) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { ...monoStyle, marginTop: 2 }, children: [
         f.file_name,
         " ",
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { color: "#57606a" }, children: fmtSize(f.size) })
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { color: "#57606a" }, children: fmtSize(f.size) })
       ] }, f.path)),
-      files.length > 12 ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { children: [
+      files.length > 12 ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { children: [
         "\u2026\u8FD8\u6709 ",
         files.length - 12,
         " \u4E2A"
       ] }) : null
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { marginTop: 12 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: noteStyle, children: "\u62BD\u6837\uFF08\u672C\uFF09" }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { marginTop: 12 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: noteStyle, children: "\u62BD\u6837\uFF08\u672C\uFF09" }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
         "input",
         {
           type: "number",
@@ -34484,8 +34901,8 @@ function KsIngestPanel(props) {
           "aria-label": "\u62BD\u6837\u672C\u6570"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { ...noteStyle, marginRight: 8 }, children: "0 = \u4E0D\u62BD\u6837\uFF08\u5168\u90E8\uFF0C\u4E0A\u9650 200\uFF09" }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { ...noteStyle, marginRight: 8 }, children: "0 = \u4E0D\u62BD\u6837\uFF08\u5168\u90E8\uFF0C\u4E0A\u9650 200\uFF09" }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
         "button",
         {
           type: "button",
@@ -34495,25 +34912,25 @@ function KsIngestPanel(props) {
           children: "\u5F00\u59CB\u9884\u89C8"
         }
       ),
-      batchState.status === "loading" ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { ...noteStyle, marginLeft: 8 }, children: "\u9884\u89C8\u4E2D\u2026\uFF08\u89E3\u6790 + \u4F53\u68C0\uFF0C\u626B\u63CF\u4EF6\u53EF\u80FD\u8981\u51E0\u79D2\uFF09" }) : null
+      batchState.status === "loading" ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { ...noteStyle, marginLeft: 8 }, children: "\u9884\u89C8\u4E2D\u2026\uFF08\u89E3\u6790 + \u4F53\u68C0\uFF0C\u626B\u63CF\u4EF6\u53EF\u80FD\u8981\u51E0\u79D2\uFF09" }) : null
     ] }),
-    batchState.status === "error" ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { ...noteStyle, marginTop: 8, color: "#b42318" }, children: [
+    batchState.status === "error" ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { ...noteStyle, marginTop: 8, color: "#b42318" }, children: [
       "\u9884\u89C8\u5931\u8D25\uFF1A",
       batchState.message
     ] }) : null,
-    batch ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(BucketBar, { batch }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { ...noteStyle, marginBottom: 4 }, children: "\u70B9\u6587\u4EF6\u540D\u770B\u8BE5\u672C\u7684\u5B8C\u6574\u4F53\u68C0\u62A5\u544A\uFF08\u5206\u7EA7/\u88C1\u51B3\u7406\u7531/\u6837\u4F8B/\u53EF\u7591\u6761\u6B3E/\u67E5\u91CD\uFF09\u3002" }),
+    batch ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(import_jsx_runtime12.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(BucketBar, { batch }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { style: { ...noteStyle, marginBottom: 4 }, children: "\u70B9\u6587\u4EF6\u540D\u770B\u8BE5\u672C\u7684\u5B8C\u6574\u4F53\u68C0\u62A5\u544A\uFF08\u5206\u7EA7/\u88C1\u51B3\u7406\u7531/\u6837\u4F8B/\u53EF\u7591\u6761\u6B3E/\u67E5\u91CD\uFF09\u3002" }),
       batch.files.map((row) => {
         const meta = verdictMeta(row.verdict);
-        return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
+        return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
           "div",
           {
             style: { borderTop: "1px solid #eaeef2", padding: "6px 0", display: "flex", gap: 8 },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { color: meta.color, minWidth: 18 }, children: meta.icon }),
-              /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { flex: 1 }, children: [
-                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { color: meta.color, minWidth: 18 }, children: meta.icon }),
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { flex: 1 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
                   "button",
                   {
                     type: "button",
@@ -34530,7 +34947,7 @@ function KsIngestPanel(props) {
                     children: row.file_name
                   }
                 ),
-                /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: noteStyle, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: noteStyle, children: [
                   row.grade,
                   " \u7EA7 \xB7 ",
                   row.pages,
@@ -34548,11 +34965,11 @@ function KsIngestPanel(props) {
         );
       })
     ] }) : null,
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { marginTop: 14, borderTop: "1px dashed #d0d7de", paddingTop: 10 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { fontWeight: 600, marginBottom: 4 }, children: "\u5168\u91CF\u9884\u89C8\uFF08\u5F02\u6B65\uFF0C\u4E07\u7EA7\u53EF\u7528\uFF09" }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: noteStyle, children: "\u4E0A\u9762\u7684\u540C\u6B65\u9884\u89C8\u5355\u8BF7\u6C42\u4E0A\u9650 200 \u672C\uFF1B\u8FD9\u91CC\u8D70\u5F15\u64CE\u540E\u53F0\u4EFB\u52A1\uFF0C\u51E0\u4E07\u672C\u4E5F\u80FD\u8DD1\u2014\u2014 \u5173\u6389\u6D4F\u89C8\u5668 host \u4E5F\u4F1A\u7EE7\u7EED\u63A8\u8FDB\uFF0C\u56DE\u6765\u65F6\u81EA\u52A8\u6062\u590D\u8FDB\u5EA6\u663E\u793A\u3002" }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { marginTop: 8 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { marginTop: 14, borderTop: "1px dashed #d0d7de", paddingTop: 10 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { style: { fontWeight: 600, marginBottom: 4 }, children: "\u5168\u91CF\u9884\u89C8\uFF08\u5F02\u6B65\uFF0C\u4E07\u7EA7\u53EF\u7528\uFF09" }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { style: noteStyle, children: "\u4E0A\u9762\u7684\u540C\u6B65\u9884\u89C8\u5355\u8BF7\u6C42\u4E0A\u9650 200 \u672C\uFF1B\u8FD9\u91CC\u8D70\u5F15\u64CE\u540E\u53F0\u4EFB\u52A1\uFF0C\u51E0\u4E07\u672C\u4E5F\u80FD\u8DD1\u2014\u2014 \u5173\u6389\u6D4F\u89C8\u5668 host \u4E5F\u4F1A\u7EE7\u7EED\u63A8\u8FDB\uFF0C\u56DE\u6765\u65F6\u81EA\u52A8\u6062\u590D\u8FDB\u5EA6\u663E\u793A\u3002" }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { marginTop: 8 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
           "button",
           {
             type: "button",
@@ -34562,7 +34979,7 @@ function KsIngestPanel(props) {
             children: "\u5BF9\u6574\u4E2A\u76EE\u5F55\u53D1\u8D77\u5168\u91CF\u9884\u89C8"
           }
         ),
-        job && (job.status === "running" || job.status === "pending") ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+        job && (job.status === "running" || job.status === "pending") ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
           "button",
           {
             type: "button",
@@ -34572,14 +34989,14 @@ function KsIngestPanel(props) {
           }
         ) : null
       ] }),
-      jobError ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { ...noteStyle, marginTop: 6, color: "#b42318" }, children: [
+      jobError ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { ...noteStyle, marginTop: 6, color: "#b42318" }, children: [
         "\u4EFB\u52A1\u5931\u8D25\uFF1A",
         jobError
       ] }) : null,
-      job ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { marginTop: 8 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: noteStyle, children: [
+      job ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { marginTop: 8 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: noteStyle, children: [
           "\u72B6\u6001\uFF1A",
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("b", { children: job.status }),
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("b", { children: job.status }),
           " \xB7 ",
           "\u5DF2\u4F53\u68C0 ",
           job.done,
@@ -34588,7 +35005,7 @@ function KsIngestPanel(props) {
           job.stale === true ? " \xB7 \uFF08\u5F15\u64CE\u4E0D\u53EF\u8FBE\uFF1A\u663E\u793A host \u955C\u50CF\u5FEB\u7167\uFF09" : "",
           job.error ? ` \xB7 ${job.error}` : ""
         ] }),
-        job.total > 0 ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+        job.total > 0 ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
           "div",
           {
             role: "progressbar",
@@ -34600,7 +35017,7 @@ function KsIngestPanel(props) {
               background: "#eaeef2",
               overflow: "hidden"
             },
-            children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+            children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
               "div",
               {
                 style: {
@@ -34613,29 +35030,29 @@ function KsIngestPanel(props) {
             )
           }
         ) : null,
-        job.status === "done" || job.status === "aborted" || job.status === "failed" ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { ...noteStyle, marginTop: 6 }, children: [
+        job.status === "done" || job.status === "aborted" || job.status === "failed" ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { ...noteStyle, marginTop: 6 }, children: [
           "\u4E09\u6876\u603B\u8D26\uFF1A\u2705 \u53EF\u5165\u5E93 ",
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("b", { children: job.buckets?.ok ?? 0 }),
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("b", { children: job.buckets?.ok ?? 0 }),
           " \xB7 ",
           "\u26A0\uFE0F \u9700\u5904\u7406 ",
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("b", { children: job.buckets?.warn ?? 0 }),
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("b", { children: job.buckets?.warn ?? 0 }),
           " \xB7 ",
           "\u274C \u963B\u65AD ",
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("b", { children: job.buckets?.block ?? 0 }),
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("b", { children: job.buckets?.block ?? 0 }),
           job.status === "aborted" ? "\uFF08\u5DF2\u4E2D\u65AD\uFF1A\u4EE5\u4E0A\u4E3A\u90E8\u5206\u7ED3\u679C\uFF09" : ""
         ] }) : null,
-        job.rows && job.rows.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { marginTop: 6 }, children: [
+        job.rows && job.rows.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { marginTop: 6 }, children: [
           job.rows.slice(0, 10).map((row) => {
             const meta = verdictMeta(row.verdict);
-            return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { ...noteStyle, marginTop: 2 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { color: meta.color }, children: meta.icon }),
+            return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { ...noteStyle, marginTop: 2 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { color: meta.color }, children: meta.icon }),
               " ",
               row.file_name,
               " \u2014 ",
               row.one_line || `${row.grade} \u7EA7 \xB7 ${row.pages} \u9875`
             ] }, row.path);
           }),
-          job.rows_count !== void 0 && job.rows_count > 10 ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: noteStyle, children: [
+          job.rows_count !== void 0 && job.rows_count > 10 ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: noteStyle, children: [
             "\u2026\u5171 ",
             job.rows_count,
             " \u884C\uFF08\u524D 10 \u884C\u9884\u89C8\uFF09"
@@ -34643,17 +35060,17 @@ function KsIngestPanel(props) {
         ] }) : null
       ] }) : null
     ] }),
-    detailState.status === "loading" ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { ...noteStyle, marginTop: 8 }, children: [
+    detailState.status === "loading" ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { ...noteStyle, marginTop: 8 }, children: [
       "\u52A0\u8F7D ",
       detailName,
       " \u7684\u62A5\u544A\u2026"
     ] }) : null,
-    detailState.status === "error" ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { ...noteStyle, marginTop: 8, color: "#b42318" }, children: [
+    detailState.status === "error" ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { ...noteStyle, marginTop: 8, color: "#b42318" }, children: [
       detailName,
       " \u62A5\u544A\u5931\u8D25\uFF1A",
       detailState.message
     ] }) : null,
-    detail ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(ReportDetail, { report: detail }) : null
+    detail ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(ReportDetail, { report: detail }) : null
   ] });
 }
 
@@ -34712,7 +35129,7 @@ try {
 }
 
 // client/KsSettingsSection.tsx
-var import_jsx_runtime10 = require("react/jsx-runtime");
+var import_jsx_runtime13 = require("react/jsx-runtime");
 var SUMMARY_HINT = {
   marginLeft: 8,
   fontSize: 11,
@@ -34720,42 +35137,42 @@ var SUMMARY_HINT = {
   color: "var(--dsw-alias-label-secondary, #888)"
 };
 function KsCategory({ title, hint, open, onToggle, children }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
     "details",
     {
       open,
       onToggle: (e) => onToggle(e.currentTarget.open),
       style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("summary", { style: { cursor: "pointer", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)", fontSize: 13, padding: "4px 0" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("summary", { style: { cursor: "pointer", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)", fontSize: 13, padding: "4px 0" }, children: [
           title,
-          hint !== void 0 && hint !== null ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: SUMMARY_HINT, children: hint }) : null
+          hint !== void 0 && hint !== null ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: SUMMARY_HINT, children: hint }) : null
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { style: { paddingTop: 2 }, children })
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { style: { paddingTop: 2 }, children })
       ]
     }
   );
 }
 function KsSettingsSection(props) {
   const { openEvidence } = props;
-  const stored = (0, import_react10.useSyncExternalStore)(
+  const stored = (0, import_react12.useSyncExternalStore)(
     subscribePrefs,
     () => getPrefsSnapshot().showArrow,
     () => KS_PREFS_DEFAULT.showArrow
   );
-  const [saving, setSaving] = (0, import_react10.useState)(false);
-  const [error, setError] = (0, import_react10.useState)(null);
+  const [saving, setSaving] = (0, import_react12.useState)(false);
+  const [error, setError] = (0, import_react12.useState)(null);
   const shown = stored;
-  const [arrowOpen, setArrowOpen] = (0, import_react10.useState)(false);
-  const [reportOpen, setReportOpen] = (0, import_react10.useState)(false);
-  const [materialsOpen, setMaterialsOpen] = (0, import_react10.useState)(false);
-  const [channelsOpen, setChannelsOpen] = (0, import_react10.useState)(false);
-  const [ingestOpen, setIngestOpen] = (0, import_react10.useState)(false);
-  const [inspectionOpen, setInspectionOpen] = (0, import_react10.useState)(false);
-  const [inspectionOpenedOnce, setInspectionOpenedOnce] = (0, import_react10.useState)(false);
-  const [announceOpen, setAnnounceOpen] = (0, import_react10.useState)(false);
-  const [announceOpenedOnce, setAnnounceOpenedOnce] = (0, import_react10.useState)(false);
-  const [apiOpen, setApiOpen] = (0, import_react10.useState)(false);
+  const [arrowOpen, setArrowOpen] = (0, import_react12.useState)(false);
+  const [reportOpen, setReportOpen] = (0, import_react12.useState)(false);
+  const [materialsOpen, setMaterialsOpen] = (0, import_react12.useState)(false);
+  const [channelsOpen, setChannelsOpen] = (0, import_react12.useState)(false);
+  const [ingestOpen, setIngestOpen] = (0, import_react12.useState)(false);
+  const [inspectionOpen, setInspectionOpen] = (0, import_react12.useState)(false);
+  const [inspectionOpenedOnce, setInspectionOpenedOnce] = (0, import_react12.useState)(false);
+  const [announceOpen, setAnnounceOpen] = (0, import_react12.useState)(false);
+  const [announceOpenedOnce, setAnnounceOpenedOnce] = (0, import_react12.useState)(false);
+  const [apiOpen, setApiOpen] = (0, import_react12.useState)(false);
   const onToggle = (next) => {
     setError(null);
     setSaving(true);
@@ -34767,15 +35184,15 @@ function KsSettingsSection(props) {
       setSaving(false);
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("section", { style: { padding: "8px 16px" }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { style: { margin: "0 0 8px", fontSize: 13, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u914D\u7F6E\u300C\u6CD5\u89C4\u6807\u51C6\u77E5\u8BC6\u5E93\u300D\u63D2\u4EF6\uFF1A\u8BC1\u636E PDF \u884C\u4E3A\u3001\u6548\u529B\u62A5\u544A\u3001\u5165\u5E93\u9884\u89C8\u4E0E\u5DE1\u68C0\u3002 \u5404\u7C7B\u76EE\u9ED8\u8BA4\u6536\u8D77\uFF0C\u70B9\u51FB\u5C55\u5F00\u3002" }),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(KsCategory, { title: "\u8BC1\u636E\u67E5\u770B\u5668", open: arrowOpen, onToggle: setArrowOpen, hint: "\u7EA2\u7BAD\u5934\u5B9A\u4F4D\u5F00\u5173", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 10, padding: "8px 0" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { flex: 1 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { display: "block", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u663E\u793A\u7EA2\u8272\u5B9A\u4F4D\u7BAD\u5934" }),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { display: "block", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u5728 PDF \u8BC1\u636E\u9875\u7528\u7EA2\u7BAD\u5934\u6807\u51FA\u5F15\u7528\u6761\u6B3E\u4F4D\u7F6E\uFF1B\u5173\u95ED\u540E\u4EC5\u8DF3\u9875\u3002" })
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("section", { style: { padding: "8px 16px" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { style: { margin: "0 0 8px", fontSize: 13, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u914D\u7F6E\u300C\u6CD5\u89C4\u6807\u51C6\u77E5\u8BC6\u5E93\u300D\u63D2\u4EF6\uFF1A\u8BC1\u636E PDF \u884C\u4E3A\u3001\u6548\u529B\u62A5\u544A\u3001\u5165\u5E93\u9884\u89C8\u4E0E\u5DE1\u68C0\u3002 \u5404\u7C7B\u76EE\u9ED8\u8BA4\u6536\u8D77\uFF0C\u70B9\u51FB\u5C55\u5F00\u3002" }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(KsCategory, { title: "\u8BC1\u636E\u67E5\u770B\u5668", open: arrowOpen, onToggle: setArrowOpen, hint: "\u7EA2\u7BAD\u5934\u5B9A\u4F4D\u5F00\u5173", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 10, padding: "8px 0" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { flex: 1 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { display: "block", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u663E\u793A\u7EA2\u8272\u5B9A\u4F4D\u7BAD\u5934" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { display: "block", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u5728 PDF \u8BC1\u636E\u9875\u7528\u7EA2\u7BAD\u5934\u6807\u51FA\u5F15\u7528\u6761\u6B3E\u4F4D\u7F6E\uFF1B\u5173\u95ED\u540E\u4EC5\u8DF3\u9875\u3002" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           "input",
           {
             type: "checkbox",
@@ -34786,60 +35203,60 @@ function KsSettingsSection(props) {
           }
         )
       ] }),
-      error !== null && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { role: "alert", style: { color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
+      error !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("p", { role: "alert", style: { color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
         "\u4FDD\u5B58\u5931\u8D25\uFF1A",
         error
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
       KsCategory,
       {
         title: "\u6548\u529B\u62A5\u544A",
         open: reportOpen,
         onToggle: setReportOpen,
         hint: "\u56DB\u8272\u5206\u7EC4\u603B\u89C8\uFF08\u{1F7E2}\u73B0\u884C/\u{1F534}\u5E9F\u6B62/\u{1F7E1}\u5373\u5C06\u5B9E\u65BD/\u26AA\u672A\u77E5\uFF09\uFF0C\u53EF\u5BFC\u51FA Excel",
-        children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(KsReportPanel, { visible: reportOpen, openEvidence })
+        children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KsReportPanel, { visible: reportOpen, openEvidence })
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
       KsCategory,
       {
         title: "\u53C2\u8003\u8D44\u6599",
         open: materialsOpen,
         onToggle: setMaterialsOpen,
         hint: "\u4E0A\u4F20\u7684\u8D22\u62A5/\u5236\u5EA6/\u6587\u7AE0\u5728\u8FD9\u91CC\u9010\u4EFD\u8BC4\u5BA1\u2014\u2014\u53EA\u6709\u300C\u5DF2\u6279\u51C6\u300D\u7684\u6750\u6599\u4F1A\u8FDB\u5165\u4F5C\u7B54\u4E0E\u4EA7\u51FA\u7269",
-        children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(KsMaterialsPanel, { visible: materialsOpen })
+        children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KsMaterialsPanel, { visible: materialsOpen })
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
       KsCategory,
       {
         title: "\u6E20\u9053\u53F0\u8D26",
         open: channelsOpen,
         onToggle: setChannelsOpen,
         hint: "\u5DE1\u68C0\u7528\u5230\u7684\u6BCF\u6761\u6E20\u9053\uFF1A\u94FE\u63A5\u3001\u63A5\u7EBF\u72B6\u6001\u3001\u6709\u6548\u6027\u5B9E\u6D4B\u3001\u4E0A\u6B21\u6210\u529F\u67E5\u8BE2\u2014\u2014\u65B9\u4FBF\u4EBA\u5DE5\u7EF4\u62A4",
-        children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(KsChannelsPanel, { visible: channelsOpen })
+        children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KsChannelsPanel, { visible: channelsOpen })
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
       KsCategory,
       {
         title: "\u5165\u5E93\u9884\u89C8",
         open: ingestOpen,
         onToggle: setIngestOpen,
         hint: "\u5165\u5E93\u524D\u53EA\u8BFB\u4F53\u68C0\uFF08\u2705/\u26A0\uFE0F/\u274C \u5206\u6876\uFF09\uFF0C\u4E0D\u5199\u5E93\uFF1B\u9ED8\u8BA4\u4E0D\u5916\u53D1\uFF08\u53EF\u663E\u5F0F\u5F00\u542F\u4E91\u6DF1\u5EA6\u89E3\u6790\uFF09",
-        children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(KsIngestPanel, { visible: ingestOpen })
+        children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KsIngestPanel, { visible: ingestOpen })
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(KsCategory, { title: "\u6BCF\u65E5\u5DE1\u68C0", open: inspectionOpen, onToggle: (next) => {
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KsCategory, { title: "\u6BCF\u65E5\u5DE1\u68C0", open: inspectionOpen, onToggle: (next) => {
       setInspectionOpen(next);
       setInspectionOpenedOnce(true);
-    }, hint: "\u5173\u6CE8\u6807\u51C6\u5BF9\u7167\u5B98\u7F51\u516C\u544A", children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(KsInspectionPanel, { openedOnce: inspectionOpenedOnce }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(KsCategory, { title: "\u516C\u544A\u53D1\u73B0", open: announceOpen, onToggle: (next) => {
+    }, hint: "\u5173\u6CE8\u6807\u51C6\u5BF9\u7167\u5B98\u7F51\u516C\u544A", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KsInspectionPanel, { openedOnce: inspectionOpenedOnce }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KsCategory, { title: "\u516C\u544A\u53D1\u73B0", open: announceOpen, onToggle: (next) => {
       setAnnounceOpen(next);
       setAnnounceOpenedOnce(true);
-    }, hint: "\u81EA\u5B9A\u4E49\u516C\u544A\u6E90\u626B\u63CF", children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(KsAnnounceSourcesSection, { openedOnce: announceOpenedOnce }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(KsApiConfigSection, { open: apiOpen, onOpenChange: setApiOpen })
+    }, hint: "\u81EA\u5B9A\u4E49\u516C\u544A\u6E90\u626B\u63CF", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KsAnnounceSourcesSection, { openedOnce: announceOpenedOnce }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KsApiConfigSection, { open: apiOpen, onOpenChange: setApiOpen })
   ] });
 }
 var COUNT_LABELS = {
@@ -34895,13 +35312,13 @@ function statusText(s) {
 }
 function KsInspectionPanel(props) {
   const { openedOnce } = props;
-  const [summary, setSummary] = (0, import_react10.useState)(null);
-  const [busy, setBusy] = (0, import_react10.useState)(false);
-  const [exporting, setExporting] = (0, import_react10.useState)(false);
-  const [error, setError] = (0, import_react10.useState)(null);
-  const [expError, setExpError] = (0, import_react10.useState)(null);
-  const [loadError, setLoadError] = (0, import_react10.useState)(false);
-  const load = (0, import_react10.useCallback)(async () => {
+  const [summary, setSummary] = (0, import_react12.useState)(null);
+  const [busy, setBusy] = (0, import_react12.useState)(false);
+  const [exporting, setExporting] = (0, import_react12.useState)(false);
+  const [error, setError] = (0, import_react12.useState)(null);
+  const [expError, setExpError] = (0, import_react12.useState)(null);
+  const [loadError, setLoadError] = (0, import_react12.useState)(false);
+  const load = (0, import_react12.useCallback)(async () => {
     try {
       const s = await fetchInspectionSummary();
       setSummary(s);
@@ -34910,12 +35327,12 @@ function KsInspectionPanel(props) {
       setLoadError(true);
     }
   }, []);
-  (0, import_react10.useEffect)(() => {
+  (0, import_react12.useEffect)(() => {
     if (!openedOnce) return;
     void load();
   }, [openedOnce, load]);
   const isRunning = summary?.last?.status === "running";
-  (0, import_react10.useEffect)(() => {
+  (0, import_react12.useEffect)(() => {
     if (!isRunning) return;
     let alive = true;
     let timer;
@@ -34956,8 +35373,8 @@ function KsInspectionPanel(props) {
   const last = summary?.last ?? null;
   const overdue = summary?.overdue_days ?? 0;
   const settings = summary?.settings ?? null;
-  const [autoSaving, setAutoSaving] = (0, import_react10.useState)(false);
-  const [autoError, setAutoError] = (0, import_react10.useState)(null);
+  const [autoSaving, setAutoSaving] = (0, import_react12.useState)(false);
+  const [autoError, setAutoError] = (0, import_react12.useState)(null);
   const patchSettings = async (patch) => {
     setAutoSaving(true);
     setAutoError(null);
@@ -34985,32 +35402,32 @@ function KsInspectionPanel(props) {
       setExporting(false);
     }
   };
-  const colorDot = (c, n) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { title: COUNT_LABELS[c], style: { display: "inline-flex", alignItems: "center", gap: 4, color: c, fontSize: 12 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { width: 8, height: 8, borderRadius: "50%", background: c, display: "inline-block" } }),
+  const colorDot = (c, n) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { title: COUNT_LABELS[c], style: { display: "inline-flex", alignItems: "center", gap: 4, color: c, fontSize: 12 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { width: 8, height: 8, borderRadius: "50%", background: c, display: "inline-block" } }),
     n
   ] }, c);
-  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "8px 0 2px" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u6BCF\u65E5\u5DE1\u68C0\uFF08\u5173\u6CE8\u6807\u51C6\uFF09" }),
-      overdue > 0 && last?.status === "done" && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { fontSize: 12, color: "#b8860b", border: "1px solid #b8860b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "8px 0 2px" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u6BCF\u65E5\u5DE1\u68C0\uFF08\u5173\u6CE8\u6807\u51C6\uFF09" }),
+      overdue > 0 && last?.status === "done" && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { fontSize: 12, color: "#b8860b", border: "1px solid #b8860b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: [
         "\u5DF2\u903E\u671F ",
         overdue,
         " \u5929"
       ] }),
-      summary?.stale_run === true && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { fontSize: 12, color: "#c0392b", border: "1px solid #c0392b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: "\u4E0A\u6B21\u7591\u4F3C\u4E2D\u65AD" })
+      summary?.stale_run === true && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { fontSize: 12, color: "#c0392b", border: "1px solid #c0392b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: "\u4E0A\u6B21\u7591\u4F3C\u4E2D\u65AD" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { style: { margin: "2px 0 8px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u5BF9\u7167\u5B98\u7F51\u516C\u544A\u68C0\u67E5\u5173\u6CE8\u6807\u51C6/\u6536\u85CF\u6807\u51C6\u662F\u5426\u51FA\u73B0\u65B0\u7248\u3001\u5E9F\u6B62\u6216\u66FF\u4EE3\uFF1B\u4EC5\u6BD4\u5BF9\u4E0D\u6539\u5E93\uFF0C\u53D8\u66F4\u4EE5\u4E09\u8272\u5217\u51FA\u3002" }),
-    loadError && summary === null && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 6px" }, children: "\u5DE1\u68C0\u72B6\u6001\u8BFB\u53D6\u5931\u8D25\uFF08host \u8DEF\u7531\u4E0D\u53EF\u7528\uFF1F\u8BF7\u5237\u65B0\u91CD\u8BD5\uFF09" }),
-    last !== null && last.status === "failed" && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 6px" }, children: last.error ?? "\u5DE1\u68C0\u6279\u6B21\u5931\u8D25" }),
-    status !== null && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "2px 0 4px" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { color: status.tone, fontSize: 13 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { style: { margin: "2px 0 8px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u5BF9\u7167\u5B98\u7F51\u516C\u544A\u68C0\u67E5\u5173\u6CE8\u6807\u51C6/\u6536\u85CF\u6807\u51C6\u662F\u5426\u51FA\u73B0\u65B0\u7248\u3001\u5E9F\u6B62\u6216\u66FF\u4EE3\uFF1B\u4EC5\u6BD4\u5BF9\u4E0D\u6539\u5E93\uFF0C\u53D8\u66F4\u4EE5\u4E09\u8272\u5217\u51FA\u3002" }),
+    loadError && summary === null && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 6px" }, children: "\u5DE1\u68C0\u72B6\u6001\u8BFB\u53D6\u5931\u8D25\uFF08host \u8DEF\u7531\u4E0D\u53EF\u7528\uFF1F\u8BF7\u5237\u65B0\u91CD\u8BD5\uFF09" }),
+    last !== null && last.status === "failed" && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 6px" }, children: last.error ?? "\u5DE1\u68C0\u6279\u6B21\u5931\u8D25" }),
+    status !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "2px 0 4px" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { color: status.tone, fontSize: 13 }, children: [
         isRunning ? "\u23F3" : last?.status === "done" ? "\u2705" : last?.status === "failed" ? "\u274C" : "",
         " ",
         status.text
       ] }),
-      last !== null && last.total > 0 && last.status !== "running" && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { display: "inline-flex", gap: 10 }, children: ["red", "yellow", "green", "gray"].map((k) => colorDot(k, last.counts[k])) })
+      last !== null && last.total > 0 && last.status !== "running" && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { display: "inline-flex", gap: 10 }, children: ["red", "yellow", "green", "gray"].map((k) => colorDot(k, last.counts[k])) })
     ] }),
-    last !== null && last.by_type !== null && last.status !== "running" && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)", padding: "0 0 4px", lineHeight: "18px" }, children: (() => {
+    last !== null && last.by_type !== null && last.status !== "running" && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)", padding: "0 0 4px", lineHeight: "18px" }, children: (() => {
       const bt = last.by_type;
       if (last.total === 0) {
         return "\u672C\u6B21\u5DE1\u68C0\u6E05\u5355\u4E3A\u7A7A\uFF1A\u5173\u6CE8\u9762\u6682\u65E0\u6807\u51C6\u3001\u4E5F\u65E0\u65B0\u5165\u5E93\u5F85\u9996\u68C0\u6587\u6863\u2014\u2014\u6536\u85CF\u6807\u51C6\u6216\u5BFC\u5165\u65B0\u6587\u6863\u540E\u518D\u5DE1\u68C0";
@@ -35034,7 +35451,7 @@ function KsInspectionPanel(props) {
       const otherText = other.length > 0 ? ` \xB7 ${other.join(" / ")}` : "";
       return `\u5171\u68C0 ${last.total} \u9879${focusText}${otherText}`;
     })() }),
-    last !== null && last.status !== "running" && last.by_class !== null && last.by_class !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+    last !== null && last.status !== "running" && last.by_class !== null && last.by_class !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
       "div",
       {
         style: {
@@ -35066,8 +35483,8 @@ function KsInspectionPanel(props) {
         })()
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "4px 0", flexWrap: "wrap" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "4px 0", flexWrap: "wrap" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         "button",
         {
           type: "button",
@@ -35087,7 +35504,7 @@ function KsInspectionPanel(props) {
           children: busy ? "\u542F\u52A8\u4E2D\u2026" : isRunning ? "\u5DE1\u68C0\u4E2D\u2026" : overdue > 0 ? "\u8865\u8DD1\u4ECA\u65E5\u5DE1\u68C0" : "\u4ECA\u65E5\u5DE1\u68C0\uFF08tier0\uFF09"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         "button",
         {
           type: "button",
@@ -35106,20 +35523,20 @@ function KsInspectionPanel(props) {
           children: exporting ? "\u5BFC\u51FA\u4E2D\u2026" : "\u5BFC\u51FA\u5DE1\u67E5\u7ED3\u679C\uFF08Excel\uFF09"
         }
       ),
-      expError !== null && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: expError }),
-      error !== null && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: error })
+      expError !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: expError }),
+      error !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: error })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 6, paddingTop: 2 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 10, padding: "8px 0 2px" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { flex: 1 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { display: "block", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u6BCF\u65E5\u81EA\u52A8\u5DE1\u68C0" }),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { display: "block", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 6, paddingTop: 2 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 10, padding: "8px 0 2px" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { flex: 1 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { display: "block", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u6BCF\u65E5\u81EA\u52A8\u5DE1\u68C0" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { display: "block", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
             "\u5F00\u542F\u540E\u6BCF\u65E5 ",
             settings?.time ?? "08:30",
             " \u81EA\u52A8\u68C0\u67E5\u5173\u6CE8\u9762\uFF1Bdsh \u672A\u5F00\u542F\u65F6\uFF0C\u4E0B\u6B21\u542F\u52A8\u8865\u8DD1\u5F53\u5929\u4E00\u6B21\u3002"
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           "input",
           {
             type: "checkbox",
@@ -35130,9 +35547,9 @@ function KsInspectionPanel(props) {
           }
         )
       ] }),
-      settings?.autoEnabled === true && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 10, padding: "2px 0" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6BCF\u65E5\u65F6\u70B9" }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+      settings?.autoEnabled === true && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 10, padding: "2px 0" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6BCF\u65E5\u65F6\u70B9" }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           "input",
           {
             type: "time",
@@ -35146,9 +35563,9 @@ function KsInspectionPanel(props) {
             style: { fontSize: 12, padding: "2px 6px" }
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #999)" }, children: "\u5468\u65E5 tier1 \u5168\u5E93\u6EDA\u52A8\uFF08P2 \u5F00\u653E\uFF09" })
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #999)" }, children: "\u5468\u65E5 tier1 \u5168\u5E93\u6EDA\u52A8\uFF08P2 \u5F00\u653E\uFF09" })
       ] }),
-      autoError !== null && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "2px 0 0" }, children: [
+      autoError !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "2px 0 0" }, children: [
         "\u4FDD\u5B58\u5931\u8D25\uFF1A",
         autoError
       ] })
@@ -35179,17 +35596,17 @@ function sourceStatusText(p) {
 }
 function KsAnnounceSourcesSection(props) {
   const { openedOnce } = props;
-  const [summary, setSummary] = (0, import_react10.useState)(null);
-  const [scanning, setScanning] = (0, import_react10.useState)(false);
-  const [error, setError] = (0, import_react10.useState)(null);
-  const [loadError, setLoadError] = (0, import_react10.useState)(false);
-  const [sources, setSources] = (0, import_react10.useState)(null);
-  const [sourcesError, setSourcesError] = (0, import_react10.useState)(null);
-  const [newName, setNewName] = (0, import_react10.useState)("");
-  const [newUrl, setNewUrl] = (0, import_react10.useState)("");
-  const [adding, setAdding] = (0, import_react10.useState)(false);
-  const [addError, setAddError] = (0, import_react10.useState)(null);
-  const load = (0, import_react10.useCallback)(async () => {
+  const [summary, setSummary] = (0, import_react12.useState)(null);
+  const [scanning, setScanning] = (0, import_react12.useState)(false);
+  const [error, setError] = (0, import_react12.useState)(null);
+  const [loadError, setLoadError] = (0, import_react12.useState)(false);
+  const [sources, setSources] = (0, import_react12.useState)(null);
+  const [sourcesError, setSourcesError] = (0, import_react12.useState)(null);
+  const [newName, setNewName] = (0, import_react12.useState)("");
+  const [newUrl, setNewUrl] = (0, import_react12.useState)("");
+  const [adding, setAdding] = (0, import_react12.useState)(false);
+  const [addError, setAddError] = (0, import_react12.useState)(null);
+  const load = (0, import_react12.useCallback)(async () => {
     try {
       const s = await fetchAnnounceSummary();
       setSummary(s);
@@ -35198,12 +35615,12 @@ function KsAnnounceSourcesSection(props) {
       setLoadError(true);
     }
   }, []);
-  (0, import_react10.useEffect)(() => {
+  (0, import_react12.useEffect)(() => {
     if (!openedOnce) return;
     void load();
   }, [openedOnce, load]);
   const isRunning = summary?.last?.status === "running";
-  (0, import_react10.useEffect)(() => {
+  (0, import_react12.useEffect)(() => {
     if (!isRunning) return;
     let alive = true;
     let timer;
@@ -35236,8 +35653,8 @@ function KsAnnounceSourcesSection(props) {
       setScanning(false);
     }
   };
-  const [exportingAnn, setExportingAnn] = (0, import_react10.useState)(false);
-  const [annExportError, setAnnExportError] = (0, import_react10.useState)(null);
+  const [exportingAnn, setExportingAnn] = (0, import_react12.useState)(false);
+  const [annExportError, setAnnExportError] = (0, import_react12.useState)(null);
   const onAnnExport = async () => {
     if (exportingAnn) return;
     setExportingAnn(true);
@@ -35250,7 +35667,7 @@ function KsAnnounceSourcesSection(props) {
       setExportingAnn(false);
     }
   };
-  const loadSources = (0, import_react10.useCallback)(async () => {
+  const loadSources = (0, import_react12.useCallback)(async () => {
     setSourcesError(null);
     try {
       const d = await fetchAnnounceSources();
@@ -35295,44 +35712,44 @@ function KsAnnounceSourcesSection(props) {
   };
   const last = summary?.last ?? null;
   const failedCount = last?.per_source.filter((p) => p.status === "failed").length ?? 0;
-  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "8px 0 2px", flexWrap: "wrap" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u516C\u544A\u53D1\u73B0\uFF08\u81EA\u5B9A\u4E49\u516C\u544A\u6E90\uFF09" }),
-      summary?.stale_run === true && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { fontSize: 12, color: "#c0392b", border: "1px solid #c0392b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: "\u4E0A\u6B21\u626B\u63CF\u7591\u4F3C\u4E2D\u65AD" })
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "8px 0 2px", flexWrap: "wrap" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u516C\u544A\u53D1\u73B0\uFF08\u81EA\u5B9A\u4E49\u516C\u544A\u6E90\uFF09" }),
+      summary?.stale_run === true && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { fontSize: 12, color: "#c0392b", border: "1px solid #c0392b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: "\u4E0A\u6B21\u626B\u63CF\u7591\u4F3C\u4E2D\u65AD" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "2px 0 4px", flexWrap: "wrap", fontSize: 13 }, children: isRunning ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { color: "var(--dsw-alias-label-primary, #111)" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "2px 0 4px", flexWrap: "wrap", fontSize: 13 }, children: isRunning ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { color: "var(--dsw-alias-label-primary, #111)" }, children: [
       "\u23F3 \u626B\u63CF\u4E2D \xB7 ",
       last?.sources_done ?? 0,
       "/",
       last?.sources_total ?? 0,
       " \u6E90"
-    ] }) : last?.status === "done" ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_jsx_runtime10.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+    ] }) : last?.status === "done" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
         "\u6700\u8FD1\u626B\u63CF ",
         fmtTs(last.finished_at)
       ] }),
-      last.baseline_count > 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)", fontSize: 12 }, children: [
+      last.baseline_count > 0 && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)", fontSize: 12 }, children: [
         "\u6536\u5F55 ",
         last.baseline_count
       ] }),
-      last.new_count > 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { fontSize: 12, color: "#b8860b", border: "1px solid #b8860b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: [
+      last.new_count > 0 && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { fontSize: 12, color: "#b8860b", border: "1px solid #b8860b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: [
         "\u65B0 ",
         last.new_count,
         " \u6761"
       ] }),
-      failedCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { fontSize: 12, color: "#c0392b", border: "1px solid #c0392b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: [
+      failedCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { fontSize: 12, color: "#c0392b", border: "1px solid #c0392b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: [
         "\u5931\u8D25 ",
         failedCount,
         " \u4E2A\u6E90"
       ] })
-    ] }) : last?.status === "failed" ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { color: "#c0392b", fontSize: 13 }, children: [
+    ] }) : last?.status === "failed" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { color: "#c0392b", fontSize: 13 }, children: [
       "\u4E0A\u6B21\u626B\u63CF\u5931\u8D25",
       last.error ? `\uFF1A${last.error}` : ""
-    ] }) : /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u5C1A\u672A\u626B\u63CF" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { style: { margin: "2px 0 8px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6DFB\u52A0\u5B98\u65B9\u516C\u544A\u5217\u8868\u9875\u5730\u5740\uFF0C\u968F\u6BCF\u65E5\u5DE1\u68C0\u81EA\u52A8\u68C0\u67E5\u65B0\u516C\u544A\uFF1B\u4EC5\u652F\u6301\u516C\u7F51 http/https\uFF0C\u89E3\u6790\u5931\u8D25\u4F1A\u5982\u5B9E\u663E\u793A\u539F\u56E0\u3002" }),
-    loadError && summary === null && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 6px" }, children: "\u516C\u544A\u72B6\u6001\u8BFB\u53D6\u5931\u8D25\uFF08host \u8DEF\u7531\u4E0D\u53EF\u7528\uFF1F\u8BF7\u5237\u65B0\u91CD\u8BD5\uFF09" }),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "4px 0" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+    ] }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u5C1A\u672A\u626B\u63CF" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { style: { margin: "2px 0 8px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6DFB\u52A0\u5B98\u65B9\u516C\u544A\u5217\u8868\u9875\u5730\u5740\uFF0C\u968F\u6BCF\u65E5\u5DE1\u68C0\u81EA\u52A8\u68C0\u67E5\u65B0\u516C\u544A\uFF1B\u4EC5\u652F\u6301\u516C\u7F51 http/https\uFF0C\u89E3\u6790\u5931\u8D25\u4F1A\u5982\u5B9E\u663E\u793A\u539F\u56E0\u3002" }),
+    loadError && summary === null && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 6px" }, children: "\u516C\u544A\u72B6\u6001\u8BFB\u53D6\u5931\u8D25\uFF08host \u8DEF\u7531\u4E0D\u53EF\u7528\uFF1F\u8BF7\u5237\u65B0\u91CD\u8BD5\uFF09" }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "4px 0" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         "button",
         {
           type: "button",
@@ -35351,7 +35768,7 @@ function KsAnnounceSourcesSection(props) {
           children: scanning ? "\u542F\u52A8\u4E2D\u2026" : isRunning ? "\u626B\u63CF\u4E2D\u2026" : "\u626B\u63CF\u516C\u544A\u6E90"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         "button",
         {
           type: "button",
@@ -35370,27 +35787,27 @@ function KsAnnounceSourcesSection(props) {
           children: exportingAnn ? "\u5BFC\u51FA\u4E2D\u2026" : "\u5BFC\u51FA\u516C\u544A\u53D1\u73B0\uFF08Excel\uFF09"
         }
       ),
-      annExportError !== null && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: annExportError }),
-      error !== null && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: error })
+      annExportError !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: annExportError }),
+      error !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: error })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("details", { style: { fontSize: 12, margin: "2px 0", color: "var(--dsw-alias-label-secondary, #666)" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("summary", { style: { cursor: "pointer" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("details", { style: { fontSize: 12, margin: "2px 0", color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("summary", { style: { cursor: "pointer" }, children: [
         "\u6700\u8FD1\u516C\u544A\uFF08",
         last?.recent.length ?? 0,
         " \u6761\uFF0C\u70B9\u51FB\u5C55\u5F00\uFF09"
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("ul", { style: { margin: "6px 0 0", paddingLeft: 18 }, children: [
-        (last?.recent ?? []).map((r, i) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("li", { style: { lineHeight: "20px" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("a", { href: r.url, target: "_blank", rel: "noreferrer", style: { color: "var(--dsw-alias-label-primary, #111)" }, children: r.title }),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #888)" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("ul", { style: { margin: "6px 0 0", paddingLeft: 18 }, children: [
+        (last?.recent ?? []).map((r, i) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("li", { style: { lineHeight: "20px" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("a", { href: r.url, target: "_blank", rel: "noreferrer", style: { color: "var(--dsw-alias-label-primary, #111)" }, children: r.title }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #888)" }, children: [
             r.source_name ? ` \xB7 ${r.source_name}` : "",
             r.published_date ? ` \xB7 ${r.published_date}` : ""
           ] })
         ] }, `${r.url}-${i}`)),
-        (last?.recent.length ?? 0) === 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("li", { style: { listStyle: "none", marginLeft: -18 }, children: "\u6682\u65E0\u8BB0\u5F55\uFF08\u626B\u63CF\u540E\u663E\u793A\u6700\u8FD1 5 \u6761\uFF09" })
+        (last?.recent.length ?? 0) === 0 && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("li", { style: { listStyle: "none", marginLeft: -18 }, children: "\u6682\u65E0\u8BB0\u5F55\uFF08\u626B\u63CF\u540E\u663E\u793A\u6700\u8FD1 5 \u6761\uFF09" })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
       "details",
       {
         style: { fontSize: 12, margin: "2px 0", color: "var(--dsw-alias-label-secondary, #666)" },
@@ -35400,15 +35817,15 @@ function KsAnnounceSourcesSection(props) {
           }
         },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("summary", { style: { cursor: "pointer" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("summary", { style: { cursor: "pointer" }, children: [
             "\u6E90\u7BA1\u7406\uFF08",
             sources === null ? "\u5C55\u5F00\u52A0\u8F7D" : `${sources.length} \u4E2A`,
             "\uFF09"
           ] }),
-          sources === null ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { style: { margin: "6px 0 0" }, children: "\u52A0\u8F7D\u4E2D\u2026" }) : sources.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { style: { margin: "6px 0 0" }, children: "\u8FD8\u6CA1\u6709\u516C\u544A\u6E90\u2014\u2014\u5728\u4E0B\u65B9\u6DFB\u52A0\u7B2C\u4E00\u4E2A\u3002" }) : /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { style: { margin: "6px 0 0" }, children: sources.map((src) => {
+          sources === null ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { style: { margin: "6px 0 0" }, children: "\u52A0\u8F7D\u4E2D\u2026" }) : sources.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { style: { margin: "6px 0 0" }, children: "\u8FD8\u6CA1\u6709\u516C\u544A\u6E90\u2014\u2014\u5728\u4E0B\u65B9\u6DFB\u52A0\u7B2C\u4E00\u4E2A\u3002" }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { style: { margin: "6px 0 0" }, children: sources.map((src) => {
             const ps = last?.per_source.find((p) => p.id === src.id);
-            return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "3px 0", flexWrap: "wrap" }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+            return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "3px 0", flexWrap: "wrap" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
                 "input",
                 {
                   type: "checkbox",
@@ -35417,10 +35834,10 @@ function KsAnnounceSourcesSection(props) {
                   onChange: (e) => void onToggleEnabled(src, e.currentTarget.checked)
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: "var(--dsw-alias-label-primary, #111)", minWidth: 90 }, children: src.name }),
-              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { title: src.url, style: { color: "var(--dsw-alias-label-secondary, #888)", maxWidth: 260, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: src.url }),
-              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { children: sourceStatusText(ps) }),
-              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { color: "var(--dsw-alias-label-primary, #111)", minWidth: 90 }, children: src.name }),
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { title: src.url, style: { color: "var(--dsw-alias-label-secondary, #888)", maxWidth: 260, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: src.url }),
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { children: sourceStatusText(ps) }),
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
                 "button",
                 {
                   type: "button",
@@ -35431,9 +35848,9 @@ function KsAnnounceSourcesSection(props) {
               )
             ] }, src.id);
           }) }),
-          sourcesError !== null && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: sourcesError }),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, marginTop: 8, flexWrap: "wrap" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+          sourcesError !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: sourcesError }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, marginTop: 8, flexWrap: "wrap" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
               "input",
               {
                 value: newName,
@@ -35442,7 +35859,7 @@ function KsAnnounceSourcesSection(props) {
                 style: { fontSize: 12, padding: "3px 8px", width: 170 }
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
               "input",
               {
                 value: newUrl,
@@ -35451,7 +35868,7 @@ function KsAnnounceSourcesSection(props) {
                 style: { fontSize: 12, padding: "3px 8px", flex: 1, minWidth: 220 }
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
               "button",
               {
                 type: "button",
@@ -35470,7 +35887,7 @@ function KsAnnounceSourcesSection(props) {
               }
             )
           ] }),
-          addError !== null && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: addError })
+          addError !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: addError })
         ]
       }
     )
@@ -35489,16 +35906,16 @@ function btnStyle4(disabled) {
 }
 function KsApiConfigSection(props) {
   const { open, onOpenChange } = props;
-  const [status, setStatus] = (0, import_react10.useState)(null);
-  const [err, setErr] = (0, import_react10.useState)(null);
-  const [busy, setBusy] = (0, import_react10.useState)(null);
-  const [cloudKey, setCloudKey] = (0, import_react10.useState)("");
-  const [cloudUrl, setCloudUrl] = (0, import_react10.useState)("");
-  const [cloudMode, setCloudMode] = (0, import_react10.useState)("");
-  const [llmKey, setLlmKey] = (0, import_react10.useState)("");
-  const [llmUrl, setLlmUrl] = (0, import_react10.useState)("");
-  const [tests, setTests] = (0, import_react10.useState)({});
-  const load = (0, import_react10.useCallback)(async () => {
+  const [status, setStatus] = (0, import_react12.useState)(null);
+  const [err, setErr] = (0, import_react12.useState)(null);
+  const [busy, setBusy] = (0, import_react12.useState)(null);
+  const [cloudKey, setCloudKey] = (0, import_react12.useState)("");
+  const [cloudUrl, setCloudUrl] = (0, import_react12.useState)("");
+  const [cloudMode, setCloudMode] = (0, import_react12.useState)("");
+  const [llmKey, setLlmKey] = (0, import_react12.useState)("");
+  const [llmUrl, setLlmUrl] = (0, import_react12.useState)("");
+  const [tests, setTests] = (0, import_react12.useState)({});
+  const load = (0, import_react12.useCallback)(async () => {
     try {
       setStatus(await fetchApiConfig());
       setErr(null);
@@ -35506,8 +35923,8 @@ function KsApiConfigSection(props) {
       setErr(e instanceof Error ? e.message : String(e));
     }
   }, []);
-  const [openedOnce, setOpenedOnce] = (0, import_react10.useState)(false);
-  (0, import_react10.useEffect)(() => {
+  const [openedOnce, setOpenedOnce] = (0, import_react12.useState)(false);
+  (0, import_react12.useEffect)(() => {
     if (!open || openedOnce) return;
     setOpenedOnce(true);
     void load();
@@ -35558,10 +35975,10 @@ function KsApiConfigSection(props) {
     const configured2 = st?.configured === true;
     const t = tests[ch];
     const dirty = keyVal.trim().length > 0 || urlVal.trim().length > 0 || modeDirty;
-    return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { marginTop: 8 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, fontSize: 12 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: label }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: {
+    return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { marginTop: 8 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, fontSize: 12 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: label }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: {
           fontSize: 11,
           padding: "0 6px",
           lineHeight: "17px",
@@ -35569,17 +35986,17 @@ function KsApiConfigSection(props) {
           color: configured2 ? "#2e7d32" : "#888",
           border: `1px solid ${configured2 ? "#2e7d3255" : "#88888855"}`
         }, children: configured2 ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E" }),
-        st?.base_url && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
+        st?.base_url && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
           "\u5F53\u524D\u751F\u6548 ",
           st.base_url
         ] }),
-        ch === "mineru_cloud" && st?.model_version && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
+        ch === "mineru_cloud" && st?.model_version && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
           "\xB7 \u6A21\u5F0F ",
           st.model_version
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 6, marginTop: 4, flexWrap: "wrap" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 6, marginTop: 4, flexWrap: "wrap" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           "input",
           {
             type: "password",
@@ -35590,7 +36007,7 @@ function KsApiConfigSection(props) {
             style: { fontSize: 12, padding: "3px 8px", width: 220 }
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           "input",
           {
             value: urlVal,
@@ -35600,7 +36017,7 @@ function KsApiConfigSection(props) {
           }
         ),
         modeSlot,
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           "button",
           {
             type: "button",
@@ -35615,7 +36032,7 @@ function KsApiConfigSection(props) {
             children: busy === `save-${ch}` ? "\u4FDD\u5B58\u4E2D\u2026" : "\u4FDD\u5B58"
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           "button",
           {
             type: "button",
@@ -35627,12 +36044,12 @@ function KsApiConfigSection(props) {
           }
         )
       ] }),
-      dirty && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { style: { margin: "3px 0 0", fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
+      dirty && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("p", { style: { margin: "3px 0 0", fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
         "\u63A2\u6D4B\u4F7F\u7528\u5DF2\u4FDD\u5B58\u7684\u51ED\u636E\uFF1B\u65B0\u586B\u7684 Key / Base URL / \u6A21\u5F0F\u8BF7\u5148\u4FDD\u5B58\u3002 \u7559\u7A7A\u8868\u793A\u4FDD\u6301\u4E0D\u53D8\uFF0C\u8F93\u5165 ",
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("code", { children: "-" }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("code", { children: "-" }),
         " \u8868\u793A\u6E05\u9664\u8BE5\u503C\uFF08Key \u6E05\u9664\u540E\u56DE\u5230\u7EAF\u672C\u5730\u901A\u9053\uFF09\u3002"
       ] }),
-      t && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { style: { margin: "3px 0 0", fontSize: 12, color: t.ok ? "#2e7d32" : "#c0392b" }, children: [
+      t && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("p", { style: { margin: "3px 0 0", fontSize: 12, color: t.ok ? "#2e7d32" : "#c0392b" }, children: [
         t.ok ? "\u2705 " : "\u274C ",
         t.detail
       ] })
@@ -35647,9 +36064,9 @@ function KsApiConfigSection(props) {
     vlm: "vlm\uFF08\u63A8\u8350\uFF09\uFF1A\u7AEF\u5230\u7AEF\u89C6\u89C9\u5927\u6A21\u578B\uFF0C\u590D\u6742\u7248\u5F0F\u4E0E\u626B\u63CF\u4EF6\u66F4\u5F3A\uFF1Benable_formula \u5BF9 vlm \u53EA\u5F71\u54CD\u884C\u5185\u516C\u5F0F\uFF0Cenable_table \u4ECD\u751F\u6548\u3002",
     "MinerU-HTML": "MinerU-HTML\uFF1A\u4EC5\u7528\u4E8E HTML \u6E90\u6587\u4EF6\uFF08PDF \u8BF7\u52FF\u9009\uFF09\u3002"
   };
-  const cloudModeSlot = /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { display: "inline-flex", alignItems: "center", gap: 4, fontSize: 12 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6A21\u5F0F" }),
-    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+  const cloudModeSlot = /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { display: "inline-flex", alignItems: "center", gap: 4, fontSize: 12 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6A21\u5F0F" }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
       "select",
       {
         value: effectiveCloudMode,
@@ -35663,37 +36080,37 @@ function KsApiConfigSection(props) {
           background: "#fff",
           color: "#111"
         },
-        children: cloudModes.map((m) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("option", { value: m, children: m }, m))
+        children: cloudModes.map((m) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("option", { value: m, children: m }, m))
       }
     ),
-    cloudModeDirty && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { fontSize: 11, color: "#c0392b" }, children: "\u672A\u4FDD\u5B58" })
+    cloudModeDirty && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { fontSize: 11, color: "#c0392b" }, children: "\u672A\u4FDD\u5B58" })
   ] });
-  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
     "details",
     {
       open,
       onToggle: (e) => onOpenChange(e.currentTarget.open),
       style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("summary", { style: { cursor: "pointer", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)", fontSize: 13, padding: "4px 0" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("summary", { style: { cursor: "pointer", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)", fontSize: 13, padding: "4px 0" }, children: [
           "API\u914D\u7F6E",
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: SUMMARY_HINT, children: "\u4E91 OCR / LLM \u51ED\u636E\uFF08\u52A0\u5BC6\u5B58\u50A8\uFF09" }),
-          status !== null && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { marginLeft: 8, fontSize: 11, fontWeight: 400, color: status.mineru_cloud.configured ? "#2e7d32" : "#888" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: SUMMARY_HINT, children: "\u4E91 OCR / LLM \u51ED\u636E\uFF08\u52A0\u5BC6\u5B58\u50A8\uFF09" }),
+          status !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { marginLeft: 8, fontSize: 11, fontWeight: 400, color: status.mineru_cloud.configured ? "#2e7d32" : "#888" }, children: [
             "\u4E91 OCR ",
             status.mineru_cloud.configured ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E"
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
           "\u914D\u7F6E\u4E91 OCR Key \u540E\uFF0C\u5BFC\u5165\u6587\u4EF6\u4F18\u5148\u8D70\u4E91\u89E3\u6790\u3001\u672C\u5730\u515C\u5E95\uFF1B\u672A\u914D\u7F6E\u5219\u76F4\u63A5\u8D70\u672C\u5730\u901A\u9053\uFF08\u7EAF\u672C\u5730\u4E0D\u5916\u53D1\uFF09\u3002",
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("b", { children: "\u6A21\u5F0F" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("b", { children: "\u6A21\u5F0F" }),
           "\u5BF9\u5E94 MinerU \u5B98\u65B9 v4 \u7684 ",
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("code", { children: "model_version" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("code", { children: "model_version" }),
           "\uFF1A",
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("code", { children: "pipeline" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("code", { children: "pipeline" }),
           "\uFF08\u9ED8\u8BA4\uFF09\uFF0F",
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("code", { children: "vlm" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("code", { children: "vlm" }),
           "\uFF08\u63A8\u8350\uFF0C\u7AEF\u5230\u7AEF\u89C6\u89C9\u5927\u6A21\u578B\uFF09\uFF0F",
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("code", { children: "MinerU-HTML" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("code", { children: "MinerU-HTML" }),
           "\uFF08\u4EC5 HTML \u6E90\u6587\u4EF6\uFF09\u3002 \u51ED\u636E\u53EA\u5199\u5165\u672C\u673A\u52A0\u5BC6\u5B58\u50A8\uFF08Windows DPAPI\uFF0Csecrets.json\uFF09\uFF0C\u4E0D\u56DE\u663E\u3001\u4E0D\u5165\u5E93\u3002"
         ] }),
         chan(
@@ -35707,77 +36124,10 @@ function KsApiConfigSection(props) {
           cloudModeDirty
         ),
         chan("llm", "\u{1F916} LLM \u95EE\u7B54\u901A\u9053", llmKey, setLlmKey, llmUrl, setLlmUrl),
-        err !== null && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "6px 0 0" }, children: err })
+        err !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "6px 0 0" }, children: err })
       ]
     }
   );
-}
-
-// client/KsPdfGuideIcon.tsx
-var React2 = __toESM(require("react"), 1);
-function KsPdfGuideIcon({ size = 26, className }) {
-  const s = String(size);
-  return React2.createElement(
-    "svg",
-    {
-      width: s,
-      height: s,
-      viewBox: "0 0 24 24",
-      fill: "none",
-      stroke: "currentColor",
-      strokeWidth: 1.6,
-      strokeLinecap: "round",
-      strokeLinejoin: "round",
-      className,
-      "aria-hidden": true,
-      focusable: false
-    },
-    // 页面轮廓（右上折角）
-    React2.createElement("path", { d: "M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" }),
-    React2.createElement("path", { d: "M14 3v5h5" }),
-    // 正文两行
-    React2.createElement("path", { d: "M9 13h6" }),
-    React2.createElement("path", { d: "M9 17h3" })
-  );
-}
-
-// client/ksSidebar.ts
-var KS_EVIDENCE_IMPL_ID = "ks-dsh-plugin/evidence-pdf";
-var KS_EVIDENCE_KIND = "ks-evidence";
-var KS_EVIDENCE_RESOURCE_PREFIX = "dsh-resource://ks-evidence";
-var KS_EVIDENCE_ADDRESS = KS_EVIDENCE_RESOURCE_PREFIX;
-function toNavParams(evidenceUrl) {
-  return { url: evidenceUrl };
-}
-function isKsEvidenceResource(address) {
-  return address === KS_EVIDENCE_ADDRESS || address.startsWith(`${KS_EVIDENCE_ADDRESS}?`) || address.startsWith(`${KS_EVIDENCE_ADDRESS}/`);
-}
-function evidenceTabTitle(_address) {
-  return "PDF \u67E5\u770B\u5668";
-}
-var KS_GUIDE_ORDER_PDF = 30;
-function ksGuideEntryTitle() {
-  return evidenceTabTitle(KS_EVIDENCE_ADDRESS);
-}
-function ksGuideEntryDescription() {
-  return "\u6253\u5F00\u56FD\u6807 / \u6CD5\u89C4 PDF \u9605\u8BFB\u539F\u6587\uFF08\u65E0\u9700\u5148\u6709\u8BC1\u636E\u94FE\u63A5\uFF09";
-}
-function ksEvidenceDefinition() {
-  return {
-    id: KS_EVIDENCE_IMPL_ID,
-    kind: KS_EVIDENCE_KIND,
-    patterns: [KS_EVIDENCE_ADDRESS],
-    priority: "extension",
-    canOpen: isKsEvidenceResource,
-    title: evidenceTabTitle,
-    guide: [{
-      id: "pdf",
-      order: KS_GUIDE_ORDER_PDF,
-      title: ksGuideEntryTitle,
-      description: ksGuideEntryDescription,
-      icon: KsPdfGuideIcon
-    }]
-  };
 }
 
 // client/entry.ts
@@ -35907,7 +36257,10 @@ function registerSidebarSurfaces(ctx, tabs, right, rightRef) {
   const disposer = ctx.effect(
     () => {
       const disposeType = tabs.register(ksEvidenceDefinition());
+      const disposeKbType = tabs.register(ksKbDefinition());
       let disposeBody;
+      let disposeKbBody;
+      let disposeGuideCard;
       if (ctx.slots !== void 0) {
         disposeBody = ctx.slots.inject("sidebar.right.pane.tab", () => ctx.slots.register({
           name: "sidebar.right.pane.tab",
@@ -35915,6 +36268,15 @@ function registerSidebarSurfaces(ctx, tabs, right, rightRef) {
           // 只贡献我们自己的那一个面；`useTabInfo` 由框架按 hookContext 给。
           inject: () => ({ openEvidence })
         }, KsEvidenceHost));
+        disposeKbBody = ctx.slots.inject("sidebar.right.pane.tab", () => ctx.slots.register({
+          name: "sidebar.right.pane.tab",
+          key: KS_KB_IMPL_ID,
+          inject: () => ({ dataSource: "mock" })
+        }, KsKnowledgePage));
+        disposeGuideCard = ctx.slots.inject("sidebar.right.tab.guide.entry", () => ctx.slots.register({
+          name: "sidebar.right.tab.guide.entry",
+          key: KS_EVIDENCE_IMPL_ID
+        }, KsKnowledgeGuide));
       } else {
         console.error("[ks-dsh-plugin] slots \u4E0D\u53EF\u7528\uFF1APDF \u8BC1\u636E tab body \u672A\u6CE8\u518C\uFF08tab \u7C7B\u578B\u5DF2\u6CE8\u518C\u4F46\u65E0\u5185\u5BB9\uFF09");
       }
@@ -35937,7 +36299,10 @@ function registerSidebarSurfaces(ctx, tabs, right, rightRef) {
       return () => {
         document.removeEventListener("click", onClick, true);
         rightRef.current = null;
+        disposeGuideCard?.();
+        disposeKbBody?.();
         disposeBody?.();
+        disposeKbType();
         disposeType();
       };
     },
