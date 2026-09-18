@@ -1,17 +1,58 @@
-"""渠道台账端点（§11.0 R2b）：**只读**。
+"""渠道台账端点（§11.0 R2b 只读 + R6d 人工维护）。
 
-为什么只读先落地：面板（R4）要的是"链接 / 有效性 / 上次成功查询"三列的**数据源**，
-而这三列的语义已经由 `channel_repo` 定死（`wiring` 与 `state` 分开、`summary()` 把
-注册数与能力数分开报）。写接口（人工增删改/立即探测）要等 R3 的探针出来再一起做，
-否则会出现"面板能改但改了不知道有没有用"的空壳。
+**只读先落地**（R2b）：面板要的是"链接 / 有效性 / 上次成功查询"三列的数据源，语义由
+`channel_repo` 定死（`wiring` 与 `state` 分开、`summary()` 把注册数与能力数分开报）。
 
-⚠ 两个端点都是 **`def`**（不是 `async def`）：它们走 SQLite，必须在**线程池**里跑，
+**写接口（R6d）**：业主的诉求是"渠道台账要能人工增删与复核"，所以本文件的写侧只做三件事，
+且每件都**留痕**（`event_log`，actor=user，与改动同事务）：
+
+- `POST /api/v1/channels`：新增（默认 `wiring='user'`）；
+- `PATCH /api/v1/channels/{id}`：复核/编辑**描述性字段**；
+- `POST /api/v1/channels/{id}/enabled`：启停（停用不删，历史健康度是证据）；
+- `DELETE /api/v1/channels/{id}`：删除（痕迹里带删除前整行快照）。
+
+⚠ **人工写不了运行期健康度**（`state`/`last_*`/`consecutive_failures`）：那是探针的产出，
+人能填就等于凭空造证据 ⇒ 这些键一律 422 拒绝（不是静默丢弃——静默丢弃会让人以为写成功了）。
+⚠ 本文件所有端点都是 **`def`**（不是 `async def`）：它们走 SQLite，必须在**线程池**里跑，
 否则单事件循环被阻塞（§10.87/§10.88 的名单制门禁会拦 async 版本——本文件因此不需要
 往 `tests/test_material_api.py::_ASYNC_ENDPOINTS` 里加任何条目）。
 """
 from __future__ import annotations
 
+import re
+
 from src.core.storage import channel_repo as cr
+
+#: 人工新增时可给的描述性字段（= 仓储 `_DESCRIPTIVE` 去掉引擎侧登记字段后的**可写子集**）
+_WRITABLE = (
+    "name", "category", "category_raw", "url", "fetch_kind", "list_endpoint",
+    "params_json", "answers_json", "covers", "gaps", "wiring", "verification",
+    "probe_url", "probe_expect", "source_file", "note",
+)
+
+
+def _new_user_channel_id(name: str) -> str:
+    """人工新增的 id：`user:<slug>-<8位hash>`（稳定、可读、可追）。
+
+    ⚠ 用 hash 而不是自增序号：两个人各加一条同名渠道不能互相覆盖，重跑同一次新增也拿到同一个 id
+    （幂等）——而序号会在删除后重复利用，正是"id 复用"这类最难查的问题。
+    """
+    from ulid import ULID
+
+    slug = re.sub(r"[^0-9a-zA-Z]+", "-", name).strip("-").lower()[:24] or "channel"
+    return f"user:{slug}-{str(ULID())[-8:].lower()}"
+
+
+def _reject_health_and_unknown(body: dict) -> str | None:
+    """返回错误说明（None = 通过）。健康度字段与未知键都**出声拒绝**。"""
+    bad_health = sorted(set(body) & set(cr.HEALTH_FIELDS))
+    if bad_health:
+        return (f"这些是**探针产出**的字段，人工不能写：{bad_health}；"
+                f"要让它们变化请用 POST /api/v1/channels/probe")
+    unknown = sorted(set(body) - set(_WRITABLE) - {"channel_id", "enabled"})
+    if unknown:
+        return f"未知字段：{unknown}（可写字段见 /api/v1/channels 的返回项）"
+    return None
 
 
 def register(app, json_error):
@@ -67,6 +108,87 @@ def register(app, json_error):
             return json_error(404, "channel_not_found", f"渠道不存在: {channel_id}")
         row["has_probe_target"] = channel_id in cp.load_targets()
         return {"code": 200, "status": "success", "data": row}
+
+    @app.post("/api/v1/channels")
+    def create_channel(body: dict | None = None):
+        """**人工新增**一条渠道（面板"加一条"）。`name` 必填，`channel_id` 可省。
+
+        新条目的默认值：`wiring='user'`（"这是人加进来的"，与适配器/种子区分开）、
+        `verification='unverified'`（**人工录入 ≠ 已核实**：它得先被探一次才算数）、
+        `enabled` 默认开。
+        """
+        b = dict(body or {})
+        err = _reject_health_and_unknown(b)
+        if err:
+            return json_error(422, "illegal_channel_field", err)
+        name = str(b.get("name") or "").strip()
+        if not name:
+            return json_error(422, "channel_name_required", "人工新增必须给 name")
+        cid = str(b.get("channel_id") or "").strip() or _new_user_channel_id(name)
+        if not cid.startswith("user:") and not re.match(r"^(ch|seed|user):", cid):
+            return json_error(422, "illegal_channel_id",
+                              "channel_id 需以 ch:/seed:/user: 开头（面板新增用 user:）")
+        payload = {k: v for k, v in b.items() if k in _WRITABLE}
+        payload["name"] = name
+        payload.setdefault("wiring", "user")
+        payload.setdefault("verification", "unverified")
+        enabled = b.get("enabled")
+        if enabled is not None:
+            payload["enabled"] = 1 if enabled else 0
+        try:
+            row = cr.upsert_channel(cid, payload, actor="user")
+        except ValueError as e:
+            return json_error(422, "illegal_channel_field", str(e))
+        return {"code": 200, "status": "success", "data": row}
+
+    @app.patch("/api/v1/channels/{channel_id}")
+    def update_channel(channel_id: str, body: dict | None = None):
+        """**人工复核/编辑**描述性字段（面板"改链接/改备注/改五类声明"）。
+
+        ⚠ 健康度字段走 `POST .../enabled` 或探针，不经这里（见模块 docstring）。
+        """
+        b = dict(body or {})
+        err = _reject_health_and_unknown(b)
+        if err:
+            return json_error(422, "illegal_channel_field", err)
+        if "enabled" in b:
+            return json_error(422, "use_enabled_endpoint",
+                              "启停请用 POST /api/v1/channels/{id}/enabled（语义与留痕不同）")
+        payload = {k: v for k, v in b.items() if k in _WRITABLE}
+        if not payload:
+            return json_error(422, "empty_patch", "没有可写字段（描述性字段见 /api/v1/channels）")
+        if cr.get_channel(channel_id) is None:
+            return json_error(404, "channel_not_found", f"渠道不存在: {channel_id}")
+        try:
+            row = cr.upsert_channel(channel_id, payload, actor="user")
+        except ValueError as e:
+            return json_error(422, "illegal_channel_field", str(e))
+        return {"code": 200, "status": "success", "data": row}
+
+    @app.post("/api/v1/channels/{channel_id}/enabled")
+    def set_channel_enabled(channel_id: str, body: dict | None = None):
+        """**人工启停**（`{"enabled": false}` = 停用但保留历史健康度）。"""
+        b = body or {}
+        if not isinstance(b.get("enabled"), bool):
+            return json_error(422, "illegal_enabled", 'body 需要 {"enabled": true|false}')
+        try:
+            row = cr.set_enabled(channel_id, b["enabled"], actor="user")
+        except ValueError as e:
+            return json_error(404, "channel_not_found", str(e))
+        return {"code": 200, "status": "success", "data": row}
+
+    @app.delete("/api/v1/channels/{channel_id}")
+    def remove_channel(channel_id: str):
+        """**人工删除**（高风险动作；默认建议用"停用"）。
+
+        删除不是"抹掉证据"：`channel/deleted` 痕迹里带**删除前整行快照**
+        （含 state/last_*），审计仍能回答"它当时是什么状态、什么时候没的"。
+        """
+        if cr.get_channel(channel_id) is None:
+            return json_error(404, "channel_not_found", f"渠道不存在: {channel_id}")
+        ok = cr.delete_channel(channel_id, actor="user")
+        return {"code": 200, "status": "success", "data": {"deleted": bool(ok),
+                                                           "channel_id": channel_id}}
 
     @app.post("/api/v1/channels/probe")
     def probe_channels(body: dict | None = None):

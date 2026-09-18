@@ -2008,3 +2008,48 @@ R6c-3e 把那个槽补上 ⇒ 这 9 条的「发布」升 `supported`（`mee` **
 **仍未做（下一步，见 R6c-6 的定价）**：红/黄号上的"补探"——让 `废止` 这一类去问 `ndls`
 （成本 +19.4% 请求，只落在红号上）。**注意**：本步只是**不再记错**；红号想拿到**正确的**
 废止日期，仍需要那一步（`official_gb` 这一档现在如实留空）。
+
+### R6d（2026-09-18 完成·引擎侧）：渠道台账的**人工增删与复核**（目标②的后半）
+
+目标是"渠道台账要能人工增删与复核"，而在此之前**只有读**：`GET /api/v1/channels`（列表+小结）、
+`GET .../{id}`（详情）、`POST .../probe`（立刻探一遍）。仓储层其实早就有
+`upsert_channel`/`set_enabled`/`delete_channel`（种子导入在用），缺的是**给人用的写入口**。
+
+**落了什么**
+
+| 端点 | 语义 |
+|---|---|
+| `POST /api/v1/channels` | 新增一条（`channel_id` 可省 ⇒ `user:<slug>-<8位>`；`wiring` 默认 `user`、`verification` 默认 `unverified`） |
+| `PATCH /api/v1/channels/{id}` | 复核/编辑**描述性字段**（链接/备注/五类声明/covers/gaps…） |
+| `POST /api/v1/channels/{id}/enabled` | 启停（停用不删：历史健康度是证据） |
+| `DELETE /api/v1/channels/{id}` | 删除（痕迹里带**删除前整行快照**） |
+
+**两条不变量（本步的重点，都做了变异测试）**
+
+1. **人工写不了运行期健康度**：`state`/`last_*`/`consecutive_failures` 一律 **422 出声拒绝**，
+   并指路"要改它请用探针"。⚠ 为什么不是靠 `overwrite_health=False` 的**静默丢弃**：
+   静默丢弃会让人以为写成功了，而面板上那条"上次成功"会被错读成**真探过**——
+   这就是凭空造证据。已知字段名之外还有一层"未知键也 422"（拼错字段名不许静默丢）。
+2. **人工改动一律留痕**：`channel/created|updated|enabled|deleted` 写进 `event_log`
+   （`actor=user`、`target_type=update_channel`、带改前/改后 JSON 快照），
+   **与改动同一个事务**（不留"改了但没记"的窗口）。`before/after` 在删除时尤其重要：
+   **删得掉条目，删不掉证据**。
+   ⚠ 留痕写在**仓储层**而不是路由层：路由不是唯一入口（脚本/将来的 CLI/测试都调仓储），
+   而"人工改了台账却没痕迹"在审查场景里不可接受。
+
+**顺带修掉一个真 bug（测试逼出来的）**：`update_channel.category` 是 **NOT NULL**，
+而人工新增说不出"这属于哪一类" ⇒ 原先会直接把 `sqlite3.IntegrityError` 冒到面板（一个 500）。
+现在默认值落在**仓储层**（缺 `category` ⇒ `normalize_category(category_raw)` ⇒ `other`）：
+schema 不变量归所有者，任何调用方都不该绕过它。
+
+**用例**：`tests/test_channels_write_api.py` 8 条（新增默认值+留痕 / 三类非法输入都出声拒绝 /
+列表可见 / 编辑留痕带改前改后 / 不许碰健康度+启停要走去自己端点 / 探针跑过后人工改链接**不清空**健康度 /
+启停留痕 / 删除留痕带整行快照）。
+**变异检查**：`var/tmp/r6dmut.py`（pytest 插件，运行时把 `_audit` 换成 no-op，**不改仓库文件**）
+⇒ 四条依赖留痕的用例当场红；去掉 `-p r6dmut` 全绿。
+
+**仍未做（下一步）**：宿主插件代理（`plugin/src/channels.js` 现在只有列表+探测两条）
+与**面板上的增删复核界面**。⚠ 宿主插件代码是**进程启动时静态 import** 的 ⇒
+面板侧改动要等 DSH 宿主重启才生效，所以这一步单独一轮做，别和引擎侧混在一起提交。
+
+门禁：pytest 2136 passed / 3 skipped / 0 failed；mypy 142 文件 0 错。
