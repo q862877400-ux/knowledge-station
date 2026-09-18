@@ -108,6 +108,61 @@
       "url": "https://www.gdpc.gov.cn/bascdata/",
       "expect": "广东省法规规章规范性文件数据库",
       "evidence": "批次2 实测：HTTP 200、58313 字、`<title>广东省法规规章规范性文件数据库</title>`（R1：唯一自带『时效性』列的地方级库）"
+    },
+    "seed:law-cn:北京市司法局-法律法规规章": {
+      "url": "https://sfj.beijing.gov.cn/sfj/zwgk/zfxxgkpt/fdzdgknr/flfg/index.html",
+      "expect": "规范性文件",
+      "evidence": "批次3 实测：HTTP 200、87251 字、`<title>规范性文件</title>`"
+    },
+    "seed:law-cn:上海市人大-法规公布": {
+      "url": "https://www.spcsc.sh.gov.cn/rmrd/fg/index.html",
+      "expect": "上海人大",
+      "evidence": "批次3 实测：HTTP 200、9501 字、`<title>上海人大</title>`"
+    },
+    "seed:law-cn:上海市人民政府-政府规章库": {
+      "url": "https://www.shanghai.gov.cn/xxzfgzwj/",
+      "expect": "现行市政府规章",
+      "evidence": "批次3 实测：HTTP 200、16746 字、`<title>现行市政府规章_上海市人民政府</title>`"
+    },
+    "seed:law-cn:上海市人民政府-近期信息公开": {
+      "url": "https://www.shanghai.gov.cn/nw12344/index.html",
+      "expect": "近期信息公开",
+      "evidence": "批次3 实测：HTTP 200、22883 字、`<title>近期信息公开_上海市人民政府</title>`"
+    },
+    "seed:law-cn:上海市司法局-规范性文件": {
+      "url": "https://sfj.sh.gov.cn/zwgk_gfxwj/index.html",
+      "expect": "规范性文件_上海市司法局",
+      "evidence": "批次3 实测：HTTP 200、14706 字、`<title>规范性文件_上海市司法局</title>`；⚠ 注意主机名是 `sfj.`（R1 的 G22：`sft.sh.gov.cn` 是错的）"
+    },
+    "seed:law-cn:北京市人大": {
+      "url": "https://www.bjrd.gov.cn/",
+      "expect": "北京市人民代表大会常务委员会",
+      "evidence": "批次3 实测：HTTP 200、58365 字、`<title>北京市人民代表大会常务委员会</title>`"
+    },
+    "seed:law-cn:北京市人大常委会-重要发布": {
+      "url": "https://www.bjrd.gov.cn/zyfb/index.html",
+      "expect": "重要发布",
+      "evidence": "批次3 实测：HTTP 200、39867 字、`<title>重要发布_北京市人民代表大会常务委员会</title>`"
+    },
+    "seed:law-cn:北京市人民政府-政策文件": {
+      "url": "https://www.beijing.gov.cn/zhengce/zhengcefagui/",
+      "expect": "政策文件_首都之窗",
+      "evidence": "批次3 实测：HTTP 200、236486 字、`<title>政策文件_首都之窗_北京市人民政府门户网站</title>`"
+    },
+    "seed:law-cn:司法部-部门规章栏目": {
+      "url": "https://www.moj.gov.cn/pub/sfbgw/flfggz/flfggzbmgz/",
+      "expect": "中华人民共和国司法部",
+      "evidence": "批次3 实测：HTTP 200、38549 字、`<title>中华人民共和国司法部</title>`（R1：部门规章的一手栏目；flk 不含部门规章，必须靠这类补齐）"
+    },
+    "seed:law-cn:广东人大-常委会公报": {
+      "url": "https://www.gdpc.gov.cn/gdrd/depart/cwhgb/",
+      "expect": "常委会公报-广东人大网",
+      "evidence": "批次3 实测：HTTP 200、19576 字、`<title>常委会公报-广东人大网</title>`"
+    },
+    "seed:law-cn:广东人大-权威发布公告通知": {
+      "url": "https://www.gdpc.gov.cn/gdrd/depart/ggtz/",
+      "expect": "公告通知-广东人大网",
+      "evidence": "批次3 实测：HTTP 200、21205 字、`<title>公告通知-广东人大网</title>`"
     }
   }
 }
