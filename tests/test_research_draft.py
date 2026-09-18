@@ -47,6 +47,64 @@ def _stub_llm(monkeypatch, captured: dict, text: str) -> None:
 
 
 class TestGuards:
+    def test_只装配一次(self, project, monkeypatch):
+        """**同源不变量的门禁**（§10.98，复核 b25 的 LOW-3）：起草全流程只能装配**一次**。
+
+        若哪天有人在"调模型之前"和"校验引用之前"各装配一次，两次检索的命中顺序可能不同
+        ⇒ `[[m:i]]` 编号漂移 ⇒ 把**合法引用**误判成"引用了不存在的材料"（或反过来漏判）。
+        b25 是用 monkeypatch 计数器才钉住这一点的（代码里没有任何用例守着它）⇒ 现在补上。
+        """
+        from src.core.materials import authority as au
+
+        pid = project["project_id"]
+        _add(pid, "公司制度", "住宿标准每晚不超过五百元。", tier="T1", role="criterion")
+        calls = {"n": 0}
+        real = au.assemble_evidence
+
+        def counted(*a, **k):
+            calls["n"] += 1
+            return real(*a, **k)
+
+        monkeypatch.setattr(au, "assemble_evidence", counted)
+        cap: dict = {}
+        _stub_llm(monkeypatch, cap, '{"derivation":"d","conclusion":"五百元 [[m:0]]"}')
+        out = rd.draft_conclusion(pid, query="住宿标准")
+        assert calls["n"] == 1, f"装配次数必须恰好 1（实测 {calls['n']}）"
+        # 而且校验用的编号就是**那一次**的编号（引用合法 ⇒ 无 unknown）
+        assert out["citations"]["material_refs"] == [0]
+        assert out["citations"]["unknown"] == []
+
+    def test_材料装配失败时报可操作错误码(self, project, monkeypatch):
+        """§10.98（复核 b25 的 MEDIUM-1）：依据集取不到 ⇒ 500 `materials_load_failed`。
+
+        原先 `assemble_evidence` **不在 try 里** ⇒ 异常穿过路由层那两个 `except`
+        （只接 `ValueError`/`KnowledgeStationError`）变成**裸 500**：用户只看到
+        "Internal Server Error"，真原因只在日志里。这条用例钉住"翻成可操作错误码"。
+        """
+        from src.core.materials import authority as au
+
+        def boom(*_a, **_k):
+            raise RuntimeError("数据库被锁死（模拟）")
+
+        monkeypatch.setattr(au, "assemble_evidence", boom)
+        with pytest.raises(KnowledgeStationError) as ei:
+            rd.draft_conclusion(project["project_id"], query="住宿标准")
+        assert ei.value.code == "materials_load_failed"
+        assert "载入参考资料失败" in str(ei.value)
+        assert "不会" in str(ei.value)          # 明说不会给"看着正常"的产物
+
+    def test_项目不存在仍然按_ValueError_放行(self, project, monkeypatch):
+        """⚠ 翻错误码**只翻"意外的失败"**：项目不存在那类 `ValueError` 必须照原样放行
+        （路由层靠它翻 404）——否则会把"项目不存在"报成 500。"""
+        from src.core.materials import authority as au
+
+        def missing(*_a, **_k):
+            raise ValueError("报告: 项目不存在: prj_x")
+
+        monkeypatch.setattr(au, "assemble_evidence", missing)
+        with pytest.raises(ValueError):
+            rd.draft_conclusion(project["project_id"], query="住宿标准")
+
     def test_没有可承重材料时一次_LLM_都不调(self, project, monkeypatch):
         """只有 T3 单一来源（仅线索）⇒ 可承重集合为空 ⇒ **不许**调模型。"""
         pid = project["project_id"]
@@ -158,6 +216,35 @@ class TestCitationWarnings:
         assert out["citations"]["material_refs"] == [1]
         assert [b["group"] for b in out["citations"]["not_load_bearing"]] == ["leads_only"]
         assert any("不得" in w and "承重" in w for w in out["warnings"]), out["warnings"]
+
+    def test_不喂法条时不该冒噪声警告_但出现法条编号要明说(self, project, monkeypatch):
+        """§10.98（复核 b25 的 LOW-2）：**噪声警告换成准确的那一条**。
+
+        取证链的提示词无条件要求 `[[c:i]]` 标记，而草稿**故意不喂法条** ⇒ 模型正确只引材料时
+        也会吃一条 `llm_json_no_citation_marker`（实测在**正常路径**上就命中）。噪声的坏处是
+        "以后用户不信真警告"。但"草稿里**出现** `[[c:i]]`"是真问题（那些编号无从核验）⇒
+        滤掉不适用的那条、换成准确的那条（不是少报）。
+        """
+        pid = project["project_id"]
+        _add(pid, "公司制度", "住宿标准每晚不超过五百元。", tier="T1", role="criterion")
+
+        # ① 干净路径：谁都不提 `[[c:i]]` ⇒ 连取证链那条"没出现 [[c:i]]"都不会触发，警告应为空
+        cap: dict = {}
+        _stub_llm(monkeypatch, cap, '{"derivation":"d","conclusion":"五百元 [[m:0]]"}')
+        clean = rd.draft_conclusion(pid, query="住宿标准")
+        assert not any("no_citation_marker" in w for w in clean["warnings"]), clean["warnings"]
+        assert clean["warnings"] == [], clean["warnings"]
+
+        # ② **真模型会出现的形状**：提示词要求"引用处用 [[c:i]]"，于是结论里带了 `[[c:0]]`
+        #    ⇒ 取证链会报 `llm_json_no_citation_marker`（derivation 里没有 `[[c:i]]`），
+        #    而那条对"**没喂法条**的草稿"**不适用** ⇒ 必须被滤掉，换成准确的那一条。
+        cap2: dict = {}
+        _stub_llm(monkeypatch, cap2,
+                  '{"derivation":"据材料可知。","conclusion":"据 [[c:0]] 与 [[m:0]] 可知五百元。"}')
+        cited = rd.draft_conclusion(pid, query="住宿标准")
+        assert not any("no_citation_marker" in w for w in cited["warnings"]), cited["warnings"]
+        assert any("法条编号" in w and "无从核验" in w for w in cited["warnings"]), cited["warnings"]
+        assert cited["citations"]["unchecked_law_refs"] == [0]
 
 
 class TestEndpoint:

@@ -32542,6 +32542,43 @@ function canApplyDraft(draft) {
   if (draft === null || draft.llm_called === false) return false;
   return (draft.draft_md ?? "").trim() !== "";
 }
+var emptyDraftFlow = { draft: null, conclusionMd: "", pendingOverwrite: false };
+function draftArrived(prev, out) {
+  return { draft: out, conclusionMd: prev.conclusionMd, pendingOverwrite: false };
+}
+function requestApplyDraft(prev) {
+  if (!canApplyDraft(prev.draft)) return prev;
+  if (prev.conclusionMd.trim() !== "") {
+    return { draft: prev.draft, conclusionMd: prev.conclusionMd, pendingOverwrite: true };
+  }
+  return { draft: prev.draft, conclusionMd: prev.draft?.draft_md ?? "", pendingOverwrite: false };
+}
+function confirmApplyDraft(prev) {
+  if (!canApplyDraft(prev.draft)) return prev;
+  return { draft: prev.draft, conclusionMd: prev.draft?.draft_md ?? "", pendingOverwrite: false };
+}
+function cancelApplyDraft(prev) {
+  return { draft: prev.draft, conclusionMd: prev.conclusionMd, pendingOverwrite: false };
+}
+function userTypedConclusion(prev, text) {
+  return { draft: prev.draft, conclusionMd: text, pendingOverwrite: false };
+}
+function draftReducer(prev, action) {
+  switch (action.type) {
+    case "arrived":
+      return draftArrived(prev, action.out);
+    case "requestApply":
+      return requestApplyDraft(prev);
+    case "confirmApply":
+      return confirmApplyDraft(prev);
+    case "cancelApply":
+      return cancelApplyDraft(prev);
+    case "typed":
+      return userTypedConclusion(prev, action.text);
+    default:
+      return assertNever(action);
+  }
+}
 function AnchorNoteLine(props) {
   const note = props.note || "";
   if (note === "") return null;
@@ -32566,11 +32603,12 @@ function KsMaterialsPanel(props) {
   const [collectUrl, setCollectUrl] = (0, import_react7.useState)("");
   const [collectNote, setCollectNote] = (0, import_react7.useState)("");
   const [researchQuery, setResearchQuery] = (0, import_react7.useState)("");
-  const [conclusionMd, setConclusionMd] = (0, import_react7.useState)("");
+  const [flow, dispatch] = (0, import_react7.useReducer)(draftReducer, emptyDraftFlow);
+  const conclusionMd = flow.conclusionMd;
+  const draft = flow.draft;
   const [report, setReport] = (0, import_react7.useState)(null);
   const [slides, setSlides] = (0, import_react7.useState)(null);
   const [showReport, setShowReport] = (0, import_react7.useState)(false);
-  const [draft, setDraft] = (0, import_react7.useState)(null);
   const [anchors, setAnchors] = (0, import_react7.useState)({});
   const [anchorNote, setAnchorNote] = (0, import_react7.useState)("");
   const [openChunks, setOpenChunks] = (0, import_react7.useState)({});
@@ -32759,7 +32797,7 @@ function KsMaterialsPanel(props) {
     }
     void run("draft", async () => {
       const out = await exportResearchDraft(projectId, { query: q });
-      setDraft(out);
+      dispatch({ type: "arrived", out });
       if (out.llm_called === false) {
         return "\u6CA1\u6709\u53EF\u627F\u91CD\u7684\u5DF2\u6279\u51C6\u6750\u6599\u2014\u2014\u5F15\u64CE**\u6CA1\u6709\u8D77\u8349**\uFF08\u4E00\u6B21\u6A21\u578B\u90FD\u6CA1\u8C03\uFF09";
       }
@@ -33159,7 +33197,7 @@ function KsMaterialsPanel(props) {
           "aria-label": "\u7ED3\u8BBA\u6B63\u6587",
           placeholder: "\u7ED3\u8BBA\uFF08\u53EF\u9009\uFF0CMarkdown\uFF09\u3002\u91CC\u9762\u53EF\u4EE5\u7528 [[m:\u7F16\u53F7]] \u5F15\u7528\u4F9D\u636E\uFF1B\u7F16\u53F7\u5BF9\u4E0D\u4E0A\u5F15\u64CE\u4F1A\u8B66\u544A\u3002",
           value: conclusionMd,
-          onChange: (e) => setConclusionMd(e.currentTarget.value),
+          onChange: (e) => dispatch({ type: "typed", text: e.currentTarget.value }),
           rows: 3,
           style: { padding: "3px 6px", fontSize: 12, width: "100%", boxSizing: "border-box" }
         }
@@ -33250,14 +33288,38 @@ function KsMaterialsPanel(props) {
                 /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
                 (draft.warnings ?? []).join("\uFF1B")
               ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+              flow.pendingOverwrite ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { marginTop: 4 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: {
+                  margin: "0 0 4px",
+                  fontSize: 12,
+                  color: "var(--dsw-alias-warn, #b8860b)"
+                }, children: "\u26A0 \u7ED3\u8BBA\u6846\u91CC\u5DF2\u6709\u5185\u5BB9\uFF08\u53EF\u80FD\u662F\u4F60\u81EA\u5DF1\u5199\u7684\uFF09\u2014\u2014\u586B\u8349\u7A3F\u4F1A**\u8986\u76D6**\u5B83\uFF0C\u4E14**\u4E0D\u80FD\u64A4\u9500**\u3002 \u786E\u8BA4\u8981\u8986\u76D6\u5417\uFF1F" }),
+                /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+                  "button",
+                  {
+                    type: "button",
+                    style: { ...btnStyle2(false), marginRight: 6 },
+                    onClick: () => dispatch({ type: "confirmApply" }),
+                    children: "\u786E\u8BA4\u8986\u76D6"
+                  }
+                ),
+                /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+                  "button",
+                  {
+                    type: "button",
+                    style: btnStyle2(false),
+                    onClick: () => dispatch({ type: "cancelApply" }),
+                    children: "\u53D6\u6D88\uFF08\u4FDD\u7559\u6211\u5199\u7684\uFF09"
+                  }
+                )
+              ] }) : /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
                 "button",
                 {
                   type: "button",
                   style: { ...btnStyle2(!canApplyDraft(draft)), marginTop: 4 },
                   disabled: !canApplyDraft(draft),
-                  onClick: () => setConclusionMd(draft.draft_md ?? ""),
-                  children: "\u7528\u8FD9\u6BB5\u586B\u8FDB\u7ED3\u8BBA\u6846"
+                  onClick: () => dispatch({ type: "requestApply" }),
+                  children: flow.conclusionMd.trim() === "" ? "\u7528\u8FD9\u6BB5\u586B\u8FDB\u7ED3\u8BBA\u6846" : "\u7528\u8FD9\u6BB5\u586B\u8FDB\u7ED3\u8BBA\u6846\uFF08\u5C06\u8986\u76D6\u73B0\u6709\u5185\u5BB9\uFF09"
                 }
               )
             ] })

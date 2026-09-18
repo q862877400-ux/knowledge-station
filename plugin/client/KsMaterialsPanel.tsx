@@ -24,7 +24,7 @@
  */
 
 import * as React from 'react'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useReducer, useState } from 'react'
 
 import {
   collectMaterialUrl,
@@ -208,6 +208,95 @@ export function canApplyDraft(draft: KsResearchDraft | null): boolean {
 }
 
 /**
+ * 结论框与草稿的**状态机**（§10.99，修复核 b26 的 F1）。
+ *
+ * ## 为什么把它做成纯函数 + 封闭动作集（而不是让面板里随手写状态）
+ * §10.97 的"绝不自动填"判据是**字符串级的**（切片里找 setter 名 + 数它出现几次）。
+ * 复核 b26 **构造出了绕过**：把 setter 赋给一个**声明在切片之外**的别名，再在起草响应里
+ * 调用它 ⇒ 整条冒烟 **19/19 全绿**，而"自动填"**真的发生了**。⇒ 判据钉住的是**写法**，
+ * 不是**性质**。
+ *
+ * 现在的三层：
+ *   1. **语义层**（可被真的调用并断言）：`draftArrived` **不可能**改 `conclusionMd`
+ *      （函数体里就没这个赋值）；`requestApplyDraft` 在结论框非空时**只进待确认、不写**
+ *      （修复核 b26 的 F3：原先一键**静默覆盖**用户手写的字且不可撤销）；
+ *      `confirmApplyDraft` 才是**唯一**写入路径。
+ *   2. **类型层**：面板只能 `dispatch(动作)`，动作集是**封闭**的（`DraftAction`）⇒
+ *      "写一个对象字面量"那条绕过**编译不过**（b26 的别名绕过就是这么被堵死的）。
+ *   3. **窄写法判据**（冒烟）：到达路径**只许**出现 `arrived` 动作。
+ *
+ * ⚠ **残余风险（如实写）**：没人能自动证明"用户真的点过那一下"——别名 + 伪造 `confirmApply`
+ *   动作仍可绕过前两层（冒烟只到"动作名"这一层）。要真防住那一条，需要 jsdom（**本仓未装**，
+ *   属需决策项）或真机 E2E。已登记。
+ */
+export interface DraftFlow {
+  /** 最近一次起草的返回（`null` = 还没起草过）。 */
+  draft: KsResearchDraft | null
+  /** 结论框里的字（**用户手写**，或他**点了确认**之后的结果）。 */
+  conclusionMd: string
+  /** 结论框非空时点「填进结论框」⇒ 进入这个状态等用户确认（**不是**已经写了）。 */
+  pendingOverwrite: boolean
+}
+
+export const emptyDraftFlow: DraftFlow = { draft: null, conclusionMd: '', pendingOverwrite: false }
+
+/** 起草响应到达：**只记草稿**，结论框与待确认状态原样（这一条就是"绝不自动填"）。 */
+export function draftArrived(prev: DraftFlow, out: KsResearchDraft): DraftFlow {
+  return { draft: out, conclusionMd: prev.conclusionMd, pendingOverwrite: false }
+}
+
+/** 点「用这段填进结论框」：空框 ⇒ 直接填；**非空 ⇒ 只进入待确认、不覆盖**。 */
+export function requestApplyDraft(prev: DraftFlow): DraftFlow {
+  if (!canApplyDraft(prev.draft)) return prev
+  if (prev.conclusionMd.trim() !== '') {
+    return { draft: prev.draft, conclusionMd: prev.conclusionMd, pendingOverwrite: true }
+  }
+  return { draft: prev.draft, conclusionMd: prev.draft?.draft_md ?? '', pendingOverwrite: false }
+}
+
+/** 用户在"要覆盖吗"里点了确认：**这才是唯一的写入路径**。 */
+export function confirmApplyDraft(prev: DraftFlow): DraftFlow {
+  if (!canApplyDraft(prev.draft)) return prev
+  return { draft: prev.draft, conclusionMd: prev.draft?.draft_md ?? '', pendingOverwrite: false }
+}
+
+/** 用户放弃覆盖：什么都不变（只是退出待确认）。 */
+export function cancelApplyDraft(prev: DraftFlow): DraftFlow {
+  return { draft: prev.draft, conclusionMd: prev.conclusionMd, pendingOverwrite: false }
+}
+
+/** 用户在结论框里自己打字（**用户输入**这一条路，与草稿无关）。 */
+export function userTypedConclusion(prev: DraftFlow, text: string): DraftFlow {
+  return { draft: prev.draft, conclusionMd: text, pendingOverwrite: false }
+}
+
+/** 封闭动作集（面板**唯一**能改变上述状态的方式；见本节 docstring 的三层说明）。 */
+export type DraftAction =
+  | { type: 'arrived'; out: KsResearchDraft }
+  | { type: 'requestApply' }
+  | { type: 'confirmApply' }
+  | { type: 'cancelApply' }
+  | { type: 'typed'; text: string }
+
+/** 动作 → 状态转移（把四个纯函数与"用户打字"收进一个封闭集）。 */
+export function draftReducer(prev: DraftFlow, action: DraftAction): DraftFlow {
+  switch (action.type) {
+    case 'arrived':
+      return draftArrived(prev, action.out)
+    case 'requestApply':
+      return requestApplyDraft(prev)
+    case 'confirmApply':
+      return confirmApplyDraft(prev)
+    case 'cancelApply':
+      return cancelApplyDraft(prev)
+    case 'typed':
+      return userTypedConclusion(prev, action.text)
+    default:
+      return assertNever(action)
+  }
+}
+
+/**
  * **锚点总览的后端说明**（`locator.py` 的 `note`）——一个**能单独渲染**的组件。
  *
  * 为什么要抽出来（2026-09-18，复核 b12 的 LOW-1 + 一次变异 AA5）：
@@ -264,12 +353,14 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
   const [collectNote, setCollectNote] = useState('')
   // ---- 产出（Phase D-3b）：研究问题 + 结论（可选）+ 上一次的产出物 ----
   const [researchQuery, setResearchQuery] = useState('')
-  const [conclusionMd, setConclusionMd] = useState('')
+  /** 结论框 + 草稿的**同一个状态机**（`DraftFlow`）：这是"绝不自动填"从
+   *  **字符串约定**升级为**函数语义 + 封闭动作集**的地方（§10.99，修复核 b26 的 F1）。 */
+  const [flow, dispatch] = useReducer(draftReducer, emptyDraftFlow)
+  const conclusionMd = flow.conclusionMd
+  const draft = flow.draft
   const [report, setReport] = useState<KsResearchReport | null>(null)
   const [slides, setSlides] = useState<KsSlideDeck | null>(null)
   const [showReport, setShowReport] = useState(false)
-  /** **结论草稿**（§10.97）：`null` = 还没起草过；非空则显示"未批准草稿"块。 */
-  const [draft, setDraft] = useState<KsResearchDraft | null>(null)
   /**
    * 引用锚点健康度（**便宜**判据：只比指纹）。
    * ⚠ 只在**项目列表加载后**拉一次（`fetchProjectLocators`），材料行上按 id 显示缓存值
@@ -524,7 +615,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
     }
     void run('draft', async () => {
       const out = await exportResearchDraft(projectId, { query: q })
-      setDraft(out)
+      dispatch({ type: 'arrived', out })
       if (out.llm_called === false) {
         return '没有可承重的已批准材料——引擎**没有起草**（一次模型都没调）'
       }
@@ -943,7 +1034,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
               aria-label="结论正文"
               placeholder="结论（可选，Markdown）。里面可以用 [[m:编号]] 引用依据；编号对不上引擎会警告。"
               value={conclusionMd}
-              onChange={(e) => setConclusionMd(e.currentTarget.value)}
+              onChange={(e) => dispatch({ type: 'typed', text: e.currentTarget.value })}
               rows={3}
               style={{ padding: '3px 6px', fontSize: 12, width: '100%', boxSizing: 'border-box' }}
             />
@@ -1019,14 +1110,42 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
                       <br />{(draft.warnings ?? []).join('；')}
                     </p>
                   )}
-                  <button
-                    type="button"
-                    style={{ ...btnStyle(!canApplyDraft(draft)), marginTop: 4 }}
-                    disabled={!canApplyDraft(draft)}
-                    onClick={() => setConclusionMd(draft.draft_md ?? '')}
-                  >
-                    用这段填进结论框
-                  </button>
+                  {/* ⚠ 结论框**非空**时不许一键静默覆盖（复核 b26 的 F3）：
+                      先进入待确认，由用户点「确认覆盖」——**不可撤销的覆盖要两下**。 */}
+                  {flow.pendingOverwrite ? (
+                    <div style={{ marginTop: 4 }}>
+                      <p style={{ margin: '0 0 4px', fontSize: 12,
+                        color: 'var(--dsw-alias-warn, #b8860b)' }}>
+                        ⚠ 结论框里已有内容（可能是你自己写的）——填草稿会**覆盖**它，且**不能撤销**。
+                        确认要覆盖吗？
+                      </p>
+                      <button
+                        type="button"
+                        style={{ ...btnStyle(false), marginRight: 6 }}
+                        onClick={() => dispatch({ type: 'confirmApply' })}
+                      >
+                        确认覆盖
+                      </button>
+                      <button
+                        type="button"
+                        style={btnStyle(false)}
+                        onClick={() => dispatch({ type: 'cancelApply' })}
+                      >
+                        取消（保留我写的）
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      type="button"
+                      style={{ ...btnStyle(!canApplyDraft(draft)), marginTop: 4 }}
+                      disabled={!canApplyDraft(draft)}
+                      onClick={() => dispatch({ type: 'requestApply' })}
+                    >
+                      {flow.conclusionMd.trim() === ''
+                        ? '用这段填进结论框'
+                        : '用这段填进结论框（将覆盖现有内容）'}
+                    </button>
+                  )}
                 </>
               )}
             </div>

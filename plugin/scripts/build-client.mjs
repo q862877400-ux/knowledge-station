@@ -44,6 +44,13 @@ const FOOTER = `
 await build({
   entryPoints: [entry],
   outfile: TMP,
+  // ⚠ **显式固定 `absWorkingDir`**（§10.99 实测的一个坑）：esbuild 会把**相对 `absWorkingDir`**
+  // 的模块路径写进产物注释（`// client/entry.ts` vs `// plugin/client/entry.ts`）——而它默认取
+  // **调用方的 cwd**。于是同一份源码在不同调用姿势下产出**不同字节**的 `client.js`：
+  // `npm run build:client`（cwd=plugin）与 `node plugin/scripts/build-client.mjs`（cwd=仓库根）
+  // 就差这一层前缀，害得"交付产物 ↔ 从源码现构建"的整份比较**假红**。
+  // 固定成 root 之后，产物与调用方 cwd **无关**（可复现），这也正是"提交进仓库的构建产物"该有的性质。
+  absWorkingDir: root,
   bundle: true,
   format: 'cjs',
   platform: 'browser',

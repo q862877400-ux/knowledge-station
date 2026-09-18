@@ -506,7 +506,10 @@ check('inject declares only official services (no third-party hard gate)',
     ['"需复算"不等于已坏（措辞纪律在前端也守住）', '不代表已经坏了'],
     ['"未验证"不等于有问题（同上）', '不等于'],
   ]) {
-    check(`client.js 已重新构建并含${what}`, bundle.includes(marker), marker)
+    // ⚠ check 名里明写"交付产物"：这些**只**读 `client.js`（交付件），**不**能证明它新鲜
+    //   ——新鲜度由本节最后那条"整份一致"断言负责（§10.99，复核 b26 的 F2）。
+    check(`交付产物 client.js 含${what}（新鲜度见本节末尾的"整份一致"）`,
+      bundle.includes(marker), marker)
   }
 
   // ⚠ **源码侧的接线断言**（独立复核 2026-09-17 报的覆盖缺口）：上面那组只证明
@@ -602,6 +605,10 @@ check('inject declares only official services (no third-party hard gate)',
 {
   const tmpOut = join(tmpdir(), `ks-client-fresh-${process.pid}-${Date.now()}.js`)
   process.env.KS_CLIENT_OUT = tmpOut
+  // ⚠ 产物与调用方 cwd **无关**：`build-client.mjs` 现在显式固定 `absWorkingDir: root`
+  //   （§10.99 实测：esbuild 会把相对 `absWorkingDir` 的模块注释写进产物 ——
+  //   `// client/entry.ts` vs `// plugin/client/entry.ts` ⇒ 从仓库根调用会得到**多一层前缀**的
+  //   产物，害得下面"整份一致"假红）。所以这里**不再需要** chdir，也不需要碰运气。
   await import(pathToFileURL(join(pluginRoot, 'scripts', 'build-client.mjs')).href)
   const freshRaw = await readFile(tmpOut, 'utf8')
   await rm(tmpOut, { force: true })
@@ -625,6 +632,23 @@ check('inject declares only official services (no third-party hard gate)',
     check(`${what}在源码现构建里也在（产物↔源码一致）`, inFresh && inDelivered,
       `现构建含=${inFresh} 交付产物含=${inDelivered}`)
   }
+
+  // ⚠ **整份一致性**（§10.99，修复核 b26 的 F2）：上面那 5 条只覆盖 5 个串，
+  //   而前面那 23 条"文案在场"断言**只读交付产物** ⇒ "改了 `.tsx` 忘了重建"时它们**全绿**
+  //   （b26 实测：改源码不重建 ⇒ 89/89 PASS，check 名里的"已重新构建"是夸大）。
+  //   这里把**整份产物**与现构建逐字符对比（行尾归一化：仓库 autocrlf / 平台换行差异
+  //   不该算"陈旧"），于是"忘重建"与"产物被手改"这两类都变成**一条真断言**。
+  const norm = (s) => s.replace(/\r\n/g, '\n')
+  const deliveredN = norm(await readFile(join(pluginRoot, 'client.js'), 'utf8'))
+  const freshN = norm(freshRaw)
+  const firstDiff = deliveredN === freshN
+    ? -1
+    : [...deliveredN].findIndex((ch, i) => ch !== freshN[i])
+  check('⚠ 交付产物与「从源码现构建」**整份一致**'
+    + '（改了 `client/` 却忘了 `build:client` ⇒ 这条红；复核 b26 的 F2）',
+  deliveredN === freshN,
+  `交付 ${deliveredN.length} 字符 / 现构建 ${freshN.length} 字符`
+  + (deliveredN === freshN ? '' : ` / 首个差异位置 ${firstDiff}`))
 }
 
 const failed = results.filter((r) => !r.ok)

@@ -168,6 +168,40 @@ def _check_citations(text: str, assembled: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def clause_refs(text: str | None) -> list[int]:
+    """文本里出现的**法条**引用编号（`[[c:i]]`）——判据的**唯一所有者**（§10.98）。
+
+    为什么要单开一个公开函数：结论草稿（`research_draft`）需要它判断"草稿里有没有出现法条编号"
+    （本次起草**没喂**法条证据 ⇒ 那些编号无从核验）。正则只有一个，别在第二个文件里再写一遍。
+    """
+    return sorted({int(x) for x in _RE_CLAUSE_REF.findall(text or "")})
+
+
+def assemble_evidence_or_raise(project_id: str, query: str, *, limit: int = 8,
+                               ) -> dict[str, Any]:
+    """装配依据集；**失败翻成可操作的错误码**（§10.98，复核 b25 的 MEDIUM-1）。
+
+    为什么必须有它：`authority.assemble_evidence()` 里要调 `search_materials()`（SQL + FTS），
+    库损坏 / 被锁死 / 磁盘读失败都会抛。原先**两处**调用点（报告 `build_report_blocks` 与
+    草稿 `research_draft`）**都没接** ⇒ 异常穿过路由层那两个 `except`
+    （只接 `ValueError` / `KnowledgeStationError`）变成**裸 500**：用户只看到
+    "Internal Server Error"，真原因只在日志里。对照 `ks_answer.py` 的材料装载（它有 except
+    + "不许静默降级"的注释）——同一类活，两处口径不一致本身就是缺陷。
+
+    ⚠ 这里**只翻类型、不改语义**：`ValueError`（项目不存在那类）**照原样放行**，
+    由路由层翻成 404；其余异常一律变成 `materials_load_failed`。
+    """
+    try:
+        return authority.assemble_evidence(project_id, query, limit=limit)
+    except (ValueError, KnowledgeStationError):
+        raise
+    except Exception as e:  # noqa: BLE001 —— 见 docstring：翻成可操作错误码，不吞
+        raise KnowledgeStationError(
+            f"载入参考资料失败（{type(e).__name__}: {e}）——依据集取不到时**不会**给出一份"
+            "看着正常、其实没用上项目材料的产物；请检查数据库/磁盘后重试",
+            code="materials_load_failed") from e
+
+
 def check_conclusion_citations(conclusion_md: str | None,
                                assembled: dict[str, Any] | None,
                                ) -> tuple[dict[str, Any], list[str]]:
@@ -206,8 +240,7 @@ def check_conclusion_citations(conclusion_md: str | None,
             # 写了"有 N 个引用无法校验"，而 `citations["material_refs"]` 仍是空列表 ——
             # 读结构化字段的消费者会得出"结论里没有材料引用"这个**相反的结论**。
             citations["material_refs"] = still
-            citations["unchecked_law_refs"] = sorted(
-                {int(x) for x in _RE_CLAUSE_REF.findall(conclusion)})
+            citations["unchecked_law_refs"] = clause_refs(conclusion)
             warnings.append("这次没有给 `query`，所以**无法校验**结论里的 "
                             f"{len(still)} 个 `[[m:i]]` 引用（没有依据集可比对）")
     return citations, warnings
@@ -243,7 +276,8 @@ def build_report_blocks(project_id: str, *, title: str | None = None,
 
     assembled: dict[str, Any] | None = None
     if (query or "").strip():
-        assembled = authority.assemble_evidence(project_id, str(query).strip(), limit=limit)
+        # §10.98：走**会翻错误码**的入口（复核 b25 的 MEDIUM-1：原先这里不接异常 ⇒ 裸 500）
+        assembled = assemble_evidence_or_raise(project_id, str(query).strip(), limit=limit)
 
     warnings: list[str] = []
     # 锚点问题要**在 warnings 里也出现一次**：清单里的 ⚠ 标记只有逐条读才看得到，

@@ -41,7 +41,11 @@ from typing import Any
 from src.core.exceptions import KnowledgeStationError
 from src.core.materials import authority
 
-from src.core.exports.research_report import check_conclusion_citations
+from src.core.exports.research_report import (
+    assemble_evidence_or_raise,
+    check_conclusion_citations,
+    clause_refs,
+)
 
 #: 端点必须把它回给调用方——**这是契约的一部分**，不是装饰。
 DRAFT_STATUS = "unapproved_draft"
@@ -57,7 +61,7 @@ def draft_conclusion(project_id: str, *, query: str, limit: int = 8) -> dict[str
     项目**不存在** ⇒ `ValueError`（端点翻成 404，与 `/report/research` 同款）；
     LLM 不可用 ⇒ `KnowledgeStationError(code="llm_unavailable")`。
     """
-    assembled = authority.assemble_evidence(project_id, query, limit=limit)
+    assembled = assemble_evidence_or_raise(project_id, query, limit=limit)
     counts = dict(assembled["counts"])
     notes = list(assembled["notes"])
     if not assembled.get("project_found", True):
@@ -104,7 +108,20 @@ def draft_conclusion(project_id: str, *, query: str, limit: int = 8) -> dict[str
     draft = str(parsed.get("conclusion") or "").strip()
     out["derivation_md"] = str(parsed.get("derivation") or "").strip()
     out["draft_md"] = draft
-    out["warnings"].extend(parsed.get("warnings") or [])
+    # ⚠ **不喂法条 ⇒ 取证链那条"derivation 未出现 `[[c:i]]` 引用标记"对本次起草不适用**
+    # （提示词里根本没有条款可引；复核 b25 的 LOW-2 实测它在**正常路径**上就会冒出来，
+    # 是真噪声——噪声会让用户以后不信真警告）。但"草稿里**出现**了 `[[c:i]]`"是真问题：
+    # 我们没喂法条 ⇒ 那些编号**无从核验**。所以这里**滤掉不适用的、换成准确的那一条**
+    # （不是"少报一条"，而是把同一条换成说得通的措辞）。
+    _NOT_APPLICABLE = "llm_json_no_citation_marker"
+    out["warnings"].extend(
+        w for w in (parsed.get("warnings") or []) if not str(w).startswith(_NOT_APPLICABLE))
+    law_refs = clause_refs(draft)
+    if law_refs:
+        out["warnings"].append(
+            "草稿里出现了**法条编号** " + "、".join(f"[[c:{i}]]" for i in law_refs)
+            + "——本次起草**没有喂法条证据**，这些编号无从核验"
+            "（本次只逐条核材料引用 `[[m:i]]`）")
     if not draft:
         # 空输出**不是**成功：如实说，别让调用方以为"模型给了个空结论"
         out["warnings"].append(
