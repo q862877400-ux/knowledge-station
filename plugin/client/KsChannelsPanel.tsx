@@ -148,13 +148,13 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
       {/* 摘要：**两个数都显示**（台账条数 ≠ 能力条数）*/}
       {s && (
         <div style={{ color: GRAY, lineHeight: 1.7 }}>
-          台账 <b>{s.total}</b> 条 · **能干活（已接线）<b>{s.by_wiring.wired ?? 0}</b>** 条 ·
+          台账 <b>{s.total}</b> 条 · 能干活（已接线）<b>{s.by_wiring.wired ?? 0}</b> 条 ·
           已知失效 <b>{s.by_wiring.broken ?? 0}</b> 条 · 仅登记 <b>{s.by_wiring.seed_only ?? 0}</b> 条
           <br />
           已实测有效性：🟢 {s.by_state.ok ?? 0} · 🟡 {s.by_state.suspicious ?? 0} · 🔴 {s.by_state.down ?? 0} · ⚪ 未探 {s.by_state.unknown ?? 0}
           <br />
           <span style={{ color: FAINT }}>
-            ⚠「接线」是**我们的代码**接没接上（巡检会不会调用它）；「有效性」是**渠道本身**今天能不能抓。
+            ⚠「接线」是我们的代码接没接上（巡检会不会调用它）；「有效性」是渠道本身今天能不能抓。
             两者是两根轴：站点活着而我们的解析器坏了（或反之）都会发生，所以分列显示。
           </span>
         </div>
@@ -176,7 +176,7 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
           {busy ? '读取中…' : '⟳ 刷新'}
         </button>
         <button type="button" onClick={probe} disabled={probeBusy} style={$btn}
-          title="对**配了探针目标**的渠道各发一次请求，实测它们今天能不能抓（约 10–30 秒）">
+          title="对配了探针目标的渠道各发一次请求，实测它们今天能不能抓（约 10–30 秒）">
           {probeBusy ? '探测中…（约 10–30 秒）' : '🩺 立即探测'}
         </button>
       </div>
@@ -189,7 +189,7 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
           读取失败：{error}
           <br />
           <span style={{ color: FAINT }}>
-            （渠道台账端点要**宿主/引擎重启后**才在线；若刚更新过而没重启，这里就会报错。）
+            （渠道台账端点要宿主/引擎重启后才在线；若刚更新过而没重启，这里就会报错。）
           </span>
         </p>
       )}
@@ -255,9 +255,9 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
       )}
 
       <p style={{ margin: 0, color: FAINT, lineHeight: 1.6 }}>
-        时间列是 **UTC**（库内 `datetime('now')` 的既有口径），旁边按"多久之前"显示。
-        「立即探测」只探**配了探针目标**的渠道（锚点必须实测看到过，不许凭想象写）；
-        没配的显示 ⚪ 未探 —— 那是"还没测过"，**不是**"测过了没问题"。
+        时间列是 UTC（库内 `datetime('now')` 的既有口径），旁边按"多久之前"显示。
+        「立即探测」只探配了探针目标的渠道（锚点必须实测看到过，不许凭想象写）；
+        没配的显示 ⚪ 未探 —— 那是"还没测过"，不是"测过了没问题"。
       </p>
     </div>
   )

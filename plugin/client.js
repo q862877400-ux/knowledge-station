@@ -33753,9 +33753,9 @@ function KsChannelsPanel(props) {
     s && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { color: GRAY2, lineHeight: 1.7 }, children: [
       "\u53F0\u8D26 ",
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("b", { children: s.total }),
-      " \u6761 \xB7 **\u80FD\u5E72\u6D3B\uFF08\u5DF2\u63A5\u7EBF\uFF09",
+      " \u6761 \xB7 \u80FD\u5E72\u6D3B\uFF08\u5DF2\u63A5\u7EBF\uFF09",
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("b", { children: s.by_wiring.wired ?? 0 }),
-      "** \u6761 \xB7 \u5DF2\u77E5\u5931\u6548 ",
+      " \u6761 \xB7 \u5DF2\u77E5\u5931\u6548 ",
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("b", { children: s.by_wiring.broken ?? 0 }),
       " \u6761 \xB7 \u4EC5\u767B\u8BB0 ",
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("b", { children: s.by_wiring.seed_only ?? 0 }),
@@ -33770,7 +33770,7 @@ function KsChannelsPanel(props) {
       " \xB7 \u26AA \u672A\u63A2 ",
       s.by_state.unknown ?? 0,
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("br", {}),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { color: FAINT }, children: "\u26A0\u300C\u63A5\u7EBF\u300D\u662F**\u6211\u4EEC\u7684\u4EE3\u7801**\u63A5\u6CA1\u63A5\u4E0A\uFF08\u5DE1\u68C0\u4F1A\u4E0D\u4F1A\u8C03\u7528\u5B83\uFF09\uFF1B\u300C\u6709\u6548\u6027\u300D\u662F**\u6E20\u9053\u672C\u8EAB**\u4ECA\u5929\u80FD\u4E0D\u80FD\u6293\u3002 \u4E24\u8005\u662F\u4E24\u6839\u8F74\uFF1A\u7AD9\u70B9\u6D3B\u7740\u800C\u6211\u4EEC\u7684\u89E3\u6790\u5668\u574F\u4E86\uFF08\u6216\u53CD\u4E4B\uFF09\u90FD\u4F1A\u53D1\u751F\uFF0C\u6240\u4EE5\u5206\u5217\u663E\u793A\u3002" })
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { color: FAINT }, children: "\u26A0\u300C\u63A5\u7EBF\u300D\u662F\u6211\u4EEC\u7684\u4EE3\u7801\u63A5\u6CA1\u63A5\u4E0A\uFF08\u5DE1\u68C0\u4F1A\u4E0D\u4F1A\u8C03\u7528\u5B83\uFF09\uFF1B\u300C\u6709\u6548\u6027\u300D\u662F\u6E20\u9053\u672C\u8EAB\u4ECA\u5929\u80FD\u4E0D\u80FD\u6293\u3002 \u4E24\u8005\u662F\u4E24\u6839\u8F74\uFF1A\u7AD9\u70B9\u6D3B\u7740\u800C\u6211\u4EEC\u7684\u89E3\u6790\u5668\u574F\u4E86\uFF08\u6216\u53CD\u4E4B\uFF09\u90FD\u4F1A\u53D1\u751F\uFF0C\u6240\u4EE5\u5206\u5217\u663E\u793A\u3002" })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
@@ -33807,7 +33807,7 @@ function KsChannelsPanel(props) {
           onClick: probe,
           disabled: probeBusy,
           style: $btn2,
-          title: "\u5BF9**\u914D\u4E86\u63A2\u9488\u76EE\u6807**\u7684\u6E20\u9053\u5404\u53D1\u4E00\u6B21\u8BF7\u6C42\uFF0C\u5B9E\u6D4B\u5B83\u4EEC\u4ECA\u5929\u80FD\u4E0D\u80FD\u6293\uFF08\u7EA6 10\u201330 \u79D2\uFF09",
+          title: "\u5BF9\u914D\u4E86\u63A2\u9488\u76EE\u6807\u7684\u6E20\u9053\u5404\u53D1\u4E00\u6B21\u8BF7\u6C42\uFF0C\u5B9E\u6D4B\u5B83\u4EEC\u4ECA\u5929\u80FD\u4E0D\u80FD\u6293\uFF08\u7EA6 10\u201330 \u79D2\uFF09",
           children: probeBusy ? "\u63A2\u6D4B\u4E2D\u2026\uFF08\u7EA6 10\u201330 \u79D2\uFF09" : "\u{1FA7A} \u7ACB\u5373\u63A2\u6D4B"
         }
       )
@@ -33817,7 +33817,7 @@ function KsChannelsPanel(props) {
       "\u8BFB\u53D6\u5931\u8D25\uFF1A",
       error,
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("br", {}),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { color: FAINT }, children: "\uFF08\u6E20\u9053\u53F0\u8D26\u7AEF\u70B9\u8981**\u5BBF\u4E3B/\u5F15\u64CE\u91CD\u542F\u540E**\u624D\u5728\u7EBF\uFF1B\u82E5\u521A\u66F4\u65B0\u8FC7\u800C\u6CA1\u91CD\u542F\uFF0C\u8FD9\u91CC\u5C31\u4F1A\u62A5\u9519\u3002\uFF09" })
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { color: FAINT }, children: "\uFF08\u6E20\u9053\u53F0\u8D26\u7AEF\u70B9\u8981\u5BBF\u4E3B/\u5F15\u64CE\u91CD\u542F\u540E\u624D\u5728\u7EBF\uFF1B\u82E5\u521A\u66F4\u65B0\u8FC7\u800C\u6CA1\u91CD\u542F\uFF0C\u8FD9\u91CC\u5C31\u4F1A\u62A5\u9519\u3002\uFF09" })
     ] }),
     data && rows.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { style: { color: GRAY2, margin: 0 }, children: "\u6CA1\u6709\u7B26\u5408\u6761\u4EF6\u7684\u6E20\u9053\u3002" }),
     rows.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { style: { overflowX: "auto" }, children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("table", { style: { borderCollapse: "collapse", width: "100%", fontSize: 11.5 }, children: [
@@ -33880,7 +33880,7 @@ function KsChannelsPanel(props) {
         ) : "\u2014" })
       ] }, r.channel_id)) })
     ] }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { style: { margin: 0, color: FAINT, lineHeight: 1.6 }, children: '\u65F6\u95F4\u5217\u662F **UTC**\uFF08\u5E93\u5185 `datetime(\'now\')` \u7684\u65E2\u6709\u53E3\u5F84\uFF09\uFF0C\u65C1\u8FB9\u6309"\u591A\u4E45\u4E4B\u524D"\u663E\u793A\u3002 \u300C\u7ACB\u5373\u63A2\u6D4B\u300D\u53EA\u63A2**\u914D\u4E86\u63A2\u9488\u76EE\u6807**\u7684\u6E20\u9053\uFF08\u951A\u70B9\u5FC5\u987B\u5B9E\u6D4B\u770B\u5230\u8FC7\uFF0C\u4E0D\u8BB8\u51ED\u60F3\u8C61\u5199\uFF09\uFF1B \u6CA1\u914D\u7684\u663E\u793A \u26AA \u672A\u63A2 \u2014\u2014 \u90A3\u662F"\u8FD8\u6CA1\u6D4B\u8FC7"\uFF0C**\u4E0D\u662F**"\u6D4B\u8FC7\u4E86\u6CA1\u95EE\u9898"\u3002' })
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { style: { margin: 0, color: FAINT, lineHeight: 1.6 }, children: '\u65F6\u95F4\u5217\u662F UTC\uFF08\u5E93\u5185 `datetime(\'now\')` \u7684\u65E2\u6709\u53E3\u5F84\uFF09\uFF0C\u65C1\u8FB9\u6309"\u591A\u4E45\u4E4B\u524D"\u663E\u793A\u3002 \u300C\u7ACB\u5373\u63A2\u6D4B\u300D\u53EA\u63A2\u914D\u4E86\u63A2\u9488\u76EE\u6807\u7684\u6E20\u9053\uFF08\u951A\u70B9\u5FC5\u987B\u5B9E\u6D4B\u770B\u5230\u8FC7\uFF0C\u4E0D\u8BB8\u51ED\u60F3\u8C61\u5199\uFF09\uFF1B \u6CA1\u914D\u7684\u663E\u793A \u26AA \u672A\u63A2 \u2014\u2014 \u90A3\u662F"\u8FD8\u6CA1\u6D4B\u8FC7"\uFF0C\u4E0D\u662F"\u6D4B\u8FC7\u4E86\u6CA1\u95EE\u9898"\u3002' })
   ] });
 }
 var $select = {
