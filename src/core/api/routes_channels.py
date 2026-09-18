@@ -39,15 +39,28 @@ def register(app, json_error):
                                   f"{name}={value!r} 不在 {list(allowed)}")
         items = cr.list_channels(category=category, wiring=wiring, state=state,
                                  verification=verification, enabled_only=enabled_only)[:limit]
+        # ⚠ `has_probe_target`（R6）：面板上「⚪ 未探」其实是**两种完全不同的处境**——
+        #   "还没给它配探针"（tool 类的代码仓库、我方代码通路）与"配了但还没探过"。
+        #   不区分的话，业主无法判断一条灰行是"等我们做"还是"这条本来就不该探"。
+        #   探针目标表是随包发布的小 JSON（一次读 <100 条），就在这一层补上，
+        #   不往数据库里塞第二份真相（表是唯一所有者）。
+        #   ⚠ 局部导入：本模块被 app 启动时导入，而 `src.core.update` 会把整包适配器拉进来
+        #   —— 只是为了让面板少一次歧义，不值得抬高**每次启动**的代价。
+        from src.core.update import channel_probe as cp
+        targets = cp.load_targets()
+        for it in items:
+            it["has_probe_target"] = it["channel_id"] in targets
         return {"code": 200, "status": "success",
                 "data": {"summary": cr.summary(), "items": items}}
 
     @app.get("/api/v1/channels/{channel_id}")
     def get_channel(channel_id: str):
         """单条渠道详情（面板行展开用）。不存在 → 404（不是空对象）。"""
+        from src.core.update import channel_probe as cp
         row = cr.get_channel(channel_id)
         if row is None:
             return json_error(404, "channel_not_found", f"渠道不存在: {channel_id}")
+        row["has_probe_target"] = channel_id in cp.load_targets()
         return {"code": 200, "status": "success", "data": row}
 
     @app.post("/api/v1/channels/probe")

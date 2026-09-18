@@ -58,3 +58,20 @@ def test_route_no_feature_falls_back():
 def test_route_foreign_prefix_no_match():
     # 无任何已知前导 → 泛查
     assert select_chain("ISO 9001:2015") == TRAIL
+
+
+def test_降级链只有一个所有者():
+    """§11.0 R6：兜底链**只有一份**，且 inspector 拿到的就是 routing 那个对象。
+
+    背景（R5c 的教训）：`inspector.CHAIN` 与 `inspector._FALLBACK_CHAIN` 各自写了一份
+    `("official_gb", ...)` 字面量 ⇒ "摘掉一棒"要改三处，改漏一处的现场表现是
+    "巡检把失败归因到一根已经不存在的棒"（安静的错）。用 `is` 钉住同一对象，
+    以后任何"再抄一份"的改动都会在这里红。
+    """
+    from src.core.update import inspector
+    from src.core.update.channels import routing
+
+    assert not hasattr(inspector, "CHAIN"), "CHAIN 是重复所有者（R6 已删），不许复活"
+    assert inspector._FALLBACK_CHAIN is routing.fallback_chain(), (
+        "inspector._FALLBACK_CHAIN 必须是 routing.fallback_chain() 返回的同一个 tuple 对象")
+    assert routing.fallback_chain() is routing._FALLBACK, "唯一所有者在 routing._FALLBACK"

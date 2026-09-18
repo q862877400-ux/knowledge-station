@@ -245,7 +245,7 @@
 | **R3** ✅（2026-09-18 完成；8/131 条配了探针） | **渠道健康探针**：`src/core/update/channel_probe.py` + `channel_probes.json`。判据=**HTTP 通 + 页面里真的出现期望锚点**，否则 `suspicious`；失败**分级**（`blocked_by_waf`/`endpoint_gone`/`server_error`/`timeout`/`transport_error`/`api_error`/`probe_no_anchor`）；`probe_channels(persist=)` 写台账 | 模块 + 目标表 + `tests/test_channel_probe.py`（**23 用例**）+ 真机落库记录 | ✅ 真机：**7 ok / 1 unknown**（`last_ok_at` 已落库）；123 条如实记"尚无探针" |
 | **R4** | **宿主路由 + 前端面板**：表格（链接/类别/有效性/上次成功/失败原因/备注）+「立即探测」+ 增删改 | `/ks/channels*` + `KsChannelsPanel.tsx` + smoke | 真机 CDP 截图：面板可见、能探测、能编辑 |
 | **R5** | **覆盖率扩展 + 发现能力**：按 R1 结论补/修渠道（**地标走 dbba 统一平台**、行标 hbba、团标 tbPage、国标公告 nocGBPage）；加 `discover(since)`（G12）；`web_fallback` 的"猜到"与"渠道确认"分开记 | 新/改适配器 + 覆盖表更新 | 覆盖表上"已验证可用"的渠道数明显增加，且**每条都有实测证据**；`discover` 至少发现过 1 条库里没有的新号 |
-| **R6** | **五类监控打通** + 巡检读台账选链 + 文档/验收 | inspector 改动 + 集成用例 + `DEVELOPMENT-HISTORY` | 五类各有一条端到端用例；巡检降级链来自台账 |
+| **R6** | **五类监控打通** + 巡检读台账选链 + 文档/验收 ⚠ 2026-09-18 拆段：**R6a/R6b = 渠道覆盖与"未探"的可见性收口**（R5 尾款，已完成，见 §6）；**R6c = 五类监控打通**（未开始） | inspector 改动 + 集成用例 + `DEVELOPMENT-HISTORY` | 五类各有一条端到端用例；巡检降级链来自台账 |
 
 ⚠ 轮次可拆可并（R3/R4 可能拆成两个小步）；**每轮结束必须**：小步提交 → `scripts/snapshot-project.ps1`
 打快照 → 全门禁（pytest/mypy/tsc/smoke/verify:commands/uvicorn）只涨不跌 → 诚实边界写进
@@ -659,3 +659,118 @@ transport 重测 5 条失败 + 2 条已知 ok 的对照。**结果与走代理�
 **真机证据**：`httpx_usable()` 在本机 = `(False, "InvalidURL: Invalid port: ':1]'")` ✓
 **用例**：+3（可用/不可用两态、不可用时必须 ERROR 且日志含可操作提示、可用时只 WARN）。
 **门禁**：pytest **1922 passed / 3 skipped / 0 failed**、mypy **138/0**（本步未动客户端）。
+
+---
+
+### R6a（2026-09-18 完成）：探针判据扩容 + **第一波覆盖率**（未探 103 → 29）
+
+**这一步要解决的问题**：面板上 131 条里有 **103 条是 ⚪ 未探**——业主最想看的"有效性"这一列，
+79% 是空的。而"补探针"不是体力活就能凑数的：锚点必须**实测看到过**（R3 的纪律），
+否则就是把"猜"洗成"实测"。
+
+**① 判据扩容（`channel_probe.py`）**：期望值从"单一文本锚点"变成**可叠加**的两种——
+`expect`（文本）与**新增** `min_links`（HTML 链接数下限），任一不满足即不算通过。
+理由是一条实测：应急部频道页 **HTTP 200 / 471 字节 / 0 链接**（R5a），标题却是好的
+⇒ 只看状态码或只看 `<title>` 都会判成"健康"。R6a 批量实测又发现 **12 条**是同一形态
+（人社部 / 工信部 / 浙江人大 / 浙江政府 / 国家标准委 / 电子工业标准协会 / 应急部 等）。
+另修一条口径：**429 从 `down` 改判 `suspicious/rate_limited`**——限流是"稍后再来"，
+不是"这条渠道死了"（两条 GitHub 工具渠道实测 429，判死会让人白换渠道）。
+
+**② 批量实测 + 配目标（`var/tmp/measure-channel-anchors.py` → `channel_probes.json`）**：
+103 条未探里 **96 条有具体 URL**；给其中 **70 条**配上目标（law 28 / std_hb 13 / std_db 10 /
+std_gb 5 / std_tb 5 / std_intl 4 / aggregator 5），每条都带 evidence（实测时间 / 出口 /
+字节 / 链接数 / title 原文）。**目标表 28 → 98 条**。
+**不纳入的三类**（理由写进脚本与本节，不隐式过滤）：
+- **tool 24 条**：代码仓库/工具（GitHub、npm、Skill 站），不是采集通路；实测里两条就是
+  GitHub **429 限流**——把限流显示成"渠道不可用"是误导。它们的"有效性"该用另一类判据
+  （链接可达性），**本轮不做**，登记为待办；
+- **internal 9 条**：url 字段是**端点描述**（含 `<占位符>`/多行/method），批量脚本只能取到
+  第一个 http 串 ⇒ 实测出来是 400/404（我第一次就是这么量错的），留到 R6b 手工设计；
+- 4 条含占位符 + 2 条无 http URL。
+
+**③ 落库实测（`var/tmp/r6a-run-probe.py`，70 条真机探测）**：
+首探结果 ok 47 / suspicious 14 / down 8 / unknown 1。台账口径随之变化：
+
+| 口径 | R5d 结束 | **R6a/R6b 结束（实机库）** |
+|---|---|---|
+| 台账条数 | 131 | 131 |
+| 能干活（wired） | 7 | 7（broken **0**） |
+| 🟢 可抓 | 22 | **77** |
+| 🟡 可疑 | 1 | **11** |
+| 🔴 不可抓 | 5 | **14** |
+| ⚪ 未探 | 103 | **29**（= 24 tool + 5 internal，**全部是"按设计无探针"**） |
+| 探针目标 | 28 | **102** |
+
+⚠ **本轮结束时的不变量**：**"配了探针目标"⇒"一定探过"**（实测 `unknown ∩ has_target = ∅`）——
+面板上（或报告里）任何一条"有探针但没探过"都是 bug，不是欠账。
+
+**④ 真机发现（都是实测，写在这里给下一轮用）**：
+- **12 条 JS 空壳**（HTTP 200 + 0 链接）——`min_links` 判据正是为它们加的；
+- **4 条 TLS/连接失败**：上海市司法局、企业标准信息公共服务平台、金融标准化技术委员会
+  （BoringSSL 握手被拒）、ccsainfo（empty reply）；**1 条证书校验失败**（cfsa，且**时好时坏**：
+  18:08 量到 200/56778 字节，18:2x 探针又报 transport_error ⇒ 记进台账的 `consecutive_failures`）；
+- **2 条 403 / 1 条 412**（住建部政策发布 / 卫健委 = WAF）、**1 条 404**（交通运输部政策解读）、
+  **1 条 202**（IEC，空体）；
+- **`ch:mem_gov` 形态变了**：R5a 时 `/fw/flfgbz/bz/bzgg/` 是 471 字节 0 链接的 JS 壳，
+  R6 复测 **29285 字节 / 113 链接**，且栏目页标题改成了「制度文件--中华人民共和国应急管理部」
+  ⇒ 锚点按当时的正文原样重取（`suspicious → ok`）。
+
+**⑤ 我自己的一次翻车（必须留档）**：批量脚本把 `<title>` 做了**实体解码 + 空白折叠**再当锚点，
+于是 `全部文件&nbsp;&nbsp;广东省人民政府门户网站` 被写成 `全部文件 广东省人民政府门户网站`
+——**正文里根本没有那个串** ⇒ 3 条广东渠道（省政府文件库 / 粤府令 / 省司法厅）被误判 `probe_no_anchor`。
+根因不是判据错，而是**锚点不是正文的逐字子串**。处置：
+- 4 条（含 `mem_gov`）按**逐字规则**重取锚点并复探 ⇒ 全部 `ok`；
+- 新增 `scripts/channel-anchor-measure.py`：把这条纪律**做成可执行的**——从原样 `<title>`
+  里挑最长的不含空白片段，**先自检"它真的在正文里逐字存在"**再输出可粘贴的目标；
+  支持 `--repair [错误码]`（默认 `probe_no_anchor`）批量重走台账里被标该错误的渠道；
+- R6b 里我又差点犯同类错：`ch:mee` 的锚点我**从 URL 抄**了 `xmlname=1520238134405`，
+  正文里其实没有这个串（判 `suspicious`）⇒ 改为逐字校验过的 `国家环境保护标准` 后 `ok`。
+  **两次都是同一条纪律**：锚点只能来自正文，不能来自我的推断。
+
+**用例/门禁**：`tests/test_channel_probe.py` 23 → **34**（`min_links` 不足/够、两期望叠加、
+链接计数大小写与换行、429 判可疑、坏 `min_links` 读表即抛）；
+`tests/test_update_routing.py` +1（降级链**单所有者**，见下）；pytest **1935 passed / 3 skipped / 0 failed**、
+mypy **138/0**、tsc **0**、smoke **EXIT=0**（22 段）。
+
+---
+
+### R6b（2026-09-18 完成）：我方通路探针 + **"未探"的两种处境**看得见
+
+**① 顺手还掉 R5c 的欠账（降级链只剩一份）**：删掉 `inspector.CHAIN`（与 `routing._FALLBACK`
+重复的字面量，已无人引用：只有 `update/__init__.py` 在转出它），并让
+`inspector._FALLBACK_CHAIN` **向唯一所有者取**（新增 `routing.fallback_chain()`，返回同一个
+tuple 对象）。R5c 那次"摘一棒要改两处"的教训由此变成**代码约束**：
+新用例用 `is` 钉住同一对象，任何人再抄一份都会红。`src/core/update/__init__.py` 的 `__all__`
+里保留了说明（为什么删、去哪取）。
+
+**② 我方通路（internal）手工配探针**：新增 4 条**实测**目标，method/body **抄适配器里
+实测跑通的那一版**（不是我想的）：
+
+| 渠道 | 目标 | 锚点（逐字实测） |
+|---|---|---|
+| `ch:ndls` | `POST /api/standard/list`（JSON 体抄 `ndls.py:_search_body`） | `visitToken` |
+| `ch:ttbz` | `POST …/getPortalStandardList`（表单 `pageNo/pageSize/searchKey`） | `standardUniqueId` |
+| `ch:ccs_fetcher` | `GET /api/standards/list?keyword=GB%2030871` | `a104name` |
+| `ch:mee` | `POST datacenter.mee.gov.cn/websjzx/report!list.action?xmlname=…` | `国家环境保护标准` |
+
+⚠ **第一次探 `ch:ndls` 用 GET 得到 404**——正是 R3 记过的"method 不传就静默变 GET"；
+`ch:ccs_fetcher` 的台账 url 记错了（`/api/cssn/list` vs 实测 `/api/standards/list`），**顺手修正**。
+**5 条按设计不探**（登记在报告第四节）：`ch:flk_client` / `ch:govcn_client`（与 `ch:laws_db` /
+`ch:govcn` 是**同一端点**，重复探没有新信息）、`ch:announce_sources`（用户自配列表页，没有固定
+目标）、`ch:web`（已从链上摘除）、`ch:discover_search`（记录里的 `openstd…/db/search` 实测 404，
+入口地址待重找——**不拿我猜的地址去判它"不可用"**）。
+
+**③ 把"⚪ 未探"拆成两个处境**（业主"人工维护"的直接需求）：
+`GET /api/v1/channels` 每条新增 **`has_probe_target`**（按**探针目标表**算，不往数据库塞第二份真相），
+单条详情同样带；面板在"有效性"列对 `unknown && has_probe_target === false` 标
+**（无探针）**并说明"这不是'还没轮到它'"；`scripts/channel-status-report.py` 第四节也拆成
+「已配探针、还没探过」与「按设计没有探针目标」两栏并列出后者。
+**用例**：`test_channel_repo.py` +1（逐条与目标表对齐、两个方向都要有实例）；
+smoke `catalog-ui` 43 → **45**（未探行的两种处境、api.ts 类型字段）。
+
+**还没做**（留给下一轮，**不是本轮遗漏**）：
+① tool 类 24 条的"链接可达性"判据（现在它们诚实显示为 ⚪ + 无探针）；
+② `ch:discover_search` 的入口地址重找；
+③ 每轮探针的**出网模式**（direct/env-proxy）落进台账（G28，仍只在 evidence 文字里）；
+④ §4 表里的 **R6c：五类监控打通**（发布/修订/废止/现行性/编号核验 + 巡检读台账选链）。
+

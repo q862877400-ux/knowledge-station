@@ -46,6 +46,7 @@ from ulid import ULID
 
 from src.core.storage.sqlite_db import get_db_connection, write_transaction
 from src.core.update.channels import ADAPTER_CLASSES, ChannelAdapter, ChannelResult
+from src.core.update.channels.routing import fallback_chain
 from src.core.update.channels.base import (
     UPD_BATCH_ALREADY_RUNNING,
     UPD_BATCH_NOT_FOUND,
@@ -58,8 +59,6 @@ from src.core.update.channels.base import (
 )
 
 # ---------------------------------------------------------------- 编排常量
-#: 渠道降级链（F-02）：官方主渠道 → 网络补漏 → 政府公告
-CHAIN: tuple[str, ...] = ("official_gb", "govcn")  # ⚠ 与 routing._FALLBACK **重复**；降级链的唯一所有者是 routing.select_chain（本常量仅为兼容保留）
 #: 单号探测尝试预算（含首次；INS-A-05「按重试=3 次后记 failed」）
 MAX_ATTEMPTS = 3
 #: 巡检并发（pipeline/06 §3 inspect.concurrency=2）
@@ -416,7 +415,9 @@ def _build_adapters(transport=None) -> dict[str, ChannelAdapter]:
 #: 泛查兜底链（official_gb→govcn）；权威渠道按标准号特征由 routing.select_chain 前置。
 #: ⚠ 2026-09-18（§11.0 R5c）：**摘掉 web**（只解 mock dict、打的是 bing HTML ⇒ 恒 miss，
 #:   且搜索引擎不是官方源）。_FALLBACK_CHAIN[-1] 用于「全都失败」时的归因 ⇒ 现在归到 govcn。
-_FALLBACK_CHAIN: tuple[str, ...] = ("official_gb", "govcn")
+#: ⚠ 2026-09-18（§11.0 R6）：本常量**不再自己写字面量**，改为向唯一所有者
+#:   `routing.fallback_chain()` 取（同一个 tuple 对象）——R5c 那次"摘一棒要改两处"的教训。
+_FALLBACK_CHAIN: tuple[str, ...] = fallback_chain()
 
 
 # ================================================================ 原子提交

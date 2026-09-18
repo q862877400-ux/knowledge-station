@@ -237,6 +237,25 @@ class TestApi:
         assert ok.status_code == 200 and ok.json()["data"]["name"] == "甲"
         assert c.get("/api/v1/channels/t:nope", headers=self._hdr(token)).status_code == 404
 
+    def test_每条都带_has_probe_target(self, client):
+        """R6：面板要能分开「⚪ 无探针」与「⚪ 还没探过」——否则灰行读不出该不该动手。
+
+        判据落在**探针目标表**上（唯一所有者），不是另存一份到数据库。
+        """
+        from src.core.update import channel_probe as cp
+        c, token = client
+        cr.seed_channels()
+        targets = cp.load_targets()
+        assert targets, "目标表不该是空的（R6 之后有 100+ 条）"
+        items = c.get("/api/v1/channels?limit=2000", headers=self._hdr(token)).json()["data"]["items"]
+        assert items and all("has_probe_target" in i for i in items)
+        # 与目标表逐条对齐（不是"大部分对"）
+        for i in items:
+            assert i["has_probe_target"] == (i["channel_id"] in targets), i["channel_id"]
+        # 两个方向都要有实例（否则这条断言没意义）
+        assert any(i["has_probe_target"] for i in items)
+        assert any(not i["has_probe_target"] for i in items)
+
     def test_探测端点_不存在的_id_要_404(self, client):
         """`POST /api/v1/channels/probe`：ids 里有台账里没有的 → 404（不是静默跳过）。"""
         c, token = client

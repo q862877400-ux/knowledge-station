@@ -91,10 +91,24 @@ def main() -> int:
                 lines.append(f"- `{r['channel_id']}` **{r['name']}**：{r['note'] or '（无说明）'}")
         lines.append("")
 
-    lines += ["## 四、还没配探针的渠道", "",
-              f"共 **{s['by_state']['unknown']}** 条处于「未探」状态（含 4 条我方通路）。",
-              "下一步（R3c/R5）：按类别优先级补探针——**锚点必须实测看到过**，不许凭想象写。",
+    unknown = [r for r in rows if r["state"] == "unknown"]
+    pending = [r for r in unknown if r["channel_id"] in targets]
+    notarget = [r for r in unknown if r["channel_id"] not in targets]
+    lines += ["## 四、还没实测的渠道（⚠ 两种处境**必须分开读**）", "",
+              f"- **已配探针、还没探过**：{len(pending)} 条 —— 这是「欠账」，下一轮就该探完；",
+              f"- **按设计没有探针目标**：{len(notarget)} 条 —— 代码仓库（tool）/我方代码通路（internal）等，",
+              "  它们不是「没轮到」，而是「这个对象没有独立可探的页面/接口」；",
+              f"- 合计 ⚪ 未探 **{len(unknown)}** 条（面板上对后一种会标「无探针」）。",
+              "",
+              "下一步（R6 起）：按类别优先级补探针——**锚点必须实测看到过**（逐字子串，不许实体解码/折叠空白）；",
+              "可重复生成：`.venv\\Scripts\\python.exe scripts\\channel-anchor-measure.py <channel_id>`。",
               ""]
+    if notarget:
+        lines += ["按设计无探针的渠道：", ""]
+        for r in sorted(notarget, key=lambda r: (r["category"], r["channel_id"])):
+            lines.append(f"- `{r['channel_id']}`（{CAT_LABEL.get(r['category'], r['category'])}）{r['name']}")
+        lines.append("")
+
     out.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"写出 {out.relative_to(ROOT)}（{out.stat().st_size} bytes，{len(lines)} 行）")
     print(f"台账 {s['total']} / 能干活 {s['by_wiring']['wired']} / "

@@ -6,10 +6,12 @@
     "纪律：每个 `expect` 都是**实测看到过**的字符串（先 dry-run 再看，不许凭想象写）；",
     "`expect` 为 null = 只探连通性（记 unknown，不许当成通过）。",
     "⚠ 本表回答「**渠道（站点/接口）本身**是否可用、形态是否还是我们期望的那样」；",
-    "适配器能不能解析它，是另一根轴（台账的 `wiring` 列）——两者不许互相顶替。"
+    "适配器能不能解析它，是另一根轴（台账的 `wiring` 列）——两者不许互相顶替。",
+    "⚠ R6 新增判据 `min_links`（HTML 链接数下限）：与 `expect` 可叠加，任一不满足即不算通过。来源=R5a 实测应急部频道页 471 字节 0 链接的 JS 壳，R6a 又批量发现 12 条同形态。",
+    "⚠ 本轮**不纳入** tool 类（24 条代码仓库：探到的是 GitHub 限流，不是采集通路有效性）与 internal 类（9 条我方通路：url 字段是端点描述，需手工设计 method/body）——见 ledger R6a。"
   ],
   "generated_at": "2026-09-18",
-  "calibrated_by": "var/tmp/probe-dry-run.py 的真机输出（2026-09-18 12:4x）",
+  "calibrated_by": "var/tmp/measure-channel-anchors.py 的真机输出（2026-09-18 18:0x，R6a 第一波 70 条；出口 = env-proxy）",
   "targets": {
     "ch:official_gb": {
       "url": "https://openstd.samr.gov.cn/bzgk/std/std_list?p.p1=0&p.p90=circulation_date&p.p91=desc&searchText=GB%2030871",
@@ -30,27 +32,48 @@
       "url": "https://flk.npc.gov.cn/law-search/search/list",
       "method": "post",
       "json": {
-        "searchRange": 1, "sxrq": [], "gbrq": [], "sxx": [],
-        "searchType": 2, "xgzlSearch": false, "searchContent": "",
-        "orderByParam": {"order": "-1", "sort": ""},
-        "flfgCodeId": [], "zdjgCodeId": [], "gbrqYear": [],
-        "pageNum": 1, "pageSize": 5
+        "searchRange": 1,
+        "sxrq": [],
+        "gbrq": [],
+        "sxx": [],
+        "searchType": 2,
+        "xgzlSearch": false,
+        "searchContent": "",
+        "orderByParam": {
+          "order": "-1",
+          "sort": ""
+        },
+        "flfgCodeId": [],
+        "zdjgCodeId": [],
+        "gbrqYear": [],
+        "pageNum": 1,
+        "pageSize": 5
       },
-      "headers": {"Referer": "https://flk.npc.gov.cn/search"},
+      "headers": {
+        "Referer": "https://flk.npc.gov.cn/search"
+      },
       "expect": "查询成功",
       "evidence": "请求体抄自 R1 文档里**实测跑通**的那一版（law-cn.md §1）；我第一版自造体回 `{\"msg\":\"系统异常\",\"code\":500}`（HTTP 200）——正是本轮要防的假可用"
     },
     "ch:dbba": {
       "url": "https://dbba.sacinfo.org.cn/stdQueryList",
       "method": "post",
-      "form": {"current": "1", "size": "5", "industry": "上海", "status": "现行"},
+      "form": {
+        "current": "1",
+        "size": "5",
+        "industry": "上海",
+        "status": "现行"
+      },
       "expect": "records",
       "evidence": "dry-run：HTTP 200 + `{\"current\":1,\"pages\":0,\"records\":[],\"total\":0}` ⇒ 形状对但**我的参数没筛出数据**（R1 实测上海 2010 条）⇒ 锚点只钉形状 `records`，参数校准记在 note 里，不把「我参数不对」记成「渠道坏了」"
     },
     "ch:hbba": {
       "url": "https://hbba.sacinfo.org.cn/stdQueryList",
       "method": "post",
-      "form": {"current": "1", "size": "5"},
+      "form": {
+        "current": "1",
+        "size": "5"
+      },
       "expect": "records",
       "evidence": "dry-run：HTTP 200 + `{\"current\":1,\"pages\":23790,\"records\":[{\"code\":\"DL/T 5916—2026\"...}]}` ⇒ 23790×5 ≈ 118950，与 R1 的 118946 吻合"
     },
@@ -86,8 +109,10 @@
     },
     "ch:mem_gov": {
       "url": "https://www.mem.gov.cn/fw/flfgbz/bz/bzgg/",
-      "expect": "标准公告",
-      "evidence": "批次2 实测：HTTP 200、26755 字，但 `<title>制度文件--中华人民共和国应急管理部</title>`、正文**不含**『标准公告』『bzgg』『AQ』（`var/tmp/verify-memgov.py` 复核过页面结构：列出来的是站点导航）⇒ 锚点**故意钉我们期望的内容**而不是现状，于是探针报 suspicious，人工一眼看出『这条 URL 今天不是标准公告列表了』。⚠ 栏目疑已搬迁，新 URL 待找（R5）"
+      "expect": "制度文件--中华人民共和国应急管理部",
+      "min_links": 1,
+      "evidence": "复测 2026-09-18 18:08：HTTP 200 / 29285 bytes / 113 链接 / 锚点逐字校验通过。R5a 时这一页是 471 字节 0 链接的 JS 壳（标题「法律法规标准」），今天站点把该栏目页标题改成「制度文件--中华人民共和国应急管理部」且**有 113 个链接**⇒ 形态变了，锚点按当时的正文原样重取",
+      "note": "R6 复测：栏目页已从 JS 壳恢复为可判页面（标题变了，锚点随实测更新）"
     },
     "ch:mohurd": {
       "url": "https://www.mohurd.gov.cn/gongkai/zc/wgk/",
@@ -163,6 +188,485 @@
       "url": "https://www.gdpc.gov.cn/gdrd/depart/ggtz/",
       "expect": "公告通知-广东人大网",
       "evidence": "批次3 实测：HTTP 200、21205 字、`<title>公告通知-广东人大网</title>`"
+    },
+    "seed:law-cn:国家法律法规数据库-检索列表": {
+      "url": "https://flk.npc.gov.cn/search",
+      "expect": "国家法律法规数据库",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:03（env-proxy）：HTTP 200 / 552 bytes / 1 链接 / text/html / title='国家法律法规数据库'"
+    },
+    "seed:law-cn:国家法律法规数据库-详情": {
+      "url": "https://flk.npc.gov.cn/law-search/search/flfgDetails?bbbs=ff8081819ff541ea01a07eb41e2709fb",
+      "expect": "操作成功",
+      "evidence": "R6a 批量实测 2026-09-18T18:03（env-proxy）：HTTP 200 / 883 bytes / JSON / head='{\"msg\":\"操作成功\",\"code\":200,\"data\":{\"bbbs\":\"ff8081819ff541ea01a07eb41e2709fb\",\"ossF'"
+    },
+    "seed:law-cn:国家法律法规数据库-首页聚合": {
+      "url": "https://flk.npc.gov.cn/law-search/index/aggregateData",
+      "expect": "操作成功",
+      "evidence": "R6a 批量实测 2026-09-18T18:03（env-proxy）：HTTP 200 / 3195 bytes / JSON / head='{\"msg\":\"操作成功\",\"code\":200,\"data\":{\"flflCount\":[{\"@type\":\"com.ruoyi.law.domain.Flf'"
+    },
+    "seed:law-cn:广东人大-广东省法规规章规范性文件数据库": {
+      "url": "https://www.gdpc.gov.cn/bascdata/",
+      "expect": "广东省法规规章规范性文件数据库",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:03（env-proxy）：HTTP 200 / 61749 bytes / 14 链接 / text/html / title='广东省法规规章规范性文件数据库'"
+    },
+    "seed:law-cn:浙江省政策文件库": {
+      "url": "https://www.zj.gov.cn/col/col1229577560/index.html",
+      "expect": "浙江省政策文件库",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:03（env-proxy）：HTTP 200 / 5975 bytes / 2 链接 / text/html / title='浙江省政策文件库'"
+    },
+    "seed:law-cn:上海市人大-法规公布ajax-truecms": {
+      "url": "https://www.shrd.gov.cn/TrueCMS/messageController/getMessage.do",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:03（env-proxy）：HTTP 200 / 13 bytes / 0 链接 / text/html / title=''"
+    },
+    "seed:law-cn:上海市司法局": {
+      "url": "https://sft.sh.gov.cn/",
+      "evidence": "R6a 批量实测 2026-09-18T18:03（env-proxy）：实测取不到：SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; ",
+      "note": "首次实测就不通 ⇒ 只探连通性（锚点等它恢复后再量）"
+    },
+    "seed:law-cn:中国政府网-国家规章库": {
+      "url": "https://www.gov.cn/zhengce/xxgk/gjgzk/index.htm",
+      "expect": "国家规章库_中国政府网",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:03（env-proxy）：HTTP 200 / 21161 bytes / 44 链接 / text/html / title='国家规章库_中国政府网'"
+    },
+    "seed:law-cn:中国政府网-政策文件库检索": {
+      "url": "https://www.gov.cn/zhengce/xxgk/",
+      "expect": "政府信息公开平台_中国政府网",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:03（env-proxy）：HTTP 200 / 226263 bytes / 948 链接 / text/html / title='政府信息公开平台_中国政府网'"
+    },
+    "seed:law-cn:交通运输部-政策解读": {
+      "url": "https://www.mot.gov.cn/zhengcejiedu/",
+      "evidence": "R6a 批量实测 2026-09-18T18:03（env-proxy）：实测 HTTP 404",
+      "note": "首次实测就不通 ⇒ 只探连通性（锚点等它恢复后再量）"
+    },
+    "seed:law-cn:人力资源和社会保障部": {
+      "url": "https://www.mohrss.gov.cn/",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:03（env-proxy）：HTTP 200 / 986 bytes / 0 链接 / text/html / title=''"
+    },
+    "seed:law-cn:住房和城乡建设部-政策发布": {
+      "url": "https://www.mohurd.gov.cn/gongkai/zhengce/",
+      "evidence": "R6a 批量实测 2026-09-18T18:03（env-proxy）：实测 HTTP 403",
+      "note": "首次实测就不通 ⇒ 只探连通性（锚点等它恢复后再量）"
+    },
+    "seed:law-cn:司法部-国家行政法规库入口-实为跳转flk": {
+      "url": "https://www.moj.gov.cn/pub/sfbgw/flfggz/flfggzflk/",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:03（env-proxy）：HTTP 200 / 118 bytes / 0 链接 / text/html / title=''"
+    },
+    "seed:law-cn:司法部-备案审查": {
+      "url": "https://www.moj.gov.cn/",
+      "expect": "中华人民共和国司法部",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:03（env-proxy）：HTTP 200 / 98374 bytes / 341 链接 / text/html / title='中华人民共和国司法部'"
+    },
+    "seed:law-cn:国务院公报": {
+      "url": "https://www.gov.cn/gongbao/",
+      "expect": "中国政府网_中央人民政府门户网站",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:03（env-proxy）：HTTP 200 / 898 bytes / 1 链接 / text/html / title='中国政府网_中央人民政府门户网站'"
+    },
+    "seed:law-cn:国家卫生健康委员会": {
+      "url": "https://www.nhc.gov.cn/",
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：实测 HTTP 412",
+      "note": "首次实测就不通 ⇒ 只探连通性（锚点等它恢复后再量）"
+    },
+    "seed:law-cn:国家市场监督管理总局-法规司": {
+      "url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/fgs/",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 3589 bytes / 6 链接 / text/html / title='法规司'"
+    },
+    "seed:law-cn:工业和信息化部-政策文件": {
+      "url": "https://www.miit.gov.cn/zwgk/zcwj/index.html",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 2116 bytes / 0 链接 / text/html / title='政策文件'"
+    },
+    "seed:law-cn:广东省人民政府-文件库": {
+      "url": "https://www.gd.gov.cn/zwgk/wjk/qbwj/",
+      "expect": "全部文件&nbsp;&nbsp;广东省人民政府门户网站",
+      "min_links": 1,
+      "evidence": "复测 2026-09-18 18:08：HTTP 200 / 62934 bytes / 77 链接 / 锚点逐字校验通过。⚠ 上一版的锚点把 `&nbsp;` 解码成了空格 ⇒ 正文里没有那个串，被判 probe_no_anchor；锚点必须是**原样正文**的子串"
+    },
+    "seed:law-cn:广东省人民政府-粤府令": {
+      "url": "https://www.gd.gov.cn/zwgk/wjk/qbwj/yfl/index.html",
+      "expect": "粤府令&nbsp;&nbsp;广东省人民政府门户网站",
+      "min_links": 1,
+      "evidence": "复测 2026-09-18 18:08：HTTP 200 / 62257 bytes / 78 链接 / 锚点逐字校验通过（同上：上一版错在把 `&nbsp;` 解码了）"
+    },
+    "seed:law-cn:广东省司法厅-政策文件": {
+      "url": "http://sft.gd.gov.cn/sfw/zwgk/zcwj/",
+      "expect": "政策文件&nbsp;&nbsp;广东省司法厅网站",
+      "min_links": 1,
+      "evidence": "复测 2026-09-18 18:08：HTTP 200 / 26997 bytes / 108 链接 / 锚点逐字校验通过（同上：上一版错在把 `&nbsp;` 解码了）"
+    },
+    "seed:law-cn:最高人民检察院-法律法规规范性文件": {
+      "url": "https://www.spp.gov.cn/spp/flfgxwj/",
+      "expect": "中华人民共和国最高人民检察院",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 72765 bytes / 276 链接 / text/html / title='中华人民共和国最高人民检察院'"
+    },
+    "seed:law-cn:最高人民法院-司法解释": {
+      "url": "https://www.court.gov.cn/fabu/gengduo/16.html",
+      "expect": "司法解释 - 中华人民共和国最高人民法院",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 16934 bytes / 54 链接 / text/html / title='司法解释 - 中华人民共和国最高人民法院'"
+    },
+    "seed:law-cn:浙江省人大-省域立法法规公告": {
+      "url": "https://www.zjrd.gov.cn/sylf/fggg/",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 96839 bytes / 0 链接 / text/html / title='法规公告'"
+    },
+    "seed:law-cn:浙江省人大-首页": {
+      "url": "https://www.zjrd.gov.cn/",
+      "expect": "中国浙江人大",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 58703 bytes / 2 链接 / text/html / title='中国浙江人大'"
+    },
+    "seed:law-cn:浙江省人民政府-政府规章省级有效": {
+      "url": "https://www.zj.gov.cn/col/col1229836653/index.html",
+      "expect": "政府信息公开专栏_浙江省人民政府",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 10124 bytes / 38 链接 / text/html / title='政府信息公开专栏_浙江省人民政府'"
+    },
+    "seed:law-cn:浙江省人民政府-省政府文件": {
+      "url": "https://www.zj.gov.cn/col/col1229019364/index.html",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 1750 bytes / 0 链接 / text/html / title='省政府文件'"
+    },
+    "seed:law-cn:浙江省人民政府-省政府文件栏目": {
+      "url": "https://www.zj.gov.cn/col/col1229019364/index.html",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 1750 bytes / 0 链接 / text/html / title='省政府文件'"
+    },
+    "seed:law-cn:浙江省司法厅": {
+      "url": "https://sft.zj.gov.cn/",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 56726 bytes / 130 链接 / text/html / title='首页'"
+    },
+    "seed:law-cn:浙江省司法厅-政策文件": {
+      "url": "https://sft.zj.gov.cn/col/col1229247318/index.html",
+      "expect": "政策文件",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 25812 bytes / 34 链接 / text/html / title='政策文件'"
+    },
+    "seed:law-cn:首都之窗-地方性法规镜像": {
+      "url": "https://www.beijing.gov.cn/zhengce/dfxfg/",
+      "expect": "地方性法规_首都之窗_北京市人民政府门户网站",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 20551 bytes / 37 链接 / text/html / title='地方性法规_首都之窗_北京市人民政府门户网站'"
+    },
+    "seed:law-cn:首都之窗-市政府令-按文号": {
+      "url": "https://www.beijing.gov.cn/zhengce/zfwj/zfwj2016/szfl/",
+      "expect": "市政府令_首都之窗_北京市人民政府门户网站",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 171293 bytes / 473 链接 / text/html / title='市政府令_首都之窗_北京市人民政府门户网站'"
+    },
+    "seed:law-cn:首都之窗-政府规章-现行有效": {
+      "url": "https://www.beijing.gov.cn/gongkai/zfxxgk/zc/gz/",
+      "expect": "规章_首都之窗_北京市人民政府门户网站",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 37585 bytes / 56 链接 / text/html / title='规章_首都之窗_北京市人民政府门户网站'"
+    },
+    "seed:std-cn:上海市市场监督管理局": {
+      "url": "http://scjgj.sh.gov.cn/",
+      "expect": "上海市市场监督管理局",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 38403 bytes / 77 链接 / text/html / title='上海市市场监督管理局'"
+    },
+    "seed:std-cn:全国标准信息公共服务平台-地方标准-旧路径": {
+      "url": "https://std.samr.gov.cn/db/dbQuery",
+      "expect": "地方标准目录- 全国标准信息公共服务平台",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 52583 bytes / 30 链接 / text/html / title='地方标准目录- 全国标准信息公共服务平台'"
+    },
+    "seed:std-cn:北京市市场监督管理局": {
+      "url": "https://scjgj.beijing.gov.cn/",
+      "expect": "北京市市场监督管理局",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 259569 bytes / 252 链接 / text/html / title='北京市市场监督管理局'"
+    },
+    "seed:std-cn:四川省市场监督管理局": {
+      "url": "http://scjgj.sc.gov.cn/scsjgj/c104492/list.shtml",
+      "expect": "公示公告 - 四川省市场监督管理局",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 34497 bytes / 185 链接 / text/html / title='公示公告 - 四川省市场监督管理局'"
+    },
+    "seed:std-cn:地方标准信息公共服务平台": {
+      "url": "https://dbba.sacinfo.org.cn/stdList",
+      "expect": "全国标准信息公共服务平台",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 52557 bytes / 370 链接 / text/html / title='全国标准信息公共服务平台'"
+    },
+    "seed:std-cn:山东省市场监督管理局": {
+      "url": "http://amr.shandong.gov.cn/col/col76510/index.html?number=SD1002",
+      "expect": "山东省市场监督管理局 通知公告",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 34485 bytes / 65 链接 / text/html / title='山东省市场监督管理局 通知公告'"
+    },
+    "seed:std-cn:广东省市场监督管理局": {
+      "url": "https://amr.gd.gov.cn/zwgk/tzgg/index.html",
+      "expect": "通知公告-广东省市场监督管理局网站",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 29815 bytes / 154 链接 / text/html / title='通知公告-广东省市场监督管理局网站'"
+    },
+    "seed:std-cn:江苏省市场监督管理局": {
+      "url": "http://scjgj.jiangsu.gov.cn/col/col78963/index.html",
+      "expect": "江苏省市场监督管理局 通知公告",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 64122 bytes / 33 链接 / text/html / title='江苏省市场监督管理局 通知公告'"
+    },
+    "seed:std-cn:浙江省市场监督管理局-浙江标准在线": {
+      "url": "https://zlzx.zjamr.zj.gov.cn/bzzx/public/news/list/lstd/ALL/1.html",
+      "expect": "浙江省市场监督管理局 - 浙江标准在线",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 28978 bytes / 38 链接 / text/html / title='浙江省市场监督管理局 - 浙江标准在线'"
+    },
+    "seed:std-cn:辽宁省市场监督管理局": {
+      "url": "https://scjg.ln.gov.cn/scjdglj/fw/wyb/bz/index.shtml",
+      "expect": "辽宁省市场监督管理局",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 41142 bytes / 150 链接 / text/html / title='辽宁省市场监督管理局'"
+    },
+    "seed:std-cn:中国标准在线服务网": {
+      "url": "https://www.spc.org.cn/standardonline/replace?type=0",
+      "expect": "被代替国家标准、已废止国家标准_标准下载、标准查询、标准阅读_中国标准在线服务网",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 36124 bytes / 102 链接 / text/html / title='被代替国家标准、已废止国家标准_标准下载、标准查询、标准阅读_中国标准在线服务网'"
+    },
+    "seed:std-cn:全国标准信息公共服务平台-国家标准目录": {
+      "url": "https://std.samr.gov.cn/gb/gbQuery",
+      "expect": "国家标准目录查询- 全国标准信息公共服务平台",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 53923 bytes / 71 链接 / text/html / title='国家标准目录查询- 全国标准信息公共服务平台'"
+    },
+    "seed:std-cn:国家标准全文公开系统": {
+      "url": "https://openstd.samr.gov.cn/bzgk/std/",
+      "expect": "国家标准全文公开",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 100217 bytes / 172 链接 / text/html / title='国家标准全文公开'"
+    },
+    "seed:std-cn:国家标准化管理委员会": {
+      "url": "https://www.sac.gov.cn/bzhdt/index.html",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 3338 bytes / 0 链接 / text/html / title='标准化动态'"
+    },
+    "seed:std-cn:国家标准批准发布公告": {
+      "url": "https://std.samr.gov.cn/noc/nocGB",
+      "expect": "国家标准公告- 全国标准信息公共服务平台",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 45592 bytes / 30 链接 / text/html / title='国家标准公告- 全国标准信息公共服务平台'"
+    },
+    "seed:std-cn:中国标准化研究院": {
+      "url": "https://www.cnis.ac.cn/wap/",
+      "expect": "中国标准化研究院",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 37923 bytes / 235 链接 / text/html / title='中国标准化研究院'"
+    },
+    "seed:std-cn:中国标准服务网-ccsainfo": {
+      "url": "http://www.ccsainfo.com/",
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：实测取不到：ConnectionError: Failed to perform, curl: (52) Empty reply from server. See https://curl.se/libcurl/c/libcurl-",
+      "note": "首次实测就不通 ⇒ 只探连通性（锚点等它恢复后再量）"
+    },
+    "seed:std-cn:交通运输标准化信息系统": {
+      "url": "https://jtst.mot.gov.cn/search/std?q=",
+      "expect": "标准检索 - 交通运输标准化信息系统",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 62708 bytes / 108 链接 / text/html / title='标准检索 - 交通运输标准化信息系统'"
+    },
+    "seed:std-cn:住房和城乡建设部标准公告": {
+      "url": "https://www.mohurd.gov.cn/gongkai/fdzdgknr/bzgg/index.html",
+      "expect": "标准公告",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 6552 bytes / 4 链接 / text/html / title='标准公告'"
+    },
+    "seed:std-cn:国家能源局公告": {
+      "url": "https://www.nea.gov.cn/policy/gg.htm",
+      "expect": "国家能源局—公告",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 3485 bytes / 2 链接 / text/html / title='国家能源局—公告'"
+    },
+    "seed:std-cn:国家食品安全风险评估中心": {
+      "url": "https://www.cfsa.net.cn/",
+      "expect": "国家食品安全风险评估中心",
+      "min_links": 1,
+      "evidence": "实测 2026-09-18 18:09：HTTP 200 / 56778 bytes / 143 链接 / 锚点逐字校验通过（title 原样=国家食品安全风险评估中心）。⚠ R6a 首次量它时是证书校验失败（瞬时），探针测到的是 200 ⇒ 以能连通时量的锚点为准"
+    },
+    "seed:std-cn:工信部标准信息服务平台": {
+      "url": "https://std.miit.gov.cn/",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 2740 bytes / 0 链接 / text/html / title='工业和信息化标准信息服务平台'"
+    },
+    "seed:std-cn:工程建设标准化信息网": {
+      "url": "https://www.ccsn.org.cn/News/More.aspx?ClassID=004001",
+      "expect": "工程建设标准化信息网",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 45014 bytes / 45 链接 / text/html / title='工程建设标准化信息网'"
+    },
+    "seed:std-cn:应急管理部标准": {
+      "url": "https://www.mem.gov.cn/fw/flfgbz/bz/",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 465 bytes / 0 链接 / text/html / title='标准--中华人民共和国应急管理部'"
+    },
+    "seed:std-cn:标准网-中机生产力促进中心": {
+      "url": "http://www.bzw.com.cn/",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 25003 bytes / 65 链接 / text/html / title='标准网'"
+    },
+    "seed:std-cn:生态环境部标准": {
+      "url": "https://www.mee.gov.cn/ywgz/fgbz/bz/bzfb/",
+      "expect": "标准发布_中华人民共和国生态环境部",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 43075 bytes / 237 链接 / text/html / title='标准发布_中华人民共和国生态环境部'"
+    },
+    "seed:std-cn:行业标准信息公共服务平台": {
+      "url": "https://hbba.sacinfo.org.cn/stdList",
+      "expect": "全国标准信息公共服务平台",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 56001 bytes / 5 链接 / text/html / title='全国标准信息公共服务平台'"
+    },
+    "seed:std-cn:金融标准化技术委员会": {
+      "url": "http://www.cfstc.org/",
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：实测取不到：ConnectionError: Failed to perform, curl: (52) Empty reply from server. See https://curl.se/libcurl/c/libcurl-",
+      "note": "首次实测就不通 ⇒ 只探连通性（锚点等它恢复后再量）"
+    },
+    "seed:std-cn:iec": {
+      "url": "https://www.iec.ch/",
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：实测 HTTP 202",
+      "note": "首次实测就不通 ⇒ 只探连通性（锚点等它恢复后再量）"
+    },
+    "seed:std-cn:iso": {
+      "url": "https://www.iso.org/standards.html",
+      "expect": "ISO - Standards",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 64776 bytes / 146 链接 / text/html / title='ISO - Standards'"
+    },
+    "seed:std-cn:全国标准信息公共服务平台-国外标准动态": {
+      "url": "https://std.samr.gov.cn/gw/news?channelId=87",
+      "expect": "国外标准动态- 全国标准信息公共服务平台",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 48212 bytes / 35 链接 / text/html / title='国外标准动态- 全国标准信息公共服务平台'"
+    },
+    "seed:std-cn:全国标准信息公共服务平台-国际标准动态": {
+      "url": "https://std.samr.gov.cn/gj/news?op=ISO",
+      "expect": "国际标准动态- 全国标准信息公共服务平台",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 45949 bytes / 29 链接 / text/html / title='国际标准动态- 全国标准信息公共服务平台'"
+    },
+    "seed:std-cn:中国电子工业标准化技术协会": {
+      "url": "https://www.cesa.cn/",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 1102 bytes / 0 链接 / text/html / title='中国电子工业标准化技术协会'"
+    },
+    "seed:std-cn:中国通信标准化协会": {
+      "url": "https://www.ccsa.org.cn/standard",
+      "expect": "中国通信标准化协会",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 273050 bytes / 60 链接 / text/html / title='中国通信标准化协会'"
+    },
+    "seed:std-cn:企业标准信息公共服务平台": {
+      "url": "https://www.qybz.org.cn/",
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：实测取不到：SSLError: Failed to perform, curl: (35) BoringSSL SSL_connect: Connection closed abruptly (SSL_ERROR_SYSCALL; ",
+      "note": "首次实测就不通 ⇒ 只探连通性（锚点等它恢复后再量）"
+    },
+    "seed:std-cn:全国团体标准信息平台": {
+      "url": "https://www.ttbz.org.cn/standard.html",
+      "expect": "全国团体标准信息平台 - 团体标准",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 144974 bytes / 38 链接 / text/html / title='全国团体标准信息平台 - 团体标准'"
+    },
+    "seed:std-cn:全国标准信息公共服务平台-团体标准": {
+      "url": "https://std.samr.gov.cn/tb/",
+      "expect": "团体标准 - 全国标准信息公共服务平台",
+      "min_links": 1,
+      "evidence": "R6a 批量实测 2026-09-18T18:04（env-proxy）：HTTP 200 / 51507 bytes / 48 链接 / text/html / title='团体标准 - 全国标准信息公共服务平台'"
+    },
+    "ch:ndls": {
+      "url": "https://ndls.cnis.ac.cn/api/standard/list",
+      "method": "post",
+      "json": {
+        "page": 1,
+        "size": 10,
+        "post_ics_level1": "",
+        "post_ccs_level1": "",
+        "post_publicyear": "",
+        "post_a104": "",
+        "post_country_name": "",
+        "post_a000": "",
+        "keyword": "GB 18218-2018",
+        "orderby": "",
+        "publicyear": "",
+        "a825": "",
+        "a826": "",
+        "country_name": "",
+        "a104": "",
+        "sub_type": "",
+        "code_type": "",
+        "owner": "",
+        "ccs_level1": "",
+        "ccs_level2": "",
+        "ccs_level3": "",
+        "ics_level1": "",
+        "ics_level2": "",
+        "ics_level3": "",
+        "a000": "",
+        "yearfrom": "",
+        "yearto": "",
+        "a209": "",
+        "draftman": ""
+      },
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+        "Accept": "application/json, text/plain, */*",
+        "Referer": "https://ndls.cnis.ac.cn/standard/index?keyword=GB 18218-2018",
+        "Origin": "https://ndls.cnis.ac.cn",
+        "X-Requested-With": "XMLHttpRequest"
+      },
+      "expect": "visitToken",
+      "evidence": "R6b 实测 2026-09-18 18:1x：HTTP 200 / 17406 字符 JSON / 头部 `{\"code\": 0, \"message\": \"成功\", …, \"visitToken\": …}`。请求体抄自 channels/ndls.py 的 `_search_body`（站点前端 getSearchData 同款）；⚠ 我第一次用 GET 探同一 URL 得到 404 —— **method 必须真的传下去**"
+    },
+    "ch:ttbz": {
+      "url": "https://www.ttbz.org.cn/cms-proxy/ms/portal/standardInfo/getPortalStandardList",
+      "method": "post",
+      "form": {
+        "pageNo": 1,
+        "pageSize": 20,
+        "searchKey": "T/CECS"
+      },
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+        "Referer": "https://www.ttbz.org.cn/standardList.html"
+      },
+      "expect": "standardUniqueId",
+      "evidence": "R6b 实测 2026-09-18 18:1x：HTTP 200 / 12150 字符 JSON / 头部 `{\"result\": true, \"code\": 200, \"data\": {\"total\": 100, \"rows\": [{\"standardUniqueId\": …`。表单字段抄自 channels/ttzb.py（生产 API_PREFIX=/cms-proxy）"
+    },
+    "ch:ccs_fetcher": {
+      "url": "https://www.cssn.net.cn/api/standards/list?keyword=GB%2030871",
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+        "Accept": "application/json, text/plain, */*",
+        "Referer": "https://www.cssn.net.cn/"
+      },
+      "expect": "a104name",
+      "evidence": "R6b 实测 2026-09-18 18:1x：HTTP 200 / 28522 字符 JSON / 头部 `{\"count\": 10000, …, \"results\": [{\"yf001\": …, \"a100\": \"GB 30871-2022\", \"a298\": \"危险化学品企业特殊作业安全规范\"…`。⚠ 台账里记的是 `/api/cssn/list`，**适配器与实测都是 `/api/standards/list`** —— 顺手修正",
+      "note": "R6b：台账 url 记错（/api/cssn/list）已按实测改为 /api/standards/list"
+    },
+    "ch:mee": {
+      "url": "http://datacenter.mee.gov.cn/websjzx/report!list.action?xmlname=1520238134405",
+      "method": "post",
+      "form": {
+        "doctitle": "GB 30871"
+      },
+      "headers": {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+        "Referer": "http://datacenter.mee.gov.cn/"
+      },
+      "expect": "国家环境保护标准",
+      "evidence": "复测 2026-09-18 18:2x：HTTP 200 / 14761 字符 / 0 链接 / 锚点逐字校验通过（<title> 原文=国家环境保护标准）。⚠ 我上一版把锚点写成 xmlname=1520238134405 —— 那是**从 URL 抄的、不是从正文看到的**（正文里没有这个串），本条修的就是它。该报表页本身没有 <a> 链接，所以**不配 min_links**"
     }
   }
 }

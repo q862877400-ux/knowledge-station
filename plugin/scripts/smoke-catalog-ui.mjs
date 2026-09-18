@@ -223,6 +223,15 @@ const panelMod = await loadModule('client/KsMaterialsPanel.tsx')
   check('设置区挂了「渠道台账」类目（懒加载门由 details 驱动）',
     /title="渠道台账"/.test(settingsSrc)
     && /<KsChannelsPanel visible=\{channelsOpen\}/.test(settingsSrc))
+
+  // D5 R6：「⚪ 未探」不是一个处境，是**两个**——"按设计没有探针"（代码仓库/我方代码通路）
+  //    与"配了还没探过"。混成一个灰，业主就看不出哪一行值得动手。
+  check('未探行区分"无探针"与"还没探过"（R6）',
+    /state === 'unknown' && r\.has_probe_target === false/.test(src)
+    && src.includes('（无探针）'))
+  const apiSrc = await readFile(join(pluginRoot, 'client', 'api.ts'), 'utf8')
+  check('KsChannelRecord 暴露 has_probe_target（引擎 R6 起返回）',
+    /has_probe_target\?: boolean/.test(apiSrc))
 }
 
 const failed = results.filter((r) => !r.ok)

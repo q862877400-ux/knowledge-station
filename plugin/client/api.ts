@@ -199,6 +199,11 @@ export interface KsChannelRecord {
   consecutive_failures: number
   latency_ms?: number | null
   note?: string | null
+  /**
+   * 是否有探针目标（R6，引擎按探针目标表算）。
+   * 只在 `state === 'unknown'` 时有意义：**"还没配探针"与"配了还没探过"是两件事**。
+   */
+  has_probe_target?: boolean
 }
 
 /** `summary()` 的形状：**台账条数与能力数刻意分开**（R1 的 G5/G6 教训）。 */

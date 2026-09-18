@@ -15,7 +15,6 @@ from src.core.update.channels import (
 )
 from src.core.update.channels.base import recordable, upd_log
 from src.core.update.inspector import (
-    CHAIN,
     CONCURRENCY,
     DEFAULT_DAILY_BUDGET,
     MAX_ATTEMPTS,
@@ -42,7 +41,9 @@ __all__ = [
     "ADAPTER_CLASSES", "ChannelAdapter", "ChannelResult", "UpdateError",
     "recordable", "upd_log",
     # inspector（批次2 巡检编排）
-    "CHAIN", "CONCURRENCY", "DEFAULT_DAILY_BUDGET", "MAX_ATTEMPTS",
+    # ⚠ `CHAIN` 已于 §11.0 R6 删除：它与 `routing._FALLBACK` 是同一件事的两份，
+    #    降级链的唯一所有者是 `channels.routing.fallback_chain()`（inspector 已改为向它取）。
+    "CONCURRENCY", "DEFAULT_DAILY_BUDGET", "MAX_ATTEMPTS",
     "ProbeOutcome", "budget_remaining", "budget_used_today",
     "captcha_wait_events", "create_inspect_batch", "daily_budget_limit",
     "get_config", "get_inspect_batch", "judge_result", "pause_batch",

@@ -69,6 +69,55 @@ class TestClassify:
         assert "请求体" in msg
 
 
+class TestMinLinks:
+    """R6 新增判据：**页面里有没有内容链接**（JS 空壳的照妖镜）。
+
+    实测来源：应急管理部频道页 HTTP 200 / 471 字节 / **0 链接**（R5a），而它的 `<title>`
+    是好的——只看状态码或只看标题都会判成"健康"，真相却是这里什么都抓不到。
+    R6a 批量实测又发现 12 条渠道是同一形态，所以这条判据必须进判据表。
+    """
+
+    def test_链接数不足判可疑并点名(self):
+        state, code, msg = cp._classify(200, "<html>只有壳，没有内容</html>", "只有壳",
+                                        min_links=1)
+        assert (state, code) == ("suspicious", "probe_too_few_links")
+        assert "0 个链接" in msg and "≥1" in msg
+
+    def test_链接数够且锚点在则通过(self):
+        html = "只有壳" + '<a href="/x">x</a>'
+        assert cp._classify(200, html, "只有壳", min_links=1)[:2] == ("ok", None)
+
+    def test_两个期望可以叠加_任一不满足即不算通过(self):
+        """锚点对、但页面没链接（或反之）都不算过——消息要把两条都列出来。"""
+        html = "<html>标题在<a href='/a'>a</a></html>"
+        _, code, msg = cp._classify(200, html, "锚点不在", min_links=5)
+        assert code == "probe_no_anchor"
+        assert "没有预期锚点" in msg and "只有 1 个链接" in msg
+
+    def test_链接计数大小写与换行都算(self):
+        html = '<A HREF="/a">a</A><a\nhref="/b">b</a>'
+        assert cp._count_links(html) == 2
+
+    def test_只配_url_不配期望仍记_unknown(self):
+        assert cp._classify(200, "<html>x</html>", None)[:2] == ("unknown", "no_anchor_configured")
+
+    def test_429_是限流不是死(self):
+        """R6a 实测：GitHub 上两条被 429，判 down 会让业主以为该换渠道。"""
+        state, code, msg = cp._classify(429, "Too many requests", None)
+        assert (state, code) == ("suspicious", "rate_limited")
+        assert "稍后重试" in msg
+
+    @pytest.mark.parametrize("bad", [0, -1, "1", True, 1.5])
+    def test_坏_min_links_在读表时就要抛(self, tmp_path, bad):
+        """`probe_channel` 的契约是**不抛异常**——所以配置错误必须在读表时响亮报错。"""
+        p = tmp_path / "t.json"
+        p.write_text('{"targets": {"c:x": {"url": "https://e.com", "min_links": %s}}}'
+                     % (f'"{bad}"' if isinstance(bad, str) else
+                        ("true" if bad is True else bad)), encoding="utf-8")
+        with pytest.raises(ValueError, match="min_links"):
+            cp.load_targets(p)
+
+
 class TestProbeChannel:
     def test_成功路径带延迟与证据头(self):
         t = FakeTransport((200, "…GB 30871-2022…"))

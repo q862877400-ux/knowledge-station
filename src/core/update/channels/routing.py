@@ -14,7 +14,7 @@ from __future__ import annotations
 
 import re
 
-# 标准号 → 首选权威渠道（其余走 CHAIN 兜底 official_gb→web→govcn）
+# 标准号 → 首选权威渠道（其余走本模块的兜底链 `_FALLBACK`：official_gb→govcn）
 # 状态权威优先 ndls（跨门类，能判 现行/废止/废止日期/代替关系；AQ 3028→作废 2024-07-01 已验证）；
 # mem_gov/mohurd 作为 公告+全文 辅助（页面 CMS/JS 结构，图文状态不全，不占状态首选）。
 _PREFIX_ROUTE: list[tuple[re.Pattern, str]] = [
@@ -35,6 +35,17 @@ _PREFIX_ROUTE: list[tuple[re.Pattern, str]] = [
 #   它的角色由两根真棒覆盖：`official_gb`（国标全文公开系统）+ `govcn`（政策文件库真接口，R5b 换棒）。
 #   `ADAPTER_CLASSES` 里仍保留 `web`（不删代码），只是**不进任何链**——台账据此显示"未接线"。
 _FALLBACK = ("official_gb", "govcn")
+
+
+def fallback_chain() -> tuple[str, ...]:
+    """泛查兜底链的**唯一访问点**（§11.0 R6）。
+
+    为什么要有这个函数，而不是让调用方自己写一份字面量：`inspector` 原先也抄了一份
+    `_FALLBACK_CHAIN = ("official_gb", "govcn")`——于是 R5c 摘 `web` 时**必须改两处**，
+    改漏一处的现场表现是"巡检把失败归因到一根不存在的棒"，很难看出来。
+    现在 inspector 导入本函数，拿到的是**同一个 tuple 对象**（用例用 `is` 钉住这一点）。
+    """
+    return _FALLBACK
 
 
 def select_chain(standard_no: str) -> tuple[str, ...]:

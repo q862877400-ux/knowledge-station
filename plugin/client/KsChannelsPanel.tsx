@@ -226,6 +226,11 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
                     {WIRING_LABEL[r.wiring] ?? r.wiring}
                   </td>
                   <td style={$td}>{STATE_LABEL[r.state] ?? r.state}
+                    {r.state === 'unknown' && r.has_probe_target === false
+                      ? <span style={{ color: FAINT }} title="该渠道没有探针目标（代码仓库/我方代码通路等），不是'还没轮到它'">
+                          （无探针）
+                        </span>
+                      : null}
                     {r.latency_ms != null ? <span style={{ color: FAINT }}> {r.latency_ms}ms</span> : null}
                   </td>
                   <td style={$td} title={r.last_ok_at ?? ''}>
@@ -257,7 +262,9 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
       <p style={{ margin: 0, color: FAINT, lineHeight: 1.6 }}>
         时间列是 UTC（库内 `datetime('now')` 的既有口径），旁边按"多久之前"显示。
         「立即探测」只探配了探针目标的渠道（锚点必须实测看到过，不许凭想象写）；
-        没配的显示 ⚪ 未探 —— 那是"还没测过"，不是"测过了没问题"。
+        没配的显示 ⚪ 未探 —— 那是"还没测过"，不是"测过了没问题"；
+        标了**（无探针）**的是**按设计就没有探针目标**（代码仓库、我方代码通路等），
+        与"还没轮到它"不是一回事。
       </p>
     </div>
   )

@@ -14,12 +14,20 @@ JS 空壳、北京市地标查询后端**502 死链**。⇒ 只用状态码判�
   面板必须两列都显示——只显示一列就会给出错误结论。
 
 ## 失败要**分级**（面板上"不可抓"必须带原因码，人工才知道该等它修复还是该换渠道）
-`blocked_by_waf`（403/412）· `endpoint_gone`（404/410，含"迁移了"）· `server_error`（5xx）·
-`timeout` · `transport_error` · `http_<n>` · `probe_no_anchor`（200 但没有锚点 = G14 那一类）。
+`blocked_by_waf`（403/412）· `rate_limited`（429，**判可疑不判死**：稍后再来即可）·
+`endpoint_gone`（404/410，含"迁移了"）· `server_error`（5xx）· `timeout` · `transport_error` ·
+`http_<n>` · `probe_no_anchor`（200 但没有文本锚点）· `probe_too_few_links`（200 但页面里
+**没有内容链接**——R5a 实测应急部频道页 471 字节 0 链接的 JS 壳形态，R6a 又批量发现 12 条同形态）。
+
+## 期望值可叠加（R6）
+`expect`（文本锚点）与 `min_links`（HTML 链接数下限）可以**同时配**，任一不满足即不算通过：
+它们回答同一问题的两个侧面——"还是那张页面吗"与"内容真的发出来了吗（还是只有壳）"。
+只配 `url` 不配任何期望 = **只探连通性**，结果记 `unknown`（不许当成通过）。
 """
 from __future__ import annotations
 
 import json
+import re
 import time
 from pathlib import Path
 from typing import Any
@@ -35,27 +43,61 @@ PROBE_TIMEOUT_S = 20.0
 #: 响应体截断长度（落进证据里给人看；不存整页）
 BODY_HEAD = 400
 
+#: 链接计数（§11.0 R6 的 `min_links` 判据用）。大小写不敏感、容忍 `<a\n` 这种换行写法。
+_LINK_RE = re.compile(r"<a[\s>]", re.I)
+
+
+def _count_links(text: str) -> int:
+    """数 HTML 里 `<a>` 标签的个数（R6 的"JS 空壳"判据）。
+
+    ## 为什么要这条判据（实测，§11.0 R5a）
+    应急管理部「法律法规标准」频道页 **HTTP 200、正文只有 471 字节、链接数 0**——
+    它是纯 JS 壳（内容靠 XHR 填）。只看状态码、甚至只看 `<title>` 都会判成"健康"，
+    而真相是**这里什么都抓不到**。R6a 批量实测又发现 12 条渠道是同一形态。
+    """
+    return len(_LINK_RE.findall(text or ""))
+
 
 def load_targets(path: Path | None = None) -> dict[str, dict[str, Any]]:
-    """读探针目标表；缺 `targets` 键 → 抛 ValueError（不静默空跑）。"""
+    """读探针目标表；缺 `targets` 键 → 抛 ValueError（不静默空跑）。
+
+    `min_links` 在这里**一次性校验**（必须是 ≥1 的整数或省略）——`probe_channel` 的契约是
+    "探针不抛异常"（失败要分类，不要冒泡），所以配置错误必须在读表时就响亮地报出来，
+    而不是留到探测时被吞掉。
+    """
     p = path or PROBES_PATH
     data = json.loads(p.read_text(encoding="utf-8"))
     targets = data.get("targets")
     if not isinstance(targets, dict):
         raise ValueError(f"探针目标表格式不对（缺 targets 对象）: {p}")
+    for cid, target in targets.items():
+        v = target.get("min_links") if isinstance(target, dict) else None
+        if v is None:
+            continue
+        if isinstance(v, bool) or not isinstance(v, int) or v < 1:
+            raise ValueError(f"min_links 必须是 ≥1 的整数（channel_id={cid}）：{v!r}")
     return targets
 
 
-def _classify(status: int, body_text: str, expect: str | None) -> tuple[str, str | None, str | None]:
+def _classify(status: int, body_text: str, expect: str | None, *,
+              min_links: int = 0) -> tuple[str, str | None, str | None]:
     """(state, error_code, error_message)。判据集中在这一处，便于用例穷举。
 
     ⚠ **"HTTP 200 ≠ 有数据"在 JSON 接口上同样成立**（dry-run 实测）：
     `flk` 检索接口在请求体不对时回 **HTTP 200 + `{"msg":"系统异常","code":500}`**，
     `dbba` 在参数不对时回 **HTTP 200 + `{"total":0,"records":[]}`**。
     只看状态码会把这两种都判成"渠道健康"——所以这里**先看正文里的失败信号**，再看锚点。
+
+    期望值可以**叠加**（R6）：`expect`（文本锚点）与 `min_links`（HTML 链接数下限）。
+    两个都配时，**任一不满足即不算通过**——因为它们在回答同一个问题的两个侧面：
+    "这个页面还是我们以为的那张页面吗"（文本）与"它真的把内容发出来了还是只有壳"（链接）。
     """
     if status in (403, 412):
         return "down", "blocked_by_waf", f"HTTP {status}（WAF/反爬拒绝，非站点故障）"
+    if status == 429:
+        # ⚠ 429 是**限流**，不是"这条渠道死了"（R6a 实测：GitHub 上被限流的两条就是这样）。
+        #   判成 down 会让业主以为要换渠道；判成 suspicious 才是"稍后再来"。
+        return "suspicious", "rate_limited", "HTTP 429（限流：稍后重试即可，不代表渠道失效）"
     if status in (404, 410):
         return "down", "endpoint_gone", f"HTTP {status}（端点不存在或已迁移）"
     if status >= 500:
@@ -77,14 +119,36 @@ def _classify(status: int, body_text: str, expect: str | None) -> tuple[str, str
         msg = str(parsed.get("msg") or parsed.get("message") or "")
         if any(k in msg for k in ("系统异常", "不支持", "失败", "错误", "not supported")):
             return "down", "api_error", f"HTTP 200 但正文报错（{msg!r}）"
-    if expect is None:
+
+    # ---- 期望值（可叠加；全部满足才算通过）----
+    failures: list[tuple[str, str]] = []
+    if expect is not None and expect not in body_text:
+        failures.append(("probe_no_anchor",
+                         f"响应里没有预期锚点 {expect!r}（{len(body_text)} 字符）"))
+    if min_links > 0:
+        n = _count_links(body_text)
+        if n < min_links:
+            failures.append(("probe_too_few_links",
+                             f"HTML 里只有 {n} 个链接（要求 ≥{min_links}）"))
+    if expect is None and min_links <= 0:
         # 只探连通性：**如实**说"没做语义判定"，不许当成通过
-        return "unknown", "no_anchor_configured", "HTTP 200，但该渠道没配语义锚点（只探通了）"
-    if expect in body_text:
+        return "unknown", "no_anchor_configured", "HTTP 200，但该渠道没配语义期望（只探通了）"
+    if not failures:
         return "ok", None, None
-    return "suspicious", "probe_no_anchor", (
-        f"HTTP 200 但响应里没有预期锚点 {expect!r}（{len(body_text)} 字符）"
-        "——本领域最常见的假可用（G14）")
+    first_code = failures[0][0]
+    detail = "；".join(msg for _, msg in failures)
+    return "suspicious", first_code, (
+        f"HTTP 200 但{failure_kind(first_code)}：{detail}"
+        "——本领域最常见的假可用（G14：页面在、内容没发出来）")
+
+
+def failure_kind(code: str) -> str:
+    """失败码 → 人话前缀（面板的失败原因列读的是它）。"""
+    return {
+        "probe_no_anchor": "响应里没有预期内容",
+        "probe_too_few_links": "页面里没有内容链接（JS 空壳嫌疑）",
+    }.get(code, "语义判定不通过")
+
 
 
 def probe_channel(channel_id: str, target: dict[str, Any], *,
@@ -129,7 +193,8 @@ def probe_channel(channel_id: str, target: dict[str, Any], *,
                 "http": None, "body_head": "", "expect": expect}
     latency_ms = int((time.perf_counter() - t0) * 1000)
     text = body if isinstance(body, str) else json.dumps(body, ensure_ascii=False)
-    state, code, msg = _classify(int(status), text, expect)
+    state, code, msg = _classify(int(status), text, expect,
+                                 min_links=int(target.get("min_links") or 0))
     return {"state": state, "error_code": code, "error": msg, "latency_ms": latency_ms,
             "http": int(status), "body_head": text[:BODY_HEAD], "expect": expect}
 
