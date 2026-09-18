@@ -139,3 +139,24 @@ def build_classes(report: dict[str, dict[str, Any]], *,
     unanswered = [c for c, v in out.items() if v["status"] != "answered"]
     unanswerable = [c for c in unanswered if out[c]["reason"] in UNANSWERABLE_REASONS]
     return {"classes": out, "unanswered": unanswered, "unanswerable": unanswerable}
+
+
+def build_classes_for_miss(report: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    """**整条链都没命中**时的五类记录（没有"谁答的"这回事）。
+
+    用途：`not_found`（灰）也要能回答"这五类各自为什么没答出来"——
+    是**结构性**（没有任何渠道能答 / 都不在链上 / 都在链上但今天全挂），
+    还是**候选在、只是这次都没命中**（记 `not_probed`：链上有棒能答，但这一轮问空了）。
+    ⚠ 与 `build_classes` 的区别只有一个：这里**没有** `channel`/`conclusion`/`completeness`。
+    """
+    out: dict[str, dict[str, Any]] = {}
+    for cls, item in report.items():
+        cands = list(item.get("channels") or [])
+        if cands:
+            out[cls] = {"status": "not_answered", "reason": "not_probed",
+                        "candidates": cands}
+        else:
+            out[cls] = {"status": "not_answered", "reason": str(item.get("reason"))}
+    unanswered = list(out)
+    unanswerable = [c for c in unanswered if out[c]["reason"] in UNANSWERABLE_REASONS]
+    return {"classes": out, "unanswered": unanswered, "unanswerable": unanswerable}

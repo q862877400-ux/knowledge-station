@@ -185,3 +185,26 @@ class Test组装:
         assert co.STATUSES == ("answered", "not_answered")
         assert "not_probed" in co.REASONS and "ok" in co.REASONS
         assert co.UNANSWERABLE_REASONS == {"no_capability", "off_chain", "all_down"}
+
+
+class Test整链都没命中:
+    """`build_classes_for_miss`：`not_found`（灰）也要能说清"五类各自为什么没答"。"""
+
+    def test_候选在_记not_probed(self):
+        rep = _rep(发布=["ch:official_gb"])
+        out = co.build_classes_for_miss(rep)
+        assert out["classes"]["发布"]["reason"] == "not_probed"
+        assert out["classes"]["发布"]["candidates"] == ["ch:official_gb"]
+        assert out["unanswerable"] == []            # 整链没命中 ≠ 结构性答不出来
+
+    def test_结构性缺口照样进unanswerable(self):
+        rep = _rep(编号核验="off_chain", 发布=["ch:official_gb"])
+        out = co.build_classes_for_miss(rep)
+        assert out["unanswerable"] == ["编号核验"]
+        assert set(out["unanswered"]) == set(ca.CLASSES)   # 灰号：五类都没答
+
+    def test_没有channel与conclusion字段(self):
+        """没有"谁答的"这回事——所以不许出现 `channel`/`conclusion`（免得下游误读成答过）。"""
+        out = co.build_classes_for_miss(_rep())
+        for entry in out["classes"].values():
+            assert "channel" not in entry and "conclusion" not in entry
