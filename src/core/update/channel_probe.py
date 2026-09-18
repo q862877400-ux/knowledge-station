@@ -91,6 +91,12 @@ def _validate_target(cid: str, target: Any) -> None:
     ⛔ 另外 `expect=""` 直接拒：`"" in body_text` **恒真** ⇒ 连空正文都判 `ok`（假绿）；
     要"只探连通性"就**省略** expect（`null` 与省略等价，都走 `unknown/no_anchor_configured`，
     那条是**如实**说"只探通了"，不是假绿）。
+
+    ## 已知边界（刻意不追，复核 b28-fix3 的判定）
+    `host` 里混入空格 / 制表符 / `%zz` 这类**非法字符**仍会过表，随后记成 `down`：
+    要根治需要真正的 host 字符集 / IDNA 校验，成本与收益不匹配（发布表里没有这种写法）。
+    同理，`http://e.com:/` **是合法的**（空端口 = 用 scheme 默认端口，curl 实测按 80 连），
+    所以只拒"端口 < 1"与"端口解析不出来"，不拒"端口为空"。
     """
     where = f"channel_id={cid}"
     if not isinstance(target, dict):
@@ -108,10 +114,15 @@ def _validate_target(cid: str, target: Any) -> None:
         raise ValueError(f"探针目标必须是可抓的 http(s) 绝对地址（{where}）：{url!r}——"
                          "写错成 'http'/'httpfoo' 这类会**伪装成渠道挂了**（down/transport_error）")
     try:
-        parts.port
+        port = parts.port
     except ValueError as e:
         raise ValueError(f"探针目标的端口不合法（{where}）：{url!r}（{e}）——"
                          "同样会伪装成渠道挂了") from None
+    if port is not None and port < 1:
+        # `http://e.com:0/` 的 `parts.port == 0` 在范围内、不抛 ⇒ 过表后**必然** down
+        # （0 是 IANA 保留端口，没有服务器能监听它）。复核 b28-fix3 的判定：该拒。
+        raise ValueError(f"探针目标的端口不合法（{where}）：{url!r}——端口 0 是 IANA 保留，"
+                         "没有任何服务器能监听它，配上去只会**必然记成 down**")
     method = target.get("method", "get")
     if not isinstance(method, str) or method.lower() not in _VALID_METHODS:
         raise ValueError(f"method 只能是 {'/'.join(_VALID_METHODS)}（{where}）：{method!r}")

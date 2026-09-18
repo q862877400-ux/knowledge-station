@@ -938,3 +938,26 @@ smoke `catalog-ui` 43 → **45**（未探行的两种处境、api.ts 类型字�
 索引续（第三/四步）：`5a923fd` = 复核 b28-fix2 的处置（快照 `step-116-b28fix3`，**标签已核对**）；
 `8ca72e1` = 记录"commit 与 tag 同一行会让快照落到旧提交"这一坑。
 ⚠ 快照标签的核对方法：`git rev-parse --short <tag>` 必须等于 `git rev-parse --short HEAD`（本轮做过两次）。
+
+---
+
+### R6b 复核第四轮（b28-fix3，**收官**）：判定「R6 探针这块**可收口**」+ 三件边角收掉
+
+| 边角（复核留的） | 处置 |
+|---|---|
+| `http://e.com:0/` 过表 ⇒ **必然** down（`urlsplit().port == 0` 在范围内不抛；0 是 IANA 保留、没有服务器能监听） | 拒掉（一行 `port < 1`）。⚠ 同时**保留**空端口 `http://e.com:/` 为合法——复核用 curl 实测它按默认 80 连（`127.0.0.1:/` → "Failed to connect to 127.0.0.1:80"），所以**不拒空端口**，并把这个取舍写进 docstring |
+| host 混入空格 / `%zz` / 内部 tab 仍会过表 → down | **刻意不追**（要真正的 host 字符集/IDNA 校验，成本与收益不匹配；发布表 102 条里没有这种写法）⇒ 写进 `_validate_target` 的「已知边界」段，**不假装已解决** |
+| `docs/research/channels/REGISTRY-STATUS.md` 自称"自动生成，勿手改"却**没随生成器再生**（真库再生后只差 2 行：生成时间 + 第四节旧标题） | 重新生成（第四节标题同步为「还没定论的渠道」） |
+
+**复核给的独立证据（它自己动手验的）**：
+- NEW-A **无误伤**：`\xff`/`\x80`/`\xe9`（latin-1 范围内、理论上可编码）在真 transport 下**也**一律
+  `UnicodeDecodeError` ⇒ `isascii()` 这条线**没拒掉任何能用的值**（`\t`/`\x0b`/`\x01`/`\x7f` 照过且 200）；
+- 隔离临时库 e2e：三种处境的真实行是 ① `has_probe_target=False / unknown / NULL`、
+  ② `True / unknown / no_anchor_configured`、③ `True / unknown / NULL` ⇒ 与注释**逐条对得上**，
+  报告脚本三分复算仍 1/1/1；
+- 报告脚本传相对路径 → **EXIT=0** 且产物在；`__str__` 抛异常的对象 → 不逃逸（`bad_body` + 占位 body_head）；
+- **真库全程未被改动**（复核前后 `summary` 都是 131/78/11/13/29，`max(last_try_at)` 仍是复探的 10:18:36）。
+
+**收口**：三轮抓到的三处真反例（`expect=""` 假绿 / 目标形状不受校验 / 非 ASCII 头值）都已修并逐条复验；
+三个"不抛但会误分类"的口也都堵住。⇒ **R6 探针这块收口**。
+**门禁**：smoke 链 **EXIT=0**、pytest **1973 passed / 3 skipped / 0 failed**、mypy **138/0**、tsc **0**。

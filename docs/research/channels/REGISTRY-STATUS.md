@@ -1,6 +1,6 @@
 # 渠道台账状态快照（自动生成，勿手改）
 
-- 生成时间：2026-09-18 18:45:49（本地） · 数据来源：`C:\Users\Zegel\AppData\Roaming\KnowledgeStation\database\knowledge.db` 的 `update_channel` 表
+- 生成时间：2026-09-18 19:07:28（本地） · 数据来源：`C:\Users\Zegel\AppData\Roaming\KnowledgeStation\database\knowledge.db` 的 `update_channel` 表
 - 台账 **131** 条 · 启用 129 条 · **能干活（wired）7** 条 · 已知失效 **0** 条 · 仅登记 113 条
 - 已实测：🟢 78 / 🟡 11 / 🔴 13 / ⚪ 未探 29
 
@@ -184,7 +184,7 @@
 | standards-version-check | ⚪ 未探 | — | — | https://github.com/cuipointer/ageis (skill at .claude/skills/stand |
 | urlwatch | ⚪ 未探 | — | — | https://github.com/thp/urlwatch |
 
-## 四、还没实测的渠道（⚠ 三种处境**必须分开读**）
+## 四、还没定论的渠道（⚠ 三种处境**必须分开读**）
 
 - **已配探针、还没探过**：0 条 —— 这是「欠账」，下一轮就该探完；
 - **只探到连通性**：0 条 —— 渠道**回 200 了**，但我们没给它配语义期望（失败原因列写 `no_anchor_configured`）⇒ 它**不算「可抓」**，也不算欠账；

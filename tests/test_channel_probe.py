@@ -146,6 +146,8 @@ class TestMinLinks:
         ({"url": "http://:80/"}, "绝对地址"),
         ({"url": "http://e.com:99999/"}, "端口不合法"),
         ({"url": "http://e.com:port/"}, "端口不合法"),
+        # b28-fix3：port=0 在 urlsplit 里不抛，但没有任何服务器能监听 ⇒ 必然 down
+        ({"url": "http://e.com:0/"}, "端口不合法"),
         # NEW-A（b28-fix2，本轮唯一真反例）：非 ASCII 头值过表后真请求抛 UnicodeEncodeError
         ({"url": "https://e.com", "headers": {"X": "中文值"}}, "ASCII"),
         ({"url": "https://e.com", "headers": {"X": "a\x85b"}}, "ASCII"),
@@ -171,6 +173,8 @@ class TestMinLinks:
     @pytest.mark.parametrize("url", [
         "https://e.com/a", "HTTP://E.com", "hTtPs://e.com:8443/x?y=1",
         "http://user:pw@e.com/p", "https://例子.中国/法", "http://127.0.0.1:8080/",
+        # ⚠ 空端口**是合法的**（= scheme 默认端口；curl 实测按 80 连，复核 b28-fix3 确认）
+        "http://e.com:/", "http://e.com:65535/",
     ])
     def test_合法_url_仍然照过(self, tmp_path, url):
         """收紧 netloc/端口校验时最容易顺手误伤合法写法——这条钉住"12 个合法 URL 全照过"里的代表。"""
