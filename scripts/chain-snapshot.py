@@ -81,6 +81,13 @@ def main() -> int:
     print(f"兜底名单里有、代码里没有的适配器（{len(rm)} 条）—— **没进链**，名单要修：")
     for r in rm:
         print(f"  {r['adapter']:<20} {r['why']}")
+    if report["roster_duplicates"]:
+        print(f"⚠ 名单里有重复成员（{report['roster_duplicates']}）——链已去重，但请修名单")
+    nil = report["roster_not_in_ledger"]
+    if nil:
+        print(f"⚠ 名单成员在台账里没有行（{len(nil)} 条）—— 保留（fail-open）但其 enabled/broken 无从过滤：")
+        for r in nil:
+            print(f"  {r['adapter']}")
     dead = report["wired_but_probe_down"]
     print()
     print(f"⚠ 探针说 down 但**本步不过滤**的渠道（{len(dead)} 条）——链随探针抖动是另一件事，需单独决策：")

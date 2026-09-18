@@ -61,7 +61,19 @@ def ledger_fallback_chain(rows: list[dict[str, Any]] | None = None, *,
     if rows is None:
         rows = cr.list_channels()
     by_id = {str(r.get("channel_id")): r for r in rows}
-    names = roster if roster is not None else fallback_chain()
+    raw_roster = roster if roster is not None else fallback_chain()
+    # 名单里重复写同一个成员 ⇒ 去重（保序）并**由 report 告警**（复核 b29-fix 的 a）：
+    # 不去重的话链里会出现两次同名，巡检会把同一个渠道走两遍（白花一次请求）而没人知道。
+    # ⚠ 写成显式循环而不是 `if not (n in seen or seen.add(n))`——后者 mypy 会报
+    #   `func-returns-value`（"add 只返回 None"），而且读起来也更绕。
+    seen: set[str] = set()
+    deduped: list[str] = []
+    for n in raw_roster:
+        if n in seen:
+            continue
+        seen.add(n)
+        deduped.append(n)
+    names = tuple(deduped)
     in_code = known if known is not None else _adapter_names()
     return tuple(name for name in names
                  if name in in_code
@@ -75,13 +87,15 @@ def ledger_chain_report(rows: list[dict[str, Any]] | None = None, *,
 
     Returns:
         `{chain, excluded, roster_candidates, missing_in_code, roster_missing_in_code,
-          wired_but_probe_down}`（两个 `missing_*` 是两个方向：台账→代码、代码→台账）
+          roster_duplicates, roster_not_in_ledger, wired_but_probe_down}`
+        （两个 `missing_*` 是两个方向：台账→代码、代码→台账）
     """
     if rows is None:
         rows = cr.list_channels()
-    names = known if known is not None else _adapter_names()
-    base = roster if roster is not None else fallback_chain()
-    chain = ledger_fallback_chain(rows, roster=base, known=names)
+    names_in_code = known if known is not None else _adapter_names()
+    raw_roster = roster if roster is not None else fallback_chain()
+    by_id = {str(r.get("channel_id")): r for r in rows}
+    chain = ledger_fallback_chain(rows, roster=raw_roster, known=names_in_code)
 
     excluded = []
     for r in rows:
@@ -93,38 +107,46 @@ def ledger_chain_report(rows: list[dict[str, Any]] | None = None, *,
 
     # 台账说 wired、代码里也有这个适配器，但**不在兜底名单**里 —— 它们是"要不要提升"的候选，
     # 不是"已经生效的兜底成员"。提升是行为改变 ⇒ 必须单独一步（带快照差异）决定。
-    roster_ids = {_channel_id_of(n) for n in base}
+    roster_ids = {_channel_id_of(n) for n in raw_roster}
     candidates = []
     for r in rows:
         cid = str(r.get("channel_id"))
-        if r.get("wiring") != "wired" or cid in roster_ids or _is_excluded(r):
+        if _wiring(r) != "wired" or cid in roster_ids or _is_excluded(r):
             continue
         cands = _name_candidates(cid)
-        if cands & names:
+        if cands & names_in_code:
             candidates.append({"channel_id": cid, "name": r.get("name"),
-                               "adapter": sorted(cands & names)[0],
+                               "adapter": sorted(cands & names_in_code)[0],
                                "why": "台账 wired + 代码里有适配器，但不在兜底名单里"})
 
     missing = []
     for r in rows:
-        if r.get("wiring") != "wired":
+        if _wiring(r) != "wired":
             continue
         cands = _name_candidates(str(r.get("channel_id")))
-        if cands and not (cands & names):
+        if cands and not (cands & names_in_code):
             missing.append({"channel_id": r.get("channel_id"), "name": r.get("name"),
                             "why": f"台账 wiring=wired，但 ADAPTER_CLASSES 里没有 {sorted(cands)}"})
 
     # 反方向：**名单里**有、代码里没有（独立复核 b29 抓到这条原先只在 docstring 里承诺过）。
     # fail-closed：它不进链；但必须点名，否则"配了个不存在的渠道"会表现为"这条链少了点什么"。
     roster_missing = [{"adapter": n, "why": "兜底名单里有、ADAPTER_CLASSES 里没有 ⇒ 没进链"}
-                      for n in base if n not in names]
+                      for n in raw_roster if n not in names_in_code]
+    # 名单里重复写（复核 b29-fix 的 a）：链已去重，但**不能静默**——重复意味着有人手滑。
+    dups = sorted({n for n in raw_roster if list(raw_roster).count(n) > 1})
+    # 名单成员在台账里**没有行**（复核 b29-fix 的 b）：按设计保留（fail-open），但要提一句，
+    # 否则"这条兜底成员没有台账记录"就没人知道（它的 enabled/broken 也就无从过滤）。
+    not_in_ledger = [{"adapter": n, "why": "兜底名单里有、台账里没有这一行 ⇒ 保留（fail-open），"
+                                           "但其 enabled/known-broken 无从过滤"}
+                     for n in raw_roster if _channel_id_of(n) not in by_id]
 
     dead = [{"channel_id": r.get("channel_id"), "name": r.get("name"), "state": r.get("state"),
              "last_error_code": r.get("last_error_code"),
              "consecutive_failures": r.get("consecutive_failures")}
-            for r in rows if r.get("state") == "down" and r.get("wiring") == "wired"]
+            for r in rows if r.get("state") == "down" and _wiring(r) == "wired"]
     return {"chain": list(chain), "excluded": excluded, "roster_candidates": candidates,
             "missing_in_code": missing, "roster_missing_in_code": roster_missing,
+            "roster_duplicates": dups, "roster_not_in_ledger": not_in_ledger,
             "wired_but_probe_down": dead}
 
 
@@ -144,14 +166,37 @@ def _name_candidates(channel_id: str) -> set[str]:
     return set()
 
 
+def _wiring(row: dict[str, Any]) -> str:
+    """`wiring` 归一（去空白 + 小写）。
+
+    ⚠ 为什么容忍形状（复核 b29-fix 的 c）：`rows` 参数接受任意 dict，而 `wiring='BROKEN'` /
+    `'broken '` 这类**写法差异**会让"已知失效"的渠道**照旧留在链里**——那正是"配置写错伪装成
+    渠道可用"。真库（SQLite 里由 seed 写入）不会出现，但函数是公开的、被脚本与用例调用，
+    所以这里**按归一后的值判**，把这类写法差异收敛掉。
+    """
+    return str(row.get("wiring") or "").strip().lower()
+
+
+def _enabled_off(row: dict[str, Any]) -> bool:
+    """`enabled` 是否表示"人工停用"（容忍 `0` / `'0'` / `False`，但**不**把 `None` 当停用）。"""
+    v = row.get("enabled")
+    if isinstance(v, bool):
+        return v is False
+    if isinstance(v, (int, float)):
+        return v == 0
+    if isinstance(v, str):
+        return v.strip() in {"0", "false", "False", ""}
+    return False
+
+
 def _is_excluded(row: dict[str, Any]) -> bool:
     return _exclusion_reason(row) is not None
 
 
 def _exclusion_reason(row: dict[str, Any]) -> str | None:
     """进不了链的原因（**人工意图与已知失效是硬过滤**；探针 state 不在此列）。"""
-    if row.get("enabled") == 0:
+    if _enabled_off(row):
         return "人工停用（enabled=0）"
-    if row.get("wiring") == "broken":
+    if _wiring(row) == "broken":
         return "台账标 known-broken（在链上但实测不工作）"
     return None

@@ -88,6 +88,35 @@ class Test一致性报告:
                                      known={"official_gb"})
         assert [m["adapter"] for m in rep["roster_missing_in_code"]] == ["nope_x"]
 
+    def test_名单重复成员去重且要告警(self):
+        """复核 b29-fix 的 a：不去重的话链里会出现两次同名（巡检白跑一遍）而没人知道。"""
+        rows = [_row("ch:official_gb"), _row("ch:govcn")]
+        chain = lc.ledger_fallback_chain(rows, roster=("official_gb", "official_gb", "govcn"))
+        assert chain == ("official_gb", "govcn")
+        rep = lc.ledger_chain_report(rows, roster=("official_gb", "official_gb", "govcn"))
+        assert rep["roster_duplicates"] == ["official_gb"]
+
+    def test_名单成员在台账里没有行要提一句(self):
+        """复核 b29-fix 的 b：按设计 fail-open 保留，但不能一个字都不说。"""
+        rep = lc.ledger_chain_report([], roster=("official_gb", "govcn"))
+        assert rep["chain"] == ["official_gb", "govcn"]
+        assert {r["adapter"] for r in rep["roster_not_in_ledger"]} == {"official_gb", "govcn"}
+
+    @pytest.mark.parametrize("row_kw", [
+        {"wiring": "BROKEN"}, {"wiring": "broken "}, {"wiring": " Broken"},
+        {"enabled": "0"}, {"enabled": False},
+    ])
+    def test_写法差异也要被挡住(self, row_kw):
+        """复核 b29-fix 的 c：`BROKEN` / `'0'` 这类写法差异过去会让"已知失效"照旧留在链里
+        —— 那正是"配置写错伪装成渠道可用"。"""
+        rows = [_row("ch:official_gb", **row_kw)]
+        assert lc.ledger_fallback_chain(rows, roster=("official_gb",)) == ()
+
+    def test_enabled_None_不算停用(self):
+        """`None` 是"没写"，不是"停用"——别把缺失读成人工意图。"""
+        rows = [_row("ch:official_gb", enabled=None)]
+        assert lc.ledger_fallback_chain(rows, roster=("official_gb",)) == ("official_gb",)
+
     def test_台账说wired但代码里没有适配器要报出来(self):
         rows = [_row("ch:official_gb"), _row("ch:ghost")]
         rep = lc.ledger_chain_report(rows, roster=("official_gb",),
