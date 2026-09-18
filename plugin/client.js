@@ -34647,6 +34647,15 @@ var COUNT_LABELS = {
   green: "\u73B0\u884C\u65E0\u53D8\u5316",
   gray: "\u5B98\u65B9\u6E20\u9053\u67E5\u65E0\u6B64\u53F7"
 };
+var REASON_TEXT = {
+  channel_gave_no_field: "\u6E20\u9053\u65E0\u6B64\u5B57\u6BB5",
+  not_probed: "\u672A\u8F6E\u5230\u95EE",
+  no_capability: "\u6CA1\u6709\u6E20\u9053\u80FD\u7B54",
+  off_chain: "\u80FD\u7B54\u7684\u4E0D\u5728\u94FE\u4E0A",
+  all_down: "\u5728\u94FE\u4E0A\u4F46\u5168\u6302",
+  absent: "\u8BB0\u5F55\u91CC\u6CA1\u8FD9\u4E00\u7C7B",
+  unknown: "\u539F\u56E0\u672A\u8BB0"
+};
 function fmtTs(value) {
   if (!value) return "";
   const norm = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/.test(value) ? `${value.replace(" ", "T")}Z` : value;
@@ -34824,6 +34833,38 @@ function KsInspectionPanel(props) {
       const otherText = other.length > 0 ? ` \xB7 ${other.join(" / ")}` : "";
       return `\u5171\u68C0 ${last.total} \u9879${focusText}${otherText}`;
     })() }),
+    last !== null && last.status !== "running" && last.by_class !== null && last.by_class !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+      "div",
+      {
+        style: {
+          fontSize: 12,
+          color: "var(--dsw-alias-label-secondary, #666)",
+          padding: "0 0 4px",
+          lineHeight: "18px"
+        },
+        title: `\u5206\u6BCD\u53EA\u7B97**\u8BB0\u4E86\u4E94\u7C7B\u7ED3\u8BBA**\u7684\u4E8B\u4EF6\u6570\uFF1B\u6CA1\u8BB0\u7684\u5982\u5B9E\u5355\u5217\uFF08\u672C\u6B21 ${last.by_class.unreadable} \u6761\u6CA1\u8BB0\uFF09`,
+        children: (() => {
+          const bc = last.by_class;
+          if (bc.total === 0) {
+            return `\u4E94\u7C7B\u7ED3\u8BBA\uFF1A\u672C\u6279\u6CA1\u6709\u8BB0\u5F55\uFF08${bc.unreadable} \u6761\u4E8B\u4EF6\u672A\u5E26\u4E94\u7C7B\u4FE1\u606F\uFF09\u2014\u2014\u5F15\u64CE\u4FA7\u8BFB\u53F0\u8D26\u5931\u8D25\u6216\u65E7\u6570\u636E\u65F6\u5C31\u662F\u8FD9\u6837\uFF0C\u4E0D\u4EE3\u8868"\u90FD\u6CA1\u6709\u6B20\u8D26"`;
+          }
+          const order = ["\u53D1\u5E03", "\u4FEE\u8BA2", "\u5E9F\u6B62", "\u73B0\u884C\u6027", "\u7F16\u53F7\u6838\u9A8C"];
+          const per = order.filter((c) => bc.classes[c] !== void 0).map((c) => `${c} ${bc.classes[c]?.answered ?? 0}/${bc.total}`).join(" \xB7 ");
+          const totals = {};
+          for (const c of order) {
+            const st = bc.classes[c];
+            if (!st) continue;
+            for (const [r, n] of Object.entries(st.reasons ?? {})) {
+              totals[r] = (totals[r] ?? 0) + (Number(n) || 0);
+            }
+          }
+          const top = Object.entries(totals).sort((a, b) => b[1] - a[1]).slice(0, 3);
+          const topText = top.length === 0 ? "\u5168\u90E8\u7B54\u51FA" : top.map(([r, n]) => `${REASON_TEXT[r] ?? r} ${n}`).join(" / ");
+          const unread = bc.unreadable > 0 ? ` \xB7 \u53E6\u6709 ${bc.unreadable} \u6761\u672A\u8BB0\u4E94\u7C7B` : "";
+          return `\u4E94\u7C7B\u7ED3\u8BBA\uFF1A${per}\uFF08\u672A\u7B54\u4E3B\u56E0\uFF1A${topText}\uFF09${unread}`;
+        })()
+      }
+    ),
     /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "4px 0", flexWrap: "wrap" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
         "button",

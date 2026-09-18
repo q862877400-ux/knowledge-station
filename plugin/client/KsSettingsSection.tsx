@@ -291,6 +291,20 @@ const COUNT_LABELS: Record<string, string> = {
   gray: '官方渠道查无此号',
 }
 
+/** 五类结论里"没答出来"的原因 → 人话。
+ *  ⚠ 键必须与引擎 `src/core/update/channels/class_outcomes.py` 的 REASONS 对齐；
+ *  最要紧的一对区别是「渠道无此字段」（问了、那根棒没这个字段）与「未轮到问」
+ *  （链上有能答的棒，但这次是别的棒先命中）——**前者是能力缺口，后者不是欠账**。 */
+const REASON_TEXT: Record<string, string> = {
+  channel_gave_no_field: '渠道无此字段',
+  not_probed: '未轮到问',
+  no_capability: '没有渠道能答',
+  off_chain: '能答的不在链上',
+  all_down: '在链上但全挂',
+  absent: '记录里没这一类',
+  unknown: '原因未记',
+}
+
 /** 引擎 sqlite datetime 是 UTC 无时区（'YYYY-MM-DD HH:MM:SS'）→ 补 Z 转本地。 */
 function fmtTs(value: string | null): string {
   if (!value) return ''
@@ -516,6 +530,45 @@ function KsInspectionPanel(props: { openedOnce: boolean }): JSX.Element {
             const focusText = focus.length > 0 ? ` · 需关注 ${attention} 项（${focus.join(' / ')}）` : ''
             const otherText = other.length > 0 ? ` · ${other.join(' / ')}` : ''
             return `共检 ${last.total} 项${focusText}${otherText}`
+          })()}
+        </div>
+      )}
+
+      {/* 五类结论：引擎从 R6c-4c 起就在每条变更事件里记「发布/修订/废止/现行性/编号核验」
+          各自答没答、是哪根渠道答的、答得全不全——但**面板一直没读它**（数据在库里躺着）。
+          这一行就是把它显示出来：每类"答出几个 / 一共几个有记录的"，外加未答主因。 */}
+      {last !== null && last.status !== 'running' && last.by_class !== null
+        && last.by_class !== undefined && (
+        <div style={{ fontSize: 12, color: 'var(--dsw-alias-label-secondary, #666)',
+                      padding: '0 0 4px', lineHeight: '18px' }}
+             title={'分母只算**记了五类结论**的事件数；没记的如实单列'
+               + `（本次 ${last.by_class.unreadable} 条没记）`}>
+          {(() => {
+            const bc = last.by_class
+            if (bc.total === 0) {
+              return `五类结论：本批没有记录（${bc.unreadable} 条事件未带五类信息）`
+                + '——引擎侧读台账失败或旧数据时就是这样，不代表"都没有欠账"'
+            }
+            const order = ['发布', '修订', '废止', '现行性', '编号核验']
+            const per = order
+              .filter((c) => bc.classes[c] !== undefined)
+              .map((c) => `${c} ${bc.classes[c]?.answered ?? 0}/${bc.total}`)
+              .join(' · ')
+            // 未答主因（跨类合计，取前 3）：区分"渠道没这个字段"与"这次没轮到问它"
+            const totals: Record<string, number> = {}
+            for (const c of order) {
+              const st = bc.classes[c]
+              if (!st) continue
+              for (const [r, n] of Object.entries(st.reasons ?? {})) {
+                totals[r] = (totals[r] ?? 0) + (Number(n) || 0)
+              }
+            }
+            const top = Object.entries(totals).sort((a, b) => b[1] - a[1]).slice(0, 3)
+            const topText = top.length === 0
+              ? '全部答出'
+              : top.map(([r, n]) => `${REASON_TEXT[r] ?? r} ${n}`).join(' / ')
+            const unread = bc.unreadable > 0 ? ` · 另有 ${bc.unreadable} 条未记五类` : ''
+            return `五类结论：${per}（未答主因：${topText}）${unread}`
           })()}
         </div>
       )}

@@ -1429,6 +1429,24 @@ export interface KsInspectionByType {
   no_change: number
 }
 
+/** 五类**问题**的结论统计（发布/修订/废止/现行性/编号核验）——
+ *  ⚠ 与上面的 `KsInspectionByType`（变更**事件类型**）不是一回事，别混。
+ *  数据来自引擎写在每条变更事件 `latest_info.classes` 里的逐类结论（§11.0 R6c-4c），
+ *  宿主在批次收尾时归组进来；**这是这份数据第一次被 UI 读到**。 */
+export interface KsInspectionClassStat {
+  answered: number
+  /** 未答原因 → 条数（`channel_gave_no_field` / `not_probed` / `no_capability` / …）。 */
+  reasons: Record<string, number>
+}
+
+export interface KsInspectionByClass {
+  /** 分母：**真的记了 `classes`** 的事件数（不是批次的号数）。 */
+  total: number
+  /** 没记五类的事件数（引擎未写或旧数据）——如实显示，不当成"答不出来"。 */
+  unreadable: number
+  classes: Record<string, KsInspectionClassStat>
+}
+
 export interface KsInspectionCounts {
   red: number
   yellow: number
@@ -1450,6 +1468,8 @@ export interface KsInspectionLast {
   finished_at: string | null
   error: string | null
   by_type: KsInspectionByType | null
+  /** 五类问题的结论统计；旧状态文件或本次没取到 ⇒ null（UI 只说"没取到"，不说"没有欠账"）。 */
+  by_class: KsInspectionByClass | null
   /** P1：该批由每日定时触发（UI 显示「今日自动巡检」）。 */
   auto?: boolean
 }

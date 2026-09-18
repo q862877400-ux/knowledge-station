@@ -2053,3 +2053,33 @@ schema 不变量归所有者，任何调用方都不该绕过它。
 面板侧改动要等 DSH 宿主重启才生效，所以这一步单独一轮做，别和引擎侧混在一起提交。
 
 门禁：pytest 2136 passed / 3 skipped / 0 failed；mypy 142 文件 0 错。
+
+### R6e（2026-09-18 完成·离线验证）：五类结论**第一次显示到面板上**（目标③的可见性）
+
+**缺口**：引擎从 R6c-4c 起就在每条变更事件的 `latest_info.classes` 里记"五类各自答没答、
+是哪根渠道答的、答得全不全"——但**面板一直不读它**（数据在库里躺着；
+`finalizeBatch` 只归组 `change_type`）。也就是说 R6c-4/R6c-7 这些投入，业主**看不到**。
+
+**落了什么**：
+- `plugin/src/inspection.js`：`fetchByTypeCounts` → `fetchChangeSummaries`（**一次拉取、两份归组**：
+  `by_type` + `by_class`），批次收尾写进 `last.by_class`，并在宿主日志里打一行
+  `五类结论 发布 n/N · … （未答主因：…）`；`sanitizeLast` 加 `by_class` 白名单清洗
+  （旧状态文件 ⇒ `null`）；启动自愈改成**同一次**拉取同时补 `by_type`/`by_class`
+  （分开拉会出现两个口径不同的分母）。
+- `plugin/client/api.ts` + `KsSettingsSection.tsx`：综览里多一行
+  `五类结论：发布 n/N · 修订 … （未答主因：渠道无此字段 k / 未轮到问 m）`；
+  `REASON_TEXT` 把引擎的原因码翻成人话（**"渠道无此字段" vs "未轮到问"** 是最要紧的一对：
+  前者是能力缺口，后者不是欠账）。
+- `plugin/scripts/smoke-class-summary.mjs`（新，9 条断言）+ `smoke` 链 22 → **23 段**。
+
+**三个口径（错了就会"数字看着有信息量、其实在骗人"）**：
+1. `classes` 键**不存在** ⇒ 计 `unreadable`、**不进分母**（那是"这批没记五类"——R6c-4c 之前的事件、
+   引擎读台账失败降级都是这个形状），UI 上单列一句"另有 N 条未记五类"，**不**说成"都答不出来"；
+2. 某类**缺项** ⇒ 记 `absent`，**不许**冒充 `not_probed`；
+3. 分母 `total` **只数有 `classes` 的条数**——否则一句"发布 3/500"会把人吓一跳，而它什么都不说明。
+
+⚠ **诚实边界（别读成"界面上已经能看到了"）**：宿主插件是**进程启动时静态 import** 的，
+所以这一行要等 **DSH 宿主重启**才出现。本步的验证是**离线**的：
+`npx tsc --noEmit -p plugin/client` 0 错、新 smoke 9/9、`npm run smoke` **23 段全过**、
+`npm run verify:commands` **22/22**。**我在真机上还没看到过这一行**——重启后请顺手核一眼。
+（面板上的"人工增删复核"按钮是同样的情况：引擎侧 R6d 已落，界面侧仍未做。）

@@ -82,8 +82,47 @@ const TERMINAL = new Set(['done', 'failed'])
 /** change_type 五类（与引擎 report.py CHANGE_TYPE_LABELS 同口径，UI 纵览用）。 */
 const CHANGE_TYPES = ['new_version', 'superseded', 'withdrawn', 'not_found', 'no_change']
 
+/** 五类**问题**（发布/修订/废止/现行性/编号核验）——⚠ 与上面 `CHANGE_TYPES` **不是一回事**，
+ *  所以这里单独命名、单独一组键，别混：
+ *    - `CHANGE_TYPES` 是**变更事件类型**（引擎判定的结果：新版/被替代/废止/查无/无变化）；
+ *    - `QUESTION_CLASSES` 是**我们问过的五类问题**，证据在 `latest_info.classes`
+ *      （引擎 §11.0 R6c-4c 起记录：每类给出 status/reason/channel/completeness）。
+ *  面板上"五类结论"这一行回答的是：**这一批号里，每一类各有多少个真的答出来了**，
+ *  以及没答出来的**主因**（是"这根渠道没这个字段"，还是"这次没轮到问它"）。 */
+const QUESTION_CLASSES = ['发布', '修订', '废止', '现行性', '编号核验']
+
+/** 未答原因 → 人话（键与引擎 `class_outcomes.REASONS` / 我们补的 absent/unreadable 对齐）。
+ *  ⚠ 这张表是**给客户端**的口径（宿主只存原始 code，展示翻译归 UI）；宿主这份用于日志。 */
+const REASON_LABELS = {
+  channel_gave_no_field: '渠道无此字段',
+  not_probed: '未轮到问',
+  no_capability: '没有渠道能答',
+  off_chain: '能答的不在链上',
+  all_down: '在链上但全挂',
+  absent: '记录里没这一类',
+  unknown: '原因未记',
+}
+
 function emptyByType() {
   return { new_version: 0, superseded: 0, withdrawn: 0, not_found: 0, no_change: 0 }
+}
+
+/** 五类结论的空形态：`total` = **真的记了 `classes`** 的事件数（分母）；`unreadable` = 解析不了/没有该键的条数。 */
+export function emptyByClass() {
+  const classes = {}
+  for (const c of QUESTION_CLASSES) classes[c] = { answered: 0, reasons: {} }
+  return { total: 0, unreadable: 0, classes }
+}
+
+/** 未答原因的合计（宿主日志只报前几名；UI 自己算展示用的分布）。 */
+function reasonTotals(byClass) {
+  const out = {}
+  for (const name of QUESTION_CLASSES) {
+    const b = byClass.classes[name]
+    if (!b) continue
+    for (const [r, n] of Object.entries(b.reasons)) out[r] = (out[r] ?? 0) + n
+  }
+  return out
 }
 
 /* ------------------------------------------------------------------ *
@@ -124,7 +163,7 @@ async function loadStateFile() {
   return defaultState()
 }
 
-function sanitizeLast(raw) {
+export function sanitizeLast(raw) {
   const last = { ...raw }
   last.batch_id = typeof last.batch_id === 'string' ? last.batch_id : ''
   last.status = typeof last.status === 'string' ? last.status : 'unknown'
@@ -142,6 +181,27 @@ function sanitizeLast(raw) {
   last.by_type = emptyByType()
   for (const t of CHANGE_TYPES) {
     if (typeof bt[t] === 'number' && Number.isFinite(bt[t])) last.by_type[t] = Math.max(0, Math.floor(bt[t]))
+  }
+  // by_class：五类**问题**的结论统计（R6c-4c 的数据第一次被 UI 读；旧文件无 → null）。
+  const bc = last.by_class && typeof last.by_class === 'object' ? last.by_class : null
+  if (bc === null) {
+    last.by_class = null
+  } else {
+    const clean = emptyByClass()
+    clean.total = Math.max(0, Math.floor(Number(bc.total) || 0))
+    clean.unreadable = Math.max(0, Math.floor(Number(bc.unreadable) || 0))
+    const src = bc.classes && typeof bc.classes === 'object' ? bc.classes : {}
+    for (const name of QUESTION_CLASSES) {
+      const s = src[name]
+      if (!s || typeof s !== 'object') continue
+      clean.classes[name].answered = Math.max(0, Math.floor(Number(s.answered) || 0))
+      const rs = s.reasons && typeof s.reasons === 'object' ? s.reasons : {}
+      for (const [r, n] of Object.entries(rs)) {
+        const v = Math.max(0, Math.floor(Number(n) || 0))
+        if (v > 0) clean.classes[name].reasons[r] = v
+      }
+    }
+    last.by_class = clean
   }
   last.auto = raw.auto === true // P1: 该批由每日定时触发（UI 显示"今日自动巡检"）
   delete last.changes // 明细行不再落盘（纵览统计替代），旧文件残留字段剔除
@@ -315,7 +375,7 @@ async function runPollLoop(manager, ctx, batchId, initialStatus) {
  * Fetch the change events of one batch and reduce to per-change_type counts.
  * Returns null when the engine is unreachable or errors (caller keeps old data).
  */
-async function fetchByTypeCounts(manager, batchId) {
+async function fetchChangeSummaries(manager, batchId) {
   let sess = null
   try {
     sess = await manager.ensureLive()
@@ -329,16 +389,78 @@ async function fetchByTypeCounts(manager, batchId) {
   )
   if (probe.status !== 200 || !probe.body || !Array.isArray(probe.body.data)) return null
   const byType = emptyByType()
+  const byClass = emptyByClass()
   for (const c of probe.body.data) {
     const t = c && typeof c === 'object' ? c.change_type : null
     if (typeof t === 'string' && t in byType) byType[t] += 1
+    reduceOneClassRow(byClass, c)
   }
-  return byType
+  return { by_type: byType, by_class: byClass }
+}
+
+/**
+ * 把**一条**变更事件的 `latest_info.classes` 并进五类统计（就地改 `byClass`）。
+ *
+ * ⚠ 三条口径（都不是想当然选的）：
+ *   1. `classes` 键**不存在** ⇒ 计入 `unreadable`，**不进** `total`：那是"这批没记五类"
+ *      （R6c-4c 之前写的事件、或引擎侧读台账失败降级），与"记了但没答出来"**不是一回事**；
+ *   2. 某类**缺项** ⇒ 记 `absent`（不是 `not_probed`）：引擎的 route_report 覆盖五类，
+ *      真缺项说明记录不完整，不该冒充"没轮到问"；
+ *   3. `total` 只数**有 classes 的条数**——UI 上的分母必须是"真的记了五类的号数"，
+ *      否则一句"发布 3/500"会让人以为"几乎所有号都答不出发布"，而真相是"只有 3 个号有记录"。
+ */
+export function reduceOneClassRow(byClass, row) {
+  let info = null
+  if (row && typeof row === 'object') {
+    const raw = row.latest_info_json
+    if (typeof raw === 'string' && raw !== '') {
+      try {
+        info = JSON.parse(raw)
+      } catch {
+        info = null
+      }
+    } else if (raw && typeof raw === 'object') {
+      info = raw
+    }
+  }
+  const cls = info && typeof info === 'object' ? info.classes : null
+  if (!cls || typeof cls !== 'object') {
+    byClass.unreadable += 1
+    return
+  }
+  byClass.total += 1
+  for (const name of QUESTION_CLASSES) {
+    const entry = cls[name]
+    if (!entry || typeof entry !== 'object') {
+      bumpReason(byClass.classes[name], 'absent')
+      continue
+    }
+    if (entry.status === 'answered') {
+      byClass.classes[name].answered += 1
+    } else {
+      bumpReason(byClass.classes[name],
+                 typeof entry.reason === 'string' && entry.reason ? entry.reason : 'unknown')
+    }
+  }
+}
+
+function bumpReason(bucket, reason) {
+  if (!bucket) return
+  bucket.reasons[reason] = (bucket.reasons[reason] ?? 0) + 1
 }
 
 function byTypeAllZero(byType) {
   if (!byType) return true
   return CHANGE_TYPES.every((t) => (byType[t] ?? 0) === 0)
+}
+
+/** 五类统计是不是"没数据"（旧状态文件没有该字段时的形态）。 */
+export function byClassEmpty(byClass) {
+  if (!byClass || typeof byClass !== 'object') return true
+  if (Number(byClass.total) > 0) return false
+  const cls = byClass.classes && typeof byClass.classes === 'object' ? byClass.classes : {}
+  return QUESTION_CLASSES.every((c) => !(cls[c] && cls[c].answered > 0)
+    && !(cls[c] && cls[c].reasons && Object.keys(cls[c].reasons).length > 0))
 }
 
 /**
@@ -348,8 +470,11 @@ function byTypeAllZero(byType) {
  * route) — the host never stores detail rows.
  */
 async function finalizeBatch(manager, ctx, batchId, status) {
-  const byType = await fetchByTypeCounts(manager, batchId)
-  if (byType === null) {
+  // 一次拉取、两份归组（change_type 计数 + 五类结论）——两次请求会出现两个口径不同的分母。
+  const summaries = await fetchChangeSummaries(manager, batchId)
+  const byType = summaries === null ? null : summaries.by_type
+  const byClass = summaries === null ? null : summaries.by_class
+  if (summaries === null) {
     ctx.logger?.warn?.(`ks-inspection: batch ${batchId} changes 拉取失败，细分计缺省`)
   }
   update((s) => {
@@ -357,6 +482,8 @@ async function finalizeBatch(manager, ctx, batchId, status) {
       s.last.status = status
       s.last.finished_at = isoNow()
       s.last.by_type = byType ?? emptyByType()
+      // 五类结论：拉不到就留 `null`（UI 不说"没有欠账"，只说"这次没取到"）
+      s.last.by_class = byClass
       s.last.error = null
       if (status === 'failed') s.last.error = '巡检批次失败（引擎内错误，详见导出/报告）'
     }
@@ -366,6 +493,21 @@ async function finalizeBatch(manager, ctx, batchId, status) {
   const seen = byType ?? emptyByType()
   const changed = seen.superseded + seen.withdrawn + seen.new_version + seen.not_found
   ctx.logger?.info?.(`ks-inspection: batch ${batchId} ${status}（其中变化 ${changed}）`)
+  if (byClass && byClass.unreadable > 0) {
+    ctx.logger?.warn?.(`ks-inspection: ${byClass.unreadable} 条事件没有五类记录`
+      + `（引擎未写或旧数据）——五类分母只算有记录的 ${byClass.total} 条`)
+  }
+  if (byClass && byClass.total > 0) {
+    // 五类各答出多少 + 未答主因（人看着日志就能判断"是渠道缺字段，还是这次没轮到问"）
+    const per = QUESTION_CLASSES
+      .map((c) => `${c} ${byClass.classes[c]?.answered ?? 0}/${byClass.total}`)
+      .join(' · ')
+    const totals = Object.entries(reasonTotals(byClass)).sort((a, b) => b[1] - a[1])
+    const top = totals.slice(0, 3)
+      .map(([r, n]) => `${REASON_LABELS[r] ?? r} ${n}`).join(' / ')
+    ctx.logger?.info?.(`ks-inspection: batch ${batchId} 五类结论 ${per}`
+      + (totals.length > 0 ? `（未答主因：${top}）` : '（全部答出）'))
+  }
   // 公告发现随巡检顺带触发（决策 19 延伸，语义 C）：引擎侧 6h 时间闸防频繁；
   // fire-and-forget，不阻塞巡检收尾。任何终态都触发（含空转批）。
   void triggerAfterInspection(ctx, manager).catch((err) => {
@@ -816,14 +958,20 @@ export async function inspectionStartupCheck(ctx, manager) {
   // 细分自愈：旧版本状态文件落盘的 done 批次没有 by_type（全 0）——现场
   // 补一次归组写回，之后不再触发（写盘后不再是全 0）。引擎因此被拉起一次
   // 是预期内的（仅此一处启动路径允许拉引擎，summary 路由绝不拉）。
-  if (last.status === 'done' && last.total > 0 && byTypeAllZero(last.by_type)) {
-    const byType = await fetchByTypeCounts(manager, last.batch_id)
-    if (byType) {
+  // ⚠ 五类统计（by_class）走**同一次**拉取自愈：分开拉会出现两个口径不同的分母。
+  if (last.status === 'done' && last.total > 0
+      && (byTypeAllZero(last.by_type) || byClassEmpty(last.by_class))) {
+    const summaries = await fetchChangeSummaries(manager, last.batch_id)
+    if (summaries) {
       update((st) => {
-        if (st.last && st.last.batch_id === last.batch_id) st.last.by_type = byType
+        if (st.last && st.last.batch_id === last.batch_id) {
+          st.last.by_type = summaries.by_type
+          st.last.by_class = summaries.by_class
+        }
         return st
       })
-      ctx.logger?.info?.(`ks-inspection: 旧批次 ${last.batch_id} 细分计数已自愈补齐`)
+      ctx.logger?.info?.(`ks-inspection: 旧批次 ${last.batch_id} 细分计数已自愈补齐`
+        + `（五类分母 ${summaries.by_class.total} 条）`)
     }
   }
 
