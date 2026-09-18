@@ -935,3 +935,6 @@ smoke `catalog-ui` 43 → **45**（未探行的两种处境、api.ts 类型字�
 
 **门禁（按 §5 第 8 条**单独**跑，不并发）**：smoke 链 **EXIT=0**、pytest **1970 passed / 3 skipped / 0 failed**
 （1959 → +11）、mypy **138/0**、tsc **0**。
+索引续（第三/四步）：`5a923fd` = 复核 b28-fix2 的处置（快照 `step-116-b28fix3`，**标签已核对**）；
+`8ca72e1` = 记录"commit 与 tag 同一行会让快照落到旧提交"这一坑。
+⚠ 快照标签的核对方法：`git rev-parse --short <tag>` 必须等于 `git rev-parse --short HEAD`（本轮做过两次）。
