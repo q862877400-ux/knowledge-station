@@ -201,7 +201,10 @@ export interface KsChannelRecord {
   note?: string | null
   /**
    * 是否有探针目标（R6，引擎按探针目标表算）。
-   * 只在 `state === 'unknown'` 时有意义：**"还没配探针"与"配了还没探过"是两件事**。
+   * 只在 `state === 'unknown'` 时有意义，且它只回答"有没有目标"：
+   *   `false` = "按设计没有探针"（代码仓库/我方代码通路）；
+   *   `true` 还要再看 `last_error_code` —— `no_anchor_configured` 是"探过、只探到连通性，
+   *   没配语义期望"（**不算可抓**，也不是欠账），其它才是"配了还没探过"（真欠账）。
    */
   has_probe_target?: boolean
 }

@@ -907,3 +907,31 @@ smoke `catalog-ui` 43 → **45**（未探行的两种处境、api.ts 类型字�
 `c9f2987` = 复核 b28 第一轮的两条真问题（`step-114-b28-fixes`）；
 `4512e97` = 复核 b28-fix 的四条误分类 + 两处消费端（`step-115-b28fix2`）；
 `fcb0b59` = 事故复盘文档；其余为文档修正（口径/证据耐久性/门禁纪律）。
+
+---
+
+### R6b 复核第三轮（b28-fix2，2026-09-18）：一个**真反例** + 一个同类窄口 + 两处 doc 小口，已修
+
+第三轮把攻击面再换一次：**"过表之后真请求会不会炸"**（不是"会不会抛"，而是"会不会在真机上变成
+`down`"）。它跑了真 transport（还起了本机临时 HTTP server）来验，报告 `var/tmp/VERIFY-b28-fix2.md`。
+
+| 复核发现 | 处置 |
+|---|---|
+| **NEW-A（本轮唯一真反例）header 值含非 ASCII**：`{"X":"中文值"}` 过表 → 真请求 `UnicodeEncodeError: 'latin-1'`；`{"X":"a\x85b"}` → `UnicodeDecodeError` ⇒ 记成 `down/transport_error`（**又是配置错伪装成渠道挂了**） | 值加 `value.isascii()`。⚠ 对照实测：`\t`/`\x0b`/`\x01`/`\x7f` 这些 ASCII 控制字符**发得出去、200** ⇒ **不动** C0 的既有宽松度（只禁 CR/LF + 要求 ASCII） |
+| **NEW-B `http://:80/` / `http://e.com:99999/` / `http://e.com:port/`** 过表 → `down` | 改 `parts.hostname` 非空 + `try: parts.port`；并补 **6 个合法 URL 回归**（大写 scheme / userinfo / 中文域名 / 带端口 / 回环 / 查询串）钉住"不误伤" |
+| 报告第四节标题写「**还没实测**的渠道」，里面却已装"探过、只探到连通性"这一类 | 标题改「**还没定论**的渠道」 |
+| 两处注释/类型说明仍只写**两种**处境（`routes_channels.py`、`api.ts`） | 都改成三种，并写明 ②（`no_anchor_configured`）怎么与 ①③ 分辨 |
+| **NEW-C（脚注）**：`bad_body` 分支里 `str(body)` 若对象 `__str__` 自己会抛，仍会逃逸 | 包一层 try，退化成 `<类型：连 str() 都抛异常>` |
+| 既存脚注（非本次引入）：报告脚本传**相对**输出路径时 `relative_to(ROOT)` 抛 ValueError（文件已写出、退出码非 0） | 打印处包 try，**打印失败不影响产物** |
+| `expect: null` 该不该关？复核员**两轮都判"不该"** | 采纳：保持合法（→ `unknown/no_anchor_configured`，**不是**假绿）；白名单已堵住真正的残留（拼错键静默退化），比单独拒 null 更值 |
+
+**复核给的独立证据（值得留档）**：
+- N1 的三分它在**隔离临时库**里端到端验过（建 3 条 → 真跑 `probe_channels(persist=True)` → 真跑报告脚本
+  ⇒ 1/1/1 三分正确；且"用 `last_try_at is None` 判"与"用 `last_error_code` 判"**等价**）；
+- N4 它用**本机临时 server** 证明 `json=[]`/`[[1]]`/`[{"a":1}]` **真的发出去了**（不是"没抛就算"）；
+- 白名单与发布表实际 9 键**完全相同**，判定＝刻意的 fail-closed 过严（取舍正确）；唯一成本是新增字段要同步白名单；
+- 把报告脚本对**真库**再生到 `var/tmp` 与提交里的 `REGISTRY-STATUS.md` 比对 ⇒ **除"生成时间"一行外逐行相同**
+  （证明那份快照确实是脚本生成的，不是手改的）。
+
+**门禁（按 §5 第 8 条**单独**跑，不并发）**：smoke 链 **EXIT=0**、pytest **1970 passed / 3 skipped / 0 failed**
+（1959 → +11）、mypy **138/0**、tsc **0**。

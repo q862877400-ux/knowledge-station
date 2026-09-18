@@ -101,9 +101,17 @@ def _validate_target(cid: str, target: Any) -> None:
                          f"允许的键只有 {sorted(_TARGET_KEYS)}（拼错的键以前是静默忽略的）")
     url = target.get("url")
     parts = urlsplit(url) if isinstance(url, str) else None
-    if parts is None or parts.scheme.lower() not in ("http", "https") or not parts.netloc:
+    # `hostname` 非空（而不是只看 netloc）+ `port` 可解析：两者缺一，`http://:80/`、
+    # `http://e.com:99999/`、`http://e.com:port/` 都会**过表**，然后在真请求里变成
+    # `down/transport_error` —— 又是"配置写错伪装成渠道挂了"（复核 b28-fix2 的 NEW-B）。
+    if parts is None or parts.scheme.lower() not in ("http", "https") or not parts.hostname:
         raise ValueError(f"探针目标必须是可抓的 http(s) 绝对地址（{where}）：{url!r}——"
                          "写错成 'http'/'httpfoo' 这类会**伪装成渠道挂了**（down/transport_error）")
+    try:
+        parts.port
+    except ValueError as e:
+        raise ValueError(f"探针目标的端口不合法（{where}）：{url!r}（{e}）——"
+                         "同样会伪装成渠道挂了") from None
     method = target.get("method", "get")
     if not isinstance(method, str) or method.lower() not in _VALID_METHODS:
         raise ValueError(f"method 只能是 {'/'.join(_VALID_METHODS)}（{where}）：{method!r}")
@@ -133,6 +141,15 @@ def _validate_target(cid: str, target: Any) -> None:
                 raise ValueError(
                     f"header 值必须是字符串且不含换行（{where}）：{name}={value!r}——"
                     "非字符串值过去会**伪装成渠道挂了**（down/transport_error）")
+            if not value.isascii():
+                # ⚠ 非 ASCII 值能"过表"，但真请求会炸（curl_cffi 走 latin-1 编码：
+                #   `{"X":"中文值"}` → UnicodeEncodeError，`"a\x85b"` → UnicodeDecodeError），
+                #   于是又一次"配置写错伪装成渠道挂了"（复核 b28-fix2 的 NEW-A，本轮唯一真反例）。
+                #   对照实测：`\t`/`\x0b`/`\x01`/`\x7f` 这些 ASCII 控制字符**发得出去**，
+                #   所以这里只加"必须是 ASCII"，不动 C0 的既有宽松度。
+                raise ValueError(
+                    f"header 值必须是 ASCII（{where}）：{name}={value!r}——"
+                    "非 ASCII 会让真请求抛 UnicodeEncodeError，同样伪装成渠道挂了")
 
 
 def load_targets(path: Path | None = None) -> dict[str, dict[str, Any]]:
@@ -275,9 +292,13 @@ def probe_channel(channel_id: str, target: dict[str, Any], *,
     try:
         text = body if isinstance(body, str) else json.dumps(body, ensure_ascii=False)
     except (TypeError, ValueError) as e:
+        try:
+            head = str(body)[:BODY_HEAD]
+        except Exception:  # noqa: BLE001 —— `__str__` 自己会抛的对象（复核 b28-fix2 的脚注）
+            head = f"<{type(body).__name__}：连 str() 都抛异常>"
         return {"state": "down", "error_code": "bad_body",
                 "error": f"响应体无法序列化/判定（{type(e).__name__}: {e}）", "latency_ms": latency_ms,
-                "http": int(status), "body_head": str(body)[:BODY_HEAD], "expect": expect}
+                "http": int(status), "body_head": head, "expect": expect}
     state, code, msg = _classify(int(status), text, expect,
                                  min_links=int(target.get("min_links") or 0))
     return {"state": state, "error_code": code, "error": msg, "latency_ms": latency_ms,

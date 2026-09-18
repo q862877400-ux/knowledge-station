@@ -100,7 +100,7 @@ def main() -> int:
     pending = [r for r in unknown if r["channel_id"] in targets
                and r.get("last_error_code") != "no_anchor_configured"]
     notarget = [r for r in unknown if r["channel_id"] not in targets]
-    lines += ["## 四、还没实测的渠道（⚠ 三种处境**必须分开读**）", "",
+    lines += ["## 四、还没定论的渠道（⚠ 三种处境**必须分开读**）", "",
               f"- **已配探针、还没探过**：{len(pending)} 条 —— 这是「欠账」，下一轮就该探完；",
               f"- **只探到连通性**：{len(connectivity_only)} 条 —— 渠道**回 200 了**，但我们没给它配"
               "语义期望（失败原因列写 `no_anchor_configured`）⇒ 它**不算「可抓」**，也不算欠账；",
@@ -118,7 +118,13 @@ def main() -> int:
         lines.append("")
 
     out.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(f"写出 {out.relative_to(ROOT)}（{out.stat().st_size} bytes，{len(lines)} 行）")
+    # ⚠ 传**相对**输出路径时 `relative_to(ROOT)` 会抛 ValueError（文件已写出、退出码却非 0）
+    #   —— 独立复核 b28-fix2 的既存脚注，顺手按"打印失败不影响产物"修掉。
+    try:
+        shown = out.relative_to(ROOT)
+    except ValueError:
+        shown = out
+    print(f"写出 {shown}（{out.stat().st_size} bytes，{len(lines)} 行）")
     print(f"台账 {s['total']} / 能干活 {s['by_wiring']['wired']} / "
           f"已实测 ok {s['by_state']['ok']} / 可疑 {s['by_state']['suspicious']}")
     return 0

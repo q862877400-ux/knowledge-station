@@ -142,6 +142,13 @@ class TestMinLinks:
         ({"url": "https://e.com", "headers": {"A:B": "v"}}, "header 名"),
         # 拼错的键：过去是**静默忽略**（比"拒 null"更值的一刀，b28-fix 的建议）
         ({"url": "https://e.com", "expext": "x"}, "不认识的键"),
+        # NEW-B（b28-fix2）：netloc 非空还不够——空 host / 非法端口都会在真请求里变成 down
+        ({"url": "http://:80/"}, "绝对地址"),
+        ({"url": "http://e.com:99999/"}, "端口不合法"),
+        ({"url": "http://e.com:port/"}, "端口不合法"),
+        # NEW-A（b28-fix2，本轮唯一真反例）：非 ASCII 头值过表后真请求抛 UnicodeEncodeError
+        ({"url": "https://e.com", "headers": {"X": "中文值"}}, "ASCII"),
+        ({"url": "https://e.com", "headers": {"X": "a\x85b"}}, "ASCII"),
     ])
     def test_目标形状坏也在读表时抛(self, tmp_path, target, pat):
         """独立复核 b28 / b28-fix 的发现：原先只校验 `min_links` ⇒ 字符串 target **静默过表**，
@@ -160,6 +167,16 @@ class TestMinLinks:
         p.write_text('{"targets": {"c:x": {"url": "HTTP://e.com/a", "expect": "x"}}}',
                      encoding="utf-8")
         assert cp.load_targets(p)["c:x"]["url"] == "HTTP://e.com/a"
+
+    @pytest.mark.parametrize("url", [
+        "https://e.com/a", "HTTP://E.com", "hTtPs://e.com:8443/x?y=1",
+        "http://user:pw@e.com/p", "https://例子.中国/法", "http://127.0.0.1:8080/",
+    ])
+    def test_合法_url_仍然照过(self, tmp_path, url):
+        """收紧 netloc/端口校验时最容易顺手误伤合法写法——这条钉住"12 个合法 URL 全照过"里的代表。"""
+        p = tmp_path / "t.json"
+        p.write_text(json.dumps({"targets": {"c:x": {"url": url, "expect": "x"}}}), encoding="utf-8")
+        assert cp.load_targets(p)["c:x"]["url"] == url
 
     def test_JSON_顶层数组允许(self, tmp_path):
         """`json` 只允许 dict 会把"发一个数组"误拒（b28-fix 的 N4）。"""

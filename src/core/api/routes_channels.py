@@ -39,10 +39,15 @@ def register(app, json_error):
                                   f"{name}={value!r} 不在 {list(allowed)}")
         items = cr.list_channels(category=category, wiring=wiring, state=state,
                                  verification=verification, enabled_only=enabled_only)[:limit]
-        # ⚠ `has_probe_target`（R6）：面板上「⚪ 未探」其实是**两种完全不同的处境**——
-        #   "还没给它配探针"（tool 类的代码仓库、我方代码通路）与"配了但还没探过"。
+        # ⚠ `has_probe_target`（R6）：面板上「⚪ 未探」其实是**三种不同的处境**——
+        #   ① "还没给它配探针"（tool 类的代码仓库、我方代码通路）；
+        #   ② "配了、也探了，但只探到连通性"（`last_error_code=no_anchor_configured`，
+        #      通道回 200 却没有语义期望 ⇒ **不算可抓**，也不是欠账）；
+        #   ③ "配了但还没探过"（真欠账）。
+        #   字段只回答"有没有目标"（①③ 的分界）；② 要看 `last_error_code`——
+        #   两处口径合起来才能把三种处境分开（独立复核 b28-fix2 的第 5 条）。
         #   不区分的话，业主无法判断一条灰行是"等我们做"还是"这条本来就不该探"。
-        #   探针目标表是随包发布的小 JSON（一次读 <100 条），就在这一层补上，
+        #   探针目标表是随包发布的小 JSON（一次读 100+ 条），就在这一层补上，
         #   不往数据库里塞第二份真相（表是唯一所有者）。
         #   ⚠ 局部导入：本模块被 app 启动时导入，而 `src.core.update` 会把整包适配器拉进来
         #   —— 只是为了让面板少一次歧义，不值得抬高**每次启动**的代价。
