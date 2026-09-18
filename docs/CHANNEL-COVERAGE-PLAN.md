@@ -751,7 +751,8 @@ std_gb 5 / std_tb 5 / std_intl 4 / aggregator 5），每条都带 evidence（实
 **用例/门禁**：`tests/test_channel_probe.py` 23 → **34**（`min_links` 不足/够、两期望叠加、
 链接计数大小写与换行、429 判可疑、坏 `min_links` 读表即抛）；
 `tests/test_update_routing.py` +1（降级链**单所有者**，见下）；pytest **1935 passed / 3 skipped / 0 failed**、
-mypy **138/0**、tsc **0**、smoke **EXIT=0**（22 段）。
+mypy **138/0**、tsc **0**、smoke **EXIT=0**（22 段）、`verify:commands` **22/22**、
+`verify-engine-uvicorn` **4/4**。
 
 ---
 
