@@ -77,6 +77,10 @@ def main() -> int:
     print(f"台账说 wired 但代码里没有该适配器（{len(md)} 条）—— 接入时必须**报错而不是静默跳过**：")
     for r in md:
         print(f"  {r['channel_id']:<44} {r['why'][:70]}")
+    rm = report["roster_missing_in_code"]
+    print(f"兜底名单里有、代码里没有的适配器（{len(rm)} 条）—— **没进链**，名单要修：")
+    for r in rm:
+        print(f"  {r['adapter']:<20} {r['why']}")
     dead = report["wired_but_probe_down"]
     print()
     print(f"⚠ 探针说 down 但**本步不过滤**的渠道（{len(dead)} 条）——链随探针抖动是另一件事，需单独决策：")

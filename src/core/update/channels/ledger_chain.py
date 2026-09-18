@@ -49,16 +49,23 @@ def ledger_fallback_chain(rows: list[dict[str, Any]] | None = None, *,
         rows: 台账行（`channel_repo.list_channels()` 的形状）；None ⇒ 读库。
         roster: 兜底成员名单与顺序；缺省 = `routing.fallback_chain()`（今天的两棒）。
             ⚠ **成员资格是显式数据**，不是"台账里 wiring=wired 的都算"——理由见模块 docstring。
-        known: 代码里真实存在的渠道名（默认取 `ADAPTER_CLASSES` 的适配器名）；
-            名单里有、代码里没有的名字**不会被静默丢掉**，而是由 `ledger_chain_report()` 报出来。
+        known: 代码里真实存在的渠道名（默认取 `ADAPTER_CLASSES` 的适配器名）。
+            ⚠ **代码里没有的名字一定不进链**（fail-closed）：链上挂一个没有适配器的名字，
+            巡检走到它时只能失败——那是"配置错伪装成渠道故障"的又一例。
+            被丢掉的名单成员**不会静默消失**：`ledger_chain_report()` 的 `roster_missing_in_code` 会点名。
+            （独立复核 b29 抓到：这条承诺原先只写在 docstring 里、代码没实现，`known` 参数是死参数。）
+
+    台账里**查不到**的成员**保留**（fail-open：没 seed 的库不该让巡检失去整条链）；
+    要停用它请用 `enabled=0`（显式动作）。
     """
     if rows is None:
         rows = cr.list_channels()
     by_id = {str(r.get("channel_id")): r for r in rows}
     names = roster if roster is not None else fallback_chain()
-    _ = known if known is not None else _adapter_names()
+    in_code = known if known is not None else _adapter_names()
     return tuple(name for name in names
-                 if (row := by_id.get(_channel_id_of(name))) is None or not _is_excluded(row))
+                 if name in in_code
+                 and ((row := by_id.get(_channel_id_of(name))) is None or not _is_excluded(row)))
 
 
 def ledger_chain_report(rows: list[dict[str, Any]] | None = None, *,
@@ -67,7 +74,8 @@ def ledger_chain_report(rows: list[dict[str, Any]] | None = None, *,
     """给快照脚本用：链、被谁挡住、"可提升为兜底成员的候选"、以及代码/台账不一致。
 
     Returns:
-        `{chain, excluded, roster_candidates, missing_in_code, wired_but_probe_down}`
+        `{chain, excluded, roster_candidates, missing_in_code, roster_missing_in_code,
+          wired_but_probe_down}`（两个 `missing_*` 是两个方向：台账→代码、代码→台账）
     """
     if rows is None:
         rows = cr.list_channels()
@@ -106,12 +114,18 @@ def ledger_chain_report(rows: list[dict[str, Any]] | None = None, *,
             missing.append({"channel_id": r.get("channel_id"), "name": r.get("name"),
                             "why": f"台账 wiring=wired，但 ADAPTER_CLASSES 里没有 {sorted(cands)}"})
 
+    # 反方向：**名单里**有、代码里没有（独立复核 b29 抓到这条原先只在 docstring 里承诺过）。
+    # fail-closed：它不进链；但必须点名，否则"配了个不存在的渠道"会表现为"这条链少了点什么"。
+    roster_missing = [{"adapter": n, "why": "兜底名单里有、ADAPTER_CLASSES 里没有 ⇒ 没进链"}
+                      for n in base if n not in names]
+
     dead = [{"channel_id": r.get("channel_id"), "name": r.get("name"), "state": r.get("state"),
              "last_error_code": r.get("last_error_code"),
              "consecutive_failures": r.get("consecutive_failures")}
             for r in rows if r.get("state") == "down" and r.get("wiring") == "wired"]
     return {"chain": list(chain), "excluded": excluded, "roster_candidates": candidates,
-            "missing_in_code": missing, "wired_but_probe_down": dead}
+            "missing_in_code": missing, "roster_missing_in_code": roster_missing,
+            "wired_but_probe_down": dead}
 
 
 def _adapter_names() -> set[str]:

@@ -56,7 +56,7 @@ class Test过滤:
 
     def test_顺序就是名单顺序(self):
         rows = [_row("ch:a"), _row("ch:b")]
-        assert lc.ledger_fallback_chain(rows, roster=("b", "a")) == ("b", "a")
+        assert lc.ledger_fallback_chain(rows, roster=("b", "a"), known={"a", "b"}) == ("b", "a")
 
 
 class Test成员资格不是wired:
@@ -75,6 +75,19 @@ class Test成员资格不是wired:
 
 
 class Test一致性报告:
+    def test_名单里有代码里没有的适配器要报出来且不进链(self):
+        """独立复核 b29 抓到的欠账：`known` 参数原先承诺过却没用（`_ = known` 是死代码）。
+
+        现在 fail-closed：名单里没有适配器的名字**不进链**，并由 `roster_missing_in_code` 点名。
+        """
+        rows = [_row("ch:official_gb")]
+        chain = lc.ledger_fallback_chain(rows, roster=("official_gb", "nope_x"),
+                                         known={"official_gb"})
+        assert chain == ("official_gb",), "没有适配器的名单成员不许留在链里"
+        rep = lc.ledger_chain_report(rows, roster=("official_gb", "nope_x"),
+                                     known={"official_gb"})
+        assert [m["adapter"] for m in rep["roster_missing_in_code"]] == ["nope_x"]
+
     def test_台账说wired但代码里没有适配器要报出来(self):
         rows = [_row("ch:official_gb"), _row("ch:ghost")]
         rep = lc.ledger_chain_report(rows, roster=("official_gb",),
