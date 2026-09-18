@@ -7,7 +7,7 @@
   锚行保证 ``事件.batch_id == bul_ 批次 id`` 直查可用且外键零改动（pipeline/03 §6）。
 - ``run_batch``：从 doc_meta 取 standard_no 清单做 tier 过滤
   （tier0 = watch_list ∪ user_doc_bookmark(标准收藏) ∪ 未首检；tier1 = 其余滚动），并发=2 线程池逐号走
-  渠道降级链 official_gb→web→govcn（复用 channels 包 transport 注入）；
+  渠道降级链 official_gb→govcn（复用 channels 包 transport 注入）；web 已于 2026-09-18 摘除（§11.0 R5c）；
   单号探测尝试预算 3 次（INS-A-05「重试=3 次后记 failed」口径），耗尽即该号
   failed 不阻塞他号、不提前降级到下一渠道（INS-B-06 同源语义）。
 - 判定映射（批次2指令为准）：现行→no_change/green；新版→new_version/yellow；
@@ -59,7 +59,7 @@ from src.core.update.channels.base import (
 
 # ---------------------------------------------------------------- 编排常量
 #: 渠道降级链（F-02）：官方主渠道 → 网络补漏 → 政府公告
-CHAIN: tuple[str, ...] = ("official_gb", "web", "govcn")
+CHAIN: tuple[str, ...] = ("official_gb", "govcn")  # ⚠ 与 routing._FALLBACK **重复**；降级链的唯一所有者是 routing.select_chain（本常量仅为兼容保留）
 #: 单号探测尝试预算（含首次；INS-A-05「按重试=3 次后记 failed」）
 MAX_ATTEMPTS = 3
 #: 巡检并发（pipeline/06 §3 inspect.concurrency=2）
@@ -413,8 +413,10 @@ def _build_adapters(transport=None) -> dict[str, ChannelAdapter]:
     return out
 
 
-#: 泛查兜底链（official_gb→web→govcn）；权威渠道按标准号特征由 routing.select_chain 前置
-_FALLBACK_CHAIN: tuple[str, ...] = ("official_gb", "web", "govcn")
+#: 泛查兜底链（official_gb→govcn）；权威渠道按标准号特征由 routing.select_chain 前置。
+#: ⚠ 2026-09-18（§11.0 R5c）：**摘掉 web**（只解 mock dict、打的是 bing HTML ⇒ 恒 miss，
+#:   且搜索引擎不是官方源）。_FALLBACK_CHAIN[-1] 用于「全都失败」时的归因 ⇒ 现在归到 govcn。
+_FALLBACK_CHAIN: tuple[str, ...] = ("official_gb", "govcn")
 
 
 # ================================================================ 原子提交

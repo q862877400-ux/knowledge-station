@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18 13:14:57",
+  "generated_at": "2026-09-18 13:19:50",
   "source": "docs/research/channels/registry.seed.json（R1 四束调研的机器可读附录）",
   "note": "引擎消费的渠道台账种子。category 已归一（原始写法在 category_raw）；wiring 由 src/core/update/channels/routing.py **反查**得到，并把实测恒 miss 的 web/govcn 标为 broken。probe_url/probe_expect 留空——那是 R3 语义探针的活（要实测填，不许猜）。",
   "counts": {
@@ -16,9 +16,8 @@
       "std_intl": 4
     },
     "by_wiring": {
-      "broken": 1,
       "seed_only": 113,
-      "unwired": 10,
+      "unwired": 11,
       "wired": 7
     },
     "by_verification": {
@@ -57,10 +56,10 @@
       "answers_json": "[\"发布\", \"修订\", \"废止\"]",
       "covers": "名义上全类别兜底；代码路径下真实响应恒 miss（仅解析 dict 契约）",
       "gaps": "真实 HTML 响应零解析；无 UA/Referer；无验证码判定；无重试限速",
-      "wiring": "broken",
+      "wiring": "unwired",
       "verification": "unverified",
       "source_file": "internal-inventory.md",
-      "note": "⚠ 在链上但恒 miss：只解 `isinstance(body, dict)` 的 mock 契约（web_fallback.py:53-54），真实 bing HTML 恒 miss；缺口：真实 HTML 响应零解析；无 UA/Referer；无验证码判定；无重试限速",
+      "note": "⚠ 已从降级链摘除（原第二棒）：只解 `isinstance(body, dict)` 的 mock 契约，而它打的是 bing **HTML** 搜索页 ⇒ 真实网络恒 miss（R1 的 G6 实测）；且**搜索引擎不是官方源**（与「不依赖二手信息」冲突）⇒ 其角色由 official_gb + govcn 覆盖；缺口：真实 HTML 响应零解析；无 UA/Referer；无验证码判定；无重试限速",
       "enabled": 1
     },
     {

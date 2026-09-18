@@ -277,20 +277,31 @@ class TestShippedSeed:
         for r in rows:
             assert r["category"] in cr.CATEGORIES, f"{r['channel_id']} 类别非法：{r['category']}"
 
-    def test_死兜底棒在种子里是_broken_修好的那根是_wired(self):
-        """R1 的 G6 抓出**两根**死兜底棒；R5b（2026-09-18）把 `govcn` 换成了真接口
-        （政策文件库 `search-gov/data`，真机实测「安全生产法」能命中）⇒ 只剩 `web` 是死的。
+    def test_兜底链现状_web_已摘除_govcn_已换棒(self):
+        """R1 的 G6 抓出**两根**死兜底棒；R5b 把 `govcn` 换成真接口，R5c 把 `web` **摘出链外**。
 
-        ⚠ 这条用例的判据**被有意改过一次**：原来断言 `ch:web` 与 `ch:govcn` **都**是 broken；
-        换棒之后若还这么断言，就等于"宁可台账显示失效、也不承认修好了"——那同样是虚报，
-        只是方向相反。所以现在钉的是：**web 仍 broken、govcn 已 wired 且 note 说明了它的能力边界**。
+        ⚠ 这条判据**被有意改过两次**（每次都改在 ledger 里写明）：R2 时是"两根都 broken"，
+        只改一根时也**不许**留旧断言——那等于"宁可显示失效也不承认修好"，与"宁可虚报"同样错。
+        现在的口径：`web`=unwired（**不在链上**，不是"在链上但不工作"）、`govcn`=wired 且 note 写明边界。
         """
         rows = {r["channel_id"]: r for r in cr.load_seed()}
-        assert rows["ch:web"]["wiring"] == "broken", "web 又被当成能用的渠道了"
-        assert "miss" in (rows["ch:web"].get("note") or "")
+        assert rows["ch:web"]["wiring"] == "unwired", "web 不在链上 ⇒ 口径应是未接线"
+        assert "摘除" in (rows["ch:web"].get("note") or ""), rows["ch:web"].get("note")
         assert rows["ch:govcn"]["wiring"] == "wired", "govcn 换棒后应当是 wired"
         note = rows["ch:govcn"].get("note") or ""
         assert "换棒" in note and "政策文件库" in note, f"换棒说明缺失：{note}"
+
+    def test_降级链里不再有已知失效的渠道(self):
+        """链上的每一棒都必须是"能用"的：`broken` 在种子里应为 0。
+
+        为什么值得单钉：`broken` 是"在链上但实测不工作"——它会让覆盖率虚高（R1 的教训）。
+        若将来又出现 broken>0，要么修它、要么把它摘出链外，**不许留着**。
+        """
+        rows = cr.load_seed()
+        broken = [r["channel_id"] for r in rows if r["wiring"] == "broken"]
+        assert broken == [], f"链上又出现了已知失效的渠道：{broken}"
+        from src.core.update.channels.routing import _FALLBACK
+        assert "web" not in _FALLBACK, "web 又被放回降级链了"
 
     def test_接线名字不一致的渠道已在种子里记明(self):
         """R2 发现 G23（注册表键 `ttzb` vs 适配器名 `ttbz`）。

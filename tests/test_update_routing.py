@@ -1,11 +1,17 @@
 """渠道路由测试（2026-08 巡检渠道升级）：select_chain 按标准号特征正确路由。
 
-官方实测结论：AQ→mem_gov、GB 50/55→mohurd、T/→ttbz、HJ→mee、DB→dbba、
-其他国标→ndls、行标→hbba；无特征→泛查兜底 official_gb→web→govcn。
+官方实测结论：AQ→ndls、GB 50/55→ndls、T/→ttbz、HJ→mee、DB→dbba、
+其他国标→ndls、行标→hbba；无特征→泛查兜底 **official_gb→govcn**。
+
+⚠ 2026-09-18（§11.0 R5c）：兜底链**摘掉了原来的第二棒 `web`**（bing）。
+理由：`WebFallbackAdapter` 只解 `isinstance(body, dict)` 的 mock 契约，而它打的是 bing 的
+**HTML** 搜索页 ⇒ 真实网络**恒 miss**（R1 的 G6 实测）；且搜索引擎**不是官方源**。
+它的角色由两根真棒覆盖：`official_gb`（国标全文公开系统）+ `govcn`（政策文件库真接口，R5b 换棒）。
 """
 from src.core.update.channels.routing import select_chain
 
-TRAIL = ("official_gb", "web", "govcn")
+#: 泛查兜底链的**期望顺序**（无特征命中时）。`web` 于 R5c 摘除，见模块 docstring。
+TRAIL = ("official_gb", "govcn")
 
 
 def test_route_aq_to_ndls():

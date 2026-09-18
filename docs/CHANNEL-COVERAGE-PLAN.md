@@ -612,3 +612,32 @@ transport 重测 5 条失败 + 2 条已知 ok 的对照。**结果与走代理�
 `ch:govcn` 的探针目标也改成真接口（锚点 `searchVO`，真机探针 `ok` / 1027ms）。
 **门禁**：pytest **1918 passed / 3 skipped / 0 failed**、mypy **138/0**；
 本步**没动客户端**（tsc/smoke 与上一步同状态，故未重跑）。
+
+---
+
+### R5c（2026-09-18 完成）：把 `web`（bing，第三根棒）**摘出链外** —— 三棒故事收口
+
+理由（R1 的 G6 + R5b 的实测）：`WebFallbackAdapter` 只解 `isinstance(body, dict)`（mock 契约），
+而它打的是 bing 的 **HTML 搜索页** ⇒ 真实网络**恒 miss**：每次探测白花一次请求，而且
+**搜索引擎不是官方源**（与"不依赖二手信息"的准则相冲突）。它的角色已被两根**真**棒覆盖：
+`official_gb`（国标全文公开系统）+ `govcn`（政策文件库真接口，R5b 换棒）。
+
+改法：`routing._FALLBACK` 由 `("official_gb","web","govcn")` 改为 **`("official_gb","govcn")`**；
+`inspector._FALLBACK_CHAIN` 同步（它用于"全都失败"时归因，`[-1]` 现在归到 `govcn`，比归到一根
+从不工作的棒更准）；模块 docstring 同步。`ADAPTER_CLASSES` 里**仍保留** `web`（不删代码），
+只是**不进任何链** ⇒ 台账口径是「**未接线**」而不是「已知失效」——
+"失效"是"在链上但不工作"，"摘除"是"不在链上"，两者不能混。
+
+⚠ 顺手记一条**重复所有者**（`inspector.CHAIN` 与 `routing._FALLBACK` 是同一件事的两份）：
+本轮**只对齐、没删**（删常量风险大于收益），并在注释里写明"降级链的唯一所有者是
+`routing.select_chain`，本常量仅为兼容保留"。→ R6 待办：确认无人引用后删掉它。
+
+**台账口径（实机库）**：`wired 7 / unwired 11 / broken **0** / seed_only 113`；
+已实测 🟢 22 / 🟡 1 / 🔴 5 / ⚪ 未探 103。
+**新增用例**：`test_降级链里不再有已知失效的渠道`（`broken` 必须为 0，且 `web` 不许回链）——
+把"链上每一棒都必须能用"变成可断言的口径。
+**门禁**：pytest **1919 passed / 3 skipped / 0 failed**、mypy **138/0**（本步未动客户端）。
+⚠ 全量跑第一次是 **3 failed**——	ests/test_update_routing.py 把旧链**写死**在 TRAIL 里
+（("official_gb","web","govcn")）。这正是"摘除一棒"必须付的代价，已同批改该文件
+（并把"为什么摘 web"写进它的模块 docstring，免得下一个人以为是随手删的）。
+`docs/research/channels/REGISTRY-STATUS.md` 已重生成。

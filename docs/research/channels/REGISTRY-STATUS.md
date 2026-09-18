@@ -1,7 +1,7 @@
 # 渠道台账状态快照（自动生成，勿手改）
 
-- 生成时间：2026-09-18 13:15:20（本地） · 数据来源：`C:\Users\Zegel\AppData\Roaming\KnowledgeStation\database\knowledge.db` 的 `update_channel` 表
-- 台账 **131** 条 · 启用 129 条 · **能干活（wired）7** 条 · 已知失效 **1** 条 · 仅登记 113 条
+- 生成时间：2026-09-18 13:20:00（本地） · 数据来源：`C:\Users\Zegel\AppData\Roaming\KnowledgeStation\database\knowledge.db` 的 `update_channel` 表
+- 台账 **131** 条 · 启用 129 条 · **能干活（wired）7** 条 · 已知失效 **0** 条 · 仅登记 113 条
 - 已实测：🟢 22 / 🟡 1 / 🔴 5 / ⚪ 未探 103
 
 > ⚠ 两个数字**必须分开读**：`台账条数` 是「我们知道多少渠道」，`能干活条数` 才是「今天真的能用几条」。R1 的实测教训（G5/G6）：13 个适配器只有 8 个在链上，而在链上的 `web`/`govcn` 两根兜底棒在真实 HTML 下恒 miss。
@@ -27,7 +27,7 @@
 | `ch:mem_gov` 应急管理部 AQ 行业标准公告 | ⚪ 未接线（注册了但巡检不调用） | 🟡 可疑 | — | HTTP 200 但响应里没有预期锚点 '标准公告'（26755 字符）——本领域最常见的假可用（G14） | GET https://www.mem.gov.cn/fw/flfgbz/bz/bzgg/（+ index_N.shtml 分页，逐条公告详 |
 | `ch:mohurd` 住建部工程建设标准文告 | ⚪ 未接线（注册了但巡检不调用） | 🟢 可抓 | 2026-09-18 04:48:44 | — | GET https://www.mohurd.gov.cn/gongkai/zc/wgk/（+ index_N.shtml 分页，逐条文告详 |
 | `ch:std_samr_hb` 全国标准信息公共服务平台·行业标准目录 | ⚪ 未接线（注册了但巡检不调用） | 🟢 可抓 | 2026-09-18 04:48:43 | — | GET https://std.samr.gov.cn/hb/search/hbPage?searchText=<归一号>&op=&ISSU |
-| `ch:web` 网络逐号补漏搜索（Bing） | ❌ 已知失效（在链上但实测不工作） | ⚪ 未探 | — | — | GET https://www.bing.com/search?q=<标准号 标准名> |
+| `ch:web` 网络逐号补漏搜索（Bing） | ⚪ 未接线（注册了但巡检不调用） | ⚪ 未探 | — | — | GET https://www.bing.com/search?q=<标准号 标准名> |
 
 ## 二、外部渠道（按类别）
 
@@ -183,10 +183,6 @@
 | regwatch-eu | ⚪ 未探 | — | — | https://github.com/scka-de/regwatch-eu |
 | standards-version-check | ⚪ 未探 | — | — | https://github.com/cuipointer/ageis (skill at .claude/skills/stand |
 | urlwatch | ⚪ 未探 | — | — | https://github.com/thp/urlwatch |
-
-## 三、已知失效（**这些会让覆盖率虚高，优先修/换**）
-
-- `ch:web` **网络逐号补漏搜索（Bing）**：⚠ 在链上但恒 miss：只解 `isinstance(body, dict)` 的 mock 契约（web_fallback.py:53-54），真实 bing HTML 恒 miss；缺口：真实 HTML 响应零解析；无 UA/Referer；无验证码判定；无重试限速
 
 ## 四、还没配探针的渠道
 

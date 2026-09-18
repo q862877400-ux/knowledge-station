@@ -28,7 +28,13 @@ _PREFIX_ROUTE: list[tuple[re.Pattern, str]] = [
 ]
 
 # 兜底：无特征命中时按此顺序（泛查链）
-_FALLBACK = ("official_gb", "web", "govcn")
+# ⚠ 2026-09-18（§11.0 R5c）：**摘掉 `web`**。理由（R1 的 G6 + R5b 的实测）：
+#   `web_fallback.WebFallbackAdapter` 只解 `isinstance(body, dict)`（mock 契约），
+#   而它打的是 bing 的 **HTML 搜索页** ⇒ 真实网络下**恒 miss**，每次探测都白花一次请求，
+#   而且搜索引擎**不是官方源**（与"不依赖二手信息"的准则相冲突）。
+#   它的角色由两根真棒覆盖：`official_gb`（国标全文公开系统）+ `govcn`（政策文件库真接口，R5b 换棒）。
+#   `ADAPTER_CLASSES` 里仍保留 `web`（不删代码），只是**不进任何链**——台账据此显示"未接线"。
+_FALLBACK = ("official_gb", "govcn")
 
 
 def select_chain(standard_no: str) -> tuple[str, ...]:
