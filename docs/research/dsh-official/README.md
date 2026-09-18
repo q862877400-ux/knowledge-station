@@ -16,6 +16,31 @@
 
 ---
 
+## ✅ 已入 Hindsight 记忆（2026-09-19，业主指令「把文档存入记忆」）
+
+| 记忆条目 | doc_id | 内容 |
+|---|---|---|
+| DSH 官方开发：不许重复造的现成件 + 硬约束 + 静默失败陷阱 | `dsh` | 我汇总的**导航 + 提炼**层（先读这条） |
+| DSH 分片 A — 客户端插件（右栏 UI） | `dsh-a-ui` | 现成能力 / 槽位目录 / 不许自己造 / 坑 |
+| DSH 分片 B — 插件契约与生命周期 | `dsh-b-effect-26` | 导出形状 / effect 可逆性 / 26 条现成能力 / 坑 |
+| DSH 分片 C — 官方菜谱 24 条 | `dsh-c-24` | 菜谱索引 / 生成物与门禁 / 现成能力 / 坑 |
+| DSH 分片 D — 宿主半边 | `dsh-d-llm-projection` | 工具注册 / LLM 流式 / 会话与 projection / 子代理 |
+| DSH 分片 E — 持久化三通道 / ctx.fs / 配置 / 事件 | `dsh-e-ctx-fs` | 三条持久化通道 + 三个目录类生成物的查法 |
+| DSH 分片 F — 破坏性变更 / 事故复盘 / i18n | `dsh-f-i18n` | 变更时间线 / 复盘纪律 / 静默失败规定 |
+| DSH 分片 G — 客户端 UI 决策记录 | `dsh-g-ui-inject-vs-external-peer` | 右栏契约 / 样式规定 / inject vs external / 被否决的做法 |
+| DSH 分片 H — 官方技能与门禁 | `dsh-h-12` | 12 个技能 + 门禁清单 + 该复用而非自造的流程 |
+| DSH 原文 `docs/web-styling.md` | `dsh-docs-web-styling-md-web-ui-style-reference` | 逐字（**手抄**，引用请回磁盘核对） |
+| DSH 原文 `docs/AGENTS.md` | `dsh-docs-agents-md-agents-md-the-documentation-standard` | 逐字（**手抄**，已知 2 处失真，见下条） |
+| Correction：手抄失真 + 「禁止手抄长文档入库」纪律 | `correction-dsh-docs-agents-md` | 更正与纪律 |
+
+**没进记忆的**：官方 167 篇原文的其余 165 篇。理由与纪律见 `correction-dsh-docs-agents-md`——
+① Hindsight 插件**故意对子代理关闭**（`workspaceForAgent` 里 `origin === "subagent"` 直接返回 undefined），
+所以只能由主会话入库，而 2.8 MB 无法经单一会话的上下文；② 我手抄 77 行就错了 2 处（**2.6% 失真率**），
+**逐字搬运长文档进记忆本身不可信**。⇒ **权威原文永远在磁盘**（`D:\AI\DSH\deepseek-harness\docs\…`），
+记忆里存**导航 + 提炼 + 带出处的分片**。
+
+---
+
 ## 分片索引
 
 | 分片 | 读的范围 | 回答什么问题 |
