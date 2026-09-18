@@ -1775,9 +1775,15 @@ R6c-3e 把那个槽补上 ⇒ 这 9 条的「发布」升 `supported`（`mee` **
 `latest_info` 是免费文本，放这里既不撞约束也不 ×5 事件量。
 
 **⚠ 明确还没做（别读成做了）**：
-- **"有 `unanswerable` 的号不算 done"这条终态恒等式还没接**——本轮只把数据**记下来**了
+- ~~**"有 `unanswerable` 的号不算 done"这条终态恒等式还没接**——本轮只把数据**记下来**了
   （`latest_info.classes_unanswerable`），批次的 `done`/四色口径**一字未改**。要接是单独一步：
-  它会影响批次终态与 UI 的"完成"语义，需要自己的用例与复核。
+  它会影响批次终态与 UI 的"完成"语义，需要自己的用例与复核。~~
+  **（2026-09-18 更正，改在原处）这条已经接了**：R6c-4d（`6808657`）把
+  `classes_unanswerable` 非空的号接进终态裁决（`error_trail` **或** 欠账 ⇒ `failed`），
+  配套两条用例 + 独立复核 b39（声明 1 成立）。上面那句"一字未改"是 R6c-4c 当时的**如实**描述，
+  但被 R6c-4d 证伪后**原样留着就是错的**（复核 b39 的声明 4 抓到的就是这一点），故在此划掉并指向更正处。
+  同一轮 b39 还抓到它的**生产恢复档**缺口（`_commit_outcome` 不写欠账 ⇒ 崩溃后 resume 报 done），
+  已由 R6c-4e 修掉（`_debt_from_events`）。
 - **面板还没显示五类结论**（数据在 `latest_info_json` 里，UI 侧未读）。
 - verdict 排序的**长期有效性依赖判定表的准确性**：改动 `answers_detail` 之前，
   请先跑 `scripts/five-class-order-diff.py`（**已进版本库的哨兵**，见下）。
@@ -1819,3 +1825,38 @@ R6c-3e 把那个槽补上 ⇒ 这 9 条的「发布」升 `supported`（`mee` **
    与 b37 独立测得的 6150/32085（≈19.2%）一致。文档里的"先跑哨兵"现在指向这个**可复现**的路径。
 6. **台账读失败要出声**（B）：`upd_log(..., WARN, "classes_ledger_unavailable", ...)`；
    用例用 `caplog` 断言（`upd_log` 走日志器、**不写 `event_log` 表**——我第一版去查表，明明有告警却断言 0 条）。
+
+### 复核 b39（独立 verifier，2026-09-18）：声明 1/3 成立，2/4 部分成立（各抓到一条真东西）
+
+对象 = `6808657`（R6c-4d）。脚本与详报：`var/tmp/VERIFY-b39.md`、`var/tmp/b39-verify/`（真库只读、无仓库改动）。
+
+- **声明 1（终态判据）成立**：自造 `off_chain` 号 ⇒ `failed` 且 `green_count=1`（四色照记）、
+  日志 `batch_failed_unanswerable` 带数量+样例；`error_trail` 非空时仍 `failed` 且仍走
+  `batch_failed_unjudged`；只有 `not_probed` 的号 ⇒ `done`（变异混入 `not_probed` ⇒ `failed`，用例有效）。
+- **声明 3（影响面 0/6417）成立**：独立只读复算，空候选 `{}`、`all_down` 0 次。
+- **声明 2 部分成立（真缺口，见 R6c-4e）**：四条暂停路径 + 两条 `pause_batch` 路径都带/保留
+  `unanswerable`（逐条实测）、干净暂停→resume 仍 `failed`（变异 M3 证明用例有效）；
+  **但"欠账不随恢复丢"只对干净暂停成立**——`_commit_outcome`（第 5 个写断点处）不带欠账，
+  号提交后进程被杀 ⇒ `pause_batch`→`resume_batch` 实测得 **done**（`error_trail` 同构、既有缺陷）。
+- **声明 4 部分成立**：R6c-4d 段"今天 0 影响/给将来的护栏"与 `all_down` 生产不可达都如实；
+  但 R6c-4c 段那句"这条终态恒等式还没接…一字未改"被本步证伪却原样留着（无划掉、无指向注记）
+  ⇒ 按上一提交 `beae0fd` 立下的"**改在原处**"惯例已改（见上文 R6c-4c 段的更正）。
+
+### R6c-4e（2026-09-18 完成）：欠账从**事件行**回收——修 b39 声明 2 的生产恢复档
+
+**缺口形状**：结构性欠账原来**只在内存里**累积、只在暂停/终态时随断点落盘；而
+`_commit_outcome`（每号一次）只推进队列、**不带欠账**。于是"号已提交 → 进程被杀（status 留
+`running`）→ `pause_batch` → `resume_batch`"这条**生产恢复**路径上：已提交的号**不再入队**、
+内存清单也没了 ⇒ 批次照报 `done`，欠账静默消失。`error_trail` 是**同一形状的既有缺陷**（本步只收五类这一侧）。
+
+**修法**：事件行是**持久**凭据（`latest_info_json.classes_unanswerable` 就在里面）
+⇒ 新增 `_debt_from_events(batch_id)`，在终态裁决**之前**把库里的欠账并进内存清单
+（并在恢复到时记 `classes_debt_recovered`）。恢复路径与首次跑由此不再有差别。
+
+- 只认 `classes_unanswerable`（结构性），**不认** `classes_unanswered`（含 `not_probed`）；
+- 读库失败**不抛**：退回内存口径 + `classes_debt_unreadable` 出声（"读不到"≠"没有欠账"）；
+- 用例 `test_提交后被杀_欠账从事件行收回`（`tests/test_update_inspector.py`）：真跑一批 ⇒
+  把断点改写成"崩溃后 `pause_batch` 手上那份（无欠账）" ⇒ `resume_batch` 必须仍 `failed`。
+  **变异检查**：让 `_debt_from_events` 直接返回 `[]` ⇒ 该用例红（实测复现 b39 的 `done`）。
+- **仍未修（登记）**：`error_trail` 的同一形状缺口（未判定号在"提交后被杀"的档上同样会丢）；
+  它属于"四色恒等式"那条更老的守则，要动得单独一步 + 自己的复核。

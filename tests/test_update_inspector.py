@@ -901,6 +901,50 @@ def test_结构性unanswerable_不算done(db, t, monkeypatch):
     assert ckpt["unanswerable"] == [f"{no}:编号核验"], ckpt.get("unanswerable")
 
 
+def test_提交后被杀_欠账从事件行收回(db, t, monkeypatch):
+    """§11.0 R6c-4e：**已提交号**的结构性欠账，在"进程被杀 → pause → resume"后仍要算数。
+
+    复核 b39 的 B② 实测到的生产档：`_commit_outcome` 只推进队列、**不写欠账**，而欠账
+    当时只在内存里累积、只在暂停/终态才落盘 ⇒ 号已提交、进程被杀（status 留 running）、
+    随后 `pause_batch`→`resume_batch` 时已提交的号**不再入队**、内存清单也没了，
+    批次照报 **done**，欠账静默消失。
+
+    这里就用那条路：先真跑一批（号已判定、事件已落库），再把断点改写成"**没有欠账**"
+    的样子（= 崩溃后 `pause_batch` 手上拿不到内存清单时写出的那份断点），然后 resume。
+    修法（`_debt_from_events`）：事件行是持久的，`latest_info.classes_unanswerable` 就在
+    里面 ⇒ 终态裁决前从库回收。**变异检查**：把回收那句去掉 ⇒ 本用例红（批次变 done）。
+    """
+    from src.core.update.channels import question_router as qr
+    real = qr.route_report
+
+    def _fake(classes=None, standard_no="", **kw):
+        rep = real(classes=classes, standard_no=standard_no, **kw)
+        if standard_no == no:
+            rep["编号核验"] = {**rep["编号核验"], "channels": [], "reason": "off_chain",
+                               "unanswerable": True}
+        return rep
+
+    it = add_doc(db, "r6c4f", 1)
+    no = it["standard_no"]
+    monkeypatch.setattr(qr, "route_report", _fake)
+    t.configure("official_gb", no, [r_eff(no)])
+    bid = create_inspect_batch(tier="tier0", items=mk_items(it))["batch_id"]
+    first = run_batch(bid, transport=t)
+    assert first["status"] == "failed"          # 首次跑：欠账在内存里，如实 failed
+
+    # 模拟崩溃后 pause_batch 写出的那份断点：队列空、**没有 unanswerable**
+    db.execute("UPDATE bulk_import_batch SET status='paused', finished_at=NULL,"
+               " checkpoint_json=? WHERE batch_id=?",
+               (json.dumps({"queue": [], "pause_reason": "user"}, ensure_ascii=False), bid))
+    # 欠账的**持久**凭据只有事件行；它必须还在（否则本用例构造无效）
+    info = json.loads(change_events(db, no)[0]["latest_info_json"])
+    assert info["classes_unanswerable"] == ["编号核验"], info
+
+    again = resume_batch(bid, transport=t)
+    assert again["status"] == "failed", again.get("checkpoint_json")
+    assert json.loads(again["checkpoint_json"])["unanswerable"] == [f"{no}:编号核验"]
+
+
 def test_only_not_probed_不出现在unanswerable(db):
     """⚠ **`not_probed` 不许算进 `classes_unanswerable`**：那是"这次没轮到问"，不是"答不出来"。
 

@@ -606,6 +606,44 @@ def _commit_outcome(batch_id: str, tier: str, out: ProbeOutcome) -> None:
                     (json.dumps(ckpt, ensure_ascii=False), batch_id))
 
 
+def _debt_from_events(batch_id: str) -> list[str]:
+    """从**本批已落库的事件**里回收结构性欠账（§11.0 R6c-4e，复核 b39 的 B②）。
+
+    为什么不能只靠内存那份累积清单：欠账原来是**只在内存里**累积、只在暂停/终态时
+    随断点落盘的。而 `_commit_outcome` 是第 5 个写断点的地方，它只推进队列、**不带欠账**；
+    于是"号已提交、进程被杀（status 留 running）、随后 `pause_batch`→`resume_batch`"
+    这条**生产恢复**路径上，已提交的号**不再入队**、内存清单也没了 ⇒ 批次照报 done，
+    欠账静默消失（`error_trail` 是同一形状的既有缺陷，本步只收五类这一侧的欠账）。
+
+    事件行是**持久**的：`latest_info_json.classes_unanswerable` 就在里面
+    ⇒ 终态裁决前从库回收一遍，恢复路径与首次跑就不再有差别。
+
+    ⚠ 只认 `classes_unanswerable`（结构性：`no_capability`/`off_chain`），
+    **不认** `classes_unanswered`（含 `not_probed`＝"这次没轮到问"，不是答不出来）。
+    ⚠ 读库失败**不抛**：回收不到就退回原来的内存口径，但要出声（`classes_debt_unreadable`），
+    免得"读不到"与"本来就没有欠账"不可区分。
+    """
+    try:
+        rows = get_db_connection().execute(
+            "SELECT standard_no, latest_info_json FROM update_change_event"
+            " WHERE batch_id=?", (batch_id,)).fetchall()
+    except Exception as exc:  # noqa: BLE001 — 回收失败不该让批次炸
+        upd_log(batch_id, "inspector", "WARN", "classes_debt_unreadable",
+                note=f"从事件行回收五类欠账失败（终态退回内存清单口径）："
+                     f"{type(exc).__name__}: {exc}")
+        return []
+    out: list[str] = []
+    for r in rows:
+        try:
+            info = json.loads(r["latest_info_json"] or "{}")
+        except (TypeError, ValueError):
+            continue
+        no = r["standard_no"]
+        for cls in (info.get("classes_unanswerable") or []):
+            out.append(f"{no}:{cls}")
+    return sorted(set(out))
+
+
 def _write_captcha_wait(batch_id: str, numbers: list[str]) -> None:
     """验证码聚合告警：一次暂停只落一条 update/captcha_wait（UPD-1002，不逐号刷屏）。"""
     with write_transaction() as txn:
@@ -752,6 +790,14 @@ def run_batch(batch_id: str, transport=None, max_workers: int = CONCURRENCY) -> 
     # `no_capability`/`off_chain` 这种**结构性答不出来**（不是"没问"——`not_probed` 不算）。
     # 随断点持久化（否则 resume 会把之前那批的欠账丢掉）。
     unanswerable_nos: list[str] = [str(x) for x in (ckpt.get("unanswerable") or [])]
+    # §11.0 R6c-4e：断点里没有、但**事件行里已经有**的欠账要收回来（复核 b39 的 B②：
+    # "号已提交、进程被杀"那条恢复路径上，内存清单没了、已提交号也不再入队）。
+    _recovered = [d for d in _debt_from_events(batch_id)
+                  if d not in set(unanswerable_nos)]
+    if _recovered:
+        unanswerable_nos.extend(_recovered)
+        upd_log(batch_id, "inspector", "INFO", "classes_debt_recovered",
+                recovered=len(_recovered), sample=_recovered[:5])
     upd_log(batch_id, "inspector", "INFO", "batch_running",
             tier=tier, pending=len(queue))
     try:
