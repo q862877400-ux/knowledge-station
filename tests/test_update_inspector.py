@@ -706,6 +706,66 @@ def test_单根链的重试预算不变(db):
     assert out.kind == "failed"
 
 
+def test_某根棒抛异常不挤掉后面的棒(db):
+    """§11.0 R6c-3f（复核 b36 的 D-新问题）：**全链共享重试池**会让异常吃掉后面的棒。
+
+    复核实测过的旧行为：第 1 根抛 1 次 ⇒ `[2,1,1,0]`，第 4 根从没被问过，
+    **却照样返回 not_found/gray** ——把"没问"当成"没有"。
+
+    本步两端一起改：预算 ≥ 链长（无异常时每根都问到）**且**"没问完就不下 not_found 结论"。
+    这条用例钉住的是后半段：抛 1 次异常会多吃 1 次预算 ⇒ 4 根问不完 ⇒ 结果是 **failed**
+    （而不是 not_found），并且**如实说出问到了几根**。
+    """
+    from src.core.update import inspector as insp
+    from src.core.update.channels.base import ChannelResult, UpdateError
+    from src.core.update.channels.routing import select_chain
+
+    class _FlakyAdapter:
+        """第 1 次抛异常、之后干净未命中（模拟一次瞬时故障）。"""
+
+        def __init__(self, name: str) -> None:
+            self.name = name
+            self.calls = 0
+
+        def probe(self, standard_no: str, standard_name: str = "") -> ChannelResult:
+            self.calls += 1
+            if self.calls == 1:
+                raise UpdateError("瞬时故障", code="UPD-9999")
+            return ChannelResult(channel=self.name, found=False)
+
+    no = "HJ 1234-2020"
+    chain = select_chain(no)
+    adapters = {c: _FlakyAdapter(c) for c in chain}
+    out = insp._probe_number(adapters, {"standard_no": no, "standard_name": "x"})
+    calls = [adapters[c].calls for c in chain]
+    assert calls[0] == 2, calls                  # 第 1 根：抛 1 次 + 未命中 1 次（共吃 2 次预算）
+    assert out.kind == "failed", out             # ⚠ **不是 not_found**：后面还有棒没问
+    assert out.change_type is None
+    assert "没问完" in (out.error_msg or ""), out.error_msg
+    assert sum(calls) == 4                       # 预算用光（4）就停，不越界多打
+
+
+def test_全链都抛异常才算failed(db):
+    """每根棒各自重试到上限；全链都抛 ⇒ 没有"干净未命中" ⇒ hard-fail（不是 not_found）。"""
+    from src.core.update import inspector as insp
+    from src.core.update.channels.base import ChannelResult, UpdateError
+
+    class _Boom:
+        def __init__(self, name: str) -> None:
+            self.name = name
+            self.calls = 0
+
+        def probe(self, standard_no: str, standard_name: str = "") -> ChannelResult:
+            self.calls += 1
+            raise UpdateError("一直炸", code="UPD-9999")
+
+    no = "HJ 1234-2020"
+    ad = _Boom("mee")
+    out = insp._probe_number({"mee": ad}, {"standard_no": no, "standard_name": "x"})
+    assert ad.calls == insp.MAX_ATTEMPTS
+    assert out.kind == "failed"
+
+
 def test_ins_d_05_all_channels_miss_gray(db, t):
     """/INS-D-05 三渠道查无 → gray，legal_status 保持 NULL，末渠道 govcn 兜底。"""
     it = add_doc(db, "d05", 1)

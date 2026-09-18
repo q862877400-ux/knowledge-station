@@ -129,12 +129,21 @@ def fetch_ccs(standard_no: str, standard_name: str = "") -> dict | None:
 
 
 def ccs_to_tag(ccs: dict | None, standard_no: str) -> str | None:
-    """CCS 结果 → domain_tags 条目（"CCS:P16 工程防火"）。失败回退本地表。"""
+    """CCS 结果 → domain_tags 条目（"CCS:P16 工程防火"）。失败回退本地表。
+
+    ⚠ 查本地表前先折**存储形**（§11.0 R6c-3f；独立复核 b36 实测点名的一处）：
+    调用方给的是**折前**的号（`pipeline.py:2143`），而本地表的键是半角写法
+    ⇒ 全角入参（`GB／T …`）在这里**静默查不到**、直接丢掉 CCS 标签。
+    复核原话是"构造不出活复现"，所以影响面小；但"写入侧折了、读侧不折"这种不对称
+    在本轮已经栽过一次（`resolve_clause`），同一个坑不该留第二个。
+    """
     if ccs and ccs.get("code"):
         sub = ccs.get("sub") or ""
         return f"CCS:{ccs['code']}" + (f" {sub}" if sub else "")
-    if standard_no in LOCAL_CCS:
-        code, sub = LOCAL_CCS[standard_no]
+    from src.core.text_utils import store_standard_no
+    key = store_standard_no(standard_no)
+    if key in LOCAL_CCS:
+        code, sub = LOCAL_CCS[key]
         # sub 已含 code（如 "B09 农业、林业综合"），直接返回
         return f"CCS:{sub}" if sub else f"CCS:{code}"
     return None

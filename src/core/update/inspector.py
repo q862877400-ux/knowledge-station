@@ -340,24 +340,33 @@ def _probe_number(adapters: dict[str, ChannelAdapter], item: dict) -> ProbeOutco
     no = item["standard_no"]
     from src.core.update.channels.routing import select_chain
     chain = select_chain(no)
-    # ⚠ **预算不许小于链长**（§11.0 R6c-3e；独立复核 b34 的 A-副作用实测）：
-    #   旧写法是 `attempts_left = MAX_ATTEMPTS`（=3），它同时充当"重试预算"与"能试几根棒"。
-    #   R6c-3b 把 `ndls` 插进兜底链后，`mee`/`dbba`/`hbba`/`ttbz` 四族的链长变成 **4**
-    #   ⇒ **最后一棒（govcn）永远探不到**（复核的 A/B：旧链 probed=[mee,official_gb,govcn]，
-    #   新链 probed=[mee,official_gb,ndls]）。真库 6417 行的链长今天全是 3 ⇒ **0 行受影响**，
-    #   但这是**潜伏回归**：库里一旦出现 HJ/DB/行标/团标号，那一棒会静默消失。
-    #   取舍说清：长链上"重试"让位于"每根都试到"。链的意义就是把棒按序试一遍；
-    #   重试是给**异常**用的，不该把后面的棒挤掉（短链上行为不变：单根链仍有 3 次预算）。
+    # ⚠ **预算要够把链上的棒都问到，且"没问完"不许说成"查无此号"**（§11.0 R6c-3f，两轮复核逼出来）：
+    #   回归史：① 原本 `attempts_left = MAX_ATTEMPTS`(3)，链变 4 根后**最后一棒永远探不到**
+    #   （复核 b34 实测 [mee,official_gb,ndls]，govcn 消失）；② 我先改成
+    #   `max(MAX_ATTEMPTS, len(可用链))`，只修了"池子比链短"；复核 b36 又实测出：
+    #   这个池子仍是**全链共享**的 ⇒ 第 1 根抛 2 次异常就把预算吃掉，
+    #   后两根从没被问过，**却照样返回 not_found/gray** ——把"没问"当成"没有"。
+    #   ⇒ 两步一起做：
+    #   (a) 预算 ≥ 可用链长（保证"没有异常时每根都问到"）；
+    #   (b) 若预算被异常吃掉、**没能把每根都问到**，就不下 `not_found` 结论，改记 **failed**
+    #       （"没问完"≠"查无此号"）。这一步同时**保住 INS-A-05 的冻结口径**：
+    #       单根链上持续超时仍是"重试 3 次 → failed"，且**不降级**（异常不换棒——
+    #       换棒会拿更弱的棒给出结论，那是更坏的错）。
     usable = [c for c in chain if adapters.get(c) is not None]
-    attempts_left = max(MAX_ATTEMPTS, len(usable))
+    budget = max(MAX_ATTEMPTS, len(usable))
+    attempts_left = budget
     last_code: str | None = None
     last_msg: str | None = None
     used = 0
     miss_channel: str | None = None  # 最后一个给出干净未命中应答的渠道
+    tried: list[str] = []            # 真的被问过的棒（按链序）
     for channel in chain:
         adapter = adapters.get(channel)
         if adapter is None:
             continue
+        if attempts_left <= 0:
+            break                    # 预算耗尽 ⇒ 后面的棒**没被问过**（下面据此不下 not_found）
+        tried.append(channel)
         progressed_miss = False
         while attempts_left > 0 and not progressed_miss:
             attempts_left -= 1
@@ -366,7 +375,7 @@ def _probe_number(adapters: dict[str, ChannelAdapter], item: dict) -> ProbeOutco
                 result = adapter.probe(no, item.get("standard_name", ""))
             except UpdateError as exc:
                 last_code, last_msg = exc.code, str(exc)
-                continue  # 同渠道重试，直至预算耗尽
+                continue  # 同渠道重试，直至预算耗尽（**不换棒**：见上面的 INS-A-05 口径）
             except Exception as exc:  # noqa: BLE001 — 渠道意外异常归一，不让线程池炸
                 last_code, last_msg = "UPD-1004", f"{type(exc).__name__}: {exc}"
                 continue
@@ -391,6 +400,25 @@ def _probe_number(adapters: dict[str, ChannelAdapter], item: dict) -> ProbeOutco
                     evidence_url=result.evidence_url, attempts=used)
             progressed_miss = True  # 干净未命中 → 降级下一渠道（不再烧本渠道预算）
             miss_channel = channel
+    if miss_channel is not None and len(tried) == len(usable):
+        # **每一根可用棒都问过了**，且至少一根给出确定性「查无」应答 → not_found/gray（INS-D-05）。
+        return ProbeOutcome(kind="judged", standard_no=no, doc_id=item.get("doc_id"),
+                            standard_name=item.get("standard_name", ""),
+                            change_type="not_found", legal_status=None,
+                            color="gray", source_channel=miss_channel, attempts=used)
+    # 到这里有两种情况，都是"没问完"：
+    #   ① 预算被异常吃掉，后面的棒**从没被问过**（哪怕前面的棒给了"查无"）；
+    #   ② 全程异常、没有任何一根给出确定性应答（INS-A-05 的 hard-fail）。
+    # 两者都**不许**记成 not_found —— 那等于告诉业主"权威源说没有这个号"，而我们其实没问完。
+    return ProbeOutcome(kind="failed", standard_no=no, doc_id=item.get("doc_id"),
+                        standard_name=item.get("standard_name", ""),
+                        source_channel=_FALLBACK_CHAIN[-1],
+                        error_code=last_code or "UPD-1005",
+                        error_msg=(f"预算 {budget} 次耗尽，只问到 {len(tried)}/{len(usable)} 根渠道"
+                                   f"（没问完就不下「查无此号」结论）"
+                                   if miss_channel is not None
+                                   else (last_msg or "all channels exhausted")),
+                        attempts=used)
     if miss_channel is not None:
         # 至少一个渠道给出了确定性「查无」应答 → not_found/gray（INS-D-05），
         # 与「全程异常无应答」的 hard-fail（INS-A-05）严格区分。

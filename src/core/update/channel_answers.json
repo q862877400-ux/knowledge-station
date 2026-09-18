@@ -541,6 +541,11 @@
           "verdict": "supported",
           "evidence": "verify.py:280-305 _map_detail：严格 sxx 枚举映射 + verify.py:289-293 无 sxx → 'unmarked'（不从可访问性推断）+ verify.py:298-301 未知 sxx → unverified 告警；verify.py:318 verify_law 入口",
           "note": "18 组里最完整的「今天状态」实现：四态映射 + unmarked/not_found/unverified 三分 + 分级 TTL 缓存（verify.py:85-93）。判 supported。"
+        },
+        "编号核验": {
+          "verdict": "partial",
+          "evidence": "flk_client.py:73-81 解析 bbbs（台账稳定 ID）；verify.py:76 用它拼证据链接",
+          "note": "补记（b35 的 declaration_gaps，2026-09-18）：能判「这个号在 flk 权威库里存不存在」，并拿到权威侧的稳定 ID，但没有「写法是否规范」的判定 ⇒ partial。⚠ 不补的后果：按「编号核验」选链时**整条权威法规源会被漏掉**（question_router 只认 answers 里的类）。"
         }
       },
       "audit": {

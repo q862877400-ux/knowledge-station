@@ -185,7 +185,8 @@ class CssnAdapter(ChannelAdapter):
         a100 = str(row.get("a100") or "").strip() or None
         version = a100 or None
         # 废止/被代替以自身发布/实施日期为关键日期（cssn 无废止日期列）
-        eff = impl or pub
+        # §11.0 R6c-3f（复核 b36 的 A-观察）：实施槽只放实施日期；发布日期有自己的槽
+        eff = impl
         return ChannelResult(
             channel=self.name, found=True,
             change_type=derive_change_type(standard_no, version, legal),

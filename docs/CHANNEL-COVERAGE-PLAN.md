@@ -27,8 +27,8 @@
 | 选待查标准号（tier0 领域订阅 / tier1 滚动） | `select_standard_nos()` :193 |
 | 建批次 / 状态机 / 检查点 | `create_inspect_batch()` :229、`_transition_status()` :268 |
 | 单号探测 → `ProbeOutcome`（判 current/superseded/withdrawn/编号变化） | `_probe_number()` :335、`judge_result()` :312、`ProbeOutcome` :294 |
-| **渠道降级链** `official_gb → web → govcn`（权威渠道按号特征前置） | :61、:409、`channels/routing.select_chain` |
-| 重试预算 3、并发 2、日预算默认 500（万级滚动 ≈ 70 天一轮） | `MAX_ATTEMPTS` :64、`CONCURRENCY` :66、`DEFAULT_DAILY_BUDGET` :68 |
+| **渠道降级链**（今天 = `official_gb → ndls → govcn`；权威渠道按号特征前置） | `channels/routing.select_chain`（唯一所有者；`inspector` 向 `routing.fallback_chain()` 取） |
+| 尝试预算（每号 `MAX_ATTEMPTS=3`，且**预算不小于链长**）、并发 2、日预算默认 500（万级滚动 ≈ 70 天一轮） | `MAX_ATTEMPTS` :63、`CONCURRENCY` :65、`DEFAULT_DAILY_BUDGET` :67 |
 | 暂停/恢复/验证码等待（人工介入点） | `request_pause` :524、`resume_batch` :569、`captcha_wait_events` :715 |
 | 结论落到变更台账（带 `source_channel` + `evidence_url`） | `change_repo.py` :106-190 |
 
@@ -1677,3 +1677,46 @@ R6c-3e 把那个槽补上 ⇒ 这 9 条的「发布」升 `supported`（`mee` **
 12 个号 × 5 类 = 60 格，**只有 `废止` 一格/号发生变化**（`official_gb(partial) → ndls(supported)`，
 8 个号），**`发布` 的 8 格坏变化全部消失** ⇒ 原先"先补字段、再重评、再启用排序"的顺序**被模拟证实**。
 ⇒ 结论：verdict 排序现在**可以**启用（等 b36 复核完 743d2dd 就做，免得动到它正在核的 `question_router` 输出）。
+
+---
+
+### 复核 b36（独立 verifier，2026-09-18）：A/B/C/F 成立，**D/E/G 各有一条真问题**
+
+对象 = `743d2dd`（R6c-3e/3f）。**A（published_date 各渠道落位）/B（ttzb 联网复核）/C（govcn 无消费者
+依赖 effective_date）/F（那条永真断言真的会红了）成立**；它自己联网核了 CECS 公告第 3071 号
+（发布 2026-06-12 / 施行 2026-12-01）与适配器输出一致。**抓到的三条**：
+
+1. ⚠⚠ **D（最高风险）：我只修了"预算 < 链长"，没修"异常挤占共享预算"**。
+   它实测：4 棒链上第 1 根抛 1 次异常 ⇒ `[2,1,1,0]`，**第 4 根从没被问过，却照样返回
+   `not_found/gray`** ——把"没问"当成"没有"。而我当时的注释写着"重试不该把后面的棒挤掉"，
+   **代码并没有做到**（注释比代码强，本仓反复出现的那类错，又犯了一次）。
+2. **E：`resolve_clause` 的"纯增量"不成立**（全角入参在那一对重复行上会命中**另一份文档**——
+   `GB／T 14308-2010` 与半角同胞行；全库仅此 1 个条款号）；**并指出还剩一处未折等值读**：
+   `ccs_fetcher.ccs_to_tag` 用折前的号查本地表 ⇒ 全角入参**静默丢 CCS 标签**。
+3. **G：我上一条汇报里两个数说错了**——①「发布」实际只升级了 **4** 条（`cssn`/`dbba`/`hbba`/`ndls`），
+   另 5 条**本来就是 supported**、我只追加了 note；②"b35 唯一漏声明"不准确：审计的
+   `declaration_gaps` 有 **6** 条，只是其中**建议补的只有 `flk_client` 那一条**。
+   并且它发现一个**新引入的不一致**：`flk_client` 的「编号核验」加进了 `answers`，
+   却**没有对应的 `answers_detail` 条目**（那条证据在 `declaration_gaps` 里）⇒ `class_outcomes._verdict` 返回 None。
+
+### R6c-3f（2026-09-18 完成）：按 b36 的 D/E/G 处置
+
+1. **预算与"没问完"的诚实**（D）：保留 `MAX_ATTEMPTS` 作为**每号**预算（≥ 链长），
+   **并且**：若预算被异常吃掉、**没能把每根可用棒都问到**，就**不下 `not_found` 结论**，
+   改记 **`failed`** 并如实写"预算 N 次耗尽，只问到 X/Y 根渠道（没问完就不下「查无此号」结论）"。
+   ⇒ 同时保住 **INS-A-05 的冻结口径**（单根链持续超时仍是"重试 3 次 → failed，且不降级"，
+   复核的 3 条 ANOM/INS 用例原样通过）；4 棒链无异常时仍每根都问到。
+   用例：`某根棒抛异常不挤掉后面的棒`（断言**不是 not_found**、且 `没问完` 出现在 error_msg 里）、
+   `全链都抛异常才算failed`。
+2. **`ccs_fetcher.ccs_to_tag` 折存储形**（E）——"写入侧折了、读侧不折"这种不对称不该留第二个。
+3. **补 `ch:flk_client` 的 `answers_detail["编号核验"]`**（G，verdict=partial，证据照抄 b35）。
+4. **`_impl_date` 与 `_pub_date` 政策对齐**（A-观察）：一格时**两个槽都留空**（发布/实施不可区分），
+   原始格留在 `raw["date_cells"]`。取舍写明：**漏填好过错填**（错填会被业主当成事实）。
+5. **去掉四处「发布顶实施」的回退**（A-观察）：`ndls._from_row`/`ndls._from_detail`、
+   `cssn`、`std_samr_hb`、`laws_db` 的 `effective_date` 不再回退到发布日期——发布日期现在有自己的槽。
+6. **文档更正**：上一条汇报里的"9 条升级"→**4 条**、"唯一漏声明"→"6 条 gap 中建议补 1 条"；
+   并修掉本文件 §1.1 里过期的"降级链 official_gb→web→govcn"与"MAX_ATTEMPTS :64"锚点。
+
+**仍未做（诚实边界）**：`resolve_clause` 在那一对重复行上的行为变化（E①）**只登记不改**——
+那两行是**同一部标准的两份文件**（回填时因撞 UNIQUE 故意保留），
+"全角入参命中哪一份"取决于历史数据，不是代码能单方面定的事；要处理得先有"重复行怎么归并"的口径。

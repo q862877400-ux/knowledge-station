@@ -233,7 +233,10 @@ class NdlsAdapter(ChannelAdapter):
             channel=self.name, found=True,
             change_type=derive_change_type(str(row.get("a100") or ""), version, legal),
             legal_status=legal, latest_version=version,
-            effective_date=impl or pub,
+            # ⚠ 实施槽**只放实施日期**（§11.0 R6c-3f，复核 b36 的 A-观察）：
+            #   原来写 `impl or pub`——实施缺失时把**发布日期**顶上，与 ttzb 那处错标同形。
+            #   发布日期现在有自己的槽（published_date），不必再来顶实施槽。
+            effective_date=impl,
             # 发布日期单独落槽（§11.0 R6c-3e）：a101 本来就被解析出来了，
             # 以前只有 effective_date 一个槽 ⇒ "发布"这一类拿不到它（复核 b35 的结论之一）。
             published_date=pub,
@@ -255,14 +258,15 @@ class NdlsAdapter(ChannelAdapter):
         wd = str(data.get("a206") or "").strip() or None    # 废止日期
         a100 = str(data.get("a100") or "").strip() or None
         version = self._newer_version(data, standard_no) or a100
-        # 废止标准以废止日期为关键日期；否则实施日期；再否则发布日期（确定性）
+        # 废止标准以废止日期为关键日期；否则实施日期；**都没有就不填**
+        # （§11.0 R6c-3f：不再拿发布日期顶实施槽——它有 published_date 自己的位置）
         eff: str | None
         if legal == "withdrawn" and wd:
             eff = wd
         elif impl:
             eff = impl
         else:
-            eff = pub
+            eff = None
         raw = {
             "http": http, "id": did, "status_text": a000,
             "issue_date": pub, "impl_date": impl, "withdrawn_date": wd,

@@ -81,7 +81,9 @@ class LawsDbAdapter(ChannelAdapter):
             found=True,
             change_type=change_type,
             legal_status=legal_status,
-            effective_date=str(best.get("sxrq") or best.get("gbrq") or "").strip() or None,
+            # 生效日期（sxrq）；**缺失就不填**（§11.0 R6c-3f，复核 b36 的 A-观察）：
+            # 不再拿 gbrq（公布日期）顶生效槽——公布日期现在落 published_date。
+            effective_date=str(best.get("sxrq") or "").strip() or None,
             # §11.0 R6c-3e：gbrq（公布日期）落发布槽。法规的"公布/生效"是两个日期，
             # 与标准的"发布/实施"同形——以前只有一个槽，公布日期被生效日期盖住。
             published_date=str(best.get("gbrq") or "").strip() or None,

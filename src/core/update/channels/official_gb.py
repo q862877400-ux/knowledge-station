@@ -46,11 +46,15 @@ def _impl_date(dates: list[str]) -> str | None:
     而 `dates[0]` 只在"发布==实施"的 2 个号上一致（其余 10 个差着几个月）。
     取第 2 格而不是"最后一个"：列**追加**比**重排**常见——将来若多出"废止日期"列，
     `[1]` 仍是实施日期，`[-1]` 就不是了。
-    只有一格时按"那就是唯一证据"取它（此时发布/实施不可区分，如实取用）。
+
+    ⚠ **只有一格时返回 `None`**（§11.0 R6c-3f，复核 b36 指出我与 `_pub_date` 政策相反）：
+    一格时发布/实施**不可区分**（`即将实施` 的号可能只有发布日期）。
+    取舍：**漏填比错填好**——错填会让 UI 把一个发布日期当实施日期显示而业主信它；
+    漏填只显示"—"。原始格仍保在 `raw["date_cells"]` 里，需要时可人工判。
     """
-    if not dates:
+    if len(dates) < 2:
         return None
-    return dates[1] if len(dates) >= 2 else dates[0]
+    return dates[1]
 
 
 def _pub_date(dates: list[str]) -> str | None:
@@ -115,6 +119,8 @@ class OfficialGbAdapter(ChannelAdapter):
                     "date": _impl_date(dates),
                     # 发布/实施两个槽各自落位（§11.0 R6c-3e）
                     "pub_date": _pub_date(dates),
+                    # 原始日期格留证（一格时两个槽都是 None，但原值在这里可查）
+                    "date_cells": list(dates),
                     "url": f"showInfo:{m_info.group(1)}" if m_info else None,
                 })
         elif isinstance(body, dict):

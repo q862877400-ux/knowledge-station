@@ -499,11 +499,17 @@ class TestOfficialGb实施日期:
 
         assert _impl_date(["2018-11-19", "2019-03-01"]) == "2019-03-01"
 
-    def test_只有一个日期格时用它(self):
-        """只有一格时发布/实施不可区分——如实取用，不编。"""
-        from src.core.update.channels.official_gb import _impl_date
+    def test_只有一个日期格时不猜(self):
+        """⚠ 一格时发布/实施**不可区分** ⇒ 两个槽都留空（§11.0 R6c-3f）。
 
-        assert _impl_date(["2019-03-01"]) == "2019-03-01"
+        原来 `_impl_date` 会把这唯一一格当实施日期（与 `_pub_date` 的政策相反，复核 b36 指出）。
+        取舍是**漏填好过错填**：错填会让 UI 把一个发布日期当实施日期显示，而业主会信它；
+        漏填只显示"—"。原始格留在 `raw["date_cells"]` 里，需要时人工判。
+        """
+        from src.core.update.channels.official_gb import _impl_date, _pub_date
+
+        assert _impl_date(["2019-03-01"]) is None
+        assert _pub_date(["2019-03-01"]) is None
 
     def test_没有日期格(self):
         from src.core.update.channels.official_gb import _impl_date
