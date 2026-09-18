@@ -63,6 +63,51 @@
       "url": "https://sousuo.www.gov.cn/sousuo/search.shtml?q=%E5%AE%89%E5%85%A8%E7%94%9F%E4%BA%A7",
       "expect": null,
       "evidence": "锚点**暂不定**：R1 的 G6 说本渠道适配器只解 mock dict ⇒ 恒 miss；探针只测站点是否活着（记 unknown/no_anchor_configured），换棒（ZUIXINZHENGCE.json）属 R5"
+    },
+    "seed:law-cn:司法部-国家行政法规库-xzfg": {
+      "url": "http://xzfg.moj.gov.cn/search2.html",
+      "expect": "国家行政法规库",
+      "evidence": "批次2 实测：HTTP 200、50410 字、`<title>国家行政法规库</title>`（R1 的 G19：比 flk 快约 7 天、带历史沿革）"
+    },
+    "seed:law-cn:应急管理部-法律法规": {
+      "url": "https://www.mem.gov.cn/fw/flfgbz/fg/index.shtml",
+      "expect": "法律法规",
+      "evidence": "批次2 实测：HTTP 200、69394 字、`<title>法律法规</title>` 且含『应急管理部』（EHS 主战场）"
+    },
+    "seed:law-cn:应急管理部-规章-法定主动公开": {
+      "url": "https://www.mem.gov.cn/gk/zfxxgkpt/fdzdgknr/gz11/",
+      "expect": "政府信息公开",
+      "evidence": "批次2 实测：HTTP 200、16275 字、`<title>政府信息公开</title>`"
+    },
+    "seed:law-cn:生态环境部-法规标准": {
+      "url": "https://www.mee.gov.cn/ywgz/fgbz/",
+      "expect": "法规标准",
+      "evidence": "批次2 实测：HTTP 200、68306 字、`<title>法规标准_中华人民共和国生态环境部</title>`；⚠ 这是 R1 的 G17 里那个**正确域名**（老域名 kjs.mee.gov.cn/hjbhbz/ SSL 握手失败）"
+    },
+    "ch:mem_gov": {
+      "url": "https://www.mem.gov.cn/fw/flfgbz/bz/bzgg/",
+      "expect": "标准公告",
+      "evidence": "批次2 实测：HTTP 200、26755 字，但 `<title>制度文件--中华人民共和国应急管理部</title>`、正文**不含**『标准公告』『bzgg』『AQ』（`var/tmp/verify-memgov.py` 复核过页面结构：列出来的是站点导航）⇒ 锚点**故意钉我们期望的内容**而不是现状，于是探针报 suspicious，人工一眼看出『这条 URL 今天不是标准公告列表了』。⚠ 栏目疑已搬迁，新 URL 待找（R5）"
+    },
+    "ch:mohurd": {
+      "url": "https://www.mohurd.gov.cn/gongkai/zc/wgk/",
+      "expect": "文告库",
+      "evidence": "批次2 实测：HTTP 200、仅 5098 字、`<title>文告库</title>`；⚠ 条目由 JS 注入（R1 的 G14 同类）⇒ 本探针只证明**外壳**活着，内容是否真出得来靠 R5 的适配器实测"
+    },
+    "ch:cssn": {
+      "url": "https://www.cssn.net.cn/api/standards/list?keyword=GB%2030871",
+      "expect": "standard",
+      "evidence": "批次2 实测：HTTP 200、28522 字、无 title、JSON 里含 `standard`/`code` ⇒ 钉字段名 `standard`（接口形状）"
+    },
+    "seed:law-cn:浙江省人大": {
+      "url": "https://www.zjrd.gov.cn/sylf/fggg/",
+      "expect": "法规公告",
+      "evidence": "批次2 实测：HTTP 200、76323 字、`<title>法规公告</title>`（R1：395 条数据内联在 HTML 里，四省中最易抓）"
+    },
+    "seed:law-cn:广东人大网": {
+      "url": "https://www.gdpc.gov.cn/bascdata/",
+      "expect": "广东省法规规章规范性文件数据库",
+      "evidence": "批次2 实测：HTTP 200、58313 字、`<title>广东省法规规章规范性文件数据库</title>`（R1：唯一自带『时效性』列的地方级库）"
     }
   }
 }
