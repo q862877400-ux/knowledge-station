@@ -1534,3 +1534,21 @@ unanswerable}`）——原意（每类各自记结论 + 可归属渠道）满足
 ⚠ **我自己的重复性错误（第三次犯，记在这里免得第四次）**：写探针时又在**双引号 CJK 字符串里放了
 ASCII 双引号**（`print("\n===== 每号"要问几根"分布 =====")`），直接语法错。
 这个错在本仓已经有过记录，我仍然犯了三次 ⇒ 规矩改成：**中文字符串里一律用「」**，不用 ASCII 引号。
+
+---
+
+### R6c-3e（**计划**，紧接 R6c-3c 之后做）：给 `ChannelResult` 补 **`published_date`**
+
+R6c-3c 把 `official_gb` 的日期取对了（第 2 格=实施日期），但**第 1 格（发布日期）就被丢掉了**。
+而"五类"里的 **`发布`** 类今天**根本没有数据来源**：`ChannelResult` 只有 `effective_date` 一个日期字段
+⇒ 即使渠道解析出了发布日期，也没有地方放它。这直接限制 R6c-4 的"每类各记结论"
+（`发布` 只能记成"找到了，但没带发布日期"）。
+
+**计划**：给 `ChannelResult` 加可选字段 `published_date`，并在**确实解析了它**的适配器里填上：
+`official_gb`（HTML 第 1 格）、`ndls`（a101）、`cssn`（a101）、`std_samr_hb`（`ISSUE_DATE`）、
+`laws_db`（`gbrq`=公布日期）、`ttzb`（`datePublished`）。
+⚠ 最后这根正是 b33/我登记的那处**同类可疑**（`ttzb` 把 `datePublished` 塞进 `effective_date`）：
+有了 `published_date` 之后，它应当改成 **`published_date=datePublished`**、
+`effective_date` 只在真有实施日期时才填——**顺手把那处可疑一并收掉**。
+**待 b34 回来**：它正在核其余适配器（`ttzb`/`govcn_announce`/`laws_db`/`web_fallback`/`mem_gov`/`mohurd`/
+`docx_ingest`/`track_l`）有没有"发布/实施错标"，结论会直接决定这个字段要补几处、每处填哪个字段。
