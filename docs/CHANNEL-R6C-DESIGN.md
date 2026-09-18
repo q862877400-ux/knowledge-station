@@ -115,3 +115,38 @@
 | 五类各记一条事件 ⇒ 事件量 ×N | 库压力与面板噪声 | 先在一个号上量（一期只对 tier0 生效），量完再定批量口径 |
 | `answers_json` 是**调研期声明**，可能与实测不符 | 按它选链 = 信一份未复核的声明 | 生成映射时**带上探针 `state`**：`answers_json` 只是候选，`state != ok` 的候选降权并记原因 |
 | `answers_json` **只覆盖 68/131 条** | "按问题选链"对一半台账无效 | R6c 第一步就是补齐这份声明（见 §3.2 前置），补不齐的显式标"不参与五类" |
+
+### 3.2.1 实现计划（R6c-3，待开工；本轮只写计划）
+
+**目标**：把"这一号该问谁"变成可调用的一层，**先只读**（不改巡检行为），等用例与真机对照齐了再接线。
+
+**新模块** `src/core/update/channels/question_router.py`（纯函数优先，便于离线测）：
+
+```python
+def channels_for(classes: Iterable[str], standard_no: str = "", *,
+                 rows=None, only_ok: bool = True) -> dict[str, list[str]]:
+    """五类 → 候选渠道（按 routing 链的顺序排）。classes 缺省 = 五类全要。"""
+```
+规则（每条都要有用例）：
+1. **候选 = 能答这类（`channel_answers`）∩ 在链上（`routing.select_chain`）**；
+2. `only_ok=True` 时再滤掉**探针判死**（`state == "down"`）的渠道；
+3. **顺序**：链里的先后就是优先次序（前缀专用渠道天然排在兜底棒前面）；
+4. **答不出来要如实说**：某类候选为空 ⇒ 该类的结论是 `unanswerable`（**不是** `not_found`）；
+5. ⚠ **`tool` 类渠道永不出现在候选里**（它们的 `answers` 是空的，规则上就排除了）。
+
+**巡检侧怎么用**（下一步）：
+- 每个号先问 `channels_for(需要哪几类, no)`；对**每一类**沿候选链试，**每类各自记一条事件**
+  （复用现有 `update_change_event`，`source_channel` 记"这条结论是谁给的"）；
+- 某类所有候选都失败/为空 ⇒ 写 `unanswerable` 类结论，**不写 `not_found`**；
+- 终态恒等式加一条**附加条件**：有 `unanswerable` 的号**不算 done**（与"红黄绿灰=total"并列，不替代）。
+
+**验收用例（先离线，再一条真机）**：
+1. `channels_for(["废止"], "GB 18218-2018")` 返回非空、且**不含**任何 `tool:`；
+2. 把某候选渠道在台账里设 `state="down"` ⇒ 它从候选里消失（`only_ok=True` 生效），
+   但 `answers` 声明**不受影响**（两根轴分开）；
+3. 构造"某类没有任何渠道能答" ⇒ 返回空列表（调用方据此写 `unanswerable`）；
+4. 某类的候选顺序 = 该号 `select_chain` 的顺序（前缀专用在前）；
+5. **真机**：对 3 个真实号打印"五类各由谁答"，与 `answers-matrix.py` 的输出逐条对得上。
+
+**明确不做**：不改 `inspector` 的选链（那是 R6c-4，且要先看过 R6c-2a 的快照差异）；
+不新增表/列；不引入新依赖。
