@@ -1,8 +1,8 @@
 # 渠道台账状态快照（自动生成，勿手改）
 
-- 生成时间：2026-09-18 18:10:19（本地） · 数据来源：`C:\Users\Zegel\AppData\Roaming\KnowledgeStation\database\knowledge.db` 的 `update_channel` 表
+- 生成时间：2026-09-18 18:19:00（本地） · 数据来源：`C:\Users\Zegel\AppData\Roaming\KnowledgeStation\database\knowledge.db` 的 `update_channel` 表
 - 台账 **131** 条 · 启用 129 条 · **能干活（wired）7** 条 · 已知失效 **0** 条 · 仅登记 113 条
-- 已实测：🟢 77 / 🟡 11 / 🔴 14 / ⚪ 未探 29
+- 已实测：🟢 78 / 🟡 11 / 🔴 13 / ⚪ 未探 29
 
 > ⚠ 两个数字**必须分开读**：`台账条数` 是「我们知道多少渠道」，`能干活条数` 才是「今天真的能用几条」。R1 的实测教训（G5/G6）：13 个适配器只有 8 个在链上，而在链上的 `web`/`govcn` 两根兜底棒在真实 HTML 下恒 miss。
 
@@ -99,12 +99,12 @@
 | 交通运输标准化信息系统 | 🟢 可抓 | 2026-09-18 10:07:29 | 有 | https://jtst.mot.gov.cn/search/std?q= |
 | 住房和城乡建设部标准公告 | 🟢 可抓 | 2026-09-18 10:07:29 | 有 | https://www.mohurd.gov.cn/gongkai/fdzdgknr/bzgg/index.html |
 | 国家能源局公告 | 🟢 可抓 | 2026-09-18 10:07:29 | 有 | https://www.nea.gov.cn/policy/gg.htm |
+| 国家食品安全风险评估中心 | 🟢 可抓 | 2026-09-18 10:18:30 | 有 | https://www.cfsa.net.cn/ |
 | 工程建设标准化信息网 | 🟢 可抓 | 2026-09-18 10:07:30 | 有 | https://www.ccsn.org.cn/News/More.aspx?ClassID=004001 |
 | 标准网(中机生产力促进中心) | 🟢 可抓 | 2026-09-18 10:07:30 | 有 | http://www.bzw.com.cn/ |
 | 生态环境部标准 | 🟢 可抓 | 2026-09-18 10:07:30 | 有 | https://www.mee.gov.cn/ywgz/fgbz/bz/bzfb/ |
 | 行业标准信息公共服务平台 | 🟢 可抓 | 2026-09-18 10:07:31 | 有 | https://hbba.sacinfo.org.cn/stdList |
 | 中国标准服务网(ccsainfo) | 🔴 不可抓 | — | 有 | http://www.ccsainfo.com/ |
-| 国家食品安全风险评估中心 | 🔴 不可抓 | — | 有 | https://www.cfsa.net.cn/ |
 | 工信部标准信息服务平台 | 🟡 可疑 | — | 有 | https://std.miit.gov.cn/ |
 | 应急管理部标准 | 🟡 可疑 | — | 有 | https://www.mem.gov.cn/fw/flfgbz/bz/ |
 | 金融标准化技术委员会 | 🔴 不可抓 | — | 有 | http://www.cfstc.org/ |
