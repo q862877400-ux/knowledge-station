@@ -37,12 +37,20 @@ def split_std(std: str) -> tuple[str, str]:
 
     标准号是**两段**（前缀 + 数字年份），只取第一段会得到 'GB'（我第一版就这么错了）。
     前缀族含全角斜杠 `／`（语料命名如此）。
+
+    ⚠ **2026-09-18 补（独立复核 b32 抓到的真 bug）**：head 里**漏了 `GBZ／T`/`GBZ/T`**，
+    于是 `GBZ／T 160.33-2004 工作场所…` 落到下面的兜底分支、`std_no` 被压成**裸 `GBZ／T`**
+    ——真库里现存那一行 `standard_no='GBZ/T'`（name `160.27-2004 工作场所空气有毒物质测定硼…`）
+    就是这个漏法的指纹：它**已经往生产库写过脏号**。所以这里把 GBZ／T 补进 head，
+    并且**输出一律过存储形收口**（`store_standard_no`：全角 `／`→半角），
+    让"manifest 带全角"这件事到不了库里。
     """
+    from src.core.text_utils import store_standard_no  # noqa: PLC0415
     toks = std.split(" ")
-    head = ("GB", "GB／T", "GB/T", "GB／Z", "GB/Z", "GBZ", "GBT")
+    head = ("GB", "GB／T", "GB/T", "GB／Z", "GB/Z", "GBZ", "GBZ／T", "GBZ/T", "GBT")
     if len(toks) >= 2 and toks[0] in head:
-        return f"{toks[0]} {toks[1]}", " ".join(toks[2:]) or toks[1]
-    return toks[0], " ".join(toks[1:]) or toks[0]
+        return store_standard_no(f"{toks[0]} {toks[1]}"), " ".join(toks[2:]) or toks[1]
+    return store_standard_no(toks[0]), " ".join(toks[1:]) or toks[0]
 
 
 def main() -> int:

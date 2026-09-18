@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import logging
 import sqlite3
 from typing import Any, Iterable, Literal
 
@@ -13,6 +14,9 @@ from src.core.retrieval import embedder
 from src.core.storage.sqlite_db import (
     get_db_connection, load_vec_extension, write_transaction,
 )
+from src.core.text_utils import store_standard_no
+
+log = logging.getLogger(__name__)
 
 
 def make_clause_key(doc_id: str, normalized_clause_no: str) -> str:
@@ -21,6 +25,38 @@ def make_clause_key(doc_id: str, normalized_clause_no: str) -> str:
 
 def content_hash(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+#: 落库前要折"存储形"的列（§11.0 R6c-2d）。`standard_name` 也在内：复核在真库见过
+#: 2 行全角 `standard_name`（来源不是 `clean_standard_name`，那条路已经折过）。
+_STORE_FORM_COLUMNS = ("standard_no", "short_code", "standard_name")
+
+#: 写 `doc_meta` 那三列的**全部入口**（不变量：每个入口都必须过 `store_standard_no`）。
+#: 规则的所有者是 `text_utils.store_standard_no`，这里是**入口清单**——复核 b32 就是靠逐个点名
+#: 找到漏口的，所以把清单写下来，让下一个人能逐条核：
+#:   1. `storage/clause_repo.insert_document`（**收口**：pipeline / docx_ingest / law_text /
+#:      track_l / write_queue_bootstrap 全走这里）
+#:   2. `ingestion/bulk.py`（裸 INSERT，不经收口）
+#:   3. `knowledge/auto_tag.apply_tags_to_doc_meta`（UPDATE standard_no）
+#:   4. `scripts/normalize-standard-no-slash.py`（**离线回填**，自己带"只换形状"的保证与清单）
+
+
+def _store_form_doc(doc: dict[str, Any]) -> dict[str, Any]:
+    """折 doc_meta 里那几列的存储形；**返回新 dict，不改调用方的**（调用方常复用同一个 dict）。
+
+    列缺失/值不是字符串时原样放过——本函数只管"形状"，不替调用方补字段。
+    """
+    fixed = dict(doc)
+    for col in _STORE_FORM_COLUMNS:
+        raw = fixed.get(col)
+        if not isinstance(raw, str):
+            continue
+        new = store_standard_no(raw)
+        if new != raw:
+            log.warning("doc_meta.%s 存储形折叠: %r -> %r（doc_id=%s）",
+                        col, raw, new, fixed.get("doc_id"))
+            fixed[col] = new
+    return fixed
 
 
 def ensure_law_source_columns() -> None:
@@ -163,6 +199,20 @@ def _seg(text: str) -> str:
 
 
 def insert_document(conn: sqlite3.Connection, doc: dict[str, Any]) -> None:
+    """写入 doc_meta 一行。
+
+    ⚠ **这里是标准号"存储形"的唯一收口**（§11.0 R6c-2d，独立复核 b32 证伪"入库侧已干净"之后补）：
+    复核实测监听文件夹那条路（`write_queue_bootstrap._ingest_doc`）会把
+    `GB／T 10058-2023 电梯技术条件(1)` **原样**写进 `standard_no` 与 `short_code`——
+    也就是说"存量回填干净了"不等于"不会再长回来"。收口放在**这里**而不是各调用方，因为
+    `short_code` 是从 `standard_no` **派生**的（`pipeline:2169`/`docx_ingest:66`/`track_l:306`），
+    逐个调用方去折必然漏一个；而所有入库路径最终都走本函数（复核逐个点过名）。
+
+    折叠是 **1:1 换形状**（`／`→`/`、`－`→`-`），不动空格/大小写/年份 ⇒
+    "是不是同一部标准"的判断（`norm_no`）不变。**改了值会记 warning**（点名原值），
+    免得以后哪条新路径又漏进来时只剩静默。
+    """
+    doc = _store_form_doc(doc)
     conn.execute(
         """INSERT INTO doc_meta (doc_id, standard_no, standard_name, short_code,
            current_revision_id, legal_status, legal_hierarchy, standard_type, doc_type,

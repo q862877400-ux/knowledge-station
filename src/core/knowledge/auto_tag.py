@@ -90,7 +90,10 @@ def apply_tags_to_doc_meta(doc_id: str, tags: AutoTags) -> None:
     sets = []
     params = []
     if tags.standard_no:
-        sets.append("standard_no=?"); params.append(tags.standard_no)
+        # 存储形收口（§11.0 R6c-2d）：本处是 **UPDATE** 路径，走不到 `clause_repo.insert_document`，
+        # 所以单独过同一个 helper。`_STD_NO_RE` 今天产不出全角，这一行是防"以后谁改了正则"。
+        from src.core.text_utils import store_standard_no
+        sets.append("standard_no=?"); params.append(store_standard_no(tags.standard_no))
     if tags.effective_from:
         sets.append("effective_from=?"); params.append(tags.effective_from)
     if tags.superseded:

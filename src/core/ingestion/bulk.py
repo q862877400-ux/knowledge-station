@@ -27,6 +27,7 @@ from ulid import ULID
 import fitz  # PyMuPDF
 
 from src.core.storage.sqlite_db import get_db_connection, write_transaction
+from src.core.text_utils import store_standard_no
 
 # ---------------------------------------------------------------- 常量（pipeline/06 §2）
 DEFAULT_BATCH_SIZE = 200          # bulk.batch_size
@@ -191,6 +192,11 @@ def _process_pdf(pdf: Path, known: set[tuple[int, str]],
             pass
         return {"error": {"path": str(pdf), "reason": "unparseable_first_page"}}
     doc_id = f"doc_{ULID()}"
+    # 存储形收口（§11.0 R6c-2d）：`no` 今天是 `_NO_RE`（字符类 `[/\s]`）抽出来的、**产不出全角**，
+    # 但"今天产不出"不等于"以后产不出"——凡是写 doc_meta 的 standard_no/short_code/standard_name
+    # 的入口都过同一个 `store_standard_no`（规则一个所有者，入口逐个点名）。`short_code` 由**折过的** no 派生。
+    no = store_standard_no(no)
+    name = store_standard_no(name or no)
     try:
         with write_transaction() as txn:
             txn.execute(

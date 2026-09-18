@@ -52,7 +52,15 @@ def get_db_connection(db_path: Path | None = None) -> sqlite3.Connection:
 
 @contextmanager
 def write_transaction(db_path: Path | None = None) -> Iterator[sqlite3.Connection]:
-    """短事务上下文：由单写者队列调用，普通代码不应直接绕过队列写库。"""
+    """短事务上下文：由单写者队列调用，普通代码不应直接绕过队列写库。
+
+    ⚠ **`except BaseException`，不是 `Exception`**（2026-09-18，独立复核 b32 的 4.5 实测）：
+    `KeyboardInterrupt` **不是** `Exception` 的子类，所以写成 `except Exception` 时
+    Ctrl-C 打在事务中间**不会回滚**——事务留在连接上，随后的"写后核对"读的是**未提交状态**，
+    可能打印/落盘一份"从未真正入库的成功"，而真正的落库与否要等连接关闭才见分晓。
+    数据本身不会半写（连接关闭时 SQLite 会回滚），但**诊断会撒谎**，而"以为写成功了"是更贵的错。
+    改成 `BaseException` 后：中断 → 回滚 → 原样抛出（对 `Exception` 那条路的语义一字未变）。
+    """
     conn = get_db_connection(db_path)
     if conn.in_transaction:  # 清理遗留的隐式事务，保证 BEGIN IMMEDIATE 可执行
         conn.commit()
@@ -60,7 +68,7 @@ def write_transaction(db_path: Path | None = None) -> Iterator[sqlite3.Connectio
         conn.execute("BEGIN IMMEDIATE")
         yield conn
         conn.commit()
-    except Exception:
+    except BaseException:
         conn.rollback()
         raise
 

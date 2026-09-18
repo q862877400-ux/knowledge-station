@@ -1284,6 +1284,32 @@ def canon_standard_no(s: str | None) -> str:
     return re.sub(r"[\s/]+", "", s).upper()
 
 
+#: **存储形**的 1:1 折叠表（只折形状：不加空格、不去斜杠、不放大写、不动年份）
+_STORE_FOLD = {"\uff0f": "/", "\uff0d": "-"}
+
+
+def store_standard_no(value: str | None) -> str:
+    """标准号的**存储形**：把全角 `／`（U+FF0F）/`－`（U+FF0D）折成半角，**其余一字不动**。
+
+    ⚠ 这是"落库前"的口径，与另外三个**归一**不是一回事，别互相替代（§11.0 R6c-2c/2d 的教训）：
+    - `canon_standard_no` / `standard_no_key`：**比较键**——去空格去斜杠还大写，当存储值会毁掉展示；
+    - `channels.base.norm_no`（匹配）/ `query_no`（查询值）：采集侧口径，与本函数无关；
+    - `standard_no_key` 的 docstring 已明说它"**不是**存储格式"——存储形一直**没有主**，
+      于是全角 `／` 从多个入口漏进 `doc_meta`（独立复核 b32 实测：监听到
+      `GB／T 10058-2023 电梯技术条件(1).pdf` 会原样写入 `standard_no` 与 `short_code`）。
+    - 为什么折在**存储边界**而不是每个调用方：`short_code` 是从 `standard_no` **派生**的
+      （`pipeline.py:2169` / `docx_ingest.py:66` / `track_l.py:306`），
+      在调用方逐个折一定会漏；折在边界，派生跟着干净。
+
+    **1:1 替换**是刻意的：它保证 `norm_no(旧) == norm_no(新)`（语义不变，只是形状），
+    这样"折形状"永远不会改变"是不是同一部标准"的判断。
+    """
+    s = "" if value is None else str(value)
+    for fw, hw in _STORE_FOLD.items():
+        s = s.replace(fw, hw)
+    return s
+
+
 def _match_std(m: "re.Match[str]") -> str:
     """从页眉判据的匹配里重建标准号（前缀族 + 可选分册字母 + 号 + 年）。"""
     return canon_standard_no(

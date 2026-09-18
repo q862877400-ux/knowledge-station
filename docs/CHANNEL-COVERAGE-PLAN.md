@@ -1311,3 +1311,78 @@ dry-run 实测：**计划 11758 处**（standard_no 5878 + short_code 5878 + sta
    ⇒ **下一步 R6c-3b**（单独一步、单独复核）：把 `GB/T`/`GB/Z`/`GBZ` 补进前缀路由，
    并顺手修"**`select_chain` 是第 7 个读原始号的站点**"（`GB／T 14308-2010` 那条全角行今天匹配不上 GB 规则
    ——R6c-2b 统一了 6 个查询点，**漏了这条路由点**）。
+
+---
+
+### 复核 b32（独立 verifier，2026-09-18）：**它把我的"入库侧不用改"证伪了**（本轮最重要的一条）
+
+对象 = R6c-2c 已执行的存量回填 + 回填脚本。**声明 1/2/3 成立**（逐条独立复算：
+剩余全角 standard_no=1/short_code=1/standard_name=0、计划外不一致 0；11758 条 new 全部落库；
+指纹与 `db_after_checkpoint` 完全一致，并且它**自己复算了 WAL 机制**——commit 后主库字节不变、
+checkpoint 后才变 ⇒ 我那处自我更正成立；"映射造成的撞车恰好 1 处"复算一致）。
+**声明 4/6 部分成立、声明 5 不成立**：
+
+1. ⚠ **声明 5 被证伪（我错了）**：我写"没有活的派生路径产出全角 ⇒ 入库侧不需要改"。
+   它找到**两条活的**：
+   - `write_queue_bootstrap._ingest_doc`：`std = tags.standard_no or path.stem`，
+     `auto_tag("")` 对空串恒 None ⇒ **原始文件名 stem** 进 `standard_no`。
+     它在一次性库上**执行**得到 `stored standard_no='GB／T 10058-2023 电梯技术条件(1)'`；
+   - `var/ocr-loop/ingest_from_manifest.py`：manifest **8205/8484 条带全角**，
+     其中 **约 2322 条 PDF 尚未入库**；`split_std` 的前缀表漏了 `GBZ／T` ⇒ 号被压成裸 `GBZ／T`，
+     **真库现存那一行就是它的指纹**（它已经往生产库写过脏号）。
+   - 我的"日期论证"（09-18 之后 0 条新增）**不成立**：`created_at >= 2026-09-17` 的行数 = **0**，
+     即这两天**压根没入库**——"0 条新增"是没数据，不是没脏数据。
+2. **声明 4 的 4.4 有盲区，且它实测"制造了重复"**：判重用的 `existing` 是 **apply 前快照**，
+   对"两行归一到同一个**尚不存在**的目标"看不见。它用**真脚本**在一次性库上跑出
+   `计划4/跳过0` → 静默写入重复 `('GB/T33332003', 2)` 且报"写库完成 integrity ok"
+   （真库 `short_code` **只有非唯一索引**；`standard_no` 才有 UNIQUE，会整批 rollback）。
+3. 另外三条附带：**Ctrl-C 不回滚**（`KeyboardInterrupt` 不是 `Exception` ⇒ `write_transaction`
+   的 `except Exception` 不触发，事务留在连接上，"写后核对"读的是**未提交状态**，可能报假成功）；
+   `conn2.close()` 关掉了**线程局部共享连接**（同进程二次调用即 `ProgrammingError`）；
+   回填**不 bump `updated_at`、不写 `event_log`** ⇒ 动真库在应用审计轨迹里**零痕迹**；
+   还有"无 CAS/无 rowcount 校验"（计划与写入之间被并发改过会静默覆盖）。
+4. **声明 6**：4 条用例全绿，但**挡不住**上面那类事故（只造了"目标已存在"一种场景，
+   fixture 也没有 UNIQUE/索引差异）。
+
+### R6c-2d（2026-09-18 完成）：**入库侧收口** + 脚本加固（承接 b32 的两条证伪）
+
+- **存储形第一次有主**：新增 `text_utils.store_standard_no`（1:1 折 `／`→`/`、`－`→`-`；
+  **不动**空格/大小写/年份 ⇒ `norm_no(旧)==norm_no(新)`）。与三个已有"归一"的分工写进 docstring：
+  `canon_standard_no`/`standard_no_key` 是**比较键**（去空格去斜杠，**不是**存储格式）、
+  `norm_no`/`query_no` 是**采集侧口径**。
+- **收口落在写边界** `clause_repo.insert_document`（三个列都折）——因为 `short_code` 是从
+  `standard_no` **派生**的（`pipeline:2169`/`docx_ingest:66`/`track_l:306`），逐个调用方折必然漏。
+  另两个**裸写入口**（`bulk.py` 的 INSERT、`auto_tag.apply_tags_to_doc_meta` 的 UPDATE）过同一个 helper，
+  入口清单写在 `_STORE_FORM_COLUMNS` 旁（b32 正是靠逐个点名入口找到漏口的）。
+- **`write_transaction` 改 `except BaseException`**（中断→回滚→原样抛出）：这修的不只是我的脚本，
+  而是**每个写者**在 Ctrl-C 时的语义（原来会留下未回滚事务 + 假诊断）。
+- **回填脚本加固**（4.4/4.5/4.6）：判重加上"**本次计划内自撞**"（`planned` 表）+ 清单级断言
+  `(列,目标值)` 不重复；每条 UPDATE 带 **CAS + rowcount 校验**，任一条对不上就**整批回滚**；
+  不再 `conn2.close()`；写一条**汇总 `event_log`**（`standard_no_shape_fix`），
+  并**刻意不 bump `updated_at`**（那会让"内容被改过"的 UI 信号说谎）。
+- **加固后对真库 dry-run**：仍是 **计划 0 处、跳过 2 处**（与加固前一致 ⇒ 没改变真实数据的面貌）。
+- 用例：`tests/test_store_standard_no.py`（14 条）+ `tests/test_normalize_std_slash.py`（8 条，
+  补了 b32 点名的四类：计划内自撞 / 清单无重复目标 / 中断回滚 / 同进程二次调用）。
+
+### R6c-2e（2026-09-18 完成）：**修那一行坏号**（b32 的"指纹行"）
+
+`scripts/repair-missing-standard-no.py`（dry-run 默认；规则保守：号里没数字 → 从 `file_path`
+文件名推号，首段必须在前缀白名单、拼出的号必须像号；撞车即跳过）。真库 dry-run = **修 1 行、跳 2 行**，
+已 `--apply`：`'GBZ/T'` → **`'GBZ/T 160.27-2004'`**、`short_code` → `'GBZ/T160.272004'`、
+`standard_name` 去掉开头那段号 → `'工作场所空气有毒物质测定硼及其化合物'`；
+写后 `integrity_check=ok`、`updated_at` **未动**（刻意）、`event_log` 有该批次记录、
+清单 `var/backup/r6c2e-repair-missing-no-20260918-212634.json`（含逐列 old/new ⇒ 可精确回滚）。
+写后只读复核：号里没数字的行只剩那两条**法规**行（`个人信息保护法(测试)`/`中华人民共和国民法典`
+——它们的"号"本来就是法规名，**故意不动**）；含全角行仍是**故意留的 1+1**。
+库指纹：`5a775938a3d4…` → **`97f1dcb70e80…`**（size 不变、mtime `2026-09-18T21:26:45`）。
+
+### 诚实边界（本步**没有**做到的，别读成做到了）
+
+- **已执行的那次回填在应用 `event_log` 里仍然零痕迹**（只有 `var/backup/*.json` 与 git/文档）。
+  我没有补写"追溯审计行"：事后补的行容易被后人误读成"当时记了"，所以宁可在这里写明缺口。
+- **2322 条待入库的全角条目仍在**（`var/ocr-loop/evolve/ingest_manifest.json`）。
+  收口之后它们**进库时会变成半角**，但"要不要跑这个循环、什么时候跑"是业主的操作决定，我不替他跑。
+- ⚠ **行为变化（有意）**：折形状之后，"同一标准的第二份文件"会撞 `standard_no` 的 UNIQUE ⇒
+  **报错而非静默写第二行**（真库现存那对 `GB／T 14308-2010` / `GB/T 14308-2010` 就是这么来的）。
+  选"报错"是因为静默写第二行正是数据被污染的形态；但**跑 OCR 循环的人要知道这条**：
+  遇到同号不同文件时会看到异常，而不是多出一行。
