@@ -22,8 +22,17 @@
 >   `routing.fallback_chain()`（返回同一个 tuple 对象），`inspector._FALLBACK_CHAIN` 向它取。
 > - 第 1 条末尾的 `_FALLBACK = ("official_gb", "web", "govcn")` 也已过期：**`web` 已于 R5c
 >   从链上摘除**（实测只解 mock 的 dict、打的是 bing HTML ⇒ 真实网络恒 miss），
->   现在是 `_FALLBACK = ("official_gb", "govcn")`。
-> - 第 2、3 条今天仍然成立。
+>   现在是 `_FALLBACK = ("official_gb", "ndls", "govcn")`。
+> - 第 2、3 条今天仍然成立（第 2 条的"13 个渠道"当时是 13，现在 `ADAPTER_CLASSES` 有 12 键 + 容错注册，
+>   数字变化不影响它的结论：**链里没出现的渠道永远不会被 probe 调用**）。
+> 
+> ⚠ **2026-09-18 再更新（§11.0 R6c-3b）**：兜底链**又变了一次**——`ndls` 插到了 `govcn` 前面，
+> 现在是 **`official_gb → ndls → govcn`**。依据是**量出来的**：按前缀分层抽 10 个真库号，
+> `official_gb` 命中 4/10、**`govcn` 1/10**（唯一命中是**法规**行）、`ndls` 6/10，
+> 且 `govcn` 未命中时最慢（见过 7.1s，`ndls` 1.2s）。
+> ⇒ **本文件里所有写 `official_gb→web→govcn` 或 `official_gb→govcn` 的地方（如第 5 节汇总表 3
+> 的两行缺口描述），今天一律读作 `official_gb→ndls→govcn`**；那些行的**结论（缺专用适配器）
+> 仍然成立**，变的只是"兜底那两根是谁、谁在前"。
 
 1. **降级链不是写死在 inspector 里的**。`inspector.CHAIN`（`inspector.py:62`）是遗留常量；
    真正决定走哪些渠道的是 `inspector._probe_number` 里的 `select_chain(no)`
