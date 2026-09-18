@@ -2552,6 +2552,36 @@ export interface KsSlideDeck {
   counts?: KsReportCounts
 }
 
+/**
+ * **结论草稿**的返回（Phase D-5a，§10.96）。
+ *
+ * ⚠ 字段名与引擎**逐字一致**（snake_case）——`ksJson` 只透传、不做命名转换
+ * （同 `KsSlideDeck.slide_count` 的先例）。
+ * ⚠ `status` 恒为 `unapproved_draft` —— 那是**契约的一部分**，界面必须显示；
+ * 草稿**不落盘**（所以这里没有 `files`），是否采用由用户**逐次显式**决定。
+ */
+export interface KsResearchDraft {
+  status?: string
+  disclaimer?: string
+  /** 草稿正文（Markdown，含 `[[m:i]]`）——**未经批准**，界面要显眼标明。 */
+  draft_md?: string
+  /** 模型的推导段（草稿为空时看它，判断模型到底说了什么）。 */
+  derivation_md?: string
+  citations?: {
+    material_refs?: number[]
+    unknown?: number[]
+    not_load_bearing?: Array<{ index: number; group: string }>
+    unchecked_law_refs?: number[]
+  }
+  warnings?: string[]
+  counts?: KsReportCounts
+  notes?: string[]
+  /** 可承重的材料编号（产出物按它拼引用）。 */
+  usable_indices?: number[]
+  /** false = **一次模型都没调**（没有可承重材料）；界面要如实说，不能显示成"生成失败"。 */
+  llm_called?: boolean
+}
+
 /** 两个产出端点共用的入参（`limit` 是"按 research 问题检索几条材料"，不是页数）。 */
 interface KsReportInput {
   title?: string
@@ -2606,4 +2636,19 @@ export async function exportResearchSlides(
 ): Promise<KsSlideDeck> {
   return postReport<KsSlideDeck>('/ks/report/research/slides', projectId, input,
     '研究报告 PPT', signal)
+}
+
+/**
+ * POST /ks/report/research/draft — **起草一段结论（草稿）**（Phase D-5a，§10.96）。
+ *
+ * 系统基于**已批准材料**起一稿；`query` **必填**（起草必须先知道要回答什么）。
+ * 返回里的 `status` 恒为 `unapproved_draft`、`draft_md` 是**未经批准**的草稿
+ * —— 界面必须显眼标明，且**不得**自动写进结论框（要用户点一下）。
+ * `llm_called === false` 表示"没有可承重材料，一次模型都没调"，**不是**失败。
+ */
+export async function exportResearchDraft(
+  projectId: string, input: { query: string; limit?: number }, signal?: AbortSignal,
+): Promise<KsResearchDraft> {
+  return postReport<KsResearchDraft>('/ks/report/research/draft', projectId, input,
+    '结论草稿', signal)
 }

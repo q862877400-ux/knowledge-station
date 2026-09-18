@@ -9,6 +9,9 @@
   Markdown + HTML + **Word** 三形态落盘（同一份内容块），
   材料依据按承重能力分组、引用标记逐条校验、未批准材料如实列出（零新增依赖）。
 - POST /api/v1/report/research/slides **同内容的 PPT**（Phase D-2，§10.37）。
+- POST /api/v1/report/research/draft  **结论草稿**（Phase D-5a，§10.96）：基于**已批准材料**
+  起草一段结论（复用取证链已审计的提示词），返回 `unapproved_draft` 标记 + 引用逐条校验；
+  **不落盘、不进报告**——是否采用由用户逐次显式决定。
 
 校验语义：非法 window/color/top/l2 → 422（invalid_*）；E2 未知名路径 → 200 空集
 （L2/L3/L4 是展示串非稳定 ID，库内重分类后旧名自然为空，404 会让 UI 抖动）。
@@ -192,6 +195,47 @@ def register(app, json_error):
             return json_error(404, "materials_not_found", str(e))
         except RuntimeError as e:       # 缺 python-pptx 时给可操作的错误，不出空文件
             return json_error(500, "ppt_unavailable", str(e))
+        except KnowledgeStationError as e:
+            return json_error(500, getattr(e, "code", "internal_error"), str(e))
+        return {"code": 200, "status": "success", "data": data}
+
+    @app.post("/api/v1/report/research/draft")
+    def research_report_draft(payload: dict | None = None):
+        """**起草一段结论（草稿）**（Phase D-5a，§10.96）。
+
+        业主的原始要求是"经用户评审确认参考资料可用后再做分析/产出"，而"写结论"这一步一直是
+        **用户手写**（`conclusion_md`）。本端点起一稿，**不改**产出的口径：
+        草稿带 `status="unapproved_draft"`，采不采用由用户逐次显式决定。
+
+        Body：`{project_id, query, limit?}`——`query` **必填且非空**（草稿必须先知道要回答什么）。
+
+        三条与 `research_draft` 同源的纪律：
+        - **没有可承重材料 ⇒ 一次 LLM 都不调**（返回空草稿 + 警告，绝不靠常识硬写）；
+        - LLM 不可用 ⇒ 500 `llm_unavailable`（**不**降级成"凭常识作答"）；
+        - 草稿里的 `[[m:i]]` 用**报告同一个校验器**逐条核（引用了不存在 / 仅线索或不可用的
+          材料都进 `warnings`，草稿**原样保留**，不静默删改模型写的东西）。
+
+        ⚠ 必须 `def`：一次同步 LLM 调用（秒级到分钟级）。`/api/v1/report/` 已在
+        `HEAVY_PREFIXES` 里 ⇒ 它同时吃重活令牌（§10.82）。
+        """
+        body = payload or {}
+        project_id = body.get("project_id")
+        if not isinstance(project_id, str) or not project_id.strip():
+            return json_error(422, "materials_bad_request", "缺少 project_id")
+        query = body.get("query")
+        if not isinstance(query, str) or not query.strip():
+            return json_error(422, "materials_bad_request",
+                              "缺少 query（起草结论必须先有研究问题）")
+        try:
+            limit = max(1, min(int(body.get("limit") or 8), 50))
+        except (TypeError, ValueError):
+            return json_error(422, "materials_bad_request", "limit 必须是整数")
+        from src.core.exports import research_draft
+        try:
+            data = research_draft.draft_conclusion(
+                project_id.strip(), query=query.strip(), limit=limit)
+        except ValueError as e:
+            return json_error(404, "materials_not_found", str(e))
         except KnowledgeStationError as e:
             return json_error(500, getattr(e, "code", "internal_error"), str(e))
         return {"code": 200, "status": "success", "data": data}

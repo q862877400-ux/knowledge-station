@@ -154,6 +154,36 @@ const ALLOWED = ['project_id', 'title', 'query', 'conclusion_md', 'limit', 'dry_
     msg.includes('项目不存在'), msg)
 }
 
+/* ---------------------------------------- 5. 结论草稿（§10.96，客户端接线） */
+{
+  const DRAFT_ALLOWED = ['project_id', 'query', 'limit']
+  calls = []
+  nextResponse = envelope({ status: 'unapproved_draft', draft_md: '每晚不超过五百元 [[m:0]]。',
+    citations: { material_refs: [0] }, warnings: [], llm_called: true, usable_indices: [0] })
+  const out = await api.exportResearchDraft(PROJ, { query: '住宿标准', limit: 4 })
+  const [c] = calls
+  check('打到草稿路由（路径逐字）', c.url === '/ks/report/research/draft', c.url)
+  const dbody = JSON.parse(c.init.body)
+  check('草稿 body 只带 project_id/query/limit（**title/conclusion_md/dry_run 一个都不发**）',
+    Object.keys(dbody).every((k) => DRAFT_ALLOWED.includes(k))
+    && dbody.project_id === PROJ && dbody.query === '住宿标准' && dbody.limit === 4,
+    JSON.stringify(dbody))
+  check('`unapproved_draft` 与草稿正文带出（界面必须能看出**未经批准**）',
+    out.status === 'unapproved_draft' && String(out.draft_md).includes('[[m:0]]'),
+    JSON.stringify({ status: out.status, has_draft: Boolean(out.draft_md) }))
+  check('草稿**不落盘**：返回里没有 files（与报告/PPT 的关键区别）',
+    out.files === undefined, JSON.stringify(Object.keys(out)))
+
+  nextResponse = jsonRes({ error: { code: 'llm_unavailable',
+    message: '起草结论失败：调模型出错（未配置 Key）' } }, { status: 500, ok: false })
+  let dmsg = ''
+  try { await api.exportResearchDraft(PROJ, { query: 'Q' }) } catch (err) {
+    dmsg = String(err?.message ?? err)
+  }
+  check('LLM 不可用 ⇒ **抛**并带出可操作的错误（不假装起草成功）',
+    dmsg.includes('调模型出错'), dmsg)
+}
+
 await rm(tmp, { recursive: true, force: true })
 
 const failed = results.filter((r) => !r.ok)

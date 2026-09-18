@@ -18,6 +18,7 @@ import { createServer } from 'node:http'
 
 import {
   KS_REPORT_DOCS_PATH,
+  KS_REPORT_DRAFT_PATH,
   KS_REPORT_EFFECT_PATH,
   KS_REPORT_EXPORT_PATH,
   KS_REPORT_RESEARCH_PATH,
@@ -108,9 +109,10 @@ const lastEngine = () => seen[seen.length - 1]
 /* --------------------------- 1. 注册面 --------------------------- */
 
 {
-  check('注册了全部 5 条报告路由',
-    routes.size === 5 && [KS_REPORT_EFFECT_PATH, KS_REPORT_DOCS_PATH,
-      KS_REPORT_EXPORT_PATH, KS_REPORT_RESEARCH_PATH, KS_REPORT_SLIDES_PATH]
+  check('注册了全部 6 条报告路由',
+    routes.size === 6 && [KS_REPORT_EFFECT_PATH, KS_REPORT_DOCS_PATH,
+      KS_REPORT_EXPORT_PATH, KS_REPORT_RESEARCH_PATH, KS_REPORT_SLIDES_PATH,
+      KS_REPORT_DRAFT_PATH]
       .every((p) => routes.has(p)),
     `${routes.size} routes`)
   check('全部是 kind=exact（字面路径，不会被通配吃掉）',
@@ -283,6 +285,84 @@ const lastEngine = () => seen[seen.length - 1]
   })
   check('PPT 依赖缺失（引擎 500）→ 502 engine_error（不假装导出成功）',
     noDep.status === 502, String(noDep.status))
+}
+
+/* --------------------------- 6. 结论草稿（/research/draft，§10.96） --------------------------- */
+
+{
+  seen.length = 0
+  responder = () => ({
+    body: { code: 200, status: 'success',
+      data: { status: 'unapproved_draft', disclaimer: '未经用户批准…',
+        draft_md: '每晚不超过五百元 [[m:0]]。', derivation_md: 'd',
+        citations: { material_refs: [0], unknown: [], not_load_bearing: [],
+          unchecked_law_refs: [] },
+        warnings: [], counts: { approved: 1 }, notes: [], usable_indices: [0],
+        llm_called: true } },
+  })
+  const ok = await invoke(KS_REPORT_DRAFT_PATH, {
+    method: 'POST',
+    body: { project_id: ' prj_a ', query: ' 住宿标准 ', limit: 4, 未知键: 'x' },
+  })
+  check('POST /ks/report/research/draft 打到引擎正确路径',
+    lastEngine().method === 'POST'
+    && lastEngine().path === '/api/v1/report/research/draft',
+    `${lastEngine().method} ${lastEngine().path}`)
+  check('草稿路由：只转发 project_id/query/limit（**未知键与 title/conclusion_md 都不发**）',
+    lastEngine().sent.project_id === 'prj_a' && lastEngine().sent.query === '住宿标准'
+    && lastEngine().sent.limit === 4 && lastEngine().sent['未知键'] === undefined
+    && lastEngine().sent.title === undefined
+    && lastEngine().sent.conclusion_md === undefined,
+    JSON.stringify(lastEngine().sent))
+  check('`unapproved_draft` 与草稿正文原样带出（**契约**：界面必须能看出未批准）',
+    ok.status === 200 && ok.body.data.status === 'unapproved_draft'
+    && String(ok.body.data.draft_md).includes('[[m:0]]'),
+    JSON.stringify(ok.body.data ?? null))
+
+  seen.length = 0
+  const noPid = await invoke(KS_REPORT_DRAFT_PATH,
+    { method: 'POST', body: { query: 'Q' } })
+  check('草稿路由：缺 project_id → 400 且**不打扰引擎**',
+    noPid.status === 400 && seen.length === 0, `${noPid.status} engineCalls=${seen.length}`)
+
+  seen.length = 0
+  const noQuery = await invoke(KS_REPORT_DRAFT_PATH,
+    { method: 'POST', body: { project_id: 'prj_a' } })
+  check('草稿路由：缺 query → 400 且不打扰引擎（起草必须先有研究问题）',
+    noQuery.status === 400 && seen.length === 0, `${noQuery.status} engineCalls=${seen.length}`)
+
+  seen.length = 0
+  const blankQuery = await invoke(KS_REPORT_DRAFT_PATH,
+    { method: 'POST', body: { project_id: 'prj_a', query: '   ' } })
+  check('草稿路由：空白 query → 400 且不打扰引擎',
+    blankQuery.status === 400 && seen.length === 0,
+    `${blankQuery.status} engineCalls=${seen.length}`)
+
+  seen.length = 0
+  const getDraft = await invoke(KS_REPORT_DRAFT_PATH, {})
+  check('草稿路由：GET → 405（方法守卫）',
+    getDraft.status === 405 && seen.length === 0, String(getDraft.status))
+
+  // 引擎说"没有可承重材料"（200 + 空草稿 + llm_called=false）⇒ **原样透传**，不许翻成错误
+  responder = () => ({
+    body: { code: 200, status: 'success',
+      data: { status: 'unapproved_draft', draft_md: '', derivation_md: '',
+        warnings: ['没有起草'], llm_called: false, usable_indices: [] } },
+  })
+  const none = await invoke(KS_REPORT_DRAFT_PATH,
+    { method: 'POST', body: { project_id: 'prj_a', query: 'Q' } })
+  check('没有可承重材料：200 + llm_called=false 原样透传（**不是**失败）',
+    none.status === 200 && none.body.data.llm_called === false
+    && none.body.data.draft_md === '', JSON.stringify(none.body.data ?? null))
+
+  // LLM 不可用：引擎 500 llm_unavailable ⇒ 本层按 502 引擎错误转达（与缺 pptx 同款，不伪装成功）
+  responder = () => ({
+    http: 500, body: { code: 500, error: 'llm_unavailable', message: '未配置 Key' },
+  })
+  const noLlm = await invoke(KS_REPORT_DRAFT_PATH,
+    { method: 'POST', body: { project_id: 'prj_a', query: 'Q' } })
+  check('LLM 不可用（引擎 500）→ 502 engine_error（不假装起草成功）',
+    noLlm.status === 502, String(noLlm.status))
 }
 
 /* ------------------------------------------------------------------ */

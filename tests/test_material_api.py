@@ -618,6 +618,9 @@ class TestSlowEndpointsAreDeclaredSync:
         ("/api/v1/laws/check-updates", "POST"),
         ("/api/v1/laws/catalog/refresh", "POST"),
         ("/api/v1/laws/verify", "GET"),
+        # ---- §10.96 结论草稿：一次**同步** LLM 调用（秒级到分钟级）⇒ 必须 `def`。
+        # 它同时吃重活令牌（`/api/v1/report/` 已在 `HEAVY_PREFIXES` 里）。
+        ("/api/v1/report/research/draft", "POST"),
     ])
     def test_declared_sync(self, client, path, method):
         """这条路径上**这个 HTTP 方法**的端点必须是 `def`（线程池），不能是 `async def`。

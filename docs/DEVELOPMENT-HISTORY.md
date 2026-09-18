@@ -6126,6 +6126,88 @@ await anyio.to_thread.run_sync(warm_retrieval_stack)
    但这不影响"加载发生在循环里"这个结论（假替身正是为了把这一步**定值化**）。
 
 
+## §10.96 自动成文落地（D-5a）：结论**草稿**端点——零新提示词，且**更正了我上一节的形态取舍**
+
+**一句话**：§10.95 把"自动成文"立项了，业主答"按你的推荐继续"；本步按推荐做完 **D-5a**：
+`POST /api/v1/report/research/draft`（引擎）+ `/ks/report/research/draft`（主机白名单转发）+
+客户端 api 函数。草稿基于**已批准材料**、带 `unapproved_draft` 标记、引用逐条校验，
+**不落盘、不进报告**（是否采用由用户逐次显式决定）。
+
+### 1. ⚠ 先更正我自己：§10.95 的"形态 A 被否掉"是**读漏了**
+
+§10.95 §3 把"复用取证链"当作形态 A 并否掉，理由是"答案链引的是**法条** `[[c:i]]`，
+报告校验器核不了材料 —— 那样拼出来的结论每条引用都'本次无法核验'"。**这个理由不成立**：
+
+`ks_answer.answer(query, params={"material_project_id": pid})` **本来就有**材料范围那条路——
+① 取**已批准**材料（评审硬门同一条）、② 把材料**另起一节**渲染进提示词
+（`[[m:i]]` 编号由 `authority.render_evidence` 分配）、③ 在 `material_usage` 里回
+**`usable_indices`**，注释原文就写着"**产出物按它拼引用**"。我上一节只看了 `/ks/answer`
+的**法条**那一半就下了结论。
+
+⇒ 落到实现上的正确形态是 **形态 C：复用取证链的**提示词**，但只喂材料**：
+
+```python
+assembled = authority.assemble_evidence(project_id, query, limit=limit)
+if not authority.usable_hits(assembled):        # 没有可承重材料
+    return 空草稿 + "没有起草" + llm_called=False   # ⚠ **一次 LLM 都不调**
+materials_text = authority.render_evidence(assembled)
+messages = ka.build_messages(query, [], "default", materials_text)   # ← 既有提示词，零新增
+raw = ka._collect_stream(ka._stream_llm(messages))                   # ← 既有传输 + 既有测试缝
+draft = ka.parse_llm_answer(raw, 0, counts["total"])["conclusion"]
+citations, warnings = check_conclusion_citations(draft, assembled)   # ← 与报告同一个判据
+```
+
+**两处关键设计**（都不是"顺手"）：
+
+1. **一次检索、一次装配**：提示词里的 `[[m:i]]` 编号与校验用的编号**必须来自同一个
+   `assembled`**。若"先调链、再重新检索一遍来校验"，两次检索的命中顺序可能不同 ⇒ 编号漂移 ⇒
+   把**合法引用误判成"引用了不存在的材料"**。用例
+   `test_提示词里材料另起一节且编号与校验同一套` 钉住这条不变量。
+2. **把"引用判据 + 警告措辞"抽成唯一所有者**：`research_report.check_conclusion_citations()`
+   （从 `build_report_blocks` 里抽出来），报告与草稿**共用**。不抽的话，同一段文字会在两处
+   得到不同的警告——那是本项目一路在堵的分叉。
+
+### 2. 落地清单
+
+| 位置 | 内容 |
+|---|---|
+| `src/core/exports/research_draft.py`（新） | `draft_conclusion()`：装配 → 守卫 → 提示词 → LLM → 解析 → 引用校验；`DRAFT_STATUS`/`DRAFT_DISCLAIMER` |
+| `src/core/exports/research_report.py` | 抽出 `check_conclusion_citations()`（**唯一判据 + 唯一措辞**），`build_report_blocks` 改为调它 |
+| `src/core/api/routes_report.py` | `POST /report/research/draft`（**`def`** ⇒ 同步 LLM 调用走线程池 + 吃重活令牌）；422/404/500 与 `/report/research` 同款 |
+| `plugin/src/report.js` | `/ks/report/research/draft` 白名单转发（只认 `project_id`/`query`/`limit`；超时 120s） |
+| `plugin/client/api.ts` | `exportResearchDraft()` + `KsResearchDraft`（**snake_case 与引擎逐字一致**——`ksJson` 只透传不做命名转换） |
+| `tests/test_research_draft.py`（新） | 13 条：没材料不调模型 / 空输出不是成功 / 项目不存在 / LLM 不可用 / 正常路径 / 同源不变量 / 越界与"仅线索"引用 / 端点 422·404·200·500 |
+| 冒烟 | `smoke-report-routes` **33/33**（新增 8 条：路径、白名单、缺 query 不打扰引擎、405、`llm_called=false` 原样透传、500 不伪装）；`smoke-report-ui` **21/21**（新增 5 条） |
+| `tests/test_material_api.py` | `test_declared_sync` 表 +1 行（`/report/research/draft` 必须 `def`） |
+| 文档 | 本节 + `docs/AUTO-DRAFT-PLAN.md`（更正形态取舍、§4.1–§4.3 按实现重写、§8/§9 记"业主已答按推荐"）+ 方案 D-3b / D-5a / 账本第 42 条 |
+
+### 3. 证据
+
+- `pytest` **1835 passed / 3 skipped / 0 failed**（收集 **1838** = §10.95 的 1824 + 本步 13 条
+  新用例 + 1 个 `test_declared_sync` 参数）；
+- `mypy` **135 / 0**（⚠ 文件数从 134 涨到 135——本步新增 `research_draft.py`；
+  **不变量是"0 错误"**，不是那个数）；`tsc` **0**；
+- `smoke` **EXIT=0**（19 段，11 段打印 `== … PASS ==`；其中 `report-ui` **21/21**、
+  `report-routes` **33/33**）；`verify:commands` **22/22**；`verify-engine-uvicorn` **4/4**；
+- 相关文件合跑：`test_research_draft.py` + `test_research_report.py` + `test_answer_materials.py`
+  **84 passed**；`test_declared_sync` 表 **54** 行（新增 `/report/research/draft`）。
+
+⚠ **本步的快照标签是 `step-95-research-draft`**（标签号比章节号小 1，见 §10.85 §5）。
+
+### 4. 诚实边界
+
+1. **"草稿"不等于"正确"**：引用校验只证明"引用的材料真实且可承重"，**不**证明"这句话确实由
+   那条材料支持"（语义级核验需要逐句蕴含判定——不在本步）。
+2. **没有评测集**：本步的验收全是**结构性判据**（路径、标记、守卫、失败矩阵），
+   **不谈**草稿质量。
+3. **提示词注入风险登记在案**（§10.95 §5 那一行）：材料正文是外部文本、原样进提示词，
+   本步**没有**做内容隔离或注入检测。
+4. 默认**不带**法条链（`evidence=[]`）⇒ 提示词里"证据条款："一节是空的；这是决策点②的
+   推荐取法，要改就是一次 `build_messages` 的入参。
+5. **没有真机**：全部证据来自 `TestClient`/进程内 + 假 LLM（`_stream_llm` monkeypatch）。
+   真机上一次真实起草的**质量**必须由业主看过才算数。
+
+
 ## §10.95 自动成文（系统起草结论）**立项论证**——只出文档，不动代码
 
 **一句话**：方案 Phase D 末尾一直挂着"**自动成文**（由系统得出结论）未立项（触及答案链，P1）"。

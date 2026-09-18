@@ -168,6 +168,51 @@ def _check_citations(text: str, assembled: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def check_conclusion_citations(conclusion_md: str | None,
+                               assembled: dict[str, Any] | None,
+                               ) -> tuple[dict[str, Any], list[str]]:
+    """校验结论文本里的 `[[m:i]]` 并产出**同一套**警告文案（**判据与措辞的唯一所有者**）。
+
+    返回 `(citations, warnings)`：
+      - `citations`：`{material_refs, unknown, not_load_bearing, unchecked_law_refs}`；
+      - `warnings`：人话警告（"引用了不存在的编号" / "引用了仅线索或不可用的材料" /
+        "这次没有依据集，无法校验"）。
+
+    ## 为什么抽成函数（§10.96）
+    现在有**两个**调用方：报告（`build_report_blocks`）与**结论草稿**
+    （`exports/research_draft.py` / `POST /report/research/draft`）。
+    抽出来之前这段逻辑内联在报告里，草稿要么复刻一份（⇒ 同一段文字在两个地方给出不同警告，
+    最难查的一种分叉），要么不校验（⇒ 草稿的引用没人管）。**判据本体**仍然是
+    `_check_citations()`——本函数只负责"把结果翻译成同一套人话"。
+    """
+    citations: dict[str, Any] = {"material_refs": [], "unknown": [],
+                                 "not_load_bearing": [], "unchecked_law_refs": []}
+    warnings: list[str] = []
+    conclusion = str(conclusion_md or "").strip()
+    if not conclusion:
+        return citations, warnings
+    if assembled is not None:
+        citations = _check_citations(conclusion, assembled)
+        if citations["unknown"]:
+            warnings.append("结论引用了**本次依据里不存在**的材料编号："
+                            + "、".join(f"[[m:{i}]]" for i in citations["unknown"]))
+        for bad in citations["not_load_bearing"]:
+            warnings.append(f"结论引用了[[m:{bad['index']}]]，但它在 **{bad['group']}** 组"
+                            "（仅线索/不可用）——**不得**用它承重")
+    else:
+        still = sorted({int(x) for x in _RE_MATERIAL_REF.findall(conclusion)})
+        if still:
+            # ⚠ **结构化字段也要如实**（2026-09-17 复核 b7 的 LOW-3）：原来只往 warning 文案里
+            # 写了"有 N 个引用无法校验"，而 `citations["material_refs"]` 仍是空列表 ——
+            # 读结构化字段的消费者会得出"结论里没有材料引用"这个**相反的结论**。
+            citations["material_refs"] = still
+            citations["unchecked_law_refs"] = sorted(
+                {int(x) for x in _RE_CLAUSE_REF.findall(conclusion)})
+            warnings.append("这次没有给 `query`，所以**无法校验**结论里的 "
+                            f"{len(still)} 个 `[[m:i]]` 引用（没有依据集可比对）")
+    return citations, warnings
+
+
 def build_report_blocks(project_id: str, *, title: str | None = None,
                         query: str | None = None,
                         conclusion_md: str | None = None,
@@ -240,28 +285,11 @@ def build_report_blocks(project_id: str, *, title: str | None = None,
                         # 而"判据崩溃"是**我们自己的**失败，无论评审状态都该被看见，
                         # 所以这里把待评审/已拒绝的也算进来——**明写出来**，别让读者猜。
                         "含待评审/已拒绝的在内）" + _detail)
-    citations: dict[str, Any] = {"material_refs": [], "unknown": [],
-                                 "not_load_bearing": [], "unchecked_law_refs": []}
-    conclusion = str(conclusion_md or "").strip()
-    if conclusion and assembled is not None:
-        citations = _check_citations(conclusion, assembled)
-        if citations["unknown"]:
-            warnings.append("结论引用了**本次依据里不存在**的材料编号："
-                            + "、".join(f"[[m:{i}]]" for i in citations["unknown"]))
-        for bad in citations["not_load_bearing"]:
-            warnings.append(f"结论引用了[[m:{bad['index']}]]，但它在 **{bad['group']}** 组"
-                            "（仅线索/不可用）——**不得**用它承重")
-    elif conclusion:
-        still = sorted({int(x) for x in _RE_MATERIAL_REF.findall(conclusion)})
-        if still:
-            # ⚠ **结构化字段也要如实**（2026-09-17 复核 b7 的 LOW-3）：原来只往 warning 文案里
-            # 写了"有 N 个引用无法校验"，而 `citations["material_refs"]` 仍是空列表 ——
-            # 读结构化字段的消费者会得出"结论里没有材料引用"这个**相反的结论**。
-            citations["material_refs"] = still
-            citations["unchecked_law_refs"] = sorted(
-                {int(x) for x in _RE_CLAUSE_REF.findall(conclusion)})
-            warnings.append("这次没有给 `query`，所以**无法校验**结论里的 "
-                            f"{len(still)} 个 `[[m:i]]` 引用（没有依据集可比对）")
+    # §10.96：引用判据与措辞抽成**唯一所有者** `check_conclusion_citations()`
+    # （结论草稿 `research_draft` 用同一份——两处对同一段文字必须给出同样的警告）。
+    citations, _cite_warnings = check_conclusion_citations(conclusion_md, assembled)
+    warnings.extend(_cite_warnings)
+    conclusion = str(conclusion_md or "").strip()      # 文档块仍用它判"有没有结论一节"
 
     # ---- 组装成结构化文档（Markdown 与 HTML 从**同一份**渲染，不引 markdown 库）----
     doc: list[tuple[str, Any]] = []
