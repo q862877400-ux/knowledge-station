@@ -66,7 +66,7 @@
 | `update/scheduler.py` / `report.py` / `data_package.py` | 定时、报告、数据包 |
 | 前端 | 设置 → 每日巡检 / 公告发现 / 效力报告；`/api/v1/update/*` + 宿主 `plugin/src/{inspection,announce}.js` |
 
-### 1.5 缺口（本方案要补的三条 + 一条已发现）
+### 1.5 缺口（本方案要补的 + R1 拆解新发现的）
 
 - **G1 渠道台账只覆盖公告源**：13 个代码适配器对用户**不可见**（没有链接、没有有效性、没有上次成功）。
 - **G2 覆盖率未量化**：地标（31 省）、部委行标、团标、国际标准大多没有专用适配器；
@@ -74,6 +74,30 @@
 - **G3 五类监控没在同一体系里记账**：现行性/编号变化走 `inspector`（号码探测），
   发布/修订/废止公告走 `announce`（列表页），两边**互不知道对方的渠道是否活着**。
 - **G4（上一轮发现）**：`law_catalog`（29764 行）**没有任何 UI 入口**（grep 无引用）。
+
+以下为 R1 内部拆解（`docs/research/channels/internal-inventory.md`）新发现，**父代理已逐条读代码复核**：
+
+- **G5「13 个适配器」是虚数：5 个永不被探测**。`routing.select_chain`（`routing.py:20-31`）只路由 8 个；
+  `laws_db`/`mem_gov`/`std_samr_hb`/`mohurd`/`cssn` 虽在 `ADAPTER_CLASSES` 且被实例化
+  （`inspector.py:396-406`），但永不进链 ⇒ **覆盖率统计若按"注册了几个"算，会虚报**。
+- **G6 降级链的两根"兜底棒"在真实网络下恒 miss（= 死渠道）**。
+  `web_fallback.py:53-54` 与 `govcn_announce.py:61-62` **只有 `isinstance(body, dict)` 一条解析分支**
+  （mock 契约的形状），而它们实际请求的是 bing 搜索页
+  （`https://www.bing.com/search`）与 gov.cn 搜索页（`https://sousuo.www.gov.cn/sousuo/search.shtml`）
+  —— 真实响应是 **HTML 字符串** ⇒ `results=[]` ⇒ 直接 `_miss`。
+  ⇒ **`official_gb → web → govcn` 三棒链实际只有第一棒在工作**（父代理已独立读代码确认）。
+- **G7 巡检渠道没有任何"健康度"字段**：`update_change_event` 只有 `source_channel` + `evidence_url`
+  （`inspector.py:438-446`）⇒ 台账要的"有效性/上次成功查询"**必须新建**；现成模板只有
+  `announce.py` 的逐源 `status/reason` + `scan_state`。
+- **G8 证据链接不可直接采信**：`official_gb` 的 `evidence_url` 是 `showInfo:<hcno>` **伪协议**
+  （`official_gb.py:80`，只有 `scripts/std_status_check.py:84-88` 会转成真 URL）；`cssn` 证据 URL 疑似拼错
+  （`cssn.py:193`）；`govcn` 下载失败会写**空占位 PDF**（`govcn_announce.py:147-150`）。
+- **G9 人工体检与引擎巡检是两套渠道集**：`cssn` 是 `scripts/std_status_check.py:173` 的默认主渠道，
+  引擎巡检却一次都不用；且 `inspector.py:338-339` 的 docstring（"AQ→mem_gov、工程建标→mohurd"）
+  与 `routing.py:21,23`（两者都 → `ndls`）**自相矛盾** ⇒ 台账设计不能照抄 docstring。
+- **G10 反爬能力没接在引擎上**：`proxy_rotate.py` 全仓只被 `scripts/*` 引用；`cssn.py:111-112`
+  把验证码**吞成 miss**（F-11 半自动过点对 cssn 失效）；`ndls` 的 Jiasule 惩罚期（30min+ 全拦）
+  在巡检侧只能记 `failed`。
 
 ## §2 目标态（可验收的形状）
 
@@ -126,7 +150,8 @@
 | 轮 | 内容 | 交付物（磁盘） | 退出判据 |
 |---|---|---|---|
 | **R1**（进行中） | ①内部拆解：13 适配器 + `law_source/*` 的端点/参数/清洗/失败语义 → 覆盖清单；②外部核实：法规类渠道；③外部核实：标准类渠道（含 31 省地标）；④项目/Skill 代码级拆解 | `docs/research/channels/internal-inventory.md`、`law-cn.md`、`std-cn.md`、`oss-decomposition.md` | 四份文件齐；每渠道/项目都有 §3 格式记录；未核实的显式标注 |
-| **R2** | 台账**数据模型**：`channel` 表（或 app_config JSON，与公告源同源策略）+ 从 13 适配器 + 公告源**迁移/对齐**；只读 API | 迁移脚本 + `channel_repo.py` + 用例 | 库里能看到 13+ 条渠道记录；公告源不丢；`pytest` 只涨不跌 |
+| **R2** | 台账**数据模型**：`channel` 表（或 app_config JSON，与公告源同源策略）+ 从 13 适配器 + 公告源**迁移/对齐**；只读 API。⚠ **R1 已证明"注册数 ≠ 能力数"**（G5/G6）⇒ 台账必须有一个字段区分 `已接线/未接线/已知失效`，否则面板第一版就在虚报 | 迁移脚本 + `channel_repo.py` + 用例 | 库里能看到 13+ 条渠道记录且**每条带接线状态**；公告源不丢；`pytest` 只涨不跌 |
+| **R2.5**（R1 新增，**建议先于 R5**） | **修两根死兜底棒**：给 `web`/`govcn` 补真实 HTML 解析（或如实降级为"仅 mock 可用"并从覆盖率里剔除）；顺带把 G8 的伪协议证据链接归一 | 适配器改动 + 契约用例（喂真实 HTML 片段） | 用**真 HTML 响应**（离线 fixture）验证能解析出条目；否则状态标"失效"且不计入覆盖率 |
 | **R3** | **渠道健康探针**：探活（HTTP + 语义探针"抓到的页面里有没有预期的锚点"）、`last_success/last_error/consecutive_failures/latency` 落库；失败原因归类 | `channel_probe.py` + 用例 + 真机跑一次全渠道 | 至少 1 次真机全渠道探测结果落库；失败的有可操作原因 |
 | **R4** | **宿主路由 + 前端面板**：表格（链接/类别/有效性/上次成功/失败原因/备注）+「立即探测」+ 增删改 | `/ks/channels*` + `KsChannelsPanel.tsx` + smoke | 真机 CDP 截图：面板可见、能探测、能编辑 |
 | **R5** | **覆盖率扩展**：按 R1 结论补适配器（优先级：地标→行标→团标→国际）；把 `web_fallback` 的"猜到"与"渠道确认"分开记 | 新适配器 + 覆盖表更新 | 覆盖表上"已验证可用"的渠道数明显增加 |
@@ -164,6 +189,23 @@
   3. `std-cn.md` ← 标准类官方渠道（国标/行标/地标 31 省/团标/国际）
   4. `oss-decomposition.md` ← 开源项目与 Skill 的代码级拆解
 - **下一步**：收四份文件 → 生成 `registry.seed.json` → 进 R2（台账数据模型）。
+
+#### R1 收口进度
+| 束 | 文件 | 状态 | 一句话结论 |
+|---|---|---|---|
+| ①内部 | `internal-inventory.md`（809 行 / 18 项 JSON） | ✅ 已收 | **13 个适配器只有 8 个在链上；三棒降级链实际只有 official_gb 在工作** |
+| ②法规 | `law-cn.md` | ⏳ 进行中 | — |
+| ③标准 | `std-cn.md` | ⏳ 进行中 | — |
+| ④项目 | `oss-decomposition.md` | ⏳ 进行中 | — |
+
+**①内部束的结论（父代理已逐条读代码复核，见 §1.5 的 G5–G10）**：
+- 「13 适配器」是注册数不是能力数（G5）；`web`/`govcn` 两根兜底棒在真实 HTML 下恒 miss（G6，**我复核过**）；
+- 台账三列今天都不能直接采信（G7 无健康度字段 / G8 伪协议与空占位 PDF / G10 反爬没接在引擎上）；
+- 人工体检脚本与引擎巡检用的是**两套渠道集**，且 `inspector.py:338-339` 的 docstring 与 `routing.py` 自相矛盾（G9）。
+
+**⇒ 由 ① 得出的优先级修正（已写进 §4）**：新增 **R2.5「先修两根死兜底棒」**，排在 R5（扩覆盖）之前。
+理由（P1 准确性）：**在两条死渠道上做覆盖率统计 = 自己骗自己**；先让"现有渠道是真的",
+再去加新的。
 
 ## §7 待业主裁定
 
