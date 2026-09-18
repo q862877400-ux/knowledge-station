@@ -50,6 +50,23 @@ def answers_of(channel_id: str, table: dict[str, dict[str, Any]] | None = None) 
     return list(entry.get("answers") or [])
 
 
+def verdict_of(channel_id: str, cls: str,
+               table: dict[str, dict[str, Any]] | None = None) -> str | None:
+    """该渠道在该类上的**能力判定**：`"supported"` / `"partial"` / `None`（没有审计记录）。
+
+    证据来自 b35 的逐条代码审计（写在各条的 `answers_detail` 里）。**读它的唯一入口就是这里**——
+    别在别处直接翻 `answers_detail`（那会让"判定口径"有第二个所有者）。
+
+    ⚠ 语义提醒：`supported` 只表示"这个渠道**能**给出这一类要的东西"，
+    **不**表示它给的最全（例如 `official_gb` 对"废止"是 partial —— 只有状态串、没有废止日期）。
+    `None`（113 条种子渠道没有审计）**不参与排序**，既不因此排前也不排后。
+    """
+    entry = (table if table is not None else load_answers()).get(channel_id) or {}
+    detail = entry.get("answers_detail") or {}
+    v = (detail.get(cls) or {}).get("verdict")
+    return str(v) if v else None
+
+
 def channels_for(cls: str, *, table: dict[str, dict[str, Any]] | None = None,
                  rows: list[dict[str, Any]] | None = None,
                  only_ok: bool = False) -> list[str]:

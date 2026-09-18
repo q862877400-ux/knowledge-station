@@ -331,11 +331,17 @@ def judge_result(requested_no: str, result: ChannelResult) -> tuple[str, str]:
     return ("no_change", "green")
 
 
-def _probe_number(adapters: dict[str, ChannelAdapter], item: dict) -> ProbeOutcome:
+def _probe_number(adapters: dict[str, ChannelAdapter], item: dict,
+                  ledger_rows: list[dict] | None = None) -> ProbeOutcome:
     """工作线程入口：单号走降级链，只触网不触 DB，异常归一为 Outcome。
 
-    链按标准号特征由 routing.select_chain 生成（权威渠道前置，如 AQ→mem_gov、
-    工程建标→mohurd、团标→ttzb），其余泛查兜底。
+    链按标准号特征由 routing.select_chain 生成（权威渠道前置，如 AQ→ndls、
+    工程建标→ndls、团标→ttbz），其余泛查兜底。
+
+    `ledger_rows`：台账行（**由调用方一次读好传进来**，见 `run_batch`）——
+    "这一号该问谁"按五类算（`question_router`），而算它需要台账的 `state`。
+    把它做成参数而不是在这里查库，是为了**守住"本函数只触网"**这条既有纪律
+    （§11.0 R6c-4c）。传 `None` 时仍能跑，只是不记五类（保持与旧调用兼容）。
     """
     no = item["standard_no"]
     from src.core.update.channels.routing import select_chain
@@ -392,6 +398,9 @@ def _probe_number(adapters: dict[str, ChannelAdapter], item: dict) -> ProbeOutco
                         # 而"发布"这一类（五类之首）因此没有数据来源。
                         "published_date": result.published_date}
                 info = {k: v for k, v in info.items() if v is not None}
+                # §11.0 R6c-4c：**五类结论**记进同一条事件的 latest_info
+                # （不新增列、不写 ×5 条事件：理由见 channels/class_outcomes.py 与设计稿 §3.2.2）
+                info.update(_classes_info(no, f"ch:{channel}", result, ledger_rows))
                 return ProbeOutcome(
                     kind="judged", standard_no=no, doc_id=item.get("doc_id"),
                     standard_name=item.get("standard_name", ""),
@@ -405,7 +414,9 @@ def _probe_number(adapters: dict[str, ChannelAdapter], item: dict) -> ProbeOutco
         return ProbeOutcome(kind="judged", standard_no=no, doc_id=item.get("doc_id"),
                             standard_name=item.get("standard_name", ""),
                             change_type="not_found", legal_status=None,
-                            color="gray", source_channel=miss_channel, attempts=used)
+                            color="gray", source_channel=miss_channel, attempts=used,
+                            # 灰号也要能说清"五类各自为什么没答"（§11.0 R6c-4c）
+                            latest_info=_classes_info_for_miss(no, ledger_rows))
     # 到这里有两种情况，都是"没问完"：
     #   ① 预算被异常吃掉，后面的棒**从没被问过**（哪怕前面的棒给了"查无"）；
     #   ② 全程异常、没有任何一根给出确定性应答（INS-A-05 的 hard-fail）。
@@ -430,6 +441,41 @@ def _probe_number(adapters: dict[str, ChannelAdapter], item: dict) -> ProbeOutco
                         standard_name=item.get("standard_name", ""),
                         source_channel=_FALLBACK_CHAIN[-1], error_code=last_code or "UPD-1004",
                         error_msg=last_msg or "all channels exhausted", attempts=used)
+
+
+def _classes_info(no: str, channel_id: str, result: ChannelResult,
+                  ledger_rows: list[dict] | None) -> dict:
+    """五类结论 → 要并进 `latest_info` 的那几个键（§11.0 R6c-4c）。
+
+    ⚠ **这里不做任何 DB 访问**：台账行是调用方传进来的（见 `_probe_number` 的 docstring）。
+    ⚠ 台账没传 ⇒ 返回 `{}`（旧调用路径行为不变，不记五类），**不是**记一份假的"全没答"。
+    """
+    if ledger_rows is None:
+        return {}
+    from src.core.update.channels import class_outcomes
+    from src.core.update.channels import question_router as qr
+    report = qr.route_report(standard_no=no, rows=ledger_rows)
+    built = class_outcomes.build_classes(report, channel_id=channel_id, result=result)
+    out = {"classes": built["classes"]}
+    if built["unanswered"]:
+        out["classes_unanswered"] = built["unanswered"]
+    if built["unanswerable"]:
+        out["classes_unanswerable"] = built["unanswerable"]
+    return out
+
+
+def _classes_info_for_miss(no: str, ledger_rows: list[dict] | None) -> dict:
+    """整链都没命中（灰号）时的五类记录：说清"每一类为什么没答"（§11.0 R6c-4c）。"""
+    if ledger_rows is None:
+        return {}
+    from src.core.update.channels import class_outcomes
+    from src.core.update.channels import question_router as qr
+    built = class_outcomes.build_classes_for_miss(
+        qr.route_report(standard_no=no, rows=ledger_rows))
+    out = {"classes": built["classes"]}
+    if built["unanswerable"]:
+        out["classes_unanswerable"] = built["unanswerable"]
+    return out
 
 
 def _build_adapters(transport=None) -> dict[str, ChannelAdapter]:
@@ -676,6 +722,13 @@ def run_batch(batch_id: str, transport=None, max_workers: int = CONCURRENCY) -> 
     with _RUNS_LOCK:
         _RUNS[batch_id] = handle
     adapters = _build_adapters(transport)
+    # 台账行**一次读好**传给工作线程：`_probe_number` 要按五类算"这一号该问谁"，
+    # 而它自己只触网不触 DB（§11.0 R6c-4c）。读失败不该让整批判失败 ⇒ 降级为 None（不记五类）。
+    try:
+        from src.core.storage import channel_repo as _cr
+        ledger_rows: list[dict] | None = _cr.list_channels()
+    except Exception:  # noqa: BLE001
+        ledger_rows = None
     error_trail: list[dict] = [e for e in (ckpt.get("errors") or [])
                                if isinstance(e, dict)]
     upd_log(batch_id, "inspector", "INFO", "batch_running",
@@ -696,7 +749,8 @@ def run_batch(batch_id: str, transport=None, max_workers: int = CONCURRENCY) -> 
                     take = min(max_workers, budget_remaining())
                 chunk, queue = queue[:take], queue[take:]
                 futures: list[tuple[dict, Future]] = [
-                    (item, pool.submit(_probe_number, adapters, item)) for item in chunk]
+                    (item, pool.submit(_probe_number, adapters, item, ledger_rows))
+                    for item in chunk]
                 captcha_hits: list[ProbeOutcome] = []
                 for item, fut in futures:  # 按清单序收敛，保证断点顺序确定
                     out: ProbeOutcome = fut.result()

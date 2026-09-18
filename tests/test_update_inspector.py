@@ -766,6 +766,55 @@ def test_全链都抛异常才算failed(db):
     assert out.kind == "failed"
 
 
+def test_五类结论记进同一条事件(db, t):
+    """§11.0 R6c-4c：**五类结论记进那一条事件的 `latest_info`**（不新增列、不写 ×5 条）。
+
+    为什么不是"每类一条事件"：`update_change_event.change_type` 有 CHECK 约束（只 5 个值），
+    去重键是 `(doc_id, standard_no, change_type)` ⇒ 五类里同为 `no_change` 的会被压成一条、
+    类的信息静默丢失；`latest_info` 是免费文本，五类结论放这里既不撞约束也不 ×5 事件量
+    （设计与量测见 `docs/CHANNEL-R6C-DESIGN.md` §3.2.2）。
+    """
+    it = add_doc(db, "r6c4", 1)
+    no = it["standard_no"]
+    t.configure("official_gb", no, [r_eff(no)])
+    run_batch(create_inspect_batch(tier="tier0", items=mk_items(it))["batch_id"],
+              transport=t)
+    ev = change_events(db, no)[0]
+    info = json.loads(ev["latest_info_json"])
+    classes = info.get("classes")
+    assert classes is not None, info
+    assert set(classes) == {"发布", "修订", "废止", "现行性", "编号核验"}
+    # official_gb 命中并给了"现行" ⇒ 现行性与废止/修订都答得了（否定结论也是结论）
+    assert classes["现行性"]["status"] == "answered"
+    assert classes["现行性"]["conclusion"] == {"state": "effective"}
+    assert classes["废止"]["status"] == "answered"
+    assert classes["废止"]["channel"] == "ch:official_gb"
+    # b35 的判定如实带出（official_gb 的废止只有状态串、没有废止日期 ⇒ partial）
+    assert classes["废止"]["completeness"] == "partial"
+    # ⚠ mock 契约里**没有发布日期字段**（只有 `date`）⇒「发布」这一类它给不了东西：
+    # 记 `channel_gave_no_field` 并进 `unanswered`（**不是**"没答"被吞掉，也不是拿实施日期顶）。
+    assert classes["发布"]["status"] == "not_answered"
+    assert classes["发布"]["reason"] == "channel_gave_no_field"
+    assert info["classes_unanswered"] == ["发布"]
+
+
+def test_灰号的五类记录说清为什么没答(db, t):
+    """整链都没命中（灰）也要能回答"五类各自为什么没答"（§11.0 R6c-4c）。"""
+    it = add_doc(db, "r6c4b", 1)
+    no = it["standard_no"]
+    for ch in ("official_gb", "ndls", "govcn"):
+        t.configure(ch, no, [R_MISS])
+    run_batch(create_inspect_batch(tier="tier0", items=mk_items(it))["batch_id"],
+              transport=t)
+    ev = change_events(db, no)[0]
+    assert ev["change_type"] == "not_found"
+    classes = json.loads(ev["latest_info_json"]).get("classes")
+    assert classes is not None
+    # 灰号：五类都没答；链上**有**能答的棒 ⇒ 记 not_probed（"没问出来"），不是结构性缺口
+    assert all(v["status"] == "not_answered" for v in classes.values())
+    assert classes["废止"]["reason"] == "not_probed"
+
+
 def test_ins_d_05_all_channels_miss_gray(db, t):
     """/INS-D-05 三渠道查无 → gray，legal_status 保持 NULL，末渠道 govcn 兜底。"""
     it = add_doc(db, "d05", 1)

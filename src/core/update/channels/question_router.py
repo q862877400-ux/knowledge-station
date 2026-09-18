@@ -36,7 +36,7 @@ from __future__ import annotations
 from typing import Any, Iterable
 
 from src.core.update import channel_answers as ca
-from src.core.update.channels.routing import select_chain
+from src.core.update.channels.routing import first_route, select_chain
 
 #: 每类候选"为什么是空的"——词表封闭，日志/用例只许用这四个值
 REASONS: tuple[str, ...] = ("ok", "no_capability", "off_chain", "all_down")
@@ -105,6 +105,29 @@ def _states(rows: list[dict[str, Any]] | None) -> dict[str, Any]:
     return {str(r.get("channel_id")): r.get("state") for r in rows}
 
 
+def _order_by_ability(cands: list[str], cls: str,
+                      table: dict[str, dict[str, Any]] | None,
+                      keep_first: str | None = None) -> list[str]:
+    """同一类里把**能力判定为 `partial`** 的排到后面（组内保持链序）。
+
+    ⚠ **前缀专用渠道永远留在最前**（`keep_first`）：`mee` 对 HJ 号就是专门渠道，
+    而它的「发布」被判 `partial`（它给的是实施日期）；若按判定全局排序，
+    HJ 号的"发布"就会先去问 `official_gb`——**把专门渠道降级**，与路由设计相悖。
+    ⇒ 规则是"**专门渠道先，其余按能力排**"，不是"一律按能力排"。
+
+    为什么需要按能力排（§11.0 R6c-4c，**模拟过再启用**）：`废止` 类上 `official_gb` 只有状态串
+    （b35 判 `partial`）、`ndls` 有废止日期（`supported`）；对 `GB/T` 这种**没有前缀专门渠道**的号，
+    链序是 `official_gb` 在前 ⇒ 按类问会问到那根答不全的棒。
+    ⚠ 这一步**曾经会把 `发布` 类改坏**（`official_gb` 判 supported 却产出实施日期）——
+    那是**判定过期**造成的，不是排序本身错：R6c-3e 补了 `published_date` 并重评「发布」判定后，
+    重新模拟只剩 `废止` 那一类会翻（12 号 ×5 类 = 60 格里 8 格），才启用的。
+    后来者若改动判定表，**请先重跑 `var/tmp/r6c5-sim.py` 看会不会翻别的类**。
+    """
+    head = [keep_first] if keep_first and keep_first in cands else []
+    rest = [c for c in cands if c not in head]
+    return head + sorted(rest, key=lambda cid: 1 if ca.verdict_of(cid, cls, table) == "partial" else 0)
+
+
 def channels_for(classes: Iterable[str] | None = None, standard_no: str = "", *,
                   rows: list[dict[str, Any]] | None = None,
                   only_ok: bool = True,
@@ -127,6 +150,7 @@ def channels_for(classes: Iterable[str] | None = None, standard_no: str = "", *,
     cls_list = _norm_classes(classes)
     tbl = table if table is not None else ca.load_answers()
     chain_ids = _chain_ids(standard_no, chain)
+    first = _to_channel_id(first_route(standard_no)) if chain is None else None
     state = _states(rows) if only_ok else {}
     result: dict[str, list[str]] = {}
     for cls in cls_list:
@@ -138,7 +162,7 @@ def channels_for(classes: Iterable[str] | None = None, standard_no: str = "", *,
             if only_ok and state.get(cid, "unknown") == "down":
                 continue
             cands.append(cid)
-        result[cls] = cands
+        result[cls] = _order_by_ability(cands, cls, tbl, keep_first=first)
     return result
 
 
@@ -160,6 +184,7 @@ def route_report(classes: Iterable[str] | None = None, standard_no: str = "", *,
     cls_list = _norm_classes(classes)
     tbl = table if table is not None else ca.load_answers()
     chain_ids = _chain_ids(standard_no, chain)
+    first = _to_channel_id(first_route(standard_no)) if chain is None else None
     state = _states(rows) if only_ok else {}
     report: dict[str, dict[str, Any]] = {}
     for cls in cls_list:
@@ -170,6 +195,7 @@ def route_report(classes: Iterable[str] | None = None, standard_no: str = "", *,
                    if only_ok and state.get(cid, "unknown") == "down"]
         dropped_set = set(dropped)
         alive = [cid for cid in declared_on_chain if cid not in dropped_set]
+        alive = _order_by_ability(alive, cls, tbl, keep_first=first)
         if alive:
             reason = "ok"
         elif not declared:

@@ -22,7 +22,7 @@ import pytest
 from src.core.storage import channel_repo as cr
 from src.core.update import channel_answers as ca
 from src.core.update.channels import question_router as qr
-from src.core.update.channels.routing import select_chain
+from src.core.update.channels.routing import first_route, select_chain
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -166,17 +166,51 @@ class Test真机对照:
             assert not [cid for cid in ids if cid.startswith("tool:")], no
 
     def test_与独立复算逐条一致(self, table):
-        """独立复算：直接读 JSON + `select_chain`，**不用**本模块的 `_chain_ids`。"""
+        """独立复算：直接读 JSON + `select_chain` + `first_route`，**不用**本模块的内部函数。
+
+        ⚠ 规则自 §11.0 R6c-4c 起是"**专门渠道先，其余按能力判定排**（`partial` 靠后）"，
+        所以复算里也要体现这三步：① 能力∩链；② 前缀专门渠道置顶；③ 其余按 verdict 稳定排序。
+        写在这里是**独立实现**（不是调 `_order_by_ability`），否则这条用例就成了回声。
+        """
         raw = json.loads((ROOT / "src" / "core" / "update" / "channel_answers.json")
                          .read_text(encoding="utf-8"))["channels"]
         for no in self.NUMBERS:
             chain = [f"ch:{n}" for n in select_chain(no)]
+            head = f"ch:{first_route(no)}" if first_route(no) else None
             got = qr.channels_for(standard_no=no, table=table, only_ok=False)
             for cls in ca.CLASSES:
-                want = [cid for cid in chain if cls in (raw.get(cid, {}).get("answers") or [])]
+                cands = [cid for cid in chain if cls in (raw.get(cid, {}).get("answers") or [])]
+                front = [head] if head and head in cands else []
+                tail = [c for c in cands if c not in front]
+                want = front + sorted(
+                    tail, key=lambda c: 1 if (raw.get(c, {}).get("answers_detail", {})
+                                              .get(cls, {}).get("verdict") == "partial") else 0)
                 assert got[cls] == want, (no, cls)
                 # 能力表（answers-matrix 的输出）是**上限**：路由结果必须是它的子集
                 assert set(got[cls]) <= set(ca.channels_for(cls, table=table)), (no, cls)
+
+    def test_废止类会先问真拿得到废止日期的那根(self):
+        """§11.0 R6c-4c 的**全部收益**就在这一条上：`废止` 类把 `ndls` 排到 `official_gb` 之前。
+
+        b35 逐条核代码的结论：`official_gb` 的"废止"只有**状态串**（无废止日期，判 `partial`），
+        而 `ndls` 的废止日期是**一等字段**（判 `supported`）。对 `GB/T` 这种没有前缀专门渠道的号，
+        链序本来是 `official_gb` 在前 ⇒ 按类问会问到那根答不全的棒。
+        """
+        for no in ("GB/T 38496-2020", "GBZ 37-2024", "GB/T 1.1-2020"):
+            got = qr.channels_for(["废止"], no, only_ok=False)["废止"]
+            assert got[0] == "ch:ndls", (no, got)
+            assert got.index("ch:ndls") < got.index("ch:official_gb"), (no, got)
+
+    def test_前缀专门渠道不被能力排序降级(self):
+        """⚠ 我第一版按判定**全局**排序，结果 HJ 号的"发布"先去问 `official_gb`——**把专门渠道降级**。
+
+        `mee` 对 HJ 号是专门渠道；它对"发布"判 `partial`（列是实施时间），
+        但"专门渠道先"是路由设计的原则 ⇒ 规则必须是"**专门渠道先，其余按能力排**"。
+        """
+        got = qr.channels_for(["发布"], "HJ 819-2017", only_ok=False)["发布"]
+        assert got[0] == "ch:mee", got
+        # 而尾巴里仍然按能力排（official_gb 的发布是 supported，排在 ndls 前——两者都 supported，保持链序）
+        assert got[1:] == ["ch:official_gb", "ch:ndls", "ch:govcn"], got
 
     def test_已知缺口已被兜底链补掉_HJ不再一判死就丢两类(self, table):
         """**记录型用例：它按设计红过一次，这里是红过之后**有意**改成的样子。**

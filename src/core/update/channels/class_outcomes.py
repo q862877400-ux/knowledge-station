@@ -96,13 +96,11 @@ def _verdict(channel_id: str, cls: str,
              table: dict[str, dict[str, Any]] | None) -> str | None:
     """该渠道在该类上的能力判定（来自 b35 的逐条审计）；没有审计记录 ⇒ `None`。
 
-    ⚠ 目前**只用于记录**（写进 `completeness`），**不参与排序**——因为模拟发现
-    "按 verdict 排序"会把 `发布` 类改坏（`official_gb` 判 supported 但产出的是实施日期）。
+    ⚠ 目前**只用于记录**（写进 `completeness`）。**排序**上的用法在
+    `question_router`（它按同一判定把 `partial` 排到后面）——两者读的是**同一个入口**
+    `channel_answers.verdict_of`，别在这里再抄一份读取逻辑。
     """
-    entry = (table if table is not None else ca.load_answers()).get(channel_id) or {}
-    detail = entry.get("answers_detail") or {}
-    v = (detail.get(cls) or {}).get("verdict")
-    return str(v) if v else None
+    return ca.verdict_of(channel_id, cls, table)
 
 
 def build_classes(report: dict[str, dict[str, Any]], *,
