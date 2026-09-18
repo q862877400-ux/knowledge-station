@@ -122,23 +122,63 @@ class TestMinLinks:
     @pytest.mark.parametrize("target,pat", [
         ("https://e.com", "必须是对象"),                       # target 写成字符串
         ({"url": "/relative"}, "http"),                        # 没有可抓的绝对地址
+        ({"url": "http"}, "绝对地址"),                          # ⚠ 只有 scheme：过表会伪装成"渠道挂了"
+        ({"url": "httpfoo"}, "绝对地址"),
+        ({"url": "ftp://e.com"}, "绝对地址"),
+        ({"url": "https://"}, "绝对地址"),                      # 没有 netloc
         ({"url": "https://e.com", "method": "delete"}, "method"),
         ({"url": "https://e.com", "expect": ""}, "expect"),     # ⛔ 假绿：'' in body 恒真
         ({"url": "https://e.com", "expect": "   "}, "expect"),
         ({"url": "https://e.com", "expect": 123}, "expect"),
         ({"url": "https://e.com", "form": ["a"]}, "form"),
-        ({"url": "https://e.com", "json": "x"}, "json"),
+        ({"url": "https://e.com", "json": "x"}, "json"),        # 只允许对象/数组
         ({"url": "https://e.com", "headers": ["a"]}, "headers"),
+        # N3：headers 只校验"是对象"时，值为 list/dict 会过表 ⇒ 记成 down（配置错伪装成渠道挂）
+        ({"url": "https://e.com", "headers": {"X": ["a"]}}, "header 值"),
+        ({"url": "https://e.com", "headers": {"X": {"a": 1}}}, "header 值"),
+        ({"url": "https://e.com", "headers": {"X": 1}}, "header 值"),
+        ({"url": "https://e.com", "headers": {"X": "v\r\nInjected: 1"}}, "header 值"),
+        ({"url": "https://e.com", "headers": {"X\n": "v"}}, "header 名"),
+        ({"url": "https://e.com", "headers": {"A:B": "v"}}, "header 名"),
+        # 拼错的键：过去是**静默忽略**（比"拒 null"更值的一刀，b28-fix 的建议）
+        ({"url": "https://e.com", "expext": "x"}, "不认识的键"),
     ])
     def test_目标形状坏也在读表时抛(self, tmp_path, target, pat):
-        """独立复核 b28 的发现：原先只校验 `min_links` ⇒ 字符串 target **静默过表**，
-        随后 `probe_channel` 抛 AttributeError；`expect=123` 抛 TypeError
-        ⇒ "探针不抛异常"当时只对恰好写对的目标成立。这里把整形状钉住。
+        """独立复核 b28 / b28-fix 的发现：原先只校验 `min_links` ⇒ 字符串 target **静默过表**，
+        随后 `probe_channel` 抛 AttributeError；`expect=123` 抛 TypeError；
+        修完一轮又抓到"不抛但**误分类**"的三类（url 前缀判断 / headers 值不校验 / JSON 数组被误拒）。
+        这里把整形状钉住。
         """
         p = tmp_path / "t.json"
         p.write_text(json.dumps({"targets": {"c:x": target}}, ensure_ascii=False), encoding="utf-8")
         with pytest.raises(ValueError, match=pat):
             cp.load_targets(p)
+
+    def test_大写_scheme_的_url_不该被误拒(self, tmp_path):
+        """反向：`startswith("http")` 会把合法的 `HTTP://e.com` 误拒（b28-fix 的 N2）。"""
+        p = tmp_path / "t.json"
+        p.write_text('{"targets": {"c:x": {"url": "HTTP://e.com/a", "expect": "x"}}}',
+                     encoding="utf-8")
+        assert cp.load_targets(p)["c:x"]["url"] == "HTTP://e.com/a"
+
+    def test_JSON_顶层数组允许(self, tmp_path):
+        """`json` 只允许 dict 会把"发一个数组"误拒（b28-fix 的 N4）。"""
+        p = tmp_path / "t.json"
+        p.write_text('{"targets": {"c:x": {"url": "https://e.com", "method": "post", '
+                     '"json": [1, 2], "expect": "x"}}}', encoding="utf-8")
+        assert cp.load_targets(p)["c:x"]["json"] == [1, 2]
+
+    def test_响应体不可序列化也不抛(self):
+        """S1（b28-fix）：`json.dumps` 原先在 try 之外 ⇒ 怪响应体会从 probe_channel 逃出去，
+        把一个渠道的怪响应变成"整次体检没结果"。"""
+        class WeirdTransport:
+            def fetch(self, url, **kw):
+                return 200, {"a": {1, 2}}          # set 不可 JSON 序列化
+
+        out = cp.probe_channel("c:x", {"url": "https://e.com", "expect": "x"},
+                               transport=WeirdTransport())
+        assert (out["state"], out["error_code"]) == ("down", "bad_body")
+        assert out["http"] == 200
 
     def test_空_expect_若绕过校验就是假绿(self):
         """把"为什么必须在读表时拒"钉成可执行的证据：空串锚点判恒真。"""

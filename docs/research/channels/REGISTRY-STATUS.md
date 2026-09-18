@@ -1,6 +1,6 @@
 # 渠道台账状态快照（自动生成，勿手改）
 
-- 生成时间：2026-09-18 18:19:00（本地） · 数据来源：`C:\Users\Zegel\AppData\Roaming\KnowledgeStation\database\knowledge.db` 的 `update_channel` 表
+- 生成时间：2026-09-18 18:45:49（本地） · 数据来源：`C:\Users\Zegel\AppData\Roaming\KnowledgeStation\database\knowledge.db` 的 `update_channel` 表
 - 台账 **131** 条 · 启用 129 条 · **能干活（wired）7** 条 · 已知失效 **0** 条 · 仅登记 113 条
 - 已实测：🟢 78 / 🟡 11 / 🔴 13 / ⚪ 未探 29
 
@@ -184,12 +184,13 @@
 | standards-version-check | ⚪ 未探 | — | — | https://github.com/cuipointer/ageis (skill at .claude/skills/stand |
 | urlwatch | ⚪ 未探 | — | — | https://github.com/thp/urlwatch |
 
-## 四、还没实测的渠道（⚠ 两种处境**必须分开读**）
+## 四、还没实测的渠道（⚠ 三种处境**必须分开读**）
 
 - **已配探针、还没探过**：0 条 —— 这是「欠账」，下一轮就该探完；
+- **只探到连通性**：0 条 —— 渠道**回 200 了**，但我们没给它配语义期望（失败原因列写 `no_anchor_configured`）⇒ 它**不算「可抓」**，也不算欠账；
 - **按设计没有探针目标**：29 条 —— 代码仓库（tool）/我方代码通路（internal）等，
   它们不是「没轮到」，而是「这个对象没有独立可探的页面/接口」；
-- 合计 ⚪ 未探 **29** 条（面板上对后一种会标「无探针」）。
+- 合计 ⚪ 未探 **29** 条（面板上对最后一种会标「无探针」）。
 
 下一步（R6 起）：按类别优先级补探针——**锚点必须实测看到过**（逐字子串，不许实体解码/折叠空白）；
 可重复生成：`.venv\Scripts\python.exe scripts\channel-anchor-measure.py <channel_id>`。

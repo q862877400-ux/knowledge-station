@@ -92,13 +92,21 @@ def main() -> int:
         lines.append("")
 
     unknown = [r for r in rows if r["state"] == "unknown"]
-    pending = [r for r in unknown if r["channel_id"] in targets]
+    # ⚠ 三种处境的**判据要与数据层一致**（独立复核 b28-fix 的 N1）：不能只用"有没有目标"来分，
+    #   因为"有目标、但只探连通性"的目标一旦回 200 就会合法地记 unknown/no_anchor_configured
+    #   ——那种情况写成"还没实测/欠账"就把话说反了。
+    connectivity_only = [r for r in unknown if r["channel_id"] in targets
+                         and r.get("last_error_code") == "no_anchor_configured"]
+    pending = [r for r in unknown if r["channel_id"] in targets
+               and r.get("last_error_code") != "no_anchor_configured"]
     notarget = [r for r in unknown if r["channel_id"] not in targets]
-    lines += ["## 四、还没实测的渠道（⚠ 两种处境**必须分开读**）", "",
+    lines += ["## 四、还没实测的渠道（⚠ 三种处境**必须分开读**）", "",
               f"- **已配探针、还没探过**：{len(pending)} 条 —— 这是「欠账」，下一轮就该探完；",
+              f"- **只探到连通性**：{len(connectivity_only)} 条 —— 渠道**回 200 了**，但我们没给它配"
+              "语义期望（失败原因列写 `no_anchor_configured`）⇒ 它**不算「可抓」**，也不算欠账；",
               f"- **按设计没有探针目标**：{len(notarget)} 条 —— 代码仓库（tool）/我方代码通路（internal）等，",
               "  它们不是「没轮到」，而是「这个对象没有独立可探的页面/接口」；",
-              f"- 合计 ⚪ 未探 **{len(unknown)}** 条（面板上对后一种会标「无探针」）。",
+              f"- 合计 ⚪ 未探 **{len(unknown)}** 条（面板上对最后一种会标「无探针」）。",
               "",
               "下一步（R6 起）：按类别优先级补探针——**锚点必须实测看到过**（逐字子串，不许实体解码/折叠空白）；",
               "可重复生成：`.venv\\Scripts\\python.exe scripts\\channel-anchor-measure.py <channel_id>`。",

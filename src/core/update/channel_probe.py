@@ -37,6 +37,7 @@ import re
 import time
 from pathlib import Path
 from typing import Any
+from urllib.parse import urlsplit
 
 from src.core.storage import channel_repo as cr
 
@@ -67,23 +68,42 @@ def _count_links(text: str) -> int:
 #: 允许的请求方法（其它一律读表即拒——探针只做"看一眼"，不需要更多动词）
 _VALID_METHODS = ("get", "post")
 
+#: 目标里**允许出现**的键。多出来的键一律拒——这条比"拒 null"更值（独立复核 b28-fix 的建议）：
+#: 它能把 `expext` / `expects` 这种**拼错**当场抓出来，而拼错的键过去是静默忽略的。
+_TARGET_KEYS = frozenset({"url", "method", "json", "form", "headers",
+                          "expect", "min_links", "evidence", "note"})
+
 
 def _validate_target(cid: str, target: Any) -> None:
     """校验**一条**目标（读表时一次性做掉；`probe_channel` 的"不抛"契约以此为前提）。
 
-    ## 为什么必须在这里校验（独立复核 b28 的发现，2026-09-18）
+    ## 为什么必须在这里校验（独立复核 b28 / b28-fix 的发现，2026-09-18）
     复核员实测：原先只校验 `min_links` ⇒ 把 target 写成**字符串**能静默过表，
     随后 `probe_channel` 抛 `AttributeError`；`expect=123` 抛 `TypeError`。
     也就是说"探针不抛异常"当时**只对恰好写对的目标成立**——配置错误会伪装成运行时崩溃。
-    还有一条更隐蔽的：`expect=""` 时 `"" in body_text` **恒真** ⇒ 连空正文都判 `ok`（假绿）。
-    所以这里逐字段校验，**空 `expect` 直接拒**（要"只探连通性"就**别写** expect）。
+    一轮修完后又抓到三类**不会抛、但会误分类**的写法（更阴）：
+    - `url="http"` / `"httpfoo"` 过表 ⇒ 变成 `down/transport_error`（**配置写错伪装成渠道挂了**），
+      而合法的大写 `"HTTP://e.com"` 反而被误拒；
+    - `headers={"X": ["a"]}` 过表 ⇒ 同样记成 `down`；
+    - JSON 顶层是**数组**的 POST 体被误拒（`json` 只允许 dict）。
+    ⇒ 现在用 `urlsplit` 判 scheme+netloc（大小写不敏感）、headers 必须是 `str→str` 且
+    不带 CR/LF（顺手堵住头注入）、`json` 允许 dict 或 list。
+    ⛔ 另外 `expect=""` 直接拒：`"" in body_text` **恒真** ⇒ 连空正文都判 `ok`（假绿）；
+    要"只探连通性"就**省略** expect（`null` 与省略等价，都走 `unknown/no_anchor_configured`，
+    那条是**如实**说"只探通了"，不是假绿）。
     """
     where = f"channel_id={cid}"
     if not isinstance(target, dict):
         raise ValueError(f"探针目标必须是对象（{where}）：{type(target).__name__}")
+    unknown = sorted(set(target) - _TARGET_KEYS)
+    if unknown:
+        raise ValueError(f"探针目标里有不认识的键（{where}）：{unknown}——"
+                         f"允许的键只有 {sorted(_TARGET_KEYS)}（拼错的键以前是静默忽略的）")
     url = target.get("url")
-    if not isinstance(url, str) or not url.startswith("http"):
-        raise ValueError(f"探针目标缺 http(s) url（{where}）：{url!r}")
+    parts = urlsplit(url) if isinstance(url, str) else None
+    if parts is None or parts.scheme.lower() not in ("http", "https") or not parts.netloc:
+        raise ValueError(f"探针目标必须是可抓的 http(s) 绝对地址（{where}）：{url!r}——"
+                         "写错成 'http'/'httpfoo' 这类会**伪装成渠道挂了**（down/transport_error）")
     method = target.get("method", "get")
     if not isinstance(method, str) or method.lower() not in _VALID_METHODS:
         raise ValueError(f"method 只能是 {'/'.join(_VALID_METHODS)}（{where}）：{method!r}")
@@ -96,10 +116,23 @@ def _validate_target(cid: str, target: Any) -> None:
     if v is not None:
         if isinstance(v, bool) or not isinstance(v, int) or v < 1:
             raise ValueError(f"min_links 必须是 ≥1 的整数（{where}）：{v!r}")
-    for key in ("form", "json", "headers"):
+    for key in ("form", "headers"):
         payload = target.get(key)
         if payload is not None and not isinstance(payload, dict):
             raise ValueError(f"{key} 必须是对象（{where}）：{type(payload).__name__}")
+    body = target.get("json")
+    if body is not None and not isinstance(body, (dict, list)):
+        raise ValueError(f"json 必须是对象或数组（{where}）：{type(body).__name__}")
+    headers = target.get("headers")
+    if isinstance(headers, dict):
+        for name, value in headers.items():
+            if not isinstance(name, str) or not name.strip() or ":" in name \
+                    or any(c in name for c in "\r\n"):
+                raise ValueError(f"header 名必须是不含 ':'/换行的非空字符串（{where}）：{name!r}")
+            if not isinstance(value, str) or any(c in value for c in "\r\n"):
+                raise ValueError(
+                    f"header 值必须是字符串且不含换行（{where}）：{name}={value!r}——"
+                    "非字符串值过去会**伪装成渠道挂了**（down/transport_error）")
 
 
 def load_targets(path: Path | None = None) -> dict[str, dict[str, Any]]:
@@ -196,9 +229,11 @@ def probe_channel(channel_id: str, target: dict[str, Any], *,
 
     ⚠ 不落库（调用方决定）；也**不抛**：探针的职责是把失败**分类**，不是把失败抛给上层
     （抛出去会让"一个渠道挂了"变成"整次体检没结果"）。
-    ⚠ 这份"不抛"契约的**前提是目标表过了 `load_targets` 的校验**（独立复核 b28 的发现）：
-    未经校验的裸 dict（如 target 写成字符串、`expect=123`）会在下面读字段时抛
-    `AttributeError/TypeError`——所以**别绕过 `load_targets` 直接把任意 dict 喂进来**。
+    ⚠ 这份"不抛"契约的前提有两条（独立复核 b28 / b28-fix 的发现）：
+    ① 目标表**过了 `load_targets` 的校验**——未经校验的裸 dict（字符串 target、`expect=123`）
+       会在读字段时抛 `AttributeError/TypeError`，**别绕过 `load_targets` 喂任意 dict**；
+    ② transport 的响应体**可 JSON 序列化**——不可序列化时本函数也**不抛**（退回 `str(body)`，
+       记成 `down/bad_body`）。
     """
     url = str(target.get("url") or "")
     if not url:
@@ -234,7 +269,15 @@ def probe_channel(channel_id: str, target: dict[str, Any], *,
                 "error": f"{type(e).__name__}: {e}", "latency_ms": None,
                 "http": None, "body_head": "", "expect": expect}
     latency_ms = int((time.perf_counter() - t0) * 1000)
-    text = body if isinstance(body, str) else json.dumps(body, ensure_ascii=False)
+    # ⚠ 序列化**必须在 try 里**（独立复核 b28-fix 的 S1）：transport 若返回不可 JSON 序列化的
+    #   body（如 set），`json.dumps` 会抛 TypeError —— 那会从 probe_channel **逃出去**，
+    #   把一个渠道的怪响应变成"整次体检没结果"。这里退回 `str(body)` 并如实记成"响应体异常"。
+    try:
+        text = body if isinstance(body, str) else json.dumps(body, ensure_ascii=False)
+    except (TypeError, ValueError) as e:
+        return {"state": "down", "error_code": "bad_body",
+                "error": f"响应体无法序列化/判定（{type(e).__name__}: {e}）", "latency_ms": latency_ms,
+                "http": int(status), "body_head": str(body)[:BODY_HEAD], "expect": expect}
     state, code, msg = _classify(int(status), text, expect,
                                  min_links=int(target.get("min_links") or 0))
     return {"state": state, "error_code": code, "error": msg, "latency_ms": latency_ms,
@@ -243,13 +286,17 @@ def probe_channel(channel_id: str, target: dict[str, Any], *,
 
 def probe_channels(ids: list[str] | None = None, *, transport: Any = None,
                    persist: bool = True, path: Path | None = None) -> dict[str, Any]:
-    """批量探针：默认**只探配了目标的渠道**（没配的记 `unknown/no_probe_target`，不计失败）。
+    """批量探针：默认**只探配了目标的渠道**。
+
+    ⚠ 措辞与代码对齐（独立复核 b28-fix 的第 13 条）：**没配目标的渠道会被跳过**，
+    它们**不会**被写进台账、也**不会**留下 `no_probe_target` 这种错误码——
+    只是出现在返回值的 `without_target` 里（"这次没探它"≠"它坏了"）。
 
     Args:
         ids: 只探这些 channel_id（None = 全部有目标的）。
         persist: 是否把结果写进台账（`record_probe`）。dry-run 时置 False。
     Returns:
-        `{probed, results:[{channel_id, state, error_code, error, latency_ms, http}], counts}`
+        `{probed, results:[…], counts, without_target:[…]}`（`without_target` = 有台账但没目标的）
     """
     targets = load_targets(path)
     known = {r["channel_id"] for r in cr.list_channels()}
