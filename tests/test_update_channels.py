@@ -505,3 +505,39 @@ class TestNormNoFullWidth:
         rows = [{"code": "GB/T 17098-1997", "status": "现行"}]
         assert pick_row_by_norm(rows, "GB／T 17098-1997") == rows[0]
         assert pick_row_by_norm(rows, "GB/T 17098-1997") == rows[0]
+
+
+class TestNdlsRefererIsAscii:
+    """§11.0 R6c-2a（独立复核 b30 定位）：`ndls` 把**原始标准号**拼进 Referer，
+    而 HTTP 头按 latin-1 编码 ⇒ 含全角斜杠 `／`（真库 92% 的号）时**请求发出之前**就抛
+    `UnicodeEncodeError`：这条渠道对那 92% 的号**根本发不出请求**，
+    现场却只表现为"每个号都失败"——与"站点查不到"是完全不同的原因（也最难查）。
+    """
+
+    class _CapturingTransport:
+        """只记录调用、回一个空搜索结果（离线）：我们要验的是"头能不能发出去"。"""
+
+        def __init__(self):
+            self.calls: list[tuple[str, dict]] = []
+
+        def fetch(self, url, **kw):
+            self.calls.append((url, kw))
+            return 200, {"code": 0, "message": "成功", "data": {"results": []}}
+
+    def test_全角号不再让请求发出前就炸(self):
+        from src.core.update.channels.ndls import NdlsAdapter
+        t = self._CapturingTransport()
+        res = NdlsAdapter(transport=t).probe("GB／T 17098-1997")   # 全角，旧代码在这里抛
+        assert res.found is False and res.captcha is False         # 空结果 = 诚实 miss，不是异常
+        assert t.calls, "请求应该真的发出去了"
+
+    def test_referer_是纯_ascii_且关键词被转义(self):
+        from src.core.update.channels.ndls import NdlsAdapter
+        t = self._CapturingTransport()
+        NdlsAdapter(transport=t).probe("GB／T 17098-1997")
+        referer = t.calls[0][1]["headers"]["Referer"]
+        assert referer.isascii(), f"Referer 必须是 ASCII：{referer!r}"
+        assert "／" not in referer
+        # 全角斜杠与空格都被百分号转义——这就是"请求能发出去"的原因
+        assert "%EF%BC%8F" in referer, f"全角斜杠应被转义：{referer!r}"
+        assert "%20" in referer, f"空格应被转义：{referer!r}"

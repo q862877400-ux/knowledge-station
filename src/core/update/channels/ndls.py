@@ -32,6 +32,7 @@ import re
 import time
 from time import perf_counter
 from typing import Any
+from urllib.parse import quote
 
 from src.core.update.channels.base import (
     ChannelAdapter,
@@ -86,7 +87,12 @@ class NdlsAdapter(ChannelAdapter):
             self.SEARCH_URL,
             method="post",
             json=self._search_body(standard_no),
-            headers=self._headers(f"standard/index?keyword={standard_no}"),
+            # ⚠ Referer 里的关键词必须**转义成 ASCII**（§11.0 R6c-2a，独立复核 b30 定位）：
+            #   真库 92% 的标准号含全角斜杠 `／`，而 HTTP 头按 latin-1 编码 ⇒ 带着原始号拼 Referer
+            #   会在**请求发出之前**抛 `UnicodeEncodeError`：这条渠道对那 92% 的号**根本发不出请求**，
+            #   现场却只表现为"每个号都失败"（与"站点查不到"完全不同的原因）。
+            #   同仓已有正确写法可参照：`hbba.py:89` 用 `quote(key)`。
+            headers=self._headers(f"standard/index?keyword={quote(standard_no, safe='')}"),
         )
         if looks_like_captcha(body):
             return self._log_probe(t0, standard_no, ChannelResult(
