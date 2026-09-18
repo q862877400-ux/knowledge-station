@@ -1,0 +1,68 @@
+{
+  "note": [
+    "渠道探针目标（§11.0 R3）。`expect` 是**语义探针**要命中的锚点——'HTTP 200' 在本领域几乎",
+    "不能当判据（R1 的 G14：应急部标准页仅 465 字节、bzw 列表页写'共0条'、多个站是 JS 空壳；",
+    "dry-run 又实测到 JSON 接口也会 HTTP 200 + 正文 code=500）。",
+    "纪律：每个 `expect` 都是**实测看到过**的字符串（先 dry-run 再看，不许凭想象写）；",
+    "`expect` 为 null = 只探连通性（记 unknown，不许当成通过）。",
+    "⚠ 本表回答「**渠道（站点/接口）本身**是否可用、形态是否还是我们期望的那样」；",
+    "适配器能不能解析它，是另一根轴（台账的 `wiring` 列）——两者不许互相顶替。"
+  ],
+  "generated_at": "2026-09-18",
+  "calibrated_by": "var/tmp/probe-dry-run.py 的真机输出（2026-09-18 12:4x）",
+  "targets": {
+    "ch:official_gb": {
+      "url": "https://openstd.samr.gov.cn/bzgk/std/std_list?p.p1=0&p.p90=circulation_date&p.p91=desc&searchText=GB%2030871",
+      "expect": "bzgk",
+      "evidence": "dry-run：HTTP 200 + `<link rel=\"icon\" href=\"/bzgk/favicon...` ⇒ 锚点取资源路径 `bzgk`（比页面文案稳定）"
+    },
+    "seed:law-cn:中国政府网-最新政策静态json": {
+      "url": "https://www.gov.cn/zhengce/zuixin/ZUIXINZHENGCE.json",
+      "expect": "DOCRELPUBTIME",
+      "evidence": "dry-run：HTTP 200 + `[{\"TITLE\": \"...\", \"DOCRELPUBTIME\": \"2026-09-17\"}` ⇒ T-1 当天验证（R1 的 G20）"
+    },
+    "seed:law-cn:国家法律法规数据库-枚举字典": {
+      "url": "https://flk.npc.gov.cn/law-search/search/enumData",
+      "expect": "操作成功",
+      "evidence": "dry-run：HTTP 200 + `{\"msg\": \"操作成功\", \"code\": 200, \"data\": {\"flfgfl\": ...}}`"
+    },
+    "ch:laws_db": {
+      "url": "https://flk.npc.gov.cn/law-search/search/list",
+      "method": "post",
+      "json": {
+        "searchRange": 1, "sxrq": [], "gbrq": [], "sxx": [],
+        "searchType": 2, "xgzlSearch": false, "searchContent": "",
+        "orderByParam": {"order": "-1", "sort": ""},
+        "flfgCodeId": [], "zdjgCodeId": [], "gbrqYear": [],
+        "pageNum": 1, "pageSize": 5
+      },
+      "headers": {"Referer": "https://flk.npc.gov.cn/search"},
+      "expect": "查询成功",
+      "evidence": "请求体抄自 R1 文档里**实测跑通**的那一版（law-cn.md §1）；我第一版自造体回 `{\"msg\":\"系统异常\",\"code\":500}`（HTTP 200）——正是本轮要防的假可用"
+    },
+    "ch:dbba": {
+      "url": "https://dbba.sacinfo.org.cn/stdQueryList",
+      "method": "post",
+      "form": {"current": "1", "size": "5", "industry": "上海", "status": "现行"},
+      "expect": "records",
+      "evidence": "dry-run：HTTP 200 + `{\"current\":1,\"pages\":0,\"records\":[],\"total\":0}` ⇒ 形状对但**我的参数没筛出数据**（R1 实测上海 2010 条）⇒ 锚点只钉形状 `records`，参数校准记在 note 里，不把「我参数不对」记成「渠道坏了」"
+    },
+    "ch:hbba": {
+      "url": "https://hbba.sacinfo.org.cn/stdQueryList",
+      "method": "post",
+      "form": {"current": "1", "size": "5"},
+      "expect": "records",
+      "evidence": "dry-run：HTTP 200 + `{\"current\":1,\"pages\":23790,\"records\":[{\"code\":\"DL/T 5916—2026\"...}]}` ⇒ 23790×5 ≈ 118950，与 R1 的 118946 吻合"
+    },
+    "ch:std_samr_hb": {
+      "url": "https://std.samr.gov.cn/hb/search/hbPage?searchText=AQ&current=1&size=5",
+      "expect": "rows",
+      "evidence": "dry-run：HTTP 200 + `{\"total\":495,\"rows\":[{\"STD_CODE4\":\"AQ7006—2025\"...}]}`（免登录 JSON）"
+    },
+    "ch:govcn": {
+      "url": "https://sousuo.www.gov.cn/sousuo/search.shtml?q=%E5%AE%89%E5%85%A8%E7%94%9F%E4%BA%A7",
+      "expect": null,
+      "evidence": "锚点**暂不定**：R1 的 G6 说本渠道适配器只解 mock dict ⇒ 恒 miss；探针只测站点是否活着（记 unknown/no_anchor_configured），换棒（ZUIXINZHENGCE.json）属 R5"
+    }
+  }
+}

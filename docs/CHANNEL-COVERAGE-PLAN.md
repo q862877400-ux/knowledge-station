@@ -242,7 +242,7 @@
 | **R2b** ✅（2026-09-18 完成） | **只读 API + 真机落库**：`GET /api/v1/channels`（列表 + `summary` 同一次返回；非法筛选 422 而非空结果）与 `GET /api/v1/channels/{id}`（无则 404）；两个都是 **`def`**（走线程池，故名单制门禁无需申报）；把种子灌进**实机库** | `src/core/api/routes_channels.py` + 用例 + 落库记录 | ✅ 真机库 131 条；`summary` = wired **6** / unwired 10 / broken 2 / seed_only 113；`state` 全 `unknown`（探针还没跑，**如实**） |
 | **R2.5** ✅（部分，2026-09-18 完成） | 修掉"在链上但实际不工作"的渠道：**G23 接线名字不一致**（`ADAPTER_CLASSES` 键 `ttzb` vs 适配器名 `ttbz`）⇒ `_build_adapters` 改为**按适配器 `name` 建表**（注册键作缺省），并加**数据驱动的不变量用例**（穷举 `_PREFIX_ROUTE` + `_FALLBACK`，任何"链里写了但表里没有"的名字都会红） | `inspector.py` 改动 + 2 条用例 + 种子重生成 | ✅ 团标渠道真的能用了（wired 5 → **6**）；两根死棒（`web`/`govcn`）**仍未修**——按"换棒而非修棒"的建议留到 R5 |
 | **R2.5**（R1 新增，**建议先于 R5**） | **修两根死兜底棒**：给 `web`/`govcn` 补真实 HTML 解析（或如实降级为"仅 mock 可用"并从覆盖率里剔除）；顺带把 G8 的伪协议证据链接归一 | 适配器改动 + 契约用例（喂真实 HTML 片段） | 用**真 HTML 响应**（离线 fixture）验证能解析出条目；否则状态标"失效"且不计入覆盖率 |
-| **R3** | **渠道健康探针**：探活（HTTP + 语义探针"抓到的页面里有没有预期的锚点"）、`last_success/last_error/consecutive_failures/latency` 落库；失败原因归类 | `channel_probe.py` + 用例 + 真机跑一次全渠道 | 至少 1 次真机全渠道探测结果落库；失败的有可操作原因 |
+| **R3** ✅（2026-09-18 完成；8/131 条配了探针） | **渠道健康探针**：`src/core/update/channel_probe.py` + `channel_probes.json`。判据=**HTTP 通 + 页面里真的出现期望锚点**，否则 `suspicious`；失败**分级**（`blocked_by_waf`/`endpoint_gone`/`server_error`/`timeout`/`transport_error`/`api_error`/`probe_no_anchor`）；`probe_channels(persist=)` 写台账 | 模块 + 目标表 + `tests/test_channel_probe.py`（**23 用例**）+ 真机落库记录 | ✅ 真机：**7 ok / 1 unknown**（`last_ok_at` 已落库）；123 条如实记"尚无探针" |
 | **R4** | **宿主路由 + 前端面板**：表格（链接/类别/有效性/上次成功/失败原因/备注）+「立即探测」+ 增删改 | `/ks/channels*` + `KsChannelsPanel.tsx` + smoke | 真机 CDP 截图：面板可见、能探测、能编辑 |
 | **R5** | **覆盖率扩展 + 发现能力**：按 R1 结论补/修渠道（**地标走 dbba 统一平台**、行标 hbba、团标 tbPage、国标公告 nocGBPage）；加 `discover(since)`（G12）；`web_fallback` 的"猜到"与"渠道确认"分开记 | 新/改适配器 + 覆盖表更新 | 覆盖表上"已验证可用"的渠道数明显增加，且**每条都有实测证据**；`discover` 至少发现过 1 条库里没有的新号 |
 | **R6** | **五类监控打通** + 巡检读台账选链 + 文档/验收 | inspector 改动 + 集成用例 + `DEVELOPMENT-HISTORY` | 五类各有一条端到端用例；巡检降级链来自台账 |
@@ -371,6 +371,27 @@
 **但仍要求 note 里写明"注册表键与适配器名不一致"**——修好不等于原本没问题，卫生问题仍要留痕。
 ⚠ **两根死兜底棒（`web`/`govcn`）本轮没动**：按 §6 的建议是"**换棒**"（`govcn` → `ZUIXINZHENGCE.json`；
 `web` 降级为不计入覆盖率的显式最后兜底），那属于 R5 的量级，不该塞进 R2。
+
+#### R3（2026-09-18 完成）：语义探针 —— 把"有效性"变成实测，而不是配置里的声明
+- **模块**：`src/core/update/channel_probe.py`；**目标表**：`src/core/update/channel_probes.json`
+  （8 条，每条都带 `evidence` = 锚点是从哪次实测看到的）。
+- **判据表**（`_classify`，集中一处便于穷举）：403/412→`blocked_by_waf`；404/410→`endpoint_gone`；
+  5xx→`server_error`；非 200→`http_<n>`；**HTTP 200 但正文 `code>=400` 或含"系统异常/不支持"→
+  `api_error`**；200 且没配锚点→`unknown/no_anchor_configured`（如实说"只探通了"）；
+  200 但锚点不在→`suspicious/probe_no_anchor`（G14 那一类）。
+- **三个实测教训（都已固化成用例）**：
+  1. **"HTTP 200 ≠ 有数据"在 JSON 接口上同样成立**：`flk` 检索接口在我第一版**自造请求体**下回
+     `HTTP 200 + {"msg":"系统异常","code":500}`；换成 R1 文档里**实测跑通**的那版请求体后回
+     `{"msg":"查询成功",...}` ⇒ 所以 `api_error` 的措辞刻意写"**先怀疑我们的请求体**，其次才是渠道"。
+  2. **`method="post"` 必须显式传给 transport**：漏传 ⇒ 静默变 GET，而 flk 与 dbba **两层都回 200**
+     （flk 回"Request method 'GET' not supported"、dbba 回一张 HTML 首页）⇒ 只看状态码会把"方法错了"
+     判成"渠道健康"。有用例钉住这个 kwarg。
+  3. **"渠道可用"与"适配器能解析"是两根轴**：探针只回答前者；`web`/`govcn` 的适配器恒 miss 由台账
+     `wiring=broken` 表达。面板必须两列都显示——只显示一列就会给出错误结论（已写进模块 docstring）。
+- **真机落库**：`var/tmp/probe-live.py` → 实机库 **7 ok / 1 unknown**（`govcn` 没配锚点，如实记
+  "只探通了"），`last_ok_at` 写入。**123 条仍 `unknown`**——因为还没给它们配探针（下一步）。
+- ⚠ **时间戳是 UTC**（SQLite `datetime('now')`，与库内既有表一致）⇒ R4 面板要么转本地时区、
+  要么显式标注"UTC"，否则"上次成功 04:42"会让业主以为凌晨自动跑过。
 
 **⚠ 由 R1 得出的一个待业主确认的取舍**（比"修旧棒还是换新棒"更根本）：
 `web`（bing 泛查）与 `govcn`（gov.cn 搜索）这两根"兜底棒"**今天在真实网络下恒 miss**（G6），
