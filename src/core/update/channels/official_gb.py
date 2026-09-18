@@ -33,6 +33,26 @@ _BROWSER_UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                "(KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36")
 
 
+def _impl_date(dates: list[str]) -> str | None:
+    """结果表一行里的日期格 → **实施日期**（`ChannelResult.effective_date` 的语义）。
+
+    列序实测固定为「… 状态 | **发布日期** | **实施日期** | 查看详细」（逐格打印见
+    `var/tmp/r6c3b-date-out.txt`：`GB 18218-2018` 的 `td[7]='2018-11-19'`、`td[8]='2019-03-01'`），
+    所以取**第 2 格**。
+
+    ⚠ 原来取的是 `dates[0]`——那是**发布日期**，等于把"发布"当"实施"存进
+    `latest_info.effective_date`（事件与面板上那张日期因此是错的）。证据是**跨渠道交叉验证**：
+    12 个真库 `GB/T` 号，`dates[-1]` 与 `ndls` 的实施日期（a205）**12/12 一致**，
+    而 `dates[0]` 只在"发布==实施"的 2 个号上一致（其余 10 个差着几个月）。
+    取第 2 格而不是"最后一个"：列**追加**比**重排**常见——将来若多出"废止日期"列，
+    `[1]` 仍是实施日期，`[-1]` 就不是了。
+    只有一格时按"那就是唯一证据"取它（此时发布/实施不可区分，如实取用）。
+    """
+    if not dates:
+        return None
+    return dates[1] if len(dates) >= 2 else dates[0]
+
+
 class OfficialGbAdapter(ChannelAdapter):
     """主渠道：命中即止（降级链 official_gb→web→govcn 由 inspector 编排）。"""
 
@@ -80,7 +100,8 @@ class OfficialGbAdapter(ChannelAdapter):
                     "code": re.sub(r"\s+", " ", m_code.group(1)).strip(),
                     "name": re.sub(r"\s+", " ", m_name.group(1)).strip() if m_name else "",
                     "state": m_state.group(1).strip() if m_state else "",
-                    "date": dates[0] if dates else None,
+                    # ⚠ **实施日期**（第 2 格），不是发布日期——见 `_impl_date` 的证据
+                    "date": _impl_date(dates),
                     "url": f"showInfo:{m_info.group(1)}" if m_info else None,
                 })
         elif isinstance(body, dict):

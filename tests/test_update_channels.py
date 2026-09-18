@@ -469,7 +469,12 @@ def test_official_gb_parses_real_openstd_html():
     assert r1.legal_status == "effective"
     assert r1.change_type == "no_change"
     assert r1.latest_version == "GB 30871-2022"
-    assert r1.effective_date == "2022-03-15"
+    # ⚠ 2026-09-18（§11.0 R6c-3c）：这里原来是 `"2022-03-15"`——**那条断言把 bug 钉住了**。
+    #   上面 fixture 的注释就写着列序是「发布日期 | 实施日期」，而 `effective_date` 的语义是**实施日期**；
+    #   旧解析取 `dates[0]` ⇒ 存的是**发布**日期。跨渠道交叉验证 12 个真库 GB/T 号：
+    #   `dates[-1]`（=第 2 格）与 ndls 的实施日期 **12/12 一致**，`dates[0]` 只在"发布==实施"的 2 个号上一致。
+    #   GB 30871-2022 的真实实施日期是 2022-10-01（fixture 第 2 个日期格）。
+    assert r1.effective_date == "2022-10-01"
     assert r1.evidence_url == "showInfo:561B95121C30853A6B45CA9471F39239"
 
     r2 = adapter.probe("GB 50016-2014")
@@ -481,6 +486,35 @@ def test_official_gb_parses_real_openstd_html():
     r3 = adapter.probe("GB 55037-2022")
     assert r3.found is False
     assert r3.legal_status is None
+
+
+class TestOfficialGb实施日期:
+    """R6c-3c：结果表里两个日期格，取**实施日期**（第 2 格）。"""
+
+    def test_两个日期格取第二个(self):
+        from src.core.update.channels.official_gb import _impl_date
+
+        assert _impl_date(["2018-11-19", "2019-03-01"]) == "2019-03-01"
+
+    def test_只有一个日期格时用它(self):
+        """只有一格时发布/实施不可区分——如实取用，不编。"""
+        from src.core.update.channels.official_gb import _impl_date
+
+        assert _impl_date(["2019-03-01"]) == "2019-03-01"
+
+    def test_没有日期格(self):
+        from src.core.update.channels.official_gb import _impl_date
+
+        assert _impl_date([]) is None
+
+    def test_多出第三格时仍取实施日期而不是最后一个(self):
+        """为什么取 `[1]` 而不是 `[-1]`：列**追加**比**重排**常见。
+
+        将来若在实施日期后面再加一列（例如废止日期），`[-1]` 会取错，`[1]` 仍是实施日期。
+        """
+        from src.core.update.channels.official_gb import _impl_date
+
+        assert _impl_date(["2018-11-19", "2019-03-01", "2025-01-01"]) == "2019-03-01"
 
 
 class TestNormNoFullWidth:
