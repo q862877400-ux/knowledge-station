@@ -28495,6 +28495,15 @@ async function exportResearchSlides(projectId, input = {}, signal) {
     signal
   );
 }
+async function exportResearchDraft(projectId, input, signal) {
+  return postReport(
+    "/ks/report/research/draft",
+    projectId,
+    input,
+    "\u7ED3\u8BBA\u8349\u7A3F",
+    signal
+  );
+}
 
 // client/pdf-configure.ts
 var PDF_WORKER_PATH = "/ks/assets/pdf.worker.min.mjs";
@@ -32529,6 +32538,10 @@ function statusDisablesReverify(status) {
       return assertNever(status);
   }
 }
+function canApplyDraft(draft) {
+  if (draft === null || draft.llm_called === false) return false;
+  return (draft.draft_md ?? "").trim() !== "";
+}
 function AnchorNoteLine(props) {
   const note = props.note || "";
   if (note === "") return null;
@@ -32557,6 +32570,7 @@ function KsMaterialsPanel(props) {
   const [report, setReport] = (0, import_react7.useState)(null);
   const [slides, setSlides] = (0, import_react7.useState)(null);
   const [showReport, setShowReport] = (0, import_react7.useState)(false);
+  const [draft, setDraft] = (0, import_react7.useState)(null);
   const [anchors, setAnchors] = (0, import_react7.useState)({});
   const [anchorNote, setAnchorNote] = (0, import_react7.useState)("");
   const [openChunks, setOpenChunks] = (0, import_react7.useState)({});
@@ -32736,6 +32750,23 @@ function KsMaterialsPanel(props) {
       return `PPT \u5DF2\u751F\u6210\uFF1A${out.name ?? ""}\uFF08${out.slide_count ?? 0} \u9875\uFF09` + (out.path !== void 0 ? ` \u2192 ${out.path}` : "");
     }, null);
   }, [conclusionMd, projectId, researchQuery, run]);
+  const onDraftConclusion = (0, import_react7.useCallback)(() => {
+    if (projectId === "") return;
+    const q = researchQuery.trim();
+    if (q === "") {
+      setNotice("\u8D77\u8349\u7ED3\u8BBA\u8981\u5148\u586B\u300C\u7814\u7A76\u95EE\u9898\u300D\u2014\u2014\u8349\u7A3F\u5FC5\u987B\u77E5\u9053\u8981\u56DE\u7B54\u4EC0\u4E48\u3002");
+      return;
+    }
+    void run("draft", async () => {
+      const out = await exportResearchDraft(projectId, { query: q });
+      setDraft(out);
+      if (out.llm_called === false) {
+        return "\u6CA1\u6709\u53EF\u627F\u91CD\u7684\u5DF2\u6279\u51C6\u6750\u6599\u2014\u2014\u5F15\u64CE**\u6CA1\u6709\u8D77\u8349**\uFF08\u4E00\u6B21\u6A21\u578B\u90FD\u6CA1\u8C03\uFF09";
+      }
+      const n = (out.warnings ?? []).length;
+      return "\u8349\u7A3F\u5DF2\u751F\u6210\uFF08**\u672A\u7ECF\u6279\u51C6**\uFF0C\u4E0D\u5F97\u4F5C\u4E3A\u4F9D\u636E\uFF09" + (n > 0 ? `\u2014\u2014\u26A0 ${n} \u6761\u63D0\u793A\uFF0C\u89C1\u4E0B\u65B9` : "");
+    }, null);
+  }, [projectId, researchQuery, run]);
   const onReview = (0, import_react7.useCallback)((m, decision) => {
     void run(`${decision}:${m.material_id}`, async () => {
       const out = await reviewMaterial(m.material_id, decision);
@@ -33140,6 +33171,16 @@ function KsMaterialsPanel(props) {
             type: "button",
             style: btnStyle2(busy !== ""),
             disabled: busy !== "",
+            onClick: onDraftConclusion,
+            children: "\u8D77\u8349\u7ED3\u8BBA\uFF08\u8349\u7A3F\uFF09"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+          "button",
+          {
+            type: "button",
+            style: btnStyle2(busy !== ""),
+            disabled: busy !== "",
             onClick: onExportReport,
             children: "\u751F\u6210\u7814\u7A76\u62A5\u544A\uFF08Markdown/HTML/Word\uFF09"
           }
@@ -33164,6 +33205,65 @@ function KsMaterialsPanel(props) {
           }
         )
       ] }),
+      draft !== null && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+        "div",
+        {
+          role: "status",
+          style: {
+            marginTop: 6,
+            padding: "6px 8px",
+            borderRadius: 4,
+            border: "1px dashed var(--dsw-alias-warn, #b8860b)",
+            background: "var(--dsw-alias-bg-secondary, #fafafa)"
+          },
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: 0, fontSize: 12, color: "var(--dsw-alias-warn, #b8860b)" }, children: [
+              "\u26A0 ",
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u672A\u6279\u51C6\u8349\u7A3F" }),
+              "\u2014\u2014\u7531\u7CFB\u7EDF\u57FA\u4E8E",
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u5DF2\u6279\u51C6\u6750\u6599" }),
+              "\u8D77\u8349\uFF0C",
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u5F97\u4F5C\u4E3A\u4F9D\u636E" }),
+              "\uFF1B \u8BF7\u5148\u6539/\u6838\uFF0C\u518D\u70B9\u300C\u7528\u8FD9\u6BB5\u586B\u8FDB\u7ED3\u8BBA\u6846\u300D\u3002"
+            ] }),
+            draft.llm_called === false ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: GRAY }, children: [
+              "\u6CA1\u6709\u53EF\u627F\u91CD\u7684\u5DF2\u6279\u51C6\u6750\u6599\uFF0C\u5F15\u64CE",
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u6CA1\u6709\u8D77\u8349" }),
+              "\uFF08\u4E00\u6B21\u6A21\u578B\u90FD\u6CA1\u8C03\uFF09\u3002"
+            ] }) : /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("pre", { style: {
+                marginTop: 4,
+                maxHeight: 200,
+                overflow: "auto",
+                fontSize: 11,
+                whiteSpace: "pre-wrap",
+                background: "var(--dsw-alias-bg, #fff)",
+                padding: 6,
+                borderRadius: 4
+              }, children: canApplyDraft(draft) ? draft.draft_md : "\uFF08\u6A21\u578B\u6CA1\u6709\u4EA7\u51FA\u7ED3\u8BBA\u6BB5\u2014\u2014\u89C1\u4E0B\u65B9\u63D0\u793A\uFF0C\u53EF\u770B derivation_md\uFF09" }),
+              (draft.warnings ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: {
+                margin: "4px 0 0",
+                fontSize: 12,
+                color: "var(--dsw-alias-warn, #b8860b)"
+              }, children: [
+                "\u26A0 \u8D77\u8349\u63D0\u793A\uFF08\u5F15\u7528\u4E0D\u6210\u7ACB / \u6750\u6599\u4E0D\u8DB3 / \u6A21\u578B\u8F93\u51FA\u95EE\u9898\uFF0C**\u539F\u6837\u5217\u51FA\u3001\u4E0D\u9759\u9ED8\u6539\u8349\u7A3F**\uFF09\uFF1A",
+                /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
+                (draft.warnings ?? []).join("\uFF1B")
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+                "button",
+                {
+                  type: "button",
+                  style: { ...btnStyle2(!canApplyDraft(draft)), marginTop: 4 },
+                  disabled: !canApplyDraft(draft),
+                  onClick: () => setConclusionMd(draft.draft_md ?? ""),
+                  children: "\u7528\u8FD9\u6BB5\u586B\u8FDB\u7ED3\u8BBA\u6846"
+                }
+              )
+            ] })
+          ]
+        }
+      ),
       report !== null && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
         "\u5DF2\u6279\u51C6 ",
         report.counts?.approved ?? 0,

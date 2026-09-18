@@ -29,6 +29,7 @@ import { useCallback, useEffect, useState } from 'react'
 import {
   collectMaterialUrl,
   createMaterialProject,
+  exportResearchDraft,
   exportResearchReport,
   exportResearchSlides,
   fetchMaterialChunks,
@@ -48,6 +49,7 @@ import {
   type KsMaterialChunk,
   type KsMaterialProject,
   type KsMaterialTierDef,
+  type KsResearchDraft,
   type KsResearchReport,
   type KsSlideDeck,
 } from './api'
@@ -191,6 +193,21 @@ export function statusDisablesReverify(status?: KsLocatorHealth['status']): bool
 }
 
 /**
+ * 草稿能不能填进结论框（§10.97 的**唯一判据**；导出给冒烟做行为级验证）。
+ *
+ * 三条各自都必要：
+ *   · `draft === null`：还没起草过 ⇒ 没得填；
+ *   · `llm_called === false`：引擎因为"没有可承重材料"**一次模型都没调** ⇒ 那是"没起草"，
+ *     不是"起草出了一段空话"；
+ *   · `draft_md` 为空/纯空白：模型没产出结论段（引擎会另给 `derivation_md` 与警告）⇒
+ *     **不许**把空串填进去（那会让用户以为"点过了就有结论"）。
+ */
+export function canApplyDraft(draft: KsResearchDraft | null): boolean {
+  if (draft === null || draft.llm_called === false) return false
+  return (draft.draft_md ?? '').trim() !== ''
+}
+
+/**
  * **锚点总览的后端说明**（`locator.py` 的 `note`）——一个**能单独渲染**的组件。
  *
  * 为什么要抽出来（2026-09-18，复核 b12 的 LOW-1 + 一次变异 AA5）：
@@ -251,6 +268,8 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
   const [report, setReport] = useState<KsResearchReport | null>(null)
   const [slides, setSlides] = useState<KsSlideDeck | null>(null)
   const [showReport, setShowReport] = useState(false)
+  /** **结论草稿**（§10.97）：`null` = 还没起草过；非空则显示"未批准草稿"块。 */
+  const [draft, setDraft] = useState<KsResearchDraft | null>(null)
   /**
    * 引用锚点健康度（**便宜**判据：只比指纹）。
    * ⚠ 只在**项目列表加载后**拉一次（`fetchProjectLocators`），材料行上按 id 显示缓存值
@@ -484,6 +503,36 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
         + (out.path !== undefined ? ` → ${out.path}` : '')
     }, null)
   }, [conclusionMd, projectId, researchQuery, run])
+
+  /**
+   * **起草一段结论（草稿）**（Phase D-5b，§10.97）。
+   *
+   * 四条界面纪律（与引擎同源，少一条都会让"草稿"被误当成"已批准的结论"）：
+   * 1. **必须显眼标明「未批准草稿」**（`status === 'unapproved_draft'` 是引擎契约）；
+   * 2. **绝不自动填进结论框**——只有用户点「用这段填进结论框」才写（那个点击**就是**
+   *    "用户批准后采用"这个动作）；
+   * 3. `llm_called === false`（没有可承重材料 ⇒ 引擎一次模型都没调）**不是失败**，
+   *    要按"没起草"如实说；
+   * 4. **警告必须显示**（引用不成立 / 引用了仅线索的材料 / 模型没产出结论段）。
+   */
+  const onDraftConclusion = useCallback(() => {
+    if (projectId === '') return
+    const q = researchQuery.trim()
+    if (q === '') {
+      setNotice('起草结论要先填「研究问题」——草稿必须知道要回答什么。')
+      return
+    }
+    void run('draft', async () => {
+      const out = await exportResearchDraft(projectId, { query: q })
+      setDraft(out)
+      if (out.llm_called === false) {
+        return '没有可承重的已批准材料——引擎**没有起草**（一次模型都没调）'
+      }
+      const n = (out.warnings ?? []).length
+      return '草稿已生成（**未经批准**，不得作为依据）'
+        + (n > 0 ? `——⚠ ${n} 条提示，见下方` : '')
+    }, null)
+  }, [projectId, researchQuery, run])
 
   const onReview = useCallback((m: KsMaterial, decision: 'approved' | 'rejected') => {
     void run(`${decision}:${m.material_id}`, async () => {
@@ -904,6 +953,14 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
               type="button"
               style={btnStyle(busy !== '')}
               disabled={busy !== ''}
+              onClick={onDraftConclusion}
+            >
+              起草结论（草稿）
+            </button>
+            <button
+              type="button"
+              style={btnStyle(busy !== '')}
+              disabled={busy !== ''}
               onClick={onExportReport}
             >
               生成研究报告（Markdown/HTML/Word）
@@ -926,6 +983,54 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
               </button>
             )}
           </div>
+          {/* ---- 结论草稿（§10.97）：**只读**展示 + 「用这段填进结论框」这个显式动作 ----
+              三条纪律都在这一块里可见：① 标"未批准草稿"；② 不自动填；③ 警告照显。 */}
+          {draft !== null && (
+            <div
+              role="status"
+              style={{
+                marginTop: 6, padding: '6px 8px', borderRadius: 4,
+                border: '1px dashed var(--dsw-alias-warn, #b8860b)',
+                background: 'var(--dsw-alias-bg-secondary, #fafafa)',
+              }}
+            >
+              <p style={{ margin: 0, fontSize: 12, color: 'var(--dsw-alias-warn, #b8860b)' }}>
+                ⚠ <strong>未批准草稿</strong>
+                ——由系统基于<strong>已批准材料</strong>起草，<strong>不得作为依据</strong>；
+                请先改/核，再点「用这段填进结论框」。
+              </p>
+              {draft.llm_called === false ? (
+                <p style={{ margin: '4px 0 0', fontSize: 12, color: GRAY }}>
+                  没有可承重的已批准材料，引擎<strong>没有起草</strong>（一次模型都没调）。
+                </p>
+              ) : (
+                <>
+                  <pre style={{
+                    marginTop: 4, maxHeight: 200, overflow: 'auto', fontSize: 11,
+                    whiteSpace: 'pre-wrap', background: 'var(--dsw-alias-bg, #fff)',
+                    padding: 6, borderRadius: 4,
+                  }}>{canApplyDraft(draft)
+                      ? draft.draft_md
+                      : '（模型没有产出结论段——见下方提示，可看 derivation_md）'}</pre>
+                  {(draft.warnings ?? []).length > 0 && (
+                    <p style={{ margin: '4px 0 0', fontSize: 12,
+                      color: 'var(--dsw-alias-warn, #b8860b)' }}>
+                      ⚠ 起草提示（引用不成立 / 材料不足 / 模型输出问题，**原样列出、不静默改草稿**）：
+                      <br />{(draft.warnings ?? []).join('；')}
+                    </p>
+                  )}
+                  <button
+                    type="button"
+                    style={{ ...btnStyle(!canApplyDraft(draft)), marginTop: 4 }}
+                    disabled={!canApplyDraft(draft)}
+                    onClick={() => setConclusionMd(draft.draft_md ?? '')}
+                  >
+                    用这段填进结论框
+                  </button>
+                </>
+              )}
+            </div>
+          )}
           {report !== null && (
             <p style={{ margin: '6px 0 0', fontSize: 12, color: GRAY }}>
               已批准 {report.counts?.approved ?? 0} / 待评审 {report.counts?.pending ?? 0} /
