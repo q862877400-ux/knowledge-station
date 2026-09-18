@@ -104,18 +104,37 @@ class Test一致性报告:
 
     @pytest.mark.parametrize("row_kw", [
         {"wiring": "BROKEN"}, {"wiring": "broken "}, {"wiring": " Broken"},
-        {"enabled": "0"}, {"enabled": False},
+        {"enabled": "0"}, {"enabled": False}, {"enabled": "FALSE"}, {"enabled": " False "},
     ])
     def test_写法差异也要被挡住(self, row_kw):
         """复核 b29-fix 的 c：`BROKEN` / `'0'` 这类写法差异过去会让"已知失效"照旧留在链里
-        —— 那正是"配置写错伪装成渠道可用"。"""
+        —— 那正是"配置写错伪装成渠道可用"。（`'FALSE'` 是 b29-fix2 补的：同一个函数里
+        `_wiring` 会小写、`_enabled_off` 不会——口径不一致是最难查的那类。）"""
         rows = [_row("ch:official_gb", **row_kw)]
         assert lc.ledger_fallback_chain(rows, roster=("official_gb",)) == ()
 
-    def test_enabled_None_不算停用(self):
-        """`None` 是"没写"，不是"停用"——别把缺失读成人工意图。"""
-        rows = [_row("ch:official_gb", enabled=None)]
+    @pytest.mark.parametrize("kw", [
+        {"enabled": None}, {"enabled": True}, {"enabled": 1}, {"enabled": "1"},
+    ])
+    def test_这些不算停用(self, kw):
+        """`None`（没写）/`True`/`1`/`'1'` 都不是"停用"——别把缺失读成人工意图。"""
+        rows = [_row("ch:official_gb", **kw)]
         assert lc.ledger_fallback_chain(rows, roster=("official_gb",)) == ("official_gb",)
+
+    def test_生成器名单也照收(self):
+        """复核 b29-fix2 的坑：生成器只能消费一次，而 report 要遍历它好几遍 ⇒ 入口先固化。"""
+        rows = [_row("ch:official_gb"), _row("ch:govcn")]
+        gen = (n for n in ("official_gb", "govcn"))
+        rep = lc.ledger_chain_report(rows, roster=gen, known={"official_gb", "govcn"})
+        assert rep["chain"] == ["official_gb", "govcn"]
+        assert rep["roster_candidates"] == []          # 名单里的成员不该被误报成"可提升候选"
+
+    def test_重复成员的报告不重复列(self):
+        rows: list[dict] = []
+        rep = lc.ledger_chain_report(rows, roster=("official_gb", "official_gb"),
+                                     known={"official_gb"})
+        assert rep["roster_duplicates"] == ["official_gb"]
+        assert len(rep["roster_not_in_ledger"]) == 1   # 同一个成员只提一次
 
     def test_台账说wired但代码里没有适配器要报出来(self):
         rows = [_row("ch:official_gb"), _row("ch:ghost")]

@@ -61,19 +61,8 @@ def ledger_fallback_chain(rows: list[dict[str, Any]] | None = None, *,
     if rows is None:
         rows = cr.list_channels()
     by_id = {str(r.get("channel_id")): r for r in rows}
-    raw_roster = roster if roster is not None else fallback_chain()
-    # 名单里重复写同一个成员 ⇒ 去重（保序）并**由 report 告警**（复核 b29-fix 的 a）：
-    # 不去重的话链里会出现两次同名，巡检会把同一个渠道走两遍（白花一次请求）而没人知道。
-    # ⚠ 写成显式循环而不是 `if not (n in seen or seen.add(n))`——后者 mypy 会报
-    #   `func-returns-value`（"add 只返回 None"），而且读起来也更绕。
-    seen: set[str] = set()
-    deduped: list[str] = []
-    for n in raw_roster:
-        if n in seen:
-            continue
-        seen.add(n)
-        deduped.append(n)
-    names = tuple(deduped)
+    raw_roster = _as_tuple(roster if roster is not None else fallback_chain())
+    names = _dedupe(raw_roster)
     in_code = known if known is not None else _adapter_names()
     return tuple(name for name in names
                  if name in in_code
@@ -93,9 +82,10 @@ def ledger_chain_report(rows: list[dict[str, Any]] | None = None, *,
     if rows is None:
         rows = cr.list_channels()
     names_in_code = known if known is not None else _adapter_names()
-    raw_roster = roster if roster is not None else fallback_chain()
+    raw_roster = _as_tuple(roster if roster is not None else fallback_chain())
+    deduped = _dedupe(raw_roster)
     by_id = {str(r.get("channel_id")): r for r in rows}
-    chain = ledger_fallback_chain(rows, roster=raw_roster, known=names_in_code)
+    chain = ledger_fallback_chain(rows, roster=deduped, known=names_in_code)
 
     excluded = []
     for r in rows:
@@ -107,7 +97,7 @@ def ledger_chain_report(rows: list[dict[str, Any]] | None = None, *,
 
     # 台账说 wired、代码里也有这个适配器，但**不在兜底名单**里 —— 它们是"要不要提升"的候选，
     # 不是"已经生效的兜底成员"。提升是行为改变 ⇒ 必须单独一步（带快照差异）决定。
-    roster_ids = {_channel_id_of(n) for n in raw_roster}
+    roster_ids = {_channel_id_of(n) for n in deduped}
     candidates = []
     for r in rows:
         cid = str(r.get("channel_id"))
@@ -131,14 +121,14 @@ def ledger_chain_report(rows: list[dict[str, Any]] | None = None, *,
     # 反方向：**名单里**有、代码里没有（独立复核 b29 抓到这条原先只在 docstring 里承诺过）。
     # fail-closed：它不进链；但必须点名，否则"配了个不存在的渠道"会表现为"这条链少了点什么"。
     roster_missing = [{"adapter": n, "why": "兜底名单里有、ADAPTER_CLASSES 里没有 ⇒ 没进链"}
-                      for n in raw_roster if n not in names_in_code]
+                      for n in deduped if n not in names_in_code]
     # 名单里重复写（复核 b29-fix 的 a）：链已去重，但**不能静默**——重复意味着有人手滑。
     dups = sorted({n for n in raw_roster if list(raw_roster).count(n) > 1})
     # 名单成员在台账里**没有行**（复核 b29-fix 的 b）：按设计保留（fail-open），但要提一句，
     # 否则"这条兜底成员没有台账记录"就没人知道（它的 enabled/broken 也就无从过滤）。
     not_in_ledger = [{"adapter": n, "why": "兜底名单里有、台账里没有这一行 ⇒ 保留（fail-open），"
                                            "但其 enabled/known-broken 无从过滤"}
-                     for n in raw_roster if _channel_id_of(n) not in by_id]
+                     for n in deduped if _channel_id_of(n) not in by_id]
 
     dead = [{"channel_id": r.get("channel_id"), "name": r.get("name"), "state": r.get("state"),
              "last_error_code": r.get("last_error_code"),
@@ -148,6 +138,32 @@ def ledger_chain_report(rows: list[dict[str, Any]] | None = None, *,
             "missing_in_code": missing, "roster_missing_in_code": roster_missing,
             "roster_duplicates": dups, "roster_not_in_ledger": not_in_ledger,
             "wired_but_probe_down": dead}
+
+
+def _as_tuple(roster: Any) -> tuple[str, ...]:
+    """名单可以是任何可迭代（类型注解写 tuple，但**传生成器也照收**）。
+
+    复核 b29-fix2 记的坑：生成器只能消费一次——`ledger_chain_report` 里要遍历它好几遍
+    （去重、判缺失、判台账缺行），不先固化就会"前半段有、后半段空"，并把已在名单里的成员
+    误报成"可提升候选"。所以入口处一律固化成 tuple。
+    """
+    return tuple(str(n) for n in roster)
+
+
+def _dedupe(roster: tuple[str, ...]) -> tuple[str, ...]:
+    """保序去重（重复成员由 `ledger_chain_report` 的 `roster_duplicates` 点名告警）。
+
+    ⚠ 写成显式循环而不是 `if not (n in seen or seen.add(n))`——后者 **mypy 会报**
+    `func-returns-value`（"add 只返回 None"），而用例是绿的：**用例全绿 ≠ 门禁全绿**。
+    """
+    seen: set[str] = set()
+    out: list[str] = []
+    for n in roster:
+        if n in seen:
+            continue
+        seen.add(n)
+        out.append(n)
+    return tuple(out)
 
 
 def _adapter_names() -> set[str]:
@@ -185,7 +201,9 @@ def _enabled_off(row: dict[str, Any]) -> bool:
     if isinstance(v, (int, float)):
         return v == 0
     if isinstance(v, str):
-        return v.strip() in {"0", "false", "False", ""}
+        # ⚠ 与 `_wiring()` 同一口径：**先去空白再小写**。复核 b29-fix2 抓到 `'FALSE'` 过去
+        #   不算停用（`'false'`/`'False'` 却算）——同一个函数里两种口径是最难查的那类不一致。
+        return v.strip().lower() in {"0", "false", ""}
     return False
 
 
