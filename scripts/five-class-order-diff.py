@@ -87,6 +87,22 @@ def main() -> int:
               f"**先核判定表是不是过期了**（历史上「发布」翻过一次）")
     else:
         print("\n✅ 只有「废止」在翻（这是设计预期：ndls 有废止日期、official_gb 只有状态串）")
+
+    # ⚠ **注入链不变式**（复核 b38 的开放项⑤：原来的哨兵只测一半，没覆盖 `chain=` 注入路径）：
+    #   "把同一根链**注入**进去，结果必须与自然路径**逐位相同**"——这是 R6c-4 台账驱动链的接口，
+    #   而 A① 那个 bug（注入路径把"专门渠道在先"关掉）正是这条不变式能抓到的。
+    bad: list[str] = []
+    for no in nos:
+        natural = qr.channels_for(standard_no=no, table=table, rows=rows)
+        injected = qr.channels_for(standard_no=no, table=table, rows=rows,
+                                  chain=select_chain(no))
+        if natural != injected:
+            bad.append(no)
+    if bad:
+        print(f"\n❌ 注入链与自然链**不一致**（{len(bad)} 个号，例：{bad[:3]}）——"
+              f"`chain=` 路径与自然路径的排序语义分叉了")
+        return 1
+    print("✅ 注入链不变式成立（`chain=select_chain(no)` 与自然路径逐位相同）")
     return 0
 
 

@@ -59,7 +59,9 @@ def verdict_of(channel_id: str, cls: str,
 
     ⚠ 语义提醒：`supported` 只表示"这个渠道**能**给出这一类要的东西"，
     **不**表示它给的最全（例如 `official_gb` 对"废止"是 partial —— 只有状态串、没有废止日期）。
-    `None`（113 条种子渠道没有审计）**不参与排序**，既不因此排前也不排后。
+    `None`（113 条种子渠道没有审计）在**排序**里占**中间档**（复核 b38 的开放项②抓到我这里写反了）：
+    排序键是 `supported=0 / None=1 / partial=2`，所以 `None` **既不会越过 supported，
+    也不会被 partial 反超**（组内保持链序）。旧注释写的是"不参与排序"，与代码相反，已改。
     """
     entry = (table if table is not None else load_answers()).get(channel_id) or {}
     detail = entry.get("answers_detail") or {}

@@ -26,7 +26,13 @@
   R6c-4b 把语义改成"**否定的结论也算结论**"之后，`official_gb` 给出"现行"就是答了
   `废止` 这一类（答案是"没有废止"），只是 `completeness` 记 `partial`（它没有废止日期）。
   真正的例子是 `mee` 对"发布"：它只有"实施时间"列，**拿不出发布日期** ⇒ `channel_gave_no_field`。
-  `completeness` 显示的始终是**b35 对该渠道该类的判定**（`partial` 只是其中一种取值）。
+
+⚠ **`reason` 与 `completeness` 是两根正交的轴**（复核 b38 的开放项③指出我这里写歪过）：
+`completeness` **始终**是"b35 对**该渠道在该类**的判定"（`supported`/`partial`/`None`），
+它**不**从 `reason` 推出来。所以完全可能（也实测出现过）出现
+`status=not_answered / reason=channel_gave_no_field / completeness=supported` ——
+`supported` 说的是"这根棒**本来能**给这一类的东西"，而这次它**恰好没给**
+（例如渠道只回了状态、没回日期）。别把两者当成一回事。
 
 ⚠ **"有候选"≠"答了"**：本模块只按"**是哪根棒答的**"来判 `answered`，
 不把"链上还有其他候选"当成已经查过（那正是"让业主以为查过了"的形态）。
@@ -43,6 +49,13 @@ STATUSES: tuple[str, ...] = ("answered", "not_answered")
 REASONS: tuple[str, ...] = ("ok", "no_capability", "off_chain", "all_down",
                             "not_probed", "channel_gave_no_field")
 #: 结构性"答不出来"的原因（与"这次没问"区分：`not_probed` **不在**这一组）
+#: ⚠ `all_down` 在**生产路径上已经不可达**（复核 b38 的开放项④）：巡检两处调用点
+#: （`inspector._classes_info` / `_classes_info_for_miss`）都用 `only_ok=False` 算候选，
+#: 于是"活着的候选"就等于"链上候选"、`all_down` 永远不会出现。它现在只剩两处用途：
+#: ① 手动 CLI `scripts/question-route.py`（默认 `only_ok=True`）；② 单测。
+#: **留着它是对的**（它是 `only_ok=True` 那条路的口径，删了 CLI 就没词可用），
+#: 但**接"有 unanswerable 不算 done"那条恒等式时要记得**：生产里 `classes_unanswerable`
+#: 其实只可能由 `no_capability` / `off_chain` 产生。
 UNANSWERABLE_REASONS: frozenset[str] = frozenset({"no_capability", "off_chain", "all_down"})
 
 

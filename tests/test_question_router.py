@@ -224,6 +224,20 @@ class Test真机对照:
                               only_ok=False)["发布"]
         assert got[0] == "ch:mee", got
 
+    def test_注入同一条链结果必须逐位相同(self):
+        """**注入链不变式**（复核 b38 的开放项⑤）：把自然链原样注入，结果必须一字不差。
+
+        这条是 R6c-4"台账驱动链"要走的接口，而"注入路径把专门渠道在先关掉"那个 bug（b37 的 A①）
+        正是它能抓到的。哨兵脚本 `scripts/five-class-order-diff.py` 里也跑同一条不变式。
+        """
+        table = ca.load_answers()
+        for no in ("GB/T 38496-2020", "HJ 819-2017", "T/CECS 1000-2021", "XYZ 1-2020",
+                   "GB 18218-2018"):
+            natural = qr.channels_for(standard_no=no, table=table, only_ok=False)
+            injected = qr.channels_for(standard_no=no, table=table,
+                                       chain=select_chain(no), only_ok=False)
+            assert natural == injected, no
+
     def test_未审计的棒不越过partial(self):
         """⚠ 复核 b37 的 A②：我第一版把"没审计（None）"与 `supported` 同键，
         于是 `None` 会**越过** `partial` 前移，而 docstring 写的是"`None` 不参与排序"。
