@@ -1552,3 +1552,39 @@ R6c-3c 把 `official_gb` 的日期取对了（第 2 格=实施日期），但**�
 `effective_date` 只在真有实施日期时才填——**顺手把那处可疑一并收掉**。
 **待 b34 回来**：它正在核其余适配器（`ttzb`/`govcn_announce`/`laws_db`/`web_fallback`/`mem_gov`/`mohurd`/
 `docx_ingest`/`track_l`）有没有"发布/实施错标"，结论会直接决定这个字段要补几处、每处填哪个字段。
+
+---
+
+### R6c-5（2026-09-18）：**能力表审计**（子代理 b35）——56 条声明逐条对代码核完
+
+**b35 的产出**：18 条 `ch:*` 适配器的 56 条声明，`supported 25 / partial 31 / not_supported 0 / cannot_tell 0`；
+两个系统性缺口占了绝大多数 `partial`：
+1. **废止日期只有 3 条真拿到**（`ndls` 的 a206、`hbba`/`dbba` 的 `fzDate`），
+   其余 8 条只有状态串或**标题关键词**；
+2. **`编号核验` 18 条全 partial**——没有一条做"写法是否规范"的判定，`official_gb`/`laws_db` 实际只比标题；
+3. 抓到 **3 处"docstring 写了、代码没写"**（`hbba`/`dbba` 声称解 `reviseStdCodes`、`ttzb` 把 `abolishDate`
+   放进 raw 白名单却从不读、`mohurd` 声称详情含发布时间而零日期解析）——**这正是本仓那条老教训的又一例**；
+4. **唯一漏声明**：`ch:flk_client` 的 `编号核验`（代码确有：`flk_client.py:73-81` 解析 `bbbs`）；
+5. **最弱一例**：`ch:govcn` 的「现行性」三条 branch 全是**猜**（标题含"废止"→withdrawn、号相等→effective、
+   其余→upcoming）——政策文件库里根本没有法律状态字段。而设计稿 §4 曾把它当"权威对照源"，
+   **两处口径冲突**，已登记（**先改声明，不改代码**）。
+6. b35 **独立复现了 R6c-3e 的动机**：`ChannelResult` 只有一个日期槽（`base.py:206`）⇒
+   "发布日期能解析却无处安放"在 **6 条渠道**上重复发生。
+
+**合并工具**已写好（`var/tmp/merge-abilities.py`，默认 dry-run）：把 b35 的
+`verdict/evidence/note` 写进每条的 `answers_detail` + 一个 `audit` 段；**不动 `confidence`**
+（它表示"声明来源有多可信"，能力细节交给 `answers_detail.verdict`）。
+
+⚠ **模拟排序时发现一个"照做会变坏"的坑（本轮最值钱的一步）**：
+本来打算"同一类里 `supported` 排在 `partial` 前"。先在内存里**模拟**（`var/tmp/r6c5-sim.py`，不写仓），
+结果 12 个号 × 5 类里 **20 格变了**，其中 **8 格是 `发布` 类被搞坏**：
+- `废止`：`official_gb(partial) → ndls(supported)` ✔ **正是想要的**（ndls 才有废止日期）；
+- `发布`：`ndls` 被压到 `govcn` 后面（`GB ` 号上更被 `official_gb` 反超）✘ ——
+  因为 b35 给 `official_gb` 的 `发布` 判了 `supported`，而它**产出的是实施日期**（b35 的 note 里自己写了）；
+  `ndls` 的 `发布` 反而判 `partial`（a101 只在 raw 里）。
+  ⇒ 用"有没有日期"当 `发布` 的 verdict，会把"给了**错**日期"排到"给了对日期"前面。
+
+**⇒ 定下的顺序（改原计划）**：`answers_detail` **先只当证据落库、不参与排序**；
+**先做 R6c-3e（补 `published_date`）**——补完之后 `official_gb`（第 1 格）与 `ndls`（a101）
+在 `发布` 类上才是真的 `supported`，那时再启用"verdict 排序"，并**重新模拟**确认只有 `废止` 那一类翻。
+**先模拟、再改行为**：这一步如果直接照着做，`发布` 类会被静默改坏，而它在真机上要很久才看得出来。
