@@ -258,15 +258,11 @@ class NdlsAdapter(ChannelAdapter):
         wd = str(data.get("a206") or "").strip() or None    # 废止日期
         a100 = str(data.get("a100") or "").strip() or None
         version = self._newer_version(data, standard_no) or a100
-        # 废止标准以废止日期为关键日期；否则实施日期；**都没有就不填**
-        # （§11.0 R6c-3f：不再拿发布日期顶实施槽——它有 published_date 自己的位置）
-        eff: str | None
-        if legal == "withdrawn" and wd:
-            eff = wd
-        elif impl:
-            eff = impl
-        else:
-            eff = None
+        # §11.0 R6c-7：**两个日期两个槽**。以前"废止标准以废止日期为关键日期"把 a206 塞进
+        # `effective_date`，而该槽的语义是**实施日期**（base.py）⇒ 与 ttzb/b34 同形的错标。
+        # 现在：`effective_date` 恒为实施日期（a205），废止日期落自己的槽（a206）。
+        # ⚠ 降级路径（a206 为空）下 `withdrawn_date` 就是 `None`——那是"不知道"，
+        # 不是"拿实施日期顶上"（实测 GB 1219-2008 就是这一档）。
         raw = {
             "http": http, "id": did, "status_text": a000,
             "issue_date": pub, "impl_date": impl, "withdrawn_date": wd,
@@ -279,7 +275,10 @@ class NdlsAdapter(ChannelAdapter):
             channel=self.name, found=True,
             change_type=derive_change_type(standard_no, version, legal),
             legal_status=legal, latest_version=version,
-            effective_date=eff,
+            effective_date=impl,
+            # 废止日期单独落槽（§11.0 R6c-7）：a206 是一手真值，别再拿它顶实施槽，
+            # 也别反过来拿实施日期冒充它（见 base.py 上该字段的说明）。
+            withdrawn_date=wd,
             published_date=pub,
             evidence_url=self.EVIDENCE_URL.format(did=did),
             raw=raw,

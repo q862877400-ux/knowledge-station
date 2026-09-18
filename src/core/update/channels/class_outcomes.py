@@ -79,7 +79,8 @@ def conclusion_for(cls: str, result: Any) -> dict[str, Any] | None:
     - `修订`   ：要"有没有新版/被代替" ⇒ `change_type` 三态都算答了
       （`new_version`/`superseded` 有新版，`no_change` 明确没有）；
     - `废止`   ：要**废止状态与日期** ⇒ 有 `legal_status` 就算答了
-      （`withdrawn` 时把 `effective_date` 作为废止日期带上——`ndls` 的约定就是废止号以废止日期为关键日期；
+      （`withdrawn` 时把 **`withdrawn_date`** 作为废止日期带上——**只认这个槽**：它是渠道
+      **真的解析出来**的废止日期（`ndls` a206 / `hbba`·`dbba` fzDate）；
       非废止时`withdrawn_date` 为 `None`，那是"没有废止日期"这个**结论**，不是缺字段）；
     - `现行性` ：要**今天的法律状态** ⇒ `legal_status`；
     - `编号核验`：要"这个号在权威库里存不存在" ⇒ `found`（本模块只在 `found=True` 时被调用，
@@ -97,8 +98,14 @@ def conclusion_for(cls: str, result: Any) -> dict[str, Any] | None:
         st = getattr(result, "legal_status", None)
         if not st:
             return None
+        # §11.0 R6c-7：废止日期**只认它自己的槽**（`withdrawn_date`）。
+        # 以前读的是 `effective_date`，而那个槽的语义是**实施日期**（base.py）——
+        # 真机实测（3 个真废止号、5 行）：`official_gb` 给的是实施日期列（GB 16663-1996 →
+        # 1997-07-01，真废止 2026-09-01）、`ndls` 在**详情缺 a206 的降级档**也会回落 impl_date
+        # ⇒ 5 行里 3 行错标，而且**"渠道判 supported"兜不住**（ndls 就是 supported）。
+        # 只有渠道真解析出 a206/fzDate 才会填 `withdrawn_date`；没有就是"不知道"。
         return {"state": st,
-                "withdrawn_date": getattr(result, "effective_date", None)
+                "withdrawn_date": getattr(result, "withdrawn_date", None)
                 if st == "withdrawn" else None}
     if cls == "现行性":
         st = getattr(result, "legal_status", None)

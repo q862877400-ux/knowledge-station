@@ -396,7 +396,11 @@ def _probe_number(adapters: dict[str, ChannelAdapter], item: dict,
                         "effective_date": result.effective_date,
                         # §11.0 R6c-3e：两个日期分开记。以前只记 effective_date，
                         # 而"发布"这一类（五类之首）因此没有数据来源。
-                        "published_date": result.published_date}
+                        "published_date": result.published_date,
+                        # §11.0 R6c-7：废止日期也落事件（第三个日期槽）。
+                        # 只有渠道真解析出来才有值（`ndls` a206 / `hbba`·`dbba` fzDate）；
+                        # 没有就是"不知道"——**别拿 effective_date（实施日期）顶**。
+                        "withdrawn_date": result.withdrawn_date}
                 info = {k: v for k, v in info.items() if v is not None}
                 # §11.0 R6c-4c：**五类结论**记进同一条事件的 latest_info
                 # （不新增列、不写 ×5 条事件：理由见 channels/class_outcomes.py 与设计稿 §3.2.2）

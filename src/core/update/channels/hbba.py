@@ -13,8 +13,9 @@ POST https://hbba.sacinfo.org.cn/stdQueryList
   fzDate 废止日期（仅废止行有值；AQ 3028-2008 实测 fzDate=2024-07-01，status=废止）。
 - status 词汇：现行 / 即将实施 / 废止 / 有更新版（旧版被新版代替时，旧版行
   status="有更新版"，reviseStdCodes 为其所取代的更早版本号）。
-- 状态判定：废止→withdrawn（effective_date 取 fzDate 废止日期）、
-  有更新版→superseded、现行→effective、即将实施→upcoming；非废止取 actDate。
+- 状态判定：废止→withdrawn（废止日期落 `withdrawn_date`）、
+  有更新版→superseded、现行→effective、即将实施→upcoming；实施日期恒取 actDate。
+  （§11.0 R6c-7：以前把 fzDate 塞进 `effective_date`＝拿废止日期冒充实施日期，已改。）
 - 证据链：详情页 https://hbba.sacinfo.org.cn/stdDetail/<pk>。
 
 mock 应答契约（离线表驱动，同 04a §0）：
@@ -112,12 +113,11 @@ class _SacinfoQueryAdapter(ChannelAdapter):
             upd_log(self.trace_id, f"channel.{self.name}", "WARN", "illegal_state_text",
                     standard_no=standard_no, state=raw_state)
 
-        # effective_date：废止行取 fzDate（废止日期），否则取 actDate（实施日期）
-        effective_date = None
-        if legal_status == "withdrawn":
-            effective_date = _epoch_ms_to_date(row.get("fzDate"))
-        if effective_date is None:
-            effective_date = _epoch_ms_to_date(row.get("actDate"))
+        # §11.0 R6c-7：**两个日期两个槽**。"废止行取 fzDate（废止日期）"塞进 `effective_date`
+        # 是同一处错标（该槽语义＝实施日期）⇒ 废止日期落自己的槽，实施槽只放 actDate。
+        withdrawn_date = (_epoch_ms_to_date(row.get("fzDate"))
+                          if legal_status == "withdrawn" else None)
+        effective_date = _epoch_ms_to_date(row.get("actDate"))
 
         result = ChannelResult(
             channel=self.name,
@@ -126,6 +126,8 @@ class _SacinfoQueryAdapter(ChannelAdapter):
             legal_status=legal_status,
             latest_version=version,
             effective_date=effective_date,
+            # 废止日期自己的槽（§11.0 R6c-7）：fzDate 是一手真值，别再顶实施槽。
+            withdrawn_date=withdrawn_date,
             # §11.0 R6c-3e：`issueDate`（批准/发布日期）本来就在响应行里、也被整行放进 raw，
             # 但代码从没把它**命名**解析出来（复核 b35 逐条核代码时点到的）——现在落它自己的槽。
             published_date=_epoch_ms_to_date(row.get("issueDate")),

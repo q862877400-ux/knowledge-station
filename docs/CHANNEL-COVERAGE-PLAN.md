@@ -1860,3 +1860,151 @@ R6c-3e 把那个槽补上 ⇒ 这 9 条的「发布」升 `supported`（`mee` **
   **变异检查**：让 `_debt_from_events` 直接返回 `[]` ⇒ 该用例红（实测复现 b39 的 `done`）。
 - **仍未修（登记）**：`error_trail` 的同一形状缺口（未判定号在"提交后被杀"的档上同样会丢）；
   它属于"四色恒等式"那条更老的守则，要动得单独一步 + 自己的复核。
+  ⚠ **复核 b40 又抓到同源的第三条，建议与它一起做**：`_commit_outcome` 的跨批去重命中时
+  **只弹队列、不写事件**（`inspector.py:540-543`）⇒ 那一次探测**零持久凭据**，
+  "反复被巡到的号"恰恰最容易被去重跳过、回收拿不到。详见下面的 b40 小节。
+
+### 复核 b40（独立 verifier，2026-09-18）：四条声明**全部成立**，附两条限定 + 一个最高风险
+
+对象 = `dddff8c`（R6c-4e）。报告 `var/tmp/VERIFY-b40.md`、脚本 `var/tmp/b40-verify/`。
+
+- **声明 1 成立（判别性）**：它**自己另造一种形态**（不经用例的 `route_report` 补丁：只建控制面
+  批次 + 手工 `INSERT` 一条事件行，`classes_unanswerable` 与 `classes_unanswered` 混在同一行，
+  断点写成"崩溃后 `pause_batch` 那份"）⇒ resume 得 `failed`；进程内把 `_debt_from_events`
+  换成 `lambda: []` ⇒ 同形复现 b39 的 `done`。用例本身的变异它用
+  `meta_path`+`SourceFileLoader`「exec 前改写源码」跑，**仓库文件零改动**。
+- **声明 2 成立 + 两条限定**：
+  (a) **误报不可达**：`WHERE batch_id=?` 承重（进程内去掉它 ⇒ 干净批立刻被冤枉 `failed`）；
+  `batch_id` 有 `NOT NULL` 约束、`create_inspect_batch` 不接受调用方指定 ⇒ 无复用；
+  真库 355 条事件 `batch_id` 无 NULL。
+  (b) **反向有真盲区（我认）**：跨批去重命中时**不写事件** ⇒ 该次探测无任何持久凭据；
+  它用三臂实测证明承重的是**三元键**（同键历史行存在 ⇒ 本批新增 **0** 条事件行；
+  换 `change_type` ⇒ 写 1 条）。这条是**代码级判定**（非端到端复现，因为下面那个
+  "结构性欠账今天不可达"），脚本里也没写成会假红的断言。
+- **声明 3 成立**：两个反例都走**真写路径**（`run_batch`→`_probe_number`→`build_classes`→`_commit_outcome`）：
+  ① `not_probed`（`HJ 1-2020` + 真台账 131 条，链首 `mee` 只声明「发布」）⇒ 5 类全 `not_probed`、
+  批次 `done`；② `channel_gave_no_field`（`official_gb` 给了非法 state）⇒ 2 类进 `classes_unanswered`、
+  批次 `done`。另实测读库失败时 `classes_debt_unreadable` 出声（`ks.upd` 日志器，不写 `event_log`）
+  且不炸；断点里有欠账时仍 `failed`。
+- **声明 4 成立**：R6c-4c 那句在**原处**被 `~~ ~~` 划掉 + 同列表项内更正指向 R6c-4d；
+  `error_trail` 如实写成"仍未修（登记）"。门禁串行：pytest 2125 passed / 3 skipped；mypy 142 文件 0 错。
+- **⚠ 两个须记的口径边界（它点的，我认）**：
+  1. **回收端只认键名、不校验 `reason`**：手写一条
+     `classes_unanswerable=["发布"]` 而 `classes.发布.reason="not_probed"` 的矛盾事件行，
+     回收端照样收（批次 `failed`）。守门人仍只有写路径那一处（`build_classes` 的
+     `UNANSWERABLE_REASONS`）⇒ **理论上的一致性边界、不是可达缺陷**；但将来若有人手工修事件行
+     或另起一条写路径，它会变成真的。
+  2. **`_classes_info_for_miss` 不对称**：灰号（`not_found`）事件里**没有** `classes_unanswered`
+     （只有 `classes` + `classes_unanswerable`）⇒ 对欠账无损，但"从事件行复原灰号的五类状态"不完整。
+- **最高风险（它给的，我认同并接受）**：**这条修法今天在真库上永远不会被执行**——
+  `classes_unanswerable` 在本 build 结构性不可达：① 真库只读复算 6417 号 × 5 类 = 32085 格，
+  欠账 **0 格**（原因分布 `{}`）；② 能力表 5 类各 ≥26 条渠道声明能答
+  （发布 64 / 修订 30 / 废止 27 / 现行性 26 / 编号核验 31），且每条链都含
+  `official_gb`+`ndls`+`govcn`（三根都声明全五类）⇒ `no_capability`/`off_chain` 都不可达
+  （`all_down` 早已因 `only_ok=False` 不可达）；③ 355 条事件里带 `classes*` 键的各 0 条，
+  两个还 paused 的批次其 checkpoint/事件亦无欠账。
+  ⇒ R6c-4d/4e 都是**给将来的护栏**（与文档"今天 0 影响"一致），但今天只有 monkeypatch 级覆盖。
+  **它建议的最小加固（登记为待办）**：给能力表加**启动期自检**——某类"声明者 ∩ 任一生产链"为空时
+  WARN 一次，把"今天不可达"从**隐含事实**变成**显式事实**；以及把那两条同源缺口
+  （`error_trail` + 去重盲区）**合成一步**修，别分两次。
+
+### R6c-6（2026-09-18 量测）：设计稿 §3.2.2「量 1」过期了——按类探**真的会换渠道**
+
+**为什么要重量**：§3.2.2 的「量 1」是"五类同一根第一候选 ⇒ 按类问不增加请求"，据此第 4 条
+决定"不做每类各打一根"。但那是 `_order_by_ability` 的 `keep_first` 修正（复核 b37 的 A①）
+**之前**量的。**代码变了，结论要重量**（"别照着没量过的计划写代码"）。
+
+**根因（之前没人写清）**：`keep_first` 取的是 `_to_channel_id(first_route(no))`——
+**只有"前缀规则命中"的专门渠道才被钉在第一位**。`GB/T …` 不匹配任何前缀规则
+（`^GB\s?\d{4,5}` 要求 GB 后直接是数字）⇒ `first_route('GB/T …') is None` ⇒ 链首
+`official_gb` **不被钉住**，`_order_by_ability` 于是把 `ndls`（废止 `supported`）提到
+`official_gb`（废止 `partial`）前面。
+
+**只读真库 6417 号实测**（`var/tmp/r6c6-perclass-first.py`，不发请求）：
+
+| 类 | 该类第一候选 ≠ 链首的号数 |
+|---|---|
+| 发布 / 修订 / 现行性 / 编号核验 | **0**（链首即第一候选） |
+| **废止** | **6150（95.84%）**——第一候选是 `ch:ndls` |
+
+链首的能力判定分布：发布/修订/现行性 6417 全 `supported`；**废止 267 `supported`（`ndls` 打头）
++ 6150 `partial`**；编号核验 6417 全 `partial`。
+（这与 R6c-3g 哨兵的 287/1500 格 ≈ 19.1%、b37 的 6150/32085 ≈ 19.2% 是**同一现象**：
+6150/32085 正好 19.17%。本次新增的是**根因**与**按号计的成本**。）
+
+**成本（两种做法）**：
+1. **全量补**（每个 `official_gb` 打头的号多问一根）⇒ **+6150 = +95.8%**（6417 → 12567 次）；
+2. **只在红/黄号上补**（首棒判定 `change_type ∈ {withdrawn, superseded}` 时才补）⇒
+   额外 1 次/红号；红黄率实测（`var/tmp/r6c6-red-rate.py`：310 个有事件的号里
+   `withdrawn` 54 + `superseded` 6 = **60，19.4%**）⇒ 关注面批次 **+19%**。
+   ⚠ `doc_meta.legal_status` **全是 `effective`（6417/6417）**、**没有**现成"红号"列，
+   红黄只能由**探测结果本身**（`judge_result`）判——所以②的判据在首棒命中之后就已经有了。
+
+⇒ **决定：选②**（P1 准确性优先、成本与红号数成正比），并**先落一个零成本的护栏**（见 R6c-7）。
+设计稿 §3.2.2 的「量 1」与第 4 条已**在原处划掉并更正**（不再照它否掉实现）。
+
+### R6c-7（2026-09-18 完成）：`废止` 类挂着一个**错标**的废止日期（P1 准确性）
+
+**发现路径**：给上一条的"补探"定价时问了一句"补到了什么"——答案是**今天记的那个日期本来就是错的**。
+
+`class_outcomes.conclusion_for('废止', r)` 在 `legal_status == 'withdrawn'` 时把
+`r.effective_date` 当**废止日期**（`withdrawn_date`）带出去。但 `ChannelResult.effective_date`
+的语义是**实施日期**（`base.py:206` 自己写的），而 `effective_date` 落到它上面的渠道里，
+**8 条 partial 渠道**填的都是自己的关键日期、**不是**废止日期（逐条见
+`var/tmp/r6c7-withdrawn-verdicts.py`）：`official_gb`（实施日期列）、`cssn`（实施 or 发布）、
+`std_samr_hb`（ACT_DATE/ISSUE_DATE）、`laws_db`（sxrq/gbrq）、`govcn`（pubtime）、
+`ttbz`（datePublished）、`flk_client`（gbrq/sxrq）、`web`（第一个日期，语义不明）。
+
+**真机一手实测（3 个真废止号，`var/tmp/r6c7-conclusion-baseline.py`）**：
+
+| 号 | 渠道 | 今天吐出的 `withdrawn_date` | 真相 |
+|---|---|---|---|
+| GB 16663-1996 | `official_gb` | 1997-07-01 | ✗ 实施日期（站点 a206 真值 **2026-09-01**） |
+| GB 16663-1996 | `ndls` | 2026-09-01 | ✓ 与 a206 一致 |
+| GB 1219-2008 | `ndls` | 1986-05-01 | ✗ **站点没有 a206**，拿 impl_date 冒充 |
+| GB 11121-2006 | `official_gb` | 2007-01-01 | ✗ 实施日期（真值 **2026-07-01**） |
+| GB 11121-2006 | `ndls` | 2026-07-01 | ✓ |
+
+⚠ **关键**：错的不只是判 `partial` 的渠道——`ndls`（判 `supported`）在自己的**降级路径**
+（详情里没有 a206）上同样会拿 `impl_date` 冒充 ⇒ **"按能力判定兜住"这种修法不成立**，
+必须让"有没有废止日期"成为**结果里的一等事实**（与 R6c-3e 给 `published_date` 开槽同一形状）。
+
+**影响面**：库里 355 条事件里 **0 条**带 `classes` 键（R6c-4c 之后还没跑过巡检）
+⇒ **今天没有已写坏的行走数据**；但下一批巡检一跑就会写进去 ⇒ 这是**抢在下一次巡检之前**
+要落的护栏（与 R6c-4d 同形：今天 0 影响、给将来）。
+
+**要做**：`ChannelResult` 加 `withdrawn_date` 槽（`ndls` 从 a206、`hbba`/`dbba` 从 fzDate 填）、
+`conclusion_for('废止')` 只认这个槽、`latest_info` 一并落该槽；
+⚠ 与 `doc_meta.withdrawn_date` 对齐（文档平面**早就有**这个一等字段，是结果类缺它）。
+
+**做完了什么**（`base.py` 加槽 + `ndls._from_detail` / `hbba`（dbba 共用）填槽 +
+`conclusion_for` 只认该槽 + `inspector.latest_info` 落该槽）：
+
+| 号 | 渠道 | 改前 `withdrawn_date` | 改后 | 站点 a206 |
+|---|---|---|---|---|
+| GB 16663-1996 | `official_gb` | 1997-07-01 ✗（实施日期） | **None（如实：没有这个字段）** | 无 |
+| GB 16663-1996 | `ndls` | 2026-09-01 ✓ | 2026-09-01 ✓ | 2026-09-01 |
+| GB 1219-2008 | `ndls`（降级档） | 1986-05-01 ✗（回落 impl_date） | **None（如实）** | 无 |
+| GB 11121-2006 | `official_gb` | 2007-01-01 ✗（实施日期） | **None（如实）** | 无 |
+| GB 11121-2006 | `ndls` | 2026-07-01 ✓ | 2026-07-01 ✓ | 2026-07-01 |
+
+（同一脚本 `var/tmp/r6c7-conclusion-baseline.py` 改前/改后各跑一次，表就是它的输出。）
+
+**语义对齐**（要记住，别当成回归）：`ndls` 的 `effective_date` 以前对废止号放的是**废止日期**，
+现在**恒为实施日期**（a205）——`effective_date` 的语义本来就是实施日期（`base.py`），
+废止日期有了自己的槽。信息没丢：两个日期都在 `latest_info` 里；
+`doc_meta.withdrawn_date` 一直是这么分的，插件侧也一直在渲染它（`plugin/src/index.js:397`）。
+
+**用例与变异**（各做了变异测试，两处都当场红）：
+`tests/test_class_outcomes.py::test_废止_现行也是结论_非废止时无废止日期`
+（**旧断言改在原处**：它原来喂 `effective_date` 并期望它变成废止日期——那正好把被修掉的错标
+钉成了契约）+ `tests/test_update_channels.py::Test废止日期落自己的槽` 三条
+（ndls 详情分槽 / ndls 降级档不填 / hbba 废止行分槽）。
+
+**能力表同步**：`ndls`/`hbba`/`dbba` 那 7 处 `evidence`/`note` 里"废止时它就是 effective_date"
+一类的话与行号**在原处改掉**（`var/tmp/r6c7-fix-answers-evidence.py`；改完自检
+**verdict 一个没动**，131 条渠道数不变）。
+
+**仍未做（下一步，见 R6c-6 的定价）**：红/黄号上的"补探"——让 `废止` 这一类去问 `ndls`
+（成本 +19.4% 请求，只落在红号上）。**注意**：本步只是**不再记错**；红号想拿到**正确的**
+废止日期，仍需要那一步（`official_gb` 这一档现在如实留空）。

@@ -67,9 +67,17 @@ class Test结论抽取:
         assert co.conclusion_for("废止", eff) == {"state": "effective",
                                                   "withdrawn_date": None}
         wd = ChannelResult(channel="ndls", found=True, legal_status="withdrawn",
-                           effective_date="2026-07-01")
+                           effective_date="2017-07-01", withdrawn_date="2026-07-01")
         assert co.conclusion_for("废止", wd) == {"state": "withdrawn",
-                                                 "withdrawn_date": "2026-07-01"}
+                                                  "withdrawn_date": "2026-07-01"}
+        # §11.0 R6c-7：**只有实施日期、没有废止日期槽**时，不许拿它冒充废止日期。
+        # 真机实测三行错标（GB 16663-1996：official_gb 报 1997-07-01，真废止 2026-09-01）。
+        # ⚠ 本条是**把旧断言改在原处**得来的：旧断言喂 `effective_date="2026-07-01"` 并期望
+        # 它变成 `withdrawn_date`——那正好把被修掉的错标**钉成了契约**（变异测试会发现它挡不住回归）。
+        mislabel = ChannelResult(channel="official_gb", found=True,
+                                 legal_status="withdrawn", effective_date="1997-07-01")
+        assert co.conclusion_for("废止", mislabel) == {"state": "withdrawn",
+                                                       "withdrawn_date": None}
         # 完全没给状态（mee 就是）⇒ 这一类它答不了
         assert co.conclusion_for("废止", ChannelResult(channel="mee", found=True)) is None
 

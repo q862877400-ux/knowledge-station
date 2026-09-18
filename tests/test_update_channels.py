@@ -721,3 +721,54 @@ class TestNormNoDashes:
         from src.core.update.channels.base import norm_no
         for raw in ("GB／T 17098－1997", "GB/T—17098", "HJ 819–2017"):
             assert norm_no(raw) == canon_standard_no(raw), raw
+
+
+class Test废止日期落自己的槽:
+    """§11.0 R6c-7：`withdrawn_date` 是**一等字段**（与 `doc_meta.withdrawn_date` 对齐）。
+
+    为什么必须有这一组（真机一手实测，`var/tmp/r6c7-conclusion-baseline.py`）：
+    `废止` 类的日期原来读 `effective_date`，而那个槽的语义是**实施日期** ⇒
+    `official_gb` 给 GB 16663-1996 报 1997-07-01（真废止 2026-09-01）。
+    ⚠ **"渠道判 supported"兜不住**：`ndls` 在详情缺 a206 的降级档也会回落 impl_date
+    （实测 GB 1219-2008：a206 空、effective_date=1986-05-01）⇒ 只有"真解析出废止日期"才填槽。
+    """
+
+    def test_ndls_详情_实施与废止分槽(self):
+        from src.core.update.channels.ndls import NdlsAdapter
+        data = {"a000": "作废", "a100": "GB/T 16663-1996", "a101": "1996-12-19",
+                "a205": "1997-07-01", "a206": "2026-09-01", "a298": "x"}
+        r = NdlsAdapter()._from_detail(200, data, "did", "GB/T 16663-1996")
+        assert r.legal_status == "withdrawn"
+        # 两个槽各归各位：实施日期不再被废止日期顶掉，反之亦然
+        assert (r.effective_date, r.withdrawn_date) == ("1997-07-01", "2026-09-01")
+
+    def test_ndls_降级档_没有a206就不填废止日期(self):
+        """⚠ 不知道 ≠ 拿实施日期顶（这正是"按能力判定兜住"失败的现场）。"""
+        from src.core.update.channels.ndls import NdlsAdapter
+        data = {"a000": "作废", "a100": "GB 1219-2008", "a205": "1986-05-01",
+                "a206": "", "a298": "x"}
+        r = NdlsAdapter()._from_detail(200, data, "did", "GB 1219-2008")
+        assert r.effective_date == "1986-05-01"
+        assert r.withdrawn_date is None
+
+    def test_hbba_废止行_两个日期分槽(self):
+        from datetime import datetime, timedelta, timezone
+
+        from src.core.update.channels.hbba import HbbaAdapter
+
+        def ms(y, m, d):  # 站点是 epoch 毫秒（北京时间 UTC+8）
+            return int(datetime(y, m, d, tzinfo=timezone(timedelta(hours=8)))
+                       .timestamp() * 1000)
+
+        class _T:
+            def fetch(self, url, **kw):  # noqa: ANN001
+                return 200, {"total": 1, "records": [
+                    {"pk": "p1", "code": "AQ 3028-2008", "status": "废止",
+                     "issueDate": ms(2008, 11, 19), "actDate": ms(2009, 1, 1),
+                     "fzDate": ms(2024, 7, 1)}]}
+
+        r = HbbaAdapter(transport=_T()).probe("AQ 3028-2008")
+        assert r.legal_status == "withdrawn"
+        assert r.withdrawn_date == "2024-07-01"
+        # 实施槽只放 actDate（以前废止行会把它顶成 fzDate）
+        assert r.effective_date == "2009-01-01"

@@ -185,7 +185,7 @@
       "answers_detail": {
         "发布": {
           "verdict": "supported",
-          "evidence": "ndls.py:250 pub=str(data.get('a101'))（发布日期）；ndls.py:263-265 raw['issue_date']=pub；但 ndls.py:256-262 落进 ChannelResult.effective_date 的次序是 withdrawn_date → impl_date → pub",
+          "evidence": "ndls.py:256 pub=str(data.get('a101'))（发布日期）；ndls.py:268 raw['issue_date']=pub；R6c-3e 起 published_date=pub（ndls.py:242）；R6c-7 起三个日期各占一槽（ndls.py:278-282）",
           "note": "a101 确实被解析（进 raw.issue_date，随结果落库），但**不是一等字段**：ChannelResult 只有 effective_date 一个日期槽，正常单（有 a205）拿到的是实施日期，发布语义被顶掉。行内降级（ndls.py:222-241，_from_row）连 issue_date 都不落 raw。 ／ R6c-3e（2026-09-18）重评：该渠道的发布日期现在落 `ChannelResult.published_date`（一等字段），故由 partial 升 supported；b35 原判定针对的是「只有一个日期槽」的旧代码。"
         },
         "修订": {
@@ -195,8 +195,8 @@
         },
         "废止": {
           "verdict": "supported",
-          "evidence": "ndls.py:252 wd=str(data.get('a206'))（废止日期）；ndls.py:257-258 if legal=='withdrawn' and wd: eff=wd；ndls.py:265 raw['withdrawn_date']=wd",
-          "note": "废止日期真正一级落地（废止时它就是 effective_date）——18 条里只有 ndls/hbba/dbba 做到这点。⚠降级路径不完整：detail=False（体检模式，ndls.py:114-120）与详情不可用（ndls.py:129-136）都走 _from_row，note='row_only'/'detail_unavailable'，此时无 a206、无代替关系。"
+          "evidence": "ndls.py:258 wd=str(data.get('a206'))（废止日期）；ndls.py:281 withdrawn_date=wd（一等槽）；ndls.py:268 raw['withdrawn_date']=wd。R6c-7 改：旧写法 wd 会顶掉 effective_date，现在 effective_date 恒为 a205 实施日期（ndls.py:278）",
+          "note": "废止日期真正一级落地（R6c-7 起落**自己的槽** `ChannelResult.withdrawn_date`，不再顶 effective_date）——18 条里只有 ndls/hbba/dbba 做到这点。⚠ R6c-7 补：降级档（无 a206）`withdrawn_date=None`（**不知道，不回落实施日期冒充**）。⚠降级路径不完整：detail=False（体检模式，ndls.py:114-120）与详情不可用（ndls.py:129-136）都走 _from_row，note='row_only'/'detail_unavailable'，此时无 a206、无代替关系。"
         },
         "现行性": {
           "verdict": "supported",
@@ -275,7 +275,7 @@
       "answers_detail": {
         "发布": {
           "verdict": "supported",
-          "evidence": "hbba.py:115-120 effective_date 只从 fzDate(废止) 再 actDate(实施) 取；issueDate 全程只出现在 docstring（hbba.py:6/12/21），代码未读；虽有 raw={'row': row}（hbba.py:131）把整行带出",
+          "evidence": "hbba.py:118-121 三个日期分槽（issueDate→published_date:hbba.py:133、actDate→effective_date、fzDate→withdrawn_date:hbba.py:130）；R6c-3e 之前 issueDate 只在 docstring 与 raw.row（hbba.py:136）里，未命名解析",
           "note": "issueDate（批准/发布日期）在响应里、且被整行放进 raw.row，但代码**没有把它解析成命名字段**（对比 ndls.py:263-265 cssn.py:199 都显式落 issue_date）。发布日期不是被解析出来的，是被整行顺带带出的。 ／ R6c-3e（2026-09-18）重评：该渠道的发布日期现在落 `ChannelResult.published_date`（一等字段），故由 partial 升 supported；b35 原判定针对的是「只有一个日期槽」的旧代码。"
         },
         "修订": {
@@ -285,7 +285,7 @@
         },
         "废止": {
           "verdict": "supported",
-          "evidence": "hbba.py:117-118 if legal_status=='withdrawn': effective_date=_epoch_ms_to_date(row.get('fzDate'))；hbba.py:65 map_state_text('废止')→withdrawn",
+          "evidence": "hbba.py:118-121 withdrawn_date=_epoch_ms_to_date(row.get('fzDate'))（仅废止行；fzDate 是一手真值）；hbba.py:128-130 实施槽只放 actDate。R6c-7 改：旧写法把 fzDate 塞进 effective_date；hbba.py:65 map_state_text('废止')→withdrawn",
           "note": "废止日期真一级落地（fzDate），加上状态串——这一类是真的全。"
         },
         "现行性": {
@@ -320,7 +320,7 @@
       "answers_detail": {
         "发布": {
           "verdict": "supported",
-          "evidence": "dbba.py:20 from ...hbba import _SacinfoQueryAdapter（解析全在 hbba.py）；hbba.py:115-120 effective_date=fzDate|actDate，无 issueDate",
+          "evidence": "dbba.py:20 from ...hbba import _SacinfoQueryAdapter（解析全在 hbba.py）；hbba.py:118-133 三个日期分槽（issueDate→published_date）；R6c-3e 之前无命名 issueDate",
           "note": "与 ch:hbba 同体同源，判定同 hbba：issueDate 未命名解析。dbba.py 全文 27 行，无任何自己的解析代码。 ／ R6c-3e（2026-09-18）重评：该渠道的发布日期现在落 `ChannelResult.published_date`（一等字段），故由 partial 升 supported；b35 原判定针对的是「只有一个日期槽」的旧代码。"
         },
         "修订": {
@@ -330,7 +330,7 @@
         },
         "废止": {
           "verdict": "supported",
-          "evidence": "hbba.py:117-118 fzDate → effective_date（dbba 共用）；hbba.py:65 map_state_text",
+          "evidence": "hbba.py:118-121 fzDate → withdrawn_date（dbba 共用同一解析）；hbba.py:65 map_state_text。R6c-7 改：不再进 effective_date",
           "note": "同 hbba。"
         },
         "现行性": {

@@ -214,6 +214,18 @@ class ChannelResult:
     #:     而真实响应里本来就有 `implementDate`。
     #: ⇒ 两个日期两个槽，谁解析出来谁填，别再"有一个日期字段就往里塞"。
     published_date: str | None = None
+    #: **废止**日期（"这个号什么时候被废止的"）。§11.0 R6c-7 新增，理由（一手实测）：
+    #:  1. `class_outcomes.conclusion_for('废止', r)` 原来在 `legal_status == 'withdrawn'`
+    #:     时把 `effective_date` 当**废止日期**带出去，而 `effective_date` 的语义是
+    #:     **实施日期**（见上）⇒ 红号的五类结论里挂着一个**错的**废止日期。
+    #:     实测 3 个真废止号：`official_gb` 给 1997-07-01/2007-01-01（=站点实施日期列），
+    #:     真废止日期是 2026-09-01/2026-07-01；`ndls` 详情 a206 才是一手真值。
+    #:  2. ⚠ **"渠道判 supported"兜不住这件事**：`ndls` 自己也有降级路径
+    #:     （详情缺 a206）——实测 `GB 1219-2008`：a206 为空、`effective_date` 回落 impl_date
+    #:     ⇒ 依然会冒充。**只有"渠道真的解析出了废止日期"才能填这个槽**，别用 effective_date 顶。
+    #:  3. 与文档平面对齐：`doc_meta.withdrawn_date`（schema.sql:23）**早就是**一等字段，
+    #:     是结果类缺它（插件侧也一直在渲染它：`plugin/src/index.js:397`）。
+    withdrawn_date: str | None = None
     evidence_url: str | None = None
     raw: dict = field(default_factory=dict)
 
