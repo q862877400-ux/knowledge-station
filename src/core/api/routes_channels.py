@@ -70,8 +70,9 @@ def register(app, json_error):
         - `body.ids`：只探这些 channel_id（省略 = 所有配了探针目标的渠道）；
         - `body.persist`：默认 true；false = 只探不落库（调试用）。
         ⚠ 单线程序列执行（体检不是爬取）：一个渠道一次请求、超时 20s。
-          传 104 个 id 会把请求拖很久——面板一次别点多条（宿主侧也有超时）。
-        ⚠ 不传 `ids` 时**只探配了目标的渠道**（28 条），不会盲探 131 条。
+          传几百个 id 会把请求拖很久——面板一次别点多条（宿主侧也有超时）。
+        ⚠ 不传 `ids` 时**只探配了目标的渠道**（数量随目标表变：R3 时 28 条，R6 后 **102** 条），
+          不会盲探全部台账（131 条）。
         """
         from src.core.update import channel_probe as cp
         b = body or {}

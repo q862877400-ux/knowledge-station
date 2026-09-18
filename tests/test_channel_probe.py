@@ -11,6 +11,8 @@
 """
 from __future__ import annotations
 
+import json
+
 import pytest
 
 from src.core.storage import channel_repo as cr
@@ -116,6 +118,32 @@ class TestMinLinks:
                         ("true" if bad is True else bad)), encoding="utf-8")
         with pytest.raises(ValueError, match="min_links"):
             cp.load_targets(p)
+
+    @pytest.mark.parametrize("target,pat", [
+        ("https://e.com", "必须是对象"),                       # target 写成字符串
+        ({"url": "/relative"}, "http"),                        # 没有可抓的绝对地址
+        ({"url": "https://e.com", "method": "delete"}, "method"),
+        ({"url": "https://e.com", "expect": ""}, "expect"),     # ⛔ 假绿：'' in body 恒真
+        ({"url": "https://e.com", "expect": "   "}, "expect"),
+        ({"url": "https://e.com", "expect": 123}, "expect"),
+        ({"url": "https://e.com", "form": ["a"]}, "form"),
+        ({"url": "https://e.com", "json": "x"}, "json"),
+        ({"url": "https://e.com", "headers": ["a"]}, "headers"),
+    ])
+    def test_目标形状坏也在读表时抛(self, tmp_path, target, pat):
+        """独立复核 b28 的发现：原先只校验 `min_links` ⇒ 字符串 target **静默过表**，
+        随后 `probe_channel` 抛 AttributeError；`expect=123` 抛 TypeError
+        ⇒ "探针不抛异常"当时只对恰好写对的目标成立。这里把整形状钉住。
+        """
+        p = tmp_path / "t.json"
+        p.write_text(json.dumps({"targets": {"c:x": target}}, ensure_ascii=False), encoding="utf-8")
+        with pytest.raises(ValueError, match=pat):
+            cp.load_targets(p)
+
+    def test_空_expect_若绕过校验就是假绿(self):
+        """把"为什么必须在读表时拒"钉成可执行的证据：空串锚点判恒真。"""
+        assert cp._classify(200, "", "")[:2] == ("ok", None)  # 空正文也 ok —— 正是要拒的形状
+        assert cp._classify(200, "<html>x</html>", None)[:2] == ("unknown", "no_anchor_configured")
 
 
 class TestProbeChannel:

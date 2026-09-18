@@ -16,6 +16,15 @@
 
 ## 0. 阅读本文件需要的三条结构事实
 
+> ⚠ **2026-09-18 更新（R5c/R6b 之后，本节原文已部分过期；原文保留在下面不删）**
+> - 第 1 条里提到的遗留常量 **`inspector.CHAIN` 已被删除**（§11.0 R6b）：它当时确实在
+>   `inspector.py:62`，但它与 `routing._FALLBACK` 是同一件事的两份；现在链的**唯一所有者**是
+>   `routing.fallback_chain()`（返回同一个 tuple 对象），`inspector._FALLBACK_CHAIN` 向它取。
+> - 第 1 条末尾的 `_FALLBACK = ("official_gb", "web", "govcn")` 也已过期：**`web` 已于 R5c
+>   从链上摘除**（实测只解 mock 的 dict、打的是 bing HTML ⇒ 真实网络恒 miss），
+>   现在是 `_FALLBACK = ("official_gb", "govcn")`。
+> - 第 2、3 条今天仍然成立。
+
 1. **降级链不是写死在 inspector 里的**。`inspector.CHAIN`（`inspector.py:62`）是遗留常量；
    真正决定走哪些渠道的是 `inspector._probe_number` 里的 `select_chain(no)`
    （`inspector.py:342-343`），链由 `routing.select_chain` 生成（`routing.py:34-48`）。

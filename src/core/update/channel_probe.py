@@ -23,6 +23,12 @@ JS 空壳、北京市地标查询后端**502 死链**。⇒ 只用状态码判�
 `expect`（文本锚点）与 `min_links`（HTML 链接数下限）可以**同时配**，任一不满足即不算通过：
 它们回答同一问题的两个侧面——"还是那张页面吗"与"内容真的发出来了吗（还是只有壳）"。
 只配 `url` 不配任何期望 = **只探连通性**，结果记 `unknown`（不许当成通过）。
+
+## 目标表要**逐字段校验**（`load_targets` → `_validate_target`，独立复核 b28 的发现）
+`probe_channel` 的"不抛异常"契约只在**经校验的目标**上成立；配置错误（target 不是对象、
+`expect=123`、`method=delete`、`form` 不是对象……）必须在**读表时**就报出来。
+⛔ 尤其禁止 `expect=""`：`"" in body_text` **恒真** ⇒ 连空正文都会被判 `ok`（假绿）；
+要"只探连通性"就**省略** `expect`，而不是给它空串。
 """
 from __future__ import annotations
 
@@ -58,12 +64,49 @@ def _count_links(text: str) -> int:
     return len(_LINK_RE.findall(text or ""))
 
 
+#: 允许的请求方法（其它一律读表即拒——探针只做"看一眼"，不需要更多动词）
+_VALID_METHODS = ("get", "post")
+
+
+def _validate_target(cid: str, target: Any) -> None:
+    """校验**一条**目标（读表时一次性做掉；`probe_channel` 的"不抛"契约以此为前提）。
+
+    ## 为什么必须在这里校验（独立复核 b28 的发现，2026-09-18）
+    复核员实测：原先只校验 `min_links` ⇒ 把 target 写成**字符串**能静默过表，
+    随后 `probe_channel` 抛 `AttributeError`；`expect=123` 抛 `TypeError`。
+    也就是说"探针不抛异常"当时**只对恰好写对的目标成立**——配置错误会伪装成运行时崩溃。
+    还有一条更隐蔽的：`expect=""` 时 `"" in body_text` **恒真** ⇒ 连空正文都判 `ok`（假绿）。
+    所以这里逐字段校验，**空 `expect` 直接拒**（要"只探连通性"就**别写** expect）。
+    """
+    where = f"channel_id={cid}"
+    if not isinstance(target, dict):
+        raise ValueError(f"探针目标必须是对象（{where}）：{type(target).__name__}")
+    url = target.get("url")
+    if not isinstance(url, str) or not url.startswith("http"):
+        raise ValueError(f"探针目标缺 http(s) url（{where}）：{url!r}")
+    method = target.get("method", "get")
+    if not isinstance(method, str) or method.lower() not in _VALID_METHODS:
+        raise ValueError(f"method 只能是 {'/'.join(_VALID_METHODS)}（{where}）：{method!r}")
+    expect = target.get("expect")
+    if expect is not None and (not isinstance(expect, str) or not expect.strip()):
+        raise ValueError(
+            f"expect 必须是非空字符串，或**省略**它（{where}）：{expect!r}——"
+            "空串会被 `'' in body` 判成恒真（假绿）；只想探连通性就别写 expect")
+    v = target.get("min_links")
+    if v is not None:
+        if isinstance(v, bool) or not isinstance(v, int) or v < 1:
+            raise ValueError(f"min_links 必须是 ≥1 的整数（{where}）：{v!r}")
+    for key in ("form", "json", "headers"):
+        payload = target.get(key)
+        if payload is not None and not isinstance(payload, dict):
+            raise ValueError(f"{key} 必须是对象（{where}）：{type(payload).__name__}")
+
+
 def load_targets(path: Path | None = None) -> dict[str, dict[str, Any]]:
     """读探针目标表；缺 `targets` 键 → 抛 ValueError（不静默空跑）。
 
-    `min_links` 在这里**一次性校验**（必须是 ≥1 的整数或省略）——`probe_channel` 的契约是
-    "探针不抛异常"（失败要分类，不要冒泡），所以配置错误必须在读表时就响亮地报出来，
-    而不是留到探测时被吞掉。
+    每条目标都过 `_validate_target`：**配置错误必须在读表时响亮地报出来**，
+    而不是留到探测时被吞掉或伪装成运行时崩溃（`probe_channel` 的契约是"探针不抛异常"）。
     """
     p = path or PROBES_PATH
     data = json.loads(p.read_text(encoding="utf-8"))
@@ -71,11 +114,7 @@ def load_targets(path: Path | None = None) -> dict[str, dict[str, Any]]:
     if not isinstance(targets, dict):
         raise ValueError(f"探针目标表格式不对（缺 targets 对象）: {p}")
     for cid, target in targets.items():
-        v = target.get("min_links") if isinstance(target, dict) else None
-        if v is None:
-            continue
-        if isinstance(v, bool) or not isinstance(v, int) or v < 1:
-            raise ValueError(f"min_links 必须是 ≥1 的整数（channel_id={cid}）：{v!r}")
+        _validate_target(cid, target)
     return targets
 
 
@@ -157,6 +196,9 @@ def probe_channel(channel_id: str, target: dict[str, Any], *,
 
     ⚠ 不落库（调用方决定）；也**不抛**：探针的职责是把失败**分类**，不是把失败抛给上层
     （抛出去会让"一个渠道挂了"变成"整次体检没结果"）。
+    ⚠ 这份"不抛"契约的**前提是目标表过了 `load_targets` 的校验**（独立复核 b28 的发现）：
+    未经校验的裸 dict（如 target 写成字符串、`expect=123`）会在下面读字段时抛
+    `AttributeError/TypeError`——所以**别绕过 `load_targets` 直接把任意 dict 喂进来**。
     """
     url = str(target.get("url") or "")
     if not url:
