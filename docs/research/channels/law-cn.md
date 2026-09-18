@@ -346,7 +346,12 @@
 
 ## 6. 地方：省级地方性法规 / 地方政府规章
 
-> 一手性判定原则：**地方性法规**的一手来源是**本级人大**（法规公布栏目）；**地方政府规章**的一手来源是**本级政府门户**（文件库）；**司法厅**多为民俗普法/工作动态，通常**不是**法规条文的发布源。
+> 一手性判定原则：**地方性法规**的一手来源是**本级人大**（法规公布栏目）；**地方政府规章**的一手来源是**本级政府门户**（规章库/文件库）；**司法厅/局**多为民俗普法与工作动态，通常**不是**法规条文发布源。
+>
+> **本次调研中的三处自我更正（保留痕迹，供复核）**
+> 1. **浙江人大**：我最初据首页（58727 字节、去标签仅"中国浙江人大 关闭 关闭"）判其为"不可程序化 JS 空壳"。**该结论对首页成立、对整站不成立**——`/sylf/fggg/` 栏目把 395 条数据**内联在 HTML 的 `<script>` 里**，纯 HTTP 正则即可提取，实为四省中最易抓取者。教训：**首页空壳 ≠ 站点不可抓，必须继续找栏目路径**。
+> 2. **浙江政府 `col1229019364`**：并非"JS 空壳"，而是**服务端 JS 重定向桩**（响应体仅 `location.href=...`），二者处置方式不同。
+> 3. **上海市司法局域名**：`sft.sh.gov.cn`（实测 TLS 握手失败）与 `sfj.sh.gov.cn`（实测 HTTP 200 可用）是**两个不同主机名**，正确域名是 `sfj.sh.gov.cn`。
 
 ### 上海市人大 · 法规公布（**上海市地方性法规一手来源**）
 - 类别: **地方性法规**（含浦东新区法规）
@@ -685,8 +690,9 @@
 | **行政法规（修订沿革）** | `http://xzfg.moj.gov.cn/search2.html?PageIndex={n}` | 实测每条含"历史沿革"多日期，且**比 flk 新**（09-06 vs 08-30） |
 | **司法解释** | `POST flk .../list`（叶子码 `320` 高法 / `330` 高检 / `340` 联合）；辅以 `https://www.court.gov.cn/fabu/gengduo/16.html` | flk 覆盖全且带 `sxx`；最高法栏目可交叉核验 |
 | **部门规章** | 各部位站点直抓，模板样本：`https://www.mem.gov.cn/gk/zfxxgkpt/fdzdgknr/gz11/index_{n}.shtml` | 部委站点实测服务端渲染、**含部令编号与"修订"字样**；gov.cn 国家规章库为 JS 渲染不可程序化 |
-| **地方性法规** | 省级人大栏目，样本：`https://www.shrd.gov.cn/shrd/fggb/fggb.html`、`https://www.gdpc.gov.cn/` | 人大是法定发布主体；上海栏目**原文即含"修改/废止"字样** |
-| **地方政府规章** | 省级政府文件库，样本：`https://www.gd.gov.cn/zwgk/wjk/qbwj/`、`https://www.beijing.gov.cn/zhengce/zhengcefagui/` | 省政府门户**含文号列**（`粤府函〔2026〕213号`），结构化最好 |
+| **地方性法规** | 上海 `https://www.shrd.gov.cn/shrd/fggb/fggb.html` · 北京 `https://www.bjrd.gov.cn/zyfb/` · 广东 `https://www.gdpc.gov.cn/gdrdw/zyfb/ggtz/` · 浙江 `https://www.zjrd.gov.cn/sylf/fggg/` | 人大是法定发布主体；上海/广东栏目**原文即含"修改/废止"字样**，浙江**数据内联可正则、分页 `index_N.shtml`** |
+| **地方政府规章** | 上海 `https://www.shanghai.gov.cn/xxzfgzwj/`(现行235部) · 北京 `https://www.beijing.gov.cn/gongkai/zfxxgk/zc/gz/` · 广东 `https://www.gd.gov.cn/zwgk/wjk/qbwj/yfl/index.html` · 浙江 `https://sft.zj.gov.cn/col/col1229247318/index.html` | 均含**令号**（"上海市人民政府令第23号"/"北京市人民政府第320号令"/"粤府令第323号"）→ 编号核验最优；北京另有"废止及修改"分区 |
+| **地方级·时效性最强** | 广东人大 `https://www.gdpc.gov.cn/bascdata/`（"广东省法规规章规范性文件数据库"） | **唯一自带"时效性"列的地方级库**，法规+规章+规范性文件三合一；但检索端点需逆向 |
 | **新发布（最快探针）** | `https://www.gov.cn/zhengce/zuixin/ZUIXINZHENGCE.json` | 静态 JSON、1096 条、实测 T-1 更新，**比 flk 快约 19 天** |
 | **全库统计基线** | `GET https://flk.npc.gov.cn/law-search/index/aggregateData` | 各类计数 + 新法速递，零参数 |
 | **分类/机关码字典** | `GET https://flk.npc.gov.cn/law-search/search/enumData` | **必须程序化读取**（叶子码会变，勿硬编码） |
@@ -1064,6 +1070,215 @@
     "answers": [],
     "verification": "broken",
     "note": "实测 HTTP200 但仅1750字节，去标签后正文仅为『省政府文件』，无任何条目 = JS 空壳，不可程序化"
+  },
+  {
+    "name": "上海市人民政府-政府规章库",
+    "category": "地方政府规章",
+    "url": "https://www.shanghai.gov.cn/xxzfgzwj/",
+    "fetch_kind": "html_list",
+    "list_endpoint": "GET https://www.shanghai.gov.cn/xxzfgzwj/",
+    "params": "未确认(内联 totalPage=24，脚本 /assets/js/pagination.min.js)",
+    "answers": ["发布", "修订", "现行性", "编号核验"],
+    "verification": "verified",
+    "note": "实测 HTTP200/19236字节；原文『现行市政府规章_上海市人民政府 政务公开 上海市人民政府规章库 现行有效235部』『上海市放射性污染防治若干规定 （2009年12月9日上海市人民政府令第23号公布 …）』；含令号与历次修正沿革；上海地方政府规章的正确一手入口，优于 nw12344 的近期信息公开混合流"
+  },
+  {
+    "name": "上海市人大-法规公布AJAX(TrueCMS)",
+    "category": "地方性法规",
+    "url": "https://www.shrd.gov.cn/TrueCMS/messageController/getMessage.do",
+    "fetch_kind": "json_api",
+    "list_endpoint": "GET|POST https://www.shrd.gov.cn/TrueCMS/messageController/getMessage.do",
+    "params": "columnId=82e1eed4-ef97-4ba8-b3da-2299d731060c, perPage=20, totalRecord=279；翻页参数名未确认(pageIndex/pageNum/currentPage/page/start 五种均返回第1页同一记录)",
+    "answers": ["发布", "修订", "废止"],
+    "verification": "verified",
+    "note": "实测 GET/POST 均 HTTP200，返回 JSON {\"result\":\"<datastore>...\"} 需二次解析 CDATA 片段；同域 /shrd/zyfb/zyfb.html 复用同一 getMessage.do；翻页需继续逆向 jquery.jpage.js"
+  },
+  {
+    "name": "北京市人大常委会-重要发布",
+    "category": "地方性法规",
+    "url": "https://www.bjrd.gov.cn/zyfb/",
+    "fetch_kind": "html_list",
+    "list_endpoint": "GET https://www.bjrd.gov.cn/zyfb/",
+    "params": "未确认(/zyfb/index_1.html 实测404，页内无 page/下一页 标记)；URL 型 TRS /zyfb/YYYYMM/tYYYYMMDD_NNNNNNN.html",
+    "answers": ["发布"],
+    "verification": "verified",
+    "note": "实测 HTTP200/48545字节；原文『北京市测绘地理信息条例 || ./202609/t20260913_4861583.html』；同域立法广角 /zyfb/zdgz/lfgj/ HTTP200/27067字节带日期；比北京市人大首页新闻流更结构化"
+  },
+  {
+    "name": "首都之窗-政府规章(现行有效)",
+    "category": "地方政府规章",
+    "url": "https://www.beijing.gov.cn/gongkai/zfxxgk/zc/gz/",
+    "fetch_kind": "html_list",
+    "list_endpoint": "GET https://www.beijing.gov.cn/gongkai/zfxxgk/zc/gz/",
+    "params": "未确认(页面自带高级搜索/搜索位置 标题|全文)",
+    "answers": ["发布", "修订", "现行性", "编号核验"],
+    "verification": "verified",
+    "note": "实测 HTTP200/37585字节；原文『规章_首都之窗_北京市人民政府门户网站 现行有效 … 1 北京市“门前三包”责任制管理办法 （2025年12月15日北京市人民政府第320号令发布 自2026年1月15日起施行) 下载文字版 下载图片版』；北京政府规章最完整入口"
+  },
+  {
+    "name": "首都之窗-市政府令(按文号)",
+    "category": "地方政府规章",
+    "url": "https://www.beijing.gov.cn/zhengce/zfwj/zfwj2016/szfl/",
+    "fetch_kind": "html_list",
+    "list_endpoint": "GET https://www.beijing.gov.cn/zhengce/zfwj/zfwj2016/szfl/",
+    "params": "未确认",
+    "answers": ["发布", "修订", "废止", "现行性", "编号核验"],
+    "verification": "verified",
+    "note": "实测 HTTP200/171293字节；原文『市政府令 … 北京市“门前三包”责任制管理办法 政府令〔2025〕320号 2025-12-15』；页面含『现行有效政府规章 / 废止及修改 / 历年数据查询』三分区，废止发现尤佳"
+  },
+  {
+    "name": "首都之窗-地方性法规镜像",
+    "category": "地方性法规",
+    "url": "https://www.beijing.gov.cn/zhengce/dfxfg/",
+    "fetch_kind": "html_list",
+    "list_endpoint": "GET https://www.beijing.gov.cn/zhengce/dfxfg/",
+    "params": "未确认",
+    "answers": ["发布"],
+    "verification": "verified",
+    "note": "实测 HTTP200/20551字节；原文『[地方性法规] 北京市测绘地理信息条例 2026-09-13』；属二手镜像，但标签+日期规整适合交叉校验，一手仍应取 bjrd.gov.cn/zyfb/"
+  },
+  {
+    "name": "广东人大-广东省法规规章规范性文件数据库",
+    "category": "聚合入口",
+    "url": "https://www.gdpc.gov.cn/bascdata/",
+    "fetch_kind": "js_render",
+    "list_endpoint": "未确认(需点“更多>>”或逆向)",
+    "params": "高级检索维度: 检索方式/检索范围/制定形式/法律效力位阶/通过日期/区域；未确认",
+    "answers": ["发布", "现行性"],
+    "verification": "verified",
+    "note": "实测 HTTP200/61749字节；原文『广东省法规规章规范性文件数据库 首页 地方性法规 政府规章 规范性文件 标题检索 正文检索 标题+正文检索 … 地方性法规 更多>> 标题 制定机关 制定形式 时效性 通过日期 … 审查建议在线提交』；版权页脚为广东省人大常委会办公厅|法制工作委员会(一手)；结果区疑为 JS/AJAX；全库含『时效性』列，是本次唯一自带时效性列的地方级库，现行性价值最高，但端点未确认故列为需逆向"
+  },
+  {
+    "name": "广东人大-权威发布公告通知",
+    "category": "地方性法规",
+    "url": "https://www.gdpc.gov.cn/gdrdw/zyfb/ggtz/index.html",
+    "fetch_kind": "html_list",
+    "list_endpoint": "GET https://www.gdpc.gov.cn/gdrdw/zyfb/ggtz/index_{n}.html",
+    "params": "n 自 2 起(index_1.html 实测404)；index_2.html 实测200/24288字节；页内 var channelId=\"864\"",
+    "answers": ["发布", "修订"],
+    "verification": "verified",
+    "note": "实测 HTTP200/24042字节；原文『《广东省环境保护条例》 2026-08-04』『广东省人民代表大会常务委员会关于修改《广东省渔业管理条例》等七项地方性法规的决定』；坑点: 该 CMS 分页自 index_2.html 起"
+  },
+  {
+    "name": "广东省人民政府-粤府令",
+    "category": "地方政府规章",
+    "url": "https://www.gd.gov.cn/zwgk/wjk/qbwj/yfl/index.html",
+    "fetch_kind": "html_list",
+    "list_endpoint": "GET https://www.gd.gov.cn/zwgk/wjk/qbwj/yfl/index.html",
+    "params": "未确认；mobile 版 /mindex.html 实测200/30250字节",
+    "answers": ["发布", "编号核验"],
+    "verification": "verified",
+    "note": "实测 HTTP200/62257字节；原文『粤府令 广东省人民政府门户网站 首页 > 政务公开 > 文件库 > 全部文件 > 粤府令 名称 文号 发布日期 广东省残疾预防和残疾人康复办法 粤府令第323号 2026-07-22』；表格三列(名称/文号/发布日期)结构化质量最高，广东规章精确抓取首选"
+  },
+  {
+    "name": "广东人大-常委会公报",
+    "category": "地方性法规",
+    "url": "https://www.gdpc.gov.cn/gdrdw/rdhy/cwhhy/cwhgb/index.html",
+    "fetch_kind": "html_list",
+    "list_endpoint": "GET https://www.gdpc.gov.cn/gdrdw/rdhy/cwhhy/cwhgb/index.html",
+    "params": "分页控件存在但 URL 模式未确认",
+    "answers": ["发布"],
+    "verification": "verified",
+    "note": "实测 HTTP200/21439字节；原文『常委会公报 … 2025 2024 2023 2022 2021 2020 2019 2018 2017 2016 --> 2025年 2025-04-11 2024年 2024-05-31』；按年归档节奏很慢，适合正式版本核对而非新发布发现"
+  },
+  {
+    "name": "广东省司法厅-政策文件",
+    "category": "地方政府规章",
+    "url": "http://sft.gd.gov.cn/sfw/zwgk/zcwj/",
+    "fetch_kind": "html_list",
+    "list_endpoint": "GET http://sft.gd.gov.cn/sfw/zwgk/zcwj/",
+    "params": "未确认(另有 /mindex.html 移动版)",
+    "answers": ["发布"],
+    "verification": "verified",
+    "note": "实测 HTTP200/26997字节；原文『政策文件 广东省司法厅网站 … 广东省司法厅印发关于推动法律服务业与制造业协同融合发展行动方案的通知 2026-07-10』；实测该站未见政府规章库或备案审查栏目，不能替代 gdpc.gov.cn/bascdata/"
+  },
+  {
+    "name": "北京市司法局-法律法规规章",
+    "category": "聚合入口",
+    "url": "https://sfj.beijing.gov.cn/sfj/zwgk/2024zcwj/744120751/index.html",
+    "fetch_kind": "html_list",
+    "list_endpoint": "GET https://sfj.beijing.gov.cn/sfj/zwgk/2024zcwj/744120751/index.html",
+    "params": "未确认；检索表单含 关键词/发文机构/文号/日期/主题分类/有效性",
+    "answers": ["现行性"],
+    "verification": "verified",
+    "note": "实测 HTTP200/95623字节；原文『首页 > 政务公开 > 政策文件 > 法律法规规章 … 地方性法规 北京市司法鉴定管理条例 2026-09-14 北京市法律援助条例 2026-09-14』；条目少偏司法行政口径只能兜底；注意 /2024zcwj/flfg/index.html 实测404，真实路径是带数字ID的URL"
+  },
+  {
+    "name": "上海市司法局-规范性文件",
+    "category": "规范性文件",
+    "url": "https://sfj.sh.gov.cn/2020jcgk_gfxwj/",
+    "fetch_kind": "html_list",
+    "list_endpoint": "GET https://sfj.sh.gov.cn/2020jcgk_gfxwj/",
+    "params": "未确认(未发现分页控件标记)",
+    "answers": ["发布", "现行性"],
+    "verification": "verified",
+    "note": "实测 HTTP200/17890字节；原文『【有效】 上海市司法局 上海市人才工作局关于印发《关于上海律师事务所聘请外籍律师担任外国法律顾问试点工作的实施办法》的通知 2025.08.27』；条目自带【有效】效力标记；重要域名陷阱: sfj.sh.gov.cn(可用) 与 sft.sh.gov.cn(实测TLS握手失败) 是两个不同主机名，上海司法局正确域名为 sfj.sh.gov.cn"
+  },
+  {
+    "name": "浙江省人大-省域立法法规公告",
+    "category": "地方性法规",
+    "url": "https://www.zjrd.gov.cn/sylf/fggg/",
+    "fetch_kind": "html_list",
+    "list_endpoint": "GET https://www.zjrd.gov.cn/sylf/fggg/index_{n}.shtml",
+    "params": "index_{n}.shtml (TRS)；index_1.shtml 实测200/15585字节(12条)，index_2.shtml 实测200/15219字节；文章URL ./YYYYMM/tYYYYMMDD_NNNNNN.shtml",
+    "answers": ["发布", "修订"],
+    "verification": "verified",
+    "note": "实测 HTTP200/96767字节；条目以 JS 对象字面量内联在 HTML 中，正则 text:\\s*\"([^\"]+)\",\\s*date:\\s*\"([^\"]+)\" 抓到395条，首条『浙江省生活垃圾管理条例（修正文本） | 2026-08-18』；纯HTTP可正则提取，无需无头浏览器；四省中最易程序化抓取；同域分区 /sylf/lfdy/(立法进行时) /sylf/casy/ /sylf/yjzj/"
+  },
+  {
+    "name": "浙江省人大-首页",
+    "category": "地方性法规",
+    "url": "https://www.zjrd.gov.cn/",
+    "fetch_kind": "html_list",
+    "list_endpoint": "见 /sylf/fggg/",
+    "params": "见 /sylf/fggg/",
+    "answers": ["发布"],
+    "verification": "verified",
+    "note": "实测 HTTP200/58727字节，去标签后可见文本仅『中国浙江人大 关闭 关闭』(首页确为JS外壳: homePage.js/header.js/footer.js/detailList.js 客户端构建DOM)；但列表数据 navList/otherList 以JS对象字面量内联在HTML里、<a href>在服务端HTML中真实存在→整站非不可抓；自我更正: 首页空壳≠站点不可抓，应走 /sylf/fggg/ 栏目路径"
+  },
+  {
+    "name": "浙江省人民政府-省政府文件栏目",
+    "category": "地方政府规章",
+    "url": "https://www.zj.gov.cn/col/col1229019364/index.html",
+    "fetch_kind": "redirect_js",
+    "list_endpoint": "GET https://www.zj.gov.cn/col/col1229697833/index.html",
+    "params": "无",
+    "answers": [],
+    "verification": "broken",
+    "note": "实测 HTTP200 但仅1750字节，可见文本仅『省政府文件』；完整正文只有一行重定向 <script>location.href='/col/col1229697833/index.html'</script>(Last-Modified 2025-04-11，属已废弃旧栏目标识)——是服务端JS重定向桩而非需JS渲染；真实栏目实测 HTTP200/10054字节但 t2026计数=0 无文档标题，故不可程序化"
+  },
+  {
+    "name": "浙江省人民政府-政府规章省级有效",
+    "category": "地方政府规章",
+    "url": "https://www.zj.gov.cn/col/col1229836653/index.html",
+    "fetch_kind": "js_render",
+    "list_endpoint": "未确认",
+    "params": "未确认；已试并404: /module/jpage/dataproxy.jsp?startrecord=1&endrecord=30&perpage=10&col=1",
+    "answers": [],
+    "verification": "broken",
+    "note": "实测 HTTP200/10124字节，可见文本『政府信息公开专栏_浙江省人民政府 … 政务公开 > 政府信息公开 > 法规政策 > 政府规章 > 省级 > 有效』栏目已证实存在，但 t2026计数=0 无规章标题；大汉CMS(<meta ColId> + webgray_1229836653.js)列表客户端渲染；站内JS唯一XHR为 search.zj.gov.cn 热搜词接口非列表；同级 废止/col1229836654/ 失效/col1229836655/ 设区市11市/col1229697782..792/；建议改走浙江省司法厅聚合页"
+  },
+  {
+    "name": "浙江省政策文件库",
+    "category": "聚合入口",
+    "url": "https://www.zj.gov.cn/col/col1229577560/index.html",
+    "fetch_kind": "js_render",
+    "list_endpoint": "未确认(检索跳转站级搜索 search.zj.gov.cn)",
+    "params": "分类值: 地方性法规 data-v=10003、政府规章 data-v=\"\"(空值/前端缺陷)、行政规范性文件 data-v=11、法院规范性文件 data-v=10010、检察院规范性文件 data-v=413、其他文件 data-v=12、政策解读 data-v=13",
+    "answers": [],
+    "verification": "broken",
+    "note": "实测 HTTP200/5975字节；原文『浙江省政策文件库 高级检索 全部 地方性法规 决定决议 --> 政府规章 行政规范性文件 … 国家法律法规数据库 国务院政策文件库』；index.js 仅4144字节且只出现 location.search；无公开列表端点，不可程序化"
+  },
+  {
+    "name": "浙江省司法厅-政策文件",
+    "category": "地方政府规章",
+    "url": "https://sft.zj.gov.cn/col/col1229247318/index.html",
+    "fetch_kind": "html_list",
+    "list_endpoint": "GET https://sft.zj.gov.cn/col/col1229247318/index.html",
+    "params": "未确认(各分区“更多”指向的独立栏目URL未抓取)",
+    "answers": ["发布"],
+    "verification": "verified",
+    "note": "实测 HTTP200/25812字节，HTML直接含分区与条目，原文『上级文件 中华人民共和国行政复议法实施条例 2026-07-16 … 地方性法规 浙江省综合行政执法条例 2021-12-31 … 政府规章 浙江省行政合法性审查工作规定 2023-06-20 浙江省归正人员安置帮教工作办法 2021-09-10 … 行政规范性文件』；纯HTML含标题与日期；绕开浙江政府网需JS的政府规章栏目，是浙江规章最佳可用替代；更正前文: 浙江省司法厅首页(https://sft.zj.gov.cn/ 确为厅务动态)不可用，但此栏目页可用"
   },
   {
     "name": "Law-Crawler-RPA-RAG-MCP",
