@@ -243,6 +243,62 @@ export async function fetchChannels(
   return ksJson<KsChannelList>(res, '渠道台账')
 }
 
+/**
+ * 渠道台账的**人工维护**（§11.0 R6f）：新增 / 复核编辑 / 启停 / 删除。
+ *
+ * ⚠ 三条口径（都在宿主与引擎那一侧钉着，客户端只负责如实发起与如实显示错误）：
+ *   - **健康度字段不许人工写**（`state`/`last_*`…）：引擎会 422 并说明"要改它请用探针"；
+ *     客户端**不自己拦**——拦住的话用户只会看到"按钮没反应"，而看不到原因；
+ *   - 启停走**自己的端点**（语义与留痕都不同），不要塞进 PATCH；
+ *   - 删除是高风险动作：界面必须**先让人确认**（`window.confirm`），
+ *     但删除**不是抹掉证据**（引擎的审计痕迹里保留删除前整行）。
+ */
+export async function createChannel(
+  body: { name: string; url?: string; note?: string; category?: string } & Record<string, unknown>,
+  signal?: AbortSignal,
+): Promise<KsChannelRecord> {
+  const res = await fetch('/ks/channels', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify(body),
+    signal,
+  })
+  return ksJson<KsChannelRecord>(res, '新增渠道')
+}
+
+export async function updateChannel(
+  channelId: string, patch: Record<string, unknown>, signal?: AbortSignal,
+): Promise<KsChannelRecord> {
+  const res = await fetch(`/ks/channels/${encodeURIComponent(channelId)}`, {
+    method: 'PATCH',
+    headers: { 'content-type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify(patch),
+    signal,
+  })
+  return ksJson<KsChannelRecord>(res, '修改渠道')
+}
+
+export async function setChannelEnabled(
+  channelId: string, enabled: boolean, signal?: AbortSignal,
+): Promise<KsChannelRecord> {
+  const res = await fetch(`/ks/channels/${encodeURIComponent(channelId)}/enabled`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify({ enabled }),
+    signal,
+  })
+  return ksJson<KsChannelRecord>(res, '启停渠道')
+}
+
+export async function deleteChannel(
+  channelId: string, signal?: AbortSignal,
+): Promise<{ deleted: boolean; channel_id: string }> {
+  const res = await fetch(`/ks/channels/${encodeURIComponent(channelId)}`, {
+    method: 'DELETE', headers: { accept: 'application/json' }, signal,
+  })
+  return ksJson<{ deleted: boolean; channel_id: string }>(res, '删除渠道')
+}
+
 export interface KsChannelProbeResult {
   probed: number
   results: Array<{

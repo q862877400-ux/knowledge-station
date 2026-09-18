@@ -2078,8 +2078,37 @@ schema 不变量归所有者，任何调用方都不该绕过它。
 2. 某类**缺项** ⇒ 记 `absent`，**不许**冒充 `not_probed`；
 3. 分母 `total` **只数有 `classes` 的条数**——否则一句"发布 3/500"会把人吓一跳，而它什么都不说明。
 
-⚠ **诚实边界（别读成"界面上已经能看到了"）**：宿主插件是**进程启动时静态 import** 的，
-所以这一行要等 **DSH 宿主重启**才出现。本步的验证是**离线**的：
+⚠ **诚实边界（别读成"界面上已经能看到了"）**：宿主插件是**启动时静态 import** 的，
+所以这一行要等 **DSH 宿主重启**才出现。本步的验证是离线的：
 `npx tsc --noEmit -p plugin/client` 0 错、新 smoke 9/9、`npm run smoke` **23 段全过**、
 `npm run verify:commands` **22/22**。**我在真机上还没看到过这一行**——重启后请顺手核一眼。
-（面板上的"人工增删复核"按钮是同样的情况：引擎侧 R6d 已落，界面侧仍未做。）
+
+### R6f（2026-09-18 完成·离线验证）：渠道台账的**人工增删复核**接到界面上（目标②收口）
+
+引擎侧 R6d 已落四个写口，宿主侧这一步补齐代理与界面：
+
+- `plugin/src/channels.js`：`GET|POST /ks/channels`（列表 / 新增，**同一路径按方法分派**）、
+  `PATCH|DELETE /ks/channels/{id}`、`POST /ks/channels/{id}/enabled`（`kind:'prefix'` 前缀路由）；
+- `plugin/client/api.ts`：`createChannel` / `updateChannel` / `setChannelEnabled` / `deleteChannel`；
+- `plugin/client/KsChannelsPanel.tsx`：工具行「＋ 新增渠道」（名称/链接/备注三样）、
+  行内「停用|启用 / 改备注 / 删除」，删除**先 confirm 并写清代价**（默认建议用停用：历史健康度会留着）；
+- `plugin/scripts/smoke-channels-routes.mjs`：**26 条**（原 15 条 + 新增 11 条），覆盖写口的
+  方法守卫、白名单/透传、引擎 404/422 错误码原样透传、启停 body 形状。
+
+**smoke 在这一步抓到两个真问题（都不是"测试写错了"那么简单）**：
+1. **同一个 path 注册两次会互相覆盖**（路由表按 path 去重、后注册覆盖先注册）。
+   我第一版把列表与新增拆成两次 `register` ⇒ `GET /ks/channels` **静默消失**（现场表现是"列表页突然空了"）。
+   现在同一个 path 只有一个 handler，内部按方法分派。
+2. ⚠⚠ **宿主侧"白名单筛字段"是错的**：我原先按"界面不发明字段"的纪律丢掉了名单外的键，
+   包括 `state`/`last_ok_at` 这类健康度字段 —— 于是**引擎那句 loud 422 永远发不出来**
+   （"这些是探针产出的字段，人工不能写"），界面拿到一个成功的 200，**用户以为写进去了**。
+   这与 R6d 明令禁止的失败模式**一模一样**，只是换了一层。
+   ⇒ 改成：**判据归引擎**（它是 `_WRITABLE`/`HEALTH_FIELDS` 的所有者），宿主只把冲突字段照转、
+   由引擎出声拒绝；宿主自己只留"形状（JSON 对象）与方法"的把关。
+   （同一类问题在 `enabled` 上也要避免：宿主**不判**布尔，转过去让引擎判 `illegal_enabled`。）
+3. 顺带：`catalog-ui` 那条**既有守卫**（"可见文案里不许出现 markdown 粗体"）当场拦下了我新加的一句
+   `**人工录入 ≠ 已核实**` —— JSX 不会渲染 `**`，用户会看到一串星号。这条教训（R4b/R6b）
+   被守卫固化下来，这次是它替我挡的。
+
+门禁：tsc 0 错；`npm run smoke` **23 段全过**（含 channels-routes 26/26、class-summary 9/9）；
+`npm run verify:commands` 22/22。

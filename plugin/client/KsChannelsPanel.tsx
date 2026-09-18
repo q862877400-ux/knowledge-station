@@ -30,11 +30,18 @@ import * as React from 'react'
 import { useCallback, useEffect, useState } from 'react'
 
 import {
+  createChannel,
+  deleteChannel,
   fetchChannels,
   runChannelProbe,
+  setChannelEnabled,
+  updateChannel,
   type KsChannelList,
   type KsChannelRecord,
 } from './api'
+
+/** 虚线分隔色（新增表单的框）——与面板其它地方一致地走主题 token。 */
+const LINE = 'var(--dsw-alias-border-l2, #ccc)'
 
 export interface KsChannelsPanelProps {
   /** 由 <details onToggle> 驱动——收起 = 挂载但零请求（懒加载门，与其它面板同契约）。 */
@@ -104,6 +111,12 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
   const [notice, setNotice] = useState<string>('')
   const [cat, setCat] = useState<string>('')
   const [state, setState] = useState<string>('')
+  // 人工维护（R6f）：新增表单 + 一次性动作的 busy 闸
+  const [adding, setAdding] = useState<boolean>(false)
+  const [newName, setNewName] = useState<string>('')
+  const [newUrl, setNewUrl] = useState<string>('')
+  const [newNote, setNewNote] = useState<string>('')
+  const [mutating, setMutating] = useState<boolean>(false)
 
   const load = useCallback(async (signal?: AbortSignal): Promise<void> => {
     setBusy(true)
@@ -150,6 +163,60 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
   const rows = data ? sortChannels(data.items) : []
   const s = data?.summary
 
+  /** 人工维护动作的统一外壳：一次只允许一个动（`mutating`）、错误**如实显示**原文。
+   *  ⚠ 不把引擎的错误码翻译掉：`illegal_channel_field` / `channel_name_required` /
+   *  `illegal_enabled` 这些码本身就是给用户看的（它们说明了"为什么不行、该去用哪个入口"）。 */
+  const runMutation = useCallback(async (label: string, fn: () => Promise<unknown>,
+  ): Promise<void> => {
+    if (mutating) return
+    setMutating(true)
+    setNotice('')
+    try {
+      await fn()
+      setNotice(`${label}：已生效（引擎已记审计痕迹）`)
+      await load()
+    } catch (e) {
+      setNotice(`${label}失败：${e instanceof Error ? e.message : String(e)}`)
+    } finally {
+      setMutating(false)
+    }
+  }, [load, mutating])
+
+  const submitCreate = useCallback(async (): Promise<void> => {
+    const name = newName.trim()
+    if (name === '') return
+    await runMutation('新增渠道', async () => {
+      await createChannel({
+        name,
+        ...(newUrl.trim() !== '' ? { url: newUrl.trim() } : {}),
+        ...(newNote.trim() !== '' ? { note: newNote.trim() } : {}),
+      })
+      setNewName(''); setNewUrl(''); setNewNote(''); setAdding(false)
+    })
+  }, [newName, newUrl, newNote, runMutation])
+
+  const toggleEnabled = useCallback(async (r: KsChannelRecord): Promise<void> => {
+    await runMutation(r.enabled === 0 ? '启用渠道' : '停用渠道',
+      () => setChannelEnabled(r.channel_id, r.enabled === 0))
+  }, [runMutation])
+
+  const editNote = useCallback(async (r: KsChannelRecord): Promise<void> => {
+    const next = window.prompt(`改备注（${r.name}）\n留空则清空该字段：`, r.note ?? '')
+    if (next === null) return                      // 取消
+    await runMutation('改备注', () => updateChannel(r.channel_id, { note: next }))
+  }, [runMutation])
+
+  const remove = useCallback(async (r: KsChannelRecord): Promise<void> => {
+    // 删除是高风险动作：先说清代价，再让人确认（默认建议用「停用」——它保留历史健康度）
+    const ok = window.confirm(
+      `确定删除「${r.name}」？\n\n`
+      + `· 审计痕迹里会保留删除前那一行（删得掉条目，删不掉证据）；\n`
+      + `· 如果只是暂时不用，建议「停用」——历史健康度会留着。\n\n`
+      + `渠道 id：${r.channel_id}`)
+    if (!ok) return
+    await runMutation('删除渠道', () => deleteChannel(r.channel_id))
+  }, [runMutation])
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: 12 }}>
       {/* 摘要：**两个数都显示**（台账条数 ≠ 能力条数）*/}
@@ -186,7 +253,37 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
           title="对配了探针目标的渠道各发一次请求，实测它们今天能不能抓（约 10–30 秒）">
           {probeBusy ? '探测中…（约 10–30 秒）' : '🩺 立即探测'}
         </button>
+        <button type="button" onClick={() => setAdding((v) => !v)} style={$btn}
+          title="人工加一条渠道：引擎侧已落（R6d），界面侧这一步是 R6f">
+          {adding ? '× 取消新增' : '＋ 新增渠道'}
+        </button>
       </div>
+
+      {/* 人工新增：只收「人能知道」的三样（名称/链接/备注）。
+          类别、接线、健康度**不在表单里**——那些要么由引擎判定、要么由探针产出；
+          人在这里填了只会得到 422（引擎的 loud 拒绝），不如不摆这个坑。 */}
+      {adding && (
+        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', alignItems: 'center',
+                      border: `1px dashed ${LINE}`, borderRadius: 6, padding: 6 }}>
+          <input value={newName} onChange={(e) => setNewName(e.target.value)}
+            placeholder="渠道名称（必填，例如：某省住建厅公告）" style={{ ...$select, minWidth: 220 }}
+            aria-label="渠道名称" />
+          <input value={newUrl} onChange={(e) => setNewUrl(e.target.value)}
+            placeholder="链接（https://…）" style={{ ...$select, minWidth: 240 }}
+            aria-label="渠道链接" />
+          <input value={newNote} onChange={(e) => setNewNote(e.target.value)}
+            placeholder="备注（为什么加它 / 谁维护）" style={{ ...$select, minWidth: 200 }}
+            aria-label="备注" />
+          <button type="button" onClick={() => void submitCreate()} disabled={mutating || newName.trim() === ''}
+            style={$btn}>
+            {mutating ? '提交中…' : '提交'}
+          </button>
+          <span style={{ color: FAINT }}>
+            新增的渠道默认：接线 `user`（是人加的）、有效性 `unverified`（人工录入≠已核实）、
+            探针状态 `unknown`（还没探过）。
+          </span>
+        </div>
+      )}
 
       {notice !== '' && (
         <p role="status" style={{ margin: 0, color: GRAY }}>{notice}</p>
@@ -215,6 +312,7 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
                 <th style={$th}>上次成功(UTC)</th>
                 <th style={$th}>失败原因</th>
                 <th style={$th}>链接</th>
+                <th style={$th}>维护</th>
               </tr>
             </thead>
             <tbody>
@@ -259,6 +357,23 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
                           style={{ color: 'var(--dsw-alias-link, #1565c0)' }}>打开</a>
                       : '—'}
                   </td>
+                  <td style={{ ...$td, whiteSpace: 'nowrap' }}>
+                    {/* 人工维护四件事：启停（停用不删）/ 改备注 / 删除（高风险，先确认） */}
+                    <button type="button" disabled={mutating} style={$mini}
+                      onClick={() => void toggleEnabled(r)}
+                      title={r.enabled === 0 ? '重新启用这条渠道' : '停用（保留历史健康度，不删条目）'}>
+                      {r.enabled === 0 ? '启用' : '停用'}
+                    </button>
+                    <button type="button" disabled={mutating} style={$mini}
+                      onClick={() => void editNote(r)} title="改备注（会写审计痕迹）">
+                      改备注
+                    </button>
+                    <button type="button" disabled={mutating} style={{ ...$mini, color: '#c0392b' }}
+                      onClick={() => void remove(r)}
+                      title="删除条目（引擎的审计痕迹里保留删除前整行；一般建议用「停用」）">
+                      删除
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -284,6 +399,14 @@ const $select: React.CSSProperties = {
   background: 'var(--dsw-alias-bg-layer-2, #fff)',
   color: 'var(--dsw-alias-label-primary, #111)',
   borderRadius: 4, padding: '2px 6px', fontSize: 11.5,
+}
+
+/** 行内维护按钮（比工具行的按钮更小：一列三颗，不能撑破表格）。 */
+const $mini: React.CSSProperties = {
+  border: '1px solid var(--dsw-alias-border-l2, #ccc)',
+  background: 'var(--dsw-alias-bg-layer-2, #fff)',
+  color: 'var(--dsw-alias-label-primary, #111)',
+  borderRadius: 3, padding: '1px 6px', fontSize: 11, cursor: 'pointer', marginRight: 3,
 }
 
 const $btn: React.CSSProperties = {

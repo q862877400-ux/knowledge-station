@@ -27272,6 +27272,41 @@ async function fetchChannels(params = {}, signal) {
   });
   return ksJson(res, "\u6E20\u9053\u53F0\u8D26");
 }
+async function createChannel(body, signal) {
+  const res = await fetch("/ks/channels", {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify(body),
+    signal
+  });
+  return ksJson(res, "\u65B0\u589E\u6E20\u9053");
+}
+async function updateChannel(channelId, patch, signal) {
+  const res = await fetch(`/ks/channels/${encodeURIComponent(channelId)}`, {
+    method: "PATCH",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify(patch),
+    signal
+  });
+  return ksJson(res, "\u4FEE\u6539\u6E20\u9053");
+}
+async function setChannelEnabled(channelId, enabled, signal) {
+  const res = await fetch(`/ks/channels/${encodeURIComponent(channelId)}/enabled`, {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ enabled }),
+    signal
+  });
+  return ksJson(res, "\u542F\u505C\u6E20\u9053");
+}
+async function deleteChannel(channelId, signal) {
+  const res = await fetch(`/ks/channels/${encodeURIComponent(channelId)}`, {
+    method: "DELETE",
+    headers: { accept: "application/json" },
+    signal
+  });
+  return ksJson(res, "\u5220\u9664\u6E20\u9053");
+}
 async function runChannelProbe(ids, signal) {
   const res = await fetch("/ks/channels/probe", {
     method: "POST",
@@ -33648,6 +33683,7 @@ function Deliverables(props) {
 // client/KsChannelsPanel.tsx
 var import_react8 = require("react");
 var import_jsx_runtime8 = require("react/jsx-runtime");
+var LINE = "var(--dsw-alias-border-l2, #ccc)";
 var CATEGORY_LABEL = {
   law: "\u6CD5\u89C4",
   std_gb: "\u56FD\u6807",
@@ -33709,6 +33745,11 @@ function KsChannelsPanel(props) {
   const [notice, setNotice] = (0, import_react8.useState)("");
   const [cat, setCat] = (0, import_react8.useState)("");
   const [state, setState] = (0, import_react8.useState)("");
+  const [adding, setAdding] = (0, import_react8.useState)(false);
+  const [newName, setNewName] = (0, import_react8.useState)("");
+  const [newUrl, setNewUrl] = (0, import_react8.useState)("");
+  const [newNote, setNewNote] = (0, import_react8.useState)("");
+  const [mutating, setMutating] = (0, import_react8.useState)(false);
   const load = (0, import_react8.useCallback)(async (signal) => {
     setBusy(true);
     setError("");
@@ -33749,6 +33790,59 @@ function KsChannelsPanel(props) {
   }, [load, probeBusy]);
   const rows = data ? sortChannels(data.items) : [];
   const s = data?.summary;
+  const runMutation = (0, import_react8.useCallback)(async (label, fn) => {
+    if (mutating) return;
+    setMutating(true);
+    setNotice("");
+    try {
+      await fn();
+      setNotice(`${label}\uFF1A\u5DF2\u751F\u6548\uFF08\u5F15\u64CE\u5DF2\u8BB0\u5BA1\u8BA1\u75D5\u8FF9\uFF09`);
+      await load();
+    } catch (e) {
+      setNotice(`${label}\u5931\u8D25\uFF1A${e instanceof Error ? e.message : String(e)}`);
+    } finally {
+      setMutating(false);
+    }
+  }, [load, mutating]);
+  const submitCreate = (0, import_react8.useCallback)(async () => {
+    const name = newName.trim();
+    if (name === "") return;
+    await runMutation("\u65B0\u589E\u6E20\u9053", async () => {
+      await createChannel({
+        name,
+        ...newUrl.trim() !== "" ? { url: newUrl.trim() } : {},
+        ...newNote.trim() !== "" ? { note: newNote.trim() } : {}
+      });
+      setNewName("");
+      setNewUrl("");
+      setNewNote("");
+      setAdding(false);
+    });
+  }, [newName, newUrl, newNote, runMutation]);
+  const toggleEnabled = (0, import_react8.useCallback)(async (r) => {
+    await runMutation(
+      r.enabled === 0 ? "\u542F\u7528\u6E20\u9053" : "\u505C\u7528\u6E20\u9053",
+      () => setChannelEnabled(r.channel_id, r.enabled === 0)
+    );
+  }, [runMutation]);
+  const editNote = (0, import_react8.useCallback)(async (r) => {
+    const next = window.prompt(`\u6539\u5907\u6CE8\uFF08${r.name}\uFF09
+\u7559\u7A7A\u5219\u6E05\u7A7A\u8BE5\u5B57\u6BB5\uFF1A`, r.note ?? "");
+    if (next === null) return;
+    await runMutation("\u6539\u5907\u6CE8", () => updateChannel(r.channel_id, { note: next }));
+  }, [runMutation]);
+  const remove = (0, import_react8.useCallback)(async (r) => {
+    const ok = window.confirm(
+      `\u786E\u5B9A\u5220\u9664\u300C${r.name}\u300D\uFF1F
+
+\xB7 \u5BA1\u8BA1\u75D5\u8FF9\u91CC\u4F1A\u4FDD\u7559\u5220\u9664\u524D\u90A3\u4E00\u884C\uFF08\u5220\u5F97\u6389\u6761\u76EE\uFF0C\u5220\u4E0D\u6389\u8BC1\u636E\uFF09\uFF1B
+\xB7 \u5982\u679C\u53EA\u662F\u6682\u65F6\u4E0D\u7528\uFF0C\u5EFA\u8BAE\u300C\u505C\u7528\u300D\u2014\u2014\u5386\u53F2\u5065\u5EB7\u5EA6\u4F1A\u7559\u7740\u3002
+
+\u6E20\u9053 id\uFF1A${r.channel_id}`
+    );
+    if (!ok) return;
+    await runMutation("\u5220\u9664\u6E20\u9053", () => deleteChannel(r.channel_id));
+  }, [runMutation]);
   return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: 8, fontSize: 12 }, children: [
     s && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: { color: GRAY2, lineHeight: 1.7 }, children: [
       "\u53F0\u8D26 ",
@@ -33810,7 +33904,68 @@ function KsChannelsPanel(props) {
           title: "\u5BF9\u914D\u4E86\u63A2\u9488\u76EE\u6807\u7684\u6E20\u9053\u5404\u53D1\u4E00\u6B21\u8BF7\u6C42\uFF0C\u5B9E\u6D4B\u5B83\u4EEC\u4ECA\u5929\u80FD\u4E0D\u80FD\u6293\uFF08\u7EA6 10\u201330 \u79D2\uFF09",
           children: probeBusy ? "\u63A2\u6D4B\u4E2D\u2026\uFF08\u7EA6 10\u201330 \u79D2\uFF09" : "\u{1FA7A} \u7ACB\u5373\u63A2\u6D4B"
         }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        "button",
+        {
+          type: "button",
+          onClick: () => setAdding((v) => !v),
+          style: $btn2,
+          title: "\u4EBA\u5DE5\u52A0\u4E00\u6761\u6E20\u9053\uFF1A\u5F15\u64CE\u4FA7\u5DF2\u843D\uFF08R6d\uFF09\uFF0C\u754C\u9762\u4FA7\u8FD9\u4E00\u6B65\u662F R6f",
+          children: adding ? "\xD7 \u53D6\u6D88\u65B0\u589E" : "\uFF0B \u65B0\u589E\u6E20\u9053"
+        }
       )
+    ] }),
+    adding && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { style: {
+      display: "flex",
+      gap: 6,
+      flexWrap: "wrap",
+      alignItems: "center",
+      border: `1px dashed ${LINE}`,
+      borderRadius: 6,
+      padding: 6
+    }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        "input",
+        {
+          value: newName,
+          onChange: (e) => setNewName(e.target.value),
+          placeholder: "\u6E20\u9053\u540D\u79F0\uFF08\u5FC5\u586B\uFF0C\u4F8B\u5982\uFF1A\u67D0\u7701\u4F4F\u5EFA\u5385\u516C\u544A\uFF09",
+          style: { ...$select, minWidth: 220 },
+          "aria-label": "\u6E20\u9053\u540D\u79F0"
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        "input",
+        {
+          value: newUrl,
+          onChange: (e) => setNewUrl(e.target.value),
+          placeholder: "\u94FE\u63A5\uFF08https://\u2026\uFF09",
+          style: { ...$select, minWidth: 240 },
+          "aria-label": "\u6E20\u9053\u94FE\u63A5"
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        "input",
+        {
+          value: newNote,
+          onChange: (e) => setNewNote(e.target.value),
+          placeholder: "\u5907\u6CE8\uFF08\u4E3A\u4EC0\u4E48\u52A0\u5B83 / \u8C01\u7EF4\u62A4\uFF09",
+          style: { ...$select, minWidth: 200 },
+          "aria-label": "\u5907\u6CE8"
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        "button",
+        {
+          type: "button",
+          onClick: () => void submitCreate(),
+          disabled: mutating || newName.trim() === "",
+          style: $btn2,
+          children: mutating ? "\u63D0\u4EA4\u4E2D\u2026" : "\u63D0\u4EA4"
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { style: { color: FAINT }, children: "\u65B0\u589E\u7684\u6E20\u9053\u9ED8\u8BA4\uFF1A\u63A5\u7EBF `user`\uFF08\u662F\u4EBA\u52A0\u7684\uFF09\u3001\u6709\u6548\u6027 `unverified`\uFF08\u4EBA\u5DE5\u5F55\u5165\u2260\u5DF2\u6838\u5B9E\uFF09\u3001 \u63A2\u9488\u72B6\u6001 `unknown`\uFF08\u8FD8\u6CA1\u63A2\u8FC7\uFF09\u3002" })
     ] }),
     notice !== "" && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { role: "status", style: { margin: 0, color: GRAY2 }, children: notice }),
     error !== "" && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("p", { role: "alert", style: { margin: 0, color: "#c0392b" }, children: [
@@ -33828,7 +33983,8 @@ function KsChannelsPanel(props) {
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("th", { style: $th, children: "\u6709\u6548\u6027" }),
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("th", { style: $th, children: "\u4E0A\u6B21\u6210\u529F(UTC)" }),
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("th", { style: $th, children: "\u5931\u8D25\u539F\u56E0" }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("th", { style: $th, children: "\u94FE\u63A5" })
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("th", { style: $th, children: "\u94FE\u63A5" }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("th", { style: $th, children: "\u7EF4\u62A4" })
       ] }) }),
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("tbody", { children: rows.map((r) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("tr", { style: needsAttention(r) ? $trWarn : void 0, children: [
         /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("td", { style: $td, title: r.note ?? void 0, children: [
@@ -33878,7 +34034,42 @@ function KsChannelsPanel(props) {
             style: { color: "var(--dsw-alias-link, #1565c0)" },
             children: "\u6253\u5F00"
           }
-        ) : "\u2014" })
+        ) : "\u2014" }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("td", { style: { ...$td, whiteSpace: "nowrap" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            "button",
+            {
+              type: "button",
+              disabled: mutating,
+              style: $mini,
+              onClick: () => void toggleEnabled(r),
+              title: r.enabled === 0 ? "\u91CD\u65B0\u542F\u7528\u8FD9\u6761\u6E20\u9053" : "\u505C\u7528\uFF08\u4FDD\u7559\u5386\u53F2\u5065\u5EB7\u5EA6\uFF0C\u4E0D\u5220\u6761\u76EE\uFF09",
+              children: r.enabled === 0 ? "\u542F\u7528" : "\u505C\u7528"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            "button",
+            {
+              type: "button",
+              disabled: mutating,
+              style: $mini,
+              onClick: () => void editNote(r),
+              title: "\u6539\u5907\u6CE8\uFF08\u4F1A\u5199\u5BA1\u8BA1\u75D5\u8FF9\uFF09",
+              children: "\u6539\u5907\u6CE8"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            "button",
+            {
+              type: "button",
+              disabled: mutating,
+              style: { ...$mini, color: "#c0392b" },
+              onClick: () => void remove(r),
+              title: "\u5220\u9664\u6761\u76EE\uFF08\u5F15\u64CE\u7684\u5BA1\u8BA1\u75D5\u8FF9\u91CC\u4FDD\u7559\u5220\u9664\u524D\u6574\u884C\uFF1B\u4E00\u822C\u5EFA\u8BAE\u7528\u300C\u505C\u7528\u300D\uFF09",
+              children: "\u5220\u9664"
+            }
+          )
+        ] })
       ] }, r.channel_id)) })
     ] }) }),
     /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("p", { style: { margin: 0, color: FAINT, lineHeight: 1.6 }, children: '\u65F6\u95F4\u5217\u662F UTC\uFF08\u5E93\u5185 `datetime(\'now\')` \u7684\u65E2\u6709\u53E3\u5F84\uFF09\uFF0C\u65C1\u8FB9\u6309"\u591A\u4E45\u4E4B\u524D"\u663E\u793A\u3002 \u300C\u7ACB\u5373\u63A2\u6D4B\u300D\u53EA\u63A2\u914D\u4E86\u63A2\u9488\u76EE\u6807\u7684\u6E20\u9053\uFF08\u951A\u70B9\u5FC5\u987B\u5B9E\u6D4B\u770B\u5230\u8FC7\uFF0C\u4E0D\u8BB8\u51ED\u60F3\u8C61\u5199\uFF09\uFF1B \u6CA1\u914D\u7684\u663E\u793A \u26AA \u672A\u63A2 \u2014\u2014 \u90A3\u662F"\u8FD8\u6CA1\u6D4B\u8FC7"\uFF0C\u4E0D\u662F"\u6D4B\u8FC7\u4E86\u6CA1\u95EE\u9898"\uFF1B \u6807\u4E86\u300C\uFF08\u65E0\u63A2\u9488\uFF09\u300D\u7684\u662F\u6309\u8BBE\u8BA1\u5C31\u6CA1\u6709\u63A2\u9488\u76EE\u6807\uFF08\u4EE3\u7801\u4ED3\u5E93\u3001\u6211\u65B9\u4EE3\u7801\u901A\u8DEF\u7B49\uFF09\uFF0C \u4E0E"\u8FD8\u6CA1\u8F6E\u5230\u5B83"\u4E0D\u662F\u4E00\u56DE\u4E8B\uFF1B \u8FD8\u6709\u4E00\u79CD \u26AA \u662F\u80FD\u8FDE\u901A\u3001\u4F46\u6211\u4EEC\u6CA1\u7ED9\u5B83\u914D\u8BED\u4E49\u671F\u671B\uFF08\u5931\u8D25\u539F\u56E0\u5217\u5199 `no_anchor_configured`\uFF09 \u2014\u2014 \u5B83\u540C\u6837\u4E0D\u7B97\u300C\u53EF\u6293\u300D\uFF0C\u4F46\u4E5F\u4E0D\u662F\u6B20\u8D26\u3002' })
@@ -33891,6 +34082,16 @@ var $select = {
   borderRadius: 4,
   padding: "2px 6px",
   fontSize: 11.5
+};
+var $mini = {
+  border: "1px solid var(--dsw-alias-border-l2, #ccc)",
+  background: "var(--dsw-alias-bg-layer-2, #fff)",
+  color: "var(--dsw-alias-label-primary, #111)",
+  borderRadius: 3,
+  padding: "1px 6px",
+  fontSize: 11,
+  cursor: "pointer",
+  marginRight: 3
 };
 var $btn2 = {
   border: "1px solid var(--dsw-alias-border-l2, #ccc)",

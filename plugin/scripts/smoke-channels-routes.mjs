@@ -13,6 +13,7 @@
 import { createServer } from 'node:http'
 
 import {
+  KS_CHANNELS_ITEM_PREFIX,
   KS_CHANNELS_PATH,
   KS_CHANNELS_PROBE_PATH,
   registerKsChannelsRoutes,
@@ -58,8 +59,23 @@ function makeRes() {
     end(text) { try { out.body = JSON.parse(text) } catch { out.body = text } },
   }
 }
+/** 按真派发器的口径找路由：**先精确、再取最长前缀匹配**。
+ *  ⚠ 这个桩原先只认 exact（`routes.get(path)`），于是 `/ks/channels/{id}` 这类
+ *  prefix 路由**根本发不进来**——那会让"前缀路由写错了"这种 bug 在冒烟里静默通过。 */
+function resolveRoute(path) {
+  const exact = routes.get(path)
+  if (exact !== undefined) return exact
+  let best = null
+  for (const [p, def] of routes) {
+    if (def.kind !== 'prefix') continue
+    if (!path.startsWith(p)) continue
+    if (best === null || p.length > best.path.length) best = { path: p, def }
+  }
+  return best === null ? undefined : best.def
+}
+
 async function invoke(path, { method = 'GET', body = undefined, search = '' } = {}) {
-  const def = routes.get(path)
+  const def = resolveRoute(path)
   if (def === undefined) throw new Error(`路由未注册: ${path}`)
   const { EventEmitter } = await import('node:events')
   const req = new EventEmitter()
@@ -78,21 +94,101 @@ async function invoke(path, { method = 'GET', body = undefined, search = '' } = 
 const lastEngine = () => seen[seen.length - 1]
 
 /* --------------------------- 1. 注册面 --------------------------- */
-check('注册了 2 条渠道路由（列表 + 探针）',
-  routes.size === 2 && routes.has(KS_CHANNELS_PATH) && routes.has(KS_CHANNELS_PROBE_PATH),
+check('注册了 3 条渠道路由（列表+新增 / 单条维护前缀 / 探针）',
+  routes.size === 3 && routes.has(KS_CHANNELS_PATH)
+    && routes.has(KS_CHANNELS_ITEM_PREFIX) && routes.has(KS_CHANNELS_PROBE_PATH),
   [...routes.keys()].join(','))
-check('两条都是 kind=exact（前缀匹配会把 /ks/channelsX 也吃进来）',
-  [...routes.values()].every((d) => d.kind === 'exact'))
-check('返回 2 个 disposer（随 fiber 撤销）', disposers.length === 2)
+check('列表与单条是 exact、单条维护是 prefix（前缀匹配是 /{id} 能路由的前提）',
+  routes.get(KS_CHANNELS_PATH).kind === 'exact'
+    && routes.get(KS_CHANNELS_ITEM_PREFIX).kind === 'prefix'
+    && routes.get(KS_CHANNELS_PROBE_PATH).kind === 'exact')
+check('返回 3 个 disposer（随 fiber 撤销）', disposers.length === 3)
 check('路径常量就是界面用的那两个（防两侧漂开）',
   KS_CHANNELS_PATH === '/ks/channels' && KS_CHANNELS_PROBE_PATH === '/ks/channels/probe')
 
 /* --------------------------- 2. 方法守卫生效 --------------------------- */
 {
-  const r = await invoke(KS_CHANNELS_PATH, { method: 'POST' })
-  check('GET 列表：POST 打过来 → 405', r.status === 405, JSON.stringify(r.body))
+  // ⚠ `/ks/channels` 现在**同路径两件事**（GET 列表 / POST 新增）：
+  //   所以"POST 打过来 → 405"这条旧断言**按设计作废**了，改成核 POST 走的是新增。
+  //   真正要守的是"不认识的动词一律 405"。
+  const r = await invoke(KS_CHANNELS_PATH, { method: 'PUT' })
+  check('列表/新增：PUT 打过来 → 405', r.status === 405, JSON.stringify(r.body))
   const r2 = await invoke(KS_CHANNELS_PROBE_PATH, { method: 'GET' })
   check('POST 探针：GET 打过来 → 405', r2.status === 405, JSON.stringify(r2.body))
+  const r3 = await invoke(`${KS_CHANNELS_ITEM_PREFIX}ch:a`, { method: 'GET' })
+  check('单条维护：GET 打过来 → 405（这个路径没有读口）',
+    r3.status === 405, JSON.stringify(r3.body))
+}
+
+/* --------------------- 2b. 人工写口：白名单 + 错误透传 --------------------- */
+{
+  seen.length = 0
+  responder = () => ({ body: { code: 200, data: { channel_id: 'user:x-1', name: 'n' } } })
+  const r = await invoke(KS_CHANNELS_PATH, {
+    method: 'POST',
+    body: { name: '某省厅公告', url: 'https://e.org', state: 'ok', evil: 1 },
+  })
+  const eng = lastEngine()
+  check('新增：转发到引擎 POST /api/v1/channels（不是列表那条）',
+    eng.method === 'POST' && eng.path === '/api/v1/channels', `${eng.method} ${eng.path}`)
+  check('新增：允许的字段原样转，`evil` **也**照转（判据归引擎，宿主不替它丢）',
+    eng.sent.name === '某省厅公告' && eng.sent.url === 'https://e.org'
+    && eng.sent.evil === 1, JSON.stringify(eng.sent))
+  check('⚠ 健康度字段**照转**给引擎（拒绝的判据归引擎，宿主不自己判一遍）',
+    eng.sent.state === 'ok', JSON.stringify(eng.sent))
+  check('新增成功 → {ok:true,data}', r.status === 200 && r.body.data.channel_id === 'user:x-1',
+    JSON.stringify(r.body))
+
+  // 引擎 422（健康度字段被拒）→ 宿主**原样**带回引擎的 code
+  seen.length = 0
+  responder = () => ({ http: 422, body: { code: 422, status: 'error', error: 'illegal_channel_field', message: '这些是探针产出的字段' } })
+  const bad = await invoke(KS_CHANNELS_PATH, { method: 'POST', body: { name: 'x', state: 'ok' } })
+  check('引擎 422 → 宿主 422 且**保住引擎的错误码**',
+    bad.status === 422 && bad.body.error.code === 'illegal_channel_field',
+    JSON.stringify(bad.body))
+
+  // 单条 PATCH：只有白名单字段过去；404 原样透传
+  seen.length = 0
+  responder = () => ({ body: { code: 200, data: { channel_id: 'ch:a', note: '改过' } } })
+  const patched = await invoke(`${KS_CHANNELS_ITEM_PREFIX}ch:a`, {
+    method: 'PATCH', body: { note: '改过', junk: true },
+  })
+  const e2 = lastEngine()
+  // ⚠ id 是 `encodeURIComponent` 过的（`ch%3Aa`）——Starlette 会把它解回 `ch:a`。
+  //   断言用解码后的形状，钉的是"打到哪条引擎路径"，不是编码细节。
+  check('复核编辑：PATCH 到 /api/v1/channels/ch:a，body 原样转（junk 也转给引擎判）',
+    e2.method === 'PATCH'
+    && decodeURIComponent(e2.path) === '/api/v1/channels/ch:a'
+    && e2.sent.junk === true,
+    `${e2.method} ${e2.path} ${JSON.stringify(e2.sent)}`)
+  check('复核编辑成功 → 200', patched.status === 200, JSON.stringify(patched.body))
+
+  seen.length = 0
+  responder = () => ({ http: 404, body: { error: 'channel_not_found', message: '渠道不存在' } })
+  const gone = await invoke(`${KS_CHANNELS_ITEM_PREFIX}ch:nope`, { method: 'DELETE' })
+  check('删除：404 原样透传（不翻成 502 归因错误）',
+    gone.status === 404 && gone.body.error.code === 'channel_not_found'
+    && lastEngine().method === 'DELETE', JSON.stringify(gone.body))
+
+  // 启停：**宿主不判布尔**（判据归引擎）——它只把值转过去
+  seen.length = 0
+  responder = () => ({ http: 422, body: { error: 'illegal_enabled', message: 'body 需要 {"enabled": true|false}' } })
+  const strEnabled = await invoke(`${KS_CHANNELS_ITEM_PREFIX}ch:a/enabled`, {
+    method: 'POST', body: { enabled: 'no' },
+  })
+  check('启停：非布尔**照转**给引擎，引擎 422 原样回来（宿主不自己判一遍）',
+    lastEngine().sent.enabled === 'no'
+    && strEnabled.status === 422 && strEnabled.body.error.code === 'illegal_enabled',
+    JSON.stringify(strEnabled.body))
+  seen.length = 0
+  responder = () => ({ body: { code: 200, data: { channel_id: 'ch:a', enabled: 0 } } })
+  const off = await invoke(`${KS_CHANNELS_ITEM_PREFIX}ch:a/enabled`, {
+    method: 'POST', body: { enabled: false },
+  })
+  check('启停：转发 POST …/ch:a/enabled 且 body 只有 enabled',
+    decodeURIComponent(lastEngine().path) === '/api/v1/channels/ch:a/enabled'
+    && lastEngine().sent.enabled === false && off.status === 200,
+    `${lastEngine().path} ${JSON.stringify(lastEngine().sent)}`)
 }
 
 /* --------------------------- 3. query 白名单 --------------------------- */
