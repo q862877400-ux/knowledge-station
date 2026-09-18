@@ -7274,3 +7274,87 @@ E（清单诚实度）成立**（它自抽 7 个号复核：`official_gb` 5/5、
 
 门禁：`pytest -q` 2125 passed / 3 skipped / 0 failed；`mypy` 142 文件 0 错。
 快照 `step-137-r6c4e-debt-from-events`（`dddff8c`）。
+
+## §10.117 R6c-7：`废止` 类的日期是**错标**的——真机 3 个废止号 3 行错（§11.0，P1 准确性）
+
+**怎么发现的**：不是专门去找的。给 R6c-6 的"红/黄号补探"定价时，我问了一句
+"补到了什么，值这 +19.4% 的请求吗"——答案是**今天记的那个日期本来就是错的**。
+
+**错在哪**：`class_outcomes.conclusion_for('废止', r)` 在 `legal_status == 'withdrawn'` 时
+把 `r.effective_date` 当废止日期带出去。可那个槽的语义**是实施日期**（`base.py` 自己写的），
+而把 `effective_date` 填上的渠道里，**8 条判 partial 的渠道填的都是自己的关键日期**：
+`official_gb` 取的是**实施日期列**、`cssn` 是"实施 or 发布"、`std_samr_hb` 是 ACT_DATE、
+`laws_db` 是 sxrq/gbrq、`govcn` 是 pubtime、`ttbz` 是 datePublished、`web` 是第一个日期。
+
+**真机一手实测**（3 个真废止号 × 2 渠道 = 5 行，**3 行错**）：
+
+| 号 | 渠道 | 改前吐出的"废止日期" | 真相 |
+|---|---|---|---|
+| GB 16663-1996 | `official_gb` | 1997-07-01 ✗ | 实施日期（真废止 2026-09-01） |
+| GB 1219-2008 | `ndls`（降级档） | 1986-05-01 ✗ | **站点没有 a206**，回落 impl_date |
+| GB 11121-2006 | `official_gb` | 2007-01-01 ✗ | 实施日期（真值 2026-07-01） |
+
+⚠ **最关键的一条教训**：错的**不只是**判 `partial` 的渠道——`ndls` 判的是 `supported`，
+它自己的降级路径（详情缺 a206）**一样会拿 impl_date 冒充**。
+⇒ 我原本以为可以"按能力判定兜住"（partial 才可能错），**这个修法不成立**；
+只有让"渠道到底有没有解析出废止日期"成为**结果里的一等事实**才兜得住。
+这和 R6c-3e 给 `published_date` 开槽是**同一个形状**：一个日期槽装两种日期，早晚出事。
+
+**改法**：`ChannelResult` 新槽 `withdrawn_date`（`ndls` 从 a206、`hbba`/`dbba` 从 fzDate），
+`conclusion_for('废止')` **只认这个槽**，`latest_info` 一并落它。
+`ndls` 的 `effective_date` 因此回到"恒为实施日期"（信息没丢：两个日期都在事件里，
+而且 `doc_meta.withdrawn_date` 与插件侧一直是这么分的——是**结果类缺这个一等字段**）。
+⚠ 降级档 `withdrawn_date=None` 是"**不知道**"，不是"拿实施日期顶上"。
+
+**变异测试（两处都当场红）**：`conclusion_for` 改回读 `effective_date` ⇒ class_outcomes 用例红；
+`ndls` 改回 `wd or impl` ⇒ adapter 用例红。
+**旧断言改在原处**：`test_废止_现行也是结论_非废止时无废止日期` 原来喂 `effective_date` 并期望
+它变成废止日期——**那正好把被修掉的错标钉成了契约**（这类"测试在替 bug 站岗"的用例，
+比没有测试更危险）。
+
+**诚实边界**：库里 355 条事件里 **0 条**带 `classes` 键（R6c-4c 之后还没跑过巡检）
+⇒ **今天没有已写坏的行走数据**，这是抢在下一次巡检之前落的护栏（与 R6c-4d 同形）。
+本步只做到"**不再记错**"；红号要拿到**正确**的废止日期，仍需 R6c-6 定价的那步
+（只对红/黄号补探 `ndls`）。
+
+门禁：`pytest -q` 2128 passed / 3 skipped / 0 failed；`mypy` 142 文件 0 错。
+快照 `step-138-r6c7-withdrawn-date`（`aa5e910`）。
+
+## §10.118 R6d：渠道台账的**人工增删与复核**（目标②的后半，引擎侧）
+
+**缺口**：台账此前**只能读**（列表 + 详情 + 立刻探一遍）。仓储层其实早就有
+`upsert_channel`/`set_enabled`/`delete_channel`（种子导入在用），缺的是**给人用的写入口**。
+
+**落了四个端点**：`POST /channels`（新增，id 可省 ⇒ `user:<slug>-<8位>`；`wiring` 默认 `user`、
+`verification` 默认 `unverified`——**人工录入 ≠ 已核实**）、`PATCH /channels/{id}`（复核编辑
+描述性字段）、`POST /channels/{id}/enabled`（启停不删：历史健康度是证据）、
+`DELETE /channels/{id}`（痕迹带**删除前整行快照**）。
+
+**两条不变量（都做了变异测试，且都不是"顺手加的"）**
+
+1. **人工写不了运行期健康度**。`state`/`last_*`/`consecutive_failures` 一律 **422 出声拒绝**
+   并指路探针。⚠ 为什么不靠 `overwrite_health=False` 的**静默丢弃**：静默丢弃会让人以为写成功了，
+   而面板上那条"上次成功"会被错读成**真探过**——**那就是凭空造证据**。
+   同理，未知字段名也 422（拼错就静默丢，是同一类事故的另一个入口）。
+2. **人工改动一律留痕**。`channel/created|updated|enabled|deleted` 写进 `event_log`
+   （`actor=user` + 改前/改后 JSON 快照），**与改动同一个事务**。
+   留痕写在**仓储层**而不是路由层：路由不是唯一入口（脚本、将来的 CLI、测试都调仓储），
+   而"人工改了台账却没痕迹"在审查场景里不可接受。
+   删除时 `before_state` 里留着删除前整行 ⇒ **删得掉条目，删不掉证据**。
+
+**测试逼出来的真 bug**：`update_channel.category` 是 **NOT NULL**，而人工新增说不出
+"这属于哪一类" ⇒ 原先直接把 `sqlite3.IntegrityError` 冒到面板（用户看到的是一个 500）。
+现在默认值落在**仓储层**（缺 `category` ⇒ `normalize_category(category_raw)` ⇒ `other`）——
+**schema 不变量归所有者**，任何调用方都不该绕过它；"没分类"本身是一个正常状态。
+
+**变异检查的做法值得记**：`var/tmp/r6dmut.py` 是一个 pytest 插件，运行时把
+`channel_repo._audit` 换成 no-op，**不改仓库任何文件** ⇒ 四条依赖留痕的用例当场红，
+去掉 `-p r6dmut` 全绿。（前几轮我改仓库文件再改回来做变异，这次的写法更干净，后面沿用。）
+
+**仍未做（下一步）**：宿主插件代理（`plugin/src/channels.js` 现在只有列表 + 探测两条）
+与**面板上的增删复核界面**。⚠ 宿主插件是**进程启动时静态 import** 的 ⇒
+面板侧改动要等 DSH 宿主重启才生效，所以单独一轮做，别和引擎侧混提交——
+**别把"引擎有了"说成"界面有了"**。
+
+门禁：`pytest -q` 2136 passed / 3 skipped / 0 failed；`mypy` 142 文件 0 错。
+快照 `step-139-r6d-channel-write-api`（`64c1597`）。
