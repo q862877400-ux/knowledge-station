@@ -95,8 +95,8 @@
 - **412 部现行有效法律与司法解释、26,000+ 条逐条结构化**：含稳定条文 id（`civil-code-0577`）、条号、正文、
   **编/章/节层级**、公布日期/施行日期/效力状态/发布机关；
 - **+278 件最高法指导性案例 +445 件公报案例**（裁判要点/基本案情/裁判理由分字段）；
-- 来源是国家法律法规数据库 `flk.npc.gov.cn` 的官方 docx，**逐部人工核对**；README 自称 **CC0**
-  （⚠ GitHub 元数据显示 `NOASSERTION`，LICENSE 为自定义文本，属未闭合边界）；
+- 来源是国家法律法规数据库 `flk.npc.gov.cn` 的官方 docx，**逐部人工核对**；LICENSE 首行与 README 双处声明
+  **CC0 1.0**（⚠ 非 SPDX 识别文件，GitHub 元数据标 `NOASSERTION`；见 §八 最大风险）；
 - 它的 README 里已经写出了我上一轮当作「候选护城河」的那句话：**「一条 = 一个法条，天然的 chunk 边界」**；
 - 基于它已经有人在做产品：**法脉 LawPulse**（律师向、本地优先桌面、离线法律库 + 法条笔记 +
   **引用可核实的合同审查**），并把 27,000+ 页条文做成**逐条可引用的静态网页**（`/laws/<slug>/<n>.html`）——
@@ -218,3 +218,26 @@
   「LLM 裁判类 vs 确定性类」是我按指标定义归的类，不是文档里的原文分类。
 - aihse.cn 我**没能读到正文**（SPA，Jina 返回空）；该条结论来自同主题搜索命中的赛为页面，
   属**厂商自述**，不能当作 aihse.cn 自身能力的证据。
+
+## 八、独立验证记录（b43）
+
+派了独立验证者去**证伪** §五/§六 的五条头条结论；它自己取一手文本（`gh api tree` + raw）,不用我的转述。
+
+**结论：5 条全部成立，未发现捏造**；1 处数字需正名：
+
+| # | 声明 | 判定 | 关键补强 |
+|---|---|---|---|
+| 1 | `chinese-law-corpus` 真实且逐条结构化 | 成立 | ⚠ `laws/` 下 .json 实为 **413**（412 部 + `laws/index.json`）。**「412」经独立复算仍正确**：300 部法律（65 具名 + 233 law-hash + civil-code + constitution）+ 112 件 `sfjs-*` 司法解释。`civil-code.json` 真实字段 `id/officialId/title/issuingAuthority/promulgationDate/effectiveDate/status/source/articleCount/sections/articles`，条文号段 `id/articleNumber/displayNumber/path/text/order`；`civil-code-0577` 确为第五百七十七条 |
+| 2 | Open WebUI 用 `#:~:text=` 且 page 为 0-based | 成立 | 行号坐实：`CitationModal.svelte:67/90-94` 拼片段、`:73`/`:116` 用 `#page=${page + 1}`；**0-based 找到源头**：`backend/open_webui/retrieval/loaders/main.py:283-284` 的 `'page': page_idx` 配 `enumerate()` |
+| 3 | AnythingLLM 的 PDF 只能到文档层 | 成立 | 白名单 14 项**确无 `file://`**；补上最后一环：`collector/processSingleFile/convert/asPDF/index.js:69` 是 `chunkSource: metadata.chunkSource \|\| ""` —— 空串不进白名单 ⇒ 必返回 `nullResponse` |
+| 4 | RAGFlow 坐标形状与裁图常量 | 成立 | `pdf_chunk_metadata.py:62-63` 注释原文即该形状；`:150-174` 返回三字段、`:126-147` 可合并多来源（**多段坐标**成立）、`:208` 裁图、`:29-31` 三个常量逐一对应 |
+| 5 | Zoteus 引文反查 + MCP token 成本 | 成立 | `zoteus README.md:54` 原句含「anchors the annotation to the lines it occupies, wrapping and hyphenation included, so no page coordinates are needed」；`zotero-mcp README.md:98/102/103` 的 13,448 与 98 三处数字一致 |
+
+基线（均 2026-09-18 取回，`truncated=false`）：`chinese-law-corpus@ce5e48b`、`open-webui@0a7c158`、
+`anything-llm@da66855`、`ragflow@302ada2`、`zoteus@e24f97b`、`zotero-mcp@8778e62`。
+
+**最大风险（原文）**：CC0 仅是仓库内 LICENSE/README 的**文件级自我声明**（GitHub `license=NOASSERTION`，
+SPDX 未识别），**机器可读的授权保证缺失，下游合规流水线不能据此放行**；
+13,448 / 98 tokens 是仓库自报测量值，**未独立复算**；五条结论**绑定 2026-09-18 的 HEAD**，上游一推进即需复检。
+
+验证报告：`var/tmp/VERIFY-b43.md`（临时件，不进库）。
