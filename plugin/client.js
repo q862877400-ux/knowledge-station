@@ -27237,6 +27237,26 @@ async function fetchPdf(port, docId, token, signal) {
   }
   return res.arrayBuffer();
 }
+async function fetchExportBlob(name, signal) {
+  const url = (port) => `http://127.0.0.1:${port}/api/v1/export/download?name=${encodeURIComponent(name)}`;
+  const once = async () => {
+    const session = await fetchSession(signal);
+    return fetch(url(session.engine.port), {
+      method: "GET",
+      headers: { Authorization: `Bearer ${session.token}` },
+      signal
+    });
+  };
+  let res = await once();
+  if (res.status === 401) {
+    clearSession();
+    res = await once();
+  }
+  if (res.status === 403) throw new Error("\u5F15\u64CE\u62D2\u7EDD\u4E86\u8FD9\u4E2A\u6587\u4EF6\u540D\uFF08\u53EA\u5141\u8BB8 exports \u76EE\u5F55\u5185\u7684\u4EA7\u7269\uFF09");
+  if (res.status === 404) throw new Error(`\u4EA7\u7269\u6587\u4EF6\u4E0D\u5B58\u5728\uFF08\u53EF\u80FD\u5DF2\u88AB\u6E05\u7406\uFF09\uFF1A${name}`);
+  if (!res.ok) throw new Error(`\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`);
+  return res.blob();
+}
 async function fetchBbox(rev, signal) {
   const res = await fetch("/ks/bbox?rev=" + encodeURIComponent(rev), {
     method: "GET",
@@ -28640,6 +28660,11 @@ var tocRestore = /* @__PURE__ */ new Map();
 // client/KsFilesTab.tsx
 var import_react = require("react");
 var import_jsx_runtime = require("react/jsx-runtime");
+function countDocs(node) {
+  let n = node.docs.length;
+  for (const child of node.items) n += countDocs(child);
+  return n;
+}
 function KsFilesView(props) {
   const { active, onOpenDoc, query } = props;
   const abortRef = (0, import_react.useRef)(null);
@@ -28850,8 +28875,8 @@ function KsFilesView(props) {
         ].filter(Boolean).join("\n"),
         children: [
           catMulti ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { ...$docCheck, ...checked ? $docCheckOn : {} }, "aria-checked": checked, children: checked ? "\u2713" : "" }) : null,
-          d.doc_type === "\u6CD5\u5F8B\u6CD5\u89C4" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { minWidth: "auto", fontWeight: 500 }, children: d.standard_name || d.standard_no }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { minWidth: "auto", fontWeight: 500 }, children: d.standard_no }),
+          d.doc_type === "\u6CD5\u5F8B\u6CD5\u89C4" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: $leafLawName, children: d.standard_name || d.standard_no }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: $leafNo, children: d.standard_no }),
             d.standard_name ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: $leafName, children: d.standard_name }) : null
           ] }),
           struck ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: $supBadge, children: "\u5E9F\u6B62" }) : null,
@@ -28965,31 +28990,37 @@ function KsFilesView(props) {
         const key1 = "L:" + top.name;
         const open1 = !!catQ || !!catOpen[key1];
         return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { ...$row, ...$rowL1 }, onClick: () => toggleCat(key1), children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { ...$row, ...$rowL1 }, onClick: () => toggleCat(key1), title: `${top.name}\uFF1A${countDocs(top)} \u90E8`, children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: $caret, children: open1 ? "\u25BE" : "\u25B8" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontWeight: 700 }, children: top.name })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: $rowL1Name, children: top.name }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: $countChip, children: countDocs(top) })
           ] }),
           open1 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: $children, children: top.items.map((l2) => {
             const key2 = key1 + ">" + l2.name;
             const open2 = !!catQ || !!catOpen[key2];
             return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { ...$row, ...$rowL2 }, onClick: () => toggleCat(key2), children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { ...$row, ...$rowL2 }, onClick: () => toggleCat(key2), title: `${l2.name}\uFF1A${countDocs(l2)} \u90E8`, children: [
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: $caret, children: open2 ? "\u25BE" : "\u25B8" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 11.5 }, children: l2.name })
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: $rowL2Name, children: l2.name }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: $countChip, children: countDocs(l2) })
               ] }),
               open2 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: $children, children: l2.items.map((l3) => {
                 const key3 = key2 + ">" + l3.name;
                 const open3 = !!catQ || !!catOpen[key3];
                 return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { ...$row, ...$rowL3 }, onClick: () => toggleCat(key3), children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: $caret, children: open3 ? "\u25BE" : "\u25B8" }),
-                    l3.name
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { ...$row, ...$rowL3 }, onClick: () => toggleCat(key3), title: `${l3.name}\uFF1A${countDocs(l3)} \u90E8`, children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { ...$caret, ...$caretMinor }, children: open3 ? "\u25BE" : "\u25B8" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: $rowL3Name, children: l3.name }),
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: $countChip, children: countDocs(l3) })
                   ] }),
-                  open3 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { paddingLeft: 14 }, children: l3.docs.length > 0 ? (
+                  open3 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: $leafGroup, children: l3.docs.length > 0 ? (
                     /* 法规树：领域下直接是文档叶节点（法规名称不再作为目录级别） */
                     l3.docs.map(renderLeaf)
                   ) : l3.items.map((l4) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: $fileSub, children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: $fileSubName, children: l4.name }),
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: $fileSubRow, title: `${l4.name}\uFF1A${l4.docs.length} \u90E8`, children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: $fileSubPill, children: l4.name }),
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: $countChipL4, children: l4.docs.length })
+                    ] }),
                     l4.docs.map(renderLeaf)
                   ] }, l4.name)) })
                 ] }, key3);
@@ -29062,18 +29093,51 @@ var $row = {
   lineHeight: 1.4
 };
 var $rowL1 = {
+  marginTop: 5,
+  marginBottom: 1,
+  padding: "4px 6px",
+  background: "var(--dsw-alias-bg-layer-1, #f5f7fa)",
+  borderLeft: "3px solid var(--dsw-alias-link, #1565c0)"
+};
+var $rowL1Name = {
   fontWeight: 700,
-  color: "var(--dsw-alias-label-primary, #111)",
-  marginTop: 2
+  fontSize: 12.5,
+  color: "var(--dsw-alias-label-primary, #111)"
 };
 var $rowL2 = {
-  paddingLeft: 10
+  paddingLeft: 12,
+  paddingTop: 3,
+  paddingBottom: 3
+};
+var $rowL2Name = {
+  fontWeight: 600,
+  fontSize: 12,
+  color: "var(--dsw-alias-label-secondary, #3f3f3f)"
 };
 var $rowL3 = {
-  fontWeight: 600,
-  color: "var(--dsw-alias-label-secondary, #666)",
-  fontSize: 11,
-  paddingLeft: 8
+  paddingLeft: 16,
+  paddingTop: 2,
+  paddingBottom: 2,
+  marginLeft: 10,
+  borderLeft: "2px solid var(--dsw-alias-border-l1, #e6e8eb)"
+};
+var $rowL3Name = {
+  fontWeight: 400,
+  fontSize: 11.5,
+  color: "var(--dsw-alias-label-tertiary, #6b6b6b)"
+};
+var $countChip = {
+  marginLeft: "auto",
+  paddingLeft: 6,
+  minWidth: 20,
+  textAlign: "right",
+  color: "var(--dsw-alias-label-tertiary, #999)",
+  fontSize: 10,
+  fontVariantNumeric: "tabular-nums",
+  flexShrink: 0
+};
+var $caretMinor = {
+  color: "var(--dsw-alias-label-tertiary, #999)"
 };
 var $caret = {
   display: "inline-flex",
@@ -29091,29 +29155,73 @@ var $caret = {
 var $children = {
   padding: "1px 0 2px 14px"
 };
-var $fileSub = {
-  marginTop: 0
+var $leafGroup = {
+  paddingLeft: 6
 };
-var $fileSubName = {
-  fontSize: 11,
-  color: "var(--dsw-alias-label-secondary, #666)",
-  padding: "1px 4px",
+var $fileSub = {
+  marginTop: 2
+};
+var $fileSubRow = {
+  display: "flex",
+  alignItems: "center",
+  gap: 4,
+  margin: "3px 0 1px 2px"
+};
+var $fileSubPill = {
+  padding: "1px 7px",
+  borderRadius: 999,
+  background: "var(--dsw-alias-bg-layer-1, #eef4ff)",
+  color: "var(--dsw-alias-link, #1565c0)",
   fontWeight: 600,
-  lineHeight: 1.4
+  fontSize: 11,
+  lineHeight: 1.5,
+  // 190px 的列宽里类目名会很长（"A00 标准化、质量管理"）：**不换行、超出省略**，
+  // 全名在 title 里（悬停可见）——换行会把一颗胶囊劈成两行，看着像两行文字。
+  whiteSpace: "nowrap",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+  maxWidth: "100%"
+};
+var $countChipL4 = {
+  color: "var(--dsw-alias-label-tertiary, #999)",
+  fontSize: 10,
+  fontVariantNumeric: "tabular-nums"
 };
 var $leaf = {
-  display: "block",
-  padding: "2px 4px",
+  display: "flex",
+  flexWrap: "wrap",
+  alignItems: "baseline",
+  gap: 4,
+  padding: "3px 6px 3px 4px",
+  margin: "1px 0 1px 8px",
   fontSize: 11.5,
   cursor: "pointer",
   borderRadius: 4,
-  color: "var(--dsw-alias-label-tertiary, #999)",
-  lineHeight: 1.35
+  borderLeft: "2px solid transparent",
+  color: "var(--dsw-alias-label-secondary, #555)",
+  lineHeight: 1.4
 };
 var $leafStruck = {
   color: "var(--dsw-alias-label-tertiary, #999)",
   textDecoration: "line-through",
   opacity: 0.75
+};
+var $leafNo = {
+  fontFamily: "ui-monospace, SFMono-Regular, Consolas, monospace",
+  fontSize: 10.5,
+  fontWeight: 600,
+  color: "var(--dsw-alias-label-primary, #111)",
+  background: "var(--dsw-alias-bg-layer-1, #f2f4f7)",
+  border: "1px solid var(--dsw-alias-border-l1, #e6e8eb)",
+  borderRadius: 3,
+  padding: "0 4px",
+  whiteSpace: "nowrap"
+};
+var $leafLawName = {
+  fontWeight: 600,
+  color: "var(--dsw-alias-label-primary, #111)",
+  wordBreak: "break-word",
+  overflowWrap: "anywhere"
 };
 var $leafName = {
   color: "var(--dsw-alias-label-secondary, #666)",
@@ -29123,7 +29231,7 @@ var $leafName = {
   lineHeight: 1.35
 };
 var $leafMeta = {
-  display: "block",
+  flexBasis: "100%",
   color: "var(--dsw-alias-label-tertiary, #999)",
   fontSize: 10,
   marginTop: 1,
@@ -30075,6 +30183,7 @@ function KsEvidenceTab(props) {
   showArrowRef.current = showArrowPref;
   const panelWidth = panel?.getWidth() ?? 0;
   const [tocAnchorRight, setTocAnchorRight] = (0, import_react4.useState)(null);
+  const [paneOnScreen, setPaneOnScreen] = (0, import_react4.useState)(true);
   const evidence = (0, import_react4.useRef)(EMPTY_EVIDENCE);
   const pdfDocRef = (0, import_react4.useRef)(null);
   const abortRef = (0, import_react4.useRef)(null);
@@ -30086,6 +30195,9 @@ function KsEvidenceTab(props) {
     if (el === null || typeof window === "undefined") return;
     const next = Math.max(0, Math.round(window.innerWidth - paneLeftEdge(el)));
     setTocAnchorRight((prev) => prev === next ? prev : next);
+    const rect = el.getBoundingClientRect();
+    const onScreen = rect.width > 0 && rect.right > 1 && rect.left < window.innerWidth - 1;
+    setPaneOnScreen((prev) => prev === onScreen ? prev : onScreen);
   }, []);
   const tasksByPageRef = (0, import_react4.useRef)(/* @__PURE__ */ new Map());
   const docEpochRef = (0, import_react4.useRef)(0);
@@ -30401,9 +30513,6 @@ function KsEvidenceTab(props) {
     setLoadedDocId(null);
     setToc(null);
     setViewMode("pdf");
-    if (ev === null && !leftModeTouchedRef.current) {
-      setLeftMode("files");
-    }
     if (ev !== null) {
       setPageInput(String(ev.page ?? 1));
       const label = `PDF \u67E5\u770B\u5668${ev.page !== void 0 ? ` \xB7 \u7B2C${ev.page}\u9875` : ""}`;
@@ -30482,7 +30591,7 @@ function KsEvidenceTab(props) {
     };
   }, [loadedDocId]);
   const docHasToc = toc === null ? true : toc.length > 0;
-  const showLeftCol = leftMode !== "toc" || tocOpen && docHasToc;
+  const showLeftCol = tocOpen && visible && paneOnScreen;
   const tocQ = dirQuery.trim().toLowerCase();
   const tocFiltered = (0, import_react4.useMemo)(() => {
     if (toc === null || tocQ === "") return toc;
@@ -30840,6 +30949,16 @@ function KsEvidenceTab(props) {
   const toggleToc = (0, import_react4.useCallback)((open) => {
     setTocOpen(open);
   }, []);
+  const openLeftCol = (0, import_react4.useCallback)((mode) => {
+    leftModeTouchedRef.current = true;
+    const fallback = load.status === "idle" || !docHasToc ? "files" : "toc";
+    setLeftMode(mode ?? fallback);
+    toggleToc(true);
+  }, [docHasToc, load.status, toggleToc]);
+  const closeLeftCol = (0, import_react4.useCallback)(() => {
+    setLeftMode("toc");
+    toggleToc(false);
+  }, [toggleToc]);
   const tocJump = (0, import_react4.useCallback)((t) => {
     const n = typeof t.page_start === "number" && Number.isFinite(t.page_start) ? t.page_start : null;
     if (n === null) return;
@@ -31166,13 +31285,9 @@ function KsEvidenceTab(props) {
             type: "button",
             onClick: () => {
               if (showLeftCol) {
-                setLeftMode("toc");
-                toggleToc(false);
+                closeLeftCol();
               } else {
-                if ((load.status === "idle" || !docHasToc) && leftMode === "toc" && !leftModeTouchedRef.current) {
-                  setLeftMode("files");
-                }
-                toggleToc(true);
+                openLeftCol();
               }
             },
             title: showLeftCol ? "\u6536\u8D77\u76EE\u5F55\u5217\uFF08\u56DE\u5230\u7EAF PDF \u5168\u5BBD\uFF09" : "\u5C55\u5F00\u76EE\u5F55\u5217\uFF1A\u6587\u4EF6\u76EE\u5F55 / \u6536\u85CF\u76EE\u5F55 / \u6807\u9898\u76EE\u5F55\u4E09\u6A21\u5F0F\u81EA\u7531\u5207\u6362",
@@ -31342,8 +31457,18 @@ function KsEvidenceTab(props) {
       ),
       /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { flex: 1, minHeight: 0, display: "flex" }, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { ref: containerRef, style: { flex: 1, minWidth: 0, overflow: "auto", padding: 12 }, children: [
         load.status === "idle" && viewMode === "pdf" && evidence.current === null && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { ...$center3, flexDirection: "column", gap: 8 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary, #666)", fontSize: 13 }, children: "\u4ECE\u5DE6\u4FA7\u76EE\u5F55\u70B9\u5F00\u4EFB\u610F\u56FD\u6807/\u6CD5\u89C4\u5373\u53EF\u9605\u8BFB" }),
-          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 11.5, maxWidth: 420, textAlign: "center", lineHeight: 1.6 }, children: "\u{1F4DA} \u6587\u4EF6\u76EE\u5F55 = \u5E93\u5185\u5168\u90E8\u6587\u6863\u6309\u5206\u7C7B\u6D4F\u89C8 \xB7 \u{1F516} \u6536\u85CF\u76EE\u5F55 = \u4F60\u7684\u6536\u85CF\u5939 \xB7 \u{1F4D6} \u6807\u9898\u76EE\u5F55 = \u6253\u5F00\u6587\u6863\u540E\u7684\u7AE0/\u5C0F\u8282\u76EE\u5F55\u3002\u76EE\u5F55\u5217\u53EF\u5728\u5934\u90E8\u4E09\u6309\u94AE\u95F4\u968F\u65F6\u5207\u6362\u3002" })
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary, #666)", fontSize: 13 }, children: "\u8FD8\u6CA1\u6709\u6253\u5F00\u6587\u6863" }),
+          !showLeftCol && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+            "button",
+            {
+              type: "button",
+              style: $btnPrimary2,
+              onClick: () => openLeftCol("files"),
+              title: "\u5C55\u5F00\u76EE\u5F55\u5217\uFF1A\u5E93\u5185\u6587\u6863\u6309\u5206\u7C7B\u6D4F\u89C8\uFF08\u{1F4DA} \u6587\u4EF6\u76EE\u5F55\uFF09",
+              children: "\u{1F4D1} \u6253\u5F00\u6587\u4EF6\u76EE\u5F55"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 11.5, maxWidth: 440, textAlign: "center", lineHeight: 1.6 }, children: "\u{1F4DA} \u6587\u4EF6\u76EE\u5F55 = \u5E93\u5185\u5168\u90E8\u6587\u6863\u6309\u5206\u7C7B\u6D4F\u89C8 \xB7 \u{1F516} \u6536\u85CF\u76EE\u5F55 = \u4F60\u7684\u6536\u85CF\u5939 \xB7 \u{1F4D6} \u6807\u9898\u76EE\u5F55 = \u6253\u5F00\u6587\u6863\u540E\u7684\u7AE0/\u5C0F\u8282\u76EE\u5F55\u3002\u5C55\u5F00\u540E\u53EF\u5728\u5217\u5934\u4E09\u6309\u94AE\u95F4\u968F\u65F6\u5207\u6362\uFF0C \u5217\u5934\u5DE6\u4E0A\u89D2\u7684 \u25C0 \u968F\u65F6\u6536\u8D77\u5B83\u3002" })
         ] }),
         load.status === "loading" && viewMode === "pdf" && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: $center3, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u8F7D\u5165\u8BC1\u636E PDF\u2026\uFF08\u9996\u6B21\u53EF\u80FD\u542F\u52A8\u5F15\u64CE\uFF0C\u9700\u8981\u6570\u79D2\uFF09" }) }),
         load.status === "error" && viewMode === "pdf" && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { style: { ...$center3, flexDirection: "column", gap: 10 }, children: [
@@ -31606,15 +31731,12 @@ function KsEvidenceTab(props) {
                   children: "\u{1F4D6} \u6807\u9898\u76EE\u5F55"
                 }
               ),
-              load.status !== "idle" && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
                 "button",
                 {
                   type: "button",
                   style: $tocCollapseBtn,
-                  onClick: () => {
-                    setLeftMode("toc");
-                    toggleToc(false);
-                  },
+                  onClick: closeLeftCol,
                   title: "\u6536\u8D77\u76EE\u5F55\uFF08\u56DE\u5230\u7EAF PDF \u5168\u5BBD\uFF09",
                   children: "\u25C0"
                 }
@@ -33338,11 +33460,7 @@ function KsMaterialsPanel(props) {
         " \u6761",
         report.citations?.unchecked_law_refs ? ` \xB7 \u6CD5\u89C4\u5F15\u7528 ${report.citations.unchecked_law_refs} \u6761**\u672C\u6B21\u65E0\u6CD5\u6838\u9A8C**` : "",
         (report.citations?.unknown ?? 0) > 0 ? ` \xB7 ${report.citations?.unknown} \u6761**\u65E0\u6CD5\u5224\u5B9A**` : "",
-        report.files !== void 0 && report.files.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
-          "\u5DF2\u843D\u76D8\uFF1A",
-          report.files.map((f) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("code", { style: { marginRight: 6 }, children: f }, f))
-        ] })
+        report.names !== void 0 && report.names.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(Deliverables, { names: report.names, paths: report.files ?? [] })
       ] }),
       report !== null && (report.warnings ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { role: "status", style: { margin: "6px 0 0", color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
         "\u26A0 \u5F15\u7528\u8B66\u544A\uFF08\u8FD9\u4E9B\u5F15\u7528**\u4E0D\u6210\u7ACB**\u6216\u65E0\u6CD5\u6838\u9A8C\uFF0C\u62A5\u544A\u91CC\u4E5F\u7167\u539F\u6837\u5217\u51FA\u4E86\uFF09\uFF1A",
@@ -33355,16 +33473,13 @@ function KsMaterialsPanel(props) {
         "\uFF08",
         slides.slide_count ?? 0,
         " \u9875\uFF09",
-        slides.path !== void 0 ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
-          " \u2192 ",
-          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("code", { children: slides.path })
-        ] }) : null,
         (slides.warnings ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
           /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("br", {}),
           "\u26A0 ",
           (slides.warnings ?? []).join("\uFF1B")
         ] })
       ] }),
+      slides?.name !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(Deliverables, { names: [slides.name], paths: slides.path !== void 0 ? [slides.path] : [] }),
       showReport && report?.markdown !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("pre", { style: {
         marginTop: 6,
         maxHeight: 320,
@@ -33385,6 +33500,124 @@ function KsMaterialsPanel(props) {
         "\uFF1BPPT \u7528\u9ED8\u8BA4\u7248\u5F0F\uFF0C \u8D85\u957F\u8981\u70B9\u4F1A\u622A\u65AD\u3001\u9875\u6570\u6709\u4E0A\u9650\uFF08\u90FD\u5199\u5728 PPT \u672B\u9875\uFF09\u3002"
       ] })
     ] })
+  ] });
+}
+function deliverableKind(name) {
+  return /\.(html?|md|txt)$/i.test(name) ? "page" : "binary";
+}
+function folderOf(path) {
+  return path.replace(/[\\/][^\\/]*$/, "");
+}
+function downloadBlob(url, name) {
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+function Deliverables(props) {
+  const { names, paths } = props;
+  const [busy, setBusy] = (0, import_react7.useState)("");
+  const [error, setError] = (0, import_react7.useState)("");
+  const [copied, setCopied] = (0, import_react7.useState)(false);
+  const folder = paths.length > 0 ? folderOf(paths[0]) : "";
+  const open = (0, import_react7.useCallback)((name) => {
+    if (busy !== "") return;
+    setBusy(name);
+    setError("");
+    const isPage = deliverableKind(name) === "page";
+    const win = isPage ? window.open("about:blank", "_blank") : null;
+    void (async () => {
+      try {
+        const blob = await fetchExportBlob(name);
+        const url = URL.createObjectURL(blob);
+        if (!isPage) {
+          downloadBlob(url, name);
+          window.setTimeout(() => URL.revokeObjectURL(url), 3e4);
+        } else if (win !== null) {
+          win.location.replace(url);
+          window.setTimeout(() => URL.revokeObjectURL(url), 12e4);
+        } else {
+          downloadBlob(url, name);
+          window.setTimeout(() => URL.revokeObjectURL(url), 3e4);
+          setError("\u6D4F\u89C8\u5668\u62E6\u622A\u4E86\u65B0\u7A97\u53E3\uFF08\u5F39\u51FA\u7A97\u53E3\u8BBE\u7F6E\uFF09\u3002\u5DF2\u6539\u4E3A\u4E0B\u8F7D\u4E00\u4EFD\u2014\u2014\u6587\u4EF6\u5C31\u5728\u4E0B\u9762\u7684\u4FDD\u5B58\u76EE\u5F55\u91CC\uFF0C\u53CC\u51FB\u5373\u53EF\u770B\u3002");
+        }
+      } catch (e) {
+        if (win !== null) win.close();
+        setError(`${name}\uFF1A${e instanceof Error ? e.message : String(e)}`);
+      } finally {
+        setBusy("");
+      }
+    })();
+  }, [busy]);
+  const copyFolder = (0, import_react7.useCallback)(() => {
+    if (folder === "") return;
+    void navigator.clipboard.writeText(folder).then(
+      () => {
+        setCopied(true);
+        setError("");
+      },
+      (e) => setError(`\u590D\u5236\u5931\u8D25\uFF0C\u8BF7\u624B\u52A8\u9009\u4E2D\u4E0B\u9762\u7684\u8DEF\u5F84\uFF1A${e instanceof Error ? e.message : String(e)}`)
+    );
+  }, [folder]);
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { margin: "6px 0 0", fontSize: 12 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { style: { color: GRAY }, children: "\u4EA7\u7269\uFF1A" }),
+      names.map((n) => /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+        "button",
+        {
+          type: "button",
+          disabled: busy !== "",
+          onClick: () => open(n),
+          title: deliverableKind(n) === "page" ? `${n}\uFF1A\u5728\u65B0\u6807\u7B7E\u91CC\u76F4\u63A5\u6253\u5F00\uFF08\u6D4F\u89C8\u5668\u6E32\u67D3\uFF09` : `${n}\uFF1A\u6D4F\u89C8\u5668\u6E32\u67D3\u4E0D\u4E86 Word/PPT\uFF0C\u8FD9\u91CC\u4E0B\u8F7D\u4E00\u4EFD\uFF1B\u672C\u673A\u539F\u4EF6\u5728\u4E0B\u9762\u90A3\u4E2A\u76EE\u5F55\u91CC`,
+          style: {
+            border: "1px solid var(--dsw-alias-border-l2, #ccc)",
+            background: "var(--dsw-alias-bg-layer-2, #fff)",
+            color: "var(--dsw-alias-label-primary, #111)",
+            borderRadius: 4,
+            padding: "2px 8px",
+            fontSize: 11.5,
+            cursor: busy !== "" ? "default" : "pointer"
+          },
+          children: [
+            deliverableKind(n) === "page" ? "\u{1F441} \u6253\u5F00" : "\u2B07 \u4E0B\u8F7D",
+            " ",
+            n,
+            busy === n ? " \u2026" : ""
+          ]
+        },
+        n
+      ))
+    ] }),
+    folder !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { style: { marginTop: 4, color: GRAY }, children: [
+      "\u4FDD\u5B58\u76EE\u5F55\uFF1A",
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("code", { style: { wordBreak: "break-all" }, children: folder }),
+      " ",
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        "button",
+        {
+          type: "button",
+          onClick: copyFolder,
+          title: "\u590D\u5236\u76EE\u5F55\u8DEF\u5F84\uFF08\u7C98\u5230\u8D44\u6E90\u7BA1\u7406\u5668/Win+R \u5373\u53EF\u6253\u5F00 Word/PPT \u539F\u4EF6\uFF09",
+          style: {
+            border: "1px solid var(--dsw-alias-border-l2, #ccc)",
+            background: "var(--dsw-alias-bg-layer-2, #fff)",
+            color: "var(--dsw-alias-label-primary, #111)",
+            borderRadius: 4,
+            padding: "1px 6px",
+            fontSize: 11,
+            cursor: "pointer"
+          },
+          children: copied ? "\u2713 \u5DF2\u590D\u5236" : "\u{1F4CB} \u590D\u5236\u76EE\u5F55"
+        }
+      )
+    ] }),
+    error !== "" && /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("p", { role: "alert", style: { margin: "4px 0 0", color: "#c0392b", fontSize: 11.5 }, children: [
+      "\u6253\u5F00\u5931\u8D25\uFF1A",
+      error
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { style: { margin: "4px 0 0", color: GRAY, fontSize: 11 }, children: "Word / PPT \u6D4F\u89C8\u5668\u6E32\u67D3\u4E0D\u4E86\uFF1A\u4E0A\u9762\u7ED9\u7684\u662F**\u4E0B\u8F7D\u4E00\u4EFD**\uFF08\u672C\u673A\u539F\u4EF6\u4ECD\u5728\u4FDD\u5B58\u76EE\u5F55\u91CC\uFF09\u3002 \u300C\u7528\u7CFB\u7EDF\u9ED8\u8BA4\u7A0B\u5E8F\u4E00\u952E\u6253\u5F00\u300D\u9700\u8981\u5728\u5BBF\u4E3B\u4FA7\u52A0\u8DEF\u7531\uFF08\u8981\u91CD\u542F\u5BBF\u4E3B\uFF09\uFF0C\u672C\u8F6E\u672A\u505A\u3002" })
   ] });
 }
 

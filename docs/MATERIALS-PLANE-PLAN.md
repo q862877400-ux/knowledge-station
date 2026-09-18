@@ -1316,3 +1316,29 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     → ② `materials_load_failed` 的主机侧可操作文案（现在按 5xx 一律转 502）→ ③ D-5c 法条链补充是否立项。
 
 
+
+- **46（§10.100，2026-09-18）四条真机报障 + 复核 b27 收口**。四条报障的处置：
+  ① 目录浮层"自动打开 + 关不掉 + 没开 sidebar 还浮着" ⇒ 显示判据改成
+  `tocOpen && visible && paneOnScreen`、展开/收起各收一个唯一出口、◀ 无条件渲染、
+  空态给显式入口（真机截图 gui-04→gui-09 复现 + 复验）；
+  ② 文件目录"密密麻麻、层级分不清、没有计数" ⇒ `countDocs` 逐级计数 + 四级各自视觉
+  （真机 gui-10/11/12）；
+  ③ "设置里的导入只接受 PDF，还有 html 呢" ⇒ 真实缺口是产物拿不到手：新增
+  `fetchExportBlob`（复用引擎既有 `/api/v1/export/download`，**不新增宿主路由**）
+  + 面板 `Deliverables` 按钮组（HTML 新标签直开 / Word·PPT 下载 / 复制保存目录）；
+  **真机抓到并修掉一个真 bug**：`await` 之后 `window.open` 被弹窗拦截（引擎冷启动可达 8s）
+  ⇒ 改成手势同步段先占 `about:blank`；
+  ④ "法律法规的目录被搞坏了" ⇒ 只读探针给出事实（法规树只有 **7** 行、且全部
+  `doc_type='standard'`/`legal_hierarchy='GB'` ⇒ 全落"未定级/未细分"；另有 `law_catalog` **29764**
+  行但**没有任何 UI 读它**）；**分类规则本轮没动**（按名字后缀猜位阶会出错 ⇒ P1 优先），
+  登记为待裁定。
+  复核 b27 的 6 条：HIGH（残余边界**写宽**成"切片外任何能触达 dispatch 的运行期路径"）、
+  MEDIUM-2（§10.99 数字更正 19→49 / 3-49）、MEDIUM-3（junction 树"整份一致"假红 ⇒ 记档 +
+  失败详情提示）、LOW-4（报告侧入口补 3 条门禁 + **变异证承重**）、LOW-5（正则所有者措辞收窄）、INFO。
+  **门禁**：pytest **1842 passed / 3 skipped / 0 failed**（收集 1845）、mypy 135/0、tsc 0、
+  smoke **EXIT=0**（链 **21** 段，13 段打印；新增 `smoke:catalog-ui` **26/26**）、
+  report-ui **28/28**、verify:commands 22/22、uvicorn 4/4。
+  ⚠ 已知 flake：`smoke-chatmode` 在串行链里偶发 1 条红（本轮 2 次链跑 1 红 1 绿，单独跑绿），
+  详情里的 `persisted=false` 已指明那是**写盘没成功**而非复活逻辑错（该诊断是本仓早前一轮加的）；
+  另 `scripts/verify-commands-real.mjs` 需要 DSH checkout 的 `@deepseek-ai/dsh-commands`
+  才能跑（不是门禁）。

@@ -173,6 +173,19 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
    * 故侧栏拖宽、窗口缩放、最大化都会跟着走。
    */
   const [tocAnchorRight, setTocAnchorRight] = useState<number | null>(null)
+  /**
+   * 本 tab 是否**真的在屏上**（2026-09-18 真机报障后加，见下）。
+   *
+   * 真机实测的收起机制（CDP 探针）：官方收起右侧栏时给 pane 设 `visibility: hidden`
+   * 并把整列**停到视口右缘之外**——容器仍是 708×869、`left = 1575 > innerWidth = 1574`。
+   * 于是：
+   *   · "宽度 > 0 就算在屏上"的判据**漏掉**这一整类失效（宽度没变成 0）；
+   *   · 而且这次收起**没有等到一次重新测量**（实测锚点 `right` 停在收起前的 708px）
+   *     ⇒ 单靠事件驱动的几何判据会**过期**。故主判据是官方契约里的 `visible`
+   *     （它一变，组件就重渲染），这里只作**第二层**：万一 `visible` 没给（缺省按可见），
+   *     几何判据仍能挡住"停在屏外"的那一类。
+   */
+  const [paneOnScreen, setPaneOnScreen] = useState<boolean>(true)
 
   const evidence = useRef<KsEvidence | null>(EMPTY_EVIDENCE)
   const pdfDocRef = useRef<PDFDocumentProxy | null>(null)
@@ -180,12 +193,16 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
   const canvasRef = useRef<HTMLCanvasElement | null>(null)
   const bboxRef = useRef<HTMLDivElement | null>(null)
   const containerRef = useRef<HTMLDivElement | null>(null)
-  /** 把目录列锚点同步到"容器所在侧栏列的左缘"（见 `paneLeftEdge` 的坑注释）。 */
+  /** 把目录列锚点同步到"容器所在侧栏列的左缘"（见 `paneLeftEdge` 的坑注释），
+   *  同时刷新 `paneOnScreen`——同一处测量，避免两套"在不在屏上"的判据各写一份慢慢漂开。 */
   const syncTocAnchor = useCallback(() => {
     const el = containerRef.current
     if (el === null || typeof window === 'undefined') return
     const next = Math.max(0, Math.round(window.innerWidth - paneLeftEdge(el)))
     setTocAnchorRight((prev) => (prev === next ? prev : next))
+    const rect = el.getBoundingClientRect()
+    const onScreen = rect.width > 0 && rect.right > 1 && rect.left < window.innerWidth - 1
+    setPaneOnScreen((prev) => (prev === onScreen ? prev : onScreen))
   }, [])
   /**
    * 每页各自的 RenderTask（连续模式必需）：单 canvas 时代用一个共享的 ref
@@ -754,9 +771,10 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
     setViewMode('pdf')
     // 目录常驻（2026-10-27）：本 tab 从未有过证据（无问答直接打开）→ 左列引导到
     // 文件目录，用户可即刻浏览/点开国标阅读。有过证据或用户已手动切换则不动。
-    if (ev === null && !leftModeTouchedRef.current) {
-      setLeftMode('files')
-    }
+    // ⚠ 2026-09-18 删除：这里原先会在"无证据直开 tab"时 `setLeftMode('files')`，
+    //   配合旧的 `showLeftCol = leftMode !== 'toc' || …` 就等于**自动展开浮层**。
+    //   现在"展开哪个模式"由 `openLeftCol` 在用户点击那一刻决定（它是唯一所有者），
+    //   本 effect 只负责"把文档装上/卸下"，不再碰列可见性。
     if (ev !== null) {
       setPageInput(String(ev.page ?? 1))
       // 旧模型靠 better-sidebar 的 `updateTab` 把标签从主机名派生的标题改成页号；
@@ -850,7 +868,24 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
    * `toc === null` = 目录还在加载（未知）→ 按"有目录"处理，避免加载期间抖动。
    */
   const docHasToc = toc === null ? true : toc.length > 0
-  const showLeftCol = leftMode !== 'toc' || (tocOpen && docHasToc)
+  /**
+   * 目录浮层是否显示 —— 2026-09-18 用户真机报障后**重定**，两条硬规则：
+   *
+   * ① **只有用户显式打开才显示**（`tocOpen`）。旧规则是
+   *    `leftMode !== 'toc' || (tocOpen && docHasToc)`，而"无证据直开 tab"会把
+   *    `leftMode` 默认成 `files`（见 `loadEvidence` 末尾）——于是**一进这个会话、
+   *    tab 一挂上，浮层就自己冒出来**（用户原话："进入这个对话会自动打开"）。
+   * ② **tab 不可见 / 不在屏上就不渲染**（官方 `visible` + `paneOnScreen`）。
+   *    这是报障的另一半（"就算没有开 sidebar"）：浮层是 `document.body` 的 portal，
+   *    天生**不受侧栏裁剪与 `visibility:hidden` 影响**，侧栏一收起它就孤零零浮在对话上；
+   *    而它自己的收起按钮当年在 idle 态**刻意不渲染**（理由："目录列是唯一入口"）
+   *    ⇒ 真机观感＝"关不掉了"。空屏担忧已由面板区空态的那个「📑 打开文件目录」
+   *    按钮接手（见 body 空态），所以这里可以放心让它**默认不出现**。
+   *
+   * `docHasToc` 不再参与显示判定（那是"内容有没有"，由列内文案表达）；保留它给
+   * 「展开时默认落在哪个模式」用。
+   */
+  const showLeftCol = tocOpen && visible && paneOnScreen
 
   // 标题目录统一搜索（2026-10-28 四宫格）：按编号/标题/页码过滤章/小节。
   const tocQ = dirQuery.trim().toLowerCase()
@@ -1352,6 +1387,31 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
     setTocOpen(open)
   }, [])
 
+  /**
+   * **展开**目录浮层——全组件唯一的展开入口（面板头部的「📑 目录」按钮与
+   * 面板区空态的「📑 打开文件目录」按钮共用）。
+   *
+   * 为什么必须收成一处（2026-09-18 报障的教训）：展开时有个"当前模式没东西可点
+   * 就落到文件目录"的保护，旧实现把它写在面板头部按钮里，另一处又在
+   * `loadEvidence` 里自动展开浮层 —— 两处各写一份 ⇒ 自动那条路径绕过了保护，
+   * 而且**没人**能一眼看出"谁会把浮层打开"。现在展开只有这一个出口。
+   *
+   * @param mode 指定展开后的列模式；省略 = 按当前状态挑一个"有东西可点"的
+   *   （没打开文档 / 本文档无目录 → 文件目录）。
+   */
+  const openLeftCol = useCallback((mode?: 'toc' | 'files' | 'bookmarks') => {
+    leftModeTouchedRef.current = true
+    const fallback = (load.status === 'idle' || !docHasToc) ? 'files' : 'toc'
+    setLeftMode(mode ?? fallback)
+    toggleToc(true)
+  }, [docHasToc, load.status, toggleToc])
+
+  /** **收起**目录浮层（唯一的收起出口；语义简单化：下次点开仍在标题目录）。 */
+  const closeLeftCol = useCallback(() => {
+    setLeftMode('toc')
+    toggleToc(false)
+  }, [toggleToc])
+
   /** 标题目录（B）：点任意条目 → PDF 跳到该页（复用 goTo；仅跳页，不做箭头定位）。 */
   const tocJump = useCallback((t: KsClause) => {
     const n = typeof t.page_start === 'number' && Number.isFinite(t.page_start) ? t.page_start : null
@@ -1742,16 +1802,12 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
           type="button"
           onClick={() => {
             if (showLeftCol) {
-              // 收起 = 回标题目录模式并合上（保持语义简单：下次点开还在标题目录）。
-              setLeftMode('toc')
-              toggleToc(false)
+              closeLeftCol()
             } else {
               // 展开：当前模式内容不可用（无文档 / 本文档无目录的标题目录）→
               // 直接给文件目录（能点东西）；否则按既有模式展开。
-              if ((load.status === 'idle' || !docHasToc) && leftMode === 'toc' && !leftModeTouchedRef.current) {
-                setLeftMode('files')
-              }
-              toggleToc(true)
+              // 这段判断是 `openLeftCol` 的**唯一**所有者（2026-09-18 收口）。
+              openLeftCol()
             }
           }}
           title={showLeftCol
@@ -1916,11 +1972,25 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
         {load.status === 'idle' && viewMode === 'pdf' && evidence.current === null && (
           <div style={{ ...$center, flexDirection: 'column', gap: 8 }}>
             <div style={{ color: 'var(--dsw-alias-label-secondary, #666)', fontSize: 13 }}>
-              从左侧目录点开任意国标/法规即可阅读
+              还没有打开文档
             </div>
-            <div style={{ color: 'var(--dsw-alias-label-tertiary, #999)', fontSize: 11.5, maxWidth: 420, textAlign: 'center', lineHeight: 1.6 }}>
+            {/* 空态的**显式入口**（2026-09-18）：浮层不再自动出现（见 showLeftCol），
+                所以空屏必须自己给出下一步——否则用户会以为"没地方可点"。
+                这一条正是当年"idle 时不许收起目录列"那个理由的替代方案。 */}
+            {!showLeftCol && (
+              <button
+                type="button"
+                style={$btnPrimary}
+                onClick={() => openLeftCol('files')}
+                title="展开目录列：库内文档按分类浏览（📚 文件目录）"
+              >
+                📑 打开文件目录
+              </button>
+            )}
+            <div style={{ color: 'var(--dsw-alias-label-tertiary, #999)', fontSize: 11.5, maxWidth: 440, textAlign: 'center', lineHeight: 1.6 }}>
               📚 文件目录 = 库内全部文档按分类浏览 · 🔖 收藏目录 = 你的收藏夹 ·
-              📖 标题目录 = 打开文档后的章/小节目录。目录列可在头部三按钮间随时切换。
+              📖 标题目录 = 打开文档后的章/小节目录。展开后可在列头三按钮间随时切换，
+              列头左上角的 ◀ 随时收起它。
             </div>
           </div>
         )}
@@ -2207,15 +2277,18 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
               >
                 📖 标题目录
               </button>
-              {/* idle（无文档）时 ◀ 不显示：目录列是唯一入口，收起它 = 空屏。 */}
-              {load.status !== 'idle' && (
-                <button
-                  type="button"
-                  style={$tocCollapseBtn}
-                  onClick={() => { setLeftMode('toc'); toggleToc(false) }}
-                  title="收起目录（回到纯 PDF 全宽）"
-                >◀</button>
-              )}
+              {/* 收起按钮**始终**渲染（2026-09-18 真机报障后改）。
+                  旧规则是"idle（无文档）时不显示 ◀，因为目录列是唯一入口，收起它 = 空屏"。
+                  那条理由在**同一个 tab 里**成立，但浮层是 `document.body` 的 portal：
+                  侧栏一收起，用户就只剩这一列浮在对话上，**而唯一的收起按钮恰好在 idle 时不存在**
+                  ⇒ 真机实测"关不掉了"。空屏担忧改由**面板区**承担：浮层收起后中间会显示
+                  「📑 打开目录」按钮（见下方 idle 空态）。 */}
+              <button
+                type="button"
+                style={$tocCollapseBtn}
+                onClick={closeLeftCol}
+                title="收起目录（回到纯 PDF 全宽）"
+              >◀</button>
               <button
                 type="button"
                 style={{ ...$modeBtn, ...(leftMode === 'bookmarks' ? $modeBtnOn : {}) }}

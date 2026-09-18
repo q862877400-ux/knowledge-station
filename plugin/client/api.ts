@@ -125,6 +125,48 @@ export async function fetchPdf(
   return res.arrayBuffer()
 }
 
+/**
+ * 取一份**已落盘的交付物**（研究报告的 `.md`/`.html`/`.docx`、PPT 的 `.pptx`）
+ * —— 2026-09-18 用户报障"设置里的导入只接受 PDF，还有 html 呢"。
+ *
+ * ## 为什么走引擎而不是宿主新开路由
+ * 引擎**早就**有这个端点：`GET /api/v1/export/download?name=…`，而"名字必须落在
+ * exports 目录内"这条防穿越纪律**由引擎一家所有**（`report_export._exports_dir()`
+ * + `base not in target.parents` 判据）。客户端直连引擎（同 `fetchPdf` 的既有通路：
+ * 跨源 + Bearer）即可，**不需要**在宿主侧再抄一份路径校验——那会是第二个所有者。
+ * 好处还有一条：宿主/引擎都不用重启，改的是纯客户端。
+ *
+ * ## 边界（诚实写下来）
+ * 拿回来的字节**不落盘**（`URL.createObjectURL` 用完要 revoke），所以：
+ * · `.html` 可以在新标签里**渲染**（报告本体）；
+ * · `.docx`/`.pptx` 浏览器渲染不了 ⇒ 只能下载一份，或由用户去
+ *   `设置里显示的那个绝对路径` 直接打开。想"一键用系统默认程序打开"必须加
+ *   宿主路由（要重启宿主），本轮**不做**，如实写在面板文案里。
+ *
+ * @param name 文件名（**只有 basename**，路径分隔符会被引擎判为非法）。
+ */
+export async function fetchExportBlob(name: string, signal?: AbortSignal): Promise<Blob> {
+  const url = (port: number): string =>
+    `http://127.0.0.1:${port}/api/v1/export/download?name=${encodeURIComponent(name)}`
+  const once = async (): Promise<Response> => {
+    const session = await fetchSession(signal)
+    return fetch(url(session.engine.port), {
+      method: 'GET',
+      headers: { Authorization: `Bearer ${session.token}` },
+      signal,
+    })
+  }
+  let res: Response = await once()
+  if (res.status === 401) {
+    clearSession() // 会话轮换：重取一次再试（镜像 fetchPdf 语义）
+    res = await once()
+  }
+  if (res.status === 403) throw new Error('引擎拒绝了这个文件名（只允许 exports 目录内的产物）')
+  if (res.status === 404) throw new Error(`产物文件不存在（可能已被清理）：${name}`)
+  if (!res.ok) throw new Error(`引擎返回 HTTP ${res.status}`)
+  return res.blob()
+}
+
 export interface BboxSpan {
   page_number: number
   bbox: number[]

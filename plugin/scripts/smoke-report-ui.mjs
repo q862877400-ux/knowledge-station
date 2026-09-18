@@ -45,11 +45,13 @@ const api = await import(pathToFileURL(outPath).href)
 
 let calls = []
 let nextResponse = null
-globalThis.fetch = async (url, init) => {
+/** 默认桩：记录调用并回 `nextResponse`（第 6 节会临时换成自己的桩，收尾必须换回来）。 */
+const stubFetch = async (url, init) => {
   calls.push({ url: String(url), init: init ?? {} })
   if (nextResponse === null) throw new Error('（冒烟未设置响应）')
   return nextResponse
 }
+globalThis.fetch = stubFetch
 const jsonRes = (body, { status = 200, ok = true } = {}) =>
   ({ ok, status, async json() { return body } })
 const envelope = (data) => jsonRes({ ok: true, data })
@@ -152,6 +154,78 @@ const ALLOWED = ['project_id', 'title', 'query', 'conclusion_md', 'limit', 'dry_
   try { await api.exportResearchReport(PROJ, {}) } catch (err) { msg = String(err?.message ?? err) }
   check('项目不存在 ⇒ 抛并带出引擎的 404 原因（同源错误，不翻成"生成失败"）',
     msg.includes('项目不存在'), msg)
+}
+
+/* ---------------------------------------- 6. 交付物取回（§10.100，客户端接线） */
+// 用户报障："设置里的导入只接受 PDF，还有 html 呢" —— 真实缺口是**产物拿不到手**。
+// 取回走引擎既有的 `/api/v1/export/download`（路径穿越纪律由引擎一家所有），
+// 所以这里要钉住：① 打的是那条路径、② 名字必须 encode、③ Bearer 在场、
+// ④ 403/404 如实抛出（不静默当成"没有产物"）。
+{
+  const session = (port = 51234) => jsonRes({ ok: true, engine: { port, pid: 1, reused: true }, token: 'tk-smoke' })
+  const blobRes = (size = 3) => {
+    const bytes = new Uint8Array(size)
+    return { ok: true, status: 200, blob: async () => new Blob([bytes], { type: 'text/html' }) }
+  }
+
+  // 6a 正常路径
+  calls = []
+  let phase = 0
+  globalThis.fetch = async (url, init) => {
+    calls.push({ url: String(url), init: init ?? {} })
+    phase += 1
+    return phase === 1 ? session() : blobRes()
+  }
+  const blob = await api.fetchExportBlob('研究报告-x.html')
+  const dl = calls[1]
+  check('取产物打到引擎既有的 /api/v1/export/download（**不新增宿主路由**）',
+    dl.url === 'http://127.0.0.1:51234/api/v1/export/download?name=%E7%A0%94%E7%A9%B6%E6%8A%A5%E5%91%8A-x.html',
+    dl.url)
+  check('名字必须 URL-encode（中文文件名原样发会 400/丢名）',
+    dl.url.includes('name=%E7%A0%94%E7%A9%B6') && !dl.url.includes('报告-x.html'), dl.url)
+  check('带 Bearer（引擎端点要鉴权，和 fetchPdf 同一条通路）',
+    dl.init.headers && dl.init.headers.Authorization === 'Bearer tk-smoke',
+    JSON.stringify(dl.init.headers))
+  check('返回 Blob 本体（界面拿它做 blob URL）',
+    blob && typeof blob.size === 'number' && blob.size === 3, String(blob && blob.size))
+
+  // 6b 403 / 404：必须**抛**且带出原因
+  const fail = async (status, body, name) => {
+    calls = []
+    phase = 0
+    globalThis.fetch = async (url, init) => {
+      calls.push({ url: String(url), init: init ?? {} })
+      phase += 1
+      return phase === 1 ? session() : jsonRes(body, { status, ok: false })
+    }
+    let m = ''
+    try { await api.fetchExportBlob(name) } catch (err) { m = String(err?.message ?? err) }
+    return m
+  }
+  const m403 = await fail(403, { error: { code: 'forbidden', message: '非法路径' } }, '../../secrets.json')
+  check('越权路径（含 ../）⇒ 抛"只允许 exports 目录内的产物"（不静默）',
+    m403.includes('exports'), m403)
+  const m404 = await fail(404, { error: { code: 'file_not_found', message: '文件不存在' } }, '研究报告-x.html')
+  check('产物被清理 ⇒ 抛并带出文件名（点按钮没反应是最坏的结果）',
+    m404.includes('研究报告-x.html'), m404)
+
+  // 6c 401 自愈一次（会话轮换）
+  calls = []
+  phase = 0
+  globalThis.fetch = async (url, init) => {
+    calls.push({ url: String(url), init: init ?? {} })
+    phase += 1
+    if (phase === 1) return session(51234)      // 第一次会话
+    if (phase === 2) return jsonRes({ error: { code: 'unauthorized', message: 'x' } }, { status: 401, ok: false })
+    if (phase === 3) return session(51235)      // 轮换后的会话
+    return blobRes(7)
+  }
+  const blob2 = await api.fetchExportBlob('a.docx')
+  check('401 ⇒ 重取会话再试一次（四个请求：session/download/session/download）',
+    calls.length === 4 && blob2.size === 7, `calls=${calls.length} size=${blob2 && blob2.size}`)
+
+  // ⚠ 收尾：把默认桩换回来（本节自己的桩不认识 nextResponse，留给第 5 节会炸）
+  globalThis.fetch = stubFetch
 }
 
 /* ---------------------------------------- 5. 结论草稿（§10.96，客户端接线） */

@@ -32,6 +32,7 @@ import {
   exportResearchDraft,
   exportResearchReport,
   exportResearchSlides,
+  fetchExportBlob,
   fetchMaterialChunks,
   fetchMaterialInbox,
   fetchMaterialLocators,
@@ -1159,11 +1160,8 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
                 ? ` · 法规引用 ${report.citations.unchecked_law_refs} 条**本次无法核验**` : ''}
               {(report.citations?.unknown ?? 0) > 0
                 ? ` · ${report.citations?.unknown} 条**无法判定**` : ''}
-              {report.files !== undefined && report.files.length > 0 && (
-                <>
-                  <br />
-                  已落盘：{report.files.map((f) => <code key={f} style={{ marginRight: 6 }}>{f}</code>)}
-                </>
+              {report.names !== undefined && report.names.length > 0 && (
+                <Deliverables names={report.names} paths={report.files ?? []} />
               )}
             </p>
           )}
@@ -1177,7 +1175,6 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
           {slides !== null && (
             <p style={{ margin: '6px 0 0', fontSize: 12, color: GRAY }}>
               PPT：{slides.name ?? ''}（{slides.slide_count ?? 0} 页）
-              {slides.path !== undefined ? <> → <code>{slides.path}</code></> : null}
               {(slides.warnings ?? []).length > 0 && (
                 <>
                   <br />
@@ -1185,6 +1182,9 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
                 </>
               )}
             </p>
+          )}
+          {slides?.name !== undefined && (
+            <Deliverables names={[slides.name]} paths={slides.path !== undefined ? [slides.path] : []} />
           )}
           {showReport && report?.markdown !== undefined && (
             <pre style={{
@@ -1202,6 +1202,160 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
           </p>
         </div>
       )}
+    </div>
+  )
+}
+
+// ---------------------------------------------------------------- 交付物按钮组
+
+/**
+ * 一份产物的"能不能直接看"由**扩展名**决定（浏览器能力，不是我们的偏好）：
+ * · `.html` / `.md` → 新标签里**直接渲染**（HTML 就是报告本体）；
+ * · `.docx` / `.pptx` → 浏览器渲染不了 ⇒ 只能下载一份（或用户按下面给的目录自己打开）。
+ */
+export function deliverableKind(name: string): 'page' | 'binary' {
+  return /\.(html?|md|txt)$/i.test(name) ? 'page' : 'binary'
+}
+
+/** 路径 → 所在目录（`files` 是绝对路径，取第一份的目录即可）。 */
+export function folderOf(path: string): string {
+  return path.replace(/[\\/][^\\/]*$/, '')
+}
+
+/** blob URL → 触发一次"另存为"（浏览器渲染不了 Word/PPT，只能给一份文件）。 */
+function downloadBlob(url: string, name: string): void {
+  const a = document.createElement('a')
+  a.href = url
+  a.download = name
+  document.body.appendChild(a)
+  a.click()
+  a.remove()
+}
+
+/**
+ * **交付物按钮组**（2026-09-18 用户报障："设置里的导入只接受 PDF，还有 html 呢"）。
+ *
+ * 报障的真实缺口不是"导入"，而是**产物没法看**：面板当时只把三个绝对路径打成
+ * `<code>`，用户拿不到手。这里给每条产物一个能点的按钮，并**如实说出**做不到的部分：
+ * · `.html`/`.md` 用新标签渲染（`URL.createObjectURL` 的 blob，不落盘、不外发）；
+ * · `.docx`/`.pptx` 只能"下载一份"——**本机那份原件仍在下面显示的目录里**，
+ *   "一键用 Word/PPT 打开"需要新增宿主路由（要重启宿主），本轮不做，所以不写这种按钮。
+ *
+ * ⚠ 两个实现纪律：
+ * 1. blob URL 用完要 `revokeObjectURL`，但**不能立刻 revoke**——新标签还要读它
+ *    （立刻撤会白屏），故给一个延时。
+ * 2. 失败**必须显示**（例如产物被清理 ⇒ 引擎 404）：否则按钮点了没反应，
+ *    用户会以为是界面卡了。
+ */
+function Deliverables(props: { names: string[]; paths: string[] }): JSX.Element {
+  const { names, paths } = props
+  const [busy, setBusy] = useState<string>('')
+  const [error, setError] = useState<string>('')
+  const [copied, setCopied] = useState<boolean>(false)
+
+  const folder = paths.length > 0 ? folderOf(paths[0]) : ''
+
+  const open = useCallback((name: string): void => {
+    if (busy !== '') return
+    setBusy(name)
+    setError('')
+    const isPage = deliverableKind(name) === 'page'
+    /**
+     * ⚠ **必须在用户手势的同步段里先开窗**（2026-09-18 真机实测的坑）：
+     * 原先写成 `await fetchExportBlob(...)` 之后再 `window.open(blobUrl)`，
+     * 实测**新标签不会出现**（`window.open` 返回 null = 被拦截）：本地取字节虽然通常
+     * 只有几十毫秒，但引擎冷启动实测可以到 8 秒，瞬时激活早过期了。
+     * 现在的形状：同步占一个 about:blank，拿到字节后 `location.replace(blobUrl)`。
+     * 万一仍然被拦截（`win === null`）⇒ **退化成下载并如实说明**，绝不静默无反应。
+     */
+    const win = isPage ? window.open('about:blank', '_blank') : null
+    void (async () => {
+      try {
+        const blob = await fetchExportBlob(name)
+        const url = URL.createObjectURL(blob)
+        if (!isPage) {
+          downloadBlob(url, name)
+          window.setTimeout(() => URL.revokeObjectURL(url), 30_000)
+        } else if (win !== null) {
+          // 新标签要读这个 blob URL ⇒ 延后撤销（立刻撤会白屏）。
+          win.location.replace(url)
+          window.setTimeout(() => URL.revokeObjectURL(url), 120_000)
+        } else {
+          downloadBlob(url, name)
+          window.setTimeout(() => URL.revokeObjectURL(url), 30_000)
+          setError('浏览器拦截了新窗口（弹出窗口设置）。已改为下载一份——'
+            + '文件就在下面的保存目录里，双击即可看。')
+        }
+      } catch (e) {
+        if (win !== null) win.close()
+        setError(`${name}：${e instanceof Error ? e.message : String(e)}`)
+      } finally {
+        setBusy('')
+      }
+    })()
+  }, [busy])
+
+  const copyFolder = useCallback((): void => {
+    if (folder === '') return
+    void navigator.clipboard.writeText(folder).then(
+      () => { setCopied(true); setError('') },
+      (e: unknown) => setError(`复制失败，请手动选中下面的路径：${e instanceof Error ? e.message : String(e)}`),
+    )
+  }, [folder])
+
+  return (
+    <div style={{ margin: '6px 0 0', fontSize: 12 }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, alignItems: 'center' }}>
+        <span style={{ color: GRAY }}>产物：</span>
+        {names.map((n) => (
+          <button
+            key={n}
+            type="button"
+            disabled={busy !== ''}
+            onClick={() => open(n)}
+            title={deliverableKind(n) === 'page'
+              ? `${n}：在新标签里直接打开（浏览器渲染）`
+              : `${n}：浏览器渲染不了 Word/PPT，这里下载一份；本机原件在下面那个目录里`}
+            style={{
+              border: '1px solid var(--dsw-alias-border-l2, #ccc)',
+              background: 'var(--dsw-alias-bg-layer-2, #fff)',
+              color: 'var(--dsw-alias-label-primary, #111)',
+              borderRadius: 4, padding: '2px 8px', fontSize: 11.5,
+              cursor: busy !== '' ? 'default' : 'pointer',
+            }}
+          >
+            {deliverableKind(n) === 'page' ? '👁 打开' : '⬇ 下载'} {n}
+            {busy === n ? ' …' : ''}
+          </button>
+        ))}
+      </div>
+      {folder !== '' && (
+        <div style={{ marginTop: 4, color: GRAY }}>
+          保存目录：<code style={{ wordBreak: 'break-all' }}>{folder}</code>{' '}
+          <button
+            type="button"
+            onClick={copyFolder}
+            title="复制目录路径（粘到资源管理器/Win+R 即可打开 Word/PPT 原件）"
+            style={{
+              border: '1px solid var(--dsw-alias-border-l2, #ccc)',
+              background: 'var(--dsw-alias-bg-layer-2, #fff)',
+              color: 'var(--dsw-alias-label-primary, #111)',
+              borderRadius: 4, padding: '1px 6px', fontSize: 11, cursor: 'pointer',
+            }}
+          >
+            {copied ? '✓ 已复制' : '📋 复制目录'}
+          </button>
+        </div>
+      )}
+      {error !== '' && (
+        <p role="alert" style={{ margin: '4px 0 0', color: '#c0392b', fontSize: 11.5 }}>
+          打开失败：{error}
+        </p>
+      )}
+      <p style={{ margin: '4px 0 0', color: GRAY, fontSize: 11 }}>
+        Word / PPT 浏览器渲染不了：上面给的是**下载一份**（本机原件仍在保存目录里）。
+        「用系统默认程序一键打开」需要在宿主侧加路由（要重启宿主），本轮未做。
+      </p>
     </div>
   )
 }

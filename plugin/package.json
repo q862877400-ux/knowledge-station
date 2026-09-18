@@ -25,10 +25,11 @@
     "smoke:report": "node scripts/smoke-report-routes.mjs",
     "smoke:report-ui": "node scripts/smoke-report-ui.mjs",
     "smoke:draft-ui": "node scripts/smoke-draft-ui.mjs",
+    "smoke:catalog-ui": "node scripts/smoke-catalog-ui.mjs",
     "verify:commands": "node scripts/run-verify-commands.mjs",
     "e2e:sidebar": "node scripts/e2e-sidebar-pdf.mjs",
     "e2e:materials": "node scripts/e2e-materials-panel.mjs",
-    "smoke": "node scripts/smoke-pdf-fit.mjs && node scripts/smoke-pdf-panel.mjs && node scripts/smoke-settings.mjs && node scripts/smoke-settings-guard.mjs && node scripts/smoke-effect-tool.mjs && node scripts/smoke-chatmode.mjs && node scripts/smoke-ingest.mjs && node scripts/smoke-engine-guard.mjs && node scripts/smoke-client-entry.mjs && node scripts/smoke-docimage.mjs && node scripts/smoke-sanitize.mjs && node scripts/smoke-trim.mjs && node scripts/smoke-materials-tool.mjs && node scripts/smoke-materials-routes.mjs && node scripts/smoke-collect-tool.mjs && node scripts/smoke-collect-ui.mjs && node scripts/smoke-report-routes.mjs && node scripts/smoke-report-ui.mjs && node scripts/smoke-draft-ui.mjs && node scripts/smoke-anchor-mark.mjs"
+    "smoke": "node scripts/smoke-pdf-fit.mjs && node scripts/smoke-pdf-panel.mjs && node scripts/smoke-settings.mjs && node scripts/smoke-settings-guard.mjs && node scripts/smoke-effect-tool.mjs && node scripts/smoke-chatmode.mjs && node scripts/smoke-ingest.mjs && node scripts/smoke-engine-guard.mjs && node scripts/smoke-client-entry.mjs && node scripts/smoke-docimage.mjs && node scripts/smoke-sanitize.mjs && node scripts/smoke-trim.mjs && node scripts/smoke-materials-tool.mjs && node scripts/smoke-materials-routes.mjs && node scripts/smoke-collect-tool.mjs && node scripts/smoke-collect-ui.mjs && node scripts/smoke-report-routes.mjs && node scripts/smoke-report-ui.mjs && node scripts/smoke-draft-ui.mjs && node scripts/smoke-catalog-ui.mjs && node scripts/smoke-anchor-mark.mjs"
   },
   "exports": {
     ".": "./src/index.js",

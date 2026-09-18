@@ -266,6 +266,65 @@ class TestEvidenceAnchorMarks:
         assert r._status_marks() is lo.STATUS_MARKS
 
 
+class TestEvidenceAssemblyGate:
+    """**报告侧的"依据集取不到"门禁**（§10.100，复核 b27 的 LOW-4）。
+
+    b27 实测：把 `build_report_blocks` 里那一行改回**直调** `authority.assemble_evidence`
+    （即绕开 §10.98 抽出的唯一入口 `assemble_evidence_or_raise`），
+    `tests/test_research_draft.py` **17 passed 全绿** ⇒ 报告侧那条修法当时**没有回归保护**。
+    本类就是那条保护：报告侧也必须把"意外失败"翻成 `materials_load_failed`，
+    而"项目不存在"那类 `ValueError` 必须照原样放行（路由层靠它翻 404）。
+    """
+
+    def test_报告侧装配失败翻成可操作错误码(self, project, monkeypatch):
+        from src.core.exceptions import KnowledgeStationError
+        from src.core.materials import authority as au
+
+        def boom(*_a, **_k):
+            raise RuntimeError("数据库被锁死（模拟）")
+
+        monkeypatch.setattr(au, "assemble_evidence", boom)
+        # ⚠ 必须给 `query`：没有研究问题时报告**根本不装配**（只列清单，见 build_report_blocks
+        #   的 `if (query or "").strip():`）——不给 query 的用例测不到这条路径（写这条时踩过）。
+        with pytest.raises(KnowledgeStationError) as ei:
+            rr.build_report_blocks(project["project_id"], query="住宿标准")
+        assert ei.value.code == "materials_load_failed"
+        assert "载入参考资料失败" in str(ei.value)
+
+    def test_报告侧项目不存在仍按_ValueError_放行(self, project, monkeypatch):
+        from src.core.materials import authority as au
+
+        def missing(*_a, **_k):
+            raise ValueError("项目不存在: prj_x")
+
+        monkeypatch.setattr(au, "assemble_evidence", missing)
+        with pytest.raises(ValueError):
+            rr.build_report_blocks(project["project_id"], query="住宿标准")
+
+    def test_落盘路径同样走那个唯一入口(self, project, tmp_path, monkeypatch):
+        """`write_research_report`（真正落盘那条）也必须经过它——否则"先渲染后落盘"的
+        纪律会被一条"某形态自己装配"的旁路绕开。"""
+        from src.core.exceptions import KnowledgeStationError
+        from src.core.materials import authority as au
+
+        calls = {"n": 0}
+        real = au.assemble_evidence
+
+        def counted(*a, **k):
+            calls["n"] += 1
+            return real(*a, **k)
+
+        monkeypatch.setattr(rr, "_exports_dir", lambda: tmp_path)
+        monkeypatch.setattr(au, "assemble_evidence", counted)
+        rr.write_research_report(project["project_id"], title="门禁用例", query="住宿标准")
+        assert calls["n"] == 1, f"落盘路径必须只经唯一入口装配一次（实测 {calls['n']}）"
+
+        monkeypatch.setattr(au, "assemble_evidence",
+                            lambda *_a, **_k: (_ for _ in ()).throw(RuntimeError("x")))
+        with pytest.raises(KnowledgeStationError):
+            rr.write_research_report(project["project_id"], title="门禁用例", query="住宿标准")
+
+
 class TestWrite:
     def test_files_are_written_and_named(self, project, tmp_path, monkeypatch):
         pid = project["project_id"]
