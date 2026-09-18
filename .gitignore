@@ -39,3 +39,6 @@ wheels_local/
 
 .browser4-cli/
 _rescue/
+
+# 子代理/临时探针的草稿（勿入库；磁盘上保留）
+.tmp-*
