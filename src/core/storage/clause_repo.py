@@ -14,7 +14,7 @@ from src.core.retrieval import embedder
 from src.core.storage.sqlite_db import (
     get_db_connection, load_vec_extension, write_transaction,
 )
-from src.core.text_utils import store_standard_no
+from src.core.text_utils import store_standard_name, store_standard_no
 
 log = logging.getLogger(__name__)
 
@@ -27,31 +27,44 @@ def content_hash(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
-#: 落库前要折"存储形"的列（§11.0 R6c-2d）。`standard_name` 也在内：复核在真库见过
-#: 2 行全角 `standard_name`（来源不是 `clean_standard_name`，那条路已经折过）。
-_STORE_FORM_COLUMNS = ("standard_no", "short_code", "standard_name")
+#: 落库前要折"存储形的列 → 用哪个折法"。⚠ **名称列用 `store_standard_name`（只折 `／`）**：
+#: 复核 b33 抓到我把名称也按"号"折了 ⇒ 真库 5 行用全角 `－` 作**中文连接号**的名字
+#: （`丙烯腈－丁二烯－苯乙烯（ABS）…`）会在下一次入库时被写成半角，同一标准新旧行名字不一致。
+_STORE_FORM_FOLDER = {
+    "standard_no": store_standard_no,
+    "short_code": store_standard_no,
+    "standard_name": store_standard_name,
+}
 
-#: 写 `doc_meta` 那三列的**全部入口**（不变量：每个入口都必须过 `store_standard_no`）。
-#: 规则的所有者是 `text_utils.store_standard_no`，这里是**入口清单**——复核 b32 就是靠逐个点名
-#: 找到漏口的，所以把清单写下来，让下一个人能逐条核：
-#:   1. `storage/clause_repo.insert_document`（**收口**：pipeline / docx_ingest / law_text /
+#: 写 `doc_meta` 那三列的**已知入口**（不变量：收口路径上的每个入口都过对应的折法）。
+#: ⚠ 措辞纠正（复核 b33 证伪了我的"**全部**入口"）：下表**不是**完备清单，
+#: 而是"我逐条点过名、且今天都产不出全角"的那一批。规则的所有者是 `text_utils.store_standard_*`；
+#: 清单的作用是让下一个人**能逐条核**（b32 就是靠逐条点名找到漏口的），所以宁可不完备也要写清边界：
+#:   1. `storage/clause_repo.insert_document`（**主收口**：pipeline / docx_ingest / law_text /
 #:      track_l / write_queue_bootstrap 全走这里）
-#:   2. `ingestion/bulk.py`（裸 INSERT，不经收口）
-#:   3. `knowledge/auto_tag.apply_tags_to_doc_meta`（UPDATE standard_no）
-#:   4. `scripts/normalize-standard-no-slash.py`（**离线回填**，自己带"只换形状"的保证与清单）
+#:   2. `ingestion/bulk.py`（裸 INSERT，**已过** `store_standard_no`）
+#:   3. `knowledge/auto_tag.apply_tags_to_doc_meta`（UPDATE standard_no，**已过**）
+#:   4. `scripts/normalize-standard-no-slash.py`（离线回填，自带"只换形状"保证与清单）
+#:   5. `scripts/repair-missing-standard-no.py`（离线修复，**已过**）
+#:   ⚠ **不在收口路径上、且本轮没改**：`scripts/fix_standard_name_suffix.py`（直写 `standard_name`）、
+#:      `scripts/measure-endpoint-blocking.py` 与 `scripts/verify-engine-uvicorn.py`（裸 INSERT）。
+#:      复核 b33 逐个读过：这三处**今天都引入不了** `／`（分别是"只去结尾后缀"与基准脚本的字面量），
+#:      所以"全角不会从它们进来"成立——但**不变量"每个写者都过 helper"对它们不成立**，别读成成立。
+_STORE_FORM_COLUMNS = ("standard_no", "short_code", "standard_name")
 
 
 def _store_form_doc(doc: dict[str, Any]) -> dict[str, Any]:
     """折 doc_meta 里那几列的存储形；**返回新 dict，不改调用方的**（调用方常复用同一个 dict）。
 
     列缺失/值不是字符串时原样放过——本函数只管"形状"，不替调用方补字段。
+    ⚠ **每列用各自的折法**（名称只折 `／`，见 `_STORE_FORM_FOLDER` 与复核 b33 的反例）。
     """
     fixed = dict(doc)
-    for col in _STORE_FORM_COLUMNS:
+    for col, folder in _STORE_FORM_FOLDER.items():
         raw = fixed.get(col)
         if not isinstance(raw, str):
             continue
-        new = store_standard_no(raw)
+        new = folder(raw)
         if new != raw:
             log.warning("doc_meta.%s 存储形折叠: %r -> %r（doc_id=%s）",
                         col, raw, new, fixed.get("doc_id"))

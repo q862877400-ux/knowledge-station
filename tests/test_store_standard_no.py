@@ -22,7 +22,8 @@ import sqlite3
 import pytest
 
 from src.core.storage import clause_repo
-from src.core.text_utils import canon_standard_no, standard_no_key, store_standard_no
+from src.core.text_utils import (canon_standard_no, standard_no_key, store_standard_name,
+                                 store_standard_no)
 from src.core.update.channels.base import norm_no
 
 
@@ -91,6 +92,21 @@ class Test写入收口:
         assert tuple(row) == ("GB/T 10058-2023", "GB/T100582023",
                               "GB/T 10058-2023 电梯技术条件")
 
+    def test_名称里的全角连字符不许折(self, db):
+        """⚠ 复核 b33 的最高风险：**名称里的全角 `－` 是文字，不是形状**。
+
+        真库现存 5 行标准名正拿它当中文连接号（`丙烯腈－丁二烯－苯乙烯（ABS）压力管道系统…`
+        `蒸馏－硝酸钍容量法` `氢化物发生－原子荧光光谱法`…）。
+        我原来给名称列也用 `store_standard_no`（折 `／` 与 `－`）⇒ 同一标准再入库会写成半角，
+        **新旧行名字不一致且没有任何提示**。现在名称列只折 `／`。
+        """
+        name = "丙烯腈－丁二烯－苯乙烯（ABS）压力管道系统 第1部分：管材"
+        clause_repo.insert_document(db, _doc(doc_id="doc_STORE1", standard_name=name))
+        got = db.execute("SELECT standard_name FROM doc_meta "
+                         "WHERE doc_id='doc_STORE1'").fetchone()[0]
+        assert got == name, "名称里的全角连字符被折了（那是改内容，不是折形状）"
+        assert "－" in got
+
     def test_普通号一字不动(self, db):
         clause_repo.insert_document(db, _doc())
         row = db.execute("SELECT standard_no, short_code FROM doc_meta "
@@ -123,16 +139,18 @@ class Test写入收口:
         assert rows[0] == 1
 
     def test_裸INSERT入口_bulk_也折(self):
-        """`bulk.py` 用自己的 INSERT（不过收口）——源码级检查它确实调了同一个 helper。
+        """`bulk.py` 用自己的 INSERT（不过收口）——源码级检查它确实调了对应折法。
 
         为什么不行为级测：那条路的输入来自 PDF 首页解析（`_NO_RE` 字符类是 `[/\\s]`），
         构造"带全角的解析结果"要靠 monkeypatch 才能做，而这里要钉的其实是**入口清单别漏**。
+        ⚠ 名与号**用不同的折法**（复核 b33 的 5 行反例），所以这里两个都要点。
         """
         import inspect
 
         from src.core.ingestion import bulk
         src = inspect.getsource(bulk)
-        assert "store_standard_no(no)" in src and "store_standard_no(name or no)" in src
+        assert "store_standard_no(no)" in src
+        assert "store_standard_name(name or no)" in src
 
     def test_UPDATE入口_auto_tag_也折(self):
         import inspect
@@ -141,11 +159,27 @@ class Test写入收口:
         src = inspect.getsource(auto_tag.apply_tags_to_doc_meta)
         assert "store_standard_no(tags.standard_no)" in src
 
-    def test_入口清单与实现一致(self):
-        """`_STORE_FORM_COLUMNS` 旁登记的四个入口，每个都能在代码里找到折叠调用。
+    def test_查重侧也要折_全角号能查到半角行(self, db):
+        """§11.0 R6c-3d（复核 b33 的次高风险）：**写入折了、查重不折** ⇒ 全角重复件会绕过护栏、
+        直接撞 `insert_document` 的 UNIQUE 抛未捕获的 IntegrityError。
 
-        这条防的是"清单写了、代码漏了"以及反过来"代码改了、清单没改"——
-        复核 b32 正是靠逐个点名入口才找到漏口的。
+        这是我自己改出来的不对称。`_dup_probe` 是 `run_full_ingest` 查重语义的镜像，用它钉住。
+        """
+        from src.core.ingestion.dry_run import _dup_probe
+
+        clause_repo.insert_document(db, _doc(doc_id="doc_STORE1",
+                                            standard_no="GB/T 10058-2023",
+                                            file_hash="a" * 8))
+        out = _dup_probe(db, "b" * 8, "GB／T 10058-2023")   # 全角入参、不同 hash
+        assert out["kind"] == "standard_no", out
+        assert out["doc_id"] == "doc_STORE1"
+
+    def test_入口清单与实现一致(self):
+        """入口清单要"能逐条核"（b32 就是靠逐条点名找到漏口的），且清单本身要**承认不完备**。
+
+        ⚠ 我原来写成"**全部**入口"，被复核 b33 证伪：它逐个 grep 后点出 4 个写者不在清单里
+        （`fix_standard_name_suffix.py` 直写 `standard_name`、两个 bench 脚本裸 INSERT、
+        以及本轮新增的 repair 脚本）。现在措辞改成"已知入口 + 明确列出不在收口路径上的那几个"。
         """
         import inspect
 
@@ -154,8 +188,16 @@ class Test写入收口:
         from src.core.storage import clause_repo as cr
 
         assert cr._STORE_FORM_COLUMNS == ("standard_no", "short_code", "standard_name")
-        assert "store_standard_no" in inspect.getsource(cr._store_form_doc)
+        # 每列各自的折法（名称只折斜杠）
+        assert cr._STORE_FORM_FOLDER["standard_name"] is not store_standard_no
+        assert cr._STORE_FORM_FOLDER["standard_no"] is store_standard_no
+        src_cr = inspect.getsource(cr)
+        assert "store_standard_no" in src_cr and "store_standard_name" in src_cr
+        # 清单的措辞：不许再出现"全部入口"这种被证伪的说法，且必须点名不在路径上的脚本
+        assert "全部入口" not in src_cr
+        assert "fix_standard_name_suffix.py" in src_cr
         assert "store_standard_no(no)" in inspect.getsource(bulk)
+        assert "store_standard_name(name or no)" in inspect.getsource(bulk)
         assert "store_standard_no(tags.standard_no)" in inspect.getsource(auto_tag.apply_tags_to_doc_meta)
         from pathlib import Path
         script = (Path(__file__).resolve().parents[1] / "scripts"

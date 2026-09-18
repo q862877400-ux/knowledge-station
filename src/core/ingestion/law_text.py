@@ -24,6 +24,7 @@ from src.core.domain.models import ClauseRevisionModel
 from src.core.knowledge.classifier import classify_clause
 from src.core.storage import clause_repo
 from src.core.storage.sqlite_db import get_db_connection, init_schema, write_transaction
+from src.core.text_utils import store_standard_no
 
 _LAW_SPLIT = re.compile(r"(?=第[一二三四五六七八九十百千零]+条)")
 _LAW_NO = re.compile(r"^(第[一二三四五六七八九十百千零]+条)")
@@ -125,13 +126,14 @@ def ingest_law_text(text: str, standard_no: str, standard_name: str,
     conn = get_db_connection()
     file_hash = hashlib.sha256(text.encode("utf-8")).hexdigest()
 
-    # ⚠ 这里的查重按 `standard_no` **原样**比对（`doc_meta` 的口径是 `GB 10146-2015`）。
+    # ⚠ 这里的查重按 `standard_no` 的**存储形**比对（§11.0 R6c-3d，查重与写入两边同口径）：
     # Track L 的调用方负责先用 `text_utils.standard_no_key` 判过"库里有没有"，
     # 并传**库里那种写法**进来——两处判据不要混。
     if conn.execute("SELECT doc_id FROM doc_meta WHERE file_hash=?", (file_hash,)).fetchone():
         return {"status": "duplicate"}
     same_no = conn.execute(
-        "SELECT doc_id, file_hash FROM doc_meta WHERE standard_no=?", (standard_no,)).fetchone()
+        "SELECT doc_id, file_hash FROM doc_meta WHERE standard_no=?",
+        (store_standard_no(standard_no),)).fetchone()
     if same_no and same_no["file_hash"] != file_hash:
         return {"status": "standard_exists", "existing_doc_id": same_no["doc_id"]}
 

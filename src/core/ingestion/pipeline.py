@@ -42,6 +42,7 @@ from src.core.knowledge.classifier import (
 )
 from src.core.storage import clause_repo
 from src.core.storage.sqlite_db import get_db_connection, init_schema, write_transaction
+from src.core.text_utils import store_standard_no
 
 logger = logging.getLogger(__name__)
 
@@ -1976,7 +1977,12 @@ def run_full_ingest(pdf_path: Path, standard_no: str, standard_name: str,
     if dup and not reingest:
         return {"status": "duplicate", "doc_id": dup[0]}
     same_no = conn.execute(
-        "SELECT doc_id, file_hash FROM doc_meta WHERE standard_no=?", (standard_no,)).fetchone()
+        # ⚠ 查重也要用**存储形**（§11.0 R6c-3d，复核 b33 的次高风险）：
+        #   写边界折了形状、查重边界不折 ⇒ 全角入参查不到已存在的半角行，
+        #   于是"重复件"从"静默多一行"变成 `insert_document` 抛**未捕获的 IntegrityError**。
+        #   这是我自己改出来的不对称，必须两边一起折。
+        "SELECT doc_id, file_hash FROM doc_meta WHERE standard_no=?",
+        (store_standard_no(standard_no),)).fetchone()
     if same_no and same_no["file_hash"] != file_hash and not reingest:
         return {"status": "standard_exists", "existing_doc_id": same_no["doc_id"],
                 "message": f"标准号 {standard_no} 已存在（hash 不同），如需覆盖请先废弃旧文档"}

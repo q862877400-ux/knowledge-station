@@ -1303,9 +1303,32 @@ def store_standard_no(value: str | None) -> str:
 
     **1:1 替换**是刻意的：它保证 `norm_no(旧) == norm_no(新)`（语义不变，只是形状），
     这样"折形状"永远不会改变"是不是同一部标准"的判断。
+
+    ⚠ **不要拿它折"名称"**（用 `store_standard_name`）：数字里的全角 `－` 是形状变体，
+    但**名称里的全角 `－` 是文字**——真库现存 **5 行**标准名正用它作中文连接号
+    （`丙烯腈－丁二烯－苯乙烯（ABS）压力管道系统…`、`蒸馏－硝酸钍容量法`、
+    `氢化物发生－原子荧光光谱法`…），把它们折成半角就是**改内容**。
+    这一条是独立复核 b33 抓到的（它把我"只换形状"那句话按名称列反例证伪），
+    我原先给名称列也用了本函数，已拆开。
     """
     s = "" if value is None else str(value)
     for fw, hw in _STORE_FOLD.items():
+        s = s.replace(fw, hw)
+    return s
+
+
+#: **名称**列的存储形折叠表：只折全角**斜杠**，**不折连字符**（连字符在中文里是文字，
+#: 见 `store_standard_no` 的 ⚠ 段与复核 b33 的 5 行反例）。
+_STORE_NAME_FOLD = {"\uff0f": "/"}
+
+
+def store_standard_name(value: str | None) -> str:
+    """**名称**列的存储形：只折全角斜杠 `／`→`/`，**一个连字符都不动**。
+
+    （全角斜杠在名称里几乎总是标准号前缀带来的；而全角连字符在中文名称里是正经连接号。）
+    """
+    s = "" if value is None else str(value)
+    for fw, hw in _STORE_NAME_FOLD.items():
         s = s.replace(fw, hw)
     return s
 

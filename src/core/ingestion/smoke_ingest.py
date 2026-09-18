@@ -76,8 +76,12 @@ def ingest_pdf(pdf_path: Path, standard_no: str, standard_name: str,
         return {"status": "duplicate", "doc_id": dup[0]}
 
     # R43: 同标准号不同文件 → 返回提示由上层确认覆盖，而不是 IntegrityError 崩溃
+    # ⚠ 查重与写入同口径（§11.0 R6c-3d）：都折存储形；不然全角入参会绕过这条护栏、
+    #   直接撞 `insert_document` 的 UNIQUE（复核 b33 的次高风险）。
+    from src.core.text_utils import store_standard_no
     same_no = conn.execute(
-        "SELECT doc_id, file_hash FROM doc_meta WHERE standard_no=?", (standard_no,)).fetchone()
+        "SELECT doc_id, file_hash FROM doc_meta WHERE standard_no=?",
+        (store_standard_no(standard_no),)).fetchone()
     if same_no and same_no["file_hash"] != file_hash:
         return {"status": "standard_exists", "existing_doc_id": same_no["doc_id"],
                 "message": f"标准号 {standard_no} 已存在（hash 不同）。"

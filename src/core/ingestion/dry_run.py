@@ -120,8 +120,10 @@ def _dup_probe(conn: Any, file_hash: str, standard_no: str | None) -> dict[str, 
         return {"kind": "file_hash", "doc_id": row["doc_id"],
                 "standard_no": row["standard_no"], "message": "同一文件已入库（哈希相同）"}
     if standard_no:
+        # 查重与写入同口径（§11.0 R6c-3d）：都折存储形，`／` 与 `/` 才算同一个号
+        from src.core.text_utils import store_standard_no
         same = conn.execute("SELECT doc_id, file_hash FROM doc_meta WHERE standard_no=?",
-                            (standard_no,)).fetchone()
+                            (store_standard_no(standard_no),)).fetchone()
         if same and same["file_hash"] != file_hash:
             return {"kind": "standard_no", "doc_id": same["doc_id"], "standard_no": standard_no,
                     "message": f"标准号 {standard_no} 已存在（哈希不同），如需覆盖请先废弃旧文档"}

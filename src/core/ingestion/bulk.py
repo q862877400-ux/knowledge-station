@@ -27,7 +27,7 @@ from ulid import ULID
 import fitz  # PyMuPDF
 
 from src.core.storage.sqlite_db import get_db_connection, write_transaction
-from src.core.text_utils import store_standard_no
+from src.core.text_utils import store_standard_name, store_standard_no
 
 # ---------------------------------------------------------------- 常量（pipeline/06 §2）
 DEFAULT_BATCH_SIZE = 200          # bulk.batch_size
@@ -196,7 +196,9 @@ def _process_pdf(pdf: Path, known: set[tuple[int, str]],
     # 但"今天产不出"不等于"以后产不出"——凡是写 doc_meta 的 standard_no/short_code/standard_name
     # 的入口都过同一个 `store_standard_no`（规则一个所有者，入口逐个点名）。`short_code` 由**折过的** no 派生。
     no = store_standard_no(no)
-    name = store_standard_no(name or no)
+    # ⚠ 名称列**只折斜杠**（`store_standard_name`）：名称里的全角 `－` 是中文连接号，折它是改内容
+    #   （§11.0 R6c-3d，复核 b33 用真库 5 行反例证伪了我原来对名称也用 store_standard_no）
+    name = store_standard_name(name or no)
     try:
         with write_transaction() as txn:
             txn.execute(
@@ -212,7 +214,9 @@ def _process_pdf(pdf: Path, known: set[tuple[int, str]],
         # 同标准号已存在：区分"真重复文件"与"换源新文件"（不静默跳过）
         conn = get_db_connection()
         exist = conn.execute(
-            "SELECT file_hash FROM doc_meta WHERE standard_no=?", (no,)).fetchone()
+            # 查重也用存储形（§11.0 R6c-3d）：两边一起折，`／` 与 `/` 才能真正算同一个号
+            "SELECT file_hash FROM doc_meta WHERE standard_no=?",
+            (store_standard_no(no),)).fetchone()
         reason = "duplicate_file" if (exist and exist["file_hash"] == fhash) \
             else "standard_no_exists"
         return {"error": {"path": str(pdf), "reason": reason}}
