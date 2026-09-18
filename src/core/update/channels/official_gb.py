@@ -24,6 +24,7 @@ from src.core.update.channels.base import (
     looks_like_captcha,
     map_state_text,
     pick_row_by_norm,
+    query_no,
     upd_log,
 )
 
@@ -44,11 +45,14 @@ class OfficialGbAdapter(ChannelAdapter):
 
     def probe(self, standard_no: str, standard_name: str = "") -> ChannelResult:
         t0 = perf_counter()
+        # ⚠ 查询用 `query_no`（全角斜杠换半角，§11.0 R6c-2b 实测）：真库 92% 的号写全角 `／`，
+        #   原样送进查询串在 A/B 里 **0/6 命中**，换成半角 **5/6 命中**。
+        q = query_no(standard_no)
         status, body = self._fetch(
             self.SEARCH_URL,
             # searchText 仅供测试 mock 路由复用（真实站点忽略未知参数）；p.p2 为真实查询键
-            params={"searchText": standard_no, "p.p1": "0", "p.p90": "circulation_date",
-                    "p.p91": "desc", "p.p2": standard_no},
+            params={"searchText": q, "p.p1": "0", "p.p90": "circulation_date",
+                    "p.p91": "desc", "p.p2": q},
             headers={"User-Agent": _BROWSER_UA, "Referer": self.SEARCH_URL})
         self._pace()
 

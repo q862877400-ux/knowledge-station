@@ -35,6 +35,7 @@ from src.core.update.channels.base import (
     ChannelResult,
     looks_like_captcha,
     pick_row_by_norm,
+    query_no,
     upd_log,
 )
 
@@ -127,8 +128,9 @@ class MeeAdapter(ChannelAdapter):
 
     def probe(self, standard_no: str, standard_name: str = "") -> ChannelResult:
         t0 = perf_counter()
+        # ⚠ 查询用 `query_no`（全角斜杠换半角，§11.0 R6c-2b）
         status, body = self._fetch(
-            QUERY_URL, method="post", data={"doctitle": standard_no},
+            QUERY_URL, method="post", data={"doctitle": query_no(standard_no)},
             headers={"Referer": REFERER})
 
         if looks_like_captcha(body):

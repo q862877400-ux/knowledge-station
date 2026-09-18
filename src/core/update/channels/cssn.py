@@ -41,6 +41,7 @@ from src.core.update.channels.base import (
     derive_change_type,
     looks_like_captcha,
     norm_no,
+    query_no,
     upd_log,
 )
 
@@ -88,7 +89,7 @@ class CssnAdapter(ChannelAdapter):
         cssn 精确匹配优先排序，带空格完整号（'GB 5009.247-2025'）精确行排第 1，
         无需二次回退；含点/常见数字的噪声交给 _pick 跨前缀精确挑选。
         """
-        keyword = (standard_no or "").strip()
+        keyword = query_no(standard_no).strip()   # 全角斜杠换半角（§11.0 R6c-2b）
         row, mode = self._hit(keyword, standard_no)
         return keyword, row, mode or "no_match"
 

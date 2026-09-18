@@ -541,3 +541,60 @@ class TestNdlsRefererIsAscii:
         # 全角斜杠与空格都被百分号转义——这就是"请求能发出去"的原因
         assert "%EF%BC%8F" in referer, f"全角斜杠应被转义：{referer!r}"
         assert "%20" in referer, f"空格应被转义：{referer!r}"
+
+
+class TestQueryUsesHalfWidthForm:
+    """§11.0 R6c-2b：适配器**查询**必须用半角规范形（`query_no`）。
+
+    真库 6417 条标准里 **5879 条（92%）写全角斜杠 `／`**，而站点按半角 `/` 认；
+    真机 A/B：`official_gb` 原样全角 **0/6 命中**、换半角 **5/6 命中**。
+    这条按渠道钉住"**送出去的请求里没有全角斜杠**"——比"改了哪一行"更能防回归。
+    """
+
+    FULL = "GB／T 17098-1997"          # 全角（用户/库里的写法）
+    HALF_MARK = "17098"                 # 半角写法里必然出现的片段
+
+    class _Cap:
+        def __init__(self, body):
+            self.body = body
+            self.calls: list[tuple[str, dict]] = []
+
+        def fetch(self, url, **kw):
+            self.calls.append((url, kw))
+            return 200, self.body
+
+    #: 每个适配器喂一个"空结果"的合法响应（我们只关心**发出去的请求**）
+    BODIES = {
+        "official_gb": "<table></table>",
+        "hbba": {"total": 0, "records": []},
+        "dbba": {"total": 0, "records": []},
+        "ttzb": {"result": True, "code": 200, "data": {"total": 0, "rows": []}},  # 注册键是 ttzb（适配器 name 才是 ttbz，G23）
+        "cssn": {"count": 0, "results": []},
+        "govcn": {"searchVO": {"listVO": []}},
+        "mee": "<html><table></table></html>",
+    }
+
+    @pytest.mark.parametrize("name", sorted(BODIES))
+    def test_送出去的请求里没有全角斜杠(self, name):
+        cls = ADAPTER_CLASSES[name]
+        t = self._Cap(self.BODIES[name])
+        ad = cls(transport=t)
+        try:
+            ad.probe(self.FULL)
+        except Exception as e:  # noqa: BLE001 —— 查询值不对时允许它报错，但**不能**报在这里
+            raise AssertionError(f"{name} 对全角号抛异常（说明查询值没归一）：{e}") from e
+        assert t.calls, f"{name} 没发出任何请求"
+        seen = []
+        for url, kw in t.calls:
+            blob = " ".join([str(url), str(kw.get("params") or ""), str(kw.get("data") or ""),
+                             str(kw.get("json") or ""), str(kw.get("headers") or "")])
+            seen.append(blob)
+            assert "／" not in blob, f"{name} 的请求里仍有全角斜杠：{blob[:160]}"
+        assert any(self.HALF_MARK in b for b in seen), f"{name} 的请求里没带上号：{seen[:1]}"
+
+    def test_query_no_不打乱既有写法(self):
+        """`query_no` 只换字符形状：**空格必须保留**（cssn/mee 实测"带空格完整号"才排第一）。"""
+        from src.core.update.channels.base import query_no
+        assert query_no("GB／T 17098-1997") == "GB/T 17098-1997"
+        assert query_no("HJ 819-2017") == "HJ 819-2017"
+        assert query_no("") == "" and query_no(None) == ""

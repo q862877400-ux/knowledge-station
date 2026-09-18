@@ -35,6 +35,7 @@ from src.core.update.channels.base import (
     looks_like_captcha,
     map_state_text,
     pick_row_by_norm,
+    query_no,
     upd_log,
 )
 
@@ -76,7 +77,7 @@ class _SacinfoQueryAdapter(ChannelAdapter):
 
     def probe(self, standard_no: str, standard_name: str = "") -> ChannelResult:
         t0 = perf_counter()
-        key = (standard_no or "").strip()
+        key = query_no(standard_no).strip()   # 全角斜杠换半角（§11.0 R6c-2b）
         if not key:
             return self._miss(t0, standard_no, 200, note="empty_standard_no")
 

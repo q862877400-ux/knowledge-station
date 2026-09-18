@@ -22,6 +22,7 @@ from src.core.update.channels.base import (
     UpdateError,
     derive_change_type,
     norm_no,
+    query_no,
     upd_log,
 )
 
@@ -60,7 +61,7 @@ class GovcnAnnounceAdapter(ChannelAdapter):
     # ------------------------------------------------------------ probe
     def probe(self, standard_no: str, standard_name: str = "") -> ChannelResult:
         t0 = perf_counter()
-        query = f"{standard_no} {standard_name}".strip()
+        query = f"{query_no(standard_no)} {standard_name}".strip()   # 全角斜杠换半角（R6c-2b）
 
         # ① **真接口优先**（§11.0 R5b）：政策文件库 JSON。
         #    ⚠ 解析器**复用** `law_source.govcn_client.parse_rows`（响应形状的唯一所有者），

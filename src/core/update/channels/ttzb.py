@@ -52,6 +52,7 @@ from src.core.update.channels.base import (
     looks_like_captcha,
     map_state_text,
     norm_no,
+    query_no,
     upd_log,
 )
 
@@ -97,10 +98,11 @@ class TtzbAdapter(ChannelAdapter):
 
     def probe(self, standard_no: str, standard_name: str = "") -> ChannelResult:
         t0 = perf_counter()
+        # ⚠ 查询用 `query_no`（全角斜杠换半角，§11.0 R6c-2b）
         status, body = self._fetch(
             SEARCH_URL, method="post",
             data={"pageNo": 1, "pageSize": 20,
-                  "searchKey": (standard_no or "").strip()})
+                  "searchKey": query_no(standard_no).strip()})
 
         # 验证码特征优先判定：半自动降级标记，绝不当 miss 处理（F-11）
         if looks_like_captcha(body):
