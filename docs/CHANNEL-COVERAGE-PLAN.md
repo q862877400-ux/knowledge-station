@@ -99,6 +99,23 @@
   把验证码**吞成 miss**（F-11 半自动过点对 cssn 失效）；`ndls` 的 Jiasule 惩罚期（30min+ 全拦）
   在巡检侧只能记 `failed`。
 
+以下为 R1 外部束（`docs/research/channels/oss-decomposition.md`，1267 行 / 18 项）新发现，
+**父代理已复核 G11**：
+
+- **G11 错误码表有文档没代码**（我方缺陷，已复核）：`base.py:14-16` 的 docstring 列了
+  `UPD-1003 rate_limited`，但全文件只定义 `UPD-1001/1002/1004`（:37-39），全仓**唯一**出现
+  "UPD-1003" 的地方就是那行文档 ⇒ 没有代码会产出它。
+  ⚠ 而 G10 恰恰说明**限流是真实状态**（ndls 的 Jiasule 惩罚期、cssn 的验证码）⇒ R2.5 应
+  **补上常量并在那两条路径上真的用它**，而不是删掉文档（删掉等于继续把限流伪装成"没搜到"）。
+- **G12 我们只有"按号核验"，没有"发现未知新标准"**（能力缺口，最值得补的一条）：
+  现有链路是 pull-by-key（拿库里的号去问渠道"还在吗"）；**没有 crawl-all-then-diff**
+  （定期把渠道的公告页/列表页全量拉下来，与我们库比对，发现"我们根本不知道的新号"）。
+  `regwatch-eu` 的极简 `Source` Protocol（`fetch(since, regulations) -> list[RawChange]`）
+  是一个可直接照抄的接口形状 ⇒ R5 起要加一个平行的 `discover(since)` 协议。
+- **G13 零新域名成本的增量**：`hbba/dbba` 用的 `*.sacinfo.org.cn/stdQueryList` 返回行里有 `pk`，
+  而 `attachment/downloadStdFile?pk=<pk>` 能取**文档本体**（我们现在只探状态、不取文档）
+  ⇒ 不新增任何域名就能把这两个渠道从"状态核验"升级为"能拿原文"。
+
 ## §2 目标态（可验收的形状）
 
 1. **渠道台账（channel registry）**：每个渠道一条记录，至少含
@@ -196,7 +213,7 @@
 | ①内部 | `internal-inventory.md`（809 行 / 18 项 JSON） | ✅ 已收 | **13 个适配器只有 8 个在链上；三棒降级链实际只有 official_gb 在工作** |
 | ②法规 | `law-cn.md` | ⏳ 进行中 | — |
 | ③标准 | `std-cn.md` | ⏳ 进行中 | — |
-| ④项目 | `oss-decomposition.md` | ⏳ 进行中 | — |
+| ④项目 | `oss-decomposition.md`（1267 行 / 18 项 JSON） | ✅ 已收 | **真伪判定：10 真实可读码 + 1 Skill（在 `cuipointer/ageis`，有真代码）+ 3 半真（npm 包在、源码仓 404；GovPing 更是自己不抓取、只连闭源服务）+ 3 查无此物 + 1 页面取不到正文** |
 
 **①内部束的结论（父代理已逐条读代码复核，见 §1.5 的 G5–G10）**：
 - 「13 适配器」是注册数不是能力数（G5）；`web`/`govcn` 两根兜底棒在真实 HTML 下恒 miss（G6，**我复核过**）；
@@ -206,6 +223,19 @@
 **⇒ 由 ① 得出的优先级修正（已写进 §4）**：新增 **R2.5「先修两根死兜底棒」**，排在 R5（扩覆盖）之前。
 理由（P1 准确性）：**在两条死渠道上做覆盖率统计 = 自己骗自己**；先让"现有渠道是真的",
 再去加新的。
+
+**④项目束的结论（18 项，父代理复核了 G11）**：
+- **真伪**：业主清单里 **3 条查无此物**（`legal-database` / `china-law-search` / `policy-monitor`）、
+  3 条半真（`GovPing`、`@sanmis/crawler` 是"npm 包在、声明的源码仓 404"；`RegRadar` 8+ 个同名仓无权威）、
+  1 条正文取不到（ClawHub 的 SPA）⇒ **业主初研里那批"未核实"确实不能当前提**，本轮的核实有价值。
+- **许可红线**（只抄思路、**不抄代码**）：`GBMCP` 根目录**没有 LICENSE 文件**（只在 pyproject 写 MIT）、
+  `urlwatch` NOASSERTION+raw LICENSE 404；`OpenSTD_Spider` 是 **GPL-3.0（有传染性）**。
+- **别当资产**：`gb688_downloader` 停更 6 年 3 个月；`gbqw` 是 WebView 收藏夹（作者自己写"用浏览器收藏夹
+  效果一样 QAQ"）⇒ 建议从调研清单剔除。另：**没有任何项目用付费打码平台**，全是本地 `ddddocr`。
+- **可抄技巧（3 条）**：① `viewGb?type=online&hcno=` + **iPad UA** + 10 段 base64 拼接后整体解码
+  （绕开验证码+精灵图+OCR，**2020 年实测、需复验**）；② **重定向逐跳复检 + WHATWG 编码嗅探**
+  （BOM→meta→chardet，治 gb18030 站乱码；正好补 `is_private_url` 只在发起前判一次的缺口）；
+  ③ **"洗内容 + 洗差异"两段式 + 易变文本双正则屏蔽**（治"公告页时间戳抖动 → 误判 new_version"）。
 
 ## §7 待业主裁定
 
