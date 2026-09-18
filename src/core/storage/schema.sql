@@ -598,3 +598,51 @@ CREATE VIRTUAL TABLE IF NOT EXISTS material_fts USING fts5(
     tokenize = 'ascii'
 );
 
+-- ── 渠道台账（2026-09-18，§11.0 R2）────────────────────────────────────────────
+-- 为什么要有这张表：巡检的"渠道"过去只活在两处——代码里的适配器
+-- （`update/channels/*`，用户看不见）与公告源 JSON（`announce.py`，只有它能被维护）。
+-- 业主诉求 = 前端能看到**每个**渠道的链接 / 有效性 / 上次成功查询，方便人工维护。
+--
+-- ⚠ 四个字段**刻意分开**（合起来就是"拿一个数字骗自己"，R1 的 G5/G6 是实证）：
+--   wiring       接线状态：wired（在 routing 链上）| unwired（注册了但永不被探测）
+--                | broken（在链上但**实测恒 miss**，如 web/govcn）| user（用户自加，公告源）
+--                | seed_only（调研得来、尚未接线）
+--                ⇒ 「13 个适配器」是**注册数**；只有 wiring=wired 才是能力数。
+--   verification 研究期实测结论（verified|unverified|broken）——来自研究文档，**冻结的证据**
+--   state        运行期健康度（unknown|ok|suspicious|down）——R3 的语义探针写入
+--                ⚠ `suspicious` 专给"HTTP 200 但没有预期内容"（应急部标准页仅 465B、
+--                bzw 列表页写"共0条"、住建部/ccsa/cesa 是 JS 壳）——只看状态码会判成健康。
+--   enabled      人工开关（维护渠道用）
+CREATE TABLE IF NOT EXISTS update_channel (
+    channel_id      TEXT PRIMARY KEY,
+    name            TEXT NOT NULL,
+    category        TEXT NOT NULL,                    -- canonical（channel_repo.CATEGORIES）
+    category_raw    TEXT,                             -- 调研文档里的原始写法（证据，不丢）
+    url             TEXT,
+    fetch_kind      TEXT,                             -- json|html|pdf|rss|js_shell|search|unknown
+    list_endpoint   TEXT,
+    params_json     TEXT,                             -- 分页/检索参数原样留档
+    answers_json    TEXT,                             -- JSON 数组：发布/修订/废止/现行性/编号核验
+    covers          TEXT,
+    gaps            TEXT,
+    wiring          TEXT NOT NULL DEFAULT 'seed_only',
+    verification    TEXT NOT NULL DEFAULT 'unverified',
+    state           TEXT NOT NULL DEFAULT 'unknown',
+    probe_url       TEXT,                             -- 语义探针目标（R3）
+    probe_expect    TEXT,                             -- 探针必须命中的锚点
+    enabled         INTEGER NOT NULL DEFAULT 1,
+    last_try_at     TEXT,
+    last_ok_at      TEXT,
+    last_error      TEXT,
+    last_error_code TEXT,
+    consecutive_failures INTEGER NOT NULL DEFAULT 0,
+    latency_ms      INTEGER,
+    source_file     TEXT,                             -- 研究文档出处（回查证据）
+    note            TEXT,
+    created_at      TEXT NOT NULL DEFAULT (datetime('now')),
+    updated_at      TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+CREATE INDEX IF NOT EXISTS idx_channel_cat ON update_channel(category, state);
+CREATE INDEX IF NOT EXISTS idx_channel_wiring ON update_channel(wiring, enabled);
+

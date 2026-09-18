@@ -177,6 +177,16 @@
   （`sft.sh.gov.cn`→正确是 `sfj.sh.gov.cn`、`rd.gd.cn` 只有 http、浙江政府重定向桩）。
   ⇒ 面板上的"不可抓"必须**带原因码**，人工维护才知道该等它修复还是该换渠道。
 
+**G23（R2 落地时发现，父代理已复核代码）接线名字不一致 ⇒ 该渠道被静默跳过**：
+`ADAPTER_CLASSES` 的键是 `"ttzb"`（`channels/__init__.py:53`，取自文件名 `ttzb.py`），
+而适配器自己的 `name = "ttbz"`（`ttzb.py:96`），`routing._PREFIX_ROUTE` 里写的也是 `"ttbz"`；
+`inspector._build_adapters` 按**键**建字典（`inspector.py:402-405`），`_probe_number` 按
+`select_chain()` 的**值**去查（:343、:349）⇒ 查 `ttbz` 查不到 ⇒ **团体标准这一路永远走不到专用渠道**，
+而且因为查不到时是继续下一棒（不抛），**现场只会表现为"没搜到"**。
+⇒ 已写进渠道种子（`ch:ttbz` 的 `wiring='broken'` + 原因），并有用例守着
+（`tests/test_channel_repo.py::TestShippedSeed::test_接线名字不一致的渠道在种子里被标出来`）。
+**修法留给 R2.5**（与"两根死兜底棒"同一批：都是"在链上但实际不工作"）。
+
 ## §2 目标态（可验收的形状）
 
 1. **渠道台账（channel registry）**：每个渠道一条记录，至少含
@@ -228,7 +238,8 @@
 | 轮 | 内容 | 交付物（磁盘） | 退出判据 |
 |---|---|---|---|
 | **R1**（进行中） | ①内部拆解：13 适配器 + `law_source/*` 的端点/参数/清洗/失败语义 → 覆盖清单；②外部核实：法规类渠道；③外部核实：标准类渠道（含 31 省地标）；④项目/Skill 代码级拆解 | `docs/research/channels/internal-inventory.md`、`law-cn.md`、`std-cn.md`、`oss-decomposition.md` | 四份文件齐；每渠道/项目都有 §3 格式记录；未核实的显式标注 |
-| **R2** | 台账**数据模型**：`channel` 表（或 app_config JSON，与公告源同源策略）+ 从 13 适配器 + 公告源**迁移/对齐**；只读 API。⚠ **R1 已证明"注册数 ≠ 能力数"**（G5/G6）⇒ 台账必须有一个字段区分 `已接线/未接线/已知失效`，否则面板第一版就在虚报。⚠ 另需**类别词表归一**：`registry.seed.json` 里 131 条记录带 **30 种**类别写法（`行标`/`行业标准`/`部委行业标准公告`/`法律法规`/`法律`…）⇒ 必须定一份 canonical enum 并写映射（否则面板筛选形同虚设） | 迁移脚本 + `channel_repo.py` + 用例 | 库里能看到 131 条记录（去重后）且**每条带接线状态 + 归一类别**；公告源不丢；`pytest` 只涨不跌 |
+| **R2a** ✅（2026-09-18 完成） | 台账**数据模型 + 种子 + 仓储 + 用例**：`update_channel` 表（schema.sql）；`src/core/storage/channel_repo.py`（类别归一/CRUD/健康度三态/种子导入）；`src/core/update/channel_seed.json`（131 条，wiring **由 routing 反查**得出） | 上列三件 + `tests/test_channel_repo.py`（**41 用例**） | ✅ 131 条入种子、类别收敛到 9 个 canonical、`wiring` 五态、**两根死棒标 broken**、种子导入不覆盖健康度、`pytest 1883/3/0`、`mypy 136/0`、smoke EXIT=0 |
+| **R2b**（未做，下一轮） | **只读 API + 真机落库**：`GET /api/v1/channels`（`def`，走线程池）+ `POST /api/v1/channels/seed`；把种子灌进真机库并核对条数 | 端点 + 用例 | 真机库里能看到 131 条且 `summary().by_wiring.wired` 只有 5 |
 | **R2.5**（R1 新增，**建议先于 R5**） | **修两根死兜底棒**：给 `web`/`govcn` 补真实 HTML 解析（或如实降级为"仅 mock 可用"并从覆盖率里剔除）；顺带把 G8 的伪协议证据链接归一 | 适配器改动 + 契约用例（喂真实 HTML 片段） | 用**真 HTML 响应**（离线 fixture）验证能解析出条目；否则状态标"失效"且不计入覆盖率 |
 | **R3** | **渠道健康探针**：探活（HTTP + 语义探针"抓到的页面里有没有预期的锚点"）、`last_success/last_error/consecutive_failures/latency` 落库；失败原因归类 | `channel_probe.py` + 用例 + 真机跑一次全渠道 | 至少 1 次真机全渠道探测结果落库；失败的有可操作原因 |
 | **R4** | **宿主路由 + 前端面板**：表格（链接/类别/有效性/上次成功/失败原因/备注）+「立即探测」+ 增删改 | `/ks/channels*` + `KsChannelsPanel.tsx` + smoke | 真机 CDP 截图：面板可见、能探测、能编辑 |
@@ -313,6 +324,24 @@
 
 ⇒ **R1 的退出判据满足**：四份文件齐、每渠道/项目都有统一格式记录、未核实的显式标注。
 **下一步进 R2**（读 `registry.seed.json` 而**不读**那 4000+ 行散文）。
+
+#### R2a（2026-09-18 完成，同一轮）
+- **表**：`update_channel`（`schema.sql`）——`wiring`/`verification`/`state` 三列**刻意分开**
+  （注册数、研究期实测、运行期健康度），另有 `category_raw`（保留调研原文，不丢证据）、
+  `probe_url`/`probe_expect`（留给 R3）、`last_try_at` **与** `last_ok_at` 分开。
+- **仓储**：`src/core/storage/channel_repo.py`——`CATEGORIES` 9 个 canonical + `_CATEGORY_MAP`
+  （把 R1 的 30 种写法穷尽映射）、`upsert_channel`（未知字段**抛错**、不许拼错静默丢）、
+  `record_probe`（**三态**：`ok` 清零 / `down`·`suspicious` 记失败计数 / `unknown` 只记"试过"）、
+  `summary()`（**把注册数与能力数分开报**）、`load_seed`/`seed_channels`（幂等 + 默认不覆盖健康度）。
+- **种子**：`src/core/update/channel_seed.json`（131 条）——`category` 已归一，
+  `wiring` **由 `routing.py` 反查**（不是抄研究文档）：`wired 5 / broken 3 / unwired 10 / seed_only 113`。
+  ⚠ `broken` 那 3 条正是本轮的实证缺陷：`web`、`govcn`（恒 miss）+ `ttbz`（G23 名字不一致）。
+- **用例**：`tests/test_channel_repo.py`（**41 条**）。写这组用例时**先踩了一个坑**：
+  测试库 data_dir 是会话级共享的，用例之间互相污染 ⇒ 第一轮 7 条假红（是测试隔离问题，
+  **不是产品代码**），加了 autouse 清表 fixture 后 41/41。
+- **门禁**：`pytest` **1883 passed / 3 skipped / 0 failed**（1842 → +41，正好是新用例数）、
+  `mypy` **136/0**（+1 新模块）、smoke **EXIT=0**（客户端本轮未改）。
+- **没做**（留给 R2b）：只读 API + 把种子灌进真机库。
 
 **⚠ 由 R1 得出的一个待业主确认的取舍**（比"修旧棒还是换新棒"更根本）：
 `web`（bing 泛查）与 `govcn`（gov.cn 搜索）这两根"兜底棒"**今天在真实网络下恒 miss**（G6），
