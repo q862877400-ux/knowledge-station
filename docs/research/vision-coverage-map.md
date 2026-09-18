@@ -20,7 +20,7 @@
 | 8 | **规范条文自动检查**（合规核查自动化） | **施工图智能审查**：广联达 BIM、中设数字、**政府侧**（上海住建委智能审查流程） | 行业成熟品类，政府推动 | ❌ 不自研（BIM 域，重） |
 | 9 | **巡检 / 变更监控 / 告警** | 商业：工标库（短信追踪）、中国标准在线（行业推送+标准跟踪）；开源：**changedetection.io / urlwatch / Huginn**（R1 已代码级拆解，见 `oss-decomposition.md`） | 开源监控**通用**（"页面变了没"），标准语义要自己做 | ✅ 开源件可用（我们已自研同构的巡检） |
 | 10 | 义务清单 / 检查表 / 整改闭环 / 培训 | **赛为 AI 合规智审**、**Benchmark Gensuite**（RegTracker + CAPA + LMS + Genny AI/MCP） | 成熟品类，通常**软件+咨询+培训**打包 | ❌ 不自研（我们的子集，且是管理流程） |
-| 11 | 个人知识库体验（收藏/笔记/双链/术语） | **Obsidian / 思源(SiYuan) / Logseq**；工标库（收藏+笔记+术语库 10 万） | 极成熟 | ✅ **直接用** |
+| 11 | 个人知识库体验（收藏/笔记/双链/术语）**+ 台账/数据库** | **思源(SiYuan) 46419★**：块级引用+双向链接、**PDF 注释锚点 `assets/x.pdf?page=2&box=<id>`**、**属性视图(数据库)一整套 `/api/av/*`**、**自带 CLI（无需服务、可搜 PDF 内部）**；Obsidian / Logseq；工标库（收藏+笔记+术语库 10 万） | 极成熟，且**连"可维护台账"都是现成的** | ✅ **直接用**；⚠ 思源是 **AGPL-3.0**——自用无碍，嵌进要卖的交付物有义务（见 §六.1） |
 | 12 | 交付物（报告 / PPT） | Marp / Slidev / python-pptx（**待验证**）；WeKnora 有 Wiki 生成 | 通用件成熟 | ✅ 通用件可用 |
 | 13 | 检索质量评估（基线门禁） | **RAGAS / DeepEval / TruLens**（**待验证**）；WeKnora 有评估页 | 通用件 | ✅ 通用件可用 |
 | 14 | **只引现行版 + 数值/条款核对 + 三段式取证 + 未核验不得承重 + 外发留痕** | **部分**：北大法宝 MCP 有"禁止凭记忆/时效标注/核验闭环"；**数值级核对**（如 ≥12m vs GB 51283 第 4.2.9 条 ≥25m）**没找到专门产品** | 纪律类，散落在各家 | ⚠ **这一块仍是我们最该守的**（见 §三） |
@@ -67,9 +67,11 @@
 | **Marp / Slidev** | 报告→PPT 的现成链路 | 交付物是否还需自研 |
 | **aihse.cn**（EHS 网的 AI 产品） | 它做到哪一步（是否已含标准引用核对） | 垂直 AI 的直接对手 |
 
-> **本轮（第五轮）已一手关闭**：RAGFlow（§五.1 L4）、Open WebUI（§五.1 L1+L2）、AnythingLLM（§五.3）、
+> **第五轮已一手关闭**：RAGFlow（§五.1 L4）、Open WebUI（§五.1 L1+L2）、AnythingLLM（§五.3）、
 > Zotero MCP 生态四家（§五.4），以及**新发现**的 `chinese-law-mcp` / `chinese-law-corpus` / 法脉 LawPulse（§五.2）。
-> **仍未验证**：思源/SiYuan、ZotLit、Dify/FastGPT/MaxKB、RAGAS/DeepEval、Marp/Slidev、aihse.cn。
+> **第六轮已一手关闭**：思源 SiYuan 当宿主（§六.1）、RAGAS 指标可用面（§六.2）、Marp/Slidev/python-pptx 交付链（§六.3）、
+> aihse.cn（正文抓不到，但赛道形态已看清，§六.4）。
+> **仍未验证**：ZotLit、Dify/FastGPT/MaxKB、DeepEval（RAGAS 的替代/补充）。
 
 ## 五、第五轮一手验证：引用定位粒度 + 法规侧 + MCP 生态
 
@@ -138,7 +140,67 @@
 - **新增一条自用捷径**：个人使用时，法规可直接 `npx chinese-law-mcp` 接进 DSH，
   **不写一行采集代码**就能得到 412 部法律逐条 + 可引用链接（标准侧仍需 GBMCP 或我们自研）。
 
-## 六、边界（诚实）
+## 六、第六轮一手验证：思源当宿主 / RAGAS 当门禁 / 交付链 / aihse
+
+### 1. 思源（SiYuan）：**"自用宿主"最强候选，而且它把"台账"也做完了**
+
+一手事实（读 README、`docs/API.zh-CN.md` 2905 行、`docs/SKILL-MANAGER.zh-CN.md`、仓库测试断言；未安装未运行）：
+
+| 事实 | 证据 |
+|---|---|
+| 46419★、**AGPL-3.0**、TypeScript、2026-09-18 仍在更新；自述「隐私优先、自托管的知识工作空间，让人与智能体协作」 | `gh api repos/siyuan-note/siyuan` |
+| **块级引用 + 双向链接**、自定义属性、**PDF 注释链接**、数据库（属性视图） | 仓库 README 功能清单 |
+| **PDF 注释锚点格式 = `assets/x.pdf?page=2&box=<boxID>`** | `kernel/model/asset_reference_test.go`：`TextMarkAHref: "assets/link.pdf?page=2&box=20260812000000-source0"`；`{MAsset: []*av.ValueAsset{{Content: "assets/file.pdf?page=3&box=" + sourceBoxID}}}` |
+| **属性视图是一整套 API**：`getAttributeView`/`addAttributeViewBlocks`/`removeAttributeViewBlocks`/`addAttributeViewKey`/`removeAttributeViewKey`/`setAttributeViewBlockAttr`/`searchAttributeView`/`setAttributeViewFilters`/`setAttributeViewSorts`/`setAttrViewGroup`/`renderAttributeView`/`getAttributeViewPrimaryKeyValues` | `docs/API.zh-CN.md` 的 `/api/av/*` 清单 |
+| 另有 `/api/query/sql`（对块直接 SQL）、`/api/attr/setBlockAttrs`、`/api/block/getBlockKramdown`、`/api/asset/upload` | 同上 |
+| **自带 CLI，无需运行服务**：`siyuan search "phrase" --asset --ext pdf --ext docx -w ~/SiYuan`（**能搜 PDF 内部**）、`siyuan export md --id <block-id>`，内容组含 `block`/`attr`/`outline`/`database` | README 的 CLI 段 |
+| 公开/内部 API 有明确边界：只有文档里单列的接口算公开 API，其余内核路由与 `/api/transactions` 不承诺稳定；路由声明由 `app/src/types/api/index.d.ts` 生成 | `docs/API.zh-CN.md` + `docs/API-CONTRACTS.md` |
+| **技能管理**：管理工作空间 `data/storage/ai/agent/skills/<目录>/SKILL.md`，并把 **`~/.agents/skills` 的外部技能列为只读可启用** | `docs/SKILL-MANAGER.zh-CN.md` |
+
+⇒ 三条对我们的直接后果：
+
+1. **目标②（台账可见 + 人工可维护）不需要自研 UI**：思源的属性视图 = 带类型键、过滤、排序、分组的原生表格，
+   而且**一整排 API 都能程序化写**；一行还能装 `assets/x.pdf?page=3&box=<id>` 这种**页+框锚点**。
+   我们的「渠道台账」字段（链接/有效性/上次成功/失败原因）**逐列对应一个 key**。
+2. **`~/.agents/skills` 是跨工具约定**：思源会把自己的工作空间技能和 `~/.agents/skills` 的外部技能并列管理；
+   我们给 DSH 写的 skill，思源**本来就能发现**——技能资产是可迁移的。
+3. **AGPL-3.0 是"卖出去"的硬约束**：把思源嵌进交付物会触发 AGPL 义务。
+   若要走商业化，思源只能作为**用户自装的宿主**，我们交付 skill / 插件 / 数据（数据本身不是思源的衍生作品）。
+
+### 2. RAGAS：指标很全，但**能当"门禁"的只有确定性那一半**
+
+一手（官方文档 Available Metrics 目录页）：LLM 裁判类含 `Faithfulness`、`Context Precision/Recall`、
+`Context Entities Recall`、`Noise Sensitivity`、`Response Relevancy`、`Factual Correctness`、
+`Rubrics Based Scoring`、`Aspect Critic`、`Topic Adherence`、`Tool Call Accuracy/F1`、`Agent Goal Accuracy`；
+**确定性非 LLM 类**含 `Non-LLM String Similarity`、`BLEU`、`CHRF`、`ROUGE`、`String Presence`、`Exact Match`；
+另有 Test Data Generation（RAG testset / KG 构建 / 场景生成）与 Optimizers。
+
+⇒ 对号入座：我们最硬的「**数值/条款级核对**」本质是 **String Presence / Exact Match**（确定性、可复现、**能当门禁**）；
+而「三段式取证」更像 `Rubrics Based Scoring` / `Aspect Critic`（**LLM 裁判，不确定，只能当评测不能当硬门禁**）。
+所以 RAGAS **不能整体替代**我们的 Golden Set：它是评测工具，不是判定权威。
+
+### 3. 交付链（§四 那几行可以关闭）
+
+`marp-team/marp-cli` 3826★ MIT；`slidevjs/slidev` 48735★ MIT；`scanny/python-pptx` 3535★ MIT。
+**报告→PPT 是 MIT 通用件，无需自研。**
+
+### 4. aihse.cn：**静态抓取取不到正文**，但赛道形态看清楚了
+
+- Jina Reader 只返回标题「首页-AI·HSE环健安智慧平台」，正文为空（SPA）；该域可索引内容很弱。
+- 用 Exa 搜同主题，头部结果是**赛为安全**（`safewaynt.com`）的方案页，一手读到它的能力构成：
+  EHS 知识库（覆盖安全生产规范/隐患排查标准/应急处置流程/典型事故案例）+ AI 问答、**AI 一键生成风险/培训/隐患分析报告**、
+  **视频与 AI 识别 → 隐患治理闭环**、心理健康监测、证照 OCR 录入、有限空间作业监测、智能安全带监测；
+  并引用《关于深入实施"人工智能+"行动的意见》（国发〔2025〕11号）。
+⇒ 这个赛道的能力重心是 **IoT/视频 + 报告生成 + 隐患闭环**（卖的是硬件+管理流程），
+**没有条款级引用核对**——对 §三 三件事**没有新增压力**。
+
+### 5. 本轮对结论的影响
+
+- **目标②的"自研台账 UI"可以降级为"接思源属性视图"**（但商业路径受 AGPL 限制，见 §六.1）。
+- RAGAS 只借用其**确定性指标**做回归门禁；LLM 裁判类只能当评测面板。
+- §三 三件事**继续未被撼动**：本轮依然没有一家做数值/条款级核对、材料评审门、可核验覆盖率。
+
+## 七、边界（诚实）
 
 - 本矩阵里"已实现者"只有 §一 那些**我亲自读过一手材料**的；
   标"待验证"的一律**没读**，不得当成结论引用；
@@ -150,3 +212,9 @@
 - `chinese-law-corpus` 我核实的是**存在性与结构**（tree/README/示例 JSON），**没有逐条抽查条文正确性**；
   它的 CC0 自我声明与 GitHub 的 `NOASSERTION` 并存，**法律上未闭合**，商用前需自行确认。
 - Zotero 生态的四条能力也全部是 **README/工具表自述**，我没装任何一家、没跑过一个工具。
+- §六 的思源部分：我读的是 README / `docs/API*.md` / `docs/SKILL-MANAGER*.md` / 仓库测试断言，
+  **没装、没跑、没连过它的 API**；`?page=&box=` 的语义来自仓库里的**测试断言**，未在真实 PDF 上验证。
+- §六 的 RAGAS 部分只读了官方文档的**指标目录页**，没读实现、没跑过任何指标；
+  「LLM 裁判类 vs 确定性类」是我按指标定义归的类，不是文档里的原文分类。
+- aihse.cn 我**没能读到正文**（SPA，Jina 返回空）；该条结论来自同主题搜索命中的赛为页面，
+  属**厂商自述**，不能当作 aihse.cn 自身能力的证据。
