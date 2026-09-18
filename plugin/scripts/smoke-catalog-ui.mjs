@@ -161,6 +161,70 @@ const panelMod = await loadModule('client/KsMaterialsPanel.tsx')
     (src.match(/revokeObjectURL/g) ?? []).length >= 2 && /120_000/.test(src))
 }
 
+/* ------------------------------------------- D. 渠道台账面板（§11.0 R4b） */
+{
+  const chan = await loadModule('client/KsChannelsPanel.tsx')
+  const { describeWhen, needsAttention, sortChannels } = chan
+
+  check('KsChannelsPanel 导出了 describeWhen / needsAttention / sortChannels',
+    [describeWhen, needsAttention, sortChannels].every((f) => typeof f === 'function'))
+
+  // D1 ⚠ UTC 解析：SQLite 的 datetime('now') 是 **UTC 且无时区标记**，
+  //    直接 new Date() 会按本地时区解析（差 8 小时）⇒ 这里必须补 Z。
+  const now = Date.parse('2026-09-18T05:00:00Z')
+  check('describeWhen：UTC 串按 UTC 解析（04:47 距 05:00 应是 13 分钟前）',
+    describeWhen('2026-09-18 04:47:00', now) === '13 分钟前',
+    describeWhen('2026-09-18 04:47:00', now))
+  check('describeWhen：空值 → —（不许显示 Invalid Date）', describeWhen(null) === '—')
+  check('describeWhen：已带时区的串不再补 Z',
+    describeWhen('2026-09-18T04:47:00Z', now) === '13 分钟前')
+  check('describeWhen：小时/天粒度',
+    describeWhen('2026-09-18 03:00:00', now) === '2 小时前'
+    && describeWhen('2026-09-16 05:00:00', now) === '2 天前')
+
+  // D2 需要关注的行：接线坏 / 不可抓 / 可疑 / 有连续失败
+  const base = {
+    channel_id: 'c', name: 'n', category: 'law', wiring: 'wired',
+    verification: 'verified', state: 'ok', enabled: 1, consecutive_failures: 0,
+  }
+  check('needsAttention：一切正常 → false', needsAttention(base) === false)
+  check('needsAttention：wiring=broken → true（在链上但实测不工作）',
+    needsAttention({ ...base, wiring: 'broken' }) === true)
+  check('needsAttention：state=down / suspicious → true',
+    needsAttention({ ...base, state: 'down' }) === true
+    && needsAttention({ ...base, state: 'suspicious' }) === true)
+  check('needsAttention：有连续失败 → true',
+    needsAttention({ ...base, consecutive_failures: 2 }) === true)
+  check('needsAttention：仅登记且未探 → false（不是问题，只是还没接）',
+    needsAttention({ ...base, wiring: 'seed_only', state: 'unknown' }) === false)
+
+  // D3 排序：有问题的排前面（人工维护要从"有问题的那几条"看起）
+  const rows = [
+    { ...base, channel_id: 'ok1', name: '正常甲' },
+    { ...base, channel_id: 'bad1', name: '坏了乙', wiring: 'broken' },
+    { ...base, channel_id: 'bad2', name: '可疑丙', state: 'suspicious' },
+  ]
+  const ordered = sortChannels(rows).map((r) => r.channel_id)
+  check('sortChannels：有问题的排前面', ordered[0] !== 'ok1' && ordered[2] === 'ok1',
+    ordered.join(','))
+  check('sortChannels：不改原数组（返回新数组）',
+    rows[0].channel_id === 'ok1' && sortChannels(rows)[0].channel_id !== 'ok1')
+
+  // D4 面板接线：懒加载门 + 摘要两个数都显示 + 两列分列 + UTC 标注（写法级窄判据）
+  const src = await readFile(join(pluginRoot, 'client', 'KsChannelsPanel.tsx'), 'utf8')
+  check('懒加载门：visible=false 时不请求（与其它面板同契约）',
+    /if \(!visible\) return undefined/.test(src))
+  check('摘要同时显示台账条数与能力条数（wired）',
+    src.includes('s.by_wiring.wired') && src.includes('s.total'))
+  check('接线与有效性**分列**（不许合成一个"有效"）',
+    src.includes('WIRING_LABEL') && src.includes('STATE_LABEL'))
+  check('时间列显式标注 UTC', src.includes('last_ok_at') && /UTC/.test(src))
+  const settingsSrc = await readFile(join(pluginRoot, 'client', 'KsSettingsSection.tsx'), 'utf8')
+  check('设置区挂了「渠道台账」类目（懒加载门由 details 驱动）',
+    /title="渠道台账"/.test(settingsSrc)
+    && /<KsChannelsPanel visible=\{channelsOpen\}/.test(settingsSrc))
+}
+
 const failed = results.filter((r) => !r.ok)
 console.log(`\n== catalog-ui smoke ${failed.length === 0 ? 'PASS' : 'FAIL'} `
   + `(${results.length - failed.length}/${results.length}) ==`)

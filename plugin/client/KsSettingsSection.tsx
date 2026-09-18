@@ -63,6 +63,7 @@ import {
 } from './api'
 import { KsReportPanel } from './KsReportPanel'
 import { KsMaterialsPanel } from './KsMaterialsPanel'
+import { KsChannelsPanel } from './KsChannelsPanel'
 import { KsIngestPanel } from './KsIngestPanel'
 import {
   KS_PREFS_DEFAULT,
@@ -162,6 +163,7 @@ export function KsSettingsSection(props: KsSettingsSectionInjected): JSX.Element
   const [arrowOpen, setArrowOpen] = useState(false)
   const [reportOpen, setReportOpen] = useState(false)
   const [materialsOpen, setMaterialsOpen] = useState(false)
+  const [channelsOpen, setChannelsOpen] = useState(false)
   const [ingestOpen, setIngestOpen] = useState(false)
   const [inspectionOpen, setInspectionOpen] = useState(false)
   const [inspectionOpenedOnce, setInspectionOpenedOnce] = useState(false)
@@ -231,6 +233,17 @@ export function KsSettingsSection(props: KsSettingsSectionInjected): JSX.Element
         hint="上传的财报/制度/文章在这里逐份评审——只有「已批准」的材料会进入作答与产出物"
       >
         <KsMaterialsPanel visible={materialsOpen} />
+      </KsCategory>
+
+      {/* 渠道台账（§11.0 R4b）：巡检"渠道"的可见面——链接 / 接线 / 有效性 / 上次成功查询。
+          放在「参考资料」下面：两者都是"库里的东西要人工维护"的管理台（评审门 / 渠道门）。 */}
+      <KsCategory
+        title="渠道台账"
+        open={channelsOpen}
+        onToggle={setChannelsOpen}
+        hint="巡检用到的每条渠道：链接、接线状态、有效性实测、上次成功查询——方便人工维护"
+      >
+        <KsChannelsPanel visible={channelsOpen} />
       </KsCategory>
 
       <KsCategory

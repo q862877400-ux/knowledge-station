@@ -167,6 +167,103 @@ export async function fetchExportBlob(name: string, signal?: AbortSignal): Promi
   return res.blob()
 }
 
+/* ---------------------------------------------------------------- 渠道台账（§11.0 R4b） */
+
+/**
+ * 渠道台账走**同源宿主路由**（`/ks/channels`），不直连引擎。
+ *
+ * 为什么与上面那个"直连引擎取产物"不同：探针会**对外发请求**（访问二十多个政府站），
+ * 必须留在宿主侧受控——谁探了哪个站、探几次、带什么 Referer 都由宿主说了算；
+ * 浏览器侧发起则完全不受控，且 `Referer/Origin` 会带上 GUI 地址（对反爬是无谓信号）。
+ */
+export interface KsChannelRecord {
+  channel_id: string
+  name: string
+  /** canonical 类别：law/std_gb/std_hb/std_db/std_tb/std_intl/aggregator/tool/internal/other */
+  category: string
+  /** 研究文档里的原始写法（证据，可能与 canonical 不同） */
+  category_raw?: string | null
+  url?: string | null
+  fetch_kind?: string | null
+  /** 接线状态：wired（在巡检链上）/unwired/broken/user/seed_only */
+  wiring: string
+  /** 研究期实测结论：verified/unverified/broken */
+  verification: string
+  /** 运行期健康度：unknown/ok/suspicious/down */
+  state: string
+  enabled: number
+  last_try_at?: string | null
+  last_ok_at?: string | null
+  last_error?: string | null
+  last_error_code?: string | null
+  consecutive_failures: number
+  latency_ms?: number | null
+  note?: string | null
+}
+
+/** `summary()` 的形状：**台账条数与能力数刻意分开**（R1 的 G5/G6 教训）。 */
+export interface KsChannelSummary {
+  total: number
+  by_wiring: Record<string, number>
+  by_state: Record<string, number>
+  enabled: number
+}
+
+export interface KsChannelList {
+  summary: KsChannelSummary
+  items: KsChannelRecord[]
+}
+
+/** `GET /ks/channels`（宿主白名单转发；未知参数会被宿主丢弃）。 */
+export async function fetchChannels(
+  params: {
+    category?: string; wiring?: string; state?: string
+    enabledOnly?: boolean; limit?: number
+  } = {},
+  signal?: AbortSignal,
+): Promise<KsChannelList> {
+  const qs = new URLSearchParams()
+  if (params.category) qs.set('category', params.category)
+  if (params.wiring) qs.set('wiring', params.wiring)
+  if (params.state) qs.set('state', params.state)
+  if (params.enabledOnly) qs.set('enabled_only', 'true')
+  if (params.limit !== undefined) qs.set('limit', String(params.limit))
+  const suffix = qs.toString()
+  const res = await fetch(`/ks/channels${suffix ? `?${suffix}` : ''}`, {
+    method: 'GET', headers: { accept: 'application/json' }, signal,
+  })
+  return ksJson<KsChannelList>(res, '渠道台账')
+}
+
+export interface KsChannelProbeResult {
+  probed: number
+  results: Array<{
+    channel_id: string; state: string; error_code?: string | null
+    error?: string | null; latency_ms?: number | null; http?: number | null
+  }>
+  counts: Record<string, number>
+  without_target: string[]
+  summary: KsChannelSummary
+}
+
+/**
+ * `POST /ks/channels/probe` —— **立刻探一遍**（人工动作）。
+ *
+ * ⚠ 省略 `ids` 时只探**配了探针目标的**渠道（今天 28 条），不会盲探 131 条；
+ * ⚠ 单条最长 20s、宿主总超时 150s ⇒ 界面侧不要再套更短的超时（那会把慢站点判成失败）。
+ */
+export async function runChannelProbe(
+  ids?: string[], signal?: AbortSignal,
+): Promise<KsChannelProbeResult> {
+  const res = await fetch('/ks/channels/probe', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify(ids && ids.length > 0 ? { ids, persist: true } : { persist: true }),
+    signal,
+  })
+  return ksJson<KsChannelProbeResult>(res, '渠道探测')
+}
+
 export interface BboxSpan {
   page_number: number
   bbox: number[]
