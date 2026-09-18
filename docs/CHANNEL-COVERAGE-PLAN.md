@@ -582,3 +582,33 @@ transport 重测 5 条失败 + 2 条已知 ok 的对照。**结果与走代理�
 ③ 或退而用 `std.samr.gov.cn`（行标目录，已 `ok`）覆盖 AQ 的状态核验——因为 `routing` 本来
 就把 AQ 路由到 `ndls` 而不是 `mem_gov`（R1 的 G9），所以**这条渠道今天的实际影响有限**，
 不必为此阻塞其它轮次。
+
+---
+
+### R5b（2026-09-18 完成）：**govcn 换棒** —— 三棒降级链从"只有一根在工作"变成"两根"
+
+**改法**（`src/core/update/channels/govcn_announce.py`）：旧实现只解 `isinstance(body, dict)`
+（mock 契约），而它打的 `sousuo/…/search.shtml` 是 **HTML 搜索页** ⇒ 真实网络**恒 miss**（R1 的 G6）。
+换成政策文件库的**真 JSON 接口** `GET https://sousuo.www.gov.cn/search-gov/data?t=zhengcelibrary&q=…`，
+并**复用** `law_source/govcn_client.parse_rows` 做解析（响应形状的唯一所有者，不在本文件再抄一份
+字段映射）；mock 分支保留（离线 fixture 仍走它）。另外 `_pick` 现在**同时看标题与摘要**——
+真接口按 `searchfield=content` 检索时，命中通常落在 `summary` 里，只看标题会把真命中判成 miss。
+
+**真机验证**（`var/tmp/verify-govcn-swap.py`，不是 stub）：
+
+| 查询 | 结果 |
+|---|---|
+| `安全生产法` | **命中**：`found=True`、`evidence_url=https://www.gov.cn/zhengce/202609/content_7080621.htm` |
+| `GB/T 30871-2022` / `AQ 3028-2008` | 未命中（政策库不索引标准号） |
+
+⇒ **诚实的能力边界**（写进台账 note）：这根棒现在答的是"**政策文件库里有没有提到 X**"，
+不是"这个标准号现行吗"。法规类管用，标准号基本查不到——但**总比"恒 miss"强**，
+而且它本来就只是**第三棒兜底**。
+
+**台账口径随之更新**：`wired 6 → 7`、`broken 2 → 1`（只剩 `web`）。
+⚠ 我**同时改了那条断言**：原用例写的是"`web` 与 `govcn` 都必须是 broken"——换棒之后若还这么断言，
+等于"宁可显示失效也不承认修好了"，那同样是虚报（只是方向相反）。现在钉的是
+**`web` 仍 broken + `govcn` 已 wired 且 note 写明了能力边界**。
+`ch:govcn` 的探针目标也改成真接口（锚点 `searchVO`，真机探针 `ok` / 1027ms）。
+**门禁**：pytest **1918 passed / 3 skipped / 0 failed**、mypy **138/0**；
+本步**没动客户端**（tsc/smoke 与上一步同状态，故未重跑）。

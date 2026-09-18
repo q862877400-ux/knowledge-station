@@ -277,16 +277,20 @@ class TestShippedSeed:
         for r in rows:
             assert r["category"] in cr.CATEGORIES, f"{r['channel_id']} 类别非法：{r['category']}"
 
-    def test_两根死兜底棒在种子里是_broken(self):
-        """R1 的 G6（父代理已复核代码）：web/govcn 只解 mock 的 dict，真实 HTML 恒 miss。
+    def test_死兜底棒在种子里是_broken_修好的那根是_wired(self):
+        """R1 的 G6 抓出**两根**死兜底棒；R5b（2026-09-18）把 `govcn` 换成了真接口
+        （政策文件库 `search-gov/data`，真机实测「安全生产法」能命中）⇒ 只剩 `web` 是死的。
 
-        若哪天有人把它们改回 wired，这条会红 —— 那时必须同时改掉本用例并说明
-        "真实 HTML 解析已经补上了"（不许悄悄改口径）。
+        ⚠ 这条用例的判据**被有意改过一次**：原来断言 `ch:web` 与 `ch:govcn` **都**是 broken；
+        换棒之后若还这么断言，就等于"宁可台账显示失效、也不承认修好了"——那同样是虚报，
+        只是方向相反。所以现在钉的是：**web 仍 broken、govcn 已 wired 且 note 说明了它的能力边界**。
         """
         rows = {r["channel_id"]: r for r in cr.load_seed()}
-        for cid in ("ch:web", "ch:govcn"):
-            assert rows[cid]["wiring"] == "broken", f"{cid} 又被当成能用的渠道了"
-            assert "miss" in (rows[cid].get("note") or "")
+        assert rows["ch:web"]["wiring"] == "broken", "web 又被当成能用的渠道了"
+        assert "miss" in (rows["ch:web"].get("note") or "")
+        assert rows["ch:govcn"]["wiring"] == "wired", "govcn 换棒后应当是 wired"
+        note = rows["ch:govcn"].get("note") or ""
+        assert "换棒" in note and "政策文件库" in note, f"换棒说明缺失：{note}"
 
     def test_接线名字不一致的渠道已在种子里记明(self):
         """R2 发现 G23（注册表键 `ttzb` vs 适配器名 `ttbz`）。

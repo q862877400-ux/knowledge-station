@@ -60,9 +60,9 @@
       "evidence": "dry-run：HTTP 200 + `{\"total\":495,\"rows\":[{\"STD_CODE4\":\"AQ7006—2025\"...}]}`（免登录 JSON）"
     },
     "ch:govcn": {
-      "url": "https://sousuo.www.gov.cn/sousuo/search.shtml?q=%E5%AE%89%E5%85%A8%E7%94%9F%E4%BA%A7",
-      "expect": null,
-      "evidence": "锚点**暂不定**：R1 的 G6 说本渠道适配器只解 mock dict ⇒ 恒 miss；探针只测站点是否活着（记 unknown/no_anchor_configured），换棒（ZUIXINZHENGCE.json）属 R5"
+      "url": "https://sousuo.www.gov.cn/search-gov/data?t=zhengcelibrary&q=%E5%AE%89%E5%85%A8%E7%94%9F%E4%BA%A7%E6%B3%95&searchfield=content&sort=score&sortType=1&p=0&n=5&type=gwyzcwjk",
+      "expect": "searchVO",
+      "evidence": "R5b 换棒后**改为探真接口**（政策文件库 JSON）：真机实测该请求 200 且解析出 1 条（`安全生产法` 命中并给出 evidence_url）⇒ 锚点 `searchVO` 是解析器实际读到的字段。⚠ 换棒前这条探针钉的是 HTML 搜索页（锚点 null，如实记 unknown）"
     },
     "seed:law-cn:司法部-国家行政法规库-xzfg": {
       "url": "http://xzfg.moj.gov.cn/search2.html",

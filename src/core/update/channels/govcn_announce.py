@@ -46,6 +46,12 @@ class GovcnAnnounceAdapter(ChannelAdapter):
 
     name = "govcn"
     SEARCH_URL = "https://sousuo.www.gov.cn/sousuo/search.shtml"
+    #: **真数据接口**（2026-09-18 换棒，§11.0 R5b）。
+    #: 旧实现只解 `isinstance(body, dict)`（mock 契约），而 `SEARCH_URL` 是 HTML 搜索页
+    #: ⇒ 真实网络下**恒 miss**（R1 的 G6，父代理已复核）。真接口是政策文件库的公开 JSON：
+    #: `GET https://sousuo.www.gov.cn/search-gov/data?t=zhengcelibrary&q=…`，
+    #: 与 `law_source/govcn_client.py` **同一个端点**（那里已有可用的客户端与解析器）。
+    DATA_URL = "https://sousuo.www.gov.cn/search-gov/data"
 
     def __init__(self, transport=None):  # noqa: ANN001 — 接口签名冻结
         super().__init__(transport)
@@ -55,14 +61,30 @@ class GovcnAnnounceAdapter(ChannelAdapter):
     def probe(self, standard_no: str, standard_name: str = "") -> ChannelResult:
         t0 = perf_counter()
         query = f"{standard_no} {standard_name}".strip()
-        status, body = self._fetch(self.SEARCH_URL, params={"q": query})
 
-        announcements: list[Any] = []
-        if isinstance(body, dict):
-            announcements = body.get("announcements") or []
-        hit = self._pick(announcements, standard_no, standard_name)
+        # ① **真接口优先**（§11.0 R5b）：政策文件库 JSON。
+        #    ⚠ 解析器**复用** `law_source.govcn_client.parse_rows`（响应形状的唯一所有者），
+        #    不在本文件里再抄一遍字段映射——那是第二个所有者、必然漂开。
+        rows: list[Any] = []
+        status, body = self._fetch(self.DATA_URL, params={
+            "t": "zhengcelibrary", "q": query, "searchfield": "content",
+            "sort": "score", "sortType": 1, "p": 0, "n": 10, "type": "gwyzcwjk",
+        })
+        if isinstance(body, dict) and body.get("searchVO"):
+            try:
+                from src.core.knowledge.law_source.govcn_client import parse_rows
+                rows = [{**r, "date": r.get("pubtime")} for r in parse_rows(body)]
+            except Exception as e:  # noqa: BLE001 —— 解析失败按"没抓到"处理（下面还有 mock 兜底）
+                upd_log(self.trace_id, f"channel.{self.name}", "WARN",
+                        "govcn_parse_rows_failed", error=f"{type(e).__name__}: {e}")
+
+        # ② 兼容旧的 mock 契约（离线 fixture 走这条；真实网络不会命中）
+        if not rows and isinstance(body, dict):
+            rows = [a for a in (body.get("announcements") or []) if isinstance(a, dict)]
+
+        hit = self._pick(rows, standard_no, standard_name)
         if hit is None:
-            return self._miss(t0, standard_no, status, note=f"matches={len(announcements)}")
+            return self._miss(t0, standard_no, status, note=f"matches={len(rows)}")
 
         title = str(hit.get("title") or "")
         version_m = _STD_TOKEN_RE.search(title)
@@ -91,15 +113,20 @@ class GovcnAnnounceAdapter(ChannelAdapter):
 
     def _pick(self, announcements: list[Any], standard_no: str,
               standard_name: str) -> dict | None:
+        """命中规则：**标题或摘要**归一后含标准号；再退到含标准名（口语化标题兜底）。
+
+        ⚠ 2026-09-18（§11.0 R5b）加了**摘要**这一路：真接口按 `searchfield=content` 检索时，
+        标准号通常出现在 `summary`（正文片段）里而不是标题里 —— 只看标题会把真命中判成 miss。
+        """
         target = norm_no(standard_no)
         name_norm = norm_no(standard_name)
         for a in announcements:
             if not isinstance(a, dict):
                 continue
-            title_norm = norm_no(str(a.get("title") or ""))
-            if target and target in title_norm:
+            hay = norm_no(f"{a.get('title') or ''} {a.get('summary') or ''}")
+            if target and target in hay:
                 return a
-            if name_norm and name_norm in title_norm:
+            if name_norm and name_norm in hay:
                 return a
         return None
 

@@ -177,6 +177,71 @@ def test_ttzb_那一个渠道的键与名不一致要按名建表():
     assert built["ttbz"].__class__.__name__ == "TtzbAdapter"
 
 
+# ---------------------------------------------------------------- govcn 换棒（§11.0 R5b）
+def _govcn_body(rows):
+    """真接口响应形状（`searchVO.catMap.*.listVO`）——与 `law_source.govcn_client.parse_rows`
+    读的字段一致；**故意带 `<em>` 高亮**（真响应就有，`parse_rows` 负责剥掉）。"""
+    return {"searchVO": {"catMap": {"gongwen": {
+        "catName": "国务院文件",
+        "listVO": rows,
+    }}}}
+
+
+class _StubTransport:
+    def __init__(self, status, body):
+        self.status = status
+        self.body = body
+        self.calls: list[tuple[str, dict]] = []
+
+    def fetch(self, url, **kw):
+        self.calls.append((url, kw))
+        return self.status, self.body
+
+
+def test_govcn_真接口命中_按摘要里的标准号():
+    """**换棒的实证**（R1 的 G6：旧实现只解 mock dict ⇒ 真实网络恒 miss）。
+
+    真接口按 `searchfield=content` 检索时，标准号通常出现在 **summary** 里 ——
+    所以 `_pick` 必须同时看标题与摘要，否则把真命中判成 miss。
+    """
+    from src.core.update.channels.govcn_announce import GovcnAnnounceAdapter
+
+    t = _StubTransport(200, _govcn_body([{
+        "title": "国务院关于废止部分<em>标准</em>的决定",
+        "summary": "……自本决定发布之日起，GB/T 30871-2022 等标准停止执行……",
+        "url": "https://www.gov.cn/zhengce/content/2026/x.htm",
+        "pubtime": "2026-05-01", "pcode": "国发〔2026〕1号", "source": "国务院",
+    }]))
+    out = GovcnAnnounceAdapter(transport=t).probe("GB/T 30871-2022",
+                                                 "危险化学品企业特殊作业安全规范")
+    assert out.found is True, "摘要里含标准号却判成 miss —— 换棒等于没换"
+    assert out.evidence_url == "https://www.gov.cn/zhengce/content/2026/x.htm"
+    assert out.legal_status == "withdrawn"          # 标题含「废止」
+    url, kw = t.calls[0]
+    assert url.endswith("/search-gov/data"), f"没打真接口：{url}"
+    assert kw.get("params", {}).get("searchfield") == "content", kw
+    assert kw["params"]["t"] == "zhengcelibrary"
+
+
+def test_govcn_真接口空结果算_miss_不算命中():
+    from src.core.update.channels.govcn_announce import GovcnAnnounceAdapter
+
+    t = _StubTransport(200, _govcn_body([]))
+    out = GovcnAnnounceAdapter(transport=t).probe("GB/T 30871-2022")
+    assert out.found is False
+
+
+def test_govcn_旧的_mock_契约仍然可用():
+    """离线 fixture 走的是 mock 分支（`{"announcements": [...]}`）——换棒**不许**把它弄坏。"""
+    from src.core.update.channels.govcn_announce import GovcnAnnounceAdapter
+
+    t = _StubTransport(200, {"announcements": [{
+        "title": "关于 GB/T 30871-2022 的公告", "url": "https://x/1", "date": "2026-01-01",
+    }]})
+    out = GovcnAnnounceAdapter(transport=t).probe("GB/T 30871-2022")
+    assert out.found is True and out.evidence_url == "https://x/1"
+
+
 # ---------------------------------------------------------------- 测试
 def test_fixture_matrix_contract():
     """fixture 自检：≥12 行组合（INS-B-07 口径）、key 唯一、渠道与必填段齐全。"""

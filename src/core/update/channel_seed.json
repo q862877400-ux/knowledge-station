@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18 12:36:26",
+  "generated_at": "2026-09-18 13:14:57",
   "source": "docs/research/channels/registry.seed.json（R1 四束调研的机器可读附录）",
   "note": "引擎消费的渠道台账种子。category 已归一（原始写法在 category_raw）；wiring 由 src/core/update/channels/routing.py **反查**得到，并把实测恒 miss 的 web/govcn 标为 broken。probe_url/probe_expect 留空——那是 R3 语义探针的活（要实测填，不许猜）。",
   "counts": {
@@ -16,10 +16,10 @@
       "std_intl": 4
     },
     "by_wiring": {
-      "broken": 2,
+      "broken": 1,
       "seed_only": 113,
       "unwired": 10,
-      "wired": 6
+      "wired": 7
     },
     "by_verification": {
       "broken": 29,
@@ -74,10 +74,10 @@
       "answers_json": "[\"发布\", \"废止\", \"现行性\"]",
       "covers": "名义上 gov.cn 公告检索；状态由标题含「废止」/版本号相等启发式判定",
       "gaps": "真实 HTML 响应恒 miss；无标准号级官方状态字段；下载失败会写空占位 PDF 并记成功",
-      "wiring": "broken",
+      "wiring": "wired",
       "verification": "unverified",
       "source_file": "internal-inventory.md",
-      "note": "⚠ 在链上但恒 miss：同上（govcn_announce.py:61-62），真实 gov.cn 搜索页恒 miss ⇒ R5 换 ZUIXINZHENGCE.json；缺口：真实 HTML 响应恒 miss；无标准号级官方状态字段；下载失败会写空占位 PDF 并记成功",
+      "note": "已于 2026-09-18 换棒（§11.0 R5b）：改用政策文件库真接口 `search-gov/data`，真机实测「安全生产法」能命中并给出 evidence_url；⚠ 它回答的是**政策文件库里有没有提到**，标准号多数查不到（政策库不索引标准号）；缺口：真实 HTML 响应恒 miss；无标准号级官方状态字段；下载失败会写空占位 PDF 并记成功",
       "enabled": 1
     },
     {

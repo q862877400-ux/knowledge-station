@@ -1,8 +1,8 @@
 # 渠道台账状态快照（自动生成，勿手改）
 
-- 生成时间：2026-09-18 12:49:11（本地） · 数据来源：`C:\Users\Zegel\AppData\Roaming\KnowledgeStation\database\knowledge.db` 的 `update_channel` 表
-- 台账 **131** 条 · 启用 129 条 · **能干活（wired）6** 条 · 已知失效 **2** 条 · 仅登记 113 条
-- 已实测：🟢 21 / 🟡 1 / 🔴 5 / ⚪ 未探 104
+- 生成时间：2026-09-18 13:15:20（本地） · 数据来源：`C:\Users\Zegel\AppData\Roaming\KnowledgeStation\database\knowledge.db` 的 `update_channel` 表
+- 台账 **131** 条 · 启用 129 条 · **能干活（wired）7** 条 · 已知失效 **1** 条 · 仅登记 113 条
+- 已实测：🟢 22 / 🟡 1 / 🔴 5 / ⚪ 未探 103
 
 > ⚠ 两个数字**必须分开读**：`台账条数` 是「我们知道多少渠道」，`能干活条数` 才是「今天真的能用几条」。R1 的实测教训（G5/G6）：13 个适配器只有 8 个在链上，而在链上的 `web`/`govcn` 两根兜底棒在真实 HTML 下恒 miss。
 
@@ -11,6 +11,7 @@
 | 渠道 | 接线 | 有效性 | 上次成功 | 失败原因 | 链接 |
 |---|---|---|---|---|---|
 | `ch:dbba` 地方标准信息服务平台（sacinfo） | ✅ 已接线（在 routing 链上） | 🟢 可抓 | 2026-09-18 04:48:42 | — | POST https://dbba.sacinfo.org.cn/stdQueryList（form: current=1&size=20& |
+| `ch:govcn` gov.cn 公告检索 + PDF 存档 | ✅ 已接线（在 routing 链上） | 🟢 可抓 | 2026-09-18 05:15:10 | — | GET https://sousuo.www.gov.cn/sousuo/search.shtml?q=<标准号 标准名>；归档用 tran |
 | `ch:hbba` 行业标准信息服务平台（sacinfo） | ✅ 已接线（在 routing 链上） | 🟢 可抓 | 2026-09-18 04:48:43 | — | POST https://hbba.sacinfo.org.cn/stdQueryList（form: current=1&size=20& |
 | `ch:mee` 生态环境部 HJ 标准 | ✅ 已接线（在 routing 链上） | ⚪ 未探 | — | — | POST http://datacenter.mee.gov.cn/websjzx/report!list.action?xmlname=1 |
 | `ch:ndls` 国家数字标准馆（中国标准化研究院） | ✅ 已接线（在 routing 链上） | ⚪ 未探 | — | — | POST https://ndls.cnis.ac.cn/api/standard/list（JSON）+ GET https://ndls |
@@ -21,7 +22,6 @@
 | `ch:cssn` 中国标准服务网 | ⚪ 未接线（注册了但巡检不调用） | 🟢 可抓 | 2026-09-18 04:48:44 | — | GET https://www.cssn.net.cn/api/standards/list?keyword=<标准号（保留空格）> |
 | `ch:discover_search` 找标检索（openstd 分类检索） | ⚪ 未接线（注册了但巡检不调用） | ⚪ 未探 | — | — | GET https://openstd.samr.gov.cn/db/search?q=<分类路径 标准>&page=<drill_leve |
 | `ch:flk_client` 国家法律法规数据库官方源客户端 | ⚪ 未接线（注册了但巡检不调用） | ⚪ 未探 | — | — | POST /law-search/search/list · GET /law-search/search/flfgDetails?bbbs |
-| `ch:govcn` gov.cn 公告检索 + PDF 存档 | ❌ 已知失效（在链上但实测不工作） | ⚪ 未探 | — | HTTP 200，但该渠道没配语义锚点（只探通了） | GET https://sousuo.www.gov.cn/sousuo/search.shtml?q=<标准号 标准名>；归档用 tran |
 | `ch:govcn_client` 国务院政策文件库官方源客户端 | ⚪ 未接线（注册了但巡检不调用） | ⚪ 未探 | — | — | GET https://sousuo.www.gov.cn/search-gov/data?t=zhengcelibrary&q=…&sea |
 | `ch:laws_db` 国家法律法规数据库（flk.npc.gov.cn） | ⚪ 未接线（注册了但巡检不调用） | 🟢 可抓 | 2026-09-18 04:48:42 | — | POST https://flk.npc.gov.cn/law-search/search/list（JSON body，pageNum=1 |
 | `ch:mem_gov` 应急管理部 AQ 行业标准公告 | ⚪ 未接线（注册了但巡检不调用） | 🟡 可疑 | — | HTTP 200 但响应里没有预期锚点 '标准公告'（26755 字符）——本领域最常见的假可用（G14） | GET https://www.mem.gov.cn/fw/flfgbz/bz/bzgg/（+ index_N.shtml 分页，逐条公告详 |
@@ -186,11 +186,10 @@
 
 ## 三、已知失效（**这些会让覆盖率虚高，优先修/换**）
 
-- `ch:govcn` **gov.cn 公告检索 + PDF 存档**：⚠ 在链上但恒 miss：同上（govcn_announce.py:61-62），真实 gov.cn 搜索页恒 miss ⇒ R5 换 ZUIXINZHENGCE.json；缺口：真实 HTML 响应恒 miss；无标准号级官方状态字段；下载失败会写空占位 PDF 并记成功
 - `ch:web` **网络逐号补漏搜索（Bing）**：⚠ 在链上但恒 miss：只解 `isinstance(body, dict)` 的 mock 契约（web_fallback.py:53-54），真实 bing HTML 恒 miss；缺口：真实 HTML 响应零解析；无 UA/Referer；无验证码判定；无重试限速
 
 ## 四、还没配探针的渠道
 
-共 **104** 条处于「未探」状态（含 4 条我方通路）。
+共 **103** 条处于「未探」状态（含 4 条我方通路）。
 下一步（R3c/R5）：按类别优先级补探针——**锚点必须实测看到过**，不许凭想象写。
 
