@@ -47,6 +47,7 @@ import {
   registerKsAnnounceRoutes,
 } from './announce.js'
 import { registerKsReportRoutes } from './report.js'
+import { registerKsChannelsRoutes } from './channels.js'
 import { registerKsMaterialsRoutes } from './materials_routes.js'
 import { registerKsSettingsRoutes } from './settings.js'
 import { registerKsDocImageRoutes } from './docimage.js'
@@ -1135,6 +1136,10 @@ export function apply(ctx, config = {}) {
       })
       // 效力报告（决策 21 修订版）：纯代理零缓存零状态文件——即时聚合快照。
       const disposeReport = registerKsReportRoutes(webCtx, manager)
+      // 渠道台账（§11.0 R4a，2026-09-18）：只读列表 + 人工「立刻探一遍」。
+      // 与「大字体直连引擎取产物」不同：探针**对外发请求**（访问二十多个政府站），
+      // 必须留在宿主侧受控；列表也走宿主，口径统一。
+      const disposeChannels = registerKsChannelsRoutes(webCtx, manager)
       // 材料平面（Phase B 第五步）：**界面用**的同源读写通道。
       // 与 ks_materials（模型工具，只读）**分工明确**：批准/拒绝只能从这里进来，
       // 因为它的调用者是用户界面，而评审是**用户的判断**（方案 §6 硬门）。
@@ -1165,6 +1170,7 @@ export function apply(ctx, config = {}) {
         disposeAnnounce()
         disposeMaterials()
         disposeReport()
+        for (const d of disposeChannels) d()
         disposeDocImage()
         disposeApiSettings()
         disposeChatMode()

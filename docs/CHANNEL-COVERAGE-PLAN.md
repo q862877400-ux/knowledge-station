@@ -482,3 +482,21 @@
 **下一步（按价值排序）**：① **R4 面板**（业主第一诉求；等宿主/引擎重启后端到端可见）；
 ② R5 修/换 `web`+`govcn`、找 `mem_gov` 新 URL、复检 4 条 404 与 1 条 SSL；
 ③ 继续补探针（104 条未探，锚点必须实测）；④ G26 判重。
+
+---
+
+### R4a（2026-09-18 完成）：宿主路由 + 引擎探测端点（面板的前置件）
+
+**引擎侧**：`POST /api/v1/channels/probe`（`routes_channels.py`）——人工"立刻探一遍"：
+- `ids`（省略 = **只探配了目标的 28 条**，绝不盲探 131 条）；`persist` 默认 true（false 只探不落库）；
+- 返回 `{probed, results, counts, without_target, summary}`——**summary 与结果同一次返回**（两条口径不许分两次取）。
+**宿主侧**：`plugin/src/channels.js`（两条 `kind:'exact'` 路由）：
+- `GET /ks/channels`（query 白名单 `category/wiring/state/verification/enabled_only/limit`）；
+- `POST /ks/channels/probe`（body 白名单 `ids/persist`，`persist` **严格布尔**；探针总超时 **150s**）。
+- ⚠ **为什么探针必须留在宿主侧**：它会**对外发请求**（访问二十多个政府站）——浏览器侧发起的话，
+  谁探了哪个站、探几次都不受控，`Referer/Origin` 还会带上 GUI 地址，对政府站反爬是无谓信号。
+  （这与"大字体直连引擎取产物"那条**故意不同**，两条路径的取舍理由都写在文件头。）
+**用例/门禁**：`plugin/scripts/smoke-channels-routes.mjs`（**15/15**，已进 `npm run smoke`，链 **22 段**）：
+注册面/方法守卫/query 白名单（未知键丢弃）/body 白名单（`persist:"yes"` 不发 true）/引擎 404 原样透传/
+5xx→502/不可达→503；引擎侧 `tests/test_channel_repo.py` **48 条**（含 `ids` 类型 422、只探有目标的渠道）。
+**还没做**：**面板 UI（R4b）**——那是业主真正要"看见"的部分，排下一轮第一件。

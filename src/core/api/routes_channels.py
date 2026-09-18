@@ -49,3 +49,26 @@ def register(app, json_error):
         if row is None:
             return json_error(404, "channel_not_found", f"渠道不存在: {channel_id}")
         return {"code": 200, "status": "success", "data": row}
+
+    @app.post("/api/v1/channels/probe")
+    def probe_channels(body: dict | None = None):
+        """**立刻探一遍**（面板上的人工动作：怀疑某个渠道坏了，点一下看真相）。
+
+        - `body.ids`：只探这些 channel_id（省略 = 所有配了探针目标的渠道）；
+        - `body.persist`：默认 true；false = 只探不落库（调试用）。
+        ⚠ 单线程序列执行（体检不是爬取）：一个渠道一次请求、超时 20s。
+          传 104 个 id 会把请求拖很久——面板一次别点多条（宿主侧也有超时）。
+        ⚠ 不传 `ids` 时**只探配了目标的渠道**（28 条），不会盲探 131 条。
+        """
+        from src.core.update import channel_probe as cp
+        b = body or {}
+        ids = b.get("ids")
+        if ids is not None and (not isinstance(ids, list)
+                               or not all(isinstance(i, str) for i in ids)):
+            return json_error(422, "illegal_ids", "ids 必须是字符串数组")
+        try:
+            out = cp.probe_channels(ids=ids, persist=bool(b.get("persist", True)))
+        except ValueError as e:
+            return json_error(404, "channel_not_found", str(e))
+        out["summary"] = cr.summary()
+        return {"code": 200, "status": "success", "data": out}

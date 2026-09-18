@@ -237,6 +237,34 @@ class TestApi:
         assert ok.status_code == 200 and ok.json()["data"]["name"] == "甲"
         assert c.get("/api/v1/channels/t:nope", headers=self._hdr(token)).status_code == 404
 
+    def test_探测端点_不存在的_id_要_404(self, client):
+        """`POST /api/v1/channels/probe`：ids 里有台账里没有的 → 404（不是静默跳过）。"""
+        c, token = client
+        r = c.post("/api/v1/channels/probe", headers=self._hdr(token),
+                   json={"ids": ["c:nope"], "persist": False})
+        assert r.status_code == 404
+        assert r.json()["error"] == "channel_not_found"
+
+    def test_探测端点_ids_类型不对要_422(self, client):
+        c, token = client
+        r = c.post("/api/v1/channels/probe", headers=self._hdr(token),
+                   json={"ids": "c:one", "persist": False})
+        assert r.status_code == 422
+        assert r.json()["error"] == "illegal_ids"
+
+    def test_探测端点_只探配了目标的渠道(self, client):
+        """⚠ 关键口径：不传 ids 时**只探有探针目标的**（今天 28 条），绝不盲探 131 条。
+        这里用一个"台账里有、但探针表里没有"的渠道来钉：它必须仍是 unknown。"""
+        c, token = client
+        cr.seed_channels()
+        cr.upsert_channel("t:no-target", {"name": "没配探针", "category": "law"})
+        r = c.post("/api/v1/channels/probe", headers=self._hdr(token),
+                   json={"persist": True, "ids": ["t:no-target"]})
+        # 显式点名一个**没配目标**的渠道：它不该被探（probe_url 空 ⇒ unknown，不计失败）
+        assert r.status_code == 200
+        assert r.json()["data"]["results"][0]["state"] == "unknown"
+        assert cr.get_channel("t:no-target")["consecutive_failures"] == 0
+
 
 class TestShippedSeed:
     """随包发布的种子（`src/core/update/channel_seed.json`）本身的契约。"""
