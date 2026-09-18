@@ -203,7 +203,17 @@ class ChannelResult:
     change_type: str | None = None   # new_version|superseded|withdrawn|no_change|None
     legal_status: str | None = None  # effective|upcoming|superseded|withdrawn
     latest_version: str | None = None
+    #: **实施**日期（"这个号什么时候开始生效"）。⚠ 与下面那个**不是一个日期**，别再混。
     effective_date: str | None = None
+    #: **发布**日期（"这个号什么时候公布的"）。§11.0 R6c-3e 新增，理由（两条独立证据）：
+    #:  1. 独立复核 b35 把 18 条适配器逐条对代码核完，发现 **6 条渠道**都解析出了发布日期却
+    #:     **无处安放**——本类此前只有 `effective_date` 一个日期槽，于是"发布"这一类
+    #:     （五类之首）**根本没有数据来源**；
+    #:  2. 同一轮复核 b34 实测到**具体的错**：`ttzb` 把 `datePublished` 塞进 `effective_date`
+    #:     （T/CECS 2350-2026 发布 2026-06-12、实施 2026-12-01，差了 6 个月），
+    #:     而真实响应里本来就有 `implementDate`。
+    #: ⇒ 两个日期两个槽，谁解析出来谁填，别再"有一个日期字段就往里塞"。
+    published_date: str | None = None
     evidence_url: str | None = None
     raw: dict = field(default_factory=dict)
 

@@ -340,7 +340,16 @@ def _probe_number(adapters: dict[str, ChannelAdapter], item: dict) -> ProbeOutco
     no = item["standard_no"]
     from src.core.update.channels.routing import select_chain
     chain = select_chain(no)
-    attempts_left = MAX_ATTEMPTS
+    # ⚠ **预算不许小于链长**（§11.0 R6c-3e；独立复核 b34 的 A-副作用实测）：
+    #   旧写法是 `attempts_left = MAX_ATTEMPTS`（=3），它同时充当"重试预算"与"能试几根棒"。
+    #   R6c-3b 把 `ndls` 插进兜底链后，`mee`/`dbba`/`hbba`/`ttbz` 四族的链长变成 **4**
+    #   ⇒ **最后一棒（govcn）永远探不到**（复核的 A/B：旧链 probed=[mee,official_gb,govcn]，
+    #   新链 probed=[mee,official_gb,ndls]）。真库 6417 行的链长今天全是 3 ⇒ **0 行受影响**，
+    #   但这是**潜伏回归**：库里一旦出现 HJ/DB/行标/团标号，那一棒会静默消失。
+    #   取舍说清：长链上"重试"让位于"每根都试到"。链的意义就是把棒按序试一遍；
+    #   重试是给**异常**用的，不该把后面的棒挤掉（短链上行为不变：单根链仍有 3 次预算）。
+    usable = [c for c in chain if adapters.get(c) is not None]
+    attempts_left = max(MAX_ATTEMPTS, len(usable))
     last_code: str | None = None
     last_msg: str | None = None
     used = 0
@@ -369,7 +378,10 @@ def _probe_number(adapters: dict[str, ChannelAdapter], item: dict) -> ProbeOutco
             if result.found:
                 ctype, color = judge_result(no, result)
                 info = {"version": result.latest_version,
-                        "effective_date": result.effective_date}
+                        "effective_date": result.effective_date,
+                        # §11.0 R6c-3e：两个日期分开记。以前只记 effective_date，
+                        # 而"发布"这一类（五类之首）因此没有数据来源。
+                        "published_date": result.published_date}
                 info = {k: v for k, v in info.items() if v is not None}
                 return ProbeOutcome(
                     kind="judged", standard_no=no, doc_id=item.get("doc_id"),

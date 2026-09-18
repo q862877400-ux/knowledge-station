@@ -234,6 +234,9 @@ class NdlsAdapter(ChannelAdapter):
             change_type=derive_change_type(str(row.get("a100") or ""), version, legal),
             legal_status=legal, latest_version=version,
             effective_date=impl or pub,
+            # 发布日期单独落槽（§11.0 R6c-3e）：a101 本来就被解析出来了，
+            # 以前只有 effective_date 一个槽 ⇒ "发布"这一类拿不到它（复核 b35 的结论之一）。
+            published_date=pub,
             evidence_url=None,  # 无详情页（id 在 row 里但详情不可达）→ 不给证据链接
             raw={"http": http, "note": note, "status_text": a000,
                  "search_row": {k: row.get(k) for k in
@@ -273,6 +276,7 @@ class NdlsAdapter(ChannelAdapter):
             change_type=derive_change_type(standard_no, version, legal),
             legal_status=legal, latest_version=version,
             effective_date=eff,
+            published_date=pub,
             evidence_url=self.EVIDENCE_URL.format(did=did),
             raw=raw,
         )

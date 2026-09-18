@@ -70,7 +70,10 @@ _PORTAL_RE = re.compile(
 _STATUS_LINE_RE = re.compile(
     r'<span class="el-tag[^"]*">\s*(现行|即将实施|被代替|废止)\s*</span>')
 #: raw 收录子集（不落全文/大字段，保持确定性小载荷）
-_JSON_LD_KEYS = ("@type", "identifier", "headline", "datePublished",
+#: ⚠ `implementDate` 是 §11.0 R6c-3e 补进来的：**它在真实响应里一直有**（复核 b34 实测
+#: T/CECS 2350-2026 的 `implementDate=2026-12-01`），旧代码只读 `datePublished` 就填
+#: `effective_date` ⇒ 发布被当实施，差 6 个月。
+_JSON_LD_KEYS = ("@type", "identifier", "headline", "datePublished", "implementDate",
                  "dateModified", "author")
 _PORTAL_KEYS = ("id", "standardUniqueId", "standardNo", "standardTitleCn",
                 "organName", "standardStatus", "standardStatusName", "status",
@@ -79,6 +82,24 @@ _PORTAL_KEYS = ("id", "standardUniqueId", "standardNo", "standardTitleCn",
 _ROW_KEYS = ("standardNo", "standardTitleCn", "standardStatusName", "statusName",
              "publishDate", "implementDate", "filePublishDate", "abolishDate",
              "organName", "isSale", "isOpen")
+
+
+def _pick_dates(json_ld: dict, portal: dict, row: dict) -> tuple[str | None, str | None]:
+    """三级回退取（**实施日期, 发布日期**）——两个日期两个槽（§11.0 R6c-3e）。
+
+    为什么必须有这两个槽：本适配器原来把 `datePublished`（发布）直接填进 `effective_date`
+    （实施），实测量级差 6 个月。**只有发布、没有实施时，`effective_date` 返回 `None`**：
+    宁可让"实施"空着，也不要拿发布日期顶上——那正是这次要修的形态。
+    """
+    def _s(v: object) -> str | None:
+        t = str(v).strip() if v is not None else ""
+        return t or None
+
+    pub = _s(json_ld.get("datePublished") or portal.get("publishDate")
+             or row.get("publishDate"))
+    impl = _s(json_ld.get("implementDate") or portal.get("implementDate")
+              or row.get("implementDate"))
+    return impl, pub
 
 
 def _canon(no: str | None) -> str:
@@ -175,8 +196,11 @@ class TtzbAdapter(ChannelAdapter):
             upd_log(self.trace_id, f"channel.{self.name}", "WARN",
                     "illegal_state_text", standard_no=standard_no,
                     state=raw_state)
-        raw_date = json_ld.get("datePublished") or portal.get("publishDate") \
-            or row.get("publishDate") or None
+        # ⚠ 两个日期两个槽（§11.0 R6c-3e）。**旧写法把"发布"塞进了 `effective_date`**——
+        #   独立复核 b34 真网络实测：`T/CECS 2350-2026` 发布 `2026-06-12`、实施 `2026-12-01`，
+        #   **差了 6 个月**，而真实响应里本来就有 `implementDate`（本文件的 `_PORTAL_KEYS`/`_ROW_KEYS`
+        #   里都登记着它，只是从没被读过）。这是与 `official_gb` 同一类的 P1 错标。
+        impl_date, pub_date = _pick_dates(json_ld, portal, row)
 
         result = ChannelResult(
             channel=self.name,
@@ -185,7 +209,8 @@ class TtzbAdapter(ChannelAdapter):
                                            legal_status),
             legal_status=legal_status,
             latest_version=latest or None,
-            effective_date=(str(raw_date).strip() or None) if raw_date else None,
+            effective_date=impl_date,
+            published_date=pub_date,
             evidence_url=evidence,
             raw=self._raw_of(search_status, detail_status, row, json_ld,
                              portal, status_line),

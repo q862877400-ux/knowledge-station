@@ -105,7 +105,12 @@ class GovcnAnnounceAdapter(ChannelAdapter):
             change_type=derive_change_type(standard_no, version, legal_status),
             legal_status=legal_status,
             latest_version=version,
-            effective_date=(str(hit["date"]).strip() or None) if hit.get("date") else None,
+            # §11.0 R6c-3e：`hit["date"]` 是政策文件库的**成文/发布日期**（pubtime），
+            # 以前被塞进 `effective_date`（=实施日期）⇒ 那是与 ttzb 同一类的错标
+            # （复核 b35 也点名了这条："eff 取的是 hit['date']=pubtime，即发布日期"）。
+            # 政策文件库里没有"实施日期"字段 ⇒ 这里**如实留空**，不要拿别的日期顶上。
+            effective_date=None,
+            published_date=(str(hit["date"]).strip() or None) if hit.get("date") else None,
             evidence_url=hit.get("url") or None,
             raw={"http": status, "announcement": hit},
         )

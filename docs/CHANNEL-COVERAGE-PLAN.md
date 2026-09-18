@@ -1588,3 +1588,52 @@ R6c-3c 把 `official_gb` 的日期取对了（第 2 格=实施日期），但**�
 **先做 R6c-3e（补 `published_date`）**——补完之后 `official_gb`（第 1 格）与 `ndls`（a101）
 在 `发布` 类上才是真的 `supported`，那时再启用"verdict 排序"，并**重新模拟**确认只有 `废止` 那一类翻。
 **先模拟、再改行为**：这一步如果直接照着做，`发布` 类会被静默改坏，而它在真机上要很久才看得出来。
+
+**已落地**：`answers_detail` 已写入（18 条 / 56 类声明，来自 b35 的逐条 verdict+行号证据），
+并补上 b35 找到的**唯一漏声明**（`ch:flk_client` 的 `编号核验`）；
+计划 JSON `var/backup/r6c5-abilities-audit-20260918-220642.json`。**排序仍未启用**（见上）。
+
+---
+
+### 复核 b34（独立 verifier，2026-09-18）：3 条成立、3 条不成立 —— 抓到两个**真问题**
+
+对象 = R6c-3b/3c/3d。**A（排序方向）/A（台账相等）/A（四棒全 miss 的 UX）/B（第 2 格=实施日期）/
+C（名称折法）/E（清单诚实度）成立**，其中它自己抽 7 个号复核了排序方向（`official_gb` 5/5、`ndls` 5/5、
+`govcn` 0/5，且 `ndls` 每号恰 2 次 HTTP ⇒ 不提前它是对的）。**不成立的三条都指我的问题**：
+
+1. ⚠ **A-副作用（我改出来的潜伏回归）**：链长变 4 之后 **`MAX_ATTEMPTS=3` 把最后一棒截掉了**——
+   `mee`/`dbba`/`hbba`/`ttbz` 四族号的 `govcn` **永远探不到**（它的 A/B：旧链
+   probed=[mee,official_gb,govcn]，新链 probed=[mee,official_gb,**ndls**]）。
+   真库 6417 行链长今天全是 3 ⇒ **0 行受影响**，但库里一旦出现 HJ/DB/行标/团标号就会静默少一根棒。
+2. ⚠ **B（`ttzb` 的错标是"已确认"不是"待办"）**：它在**真实响应**里拿到了
+   `T/CECS 2350-2026` 发布 `2026-06-12` vs 实施 `2026-12-01`（**差 6 个月**），
+   而 `implementDate` **本来就在** `_PORTAL_KEYS`/`_ROW_KEYS` 里 ⇒ 与 `official_gb` 同类的 P1 错标，
+   不该只登记成"未核 ⇒ 待办"。
+3. **F（一条用例是永真的）**：链序用例第一句断言的是**本文件自己的 `TRAIL` 字面量**，任何实现下都过。
+4. **D（我数错了）**：收口侧 `WHERE standard_no=?` 实测是 **5 处**（我在 commit/doc 里写"6 处"）；
+   另有 **2 处未折的等值读**（`clause_repo.resolve_clause`——被年份 LIKE 兜底救回；
+   `var/ocr-loop/vlm_ocr.py:153`——无兜底但构造不出活复现）。
+5. B-残留（**不是错标，是设计差异，登记**）：废止号上 `official_gb` 报**实施日**、`ndls` 报**废止日**
+   （GB 11121-2006：2007-01-01 vs 2026-07-01）——同一号两根棒"关键日期"口径不同，
+   这正是"按类选渠道"要解决的：**废止类该问 ndls**（我们已在 `answers_detail` 里有依据）。
+
+### R6c-3e（2026-09-18 完成）：**两个日期两个槽** + 修预算截断 + 收口剩余读路径
+
+1. **`ChannelResult.published_date`**（新字段）+ 6 条渠道各自落位：`official_gb`（第 1 格）、
+   `ndls`（a101）、`cssn`（a101）、`std_samr_hb`（`ISSUE_DATE`）、`laws_db`（`gbrq`）、
+   `ttzb`（`datePublished`/`publishDate`），`hbba`/`dbba` 的 `issueDate` 也一并命名解析；
+   `inspector` 把它记进 `latest_info.published_date`。
+   ⚠ `official_gb._pub_date` 在**只有一格**时返回 `None`（不许把唯一那格当发布）。
+2. **`ttzb` 的 P1 错标修掉**（b34 的确认）：`effective_date ← implementDate`、
+   `published_date ← datePublished`；抽成 `_pick_dates()` 便于单测；**只有发布时实施留空**。
+3. **`govcn_announce` 同类修**：`hit['date']` 是政策库的成文/发布日期 ⇒ 落 `published_date`，
+   `effective_date=None`（库里没有实施日期字段，**如实留空**）。两条矩阵 fixture 的期望随之改。
+4. **预算截断修掉**：`attempts_left = max(MAX_ATTEMPTS, len(可用链))`——短链行为一字不变
+   （单根链仍有 3 次重试），长链保证每根都试到。用例两条，并做了**变异测试**：
+   把该行改回 `MAX_ATTEMPTS` ⇒ 四棒用例**当场红**（`[1,1,1,0]`，第 4 根 0 次调用）。
+5. **剩余两处等值读收口**（`resolve_clause`、`ocr-loop/vlm_ocr.py`）+ **修掉那条永真断言**
+   （改成问 `fallback_chain()`）。
+6. **数字更正**：收口侧是 **5 处**（不是 6 处）。
+
+**诚实边界**：`official_gb` 与 `ndls` 在"废止号的关键日期"上口径不同（上面 B-残留），
+**本轮只登记不改**——怎么统一是产品口径问题，且现在"按类选渠道"已能表达（废止类问 ndls）。

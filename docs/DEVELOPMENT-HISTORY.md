@@ -7214,3 +7214,31 @@ b35 把 18 条 `ch:*` 适配器的 **56 条五类声明逐条对代码核完**�
 再重新模拟确认只有 `废止` 那一类翻，然后才启用 verdict 排序。
 **教训**：把"能力有/无"当排序键之前，先问"它给的是不是这一类**要的那个**东西"——
 "有日期"与"有这一类要的日期"不是一回事。
+
+## §10.115 复核 b34 抓到两个真问题：预算把最后一棒截掉、ttzb 错标已确认（§11.0 R6c-3e/3f）
+
+b34 复核 R6c-3b/3c/3d：**A（排序方向）/A（台账相等）/A（UX）/B（第 2 格=实施）/C（名称折法）/
+E（清单诚实度）成立**（它自抽 7 个号复核：`official_gb` 5/5、`ndls` 5/5、`govcn` 0/5）；
+**三条不成立，都是我的问题**：
+
+1. ⚠ **我改出来的潜伏回归**：链长变 4 后 **`MAX_ATTEMPTS=3` 把最后一棒截掉**——
+   `mee`/`dbba`/`hbba`/`ttbz` 四族的 `govcn` **永远探不到**（旧链 probed=[mee,official_gb,govcn]，
+   新链 [mee,official_gb,**ndls**]）。真库链长今天全 3 ⇒ 0 行受影响，但库里一出现 HJ/DB/行标就少一根棒。
+2. ⚠ **`ttzb` 的错标是"已确认"**：真实响应 `T/CECS 2350-2026` 发布 2026-06-12 vs 实施 2026-12-01
+   （**差 6 个月**），而 `implementDate` **本来就在**白名单里。
+3. **F**：链序用例第一句断言的是**自己文件里的 `TRAIL` 字面量** ⇒ 永真。
+4. **D**：收口侧 `WHERE standard_no=?` 是 **5 处**（我写"6 处"是数错），另有 2 处未折等值读。
+5. B-残留（**设计差异，不是错标**）：废止号上 `official_gb` 报实施日、`ndls` 报废止日
+   （GB 11121-2006：2007-01-01 vs 2026-07-01）——这正是"废止类该问 ndls"的依据。
+
+**R6c-3e/3f 处置**：
+- 新增 `ChannelResult.published_date`，6 条渠道各自落位（`official_gb` 第 1 格 / `ndls` a101 /
+  `cssn` a101 / `std_samr_hb` ISSUE_DATE / `laws_db` gbrq / `ttzb` datePublished；`hbba`/`dbba`
+  的 `issueDate` 也一并命名解析），`inspector` 记进 `latest_info`；
+  ⚠ `_pub_date` 在只有一格时返回 `None`——**不许把唯一那格当发布**；
+- `ttzb`：`effective_date ← implementDate`、`published_date ← datePublished`（抽 `_pick_dates` 便于单测）；
+- `govcn_announce` 同类修（`hit['date']` 是成文日期 ⇒ 落发布槽，实施**如实留空**），两条 fixture 期望随之改；
+- **预算截断修掉**：`max(MAX_ATTEMPTS, len(可用链))`，短链行为不变；**做了变异测试**——
+  改回旧写法那条四棒用例当场红（`[1,1,1,0]`）；
+- 收掉剩余两处等值读（`resolve_clause`、`ocr-loop/vlm_ocr.py`）+ 修掉那条永真断言；
+- 数字更正：收口侧 **5 处**。

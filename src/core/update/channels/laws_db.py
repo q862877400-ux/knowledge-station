@@ -82,6 +82,9 @@ class LawsDbAdapter(ChannelAdapter):
             change_type=change_type,
             legal_status=legal_status,
             effective_date=str(best.get("sxrq") or best.get("gbrq") or "").strip() or None,
+            # §11.0 R6c-3e：gbrq（公布日期）落发布槽。法规的"公布/生效"是两个日期，
+            # 与标准的"发布/实施"同形——以前只有一个槽，公布日期被生效日期盖住。
+            published_date=str(best.get("gbrq") or "").strip() or None,
             evidence_url=f"{self.DETAIL_BASE}{bbbs}" if bbbs else None,
             raw={"sxx": sxx, "row": {k: best.get(k) for k in
                                      ("bbbs", "title", "flxz", "zdjgName", "gbrq", "sxrq", "sxx")}},

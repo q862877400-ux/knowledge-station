@@ -213,7 +213,7 @@
       ],
       "expect": {"found": true, "captcha": false, "change_type": "new_version",
                  "legal_status": "upcoming", "latest_version": "GB 50014-2025",
-                 "effective_date": "2025-03-01", "evidence_url": "@any"}
+                 "published_date": "2025-03-01", "evidence_url": "@any"}
     },
     {
       "key": "govcn_repeal_withdrawn",
@@ -243,7 +243,7 @@
         ]}}}
       ],
       "expect": {"found": true, "captcha": false, "change_type": null,
-                 "legal_status": "upcoming", "effective_date": "2022-09-01",
+                 "legal_status": "upcoming", "published_date": "2022-09-01",
                  "evidence_url": "@any"}
     },
     {

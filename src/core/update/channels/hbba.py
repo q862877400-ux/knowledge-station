@@ -126,6 +126,9 @@ class _SacinfoQueryAdapter(ChannelAdapter):
             legal_status=legal_status,
             latest_version=version,
             effective_date=effective_date,
+            # §11.0 R6c-3e：`issueDate`（批准/发布日期）本来就在响应行里、也被整行放进 raw，
+            # 但代码从没把它**命名**解析出来（复核 b35 逐条核代码时点到的）——现在落它自己的槽。
+            published_date=_epoch_ms_to_date(row.get("issueDate")),
             evidence_url=(f"https://{self.host}/stdDetail/{row['pk']}" if row.get("pk")
                           else f"https://{self.host}/stdList?key={quote(key)}"),
             raw={"http": status, "row": row},

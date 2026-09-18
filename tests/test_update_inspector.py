@@ -649,6 +649,63 @@ def test_ins_d_04_withdrawn_red(db, t):
     assert ev["change_type"] == "withdrawn" and ev["current_legal_status"] == "withdrawn"
 
 
+def test_四棒链的最后一棒不被预算截断(db):
+    """§11.0 R6c-3e：**链长 4 > MAX_ATTEMPTS(3) 时最后一棒以前永远探不到**（复核 b34 实测）。
+
+    背景：R6c-3b 把 `ndls` 插进兜底链后，`mee`/`dbba`/`hbba`/`ttbz` 四族的链长变成 4；
+    而 `_probe_number` 的尝试预算写的是 `attempts_left = MAX_ATTEMPTS`（3），它同时充当
+    "重试预算"与"能试几根棒" ⇒ **第 4 根（govcn）从来没被执行过**
+    （复核的 A/B：旧链 probed=[mee,official_gb,govcn]，新链 probed=[mee,official_gb,ndls]）。
+    真库 6417 行的链长今天全是 3 ⇒ 0 行受影响，但那是**潜伏回归**。
+    修法：预算取 `max(MAX_ATTEMPTS, len(可用链))` —— 链的意义就是把棒都试一遍。
+    """
+    from src.core.update import inspector as insp
+    from src.core.update.channels.base import ChannelResult
+    from src.core.update.channels.routing import select_chain
+
+    class _MissAdapter:
+        def __init__(self, name: str) -> None:
+            self.name = name
+            self.calls = 0
+
+        def probe(self, standard_no: str, standard_name: str = "") -> ChannelResult:
+            self.calls += 1
+            return ChannelResult(channel=self.name, found=False)   # 干净未命中
+
+    no = "HJ 1234-2020"
+    chain = select_chain(no)
+    assert len(chain) == 4, chain          # 这条用例的前提就是"四棒"
+    adapters = {c: _MissAdapter(c) for c in chain}
+    out = insp._probe_number(adapters, {"standard_no": no, "standard_name": "生态标准"})
+    assert [adapters[c].calls for c in chain] == [1, 1, 1, 1], \
+        f"链 {chain} 里有一根没被探到：{[adapters[c].calls for c in chain]}"
+    assert out.kind == "judged" and out.change_type == "not_found"
+
+
+def test_单根链的重试预算不变(db):
+    """改预算是 `max(MAX_ATTEMPTS, len(链))` ⇒ **短链行为一字不变**（单根链仍有 3 次预算）。
+
+    这条防的是"为了修长链把重试语义改了"：INS-A-05 的口径是"按重试=3 次后记 failed"。
+    """
+    from src.core.update import inspector as insp
+    from src.core.update.channels.base import ChannelResult, UpdateError
+
+    class _BoomAdapter:
+        def __init__(self, name: str) -> None:
+            self.name = name
+            self.calls = 0
+
+        def probe(self, standard_no: str, standard_name: str = "") -> ChannelResult:
+            self.calls += 1
+            raise UpdateError("渠道炸了", code="UPD-9999")
+
+    ad = _BoomAdapter("official_gb")
+    out = insp._probe_number({"official_gb": ad},
+                             {"standard_no": "XYZ 1-2020", "standard_name": "x"})
+    assert ad.calls == insp.MAX_ATTEMPTS, ad.calls
+    assert out.kind == "failed"
+
+
 def test_ins_d_05_all_channels_miss_gray(db, t):
     """/INS-D-05 三渠道查无 → gray，legal_status 保持 NULL，末渠道 govcn 兜底。"""
     it = add_doc(db, "d05", 1)

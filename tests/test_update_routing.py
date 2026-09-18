@@ -13,7 +13,7 @@
 `GBZ 37-2024` / `GBZ/T 160.27-2004` 就是"`official_gb` miss、`ndls` 命中"的真例。
 `govcn` **不删**（它是今天唯一能命中法规名行的那根），只是排到最后。
 """
-from src.core.update.channels.routing import select_chain
+from src.core.update.channels.routing import fallback_chain, select_chain
 
 #: 泛查兜底链的**期望顺序**（无特征命中时）。`web` 于 R5c 摘除、`ndls` 于 R6c-3b 插到 govcn 前。
 TRAIL = ("official_gb", "ndls", "govcn")
@@ -97,8 +97,11 @@ def test_兜底链第二棒是状态权威而不是政策库():
 
     实测（10 个真库号，按前缀分层）：`govcn` 只在**法规**行命中过 1 次，
     标准号上 0/9；`ndls` 命中 6/10。**这条用例红了就说明链又被改回去了。**
+
+    ⚠ 第一句**必须问实现**（`fallback_chain()`），不能断言本文件顶部那个 `TRAIL` 字面量——
+    复核 b34 的 F 项指出：断言自己的常量是**永真**的，任何实现下都过（等于没有这条护栏）。
     """
-    assert TRAIL.index("ndls") < TRAIL.index("govcn")
+    assert fallback_chain().index("ndls") < fallback_chain().index("govcn")
     for no in ("GBZ 37-2024", "GBZ/T 160.27-2004", "HJ 819-2017", "AQ 3028-2008"):
         chain = select_chain(no)
         assert "ndls" in chain, no

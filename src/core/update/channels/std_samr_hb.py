@@ -97,6 +97,8 @@ class StdSamrHbAdapter(ChannelAdapter):
             latest_version=version,
             # ACT_DATE=实施日期（本库无废止日期字段）；缺省回退发布日期
             effective_date=(str(row.get("ACT_DATE") or row.get("ISSUE_DATE") or "").strip() or None),
+            # §11.0 R6c-3e：ISSUE_DATE 是**发布**日期，落它自己的槽（以前只在回退时才用）
+            published_date=(str(row.get("ISSUE_DATE") or "").strip() or None),
             evidence_url=(self.DETAIL_URL.format(row["id"]) if row.get("id") else self.SEARCH_URL),
             raw={"http": status, "row": row},
         )

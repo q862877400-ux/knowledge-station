@@ -25,7 +25,40 @@
       ],
       "basis": "R1 调研的机器可读声明（internal-inventory.md）；本轮未逐条复核",
       "confidence": "medium",
-      "source": "R1-seed"
+      "source": "R1-seed",
+      "answers_detail": {
+        "发布": {
+          "verdict": "supported",
+          "evidence": "official_gb.py:97 dates=re.findall('<td>(\\d{4}-\\d{2}-\\d{2})</td>'); official_gb.py:36-53 _impl_date 取第 2 格=实施日期；official_gb.py:128 effective_date",
+          "note": "真 HTML 表格解析（非 mock）。取得实施日期；发布日期作为证据列存在但被 _impl_date 明示丢弃（deliberate：避免把发布当实施）。发布类要的是日期，故判 supported，但产出的是实施日期。"
+        },
+        "修订": {
+          "verdict": "supported",
+          "evidence": "official_gb.py:126 derive_change_type(standard_no, version, legal_status) → base.py:164-179；状态词表 base.py:68-73 含 被代替→superseded",
+          "note": "能判「有新版本」（version 归一号不等→new_version，被代替→superseded），但不是代替关系解析——是结果行 status 列的作者声明。"
+        },
+        "废止": {
+          "verdict": "partial",
+          "evidence": "official_gb.py:96 m_state 只取 (现行|即将实施|被代替|废止) 状态串；official_gb.py:97 日期正则只收列内 YYYY-MM-DD 且 _impl_date(36-53) 只认「实施日期」列",
+          "note": "有废止状态串（→withdrawn），但结果里没有任何废止日期；_impl_date 的 docstring 明写将来若多出废止日期列 [1] 仍是实施日期。废止类要的「废止日期与依据」只拿到「依据=状态列」，日期拿不到。"
+        },
+        "现行性": {
+          "verdict": "supported",
+          "evidence": "official_gb.py:96 状态串 → official_gb.py:116 map_state_text → base.py:68-73 STATE_TEXT_MAP（现行/即将实施/被代替/废止）",
+          "note": "权威源（openstd）状态列直接映射四种 legal_status，是真正的「今天状态」。"
+        },
+        "编号核验": {
+          "verdict": "partial",
+          "evidence": "official_gb.py:136 pick_row_by_norm → base.py:137-156（先精确归一号，否则同主体去年代取号最大）；official_gb.py:114 version=row['code']",
+          "note": "能判「这个号在权威库的返回行里存不存在」（精确匹配）；但同主体兜底会把别年代的号当命中（base.py:152-156），且无「写法是否规范」判定。故按口径「只有找到/没找到、没有编号规范判定」= partial。"
+        }
+      },
+      "audit": {
+        "by": "b35",
+        "at": "2026-09-18",
+        "adapter": "src/core/update/channels/official_gb.py (OfficialGbAdapter)",
+        "how": "逐条对代码核实（verdict/evidence 见 answers_detail）"
+      }
     },
     "ch:web": {
       "answers": [
@@ -35,7 +68,30 @@
       ],
       "basis": "R1 调研的机器可读声明（internal-inventory.md）；本轮未逐条复核",
       "confidence": "medium",
-      "source": "R1-seed"
+      "source": "R1-seed",
+      "answers_detail": {
+        "发布": {
+          "verdict": "supported",
+          "evidence": "web_fallback.py:80-87 _DATE_RE.search(text) → effective_date；web_fallback.py:67-68 标题内标准号 token 正则取 version",
+          "note": "从标题+摘要里正则取日期与版本号（真解析，非 mock 独占）。"
+        },
+        "修订": {
+          "verdict": "supported",
+          "evidence": "web_fallback.py:84 derive_change_type(standard_no, version, legal_status) → base.py:164-179（版本号不等→new_version）；web_fallback.py:59-62 按去年代主体匹配，新版结果标题含新号也算命中",
+          "note": "能判「有没有新版」。"
+        },
+        "废止": {
+          "verdict": "partial",
+          "evidence": "web_fallback.py:28-29 _STATUS_HINTS 含 ('废止','withdrawn')；web_fallback.py:80-87 但 effective_date 取的是 _DATE_RE 的第一个日期，不分发布/废止",
+          "note": "只有标题/摘要里的「废止」关键词→状态串，没有任何废止日期或依据；日期字段语义不明（可能是发布日期/施行日期/废止日期，代码不区分）。"
+        }
+      },
+      "audit": {
+        "by": "b35",
+        "at": "2026-09-18",
+        "adapter": "src/core/update/channels/web_fallback.py (WebFallbackAdapter)",
+        "how": "逐条对代码核实（verdict/evidence 见 answers_detail）"
+      }
     },
     "ch:govcn": {
       "answers": [
@@ -45,7 +101,30 @@
       ],
       "basis": "R1 调研的机器可读声明（internal-inventory.md）；本轮未逐条复核",
       "confidence": "medium",
-      "source": "R1-seed"
+      "source": "R1-seed",
+      "answers_detail": {
+        "发布": {
+          "verdict": "supported",
+          "evidence": "govcn_announce.py:70-73 fetch 真接口 search-gov/data；govcn_announce.py:77 rows=[{**r,'date': r.get('pubtime')} for r in parse_rows(body)]（parse_rows 在 src/core/knowledge/law_source/govcn_client.py:54-73，字段 pubtime）；govcn_announce.py:108 effective_date=hit['date']",
+          "note": "取到政策文件库的发布日期（pubtime），是真解析。⚠2026-09-18 换棒后走真接口，但解析器复用 govcn_client.parse_rows——真实响应形状未在本轮联网核实，标 supported 依据的是代码确实读了 pubtime 而不是只读 mock。"
+        },
+        "废止": {
+          "verdict": "partial",
+          "evidence": "govcn_announce.py:95 if '废止' in title: legal_status='withdrawn'",
+          "note": "只判公告**标题里有没有「废止」两字**；没有废止日期（effective_date 取的是 hit['date']=pubtime，即发布日期），也没有废止依据的结构化字段。是关键词启发式，不是解析。"
+        },
+        "现行性": {
+          "verdict": "partial",
+          "evidence": "govcn_announce.py:97-100（version 与请求号归一号相等→'effective'；否则→'upcoming'）",
+          "note": "⚠最弱的一类：三条 branch 全部是**猜**——标题含「废止」→withdrawn、版本号相等→effective、其余→upcoming。政策文件库里根本没有「法律状态」字段，命中的只是「这份公告提到了这个号」。R6c 设计 §2 原话即「govcn 只答『政策库里提没提到』」，与本判定一致。"
+        }
+      },
+      "audit": {
+        "by": "b35",
+        "at": "2026-09-18",
+        "adapter": "src/core/update/channels/govcn_announce.py (GovcnAnnounceAdapter)",
+        "how": "逐条对代码核实（verdict/evidence 见 answers_detail）"
+      }
     },
     "ch:laws_db": {
       "answers": [
@@ -57,7 +136,40 @@
       ],
       "basis": "R1 调研的机器可读声明（internal-inventory.md）；本轮未逐条复核",
       "confidence": "medium",
-      "source": "R1-seed"
+      "source": "R1-seed",
+      "answers_detail": {
+        "发布": {
+          "verdict": "supported",
+          "evidence": "laws_db.py:84 effective_date=str(best.get('sxrq') or best.get('gbrq') or '')（gbrq=公布日期，laws_db.py:67 排序也用它）；laws_db.py:86-87 raw 收录 ('bbbs','title','flxz','zdjgName','gbrq','sxrq','sxx')",
+          "note": "读的是真接口 POST /law-search/search/list（laws_db.py:43）返回行里的 gbrq/sxrq。"
+        },
+        "修订": {
+          "verdict": "supported",
+          "evidence": "laws_db.py:20-25 SXX_LEGAL{2:'superseded'}（sxx 是上一级字段，取值在 laws_db.py:68 best.get('sxx')）；laws_db.py:78 change_type 取 superseded/withdrawn",
+          "note": "sxx=2「被修改」→superseded，是权威源给出的状态码本身带「已修改」语义。⚠但**没有代替关系**：不给出代替它的新号，change_type=superseded 也不带 latest_version。"
+        },
+        "废止": {
+          "verdict": "partial",
+          "evidence": "laws_db.py:20-25 SXX_LEGAL{1:'withdrawn'}；laws_db.py:84 effective_date 只从 sxrq/gbrq 取，没有任何废止日期字段",
+          "note": "sxx=1「已废止」给出废止**状态**，但法规库搜索行没有废止日期字段，代码也没找；废止日期/依据拿不到。"
+        },
+        "现行性": {
+          "verdict": "supported",
+          "evidence": "laws_db.py:20-25 + laws_db.py:69 SXX_LEGAL.get(sxx)（3=现行有效→effective，4=尚未生效→upcoming）；laws_db.py:70-72 未知码告警不猜测",
+          "note": "权威库的时效枚举直接映射，四态齐全，未知道不猜。"
+        },
+        "编号核验": {
+          "verdict": "partial",
+          "evidence": "laws_db.py:51 query=(standard_name or standard_no)；laws_db.py:61 命中判据是 target in norm_title(row) or norm_title(row) in target（**标题**匹配）；laws_db.py:55 target=re.sub(r'\\s+','',query)",
+          "note": "不解析被请求的「号」本身，只用它（或标准名）当查询词再比**标题**；不产出权威侧的号，也不给规范判定。注意 laws_db.py:73 bbbs 只用作证据链接（laws_db.py:85），没有作为「编号核验」结果暴露。"
+        }
+      },
+      "audit": {
+        "by": "b35",
+        "at": "2026-09-18",
+        "adapter": "src/core/update/channels/laws_db.py (LawsDbAdapter)",
+        "how": "逐条对代码核实（verdict/evidence 见 answers_detail）"
+      }
     },
     "ch:ndls": {
       "answers": [
@@ -69,7 +181,40 @@
       ],
       "basis": "R1 调研的机器可读声明（internal-inventory.md）；本轮未逐条复核",
       "confidence": "medium",
-      "source": "R1-seed"
+      "source": "R1-seed",
+      "answers_detail": {
+        "发布": {
+          "verdict": "partial",
+          "evidence": "ndls.py:250 pub=str(data.get('a101'))（发布日期）；ndls.py:263-265 raw['issue_date']=pub；但 ndls.py:256-262 落进 ChannelResult.effective_date 的次序是 withdrawn_date → impl_date → pub",
+          "note": "a101 确实被解析（进 raw.issue_date，随结果落库），但**不是一等字段**：ChannelResult 只有 effective_date 一个日期槽，正常单（有 a205）拿到的是实施日期，发布语义被顶掉。行内降级（ndls.py:222-241，_from_row）连 issue_date 都不落 raw。"
+        },
+        "修订": {
+          "verdict": "supported",
+          "evidence": "ndls.py:280-305 _newer_version 从 a461list/a462list 解析代替关系，挑同主体且年代更大的号；ndls.py:294 for key in ('a461list','a462list')；ndls.py:266-268 raw 原样透传两表；ndls.py:273 derive_change_type",
+          "note": "真的解了代替链（作者渠道里唯一一处），且新号进 latest_version。"
+        },
+        "废止": {
+          "verdict": "supported",
+          "evidence": "ndls.py:252 wd=str(data.get('a206'))（废止日期）；ndls.py:257-258 if legal=='withdrawn' and wd: eff=wd；ndls.py:265 raw['withdrawn_date']=wd",
+          "note": "废止日期真正一级落地（废止时它就是 effective_date）——18 条里只有 ndls/hbba/dbba 做到这点。⚠降级路径不完整：detail=False（体检模式，ndls.py:114-120）与详情不可用（ndls.py:129-136）都走 _from_row，note='row_only'/'detail_unavailable'，此时无 a206、无代替关系。"
+        },
+        "现行性": {
+          "verdict": "supported",
+          "evidence": "ndls.py:52-60 NDLS_STATE_MAP（现行/未生效/被代替/作废/废止/废止转行标/已修订）；ndls.py:178-185 _state_of + 未知串告警",
+          "note": "12 个实测状态词的确定性白名单，词表最全，未知不猜。"
+        },
+        "编号核验": {
+          "verdict": "partial",
+          "evidence": "ndls.py:201-212 _pick_search_row（先 _dash_norm(a100)==target 精确，否则同主体取号最大）；ndls.py:174-176 _dash_norm 额外折 en/em-dash",
+          "note": "能判「在权威库存不存在」；无写法是否规范的判定，且同主体兜底会跨年代命中。按口径 partial。"
+        }
+      },
+      "audit": {
+        "by": "b35",
+        "at": "2026-09-18",
+        "adapter": "src/core/update/channels/ndls.py (NdlsAdapter)",
+        "how": "逐条对代码核实（verdict/evidence 见 answers_detail）"
+      }
     },
     "ch:std_samr_hb": {
       "answers": [
@@ -81,7 +226,40 @@
       ],
       "basis": "R1 调研的机器可读声明（internal-inventory.md）；本轮未逐条复核",
       "confidence": "medium",
-      "source": "R1-seed"
+      "source": "R1-seed",
+      "answers_detail": {
+        "发布": {
+          "verdict": "supported",
+          "evidence": "std_samr_hb.py:99 effective_date=(str(row.get('ACT_DATE') or row.get('ISSUE_DATE') or '').strip() or None)",
+          "note": "ISSUE_DATE（发布日期）真进了一级字段（无 ACT_DATE 时即 effective_date）；98 行注释明写本库无废止日期字段、废止的日期取实施日期。是有代码依据的真解析，不是 mock 独占。"
+        },
+        "修订": {
+          "verdict": "partial",
+          "evidence": "std_samr_hb.py:85-86 raw_state=row['STATE'] → map_state_text（base.py:68-73 含 被代替→superseded）；全文件无任何代替号字段解析",
+          "note": "能判「有新版」（被代替→superseded），但 std.samr 行里实际有 G_STATE 等替代线索，代码一个代替号都没解，也不给新号。"
+        },
+        "废止": {
+          "verdict": "partial",
+          "evidence": "std_samr_hb.py:86 STATE='废止'→map_state_text→withdrawn；std_samr_hb.py:98-99 但日期取 ACT_DATE/ISSUE_DATE；std_samr_hb.py:16-17 docstring 自述「本库无废止日期字段」",
+          "note": "有废止状态串，**无废止日期**（代码诚实标注，但能力仍然只有一半）。"
+        },
+        "现行性": {
+          "verdict": "supported",
+          "evidence": "std_samr_hb.py:86 map_state_text（现行/即将实施/废止/被代替）；std_samr_hb.py:66 请求带 searchText+op+ISSUE_DATE",
+          "note": "行业标准目录的 STATE 列直接映射。"
+        },
+        "编号核验": {
+          "verdict": "partial",
+          "evidence": "std_samr_hb.py:107 pick_row_by_norm(rows, compact, code_key='STD_CODE') → base.py:137-156；std_samr_hb.py:58-61 号归一后做 searchText，空号直接 miss",
+          "note": "存在性可判（精确 + 同主体兜底）；无规范判定。"
+        }
+      },
+      "audit": {
+        "by": "b35",
+        "at": "2026-09-18",
+        "adapter": "src/core/update/channels/std_samr_hb.py (StdSamrHbAdapter)",
+        "how": "逐条对代码核实（verdict/evidence 见 answers_detail）"
+      }
     },
     "ch:hbba": {
       "answers": [
@@ -93,7 +271,40 @@
       ],
       "basis": "R1 调研的机器可读声明（internal-inventory.md）；本轮未逐条复核",
       "confidence": "medium",
-      "source": "R1-seed"
+      "source": "R1-seed",
+      "answers_detail": {
+        "发布": {
+          "verdict": "partial",
+          "evidence": "hbba.py:115-120 effective_date 只从 fzDate(废止) 再 actDate(实施) 取；issueDate 全程只出现在 docstring（hbba.py:6/12/21），代码未读；虽有 raw={'row': row}（hbba.py:131）把整行带出",
+          "note": "issueDate（批准/发布日期）在响应里、且被整行放进 raw.row，但代码**没有把它解析成命名字段**（对比 ndls.py:263-265 cssn.py:199 都显式落 issue_date）。发布日期不是被解析出来的，是被整行顺带带出的。"
+        },
+        "修订": {
+          "verdict": "partial",
+          "evidence": "hbba.py:43 _SACINFO_STATE_MAP={'有更新版':'superseded'}；hbba.py:60-65 _sacinfo_state；全文件**无 reviseStdCodes** 读取（该词只出现在 docstring hbba.py:7/15）",
+          "note": "⚠典型「docstring 里写了 ≠ 实现了」：模块 docstring 说 reviseStdCodes 是被取代的更早版本号，代码一行都没读。能判「有新版」（状态='有更新版'），拿不到新版号/代替关系。"
+        },
+        "废止": {
+          "verdict": "supported",
+          "evidence": "hbba.py:117-118 if legal_status=='withdrawn': effective_date=_epoch_ms_to_date(row.get('fzDate'))；hbba.py:65 map_state_text('废止')→withdrawn",
+          "note": "废止日期真一级落地（fzDate），加上状态串——这一类是真的全。"
+        },
+        "现行性": {
+          "verdict": "supported",
+          "evidence": "hbba.py:108-113 raw_state=row['status']，hbba.py:65 _SACINFO_STATE_MAP or map_state_text（现行/即将实施/废止 + 有更新版）",
+          "note": "平台状态串直接映射，未知串告警不猜。"
+        },
+        "编号核验": {
+          "verdict": "partial",
+          "evidence": "hbba.py:135-137 pick_row_by_norm(records, standard_no, code_key='code') → base.py:137-156",
+          "note": "存在性可判；无规范判定。"
+        }
+      },
+      "audit": {
+        "by": "b35",
+        "at": "2026-09-18",
+        "adapter": "src/core/update/channels/hbba.py (HbbaAdapter)",
+        "how": "逐条对代码核实（verdict/evidence 见 answers_detail）"
+      }
     },
     "ch:dbba": {
       "answers": [
@@ -105,7 +316,40 @@
       ],
       "basis": "R1 调研的机器可读声明（internal-inventory.md）；本轮未逐条复核",
       "confidence": "medium",
-      "source": "R1-seed"
+      "source": "R1-seed",
+      "answers_detail": {
+        "发布": {
+          "verdict": "partial",
+          "evidence": "dbba.py:20 from ...hbba import _SacinfoQueryAdapter（解析全在 hbba.py）；hbba.py:115-120 effective_date=fzDate|actDate，无 issueDate",
+          "note": "与 ch:hbba 同体同源，判定同 hbba：issueDate 未命名解析。dbba.py 全文 27 行，无任何自己的解析代码。"
+        },
+        "修订": {
+          "verdict": "partial",
+          "evidence": "hbba.py:43 _SACINFO_STATE_MAP（有更新版→superseded）；hbba.py 无 reviseStdCodes 读取（dbba.py:9 docstring 举了 reviseStdCodes=DB11/T 713-2010 的例子）",
+          "note": "同 hbba：docstring 举例的 reviseStdCodes 代码没读。"
+        },
+        "废止": {
+          "verdict": "supported",
+          "evidence": "hbba.py:117-118 fzDate → effective_date（dbba 共用）；hbba.py:65 map_state_text",
+          "note": "同 hbba。"
+        },
+        "现行性": {
+          "verdict": "supported",
+          "evidence": "hbba.py:108-113 + hbba.py:65",
+          "note": "同 hbba。"
+        },
+        "编号核验": {
+          "verdict": "partial",
+          "evidence": "hbba.py:135-137 pick_row_by_norm(code_key='code')",
+          "note": "同 hbba。"
+        }
+      },
+      "audit": {
+        "by": "b35",
+        "at": "2026-09-18",
+        "adapter": "src/core/update/channels/dbba.py (DbbaAdapter) — 复用 hbba._SacinfoQueryAdapter",
+        "how": "逐条对代码核实（verdict/evidence 见 answers_detail）"
+      }
     },
     "ch:ttbz": {
       "answers": [
@@ -116,7 +360,35 @@
       ],
       "basis": "R1 调研的机器可读声明（internal-inventory.md）；本轮未逐条复核",
       "confidence": "medium",
-      "source": "R1-seed"
+      "source": "R1-seed",
+      "answers_detail": {
+        "发布": {
+          "verdict": "supported",
+          "evidence": "ttbz.py:178-179 raw_date=json_ld['datePublished'] or portal['publishDate'] or row['publishDate']；ttbz.py:188 effective_date=raw_date",
+          "note": "三级回退解析发布日期，且真进一级字段（ttbz.py:29-30 明示口径取 datePublished）。"
+        },
+        "废止": {
+          "verdict": "partial",
+          "evidence": "ttbz.py:75-78 _PORTAL_KEYS/_ROW_KEYS 含 'abolishDate'，但**全文件无任何读取它的赋值**（abolishDate 仅出现在 18/36/78/80 行的常量与 docstring 里）；ttbz.py:178-179 日期只取 datePublished",
+          "note": "⚠又一处 docstring/白名单写了但没实现：portal blob 里的 abolishDate 被登记进 raw 白名单却从不解析，废止日期拿不到；状态侧 ttbz.py:170-172 map_state_text 可给 withdrawn（ttbz.py:20-23 另注：废止标准不进常规检索，按查无处理）。"
+        },
+        "现行性": {
+          "verdict": "supported",
+          "evidence": "ttbz.py:170-172 raw_state=status_line or portal['standardStatusName'] or row['standardStatusName'] → map_state_text；ttbz.py:236-239 _extract_status_line 解析 el-tag 状态行",
+          "note": "状态行 → portal blob → 检索行三级回退，未知串告警不猜。"
+        },
+        "编号核验": {
+          "verdict": "partial",
+          "evidence": "ttbz.py:168-169 latest=json_ld['identifier'] or portal['standardNo'] or row['standardNo']；ttbz.py:130-142 _pick_row（_canon 精确优先，否则同主体取号最大）；ttbz.py:84-86 _canon 折长横 U+2014",
+          "note": "读取权威侧公布的 identifier（标准号，做法最接近规范判定），但最终仍只是「找到/没找到」，没有形式合法性判定。按口径 partial。"
+        }
+      },
+      "audit": {
+        "by": "b35",
+        "at": "2026-09-18",
+        "adapter": "src/core/update/channels/ttbz.py (TtzbAdapter)",
+        "how": "逐条对代码核实（verdict/evidence 见 answers_detail）"
+      }
     },
     "ch:mee": {
       "answers": [
@@ -124,7 +396,20 @@
       ],
       "basis": "R1 调研的机器可读声明（internal-inventory.md）；本轮未逐条复核",
       "confidence": "medium",
-      "source": "R1-seed"
+      "source": "R1-seed",
+      "answers_detail": {
+        "发布": {
+          "verdict": "partial",
+          "evidence": "mee.py:48-52 列号常量只到 COL_EFF=5（标准实施时间）；mee.py:110-115 parse_report_page 只取 COL_EFF 并 _DATE_RE 抽日期赋 effective_date；mee.py:143-144 / 161-170 legal_status=None、change_type=None",
+          "note": "报告页只有「标准实施时间」列，代码只解这一列 → 拿到的是**实施**日期，不是发布；且明确不产出状态。真实 PDF 里确有「发布 2017-04-25 / 实施 2017-06-01」（mee.py:17 记录），但代码不解析 PDF 正文，也不解析公告发布日期。故「什么时候发布的」只答一半。"
+        }
+      },
+      "audit": {
+        "by": "b35",
+        "at": "2026-09-18",
+        "adapter": "src/core/update/channels/mee.py (MeeAdapter)",
+        "how": "逐条对代码核实（verdict/evidence 见 answers_detail）"
+      }
     },
     "ch:mem_gov": {
       "answers": [
@@ -133,7 +418,25 @@
       ],
       "basis": "R1 调研的机器可读声明（internal-inventory.md）；本轮未逐条复核",
       "confidence": "medium",
-      "source": "R1-seed"
+      "source": "R1-seed",
+      "answers_detail": {
+        "发布": {
+          "verdict": "partial",
+          "evidence": "mem_gov.py:99-100 _TITLE_EFFECTIVE=(批准|发布|颁布) 命中即 kind='effective'；mem_gov.py:53-55 version=None、change_type='no_change'；mem_gov.py:64 effective_date=None",
+          "note": "只能答「近期公告里提到了这个号且标题是批准/发布类」；**无任何日期**（effective_date 硬编码 None），也无 latest_version（硬编码 None，且 change_type 永不为 new_version，mem_gov.py:55）。发布类要的是「什么时候发布的」——答不出来。"
+        },
+        "废止": {
+          "verdict": "partial",
+          "evidence": "mem_gov.py:97-98 _TITLE_WITHDRAWN=(废止|替代|作废) 命中 kind='withdrawn'；mem_gov.py:54 legal_status='withdrawn'、mem_gov.py:64 effective_date=None",
+          "note": "废止由**公告标题关键词**判定（不是状态字段），无废止日期、无结构化依据（只有公告 URL 当证据）。依据部分成立（真人可点公告），日期完全没有。"
+        }
+      },
+      "audit": {
+        "by": "b35",
+        "at": "2026-09-18",
+        "adapter": "src/core/update/channels/mem_gov.py (MemGovAdapter)",
+        "how": "逐条对代码核实（verdict/evidence 见 answers_detail）"
+      }
     },
     "ch:mohurd": {
       "answers": [
@@ -142,7 +445,25 @@
       ],
       "basis": "R1 调研的机器可读声明（internal-inventory.md）；本轮未逐条复核",
       "confidence": "medium",
-      "source": "R1-seed"
+      "source": "R1-seed",
+      "answers_detail": {
+        "发布": {
+          "verdict": "partial",
+          "evidence": "mohurd.py:50-54 ChannelResult(latest_version=None, effective_date=None)；全文无日期字段解析（mohurd.py:73-79 只判号是否出现在正文 + 标题关键词）",
+          "note": "mohurd.py:4-5 docstring 说公告详情含「发布时间/实施日期/废止条文清单」，代码一个日期都没解（_fetch_text 取回 HTML 后只做 norm_no 包含判定）。发布日期拿不到。"
+        },
+        "废止": {
+          "verdict": "partial",
+          "evidence": "mohurd.py:76-77 _TITLE_WITHDRAWN=(废止|替代|作废) 命中 kind='withdrawn'；mohurd.py:47 legal_status='withdrawn'；mohurd.py:53 effective_date=None",
+          "note": "同 mem_gov：标题关键词判定，无废止日期（effective_date 硬编码 None），且 docstring 提到的「废止条文清单」未解析。⚠台账 wiring=unwired。"
+        }
+      },
+      "audit": {
+        "by": "b35",
+        "at": "2026-09-18",
+        "adapter": "src/core/update/channels/mohurd.py (MohurdAdapter)",
+        "how": "逐条对代码核实（verdict/evidence 见 answers_detail）"
+      }
     },
     "ch:cssn": {
       "answers": [
@@ -154,18 +475,80 @@
       ],
       "basis": "R1 调研的机器可读声明（internal-inventory.md）；本轮未逐条复核",
       "confidence": "medium",
-      "source": "R1-seed"
+      "source": "R1-seed",
+      "answers_detail": {
+        "发布": {
+          "verdict": "partial",
+          "evidence": "cssn.py:183 pub=str(row.get('a101'))；cssn.py:199 raw={'issue_date': pub, 'impl_date': impl}；cssn.py:188 eff=impl or pub",
+          "note": "a101 被解析成命名 raw 字段 issue_date，但一级 effective_date 取 impl（实施）——发布语义不在响应契约的一等字段上。与 ndls 同形（都是 raw 里有一级里没有）。"
+        },
+        "修订": {
+          "verdict": "partial",
+          "evidence": "cssn.py:49-56 CSSN_STATE_MAP{'被代替':'superseded'}；cssn.py:168-174 _state_of；全文件无代替号字段解析",
+          "note": "能判「有新版」（被代替），但无代替关系/新号。⚠与 hbba 的差别在于：cssn 的 docstring 没有声称解了代替号，所以这里是「能力不足」而非「docstring 骗人」。"
+        },
+        "废止": {
+          "verdict": "partial",
+          "evidence": "cssn.py:49-56 CSSN_STATE_MAP{'作废':'withdrawn','废止':'withdrawn','废止转行标':'withdrawn'}；cssn.py:187 注释「cssn 无废止日期列」；cssn.py:188 eff=impl or pub",
+          "note": "有较全的废止状态词；**无废止日期**（代码自述该库无此列），也就无废止依据日期。"
+        },
+        "现行性": {
+          "verdict": "supported",
+          "evidence": "cssn.py:168-174 _state_of（CSSN_STATE_MAP 优先）；cssn.py:180-182 未知串告警不猜测",
+          "note": "状态串→legal_status 四态映射；而且 cssn 是「全覆盖国标」源（cssn.py:9-11），可用性上比 openstd 强。"
+        },
+        "编号核验": {
+          "verdict": "partial",
+          "evidence": "cssn.py:135-164 _pick(rows, standard_no)：先 norm_no 精确（146-147），否则 _split 数字主体跨前缀匹配（148-164，GB/GB/T/GB/Z 视为同主体）",
+          "note": "能判存在性，且**跨前缀同主体**匹配（cssn.py:136-142）比别家更接近「编号规范」——但仍是匹配策略，不是形式合法性判定；跨前缀回退还可能把 GB/T 版当 GB 版命中。按口径 partial。"
+        }
+      },
+      "audit": {
+        "by": "b35",
+        "at": "2026-09-18",
+        "adapter": "src/core/update/channels/cssn.py (CssnAdapter)",
+        "how": "逐条对代码核实（verdict/evidence 见 answers_detail）"
+      }
     },
     "ch:flk_client": {
       "answers": [
         "发布",
         "修订",
         "废止",
-        "现行性"
+        "现行性",
+        "编号核验"
       ],
       "basis": "R1 调研的机器可读声明（internal-inventory.md）；本轮未逐条复核",
       "confidence": "medium",
-      "source": "R1-seed"
+      "source": "R1-seed",
+      "answers_detail": {
+        "发布": {
+          "verdict": "supported",
+          "evidence": "flk_client.py:78 gbrq；flk_client.py:96 gbrq 公布日期；verify.py:150-154 (\"published_date\",\"gbrq\") 进核验载荷",
+          "note": "flk_client 解析 gbrq（公布日期），verify_law 把它作为 published_date 输出。"
+        },
+        "修订": {
+          "verdict": "partial",
+          "evidence": "verify.py:57-62 FLK_SXX_MAP{2:'superseded'}；update.py:32 注释「sxx: 3=有效, 2=已修改, 1=已废止」；update.py:40-50 当前非有效版时**另发一次搜索**（sxx=[3]）找同标题有效版提示重导",
+          "note": "sxx=2 能判「已修改」；update.py:44-50 还用「同标题 + flxz∈法律/行政法规/宪法 + 同 sxx=3」去猜新版，但那是**标题匹配**的启发式，不是代替关系，且只取第一个命中。距「代替关系」仍差一步 → partial。"
+        },
+        "废止": {
+          "verdict": "partial",
+          "evidence": "verify.py:57-62 FLK_SXX_MAP{1:'withdrawn'}；verify.py:65-73 STATUS_TEXT{'withdrawn':'已废止'}；flk_client.py:113-117 FlkDetail 无废止日期字段，只解析 gbrq/sxrq",
+          "note": "有权威废止**状态**（比很多渠道强），但 flk 搜索/详情解析里没有废止日期字段，代码也没找 → 废止日期拿不到。"
+        },
+        "现行性": {
+          "verdict": "supported",
+          "evidence": "verify.py:280-305 _map_detail：严格 sxx 枚举映射 + verify.py:289-293 无 sxx → 'unmarked'（不从可访问性推断）+ verify.py:298-301 未知 sxx → unverified 告警；verify.py:318 verify_law 入口",
+          "note": "18 组里最完整的「今天状态」实现：四态映射 + unmarked/not_found/unverified 三分 + 分级 TTL 缓存（verify.py:85-93）。判 supported。"
+        }
+      },
+      "audit": {
+        "by": "b35",
+        "at": "2026-09-18",
+        "adapter": "无 ChannelAdapter。代码在 src/core/knowledge/law_source/flk_client.py + verify.py + update.py（不在 ADAPTER_CLASSES，ch:* 中 5 条无适配器的之一）",
+        "how": "逐条对代码核实（verdict/evidence 见 answers_detail）"
+      }
     },
     "ch:govcn_client": {
       "answers": [
@@ -173,7 +556,20 @@
       ],
       "basis": "R1 调研的机器可读声明（internal-inventory.md）；本轮未逐条复核",
       "confidence": "medium",
-      "source": "R1-seed"
+      "source": "R1-seed",
+      "answers_detail": {
+        "发布": {
+          "verdict": "supported",
+          "evidence": "govcn_client.py:67 'pubtime': item.get('pubtime')；govcn_client.py:118 detail.publish_date=date_node.get_text(...)（详情页 .date/.time/.pub-date/.publish-time/.articletime）",
+          "note": "列表接口 pubtime + 详情页 DOM 日期两路解析，都是真实现。"
+        }
+      },
+      "audit": {
+        "by": "b35",
+        "at": "2026-09-18",
+        "adapter": "无 ChannelAdapter。代码在 src/core/knowledge/law_source/govcn_client.py（不在 ADAPTER_CLASSES，ch:* 中 5 条无适配器的之一）",
+        "how": "逐条对代码核实（verdict/evidence 见 answers_detail）"
+      }
     },
     "ch:announce_sources": {
       "answers": [
@@ -181,7 +577,20 @@
       ],
       "basis": "R1 调研的机器可读声明（internal-inventory.md）；本轮未逐条复核",
       "confidence": "medium",
-      "source": "R1-seed"
+      "source": "R1-seed",
+      "answers_detail": {
+        "发布": {
+          "verdict": "supported",
+          "evidence": "announce.py:264-276 _parse_date（取最后一个 1990-2100 合法日期）；announce.py:305-308 item={'title':..., 'published_date': _parse_date(text), 'standard_no': _STD_TOKEN_RE.search(text)}；announce.py:510-516 落库 announcement_observed(..., standard_no, published_date, ...)",
+          "note": "从列表页条目文本解析公告发布日期并落库（announce.py:569 还按 published_date DESC 排序）。⚠局限：只在列表页文本里找日期，公告详情页不解析；列表页无日期时 published_date 为空。"
+        }
+      },
+      "audit": {
+        "by": "b35",
+        "at": "2026-09-18",
+        "adapter": "无 ChannelAdapter。代码在 src/core/update/announce.py（不在 ADAPTER_CLASSES，ch:* 中 5 条无适配器的之一）",
+        "how": "逐条对代码核实（verdict/evidence 见 answers_detail）"
+      }
     },
     "seed:law-cn:国家法律法规数据库-检索列表": {
       "answers": [
@@ -781,13 +1190,27 @@
       "answers": [],
       "basis": "internal-inventory.md §2「ccs_fetcher（CCS 分类抓取）」L497 原文：'回答: **分类（CCS）**；不回答状态/效力'。代码 src/core/knowledge/ccs_fetcher.py 逐行核对：只解析 _BLOCK_TITLE(L74 'ph_img_contenta301\">([^<]+)</strong>') 与 _CCS_IN_BLOCK(L75 '【CCS分类】</strong>([A-Z]\\d{2}[^<]*)</li>')，返回 {code, major, sub}(L123)，全文无 status/废止日期/代替号/发布日期字段。",
       "confidence": "high",
-      "source": "R6c-1-B"
+      "source": "R6c-1-B",
+      "answers_detail": {},
+      "audit": {
+        "by": "b35",
+        "at": "2026-09-18",
+        "adapter": "无 ChannelAdapter。代码在 src/core/knowledge/ccs_fetcher.py",
+        "how": "逐条对代码核实（verdict/evidence 见 answers_detail）"
+      }
     },
     "ch:discover_search": {
       "answers": [],
       "basis": "internal-inventory.md §2「discover（找标检索）」L510 原文：'回答: **找标（分类→候选标准清单）**；不回答状态/效力'。代码 src/core/update/discover.py L516-517 只读 body.get('results')（dict 契约），真实 openstd HTML 响应无解析；L478 注明'离线单测必须注入 mock'。注意：_to_card L550-551 确有 status 字段并过 map_state_text，但仅由 mock/fixture 供数，且该通路 unwired、不在 routing 链上 ⇒ 不声明任何类。",
       "confidence": "medium",
-      "source": "R6c-1-B"
+      "source": "R6c-1-B",
+      "answers_detail": {},
+      "audit": {
+        "by": "b35",
+        "at": "2026-09-18",
+        "adapter": "无 ChannelAdapter。代码在 src/core/update/discover.py",
+        "how": "逐条对代码核实（verdict/evidence 见 answers_detail）"
+      }
     },
     "seed:std-cn:国家标准化管理委员会": {
       "answers": [],

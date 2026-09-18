@@ -475,6 +475,9 @@ def test_official_gb_parses_real_openstd_html():
     #   `dates[-1]`（=第 2 格）与 ndls 的实施日期 **12/12 一致**，`dates[0]` 只在"发布==实施"的 2 个号上一致。
     #   GB 30871-2022 的真实实施日期是 2022-10-01（fixture 第 2 个日期格）。
     assert r1.effective_date == "2022-10-01"
+    # §11.0 R6c-3e：**发布日期**落它自己的槽（第 1 格）。以前只有一个日期槽 ⇒
+    # 第 1 格被直接丢掉，"发布"这一类（五类之首）没有任何数据来源（复核 b35 的结论之一）。
+    assert r1.published_date == "2022-03-15"
     assert r1.evidence_url == "showInfo:561B95121C30853A6B45CA9471F39239"
 
     r2 = adapter.probe("GB 50016-2014")
@@ -515,6 +518,49 @@ class TestOfficialGb实施日期:
         from src.core.update.channels.official_gb import _impl_date
 
         assert _impl_date(["2018-11-19", "2019-03-01", "2025-01-01"]) == "2019-03-01"
+
+
+class Test发布日期槽:
+    """§11.0 R6c-3e：`published_date`（发布）与 `effective_date`（实施）是两个槽。
+
+    两条独立证据逼出这个字段：复核 b35 逐条核 18 条适配器，发现 **6 条**渠道解析出了发布日期
+    却无处安放；复核 b34 实测 `ttzb` 把发布塞进实施（T/CECS 2350-2026 差 6 个月）。
+    """
+
+    def test_official_gb_发布取第1格(self):
+        from src.core.update.channels.official_gb import _pub_date
+
+        assert _pub_date(["2018-11-19", "2019-03-01"]) == "2018-11-19"
+
+    def test_official_gb_只有一格时发布留空(self):
+        """⚠ **不许把唯一那格当发布**：此时发布/实施不可区分，宁缺勿错。"""
+        from src.core.update.channels.official_gb import _pub_date
+
+        assert _pub_date(["2019-03-01"]) is None
+        assert _pub_date([]) is None
+
+    def test_ttzb_实施与发布各归各的槽(self):
+        """b34 的真机反例：T/CECS 2350-2026 发布 2026-06-12、实施 2026-12-01。"""
+        from src.core.update.channels.ttzb import _pick_dates
+
+        impl, pub = _pick_dates({}, {"publishDate": "2026-06-12",
+                                     "implementDate": "2026-12-01"}, {})
+        assert (impl, pub) == ("2026-12-01", "2026-06-12")
+
+    def test_ttzb_只有发布时实施留空(self):
+        """旧实现会把这个发布日期填进 `effective_date` —— 那正是要修的形态。"""
+        from src.core.update.channels.ttzb import _pick_dates
+
+        assert _pick_dates({}, {"publishDate": "2026-06-12"}, {}) == (None, "2026-06-12")
+
+    def test_ttzb_三级回退顺序(self):
+        from src.core.update.channels.ttzb import _pick_dates
+
+        # json_ld 优先于 portal、portal 优先于 row
+        assert _pick_dates({"implementDate": "A"}, {"implementDate": "B"},
+                           {"implementDate": "C"})[0] == "A"
+        assert _pick_dates({}, {"implementDate": "B"}, {"implementDate": "C"})[0] == "B"
+        assert _pick_dates({}, {}, {"implementDate": "C"})[0] == "C"
 
 
 class TestNormNoFullWidth:

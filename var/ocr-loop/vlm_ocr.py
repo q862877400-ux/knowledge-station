@@ -145,13 +145,20 @@ def recover_state(state: dict, log_path: Path, alias_keys: set[str]) -> tuple[in
 
 
 def _doc_id_of(standard_no: str) -> str:
-    """标准号 → doc_id（只读库；查不到返回空串）。跨轮一律按标准号配对。"""
+    """标准号 → doc_id（只读库；查不到返回空串）。跨轮一律按标准号配对。
+
+    ⚠ 查之前折**存储形**（§11.0 R6c-3f；复核 b34 的 D 项把这里点名为"未折的等值读"）：
+    库里存的是半角（写入侧已收口），这里的入参来自文件名/manifest，**可能带全角 `／`**
+    ——不折就会静默查不到（复核说明：它没能构造出"仅因未折而失败"的活复现，
+    因为现有 stem 都带名称后缀；但那是**当前数据**的运气，不是这段代码对了）。
+    """
     if not standard_no:
         return ""
     try:
+        from src.core.text_utils import store_standard_no
         conn = sqlite3.connect(f"file:{db_path()}?mode=ro", uri=True)
         row = conn.execute("SELECT doc_id FROM doc_meta WHERE standard_no=?",
-                           (standard_no,)).fetchone()
+                           (store_standard_no(standard_no),)).fetchone()
         conn.close()
         return str(row[0]) if row else ""
     except Exception:  # noqa: BLE001

@@ -53,6 +53,17 @@ def _impl_date(dates: list[str]) -> str | None:
     return dates[1] if len(dates) >= 2 else dates[0]
 
 
+def _pub_date(dates: list[str]) -> str | None:
+    """同一行的日期格 → **发布日期**（第 1 格，`ChannelResult.published_date`）。
+
+    R6c-3c 修 `_impl_date` 时把第 1 格**丢掉了**（只取第 2 格），于是"发布"这一类没有数据来源；
+    R6c-3e 加回这个槽之后取它。**只有一个日期格时返回 None**（不是把唯一那格当发布）：
+    这时发布/实施不可区分，宁可让"发布"空着，也不要塞一个可能是实施日期的值——
+    这正是 `ttzb` 那处错标（发布塞进实施）要避免的形态。
+    """
+    return dates[0] if len(dates) >= 2 else None
+
+
 class OfficialGbAdapter(ChannelAdapter):
     """主渠道：命中即止（降级链 official_gb→web→govcn 由 inspector 编排）。"""
 
@@ -102,6 +113,8 @@ class OfficialGbAdapter(ChannelAdapter):
                     "state": m_state.group(1).strip() if m_state else "",
                     # ⚠ **实施日期**（第 2 格），不是发布日期——见 `_impl_date` 的证据
                     "date": _impl_date(dates),
+                    # 发布/实施两个槽各自落位（§11.0 R6c-3e）
+                    "pub_date": _pub_date(dates),
                     "url": f"showInfo:{m_info.group(1)}" if m_info else None,
                 })
         elif isinstance(body, dict):
@@ -126,6 +139,7 @@ class OfficialGbAdapter(ChannelAdapter):
             legal_status=legal_status,
             latest_version=version,
             effective_date=(str(row["date"]).strip() or None) if row.get("date") else None,
+            published_date=(str(row["pub_date"]).strip() or None) if row.get("pub_date") else None,
             evidence_url=row.get("url") or None,
             raw={"http": status, "row": row},
         )

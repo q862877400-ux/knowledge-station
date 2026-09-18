@@ -729,6 +729,11 @@ def resolve_clause(standard_no: str, clause_number: str) -> ClauseRevisionModel 
     import re as _re
 
     conn = get_db_connection()
+    # ⚠ 标准号先折**存储形**再查（§11.0 R6c-3f；复核 b34 的 D 项点出这里是漏的）：
+    #   写入侧已经折了（`insert_document`），这里不折的话全角入参在第一句**精确匹配**上会漏；
+    #   复核实测"全角入参仍能命中"是**下面年份 LIKE 兜底**的功劳，不是这句对了——
+    #   于是同一件事在两处有不同口径，将来有人收紧兜底就会静默查不到。
+    standard_no = store_standard_no(standard_no)
     # 三个候选，**必须按"历史行为优先"的顺序试**，否则就不是纯增量：
     #   verbatim = 调用方原样（**旧实现正是用它查的**，去空白会改变结果）；
     #   raw      = 去首尾空白；norm = 归一（全角→半角 / 去空白 / 去前导零）。

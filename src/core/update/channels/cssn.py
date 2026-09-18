@@ -191,6 +191,7 @@ class CssnAdapter(ChannelAdapter):
             change_type=derive_change_type(standard_no, version, legal),
             legal_status=legal, latest_version=version,
             effective_date=eff,
+            published_date=pub,   # §11.0 R6c-3e：a101 发布日期单独落槽（以前只在 raw 里）
             evidence_url=(self.INDEX + "/list?keyword=" + urllib.parse.quote(standard_no)),
             raw={"http": http, "mode": mode, "status_text": a000,
                  "row": row,    # cssn 完整原始行（a000/a100/a101/a205/a825/a825name/a826/a826name/a104/formats/... 全保留）
