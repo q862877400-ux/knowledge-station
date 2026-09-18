@@ -193,6 +193,51 @@ class TestSeed:
             cr.load_seed(bad)
 
 
+class TestApi:
+    """`/api/v1/channels`（R2b，只读）。⚠ 两条纪律：参数错要 422（不是空结果）、
+    `summary` 与 `items` 必须同一次返回（两个口径不同的数字最会骗人）。
+
+    ⚠ `client` fixture 给的是 `(TestClient, token)` **元组**（`conftest.py:53`）——
+    直接 `client.get(...)` 会 AttributeError（本轮就踩了一次）。
+    """
+
+    @staticmethod
+    def _hdr(token: str) -> dict:
+        return {"Authorization": f"Bearer {token}"}
+
+    def test_列表带_summary_且能按类别筛选(self, client):
+        c, token = client
+        cr.seed_channels()
+        r = c.get("/api/v1/channels?category=std_gb", headers=self._hdr(token))
+        assert r.status_code == 200
+        body = r.json()["data"]
+        assert body["summary"]["total"] >= 100
+        assert all(i["category"] == "std_gb" for i in body["items"])
+        # 能力数与台账数**同时**在响应里（口径分开）
+        assert body["summary"]["by_wiring"]["wired"] >= 1
+
+    def test_非法筛选值要_422_而不是空结果(self, client):
+        c, token = client
+        for q in ("category=nonsense", "wiring=fine", "state=healthy", "verification=maybe"):
+            r = c.get(f"/api/v1/channels?{q}", headers=self._hdr(token))
+            assert r.status_code == 422, f"{q} 应 422（空结果会让人以为库里没有）"
+            # 引擎的错误体形状：{"code": <status>, "status": "error", "error": <code>, "message": …}
+            assert r.json()["error"] == "illegal_channel_filter"
+
+    def test_limit_越界要_422(self, client):
+        c, token = client
+        assert c.get("/api/v1/channels?limit=0", headers=self._hdr(token)).status_code == 422
+        assert c.get("/api/v1/channels?limit=99999",
+                     headers=self._hdr(token)).status_code == 422
+
+    def test_单条详情_不存在要_404(self, client):
+        c, token = client
+        cr.upsert_channel("t:one", {"name": "甲", "category": "law"})
+        ok = c.get("/api/v1/channels/t:one", headers=self._hdr(token))
+        assert ok.status_code == 200 and ok.json()["data"]["name"] == "甲"
+        assert c.get("/api/v1/channels/t:nope", headers=self._hdr(token)).status_code == 404
+
+
 class TestShippedSeed:
     """随包发布的种子（`src/core/update/channel_seed.json`）本身的契约。"""
 
@@ -215,11 +260,19 @@ class TestShippedSeed:
             assert rows[cid]["wiring"] == "broken", f"{cid} 又被当成能用的渠道了"
             assert "miss" in (rows[cid].get("note") or "")
 
-    def test_接线名字不一致的渠道在种子里被标出来(self):
-        """R2 发现：ADAPTER_CLASSES 键 `ttzb` vs 适配器 name `ttbz` ⇒ 探测时被静默跳过。"""
+    def test_接线名字不一致的渠道已在种子里记明(self):
+        """R2 发现 G23（注册表键 `ttzb` vs 适配器名 `ttbz`）。
+
+        ⚠ **本用例的判据在 R2b 改过一次**：R2 时它断言 `wiring == 'broken'`（那时字典按
+        注册键建，链里的 `ttbz` 查不到）；R2b 把 `_build_adapters` 改成**按 `name` 建表**后
+        这条渠道真的能用了 ⇒ 现在断言它 **wired**，同时**仍要求 note 里写明名字不一致**
+        （卫生问题没消失，只是不再致命——不许把修复顺带粉饰成"原本没问题"）。
+        """
         rows = {r["channel_id"]: r for r in cr.load_seed()}
-        assert rows["ch:ttbz"]["wiring"] == "broken"
-        assert "不一致" in (rows["ch:ttbz"].get("note") or "")
+        row = rows["ch:ttbz"]
+        assert row["wiring"] == "wired", "G23 修完后团标渠道应当是 wired"
+        assert "不一致" in (row.get("note") or ""), "名字不一致这条卫生提示必须留着"
+        assert "ttzb" in (row.get("note") or "")
 
     def test_能力数远小于台账条数(self):
         """口径用例：如果哪天这两个数相等，说明有人把"调研到"当成了"能干活"。"""

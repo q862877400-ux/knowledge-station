@@ -3348,6 +3348,11 @@ def create_app(token: str) -> FastAPI:
     from src.core.api import routes_report
     routes_report.register(app, _json_error)
 
+    # 渠道台账（§11.0 R2b，2026-09-18）：巡检"渠道"的一等公民——只读
+    # （链接/接线状态/运行健康度/上次成功查询），面板 R4 的数据源
+    from src.core.api import routes_channels
+    routes_channels.register(app, _json_error)
+
     # 设置→API 配置（2026-08-27：OCR/LLM 双通道凭据管理）
     from src.core.api import routes_settings
     routes_settings.register(app, _json_error)

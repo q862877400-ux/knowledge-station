@@ -140,6 +140,43 @@ def _assert_expect_subset(result: ChannelResult, expect: dict) -> None:
             assert actual == expected, f"{field_name}: 期望 {expected!r} 实际 {actual!r}"
 
 
+# ---------------------------------------------------------------- 接线不变量（§11.0 R2）
+def test_每个链上的渠道名都能在适配套表里查到():
+    """**接线不变量**：`routing.select_chain()` 返回的每个渠道名，都必须在
+    `inspector._build_adapters()` 的字典里**查得到**。
+
+    为什么要有这条（§11.0 R2 实测缺陷）：注册表的键取自**文件名**（`ttzb`），而
+    适配器自己的 `name` 是 `ttbz`、`routing` 链里写的也是 `ttbz` ⇒ 原先按注册键建字典，
+    `_probe_number` 按链里的名字查不到该渠道，**静默跳过**——团体标准一路永远走不到
+    专用渠道，现场只表现为"没搜到"。
+
+    ⚠ 这条用**穷举前置路由 + 兜底链**两处，而不是只测 `ttbz` 一个号：任何"链里写了
+    但字典里没有"的名字都会红（数据驱动，加了新前缀也自动覆盖）。
+    """
+    from src.core.update.channels.routing import _FALLBACK, _PREFIX_ROUTE
+    from src.core.update.inspector import _build_adapters
+
+    built = _build_adapters(transport=None)
+    chain_names = sorted({ch for _, ch in _PREFIX_ROUTE} | set(_FALLBACK))
+    missing = [name for name in chain_names if name not in built]
+    assert not missing, (
+        f"这些渠道在 routing 链里被引用、但适配套表里查不到 ⇒ 会被静默跳过：{missing}"
+        f"（表里的键={sorted(built)}）")
+    # 反向也钉一下：注册了但没进字典的（不该存在——除非类 import 失败被跳过）
+    registry_names = {getattr(cls, "name", None) or key
+                      for key, cls in ADAPTER_CLASSES.items() if cls is not None}
+    assert registry_names <= set(built), f"注册了但没建出来：{sorted(registry_names - set(built))}"
+
+
+def test_ttzb_那一个渠道的键与名不一致要按名建表():
+    """具体到那个不一致的渠道：字典里必须能按 `ttbz`（链里的名字）取到。"""
+    from src.core.update.inspector import _build_adapters
+
+    built = _build_adapters(transport=None)
+    assert "ttbz" in built, "团标渠道又变成查不到了（注册键 ttzb ≠ 适配器名 ttbz）"
+    assert built["ttbz"].__class__.__name__ == "TtzbAdapter"
+
+
 # ---------------------------------------------------------------- 测试
 def test_fixture_matrix_contract():
     """fixture 自检：≥12 行组合（INS-B-07 口径）、key 唯一、渠道与必填段齐全。"""

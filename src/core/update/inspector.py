@@ -397,12 +397,19 @@ def _build_adapters(transport=None) -> dict[str, ChannelAdapter]:
     """构造全部渠道适配器（含 2026-08 新增的权威渠道）；transport 注入点即离线 mock 机制。
 
     任一渠道 import 失败（实现中）则跳过，不影响其余渠道运行。
+
+    ⚠ **键必须用适配器自己的 `name`，不能用 `ADAPTER_CLASSES` 的键**（§11.0 R2 修）：
+    `routing.select_chain()` 返回的是**适配器名**（如 `ttbz`），而注册表的键取自**文件名**
+    （`ttzb`，见 `channels/__init__.py:53`）——两者在 `ttzb` 这一个渠道上不一致
+    （`channels/ttzb.py:96` 写的是 `name = "ttbz"`）。原先按注册键建字典 ⇒ `_probe_number`
+    按链里的名字查不到 ⇒ **团体标准一路永远走不到专用渠道，且现场只表现为"没搜到"**
+    （那种"静默少一根渠道"最难查）。注册表键仍作缺省（类没声明 `name` 时）。
     """
     out: dict[str, ChannelAdapter] = {}
-    for name, cls in ADAPTER_CLASSES.items():
+    for key, cls in ADAPTER_CLASSES.items():
         if cls is None:
             continue
-        out[name] = cls(transport=transport)
+        out[getattr(cls, "name", None) or key] = cls(transport=transport)
     return out
 
 

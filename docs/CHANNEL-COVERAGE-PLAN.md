@@ -239,7 +239,8 @@
 |---|---|---|---|
 | **R1**（进行中） | ①内部拆解：13 适配器 + `law_source/*` 的端点/参数/清洗/失败语义 → 覆盖清单；②外部核实：法规类渠道；③外部核实：标准类渠道（含 31 省地标）；④项目/Skill 代码级拆解 | `docs/research/channels/internal-inventory.md`、`law-cn.md`、`std-cn.md`、`oss-decomposition.md` | 四份文件齐；每渠道/项目都有 §3 格式记录；未核实的显式标注 |
 | **R2a** ✅（2026-09-18 完成） | 台账**数据模型 + 种子 + 仓储 + 用例**：`update_channel` 表（schema.sql）；`src/core/storage/channel_repo.py`（类别归一/CRUD/健康度三态/种子导入）；`src/core/update/channel_seed.json`（131 条，wiring **由 routing 反查**得出） | 上列三件 + `tests/test_channel_repo.py`（**41 用例**） | ✅ 131 条入种子、类别收敛到 9 个 canonical、`wiring` 五态、**两根死棒标 broken**、种子导入不覆盖健康度、`pytest 1883/3/0`、`mypy 136/0`、smoke EXIT=0 |
-| **R2b**（未做，下一轮） | **只读 API + 真机落库**：`GET /api/v1/channels`（`def`，走线程池）+ `POST /api/v1/channels/seed`；把种子灌进真机库并核对条数 | 端点 + 用例 | 真机库里能看到 131 条且 `summary().by_wiring.wired` 只有 5 |
+| **R2b** ✅（2026-09-18 完成） | **只读 API + 真机落库**：`GET /api/v1/channels`（列表 + `summary` 同一次返回；非法筛选 422 而非空结果）与 `GET /api/v1/channels/{id}`（无则 404）；两个都是 **`def`**（走线程池，故名单制门禁无需申报）；把种子灌进**实机库** | `src/core/api/routes_channels.py` + 用例 + 落库记录 | ✅ 真机库 131 条；`summary` = wired **6** / unwired 10 / broken 2 / seed_only 113；`state` 全 `unknown`（探针还没跑，**如实**） |
+| **R2.5** ✅（部分，2026-09-18 完成） | 修掉"在链上但实际不工作"的渠道：**G23 接线名字不一致**（`ADAPTER_CLASSES` 键 `ttzb` vs 适配器名 `ttbz`）⇒ `_build_adapters` 改为**按适配器 `name` 建表**（注册键作缺省），并加**数据驱动的不变量用例**（穷举 `_PREFIX_ROUTE` + `_FALLBACK`，任何"链里写了但表里没有"的名字都会红） | `inspector.py` 改动 + 2 条用例 + 种子重生成 | ✅ 团标渠道真的能用了（wired 5 → **6**）；两根死棒（`web`/`govcn`）**仍未修**——按"换棒而非修棒"的建议留到 R5 |
 | **R2.5**（R1 新增，**建议先于 R5**） | **修两根死兜底棒**：给 `web`/`govcn` 补真实 HTML 解析（或如实降级为"仅 mock 可用"并从覆盖率里剔除）；顺带把 G8 的伪协议证据链接归一 | 适配器改动 + 契约用例（喂真实 HTML 片段） | 用**真 HTML 响应**（离线 fixture）验证能解析出条目；否则状态标"失效"且不计入覆盖率 |
 | **R3** | **渠道健康探针**：探活（HTTP + 语义探针"抓到的页面里有没有预期的锚点"）、`last_success/last_error/consecutive_failures/latency` 落库；失败原因归类 | `channel_probe.py` + 用例 + 真机跑一次全渠道 | 至少 1 次真机全渠道探测结果落库；失败的有可操作原因 |
 | **R4** | **宿主路由 + 前端面板**：表格（链接/类别/有效性/上次成功/失败原因/备注）+「立即探测」+ 增删改 | `/ks/channels*` + `KsChannelsPanel.tsx` + smoke | 真机 CDP 截图：面板可见、能探测、能编辑 |
@@ -342,6 +343,34 @@
 - **门禁**：`pytest` **1883 passed / 3 skipped / 0 failed**（1842 → +41，正好是新用例数）、
   `mypy` **136/0**（+1 新模块）、smoke **EXIT=0**（客户端本轮未改）。
 - **没做**（留给 R2b）：只读 API + 把种子灌进真机库。
+
+#### R2b（2026-09-18 完成，同一轮）
+- **只读 API**：`src/core/api/routes_channels.py`（`GET /api/v1/channels` + `/api/v1/channels/{id}`）。
+  两条口径写进用例：**参数错要 422，不许返回空结果**（空结果会让人以为库里没这条）；
+  **`summary` 与 `items` 同一次返回**（两个口径不同的数字最会骗人）。两个端点都是 `def`
+  ⇒ 走线程池，名单制门禁（`_ASYNC_ENDPOINTS`）**无需新增条目**（`tests/test_material_api.py` 108 passed 佐证）。
+- **真机落库**：`var/tmp/seed-live-db.py` → 实机库 `C:\Users\Zegel\AppData\Roaming\KnowledgeStation\database\knowledge.db`
+  **131 条**（`inserted 131 / updated 0`）；`summary` = `wired 6 / unwired 10 / broken 2 / seed_only 113`，
+  `state` **全 `unknown`**（探针还没跑——台账**如实**说"还不知道"，而不是假装健康）；
+  类别分布 law 45 / tool 24 / internal 18 / std_hb 13 / std_db 10 / aggregator 7 / std_gb 5 / std_tb 5 / std_intl 4。
+  ⚠ 只是**新增一张表 + 131 行**（`CREATE TABLE IF NOT EXISTS` + 只写本表），与引擎启动时
+  `init_schema()` 做的事相同；不碰任何既有表，`DELETE FROM update_channel` 即可回退。
+  ⚠ **引擎当前进程仍不认识这张表**（它启动于本轮之前）⇒ 端点要等宿主/引擎重启后才对外可用。
+- **门禁（R2a+R2b 合计）**：`pytest` **1889 passed / 3 skipped / 0 failed**（1842 → +47：
+  41 条台账用例 + 4 条端点用例 + 2 条接线不变量）、`mypy` **137/0**、smoke **EXIT=0**、
+  `tests/test_material_api.py`（async 名单制门禁）**108 passed**（新增端点都是 `def`，无需申报）。
+
+#### R2.5 的一部分（2026-09-18 完成）：G23 修掉
+`inspector._build_adapters()` 原先按 `ADAPTER_CLASSES` 的**键**建字典（键取自文件名 `ttzb`），
+而 `routing.select_chain()` 返回的是**适配器名** `ttbz` ⇒ 查不到 ⇒ **静默跳过该渠道**。
+改成**按适配器 `name` 建表**（类没声明 `name` 时退回注册键），并在 `tests/test_update_channels.py`
+加两条：① **数据驱动不变量**——穷举 `_PREFIX_ROUTE` + `_FALLBACK` 的每个渠道名，任何一个
+"链里写了但表里没有"都会红（以后加前缀也自动覆盖）；② 具体那条渠道 `ttbz` 取得到。
+效果：`wired 5 → 6`（团标这一路真的能走到专用渠道了）。
+⚠ 我**同时改了那条种子用例的判据**：R2 时它断言 `ch:ttbz` 是 `broken`，修完后必须断言 `wired`
+**但仍要求 note 里写明"注册表键与适配器名不一致"**——修好不等于原本没问题，卫生问题仍要留痕。
+⚠ **两根死兜底棒（`web`/`govcn`）本轮没动**：按 §6 的建议是"**换棒**"（`govcn` → `ZUIXINZHENGCE.json`；
+`web` 降级为不计入覆盖率的显式最后兜底），那属于 R5 的量级，不该塞进 R2。
 
 **⚠ 由 R1 得出的一个待业主确认的取舍**（比"修旧棒还是换新棒"更根本）：
 `web`（bing 泛查）与 `govcn`（gov.cn 搜索）这两根"兜底棒"**今天在真实网络下恒 miss**（G6），

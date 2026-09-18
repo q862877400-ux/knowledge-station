@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-18 12:29:09",
+  "generated_at": "2026-09-18 12:36:26",
   "source": "docs/research/channels/registry.seed.json（R1 四束调研的机器可读附录）",
   "note": "引擎消费的渠道台账种子。category 已归一（原始写法在 category_raw）；wiring 由 src/core/update/channels/routing.py **反查**得到，并把实测恒 miss 的 web/govcn 标为 broken。probe_url/probe_expect 留空——那是 R3 语义探针的活（要实测填，不许猜）。",
   "counts": {
@@ -16,10 +16,10 @@
       "std_intl": 4
     },
     "by_wiring": {
-      "broken": 3,
+      "broken": 2,
       "seed_only": 113,
       "unwired": 10,
-      "wired": 5
+      "wired": 6
     },
     "by_verification": {
       "broken": 29,
@@ -176,10 +176,10 @@
       "answers_json": "[\"发布\", \"废止\", \"现行性\", \"编号核验\"]",
       "covers": "团体标准 T/ 检索与详情；日期含 publishDate/implementDate/filePublishDate/abolishDate",
       "gaps": "废止团标无法按号定位（getDisabledStandardList 的 standardUniqueId 恒 null，按查无处理）；付费全文不做",
-      "wiring": "broken",
+      "wiring": "wired",
       "verification": "unverified",
       "source_file": "internal-inventory.md",
-      "note": "⚠ **接线名字不一致**：ADAPTER_CLASSES 的键是 `ttzb`，适配器 `name` 是 `ttbz`，而 routing 链里写的是 `ttbz`；`_build_adapters` 按**键**建字典（inspector.py:402-405）⇒ 该渠道在探测时被静默跳过（R2 发现，见 §1.5 G23）；缺口：废止团标无法按号定位（getDisabledStandardList 的 standardUniqueId 恒 null，按查无处理）；付费全文不做",
+      "note": "⚠ 注册表的键是 `ttzb`、适配器 `name` 是 `ttbz`（名字不一致）；R2b 已把 `_build_adapters` 改成按 `name` 建表，故链里 `ttbz` 现在能查到（修前是静默跳过，见 §1.5 G23）——注册表键建议后续统一；缺口：废止团标无法按号定位（getDisabledStandardList 的 standardUniqueId 恒 null，按查无处理）；付费全文不做",
       "enabled": 1
     },
     {
