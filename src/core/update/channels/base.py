@@ -292,16 +292,48 @@ class HttpxTransport:
             resp.text, resp.content
 
 
+def httpx_usable() -> tuple[bool, str]:
+    """httpx 在这台机器上**构造**得起来吗？（返回 `(可用, 原因)`）
+
+    ## 为什么要这条自检（2026-09-18 实测，§11.0 R3d 的 G27）
+    `default_transport()` 在 `curl_cffi` 不可用时**只打一条 WARN** 就回退到 httpx。
+    但本机实测：`NO_PROXY` 里含 `[::1]`，**httpx 0.28.1 连 `Client()` 都构造不出来**
+    （`InvalidURL: Invalid port: ':1]'`）⇒ 那种环境下**每个渠道都会失败**，
+    而现场只表现为"每条都失败"——这是最难查的一类故障（症状离原因很远）。
+    所以回退时先自检：**能用就 WARN，不能用就 ERROR 并点名两个栈**。
+    刻意**不抛**：抛出去会让引擎起不来；巡检照常跑，只是错误原因会**当场写进日志**。
+    """
+    try:
+        import httpx
+    except ImportError as e:
+        return False, f"httpx 未安装：{type(e).__name__}: {e}"
+    try:
+        # ⚠ 就是这一行会失败：构造 Client 时 httpx 会解析 NO_PROXY/HTTP_PROXY 环境变量。
+        httpx.Client().close()
+        return True, ""
+    except Exception as e:  # noqa: BLE001 —— 自检要把**任何**异常翻成一句人话
+        return False, f"{type(e).__name__}: {e}"
+
+
 def default_transport():
     """默认 transport 工厂：curl_cffi 可导入则优先（TLS 指纹模拟），
-    否则回退现有 httpx 实现并打一条 WARN（pipeline/08 ANOM-002 §修复方案1）。"""
+    否则回退现有 httpx 实现（pipeline/08 ANOM-002 §修复方案1）——**并先自检 httpx 是否真能用**。"""
     try:
         return CurlCffiTransport()
     except ImportError as exc:
-        upd_log("-", "transport.init", "WARN",
-                "curl_cffi_unavailable_fallback_httpx "
-                "(gov TLS-fingerprint WAF sites may stay blocked)",
-                error=f"{type(exc).__name__}: {exc}")
+        ok, why = httpx_usable()
+        if ok:
+            upd_log("-", "transport.init", "WARN",
+                    "curl_cffi_unavailable_fallback_httpx "
+                    "(gov TLS-fingerprint WAF sites may stay blocked)",
+                    error=f"{type(exc).__name__}: {exc}")
+        else:
+            upd_log("-", "transport.init", "ERROR",
+                    "both_transports_unusable_httpx_construction_failed "
+                    "(curl_cffi 缺失 **且** httpx 构造失败 ⇒ 所有渠道都会失败；"
+                    "常见成因：NO_PROXY/HTTP_PROXY 写法让 httpx 解析不了，"
+                    "例如 NO_PROXY 含 `[::1]`——改成 `::1` 即可)",
+                    error=f"curl_cffi: {type(exc).__name__}: {exc} / httpx: {why}")
         return HttpxTransport()
 
 

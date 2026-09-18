@@ -177,6 +177,60 @@ def test_ttzb_那一个渠道的键与名不一致要按名建表():
     assert built["ttbz"].__class__.__name__ == "TtzbAdapter"
 
 
+# ---------------------------------------------------------------- httpx 回退自检（§11.0 R5d）
+def test_httpx_自检能看出本机是否可用():
+    """`httpx_usable()` 必须**既**能报可用、也能把不可用的原因变成一句人话。"""
+    from src.core.update.channels.base import httpx_usable
+
+    ok, why = httpx_usable()
+    assert isinstance(ok, bool) and isinstance(why, str)
+    # 可用时不给原因；不可用时原因不能是空的（否则日志里等于没说）
+    assert why == "" if ok else len(why) > 5, (ok, why)
+
+
+def test_两个栈都不可用时日志点名原因(monkeypatch):
+    """`curl_cffi` 缺 + httpx 构造失败 ⇒ **ERROR 且点名**，而不是一条 WARN 就回退。
+
+    背景（本机实测，§11.0 R3d 的 G27）：`NO_PROXY` 含 `[::1]` 时 httpx 0.28.1 连 `Client()`
+    都构造不出来 ⇒ 那种环境里**每个渠道都会失败**，而原实现只打一条 WARN ⇒ 现场只看到
+    "每条都失败"，症状离原因很远。这条用例钉住"当场点名"。
+    """
+    from src.core.update.channels import base
+
+    logs: list[tuple] = []
+    monkeypatch.setattr(base, "upd_log", lambda *a, **k: logs.append((a, k)))
+    monkeypatch.setattr(base, "httpx_usable", lambda: (False, "InvalidURL: Invalid port: ':1]'"))
+
+    class _NoCurl:
+        def __init__(self):
+            raise ImportError("No module named 'curl_cffi'")
+
+    monkeypatch.setattr(base, "CurlCffiTransport", _NoCurl)
+    t = base.default_transport()
+    assert isinstance(t, base.HttpxTransport), "回退仍要给一个可用对象（不许抛，否则引擎起不来）"
+    assert logs, "自检失败必须留下日志"
+    args, _kw = logs[0]
+    assert args[2] == "ERROR", args
+    assert "both_transports_unusable" in args[3], args
+    assert "::1" in args[3], "日志里要带可操作的成因提示"
+
+
+def test_httpx_可用时只打_WARN(monkeypatch):
+    from src.core.update.channels import base
+
+    logs: list[tuple] = []
+    monkeypatch.setattr(base, "upd_log", lambda *a, **k: logs.append((a, k)))
+    monkeypatch.setattr(base, "httpx_usable", lambda: (True, ""))
+
+    class _NoCurl:
+        def __init__(self):
+            raise ImportError("No module named 'curl_cffi'")
+
+    monkeypatch.setattr(base, "CurlCffiTransport", _NoCurl)
+    base.default_transport()
+    assert logs and logs[0][0][2] == "WARN", logs
+
+
 # ---------------------------------------------------------------- govcn 换棒（§11.0 R5b）
 def _govcn_body(rows):
     """真接口响应形状（`searchVO.catMap.*.listVO`）——与 `law_source.govcn_client.parse_rows`

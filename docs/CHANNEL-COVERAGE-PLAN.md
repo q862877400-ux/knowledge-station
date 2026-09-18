@@ -641,3 +641,21 @@ transport 重测 5 条失败 + 2 条已知 ok 的对照。**结果与走代理�
 （("official_gb","web","govcn")）。这正是"摘除一棒"必须付的代价，已同批改该文件
 （并把"为什么摘 web"写进它的模块 docstring，免得下一个人以为是随手删的）。
 `docs/research/channels/REGISTRY-STATUS.md` 已重生成。
+
+---
+
+### R5d（2026-09-18 完成）：httpx 回退**自检** —— 把"两个栈都不可用"从静默失败变成点名报错
+
+**问题**（G27，我自己的登记）：`default_transport()` 在 `curl_cffi` 不可用时只打一条 **WARN**
+就回退 httpx。而本机实测 **httpx 连 `Client()` 都构造不出来**
+（`NO_PROXY` 含 `[::1]` ⇒ `InvalidURL: Invalid port: ':1]'`）⇒ 那种环境下**每个渠道都会失败**，
+现场却只表现为"每条都失败"（症状离原因很远，最难查的一类）。
+
+**改法**（`channels/base.py`）：新增 `httpx_usable() -> (可用, 原因)`（构造一次 `httpx.Client()`
+再关掉，把任何异常翻成一句人话）；`default_transport()` 回退前先自检——
+**能用 → 照旧 WARN；不能用 → ERROR 并点名两个栈 + 附带可操作成因**（`NO_PROXY` 的 `[::1]`
+改成 `::1`）。刻意**不抛**：抛出去会让引擎起不来；巡检照跑，但原因当场写进日志。
+
+**真机证据**：`httpx_usable()` 在本机 = `(False, "InvalidURL: Invalid port: ':1]'")` ✓
+**用例**：+3（可用/不可用两态、不可用时必须 ERROR 且日志含可操作提示、可用时只 WARN）。
+**门禁**：pytest **1922 passed / 3 skipped / 0 failed**、mypy **138/0**（本步未动客户端）。
