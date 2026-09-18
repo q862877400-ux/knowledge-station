@@ -3,802 +3,785 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KnowledgeStation 交互原型 · 模拟数据</title>
+<title>DSH 仿真 · KnowledgeStation 侧栏原型（黑白双配色 · 全假数据）</title>
 <style>
-  :root{
-    --bg:#fff; --bg-soft:#f7f8fa; --bg-sunk:#f1f3f5;
-    --line:#e5e7eb; --line-strong:#d1d5db;
-    --text:#111827; --text-2:#4b5563; --muted:#6b7280; --faint:#9ca3af;
-    --accent:#2563eb; --accent-soft:#eff6ff;
-    --ok:#16a34a; --warn:#d97706; --bad:#dc2626; --rep:#7c3aed; --unk:#6b7280;
-    --r:8px; --r-sm:6px;
-    --shadow:0 4px 16px rgba(16,24,40,.10), 0 1px 3px rgba(16,24,40,.06);
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0; background:var(--bg-sunk); color:var(--text);
-    font:14px/1.55 "Segoe UI","Microsoft YaHei","PingFang SC",system-ui,sans-serif;
-  }
-  button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
-  input{font:inherit}
-  .mono{font-family:ui-monospace,Consolas,"Courier New",monospace}
+/* ============================================================================
+   配色 token：**照抄 DSH 自己的 design-platform.css**（不是我自己调的颜色）
+   浅色 = body / 深色 = body[data-ds-dark-theme]，与宿主同构，浏览器里可直接切换。
+   来源：packages/client/ui-theme/src/styles/design-platform.css
+   ============================================================================ */
+body{
+  /* --- 静态色（浅色块） --- */
+  --bluish-00:rgb(255,255,255); --bluish-50:rgb(249,250,251); --bluish-60:rgb(245,246,247);
+  --bluish-75:rgb(241,243,245);  --bluish-100:rgb(235,238,242); --bluish-150:rgb(233,236,242);
+  --bluish-200:rgb(225,229,238); --bluish-300:rgb(207,211,214); --bluish-400:rgb(173,178,184);
+  --bluish-600:rgb(129,133,140); --bluish-700:rgb(97,102,107);  --bluish-1000:rgb(15,17,21);
+  --green-100:rgb(230,250,237); --green-500:rgb(34,197,94);
+  --amber-100:rgb(254,245,231); --amber-600:rgb(221,134,41);
+  --red-50:rgb(254,242,242);    --red-600:rgb(236,19,19);
+  --ds-blue-50:rgb(237,243,254); --ds-blue-100:rgb(228,237,253); --ds-blue-500:rgb(65,118,230);
 
-  /* ---------- 外层：模拟一个宿主窗口 ---------- */
-  .shell{max-width:1380px;margin:0 auto;padding:18px 18px 40px}
-  .topbar{
-    display:flex;align-items:center;gap:10px;flex-wrap:wrap;
-    background:var(--bg);border:1px solid var(--line);border-radius:var(--r);
-    padding:10px 14px;margin-bottom:14px;box-shadow:var(--shadow)
-  }
-  .brand{font-weight:700;letter-spacing:.2px}
-  .brand small{font-weight:400;color:var(--muted);margin-left:8px}
-  .seg{display:flex;gap:4px;margin-left:auto;background:var(--bg-sunk);padding:3px;border-radius:var(--r-sm)}
-  .seg button{padding:5px 11px;border-radius:5px;color:var(--text-2);white-space:nowrap}
-  .seg button[aria-selected="true"]{background:var(--bg);color:var(--text);font-weight:600;box-shadow:0 1px 2px rgba(16,24,40,.08)}
-  .disclaimer{
-    background:#fffbeb;border:1px solid #fde68a;color:#92400e;
-    border-radius:var(--r);padding:8px 12px;margin-bottom:14px;font-size:13px
-  }
+  /* --- alias（浅色） --- */
+  --dsw-alias-bg-base:var(--bluish-00);
+  --dsw-alias-bg-layer-2:var(--bluish-00);
+  --dsw-alias-bg-layer-3:var(--bluish-00);
+  --dsw-alias-bg-module-platform:var(--bluish-60);
+  --dsw-alias-bg-overlay:var(--bluish-150);
+  --dsw-alias-bg-skeleton:rgba(0,0,0,.04);
+  --dsw-alias-border-l1:rgba(0,0,0,.04);
+  --dsw-alias-border-l2:rgba(0,0,0,.1);
+  --dsw-alias-border-l3:rgba(0,0,0,.12);
+  --dsw-alias-border-l4:rgba(0,0,0,.16);
+  --dsw-alias-interactive-bg-hover:rgba(38,49,72,.06);
+  --dsw-alias-interactive-bg-active:rgba(38,49,72,.1);
+  --dsw-alias-interactive-bg-hover-solid:var(--bluish-75);
+  --dsw-alias-label-primary:var(--bluish-1000);
+  --dsw-alias-label-secondary:var(--bluish-700);
+  --dsw-alias-label-tertiary:var(--bluish-600);
+  --dsw-alias-label-caption:var(--bluish-400);
+  --dsw-alias-markdown-tag:var(--bluish-75);
+  --dsw-alias-markdown-citation:var(--bluish-100);
+  --dsw-alias-brand-primary:var(--bluish-1000);
+  --dsw-alias-link:var(--ds-blue-500);
+  --dsw-alias-state-success-primary:var(--green-500);
+  --dsw-alias-state-success-tertiary:var(--green-100);
+  --dsw-alias-state-warn-primary:rgb(245,158,11);
+  --dsw-alias-state-warn-label:var(--amber-600);
+  --dsw-alias-state-warn-tertiary:var(--amber-100);
+  --dsw-alias-state-error-primary:var(--red-600);
+  --dsw-alias-state-error-tertiary:var(--red-50);
+  --dsw-specific-sidebar-fill:var(--bluish-50);
+  --dsw-specific-sidebar-nav-item-hover:var(--bluish-75);
+  --dsw-specific-sidebar-nav-item-active:var(--bluish-100);
+  --dsw-specific-input-major:var(--bluish-00);
+  --dsw-specific-bubble:var(--ds-blue-50);
+  --dsw-specific-menu:var(--bluish-00);
+  --dsw-alias-toast-bg:rgb(53,54,56);
+}
+body[data-ds-dark-theme]{
+  --bluish-50:rgb(249,250,251);  --bluish-300:rgb(207,211,214); --bluish-400:rgb(173,178,184);
+  --bluish-600:rgb(129,133,140); --bluish-700:rgb(97,102,107);  --bluish-750:rgb(67,69,74);
+  --bluish-800:rgb(53,54,56);    --bluish-850:rgb(44,44,46);    --bluish-875:rgb(35,35,36);
+  --bluish-900:rgb(27,27,28);    --bluish-950:rgb(21,21,23);
+  --dsw-alias-bg-base:var(--bluish-950);
+  --dsw-alias-bg-layer-2:var(--bluish-850);
+  --dsw-alias-bg-layer-3:var(--bluish-800);
+  --dsw-alias-bg-module-platform:var(--bluish-800);
+  --dsw-alias-bg-overlay:var(--bluish-700);
+  --dsw-alias-bg-skeleton:rgba(255,255,255,.08);
+  --dsw-alias-border-l1:rgba(255,255,255,.06);
+  --dsw-alias-border-l2:rgba(255,255,255,.12);
+  --dsw-alias-border-l3:rgba(255,255,255,.16);
+  --dsw-alias-border-l4:rgba(255,255,255,.2);
+  --dsw-alias-interactive-bg-hover:rgba(255,255,255,.08);
+  --dsw-alias-interactive-bg-active:rgba(255,255,255,.14);
+  --dsw-alias-interactive-bg-hover-solid:var(--bluish-800);
+  --dsw-alias-label-primary:var(--bluish-50);
+  --dsw-alias-label-secondary:var(--bluish-300);
+  --dsw-alias-label-tertiary:var(--bluish-400);
+  --dsw-alias-label-caption:var(--bluish-600);
+  --dsw-alias-markdown-tag:var(--bluish-850);
+  --dsw-alias-markdown-citation:var(--bluish-800);
+  --dsw-alias-brand-primary:var(--bluish-50);
+  --dsw-alias-link:rgb(103,158,254);
+  --dsw-alias-state-success-tertiary:rgb(20,60,35);
+  --dsw-alias-state-warn-tertiary:rgb(70,52,15);
+  --dsw-alias-state-error-tertiary:rgb(70,25,25);
+  --dsw-specific-sidebar-fill:var(--bluish-900);
+  --dsw-specific-sidebar-nav-item-hover:var(--bluish-850);
+  --dsw-specific-sidebar-nav-item-active:var(--bluish-750);
+  --dsw-specific-input-major:var(--bluish-850);
+  --dsw-specific-bubble:var(--bluish-850);
+  --dsw-specific-menu:var(--bluish-800);
+  --dsw-alias-toast-bg:var(--bluish-750);
+}
 
-  /* ---------- 窗口主体：假对话区 + 真右栏 ---------- */
-  .win{display:grid;grid-template-columns:1fr 452px;gap:14px;align-items:start}
-  @media (max-width:1080px){.win{grid-template-columns:1fr}}
-  .card{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
-  .card-head{padding:11px 14px;border-bottom:1px solid var(--line);font-weight:600;display:flex;align-items:center;gap:8px}
-  .card-head .tag{font-weight:400;font-size:12px;color:var(--muted)}
-  .card-body{padding:14px}
+/* ---------- 画布 ---------- */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;background:var(--dsw-alias-bg-module-platform);color:var(--dsw-alias-label-primary);
+  font:14px/1.55 "Segoe UI","Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;padding:0}
+input{font:inherit;color:inherit}
+.mono{font-family:ui-monospace,Consolas,"Courier New",monospace}
 
-  .chat .bubble{max-width:82%;padding:9px 12px;border-radius:10px;margin:0 0 10px;background:var(--bg-soft);border:1px solid var(--line)}
-  .chat .bubble.me{margin-left:auto;background:var(--accent-soft);border-color:#bfdbfe}
-  .chat .who{font-size:11px;color:var(--faint);margin-bottom:3px}
-  .chat .dock{margin-top:14px;padding-top:12px;border-top:1px dashed var(--line)}
+/* ---------- 原型自己的控制条（不属于 UI，明示） ---------- */
+.harness{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  padding:8px 14px;background:var(--dsw-alias-bg-base);border-bottom:1px solid var(--dsw-alias-border-l2);
+  font-size:12px;color:var(--dsw-alias-label-secondary)
+}
+.harness b{color:var(--dsw-alias-label-primary)}
+.hbtn{border:1px solid var(--dsw-alias-border-l4);border-radius:8px;padding:3px 10px;color:var(--dsw-alias-label-secondary)}
+.hbtn:hover{background:var(--dsw-alias-interactive-bg-hover)}
+.hbtn[aria-pressed="true"]{background:var(--dsw-alias-markdown-tag);color:var(--dsw-alias-label-primary);font-weight:600}
+.hsep{width:1px;height:16px;background:var(--dsw-alias-border-l3)}
 
-  /* ---------- 右栏 ---------- */
-  .side{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
-  .side-tabs{display:flex;align-items:stretch;gap:2px;border-bottom:1px solid var(--line);background:var(--bg-soft);padding:0 6px;position:relative}
-  .side-tabs .t{padding:9px 12px;color:var(--muted);border-bottom:2px solid transparent;white-space:nowrap}
-  .side-tabs .t[aria-selected="true"]{color:var(--text);font-weight:600;border-bottom-color:var(--accent);background:var(--bg)}
-  .side-tabs .caret{margin-left:2px;padding:9px 8px;color:var(--text-2);border-radius:var(--r-sm)}
-  .side-tabs .caret:hover{background:#e9ecef}
-  .side-body{padding:12px;min-height:520px}
+/* ============================================================================
+   DSH 窗口：左=对话列（**整块不可点**） 右=右侧栏（可交互）
+   几何照 ui-sidebar-right/SidebarRight.module.css：面板是页面的一列，
+   bg = --dsw-alias-bg-base，左边框 0.5px --dsw-alias-border-l4。
+   ============================================================================ */
+.app{display:grid;grid-template-columns:1fr 452px;height:calc(100vh - 38px);min-height:560px}
+@media (max-width:1000px){.app{grid-template-columns:1fr}.panel{display:none}}
 
-  .menu{position:absolute;top:100%;right:6px;z-index:30;background:var(--bg);border:1px solid var(--line-strong);
-        border-radius:var(--r);box-shadow:var(--shadow);padding:5px;min-width:190px}
-  .menu .mi{display:flex;align-items:center;gap:8px;width:100%;text-align:left;padding:7px 9px;border-radius:var(--r-sm);color:var(--text-2)}
-  .menu .mi:hover{background:var(--bg-soft);color:var(--text)}
-  .menu .mi.primary{color:var(--text);font-weight:600}
-  .menu .sep{height:1px;background:var(--line);margin:5px 4px}
-  .menu .mi .k{margin-left:auto;font-size:11px;color:var(--faint)}
+.convo{display:flex;flex-direction:column;min-width:0;background:var(--dsw-alias-bg-base);
+       pointer-events:none;user-select:none}          /* ← 左半边全部不能点 */
+.convo-inner{flex:1;overflow:hidden;padding:22px 26px}
+.msg{max-width:min(760px,86%);margin:0 auto 16px}
+.msg .who{font-size:11px;color:var(--dsw-alias-label-caption);margin-bottom:5px}
+.msg .body{padding:11px 14px;border-radius:12px;background:var(--dsw-specific-sidebar-fill);
+           border:1px solid var(--dsw-alias-border-l1);line-height:1.7}
+.msg.me .body{background:var(--dsw-specific-bubble);border-color:transparent}
+.cite{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--dsw-alias-link);
+      background:var(--dsw-alias-markdown-citation);border-radius:6px;padding:2px 7px;margin:5px 4px 0 0}
+.composer{margin:0 22px 18px;border:1px solid var(--dsw-alias-border-l3);border-radius:14px;
+          background:var(--dsw-specific-input-major);padding:11px 13px}
+.composer .ph{color:var(--dsw-alias-label-caption)}
+.composer .caps{display:flex;gap:7px;margin-top:11px;align-items:center;flex-wrap:wrap}
+/* 输入框里的作用域胶囊（真实存在的能力，见 KsScopeChip.tsx） */
+.scope{display:inline-flex;align-items:center;gap:6px;font-size:12px;border-radius:999px;
+       padding:3px 10px;background:var(--dsw-alias-state-warn-tertiary);
+       color:var(--dsw-alias-state-warn-label);border:1px solid var(--dsw-alias-border-l2)}
+.scope .x{color:var(--dsw-alias-label-caption)}
+.toolpill{font-size:12px;border-radius:999px;padding:3px 10px;border:1px solid var(--dsw-alias-border-l3);
+          color:var(--dsw-alias-label-secondary)}
 
-  /* ---------- 通用件 ---------- */
-  .row{display:flex;align-items:center;gap:8px}
-  .grow{flex:1;min-width:0}
-  .btn{border:1px solid var(--line-strong);border-radius:var(--r-sm);padding:5px 10px;background:var(--bg);color:var(--text-2)}
-  .btn:hover{background:var(--bg-soft);color:var(--text)}
-  .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
-  .btn.primary:hover{filter:brightness(1.06);color:#fff}
-  .btn.sm{padding:3px 8px;font-size:12px}
-  .search{
-    width:100%;border:1px solid var(--line-strong);border-radius:var(--r-sm);
-    padding:6px 10px;outline:none;background:var(--bg)
-  }
-  .search:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
-  .crumb{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-  .crumb b{color:var(--text)}
-  .crumb button{color:var(--accent)}
-  .hint{font-size:12px;color:var(--muted)}
+/* ---------- 右侧栏 ---------- */
+.panel{display:flex;flex-direction:column;min-width:0;background:var(--dsw-alias-bg-base);
+       border-left:.5px solid var(--dsw-alias-border-l4)}
+/* .tabStrip / .tab 数值逐条照抄 dockkit.module.css:156-275 */
+.tabStrip{display:flex;flex:none;gap:4px;align-items:center;height:28px;padding:10px 6px 0 10px}
+.stripTabs{display:flex;flex:0 1 auto;align-items:center;min-width:0;overflow-x:auto;scrollbar-width:none}
+.stripTabs::-webkit-scrollbar{display:none}
+.tab{position:relative;display:flex;flex:0 1 auto;align-items:center;min-width:80px;max-width:170px;
+     height:28px;padding:0 10px;color:var(--dsw-alias-label-secondary);font-size:13px;line-height:1;
+     white-space:nowrap;border-radius:12px;user-select:none}
+.tab:hover{background:var(--dsw-alias-interactive-bg-hover)}
+.tabActive{color:var(--dsw-alias-label-primary);background:var(--dsw-alias-markdown-tag)}  /* 活动=实心胶囊 */
+.tabTitle{display:flex;flex:1 1 auto;gap:5px;align-items:center;min-width:0;overflow:hidden;line-height:1.4}
+.stripFill{flex:1 1 0;min-width:0}
+.stripChrome{display:flex;flex:none;gap:8px}
+/* 28px 圆按钮，15px 字形（SidebarRight.module.css:65-88） */
+.iconButton{display:inline-flex;flex:none;align-items:center;justify-content:center;width:28px;height:28px;
+            color:var(--dsw-alias-label-secondary);line-height:1;border-radius:28px;font-size:15px}
+.iconButton:hover{background:var(--dsw-alias-interactive-bg-hover)}
 
-  .chip{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line-strong);background:var(--bg);
-        border-radius:999px;padding:3px 10px;font-size:12px;color:var(--text-2);white-space:nowrap}
-  .chip:hover{background:var(--bg-soft)}
-  .chip[aria-pressed="true"]{background:var(--accent-soft);border-color:#bfdbfe;color:#1d4ed8;font-weight:600}
-  .chip .x{color:var(--faint)}
-  .chipbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.panelBody{flex:1 1 auto;min-height:0;overflow:auto;padding:12px 12px 56px}
 
-  .badge{display:inline-flex;align-items:center;gap:4px;border-radius:4px;padding:1px 6px;font-size:11px;font-weight:600;border:1px solid}
-  .b-ok{color:#15803d;background:#f0fdf4;border-color:#bbf7d0}
-  .b-warn{color:#b45309;background:#fffbeb;border-color:#fde68a}
-  .b-bad{color:#b91c1c;background:#fef2f2;border-color:#fecaca}
-  .b-rep{color:#6d28d9;background:#f5f3ff;border-color:#ddd6fe}
-  .b-unk{color:#4b5563;background:#f9fafb;border-color:#e5e7eb}
-  .b-mand{color:#b91c1c;background:#fff;border-color:#fca5a5}
-  .b-rec{color:#1d4ed8;background:#fff;border-color:#93c5fd}
-  .b-type{color:#374151;background:var(--bg-soft);border-color:var(--line)}
-  .b-tag{color:#0f766e;background:#f0fdfa;border-color:#99f6e4}
-  .b-ccs{color:#475569;background:#f8fafc;border-color:var(--line)}
+/* ---------- 通用小件 ---------- */
+.row{display:flex;align-items:center;gap:8px}
+.grow{flex:1;min-width:0}
+.hint{font-size:12px;color:var(--dsw-alias-label-tertiary)}
+.sec{font-size:12px;color:var(--dsw-alias-label-tertiary);margin:4px 0 7px;display:flex;align-items:center;gap:7px}
+.btn{border:1px solid var(--dsw-alias-border-l4);border-radius:8px;padding:5px 11px;
+     color:var(--dsw-alias-label-secondary);background:transparent}
+.btn:hover{background:var(--dsw-alias-interactive-bg-hover)}
+.btn.primary{background:var(--dsw-alias-brand-primary);color:var(--dsw-alias-bg-base);border-color:transparent;font-weight:600}
+.btn.primary:hover{opacity:.88}
+.btn.sm{padding:3px 8px;font-size:12px;border-radius:7px}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.search{width:100%;border:1px solid var(--dsw-alias-border-l3);border-radius:9px;padding:6px 10px;
+        outline:none;background:var(--dsw-alias-bg-base)}
+.search:focus{border-color:var(--dsw-alias-link)}
+.chip{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--dsw-alias-border-l3);
+      border-radius:999px;padding:3px 10px;font-size:12px;color:var(--dsw-alias-label-secondary)}
+.chip:hover{background:var(--dsw-alias-interactive-bg-hover)}
+.chip[aria-pressed="true"]{background:var(--dsw-alias-markdown-tag);color:var(--dsw-alias-label-primary);font-weight:600}
+.badge{display:inline-flex;align-items:center;gap:4px;border-radius:5px;padding:1px 6px;font-size:11px;font-weight:600}
+.b-ok{color:var(--dsw-alias-state-success-primary);background:var(--dsw-alias-state-success-tertiary)}
+.b-warn{color:var(--dsw-alias-state-warn-label);background:var(--dsw-alias-state-warn-tertiary)}
+.b-bad{color:var(--dsw-alias-state-error-primary);background:var(--dsw-alias-state-error-tertiary)}
+.b-rep{color:var(--dsw-alias-label-secondary);background:var(--dsw-alias-markdown-tag)}
+.b-unk{color:var(--dsw-alias-label-tertiary);background:var(--dsw-alias-markdown-tag)}
+.b-mut{color:var(--dsw-alias-label-tertiary);background:var(--dsw-alias-markdown-tag)}
+.b-tag{color:var(--dsw-alias-link);background:var(--dsw-alias-markdown-citation)}
+.card{border:1px solid var(--dsw-alias-border-l2);border-radius:10px;padding:10px 11px;background:var(--dsw-alias-bg-base)}
+.card:hover{border-color:var(--dsw-alias-border-l4)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:9px}
+.crumb{font-size:12px;color:var(--dsw-alias-label-tertiary);display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:9px}
+.crumb b{color:var(--dsw-alias-label-primary)}
+.crumb .lnk{color:var(--dsw-alias-link)}
+.empty{text-align:center;color:var(--dsw-alias-label-tertiary);padding:30px 10px;font-size:13px}
+.note{font-size:12px;color:var(--dsw-alias-label-secondary);background:var(--dsw-alias-bg-module-platform);
+      border:1px solid var(--dsw-alias-border-l2);border-radius:9px;padding:9px 11px;margin-top:12px}
+.note b{color:var(--dsw-alias-label-primary)}
 
-  /* ---------- 目录树 ---------- */
-  .tree{font-size:13px}
-  .tnode{border-radius:var(--r-sm)}
-  .tline{display:flex;align-items:center;gap:6px;padding:4px 6px;border-radius:var(--r-sm);cursor:pointer}
-  .tline:hover{background:var(--bg-soft)}
-  .tline.sel{background:var(--accent-soft)}
-  .tline .tw{width:14px;text-align:center;color:var(--faint);font-size:10px;flex:none}
-  .tline .tn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .tline .tc{margin-left:auto;font-size:11px;color:var(--faint);flex:none}
-  .tleaf{display:flex;gap:6px;padding:4px 6px 4px 4px;border-radius:var(--r-sm);cursor:pointer}
-  .tleaf:hover{background:var(--bg-soft)}
-  .tleaf .no{font-weight:600;flex:none}
-  .tleaf .nm{color:var(--text-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* ---------- 目录树 ---------- */
+.tline{display:flex;align-items:center;gap:6px;padding:4px 6px;border-radius:7px;cursor:pointer}
+.tline:hover{background:var(--dsw-alias-interactive-bg-hover)}
+.tline .tw{width:13px;text-align:center;color:var(--dsw-alias-label-caption);font-size:10px;flex:none}
+.tline .tn{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px}
+.tline .tc{font-size:11px;color:var(--dsw-alias-label-caption)}
 
-  /* ---------- 文档行 ---------- */
-  .doc{border:1px solid var(--line);border-radius:var(--r-sm);padding:8px 10px;margin-bottom:6px;background:var(--bg)}
-  .doc:hover{border-color:var(--line-strong);background:#fcfcfd}
-  .doc .l1{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
-  .doc .no{font-weight:700}
-  .doc .nm{color:var(--text)}
-  .doc .l2{display:flex;gap:6px;flex-wrap:wrap;margin-top:5px}
-  .doc .path{font-size:11px;color:var(--faint);margin-top:5px}
-  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:10px}
-  .kcard{border:1px solid var(--line);border-radius:var(--r-sm);padding:10px;background:var(--bg)}
-  .kcard:hover{border-color:var(--line-strong);box-shadow:0 1px 4px rgba(16,24,40,.06)}
-  .kcard .t{font-weight:600;margin-bottom:2px}
-  .kcard .d{font-size:12px;color:var(--muted);min-height:34px}
-  .kcard .f{display:flex;gap:6px;align-items:center;font-size:11px;color:var(--faint);margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
-  .kcard .star{color:#f59e0b}
+/* ---------- 文档行 ---------- */
+.doc{display:flex;gap:9px;padding:8px 9px;border:1px solid var(--dsw-alias-border-l2);border-radius:9px;margin-bottom:6px}
+.doc:hover{border-color:var(--dsw-alias-border-l4)}
+.doc.sel{border-color:var(--dsw-alias-link);background:var(--dsw-alias-markdown-citation)}
+.cbx{flex:none;width:15px;height:15px;margin-top:2px;accent-color:var(--dsw-alias-brand-primary);cursor:pointer}
+.doc .main{flex:1;min-width:0}
+.doc .l1{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+.doc .no{font-weight:700;font-size:13px}
+.doc .nm{font-size:13px}
+.doc .l2{display:flex;gap:6px;flex-wrap:wrap;margin-top:5px;align-items:center}
+.doc .dates{font-size:11px;color:var(--dsw-alias-label-caption);margin-top:5px;display:flex;gap:12px;flex-wrap:wrap}
+.doc .path{font-size:11px;color:var(--dsw-alias-label-caption);margin-top:3px}
+.addtag{font-size:11px;color:var(--dsw-alias-label-tertiary);border:1px dashed var(--dsw-alias-border-l3);
+        border-radius:999px;padding:1px 7px;flex:none}
+.addtag:hover{color:var(--dsw-alias-label-primary);border-color:var(--dsw-alias-border-l4)}
 
-  /* ---------- 标签弹层 ---------- */
-  .pop{position:absolute;z-index:40;background:var(--bg);border:1px solid var(--line-strong);border-radius:var(--r);
-       box-shadow:var(--shadow);padding:10px;width:288px}
-  /* 详情屏里标签弹层用内联展开，避免定位祖先问题（原型够用且不会错位） */
-  .pop-inline{position:static;width:auto;margin:0 0 9px;box-shadow:none;border-color:var(--line)}
-  .pop .pv{display:flex;flex-wrap:wrap;gap:5px;max-height:180px;overflow:auto;margin:8px 0}
-  .pop .pf{display:flex;align-items:center;gap:8px;border-top:1px solid var(--line);padding-top:8px;font-size:12px}
-  .skel{height:22px;border-radius:999px;background:linear-gradient(90deg,#eef0f2,#f7f8fa,#eef0f2);width:64px}
-  .pgroup{font-size:11px;color:var(--faint);margin:6px 0 2px}
+/* ---------- 悬浮批量条 ---------- */
+/* 相对 .panel 定位（.panelBody 是 static，所以它的 overflow 不会裁到这里） */
+.bulk{position:absolute;left:0;right:0;bottom:0;z-index:20;padding:9px 12px;display:flex;align-items:center;gap:9px;
+      flex-wrap:wrap;background:var(--dsw-alias-toast-bg);color:#fff;border-top:1px solid var(--dsw-alias-border-l2)}
+.bulk .b{border:1px solid rgba(255,255,255,.28);border-radius:8px;padding:4px 10px;font-size:12px;color:#fff}
+.bulk .b:hover{background:rgba(255,255,255,.14)}
+.bulk .n{font-weight:700;font-size:12px}
 
-  /* ---------- 查看器（保留原样） ---------- */
-  .viewer{display:grid;grid-template-columns:232px 1fr;gap:10px}
-  .vtabs{display:flex;gap:2px;border-bottom:1px solid var(--line);margin-bottom:8px}
-  .vtabs .t{padding:5px 9px;font-size:12px;color:var(--muted);border-bottom:2px solid transparent}
-  .vtabs .t[aria-selected="true"]{color:var(--text);font-weight:600;border-bottom-color:var(--accent)}
-  .pdfpage{background:#fff;border:1px solid var(--line);border-radius:var(--r-sm);padding:12px;min-height:300px;
-           background-image:linear-gradient(#f3f4f6 1px,transparent 1px);background-size:100% 26px}
-  .frozen{border:1px dashed #a5b4fc;background:#eef2ff;color:#3730a3;border-radius:var(--r);padding:8px 11px;font-size:12.5px;margin-bottom:10px}
-
-  /* ---------- 能力页 ---------- */
-  .caps{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
-  .cap{border:1px solid var(--line);border-radius:var(--r);padding:12px;background:var(--bg)}
-  .cap:hover{border-color:var(--line-strong);box-shadow:0 1px 5px rgba(16,24,40,.07)}
-  .cap .h{display:flex;align-items:center;gap:8px;font-weight:600;margin-bottom:4px}
-  .cap .d{font-size:12.5px;color:var(--muted);min-height:38px}
-  .cap .foot{display:flex;align-items:center;gap:8px;margin-top:10px;padding-top:9px;border-top:1px solid var(--line)}
-  .dot{width:7px;height:7px;border-radius:50%;flex:none}
-  .dot.g{background:var(--ok)} .dot.y{background:var(--warn)} .dot.r{background:var(--bad)} .dot.n{background:var(--faint)}
-  .drawer{position:fixed;inset:0;background:rgba(17,24,39,.35);z-index:60;display:flex;justify-content:flex-end}
-  .drawer .panel{width:min(560px,94vw);background:var(--bg);height:100%;overflow:auto;box-shadow:var(--shadow)}
-  .drawer .ph{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg)}
-  .drawer .pb{padding:16px}
-  .grp{border:1px solid var(--line);border-radius:var(--r);margin-bottom:10px}
-  .grp .gh{padding:9px 12px;border-bottom:1px solid var(--line);font-weight:600;font-size:13px;display:flex;align-items:center;gap:8px}
-  .grp .gb{padding:11px 12px;display:grid;gap:9px}
-  .fld{display:grid;grid-template-columns:132px 1fr;gap:10px;align-items:center;font-size:13px}
-  .fld label{color:var(--text-2)}
-  .fld select,.fld input[type=text]{width:100%;padding:5px 8px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--bg)}
-  .sw{display:inline-flex;width:34px;height:19px;border-radius:999px;background:var(--line-strong);position:relative;flex:none}
-  .sw[data-on="1"]{background:var(--accent)}
-  .sw i{position:absolute;top:2px;left:2px;width:15px;height:15px;border-radius:50%;background:#fff;transition:.15s}
-  .sw[data-on="1"] i{left:17px}
-  .note{font-size:12px;color:var(--muted);background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--r-sm);padding:8px 10px}
-  .empty{text-align:center;color:var(--muted);padding:36px 10px}
-  .hr{height:1px;background:var(--line);margin:12px 0}
+/* ---------- 弹层 ---------- */
+.pop{border:1px solid var(--dsw-alias-border-l3);border-radius:10px;background:var(--dsw-specific-menu);
+     box-shadow:0 8px 26px rgba(0,0,0,.16);padding:10px;margin:8px 0}
+.pop .pt{font-size:12px;color:var(--dsw-alias-label-tertiary);margin:6px 0 4px}
+.menu{position:absolute;z-index:50;right:8px;top:44px;min-width:196px;background:var(--dsw-specific-menu);
+      border:1px solid var(--dsw-alias-border-l3);border-radius:10px;box-shadow:0 8px 26px rgba(0,0,0,.18);padding:5px}
+.menu button{display:flex;align-items:center;gap:8px;width:100%;text-align:left;padding:7px 9px;
+             border-radius:7px;color:var(--dsw-alias-label-secondary);font-size:13px}
+.menu button:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}
+.menu .mi-k{margin-left:auto;font-size:11px;color:var(--dsw-alias-label-caption)}
+.menu .div{height:1px;background:var(--dsw-alias-border-l2);margin:5px 4px}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:var(--dsw-alias-toast-bg);
+       color:#fff;font-size:13px;padding:9px 15px;border-radius:9px;z-index:99}
 </style>
 </head>
 <body>
-<div class="shell">
 
-  <div class="topbar">
-    <div class="brand">KnowledgeStation <small>交互原型 · 全部为模拟数据，未接任何真实数据或逻辑</small></div>
-    <div class="seg" id="seg">
-      <button data-v="list" aria-selected="true">① 知识库管理</button>
-      <button data-v="detail">② 知识库详情（目录+筛选）</button>
-      <button data-v="viewer">③ 原件查看器（不动）</button>
-      <button data-v="caps">④ 能力页</button>
-    </div>
-  </div>
+<!-- 原型自己的控制条（不是 UI 的一部分） -->
+<div class="harness">
+  <b>DSH 仿真原型</b>
+  <span>左半区为静态演示（不可点）· 右侧栏可交互 · 数据全为占位</span>
+  <span class="hsep"></span>
+  <button class="hbtn" id="themeBtn">🌙 切到深色</button>
+  <span class="hsep"></span>
+  <span>侧栏三胶囊：</span>
+  <button class="hbtn" data-tab="kb" aria-pressed="true">知识库</button>
+  <button class="hbtn" data-tab="tags">标签</button>
+  <button class="hbtn" data-tab="text">正文</button>
+</div>
 
-  <div class="disclaimer">
-    <b>这是原型，不是项目代码。</b>页面上的文档、标准号、标签、计数<b>全是我编的占位数据</b>，
-    只为了让你先体验「形态、措辞、信息层级」对不对。筛选、展开、切视图这些交互是真的能动，
-    但它们跑的是本页里的一小段假逻辑，跟引擎无关。<b>看完要改的东西你说，我再动项目文件。</b>
-  </div>
-
-  <div class="win">
-    <!-- 假对话区（说明：对话区本轮不改，摆在这里说明右栏是"寄生"在它旁边的） -->
-    <div class="card chat">
-      <div class="card-head">对话区 <span class="tag">本轮不改 · 仅作背景</span></div>
-      <div class="card-body">
-        <div class="bubble"><div class="who">你</div>液氨储罐区的动火作业，间距要求是多少？</div>
-        <div class="bubble me"><div class="who">KnowledgeStation</div>
-          按 GB 30871-2022 第 5.2 条，动火点周围 15 m 内…（每条结论都带条款级出处，点开跳 PDF 那一页）
-        </div>
-        <div class="dock">
-          <div class="hint">输入框常驻「🔖 本收藏夹内提问」之类的作用域胶囊（已有能力）。右栏才是本原型要你体验的部分 →</div>
+<div class="app">
+  <!-- ================= 左：对话列（整块 pointer-events:none） ================= -->
+  <div class="convo">
+    <div class="convo-inner">
+      <div class="msg">
+        <div class="who">你</div>
+        <div class="body">液氨储罐区的动火作业，间距和气体检测要求是什么？</div>
+      </div>
+      <div class="msg me">
+        <div class="who">KnowledgeStation</div>
+        <div class="body">
+          按 GB 30871-2022《危险化学品企业特殊作业安全规范》第 <b>5.2</b> 条，动火作业分为特级、一级、二级；
+          动火点周围 <b>15 m</b> 内应进行可燃气体检测，检测合格后方可作业。<br>
+          <span class="cite">📄 GB 30871-2022 · 5.2 · 第 7 页</span>
+          <span class="cite">📄 危险化学品安全管理条例 · 第二十四条</span>
         </div>
       </div>
     </div>
 
-    <!-- 右栏 -->
-    <div class="side">
-      <div class="side-tabs" id="sideTabs">
-        <button class="t" aria-selected="true">知识库</button>
-        <button class="t">收藏</button>
-        <button class="t">正文</button>
-        <button class="caret" id="caret" title="二级目录">▾</button>
+    <div class="composer">
+      <div class="ph">给 KnowledgeStation 发消息…</div>
+      <div class="caps" id="composerCaps">
+        <span class="toolpill">🔍 查法规</span>
+        <span class="scope" id="scopeChip"></span>
+        <span class="toolpill" style="margin-left:auto">深度思考 ▾</span>
       </div>
-      <div class="side-body" id="sideBody"></div>
     </div>
+  </div>
+
+  <!-- ================= 右：右侧栏（可交互） ================= -->
+  <div class="panel" style="position:relative">
+    <div class="tabStrip">
+      <div class="stripTabs" id="stripTabs">
+        <button class="tab tabActive" data-tab="kb"><span class="tabTitle">知识库</span></button>
+        <button class="tab" data-tab="tags"><span class="tabTitle">标签</span></button>
+        <button class="tab" data-tab="text"><span class="tabTitle">正文</span></button>
+      </div>
+      <div class="stripFill"></div>
+      <div class="stripChrome">
+        <button class="iconButton" id="caret" title="二级目录">▾</button>
+        <button class="iconButton" title="全屏">⤢</button>
+      </div>
+    </div>
+    <div class="panelBody" id="pane"></div>
   </div>
 </div>
 
 <script>
-/* =======================================================================
-   1. 模拟数据（全部编造；标准号虽真，元数据是占位）
-   path = 文件夹层级路径（不含顶层「标准」/「法律法规」），这正是设计里
-   「几级目录 = 几层文件夹名」的意思。
-   ======================================================================= */
+/* ==========================================================================
+   数据：全部占位。标准号是真的，元数据/日期/正文摘录都是我编的。
+   ========================================================================== */
+const ST = {
+  current:{t:'现行有效',c:'b-ok',i:'🟢'},
+  upcoming:{t:'即将实施',c:'b-warn',i:'🟡'},
+  withdrawn:{t:'已废止',c:'b-bad',i:'🔴'},
+  superseded:{t:'被替代',c:'b-rep',i:'🔴'},
+};
 const LIBS = {
-  std: { id:'std', name:'标准', full:'国家标准·行业标准·团体标准', builtin:true,
-         desc:'国家标准 / 行业标准 / 团体标准（按 CCS 分类法自动归类）' },
-  law: { id:'law', name:'法律法规', full:'法律法规', builtin:true,
-         desc:'法律 / 行政法规 / 部门规章 / 地方性法规' },
+  std:{name:'标准', full:'国家标准·行业标准·团体标准'},
+  law:{name:'法律法规', full:'法律法规'},
 };
-const USER_FOLDERS = [
-  { id:'uf1', name:'公司制度',   n:23, updated:'2026-09-12', star:true,  desc:'集团安全管理制度、责任制、考核办法' },
-  { id:'uf2', name:'内部操作规程', n:11, updated:'2026-08-30', star:false, desc:'各车间岗位操作规程与作业指导书' },
-  { id:'uf3', name:'供应商资料', n:4,  updated:'2026-07-04', star:false, desc:'供应商资质、检测报告' },
+// 自建夹：与自带两棵树**平级**，加在后面（业主指定）
+const USER_FOLDERS=[
+  {id:'uf1',name:'公司制度',n:23,upd:'2026-09-12',star:true,desc:'集团安全管理制度、责任制、考核办法'},
+  {id:'uf2',name:'内部操作规程',n:11,upd:'2026-08-30',desc:'各车间岗位操作规程与作业指导书'},
+  {id:'uf3',name:'供应商资料',n:4,upd:'2026-07-04',desc:'供应商资质与检测报告'},
+];
+// 用户标签：**跨知识库**，可当作对话作用域（业主指定）
+const TAGS=[
+  {name:'公司相关',note:'凡是公司要执行的都打这个'},
+  {name:'动火作业',note:'特殊作业专项'},
+  {name:'承包商管理',note:''},
+  {name:'环保合规',note:''},
 ];
 
-const DOCS = [
-  /* ---- 标准树 ---- */
-  {lib:'std',no:'GB 50016-2014',name:'建筑设计防火规范',status:'current',stype:'mandatory',
-   tags:['消防','建筑'],ccs:'CCS:P16 工程防火',path:['P 土木、建筑','P15/19 工程抗震、工程防火、人防工程','P16 工程防火']},
-  {lib:'std',no:'GB 55037-2022',name:'建筑防火通用规范',status:'current',stype:'mandatory',
-   tags:['消防','建筑'],ccs:'CCS:P16 工程防火',path:['P 土木、建筑','P15/19 工程抗震、工程防火、人防工程','P16 工程防火']},
-  {lib:'std',no:'GB 50084-2017',name:'自动喷水灭火系统设计规范',status:'current',stype:'recommended',
-   tags:['消防'],ccs:'CCS:P16 工程防火',path:['P 土木、建筑','P15/19 工程抗震、工程防火、人防工程','P16 工程防火']},
-  {lib:'std',no:'GB 50116-2013',name:'火灾自动报警系统设计规范',status:'current',stype:'recommended',
-   tags:['消防','电气'],ccs:'CCS:P16 工程防火',path:['P 土木、建筑','P15/19 工程抗震、工程防火、人防工程','P16 工程防火']},
-  {lib:'std',no:'GB 50016-2006',name:'建筑设计防火规范（2006 版）',status:'withdrawn',stype:'mandatory',
-   tags:['消防'],ccs:'CCS:P16 工程防火',supersededBy:'GB 50016-2014',
-   path:['P 土木、建筑','P15/19 工程抗震、工程防火、人防工程','P16 工程防火']},
-  {lib:'std',no:'GB 50011-2010',name:'建筑抗震设计规范',status:'current',stype:'mandatory',
-   tags:['建筑','抗震'],ccs:'CCS:P15 工程抗震',path:['P 土木、建筑','P15/19 工程抗震、工程防火、人防工程','P15 工程抗震']},
-  {lib:'std',no:'GB 50736-2012',name:'民用建筑供暖通风与空气调节设计规范',status:'current',stype:'recommended',
-   tags:['暖通'],ccs:'CCS:P48 采暖通风',path:['P 土木、建筑','P45/49 供热、供气、空调及制冷工程']},
-  {lib:'std',no:'GB 30871-2022',name:'危险化学品企业特殊作业安全规范',status:'current',stype:'mandatory',
-   tags:['安全','危化品','动火'],ccs:'CCS:C67 安全控制技术',path:['C 医药、卫生、劳动保护','C65/74 劳动安全技术']},
-  {lib:'std',no:'GB 6441-1986',name:'企业职工伤亡事故分类',status:'current',stype:'recommended',
-   tags:['安全'],ccs:'CCS:C65 劳动安全技术',path:['C 医药、卫生、劳动保护','C65/74 劳动安全技术']},
-  {lib:'std',no:'GB 8978-1996',name:'污水综合排放标准',status:'current',stype:'mandatory',
-   tags:['环保','排放'],ccs:'CCS:Z60 污染物排放',path:['Z 环境保护','Z60/79 污染物排放标准']},
-  {lib:'std',no:'GB 3095-2012',name:'环境空气质量标准',status:'upcoming',stype:'mandatory',
-   tags:['环保'],ccs:'CCS:Z50 环境质量',path:['Z 环境保护','Z60/79 污染物排放标准']},
-  {lib:'std',no:'GB/T 19001-2016',name:'质量管理体系 要求',status:'current',stype:'recommended',
-   tags:['管理'],ccs:'CCS:A00 标准化管理',path:['A 综合','A00/09 标准化管理与一般规定']},
-
-  /* ---- 法规树 ---- */
-  {lib:'law',no:'—',name:'中华人民共和国安全生产法',status:'current',stype:null,
-   tags:['安全','综合'],path:['法律','宪法与行政法','安全生产'],hier:'法律'},
-  {lib:'law',no:'—',name:'中华人民共和国消防法',status:'current',stype:null,
-   tags:['消防'],path:['法律','宪法与行政法','消防'],hier:'法律'},
-  {lib:'law',no:'—',name:'中华人民共和国职业病防治法',status:'current',stype:null,
-   tags:['职业健康'],path:['法律','社会法','劳动保护'],hier:'法律'},
-  {lib:'law',no:'—',name:'危险化学品安全管理条例',status:'current',stype:null,
-   tags:['危化品','安全'],path:['行政法规','宪法与行政法','危险化学品'],hier:'行政法规'},
-  {lib:'law',no:'—',name:'特种作业人员安全技术培训考核管理规定',status:'current',stype:null,
-   tags:['安全','培训'],path:['部门规章','宪法与行政法','特种作业'],hier:'部门规章'},
-  {lib:'law',no:'—',name:'××省安全生产条例（2018 版）',status:'superseded',stype:null,
-   tags:['安全'],supersededBy:'××省安全生产条例（2024 版）',
-   path:['地方性法规','宪法与行政法','安全生产'],hier:'地方性法规'},
+const DOCS=[
+ {id:'d1',lib:'std',no:'GB 50016-2014',name:'建筑设计防火规范',st:'current',ty:'mandatory',ccs:'CCS:P16 工程防火',
+  path:['P 土木、建筑','P15/19 工程抗震、工程防火、人防工程','P16 工程防火'],
+  pub:'2014-08-27',eff:'2015-05-01',wd:'—',tags:['公司相关'],
+  body:'建筑防火 安全 疏散 半导体厂房 耐火等级 防火分区 消防设施'},
+ {id:'d2',lib:'std',no:'GB 55037-2022',name:'建筑防火通用规范',st:'current',ty:'mandatory',ccs:'CCS:P16 工程防火',
+  path:['P 土木、建筑','P15/19 工程抗震、工程防火、人防工程','P16 工程防火'],
+  pub:'2022-12-27',eff:'2023-06-01',wd:'—',tags:['公司相关','承包商管理'],
+  body:'建筑防火 通用 安全 半导体 生产厂房 消防'},
+ {id:'d3',lib:'std',no:'GB 30871-2022',name:'危险化学品企业特殊作业安全规范',st:'current',ty:'mandatory',ccs:'CCS:C67 安全控制技术',
+  path:['C 医药、卫生、劳动保护','C65/74 劳动安全技术'],
+  pub:'2022-10-12',eff:'2023-07-01',wd:'—',tags:['公司相关','动火作业'],
+  body:'动火作业 安全 冶金 煤气 受限空间 半导体 气体检测'},
+ {id:'d4',lib:'std',no:'GB 50016-2006',name:'建筑设计防火规范（2006 版）',st:'withdrawn',ty:'mandatory',ccs:'CCS:P16 工程防火',
+  path:['P 土木、建筑','P15/19 工程抗震、工程防火、人防工程','P16 工程防火'],
+  pub:'2006-07-12',eff:'2006-12-01',wd:'2015-05-01',sup:'GB 50016-2014',tags:[],
+  body:'建筑防火 安全 耐火等级'},
+ {id:'d5',lib:'std',no:'GB 50011-2010',name:'建筑抗震设计规范',st:'current',ty:'mandatory',ccs:'CCS:P15 工程抗震',
+  path:['P 土木、建筑','P15/19 工程抗震、工程防火、人防工程','P15 工程抗震'],
+  pub:'2010-05-31',eff:'2010-12-01',wd:'—',tags:['公司相关'],
+  body:'建筑抗震 安全 结构 设防烈度'},
+ {id:'d6',lib:'std',no:'GB 8978-1996',name:'污水综合排放标准',st:'current',ty:'mandatory',ccs:'CCS:Z60 污染物排放',
+  path:['Z 环境保护','Z60/79 污染物排放标准'],
+  pub:'1996-10-04',eff:'1998-01-01',wd:'—',tags:['环保合规','公司相关'],
+  body:'污水 排放 安全 环保 限值'},
+ {id:'d7',lib:'std',no:'GB 3095-2012',name:'环境空气质量标准',st:'upcoming',ty:'mandatory',ccs:'CCS:Z50 环境质量',
+  path:['Z 环境保护','Z60/79 污染物排放标准'],
+  pub:'2012-02-29',eff:'2026-01-01',wd:'—',tags:['环保合规'],
+  body:'环境空气 质量 安全 监测'},
+ {id:'d8',lib:'std',no:'GB/T 19001-2016',name:'质量管理体系 要求',st:'current',ty:'recommended',ccs:'CCS:A00 标准化管理',
+  path:['A 综合','A00/09 标准化管理与一般规定'],
+  pub:'2016-12-30',eff:'2017-07-01',wd:'—',tags:['公司相关'],
+  body:'质量管理 体系 安全 过程'},
+ {id:'l1',lib:'law',no:'—',name:'中华人民共和国安全生产法',st:'current',ty:null,ccs:null,
+  path:['法律','宪法与行政法','安全生产'],
+  pub:'2021-06-10',eff:'2021-09-01',wd:'—',tags:['公司相关'],
+  body:'生产经营单位 安全生产 责任 从业人员 安全'},
+ {id:'l2',lib:'law',no:'—',name:'中华人民共和国消防法',st:'current',ty:null,ccs:null,
+  path:['法律','宪法与行政法','消防'],
+  pub:'2021-04-29',eff:'2021-04-29',wd:'—',tags:['公司相关'],
+  body:'消防 安全 火灾 预防'},
+ {id:'l3',lib:'law',no:'—',name:'危险化学品安全管理条例',st:'current',ty:null,ccs:null,
+  path:['行政法规','宪法与行政法','危险化学品'],
+  pub:'2013-12-07',eff:'2013-12-07',wd:'—',tags:['公司相关','动火作业'],
+  body:'危险化学品 安全 储存 冶金 使用'},
+ {id:'l4',lib:'law',no:'—',name:'××省安全生产条例（2018 版）',st:'superseded',ty:null,ccs:null,
+  path:['地方性法规','宪法与行政法','安全生产'],
+  pub:'2018-03-01',eff:'2018-05-01',wd:'2024-01-01',sup:'××省安全生产条例（2024 版）',tags:[],
+  body:'安全生产 地方 监管'},
 ];
 
-const STATUS = {
-  current:   {label:'现行有效',  cls:'b-ok',  dot:'g', icon:'🟢'},
-  upcoming:  {label:'即将实施',  cls:'b-warn',dot:'y', icon:'🟡'},
-  withdrawn: {label:'已废止',    cls:'b-bad', dot:'r', icon:'🔴'},
-  superseded:{label:'被替代',    cls:'b-rep', dot:'r', icon:'🔴'},
-  unknown:   {label:'状态未知',  cls:'b-unk', dot:'n', icon:'⚪'},
-};
-const ALL_TAGS = [...new Set(DOCS.flatMap(d=>d.tags))].sort();
-
-/* =======================================================================
-   2. 状态
-   ======================================================================= */
-const S = {
-  view:'list',
-  lib:null,                 // 详情屏打开哪个库
-  open:new Set(['P 土木、建筑','P15/19 工程抗震、工程防火、人防工程']), // 展开的树节点
-  f:{status:new Set(), type:new Set(), tags:new Set(), lib:new Set()},
-  q:'',
-  mode:'list',              // list | card
-  menuOpen:false,
-  tagPop:false,
-  frozenTab:'files',
-  capDrawer:null,
+/* ---------- 状态 ---------- */
+const S={
+  tab:'kb', lib:null, open:new Set(['P 土木、建筑','P15/19 工程抗震、工程防火、人防工程','Z 环境保护']),
+  f:{st:new Set(), ty:new Set(), tags:new Set()},
+  q:'', content:false, mode:'list',
+  sel:new Set(), menu:false, tagFor:null, scope:null, toast:'',
 };
 
-/* =======================================================================
-   3. 过滤 + 组树（刻意与真实实现同构：逐文档判谓词 → 空枝剪掉）
-   ======================================================================= */
-function predicates(d){
+/* ---------- 检索：+ 与 - 语法（原型里是本地假实现） ---------- */
+function parseQuery(raw){
+  // '安全+半导体-冶金' → {pos:['安全','半导体'], neg:['冶金']}
+  // ⚠ '-' 后紧跟数字时**不当运算符**（保护 GB 30871-2022 这类标准号）
+  const pos=[],neg=[]; let cur='',sign='+';
+  for(let i=0;i<raw.length;i++){
+    const ch=raw[i];
+    if((ch==='+'||ch==='-') && !(ch==='-' && /\d/.test(raw[i+1]||''))){
+      const t=cur.trim(); if(t)(sign==='-'?neg:pos).push(t);
+      sign=ch; cur=''; continue;
+    }
+    cur+=ch;
+  }
+  const t=cur.trim(); if(t)(sign==='-'?neg:pos).push(t);
+  return {pos,neg};
+}
+function matchQuery(d){
+  const q=S.q.trim(); if(!q) return true;
+  const hay = S.content ? d.body : ([d.no,d.name].join(' '));
+  const {pos,neg}=parseQuery(q);
+  for(const p of pos) if(!hay.includes(p)) return false;
+  for(const n of neg) if(hay.includes(n)) return false;
+  return true;
+}
+function pass(d){
   if(S.lib && d.lib!==S.lib) return false;
-  if(S.q){
-    const q=S.q.trim().toLowerCase();
-    if(q && !(String(d.no).toLowerCase().includes(q)||d.name.toLowerCase().includes(q))) return false;
-  }
-  if(S.f.status.size && !S.f.status.has(d.status)) return false;
-  if(S.f.type.size){
-    if(!d.stype || !S.f.type.has(d.stype)) return false;
-  }
+  if(!matchQuery(d)) return false;
+  if(S.f.st.size && !S.f.st.has(d.st)) return false;
+  if(S.f.ty.size && (!d.ty || !S.f.ty.has(d.ty))) return false;
   if(S.f.tags.size && ![...S.f.tags].every(t=>d.tags.includes(t))) return false;
   return true;
 }
-function filteredDocs(){ return DOCS.filter(predicates); }
+const shown = ()=>DOCS.filter(pass);
 
-/** 扁平文档 → 层级树；空枝剪掉（这正是真实实现里那段管线在做的事） */
+/* 组树 + 空枝剪掉（与真实实现 KsFilesTab 那段管线同构） */
 function buildTree(docs){
   const root={};
   for(const d of docs){
-    let cur=root;
-    for(const seg of d.path){
-      cur.children = cur.children || {};
-      cur.children[seg] = cur.children[seg] || {name:seg, children:{}, docs:[]};
-      cur=cur.children[seg];
-    }
-    cur.docs.push(d);
+    let c=root;
+    for(const seg of d.path){ c.ch=c.ch||{}; c.ch[seg]=c.ch[seg]||{name:seg,ch:{},docs:[]}; c=c.ch[seg]; }
+    c.docs.push(d);
   }
-  const prune=(node)=>{
-    const kids=Object.values(node.children||{}).map(prune).filter(Boolean);
-    const docs=node.docs||[];
-    if(!kids.length && !docs.length) return null;
-    return {name:node.name, children:kids, docs};
+  const prune=n=>{
+    const kids=Object.values(n.ch||{}).map(prune).filter(Boolean);
+    const docs=n.docs||[];
+    if(!kids.length&&!docs.length) return null;
+    return {name:n.name,ch:kids,docs};
   };
-  return Object.values(root.children||{}).map(prune).filter(Boolean);
+  return Object.values(root.ch||{}).map(prune).filter(Boolean);
 }
-function countDocs(node){
-  return (node.docs?node.docs.length:0) + (node.children||[]).reduce((n,c)=>n+countDocs(c),0);
-}
-function activeFilterCount(){
-  return S.f.status.size+S.f.type.size+S.f.tags.size+S.f.lib.size+(S.q?1:0);
-}
+const count=n=>(n.docs?n.docs.length:0)+(n.ch||[]).reduce((a,c)=>a+count(c),0);
 
-/* =======================================================================
-   4. 渲染件
-   ======================================================================= */
+/* ---------- 渲染件 ---------- */
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const badge=(st)=>st?`<span class="badge ${STATUS[st].cls}">${STATUS[st].icon} ${STATUS[st].label}</span>`:'';
-const stype=(t)=>t?`<span class="badge ${t==='mandatory'?'b-mand':'b-rec'}">${t==='mandatory'?'强制性':'推荐性'}</span>`:'';
-const tagChip=(t)=>`<span class="badge b-tag">${esc(t)}</span>`;
-const ccsChip=(c)=>c?`<span class="badge b-ccs mono">${esc(c)}</span>`:'';
+const stBadge=d=>`<span class="badge ${ST[d.st].c}">${ST[d.st].i} ${ST[d.st].t}</span>`;
+const tyBadge=d=>d.ty?`<span class="badge ${d.ty==='mandatory'?'b-bad':'b-tag'}">${d.ty==='mandatory'?'强制性':'推荐性'}</span>`:'';
+const tagBadge=t=>`<span class="badge b-tag">🏷 ${esc(t)}</span>`;
 
-function docRow(d){
-  return `<div class="doc">
-    <div class="l1">
-      ${d.no!=='—'?`<span class="no mono">${esc(d.no)}</span>`:''}
-      <span class="nm">${esc(d.name)}</span>
-      ${badge(d.status)}${stype(d.stype)}
-      ${d.supersededBy?`<span class="hint">→ 已被 ${esc(d.supersededBy)} 代替</span>`:''}
-    </div>
-    <div class="l2">${d.tags.map(tagChip).join('')}${ccsChip(d.ccs)}</div>
-    <div class="path">📁 ${esc(d.path.join(' › '))}</div>
-  </div>`;
-}
-function docCard(d){
-  return `<div class="kcard">
-    <div class="t">${esc(d.name)}</div>
-    <div class="d">${d.no!=='—'?`<span class="mono">${esc(d.no)}</span><br>`:''}${d.tags.map(tagChip).join(' ')}</div>
-    <div class="f">${badge(d.status)}${stype(d.stype)}</div>
-  </div>`;
-}
-
-/* ---------- 目录树 ---------- */
-function treeHtml(nodes,depth=0){
+function treeHtml(nodes){
   let h='';
   for(const n of nodes){
-    const isOpen=S.open.has(n.name);
-    const hasKids=(n.children||[]).length>0;
-    h+=`<div class="tnode">
-      <div class="tline" data-toggle="${esc(n.name)}">
-        <span class="tw">${hasKids?(isOpen?'▾':'▸'):'·'}</span>
-        <span class="tn" title="${esc(n.name)}">${esc(n.name)}</span>
-        <span class="tc">${countDocs(n)}</span>
-      </div>`;
-    if(isOpen){
-      if(hasKids) h+=`<div style="margin-left:12px">${treeHtml(n.children,depth+1)}</div>`;
-      for(const d of n.docs) h+=docRow(d);
+    const open=S.open.has(n.name), kids=(n.ch||[]).length>0;
+    h+=`<div><div class="tline" data-open-node="${esc(n.name)}">
+      <span class="tw">${kids?(open?'▾':'▸'):'·'}</span>
+      <span class="tn" title="${esc(n.name)}">${esc(n.name)}</span>
+      <span class="tc">${count(n)}</span></div>`;
+    if(open){
+      if(kids) h+=`<div style="margin-left:11px">${treeHtml(n.ch)}</div>`;
+      h+=n.docs.map(docRow).join('');
     }
     h+='</div>';
   }
   return h;
 }
-
-/* ---------- 标签弹层 ---------- */
-function tagPopHtml(){
-  return `<div class="pop pop-inline" id="tagPop">
-    <div class="row"><input class="search" placeholder="搜索标签…" style="padding:4px 8px" id="tagq"></div>
-    <div class="pgroup">领域标签（多选）</div>
-    <div class="pv">
-      ${ALL_TAGS.map(t=>`<button class="chip" aria-pressed="${S.f.tags.has(t)}" data-tag="${esc(t)}">${esc(t)}</button>`).join('')}
+function docRow(d){
+  const on=S.sel.has(d.id);
+  return `<div class="doc${on?' sel':''}">
+    <input class="cbx" type="checkbox" data-pick="${d.id}" ${on?'checked':''}>
+    <div class="main">
+      <div class="l1">
+        ${d.no!=='—'?`<span class="no mono">${esc(d.no)}</span>`:''}
+        <span class="nm">${esc(d.name)}</span>
+        ${stBadge(d)}${tyBadge(d)}
+        <button class="addtag" data-addtag="${d.id}" title="给这份加标签">＋标签</button>
+      </div>
+      <div class="l2">
+        ${d.tags.map(tagBadge).join('')}
+        ${d.ccs?`<span class="badge b-mut mono">${esc(d.ccs)}</span>`:''}
+        ${d.sup?`<span class="hint">→ 已被 ${esc(d.sup)} 代替</span>`:''}
+      </div>
+      <div class="dates">
+        <span>发布 ${esc(d.pub)}</span><span>生效 ${esc(d.eff)}</span>
+        <span${d.wd!=='—'?' style="color:var(--dsw-alias-state-error-primary)"':''}>废止 ${esc(d.wd)}</span>
+      </div>
+      <div class="path">📁 ${esc(d.path.join(' › '))}</div>
+    </div></div>`;
+}
+function tagPicker(docId){
+  const d=DOCS.find(x=>x.id===docId); if(!d) return '';
+  return `<div class="pop">
+    <div class="row"><b style="font-size:13px">给「${esc(d.no!=='—'?d.no:d.name)}」加标签</b>
+      <span class="grow"></span><button class="btn sm" data-closetag>✕</button></div>
+    <div class="pt">我的标签（跨知识库，点一下就是加/去）</div>
+    <div class="row" style="flex-wrap:wrap;gap:6px">
+      ${TAGS.map(t=>`<button class="chip" aria-pressed="${d.tags.includes(t.name)}" data-toggletag="${docId}|${esc(t.name)}">${esc(t.name)}</button>`).join('')}
     </div>
-    <div class="pgroup">分类号标签（来自 CCS，独立成轴）</div>
-    <div class="pv">
-      <button class="chip" disabled title="原型里不展开">CCS:P16 工程防火…</button>
-      <span class="hint">（真实实现里这轴单独放，不跟领域词混）</span>
-    </div>
-    <div class="pf">
-      <button class="btn sm" data-clear-tags>清空</button>
-      <span class="grow"></span>
-      <button class="btn sm" disabled title="需要标签表 + 写端点，属第二阶段">管理标签…</button>
-    </div>
+    <div class="pt">新建标签</div>
+    <div class="row"><input class="search" placeholder="标签名…" style="padding:4px 8px"><button class="btn sm">新建</button></div>
+  </div>`;
+}
+function bulkBar(){
+  if(!S.sel.size) return '';
+  return `<div class="bulk">
+    <span class="n">已选 ${S.sel.size} 项</span>
+    <button class="b" data-clearsel>取消选择</button>
+    <span style="opacity:.5">|</span>
+    <button class="b" data-bulk="tag">🏷 批量打标签</button>
+    <button class="b" data-bulk="move">📁 移动到目录</button>
+    <button class="b" data-bulk="del">🗑 批量删除</button>
   </div>`;
 }
 
-/* =======================================================================
-   5. 视图：知识库管理（列表页）
-   ======================================================================= */
-function viewList(){
-  const stdDocs=DOCS.filter(d=>d.lib==='std').length;
-  const lawDocs=DOCS.filter(d=>d.lib==='law').length;
+/* ---------- 视图：知识库 ---------- */
+function viewKb(){
+  if(S.lib) return viewDetail();
+  const nStd=DOCS.filter(d=>d.lib==='std').length, nLaw=DOCS.filter(d=>d.lib==='law').length;
   return `
   <div class="row" style="margin-bottom:10px">
-    <input class="search grow" placeholder="搜索知识库文件夹…">
-    <button class="btn primary">＋ 新建文件夹</button>
+    <b class="grow" style="font-size:14px">知识库</b>
+    <button class="btn primary sm">＋ 新建文件夹</button>
   </div>
-
-  <div class="hint" style="margin:2px 0 6px">📌 自带（不可改名/删除 —— 名字就是分类法的层级名）</div>
-  <div class="cards" style="margin-bottom:12px">
-    ${Object.values(LIBS).map(L=>`
-      <div class="kcard">
-        <div class="row"><div class="t grow">${esc(L.name)}</div>
-          <span class="badge b-type">自带</span></div>
-        <div class="d">${esc(L.desc)}</div>
-        <div class="f"><span>${L.id==='std'?stdDocs:lawDocs} 篇</span><span class="grow"></span>
-          <button class="btn sm" data-open="${L.id}">打开 →</button></div>
-      </div>`).join('')}
-  </div>
-
-  <div class="hint" style="margin:2px 0 6px">📁 我建的（真文件夹：可改名 / 删除 / 导入时选定归属）</div>
+  <div class="sec">🗂 自带两棵树（不可改名/删除 —— 名字就是分类层级名）</div>
+  ${Object.entries(LIBS).map(([k,L])=>{
+    const kids=buildTree(DOCS.filter(d=>d.lib===k));
+    return `<div class="card" style="margin-bottom:8px">
+      <div class="row" style="margin-bottom:4px">
+        <b class="grow">${esc(L.name)}</b>
+        <span class="badge b-mut">自带</span>
+        <span class="hint">${k==='std'?nStd:nLaw} 篇</span>
+        <button class="btn sm" data-openlib="${k}">进入 →</button>
+      </div>
+      <div class="hint" style="margin-bottom:6px">${esc(L.full)}</div>
+      <div>${treeHtml(kids)}</div>
+    </div>`;
+  }).join('')}
+  <div class="sec" style="margin-top:12px">📁 我建的（真文件夹，可改名/删除；与上面两棵**平级**）</div>
   <div class="cards">
-    ${USER_FOLDERS.map(F=>`
-      <div class="kcard">
-        <div class="row"><div class="t grow">${F.star?'<span class="star">★</span> ':''}${esc(F.name)}</div>
-          <button class="btn sm" title="更多">…</button></div>
-        <div class="d">${esc(F.desc)}</div>
-        <div class="f"><span>${F.n} 篇</span><span class="grow"></span><span>${F.updated}</span></div>
-      </div>`).join('')}
+    ${USER_FOLDERS.map(f=>`<div class="card">
+      <div class="row"><b class="grow" style="font-size:13px">${f.star?'★ ':''}${esc(f.name)}</b>
+        <button class="btn sm">…</button></div>
+      <div class="hint" style="margin:4px 0 7px;min-height:30px">${esc(f.desc)}</div>
+      <div class="hint">${f.n} 篇 · ${f.upd}</div></div>`).join('')}
   </div>
-
-  <div class="hr"></div>
-  <div class="note">
-    <b>这一屏要你看三件事：</b><br>
-    ① 自带两个是<b>卡片+计数</b>（点开才进树），还是应当<b>就在这一页逐层展开</b>？<br>
-    ② 「＋ 新建文件夹」只作用于<b>我建的</b>——自带禁改禁删，这个约束你觉得别扭吗？<br>
-    ③ 「公司制度」这类自建夹，跟自带两棵树<b>平级</b>（不是塞在「标准」下面）。对吗？
-  </div>`;
+  <div class="note"><b>知识库页按你说的去掉了搜索框</b>，只留「＋ 新建文件夹」。
+    自建夹加在两棵树后面、平级。</div>`;
 }
 
-/* =======================================================================
-   6. 视图：知识库详情（目录 + 筛选 + 列表）
-   ======================================================================= */
 function viewDetail(){
-  const L=LIBS[S.lib]||LIBS.std;
-  const docs=filteredDocs();
-  const tree=buildTree(docs);
+  const L=LIBS[S.lib], docs=shown(), tree=buildTree(docs);
   const total=DOCS.filter(d=>d.lib===S.lib).length;
-  const n=activeFilterCount();
-
+  const nf=S.f.st.size+S.f.ty.size+S.f.tags.size+(S.q?1:0);
+  const allIds=docs.map(d=>d.id);
+  const allOn=allIds.length>0&&allIds.every(i=>S.sel.has(i));
   return `
-  <div class="crumb" style="margin-bottom:9px">
-    <button data-nav="list">知识库管理</button> <span>›</span> <b>${esc(L.name)}</b>
-    <span class="grow"></span>
-    <span class="hint">${docs.length} / ${total} 篇${n?` · 已筛 ${n} 项`:''}</span>
-  </div>
+  <div class="crumb"><span class="lnk" data-back>知识库</span><span>›</span><b>${esc(L.name)}</b>
+    <span class="grow"></span><span class="hint">${docs.length} / ${total} 篇${nf?` · 已筛 ${nf}`:''}</span></div>
 
   <div class="row" style="margin-bottom:8px;gap:6px">
-    <input class="search grow" id="q" placeholder="搜标准号 / 名称（不搜文件名）" value="${esc(S.q)}">
-    <button class="btn ${S.mode==='list'?'primary':''}" data-mode="list" title="列表">☰</button>
-    <button class="btn ${S.mode==='card'?'primary':''}" data-mode="card" title="卡片">▦</button>
+    <input class="search grow" id="q" value="${esc(S.q)}"
+      placeholder="${S.content?'搜正文内容（安全+半导体-冶金）':'搜标准号 / 名称'}">
+    <button class="chip" aria-pressed="${S.content}" data-content title="在正文里搜">📄 搜内容</button>
+  </div>
+  <div class="row" style="margin-bottom:9px;gap:6px;flex-wrap:wrap">
+    ${Object.entries(ST).map(([k,v])=>`<button class="chip" aria-pressed="${S.f.st.has(k)}" data-fst="${k}">${v.i} ${v.t}</button>`).join('')}
+    <button class="chip" aria-pressed="${S.f.ty.has('mandatory')}" data-fty="mandatory">强制性</button>
+    <button class="chip" aria-pressed="${S.f.ty.has('recommended')}" data-fty="recommended">推荐性</button>
+    <span style="width:4px"></span>
+    ${TAGS.map(t=>`<button class="chip" aria-pressed="${S.f.tags.has(t.name)}" data-ftag="${esc(t.name)}">🏷 ${esc(t.name)}</button>`).join('')}
+    ${nf?`<button class="chip" data-clearall>✕ 清空</button>`:''}
   </div>
 
-  <div class="chipbar" style="margin-bottom:9px">
-    ${['current','upcoming','withdrawn','superseded'].map(k=>`
-      <button class="chip" aria-pressed="${S.f.status.has(k)}" data-fstatus="${k}">
-        ${STATUS[k].icon} ${STATUS[k].label}
-      </button>`).join('')}
-    <span style="width:6px"></span>
-    <button class="chip" aria-pressed="${S.f.type.has('mandatory')}" data-ftype="mandatory">强制性</button>
-    <button class="chip" aria-pressed="${S.f.type.has('recommended')}" data-ftype="recommended">推荐性</button>
-    <span style="width:6px"></span>
-    <button class="chip" aria-pressed="${S.tagPop}" data-tagpop>🏷 领域标签${S.f.tags.size?` · ${S.f.tags.size}`:' ▾'}</button>
-    ${n?`<button class="chip" data-clearall><span class="x">✕</span> 清空筛选</button>`:''}
-  </div>
-  ${S.tagPop?tagPopHtml():''}
+  ${S.tagFor?tagPicker(S.tagFor):''}
 
-  <div style="display:grid;grid-template-columns:206px 1fr;gap:11px">
-    <div>
-      <div class="hint" style="margin-bottom:4px">目录（几级目录＝几层文件夹名）</div>
-      <div class="tree">${tree.length?treeHtml(tree):'<div class="empty" style="padding:18px 0">无匹配</div>'}</div>
-    </div>
+  <div class="row" style="margin-bottom:6px">
+    <input class="cbx" type="checkbox" id="selAll" ${allOn?'checked':''}>
+    <span class="hint">全选当前 ${allIds.length} 项</span>
+    <span class="grow"></span>
+    <button class="btn sm ${S.mode==='list'?'primary':''}" data-mode="list">☰</button>
+    <button class="btn sm ${S.mode==='card'?'primary':''}" data-mode="card">▦</button>
+  </div>
+
+  <div style="display:grid;grid-template-columns:198px 1fr;gap:10px">
+    <div><div class="hint" style="margin-bottom:4px">目录</div>
+      <div>${tree.length?treeHtml(tree):'<div class="empty">无</div>'}</div></div>
     <div>
       ${docs.length
-        ? (S.mode==='list'? docs.map(docRow).join('') : `<div class="cards">${docs.map(docCard).join('')}</div>`)
-        : `<div class="empty">没有匹配的文档。<br><span class="hint">筛选过严时会到这一步——这也是要你看的：说明空状态该怎么写。</span></div>`}
+        ? (S.mode==='list'
+            ? docs.map(docRow).join('')
+            : `<div class="cards">${docs.map(d=>`<div class="card">
+                 <div class="row"><input class="cbx" type="checkbox" data-pick="${d.id}" ${S.sel.has(d.id)?'checked':''}>
+                   <b style="font-size:13px" class="grow">${esc(d.name)}</b></div>
+                 <div class="hint mono" style="margin:3px 0 6px">${esc(d.no)}</div>
+                 <div class="row" style="flex-wrap:wrap;gap:5px">${stBadge(d)}${tyBadge(d)}${d.tags.map(tagBadge).join('')}</div>
+                 <div class="hint" style="margin-top:7px">生效 ${esc(d.eff)}</div>
+               </div>`).join('')}</div>`)
+        : `<div class="empty">没有匹配的文档</div>`}
     </div>
   </div>
-
-  <div class="hr"></div>
-  <div class="note">
-    <b>这一屏要你看四件事：</b><br>
-    ① 目录那一列（现在是真文件夹层级）够不够用？要不要能<b>点层级名直接筛</b>？<br>
-    ② 筛选芯片的<b>轴</b>对不对：效力状态 / 强制-推荐 / 领域标签。少了什么、多了什么？<br>
-    ③ 搜索框写「搜标准号 / 名称」——你原话说的是「搜文件名」，我换成了标准号，<b>同意吗</b>？<br>
-    ④ 列表 / 卡片两种视图，你要哪个作默认？
-  </div>`;
+  ${bulkBar()}
+  <div class="note"><b>这一屏要你看：</b>① 勾选框 + 全选 + 底部悬浮条（已选 X 项 / 批量打标签 / 移动到目录 / 批量删除）；
+    ② 每行常驻「＋标签」；③ 日期三件套；④「📄 搜内容」开了以后支持 <span class="mono">+</span> 与 <span class="mono">-</span>，
+    试 <span class="mono">安全+半导体-冶金</span>；⑤ 自动打的那套标签筛选**已删掉**，现在只剩你自己的标签。</div>`;
 }
 
-/* =======================================================================
-   7. 视图：原件查看器（明确"保留原样"）
-   ======================================================================= */
-function viewViewer(){
-  const d=DOCS.find(x=>x.no==='GB 30871-2022');
-  const toc=['1 范围','2 规范性引用文件','3 术语和定义','4 基本要求','5 动火作业',
-             '5.1 一般要求','5.2 动火作业分级','5.3 安全措施','6 受限空间作业','7 高处作业','附录 A'];
+/* ---------- 视图：标签（替代原来的收藏） ---------- */
+function viewTags(){
   return `
-  <div class="frozen">
-    <b>这一屏本轮不动 —— 保留现有形式。</b>业主已明确：「原件查看窗口 + 目录的形式还是要保留的」。
-    下面是它<b>今天的样子</b>（我照现状描述，不是新设计）：左列三种模式（文件目录 / 收藏 / 正文）+ PDF + 本书目录。
+  <div class="row" style="margin-bottom:10px">
+    <b class="grow" style="font-size:14px">标签</b>
+    <button class="btn primary sm">＋ 新建标签</button>
   </div>
-  <div class="vtabs">
-    <button class="t" aria-selected="${S.frozenTab==='files'}" data-ftab="files">文件目录</button>
-    <button class="t" aria-selected="${S.frozenTab==='bm'}" data-ftab="bm">收藏</button>
-    <button class="t" aria-selected="${S.frozenTab==='text'}" data-ftab="text">正文</button>
-  </div>
-  <div class="viewer">
-    <div>
-      <div class="hint" style="margin-bottom:4px">本书目录（PDF 自带书签，带页码）</div>
-      <div class="tree">
-        ${toc.map((t,i)=>`<div class="tleaf" style="padding-left:${i>4&&t.startsWith('5')?12:4}px">
-          <span class="nm grow">${esc(t)}</span><span class="tc hint">第 ${i+3} 页</span></div>`).join('')}
-      </div>
-    </div>
-    <div>
-      <div class="row" style="margin-bottom:6px">
-        <span class="badge b-type mono">${esc(d.no)}</span>
-        <span class="hint grow">${esc(d.name)}</span>
-        ${badge(d.status)}
-      </div>
-      <div class="pdfpage">
-        <div style="color:#9ca3af;font-size:12px">［PDF 渲染占位］</div>
-        <div style="margin-top:16px;font-size:13px;color:#374151">
-          <b>5.2 动火作业分级</b><br>
-          动火作业分为特级动火作业、一级动火作业和二级动火作业……<br>
-          <span style="background:#fef08a;padding:0 2px">动火点周围 15 m 内</span> 应进行可燃气体检测……
-        </div>
-        <div style="margin-top:14px;color:#dc2626;font-size:12px">↖ 红箭头高亮（我们比 WeKnora 的"贴摘要"更精确：定位到条款+页）</div>
-      </div>
-    </div>
-  </div>`;
+  <div class="hint" style="margin-bottom:8px">标签可以<b>跨知识库</b>打：一条标准、一份公司制度，都能打上「公司相关」。</div>
+  ${TAGS.map(t=>{
+    const n=DOCS.filter(d=>d.tags.includes(t.name)).length;
+    const on=S.scope===t.name;
+    return `<div class="card" style="margin-bottom:7px">
+      <div class="row"><b class="grow">🏷 ${esc(t.name)}</b><span class="hint">${n} 篇</span></div>
+      ${t.note?`<div class="hint" style="margin-top:3px">${esc(t.note)}</div>`:''}
+      <div class="row" style="margin-top:8px;gap:6px">
+        <button class="btn sm ${on?'primary':''}" data-scope="${esc(t.name)}">
+          ${on?'✅ 已设为对话范围':'💬 在这个标签下提问'}</button>
+        <button class="btn sm">重命名</button><button class="btn sm">删除</button>
+      </div></div>`;
+  }).join('')}
+  <div class="note"><b>收藏整个去掉了，换成标签</b>（业主指定）。点「在这个标签下提问」→
+    左上输入框那边会出现作用域胶囊（原型里真的会变），
+    提问就只在这个标签覆盖的文档里检索。<br>
+    ⚠ 底账：现成的收藏夹表（<span class="mono">user_bookmark_folder</span>）本来就是这个形状，
+    引擎也已有「夹内提问」的作用域通道；但 <span class="mono">user_doc_bookmark</span> 上有
+    <span class="mono">UNIQUE(doc_id)</span>，**一个文档现在只能属于一个夹**——
+    要支持"一个文档多个标签"必须去掉这个约束。</div>`;
 }
 
-/* =======================================================================
-   8. 视图：能力页（一功能一卡一窗）
-   ======================================================================= */
-const CAPS=[
-  {id:'qa',   h:'取证问答',        d:'问一句，答案带条款级出处，可跳 PDF 那一页',       st:'g', stl:'已有',  groups:3},
-  {id:'obl',  h:'义务清单 → 检查表',d:'把条款拆成"应当/必须/禁止"，输出可勾选检查表',    st:'y', stl:'引擎有·界面没接', groups:4},
-  {id:'audit',h:'合同审计',        d:'拿库内法规标准去比对合同条款，三色判定',           st:'y', stl:'引擎有·界面没接', groups:4},
-  {id:'gap',  h:'制度差距分析',    d:'公司制度 vs 法规要求，列出缺口与整改建议',         st:'y', stl:'引擎有·界面没接', groups:4},
-  {id:'interp',h:'条款释义 / 批量问答',d:'逐条解释含义，或对一批条款同时提问',           st:'y', stl:'引擎有·界面没接', groups:1},
-  {id:'daily',h:'每日巡检',        d:'定时查法规/标准效力，发现废止与替代',             st:'g', stl:'已有',  groups:4},
-  {id:'mat',  h:'材料评审',        d:'自有资料的来源可信度与任务效力两轴评审',           st:'r', stl:'未在真机跑过', groups:3},
-  {id:'ingest',h:'文件导入',       d:'入库前体检（Dry-Run），可解析性分桶',              st:'g', stl:'已有',  groups:4},
-];
-function viewCaps(){
+/* ---------- 视图：正文 ---------- */
+function viewText(){
+  const d=DOCS.find(x=>x.id==='d3');
+  const toc=['1 范围','2 规范性引用文件','3 术语和定义','4 基本要求','5 动火作业','5.2 动火作业分级','5.3 安全措施'];
   return `
-  <div class="card" style="box-shadow:none">
-    <div class="card-head">能力页 <span class="tag">每个功能一张卡，点开是它自己的设置窗（而不是全塞进设置按钮）</span></div>
-    <div class="card-body">
-      <div class="row" style="margin-bottom:12px">
-        <input class="search grow" placeholder="搜索能力…">
-        <span class="hint">分组：自带 · 我启用的 · 实验性</span>
-      </div>
-      <div class="caps">
-        ${CAPS.map(c=>`
-          <div class="cap">
-            <div class="h"><span class="dot ${c.st}"></span><span class="grow">${esc(c.h)}</span></div>
-            <div class="d">${esc(c.d)}</div>
-            <div class="foot">
-              <span class="hint">${esc(c.stl)}</span><span class="grow"></span>
-              <button class="btn sm" data-cap="${c.id}">设置…</button>
-            </div>
-          </div>`).join('')}
-      </div>
-      <div class="hr"></div>
-      <div class="note">
-        <b>这一屏要你看三件事：</b><br>
-        ① 每个功能点开是<b>它自己的设置窗</b>（3–6 组封顶）—— 这个方向对吗？<br>
-        ② 标「引擎有·界面没接」的四张卡，是<b>最划算的一批活</b>（引擎早就能跑，只是没入口）。先做它们？<br>
-        ③ 旋钮少于 3 个的功能（如"条款释义"）我打算<b>直接内联在卡上</b>，不给独立窗。同意吗？
-      </div>
-    </div>
-  </div>`;
-}
-function capDrawer(){
-  const c=CAPS.find(x=>x.id===S.capDrawer); if(!c) return '';
-  const G={
-    obl:[['义务类型','应当 / 必须 / 禁止 全部'],['范围','标准 + 行政法规'],['输出模板','检查表（Markdown）'],['带出处链接','开']],
-    audit:[['审查类型','采购合同'],['三色判定口径','红=违反 / 黄=缺条款 / 绿=合规'],['依据范围','标准 + 法律法规'],['LLM 精判','关（先规则）']],
-    gap:[['内部制度文件','公司制度（23 篇）'],['对照范围','安全生产相关全部'],['判定规则','严格'],['输出','缺口清单 + 整改建议']],
-    qa:[['默认口径','取证（带出处）'],['冲突处理','全量列出'],['排序红线','开']],
-    interp:[['输出格式','Markdown 表格']],
-    daily:[['巡检时刻','每日 07:00'],['渠道范围','仅启用的'],['失败重试','3 次'],['通知','站内']],
-    mat:[['轴 A 默认值','T3 仅线索'],['轴 B 默认值','reference'],['保留策略','永久']],
-    ingest:[['默认落哪个文件夹','公司制度'],['Dry-Run 默认','开'],['分桶阈值','严格']],
-  }[c.id]||[['（本能力暂无旋钮）','—']];
-  return `<div class="drawer" data-close-drawer>
-    <div class="panel">
-      <div class="ph"><span class="dot ${c.st}"></span><b class="grow">${esc(c.h)} · 设置</b>
-        <button class="btn" data-close-drawer>✕</button></div>
-      <div class="pb">
-        <div class="grp">
-          <div class="gh">① 这个能力怎么跑</div>
-          <div class="gb">
-            ${G.map(([k,v])=>`<div class="fld"><label>${esc(k)}</label>
-              <input type="text" value="${esc(v)}" readonly></div>`).join('')}
-          </div>
-        </div>
-        <div class="grp">
-          <div class="gh">② 输出</div>
-          <div class="gb">
-            <div class="fld"><label>只出 Markdown</label><span><span class="sw" data-on="1"><i></i></span></span></div>
-            <div class="fld"><label>带条款级出处</label><span><span class="sw" data-on="1"><i></i></span></span></div>
-          </div>
-        </div>
-        <div class="grp">
-          <div class="gh">③ 边界</div>
-          <div class="gb">
-            <div class="note">
-              ${c.id==='mat'
-                ? '<b>批准只能由你自己做</b>，这里不可配置（评审是硬门，不是开关）。'
-                : '这个窗只放<b>它自己的旋钮</b>，全局偏好与凭据留在「设置」。'}
-            </div>
-          </div>
-        </div>
-        <div class="row"><span class="grow"></span>
-          <button class="btn" data-close-drawer>取消</button>
-          <button class="btn primary" data-close-drawer>保存（原型里不落盘）</button></div>
-      </div>
-    </div>
-  </div>`;
+  <div class="crumb"><b>正文</b><span class="hint">· ${esc(d.no)} ${esc(d.name)}</span></div>
+  <div class="hint" style="margin-bottom:6px">本书目录（PDF 自带书签，带页码）</div>
+  ${toc.map((t,i)=>`<div class="tline"><span class="tw">·</span><span class="tn">${esc(t)}</span>
+    <span class="tc">第 ${i+3} 页</span></div>`).join('')}
+  <div style="border:1px solid var(--dsw-alias-border-l2);border-radius:9px;padding:12px;margin-top:10px;line-height:1.9">
+    <b>5.2 动火作业分级</b><br>
+    动火作业分为特级动火作业、一级动火作业和二级动火作业……<br>
+    <span style="background:var(--dsw-alias-state-warn-tertiary);padding:0 3px;border-radius:3px">动火点周围 15 m 内</span>
+    应进行可燃气体检测……
+  </div>
+  <div class="note">这一格是原来的「正文」模式，保持现状。原来的「收藏」已改成「标签」。</div>`;
 }
 
-/* =======================================================================
-   9. 渲染入口
-   ======================================================================= */
-const sideBody=document.getElementById('sideBody');
-const sideTabs=document.getElementById('sideTabs');
-
+/* ---------- 主渲染 ---------- */
+const pane=document.getElementById('pane');
 function render(){
-  // 右栏 body
-  if(S.view==='list')        sideBody.innerHTML=viewList();
-  else if(S.view==='detail') sideBody.innerHTML=viewDetail();
-  else if(S.view==='viewer') sideBody.innerHTML=viewViewer();
-  else                       sideBody.innerHTML=`<div class="hint">能力页在下面（不在右栏里）——它是一整页，不是侧栏 tab。</div>`;
+  pane.innerHTML = S.tab==='kb'?viewKb() : S.tab==='tags'?viewTags() : viewText();
 
-  // 右栏 tab 选中态
-  [...sideTabs.querySelectorAll('.t')].forEach((t,i)=>t.setAttribute('aria-selected',
-    (S.view==='viewer'&&i===2)||(S.view!=='viewer'&&i===0)));
+  // 胶囊选中态 + 控制条同步
+  document.querySelectorAll('#stripTabs .tab').forEach(t=>{
+    t.className='tab'+(t.dataset.tab===S.tab?' tabActive':'');
+  });
+  document.querySelectorAll('.harness [data-tab]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.tab===S.tab));
 
-  // caret 下拉
-  const old=document.getElementById('smenu'); if(old) old.remove();
-  if(S.menuOpen){
-    const m=document.createElement('div');
-    m.className='menu'; m.id='smenu';
-    m.innerHTML=`
-      <button class="mi primary" data-nav="list">🗂 知识库管理</button>
-      <button class="mi" data-open="std">📖 打开「标准」</button>
-      <button class="mi" data-open="law">📖 打开「法律法规」</button>
-      <button class="mi" disabled style="opacity:.45">📥 文件导入 <span class="k">接既有入库</span></button>
-      <button class="mi" disabled style="opacity:.45">📊 效力报告 <span class="k">现埋在设置</span></button>
-      <div class="sep"></div>
-      <button class="mi" disabled style="opacity:.45">🔌 渠道台账 <span class="k">运维·留设置</span></button>`;
-    sideTabs.appendChild(m);
+  // ▾ 二级目录
+  const old=document.querySelector('.menu'); if(old) old.remove();
+  if(S.menu){
+    const m=document.createElement('div'); m.className='menu';
+    m.innerHTML=`<button data-nav="kb-list">🗂 知识库管理</button>
+      <button data-nav="kb-detail">📖 打开「标准」</button>
+      <button>📥 文件导入</button>
+      <button>📊 效力报告</button>
+      <div class="div"></div><button>🧩 能力页<span class="mi-k">另一整页</span></button>
+      <button>🔌 渠道台账<span class="mi-k">运维</span></button>`;
+    document.querySelector('.panel').appendChild(m);
   }
 
-  // 能力页（整页）
-  const host=document.getElementById('capHost');
-  if(S.view==='caps'){
-    if(!host){
-      const d=document.createElement('div'); d.id='capHost'; d.style.marginTop='14px';
-      document.querySelector('.shell').appendChild(d);
-    }
-    document.getElementById('capHost').innerHTML=viewCaps();
-  } else if(host) host.remove();
+  // 输入框里的作用域胶囊（左边不可点，但右侧操作会让它变）
+  document.getElementById('scopeChip').innerHTML = S.scope
+    ? `🏷 ${esc(S.scope)} · 仅在此标签内提问 <span class="x">✕</span>`
+    : `<span class="x">未限定范围（全库检索）</span>`;
 
-  // 抽屉
-  const od=document.getElementById('drawerHost'); if(od) od.remove();
-  if(S.capDrawer){
-    const d=document.createElement('div'); d.id='drawerHost'; d.innerHTML=capDrawer();
-    document.body.appendChild(d);
+  // toast
+  const t0=document.querySelector('.toast'); if(t0) t0.remove();
+  if(S.toast){
+    const t=document.createElement('div'); t.className='toast'; t.textContent=S.toast;
+    document.body.appendChild(t);
+    setTimeout(()=>{ S.toast=''; const x=document.querySelector('.toast'); if(x) x.remove(); },1900);
   }
 }
 
-/* =======================================================================
-   10. 事件（全部委托，简单可靠）
-   ======================================================================= */
-document.getElementById('seg').addEventListener('click',e=>{
-  const b=e.target.closest('button[data-v]'); if(!b) return;
-  S.view=b.dataset.v; if(S.view==='detail'&&!S.lib) S.lib='std';
-  S.menuOpen=false; S.tagPop=false;
-  [...document.querySelectorAll('#seg button')].forEach(x=>x.setAttribute('aria-selected',x===b));
-  render();
-});
-document.getElementById('caret').addEventListener('click',()=>{ S.menuOpen=!S.menuOpen; render(); });
+/* ---------- 事件 ---------- */
+function flash(msg){ S.toast=msg; render(); }
 
 document.addEventListener('click',e=>{
   const t=e.target;
 
-  if(t.closest('[data-close-drawer]') && !t.closest('.panel')){ S.capDrawer=null; render(); return; }
-  if(t.closest('.panel')&&t.hasAttribute('data-close-drawer')){ S.capDrawer=null; render(); return; }
+  const tb=t.closest('[data-tab]'); if(tb){ S.tab=tb.dataset.tab; if(S.tab!=='kb') S.lib=null; render(); return; }
 
-  const cap=t.closest('[data-cap]');
-  if(cap){ S.capDrawer=cap.dataset.cap; render(); return; }
-
-  const open=t.closest('[data-open]');
-  if(open){ S.lib=open.dataset.open; S.view='detail';
-    [...document.querySelectorAll('#seg button')].forEach(x=>x.setAttribute('aria-selected',x.dataset.v==='detail'));
-    S.open=new Set(); render(); return; }
-
+  if(t.closest('#caret')){ S.menu=!S.menu; render(); return; }
   const nav=t.closest('[data-nav]');
-  if(nav){ S.view=nav.dataset.nav; S.menuOpen=false;
-    [...document.querySelectorAll('#seg button')].forEach(x=>x.setAttribute('aria-selected',x.dataset.v===S.view));
-    render(); return; }
+  if(nav){ S.menu=false; S.tab='kb'; S.lib = nav.dataset.nav==='kb-detail'?'std':null; render(); return; }
 
-  const fstat=t.closest('[data-fstatus]');
-  if(fstat){ const k=fstat.dataset.fstatus;
-    S.f.status.has(k)?S.f.status.delete(k):S.f.status.add(k); render(); return; }
+  const ol=t.closest('[data-openlib]'); if(ol){ S.lib=ol.dataset.openlib; S.sel.clear(); render(); return; }
+  if(t.closest('[data-back]')){ S.lib=null; render(); return; }
 
-  const ftype=t.closest('[data-ftype]');
-  if(ftype){ const k=ftype.dataset.ftype;
-    S.f.type.has(k)?S.f.type.delete(k):S.f.type.add(k); render(); return; }
+  const on=t.closest('[data-open-node]');
+  if(on){ const k=on.dataset.openNode; S.open.has(k)?S.open.delete(k):S.open.add(k); render(); return; }
 
-  const ftag=t.closest('[data-tag]');
-  if(ftag){ const k=ftag.dataset.tag;
-    S.f.tags.has(k)?S.f.tags.delete(k):S.f.tags.add(k); render(); return; }
+  const fst=t.closest('[data-fst]'); if(fst){ const k=fst.dataset.fst; S.f.st.has(k)?S.f.st.delete(k):S.f.st.add(k); render(); return; }
+  const fty=t.closest('[data-fty]'); if(fty){ const k=fty.dataset.fty; S.f.ty.has(k)?S.f.ty.delete(k):S.f.ty.add(k); render(); return; }
+  const ftg=t.closest('[data-ftag]'); if(ftg){ const k=ftg.dataset.ftag; S.f.tags.has(k)?S.f.tags.delete(k):S.f.tags.add(k); render(); return; }
+  if(t.closest('[data-clearall]')){ S.f.st.clear();S.f.ty.clear();S.f.tags.clear();S.q=''; render(); return; }
 
-  if(t.closest('[data-tagpop]')){ S.tagPop=!S.tagPop; render(); return; }
-  if(t.closest('[data-clear-tags]')){ S.f.tags.clear(); render(); return; }
-  if(t.closest('[data-clearall]')){ S.f.status.clear();S.f.type.clear();S.f.tags.clear();S.q='';S.tagPop=false; render(); return; }
+  if(t.closest('[data-content]')){ S.content=!S.content; render(); return; }
+  const md=t.closest('[data-mode]'); if(md){ S.mode=md.dataset.mode; render(); return; }
 
-  const md=t.closest('[data-mode]');
-  if(md){ S.mode=md.dataset.mode; render(); return; }
+  const pk=t.closest('[data-pick]');
+  if(pk){ const id=pk.dataset.pick; S.sel.has(id)?S.sel.delete(id):S.sel.add(id); render(); return; }
+  if(t.id==='selAll'){
+    const ids=shown().map(d=>d.id);
+    const all=ids.length&&ids.every(i=>S.sel.has(i));
+    ids.forEach(i=>all?S.sel.delete(i):S.sel.add(i));
+    render(); return;
+  }
+  if(t.closest('[data-clearsel]')){ S.sel.clear(); render(); return; }
 
-  const tg=t.closest('[data-toggle]');
-  if(tg){ const k=tg.dataset.toggle; S.open.has(k)?S.open.delete(k):S.open.add(k); render(); return; }
+  const bl=t.closest('[data-bulk]');
+  if(bl){
+    const n=S.sel.size, k=bl.dataset.bulk;
+    const msg = k==='tag' ? `（原型）给 ${n} 项打标签…`
+              : k==='move'? `（原型）把 ${n} 项移动到目录…`
+              : `（原型）删除 ${n} 项（真实现要二次确认）`;
+    flash(msg); return;
+  }
 
-  const ft=t.closest('[data-ftab]');
-  if(ft){ S.frozenTab=ft.dataset.ftab; render(); return; }
+  const at=t.closest('[data-addtag]'); if(at){ S.tagFor=S.tagFor===at.dataset.addtag?null:at.dataset.addtag; render(); return; }
+  if(t.closest('[data-closetag]')){ S.tagFor=null; render(); return; }
+  const tt=t.closest('[data-toggletag]');
+  if(tt){
+    const [id,name]=tt.dataset.toggletag.split('|');
+    const d=DOCS.find(x=>x.id===id);
+    d.tags.includes(name)?d.tags=d.tags.filter(x=>x!==name):d.tags.push(name);
+    render(); return;
+  }
 
-  // 点空白关掉菜单/弹层
-  if(S.menuOpen && !t.closest('.menu') && !t.closest('#caret')){ S.menuOpen=false; render(); }
-  else if(S.tagPop && !t.closest('#tagPop') && !t.closest('[data-tagpop]')){ S.tagPop=false; render(); }
+  const sc=t.closest('[data-scope]');
+  if(sc){ S.scope = S.scope===sc.dataset.scope?null:sc.dataset.scope; render(); return; }
+
+  if(S.menu && !t.closest('.menu') && !t.closest('#caret')){ S.menu=false; render(); }
 });
+
 document.addEventListener('input',e=>{
   if(e.target.id==='q'){
-    const pos=e.target.selectionStart;          // 先记住光标，重渲染后放回去，否则每敲一字都跳到末尾
+    const pos=e.target.selectionStart;
     S.q=e.target.value; render();
     const el=document.getElementById('q');
     if(el){ el.focus(); try{ el.setSelectionRange(pos,pos) }catch(_){} }
   }
 });
 
-// 开关（纯装饰，点了有反馈即可）
-document.addEventListener('click',e=>{
-  const sw=e.target.closest('.sw'); if(!sw) return;
-  sw.setAttribute('data-on', sw.getAttribute('data-on')==='1' ? '0' : '1');
+/* ---------- 主题切换（浅色 / 深色，token 与宿主同名） ---------- */
+document.getElementById('themeBtn').addEventListener('click',e=>{
+  const dark=document.body.hasAttribute('data-ds-dark-theme');
+  if(dark) document.body.removeAttribute('data-ds-dark-theme');
+  else document.body.setAttribute('data-ds-dark-theme','');
+  e.target.textContent = dark ? '🌙 切到深色' : '☀️ 切到浅色';
 });
+
 render();
 </script>
 </body>
