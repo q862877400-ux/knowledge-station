@@ -481,3 +481,27 @@ def test_official_gb_parses_real_openstd_html():
     r3 = adapter.probe("GB 55037-2022")
     assert r3.found is False
     assert r3.legal_status is None
+
+
+class TestNormNoFullWidth:
+    """§11.0 R6c-2a 实测的根因：真库 **92%** 的标准号写全角斜杠 `／`，而站点返回半角 `/`。
+
+    原先 `norm_no` 只剥半角 ⇒ 同一个号两边归一出 `GBT17098-1997` 与 `GB／T17098-1997`，
+    **永不相等** ⇒ "按归一号挑行"的匹配全线失手。
+    真机 A/B（同一批号两种写法各跑一遍）：**全角 0/6 命中、半角 5/6 命中**。
+    """
+
+    def test_全角与半角斜杠归一到同一个号(self):
+        from src.core.update.channels.base import norm_no
+        assert norm_no("GB／T 17098-1997") == norm_no("GB/T 17098-1997") == "GBT17098-1997"
+        assert norm_no("GB／T 1.1-2020") == norm_no("GB/T 1.1-2020")
+        # 半角行为不许变（既有大量用例依赖它）
+        assert norm_no("GB/T 3608-2008") == norm_no("GBT3608-2008".replace("GBT", "GB/T"))
+        assert norm_no(None) == "" and norm_no("  ") == ""
+
+    def test_按归一号挑行时全角目标能命半角行(self):
+        """这条是"匹配失手"的最小复现：目标写全角、站点返回半角。"""
+        from src.core.update.channels.base import pick_row_by_norm
+        rows = [{"code": "GB/T 17098-1997", "status": "现行"}]
+        assert pick_row_by_norm(rows, "GB／T 17098-1997") == rows[0]
+        assert pick_row_by_norm(rows, "GB/T 17098-1997") == rows[0]
