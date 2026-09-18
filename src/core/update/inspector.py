@@ -412,9 +412,11 @@ def _build_adapters(transport=None) -> dict[str, ChannelAdapter]:
     return out
 
 
-#: 泛查兜底链（official_gb→govcn）；权威渠道按标准号特征由 routing.select_chain 前置。
+#: 泛查兜底链（official_gb→ndls→govcn）；权威渠道按标准号特征由 routing.select_chain 前置。
 #: ⚠ 2026-09-18（§11.0 R5c）：**摘掉 web**（只解 mock dict、打的是 bing HTML ⇒ 恒 miss，
 #:   且搜索引擎不是官方源）。_FALLBACK_CHAIN[-1] 用于「全都失败」时的归因 ⇒ 现在归到 govcn。
+#: ⚠ 2026-09-18（§11.0 R6c-3b）：`ndls` 插到 `govcn` 前（量出来的：govcn 在标准号上 1/10、
+#:   ndls 6/10）。这里只是注释跟随——链的顺序**唯一所有者仍是** `routing._FALLBACK`。
 #: ⚠ 2026-09-18（§11.0 R6）：本常量**不再自己写字面量**，改为向唯一所有者
 #:   `routing.fallback_chain()` 取（同一个 tuple 对象）——R5c 那次"摘一棒要改两处"的教训。
 _FALLBACK_CHAIN: tuple[str, ...] = fallback_chain()

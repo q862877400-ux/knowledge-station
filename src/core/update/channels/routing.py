@@ -14,7 +14,18 @@ from __future__ import annotations
 
 import re
 
-# 标准号 → 首选权威渠道（其余走本模块的兜底链 `_FALLBACK`：official_gb→govcn）
+from src.core.text_utils import store_standard_no
+
+
+def _store_form(standard_no: str | None) -> str:
+    """标准号 → 存储形（去空白 + 折半角），供前缀匹配用。
+
+    ⚠ **只此一处**：R6c-2b 已经吃过"每个站点各折一次、漏一个就静默失败"的亏，
+    所以这里也是唯一入口——别再在调用方各折各的。
+    """
+    return store_standard_no((standard_no or "").strip())
+
+# 标准号 → 首选权威渠道（其余走本模块的兜底链 `_FALLBACK`：official_gb→ndls→govcn）
 # 状态权威优先 ndls（跨门类，能判 现行/废止/废止日期/代替关系；AQ 3028→作废 2024-07-01 已验证）；
 # mem_gov/mohurd 作为 公告+全文 辅助（页面 CMS/JS 结构，图文状态不全，不占状态首选）。
 _PREFIX_ROUTE: list[tuple[re.Pattern, str]] = [
@@ -34,7 +45,18 @@ _PREFIX_ROUTE: list[tuple[re.Pattern, str]] = [
 #   而且搜索引擎**不是官方源**（与"不依赖二手信息"的准则相冲突）。
 #   它的角色由两根真棒覆盖：`official_gb`（国标全文公开系统）+ `govcn`（政策文件库真接口，R5b 换棒）。
 #   `ADAPTER_CLASSES` 里仍保留 `web`（不删代码），只是**不进任何链**——台账据此显示"未接线"。
-_FALLBACK = ("official_gb", "govcn")
+#
+# ⚠ 2026-09-18（§11.0 R6c-3b）：**把 `ndls` 插在 `govcn` 前面**。这是**量出来的**，不是拍脑袋：
+#   `govcn` 是**政策/法规库**，在标准号上基本不命中——按前缀分层抽 10 个真库号实测：
+#   `official_gb` 命中 4/10、**`govcn` 1/10**（唯一那次命中是`民法典`那类的**法规**行）、`ndls` **6/10**；
+#   且 `govcn` 还最慢（未命中时见过 7.1s，`ndls` 只要 1.2s）。
+#   `ndls`（国家数字标准馆）是**跨门类状态权威**，正是 `GBZ 37-2024` / `GBZ/T 160.27-2004`
+#   这种"`official_gb` miss 而它命中"的号该走的第二棒。
+#   为什么**不是**把 `ndls` 提到 `official_gb` 前面：A/B 实测两者在 `GB/T` 上命中率都是 12/12，
+#   谁在前不改变"能不能答"；而 `ndls` 默认要发**两次**请求（搜索+详情），保持 `official_gb` 在前
+#   就仍是"先命中即止、不额外发请求"。⇒ 只在**第一棒 miss 时**顺序更合理。
+#   （`govcn` 不删：它是今天唯一能命中**法规名**行的那根——实测命中 1 次就是法规。）
+_FALLBACK = ("official_gb", "ndls", "govcn")
 
 
 def fallback_chain() -> tuple[str, ...]:
@@ -48,14 +70,38 @@ def fallback_chain() -> tuple[str, ...]:
     return _FALLBACK
 
 
-def select_chain(standard_no: str) -> tuple[str, ...]:
-    """按标准号特征返回降级链（首选权威渠道在前，其余兜底在后）。"""
-    no = (standard_no or "").strip()
-    first = None
+def first_route(standard_no: str) -> str | None:
+    """这一号的**前缀首选**渠道（没命中任何前缀规则 ⇒ `None`）。
+
+    为什么要单独暴露它（§11.0 R6c-3b）：`scripts/chain-snapshot.py` 原先靠
+    "`select_chain(no)[0]` 不在兜底名单里 ⇒ 它是前缀首选"来推断——R6c-3b 把 `ndls`
+    插进兜底名单后，`GB`/`AQ` 这类**以 ndls 打头**的号就被误判成"没有前缀首选"，
+    于是快照把 3 个样例报成"⚠ 链会变"（**假差异**）。推断规则本来就该问路由本身，
+    而不是靠"不在名单里"这种反推。现在两边都从这里取，谁改都不会再错位。
+    """
+    no = _store_form(standard_no)
     for pat, ch in _PREFIX_ROUTE:
         if pat.match(no):
-            first = ch
-            break
+            return ch
+    return None
+
+
+def select_chain(standard_no: str) -> tuple[str, ...]:
+    """按标准号特征返回降级链（首选权威渠道在前，其余兜底在后）。
+
+    ⚠ **原始号先折半角再匹配**（§11.0 R6c-3b）：R6c-2b 统一了 6 个"查询侧"站点，
+    但**漏了这里**——`select_chain` 是第 7 个读原始号的站点。用的是**存储形**
+    `store_standard_no`（只折 `／`/`－`，不动空格大小写），与写库侧同一口径：别再抄一份替换表。
+
+    ⚠ **这个折叠到底修了什么，说准确**（我第一版把理由写得比证据强，自己核实时改掉）：
+    - **有真实差别的**是那些"前缀规则里就带斜杠"的号：`T／ZSA 328-2026`（全角）匹配不上
+      `^T/\\b`，于是**静默掉进泛查兜底链**、丢掉"团体标准→专门渠道"的首选（半角写法不会）。
+      这类号今天库里没有，但规则在，入口也在。
+    - **没有差别的**：`GB／T 14308-2010`（库里现存那 1 行全角）——半角的 `GB/T …` 同样不匹配
+      任何 GB 规则（`^GB\\s?\\d{4,5}` 要求 GB 后就是数字），所以这一行**旧写法也没丢首选**。
+      我最初写的是"它掉了国标→状态权威的首选"，**那句是错的**，用例里也一并纠正。
+    """
+    first = first_route(standard_no)
     if first is None:
         return _FALLBACK
     chain = [first]

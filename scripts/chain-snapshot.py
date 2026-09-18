@@ -15,7 +15,7 @@ sys.path.insert(0, str(ROOT))
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")  # 控制台是 GBK；统一成 UTF-8
 
 from src.core.update.channels import ledger_chain as lc  # noqa: E402
-from src.core.update.channels.routing import select_chain  # noqa: E402
+from src.core.update.channels.routing import first_route, select_chain  # noqa: E402
 
 #: 覆盖每一条前缀规则 + 一条无特征（走兜底）的样例号
 SAMPLES = [
@@ -48,7 +48,7 @@ def main() -> int:
     print(f"按台账**过滤**后    : {' → '.join(ledger)}"
           + ("   ✅ 无差异（今天没有 enabled=0 / known-broken 的兜底成员）"
              if tuple(ledger) == tuple(today) else "   ⚠ 有差异（接入前要看清）"))
-    print(f"   ⚠ 成员资格是**显式名单**（缺省=今天那两棒）：台账只负责"
+    print(f"   ⚠ 成员资格是**显式名单**（缺省=今天的兜底名单）：台账只负责"
           f"①过滤（enabled=0 / known-broken）②报告候选 —— 不把 wiring=wired 全塞进来"
           f"（第一版这么写，快照显示 9/9 个样例都变，见 ledger_chain.py 的 docstring）")
     print()
@@ -56,7 +56,10 @@ def main() -> int:
     changed = 0
     for no, why in SAMPLES:
         a = select_chain(no)
-        first = a[0] if a and a[0] not in today else None
+        # ⚠ **前缀首选要问路由本身**（`first_route`），不能靠"不在兜底名单里"反推：
+        #   R6c-3b 把 ndls 插进名单后，GB/AQ 这类"以 ndls 打头"的号会被反推成"没有前缀首选"，
+        #   于是快照报出**假差异**（我实测到 3 个样例被误报 ⚠ 变）。
+        first = first_route(no)
         b = ((first,) if first else ()) + tuple(c for c in ledger if c != first)
         mark = "" if a == b else "  ⚠ 变"
         changed += a != b

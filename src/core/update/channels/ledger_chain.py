@@ -1,7 +1,8 @@
 """台账驱动的降级链（§11.0 R6c，第一步**只算不改**）。
 
 ## 这一步要解决什么
-今天巡检的兜底链是 `routing._FALLBACK` 里的**两个字面量**（`official_gb → govcn`）。
+今天巡检的兜底链是 `routing._FALLBACK` 里的**三个字面量**（`official_gb → ndls → govcn`；
+`ndls` 于 2026-09-18 R6c-3b 插入，见 routing.py 里的实测理由）。
 台账（`update_channel`）里每条渠道有 `enabled`（人工意图）、`wiring`（有没有接在链上）、
 `state`（探针实测），但**链本身并不看台账**。R6c 的验收里写着"巡检降级链来自台账"。
 

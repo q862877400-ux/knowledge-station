@@ -171,9 +171,24 @@ class Test真库:
         assert rep["chain"] == list(fallback_chain())
         assert all(m["channel_id"] for m in rep["missing_in_code"]) is True
 
-    @pytest.mark.parametrize("cid", ["ch:ndls", "ch:dbba"])
+    @pytest.mark.parametrize("cid", ["ch:dbba", "ch:hbba"])
     def test_专用渠道在候选里而不在链里(self, cid):
+        """前缀专用渠道（DB→dbba、行标→hbba）**不在泛查兜底链里**，所以是"可提升候选"。
+
+        ⚠ 2026-09-18（R6c-3b）之后这条**换了参数**：原来点的是 `ch:ndls`，
+        而 R6c-3b 把 `ndls` 正式插进了兜底链（量出来的：`govcn` 在标准号上 1/10、`ndls` 6/10）
+        ⇒ 它从"候选"**毕业**成"链上成员"。所以现在改用两根仍是前缀专用、且**不在**兜底链里的渠道，
+        并另加一条用例正面钉住 ndls 的毕业（见下一条）：
+        改参数而不是删用例，是因为"候选报告"这个能力本身还要继续被守。
+        """
         cr.seed_channels()
         rep = lc.ledger_chain_report()
         assert cid in {c["channel_id"] for c in rep["roster_candidates"]}
         assert cid not in rep["chain"]
+
+    def test_ndls_已毕业进兜底链(self):
+        """R6c-3b：`ndls` 从"可提升候选"变成"链上成员"，这条正面钉住它别再被挪走。"""
+        cr.seed_channels()
+        rep = lc.ledger_chain_report()
+        assert "ch:ndls" not in {c["channel_id"] for c in rep["roster_candidates"]}
+        assert "ndls" in rep["chain"]

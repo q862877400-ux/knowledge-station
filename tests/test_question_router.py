@@ -178,24 +178,23 @@ class Test真机对照:
                 # 能力表（answers-matrix 的输出）是**上限**：路由结果必须是它的子集
                 assert set(got[cls]) <= set(ca.channels_for(cls, table=table)), (no, cls)
 
-    def test_已知缺口_official_gb判死时_HJ会丢两类(self, table):
-        """**记录一个已知结构性缺口**（R6c-4 的输入），不是"期望行为"。
+    def test_已知缺口已被兜底链补掉_HJ不再一判死就丢两类(self, table):
+        """**记录型用例：它按设计红过一次，这里是红过之后**有意**改成的样子。**
 
-        实测（2026-09-18）：`mee` 只声明能答"发布"；`HJ` 号的链 = mee→official_gb→govcn，
-        "修订"/"编号核验"**只有 `official_gb` 能答** ⇒ 它一判死，这两类就没有候选了。
-
-        ⚠ 原因是 `all_down`（能答的那根在链上、但今天死了）而**不是** `off_chain`——
-        我第一版就写成了 `off_chain`，被这条用例当场纠正：
-        `off_chain` 是"链上根本没有能答的"（见 `Test空候选三种原因::test_off_chain`）。
-        链一旦加宽或 mee 的能力声明被代码级证据更新，**这条用例就该红**——那时请**有意**改它。
+        2026-09-18 R6c-3 时它断言的是：`mee`（HJ）只声明能答"发布"，
+        HJ 的链 = mee→official_gb→govcn ⇒ `official_gb` 一判死，"修订/编号核验"就**没有候选**
+        （原因 `all_down`），也就是**单点故障**。
+        同一天 R6c-3b 把 `ndls` 插进兜底链（量出来的：`govcn` 在标准号上 1/10、`ndls` 6/10）
+        ⇒ 这条用例**如约变红**，我把它改成断言"缺口已被补掉"。
+        ⚠ 若哪天链又变短，这条会再红——那正是它存在的意义。
         """
         rows = _rows({"ch:official_gb": "down", "ch:govcn": "ok", "ch:mee": "ok"})
         rep = qr.route_report(standard_no="HJ 1234-2020", table=table, rows=rows, only_ok=True)
-        assert rep["修订"]["reason"] == "all_down"
-        assert rep["编号核验"]["reason"] == "all_down"
+        assert rep["修订"]["reason"] == "ok"
+        assert "ch:ndls" in rep["修订"]["channels"], "兜底链里必须还有状态权威"
+        assert rep["编号核验"]["reason"] == "ok"
         assert rep["修订"]["dropped_down"] == ["ch:official_gb"]
-        assert qr.unanswerable_classes(rep) == ["修订", "编号核验"]
-        assert rep["发布"]["channels"] == ["ch:mee", "ch:govcn"]
+        assert qr.unanswerable_classes(rep) == []
 
 
 class Test人用脚本:
