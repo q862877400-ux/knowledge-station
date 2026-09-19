@@ -115,13 +115,14 @@ export const KS_STYLES = `
 .ks-split{display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;min-height:0}
 .ks-rail{flex:0 1 208px;min-width:172px;display:flex;flex-direction:column;gap:8px}
 .ks-main{flex:1 1 320px;min-width:280px;display:flex;flex-direction:column;gap:8px;min-height:0}
-.ks-detail{flex:0 1 232px;min-width:200px;display:flex;flex-direction:column;gap:6px}
+.ks-detail{flex:0 1 232px;min-width:200px;display:flex;flex-direction:column;gap:var(--ks-space-2)}
 /* 列表头：全选 + 计数 + 新建 */
 .ks-lhead{display:flex;align-items:center;gap:8px;padding:2px 2px 6px;
   border-bottom:.5px solid var(--dsw-alias-border-l1)}
 .ks-lhead-name{font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 /* 一行文件：勾选框（label 里就是文件名）+ 标签 + 常驻「+标签」 */
-.ks-item{display:flex;align-items:center;gap:6px;padding:5px 6px;border-radius:6px}
+.ks-item{display:flex;align-items:center;gap:var(--ks-space-2);padding:var(--ks-space-1) var(--ks-space-2);
+  border-radius:var(--ks-r-md);min-width:0;flex-wrap:nowrap}
 .ks-item:hover{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-item-on{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-item .ks-check{flex:1 1 auto;min-width:0}
@@ -129,8 +130,13 @@ export const KS_STYLES = `
 .ks-item .ks-check>span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   color:var(--dsw-alias-label-secondary);font-size:13px}
 .ks-item .ks-check>input{flex:none}
-.ks-item-tags{display:flex;align-items:center;gap:4px;flex:none;flex-wrap:wrap;max-width:46%}
-.ks-item-add{flex:none;opacity:0}
+/* 标签组：**允许自己内部换行**（标签多了就长高），但**不许把右边的按钮挤扁**
+   —— 无宽约束时「详情」会被压成两行「详／情」（2026-09-20 离屏截图实测，见 UI-BASELINE 第六节）。
+   ⚠ 注释里**不许出现反引号**（整段 CSS 是一个模板字符串）—— 本轮已经踩了四次。 */
+.ks-item-tags{display:flex;align-items:center;gap:var(--ks-space-1);flex:0 1 46%;min-width:0;flex-wrap:wrap}
+/* 行内按钮：**永不压缩、永不折字**（这条是上面那个缺陷的正面约束） */
+.ks-item-btn{flex:none;white-space:nowrap}
+.ks-item-add{flex:none;opacity:0;white-space:nowrap}
 /* 常驻：业主明确要"名字后面常驻一个 +标签"，所以不是 hover 才出现，只是 hover 时更显眼 */
 .ks-item .ks-item-add{opacity:.35}
 .ks-item:hover .ks-item-add,.ks-item-on .ks-item-add{opacity:1}
@@ -141,8 +147,9 @@ export const KS_STYLES = `
    --dsw-elevation-stroke-color 给（官方 stat-dialog.module.css:21-25 就是这个写法）。
    我第一版写成 "border:.5px solid var(--dsw-alias-border-l4)" + 阴影，属于明令禁止的配对。
    ⚠ 这里**不能写反引号**：整段 CSS 是一个模板字符串，反引号会把它截断（本轮第三次踩）。 */
-.ks-batch{position:sticky;bottom:0;display:flex;align-items:center;gap:6px;flex-wrap:wrap;
-  margin-top:6px;padding:7px 9px;border:0;border-radius:10px;
+.ks-batch{position:sticky;bottom:0;display:flex;align-items:center;gap:var(--ks-space-2);flex-wrap:wrap;
+  margin-top:var(--ks-space-2);padding:var(--ks-space-2) var(--ks-space-3);border:0;
+  border-radius:var(--ks-r-card);
   background:var(--dsw-specific-menu);
   --dsw-elevation-stroke-color:var(--dsw-alias-border-l1);
   box-shadow:var(--dsw-elevation-prominent)}

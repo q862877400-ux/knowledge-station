@@ -509,7 +509,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                 </span>
                 {/* 常驻「＋标签」（业主：名字后面常驻一个） */}
                 <Button
-                  className="ks-item-add"
+                  className="ks-item-add ks-item-btn"
                   variant="ghost"
                   size="sm"
                   title="给这一篇加标签（占位：只加到页面状态）"
@@ -522,6 +522,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                   ＋标签
                 </Button>
                 <Button
+                  className="ks-item-btn"
                   variant="ghost"
                   size="sm"
                   title="打开详情（右侧）"

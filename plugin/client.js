@@ -32282,13 +32282,14 @@ var KS_STYLES = `
 .ks-split{display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;min-height:0}
 .ks-rail{flex:0 1 208px;min-width:172px;display:flex;flex-direction:column;gap:8px}
 .ks-main{flex:1 1 320px;min-width:280px;display:flex;flex-direction:column;gap:8px;min-height:0}
-.ks-detail{flex:0 1 232px;min-width:200px;display:flex;flex-direction:column;gap:6px}
+.ks-detail{flex:0 1 232px;min-width:200px;display:flex;flex-direction:column;gap:var(--ks-space-2)}
 /* \u5217\u8868\u5934\uFF1A\u5168\u9009 + \u8BA1\u6570 + \u65B0\u5EFA */
 .ks-lhead{display:flex;align-items:center;gap:8px;padding:2px 2px 6px;
   border-bottom:.5px solid var(--dsw-alias-border-l1)}
 .ks-lhead-name{font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 /* \u4E00\u884C\u6587\u4EF6\uFF1A\u52FE\u9009\u6846\uFF08label \u91CC\u5C31\u662F\u6587\u4EF6\u540D\uFF09+ \u6807\u7B7E + \u5E38\u9A7B\u300C+\u6807\u7B7E\u300D */
-.ks-item{display:flex;align-items:center;gap:6px;padding:5px 6px;border-radius:6px}
+.ks-item{display:flex;align-items:center;gap:var(--ks-space-2);padding:var(--ks-space-1) var(--ks-space-2);
+  border-radius:var(--ks-r-md);min-width:0;flex-wrap:nowrap}
 .ks-item:hover{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-item-on{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-item .ks-check{flex:1 1 auto;min-width:0}
@@ -32296,8 +32297,13 @@ var KS_STYLES = `
 .ks-item .ks-check>span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   color:var(--dsw-alias-label-secondary);font-size:13px}
 .ks-item .ks-check>input{flex:none}
-.ks-item-tags{display:flex;align-items:center;gap:4px;flex:none;flex-wrap:wrap;max-width:46%}
-.ks-item-add{flex:none;opacity:0}
+/* \u6807\u7B7E\u7EC4\uFF1A**\u5141\u8BB8\u81EA\u5DF1\u5185\u90E8\u6362\u884C**\uFF08\u6807\u7B7E\u591A\u4E86\u5C31\u957F\u9AD8\uFF09\uFF0C\u4F46**\u4E0D\u8BB8\u628A\u53F3\u8FB9\u7684\u6309\u94AE\u6324\u6241**
+   \u2014\u2014 \u65E0\u5BBD\u7EA6\u675F\u65F6\u300C\u8BE6\u60C5\u300D\u4F1A\u88AB\u538B\u6210\u4E24\u884C\u300C\u8BE6\uFF0F\u60C5\u300D\uFF082026-09-20 \u79BB\u5C4F\u622A\u56FE\u5B9E\u6D4B\uFF0C\u89C1 UI-BASELINE \u7B2C\u516D\u8282\uFF09\u3002
+   \u26A0 \u6CE8\u91CA\u91CC**\u4E0D\u8BB8\u51FA\u73B0\u53CD\u5F15\u53F7**\uFF08\u6574\u6BB5 CSS \u662F\u4E00\u4E2A\u6A21\u677F\u5B57\u7B26\u4E32\uFF09\u2014\u2014 \u672C\u8F6E\u5DF2\u7ECF\u8E29\u4E86\u56DB\u6B21\u3002 */
+.ks-item-tags{display:flex;align-items:center;gap:var(--ks-space-1);flex:0 1 46%;min-width:0;flex-wrap:wrap}
+/* \u884C\u5185\u6309\u94AE\uFF1A**\u6C38\u4E0D\u538B\u7F29\u3001\u6C38\u4E0D\u6298\u5B57**\uFF08\u8FD9\u6761\u662F\u4E0A\u9762\u90A3\u4E2A\u7F3A\u9677\u7684\u6B63\u9762\u7EA6\u675F\uFF09 */
+.ks-item-btn{flex:none;white-space:nowrap}
+.ks-item-add{flex:none;opacity:0;white-space:nowrap}
 /* \u5E38\u9A7B\uFF1A\u4E1A\u4E3B\u660E\u786E\u8981"\u540D\u5B57\u540E\u9762\u5E38\u9A7B\u4E00\u4E2A +\u6807\u7B7E"\uFF0C\u6240\u4EE5\u4E0D\u662F hover \u624D\u51FA\u73B0\uFF0C\u53EA\u662F hover \u65F6\u66F4\u663E\u773C */
 .ks-item .ks-item-add{opacity:.35}
 .ks-item:hover .ks-item-add,.ks-item-on .ks-item-add{opacity:1}
@@ -32308,8 +32314,9 @@ var KS_STYLES = `
    --dsw-elevation-stroke-color \u7ED9\uFF08\u5B98\u65B9 stat-dialog.module.css:21-25 \u5C31\u662F\u8FD9\u4E2A\u5199\u6CD5\uFF09\u3002
    \u6211\u7B2C\u4E00\u7248\u5199\u6210 "border:.5px solid var(--dsw-alias-border-l4)" + \u9634\u5F71\uFF0C\u5C5E\u4E8E\u660E\u4EE4\u7981\u6B62\u7684\u914D\u5BF9\u3002
    \u26A0 \u8FD9\u91CC**\u4E0D\u80FD\u5199\u53CD\u5F15\u53F7**\uFF1A\u6574\u6BB5 CSS \u662F\u4E00\u4E2A\u6A21\u677F\u5B57\u7B26\u4E32\uFF0C\u53CD\u5F15\u53F7\u4F1A\u628A\u5B83\u622A\u65AD\uFF08\u672C\u8F6E\u7B2C\u4E09\u6B21\u8E29\uFF09\u3002 */
-.ks-batch{position:sticky;bottom:0;display:flex;align-items:center;gap:6px;flex-wrap:wrap;
-  margin-top:6px;padding:7px 9px;border:0;border-radius:10px;
+.ks-batch{position:sticky;bottom:0;display:flex;align-items:center;gap:var(--ks-space-2);flex-wrap:wrap;
+  margin-top:var(--ks-space-2);padding:var(--ks-space-2) var(--ks-space-3);border:0;
+  border-radius:var(--ks-r-card);
   background:var(--dsw-specific-menu);
   --dsw-elevation-stroke-color:var(--dsw-alias-border-l1);
   box-shadow:var(--dsw-elevation-prominent)}
@@ -33283,7 +33290,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
             import_dsh_client_ui_primitives3.Button,
             {
-              className: "ks-item-add",
+              className: "ks-item-add ks-item-btn",
               variant: "ghost",
               size: "sm",
               title: "\u7ED9\u8FD9\u4E00\u7BC7\u52A0\u6807\u7B7E\uFF08\u5360\u4F4D\uFF1A\u53EA\u52A0\u5230\u9875\u9762\u72B6\u6001\uFF09",
@@ -33296,6 +33303,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
             import_dsh_client_ui_primitives3.Button,
             {
+              className: "ks-item-btn",
               variant: "ghost",
               size: "sm",
               title: "\u6253\u5F00\u8BE6\u60C5\uFF08\u53F3\u4FA7\uFF09",
