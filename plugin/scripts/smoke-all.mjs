@@ -57,6 +57,11 @@ const SUITES = [
   'scripts/smoke-class-summary.mjs',
   'scripts/smoke-kb-page-render.mjs',
   'scripts/smoke-ui-scale.mjs',
+  // 第 6 步 A 批（2026-10）：取消/超时可分辨 + 监听摘净（全离线、不 spawn 引擎），
+  // 以及 6 个工具的 isConcurrencySafe 声明形态。两条都属"最快能发现破坏"那一档：
+  // 前者红了说明排障时又分不清"用户点停止"和"引擎太慢"，后者红了说明并行静默失效。
+  'scripts/smoke-cancel.mjs',
+  'scripts/smoke-tool-concurrency.mjs',
 ]
 
 const here = dirname(fileURLToPath(import.meta.url))
