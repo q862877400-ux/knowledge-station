@@ -124,7 +124,8 @@
 **已交付**：`channels_for` / `route_report` / `unanswerable_classes`（后两个是交付时补的——
 "候选为空"有三种原因，只回一个空列表会让调用方把结构性缺口与"今天全挂"写成同一句话）。
 用例 `tests/test_question_router.py` **20 条**；给人看的脚本 `scripts/question-route.py`。
-真机量到的三件事（含 **GB/T 从未进 ndls**，6129/6417 条）见 `CHANNEL-COVERAGE-PLAN.md` 的 R6c-3 条目。
+真机量到的三件事（含 **GB/T 从未进 ndls**，6129/6417 条 —— ⚠ **6129 是未折全角口径**，折全角为 **6130**，
+口径出处见 `CHANNEL-COVERAGE-PLAN.md` 的 R7-数据轮"更正后的形状"）见 `CHANNEL-COVERAGE-PLAN.md` 的 R6c-3 条目。
 
 ```python
 def channels_for(classes: Iterable[str] | None = None, standard_no: str = "", *,
