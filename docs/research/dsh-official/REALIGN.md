@@ -6,18 +6,23 @@
 
 ---
 
-## 一、当前基线（**升级前就是它**）
+## 一、当前基线
+
+> ✅ **升级已于 2026-09-19 完成**（业主执行，报"废了好大劲"）。本节已更新为新基线。
+> **这次升级的逐条影响见 [`ERRATA-alpha.2.md`](ERRATA-alpha.2.md)** —— 哪句话过期了、现在是什么，逐条列。
 
 | 项 | 值 | 怎么核出来的 |
 |---|---|---|
 | DSH 检出 | `D:\AI\DSH\deepseek-harness` | — |
 | **运行中的 harness 就是这个目录** | `C:\Users\Zegel\.dsh\profiles\web\harness` 是**指向它的 Junction** | `Get-Item .../harness -Force` → `LinkType=Junction, Target=D:\AI\DSH\deepseek-harness` |
-| 基线发行 tag | **`dsh-v0.1.6-alpha.1`** | `git tag --points-at HEAD` |
-| 基线 sha | **`0a15e36e7f`** | `git rev-parse --short HEAD` |
-| package.json version | `0.1.6-alpha.1` | — |
-| 文档量（基线） | **167 篇英文正本 / 329 篇 `.md`**（`docs/`） | `git ls-tree -r --name-only HEAD -- docs` |
-| 决策记录量（基线） | `.agents/notes/` **2056 篇**（implemented 712 / proposed 54 / rejected 28 / archived 1259） | `Get-ChildItem -Recurse` |
-| 我们插件的加载路径 | `ks-dsh-plugin` → `link:C:/Users/Zegel/dsh-ks-src/ks-dsh-plugin`，该路径是**指向本仓 `plugin/` 的 Junction**，两边 `client.js` sha256 一致 | profile 的 `package.json` + `Get-FileHash` |
+| 当前发行 tag | **`dsh-v0.1.6-alpha.2`** | `git tag --points-at HEAD` |
+| 当前 sha | **`ddefc45fbc`**（`ddefc45fbc7f8e46dd73185e68295696d1297887`） | `git rev-parse HEAD` |
+| package.json version | `0.1.6-alpha.2` | — |
+| **上一次基线**（8 份分片与 Hindsight 条目写的是它） | tag `dsh-v0.1.6-alpha.1` / sha `0a15e36e7f` / version `0.1.6-alpha.1` | 分片口径；`-From` 默认值现在已改为 alpha.2 |
+| 文档量（现在） | **171 篇英文正本 / 337 篇 `.md`**（`docs/`）；基线时是 167 / 329 | `git ls-tree -r --name-only HEAD -- docs` |
+| 决策记录量 | `.agents/notes/` **2056 篇**（implemented 712 / proposed 54 / rejected 28 / archived 1259） | 目录统计 |
+| 我们插件的加载路径 | `ks-dsh-plugin` → `link:C:/Users/Zegel/dsh-ks-src/ks-dsh-plugin`，该路径是**指向本仓 `plugin/` 的 Junction** | profile 的 `package.json` |
+| ⚠ **检出里有未提交的本地补丁** | **6 文件 +19/−6**（升级时为让 alpha.2 跑起来而打，**未提交 ⇒ 下次升级会丢**）——逐条见 ERRATA §F | `git status --short` / `git diff --stat` |
 
 > ⚠️ 基线 sha 换了就要更新本表**和** `scripts/dsh-docs-delta.ps1` 的 `-From` 默认值。
 

@@ -1,7 +1,17 @@
 # DSH 官方文档精读（8 份分片）
 
+> ## ⚠️ 版本口径（先读这一行）
+> **下面的 8 份分片与 Hindsight 里的对应条目，都是按 `dsh-v0.1.6-alpha.1`（sha `0a15e36e7f`）写的。**
+> 业主已于 **2026-09-19 升级到 `dsh-v0.1.6-alpha.2`**（sha `ddefc45fbc`，运行中的 harness 同此）。
+> ⇒ **本次升级对每条结论的影响，逐条见 [`ERRATA-alpha.2.md`](ERRATA-alpha.2.md)**；
+> 基线、跑法、逐分片判定清单见 [`REALIGN.md`](REALIGN.md)。
+> 一句话摘要：**右栏槽位名与 key 规则、band 字面量、`data-plugin-css`、`ui-primitives` 的
+> `Button`/`Menu` 签名、以及 `web-styling.md` 的样式硬规则（CSS Modules / tokens / 0.5px 边框 /
+> elevation / corner-shape）全部未变**；变了的是 **Session 的 Provider-binding 语义、若干槽位增删、
+> Document Preview 的 `loading: 'renderer'` 模式、以及两份逐字件各 1 行**。
+
 **这是什么**：对 DSH 开源仓库（`D:\AI\DSH\deepseek-harness`）官方文档的**分片精读**，
-共覆盖 `docs/`（167 篇英文正本 / 2.8 MB）与相关 `.agents/notes/`（2056 篇决策记录）中的**与插件开发相关的部分**。
+覆盖 `docs/`（基线时 167 篇英文正本 / 现 171 篇）与相关 `.agents/notes/`（2056 篇决策记录）中**与插件开发相关的部分**。
 
 **为什么在这里**：业主 2026-09-19 要求「**把 DSH 官方文档全部读一遍，免得以后开发的时候自己造轮子**」。
 背景是同一轮里我们**已经造了两次轮子**（详见 `DEVELOPMENT-HISTORY.md` §10.126）：

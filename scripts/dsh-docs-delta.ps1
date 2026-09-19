@@ -29,7 +29,7 @@
 [CmdletBinding()]
 param(
   [string]$Repo = 'D:\AI\DSH\deepseek-harness',
-  [string]$From = 'dsh-v0.1.6-alpha.1',
+  [string]$From = 'dsh-v0.1.6-alpha.2',
   [string]$To = 'HEAD',
   [string]$ScopeFile = ''
 )
