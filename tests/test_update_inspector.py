@@ -778,6 +778,42 @@ def test_台账停用的渠道巡检不再问它(db):
     assert "official_gb" in asked, asked      # 别的棒照常问（不是"整条链都空"）
 
 
+def test_号段声明的渠道巡检真的会问它(db):
+    """§11.0 R7：台账里**号段**声明的渠道，巡查**真的会去问**（接线，不是助手）。
+
+    与上一条同一条纪律：`chain_for_number` 的单测只证明那个函数会加尾巴，证明不了
+    `inspector` 拿到了那条链。这里让 `mee` 声明 `GB`（它在 GB 号上今天**一条都到不了**），
+    断言 `_probe_number` 真的问了它；同时断言**前面几根照旧先被问**（顺序没被加法改动）。
+    """
+    from src.core.update import inspector as insp
+    from src.core.update.channels.base import ChannelResult
+    from src.core.update.channels.routing import select_chain
+
+    class _Recorder:
+        def __init__(self, name: str) -> None:
+            self.name = name
+            self.calls = 0
+            self.order: list[str] = []
+
+        def probe(self, standard_no: str, standard_name: str = "") -> ChannelResult:
+            self.calls += 1
+            self.order.append(self.name)
+            return ChannelResult(channel=self.name, found=False)
+
+    no = "GB 30871-2022"
+    base = select_chain(no)
+    assert "mee" not in base, base             # 前提：今天 mee 到不了这个号（本用例的靶子）
+    adapters = {c: _Recorder(c) for c in (*base, "mee")}
+    rows = [{"channel_id": f"ch:{c}", "name": c, "wiring": "wired", "enabled": 1}
+            for c in base]
+    rows.append({"channel_id": "ch:mee", "name": "mee", "wiring": "wired", "enabled": 1,
+                 "segments_json": '["GB"]'})
+    insp._probe_number(adapters, {"standard_no": no, "standard_name": "x"}, rows)
+    assert adapters["mee"].calls > 0, "台账号段声明了 GB，巡检却没问 mee"
+    # 兜底链的棒照旧都被问过（不是"只剩号段那一根"）
+    assert all(adapters[c].calls > 0 for c in base), {c: adapters[c].calls for c in base}
+
+
 def test_全链都抛异常才算failed(db):
     """每根棒各自重试到上限；全链都抛 ⇒ 没有"干净未命中" ⇒ hard-fail（不是 not_found）。"""
     from src.core.update import inspector as insp

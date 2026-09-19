@@ -80,6 +80,7 @@ def init_schema(db_path: Path | None = None) -> None:
         conn.executescript(_SCHEMA_PATH.read_text(encoding="utf-8"))
         _ensure_doc_meta_columns(conn)
         _ensure_bookmark_folder_columns(conn)
+        _ensure_channel_columns(conn)
         conn.commit()
     except sqlite3.Error as e:
         raise StorageError(f"初始化 schema 失败: {e}") from e
@@ -122,6 +123,21 @@ def _ensure_bookmark_folder_columns(conn) -> None:
             f"PRAGMA table_info({table})").fetchall()}
         if col not in existing:
             conn.execute(f"ALTER TABLE {table} ADD COLUMN {col} {ddl_type}")
+
+
+#: 渠道台账补列（§11.0 R7，2026-09-19）：`segments_json` = 号段（号段→渠道的**可维护事实**）。
+#: schema.sql 的新库直接带列；老库 CREATE IF NOT EXISTS 不会改表 → PRAGMA 补列。
+_CHANNEL_EXTRA_COLS: list[tuple[str, str]] = [
+    ("segments_json", "TEXT"),
+]
+
+
+def _ensure_channel_columns(conn) -> None:
+    """幂等：仅对缺列执行 ALTER TABLE ADD COLUMN（与上面两条同形）。"""
+    existing = {r[1] for r in conn.execute("PRAGMA table_info(update_channel)").fetchall()}
+    for col, ddl_type in _CHANNEL_EXTRA_COLS:
+        if col not in existing:
+            conn.execute(f"ALTER TABLE update_channel ADD COLUMN {col} {ddl_type}")
 
 
 def list_tables(db_path: Path | None = None) -> list[str]:

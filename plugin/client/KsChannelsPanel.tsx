@@ -102,6 +102,20 @@ export function sortChannels(rows: KsChannelRecord[]): KsChannelRecord[] {
   })
 }
 
+/**
+ * 号段（§11.0 R7）——引擎存的是 **JSON 字符串**（列是 TEXT），面板负责解析。
+ * 导出以便离线测：坏值一律当"没填"，**绝不让一个脏字段把整张表渲染炸掉**。
+ */
+export function parseSegments(raw: string | null | undefined): string[] {
+  if (!raw) return []
+  try {
+    const v = JSON.parse(raw)
+    return Array.isArray(v) ? v.filter((s): s is string => typeof s === 'string' && s !== '') : []
+  } catch {
+    return []
+  }
+}
+
 export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
   const { visible } = props
   const [data, setData] = useState<KsChannelList | null>(null)
@@ -206,6 +220,21 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
     await runMutation('改备注', () => updateChannel(r.channel_id, { note: next }))
   }, [runMutation])
 
+  /** 改号段（§11.0 R7）：**号段→渠道**是业主可维护的事实——链按它做加法（只加尾巴）。 */
+  const editSegments = useCallback(async (r: KsChannelRecord): Promise<void> => {
+    const next = window.prompt(
+      `改号段（${r.name}）——这条渠道管哪些标准号前缀？\n`
+      + `多个用逗号分开；号段里的空格有意义，别用空格当分隔符（例：HJ, GB 50, T/）\n`
+      + `留空则清空（= 不靠号段进链）：`,
+      parseSegments(r.segments_json).join(', '))
+    if (next === null) return                      // 取消
+    // ⚠ **只用逗号/顿号分隔，不用空白**：`GB 50` 里的空格是号段的一部分，
+    //   按空白拆会把一个号段拆成两个（`GB` + `50`），而 `50` 会命中一堆无关的号。
+    const parts = next.split(/[,，、]+/).map((s) => s.trim()).filter((s) => s !== '')
+    await runMutation('改号段',
+      () => updateChannel(r.channel_id, { segments_json: parts }))
+  }, [runMutation])
+
   const remove = useCallback(async (r: KsChannelRecord): Promise<void> => {
     // 删除是高风险动作：先说清代价，再让人确认（默认建议用「停用」——它保留历史健康度）
     const ok = window.confirm(
@@ -308,6 +337,7 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
                 <th style={$th}>渠道</th>
                 <th style={$th}>类别</th>
                 <th style={$th}>接线</th>
+                <th style={$th}>号段</th>
                 <th style={$th}>有效性</th>
                 <th style={$th}>上次成功(UTC)</th>
                 <th style={$th}>失败原因</th>
@@ -329,6 +359,15 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
                   </td>
                   <td style={$td} title={r.wiring === 'broken' ? (r.note ?? '') : undefined}>
                     {WIRING_LABEL[r.wiring] ?? r.wiring}
+                  </td>
+                  <td style={{ ...$td, maxWidth: 150 }}
+                    title={'链按号段做加法（只加尾巴、不改顺序）：这些前缀命中的标准号会多问这条渠道一根。'
+                      + '留空 = 不靠号段进链。'}>
+                    {parseSegments(r.segments_json).length > 0
+                      ? parseSegments(r.segments_json).map((s) => (
+                        <code key={s} style={{ marginRight: 4 }}>{s}</code>
+                      ))
+                      : <span style={{ color: FAINT }}>—</span>}
                   </td>
                   <td style={$td}>{STATE_LABEL[r.state] ?? r.state}
                     {r.state === 'unknown' && r.has_probe_target === false
@@ -367,6 +406,11 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
                     <button type="button" disabled={mutating} style={$mini}
                       onClick={() => void editNote(r)} title="改备注（会写审计痕迹）">
                       改备注
+                    </button>
+                    <button type="button" disabled={mutating} style={$mini}
+                      onClick={() => void editSegments(r)}
+                      title="改号段：这条渠道管哪些标准号前缀（逗号分开；会写审计痕迹）">
+                      改号段
                     </button>
                     <button type="button" disabled={mutating} style={{ ...$mini, color: '#c0392b' }}
                       onClick={() => void remove(r)}

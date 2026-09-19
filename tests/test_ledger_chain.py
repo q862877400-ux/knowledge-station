@@ -251,7 +251,172 @@ class Test巡检真的按台账走:
         """台账 `wired` 但**不在** `select_chain` 里的渠道，不会因为这个函数进链。
 
         （提升是行为改变：泛查链变长 = 每号更多请求 —— 那要单独一步决定。）
+        ⚠ R7 之后这条的准确说法是：**凭 `wired` 不构成加法**；构成加法的只有**号段声明**
+        （见 `Test号段加法`）。这个用例里 `ttbz` 没有任何号段 ⇒ 照旧不进链。
         """
         rows = [_row("ch:ttbz"), _row("ch:official_gb"), _row("ch:ndls"), _row("ch:govcn")]
         # GB/T 号上 ttbz 不是前缀首选、也不在兜底链里 ⇒ 即便台账说 wired 也不出现
         assert "ttbz" not in lc.chain_for_number("GB/T 1234-2020", rows)
+
+
+class Test号段加法:
+    """§11.0 R7（2026-09-19）：**号段→渠道**成为台账里可维护的事实，链按它做加法。
+
+    为什么要这个字段：R6g 量出"有适配器的 13 条里只有 3 条在链上"，根因是号段→渠道此前只
+    硬编码在 `routing._PREFIX_ROUTE`（代码）里 —— 台账（业主能改的那层）无从表达。
+    加法的三条纪律（每条都有一次真实的判断在背后）：
+
+      1. **只加尾巴**：路由链的顺序一个字节都不动（否则"先问谁"被悄悄改了）；
+      2. **只加路由链里没有的**：路由链里有、但被人工停用/标 broken 的，**不许**被号段加回来
+         —— 否则"人工停用"会被自己的号段配置绕过；
+      3. **代码里没有的适配器不进链**（fail-closed），并由报告点名。
+    """
+
+    def _seg(self, cid, segs, **kw):
+        import json
+        return _row(cid, segments_json=json.dumps(segs, ensure_ascii=False), **kw)
+
+    def test_号段命中就多一根尾巴(self):
+        """`mee` 声明 `GB` ⇒ GB 号在泛查链之后多问一根 `mee`（今天它一条 GB 号都到不了）。"""
+        rows = [_row("ch:official_gb"), _row("ch:ndls"), _row("ch:govcn"), self._seg("ch:mee", ["GB"])]
+        assert lc.chain_for_number("GB 30871-2022", rows) == \
+            ("ndls", "official_gb", "govcn", "mee")
+
+    def test_只加尾巴_路由链顺序不动(self):
+        rows = [_row("ch:official_gb"), _row("ch:ndls"), _row("ch:govcn"), self._seg("ch:mee", ["GB"])]
+        chain = lc.chain_for_number("GB 30871-2022", rows)
+        assert chain[:3] == ("ndls", "official_gb", "govcn"), "路由链的顺序不许被加法改动"
+
+    def test_号段不许把人工停用的渠道加回来(self):
+        """**加法与过滤的正确交互**：`ndls` 被停用、但它也声明了 `GB` ⇒ 不许被加回链尾巴。
+
+        没这条环检查的话，"人工停用一条渠道"会被它自己的号段配置默默撤销 ——
+        而且是在**链的尾部**，现场更难看出来（它仍会被问到，只是排在后面）。
+        """
+        rows = [_row("ch:official_gb"), _row("ch:govcn"),
+                self._seg("ch:ndls", ["GB"], enabled=0),
+                self._seg("ch:ndls_broken", ["GB"], wiring="broken")]
+        chain = lc.chain_for_number("GB 30871-2022", rows)
+        assert chain == ("official_gb", "govcn")
+
+    def test_号段不命中就没尾巴(self):
+        rows = [_row("ch:official_gb"), _row("ch:ndls"), _row("ch:govcn"), self._seg("ch:mee", ["HJ"])]
+        assert lc.chain_for_number("GB 30871-2022", rows) == ("ndls", "official_gb", "govcn")
+
+    def test_代码里没有的适配器不进链(self):
+        rows = [_row("ch:official_gb"), _row("ch:govcn"), self._seg("ch:nope_x", ["GB"])]
+        # ⚠ 台账里没有 `ndls` 的行 ⇒ fail-open 保留（与有没有号段无关）；关键是 `nope_x` 不进链
+        chain = lc.chain_for_number("GB 30871-2022", rows)
+        assert chain == ("ndls", "official_gb", "govcn")
+        assert "nope_x" not in chain
+
+    def test_已经在前缀首选里的渠道不会重复出现(self):
+        """`HJ` 号本来就首选 `mee`，`mee` 又声明 `HJ` ⇒ 链里只出现一次（去重）。"""
+        rows = [_row("ch:official_gb"), _row("ch:ndls"), _row("ch:govcn"), self._seg("ch:mee", ["HJ"])]
+        chain = lc.chain_for_number("HJ 1234-2020", rows)
+        assert chain == ("mee", "official_gb", "ndls", "govcn")
+
+    def test_rows_None_时也不做加法且不读库(self):
+        """没有台账行 ⇒ 既不过滤也不加法（fail-open 的同一条口径）。"""
+        from src.core.update.channels.routing import select_chain
+
+        def _boom(*_a, **_kw):
+            raise AssertionError("rows=None 时不该读库")
+
+        monkey = pytest.MonkeyPatch()
+        monkey.setattr(cr, "list_channels", _boom)
+        try:
+            assert lc.chain_for_number("GB 30871-2022", None) == select_chain("GB 30871-2022")
+        finally:
+            monkey.undo()
+
+    @pytest.mark.parametrize("seg,no,want", [
+        (["GB50"], "GB 50123-2019", True),      # 台账写 GB50 也能命中带空格的号
+        (["GB 50"], "GB50123-2019", True),      # 反过来同样成立（两侧同一折叠口径）
+        (["T/"], "T/ZSA 328-2026", True),
+        (["T/"], "GB/T 14308-2010", False),     # ⚠ 团标 T/ 不许命中 GB/T（折空白不会把 GB 抹掉）
+        (["GB"], "GB/T 14308-2010", True),
+    ])
+    def test_号段匹配口径(self, seg, no, want):
+        import json
+        rows = [_row("ch:official_gb"), _row("ch:govcn"),
+                _row("ch:mee", segments_json=json.dumps(seg))]
+        assert (("mee" in lc.chain_for_number(no, rows)) is want)
+
+    def test_号段顺序确定_同一库上可复现(self):
+        """尾巴顺序 = 台账顺序（`list_channels` 的 ORDER BY category,name）⇒ 链不抖。"""
+        import json
+        rows = [_row("ch:official_gb"), _row("ch:govcn"),
+                _row("ch:mee", segments_json=json.dumps(["GB"])),
+                _row("ch:dbba", segments_json=json.dumps(["GB"]))]
+        first = lc.chain_for_number("GB 30871-2022", rows)
+        assert first == lc.chain_for_number("GB 30871-2022", rows)
+        assert first[-2:] == ("mee", "dbba")
+
+
+class Test号段报告:
+    """号段的三类欠账必须**被算出来**（写错与没写的现场表现都是静默）。"""
+
+    def _seg(self, cid, segs, **kw):
+        import json
+        return _row(cid, segments_json=json.dumps(segs, ensure_ascii=False), **kw)
+
+    def test_死号段被点名(self):
+        """写了 `T/` 而真库里一个 T/ 号都没有 ⇒ 必须报出来（否则"渠道永不进链"没人知道）。"""
+        rows = [self._seg("ch:ttbz", ["T/"])]
+        rep = lc.segments_report(rows, ["GB 30871-2022"], known={"ttbz", "official_gb"})
+        assert [d["segment"] for d in rep["dead"]] == ["T/"]
+        assert rep["sample_size"] == 1
+
+    def test_没给号表就说判不准_不假装没欠账(self):
+        """**不给号表**（`[]`）⇒ `dead`/`gained` 一律不下结论，并在 `note` 里说清。"""
+        rows = [self._seg("ch:ttbz", ["T/"])]
+        rep = lc.segments_report(rows, [])
+        assert rep["dead"] == [] and rep["gained"] == {}
+        assert "T/" in rows[0]["segments_json"]
+        assert "判不准" in rep["note"]
+
+    def test_有适配器却到不了也没号段要列成待办(self):
+        """这就是 R6g 那 10 条的形状：有适配器、今天任何号都到不了、也没声明号段。"""
+        rows = [_row("ch:official_gb"), _row("ch:ndls"), _row("ch:govcn"), _row("ch:mee")]
+        rep = lc.segments_report(rows, ["GB 30871-2022"], known={"official_gb", "ndls",
+                                                                 "govcn", "mee"})
+        assert [u["adapter"] for u in rep["unreachable_no_segments"]] == ["mee"]
+
+    def test_号段带来的号数按号去重(self):
+        """多个号段命中同一个号只算一次（否则"带来多少号"虚高）。"""
+        import json
+        rows = [self._seg("ch:mee", ["GB", "GB 3"])]
+        rep = lc.segments_report(rows, ["GB 30871-2022"], known={"mee"})
+        assert rep["gained"] == {"mee": 1}
+        assert rep["numbers_gained"] == 1
+
+    def test_被排除的行不计入带来多少号(self):
+        """人工停用的渠道不该在"带来多少号"里贡献数字（那是虚高）。"""
+        rows = [self._seg("ch:mee", ["GB"], enabled=0)]
+        rep = lc.segments_report(rows, ["GB 30871-2022"], known={"mee"})
+        assert rep["gained"] == {} and rep["declared"][0]["excluded"] is True
+
+
+class Test号段形状校验:
+    def test_非数组被拒(self):
+        with pytest.raises(ValueError):
+            cr.check_segments("HJ")
+
+    @pytest.mark.parametrize("bad", [[""], ["  "], [None], [1], ["HJ", ""]])
+    def test_空项或非字符串被拒(self, bad):
+        with pytest.raises(ValueError):
+            cr.check_segments(bad)
+
+    def test_归一_去空白_保序去重(self):
+        assert cr.check_segments([" HJ ", "HJ", "GB 50"]) == ["HJ", "GB 50"]
+
+    def test_None_表示清空(self):
+        assert cr.check_segments(None) == []
+
+    def test_读路径容错_坏值给空元组而不是抛(self):
+        """库里的历史脏数据不许把巡检弄炸（写路径拒绝、读路径容错）。"""
+        assert cr.parse_segments({"segments_json": "{ not json"}) == ()
+        assert cr.parse_segments({"segments_json": '{"a":1}'}) == ()
+        assert cr.parse_segments({"segments_json": None}) == ()
+        assert cr.parse_segments({"segments_json": '["HJ", 7, " "]'}) == ("HJ",)

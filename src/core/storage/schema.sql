@@ -625,6 +625,13 @@ CREATE TABLE IF NOT EXISTS update_channel (
     answers_json    TEXT,                             -- JSON 数组：发布/修订/废止/现行性/编号核验
     covers          TEXT,
     gaps            TEXT,
+    -- segments_json  §11.0 R7：**号段**——"这条渠道管哪些标准号"，JSON 字符串数组
+    --   （如 ["HJ"]、["GB 50","GB 55"]、["T/"]）。语义：链在路由链之外按这些前缀做**加法**
+    --   （只加尾巴、不改顺序，见 update/channels/ledger_chain.py）；匹配口径在 routing.py。
+    --   为什么要它：R6g 量出"有适配器的 13 条只有 3 条在链上"，因为"号段→渠道"此前只硬编码
+    --   在 routing._PREFIX_ROUTE 里 ⇒ 台账（= 业主能改的那层）无从表达。老库由
+    --   sqlite_db._ensure_channel_columns 补列。
+    segments_json   TEXT,
     wiring          TEXT NOT NULL DEFAULT 'seed_only',
     verification    TEXT NOT NULL DEFAULT 'unverified',
     state           TEXT NOT NULL DEFAULT 'unknown',

@@ -109,3 +109,27 @@ def select_chain(standard_no: str) -> tuple[str, ...]:
         if c != first:
             chain.append(c)
     return tuple(chain)
+
+
+def _fold_segment(raw: str | None) -> str:
+    """号段写法与标准号**共用的折叠口径**（`_store_form` + 去掉所有空白）。
+
+    为什么还要去空白（§11.0 R7）：号段是**人写进台账**的，`GB 50` 与 `GB50` 是同一个人
+    隔一天可能写出的两种写法；而库里的号有的带空格（`GB 30871-2022`）、有的不带。
+    两边都去空白后，台账里写 `GB50` / `GB 50` 都能命中同一批号 —— 否则"写法差异"会表现成
+    "我明明填了号段，它就是不进链"。⚠ 代价：`GBT` 这种写法会同时命中 `GB T …`；
+    号段本就是**前缀**、不是全等，这个代价以文档写明、不隐藏。
+    """
+    return re.sub(r"\s+", "", _store_form(raw))
+
+
+def segment_matches(standard_no: str, segment: str) -> bool:
+    """这一号的**存储形**是否落在该号段内（前缀匹配；两侧同一折叠口径）。
+
+    ⚠ 这里是号段匹配的**唯一实现**：`ledger_chain.chain_for_number` 与报告都从这里走，
+    别在调用方各折各的（R6c-2b 已吃过"每个站点各折一次、漏一个就静默失败"的亏）。
+    """
+    seg = _fold_segment(segment)
+    if not seg:
+        return False
+    return _fold_segment(standard_no).startswith(seg)

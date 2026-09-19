@@ -200,6 +200,12 @@ export interface KsChannelRecord {
   latency_ms?: number | null
   note?: string | null
   /**
+   * 号段（§11.0 R7）："这条渠道管哪些标准号"，引擎里存成 JSON 字符串数组
+   * （如 `'["HJ"]'`、`'["GB 50","GB 55"]'`）。链按它做**加法**（只加尾巴、不改顺序）。
+   * ⚠ 是**字符串**（列是 TEXT + JSON），面板负责解析/序列化——别当数组直接用。
+   */
+  segments_json?: string | null
+  /**
    * 是否有探针目标（R6，引擎按探针目标表算）。
    * 只在 `state === 'unknown'` 时有意义，且它只回答"有没有目标"：
    *   `false` = "按设计没有探针"（代码仓库/我方代码通路）；

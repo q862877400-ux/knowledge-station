@@ -164,10 +164,18 @@ const panelMod = await loadModule('client/KsMaterialsPanel.tsx')
 /* ------------------------------------------- D. 渠道台账面板（§11.0 R4b） */
 {
   const chan = await loadModule('client/KsChannelsPanel.tsx')
-  const { describeWhen, needsAttention, sortChannels } = chan
+  const { describeWhen, needsAttention, sortChannels, parseSegments } = chan
 
   check('KsChannelsPanel 导出了 describeWhen / needsAttention / sortChannels',
     [describeWhen, needsAttention, sortChannels].every((f) => typeof f === 'function'))
+
+  // D0 号段（§11.0 R7）：引擎把它存成 **JSON 字符串**，面板必须解析且**坏值不能炸**。
+  check('parseSegments：正常 JSON 数组', JSON.stringify(parseSegments('["HJ","GB 50"]'))
+    === '["HJ","GB 50"]')
+  check('parseSegments：空/坏值/非数组一律当没填（脏字段不许把整张表渲染炸掉）',
+    parseSegments(null).length === 0 && parseSegments('').length === 0
+    && parseSegments('{ not json').length === 0 && parseSegments('{"a":1}').length === 0
+    && parseSegments('["HJ",7,""]').length === 1)
 
   // D1 ⚠ UTC 解析：SQLite 的 datetime('now') 是 **UTC 且无时区标记**，
   //    直接 new Date() 会按本地时区解析（差 8 小时）⇒ 这里必须补 Z。
@@ -232,6 +240,14 @@ const panelMod = await loadModule('client/KsMaterialsPanel.tsx')
   const apiSrc = await readFile(join(pluginRoot, 'client', 'api.ts'), 'utf8')
   check('KsChannelRecord 暴露 has_probe_target（引擎 R6 起返回）',
     /has_probe_target\?: boolean/.test(apiSrc))
+
+  // D7 号段可人工维护（§11.0 R7）：列可见 + 能改 + 分隔符**不许用空白**
+  check('号段：面板有独立列与「改号段」入口', /parseSegments\(r\.segments_json\)/.test(src)
+    && src.includes('改号段'))
+  check('号段：输入分隔符只用逗号/顿号（`GB 50` 里的空格是号段的一部分，按空白拆会拆坏）',
+    /split\(\/\[,，、\]\+\/\)/.test(src) && !/segments[\s\S]{0,200}split\(\/\[[^\]]*\\s/.test(src))
+  check('KsChannelRecord 暴露 segments_json（字符串，不是数组）',
+    /segments_json\?: string \| null/.test(apiSrc))
 
   // D6 ⚠ 面板**可见文案**里不许出现 markdown 粗体：JSX 不渲染 markdown，`**x**` 会原样显示。
   //    R4b 修过 7 处，R6b 我又在新加的说明里写了两处（真机复验时才看见）——这次把它变成闸门。

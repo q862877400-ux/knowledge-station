@@ -70,6 +70,12 @@ _DESCRIPTIVE = (
     "name", "category", "category_raw", "url", "fetch_kind", "list_endpoint",
     "params_json", "answers_json", "covers", "gaps", "wiring", "verification",
     "probe_url", "probe_expect", "source_file", "note",
+    # §11.0 R7（2026-09-19）：**号段**——"这条渠道管哪些标准号"，JSON 数组。
+    # 为什么要它：R6g 量出"有适配器的 13 条里只有 3 条在链上"，根因是**号段→渠道**这件事
+    # 此前只硬编码在 `routing._PREFIX_ROUTE` 里（代码），台账无从表达 ⇒ 业主无法人工维护
+    # "某个号段该问谁"，那 10 条适配器也就永远接不回来。有了这个字段，号段→渠道成为**台账
+    # 里的事实**（可人工增删），链按它做**加法**（见 `update/channels/ledger_chain.py`）。
+    "segments_json",
 )
 
 #: 种子文件（引擎自有；由 docs/research/channels/registry.seed.json 归一而来）
@@ -116,6 +122,55 @@ def _json_or_none(value: Any) -> str | None:
     return json.dumps(value, ensure_ascii=False)
 
 
+def check_segments(value: Any) -> list[str]:
+    """校验并归一**号段**（`segments_json`）的人工输入；不合法 ⇒ `ValueError`（出声拒绝）。
+
+    ## 只管**形状**，不管语义
+    "这个号段写法能匹配哪些号"是 `update/channels/routing.py` 的事（它持有标准号的折叠口径），
+    这里只保证：① 是字符串数组；② 每项非空；③ 保序去重。
+    ⚠ 为什么要**出声拒绝**而不是"过滤掉坏项"：一个拼错的号段会**永不命中**，现场表现是
+    "这条渠道明明在台账里、却总也不进链"——那正是"配置错伪装成渠道故障"。
+    更狠的是它**静默**：所以形状错当场报错，而"写法合法但匹配不到任何号"由
+    `ledger_chain_report()` 的 `segments_dead` 点名（后者需要真库的号，属于报告不属于校验）。
+    """
+    if value is None:
+        return []
+    if not isinstance(value, (list, tuple)):
+        raise ValueError("segments_json 必须是字符串数组（号段前缀，如 [\"HJ\", \"GB 50\"]）")
+    out: list[str] = []
+    seen: set[str] = set()
+    for item in value:
+        if not isinstance(item, str) or not item.strip():
+            raise ValueError(f"号段必须是**非空字符串**（收到 {item!r}）")
+        seg = item.strip()
+        if seg in seen:
+            continue
+        seen.add(seg)
+        out.append(seg)
+    return out
+
+
+def parse_segments(row: dict[str, Any]) -> tuple[str, ...]:
+    """库里的行 → 号段元组。**坏值返回空元组、绝不抛**（读路径不该因为一行脏数据炸巡检）。
+
+    与 `check_segments` 的分工：写路径**拒绝**坏值（人能改），读路径**容错**（不能因为历史
+    脏数据就把整条链弄没）。两者都保留"坏值不静默"的告警面 —— 由 `ledger_chain_report` 报。
+    """
+    raw = row.get("segments_json")
+    if raw is None or raw == "":
+        return ()
+    if isinstance(raw, (list, tuple)):
+        items = raw
+    else:
+        try:
+            items = json.loads(str(raw))
+        except (TypeError, ValueError):
+            return ()
+    if not isinstance(items, list):
+        return ()
+    return tuple(str(i).strip() for i in items if isinstance(i, str) and str(i).strip())
+
+
 def upsert_channel(channel_id: str, payload: dict[str, Any], *,
                    overwrite_health: bool = False,
                    actor: str | None = None) -> dict[str, Any]:
@@ -147,6 +202,9 @@ def upsert_channel(channel_id: str, payload: dict[str, Any], *,
     if "name" not in data and not _exists(channel_id):
         raise ValueError("channel_name_required")
     cat_raw = data.get("category_raw")
+    if "segments_json" in data:
+        # 形状校验在**写路径**上出声拒绝（理由见 `check_segments`）；存进去的是归一后的 JSON。
+        data["segments_json"] = _json_or_none(check_segments(data["segments_json"]))
     if "category" in data and data["category"] not in CATEGORIES:
         raise ValueError(f"illegal_channel_category: {data['category']}")
     if cat_raw is not None and "category" not in data:

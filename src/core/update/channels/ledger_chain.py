@@ -38,7 +38,11 @@ from __future__ import annotations
 from typing import Any
 
 from src.core.storage import channel_repo as cr
-from src.core.update.channels.routing import fallback_chain
+from src.core.update.channels.routing import (
+    fallback_chain,
+    first_route,
+    segment_matches,
+)
 
 
 def ledger_fallback_chain(rows: list[dict[str, Any]] | None = None, *,
@@ -72,29 +76,145 @@ def ledger_fallback_chain(rows: list[dict[str, Any]] | None = None, *,
 
 def chain_for_number(standard_no: str, rows: list[dict[str, Any]] | None = None, *,
                      known: set[str] | None = None) -> tuple[str, ...]:
-    """某号**巡检实际会用**的链：`routing.select_chain(no)` 再按台账**硬过滤**。
+    """某号**巡检实际会用**的链：`routing.select_chain(no)` 再按台账**过滤 + 按号段加尾巴**。
 
     这是"台账可人工维护"真正落地的**那一半**：业主在台账里把某条渠道 `enabled=0`
     或标 `wiring='broken'`，巡检**就不再问它**——在此之前台账只是个观察面板，
     人工改动不影响巡检行为。
 
-    ## ⚠ `rows=None` 时**不做任何 I/O**（返回未过滤的链）
+    ## ⚠ `rows=None` 时**不做任何 I/O**（返回未过滤、也未加号段的链）
     本函数被 `inspector._probe_number` 调用，而那个函数的既有纪律是「**只触网**」
     （台账行由 `run_batch` 一次读好传进来，见 `_probe_number` 的 docstring）。
     在这里顺手读库会让那条纪律名存实亡，并把 DB 故障变成热路径上的隐藏依赖。
-    ⇒ **没有台账行 = 没有过滤**（fail-open），与 `ledger_fallback_chain` 对
-    "台账里查不到该成员"的处理同一口径。
+    ⇒ **没有台账行 = 没有过滤、也没有号段加法**（fail-open）。
 
-    ## 只做过滤，**不做提升**
-    台账 `wiring='wired'` 但不在 `select_chain` 结果里的渠道（今天 4 条：
-    `ttbz`/`dbba`/`mee`/`hbba` 在 GB/T 号上）**不会**因此进链——"提升为兜底成员"
-    是行为改变（泛查链变长 = 每号更多请求），要单独一步决定。这里只做**减法**，不做加法。
+    ## 加法（R7）只**加尾巴**，且只加"路由链里没有的"
+    - **只加尾巴**：路由链的顺序一个字节都不动（`official_gb` 仍是第一棒）。
+      把某条渠道提到链首 = 改变"先问谁"，那是另一个决策（要单独量命中率与成本），
+      本函数不做。
+    - **只加路由链里没有的**：若某渠道**本来就在**路由链里、但被台账过滤掉了
+      （`enabled=0` / `wiring='broken'`），号段声明**不会**把它加回来 ——
+      否则"人工停用"会被自己的号段配置绕过。这条是加法与过滤的正确交互，用例钉住。
+    - 声明的号段匹配、但代码里**没有**这个适配器 ⇒ 不进链（fail-closed，同 roster 的口径），
+      并由 `ledger_chain_report()` / `segments_report()` 点名。
     """
     from src.core.update.channels.routing import select_chain
     chain = select_chain(standard_no)
     if rows is None:
         return chain
-    return ledger_fallback_chain(rows, roster=chain, known=known)
+    in_code = known if known is not None else _adapter_names()
+    filtered = ledger_fallback_chain(rows, roster=chain, known=in_code)
+    extras = [n for n in _segment_channels(standard_no, rows, in_code) if n not in chain]
+    return tuple(filtered) + tuple(extras)
+
+
+def _segment_channels(standard_no: str, rows: list[dict[str, Any]],
+                      in_code: set[str]) -> list[str]:
+    """按台账**号段**命中本号的渠道（台账顺序，保序去重；已排除的与代码里没有的不算）。
+
+    台账顺序 = `channel_repo.list_channels()` 的 `ORDER BY category, name`，是**确定性**的
+    ⇒ 同一个号在同一个库上每次得到的尾巴长度与顺序一致（不然链会抖，巡检结果就不可复现）。
+    """
+    from src.core.update.channels.routing import segment_matches
+    out: list[str] = []
+    for r in rows:
+        if _is_excluded(r):
+            continue
+        segs = cr.parse_segments(r)
+        if not segs:
+            continue
+        if not any(segment_matches(standard_no, s) for s in segs):
+            continue
+        for name in sorted(_name_candidates(str(r.get("channel_id")))):
+            if name in in_code and name not in out:
+                out.append(name)
+    return out
+
+
+def segments_report(rows: list[dict[str, Any]] | None = None,
+                    standard_nos: Any = (), *,
+                    known: set[str] | None = None) -> dict[str, Any]:
+    """号段（`segments_json`）落地情况的报告 —— **给快照脚本与人工维护用**（§11.0 R7）。
+
+    为什么需要它：号段是**人写进台账**的，而写错或没写的表现都是"静默"——
+    - 写了一个永远匹配不到真号的号段 ⇒ 那条渠道**永远不进链**，看起来像"它坏了"；
+    - 有适配器却**没写**号段 ⇒ 它今天到不了任何号（R6g：13 条适配器只有 3 条在链上），
+      而台账上看不出"这是为将来保留，还是我们忘了"。
+    两者都不该靠人记得去查 ⇒ 这里把三类欠账算出来。**纯计算**：`rows` 给出时不读库，
+    `standard_nos` 由调用方给（本模块**不读号表**，与 `chain_for_number` 的"不 I/O"同一纪律）。
+
+    Args:
+        rows: 台账行；None ⇒ `channel_repo.list_channels()`。
+        standard_nos: 真库里的标准号（快照脚本从库里取）；给空序列 ⇒ `dead`/`unreachable`
+            只能按"路由规则"判，**判不了**的会如实在 `note` 里说明。
+
+    Returns:
+        `{declared, gained, numbers_gained, dead, unreachable_no_segments, sample_size, note}`
+        - `declared`：声明了号段的渠道（含原样写法的号段，便于人回看自己填了什么）
+        - `gained`：号段加法**真的**为每条渠道多带来多少个号（行为差异的量化）
+        - `dead`：声明的号段里**一个真号都不命中**的（含"库太小/该号段今天没料"）
+        - `unreachable_no_segments`：**有适配器、今天任何真号都到不了、且没声明号段**的渠道
+          —— 这就是 R6g 那 10 条，也是"要么补号段、要么如实标注为未来保留"的待办清单
+    """
+    if rows is None:
+        rows = cr.list_channels()
+    in_code = known if known is not None else _adapter_names()
+    nos = [str(n) for n in standard_nos] if standard_nos is not None else []
+    sampled = bool(nos)
+
+    declared: list[dict[str, Any]] = []
+    gained_sets: dict[str, set[str]] = {}
+    dead: list[dict[str, Any]] = []
+    for r in rows:
+        segs = cr.parse_segments(r)
+        if not segs:
+            continue
+        cid = str(r.get("channel_id"))
+        adapters = sorted(_name_candidates(cid) & in_code)
+        declared.append({"channel_id": cid, "name": r.get("name"),
+                         "segments": list(segs), "adapter": adapters[0] if adapters else None,
+                         "excluded": _is_excluded(r)})
+        if not adapters or _is_excluded(r):
+            continue    # 进不了链的行不参与"带来多少号"的统计（否则数字虚高）
+        bucket = gained_sets.setdefault(adapters[0], set())
+        for seg in segs:
+            hits = [no for no in nos if segment_matches(no, seg)]
+            if sampled and not hits:
+                dead.append({"channel_id": cid, "name": r.get("name"), "segment": seg,
+                             "why": f"声明的号段 {seg!r} 在真库 {len(nos)} 个号里**一个都不命中**"
+                                    "（要么写法错、要么这批号段今天没料）"})
+            bucket.update(hits)
+    # ⚠ **去重计数**（按号，不按"号段命中次数"）：多个号段命中同一个号只算一次，
+    #   否则 `["GB","GB 3"]` 这种写法会把同一个号算两遍，"带来多少号"就成了虚高的数字。
+    # ⚠ **没给号表 ⇒ 一个数字都不给**（而不是给 0）：`0` 会被读成"量过了、没有"，
+    #   而那正是我们要避免的"把没量说成没欠账"。
+    gained = {k: len(v) for k, v in gained_sets.items()} if sampled else {}
+
+    # 今天到不了的适配器：既不在兜底链里、也不是任何一个真号的**前缀首选**。
+    reachable = set(_as_tuple(fallback_chain()))
+    for no in nos:
+        first = first_route(no)
+        if first:
+            reachable.add(first)
+    unreachable = []
+    for r in rows:
+        cid = str(r.get("channel_id"))
+        adapters = sorted(_name_candidates(cid) & in_code)
+        if not adapters or cr.parse_segments(r) or _is_excluded(r):
+            continue
+        adapter = adapters[0]
+        if adapter in reachable:
+            continue
+        unreachable.append({"channel_id": cid, "name": r.get("name"), "adapter": adapter,
+                            "why": "有适配器、今天任何真号都到不了它，且**没有**号段声明 ⇒ "
+                                   "要么补号段（它管哪些号），要么在台账里如实标注「为未来号段保留」"})
+
+    note = ("未给 standard_nos ⇒ `dead`/`gained` 判不准（本报告只按路由规则给出 reachable）；"
+            "这不是「没有欠账」") if not sampled else ""
+    return {"declared": declared, "gained": gained,
+            "numbers_gained": sum(gained.values()) if sampled else 0, "dead": dead,
+            "unreachable_no_segments": unreachable,
+            "sample_size": len(nos), "note": note}
 
 
 def ledger_chain_report(rows: list[dict[str, Any]] | None = None, *,

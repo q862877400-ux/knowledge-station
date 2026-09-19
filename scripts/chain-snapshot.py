@@ -111,7 +111,47 @@ def main() -> int:
     print(f"⚠ 探针说 down 但**本步不过滤**的渠道（{len(dead)} 条）——链随探针抖动是另一件事，需单独决策：")
     for r in dead:
         print(f"  {r['channel_id']:<44} {r['state']} {r['last_error_code']} 连续{r['consecutive_failures']}次")
+
+    _segments_section(rows, as_json)
     return 0
+
+
+def _segments_section(rows, as_json: bool) -> None:
+    """号段（`segments_json`，R7）：**加法真的会带来多少号**，以及三类欠账。
+
+    为什么这一段必须在快照里（而不是只在用例里）：号段加法是**行为改变**
+    （每号可能多问一根棒 = 更多请求），而 R6c 的教训是"提升是行为改变，必须带快照差异"。
+    这里的口径：拿**真库**里全部标准号当样本，逐条算号段命中 ⇒ 差异是**量出来的**，不是估的。
+    """
+    # 号表在 doc_meta；只取标准号列（只读，不发请求）。
+    from src.core.storage.sqlite_db import get_db_connection
+    nos = [str(r["standard_no"]) for r in get_db_connection().execute(
+        "SELECT DISTINCT standard_no FROM doc_meta WHERE standard_no IS NOT NULL"
+    ).fetchall()]
+    seg = lc.segments_report(rows, nos)
+    if as_json:
+        print(json.dumps({"segments": seg}, ensure_ascii=False, indent=2))
+        return
+    print()
+    print(f"号段（`segments_json`）——真库 {seg['sample_size']} 个号全量算：")
+    if not seg["declared"]:
+        print("  台账里**还没有任何**号段声明 ⇒ 加法今天带来 0 个号（零行为漂移）")
+    for d in seg["declared"]:
+        n = seg["gained"].get(d["adapter"] or "", 0)
+        flag = "（已被人工停用/known-broken ⇒ 不进链）" if d["excluded"] else ""
+        print(f"  {d['channel_id']:<44} 号段={d['segments']} 带来 {n} 个号{flag}")
+    if seg["dead"]:
+        print(f"  ⚠ **死号段**（写了但一个真号都不命中，{len(seg['dead'])} 条）")
+        print("     —— 写法错会让渠道永不进链；号段今天没料则如实标注「为未来保留」：")
+        for d in seg["dead"]:
+            print(f"     {d['channel_id']:<42} {d['segment']!r} {d['name']}")
+    un = seg["unreachable_no_segments"]
+    if un:
+        print(f"  ⚠ **有适配器但今天到不了、也没声明号段**（{len(un)} 条）——这是待办清单，不是「没问题」：")
+        for u in un:
+            print(f"     {u['channel_id']:<42} 适配器={u['adapter']:<12} {u['name']}")
+    if seg["note"]:
+        print(f"  ⚠ {seg['note']}")
 
 
 if __name__ == "__main__":

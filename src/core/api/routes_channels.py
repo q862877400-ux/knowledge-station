@@ -24,10 +24,12 @@ import re
 from src.core.storage import channel_repo as cr
 
 #: 人工新增时可给的描述性字段（= 仓储 `_DESCRIPTIVE` 去掉引擎侧登记字段后的**可写子集**）
+#: `segments_json`（号段，§11.0 R7）：**号段→渠道**是业主可维护的事实，所以它必须是可写的；
+#: 形状校验（字符串数组、非空、去重）在仓储层 `check_segments`，错就 422 出声拒绝。
 _WRITABLE = (
     "name", "category", "category_raw", "url", "fetch_kind", "list_endpoint",
     "params_json", "answers_json", "covers", "gaps", "wiring", "verification",
-    "probe_url", "probe_expect", "source_file", "note",
+    "probe_url", "probe_expect", "source_file", "note", "segments_json",
 )
 
 

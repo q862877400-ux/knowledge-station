@@ -34866,6 +34866,15 @@ function sortChannels(rows) {
     return a.name < b.name ? -1 : a.name > b.name ? 1 : 0;
   });
 }
+function parseSegments(raw) {
+  if (!raw) return [];
+  try {
+    const v = JSON.parse(raw);
+    return Array.isArray(v) ? v.filter((s) => typeof s === "string" && s !== "") : [];
+  } catch {
+    return [];
+  }
+}
 function KsChannelsPanel(props) {
   const { visible } = props;
   const [data, setData] = (0, import_react11.useState)(null);
@@ -34960,6 +34969,20 @@ function KsChannelsPanel(props) {
 \u7559\u7A7A\u5219\u6E05\u7A7A\u8BE5\u5B57\u6BB5\uFF1A`, r.note ?? "");
     if (next === null) return;
     await runMutation("\u6539\u5907\u6CE8", () => updateChannel(r.channel_id, { note: next }));
+  }, [runMutation]);
+  const editSegments = (0, import_react11.useCallback)(async (r) => {
+    const next = window.prompt(
+      `\u6539\u53F7\u6BB5\uFF08${r.name}\uFF09\u2014\u2014\u8FD9\u6761\u6E20\u9053\u7BA1\u54EA\u4E9B\u6807\u51C6\u53F7\u524D\u7F00\uFF1F
+\u591A\u4E2A\u7528\u9017\u53F7\u5206\u5F00\uFF1B\u53F7\u6BB5\u91CC\u7684\u7A7A\u683C\u6709\u610F\u4E49\uFF0C\u522B\u7528\u7A7A\u683C\u5F53\u5206\u9694\u7B26\uFF08\u4F8B\uFF1AHJ, GB 50, T/\uFF09
+\u7559\u7A7A\u5219\u6E05\u7A7A\uFF08= \u4E0D\u9760\u53F7\u6BB5\u8FDB\u94FE\uFF09\uFF1A`,
+      parseSegments(r.segments_json).join(", ")
+    );
+    if (next === null) return;
+    const parts = next.split(/[,，、]+/).map((s2) => s2.trim()).filter((s2) => s2 !== "");
+    await runMutation(
+      "\u6539\u53F7\u6BB5",
+      () => updateChannel(r.channel_id, { segments_json: parts })
+    );
   }, [runMutation]);
   const remove = (0, import_react11.useCallback)(async (r) => {
     const ok = window.confirm(
@@ -35110,6 +35133,7 @@ function KsChannelsPanel(props) {
         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("th", { style: $th, children: "\u6E20\u9053" }),
         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("th", { style: $th, children: "\u7C7B\u522B" }),
         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("th", { style: $th, children: "\u63A5\u7EBF" }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("th", { style: $th, children: "\u53F7\u6BB5" }),
         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("th", { style: $th, children: "\u6709\u6548\u6027" }),
         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("th", { style: $th, children: "\u4E0A\u6B21\u6210\u529F(UTC)" }),
         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("th", { style: $th, children: "\u5931\u8D25\u539F\u56E0" }),
@@ -35126,6 +35150,14 @@ function KsChannelsPanel(props) {
           r.category_raw && r.category_raw !== r.category ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { color: FAINT }, title: `\u8C03\u7814\u539F\u6587\uFF1A${r.category_raw}`, children: "*" }) : null
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("td", { style: $td, title: r.wiring === "broken" ? r.note ?? "" : void 0, children: WIRING_LABEL[r.wiring] ?? r.wiring }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+          "td",
+          {
+            style: { ...$td, maxWidth: 150 },
+            title: "\u94FE\u6309\u53F7\u6BB5\u505A\u52A0\u6CD5\uFF08\u53EA\u52A0\u5C3E\u5DF4\u3001\u4E0D\u6539\u987A\u5E8F\uFF09\uFF1A\u8FD9\u4E9B\u524D\u7F00\u547D\u4E2D\u7684\u6807\u51C6\u53F7\u4F1A\u591A\u95EE\u8FD9\u6761\u6E20\u9053\u4E00\u6839\u3002\u7559\u7A7A = \u4E0D\u9760\u53F7\u6BB5\u8FDB\u94FE\u3002",
+            children: parseSegments(r.segments_json).length > 0 ? parseSegments(r.segments_json).map((s2) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("code", { style: { marginRight: 4 }, children: s2 }, s2)) : /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { color: FAINT }, children: "\u2014" })
+          }
+        ),
         /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("td", { style: $td, children: [
           STATE_LABEL[r.state] ?? r.state,
           r.state === "unknown" && r.has_probe_target === false ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { color: FAINT }, title: "\u8BE5\u6E20\u9053\u6CA1\u6709\u63A2\u9488\u76EE\u6807\uFF08\u4EE3\u7801\u4ED3\u5E93/\u6211\u65B9\u4EE3\u7801\u901A\u8DEF\u7B49\uFF09\uFF0C\u4E0D\u662F'\u8FD8\u6CA1\u8F6E\u5230\u5B83'", children: "\uFF08\u65E0\u63A2\u9488\uFF09" }) : null,
@@ -35186,6 +35218,17 @@ function KsChannelsPanel(props) {
               onClick: () => void editNote(r),
               title: "\u6539\u5907\u6CE8\uFF08\u4F1A\u5199\u5BA1\u8BA1\u75D5\u8FF9\uFF09",
               children: "\u6539\u5907\u6CE8"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+            "button",
+            {
+              type: "button",
+              disabled: mutating,
+              style: $mini,
+              onClick: () => void editSegments(r),
+              title: "\u6539\u53F7\u6BB5\uFF1A\u8FD9\u6761\u6E20\u9053\u7BA1\u54EA\u4E9B\u6807\u51C6\u53F7\u524D\u7F00\uFF08\u9017\u53F7\u5206\u5F00\uFF1B\u4F1A\u5199\u5BA1\u8BA1\u75D5\u8FF9\uFF09",
+              children: "\u6539\u53F7\u6BB5"
             }
           ),
           /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(

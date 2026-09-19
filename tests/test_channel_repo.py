@@ -34,6 +34,40 @@ def _clean_channel_table(db):
     yield
 
 
+class Test号段列与读写:
+    """§11.0 R7：`segments_json`（号段）必须**真的在表里**、能写能读、且列进补列清单。
+
+    为什么单列一个类：迁移是"新库直接带列、老库 PRAGMA 补列"两条路（`schema.sql` 与
+    `sqlite_db._CHANNEL_EXTRA_COLS`）。只改一处的话，**老库会在写号段时报
+    `no such column`**，而本地开发用的都是新库 ⇒ 这个错只会在别人机器上出现。
+    """
+
+    def test_表里真的有号段列(self, db):
+        cols = {r[1] for r in db.execute("PRAGMA table_info(update_channel)").fetchall()}
+        assert "segments_json" in cols
+
+    def test_补列清单必须包含号段列(self):
+        from src.core.storage.sqlite_db import _CHANNEL_EXTRA_COLS
+        assert "segments_json" in {c for c, _ in _CHANNEL_EXTRA_COLS}
+
+    def test_写入读回_并归一(self, db):
+        row = cr.upsert_channel("ch:seg_demo", {"name": "号段演示", "category": "other",
+                                                "segments_json": [" HJ ", "HJ", "GB 50"]})
+        assert json.loads(row["segments_json"]) == ["HJ", "GB 50"]
+        assert cr.parse_segments(cr.get_channel("ch:seg_demo") or {}) == ("HJ", "GB 50")
+
+    def test_写入坏形状要抛且不动原值(self, db):
+        cr.upsert_channel("ch:seg_demo2", {"name": "号段演示2", "category": "other",
+                                           "segments_json": ["HJ"]})
+        with pytest.raises(ValueError):
+            cr.upsert_channel("ch:seg_demo2", {"segments_json": "HJ"})
+        assert cr.parse_segments(cr.get_channel("ch:seg_demo2") or {}) == ("HJ",)
+
+    def test_种子导入也能带号段(self, db):
+        """种子（`_DESCRIPTIVE`）与人工写走同一条校验 ⇒ 不允许多一条绕过路径。"""
+        assert "segments_json" in cr._DESCRIPTIVE
+
+
 class TestCategoryNormalization:
     """30 种原始写法 → canonical；未知一律 other 且不丢原文。"""
 

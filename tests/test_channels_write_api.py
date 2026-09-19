@@ -132,6 +132,27 @@ class Test人工复核编辑:
         r = c.patch(f"{BASE}/user:不存在的渠道", json={"note": "x"}, headers=HDR)
         assert r.status_code == 404 and r.json()["error"] == "channel_not_found"
 
+    def test_号段可人工维护_坏形状出声拒绝(self, client):
+        """§11.0 R7：**号段是业主可维护的事实**，所以它必须是可写字段；写错要 422 而不是静默。
+
+        为什么"写错必须出声"：一个拼错的号段**永不命中** ⇒ 那条渠道永远不进链，
+        现场表现是"这条渠道明明在台账里、却总也不被问到"，看起来像渠道坏了。
+        """
+        row = _create(client, name="带号段的渠道")
+        cid = row["channel_id"]
+        c, _ = client
+        r = c.patch(f"{BASE}/{cid}", json={"segments_json": [" HJ ", "GB 50", "HJ"]}, headers=HDR)
+        assert r.status_code == 200, r.text
+        assert json.loads(r.json()["data"]["segments_json"]) == ["HJ", "GB 50"], "归一+保序去重"
+
+        for bad in ("HJ", [""], [1], [None]):
+            r = c.patch(f"{BASE}/{cid}", json={"segments_json": bad}, headers=HDR)
+            assert r.status_code == 422, f"{bad!r} 应被拒"
+            assert r.json()["error"] == "illegal_channel_field"
+        # 拒绝之后**原值还在**（不是"改坏一半"）
+        assert json.loads(c.get(f"{BASE}/{cid}", headers=HDR).json()["data"]["segments_json"]) == \
+            ["HJ", "GB 50"]
+
     def test_探针跑过之后人工改链接不清空健康度(self, client, db):
         """人工改的是"描述性字段"，**不许**顺手把实测状态抹掉（`overwrite_health=False`）。"""
         row = _create(client, name="有过探针记录的渠道")
