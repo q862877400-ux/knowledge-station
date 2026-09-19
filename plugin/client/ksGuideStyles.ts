@@ -192,23 +192,32 @@ export const KS_STYLES = `
    **1114×225 的一个圆角盒**：1px 外框 + 表头底色 + 行间 1px 分隔线、**没有竖分隔线**。
    改法：把 「.ks-lhead」 与所有 「.ks-item」 包进这一层。
    ⚠ 只包"表头 + 行"——空态卡与批量条**不在**盒子里（空态是"这里没有行"，批量条是浮层）。
-   ⚠ 描边用 --ks-stroke(1px) 而不是 --ks-sep(.5px)：验收口径是"能量到左右两条连续外框"，
-     .5px 在 1x 屏上抗锯齿成一档浅色，恰恰量不出"两条竖边"。底色用 bg-base 而不是页面底色，
-     盒子才"浮"得起来；**没有**配 elevation 阴影（官方硬规则：描边与 elevation 不许配对）。 */
-.ks-list{border:var(--ks-stroke) solid var(--dsw-alias-border-l2);border-radius:var(--ks-r-card);
-  overflow:hidden;background:var(--dsw-alias-bg-base)}
+   ⚠ 描边走**宿主 elevation**（border:0 + box-shadow）——官方硬规则：描边不许与 elevation 配对
+     （.ks-kb-card 已是同一写法）。发丝描边由阴影里的 --dsw-elevation-stroke 画，颜色重绑成
+     border-l2（观感与"1px 外框"同档）。**P1-9b 实测更正**：第一版写的是
+     「border:var(--ks-stroke) solid border-l2」 —— 像素扫描确实量到左右各一条 1px 外框
+     （x=12 与 x=507 各 1 条 #e5e5e5），但那是**与 elevation 禁止配对的写法** ⇒ 改成 elevation 后
+     仍能在同一坐标扫到那两条发丝边（0 0 0 0.5px 的 stroke），且不违规。 */
+.ks-list{border:0;border-radius:var(--ks-r-card);overflow:hidden;
+  --dsw-elevation-stroke-color:var(--dsw-alias-border-l2);
+  background:var(--dsw-alias-bg-base);box-shadow:var(--dsw-elevation-soft)}
 /* 列表头：全选 + 计数 + 新建。
    ⚠ P1-8（2026-09-20）：「--ks-head-h:40px」 自 5a 定义起**从未被消费**（实测 .ks-lhead 只有
      33px，与 --ks-card-h 同类暗账）。这里用 「box-sizing:border-box」 + 「min-height」 消费它
      —— 少了 box-sizing 的话 min-height 只约束**内容盒**（就是 .ks-item 在 5d 踩过的那个坑），
      40px 会变成 "40 + 上下内边距"。
-     底色走 --dsw-alias-bg-layer-3：**不要用 layer-2** —— 本仓主题里 layer-2 与 layer-1
-     （页面/侧栏底）**同值**（都是 neutral-bluish-00 = #f9fafb），用了就等于"表头没有底色"，
-     而 P1-2 的验收正是"表头带"（参照是 #f3f3f3）。layer-3(#ebeef2) 是唯一比 layer-1 深的一档。
+     底色踩过一个坑（**P1-9b 实测**）：先写 --dsw-alias-bg-layer-2、再写 layer-3，两个都**是白的**
+     —— 本仓主题 light 下 layer-1/2/3 **同值**（全是 neutral-bluish-00 = #ffffff），
+     用了就等于"表头没有底色"（像素扫描 y=1122 量到 50px 连续 #ffffff）。⇒ 改用
+     --dsw-alias-markdown-tag（light = bluish-75 #f1f3f5、dark = bluish-800 #353638）。
+     为什么不引一个新语义 token：宿主**没有**"表头底/填充"这一类（fill/stroke 都不对），
+     而这一档是**已存在**的 token（ui-token-check 会钉"引用了但没定义"）。
+     ⚠ 边界：light 下表头底与行底差 255→241 一档（可见但克制）；参照是 #f3f3f3（≈243）——
+       同一量级，只是没抄他们的字面色。
      底线 1px 与参照的表格结构线同档（--ks-stroke，不是 --ks-sep）。 */
 .ks-lhead{box-sizing:border-box;display:flex;align-items:center;gap:var(--ks-space-2);
   min-height:var(--ks-head-h);padding:0 var(--ks-space-3);
-  background:var(--dsw-alias-bg-layer-3);border-bottom:var(--ks-stroke) solid var(--dsw-alias-border-l2)}
+  background:var(--dsw-alias-markdown-tag);border-bottom:var(--ks-stroke) solid var(--dsw-alias-border-l2)}
 .ks-lhead-name{font-size:var(--ks-fs-base);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 /* 一行文件（P1-1/P1-3，2026-09-20）：**两行信息** + 行尾一个「⋮」溢出菜单。
    改前这一行是"一行塞满"：Checkbox(文件名) + Tag 状态 + N 个标签 + ＋标签 + 详情

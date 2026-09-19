@@ -116,7 +116,7 @@ esbuild 不校验命名导出）⇒ 只能靠**运行时**和**读宿主源码**
 | `plugin/scripts/ui-token-check.mjs` | 自包含 HTML 里"引用了但没定义"的 token（颜色静默回退） | `node plugin/scripts/ui-token-check.mjs` |
 | `plugin/scripts/smoke-ui-scale.mjs` | 尺度**棘轮**（离网格 spacing / 现场字号只减不增；在冒烟全链里） | `node plugin/scripts/smoke-ui-scale.mjs` |
 
-- `--page kb|ingest|capabilities|materials`；`--width <px>`；`--interact kb-detail,kb-select,kb-empty,kb-tags-view,ingest-batch,cap-dialog`；
+- `--page kb|ingest|capabilities|materials`；`--width <px>`；`--interact kb-detail,kb-select,kb-filter,kb-filter-empty,kb-empty,kb-empty-folder,kb-tags-view,ingest-batch,cap-dialog`；
   `--theme light|dark`；`--viewport <px>`（固定视口高）；`--harness <DSH 检出>`（或 `$KS_HARNESS_DIR`）。
   ⚠ **第五步 P0 给工具补了两处量测**（都是"原来量不到、只能靠肉眼估"的东西）：
   ① `measured['#cards']`（`lh`=**每张卡逐个高度**、`pad`=逐个宽度）—— 判"同列卡等高"用它，
@@ -370,6 +370,99 @@ esbuild 不校验命名导出）⇒ 只能靠**运行时**和**读宿主源码**
 ② `--ks-card-h` 用来做 `min-height` 之后，"我建的"三张卡**真的等高**（要逐个量，用新加的 `measured['#cards']`）；
 ③ `.ks-kb-card` 改成 `border:0` + elevation 是否真的没有"描边+阴影"违规配对（官方硬规则）；
 ④ 能力页补位卡的 `grid-column:auto / -1` 在**真宿主宽度**下是否也铺满（离屏只验了 520/900/1300 三档）。
+
+
+### 5f 第 5 步 UI 的第二批 P1 修复（2026-09-20；依据 [weknora-ui-vs-ours](research/weknora-ui-vs-ours.md) **第七节**的 P1-1..P1-9）
+
+**改了什么**（`plugin/client/` 三个源文件 + 两个脚本 + 本文档；可搜原文见括号）
+
+| # | 动作 | 落点（可搜原文） |
+|---|---|---|
+| P1-2 | 行组加**一个容器** `.ks-list`（`border:0` + `--dsw-elevation-soft`，发丝描边由阴影里的 stroke 画）+ 行间 1px 分隔线（`.ks-item + .ks-item`）；空态卡与批量条**不在**盒内 | `ksGuideStyles.ts` 的「列表容器（P1-2」；`KsKnowledgePage.tsx` 的 `<div className="ks-list">` |
+| P1-8 | `.ks-lhead` 消费 `--ks-head-h`（`box-sizing:border-box` + `min-height`）+ 表头底色 | `ksGuideStyles.ts` 的「列表头：全选 + 计数 + 新建」 |
+| P1-3 | 行结构改 **2 列 grid**（内容 \| ⋮）、第 2 行新增 `.ks-item-sub`（12px tertiary 元数据 + 状态徽章）；行高 44 → **52**（新 token `--ks-row-h-list`） | `ksGuideStyles.ts` 的「行 = 2 列 grid」「第 2 行（.ks-item-sub」；`KsKnowledgePage.tsx` 的 `const meta = [` |
+| P1-1 | 行内常驻「＋标签」「详情」收进行尾 **「⋮」溢出菜单**（宿主 `Menu` + `IconEllipsisOutline16`）；菜单里另有只读"标签：…" | `KsKnowledgePage.tsx` 的「行尾「⋮」溢出菜单（P1-1」；`ksGuideStyles.ts` 的 `.ks-item-more` |
+| P1-5 | 状态徽章从**实心 Tag** 换成 `.ks-status`（浅底 + 1px 描边 + 同色字，**20px 高**），四档全由 `--dsw-alias-state-*` 解出 | `ksGuideStyles.ts` 的「状态徽章（P1-5」；`KsKnowledgePage.tsx` 的 `const STATUS: Record<Status, { cls` |
+| P1-4 | 新增筛选条 `.ks-filters`/`.ks-chip`（高 32px / 12px / gap 12px / 带图标），三档「全部/现行/已废止」**真的过滤列表**且换档清空选择；空态分"本来没文件"/"被筛没了" | `ksGuideStyles.ts` 的「筛选/切换：一排**等高胶囊**」；`KsKnowledgePage.tsx` 的 `const FILTERS`、`pickFilter` |
+| P1-6 | 批量条**居中限宽**（`width:fit-content` + `margin:auto`）；四个动作按钮显式钉 **24px**（`--ks-btn-h-sm`）；`border:0` + elevation **未动**，危险动作仍是红字 | `ksGuideStyles.ts` 的 `.ks-batch{position:sticky` 与 `.ks-batch-btn`；`KsKnowledgePage.tsx` 的 `className="ks-batch-btn"` |
+| P1-7 | 补**真空态**离屏渲染（新 `--interact kb-empty-folder`）+ 把三个量值写进本节 | `ui-render-shot.mjs` 的 `kb-empty-folder` |
+| P1-9 | 修 `measured` 的两个坏值（`#cards` 误配 `.ks-kb-card`；`.ks-batch#fit` 用的是**条子**右缘而不是**内容盒**右缘）；另给每行加 `ctrls`（可见控件数）、`fileNameW` | `ui-render-shot.mjs` 的「**P1-9 修正」两处 |
+
+**改前 → 改后（`ui-render-shot.mjs` 的 `measured` + PNG 像素扫描，同一台机器）**
+
+| 量什么 | 改前 | 改后 |
+|---|---|---|
+| `.ks-lhead` 高 | **33px**（token 定义了 40 却没人消费） | **40px**（`--ks-head-h` 真被消费） |
+| 表头底色（像素扫描 y=1122） | 无底色（50px 连续 `#ffffff`） | **`#f1f3f5`**（`--dsw-alias-markdown-tag`），行底仍是 `#ffffff` |
+| `.ks-list` 外框 | **不存在**（`n` 量不到；行是 `.ks-main` 直接子元素） | n=1、496 宽；像素扫描 x=12 与 x=507 **各 1 条发丝边**（`#e5e5e5`） |
+| `.ks-item` 行高 / 节距 | **44 / 52** | **52 / 52**（行内不再有 gap；两行结构） |
+| 行内可见控件数（新 `ctrls` 字段） | 5（勾选框 + 状态 + N 个标签 + ＋标签 + 详情） | **3**（勾选框 + 状态徽章 + ⋮），四行都是 3 |
+| 文件名可用宽度 | `nameW=218`（被 46% 上限截断） | **`fileNameW=404`**（520 下第一行的全名完整显示） |
+| 状态徽章 | 宿主 Tag **37×13**、实心、无描边 | `.ks-status` **42×20**；像素扫描 y=1172：`x236=1px #22c55e` + `x237..276` 浅底 `#e6faed` + `x277=1px #22c55e` ⇒ **左右各 1px 真描边** |
+| 筛选胶囊 | **页内没有筛选**（只有两个 `.ks-subtabs` 的 Pill） | `.ks-chip` **n=3、64×32、fs=12px、gap=12px**；点「已废止」⇒ 行数 **4 → 1**（`kb-filter`），切到「供应商资料」再点⇒ **1 → 0** 且出现"被筛没了"的空态卡 |
+| 批量条 | x=12 **w=496 通栏**、按钮 28px | **x=26 / w=468 / 居中**（壳 0–520 的中点 = 条子中点 260）、按钮 **24px** |
+| `.ks-batch#fit.w` | **−40**（P1-9 的坏值） | **0**（量的是"最后子元素右缘 − 条子**内容盒**右缘"；0 = 刚好装下，无溢出） |
+| `#cards.h` | `224,192,136,136,136,72`（含两个非卡元素） | **`136,136,136`**（只量真卡：`.ks-kb-cards>*` / `.ks-cap-card`） |
+| 真空态卡（**P1-7 新增证据**） | **没有过真空态截图**（`p05-kb-520-empty.png` 名不副实） | `p1-kb-520-empty.png`：496×**221**、`.ks-empty-t` **fs=16px / h=21**、`.ks-empty-d` **fs=13px / w=338（≤360 单行）**、主按钮不折行 |
+
+**我（代理）自己看图看到的事实**（图在 `var/tmp/ui-shots/`，**不入库**）
+1. **`p1-kb-520.png`（P1-1/P1-2/P1-3/P1-5/P1-8）**：列表成了**一个圆角盒子**（表头一条浅灰带 + 下面 4 行、行间细线、四角圆），每行是"**文件名（深色大一号）** / GB…·生效…（浅灰小字）+ 状态徽章"两行，行尾一个 `⋯`。行内**只剩勾选框、状态徽章、`⋯`** 三样 —— 「＋标签」「详情」在图上**确实不见了**（在 `⋯` 菜单里，冒烟已钉住菜单含那两项）。状态徽章不再是实心块，是"浅底 + 一圈细描边"。
+2. **`p1-kb-filter-520.png`（P1-4）**：胶囊行变成三枚等高的（`全部` 带图标且高亮为选中档 / `现行` / `已废止`），点「已废止」后**列表真的只剩 1 行**（2006 版），表头计数与胶囊右侧的"筛出 1 篇 / 共 4 篇"同时跟着变。
+3. **`p1-kb-520-empty.png`（P1-7，**第一次有真空态**）**：表头显示 `0 篇`、胶囊行右侧 `共 0 篇`，列表区下面是空态卡（64px 圆图标 + 16px 标题 + 13px 说明 + 深色主按钮「＋ 导入文件…」）—— 说明与按钮都在**一行/两行内**、没溢出。⚠ 这是**离屏渲染**（无宿主外壳），不是宿主页面里的样子。
+4. **`p1-kb-520-dark.png`（深色）**：表头带、行间线、浅底描边徽章、居中批量条在深色下**都还在**（表头带比行底**深**一档 —— `--dsw-alias-markdown-tag` 在 dark 解析成 `bluish-800 #353638`），批量条的 4 个按钮与其 24px 高也一致。危险动作（批量删除）在深色下是红字/红图标。
+5. **`p1-kb-batch-520.png`（P1-6）**：批量条**不再贴左通栏**，在列表下方**居中**、宽度小于容器；四个动作按钮等高（24px），与表头/行的节奏一致。
+
+**四条护栏的自检结果**（本轮**只**跑任务书允许的那几条；门禁归父代理）
+- `npx tsc --noEmit -p client` → **exit 0**；
+- `node scripts/smoke-ui-scale.mjs` → **exit 0**（spacing **0/0**、font-size **0/0**，棘轮没动）；
+- `node scripts/smoke-client-entry.mjs` → **PASS 122/122，exit 0**（含"交付产物 ↔ 现源码现构建整份一致"；
+  ⚠ 它红过一次，原因就是**我改了 CSS 但没重建** `client.js` —— 那条断言正是为此存在，重建后绿）；
+- `node scripts/smoke-kb-page-render.mjs` → **PASS 26/26，exit 0**。⚠ **它加了 4 条新断言、改了 2 条旧断言**，
+  理由逐条写在断言旁边的注释里（旧断言已过时，**不是**为了让门禁变绿而削弱）：
+  ① 旧"每行都有常驻「＋标签」按钮" ⇒ **P1-1 的设计就是把那两个按钮收进「⋮」**，旧断言必然红；
+     改成钉"每行一个 `.ks-item-more button[aria-haspopup=menu]`（4 个）"+ 打开菜单后**菜单里真的有
+     「＋标签」与「详情」**（收进去 ≠ 删掉）+ 再点一次菜单收起。旧的在场的证据仍由
+     `smoke-client-entry` 的 13 条钉子（交付产物里有「＋标签」字面量）承担。
+  ② 旧详情断言用 `button[aria-label^="打开"]`（行内「详情」按钮）⇒ 找不到会 **TypeError 崩在 click 里**；
+     改成点该行「⋮」再点菜单「详情」。
+  新增的 4 条：每行 `.ks-item-more` 触发器数 = 4；每行可见控件 `≤3`（实测 3/3/3/3）；菜单含两项；菜单可收起。
+- 另跑了两条**只读诊断**：`ui-token-check.mjs`（新渲染，缺失 **0**：dsw 115 引用/360 定义、ks 28/34）；
+  `ui-audit.mjs`（离网格 spacing **0**、font-size 全走 `--ks-fs-*`）。⚠ `ui-audit` 的 B 段（字面 `**`）
+  是**含注释的上界计数**，本仓注释体例里 `**` 是合法强调，**不构成渲染缺陷**。
+
+**⚠ 三处"清单说法/我的第一版被实测推翻"，就地留痕**（这是本轮最该被复核的）
+1. **"整行可点开详情"（清单 P1-1 的附带建议）没做，而且做不了**：宿主 `Checkbox` 的 `label`
+   **就是可见且可访问的文字**（`Checkbox.tsx` 原文："localized visible and accessible label"，
+   DOM 是 `<label><input><span>文字</span></label>`）⇒ 勾选框天然渲染文件名，行再吃一次 click
+   就会与"点勾选框 = 勾选"打架。保留的入口是「⋮ → 详情」（清单的**主改法**）。**这一条要在
+   任务书/清单里改成"未做 + 为什么"**，别让下一位以为漏了。
+2. **表头底色"用 layer-2 / layer-3"两版都是白的**：本仓主题 **light 下 `bg-layer-1/2/3` 同值**
+   （全是 `neutral-bluish-00` = `#ffffff`）⇒ 用了等于没底色（像素扫描 50px 连续 `#ffffff` 抓到的）。
+   最终用 `--dsw-alias-markdown-tag`（light `#f1f3f5` / dark `#353638`）。这条对**全仓**成立：
+   别再用 layer-1/2/3 做"比页面深一档的底"。
+3. **`--ks-stroke`(1px) 外框 + `elevation` 是禁止配对**（我第一版 `.ks-list` 就写错了）。
+   改成 `border:0` + `--dsw-elevation-soft` 后，**同一坐标仍能扫到左右各 1 条发丝边**
+   （`0 0 0 0.5px` 的 stroke，颜色重绑 `border-l2`）—— 结构与"能量到外框"两个验收都还在。
+   `--ks-stroke` 现在只用在**行间分隔线与徽章描边**（那两处不带阴影，允许）。
+
+**没做 / 做不到（诚实边界）**
+1. **宿主 Checkbox 的 label 是可见文字** ⇒ 行内**没有**第二处"文件名"，也无法把勾选框做成
+   "无文字的小方块"（宿主不提供 `aria-label` 口子）。文件名占满内容列（`fileNameW=404`），
+   它是**一个 `<label>`**、宽度就是那一列 —— 这是这一版能达到的最接近参照的形态。
+2. `position:sticky` 仍**验不了**（离屏是整页截图，5c 已实测）；"批量条钉在底部"只能真机看。
+3. **深色只补了 kb 页**（`p1-kb-520-dark.png`）；capabilities / ingest / materials 的深色仍未补。
+4. `hover` / `focus-visible` / 过渡仍判不了（静态帧）；`--ks-dur-fast` 只在 `.ks-kb-card` 上用着。
+5. **行内真列**（标准号 / 发布日期 / 来源，清单 §7.7 的 P2）没做：第 2 行是"已有字段拼接"，
+   不是列对齐的真表格。
+6. 菜单的**键盘通路只验到"能开能关"**（离屏交互点的是鼠标事件）；Tab/箭头/Esc 走的是宿主
+   `Menu` 自己的实现（它自带），本轮**没有**在真机上敲过。
+
+**最该让复核盯的点**：① 「整行可点」这一条被改判为"未做 + 为什么"是否成立（读 `Checkbox.tsx` 三行即可）；
+② `.ks-list` 的 `border:0` + elevation 之后，**外框像素**还在不在（重跑 `pixel-scan.mjs` 扫 x=12 / x=507）；
+③ 表头底色换 `--dsw-alias-markdown-tag` 是不是"语义借用"过头（复核可判：宿主有没有更合适的 token）；
+④ 行内可见控件数 = 3 的口径（`ctrls` = `.ks-check/.ks-status/.ks-item-more`）是否就是清单要的那 3 个；
+⑤ 5f 表里每个"改后"值能否用同一条命令复现（行高 52 / 表头 40 / 徽章 42×20 / 胶囊 32 / 按钮 24）。
+
 
 
 ⚠ 子代理的渲染链**已知失真**（写在这里，免得以后据此乱下结论）：无宿主外壳（侧栏/tab 条/宿主字体栈），
