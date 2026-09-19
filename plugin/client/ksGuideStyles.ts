@@ -39,19 +39,20 @@ export const KS_STYLES = `
 .ks-guide-trigger{align-self:stretch;flex:none;height:auto;width:44px;padding:0;border-radius:0 24px 24px 0}
 
 /* ---------- 知识库页 ---------- */
-.ks-kb{display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--dsw-alias-label-primary)}
+.ks-kb{display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--dsw-alias-label-primary);
+  min-height:100%;box-sizing:border-box}
 .ks-kb-banner{font-size:12px;line-height:1.5;color:var(--dsw-alias-state-warn-label);
-  background:var(--dsw-alias-state-warn-tertiary);border:1px solid var(--dsw-alias-border-l2);
+  background:var(--dsw-alias-state-warn-tertiary);border:.5px solid var(--dsw-alias-border-l2);
   border-radius:8px;padding:7px 9px}
 .ks-kb-row{display:flex;align-items:center;gap:8px}
 .ks-kb-grow{flex:1;min-width:0}
 .ks-kb-hint{font-size:12px;color:var(--dsw-alias-label-tertiary)}
-.ks-kb-btn{border:1px solid var(--dsw-alias-border-l4);border-radius:8px;padding:4px 10px;font-size:12px;
+.ks-kb-btn{border:.5px solid var(--dsw-alias-border-l4);border-radius:8px;padding:4px 10px;font-size:12px;
   color:var(--dsw-alias-label-secondary);background:transparent;cursor:pointer}
 .ks-kb-btn:hover{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-kb-btn-primary{background:var(--dsw-alias-brand-primary);color:var(--dsw-alias-bg-base);
   border-color:transparent;font-weight:600}
-.ks-kb-card{border:1px solid var(--dsw-alias-border-l2);border-radius:10px;padding:9px 10px;
+.ks-kb-card{border:.5px solid var(--dsw-alias-border-l2);border-radius:10px;padding:9px 10px;
   background:var(--dsw-alias-bg-base)}
 .ks-kb-card:hover{border-color:var(--dsw-alias-border-l4)}
 .ks-kb-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
@@ -72,6 +73,64 @@ export const KS_STYLES = `
 .ks-kb-badge-ok{background:var(--dsw-alias-state-success-tertiary);color:var(--dsw-alias-state-success-primary)}
 .ks-kb-badge-warn{background:var(--dsw-alias-state-warn-tertiary);color:var(--dsw-alias-state-warn-label)}
 .ks-kb-badge-bad{background:var(--dsw-alias-state-error-tertiary);color:var(--dsw-alias-state-error-primary)}
+
+/* ---------- 知识库页：三段式（目录轨 | 文件列表 | 详情） ---------- */
+/* 一列放不下就换行：右栏宽度是业主自己拖的，不许假设它有多宽。 */
+.ks-split{display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;min-height:0}
+.ks-rail{flex:0 1 208px;min-width:172px;display:flex;flex-direction:column;gap:8px}
+.ks-main{flex:1 1 320px;min-width:280px;display:flex;flex-direction:column;gap:8px;min-height:0}
+.ks-detail{flex:0 1 232px;min-width:200px;display:flex;flex-direction:column;gap:6px}
+/* 列表头：全选 + 计数 + 新建 */
+.ks-lhead{display:flex;align-items:center;gap:8px;padding:2px 2px 6px;
+  border-bottom:.5px solid var(--dsw-alias-border-l1)}
+.ks-lhead-name{font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* 一行文件：勾选框（label 里就是文件名）+ 标签 + 常驻「+标签」 */
+.ks-item{display:flex;align-items:center;gap:6px;padding:5px 6px;border-radius:6px}
+.ks-item:hover{background:var(--dsw-alias-interactive-bg-hover)}
+.ks-item-on{background:var(--dsw-alias-interactive-bg-hover)}
+.ks-item .ks-check{flex:1 1 auto;min-width:0}
+/* Checkbox 的可见文字就是文件名：撑开、可截断，别换行把行搞高 */
+.ks-item .ks-check>span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  color:var(--dsw-alias-label-secondary);font-size:13px}
+.ks-item .ks-check>input{flex:none}
+.ks-item-tags{display:flex;align-items:center;gap:4px;flex:none;flex-wrap:wrap;max-width:46%}
+.ks-item-add{flex:none;opacity:0}
+/* 常驻：业主明确要"名字后面常驻一个 +标签"，所以不是 hover 才出现，只是 hover 时更显眼 */
+.ks-item .ks-item-add{opacity:.35}
+.ks-item:hover .ks-item-add,.ks-item-on .ks-item-add{opacity:1}
+/* 悬浮批量条（有选中才出现）。
+   ⚠ 官方硬规则：「Elevated surfaces … set "border: 0" and take "box-shadow:
+   var(--dsw-elevation-panel|prominent|soft)". **Never pair a --dsw-alias-border-*
+   border with an lv/elevation shadow**」—— 描边由阴影自己画，颜色用
+   --dsw-elevation-stroke-color 给（官方 stat-dialog.module.css:21-25 就是这个写法）。
+   我第一版写成 "border:.5px solid var(--dsw-alias-border-l4)" + 阴影，属于明令禁止的配对。
+   ⚠ 这里**不能写反引号**：整段 CSS 是一个模板字符串，反引号会把它截断（本轮第三次踩）。 */
+.ks-batch{position:sticky;bottom:0;display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+  margin-top:6px;padding:7px 9px;border:0;border-radius:10px;
+  background:var(--dsw-specific-menu);
+  --dsw-elevation-stroke-color:var(--dsw-alias-border-l1);
+  box-shadow:var(--dsw-elevation-prominent)}
+.ks-batch-n{font-size:12px;font-weight:600}
+/* 详情字段：日期这一类 label/value 成对 */
+.ks-fields{display:flex;flex-direction:column;gap:4px}
+.ks-field{display:flex;gap:8px;font-size:12px;line-height:1.5}
+.ks-field-k{flex:0 0 62px;color:var(--dsw-alias-label-tertiary)}
+.ks-field-v{flex:1;min-width:0;color:var(--dsw-alias-label-primary);word-break:break-word}
+.ks-field-v-mono{font-family:ui-monospace,Consolas,monospace}
+/* 页内二级 tab（文件 / 标签） */
+.ks-subtabs{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+/* 标签视图：一行一个标签 + 它跨了哪些大文件夹 + 在该标签下提问 */
+.ks-tagrow{display:flex;align-items:flex-start;gap:8px;padding:6px 7px;border-radius:6px}
+.ks-tagrow:hover{background:var(--dsw-alias-interactive-bg-hover)}
+.ks-tagrow-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.ks-tagrow-name{font-size:13px;font-weight:600}
+.ks-tagrow-scope{font-size:11.5px;color:var(--dsw-alias-label-tertiary);word-break:break-word}
+/* 检索语法解析预览：把 + / - 的结果**当场显示出来**，省得用户猜 */
+.ks-parse{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:11.5px;
+  color:var(--dsw-alias-label-tertiary)}
+.ks-parse-in{flex:1 1 220px;min-width:180px}
+.ks-empty{padding:14px 8px;text-align:center;font-size:12px;color:var(--dsw-alias-label-tertiary)}
+.ks-dot{flex:none;width:6px;height:6px;border-radius:50%;background:var(--dsw-alias-label-caption)}
 `
 
 /**

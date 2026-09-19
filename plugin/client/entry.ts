@@ -385,4 +385,22 @@ function registerSidebarSurfaces(
   return typeof disposer === 'function' ? disposer : undefined
 }
 
-export default { apply, inject }
+/*
+ * ⚠ **这里刻意没有 default 导出** —— 别再加回来。
+ *
+ * 本模块是官方所说的 *namespace plugin*：apply / inject（以及 name）是**并列的命名导出**。
+ * 官方事故复盘 `docs/postmortem/0001-acp-default-export-drops-inject.md` 的根因 #1 就是
+ * 一个多余的 `export default apply`：
+ *
+ *   unwrapExports(exports) { exports = exports.default ?? exports; … }
+ *
+ * cordis 的 Loader 逐个模块调 unwrapExports，**优先取 .default**；一旦有 default，
+ * 它就**把整个模块命名空间丢掉** ⇒ inject / name / Config 全部消失，插件在不含任何
+ * 注入服务的 fiber 里跑，第一行 ctx.xxx 就抛 "cannot get property … without inject"。
+ * 症状极具迷惑性：**单元测试全绿**（它们绕过真实 Loader），真机上第一个请求就崩。
+ *
+ * 我们的历史版本写的是「默认导出 = { apply, inject }」—— 那个对象恰好把 inject 一起带了进去，
+ * 所以当时没炸；但它仍然**丢掉了命名空间**（name、以及将来任何其它命名导出），
+ * 只是把事故推迟到"哪天有人往里加一个命名导出"而已。官方的修法就是**删掉那一行**。
+ * 冒烟里有一条断言钉住它（`entry.ts 没有 export default`），加回来会直接红。
+ */

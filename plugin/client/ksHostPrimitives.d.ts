@@ -8,7 +8,7 @@
  *    它就在其中（一手：`packages/client/web/src/seed.ts:36`
  *    `'@deepseek-ai/dsh-client-ui-primitives': UiPrimitives`，
  *    注释原话 "These are the ONLY entities the shell shares into the frozen module table"）。
- *    因此 import 它**能跑**，且拿到的是宿主自己的 `Button`/`Menu` —— 视觉与官方卡片**同源**，
+ *    因此 import 它**能跑**，且拿到的是宿主自己的组件 —— 视觉与官方卡片**同源**，
  *    这正是我们要的（"和 DSH 保持相同风格"不该靠我抄像素）。
  * 2. 但**我们的 `plugin/node_modules/@deepseek-ai/` 里没有它**（实测只有 cordis/dsh-agent/
  *    dsh-tools 等宿主侧包）⇒ 直接 `import` 会让 `tsc --noEmit` 报 "Cannot find module"，
@@ -16,33 +16,40 @@
  *
  * ⇒ 故在此声明**我们实际调用的那几个成员**：运行时是真货，类型上自持。
  * 这与 `ksSidebar.ts` 对 `@deepseek-ai/dsh-client-ui-sidebar-right` 的处理是同一个手法
- * （"只声明我们调用的成员"，见其 `KsSidebarRight`/`KsTabRegistry`）。
+ * （"只声明我们调用的成员"）。
  *
- * ## 声明依据（一手，不是猜的）
- * 形状逐条取自宿主**已发货的** `ui-sidebar-terminal/src/client/TerminalGuide.tsx`
- * —— 它就是用这三个成员做出「新建终端」那张带 ▾ 的卡（业主指名要照它做）：
- *   `<Button variant="ghost" className onClick>…</Button>`
- *   `<Menu open portal autoFocus align="end" items={[{id,label,disabled}]} selectedId onClose onSelect anchor />`
- *   `<IconChevronDownOutline14 />`
+ * ## 声明依据（一手：**逐个读宿主源码**，不是从 README 的目录名猜的）
+ *   `Button`   ← `ui-primitives/src/Button.tsx`
+ *                `variant?: 'primary'|'ghost'|'outline'|'toolbar'`（**默认 `ghost`**）
+ *                `size?: 'md'|'sm'`（md=36px 胶囊 / sm=28px 紧凑）、`icon?`、其余透传原生 button 属性
+ *   `Checkbox` ← `Checkbox.tsx`：**强制 `label`**（可见 + 可访问名都在它身上），
+ *                渲染 `<label><input type=checkbox/><span>{label}</span></label>`
+ *   `Tag`      ← `Tag.tsx`：**只读**徽章，无 `onClick`/`active`；`tone` 8 档
+ *   `Pill`     ← `Pill.tsx`：24px 胶囊；**给了 `onClick` 才是按钮**，否则是静态 span
+ *   `Input`    ← `Input.tsx`：单行输入；`icon` 可选；渲染成 `<span class=wrap><input/></span>`
+ *   `Menu`     ← `ui-sidebar-terminal/src/client/TerminalGuide.tsx` 的真实用法
+ *   `IconChevronDownOutline14` ← 同上
  *
- * ⚠ 边界：只声明了**用到的**成员。要用别的（如 `IconXxx16`）请**先读宿主源码确认导出名**——
- *    名字写错不会构建失败（它是 external，esbuild 不校验命名导出），而是**运行时 undefined**。
+ * ⚠ 边界（这条已真实踩过）：名字/取值写错**不会构建失败**（它是 external，esbuild 不校验命名导出），
+ *    而是**运行时 undefined / 静默没有样式**。本文件曾把 Button 的 variant 写成
+ *    `'secondary' | 'text'` —— 宿主**没有这两档**，写上去能过类型检查却拿不到填充。
+ *    ⇒ 要用别的成员，**先读宿主源码确认导出名与取值**；冒烟另有一条钉住"我们只用了官方那 4 档"。
  */
 
 declare module '@deepseek-ai/dsh-client-ui-primitives' {
-  import type { ComponentType, CSSProperties, MouseEvent, ReactNode } from 'react'
+  import type { ButtonHTMLAttributes, ComponentType, InputHTMLAttributes, ReactNode } from 'react'
 
-  /** 宿主 Button。`variant="ghost"` 用于无底色可点区域（官方卡片的写法）。 */
-  export interface DshButtonProps {
-    readonly variant?: 'ghost' | 'primary' | 'secondary' | 'text'
-    readonly className?: string
-    readonly style?: CSSProperties
-    readonly disabled?: boolean
-    readonly onClick?: (event: MouseEvent<HTMLButtonElement>) => void
-    readonly 'aria-label'?: string
-    readonly 'aria-haspopup'?: 'menu' | boolean
-    readonly 'aria-expanded'?: boolean
-    readonly children?: ReactNode
+  /**
+   * 宿主 Button 的视觉族（`Button.tsx` 的 `ButtonVariant`，**逐字抄**）。
+   * ⚠ 只有这 4 档；`secondary`/`text` **不存在**。
+   */
+  export type DshButtonVariant = 'primary' | 'ghost' | 'outline' | 'toolbar'
+
+  /** 宿主 Button。默认 `variant='ghost'`、`size='md'`；原生 button 属性透传。 */
+  export interface DshButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    readonly variant?: DshButtonVariant
+    readonly size?: 'md' | 'sm'
+    readonly icon?: ReactNode
   }
   export const Button: ComponentType<DshButtonProps>
 
@@ -70,4 +77,49 @@ declare module '@deepseek-ai/dsh-client-ui-primitives' {
     readonly onSelect?: (id: string) => void
   }
   export const Menu: ComponentType<DshMenuProps>
+
+  /**
+   * 宿主 Checkbox。**`label` 是必填**（它既是可见文字也是可访问名）。
+   *
+   * 官方只在"带标签的选项"场景用它（全体源码里只有 `ui-settings-models` 一处引用），
+   * **没有"无标签行勾选"的先例** ⇒ 我们做列表多选时把**文件名当作它的 label**：
+   * 可访问名 = 文件名，且名字只渲染一次（不重复）。
+   */
+  export interface DshCheckboxProps {
+    readonly checked: boolean
+    readonly onChange: (next: boolean) => void
+    readonly label: string
+    readonly disabled?: boolean
+    readonly title?: string | undefined
+    readonly className?: string | undefined
+  }
+  export const Checkbox: ComponentType<DshCheckboxProps>
+
+  /** 宿主 Tag 的色调（`Tag.tsx` 的 `TagTone`，**逐字抄**）。 */
+  export type DshTagTone =
+    | 'outline' | 'solid' | 'neutral' | 'quiet'
+    | 'success' | 'info' | 'warning' | 'danger'
+
+  /** 宿主 Tag：**只读**胶囊徽章（11px）。要可点的用 `Pill`。 */
+  export const Tag: ComponentType<{
+    readonly tone?: DshTagTone
+    readonly className?: string | undefined
+    readonly children?: ReactNode
+  }>
+
+  /**
+   * 宿主 Pill：24px 胶囊。**给了 `onClick` 才是 button**，否则渲染静态 span。
+   * （注释原文：size 与交互性一起把 `Pill` 与 `Tag` 分开。）
+   */
+  export const Pill: ComponentType<{
+    readonly active?: boolean
+    readonly className?: string | undefined
+    readonly children?: ReactNode
+  } & ButtonHTMLAttributes<HTMLButtonElement>>
+
+  /** 宿主 Input：单行输入（搜索框/行内表单）。多行输入**不是**这个原语。 */
+  export const Input: ComponentType<{
+    readonly icon?: ReactNode
+    readonly className?: string
+  } & InputHTMLAttributes<HTMLInputElement>>
 }

@@ -24,7 +24,7 @@
  *
  * 用法：node scripts/smoke-client-entry.mjs   （退出码 0 = 全通过）
  */
-import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
@@ -88,16 +88,22 @@ await writeFile(pdfStubPath, [
   '',
 ].join('\n'), 'utf8')
 
-// 宿主的 `@deepseek-ai/dsh-client-ui-primitives`（Button / Menu / IconChevronDownOutline14 …）
+// 宿主的 `@deepseek-ai/dsh-client-ui-primitives`（Button / Checkbox / Tag / Pill / Input / Menu …）
 // ——**这是 baseline 模块**（官方 docs/subsystems/client-modules.zh.md：`external` 只管
 // "non-baseline module specifiers"；这一个是 `packages/client/web/src/seed.ts` 里那 9 个
 // 平台单例之一），所以浏览器里 require 得到，**不需要在 package.json 里声明**。
 // 但本冒烟在 **Node** 里跑、没有宿主模块表，故同样换桩——与上面 pdfjs 的处理同一个理由：
-// 我们测的是 apply() 的接线，不是渲染。桩里的三个成员只需**存在**（本冒烟不渲染它们）。
+// 我们测的是 apply() 的接线，不是渲染。桩里的成员只需**存在**（本冒烟不渲染它们）。
+// ⚠ 这里必须**逐个列出我们真正 import 的成员**：宿主那份是真的，桩漏一个就会
+//   `SyntaxError: does not provide an export named …`（比"运行时 undefined"好，至少响）。
 const primitivesStubPath = join(stubDir, 'primitives-stub.mjs')
 await writeFile(primitivesStubPath, [
   'const Null = () => null',
   'export const Button = Null',
+  'export const Checkbox = Null',
+  'export const Tag = Null',
+  'export const Pill = Null',
+  'export const Input = Null',
   'export const Menu = Null',
   'export const IconChevronDownOutline14 = Null',
   '',
@@ -698,6 +704,124 @@ check('inject declares only official services (no third-party hard gate)',
   deliveredN === freshN,
   `交付 ${deliveredN.length} 字符 / 现构建 ${freshN.length} 字符`
   + (deliveredN === freshN ? '' : ` / 首个差异位置 ${firstDiff}`))
+}
+
+/* ================================================================
+ * 静态纪律：几条"写错不会报错、只在真机静默发作"的规则，钉成断言
+ * （都在 2026-09-19 那一轮里真实踩过或有官方明文）
+ * ================================================================ */
+
+// ── 1. entry.ts **不许有 `export default`** ──
+// 官方事故复盘 `docs/postmortem/0001-acp-default-export-drops-inject.md` 根因 #1：
+// cordis Loader 的 `unwrapExports` 优先取 `.default` ⇒ **整个命名空间被丢掉**，
+// `inject`/`name` 消失，插件在不含任何注入服务的 fiber 里跑，第一个 `ctx.xxx` 就抛
+// "cannot get property … without inject"。而单元测试（绕过真实 Loader）**全绿**。
+const entrySrc = await readFile(join(pluginRoot, 'client/entry.ts'), 'utf8')
+check('entry.ts 没有 `export default`（有它 ⇒ Loader 丢掉 inject/name，真机才炸）',
+  !/^\s*export\s+default\b/m.test(entrySrc),
+  (entrySrc.match(/^\s*export\s+default\b.*$/m) ?? ['（无）'])[0].trim())
+
+// ── 2. Button 的 variant 只许用官方那 4 档 ──
+// `ui-primitives/src/Button.tsx`：`'primary' | 'ghost' | 'outline' | 'toolbar'`（默认 ghost）。
+// 写成别的（如 `secondary`/`text`）**不会构建失败**（external，esbuild 不校验命名导出），
+// 只是 `css[variant]` 取到 undefined ⇒ 静默没有填充。本插件 d.ts 里就一度写错成那两档。
+const OFFICIAL_BUTTON_VARIANTS = ['primary', 'ghost', 'outline', 'toolbar']
+const clientSrcFiles = (await readdir(join(pluginRoot, 'client'))).filter((f) => f.endsWith('.tsx') || f.endsWith('.ts'))
+const variantUses = []
+for (const f of clientSrcFiles) {
+  const text = await readFile(join(pluginRoot, 'client', f), 'utf8')
+  for (const m of text.matchAll(/variant="([a-zA-Z]+)"/g)) variantUses.push({ f, v: m[1] })
+}
+const badVariants = variantUses.filter((u) => !OFFICIAL_BUTTON_VARIANTS.includes(u.v))
+check(`Button 的 variant 只用官方 4 档（${OFFICIAL_BUTTON_VARIANTS.join('/')}）`,
+  badVariants.length === 0,
+  badVariants.length === 0
+    ? `${variantUses.length} 处用法全部合法`
+    : badVariants.map((u) => `${u.f}:${u.v}`).join(', '))
+
+// ── 3. 中性边框必须 0.5px；且不许"中性边框 + 阴影"配对 ──
+// `docs/web-styling.md`：「Flat borders and separators that use a neutral --dsw-alias-border-*
+// token draw at 0.5px」＋「Never pair a --dsw-alias-border-* border with an lv/elevation shadow」。
+// 两者都是**视觉上很轻、肉眼验收不可靠**的规定，所以必须机器判。
+const stylesSrc = await readFile(join(pluginRoot, 'client/ksGuideStyles.ts'), 'utf8')
+const onePxNeutral = [...stylesSrc.matchAll(/[^-.\d]1px solid var\(--dsw-alias-border-[a-z0-9-]+\)/g)].map((m) => m[0].trim())
+check('样式里没有 `1px solid var(--dsw-alias-border-*)`（中性边框统一 0.5px）',
+  onePxNeutral.length === 0,
+  onePxNeutral.length === 0 ? '0 处' : onePxNeutral.join(' | '))
+// 逐条规则块检查"边框 + elevation 阴影"的非法配对。
+// ⚠ 必须先**去掉 CSS 注释**再判：我那条"解释这个错误"的注释里就写着
+//   `border:.5px solid var(--dsw-alias-border-l4)`，不去注释会**误报自己**（第一版真报了）。
+const stylesNoComments = stylesSrc.replace(/\/\*[\s\S]*?\*\//g, '')
+const styleBlocks = stylesNoComments.split('}').map((b) => b.trim()).filter((b) => b.includes('{'))
+const illegalPair = styleBlocks.filter((b) => b.includes('box-shadow:var(--dsw-elevation')
+  && /(^|[;{])border:\s*(?!0[;}\s])/.test(b)
+  && b.includes('--dsw-alias-border-'))
+check('没有"中性边框 + elevation 阴影"的非法配对（描边应由阴影自己画）',
+  illegalPair.length === 0,
+  illegalPair.length === 0 ? '0 处' : illegalPair.map((b) => b.slice(0, 60)).join(' | '))
+
+// ── 4. 检索语法：逐例钉住（这是本页唯一的真逻辑）──
+// 业主原话：「多个关键词用 + 号链接，然后用 - 号连接关键词那就是屏蔽这个词，比如 安全+半导体-冶金」
+// ⚠ 关键一条：`GB 30871-2022` 里的连字符**必须留在词里**（标准号本来就有 `-`）。
+// ⚠ 这里**另建临时目录**：本冒烟的 `stubDir` 在产物比对那一节结束时已被删掉
+//   （第一版写进 stubDir ⇒ ENOENT，冒烟直接崩在最后一段）。
+const syntaxDir = await mkdtemp(join(tmpdir(), 'ks-syntax-'))
+const syntaxEntry = join(syntaxDir, 'syntax-entry.mjs')
+await writeFile(syntaxEntry,
+  `export { parseKsQuery, describeKsQuery } from ${JSON.stringify(join(pluginRoot, 'client/ksSearchSyntax.ts'))}\n`, 'utf8')
+const syntaxOut = join(syntaxDir, 'syntax-out.mjs')
+await build({ entryPoints: [syntaxEntry], bundle: true, platform: 'node', format: 'esm', outfile: syntaxOut })
+const { parseKsQuery, describeKsQuery } = await import(pathToFileURL(syntaxOut).href)
+const CASES = [
+  // [输入, 必含, 屏蔽]
+  ['安全+半导体-冶金', ['安全', '半导体'], ['冶金']],
+  ['安全＋半导体－冶金', ['安全', '半导体'], ['冶金']],            // 全角（中文输入法常态）
+  ['-冶金', [], ['冶金']],                                        // 只有屏蔽
+  ['', [], []],                                                   // 空串不抛
+  ['安全++半导体', ['安全', '半导体'], []],                        // 连续分隔符
+  ['安全+半导体-冶金-粉尘', ['安全', '半导体'], ['冶金', '粉尘']],  // 多个屏蔽
+  ['安全+安全', ['安全'], []],                                     // 去重
+  ['GB 30871-2022', ['GB 30871-2022'], []],                       // ⚠ 标准号里的 - 不是屏蔽
+  ['GB/T 50016-2014', ['GB/T 50016-2014'], []],                   // 同上（带斜杠）
+  ['  安全  ', ['安全'], []],                                      // 首尾空白
+]
+let syntaxBad = 0
+for (const [input, wantIn, wantEx] of CASES) {
+  const got = parseKsQuery(input)
+  const ok = JSON.stringify(got.include) === JSON.stringify(wantIn)
+    && JSON.stringify(got.exclude) === JSON.stringify(wantEx)
+  if (!ok) syntaxBad++
+  check(`检索语法 ${JSON.stringify(input)} ⇒ 含${JSON.stringify(wantIn)} 排除${JSON.stringify(wantEx)}`,
+    ok, `实得 含${JSON.stringify(got.include)} 排除${JSON.stringify(got.exclude)}`)
+}
+check('检索语法：describeKsQuery 给出人话回显（UI 当场显示，省得用户猜）',
+  describeKsQuery(parseKsQuery('安全+半导体-冶金')) === '含 「安全」「半导体」；排除 「冶金」',
+  describeKsQuery(parseKsQuery('安全+半导体-冶金')))
+
+// ── 5. 13 条需求的"在场"钉子（删掉任一条 ⇒ 这条红）──
+// ⚠ 只用**一定是字符串字面量**的标记。像 `>文件<` 这种依赖 JSX 产物形状的标记很脆
+//   （esbuild 产出 `children: "文件"`，不是 HTML 文本节点），不拿来当钉子。
+// ⚠ `delivered` 是上面那个块的**块级**变量，这里够不着 ⇒ 自己读一次并按同样方式解码。
+const decodeEscapes = (s) => s.replace(/\\u([0-9a-fA-F]{4})/g,
+  (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+const deliveredText = decodeEscapes(await readFile(join(pluginRoot, 'client.js'), 'utf8'))
+const SPEC_STRINGS = [
+  ['批量条：取消选择', '取消选择'],
+  ['批量条：批量打标签', '批量打标签'],
+  ['批量条：移动到目录', '移动到目录'],
+  ['批量条：批量删除', '批量删除'],
+  ['行内常驻：＋标签', '＋标签'],
+  ['详情：发布日期', '发布日期'],
+  ['详情：生效日期', '生效日期'],
+  ['详情：废止日期', '废止日期'],
+  ['详情：所属目录', '所属目录'],
+  ['一个新建按钮', '＋ 新建'],
+  ['标签可跨文件夹（视图说明）', '跨知识库文件夹定义'],
+  ['标签覆盖范围回显', '覆盖：'],
+  ['全选', '取消全选'],
+]
+for (const [what, marker] of SPEC_STRINGS) {
+  check(`13 条需求在场：${what}`, deliveredText.includes(marker), marker)
 }
 
 const failed = results.filter((r) => !r.ok)
