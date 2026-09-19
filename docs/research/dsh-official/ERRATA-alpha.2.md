@@ -147,8 +147,31 @@
 - `referenced-files.txt` 是**抽取下限**：分片里用相对路径写的引用抓不到，所以「没列进勘误」≠「没变」。
   要更全：按每份分片自己声明的"读取范围"，用 `git diff <alpha.1> <alpha.2> -- <目录>` 逐个复核。
 - `docs/persistence-changes/` 整目录这次的变化未逐条读（只知新增 1 篇）。
-- `.agents/notes/` 这次 **366 条**变化（新增 240 / 修改 241 全仓计），我**没有**逐条读；
-  分片 G 依赖的那 12 篇决策记录是否被改，**待查**（命令：`git diff --name-status alpha.1 alpha.2 -- .agents/notes`）。
+- `.agents/notes/` 这次 **366 条**变化（新增 240 / 修改 241 全仓计）。**已补做**：
+  与分片引用的 note 名做交集，**5 篇被改**且全部属于分片 G 的依赖 —— **见 §I**。
 - `ui-primitives` 改了 **+1394/−81**，我只核了**我们用到的** `Button`/`Menu`/`IconChevronDownOutline14`
   与计划采用的 `Tag`/`Pill`/`Input`/`Checkbox` 等的**存在性与签名写法**，**没读它们的 prop 细节**。
   真要改用它们时，必须按 **alpha.2 的 README** 逐项核。
+
+---
+
+## I. **决策记录**的变更（补做：原 §H 里标为"待查"的那一条）
+
+做法：取 `.agents/notes/` 在 alpha.1→alpha.2 的英文正本变更（**122 条**），
+与 8 份分片正文里引用的 note 名做**交集** ⇒ **5 篇**被改，且**全部是分片 G 的依赖**。
+
+| 决策记录 | 改动 | **过期了什么 / 现在是什么** |
+|---|---|---|
+| `…/2026-09-05-sidebar-tab-types-and-navigation.md` | −1 行 | **Deferred 列表删掉了「Parameters for the shipped page types, which today declare none.」** ⇒ 出货页面类型**现在有参数了**（如 `browser` 收 `{ params: { url? } }`）。G 里凡引用该 deferred 的写法要改 |
+| `…/2026-09-04-right-sidebar-docking-infrastructure.md` | +2/−2 | ⚠️ **"State is memory-only: a reload returns every session to the collapsed default…" 被删除**，改为：「[Layout persistence and provider recovery](../architecture/2026-09-14-sidebar-layout-provider-recovery.md) owns **Session-scoped browser storage and reload**」<br>⇒ **布局不再是内存态**！G/A 里"刷新即回到折叠默认"的说法**作废**；新权威是 `2026-09-14-sidebar-layout-provider-recovery.md`（我们**没读过**这篇） |
+| `…/2026-07-23-client-plugin-loading-model.md` | +19/−11 | ① **新增 chunk 支持**："an entry calls `window.__ModuleLoader__.load({ id, factory })`, while **a chunk also supplies its generated filename**"；新增 `require.async("./client.<name>.js")`（Host 只为该请求读文件、包装注册为一个 script 响应并按 URL 缓存，并发共享）<br>② **新增整节 `### Live graph reconciliation`**：modules controller 只拥有 boot manifest 建的那些 Loader entry，**完整 Host 快照**更新其模块描述并**对账**；其它 Loader 贡献者保留所有权；新模块走**单资源 URL**到达。Host SSE 适配器转发图变化、连接时发当前完整图；**"图描述的是期望的浏览器入口，不表示 Host 侧清理已完成"**<br>③ **HMR 重载语义细化**：代码替换交给同一个 modules controller；第 6 步改为"**先把新 exports 物化，再 `entry.refresh()`**；CSS 在**旧 disposer 排空之后**重注；显式物化能在 Loader 把错误降级成 console log 之前暴露 import 错误"<br>④ **bootstrap 拒绝热替换**："Bootstrap replacement is rejected before invalidation or teardown: the module system retains its initial exports… The page reports the required reload and preserves the bootstrap fiber."<br>⑤ 边界措辞改写为："Reload creates a fresh fiber and component state; it does not preserve React state inside the replaced plugin. **Static assembly libraries and the shell require a rebuilt page.** Failed imports or activation remain diagnosable and retryable **without rolling back unrelated plugins**."<br>⇒ 结论：**插件热重载是受支持的正规路径**（我此前"必须重启宿主"的说法见 §D5，于此**再次被证伪**）；但 **bootstrap / 静态装配库 / shell 仍要重建页面** |
+| `…/2026-08-15-client-shells-and-dynamic-packages.md` | +6/−2 | ① "content-addressed application combo URL" → **"revisioned"**<br>② Host 发布描述符**不拼接响应体**：每个 script URL 共用一个 lazy Promise，**首个 `GET` 才拼接**并附上对应 map URL；每个 map URL 另有独立 lazy Promise<br>③ **theme Host 贡献被前置进 index 收集**：head 里的 CSS 用 **`prefers-color-scheme` 直接决定初始画布配色**（针对 `system` 偏好），body 脚本在加载页与应用之前应用 palette 属性与 font-size 变量 |
+| `…/2026-09-08-desktop-bundled-runtime-and-external-plugins.md` | +18/−16 | ⚠️⚠️ **推翻了我给你的第 3 条建议（"补 peerDependencies"）**。原文（旧）：「**External plugins declare shared host packages as peers.**… Validation **rejects** incompatible enabled peers, nested or aliased copies of shared packages, private package links, and dependency resolution through CLI or ancestor directories… **matching version numbers alone are insufficient**」<br>新文：「**External plugins use normal Node package resolution. Desktop does not recursively check peer versions, duplicate packages, linked packages, or ancestor dependency resolution.** These checks duplicate package-manager and loader responsibilities and **reject pnpm-supported installation sources.**」<br>⇒ **那套 peer/重复包校验被有意移除了**，理由是它重复了包管理器与 loader 的职责、且会拒掉 pnpm 支持的安装源。**"外置插件必须声明 peerDependencies"不再是规定**（至少 Desktop 这条线上）<br>其余：Desktop 打包/所有权重新划界（新增引用 `2026-09-10-desktop-web-wrapper.md`、`2026-09-11-desktop-electron-node-runtime.md`）；运行时由"bundled upstream Node process"改为 **Electron RunAsNode** process；**插件管理移入共享的 `packages/boot/plugin-manager`**（Web 管理器负责包变更与激活，Electron 保留 profile 准备与原生恢复）；Node/平台变化**保留已装插件**（旧文说要 reinstall + run approved builds） |
+
+### 由此产生的两条**行动项**
+
+1. **`2026-09-14-sidebar-layout-provider-recovery.md` 我们必须读**（新权威，管 Session 级布局持久化 + provider 恢复），
+   并把 A/G 里"布局仅内存"的说法改掉。**尚未读**。
+2. **推翻我此前的"补 peerDependencies"建议**：那条基于 alpha.1 的 Desktop note，alpha.2 已把该校验移除。
+   ⇒ 要不要补 peer，改为**按 pnpm/Node 常规解析的工程判断**，而**不再引用 DSH 规定**。
+   （我们 `plugin/package.json` 现在没补，**不改就是对的**。）
