@@ -89,6 +89,10 @@ export function makeMaterialsTool(manager) {
       render: (_args, value) => [{ type: 'text', text: JSON.stringify(value, null, 2) }],
     },
     timeoutMs: 30_000,
+    // 第 6 步 §3：**可并行**。三个 action 全是只读 GET（projects / materials / inbox），
+    // `:106-166` 的落点全是局部变量；本模块**没有**模块级可变状态（不像 collect.js 的
+    // `_collectedBySession`）。且"本工具只读、不能批准"是本文件的硬纪律（见头注）。
+    isConcurrencySafe: () => true,
     async execute(args, exec) {
       const action = typeof args?.action === 'string' && args.action ? args.action : 'projects'
       const projectId = typeof args?.project_id === 'string' ? args.project_id.trim() : ''
@@ -96,7 +100,11 @@ export function makeMaterialsTool(manager) {
         // 明确报错而不是替用户猜一个项目（猜错就是"用错了项目的制度"，比报错坏得多）
         throw new Error(`ks_materials: action="${action}" 需要 project_id（prj_…）`)
       }
-      const signal = combineSignals(exec?.signal)
+      // `combineSignals` 现返回 `{ signal, dispose }`（第 6 步 §4B-1）。这里只喂了**一个**
+      // signal ⇒ 实现不建中转 controller、不往任何 signal 上加监听，`dispose` 是空操作，
+      // 所以本调用点不需要 try/finally。⚠ 若将来在这里合并**第二个** signal，
+      // 必须补 `try { … } finally { dispose() }`（照 `index.js` 的 ks_effect_report 写）。
+      const { signal } = combineSignals(exec?.signal)
       const session = await manager.ensureLive(signal)
       const get = apiGetData(session)
 

@@ -113,6 +113,16 @@ export function makeCollectTool(manager, chatModeOf) {
       render: (_args, value) => [{ type: 'text', text: JSON.stringify(value, null, 2) }],
     },
     timeoutMs: 60_000,
+    // 第 6 步 §3：**故意不声明 `isConcurrencySafe`** ⇒ 官方语义下走 exclusive
+    // ((DSH) `packages/core/tools/src/index.ts:1295`：没有 classifier 就是 exclusive)。
+    // 理由是官方契约的正面违反（(DSH) `docs/subsystems/tools.md:66-70`
+    // "Opted-in executions must not mutate parent-owned state"）：
+    //   ① 它**写**：`POST …/collect` 会让引擎登记一条 pending 材料（有外部副作用）；
+    //   ② 它改**父级共享可变状态**：`_collectedBySession`（`:45`）的
+    //      "读限额(`:160-166`) → await → 写限额(`:210`)" 不是原子的，两条并发 collect
+    //      会**同时通过**限额判断（正是官方点名的 TOCTOU）。
+    // ⚠ **不要**"顺手统一"给它加 `() => false`：官方只把**恰好 `true`** 当并行，缺省/false
+    // 都是 exclusive；多写一个 `false` 只会让复核以为这里也做过判断（假证据）。
     async execute(args, exec) {
       const url = typeof args?.url === 'string' ? args.url.trim() : ''
       if (url === '') throw new Error('ks_collect: 需要 url（要采集的网页地址）')
@@ -164,7 +174,11 @@ export function makeCollectTool(manager, chatModeOf) {
           + '（采集预算尚未定案，方案 §11.4）。请停下并告诉用户：需要更多就由他决定'
           + '（继续请让他明说）。**不要**把它当成"已经采够了"或"没有更多资料"。')
       }
-      const signal = combineSignals(exec?.signal)
+      // `combineSignals` 现返回 `{ signal, dispose }`（第 6 步 §4B-1）。只喂一个 signal
+      // ⇒ `dispose` 是空操作（实现不建中转 controller、不加任何监听），这里不需要
+      // try/finally。⚠ 将来若合并**第二个** signal，必须补 dispose（照 `index.js` 的
+      // ks_effect_report 写）。
+      const { signal } = combineSignals(exec?.signal)
       const session = await manager.ensureLive(signal)
       const path = `/api/v1/materials/projects/${encodeURIComponent(projectId)}/collect`
       // ⚠ **不发 `source_tier`**（引擎端点会 422；这里连试都不试）：

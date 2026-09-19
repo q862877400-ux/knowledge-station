@@ -363,108 +363,122 @@ function makeEffectReportTool(manager) {
     // verifier F3：summary + 红黄清单共 2 次引擎调用，每次内层 15s 上限 →
     // 外层必须 > 2×15s，否则内层还没超时外层先被杀，报错信息误导。
     timeoutMs: 90_000,
+    // 第 6 步 §3：**可并行**。官方契约（(DSH) `docs/subsystems/tools.md:66-70`）问的是
+    // "会不会动父级状态"，不是"快不快"：本工具只有 2 次只读 GET，全部落点都是 `out`（局部），
+    // 不碰任何模块级可变状态；引擎侧 `/report/effect*` 是纯聚合读。
+    isConcurrencySafe: () => true,
     async execute(args, exec) {
       // verifier P1-2：外层 90s 必须装得下 ensureLive（冷启动最长 60s）+ 2 次内层
       // 调用，而 401 自愈会再调一次 ensureLive（最坏 60+15+60+15=150s > 90s，仍会
       // 被 DSH 硬杀成"tool call timed out"）。所以内部设 80s 总 deadline 并传给
       // 每一次 await——超时由我们自己明确报错，不再命中 DSH 的通用超时。
       const deadline = AbortSignal.timeout(80_000)
-      const signal = combineSignals(exec.signal, deadline)
-      const session = await manager.ensureLive(signal)
-      // verifier F14：引擎重启会轮换 port/token → 401 时重读会话重试一次
-      let current = session
-      const get = async (path) => {
-        const call = (sess) => apiGet(originUrl(sess.port), path, {
-          token: sess.token, signal, timeoutMs: 15_000,
-        })
-        let probe = await call(current)
-        if (probe.status === 401) {
-          const fresh = await manager.ensureLive(signal)
-          if (fresh && (fresh.port !== current.port || fresh.token !== current.token)) {
-            current = fresh
-            probe = await call(current)
+      // 第 6 步 §4B-1：`combineSignals` 返回 `{ signal, dispose }`（不再是裸 signal）。
+      // 它往 `exec.signal` 上加了一个 abort 监听，**必须**由本调用方在结束时摘掉——
+      // 旧实现返回裸 signal，于是那个监听直到 exec.signal 被 GC 才消失（实测 added=1/removed=0，
+      // 见 `plugin/scripts/smoke-cancel.mjs` 的 D1）。
+      const fused = combineSignals(exec.signal, deadline)
+      const signal = fused.signal
+      try {
+        const session = await manager.ensureLive(signal)
+        // verifier F14：引擎重启会轮换 port/token → 401 时重读会话重试一次
+        let current = session
+        const get = async (path) => {
+          const call = (sess) => apiGet(originUrl(sess.port), path, {
+            token: sess.token, signal, timeoutMs: 15_000,
+          })
+          let probe = await call(current)
+          if (probe.status === 401) {
+            const fresh = await manager.ensureLive(signal)
+            if (fresh && (fresh.port !== current.port || fresh.token !== current.token)) {
+              current = fresh
+              probe = await call(current)
+            }
           }
+          if (probe.status === 401) {
+            throw new Error('ks_effect_report: 引擎拒绝 Bearer token(401)，重读会话后仍失败')
+          }
+          if (probe.status === 0 && deadline.aborted) {
+            throw new Error(
+              'ks_effect_report: 引擎响应超时（内部 80s deadline 到点）。'
+              + '请先 ks_ping 确认引擎状态后重试。')
+          }
+          return probe
         }
-        if (probe.status === 401) {
-          throw new Error('ks_effect_report: 引擎拒绝 Bearer token(401)，重读会话后仍失败')
-        }
-        if (probe.status === 0 && deadline.aborted) {
+        const summary = await get('/api/v1/report/effect')
+        // verifier F5：200 但信封缺失/无 data（反代、旧版引擎、非 JSON）绝不
+        // 伪装成"全 0 报告"——那会让模型断言库里没有废止文件（P1 准确性）。
+        const env = summary.status === 200 && summary.body && typeof summary.body === 'object'
+          ? summary.body : null
+        if (!env || env.code !== 200 || !env.data || typeof env.data !== 'object') {
           throw new Error(
-            'ks_effect_report: 引擎响应超时（内部 80s deadline 到点）。'
-            + '请先 ks_ping 确认引擎状态后重试。')
+            'ks_effect_report: /api/v1/report/effect 响应异常 '
+            + `HTTP ${summary.status || 'no-response'} ${summary.error || ''} `
+            + '(期望 {code:200,data:{...}})。请先 ks_ping 确认引擎版本。')
         }
-        return probe
-      }
-      const summary = await get('/api/v1/report/effect')
-      // verifier F5：200 但信封缺失/无 data（反代、旧版引擎、非 JSON）绝不
-      // 伪装成"全 0 报告"——那会让模型断言库里没有废止文件（P1 准确性）。
-      const env = summary.status === 200 && summary.body && typeof summary.body === 'object'
-        ? summary.body : null
-      if (!env || env.code !== 200 || !env.data || typeof env.data !== 'object') {
-        throw new Error(
-          'ks_effect_report: /api/v1/report/effect 响应异常 '
-          + `HTTP ${summary.status || 'no-response'} ${summary.error || ''} `
-          + '(期望 {code:200,data:{...}})。请先 ks_ping 确认引擎版本。')
-      }
-      const d = env.data
-      const colors = d.colors && typeof d.colors === 'object' ? d.colors : {}
-      const out = {
-        ok: true,
-        generated_at: d.generated_at ?? null,
-        total: d.total ?? 0,
-        colors: {
-          red: colors.red ?? 0, yellow: colors.yellow ?? 0,
-          green: colors.green ?? 0, gray: colors.gray ?? 0,
-        },
-        std_total: d.std?.total ?? 0,
-        law_total: d.law?.total ?? 0,
-        trees: Array.isArray(d.tree) ? d.tree.map((t) => ({
-          top: t.top ?? null,
-          name: t.name ?? null,
-          colors: t.colors ?? null,
-          categories: Array.isArray(t.items)
-            ? t.items.slice(0, 3).map((l2) => ({ name: l2.name ?? null, colors: l2.colors ?? null }))
-            : [],
-        })) : [],
-      }
-      // verifier F16：window 恒为 "all"（本工具不暴露窗口参数）→ 只在非默认时回传
-      if (typeof d.window === 'string' && d.window !== 'all') out.window = d.window
-      if (args?.include_attention !== false) {
-        const n = Math.max(1, Math.min(Number(args?.limit) || 10, 20))
-        // verifier F4：红+黄一次聚合（per_color=1 → 每色各取 n 条，
-        // 而非全局 top-n 被红色吃满），省掉一次全量聚合。
-        const probe = await get(
-          `/api/v1/report/effect/color?color=red,yellow&per_color=1&limit=${n}`)
-        const data = probe.status === 200 && probe.body && probe.body.code === 200
-          ? probe.body.data : null
-        if (!data || !Array.isArray(data.docs)) {
-          // verifier F6：清单失败要显式告诉模型"清单没拿到"，不能静默 null
-          const why = probe.error || (probe.body && probe.body.message) || ''
-          out.attention_error =
-            `红/黄清单获取失败: HTTP ${probe.status || 'no-response'} ${why}`.trim()
-        } else {
-          const buckets = { red: [], yellow: [] }
-          for (const x of data.docs) {
-            const bucket = buckets[x.color]
-            if (!bucket) continue
-            bucket.push({
-              doc_id: x.doc_id ?? null,
-              standard_no: x.standard_no ?? null,
-              standard_name: x.standard_name ?? null,
-              status: x.status ?? null,
-              effective_from: x.effective_from ?? null,
-              superseded_by: x.superseded_by ?? null,
-              withdrawn_date: x.withdrawn_date ?? null,
-              // verifier F18：给可点 PDF 锚点，模型据此写出可点链接
-              evidence_url: evidenceAnchor(x),
-            })
+        const d = env.data
+        const colors = d.colors && typeof d.colors === 'object' ? d.colors : {}
+        const out = {
+          ok: true,
+          generated_at: d.generated_at ?? null,
+          total: d.total ?? 0,
+          colors: {
+            red: colors.red ?? 0, yellow: colors.yellow ?? 0,
+            green: colors.green ?? 0, gray: colors.gray ?? 0,
+          },
+          std_total: d.std?.total ?? 0,
+          law_total: d.law?.total ?? 0,
+          trees: Array.isArray(d.tree) ? d.tree.map((t) => ({
+            top: t.top ?? null,
+            name: t.name ?? null,
+            colors: t.colors ?? null,
+            categories: Array.isArray(t.items)
+              ? t.items.slice(0, 3).map((l2) => ({ name: l2.name ?? null, colors: l2.colors ?? null }))
+              : [],
+          })) : [],
+        }
+        // verifier F16：window 恒为 "all"（本工具不暴露窗口参数）→ 只在非默认时回传
+        if (typeof d.window === 'string' && d.window !== 'all') out.window = d.window
+        if (args?.include_attention !== false) {
+          const n = Math.max(1, Math.min(Number(args?.limit) || 10, 20))
+          // verifier F4：红+黄一次聚合（per_color=1 → 每色各取 n 条，
+          // 而非全局 top-n 被红色吃满），省掉一次全量聚合。
+          const probe = await get(
+            `/api/v1/report/effect/color?color=red,yellow&per_color=1&limit=${n}`)
+          const data = probe.status === 200 && probe.body && probe.body.code === 200
+            ? probe.body.data : null
+          if (!data || !Array.isArray(data.docs)) {
+            // verifier F6：清单失败要显式告诉模型"清单没拿到"，不能静默 null
+            const why = probe.error || (probe.body && probe.body.message) || ''
+            out.attention_error =
+              `红/黄清单获取失败: HTTP ${probe.status || 'no-response'} ${why}`.trim()
+          } else {
+            const buckets = { red: [], yellow: [] }
+            for (const x of data.docs) {
+              const bucket = buckets[x.color]
+              if (!bucket) continue
+              bucket.push({
+                doc_id: x.doc_id ?? null,
+                standard_no: x.standard_no ?? null,
+                standard_name: x.standard_name ?? null,
+                status: x.status ?? null,
+                effective_from: x.effective_from ?? null,
+                superseded_by: x.superseded_by ?? null,
+                withdrawn_date: x.withdrawn_date ?? null,
+                // verifier F18：给可点 PDF 锚点，模型据此写出可点链接
+                evidence_url: evidenceAnchor(x),
+              })
+            }
+            const totalOf = (c) => (colors[c] ?? data.colors?.[c] ?? buckets[c].length)
+            out.red_list = { count: totalOf('red'), docs: buckets.red.slice(0, n) }
+            out.yellow_list = { count: totalOf('yellow'), docs: buckets.yellow.slice(0, n) }
           }
-          const totalOf = (c) => (colors[c] ?? data.colors?.[c] ?? buckets[c].length)
-          out.red_list = { count: totalOf('red'), docs: buckets.red.slice(0, n) }
-          out.yellow_list = { count: totalOf('yellow'), docs: buckets.yellow.slice(0, n) }
         }
+        return out
+      } finally {
+        // 异常路径也要摘（throw 在 `get` 里很常见：401/信封坏）。
+        fused.dispose()
       }
-      return out
     },
   }
 }
@@ -490,6 +504,10 @@ function makePingTool(manager) {
       render: (_args, value) => [{ type: 'text', text: JSON.stringify(value, null, 2) }],
     },
     timeoutMs: 20_000,
+    // 第 6 步 §3：**可并行**。只读：`ensureLive` + `GET /health`，落点全是局部对象；
+    // 唯一共享的是 `EngineManager`，而它的并发入口 `ensureLive` 已在本步 §4B-3 改成
+    // "共享一段工作、各自取消各自"（内部 signal），并发调用**不再互相连坐**。
+    isConcurrencySafe: () => true,
     async execute(_args, exec) {
       const session = await manager.ensureLive(exec.signal)
       const probe = await apiGet(originUrl(session.port), HEALTH_PATH, {
@@ -556,6 +574,10 @@ function makeResolveTool(manager, chatModeOf) {
       render: (_args, value) => [{ type: 'text', text: JSON.stringify(value, null, 2) }],
     },
     timeoutMs: 25_000,
+    // 第 6 步 §3：**可并行**。只读 GET；`:573-590` 只做参数拼接、读 chatmode（
+    // `effectiveChatMode` 是**同步**纯读 + 读穿缓存，无 await 间隙 ⇒ 事件循环里原子）
+    // 与拼一个局部返回体。不写任何父级状态。
+    isConcurrencySafe: () => true,
     async execute(args, exec) {
       const standardNo = String((args && args.standard_no) ?? '').trim()
       const clauseNumber = String((args && args.clause_number) ?? '').trim()
@@ -740,6 +762,19 @@ export function makeAnswerTool(manager, chatModeOf) {
       render: (_args, value) => [{ type: 'text', text: JSON.stringify(value, null, 2) }],
     },
     timeoutMs: 120_000,
+    // 第 6 步 §3：**可并行**（但见下）。判据同官方契约（"must not mutate parent-owned
+    // state"）：一次 `POST /ks/answer` 是**查询**语义，`:758-880` 的落点全是局部变量
+    // （`scope`/`trimmed`/返回值），不碰模块级可变状态，也不写父级状态。
+    //
+    // ⚠ **这一行是本条唯一的判断分歧点**（施工单 §3 风险 2 的建议更保守：先只给
+    // `ks_ping`/`ks_resolve_clause`/`ks_materials`，把 ks_answer/ks_effect_report 留到
+    // e2e 有墙钟数据再加）。保留 `true` 的理由：①判据是"会不会改父级状态"而不是"会不会更快"；
+    // ②引擎是单进程，串行只是**慢**，不是**错**；③施工单的验收表 C1 明写"除 ks_collect 外
+    // 5 个"。
+    // 已知**未实测**的代价：它最慢（内层 120s、引擎里还要跑一次 LLM）。若同一轮模型连发两条
+    // ks_answer，并行会把它们同时压进引擎；引擎若串行处理，第二条会**在排队期间**消耗自己的
+    // 120s 预算。这是"慢"不是"错"，但复核时应盯这一点（想更保守就把本行删掉，C1 同步改成 4）。
+    isConcurrencySafe: () => true,
     async execute(args, exec) {
       const query = String((args && args.query) ?? '').trim()
       if (!query) throw new Error('ks_answer: "query" is required and must be a non-empty string')

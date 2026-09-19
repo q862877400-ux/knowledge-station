@@ -113,8 +113,23 @@ export function killPid(pid) {
 }
 
 /**
- * 合并多个 AbortSignal：任一 abort 即 abort。自己实现而不依赖
- * `AbortSignal.any`（Node 20.3+ 才有），保持插件对 DSH 各 Node 版本可用。
+ * 合并多个 AbortSignal：任一 abort 即 abort。
+ *
+ * **为什么不用 `AbortSignal.any`**（2026-10，第 6 步 §4）：
+ * ① 官方自己在**同位点**明确避开它——「Fuse caller and wrapper cancellation **without
+ *    nesting `AbortSignal.any`**. Keeping the relay dispatch-scoped also removes listeners
+ *    when work settles.」((DSH) `packages/core/tools/src/index.ts:1905-1908`)。
+ *    理由正是本函数要解决的问题：`AbortSignal.any` 不给你一个"工作结束时把监听摘掉"的把手，
+ *    而我们要（见下面的 `dispose`）。官方在别处确实用它（`agent-loop/src/index.ts:882`），
+ *    两种都能用——判据是"要不要显式 dispose"，不是"必须换"。
+ * ② 旧注释写的"不依赖它（Node 20.3+ 才有）"**已过期**：宿主下限是 Node 22.19
+ *    ((DSH) 根 `package.json` engines)，本机实测 v26.7.0，`AbortSignal.any` 存在。
+ *    那句话删掉了——留着一句不成立的理由比没有理由坏。
+ *
+ * **返回值是 `{ signal, dispose }`，不是裸 signal**（签名变更，3 个调用点同步改）：
+ * 本函数往**输入的**每个 signal 上加了一个 abort 监听，只有调用方在结束时 `dispose()`
+ * 才能把它们摘掉。旧实现返回裸 signal，于是"加进去的监听永不摘"——实测 added=1/removed=0
+ * （见 `plugin/scripts/smoke-cancel.mjs` 的 D1）。`dispose` 幂等。
  *
  * 放在 engine.js 的理由（2026-09-17）：它服务于"给引擎调用配超时/取消"这件事，
  * 而各工具的 HTTP 调用都过本模块。原先它在 index.js 里，于是**任何**新工具模块
@@ -123,32 +138,144 @@ export function killPid(pid) {
  */
 export function combineSignals(...signals) {
   const list = signals.filter((s) => s && typeof s.addEventListener === 'function')
-  if (list.length === 0) return undefined
-  if (list.length === 1) return list[0]
+  // 没有可合并的 / 只有一个：不需要中转控制器，`dispose` 是空操作。
+  // （仍返回同一形状，避免调用点要分两种返回值处理——那正是"静默失效"的温床。）
+  if (list.length === 0) return { signal: undefined, dispose() {} }
+  if (list.length === 1) return { signal: list[0], dispose() {} }
   const controller = new AbortController()
+  const onAbort = () => controller.abort()
+  let attached = []
   for (const s of list) {
     if (s.aborted) {
       controller.abort()
       break
     }
-    s.addEventListener('abort', () => controller.abort(), { once: true })
+    s.addEventListener('abort', onAbort, { once: true })
+    attached.push(s)
   }
-  return controller.signal
+  let disposed = false
+  const dispose = () => {
+    if (disposed) return          // 幂等：重复 dispose 不许重复摘（计数会失真）
+    disposed = true
+    for (const s of attached) s.removeEventListener('abort', onAbort)
+    attached = []
+  }
+  // 某个输入**进来就是 aborted** —— 我们没往任何 signal 上加监听（循环里 break 了），
+  // 已经没有什么可摘；这里只是把状态收敛成"这次合并已经结束"。
+  if (controller.signal.aborted) dispose()
+  return { signal: controller.signal, dispose }
+}
+
+/**
+ * 把一次传输层失败翻成人话，**并且让"调用方取消"与"我们内层超时"分得开**。
+ *
+ * 缺陷本体（第 6 步 §4 实测）：改前两条路都只回 `error.message`，而
+ * `AbortController.abort()` 无 reason 时那个 message 就是
+ * `This operation was aborted` —— 排障时**分不清"用户点了停止"和"引擎太慢"**。
+ * 所以判据必须来自调用点的**局部事实**（`timedOut` 布尔 / caller signal 是否 aborted），
+ * **不许**去 match `error.message`。文案照 WeKnora 的 `describeTransportFailure`
+ * ((WK) `src/client.ts:331-337`) 的两种人话。
+ *
+ * 第三种（真传输错误，如 ECONNREFUSED）原样透出——不要把它也糊成"被取消"。
+ */
+export function describeTransportFailure(error, { callerAborted = false, timedOut = false } = {}) {
+  if (callerAborted) return 'the call was cancelled'
+  if (timedOut) return 'the request timed out'
+  return error instanceof Error ? error.message : String(error)
+}
+
+/**
+ * 一次传输调用的取消/超时管路：把**调用方的 signal** 与**我们自己的 `timeoutMs`**
+ * 融到一个本函数独占的 controller 上，并给出 `dispose()`。
+ *
+ * 与 `combineSignals` 同样的"谁加谁摘"纪律：这里往调用方 signal 上加的监听，
+ * `dispose()` 一定摘掉（`apiGet`/`apiGetBytes`/`apiPost` 的 `finally` 都调它）。
+ */
+function armTransportCall(signal, timeoutMs) {
+  const attached = signal && typeof signal.addEventListener === 'function' ? signal : null
+  const controller = new AbortController()
+  let timedOut = false
+  let callerAborted = !!(attached && attached.aborted)
+  const onAbort = () => {
+    callerAborted = true
+    controller.abort(attached.reason)
+  }
+  if (attached && !callerAborted) attached.addEventListener('abort', onAbort, { once: true })
+  const timer = setTimeout(() => {
+    timedOut = true
+    // 带上 reason：`error.name === 'TimeoutError'` 也能分流（文案之外的第二个判据）。
+    controller.abort(new DOMException('the request timed out', 'TimeoutError'))
+  }, timeoutMs)
+  return {
+    signal: controller.signal,
+    /** 调用方**在开始之前**就已经取消了 —— 一根线都不用碰。 */
+    preAborted: callerAborted,
+    /** 把 catch 到的东西翻成 { status, ok, error, error_code? }（各 apiX 再并自己的字段）。 */
+    failure(error) {
+      const byCaller = callerAborted || !!(attached && attached.aborted)
+      return {
+        status: 0,
+        ok: false,
+        error: describeTransportFailure(error, { callerAborted: byCaller, timedOut }),
+        // 机器可读的第二判据：改前这一格不存在，两条路在结构上无从区分。
+        ...(byCaller ? { error_code: 'CANCELLED' }
+          : timedOut ? { error_code: 'TIMEOUT' } : {}),
+      }
+    },
+    dispose() {
+      clearTimeout(timer)
+      if (attached) attached.removeEventListener('abort', onAbort)
+    },
+  }
+}
+
+/**
+ * 等 `promise`，但 `signal` 一 abort 就**停止等待**（不取消底下的工作）。
+ * 每一条结算路径都摘掉自己加的监听（与 `combineSignals` 同款）。
+ *
+ * 为什么要"只影响等不等结果"：`ensureLive` 的 in-flight promise 是**多个调用方共享**的。
+ * 旧写法把"第一个调用方"的 signal 交给整段探活/spawn（见 `ensureLive`），于是那一个
+ * 调用方被取消会把**同轮并行的其它工具**一起拖垮——而 `timeout-policy` 正是**按每一条
+ * 工具调用**替换 `exec.signal` 的（(DSH) `packages/guard/timeout-policy/src/index.ts:61-66`），
+ * 所以这不是罕见路径（第 6 步 §3 风险 1）。
+ */
+function awaitOwn(promise, signal) {
+  const attached = signal && typeof signal.addEventListener === 'function' ? signal : null
+  if (!attached || promise === undefined) return promise
+  if (attached.aborted) return Promise.reject(callerCancelError())
+  return new Promise((resolve, reject) => {
+    const onAbort = () => {
+      attached.removeEventListener('abort', onAbort)
+      reject(callerCancelError())
+    }
+    attached.addEventListener('abort', onAbort, { once: true })
+    const settle = (fn) => (value) => {
+      attached.removeEventListener('abort', onAbort)
+      fn(value)
+    }
+    promise.then(settle(resolve), settle(reject))
+  })
+}
+
+/** 调用方取消时抛给工具的错误（文案与 `describeTransportFailure` 同源）。 */
+function callerCancelError() {
+  const error = new Error('the call was cancelled')
+  error.name = 'AbortError'
+  error.code = 'CANCELLED'
+  return error
 }
 
 /** GET one JSON endpoint through the local FastAPI, returning status + body. */
 export async function apiGet(base, path, { token, signal, timeoutMs = 10000 } = {}) {
-  const controller = new AbortController()
-  const onAbort = () => controller.abort()
-  if (signal) {
-    if (signal.aborted) controller.abort()
-    else signal.addEventListener('abort', onAbort, { once: true })
+  const call = armTransportCall(signal, timeoutMs)
+  if (call.preAborted) {
+    call.dispose()
+    return { body: null, text: '', ...call.failure(null) }
   }
-  const timer = setTimeout(() => controller.abort(), timeoutMs)
   const headers = {}
   if (token) headers.Authorization = `Bearer ${token}`
   try {
-    const res = await fetch(`${base}${path}`, { headers, signal: controller.signal })
+    const res = await fetch(`${base}${path}`, { headers, signal: call.signal })
     const text = await res.text()
     let body = null
     if (text.length > 0) {
@@ -160,16 +287,9 @@ export async function apiGet(base, path, { token, signal, timeoutMs = 10000 } = 
     }
     return { status: res.status, ok: res.ok, body, text }
   } catch (error) {
-    return {
-      status: 0,
-      ok: false,
-      body: null,
-      text: '',
-      error: error instanceof Error ? error.message : String(error),
-    }
+    return { body: null, text: '', ...call.failure(error) }
   } finally {
-    clearTimeout(timer)
-    if (signal) signal.removeEventListener('abort', onAbort)
+    call.dispose()
   }
 }
 
@@ -188,18 +308,16 @@ export async function apiGetBytes(
   base, path,
   { token, signal, timeoutMs = 30000, captureHeaders = [] } = {},
 ) {
-  const controller = new AbortController()
-  const onAbort = () => controller.abort()
-  if (signal) {
-    if (signal.aborted) controller.abort()
-    else signal.addEventListener('abort', onAbort, { once: true })
+  const call = armTransportCall(signal, timeoutMs)
+  if (call.preAborted) {
+    call.dispose()
+    return { bytes: null, headers: {}, ...call.failure(null) }
   }
-  const timer = setTimeout(() => controller.abort(), timeoutMs)
   const headers = {}
   if (token) headers.Authorization = `Bearer ${token}`
   headers.accept = 'image/png,image/*'
   try {
-    const res = await fetch(`${base}${path}`, { headers, signal: controller.signal })
+    const res = await fetch(`${base}${path}`, { headers, signal: call.signal })
     const buffer = new Uint8Array(await res.arrayBuffer())
     const out = { status: res.status, ok: res.ok, bytes: buffer, headers: {} }
     const ct = res.headers.get('content-type')
@@ -210,16 +328,9 @@ export async function apiGetBytes(
     }
     return out
   } catch (error) {
-    return {
-      status: 0,
-      ok: false,
-      bytes: null,
-      headers: {},
-      error: error instanceof Error ? error.message : String(error),
-    }
+    return { bytes: null, headers: {}, ...call.failure(error) }
   } finally {
-    clearTimeout(timer)
-    if (signal) signal.removeEventListener('abort', onAbort)
+    call.dispose()
   }
 }
 
@@ -231,13 +342,11 @@ export async function apiGetBytes(
  * request parsing stays in charge for GET-like POSTs.
  */
 export async function apiPost(base, path, { token, signal, timeoutMs = 10000, body } = {}) {
-  const controller = new AbortController()
-  const onAbort = () => controller.abort()
-  if (signal) {
-    if (signal.aborted) controller.abort()
-    else signal.addEventListener('abort', onAbort, { once: true })
+  const call = armTransportCall(signal, timeoutMs)
+  if (call.preAborted) {
+    call.dispose()
+    return { body: null, text: '', ...call.failure(null) }
   }
-  const timer = setTimeout(() => controller.abort(), timeoutMs)
   const headers = {}
   if (body !== undefined) headers['Content-Type'] = 'application/json'
   if (token) headers.Authorization = `Bearer ${token}`
@@ -246,7 +355,7 @@ export async function apiPost(base, path, { token, signal, timeoutMs = 10000, bo
       method: 'POST',
       headers,
       body: body === undefined ? undefined : JSON.stringify(body),
-      signal: controller.signal,
+      signal: call.signal,
     })
     const text = await res.text()
     let parsed = null
@@ -259,16 +368,9 @@ export async function apiPost(base, path, { token, signal, timeoutMs = 10000, bo
     }
     return { status: res.status, ok: res.ok, body: parsed, text }
   } catch (error) {
-    return {
-      status: 0,
-      ok: false,
-      body: null,
-      text: '',
-      error: error instanceof Error ? error.message : String(error),
-    }
+    return { body: null, text: '', ...call.failure(error) }
   } finally {
-    clearTimeout(timer)
-    if (signal) signal.removeEventListener('abort', onAbort)
+    call.dispose()
   }
 }
 
@@ -327,6 +429,8 @@ export class EngineManager {
     this._disposed = false
     /** 批3：进行中的 spawn（并发 ensureLive 合并用；null=无进行中）。 */
     this._spawning = null
+    /** 第 6 步 §4B-3：这次探活/spawn 的**内部** controller（不绑第一个调用方）。 */
+    this._spawnAbort = null
     /** 批3：死会话是否已留档过（一次 manager 生命周期只留一份，避免刷屏）。 */
     this._staleSessionLogged = false
   }
@@ -384,14 +488,37 @@ export class EngineManager {
       return Promise.reject(new Error('ks-engine manager is disposed'))
     }
     this.touchActivity()
-    if (this._spawning) return this._spawning
-    const run = this._ensureLive(signal)
-    this._spawning = run
-    return run.finally(() => {
-      // run 可能已 reject——finally 之后 _spawning 归 null，下一个调用正常重入
-      // （并发窗口内的后来者拿到同一份结果，包括同一份错误）。
-      if (this._spawning === run) this._spawning = null
-    })
+    if (!this._spawning) {
+      // 第 6 步 §4B-3（§3 并行的前置）：探活/spawn 用**内部** signal，**不绑第一个调用方**。
+      // 旧写法 `this._ensureLive(signal)` 让"第一个调用方"的取消决定整段共享操作的命运：
+      // 它一 abort，`/health` 探活就以 status 0 结束，而下面把它**一律解释成"没有健康实例"**
+      // ⇒ 继续 spawn，且带着已 abort 的 signal ⇒ 同轮并行、共享这份 promise 的**其它工具**
+      // 一起失败。`timeout-policy` 是按**每一条工具调用**替换 `exec.signal` 的
+      // ((DSH) `packages/guard/timeout-policy/src/index.ts:61-66`)，所以分开之后这条路会变常态。
+      //
+      // ⚠ **有意的取舍**：调用方取消**不再**终止冷启动——"用户点停止"之后，这次
+      // startupTimeoutMs（默认 60s）以内的冷启动会**继续跑完**。换来的是"一个工具被取消
+      // 不拖垮同轮其它工具"。别把它当"取消失效"的 bug（§4B-3 风险 5）。
+      // 需要真停的时候只有一条路：`dispose()`（下面会 abort 这个内部 controller）。
+      const controller = new AbortController()
+      this._spawnAbort = controller
+      const run = this._ensureLive(controller.signal)
+      this._spawning = run
+      // 单次注册（不是 `run.catch().finally()` 的两段链）：清理必须排在任何调用方的
+      // `then` **之前**跑完，否则调用方一恢复就还会看见一个**已结算**的 `_spawning`
+      // （于是"刚结束就又调一次"会复用旧结果，而不是重新探活）。两段链会多一个微任务。
+      const clearSpawning = () => {
+        // run 可能已 reject——清理后 _spawning 归 null，下一个调用正常重入
+        // （并发窗口内的后来者拿到同一份结果，包括同一份错误）。
+        if (this._spawning === run) {
+          this._spawning = null
+          this._spawnAbort = null
+        }
+      }
+      run.then(clearSpawning, clearSpawning)
+    }
+    // 调用方的取消只影响"等不等结果"：立刻 reject 这一个调用方，底下的引擎照起。
+    return awaitOwn(this._spawning, signal)
   }
 
   async _ensureLive(signal) {
@@ -541,6 +668,13 @@ export class EngineManager {
     if (this._disposed) return
     this._disposed = true
     this.clearIdle()
+    // 内部 spawn controller 的**唯一** abort 点：让一次进行中的冷启动当场收摊
+    // （`spawnEngine` 的 `signal.aborted` 分支因此不是死代码）。调用方 signal 做不到这件事
+    // ——那是上面 ensureLive 的有意取舍。
+    if (this._spawnAbort) {
+      try { this._spawnAbort.abort() } catch { /* controller 已被丢弃 */ }
+      this._spawnAbort = null
+    }
     this.killOwned()
   }
 }
