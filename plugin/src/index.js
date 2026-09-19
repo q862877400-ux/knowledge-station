@@ -60,9 +60,16 @@ export const name = 'ks-dsh-plugin'
 
 /**
  * Services required before the plugin mounts.
- * `agents` 用于查法规模式的子会话继承（沿 session.header.parentSession 向上解析）。
+ *
+ * ⚠ **这里只放"硬依赖"**：缺了它整块功能就没有意义的服务。可缺省的一律走 `ctx.get(name)`。
+ * 复核（2026-09-19）抓到我把这条只做了一半：`agents`/`commands` 已经在代码里改用
+ * `ctx.get(...)` 读取，**却还留在 inject 数组里** —— 后果是"真缺服务"时插件永远 PENDING
+ * 且什么都不打印，为它们写的那层兜底**永远够不着**（死代码）。
+ * ⇒ 现在真的移出去了：`agents`（查法规模式的子会话继承）与 `commands`（斜杠命令注册）
+ * 都走 `ctx.get()`，缺了就在调用点**出声**而不是让整个插件挂起。
+ * `webServer` 留在 inject：没有它 `/ks/*` 整面路由不存在，那不是"降级"而是"没有插件"。
  */
-export const inject = ['tools', 'webServer', 'systemPrompt', 'agents', 'commands']
+export const inject = ['tools', 'webServer', 'systemPrompt']
 
 /**
  * 部署配置的 **schema**（官方要求：`Config` 必须是标准 schema）。
@@ -77,21 +84,29 @@ export const inject = ['tools', 'webServer', 'systemPrompt', 'agents', 'commands
  * 传错没有任何校验。字段与默认值与原 `DEFAULTS` **逐条一致**（所以加上它**不改变行为**，
  * 只是把"写错配置"从静默变成当场报错）。
  *
- * ⚠ 三个留空的键（`engineRoot` / `python` / `trustedHosts`）**刻意不给 `.default()`**：
- * 它们的"未设置"是有意义的状态（分别代表"用 EngineManager 默认根"、
- * "用 `$KS_PYTHON` 或仓内 .venv"、"只信回环"），给默认值会把"没配"伪装成"配了这个值"。
+ * ⚠ **`engineRoot` / `python` 刻意不给 `.default()`**：它们的"未设置"是有意义的状态
+ * （分别代表"用 EngineManager 默认根"、"用 `$KS_PYTHON` 或仓内 .venv"），
+ * 给默认值会把"没配"伪装成"配了这个值"。
+ * ⚠ **但 `trustedHosts` 是拿不到"未设置"的**（复核 2026-09-19 实测把我原先这句写错了）：
+ * `Schema.array(...)` 自带 `default: []` ⇒ 它总是得到 `[]`，不是 `undefined`。
+ * 行为上 `[]` 与"没配"等价（`trust.js` 用 `Array.isArray` 判），所以这不是缺陷，
+ * **只是那句注释说错了**，已更正（冒烟同时钉住五个键各自的默认值）。
  *
  * ## ⚠ 本 schema **只挡类型错，挡不住键名拼错**（实测，别把这两件事混说）
- * 官方仓库的插件写 `}).strict()`，但**那是另一个版本的 schemastery**：
- * 我们这里（`@deepseek-ai/schemastery` 3.18.2，经 dsh-tools/cordis 传递而来）
- * **没有 `.strict()`**（我加上去 ⇒ `TypeError: ... .strict is not a function`，
+ * 官方仓库的插件确实写 `}).strict()`，但**那来自 zod**（他们用 `z.object({...})` 定义 Config），
+ * **不是** schemastery 的能力。我们这份 `@deepseek-ai/schemastery` 3.18.2（宿主 `vendor/`
+ * 与我们同一个版本）**没有 `.strict()`**（加上去 ⇒ `TypeError: ... .strict is not a function`，
  * 插件**加载即失败**）；`.loose(false)` 也**照旧保留未知键**（实测 `{typo:2}` 原样通过）。
  * ⇒ 所以"未知键"这件事改由 `apply` 里的显式检查兜住（见 `apply` 开头），
  * 这样类型错与键名错**都能当场报错**，而不是只有一半。
+ * （另一条路是改用 zod 的 `.strict()` 让 Loader 自己拒 —— 那要依赖 zod 并验证宿主 cordis
+ * 接受 zod schema，**本轮没做**，登记在 [适配审计](docs/DSH-ALIGNMENT-AUDIT.md) 的积压里。）
  *
  * 验证过（本地实测）：`{idleTimeoutMs:'soon'}` ⇒ `$.idleTimeoutMs expected number but got soon`；
  * `{trustedHosts:'1.2.3.4'}` ⇒ `$.trustedHosts expected array but got 1.2.3.4`；
- * `{}` ⇒ 只填两个有默认值的键（`startupTimeoutMs` / `idleTimeoutMs`）。
+ * `{}` ⇒ **只有带默认值的三个键出现在解析结果里**（`startupTimeoutMs` / `idleTimeoutMs` /
+ * `trustedHosts=[]`），`engineRoot`/`python` **整个缺席**（不是 undefined 值 —— 实测
+ * `Object.keys(config)` 只有那三个键）。
  */
 export const Config = Schema.object({
   engineRoot: Schema.string().description('引擎仓库根目录；不填则用 EngineManager 的默认（本插件所在仓）'),

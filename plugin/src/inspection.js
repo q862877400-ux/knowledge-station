@@ -981,9 +981,13 @@ export function __resetInspectionForTests() {
  *  这些窗口里，`registerKsInspectionRoutes` 的 disposer 会先跑完（那时 `_autoTimer` 还是
  *  null、`_autoPoll` 也还没建），随后本函数继续执行就会**在 dispose 之后安装一个 30s
  *  `setInterval`**，它持有已 dispose 的 ctx，且模块级 `_autoTimer` 只留一个句柄 ⇒
- *  再也没人能清掉它。`_autoEpoch` 就是为此存在的：disposer 递增，本函数在每个
- *  await 之后比对一次自己进入时的代数，不一致就整段作废。
- *  守卫见 scripts/smoke-lifecycle.mjs B1/B2/B3。
+ *  再也没人能清掉它。`_autoEpoch` 就是为此存在的：disposer 递增，本函数在**每次安装
+ *  句柄之前**比对自己进入时的代数，不一致就整段作废。
+ *  ⚠ **更正（复核 2026-09-19 打回）**：我原先写的是"在**每个** await 之后比对一次"——
+ *  那句话**不成立**：`await finalizeBatch(...)` 之后就没有比对（而 `finalizeBatch` 自己的
+ *  尾巴会跨模块装公告扫描轮询 ⇒ 那是个真洞）。洞已修在 `finalizeBatch` **内部**
+ *  （进入时记代数、尾巴调用前比对），因为"放在调用方比对"太晚 —— 尾巴早执行完了。
+ *  守卫见 scripts/smoke-lifecycle.mjs B1/B2/B3/B4。
  */
 export async function inspectionStartupCheck(ctx, manager) {
   const epoch = _autoEpoch

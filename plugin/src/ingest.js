@@ -748,8 +748,10 @@ export function registerKsIngestRoutes(ctx, manager) {
     // 递增代数是必须的（作废仍在飞的启动收尾）；"放在 stopJobPoll 之前"不是必须的
     // ——disposer 体全同步，两条语句之间不可能插入续体（复核实测：对调不改变结果）。
     // ⚠ 这里曾经**连 stopJobPoll 都没有**：而本模块的轮询是 `while(!jobTick(jobId))`，
-    //   它**只在 `_jobPoll` 被清空时才自终止** ⇒ 卸载后会一直轮询（潜伏的无界泄漏，
-    //   独立复核用变异体实测：卸载后 3.5s 内又 ensureLive 2 次，上限 6h）。此前没人发现，
+    //   它**只在 `_jobPoll` 被清空时才自终止** ⇒ 卸载后仍会继续轮询（潜伏的泄漏，
+    //   **不被 dispose 终止**；最长被 `JOB_RUNNING_CAP_MS`（6h）截断，期间反复 `ensureLive()`。
+    //   ⚠ 复核 2026-09-19 提醒：我原先写的"无界"**说重了** —— 它是有 6h 上限的）。
+    //   复核用变异体实测：卸载后 3.5s 内又 `ensureLive` 2 次。此前没人发现，
     //   是因为 adoptJob 的参数错位（§10.135 一）让轮询根本没跑起来。
     _jobEpoch += 1
     stopJobPoll()

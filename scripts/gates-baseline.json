@@ -1,5 +1,12 @@
 {
-  "updatedAt": "2026-09-19T21:38:39",
-  "pytest_passed": 2143,
-  "pytest_skipped": 3
+  "pytest_total": 2180,
+  "pytest_passed": 2177,
+  "pytest_skipped": 3,
+  "runLive": false,
+  "skip_reasons": [
+    "reranker ģ��δ���أ�������ʵģ������",
+    "��ʵ���� GB30871��CI/�»�����",
+    "��ѡ������������ RUN_LIVE=1 ��ʵ�ܣ�ANOM-002 �ع���֤��"
+  ],
+  "updatedAt": "2026-09-19T22:23:54"
 }

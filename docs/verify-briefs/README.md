@@ -31,3 +31,9 @@
   `ks-inspection.json` / `ks-chatmode.json` 落哪。实测后果：复核在 `35f024a` 树上跑
   `smoke-ingest` 把一条**假任务**（`pjob_smoke1`/`pending`）写进了**真实**
   `%APPDATA%\KnowledgeStation`，而真产品启动时会去**接管**它。⇒ `$env:KS_DATA_DIR = <temp>`。
+  **2026-09-19 加固**：`run-gates.ps1` 现在**自己**给整轮设临时 `KS_DATA_DIR`（并在结束时恢复）
+  ⇒ 走脚本这条路不会再污染；但**直接 `node scripts/smoke-*.mjs` 仍不受保护**，那条要自己设。
+- **⚠ 门禁的 `-Full` 退出码才是判据**：汇总行「6/6 步通过」在 2026-09-19 之前可能伴随
+  **exit 1**（棘轮红）——那次是"棘轮与环境耦合"的假绿，已修；此后棘轮结论直接印在汇总行上。
+  复核若见到红，先看**棘轮那一行**（`passed+skipped` 总账与 `skip_reasons` 有没有新理由），
+  再看是不是任务书要求的等锁。

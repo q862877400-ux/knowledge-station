@@ -56,7 +56,7 @@
  * 已知边界（诚实标注）：
  * - DSH 的 `complete: true` 提示段会让最终 prompt **只剩该段**（persona preset 可启用），
  *   此时本段会被整体吞掉。所以本特性不把它当唯一护栏（工具层强制是主护栏）；
- * - 继承只在**父 agent 仍活跃**时成立（`ctx.agents.get(parent)` 解析父会话；冷父/已被
+ * - 继承只在**父 agent 仍活跃**时成立（`ctx.get('agents').get(parent)` 解析父会话；冷父/已被
  *   回收的父会话静默不继承）；
  * - `apply()` 预热与"重启后第一个回合"之间仍有毫秒级窗口（磁盘读），该回合可能少注入
  *   一次纪律段；工具层门禁在调用时求值，不受影响；
@@ -906,7 +906,7 @@ export function makeChatModeSection(opts = {}) {
       if (typeof sessionId !== 'string') return ''
       const header = context?.agent?.session?.header
       // 默认只做一跳（子会话 → 父会话）：从 agent 自身能拿到的只有 header.parentSession；
-      // 更深层由 index.js 经 ctx.agents 注入的 resolver 解析。
+      // 更深层由 index.js 经 ctx.get('agents') 注入的 resolver 解析。
       const parentSessionOf = opts.parentSessionOf
         ?? ((sid) => (sid === sessionId ? header?.parentSession ?? null : null))
       return forensicPromptFor(sessionId, { parentSessionOf })
@@ -1111,20 +1111,24 @@ export function makeChatModeCommands(opts = {}) {
  * 把两条命令注册进 host 的命令表。返回 disposer 数组（cordis effect 会调用）。
  *
  * 兜底是**唯一一处**（不在调用方再包一层不可测的外层 try）：
- *   1. 服务解析在循环外一次做完：`ctx.commands` 缺失/不是预期形状 → 吼日志后返回空数组；
- *   2. 逐条注册各自 try：`ctx.commands.register` 会走 host 侧 normalizeDefinition 校验，
+ *   1. 服务解析在循环外一次做完：`ctx.get('commands')` 缺失/不是预期形状 → 吼日志后返回空数组；
+ *   2. 逐条注册各自 try：`commands.register` 会走 host 侧 normalizeDefinition 校验，
  *      校验不过**抛异常**——只让失败的那条不注册，其余照常。
  * 这两条合起来保证：一条命令定义的失误不会冒出 apply()，把整个宿主半边
  * （全部 /ks/* 路由、提示段、模型工具）一起带走。
  *
- * @param {{commands?: {register?: Function}}} ctx
+ * ⚠ `ctx.get('commands')`（不是 `ctx.commands`）：`commands` 已从 `inject` 移出
+ * （复核 2026-09-19：它留在 inject 里，导致"真缺服务"时插件永远 PENDING、
+ * 而这里这层兜底**永远够不着**）。官方 postmortem 的口径也是 use `ctx.get(name)`。
+ *
+ * @param {{get?: (name: string) => any}} ctx
  * @returns {Array<() => void>} 已成功注册命令的 disposer
  */
 export function registerKsChatModeCommands(ctx, opts = {}) {
   const disposers = []
-  const table = ctx?.commands
+  const table = typeof ctx?.get === 'function' ? ctx.get('commands') : undefined
   if (typeof table?.register !== 'function') {
-    console.error('[ks-dsh-plugin] 命令服务不可用（ctx.commands.register 不存在），斜杠命令未注册；'
+    console.error('[ks-dsh-plugin] 命令服务不可用（ctx.get("commands") 里没有 register），斜杠命令未注册；'
       + '查法规模式本体不受影响（提示段与工具层仍生效）')
     return disposers
   }

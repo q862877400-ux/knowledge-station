@@ -997,8 +997,12 @@ check('turning one off frees a slot',
   // 注册面：每个声明的命令都要真的进命令表，且 disposer 可撤销
   {
     const registered = []
+    // ⚠ 要经 `ctx.get('commands')` 拿（`commands` 已从 `inject` 移出，插件一律走 get）。
+    //   只给 `commands` 属性不给 `get()` 的桩 = **桩与真契约不一致** ⇒ 假红（复核 2026-09-19）。
     const disposers = chat.registerKsChatModeCommands({
-      commands: { register(def) { registered.push(def); return () => {} } },
+      get: (name) => (name === 'commands'
+        ? { register(def) { registered.push(def); return () => {} } }
+        : undefined),
     })
     check('registerKsChatModeCommands registers every declared command into the host table',
       registered.length === expectedNames.length && typeof disposers[0] === 'function',
@@ -1071,9 +1075,16 @@ check('state path follows $KS_CHATMODE_DIR (the isolation mechanism itself works
 check('without $KS_CHATMODE_DIR the default path is the real %APPDATA%\\KnowledgeStation',
   (() => {
     const saved = process.env.KS_CHATMODE_DIR
+    // ⚠ 也要摘掉 `KS_DATA_DIR`：默认路径链是 `KS_CHATMODE_DIR` → `KS_DATA_DIR` → `%APPDATA%`，
+    //   而门禁（2026-09-19 起）**自己**给整轮设临时 `KS_DATA_DIR`（防冒烟污染真实数据区）
+    //   ⇒ 不摘它，这条断言测的就是那个临时目录，成了假红。
+    const savedData = process.env.KS_DATA_DIR
     delete process.env.KS_CHATMODE_DIR
+    delete process.env.KS_DATA_DIR
     const fallback = chat.chatModeFilePath()
     process.env.KS_CHATMODE_DIR = saved
+    if (savedData === undefined) delete process.env.KS_DATA_DIR
+    else process.env.KS_DATA_DIR = savedData
     return fallback.endsWith(join('KnowledgeStation', 'ks-chatmode.json'))
       && !fallback.startsWith(dataDir)
   })(), chat.chatModeFilePath())

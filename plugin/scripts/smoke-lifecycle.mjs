@@ -205,7 +205,7 @@ await writeFile(join(dataDir, 'ks-inspection.json'), JSON.stringify({
 const SCAN_LAST_MARK = '/api/v1/update/announce-scan/last'
 let summariesStarted = false
 let releaseSummaries = null
-const summariesGate = new Promise((resolve) => { releaseSummaries = resolve })
+let summariesGate = new Promise((resolve) => { releaseSummaries = resolve })
 let scanProbes = 0
 let scanProbesAfterDispose = 0
 let disposedFlag = false
@@ -258,6 +258,32 @@ await new Promise((resolve) => { setTimeout(resolve, 200) })
 check('B4 卸载后不许再装跨模块轮询（finalize 尾巴的 triggerAfterInspection）',
   reached === true && scanProbesAfterDispose === 0,
   `reached=${reached} scanProbes=${scanProbes} afterDispose=${scanProbesAfterDispose}`)
+
+/* B5 —— **正向对照**：同一场景**不卸载**时，必须真的探测公告扫描端点。
+   没有这一条，B4 会被"把 stub 的 scan_id 去掉"骗过（复核 2026-09-19 实测：那样 B4 仍绿）：
+   只断言"卸载后不许探测"的实现，在"根本不会探测"的假桩下也是绿的。 */
+__resetInspectionForTests()
+await writeFile(join(dataDir, 'ks-inspection.json'), JSON.stringify({
+  last: { batch_id: 'batch-smoke-B5', status: 'running', total: 1 },
+  stale_run: false,
+}, null, 2), 'utf8')
+
+summariesStarted = false
+summariesGate = new Promise((resolve) => { releaseSummaries = resolve })
+releaseSummaries()                      // B5 不需要卡住：让它一路走完
+scanProbes = 0
+disposedFlag = false
+
+const disposeInspection5 = registerKsInspectionRoutes(webCtx, managerB)
+const disposeAnnounce5 = registerKsAnnounceRoutes(announceCtx, managerB)
+await inspectionStartupCheck(webCtx, managerB)
+await waitFor(() => scanProbes > 0, 2000, 10)
+const cleanProbes = scanProbes
+disposeInspection5()                    // 清掉 B5 装上的 30s 定时器（否则进程不退出）
+disposeAnnounce5()
+
+check('B5 正向对照：不卸载时**必须**探测（证明 B4 不是"永远不探测"的假绿）',
+  cleanProbes > 0, `scanProbes=${cleanProbes}`)
 
 globalThis.fetch = realFetch2
 

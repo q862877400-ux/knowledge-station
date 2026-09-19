@@ -170,7 +170,10 @@ async function main() {
         systemPrompt: { section() { return () => {} } },
         agents: { get() { return undefined } },
         // ⚠ 可缺省服务要走 ctx.get()（见文件顶部说明）：桩必须实现它，否则是假红。
-        get(name) { return name === 'agents' ? this.agents : undefined },
+        // ⚠ 桩必须覆盖**可缺省服务**（agents/commands）：inject 里已经没有它们，
+        //   插件一律走 ctx.get(name) 读（复核 2026-09-19 抓到 inject 只改了一半）。
+        //   原先这里只放行 agents ⇒ 换读法后 commands 拿不到 ⇒ 假红。
+        get(name) { return this[name] },
         commands: { register(def) {
           if (def.name === 'forensic') throw new TypeError('command name "forensic" must match /^[a-z][a-z0-9_-]*$/u')
           partial.push(def.name)
@@ -196,7 +199,10 @@ async function main() {
         systemPrompt: { section() { return () => {} } },
         agents: { get() { return undefined } },
         // ⚠ 可缺省服务要走 ctx.get()（见文件顶部说明）：桩必须实现它，否则是假红。
-        get(name) { return name === 'agents' ? this.agents : undefined },
+        // ⚠ 桩必须覆盖**可缺省服务**（agents/commands）：inject 里已经没有它们，
+        //   插件一律走 ctx.get(name) 读（复核 2026-09-19 抓到 inject 只改了一半）。
+        //   原先这里只放行 agents ⇒ 换读法后 commands 拿不到 ⇒ 假红。
+        get(name) { return this[name] },
         commands: undefined,
         effect(fn) { return fn() },
       }
@@ -760,6 +766,17 @@ async function main() {
       okCfg.startupTimeoutMs === 60_000 && okCfg.idleTimeoutMs === 30 * 60 * 1000
       && okCfg.engineRoot === undefined && okCfg.python === undefined,
       JSON.stringify(okCfg))
+    // 复核 2026-09-19：上面那条只断言了两个键 ⇒ 把"trustedHosts 也没有默认值"这句错话
+    // **保护住了**（实测 `Schema.array(...)` 自带 `default: []`，它拿得到 `[]`）。
+    // 五键逐个钉：**带默认值的三个键出现在解析结果里**，没默认值的两个**缺席**
+    // （实测 `Object.keys(config)` = startupTimeoutMs/idleTimeoutMs/trustedHosts）。
+    check('Config 的默认值：trustedHosts 得到 []（不是 undefined），engineRoot/python 缺席',
+      okCfg.trustedHosts !== undefined && Array.isArray(okCfg.trustedHosts)
+      && okCfg.trustedHosts.length === 0
+      && mod.CONFIG_KEYS.length === 5
+      && Object.keys(okCfg).length === 3
+      && !('engineRoot' in okCfg) && !('python' in okCfg),
+      `trustedHosts=${JSON.stringify(okCfg.trustedHosts)} keys=${JSON.stringify(Object.keys(okCfg))}`)
   }
 
   const failed = results.filter((r) => !r.ok)

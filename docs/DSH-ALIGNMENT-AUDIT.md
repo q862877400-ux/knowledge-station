@@ -5,7 +5,8 @@
 并要求单列「我不确定 / 没查到」。三份报告都读完，本节是结论与去向。
 
 > 一句话：**没有一个"结构性走错"**（bundle 形态、槽位契约、工具错误语义、注册可逆性、
-> `inject` 持续语义都经得起对照）；问题是**一批具体违规与缺护栏**，其中 7 条已在本轮修掉。
+> `inject` 持续语义都经得起对照）；问题是**一批具体违规与缺护栏**，表里 **10 条**已在本轮修掉
+> （⚠ 首次写下的是"7 条"，与表内 10 行、提交消息的 10 条自相矛盾 —— 就地更正）。
 
 ---
 
@@ -18,15 +19,20 @@
 | 3 | **7 个不存在的 `--dsw-alias-*` token、32 处**，全落到 `#b8860b`/`#c62828`/`#ccc` 等**写死兜底**；其中 `--dsw-alias-state-error-tertiary` **没写兜底** ⇒ 声明非法 ⇒「已废止」徽章底色**整个不存在** | `docs/web-styling.md`：只用存在的语义 token、**不许写死色值** | 全部换成真实 token（`state-warn-primary`/`state-error-primary`/`border-l2`/`bg-layer-2`/`bg-base`/`state-error-secondary`）**并删掉兜底色值**；新增**护栏**：渲染级冒烟断言"我们引用的每个 `--dsw-*` 都必须在主题里定义"（实测 24 个全部存在）+ **证伪过**（塞一个假的即红） |
 | 4 | 注入的 `<style>` **没标 `data-plugin`/`data-plugin-css`** ⇒ ①宿主 HMR 的 `removeOwnedStyles` 找不到我们的标签、而 `ensureKsStyles` 按 `#id` 去重直接 return ⇒ **改 CSS 必须整页刷新**（我们自找的例外）②别的插件 `claimStyles` 会把我们的标签认领走、卸载时删掉 | 宿主 `system.ts`/`entry-lifecycle.ts`/`manifest.ts` 的所有权规则（官方 preset 同形） | 两个属性都写；去重键改为 `style[data-plugin-css=…]`；**首次注入移到模块顶层**（落在 `claimStyles` 窗口内）；冒烟加断言钉住两个属性 |
 | 5 | `.ks-dot{border-radius:50%}` 缺 `corner-shape:round` ⇒ 支持 superellipse 的 Chromium 上圆点被压成方角 | `docs/web-styling.md`：full-round 半径必须配 `corner-shape:round` | 补上（官方那张同款卡用 24px 胶囊且**不**需要，故只改这一处） |
-| 6 | **`inject` 把"可缺省的服务"声明成硬依赖** ⇒ 为它们写的兜底是**死代码**；真缺服务时插件**永远 PENDING 且不打任何日志** | `cordis-tutorial/03-services.md`：「`inject` is for hard requirements…otherwise the consumer stays PENDING and prints nothing」；`postmortem/0001`：「use `ctx.get(name)`, never `ctx.<name>`」 | `agents`/`commands` 从 `inject` 移出、改走 **`ctx.get()`**；`webServer` 确认为**硬依赖**（没有它整个 `/ks/*` 消失）故留在 `inject`，但**删掉那层死兜底**、换成**当场抛错**。冒烟的假 `ctx` 同步实现 `get()`（桩与真契约一致，避免假红） |
+| 6 | **`inject` 把"可缺省的服务"声明成硬依赖** ⇒ 为它们写的兜底是**死代码**；真缺服务时插件**永远 PENDING 且不打任何日志** | `cordis-tutorial/03-services.md`：「`inject` is for hard requirements…otherwise the consumer stays PENDING and prints nothing」；`postmortem/0001`：「use `ctx.get(name)`, never `ctx.<name>`」 | ⚠ **这条第一轮只做了一半，复核抓住并列为"不成立"**：代码里已改用 `ctx.get()` 读，`inject` 数组却**一字未改**（`['tools','webServer','systemPrompt','agents','commands']`）⇒ 死兜底仍不可达。**第二轮真做了**：`inject = ['tools','webServer','systemPrompt']`；`chatmode.registerKsChatModeCommands` 改走 `ctx.get('commands')`（`agents` 早已是 `ctx.get`）；缺服务时**吼日志**而不是让整个插件挂起。冒烟假 `ctx` 同步实现 `get()`（桩与真契约一致） |
 | 7 | **我们全仓没有 `AGENTS.md`** —— 官方那层"每会话必读的站立指令"完全缺失，纪律散落在**史书**与**施工计划**里（归属错层） | `docs/AGENTS.md`：standing orders 住根 `AGENTS.md`（≤1950 字），"一个事实一个归属层" | 新建根 [`AGENTS.md`](../AGENTS.md)；把 `DEVELOPMENT-HISTORY` §五 与 `CHANNEL-COVERAGE-PLAN` §5 的**正文收敛过去**、原处只留**来历**（并指出 §五第 6 条原先自我重复，正是官方 slop 清单的 "duplicated rules"） |
-| 8 | **"门禁只涨不跌"是散文** —— 每轮靠人记得手敲 5–6 条命令、手抄数字 | `docs/development.md`：门禁即代码 | 新增 [`scripts/run-gates.ps1`](../scripts/run-gates.ps1)：`-Quick`/`-Full` 两档 + **锁文件**（并发跑门禁 ⇒ 当场退出码 3，因为并发会造假红）+ **读基线文件判"只涨不跌"**。基线已记：**pytest 2143 passed / 3 skipped**。锁的两个方向都实测过 |
+| 8 | **"门禁只涨不跌"是散文** —— 每轮靠人记得手敲 5–6 条命令、手抄数字 | `docs/development.md`：门禁即代码 | 新增 [`scripts/run-gates.ps1`](../scripts/run-gates.ps1)：`-Quick`/`-Full` 两档 + **锁文件**（并发跑门禁 ⇒ 当场退出码 3，因为并发会造假红）+ **读基线文件判"只涨不跌"**。⚠ 第一版的棘轮有两处缺陷，第二轮修掉（见 §三与 [开发史 §10.136](DEVELOPMENT-HISTORY.md)）：**与环境耦合**（基线记了 `RUN_LIVE` 环境的值 ⇒ 默认环境假红）与**命令不存在时假绿**（`$LASTEXITCODE` 残留 ⇒ 提取树里门禁恒绿） |
 | 9 | 复核任务书写在 **gitignored 的 `var/tmp/`** ⇒ 任务书与结论**都不在版本控制里** | 官方把证据放进 PR body 的 `<details>Proof</summary>` | 新增 [`docs/verify-briefs/`](../docs/verify-briefs/README.md)（含约定：冻结端点、提取树验证、首尾各记 `rev-parse`+`status`）；方案 §6 里的路径改过去 |
 | 10 | 权威导航层 `dshdocs-C.md` 里**留着一条已被 alpha.2 放宽的规则**，且没有反向指针 ⇒ 会被再引用一次 | 一个事实一个归属层 | 就地加反向指针指向 `ERRATA-alpha.2 §A2` |
 
-**门禁**：`run-gates.ps1 -Quick` **4/4**、`-Full` **6/6**（含 pytest 2143/3 与引擎 4/4）；
-`kb-page-render` 冒烟 **23/23**（⚠ 首次写下的是 22/22，实为 23 —— 就地更正，数字要回实测核）；
-`tool` 冒烟 **69/69**。
+**门禁（⚠ 这一段的原始版本是假绿，已按复核实测重写）**：原始版本写「`-Quick` 4/4、`-Full` 6/6
+（含 pytest 2143/3）」。**独立复核复现出真相**：`-Quick` 确实 4/4；但 `-Full` 在**默认环境**里
+`pytest` 是 **2142/4**，而基线记的是 **2143/3**（我这边 `Run-Live` 用例没被 skip 的环境值）
+⇒ 棘轮判红（**退出码 1**），而汇总行仍打印"6/6 步通过" —— 按本仓"以退出码为准"的口径，那是一处
+**假绿**（详见 [开发史 §10.136](DEVELOPMENT-HISTORY.md) 二，含修法：棘轮改按"账要平 + skip 理由集"判，
+且棘轮结论进汇总行）。当前值：`-Quick` **4/4**、`-Full` **6/6 且棘轮通过**（pytest **2177/3**、
+引擎门禁 4/4）；`kb-page-render` 冒烟 **23/23**（⚠ 首次写下的是 22/22 —— 就地更正，数字要回实测核）；
+`tool` 冒烟 **69/69**；`smoke` 全链 **25 套**（⚠ 首次写下"15 套"也是错的）。
 
 ---
 
@@ -37,6 +43,7 @@
 | **1** | **客户端文案 locale 化**：216 个 JSX 中文文本 + 86 个散文属性（aria/title/placeholder），**0 处 `ctx.locale`**。官方门禁 `verify-client-ui-i18n` 只 glob DSH 仓内路径 ⇒ **扫不到我们**；运行时也不崩（查不到 key 回退成 key），真正坏的是英文 locale 下宿主英文、我们整片中文（混排） | **违规** | **L**（做法已给全：`LocaleNamespaceMap` 声明合并 + `ctx.locale.register/bind` + 槽位注册加 `locale:` + `entry.ts` 的 `inject` 加 `'locale'`） |
 | **2** | **持久化归属**：`chatmode.js`/`inspection.js`/`announce.js`/`ingest.js` 四处**自造 JSON 状态文件**（直写、无 schema、无版本），绕开 `ctx.settings`/`ctx.storageDomain`。本仓自己的证据：状态只在进程启动读一次 ⇒ **别的进程改了要重启才生效** | **违规 + 会坏** | S/M/L 分三档；⚠ 诚实边界：`domain/changed` **仅进程内**，迁移**换不到**我们现手搓的跨进程锁 |
 | 3 | 6 个工具用**裸对象字面量**注册、没用官方 `defineTool({...})` | 不违规（官方承认 raw JSON-Schema 这条路），代价是自己扛参数校验 | M |
+| 3b | **`Config` 用 schemastery 挡不住键名拼错**（我们靠 `apply` 里的手写检查兜住）。官方插件用的是 **zod `z.object(...).strict()`** ⇒ Loader 在 `resolveConfig` 就拒 | 更早、更响亮、少一处手写判据 | M（要加 zod 依赖 + **实验**验证宿主 cordis 接受 zod schema；没验过不写进计划） |
 | ~~4~~ | ~~启动检查的清理竞态~~ | —— | ✅ 已修，见 §三 |
 | 5 | 构建把 `@deepseek-ai/*` **整片 external**，没有官方那种 **purity 门禁**（引到不该引的包不报错） | 缺护栏 | S（收窄为 9 个基线模块 + 显式白名单，其余 `onResolve` 抛错） |
 | 6 | `S6` 的默认值双份（`DEFAULTS` vs schema）、`S1` 的 `sidebar.right.pane.tab.title` **从未注册**但注释声称注册了、`S2` 该用未用的原语（`Tooltip`/`StateDot`/`RiskConfirmation`/`Toast`/`MarkdownText`/`FileTypeIcon`…） | 清理 | S–M |
