@@ -70,6 +70,33 @@ def ledger_fallback_chain(rows: list[dict[str, Any]] | None = None, *,
                  and ((row := by_id.get(_channel_id_of(name))) is None or not _is_excluded(row)))
 
 
+def chain_for_number(standard_no: str, rows: list[dict[str, Any]] | None = None, *,
+                     known: set[str] | None = None) -> tuple[str, ...]:
+    """某号**巡检实际会用**的链：`routing.select_chain(no)` 再按台账**硬过滤**。
+
+    这是"台账可人工维护"真正落地的**那一半**：业主在台账里把某条渠道 `enabled=0`
+    或标 `wiring='broken'`，巡检**就不再问它**——在此之前台账只是个观察面板，
+    人工改动不影响巡检行为。
+
+    ## ⚠ `rows=None` 时**不做任何 I/O**（返回未过滤的链）
+    本函数被 `inspector._probe_number` 调用，而那个函数的既有纪律是「**只触网**」
+    （台账行由 `run_batch` 一次读好传进来，见 `_probe_number` 的 docstring）。
+    在这里顺手读库会让那条纪律名存实亡，并把 DB 故障变成热路径上的隐藏依赖。
+    ⇒ **没有台账行 = 没有过滤**（fail-open），与 `ledger_fallback_chain` 对
+    "台账里查不到该成员"的处理同一口径。
+
+    ## 只做过滤，**不做提升**
+    台账 `wiring='wired'` 但不在 `select_chain` 结果里的渠道（今天 4 条：
+    `ttbz`/`dbba`/`mee`/`hbba` 在 GB/T 号上）**不会**因此进链——"提升为兜底成员"
+    是行为改变（泛查链变长 = 每号更多请求），要单独一步决定。这里只做**减法**，不做加法。
+    """
+    from src.core.update.channels.routing import select_chain
+    chain = select_chain(standard_no)
+    if rows is None:
+        return chain
+    return ledger_fallback_chain(rows, roster=chain, known=known)
+
+
 def ledger_chain_report(rows: list[dict[str, Any]] | None = None, *,
                         roster: tuple[str, ...] | None = None,
                         known: set[str] | None = None) -> dict[str, Any]:

@@ -192,3 +192,66 @@ class Test真库:
         rep = lc.ledger_chain_report()
         assert "ch:ndls" not in {c["channel_id"] for c in rep["roster_candidates"]}
         assert "ndls" in rep["chain"]
+
+
+class Test巡检真的按台账走:
+    """§11.0 R6h：把台账接进**巡检**（在这之前 `ledger_chain` 只被快照脚本用，巡检不读它）。
+
+    业主的诉求原话里有「渠道**可人工维护**」——如果台账里停用一条渠道而巡检照旧问它，
+    那"可维护"就是假的。这个类就是钉住"**人工动作真的改变巡检行为**"。
+    """
+
+    def test_人工停用让巡检不再问它(self):
+        """`enabled=0` ⇒ 该渠道**从巡检的链里消失**（不只是面板上显示停用）。"""
+        rows = [_row("ch:official_gb"), _row("ch:ndls", enabled=0), _row("ch:govcn")]
+        chain = lc.chain_for_number("GB/T 1234-2020", rows)
+        assert "ndls" not in chain
+        assert chain == ("official_gb", "govcn")
+
+    def test_known_broken_让巡检不再问它(self):
+        rows = [_row("ch:official_gb"), _row("ch:ndls", wiring="broken"), _row("ch:govcn")]
+        assert "ndls" not in lc.chain_for_number("GB/T 1234-2020", rows)
+
+    def test_前缀首选也受台账管(self):
+        """前缀首选（HJ→`mee`）同样受过滤：人工停用它，HJ 号就退回泛查链。
+
+        这条守的是"**过滤是加在整条链上的**，不是只加在兜底段"——
+        只过滤兜底段的话，前缀首选会变成一条**绕过人工意图**的后门。
+        """
+        rows = [_row("ch:mee", enabled=0), _row("ch:official_gb"), _row("ch:ndls"), _row("ch:govcn")]
+        chain = lc.chain_for_number("HJ 1234-2020", rows)
+        assert chain[0] != "mee"
+        assert chain == ("official_gb", "ndls", "govcn")
+
+    def test_没有台账行时不过滤也不读库(self):
+        """`rows=None` ⇒ 原样返回 `select_chain`（**不读库、不 I/O**）。
+
+        为什么这条重要：`chain_for_number` 被 `inspector._probe_number` 调用，
+        而那个函数的纪律是"**只触网**"。这里若偷偷读库，"只触网"就名存实亡，
+        且 DB 故障会变成热路径上的隐藏依赖。用"把 repo 打桩成会炸"来正面钉住不读库。
+        """
+        from src.core.update.channels.routing import select_chain
+
+        def _boom(*_a, **_kw):
+            raise AssertionError("rows=None 时不该读库")
+
+        monkey = pytest.MonkeyPatch()
+        monkey.setattr(cr, "list_channels", _boom)
+        try:
+            assert lc.chain_for_number("GB/T 1234-2020", None) == select_chain("GB/T 1234-2020")
+        finally:
+            monkey.undo()
+
+    def test_台账缺该行则保留_fail_open(self):
+        """台账里**查不到**某成员 ⇒ 保留（fail-open）：没 seed 的库不该让巡检失去整条链。"""
+        rows = [_row("ch:official_gb")]          # 只有一条；ndls/govcn 没有行
+        assert lc.chain_for_number("GB/T 1234-2020", rows) == ("official_gb", "ndls", "govcn")
+
+    def test_不做加法_只做减法(self):
+        """台账 `wired` 但**不在** `select_chain` 里的渠道，不会因为这个函数进链。
+
+        （提升是行为改变：泛查链变长 = 每号更多请求 —— 那要单独一步决定。）
+        """
+        rows = [_row("ch:ttbz"), _row("ch:official_gb"), _row("ch:ndls"), _row("ch:govcn")]
+        # GB/T 号上 ttbz 不是前缀首选、也不在兜底链里 ⇒ 即便台账说 wired 也不出现
+        assert "ttbz" not in lc.chain_for_number("GB/T 1234-2020", rows)

@@ -745,6 +745,39 @@ def test_某根棒抛异常不挤掉后面的棒(db):
     assert sum(calls) == 4                       # 预算用光（4）就停，不越界多打
 
 
+def test_台账停用的渠道巡检不再问它(db):
+    """§11.0 R6h：台账里 `enabled=0` 的渠道**真的不会被问**。
+
+    这条证的是**接线**，不是助手：`chain_for_number` 的单测只证明"那个函数会过滤"，
+    证明不了"`inspector` 真的用了它"。所以这里直接调 `_probe_number` 并把台账行传进去，
+    断言被停用的那根棒 `calls == 0`——顺便也断言**别的棒照常被问**，
+    否则链是空的时候这条会静默通过（vacuous）。
+    """
+    from src.core.update import inspector as insp
+    from src.core.update.channels.base import ChannelResult
+    from src.core.update.channels.routing import select_chain
+
+    class _Recorder:
+        def __init__(self, name: str) -> None:
+            self.name = name
+            self.calls = 0
+
+        def probe(self, standard_no: str, standard_name: str = "") -> ChannelResult:
+            self.calls += 1
+            return ChannelResult(channel=self.name, found=False)
+
+    no = "HJ 1234-2020"
+    chain = select_chain(no)
+    assert chain[0] == "mee", chain           # 前提：HJ 的前缀首选是 mee（本用例的靶子）
+    adapters = {c: _Recorder(c) for c in chain}
+    rows = [{"channel_id": f"ch:{c}", "name": c, "wiring": "wired",
+             "enabled": 0 if c == "mee" else 1} for c in chain]
+    insp._probe_number(adapters, {"standard_no": no, "standard_name": "x"}, rows)
+    assert adapters["mee"].calls == 0, "台账已把 mee 停用，巡检却还是问了它"
+    asked = [c for c in chain if adapters[c].calls > 0]
+    assert "official_gb" in asked, asked      # 别的棒照常问（不是"整条链都空"）
+
+
 def test_全链都抛异常才算failed(db):
     """每根棒各自重试到上限；全链都抛 ⇒ 没有"干净未命中" ⇒ hard-fail（不是 not_found）。"""
     from src.core.update import inspector as insp

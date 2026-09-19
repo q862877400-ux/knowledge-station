@@ -335,8 +335,11 @@ def _probe_number(adapters: dict[str, ChannelAdapter], item: dict,
                   ledger_rows: list[dict] | None = None) -> ProbeOutcome:
     """工作线程入口：单号走降级链，只触网不触 DB，异常归一为 Outcome。
 
-    链按标准号特征由 routing.select_chain 生成（权威渠道前置，如 AQ→ndls、
-    工程建标→ndls、团标→ttbz），其余泛查兜底。
+    链按标准号特征由 `routing.select_chain` 生成（权威渠道前置，如 AQ→ndls、
+    工程建标→ndls、团标→ttbz），其余泛查兜底；**再按台账硬过滤**——
+    `enabled=0`（人工停用）与 `wiring='broken'`（已知失效）的渠道**不进链**
+    （§11.0 R6h，`ledger_chain.chain_for_number`）。所以"台账里停用某条渠道"
+    会**真的**停掉巡检对它的调用，而不只是让面板好看一点。
 
     `ledger_rows`：台账行（**由调用方一次读好传进来**，见 `run_batch`）——
     "这一号该问谁"按五类算（`question_router`），而算它需要台账的 `state`。
@@ -344,8 +347,12 @@ def _probe_number(adapters: dict[str, ChannelAdapter], item: dict,
     （§11.0 R6c-4c）。传 `None` 时仍能跑，只是不记五类（保持与旧调用兼容）。
     """
     no = item["standard_no"]
-    from src.core.update.channels.routing import select_chain
-    chain = select_chain(no)
+    # 链 = `routing.select_chain`（前缀权威前置 + 泛查兜底）**再按台账硬过滤**
+    # （§11.0 R6c→R6h：`enabled=0` / `wiring='broken'` 的渠道不再被问）。
+    # ⚠ 台账行是**调用方传进来的**，这里不读库 —— 本函数"只触网"的纪律不变；
+    #   `ledger_rows=None` 时 `chain_for_number` 直接返回未过滤的链（fail-open，不 I/O）。
+    from src.core.update.channels.ledger_chain import chain_for_number
+    chain = chain_for_number(no, ledger_rows)
     # ⚠ **预算要够把链上的棒都问到，且"没问完"不许说成"查无此号"**（§11.0 R6c-3f，两轮复核逼出来）：
     #   回归史：① 原本 `attempts_left = MAX_ATTEMPTS`(3)，链变 4 根后**最后一棒永远探不到**
     #   （复核 b34 实测 [mee,official_gb,ndls]，govcn 消失）；② 我先改成

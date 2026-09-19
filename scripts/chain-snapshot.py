@@ -66,6 +66,21 @@ def main() -> int:
         print(f"  {no:<20} {why:<28} 今天 {'/'.join(a):<28} → {mark or '不变'}")
     print(f"  ⇒ {len(SAMPLES)} 个样例里 {changed} 个会变")
     print()
+    # ── §11.0 R6h：**巡检实际用的链**（本步新接的：台账过滤已进 inspector）──
+    # 这一段是"接线"的审计面：它算的正是 `inspector._probe_number` 会拿到的那条链。
+    # 与上一段的区别：上一段是"如果按过滤后的**兜底名单**重算"，这一段是"**巡检真的会用**什么"。
+    print("巡检实际会用的链（`ledger_chain.chain_for_number` = select_chain + 台账硬过滤）：")
+    wired_changed = 0
+    for no, why in SAMPLES:
+        raw = select_chain(no)
+        eff = lc.chain_for_number(no, rows)
+        same = raw == eff
+        wired_changed += not same
+        note = "不变" if same else f"⚠ 台账过滤掉了 {'/'.join(c for c in raw if c not in eff)}"
+        print(f"  {no:<20} {why:<28} {'/'.join(eff):<28} {note}")
+    print(f"  ⇒ {len(SAMPLES)} 个样例里 {wired_changed} 个因**台账过滤**而与裸路由不同"
+          + ("（今天 0 条 enabled=0/known-broken 命中链上成员，所以为 0）" if wired_changed == 0 else ""))
+    print()
     print(f"被硬过滤挡住的渠道（{len(report['excluded'])} 条）—— 只看人工意图与 known-broken：")
     for r in report["excluded"]:
         print(f"  {r['channel_id']:<44} {str(r['reason'])[:40]}（wiring={r['wiring']}, enabled={r['enabled']}）")
