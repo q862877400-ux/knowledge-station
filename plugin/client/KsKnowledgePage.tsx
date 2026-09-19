@@ -28,8 +28,21 @@
  *      · **旧断言没有"绕过去"，是被换成更强的**：9 号断言（数 placeholder 里有没有"搜索"）
  *        ⇒ 换成"输入只命中 1 行的串，行数真的变 1；清空真的恢复"（行为级）。
  *        见 `plugin/scripts/smoke-kb-page-render.mjs` 的 9/9b/9c 三条。
+ *        ⚠⚠ **2026-09-20 P2 复核打回（D5）：上面这句是错的，就地更正（不删原话）。**
+ *           **曾如此（错的）**：写的是"该文件里的 **9/9b/9c 三条**"。**实测**：9 号已被删，
+ *           新增的是 **3g / 3h**（复核打回前该文件 `check(` 行 33 条、运行时 `PASS (33/33)`；
+ *           本批加 2 条后是 **35/35**，里面没有 9/9b/9c 这种编号）。
+ *           这句错话与 P2 复核的 D6（"断言条数 26 → 31"实为 **26 → 33**）是同一类错：
+ *           数字/编号是**转述**的，没有回文件数一遍。⇒ 更正后的说法就是上面那两个名字。
  *      · ⚠ **需要业主复核**：这条翻掉了他的原话，若他不同意，删掉 `.ks-search` 那一段
  *        并把断言换回去即可（改动面：本文件 + ksGuideStyles.ts + 渲染级冒烟）。
+ *        ⚠⚠ **2026-09-20 P2 复核打回（C）：上一句"把断言换回去"是**不可执行**的、且换错方向。**
+ *           复核逐字走了一遍 ⇒ `ReferenceError: needle is not defined`、smoke exit 1、页面崩：
+ *           那段错话漏掉了 5 个落点（`listed` 的 useMemo 里 `hitSearch(d)` 与 `[needle]` 依赖、
+ *           空态里的 `search.trim()`、`pickSearch('')`、`.ks-search` 样式、`IconSearchOutline16`
+ *           的 import）。**更正**：完整、逐落点、**已亲自走通**的退回步骤在
+ *           `docs/NOT-DOING.md` 第 13 条；那里同时写明"**不许**把断言换回'本页没有搜索框'
+ *           （那是已证伪的假绿）"，以及搜索框存在/缺席由 `KB_FILE_VIEW_SEARCH` 声明 + 断言锚住。
  * 5. 只留**一个「＋ 新建」**按钮（下拉里是"新建文件夹 / 导入文件"）；
  * 6. 「公司制度」这类**自建夹与自带两棵树平级**（三段式布局里排在树下面同一列）；
  * 7. 详情里加**发布日期 / 生效日期 / 废止日期**；
@@ -61,6 +74,21 @@ import { KsCapabilityPage } from './KsCapabilityPage'
 import { describeKsQuery, parseKsQuery } from './ksSearchSyntax'
 import type { KsPaneBodyProps, KsKbInjected } from './ksSidebar'
 import { KS_KB_KIND } from './ksSidebar'
+
+/**
+ * **本页文件视图里有没有那个搜索框**（P2 头条，2026-09-20）——这是"搜索框在 / 不在"的
+ * **唯一声明**：`plugin/scripts/smoke-kb-page-render.mjs` 在**文件视图**里断言
+ * 「DOM 里有没有 `.ks-search input`」与这个值**一致**。为什么需要它（复核 `verify-freeze-p2`
+ * 的 C 条）：旧的 9 号断言（"本页没有搜索框"）被删掉之后，**搜索框的存在/缺席一度没有任何
+ * 断言盯着** —— 悄悄删了它不会有任何一条红。
+ * ⚠ 该断言的落点必须是**文件视图**（默认视图）：旧的 9 号断言跑在**标签视图**里，
+ *   文件视图有没有那个框它都 PASS（旧断言假绿的另一半原因）。
+ *
+ * ⚠ **退回给业主 2026-09-19 的旧设计**（"这一页不做搜索"）时：把这里改成 `false`，
+ *   并按 `docs/NOT-DOING.md` 第 13 条那份**可执行**步骤逐条删（本文件 + ksGuideStyles.ts +
+ *   渲染级冒烟）；**不要**把断言换回"本页没有搜索框"那种数 placeholder 的写法（已证伪的假绿）。
+ */
+export const KB_FILE_VIEW_SEARCH: boolean = true
 
 /** 效力状态（决定 Tag 的色调 + 详情里的日期口径）。 */
 type Status = 'current' | 'upcoming' | 'withdrawn' | 'superseded'
@@ -98,6 +126,14 @@ interface MockNode {
  *   ok  = success-tertiary 底 + success-primary 描边/文字
  *   warn= warn-tertiary 底 + warn-label 描边/文字
  *   bad = error-secondary 底 + error-primary 描边/文字
+ *   ⚠⚠ **2026-09-20 P2 复核打回（A）：上面这条 bad 是错的，就地更正。**
+ *      **曾如此（错的）**：`bad = error-secondary 底 + error-primary 文字`。
+ *      **实测（真 Chrome + PNG 数像素）**：dark 下 `state-error-secondary` 与 `-primary`
+ *      **解出来是同一条 token**（都 = red-400 `rgb(242,90,90)`）⇒ 徽章是整块纯色，
+ *      **可辨文字 0 个**（深色下「已废止」读不出来）；light 也只有 1.37 对比度。
+ *      ⇒ 现在 bad 的底走 error 系里**唯一**的浅底 token `--dsw-alias-interactive-bg-hover-danger`
+ *      （light 4.14 / dark 4.70）。理由、证据与"这不是 P2 回归、是 P1-5 起就有的"写在
+ *      `ksGuideStyles.ts` 的 `.ks-status-bad` 上面（单一所有者，别在这里重抄一遍）。
  * ⚠ **语义一个字没动**（现行/即将实施/已废止/被替代四个词的映射原样保留）。
  */
 const STATUS: Record<Status, { cls: string; text: string }> = {
@@ -707,7 +743,11 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                 ⚠ 它**真的过滤**：`listed` 由 `useMemo` 按 `no`/`name` 算（见 hitSearch），
                   不是画个壳 —— 验收就是"输入只命中 1 行的串 ⇒ 行数真的变 1；清空 ⇒ 恢复"。
                 ⚠ 它是**本地列表过滤**（只筛当前目录已加载的行，一个接口都没调）；
-                  与业主"知识库界面不做搜索"的关系见文件顶部第 4 条的翻案留痕。 */}
+                  与业主"知识库界面不做搜索"的关系见文件顶部第 4 条的翻案留痕。
+                ⚠ 渲染与否由 **`KB_FILE_VIEW_SEARCH`** 这一个声明决定（退回时改它，见该常量注释）：
+                  两个方向都有断言盯着（在场 ⇒ 必须能过滤；缺席 ⇒ 必须真的没有）——
+                  这是复核 verify-freeze-p2 的 C 条要的"存在/缺席与某处声明一致"。 */}
+            {KB_FILE_VIEW_SEARCH && (
             <span className="ks-search">
               <Input
                 icon={<IconSearchOutline16 />}
@@ -717,6 +757,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                 onChange={(event) => { pickSearch(event.target.value) }}
               />
             </span>
+            )}
 
             {/* ── 列表 = **一个容器**（P1-2/P1-8，2026-09-20；P2 头条把它变成真表格） ──
                 容器里是"**列头行 + 全部行**"，两者共用 `.ks-list` 上的 `--ks-cols`

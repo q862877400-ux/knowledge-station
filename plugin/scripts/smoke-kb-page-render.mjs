@@ -76,9 +76,9 @@ try {
 import { createElement } from 'react'
 import { createRoot } from 'react-dom/client'
 import * as React from 'react'
-import { KsKnowledgePage } from ${JSON.stringify(join(pluginRoot, 'client/KsKnowledgePage.tsx'))}
+import { KsKnowledgePage, KB_FILE_VIEW_SEARCH } from ${JSON.stringify(join(pluginRoot, 'client/KsKnowledgePage.tsx'))}
 
-export { createElement, React }
+export { createElement, React, KB_FILE_VIEW_SEARCH }
 export function mount(container, props) {
   const root = createRoot(container)
   root.render(createElement(KsKnowledgePage, props))
@@ -125,7 +125,7 @@ export function mount(container, props) {
   globalThis.requestAnimationFrame = (cb) => setTimeout(() => { cb(Date.now()) }, 0)
   globalThis.cancelAnimationFrame = (id) => { clearTimeout(id) }
 
-  const { mount } = await import(pathToFileURL(out).href)
+  const { mount, KB_FILE_VIEW_SEARCH } = await import(pathToFileURL(out).href)
   // ⚠ **刻意不用 `act`**：React 18.3 的 `act` 在 `react-dom/test-utils` 里，
   //   而 import 它会把**第二份 react/react-dom** 引进来（就是上面那个 Invalid hook call 的成因）。
   //   createRoot 的更新本来就会刷到 DOM，只要给它一个 tick。代价：拿不到 act 的同步保证，
@@ -250,7 +250,14 @@ export function mount(container, props) {
    *   而且当时那一跑处在**标签视图**里 —— 文件视图的搜索框根本没挂载，所以它即使在
    *   "文件视图有搜索框"的今天也照样 PASS，是一条**假绿**）；新的三条是**行为级**
    *   （行数真的变 1 / 真的恢复）与**结构级**（表头与行的 cell 类名序列逐字相同）。
-   *   断言条数因此只增不减（26 → 31）。 */
+   *   断言条数因此只增不减（26 → 31）。
+   *   ⚠⚠ **2026-09-20 P2 复核打回（D6）：上面这个"26 → 31"是错的，就地更正（原话保留）。**
+   *      **实测**（`grep -c '^ *check(' plugin/scripts/smoke-kb-page-render.mjs` = 33；运行时也
+   *      打印 `PASS (33/33)`）= **33** —— 转述时少数了两条（复核也是这么数的）。
+   *      **本批（verify-freeze-p2 落地）又加 2 条**（3e-2 表头/行的 computed 列模板 + gap 逐字
+   *      相同；3g 前"搜索框在/不在 == 声明 `KB_FILE_VIEW_SEARCH`"）⇒ 运行时是 **35/35**
+   *      （文件里 `check(` 行 37 条：另有 2 条在"搜索框缺席"分支里，那一支只有在**声明 false**
+   *      的退回态才会跑到）。⇒ 以后写条数**一律现数**，别抄。 */
   // ── 断言 3d：列头行是**真列头**，且与行**同构**（同一份 COLUMNS 定义）──
   const cellsOf = (el) => [...el.children].map((c) => c.className)
   const headRow = container.querySelector('.ks-lhead')
@@ -274,6 +281,28 @@ export function mount(container, props) {
     childrenOfList.filter((el) => el.classList.contains('ks-lhead')).length === 1
     && childrenOfList.filter((el) => el.classList.contains('ks-item')).length === 4,
     `盒子里共 ${childrenOfList.length} 个子元素`)
+  // ── 断言 3e-2：**表头与第一行的 computed 列模板逐字相同**（P2 复核打回 B，2026-09-20）──
+  // ⚠⚠ 为什么补这一条：复核的变异 M4（把表头与行的 `grid-template-columns` 改成**不一致**：
+  //   header `416px 100px …` vs row `444px 72px …`）当时 **smoke 33/33 PASS、ui-render-shot exit 0**
+  //   ——"列对齐"是本轮的头条验收，却只有一个**报告值**（`#cols`）兜着，**没有断言**。
+  //   现在：门禁链里这一条 + ui-render-shot 自己的 `#cols` 自检（真 Chrome 里量，三档由
+  //   `smoke-kb-cols.mjs` 逐档跑）。
+  // ⚠ 口径：jsdom **不做布局**，但它**会做级联**（实测：这里拿到的是声明里的
+  //   `var(--ks-cols)` 字面值，不是解析后的像素）。所以这条断言判的是"**两条声明是不是同一条**"
+  //   —— 恰恰就是 M4 破坏的那个不变量（表头一套、行另一套）；像素级的等价仍由 ui-render-shot 判。
+  //   **含 gap**：`column-gap` 也必须逐字相同（列对齐含间距，不只是列宽）。
+  //   取到空值也算红（"取不到值" ≠ "相同"）。
+  const headRowEl = container.querySelector('.ks-lhead')
+  const firstRowEl = container.querySelector('.ks-item')
+  const csOf = (el, prop) => el === null ? null : dom.window.getComputedStyle(el).getPropertyValue(prop)
+  const headTpl = csOf(headRowEl, 'grid-template-columns')
+  const rowTpl = csOf(firstRowEl, 'grid-template-columns')
+  const headGap = csOf(headRowEl, 'column-gap')
+  const rowGap = csOf(firstRowEl, 'column-gap')
+  check('表头行与第一行的 computed grid-template-columns 与 column-gap **逐字相同**（列对齐的门禁锚点）',
+    Boolean(headTpl) && Boolean(rowTpl) && Boolean(headGap) && Boolean(rowGap)
+    && headTpl === rowTpl && headGap === rowGap,
+    `表头 ${JSON.stringify(headTpl)} / 行 ${JSON.stringify(rowTpl)}；gap 表头 ${JSON.stringify(headGap)} / 行 ${JSON.stringify(rowGap)}`)
   check('每一行都有**行内文件图标**（.ks-fileico 里一个真 svg），且带类型说明 title',
     q('.ks-item').length === 4
     && q('.ks-item').every((row) => row.querySelector('.ks-fileico svg') !== null
@@ -287,31 +316,52 @@ export function mount(container, props) {
   check('行内**可见**标签 chip（至少一行有 ≥1 个 .ks-tag；纯展示，不是控件）',
     rowTags.some((n) => n > 0), `四行的 chip 数 = ${rowTags.join('/')}`)
   // ── 断言 3g：搜索框**真的过滤**（任务书验收：只命中 1 行的串 ⇒ 行数变 1；清空 ⇒ 恢复）──
+  // ⚠⚠ **2026-09-20 P2 复核打回（C）补的一条**：搜索框"在 / 不在"必须与**声明**
+  //   `KB_FILE_VIEW_SEARCH` 一致（从组件里 import 的真值，不是抄一个 true）。
+  //   为什么要它：旧的 9 号断言（"本页没有搜索框"）删掉之后，**搜索框存在与否一度没有任何
+  //   断言盯着** —— 悄悄删了它，3g/3h 只会**崩**（`setInput(null)` 抛 TypeError），
+  //   既不是"可诊断的红"，也说不清"设计上到底该不该有"。
+  //   ⚠ 落点必须是**文件视图**：这一段跑在默认的「文件」视图里（切「标签」视图在后面），
+  //     旧的 9 号断言跑在标签视图 ⇒ 文件视图有没有框它都 PASS（那才是它假绿的那一半）。
+  //   两个方向都钉住：声明 true ⇒ 框必须在且能过滤；声明 false（退回旧设计）⇒ 框必须真的不在。
   const searchBox = container.querySelector('.ks-search input')
+  check('文件视图的搜索框"在 / 不在"与声明 KB_FILE_VIEW_SEARCH 一致（删掉它就红，不是没人管）',
+    (searchBox !== null) === KB_FILE_VIEW_SEARCH,
+    `声明 KB_FILE_VIEW_SEARCH=${String(KB_FILE_VIEW_SEARCH)}；DOM 里 .ks-search input ${searchBox === null ? '不存在' : '存在'}`
+    + `（当前视图 = 文件列表：本页默认视图，切「标签」在后）`)
   const rowCount = () => q('.ks-item').length
-  const before9 = rowCount()
-  await setInput(searchBox, 'GB 50016-2014')            // 只命中**标准号**（d1）
-  const byNo = rowCount()
-  await setInput(searchBox, '喷水')                      // 只命中**名称**（d3）
-  const byName = rowCount()
-  await setInput(searchBox, '搜索一个不存在的串')        // 谁都不命中 ⇒ 0 行 + "被筛没了"的空态
-  const none = rowCount()
-  const emptyTitle = container.querySelector('.ks-empty-t')?.textContent ?? '(没有空态卡)'
-  await setInput(searchBox, '')                          // 清空 ⇒ 恢复
-  const restored = rowCount()
-  check('搜索框真的过滤：标准号命中 1 行、名称命中 1 行、无命中 0 行（且给空态）、清空恢复 4 行',
-    searchBox !== null && before9 === 4 && byNo === 1 && byName === 1 && none === 0 && restored === 4,
-    `行数 ${before9} → 标准号 ${byNo} → 名称 ${byName} → 无命中 ${none} → 清空 ${restored}；空态「${emptyTitle}」`)
-  // ── 断言 3h：搜索/筛选变化 ⇒ **清空选择**（否则批量动作会作用在看不见的行上）──
-  await click(q('.ks-item')[0].querySelector('input[type=checkbox]'))
-  const selectedBefore = container.querySelector('.ks-batch') !== null
-  await setInput(searchBox, '喷水')
-  check('搜索变化即清空选择（切换后批量条消失 —— 批量动作不该作用在看不见的行上）',
-    selectedBefore && container.querySelector('.ks-batch') === null,
-    `搜索前有批量条=${String(selectedBefore)}；搜索后=${String(container.querySelector('.ks-batch') !== null)}`)
-  await setInput(searchBox, '')
-  const backTo4 = rowCount()
-  check('清空搜索后回到 4 行（搜索没有留下副作用）', backTo4 === 4, `实际 ${backTo4} 行`)
+  if (searchBox === null) {
+    // 声明说"没有框"时，行为级断言**判为失败**（而不是让下面 setInput(null) 崩掉）：
+    // 这两条是"框在场才成立"的行为验收 —— 缺席时它们必须红，且要能说清为什么。
+    check('搜索框真的过滤：标准号命中 1 行、名称命中 1 行、无命中 0 行（且给空态）、清空恢复 4 行',
+      false, '没有 .ks-search input ⇒ 这一条**没验到**，按失败记（"没跑"不能渲染成"通过"）')
+    check('搜索变化即清空选择（切换后批量条消失 —— 批量动作不该作用在看不见的行上）',
+      false, '没有 .ks-search input ⇒ 这一条**没验到**，按失败记')
+  } else {
+    const before9 = rowCount()
+    await setInput(searchBox, 'GB 50016-2014')            // 只命中**标准号**（d1）
+    const byNo = rowCount()
+    await setInput(searchBox, '喷水')                      // 只命中**名称**（d3）
+    const byName = rowCount()
+    await setInput(searchBox, '搜索一个不存在的串')        // 谁都不命中 ⇒ 0 行 + "被筛没了"的空态
+    const none = rowCount()
+    const emptyTitle = container.querySelector('.ks-empty-t')?.textContent ?? '(没有空态卡)'
+    await setInput(searchBox, '')                          // 清空 ⇒ 恢复
+    const restored = rowCount()
+    check('搜索框真的过滤：标准号命中 1 行、名称命中 1 行、无命中 0 行（且给空态）、清空恢复 4 行',
+      before9 === 4 && byNo === 1 && byName === 1 && none === 0 && restored === 4,
+      `行数 ${before9} → 标准号 ${byNo} → 名称 ${byName} → 无命中 ${none} → 清空 ${restored}；空态「${emptyTitle}」`)
+    // ── 断言 3h：搜索/筛选变化 ⇒ **清空选择**（否则批量动作会作用在看不见的行上）──
+    await click(q('.ks-item')[0].querySelector('input[type=checkbox]'))
+    const selectedBefore = container.querySelector('.ks-batch') !== null
+    await setInput(searchBox, '喷水')
+    check('搜索变化即清空选择（切换后批量条消失 —— 批量动作不该作用在看不见的行上）',
+      selectedBefore && container.querySelector('.ks-batch') === null,
+      `搜索前有批量条=${String(selectedBefore)}；搜索后=${String(container.querySelector('.ks-batch') !== null)}`)
+    await setInput(searchBox, '')
+    const backTo4 = rowCount()
+    check('清空搜索后回到 4 行（搜索没有留下副作用）', backTo4 === 4, `实际 ${backTo4} 行`)
+  }
 
   // ── 断言 4：全选 ──
   const headCheckbox = checkboxes[0]
@@ -378,6 +428,14 @@ export function mount(container, props) {
   //   ⇒ 已删除，改为 3g（行为级：行数真的 4→1→1→0→4）与 3h（搜索即清空选择）。
   //   与之配套的翻案留痕（业主 2026-09-19 曾说"这一页不做搜索"）写在
   //   plugin/client/KsKnowledgePage.tsx 顶部的第 4 条里，需业主复核。
+  //   ⚠⚠ **2026-09-20 P2 复核打回（C）：上面这个替换有一个**覆盖缺口**，已补。**
+  //     复核指出：9 号删掉之后，**"文件视图里有没有搜索框"这件事没有任何断言盯着**
+  //     （3g/3h 是行为级：框不在时它们只会崩/失败，说不清"设计上该不该有"；而且退回旧设计时
+  //     那句"把 3g/3h 换回'本页没有搜索框'"等于把**已证伪的假绿**装回去）。
+  //     ⇒ 现在有一条**声明 ↔ DOM 一致性**断言（落点在**文件视图**，默认视图，就在 3g 之前）：
+  //     「DOM 里有没有 `.ks-search input`」=== 组件导出的 `KB_FILE_VIEW_SEARCH`。
+  //     两个方向都判：声明 true ⇒ 必须在且能过滤（3g/3h）；声明 false（退回旧设计）⇒ 必须真的不在。
+  //     覆盖缺口因此**关掉**了，不再是"有意的取舍"。
 
   root.unmount()
   await flush()

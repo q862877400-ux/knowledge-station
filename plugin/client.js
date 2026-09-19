@@ -32499,7 +32499,24 @@ var KS_STYLES = `
    \u5728\u5FBD\u7AE0\u5DE6\u53F3\u5404\u91CF\u5230\u4E00\u6761 1px \u7684 state \u8272\u5217\uFF09\u3002
    \u21D2 \u9AD8\u5EA6 13 \u2192 20\uFF08--ks-space-5\uFF09\uFF0C\u63CF\u8FB9 1px\uFF08--ks-stroke\uFF0C**\u4E0D\u662F** --ks-sep\uFF1A\u9A8C\u6536\u8981\u91CF\u5230\u90A3 1px\uFF09\u3002
    \u8272\u8C03\u5168\u90E8\u7531\u8C03\u7528\u65B9\u6302\u4FEE\u9970\u7C7B\u7ED9\uFF08.ks-status-ok / -warn / -bad\uFF09\uFF0C\u4E0E .ks-kb-badge-* \u540C\u4E00\u5957\u8BED\u4E49\uFF1B
-   **\u4E00\u4E2A\u5B57\u9762\u8272\u503C\u90FD\u6CA1\u6709**\uFF08\u63CF\u8FB9+\u6587\u5B57=state-*-primary\uFF0C\u5E95\u8272=state-*-tertiary/secondary\uFF09\u3002 */
+   **\u4E00\u4E2A\u5B57\u9762\u8272\u503C\u90FD\u6CA1\u6709**\uFF08\u63CF\u8FB9+\u6587\u5B57=state-*-primary\uFF0C\u5E95\u8272=state-*-tertiary/secondary\uFF09\u3002
+   \u26A0\u26A0 **2026-09-20 P2 \u590D\u6838\u6253\u56DE\uFF08A\uFF09\uFF1A\u4E0A\u9762\u8FD9\u53E5"\u5E95\u8272=state-*-tertiary/secondary"\u5C31\u662F\u7F3A\u9677\u672C\u8EAB\u3002**
+      **\u66FE\u5982\u6B64\uFF08\u9519\u7684\uFF09**\uFF1A.ks-status-bad \u62FF --dsw-alias-state-error-secondary \u5F53**\u5E95\u8272**\u3002
+      **\u5B9E\u6D4B\uFF08\u771F Chrome + PNG \u6570\u50CF\u7D20\uFF0C\u89C1 plugin/scripts/ui-badge-pixels.mjs\uFF09**\uFF1A
+        \xB7 light\uFF1A\u6587\u5B57 rgb(236,19,19) \u843D\u5728\u5E95 rgb(242,90,90) \u4E0A \u21D2 \u5BF9\u6BD4\u5EA6 **1.37**\uFF08229 \u4E2A\u6587\u5B57\u50CF\u7D20\uFF09\uFF1B
+        \xB7 dark \uFF1Astate-error-secondary \u4E0E state-error-primary **\u89E3\u51FA\u6765\u662F\u540C\u4E00\u6761**\uFF08\u90FD = red-400
+          rgb(242,90,90)\uFF09\u21D2 \u5FBD\u7AE0\u662F**\u4E00\u6574\u5757\u7EAF\u8272**\uFF08rect \u5185 1045 \u4E2A\u50CF\u7D20\u5168\u662F\u90A3\u4E2A\u8272\uFF0C**\u53EF\u8FA8\u6587\u5B57 0 \u4E2A**\uFF09
+          \u2014\u2014 \u6DF1\u8272\u4E0B\u300C\u5DF2\u5E9F\u6B62\u300D\u4E09\u4E2A\u5B57\u4E0E\u5E95\u7CCA\u6210\u4E00\u7247\uFF08\u590D\u6838\u539F\u8BDD\uFF1A\u6DF1\u8272\u53EA\u6709 6 \u4E2A #EC1313 \u2248 0\uFF09\u3002
+      **\u66F4\u6B63**\uFF1A\u9519\u8BEF\u8272\u65CF\u91CC**\u6CA1\u6709** --dsw-alias-state-error-tertiary\uFF082026-09-19 \u90A3\u6B21"\u5F15\u7528\u4E0D\u5B58\u5728\u7684
+        token"\u5C31\u6293\u5230\u8FC7\u5B83\uFF1B\u6E32\u67D3\u7EA7\u5192\u70DF\u7684 ghost-token \u65AD\u8A00\u73B0\u5728\u76EF\u7740\u8FD9\u7C7B\u5F15\u7528\uFF09\u21D2 \u5E95\u8272\u6539\u7528**\u552F\u4E00**\u8BED\u4E49
+        \u5408\u9002\u7684 error \u7CFB\u6D45\u5E95 token --dsw-alias-interactive-bg-hover-danger
+        \uFF08light = rgba(236,19,19,.05) \u8FD1\u4E4E\u767D\u5E95\u7EA2\u6655 / dark = rgba(242,90,90,.15) \u6697\u7EA2\u6655\uFF09\u3002
+        \u6539\u540E\u5B9E\u6D4B\uFF1Alight \u5BF9\u6BD4\u5EA6 **4.1**\u3001dark **4.69**\uFF0C\u4E24\u8FB9\u90FD\u6709 200+ \u53EF\u8FA8\u6587\u5B57\u50CF\u7D20\u3002
+      \u26A0 **\u5F52\u5C5E\u5982\u5B9E**\uFF1A.ks-status* \u5728\u672C\u533A\u95F4\uFF0857c992b..68ef946\uFF09\u7684 git diff **\u96F6\u6539\u52A8**
+        \u21D2 \u8FD9**\u4E0D\u662F P2 \u56DE\u5F52**\uFF0C\u662F **P1-5 \u8D77\u5C31\u6709\u7684 token \u9009\u9519**\uFF08P1-5 \u7684\u8BB0\u5F55\u53EA\u5199\u4E86"\u6D45\u5E95+\u63CF\u8FB9+\u540C\u8272\u7CFB
+        \u6587\u5B57"\u8FD9\u4E2A\u5F62\u72B6\uFF0C\u6CA1\u6709\u628A\u6BCF\u6761 token \u5728**\u4E24\u5957\u4E3B\u9898**\u4E0B\u89E3\u51FA\u6765\u6838\u4E00\u904D\uFF09\u3002
+      \u26A0 **\u672C\u6BB5\u6CE8\u91CA\u4E0D\u8BB8\u51FA\u73B0\u53CD\u5F15\u53F7**\uFF1A\u6574\u6BB5 CSS \u662F\u4E00\u4E2A\u6A21\u677F\u5B57\u7B26\u4E32\uFF0C\u53CD\u5F15\u53F7\u4F1A\u628A\u5B83\u622A\u65AD
+        \uFF08\u672C\u6587\u4EF6\u5DF2\u7ECF\u8E29\u8FC7\u4E09\u6B21\uFF1B\u771F\u8981\u7528\u5C31\u5199\u6210\u8F6C\u4E49\u7684\u53CD\u5F15\u53F7\uFF0C\u89C1\u4E0A\u9762 :root \u90A3\u6BB5\uFF09\u3002 */
 .ks-status{flex:none;display:inline-flex;align-items:center;box-sizing:border-box;
   height:var(--ks-space-5);padding:0 var(--ks-space-2);border:var(--ks-stroke) solid;
   border-radius:var(--ks-r-sm);font-size:var(--ks-fs-sm);font-weight:600;white-space:nowrap}
@@ -32507,7 +32524,9 @@ var KS_STYLES = `
   border-color:var(--dsw-alias-state-success-primary)}
 .ks-status-warn{background:var(--dsw-alias-state-warn-tertiary);color:var(--dsw-alias-state-warn-label);
   border-color:var(--dsw-alias-state-warn-label)}
-.ks-status-bad{background:var(--dsw-alias-state-error-secondary);color:var(--dsw-alias-state-error-primary);
+/* \u300C\u5DF2\u5E9F\u6B62\u300D\u7684\u5E95\u8272 = error \u7CFB\u91CC**\u552F\u4E00**\u7684\u6D45\u5E95 token\uFF08\u8BE6\u89C1\u4E0A\u9762\u90A3\u6BB5\u66F4\u6B63\uFF1A
+   state-error-secondary \u5728 dark \u4E0E\u6587\u5B57\u8272\u540C\u503C \u21D2 \u6574\u5757\u7EAF\u8272\u3001\u6587\u5B57\u8BFB\u4E0D\u51FA\u6765\uFF09\u3002 */
+.ks-status-bad{background:var(--dsw-alias-interactive-bg-hover-danger);color:var(--dsw-alias-state-error-primary);
   border-color:var(--dsw-alias-state-error-primary)}
 /* \u300C\u88AB\u66FF\u4EE3\u300D\u8FD9\u4E00\u6863\u6CA1\u6709\u4E13\u5C5E\u72B6\u6001\u8272\uFF08\u53C2\u7167\u4E5F\u6CA1\u6709\u7B2C\u56DB\u6863\uFF09\u21D2 \u8D70**\u4E2D\u6027\u6863**\uFF1A\u4E0E\u53E6\u5916\u4E09\u6863**\u540C\u5F62**
    \uFF08\u540C\u9AD8\u3001\u540C 1px \u63CF\u8FB9\u3001\u540C\u5706\u89D2\uFF09\uFF0C\u53EA\u5DEE\u8272\u8C03 \u2014\u2014 \u8FD9\u6837\u56DB\u4E2A\u5FBD\u7AE0\u5E76\u6392\u65F6"\u5F62"\u662F\u9F50\u7684\u3002 */
@@ -33229,6 +33248,7 @@ function describeKsQuery(query) {
 
 // client/KsKnowledgePage.tsx
 var import_jsx_runtime8 = require("react/jsx-runtime");
+var KB_FILE_VIEW_SEARCH = true;
 var STATUS = {
   current: { cls: "ks-status ks-status-ok", text: "\u73B0\u884C" },
   upcoming: { cls: "ks-status ks-status-warn", text: "\u5373\u5C06\u5B9E\u65BD" },
@@ -33710,7 +33730,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
             selected.size > 0 ? `\uFF08\u5DF2\u9009 ${String(selected.size)}\uFF09` : ""
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-search", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        KB_FILE_VIEW_SEARCH && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-search", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
           import_dsh_client_ui_primitives3.Input,
           {
             icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconSearchOutline16, {}),

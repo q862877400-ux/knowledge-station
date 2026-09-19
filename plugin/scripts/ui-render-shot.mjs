@@ -51,7 +51,16 @@
  *   --harness <dir>  DSH 检出（默认 $KS_HARNESS_DIR，再退到下方 DEFAULT_HARNESS）
  *   --keep           保留临时构建目录
  *
- * 退出码：0 = 图已生成；1 = 缺件/截图失败（**不是通过**）；2 = 参数错。
+ * ## ⚠ 本脚本**自己会判红**（2026-09-20 P2 复核打回 B，`verify-freeze-p2`）
+ * 复核的变异 M4（把表头与行的 `grid-template-columns` 改成**不一致**：header `416px 100px …`
+ * vs row `444px 72px …`）当时全绿 —— 因为 `#cols` 只是**报告值、没有断言**，而"列对齐"正是
+ * P2 头条的验收之一。现在 `#cols` 是**真断言**：表头与第一行的 computed
+ * `grid-template-columns`（与 `column-gap`）必须**逐字相同**，不一致 ⇒ 打出两边的值 + 宽度 +
+ * 主题，**exit 1**。三档（520/1300/900）由 `scripts/smoke-kb-cols.mjs` 逐档跑本脚本、任一档红即红。
+ * ⚠ 没有 `.ks-lhead` 的页面（capabilities/material/ingest）与**没有数据行**的场景（空态截图）
+ *   不适用这条断言 ⇒ 本脚本**明说"这条没判"**（打印 note），不是静默通过。
+ *
+ * 退出码：0 = 图已生成且（适用时）列对齐自检通过；1 = 缺件/截图失败/列对齐自检失败（**不是通过**）；2 = 参数错。
  */
 import { existsSync } from 'node:fs'
 import { mkdir, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises'
@@ -519,8 +528,12 @@ const html = `<!doctype html>
     }
     // 表格列对齐（P2 头条，2026-09-20）：**表头行与数据行的 computed 列模板必须逐字相同**。
     // 这是"列对齐"的唯一机械证据（jsdom 里量不到网格），所以放在真 Chrome 的这段脚本里量。
-    // 借字段名：lh = 表头行的 grid-template-columns，pad = 第一数据行的（同名复用，见 #cards 的先例）。
-    // n = 这一行里 cell 的个数（两个档都应是 5：窄档是隐藏两列，不是删 DOM）。
+    // ⚠⚠ **P2 复核打回 B（2026-09-20，变异 M4）**：原来它只是**报告值**（没有断言）⇒ 把表头的
+    //   grid-template-columns 改成与行不一致，本脚本照旧 exit 0、smoke 也 33/33 全绿。
+    //   ⇒ 现在 Node 侧对它下断言（见文件末尾「#cols 的**真断言**」），三档由 smoke-kb-cols 逐档跑。
+    // 借字段名：lh = 表头行的 grid-template-columns，pad = 第一数据行的；gap = 表头的 column-gap，
+    // radius = **行**的 column-gap（同名借用，见 #cards 的先例 —— 注释里写清就不算说谎）。
+    // n = 这一行里 cell 的个数（两个档都应是 5：窄档是隐藏两列，不是删 DOM）；x = 第一行的 cell 数。
     var lhead = document.querySelector('.ks-lhead');
     var firstRow = document.querySelector('.ks-item');
     if (lhead) {
@@ -530,7 +543,21 @@ const html = `<!doctype html>
       var rn = firstRow ? firstRow.children.length : 0;
       out['#cols'] = { n: ln, x: rn, y: 0, w: 0, h: 0, fs: '',
                        lh: lcs.gridTemplateColumns, pad: rcs ? rcs.gridTemplateColumns : '(没有数据行)',
-                       gap: lcs.columnGap || lcs.gap, radius: '' };
+                       gap: lcs.columnGap || lcs.gap, radius: rcs ? (rcs.columnGap || rcs.gap) : '(没有数据行)' };
+    }
+    // 状态徽章的**逐个颜色 + 几何**（P2 复核打回 A，2026-09-20）：用来在 PNG 上按 rect 裁剪、
+    // 数"等于文字色的像素数"，从而机械判"深色下「已废止」的文字读不读得出来"。
+    // ⚠ 这段只**报告**（不在浏览器里判红）：像素计数在 Node 侧做（plugin/scripts/ui-badge-pixels.mjs）。
+    var stEls = document.querySelectorAll('.ks-status');
+    if (stEls.length > 0) {
+      out['#status'] = { n: stEls.length, x: 0, y: 0, w: 0, h: 0, fs: '', lh: '', pad: '', gap: '', radius: '',
+        items: [].map.call(stEls, function (el) {
+          var r = el.getBoundingClientRect();
+          var s = getComputedStyle(el);
+          return { text: (el.textContent || '').trim(), x: Math.round(r.x), y: Math.round(r.y),
+                   w: Math.round(r.width), h: Math.round(r.height),
+                   color: s.color, bg: s.backgroundColor, border: s.borderTopColor };
+        }) };
     }
     document.title = 'h=' + document.documentElement.scrollHeight + '|m=' + JSON.stringify(out);
   } catch (e) {
@@ -565,6 +592,45 @@ const cssHeight = Number(hMatch[1])
 let measured = {}
 const mJson = /\|m=(\{.*?\})<\/title>/s.exec(probe.stdout ?? '')
 if (mJson !== null) { try { measured = JSON.parse(mJson[1].replace(/&quot;/g, '"')) } catch { measured = { parse_error: true } } }
+
+/* ══════════════ #cols 的**真断言**（P2 复核打回 B，2026-09-20；变异 M4 现在会红） ══════════════
+ * 复核的变异 M4：把表头与行的 grid-template-columns 改成**不一致**（header 416px 100px …
+ * vs row 444px 72px …）⇒ 当时本脚本 exit 0、smoke 33/33 绿 —— 因为 #cols 只是报告值。
+ * "列对齐"（文档 §7.7/§8.1 的验收）不能只有一个报告值兜着 ⇒ 这里把它变成**带诊断的失败**：
+ *   ① 表头与第一行的 computed grid-template-columns 必须**逐字相同**；
+ *   ② 两者的 computed column-gap 也必须逐字相同（列对齐含间距，不只是列宽）；
+ *   ③ 取到空值/取不到值 ⇒ 也算红（"没验到"不能渲染成"通过"）。
+ * 适用面：只有"有 .ks-lhead 且这一跑真的有数据行"的页面/场景才判；其余**明说没判**（colsCheck.skipReason），
+ * 不静默通过。三档（520/1300/900）由 scripts/smoke-kb-cols.mjs 逐档跑本脚本，任一档红即红。 */
+const cols = measured['#cols']
+const colsProblems = []
+let colsSkipReason = null
+if (cols === undefined) {
+  colsSkipReason = `本页没有 .ks-lhead（page=${page}），列对齐不适用`
+} else if (cols.pad === '(没有数据行)' || cols.radius === '(没有数据行)') {
+  colsSkipReason = '这一跑没有数据行（空态截图），没有可比的行'
+} else {
+  if (!cols.lh || !cols.pad) {
+    colsProblems.push(`取到空值（取不到值本身就不算验过）：表头 ${JSON.stringify(cols.lh)} / 行 ${JSON.stringify(cols.pad)}`)
+  } else if (cols.lh !== cols.pad) {
+    colsProblems.push(`表头与行的 grid-template-columns 不一致：表头 ${JSON.stringify(cols.lh)} / 行 ${JSON.stringify(cols.pad)}`)
+  }
+  if (!cols.gap || !cols.radius) {
+    colsProblems.push(`column-gap 取到空值：表头 ${JSON.stringify(cols.gap)} / 行 ${JSON.stringify(cols.radius)}`)
+  } else if (cols.gap !== cols.radius) {
+    colsProblems.push(`表头与行的 column-gap 不一致：表头 ${JSON.stringify(cols.gap)} / 行 ${JSON.stringify(cols.radius)}`)
+  }
+}
+const colsCheck = {
+  checked: colsProblems.length === 0 && colsSkipReason === null,
+  skipReason: colsSkipReason,
+  problems: colsProblems,
+  header: cols?.lh ?? null,
+  row: cols?.pad ?? null,
+  gapHeader: cols?.gap ?? null,
+  gapRow: cols?.radius ?? null,
+}
+
 // --viewport 给定时**按视口高截**（这才看得出 position:sticky；全页截图看不出来）
 const shotHeight = fixedHeight ?? Math.max(320, Math.min(cssHeight, 6000))
 
@@ -593,7 +659,27 @@ console.log(JSON.stringify({
   pixelSize: `${pxW}x${pxH}`,
   cssHeight,
   measured,
+  colsCheck,
   renderedChars: rendered.length,
   bundle: { js: bundleJs.replace(work, '<work>'), primitivesCssChars: primitivesCss.length },
   browser,
 }, null, 2))
+
+/* ⚠ 自检结论走 **stderr**（不是 stdout）：stdout 是**一份 JSON**，调用方（smoke-kb-cols /
+ * ui-badge-pixels）要 `JSON.parse` 它 —— 往 stdout 后面追加一行"✅…"会把机器可读的产物弄坏
+ * （本仓已经因为"人读的尾巴混进机器读的产物"返工过一次）。 */
+if (colsSkipReason !== null) {
+  console.error(`· #cols 自检：**这一跑不判**（${colsSkipReason}）`)
+} else if (colsProblems.length === 0) {
+  console.error(`· #cols 自检通过：表头 = 行 = ${JSON.stringify(colsCheck.header)}，`
+    + `column-gap = ${JSON.stringify(colsCheck.gapHeader)}（page=${page} width=${width} theme=${themeName}）`)
+} else {
+  console.error('')
+  console.error(`❌ 列对齐自检失败（P2 头条的验收之一；page=${page} width=${width} theme=${themeName}）：`)
+  for (const p of colsProblems) console.error(`   - ${p}`)
+  console.error('   ⇒ 表头（.ks-lhead）与数据行（.ks-item）必须共用同一条列模板：')
+  console.error('      ksGuideStyles.ts 的 `.ks-lhead,.ks-item{grid-template-columns:var(--ks-cols)}`')
+  console.error('      与 `.ks-list` 上唯一的 --ks-cols（宽/窄两档也只覆盖这一个属性）。')
+  process.exit(1)
+}
+

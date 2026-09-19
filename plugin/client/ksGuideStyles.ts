@@ -332,7 +332,24 @@ export const KS_STYLES = `
    在徽章左右各量到一条 1px 的 state 色列）。
    ⇒ 高度 13 → 20（--ks-space-5），描边 1px（--ks-stroke，**不是** --ks-sep：验收要量到那 1px）。
    色调全部由调用方挂修饰类给（.ks-status-ok / -warn / -bad），与 .ks-kb-badge-* 同一套语义；
-   **一个字面色值都没有**（描边+文字=state-*-primary，底色=state-*-tertiary/secondary）。 */
+   **一个字面色值都没有**（描边+文字=state-*-primary，底色=state-*-tertiary/secondary）。
+   ⚠⚠ **2026-09-20 P2 复核打回（A）：上面这句"底色=state-*-tertiary/secondary"就是缺陷本身。**
+      **曾如此（错的）**：.ks-status-bad 拿 --dsw-alias-state-error-secondary 当**底色**。
+      **实测（真 Chrome + PNG 数像素，见 plugin/scripts/ui-badge-pixels.mjs）**：
+        · light：文字 rgb(236,19,19) 落在底 rgb(242,90,90) 上 ⇒ 对比度 **1.37**（229 个文字像素）；
+        · dark ：state-error-secondary 与 state-error-primary **解出来是同一条**（都 = red-400
+          rgb(242,90,90)）⇒ 徽章是**一整块纯色**（rect 内 1045 个像素全是那个色，**可辨文字 0 个**）
+          —— 深色下「已废止」三个字与底糊成一片（复核原话：深色只有 6 个 #EC1313 ≈ 0）。
+      **更正**：错误色族里**没有** --dsw-alias-state-error-tertiary（2026-09-19 那次"引用不存在的
+        token"就抓到过它；渲染级冒烟的 ghost-token 断言现在盯着这类引用）⇒ 底色改用**唯一**语义
+        合适的 error 系浅底 token --dsw-alias-interactive-bg-hover-danger
+        （light = rgba(236,19,19,.05) 近乎白底红晕 / dark = rgba(242,90,90,.15) 暗红晕）。
+        改后实测：light 对比度 **4.1**、dark **4.69**，两边都有 200+ 可辨文字像素。
+      ⚠ **归属如实**：.ks-status* 在本区间（57c992b..68ef946）的 git diff **零改动**
+        ⇒ 这**不是 P2 回归**，是 **P1-5 起就有的 token 选错**（P1-5 的记录只写了"浅底+描边+同色系
+        文字"这个形状，没有把每条 token 在**两套主题**下解出来核一遍）。
+      ⚠ **本段注释不许出现反引号**：整段 CSS 是一个模板字符串，反引号会把它截断
+        （本文件已经踩过三次；真要用就写成转义的反引号，见上面 :root 那段）。 */
 .ks-status{flex:none;display:inline-flex;align-items:center;box-sizing:border-box;
   height:var(--ks-space-5);padding:0 var(--ks-space-2);border:var(--ks-stroke) solid;
   border-radius:var(--ks-r-sm);font-size:var(--ks-fs-sm);font-weight:600;white-space:nowrap}
@@ -340,7 +357,9 @@ export const KS_STYLES = `
   border-color:var(--dsw-alias-state-success-primary)}
 .ks-status-warn{background:var(--dsw-alias-state-warn-tertiary);color:var(--dsw-alias-state-warn-label);
   border-color:var(--dsw-alias-state-warn-label)}
-.ks-status-bad{background:var(--dsw-alias-state-error-secondary);color:var(--dsw-alias-state-error-primary);
+/* 「已废止」的底色 = error 系里**唯一**的浅底 token（详见上面那段更正：
+   state-error-secondary 在 dark 与文字色同值 ⇒ 整块纯色、文字读不出来）。 */
+.ks-status-bad{background:var(--dsw-alias-interactive-bg-hover-danger);color:var(--dsw-alias-state-error-primary);
   border-color:var(--dsw-alias-state-error-primary)}
 /* 「被替代」这一档没有专属状态色（参照也没有第四档）⇒ 走**中性档**：与另外三档**同形**
    （同高、同 1px 描边、同圆角），只差色调 —— 这样四个徽章并排时"形"是齐的。 */
