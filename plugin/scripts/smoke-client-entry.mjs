@@ -878,9 +878,16 @@ const THEME_DEBT_BASELINE = {
   'KsSettingsSection.tsx': 48,
 }
 const BARE_COLOR = /#[0-9a-fA-F]{3,8}\b|rgba?\(|hsla?\(/
+// ⚠ **计数前必须剥注释**（2026-09-20 的假红，实测）：源码注释里会**引用旧色值作留痕**
+//   （`ksGuideStyles.ts` 里就写着"5c 之前这三色是 #1a7f37 / #9a6700 / #b42318"）⇒
+//   朴素按行 grep 把"记录历史的注释"算成"新写的死色" ⇒ 报 `ksGuideStyles.ts: 0 → 3`，
+//   而代码里一个死色都没有。判据要判**代码**、不判散文 —— 同一条纪律在本文件另一条
+//   负向断言（PPT 通路）上已经踩过一次。代价：字符串里的 `//`（如 URL）会被当注释切掉 ⇒ 轻微少计，
+//   而本棘轮是"只许减"，少计只会更保守。
+const stripComments = (s) => s.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/[^\n]*/g, '')
 const themeDebt = {}
 for (const f of clientSrcFiles) {
-  const text = await readFile(join(pluginRoot, 'client', f), 'utf8')
+  const text = stripComments(await readFile(join(pluginRoot, 'client', f), 'utf8'))
   let n = 0
   for (const line of text.split(/\r?\n/)) {
     if (BARE_COLOR.test(line) && !line.includes('var(--dsw-')) n++

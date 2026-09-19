@@ -74,6 +74,26 @@ try {
 `
 
 const dir = await mkdtemp(join(tmpdir(), 'ks-smoke-'))
+// ⚠ **宿主 ui-primitives 必须 alias 到一个桩**（2026-09-20 的真红）：
+//   本冒烟原来只写 `external: ['react','react-dom/server']` ⇒ 组件里一旦新增宿主组件的 import
+//   （5c 把 `KsIngestPanel` 的按钮换成宿主 `Button`）就会 `X [ERROR] Could not resolve
+//   "@deepseek-ai/dsh-client-ui-primitives"` ⇒ **整个 `-Full` 的 smoke 步红**。
+//   口径与 `smoke-client-entry.mjs:110-123` 一致：**逐个列出我们真正 import 的成员**——
+//   宿主那份是真的，桩漏一个就会 `does not provide an export named …`（比运行时 undefined 好）。
+const primitivesStubPath = join(dir, 'primitives-stub.mjs')
+await writeFile(primitivesStubPath, [
+  'const Null = () => null',
+  'export const Button = Null',
+  'export const Checkbox = Null',
+  'export const Tag = Null',
+  'export const Pill = Null',
+  'export const Input = Null',
+  'export const Switch = Null',
+  'export const Modal = Null',
+  'export const Menu = Null',
+  'export const IconChevronDownOutline14 = Null',
+  '',
+].join('\n'), 'utf8')
 // 入口必须落在 plugin 目录内：相对 import 与 node_modules 解析（react 在仓库根）
 // 都按入口所在目录向上查找——放临时目录会导致三者全部解析失败。
 const entryPath = join(pluginRoot, '.smoke-settings-entry.jsx')
@@ -90,6 +110,7 @@ try {
     absWorkingDir: pluginRoot,
     jsx: 'automatic',
     external: ['react', 'react-dom/server'],
+    alias: { '@deepseek-ai/dsh-client-ui-primitives': primitivesStubPath },
     loader: { '.tsx': 'tsx', '.ts': 'ts' },
     logLevel: 'warning',
   })
