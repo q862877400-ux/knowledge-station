@@ -40,6 +40,7 @@ const SUITES = [
   'scripts/smoke-lifecycle.mjs',
   'scripts/smoke-engine-guard.mjs',
   'scripts/smoke-client-entry.mjs',
+  'scripts/smoke-build-purity.mjs',
   'scripts/smoke-docimage.mjs',
   'scripts/smoke-sanitize.mjs',
   'scripts/smoke-trim.mjs',

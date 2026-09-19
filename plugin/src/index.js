@@ -81,8 +81,9 @@ export const inject = ['tools', 'webServer', 'systemPrompt']
  * `@deepseek-ai/schemastery`（经 dsh-tools/cordis 传递而来，见 `plugin/node_modules`）。
  *
  * 在此之前本插件**没有 `Config`**：`cordis.patch.yml` 里那 5 个键只在注释里说明，
- * 传错没有任何校验。字段与默认值与原 `DEFAULTS` **逐条一致**（所以加上它**不改变行为**，
- * 只是把"写错配置"从静默变成当场报错）。
+ * 传错没有任何校验。**默认值的唯一所有者就是这个 schema**（2026-09-19 清理：原先在 `apply` 旁边
+ * 还手抄了一份 `DEFAULTS` 字面量，两份已经漂移 —— 现在 `apply` 用 `Config({})` 的解析结果兜底），
+ * 所以加上它**不改变行为**，只是把"写错配置"从静默变成当场报错。
  *
  * ⚠ **`engineRoot` / `python` 刻意不给 `.default()`**：它们的"未设置"是有意义的状态
  * （分别代表"用 EngineManager 默认根"、"用 `$KS_PYTHON` 或仓内 .venv"），
@@ -161,18 +162,14 @@ export function evidenceAnchor(ev) {
   return `${KS_EVIDENCE_ORIGIN}${KS_EVIDENCE_PATH}?${qs.toString()}`
 }
 
-// Defaults consumed by `apply` when config omits them.
-const DEFAULTS = {
-  engineRoot: undefined, // -> EngineManager default (repo root)
-  python: undefined, // -> $KS_PYTHON or repo venv
-  startupTimeoutMs: 60_000,
-  // 批3（问题清单#3）：15→30 分钟。ks_answer 自带 LLM 推理（工具超时 120s）、
-  // 效力报告/巡检批都在引擎里跑，15 分钟的窗口在慢查询+间歇阅读场景会把引擎
-  // 杀在"马上还要用"的节骨眼上。配置仍可覆盖：cordis.yml 里 idleTimeoutMs。
-  idleTimeoutMs: 30 * 60 * 1000,
-  //: 额外可信 authority（局域网部署时声明；默认只认回环）。见 trust.js。
-  trustedHosts: undefined,
-}
+//: `apply` 在 config 省略某键时的兜底 —— **默认值的唯一所有者是 `Config` schema 本身**
+//: （解析 `{}` 得到的就是带默认值的那几个键）。**别再手抄一份字面量**：
+//: 2026-09-19 清理前这里与 schema 是两份（改一处漏一处）；而且手抄那份把 `trustedHosts`
+//: 写成 `undefined`，schema 的 `Schema.array(...)` 却自带 `default: []` —— 两份**已经不一致**
+//: （下游 `trust.js` 用 `Array.isArray` 判，行为等价，但这正是"双份默认值"的典型症状）。
+//: ⚠ 没默认值的两个键（`engineRoot`/`python`）在解析结果里**缺席** ⇒ 这里取到 `undefined`，
+//: 与"未设置"同义（分别回落到 EngineManager 默认根 / `$KS_PYTHON` 或仓内 venv）。
+const CONFIG_DEFAULTS = Config({})
 
 // ---------------------------------------------------------------------------
 // ks_answer helpers (P1b — trim the engine answer for the model's prompt)
@@ -1101,11 +1098,11 @@ export function apply(ctx, config = {}) {
     )
   }
   const opts = {
-    engineRoot: config.engineRoot ?? DEFAULTS.engineRoot,
-    python: config.python ?? DEFAULTS.python,
-    startupTimeoutMs: config.startupTimeoutMs ?? DEFAULTS.startupTimeoutMs,
-    idleTimeoutMs: config.idleTimeoutMs ?? DEFAULTS.idleTimeoutMs,
-    trustedHosts: config.trustedHosts ?? DEFAULTS.trustedHosts,
+    engineRoot: config.engineRoot ?? CONFIG_DEFAULTS.engineRoot,
+    python: config.python ?? CONFIG_DEFAULTS.python,
+    startupTimeoutMs: config.startupTimeoutMs ?? CONFIG_DEFAULTS.startupTimeoutMs,
+    idleTimeoutMs: config.idleTimeoutMs ?? CONFIG_DEFAULTS.idleTimeoutMs,
+    trustedHosts: config.trustedHosts ?? CONFIG_DEFAULTS.trustedHosts,
   }
   const manager = new EngineManager(opts)
 

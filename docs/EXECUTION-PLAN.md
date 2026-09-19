@@ -23,3 +23,22 @@
 通用层自己手搓、客户端多语言（缓办）。
 
 **待业主拍板（唯一保留项）**：无 —— 批量打标签按"**追加 + 单独移除**"做（业主未反对即视为同意）。
+
+---
+
+## 第 4 步施工单（撤掉 Word/PPT 导出；**已完成的侦察**）
+
+**范围裁定（我自己拍的，理由写在这里）**：撤掉 **Word（`.docx`）与 PPT（`.pptx`）的产出通路**；
+**保留** `.md`（交付物本体）与 `.html`（界面预览用的渲染形态，不是交付物）；
+**保留** `office_roundtrip`（那是"用 Word 编辑条款再回传"的**编辑工具**，不是"交付 Word 文件"——
+与"只出 Markdown"不冲突，撤它属于超范围删除）；**输入侧**的 Word 解析（`docx_adapter`/`docx_ingest`）当然保留。
+
+| 面 | 具体位置 |
+|---|---|
+| 引擎产出 | `src/core/exports/research_report.py`（`.docx` 那一形态 + `_docx_template_path`）、`src/core/exports/slide_export.py`（整个模块删除）、`src/core/exports/report_export.py`（`export_qa_citations_docx` / `export_review_report_docx` / `_open_document`） |
+| 引擎路由 | `src/core/api/routes_report.py`、`src/core/api/routes_update.py`、`src/core/api/server.py` 里对应端点（`/report/research/slides`、docx 导出） |
+| 依赖 | `pyproject.toml` 的 `python-docx>=1.0`、`python-pptx>=1.0`（⚠ Word COM 的 `pywin32` 属输入侧，保留） |
+| 宿主插件 | `plugin/src/report.js`：`KS_REPORT_SLIDES_PATH` / `registerSlidesRoute` / `ENGINE_SLIDES_PATH`；既有 docx 形态的注释与错峰 |
+| 客户端 | `plugin/client/api.ts`：`KsSlideDeck` / `exportResearchSlides` / `.docx` 相关类型与注释；调用点（下一步先 grep 出全部调用点） |
+| 用例 | `tests/test_research_report.py`（docx 部分）、`tests/test_slide_export.py`（整文件）、`tests/test_update_report.py`、`tests/test_layout_fidelity.py` 里 docx/pptx 断言；`plugin/scripts/smoke-report-*.mjs` 里的 pptx 断言 |
+| 收尾 | 棘轮基线按**新总账**重记（删用例 ⇒ 总账下降是**预期**，`-UpdateBaseline` 一次并说明原因）；`docs/NOT-DOING.md` 第 1 条的"待撤"改成"已撤（提交号）" |

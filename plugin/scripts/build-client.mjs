@@ -3,7 +3,9 @@
  *
  * 把 plugin/client/*（TS/TSX）打包成 DSH 浏览器 client 单文件 client.js：
  *   window.__ModuleLoader__.load({ id:'ks-dsh-plugin', factory:(require)=>{...}})
- * - react / react-dom / @deepseek-ai/* 保持 external（由 loader 的 require 提供）；
+ * - react / react-dom / **允许清单内的** `@deepseek-ai/*` 保持 external（由 loader 的 require 提供）；
+ *   ⚠ 清单内**没有**的 `@deepseek-ai/*` ⇒ **构建当场失败**（纯度门禁，见
+ *   `scripts/lib/external-allowlist.mjs`）；以前是整片 `@deepseek-ai/*` external，引错包不报错。
  * - pdfjs-dist 打进产物（loader 不提供它）；worker 走 host 路由 /ks/assets/pdf.worker.min.mjs；
  * - **JSX 走 automatic runtime**（`react/jsx-runtime` 的 `_jsx`），**不是** classic
  *   `React.createElement`：本文件里的 `jsx:'transform'/jsxFactory` 只是 API 默认，
@@ -21,6 +23,8 @@ import { build } from 'esbuild'
 import { readFile, writeFile, rm } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { dirname, join, resolve } from 'node:path'
+
+import { classifyExternal } from './lib/external-allowlist.mjs'
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
 const TMP = join(root, '.client.tmp.js')
@@ -58,9 +62,21 @@ await build({
   jsx: 'transform',
   jsxFactory: 'React.createElement',
   jsxFragment: 'React.Fragment',
-  // loader 提供的外部模块：react、react-dom、@deepseek-ai/*
-  external: ['react', 'react-dom', '@deepseek-ai/*'],
-  // pdfjs-dist 打进产物（不 external）
+  // ⚠ **纯度门禁**（2026-09-19，DSH 适配积压第 4 条）：以前这里是
+  //   `external: ['react', 'react-dom', '@deepseek-ai/*']` —— **整片 external**，
+  //   于是引一个不存在的 `@deepseek-ai/xxx` 构建**不报错**、运行时才炸。
+  //   现在改成 onResolve 逐条判定：允许清单内的保持 external，**不认识的 `@deepseek-ai/*` 当场抛**。
+  //   名单与理由见 scripts/lib/external-allowlist.mjs（两份名单各有出处，且有冒烟对着 package.json 核）。
+  plugins: [{
+    name: 'ks-build-purity',
+    setup(build) {
+      build.onResolve({ filter: /^(@deepseek-ai\/|react$|react-dom$|react\/|react-dom\/)/ }, (args) => {
+        const verdict = classifyExternal(args.path)   // 不在清单里的 `@deepseek-ai/*` 会在这里抛
+        return verdict === 'external' ? { path: args.path, external: true } : undefined
+      })
+    },
+  }],
+  // pdfjs-dist 打进产物（不 external；`classifyExternal` 对它返回 'bundle'）
   logLevel: 'warning',
 })
 

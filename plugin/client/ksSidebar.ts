@@ -21,7 +21,7 @@
  * |---|---|
  * | `tab.path`（URL 落在 path 上） | `useTabInfo().tab.navigation.address` |
  * | `tab.meta` **nonce**（强制重载：同值 path 也要重载） | `tab.navigation.revision` —— `tab-domain.ts:130` 每次 `navigate` 都 `set({…, revision:+1})`，**更干净** |
- * | `updateTab(id,{title})` | 不需要：官方 tab 记录自带 `title`，且标题可注册 `sidebar.right.pane.tab.title` 座位 |
+ * | `updateTab(id,{title})` | 不需要：官方 tab 记录自带 `title`（**我们就是靠它**）。⚠ 2026-09-19 更正：原文接着说"且标题可注册 `sidebar.right.pane.tab.title` 座位" —— **那个座位我们从来没注册过**，标题因此是**静态**的（不会随页面变化，例如不会显示"第 12 页"）。宿主确实有该座位，要不要用见 EXECUTION-PLAN 的 UI 轮 |
  * | URL 拦截（`urlTarget`） | 直接 `openResource(address, {kind})`，伪源 hack 可留作兼容入口 |
  * | `store`（side-card prefs/width） | **无对应物** → 见 `KsEvidenceHost` 的 `prefs` 注入 |
  *
@@ -215,7 +215,7 @@ export function isKsEvidenceResource(address: string): boolean {
 /**
  * 证据 tab 的**初始**标题（地址里没有页号，故给通用名）。
  *
- * 页号标题在导航后由 `sidebar.right.pane.tab.title` 座位按 `navigation` 渲染
+ * 页号标题目前由**我们自己的组件内部**渲染（宿主 tab 的 `title` 是静态的）。⚠ 2026-09-19 更正：原文说"由 `sidebar.right.pane.tab.title` 座位按 `navigation` 渲染" —— 我们**没有**注册那个座位（这条是审计里 S1 抓到的"注释声称注册了其实没注册"）
  * （见 `KsEvidenceHost`）——注册该座位是本迁移的一部分，否则标题会一直停在
  * "PDF 查看器"（旧模型靠 `updateTab` 补，官方模型靠 title 座位补）。
  *

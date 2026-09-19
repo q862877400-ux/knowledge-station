@@ -293,7 +293,7 @@ export class EngineManager {
     this.startupProbeTimeoutMs = opts.startupProbeTimeoutMs ?? 20_000
     // 2026-09-12 批3（问题清单#3）：空闲回收默认 15min → 30min。慢查询
     // （ks_answer 自带 LLM 推理，120s 工具超时）与阅读长 PDF 的间歇都装得下；
-    // 经 DSH 插件配置 idleTimeoutMs 仍可覆盖（index.js DEFAULTS 同步改）。
+    // 经 DSH 插件配置 idleTimeoutMs 仍可覆盖（默认值的唯一所有者是 index.js 的 `Config` schema）。
     this.idleTimeoutMs = opts.idleTimeoutMs ?? 30 * 60 * 1000
 
     /**
