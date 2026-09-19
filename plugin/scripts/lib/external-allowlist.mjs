@@ -59,6 +59,22 @@ export function classifyExternal(spec) {
   // react 的子路径（react/jsx-runtime、react-dom/client …）也算宿主提供
   if (PLAIN_EXTERNALS.some((m) => spec.startsWith(m + '/'))) return 'external'
 
+  // ⚠ **分隔符规范化**（复核 2026-09-20 第二轮的对抗性发现，比大小写更隐蔽）：
+  //   `@deepseek-ai//dsh-util-values` 与 `@deepseek-ai\dsh-util-crypto` 都**不是**规范写法，
+  //   下面那条正则认不出来（它要求 scope 后紧跟非 `/` 字符）⇒ 判 `bundle`；而 esbuild 会把
+  //   重复斜杠/反斜杠归一化后**解析到盘上真包**、**静默打进产物**（复核实跑 BUILT：
+  //   `dsh-util-values` 7690B、`dsh-util-crypto` 1745B、`cosmokit` 13146B）—— 正是本门禁要防的
+  //   "宿主单例多打一份"。⇒ 先归一化**只用于识别**：只要规范形落在我们 scope 内、而写法不规范，
+  //   就**当场抛**（不接受任何"等价但不同"的书写）。
+  const normalized = spec.replace(/\\/g, '/').replace(/\/{2,}/g, '/')
+  const canonical = /^(@[^/]+\/[^/]+)(?:\/|$)/.exec(normalized)
+  if (canonical && canonical[1].toLowerCase().startsWith('@deepseek-ai/') && normalized !== spec) {
+    throw new Error(
+      `构建纯度：'${spec}' 的路径分隔符不规范（反斜杠或重复斜杠）。`
+      + `esbuild 会把它归一化后解析到盘上的真包并**静默打进产物** ⇒ 宿主单例被多打一份。`
+      + `改成规范写法 '${canonical[1]}'。`)
+  }
+
   const m = /^(@[^/]+\/[^/]+)(?:\/|$)/.exec(spec)
   if (!m) return 'bundle'
   const pkg = m[1]

@@ -78,34 +78,25 @@ const readState = async () => {
 }
 
 /**
- * 像**真正的**另一个 dsh 进程那样**原子**写状态文件（tmp + rename）。
+ * 像**真正的**另一个 dsh 进程那样写状态文件 —— **走模块自己的协议**（持跨进程锁 + tmp + rename）。
  *
- * ⚠ 2026-09-20：本文件原来一律用裸 `writeFile(statePath, …)`。那在 Windows/Node 上是
- * **截断后重写**，而本进程可能正有一轮落盘在**读**同一个文件 ⇒ 读到半截 JSON
- * ⇒ 命中 `readStateFile` 的"判损"分支（先 park、再重读被 park 的那份、内容已变）
- * ⇒ `read_changed_while_judging` ⇒ `_writesBlocked` 置位、**拒绝写盘**
- * ⇒ 后面"关掉的会话不许被磁盘旧值复活"那条断言看到 `persisted:false` 而红。
- * 实测复现率 **40 次里 5 次（12.5%）**；单独跑/在串行链里都出现过（不是"并发假红"）。
- *
- * 产品的**所有**写入者都走 tmp+rename（`persistAttempt`），所以"模拟另一个进程"
- * 必须也那么写：裸写是**桩不忠实**，不是被测代码的错。
+ * ⚠ 2026-09-20 复核打回（这是第二轮修法，第一轮修错了地方）：
+ *   第一轮我把这里从**裸 writeFile** 改成"自己 tmp+rename 原子写"，理由是"裸写会被读到半截 JSON"。
+ *   独立复核在冻结提交上做的事是：**把原子写改回裸写再跑 60 次 → 0 次红**，而**原样**跑 100 次
+ *   **红 2 次**，红的断言是 `merge keeps the other process's sessions`（不是我指认的那条 3b）。
+ *   ⇒ 真机制是"**不持锁**的写者与模块 CAS 的竞态"：`chatmode.js` 的落盘在锁内读基线 → 写 tmp →
+ *     CAS 比对 → rename；对端那一下 rename 若正好落在 CAS 读与我们的 rename 之间，我们就会用**旧基线**
+ *     合并覆盖掉对方那条会话，而回读校验（原来只看 `touched`）判 `ok`。
+ *   修法两处（**都不许复刻协议**）：
+ *     ① 模块侧：回读校验补上"基线里有、我们没打算删、回读却没了"的会话 ⇒ 判 `retry`（自愈）；
+ *     ② 测试侧：对端写者改用模块导出的 `__writeStateFileAsPeerForTests`（**同一条锁协议**）。
+ *   复测：改法前后各 100 次（数字记在 `docs/DEVELOPMENT-HISTORY.md` §10.139，不在这里复述）。
  */
 const writeStateAtomic = async (content) => {
-  const tmp = `${statePath}.smoke-tmp-${process.pid}-${Date.now()}`
-  await writeFile(tmp, content, 'utf8')
-  // ⚠ Windows 上 `rename` 覆盖目标时可能**瞬时 EPERM**（目标那一刻正被替换/持有）。
-  //   实测：不重试时 40 次里有 2 次直接 `EPERM ... rename` 把整个冒烟打崩。
-  //   重试几次即好（模块自己也用 `unlinkWithRetry` 处理同类瞬时占用），
-  //   而"原子"这一点**不能退让**——退回裸写就会重新出现"读到半截 JSON ⇒ 拒写"那条假红。
-  let lastError = null
-  for (let i = 0; i < 20; i += 1) {
-    try { await rename(tmp, statePath); return } catch (error) {
-      lastError = error
-      await new Promise((r) => setTimeout(r, 5 * (i + 1)))
-    }
+  if (typeof chat?.__writeStateFileAsPeerForTests !== 'function') {
+    throw new Error('冒烟桩不自洽：模块没导出 __writeStateFileAsPeerForTests（协议所有者变了？）')
   }
-  await rm(tmp, { force: true })
-  throw lastError
+  await chat.__writeStateFileAsPeerForTests(content)
 }
 
 /* ================================================ 1. host 状态与提示词 */
@@ -626,13 +617,17 @@ check('the pre-existing good state was left byte-identical', (await readFile(sta
 {
   const N = 12
   const childProgram = (prefix) => `import(${JSON.stringify(chatModuleUrl)}).then(async (m) => {`
-    + '  await m.ensureLoaded();'
+    + '  const out = [];'
     + `  const prefix = ${JSON.stringify(prefix)};`
-    + `  const out = [];`
+    // ⚠ 两处加固（2026-09-20）：① 每轮落盘**包 try**，抛出也要留一行（否则整个子进程崩掉 ⇒
+    //   `claims` 只有一边的 12 条，红的却是"丢了整批"——原因被吞掉）；② 记下 `res.error`。
+    + '  try { await m.ensureLoaded() } catch (e) { out.push(["LOAD", false, "THREW:" + (e && e.message || e)]); }'
     + `  for (let i = 0; i < ${N}; i += 1) {`
-    + '    const r = m.setMode(prefix + i, { forensic: true });'
-    + '    const res = await r.persist;'
-    + '    out.push([prefix + i, res.persisted === true]);'
+    + '    try {'
+    + '      const r = m.setMode(prefix + i, { forensic: true });'
+    + '      const res = await r.persist;'
+    + '      out.push([prefix + i, res.persisted === true, res.error ?? null]);'
+    + '    } catch (e) { out.push([prefix + i, false, "THREW:" + (e && e.message || e)]); }'
     + '  }'
     + "  process.stdout.write('RESULT:' + JSON.stringify(out))"
     + ' })'
@@ -656,7 +651,9 @@ check('the pre-existing good state was left byte-identical', (await readFile(sta
     `claims=${claims.length} durable=${claimedDurable.length} missing=${broken.length}`)
   check('two concurrent writers: no writer lost its whole batch',
     claimedDurable.length === N * 2,
-    `durable=${claimedDurable.length}/${N * 2}`)
+    `durable=${claimedDurable.length}/${N * 2}`
+    + ` errors=${JSON.stringify(claims.filter(([, ok]) => !ok).map(([, , err]) => err)
+      .reduce((acc, e) => { acc[e] = (acc[e] ?? 0) + 1; return acc }, {}))}`)
   check('two concurrent writers: the merged file holds both sets',
     Object.keys(finalState).filter((k) => k.startsWith('mp-a-')).length === N
     && Object.keys(finalState).filter((k) => k.startsWith('mp-b-')).length === N,

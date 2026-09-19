@@ -88,6 +88,19 @@ def test_提交_攒批_返回_output_dir(tmp_path, monkeypatch):
 
 def test_任务失败_返回_None_回退信号(tmp_path, monkeypatch):
     _bypass_alive(monkeypatch)
+    # ⚠ **双边断言**（复核 2026-09-20 打回）：原来的 `assert r is None` 是**单边**的 —— 它在
+    #   ① 假 daemon 一次都没跑（线程早死，或每轮都被 `except` 吞掉）、② 客户端压根没提交任务
+    #   这两种情形下**同样成立**。而紧邻的 `test_无服务超时_...` 正是一条**没有 daemon**、也断言
+    #   `r is None` 的用例 ⇒ 只查这一边，`_mark_error` 这条协议等于**零验证**，"被吞掉的异常"
+    #   会继续遮住"daemon 没干活"。⇒ 补上"错误标记**确实被写过**"的正面证据。
+    marks: list[tuple[str, str]] = []
+    real_mark_error = ds._mark_error
+
+    def _spy(job_dir, jid, message):
+        marks.append((str(jid), str(message)))
+        return real_mark_error(job_dir, jid, message)
+
+    monkeypatch.setattr(ds, "_mark_error", _spy)
     stop = threading.Event()
     t = _fake_daemon(stop, fail=True)
     r = ds.deep_server_submit_and_wait(
@@ -95,6 +108,8 @@ def test_任务失败_返回_None_回退信号(tmp_path, monkeypatch):
     stop.set()
     t.join(2.0)
     assert r is None
+    assert marks, "没有任何错误标记被写过 ⇒ 这条用例其实没验证 _mark_error 协议（假绿）"
+    assert any("boom" == m for _, m in marks), f"错误标记的内容不对：{marks}"
 
 
 def test_无服务超时_返回None并清理任务文件(tmp_path, monkeypatch):

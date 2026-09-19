@@ -71,7 +71,7 @@
  *                                                          folderId: null 关闭夹范围；'bmf_…' + folderName 开启
  */
 
-import { open, readdir, readFile, rename, stat, unlink, utimes, writeFile } from 'node:fs/promises'
+import { mkdir, open, readdir, readFile, rename, stat, unlink, utimes, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 
 import { sessionFilePath } from './engine.js'
@@ -690,7 +690,20 @@ async function persistAttempt(snapshot, touched, cleared) {
         || (got.materialProjectId ?? null) !== (want.materialProjectId ?? null)
         || (got.materialProjectName ?? null) !== (want.materialProjectName ?? null)
     })
-    return lost ? 'retry' : 'ok'
+    // ⚠ **第二道防线原来只看了 `touched`**（2026-09-20 复核打回后补）：
+    //   一个**不持锁**的写者（老版本 / 别的工具 / 测试里那支"另一个进程"）如果把它的会话
+    //   落在**我们的 CAS 读（:673 `readFile`）与 rename（:678）之间**，我们就会用**旧基线**合并、
+    //   把它的会话整条覆盖掉 —— 而回读校验只看 `touched`，于是判 `'ok'`：**静默丢掉别人的状态**。
+    //   实测：独立复核在冻结提交上跑 100 次冒烟红 2 次，红的正是"merge keeps the other process's
+    //   sessions" ⇒ 这条窗口是真的、且会随机把 `-Full` 判红。
+    //   ⇒ 现在把**基线里存在、我们没打算删、回读却没了**的会话也算"丢了"，返回 `'retry'`
+    //     （重试会重新读基线，自然把对方那条合并回来）。
+    const lostPeer = [...baseline.modes.keys()].some((sid) => {
+      if (cleared.has(sid)) return false   // 我们本来就要删它
+      if (touched.has(sid)) return false   // 归我们管，上面的 `lost` 已经覆盖
+      return verify.modes.get(sid) === undefined
+    })
+    return (lost || lostPeer) ? 'retry' : 'ok'
   } finally {
     if (!renamed) await unlinkWithRetry(tmp)
   }
@@ -1179,8 +1192,7 @@ export function registerKsChatModeCommands(ctx, opts = {}) {
 }
 
 /** 供测试复位内存态（不含落盘）。 */
-export function __resetChatModeForTests() {
-  _modes = new Map()
+export function __resetChatModeForTests() {  _modes = new Map()
   _touched = new Set()
   _cleared = new Set()
   _loaded = null
@@ -1190,11 +1202,37 @@ export function __resetChatModeForTests() {
   _blockedReason = null
 }
 
+/**
+ * **仅供测试**：像"另一个 dsh 进程"那样把给定的 JSON 文本写进状态文件，**并且持跨进程锁**。
+ *
+ * 为什么必须由模块提供（而不是测试自己 tmp+rename 一下）：
+ *   真实的对端写者走的就是**同一套协议**（`withStateLock` → 读基线 → 写 tmp → rename）。
+ *   测试如果自己原子写但**不持锁**，就会落在我们的 CAS 读与 rename 之间 ⇒ 被我们用旧基线
+ *   合并覆盖（或反过来），表现为"另一个进程的会话偶发消失"。**协议只有一个所有者**（本模块），
+ *   所以桩也得走它 —— 别在测试里复刻一份锁协议（复刻等于第二个所有者，改一边就漂）。
+ *   2026-09-20：独立复核在冻结提交上 100 次跑红 2 次（`merge keeps the other process's sessions`），
+ *   就是这条不持锁的写者。
+ * @param {string} jsonText 要落盘的完整状态文件文本
+ */
+export async function __writeStateFileAsPeerForTests(jsonText) {
+  const file = chatModeFilePath()
+  await mkdir(dirname(file), { recursive: true })
+  await withStateLock(async () => {
+    const tmp = tmpPathFor(file)
+    try {
+      await writeFile(tmp, jsonText, 'utf8')
+      await renameWithRetry(tmp, file)
+    } finally {
+      await unlinkWithRetry(tmp)
+    }
+  })
+}
+
+const BODY_CAP = 4_096
+
 /* ------------------------------------------------------------------ *
  * 路由（纯 host 状态，不经引擎；同源栅栏由 index.js 的 webCtx 统一施加）
  * ------------------------------------------------------------------ */
-
-const BODY_CAP = 4_096
 
 class BodyTooLargeError extends Error {}
 

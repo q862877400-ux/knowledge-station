@@ -79,6 +79,22 @@ for (const spec of ['@DeepSeek-AI/dsh-client-ui-slots', '@DeepSeek-AI/whatever-n
   try { v = classifyExternal('@deepseek-ai/dsh-client-ui-slots') } catch (e) { v = `THREW: ${e.message.slice(0, 30)}` }
   check('反例对照：全小写的清单内模块仍 external（门禁没有变成一律拒绝）', v === 'external', String(v))
 }
+// ⚠ **分隔符绕过**（复核 2026-09-20 第二轮的对抗性发现，2026-09-20 修）：`@deepseek-ai//x` 与
+//   `@deepseek-ai\x` 都不是规范写法，但 esbuild 会归一化后**解析到盘上真包并静默打进产物**
+//   （复核实跑 BUILT 三个真包）⇒ 必须当场抛，而不是判 bundle。
+for (const spec of ['@deepseek-ai//dsh-client-ui-slots', '@deepseek-ai\\dsh-client-ui-slots',
+  '@deepseek-ai//dsh-util-values', '@deepseek-ai\\dsh-util-crypto',
+  '@deepseek-ai///whatever', '@DeepSeek-AI\\\\dsh-client-runtime']) {
+  let msg = null
+  try { classifyExternal(spec) } catch (e) { msg = e.message }
+  check(`分隔符不规范 ⇒ **抛**（不许静默当 bundle）：${spec}`, msg !== null, (msg ?? 'NOT-THREW').slice(0, 60))
+}
+// 对照：**子路径**里的正常斜杠当然要放过（别把合法写法一起拒了）。
+{
+  let v = null
+  try { v = classifyExternal('@deepseek-ai/dsh-client-ui-slots/sub/path') } catch (e) { v = `THREW: ${e.message.slice(0, 30)}` }
+  check('反例对照：清单内模块的正常子路径仍 external', v === 'external', String(v))
+}
 
 // ── 3) 产物级佐证：现构建产物里的 @deepseek-ai/* 必须在清单内 ──────────────────
 {
