@@ -66,14 +66,20 @@
 
 | 项 | 性质 | 结果 |
 |---|---|---|
-| 积压 #4 启动收尾竞态 | 会坏 | ✅ 确证（B1 断言 `setInterval=1`）并修：三处同形加**卸载代数** `_xxxEpoch`——disposer **先**递增、**再**停句柄，启动收尾在每个 `await` 后比对代数，不一致整段作废。新增 `smoke-lifecycle.mjs` 双向断言（竞态不许装 / 干净路径必须装 / 卸载必须清） |
+| 积压 #4 启动收尾竞态 | 会坏 | ✅ 确证（B1 断言 `setInterval=1`）并修：三处同形加**卸载代数** `_xxxEpoch`——disposer 递增它，启动收尾在**装任何句柄之前**比对，不一致整段作废。新增 `smoke-lifecycle.mjs` 双向断言（竞态不许装 / 干净路径必须装 / 卸载必须清 / 跨模块回装也不许） |
 | **新发现**：`adoptJob` 少传 `manager` | **会坏（静默）** | ✅ 修 `runJobPollLoop(manager, jobId, initialStatus)` + 两处调用点。修复前：入库任务接管**整条死掉**（`ensureLive=0`、镜像停在 running），**不抛错** |
-| **新发现**：卸载不停入库轮询 | 会坏（潜伏） | ✅ `registerKsIngestRoutes` 的 disposer 补 `stopJobPoll()`（此前只有 announce/inspection 有）；`void runJobPollLoop` 挂 `.catch`，别让后台轮询的 rejection 终止宿主 |
+| **新发现**：卸载不停入库轮询 | 会坏（潜伏·**无界**） | ✅ `registerKsIngestRoutes` 的 disposer 补 `stopJobPoll()`；`void runJobPollLoop` 挂 `.catch`，别让后台轮询的 rejection 终止宿主 |
+| **复核打回**：`finalizeBatch` 尾巴无代数比对 | 会坏（跨模块回装） | ✅ 复核拿可复现脚本证明：卸载落在拉 changes 的窗口里，尾巴仍会 `triggerAfterInspection` → `announce.adoptScanPoll`，**装起持有已死 ctx 的活轮询**（3 次扫描轮询 + 4 次 ensureLive）。修法：进入时记代数、**尾巴调用前**比对（放在调用方太晚）；`smoke-lifecycle` 的 **B4** 用"卡住 changes 那次 fetch"把它做成确定性用例（修前 `afterDispose=1`，修后 6/6） |
 
-**⚠ 就地更正审计自己的一句话**：积压 #4 原文写的「同类**三处**（announce/ingest）」**不准确**。
-实测：**只有 inspection 泄漏一个活句柄**（30s `setInterval`，模块级单引用 ⇒ 再没人能清）；
-announce/ingest 的轮询是 `while (_poll && !_poll.stopped)` 的**下一 tick 自终止**型，同窗口只会
-多跑一格。它们真正的问题是**卸载不停轮询**（上表第三行），那是另一回事。
+**⚠ 就地更正审计自己的一句话（第二次更正）**：积压 #4 原文写「同类**三处**（announce/ingest）」；
+我第一轮把它更正成"只有 inspection 泄漏活句柄、announce/ingest 是下一 tick 自终止型"——
+**这个更正错了一半**（独立复核用变异体实测推翻）：`inspection` 泄漏 30s 定时器；
+`announce` 靠 disposer 的 `stopPoll()` 至多**多跑一格**（读源码 + 复核确认，未单独端到端实测）；
+**`ingest` 是潜伏的无界泄漏**——它的循环 `while (!jobTick(jobId))` **只在 `_jobPoll` 被清空后**
+才为真，而基线 disposer 从不清它（复核变异体：卸载后 3.5s 内又 `ensureLive` 2 次，上限 6h）。
+⇒ 原始审计在**方向上是部分对的**，错的是我那半句更正。逐条证据在
+[开发史 §10.135 六](DEVELOPMENT-HISTORY.md)。
+
 
 **施工中被修复"当场"暴露的两个问题**（都属"桩不真 / 污染真数据"）：
 `smoke-ingest` 的假 manager 缺 `touchActivity()`（轮询死着时够不着，修好即刻崩 ⇒ 假崩不是真缺陷）；

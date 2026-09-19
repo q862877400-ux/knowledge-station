@@ -13,6 +13,9 @@
 # 三条纪律（都在 AGENTS.md 里，这里实现它们）：
 #   1. **一次只跑一个**：并发跑会制造假红（`smoke-chatmode` 实测两次 172/173 都发生在与全量
 #      pytest 并发时）。这里用锁文件把它变成**当场报错**，而不是靠人记得。
+#      ⚠ 2026-09-19 起**锁也盖住冒烟自己**（`plugin/scripts/smoke-all.mjs` 取同一个锁文件）：
+#      那次假红的真正来源是**复核子代理绕过本脚本直接跑冒烟**，而当时锁拦不住它。
+#      ⇒ 只盖住"推荐的那条路"等于没盖住。
 #   2. **只涨不跌**：pytest 的 passed 数只许涨；掉了就红（基线在 `scripts/gates-baseline.json`）。
 #   3. **退出码为准**：任何一步失败即非零退出，且失败步骤逐条列出。
 [CmdletBinding()]
@@ -47,6 +50,10 @@ if (Test-Path $lockPath) {
 }
 @{ pid = $PID; startedAt = (Get-Date).ToString('s'); mode = $(if ($Full) { 'full' } else { 'quick' }) } |
   ConvertTo-Json -Compress | Set-Content -Path $lockPath -Encoding utf8
+# ⚠ **再入开关**：子步骤（`npm run smoke` → `scripts/smoke-all.mjs`）也会去取**同一个**锁。
+#   它是我们拉起来的，锁已经在我们手里 ⇒ 必须告诉它"别取"，否则它会当场退出码 3
+#   （自己把自己锁死）。这个变量就是那两个入口之间的唯一约定。
+$env:KS_GATES_LOCK_HELD = '1'
 
 $steps = @()
 function Add-Step([string]$name, [string]$exe, [string[]]$argv, [string]$workdir) {
@@ -56,6 +63,13 @@ function Add-Step([string]$name, [string]$exe, [string[]]$argv, [string]$workdir
 $py = Join-Path $repo '.venv\Scripts\python.exe'
 $plugin = Join-Path $repo 'plugin'
 
+# ── 自检开关（**只在验证"失败路径"本身时用**）：把门禁换成一个必定失败的假步骤，
+#    用来确认"失败行 + 完整日志路径"真的会打出来。默认关。
+if ($env:KS_GATES_SELFTEST -eq '1') {
+  # 用真解释器而不是 `cmd /c "… ; exit 7"`：cmd 不认 `;` 作分隔符，
+  # 第一版自检因此"通过"了（自检工具自己不可信，等于没自检）。
+  Add-Step 'selftest（必失败）' $py @('-c', "print('FAIL  selftest-assertion'); import sys; sys.exit(7)") $repo
+} else {
 # 快档：按"最快能发现破坏"的顺序（tsc → mypy → 命令契约 → 全链 smoke）
 Add-Step 'tsc（客户端类型）'      'npx' @('tsc', '--noEmit', '-p', 'plugin/client') $repo
 Add-Step 'mypy（引擎类型）'        $py  @('-m', 'mypy') $repo
@@ -64,6 +78,7 @@ Add-Step 'smoke（全链）'           'npm' @('run', 'smoke') $plugin
 if ($Full) {
   Add-Step 'pytest（引擎用例）'     $py  @('-m', 'pytest', '-q') $repo
   Add-Step '引擎门禁（uvicorn）'     $py  @('scripts/verify-engine-uvicorn.py') $repo
+}
 }
 
 $results = @()
@@ -84,6 +99,24 @@ try {
     # 让输出仍然可见（但只留尾部，避免刷屏）
     $tail = ($out | Select-Object -Last 6)
     $tail | ForEach-Object { Write-Host ("   " + $_) }
+
+    # ⛔ **失败时必须给出可诊断的证据**（2026-09-19 补）：
+    #   全量跑里 `smoke-chatmode` 红过一次 172/173，而当时只留了尾部 6 行 ⇒ **哪条断言红的
+    #   就此丢失**，只能靠单独重跑猜。假红的根因分析恰恰需要那条断言的原文。
+    #   ⇒ 失败步骤：① 把 FAIL/error 行**当场**打出来（不必再翻日志）；② 完整输出落一个文件并报路径。
+    if ($code -ne 0) {
+      $failLines = @($out | Where-Object { $_ -match '^\s*(FAIL|FAILED|ERROR)\b' } | Select-Object -First 12)
+      if ($failLines.Count -gt 0) {
+        Write-Host "   ── 失败行 ──" -ForegroundColor Red
+        $failLines | ForEach-Object { Write-Host ("   " + $_) -ForegroundColor Red }
+      }
+      $logDir = Join-Path ([System.IO.Path]::GetTempPath()) 'ks-gates-logs'
+      New-Item -ItemType Directory -Force -Path $logDir | Out-Null
+      $logPath = Join-Path $logDir ("{0}-{1}.log" -f (Get-Date -Format 'yyyyMMdd-HHmmss'),
+        ($s.name -replace '[^\w\-]', '_'))
+      $text | Set-Content -Path $logPath -Encoding utf8
+      Write-Host ("   ⛔ 该步完整输出：{0}" -f $logPath) -ForegroundColor Red
+    }
 
     # pytest 的"只涨不跌"要读数字
     if ($s.name -like 'pytest*') {
@@ -133,4 +166,5 @@ try {
   exit 0
 } finally {
   Remove-Item $lockPath -Force -ErrorAction SilentlyContinue
+  Remove-Item Env:\KS_GATES_LOCK_HELD -ErrorAction SilentlyContinue
 }

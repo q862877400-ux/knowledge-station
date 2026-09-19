@@ -650,7 +650,9 @@ export function registerKsAnnounceRoutes(ctx, manager) {
     registerExportRoute(ctx, manager),
   ]
   return () => {
-    // 先递增代数（作废仍在飞的启动收尾），再停轮询——顺序反了会在等待窗口里被重新装上。
+    // 递增代数是必须的（作废仍在飞的启动收尾）；"放在 stopPoll 之前"不是必须的
+    // ——disposer 体全同步，两条语句之间不可能插入续体（复核实测：对调不改变结果）。
+    // 保持"先递增"是给将来加 `await` 留的安全侧。这条更正见开发史 §10.136。
     _announceEpoch += 1
     stopPoll()
     for (const dispose of disposers) dispose()

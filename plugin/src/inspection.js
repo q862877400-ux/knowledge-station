@@ -470,6 +470,17 @@ export function byClassEmpty(byClass) {
  * route) — the host never stores detail rows.
  */
 async function finalizeBatch(manager, ctx, batchId, status) {
+  // ⚠ **进入时的代数**：本函数中间有 `await`（拉 changes），而它的尾巴会
+  //   `void triggerAfterInspection(...)` —— 那条路会**跨模块**装上公告扫描轮询
+  //   （`announce.adoptScanPoll`）。卸载若落在这些 await 窗口里，尾巴就会在 dispose 之后
+  //   装起一个持有已死 ctx 的活轮询。
+  //   独立复核（2026-09-19）拿可复现脚本证明了这个洞（卸载后 3 次扫描轮询 + 4 次 ensureLive）；
+  //   `scripts/smoke-lifecycle.mjs` 的 B4 用"卡住 changes 那次 fetch"把它做成确定性用例
+  //   （修复前 `afterDispose=1`，修复后 0）。
+  //   为什么反复在"每个 await 之后比对"却仍会漏：**比对必须跟着收尾一起走**，
+  //   而不是只放在调用方 —— 调用方（启动检查/轮询）在 `await finalizeBatch` 之后比对时，
+  //   尾巴早已执行过了。
+  const epoch = _autoEpoch
   // 一次拉取、两份归组（change_type 计数 + 五类结论）——两次请求会出现两个口径不同的分母。
   const summaries = await fetchChangeSummaries(manager, batchId)
   const byType = summaries === null ? null : summaries.by_type
@@ -510,6 +521,9 @@ async function finalizeBatch(manager, ctx, batchId, status) {
   }
   // 公告发现随巡检顺带触发（决策 19 延伸，语义 C）：引擎侧 6h 时间闸防频繁；
   // fire-and-forget，不阻塞巡检收尾。任何终态都触发（含空转批）。
+  // ⚠ 上面那次 `await` 之后**必须**再比对一次代数：这个调用会跨模块装轮询句柄
+  //   —— 句柄一旦在 dispose 之后装上，模块级单引用就再没人能清（B4 用例钉住）。
+  if (epoch !== _autoEpoch) return
   void triggerAfterInspection(ctx, manager).catch((err) => {
     ctx.logger?.warn?.('ks-inspection: 公告扫描触发异常',
       err instanceof Error ? err.message : String(err))
@@ -944,6 +958,18 @@ function stopAutoInspectionTimer() {
   }
 }
 
+/** 供测试复位内存态（不含落盘）：停掉定时器/轮询、丢缓存的状态、代数 +1
+ *  （让上一阶段仍在飞的启动收尾失效）。同 `chatmode.__resetChatModeForTests` 的用途与理由：
+ *  状态是**模块级缓存**的，一个冒烟里跑多个阶段必须能回到干净起点，否则后一阶段会读到
+ *  前一阶段的状态（B4 第一次写出来就踩了这个：fixture 写了但 `_state` 早被缓存）。 */
+export function __resetInspectionForTests() {
+  stopAutoInspectionTimer()
+  stopPoll()
+  _state = null
+  _persistChain = Promise.resolve()
+  _autoEpoch += 1
+}
+
 /** 启动接管 + 逾期/僵尸检测（apply 的 effect 内调用一次，fire-and-forget）：
  *   - last.status==='running' 且引擎健康且批真在跑 → 重新 adopt（host 曾崩，
  *     引擎若还活着就能接回轮询）；
@@ -1035,8 +1061,11 @@ export function registerKsInspectionRoutes(ctx, manager) {
     registerExportRoute(ctx, manager),
   ]
   return () => {
-    // 顺序有意义：先递增代数（让仍在飞的 `inspectionStartupCheck` 作废），再停定时器
-    // ——反过来的话，等待窗口里恢复的收尾会在 clearInterval 之后重新装上。
+    // ⚠ 递增代数是**必须**的（让仍在飞的启动收尾作废）；"放在停定时器之前"**不是**必须的 ——
+    //   独立复核实测：把两条对调，泄漏照旧不发生（disposer 体全同步 = run-to-completion，
+    //   两条语句之间不可能插入 async 续体）。我原先写的"顺序反了会在等待窗口里被重新装上"
+    //   是**错的**（已就地更正）。仍然保持"先递增"，因为将来若在中间加 `await`，
+    //   先递增才是安全的那一侧 —— 这是防御，不是今天的语义。
     _autoEpoch += 1
     stopAutoInspectionTimer()
     for (const dispose of disposers) dispose()

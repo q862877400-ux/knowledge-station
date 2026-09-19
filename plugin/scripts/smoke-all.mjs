@@ -1,0 +1,86 @@
+/**
+ * ks-dsh-plugin — scripts/smoke-all.mjs
+ *
+ * **冒烟全链的唯一入口**（`npm run smoke` 现在就是它；名单的**唯一所有者**也在这里）。
+ *
+ * ## 为什么要把 `&&` 长链换成一个 runner（2026-09-19，有实测代价）
+ * 原来的 `smoke` 是 package.json 里一条 25 段的 `&&` 链：**它不拿门禁锁**。
+ * 于是"绕过 `run-gates.ps1` 直接跑冒烟"这条路完全不受保护 —— 而本轮的 `-Full` 里
+ * `smoke-chatmode` 就红了 `172/173`，事后追出当时**复核子代理正在并发跑冒烟**，
+ * 它走的正是这条路。⇒ 假红的成因是机器级资源争用，**锁就必须盖住跑冒烟的每一条路**。
+ *
+ * runner 做的三件事（都很小，但都是"靠人记得"换不来的）：
+ *   1. **取锁**（与 `run-gates.ps1` 同一个锁文件、同一套语义；再入由 `KS_GATES_LOCK_HELD` 开关）；
+ *   2. 顺序跑名单、**流式转发输出**（失败时人仍然看得到是哪一条红了）；
+ *   3. 第一条失败即停、**以它的退出码退出**，并在 `finally` 里放锁（异常/Ctrl-C 也放）。
+ *
+ * ⚠ 名单顺序有含义：**最快能发现破坏的排前面**（类型/契约类在前，渲染类在后）。
+ *   加新冒烟请加在这个数组里，别再往 package.json 里拼 `&&`。
+ */
+
+import { spawnSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
+import { dirname, join } from 'node:path'
+
+import { acquireGateLock, contentionMessage } from './gate-lock.mjs'
+
+/** 顺序即优先级：越早失败越省时间。 */
+const SUITES = [
+  'scripts/smoke-pdf-fit.mjs',
+  'scripts/smoke-pdf-panel.mjs',
+  'scripts/smoke-settings.mjs',
+  'scripts/smoke-settings-guard.mjs',
+  'scripts/smoke-effect-tool.mjs',
+  'scripts/smoke-chatmode.mjs',
+  'scripts/smoke-ingest.mjs',
+  'scripts/smoke-lifecycle.mjs',
+  'scripts/smoke-engine-guard.mjs',
+  'scripts/smoke-client-entry.mjs',
+  'scripts/smoke-docimage.mjs',
+  'scripts/smoke-sanitize.mjs',
+  'scripts/smoke-trim.mjs',
+  'scripts/smoke-materials-tool.mjs',
+  'scripts/smoke-materials-routes.mjs',
+  'scripts/smoke-collect-tool.mjs',
+  'scripts/smoke-collect-ui.mjs',
+  'scripts/smoke-report-routes.mjs',
+  'scripts/smoke-report-ui.mjs',
+  'scripts/smoke-draft-ui.mjs',
+  'scripts/smoke-catalog-ui.mjs',
+  'scripts/smoke-channels-routes.mjs',
+  'scripts/smoke-anchor-mark.mjs',
+  'scripts/smoke-class-summary.mjs',
+  'scripts/smoke-kb-page-render.mjs',
+]
+
+const here = dirname(fileURLToPath(import.meta.url))
+const pluginRoot = dirname(here)
+
+const lock = acquireGateLock('smoke')
+if (!lock.ok) {
+  console.error(contentionMessage(lock.holder))
+  process.exit(3)
+}
+
+let failed = null
+try {
+  console.log(`=== smoke 全链：${SUITES.length} 套（锁 ${lock.held ? '已取' : '由父进程持有'}）===\n`)
+  for (const suite of SUITES) {
+    console.log(`── ${suite} ──`)
+    const r = spawnSync(process.execPath, [join(pluginRoot, suite)], {
+      cwd: pluginRoot, stdio: 'inherit', env: process.env,
+    })
+    if (r.status !== 0) {
+      failed = { suite, code: r.status ?? 1 }
+      break
+    }
+  }
+} finally {
+  lock.release()
+}
+
+if (failed) {
+  console.error(`\n⛔ smoke 全链失败于 ${failed.suite}（exit=${failed.code}）`)
+  process.exit(failed.code)
+}
+console.log(`\n✅ smoke 全链 ${SUITES.length}/${SUITES.length} 套全过`)

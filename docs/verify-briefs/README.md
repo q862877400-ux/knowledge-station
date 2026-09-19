@@ -20,3 +20,14 @@
   并在报告**首尾各记一次** `git rev-parse HEAD` + `git status --short`。
 - 结论只往这里写**摘要**；逐条详述可以落在这里，也可以只在史书里留一行链接。
 - 这条纪律的正文在根 [AGENTS.md](../AGENTS.md) 的"复核"一节——**这里是它的证据落地处**。
+- **⚠ 复核也要守门禁的锁**（2026-09-19 起，用血换的）：verifier 在提取树里跑冒烟时**必须**走
+  `npm run smoke`（= `plugin/scripts/smoke-all.mjs`，它与 `run-gates.ps1` **共用同一个锁文件**）；
+  拿到**退出码 3 = 有人在跑**，要**等**，不是失败。写成这条的原因是：上一轮的 `-Full` 里
+  `smoke-chatmode` 红了 `172/173`，追下来正是**复核子代理绕过 `run-gates.ps1` 直接跑冒烟**、
+  而当时的锁拦不住那条路 ⇒ 一次假红 + 一次全量重跑。**单跑某一条 `node scripts/smoke-*.mjs`
+  仍然不受锁保护**，只应在确认没有别的门禁在跑时用。
+- **⚠ 在提取树里跑冒烟前必须把 `KS_DATA_DIR` 指到临时目录**（2026-09-19 起）：冻结提交里的
+  冒烟**可能还没有**"数据目录隔离"那个修复，而 `KS_DATA_DIR` 决定 `ks-ingest.json` /
+  `ks-inspection.json` / `ks-chatmode.json` 落哪。实测后果：复核在 `35f024a` 树上跑
+  `smoke-ingest` 把一条**假任务**（`pjob_smoke1`/`pending`）写进了**真实**
+  `%APPDATA%\KnowledgeStation`，而真产品启动时会去**接管**它。⇒ `$env:KS_DATA_DIR = <temp>`。

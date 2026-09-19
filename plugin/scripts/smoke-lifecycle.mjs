@@ -29,7 +29,12 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
 import { ingestJobStartupCheck } from '../src/ingest.js'
-import { inspectionStartupCheck, registerKsInspectionRoutes } from '../src/inspection.js'
+import { registerKsAnnounceRoutes } from '../src/announce.js'
+import {
+  __resetInspectionForTests,
+  inspectionStartupCheck,
+  registerKsInspectionRoutes,
+} from '../src/inspection.js'
 
 const dataDir = await mkdtemp(join(tmpdir(), 'ks-lifecycle-smoke-'))
 process.env.KS_DATA_DIR = dataDir
@@ -122,6 +127,9 @@ globalThis.fetch = realFetch
  * ------------------------------------------------------------------ */
 
 // 上一进程留下的终态批次（total=0 ⇒ 跳过细分自愈，不碰引擎）。
+// ⚠ 先复位模块内存态：状态是**模块级缓存**的，A 段/上一次运行留下的 `_state` 会让这里的
+//   fixture **完全不生效**（B4 第一版就踩了这个：fixture 写了，`reached=false`）。
+__resetInspectionForTests()
 await writeFile(join(dataDir, 'ks-inspection.json'), JSON.stringify({
   last: { batch_id: 'batch-smoke-B', status: 'done', total: 0 },
   stale_run: false,
@@ -167,6 +175,92 @@ check('B3 卸载必须清掉定时器本身', installed === 1 && cleared === 1,
 
 globalThis.setInterval = realSetInterval
 globalThis.clearInterval = realClearInterval
+
+/* ------------------------------------------------------------------ *
+ * B4 跨模块回装：收尾的**最后一个** await 之后也要作废
+ * ------------------------------------------------------------------ *
+ * 独立复核（2026-09-19）拿可复现脚本指出的洞：`inspectionStartupCheck` 在
+ * `await finalizeBatch(...)` **之后没有**代数比对，而 `finalizeBatch` 的尾巴会
+ * `void triggerAfterInspection(...)` → `announce.adoptScanPoll(...)`。
+ * ⇒ 卸载若落在 `finalizeBatch` 自己的 await（拉 changes）窗口里，
+ * **卸载后仍会装起一个公告扫描轮询**（复核实测：3 次扫描轮询 + 4 次 ensureLive）。
+ *
+ * 断言：卸载之后**不许**再向公告扫描端点发请求。用"卡住 changes 那次 fetch"把窗口
+ * 做成确定性的——不靠 sleep 抢时序。
+ */
+
+const announceCtx = {
+  webServer: { register: () => () => {} },
+  logger: { info() {}, warn() {}, error() {} },
+}
+
+// B4 也要自己的干净起点（`__resetInspectionForTests` 同时把代数 +1，让 B1/B2 的残留失效）。
+__resetInspectionForTests()
+await writeFile(join(dataDir, 'ks-inspection.json'), JSON.stringify({
+  // running + 引擎回"终态" ⇒ 启动检查会走到 `await finalizeBatch(...)`
+  last: { batch_id: 'batch-smoke-B4', status: 'running', total: 1 },
+  stale_run: false,
+}, null, 2), 'utf8')
+
+const SCAN_LAST_MARK = '/api/v1/update/announce-scan/last'
+let summariesStarted = false
+let releaseSummaries = null
+const summariesGate = new Promise((resolve) => { releaseSummaries = resolve })
+let scanProbes = 0
+let scanProbesAfterDispose = 0
+let disposedFlag = false
+
+const realFetch2 = globalThis.fetch
+globalThis.fetch = async (url) => {
+  const u = String(url)
+  const json = (body) => new Response(JSON.stringify(body), {
+    status: 200, headers: { 'Content-Type': 'application/json' },
+  })
+  if (u.includes('/api/v1/update/batch/')) {
+    // 上次那批已经终态 ⇒ 走 `TERMINAL.has(status)` 分支 → finalizeBatch
+    return json({ code: 200, status: 'success', data: { status: 'done' } })
+  }
+  if (u.includes('/api/v1/update/changes')) {
+    summariesStarted = true
+    await summariesGate           // ← 故意卡在这里，让"卸载"落进这个窗口
+    return json({ code: 200, status: 'success',
+      data: { by_type: { new_version: 0, superseded: 0, withdrawn: 0, not_found: 0, no_change: 0 },
+              by_class: { total: 0, unreadable: 0, classes: {} } } })
+  }
+  if (u.includes(SCAN_LAST_MARK)) {   // ⚠ 必须先判 `/last`：它是下面那条路径的前缀
+    scanProbes += 1
+    if (disposedFlag) scanProbesAfterDispose += 1
+    // 终态 ⇒ 即使被装上轮询，它也会立刻收尾（不会让本冒烟挂着不退）
+    return json({ code: 200, status: 'success', data: { status: 'done', scan_id: 'scan-smoke-B4' } })
+  }
+  if (u.endsWith('/announce-scan')) {
+    // 巡检尾触发的 POST：回一个 scan_id ⇒ `adoptScanPoll`（真机上正常也会这样）
+    return json({ code: 200, status: 'success',
+      data: { status: 'started', scan_id: 'scan-smoke-B4' } })
+  }
+  return json({ code: 200, status: 'success', data: {} })
+}
+
+const disposeInspection4 = registerKsInspectionRoutes(webCtx, managerB)
+const disposeAnnounce4 = registerKsAnnounceRoutes(announceCtx, managerB)
+const pending4 = inspectionStartupCheck(webCtx, managerB)
+
+// 等启动检查真的卡在 changes 那次 await 上（有界等待，不赌时序）
+const reached = await waitFor(() => summariesStarted, 5000, 10)
+disposedFlag = true
+disposeInspection4()
+disposeAnnounce4()
+releaseSummaries()
+await pending4
+// 给被（错误地）装上的轮询一点时间去做它的第一次探测
+await new Promise((resolve) => { setTimeout(resolve, 200) })
+
+check('B4 卸载后不许再装跨模块轮询（finalize 尾巴的 triggerAfterInspection）',
+  reached === true && scanProbesAfterDispose === 0,
+  `reached=${reached} scanProbes=${scanProbes} afterDispose=${scanProbesAfterDispose}`)
+
+globalThis.fetch = realFetch2
+
 
 /* ------------------------------------------------------------------ */
 

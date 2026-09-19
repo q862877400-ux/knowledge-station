@@ -8366,21 +8366,23 @@ FAIL  A2 宿主镜像推进到 done — status=running · statusProbes=0
 
 ### 二、清单第 4 项（竞态）：证实了，修法是「卸载代数」，并且**更正审计里的一个说法**
 
-审计原文写的是「同类**三处**（announce/ingest）」。**这句话不准确，就地更正**：
+审计原文写的是「同类**三处**（announce/ingest）」。我第一轮把它更正成"只有 inspection 泄漏活
+句柄，announce/ingest 是下一 tick 自终止型"——**这个更正本身错了一半**（独立复核 2026-09-19
+拿变异体实测推翻，见第六节）。**三处的真实处境（就地更正第二次）**：
 
-- **inspection 是唯一"泄漏一个活句柄"的那处**——`inspectionStartupCheck` 尾部
-  `startAutoInspectionTimer` 装的是 **30s `setInterval`**，模块级 `_autoTimer` 只留一个引用；
-  卸载若落在 `await initInspectionState()` 窗口内，disposer 先跑（那时 `_autoTimer` 还是 null），
-  随后收尾把定时器装上 ⇒ **再也没人能清掉它**，而且它持有已 dispose 的 ctx。B1 断言证实：
-  `setInterval=1`。
-- **announce / ingest 的轮询是"下一 tick 自终止"的**（`while (_poll && !_poll.stopped)`）：
-  同窗口下它们会多跑一格再退出，**不是**无界泄漏。它们的真实问题是**别的**（见第三节）。
+| 模块 | 基线 disposer | 轮询/句柄的循环条件 | 卸载后的真实行为 |
+|---|---|---|---|
+| `inspection` | 有 `stopAutoInspectionTimer()` | `setInterval`（模块级单引用） | **泄漏一个 30s 定时器**，之后没人能清（B1 实测 `setInterval=1`） |
+| `announce` | 有 `stopPoll()` | `while (_poll && !_poll.stopped …)` | 至多**多跑一格**就退出 ⇒ 确实不是无界泄漏（**读源码+复核确认，我没单独端到端实测**） |
+| `ingest` | **没有** `stopJobPoll()`（第三节才补上） | `while (!jobTick(jobId))`——**只在 `_jobPoll` 被清空时**才为真 | **潜伏的无界泄漏**（复核变异体实测：卸载后 3.5s 内又 `ensureLive` 2 次，上限 6h cap） |
 
-**修法**（三处同形，不新增模块、不改签名）：模块内加一个 `_xxxEpoch` 代数。disposer **先**
-`_xxxEpoch += 1`、**再**停句柄（顺序反了会在等待窗口里被重新装上）；`xxxStartupCheck` 进入时
-记下代数，每个 `await` 之后比对一次，不一致就整段作废。B 组三条断言要求**双向**：
-竞态下**不许**安装（B1）+ 干净路径**必须**安装（B2）+ 卸载**必须**清掉（B3）——
-只断言 B1 会被"永远取消"的假实现骗过。
+⇒ 原始审计"同类三处"在**方向上是部分对的**（ingest 确实泄漏），我那句"announce/ingest 都自终止"
+才是错的。**为什么 ingest 当时看不出来**：第一节那个参数错位让轮询根本没跑起来。
+
+**修法**（三处同形，不新增模块、不改签名）：模块内加一个 `_xxxEpoch` 代数。disposer 递增它；
+`xxxStartupCheck` 进入时记下代数，在**装任何句柄之前**比对，不一致就整段作废。
+B 组四条断言要求**双向**：竞态下**不许**安装（B1）+ 干净路径**必须**安装（B2）+
+卸载**必须**清掉（B3）+ 跨模块回装也要挡住（B4，见第六节）——只断言 B1 会被"永远取消"的假实现骗过。
 
 ### 三、顺带发现（同一主题，就地修）：卸载时**没有停**入库轮询
 
@@ -8388,7 +8390,14 @@ FAIL  A2 宿主镜像推进到 done — status=running · statusProbes=0
 （announce/inspection 都有）。此前**察觉不到**，因为第一节那个 bug 让轮询根本没跑起来；
 修好之后它就变成"卸载后仍在 `ensureLive()`，可能把引擎重新拉起来"。已补上
 `stopJobPoll()`。另给 `adoptJob` 的 `void runJobPollLoop(...)` 挂了 `.catch`：`void` 的
-rejection 在 Node 20+ 会**终止宿主进程**，而后台轮询失败本来就只该表现为"镜像不推进"。
+rejection 在 Node 20+ 会**终止宿主进程**（复核实测 v26.7.0：`void boom()` → exit=1；宿主还显式
+装了 `installFailLoud`），而后台轮询失败本来就只该表现为"镜像不推进"。
+
+**⚠ 我写的"先递增、再停句柄（顺序反了会…重新装上）"是错的**（三处注释里都写了）：
+disposer 体**全同步** = run-to-completion，两条语句之间不可能插入 async 续体 ⇒ 顺序**不承载语义**
+（复核把两条对调做变异体，实测 `setInterval=0`，泄漏照旧不发生）。现在保留"先递增"只作为
+**给将来加 `await` 留的安全侧**，注释已就地更正。
+
 
 ### 四、修好它**当场**暴露了两个"桩不真 / 污染真数据"
 
@@ -8401,12 +8410,88 @@ rejection 在 Node 20+ 会**终止宿主进程**，而后台轮询失败本来�
    （⚠ 该变量同时决定引擎数据目录，本 smoke fetch/manager 全打桩、绝不拉引擎，安全；
    这条理由已写进文件头）。
 
-### 五、门禁与边界
+### 五、门禁与边界（第一轮写下时的版本）
 
-- 新增 `smoke-lifecycle.mjs`（5 条断言）并接进 `npm run smoke` 全链；`smoke-ingest` **38/38**。
+- 新增 `smoke-lifecycle.mjs` 并接进 `npm run smoke` 全链；`smoke-ingest` **38/38**。
 - **边界①**：B1 证的是"disposer 落在 await 窗口内会泄漏"，这是**源码必然**；我没做的是
   **真机复现**（真 HMR 重载多少次后能看到几个定时器在跑）——那需要真宿主与时间观察。
 - **边界②**：`_jobEpoch` 只盖住**启动收尾**这个窗口。**请求处理中**（路由已进入 handler、
   卸载发生在它自己的 await 里）仍可能 `adoptJob`，我没堵——不确定它值不值得堵。
 - **边界③**：A 组断言"镜像推进到 done"用的是**打桩引擎**，不是真引擎跑真入库任务。
+
+### 六、独立复核（2026-09-19）推翻了我四处说法 —— 逐条更正 + 补一个洞
+
+复核在冻结提交的提取树上做（区间 `35f024a..4d8c89f` 共 **1** 个提交）。**先说两件流程上的错**：
+
+1. **我在任务书里写了一个不存在的标签**：`verify-freeze-lifecycle`（我压根没 `git tag` 过，
+   只写了哈希）。复核 `git tag -l` 扑空、改用哈希提取，**但它本可以就此停下**。
+   ⇒ 已补打该标签，并把"先打标签再写任务书"的顺序写死（[verify-briefs 约定](verify-briefs/README.md)）。
+2. 我让复核"绕开 `run-gates.ps1` 直接跑单个冒烟"——这条建议**正是**当轮 `-Full` 里
+   `smoke-chatmode` 172/173 假红的来源（锁当时拦不住那条路，见第八节）。
+
+**四处被推翻的说法（保留错话 + 更正）**：
+
+| # | 我写的 | 实际 | 证据 |
+|---|---|---|---|
+| 1 | "**实测**：announce/ingest 是下一 tick 自终止型" | 这半句**没实测过**；且对 **ingest 是错的**（潜伏无界） | 复核变异体：卸载后 3.5s 内 `ensureLive` **2** 次；`while(!jobTick(jobId))` 只在 `_jobPoll` 清空后为真 |
+| 2 | "disposer 先递增、再停句柄；顺序反了会重新装上" | **顺序不承载语义**（同步体 run-to-completion） | 复核对调两条做变异体，`setInterval=0` |
+| 3 | "本函数在**每个** `await` 之后比对一次代数" | `await finalizeBatch(...)` 之后**没有**比对，且**可被利用** | 复核脚本：卸载后仍 3 次扫描轮询 + 4 次 `ensureLive`；我自己的 B4 断言复现：`afterDispose=1` |
+| 4 | "announce/ingest 同类" | 方向错：announce 靠 disposer 自愈，**ingest 靠不了** | `35f024a:plugin/src/ingest.js` 的 disposer 无 `stopJobPoll()`；announce 有 `stopPoll()` |
+
+**第 3 条是真洞，已修 + 已把它做成确定性用例**：`finalizeBatch` 尾巴会
+`void triggerAfterInspection(...)` → `announce.adoptScanPoll(...)`，**跨模块装轮询**；
+而 `finalizeBatch` 自己中间有 `await`（拉 changes）⇒ 卸载落在那个窗口里，尾巴就装起一个持有
+已死 ctx 的活轮询。修法：`finalizeBatch` **进入时**记下代数，**尾巴调用之前**比对
+（"调用方在 `await finalizeBatch` 之后比对"是**太晚**的——尾巴早执行完了）。
+`smoke-lifecycle.mjs` 的 **B4** 用"卡住 changes 那次 fetch"把窗口做成确定性的：
+修复前 `FAIL … scanProbes=1 afterDispose=1`，修复后 `6/6`。
+
+**复核确认成立的部分**（不重述，只记它们**比我写的更强**）：参数错位那条（基线自建用例
+`ensureLive=0` 对修复后 `2`）；`void` rejection 会终止宿主（v26.7.0 实测 exit=1，且宿主显式
+`installFailLoud`）；真 manager 确有 `touchActivity`（`engine.js:338`），所以那次 `TypeError`
+是修复的**产物**而非新缺陷；真实数据区那份假任务**已确证**会被接管（`pending ∉ JOB_TERMINAL`）。
+
+### 七、真实数据区的假任务：清了，并补一条复核纪律
+
+复核在 `35f024a` 的提取树上跑 `smoke-ingest`（那一版**还没有** `KS_DATA_DIR` 隔离）⇒
+**真实** `%APPDATA%\KnowledgeStation\ks-ingest.json` 里留下一条
+`job_id=pjob_smoke1` / `status=pending` / `dir=…\Temp\ks-ingest-smoke-*` 的**烟测假任务**。
+它不属终态 ⇒ **真产品下次启动会去接管它**（并因此可能把引擎拉起来）。
+
+处置：先把原文件留证到 `var/tmp/ks-ingest.json.smoke-residue-20260919-215926.bak`，
+再把该文件复位成加载器的缺省形态（`last: null`）。
+⚠ 边界：若此刻活着的宿主进程内存里已缓存过这份状态，它**下次落盘会把它写回来**——
+我只做到"当前磁盘干净 + 已留证"，**没有**去动那个进程。
+
+纪律侧补两条到 [verify-briefs 约定](verify-briefs/README.md)：**复核跑冒烟前必须把
+`KS_DATA_DIR` 指到临时目录**（冻结提交里的冒烟可能还没这个修复），以及**冒烟要走带锁的入口**。
+
+### 八、那次假红追出来的两条门禁缺陷（本轮一并修）
+
+**现象**：本轮 `-Full` 里 **5/6 步通过**，只有 `smoke（全链）` 红，且是
+`smoke-chatmode FAIL (172/173)`——pytest `2143 passed / 3 skipped`、mypy 142 文件 0 错、
+tsc 0、引擎门禁 4/4 全绿。**单独重跑 `smoke-chatmode` → 173/173 通过。**
+
+**两条我自己的缺陷**（都不是"运气差"）：
+
+1. **门禁锁只盖住"推荐的那条路"**。锁此前只在 `run-gates.ps1` 里；而**复核子代理绕过它
+   直接跑 `npm run smoke` / 单个 `node scripts/smoke-*.mjs`** ⇒ 它完全不受保护——那次假红的
+   来源就是**我派出去的复核在并发跑冒烟**（复核对过时间线：同一时刻它正在跑）。
+   ⇒ 修法：冒烟全链改成一个 runner（`plugin/scripts/smoke-all.mjs`），**取同一个锁文件**
+   （`plugin/scripts/gate-lock.mjs`，与 ps1 逐字同语义），25 段 `&&` 长链与名单**一起**搬进去
+   （名单从此只有一个所有者）。父子再入用 `KS_GATES_LOCK_HELD=1`（父已持锁，子若再取会自我阻塞）。
+   实测：锁被别人拿着时 `node scripts/smoke-all.mjs` → 退出码 **3**，文案与 ps1 同一句。
+2. **失败不可诊断**。我只留了失败步骤的**尾部 6 行**（还被我 `Select-Object -Last 30` 又截了一次）
+   ⇒ **红的是哪条断言就此丢失**，只能靠"单独重跑猜"。⇒ 修法：失败步骤**当场打 FAIL/ERROR 行**
+   （最多 12 行）+ 完整输出落到 `$TEMP/ks-gates-logs/<时间>-<步骤>.log` 并报路径。
+   用一个 `KS_GATES_SELFTEST=1` 的假失败步骤**实测过**这条路径（见提交里的实测输出），
+   而不是"写完就当它对"。
+
+⚠ **边界**：单跑一条 `node scripts/smoke-*.mjs` **仍然不受锁保护**（只有全链入口受保护），
+所以"并发碰巧没撞上"仍可能发生；而**这次那条 172/173 的具体断言我始终没复现出来**
+（单跑两次都是 173/173）⇒ "并发导致"是**强推断 + 历史同型**（AGENTS.md 记过两次同型），
+**不是**逐条确证。锁是**机器级**的（跨 worktree 共享）——这正是想要的语义（假红来自机器级资源
+争用），代价是两个仓库副本会互相阻塞。
+
+
 
