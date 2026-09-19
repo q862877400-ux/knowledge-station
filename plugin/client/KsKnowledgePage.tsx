@@ -625,15 +625,23 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                         的那一个（Checkbox.tsx 原文），所以它天然把文件名渲染出来；再另起一个
                         .ks-item-title 就会把名字显示两遍（第一版就是这样，离屏图里一眼看到）。
                       ⚠ 行的 label 仍然只说明"怎么选"（可访问名 = 文件名由 Checkbox 负责），
-                        行的 title= 说明点击语义在「⋮」里 —— 因为**整行不可点**（见样式注释：
-                        label 与"整行可点"冲突）。 */}
+                        行的 title= 说明点击语义在「⋮」里 —— **整行可点：未做（不是做不了）**。
+                        ⚠ 2026-09-20 复核打回更正（B6）：原注释写"因为整行不可点（label 与整行可点冲突）"，
+                          把最朴素的写法（裸 onClick 挂整行）会打架说成了"做不了"，过宽。
+                          label 是可见且可访问文字 ⇒ 只有"整行无差别再吃一次 click"会打架；
+                          正当做法至少三条：① 行 onClick + event.target.closest('label,input,button') 排除；
+                          ② onClick 只绑文件名那一列；③ Checkbox 传 sr-only label + 独立的文件名元素
+                          （③ 依赖宿主是否支持 sr-only label，**未核**）。各自代价与"为什么这轮不做"
+                          写在 docs/UI-BASELINE.md 5f 的三处留痕第 1 条，并登记为 P2 候选
+                          （docs/research/weknora-ui-vs-ours.md §8.1 的 P2-2）。 */}
                   <Checkbox
                     className="ks-check"
                     checked={selected.has(doc.id)}
                     onChange={(next) => { toggleOne(doc.id, next) }}
                     label={doc.name}
                     title={doc.no === '' ? doc.name : `${doc.no} ${doc.name}`}
-                  />                  <span className="ks-item-sub">
+                  />
+                  <span className="ks-item-sub">
                     <span className="ks-item-meta">{meta}</span>
                     <span className={st.cls}>{st.text}</span>
                   </span>

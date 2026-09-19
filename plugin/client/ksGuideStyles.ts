@@ -263,6 +263,12 @@ export const KS_STYLES = `
      ⇒ 文件名就交给它渲染（它天然带省略号能力）。但**文字那层 span 是宿主的**，样式改不动
      （CSS Module 哈希类，只声明不了），所以文件名先用我们自己的一层包着：
      .ks-check > span（宿主的可见文字层）里再放 .ks-item-title，字号/颜色都由后者给。
+   ⚠ **整行可点：未做（不是做不了）** —— 2026-09-20 复核打回更正（B6）：可见 label 只否掉了
+     "整行无差别再吃一次 click"这一种写法（会与点勾选框打架）；正当做法至少三条：
+     ① 行 onClick + event.target.closest('label,input,button') 排除；② onClick 只绑文件名那一列；
+     ③ Checkbox 传 sr-only label + 独立的文件名元素（③ 宿主是否支持 sr-only label **未核**）。
+     本轮未做、理由与代价见 docs/UI-BASELINE.md 5f 三处留痕第 1 条；已登记 P2
+     （docs/research/weknora-ui-vs-ours.md §8.1 的 P2-2）。
    宽度：5c 量到"文件名与标签簇之间 285~390px 死白"（那是 flex:1 + 46% 上限的组合）。
    现在 grid 的第 2 列 minmax(0,1fr) ⇒ 文件名吃满剩余宽度、自己截断
    （P1-3 的验收口径：不再被 46% 的 max-width 截断）。 */

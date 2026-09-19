@@ -415,7 +415,13 @@ const html = `<!doctype html>
     // 每一行：文件名盒子有多宽、标签簇在哪、中间空多少（死白量）
     // ⚠ P1-1（2026-09-20）起 btnH 的来源换人了：行内两个常驻 Button（＋标签/详情）收进了
     //   行尾「⋮」溢出菜单 ⇒ 这里量到的最后一个 .ks-item-btn 是**菜单触发器**（宿主 size=sm）。
-    //   ctrls = 这一行**可见控件数**（勾选框 + 状态徽章 + ⋮）—— 就是 P1-1 的验收口径。
+    //   ctrls = 这一行**可见控件数** —— 就是 P1-1 的验收口径。
+    // ⚠⚠ **2026-09-20 打回更正**：原来 ctrls 数的是**写死的类名清单**
+    //   （.ks-check,.ks-status,.ks-item-more）⇒ 复核的变异 M2（把「＋标签」按钮加回行内、
+    //   class=ks-item-add）**量不到**，26/26 照旧 PASS。改成与
+    //   plugin/scripts/smoke-kb-page-render.mjs 的 CTRL_SEL **同一口径**（两处必须一起改）：
+    //   按钮/输入类元素与控件角色，外加纯展示的 .ks-status（验收口径点名要算它）。
+    //   行内再塞任何能点的东西 —— 不管挂什么类名 —— 这个数必 +1。
     if (items.length > 0) {
       out['.ks-item#rows'] = { n: items.length, y: 0, w: 0, h: 0, fs: '', lh: '', pad: '', gap: '', radius: '',
         rows: [].map.call(items, function (el) {
@@ -428,7 +434,7 @@ const html = `<!doctype html>
           var rf = fname ? fname.getBoundingClientRect() : null;
           var rt = tags ? tags.getBoundingClientRect() : null;
           var rm = more ? more.getBoundingClientRect() : null;
-          var ctrls = el.querySelectorAll('.ks-check,.ks-status,.ks-item-more').length;
+          var ctrls = el.querySelectorAll('button,input,select,textarea,[role=button],[role=checkbox],[role=switch],[contenteditable=true],.ks-status').length;
           return { rowW: Math.round(r0.width), nameW: rc ? Math.round(rc.width) : null,
                    fileNameW: rf ? Math.round(rf.width) : null,
                    nameRight: rc ? Math.round(rc.right - r0.left) : null,

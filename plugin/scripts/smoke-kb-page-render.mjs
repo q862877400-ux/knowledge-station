@@ -187,19 +187,59 @@ export function mount(container, props) {
   const moreTriggers = q('.ks-item-more button[aria-haspopup=menu]')
   check('每行都有行尾「⋮」溢出菜单触发器（一行一个 = 4 个）',
     moreTriggers.length === 4, `实际 ${moreTriggers.length}`)
-  // 行内**可见控件数**（P1-1 的验收口径）：勾选框 + 状态徽章 + 「⋮」≤ 3。
-  const ctrlCounts = q('.ks-item').map((row) => row.querySelectorAll('.ks-check,.ks-status,.ks-item-more').length)
-  check('每行行内可见控件 ≤ 3（勾选框 + 状态徽章 + ⋮）',
+  // ── 断言 3b：行内**可见控件数** ≤ 3 —— P1-1 的验收口径 ──
+  // ⚠⚠ **2026-09-20 打回更正（复核用变异 M2 证明旧写法是假绿）**：
+  //   旧写法数的是**写死的类名清单** `.ks-check,.ks-status,.ks-item-more`。复核把「＋标签」
+  //   按钮**加回行内**（`class=ks-item-add`）之后，这条**仍然 PASS 26/26 exit 0** —— 新按钮
+  //   不在清单里 ⇒ "行内可见控件 ≤3"这个**性质**根本没被钉住，钉住的只是"这三个类还在不在"。
+  //   这是**真正的断言漏洞**，不是措辞问题。
+  // ⇒ 新口径 = **按"是不是控件"数，不是按类名数**：`button,input,select,textarea,
+  //   [role=button],[role=checkbox],[role=switch],[contenteditable=true]` 是**元素/角色本身**
+  //   定义的，再加一个 `.ks-status`（状态徽章是**纯展示** span，没有原生控件角色，语义上由
+  //   P1-1 的验收口径点名要算 1 个）。**为什么这样数不会被绕过**：
+  //   ① 想再往行内塞任何**能点/能输入**的东西，无论它挂什么类名（`.ks-item-add` / 任意新类 /
+  //      干脆不挂类），都必须落到这组标签或角色上 ⇒ 计数必 +1 ⇒ 这条必红；
+  //   ② 反过来"把状态徽章摘掉"也逃不掉（`.ks-status` 在口径里，必须回来）；
+  //   ③ 残余的口子只有"塞一个既不是控件、又不是 .ks-status 的纯 span" —— 那东西**用户点不了**，
+  //      不构成"行内可见控件"，不算被绕过。
+  //   证据：把 `class=ks-item-add` 的 `＋标签` 加回行内 ⇒ 旧口径 26/26 PASS、新口径 **FAIL**
+  //   （四行 3/3/3/4）；把菜单里的「＋标签」项删掉 ⇒ 下面的 4 行菜单断言 **FAIL**。
+  const CTRL_SEL = 'button,input,select,textarea,[role=button],[role=checkbox],[role=switch],[contenteditable=true],.ks-status'
+  // 数的是**行元素内部**：`document.querySelectorAll` 会连 portal 到 body 的菜单项一起数进来，
+  // 这里只用 row 作用域 ⇒ 菜单内容天然不算"行内"。
+  const ctrlCounts = q('.ks-item').map((row) => row.querySelectorAll(CTRL_SEL).length)
+  // ⚠ 只读诊断（2026-09-20 打回留痕用，**不参与判定**）：把**已被废弃的旧口径**
+  //   （写死类名清单）也数一遍，变异实验里用来复现"旧写法假绿"。跑门禁时这行只是多一次
+  //   querySelectorAll，不改任何 PASS/FAIL 语义。
+  const oldCtrlCounts = q('.ks-item').map((row) => row.querySelectorAll('.ks-check,.ks-status,.ks-item-more').length)
+  if (process.env.KS_CTRL_LEGACY_DIAG === '1') {
+    console.log(`  · 只读诊断：旧口径（写死类名清单）四行 = ${oldCtrlCounts.join('/')}`
+      + `；新口径（真控件）= ${ctrlCounts.join('/')}`)
+  }
+  check('每行行内可见控件 ≤ 3（按下述真控件口径数；勾选框 + 状态徽章 + ⋮ = 3）',
     ctrlCounts.length === 4 && ctrlCounts.every((n) => n <= 3),
     `四行分别是 ${ctrlCounts.join('/')}`)
-  // 打开某一行的菜单：菜单里必须真有「＋标签」与「详情」（否则那两条需求是**假在场**）。
-  await click(q('.ks-item')[0].querySelector('.ks-item-more button'))
-  const menuTexts = [...document.querySelectorAll('[role=menuitem]')].map((el) => (el.textContent ?? ''))
-  check('「⋮」菜单里真的有「＋标签」与「详情」两项（收进去 ≠ 删掉）',
-    menuTexts.includes('＋标签') && menuTexts.includes('详情'),
-    menuTexts.join(' | ').slice(0, 60))
-  await click(q('.ks-item')[0].querySelector('.ks-item-more button'))
-  check('再点一次「⋮」⇒ 菜单收起（同一时刻只开一个）',
+  // ── 断言 3c：**四行**的菜单都必须真有「＋标签」与「详情」（收进去 ≠ 删掉）──
+  // ⚠⚠ **2026-09-20 打回更正**：旧写法只核**第 0 行**一个菜单（`q('.ks-item')[0]`）——
+  //   于是"第 2/3/4 行的菜单里是空的"这种回归它**看不见**。四行是同一段 JSX 渲染的，
+  //   但"渲染出来了"这件事必须**逐行**取证（口径覆盖到哪，才算验到哪）。
+  //   `role=menuitem` 由宿主 Menu portal 到 `<body>`，不在 container 里 ⇒ 查 document。
+  const menuByRow = []
+  const menuMisses = []
+  for (const [i, row] of q('.ks-item').entries()) {
+    await click(row.querySelector('.ks-item-more button'))
+    const texts = [...document.querySelectorAll('[role=menuitem]')].map((el) => (el.textContent ?? ''))
+    menuByRow.push(texts)
+    if (!texts.includes('＋标签') || !texts.includes('详情')) menuMisses.push(`第${String(i)}行=[${texts.join('|')}]`)
+    await click(row.querySelector('.ks-item-more button')) // 收起，再核下一行（同一时刻只开一个）
+    if (document.querySelectorAll('[role=menuitem]').length !== 0) menuMisses.push(`第${String(i)}行菜单没收起`)
+  }
+  check('四行的「⋮」菜单**逐行**都含「＋标签」与「详情」两项（只核第 0 行 = 覆盖不到 3 行）',
+    q('.ks-item').length === 4 && menuMisses.length === 0,
+    menuMisses.length === 0
+      ? `四行菜单：${menuByRow.map((t) => t.length).join('/')} 项`
+      : menuMisses.join(' ; '))
+  check('每行菜单点开再点一次都收起（四行都试过，同一时刻只开一个）',
     document.querySelectorAll('[role=menuitem]').length === 0,
     `还剩 ${document.querySelectorAll('[role=menuitem]').length} 项`)
 
