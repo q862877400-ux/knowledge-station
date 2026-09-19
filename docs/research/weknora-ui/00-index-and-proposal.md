@@ -114,3 +114,44 @@
 （未运行时验证）；`response_type` 枚举是**从前端分派反推**、未对后端 Go；
 `references` 事件是否把 `score` 丢了**未定**；PDF iframe 能否 `#page=N` 是**读代码所得、未实跑**；
 `sessionGrouping` 的 `none/date` 开关未见影响渲染的调用点；`embed`/`agent` 两个 view 未逐条展开。
+
+---
+
+## D. 他们自带的 DSH 插件（第五份读完）—— **同宿主的现成写法，直接对着我们的插件待办**
+
+`D:\AI\WeKnora\packages\dsh-weknora`（MIT，npm 已发布）。**形态结论：没有界面**，纯宿主侧插件
+（`package.json` 的 `dsh` 字段只有 `bundle.patch`，全包 0 个 tsx / 无 `dsh.client`）——
+所以我们客户端那半边**没有可抄的对应物**，客户端只能抄它的 Vue 前端（A/B/C 三份）。
+
+**两条它「不如我们」的事实（先摆出来，免得抄错方向）**：
+
+1. **它也不拒未知配置键**（实测：把 `config.ts` 复制到 `%TEMP%` 用
+   `node --experimental-strip-types` 跑探针，`baseURL` 拼错**静默回落默认值**、`tools.serach` **静默忽略**）
+   ⇒ 我们 `plugin/src/index.js` 那道"未知键当场报错"**比它强**，**不许退回**。
+2. **它也没用官方 `defineTool`**（全包 0 命中），而是自己声明一份结构类型（`dw/src/harness.ts:1-10`），
+   理由是"要发布 npm、不想有运行时依赖、不想锁 harness 版本"。
+   ⇒ 我们是**本地 bundle 插件、不发布**，**不该继承它这个取舍**：用官方 `defineTool` 还能拿回
+   `presentCall`/`presentResult`/`finalizeContent`（**工具结果做界面呈现的口子**）。
+
+**可直接抄（6 条，按性价比排序）**：
+
+| # | 抄什么 | 抄到哪 | 省掉什么 |
+|---|---|---|---|
+| 1 | **json-schema 三件套**（`assertSupportedSchema` 含"required 必须在 properties 里"、`validate`、`assertLosslessJson` 拒 `undefined/NaN/循环`），接成门禁：**工具返回值必须满足自己声明的 schema** | 新建 `plugin/scripts/lib/json-schema.mjs` + 进冒烟链 | 我们 30+ 套冒烟全在测行为，**没有一条测"返回值 ↔ 自己声明的 schema"** |
+| 2 | **每个工具声明 `output.schema` + `render` 配对**（`render` 只做投影；他们那 25 行三个纯函数 `clip`/`formatScore`/`describeScope`） | `plugin/src/index.js`（`ks_ping` 现在 `additionalProperties:true`）、`materials.js`、`collect.js` | 模型看到的工具结构明确，界面也有稳定呈现口子 |
+| 3 | **`isConcurrencySafe`**：只读工具写 `()=>true`，有副作用的（采集/评审写口）**不写** | 工具注册处 | 宿主能安全并发调度只读工具，写口不被误并发 |
+| 4 | **`AbortSignal.any([signal, AbortSignal.timeout(ms)])`** + **取消/超时分开给文案** | `plugin/src/engine.js`（现在手搓 `setTimeout`+`clearTimeout`） | 语义统一、少一处手写计时器（我们刚因手写计时器出过泄漏） |
+| 5 | **线调用 fixture + 回放比对**（"恰好只发这些调用"的断言；两端夹逼同一份 fixture） | 与现有 `verify:commands`/fixtures 同处 | **我们已因 fixture 不生效踩过一次**（`smoke-lifecycle.mjs` 注释里记着） |
+| 6 | **e2e 三段式**：`--dump-config` 断言插件真挂上 + 断言模型被 offer 到的工具名 + 断言工具返回的原文进了模型上下文（配确定性假模型） | 新建 `plugin/scripts/e2e-in-dsh.mjs` | 我们只有"渲染级/路由级"证据，**没有"在真宿主里挂上并进模型上下文"的证据** |
+
+**不该抄（3 条）**：① 手写校验**替代**严格键检查（退回它就丢掉我们唯一的防线）；
+② 再复刻一份 harness 结构类型（那是"发布给陌生人"的取舍，我们用官方类型）；
+③ `weknora_ask` 的**产品取向**（委派服务端另一个模型、自陈"返回结论而非证据"）——
+我们的差异化在**证据链**与**客户端**，不在"再包一层问答"。
+
+### D 段的诚实边界
+
+没跑它的 `npm test`/e2e（检出里无 `dist`，构建要联网）；`!!js` 求值语义、宿主是否另有前置 Config 校验、
+`isConcurrencySafe` 的真机调度效果、`render` 能否返回非 text block、`resource_urls=public` 的服务端改写
+（只看 mock）**均未验证**；README 无"已知限制"专章，边界是子代理归纳的；
+**它没有页码级引用** ⇒ 我们的 `evidence_url` 页码锚点**无可抄对应物**。
