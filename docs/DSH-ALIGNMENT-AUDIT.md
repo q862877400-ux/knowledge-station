@@ -40,7 +40,7 @@
 
 | 优先级 | 项 | 性质 | 量 |
 |---|---|---|---|
-| **1** | **客户端文案 locale 化**：216 个 JSX 中文文本 + 86 个散文属性（aria/title/placeholder），**0 处 `ctx.locale`**。官方门禁 `verify-client-ui-i18n` 只 glob DSH 仓内路径 ⇒ **扫不到我们**；运行时也不崩（查不到 key 回退成 key），真正坏的是英文 locale 下宿主英文、我们整片中文（混排） | **违规** | **L**（做法已给全：`LocaleNamespaceMap` 声明合并 + `ctx.locale.register/bind` + 槽位注册加 `locale:` + `entry.ts` 的 `inject` 加 `'locale'`） |
+| ~~**1**~~ | ⏸ **缓办（业主 2026-09-19：多语言先不管）** —— 见[已否决台账](NOT-DOING.md) 第 5 条。原文描述：**客户端文案 locale 化**：216 个 JSX 中文文本 + 86 个散文属性（aria/title/placeholder），**0 处 `ctx.locale`**。官方门禁 `verify-client-ui-i18n` 只 glob DSH 仓内路径 ⇒ **扫不到我们**；运行时也不崩（查不到 key 回退成 key），真正坏的是英文 locale 下宿主英文、我们整片中文（混排） | **违规** | **L**（做法已给全：`LocaleNamespaceMap` 声明合并 + `ctx.locale.register/bind` + 槽位注册加 `locale:` + `entry.ts` 的 `inject` 加 `'locale'`） |
 | **2** | **持久化归属**：`chatmode.js`/`inspection.js`/`announce.js`/`ingest.js` 四处**自造 JSON 状态文件**（直写、无 schema、无版本），绕开 `ctx.settings`/`ctx.storageDomain`。本仓自己的证据：状态只在进程启动读一次 ⇒ **别的进程改了要重启才生效** | **违规 + 会坏** | S/M/L 分三档；⚠ 诚实边界：`domain/changed` **仅进程内**，迁移**换不到**我们现手搓的跨进程锁 |
 | 3 | 6 个工具用**裸对象字面量**注册、没用官方 `defineTool({...})` | 不违规（官方承认 raw JSON-Schema 这条路），代价是自己扛参数校验 | M |
 | 3b | **`Config` 用 schemastery 挡不住键名拼错**（我们靠 `apply` 里的手写检查兜住）。官方插件用的是 **zod `z.object(...).strict()`** ⇒ Loader 在 `resolveConfig` 就拒 | 更早、更响亮、少一处手写判据 | M（要加 zod 依赖 + **实验**验证宿主 cordis 接受 zod schema；没验过不写进计划） |

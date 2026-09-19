@@ -172,10 +172,12 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
 
 ---
 
-## 8. 交付物（报告 / PPT）
+## 8. 交付物（**报告，Markdown**）
 
 - **报告**：`python-docx`（Word）、`openpyxl`（Excel）**已在依赖里**，扩展现有 `exports/` 即可；
-- **PPT**：**无 `python-pptx`**。新增依赖要过你们的依赖纪律（`pyproject.toml` 连 `python-multipart` 都因"0 import"被删过）。⇒ **单独立项**，先论证值不值；退路是先出 Markdown/HTML 由你自行转。
+- ~~**PPT**：**无 `python-pptx`**……⇒ **单独立项**，先论证值不值；退路是先出 Markdown/HTML~~
+  ⚠ **2026-09-19 作废**：PPT 交付物已被业主否决（产出物只出 Markdown）⇒ **不再立项**，
+  这一行只留来历（见[已否决台账](NOT-DOING.md) 第 1 条）。
 
 ---
 
@@ -186,7 +188,7 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
 | **A** | 项目 + 参考资料文件夹 + 材料解析切片（**不切条款**，按 chunk）+ 评审闸门 + 问答可检索**已批准**材料 | 放一份 PDF → 评审通过 → 提问 → 引用**可点回该 PDF 的位置**；**法条链 pytest 基线不降** |
 | **B** | 两轴权威模型 + 产出物带层级引用 + 把 `unsupported_context` 接到 UI/上下文 | 公司制度例：声明"本项目以公司制度为准"后，答案准绳从国标切到制度；T3 单独引用被拒 |
 | **C** | 自采（默认开 + **强制评审**）+ Track L 自动入库 + 去重/交叉验证 | 采到库内没有的标准 → 评审 → 入库且**标出实际来源**；T4 材料**无法**进入结论 |
-| **D** | 报告/PPT | 产出物每条结论可追到 (材料, 位置) |
+| **D** | 报告（Markdown） | 产出物每条结论可追到 (材料, 位置) |
 
 **建议先做 A 的前置清理（很小、零风险）**：`REQUIREMENTS:52` + 三处模块锁（§2），以及 `standard_name` 后缀 135 条（§4.1）——它们是 A/C 的坑。
 
@@ -204,7 +206,7 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
 
 ## 11. 诚实边界与明确未做
 
-**未做（本方案只是方案）**：**一行代码都没写**；schema 只到草图级；未做前端 UI 方案（材料评审界面放官方侧栏座位还是 conversation dock，**未定**）；PPT 依赖未立项；未估准人日。
+**未做（本方案只是方案）**：**一行代码都没写**；schema 只到草图级；未做前端 UI 方案（材料评审界面放官方侧栏座位还是 conversation dock，**未定**）；~~PPT 依赖未立项~~（**PPT 已否决**，不再立项）；未估准人日。
 
 **已知不确定**：
 1. 材料检索与法条六通道是**并存两套**还是共用 RRF——我倾向**并存但分池、结果分区呈现**（不污染法条纯度），**待批准**。
