@@ -64,6 +64,21 @@ for (const spec of ['pdfjs-dist', 'pdfjs-dist/build/pdf.mjs', 'lodash', '@deepse
   try { classifyExternal('@deepseek-ai/definitely-not-a-real-package') } catch (e) { msg = e.message }
   check('不认识的 @deepseek-ai/* ⇒ **抛**（纯度门禁的核心）', msg !== null, (msg ?? '').slice(0, 60))
 }
+// ⚠ **大小写变体**（复核 2026-09-20 的对抗性发现，2026-09-20 修）：scope 判定原来大小写敏感，
+//   于是 `@DeepSeek-AI/x` 被判 `bundle` —— 今天恰好 fail-closed（解析不到），但 Windows 不区分大小写，
+//   盘上真有那个包时**宿主单例会被静默打进产物**。现在两种变体都必须**当场抛**。
+for (const spec of ['@DeepSeek-AI/dsh-client-ui-slots', '@DeepSeek-AI/whatever-new-package',
+  '@deepseek-AI/dsh-client-runtime', '@DeepSeek-ai/react-probe']) {
+  let msg = null
+  try { classifyExternal(spec) } catch (e) { msg = e.message }
+  check(`大小写变体 ⇒ **抛**（不许静默当 bundle）：${spec}`, msg !== null, (msg ?? 'NOT-THREW').slice(0, 60))
+}
+// ⚠ 同一条纪律的反面：**大小写正确**的清单内模块仍然照常 external（别把门禁做成"全都抛"）。
+{
+  let v = null
+  try { v = classifyExternal('@deepseek-ai/dsh-client-ui-slots') } catch (e) { v = `THREW: ${e.message.slice(0, 30)}` }
+  check('反例对照：全小写的清单内模块仍 external（门禁没有变成一律拒绝）', v === 'external', String(v))
+}
 
 // ── 3) 产物级佐证：现构建产物里的 @deepseek-ai/* 必须在清单内 ──────────────────
 {

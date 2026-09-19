@@ -28,7 +28,7 @@
  */
 import { execFile } from 'node:child_process'
 import { EventEmitter } from 'node:events'
-import { mkdir, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, readdir, rename, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
@@ -75,6 +75,37 @@ const mode = (over = {}) => ({ ...ALL_OFF, ...over })
 const readState = async () => {
   const text = await readFile(statePath, 'utf8').catch(() => '')
   try { return JSON.parse(text) } catch { return null }
+}
+
+/**
+ * 像**真正的**另一个 dsh 进程那样**原子**写状态文件（tmp + rename）。
+ *
+ * ⚠ 2026-09-20：本文件原来一律用裸 `writeFile(statePath, …)`。那在 Windows/Node 上是
+ * **截断后重写**，而本进程可能正有一轮落盘在**读**同一个文件 ⇒ 读到半截 JSON
+ * ⇒ 命中 `readStateFile` 的"判损"分支（先 park、再重读被 park 的那份、内容已变）
+ * ⇒ `read_changed_while_judging` ⇒ `_writesBlocked` 置位、**拒绝写盘**
+ * ⇒ 后面"关掉的会话不许被磁盘旧值复活"那条断言看到 `persisted:false` 而红。
+ * 实测复现率 **40 次里 5 次（12.5%）**；单独跑/在串行链里都出现过（不是"并发假红"）。
+ *
+ * 产品的**所有**写入者都走 tmp+rename（`persistAttempt`），所以"模拟另一个进程"
+ * 必须也那么写：裸写是**桩不忠实**，不是被测代码的错。
+ */
+const writeStateAtomic = async (content) => {
+  const tmp = `${statePath}.smoke-tmp-${process.pid}-${Date.now()}`
+  await writeFile(tmp, content, 'utf8')
+  // ⚠ Windows 上 `rename` 覆盖目标时可能**瞬时 EPERM**（目标那一刻正被替换/持有）。
+  //   实测：不重试时 40 次里有 2 次直接 `EPERM ... rename` 把整个冒烟打崩。
+  //   重试几次即好（模块自己也用 `unlinkWithRetry` 处理同类瞬时占用），
+  //   而"原子"这一点**不能退让**——退回裸写就会重新出现"读到半截 JSON ⇒ 拒写"那条假红。
+  let lastError = null
+  for (let i = 0; i < 20; i += 1) {
+    try { await rename(tmp, statePath); return } catch (error) {
+      lastError = error
+      await new Promise((r) => setTimeout(r, 5 * (i + 1)))
+    }
+  }
+  await rm(tmp, { force: true })
+  throw lastError
 }
 
 /* ================================================ 1. host 状态与提示词 */
@@ -488,9 +519,9 @@ check('other methods → 405', del.status === 405, `status=${del.status}`)
 
 /* ================================================ 3. 多进程与落盘安全 */
 // 3a. 合并落盘：磁盘上是"另一个 dsh 进程"写的会话，本进程只动 sess-MINE
-await writeFile(statePath, JSON.stringify({
+await writeStateAtomic(JSON.stringify({
   sessions: { 'sess-OTHER-PROC': { forensic: true, bookmarksOnly: false } },
-}, null, 2), 'utf8')
+}, null, 2))
 await chat.setMode('sess-MINE', { forensic: true }).persist
 const mergedState = await readState()
 check('merge keeps the other process\'s sessions',
@@ -503,14 +534,23 @@ check('merge keeps this process\'s sessions',
 //     （verifier 三轮：原用例测的是同进程关闭，即使删掉 `_touched` 释放逻辑也照样通过，
 //      所以它没覆盖"跨进程被关掉后被本进程旧内存复活"这个真实缺陷）
 {
-  await chat.setMode('sess-RELEASE', { forensic: true }).persist
-  await chat.setMode('sess-RELEASE', { forensic: false }).persist // 关掉并释放所有权
-  await chat.setMode('sess-RELEASE', { forensic: true }).persist  // 再开一次（此刻拥有所有权）
+  // ⚠ **上游护栏**（2026-09-20 加）：3b 的准备步骤**自己**的落盘必须成功。以前不查，
+  //   于是"拒写"（`_writesBlocked` 被置位）要等到下面那条"关掉的会话不许被复活"才现形——
+  //   而那条断言红的时候，看到的是一个**与真正原因无关**的现象（"复活逻辑坏了？"）。
+  //   查在这里，红就直接指着原因（实测就是这么一次 12.5% 的假红被定位的）。
+  const setUp = [
+    await chat.setMode('sess-RELEASE', { forensic: true }).persist,
+    await chat.setMode('sess-RELEASE', { forensic: false }).persist, // 关掉并释放所有权
+    await chat.setMode('sess-RELEASE', { forensic: true }).persist, // 再开一次（此刻拥有所有权）
+  ]
+  check('3b 的准备步骤自己落盘成功（拒写必须在这里就现形，而不是等到下面那条断言）',
+    setUp.every((r) => r.persisted === true),
+    JSON.stringify(setUp.map((r) => ({ persisted: r.persisted, error: r.error }))))
   // 模拟"另一个 dsh 进程把它关了"：磁盘上不再有它
   const before = await readState()
   const stripped = { sessions: { ...(before?.sessions ?? {}) } }
   delete stripped.sessions['sess-RELEASE']
-  await writeFile(statePath, JSON.stringify(stripped, null, 2), 'utf8')
+  await writeStateAtomic(JSON.stringify(stripped, null, 2))
   // 本进程写**别的**会话（不该把 sess-RELEASE 用旧内存复活）
   await chat.setMode('sess-OTHER-WRITE', { forensic: true }).persist
   const afterOtherWrite = await readState()
@@ -518,18 +558,22 @@ check('merge keeps this process\'s sessions',
     afterOtherWrite?.sessions?.['sess-RELEASE'] === undefined,
     JSON.stringify(Object.keys(afterOtherWrite?.sessions ?? {})))
   // 但"本进程刚关掉的会话"在同一轮合并里必须仍然被删掉（所有权语义的另一面）
-  await writeFile(statePath, JSON.stringify({
+  await writeStateAtomic(JSON.stringify({
     sessions: { ...(afterOtherWrite?.sessions ?? {}), 'sess-GONE': { forensic: true, bookmarksOnly: false } },
-  }, null, 2), 'utf8')
+  }, null, 2))
   chat.setMode('sess-GONE', { forensic: true })
   const goneRes = await chat.setMode('sess-GONE', { forensic: false }).persist
   const afterDelete = await readState()
   // ⚠ 详情里带上 `persisted`：本文件在**串行链**（`npm run smoke`）里偶发过一次这条变红
   // （单独跑 / 在高负载下并发跑都复现不出来）。若写盘其实**报了失败**（锁竞争超时），
   // 那断言红是"写没成功"而不是"复活逻辑错"——把这一点打进详情，下次红时一眼能分。
+  // ⚠ 2026-09-20 实测复现（20 次里 1 次）⇒ 详情再补 `error`/`degraded`：**根因要靠这个字符串**
+  // （`state_lock_timeout` = 抢锁超时；`degraded` = `_writesBlocked`），别再靠猜。
   check('a session closed by this process is not resurrected from disk',
     afterDelete?.sessions?.['sess-GONE'] === undefined,
-    `persisted=${goneRes?.persisted} keys=${JSON.stringify(Object.keys(afterDelete?.sessions ?? {}))}`)
+    `persisted=${goneRes?.persisted} error=${goneRes?.error} blocked=${goneRes?.blocked_reason}`
+    + ` status=${JSON.stringify(chat.stateStatus())}`
+    + ` keys=${JSON.stringify(Object.keys(afterDelete?.sessions ?? {}))}`)
 }
 
 // 3c. 原子写：不留 .tmp 残骸
@@ -537,7 +581,7 @@ const leftovers = (await readdir(dataDir)).filter((n) => n.endsWith('.tmp'))
 check('atomic write leaves no .tmp file', leftovers.length === 0, leftovers.join(','))
 
 // 3d. 坏文件：备份为 .corrupt-*、按空处理、之后仍能正常写（可恢复）
-await writeFile(statePath, '{ this is not json', 'utf8')
+await writeStateAtomic('{ this is not json')
 chat.__resetChatModeForTests()
 await chat.ensureLoaded()
 check('corrupt state file is reported as degraded',
@@ -571,7 +615,7 @@ const goodState = await readFile(statePath, 'utf8')
       chat.getMode('sess-BLOCKED').forensic === true)
   } finally {
     await rm(statePath, { recursive: true, force: true })
-    await writeFile(statePath, goodState, 'utf8')
+    await writeStateAtomic(goodState)
   }
 }
 check('the pre-existing good state was left byte-identical', (await readFile(statePath, 'utf8')) === goodState)
@@ -597,7 +641,7 @@ check('the pre-existing good state was left byte-identical', (await readFile(sta
     cwd: pluginRoot,
     maxBuffer: 4 * 1024 * 1024,
   })
-  await writeFile(statePath, JSON.stringify({ sessions: {} }, null, 2), 'utf8')
+  await writeStateAtomic(JSON.stringify({ sessions: {} }, null, 2))
   const [a, b] = await Promise.all([spawnWriter('mp-a-'), spawnWriter('mp-b-')])
   const parseClaims = (stdout) => {
     const at = stdout.indexOf('RESULT:')
@@ -629,9 +673,9 @@ check('the pre-existing good state was left byte-identical', (await readFile(sta
 // 3f-2. verifier 五轮 P2-2：磁盘**损坏**时 reload 也不得清空内存态（与"读失败不动内存"同一原则）
 {
   chat.__resetChatModeForTests()
-  await writeFile(statePath, JSON.stringify({
+  await writeStateAtomic(JSON.stringify({
     sessions: { 'A-from-clean-disk': { forensic: true, bookmarksOnly: false } },
-  }, null, 2), 'utf8')
+  }, null, 2))
   await chat.ensureLoaded()
   check('clean load: the on-disk toggle is in memory and ownership released',
     chat.getMode('A-from-clean-disk').forensic === true)
@@ -655,7 +699,7 @@ check('the pre-existing good state was left byte-identical', (await readFile(sta
   const longAgo = new Date(Date.now() - 25 * 60 * 60 * 1000)
   await utimes(staleArtifact, longAgo, longAgo)
   await rm(statePath, { recursive: true, force: true })
-  await writeFile(statePath, '{ broken json', 'utf8')
+  await writeStateAtomic('{ broken json')
   chat.allowStateReload()
   await chat.ensureLoaded()
   check('a CORRUPT reload does not wipe the in-memory toggles (round-5 P2-2)',
@@ -699,7 +743,7 @@ check('the pre-existing good state was left byte-identical', (await readFile(sta
 // 3f-3. verifier 五轮 P2-1：**写**失败型降级也必须进 degraded（否则前端显示"已保存"）
 {
   chat.__resetChatModeForTests()
-  await writeFile(statePath, JSON.stringify({ sessions: {} }, null, 2), 'utf8')
+  await writeStateAtomic(JSON.stringify({ sessions: {} }, null, 2))
   await chat.ensureLoaded()
   // 把状态文件换成一个"无法写入"的位置：父路径是文件 → rename/write 必失败
   const blockedDir = join(dataDir, 'blocked-parent')
@@ -766,11 +810,11 @@ check('the pre-existing good state was left byte-identical', (await readFile(sta
 {
   // 先让本进程正常加载一次（模拟"进程已经跑起来了"）
   chat.__resetChatModeForTests()
-  await writeFile(statePath, JSON.stringify({ sessions: { 'keep-me': { forensic: true, bookmarksOnly: false } } }, null, 2), 'utf8')
+  await writeStateAtomic(JSON.stringify({ sessions: { 'keep-me': { forensic: true, bookmarksOnly: false } } }, null, 2))
   await chat.ensureLoaded()
   // 磁盘随后损坏 → 下一次落盘必须备份而不是静默覆盖
   const corrupted = '{ not json at all'
-  await writeFile(statePath, corrupted, 'utf8')
+  await writeStateAtomic(corrupted)
   const round = await chat.setMode('merge-after-corrupt', { forensic: true }).persist
   const backups = (await readdir(dataDir)).filter((n) => n.includes('.corrupt-'))
   check('a corrupt file discovered during the merge step is backed up, not silently clobbered',
@@ -785,7 +829,7 @@ check('the pre-existing good state was left byte-identical', (await readFile(sta
 // 3i. 降级可恢复（verifier 二轮 P2：旧实现 _writesBlocked 永久、只能重启 dsh）
 {
   chat.__resetChatModeForTests()
-  await writeFile(statePath, JSON.stringify({ sessions: { 'pre-degrade': { forensic: true, bookmarksOnly: false } } }, null, 2), 'utf8')
+  await writeStateAtomic(JSON.stringify({ sessions: { 'pre-degrade': { forensic: true, bookmarksOnly: false } } }, null, 2))
   const saved = await readFile(statePath, 'utf8')
   await rm(statePath, { force: true })
   await mkdir(statePath)
@@ -795,7 +839,7 @@ check('the pre-existing good state was left byte-identical', (await readFile(sta
     blocked = await chat.setMode('degraded-1', { forensic: true }).persist
   } finally {
     await rm(statePath, { recursive: true, force: true })
-    await writeFile(statePath, saved, 'utf8')
+    await writeStateAtomic(saved)
   }
   check('a read failure refuses the write (nothing was clobbered)',
     blocked?.persisted === false && chat.stateStatus().writes_blocked === true,
@@ -823,9 +867,9 @@ check('the pre-existing good state was left byte-identical', (await readFile(sta
 //       被清出内存（会连带让下一次成功落盘把它当成"用户关掉了"从磁盘删掉）。
 {
   chat.__resetChatModeForTests()
-  await writeFile(statePath, JSON.stringify({
+  await writeStateAtomic(JSON.stringify({
     sessions: { 'A-on-disk': { forensic: true, bookmarksOnly: false } },
-  }, null, 2), 'utf8')
+  }, null, 2))
   await chat.ensureLoaded()
   let onDiskBefore = await readFile(statePath, 'utf8')
   await rm(statePath, { force: true })
@@ -835,7 +879,7 @@ check('the pre-existing good state was left byte-identical', (await readFile(sta
     outage = await chat.setMode('B-during-outage', { forensic: true, bookmarksOnly: true }).persist
   } finally {
     await rm(statePath, { recursive: true, force: true })
-    await writeFile(statePath, onDiskBefore, 'utf8')
+    await writeStateAtomic(onDiskBefore)
   }
   check('outage: the toggle is refused but kept in memory',
     outage?.persisted === false && chat.getMode('B-during-outage').forensic === true,
@@ -851,7 +895,7 @@ check('the pre-existing good state was left byte-identical', (await readFile(sta
     JSON.stringify({ B: chat.getMode('B-during-outage'), A: chat.getMode('A-on-disk') }))
   // 磁盘恢复 → 写**无关**会话：读失败的会话不得被当成"用户关掉了"而从磁盘删除
   await rm(statePath, { recursive: true, force: true })
-  await writeFile(statePath, onDiskBefore, 'utf8')
+  await writeStateAtomic(onDiskBefore)
   chat.allowStateReload()
   await chat.ensureLoaded()
   const unrelated = await chat.setMode('C-unrelated', { forensic: true }).persist
@@ -866,7 +910,7 @@ check('the pre-existing good state was left byte-identical', (await readFile(sta
 /* ================================================ 3f. 条目上限
  * （放在多进程/锁用例之后：它会把状态填满，先跑会让后面的块撞上限）
  */
-await writeFile(statePath, JSON.stringify({ sessions: {} }, null, 2), 'utf8')
+await writeStateAtomic(JSON.stringify({ sessions: {} }, null, 2))
 chat.__resetChatModeForTests()
 await chat.ensureLoaded()
 for (let i = 0; i < chat.MAX_SESSIONS - 1; i += 1) chat.setMode(`sess-cap-${i}`, { forensic: true })
@@ -913,7 +957,7 @@ check('turning one off frees a slot',
  */
 {
   chat.__resetChatModeForTests()
-  await writeFile(statePath, JSON.stringify({ sessions: {} }, null, 2), 'utf8')
+  await writeStateAtomic(JSON.stringify({ sessions: {} }, null, 2))
   await chat.ensureLoaded()
 
   const commands = chat.makeChatModeCommands()

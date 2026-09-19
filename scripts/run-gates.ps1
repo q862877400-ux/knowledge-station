@@ -29,7 +29,16 @@ $ErrorActionPreference = 'Continue'
 $repo = Split-Path -Parent $PSScriptRoot
 $baselinePath = Join-Path $PSScriptRoot 'gates-baseline.json'
 #: pytest 的机器可读结果（棘轮判据取 nodeid，不再依赖 `文件:行号` —— 行号会随编辑位移）。
+#: ⚠ 文件名带 `$PID` ⇒ **每次跑都是新文件**，旧的一直堆在 TEMP（复核 2026-09-20 数出已积 8 个）。
+#:   这里跑前把同类旧文件清掉：它们没有任何保留价值（判据只读本次这份），而堆积会让
+#:   "哪份是这次的"变成需要猜的问题。
 $junitPath = Join-Path ([System.IO.Path]::GetTempPath()) "ks-gates-junit-$PID.xml"
+$junitOld = @(Get-ChildItem -Path ([System.IO.Path]::GetTempPath()) -Filter 'ks-gates-junit-*.xml' -File -ErrorAction SilentlyContinue
+  | Where-Object { $_.FullName -ne $junitPath })
+if ($junitOld.Count -gt 0) {
+  $junitOld | Remove-Item -Force -ErrorAction SilentlyContinue
+  Write-Host ("（清掉 {0} 份旧的 ks-gates-junit-*.xml）" -f $junitOld.Count) -ForegroundColor DarkGray
+}
 
 if (-not $Quick -and -not $Full) { $Quick = $true }   # 缺省 = 快档（避免误触全量）
 if ($Quick -and $Full) { $Quick = $false }            # 同时给 ⇒ 按全量
@@ -197,9 +206,15 @@ try {
       if ($m.Success) { $pytestPassed = [int]$m.Groups[1].Value }
       $m2 = [regex]::Match($text, '(\d+) skipped')
       if ($m2.Success) { $pytestSkipped = [int]$m2.Groups[1].Value }
+      $pytestText = $text
       # ⚠ **判据的键 = pytest 的 nodeid**（`tests.test_x::test_y`），**不是** `文件:行号`（复核 v2 打回）：
       #   行号会随"在文件顶部加一行注释"位移 ⇒ 零回归也判红（复核实测：加一行注释，站点从 :72 变 :73，
-      #   当场 ⛔）；而 nodeid 与编码、行号、绝对/相对路径**全都无关**。用 `--junitxml` 拿机器可读结果。
+      #   当场 ⛔）。用 `--junitxml` 拿机器可读结果。
+      # ⚠ **更正（复核 v3 打回，2026-09-20）**：这里原写"nodeid 与编码、行号、绝对/相对路径**全都无关**"，
+      #   那句话**超出了证据**：① **收集期跳过**（`pytest.skip(..., allow_module_level=True)` 之类）时
+      #   junit 的 `classname=""`、只有模块名 ⇒ 实际键是 `::<模块名>`，与普通用例的 nodeid 不同形；
+      #   ② `classname` 由 **rootdir 相对路径**派生 ⇒ 只在**固定调用方式**（cwd/rootdir 不变）下才稳定。
+      #   能站住的只是：**行号位移不再影响判据**（那正是 v2 的问题）。
       $skipNodeIds = @()
       $junitError = $null
       if (Test-Path $junitPath) {
@@ -300,6 +315,22 @@ try {
         Set-Content -Path $baselinePath -Encoding utf8
       Write-Host ("   基线已更新：总账=" + $totalRan + "（passed=" + $pytestPassed + " skipped=" + $pytestSkipped + "，skip nodeid " + $skipNodeIds.Count + " 个）") -ForegroundColor Yellow
     }
+  } elseif ($Full) {
+    # ⛔ **不许在"没跑出数字"时静默放行**（复核 v3 的对抗性反例 M3，2026-09-20 修）：
+    #   上面整块棘轮（总账 / skip nodeid / junit 一致性）原来都被 `if ($null -ne $pytestPassed)`
+    #   罩住 ⇒ 一旦 pytest 输出里**没有 `N passed`**，三条判据**一条都不执行**，而汇总仍打
+    #   "✅ 棘轮（只涨不跌）"、明细行写 "pytest 没跑出数字" ⇒ **判据全关却报绿**。
+    #   复核实跑的反例（M3_EXIT=0）：`PYTEST_ADDOPTS='-p allskip_plugin'`（插件给每个 item 加 skip）
+    #   ⇒ pytest **exit 0**、输出只有 `2180 skipped`、junit 2180 条 skipped 且**条数相符**
+    #   ⇒ 2175 条白名单外的新 skip nodeid **一个都没判**，门禁报"6/6 步通过 · ✅ 棘轮"。
+    #   ⇒ 现在：拿不到 `N passed` 就**判红**（"没跑出数字"≠"通过"，与"命令不存在"同一立论）。
+    $why += "pytest 输出里没有 'N passed'（只有 skipped、或输出被改写）⇒ 总账与 skip 判据都无从判定"
+    $tailLines = @($pytestText -split "`r?`n" | Where-Object { $_.Trim() -ne '' } | Select-Object -Last 3)
+    Write-Host "⛔ pytest 没跑出 passed 数字 ⇒ 棘轮无从判定（不许静默放行）" -ForegroundColor Red
+    if ($tailLines.Count -gt 0) {
+      Write-Host ("   该步输出尾部：" + ($tailLines -join ' / ')) -ForegroundColor DarkGray
+    }
+    $baselineDrop = $true
   }
 
   $failed = @($results | Where-Object { -not $_.ok })
@@ -316,12 +347,32 @@ try {
   $results | ForEach-Object { Write-Host ("   {0} {1,-26} {2}" -f $(if ($_.ok) { '✅' } else { '⛔' }), $_.name, $_.note) }
   if ($Full) {
     Write-Host ("   {0} {1,-26} {2}" -f $(if ($ratchetBad) { '⛔' } else { '✅' }), '棘轮（pytest 只涨不跌）',
-      $(if ($null -eq $pytestPassed) { 'pytest 没跑出数字' }
+      $(if ($null -eq $pytestPassed) { "没跑出 passed 数字 ⇒ 判红：$($why -join '；')" }
         elseif ($baselineDrop) { "被破：$($why -join '；')" }
         else { "passed=$pytestPassed skipped=$pytestSkipped ≥ 基线" }))
     Write-Host ("      环境：RUN_LIVE=[{0}]（=1 时多跑 1 条联网用例 ⇒ 基线按**默认环境**记）" -f $env:RUN_LIVE)
   }
   Write-Host "==============================================================="
+  # ⚠ **绿灯也要留证据**（复核 2026-09-20 打回）：上面这些日志文件**只在失败时**才落
+  #   （:186 起那段），于是"某次 -Quick 4/4 / 冒烟 26 套全过"这种**绿的宣称根本不可验**——
+  #   既不能证实也不能证伪，只能信我复述。⇒ 现在无论红绿，都往一个**固定文件**写一份
+  #   汇总（每次覆盖，不堆积）：`$TEMP\ks-gates-last.txt`。要查"上一跑到底什么结果"就读它。
+  $lastPath = Join-Path ([System.IO.Path]::GetTempPath()) 'ks-gates-last.txt'
+  $lastLines = @()
+  $lastLines += ("{0} 门禁（{1} 档）· {2}/{3} 步通过 · exit={4}" -f (Get-Date).ToString('s'),
+    $(if ($Full) { '全量' } else { '快档' }), ($results.Count - $failed.Count), $results.Count,
+    $(if ($failed.Count -gt 0 -or $ratchetBad) { 1 } else { 0 }))
+  $lastLines += ("  运行环境：RUN_LIVE=[{0}] · KS_DATA_DIR=[{1}] · cwd={2}" -f $env:RUN_LIVE, $env:KS_DATA_DIR, $repo)
+  foreach ($r in $results) { $lastLines += ("  {0} {1,-26} {2}" -f $(if ($r.ok) { 'PASS' } else { 'FAIL' }), $r.name, $r.note) }
+  if ($Full) {
+    $lastLines += ("  {0} 棘轮：{1}" -f $(if ($ratchetBad) { 'FAIL' } else { 'PASS' }),
+      $(if ($null -eq $pytestPassed) { "没跑出 passed 数字（$($why -join '；')）" }
+        elseif ($baselineDrop) { "被破：$($why -join '；')" }
+        else { "passed=$pytestPassed skipped=$pytestSkipped" }))
+  }
+  if ($null -ne $hardError) { $lastLines += ("  ⛔ 执行中断：" + $hardError.Exception.Message) }
+  $lastLines | Set-Content -Path $lastPath -Encoding utf8
+  Write-Host (" 本跑汇总已落：{0}" -f $lastPath) -ForegroundColor DarkGray
   if ($failed.Count -gt 0 -or $ratchetBad) {
     if ($failed.Count -gt 0) { Write-Host (" 失败步骤：" + (($failed | ForEach-Object { $_.name }) -join '、')) -ForegroundColor Red }
     if ($null -ne $hardError) { Write-Host " ⛔ 执行中断（见上方日志）" -ForegroundColor Red }

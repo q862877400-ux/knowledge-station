@@ -294,6 +294,18 @@ let _tmpSeq = 0
 let _degraded = null
 /** 读错误导致不可信时拒绝写盘（避免用空快照覆盖磁盘上的好数据）。 */
 let _writesBlocked = false
+/**
+ * **粘住**"当初为什么拒写"（2026-09-20，查一条真实偶发时补）。
+ *
+ * `_degraded` 是"**最近一次**改变健康度"的标记，会被一次**成功**落盘清成 `null`
+ * （见 `persist()` 里那句"清掉上次操作有问题的标记"）。于是出现过这种最难查的组合：
+ * `_writesBlocked === true`（仍在拒写）而 `_degraded === null` ⇒ `persist()` 如实返回
+ * `persisted:false`，但 `error` 只能给一个**没有信息量**的 `'degraded'`，
+ * 运维/冒烟都看不出"是为什么拒写的"（读失败？哪个 errno？）。
+ * `_blockedReason` 只在"拒写"被建立时写入，**不随成功落盘清掉**，只由
+ * `allowStateReload()` / `__resetChatModeForTests()`（即"重新建立可信度"的两个入口）清。
+ */
+let _blockedReason = null
 let _logger = null
 
 /** 让 host 注入 logger（可选）。 */
@@ -305,6 +317,17 @@ function warn(...args) {
   try {
     _logger?.warn?.(...args)
   } catch { /* 日志失败绝不影响开关语义 */ }
+}
+
+/**
+ * 拒写时出声（2026-09-20）。**没有 logger 时退化成 `console.warn`** —— 这条路径说的是
+ * "从现在起所有状态都不落盘"，属于必须留下的现场；以前它只改内存标记、一个字都不打。
+ */
+function blockWarn(reason, file) {
+  if (_logger?.warn) warn(`ks-dsh-plugin: 状态文件不可信 ⇒ 拒绝写盘（${reason}）`, file)
+  else {
+    try { console.warn(`ks-dsh-plugin: 状态文件不可信 ⇒ 拒绝写盘（${reason}）`, file) } catch { /* 同上 */ }
+  }
 }
 
 function normalizeMode(raw) {
@@ -373,6 +396,10 @@ async function readStateFile() {
     const reason = `read_failed:${error?.code ?? 'unknown'}`
     _degraded = reason
     _writesBlocked = true
+    _blockedReason = reason
+    // ⚠ 出声（2026-09-20 补）：这条路径原来**一声不吭**就把写盘关掉了 —— 只改内存标记，
+    //   现场只剩一个 `persisted:false`，连"是读失败还是锁超时"都分不出来。
+    blockWarn(reason, file)
     throw Object.assign(new Error(reason), { ksReason: reason })
   }
   const { modes, skipped, corrupt } = parseState(text)
@@ -393,6 +420,8 @@ async function readStateFile() {
       const reason = 'read_changed_while_judging'
       _degraded = reason
       _writesBlocked = true
+      _blockedReason = reason
+      blockWarn(reason, file)
       throw Object.assign(new Error(reason), { ksReason: reason })
     }
     _degraded = 'corrupt_state_file'
@@ -491,6 +520,7 @@ export function allowStateReload() {
   _loaded = null
   _degraded = null
   _writesBlocked = false
+  _blockedReason = null        // 重新建立可信度 ⇒ 旧的"为什么拒写"也该退休
   return true
 }
 
@@ -498,11 +528,14 @@ export function allowStateReload() {
 export function stateStatus() {
   // health 是给客户端用的**分类**（verifier 六轮 P2-4：把读失败/写失败/损坏重置压进
   // 一个布尔会让"损坏已备份"被显示成"写不进盘"）。degraded 仍是原始原因串，便于排障。
+  // ⚠ `blocked_reason`：`degraded` 会被一次成功落盘清成 null，而"仍在拒写"这件事没被清
+  //   ⇒ 只报 `degraded:null, writes_blocked:true` 时看不出原因（2026-09-20 补，见 `_blockedReason`）。
   let health = 'ok'
   if (_writesBlocked) health = 'read_blocked'
   else if (_degraded === 'corrupt_state_file') health = 'corrupt_reset'
   else if (typeof _degraded === 'string') health = 'write_failed'
-  return { health, degraded: _degraded, writes_blocked: _writesBlocked, sessions: _modes.size }
+  return { health, degraded: _degraded, writes_blocked: _writesBlocked,
+    blocked_reason: _writesBlocked ? _blockedReason : null, sessions: _modes.size }
 }
 
 function tmpPathFor(file) {
@@ -689,7 +722,10 @@ async function persistRound(snapshot, touched, cleared) {
  */
 function persist() {
   if (_writesBlocked) {
-    return Promise.resolve({ persisted: false, error: _degraded ?? 'degraded' })
+    // ⚠ `error` 原来只会给 `'degraded'` —— 而 `_degraded` 可能已被一次**成功**落盘清成 null
+    //   （见 `_blockedReason` 的注释）⇒ 现场看不出原因。现在把"粘住的拒写原因"带上。
+    const reason = _degraded ?? (_blockedReason ? `writes_blocked:${_blockedReason}` : 'degraded')
+    return Promise.resolve({ persisted: false, error: reason, blocked_reason: _blockedReason })
   }
   const snapshot = new Map(_modes)
   const touched = new Set(_touched)
@@ -1151,6 +1187,7 @@ export function __resetChatModeForTests() {
   _persistChain = Promise.resolve()
   _degraded = null
   _writesBlocked = false
+  _blockedReason = null
 }
 
 /* ------------------------------------------------------------------ *

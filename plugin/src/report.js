@@ -213,6 +213,68 @@ function registerExportRoute(ctx, manager) {
 }
 
 /**
+ * `POST /ks/report/research`：**研究报告**（Phase D，§10.36）。
+ *
+ * 与 `/ks/report/export`（效力报告 Excel）不同：这条是**材料平面**的产出物——把
+ * "这一轮用了哪些参考资料、两个轴是什么、还有哪些没批准"落成一份自包含文件
+ * （**Markdown + HTML**，引擎本地生成、零新增依赖；方案 §8 的退路）。
+ * §10.92：两种形态**同一份内容块**，`files`/`names` 因此是**两个**。
+ * ⚠ 2026-09-20（第 4 步撤 Word/PPT 产出通路）：这里原先还有第三种 `.docx`，
+ *   已随业主的"只要 markdown"裁定拆除；**这条路由本身保留**。
+ *   ⚠ 撤 PPT 那轮`（d7f8623/2ab66b6）**误把本函数整个删掉**，只留下调用点 ⇒
+ *   宿主启动即 `ReferenceError: registerResearchRoute is not defined`（`smoke-effect-tool` 抓到）。
+ *   本条是**就地恢复**（内容取自 f50aed9，只改上面这段 docstring）。
+ *
+ * ⚠ **白名单转发**（不是整包透传）：只把认识的键发给引擎。与采集端点同一个立论——
+ * 静默透传未知键会让调用方以为自己设上了（`sanitizeParams` 同款坑）。
+ * `dry_run=true` 时引擎只组装不落盘（预览用）。
+ */
+function registerResearchRoute(ctx, manager) {
+  return ctx.webServer.register({
+    kind: 'exact',
+    path: KS_REPORT_RESEARCH_PATH,
+    handler: async (req, res) => {
+      if (req.method !== 'POST') {
+        jsonResponse(res, 405, errorBody('method_not_allowed', 'POST only'))
+        return
+      }
+      let raw
+      try {
+        raw = await readJsonBody(req)
+      } catch {
+        jsonResponse(res, 400, errorBody('bad_request', 'body 必须是合法 JSON'))
+        return
+      }
+      const body = {}
+      if (typeof raw.project_id === 'string' && raw.project_id.trim() !== '') {
+        body.project_id = raw.project_id.trim()
+      }
+      for (const key of ['title', 'query', 'conclusion_md']) {
+        if (typeof raw[key] === 'string' && raw[key] !== '') body[key] = raw[key]
+      }
+      if (raw.limit !== undefined) body.limit = raw.limit
+      if (raw.dry_run !== undefined) body.dry_run = raw.dry_run === true
+      if (body.project_id === undefined) {
+        jsonResponse(res, 400, errorBody('bad_request', '缺少 project_id'))
+        return
+      }
+      let session
+      try {
+        session = await manager.ensureLive()
+      } catch (err) {
+        jsonResponse(res, 503, errorBody('engine_unavailable',
+          err instanceof Error ? err.message : String(err)))
+        return
+      }
+      // 生成可能要跑一遍检索/分组：给足超时（与导出 Excel 同量级）
+      const probe = await apiPost(originUrl(session.port), ENGINE_RESEARCH_PATH,
+        { token: session.token, timeoutMs: 90_000, body })
+      mapProbe(res, probe)
+    },
+  })
+}
+
+/**
  * `POST /ks/report/research/draft`：**结论草稿**（Phase D-5a，§10.96）。
  *
  * 系统基于**已批准材料**起草一段结论，回给用户**编辑/批准**；`status` 恒为

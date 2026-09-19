@@ -603,8 +603,15 @@ check('inject declares only official services (no third-party hard gate)',
   check('产出按钮在源码里**接了 handler**（不是只有文案）',
     panel.includes('onClick={onExportReport}'))
   check('报告仍走 api 层的路由函数', panel.includes('exportResearchReport('))
-  check('PPT 通路**不许**被写回来（交付物已撤：无按钮、无 handler、无 api 调用）',
-    !panel.includes('onExportSlides') && !panel.includes('exportResearchSlides('))
+  // ⚠ 负向断言**必须先把注释剥掉**（本轮实测打回自己）：源码里留着"原 `onExportSlides` 已拆除"
+  //   这类**出处注释** ⇒ 朴素 grep 会把"记录拆除的注释"判成"通路还在"⇒ **假红**
+  //   （`-Quick` 第一次跑就是这么红的）。判据要判**代码**，不是判散文。
+  const stripComments = (s) => s.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/[^\n]*/g, '')
+  const panelCode = stripComments(panel)
+  const apiCode = stripComments(await readFile(join(pluginRoot, 'client', 'api.ts'), 'utf8'))
+  check('PPT 通路**不许**被写回来（剥掉注释后：无按钮、无 handler、无 api 调用）',
+    !panelCode.includes('onExportSlides') && !panelCode.includes('exportResearchSlides')
+    && !apiCode.includes('exportResearchSlides') && !apiCode.includes('KsSlideDeck'))
 
   // ---- 静默降级护栏（2026-09-18 由**真机** e2e 抓出来的那两处，见 §10.53）----
   // 行为上的真正闸门是 `scripts/e2e-materials-panel.mjs` 的 C3（它要一个浏览器，

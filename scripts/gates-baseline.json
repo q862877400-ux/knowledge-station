@@ -1,13 +1,11 @@
 {
-  "pytest_total": 2180,
-  "pytest_passed": 2177,
-  "pytest_skipped": 3,
-  "runLive": false,
   "skip_nodeids": [
     "tests.test_golden_set::test_qa_retrieval_hits_golden",
     "tests.test_reranker::test_rerank_real_model_reorders",
     "tests.test_update_channels::test_live_openstd_homepage_default_transport_200"
   ],
+  "pytest_skipped": 3,
+  "runLive": false,
   "environmental_skip_nodeids": [
     "tests.test_golden_set::test_qa_retrieval_hits_golden",
     "tests.test_pipeline::test_real_middle_json_integration",
@@ -15,6 +13,7 @@
     "tests.test_retrieval::test_vec_channel",
     "tests.test_update_channels::test_live_openstd_homepage_default_transport_200"
   ],
-  "note": "棘轮 v3：判据的键是 pytest **nodeid**（来自 --junitxml，DOM 解析），不是 `文件:行号` —— 行号会随编辑位移造成假红（复核实测：顶部加一行注释即假红），nodeid 与编码/行号/绝对路径全都无关。三种判据各司其职：① 总账 passed+skipped 只兜**删用例/少收集**（它兜不住 passed→skipped 翻转，那种翻转下总账恒等不变 —— v2 曾写错）；② skip nodeid 规则兜「某个用例开始被跳过」（白名单外的新 nodeid ⇒ 红）；③ junit 解析失败或与汇总数字不符 ⇒ 直接红。environmental_skip_nodeids 是**环境类**跳过（真语料 / reranker 模型未下载 / MinerU 真产物不在 / fastembed 或向量引擎不可用 / RUN_LIVE 联网），随环境出现或消失都不算回归；白名单**外**的新 nodeid 才算。加用例或改判据后用 -UpdateBaseline 重记。",
-  "updatedAt": "2026-09-19T23:50:00"
+  "updatedAt": "2026-09-20T00:40:15",
+  "pytest_passed": 2141,
+  "pytest_total": 2144
 }

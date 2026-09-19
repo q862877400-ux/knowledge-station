@@ -70,7 +70,12 @@ await build({
   plugins: [{
     name: 'ks-build-purity',
     setup(build) {
-      build.onResolve({ filter: /^(@deepseek-ai\/|react$|react-dom$|react\/|react-dom\/)/ }, (args) => {
+      // ⚠ filter 必须与 `classifyExternal` 同口径 —— 复核 2026-09-20 发现：这里原来**大小写敏感**
+      //   （`/^(@deepseek-ai\/|...)/`），于是 `@DeepSeek-AI/x` **根本进不到判定函数里**，
+      //   走普通解析。今天恰好 fail-closed（解析不到 ⇒ 构建失败），但 Windows 大小写不敏感，
+      //   盘上真有那个包时宿主单例会被静默打进产物 ⇒ 加 `i` 让**所有**大小写变体都进判定，
+      //   由 `classifyExternal` 显式拒绝（它现在对非全小写的 scope 直接抛）。
+      build.onResolve({ filter: /^(@deepseek-ai\/|react$|react-dom$|react\/|react-dom\/)/i }, (args) => {
         const verdict = classifyExternal(args.path)   // 不在清单里的 `@deepseek-ai/*` 会在这里抛
         return verdict === 'external' ? { path: args.path, external: true } : undefined
       })

@@ -55,8 +55,10 @@ Vue + TDesign，我们是 React + 宿主原生组件 ⇒ **照结构/视觉重�
 ## 四、DSH 宿主**已经有了**、我们该用却没用（或手搓了）的原语
 
 一手清单：`deepseek-harness/packages/client/ui-primitives/lib/types/index.d.ts`（**这是权威面**，
-不是从 README 猜的）。我们目前只声明并用了 `Button`/`Checkbox`/`Tag`/`Pill`/`Input`/`Menu`/`Modal`/
-`IconChevronDownOutline14`（见 `plugin/client/ksHostPrimitives.d.ts`）。
+不是从 README 猜的）。我们目前只声明并用了 `Button`/`Checkbox`/`Switch`/`Tag`/`Pill`/`Input`/`Menu`/
+`Modal`/`IconChevronDownOutline14`（见 `plugin/client/ksHostPrimitives.d.ts`）。
+⚠ **更正（复核 2026-09-20 打回）**：这里原写"**8 个**"，漏了 `Switch`
+（`ksHostPrimitives.d.ts:138` 声明了它，客户端有 13 处使用）⇒ 实数 **9 个**。
 
 | 宿主导出 | 我们现在的做法（手搓） | 该换成 |
 |---|---|---|
@@ -69,7 +71,8 @@ Vue + TDesign，我们是 React + 宿主原生组件 ⇒ **照结构/视觉重�
 | `Toast` | 无（我们只有行内红字） | 写操作结果提示 |
 | `FileTypeIcon` / `classifyFileType` / `fileExtension` | 自己判断后缀 | 文件行图标与类型判定 |
 | `MarkdownText`（markdown/ 下） | 自己渲染或纯文本 | Markdown 交付物/条款正文的呈现 |
-| `DisclosureRow` / `FoldToggle` | 自己写折叠 | 折叠区 |
+| `DisclosureRow` | 自己写折叠 | 折叠区 |
+| ~~`FoldToggle`~~（**更正，复核 2026-09-20**） | — | **不可用**：它**不在**上面那一个权威面里（该包 `exports` 只暴露 `.`，`lib/types/index.d.ts` 与 `lib/index.js` 都没有它）⇒ **不可 import**。原文把"文件里存在的内部符号"当成了"可用的导出"，这句转述**不实**。要折叠就用 `DisclosureRow`。 |
 | `ConnectionIndicator` | 无 | 引擎/渠道连通状态（**比文字更省地方**） |
 | `useAnchoredPosition` / `useAnchoredMaxHeight` / `useDismissOnOutsidePointer` | 自己算浮层位置 | 下拉/浮层定位（渠道面板的标签浮层等） |
 | `JsonTree` / `DiffBlock` / `TerminalBlock` / `ReadBlock` / `SearchBlock` | 自己拼 <pre> | 调试/工具结果类呈现（按需） |

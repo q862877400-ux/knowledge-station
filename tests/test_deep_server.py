@@ -42,15 +42,25 @@ def _fake_daemon(stop: threading.Event, fail: bool = False) -> threading.Thread:
             jobs = sorted(job_dir.glob("*.job.json"))
             if len(jobs) >= 2 or (jobs and time.time() - jobs[0].stat().st_mtime > 0.2):
                 for j in jobs:
-                    spec = json.loads(j.read_text(encoding="utf-8"))
-                    jid = spec["job_id"]
-                    if fail:
-                        ds._mark_error(job_dir, jid, "boom")
-                    else:
-                        (job_dir / f"{jid}.done.json").write_text(
-                            json.dumps({"output_dir": spec["out_dir"]}),
-                            encoding="utf-8")
-                    j.unlink()
+                    # ⚠ **真竞争，必须吞掉**（复核 v3，2026-09-20 定位）：客户端路径也会删任务文件
+                    #   （`deep_server_wait` 成功后 `_cleanup` 先删、超时路径也删）。daemon 与它**同时**
+                    #   动同一个文件 ⇒ ① `j.read_text()` 时文件已被删 ⇒ `FileNotFoundError`；
+                    #   ② `j.unlink()` 时文件已被删 / 仍被别人持有 ⇒ `PermissionError`（Windows）。
+                    #   原先没有 try ⇒ 线程**当场崩掉**：`fail=True` 的用例里它可能还没写 `.error.json`
+                    #   就死了 ⇒ `deep_server_wait` 返回 None…而对**成功**用例则留下未清理的任务文件
+                    #   ⇒ 下一个用例看到别人的残留。这一条比"自旋饿死 daemon"更可能是那次偶发的来源。
+                    try:
+                        spec = json.loads(j.read_text(encoding="utf-8"))
+                        jid = spec["job_id"]
+                        if fail:
+                            ds._mark_error(job_dir, jid, "boom")
+                        else:
+                            (job_dir / f"{jid}.done.json").write_text(
+                                json.dumps({"output_dir": spec["out_dir"]}),
+                                encoding="utf-8")
+                        j.unlink()
+                    except (FileNotFoundError, PermissionError, json.JSONDecodeError):
+                        continue        # 对手先动手了/文件半写：这一轮跳过，下一轮再看
             stop.wait(0.05)
     t = threading.Thread(target=run, daemon=True)
     t.start()
@@ -110,9 +120,13 @@ def test_开关关闭_不提交任务(monkeypatch):
 def test_提交与等待拆分_先投后收(tmp_path, monkeypatch):
     _bypass_alive(monkeypatch)
     # ⚠ 2026-09-19 修一处**偶发**（全量跑里挂过一次：`assert None == {...}`；单独跑 3/3 全过）：
-    #   原来把 `time.sleep` 整个换成 no-op ⇒ `deep_server_wait` 成了**纯自旋**，
-    #   而假 daemon 在另一个线程、要靠 GIL 轮转才跑得上 ⇒ 极端情况下自旋到 10s 超时、`r=None`。
-    #   改成"把 sleep 收紧到 ≤10ms"（保留让步点、不再自旋）：既快又确定。
+    #   原来把 `time.sleep` 整个换成 no-op ⇒ `deep_server_wait` 成了**纯自旋**。
+    #   ⚠ **更正（复核 v3，2026-09-20）**：这里原写"自旋 ⇒ GIL 轮不到假 daemon 线程 ⇒ 极端情况
+    #   自旋到 10s 超时"，那句话**被实测否证**：CPython 按时间片让出 GIL，实测纯自旋时另一线程
+    #   **9.6ms** 就跑了；并把 no-op 与原版各跑 20 次 —— **两边都 20/20 成功**（no-op mean 0.252s /
+    #   原版 mean 0.250s，超时 10s）。⇒ **根因未定**，这次改动**未被证明有效**（它只是把 sleep
+    #   收紧到 ≤10ms，保留让步点、读起来更保守）。更可能的来源是上面 `_fake_daemon` 里那个
+    #   **unlink/read 真竞争**（已在 `_fake_daemon` 里加了 try/except）。
     real_sleep = time.sleep
     monkeypatch.setattr(ds.time, "sleep", lambda s: real_sleep(min(s, 0.01)))
     sub = ds.deep_server_submit(tmp_path / "a.pdf", tmp_path / "out9")

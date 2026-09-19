@@ -8676,3 +8676,51 @@ Office 往返编辑会话（`office_roundtrip.py`），以及为它们写的用�
 
 
 
+
+## §10.139 第 4 步（撤 Word/PPT 产出通路）+ 复核打回的一轮：**棘轮假绿、纯度大小写、一条被误删的路由**
+
+⚠ 本节同时补记**步骤 1–3**（棘轮 v3 / 打包纯度 / 三处清理）——独立复核 2026-09-20 打回："`DEVELOPMENT-HISTORY`
+里**没有 v3 条目**"（归属层缺记，本轮补）。
+
+### 一、第 4 步做完的（业主裁定：交付物只出 Markdown）
+| 面 | 处置 |
+|---|---|
+| 引擎 | 删 `src/core/exports/slide_export.py` 整个模块 + `tests/test_slide_export.py`；`research_report` 的 `_to_docx`/`_docx_template_path`/`.docx` 落盘；`report_export` 两条 Word 导出 + `_open_document`/`_templates_dir`；`update/report.py` 的 Word 版与 `/update/report/{batch_id}`；`server.py` 的义务清单 Word / 审查报告 Word |
+| 插件 | `report.js` 的 slides 路由（`/ks/report/*` 6→5）；`api.ts` 的 `KsSlideDeck`/`exportResearchSlides`；面板「生成 PPT」按钮与 slides 状态；**重建**被跟踪的 `plugin/client.js` |
+| 依赖 | `pyproject.toml` **只删 `python-pptx`** |
+| 保留（边界） | `python-docx`（输入侧 + `office_roundtrip`）、`office_roundtrip.py`、`.md`/`.html`、全部 `.xlsx` |
+
+### 二、⛔ 施工中真的删错了一处（门禁抓到，已修）
+子代理把 **`registerResearchRoute`**（`POST /ks/report/research` = **研究报告 Markdown/HTML** 那条）
+和 PPT 那条**一起删了**，只在 `registerKsReportRoutes` 留下调用点
+⇒ 宿主一挂载就 `ReferenceError: registerResearchRoute is not defined`
+⇒ `scripts/smoke-effect-tool.mjs` **当场红**（`-Full` 的 smoke 步 exit=1，日志点名 `report.js:280`）。
+**这正是"施工者不许自己跑门禁"必须由别人兜的那一类错**：合并前只跑了定点 pytest（那 6 个文件全绿，因为没有
+用例覆盖宿主路由注册）。已按 `f50aed9` 原文**就地恢复**该函数（docstring 改成"Markdown + HTML 两种形态"，
+并把这次误删写进注释）。
+
+### 三、两份独立复核（冻结 tag `verify-freeze-step1` = `2c059cc`、`verify-freeze-step2` = `f50aed9`）
+- **step1（棘轮 v3）**：4 条成立、2 条部分成立，**另抓到 1 处假绿**。假绿反例 M3：`PYTEST_ADDOPTS='-p allskip_plugin'`
+  ⇒ pytest exit 0、输出只有 `2180 skipped`、junit 条数相符 ⇒ 整块棘轮被 `if ($null -ne $pytestPassed)` 罩住、
+  **一条判据都没跑**，汇总却打"6/6 步通过 · ✅ 棘轮"（**2175 条白名单外的新 skip 一个都没判**）。
+- **step2（打包纯度 + 三处清理）**：A1/A2/A4/B5/B6/C8①/C9 成立；**A3 有绕过**（scope 大小写敏感）；
+  `UI-BASELINE.md` **两处失真**（`FoldToggle` 不在权威面里；"8 个原语"实为 9 个含 `Switch`）。
+- 打回的说法**逐条就地更正并留痕**（不删错话）：见 `AGENTS.md` 门禁节（"并发假红"因果被本仓自己的注释否证）、
+  复核节（新增"提取树装依赖必须真拷贝，别 junction"与"复核自己的变异必须先还原"两条协议）、
+  `run-gates.ps1` 里 nodeid 键的**边界**（收集期跳过时键是 `::<模块名>`；classname 由 rootdir 派生）、
+  `tests/test_deep_server.py`（自旋⇒GIL 饿死的"根因"**被实测否证**：no-op 与原版各 20/20 成功）。
+
+### 四、本轮修的洞（都能在代码里找到"为什么"）
+1. **棘轮 P0**：拿不到 `N passed` ⇒ **判红**（不再静默放行），并把该步输出尾部打出来。
+2. **纯度大小写**：`classifyExternal` 折小写判 scope、**非全小写显式抛**；`build-client.mjs` 的 onResolve
+   filter 加 `i`（原来 `@DeepSeek-AI/x` 根本进不到判定函数）；冒烟加 4 条大小写反例 + 1 条对照。
+3. **`_fake_daemon` 真竞争**：daemon 与客户端**同时**读/删同一个任务文件 ⇒ 吞掉
+   `FileNotFoundError`/`PermissionError`（比"自旋饿死"更可能是那次偶发的来源）。
+4. **绿灯也留证**：`-Full`/`-Quick` 无论红绿都往**固定文件** `%TEMP%\ks-gates-last.txt` 写一份汇总
+   （复核打回："绿了的宣称不可验"——以前日志只在失败时落）。顺手跑前清掉旧的 `ks-gates-junit-*.xml`。
+
+### 五、诚实边界（**未做 / 未验**）
+- 纯度门禁**盖不到**"未被产物引用的 import"（tree-shaking 后不解析 ⇒ 实跑 exit 0）：它管的是
+  "产物里不许出现清单外的 `@deepseek-ai/*`"，**不是**"源码里不许写错包名"。
+- `test_deep_server` 那次偶发的**根因仍未定**；本轮两处改动（sleep 收紧、吞竞争）**都没有被证明能根除它**。
+- 棘轮对"**收集期跳过**"没有专门判据（junit 里它与普通用例不同形）。
