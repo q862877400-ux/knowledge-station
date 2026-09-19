@@ -3,6 +3,11 @@
 **这一步不改巡检行为**——它只是让"改动会带来什么差异"在动手前就看得见。
 用法：
     .venv\\Scripts\\python.exe scripts\\chain-snapshot.py [--json]
+
+⚠ **`--json` 里也有 `segments`**（复核 `verify-freeze-corr3` A2，2026-09-20 修）：改前 `--json`
+分支在 print 之后就 `return` 了 ⇒ `_segments_section` **永不执行** ⇒ `--json` 输出里根本没有号段那一段，
+而 R7（号段）的**全部证据**都在那一段 ⇒ "机器可读中间产物"对号段是缺的。现在 `--json` 的
+`segments` 与文本段的 `seg` 是**同一个对象**（同一处算、同一个键名口径）。
 """
 from __future__ import annotations
 
@@ -39,8 +44,13 @@ def main() -> int:
     report = lc.ledger_chain_report(rows)
 
     if as_json:
-        print(json.dumps({"fallback_today": list(today), "fallback_from_ledger": list(ledger),
-                          **report}, ensure_ascii=False, indent=2))
+        # ⚠ 改前这里 print 完就 `return 0`，`_segments_section(...)` 在它**后面** ⇒ 号段那一段
+        #   **永不执行**（复核 corr3 A2 实跑：`--json` 里连 `segments` 键都没有）。现在把号段
+        #   一起算出来放进**同一个 JSON 文档**（不再另 print 一份 JSON，那样是两个文档拼在一起）。
+        payload = {"ledger_rows": len(rows),
+                   "fallback_today": list(today), "fallback_from_ledger": list(ledger),
+                   **report, "segments": _segments_payload(rows)}
+        print(json.dumps(payload, ensure_ascii=False, indent=2))
         return 0
 
     print(f"台账 {len(rows)} 条")
@@ -112,26 +122,30 @@ def main() -> int:
     for r in dead:
         print(f"  {r['channel_id']:<44} {r['state']} {r['last_error_code']} 连续{r['consecutive_failures']}次")
 
-    _segments_section(rows, as_json)
+    _segments_section(_segments_payload(rows))
     return 0
 
 
-def _segments_section(rows, as_json: bool) -> None:
-    """号段（`segments_json`，R7）：**加法真的会带来多少号**，以及三类欠账。
+def _segments_payload(rows) -> dict:
+    """号段报告（`segments_json`，R7）—— **文本段与 `--json` 共用这一个**（别各算一份）。
 
-    为什么这一段必须在快照里（而不是只在用例里）：号段加法是**行为改变**
+    为什么号段必须在快照里（而不是只在用例里）：号段加法是**行为改变**
     （每号可能多问一根棒 = 更多请求），而 R6c 的教训是"提升是行为改变，必须带快照差异"。
     这里的口径：拿**真库**里全部标准号当样本，逐条算号段命中 ⇒ 差异是**量出来的**，不是估的。
+
+    ⚠ 改前这段逻辑长在 `_segments_section(rows, as_json)` 里，而 `--json` 分支**提前 return**
+    ⇒ 机器可读产物里没有号段（复核 corr3 A2）。拆出这个函数是为了让两条通路**不可能再漂开**。
     """
     # 号表在 doc_meta；只取标准号列（只读，不发请求）。
     from src.core.storage.sqlite_db import get_db_connection
     nos = [str(r["standard_no"]) for r in get_db_connection().execute(
         "SELECT DISTINCT standard_no FROM doc_meta WHERE standard_no IS NOT NULL"
     ).fetchall()]
-    seg = lc.segments_report(rows, nos)
-    if as_json:
-        print(json.dumps({"segments": seg}, ensure_ascii=False, indent=2))
-        return
+    return lc.segments_report(rows, nos)
+
+
+def _segments_section(seg: dict) -> None:
+    """号段那一段的**人读**打印（数据来自 `_segments_payload`，这里只排版）。"""
     print()
     print(f"号段（`segments_json`）——真库 {seg['sample_size']} 个号全量算：")
     if not seg["declared"]:
