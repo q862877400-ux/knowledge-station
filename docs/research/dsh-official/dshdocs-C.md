@@ -49,6 +49,10 @@
 - 文档写作门（`docs/AGENTS.md`）：一行一段（`verify-md-wrap`）；改文档化类型必须**同一改动内**更新 owning subsystem page（`verify-type-equiv` 只抓 drift，不抓从未文档化的新类型）；`scripts/doc-budgets.manifest.json` + `verify-doc-budgets` 有字数上限。docs/AGENTS.md:41,43,50,58
 - 双语：`pnpm run verify-translation-pairing --write <doc>`；`git merge` 由 `dsh-translation-pairing` merge driver 处理配对记录；冲突后 `pnpm run resolve-translation-pairing-conflicts`。adding-a-session-format-version.md:101 / development.md:32,113
 - 非机械改动：> "Non-trivial changes MUST include an Agent Note in the same PR; only mechanical/local edits are exempt." AGENTS.md:146
+  > ⚠ **本条已被 alpha.2 放宽**（官方 `docs/AGENTS.md` 改成了「**Apply the Agent Note creation
+  > criteria. Mechanical/local edits are exempt, including local UI changes**」）⇒ 见
+  > [ERRATA-alpha.2 §A2](ERRATA-alpha.2.md)。**引用本条时请以 ERRATA 为准。**
+  > （2026-09-19 加这个反向指针：本分片是"动手前的权威导航层"，过期规则留在这里会被再引用一次。）
 - 快照义务：> "Every non-trivial model-, protocol-, or human-visible change adds or updates a keyless recorded-session scenario in the same PR"（`pnpm run test:snapshot`；改模型转录用 `test:snapshot:record`，replay 输入不变用 `:refresh`）。AGENTS.md:148 / testing.md:14,55
 - 产品可见插件要真组合测试：> "Product-visible plugins require a non-unit REAL-composition test. Hand-built `ctx.plugin(...)` suites are insufficient"；每个 registry 都要 HMR 安全测试（dispose 贡献 fiber、断言清理）。testing.md:39,9
 

@@ -211,6 +211,14 @@ export function mount(container, props) {
   check('运行时注入了样式表（id=ks-dsh-plugin-styles，含 .ks-batch）',
     styleEl !== null && (styleEl.textContent ?? '').includes('.ks-batch'),
     styleEl === null ? '没有 <style>' : `${(styleEl.textContent ?? '').length} 字符`)
+  // ⚠ 所有权属性（2026-09-19 M4）：少了它们 ⇒ ①HMR 的 removeOwnedStyles 找不到我们的标签
+  //   而 ensureKsStyles 按 id 去重直接 return ⇒ **改样式必须整页刷新**；
+  //   ②别的插件 materialize 时 claimStyles 会把我们的无名标签认领走并在卸载时删掉。
+  check('样式标签带 data-plugin + data-plugin-css（宿主的样式所有权按这两个属性认）',
+    styleEl !== null
+    && styleEl.dataset.plugin === 'ks-dsh-plugin'
+    && styleEl.dataset.pluginCss === 'ks-dsh-plugin/ksGuideStyles.css',
+    styleEl === null ? '没有 <style>' : `data-plugin=${styleEl.dataset.plugin} data-plugin-css=${styleEl.dataset.pluginCss}`)
 
   // ── 断言 3：文件列表 = 勾选框 + 常驻「＋标签」 ──
   const checkboxes = q('input[type=checkbox]')
@@ -342,6 +350,46 @@ export function mount(container, props) {
 
   capRoot.unmount()
   await flush()
+
+  /* ══════════ 主题 token 存在性：引用不存在的 token 会静默落到硬编码兜底色 ══════════
+   * 2026-09-19 实测抓到 7 个**不存在**的 token（`--dsw-alias-warn` / `-danger` / `-border` /
+   * `-bg` / `-bg-secondary` / `-danger-bg` / `-state-error-tertiary`），共 32 处：
+   * 前 6 个都写了 `, #hex` 兜底 ⇒ 深色下颜色不对但看得见；最后那个**连兜底都没有**
+   * ⇒ CSS 声明非法 ⇒ 「已废止」徽章底色**整个不存在**（肉眼才发现得了）。
+   * 官方口径（`docs/web-styling.md`）：只用存在的语义 token，**不许写死色值**。
+   * ⇒ 这条用例把"我们引用的每个 `--dsw-*` 都必须在主题里定义"变成机械断言。 */
+  const themeDir = join(harness, 'packages', 'client', 'ui-theme', 'src', 'styles')
+  const { readdir: rd, readFile: rf } = await import('node:fs/promises')
+  let themeCss = ''
+  try {
+    for (const f of await rd(themeDir)) {
+      if (f.endsWith('.css')) themeCss += await rf(join(themeDir, f), 'utf8')
+    }
+  } catch (e) {
+    console.error(`❌ 读不到主题 CSS（${themeDir}）：${String(e.message)}`)
+    console.error('   渲染级用例依赖 DSH 检出；缺件时**报错**而不是静默跳过。')
+    process.exit(1)
+  }
+  const defined = new Set([...themeCss.matchAll(/(--dsw-[a-z0-9-]+)\s*:/g)].map((m) => m[1]))
+  const clientDir = join(pluginRoot, 'client')
+  const referenced = new Map()
+  for (const f of await rd(clientDir)) {
+    if (!f.endsWith('.ts') && !f.endsWith('.tsx')) continue
+    const text = await rf(join(clientDir, f), 'utf8')
+    // ⚠ 必须要求 token 后面紧跟 `,` 或 `)`（= 真的是一个 `var(--dsw-x)` 调用）：
+    //   否则注释里的 `var(--dsw-alias-*)` 这类**通配写法**会被当成一个不存在的 token
+    //   （我第一版就是这么误报的）。
+    for (const m of text.matchAll(/var\((--dsw-[a-z0-9-]+)\s*[,)]/g)) {
+      if (!referenced.has(m[1])) referenced.set(m[1], new Set())
+      referenced.get(m[1]).add(f)
+    }
+  }
+  const ghostTokens = [...referenced.entries()].filter(([t]) => !defined.has(t))
+  check(`我们引用的 ${referenced.size} 个 --dsw-* token **全部真实存在**（不存在 ⇒ 静默落到兜底色）`,
+    ghostTokens.length === 0,
+    ghostTokens.length === 0
+      ? `主题里共定义 ${defined.size} 个 token`
+      : ghostTokens.map(([t, fs]) => `${t}（${[...fs].join(',')}）`).join(' | '))
 } finally {
   await rm(stubDir, { recursive: true, force: true })
 }

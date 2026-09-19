@@ -21,6 +21,7 @@
 import { createRequire } from 'node:module'
 import { readFile, readdir } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
+import Schema from '@deepseek-ai/schemastery'
 import {
   EngineManager,
   apiGet,
@@ -62,6 +63,53 @@ export const name = 'ks-dsh-plugin'
  * `agents` 用于查法规模式的子会话继承（沿 session.header.parentSession 向上解析）。
  */
 export const inject = ['tools', 'webServer', 'systemPrompt', 'agents', 'commands']
+
+/**
+ * 部署配置的 **schema**（官方要求：`Config` 必须是标准 schema）。
+ *
+ * 出处：官方文档规范与插件契约一致要求「`Config` 必须是 Standard Schema（Schemastery），
+ * **导普通对象不会校验**」—— 而同族的陷阱正是**静默**：写错的配置（例如把毫秒数写成字符串）
+ * 会一路流进逻辑，没有一处会报错。官方仓库里每个插件都是 `export const Config: Schema<T> =
+ * Schema.object({…})`（例：`packages/acp/acp/src/index.ts`），本地可用的实现是
+ * `@deepseek-ai/schemastery`（经 dsh-tools/cordis 传递而来，见 `plugin/node_modules`）。
+ *
+ * 在此之前本插件**没有 `Config`**：`cordis.patch.yml` 里那 5 个键只在注释里说明，
+ * 传错没有任何校验。字段与默认值与原 `DEFAULTS` **逐条一致**（所以加上它**不改变行为**，
+ * 只是把"写错配置"从静默变成当场报错）。
+ *
+ * ⚠ 三个留空的键（`engineRoot` / `python` / `trustedHosts`）**刻意不给 `.default()`**：
+ * 它们的"未设置"是有意义的状态（分别代表"用 EngineManager 默认根"、
+ * "用 `$KS_PYTHON` 或仓内 .venv"、"只信回环"），给默认值会把"没配"伪装成"配了这个值"。
+ *
+ * ## ⚠ 本 schema **只挡类型错，挡不住键名拼错**（实测，别把这两件事混说）
+ * 官方仓库的插件写 `}).strict()`，但**那是另一个版本的 schemastery**：
+ * 我们这里（`@deepseek-ai/schemastery` 3.18.2，经 dsh-tools/cordis 传递而来）
+ * **没有 `.strict()`**（我加上去 ⇒ `TypeError: ... .strict is not a function`，
+ * 插件**加载即失败**）；`.loose(false)` 也**照旧保留未知键**（实测 `{typo:2}` 原样通过）。
+ * ⇒ 所以"未知键"这件事改由 `apply` 里的显式检查兜住（见 `apply` 开头），
+ * 这样类型错与键名错**都能当场报错**，而不是只有一半。
+ *
+ * 验证过（本地实测）：`{idleTimeoutMs:'soon'}` ⇒ `$.idleTimeoutMs expected number but got soon`；
+ * `{trustedHosts:'1.2.3.4'}` ⇒ `$.trustedHosts expected array but got 1.2.3.4`；
+ * `{}` ⇒ 只填两个有默认值的键（`startupTimeoutMs` / `idleTimeoutMs`）。
+ */
+export const Config = Schema.object({
+  engineRoot: Schema.string().description('引擎仓库根目录；不填则用 EngineManager 的默认（本插件所在仓）'),
+  python: Schema.string().description('Python 解释器路径；不填则用 $KS_PYTHON 或仓内 .venv'),
+  startupTimeoutMs: Schema.number().default(60_000)
+    .description('引擎启动超时（毫秒）'),
+  idleTimeoutMs: Schema.number().default(30 * 60 * 1000)
+    .description('引擎空闲回收窗口（毫秒）；默认 30 分钟'),
+  trustedHosts: Schema.array(Schema.string())
+    .description('额外可信 authority（局域网部署时声明；默认只认回环 127.0.0.1/localhost/::1）'),
+})
+
+/**
+ * `Config` 声明的键名（**唯一所有者**：`apply` 的未知键检查与文档都从这里取）。
+ * 有了它，"配置里写了个不存在的键"会**当场报错**——见 `Config` 的注释说明
+ * （本地 schemastery 版本挡不住这件事）。
+ */
+export const CONFIG_KEYS = ['engineRoot', 'python', 'startupTimeoutMs', 'idleTimeoutMs', 'trustedHosts']
 
 // P1c-RouteA: 同源路由（client 半经此取引擎会话 / pdf.js worker 与 wasm 资源）
 export const KS_SESSION_PATH = '/ks/session'
@@ -1027,6 +1075,16 @@ function registerPdfWorkerRoute(ctx) {
  * @param config - optional deployment config (engineRoot / python / timeouts).
  */
 export function apply(ctx, config = {}) {
+  // ⚠ **未知配置键 ⇒ 当场报错**。本地的 `@deepseek-ai/schemastery`(3.18.2) 没有 `.strict()`、
+  //   `.loose(false)` 也照旧保留未知键（都实测过），所以"键名拼错"这件事 schema 挡不住。
+  //   而静默忽略一个拼错的键 = 部署方**以为改了行为、其实没有** —— 正是官方点名的静默失效。
+  const unknownKeys = Object.keys(config).filter((k) => !CONFIG_KEYS.includes(k))
+  if (unknownKeys.length > 0) {
+    throw new Error(
+      `ks-dsh-plugin 配置里有未知键：${unknownKeys.join('、')}。`
+      + `可用键：${CONFIG_KEYS.join('、')}（拼错的键会被静默忽略，所以这里直接报错）`,
+    )
+  }
   const opts = {
     engineRoot: config.engineRoot ?? DEFAULTS.engineRoot,
     python: config.python ?? DEFAULTS.python,
@@ -1054,11 +1112,19 @@ export function apply(ctx, config = {}) {
   // （verifier 二轮实测：子会话提示词声称已强制、ks_answer 实际全库检索）。
   //
   // 子会话继承：子 agent 是新会话（origin:'subagent'），自身查不到父会话开关。
-  // 用 ctx.agents 沿 header.parentSession 向上解析（≤4 跳）；服务不可用/父会话已被回收
+  // 用 `agents` 服务沿 header.parentSession 向上解析（≤4 跳）；服务不可用/父会话已被回收
   // → 静默退化为不继承。
+  //
+  // ⚠ **`agents` 是"可缺省"的服务，所以不走 `inject` 而走 `ctx.get()`**（2026-09-19 整改）：
+  //   官方 `docs/cordis-tutorial/03-services.md`「`inject` is for hard requirements. For a
+  //   capability the plugin can live without, skip `inject` and probe at the use site」；
+  //   并明确点名了错法的代价：「the consumer stays PENDING and prints nothing」——
+  //   声明成硬依赖后，真正缺服务时**整个插件永不 mount 且不打任何日志**，
+  //   而下面这段兜底代码**永远不会被执行**（我们此前就是这样：兜底是死代码）。
+  //   官方事故复盘 `docs/postmortem/0001-…md` 给的读法也是 `ctx.get(name)`，**不是** `ctx.<name>`。
   const parentSessionOf = (sessionId) => {
     try {
-      const parent = ctx.agents?.get?.(sessionId)?.session?.header?.parentSession
+      const parent = ctx.get('agents')?.get?.(sessionId)?.session?.header?.parentSession
       return typeof parent === 'string' ? parent : null
     } catch {
       return null
@@ -1106,7 +1172,20 @@ export function apply(ctx, config = {}) {
   }, 'ks-dsh-plugin: 查法规模式斜杠命令')
 
   // P1c-RouteA: 同源路由（client 半取引擎会话 + pdf.js worker/wasm 资源）。worker/wasm OPTIONAL。
-  if (ctx.webServer && typeof ctx.webServer.register === 'function') {
+  //
+  // ⚠ `webServer` 是**硬依赖**（2026-09-19 整改）：没有它，整个 `/ks/*` 路由面（证据 PDF、
+  //   client 取引擎会话、巡检/公告/导入写路由）全部消失，插件等于不可用。
+  //   ⇒ 它**留在 `inject` 里**（官方：`inject` is for hard requirements），
+  //   但**下面那层"可缺省"兜底被删掉了** —— 官方点名过那种写法的代价：
+  //   真缺服务时插件永远 PENDING、**什么都不打印**，而兜底分支**永远不执行**（死代码），
+  //   于是 `ctx.webServer` 为假这件事**永远不会有人知道**。
+  //   现在缺服务 ⇒ 在 `inject` 层就 PENDING（官方语义），或在这里**当场抛错**（响亮），
+  //   两种都比"静默跳过 + 一行永远打不出来的警告"好。
+  if (!ctx.webServer || typeof ctx.webServer.register !== 'function') {
+    throw new Error('ks-dsh-plugin 需要 webServer 服务（/ks/* 路由面全靠它）；'
+      + '它已声明在 inject 里，出现这句话说明宿主组合变了 —— 请检查 profile 是否还挂 webserver。')
+  }
+  {
     // verifier P0-1：信任栅栏必须盖住**全部** /ks 路由。只给凭据三条加守卫时，
     // 恶意页仍可经 /ks/session 同源读走引擎 Bearer token、经巡检/公告写路由改本地
     // 状态（实测伪造 Host 的 GET /ks/session 返回 200+token）。这里用一个 webServer
@@ -1177,8 +1256,5 @@ export function apply(ctx, config = {}) {
         disposeIngest()
       }
     })
-  } else {
-    // 无 webserver 服务（非常规 profile）：跳过路由，不阻断工具注册。
-    ctx.logger?.warn?.('ks-dsh-plugin: ctx.webServer 不可用，跳过 /ks/session 路由（client 证据 PDF 将不可用）')
   }
 }

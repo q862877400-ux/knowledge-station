@@ -89,7 +89,7 @@ function btnStyle(disabled = false): React.CSSProperties {
     padding: '3px 10px',
     fontSize: 12,
     borderRadius: 4,
-    border: '1px solid var(--dsw-alias-border, #ccc)',
+    border: '1px solid var(--dsw-alias-border-l2)',
     background: 'transparent',
     color: 'inherit',
     cursor: disabled ? 'not-allowed' : 'pointer',
@@ -134,7 +134,7 @@ export function AnchorMark(props: { status?: KsLocatorHealth['status']; why?: st
       return null
     case 'stale':
       return (
-        <p style={{ margin: '4px 0 0', fontSize: 12, color: 'var(--dsw-alias-warn, #b8860b)' }}>
+        <p style={{ margin: '4px 0 0', fontSize: 12, color: 'var(--dsw-alias-state-warn-primary)' }}>
           ⚠ <strong>引用锚点需复算</strong>：{why}
           <br />（需复算**不代表已经坏了**。）点「复算锚点」用当前解析器重算比对。
         </p>
@@ -766,7 +766,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
 
       {/* ---------------------------------------------------- 收件 */}
       {projectId !== '' && (
-        <div style={{ marginBottom: 12, padding: '8px 10px', border: '1px solid var(--dsw-alias-border, #e0e0e0)', borderRadius: 6 }}>
+        <div style={{ marginBottom: 12, padding: '8px 10px', border: '1px solid var(--dsw-alias-border-l2)', borderRadius: 6 }}>
           <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
             <strong>参考资料文件夹</strong>
             <span style={{ fontSize: 12, color: GRAY }}>
@@ -793,7 +793,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
           {/* ------------------------------------------------ 自采（按网址） */}
           <div style={{
             marginTop: 10, paddingTop: 8,
-            borderTop: '1px dashed var(--dsw-alias-border, #e0e0e0)',
+            borderTop: '1px dashed var(--dsw-alias-border-l2)',
           }}>
             <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
               <strong>自采一份</strong>
@@ -837,7 +837,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
         </p>
       )}
       {warn !== '' && (
-        <p role="status" style={{ margin: '0 0 8px', color: 'var(--dsw-alias-warn, #b8860b)', fontSize: 12 }}>
+        <p role="status" style={{ margin: '0 0 8px', color: 'var(--dsw-alias-state-warn-primary)', fontSize: 12 }}>
           ⚠ {warn}
         </p>
       )}
@@ -859,7 +859,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
           而且真机 e2e 里"项目列表本身也没读到"（没有任何项目可选）正是要能断言它的场景。
           代价是没选项目时它描述的下拉还没上屏；宁可多说一句，也不静默降级。 */}
       {tierListFailed && (
-        <p role="status" style={{ margin: '0 0 8px', color: 'var(--dsw-alias-warn, #b8860b)', fontSize: 12 }}>
+        <p role="status" style={{ margin: '0 0 8px', color: 'var(--dsw-alias-state-warn-primary)', fontSize: 12 }}>
           ⚠ 来源层级清单（T0–T4）**没读到**：材料表里每份材料的「轴 A 来源可信度」下拉会只剩当前值、
           <strong>改不了级</strong>。这**不代表**材料没有层级，是这份清单没取到——
           重开面板或重启引擎后再试。
@@ -884,7 +884,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
           <div
             key={m.material_id}
             style={{
-              border: '1px solid var(--dsw-alias-border, #e0e0e0)',
+              border: '1px solid var(--dsw-alias-border-l2)',
               borderRadius: 6, padding: '8px 10px', marginBottom: 8,
             }}
           >
@@ -1013,7 +1013,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
       {projectId !== '' && (
         <div style={{
           marginTop: 12, padding: '8px 10px',
-          border: '1px solid var(--dsw-alias-border, #e0e0e0)', borderRadius: 6,
+          border: '1px solid var(--dsw-alias-border-l2)', borderRadius: 6,
         }}>
           <div style={{ display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
             <strong>产出</strong>
@@ -1082,11 +1082,11 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
               role="status"
               style={{
                 marginTop: 6, padding: '6px 8px', borderRadius: 4,
-                border: '1px dashed var(--dsw-alias-warn, #b8860b)',
-                background: 'var(--dsw-alias-bg-secondary, #fafafa)',
+                border: '1px dashed var(--dsw-alias-state-warn-primary)',
+                background: 'var(--dsw-alias-bg-layer-2)',
               }}
             >
-              <p style={{ margin: 0, fontSize: 12, color: 'var(--dsw-alias-warn, #b8860b)' }}>
+              <p style={{ margin: 0, fontSize: 12, color: 'var(--dsw-alias-state-warn-primary)' }}>
                 ⚠ <strong>未批准草稿</strong>
                 ——由系统基于<strong>已批准材料</strong>起草，<strong>不得作为依据</strong>；
                 请先改/核，再点「用这段填进结论框」。
@@ -1099,14 +1099,14 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
                 <>
                   <pre style={{
                     marginTop: 4, maxHeight: 200, overflow: 'auto', fontSize: 11,
-                    whiteSpace: 'pre-wrap', background: 'var(--dsw-alias-bg, #fff)',
+                    whiteSpace: 'pre-wrap', background: 'var(--dsw-alias-bg-base)',
                     padding: 6, borderRadius: 4,
                   }}>{canApplyDraft(draft)
                       ? draft.draft_md
                       : '（模型没有产出结论段——见下方提示，可看 derivation_md）'}</pre>
                   {(draft.warnings ?? []).length > 0 && (
                     <p style={{ margin: '4px 0 0', fontSize: 12,
-                      color: 'var(--dsw-alias-warn, #b8860b)' }}>
+                      color: 'var(--dsw-alias-state-warn-primary)' }}>
                       ⚠ 起草提示（引用不成立 / 材料不足 / 模型输出问题，**原样列出、不静默改草稿**）：
                       <br />{(draft.warnings ?? []).join('；')}
                     </p>
@@ -1116,7 +1116,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
                   {flow.pendingOverwrite ? (
                     <div style={{ marginTop: 4 }}>
                       <p style={{ margin: '0 0 4px', fontSize: 12,
-                        color: 'var(--dsw-alias-warn, #b8860b)' }}>
+                        color: 'var(--dsw-alias-state-warn-primary)' }}>
                         ⚠ 结论框里已有内容（可能是你自己写的）——填草稿会**覆盖**它，且**不能撤销**。
                         确认要覆盖吗？
                       </p>
@@ -1166,7 +1166,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
             </p>
           )}
           {report !== null && (report.warnings ?? []).length > 0 && (
-            <p role="status" style={{ margin: '6px 0 0', color: 'var(--dsw-alias-warn, #b8860b)', fontSize: 12 }}>
+            <p role="status" style={{ margin: '6px 0 0', color: 'var(--dsw-alias-state-warn-primary)', fontSize: 12 }}>
               ⚠ 引用警告（这些引用**不成立**或无法核验，报告里也照原样列出了）：
               <br />
               {(report.warnings ?? []).join('；')}
@@ -1189,7 +1189,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
           {showReport && report?.markdown !== undefined && (
             <pre style={{
               marginTop: 6, maxHeight: 320, overflow: 'auto', fontSize: 11,
-              whiteSpace: 'pre-wrap', background: 'var(--dsw-alias-bg-secondary, #f7f7f7)',
+              whiteSpace: 'pre-wrap', background: 'var(--dsw-alias-bg-layer-2)',
               padding: 8, borderRadius: 4,
             }}>
               {report.markdown}

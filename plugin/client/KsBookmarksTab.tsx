@@ -334,7 +334,7 @@ export function KsBookmarksView(props: KsBookmarksViewProps): JSX.Element {
       {/* 搜索框已上移到目录列顶部四宫格（宿主 KsEvidenceTab 统一搜索，本视图受控过滤）。 */}
 
       {opError !== null && (
-        <div style={{ padding: '6px 10px', color: 'var(--dsw-alias-danger, #c62828)', borderBottom: '1px solid var(--dsw-alias-border-l1, #eee)', background: 'var(--dsw-alias-danger-bg, #fff0f0)', fontSize: 11, wordBreak: 'break-word' }}>
+        <div style={{ padding: '6px 10px', color: 'var(--dsw-alias-state-error-primary)', borderBottom: '1px solid var(--dsw-alias-border-l1, #eee)', background: 'var(--dsw-alias-state-error-secondary)', fontSize: 11, wordBreak: 'break-word' }}>
           {opError}
         </div>
       )}
@@ -401,7 +401,7 @@ export function KsBookmarksView(props: KsBookmarksViewProps): JSX.Element {
                         {folderActive ? '💡 已限定提问' : '💡 提问'}
                       </button>
                       <button type="button" onClick={() => { setRenamingId(renaming ? null : fid); setRenameValue(renaming ? '' : folder.folder_name); setFolderPhase(null) }} style={$miniBtn} title="重命名">✏️</button>
-                      <button type="button" onClick={() => { setDeleteId(confirming ? null : fid); setFolderPhase(confirming ? null : 'confirm-delete') }} style={{ ...$miniBtn, color: 'var(--dsw-alias-danger, #c62828)' }} title="删除收藏夹（收藏本身保留，全部回未分类）">🗑</button>
+                      <button type="button" onClick={() => { setDeleteId(confirming ? null : fid); setFolderPhase(confirming ? null : 'confirm-delete') }} style={{ ...$miniBtn, color: 'var(--dsw-alias-state-error-primary)' }} title="删除收藏夹（收藏本身保留，全部回未分类）">🗑</button>
                     </>
                   )}
                 </span>
@@ -421,7 +421,7 @@ export function KsBookmarksView(props: KsBookmarksViewProps): JSX.Element {
                 <div style={$confirmBar}>
                   <span>删除收藏夹「{folder.folder_name}」？夹内收藏<b>不会被删除</b>，将全部移入「未分类」。</span>
                   <span style={{ display: 'flex', gap: 6, marginTop: 4 }}>
-                    <button type="button" onClick={() => void confirmDeleteFolder()} disabled={busy} style={{ ...$btn, color: 'var(--dsw-alias-danger, #c62828)', borderColor: 'var(--dsw-alias-danger, #c62828)' }}>确认删除</button>
+                    <button type="button" onClick={() => void confirmDeleteFolder()} disabled={busy} style={{ ...$btn, color: 'var(--dsw-alias-state-error-primary)', borderColor: 'var(--dsw-alias-state-error-primary)' }}>确认删除</button>
                     <button type="button" onClick={() => { setDeleteId(null); setFolderPhase(null) }} style={$btn}>再想想</button>
                   </span>
                 </div>

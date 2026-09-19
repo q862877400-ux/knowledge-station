@@ -29122,8 +29122,8 @@ var $toolBtn = {
   whiteSpace: "nowrap"
 };
 var $dangerBtn = {
-  borderColor: "var(--dsw-alias-danger, #c62828)",
-  color: "var(--dsw-alias-danger, #c62828)"
+  borderColor: "var(--dsw-alias-state-error-primary)",
+  color: "var(--dsw-alias-state-error-primary)"
 };
 var $delBar = {
   margin: "0 10px 6px",
@@ -29318,8 +29318,8 @@ var $docCheck = {
   verticalAlign: "middle"
 };
 var $docCheckOn = {
-  background: "var(--dsw-alias-danger, #c62828)",
-  borderColor: "var(--dsw-alias-danger, #c62828)"
+  background: "var(--dsw-alias-state-error-primary)",
+  borderColor: "var(--dsw-alias-state-error-primary)"
 };
 
 // client/KsBookmarksTab.tsx
@@ -29539,7 +29539,7 @@ function KsBookmarksView(props) {
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", onClick: () => void createFolder(), disabled: busy || newName.trim().length === 0, style: $btn, children: "\u521B\u5EFA" }),
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", onClick: () => setShowNew(false), style: $btn, children: "\u53D6\u6D88" })
     ] }),
-    opError !== null && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { padding: "6px 10px", color: "var(--dsw-alias-danger, #c62828)", borderBottom: "1px solid var(--dsw-alias-border-l1, #eee)", background: "var(--dsw-alias-danger-bg, #fff0f0)", fontSize: 11, wordBreak: "break-word" }, children: opError }),
+    opError !== null && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { padding: "6px 10px", color: "var(--dsw-alias-state-error-primary)", borderBottom: "1px solid var(--dsw-alias-border-l1, #eee)", background: "var(--dsw-alias-state-error-secondary)", fontSize: 11, wordBreak: "break-word" }, children: opError }),
     /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { flex: 1, minHeight: 0, overflow: "auto", padding: 4 }, children: [
       load.status === "loading" && /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: $center2, children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u8F7D\u5165\u6536\u85CF\u76EE\u5F55\u2026\uFF08\u9996\u6B21\u53EF\u80FD\u542F\u52A8\u5F15\u64CE\uFF0C\u9700\u8981\u6570\u79D2\uFF09" }) }),
       load.status === "error" && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...$center2, flexDirection: "column", gap: 10 }, children: [
@@ -29593,7 +29593,7 @@ function KsBookmarksView(props) {
               /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", onClick: () => {
                 setDeleteId(confirming ? null : fid);
                 setFolderPhase(confirming ? null : "confirm-delete");
-              }, style: { ...$miniBtn, color: "var(--dsw-alias-danger, #c62828)" }, title: "\u5220\u9664\u6536\u85CF\u5939\uFF08\u6536\u85CF\u672C\u8EAB\u4FDD\u7559\uFF0C\u5168\u90E8\u56DE\u672A\u5206\u7C7B\uFF09", children: "\u{1F5D1}" })
+              }, style: { ...$miniBtn, color: "var(--dsw-alias-state-error-primary)" }, title: "\u5220\u9664\u6536\u85CF\u5939\uFF08\u6536\u85CF\u672C\u8EAB\u4FDD\u7559\uFF0C\u5168\u90E8\u56DE\u672A\u5206\u7C7B\uFF09", children: "\u{1F5D1}" })
             ] }) })
           ] }),
           renaming && fid !== null && /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { display: "flex", gap: 4, padding: "4px 0 4px 18px" }, children: [
@@ -29622,7 +29622,7 @@ function KsBookmarksView(props) {
               "\uFF0C\u5C06\u5168\u90E8\u79FB\u5165\u300C\u672A\u5206\u7C7B\u300D\u3002"
             ] }),
             /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { display: "flex", gap: 6, marginTop: 4 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", onClick: () => void confirmDeleteFolder(), disabled: busy, style: { ...$btn, color: "var(--dsw-alias-danger, #c62828)", borderColor: "var(--dsw-alias-danger, #c62828)" }, children: "\u786E\u8BA4\u5220\u9664" }),
+              /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", onClick: () => void confirmDeleteFolder(), disabled: busy, style: { ...$btn, color: "var(--dsw-alias-state-error-primary)", borderColor: "var(--dsw-alias-state-error-primary)" }, children: "\u786E\u8BA4\u5220\u9664" }),
               /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { type: "button", onClick: () => {
                 setDeleteId(null);
                 setFolderPhase(null);
@@ -30095,7 +30095,7 @@ function KsDocTextView(props) {
     return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { style: { display: "flex", alignItems: "center", justifyContent: "center", height: "100%", color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u8F7D\u5165\u6B63\u6587\u6761\u6B3E\u2026\uFF08\u9996\u6B21\u53EF\u80FD\u542F\u52A8\u5F15\u64CE\uFF09" });
   }
   if (state.status === "error") {
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "center", height: "100%", color: "var(--dsw-alias-danger, #c00)" }, children: [
+    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "center", height: "100%", color: "var(--dsw-alias-state-error-primary)" }, children: [
       "\u6B63\u6587\u52A0\u8F7D\u5931\u8D25\uFF1A",
       state.message
     ] });
@@ -31332,7 +31332,7 @@ function KsEvidenceTab(props) {
             title: docBookmarked ? "\u53D6\u6D88\u6536\u85CF\u672C\u6807\u51C6" : "\u6536\u85CF\u672C\u6807\u51C6",
             style: {
               ...$btnStyle,
-              ...docBookmarked ? { color: "#fff", background: "var(--dsw-alias-warn, #b8860b)", borderColor: "var(--dsw-alias-warn, #b8860b)" } : { color: "var(--dsw-alias-link, #1565c0)", borderColor: "var(--dsw-alias-link, #1565c0)" }
+              ...docBookmarked ? { color: "#fff", background: "var(--dsw-alias-state-warn-primary)", borderColor: "var(--dsw-alias-state-warn-primary)" } : { color: "var(--dsw-alias-link, #1565c0)", borderColor: "var(--dsw-alias-link, #1565c0)" }
             },
             children: docBusy ? "\u2026" : docBookmarked ? "\u2605 \u5DF2\u6536\u85CF\u672C\u6807\u51C6" : "\u2606 \u6536\u85CF\u672C\u6807\u51C6"
           }
@@ -31435,7 +31435,7 @@ function KsEvidenceTab(props) {
               const hit = docClauseBms.find((b) => b.clause_revision_id === v);
               if (hit !== void 0) jumpToBookmark(hit);
             },
-            style: { ...$inputStyle, maxWidth: 240, color: "var(--dsw-alias-warn, #b8860b)" },
+            style: { ...$inputStyle, maxWidth: 240, color: "var(--dsw-alias-state-warn-primary)" },
             "aria-label": "\u672C\u6587\u6863\u5DF2\u6536\u85CF\u6761\u6B3E",
             title: "\u5DF2\u6536\u85CF\u6761\u6B3E\uFF08\u70B9\u9009\u8DF3\u8F6C\uFF09",
             children: [
@@ -32248,7 +32248,7 @@ var KS_STYLES = `
   background:var(--dsw-alias-markdown-tag);color:var(--dsw-alias-label-secondary)}
 .ks-kb-badge-ok{background:var(--dsw-alias-state-success-tertiary);color:var(--dsw-alias-state-success-primary)}
 .ks-kb-badge-warn{background:var(--dsw-alias-state-warn-tertiary);color:var(--dsw-alias-state-warn-label)}
-.ks-kb-badge-bad{background:var(--dsw-alias-state-error-tertiary);color:var(--dsw-alias-state-error-primary)}
+.ks-kb-badge-bad{background:var(--dsw-alias-state-error-secondary);color:var(--dsw-alias-state-error-primary)}
 
 /* ---------- \u77E5\u8BC6\u5E93\u9875\uFF1A\u4E09\u6BB5\u5F0F\uFF08\u76EE\u5F55\u8F68 | \u6587\u4EF6\u5217\u8868 | \u8BE6\u60C5\uFF09 ---------- */
 /* \u4E00\u5217\u653E\u4E0D\u4E0B\u5C31\u6362\u884C\uFF1A\u53F3\u680F\u5BBD\u5EA6\u662F\u4E1A\u4E3B\u81EA\u5DF1\u62D6\u7684\uFF0C\u4E0D\u8BB8\u5047\u8BBE\u5B83\u6709\u591A\u5BBD\u3002 */
@@ -32306,7 +32306,12 @@ var KS_STYLES = `
   color:var(--dsw-alias-label-tertiary)}
 .ks-parse-in{flex:1 1 220px;min-width:180px}
 .ks-empty{padding:14px 8px;text-align:center;font-size:12px;color:var(--dsw-alias-label-tertiary)}
-.ks-dot{flex:none;width:6px;height:6px;border-radius:50%;background:var(--dsw-alias-label-caption)}
+/* \u26A0 corner-shape:round \u662F**\u5FC5\u987B\u7684\u914D\u5BF9**\uFF1A\u5B98\u65B9 docs/web-styling.md\u300CPair "corner-shape: round"
+   with every full-round "border-radius" ("50%", "100%", or a pill radius) so circles and capsules
+   keep circular arcs\u300D\u2014\u2014 \u5C11\u4E86\u5B83\uFF0C\u652F\u6301 superellipse \u7684 Chromium \u4E0A\u5706\u70B9\u4F1A\u88AB\u538B\u6210\u65B9\u89D2\u3002
+   \uFF08\u672C\u884C\u523B\u610F\u4E0D\u7528\u53CD\u5F15\u53F7\uFF1A\u6574\u6BB5 CSS \u662F\u4E00\u4E2A\u6A21\u677F\u5B57\u7B26\u4E32\uFF0C\u53CD\u5F15\u53F7\u4F1A\u628A\u5B83\u622A\u65AD\u2014\u2014\u672C\u8F6E\u5DF2\u8E29\u8FC7 4 \u6B21\u3002\uFF09 */
+.ks-dot{flex:none;width:6px;height:6px;border-radius:50%;corner-shape:round;
+  background:var(--dsw-alias-label-caption)}
 
 /* ---------- \u80FD\u529B\u9875\uFF08\u4E00\u529F\u80FD\u4E00\u5361\u4E00\u7A97\uFF09 ---------- */
 .ks-cap-card{display:flex;flex-direction:column;gap:2px;border:.5px solid var(--dsw-alias-border-l2);
@@ -32322,14 +32327,20 @@ var KS_STYLES = `
   line-height:24px;overflow:hidden;text-overflow:ellipsis}
 .ks-knob-ctl{flex:1 1 160px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0}
 `;
+var PLUGIN_NAME = "ks-dsh-plugin";
+var STYLE_OWNER = `${PLUGIN_NAME}/ksGuideStyles.css`;
 function ensureKsStyles() {
   if (typeof document === "undefined") return;
-  if (document.getElementById(STYLE_ID) !== null) return;
+  const existing = document.querySelector(`style[data-plugin-css="${STYLE_OWNER}"]`);
+  if (existing !== null) return;
   const el = document.createElement("style");
   el.id = STYLE_ID;
+  el.dataset.plugin = PLUGIN_NAME;
+  el.dataset.pluginCss = STYLE_OWNER;
   el.textContent = KS_STYLES;
   document.head.appendChild(el);
 }
+ensureKsStyles();
 
 // client/KsKnowledgeGuideIcon.tsx
 var import_jsx_runtime5 = require("react/jsx-runtime");
@@ -33764,7 +33775,7 @@ function btnStyle2(disabled = false) {
     padding: "3px 10px",
     fontSize: 12,
     borderRadius: 4,
-    border: "1px solid var(--dsw-alias-border, #ccc)",
+    border: "1px solid var(--dsw-alias-border-l2)",
     background: "transparent",
     color: "inherit",
     cursor: disabled ? "not-allowed" : "pointer",
@@ -33783,7 +33794,7 @@ function AnchorMark(props) {
     case "no_locators":
       return null;
     case "stale":
-      return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: "var(--dsw-alias-warn, #b8860b)" }, children: [
+      return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: "var(--dsw-alias-state-warn-primary)" }, children: [
         "\u26A0 ",
         /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u5F15\u7528\u951A\u70B9\u9700\u590D\u7B97" }),
         "\uFF1A",
@@ -34236,7 +34247,7 @@ function KsMaterialsPanel(props) {
         "\u4F5C\u7B54\uFF09\u3002"
       ] })
     ] }),
-    projectId !== "" && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { marginBottom: 12, padding: "8px 10px", border: "1px solid var(--dsw-alias-border, #e0e0e0)", borderRadius: 6 }, children: [
+    projectId !== "" && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { marginBottom: 12, padding: "8px 10px", border: "1px solid var(--dsw-alias-border-l2)", borderRadius: 6 }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939" }),
         /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { style: { fontSize: 12, color: GRAY }, children: [
@@ -34262,7 +34273,7 @@ function KsMaterialsPanel(props) {
       /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: {
         marginTop: 10,
         paddingTop: 8,
-        borderTop: "1px dashed var(--dsw-alias-border, #e0e0e0)"
+        borderTop: "1px dashed var(--dsw-alias-border-l2)"
       }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u81EA\u91C7\u4E00\u4EFD" }),
@@ -34320,14 +34331,14 @@ function KsMaterialsPanel(props) {
       "\u64CD\u4F5C\u5931\u8D25\uFF1A",
       error
     ] }),
-    warn2 !== "" && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { role: "status", style: { margin: "0 0 8px", color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
+    warn2 !== "" && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { role: "status", style: { margin: "0 0 8px", color: "var(--dsw-alias-state-warn-primary)", fontSize: 12 }, children: [
       "\u26A0 ",
       warn2
     ] }),
     notice !== "" && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { margin: "0 0 8px", color: "var(--dsw-alias-label-secondary, #666)", fontSize: 12 }, children: notice }),
     loading && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { margin: "0 0 8px", fontSize: 12, color: GRAY }, children: "\u52A0\u8F7D\u4E2D\u2026" }),
     /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(AnchorNoteLine, { note: anchorNote }),
-    tierListFailed && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { role: "status", style: { margin: "0 0 8px", color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
+    tierListFailed && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { role: "status", style: { margin: "0 0 8px", color: "var(--dsw-alias-state-warn-primary)", fontSize: 12 }, children: [
       "\u26A0 \u6765\u6E90\u5C42\u7EA7\u6E05\u5355\uFF08T0\u2013T4\uFF09**\u6CA1\u8BFB\u5230**\uFF1A\u6750\u6599\u8868\u91CC\u6BCF\u4EFD\u6750\u6599\u7684\u300C\u8F74 A \u6765\u6E90\u53EF\u4FE1\u5EA6\u300D\u4E0B\u62C9\u4F1A\u53EA\u5269\u5F53\u524D\u503C\u3001",
       /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u6539\u4E0D\u4E86\u7EA7" }),
       "\u3002\u8FD9**\u4E0D\u4EE3\u8868**\u6750\u6599\u6CA1\u6709\u5C42\u7EA7\uFF0C\u662F\u8FD9\u4EFD\u6E05\u5355\u6CA1\u53D6\u5230\u2014\u2014 \u91CD\u5F00\u9762\u677F\u6216\u91CD\u542F\u5F15\u64CE\u540E\u518D\u8BD5\u3002"
@@ -34341,7 +34352,7 @@ function KsMaterialsPanel(props) {
         "div",
         {
           style: {
-            border: "1px solid var(--dsw-alias-border, #e0e0e0)",
+            border: "1px solid var(--dsw-alias-border-l2)",
             borderRadius: 6,
             padding: "8px 10px",
             marginBottom: 8
@@ -34470,7 +34481,7 @@ function KsMaterialsPanel(props) {
     projectId !== "" && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: {
       marginTop: 12,
       padding: "8px 10px",
-      border: "1px solid var(--dsw-alias-border, #e0e0e0)",
+      border: "1px solid var(--dsw-alias-border-l2)",
       borderRadius: 6
     }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
@@ -34551,11 +34562,11 @@ function KsMaterialsPanel(props) {
             marginTop: 6,
             padding: "6px 8px",
             borderRadius: 4,
-            border: "1px dashed var(--dsw-alias-warn, #b8860b)",
-            background: "var(--dsw-alias-bg-secondary, #fafafa)"
+            border: "1px dashed var(--dsw-alias-state-warn-primary)",
+            background: "var(--dsw-alias-bg-layer-2)"
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: 0, fontSize: 12, color: "var(--dsw-alias-warn, #b8860b)" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: 0, fontSize: 12, color: "var(--dsw-alias-state-warn-primary)" }, children: [
               "\u26A0 ",
               /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u672A\u6279\u51C6\u8349\u7A3F" }),
               "\u2014\u2014\u7531\u7CFB\u7EDF\u57FA\u4E8E",
@@ -34575,14 +34586,14 @@ function KsMaterialsPanel(props) {
                 overflow: "auto",
                 fontSize: 11,
                 whiteSpace: "pre-wrap",
-                background: "var(--dsw-alias-bg, #fff)",
+                background: "var(--dsw-alias-bg-base)",
                 padding: 6,
                 borderRadius: 4
               }, children: canApplyDraft(draft) ? draft.draft_md : "\uFF08\u6A21\u578B\u6CA1\u6709\u4EA7\u51FA\u7ED3\u8BBA\u6BB5\u2014\u2014\u89C1\u4E0B\u65B9\u63D0\u793A\uFF0C\u53EF\u770B derivation_md\uFF09" }),
               (draft.warnings ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: {
                 margin: "4px 0 0",
                 fontSize: 12,
-                color: "var(--dsw-alias-warn, #b8860b)"
+                color: "var(--dsw-alias-state-warn-primary)"
               }, children: [
                 "\u26A0 \u8D77\u8349\u63D0\u793A\uFF08\u5F15\u7528\u4E0D\u6210\u7ACB / \u6750\u6599\u4E0D\u8DB3 / \u6A21\u578B\u8F93\u51FA\u95EE\u9898\uFF0C**\u539F\u6837\u5217\u51FA\u3001\u4E0D\u9759\u9ED8\u6539\u8349\u7A3F**\uFF09\uFF1A",
                 /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("br", {}),
@@ -34592,7 +34603,7 @@ function KsMaterialsPanel(props) {
                 /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: {
                   margin: "0 0 4px",
                   fontSize: 12,
-                  color: "var(--dsw-alias-warn, #b8860b)"
+                  color: "var(--dsw-alias-state-warn-primary)"
                 }, children: "\u26A0 \u7ED3\u8BBA\u6846\u91CC\u5DF2\u6709\u5185\u5BB9\uFF08\u53EF\u80FD\u662F\u4F60\u81EA\u5DF1\u5199\u7684\uFF09\u2014\u2014\u586B\u8349\u7A3F\u4F1A**\u8986\u76D6**\u5B83\uFF0C\u4E14**\u4E0D\u80FD\u64A4\u9500**\u3002 \u786E\u8BA4\u8981\u8986\u76D6\u5417\uFF1F" }),
                 /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                   "button",
@@ -34640,7 +34651,7 @@ function KsMaterialsPanel(props) {
         (report.citations?.unknown ?? 0) > 0 ? ` \xB7 ${report.citations?.unknown} \u6761**\u65E0\u6CD5\u5224\u5B9A**` : "",
         report.names !== void 0 && report.names.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Deliverables, { names: report.names, paths: report.files ?? [] })
       ] }),
-      report !== null && (report.warnings ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { role: "status", style: { margin: "6px 0 0", color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
+      report !== null && (report.warnings ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { role: "status", style: { margin: "6px 0 0", color: "var(--dsw-alias-state-warn-primary)", fontSize: 12 }, children: [
         "\u26A0 \u5F15\u7528\u8B66\u544A\uFF08\u8FD9\u4E9B\u5F15\u7528**\u4E0D\u6210\u7ACB**\u6216\u65E0\u6CD5\u6838\u9A8C\uFF0C\u62A5\u544A\u91CC\u4E5F\u7167\u539F\u6837\u5217\u51FA\u4E86\uFF09\uFF1A",
         /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("br", {}),
         (report.warnings ?? []).join("\uFF1B")
@@ -34664,7 +34675,7 @@ function KsMaterialsPanel(props) {
         overflow: "auto",
         fontSize: 11,
         whiteSpace: "pre-wrap",
-        background: "var(--dsw-alias-bg-secondary, #f7f7f7)",
+        background: "var(--dsw-alias-bg-layer-2)",
         padding: 8,
         borderRadius: 4
       }, children: report.markdown }),
@@ -35905,7 +35916,7 @@ function KsSettingsSection(props) {
           }
         )
       ] }),
-      error !== null && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { role: "alert", style: { color: "var(--dsw-alias-warn, #b8860b)", fontSize: 12 }, children: [
+      error !== null && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { role: "alert", style: { color: "var(--dsw-alias-state-warn-primary)", fontSize: 12 }, children: [
         "\u4FDD\u5B58\u5931\u8D25\uFF1A",
         error
       ] })
@@ -36006,7 +36017,7 @@ function statusText(s) {
     case "paused":
       return {
         text: `\u4E0A\u6B21\u5DE1\u68C0\u5DF2\u6682\u505C${last.pause_reason === "budget" ? "\uFF08\u5F53\u65E5\u9884\u7B97\u7528\u5C3D\uFF09" : last.pause_reason === "captcha" ? "\uFF08\u9A8C\u8BC1\u7801\uFF0C\u9700\u4EBA\u5DE5\u5904\u7406\uFF09" : ""}`,
-        tone: "var(--dsw-alias-warn, #b8860b)"
+        tone: "var(--dsw-alias-state-warn-primary)"
       };
     default:
       return { text: "\u4E0A\u6B21\u5DE1\u68C0\u72B6\u6001\u672A\u77E5", tone: "var(--dsw-alias-label-secondary, #666)" };

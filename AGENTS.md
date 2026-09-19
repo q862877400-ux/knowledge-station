@@ -1,0 +1,53 @@
+# AGENTS.md — KnowledgeStation 的站立指令
+
+本文件只放**每个会话都需要在上下文里的规矩**，每条 1–3 行并指向它的归属文档。
+它**不是**史书也不是方案：做过什么、为什么那么做，去各自的归属层（见下"事实的归属"）。
+
+## 动手之前
+
+- **先查 DSH 有没有现成的**：写 UI/插件代码前，先看 [DSH 官方文档精读索引](docs/research/dsh-official/README.md)
+  与 [升级手册](docs/research/dsh-official/REALIGN.md)。已因"自己造轮子"返工过两次（HTML 仿真界面、手搓徽章）。
+- **外置插件的硬约束与已作废的说法**都在 [ERRATA-alpha.2](docs/research/dsh-official/ERRATA-alpha.2.md)：
+  插件改动**是热重载的**（不必重启宿主）、**不必**补 `peerDependencies`、`priority` 是 band 字面量。
+- **本仓库是仓外 bundle 插件**（官方不收外部 PR）⇒ `packages/` 里的门禁**扫不到我们**，
+  所以护栏必须自建；"没被扫到"不等于合规。
+
+## 门禁
+
+- **一条命令、以退出码为准**：`pwsh -File scripts/run-gates.ps1 -Quick`（改动面）或 `-Full`（全量）。
+  **不许**靠"我记得跑过哪几条"；测试基线只涨不跌。
+- **门禁一次只跑一个**：并发跑会给自己制造假红（`smoke-chatmode` 实测两次 172/173 都发生在与全量
+  pytest 并发时）。脚本用锁文件把"并发"变成**当场报错**，而不是靠人记得。
+- **只为被触碰的面跑最小证据**（官方 `dsh-pre-push-checks` 口径）；全量留给 `-Full` 与收工前。
+
+## 复核
+
+- **每个特性/修复派独立 verifier**，并给它的任务书**冻结区间**：先 `git tag verify-freeze-<批次>`，
+  再用 `git rev-list --count <base>..<frozen>` **数出**提交条数写进任务书（不凭印象）。
+- verifier **必须在冻结提交的提取树上验**（`git worktree add`/`git archive`），并在报告首尾各记一次
+  `git rev-parse HEAD` + `git status --short`。**"边改边验"是双向污染。**
+- **复核打回的说法必须就地更正并留痕**（含我自己写错的）：在文档里保留"错话 + 更正"，
+  **不许悄悄删掉**。本仓已发生多次（默认导出、peer、热重载、reflect 500 根因）。
+
+## 诚实
+
+- **假绿判 failed；未做的写"明确未做"；能力宣称挂真机证据。**
+- **不许超出证据**：字段描述 ≠ 运行时语义（reflect 那次就是照 OpenAPI 的描述当根因，被复核推翻）；
+  抽样验证要写明"这是抽样，不是全部"。
+- **转述的数字要回原始来源核**（`git ls-files` / 实测），别抄二手结论。
+
+## 搬运与记录
+
+- **长文档一律字节级搬运**（脚本 + HTTP API），**不许手抄**：手抄实测 77 行错 2 处（2.6% 失真）。
+- **一个事实一个归属层**：详细记录写进它的归属文档，别处只链接。当前归属：
+  做过什么 → [开发史](docs/DEVELOPMENT-HISTORY.md)｜巡检方案与轮次台账 → [渠道覆盖方案](docs/CHANNEL-COVERAGE-PLAN.md)｜
+  交互设计 → [交互设计](docs/INTERACTION-DESIGN.md)｜DSH 研究 → [dsh-official](docs/research/dsh-official/README.md)。
+- **每轮 = 小提交 + 快照**：`& .\scripts\snapshot-project.ps1 -Label <短名>`；提交消息写清
+  "改了什么 / 为什么 / 边界"。跨轮次的额外发现**只登记**，不在当轮顺手实施。
+
+## 环境
+
+- **绝不动系统层**：不写注册表、不改全局环境变量、不用 `--global` git 配置。
+- **数据与代码分离**：运行产物写数据区（`%APPDATA%`），代码树零运行产物。
+- **上下文预算**：唯一真源 + 一份文件一个主题 + 子代理写盘而父代理只读 ≤30 行摘要 +
+  机器可读中间产物（读 JSON，不读散文）。

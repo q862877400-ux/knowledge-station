@@ -209,7 +209,7 @@ export function KsSettingsSection(props: KsSettingsSectionInjected): JSX.Element
           />
         </label>
         {error !== null && (
-          <p role="alert" style={{ color: 'var(--dsw-alias-warn, #b8860b)', fontSize: 12 }}>
+          <p role="alert" style={{ color: 'var(--dsw-alias-state-warn-primary)', fontSize: 12 }}>
             保存失败：{error}
           </p>
         )}
@@ -339,7 +339,7 @@ function statusText(s: KsInspectionSummary): { text: string; tone: string } {
     case 'paused':
       return {
         text: `上次巡检已暂停${last.pause_reason === 'budget' ? '（当日预算用尽）' : last.pause_reason === 'captcha' ? '（验证码，需人工处理）' : ''}`,
-        tone: 'var(--dsw-alias-warn, #b8860b)',
+        tone: 'var(--dsw-alias-state-warn-primary)',
       }
     default:
       return { text: '上次巡检状态未知', tone: 'var(--dsw-alias-label-secondary, #666)' }

@@ -53,6 +53,17 @@ function dispatchClick(event) {
 }
 globalThis.document = {
   visibilityState: 'visible',
+  /**
+   * ⚠ **桩要跟真 DOM 一致**（2026-09-19 补）：`ksGuideStyles` 现在在**模块顶层**就注入
+   * `<style>`（为了落在宿主 `claimStyles` 的认领窗口内，见该文件注释），而它按
+   * `document.querySelector('style[data-plugin-css=…]')` 去重 ⇒ 桩缺这个方法会**假崩**
+   * （`TypeError: document.querySelector is not a function`）。
+   * 这里给一个"没有已注入标签"的最小实现；真要断言注入行为由 `smoke-kb-page-render` 负责。
+   */
+  querySelector() { return null },
+  getElementById() { return null },
+  createElement() { return { set textContent(v) {}, dataset: {} } },
+  head: { appendChild() {} },
   addEventListener(type, fn) {
     if (!docHandlers.has(type)) docHandlers.set(type, new Set())
     docHandlers.get(type).add(fn)

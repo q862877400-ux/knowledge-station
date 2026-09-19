@@ -553,8 +553,8 @@ const $toolBtn: React.CSSProperties = {
 }
 
 const $dangerBtn: React.CSSProperties = {
-  borderColor: 'var(--dsw-alias-danger, #c62828)',
-  color: 'var(--dsw-alias-danger, #c62828)',
+  borderColor: 'var(--dsw-alias-state-error-primary)',
+  color: 'var(--dsw-alias-state-error-primary)',
 }
 
 const $delBar: React.CSSProperties = {
@@ -795,6 +795,6 @@ const $docCheck: React.CSSProperties = {
 }
 
 const $docCheckOn: React.CSSProperties = {
-  background: 'var(--dsw-alias-danger, #c62828)',
-  borderColor: 'var(--dsw-alias-danger, #c62828)',
+  background: 'var(--dsw-alias-state-error-primary)',
+  borderColor: 'var(--dsw-alias-state-error-primary)',
 }

@@ -72,7 +72,7 @@ export const KS_STYLES = `
   background:var(--dsw-alias-markdown-tag);color:var(--dsw-alias-label-secondary)}
 .ks-kb-badge-ok{background:var(--dsw-alias-state-success-tertiary);color:var(--dsw-alias-state-success-primary)}
 .ks-kb-badge-warn{background:var(--dsw-alias-state-warn-tertiary);color:var(--dsw-alias-state-warn-label)}
-.ks-kb-badge-bad{background:var(--dsw-alias-state-error-tertiary);color:var(--dsw-alias-state-error-primary)}
+.ks-kb-badge-bad{background:var(--dsw-alias-state-error-secondary);color:var(--dsw-alias-state-error-primary)}
 
 /* ---------- 知识库页：三段式（目录轨 | 文件列表 | 详情） ---------- */
 /* 一列放不下就换行：右栏宽度是业主自己拖的，不许假设它有多宽。 */
@@ -130,7 +130,12 @@ export const KS_STYLES = `
   color:var(--dsw-alias-label-tertiary)}
 .ks-parse-in{flex:1 1 220px;min-width:180px}
 .ks-empty{padding:14px 8px;text-align:center;font-size:12px;color:var(--dsw-alias-label-tertiary)}
-.ks-dot{flex:none;width:6px;height:6px;border-radius:50%;background:var(--dsw-alias-label-caption)}
+/* ⚠ corner-shape:round 是**必须的配对**：官方 docs/web-styling.md「Pair "corner-shape: round"
+   with every full-round "border-radius" ("50%", "100%", or a pill radius) so circles and capsules
+   keep circular arcs」—— 少了它，支持 superellipse 的 Chromium 上圆点会被压成方角。
+   （本行刻意不用反引号：整段 CSS 是一个模板字符串，反引号会把它截断——本轮已踩过 4 次。） */
+.ks-dot{flex:none;width:6px;height:6px;border-radius:50%;corner-shape:round;
+  background:var(--dsw-alias-label-caption)}
 
 /* ---------- 能力页（一功能一卡一窗） ---------- */
 .ks-cap-card{display:flex;flex-direction:column;gap:2px;border:.5px solid var(--dsw-alias-border-l2);
@@ -148,15 +153,49 @@ export const KS_STYLES = `
 `
 
 /**
- * 把样式表插进文档（**幂等**：按 id 去重；SSR/无 document 环境直接返回）。
+ * 样式表在文档里的**所有权标记**（`data-plugin-css` 的值）。
  *
- * 由入口卡组件在渲染时调用 —— 组件只在浏览器里跑，故不需要更复杂的生命周期钩子。
+ * ## 为什么必须标（2026-09-19 整改，官方 preset 同形）
+ * 宿主的样式所有权是**按标签属性**认的（`packages/client/modules/src/client/`）：
+ * - `system.ts` 的 `claimStyles(id)` **只认** materialization 那一刻已在文档里的
+ *   `style:not([data-plugin])`，认领后记进 `record.styles`；
+ * - `entry-lifecycle.ts` 的 `removeOwnedStyles(id)` **按 `data-plugin` 删**；
+ * - HMR 字节码替换的第 5/6 步就是"删 owned style → 重新注入"。
+ *
+ * 我们此前只设了 `id`（不设这两个属性），后果有两条**都会真实发生**：
+ * 1. **改样式必须整页刷新**：`removeOwnedStyles` 找不到我们的标签，而 `ensureKsStyles`
+ *    又按 `#id` 去重直接 return ⇒ 新 CSS **永远不会生效**（这正是官方所说
+ *    "只有 bootstrap / 静态装配库 / shell 才需要重建页面"之外，我们自找的例外）；
+ * 2. **样式可能被别人认领后删掉**：任何插件 materialize 时 `claimStyles` 会把我们的
+ *    无名标签收进它的 record，它卸载时一并删除，而我们没有 CSS Module 兜底。
+ *
+ * ⇒ 两个属性都写上（与官方 preset `tsdown.client.ts` 的注入同形），
+ * 并把**首次注入放到模块顶层**（见文件末尾）——只有"factory 执行期"注入才落在
+ * `claimStyles` 的窗口内。
+ */
+const PLUGIN_NAME = 'ks-dsh-plugin'
+const STYLE_OWNER = `${PLUGIN_NAME}/ksGuideStyles.css`
+
+/**
+ * 把样式表插进文档（**幂等**：按 `data-plugin-css` 去重；SSR/无 document 环境直接返回）。
+ *
+ * 为什么去重键从 `#id` 改成属性：HMR 重新执行本模块时，旧标签可能已被
+ * `removeOwnedStyles` 删掉，也可能还在；按属性查既能认出**我们自己的**旧标签、
+ * 又不会误认别人的。
  */
 export function ensureKsStyles(): void {
   if (typeof document === 'undefined') return
-  if (document.getElementById(STYLE_ID) !== null) return
+  const existing = document.querySelector(`style[data-plugin-css="${STYLE_OWNER}"]`)
+  if (existing !== null) return
   const el = document.createElement('style')
-  el.id = STYLE_ID
+  el.id = STYLE_ID                       // 保留 id：便于调试与业主在 devtools 里一眼认出
+  el.dataset.plugin = PLUGIN_NAME        // removeOwnedStyles 按它删
+  el.dataset.pluginCss = STYLE_OWNER     // claimStyles 按它收/去重
   el.textContent = KS_STYLES
   document.head.appendChild(el)
 }
+
+// 模块顶层的**首次注入**：client bundle 的工厂执行期就会跑到这里，
+// 于是标签在"插件 materialize"那一刻已在文档里 ⇒ 落在 `claimStyles` 的认领窗口内，
+// 归属明确、HMR 能删能重注。组件渲染时再调 `ensureKsStyles()` 只是幂等兜底。
+ensureKsStyles()

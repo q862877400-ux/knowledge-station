@@ -33,12 +33,19 @@ process.env.KS_CHATMODE_DIR = await mkdtemp(join(tmpdir(), 'ks-effect-tool-smoke
 const { apply, evidenceAnchor } = await import('../src/index.js')
 const { __resetChatModeForTests, setMode } = await import('../src/chatmode.js')
 
-// 查法规模式的子会话继承走 `ctx.agents.get(sessionId).session.header.parentSession`；
+// 查法规模式的子会话继承走 `agents.get(sessionId).session.header.parentSession`；
 // 这里给一个可控的假注册表（默认空 = 不继承）。
+//
+// ⚠ 2026-09-19：`agents` / `commands` **已从 `inject` 里移出**（它们是"可缺省"的服务），
+// 所以插件改走官方指定的读法 **`ctx.get(name)`**（官方 `docs/postmortem/0001-…md`：
+// "For a service a plugin reads opportunistically but does NOT declare in `static inject`,
+// use `ctx.get(name)`, never `ctx.<name>`"）。⇒ 这个假 ctx **必须实现 `get()`**，
+// 否则桩与真契约不一致，会造出一条**假红**（`ctx.get` 返回 undefined ⇒ 子会话不继承）。
 const fakeSessions = new Map()
 const registeredCommands = []
 const tools = new Map()
-const ctx = {
+/** 假服务表：既供 `ctx.<name>`（硬依赖，如 webServer）也供 `ctx.get('<name>')`（可缺省）。 */
+const _services = {
   tools: { register(tool) { tools.set(tool.name, tool) } },
   webServer: { register() { return () => {} } },
   // apply() 现在无条件注册提示段（verifier 二轮：本脚本原先缺这一项直接 fatal）
@@ -47,6 +54,11 @@ const ctx = {
   // 斜杠命令（2026-10：dock 改成 /forensic、/bookmarks）也要能注册；这里捕获名字，
   // 顺带断言两条命令真的挂上去了。
   commands: { register(def) { registeredCommands.push(def); return () => {} } },
+}
+const ctx = {
+  ..._services,
+  /** cordis 的服务查找：**只返回已提供的服务**（这里用同一张表模拟）。 */
+  get(name) { return _services[name] },
   effect(fn) { return fn() },
 }
 
@@ -157,6 +169,8 @@ async function main() {
         webServer: { register() { return () => {} } },
         systemPrompt: { section() { return () => {} } },
         agents: { get() { return undefined } },
+        // ⚠ 可缺省服务要走 ctx.get()（见文件顶部说明）：桩必须实现它，否则是假红。
+        get(name) { return name === 'agents' ? this.agents : undefined },
         commands: { register(def) {
           if (def.name === 'forensic') throw new TypeError('command name "forensic" must match /^[a-z][a-z0-9_-]*$/u')
           partial.push(def.name)
@@ -181,6 +195,8 @@ async function main() {
         webServer: { register() { return () => {} } },
         systemPrompt: { section() { return () => {} } },
         agents: { get() { return undefined } },
+        // ⚠ 可缺省服务要走 ctx.get()（见文件顶部说明）：桩必须实现它，否则是假红。
+        get(name) { return name === 'agents' ? this.agents : undefined },
         commands: undefined,
         effect(fn) { return fn() },
       }
@@ -721,6 +737,29 @@ async function main() {
       rsOff.folder_scope === null && rsOff.folder_notice === undefined
         && rsOff.folder_name === undefined,
       JSON.stringify({ scope: rsOff.folder_scope }))
+  }
+
+  // ── 插件 Config：官方要求「Config 必须是标准 schema」；这三条钉住它别被删掉 ──
+  // 官方文档规范与插件契约一致要求导出的配置是 Standard Schema（Schemastery），
+  // 「导普通对象**不会校验**」——那正是静默失效。而本地 schemastery 挡不住"键名拼错"，
+  // 所以 apply 里另有一道未知键检查（见 src/index.js 的注释）。
+  {
+    const mod = await import('../src/index.js')
+    check('插件导出 Config（官方要求：配置必须是标准 schema，否则不校验）',
+      mod.Config !== undefined && typeof mod.Config === 'function',
+      `typeof Config = ${typeof mod.Config}`)
+    let typeRejected = false
+    try { mod.Config({ startupTimeoutMs: 'abc' }) } catch { typeRejected = true }
+    check('Config 拒绝类型错的配置（字符串当毫秒数）', typeRejected)
+    let unknownRejected = false
+    try { mod.apply({}, { typoKey: 1 }) } catch (e) { unknownRejected = /未知键/.test(String(e.message)) }
+    check('apply 拒绝**未知配置键**（本地 schemastery 挡不住这件事，所以自己挡）',
+      unknownRejected)
+    const okCfg = mod.Config({})
+    check('Config 填默认值且不给"留空有意义"的键造默认值',
+      okCfg.startupTimeoutMs === 60_000 && okCfg.idleTimeoutMs === 30 * 60 * 1000
+      && okCfg.engineRoot === undefined && okCfg.python === undefined,
+      JSON.stringify(okCfg))
   }
 
   const failed = results.filter((r) => !r.ok)

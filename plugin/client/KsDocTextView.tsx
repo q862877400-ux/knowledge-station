@@ -344,7 +344,7 @@ export function KsDocTextView(props: KsDocTextViewProps): JSX.Element {
   }
   if (state.status === 'error') {
     return (
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', color: 'var(--dsw-alias-danger, #c00)' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', color: 'var(--dsw-alias-state-error-primary)' }}>
         正文加载失败：{state.message}
       </div>
     )

@@ -1786,7 +1786,7 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
             style={{
               ...$btnStyle,
               ...(docBookmarked
-                ? { color: '#fff', background: 'var(--dsw-alias-warn, #b8860b)', borderColor: 'var(--dsw-alias-warn, #b8860b)' }
+                ? { color: '#fff', background: 'var(--dsw-alias-state-warn-primary)', borderColor: 'var(--dsw-alias-state-warn-primary)' }
                 : { color: 'var(--dsw-alias-link, #1565c0)', borderColor: 'var(--dsw-alias-link, #1565c0)' }),
             }}
           >
@@ -1893,7 +1893,7 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
               const hit = docClauseBms.find((b) => b.clause_revision_id === v)
               if (hit !== undefined) jumpToBookmark(hit)
             }}
-            style={{ ...$inputStyle, maxWidth: 240, color: 'var(--dsw-alias-warn, #b8860b)' }}
+            style={{ ...$inputStyle, maxWidth: 240, color: 'var(--dsw-alias-state-warn-primary)' }}
             aria-label="本文档已收藏条款"
             title="已收藏条款（点选跳转）"
           >
