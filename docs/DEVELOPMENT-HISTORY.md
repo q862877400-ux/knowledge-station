@@ -8135,3 +8135,56 @@ reflect 500 {"detail":"LLM output exceeded token limits (openai/deepseek-flash, 
 「一篇都没扫到 —— 这几乎肯定是**扫描本身坏了**，不是"没有文档"」并退出 1。
 否则这次就会安静地"灌 0 篇还报成功"——正是我一直在批的那种失败模式。
 （另有一个小坑：`.gitignore` 里 `$` 在 CRLF 下不匹配 `\r` 前的位置，替换静默没生效，加 `\r?` 才成。）
+
+---
+
+## §10.132 关掉"我从没渲染过这一页"：**渲染级**冒烟（真 jsdom + 真 React + 真事件）
+
+§10.130 第七节记着三条"验不了"的路。这轮找到第四条，而且**不用给业主加任何依赖**：
+`jsdom` 与 `react`/`react-dom` **已经躺在 DSH 检出里**
+（本机实测 `deepseek-harness/node_modules/jsdom` v29.1.1、
+`packages/client/web/node_modules/react{,-dom}` v18.3.1）⇒ 用 `--harness` 指过去即可。
+
+### 新增 `plugin/scripts/smoke-kb-page-render.mjs`（13 条，已接进 `npm run smoke`）
+
+真 DOM、真 React、真事件，断言的是**行为**而不是字符串：
+真渲染出内容 · 运行时样式被注入 · 勾选框数 = 文档数 + 1 · 每行都有常驻「＋标签」·
+点全选 ⇒ 批量条出现且显示「已选 4 项」· 批量条五项俱全 · **点批量删除真的把行删到 0** ·
+切自建夹列表跟着换 · 详情含三个日期且是**真值**（`2025-01-06` 这种，不是破折号）·
+标签视图跨文件夹 · **检索语法当场回显** · 本页没有搜索框。
+
+这补齐了 `smoke-client-entry.mjs` 里自己承认的缺口：
+「这仍是**字符串级**检查…挡不住"条件后面偷偷加 `&& false`"——那种要**渲染级**用例。」
+
+### 写它时踩的两个坑（都属"看起来该work的东西不work"）
+
+1. **两个 React 副本** ⇒ `Invalid hook call` + `Cannot read properties of null (reading 'useState')`。
+   成因有两处：只用 `nodePaths` 解析可能落到不同路径；而且我为了拿 `act`
+   去 import 了 `react-dom/test-utils`，**那一下就把第二份 react/react-dom 引进来了**。
+   修法：**alias 把 react/react-dom 钉成绝对路径的唯一一份**，并且**完全不用 `act`**
+   （`createRoot` 的更新本来就会刷到 DOM，给一个 tick 即可，代价是每次交互后 `await flush()`）。
+2. **受控 input 直接赋 `.value` 不触发 `onChange`**：React 的 value tracker 判定"没变化"。
+   表现是"检索语法没解析出来"。修法：走**原生 setter**
+   （`HTMLInputElement.prototype.value` 的 descriptor.set）再 dispatch `input`。
+   —— 这正是测试库内部一直在做的那件事。
+
+### 缺件时**报错退出，不静默跳过**
+
+这套用例依赖 DSH 检出存在。缺 `jsdom`/`react`/`react-dom` 时它**以退出码 1 明确报红**
+并告诉你怎么办（`--harness` / `KS_HARNESS_DIR`），**不打印"SKIPPED"然后报通过** ——
+理由与本仓其它护栏一致：**"没跑" 不能渲染成 "通过"**。
+
+### 证伪测试
+
+把详情里的「废止日期」临时改成「作废日期」⇒ 该条 FAIL、`12/13`、**退出码 1**；
+改回 ⇒ `13/13`、退出码 0，且 `git diff --stat` 只有预期文件。
+（⚠ 这次**没有**再用 `git checkout --` 还原 —— §10.130 第六节那个教训。）
+
+### ⚠ 边界（别把它读成"像素已验证"）
+
+- 宿主 `ui-primitives` 在用例里是**按源码形状写的桩**（Button/Checkbox/Tag/Pill/Input/Menu，
+  形状逐个读过宿主源码）⇒ 验的是**我们这一页的组装与行为**，不是宿主组件内部实现。
+- 样式只验"注入了"，验不了"长什么样"。
+- **依赖检出存在**（`--harness`）：换机器要指对路径，否则这套会红（这是有意的）。
+- **仍然没在真浏览器里看过**：GUI 要鉴权（401）、浏览器自动化那套 200 MB 属于过度延伸。
+  ⇒ 观感/像素仍只能由业主定。

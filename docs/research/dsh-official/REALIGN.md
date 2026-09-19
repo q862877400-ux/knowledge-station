@@ -212,6 +212,9 @@ node scripts/ingest-dsh-docs-into-memory.mjs --root .agents/notes `
 
 1. **跑门禁**：`npx tsc --noEmit -p plugin/client` · `cd plugin && npm run smoke` ·
    `npm run verify:commands` · `python scripts/verify-engine-uvicorn.py` · `mypy` · `pytest`。
+   ⚠ `npm run smoke` 里最后一条 `smoke-kb-page-render` 是**渲染级**用例，
+   它**需要 DSH 检出里存在 jsdom/react**（用 `--harness <检出>` 或 `KS_HARNESS_DIR` 指路）；
+   **找不到就明确报红**（不静默跳过）——这是有意的，别把它改成 skip。
 2. **重建 + 看真机**：`cd plugin && npm run build:client`。
    ⚠ **不要再说"必须重启宿主"** —— 这句话我此前说过**两次**，**两次都被证伪**：
    alpha.1 起 `@deepseek-ai/dsh-client-hmr` 就在 `packages/bundle/web-app/cordis.patch.yml` 里

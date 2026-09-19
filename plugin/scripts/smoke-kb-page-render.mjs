@@ -1,0 +1,273 @@
+#!/usr/bin/env node
+/**
+ * 渲染级冒烟：把「知识库」页**真的挂进 DOM** 跑一遍，断言行为而不是字符串。
+ *
+ * ## 为什么需要它（补的正是之前承认的缺口）
+ * `smoke-client-entry.mjs` 里那条注释写着：「这仍是**字符串级**检查…挡不住"条件后面偷偷加
+ * `&& false`"——那种要**渲染级**用例（b11 用 jsdom 建过一份，但 jsdom 本仓未安装）」。
+ * 于是"我从没在浏览器里渲染过这一页"这件事一直悬着。本文件把它关掉一半：
+ * **真 DOM、真 React、真事件**（仍不是像素）。
+ *
+ * ## jsdom / React 从哪来（不给你加依赖）
+ * 它们**已经在 DSH 检出里**（本机实测：`node_modules/jsdom` v29.1.1；
+ * `packages/client/web/node_modules/react{,-dom}` v18.3.1）⇒ 用 `--harness` 指过去即可。
+ * ⚠ **这不是"顺手装了个依赖"**：我们 `plugin/package.json` 一个依赖都没加。
+ *   代价是这套用例**依赖 DSH 检出存在**——见下面 `找不到就报错、不静默跳过`。
+ *
+ * ## 诚实的边界（别把它读成"像素已验证"）
+ * - 宿主的 `ui-primitives` 是**按源码形状写的桩**（Button/Checkbox/Tag/Pill/Input/Menu）。
+ *   所以这里验的是**我们这一页的组装与行为**，不是宿主组件的内部实现，更不是视觉。
+ * - 样式（`ksGuideStyles`）只验"注入了"，验不了"长什么样"。
+ */
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { dirname, join, resolve } from 'node:path'
+import { fileURLToPath, pathToFileURL } from 'node:url'
+
+import { build } from 'esbuild'
+
+const here = dirname(fileURLToPath(import.meta.url))
+const pluginRoot = resolve(here, '..')
+
+/** jsdom/React 的宿主检出（可用 `--harness` 或 `KS_HARNESS_DIR` 覆盖）。 */
+const harness = (() => {
+  const i = process.argv.indexOf('--harness')
+  if (i !== -1 && process.argv[i + 1]) return process.argv[i + 1]
+  return process.env.KS_HARNESS_DIR ?? 'D:\\AI\\DSH\\deepseek-harness'
+})()
+const jsdomDir = join(harness, 'node_modules', 'jsdom')
+const webNodeModules = join(harness, 'packages', 'client', 'web', 'node_modules')
+
+const results = []
+function check(name, ok, detail) {
+  results.push({ name, ok })
+  console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}${detail === undefined ? '' : ` — ${detail}`}`)
+}
+
+// ── 缺件时**报错退出**，不静默跳过 ──
+// 理由与本仓其它护栏一致：**"没跑" 不能渲染成 "通过"**。缺件就明确红，并告诉你怎么办。
+const missing = []
+if (!existsSync(join(jsdomDir, 'package.json'))) missing.push(`jsdom: ${jsdomDir}`)
+if (!existsSync(join(webNodeModules, 'react', 'package.json'))) missing.push(`react: ${join(webNodeModules, 'react')}`)
+if (!existsSync(join(webNodeModules, 'react-dom', 'package.json'))) missing.push(`react-dom: ${join(webNodeModules, 'react-dom')}`)
+if (missing.length > 0) {
+  console.error('❌ 渲染级用例**没跑**（缺件），这不是通过：')
+  for (const m of missing) console.error(`   - ${m}`)
+  console.error('   → 用 --harness <DSH 检出> 或设 KS_HARNESS_DIR 指向含 jsdom/react 的检出。')
+  process.exit(1)
+}
+
+const stubDir = await mkdtemp(join(tmpdir(), 'ks-render-'))
+try {
+  /* ── 1. 宿主 ui-primitives 的桩：**按源码形状**写（不是随手 mock） ── */
+  // 形状取自宿主 `packages/client/ui-primitives/src/*.tsx`（逐个读过）：
+  //   Button   <button type=button className={css[variant]}>{icon}{children}</button>
+  //   Checkbox <label><input type=checkbox checked onChange/><span>{label}</span></label>
+  //   Tag      <span data-tone={tone}>{children}</span>
+  //   Pill     onClick ? <button>{children}</button> : <span>{children}</span>
+  //   Input    <span className=wrap><input/></span>
+  const primitivesStub = join(stubDir, 'primitives.mjs')
+  await writeFile(primitivesStub, `
+import { createElement as h } from 'react'
+
+export const Button = ({ variant = 'ghost', size = 'md', icon, className, children, ...rest }) =>
+  h('button', { type: 'button', 'data-variant': variant, 'data-size': size, className, ...rest }, icon, children)
+
+export const Checkbox = ({ checked, onChange, label, disabled, title, className }) =>
+  h('label', { className, title },
+    h('input', { type: 'checkbox', checked, disabled, onChange: (e) => { onChange(e.target.checked) } }),
+    h('span', null, label))
+
+export const Tag = ({ tone = 'outline', className, children }) =>
+  h('span', { 'data-tone': tone, className }, children)
+
+export const Pill = ({ active = false, className, children, onClick, ...rest }) =>
+  onClick
+    ? h('button', { type: 'button', 'data-active': String(active), className, onClick, ...rest }, children)
+    : h('span', { 'data-active': String(active), className }, children)
+
+export const Input = ({ icon, className, ...rest }) => h('span', { className }, icon, h('input', rest))
+
+/** Menu 桩：把 items 渲染成按钮（这样"新建下拉里有什么"是可断言的），并渲染 anchor。 */
+export const Menu = ({ open, items, anchor, onSelect, onClose }) =>
+  h('span', { 'data-open': String(open) },
+    anchor,
+    open ? h('div', { role: 'menu' },
+      items.map((it) => h('button', {
+        key: it.id, type: 'button', role: 'menuitem',
+        onClick: () => { onSelect?.(it.id); onClose?.() },
+      }, it.label))) : null)
+
+export const IconChevronDownOutline14 = () => h('svg', { 'data-icon': 'chevron-down' })
+`, 'utf8')
+
+  /* ── 2. 测试入口：把"挂载"这件事暴露出来 ── */
+  const entry = join(stubDir, 'entry.mjs')
+  await writeFile(entry, `
+import { createElement } from 'react'
+import { createRoot } from 'react-dom/client'
+import * as React from 'react'
+import { KsKnowledgePage } from ${JSON.stringify(join(pluginRoot, 'client/KsKnowledgePage.tsx'))}
+
+export { createElement, React }
+export function mount(container, props) {
+  const root = createRoot(container)
+  root.render(createElement(KsKnowledgePage, props))
+  return root
+}
+`, 'utf8')
+
+  const out = join(stubDir, 'bundle.mjs')
+  // ⚠ **必须把 react/react-dom 固定成唯一一份**（alias 到绝对路径）。
+  //   第一版只用 nodePaths，结果出现 "Invalid hook call" + `Cannot read properties of null
+  //   (reading 'useState')` —— 那是 **两个 React 副本**：component 的 useState 来自副本 A，
+  //   而 renderer 把 dispatcher 装在副本 B 上。改用 alias 后只有一份。
+  await build({
+    entryPoints: [entry],
+    bundle: true,
+    platform: 'node',
+    format: 'esm',
+    outfile: out,
+    jsx: 'automatic',
+    alias: {
+      '@deepseek-ai/dsh-client-ui-primitives': primitivesStub,
+      react: join(webNodeModules, 'react', 'index.js'),
+      'react/jsx-runtime': join(webNodeModules, 'react', 'jsx-runtime.js'),
+      'react-dom': join(webNodeModules, 'react-dom', 'index.js'),
+      'react-dom/client': join(webNodeModules, 'react-dom', 'client.js'),
+    },
+    define: { 'process.env.NODE_ENV': '"test"' },
+  })
+
+  /* ── 3. 真 jsdom 环境 ── */
+  const { JSDOM } = await import(pathToFileURL(join(jsdomDir, 'lib', 'api.js')).href)
+    .catch(async () => import(pathToFileURL(join(jsdomDir, 'lib', 'api.js')).href))
+  const dom = new JSDOM('<!doctype html><html><body><div id="root"></div></body></html>', { url: 'http://localhost/' })
+  globalThis.window = dom.window
+  globalThis.document = dom.window.document
+  // ⚠ Node 26 的 `globalThis.navigator` 是**只读 getter**，直接赋值抛 TypeError
+  //   （`Cannot set property navigator of #<Object> which has only a getter`）⇒ 必须 defineProperty。
+  Object.defineProperty(globalThis, 'navigator', {
+    value: dom.window.navigator, configurable: true, writable: true,
+  })
+  globalThis.HTMLElement = dom.window.HTMLElement
+  globalThis.Node = dom.window.Node
+  globalThis.Event = dom.window.Event
+  globalThis.requestAnimationFrame = (cb) => setTimeout(() => { cb(Date.now()) }, 0)
+  globalThis.cancelAnimationFrame = (id) => { clearTimeout(id) }
+
+  const { mount } = await import(pathToFileURL(out).href)
+  // ⚠ **刻意不用 `act`**：React 18.3 的 `act` 在 `react-dom/test-utils` 里，
+  //   而 import 它会把**第二份 react/react-dom** 引进来（就是上面那个 Invalid hook call 的成因）。
+  //   createRoot 的更新本来就会刷到 DOM，只要给它一个 tick。代价：拿不到 act 的同步保证，
+  //   所以每次交互后都 `await flush()`（下面每个断言都这么做）。
+  const flush = async () => { await new Promise((r) => { setTimeout(r, 0) }) }
+
+  const container = document.getElementById('root')
+  /** 页面要的两个 prop：`useTabInfo`（框架给的运行时）与注入面 `dataSource`。 */
+  const useTabInfo = () => ({ tab: { navigation: { params: { page: 'manage' } } } })
+
+  const root = mount(container, { useTabInfo, dataSource: 'render-smoke' })
+  await flush()
+
+  const q = (sel) => [...container.querySelectorAll(sel)]
+  const byText = (sel, text) => q(sel).find((el) => (el.textContent ?? '').includes(text))
+  const click = async (el) => {
+    el.dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }))
+    await flush()
+  }
+  const setInput = async (el, value) => {
+    // ⚠ 受控 input 必须走**原生 setter**：直接 `el.value = x` 会被 React 的 value tracker
+    //   判定为"没变化"而**不触发 onChange**（第一版就是这么失败的，表现是"没解析出来"）。
+    const nativeSetter = Object.getOwnPropertyDescriptor(dom.window.HTMLInputElement.prototype, 'value').set
+    nativeSetter.call(el, value)
+    el.dispatchEvent(new dom.window.Event('input', { bubbles: true }))
+    await flush()
+  }
+
+  // ── 断言 1：真渲染出来了（不是空壳） ──
+  check('页面挂载成功且渲染出内容（真 DOM）',
+    container.innerHTML.length > 500,
+    `${container.innerHTML.length} 字符`)
+
+  // ── 断言 2：样式确实被注入（运行时 <style>，我们的偏离方案） ──
+  const styleEl = document.getElementById('ks-dsh-plugin-styles')
+  check('运行时注入了样式表（id=ks-dsh-plugin-styles，含 .ks-batch）',
+    styleEl !== null && (styleEl.textContent ?? '').includes('.ks-batch'),
+    styleEl === null ? '没有 <style>' : `${(styleEl.textContent ?? '').length} 字符`)
+
+  // ── 断言 3：文件列表 = 勾选框 + 常驻「＋标签」 ──
+  const checkboxes = q('input[type=checkbox]')
+  const addTagBtns = q('button').filter((b) => (b.textContent ?? '') === '＋标签')
+  // 默认文件夹 P16 工程防火 有 4 篇 ⇒ 4 个行勾选 + 1 个全选
+  check('行勾选框 + 全选：勾选框数 = 文档数 + 1', checkboxes.length === 5, `实际 ${checkboxes.length}`)
+  check('每行都有常驻「＋标签」按钮', addTagBtns.length === 4, `实际 ${addTagBtns.length}`)
+
+  // ── 断言 4：全选 ──
+  const headCheckbox = checkboxes[0]
+  await click(headCheckbox)
+  const batch = () => container.querySelector('.ks-batch')
+  check('点全选 ⇒ 出现悬浮批量条并显示「已选 4 项」',
+    batch() !== null && (batch().textContent ?? '').includes('已选 4 项'),
+    batch() === null ? '没有批量条' : (batch().textContent ?? '').slice(0, 60))
+
+  // ── 断言 5：批量条五项俱全 ──
+  const batchText = batch()?.textContent ?? ''
+  check('批量条含全部五项（已选/取消选择/批量打标签/移动到目录/批量删除）',
+    ['已选', '取消选择', '批量打标签', '移动到目录', '批量删除'].every((t) => batchText.includes(t)),
+    batchText.slice(0, 120))
+
+  // ── 断言 6：批量删除**真的改了状态**（不是假按钮） ──
+  await click(byText('.ks-batch button', '批量删除'))
+  check('点「批量删除」⇒ 行数真的减少到 0，批量条消失',
+    q('.ks-item').length === 0 && batch() === null,
+    `剩 ${q('.ks-item').length} 行`)
+
+  // ── 断言 7：详情里的三个日期（业主点名要的） ──
+  // 换到「法律法规」树的某个文件夹（删空了 P16），先切到自建夹「公司制度」更稳
+  const companyCard = q('.ks-kb-cards .ks-kb-card').find((el) => (el.textContent ?? '').includes('公司制度'))
+  await click(companyCard)
+  const rows = q('.ks-item')
+  check('切到自建夹「公司制度」⇒ 列表换成它的 3 篇',
+    rows.length === 3, `实际 ${rows.length}`)
+  const detailBtn = rows[0].querySelector('button[aria-label^="打开"]')
+  await click(detailBtn)
+  const detailText = container.querySelector('.ks-detail')?.textContent ?? ''
+  check('详情含 发布日期 / 生效日期 / 废止日期 三个字段',
+    ['发布日期', '生效日期', '废止日期'].every((t) => detailText.includes(t)),
+    detailText.slice(0, 120))
+  check('详情里的日期是**真值**（不是占位破折号）',
+    /\d{4}-\d{2}-\d{2}/.test(detailText),
+    (detailText.match(/\d{4}-\d{2}-\d{2}/g) ?? []).slice(0, 3).join(' '))
+
+  // ── 断言 8：标签视图（取代收藏）+ 检索语法当场回显 ──
+  const tagsPill = q('button').find((b) => (b.textContent ?? '').trim() === '标签')
+  await click(tagsPill)
+  const tagsView = container.textContent ?? ''
+  check('切到「标签」视图：说明它在**跨大文件夹**定义',
+    tagsView.includes('跨知识库文件夹定义') && tagsView.includes('覆盖：'),
+    tagsView.includes('覆盖：') ? '含「覆盖：」' : '没看到覆盖范围')
+
+  const syntaxInput = q('input').find((i) => (i.getAttribute('aria-label') ?? '').includes('检索语法'))
+  await setInput(syntaxInput, '安全+半导体-冶金')
+  const preview = container.textContent ?? ''
+  check('检索语法当场回显解析结果（含/排除都显示）',
+    preview.includes('含 「安全」「半导体」') && preview.includes('排除 「冶金」'),
+    (preview.match(/含 [^（]*/)?.[0] ?? '(没解析出来)').slice(0, 60))
+
+  // ── 断言 9：知识库页**没有搜索框**（业主明确要求） ──
+  const searchish = q('input').filter((i) => /搜索|search/i.test(i.placeholder ?? ''))
+  check('本页没有搜索框（只有"提问侧"的检索语法框）',
+    searchish.length === 0, `命中 ${searchish.length} 个搜索框`)
+
+  root.unmount()
+  await flush()
+} finally {
+  await rm(stubDir, { recursive: true, force: true })
+}
+
+const failed = results.filter((r) => !r.ok)
+console.log(`\n== kb-page-render smoke ${failed.length === 0 ? 'PASS' : 'FAIL'} `
+  + `(${results.length - failed.length}/${results.length}) ==`)
+process.exit(failed.length === 0 ? 0 : 1)
