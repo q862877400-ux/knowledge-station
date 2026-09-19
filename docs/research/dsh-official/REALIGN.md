@@ -153,8 +153,11 @@ pwsh -NoProfile -File scripts/dsh-docs-delta.ps1            # 默认 From=基线
    - `sidebar.right.tab.guide.entry` 卡片的 **key 用定义 id**（不是 kind）；
    - `priority` 是**字面量 band 字符串**，不是数字、也不 import 常量；
    - **开始页胶囊的 `order` 是跨插件共享排序空间** —— 出货条目占号会被上游新增类型抢走，
-     **同号 ⇒ 先后由注册顺序决定（等于随机）**。实跑：
-     `git grep -n "order:" <new-ref> -- packages/client/ui-sidebar-*`
+     **同号 ⇒ 先后由注册顺序决定（等于随机）**。
+     **已自动化**：`scripts/dsh-docs-delta.ps1` 第 7 节扫出全部出货 guide order 并与我们的
+     `KS_GUIDE_ORDER_PDF` 比对，撞号打 ⛔；"一条都没扫到"会被判成**检查坏了**而不是通过。
+     手工版：`git grep -l 'guide:' <ref> -- packages/client`，再逐文件看 guide 块里的 `order:`
+     （⚠ 路径 glob 里的 `*` **不跨 `/`**，用 `packages/client/*/src/client` 会**静默扫空**）。
      （alpha.2 实测：files 10 / terminal 20 / browser 30；我们已让到 **25**。
      详见 `ERRATA-alpha.2.md` §K —— 这是**真实踩到的 bug**，不是理论风险。）
    - 样式注入是**运行时 `<style>`**（我们 esbuild 无 CSS loader），

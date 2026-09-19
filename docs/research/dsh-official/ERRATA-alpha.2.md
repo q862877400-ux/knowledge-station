@@ -247,14 +247,16 @@ guide: [{ id: 'new', order: 30, icon: IconGlobeOutline14, ... }]
 既保留原需求（我们自己的入口在终端下面），又**不与任何出货条目同号**，先后变成确定的。
 （`plugin/scripts/smoke-client-entry.mjs` 的断言同步收紧为 `=== 25 && > 20 && < 30`。）
 
-### ⇒ 立下的规矩（**每次升级 DSH 都要做**）
+### ⇒ 立下的规矩（**每次升级 DSH 都要做，且已自动化**）
 
-```powershell
-git grep -n "order:" <new-ref> -- packages/client/ui-sidebar-*
-```
+`scripts/dsh-docs-delta.ps1` **第 7 节**就是这件事：扫出全部出货 guide order，
+与本仓 `plugin/client/ksSidebar.ts` 的 `KS_GUIDE_ORDER_PDF`（从源码读，不另抄一份）比对，
+撞号打 ⛔。它**自曝扫描空集**（"很可能是检查本身坏了，不是没有"），不把空结果当通过。
+（手工版：`git grep -l 'guide:' <ref> -- packages/client` —— ⚠ 路径 glob 里的 `*`
+**不跨 `/`**，`packages/client/*/src/client` 会**静默扫空**；我第一版就是这么错的。）
 
-出货条目若新占 25（或改成别的号），我们**必须让开**。这是升级 checklist 的一项——
-见 `REALIGN.md`。
+已实测证伪过它：把我们的值临时改回 30 ⇒ 如期 ⛔；改回 25 ⇒ ✅（出货占用 10, 20, 30）。
+出货条目若新占 25，我们**必须让开**。这是升级 checklist 的一项——见 `REALIGN.md` §六。
 
 ### 顺带确认（浏览器类型的三条硬事实，供我们自己别再实现一遍）
 

@@ -183,6 +183,76 @@ foreach ($c in $components) {
   }
 }
 
+# --- 7. 开始页胶囊的 order：**跨插件共享的排序空间**，出货条目抢号会把我们挤成"随机顺序" ---
+# 背景（真实踩到的 bug，2026-09-19）：我们原来取 30，alpha.2 新增的 ui-sidebar-browser
+# **也取 30**。开始页按 order 升序排，**同号时谁在前只由注册顺序（bundle 顺序）决定**，
+# 而 V8 的 sort 是稳定的 ⇒ 看起来"总是那样"，极难发现。我们当初的注释写了
+# "上游新增条目时可能需要重排"，但**没有任何东西去检查它**，所以没防住。
+# 本节就是把那句话变成升级时真会跑的一步。
+#
+# 实现注意（我前两版都写错过，别再踩）：
+#   ① 别把两次 -match 串进一个 `-and` 条件再读 $Matches —— 那时 $Matches 只剩**最后一次**
+#      匹配的组号，`$Matches[1]` 取到的是 order 而不是路径；
+#   ② git 的 pathspec 里 `*` **不跨 `/`**（wildmatch 要求整条路径匹配），所以
+#      `packages/client/*/src/client` **一个文件都匹配不到** ⇒ 我第一版静默输出空集，
+#      也就是"检查装成通过"。改用 `packages/client` 全扫 + 自己按 `/src/client/` 过滤；
+#   ③ `guide: [` 有单行（terminal）和多行（files/browser）两种写法，**按行 grep 抓不住**
+#      ⇒ 先找 `guide: [` 行，再按方括号配平把整块取出来，收块内**所有** order。
+function Get-GuideOrdersFromText {
+  param([string]$Text)
+  $found = @()
+  $lines = $Text -split "`r?`n"
+  for ($i = 0; $i -lt $lines.Count; $i++) {
+    if ($lines[$i] -notmatch 'guide:\s*\[') { continue }
+    $depth = 0; $block = ''
+    for ($j = $i; $j -lt [Math]::Min($i + 40, $lines.Count); $j++) {
+      $block += $lines[$j] + "`n"
+      $depth += ([regex]::Matches($lines[$j], '\[')).Count
+      $depth -= ([regex]::Matches($lines[$j], '\]')).Count
+      if ($depth -le 0) { break }
+    }
+    foreach ($om in [regex]::Matches($block, 'order:\s*([0-9]+)')) { $found += [int]$om.Groups[1].Value }
+  }
+  return $found
+}
+
+Write-Host ''
+Write-Host '--- 7. 开始页胶囊 order 空间（我们的号必须避开出货条目占用的号）---'
+$shippedOrders = @()
+$guideFiles = git grep -l 'guide:' $To -- packages/client 2>$null
+foreach ($entry in $guideFiles) {
+  $gf = $entry -replace ("^" + [regex]::Escape($To) + ":"), ''   # git grep -l 输出 "ref:path"
+  if ($gf -notmatch '/src/client/') { continue }                 # 只要生产源码（排掉 tests）
+  $txt = (git show ("{0}:{1}" -f $To, $gf) 2>$null) -join "`n"
+  if ([string]::IsNullOrWhiteSpace($txt)) { continue }
+  foreach ($o in (Get-GuideOrdersFromText $txt)) {
+    $shippedOrders += $o
+    Write-Host ("    出货 {0,-40} order = {1,-4}  ({2})" -f $gf, $o, $To)
+  }
+}
+if ($shippedOrders.Count -eq 0) {
+  Write-Host '    ⚠ 一个出货 guide order 都没扫到 —— 很可能是**检查本身坏了**（不是"没有"）。'
+  Write-Host '      别把这条当通过：先核 git grep 的 pathspec 与 guide 块的写法是否变了。'
+}
+# 我们自己的值：从本仓源码读，避免脚本里再抄一份（抄一份就会再次不同步）
+$ksSidebar = Join-Path $repoRoot 'plugin/client/ksSidebar.ts'
+if (Test-Path $ksSidebar) {
+  $m2 = [regex]::Match((Get-Content $ksSidebar -Raw), 'export const KS_GUIDE_ORDER_PDF = (\d+)')
+  if ($m2.Success) {
+    $myOrder = [int]$m2.Groups[1].Value
+    Write-Host ("    ── 我们 KS_GUIDE_ORDER_PDF = {0}" -f $myOrder)
+    if ($shippedOrders -contains $myOrder) {
+      Write-Host ("    ⛔ **撞号**：出货条目也占 {0} ⇒ 两张卡先后只由注册顺序决定（等于随机）。**必须让开**。" -f $myOrder)
+    } else {
+      Write-Host ("    ✅ 未与任何出货条目同号（出货占用：{0}）" -f (($shippedOrders | Sort-Object -Unique) -join ', '))
+    }
+  } else {
+    Write-Host '    ⚠ 没在 ksSidebar.ts 里找到 KS_GUIDE_ORDER_PDF —— 脚本与本仓已不同步，请核。'
+  }
+} else {
+  Write-Host ("    ⚠ 未找到 {0}（换机器/换检出时请核）" -f $ksSidebar)
+}
+
 Pop-Location
 Write-Host ''
 Write-Host '==============================================================='
