@@ -341,7 +341,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
           <strong>{LABELS[page] ?? page}</strong>
           <div className="ks-kb-hint" style={{ marginTop: 6 }}>
             这一页尚未实现。它会落在同一个 tab 类型里（按 <code>params.page</code> 分发），
-            所以入口现在是**真的**、内容是**空的**——而不是一个假按钮。
+            所以入口现在是<strong>真的</strong>、内容是<strong>空的</strong>——而不是一个假按钮。
           </div>
         </div>
       </div>
@@ -362,7 +362,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
 
       <div className="ks-kb-banner">
         <strong>UI 先行：数据是占位，后端接口未接</strong>（dataSource=<code>{dataSource}</code>）。
-        但**交互是真的**（勾选/全选/批量动作/打标签都作用在页面状态上），你可以直接点着体验。
+        但<strong>交互是真的</strong>（勾选/全选/批量动作/打标签都作用在页面状态上），你可以直接点着体验。
         层级名取自 <code>doc_catalog</code> 的权威 CCS 表；将来这页接
         <code> GET /api/v1/documents/categories</code> 即可，不必重画分类法。
       </div>
@@ -408,7 +408,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
             <span className="ks-kb-hint">{tagRows.length} 个</span>
           </div>
           <div className="ks-kb-hint">
-            标签是**你自己的分组**，不属于任何一棵树；同一个标签可以同时覆盖「公司制度」和某个 CCS 类目。
+            标签是<strong>你自己的分组</strong>，不属于任何一棵树；同一个标签可以同时覆盖「公司制度」和某个 CCS 类目。
           </div>
           <div className="ks-kb-card">
             <div className="ks-parse" style={{ marginBottom: 6 }}>
@@ -565,7 +565,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
             {current === null ? (
               <div className="ks-kb-card">
                 <div className="ks-kb-hint">
-                  点某一行的「详情」看这一篇的元数据（含**发布日期 / 生效日期 / 废止日期**）。
+                  点某一行的「详情」看这一篇的元数据（含<strong>发布日期 / 生效日期 / 废止日期</strong>）。
                 </div>
               </div>
             ) : (
@@ -598,7 +598,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                   </Button>
                 </div>
                 <div className="ks-kb-hint" style={{ marginTop: 6 }}>
-                  这里**只显示你自己打的标签**——按你的要求，取消了"领域标签"那套自动打标签。
+                  这里<strong>只显示你自己打的标签</strong>——按你的要求，取消了"领域标签"那套自动打标签。
                 </div>
               </div>
             )}

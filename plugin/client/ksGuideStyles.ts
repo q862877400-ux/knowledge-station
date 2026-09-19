@@ -38,12 +38,21 @@ export const KS_STYLES = `
      若哪天要收窄作用域，把它们挪到我们各面板根类上即可（规则里用的 \`var(--ks-*)\` 不用改）。
    =================================================================================== */
 :root{
-  /* 间距：4px 网格（4/8/12/16/20/24/32/40） */
+  /* 间距：4px 网格（4/8/12/16/20/24/32/40）。
+     ⚠ 没有 2/3/6/7/9/10/14px 这些档 —— 它们曾经散在 17 处（第 5 步 5c 全部收掉）。
+       6px 这一档**刻意不设**：它只会被用来当"8px 的近似值"，而近似值是漂移的入口
+       （5c 实测：成对出现的 padding:2px 2px 6px / 9px 10px 正是这么来的）。
+       护栏见 plugin/scripts/smoke-ui-scale.mjs（只减不增的棘轮）。 */
   --ks-space-1:4px; --ks-space-2:8px; --ks-space-3:12px; --ks-space-4:16px;
   --ks-space-5:20px; --ks-space-6:24px; --ks-space-8:32px; --ks-space-10:40px;
   /* 字号：受限表（页面标题 20/24、区块标题 16、正文 13/14、辅助 11/12） */
   --ks-fs-xs:11px; --ks-fs-sm:12px; --ks-fs-base:13px; --ks-fs-md:14px;
   --ks-fs-lg:16px; --ks-fs-title:20px; --ks-fs-hero:24px;
+  /* ⚠ 一个**不在上面受限表里**的字号，只有它一个例外，理由如下（5c 定）：
+     10px 是"徽章/树形小箭头/分子分母"这一档的尺寸。受限表最小的 11px 在 260px 窄列里
+     会让「▾」和 Tag 胶囊明显发胖、行节距跟着涨（--ks-row-h-narrow 是 44px 的硬约束）。
+     它**不是**"11px 的近似值"，是上面那三处的专档 ⇒ 加 token 而不是硬掰回 11px。 */
+  --ks-fs-2xs:10px;
   /* 圆角（WeKnora 的 4/6/8/10/12/999） */
   --ks-r-sm:4px; --ks-r-md:6px; --ks-r-lg:8px; --ks-r-card:10px; --ks-r-xl:12px; --ks-r-pill:999px;
   /* 动效时长 */
@@ -55,16 +64,20 @@ export const KS_STYLES = `
   --ks-card-h:136px; --ks-card-gap:var(--ks-space-3); --ks-row-h:60px; --ks-row-h-narrow:44px; --ks-head-h:40px;
 }
 
-/* ---------- 开始页入口卡（照 TerminalGuide.module.css 的数值） ---------- */
+/* ---------- 开始页入口卡（照 TerminalGuide.module.css 的数值） ----------
+   ⚠ 5c 收口：这里原是 gap 14px / padding 14px 20px（逐字抄宿主 TerminalGuide）。宿主那份是
+     它自己的组件、也**不用**我们这套 token，所以抄数值在"像宿主"上是对的；但在我们这张表里
+     它就是两处离网格字面值。5c 的处置：**收进 4px 网格**（gap 12 / padding 12px 20px），
+     视觉差 2px、肉眼不可辨，换来的是这张表里再没有"14px"这一档（棘轮计数 17→0）。 */
 .ks-guide-entry{box-sizing:border-box;display:flex;align-items:stretch;width:100%;overflow:hidden;
   border:.5px solid var(--dsw-alias-border-l4);border-radius:24px;background:var(--dsw-alias-bg-layer-1)}
-.ks-guide-main{flex:1;justify-content:flex-start;gap:14px;min-width:0;height:auto;min-height:56px;
-  padding:14px 20px;border-radius:24px 0 0 24px;text-align:left}
+.ks-guide-main{flex:1;justify-content:flex-start;gap:var(--ks-space-3);min-width:0;height:auto;min-height:56px;
+  padding:var(--ks-space-3) var(--ks-space-5);border-radius:24px 0 0 24px;text-align:left}
 .ks-guide-icon{flex:none;color:var(--dsw-alias-label-secondary)}
-.ks-guide-text{display:flex;flex-direction:column;gap:3px;min-width:0}
-.ks-guide-title{overflow:hidden;color:var(--dsw-alias-label-primary);font-size:15px;line-height:1.4;
+.ks-guide-text{display:flex;flex-direction:column;gap:var(--ks-space-1);min-width:0}
+.ks-guide-title{overflow:hidden;color:var(--dsw-alias-label-primary);font-size:var(--ks-fs-lg);line-height:1.4;
   white-space:nowrap;text-overflow:ellipsis}
-.ks-guide-desc{overflow:hidden;color:var(--dsw-alias-label-caption);font-size:13px;line-height:1.4;
+.ks-guide-desc{overflow:hidden;color:var(--dsw-alias-label-caption);font-size:var(--ks-fs-base);line-height:1.4;
   white-space:nowrap;text-overflow:ellipsis}
 .ks-guide-trigger{align-self:stretch;flex:none;height:auto;width:44px;padding:0;border-radius:0 24px 24px 0}
 
@@ -93,16 +106,16 @@ export const KS_STYLES = `
   background:var(--dsw-alias-bg-base)}
 .ks-kb-card:hover{border-color:var(--dsw-alias-border-l4)}
 .ks-kb-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--ks-card-gap)}
-.ks-kb-sec{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary);margin-top:4px}
+.ks-kb-sec{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary);margin-top:var(--ks-space-1)}
 .ks-kb-tree{font-size:var(--ks-fs-base)}
 .ks-kb-tline{display:flex;align-items:center;gap:var(--ks-space-1);padding:var(--ks-space-1) var(--ks-space-2);border-radius:var(--ks-r-md);cursor:pointer}
 .ks-kb-tline:hover{background:var(--dsw-alias-interactive-bg-hover)}
-.ks-kb-tw{width:12px;flex:none;text-align:center;font-size:10px;color:var(--dsw-alias-label-caption)}
+.ks-kb-tw{width:12px;flex:none;text-align:center;font-size:var(--ks-fs-2xs);color:var(--dsw-alias-label-caption)}
 .ks-kb-tn{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.ks-kb-tc{font-size:11px;color:var(--dsw-alias-label-caption)}
+.ks-kb-tc{font-size:var(--ks-fs-xs);color:var(--dsw-alias-label-caption)}
 .ks-kb-doc{display:flex;gap:var(--ks-space-2);padding:var(--ks-space-1) var(--ks-space-2);border-radius:var(--ks-r-md)}
 .ks-kb-doc:hover{background:var(--dsw-alias-interactive-bg-hover)}
-.ks-kb-no{flex:none;font-weight:600;font-family:ui-monospace,Consolas,monospace;font-size:12px}
+.ks-kb-no{flex:none;font-weight:600;font-family:ui-monospace,Consolas,monospace;font-size:var(--ks-fs-sm)}
 .ks-kb-nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   color:var(--dsw-alias-label-secondary)}
 .ks-kb-badge{flex:none;font-size:var(--ks-fs-xs);border-radius:var(--ks-r-sm);padding:0 var(--ks-space-1);
@@ -113,30 +126,45 @@ export const KS_STYLES = `
 
 /* ---------- 知识库页：三段式（目录轨 | 文件列表 | 详情） ---------- */
 /* 一列放不下就换行：右栏宽度是业主自己拖的，不许假设它有多宽。 */
-.ks-split{display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;min-height:0}
-.ks-rail{flex:0 1 208px;min-width:172px;display:flex;flex-direction:column;gap:8px}
-.ks-main{flex:1 1 320px;min-width:280px;display:flex;flex-direction:column;gap:8px;min-height:0}
+.ks-split{display:flex;gap:var(--ks-space-2);align-items:flex-start;flex-wrap:wrap;min-height:0}
+.ks-rail{flex:0 1 208px;min-width:168px;display:flex;flex-direction:column;gap:var(--ks-space-2)}
+.ks-main{flex:1 1 320px;min-width:280px;display:flex;flex-direction:column;gap:var(--ks-space-2);min-height:0}
 .ks-detail{flex:0 1 232px;min-width:200px;display:flex;flex-direction:column;gap:var(--ks-space-2)}
 /* 列表头：全选 + 计数 + 新建 */
-.ks-lhead{display:flex;align-items:center;gap:8px;padding:2px 2px 6px;
+.ks-lhead{display:flex;align-items:center;gap:var(--ks-space-2);padding:var(--ks-space-1) 0 var(--ks-space-2);
   border-bottom:.5px solid var(--dsw-alias-border-l1)}
-.ks-lhead-name{font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ks-lhead-name{font-size:var(--ks-fs-base);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 /* 一行文件：勾选框（label 里就是文件名）+ 标签 + 常驻「+标签」 */
 .ks-item{display:flex;align-items:center;gap:var(--ks-space-2);padding:var(--ks-space-1) var(--ks-space-2);
   border-radius:var(--ks-r-md);min-width:0;flex-wrap:nowrap;min-height:var(--ks-row-h-narrow)}
+/* ⚠ 5c 实测（离屏渲染量出来的）：上面这条 min-height:44px 只是**下限**，宿主 Checkbox
+   自带的行高把整行撑到 **52px（节距 60px）**。所以"窄面板 44 / 全宽 60"这个口径在
+   **实际像素上并没有兑现**（44 是下限、60 才是结果）。5c **没有**改它（要动宿主原语的行高，
+   属于重做密度）；只把实测值写在这里，免得下一轮又照 44 去推布局。 */
 .ks-item:hover{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-item-on{background:var(--dsw-alias-interactive-bg-hover)}
-.ks-item .ks-check{flex:1 1 auto;min-width:0}
+/* 文件名（Checkbox 的可见文字）宽度：**给上限、不给 flex:1**。
+   5c 实测（kb@1300，行宽 820）：原来是 flex:1 ⇒ 文件名盒子吃到 46% 上限、
+   标签簇被挤到最右边，**文件名与标签之间空 285~390px**（离屏渲染量出来的 deadGap）。
+   改法（克制，不动行结构）：① 文件名只用**内容宽**、上限 40%（窄列下自然更小）；
+   ② 标签簇改成"内容宽 + 可缩"，紧跟在文件名后面 ⇒ 不再有那 300px 死白；
+   ③ 右侧按钮组的第一个 btn 用 margin-left:auto 钉在行尾（操作列对齐，与文件名长短无关）。
+   ⚠ 注释里不许出现反引号（整段 CSS 是一个模板字符串）—— 本轮已踩**第五次**（2026-09-20 5c：
+     写了一句『右侧按钮组 「margin-left:auto」钉在行尾』，那对反引号把模板截断，
+     esbuild 报 "Expected ; but found margin"）。写 CSS 属性名时**直接写**，不要加引号装饰。 */
+.ks-item .ks-check{flex:0 1 auto;min-width:0;max-width:40%}
 /* Checkbox 的可见文字就是文件名：撑开、可截断，别换行把行搞高 */
 .ks-item .ks-check>span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-  color:var(--dsw-alias-label-secondary);font-size:13px}
+  color:var(--dsw-alias-label-secondary);font-size:var(--ks-fs-base)}
 .ks-item .ks-check>input{flex:none}
 /* 标签组：**允许自己内部换行**（标签多了就长高），但**不许把右边的按钮挤扁**
    —— 无宽约束时「详情」会被压成两行「详／情」（2026-09-20 离屏截图实测，见 UI-BASELINE 第六节）。
    ⚠ 注释里**不许出现反引号**（整段 CSS 是一个模板字符串）—— 本轮已经踩了四次。 */
-.ks-item-tags{display:flex;align-items:center;gap:var(--ks-space-1);flex:0 1 46%;min-width:0;flex-wrap:wrap}
-/* 行内按钮：**永不压缩、永不折字**（这条是上面那个缺陷的正面约束） */
+.ks-item-tags{display:flex;align-items:center;gap:var(--ks-space-1);flex:0 1 auto;min-width:0;flex-wrap:wrap}
+/* 行内按钮：**永不压缩、永不折字**（这条是上面那个缺陷的正面约束）。
+   第一个行内按钮吃下剩余空间 ⇒ 按钮组钉在**行尾**（操作列对齐），文件名/标签留在左边。 */
 .ks-item-btn{flex:none;white-space:nowrap}
+.ks-item-btn:first-of-type{margin-left:auto}
 .ks-item-add{flex:none;opacity:0;white-space:nowrap}
 /* 常驻：业主明确要"名字后面常驻一个 +标签"，所以不是 hover 才出现，只是 hover 时更显眼 */
 .ks-item .ks-item-add{opacity:.35}
@@ -154,26 +182,26 @@ export const KS_STYLES = `
   background:var(--dsw-specific-menu);
   --dsw-elevation-stroke-color:var(--dsw-alias-border-l1);
   box-shadow:var(--dsw-elevation-prominent)}
-.ks-batch-n{font-size:12px;font-weight:600}
+.ks-batch-n{font-size:var(--ks-fs-sm);font-weight:600}
 /* 详情字段：日期这一类 label/value 成对 */
-.ks-fields{display:flex;flex-direction:column;gap:4px}
-.ks-field{display:flex;gap:8px;font-size:12px;line-height:1.5}
+.ks-fields{display:flex;flex-direction:column;gap:var(--ks-space-1)}
+.ks-field{display:flex;gap:var(--ks-space-2);font-size:var(--ks-fs-sm);line-height:1.5}
 .ks-field-k{flex:0 0 62px;color:var(--dsw-alias-label-tertiary)}
 .ks-field-v{flex:1;min-width:0;color:var(--dsw-alias-label-primary);word-break:break-word}
 .ks-field-v-mono{font-family:ui-monospace,Consolas,monospace}
 /* 页内二级 tab（文件 / 标签） */
-.ks-subtabs{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.ks-subtabs{display:flex;align-items:center;gap:var(--ks-space-2);flex-wrap:wrap}
 /* 标签视图：一行一个标签 + 它跨了哪些大文件夹 + 在该标签下提问 */
-.ks-tagrow{display:flex;align-items:flex-start;gap:8px;padding:6px 7px;border-radius:6px}
+.ks-tagrow{display:flex;align-items:flex-start;gap:var(--ks-space-2);padding:var(--ks-space-2);border-radius:var(--ks-r-md)}
 .ks-tagrow:hover{background:var(--dsw-alias-interactive-bg-hover)}
-.ks-tagrow-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
-.ks-tagrow-name{font-size:13px;font-weight:600}
-.ks-tagrow-scope{font-size:11.5px;color:var(--dsw-alias-label-tertiary);word-break:break-word}
+.ks-tagrow-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--ks-space-1)}
+.ks-tagrow-name{font-size:var(--ks-fs-base);font-weight:600}
+.ks-tagrow-scope{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary);word-break:break-word}
 /* 检索语法解析预览：把 + / - 的结果**当场显示出来**，省得用户猜 */
-.ks-parse{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:11.5px;
+.ks-parse{display:flex;gap:var(--ks-space-2);align-items:center;flex-wrap:wrap;font-size:var(--ks-fs-sm);
   color:var(--dsw-alias-label-tertiary)}
 .ks-parse-in{flex:1 1 220px;min-width:180px}
-.ks-empty{padding:14px 8px;text-align:center;font-size:12px;color:var(--dsw-alias-label-tertiary)}
+.ks-empty{padding:var(--ks-space-4) var(--ks-space-2);text-align:center;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
 /* ⚠ corner-shape:round 是**必须的配对**：官方 docs/web-styling.md「Pair "corner-shape: round"
    with every full-round "border-radius" ("50%", "100%", or a pill radius) so circles and capsules
    keep circular arcs」—— 少了它，支持 superellipse 的 Chromium 上圆点会被压成方角。
@@ -182,18 +210,83 @@ export const KS_STYLES = `
   background:var(--dsw-alias-label-caption)}
 
 /* ---------- 能力页（一功能一卡一窗） ---------- */
-.ks-cap-card{display:flex;flex-direction:column;gap:2px;border:.5px solid var(--dsw-alias-border-l2);
-  border-radius:10px;padding:9px 10px;background:var(--dsw-alias-bg-base)}
+.ks-cap-card{display:flex;flex-direction:column;gap:var(--ks-space-1);border:.5px solid var(--dsw-alias-border-l2);
+  border-radius:var(--ks-r-card);padding:var(--ks-space-2) var(--ks-space-3);background:var(--dsw-alias-bg-base)}
 .ks-cap-card:hover{border-color:var(--dsw-alias-border-l4)}
 /* 引擎侧现状：低调一行，别抢卡片的注意力 */
-.ks-cap-engine{font-size:11px;color:var(--dsw-alias-label-caption);margin-bottom:6px}
-.ks-cap-inline{display:flex;flex-direction:column;gap:5px;margin-bottom:4px}
+.ks-cap-engine{font-size:var(--ks-fs-xs);color:var(--dsw-alias-label-caption);margin-bottom:var(--ks-space-1)}
+.ks-cap-inline{display:flex;flex-direction:column;gap:var(--ks-space-1);margin-bottom:var(--ks-space-1)}
 /* 窗里/卡上的一行旋钮：label 左、控件右（多选时可换行） */
-.ks-knobs{display:flex;flex-direction:column;gap:9px}
-.ks-knob-row{display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap}
-.ks-knob-label{flex:0 0 118px;font-size:12px;color:var(--dsw-alias-label-secondary);
+.ks-knobs{display:flex;flex-direction:column;gap:var(--ks-space-2)}
+.ks-knob-row{display:flex;align-items:flex-start;gap:var(--ks-space-2);flex-wrap:wrap}
+.ks-knob-label{flex:0 0 118px;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);
   line-height:24px;overflow:hidden;text-overflow:ellipsis}
-.ks-knob-ctl{flex:1 1 160px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0}
+.ks-knob-ctl{flex:1 1 160px;display:flex;align-items:center;gap:var(--ks-space-2);flex-wrap:wrap;min-width:0}
+
+/* ================================================================================
+   入库面板（KsIngestPanel）—— 第 5 步 5c 把它的**行内样式全量搬到这里**
+   --------------------------------------------------------------------------------
+   搬之前它整页 0 个 var(--dsw-*)/var(--ks-*) + 21 处硬编码色值（#1a7f37 / #9a6700 /
+   #b42318 / #57606a / #0969da / #d0d7de / #eaeef2 / #c4c4c4 / #7f7f7f / #111111 /
+   #e9e9e9 / #ffffff …）⇒ 深浅色/换肤时它是唯一"不跟队"的一页，业主的观感就是
+   "不像同一个产品"。现在颜色一律走宿主活 token，间距/圆角/字号一律走 --ks-*。
+   三色分级（可入库/需人工确认/不建议入库）的**语义没变**，变的只是它取色/取间距的方式。
+   ================================================================================ */
+.ks-ing{display:flex;flex-direction:column;gap:var(--ks-space-2);font-size:var(--ks-fs-base);
+  color:var(--dsw-alias-label-primary);padding:var(--ks-space-1) 0}
+/* 说明段：正文色的次级档，行高比正文松（成段阅读） */
+.ks-ing-note{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);line-height:1.6}
+.ks-ing-toggle{display:flex;align-items:center;gap:var(--ks-space-2);cursor:pointer}
+.ks-ing-toggle input{flex:none;margin:0}
+.ks-ing-row{display:flex;align-items:center;gap:var(--ks-space-2);flex-wrap:wrap}
+.ks-ing-dir{width:62%;min-width:180px}
+.ks-ing-mono{font-family:ui-monospace,Consolas,monospace;font-size:var(--ks-fs-sm);word-break:break-all}
+.ks-ing-num{width:64px}
+.ks-ing-files{display:flex;flex-direction:column;gap:var(--ks-space-1)}
+.ks-ing-size{color:var(--dsw-alias-label-tertiary)}
+/* 三桶总账的一枚胶囊：颜色由 verdictMeta 的内联边界色给（三类语义色走 --dsw-alias-state-*） */
+.ks-ing-buckets{display:flex;align-items:center;flex-wrap:wrap;gap:var(--ks-space-2)}
+.ks-ing-chip{display:inline-flex;align-items:center;gap:var(--ks-space-1);padding:0 var(--ks-space-2);
+  border:var(--ks-sep) solid var(--dsw-alias-border-l2);border-radius:var(--ks-r-pill);
+  font-size:var(--ks-fs-sm);white-space:nowrap}
+/* 单本报告的一行（批量的文件行也用它）：0.5px 分隔线，不是 1px */
+.ks-ing-line{display:flex;gap:var(--ks-space-2);padding:var(--ks-space-2) 0;
+  border-top:var(--ks-sep) solid var(--dsw-alias-border-l1)}
+.ks-ing-line-first{border-top:0}
+.ks-ing-icon{flex:none;min-width:18px}
+.ks-ing-grow{flex:1;min-width:0}
+/* 文件名是个**看起来像链接**的按钮（点了拉该本的完整体检报告） */
+.ks-ing-link{border:0;background:none;padding:0;cursor:pointer;text-align:left;
+  font-size:var(--ks-fs-base);color:var(--dsw-alias-link);font-family:inherit}
+.ks-ing-link:hover{text-decoration:underline}
+/* 报告本体：一块描边卡片，内部字段成组 */
+.ks-ing-card{border:var(--ks-sep) solid var(--dsw-alias-border-l2);border-radius:var(--ks-r-md);
+  padding:var(--ks-space-3);margin-top:var(--ks-space-2);background:var(--dsw-alias-bg-base)}
+.ks-ing-h{font-size:var(--ks-fs-base);font-weight:600}
+.ks-ing-h-sub{font-weight:400;color:var(--dsw-alias-label-secondary);margin-left:var(--ks-space-2)}
+.ks-ing-sub{font-size:var(--ks-fs-sm);font-weight:600;margin-top:var(--ks-space-2)}
+.ks-ing-indent{padding-left:var(--ks-space-3)}
+/* 第三节：异步全量预览（与上面用一条**虚线**分开——它是另一条时间尺度的操作） */
+.ks-ing-async{margin-top:var(--ks-space-4);border-top:var(--ks-sep) dashed var(--dsw-alias-border-l2);
+  padding-top:var(--ks-space-3)}
+.ks-ing-progress{margin-top:var(--ks-space-2);height:8px;border-radius:var(--ks-r-sm);
+  background:var(--dsw-alias-bg-layer-3);overflow:hidden}
+.ks-ing-progress-fill{height:100%;background:var(--dsw-alias-brand-primary);
+  transition:width var(--ks-dur-modal) ease}
+/* 语义色只用在这三处：错误红、需确认黄、成功绿 —— 全部是宿主 token */
+.ks-ing-err{color:var(--dsw-alias-state-error-primary)}
+.ks-ing-warn{color:var(--dsw-alias-state-warn-label)}
+.ks-ing-ok{color:var(--dsw-alias-state-success-primary)}
+/* 三色分级（可入库 / 需人工确认 / 不建议入库）的**唯一取色处**：都由宿主状态色解出。
+   ⚠ 语义一个字没动 —— 5c 之前这三色是 #1a7f37 / #9a6700 / #b42318 三个硬编码值。 */
+.ks-ing-tone-ok{color:var(--dsw-alias-state-success-primary);
+  border-color:var(--dsw-alias-state-success-primary)}
+.ks-ing-tone-warn{color:var(--dsw-alias-state-warn-label);
+  border-color:var(--dsw-alias-state-warn-label)}
+.ks-ing-tone-block{color:var(--dsw-alias-state-error-primary);
+  border-color:var(--dsw-alias-state-error-primary)}
+.ks-ing-tone-muted{color:var(--dsw-alias-label-secondary);
+  border-color:var(--dsw-alias-border-l2)}
 `
 
 /**

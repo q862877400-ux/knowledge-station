@@ -56,6 +56,7 @@ const SUITES = [
   'scripts/smoke-anchor-mark.mjs',
   'scripts/smoke-class-summary.mjs',
   'scripts/smoke-kb-page-render.mjs',
+  'scripts/smoke-ui-scale.mjs',
 ]
 
 const here = dirname(fileURLToPath(import.meta.url))

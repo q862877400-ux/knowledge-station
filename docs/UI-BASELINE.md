@@ -97,8 +97,32 @@ esbuild 不校验命名导出）⇒ 只能靠**运行时**和**读宿主源码**
 `browser4-cli` 打开 `http://127.0.0.1:3080` 拿到的是一个 133 字节的 401 残页（`scripts[].length === 0`、
 `title` 空）；换 `localhost`、补 `Origin`/`Referer`/`Sec-Fetch-*` 头仍 401（`Invoke-WebRequest` 同样 401）。
 ⇒ **上面第 2/3 步对"未登录的外部浏览器"走不通**（业主自己的浏览器是已授权的，我们不是）。
-**替代路径（已跑通）**：把页面**离屏渲染成自包含 HTML**（jsdom + React，样式内联 `KS_STYLES` + 宿主主题 token），
-再用 `browser4-cli goto file:///...` 截图。工具：`var/tmp/ui-render-shot.mjs`（未入库，见下节记录）。
+**替代路径（已跑通，2026-09-20 5c 起**入库**）**：把页面**离屏渲染成自包含 HTML**（jsdom + React，样式内联
+`KS_STYLES` + 宿主主题 token + 宿主 ui-primitives 的**真** CSS Modules），再用无头浏览器
+`--screenshot` 截图。工具已在 `plugin/scripts/`（**不再只躺在 `var/tmp/`**）：
+
+| 工具 | 干什么 | 确切命令 |
+|---|---|---|
+| `plugin/scripts/ui-render-shot.mjs` | 离屏渲染 + 无头截图（+ 量几何，回传 JSON） | `node plugin/scripts/ui-render-shot.mjs --page kb --width 520 --out var/tmp/ui-shots/kb-520.png` |
+| `plugin/scripts/ui-audit.mjs` | 机械口径审计：写死色值 / 字面 `**` / KS_STYLES 尺度分布 | `node plugin/scripts/ui-audit.mjs` |
+| `plugin/scripts/ui-token-check.mjs` | 自包含 HTML 里"引用了但没定义"的 token（颜色静默回退） | `node plugin/scripts/ui-token-check.mjs` |
+| `plugin/scripts/smoke-ui-scale.mjs` | 尺度**棘轮**（离网格 spacing / 现场字号只减不增；在冒烟全链里） | `node plugin/scripts/smoke-ui-scale.mjs` |
+
+- `--page kb|ingest|capabilities|materials`；`--width <px>`；`--interact kb-detail,kb-select,ingest-batch,cap-dialog`；
+  `--theme light|dark`；`--viewport <px>`（固定视口高）；`--harness <DSH 检出>`（或 `$KS_HARNESS_DIR`）。
+- **它回传几何真值**（JSON：`measured`），所以"间距/字号/行高/死白"是**量出来的**，不是看图猜的。
+  5c 就是靠 `.ks-item#rows[].deadGap` 把"标签簇被推到最右、中间空 285~390px"量出来的。
+- ⚠ **已知失真**（照旧，别据此下结论）：**没有宿主外壳**（侧栏/tab 条/宿主字体栈）；
+  **只有浅色一套**（默认 `body{}`，深色要 `--theme dark` 且宿主实际还有别的主题变量）；
+  **KaTeX 字体被抹掉**（`--loader:.woff2=empty`）⇒ 公式渲染不可信；
+  **ingest 的数据是手写 `fetch` 桩**（形状照 `api.ts` 类型，不是真引擎返回）⇒ 那页只能判排版/配色；
+  **全页截图看不出 `position:sticky`**，且 `--screenshot` 在固定视口下也是"整页截图"、
+  **滚动位置不进产物**（5c 实测试过 `window.scrollTo` 后只剩空白）⇒ **批量条位置只能在真宿主页面里看**。
+- **入库前修掉的两个真问题**（5c 的记录，供后人核对"搬进来时改了什么"）：
+  ① 临时版在 JSDoc 注释里写了 `` `.woff*/.ttf` `` —— 那个 `*/` 提前结束了块注释 ⇒ `node` 直接
+     `SyntaxError`（**本次搬入第一次跑就炸**，已改成 `.woff` / `.woff2` / `.ttf`）；
+  ② 中间产物原来写在仓内 `var/tmp/.ui-render-work`，改成**系统临时目录**（`os.tmpdir()`），
+     并给 `--keep` 加了说明 —— 本仓"代码树零运行产物"。
 **这条路径的边界**：它渲的是**我们的组件 + 真样式**，但**没有宿主外壳**（侧栏、tab 条、宿主自己的间距/字体栈），
 所以只用来判"我们自己的块"（字号层级/间距/圆角/分隔线/对齐/溢出），**不能**据此判宿主集成效果。
 
@@ -148,9 +172,61 @@ esbuild 不校验命名导出）⇒ 只能靠**运行时**和**读宿主源码**
 | 1 | **入库面板整页 0 个 `var(--dsw-*)`/`var(--ks-*)`、21 处硬编码色值、按钮 6px 直角方框**（宿主 Button 是 18px 胶囊）⇒ 与 kb 页"不像同一套" | **5c 第一条**：把 `KsIngestPanel` 的颜色/圆角/间距全量换成宿主 token + `--ks-*`。这正是业主抱怨的"不像一个产品" |
 | 2 | **能力页渲染出 4 处字面 `**`**（`**一个功能一张卡**`、`**交互是真的**`、`**不单独开窗**`）——Markdown 粗体标记当纯文本显示了 | **5c 第二条**（真 bug）：改成 `<strong>` 或去掉标记；顺带它的页标题是 inline 14px，而 kb 页走 `.ks-page-title` 20px ⇒ 两页页头**不同级**，统一到页面骨架 |
 | 3 | `KS_STYLES` 机械口径：spacing 字面值 **17 处不在 4px 网格**（2/3/5/6/7/9/10/14px），另有 **11.5px 字号 ×2** 不在受限字号表 | **5c 第三条 + 立一条护栏**：把它们收进 token，并加一个**只减不增**的冒烟（"离网格字面值计数"棘轮），否则下次又会漂回去 |
-| 4 | 行节距**实测 44px**（`.ks-item` h=36 + padding 4/8 + gap 8），而本文档第二节自己写的是"行高 **60** / 左右 padding **16**" | **改文档 + 给窄面板变体**：60px 是 WeKnora **全宽文档列表**的数；我们这里是 **~300px 的侧栏列**，44px 是刻意的密度选择 ⇒ 在第二节写明"窄面板用 `--ks-row-h-narrow:44px`，全宽列表才用 60"，**不留一处"文档说 60、代码是 44"的暗账** |
+| 4 | 行节距**实测 44px**（`.ks-item` h=36 + padding 4/8 + gap 8），而本文档第二节自己写的是"行高 **60** / 左右 padding **16**" | **改文档 + 给窄面板变体**：60px 是 WeKnora **全宽文档列表**的数；我们这里是 **~300px 的侧栏列**，44px 是刻意的密度选择 ⇒ 在第二节写明"窄面板用 `--ks-row-h-narrow:44px`，全宽列表才用 60"，**不留一处"文档说 60、代码是 44"的暗账**。⚠ **5c 复核更正**：离屏渲染**量到的是节距 60px / 行高 52px**，不是 44 —— `.ks-item` 的 `min-height:44px` 只是**下限**，宿主 `Checkbox` 的行高把它撑过了；见下面 5c 记录的实测表 |
 | 5 | kb@1300：`.ks-check{flex:1}` 把标签簇推到最右，doc 名与标签之间空 ~350px；列表区只 205px 高而左轨 705px ⇒ 大片死白、重心偏左 | **5c 第四条**：窄容器里让文件名占据更合理的比例（或给标签簇 `margin-left:auto`+上限），并让左轨/列表的高度关系自然 |
-| 6 | 截图方式的假象（**不是** UI 缺陷）：全页截图（窗口高=内容高）看不出 `position:sticky`，批量条于是落在列表末尾 | 已记：判"批量条位置"必须用**视口高固定的截图**，别用全页截图下结论 |
+| 6 | 截图方式的假象（**不是** UI 缺陷）：全页截图（窗口高=内容高）看不出 `position:sticky`，批量条于是落在列表末尾 | **5c 更正（我原来写"用视口高固定的截图"是错的）**：无头 `--screenshot` 在固定视口下**仍是整页截图**，`window.scrollTo` 也不进产物（实测只剩空白）⇒ **批量条位置只能在真宿主页面里看**；`--viewport` 只用来判"定高下会不会截断/首屏看到什么" |
+
+### 5c 落地记录（2026-09-20；**照上表逐条闭环，含两条就地更正**）
+- **改了什么**（4 个源文件 + 2 个冒烟 + 1 份本文档）：
+  ① `plugin/client/KsIngestPanel.tsx` **整页重写取色/取间距**：21 处硬编码色值 → 0，行内样式 → `ks-ing-*`
+     类（色全走 `var(--dsw-alias-*)`，三色分级走 `--dsw-alias-state-{success,warn,error}-*`），
+     4 个动作按钮换成宿主 `Button`（`primary`/`outline` + `size="sm"` = 28px/**14px 圆角胶囊**）。
+     ⚠ 三色分级（可入库/需人工确认/不建议入库）**语义一字未动**，只换了取色方式。
+     连带把 `scripts/smoke-client-entry.mjs` 的"主题债务棘轮"基线 `KsIngestPanel.tsx: 22 → 0`。
+  ② `plugin/client/KsCapabilityPage.tsx`：4 处字面 `**` → `<strong>`（强调保留），页头换成
+     `.ks-page-head/.ks-page-title/.ks-page-sub/.ks-page-rule`（**与知识库页同一套**；副标题是新写的
+     一句，否则骨架少一格）。`KsCapabilitiesPage`（复数）**不存在** —— `grep KsCapabilit` 只有单数那个文件。
+  ③ `plugin/client/ksGuideStyles.ts`：spacing 离网格 **17 → 0**、现场字号 **13 → 0**；
+     新增 `--ks-fs-2xs:10px`（**唯一**不在受限表里的字号，理由写在 token 注释：徽章/树箭头/分子分母专档）；
+     `11.5px ×2` **没有**为它开 token，直接收进 `--ks-fs-sm`（理由写在 `SHRINK_LOG`）。
+     新增 `plugin/scripts/smoke-ui-scale.mjs`（棘轮）并加进 `smoke-all.mjs` 的 SUITES。
+  ④ `plugin/client/KsKnowledgePage.tsx`：顺带修掉 **5 处**同类字面 `**`（真 bug，同一页同一种病）。
+  ⑤ 截图三件套入库到 `plugin/scripts/`：`ui-render-shot.mjs`（+ 量几何）、`ui-audit.mjs`、`ui-token-check.mjs`。
+- **截图（`var/tmp/ui-shots/`，不入库）**：`5c-kb-1300-after.png`、`5c-kb-520-after.png`、
+  `5c-kb-520-batch-after.png`、`5c-ingest-520-after.png`、`5c-capabilities-900-after.png`。
+- **我（代理）自己看图 + 量数看到的事实**：
+  1. ✅ **kb@1300**：页标题 20px 粗体 / 副标题 12px 灰 / 0.5px 分隔线层级清楚；黄条里
+     `但交互是真的` 是**粗体**（不再是 `**`）；4 行文件名 + `现行/消防/重点` 徽章紧挨着，
+     `＋标签`（淡）与 `详情` 在右侧一列；右侧详情卡显示三个日期 + 标签，页面**没有竖排折字**。
+  2. ✅ **死白量（JSON 量出来的，不是看着顺眼）**：kb@1300 行宽 820px 下 deadGap
+     **348/390/285/309 → 8/8/8/8**；kb@520 行宽 496px 下也是 **8px**。左边轨 705px 高、列表区
+     273px 高的关系**没动**（本次只改行内布局，克制）。
+  3. ✅ **kb@520**：文件名截断成 `GB 50016-2014 建筑设计防…`，徽章紧跟其后，按钮在行尾；
+     三张「我建的」卡片、两棵树、批量条都成体系（批量条 496×68，圆角 10，四按钮 + 一行说明）。
+  4. ✅ **ingest@520**：正文灰字 → 目录行（等宽输入 + 「刷新列表」**白胶囊**）→ PDF 清单（名字 + 灰尺寸）
+     → 「开始预览」**深色胶囊**（宿主 primary）→ 三色胶囊总账（✅3/⚠️1/❌1）→ 每行文件（✅/⚠️/❌ 图标
+     按语义着色）→ 虚线分出的「全量预览（异步，万级可用）」段；**整页没有一个直角方框**。
+  5. ✅ **capabilities@900**：页标题 20px + 副标题 + 分隔线（与 kb 页同级）；黄条里两处粗体正常；
+     内联卡上的「（旋钮少于 3 个：按约定**不单独开窗**，就地设置）」里"不单独开窗"是粗体、无星号；
+     卡片圆角 10 / 内边距 8×12；8 张卡 3+3+2 排布。
+- **没做到/留给下一轮**（诚实边界）：
+  1. **同一类"字面 `**`"在其他面板还有约 50 处**（`ui-audit.mjs` B 段的机械口径，**含 JSX 注释块的噪声**，
+     所以是上界）：`KsMaterialsPanel.tsx` 37、`KsEvidenceTab.tsx` 9、`KsChannelsPanel.tsx` 2、
+     `KsSettingsSection.tsx` 2（都在**会上屏的 JSX 文本/template string** 里，如
+     `已登记「x」（… 来源层级 **T3=仅线索**）`、`（需复算**不代表已经坏了**。）`）。
+     本轮的 (b) 只清了**能力页**，顺手清了**知识库页**；其余属于"同一种病、别处也犯"，
+     **未做**（不在本轮任务书范围内）—— 要么下一轮按同一口径清完，要么给 `ui-audit` 的 B 段加棘轮。
+  2. **行节距实测 60px，而 `--ks-row-h-narrow` 是 44px**（见上表第 4 行的更正）：
+     44px 只是 `.ks-item` 的 `min-height`**下限**，宿主 `Checkbox` 的行高把它撑到 52px（节距 60px）。
+     ⇒ 文档与代码的"暗账"**换了个地方**（44 是下限、实际 60），本轮只是**量清并写下来**，
+     **没有**改行高（改它要动宿主原语的行高，属于重做密度，不是 5c 的范围）。
+  3. **能力页 900px 下第一组 4 张卡排成 3+1**、末张孤零零一行（`minmax(230px,1fr)` + 12px gap ⇒
+     900px 只容得下 3 列）；**未做**（改列宽/断点是布局调整，且有 A/B 两种口味，留给人拍）。
+  4. **批量条 `position:sticky` 在本渲染链里验不了**（见上表第 6 行的更正）：`--viewport` 也救不了。
+     ⇒ "批量条钉在底部"目前**只有 5a 的一次真机观察**，没有可复现的离线证据。
+  5. **换肤/深色**只跑了 `--theme light`（`--theme dark` 没跑）⇒ "颜色跟着 token 走"是**机制上成立** +
+     浅色实测，**没有**深色截图证据。
+
 
 ⚠ 子代理的渲染链**已知失真**（写在这里，免得以后据此乱下结论）：无宿主外壳（侧栏/tab 条/宿主字体栈），
 只截浅色一套，KaTeX 字体被抹掉（公式渲染不可信），jsdom 全局是它的桩。

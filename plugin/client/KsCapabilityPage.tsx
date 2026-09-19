@@ -250,10 +250,10 @@ function CapabilityCard({ cap, onOpen, open, setKnobValue, values }: {
   return (
     <div className="ks-cap-card">
       <div className="ks-kb-row">
-        <strong className="ks-kb-grow" style={{ fontSize: 13 }}>{cap.name}</strong>
+        <strong className="ks-kb-grow" style={{ fontSize: 'var(--ks-fs-base)' }}>{cap.name}</strong>
         <Tag tone={cap.group === 'experimental' ? 'warning' : 'neutral'}>{cap.knobs.length} 个旋钮</Tag>
       </div>
-      <div className="ks-kb-hint" style={{ margin: '4px 0 6px' }}>{cap.desc}</div>
+      <div className="ks-kb-hint" style={{ margin: '4px 0 8px' }}>{cap.desc}</div>
       <div className="ks-cap-engine">{cap.engine}</div>
       {inline ? (
         <>
@@ -263,7 +263,9 @@ function CapabilityCard({ cap, onOpen, open, setKnobValue, values }: {
               <KnobControl key={k.id} knob={k} value={values[k.id]} onChange={(next) => { setKnobValue(k.id, next) }} />
             ))}
           </div>
-          <div className="ks-kb-hint">（旋钮少于 3 个：按约定**不单独开窗**，就地设置）</div>
+          {/* 5c：原为字面 **不单独开窗**（Markdown 粗体标记被当纯文本画出来）⇒ 改 <strong>，
+              强调语义保留。同页另三处同理（页首黄条里的两处 + 卡上的这一处）。 */}
+          <div className="ks-kb-hint">（旋钮少于 3 个：按约定<strong>不单独开窗</strong>，就地设置）</div>
         </>
       ) : (
         <Button variant="outline" size="sm" onClick={() => { onOpen(cap.id) }} aria-expanded={open}>
@@ -306,14 +308,26 @@ export function KsCapabilityPage(): ReactNode {
 
   return (
     <div className="ks-kb">
+      {/* 页面骨架：**与知识库页同一套**（.ks-page-head/.ks-page-title/.ks-page-sub/.ks-page-rule）。
+          5c 之前这里是「inline 14px 粗体」的一行 ⇒ 两个页面的页头**不同级**：知识库页 20px、
+          能力页 14px，用户在 tab 间切时会觉得"小的那个是页里的一块"而不是一页。
+          ⚠ 副标题是 5c **新写**的一句（原来没有）：骨架要求"标题 + 一行副标题 + 分隔线"，
+          少了副标题那一格，分隔线就贴在标题底下、层级又没了。文案只描述这一页是什么。 */}
+      <header className="ks-page-head">
+        <div className="ks-page-title">能力</div>
+        <div className="ks-page-sub">
+          一项能力一张卡：旋钮少于 3 个的就地内联，够 3 个的点开它自己的设置窗
+        </div>
+      </header>
+      <div className="ks-page-rule" />
+
       <div className="ks-kb-banner">
         <strong>UI 先行：旋钮是占位，后端接口未接。</strong>
-        这一页的结构是业主指定的：**一个功能一张卡，点开就是它自己的全部旋钮**，
-        而不是全部塞进设置里。但**交互是真的**（开关能拨、选项能选、窗能开），可以直接点着体验。
+        这一页的结构是业主指定的：<strong>一个功能一张卡，点开就是它自己的全部旋钮</strong>，
+        而不是全部塞进设置里。但<strong>交互是真的</strong>（开关能拨、选项能选、窗能开），可以直接点着体验。
       </div>
 
       <div className="ks-kb-row">
-        <strong className="ks-kb-grow" style={{ fontSize: 14 }}>能力</strong>
         <span className="ks-kb-hint">{CAPABILITIES.length} 项</span>
       </div>
 

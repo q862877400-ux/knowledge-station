@@ -23,11 +23,24 @@
  *   - **不动文件**：不移动/复制/改名（判为 ❌ 的文件只标记候选，移动是正式批量入库的事）。
  *
  * 信任模型同 KsBookmarksTab：只跟同源 `/ks/*` 说话，token 由 host 持有。
+ *
+ * ## 第 5 步 5c：整页的取色/取间距方式换掉了（**不是**换语义）
+ * 改前它整页 **0 个 `var(--dsw-*)` / `var(--ks-*)`、21 处硬编码色值**，按钮是 `border-radius:6px`
+ * 的直角方框 —— 而宿主 `Button` 是 18px 胶囊 ⇒ 在设置栏目里它**看起来不像同一个产品**。
+ * 现在：
+ *   · 颜色全部走宿主活 token（`var(--dsw-alias-*)`，深浅色/换肤自动跟随）；语义色只用
+ *     `--dsw-alias-state-{success,warn,error}-*`，**没有一个自己编的色值**；
+ *   · 间距/圆角/字号全部走 `--ks-*`（第 5 步立的尺度 token；样式类在 `ksGuideStyles.ts`）；
+ *   · 三个动作按钮换成宿主 `Button`（`primary`/`outline` 两档 + `size="sm"`）；
+ *   · ⚠ **三色分级（可入库 / 需人工确认 / 不建议入库）的语义一个字没动** —— 换的只是它
+ *     怎么取色（`VERDICT_META[].tone` 现在是类名，不是十六进制）。
  */
 
 import * as React from 'react'
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { Button } from '@deepseek-ai/dsh-client-ui-primitives'
 
+import { ensureKsStyles } from './ksGuideStyles'
 import {
   abortIngestJob,
   fetchIngestBatch,
@@ -54,38 +67,18 @@ type LoadState =
   | { status: 'ready' }
   | { status: 'error'; message: string }
 
-const VERDICT_META: Record<string, { icon: string; label: string; color: string }> = {
-  ok: { icon: '✅', label: '可入库', color: '#1a7f37' },
-  warn: { icon: '⚠️', label: '需人工确认', color: '#9a6700' },
-  block: { icon: '❌', label: '不建议入库', color: '#b42318' },
+/**
+ * 三色分级（**语义不许换**）：`tone` 决定走哪一族宿主状态色，
+ * 真正的色值在 `ksGuideStyles.ts` 的 `.ks-ing-tone-*` 里（都是 `--dsw-alias-state-*`）。
+ */
+const VERDICT_META: Record<string, { icon: string; label: string; tone: string }> = {
+  ok: { icon: '✅', label: '可入库', tone: 'ok' },
+  warn: { icon: '⚠️', label: '需人工确认', tone: 'warn' },
+  block: { icon: '❌', label: '不建议入库', tone: 'block' },
 }
 
-function verdictMeta(v: string): { icon: string; label: string; color: string } {
-  return VERDICT_META[v] ?? { icon: '❔', label: v || '未知', color: '#57606a' }
-}
-
-function btnStyle(disabled: boolean): React.CSSProperties {
-  return {
-    padding: '3px 12px', borderRadius: 6, fontSize: 12,
-    border: `1px solid ${disabled ? '#c4c4c4' : '#7f7f7f'}`,
-    background: disabled ? '#e9e9e9' : '#ffffff',
-    color: disabled ? '#5a5a5a' : '#111111',
-    cursor: disabled ? 'default' : 'pointer',
-  }
-}
-
-const chipStyle: React.CSSProperties = {
-  display: 'inline-block', padding: '1px 8px', borderRadius: 999,
-  border: '1px solid #d0d7de', fontSize: 12, marginRight: 6,
-}
-
-const monoStyle: React.CSSProperties = {
-  fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace',
-  fontSize: 12, wordBreak: 'break-all',
-}
-
-const noteStyle: React.CSSProperties = {
-  fontSize: 12, color: '#57606a', lineHeight: 1.6,
+function verdictMeta(v: string): { icon: string; label: string; tone: string } {
+  return VERDICT_META[v] ?? { icon: '❔', label: v || '未知', tone: 'muted' }
 }
 
 function fmtSize(n: number): string {
@@ -99,16 +92,16 @@ function fmtSize(n: number): string {
 function BucketBar(props: { batch: KsIngestBatch }): JSX.Element {
   const { batch } = props
   return (
-    <div style={{ margin: '8px 0' }}>
+    <div className="ks-ing-buckets">
       {(['ok', 'warn', 'block'] as const).map((k) => {
         const meta = verdictMeta(k)
         return (
-          <span key={k} style={{ ...chipStyle, borderColor: meta.color }}>
+          <span key={k} className={`ks-ing-chip ks-ing-tone-${meta.tone}`}>
             {meta.icon} {meta.label} <b>{batch.buckets[k] ?? 0}</b>
           </span>
         )
       })}
-      <span style={{ ...noteStyle, marginLeft: 4 }}>
+      <span className="ks-ing-note">
         共评估 {batch.evaluated} 本
         {batch.unprocessed > 0 ? `（未处理 ${batch.unprocessed} 本）` : ''}
         {batch.truncated ? '（候选超出上限，已截断）' : ''}
@@ -127,15 +120,15 @@ function ReportDetail(props: { report: KsIngestReport }): JSX.Element {
   const lay = r.layout ?? ({} as KsIngestReport['layout'])
   const dist = r.knowledge_type_distribution ?? {}
   return (
-    <div style={{ border: '1px solid #d0d7de', borderRadius: 6, padding: 10, marginTop: 8 }}>
-      <div style={{ fontSize: 13, fontWeight: 600 }}>
-        {meta.icon} {meta.label} · {r.grade} 级 · {r.status === 'ok' ? '解析成功' : '解析失败'}
-        <span style={{ ...noteStyle, fontWeight: 400, marginLeft: 8 }}>{r.one_line ?? ''}</span>
+    <div className="ks-ing-card">
+      <div className="ks-ing-h">
+        <span className={`ks-ing-tone-${meta.tone}`}>{meta.icon}</span> {meta.label} · {r.grade} 级 · {r.status === 'ok' ? '解析成功' : '解析失败'}
+        <span className="ks-ing-h-sub">{r.one_line ?? ''}</span>
       </div>
-      <div style={{ ...noteStyle, marginTop: 6 }}>
+      <div className="ks-ing-note">
         {r.verdict_reasons.map((x) => `[${x.code}] ${x.reason}`).join(' · ')}
       </div>
-      <div style={{ ...noteStyle, marginTop: 6 }}>
+      <div className="ks-ing-note">
         页数 {r.pages} · 条款 {r.total_clauses}
         {r.clauses_dropped_tiny > 0 ? `（丢弃碎片 ${r.clauses_dropped_tiny}）` : ''}
         {' · '}识别置信度 {r.doc_confidence}
@@ -150,51 +143,51 @@ function ReportDetail(props: { report: KsIngestReport }): JSX.Element {
             该文档是否需要深度解析是另一回事。措辞要如实反映这一点。 */}
         {r.egress === 'none'
           ? <span>不外发（未启用云深度通道）</span>
-          : <span style={{ color: '#9a6700' }}>
+          : <span className="ks-ing-warn">
               已允许云深度通道——扫描件会上传云端（本次是否真的上传取决于该文档有无文本层；
               精确记录见外发审计）
             </span>}
       </div>
-      <div style={{ ...noteStyle, marginTop: 6 }}>
+      <div className="ks-ing-note">
         标准号猜测 {r.standard_no_guess?.value ?? '（未识别）'}
         {' · '}名称 {r.standard_name_guess?.value ?? '（未识别）'}
         {' · '}分型 {Object.entries(dist).map(([k, v]) => `${k}${v}`).join(' ') || '-'}
       </div>
       {r.duplicate?.kind && r.duplicate.kind !== 'none' ? (
-        <div style={{ ...noteStyle, marginTop: 6, color: '#9a6700' }}>
+        <div className="ks-ing-note ks-ing-warn">
           库内重复（{r.duplicate.kind}）：{r.duplicate.message ?? ''}
         </div>
       ) : null}
       {r.head_samples?.length ? (
-        <div style={{ marginTop: 8 }}>
-          <div style={{ fontSize: 12, fontWeight: 600 }}>前 {r.head_samples.length} 条样例</div>
+        <div>
+          <div className="ks-ing-sub">前 {r.head_samples.length} 条样例</div>
           {r.head_samples.map((s) => (
-            <div key={`h${s.ordinal}`} style={{ ...noteStyle, marginTop: 2 }}>
-              <span style={monoStyle}>{s.number}</span>
+            <div key={`h${s.ordinal}`} className="ks-ing-note">
+              <span className="ks-ing-mono">{s.number}</span>
               {' · '}{s.knowledge_type}（{s.type_confidence ?? '-'}）
               {s.modality ? ` · 模态 ${s.modality}` : ''}
               {' · '}置信 {s.ocr_confidence}
               {s.suspicious ? ' · 可疑' : ''}
-              <div style={{ paddingLeft: 12 }}>{s.head}</div>
+              <div className="ks-ing-indent">{s.head}</div>
             </div>
           ))}
         </div>
       ) : null}
       {r.ocr_suspects?.length ? (
-        <div style={{ marginTop: 8 }}>
-          <div style={{ fontSize: 12, fontWeight: 600, color: '#9a6700' }}>
+        <div>
+          <div className="ks-ing-sub ks-ing-warn">
             可疑条款 {r.ocr_suspects.length}{r.ocr_suspects_truncated ? '（已截断）' : ''}
           </div>
           {r.ocr_suspects.slice(0, 8).map((s) => (
-            <div key={`s${s.ordinal}`} style={{ ...noteStyle, marginTop: 2 }}>
-              <span style={monoStyle}>{s.number}</span>
+            <div key={`s${s.ordinal}`} className="ks-ing-note">
+              <span className="ks-ing-mono">{s.number}</span>
               {' · '}{s.ocr_confidence} · {s.reasons.join('/')}
             </div>
           ))}
         </div>
       ) : null}
       {r.collected_signals && Object.keys(r.collected_signals).length > 0 ? (
-        <div style={{ ...noteStyle, marginTop: 8 }}>
+        <div className="ks-ing-note">
           体检标签：{Object.entries(r.collected_signals)
             .filter(([k]) => k !== 'table_anomaly_clauses')
             .map(([k, v]) => `${k}×${String(v)}`).join(' · ') || '（无）'}
@@ -205,6 +198,7 @@ function ReportDetail(props: { report: KsIngestReport }): JSX.Element {
 }
 
 export function KsIngestPanel(props: KsIngestPanelProps): JSX.Element {
+  ensureKsStyles()
   const { visible } = props
   const abortRef = useRef<AbortController | null>(null)
   const [dir, setDir] = useState<string>('')
@@ -344,18 +338,18 @@ export function KsIngestPanel(props: KsIngestPanelProps): JSX.Element {
     || detailState.status === 'loading'
 
   return (
-    <div style={{ padding: '4px 0 2px', fontSize: 13 }}>
-      <div style={noteStyle}>
+    <div className="ks-ing">
+      <div className="ks-ing-note">
         只读预览：<b>不写库、不移动文件、默认不外发</b>。
         扫描件默认只报"无文本层"，<b>不会</b>偷偷上传到云解析；确需云深度解析时，
-        勾选下面的<b>「允许云深度解析」</b>显式开启（会外发，报告里会如实标注 `egress`）。
+        勾选下面的<b>「允许云深度解析」</b>显式开启（会外发，报告里会如实标注 egress）。
         正式入库（确认后原子写入）是下一里程碑，此页不提供。
       </div>
 
       {/* 2026-09-17 独立复核 F1：原先桥这一层把 allow_deep 直接掐掉，
           引擎解开的云深度通道在界面上**点不到**。现补上开关，**默认关闭**，
           并把"会外发"写在标签里——不给开关和偷偷给开关都不对，要的是明说的开关。 */}
-      <label style={{ ...noteStyle, display: 'flex', alignItems: 'center', gap: 6, marginTop: 6, cursor: 'pointer' }}>
+      <label className="ks-ing-note ks-ing-toggle">
         <input
           type="checkbox"
           checked={allowDeep}
@@ -368,70 +362,65 @@ export function KsIngestPanel(props: KsIngestPanelProps): JSX.Element {
         </span>
       </label>
 
-      <div style={{ marginTop: 10 }}>
-        <span style={noteStyle}>待入库目录：</span>
+      <div className="ks-ing-row">
+        <span className="ks-ing-note">待入库目录：</span>
         <input
+          className="ks-ing-mono ks-ing-dir"
           value={dirInput}
           onChange={(e) => setDirInput(e.target.value)}
           spellCheck={false}
-          style={{ ...monoStyle, width: '62%', padding: '2px 6px', marginRight: 6 }}
           aria-label="待入库目录"
         />
-        <button
-          type="button"
-          style={btnStyle(busy)}
-          disabled={busy}
-          onClick={() => void loadInbox(dirInput)}
-        >
+        <Button variant="outline" size="sm" disabled={busy} onClick={() => void loadInbox(dirInput)}>
           刷新列表
-        </button>
+        </Button>
       </div>
 
-      <div style={{ ...noteStyle, marginTop: 8 }}>
+      <div className="ks-ing-note">
         该目录下 PDF：<b>{files.length}</b> 个
         {degraded === 'engine_unavailable' ? '（引擎未启动：以下为 host 直接列目录的结果）' : ''}
       </div>
       {files.length === 0 ? (
-        <div style={{ ...noteStyle, marginTop: 4 }}>
+        <div className="ks-ing-note">
           把要入库的 PDF 放进上面的目录，然后点「刷新列表」。
         </div>
       ) : (
-        <div style={{ ...noteStyle, marginTop: 4 }}>
+        <div className="ks-ing-files">
           {files.slice(0, 12).map((f) => (
-            <div key={f.path} style={{ ...monoStyle, marginTop: 2 }}>
-              {f.file_name} <span style={{ color: '#57606a' }}>{fmtSize(f.size)}</span>
+            <div key={f.path} className="ks-ing-mono">
+              {f.file_name} <span className="ks-ing-size">{fmtSize(f.size)}</span>
             </div>
           ))}
-          {files.length > 12 ? <div>…还有 {files.length - 12} 个</div> : null}
+          {files.length > 12 ? <div className="ks-ing-note">…还有 {files.length - 12} 个</div> : null}
         </div>
       )}
 
-      <div style={{ marginTop: 12 }}>
-        <span style={noteStyle}>抽样（本）</span>
+      <div className="ks-ing-row">
+        <span className="ks-ing-note">抽样（本）</span>
         <input
+          className="ks-ing-num"
           type="number"
           min={0}
           value={sample}
           onChange={(e) => setSample(Math.max(0, Number(e.target.value) || 0))}
-          style={{ width: 64, padding: '2px 6px', margin: '0 6px' }}
           aria-label="抽样本数"
         />
-        <span style={{ ...noteStyle, marginRight: 8 }}>0 = 不抽样（全部，上限 200）</span>
-        <button
-          type="button"
-          style={btnStyle(busy || files.length === 0)}
+        <span className="ks-ing-note">0 = 不抽样（全部，上限 200）</span>
+        <Button
+          variant="primary"
+          size="sm"
           disabled={busy || files.length === 0}
           onClick={() => void startBatch()}
         >
           开始预览
-        </button>
+        </Button>
         {batchState.status === 'loading' ? (
-          <span style={{ ...noteStyle, marginLeft: 8 }}>预览中…（解析 + 体检，扫描件可能要几秒）</span>
+          <span className="ks-ing-note">预览中…（解析 + 体检，扫描件可能要几秒）</span>
         ) : null}
       </div>
 
       {batchState.status === 'error' ? (
-        <div style={{ ...noteStyle, marginTop: 8, color: '#b42318' }}>
+        <div className="ks-ing-note ks-ing-err">
           预览失败：{batchState.message}
         </div>
       ) : null}
@@ -439,29 +428,23 @@ export function KsIngestPanel(props: KsIngestPanelProps): JSX.Element {
       {batch ? (
         <>
           <BucketBar batch={batch} />
-          <div style={{ ...noteStyle, marginBottom: 4 }}>
+          <div className="ks-ing-note">
             点文件名看该本的完整体检报告（分级/裁决理由/样例/可疑条款/查重）。
           </div>
-          {batch.files.map((row) => {
+          {batch.files.map((row, i) => {
             const meta = verdictMeta(row.verdict)
             return (
-              <div
-                key={row.path}
-                style={{ borderTop: '1px solid #eaeef2', padding: '6px 0', display: 'flex', gap: 8 }}
-              >
-                <span style={{ color: meta.color, minWidth: 18 }}>{meta.icon}</span>
-                <div style={{ flex: 1 }}>
+              <div key={row.path} className={i === 0 ? 'ks-ing-line ks-ing-line-first' : 'ks-ing-line'}>
+                <span className={`ks-ing-icon ks-ing-tone-${meta.tone}`}>{meta.icon}</span>
+                <div className="ks-ing-grow">
                   <button
                     type="button"
+                    className="ks-ing-link"
                     onClick={() => void openDetail(row)}
-                    style={{
-                      border: 'none', background: 'none', padding: 0, cursor: 'pointer',
-                      fontSize: 13, color: '#0969da', textAlign: 'left',
-                    }}
                   >
                     {row.file_name}
                   </button>
-                  <div style={noteStyle}>
+                  <div className="ks-ing-note">
                     {row.grade} 级 · {row.pages} 页 · {row.total_clauses} 条
                     {' · '}{row.reasons.join('/') || 'OK'}
                     {row.error ? ` · ${row.error}` : ''}
@@ -474,37 +457,33 @@ export function KsIngestPanel(props: KsIngestPanelProps): JSX.Element {
       ) : null}
 
       {/* ---------------- 异步全量预览（万级，L239） ---------------- */}
-      <div style={{ marginTop: 14, borderTop: '1px dashed #d0d7de', paddingTop: 10 }}>
-        <div style={{ fontWeight: 600, marginBottom: 4 }}>全量预览（异步，万级可用）</div>
-        <div style={noteStyle}>
+      <div className="ks-ing-async">
+        <div className="ks-ing-sub">全量预览（异步，万级可用）</div>
+        <div className="ks-ing-note">
           上面的同步预览单请求上限 200 本；这里走引擎后台任务，几万本也能跑——
           关掉浏览器 host 也会继续推进，回来时自动恢复进度显示。
         </div>
-        <div style={{ marginTop: 8 }}>
-          <button
-            type="button"
-            style={btnStyle(job !== null && (job.status === 'running' || job.status === 'pending'))}
+        <div className="ks-ing-row">
+          <Button
+            variant="outline"
+            size="sm"
             disabled={job !== null && (job.status === 'running' || job.status === 'pending')}
             onClick={() => void startFullJob()}
           >
             对整个目录发起全量预览
-          </button>
+          </Button>
           {job && (job.status === 'running' || job.status === 'pending') ? (
-            <button
-              type="button"
-              style={{ ...btnStyle(false), marginLeft: 8 }}
-              onClick={() => void abortFullJob()}
-            >
+            <Button variant="ghost" size="sm" onClick={() => void abortFullJob()}>
               中断
-            </button>
+            </Button>
           ) : null}
         </div>
         {jobError ? (
-          <div style={{ ...noteStyle, marginTop: 6, color: '#b42318' }}>任务失败：{jobError}</div>
+          <div className="ks-ing-note ks-ing-err">任务失败：{jobError}</div>
         ) : null}
         {job ? (
-          <div style={{ marginTop: 8 }}>
-            <div style={noteStyle}>
+          <div>
+            <div className="ks-ing-note">
               状态：<b>{job.status}</b>
               {' · '}已体检 {job.done}/{job.total}
               {job.stale === true ? ' · （引擎不可达：显示 host 镜像快照）' : ''}
@@ -512,24 +491,18 @@ export function KsIngestPanel(props: KsIngestPanelProps): JSX.Element {
             </div>
             {job.total > 0 ? (
               <div
+                className="ks-ing-progress"
                 role="progressbar"
                 aria-label="全量预览进度"
-                style={{
-                  marginTop: 6, height: 8, borderRadius: 4,
-                  background: '#eaeef2', overflow: 'hidden',
-                }}
               >
                 <div
-                  style={{
-                    width: `${Math.min(100, Math.round((job.done / job.total) * 100))}%`,
-                    height: '100%', background: '#0969da',
-                    transition: 'width 0.4s ease',
-                  }}
+                  className="ks-ing-progress-fill"
+                  style={{ width: `${Math.min(100, Math.round((job.done / job.total) * 100))}%` }}
                 />
               </div>
             ) : null}
             {(job.status === 'done' || job.status === 'aborted' || job.status === 'failed') ? (
-              <div style={{ ...noteStyle, marginTop: 6 }}>
+              <div className="ks-ing-note">
                 三桶总账：✅ 可入库 <b>{job.buckets?.ok ?? 0}</b>
                 {' · '}⚠️ 需处理 <b>{job.buckets?.warn ?? 0}</b>
                 {' · '}❌ 阻断 <b>{job.buckets?.block ?? 0}</b>
@@ -537,18 +510,18 @@ export function KsIngestPanel(props: KsIngestPanelProps): JSX.Element {
               </div>
             ) : null}
             {job.rows && job.rows.length > 0 ? (
-              <div style={{ marginTop: 6 }}>
+              <div>
                 {job.rows.slice(0, 10).map((row) => {
                   const meta = verdictMeta(row.verdict)
                   return (
-                    <div key={row.path} style={{ ...noteStyle, marginTop: 2 }}>
-                      <span style={{ color: meta.color }}>{meta.icon}</span>
+                    <div key={row.path} className="ks-ing-note">
+                      <span className={`ks-ing-tone-${meta.tone}`}>{meta.icon}</span>
                       {' '}{row.file_name} — {row.one_line || `${row.grade} 级 · ${row.pages} 页`}
                     </div>
                   )
                 })}
                 {job.rows_count !== undefined && job.rows_count > 10
-                  ? <div style={noteStyle}>…共 {job.rows_count} 行（前 10 行预览）</div>
+                  ? <div className="ks-ing-note">…共 {job.rows_count} 行（前 10 行预览）</div>
                   : null}
               </div>
             ) : null}
@@ -557,10 +530,10 @@ export function KsIngestPanel(props: KsIngestPanelProps): JSX.Element {
       </div>
 
       {detailState.status === 'loading' ? (
-        <div style={{ ...noteStyle, marginTop: 8 }}>加载 {detailName} 的报告…</div>
+        <div className="ks-ing-note">加载 {detailName} 的报告…</div>
       ) : null}
       {detailState.status === 'error' ? (
-        <div style={{ ...noteStyle, marginTop: 8, color: '#b42318' }}>
+        <div className="ks-ing-note ks-ing-err">
           {detailName} 报告失败：{detailState.message}
         </div>
       ) : null}

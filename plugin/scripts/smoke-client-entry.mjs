@@ -861,12 +861,17 @@ for (const [what, marker] of SPEC_STRINGS) {
 //   ③ 这些老面板**本来就在交互重设计里等着被重建**（见 `docs/INTERACTION-DESIGN.md`）；
 //   ④ 最要紧的：**我看不到像素**，改错了没人能立刻发现。
 // ⇒ 所以这一轮只做**棘轮**：数值不许涨。要减就顺手减（重建面板时自然就没了）。
+//
+// ⚠ **2026-09-20（第 5 步 5c）已把 KsIngestPanel.tsx 22 → 0**：那一页整页的行内样式搬进
+//   `ksGuideStyles.ts` 的 `.ks-ing-*` 类，颜色全走 `var(--dsw-alias-*)`（含三色分级的
+//   `--dsw-alias-state-{success,warn,error}-*`）。棘轮**只减不增** ⇒ 基线跟着落到 0，
+//   若它将来冒出哪怕 1 行写死色，这条会立刻红（而不是"还不到 22，先放过"）。
 const THEME_DEBT_BASELINE = {
   'KsBookmarksTab.tsx': 3,
   'KsChannelsPanel.tsx': 3,
   'KsEvidenceTab.tsx': 12,
   'KsFilesTab.tsx': 1,
-  'KsIngestPanel.tsx': 22,
+  'KsIngestPanel.tsx': 0,
   'KsMaterialsPanel.tsx': 5,
   'KsReportPanel.tsx': 16,
   'KsScopeChip.tsx': 5,

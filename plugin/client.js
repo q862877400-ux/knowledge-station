@@ -32205,12 +32205,21 @@ var KS_STYLES = `
      \u82E5\u54EA\u5929\u8981\u6536\u7A84\u4F5C\u7528\u57DF\uFF0C\u628A\u5B83\u4EEC\u632A\u5230\u6211\u4EEC\u5404\u9762\u677F\u6839\u7C7B\u4E0A\u5373\u53EF\uFF08\u89C4\u5219\u91CC\u7528\u7684 \`var(--ks-*)\` \u4E0D\u7528\u6539\uFF09\u3002
    =================================================================================== */
 :root{
-  /* \u95F4\u8DDD\uFF1A4px \u7F51\u683C\uFF084/8/12/16/20/24/32/40\uFF09 */
+  /* \u95F4\u8DDD\uFF1A4px \u7F51\u683C\uFF084/8/12/16/20/24/32/40\uFF09\u3002
+     \u26A0 \u6CA1\u6709 2/3/6/7/9/10/14px \u8FD9\u4E9B\u6863 \u2014\u2014 \u5B83\u4EEC\u66FE\u7ECF\u6563\u5728 17 \u5904\uFF08\u7B2C 5 \u6B65 5c \u5168\u90E8\u6536\u6389\uFF09\u3002
+       6px \u8FD9\u4E00\u6863**\u523B\u610F\u4E0D\u8BBE**\uFF1A\u5B83\u53EA\u4F1A\u88AB\u7528\u6765\u5F53"8px \u7684\u8FD1\u4F3C\u503C"\uFF0C\u800C\u8FD1\u4F3C\u503C\u662F\u6F02\u79FB\u7684\u5165\u53E3
+       \uFF085c \u5B9E\u6D4B\uFF1A\u6210\u5BF9\u51FA\u73B0\u7684 padding:2px 2px 6px / 9px 10px \u6B63\u662F\u8FD9\u4E48\u6765\u7684\uFF09\u3002
+       \u62A4\u680F\u89C1 plugin/scripts/smoke-ui-scale.mjs\uFF08\u53EA\u51CF\u4E0D\u589E\u7684\u68D8\u8F6E\uFF09\u3002 */
   --ks-space-1:4px; --ks-space-2:8px; --ks-space-3:12px; --ks-space-4:16px;
   --ks-space-5:20px; --ks-space-6:24px; --ks-space-8:32px; --ks-space-10:40px;
   /* \u5B57\u53F7\uFF1A\u53D7\u9650\u8868\uFF08\u9875\u9762\u6807\u9898 20/24\u3001\u533A\u5757\u6807\u9898 16\u3001\u6B63\u6587 13/14\u3001\u8F85\u52A9 11/12\uFF09 */
   --ks-fs-xs:11px; --ks-fs-sm:12px; --ks-fs-base:13px; --ks-fs-md:14px;
   --ks-fs-lg:16px; --ks-fs-title:20px; --ks-fs-hero:24px;
+  /* \u26A0 \u4E00\u4E2A**\u4E0D\u5728\u4E0A\u9762\u53D7\u9650\u8868\u91CC**\u7684\u5B57\u53F7\uFF0C\u53EA\u6709\u5B83\u4E00\u4E2A\u4F8B\u5916\uFF0C\u7406\u7531\u5982\u4E0B\uFF085c \u5B9A\uFF09\uFF1A
+     10px \u662F"\u5FBD\u7AE0/\u6811\u5F62\u5C0F\u7BAD\u5934/\u5206\u5B50\u5206\u6BCD"\u8FD9\u4E00\u6863\u7684\u5C3A\u5BF8\u3002\u53D7\u9650\u8868\u6700\u5C0F\u7684 11px \u5728 260px \u7A84\u5217\u91CC
+     \u4F1A\u8BA9\u300C\u25BE\u300D\u548C Tag \u80F6\u56CA\u660E\u663E\u53D1\u80D6\u3001\u884C\u8282\u8DDD\u8DDF\u7740\u6DA8\uFF08--ks-row-h-narrow \u662F 44px \u7684\u786C\u7EA6\u675F\uFF09\u3002
+     \u5B83**\u4E0D\u662F**"11px \u7684\u8FD1\u4F3C\u503C"\uFF0C\u662F\u4E0A\u9762\u90A3\u4E09\u5904\u7684\u4E13\u6863 \u21D2 \u52A0 token \u800C\u4E0D\u662F\u786C\u63B0\u56DE 11px\u3002 */
+  --ks-fs-2xs:10px;
   /* \u5706\u89D2\uFF08WeKnora \u7684 4/6/8/10/12/999\uFF09 */
   --ks-r-sm:4px; --ks-r-md:6px; --ks-r-lg:8px; --ks-r-card:10px; --ks-r-xl:12px; --ks-r-pill:999px;
   /* \u52A8\u6548\u65F6\u957F */
@@ -32222,16 +32231,20 @@ var KS_STYLES = `
   --ks-card-h:136px; --ks-card-gap:var(--ks-space-3); --ks-row-h:60px; --ks-row-h-narrow:44px; --ks-head-h:40px;
 }
 
-/* ---------- \u5F00\u59CB\u9875\u5165\u53E3\u5361\uFF08\u7167 TerminalGuide.module.css \u7684\u6570\u503C\uFF09 ---------- */
+/* ---------- \u5F00\u59CB\u9875\u5165\u53E3\u5361\uFF08\u7167 TerminalGuide.module.css \u7684\u6570\u503C\uFF09 ----------
+   \u26A0 5c \u6536\u53E3\uFF1A\u8FD9\u91CC\u539F\u662F gap 14px / padding 14px 20px\uFF08\u9010\u5B57\u6284\u5BBF\u4E3B TerminalGuide\uFF09\u3002\u5BBF\u4E3B\u90A3\u4EFD\u662F
+     \u5B83\u81EA\u5DF1\u7684\u7EC4\u4EF6\u3001\u4E5F**\u4E0D\u7528**\u6211\u4EEC\u8FD9\u5957 token\uFF0C\u6240\u4EE5\u6284\u6570\u503C\u5728"\u50CF\u5BBF\u4E3B"\u4E0A\u662F\u5BF9\u7684\uFF1B\u4F46\u5728\u6211\u4EEC\u8FD9\u5F20\u8868\u91CC
+     \u5B83\u5C31\u662F\u4E24\u5904\u79BB\u7F51\u683C\u5B57\u9762\u503C\u30025c \u7684\u5904\u7F6E\uFF1A**\u6536\u8FDB 4px \u7F51\u683C**\uFF08gap 12 / padding 12px 20px\uFF09\uFF0C
+     \u89C6\u89C9\u5DEE 2px\u3001\u8089\u773C\u4E0D\u53EF\u8FA8\uFF0C\u6362\u6765\u7684\u662F\u8FD9\u5F20\u8868\u91CC\u518D\u6CA1\u6709"14px"\u8FD9\u4E00\u6863\uFF08\u68D8\u8F6E\u8BA1\u6570 17\u21920\uFF09\u3002 */
 .ks-guide-entry{box-sizing:border-box;display:flex;align-items:stretch;width:100%;overflow:hidden;
   border:.5px solid var(--dsw-alias-border-l4);border-radius:24px;background:var(--dsw-alias-bg-layer-1)}
-.ks-guide-main{flex:1;justify-content:flex-start;gap:14px;min-width:0;height:auto;min-height:56px;
-  padding:14px 20px;border-radius:24px 0 0 24px;text-align:left}
+.ks-guide-main{flex:1;justify-content:flex-start;gap:var(--ks-space-3);min-width:0;height:auto;min-height:56px;
+  padding:var(--ks-space-3) var(--ks-space-5);border-radius:24px 0 0 24px;text-align:left}
 .ks-guide-icon{flex:none;color:var(--dsw-alias-label-secondary)}
-.ks-guide-text{display:flex;flex-direction:column;gap:3px;min-width:0}
-.ks-guide-title{overflow:hidden;color:var(--dsw-alias-label-primary);font-size:15px;line-height:1.4;
+.ks-guide-text{display:flex;flex-direction:column;gap:var(--ks-space-1);min-width:0}
+.ks-guide-title{overflow:hidden;color:var(--dsw-alias-label-primary);font-size:var(--ks-fs-lg);line-height:1.4;
   white-space:nowrap;text-overflow:ellipsis}
-.ks-guide-desc{overflow:hidden;color:var(--dsw-alias-label-caption);font-size:13px;line-height:1.4;
+.ks-guide-desc{overflow:hidden;color:var(--dsw-alias-label-caption);font-size:var(--ks-fs-base);line-height:1.4;
   white-space:nowrap;text-overflow:ellipsis}
 .ks-guide-trigger{align-self:stretch;flex:none;height:auto;width:44px;padding:0;border-radius:0 24px 24px 0}
 
@@ -32260,16 +32273,16 @@ var KS_STYLES = `
   background:var(--dsw-alias-bg-base)}
 .ks-kb-card:hover{border-color:var(--dsw-alias-border-l4)}
 .ks-kb-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--ks-card-gap)}
-.ks-kb-sec{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary);margin-top:4px}
+.ks-kb-sec{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary);margin-top:var(--ks-space-1)}
 .ks-kb-tree{font-size:var(--ks-fs-base)}
 .ks-kb-tline{display:flex;align-items:center;gap:var(--ks-space-1);padding:var(--ks-space-1) var(--ks-space-2);border-radius:var(--ks-r-md);cursor:pointer}
 .ks-kb-tline:hover{background:var(--dsw-alias-interactive-bg-hover)}
-.ks-kb-tw{width:12px;flex:none;text-align:center;font-size:10px;color:var(--dsw-alias-label-caption)}
+.ks-kb-tw{width:12px;flex:none;text-align:center;font-size:var(--ks-fs-2xs);color:var(--dsw-alias-label-caption)}
 .ks-kb-tn{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.ks-kb-tc{font-size:11px;color:var(--dsw-alias-label-caption)}
+.ks-kb-tc{font-size:var(--ks-fs-xs);color:var(--dsw-alias-label-caption)}
 .ks-kb-doc{display:flex;gap:var(--ks-space-2);padding:var(--ks-space-1) var(--ks-space-2);border-radius:var(--ks-r-md)}
 .ks-kb-doc:hover{background:var(--dsw-alias-interactive-bg-hover)}
-.ks-kb-no{flex:none;font-weight:600;font-family:ui-monospace,Consolas,monospace;font-size:12px}
+.ks-kb-no{flex:none;font-weight:600;font-family:ui-monospace,Consolas,monospace;font-size:var(--ks-fs-sm)}
 .ks-kb-nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   color:var(--dsw-alias-label-secondary)}
 .ks-kb-badge{flex:none;font-size:var(--ks-fs-xs);border-radius:var(--ks-r-sm);padding:0 var(--ks-space-1);
@@ -32280,30 +32293,45 @@ var KS_STYLES = `
 
 /* ---------- \u77E5\u8BC6\u5E93\u9875\uFF1A\u4E09\u6BB5\u5F0F\uFF08\u76EE\u5F55\u8F68 | \u6587\u4EF6\u5217\u8868 | \u8BE6\u60C5\uFF09 ---------- */
 /* \u4E00\u5217\u653E\u4E0D\u4E0B\u5C31\u6362\u884C\uFF1A\u53F3\u680F\u5BBD\u5EA6\u662F\u4E1A\u4E3B\u81EA\u5DF1\u62D6\u7684\uFF0C\u4E0D\u8BB8\u5047\u8BBE\u5B83\u6709\u591A\u5BBD\u3002 */
-.ks-split{display:flex;gap:10px;align-items:flex-start;flex-wrap:wrap;min-height:0}
-.ks-rail{flex:0 1 208px;min-width:172px;display:flex;flex-direction:column;gap:8px}
-.ks-main{flex:1 1 320px;min-width:280px;display:flex;flex-direction:column;gap:8px;min-height:0}
+.ks-split{display:flex;gap:var(--ks-space-2);align-items:flex-start;flex-wrap:wrap;min-height:0}
+.ks-rail{flex:0 1 208px;min-width:168px;display:flex;flex-direction:column;gap:var(--ks-space-2)}
+.ks-main{flex:1 1 320px;min-width:280px;display:flex;flex-direction:column;gap:var(--ks-space-2);min-height:0}
 .ks-detail{flex:0 1 232px;min-width:200px;display:flex;flex-direction:column;gap:var(--ks-space-2)}
 /* \u5217\u8868\u5934\uFF1A\u5168\u9009 + \u8BA1\u6570 + \u65B0\u5EFA */
-.ks-lhead{display:flex;align-items:center;gap:8px;padding:2px 2px 6px;
+.ks-lhead{display:flex;align-items:center;gap:var(--ks-space-2);padding:var(--ks-space-1) 0 var(--ks-space-2);
   border-bottom:.5px solid var(--dsw-alias-border-l1)}
-.ks-lhead-name{font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ks-lhead-name{font-size:var(--ks-fs-base);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 /* \u4E00\u884C\u6587\u4EF6\uFF1A\u52FE\u9009\u6846\uFF08label \u91CC\u5C31\u662F\u6587\u4EF6\u540D\uFF09+ \u6807\u7B7E + \u5E38\u9A7B\u300C+\u6807\u7B7E\u300D */
 .ks-item{display:flex;align-items:center;gap:var(--ks-space-2);padding:var(--ks-space-1) var(--ks-space-2);
   border-radius:var(--ks-r-md);min-width:0;flex-wrap:nowrap;min-height:var(--ks-row-h-narrow)}
+/* \u26A0 5c \u5B9E\u6D4B\uFF08\u79BB\u5C4F\u6E32\u67D3\u91CF\u51FA\u6765\u7684\uFF09\uFF1A\u4E0A\u9762\u8FD9\u6761 min-height:44px \u53EA\u662F**\u4E0B\u9650**\uFF0C\u5BBF\u4E3B Checkbox
+   \u81EA\u5E26\u7684\u884C\u9AD8\u628A\u6574\u884C\u6491\u5230 **52px\uFF08\u8282\u8DDD 60px\uFF09**\u3002\u6240\u4EE5"\u7A84\u9762\u677F 44 / \u5168\u5BBD 60"\u8FD9\u4E2A\u53E3\u5F84\u5728
+   **\u5B9E\u9645\u50CF\u7D20\u4E0A\u5E76\u6CA1\u6709\u5151\u73B0**\uFF0844 \u662F\u4E0B\u9650\u300160 \u624D\u662F\u7ED3\u679C\uFF09\u30025c **\u6CA1\u6709**\u6539\u5B83\uFF08\u8981\u52A8\u5BBF\u4E3B\u539F\u8BED\u7684\u884C\u9AD8\uFF0C
+   \u5C5E\u4E8E\u91CD\u505A\u5BC6\u5EA6\uFF09\uFF1B\u53EA\u628A\u5B9E\u6D4B\u503C\u5199\u5728\u8FD9\u91CC\uFF0C\u514D\u5F97\u4E0B\u4E00\u8F6E\u53C8\u7167 44 \u53BB\u63A8\u5E03\u5C40\u3002 */
 .ks-item:hover{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-item-on{background:var(--dsw-alias-interactive-bg-hover)}
-.ks-item .ks-check{flex:1 1 auto;min-width:0}
+/* \u6587\u4EF6\u540D\uFF08Checkbox \u7684\u53EF\u89C1\u6587\u5B57\uFF09\u5BBD\u5EA6\uFF1A**\u7ED9\u4E0A\u9650\u3001\u4E0D\u7ED9 flex:1**\u3002
+   5c \u5B9E\u6D4B\uFF08kb@1300\uFF0C\u884C\u5BBD 820\uFF09\uFF1A\u539F\u6765\u662F flex:1 \u21D2 \u6587\u4EF6\u540D\u76D2\u5B50\u5403\u5230 46% \u4E0A\u9650\u3001
+   \u6807\u7B7E\u7C07\u88AB\u6324\u5230\u6700\u53F3\u8FB9\uFF0C**\u6587\u4EF6\u540D\u4E0E\u6807\u7B7E\u4E4B\u95F4\u7A7A 285~390px**\uFF08\u79BB\u5C4F\u6E32\u67D3\u91CF\u51FA\u6765\u7684 deadGap\uFF09\u3002
+   \u6539\u6CD5\uFF08\u514B\u5236\uFF0C\u4E0D\u52A8\u884C\u7ED3\u6784\uFF09\uFF1A\u2460 \u6587\u4EF6\u540D\u53EA\u7528**\u5185\u5BB9\u5BBD**\u3001\u4E0A\u9650 40%\uFF08\u7A84\u5217\u4E0B\u81EA\u7136\u66F4\u5C0F\uFF09\uFF1B
+   \u2461 \u6807\u7B7E\u7C07\u6539\u6210"\u5185\u5BB9\u5BBD + \u53EF\u7F29"\uFF0C\u7D27\u8DDF\u5728\u6587\u4EF6\u540D\u540E\u9762 \u21D2 \u4E0D\u518D\u6709\u90A3 300px \u6B7B\u767D\uFF1B
+   \u2462 \u53F3\u4FA7\u6309\u94AE\u7EC4\u7684\u7B2C\u4E00\u4E2A btn \u7528 margin-left:auto \u9489\u5728\u884C\u5C3E\uFF08\u64CD\u4F5C\u5217\u5BF9\u9F50\uFF0C\u4E0E\u6587\u4EF6\u540D\u957F\u77ED\u65E0\u5173\uFF09\u3002
+   \u26A0 \u6CE8\u91CA\u91CC\u4E0D\u8BB8\u51FA\u73B0\u53CD\u5F15\u53F7\uFF08\u6574\u6BB5 CSS \u662F\u4E00\u4E2A\u6A21\u677F\u5B57\u7B26\u4E32\uFF09\u2014\u2014 \u672C\u8F6E\u5DF2\u8E29**\u7B2C\u4E94\u6B21**\uFF082026-09-20 5c\uFF1A
+     \u5199\u4E86\u4E00\u53E5\u300E\u53F3\u4FA7\u6309\u94AE\u7EC4 \u300Cmargin-left:auto\u300D\u9489\u5728\u884C\u5C3E\u300F\uFF0C\u90A3\u5BF9\u53CD\u5F15\u53F7\u628A\u6A21\u677F\u622A\u65AD\uFF0C
+     esbuild \u62A5 "Expected ; but found margin"\uFF09\u3002\u5199 CSS \u5C5E\u6027\u540D\u65F6**\u76F4\u63A5\u5199**\uFF0C\u4E0D\u8981\u52A0\u5F15\u53F7\u88C5\u9970\u3002 */
+.ks-item .ks-check{flex:0 1 auto;min-width:0;max-width:40%}
 /* Checkbox \u7684\u53EF\u89C1\u6587\u5B57\u5C31\u662F\u6587\u4EF6\u540D\uFF1A\u6491\u5F00\u3001\u53EF\u622A\u65AD\uFF0C\u522B\u6362\u884C\u628A\u884C\u641E\u9AD8 */
 .ks-item .ks-check>span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-  color:var(--dsw-alias-label-secondary);font-size:13px}
+  color:var(--dsw-alias-label-secondary);font-size:var(--ks-fs-base)}
 .ks-item .ks-check>input{flex:none}
 /* \u6807\u7B7E\u7EC4\uFF1A**\u5141\u8BB8\u81EA\u5DF1\u5185\u90E8\u6362\u884C**\uFF08\u6807\u7B7E\u591A\u4E86\u5C31\u957F\u9AD8\uFF09\uFF0C\u4F46**\u4E0D\u8BB8\u628A\u53F3\u8FB9\u7684\u6309\u94AE\u6324\u6241**
    \u2014\u2014 \u65E0\u5BBD\u7EA6\u675F\u65F6\u300C\u8BE6\u60C5\u300D\u4F1A\u88AB\u538B\u6210\u4E24\u884C\u300C\u8BE6\uFF0F\u60C5\u300D\uFF082026-09-20 \u79BB\u5C4F\u622A\u56FE\u5B9E\u6D4B\uFF0C\u89C1 UI-BASELINE \u7B2C\u516D\u8282\uFF09\u3002
    \u26A0 \u6CE8\u91CA\u91CC**\u4E0D\u8BB8\u51FA\u73B0\u53CD\u5F15\u53F7**\uFF08\u6574\u6BB5 CSS \u662F\u4E00\u4E2A\u6A21\u677F\u5B57\u7B26\u4E32\uFF09\u2014\u2014 \u672C\u8F6E\u5DF2\u7ECF\u8E29\u4E86\u56DB\u6B21\u3002 */
-.ks-item-tags{display:flex;align-items:center;gap:var(--ks-space-1);flex:0 1 46%;min-width:0;flex-wrap:wrap}
-/* \u884C\u5185\u6309\u94AE\uFF1A**\u6C38\u4E0D\u538B\u7F29\u3001\u6C38\u4E0D\u6298\u5B57**\uFF08\u8FD9\u6761\u662F\u4E0A\u9762\u90A3\u4E2A\u7F3A\u9677\u7684\u6B63\u9762\u7EA6\u675F\uFF09 */
+.ks-item-tags{display:flex;align-items:center;gap:var(--ks-space-1);flex:0 1 auto;min-width:0;flex-wrap:wrap}
+/* \u884C\u5185\u6309\u94AE\uFF1A**\u6C38\u4E0D\u538B\u7F29\u3001\u6C38\u4E0D\u6298\u5B57**\uFF08\u8FD9\u6761\u662F\u4E0A\u9762\u90A3\u4E2A\u7F3A\u9677\u7684\u6B63\u9762\u7EA6\u675F\uFF09\u3002
+   \u7B2C\u4E00\u4E2A\u884C\u5185\u6309\u94AE\u5403\u4E0B\u5269\u4F59\u7A7A\u95F4 \u21D2 \u6309\u94AE\u7EC4\u9489\u5728**\u884C\u5C3E**\uFF08\u64CD\u4F5C\u5217\u5BF9\u9F50\uFF09\uFF0C\u6587\u4EF6\u540D/\u6807\u7B7E\u7559\u5728\u5DE6\u8FB9\u3002 */
 .ks-item-btn{flex:none;white-space:nowrap}
+.ks-item-btn:first-of-type{margin-left:auto}
 .ks-item-add{flex:none;opacity:0;white-space:nowrap}
 /* \u5E38\u9A7B\uFF1A\u4E1A\u4E3B\u660E\u786E\u8981"\u540D\u5B57\u540E\u9762\u5E38\u9A7B\u4E00\u4E2A +\u6807\u7B7E"\uFF0C\u6240\u4EE5\u4E0D\u662F hover \u624D\u51FA\u73B0\uFF0C\u53EA\u662F hover \u65F6\u66F4\u663E\u773C */
 .ks-item .ks-item-add{opacity:.35}
@@ -32321,26 +32349,26 @@ var KS_STYLES = `
   background:var(--dsw-specific-menu);
   --dsw-elevation-stroke-color:var(--dsw-alias-border-l1);
   box-shadow:var(--dsw-elevation-prominent)}
-.ks-batch-n{font-size:12px;font-weight:600}
+.ks-batch-n{font-size:var(--ks-fs-sm);font-weight:600}
 /* \u8BE6\u60C5\u5B57\u6BB5\uFF1A\u65E5\u671F\u8FD9\u4E00\u7C7B label/value \u6210\u5BF9 */
-.ks-fields{display:flex;flex-direction:column;gap:4px}
-.ks-field{display:flex;gap:8px;font-size:12px;line-height:1.5}
+.ks-fields{display:flex;flex-direction:column;gap:var(--ks-space-1)}
+.ks-field{display:flex;gap:var(--ks-space-2);font-size:var(--ks-fs-sm);line-height:1.5}
 .ks-field-k{flex:0 0 62px;color:var(--dsw-alias-label-tertiary)}
 .ks-field-v{flex:1;min-width:0;color:var(--dsw-alias-label-primary);word-break:break-word}
 .ks-field-v-mono{font-family:ui-monospace,Consolas,monospace}
 /* \u9875\u5185\u4E8C\u7EA7 tab\uFF08\u6587\u4EF6 / \u6807\u7B7E\uFF09 */
-.ks-subtabs{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.ks-subtabs{display:flex;align-items:center;gap:var(--ks-space-2);flex-wrap:wrap}
 /* \u6807\u7B7E\u89C6\u56FE\uFF1A\u4E00\u884C\u4E00\u4E2A\u6807\u7B7E + \u5B83\u8DE8\u4E86\u54EA\u4E9B\u5927\u6587\u4EF6\u5939 + \u5728\u8BE5\u6807\u7B7E\u4E0B\u63D0\u95EE */
-.ks-tagrow{display:flex;align-items:flex-start;gap:8px;padding:6px 7px;border-radius:6px}
+.ks-tagrow{display:flex;align-items:flex-start;gap:var(--ks-space-2);padding:var(--ks-space-2);border-radius:var(--ks-r-md)}
 .ks-tagrow:hover{background:var(--dsw-alias-interactive-bg-hover)}
-.ks-tagrow-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
-.ks-tagrow-name{font-size:13px;font-weight:600}
-.ks-tagrow-scope{font-size:11.5px;color:var(--dsw-alias-label-tertiary);word-break:break-word}
+.ks-tagrow-main{flex:1;min-width:0;display:flex;flex-direction:column;gap:var(--ks-space-1)}
+.ks-tagrow-name{font-size:var(--ks-fs-base);font-weight:600}
+.ks-tagrow-scope{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary);word-break:break-word}
 /* \u68C0\u7D22\u8BED\u6CD5\u89E3\u6790\u9884\u89C8\uFF1A\u628A + / - \u7684\u7ED3\u679C**\u5F53\u573A\u663E\u793A\u51FA\u6765**\uFF0C\u7701\u5F97\u7528\u6237\u731C */
-.ks-parse{display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:11.5px;
+.ks-parse{display:flex;gap:var(--ks-space-2);align-items:center;flex-wrap:wrap;font-size:var(--ks-fs-sm);
   color:var(--dsw-alias-label-tertiary)}
 .ks-parse-in{flex:1 1 220px;min-width:180px}
-.ks-empty{padding:14px 8px;text-align:center;font-size:12px;color:var(--dsw-alias-label-tertiary)}
+.ks-empty{padding:var(--ks-space-4) var(--ks-space-2);text-align:center;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
 /* \u26A0 corner-shape:round \u662F**\u5FC5\u987B\u7684\u914D\u5BF9**\uFF1A\u5B98\u65B9 docs/web-styling.md\u300CPair "corner-shape: round"
    with every full-round "border-radius" ("50%", "100%", or a pill radius) so circles and capsules
    keep circular arcs\u300D\u2014\u2014 \u5C11\u4E86\u5B83\uFF0C\u652F\u6301 superellipse \u7684 Chromium \u4E0A\u5706\u70B9\u4F1A\u88AB\u538B\u6210\u65B9\u89D2\u3002
@@ -32349,18 +32377,83 @@ var KS_STYLES = `
   background:var(--dsw-alias-label-caption)}
 
 /* ---------- \u80FD\u529B\u9875\uFF08\u4E00\u529F\u80FD\u4E00\u5361\u4E00\u7A97\uFF09 ---------- */
-.ks-cap-card{display:flex;flex-direction:column;gap:2px;border:.5px solid var(--dsw-alias-border-l2);
-  border-radius:10px;padding:9px 10px;background:var(--dsw-alias-bg-base)}
+.ks-cap-card{display:flex;flex-direction:column;gap:var(--ks-space-1);border:.5px solid var(--dsw-alias-border-l2);
+  border-radius:var(--ks-r-card);padding:var(--ks-space-2) var(--ks-space-3);background:var(--dsw-alias-bg-base)}
 .ks-cap-card:hover{border-color:var(--dsw-alias-border-l4)}
 /* \u5F15\u64CE\u4FA7\u73B0\u72B6\uFF1A\u4F4E\u8C03\u4E00\u884C\uFF0C\u522B\u62A2\u5361\u7247\u7684\u6CE8\u610F\u529B */
-.ks-cap-engine{font-size:11px;color:var(--dsw-alias-label-caption);margin-bottom:6px}
-.ks-cap-inline{display:flex;flex-direction:column;gap:5px;margin-bottom:4px}
+.ks-cap-engine{font-size:var(--ks-fs-xs);color:var(--dsw-alias-label-caption);margin-bottom:var(--ks-space-1)}
+.ks-cap-inline{display:flex;flex-direction:column;gap:var(--ks-space-1);margin-bottom:var(--ks-space-1)}
 /* \u7A97\u91CC/\u5361\u4E0A\u7684\u4E00\u884C\u65CB\u94AE\uFF1Alabel \u5DE6\u3001\u63A7\u4EF6\u53F3\uFF08\u591A\u9009\u65F6\u53EF\u6362\u884C\uFF09 */
-.ks-knobs{display:flex;flex-direction:column;gap:9px}
-.ks-knob-row{display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap}
-.ks-knob-label{flex:0 0 118px;font-size:12px;color:var(--dsw-alias-label-secondary);
+.ks-knobs{display:flex;flex-direction:column;gap:var(--ks-space-2)}
+.ks-knob-row{display:flex;align-items:flex-start;gap:var(--ks-space-2);flex-wrap:wrap}
+.ks-knob-label{flex:0 0 118px;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);
   line-height:24px;overflow:hidden;text-overflow:ellipsis}
-.ks-knob-ctl{flex:1 1 160px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0}
+.ks-knob-ctl{flex:1 1 160px;display:flex;align-items:center;gap:var(--ks-space-2);flex-wrap:wrap;min-width:0}
+
+/* ================================================================================
+   \u5165\u5E93\u9762\u677F\uFF08KsIngestPanel\uFF09\u2014\u2014 \u7B2C 5 \u6B65 5c \u628A\u5B83\u7684**\u884C\u5185\u6837\u5F0F\u5168\u91CF\u642C\u5230\u8FD9\u91CC**
+   --------------------------------------------------------------------------------
+   \u642C\u4E4B\u524D\u5B83\u6574\u9875 0 \u4E2A var(--dsw-*)/var(--ks-*) + 21 \u5904\u786C\u7F16\u7801\u8272\u503C\uFF08#1a7f37 / #9a6700 /
+   #b42318 / #57606a / #0969da / #d0d7de / #eaeef2 / #c4c4c4 / #7f7f7f / #111111 /
+   #e9e9e9 / #ffffff \u2026\uFF09\u21D2 \u6DF1\u6D45\u8272/\u6362\u80A4\u65F6\u5B83\u662F\u552F\u4E00"\u4E0D\u8DDF\u961F"\u7684\u4E00\u9875\uFF0C\u4E1A\u4E3B\u7684\u89C2\u611F\u5C31\u662F
+   "\u4E0D\u50CF\u540C\u4E00\u4E2A\u4EA7\u54C1"\u3002\u73B0\u5728\u989C\u8272\u4E00\u5F8B\u8D70\u5BBF\u4E3B\u6D3B token\uFF0C\u95F4\u8DDD/\u5706\u89D2/\u5B57\u53F7\u4E00\u5F8B\u8D70 --ks-*\u3002
+   \u4E09\u8272\u5206\u7EA7\uFF08\u53EF\u5165\u5E93/\u9700\u4EBA\u5DE5\u786E\u8BA4/\u4E0D\u5EFA\u8BAE\u5165\u5E93\uFF09\u7684**\u8BED\u4E49\u6CA1\u53D8**\uFF0C\u53D8\u7684\u53EA\u662F\u5B83\u53D6\u8272/\u53D6\u95F4\u8DDD\u7684\u65B9\u5F0F\u3002
+   ================================================================================ */
+.ks-ing{display:flex;flex-direction:column;gap:var(--ks-space-2);font-size:var(--ks-fs-base);
+  color:var(--dsw-alias-label-primary);padding:var(--ks-space-1) 0}
+/* \u8BF4\u660E\u6BB5\uFF1A\u6B63\u6587\u8272\u7684\u6B21\u7EA7\u6863\uFF0C\u884C\u9AD8\u6BD4\u6B63\u6587\u677E\uFF08\u6210\u6BB5\u9605\u8BFB\uFF09 */
+.ks-ing-note{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);line-height:1.6}
+.ks-ing-toggle{display:flex;align-items:center;gap:var(--ks-space-2);cursor:pointer}
+.ks-ing-toggle input{flex:none;margin:0}
+.ks-ing-row{display:flex;align-items:center;gap:var(--ks-space-2);flex-wrap:wrap}
+.ks-ing-dir{width:62%;min-width:180px}
+.ks-ing-mono{font-family:ui-monospace,Consolas,monospace;font-size:var(--ks-fs-sm);word-break:break-all}
+.ks-ing-num{width:64px}
+.ks-ing-files{display:flex;flex-direction:column;gap:var(--ks-space-1)}
+.ks-ing-size{color:var(--dsw-alias-label-tertiary)}
+/* \u4E09\u6876\u603B\u8D26\u7684\u4E00\u679A\u80F6\u56CA\uFF1A\u989C\u8272\u7531 verdictMeta \u7684\u5185\u8054\u8FB9\u754C\u8272\u7ED9\uFF08\u4E09\u7C7B\u8BED\u4E49\u8272\u8D70 --dsw-alias-state-*\uFF09 */
+.ks-ing-buckets{display:flex;align-items:center;flex-wrap:wrap;gap:var(--ks-space-2)}
+.ks-ing-chip{display:inline-flex;align-items:center;gap:var(--ks-space-1);padding:0 var(--ks-space-2);
+  border:var(--ks-sep) solid var(--dsw-alias-border-l2);border-radius:var(--ks-r-pill);
+  font-size:var(--ks-fs-sm);white-space:nowrap}
+/* \u5355\u672C\u62A5\u544A\u7684\u4E00\u884C\uFF08\u6279\u91CF\u7684\u6587\u4EF6\u884C\u4E5F\u7528\u5B83\uFF09\uFF1A0.5px \u5206\u9694\u7EBF\uFF0C\u4E0D\u662F 1px */
+.ks-ing-line{display:flex;gap:var(--ks-space-2);padding:var(--ks-space-2) 0;
+  border-top:var(--ks-sep) solid var(--dsw-alias-border-l1)}
+.ks-ing-line-first{border-top:0}
+.ks-ing-icon{flex:none;min-width:18px}
+.ks-ing-grow{flex:1;min-width:0}
+/* \u6587\u4EF6\u540D\u662F\u4E2A**\u770B\u8D77\u6765\u50CF\u94FE\u63A5**\u7684\u6309\u94AE\uFF08\u70B9\u4E86\u62C9\u8BE5\u672C\u7684\u5B8C\u6574\u4F53\u68C0\u62A5\u544A\uFF09 */
+.ks-ing-link{border:0;background:none;padding:0;cursor:pointer;text-align:left;
+  font-size:var(--ks-fs-base);color:var(--dsw-alias-link);font-family:inherit}
+.ks-ing-link:hover{text-decoration:underline}
+/* \u62A5\u544A\u672C\u4F53\uFF1A\u4E00\u5757\u63CF\u8FB9\u5361\u7247\uFF0C\u5185\u90E8\u5B57\u6BB5\u6210\u7EC4 */
+.ks-ing-card{border:var(--ks-sep) solid var(--dsw-alias-border-l2);border-radius:var(--ks-r-md);
+  padding:var(--ks-space-3);margin-top:var(--ks-space-2);background:var(--dsw-alias-bg-base)}
+.ks-ing-h{font-size:var(--ks-fs-base);font-weight:600}
+.ks-ing-h-sub{font-weight:400;color:var(--dsw-alias-label-secondary);margin-left:var(--ks-space-2)}
+.ks-ing-sub{font-size:var(--ks-fs-sm);font-weight:600;margin-top:var(--ks-space-2)}
+.ks-ing-indent{padding-left:var(--ks-space-3)}
+/* \u7B2C\u4E09\u8282\uFF1A\u5F02\u6B65\u5168\u91CF\u9884\u89C8\uFF08\u4E0E\u4E0A\u9762\u7528\u4E00\u6761**\u865A\u7EBF**\u5206\u5F00\u2014\u2014\u5B83\u662F\u53E6\u4E00\u6761\u65F6\u95F4\u5C3A\u5EA6\u7684\u64CD\u4F5C\uFF09 */
+.ks-ing-async{margin-top:var(--ks-space-4);border-top:var(--ks-sep) dashed var(--dsw-alias-border-l2);
+  padding-top:var(--ks-space-3)}
+.ks-ing-progress{margin-top:var(--ks-space-2);height:8px;border-radius:var(--ks-r-sm);
+  background:var(--dsw-alias-bg-layer-3);overflow:hidden}
+.ks-ing-progress-fill{height:100%;background:var(--dsw-alias-brand-primary);
+  transition:width var(--ks-dur-modal) ease}
+/* \u8BED\u4E49\u8272\u53EA\u7528\u5728\u8FD9\u4E09\u5904\uFF1A\u9519\u8BEF\u7EA2\u3001\u9700\u786E\u8BA4\u9EC4\u3001\u6210\u529F\u7EFF \u2014\u2014 \u5168\u90E8\u662F\u5BBF\u4E3B token */
+.ks-ing-err{color:var(--dsw-alias-state-error-primary)}
+.ks-ing-warn{color:var(--dsw-alias-state-warn-label)}
+.ks-ing-ok{color:var(--dsw-alias-state-success-primary)}
+/* \u4E09\u8272\u5206\u7EA7\uFF08\u53EF\u5165\u5E93 / \u9700\u4EBA\u5DE5\u786E\u8BA4 / \u4E0D\u5EFA\u8BAE\u5165\u5E93\uFF09\u7684**\u552F\u4E00\u53D6\u8272\u5904**\uFF1A\u90FD\u7531\u5BBF\u4E3B\u72B6\u6001\u8272\u89E3\u51FA\u3002
+   \u26A0 \u8BED\u4E49\u4E00\u4E2A\u5B57\u6CA1\u52A8 \u2014\u2014 5c \u4E4B\u524D\u8FD9\u4E09\u8272\u662F #1a7f37 / #9a6700 / #b42318 \u4E09\u4E2A\u786C\u7F16\u7801\u503C\u3002 */
+.ks-ing-tone-ok{color:var(--dsw-alias-state-success-primary);
+  border-color:var(--dsw-alias-state-success-primary)}
+.ks-ing-tone-warn{color:var(--dsw-alias-state-warn-label);
+  border-color:var(--dsw-alias-state-warn-label)}
+.ks-ing-tone-block{color:var(--dsw-alias-state-error-primary);
+  border-color:var(--dsw-alias-state-error-primary)}
+.ks-ing-tone-muted{color:var(--dsw-alias-label-secondary);
+  border-color:var(--dsw-alias-border-l2)}
 `;
 var PLUGIN_NAME = "ks-dsh-plugin";
 var STYLE_OWNER = `${PLUGIN_NAME}/ksGuideStyles.css`;
@@ -32707,19 +32800,23 @@ function CapabilityCard({ cap, onOpen, open, setKnobValue, values }) {
   const inline = cap.knobs.length < 3;
   return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-cap-card", children: [
     /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-kb-row", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { className: "ks-kb-grow", style: { fontSize: 13 }, children: cap.name }),
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { className: "ks-kb-grow", style: { fontSize: "var(--ks-fs-base)" }, children: cap.name }),
       /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_dsh_client_ui_primitives2.Tag, { tone: cap.group === "experimental" ? "warning" : "neutral", children: [
         cap.knobs.length,
         " \u4E2A\u65CB\u94AE"
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-kb-hint", style: { margin: "4px 0 6px" }, children: cap.desc }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-kb-hint", style: { margin: "4px 0 8px" }, children: cap.desc }),
     /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-cap-engine", children: cap.engine }),
     inline ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-cap-inline", children: cap.knobs.map((k) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(KnobControl, { knob: k, value: values[k.id], onChange: (next) => {
         setKnobValue(k.id, next);
       } }, k.id)) }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-kb-hint", children: "\uFF08\u65CB\u94AE\u5C11\u4E8E 3 \u4E2A\uFF1A\u6309\u7EA6\u5B9A**\u4E0D\u5355\u72EC\u5F00\u7A97**\uFF0C\u5C31\u5730\u8BBE\u7F6E\uFF09" })
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-kb-hint", children: [
+        "\uFF08\u65CB\u94AE\u5C11\u4E8E 3 \u4E2A\uFF1A\u6309\u7EA6\u5B9A",
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E0D\u5355\u72EC\u5F00\u7A97" }),
+        "\uFF0C\u5C31\u5730\u8BBE\u7F6E\uFF09"
+      ] })
     ] }) : /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_dsh_client_ui_primitives2.Button, { variant: "outline", size: "sm", onClick: () => {
       onOpen(cap.id);
     }, "aria-expanded": open, children: "\u8BBE\u7F6E\u2026" })
@@ -32747,17 +32844,23 @@ function KsCapabilityPage() {
     return out;
   };
   return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-kb", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("header", { className: "ks-page-head", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-page-title", children: "\u80FD\u529B" }),
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-page-sub", children: "\u4E00\u9879\u80FD\u529B\u4E00\u5F20\u5361\uFF1A\u65CB\u94AE\u5C11\u4E8E 3 \u4E2A\u7684\u5C31\u5730\u5185\u8054\uFF0C\u591F 3 \u4E2A\u7684\u70B9\u5F00\u5B83\u81EA\u5DF1\u7684\u8BBE\u7F6E\u7A97" })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-page-rule" }),
     /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-kb-banner", children: [
       /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "UI \u5148\u884C\uFF1A\u65CB\u94AE\u662F\u5360\u4F4D\uFF0C\u540E\u7AEF\u63A5\u53E3\u672A\u63A5\u3002" }),
-      "\u8FD9\u4E00\u9875\u7684\u7ED3\u6784\u662F\u4E1A\u4E3B\u6307\u5B9A\u7684\uFF1A**\u4E00\u4E2A\u529F\u80FD\u4E00\u5F20\u5361\uFF0C\u70B9\u5F00\u5C31\u662F\u5B83\u81EA\u5DF1\u7684\u5168\u90E8\u65CB\u94AE**\uFF0C \u800C\u4E0D\u662F\u5168\u90E8\u585E\u8FDB\u8BBE\u7F6E\u91CC\u3002\u4F46**\u4EA4\u4E92\u662F\u771F\u7684**\uFF08\u5F00\u5173\u80FD\u62E8\u3001\u9009\u9879\u80FD\u9009\u3001\u7A97\u80FD\u5F00\uFF09\uFF0C\u53EF\u4EE5\u76F4\u63A5\u70B9\u7740\u4F53\u9A8C\u3002"
+      "\u8FD9\u4E00\u9875\u7684\u7ED3\u6784\u662F\u4E1A\u4E3B\u6307\u5B9A\u7684\uFF1A",
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E00\u4E2A\u529F\u80FD\u4E00\u5F20\u5361\uFF0C\u70B9\u5F00\u5C31\u662F\u5B83\u81EA\u5DF1\u7684\u5168\u90E8\u65CB\u94AE" }),
+      "\uFF0C \u800C\u4E0D\u662F\u5168\u90E8\u585E\u8FDB\u8BBE\u7F6E\u91CC\u3002\u4F46",
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4EA4\u4E92\u662F\u771F\u7684" }),
+      "\uFF08\u5F00\u5173\u80FD\u62E8\u3001\u9009\u9879\u80FD\u9009\u3001\u7A97\u80FD\u5F00\uFF09\uFF0C\u53EF\u4EE5\u76F4\u63A5\u70B9\u7740\u4F53\u9A8C\u3002"
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-kb-row", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { className: "ks-kb-grow", style: { fontSize: 14 }, children: "\u80FD\u529B" }),
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { className: "ks-kb-hint", children: [
-        CAPABILITIES.length,
-        " \u9879"
-      ] })
-    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-kb-row", children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { className: "ks-kb-hint", children: [
+      CAPABILITIES.length,
+      " \u9879"
+    ] }) }),
     GROUPS.map((group) => {
       const items = CAPABILITIES.filter((c) => c.group === group.id);
       return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { children: [
@@ -33073,7 +33176,11 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
         /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-hint", style: { marginTop: 6 }, children: [
           "\u8FD9\u4E00\u9875\u5C1A\u672A\u5B9E\u73B0\u3002\u5B83\u4F1A\u843D\u5728\u540C\u4E00\u4E2A tab \u7C7B\u578B\u91CC\uFF08\u6309 ",
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("code", { children: "params.page" }),
-          " \u5206\u53D1\uFF09\uFF0C \u6240\u4EE5\u5165\u53E3\u73B0\u5728\u662F**\u771F\u7684**\u3001\u5185\u5BB9\u662F**\u7A7A\u7684**\u2014\u2014\u800C\u4E0D\u662F\u4E00\u4E2A\u5047\u6309\u94AE\u3002"
+          " \u5206\u53D1\uFF09\uFF0C \u6240\u4EE5\u5165\u53E3\u73B0\u5728\u662F",
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { children: "\u771F\u7684" }),
+          "\u3001\u5185\u5BB9\u662F",
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { children: "\u7A7A\u7684" }),
+          "\u2014\u2014\u800C\u4E0D\u662F\u4E00\u4E2A\u5047\u6309\u94AE\u3002"
         ] })
       ] })
     ] });
@@ -33088,7 +33195,9 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { children: "UI \u5148\u884C\uFF1A\u6570\u636E\u662F\u5360\u4F4D\uFF0C\u540E\u7AEF\u63A5\u53E3\u672A\u63A5" }),
       "\uFF08dataSource=",
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("code", { children: dataSource }),
-      "\uFF09\u3002 \u4F46**\u4EA4\u4E92\u662F\u771F\u7684**\uFF08\u52FE\u9009/\u5168\u9009/\u6279\u91CF\u52A8\u4F5C/\u6253\u6807\u7B7E\u90FD\u4F5C\u7528\u5728\u9875\u9762\u72B6\u6001\u4E0A\uFF09\uFF0C\u4F60\u53EF\u4EE5\u76F4\u63A5\u70B9\u7740\u4F53\u9A8C\u3002 \u5C42\u7EA7\u540D\u53D6\u81EA ",
+      "\uFF09\u3002 \u4F46",
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { children: "\u4EA4\u4E92\u662F\u771F\u7684" }),
+      "\uFF08\u52FE\u9009/\u5168\u9009/\u6279\u91CF\u52A8\u4F5C/\u6253\u6807\u7B7E\u90FD\u4F5C\u7528\u5728\u9875\u9762\u72B6\u6001\u4E0A\uFF09\uFF0C\u4F60\u53EF\u4EE5\u76F4\u63A5\u70B9\u7740\u4F53\u9A8C\u3002 \u5C42\u7EA7\u540D\u53D6\u81EA ",
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("code", { children: "doc_catalog" }),
       " \u7684\u6743\u5A01 CCS \u8868\uFF1B\u5C06\u6765\u8FD9\u9875\u63A5",
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("code", { children: " GET /api/v1/documents/categories" }),
@@ -33148,7 +33257,11 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
             " \u4E2A"
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-kb-hint", children: "\u6807\u7B7E\u662F**\u4F60\u81EA\u5DF1\u7684\u5206\u7EC4**\uFF0C\u4E0D\u5C5E\u4E8E\u4EFB\u4F55\u4E00\u68F5\u6811\uFF1B\u540C\u4E00\u4E2A\u6807\u7B7E\u53EF\u4EE5\u540C\u65F6\u8986\u76D6\u300C\u516C\u53F8\u5236\u5EA6\u300D\u548C\u67D0\u4E2A CCS \u7C7B\u76EE\u3002" }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-hint", children: [
+          "\u6807\u7B7E\u662F",
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { children: "\u4F60\u81EA\u5DF1\u7684\u5206\u7EC4" }),
+          "\uFF0C\u4E0D\u5C5E\u4E8E\u4EFB\u4F55\u4E00\u68F5\u6811\uFF1B\u540C\u4E00\u4E2A\u6807\u7B7E\u53EF\u4EE5\u540C\u65F6\u8986\u76D6\u300C\u516C\u53F8\u5236\u5EA6\u300D\u548C\u67D0\u4E2A CCS \u7C7B\u76EE\u3002"
+        ] }),
         /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-card", children: [
           /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-parse", style: { marginBottom: 6 }, children: [
             /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { children: "\u5728\u6B64\u6807\u7B7E\u4E0B\u63D0\u95EE\u7684\u68C0\u7D22\u8BED\u6CD5\uFF1A" }),
@@ -33332,7 +33445,11 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-kb-hint", children: "\uFF08\u90FD\u4F5C\u7528\u5728\u9875\u9762\u72B6\u6001\u4E0A\uFF0C\u4E0D\u4F1A\u5199\u8FDB\u5E93\uFF09" })
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-detail", children: current === null ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-kb-card", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-kb-hint", children: "\u70B9\u67D0\u4E00\u884C\u7684\u300C\u8BE6\u60C5\u300D\u770B\u8FD9\u4E00\u7BC7\u7684\u5143\u6570\u636E\uFF08\u542B**\u53D1\u5E03\u65E5\u671F / \u751F\u6548\u65E5\u671F / \u5E9F\u6B62\u65E5\u671F**\uFF09\u3002" }) }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-card", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-detail", children: current === null ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-kb-card", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-hint", children: [
+        "\u70B9\u67D0\u4E00\u884C\u7684\u300C\u8BE6\u60C5\u300D\u770B\u8FD9\u4E00\u7BC7\u7684\u5143\u6570\u636E\uFF08\u542B",
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { children: "\u53D1\u5E03\u65E5\u671F / \u751F\u6548\u65E5\u671F / \u5E9F\u6B62\u65E5\u671F" }),
+        "\uFF09\u3002"
+      ] }) }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-card", children: [
         /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-row", style: { marginBottom: 6 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { className: "ks-kb-grow", style: { fontSize: 13 }, title: current.name, children: current.name }),
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Tag, { tone: STATUS[current.status].tone, children: STATUS[current.status].text })
@@ -33360,7 +33477,11 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-kb-hint", style: { marginTop: 6 }, children: '\u8FD9\u91CC**\u53EA\u663E\u793A\u4F60\u81EA\u5DF1\u6253\u7684\u6807\u7B7E**\u2014\u2014\u6309\u4F60\u7684\u8981\u6C42\uFF0C\u53D6\u6D88\u4E86"\u9886\u57DF\u6807\u7B7E"\u90A3\u5957\u81EA\u52A8\u6253\u6807\u7B7E\u3002' })
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-hint", style: { marginTop: 6 }, children: [
+          "\u8FD9\u91CC",
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { children: "\u53EA\u663E\u793A\u4F60\u81EA\u5DF1\u6253\u7684\u6807\u7B7E" }),
+          '\u2014\u2014\u6309\u4F60\u7684\u8981\u6C42\uFF0C\u53D6\u6D88\u4E86"\u9886\u57DF\u6807\u7B7E"\u90A3\u5957\u81EA\u52A8\u6253\u6807\u7B7E\u3002'
+        ] })
       ] }) })
     ] })
   ] });
@@ -35299,44 +35420,16 @@ var $trWarn = {
 
 // client/KsIngestPanel.tsx
 var import_react12 = require("react");
+var import_dsh_client_ui_primitives4 = require("@deepseek-ai/dsh-client-ui-primitives");
 var import_jsx_runtime13 = require("react/jsx-runtime");
 var VERDICT_META = {
-  ok: { icon: "\u2705", label: "\u53EF\u5165\u5E93", color: "#1a7f37" },
-  warn: { icon: "\u26A0\uFE0F", label: "\u9700\u4EBA\u5DE5\u786E\u8BA4", color: "#9a6700" },
-  block: { icon: "\u274C", label: "\u4E0D\u5EFA\u8BAE\u5165\u5E93", color: "#b42318" }
+  ok: { icon: "\u2705", label: "\u53EF\u5165\u5E93", tone: "ok" },
+  warn: { icon: "\u26A0\uFE0F", label: "\u9700\u4EBA\u5DE5\u786E\u8BA4", tone: "warn" },
+  block: { icon: "\u274C", label: "\u4E0D\u5EFA\u8BAE\u5165\u5E93", tone: "block" }
 };
 function verdictMeta(v) {
-  return VERDICT_META[v] ?? { icon: "\u2754", label: v || "\u672A\u77E5", color: "#57606a" };
+  return VERDICT_META[v] ?? { icon: "\u2754", label: v || "\u672A\u77E5", tone: "muted" };
 }
-function btnStyle3(disabled) {
-  return {
-    padding: "3px 12px",
-    borderRadius: 6,
-    fontSize: 12,
-    border: `1px solid ${disabled ? "#c4c4c4" : "#7f7f7f"}`,
-    background: disabled ? "#e9e9e9" : "#ffffff",
-    color: disabled ? "#5a5a5a" : "#111111",
-    cursor: disabled ? "default" : "pointer"
-  };
-}
-var chipStyle = {
-  display: "inline-block",
-  padding: "1px 8px",
-  borderRadius: 999,
-  border: "1px solid #d0d7de",
-  fontSize: 12,
-  marginRight: 6
-};
-var monoStyle = {
-  fontFamily: "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
-  fontSize: 12,
-  wordBreak: "break-all"
-};
-var noteStyle = {
-  fontSize: 12,
-  color: "#57606a",
-  lineHeight: 1.6
-};
 function fmtSize(n) {
   if (!Number.isFinite(n) || n <= 0) return "-";
   if (n < 1024) return `${n} B`;
@@ -35345,10 +35438,10 @@ function fmtSize(n) {
 }
 function BucketBar(props) {
   const { batch } = props;
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { margin: "8px 0" }, children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-buckets", children: [
     ["ok", "warn", "block"].map((k) => {
       const meta = verdictMeta(k);
-      return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { ...chipStyle, borderColor: meta.color }, children: [
+      return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: `ks-ing-chip ks-ing-tone-${meta.tone}`, children: [
         meta.icon,
         " ",
         meta.label,
@@ -35356,7 +35449,7 @@ function BucketBar(props) {
         /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("b", { children: batch.buckets[k] ?? 0 })
       ] }, k);
     }),
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { ...noteStyle, marginLeft: 4 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-ing-note", children: [
       "\u5171\u8BC4\u4F30 ",
       batch.evaluated,
       " \u672C",
@@ -35376,19 +35469,19 @@ function ReportDetail(props) {
   const rec = r.recognition ?? {};
   const lay = r.layout ?? {};
   const dist = r.knowledge_type_distribution ?? {};
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { border: "1px solid #d0d7de", borderRadius: 6, padding: 10, marginTop: 8 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { fontSize: 13, fontWeight: 600 }, children: [
-      meta.icon,
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-card", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-h", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: `ks-ing-tone-${meta.tone}`, children: meta.icon }),
       " ",
       meta.label,
       " \xB7 ",
       r.grade,
       " \u7EA7 \xB7 ",
       r.status === "ok" ? "\u89E3\u6790\u6210\u529F" : "\u89E3\u6790\u5931\u8D25",
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { ...noteStyle, fontWeight: 400, marginLeft: 8 }, children: r.one_line ?? "" })
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ing-h-sub", children: r.one_line ?? "" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { style: { ...noteStyle, marginTop: 6 }, children: r.verdict_reasons.map((x) => `[${x.code}] ${x.reason}`).join(" \xB7 ") }),
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { ...noteStyle, marginTop: 6 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-ing-note", children: r.verdict_reasons.map((x) => `[${x.code}] ${x.reason}`).join(" \xB7 ") }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
       "\u9875\u6570 ",
       r.pages,
       " \xB7 \u6761\u6B3E ",
@@ -35407,9 +35500,9 @@ function ReportDetail(props) {
       " \u5B57",
       typeof lay.tables_rebuilt === "number" && lay.tables_rebuilt > 0 ? ` \xB7 \u8868\u683C ${lay.tables_rebuilt}` : "",
       " \xB7 ",
-      r.egress === "none" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { children: "\u4E0D\u5916\u53D1\uFF08\u672A\u542F\u7528\u4E91\u6DF1\u5EA6\u901A\u9053\uFF09" }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { color: "#9a6700" }, children: "\u5DF2\u5141\u8BB8\u4E91\u6DF1\u5EA6\u901A\u9053\u2014\u2014\u626B\u63CF\u4EF6\u4F1A\u4E0A\u4F20\u4E91\u7AEF\uFF08\u672C\u6B21\u662F\u5426\u771F\u7684\u4E0A\u4F20\u53D6\u51B3\u4E8E\u8BE5\u6587\u6863\u6709\u65E0\u6587\u672C\u5C42\uFF1B \u7CBE\u786E\u8BB0\u5F55\u89C1\u5916\u53D1\u5BA1\u8BA1\uFF09" })
+      r.egress === "none" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { children: "\u4E0D\u5916\u53D1\uFF08\u672A\u542F\u7528\u4E91\u6DF1\u5EA6\u901A\u9053\uFF09" }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ing-warn", children: "\u5DF2\u5141\u8BB8\u4E91\u6DF1\u5EA6\u901A\u9053\u2014\u2014\u626B\u63CF\u4EF6\u4F1A\u4E0A\u4F20\u4E91\u7AEF\uFF08\u672C\u6B21\u662F\u5426\u771F\u7684\u4E0A\u4F20\u53D6\u51B3\u4E8E\u8BE5\u6587\u6863\u6709\u65E0\u6587\u672C\u5C42\uFF1B \u7CBE\u786E\u8BB0\u5F55\u89C1\u5916\u53D1\u5BA1\u8BA1\uFF09" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { ...noteStyle, marginTop: 6 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
       "\u6807\u51C6\u53F7\u731C\u6D4B ",
       r.standard_no_guess?.value ?? "\uFF08\u672A\u8BC6\u522B\uFF09",
       " \xB7 ",
@@ -35419,20 +35512,20 @@ function ReportDetail(props) {
       "\u5206\u578B ",
       Object.entries(dist).map(([k, v]) => `${k}${v}`).join(" ") || "-"
     ] }),
-    r.duplicate?.kind && r.duplicate.kind !== "none" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { ...noteStyle, marginTop: 6, color: "#9a6700" }, children: [
+    r.duplicate?.kind && r.duplicate.kind !== "none" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note ks-ing-warn", children: [
       "\u5E93\u5185\u91CD\u590D\uFF08",
       r.duplicate.kind,
       "\uFF09\uFF1A",
       r.duplicate.message ?? ""
     ] }) : null,
-    r.head_samples?.length ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { marginTop: 8 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { fontSize: 12, fontWeight: 600 }, children: [
+    r.head_samples?.length ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-sub", children: [
         "\u524D ",
         r.head_samples.length,
         " \u6761\u6837\u4F8B"
       ] }),
-      r.head_samples.map((s) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { ...noteStyle, marginTop: 2 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: monoStyle, children: s.number }),
+      r.head_samples.map((s) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ing-mono", children: s.number }),
         " \xB7 ",
         s.knowledge_type,
         "\uFF08",
@@ -35443,30 +35536,31 @@ function ReportDetail(props) {
         "\u7F6E\u4FE1 ",
         s.ocr_confidence,
         s.suspicious ? " \xB7 \u53EF\u7591" : "",
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { style: { paddingLeft: 12 }, children: s.head })
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-ing-indent", children: s.head })
       ] }, `h${s.ordinal}`))
     ] }) : null,
-    r.ocr_suspects?.length ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { marginTop: 8 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { fontSize: 12, fontWeight: 600, color: "#9a6700" }, children: [
+    r.ocr_suspects?.length ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-sub ks-ing-warn", children: [
         "\u53EF\u7591\u6761\u6B3E ",
         r.ocr_suspects.length,
         r.ocr_suspects_truncated ? "\uFF08\u5DF2\u622A\u65AD\uFF09" : ""
       ] }),
-      r.ocr_suspects.slice(0, 8).map((s) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { ...noteStyle, marginTop: 2 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: monoStyle, children: s.number }),
+      r.ocr_suspects.slice(0, 8).map((s) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ing-mono", children: s.number }),
         " \xB7 ",
         s.ocr_confidence,
         " \xB7 ",
         s.reasons.join("/")
       ] }, `s${s.ordinal}`))
     ] }) : null,
-    r.collected_signals && Object.keys(r.collected_signals).length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { ...noteStyle, marginTop: 8 }, children: [
+    r.collected_signals && Object.keys(r.collected_signals).length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
       "\u4F53\u68C0\u6807\u7B7E\uFF1A",
       Object.entries(r.collected_signals).filter(([k]) => k !== "table_anomaly_clauses").map(([k, v]) => `${k}\xD7${String(v)}`).join(" \xB7 ") || "\uFF08\u65E0\uFF09"
     ] }) : null
   ] });
 }
 function KsIngestPanel(props) {
+  ensureKsStyles();
   const { visible } = props;
   const abortRef = (0, import_react12.useRef)(null);
   const [dir, setDir] = (0, import_react12.useState)("");
@@ -35583,17 +35677,17 @@ function KsIngestPanel(props) {
   }, [job]);
   (0, import_react12.useEffect)(() => () => stopJobPolling(), [stopJobPolling]);
   const busy = listState.status === "loading" || batchState.status === "loading" || detailState.status === "loading";
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { padding: "4px 0 2px", fontSize: 13 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: noteStyle, children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
       "\u53EA\u8BFB\u9884\u89C8\uFF1A",
       /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("b", { children: "\u4E0D\u5199\u5E93\u3001\u4E0D\u79FB\u52A8\u6587\u4EF6\u3001\u9ED8\u8BA4\u4E0D\u5916\u53D1" }),
       '\u3002 \u626B\u63CF\u4EF6\u9ED8\u8BA4\u53EA\u62A5"\u65E0\u6587\u672C\u5C42"\uFF0C',
       /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("b", { children: "\u4E0D\u4F1A" }),
       "\u5077\u5077\u4E0A\u4F20\u5230\u4E91\u89E3\u6790\uFF1B\u786E\u9700\u4E91\u6DF1\u5EA6\u89E3\u6790\u65F6\uFF0C \u52FE\u9009\u4E0B\u9762\u7684",
       /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("b", { children: "\u300C\u5141\u8BB8\u4E91\u6DF1\u5EA6\u89E3\u6790\u300D" }),
-      "\u663E\u5F0F\u5F00\u542F\uFF08\u4F1A\u5916\u53D1\uFF0C\u62A5\u544A\u91CC\u4F1A\u5982\u5B9E\u6807\u6CE8 `egress`\uFF09\u3002 \u6B63\u5F0F\u5165\u5E93\uFF08\u786E\u8BA4\u540E\u539F\u5B50\u5199\u5165\uFF09\u662F\u4E0B\u4E00\u91CC\u7A0B\u7891\uFF0C\u6B64\u9875\u4E0D\u63D0\u4F9B\u3002"
+      "\u663E\u5F0F\u5F00\u542F\uFF08\u4F1A\u5916\u53D1\uFF0C\u62A5\u544A\u91CC\u4F1A\u5982\u5B9E\u6807\u6CE8 egress\uFF09\u3002 \u6B63\u5F0F\u5165\u5E93\uFF08\u786E\u8BA4\u540E\u539F\u5B50\u5199\u5165\uFF09\u662F\u4E0B\u4E00\u91CC\u7A0B\u7891\uFF0C\u6B64\u9875\u4E0D\u63D0\u4F9B\u3002"
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("label", { style: { ...noteStyle, display: "flex", alignItems: "center", gap: 6, marginTop: 6, cursor: "pointer" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("label", { className: "ks-ing-note ks-ing-toggle", children: [
       /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         "input",
         {
@@ -35610,154 +35704,122 @@ function KsIngestPanel(props) {
         allowDeep ? "\u672C\u6B21\u9884\u89C8\u5C06\u5982\u5B9E\u6807\u6CE8 egress=deep_channel\u3002" : "\u672C\u6B21\u9884\u89C8\u4E0D\u5916\u53D1\uFF08egress=none\uFF09\u3002"
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { marginTop: 10 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: noteStyle, children: "\u5F85\u5165\u5E93\u76EE\u5F55\uFF1A" }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-row", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ing-note", children: "\u5F85\u5165\u5E93\u76EE\u5F55\uFF1A" }),
       /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         "input",
         {
+          className: "ks-ing-mono ks-ing-dir",
           value: dirInput,
           onChange: (e) => setDirInput(e.target.value),
           spellCheck: false,
-          style: { ...monoStyle, width: "62%", padding: "2px 6px", marginRight: 6 },
           "aria-label": "\u5F85\u5165\u5E93\u76EE\u5F55"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-        "button",
-        {
-          type: "button",
-          style: btnStyle3(busy),
-          disabled: busy,
-          onClick: () => void loadInbox(dirInput),
-          children: "\u5237\u65B0\u5217\u8868"
-        }
-      )
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.Button, { variant: "outline", size: "sm", disabled: busy, onClick: () => void loadInbox(dirInput), children: "\u5237\u65B0\u5217\u8868" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { ...noteStyle, marginTop: 8 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
       "\u8BE5\u76EE\u5F55\u4E0B PDF\uFF1A",
       /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("b", { children: files.length }),
       " \u4E2A",
       degraded === "engine_unavailable" ? "\uFF08\u5F15\u64CE\u672A\u542F\u52A8\uFF1A\u4EE5\u4E0B\u4E3A host \u76F4\u63A5\u5217\u76EE\u5F55\u7684\u7ED3\u679C\uFF09" : ""
     ] }),
-    files.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { style: { ...noteStyle, marginTop: 4 }, children: "\u628A\u8981\u5165\u5E93\u7684 PDF \u653E\u8FDB\u4E0A\u9762\u7684\u76EE\u5F55\uFF0C\u7136\u540E\u70B9\u300C\u5237\u65B0\u5217\u8868\u300D\u3002" }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { ...noteStyle, marginTop: 4 }, children: [
-      files.slice(0, 12).map((f) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { ...monoStyle, marginTop: 2 }, children: [
+    files.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-ing-note", children: "\u628A\u8981\u5165\u5E93\u7684 PDF \u653E\u8FDB\u4E0A\u9762\u7684\u76EE\u5F55\uFF0C\u7136\u540E\u70B9\u300C\u5237\u65B0\u5217\u8868\u300D\u3002" }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-files", children: [
+      files.slice(0, 12).map((f) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-mono", children: [
         f.file_name,
         " ",
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { color: "#57606a" }, children: fmtSize(f.size) })
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ing-size", children: fmtSize(f.size) })
       ] }, f.path)),
-      files.length > 12 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
+      files.length > 12 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
         "\u2026\u8FD8\u6709 ",
         files.length - 12,
         " \u4E2A"
       ] }) : null
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { marginTop: 12 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: noteStyle, children: "\u62BD\u6837\uFF08\u672C\uFF09" }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-row", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ing-note", children: "\u62BD\u6837\uFF08\u672C\uFF09" }),
       /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         "input",
         {
+          className: "ks-ing-num",
           type: "number",
           min: 0,
           value: sample,
           onChange: (e) => setSample(Math.max(0, Number(e.target.value) || 0)),
-          style: { width: 64, padding: "2px 6px", margin: "0 6px" },
           "aria-label": "\u62BD\u6837\u672C\u6570"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { ...noteStyle, marginRight: 8 }, children: "0 = \u4E0D\u62BD\u6837\uFF08\u5168\u90E8\uFF0C\u4E0A\u9650 200\uFF09" }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ing-note", children: "0 = \u4E0D\u62BD\u6837\uFF08\u5168\u90E8\uFF0C\u4E0A\u9650 200\uFF09" }),
       /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-        "button",
+        import_dsh_client_ui_primitives4.Button,
         {
-          type: "button",
-          style: btnStyle3(busy || files.length === 0),
+          variant: "primary",
+          size: "sm",
           disabled: busy || files.length === 0,
           onClick: () => void startBatch(),
           children: "\u5F00\u59CB\u9884\u89C8"
         }
       ),
-      batchState.status === "loading" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { ...noteStyle, marginLeft: 8 }, children: "\u9884\u89C8\u4E2D\u2026\uFF08\u89E3\u6790 + \u4F53\u68C0\uFF0C\u626B\u63CF\u4EF6\u53EF\u80FD\u8981\u51E0\u79D2\uFF09" }) : null
+      batchState.status === "loading" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ing-note", children: "\u9884\u89C8\u4E2D\u2026\uFF08\u89E3\u6790 + \u4F53\u68C0\uFF0C\u626B\u63CF\u4EF6\u53EF\u80FD\u8981\u51E0\u79D2\uFF09" }) : null
     ] }),
-    batchState.status === "error" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { ...noteStyle, marginTop: 8, color: "#b42318" }, children: [
+    batchState.status === "error" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note ks-ing-err", children: [
       "\u9884\u89C8\u5931\u8D25\uFF1A",
       batchState.message
     ] }) : null,
     batch ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(BucketBar, { batch }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { style: { ...noteStyle, marginBottom: 4 }, children: "\u70B9\u6587\u4EF6\u540D\u770B\u8BE5\u672C\u7684\u5B8C\u6574\u4F53\u68C0\u62A5\u544A\uFF08\u5206\u7EA7/\u88C1\u51B3\u7406\u7531/\u6837\u4F8B/\u53EF\u7591\u6761\u6B3E/\u67E5\u91CD\uFF09\u3002" }),
-      batch.files.map((row) => {
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-ing-note", children: "\u70B9\u6587\u4EF6\u540D\u770B\u8BE5\u672C\u7684\u5B8C\u6574\u4F53\u68C0\u62A5\u544A\uFF08\u5206\u7EA7/\u88C1\u51B3\u7406\u7531/\u6837\u4F8B/\u53EF\u7591\u6761\u6B3E/\u67E5\u91CD\uFF09\u3002" }),
+      batch.files.map((row, i) => {
         const meta = verdictMeta(row.verdict);
-        return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
-          "div",
-          {
-            style: { borderTop: "1px solid #eaeef2", padding: "6px 0", display: "flex", gap: 8 },
-            children: [
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { color: meta.color, minWidth: 18 }, children: meta.icon }),
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { flex: 1 }, children: [
-                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-                  "button",
-                  {
-                    type: "button",
-                    onClick: () => void openDetail(row),
-                    style: {
-                      border: "none",
-                      background: "none",
-                      padding: 0,
-                      cursor: "pointer",
-                      fontSize: 13,
-                      color: "#0969da",
-                      textAlign: "left"
-                    },
-                    children: row.file_name
-                  }
-                ),
-                /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: noteStyle, children: [
-                  row.grade,
-                  " \u7EA7 \xB7 ",
-                  row.pages,
-                  " \u9875 \xB7 ",
-                  row.total_clauses,
-                  " \u6761",
-                  " \xB7 ",
-                  row.reasons.join("/") || "OK",
-                  row.error ? ` \xB7 ${row.error}` : ""
-                ] })
-              ] })
-            ]
-          },
-          row.path
-        );
+        return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: i === 0 ? "ks-ing-line ks-ing-line-first" : "ks-ing-line", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: `ks-ing-icon ks-ing-tone-${meta.tone}`, children: meta.icon }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-grow", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+              "button",
+              {
+                type: "button",
+                className: "ks-ing-link",
+                onClick: () => void openDetail(row),
+                children: row.file_name
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
+              row.grade,
+              " \u7EA7 \xB7 ",
+              row.pages,
+              " \u9875 \xB7 ",
+              row.total_clauses,
+              " \u6761",
+              " \xB7 ",
+              row.reasons.join("/") || "OK",
+              row.error ? ` \xB7 ${row.error}` : ""
+            ] })
+          ] })
+        ] }, row.path);
       })
     ] }) : null,
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { marginTop: 14, borderTop: "1px dashed #d0d7de", paddingTop: 10 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { style: { fontWeight: 600, marginBottom: 4 }, children: "\u5168\u91CF\u9884\u89C8\uFF08\u5F02\u6B65\uFF0C\u4E07\u7EA7\u53EF\u7528\uFF09" }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { style: noteStyle, children: "\u4E0A\u9762\u7684\u540C\u6B65\u9884\u89C8\u5355\u8BF7\u6C42\u4E0A\u9650 200 \u672C\uFF1B\u8FD9\u91CC\u8D70\u5F15\u64CE\u540E\u53F0\u4EFB\u52A1\uFF0C\u51E0\u4E07\u672C\u4E5F\u80FD\u8DD1\u2014\u2014 \u5173\u6389\u6D4F\u89C8\u5668 host \u4E5F\u4F1A\u7EE7\u7EED\u63A8\u8FDB\uFF0C\u56DE\u6765\u65F6\u81EA\u52A8\u6062\u590D\u8FDB\u5EA6\u663E\u793A\u3002" }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { marginTop: 8 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-async", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-ing-sub", children: "\u5168\u91CF\u9884\u89C8\uFF08\u5F02\u6B65\uFF0C\u4E07\u7EA7\u53EF\u7528\uFF09" }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-ing-note", children: "\u4E0A\u9762\u7684\u540C\u6B65\u9884\u89C8\u5355\u8BF7\u6C42\u4E0A\u9650 200 \u672C\uFF1B\u8FD9\u91CC\u8D70\u5F15\u64CE\u540E\u53F0\u4EFB\u52A1\uFF0C\u51E0\u4E07\u672C\u4E5F\u80FD\u8DD1\u2014\u2014 \u5173\u6389\u6D4F\u89C8\u5668 host \u4E5F\u4F1A\u7EE7\u7EED\u63A8\u8FDB\uFF0C\u56DE\u6765\u65F6\u81EA\u52A8\u6062\u590D\u8FDB\u5EA6\u663E\u793A\u3002" }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-row", children: [
         /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-          "button",
+          import_dsh_client_ui_primitives4.Button,
           {
-            type: "button",
-            style: btnStyle3(job !== null && (job.status === "running" || job.status === "pending")),
+            variant: "outline",
+            size: "sm",
             disabled: job !== null && (job.status === "running" || job.status === "pending"),
             onClick: () => void startFullJob(),
             children: "\u5BF9\u6574\u4E2A\u76EE\u5F55\u53D1\u8D77\u5168\u91CF\u9884\u89C8"
           }
         ),
-        job && (job.status === "running" || job.status === "pending") ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-          "button",
-          {
-            type: "button",
-            style: { ...btnStyle3(false), marginLeft: 8 },
-            onClick: () => void abortFullJob(),
-            children: "\u4E2D\u65AD"
-          }
-        ) : null
+        job && (job.status === "running" || job.status === "pending") ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.Button, { variant: "ghost", size: "sm", onClick: () => void abortFullJob(), children: "\u4E2D\u65AD" }) : null
       ] }),
-      jobError ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { ...noteStyle, marginTop: 6, color: "#b42318" }, children: [
+      jobError ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note ks-ing-err", children: [
         "\u4EFB\u52A1\u5931\u8D25\uFF1A",
         jobError
       ] }) : null,
-      job ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { marginTop: 8 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: noteStyle, children: [
+      job ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
           "\u72B6\u6001\uFF1A",
           /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("b", { children: job.status }),
           " \xB7 ",
@@ -35771,29 +35833,19 @@ function KsIngestPanel(props) {
         job.total > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           "div",
           {
+            className: "ks-ing-progress",
             role: "progressbar",
             "aria-label": "\u5168\u91CF\u9884\u89C8\u8FDB\u5EA6",
-            style: {
-              marginTop: 6,
-              height: 8,
-              borderRadius: 4,
-              background: "#eaeef2",
-              overflow: "hidden"
-            },
             children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
               "div",
               {
-                style: {
-                  width: `${Math.min(100, Math.round(job.done / job.total * 100))}%`,
-                  height: "100%",
-                  background: "#0969da",
-                  transition: "width 0.4s ease"
-                }
+                className: "ks-ing-progress-fill",
+                style: { width: `${Math.min(100, Math.round(job.done / job.total * 100))}%` }
               }
             )
           }
         ) : null,
-        job.status === "done" || job.status === "aborted" || job.status === "failed" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { ...noteStyle, marginTop: 6 }, children: [
+        job.status === "done" || job.status === "aborted" || job.status === "failed" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
           "\u4E09\u6876\u603B\u8D26\uFF1A\u2705 \u53EF\u5165\u5E93 ",
           /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("b", { children: job.buckets?.ok ?? 0 }),
           " \xB7 ",
@@ -35804,18 +35856,18 @@ function KsIngestPanel(props) {
           /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("b", { children: job.buckets?.block ?? 0 }),
           job.status === "aborted" ? "\uFF08\u5DF2\u4E2D\u65AD\uFF1A\u4EE5\u4E0A\u4E3A\u90E8\u5206\u7ED3\u679C\uFF09" : ""
         ] }) : null,
-        job.rows && job.rows.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { marginTop: 6 }, children: [
+        job.rows && job.rows.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
           job.rows.slice(0, 10).map((row) => {
             const meta = verdictMeta(row.verdict);
-            return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { ...noteStyle, marginTop: 2 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { color: meta.color }, children: meta.icon }),
+            return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: `ks-ing-tone-${meta.tone}`, children: meta.icon }),
               " ",
               row.file_name,
               " \u2014 ",
               row.one_line || `${row.grade} \u7EA7 \xB7 ${row.pages} \u9875`
             ] }, row.path);
           }),
-          job.rows_count !== void 0 && job.rows_count > 10 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: noteStyle, children: [
+          job.rows_count !== void 0 && job.rows_count > 10 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
             "\u2026\u5171 ",
             job.rows_count,
             " \u884C\uFF08\u524D 10 \u884C\u9884\u89C8\uFF09"
@@ -35823,12 +35875,12 @@ function KsIngestPanel(props) {
         ] }) : null
       ] }) : null
     ] }),
-    detailState.status === "loading" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { ...noteStyle, marginTop: 8 }, children: [
+    detailState.status === "loading" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
       "\u52A0\u8F7D ",
       detailName,
       " \u7684\u62A5\u544A\u2026"
     ] }) : null,
-    detailState.status === "error" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { ...noteStyle, marginTop: 8, color: "#b42318" }, children: [
+    detailState.status === "error" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note ks-ing-err", children: [
       detailName,
       " \u62A5\u544A\u5931\u8D25\uFF1A",
       detailState.message
@@ -36656,7 +36708,7 @@ function KsAnnounceSourcesSection(props) {
     )
   ] });
 }
-function btnStyle4(disabled) {
+function btnStyle3(disabled) {
   return {
     padding: "3px 12px",
     borderRadius: 6,
@@ -36791,7 +36843,7 @@ function KsApiConfigSection(props) {
               urlVal,
               ch === "mineru_cloud" && modeDirty ? effectiveCloudMode : void 0
             ),
-            style: btnStyle4(busy !== null),
+            style: btnStyle3(busy !== null),
             children: busy === `save-${ch}` ? "\u4FDD\u5B58\u4E2D\u2026" : "\u4FDD\u5B58"
           }
         ),
@@ -36802,7 +36854,7 @@ function KsApiConfigSection(props) {
             disabled: busy !== null || dirty,
             title: dirty ? "\u6709\u672A\u4FDD\u5B58\u7684\u4FEE\u6539\uFF1A\u5148\u70B9\u300C\u4FDD\u5B58\u300D\u518D\u6D4B\u8BD5" : void 0,
             onClick: () => void onTest(ch),
-            style: btnStyle4(busy !== null || dirty),
+            style: btnStyle3(busy !== null || dirty),
             children: busy === `test-${ch}` ? "\u6D4B\u8BD5\u4E2D\u2026" : dirty ? "\u5148\u4FDD\u5B58\u518D\u6D4B\u8BD5" : "\u{1F9EA} \u6D4B\u8BD5\u8FDE\u901A"
           }
         )
