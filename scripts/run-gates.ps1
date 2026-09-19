@@ -28,6 +28,8 @@ param(
 $ErrorActionPreference = 'Continue'
 $repo = Split-Path -Parent $PSScriptRoot
 $baselinePath = Join-Path $PSScriptRoot 'gates-baseline.json'
+#: pytest 的机器可读结果（棘轮判据取 nodeid，不再依赖 `文件:行号` —— 行号会随编辑位移）。
+$junitPath = Join-Path ([System.IO.Path]::GetTempPath()) "ks-gates-junit-$PID.xml"
 
 if (-not $Quick -and -not $Full) { $Quick = $true }   # 缺省 = 快档（避免误触全量）
 if ($Quick -and $Full) { $Quick = $false }            # 同时给 ⇒ 按全量
@@ -126,7 +128,7 @@ Add-Step 'mypy（引擎类型）'        $py  @('-m', 'mypy') $repo
 Add-Step 'verify:commands'        'npm' @('run', 'verify:commands') $plugin
 Add-Step 'smoke（全链）'           'npm' @('run', 'smoke') $plugin
 if ($Full) {
-  Add-Step 'pytest（引擎用例）'     $py  @('-m', 'pytest', '-q', '-rs') $repo
+  Add-Step 'pytest（引擎用例）'     $py  @('-m', 'pytest', '-q', '-rs', "--junitxml=$junitPath") $repo
   Add-Step '引擎门禁（uvicorn）'     $py  @('scripts/verify-engine-uvicorn.py') $repo
 }
 }
@@ -189,26 +191,33 @@ try {
       Write-Host ("   ⛔ 该步完整输出：{0}" -f $logPath) -ForegroundColor Red
     }
 
-    # pytest 的"只涨不跌"要读数字；`-rs` 是为了拿到 **skip 理由**（棘轮要按"账要平 + 理由集"
-    # 判，见下面那段；没有理由集就只能比 passed，而 passed 是**环境相关**的）。
+    # pytest 的"只涨不跌"要读数字与 **skip 的 nodeid**（棘轮判据，见下面那段）。
     if ($s.name -like 'pytest*') {
       $m = [regex]::Match($text, '(\d+) passed')
       if ($m.Success) { $pytestPassed = [int]$m.Groups[1].Value }
       $m2 = [regex]::Match($text, '(\d+) skipped')
       if ($m2.Success) { $pytestSkipped = [int]$m2.Groups[1].Value }
-      $reasons = @($out | Where-Object { "$_" -match '^\s*SKIPPED\s' } |
-        ForEach-Object { ("$_" -replace '^\s*SKIPPED\s+\[\d+\]\s+[^:]+:\d+:\s*', '').Trim() })
-      # ⚠ **判据的键是"skip 站点"（`tests/x.py:31`），不是理由的自然语言**（复核 2026-09-19）：
-      #   理由是中文散文，会随编码/代码页变成乱码；而且"环境类理由"（RUN_LIVE 没开、模型没下、
-      #   真产物不在）**本来就随环境变化**。站点是 ASCII、稳定、唯一标识那个 skipif。
-      #   ⚠ 解析要用**原行**取 `路径:行号`（第一版在"理由串"上砍第一个冒号 ⇒ 把行号砍掉了，
-      #   于是站点退化成文件名 ⇒ 与基线对不上，报出三条假红）。
-      $skipLines = @($out | Where-Object { "$_" -match '^\s*SKIPPED\s' })
-      $sites = @($skipLines | ForEach-Object {
-          $m = [regex]::Match("$_", '^\s*SKIPPED\s+\[\d+\]\s+(?<site>[^:]+:\d+)')
-          if ($m.Success) { $m.Groups['site'].Value -replace '\\', '/' }
-        } | Where-Object { $_ } | Sort-Object -Unique)
-      $skipReasonsOfStep = @($sites)
+      # ⚠ **判据的键 = pytest 的 nodeid**（`tests.test_x::test_y`），**不是** `文件:行号`（复核 v2 打回）：
+      #   行号会随"在文件顶部加一行注释"位移 ⇒ 零回归也判红（复核实测：加一行注释，站点从 :72 变 :73，
+      #   当场 ⛔）；而 nodeid 与编码、行号、绝对/相对路径**全都无关**。用 `--junitxml` 拿机器可读结果。
+      $skipNodeIds = @()
+      $junitError = $null
+      if (Test-Path $junitPath) {
+        try {
+          [xml]$jx = Get-Content $junitPath -Raw
+          $skipNodeIds = @($jx.SelectNodes('//testcase') |
+            Where-Object { $_.SelectSingleNode('skipped') -ne $null } |
+            ForEach-Object { "$($_.classname)::$($_.name)" } | Sort-Object -Unique)
+        } catch { $junitError = "junitxml 解析失败：$junitPath（$($_.Exception.Message)）" }
+      } else {
+        $junitError = "没找到 junitxml：$junitPath"
+      }
+      # ⚠ **解析不到 ⇒ 报错，不许静默丢弃**（复核 v2 指出的第二个洞）：若汇总说 skipped=N，
+      #   而 junit 里只认出 M≠N 条，那判据就不可信 —— 判红并说清差在哪，别"当没事发生"。
+      if ($null -eq $junitError -and $skipNodeIds.Count -ne [int]$pytestSkipped) {
+        $junitError = "junit 里认出 skipped=$($skipNodeIds.Count) 条，汇总说 skipped=$pytestSkipped 条 ⇒ 判据不可信"
+      }
+      $skipReasonsOfStep = @($skipNodeIds)
     }
     $ok = ($code -eq 0)
     $results += [pscustomobject]@{ name = $s.name; ok = $ok; code = $code
@@ -225,16 +234,16 @@ try {
 
 try {
   # ── 只涨不跌（读基线比对） ────────────────────────────────────────────────
-  # ⚠ 棘轮曾经**与环境耦合**（复核 2026-09-19 实测：同一提交在两个环境里 2143/3 与 2142/4，
-  #   基线记的是前者 ⇒ 后者的 `-Full` 红在 6/6 全绿之下，成了假绿/假红的混合体）。
-  #   现在按**"账要平"**判，不再只看 passed：
-  #     ① `passed + skipped ≥ 基线总账`（删掉用例 ⇒ 红；新增用例 ⇒ 绿并提示更新基线）；
-  #     ② **不许出现基线里没有的 skip 理由**（环境性 skip 如 RUN_LIVE 已记在基线里，
-  #        于是"换环境少跑一条"不再假红；而"某个依赖坏了导致新出现一批 skip"照样红）。
+  # ⚠ 棘轮被复核打回过两次，这里是**第三版**，把每条判据的**作用**说清（别再冒领功劳）：
+  #     ① **总账**（`passed+skipped ≥ 基线总账`）只兜**删用例 / 少收集**；
+  #        ⚠ 它**兜不住** `passed → skipped` 的翻转（那种翻转下总账恒等不变）——v2 曾把这条写成
+  #        "总账兜翻转"，数学上就是错的（复核 v3 打回，已更正）。
+  #     ② **skip nodeid 规则**才是兜"某个用例开始被 skip"的那条（白名单外的新 nodeid ⇒ 红）。
+  #     ③ **junit 解析失败 / 与汇总数字不符** ⇒ 直接红（判据不可信时不许当绿）。
   $baselineDrop = $false
   $why = @()
-  $skipSites = @($results | Where-Object { $_.name -like 'pytest*' } | ForEach-Object { $_.skipReasons } |
-    Where-Object { $_ } | Sort-Object -Unique)
+  $skipNodeIds = @($results | Where-Object { $_.name -like 'pytest*' } |
+    ForEach-Object { $_.skipReasons } | Where-Object { $_ } | Sort-Object -Unique)
   $totalRan = $null
   if ($null -ne $pytestPassed) { $totalRan = $pytestPassed + ([int]$pytestSkipped) }
   if ($null -ne $pytestPassed) {
@@ -247,20 +256,21 @@ try {
           $pytestPassed, $pytestSkipped)
       }
       # 环境类 skip 白名单（基线里声明）：它们**随环境出现/消失是正常的**，不当回归。
-      # 白名单**外**的**新**站点 ⇒ 红（有人新加了一条 skipif，或某个依赖坏了让用例开始 skip）。
-      $envSites = @($base.environmental_skip_sites)
-      $knownSites = @($base.skip_sites)
-      $newSites = @($skipSites | Where-Object { $knownSites -notcontains $_ -and $envSites -notcontains $_ })
-      if ($newSites.Count -gt 0) {
-        $why += ("出现基线里没有的 skip 站点（且不在环境白名单）：{0}" -f ($newSites -join ' / '))
+      # 白名单**外**的**新** nodeid ⇒ 红（有人新加了一条跳过，或某个依赖坏了让用例开始 skip）。
+      $envIds = @($base.environmental_skip_nodeids)
+      $knownIds = @($base.skip_nodeids)
+      $newIds = @($skipNodeIds | Where-Object { $knownIds -notcontains $_ -and $envIds -notcontains $_ })
+      if ($newIds.Count -gt 0) {
+        $why += ("出现基线里没有的 skip nodeid（且不在环境白名单）：{0}" -f ($newIds -join ' / '))
       }
+      if ($null -ne $junitError) { $why += $junitError }
       if ($why.Count -gt 0) {
         Write-Host ""
         Write-Host ("⛔ **只涨不跌被破**：" + ($why -join '；')) -ForegroundColor Red
         $baselineDrop = $true
       } else {
         $msg = "   pytest 总账 $totalRan ≥ 基线 $baseTotal（passed $pytestPassed / skipped $pytestSkipped），"
-        $msg += "skip 站点全在基线或环境白名单内"
+        $msg += "skip nodeid 全在基线或环境白名单内"
         Write-Host $msg -ForegroundColor Green
         if ($totalRan -gt $baseTotal) {
           Write-Host ("   （比基线多 $($totalRan - $baseTotal) 条 ⇒ 新增用例后请 -UpdateBaseline 记一次）") -ForegroundColor DarkGray
@@ -272,6 +282,7 @@ try {
       if ($UpdateBaseline) {
         Write-Host "   （还没有基线文件 ⇒ 这次 -UpdateBaseline 会记一份）" -ForegroundColor DarkGray
       } else {
+        $why += "没有基线文件（棘轮无从判定）"
         Write-Host "⛔ 没有基线文件 ⇒ 棘轮无从判定（不许静默放行）；用 -UpdateBaseline 记一次" -ForegroundColor Red
         $baselineDrop = $true
       }
@@ -279,14 +290,15 @@ try {
     if ($UpdateBaseline) {
       # ⚠ 键名与既有文件保持一致（`pytest_*` 前缀）——文档里曾写成 `{passed,skipped,total}`，
       #   与真实文件不符（复核 2026-09-19 抓到）。
+      # ⚠ v3：键改成 **nodeid**（不再用 `文件:行号`，行号会随编辑位移导致假红）。
       @{ pytest_passed = $pytestPassed; pytest_skipped = $pytestSkipped; pytest_total = $totalRan
-         skip_sites = $skipSites
-         environmental_skip_sites = $(if ($null -ne $base -and $base.environmental_skip_sites) {
-             @($base.environmental_skip_sites) } else { @() })
+         skip_nodeids = $skipNodeIds
+         environmental_skip_nodeids = $(if ($null -ne $base -and $base.environmental_skip_nodeids) {
+             @($base.environmental_skip_nodeids) } else { @() })
          runLive = [bool]$env:RUN_LIVE
          updatedAt = (Get-Date).ToString('s') } | ConvertTo-Json -Depth 4 |
         Set-Content -Path $baselinePath -Encoding utf8
-      Write-Host ("   基线已更新：总账=" + $totalRan + "（passed=" + $pytestPassed + " skipped=" + $pytestSkipped + "，skip 站点 " + $skipSites.Count + " 个）") -ForegroundColor Yellow
+      Write-Host ("   基线已更新：总账=" + $totalRan + "（passed=" + $pytestPassed + " skipped=" + $pytestSkipped + "，skip nodeid " + $skipNodeIds.Count + " 个）") -ForegroundColor Yellow
     }
   }
 

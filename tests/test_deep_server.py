@@ -109,7 +109,12 @@ def test_开关关闭_不提交任务(monkeypatch):
 
 def test_提交与等待拆分_先投后收(tmp_path, monkeypatch):
     _bypass_alive(monkeypatch)
-    monkeypatch.setattr(ds.time, "sleep", lambda s: None)
+    # ⚠ 2026-09-19 修一处**偶发**（全量跑里挂过一次：`assert None == {...}`；单独跑 3/3 全过）：
+    #   原来把 `time.sleep` 整个换成 no-op ⇒ `deep_server_wait` 成了**纯自旋**，
+    #   而假 daemon 在另一个线程、要靠 GIL 轮转才跑得上 ⇒ 极端情况下自旋到 10s 超时、`r=None`。
+    #   改成"把 sleep 收紧到 ≤10ms"（保留让步点、不再自旋）：既快又确定。
+    real_sleep = time.sleep
+    monkeypatch.setattr(ds.time, "sleep", lambda s: real_sleep(min(s, 0.01)))
     sub = ds.deep_server_submit(tmp_path / "a.pdf", tmp_path / "out9")
     assert sub is not None
     # 任务文件立即在盘（不等 daemon）
