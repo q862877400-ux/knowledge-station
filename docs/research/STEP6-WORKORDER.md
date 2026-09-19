@@ -677,6 +677,90 @@ grep `docs/**/*.md` 的 `dump-config`（只有 (DSH) `docs/architecture.md:36`�
 **建议本条先做**：它是第 1/2/3 条改动的安全网（改 schema / 改 render / 开并行都可能顺手改坏出网形状）。
 与其余 5 条**均无前置依赖**。
 
+### 5.1 执行记录（2026-10，B 批；本节是本条**唯一**的归属层）
+
+**做了什么**（新增 3 个文件 + 3 处 `export`，**未改** `src/core/**` / `plugin/client/**` /
+`scripts/run-gates.ps1` / `scripts/gates-baseline.json`）：
+
+| 文件 | 角色 |
+|---|---|
+| `plugin/test/fixtures/ks-engine-wire.json` | **线契约本体**（手写，9 条 calls / 8 个场景） |
+| `plugin/scripts/smoke-wire-contract.mjs` | 回放器 + 断言（14 条，含 E0/E3 两条防复发） |
+| `plugin/scripts/smoke-all.mjs` `:68` | 登记进 SUITES（走那个 runner 才拿门禁锁） |
+| `plugin/package.json` | `smoke:wire-contract` |
+| `plugin/src/index.js` `:333,488,550` | 给 `makeEffectReportTool`/`makePingTool`/`makeResolveTool` 加 `export`（照 `makeAnswerTool` 的"为了可测"先例；纯加导出，无行为变化） |
+
+**fixture 的归属与出处**（一个事实一个归属层 ⇒ 这一节是它的归属，别处只链接）：
+
+- **请求形状的唯一来源是 `plugin/src/**` 的实参**，逐条 `_source` 指到行；响应形状的唯一来源是
+  `src/core/api/**` 与它委托的那一层（`storage/material_repo.py`、`exports/effect_report.py`、
+  `llm/ks_answer.py`、`materials/harvest.py`+`collect.py`、`verification/typed_verifier.py`）。
+  **没有一条是"跑一遍录下来"的**——本仓没有真引擎报文样例可抄，所以凡真报文里我取不到的形状
+  （见 `_notCovered`）**一律没写**，没有编。
+- 值可脱敏（`REDACTED_*`/`prj_demo` 等），**结构与可空性照真报文**。
+- **现数更正**：§0/§5 正文说 `/api/v1/...` 路径片段 **37** 个。本批按同一正则现数为
+  **36 个唯一片段 / 65 次出现**（`Select-String -AllMatches` 去重后 36）。施工单自己写着
+  "写 fixture 时要现数、不要抄这个 37"——**这就是那次现数**，差异按"含 `${` 截断片段"口径
+  无法完全对齐，故以 36/65 为准。
+
+**收进来的 9 条 calls（覆盖 6 个工具的每条出网路径）**：
+
+| call id | 工具 | 线 | 出处（请求 / 响应） |
+|---|---|---|---|
+| `ks_ping.health` | ks_ping | `GET /api/v1/health`，**无 token** | `index.js:514-519` / `server.py:334-352`（免鉴权 `:313`） |
+| `ks_resolve_clause.resolve` | ks_resolve_clause | `GET /api/v1/clauses/resolve?standard_no&clause_number` | `index.js:599-608` / `server.py:464`+`3252-3289` |
+| `ks_answer.answer` | ks_answer | `POST /api/v1/ks/answer` `{query,params,query_mode}` | `index.js:839-845` / `ks_answer.py:788-811` |
+| `ks_effect_report.summary` | ks_effect_report | `GET /api/v1/report/effect` | `index.js:409` / `effect_report.py:218-235` |
+| `ks_effect_report.color` | ks_effect_report | `GET …/color?color=red,yellow&per_color=1&limit=N` | `index.js:444-448` / `effect_report.py:272-296`+`:64-65,173-177` |
+| `ks_materials.projects` | ks_materials | `GET /api/v1/materials/projects` | `materials.js:112-113` / `routes_materials.py:85-87` |
+| `ks_materials.materials` | ks_materials | `GET …/projects/{pid}/materials` | `materials.js:151-154` / `routes_materials.py:191-203` |
+| `ks_materials.inbox` | ks_materials | `GET …/projects/{pid}/inbox` | `materials.js:130-131` / `routes_materials.py:89-103` |
+| `ks_collect.collect` | ks_collect | `POST …/projects/{pid}/collect` `{url,title,note}` | `collect.js:183-198` / `routes_materials.py:140-188`+`harvest.py:259-260` |
+
+**顺带钉住的三条线事实**（都是复核该盯的）：
+① **信封有三种**，不是一种：`/health` 是**扁平** JSON、`/clauses/resolve` 的 200 路径是
+`{code,data}`（**没有 `status` 键**）、材料与报告那批才是 `{code,status,data}`；
+② `ks_ping` 与别的工具不同，**不发 Bearer**（引擎把 `/api/v1/health` 从鉴权里豁免）；
+③ 全链路**只有 `ks_resolve_clause` 有"透传"**：它把整个 `data` 与整个 `envelope` 回给模型
+（`index.js:643,675`）⇒ 那两处的体积不受 fixture 约束，另两条支在 fixture 里显式声明为
+`_passthrough`。
+
+**断言与"红了说明什么"**（14 条；每条都用变异测试确认过会红，见下）：
+
+| 断言 | 红了说明什么 |
+|---|---|
+| `E0 每个场景的 execute 都成功` | 请求对不上 fixture（假引擎回 500）⇒ 把栈翻成"哪个场景、为什么"，让 E1 可读 |
+| `E1 exactly the documented engine calls` | 排序后与 fixture 逐条相等（两遍共 18 次）。红 ⇒ 端点了改名/多一个请求/少一个字段而 fixture 没更新 |
+| `E1b 每个场景的调用集合 == 它声明的 expectCalls` | 光有全局集合相等不够（两个工具互换端点也会全局相等）⇒ 按场景归属 |
+| `E2 the fixture is not stale` | fixture 里留了永不发生的条目（"文档化了的假契约"） |
+| `E3 the fixture is actually loaded`（防复发） | `calls>0` **且** 假引擎真收到请求 **且** 两遍共 18 **且** 无场景被跳过 **且** 每个场景都驱动过。红 ⇒ 命中 `smoke-lifecycle.mjs:131` 那个已知复发模式（0 请求时 E1/E2 双双空转通过） |
+| `E3b 没有 fixture 之外的请求打到假引擎` | 出现未声明的出网调用（同时也会让 E1 报"发了未声明"） |
+| `E4a minimal ⊑ response.body` | 探针凭空造值/改值（探针必须是被声明响应形状的真子形状） |
+| `E4b 声明与探针互相覆盖` | 声明了却探针取不到，或探针里有没被任何声明覆盖的叶；另禁"一个宽前缀盖住全部叶" |
+| `E4c 差异全部落在 `_passthrough` 下` | **我们偷偷读了未声明的响应字段**（改天引擎少给一个字段 ⇒ 模型看到静默伪装） |
+| `E4d 结果里没有 `undefined`` | DSH 的 lossless 校验会整条判 INVALID_TOOL_OUTPUT |
+| `E4e minimal 确实比全量小` | 防"探针=全量"把 E4c 变成空转 |
+| `E5 写工具请求体不带 source_tier` | 回归 `collect.js:184-185` 的纪律（采集者不得自 claim 可信度） |
+
+**防复发条款怎么验的**（施工单要求"自带防它的断言"⇒ 断言本身也要被验证）：
+
+- 变异测试台（临时脚本，**不入仓**）对 fixture 造 10 个变异，逐条确认变红：
+  M1 加永不发生的 calls[i] / M2 改请求路径 / M3 从 collect 的 minimal 删一个"工具真的读"的字段 /
+  M4 minimal 加未声明字段 / M5 minimal 值与全量不一致 / M6 场景声明假工具名 /
+  M7 改响应字段名 / M8 一条 call 无人声明 / M9 场景全空（= 写了没人驱动）/ M10 calls 全空。
+  **10/10 都红了**；其中 M2 第一版只得到一段栈（脚本被异常杀掉），故补了 `E0` 并把
+  `execute` 的异常接住——这是"断言自己也要被验证"直接换来的一条改进。
+- `E5` 另行用**源码变异**验证：临时往 `collect.js` 的 POST body 加 `source_tier` ⇒
+  `E1`+`E1b`+`E2`+`E5` 四条一起红（`body 键=[...,"source_tier"]`），随后**已还原**
+  （`git diff --stat -- plugin/src/collect.js` 为空）。
+- `KS_WIRE_FIXTURE` 环境变量**只**为这件事存在（把改坏的 fixture 拷到临时文件再跑）；
+  门禁里不设它，默认路径才是契约本体。
+
+**边界 / 明确未做**：`_notCovered` 一节逐条列了没收的路径与**原因**（POST 建项目、`/report/effect/docs`、
+`ks_answer` 的 422 信封——真报文样例取不到，**宁可不写**）；失败回执/404/信封异常仍由既有的
+`smoke-collect-tool.mjs`、`smoke-materials-tool.mjs` 覆盖。本条**只**走 `smoke-all.mjs`，
+不新增任何绕过门禁锁的入口（AGENTS.md 已把"绕过 `run-gates.ps1` 直接跑冒烟"记成假红来源）。
+
 ---
 
 ## 6. e2e 三段式

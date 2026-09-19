@@ -1,0 +1,907 @@
+{
+  "_readme": [
+    "ks-dsh-plugin — test/fixtures/ks-engine-wire.json",
+    "",
+    "这是什么：**模型侧 6 个工具与引擎之间的线契约**（第 6 步施工单 §5「wire fixture 回放」）。",
+    "它是**手写的**，不是跑一遍录下来的（施工单 §5 风险 1：自动生成会把错误一起固化）。",
+    "",
+    "每一条 calls[i] 的 _source 都指到源码行：请求形状出自 plugin/src/**，",
+    "响应形状出自 src/core/api/** 与它委托的仓库/聚合层（引擎侧只读，本轮未改一行）。",
+    "值可以脱敏（material_id/url/路径等），但**结构、字段名、嵌套与可空性必须与真报文一致**。",
+    "",
+    "三块内容：",
+    "  envelopes  — 本仓实际存在的三种信封形状（不是一种！见下）",
+    "  calls      — 每次线调用 {method, path, query, body, auth} + 真实响应形状 + minimal 探针",
+    "  scenarios  — 怎么驱动工具、这一次驱动**恰好**应该产生哪些 calls",
+    "",
+    "minimal 是什么：只保留工具真正读到的字段的最小信封（施工单 §5 的 E4）。",
+    "它必须是 response.body 的**子形状**（smoke 会逐叶比对），用来证明",
+    "\"只给声明字段的后端也必须让工具产出完整结果\"——防我们偷偷依赖未声明字段。",
+    "responseFieldsRead 与 minimal 的叶路径必须**逐条相等**（smoke 会红）：",
+    "改动 minimal 而不改 responseFieldsRead，是一次必须显式做出的决定。"
+  ],
+
+  "envelopes": {
+    "_note": "三种形状并存是事实，不是笔误；照抄一种就会错。出处见各 calls[i]._source。",
+    "flat": "/api/v1/health —— 无 {code,status,data} 信封，顶层就是 payload（src/core/api/server.py:334-352）",
+    "{code,status,data}": "/api/v1/materials/* 与 /api/v1/report/*（routes_materials.py:87 等）",
+    "{code,data}": "/api/v1/clauses/resolve —— 200 路径**没有** status 键（src/core/api/server.py:464；对比 _json_error :326-330 才带 status:'error'）"
+  },
+
+  "chatModes": {
+    "_note": "会话级 chatmode 的结构与字段名照 plugin/scripts/smoke-collect-tool.mjs:50-53（那是被复核过的真实现消费点）。",
+    "base": {
+      "forensic": true,
+      "bookmarksOnly": false,
+      "folderId": null,
+      "folderName": null,
+      "materialProjectId": null,
+      "materialProjectName": null,
+      "source": "session"
+    },
+    "bound": {
+      "forensic": true,
+      "bookmarksOnly": false,
+      "folderId": null,
+      "folderName": null,
+      "materialProjectId": "prj_demo",
+      "materialProjectName": "某厂安全制度",
+      "source": "session"
+    }
+  },
+
+  "calls": [
+    {
+      "id": "ks_ping.health",
+      "tool": "ks_ping",
+      "_source": "请求 plugin/src/index.js:514-519（**故意不带 token**——引擎把 /api/v1/health 从 Bearer 鉴权里豁免，src/core/api/server.py:313）；响应 src/core/api/server.py:334-352。",
+      "request": { "method": "GET", "path": "/api/v1/health", "query": null, "rawQuery": "", "body": null, "auth": "none" },
+      "response": {
+        "http": 200,
+        "contentType": "application/json",
+        "body": {
+          "status": "healthy",
+          "uptime_seconds": 421,
+          "db_status": "ok",
+          "vector_engine": "unknown",
+          "parser_worker": "ok"
+        }
+      },
+      "responseFieldsRead": ["status", "uptime_seconds", "db_status", "vector_engine", "parser_worker"],
+      "minimal": {
+        "status": "healthy",
+        "uptime_seconds": 421,
+        "db_status": "ok",
+        "vector_engine": "unknown",
+        "parser_worker": "ok"
+      },
+      "_passthrough": []
+    },
+
+    {
+      "id": "ks_resolve_clause.resolve",
+      "tool": "ks_resolve_clause",
+      "_source": "请求 plugin/src/index.js:599-608（夹未激活 ⇒ 不带 folder_id；两个参数都 encodeURIComponent）；响应 src/core/api/server.py:464 的 {code,data} 信封 + _ev_dict :3252-3289，多出的 basis_scope 出自 :441-454。",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/clauses/resolve",
+        "query": { "standard_no": "GB 30871-2022", "clause_number": "5.2.3" },
+        "rawQuery": "standard_no=GB%2030871-2022&clause_number=5.2.3",
+        "body": null,
+        "auth": "bearer"
+      },
+      "response": {
+        "http": 200,
+        "contentType": "application/json",
+        "body": {
+          "code": 200,
+          "data": {
+            "clause_revision_id": "rev_demo_001",
+            "doc_id": "doc_demo_std",
+            "clause_key": "GB 30871-2022|5.2.3",
+            "knowledge_type": "rule",
+            "hierarchy_label": "国家标准",
+            "modality": "shall",
+            "modality_strength": "strong",
+            "standard_no": "GB 30871-2022",
+            "clause_number": "5.2.3",
+            "title": "动火作业分级",
+            "page_start": 12,
+            "legal_status": "effective",
+            "source_spans": [
+              { "page_number": 12, "bbox": [72.0, 310.5, 523.25, 366.75] }
+            ],
+            "content_text": "动火作业分为特级动火、一级动火和二级动火。",
+            "content_html": "<p>动火作业分为特级动火、一级动火和二级动火。</p>",
+            "table_summary": null,
+            "table_md": "",
+            "patched_fields": [],
+            "patch_records": [],
+            "user_confirmed": false,
+            "type_confidence": 0.95,
+            "is_suspicious": false,
+            "bookmarked": true,
+            "annotations": [],
+            "expanded_from": null,
+            "basis_scope": "usable"
+          }
+        }
+      },
+      "responseFieldsRead": [
+        "data.doc_id",
+        "data.clause_revision_id",
+        "data.page_start",
+        "data.bookmarked",
+        "data.legal_status"
+      ],
+      "minimal": {
+        "data": {
+          "doc_id": "doc_demo_std",
+          "clause_revision_id": "rev_demo_001",
+          "page_start": 12,
+          "bookmarked": true,
+          "legal_status": "effective"
+        }
+      },
+      "_passthrough": ["data", "envelope"],
+      "_passthrough_note": "工具**整块**回传 data 与 envelope（plugin/src/index.js:643,675）⇒ 这两支下任何差异都属\"透传\"，不算偷偷读未声明字段；E1/E4 的严格度不受影响（请求侧仍是逐字段精确比对）。"
+    },
+
+    {
+      "id": "ks_answer.answer",
+      "tool": "ks_answer",
+      "_source": "请求 plugin/src/index.js:839-845（body = {query, params, query_mode}）；响应 src/core/api/server.py:2291 的 {code,status,data} 信封 + src/core/llm/ks_answer.py:788-811（data 的键），evidence 行 = :105-124 去掉下划线键（:790-793）+ bookmarked（:668），verification = :471-483，unsupported_context 项形状 = src/core/verification/typed_verifier.py:114-149，tier 三态 = _decide_tier（reference/direct/synthesis）。",
+      "request": {
+        "method": "POST",
+        "path": "/api/v1/ks/answer",
+        "query": null,
+        "rawQuery": "",
+        "body": {
+          "query": "动火作业怎么分级",
+          "params": { "top_k": 5 },
+          "query_mode": "default"
+        },
+        "auth": "bearer"
+      },
+      "response": {
+        "http": 200,
+        "contentType": "application/json",
+        "body": {
+          "code": 200,
+          "status": "success",
+          "data": {
+            "tier": "direct",
+            "evidence": [
+              {
+                "clause_revision_id": "rev_demo_001",
+                "doc_id": "doc_demo_std",
+                "standard_no": "GB 30871-2022",
+                "clause_number": "5.2.3",
+                "title": "动火作业分级",
+                "legal_status": "effective",
+                "legal_hierarchy": "GB",
+                "page_start": 12,
+                "snippet": "动火作业分为特级动火、一级动火和二级动火。",
+                "effective_from": "2023-07-01",
+                "bookmarked": true
+              }
+            ],
+            "derivation": "GB 30871-2022 第 5.2.3 条把动火作业分为特级、一级、二级。",
+            "conclusion": "按 GB 30871-2022 第 5.2.3 条分三级：特级、一级、二级。",
+            "verification": {
+              "is_valid": true,
+              "answer_confidence": "high",
+              "confidence_reasons": ["核验通过且证据高可信"],
+              "unsupported_clauses": [],
+              "unsupported_context": [],
+              "unverified_numbers": [],
+              "modality_violations": [],
+              "legal_element_violations": [],
+              "citation_index_warnings": []
+            },
+            "notes": [],
+            "material_usage": null,
+            "_meta": {
+              "query": "动火作业怎么分级",
+              "search_query": "动火作业分级",
+              "intent": "clause_lookup",
+              "theme": null,
+              "tier_rule": "direct",
+              "evidence_total": 1,
+              "retrieval": {
+                "result_count": 1,
+                "expanded_count": 0,
+                "vector_engine": "unknown",
+                "rerank": {}
+              },
+              "llm_error": null,
+              "llm_raw_length": 321,
+              "cite_warnings": [],
+              "material_project_id": null,
+              "material_total": 0
+            }
+          }
+        }
+      },
+      "responseFieldsRead": [
+        "data.tier",
+        "data.evidence[].standard_no",
+        "data.evidence[].clause_number",
+        "data.evidence[].title",
+        "data.evidence[].legal_status",
+        "data.evidence[].legal_hierarchy",
+        "data.evidence[].page_start",
+        "data.evidence[].snippet",
+        "data.evidence[].doc_id",
+        "data.evidence[].clause_revision_id",
+        "data.evidence[].bookmarked",
+        "data.derivation",
+        "data.conclusion",
+        "data.verification.is_valid",
+        "data.verification.answer_confidence",
+        "data.verification.confidence_reasons",
+        "data.verification.unsupported_clauses",
+        "data.verification.unsupported_context",
+        "data.verification.unverified_numbers",
+        "data.verification.modality_violations",
+        "data.verification.legal_element_violations",
+        "data.verification.citation_index_warnings",
+        "data.notes",
+        "data.material_usage",
+        "data._meta.evidence_total",
+        "data._meta.retrieval.result_count",
+        "data._meta.retrieval.expanded_count",
+        "data._meta.retrieval.vector_engine",
+        "data._meta.retrieval.rerank",
+        "data._meta.llm_raw_length",
+        "data._meta.llm_error"
+      ],
+      "minimal": {
+        "data": {
+          "tier": "direct",
+          "evidence": [
+            {
+              "clause_revision_id": "rev_demo_001",
+              "doc_id": "doc_demo_std",
+              "standard_no": "GB 30871-2022",
+              "clause_number": "5.2.3",
+              "title": "动火作业分级",
+              "legal_status": "effective",
+              "legal_hierarchy": "GB",
+              "page_start": 12,
+              "snippet": "动火作业分为特级动火、一级动火和二级动火。",
+              "bookmarked": true
+            }
+          ],
+          "derivation": "GB 30871-2022 第 5.2.3 条把动火作业分为特级、一级、二级。",
+          "conclusion": "按 GB 30871-2022 第 5.2.3 条分三级：特级、一级、二级。",
+          "verification": {
+            "is_valid": true,
+            "answer_confidence": "high",
+            "confidence_reasons": ["核验通过且证据高可信"],
+            "unsupported_clauses": [],
+            "unsupported_context": [],
+            "unverified_numbers": [],
+            "modality_violations": [],
+            "legal_element_violations": [],
+            "citation_index_warnings": []
+          },
+          "notes": [],
+          "material_usage": null,
+          "_meta": {
+            "evidence_total": 1,
+            "retrieval": {
+              "result_count": 1,
+              "expanded_count": 0,
+              "vector_engine": "unknown",
+              "rerank": {}
+            },
+            "llm_raw_length": 321,
+            "llm_error": null
+          }
+        }
+      },
+      "_passthrough": []
+    },
+
+    {
+      "id": "ks_effect_report.summary",
+      "tool": "ks_effect_report",
+      "_source": "请求 plugin/src/index.js:409（**无查询串**）；响应 src/core/api/routes_report.py:36-51 的 {code,status,data} 信封 + src/core/exports/effect_report.py:218-235（data 的键：generated_at/window/colors/total/std/law/tree）+ 节点形状 :186-188,205-218 + _empty_colors :70-71。",
+      "request": { "method": "GET", "path": "/api/v1/report/effect", "query": null, "rawQuery": "", "body": null, "auth": "bearer" },
+      "response": {
+        "http": 200,
+        "contentType": "application/json",
+        "body": {
+          "code": 200,
+          "status": "success",
+          "data": {
+            "generated_at": "2026-10-05 09:12:33",
+            "window": "all",
+            "colors": { "red": 1, "yellow": 1, "green": 2, "gray": 1 },
+            "total": 5,
+            "std": { "total": 3, "colors": { "red": 1, "yellow": 0, "green": 2, "gray": 0 } },
+            "law": { "total": 2, "colors": { "red": 0, "yellow": 1, "green": 0, "gray": 1 } },
+            "tree": [
+              {
+                "colors": { "red": 1, "yellow": 0, "green": 2, "gray": 0 },
+                "top": "std",
+                "name": "标准",
+                "items": [
+                  {
+                    "colors": { "red": 1, "yellow": 0, "green": 1, "gray": 0 },
+                    "name": "工程建设标准",
+                    "items": [
+                      {
+                        "colors": { "red": 1, "yellow": 0, "green": 0, "gray": 0 },
+                        "name": "作业安全",
+                        "count": 1
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "colors": { "red": 0, "yellow": 1, "green": 0, "gray": 1 },
+                "top": "law",
+                "name": "法规",
+                "items": [
+                  {
+                    "colors": { "red": 0, "yellow": 1, "green": 0, "gray": 0 },
+                    "name": "行政法规",
+                    "count": 1
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      },
+      "responseFieldsRead": [
+        "code",
+        "data.generated_at",
+        "data.total",
+        "data.window",
+        "data.colors.red",
+        "data.colors.yellow",
+        "data.colors.green",
+        "data.colors.gray",
+        "data.std.total",
+        "data.law.total",
+        "data.tree[].top",
+        "data.tree[].name",
+        "data.tree[].colors.red",
+        "data.tree[].colors.yellow",
+        "data.tree[].colors.green",
+        "data.tree[].colors.gray",
+        "data.tree[].items[].name",
+        "data.tree[].items[].colors.red",
+        "data.tree[].items[].colors.yellow",
+        "data.tree[].items[].colors.green",
+        "data.tree[].items[].colors.gray"
+      ],
+      "minimal": {
+        "code": 200,
+        "data": {
+          "generated_at": "2026-10-05 09:12:33",
+          "total": 5,
+          "window": "all",
+          "colors": { "red": 1, "yellow": 1, "green": 2, "gray": 1 },
+          "std": { "total": 3 },
+          "law": { "total": 2 },
+          "tree": [
+            {
+              "top": "std",
+              "name": "标准",
+              "colors": { "red": 1, "yellow": 0, "green": 2, "gray": 0 },
+              "items": [
+                {
+                  "name": "工程建设标准",
+                  "colors": { "red": 1, "yellow": 0, "green": 1, "gray": 0 }
+                }
+              ]
+            },
+            {
+              "top": "law",
+              "name": "法规",
+              "colors": { "red": 0, "yellow": 1, "green": 0, "gray": 1 },
+              "items": [
+                {
+                  "name": "行政法规",
+                  "colors": { "red": 0, "yellow": 1, "green": 0, "gray": 0 }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "_minimal_cardinality_note": "数组**基数**与全量一致（tree 两棵树、各 1 个 L2；docs 2 条）：工具按输入行数产出输出行数（plugin/src/index.js:432-439,458-475），基数不同会让 E4c 报出\"未声明依赖\"——那不是漏声明，是探针不忠实。字段仍是只留声明过的那些（tree[].items[].items 整层不带）。",
+      "_passthrough": []
+    },
+
+    {
+      "id": "ks_effect_report.color",
+      "tool": "ks_effect_report",
+      "_source": "请求 plugin/src/index.js:448（查询串由该行字面拼出，顺序即代码顺序：color → per_color → limit；上限 20 见 :444）；响应 src/core/api/routes_report.py:74-91 + src/core/exports/effect_report.py:272-296（data 的键）+ _doc_slim :173-177 + _DOC_FIELDS :64-65（9 字段：status/color/doc_id/standard_no/standard_name/effective_from/published_at/superseded_by/withdrawn_date）。",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/report/effect/color",
+        "query": { "color": "red,yellow", "per_color": "1", "limit": "2" },
+        "rawQuery": "color=red,yellow&per_color=1&limit=2",
+        "body": null,
+        "auth": "bearer"
+      },
+      "response": {
+        "http": 200,
+        "contentType": "application/json",
+        "body": {
+          "code": 200,
+          "status": "success",
+          "data": {
+            "colors": { "red": 1, "yellow": 1, "green": 2, "gray": 1 },
+            "count": 5,
+            "per_color": true,
+            "docs": [
+              {
+                "status": "withdrawn",
+                "color": "red",
+                "doc_id": "doc_demo_std_old",
+                "standard_no": "GB 50016-2014",
+                "standard_name": "建筑设计防火规范",
+                "effective_from": "2015-05-01",
+                "published_at": "2014-08-27",
+                "superseded_by": "GB 55037-2022",
+                "withdrawn_date": "2023-06-01"
+              },
+              {
+                "status": "upcoming",
+                "color": "yellow",
+                "doc_id": "doc_demo_std_new",
+                "standard_no": "GB 30871-2022",
+                "standard_name": "危险化学品企业特殊作业安全规范",
+                "effective_from": "2023-07-01",
+                "published_at": "2022-10-12",
+                "superseded_by": null,
+                "withdrawn_date": null
+              }
+            ]
+          }
+        }
+      },
+      "responseFieldsRead": [
+        "code",
+        "data.colors.red",
+        "data.colors.yellow",
+        "data.docs[].color",
+        "data.docs[].doc_id",
+        "data.docs[].standard_no",
+        "data.docs[].standard_name",
+        "data.docs[].status",
+        "data.docs[].effective_from",
+        "data.docs[].superseded_by",
+        "data.docs[].withdrawn_date"
+      ],
+      "minimal": {
+        "code": 200,
+        "data": {
+          "colors": { "red": 1, "yellow": 1 },
+          "docs": [
+            {
+              "status": "withdrawn",
+              "color": "red",
+              "doc_id": "doc_demo_std_old",
+              "standard_no": "GB 50016-2014",
+              "standard_name": "建筑设计防火规范",
+              "effective_from": "2015-05-01",
+              "superseded_by": "GB 55037-2022",
+              "withdrawn_date": "2023-06-01"
+            },
+            {
+              "status": "upcoming",
+              "color": "yellow",
+              "doc_id": "doc_demo_std_new",
+              "standard_no": "GB 30871-2022",
+              "standard_name": "危险化学品企业特殊作业安全规范",
+              "effective_from": "2023-07-01",
+              "superseded_by": null,
+              "withdrawn_date": null
+            }
+          ]
+        }
+      },
+      "_passthrough": [],
+      "_responseFieldsRead_note": "data.colors.* 只在\"色计数取不到\"时被读（plugin/src/index.js:473 的 `colors[c] ?? data.colors?.[c]` 兜底），但代码确实读它 ⇒ 列进声明，绝不因为\"这次没走到\"就不写。"
+    },
+
+    {
+      "id": "ks_materials.projects",
+      "tool": "ks_materials",
+      "_source": "请求 plugin/src/materials.js:112-113；响应 src/core/api/routes_materials.py:85-87 的 {code,status,data} 信封 + src/core/storage/material_repo.py 的 _project_row（project_id/name/authority_policy/note/created_at/updated_at）。",
+      "request": { "method": "GET", "path": "/api/v1/materials/projects", "query": null, "rawQuery": "", "body": null, "auth": "bearer" },
+      "response": {
+        "http": 200,
+        "contentType": "application/json",
+        "body": {
+          "code": 200,
+          "status": "success",
+          "data": [
+            {
+              "project_id": "prj_demo",
+              "name": "某厂安全制度",
+              "authority_policy": { "criterion": ["某厂安全制度"] },
+              "note": null,
+              "created_at": "2026-09-30 10:00:00",
+              "updated_at": "2026-09-30 10:00:00"
+            }
+          ]
+        }
+      },
+      "responseFieldsRead": [
+        "code",
+        "data[].project_id",
+        "data[].name",
+        "data[].authority_policy"
+      ],
+      "minimal": {
+        "code": 200,
+        "data": [
+          {
+            "project_id": "prj_demo",
+            "name": "某厂安全制度",
+            "authority_policy": { "criterion": ["某厂安全制度"] }
+          }
+        ]
+      },
+      "_passthrough": []
+    },
+
+    {
+      "id": "ks_materials.materials",
+      "tool": "ks_materials",
+      "_source": "请求 plugin/src/materials.js:151-154；响应 src/core/api/routes_materials.py:191-203（逐行补 chunk_count 与 tier_label）+ src/core/storage/material_repo.py 的 _MAT_COLS / _material_row（26 列）+ TIER_LABELS（\"T1\":\"用户自有原始件\"、\"T3\":\"二手转述（媒体/自媒体）——只能当线索，需≥2 个独立来源互证\"）。",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/materials/projects/prj_demo/materials",
+        "query": null,
+        "rawQuery": "",
+        "body": null,
+        "auth": "bearer"
+      },
+      "response": {
+        "http": 200,
+        "contentType": "application/json",
+        "body": {
+          "code": 200,
+          "status": "success",
+          "data": [
+            {
+              "material_id": "mat_demo_approved",
+              "project_id": "prj_demo",
+              "origin": "user",
+              "kind": "other",
+              "title": "某厂安全生产管理制度",
+              "url": null,
+              "domain": null,
+              "fetched_at": null,
+              "published_at": null,
+              "content_hash": "REDACTED_HASH_APPROVED",
+              "raw_path": "REDACTED_RAW_PATH",
+              "mime": "application/pdf",
+              "source_tier": "T1",
+              "tier_source": "user",
+              "tier_reason": null,
+              "tier_evidence": null,
+              "task_role": "criterion",
+              "review_status": "approved",
+              "review_note": null,
+              "reviewed_at": "2026-09-30 11:00:00",
+              "lifecycle": "promoted",
+              "doc_id": null,
+              "derived_text_hash": null,
+              "parser_fingerprint": null,
+              "created_at": "2026-09-30 10:30:00",
+              "updated_at": "2026-09-30 11:00:00",
+              "chunk_count": 12,
+              "tier_label": "用户自有原始件"
+            },
+            {
+              "material_id": "mat_demo_pending",
+              "project_id": "prj_demo",
+              "origin": "collected",
+              "kind": "other",
+              "title": "某通知（网上找来的）",
+              "url": "https://example.gov.cn/notice/1",
+              "domain": "example.gov.cn",
+              "fetched_at": "2026-10-01 08:00:00",
+              "published_at": null,
+              "content_hash": "REDACTED_HASH_PENDING",
+              "raw_path": null,
+              "mime": null,
+              "source_tier": "T3",
+              "tier_source": "system",
+              "tier_reason": "自采：HTTP 200 来自 example.gov.cn（Content-Type: text/html）",
+              "tier_evidence": { "collected": true },
+              "task_role": null,
+              "review_status": "pending",
+              "review_note": null,
+              "reviewed_at": null,
+              "lifecycle": "ephemeral",
+              "doc_id": null,
+              "derived_text_hash": "REDACTED_HASH_PENDING",
+              "parser_fingerprint": "collect_text@1",
+              "created_at": "2026-10-01 08:00:00",
+              "updated_at": "2026-10-01 08:00:00",
+              "chunk_count": 3,
+              "tier_label": "二手转述（媒体/自媒体）——只能当线索，需≥2 个独立来源互证"
+            }
+          ]
+        }
+      },
+      "responseFieldsRead": [
+        "code",
+        "data[].material_id",
+        "data[].title",
+        "data[].source_tier",
+        "data[].tier_label",
+        "data[].tier_source",
+        "data[].task_role",
+        "data[].review_status",
+        "data[].chunk_count",
+        "data[].origin",
+        "data[].kind",
+        "data[].url",
+        "data[].domain",
+        "data[].tier_reason"
+      ],
+      "minimal": {
+        "code": 200,
+        "data": [
+          {
+            "material_id": "mat_demo_approved",
+            "title": "某厂安全生产管理制度",
+            "source_tier": "T1",
+            "tier_label": "用户自有原始件",
+            "tier_source": "user",
+            "task_role": "criterion",
+            "review_status": "approved",
+            "chunk_count": 12,
+            "origin": "user",
+            "kind": "other",
+            "url": null,
+            "domain": null,
+            "tier_reason": null
+          },
+          {
+            "material_id": "mat_demo_pending",
+            "title": "某通知（网上找来的）",
+            "source_tier": "T3",
+            "tier_label": "二手转述（媒体/自媒体）——只能当线索，需≥2 个独立来源互证",
+            "tier_source": "system",
+            "task_role": null,
+            "review_status": "pending",
+            "chunk_count": 3,
+            "origin": "collected",
+            "kind": "other",
+            "url": "https://example.gov.cn/notice/1",
+            "domain": "example.gov.cn",
+            "tier_reason": "自采：HTTP 200 来自 example.gov.cn（Content-Type: text/html）"
+          }
+        ]
+      },
+      "_passthrough": []
+    },
+
+    {
+      "id": "ks_materials.inbox",
+      "tool": "ks_materials",
+      "_source": "请求 plugin/src/materials.js:130-131；响应 src/core/api/routes_materials.py:89-103（data = {dir, files:[{path,file_name,size}]}）。",
+      "request": {
+        "method": "GET",
+        "path": "/api/v1/materials/projects/prj_demo/inbox",
+        "query": null,
+        "rawQuery": "",
+        "body": null,
+        "auth": "bearer"
+      },
+      "response": {
+        "http": 200,
+        "contentType": "application/json",
+        "body": {
+          "code": 200,
+          "status": "success",
+          "data": {
+            "dir": "REDACTED_DATA_DIR\\materials\\prj_demo",
+            "files": [
+              {
+                "path": "REDACTED_DATA_DIR\\materials\\prj_demo\\待评审通知.pdf",
+                "file_name": "待评审通知.pdf",
+                "size": 10240
+              }
+            ]
+          }
+        }
+      },
+      "responseFieldsRead": ["code", "data.dir", "data.files[].file_name", "data.files[].size"],
+      "minimal": {
+        "code": 200,
+        "data": {
+          "dir": "REDACTED_DATA_DIR\\materials\\prj_demo",
+          "files": [{ "file_name": "待评审通知.pdf", "size": 10240 }]
+        }
+      },
+      "_passthrough": []
+    },
+
+    {
+      "id": "ks_collect.collect",
+      "tool": "ks_collect",
+      "_source": "请求 plugin/src/collect.js:183-198（body 只有 url/title/note 三键，**绝不发 source_tier**——引擎端点会 422，见 src/core/api/routes_materials.py:157-160）；响应同文件 :188 的 {code,status,data} 信封 + src/core/materials/harvest.py:259-260 + src/core/materials/collect.py:320-328（material = _material_row + chunk_count/duplicate/near_duplicate_of/track_l）。",
+      "request": {
+        "method": "POST",
+        "path": "/api/v1/materials/projects/prj_demo/collect",
+        "query": null,
+        "rawQuery": "",
+        "body": {
+          "url": "https://example.gov.cn/notice/1",
+          "title": "某通知",
+          "note": null
+        },
+        "auth": "bearer"
+      },
+      "response": {
+        "http": 200,
+        "contentType": "application/json",
+        "body": {
+          "code": 200,
+          "status": "success",
+          "data": {
+            "collected": true,
+            "status": 200,
+            "truncated": false,
+            "duplicate": false,
+            "material": {
+              "material_id": "mat_demo_collected",
+              "project_id": "prj_demo",
+              "origin": "collected",
+              "kind": "other",
+              "title": "某通知",
+              "url": "https://example.gov.cn/notice/1",
+              "domain": "example.gov.cn",
+              "fetched_at": "2026-10-05 09:20:00",
+              "published_at": null,
+              "content_hash": "REDACTED_HASH_COLLECTED",
+              "raw_path": null,
+              "mime": null,
+              "source_tier": "T3",
+              "tier_source": "system",
+              "tier_reason": "自采：HTTP 200 来自 example.gov.cn（Content-Type: text/html）",
+              "tier_evidence": { "collected": true },
+              "task_role": null,
+              "review_status": "pending",
+              "review_note": null,
+              "reviewed_at": null,
+              "lifecycle": "ephemeral",
+              "doc_id": null,
+              "derived_text_hash": "REDACTED_HASH_COLLECTED",
+              "parser_fingerprint": "collect_text@1",
+              "created_at": "2026-10-05 09:20:00",
+              "updated_at": "2026-10-05 09:20:00",
+              "chunk_count": 3,
+              "duplicate": false,
+              "near_duplicate_of": [],
+              "track_l": null
+            }
+          }
+        }
+      },
+      "responseFieldsRead": [
+        "code",
+        "data.collected",
+        "data.status",
+        "data.duplicate",
+        "data.truncated",
+        "data.material.material_id",
+        "data.material.title",
+        "data.material.review_status",
+        "data.material.source_tier",
+        "data.material.origin",
+        "data.material.lifecycle",
+        "data.material.url",
+        "data.material.domain",
+        "data.material.tier_reason"
+      ],
+      "minimal": {
+        "code": 200,
+        "data": {
+          "collected": true,
+          "status": 200,
+          "truncated": false,
+          "duplicate": false,
+          "material": {
+            "material_id": "mat_demo_collected",
+            "title": "某通知",
+            "review_status": "pending",
+            "source_tier": "T3",
+            "origin": "collected",
+            "lifecycle": "ephemeral",
+            "url": "https://example.gov.cn/notice/1",
+            "domain": "example.gov.cn",
+            "tier_reason": "自采：HTTP 200 来自 example.gov.cn（Content-Type: text/html）"
+          }
+        }
+      },
+      "_passthrough": [],
+      "_reason_note": "data.reason 只在 collected:false 那条路上被读（plugin/src/collect.js:233）。成功回执的真实报文里**没有** reason 键（src/core/materials/harvest.py:259-260 的成功分支只给 collected/status/truncated/material/duplicate）⇒ 本 fixture 不写它，也不把它列进 responseFieldsRead（minimal 与声明必须逐条相等）。失败回执（collected:false + reason）**故意不收**，由 plugin/scripts/smoke-collect-tool.mjs 覆盖——见 _notCovered。"
+    }
+  ],
+
+  "_notCovered": [
+    "同一路径的**异常/失败**回执一律未收：collect 的 collected:false + reason、各端点的 404/422、200 但信封缺 data、data:null——",
+    "它们已由 plugin/scripts/smoke-collect-tool.mjs 与 plugin/scripts/smoke-materials-tool.mjs 逐条覆盖，重复收进本 fixture 会让\"一次真实调用的契约\"变成\"分支矩阵\"。",
+    "本轮**未收**的路径（说不出可信出处或不属于模型工具面，故不编）：",
+    "  - /api/v1/materials/projects 的 **POST**（建项目）：模型侧 6 个工具都不发它（只有 GUI/脚本发），收了就是文档不是契约；",
+    "  - /api/v1/report/effect/docs：模型工具不走它（走 /color），且 core 侧 effect_report.collect_effect_docs 需要 top+l2 两棵树同名问题，值域未取信；",
+    "  - /api/v1/ks/answer 的 **422** 信封（validationError 分支）：形状出自 plugin/src/index.js:304-324 的读取方式，但真报文样例未取得，宁可不写。"
+  ],
+
+  "scenarios": [
+    {
+      "id": "ping",
+      "tool": "ks_ping",
+      "args": {},
+      "chatMode": "base",
+      "expectCalls": ["ks_ping.health"]
+    },
+    {
+      "id": "resolve",
+      "tool": "ks_resolve_clause",
+      "args": { "standard_no": "GB 30871-2022", "clause_number": "5.2.3" },
+      "chatMode": "base",
+      "expectCalls": ["ks_resolve_clause.resolve"]
+    },
+    {
+      "id": "answer",
+      "tool": "ks_answer",
+      "args": { "query": "动火作业怎么分级", "params": { "top_k": 5 } },
+      "chatMode": "base",
+      "expectCalls": ["ks_answer.answer"]
+    },
+    {
+      "id": "effect",
+      "tool": "ks_effect_report",
+      "args": { "limit": 2 },
+      "chatMode": "base",
+      "expectCalls": ["ks_effect_report.summary", "ks_effect_report.color"],
+      "_note": "include_attention 缺省为 true ⇒ 一次调用恰好两次 GET（plugin/src/index.js:409,448）。"
+    },
+    {
+      "id": "materials.projects",
+      "tool": "ks_materials",
+      "args": {},
+      "chatMode": "base",
+      "expectCalls": ["ks_materials.projects"]
+    },
+    {
+      "id": "materials.materials",
+      "tool": "ks_materials",
+      "args": { "action": "materials", "project_id": "prj_demo" },
+      "chatMode": "base",
+      "expectCalls": ["ks_materials.materials"]
+    },
+    {
+      "id": "materials.inbox",
+      "tool": "ks_materials",
+      "args": { "action": "inbox", "project_id": "prj_demo" },
+      "chatMode": "base",
+      "expectCalls": ["ks_materials.inbox"]
+    },
+    {
+      "id": "collect",
+      "tool": "ks_collect",
+      "args": { "url": "https://example.gov.cn/notice/1", "title": "某通知" },
+      "chatMode": "bound",
+      "expectCalls": ["ks_collect.collect"],
+      "_note": "目标项目来自**会话绑定**（args 里没有 project_id）⇒ 顺便钉住\"绑定优先\"这条（plugin/src/collect.js:153）。"
+    }
+  ]
+}

@@ -329,7 +329,8 @@ function validationError(probe, query, queryMode) {
  * payload 红线，见 effect_report.py 模块头）；完整清单与 Excel 导出引导到
  * 「📋 效力报告」标签页。只读聚合，零 LLM 消耗。
  */
-function makeEffectReportTool(manager) {
+/** 导出供 `scripts/smoke-wire-contract.mjs` 直接驱动（第 6 步 §5 wire fixture 回放）。 */
+export function makeEffectReportTool(manager) {
   return {
     name: 'ks_effect_report',
     description:
@@ -483,7 +484,8 @@ function makeEffectReportTool(manager) {
   }
 }
 
-function makePingTool(manager) {
+/** 导出供 `scripts/smoke-wire-contract.mjs` 直接驱动（第 6 步 §5 wire fixture 回放）。 */
+export function makePingTool(manager) {
   return {
     name: 'ks_ping',
     description:
@@ -540,8 +542,12 @@ function makePingTool(manager) {
   }
 }
 
-/** Build the `ks_resolve_clause` tool definition. */
-function makeResolveTool(manager, chatModeOf) {
+/**
+ * Build the `ks_resolve_clause` tool definition.
+ *
+ * 导出供 `scripts/smoke-wire-contract.mjs` 直接驱动（第 6 步 §5 wire fixture 回放）。
+ */
+export function makeResolveTool(manager, chatModeOf) {
   return {
     name: 'ks_resolve_clause',
     description:

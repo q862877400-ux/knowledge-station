@@ -62,6 +62,10 @@ const SUITES = [
   // 前者红了说明排障时又分不清"用户点停止"和"引擎太慢"，后者红了说明并行静默失效。
   'scripts/smoke-cancel.mjs',
   'scripts/smoke-tool-concurrency.mjs',
+  // 第 6 步 B 批（2026-10）：wire fixture 回放——6 个模型工具的出网请求与
+  // `test/fixtures/ks-engine-wire.json` 逐条比对。它红了说明"我们发出去的调用"
+  // 与"我们承诺的契约"分叉了（端点改名/多一个请求/少一个字段），真机才炸的那种。
+  'scripts/smoke-wire-contract.mjs',
 ]
 
 const here = dirname(fileURLToPath(import.meta.url))

@@ -35,7 +35,8 @@
     "smoke:all": "node scripts/smoke-all.mjs",
     "smoke:class-summary": "node scripts/smoke-class-summary.mjs",
     "smoke:kb-render": "node scripts/smoke-kb-page-render.mjs",
-    "smoke:build-purity": "node scripts/smoke-build-purity.mjs"
+    "smoke:build-purity": "node scripts/smoke-build-purity.mjs",
+    "smoke:wire-contract": "node scripts/smoke-wire-contract.mjs"
   },
   "exports": {
     ".": "./src/index.js",
