@@ -698,6 +698,18 @@ async function persistAttempt(snapshot, touched, cleared) {
     //   sessions" ⇒ 这条窗口是真的、且会随机把 `-Full` 判红。
     //   ⇒ 现在把**基线里存在、我们没打算删、回读却没了**的会话也算"丢了"，返回 `'retry'`
     //     （重试会重新读基线，自然把对方那条合并回来）。
+    //   ⚠⚠ **覆盖面更正（复核 r2 2026-09-20 第三轮的确定性反例；我上一条把它写成"自愈机制"是
+    //     **过度宣称**）**：`lostPeer` **只覆盖**"**基线里存在**、回读却没了"的会话。
+    //     对端若把它的写落在**我们读基线之后**（上面 :673 的 CAS 读与 :678 的 rename 之间那个窗口
+    //     正是这样），它**压根不在** `baseline.modes.keys()` 里 ⇒ 这个判据**结构上抓不到**，
+    //     我们照样返回 `'ok'`、报 `persisted:true`。复核把 CAS→rename 窗口拉宽 400ms 后
+    //     稳定复现：对端会话被**静默覆盖**而我们报成功。
+    //   ⚠ 3a（`merge keeps the other process's sessions`）那条偶发**真正**是被**测试侧对端改持锁**
+    //     消除的（`__writeStateFileAsPeerForTests` 走**同一条**跨进程锁协议 ⇒ 两个写者互斥，
+    //     窗口不存在），**不是**这个判据救的。模块侧这一条是"补救"不是"消灭窗口"。
+    //   ⚠ **未修（如实登记，别让它消失）**：真正**不持锁**的写者（老版本 / 别的工具）仍可能
+    //     让我们把它的**整批会话静默覆盖**且回读判 `'ok'`。复现方法与未解决清单见
+    //     `docs/DEVELOPMENT-HISTORY.md` §10.140 四。
     const lostPeer = [...baseline.modes.keys()].some((sid) => {
       if (cleared.has(sid)) return false   // 我们本来就要删它
       if (touched.has(sid)) return false   // 归我们管，上面的 `lost` 已经覆盖

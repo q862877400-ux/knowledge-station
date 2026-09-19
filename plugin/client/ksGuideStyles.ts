@@ -135,12 +135,17 @@ export const KS_STYLES = `
   border-bottom:.5px solid var(--dsw-alias-border-l1)}
 .ks-lhead-name{font-size:var(--ks-fs-base);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 /* 一行文件：勾选框（label 里就是文件名）+ 标签 + 常驻「+标签」 */
-.ks-item{display:flex;align-items:center;gap:var(--ks-space-2);padding:var(--ks-space-1) var(--ks-space-2);
+.ks-item{box-sizing:border-box;display:flex;align-items:center;gap:var(--ks-space-2);padding:var(--ks-space-1) var(--ks-space-2);
   border-radius:var(--ks-r-md);min-width:0;flex-wrap:nowrap;min-height:var(--ks-row-h-narrow)}
-/* ⚠ 5c 实测（离屏渲染量出来的）：上面这条 min-height:44px 只是**下限**，宿主 Checkbox
-   自带的行高把整行撑到 **52px（节距 60px）**。所以"窄面板 44 / 全宽 60"这个口径在
-   **实际像素上并没有兑现**（44 是下限、60 才是结果）。5c **没有**改它（要动宿主原语的行高，
-   属于重做密度）；只把实测值写在这里，免得下一轮又照 44 去推布局。 */
+/* ⚠ 行高口径（**改在 2026-09-20 第三轮，依据 ui5 复核实测**）：
+   原来这里没有 box-sizing ⇒ .ks-item 是 **content-box** ⇒ min-height:44px 只是**内容盒**下限，
+   再加上 padding 4/8 ⇒ 真实行高 **52px**、行节距 **60px**，而文档/token 说的是 44 —— 暗账。
+   现在加 box-sizing:border-box ⇒ min-height:44px 就是**边框盒**下限，与 token 同口径。
+   ⚠ 但**实测**结论是：即便改成 border-box，宿主 Checkbox 自带的行高仍可能把行撑过 44px
+   （min-height 只是**下限**）。真实值以 ui-render-shot.mjs 量出来的 measured 为准，
+   写进 docs/UI-BASELINE.md（"实测"那两栏）——**文档必须与实测一致**，不许再照 token 反推。
+   ⚠ 注释里不许出现反引号（整段 CSS 是一个模板字符串）—— 本轮已踩**第六次**（2026-09-20 第三轮：
+     上面这段初稿用了反引号包属性名，esbuild 报 Expected ";" but found "min"）。 */
 .ks-item:hover{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-item-on{background:var(--dsw-alias-interactive-bg-hover)}
 /* 文件名（Checkbox 的可见文字）宽度：**给上限、不给 flex:1**。

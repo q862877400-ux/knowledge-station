@@ -448,7 +448,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
         </div>
       ) : (
         <div className="ks-split">
-          {/* 左：自带两棵树 + 自建夹（**平级**，同一列依次排下去） */}
+          {/* 左：自带两棵树 + 自建夹（「平级」，同一列依次排下去） */}
           <div className="ks-rail">
             <LibCard
               title="标准" sub="国家标准·行业标准·团体标准"
@@ -495,7 +495,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
 
             {listed.map((doc) => (
               <div className={openDoc === doc.id ? 'ks-item ks-item-on' : 'ks-item'} key={doc.id}>
-                {/* Checkbox 的 label **就是文件名**：可访问名 = 文件名，名字只渲染一次 */}
+                {/* Checkbox 的 label「就是文件名」：可访问名 = 文件名，名字只渲染一次 */}
                 <Checkbox
                   className="ks-check"
                   checked={selected.has(doc.id)}

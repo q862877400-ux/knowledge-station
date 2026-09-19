@@ -55,9 +55,10 @@ for (const f of files) {
 console.log('\n=== C. KS_STYLES 的 spacing / font-size 是否成体系（4px 网格 + 受限字号表）===')
 {
   const src = await readFile(join(clientDir, 'ksGuideStyles.ts'), 'utf8')
-  const mm = /export const KS_STYLES = `([\s\S]*?)`\n/.exec(src)
+  // ⚠ 行尾容错 `\r?\n`（复核 ui5 2026-09-20）：autocrlf 下提取树是 CRLF，写死 `\n` 会假报"抠不出"。
+  const mm = /export const KS_STYLES = `([\s\S]*?)`\r?\n/.exec(src)
   if (mm === null) {
-    console.log('  ❌ 抠不出 KS_STYLES（模板字符串被截断了？注释里出现反引号是已知踩坑）')
+    console.log('  ❌ 抠不出 KS_STYLES（行尾已容错 CRLF/LF ⇒ 多半是模板字符串被截断了；注释里出现反引号是已知踩坑）')
   } else {
     // 口径与 smoke-ui-scale.mjs 一致：剥注释 + 剥 :root token 定义块
     const noComments = mm[1].replace(/\/\*[\s\S]*?\*\//g, '')

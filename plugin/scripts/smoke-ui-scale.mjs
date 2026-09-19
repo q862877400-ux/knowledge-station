@@ -81,9 +81,11 @@ const EXCEPTIONS = {
 /* ─────────────────────────────── 解析 ─────────────────────────────── */
 const src = await readFile(stylesPath, 'utf8')
 
-const m = /export const KS_STYLES = `([\s\S]*?)`\n/.exec(src)
+// ⚠ 行尾容错 `\r?\n`（复核 ui5 2026-09-20）：`core.autocrlf=true` 下 `git worktree` 提取树是 CRLF，
+//   写死 `\n` 会在这条**棘轮**上假报"抠不出 KS_STYLES"（看着像交付件坏了，其实只是行尾）。
+const m = /export const KS_STYLES = `([\s\S]*?)`\r?\n/.exec(src)
 if (m === null) {
-  console.error(`❌ 从 ${stylesPath} 里抠不出 KS_STYLES（模板字符串被截断了？注释里出现反引号是已知踩坑）`)
+  console.error(`❌ 从 ${stylesPath} 里抠不出 KS_STYLES（行尾已容错 CRLF/LF ⇒ 多半是模板字符串被截断；注释里出现反引号是已知踩坑）`)
   process.exit(1)
 }
 const rawBody = m[1]

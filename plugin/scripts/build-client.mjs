@@ -24,7 +24,7 @@ import { readFile, writeFile, rm } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { dirname, join, resolve } from 'node:path'
 
-import { classifyExternal } from './lib/external-allowlist.mjs'
+import { classifyExternal, PURITY_ONRESOLVE_FILTER } from './lib/external-allowlist.mjs'
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
 const TMP = join(root, '.client.tmp.js')
@@ -75,7 +75,13 @@ await build({
       //   走普通解析。今天恰好 fail-closed（解析不到 ⇒ 构建失败），但 Windows 大小写不敏感，
       //   盘上真有那个包时宿主单例会被静默打进产物 ⇒ 加 `i` 让**所有**大小写变体都进判定，
       //   由 `classifyExternal` 显式拒绝（它现在对非全小写的 scope 直接抛）。
-      build.onResolve({ filter: /^(@deepseek-ai\/|react$|react-dom$|react\/|react-dom\/)/i }, (args) => {
+      // ⚠ **第二轮（2026-09-20，复核 r2）**：filter 原来锚在**原串开头**（`^(@deepseek-ai\/|…)`），
+      //   于是 `x/../@deepseek-ai/dsh-util-values` **不命中** ⇒ esbuild 归一化后把盘上真包
+      //   静默内联（复核实跑 +6785B）。⇒ filter 改成**共享常量** `PURITY_ONRESOLVE_FILTER`
+      //   （定义在 `lib/external-allowlist.mjs`，与判定函数同一份文件，别再各写一份）：
+      //   它宽到足以把任何"可能被归一化进受管范围"的 specifier 送进判定；命中的普通包
+      //   由 `classifyExternal` 返回 `'bundle'` ⇒ onResolve 返回 undefined ⇒ 照旧默认解析。
+      build.onResolve({ filter: PURITY_ONRESOLVE_FILTER }, (args) => {
         const verdict = classifyExternal(args.path)   // 不在清单里的 `@deepseek-ai/*` 会在这里抛
         return verdict === 'external' ? { path: args.path, external: true } : undefined
       })

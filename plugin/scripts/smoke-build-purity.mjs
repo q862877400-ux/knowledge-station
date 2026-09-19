@@ -9,6 +9,11 @@
  *  2. 认识的 `@deepseek-ai/<pkg>`（含子路径）⇒ `external`；`react`/`react-dom`（含子路径）⇒ `external`；
  *  3. **不认识的 `@deepseek-ai/*` ⇒ 抛**（构建期炸，而不是运行时）；而**看着像但不是**的 scope
  *     （`@deepseek-ai-evil/x`）与第三方包（`pdfjs-dist`）⇒ `bundle`（打进去）。
+ *  4. **归一化绕过 ⇒ 抛**（2026-09-20 第三轮补）：`@deepseek-ai//x`（重复斜杠）、`@DeepSeek-AI/x`
+ *     （大小写）、`x/../@deepseek-ai/x`（`..` 段，复核 r2 真构建复现 +6785B 静默内联）都必须当场抛 ——
+ *     因为 esbuild 会归一化后**解析到盘上真包**。反面对照：`x/../lodash` 这类第三方包**不该**受门禁影响。
+ *     同时钉住 `build-client.mjs` 的 onResolve filter 用的是**共享常量**（filter 与判定各写一份，
+ *     正是 `x/../…` 那次的另一半原因）。
  *
  * 另有一条**产物级**佐证：现构建的产物里出现的每个 `@deepseek-ai/...` 都必须真的在清单里
  * （用 `KS_CLIENT_OUT` 构建到临时文件，不覆盖被跟踪的 `client.js`）。
@@ -25,6 +30,7 @@ import {
   ALLOWED_DEEPSEEK_MODULES,
   DSH_BASELINE_MODULES,
   PLUGIN_INJECT_MODULES,
+  PURITY_ONRESOLVE_FILTER,
   classifyExternal,
 } from './lib/external-allowlist.mjs'
 
@@ -82,12 +88,46 @@ for (const spec of ['@DeepSeek-AI/dsh-client-ui-slots', '@DeepSeek-AI/whatever-n
 // ⚠ **分隔符绕过**（复核 2026-09-20 第二轮的对抗性发现，2026-09-20 修）：`@deepseek-ai//x` 与
 //   `@deepseek-ai\x` 都不是规范写法，但 esbuild 会归一化后**解析到盘上真包并静默打进产物**
 //   （复核实跑 BUILT 三个真包）⇒ 必须当场抛，而不是判 bundle。
+//   ⚠ **第三轮更正（复核 r2 + 本轮自己实测，写在前面免得被误读）**：反斜杠那条的后果**依平台**——
+//   本机（Windows）esbuild 把 `\` 也当路径分隔符，metafile 实测 `@deepseek-ai\dsh-util-values`
+//   解析到 `node_modules/@deepseek-ai/dsh-util-values/lib/index.js`（产物 6946B）；r2 报的
+//   `Could not resolve` 针对的是**包名不存在**的 `@deepseek-ai\x`。⇒ 不能说"`//` 会、`\` 不会"，
+//   正确的说法是"**不在 Linux 上赌**：本平台 `\` 照样解析，所以照样拒"。
 for (const spec of ['@deepseek-ai//dsh-client-ui-slots', '@deepseek-ai\\dsh-client-ui-slots',
   '@deepseek-ai//dsh-util-values', '@deepseek-ai\\dsh-util-crypto',
   '@deepseek-ai///whatever', '@DeepSeek-AI\\\\dsh-client-runtime']) {
   let msg = null
   try { classifyExternal(spec) } catch (e) { msg = e.message }
   check(`分隔符不规范 ⇒ **抛**（不许静默当 bundle）：${spec}`, msg !== null, (msg ?? 'NOT-THREW').slice(0, 60))
+}
+// ⚠ **`..` 归一化绕过**（复核 r2 2026-09-20 第三轮，**真构建复现**）：`x/../@deepseek-ai/<pkg>`
+//   被 esbuild 归一化后解析到盘上真包、**静默内联**（复核实跑 +6785B）。旧判定只在"**以 `@` 开头**"
+//   的串上认 scope（正则锚 `^@`）⇒ 连 scope 都没认出来，判 `bundle`。现在判定建立在**归一化后的
+//   整串**上 ⇒ 必须当场抛。连同 filter 一起改（filter 原来也锚在串首，压根不触发）。
+for (const spec of ['x/../@deepseek-ai/dsh-util-values', 'x/../@deepseek-ai/dsh-client-ui-slots',
+  'x/../../x/../@deepseek-ai/dsh-util-crypto', 'x/..\\@deepseek-ai/dsh-util-values',
+  'x/../@DeepSeek-AI/dsh-client-runtime']) {
+  let msg = null
+  try { classifyExternal(spec) } catch (e) { msg = e.message }
+  check(`\`..\` 归一化后落进我们 scope ⇒ **抛**：${spec}`, msg !== null, (msg ?? 'NOT-THREW').slice(0, 60))
+}
+// 对照：**第三方包**经 `..` 归一化后**不该**受我们的门禁影响（门禁只认我们的 scope，不是"见 `..` 就拒"）。
+for (const spec of ['x/../lodash', 'x/../pdfjs-dist/build/pdf.mjs', 'x/../@deepseek-ai-evil/x']) {
+  let v = null
+  try { v = classifyExternal(spec) } catch (e) { v = `THREW: ${e.message.slice(0, 40)}` }
+  check(`bundle（门禁不越界）：${spec}`, v === 'bundle', String(v))
+}
+// ⚠ **filter 与判定必须同源**：上一轮 `x/../...` 之所以能绕过去，一半原因是 onResolve 的 filter
+//   锚在串首、**根本没触发**。⇒ 钉住"build-client 用的是共享常量"，别让谁再各写一份 filter。
+{
+  const buildSrc = await readFile(new URL('./build-client.mjs', import.meta.url), 'utf8')
+  check('build-client 的 onResolve filter 用共享常量（不许再各写一份）',
+    /filter:\s*PURITY_ONRESOLVE_FILTER/.test(buildSrc),
+    'filter: PURITY_ONRESOLVE_FILTER')
+  const filterOk = ['x/../@deepseek-ai/dsh-util-values', '@deepseek-ai//dsh-util-values',
+    '@DeepSeek-AI/x', 'x/../react'].every((s) => PURITY_ONRESOLVE_FILTER.test(s))
+  check('共享 filter 能命中归一化/分隔符/大小写三种绕过写法', filterOk,
+    'x/../@deepseek-ai/… · @deepseek-ai//… · @DeepSeek-AI/x · x/../react')
 }
 // 对照：**子路径**里的正常斜杠当然要放过（别把合法写法一起拒了）。
 {

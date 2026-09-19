@@ -286,8 +286,15 @@ const rendered = container.innerHTML
 
 /* ══════════════════════════ 3. 自包含 HTML ══════════════════════════ */
 const ksStylesSrc = await readFile(join(pluginRoot, 'client', 'ksGuideStyles.ts'), 'utf8')
-const m = /export const KS_STYLES = `([\s\S]*?)`\n/.exec(ksStylesSrc)
-if (m === null) { console.error('❌ 从 ksGuideStyles.ts 里抠不出 KS_STYLES'); process.exit(1) }
+// ⚠ **行尾必须容错**（复核 ui5 2026-09-20）：`core.autocrlf=true` 下 `git worktree`/`git archive`
+//   提取出来的树是 **CRLF**，而这条正则原来要求闭引号后紧跟 `\n` ⇒ CRLF 树里 `\r\n` 匹配不上，
+//   脚本会报"抠不出 KS_STYLES"、让人误以为**交付件坏了**（它只是行尾不同）。⇒ 用 `\r?\n`。
+const m = /export const KS_STYLES = `([\s\S]*?)`\r?\n/.exec(ksStylesSrc)
+if (m === null) {
+  console.error('❌ 从 ksGuideStyles.ts 里抠不出 KS_STYLES（行尾已容错 CRLF/LF，所以这**不是**行尾问题：'
+    + '多半是模板字符串被截断 —— 注释里出现反引号是已知踩坑）')
+  process.exit(1)
+}
 const ksStyles = m[1]
 
 let themeCss = ''

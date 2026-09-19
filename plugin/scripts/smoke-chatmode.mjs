@@ -88,9 +88,13 @@ const readState = async () => {
  *     CAS 比对 → rename；对端那一下 rename 若正好落在 CAS 读与我们的 rename 之间，我们就会用**旧基线**
  *     合并覆盖掉对方那条会话，而回读校验（原来只看 `touched`）判 `ok`。
  *   修法两处（**都不许复刻协议**）：
- *     ① 模块侧：回读校验补上"基线里有、我们没打算删、回读却没了"的会话 ⇒ 判 `retry`（自愈）；
- *     ② 测试侧：对端写者改用模块导出的 `__writeStateFileAsPeerForTests`（**同一条锁协议**）。
- *   复测：改法前后各 100 次（数字记在 `docs/DEVELOPMENT-HISTORY.md` §10.139，不在这里复述）。
+ *     ① 模块侧：回读校验补上"基线里有、我们没打算删、回读却没了"的会话 ⇒ 判 `retry`；
+ *        ⚠ **更正（复核 r2 2026-09-20 第三轮）**：这里原来写"（自愈）"是**过度宣称** ——
+ *        该判据**只**覆盖"基线里存在、回读却没了"的会话，**不覆盖**"对端写在基线读之后"的窗口
+ *        （那条不在 `baseline.modes.keys()` 里，结构上抓不到）。
+ *     ② 测试侧：对端写者改用模块导出的 `__writeStateFileAsPeerForTests`（**同一条锁协议**）——
+ *        3a 那条偶发**真正**是靠**这一步（写者互斥）**消除的，不是靠 ① 。
+ *   复测：改法前后各 100 次（数字记在 `docs/DEVELOPMENT-HISTORY.md` §10.140，不在这里复述）。
  */
 const writeStateAtomic = async (content) => {
   if (typeof chat?.__writeStateFileAsPeerForTests !== 'function') {
