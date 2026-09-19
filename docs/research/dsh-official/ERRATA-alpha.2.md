@@ -175,3 +175,37 @@
 2. **推翻我此前的"补 peerDependencies"建议**：那条基于 alpha.1 的 Desktop note，alpha.2 已把该校验移除。
    ⇒ 要不要补 peer，改为**按 pnpm/Node 常规解析的工程判断**，而**不再引用 DSH 规定**。
    （我们 `plugin/package.json` 现在没补，**不改就是对的**。）
+
+---
+
+## J. 布局持久化：新权威（**已读**，修正 A/G 一处结论）
+
+读了 `2026-09-14-sidebar-layout-provider-recovery.md`（35 行，`implemented/architecture/`）。要点：
+
+| 事实 | 内容 |
+|---|---|
+| **布局现在会持久化** | 侧栏按 **Session** 持久化「**经校验的当前布局快照 + identity 计数器**」；**撤销历史只在内存**（刷新即重置，避免持久状态随历史增长） |
+| 恢复时机 | **先恢复布局与 tab 身份（含资源 pin），再渲染 body** |
+| 谁能恢复内容 | **「Providers restore their own content; the sidebar has no terminal-specific state or reconnection logic.」** ⇒ 各 provider 自己负责恢复 |
+| **不恢复什么** | **「Transient navigation parameters and resource contents remain outside the layout snapshot.」** |
+| 跨窗口 | 同一浏览器 origin 内、**按 Session 各自独立的存储键**；**多个窗口共享该 Session 最后一次保存的布局**，活动窗口在刷新前保持自己的布局 |
+| 失败姿态 | **存储失败时内存态仍可用**（不崩） |
+| 明确的边界 | 浏览器刷新**不会**重启已消失/退出的进程；**宿主重启仍无法恢复 shell**；**provider 状态需要 provider 自己实现恢复**；**瞬态文件导航参数不恢复** |
+| 与其他记录的关系 | **部分取代** `2026-09-09-web-sidebar-terminal.md` 里的持久化排除项（该篇其余决策仍有效） |
+
+### ⇒ 对分片 A/G 的修正
+
+- 我原来记的「**布局是内存态：刷新后所有 Session 回到折叠默认**」—— **作废**。
+- 但**另一条仍然成立**：「**布局是呈现状态，永不进入会话日志**」（新笔记也只说持久化到浏览器存储，
+  没说进 session log）。
+
+### ⇒ 对我们插件的具体含义（**行动项**）
+
+1. **刷新后我们的 tab 会回来**（布局与 tab 身份被恢复），**不再是"什么都没了"**。
+2. ⚠ **但"瞬态导航参数不恢复"**：我们 `KsKnowledgePage` 是读
+   `useTabInfo().tab.navigation.params` 的 `{ page }` 来决定显示哪一页的。
+   ⇒ **刷新后 `params.page` 很可能丢失，页面回落到默认 `manage`**。
+   **这是否真发生，必须实测**（本笔记没有明确"tab 记录的 navigation.params"是否属于"瞬态导航参数"）。
+   若确实丢：想让它存活，就走**官方认可的路** ——「provider 自己负责恢复」，
+   即把页面选择存进我们自己的 Session 级 store，而不是依赖导航参数。
+3. 存储失败不崩（内存态可用）是官方给的姿态，我们若自己加恢复逻辑应与之一致。
