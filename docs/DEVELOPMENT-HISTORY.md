@@ -8762,8 +8762,11 @@ Office 往返编辑会话（`office_roundtrip.py`），以及为它们写的用�
   的补救，**它没有消灭窗口，也没有覆盖"对端写在基线之后"这一类**。~~"自愈"这个词已从
   `plugin/src/chatmode.js` 与 `plugin/scripts/smoke-chatmode.mjs` 的注释里去掉（改为写明上面这条边界）。~~
   ⚠ **字面不成立，就地更正（复核 `verify-freeze-corr3` B3，2026-09-20 第四轮）**：词**还在**（就在这句
-  更正句自己里），而且实测两处都还有 —— `chatmode.js` 里 `自愈` **7 处**（`512` 锁降级自愈、`566` 陈旧自愈、
-  `701` 那句"我上一条把它写成『自愈机制』是**过度宣称**"、`1312`/`1316`/`1350` …）、
+  更正句自己里），而且实测两处都还有 —— `chatmode.js` 里 `自愈` ~~**7 处**~~ **6 处**（~~复核 2026-09-20
+  第四轮写的是 7 处，第五轮复核当场数出 6 处~~ ⇒ **第五轮 2026-09-20 自己重数（`Select-String` 逐行 +
+  `[regex]::Matches` 全串计数，两法同值）：6 处**，行号 `512` 锁降级自愈、`566` 陈旧自愈、
+  `701` 那句"我上一条把它写成『自愈机制』是**过度宣称**"、`1312`/`1316`/`1350` ——
+  **正好 6 个行号，与"7"对不上**，原先那个 7 就是数错了）、
   `smoke-chatmode.mjs` **2 处**（`92` 那句"这里原来写『（自愈）』是**过度宣称**"、`795`）。
   ⇒ 改对了的是**「（自愈）」这个标签**（把"判 `retry`（自愈）"这个**说法**换成上面这条**结构边界**），
   **不是**"词被删掉"。`自愈` 在本仓本来就是常用词（锁降级、陈旧锁回收都叫自愈），删它既做不到也没必要。
@@ -8859,6 +8862,58 @@ Office 往返编辑会话（`office_roundtrip.py`），以及为它们写的用�
 **= 2**）共 7 条：**2 条真代码问题（A1/A2）+ 5 条文档更正（B1..B5）**。逐条落地如下（**保留错话 + 更正**）。
 
 ### 一、A1（**最重要·真空洞**）：纯度门禁对**相对路径**指向宿主单例**整条豁免**
+
+> ⚠⚠ **本节结论已在第五轮（2026-09-20）被独立复核证伪并降级 —— 先读这一段再看下面。**
+>
+> 本节（`be87f68`）声称的是"**相对/绝对路径指向宿主单例的绕过已修**"。**那个宣称太宽**：它
+> **只修了冒烟里那两条写法**（`./../node_modules/@deepseek-ai/…`、`../node_modules/…`）。
+> 独立复核（esbuild JS API + `metafile` + 内容标记，**本轮自己逐条复现**）证明：**挂了门禁仍然把
+> 宿主单例静默内联**的有 8 条 ——
+>
+> | # | specifier（`resolveDir` 见注） | 无门禁 | 挂门禁（`be87f68`） | 挂门禁（第五轮） |
+> |---|---|---|---|---|
+> | R1 | `x/../../node_modules/@deepseek-ai/dsh-util-values/lib/index.js` | BUILT 7384B | **BUILT 7384B** | BLOCKED（构建纯度） |
+> | R2 | `a/b/../../../node_modules/@deepseek-ai/dsh-util-values/lib/index.js` | BUILT 7384B | **BUILT 7384B** | BLOCKED |
+> | R3 | `x/../../node_modules/react/index.js` | BUILT 82899B | **BUILT 82899B** | BLOCKED |
+> | R4 | `../NODE_M~1/@deepseek-ai/dsh-util-values/lib/index.js`（**8.3 短名**） | BUILT 7380B | **BUILT 7380B** | BLOCKED |
+> | R5 | `../node_modules./@deepseek-ai/dsh-util-values/lib/index.js`（**尾随点**） | BUILT 7385B | **BUILT 7385B** | BLOCKED |
+> | R6 | `./dsh-util-values/lib/index.js`（**junction** → `node_modules/@deepseek-ai/dsh-util-values`） | BUILT 7384B | **BUILT 7384B** | BLOCKED |
+> | R7 | `./node_modules/react/index.js` | BUILT 82899B | **BUILT 82899B** | BLOCKED |
+> | R8 | 绝对路径 → `<repo>/node_modules/react/index.js` | BUILT 82899B | **BUILT 82899B** | BLOCKED |
+>
+> 负面对照（两边都必须 BUILT / 必须不是被纯度门禁拦）：`./vendor/legit.js` 两边 BUILT；
+> `@deepseek-ai-evil/x`、`lodash` 两边都是 esbuild 自己的 `Could not resolve`（门禁不越界）。
+>
+> **三条根因**：(i) `bare` 判据把 `x/../../…` 当**包名** ⇒ 落点检查那一支**根本不跑**；
+> (ii) 落点判据是对**字面 `node_modules`** 的**正则** ⇒ 8.3 短名 / 尾随点全部漏；
+> (iii) **filter 比判定窄** —— `./node_modules/react/index.js` 不含 `@deepseek-ai` / `..` / `^react`
+> ⇒ onResolve **根本不触发**（尽管 `classifyExternal` 会抛）。
+>
+> **第五轮的改法（从根上改，不再看文本）**：`purityPlugin()` 里改成
+> **让 esbuild 自己解析** —— `build.resolve(args.path, { resolveDir: args.resolveDir, importer, kind,
+> namespace, pluginData })`（esbuild **0.25.12**，签名见 `plugin/node_modules/esbuild/lib/main.d.ts:307`
+> 的 `ResolveOptions` / `ResolveResult`），拿 `result.path` 再叠 `realpathSync[.native]`，然后判落点
+> 是不是 `node_modules/@deepseek-ai/**`、`node_modules/react(/|$)`、`node_modules/react-dom(/|$)`。
+> 8.3 短名 / 尾随点 / junction 都由"真实路径"自然覆盖（短名靠 realpath；尾随点靠"逐段去尾随 `.`/空格"
+> 的归一化 + realpath 失败时的 fail-closed；junction 靠 realpath）。filter 放宽到
+> `/[\\/]|@deepseek-ai|node_modules|^\.|\.\.|^react(?:-dom)?$|~[0-9]/i`。
+> ⚠ 递归陷阱（**实测**，不是推测）：照抄同一组参数调 `build.resolve` 会**重入自己的 onResolve 并无限
+> 递归**（esbuild 文档明说它不做循环检测）⇒ 用 `pluginData` 打标记，重入即放手（递归恰好终止在第二层）。
+> 解析失败且文本可疑（含 `@deepseek-ai/` / `node_modules` / `react`）⇒ **fail-closed 抛**。
+> **实测代价**：`build-client.mjs` 现构建产物与仓库里的 `plugin/client.js` **逐字节一致**
+> （sha256 `A5B94C36…1ED0`，1429300B）。
+>
+> **冒烟**：`smoke-build-purity.mjs` **59 → 81/81 PASS**（净增 22：8 条变体 × 两向断言 16 +
+> 负面对照 3 + **变异测试 2** + 夹具清理 1；同时 filter 那条从 5 条样本扩到 17 条、并**删掉/改写了
+> 原先那条假绿断言**，见下）。**变异测试实测**：把 `resolveLanding()` 里的 `resolveDir` 去掉 ⇒
+> **80/81 FAIL（R6 junction 那条变 BUILT 7384B）exit 1** —— 断言有牙。
+>
+> ~~**还有一个断言级假绿**（本轮自己发现，同属本节）：~~ 本节下面写的"接线（`args.resolveDir`）漏传
+> 也红"**是假的** —— 只把 `classifyExternal(args.path, args.resolveDir)` 改回
+> `classifyExternal(args.path)`（插件仍挂着），**59/59 全绿 exit 0**。第五轮起**删掉该说法**，
+> 换成"**变异测试**"（冒烟里显式跑一遍"接线改回老样子"的变异插件，断言同一探针**必须不再被拦**），
+> 并明确承载接线的层是 `resolveLanding()` 而不是 `classifyExternal` 的那次调用。
+
 - **复核说的**：`./../node_modules/@deepseek-ai/dsh-util-values/lib/index.js` 与 `../node_modules/…`
   在**有门禁时照样 BUILT**（用 esbuild JS API + `metafile` 实测）。根因在
   `plugin/scripts/lib/external-allowlist.mjs`：判定把以 `.`/`/` 开头的串当 `bare` 放行。
@@ -8888,10 +8943,15 @@ Office 往返编辑会话（`office_roundtrip.py`），以及为它们写的用�
   改前 45 那个基线出自 §10.140 三·补，本轮数的是 **diff 出来的新增条数**，不是重跑改前那份冒烟）。
 - **新增回归门禁（两向，都在冒烟里）**：① **无门禁真构建** ⇒ BUILT 且 metafile input 里就是宿主单例
   （保证"解析不到"不是借口）；② **挂 `purityPlugin()`** ⇒ 被拦。任一方向失效即红。
-- ⚠ **诚实边界（别把 A1 读成"相对路径全查了"）**：落点检查**跟在 filter 之后**，所以只覆盖
+- ⚠ **诚实边界（别把 A1 读成"相对路径全查了"）**~~：落点检查**跟在 filter 之后**，所以只覆盖
   "**文本里带 `@deepseek-ai` / `..` / `react`**"的说明符。把宿主单例**拷进源码树**再用**纯**相对路径引
   （`./vendor/deepseek-ai-values.js`，文本里两样都没有）**不触发**门禁 —— 那是"源码里有没有第二份实现"的
-  另一个口径（未做）。已写进 lib 的"**这套门禁盖不到的地方**"段（第 2 条）。
+  另一个口径（未做）。~~
+  ⇒ **第五轮 2026-09-20 更正（本节已被上方降级块取代）**：这句话**在 `be87f68` 当时就是错的**——
+  `./dsh-util-values/lib/index.js`（junction，文本里 `@deepseek-ai`/`..` 两样都没有）**当时照样静默内联**
+  （实测 BUILT 7384B），不是"另一个口径"，是**同一个模块路径的真洞**。
+  第五轮起"落点检查跟在 filter 之后"也不再成立：filter 已放宽到覆盖**任何含路径分隔符的说明符**。
+  **仍然**盖不到的是"把宿主单例**拷进源码树**再做第二份实现"（模块路径确实不同，属另一口径，未做）。
 
 ### 二、A2：`scripts/chain-snapshot.py --json` **少一整段号段**
 - **复核说的**：`--json` 分支在 print 后**提前 `return`** ⇒ `_segments_section` **永不执行** ⇒ 输出里
@@ -8918,7 +8978,9 @@ Office 往返编辑会话（`office_roundtrip.py`），以及为它们写的用�
    `chatmode` 在 §10.139 的 8680–8727 行区间**实测 0 命中**。那条说法**只存在于提交 `3bd997e` 的提交消息里**
    ⇒ 划线保留，改指**提交号**，并写明"原写 §10.139 四·3 是误引"。
 3. **B3**：§10.140 一里"「自愈」这个词已从 `chatmode.js`/`smoke-chatmode.mjs` 的注释里去掉"**字面不成立**
-   （词还在，就在这句更正句自己里；实测 `chatmode.js` **7 处**、`smoke-chatmode.mjs` **2 处**）⇒ 更正为
+   （词还在，就在这句更正句自己里；实测 `chatmode.js` ~~**7 处**~~ **6 处**、`smoke-chatmode.mjs` **2 处**
+   —— ⚠ **第五轮 2026-09-20 更正这个计数**：复核实测 6 处，本轮**自己重数**（`Select-String` 逐行 6 行 +
+   `[regex]::Matches` 全串 6 次，两法同值），列出的行号 `512/566/701/1312/1316/1350` 也正好 6 个）⇒ 更正为
    "改掉的是**「（自愈）」这个标签**（把『判 `retry`（自愈）』这个**说法**换成结构边界），不是词被删"。
 4. **B4**：`6129` 在**不带口径**的地方是裸数（`CHANNEL-COVERAGE-PLAN.md` 3 处、`DEVELOPMENT-HISTORY.md` 4 处、
    `tests/test_channel_repo.py` 注释 1 处），而同一页另一处写"按仓库口径是 **6130**" ⇒ 读起来自相矛盾（低危）。

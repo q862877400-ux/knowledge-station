@@ -16,15 +16,27 @@
  *     正是 `x/../…` 那次的另一半原因）。
  *  5. **相对/绝对路径指向宿主单例 ⇒ 抛**（2026-09-20 第四轮补，复核 corr3 A1 —— 改前的**真空洞**）：
  *     `./../node_modules/@deepseek-ai/<pkg>/lib/index.js` / `../node_modules/…` **有门禁时照样 BUILT**
- *     （metafile 实测 7377B / 1068B，input 就是宿主单例）。现在按 `path.resolve(resolveDir, spec)`
- *     的**落点**判 ⇒ 当场抛；并且用**真 esbuild 构建**做正反 two-way 断言（无门禁 BUILT / 挂
- *     `purityPlugin()` 被拦），接线（`args.resolveDir`）漏传也红。
+ *     （metafile 实测 7377B / 1068B，input 就是宿主单例）。
+ *  6. ⚠⚠ **第五轮（2026-09-20）—— 第 5 条只修了"冒烟里那两条写法"**：独立复核用 esbuild JS API +
+ *     `metafile` + 内容标记实测，**8 条变体仍把宿主单例静默内联**（本文件现在逐条钉住，见 2b）：
+ *     `x/../../node_modules/…`、`a/b/../../../node_modules/…`、`x/../../node_modules/react/…`、
+ *     `../NODE_M~1/…`（8.3 短名）、`../node_modules./…`（尾随点）、`./dsh-util-values/…`（junction）、
+ *     `./node_modules/react/…`、绝对路径到 `node_modules/react/…`。三条根因：
+ *       (i) `x/../../…` 被当成**包名**（`bare`）⇒ 落点检查那一支根本不跑；
+ *       (ii) 落点判据是对**字面 `node_modules`** 的正则 ⇒ 8.3 短名 / 尾随点漏；
+ *       (iii) **filter 比判定窄** ⇒ `./node_modules/react/index.js` 连 onResolve 都不触发。
+ *     ⇒ **改法：不再看文本，让 esbuild 自己解析**（`build.resolve(path, { resolveDir, importer,
+ *     kind, namespace, pluginData })`），拿**真实解析路径 + `realpathSync`** 判落点；
+ *     filter 放宽到"含分隔符/相对前缀/绝对路径/短名/我们的 scope/react"。
+ *     ⚠ `build.resolve` 从 onResolve 里调会因为**同参数重入**而无限递归（esbuild 文档明说它不做
+ *     循环检测）⇒ 用 `pluginData` 打标记，重入即放手（实测递归终止在第二层）。
  *
  * 另有一条**产物级**佐证：现构建的产物里出现的每个 `@deepseek-ai/...` 都必须真的在清单里
  * （用 `KS_CLIENT_OUT` 构建到临时文件，不覆盖被跟踪的 `client.js`）。
  *
  * Run:  node scripts/smoke-build-purity.mjs   (exit 0 = pass)
  */
+import { mkdirSync, mkdtempSync, rmSync, rmdirSync, writeFileSync, existsSync, symlinkSync } from 'node:fs'
 import { mkdtemp, readFile, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -137,11 +149,26 @@ for (const spec of ['x/../lodash', 'x/../pdfjs-dist/build/pdf.mjs', 'x/../@deeps
     !/\bonResolve\s*\(/.test(buildSrc) && !/\bfilter\s*:/.test(buildSrc)
       && !/classifyExternal\s*\(/.test(buildSrc),
     'onResolve/filter/判定只在 lib 的 purityPlugin() 里')
-  const filterOk = ['x/../@deepseek-ai/dsh-util-values', '@deepseek-ai//dsh-util-values',
-    '@DeepSeek-AI/x', 'x/../react',
-    '../node_modules/@deepseek-ai/dsh-util-values/lib/index.js'].every((s) => PURITY_ONRESOLVE_FILTER.test(s))
-  check('共享 filter 能命中归一化/分隔符/大小写/相对路径四种绕过写法', filterOk,
-    'x/../@deepseek-ai/… · @deepseek-ai//… · @DeepSeek-AI/x · x/../react · ../node_modules/@deepseek-ai/…')
+  // ⚠ **第五轮（2026-09-20）：filter 又放宽了一次** —— 旧 filter 只认"文本里带 `@deepseek-ai` /
+  //   `..` / `^react`"，于是 `./node_modules/react/index.js`（一个 `.` 段）**压根不触发 onResolve**，
+  //   而 `classifyExternal` 本来认得出它（复核实测的三条根因之三）。现在"含分隔符/相对前缀/绝对路径/
+  //   短名/我们的 scope/react"任何一条都命中。这里把**第五轮的 8 条变体全量**钉一遍。
+  const filterMustHit = ['x/../@deepseek-ai/dsh-util-values', '@deepseek-ai//dsh-util-values',
+    '@DeepSeek-AI/x', 'x/../react', 'react', 'react-dom', 'react/jsx-runtime',
+    '../node_modules/@deepseek-ai/dsh-util-values/lib/index.js',
+    'x/../../node_modules/@deepseek-ai/dsh-util-values/lib/index.js',
+    'a/b/../../../node_modules/@deepseek-ai/dsh-util-values/lib/index.js',
+    'x/../../node_modules/react/index.js',
+    '../NODE_M~1/@deepseek-ai/dsh-util-values/lib/index.js',
+    '../node_modules./@deepseek-ai/dsh-util-values/lib/index.js',
+    './dsh-util-values/lib/index.js',
+    './node_modules/react/index.js',
+    'D:\\x\\node_modules\\react\\index.js',
+    './vendor/legit.js']
+  const filterMissed = filterMustHit.filter((s) => !PURITY_ONRESOLVE_FILTER.test(s))
+  check('共享 filter 命中归一化/分隔符/大小写/相对/绝对/短名/尾随点/junction 八类写法',
+    filterMissed.length === 0,
+    filterMissed.length ? `漏：${filterMissed.join(' · ')}` : `${filterMustHit.length} 条全命中`)
 }
 // 对照：**子路径**里的正常斜杠当然要放过（别把合法写法一起拒了）。
 {
@@ -150,19 +177,24 @@ for (const spec of ['x/../lodash', 'x/../pdfjs-dist/build/pdf.mjs', 'x/../@deeps
   check('反例对照：清单内模块的正常子路径仍 external', v === 'external', String(v))
 }
 
-// ── 2b) ⚠⚠ **相对路径整条绕过门禁**（复核 `verify-freeze-corr3` A1，2026-09-20 第四轮）──────
-//   改前判定只认**裸** specifier（不以 `.`/`/` 开头），相对路径一律判 `bundle` ⇒ 门禁自述的判据
-//   （"产物里不许出现清单外的 `@deepseek-ai/*`"）**被整条绕过**。复核用 esbuild JS API + `metafile`
-//   实测：`./../node_modules/@deepseek-ai/dsh-util-values/lib/index.js` 与 `../node_modules/…`
-//   **有门禁时照样 BUILT**。本轮自己复现（同法，**这台机器**）：
-//   无门禁 BUILT 7377B / 1068B，metafile input 就是宿主单例本身；加门禁后被拦。
-//   修法：判定改成**按落点**（`path.resolve(resolveDir, spec)`）——落在 `node_modules/@deepseek-ai/**`
-//   （或 react / react-dom）⇒ 当场抛。`resolveDir` 由共享工厂里的 `args.resolveDir` 传入。
-//   ⚠ 边界（别把 A1 读成"相对路径全查了"）：**只有会进 filter 的说明符**才走到这一步，
-//     即文本里带 `@deepseek-ai` / `..` / `react` 的那些；把宿主单例**拷进源码树**再用纯相对路径引
-//     （`./vendor/x.js`，文本里两样都没有）**不触发**门禁 —— 那是"源码里有没有第二份实现"的另一个口径。
+// ── 2b) 相对/绝对/短名/尾随点/junction 指向宿主单例 ⇒ 拦（**第五轮 2026-09-20 从根上改**）────
+//   第四轮的修法（`path.resolve(resolveDir, spec)` + 对**字面 `node_modules`** 的正则）**只堵住了
+//   冒烟里那两条写法**。独立复核用 esbuild JS API + `metafile` + 内容标记实测，**8 条变体仍把宿主
+//   单例静默内联**（本文件改前实测，无门禁/有门禁都 BUILT，字节数与 metafile 见下面的 detail）：
+//     `x/../../node_modules/@deepseek-ai/dsh-util-values/lib/index.js`   ⇒ 两条都 BUILT 7384B
+//     `a/b/../../../node_modules/@deepseek-ai/dsh-util-values/lib/index.js` ⇒ 同上
+//     `x/../../node_modules/react/index.js`                              ⇒ 两条都 BUILT 82899B
+//     `../NODE_M~1/@deepseek-ai/dsh-util-values/lib/index.js`（8.3 短名） ⇒ BUILT 7380B
+//     `../node_modules./@deepseek-ai/dsh-util-values/lib/index.js`（尾随点）⇒ BUILT 7385B
+//     `./dsh-util-values/lib/index.js`（junction）                       ⇒ BUILT 7384B
+//     `./node_modules/react/index.js` / 绝对路径到 root react            ⇒ BUILT 82899B
+//   **修法**：不再看文本 —— 让 **esbuild 自己解析**（`build.resolve`）拿**真实落点 + realpath** 判。
+//   ⚠ 递归陷阱：从 onResolve 里调 `build.resolve` 传**同一组参数**会重入自己并无限递归
+//     （esbuild 文档："no attempt made to detect infinite path resolution loops"）⇒ 工厂用
+//     `pluginData` 打标记，重入即放手。
 {
   const pluginRoot = fileURLToPath(new URL('..', import.meta.url))
+  const repoRoot = fileURLToPath(new URL('../..', import.meta.url))
   const REL_HOST = [
     './../node_modules/@deepseek-ai/dsh-util-values/lib/index.js',
     '../node_modules/@deepseek-ai/dsh-util-crypto/lib/index.js',
@@ -175,11 +207,20 @@ for (const spec of ['x/../lodash', 'x/../pdfjs-dist/build/pdf.mjs', 'x/../@deeps
     try { classifyExternal(spec, pluginRoot) } catch (e) { msg = e.message }
     check(`相对路径指向宿主单例 ⇒ **抛**：${spec}`, msg !== null, (msg ?? 'NOT-THREW').slice(0, 60))
   }
-  // fail-closed：**不给 resolveDir**（接线漏传的那种情况）也必须拦 —— 否则"忘了传参"就等于放行。
+  // ⚠ **第五轮更正**：这里原写"不给 resolveDir 也照样抛（fail-closed）"并声称它覆盖"接线漏传的那种
+  //   情况" —— **那句话是假的**。`classifyExternal` 不给 resolveDir 时的兜底，**只**对"文本里字面含
+  //   `node_modules` + 受管落点"的写法成立（它退化成对 spec 文本做 `isHostProvidedResolvedPath`）。
+  //   这两条**保留**，但只声称它们真正证明的事：
   for (const spec of ['../node_modules/@deepseek-ai/dsh-util-values/lib/index.js', './../node_modules/react/index.js']) {
     let msg = null
     try { classifyExternal(spec) } catch (e) { msg = e.message }
-    check(`不给 resolveDir 也照样抛（fail-closed）：${spec}`, msg !== null, (msg ?? 'NOT-THREW').slice(0, 60))
+    check(`文本层兜底（**只**对文本含 node_modules/受管落点的写法成立）：${spec}`, msg !== null, (msg ?? 'NOT-THREW').slice(0, 60))
+  }
+  // …而 8.3 短名 / junction **文本层看不见**（不是洞：真构建的"解析层"兜住，见下）。
+  for (const spec of ['../NODE_M~1/@deepseek-ai/dsh-util-values/lib/index.js', './dsh-util-values/lib/index.js']) {
+    let v = null
+    try { v = classifyExternal(spec, pluginRoot) } catch (e) { v = `THREW: ${e.message.slice(0, 40)}` }
+    check(`文本层**看不见**它（边界：靠真构建的解析层兜）：${spec}`, v === 'bundle', String(v))
   }
   // 绝对路径同样按落点判。
   {
@@ -195,32 +236,99 @@ for (const spec of ['x/../lodash', 'x/../pdfjs-dist/build/pdf.mjs', 'x/../@deeps
     check(`bundle（相对路径不误伤）：${spec}`, v === 'bundle', String(v))
   }
 
-  // ⚠ 最强的一条：**真 esbuild 构建**（不是只调判定函数）。同一份输入、只换门禁 ——
-  //   无门禁 ⇒ BUILT 且 metafile 里就是宿主单例；挂 `purityPlugin()` ⇒ 被拦。
-  //   这条同时钉住"工厂真的把 args.resolveDir 传进去了"（工厂漏传 ⇒ 断言红）。
+  // ⚠ 最强的一层：**真 esbuild 构建**（不是只调判定函数）。同一份输入、只换门禁 ——
+  //   无门禁 ⇒ BUILT 且 metafile 里就是宿主单例（**断言的前提**：不是"解析不到"）；
+  //   挂 `purityPlugin()` ⇒ 被拦。
   const { build } = await import('esbuild')
-  const runProbe = async (spec, plugin) => {
+
+  // 夹具一律放系统临时目录（仓库里不落文件、不落链接），跑完在 finally 里删干净。
+  const FIX = mkdtempSync(join(tmpdir(), 'ks-purity-fixture-'))
+  mkdirSync(join(FIX, 'vendor'), { recursive: true })
+  writeFileSync(join(FIX, 'vendor', 'legit.js'), 'export const legit = 1\n', 'utf8')
+  const JUNC_ROOT = join(FIX, 'junc-root')
+  mkdirSync(JUNC_ROOT, { recursive: true })
+  const JUNC = join(JUNC_ROOT, 'dsh-util-values')
+  symlinkSync(join(pluginRoot, 'node_modules', '@deepseek-ai', 'dsh-util-values'), JUNC, 'junction')
+
+  const runProbe = async (spec, resolveDir, plugin) => {
     try {
       const r = await build({
-        stdin: { contents: `import * as m from ${JSON.stringify(spec)}; console.log(m)`,
-          resolveDir: join(pluginRoot, 'scripts'), loader: 'js' },
-        absWorkingDir: pluginRoot, bundle: true, write: false, metafile: true, logLevel: 'silent',
+        stdin: { contents: `import * as m from ${JSON.stringify(spec)}; console.log(m)`, resolveDir, loader: 'js' },
+        absWorkingDir: repoRoot, bundle: true, write: false, metafile: true, logLevel: 'silent',
         ...(plugin ? { plugins: [plugin] } : {}),
       })
-      return { ok: true, inputs: Object.keys(r.metafile.inputs) }
+      return { ok: true, bytes: r.outputFiles[0].contents.length, inputs: Object.keys(r.metafile.inputs) }
     } catch (e) {
       return { ok: false, msg: (e.errors ?? []).map((x) => x.text).join(' | ') || String(e.message) }
     }
   }
-  const PROBE = '../node_modules/@deepseek-ai/dsh-util-values/lib/index.js'
-  const bare = await runProbe(PROBE, null)
-  console.log(`   （无门禁真构建：${bare.ok ? `BUILT，metafile input=${JSON.stringify(bare.inputs)}` : `BLOCKED ${bare.msg.slice(0, 60)}`}）`)
-  check('真构建·无门禁 ⇒ 宿主单例确实被解析进来（反例的**前提**成立，不是"解析不到"）',
-    bare.ok && bare.inputs.includes('node_modules/@deepseek-ai/dsh-util-values/lib/index.js'),
-    bare.ok ? JSON.stringify(bare.inputs) : bare.msg.slice(0, 80))
-  const gated = await runProbe(PROBE, purityPlugin())
-  check('真构建·挂 purityPlugin() ⇒ **被拦**（这条就是 A1 的回归门禁）',
-    !gated.ok && /构建纯度/.test(gated.msg), gated.ok ? 'BUILT（洞又开了！）' : gated.msg.slice(0, 70))
+
+  try {
+    // 8 条变体：逐条两向断言（无门禁 BUILT 且落点是宿主单例 / 挂门禁被拦）。
+    const HOST_CASES = [
+      ['R1 x/../../node_modules/@deepseek-ai/…', 'x/../../node_modules/@deepseek-ai/dsh-util-values/lib/index.js', pluginRoot],
+      ['R2 a/b/../../../node_modules/@deepseek-ai/…', 'a/b/../../../node_modules/@deepseek-ai/dsh-util-values/lib/index.js', join(pluginRoot, 'scripts')],
+      ['R3 x/../../node_modules/react/…', 'x/../../node_modules/react/index.js', repoRoot],
+      ['R4 8.3 短名 ../NODE_M~1/…', '../NODE_M~1/@deepseek-ai/dsh-util-values/lib/index.js', join(pluginRoot, 'scripts')],
+      ['R5 尾随点 ../node_modules./…', '../node_modules./@deepseek-ai/dsh-util-values/lib/index.js', join(pluginRoot, 'scripts')],
+      ['R6 junction ./dsh-util-values/…', './dsh-util-values/lib/index.js', JUNC_ROOT],
+      ['R7 ./node_modules/react/index.js', './node_modules/react/index.js', repoRoot],
+      ['R8 绝对路径 → root node_modules/react', join(repoRoot, 'node_modules', 'react', 'index.js'), repoRoot],
+    ]
+    const singletonInput = (inputs) => inputs.find((p) => /(@deepseek-ai\/dsh-util-values\/lib\/index\.js|react\/index\.js)$/.test(p.replace(/\\/g, '/')))
+    for (const [name, spec, resolveDir] of HOST_CASES) {
+      const free = await runProbe(spec, resolveDir, null)
+      check(`真构建·无门禁 ⇒ 宿主单例**真的**被解析进产物（前提）：${name}`,
+        free.ok && singletonInput(free.inputs) !== undefined,
+        free.ok ? `BUILT ${free.bytes}B metafile input=${singletonInput(free.inputs)}` : free.msg.slice(0, 70))
+      const gated = await runProbe(spec, resolveDir, purityPlugin())
+      check(`真构建·挂 purityPlugin() ⇒ **被拦**：${name}`,
+        !gated.ok && /构建纯度/.test(gated.msg),
+        gated.ok ? `BUILT ${gated.bytes}B（洞又开了！）` : gated.msg.slice(0, 70))
+    }
+
+    // 负面对照：门禁**不许越界**（第三方包 / 看着像但不是的 scope / 本地相对路径）。
+    {
+      const legit = await runProbe('./vendor/legit.js', FIX, purityPlugin())
+      check('负面对照：本地相对路径 ./vendor/legit.js 挂门禁仍 BUILT（不误伤）',
+        legit.ok, legit.ok ? `BUILT ${legit.bytes}B` : legit.msg.slice(0, 70))
+      for (const [name, spec] of [['@deepseek-ai-evil/x', '@deepseek-ai-evil/x'], ['lodash', 'lodash']]) {
+        const free = await runProbe(spec, FIX, null)
+        const gated = await runProbe(spec, FIX, purityPlugin())
+        check(`负面对照：${name} 的失败是 **esbuild 的 Could not resolve**，不是被纯度门禁拦（不越界）`,
+          !free.ok && !gated.ok && /Could not resolve/.test(gated.msg) && !/构建纯度/.test(gated.msg),
+          `gate=${gated.msg.slice(0, 60)}`)
+      }
+    }
+
+    // ⚠ **变异测试：让上面的断言有牙**（第四轮那句"接线漏传也红"就是没做这一步才变成假绿）。
+    //   这里把**接线**改回老样子（只把 `args.path` 交给文本判定：既不传 resolveDir，也不做解析），
+    //   同两条探针**必须不再被拦**。若它们仍被拦，说明拦住它们的不是"接线 + 真实解析"，
+    //   那两条"被拦"的回归门禁就是假绿。
+    const preFixWiring = () => ({
+      name: 'ks-build-purity-WIRING-ORACLE(变异：第五轮之前的老接线)',
+      setup(b) {
+        b.onResolve({ filter: PURITY_ONRESOLVE_FILTER }, (args) => {
+          const verdict = classifyExternal(args.path)          // ← 变异点：漏 resolveDir、且完全不解析
+          return verdict === 'external' ? { path: args.path, external: true } : undefined
+        })
+      },
+    })
+    for (const [name, spec, dir] of [
+      ['8.3 短名 ../NODE_M~1/…', '../NODE_M~1/@deepseek-ai/dsh-util-values/lib/index.js', join(pluginRoot, 'scripts')],
+      ['junction ./dsh-util-values/…', './dsh-util-values/lib/index.js', JUNC_ROOT],
+    ]) {
+      const r = await runProbe(spec, dir, preFixWiring())
+      check(`变异（接线改回第五轮之前）⇒ 同一探针**不再被拦** ⇒ 上面两条回归门禁有牙：${name}`,
+        r.ok, r.ok ? `BUILT ${r.bytes}B（洞开了 —— 正说明"接线 + 解析"才是拦住它的那一层）` : `仍被拦(${r.msg.slice(0, 50)}) —— 这条断言无牙`)
+    }
+  } finally {
+    // ⚠ 夹具（尤其 junction）必须删干净：不能给仓库/磁盘留痕。
+    try { rmdirSync(JUNC) } catch { /* 没建成或已删 */ }
+    rmSync(FIX, { recursive: true, force: true })
+    check('夹具清理干净（临时目录 + junction 都不留痕）',
+      !existsSync(JUNC) && !existsSync(FIX), `junction 残留=${existsSync(JUNC)} 目录残留=${existsSync(FIX)}`)
+  }
 }
 
 // ── 3) 产物级佐证：现构建产物里的 @deepseek-ai/* 必须在清单内 ──────────────────
