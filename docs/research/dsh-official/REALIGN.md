@@ -156,8 +156,55 @@ node scripts/ingest-dsh-docs-into-memory.mjs             # 幂等 + 可续跑，
 5. ⚠ **凭记忆写 id 会制造重复事实**：我第一次写覆盖表时把 AGENTS.md 的 id 少写一段，
    "原地覆盖"静默变成"新增一份"。凡涉及 id 一律**从库里逐字读**（`GET /documents`）。
 
+---
+
+## 五之二、`reflect` 报 500 时：那是**输出上限**，不是"问得太多"
+
+宽问题用 `hindsight_reflect` 工具会 500：
+
+```
+500 {"detail":"LLM output exceeded token limits (openai/deepseek-flash, scope=reflect).
+     Input may need to be split into smaller chunks."}
+```
+
+**根因（2026-09-19 从服务自身 OpenAPI 查到，不是猜的）**：`ReflectRequest.max_tokens`
+默认 **4096**（原文 "Maximum tokens for the response"）。回答超过它就**报错**（而不是截断）。
+插件那个工具**只暴露 `query`**，所以永远吃 4096。那句 "Input may need to be split" **是误导** ——
+问题在输出，不在输入。
+
+⇒ 宽问题改用仓库脚本（可指定上限，也能按标签域圈定范围）：
+
+```powershell
+node scripts/hindsight-reflect.mjs --max-tokens 8192 "又宽又多问的问题"
+node scripts/hindsight-reflect.mjs --tags dsh-official-docs-zh "只在中译本里找"
+node scripts/hindsight-reflect.mjs --budget high "要挖得更深"
+```
+
+实测：同一个此前 500 的宽查询，`max_tokens: 8192` ⇒ **成功（47 s）**。
+
 **尚未纳入的语料**（想灌另说，别默认以为在库里）：
-`.agents/notes/` 决策记录（2056 篇 / 约 14.3 MB）、`docs/**/*.zh.md` 中文译本（约 158 篇）。
+
+| 语料 | **实测规模（alpha.2）** | 状态 |
+|---|---|---|
+| `docs/**/*.zh.md` 中文译本 | **166 篇 / 2.7 MB** | ✅ **已入**（2026-09-19，`INGEST-LEDGER-docs-zh.md`，标签域 `dsh-official-docs-zh`） |
+| `.agents/notes/**` 决策记录（非 zh） | **1105 篇 / 7.6 MB** | ⚠ **只入了与客户端/UI 有关的 10 篇**（`INGEST-LEDGER-notes-client-ui.md`，标签 `dsh-notes-client-ui`）；**其余 1095 篇未入** |
+
+⚠ **更正**：本手册此前写「`.agents/notes/` 2056 篇 / 约 14.3 MB」「`.zh.md` 约 158 篇」——
+**两个数都不对**（那是从分片转述里抄来的，没实测）。以本表的实测值为准。
+
+一次命令即可补齐（脚本已支持 `--root` / `--match` / `--tag` / `--id-prefix`，语料分开记账分域）：
+
+```powershell
+# 决策记录全量（1105 篇 / 7.6 MB，约 30 分钟后台）
+node scripts/ingest-dsh-docs-into-memory.mjs --root .agents/notes `
+  --id-prefix dsh-notes --tag dsh-notes `
+  --ledger docs/research/dsh-official/INGEST-LEDGER-notes.md
+```
+
+⚠ **灌之前想清楚**：决策记录是 **DSH 内部工程决策**，大部分与 KnowledgeStation 无关；
+全量入库可能**稀释**召回（我们检索时会被 DSH 内部细节淹没）。
+⇒ 建议只在确实需要"为什么这么设计"时才灌，**或**先灌某个子集（用 `--match` 限定目录/名字），
+并**始终带标签域**，这样将来能用 `--tags` 把它单独圈进来或排除掉。
 
 ---
 

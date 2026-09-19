@@ -52,9 +52,21 @@ const LIMIT = Number(arg('limit', 0)) || 0
 const ONLY = arg('only', null)
 const CONCURRENCY = Number(arg('concurrency', 4)) || 4
 const DRY = Boolean(arg('dry-run', false))
-const STATE_FILE = String(arg('state', join(repoRoot, 'docs/research/dsh-official/ingest-state.json')))
-// 小批试跑时指向临时路径，免得把正式账本写成"只有 3 篇、168 篇缺失"的半成品
-const LEDGER = String(arg('ledger', join(repoRoot, 'docs/research/dsh-official/INGEST-LEDGER.md')))
+/**
+ * 语料根（相对检出）。默认 `docs`；要灌 `.agents/notes` 等别的语料就传 `--root`。
+ * 有了它，"要不要灌决策记录"就变成**一条命令**，而不是一次重新写脚本。
+ */
+const ROOT = String(arg('root', 'docs'))
+/** 只要匹配这条正则的（相对 ROOT 的路径）。默认：所有 `.md`，但**排除 `*.zh.md`**。 */
+const MATCH = String(arg('match', '(?<!(\\.zh))\\.md$'))
+/** doc_id 前缀。默认 `dsh-docs`（沿用既有 171 篇的命名）。 */
+const ID_PREFIX = String(arg('id-prefix', 'dsh-docs'))
+/** 额外标签（逗号分隔）——**用来给不同语料分域**，将来 reflect 可用 `tags` 只在该域里找。 */
+const EXTRA_TAGS = String(arg('tag', '')).split(',').map((s) => s.trim()).filter(Boolean)
+const slugRoot = ROOT.replace(/[^a-zA-Z0-9]+/g, '-').replace(/^-|-$/g, '')
+// 账本/状态**按语料分开**，否则灌 zh 会把 docs 的账本覆盖成半份
+const STATE_FILE = String(arg('state', join(repoRoot, `docs/research/dsh-official/ingest-state-${slugRoot}.json`)))
+const LEDGER = String(arg('ledger', join(repoRoot, `docs/research/dsh-official/INGEST-LEDGER-${slugRoot}.md`)))
 
 /**
  * 手抄件占了这两个 id：**用原 id 原地覆盖**（update_mode 默认 replace），
@@ -73,22 +85,27 @@ const ID_OVERRIDES = new Map([
 ])
 
 // 去掉开头的 `docs/` 再拼前缀，否则 id 会长成 `dsh-docs-docs-xxx`（第一版就长这样）
-const slug = (rel) => 'dsh-docs-' + rel
-  .replace(/^docs\//, '')
+const slug = (rel) => `${ID_PREFIX}-` + rel
+  .replace(new RegExp(`^${ROOT.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/`), '')
   .replace(/\.md$/i, '')
   .toLowerCase()
   .replace(/[^a-z0-9]+/g, '-')
+  .replace(/-zh$/, '')   // `foo.zh.md` 已经带了 zh，别再拼一次（否则 id 是 `...-foo-zh-zh`）
   .replace(/^-|-$/g, '')
 
 const docIdFor = (rel) => ID_OVERRIDES.get(rel) ?? slug(rel)
 
 /* -------------------------------------------------------------- 文档清单 */
+/** 递归收集语料目录下的**所有** `.md`（含 `.zh.md`）。
+ *  ⚠ 这里**不做**"排除 zh"的过滤 —— 那件事归 `MATCH` 正则管。
+ *    我第一版把排除写在遍历函数里，结果 `--match '\.zh\.md$'` 永远扫不到东西
+ *    （幸好"空集即报错"那条护栏当场把它拦下了，没有静默地"灌了 0 篇还报成功"）。 */
 function walkDocs(dir, out = []) {
   for (const name of readdirSync(dir).sort()) {
     const p = join(dir, name)
     const st = statSync(p)
     if (st.isDirectory()) walkDocs(p, out)
-    else if (name.endsWith('.md') && !name.endsWith('.zh.md')) out.push(p)
+    else if (name.endsWith('.md')) out.push(p)
   }
   return out
 }
@@ -101,13 +118,16 @@ function gitRef() {
   }
 }
 
-const docsDir = join(CHECKOUT, 'docs')
-if (!existsSync(docsDir)) {
-  console.error(`❌ 找不到官方文档目录：${docsDir}（--checkout 对不对？）`)
+const rootDir = join(CHECKOUT, ROOT)
+if (!existsSync(rootDir)) {
+  console.error(`❌ 找不到语料目录：${rootDir}（--checkout / --root 对不对？）`)
   process.exit(1)
 }
+const matchRe = new RegExp(MATCH)
 
-let files = walkDocs(docsDir).map((abs) => {
+let files = walkDocs(rootDir)
+  .filter((abs) => matchRe.test(relative(CHECKOUT, abs).split(sep).join('/')))
+  .map((abs) => {
   const rel = relative(CHECKOUT, abs).split(sep).join('/')
   const raw = readFileSync(abs)                       // Buffer：按**字节**读
   const content = raw.toString('utf8')
@@ -189,7 +209,11 @@ if (DRY) {
 }
 
 /* ------------------------------------------------------------------ 入库 */
-const TAGS = ['source:upload', 'harness:dsh', 'dsh-official-docs']
+// 语料标签：**显式给了 --tag 就用它，不再自动加**（否则中英两份会落进同一个标签域，
+// 将来没法用 `tags` 把它们分开检索）。
+const TAGS = ['source:upload', 'harness:dsh',
+  ...(EXTRA_TAGS.length > 0 ? [] : [ROOT === 'docs' ? 'dsh-official-docs' : `corpus:${slugRoot}`]),
+  ...EXTRA_TAGS]
 const ref = gitRef()
 const state = existsSync(STATE_FILE) ? JSON.parse(readFileSync(STATE_FILE, 'utf8')) : { results: {} }
 

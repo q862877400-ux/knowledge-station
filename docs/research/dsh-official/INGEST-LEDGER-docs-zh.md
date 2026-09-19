@@ -1,0 +1,183 @@
+# DSH 官方文档原文入库账本
+
+> 由 `scripts/ingest-dsh-docs-into-memory.mjs` 生成，**不要手改**（改状态文件请用脚本重跑）。
+> 检出：`D:\AI\DSH\deepseek-harness` @ `ddefc45fbc`　记忆库：`coding-agent::zcode`　生成时间：2026-09-19 13:56:55（本地时间）
+
+- 文档总数：**166** 篇 / 2,819,642 字节
+- **逐字一致（库里 `original_text` 的 sha256 = 磁盘文件的 sha256）：166** / 166
+- 不一致 / 缺失 / 取不回：**0** 篇
+
+核对方式：对每篇 `GET /documents/<id>` 取回 `original_text`，算 sha256 与磁盘文件的 sha256 比对（**逐字级证明**）。
+
+⚠ 哈希一致证明"库里存的正文与磁盘那份逐字节相同（按 UTF-8 文本口径）"，
+**不**证明服务端抽取出的事实条数/质量正确，也不覆盖 `.agents/notes/`、`.zh.md` 译本等未纳入本账本的语料。
+⚠ 「抽取事实数」为空 = 本次跑**没有重新灌它**（它先前已入且逐字一致，被跳过），不是"抽取出了 0 条"。
+
+| 文档 | document_id | 字符 | 源 sha256(16) | 核对 | 抽取事实数 |
+|---|---|---|---|---|---|
+| `docs/agent-lifecycle.zh.md` | `dsh-docs-zh-agent-lifecycle` | 4,833 | 64a02d8cf0122749 | ✅ 逐字一致 |  |
+| `docs/api-gateway.zh.md` | `dsh-docs-zh-api-gateway` | 10,044 | 5a1374c3f47337de | ✅ 逐字一致 |  |
+| `docs/architecture.zh.md` | `dsh-docs-zh-architecture` | 11,027 | 38100980ac6a824e | ✅ 逐字一致 |  |
+| `docs/capability-seams.zh.md` | `dsh-docs-zh-capability-seams` | 49,194 | e19c3dc2589163ba | ✅ 逐字一致 |  |
+| `docs/config-catalog.zh.md` | `dsh-docs-zh-config-catalog` | 167,380 | 33b0a0674bb8bb22 | ✅ 逐字一致 |  |
+| `docs/cookbook/adding-a-package.zh.md` | `dsh-docs-zh-cookbook-adding-a-package` | 7,318 | 88ed9eb1e516f674 | ✅ 逐字一致 |  |
+| `docs/cookbook/adding-a-remote-api.zh.md` | `dsh-docs-zh-cookbook-adding-a-remote-api` | 7,715 | 841417aafeb07772 | ✅ 逐字一致 |  |
+| `docs/cookbook/adding-a-session-format-version.zh.md` | `dsh-docs-zh-cookbook-adding-a-session-format-version` | 6,730 | 9e042579f70b0472 | ✅ 逐字一致 |  |
+| `docs/cookbook/adding-a-settings-card.zh.md` | `dsh-docs-zh-cookbook-adding-a-settings-card` | 4,038 | 58100b828e61b495 | ✅ 逐字一致 |  |
+| `docs/cookbook/adding-a-tool.zh.md` | `dsh-docs-zh-cookbook-adding-a-tool` | 7,923 | ceac1ce423669be9 | ✅ 逐字一致 |  |
+| `docs/cookbook/adding-a-vendored-package.zh.md` | `dsh-docs-zh-cookbook-adding-a-vendored-package` | 3,031 | 0402ba1c6d3b93b1 | ✅ 逐字一致 |  |
+| `docs/cookbook/adding-an-llm-adapter.zh.md` | `dsh-docs-zh-cookbook-adding-an-llm-adapter` | 2,257 | 308e74d368a06545 | ✅ 逐字一致 |  |
+| `docs/cookbook/extension-cookbook.zh.md` | `dsh-docs-zh-cookbook-extension-cookbook` | 7,775 | 0af6efe9c85b5fb4 | ✅ 逐字一致 |  |
+| `docs/cookbook/maintaining-dsh-code-review.zh.md` | `dsh-docs-zh-cookbook-maintaining-dsh-code-review` | 3,498 | 4dafb5abe593ad38 | ✅ 逐字一致 |  |
+| `docs/cookbook/responding-to-pr-review-on-a-stack.zh.md` | `dsh-docs-zh-cookbook-responding-to-pr-review-on-a-stack` | 1,925 | 2cc358e63953504f | ✅ 逐字一致 |  |
+| `docs/cookbook/reviewing-persistence-type-changes.zh.md` | `dsh-docs-zh-cookbook-reviewing-persistence-type-changes` | 3,357 | 49347fa4697ef9c2 | ✅ 逐字一致 |  |
+| `docs/cordis-api/context.zh.md` | `dsh-docs-zh-cordis-api-context` | 9,746 | a91ad0fe562f4e26 | ✅ 逐字一致 |  |
+| `docs/cordis-api/events.zh.md` | `dsh-docs-zh-cordis-api-events` | 6,289 | 8d84ec58371856ab | ✅ 逐字一致 |  |
+| `docs/cordis-api/fiber.zh.md` | `dsh-docs-zh-cordis-api-fiber` | 9,619 | d444904f33affcb5 | ✅ 逐字一致 |  |
+| `docs/cordis-api/registry.zh.md` | `dsh-docs-zh-cordis-api-registry` | 4,846 | a3c0c0a9384325cd | ✅ 逐字一致 |  |
+| `docs/cordis-api/service.zh.md` | `dsh-docs-zh-cordis-api-service` | 2,235 | 0042821143806704 | ✅ 逐字一致 |  |
+| `docs/cordis-primer.zh.md` | `dsh-docs-zh-cordis-primer` | 2,098 | db95af7a5ac91522 | ✅ 逐字一致 |  |
+| `docs/cordis-tutorial/01-first-plugin.zh.md` | `dsh-docs-zh-cordis-tutorial-01-first-plugin` | 2,196 | d83e9f2c2fdb025d | ✅ 逐字一致 |  |
+| `docs/cordis-tutorial/02-lifecycle-and-effects.zh.md` | `dsh-docs-zh-cordis-tutorial-02-lifecycle-and-effects` | 2,829 | 568d7abd06db7f05 | ✅ 逐字一致 |  |
+| `docs/cordis-tutorial/03-services.zh.md` | `dsh-docs-zh-cordis-tutorial-03-services` | 2,669 | c24ae06be0d6c27d | ✅ 逐字一致 |  |
+| `docs/cordis-tutorial/04-events.zh.md` | `dsh-docs-zh-cordis-tutorial-04-events` | 4,079 | 24f850c1c2448f31 | ✅ 逐字一致 |  |
+| `docs/cordis-tutorial/05-config.zh.md` | `dsh-docs-zh-cordis-tutorial-05-config` | 2,072 | 5475068094ce0201 | ✅ 逐字一致 |  |
+| `docs/cordis-tutorial/06-composition-and-hmr.zh.md` | `dsh-docs-zh-cordis-tutorial-06-composition-and-hmr` | 3,362 | 60a0d01a9b8300fd | ✅ 逐字一致 |  |
+| `docs/cordis-tutorial/07-into-the-harness.zh.md` | `dsh-docs-zh-cordis-tutorial-07-into-the-harness` | 3,658 | 712e6748c9514a9a | ✅ 逐字一致 |  |
+| `docs/cordis-tutorial/index.zh.md` | `dsh-docs-zh-cordis-tutorial-index` | 2,495 | f025bb759e36c781 | ✅ 逐字一致 |  |
+| `docs/deepseek-llm-api-wire-extensions.zh.md` | `dsh-docs-zh-deepseek-llm-api-wire-extensions` | 6,567 | ac94454561e7e0fd | ✅ 逐字一致 |  |
+| `docs/defensive-patterns.zh.md` | `dsh-docs-zh-defensive-patterns` | 1,846 | 3566dacb0e2f09a5 | ✅ 逐字一致 |  |
+| `docs/development.zh.md` | `dsh-docs-zh-development` | 10,399 | 8fce281eb1bc7ca0 | ✅ 逐字一致 |  |
+| `docs/event-producer-consumer.zh.md` | `dsh-docs-zh-event-producer-consumer` | 26,436 | 61885651b840adfa | ✅ 逐字一致 |  |
+| `docs/glossary.zh.md` | `dsh-docs-zh-glossary` | 3,356 | 65f023e281053e9a | ✅ 逐字一致 |  |
+| `docs/graph-atlas.zh.md` | `dsh-docs-zh-graph-atlas` | 1,121 | f884a35eb515a077 | ✅ 逐字一致 |  |
+| `docs/i18n/README.zh.md` | `dsh-docs-zh-i18n-readme` | 5,976 | 5745b82b02bf3a32 | ✅ 逐字一致 |  |
+| `docs/i18n/translation-rules.zh.md` | `dsh-docs-zh-i18n-translation-rules` | 4,406 | 35fc48f26868a459 | ✅ 逐字一致 |  |
+| `docs/module-graph.zh.md` | `dsh-docs-zh-module-graph` | 113,162 | 2f96576d218d3040 | ✅ 逐字一致 |  |
+| `docs/persistence-catalog.zh.md` | `dsh-docs-zh-persistence-catalog` | 223,471 | 6c55407dccc24d21 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/2026-09-11-initial.zh.md` | `dsh-docs-zh-persistence-changes-2026-09-11-initial` | 10,135 | fcf11efeb3c3f1b6 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/2026-09-12-auto-review-error-metadata.zh.md` | `dsh-docs-zh-persistence-changes-2026-09-12-auto-review-error-metadata` | 1,591 | 99b48ae4b386a360 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/2026-09-14-image-offload.zh.md` | `dsh-docs-zh-persistence-changes-2026-09-14-image-offload` | 3,102 | 7e6daef4df87eca8 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/2026-09-14-workspace-changes-event.zh.md` | `dsh-docs-zh-persistence-changes-2026-09-14-workspace-changes-event` | 1,022 | d603209192de6993 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/README.zh.md` | `dsh-docs-zh-persistence-changes-readme` | 2,539 | aea22a68197e19b7 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/historical-formats/README.zh.md` | `dsh-docs-zh-persistence-changes-historical-formats-readme` | 2,655 | 24f2aa2f22b108ec | ✅ 逐字一致 |  |
+| `docs/persistence-changes/historical-formats/v0.zh.md` | `dsh-docs-zh-persistence-changes-historical-formats-v0` | 160,742 | 89f65d7aff03aa00 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/historical-formats/v1.zh.md` | `dsh-docs-zh-persistence-changes-historical-formats-v1` | 160,808 | 484a4a5d417cdc18 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/historical-formats/v2.zh.md` | `dsh-docs-zh-persistence-changes-historical-formats-v2` | 170,427 | 0892dec43f92a8d4 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/README.zh.md` | `dsh-docs-zh-persistence-changes-releases-readme` | 4,323 | 780e8a2c8547980e | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.0.1-rc.1.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-0-1-rc-1` | 6,648 | 84936f69dc147d83 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.0.1-rc.2.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-0-1-rc-2` | 13,477 | 7a9a418d0de9aa60 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.0.1-rc.3.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-0-1-rc-3` | 4,196 | 2aa9ca6da3c4bb68 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.0.1-rc.4.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-0-1-rc-4` | 1,443 | bd6e9a25fbe402db | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.0.1-rc.5.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-0-1-rc-5` | 1,443 | 90ce24e5e4ef632b | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.1.0-rc.1.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-1-0-rc-1` | 1,443 | b6421f5c248a1a56 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.1.0-rc.2.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-1-0-rc-2` | 1,443 | dc42828266714267 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.1.0-rc.3.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-1-0-rc-3` | 1,443 | 6259e3d09e7cc26d | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.1.0-rc.5.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-1-0-rc-5` | 1,443 | 82b7e4601a815d16 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.1.0-rc.6.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-1-0-rc-6` | 1,443 | d466e0a27f501587 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.1.0-rc.7.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-1-0-rc-7` | 1,823 | a53e8fb48db472d1 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.1.0-rc.8.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-1-0-rc-8` | 3,424 | 7453adf87cedcc46 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.1.1-rc.1.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-1-1-rc-1` | 1,816 | d5efaa793f73c727 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.1.1-rc.2.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-1-1-rc-2` | 4,767 | 840acc3ea2ab2188 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.1.2-alpha.1.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-1-2-alpha-1` | 15,916 | e68bf7aa0241fe12 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.1.2-alpha.2.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-1-2-alpha-2` | 15,568 | e169f6fb161d511c | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.1.2-alpha.3.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-1-2-alpha-3` | 1,462 | d77a08aac934b185 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.1.2-alpha.4.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-1-2-alpha-4` | 2,811 | 7c0c71265cda6c89 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.1.2-alpha.5.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-1-2-alpha-5` | 1,465 | e20daf59929a2f4e | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.1.2-rc.1.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-1-2-rc-1` | 1,444 | 4e6be8c9652ec126 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.1.3-alpha.1.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-1-3-alpha-1` | 7,051 | 464ec1d649ca8cc9 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.1.3-alpha.2.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-1-3-alpha-2` | 1,970 | e329b8746352d970 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.1.5-alpha.1.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-1-5-alpha-1` | 5,551 | 69634bb6b3cc0a00 | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.1.5-alpha.2.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-1-5-alpha-2` | 2,630 | 4acee47948ba651e | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.1.5-rc.1.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-1-5-rc-1` | 1,444 | dd7d5549b7d6dd0f | ✅ 逐字一致 |  |
+| `docs/persistence-changes/releases/dsh-v0.1.5-rc.2.zh.md` | `dsh-docs-zh-persistence-changes-releases-dsh-v0-1-5-rc-2` | 1,435 | 5518ea9b3c54946e | ✅ 逐字一致 |  |
+| `docs/postmortem/0001-acp-default-export-drops-inject.zh.md` | `dsh-docs-zh-postmortem-0001-acp-default-export-drops-inject` | 6,876 | 0f93447a762deb2a | ✅ 逐字一致 |  |
+| `docs/postmortem/0002-js-expression-disabled-filesystem-tools.zh.md` | `dsh-docs-zh-postmortem-0002-js-expression-disabled-filesystem-tools` | 2,095 | b35b1b7a03ecd287 | ✅ 逐字一致 |  |
+| `docs/postmortem/0003-web-agent-gui-feedback-loop.zh.md` | `dsh-docs-zh-postmortem-0003-web-agent-gui-feedback-loop` | 2,699 | 1345d6844f51131d | ✅ 逐字一致 |  |
+| `docs/postmortem/0004-landlock-partial-notice-misclassified-child-failures.zh.md` | `dsh-docs-zh-postmortem-0004-landlock-partial-notice-misclassified-child-failures` | 3,361 | 34914a3410354745 | ✅ 逐字一致 |  |
+| `docs/postmortem/README.zh.md` | `dsh-docs-zh-postmortem-readme` | 1,038 | 661caed2bcb7e7aa | ✅ 逐字一致 |  |
+| `docs/rescope.zh.md` | `dsh-docs-zh-rescope` | 3,361 | 1c1353b623eeae2d | ✅ 逐字一致 |  |
+| `docs/session-format-status.zh.md` | `dsh-docs-zh-session-format-status` | 2,089 | e80e9e3957abf8eb | ✅ 逐字一致 |  |
+| `docs/subsystems/README.zh.md` | `dsh-docs-zh-subsystems-readme` | 6,786 | 728d6148c68983e5 | ✅ 逐字一致 |  |
+| `docs/subsystems/agent-team.zh.md` | `dsh-docs-zh-subsystems-agent-team` | 8,421 | 4c383ddd34ad8ef0 | ✅ 逐字一致 |  |
+| `docs/subsystems/approval.zh.md` | `dsh-docs-zh-subsystems-approval` | 7,780 | e0355fada15b4fda | ✅ 逐字一致 |  |
+| `docs/subsystems/attachment.zh.md` | `dsh-docs-zh-subsystems-attachment` | 15,725 | 330c9ce4ccd44378 | ✅ 逐字一致 |  |
+| `docs/subsystems/boot.zh.md` | `dsh-docs-zh-subsystems-boot` | 8,710 | 315d8f20d1d52626 | ✅ 逐字一致 |  |
+| `docs/subsystems/browser-use.zh.md` | `dsh-docs-zh-subsystems-browser-use` | 3,294 | 86218cb6f5a4faab | ✅ 逐字一致 |  |
+| `docs/subsystems/client-modules.zh.md` | `dsh-docs-zh-subsystems-client-modules` | 10,053 | ef8bc29e4d1b9fb0 | ✅ 逐字一致 |  |
+| `docs/subsystems/client-resources.zh.md` | `dsh-docs-zh-subsystems-client-resources` | 4,999 | 256fca58d7617e68 | ✅ 逐字一致 |  |
+| `docs/subsystems/commands.zh.md` | `dsh-docs-zh-subsystems-commands` | 9,285 | c1a7fcf2789d6e1c | ✅ 逐字一致 |  |
+| `docs/subsystems/compaction.zh.md` | `dsh-docs-zh-subsystems-compaction` | 15,988 | 0504244bf2867538 | ✅ 逐字一致 |  |
+| `docs/subsystems/computer-use.zh.md` | `dsh-docs-zh-subsystems-computer-use` | 2,456 | f31a0daa27356a3d | ✅ 逐字一致 |  |
+| `docs/subsystems/conversation.zh.md` | `dsh-docs-zh-subsystems-conversation` | 12,049 | fad03b1e8548157a | ✅ 逐字一致 |  |
+| `docs/subsystems/core.zh.md` | `dsh-docs-zh-subsystems-core` | 59,602 | f7a101a256bd7302 | ✅ 逐字一致 |  |
+| `docs/subsystems/credentials.zh.md` | `dsh-docs-zh-subsystems-credentials` | 15,310 | d37a5356428eeb2b | ✅ 逐字一致 |  |
+| `docs/subsystems/deliverables.zh.md` | `dsh-docs-zh-subsystems-deliverables` | 8,390 | f827fcab7867b338 | ✅ 逐字一致 |  |
+| `docs/subsystems/extensions.zh.md` | `dsh-docs-zh-subsystems-extensions` | 16,345 | e28aefecaf2fa0be | ✅ 逐字一致 |  |
+| `docs/subsystems/feedback.zh.md` | `dsh-docs-zh-subsystems-feedback` | 15,948 | baf754fb12009c1a | ✅ 逐字一致 |  |
+| `docs/subsystems/filesystem.zh.md` | `dsh-docs-zh-subsystems-filesystem` | 24,750 | 7160428ad46dbcd2 | ✅ 逐字一致 |  |
+| `docs/subsystems/goal.zh.md` | `dsh-docs-zh-subsystems-goal` | 10,468 | 0a8f392c7e75279e | ✅ 逐字一致 |  |
+| `docs/subsystems/invariants.zh.md` | `dsh-docs-zh-subsystems-invariants` | 4,690 | 21aee2147b60b013 | ✅ 逐字一致 |  |
+| `docs/subsystems/jobs.zh.md` | `dsh-docs-zh-subsystems-jobs` | 13,384 | e8aa728372ff1f92 | ✅ 逐字一致 |  |
+| `docs/subsystems/llm-streaming.zh.md` | `dsh-docs-zh-subsystems-llm-streaming` | 51,713 | c9c486ea9040fb12 | ✅ 逐字一致 |  |
+| `docs/subsystems/lsp.zh.md` | `dsh-docs-zh-subsystems-lsp` | 9,164 | 93e103250d887b93 | ✅ 逐字一致 |  |
+| `docs/subsystems/mcp.zh.md` | `dsh-docs-zh-subsystems-mcp` | 5,773 | 469be1f9d9682858 | ✅ 逐字一致 |  |
+| `docs/subsystems/office-to-pdf.zh.md` | `dsh-docs-zh-subsystems-office-to-pdf` | 5,134 | 527fefe3ba647008 | ✅ 逐字一致 |  |
+| `docs/subsystems/permission-presets.zh.md` | `dsh-docs-zh-subsystems-permission-presets` | 8,261 | 049ec2f90769065f | ✅ 逐字一致 |  |
+| `docs/subsystems/persistence.zh.md` | `dsh-docs-zh-subsystems-persistence` | 21,706 | 60d287c80962423b | ✅ 逐字一致 |  |
+| `docs/subsystems/plan.zh.md` | `dsh-docs-zh-subsystems-plan` | 5,244 | 3879213c864244b2 | ✅ 逐字一致 |  |
+| `docs/subsystems/ptc-runtime.zh.md` | `dsh-docs-zh-subsystems-ptc-runtime` | 11,088 | 37e90081fc0bafba | ✅ 逐字一致 |  |
+| `docs/subsystems/sandbox.zh.md` | `dsh-docs-zh-subsystems-sandbox` | 10,586 | 128ce9984438626f | ✅ 逐字一致 |  |
+| `docs/subsystems/schedule.zh.md` | `dsh-docs-zh-subsystems-schedule` | 8,129 | ec6df5d8bf6d67f6 | ✅ 逐字一致 |  |
+| `docs/subsystems/scope.zh.md` | `dsh-docs-zh-subsystems-scope` | 2,546 | 5e253469cd5652ca | ✅ 逐字一致 |  |
+| `docs/subsystems/session-projection.zh.md` | `dsh-docs-zh-subsystems-session-projection` | 20,847 | 856b84811135220b | ✅ 逐字一致 |  |
+| `docs/subsystems/session-query.zh.md` | `dsh-docs-zh-subsystems-session-query` | 19,790 | e48f7af0d0e047c0 | ✅ 逐字一致 |  |
+| `docs/subsystems/session-reference.zh.md` | `dsh-docs-zh-subsystems-session-reference` | 9,358 | 3f0f335d80031d71 | ✅ 逐字一致 |  |
+| `docs/subsystems/session-telemetry.zh.md` | `dsh-docs-zh-subsystems-session-telemetry` | 11,474 | e3716142797b244e | ✅ 逐字一致 |  |
+| `docs/subsystems/session-title.zh.md` | `dsh-docs-zh-subsystems-session-title` | 7,929 | 7f22c838ed73d6d5 | ✅ 逐字一致 |  |
+| `docs/subsystems/session.zh.md` | `dsh-docs-zh-subsystems-session` | 60,662 | ac1dff4bfdbb8e82 | ✅ 逐字一致 |  |
+| `docs/subsystems/settings.zh.md` | `dsh-docs-zh-subsystems-settings` | 20,381 | 6543da177b99f5d3 | ✅ 逐字一致 |  |
+| `docs/subsystems/shell.zh.md` | `dsh-docs-zh-subsystems-shell` | 15,101 | bce8a42ad747cf5e | ✅ 逐字一致 |  |
+| `docs/subsystems/sidebar-right.zh.md` | `dsh-docs-zh-subsystems-sidebar-right` | 15,427 | c172f7589dfb744d | ✅ 逐字一致 |  |
+| `docs/subsystems/skills.zh.md` | `dsh-docs-zh-subsystems-skills` | 18,804 | afe000456d6490a8 | ✅ 逐字一致 |  |
+| `docs/subsystems/slots.zh.md` | `dsh-docs-zh-subsystems-slots` | 8,734 | cb6fbfdc4d616ba3 | ✅ 逐字一致 |  |
+| `docs/subsystems/spill.zh.md` | `dsh-docs-zh-subsystems-spill` | 5,860 | 8b2c51b5906892a3 | ✅ 逐字一致 |  |
+| `docs/subsystems/ssh.zh.md` | `dsh-docs-zh-subsystems-ssh` | 6,472 | 4957cf916fd45a35 | ✅ 逐字一致 |  |
+| `docs/subsystems/storage.zh.md` | `dsh-docs-zh-subsystems-storage` | 13,614 | 4f2dc65a5e7c548e | ✅ 逐字一致 |  |
+| `docs/subsystems/subagent.zh.md` | `dsh-docs-zh-subsystems-subagent` | 45,627 | cee4e9680ff003bb | ✅ 逐字一致 |  |
+| `docs/subsystems/subprocess.zh.md` | `dsh-docs-zh-subsystems-subprocess` | 16,249 | 073477964d24d1c9 | ✅ 逐字一致 |  |
+| `docs/subsystems/system-prompt.zh.md` | `dsh-docs-zh-subsystems-system-prompt` | 10,074 | 01b069941e965f86 | ✅ 逐字一致 |  |
+| `docs/subsystems/terminal.zh.md` | `dsh-docs-zh-subsystems-terminal` | 7,450 | 95dbd47dfcfd42b9 | ✅ 逐字一致 |  |
+| `docs/subsystems/todo.zh.md` | `dsh-docs-zh-subsystems-todo` | 1,350 | 4517d6265652b2a8 | ✅ 逐字一致 |  |
+| `docs/subsystems/token-meter.zh.md` | `dsh-docs-zh-subsystems-token-meter` | 5,056 | 320378b4c78881a7 | ✅ 逐字一致 |  |
+| `docs/subsystems/tools.zh.md` | `dsh-docs-zh-subsystems-tools` | 37,175 | a14e82e12cd5e500 | ✅ 逐字一致 |  |
+| `docs/subsystems/typert.zh.md` | `dsh-docs-zh-subsystems-typert` | 13,960 | a737d52e68e610c5 | ✅ 逐字一致 |  |
+| `docs/subsystems/user-questions.zh.md` | `dsh-docs-zh-subsystems-user-questions` | 7,118 | a3cba4fa68ee8396 | ✅ 逐字一致 |  |
+| `docs/subsystems/web-client.zh.md` | `dsh-docs-zh-subsystems-web-client` | 8,963 | 751b355058f14210 | ✅ 逐字一致 |  |
+| `docs/subsystems/web-server.zh.md` | `dsh-docs-zh-subsystems-web-server` | 10,113 | c0a5d0521362b35e | ✅ 逐字一致 |  |
+| `docs/subsystems/web.zh.md` | `dsh-docs-zh-subsystems-web` | 10,211 | 56907cc2165bb0fd | ✅ 逐字一致 |  |
+| `docs/subsystems/webhook.zh.md` | `dsh-docs-zh-subsystems-webhook` | 3,566 | 9df3cc6ae115254a | ✅ 逐字一致 |  |
+| `docs/subsystems/workflow.zh.md` | `dsh-docs-zh-subsystems-workflow` | 12,597 | 93282477afe00005 | ✅ 逐字一致 |  |
+| `docs/subsystems/workspace.zh.md` | `dsh-docs-zh-subsystems-workspace` | 25,372 | cd3f07503592871f | ✅ 逐字一致 |  |
+| `docs/testing.zh.md` | `dsh-docs-zh-testing` | 6,193 | 312397ad0a46fc95 | ✅ 逐字一致 |  |
+| `docs/tool-catalog.zh.md` | `dsh-docs-zh-tool-catalog` | 74,020 | 51a9f45f7d798580 | ✅ 逐字一致 |  |
+| `docs/tool-execution-pipeline.zh.md` | `dsh-docs-zh-tool-execution-pipeline` | 3,440 | f4d6806d9cd98513 | ✅ 逐字一致 |  |
+| `docs/user/develop/basic/config.zh.md` | `dsh-docs-zh-user-develop-basic-config` | 2,248 | c912f446d6f82134 | ✅ 逐字一致 |  |
+| `docs/user/develop/basic/index.zh.md` | `dsh-docs-zh-user-develop-basic-index` | 2,787 | ad800b0cd0102aec | ✅ 逐字一致 |  |
+| `docs/user/develop/basic/publish.zh.md` | `dsh-docs-zh-user-develop-basic-publish` | 5,475 | 192f64358782de2b | ✅ 逐字一致 |  |
+| `docs/user/develop/basic/tool.zh.md` | `dsh-docs-zh-user-develop-basic-tool` | 1,370 | 67f7985635af581a | ✅ 逐字一致 |  |
+| `docs/user/develop/framework/events.zh.md` | `dsh-docs-zh-user-develop-framework-events` | 3,102 | adcd416f568e9fb9 | ✅ 逐字一致 |  |
+| `docs/user/develop/framework/index.zh.md` | `dsh-docs-zh-user-develop-framework-index` | 2,483 | f63a5c73c7463ed0 | ✅ 逐字一致 |  |
+| `docs/user/develop/framework/service.zh.md` | `dsh-docs-zh-user-develop-framework-service` | 2,778 | 882bef833831bed5 | ✅ 逐字一致 |  |
+| `docs/user/develop/practice/dynamic-cordis.zh.md` | `dsh-docs-zh-user-develop-practice-dynamic-cordis` | 771 | 46a5b8de305bfb5e | ✅ 逐字一致 |  |
+| `docs/user/develop/practice/index.zh.md` | `dsh-docs-zh-user-develop-practice-index` | 3,771 | fac5836a7f8528ee | ✅ 逐字一致 |  |
+| `docs/user/develop/practice/llm-adapter.zh.md` | `dsh-docs-zh-user-develop-practice-llm-adapter` | 5,124 | 0807cede08a81879 | ✅ 逐字一致 |  |
+| `docs/user/guide/github-review.zh.md` | `dsh-docs-zh-user-guide-github-review` | 2,921 | fc3fb474ac91536d | ✅ 逐字一致 |  |
+| `docs/user/guide/index.zh.md` | `dsh-docs-zh-user-guide-index` | 725 | aaa2aef264c1d792 | ✅ 逐字一致 |  |
+| `docs/user/guide/mcp-memory.zh.md` | `dsh-docs-zh-user-guide-mcp-memory` | 4,004 | 37dbbbbcdb80c5ba | ✅ 逐字一致 |  |
+| `docs/user/guide/network-proxy.zh.md` | `dsh-docs-zh-user-guide-network-proxy` | 2,968 | 47740ccef77f9ed7 | ✅ 逐字一致 |  |
+| `docs/user/guide/providers.zh.md` | `dsh-docs-zh-user-guide-providers` | 7,427 | 7abd9035e89455a4 | ✅ 逐字一致 |  |
+| `docs/user/guide/python-sdk.zh.md` | `dsh-docs-zh-user-guide-python-sdk` | 5,775 | a79100b2cb770524 | ✅ 逐字一致 |  |
+| `docs/user/guide/schedule.zh.md` | `dsh-docs-zh-user-guide-schedule` | 1,367 | 9bf2663c00bbae81 | ✅ 逐字一致 |  |
+| `docs/user/index.zh.md` | `dsh-docs-zh-user-index` | 152 | 51d2fce0df0d0a65 | ✅ 逐字一致 |  |
+| `docs/web-styling.zh.md` | `dsh-docs-zh-web-styling` | 2,662 | a303de587894c274 | ✅ 逐字一致 |  |

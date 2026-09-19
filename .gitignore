@@ -45,4 +45,4 @@ _rescue/
 
 # 记忆入库的续跑状态（机器态，可由 scripts/ingest-dsh-docs-into-memory.mjs 重跑重建；
 # 人对账请看 docs/research/dsh-official/INGEST-LEDGER.md）
-docs/research/dsh-official/ingest-state.json
+docs/research/dsh-official/ingest-state*.json

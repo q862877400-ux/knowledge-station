@@ -17,6 +17,8 @@ const API = 'http://127.0.0.1:8888'
 const BANK = 'coding-agent::zcode'
 const ID = 'dsh'
 const MARKER = '## 〇、本条之上还有一层：官方原文已**逐字入库**'
+/** 第二段（2026-09-19 追加）：语料边界与实测规模。同一入口，分段插入、各有看门标记。 */
+const MARKER2 = '## 附二、语料边界与**实测**规模（2026-09-19 追加）'
 
 const url = `${API}/v1/default/banks/${encodeURIComponent(BANK)}/documents/${encodeURIComponent(ID)}`
 
@@ -27,8 +29,8 @@ if (typeof before !== 'string' || before.length === 0) {
   process.exit(1)
 }
 const beforeHash = createHash('sha256').update(Buffer.from(before, 'utf8')).digest('hex')
-if (before.includes(MARKER)) {
-  console.log('已是更新后的版本（看门标记在），无需重复写。')
+if (before.includes(MARKER) && before.includes(MARKER2)) {
+  console.log('已是更新后的版本（两段看门标记都在），无需重复写。')
   process.exit(0)
 }
 
@@ -79,7 +81,45 @@ const footer = `
 —— 我们在这两处**仍然不合规**（\`ksGuideStyles.ts\` 用了 1px；文案硬编码中文），门禁扫不到仓外，别因为"没报错"就当合规。
 `
 
-const after = header + before + footer
+const after2 = `
+
+---
+
+${MARKER2}
+
+**（本节数字全部是 \`git ls-files\` 实测，不是从分片转述里抄的 —— 我此前抄错了，见下。）**
+
+| 语料 | 实测规模 | 状态 | 标签域 |
+|---|---|---|---|
+| \`docs/\` 英文正本 | **171 篇 / 2.9 MB** | ✅ 已入，171/171 逐字核对 | \`dsh-official-docs\` |
+| \`docs/**/*.zh.md\` 中文译本 | **166 篇 / 2.7 MB** | ✅ 已入，166/166 逐字核对 | \`dsh-official-docs-zh\` |
+| \`.agents/notes/\` 决策记录（非 zh） | **1105 篇 / 7.6 MB** | ⚠ **只入 10 篇**（与客户端/UI 有关的那些） | \`dsh-notes-client-ui\` |
+
+库里文档总数 **372**（含此前 24 条提炼/更正件与 2 条会话转录）。
+
+**为什么决策记录只入了 10 篇**：它们是 **DSH 内部工程决策**，大部分与 KnowledgeStation 无关；
+全量入库会把检索**淹没在 DSH 内部细节里**。现在补全是**一条命令**且有独立标签域，
+随时可圈进来、也可排除掉 —— 需要"为什么这么设计"时再灌。
+
+**更正我自己记错的两个数**（都来自分片转述、没实测）：
+\`.zh.md\` 我记"约 158 篇"→ 实为 **166**；\`.agents/notes/\` 我记"2056 篇 / 14.3 MB"→ 实为 **1105 篇 / 7.6 MB**。
+⇒ 教训：**转述里的数字要回原始来源核**（与"手抄会失真"是同一类病）。
+
+**中英两份不会互相稀释**：它们带**不同标签域**，检索时可用 \`tags\` 圈定
+（实测：\`--tags dsh-official-docs-zh\` 能只从中译本里取原文作答）。
+
+⚠ **宽问题别用 \`hindsight_reflect\` 工具**：它只暴露 \`query\`，而服务端
+\`ReflectRequest.max_tokens\` 默认 **4096**，回答超了会 500（报错文案说"把输入拆小"是误导）。
+用仓库脚本 \`scripts/hindsight-reflect.mjs --max-tokens 8192 "…"\`。
+`
+
+/** 第一段尾节（"对本条自身的更正"）的看门标记——这样在全新条目上重跑也不会漏掉它。 */
+const MARKER_FOOT = '## 附、对**本条自身**的更正'
+
+const after = (before.includes(MARKER)
+  ? before
+  : header + before + (before.includes(MARKER_FOOT) ? '' : footer))
+  + (before.includes(MARKER2) ? '' : after2)
 
 const post = await fetch(`${API}/v1/default/banks/${encodeURIComponent(BANK)}/memories`, {
   method: 'POST',
