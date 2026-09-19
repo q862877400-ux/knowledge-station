@@ -7071,7 +7071,10 @@ mypy **140/0**。那条失败是
    （已用**记录型用例**钉住：链一加宽它就红，逼人有意改）；
 2. **9 条渠道声明了能力、却没有任何号能路由到它**（全部 `wiring=unwired`；其中 5 条 `state=ok`）
    ——R6c-4"要不要把专用渠道提升进链"的真实输入；
-3. ⚠ **GB/T 从来没被送进 ndls**：真库 6417 个号里 **6129 个（95.5%）是 `GB/T`**，
+3. ⚠ **GB/T 从来没被送进 ndls**：真库 6417 个号里 **6129 个（95.5%）是 `GB/T`**（⚠ **未折全角口径**，口径说明紧接在下面一行），
+   ⚠ **口径（复核 corr3 B4，2026-09-20 补）**：`GB/T` **6130** 是**折叠全角**口径（仓库自己的 `_fold_segment`
+   把全角 `GB／T 14308-2010` 折成 `GB/T…`），**6129** 是**未折全角**口径 —— 同一页两个数并存**不是矛盾**，
+   是两种统计。口径出处：`docs/CHANNEL-COVERAGE-PLAN.md` R7-数据轮的"**更正后的形状**"。本节以下都沿用未折口径。
    而前缀正则 `^GB\s?\d{4,5}\b` **不匹配 `GB/T`** ⇒ 它们只走（official_gb, govcn）。
    真机实测 ndls **答得出来**（`GB/T 38496-2020` → 现行、发布 2020-03-06、实施 2020-10-01、
    名称"消毒剂安全性毒理学评价程序和方法"）⇒ **下一步 R6c-3b** 单独修（含
@@ -7118,12 +7121,12 @@ mypy **140/0**。那条失败是
 ## §10.111 R6c-3b：兜底链**量完再改**（`ndls` 插到 `govcn` 前）+ 第 7 个读原始号的站点（§11.0）
 
 ### 1. 量出来的结论推翻了我原来的判断
-R6c-3 时我认定"6129 个 `GB/T` 从不进 `ndls` = 覆盖缺口，应把 `GB/T` 补进前缀路由"。
+R6c-3 时我认定"6129 个 `GB/T`（**未折全角**口径；折全角是 6130，见上）从不进 `ndls` = 覆盖缺口，应把 `GB/T` 补进前缀路由"。
 **先量，判断就变了**：
 - **量 1（12 个真库 `GB/T` 号 A/B）**：`official_gb` 12/12、`ndls` 12/12，两者都给状态
   ⇒ 在 `GB/T` 上这**不是"能不能答"的缺口**，差别在**字段**（`official_gb` 无废止日期/代替链，
   给的是 HTML 表里第一个日期；`ndls` 给实施日期 + 废止日期 + 代替）。且 `ndls` 默认发**两次**请求
-  ⇒ **不把它提到 `official_gb` 前**（谁在前不改变"能不能答"，却让 6129 个号请求数翻倍）。
+  ⇒ **不把它提到 `official_gb` 前**（谁在前不改变"能不能答"，却让 6129 个号请求数翻倍；**6129＝未折全角口径**，折全角 6130）。
 - **量 2（按前缀分层 10 个号）**：`official_gb` 4/10、**`govcn` 1/10**（唯一命中是**法规**行）、
   `ndls` **6/10**；`govcn` 还最慢（未命中时 7.1s，`ndls` 1.2s）。
   真例：`GBZ 37-2024`、`GBZ/T 160.27-2004` 都是 `official_gb` miss 而 `ndls` 命中。
@@ -7430,7 +7433,7 @@ R6c-7 又把它修准了——**但面板从头到尾没读过它**（批次收�
 （`cssn`/`dbba`/`hbba`/`laws_db`/`mee`/`mem_gov`/`mohurd`/`std_samr_hb`/`ttzb`/`web`）。
 反向是干净的：链上出现的都有适配器。
 
-**为什么**（不是"适配器写错了"）：库里只有 `GB/T`(6130) 与 `GB`(287) 两个号段，
+**为什么**（不是"适配器写错了"）：库里只有 `GB/T`(6130，**折叠全角口径**；未折全角是 6129 —— 同一页两说并存，见本节 7074 行的口径说明) 与 `GB`(287) 两个号段，
 而 `first_route()` 的前缀规则对 `GB/T` 不命中（R6c-6 已量）⇒ 全库退化成兜底链；
 那 10 条适配器对应的号段（HJ / T- / 法规 / 建工）**库里一个号都没有**。
 它们是"为将来号段准备的"，但**今天一条都用不上**——而这在台账里被"已接线 7 条"的措辞掩盖了。
@@ -8731,7 +8734,12 @@ Office 往返编辑会话（`office_roundtrip.py`），以及为它们写的用�
 **1 条不成立**。逐条落地如下（**保留错话 + 更正**，不悄悄删）。
 
 ### 一、我错了：`smoke-chatmode` 偶发的根因与"已消除"都不成立
-- 我上一条（§10.139 四·3）写：根因是"测试用**裸 `writeFile`** 模拟另一个进程写状态文件 ⇒ 本进程读到半截 JSON
+- ~~我上一条（§10.139 四·3）写~~ ⚠ **引用错，就地更正（复核 `verify-freeze-corr3` B2，2026-09-20 第四轮）**：
+  **§10.139 四·3 是 `_fake_daemon` 真竞争**（见 §10.139 四第 3 条），**§10.139 全文一个字都没有 chatmode**
+  （本轮 `Select-String "chatmode"` 在该节 8680–8727 行区间实测 **0 命中**）。那条 chatmode 的说法
+  （"裸 `writeFile`/半截 JSON/50 次 0 次"）**只存在于提交 `3bd997e` 的提交消息里**，不在任何小节中。
+  ⇒ 正确的指向是**提交 `3bd997e` 的提交消息**（或本节 §10.140 一）。原文保留在上面（划线），错的是**引用的落点**。
+- 我上一条（**提交 `3bd997e` 的提交消息**，原误引作 §10.139 四·3）写：根因是"测试用**裸 `writeFile`** 模拟另一个进程写状态文件 ⇒ 本进程读到半截 JSON
   ⇒ `read_changed_while_judging` ⇒ 拒写 ⇒ 3b 那条断言红"，且"修后 50 次 0 次红"。
 - **复核实测否证**：(a) 在冻结提交上原样跑 **100 次 → 红 2 次**，红的是 **3a `merge keeps the other
   process's sessions`**（不是我指认的 3b）；(b) 把我的原子写**改回裸写**再跑 **60 次 → 0 次红**。
@@ -8751,8 +8759,14 @@ Office 往返编辑会话（`office_roundtrip.py`），以及为它们写的用�
   **结构上抓不到**，我们照样返回 `'ok'`、报 `persisted:true`。复核的**确定性反例**：把 CAS→rename
   窗口拉宽 **400ms** 后，对端会话被**静默覆盖**而我们报 `persisted:true`。
   ⇒ **3a 那条偶发真正是被 ②（测试侧对端改持锁 ⇒ 写者互斥、窗口不存在）消除的**，① 只是对"基线里那批"
-  的补救，**它没有消灭窗口，也没有覆盖"对端写在基线之后"这一类**。"自愈"这个词已从
-  `plugin/src/chatmode.js` 与 `plugin/scripts/smoke-chatmode.mjs` 的注释里去掉（改为写明上面这条边界）。
+  的补救，**它没有消灭窗口，也没有覆盖"对端写在基线之后"这一类**。~~"自愈"这个词已从
+  `plugin/src/chatmode.js` 与 `plugin/scripts/smoke-chatmode.mjs` 的注释里去掉（改为写明上面这条边界）。~~
+  ⚠ **字面不成立，就地更正（复核 `verify-freeze-corr3` B3，2026-09-20 第四轮）**：词**还在**（就在这句
+  更正句自己里），而且实测两处都还有 —— `chatmode.js` 里 `自愈` **7 处**（`512` 锁降级自愈、`566` 陈旧自愈、
+  `701` 那句"我上一条把它写成『自愈机制』是**过度宣称**"、`1312`/`1316`/`1350` …）、
+  `smoke-chatmode.mjs` **2 处**（`92` 那句"这里原来写『（自愈）』是**过度宣称**"、`795`）。
+  ⇒ 改对了的是**「（自愈）」这个标签**（把"判 `retry`（自愈）"这个**说法**换成上面这条**结构边界**），
+  **不是**"词被删掉"。`自愈` 在本仓本来就是常用词（锁降级、陈旧锁回收都叫自愈），删它既做不到也没必要。
 - **复测（我的环境，全部记在这里，不再散落在提交消息里）**：
   | 时点 | 次数 | 红 | 红的断言 |
   |---|---|---|---|
@@ -8783,10 +8797,16 @@ Office 往返编辑会话（`office_roundtrip.py`），以及为它们写的用�
    | `x/../@deepseek-ai/dsh-util-values` | `node_modules/@deepseek-ai/dsh-util-values/lib/index.js` | **BUILT**（静默内联 6946B） |
    | `@deepseek-ai//dsh-util-values` | 同上 | **BUILT**（6946B） |
    | `@deepseek-ai\dsh-util-values` | 同上 | **BUILT**（6946B） |
-   | `@deepseek-ai\x`（包不存在） | — | `Could not resolve "@deepseek-aidsh-util-values"` |
+   | `@deepseek-ai\x`（包不存在） | — | ~~`Could not resolve "@deepseek-aidsh-util-values"`~~ ⚠ **证据串错，就地更正（复核 `verify-freeze-corr3` B1，2026-09-20 第四轮）**：真串是 **`Could not resolve "@deepseek-ai\x"`**（esbuild **原样保留反斜杠**）。原来那串是**转义事故**的产物（`\d`→`d`，把 `\d` 当成了转义）—— 结论（**解析不到**）对，**证据串对不上号**，而"对不上号的证据串"正是本仓最忌的东西。本轮复测（`plugin/.tmp-purity-probe/backslash-error.mjs`，spec 用 `String.fromCharCode(92)` 拼、避免再被转义一次）：码点 `…,97,105,92,120`（正好一个 `\`）⇒ 报错串逐字就是 `Could not resolve "@deepseek-ai\x"`。 |
    ⇒ **不能说"`//` 会、`\` 不会"**：本平台**两种都通**（esbuild 在 Windows 上把 `\` 与 `/` 都当分隔符）；
    差别在 **POSIX**（那里 `\` 不是分隔符）。所以正确的口径是："**Windows 上 `\` 照样解析 ⇒ 照样拒**；
    不在 Linux 上赌"。门禁对两种写法**都当场抛**（见下一段第三轮）。
+   ⚠⚠ **字节数不是稳定指纹（第四轮 corr3 复测，就地补充）**：上表那三个 **6946B** 是**当时那个 entry 形状**下的数。
+   本轮用同一台机器、同一份 `node_modules` 重测同一批 specifier（`plugin/.tmp-purity-probe/shape-reconcile.mjs`）：
+   `import '@deepseek-ai/dsh-util-values'`（副作用式）与 `import * as m …; void m`（只留命名空间）都是 **15B**
+   （被 tree-shaking 摇空），`import * as m …; console.log(m)` 是 **7377B** —— **同一条 specifier、三种形状三个数**。
+   ⇒ 引这个证据时该引**metafile 的 input 路径**（`node_modules/@deepseek-ai/dsh-util-values/lib/index.js`）
+   与"**BUILT**"这个事实，**别把字节数当指纹**（6946B 没能用本轮这三种形状复现出来，如实登记，不硬凑）。
 3. 这条**不是**"写法洁癖"：`@deepseek-ai\dsh-util-values` 在 Windows 上真的会把宿主单例多打一份。
    所以"照拒"这个决定不变，**变的是理由**（原来写成"它其实解析不到"是错的，与 `@deepseek-ai\x` 混为一谈）。
 
@@ -8832,3 +8852,90 @@ Office 往返编辑会话（`office_roundtrip.py`），以及为它们写的用�
   回读仍判 `'ok'`。**今天能做与不能做的**：协议内（持锁）的写者已被互斥保护（测试侧那步）；
   **协议外**写者没有任何检测手段 —— 要修得让"锁文件"成为**唯一被认可的写入口**并给外部写者一个
   版本/令牌校验（属另一轮的设计决策，未做）。
+
+## §10.141 复核第四轮打回 `2b8641b`（`verify-freeze-corr3`，base `d49b1ac`，**2 个提交**）：纯度门禁的**真空洞** + `--json` 少一段
+
+独立复核（冻结 tag `verify-freeze-corr3` = `2b8641b`，base `d49b1ac`，`git rev-list --count d49b1ac..2b8641b`
+**= 2**）共 7 条：**2 条真代码问题（A1/A2）+ 5 条文档更正（B1..B5）**。逐条落地如下（**保留错话 + 更正**）。
+
+### 一、A1（**最重要·真空洞**）：纯度门禁对**相对路径**指向宿主单例**整条豁免**
+- **复核说的**：`./../node_modules/@deepseek-ai/dsh-util-values/lib/index.js` 与 `../node_modules/…`
+  在**有门禁时照样 BUILT**（用 esbuild JS API + `metafile` 实测）。根因在
+  `plugin/scripts/lib/external-allowlist.mjs`：判定把以 `.`/`/` 开头的串当 `bare` 放行。
+  **门禁自述的判据是"产物里不许出现清单外的 `@deepseek-ai/*`"—— 这条正是反例。**
+- **本轮自己复现（同法，这台机器）**：`plugin/.tmp-purity-probe/probe.mjs`（一次性探针，gitignore）
+  ——同一份 stdin 输入、只换门禁：
+
+  | specifier（`resolveDir=plugin/.tmp-purity-probe`） | 不挂插件 | 挂门禁（改前） |
+  |---|---|---|
+  | `./../node_modules/@deepseek-ai/dsh-util-values/lib/index.js` | **BUILT 7377B**，metafile input = `node_modules/@deepseek-ai/dsh-util-values/lib/index.js` | **BUILT**（=改前行为） |
+  | `../node_modules/@deepseek-ai/dsh-util-crypto/lib/index.js` | **BUILT 1068B**，input 同上（crypto 包） | **BUILT** |
+  | `../.tmp-purity-probe/legit.js`（对照：本地文件） | BUILT 369B | BUILT 369B（不该被拦） |
+
+  ⇒ 反例的前提与结论都成立：**esbuild 真的会把它解析到盘上的宿主单例，而门禁当时不说话。**
+- **改法（复核给的①，优先项）**：`classifyExternal(spec, resolveDir)` 里对**非裸**说明符
+  用 `path.resolve(resolveDir, spec)` 算**落点**，落在 `node_modules/@deepseek-ai/**`（或 `react`/`react-dom`）
+  ⇒ **当场抛**；`resolveDir` 缺失时退化成对 spec 文本做同一判定（**fail-closed**，不给"忘了传参就放行"留门）。
+  `bare` 的判据同时补上**绝对路径**（Windows 的 `D:\…` 既不以 `.` 也不以 `/` 开头，只看这两个前缀会把它
+  当**裸包名**——本轮冒烟**实测到过一次 NOT-THREW**，是补判据时才发现的第二个小洞）。
+- **顺手做对的一件事**：把"判定 + filter + **接线**"收进同一处的共享工厂 `purityPlugin()`。
+  理由：`x/../…` 那次漏的是 filter、这次漏的是**接线**（`args.resolveDir` 传不传）——"各写一份"换个地方
+  就会再漏一次；工厂放在 `lib/external-allowlist.mjs`，`build-client.mjs` 只 `plugins: [purityPlugin()]`，
+  冒烟**直接拿这个工厂做真 esbuild 构建**（dogfood），所以它仍是**唯一一份**。
+- **改后实测**：同一份输入**被拦**（错误以「构建纯度：」开头）；对照的本地相对路径照旧 BUILT。
+  冒烟从 45 条涨到 **59/59 PASS**（新增：相对路径 5 条 + 不给 `resolveDir` 2 条 + 绝对路径 1 条 +
+  本地相对路径 3 条对照 + 真构建两向断言 2 条 + 接线同源改判 2 条……口径以 `smoke-build-purity.mjs` 为准）。
+- **新增回归门禁（两向，都在冒烟里）**：① **无门禁真构建** ⇒ BUILT 且 metafile input 里就是宿主单例
+  （保证"解析不到"不是借口）；② **挂 `purityPlugin()`** ⇒ 被拦。任一方向失效即红。
+- ⚠ **诚实边界（别把 A1 读成"相对路径全查了"）**：落点检查**跟在 filter 之后**，所以只覆盖
+  "**文本里带 `@deepseek-ai` / `..` / `react`**"的说明符。把宿主单例**拷进源码树**再用**纯**相对路径引
+  （`./vendor/deepseek-ai-values.js`，文本里两样都没有）**不触发**门禁 —— 那是"源码里有没有第二份实现"的
+  另一个口径（未做）。已写进 lib 的"**这套门禁盖不到的地方**"段（第 2 条）。
+
+### 二、A2：`scripts/chain-snapshot.py --json` **少一整段号段**
+- **复核说的**：`--json` 分支在 print 后**提前 `return`** ⇒ `_segments_section` **永不执行** ⇒ 输出里
+  `segments: null`（复核实跑）。而 R7（号段）的**全部证据**都在那一段 ⇒ "机器可读中间产物"对号段是缺的。
+- **实跑确认（改前）**：把 `1e94c36:scripts/chain-snapshot.py` 用 `git show` 取出来原样跑
+  （`--json` ⇒ exit 0，**真实产物**，不是读代码猜）：顶层键 = `chain / excluded / fallback_from_ledger /
+  fallback_today / missing_in_code / roster_candidates / roster_duplicates / roster_missing_in_code /
+  roster_not_in_ledger / wired_but_probe_down` —— **`segments` 连键都没有**（不是 `null` 而是**没有这个键**；
+  这一处与复核报告的字面（`segments: null`）不同，**按实跑为准**，也说明当初那段代码根本没被执行过）。
+- **改法**：拆出 `_segments_payload(rows)`（**文本段与 `--json` 共用同一个** ⇒ 两条通路不可能再漂开），
+  `--json` 把它放进**同一个 JSON 文档**（`json.dumps` 一次，不再另 print 一份 JSON）；顺手补 `ledger_rows`
+  （让文本首行的"台账 N 条"也可机器读）。`_segments_section(seg)` 只负责人读排版。
+- **改后实跑**（`.venv\Scripts\python.exe scripts\chain-snapshot.py --json`，exit 0）：
+  `ledger_rows = 131` · `segments.sample_size = 6417` · `declared = []` · `gained = {}` ·
+  `dead = []` · `unreachable_no_segments = 10` —— **与文本段逐项一致**（零声明 ⇒ 带来 0 个号 / 死号段 0）。
+
+### 三、B1..B5 文档更正（都**就地**改，保留错话 + 更正在后）
+1. **B1**：§10.140 二·更正的表里，`@deepseek-ai\x` 的 esbuild 错误串原写
+   `Could not resolve "@deepseek-aidsh-util-values"`（**转义事故**产物，`\d`→`d`）⇒ 划掉，更正为**实测真串**
+   `Could not resolve "@deepseek-ai\x"`（esbuild **原样保留反斜杠**；本轮用 `String.fromCharCode(92)` 拼
+   spec 复测，码点 `…,97,105,92,120` = 正好一个 `\`）。同一处还补了"**字节数不是稳定指纹**"：
+   同 specifier 三种 entry 形状 = 15B / 15B / 7377B，原 6946B **未能复现**（如实登记，不硬凑）。
+2. **B2**：§10.140 一里"我上一条（**§10.139 四·3**）"是**误引**。§10.139 四·3 是 `_fake_daemon` 真竞争；
+   `chatmode` 在 §10.139 的 8680–8727 行区间**实测 0 命中**。那条说法**只存在于提交 `3bd997e` 的提交消息里**
+   ⇒ 划线保留，改指**提交号**，并写明"原写 §10.139 四·3 是误引"。
+3. **B3**：§10.140 一里"「自愈」这个词已从 `chatmode.js`/`smoke-chatmode.mjs` 的注释里去掉"**字面不成立**
+   （词还在，就在这句更正句自己里；实测 `chatmode.js` **7 处**、`smoke-chatmode.mjs` **2 处**）⇒ 更正为
+   "改掉的是**「（自愈）」这个标签**（把『判 `retry`（自愈）』这个**说法**换成结构边界），不是词被删"。
+4. **B4**：`6129` 在**不带口径**的地方是裸数（`CHANNEL-COVERAGE-PLAN.md` 3 处、`DEVELOPMENT-HISTORY.md` 4 处、
+   `tests/test_channel_repo.py` 注释 1 处），而同一页另一处写"按仓库口径是 **6130**" ⇒ 读起来自相矛盾（低危）。
+   ⇒ 逐处加口径：`GB/T` **6130** = **折叠全角**（`_fold_segment` 把 `GB／T 14308-2010` 折成 `GB/T…`）、
+   **6129** = **未折全角**，两说并存不是矛盾；出处指向 `CHANNEL-COVERAGE-PLAN.md` R7-数据轮"更正后的形状"。
+   **本轮独立复测**（只读真库，`var/tmp/seg-count-probe.py`）：总 **6417** / 原始 `startswith('GB/T')` **6129** /
+   折 `／`(U+FF0F) 后 **6130**，多的那**恰好 1 条**是 `GB／T 14308-2010` —— 口径不是抄来的，是量出来的。
+   ⚠ **测试断言的数值语义一字未改**（只在注释里加口径）。
+5. **B5**：`UI-BASELINE.md` 5d（A3 行高）的披露原写"只量 kb 两态（抽样）"，**没写"深色未量"**——而那两态
+   其实**全是浅色**。⇒ 本轮**自己量**深色（`--theme dark`，同一台机器）：kb **@520 与 @1300 都是
+   行高 44 / 节距 52**（与浅色同值），已补进 5d 的实测表（2 行）+ 可复现命令 + 边界句改为"两宽度 × 两主题"。
+
+### 四、本轮**未做 / 做不到**（诚实边界）
+- A1 的落点检查**盖不到**"宿主单例被拷进源码树再用纯相对路径引"（上面第一节末）；也**没有**做
+  "源码里不许写错包名"的静态扫描 —— 后者本来就在"盖不到的地方"第 1 条（tree-shaking）里。
+- 复核报告**不在盘上**（父代理只转述要点）⇒ 本节所有"复核说的"均按**转述**记录；凡本轮**自己复现过**
+  的都标了实测数字（A1/A2/B1/B4/B5），其余（如"复核用 esbuild JS API 实测"的具体形状）**未逐字核对**。
+- `6946B` 那个数**没能复现**（三种 entry 形状分别 15/15/7377B）—— 不硬凑，如实登记。
+- 未跑 `run-gates.ps1` / `smoke-all.mjs` / 全量 pytest（父代理统一跑）；本轮跑的是
+  `smoke-build-purity`（59/59）、`smoke-client-entry`（122/122）、
+  `pytest tests/test_ledger_chain.py tests/test_channel_repo.py`（121 passed）、`chain-snapshot.py [--json]`。

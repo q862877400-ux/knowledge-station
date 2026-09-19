@@ -271,15 +271,26 @@ esbuild 不校验命名导出）⇒ 只能靠**运行时**和**读宿主源码**
   |---|---|---|---|---|
   | kb @520（窄面板） | **44px** | **52px** | `4px 8px` | token 44 **兑现**；节距 = 44 + 8（`.ks-main` 的 gap） |
   | kb @1300（全宽） | **44px** | **52px** | `4px 8px` | 同上（全宽列表若要 60，得另配，别靠"撑大"） |
+  | **kb @520 · 深色** | **44px** | **52px** | `4px 8px` | **深色与浅色同值**（本轮 corr3 B5 自己量的，见下） |
+  | **kb @1300 · 深色** | **44px** | **52px** | `4px 8px` | 同上 |
   | 改前（ui5 复核 / 5c 记录） | 52px | 60px | `4px 8px` | content-box 的暗账 |
 
 - **命令（可复现）**：`node plugin/scripts/ui-render-shot.mjs --page kb --out var/tmp/ui-shots/rowh-520.png --width 520`
   ⇒ 读 stdout JSON 的 `measured[".ks-item"].h` 与 `measured[".ks-item#pitch"].h`（`var/` 不入库）。
-- **边界（抽样）**：这是 **kb 页两个宽度**的实测，不是全站 `.ks-item` 的普查；其他用到 `.ks-item` 的列表未逐页量。
+  ⚠ **深色那一档要显式加 `--theme dark`**（默认 `light`）：`node plugin/scripts/ui-render-shot.mjs
+  --page kb --width 520 --theme dark --out var/tmp/ui-shots/corr3-dark-520.png`。
+- **边界（抽样）**：这是 **kb 页两个宽度 × 两套主题（浅/深）** 的实测，不是全站 `.ks-item` 的普查；
+  其他用到 `.ks-item` 的列表未逐页量。
+- ⚠ **披露更正（复核 `verify-freeze-corr3` B5，2026-09-20）**：上面这条边界原写"只量 kb **两态**（抽样）"，
+  **没写"深色未量"** —— 而当时那两态其实**全是浅色**（表格第 3/4 行是本轮补的）。复核替它补量深色
+  （@520/@1300 也是 **44/52**），本轮**自己又量了一遍**（上表最后两行，同一台机器、同一条命令 + `--theme dark`），
+  结论一致 ⇒ 现已把"**深色已量**（同样 44/52）"写进表里。**深色下截图**也在 `var/tmp/ui-shots/`
+  （`corr3-dark-520.png` / `corr3-dark-1300.png`，不入库）。
 
 
 ⚠ 子代理的渲染链**已知失真**（写在这里，免得以后据此乱下结论）：无宿主外壳（侧栏/tab 条/宿主字体栈），
-只截浅色一套，KaTeX 字体被抹掉（公式渲染不可信），jsdom 全局是它的桩。
+5c/5b 落库的截图只截浅色一套（⚠ **本轮 corr3 B5 补了深色的行高实测与截图**，见 5d；那两张深色图在
+`var/tmp/ui-shots/`，不入库），KaTeX 字体被抹掉（公式渲染不可信），jsdom 全局是它的桩。
 它**没有** mock 宿主 ui-primitives（alias 到 DSH 检出真实现 + 真 CSS Modules，93,614 字符已内联）⇒
 比既有 smoke 里的手写桩忠实得多；但 **ingest 的数据是它手写的 `fetch` 桩**（形状照 `api.ts` 的类型），
 **不是真引擎返回** ⇒ 那一页只能判"排版/配色"，不能判数据口径。
