@@ -4,6 +4,10 @@
 **前端栈**：Vue 3 + TDesign Vue Next + Pinia + vue-router（`frontend/src`）
 **读法说明**：源码里界面文案全部走 i18n key（`$t('a.b.c')`）。本文档把 key 解析成 **`frontend/src/i18n/locales/zh-CN.ts` 里的中文原文**并照抄，同时给出 key。凡 `zh-CN.ts` 里找不到的 key，本文档明确标注为"缺失"，不代填。
 **只读声明**：本次研究未修改 `D:\AI\WeKnora` 下任何文件（`git status --short` 仅显示研究前已存在的 `?? DEPLOY-NOTES.md`）。
+**性质与归属**：本文件是**源码级界面/流程事实记录**（可抄的交互与数据结构依据），不是决策文档。
+决策与影响评估在 [weknora-assessment.md](../weknora-assessment.md)（那里基于官方文档；本文件基于源码，两者互补）。
+**许可证**：`D:\AI\WeKnora\LICENSE` 存在（161 682 字节），开头即 "Tencent is pleased to support the open source community…"，
+并指向 `THIRD_PARTY_NOTICES.md` 与 `licenses/`；具体条款与署名义务见评估文档 §五第 0 条（**未在本文件重复核验**）。
 
 ---
 
@@ -797,6 +801,13 @@ transfer uploaded + parseStatus:
 ## 四、与我方产品的对应（只做映射，不设计）
 
 我方现状（前提，来自任务书）：DSH 侧栏一个「知识库」页（React）；现有能力 = 目录树（两个内置树 + 自建夹）、标签、行勾选 + 全选 + 浮动批量条（已选 X 项 / 取消选择 / 批量打标签 / 移动到目录 / 批量删除）、详情页显示发布/生效/废止日期、搜索语法 `安全+半导体-冶金`。
+
+> **一条来自源码的旁证（可直接引用）**：评估文档 §三 的表里写着 WeKnora「无标准/法规现行性、废止、被替代、施行日期」这一维——那是**基于官方文档**的判断。
+> 本次读源码**从界面侧独立确认了同一结论**：文档列表的列只有 文件名/标签/来源/大小/状态/更新时间/操作（`DocumentListView.vue:266-272`），
+> 状态列只渲染 `parse_status`（`computeStatus`，:136-174），**在 `frontend/src/views/knowledge` 全目录 grep `废止|生效日期|发布日期|effective_date|publish_date|repeal|abolish|expiry` 零命中**，
+> 且在 `zh-CN.ts` 全文件 grep `废止|发布日期` 零命中（`生效` 的 56 处命中全部与本主题无关：如记忆条目「生效中」、共享链接「生效中」、设置「修改后立即生效」）；
+> 筛选下拉也只有 文件类型/解析状态/来源/时间范围（`KnowledgeBase.vue:612-668`）。
+> 即：**它的"时间"只有"上传/更新时间"，没有"效力时间"**——这从"文档里没写"升级为"源码里没有"。
 
 | 流程 | 我们对应在哪 | 缺什么 |
 |---|---|---|
