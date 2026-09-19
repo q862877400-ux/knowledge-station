@@ -198,29 +198,39 @@ node scripts/ingest-dsh-docs-into-memory.mjs             # 幂等 + 可续跑，
 用仓库脚本走 1–3：`node scripts/hindsight-reflect.mjs --budget low --tags <域> "问题"`
 （脚本还会在 500 时明确告诉你"这不是 `--visible-tokens` 能调的"）。
 
-**尚未纳入的语料**（想灌另说，别默认以为在库里）：
+**语料状态（2026-09-19 全量完成，实测）**：
 
-| 语料 | **实测规模（alpha.2）** | 状态 |
+| 语料域（标签） | 篇数 | 范围 |
 |---|---|---|
-| `docs/**/*.zh.md` 中文译本 | **166 篇 / 2.7 MB** | ✅ **已入**（2026-09-19，`INGEST-LEDGER-docs-zh.md`，标签域 `dsh-official-docs-zh`） |
-| `.agents/notes/**` 决策记录（非 zh） | **1105 篇 / 7.6 MB** | ⚠ **只入了与客户端/UI 有关的 10 篇**（`INGEST-LEDGER-notes-client-ui.md`，标签 `dsh-notes-client-ui`）；**其余 1095 篇未入** |
+| `dsh-official-docs` | 172 | `docs/**` 英文 171 + 导航件自身 |
+| `dsh-official-docs-zh` | 166 | `docs/**/*.zh.md` |
+| `dsh-notes` / `dsh-notes-zh` | 1095 / 1101 | `.agents/notes/**`（英/中） |
+| `dsh-notes-client-ui` | 10 | 与客户端/UI 直接相关的那批 |
+| `dsh-skills` | 28 | `.agents/skills/**` |
+| `dsh-pkg-readme` / `-zh` / `dsh-pkg-agents` / `dsh-pkg-docs` | 346 / 346 / 5 / 12 | `packages/**` 全部 `.md` |
+| `dsh-repo-docs` | 173 | `.github` / `apps` / `benchmarks` / `native` / `python` / `scripts` / `website` |
+| `dsh-root-docs` | 12 | 根级文档 |
 
-⚠ **更正**：本手册此前写「`.agents/notes/` 2056 篇 / 约 14.3 MB」「`.zh.md` 约 158 篇」——
-**两个数都不对**（那是从分片转述里抄来的，没实测）。以本表的实测值为准。
+- **覆盖 3465 / 3668 篇 `.md`**；未入的 **203** 篇全部是有意排除：
+  `snapshots/**` 191（`*.expected.md` 测试夹具）+ `vendor/**` 12（第三方）。
+- ⚠ **更正**：本手册此前写「`.agents/notes/` 2056 篇 / 14.3 MB」「`.zh.md` 约 158 篇」——
+  两个数都是从分片转述里抄的、**没实测**；实测为 **1105+1101 篇** 与 **166 篇**。
+  教训：**转述的数字要回原始来源核**。
 
-一次命令即可补齐（脚本已支持 `--root` / `--match` / `--tag` / `--id-prefix`，语料分开记账分域）：
+**升级后要重灌哪些**（源文件变了哈希自然不同，脚本会重新灌；重复跑是幂等的）：
 
 ```powershell
-# 决策记录全量（1105 篇 / 7.6 MB，约 30 分钟后台）
-node scripts/ingest-dsh-docs-into-memory.mjs --root .agents/notes `
-  --id-prefix dsh-notes --tag dsh-notes `
-  --ledger docs/research/dsh-official/INGEST-LEDGER-notes.md
+# 全量（按域依次跑；每域一条命令，脚本自己跳过没变的）
+node scripts/ingest-dsh-docs-into-memory.mjs                                  # docs 英文
+node scripts/ingest-dsh-docs-into-memory.mjs --match '\.zh\.md$' --id-prefix dsh-docs-zh --tag dsh-official-docs-zh --ledger docs/research/dsh-official/INGEST-LEDGER-docs-zh.md
+node scripts/ingest-dsh-docs-into-memory.mjs --root .agents/notes --id-prefix dsh-notes --tag dsh-notes --ledger docs/research/dsh-official/INGEST-LEDGER-notes.md
+node scripts/ingest-dsh-docs-into-memory.mjs --root .agents/notes --match '\.zh\.md$' --id-prefix dsh-notes-zh --tag dsh-notes-zh --ledger docs/research/dsh-official/INGEST-LEDGER-notes-zh.md
+node scripts/ingest-dsh-docs-into-memory.mjs --root packages --match '^(?!.*\.zh\.md$)(?!.*README\.md$)(?!.*AGENTS\.md$).*\.md$' --id-prefix dsh-pkg-docs --tag dsh-pkg-docs --ledger docs/research/dsh-official/INGEST-LEDGER-pkg-docs.md
 ```
 
-⚠ **灌之前想清楚**：决策记录是 **DSH 内部工程决策**，大部分与 KnowledgeStation 无关；
-全量入库可能**稀释**召回（我们检索时会被 DSH 内部细节淹没）。
-⇒ 建议只在确实需要"为什么这么设计"时才灌，**或**先灌某个子集（用 `--match` 限定目录/名字），
-并**始终带标签域**，这样将来能用 `--tags` 把它单独圈进来或排除掉。
+⚠ **`--id-prefix` 以 `-zh` 结尾时会去掉文件名尾部的 `-zh`**（否则中英两份会同 id 相撞，
+2026-09-19 真踩过：根级 `README.md` 与 `README.zh.md` 压成同一个 id，丢了一份；
+是"逐字核对"那一步报出 4 篇 mismatch 才抓到的）。
 
 ---
 

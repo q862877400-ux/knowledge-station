@@ -85,23 +85,44 @@ const ID_OVERRIDES = new Map([
 ])
 
 // 去掉开头的 `docs/` 再拼前缀，否则 id 会长成 `dsh-docs-docs-xxx`（第一版就长这样）
+/**
+ * ⚠ 只有当 **id 前缀本身以 `-zh` 结尾**（= 这个语料整体就是中文译本）时，
+ * 才把文件名尾部的 `-zh` 去掉（否则 `web-styling.zh.md` 会变成 `dsh-docs-zh-web-styling-zh`，难看）。
+ *
+ * **为什么必须加这个条件**（2026-09-19 真实踩到）：根级语料（`--root .`）里
+ * `README.md` 与 `README.zh.md` **同时**匹配 `^[^/]*\.md$`，而当时无条件去 `-zh`
+ * ⇒ 两者 slug 都变成 `readme` ⇒ **同一个 document_id** ⇒ 后者覆盖前者，
+ * 4 组（README/CONTRIBUTING/SAFETY/BRAND_GUIDELINES）各丢一份，库里只剩其中一份、
+ * 另一份的内容无从谈起。**是"逐字核对"那一步把它抓出来的**（报 4 篇 mismatch），
+ * 而不是我事后想起来 —— 这就是"对账不能省"的价值。
+ */
+const STRIP_ZH = ID_PREFIX.endsWith('-zh')
 const slug = (rel) => `${ID_PREFIX}-` + rel
   .replace(new RegExp(`^${ROOT.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/`), '')
   .replace(/\.md$/i, '')
   .toLowerCase()
   .replace(/[^a-z0-9]+/g, '-')
-  .replace(/-zh$/, '')   // `foo.zh.md` 已经带了 zh，别再拼一次（否则 id 是 `...-foo-zh-zh`）
+  .replace(STRIP_ZH ? /-zh$/ : /$^/, '')
   .replace(/^-|-$/g, '')
 
 const docIdFor = (rel) => ID_OVERRIDES.get(rel) ?? slug(rel)
 
 /* -------------------------------------------------------------- 文档清单 */
+/**
+ * 遍历时要跳过的目录名（默认 `node_modules`、`.git`）。
+ * ⚠ 没有它的话，`--root packages` 或 `--root .` 会掉进 `node_modules` 里爬几万个 .md
+ *   —— 慢、而且会把第三方包的 README 也当成"DSH 官方文档"。
+ */
+const EXCLUDE_DIRS = new Set(String(arg('exclude-dir', 'node_modules,.git'))
+  .split(',').map((s) => s.trim()).filter(Boolean))
+
 /** 递归收集语料目录下的**所有** `.md`（含 `.zh.md`）。
  *  ⚠ 这里**不做**"排除 zh"的过滤 —— 那件事归 `MATCH` 正则管。
  *    我第一版把排除写在遍历函数里，结果 `--match '\.zh\.md$'` 永远扫不到东西
  *    （幸好"空集即报错"那条护栏当场把它拦下了，没有静默地"灌了 0 篇还报成功"）。 */
 function walkDocs(dir, out = []) {
   for (const name of readdirSync(dir).sort()) {
+    if (EXCLUDE_DIRS.has(name)) continue
     const p = join(dir, name)
     const st = statSync(p)
     if (st.isDirectory()) walkDocs(p, out)

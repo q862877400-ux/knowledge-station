@@ -46,22 +46,29 @@
 | Correction：手抄失真 + 「禁止手抄长文档入库」纪律 | `correction-dsh-docs-agents-md` | 更正与纪律（**仍然有效**，但"只能手抄"这一条已被脚本取代） |
 | **171 篇官方原文（整批）** | `dsh-docs-*`（每篇一个 id，见账本） | **字节级逐字**，2026-09-19 由 `scripts/ingest-dsh-docs-into-memory.mjs` 灌入并逐篇核对哈希 |
 
-**现在没进记忆的语料**（别再以为"都在库里"）：
+**记忆里的语料（2026-09-19 全量完成）**：DSH 检出里 **3465 / 3668 篇 `.md` 已逐字入库**，
+按语料分域（每域独立标签域 + 独立账本 `INGEST-LEDGER-*.md`）：
 
-| 语料 | **实测规模** | 状态 |
+| 语料域（标签） | 篇数 | 范围 |
 |---|---|---|
-| `.agents/notes/` 决策记录（非 zh） | **1105 篇 / 7.6 MB** | ⚠ 只入了**与客户端/UI 有关的 10 篇**（`dsh-notes-client-ui`）；其余未入 |
-| `docs/**/*.zh.md` 中文译本 | **166 篇 / 2.7 MB** | ✅ 已入（`dsh-official-docs-zh`，账本 `INGEST-LEDGER-docs-zh.md`） |
+| `dsh-official-docs` | 172 | `docs/**` 英文正本 171 篇 + **本条导航件自身** |
+| `dsh-official-docs-zh` | 166 | `docs/**/*.zh.md` 中文译本 |
+| `dsh-notes` | 1095 | `.agents/notes/**` 决策记录（英文；另有 10 篇在 `dsh-notes-client-ui`） |
+| `dsh-notes-zh` | 1101 | `.agents/notes/**/*.zh.md` |
+| `dsh-notes-client-ui` | 10 | 与客户端/UI 直接相关的决策记录（分片 G 依赖的那批） |
+| `dsh-skills` | 28 | `.agents/skills/**` 官方技能 |
+| `dsh-pkg-readme` / `dsh-pkg-readme-zh` | 346 + 346 | `packages/**/README.md` 及其中文译本 |
+| `dsh-pkg-agents` | 5 | `packages/**/AGENTS.md` |
+| `dsh-pkg-docs` | 12 | 包级其它文档（`SKILL.md`/`CLAUDE.md` 等） |
+| `dsh-repo-docs` | 173 | `.github` / `apps` / `benchmarks` / `native` / `python` / `scripts` / `website` |
+| `dsh-root-docs` | 12 | 根级（`README` / `CONTRIBUTING` / `AGENTS` / `SAFETY` / `BRAND_GUIDELINES` … 及其 zh 版） |
 
-> ⚠ **更正**：本节此前写「2056 篇 / 14.3 MB」「约 158 篇」——两个数都是从分片转述里抄的、**没实测**。
-> 现在的数是 `git ls-files` 实测出来的。教训同 §10.129：**转述的数字要回原始来源核**。
->
-> 历史更正（留痕）：本 README 曾写「没进记忆的：其余 165 篇」，理由是
-> ① Hindsight 插件故意对子代理关闭（`origin === "subagent"` 直接返回 undefined）；
-> ② 手抄 77 行错 2 处（**2.6% 失真**）⇒ 逐字搬运不可信。
-> **这两条只否掉了"手抄"这一条路**：2026-09-19 改为**直连 HTTP API、从磁盘按字节读**，
-> 既不经子代理也不经我的上下文 ⇒ **171/171 已入且逐字核对通过**。
-> 原文权威性仍以磁盘为准。
+**唯一未入的 203 篇 `.md`**（有意排除，不是遗漏）：
+`snapshots/**` **191 篇**（`*.expected.md` 之类的**测试期望夹具**，是生成物）+
+`vendor/**` **12 篇**（第三方 vendored 代码的文档）。⇒ 即"真文档零遗漏"。
+
+⚠ **分域很要紧**：服务端 `tags_match` 默认 `any` **包含未打标签**；
+要"只在这个域里找"必须显式 `any_strict`（`scripts/hindsight-reflect.mjs` 已默认用它）。
 
 ---
 
