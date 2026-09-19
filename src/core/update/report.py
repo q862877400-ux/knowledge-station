@@ -1,32 +1,29 @@
-"""更新检查报告导出（阶段六·批次4）：F-05《更新检查报告》Word 版。
+"""更新检查报告导出（阶段六·批次4）：F-05《更新检查结果》Excel 版。
 
-职责（pipeline/02 §1 report.py；§3 ``POST /api/v1/update/report/{batch_id}``；
-FRB F-05「一键导出《更新检查报告》（界面版 + Word 版），含月度趋势」）：
+职责（pipeline/02 §1 report.py；§3 ``POST /api/v1/update/report-xlsx/{batch_id}``）：
 - ``collect_batch_report_data(batch_id)``：聚合 ``update_check_batch`` +
   ``update_change_event``（LEFT JOIN ``bulk_import_batch`` 取 tier），产出
-  界面 JSON 与 Word 共用的确定性数据；批次不存在抛 UPD-2003。
+  界面 JSON 与 Excel 共用的确定性数据；批次不存在抛 UPD-2003。
 - ``monthly_trend(days=30)``：近 N 天全库变更的四色计数（按日分桶）。
-- ``export_batch_report(batch_id) -> Path``：**纯 python-docx、无模板依赖**
-  （区别于 exports/report_export 的模板机制），生成四段式报告：
-  头部批次信息（触发方式/时间/总数）→ 三色汇总表 → tier 分组明细表
-  （标准号/变更类型/证据链接）→ 月度趋势小节；空批次同样出报告。
-- ``export_batch_report_xlsx(batch_id) -> Path``：同聚合的 Excel 版
-  （openpyxl，三 sheet：巡检汇总/变更明细全量/月度趋势），供「导出巡查结果」。
+- ``export_batch_report_xlsx(batch_id) -> Path``：Excel 版（openpyxl，三 sheet：
+  巡检汇总/变更明细全量/月度趋势），供「导出巡查结果」。
   落盘复用 report_export 的 exports 目录与命名约定。
+
+⚠ **2026-09-19（EXECUTION-PLAN 第 4 步）拆掉了 Word 版**（原 ``export_batch_report``）：
+业主早已否决 Word/PPT 交付物（`docs/NOT-DOING.md` 第 1 条），而"研究/巡检报告落 `.docx`"
+正是那条裁决点名的一类 ⇒ 本模块**只出 Excel**（.xlsx 不是 Word/PPT 交付物，
+裁决没碰它，既有路由 `/update/report-xlsx` 原样保留）。
 
 三色口径与 inspector.judge_result 逐位一致（批次2指令）：
 superseded|withdrawn→红；new_version→黄；no_change→绿；not_found→灰。
 
-副作用边界：只读聚合 + 单文件输出——除导出的 docx 外零库写入
+副作用边界：只读聚合 + 单文件输出——除导出的 xlsx 外零库写入
 （审计仅打点日志，不写 event_log）。
 """
 from __future__ import annotations
 
 from datetime import datetime
 from pathlib import Path
-
-from docx import Document
-from docx.shared import RGBColor
 
 from openpyxl import Workbook
 from openpyxl.styles import Alignment, Font, PatternFill
@@ -56,10 +53,6 @@ COLOR_LABELS: dict[str, str] = {
 COLOR_MEANINGS: dict[str, str] = {
     "red": "在用已废止 / 被代替", "yellow": "有新版（含即将实施）",
     "green": "现行有效", "gray": "官方渠道查无此号",
-}
-COLOR_RGB: dict[str, RGBColor] = {
-    "red": RGBColor(0xB9, 0x1C, 0x1C), "yellow": RGBColor(0xB4, 0x53, 0x09),
-    "green": RGBColor(0x15, 0x80, 0x3D), "gray": RGBColor(0x6B, 0x72, 0x80),
 }
 CHANGE_TYPE_LABELS: dict[str, str] = {
     "new_version": "有新版", "superseded": "被代替", "withdrawn": "已废止",
@@ -140,97 +133,8 @@ def collect_batch_report_data(batch_id: str) -> dict:
     }
 
 
-# ================================================================ Word 导出
-def export_batch_report(batch_id: str) -> Path:
-    """生成《更新检查报告》docx 到 exports 目录，返回文件路径。
-
-    空批次同样出报告（明细节显示占位说明）；纯 python-docx 新建文档，
-    不读任何模板。命名沿用 report_export 约定：``更新检查报告_<安全批次号>_
-    <yyyymmdd_hhmmss>.docx``。
-    """
-    data = collect_batch_report_data(batch_id)
-    b = data["batch"]
-    doc = Document()
-
-    # —— 头部批次信息 ——
-    doc.add_heading("更新检查报告", level=1)
-    trig = TRIGGER_LABELS.get(b.get("trigger_type") or "", "-")
-    doc.add_paragraph(f"批次编号：{b['batch_id']}")
-    doc.add_paragraph(f"触发方式：{trig}｜批次状态：{b.get('status') or '-'}")
-    doc.add_paragraph(f"创建：{b.get('created_at') or '-'}｜"
-                      f"开始：{b.get('started_at') or '-'}｜"
-                      f"完成：{b.get('finished_at') or '-'}")
-    doc.add_paragraph(f"巡检总数：{int(b.get('total') or 0)}｜"
-                      f"已检：{int(b.get('checked') or 0)}｜"
-                      f"变更事件：{data['event_total']} 项")
-
-    # —— 一、三色汇总 ——
-    doc.add_heading("一、三色汇总", level=2)
-    s = data["summary"]
-    rows = [[COLOR_LABELS[c], COLOR_MEANINGS[c], str(s[c])] for c in _COLOR_ORDER]
-    rows.append(["合计", "四色恒等式 = 已检数", str(sum(s.values()))])
-    tbl = _add_table(doc, ["色别", "含义", "数量"], rows)
-    for i, c in enumerate(_COLOR_ORDER):
-        for run in tbl.rows[i + 1].cells[0].paragraphs[0].runs:
-            run.font.color.rgb = COLOR_RGB[c]
-
-    # —— 二、变更明细（按 tier 分组） ——
-    doc.add_heading("二、变更明细（按 tier 分组）", level=2)
-    if not data["groups"]:
-        doc.add_paragraph("本批次暂无变更明细。")
-    for g in data["groups"]:
-        doc.add_heading(f"{g['label']}（{len(g['events'])} 项）", level=3)
-        rows = []
-        for e in g["events"]:
-            evidence = e.get("evidence_url") or e.get("archived_pdf_path") or "-"
-            ctype = e.get("change_type") or "-"
-            rows.append([e.get("standard_no") or "-",
-                         e.get("standard_name") or "-",
-                         CHANGE_TYPE_LABELS.get(ctype, ctype), evidence])
-        _add_table(doc, ["标准号", "标准名称", "变更类型", "证据链接"], rows)
-
-    # —— 三、月度趋势（近 30 天各色计数，跨批全库口径） ——
-    doc.add_heading("三、月度趋势（近 30 天各色计数）", level=2)
-    tot = data["trend"]["totals"]
-    if sum(tot.values()) == 0:
-        doc.add_paragraph("近 30 天无变更记录。")
-    else:
-        doc.add_paragraph(
-            f"近 30 天共检出变更 {sum(tot.values())} 项："
-            f"红 {tot['red']}／黄 {tot['yellow']}／绿 {tot['green']}／灰 {tot['gray']}。")
-        rows = [[d["day"], str(d["red"]), str(d["yellow"]),
-                 str(d["green"]), str(d["gray"])] for d in data["trend"]["days"]]
-        _add_table(doc, ["日期", "🔴 废止", "🟡 新版", "🟢 现行", "⚪ 查无"], rows)
-
-    doc.add_paragraph("—— 本报告由本地引擎生成（纯本地 python-docx，未外发），"
-                      "判定口径与巡检引擎一致，仅供参考。")
-
-    out = (_exports_dir() /
-           f"更新检查报告_{_safe_name(batch_id)}_{datetime.now():%Y%m%d_%H%M%S}.docx")
-    doc.save(str(out))
-    upd_log(batch_id, "report", "INFO", "report_exported",
-            path=str(out), events=data["event_total"])
-    return out
-
-
-def _add_table(doc, headers: list[str], rows: list[list[str]]):
-    """追加带表头的表格（默认模板缺 Table Grid 样式时静默降级）。"""
-    table = doc.add_table(rows=1, cols=len(headers))
-    try:
-        table.style = "Table Grid"
-    except KeyError:
-        pass
-    for i, h in enumerate(headers):
-        table.rows[0].cells[i].text = str(h)
-    for row in rows:
-        cells = table.add_row().cells
-        for i, v in enumerate(row):
-            cells[i].text = "" if v is None else str(v)
-    return table
-
-
 # ================================================================ Excel 导出
-#: Excel「变更明细」sheet 列头（与 docx 明细口径一致，多 tier 列）
+#: Excel「变更明细」sheet 列头（原 Word 版明细口径的等价物，多 tier 列）
 _XLSX_DETAIL_HEADERS = ["标准号", "标准名称", "变更类型", "当前法律状态",
                         "证据链接", "检出时间", "巡检分层"]
 #: 事件行证据展示优先级：官方证据 URL → 本地存档 PDF → 占位
@@ -251,7 +155,7 @@ def _xlsx_header_style(ws, row: int, cols: int) -> None:
 def export_batch_report_xlsx(batch_id: str) -> Path:
     """生成《更新检查结果》Excel（.xlsx）到 exports 目录，返回文件路径。
 
-    与 docx 版共用 ``collect_batch_report_data`` 聚合（同批次不存在抛 UPD-2003）。
+    与界面 JSON 共用 ``collect_batch_report_data`` 聚合（同批次不存在抛 UPD-2003）。
     三 sheet：巡检汇总（批次头 + 四色统计 + 变更类型细分）→ 变更明细
     （全量逐条，含 tier 分层列，冻结首行 + 自动筛选）→ 月度趋势（近 30 天）。
     空批次同样出文件（明细空表头 + 汇总全 0）。纯本地 openpyxl，零外发。

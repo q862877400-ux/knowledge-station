@@ -102,20 +102,11 @@ def test_gap_api_flow(gap_db, client):
     assert r.status_code == 200
     data = r.json()["data"]
     assert "counts" in data and "results" in data
-    # 报告导出（R-L13 Word）
-    r = c.post(f"/api/v1/export/review/{data['task_id']}", headers=h)
-    assert r.status_code == 200
-    assert r.json()["data"]["name"].endswith(".docx")
-
-
-def test_obligation_export_docx(gap_db, client):
-    from src.core.compliance.obligation import generate_obligation_list
-    out = generate_obligation_list("消防管理", top_k=5)
-    c, token = client
-    r = c.post(f"/api/v1/export/obligations/{out['list_id']}",
-               headers={"Authorization": f"Bearer {token}"})
-    assert r.status_code == 200
-    assert r.json()["data"]["name"].endswith(".docx")
+    # ⚠ 2026-09-19（EXECUTION-PLAN 第 4 步）：这里原来断言 R-L13 审查报告 **Word** 导出
+    # （`POST /api/v1/export/review/{task_id}` ⇒ `.docx`）。业主否决 Word/PPT 交付物
+    # （docs/NOT-DOING.md 第 1 条）⇒ 路由与 `export_review_report_docx` 已拆除，
+    # 断言随之删除；gap-analysis 本身的判据（counts/results/task_id）保持不变。
+    assert data["task_id"]
 
 
 @pytest.mark.parametrize("path", ["/api/v1/export/citations"])
@@ -123,16 +114,19 @@ def test_export_citations_body_contract(client, path):
     """`POST /export/citations` 的 **HTTP 层**契约（§10.76）。
 
     为什么补这一组：这条端点此前**没有 HTTP 测试**，而本步改了它**取 body 的方式**
-    （`async def` + `await request.json()` → `def` + 签名取 body，因为随后就要跑
-    python-docx 落盘、必须留在线程池里）。改法带一个**语义变化**，必须钉住：
+    （`async def` + `await request.json()` → `def` + 签名取 body，因为随后就有同步活、
+    必须留在线程池里）。改法带一个**语义变化**，必须钉住：
 
-    * **没有 body** ⇒ 照常 200（`citation_text` 是空证据块的文本、`docx` 为 None）；
+    * **没有 body** ⇒ 照常 200（`citation_text` 是空证据块的文本）；
     * **非法 JSON** ⇒ **422**。
 
     ⚠ **措辞更正**（独立复核 b13 的 LOW-1）：这里原先跟着 §10.76 写"改前被 `except` 吞成空
     body 照常 200"——**错了**。这条端点从来没有那个 `except`：改前**坏 JSON 与"没有 body"
     都是未捕获异常 → 500**（复核三种输入实测：no-body / 坏 JSON / `[]` 全 500）。
     方向（收紧成 422）不变，但**事实是 500 → 422**，顺带修掉了"没 body 就 500"。
+
+    ⚠ 2026-09-19（EXECUTION-PLAN 第 4 步）：响应里的 `docx` 字段（问答依据 Word 落盘）
+    已随业主否决 Word/PPT 交付物一并拆除 ⇒ 现在只有 `citation_text`。
     """
     c, token = client
     h = {"Authorization": f"Bearer {token}"}
@@ -147,7 +141,8 @@ def test_export_citations_body_contract(client, path):
         r2 = c.post(path, headers=h,
                     json={"query": "消防", "clause_revision_ids": [row["clause_revision_id"]]})
         assert r2.status_code == 200, r2.text
-        assert r2.json()["data"]["docx"]
+        assert r2.json()["data"]["citation_text"]
+        assert "docx" not in r2.json()["data"], "Word 落盘字段已拆（2026-09-19）"
     bad = c.post(path, content=b"{not json",
                  headers={**h, "Content-Type": "application/json"})
     assert bad.status_code == 422, bad.text

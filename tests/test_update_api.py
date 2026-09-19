@@ -24,7 +24,7 @@ _AUTH_CASES = [
     ("post", "/api/v1/update/changes/chg_missing/ack", None),
     ("post", "/api/v1/update/changes/chg_missing/manual",
      {"legal_status": "effective", "note": "x"}),
-    ("post", "/api/v1/update/report/bul_missing", None),
+    ("post", "/api/v1/update/report-xlsx/bul_missing", None),
     ("post", "/api/v1/discover/classify", {"description": "消防"}),
     ("post", "/api/v1/discover/search",
      {"category_path": ["C", "C80"], "drill_level": 1}),
@@ -146,10 +146,16 @@ def test_watchlist_add_list_remove_idempotent_chain(client):
 
 
 def test_report_missing_batch_business_error(client):
-    """report 对不存在批次 → 404 业务错误码 UPD-2003（不产出文件）。"""
+    """report 对不存在批次 → 404 业务错误码 UPD-2003（不产出文件）。
+
+    ⚠ 2026-09-19（EXECUTION-PLAN 第 4 步）：原先打的是 `/api/v1/update/report/{batch_id}`
+    （**Word** 版）——该端点已随业主否决 Word/PPT 交付物一并拆除
+    （`docs/NOT-DOING.md` 第 1 条）⇒ 改打**留存的 Excel 版** `/update/report-xlsx/{batch_id}`，
+    判据（404 + `UPD-2003` + `status=error`）逐字不变。
+    """
     c, token = client
     h = {"Authorization": f"Bearer {token}"}
-    r = c.post("/api/v1/update/report/upd_no_such_batch", headers=h)
+    r = c.post("/api/v1/update/report-xlsx/upd_no_such_batch", headers=h)
     assert r.status_code == 404
     body = r.json()
     assert body["error"] == "UPD-2003"

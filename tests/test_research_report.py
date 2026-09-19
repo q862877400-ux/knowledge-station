@@ -1,13 +1,16 @@
 # -*- coding: utf-8 -*-
 """研究报告导出测试（`src/core/exports/research_report.py`，Phase D 第一步）。
 
-守五件事：
+守四件事：
   1. **依据分组复用唯一所有者**（`materials.authority`）——本模块不许自己再分一套；
   2. **引用可核**：结论里的 `[[m:i]]` 指向不存在 / 指向仅线索或不可用 ⇒ **必须**进 warnings；
   3. **未批准材料如实列出**（可见性硬需求），且"没有命中"≠"项目不存在"；
-  4. 三种形态（Markdown/HTML/**Word**，§10.92）从**同一份内容块**渲染，HTML **全转义**
-     （报告是可交付文件，不是网页）；
-  5. **`.docx` 渲染失败不许留下半份产物**（先渲染后落盘）且要以 `docx_render_failed` 现身。
+  4. 两种形态（Markdown/HTML）从**同一份内容块**渲染，HTML **全转义**
+     （报告是可交付文件，不是网页）。
+
+⚠ 2026-09-19（EXECUTION-PLAN 第 4 步）：原第 4 条里的第三种形态 **Word（`.docx`）**
+与第 5 条（`docx_render_failed`"先渲染后落盘"）的用例**已随通路一并删除**——
+业主否决 Word/PPT 交付物（`docs/NOT-DOING.md` 第 1 条）⇒ `files`/`names` 从三个回到两个。
 """
 from __future__ import annotations
 
@@ -330,86 +333,12 @@ class TestWrite:
         pid = project["project_id"]
         monkeypatch.setattr(rr, "_exports_dir", lambda: tmp_path)
         out = rr.write_research_report(pid, title="某调研报告")
-        assert len(out["files"]) == 3            # §10.92：md + html + **docx**
+        assert len(out["files"]) == 2            # md + html（Word 形态 2026-09-19 已拆）
         names = out["names"]
         assert names[0].endswith(".md") and names[1].endswith(".html")
-        assert names[2].endswith(".docx")
         assert "某调研报告" in names[0]
         assert Path(out["files"][0]).read_text(encoding="utf-8") == out["markdown"]
         assert Path(out["files"][1]).read_text(encoding="utf-8") == out["html"]
-
-    def test_docx_is_a_real_word_file_with_the_same_content(self, project, tmp_path, monkeypatch):
-        """§10.92：`.docx` 是**真 Word**（zip + `word/document.xml`），且内容与 md/html **同源**。
-
-        为什么这么钉：内容块是唯一内容来源（`build_report_blocks`），三种形态都从它渲染
-        ⇒ 只要断言"markdown/html/docx 里都出现同一批关键串"，就能抓住任何"某一形态另起一套
-        内容"的改动（这正是 D-1 当初把 md/html 同源的理由，Word 只是第三个消费方）。
-        """
-        import zipfile
-
-        pid = project["project_id"]
-        monkeypatch.setattr(rr, "_exports_dir", lambda: tmp_path)
-        out = rr.write_research_report(pid, title="某调研报告")
-        docx = Path(out["files"][2])
-        assert docx.exists() and docx.read_bytes()[:2] == b"PK"
-        with zipfile.ZipFile(docx) as z:
-            assert "word/document.xml" in z.namelist()
-            xml = z.read("word/document.xml").decode("utf-8")
-        # 关键串：标题 / 固定章节 / 计数行 / 列表项样式。
-        # ⚠ 探针必须是**任何项目都会出现**的串：`一、研究问题` 只在给了 `query` 时才有，
-        # 拿它当探针会把"这次没给 query"误判成"docx 渲染坏了"（本节正是这么发现的）。
-        for probe in ("某调研报告", "已批准参考资料清单", "待评审", "ListBullet"):
-            assert probe in xml, f"{probe!r} 不在 docx 里"
-        assert "某调研报告" in out["markdown"] and "某调研报告" in out["html"]
-        # 三种形态都由同一份块渲染 ⇒ 里面不许出现"只有某一种才有"的章节
-        for probe in ("已批准参考资料清单", "待评审"):
-            assert probe in out["markdown"] and probe in out["html"]
-
-    def test_docx_covers_every_block_kind(self):
-        """三种渲染器对**六种块**都要有落地（否则某种块会在某一形态里静默消失）。"""
-        import io
-        import zipfile
-
-        blocks = [
-            ("h1", "标题一"), ("h2", "标题二"), ("h3", "标题三"),
-            ("p", "段落正文"), ("pre", "code line"), ("ul", ["条目甲", "条目乙"]),
-        ]
-        data = rr._to_docx(blocks, title="标题一")
-        with zipfile.ZipFile(io.BytesIO(data)) as z:
-            xml = z.read("word/document.xml").decode("utf-8")
-        for probe in ("标题一", "标题二", "标题三", "段落正文", "code line", "条目甲", "条目乙"):
-            assert probe in xml, probe
-        md = rr._to_markdown(blocks)
-        html = rr._to_html(blocks, title="标题一")
-        for probe in ("标题一", "标题二", "标题三", "段落正文", "code line", "条目甲", "条目乙"):
-            assert probe in md and probe in html, probe
-
-    def test_word_failure_leaves_no_half_written_export(self, project, tmp_path, monkeypatch):
-        """§10.92：`.docx` 渲染失败 ⇒ **先渲染后落盘** ⇒ 盘上一个文件都不留 + 可操作的错误码。
-
-        为什么这条比"能生成 Word"还重要：`.docx` 是三步里唯一会因**业主自备模板**
-        缺内置样式（`List Bullet` / `Heading N`）而失败的一步。若先写 `.md`/`.html` 再渲染，
-        失败就会变成"接口回 500、盘上却躺着两个孤儿产物"——最难查的一种状态。
-        """
-        import pytest
-
-        from src.core.exceptions import KnowledgeStationError
-
-        monkeypatch.setattr(rr, "_exports_dir", lambda: tmp_path)
-        monkeypatch.setattr(rr, "_docx_template_path",
-                            lambda: tmp_path / "research-report.docx")
-
-        def boom(*_a, **_k):
-            raise KeyError("no style with name 'List Bullet'")
-
-        monkeypatch.setattr(rr, "_to_docx", boom)
-        with pytest.raises(KnowledgeStationError) as ei:
-            rr.write_research_report(project["project_id"], title="某调研报告")
-        assert ei.value.code == "docx_render_failed"
-        # 错误信息要**可操作**：必须点名模板路径与所需样式，而不是一句裸 KeyError
-        msg = str(ei.value)
-        assert "research-report.docx" in msg and "List Bullet" in msg
-        assert list(tmp_path.iterdir()) == [], "先渲染后落盘：失败时不许留下半份产物"
 
     def test_unsafe_title_is_sanitised(self, project, tmp_path, monkeypatch):
         pid = project["project_id"]
@@ -447,29 +376,7 @@ class TestEndpoint:
         assert r.status_code == 200, r.text
         data = r.json()["data"]
         assert data["counts"]["approved"] == 1
-        assert len(data["files"]) == 3 and all(Path(f).exists() for f in data["files"])
-
-    def test_word_failure_crosses_http_as_a_named_code(self, client, project, tmp_path, monkeypatch):
-        """§10.92：`docx_render_failed` 要**跨过 HTTP 边界**（不是只在内层抛对）。
-
-        端点把 `KnowledgeStationError` 翻成 `{"code": …}` —— 界面/模型看到的必须是
-        这个可读的 code 与消息，而不是 FastAPI 那句什么都不说的裸 500。
-        """
-        from src.core.exports import research_report as mod
-        monkeypatch.setattr(mod, "_exports_dir", lambda: tmp_path)
-        monkeypatch.setattr(mod, "_docx_template_path",
-                            lambda: tmp_path / "research-report.docx")
-        monkeypatch.setattr(mod, "_to_docx", lambda *_a, **_k: (_ for _ in ()).throw(
-            KeyError("no style with name 'List Bullet'")))
-        c, _ = client
-        r = c.post("/api/v1/report/research",
-                   json={"project_id": project["project_id"], "title": "接口调研"}, headers=HDR)
-        assert r.status_code == 500, r.text
-        # ⚠ 引擎的错误信封是**扁平**的：`error` = 错误码、`message` = 说明，
-        # 顶层的 `code` 是 HTTP 状态码（`_json_error` 的原样形状），别读错字段。
-        body = r.json()
-        assert body["error"] == "docx_render_failed" and "List Bullet" in body["message"]
-        assert list(tmp_path.iterdir()) == []
+        assert len(data["files"]) == 2 and all(Path(f).exists() for f in data["files"])
 
     def test_dry_run_does_not_write(self, client, project, tmp_path, monkeypatch):
         from src.core.exports import research_report as mod

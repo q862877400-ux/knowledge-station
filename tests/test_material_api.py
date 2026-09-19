@@ -527,11 +527,13 @@ class TestSlowEndpointsAreDeclaredSync:
         ("/api/v1/materials/{material_id}/locators", "GET"),
         # 报告这两条（2026-09-18 复核 b12 的 MEDIUM-2）：内容块组装会经
         # `research_report._attach_locator_status` → `locator.locator_health` **逐份流式 sha256
-        # 材料源文件**（复核实测 3 份材料 = 3 次读盘），再叠加 openpyxl/pptx 落盘 ⇒ 与上面
+        # 材料源文件**（复核实测 3 份材料 = 3 次读盘），再叠加 md/html 落盘 ⇒ 与上面
         # locators 两条**同族**。教训写在这里：§10.59 那轮**只修了 2 条、没有审计调用方**，
         # 于是同一个洞在产出物这一侧又留了一个月。
+        # ⚠ 2026-09-19（EXECUTION-PLAN 第 4 步）：原来的
+        # `("/api/v1/report/research/slides", "POST")`（PPT，要落 pptx）已随 Word/PPT
+        # 交付物撤销一并删除。
         ("/api/v1/report/research", "POST"),
-        ("/api/v1/report/research/slides", "POST"),
         # 健康看板（§10.74）：七条 `COUNT(*)` + `mineru_available()` 的 import 探测——都是
         # **同步 I/O**，留在事件循环里就会占住循环。⚠ 收益**不大**（本机实测总耗时 0.017s、
         # `import mineru` 0.000s、30 万行 COUNT ≈1.1ms），这里守的是**一般纪律**，不是"很慢"。
@@ -551,23 +553,24 @@ class TestSlowEndpointsAreDeclaredSync:
         # 调用链上有 `fs-copy` **轻标记**——**读代码 + 量过之后判定"不用改"**。
         # 候选清单不是待办清单：留下的每一条都要写清为什么。
         #
-        # 落盘/导出族（§10.76）：docx / xlsx / JSON 都是**同步落盘**（python-docx、openpyxl、
-        # 写文件），快照恢复还要读包 + sha256。⚠ **本族基本没测出大收益**——唯一能铺满量的是
+        # 落盘/导出族（§10.76）：xlsx / JSON 都是**同步落盘**（openpyxl、写文件），
+        # 快照恢复还要读包 + sha256。⚠ **本族基本没测出大收益**——唯一能铺满量的是
         # `/egress/audit/export`（`debug_dump` 有保留上限 1000 行），实测请求 0.0305s、空档
-        # 0.030s → 改后 0.016s（已在噪声底）。其余几条要有生产规模的更新批次 / 义务清单 /
+        # 0.030s → 改后 0.016s（已在噪声底）。其余几条要有生产规模的更新批次 /
         # 2.2GB 库快照才有意义，量具跑临时空库只会给出**假小**的数字 ⇒ 那几条按**结构性**判据
         # 进表（同族的 office/render + sha256 已在 §10.71/§10.73/§10.74 实测过）。
-        ("/api/v1/export/obligations/{list_id}", "POST"),
-        ("/api/v1/export/review/{task_id}", "POST"),
-        # 这条原是 `async def` 只为 `await request.json()`，且随后就跑 docx 落盘（与 §10.71 的
+        # ⚠ 2026-09-19（EXECUTION-PLAN 第 4 步）：本族原有的三条 **Word** 端点
+        # （`/export/obligations/{list_id}`、`/export/review/{task_id}`、以及
+        # `/export/citations` 里的 docx 落盘）随"撤销 Word/PPT 交付物"一并拆除 ⇒
+        # 前两条**整条路由消失**、在此表里删除；`/export/citations` 仍在（还有取证据的同步活）。
+        # 这条原是 `async def` 只为 `await request.json()`，且随后就有同步活（与 §10.71 的
         # `/report/effect/export` 同款）⇒ body 改走签名，非法 JSON 由"吞成空 body"变成 422。
         ("/api/v1/export/citations", "POST"),
         ("/api/v1/egress/audit/export", "GET"),
         ("/api/v1/snapshots/{snapshot_id}/restore", "POST"),
-        ("/api/v1/update/report/{batch_id}", "POST"),
         ("/api/v1/update/report-xlsx/{batch_id}", "POST"),
         # ---- T2 批次（§10.79）：这 20 条的 `async def` **只为了 `await request.json()`**，
-        # 读完 body 之后全是同步重活（LLM 调用 / python-docx / 抽别名 / 快照落盘 / 网络探测…）。
+        # 读完 body 之后全是同步重活（LLM 调用 / 抽别名 / 快照落盘 / 网络探测…）。
         # 判据形状与 §10.71/§10.76 同款：body 走签名，坏 body 由 FastAPI 直接 422。
         ("/api/v1/clauses/patches", "POST"),
         ("/api/v1/compliance/obligations", "POST"),
@@ -1524,9 +1527,12 @@ class TestSlowEndpointsAreDeclaredSync:
 
 
     @pytest.mark.parametrize("module,min_routes", [
-        # 这个文件里的每一件事都是同步重活（秒级 SQL 聚合 / openpyxl·pptx 落盘 / 逐份 sha256），
+        # 这个文件里的每一件事都是同步重活（秒级 SQL 聚合 / openpyxl 落盘 / 逐份 sha256），
         # 所以往这里新加端点**默认就该是 `def`**。
-        ("src.core.api.routes_report", 6),
+        # ⚠ 2026-09-19（EXECUTION-PLAN 第 4 步）：阈值 6 → **5**。
+        # 这个数是**下限**（`seen >= min_routes`）：`routes_report` 真实注册数 7 → **6**
+        # （`/report/research/slides` 随 Word/PPT 交付物撤销拆除），故下限同步降 1 保持原来的余量。
+        ("src.core.api.routes_report", 5),
         # §10.73（2026-09-18）：入库预览那一族同理——单文件预览 = sha256 + **真解析一份 PDF**
         # （该文件自述"负载下可达 135s"），批量要扫目录，jobs 三件套要读任务表。
         # 改前实测（`scripts/measure-endpoint-blocking.py`，12 页 PDF）：事件循环被堵 **0.468s**

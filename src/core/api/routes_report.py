@@ -5,10 +5,12 @@
 - GET  /api/v1/report/effect/color  全库按色取 top-N（`ks_effect_report` 的数据源）
 - POST /api/v1/report/effect/export openpyxl 落 exports 目录（空库也出文件），
   下载走既有 GET /export/download（穿越防护已有）。
-- POST /api/v1/report/research      **研究报告**（Phase D，§10.36 + §10.92）：
-  Markdown + HTML + **Word** 三形态落盘（同一份内容块），
+- POST /api/v1/report/research      **研究报告**（Phase D，§10.36）：
+  Markdown + HTML **两种形态**落盘（同一份内容块），
   材料依据按承重能力分组、引用标记逐条校验、未批准材料如实列出（零新增依赖）。
-- POST /api/v1/report/research/slides **同内容的 PPT**（Phase D-2，§10.37）。
+  ⚠ 2026-09-19（EXECUTION-PLAN 第 4 步）撤掉了第三条形态 Word（`.docx`）与
+  `/report/research/slides`（PPT）——业主早已否决 Word/PPT 交付物
+  （`docs/NOT-DOING.md` 第 1 条）。
 - POST /api/v1/report/research/draft  **结论草稿**（Phase D-5a，§10.96）：基于**已批准材料**
   起草一段结论（复用取证链已审计的提示词），返回 `unapproved_draft` 标记 + 引用逐条校验；
   **不落盘、不进报告**——是否采用由用户逐次显式决定。
@@ -17,7 +19,7 @@
 （L2/L3/L4 是展示串非稳定 ID，库内重分类后旧名自然为空，404 会让 UI 抖动）。
 
 ⚠ **本文件的端点一律声明成 `def`**（§10.71，复核 b12 的 MEDIUM-2）：它们要么跑秒级
-SQL 聚合、要么 openpyxl/pptx 落盘、要么经 `research_report._attach_locator_status`
+SQL 聚合、要么 openpyxl 落盘、要么经 `research_report._attach_locator_status`
 → `locator.locator_health` **逐份流式 sha256 材料源文件**。uvicorn 是**单事件循环**
 ⇒ 任何一个写成 `async def` 都会把**整个引擎**卡住（GUI 看起来"死掉"）。
 `/effect/export` 原先写成 `async def` **只是为了 `await request.json()`**；现在直接把
@@ -114,22 +116,24 @@ def register(app, json_error):
     # ---------------------------------------------------------------- 研究报告（Phase D）
     @app.post("/api/v1/report/research")
     def research_report(payload: dict | None = None):
-        """**生成一份研究报告**（Markdown + HTML + Word，本地落盘，零新增依赖）。
+        """**生成一份研究报告**（Markdown + HTML，本地落盘，零新增依赖）。
 
         这套东西到 §10.35 为止只能"把材料收进来、评审、分组"，**产出物**这一侧还是空的
-        （业主的原始要求是"经用户评审确认参考资料可用后再做**分析/产出**（报告、PPT）"）。
+        （业主的原始要求是"经用户评审确认参考资料可用后再做**分析/产出**（报告）"）。
         方案 §8 说 PPT 要单独立项、退路是"先出 Markdown/HTML"——**本端点就是那条退路**。
-        §10.92 又按方案 §8 那一行（"报告：`python-docx`（Word）"）补上了 **`.docx`**：
-        三种形态**同一份内容块**（`research_report.build_report_blocks`），
-        所以 `files`/`names` 是**三个**（`.md` / `.html` / `.docx`），顺序固定。
+        两种形态**同一份内容块**（`research_report.build_report_blocks`），
+        所以 `files`/`names` 是**两个**（`.md` / `.html`），顺序固定。
+
+        ⚠ **2026-09-19（EXECUTION-PLAN 第 4 步）**：§10.92 曾按方案 §8 补过第三种形态
+        Word（`.docx`，`files`/`names` 曾经是三个），业主否决 Word/PPT 交付物后
+        （`docs/NOT-DOING.md` 第 1 条）**已拆除** ⇒ 契约回到两个。
 
         Body：`{project_id, title?, query?, conclusion_md?, limit?, dry_run?}`
         - `query`：给了就按它检索**已批准**材料并按**承重能力**分组（复用 `authority`，
           分组判据不另写一份）；不给就只列清单；
         - `conclusion_md`：结论正文，里面的 `[[m:i]]` 会被**逐条校验**
           （不存在 / 指向仅线索或不可用 ⇒ 进 `warnings`，绝不静默）；
-        - `dry_run=true`：只组装不落盘（返回 markdown/html 供预览）——
-          **不含 docx**：docx 是二进制，塞进 JSON 响应没有意义（§10.92）。
+        - `dry_run=true`：只组装不落盘（返回 markdown/html 供预览）。
 
         ⚠ 本端点**逐份流式 sha256 材料源文件**（`_attach_locator_status` → `locator_health`
         的"源文件字节"轴）⇒ 必须是 `def`（§10.71）：几十份 PDF 就是一次真实磁盘读，
@@ -159,42 +163,6 @@ def register(app, json_error):
                     conclusion_md=body.get("conclusion_md"), limit=limit)
         except ValueError as e:
             return json_error(404, "materials_not_found", str(e))
-        except KnowledgeStationError as e:
-            return json_error(500, getattr(e, "code", "internal_error"), str(e))
-        return {"code": 200, "status": "success", "data": data}
-
-    @app.post("/api/v1/report/research/slides")
-    def research_report_slides(payload: dict | None = None):
-        """**同内容的 PPT**（Phase D-2，§10.37）。
-
-        内容块与 Markdown 报告**同源**（`research_report.build_report_blocks`），
-        所以不会出现"报告写的和 PPT 不一样"。Body 与 `/report/research` 相同，
-        只是落盘成 `.pptx`（超长要点会截断、页数有上限——都写在 PPT 末页）。
-
-        ⚠ 内容块与 Markdown 报告**同源** ⇒ 同样**逐份 sha256 材料源文件**、同样落盘，
-        必须是 `def`（§10.71，与 `/report/research` 同一条理由）。
-        """
-        body = payload or {}
-        project_id = body.get("project_id")
-        if not isinstance(project_id, str) or not project_id.strip():
-            return json_error(422, "materials_bad_request", "缺少 project_id")
-        for key in ("title", "query", "conclusion_md"):
-            val = body.get(key)
-            if val is not None and not isinstance(val, str):
-                return json_error(422, "materials_bad_request", f"{key} 必须是字符串")
-        try:
-            limit = max(1, min(int(body.get("limit") or 8), 50))
-        except (TypeError, ValueError):
-            return json_error(422, "materials_bad_request", "limit 必须是整数")
-        from src.core.exports import slide_export
-        try:
-            data = slide_export.write_slide_deck(
-                project_id.strip(), title=body.get("title"), query=body.get("query"),
-                conclusion_md=body.get("conclusion_md"), limit=limit)
-        except ValueError as e:
-            return json_error(404, "materials_not_found", str(e))
-        except RuntimeError as e:       # 缺 python-pptx 时给可操作的错误，不出空文件
-            return json_error(500, "ppt_unavailable", str(e))
         except KnowledgeStationError as e:
             return json_error(500, getattr(e, "code", "internal_error"), str(e))
         return {"code": 200, "status": "success", "data": data}

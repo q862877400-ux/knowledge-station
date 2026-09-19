@@ -96,8 +96,8 @@ HEAVY_PREFIXES: tuple[str, ...] = (
     "/api/v1/documents/",                     # figure/formula/table-image/tree/assets（渲染/读盘）
     "/api/v1/materials/projects/",            # scan / collect / locators（子进程解析 + 逐份 sha256）
     "/api/v1/materials/",                     # reverify / locators（同上）
-    "/api/v1/report/",                        # 效力报告聚合 / 研究报告 / PPT（落盘 + 逐份 sha256）
-    "/api/v1/export/",                        # docx/xlsx/JSON 落盘
+    "/api/v1/report/",                        # 效力报告聚合 / 研究报告（落盘 + 逐份 sha256）
+    "/api/v1/export/",                        # xlsx/JSON 落盘 + 引用块取证据
     "/api/v1/snapshots",                      # 造/恢复快照（打整包 + sha256）
     "/api/v1/ks/answer",                      # 取证答案（引擎侧推理，120s 契约）
     "/api/v1/batch/qa",                       # 批量问答
@@ -105,7 +105,7 @@ HEAVY_PREFIXES: tuple[str, ...] = (
     "/api/v1/vision/locate",                  # 视觉定位（模型 + 渲染）
     "/api/v1/aliases/extract",                # 术语抽取（全库拼接）
     "/api/v1/data/package/",                  # 数据包导出/导入
-    "/api/v1/update/report",                  # 更新检查报告（docx/xlsx）
+    "/api/v1/update/report",                  # 更新检查结果 xlsx（openpyxl 落盘）
     # ---- §10.93：`/laws/*` 里**真的会打网络/长跑**的那 5 条 ----
     # 它们原先写成 `async def` + `await asyncio.to_thread(...)` ⇒ 既绕过本表，
     # 又绕过"线程池 16"（走 asyncio 默认执行器）。改回 `def` 之后回到有界的池子，
@@ -1590,29 +1590,6 @@ def create_app(token: str) -> FastAPI:
         from src.core.compliance.gap_analysis import build_obligations
         return {"code": 200, "data": {"obligations": build_obligations()}}
 
-    @app.post("/api/v1/export/obligations/{list_id}")
-    def export_obligations(list_id: str):
-        """R-L10 义务清单导出 Word（§10.76：python-docx 落盘 ⇒ `def`，别占事件循环）。"""
-        from src.core.storage import user_data
-        from src.core.exports.report_export import _exports_dir
-        from datetime import datetime
-        from docx import Document
-        data = user_data.get_obligation_list(list_id)
-        if data is None:
-            return _json_error(404, "list_not_found", f"清单不存在: {list_id}")
-        doc = Document()
-        doc.add_heading("义务清单与检查表", level=1)
-        doc.add_paragraph(f"业务活动：{data['business_description']}")
-        doc.add_paragraph(f"模式：{data['mode']}｜导出时间：{datetime.now():%Y-%m-%d %H:%M}")
-        for it in data["items"]:
-            p = doc.add_paragraph()
-            mark = "☑" if it.get("checked") else "☐"
-            p.add_run(f"{mark} [{it['standard_no']} {it['clause_number']}] ").bold = True
-            p.add_run(it.get("question") or it["obligation_text"][:200])
-        out = _exports_dir() / f"义务清单_{datetime.now():%Y%m%d_%H%M%S}.docx"
-        doc.save(str(out))
-        return {"code": 200, "data": {"path": str(out), "name": out.name}}
-
     @app.get("/api/v1/documents/{doc_id}/versions")
     def doc_versions(doc_id: str):
         """R29 版本替代链（旧→新）。"""
@@ -1818,31 +1795,24 @@ def create_app(token: str) -> FastAPI:
         n = conn.execute("SELECT COUNT(*) FROM alias_store").fetchone()[0]
         return {"code": 200, "data": {"extracted": total, "alias_total": n}}
 
-    @app.post("/api/v1/export/review/{task_id}")
-    def export_review(task_id: str):
-        """审查报告导出 docx（§10.76：python-docx 落盘 ⇒ `def`）。"""
-        from src.core.exports.report_export import export_review_report_docx
-        from src.core.exceptions import KnowledgeStationError
-        try:
-            path = export_review_report_docx(task_id)
-        except KnowledgeStationError as e:
-            return _json_error(404, e.code, str(e))
-        return {"code": 200, "data": {"path": str(path), "name": Path(path).name}}
-
     @app.post("/api/v1/export/citations")
     def export_citations(body: dict | None = None):
-        """R19 引用块 + R35 问答依据 Word 导出。
+        """R19 引用块（**纯文本**，供前端一键复制）。
 
-        ⚠ §10.76：body 走**函数签名**而不是 `await request.json()`——本端点要跑
-        python-docx 落盘，必须留在**线程池**里。
+        ⚠ §10.76：body 走**函数签名**而不是 `await request.json()`——本端点另有同步活
+        （SQL 取证据），必须留在**线程池**里。
         ⚠ **措辞更正**（独立复核 b13 的 LOW-1）：这里原先写"非法 JSON 由**吞成空 body**
         变成 422"——**错了**。实测这条端点**从来没有** `except` 包着读 body ⇒ 改前
         **坏 JSON 是未捕获异常 → 500**（连**没有 body** 也是 500，同一句也抄进了
         `test_phase7.py` 与台账）。方向（收紧成 422）不变，但事实是 **500 → 422**，
         而且顺带修掉了一个没人注意的"没 body 就 500"。
+
+        ⚠ **2026-09-19（EXECUTION-PLAN 第 4 步）**：原先这里还顺手落一份 Word
+        （`export_qa_citations_docx`，响应里的 `docx` 字段）——业主否决 Word/PPT 交付物
+        （`docs/NOT-DOING.md` 第 1 条）⇒ **已拆除**，响应现在只有 `citation_text`。
         """
         body = body or {}
-        from src.core.exports.report_export import build_citation_block, export_qa_citations_docx
+        from src.core.exports.report_export import build_citation_block
         conn = get_db_connection()
         ids = body.get("clause_revision_ids") or []
         evidences = []
@@ -1854,9 +1824,7 @@ def create_app(token: str) -> FastAPI:
                 f" JOIN doc_meta dm ON dm.doc_id=cr.doc_id"
                 f" WHERE cr.clause_revision_id IN ({ph})", ids).fetchall()]
         text = build_citation_block(evidences)
-        path = export_qa_citations_docx(body.get("query", ""), evidences) if evidences else None
-        return {"code": 200, "data": {"citation_text": text,
-                                      "docx": str(path) if path else None}}
+        return {"code": 200, "data": {"citation_text": text}}
 
     @app.get("/api/v1/export/download")
     def download_export(name: str):

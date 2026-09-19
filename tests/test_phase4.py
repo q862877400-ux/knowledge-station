@@ -148,23 +148,18 @@ def test_clauses_by_prefix(rich_db):
 
 
 def test_exports(rich_db):
-    from src.core.exports.report_export import (
-        build_citation_block, export_qa_citations_docx, export_review_report_docx)
-    from src.core.compliance.engine import create_review_task, execute_review
-    from pathlib import Path
+    """R19 引用块（**纯文本**）。
+
+    ⚠ 2026-09-19（EXECUTION-PLAN 第 4 步）：本条原来还调
+    `export_qa_citations_docx` / `export_review_report_docx` 落两份 Word——业主否决
+    Word/PPT 交付物（`docs/NOT-DOING.md` 第 1 条）后**两条导出已拆除**，只留引用块本身。
+    """
+    from src.core.exports.report_export import build_citation_block
 
     ev = [{"standard_no": "GB A-2022", "clause_number": "5.1.1", "title": None,
            "content_text": "消防通道应保持畅通。", "page_start": 3}]
     block = build_citation_block(ev)
     assert "GB A-2022 5.1.1" in block and "第 3 页" in block
-    p = export_qa_citations_docx("消防通道宽度", ev)
-    assert p.exists() and p.suffix == ".docx" and p.stat().st_size > 5000
-
-    task = create_review_task("contract", "导出测试合同",
-                              "第一条 本合同最终解释权归甲方所有。")
-    list(execute_review(task["task_id"]))
-    rp = export_review_report_docx(task["task_id"])
-    assert rp.exists() and rp.stat().st_size > 8000
 
 
 def test_export_download_guard(client):

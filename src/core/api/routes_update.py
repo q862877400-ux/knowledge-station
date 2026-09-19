@@ -206,26 +206,16 @@ def register(app, json_error):
             return _upd_error(e, json_error)
         return {"code": 200, "status": "success", "data": out}
 
-    @app.post("/api/v1/update/report/{batch_id}")
-    def update_report(batch_id: str):
-        """生成《更新检查报告》docx 到 exports 目录，返回下载文件名
-        （配合既有 GET /export/download 下载）；批次不存在 → 404/UPD-2003。
-
-        §10.76：python-docx 落盘 ⇒ `def`（本文件的报告端点都是同步重活）。"""
-        from src.core.exceptions import KnowledgeStationError
-        from src.core.update import report as upd_report
-        try:
-            path = upd_report.export_batch_report(batch_id)
-        except KnowledgeStationError as e:
-            return _upd_error(e, json_error)
-        return {"code": 200, "status": "success",
-                "data": {"path": str(path), "name": Path(path).name}}
-
     @app.post("/api/v1/update/report-xlsx/{batch_id}")
     def update_report_xlsx(batch_id: str):
         """生成《更新检查结果》Excel(.xlsx) 到 exports 目录，返回下载文件名
         （配合既有 GET /export/download 下载）；批次不存在 → 404/UPD-2003。
-        与 docx 版共用聚合：巡检汇总/变更明细全量/月度趋势三 sheet。
+        三 sheet：巡检汇总/变更明细全量/月度趋势。
+
+        ⚠ **2026-09-19（EXECUTION-PLAN 第 4 步）**：同聚合的 Word 版
+        `POST /update/report/{batch_id}` 已拆除（业主否决 Word/PPT 交付物，
+        `docs/NOT-DOING.md` 第 1 条；"研究/巡检报告落 `.docx`"正是那条裁决点名的一类）。
+        `.xlsx` 不是 Word/PPT 交付物，裁决没碰它 ⇒ 本路由原样保留。
 
         §10.76：openpyxl 落盘 ⇒ `def`。"""
         from src.core.exceptions import KnowledgeStationError

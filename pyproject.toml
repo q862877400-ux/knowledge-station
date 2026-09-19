@@ -22,15 +22,18 @@ dependencies = [
     "requests>=2.31",
     "urllib3>=2.0",
     "beautifulsoup4>=4.12",
-    # F-05 更新检查报告 Word 导出（report.py）
+    # python-docx：**输入侧**（ingestion/docx_adapter、docx_ingest、material_ingest、
+    #   knowledge/law_source）+ **编辑往返工具** office_roundtrip 都用它 ⇒ **保留**。
+    #   ⚠ 2026-09-19（EXECUTION-PLAN 第 4 步）撤掉的是"把 Word 当**交付物**输出"那条通路
+    #   （report_export 的问答依据/审查报告、update/report 的更新检查报告 Word 版、
+    #   research_report 的 .docx）——**不是**这个库本身（输入侧解析要它）。
     "python-docx>=1.0",
     # 更新检查结果 Excel 导出（report.py export_batch_report_xlsx）
     "openpyxl>=3.1",
-    # Phase D-2 研究报告 PPT 导出（exports/slide_export.py，§10.37）
-    # ⚠ **显式声明**的理由：实测本机 venv 里 `pptx` 早就在（1.0.3），但那是**传递依赖**
-    #   恰好满足——与 requests/urllib3/bs4 那条教训**同型**（干净环境重建会 ImportError）。
-    #   本模块真的 import 它（"0 import 就删依赖"的反面：**有 import 就必须声明**）。
-    "python-pptx>=1.0",
+    # 已删除：python-pptx（2026-09-19，EXECUTION-PLAN 第 4 步）——PPT 交付物被业主否决
+    #   （docs/NOT-DOING.md 第 1 条），唯一的消费者 exports/slide_export.py 与
+    #   /report/research/slides 端点一并拆除，全仓已 0 import ⇒ 按"0 import 就删依赖"删掉。
+    #   曾显式声明的理由（pptx 只是传递依赖恰好满足，见 requests/bs4 那条教训）随之作废。
     # 已删除：python-multipart（全仓 0 import、120 端点无 multipart 表单，
     #   venv 中仅作为 mineru 传递依赖存在）
 ]

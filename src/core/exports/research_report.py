@@ -3,9 +3,9 @@
 
 ## 为什么需要它（这一段补的是什么）
 到 §10.35 为止，"参考资料平面"已经能把材料**收进来、评审、按承重能力分组**，
-但**产出物**这一侧还只有"问答依据清单"（`export_qa_citations_docx`）与"审查报告"——
-都不包含"这一轮到底用了哪些参考资料、它们的两个轴是什么、还有哪些没批准"。
-业主的原始要求是"经用户评审确认参考资料可用后再做**分析/产出**（报告、PPT）"，
+但**产出物**这一侧还只有"引用格式化导出"（`report_export.build_citation_block`）与
+"审查报告"——都不包含"这一轮到底用了哪些参考资料、它们的两个轴是什么、还有哪些没批准"。
+业主的原始要求是"经用户评审确认参考资料可用后再做**分析/产出**（报告）"，
 所以本模块就是那份**产出物**：一份自包含的研究报告。
 
 ## 三条纪律
@@ -24,9 +24,10 @@
 不做 MD→HTML 转换），HTML 侧一律 `html.escape`。方案 §8 说 PPT 要单独立项、
 退路是"先出 Markdown/HTML"——本模块就是那条退路，**能立刻交付**。
 
-§10.92 又落了**第三种形态 Word（`.docx`）**，用的还是 `exports/report_export` 里
-既有那条 `python-docx` 通路（效力报告/审查报告/问答依据三条导出早就在用）
-⇒ 依旧**零新增依赖**；三种形态都是 `build_report_blocks` 的同一份内容块渲染的。
+⚠ **2026-09-19（EXECUTION-PLAN 第 4 步）撤掉了第三种形态**：§10.92 曾按方案 §8 那一行
+补过 Word（`.docx`），但业主早已否决 Word/PPT 交付物（`docs/NOT-DOING.md` 第 1 条：
+"产出物只出 Markdown"）⇒ `_to_docx` / `_docx_template_path` / 落盘的 `.docx` 全部删除。
+现在**只剩 Markdown + HTML**（HTML 是界面预览形态，不是第二份交付物）。
 """
 from __future__ import annotations
 
@@ -58,16 +59,6 @@ def _exports_dir() -> Path:
 
 def _safe_name(name: str) -> str:
     return re.sub(r'[\\/:*?"<>|\s]+', "_", name)[:60] or "report"
-
-
-def _docx_template_path() -> Path:
-    """Word 模板路径（与 `report_export._open_document` 同一约定，§10.92）。
-
-    单独抽出来只有**一个**用途：`_to_docx` 失败时能在错误信息里**指名道姓**地
-    把"是不是这个模板的问题"说清楚——否则调用方只能看到一句裸的 `KeyError`。
-    """
-    from src.core.exports.report_export import _templates_dir
-    return _templates_dir() / "research-report.docx"
 
 
 def _status_marks() -> dict[str, str]:
@@ -257,8 +248,8 @@ def build_report_blocks(project_id: str, *, title: str | None = None,
                         limit: int = 8) -> dict[str, Any]:
     """组装报告的**内容块**（`[(kind, payload)]`）——**唯一的内容来源**。
 
-    Markdown / HTML（本模块）与 PPT（`exports.slide_export`）都从这里渲染：
-    三种形态**同一份内容**，不会出现"报告里写的和 PPT 里写的不一样"。
+    Markdown / HTML（本模块）都从这里渲染：
+    两种形态**同一份内容**，不会出现"markdown 里写的和 html 里写的不一样"。
 
     Args:
         project_id: 参考资料项目（`prj_…`）。
@@ -382,7 +373,7 @@ def build_report_blocks(project_id: str, *, title: str | None = None,
         "两个轴**分开看**：轴 A 来源可信度（T0~T4）决定能不能承重，轴 B 任务内效力决定它在本任务里说话的分量。",
         "**仅线索**（T3 未互证）与**不可用**（T4）的材料不得单独支撑结论。",
         # 2026-09-17：这条从 PPT 末页的**手写**文案搬过来（复核 b7 的 MEDIUM-3）——
-        # 两份交付物原来各说各的；现在"已知限制"只有**这一份**，PPT 末页从这些块渲染。
+        # 两份交付物原来各说各的；现在"已知限制"只有**这一份**（PPT 形态 2026-09-19 已拆）。
         "**待评审**材料不会进入任何结论（批准与否是**用户**的判断，本系统不能代批）。",
     ]
     if citations["unchecked_law_refs"] or citations["unknown"]:
@@ -407,9 +398,8 @@ def build_research_report(project_id: str, *, title: str | None = None,
                           limit: int = 8) -> dict[str, Any]:
     """**内容块 → 两种可交付形态**（Markdown / HTML）。
 
-    内容块的组装只有一处（`build_report_blocks`）；本函数与
-    `exports.slide_export.write_slide_deck()` 都从**同一份块**渲染
-    ——避免"报告一套内容、PPT 又一套内容"这种必然分叉。
+    内容块的组装只有一处（`build_report_blocks`）；本函数从那份块渲染出
+    **两种形态**（Markdown / HTML）——不会出现"两种形态各写一套内容"。
     """
     model = build_report_blocks(project_id, title=title, query=query,
                                conclusion_md=conclusion_md, limit=limit)
@@ -423,20 +413,16 @@ def write_research_report(project_id: str, *, title: str | None = None,
                           query: str | None = None,
                           conclusion_md: str | None = None,
                           limit: int = 8) -> dict[str, Any]:
-    """组装并**落盘**（`.md` + `.html` + **`.docx`**）。
+    """组装并**落盘**（`.md` + `.html`）。
 
-    §10.92：加上 **Word**（方案 §8 明写"报告：`python-docx`（Word）… 扩展现有 `exports/` 即可"）。
-    ⚠ 三种形态**同一份内容块**（`build_report_blocks` 是唯一内容来源）——不会出现
-    "Markdown 里写的和 Word 里写的不一样"。⚠ `.docx` **只在落盘路径产生**：`dry_run` 预览
-    仍旧只回 markdown/html（docx 是二进制，塞进 JSON 响应没有意义）。
+    ⚠ 两种形态**同一份内容块**（`build_report_blocks` 是唯一内容来源）——不会出现
+    "Markdown 里写的和 HTML 里写的不一样"。
 
-    两条落盘纪律（§10.92）：
-    1. **先渲染、后落盘**：`.docx` 是三步里**唯一**会因外部原因（业主自备的
-       `templates/research-report.docx` 缺内置样式）而失败的一步。先把字节渲染出来，
-       再写三个文件 ⇒ 失败时**盘上一个文件都不留**，而不是回 500 却留下两个孤儿
-       `.md`/`.html`（那种"接口说失败、盘上却有半份产物"最难查）。
-    2. 失败**转成可操作的错误码**（`docx_render_failed`，信息里带模板路径与所需样式名），
-       而不是让 FastAPI 回一句裸的 500。
+    ⚠ **2026-09-19（EXECUTION-PLAN 第 4 步）**：原第三条形态 **Word（`.docx`）已拆除**
+    （业主否决 Word/PPT 交付物，见 `docs/NOT-DOING.md` 第 1 条）⇒ 随之删掉的还有
+    "先渲染 docx 字节、再落盘三个文件"那条时序纪律与 `docx_render_failed` 错误码
+    ——**它们的存在理由（docx 是唯一会因外部模板而失败的一步）已经不存在**。
+    于是 `files`/`names` 现在恒为**两个**（`.md` / `.html`，顺序固定）。
     """
     model = build_report_blocks(project_id, title=title, query=query,
                                 conclusion_md=conclusion_md, limit=limit)
@@ -444,73 +430,18 @@ def write_research_report(project_id: str, *, title: str | None = None,
     out = {**{k: v for k, v in model.items() if k != "blocks"},
            "markdown": _to_markdown(blocks),
            "html": _to_html(blocks, title=str(model["title"]))}
-    try:
-        docx_bytes = _to_docx(blocks, title=str(model["title"]))
-    except Exception as e:  # noqa: BLE001 —— 见 docstring：转成**可操作**的错误码
-        raise KnowledgeStationError(
-            f"Word 版渲染失败（{type(e).__name__}: {e}）。若 `{_docx_template_path()}` 存在，"
-            "它必须保留内置样式 `Heading 1/2/3`、`List Bullet`（本报告只用这几种）；"
-            "删掉该模板即回落到默认模板。Markdown/HTML 未落盘（先渲染后落盘）",
-            code="docx_render_failed") from e
     stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
     base = f"研究报告-{_safe_name(out['title'])}-{stamp}"
     d = _exports_dir()
     md_path = d / f"{base}.md"
     html_path = d / f"{base}.html"
-    docx_path = d / f"{base}.docx"
     md_path.write_text(out["markdown"], encoding="utf-8")
     html_path.write_text(out["html"], encoding="utf-8")
-    docx_path.write_bytes(docx_bytes)
-    return {**out, "files": [str(md_path), str(html_path), str(docx_path)],
-            "names": [md_path.name, html_path.name, docx_path.name]}
+    return {**out, "files": [str(md_path), str(html_path)],
+            "names": [md_path.name, html_path.name]}
 
 
-# ---------------------------------------------------------------- 渲染（三种形态同一份源）
-
-def _to_docx(doc_blocks: list[tuple[str, Any]], *, title: str) -> bytes:
-    """把**同一份内容块**渲染成 Word（`.docx` 字节）。
-
-    §10.92（方案 §8：报告 = `python-docx`）。设计取舍：
-      · 只用**内容块六种类型**（h1/h2/h3/p/pre/ul）——标题走 `add_heading(level=…)`，
-        列表走内置 `List Bullet` 样式，代码块走等宽字体段落；**不**引入表格/图片/页眉
-        （内容模型里本来就没有，硬加等于再造一套内容）；
-      · 复用 `report_export._open_document("research-report")` 的**模板机制**：
-        `%APPDATA%/KnowledgeStation/templates/research-report.docx` 存在就用它当底
-        ⇒ 业主将来能用自己的版式（与"审查报告/问答依据"两条既有导出同一个约定）。
-        ⚠ **模板契约**：它必须保留内置样式 `Heading 1/2/3`、`List Bullet`
-        （`add_heading`/`add_paragraph(style=…)` 是按**样式名**查的，查不到就抛
-        `KeyError`）——缺样式会**大声失败**成 `docx_render_failed`，**不**静默降级成
-        没有小标题/没有项目符号的段落（降级出来的文件看着"成功"，实际丢了结构）；
-      · **不**手工设中文字体（与 `export_review_report_docx` 一致：交给 Word 的字体回退 +
-        模板；硬设字体名在没装该字体的机器上会静默换字，比不设更难查）；
-      · 返回**字节**而不是路径：落盘由调用方决定（测试里可以直接解析字节，不用碰磁盘）。
-    """
-    import io
-
-    from src.core.exports.report_export import _open_document
-    d = _open_document("research-report")
-    _ = title          # 标题本身是内容块里的第一个 h1；参数留着是为了将来做页眉/属性
-    for kind, payload in doc_blocks:
-        if kind == "h1":
-            d.add_heading(str(payload), level=1)
-        elif kind == "h2":
-            d.add_heading(str(payload), level=2)
-        elif kind == "h3":
-            d.add_heading(str(payload), level=3)
-        elif kind == "p":
-            d.add_paragraph(str(payload))
-        elif kind == "pre":
-            para = d.add_paragraph(str(payload))
-            for run in para.runs:
-                run.font.name = "Consolas"
-        elif kind == "ul":
-            for item in payload:
-                d.add_paragraph(str(item), style="List Bullet")
-    bio = io.BytesIO()
-    d.save(bio)
-    return bio.getvalue()
-
-
+# ---------------------------------------------------------------- 渲染（两种形态同一份源）
 def _to_markdown(doc: list[tuple[str, Any]]) -> str:
     lines: list[str] = []
     for kind, payload in doc:
