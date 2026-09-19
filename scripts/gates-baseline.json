@@ -1,12 +1,20 @@
 {
   "pytest_total": 2180,
-  "pytest_passed": 2177,
-  "pytest_skipped": 3,
+  "pytest_passed": 2176,
+  "pytest_skipped": 4,
   "runLive": false,
-  "skip_reasons": [
-    "reranker ģ��δ���أ�������ʵģ������",
-    "��ʵ���� GB30871��CI/�»�����",
-    "��ѡ������������ RUN_LIVE=1 ��ʵ�ܣ�ANOM-002 �ع���֤��"
+  "skip_sites": [
+    "tests/test_golden_set.py:31",
+    "tests/test_pipeline.py:218",
+    "tests/test_reranker.py:72",
+    "tests/test_update_channels.py:413"
   ],
-  "updatedAt": "2026-09-19T22:23:54"
+  "environmental_skip_sites": [
+    "tests/test_golden_set.py:31",
+    "tests/test_pipeline.py:218",
+    "tests/test_reranker.py:72",
+    "tests/test_update_channels.py:413"
+  ],
+  "note": "总账 = passed + skipped = 2180，棘轮按**总账**判（passed 本身随环境漂移：本机 2176/4，另一环境 2177/3）。判据的键是 **skip 站点**（ASCII、稳定），不是理由的中文散文——理由会随控制台编码变成乱码（上一版基线就是这么坏的）。environmental_skip_sites 是**环境类** skip（真实语料 / 模型未下载 / MinerU 真产物 / RUN_LIVE）：它们随环境出现或消失都不算回归；白名单**外**的**新**站点才算回归。加用例或改判据后用 -UpdateBaseline 重记。",
+  "updatedAt": "2026-09-19T22:47:00"
 }

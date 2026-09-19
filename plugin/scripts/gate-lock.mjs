@@ -36,6 +36,18 @@ function alive(pid) {
   }
 }
 
+/** 锁的**最长合理寿命**：门禁（全量）实测 ~7 分钟；超过就按陈旧处理。
+ *  ⚠ 复核（2026-09-19）指出 `run-gates.ps1` 有这个兜底、**这里没有** ⇒ 一边一套语义。
+ *  现在两边同值（都 6 小时），防的是 pid 复用/长命进程恰好占了这个号把门禁永久堵死。 */
+const LOCK_MAX_AGE_HOURS = 6
+
+function tooOld(lock) {
+  if (!lock?.startedAt) return false
+  const t = Date.parse(lock.startedAt)
+  if (Number.isNaN(t)) return false
+  return (Date.now() - t) > LOCK_MAX_AGE_HOURS * 3600 * 1000
+}
+
 export function readLock() {
   try {
     // ⚠ **剥 BOM**：PS 5.1 的 `Set-Content -Encoding utf8` 会写 BOM（复核 2026-09-19 实测），
@@ -64,19 +76,24 @@ export function readLock() {
  */
 export function acquireGateLock(mode) {
   const lock = readLock()
+  const stale = tooOld(lock)
   if (process.env.KS_GATES_LOCK_HELD === '1') {
     const sameRun = lock && lock.token && lock.token === process.env.KS_GATES_LOCK_TOKEN
     if (sameRun && alive(Number(lock.pid))) {
       return { ok: true, held: false, holder: lock, release() {} }
     }
-    if (!lock || !alive(Number(lock.pid))) {
-      // 父进程的锁已不在（被清/父已退）：不算再入，正常取锁。
+    if (!lock || stale || !alive(Number(lock.pid))) {
+      // 父进程的锁已不在（被清/父已退/已过期）：不算再入，正常取锁。
       return take(mode)
     }
     return { ok: false, held: false, holder: lock, release() {} }
   }
-  if (lock && alive(Number(lock.pid))) {
+  if (lock && alive(Number(lock.pid)) && !stale) {
     return { ok: false, held: false, holder: lock, release() {} }
+  }
+  if (lock && stale && alive(Number(lock.pid))) {
+    process.stderr.write(`（清掉一把**过期**的锁：pid=${lock.pid} 仍活着，但起于 ${lock.startedAt}，`
+      + `超过 ${LOCK_MAX_AGE_HOURS} 小时 ⇒ 按陈旧处理；若确有门禁在跑，这行就是误判）\n`)
   }
   return take(mode)
 }

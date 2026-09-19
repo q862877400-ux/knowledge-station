@@ -152,6 +152,8 @@ def segments_report(rows: list[dict[str, Any]] | None = None,
         `{declared, gained, numbers_gained, dead, unreachable_no_segments, sample_size, note}`
         - `declared`：声明了号段的渠道（含原样写法的号段，便于人回看自己填了什么）
         - `gained`：号段加法**真的**为每条渠道多带来多少个号（行为差异的量化）
+        - `numbers_gained`：上面那个字典的总和；**没给号表时是 `None` 而不是 `0`**
+          （"没量"与"量出来是 0"必须能分开读）
         - `dead`：声明的号段里**一个真号都不命中**的（含"库太小/该号段今天没料"）
         - `unreachable_no_segments`：**有适配器、今天任何真号都到不了、且没声明号段**的渠道
           —— 这就是 R6g 那 10 条，也是"要么补号段、要么如实标注为未来保留"的待办清单
@@ -212,7 +214,9 @@ def segments_report(rows: list[dict[str, Any]] | None = None,
     note = ("未给 standard_nos ⇒ `dead`/`gained` 判不准（本报告只按路由规则给出 reachable）；"
             "这不是「没有欠账」") if not sampled else ""
     return {"declared": declared, "gained": gained,
-            "numbers_gained": sum(gained.values()) if sampled else 0, "dead": dead,
+            # ⚠ **没给号表 ⇒ `None`，不是 `0`**（复核 2026-09-19 抓到：我嘴上说"一个数字都不给"，
+            #   代码却留着 `0` —— 而 `0` 会被读成"量过了、没有"，正是这里最想避免的那种谎）。
+            "numbers_gained": (sum(gained.values()) if sampled else None), "dead": dead,
             "unreachable_no_segments": unreachable,
             "sample_size": len(nos), "note": note}
 

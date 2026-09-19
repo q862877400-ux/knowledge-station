@@ -61,7 +61,11 @@ if (Test-Path $lockPath) {
     Write-Host "   确认它其实已经死了：Remove-Item `$env:TEMP\ks-gates.lock" -ForegroundColor DarkGray
     exit 3
   }
-  Write-Host "（清掉一个失效的锁：pid=$($prev.pid) 已不在）" -ForegroundColor DarkGray
+  if (-not $tooOld) {
+    # ⚠ 只在**真的因为 pid 不在**才打这句（复核 2026-09-19 抓到：清过期锁后又打"pid 已不在"，
+    #   而那个 pid 明明活着 —— 日志自相矛盾）。
+    Write-Host "（清掉一个失效的锁：pid=$($prev.pid) 已不在）" -ForegroundColor DarkGray
+  }
   Remove-Item $lockPath -Force -ErrorAction SilentlyContinue
 }
 # ⚠ 锁文件**必须无 BOM**：PS 5.1 的 `Set-Content -Encoding utf8` 会写 BOM，而 node 侧
@@ -87,6 +91,15 @@ $env:KS_GATES_LOCK_TOKEN = $lockToken
 #   真产品下次启动会去接管它）⇒ 在这里设一次，比"写进复核约定"可靠得多。
 $prevDataDir = $env:KS_DATA_DIR
 $env:KS_DATA_DIR = Join-Path ([System.IO.Path]::GetTempPath()) ("ks-gates-data-" + $PID)
+# ⚠ **输出编码必须钉死**（复核 2026-09-19 抓到棘轮"忽绿忽红"的根因）：Windows 控制台默认 936(GBK)，
+#   而 pwsh 用 `[Console]::OutputEncoding` 解码**子进程**的 stdout ⇒ python 的 UTF-8 中文
+#   （pytest 的 skip 理由）会变成 U+FFFD 乱码。乱码本身不影响计数，但**它曾经被写进基线**，
+#   于是"理由集"这条判据在不同 `PYTHONIOENCODING`/代码页下比对的是不同的字符串。
+#   ⇒ 全程强制 UTF-8（并把它传给 python），结束时恢复。
+$prevPyIo = $env:PYTHONIOENCODING
+$prevConsoleEnc = [Console]::OutputEncoding
+$env:PYTHONIOENCODING = 'utf-8'
+try { [Console]::OutputEncoding = [System.Text.Encoding]::UTF8 } catch { }
 
 $steps = @()
 function Add-Step([string]$name, [string]$exe, [string[]]$argv, [string]$workdir) {
@@ -183,9 +196,19 @@ try {
       if ($m.Success) { $pytestPassed = [int]$m.Groups[1].Value }
       $m2 = [regex]::Match($text, '(\d+) skipped')
       if ($m2.Success) { $pytestSkipped = [int]$m2.Groups[1].Value }
-      $reasons = @($out | Where-Object { "$_" -match '^SKIPPED\s' } |
-        ForEach-Object { ("$_" -replace '^\s*SKIPPED\s+\[\d+\]\s+', '') -replace '^[^:]*:\d+:\s*', '' })
-      $skipReasonsOfStep = @($reasons | Where-Object { $_ } | Sort-Object -Unique)
+      $reasons = @($out | Where-Object { "$_" -match '^\s*SKIPPED\s' } |
+        ForEach-Object { ("$_" -replace '^\s*SKIPPED\s+\[\d+\]\s+[^:]+:\d+:\s*', '').Trim() })
+      # ⚠ **判据的键是"skip 站点"（`tests/x.py:31`），不是理由的自然语言**（复核 2026-09-19）：
+      #   理由是中文散文，会随编码/代码页变成乱码；而且"环境类理由"（RUN_LIVE 没开、模型没下、
+      #   真产物不在）**本来就随环境变化**。站点是 ASCII、稳定、唯一标识那个 skipif。
+      #   ⚠ 解析要用**原行**取 `路径:行号`（第一版在"理由串"上砍第一个冒号 ⇒ 把行号砍掉了，
+      #   于是站点退化成文件名 ⇒ 与基线对不上，报出三条假红）。
+      $skipLines = @($out | Where-Object { "$_" -match '^\s*SKIPPED\s' })
+      $sites = @($skipLines | ForEach-Object {
+          $m = [regex]::Match("$_", '^\s*SKIPPED\s+\[\d+\]\s+(?<site>[^:]+:\d+)')
+          if ($m.Success) { $m.Groups['site'].Value -replace '\\', '/' }
+        } | Where-Object { $_ } | Sort-Object -Unique)
+      $skipReasonsOfStep = @($sites)
     }
     $ok = ($code -eq 0)
     $results += [pscustomobject]@{ name = $s.name; ok = $ok; code = $code
@@ -209,7 +232,8 @@ try {
   #     ② **不许出现基线里没有的 skip 理由**（环境性 skip 如 RUN_LIVE 已记在基线里，
   #        于是"换环境少跑一条"不再假红；而"某个依赖坏了导致新出现一批 skip"照样红）。
   $baselineDrop = $false
-  $skipReasons = @($results | Where-Object { $_.name -like 'pytest*' } | ForEach-Object { $_.skipReasons } |
+  $why = @()
+  $skipSites = @($results | Where-Object { $_.name -like 'pytest*' } | ForEach-Object { $_.skipReasons } |
     Where-Object { $_ } | Sort-Object -Unique)
   $totalRan = $null
   if ($null -ne $pytestPassed) { $totalRan = $pytestPassed + ([int]$pytestSkipped) }
@@ -218,33 +242,44 @@ try {
       $base = Get-Content $baselinePath -Raw | ConvertFrom-Json
       $baseTotal = [int]$base.pytest_total
       if ($baseTotal -le 0) { $baseTotal = [int]$base.pytest_passed + [int]$base.pytest_skipped }
-      $why = @()
       if ($totalRan -lt $baseTotal) {
         $why += ("总账 {0} < 基线 {1}（passed {2} + skipped {3}）" -f $totalRan, $baseTotal,
           $pytestPassed, $pytestSkipped)
       }
-      $knownReasons = @($base.skip_reasons)
-      $newReasons = @($skipReasons | Where-Object { $knownReasons -notcontains $_ })
-      if ($newReasons.Count -gt 0) {
-        $why += ("出现基线里没有的 skip 理由：{0}" -f ($newReasons -join ' / '))
+      # 环境类 skip 白名单（基线里声明）：它们**随环境出现/消失是正常的**，不当回归。
+      # 白名单**外**的**新**站点 ⇒ 红（有人新加了一条 skipif，或某个依赖坏了让用例开始 skip）。
+      $envSites = @($base.environmental_skip_sites)
+      $knownSites = @($base.skip_sites)
+      $newSites = @($skipSites | Where-Object { $knownSites -notcontains $_ -and $envSites -notcontains $_ })
+      if ($newSites.Count -gt 0) {
+        $why += ("出现基线里没有的 skip 站点（且不在环境白名单）：{0}" -f ($newSites -join ' / '))
       }
       if ($why.Count -gt 0) {
         Write-Host ""
         Write-Host ("⛔ **只涨不跌被破**：" + ($why -join '；')) -ForegroundColor Red
         $baselineDrop = $true
       } else {
-        $msg = "   pytest 总账 $totalRan ≥ 基线 $baseTotal（passed $pytestPassed / skipped $pytestSkipped），skip 理由全在基线里"
+        $msg = "   pytest 总账 $totalRan ≥ 基线 $baseTotal（passed $pytestPassed / skipped $pytestSkipped），"
+        $msg += "skip 站点全在基线或环境白名单内"
         Write-Host $msg -ForegroundColor Green
+        if ($totalRan -gt $baseTotal) {
+          Write-Host ("   （比基线多 $($totalRan - $baseTotal) 条 ⇒ 新增用例后请 -UpdateBaseline 记一次）") -ForegroundColor DarkGray
+        }
       }
     } else {
       Write-Host "   （还没有基线文件：用 -UpdateBaseline 记一次）" -ForegroundColor DarkGray
     }
     if ($UpdateBaseline) {
+      # ⚠ 键名与既有文件保持一致（`pytest_*` 前缀）——文档里曾写成 `{passed,skipped,total}`，
+      #   与真实文件不符（复核 2026-09-19 抓到）。
       @{ pytest_passed = $pytestPassed; pytest_skipped = $pytestSkipped; pytest_total = $totalRan
-         skip_reasons = $skipReasons; runLive = [bool]$env:RUN_LIVE
+         skip_sites = $skipSites
+         environmental_skip_sites = $(if ($null -ne $base -and $base.environmental_skip_sites) {
+             @($base.environmental_skip_sites) } else { @() })
+         runLive = [bool]$env:RUN_LIVE
          updatedAt = (Get-Date).ToString('s') } | ConvertTo-Json -Depth 4 |
         Set-Content -Path $baselinePath -Encoding utf8
-      Write-Host ("   基线已更新：总账=" + $totalRan + "（passed=" + $pytestPassed + " skipped=" + $pytestSkipped + "，skip 理由 " + $skipReasons.Count + " 条）") -ForegroundColor Yellow
+      Write-Host ("   基线已更新：总账=" + $totalRan + "（passed=" + $pytestPassed + " skipped=" + $pytestSkipped + "，skip 站点 " + $skipSites.Count + " 个）") -ForegroundColor Yellow
     }
   }
 
@@ -284,4 +319,7 @@ try {
   else { Remove-Item Env:\KS_GATES_LOCK_TOKEN -ErrorAction SilentlyContinue }
   if ($null -ne $prevDataDir) { $env:KS_DATA_DIR = $prevDataDir }
   else { Remove-Item Env:\KS_DATA_DIR -ErrorAction SilentlyContinue }
+  if ($null -ne $prevPyIo) { $env:PYTHONIOENCODING = $prevPyIo }
+  else { Remove-Item Env:\PYTHONIOENCODING -ErrorAction SilentlyContinue }
+  if ($null -ne $prevConsoleEnc) { try { [Console]::OutputEncoding = $prevConsoleEnc } catch { } }
 }

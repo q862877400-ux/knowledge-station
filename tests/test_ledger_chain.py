@@ -369,10 +369,15 @@ class Test号段报告:
         assert rep["sample_size"] == 1
 
     def test_没给号表就说判不准_不假装没欠账(self):
-        """**不给号表**（`[]`）⇒ `dead`/`gained` 一律不下结论，并在 `note` 里说清。"""
+        """**不给号表**（`[]`）⇒ `dead`/`gained` 一律不下结论，并在 `note` 里说清。
+
+        ⚠ 复核 2026-09-19 抓到：我嘴上说"一个数字都不给"，代码却把 `numbers_gained` 写成 `0`
+        —— 而 `0` 会被读成"量过了、没有"。现在它是 `None`（"没量"与"量出来是 0"必须能分开读）。
+        """
         rows = [self._seg("ch:ttbz", ["T/"])]
         rep = lc.segments_report(rows, [])
         assert rep["dead"] == [] and rep["gained"] == {}
+        assert rep["numbers_gained"] is None, "没给号表必须是 None，不能是 0"
         assert "T/" in rows[0]["segments_json"]
         assert "判不准" in rep["note"]
 

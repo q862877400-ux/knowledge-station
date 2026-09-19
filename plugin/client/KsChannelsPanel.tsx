@@ -225,6 +225,7 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
     const next = window.prompt(
       `改号段（${r.name}）——这条渠道管哪些标准号前缀？\n`
       + `多个用逗号分开；号段里的空格有意义，别用空格当分隔符（例：HJ, GB 50, T/）\n`
+      + `注意：区分大小写（写 hj 不会命中 HJ），写错会静默失效\n`
       + `留空则清空（= 不靠号段进链）：`,
       parseSegments(r.segments_json).join(', '))
     if (next === null) return                      // 取消

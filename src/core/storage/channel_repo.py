@@ -131,7 +131,7 @@ def check_segments(value: Any) -> list[str]:
     ⚠ 为什么要**出声拒绝**而不是"过滤掉坏项"：一个拼错的号段会**永不命中**，现场表现是
     "这条渠道明明在台账里、却总也不进链"——那正是"配置错伪装成渠道故障"。
     更狠的是它**静默**：所以形状错当场报错，而"写法合法但匹配不到任何号"由
-    `ledger_chain_report()` 的 `segments_dead` 点名（后者需要真库的号，属于报告不属于校验）。
+    `ledger_chain.segments_report()["dead"]` 点名（后者需要真库的号，属于报告不属于校验）。
     """
     if value is None:
         return []
