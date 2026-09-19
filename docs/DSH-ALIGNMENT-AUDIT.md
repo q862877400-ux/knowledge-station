@@ -36,6 +36,13 @@
 引擎门禁 4/4）；`kb-page-render` 冒烟 **23/23**（⚠ 首次写下的是 22/22 —— 就地更正，数字要回实测核）；
 `tool` 冒烟 **69/69**；`smoke` 全链 **26 套**（⚠ 首次写下"15 套"也是错的；2026-09-20 复核再点：第 2 步加了
 `smoke-build-purity.mjs` 之后是 26，补记于此）。
+⚠⚠ **再更正（2026-09-20 第三轮复核打回 r2/r7 时自己量的；同一类陈旧数第四次出现）**：上面那两个"当前值"
+**又旧了**，以本机实测为准：`pytest` **2143 passed / 3 skipped（总账 2146）** —— 出处
+`scripts/gates-baseline.json`（`pytest_passed:2143` / `pytest_skipped:3` / `pytest_total:2146`，
+`updatedAt 2026-09-20T01:54:14`，HEAD `d49b1ac` 的 `-Full`；第 7 步数据轮的 **+2** 条用例把总账从 2144 推到 2146）；
+`smoke` 全链 **29 套** —— 出处 `plugin/scripts/smoke-all.mjs` 的 `SUITES` **实数**（5c 加 `smoke-ui-scale`、
+第 6 步 A 批加 `smoke-cancel`/`smoke-tool-concurrency` ⇒ 26 → 29）。**教训**：这类"当前值"要么现量、
+要么写明**测量时点 + 出处**；抄上一次的数一定会烂（这条今天已踩第四次）。
 
 ---
 
