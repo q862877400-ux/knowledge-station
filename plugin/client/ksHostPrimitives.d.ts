@@ -83,6 +83,20 @@ declare module '@deepseek-ai/dsh-client-ui-primitives' {
   export const IconEllipsisOutline16: ComponentType<DshIconProps>
   /** 筛选条的行首图标（P1-4；语义 = "这一排是筛选"，同法核过宿主 `icons/index.tsx`）。 */
   export const IconInspectOutline12: ComponentType<DshIconProps>
+  /**
+   * P2 头条（2026-09-20）新用的 4 个**行内文件图标** + 1 个搜索框放大镜。
+   * 五个名字逐字核过宿主检出 `packages/client/ui-primitives/lib/index.js`（**const 定义与
+   * export 列表都在**，一条命令核的）：
+   *   `const IconShieldOutline16 = ` / `export { … IconShieldOutline16 … }` 同理其余四个。
+   * ⚠ 为什么必须核：这个包在我们的构建里是 **external** ⇒ 名字写错**不会构建失败**，
+   *   只会在真机运行时变成 undefined（图标整块消失），见本文件顶部那条边界。
+   *   `src/index.ts:77` 的 `export * from './icons/index.tsx'` 把它们抬到包根 ⇒ 可 import。
+   */
+  export const IconShieldOutline16: ComponentType<DshIconProps>
+  export const IconChecklistOutline14: ComponentType<DshIconProps>
+  export const IconListPenOutline16: ComponentType<DshIconProps>
+  export const IconArchiveOutline20: ComponentType<DshIconProps>
+  export const IconSearchOutline16: ComponentType<DshIconProps>
 
   /** 宿主 Menu 的一项。 */
   export interface DshMenuItem {

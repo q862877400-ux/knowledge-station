@@ -37,8 +37,11 @@
  *                    ⚠ **它不能用来判 `position:sticky`**：`--screenshot` 在这种无头模式下
  *                      是"整页截图"，滚动位置不进产物（5c 实测：加 scrollTo 后图里只剩空白）。
  *                      批量条位置只能在**真宿主页面**里看，见 docs/UI-BASELINE.md 第五节。
- *   --interact <a,b> 可选：kb-detail / kb-select / kb-filter / kb-empty / kb-empty-folder /
- *                    kb-tags-view / ingest-batch / cap-dialog
+ *   --interact <a,b> 可选：kb-detail / kb-select / kb-filter / kb-filter-empty / kb-search /
+ *                    kb-empty / kb-empty-folder / kb-tags-view / ingest-batch / cap-dialog
+ *                    ⚠ kb-search 是 P2 头条（2026-09-20）补的：往列表上方的搜索框里打字，
+ *                      报出"行数 初始 → 按标准号 → 按名称 → 不存在的串 → 清空"五步，
+ *                      用来证明那个框**真的过滤**（不是画个壳）。
  *                    ⚠ kb-empty-folder 是 P1-7 补的：点一个"树里有、文件数为 0"的叶子 ⇒ 拿到
  *                      **真的**空态（原来的 kb-empty 点树根，页面仍有文件，p05-kb-520-empty.png
  *                      就是那么来的、名不副实）。kb-filter 是 P1-4 的：点「已废止」⇒ 看筛选
@@ -301,6 +304,40 @@ for (const how of interacts) {
       + ` → 行数 ${before} → ${q('.ks-item').length}`
       + `，空态卡 ${q('.ks-empty-card').length} 张`
       + `，空态标题「${q('.ks-empty-t').map((el) => el.textContent).join('|')}」`)
+  } else if (how === 'kb-search') {
+    // P2 头条验收：**搜索框真的过滤**（不是画个壳）。
+    // 分三步取证：① 输入只命中 1 行的串 ⇒ 行数真的变 1；② 只命中名称的串 ⇒ 也是 1；
+    // ③ 清空 ⇒ 恢复原行数。受控 input 必须走**原生 setter**（直接 el.value = x 会被
+    // React 的 value tracker 判成"没变化"而不触发 onChange —— 渲染级冒烟第一版就是这么失败的）。
+    const setInput = async (el, value) => {
+      const nativeSetter = Object.getOwnPropertyDescriptor(dom.window.HTMLInputElement.prototype, 'value').set
+      nativeSetter.call(el, value)
+      el.dispatchEvent(new dom.window.Event('input', { bubbles: true }))
+      await flush()
+    }
+    const box = q('.ks-search input')[0]
+    if (!box) {
+      notes.push('kb-search: 没找到 .ks-search 里的输入框')
+    } else {
+      const before = q('.ks-item').length
+      await setInput(box, 'GB 50016-2014')
+      const byNo = q('.ks-item').length
+      await setInput(box, '喷水')
+      const byName = q('.ks-item').length
+      await setInput(box, '搜索一个不存在的串')
+      const none = q('.ks-item').length
+      const emptyCard = q('.ks-empty-t').map((el) => el.textContent).join('|')
+      await setInput(box, '')
+      const after = q('.ks-item').length
+      notes.push(`kb-search: 行数 初始 ${before} → 标准号「GB 50016-2014」${byNo}`
+        + ` → 名称「喷水」${byName} → 不存在「搜索一个不存在的串」${none}（空态「${emptyCard}」）`
+        + ` → 清空 ${after}`)
+      // 收尾**停在"筛出 1 行"的状态**（不是清空态）：这样这张图本身就是"搜索真的生效"的像素证据
+      // （图上搜索框里有字、表里只剩 1 行）。清空那一步的证据在上面那条 note 里（行数回到 before）。
+      await setInput(box, '喷水')
+      notes.push(`kb-search（收尾）: 搜索框留在「喷水」⇒ 图上是 1 行`
+        + `（体量 ${q('.ks-item').length} / 表头 ${q('.ks-lhead').length}）`)
+    }
   } else if (how === 'kb-select') {
     const box = q('input[type=checkbox]')[0]
     notes.push(`kb-select: ${await click(box) ? '点了全选' : '没找到勾选框'}`)
@@ -396,7 +433,9 @@ const html = `<!doctype html>
                 '.ks-batch','.ks-lhead','.ks-page-title','.ks-kb-tn','.ks-item-tags','.ks-item-add',
                 '.ks-cap-engine','.ks-knob-label','.ks-kb-banner','.ks-field','.ks-tagrow',
                 '.ks-list','.ks-filters','.ks-chip','.ks-status','.ks-item-more','.ks-item-title','.ks-item-sub',
-                '.ks-check','.ks-item-meta','.ks-batch-btn','.ks-empty-card','.ks-empty-t','.ks-empty-d'];
+                '.ks-check','.ks-item-meta','.ks-batch-btn','.ks-empty-card','.ks-empty-t','.ks-empty-d',
+                '.ks-search','.ks-fileico','.ks-list-cap','.ks-cell','.ks-col-tags','.ks-col-date','.ks-col-status',
+                '.ks-lhead-col','.ks-tag'];
     var out = {};
     sels.forEach(function (s) {
       var els = document.querySelectorAll(s);
@@ -477,6 +516,21 @@ const html = `<!doctype html>
       out['.ks-batch#fit'] = { n: kids.length, x: Math.round(br.x), y: Math.round(br.width), w: lastKid ? Math.round(lastKid.right - barInnerRight) : 0,
                                h: Math.round(br.height), fs: '', lh: '', pad: (isFinite(pr) ? String(Math.round(pr)) : ''),
                                gap: '', radius: '' };
+    }
+    // 表格列对齐（P2 头条，2026-09-20）：**表头行与数据行的 computed 列模板必须逐字相同**。
+    // 这是"列对齐"的唯一机械证据（jsdom 里量不到网格），所以放在真 Chrome 的这段脚本里量。
+    // 借字段名：lh = 表头行的 grid-template-columns，pad = 第一数据行的（同名复用，见 #cards 的先例）。
+    // n = 这一行里 cell 的个数（两个档都应是 5：窄档是隐藏两列，不是删 DOM）。
+    var lhead = document.querySelector('.ks-lhead');
+    var firstRow = document.querySelector('.ks-item');
+    if (lhead) {
+      var lcs = getComputedStyle(lhead);
+      var rcs = firstRow ? getComputedStyle(firstRow) : null;
+      var ln = lhead.children.length;
+      var rn = firstRow ? firstRow.children.length : 0;
+      out['#cols'] = { n: ln, x: rn, y: 0, w: 0, h: 0, fs: '',
+                       lh: lcs.gridTemplateColumns, pad: rcs ? rcs.gridTemplateColumns : '(没有数据行)',
+                       gap: lcs.columnGap || lcs.gap, radius: '' };
     }
     document.title = 'h=' + document.documentElement.scrollHeight + '|m=' + JSON.stringify(out);
   } catch (e) {

@@ -16,6 +16,20 @@
  * 2. 标签**可跨大文件夹定义**（标签视图里每行显示它覆盖了哪些文件夹）；
  * 3. 标签下**可以直接起对话**（标签行上有「在此标签下提问」，并带检索语法输入）；
  * 4. **知识库界面不做搜索**（这一页没有搜索框；搜索发生在"提问"那一侧）；
+ *    ⚠⚠ **2026-09-20 就地翻案（P2 头条，本轮任务书要求）**：本页现在**有**一个搜索框。
+ *    留痕（本仓规矩：错话保留 + 更正在后，不许悄悄删）：
+ *      · **曾如此**：业主 2026-09-19 的 13 条里第 4 条明确"知识库界面不做搜索"，
+ *        当时连**断言**都钉死了（`smoke-kb-page-render.mjs` 的 9 号断言"本页没有搜索框"）。
+ *      · **现在**：本轮任务书直接要求"列表上方加一个搜索框（宿主 Input），**必须真的过滤**
+ *        （按标准号或名称）"，并给了验收（输入只命中 1 行的串 ⇒ 行数真的变成 1；清空 ⇒ 恢复）。
+ *      · **口径的差别（不拿它当挡箭牌，只是把事实写清）**：参照 WeKnora 那个框是
+ *        "搜索**文档名称**…"的**本地列表过滤**（只筛已加载的这一列），**不是**语料级检索；
+ *        我们做的也是这一种（`useMemo` 里对 `no`/`name` 做 includes，**一个接口都没调**）。
+ *      · **旧断言没有"绕过去"，是被换成更强的**：9 号断言（数 placeholder 里有没有"搜索"）
+ *        ⇒ 换成"输入只命中 1 行的串，行数真的变 1；清空真的恢复"（行为级）。
+ *        见 `plugin/scripts/smoke-kb-page-render.mjs` 的 9/9b/9c 三条。
+ *      · ⚠ **需要业主复核**：这条翻掉了他的原话，若他不同意，删掉 `.ks-search` 那一段
+ *        并把断言换回去即可（改动面：本文件 + ksGuideStyles.ts + 渲染级冒烟）。
  * 5. 只留**一个「＋ 新建」**按钮（下拉里是"新建文件夹 / 导入文件"）；
  * 6. 「公司制度」这类**自建夹与自带两棵树平级**（三段式布局里排在树下面同一列）；
  * 7. 详情里加**发布日期 / 生效日期 / 废止日期**；
@@ -40,7 +54,7 @@
  */
 
 import { useMemo, useState, type ReactNode } from 'react'
-import { Button, Checkbox, IconChevronDownOutline14, IconEllipsisOutline16, IconFolderOpenOutline16, IconInfoOutline14, IconInspectOutline12, IconPlusOutline16, IconTrashOutline16, Input, Menu, Pill } from '@deepseek-ai/dsh-client-ui-primitives'
+import { Button, Checkbox, IconArchiveOutline20, IconChecklistOutline14, IconChevronDownOutline14, IconEllipsisOutline16, IconFolderOpenOutline16, IconInfoOutline14, IconInspectOutline12, IconListPenOutline16, IconPlusOutline16, IconSearchOutline16, IconShieldOutline16, IconTrashOutline16, Input, Menu, Pill } from '@deepseek-ai/dsh-client-ui-primitives'
 
 import { ensureKsStyles } from './ksGuideStyles'
 import { KsCapabilityPage } from './KsCapabilityPage'
@@ -111,8 +125,67 @@ const FILTERS: readonly { readonly id: string; readonly text: string; readonly t
   { id: 'withdrawn', text: '已废止', test: (d) => d.status === 'withdrawn' || d.status === 'superseded' },
 ]
 
-/** 自带「标准」树（层级名取自 `doc_catalog.py` 的权威 CCS 表，不是编的）。 */
-const STD_TREE: readonly MockNode[] = [
+/**
+ * 表格的**列定义**（P2 头条，2026-09-20）—— 表头与每一行**共用这一份**。
+ *
+ * 为什么要有这个常量（而不是表头写一遍、行里再写一遍）：P2 头条的验收就是"列对齐"，
+ * 而"各写一套"正是列错位的唯一来源。这里 `COLUMNS` 是**列身份**的单一所有者：
+ * 表头 `COLUMNS.map(...)`、行 `COLUMNS.map(...)`，两边的 cell 类名序列**必然逐字相同**；
+ * 列**宽度**的单一所有者是 `.ks-list` 上的 `--ks-cols`（表头与行都只写
+ * `grid-template-columns:var(--ks-cols)`，见 ksGuideStyles.ts）。
+ * 渲染级冒烟据此断言"表头 cell 类名序列 === 行 cell 类名序列"（结构性，不是字符串级）。
+ *
+ * 列**只按页面里真有的字段定**（`MockDoc`），对照参照 WeKnora `23` 的 6 列：
+ *   | 参照列 | 我们 | 来自哪个字段 |
+ *   |---|---|---|
+ *   | 文件名 | ✔ 文件名（两行：名 + 标准号） | `name` / `no` |
+ *   | 标签   | ✔ 标签（行内可见 chip） | `tags` |
+ *   | 状态   | ✔ 效力 | `status` |
+ *   | 更新时间 | ✔ 生效日期（**不冒充"更新时间"**） | `effective` |
+ *   | 来源 / 大小 | ✗ **没做**：我们没有这两个字段，不许编 |
+ * 发布日期 / 废止日期 仍在详情卡里（那是业主点名要的三个日期，不塞进表里抢宽度）。
+ */
+const COLUMNS = [
+  { key: 'name', cls: 'ks-col-name', head: '文件名' },
+  { key: 'status', cls: 'ks-col-status', head: '效力' },
+  { key: 'date', cls: 'ks-col-date', head: '生效日期' },
+  { key: 'tags', cls: 'ks-col-tags', head: '标签' },
+  // 行尾操作列：**没有列头**（参照里它也是 hover 才出现的三个点，不占表头文案）
+  { key: 'more', cls: 'ks-col-more', head: '' },
+] as const
+
+/** `COLUMNS` 的键联合类型（让 `renderCell` 的 switch 是穷尽的）。 */
+type ColKey = (typeof COLUMNS)[number]['key']
+
+/**
+ * 行内**文件图标**（P2 头条）：从**已有字段 `no`** 推出来的呈现档 ——
+ * **没有新字段、没有编数据**（不是"来源/大小"那种我们没有的东西）：
+ *   `no === ''`      → 法律法规（法律/行政法规本来就没有标准号）→ 盾
+ *   `no` 以 GB 开头  → 国家标准/行业标准（一份条款清单）        → 清单
+ *   `no` 以 KS- 开头 → 公司制度 / 内部规程（写出来的文本）      → 文档+笔
+ *   其余（QR-…）     → 资料 / 记录（归档件）                    → 归档盒
+ * ⚠ 四个字形都是**宿主的真实导出**，逐个在检出 `ui-primitives/lib/index.js` 里核过
+ *   "const 定义 + export 列表"都在（这个包是 external，名字写错**不会构建失败**、
+ *   只会运行时 undefined ⇒ 必须读产物确认，见 ksHostPrimitives.d.ts 的那条边界）。
+ * ⚠ 它是**装饰性**的（同一目录下常常四行同形 —— 参照的三行也同形），作用是扫读锚点，
+ *   不是"靠图标区分类型"；类型文字在 `title=` 里，鼠标停一下能看到。
+ */
+function docGlyph(no: string): ReactNode {
+  if (no === '') return <IconShieldOutline16 />
+  if (/^GB/i.test(no)) return <IconChecklistOutline14 />
+  if (/^KS-/i.test(no)) return <IconListPenOutline16 />
+  return <IconArchiveOutline20 />
+}
+
+/** 图标档的**中文说明**（挂在 `title=` 上，不占用行内一列宽度）。 */
+function docGlyphLabel(no: string): string {
+  if (no === '') return '法律法规'
+  if (/^GB/i.test(no)) return '标准'
+  if (/^KS-/i.test(no)) return '公司制度 / 规程'
+  return '资料 / 记录'
+}
+
+/** 自带「标准」树（层级名取自 `doc_catalog.py` 的权威 CCS 表，不是编的）。 */const STD_TREE: readonly MockNode[] = [
   {
     key: 'P 土木、建筑',
     name: 'P 土木、建筑',
@@ -284,6 +357,13 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
   const [menuFor, setMenuFor] = useState<string | null>(null)
   /** 状态筛选（P1-4）：真的作用在 `listed` 上，不是画个壳。 */
   const [filter, setFilter] = useState('all')
+  /**
+   * 列表搜索串（P2 头条，2026-09-20）。
+   * ⚠ 这是**本地列表过滤**（只筛当前目录已加载的行，按 `no`/`name` 做 includes），
+   *   **不是**语料检索：一个接口都没调。口径与参照 WeKnora 的"搜索文档名称…"一致；
+   *   与业主 2026-09-19「知识库界面不做搜索」的关系见本文件顶部第 4 条的**翻案留痕**。
+   */
+  const [search, setSearch] = useState('')
   const [newOpen, setNewOpen] = useState(false)
   const [open, setOpen] = useState<ReadonlySet<string>>(
     () => new Set(['P 土木、建筑', 'C 医药、卫生、劳动保护', 'Z 环境保护', '法律', '行政法规']),
@@ -303,7 +383,18 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
   const inFolder = useMemo(() => docs.filter((d) => d.folder === folder), [docs, folder])
   /** 筛选应用在它基础上（P1-4 的"真的作用在页面状态上"就是这个 useMemo）。 */
   const filterTest = (FILTERS.find((f) => f.id === filter) ?? FILTERS[0]).test
-  const listed = useMemo(() => inFolder.filter((d) => filterTest(d)), [inFolder, filterTest])
+  /**
+   * 搜索串（P2 头条）：**大小写不敏感**、按 `no` **或** `name` 命中（任务书的验收口径）。
+   * 空白串 = 不筛（用户清空输入框就恢复全部）。
+   */
+  const needle = search.trim().toLowerCase()
+  /** 搜索真的作用在**页面状态**上：行数跟着变（渲染级冒烟按"行数"断言，不按有没有那个框）。 */
+  const hitSearch = (d: MockDoc): boolean => needle === ''
+    || d.no.toLowerCase().includes(needle) || d.name.toLowerCase().includes(needle)
+  const listed = useMemo(
+    () => inFolder.filter((d) => filterTest(d) && hitSearch(d)),
+    [inFolder, filterTest, needle],
+  )
   const current = listed.find((d) => d.id === openDoc) ?? null
 
   /**
@@ -313,6 +404,17 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
    */
   const pickFilter = (id: string): void => {
     setFilter(id)
+    setSelected(new Set<string>())
+  }
+
+  /**
+   * 改搜索串 ⇒ **也清空选择**（P2 头条；任务书原话"搜索/筛选变化即清空选择"）。
+   * 与 pickFilter 同一个理由：搜索把行筛没了之后，选择还指着看不见的行。
+   * ⚠ 这里**不清 `openDoc`**（与 pickFilter 保持一致）：详情卡自己按 `listed` 取
+   *   `current`，行被筛掉时它自然回落到"点 ⋮ → 详情"的提示，不需要额外状态。
+   */
+  const pickSearch = (value: string): void => {
+    setSearch(value)
     setSelected(new Set<string>())
   }
 
@@ -586,106 +688,166 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
             </div>
           </div>
 
-          {/* 中：文件列表（无搜索框 —— 你明确说这一页不做搜索） */}
+          {/* 中：**真表格**（P2 头条，2026-09-20）
+              —— 列头 + 列对齐 + 行内文件图标 + 列表上方的搜索框。
+              参照 WeKnora `23-kb-detail-list-1440.png` 是一张 6 列真表格（列头 + 行内图标 +
+              行内可见 chip + 上方搜索框）；我们**抄结构不抄尺寸**（行高仍 52、表头 40）。
+              ⚠ 搜索框这一条的翻案留痕见本文件顶部第 4 条（业主 2026-09-19 曾说"这一页不做搜索"）。 */}
           <div className="ks-main">
-            {/* ── 列表 = **一个容器**（P1-2/P1-8，2026-09-20） ──
-                改前：.ks-lhead 只有一条 0.5px 下边框，4 个 .ks-item 是 .ks-main 的**直接子元素**
-                （DOM 裸行）⇒ 页面上量不到任何竖边。现在表头 + 全部行都在这层里：
-                1px 外框 + 圆角 10 + bg-base 底 + 表头底色、行间 1px 分隔线。
-                ⚠ 空态卡与批量条**不在**这个盒子里（一个说"这里没有行"，一个是浮层）。 */}
-            <div className="ks-list">
-            <div className="ks-lhead">
-              <Checkbox
-                checked={allChecked}
-                onChange={toggleAll}
-                label={allChecked ? '取消全选' : '全选'}
-                title={`全选本文件夹的 ${String(listed.length)} 篇`}
-              />
+            {/* 列表题头：原来挂在 .ks-lhead 里（表头变成**真列头行**之后它就不该再待在那儿，
+                否则"文件名"列头与目录名抢同一个格子）。信息一条没少，只是上移一行。 */}
+            <div className="ks-list-cap">
               <span className="ks-lhead-name ks-kb-grow" title={folder}>{folder}</span>
               <span className="ks-kb-hint">
                 {listed.length} 篇{selected.size > 0 ? `（已选 ${String(selected.size)}）` : ''}
               </span>
             </div>
 
+            {/* 搜索框（P2 头条）：宿主 `Input` + 16px 放大镜（参照那个框左侧就是一个 16px 放大镜）。
+                ⚠ 它**真的过滤**：`listed` 由 `useMemo` 按 `no`/`name` 算（见 hitSearch），
+                  不是画个壳 —— 验收就是"输入只命中 1 行的串 ⇒ 行数真的变 1；清空 ⇒ 恢复"。
+                ⚠ 它是**本地列表过滤**（只筛当前目录已加载的行，一个接口都没调）；
+                  与业主"知识库界面不做搜索"的关系见文件顶部第 4 条的翻案留痕。 */}
+            <span className="ks-search">
+              <Input
+                icon={<IconSearchOutline16 />}
+                value={search}
+                placeholder="搜索标准号或名称…"
+                aria-label="在文件列表里按标准号或名称过滤（本地过滤，不检索语料）"
+                onChange={(event) => { pickSearch(event.target.value) }}
+              />
+            </span>
+
+            {/* ── 列表 = **一个容器**（P1-2/P1-8，2026-09-20；P2 头条把它变成真表格） ──
+                容器里是"**列头行 + 全部行**"，两者共用 `.ks-list` 上的 `--ks-cols`
+                （列宽的唯一所有者）⇒ 列必然对齐。
+                ⚠ 空态卡、搜索框、批量条**不在**这个盒子里。 */}
+            <div className="ks-list">
+            {/* 列头行：**一行 5 个 cell**，与行同构（同一份 `COLUMNS`） */}
+            <div className="ks-lhead">
+              {COLUMNS.map((col) => (
+                <div className={`ks-cell ${col.cls}`} key={col.key}>
+                  {col.key === 'name' ? (
+                    <Checkbox
+                      checked={allChecked}
+                      onChange={toggleAll}
+                      label={allChecked ? '取消全选' : '全选'}
+                      title={`全选本文件夹的 ${String(listed.length)} 篇`}
+                    />
+                  ) : null}
+                  {col.head === '' ? null : <span className="ks-lhead-col">{col.head}</span>}
+                </div>
+              ))}
+            </div>
+
             {listed.map((doc) => {
               const st = STATUS[doc.status]
-              /**
-               * 第 2 行的**元数据**：只用页面里**已经有的字段**拼（`MockDoc.no` / `effective`）
-               * —— 不编描述、不编来源。占位数据的性质已由页首"UI 先行"告知条讲清楚，
-               * 这里再写一句"示例文案"只会把行塞满；"不编得像真数据"的做法就是**只复述已有字段**。
-               * 法规类没有标准号（no === ''）⇒ 只显示生效日期。
-               */
-              const meta = [doc.no === '' ? '' : doc.no, `生效 ${doc.effective}`]
-                .filter((s) => s !== '').join(' · ')
               const isOpen = menuFor === doc.id
+              /**
+               * 一个 cell 的内容（`COLUMNS.map` 逐列取）。**列身份**由 `COLUMNS` 定义、
+               * 列宽由 `.ks-list` 的 `--ks-cols` 定义 ⇒ 表头与行的对齐是**结构保证**的。
+               */
+              const cellFor = (key: ColKey): ReactNode => {
+                switch (key) {
+                  case 'name':
+                    return (
+                      <>
+                        {/* 行内**文件图标**（P2 头条）：从 `no` 推出的呈现档，见 docGlyph 的注释。
+                            ⚠ 位置只能在勾选框**之前**：文件名**就是**宿主 Checkbox 的 label
+                              （Checkbox.tsx 原文"visible and accessible label"）⇒ 名字与勾选框
+                              是同一个元素，图标插不进它们中间。参照是 [勾选][图标][名字]，
+                              我们是 [图标][勾选+名字] —— 这是宿主原语给的形状，不是没做。 */}
+                        <span className="ks-fileico" title={docGlyphLabel(doc.no)}>{docGlyph(doc.no)}</span>
+                        {/* 文件名**就是** Checkbox 的 label（可访问名 = 文件名，且只渲染一次）。
+                            ⚠ **整行可点：未做（不是做不了）** —— 2026-09-20 复核打回更正（B6）：
+                              可见 label 只否掉了"整行无差别再吃一次 click"这一种写法（会与
+                              "点勾选框 = 勾选"打架）；正当做法至少三条：① 行 onClick +
+                              event.target.closest('label,input,button') 排除；② onClick 只绑文件名列；
+                              ③ Checkbox 传 sr-only label + 独立的文件名元素（③ 未核宿主是否支持）。
+                              代价见 docs/UI-BASELINE.md 5f 三处留痕第 1 条；登记在
+                              docs/research/weknora-ui-vs-ours.md §8.1 的 P2-2。 */}
+                        <Checkbox
+                          className="ks-check"
+                          checked={selected.has(doc.id)}
+                          onChange={(next) => { toggleOne(doc.id, next) }}
+                          label={doc.name}
+                          title={doc.no === '' ? doc.name : `${doc.no} ${doc.name}`}
+                        />
+                        {/* 文件名列的第 2 行 = **标准号**（真字段 `no`；法规没有号就按全站约定给破折号）。
+                            ⚠ 参照的文件名列也是两行（文件名 + 描述）；我们**没有描述字段**
+                              ⇒ 第 2 行只复述已有的 `no`，不编一句像描述的话。 */}
+                        <span className="ks-item-sub">
+                          <span className="ks-item-meta">{doc.no === '' ? '—' : doc.no}</span>
+                        </span>
+                      </>
+                    )
+                  case 'status':
+                    return <span className={st.cls}>{st.text}</span>
+                  case 'date':
+                    return <span className="ks-kb-hint">{doc.effective}</span>
+                  case 'tags':
+                    /**
+                     * 标签列 = **行内可见的 chip**（P2 头条要的"行内可见 chip"）。
+                     * ⚠ 只显示前 2 个 + `＋N`（多出来的用计数，不换行、不撑列）；
+                     *   全部标签仍在 `⋮ → 标签：…`（只读项）与右侧详情卡里。
+                     * ⚠ chip 是**纯展示 span**（不是 button）：做成可点会把行内可见控件从 3 提到 4，
+                     *   而"≤3"是一条**真控件口径**的护栏（复核变异 M2 证明过旧口径可绕过）
+                     *   ⇒ 不为了好看去放宽它。加标签的入口仍在行尾「⋮」（见菜单项"＋标签"）。
+                     */
+                    return doc.tags.length === 0 ? <span className="ks-kb-hint">—</span> : (
+                      <>
+                        {doc.tags.slice(0, 2).map((t) => <span className="ks-tag" key={t}>{t}</span>)}
+                        {doc.tags.length > 2 && <span className="ks-kb-hint">＋{doc.tags.length - 2}</span>}
+                      </>
+                    )
+                  case 'more':
+                    return (
+                      /* 行尾「⋮」溢出菜单（P1-1）：常驻的「＋标签」与「详情」收进这里
+                         ⇒ 行内可见控件保持 **3 个**（勾选框 + 状态徽章 + ⋮）。 */
+                      <span className="ks-item-more">
+                        <Menu
+                          open={isOpen}
+                          portal
+                          autoFocus
+                          align="end"
+                          items={[
+                            { id: 'detail', label: '详情' },
+                            { id: 'tag', label: '＋标签' },
+                            { id: 'tags', label: `标签：${doc.tags.length === 0 ? '（无）' : doc.tags.join('、')}`, disabled: true },
+                          ]}
+                          onClose={() => { setMenuFor(null) }}
+                          onSelect={(id) => {
+                            setMenuFor(null)
+                            if (id === 'detail') setOpenDoc(openDoc === doc.id ? null : doc.id)
+                            if (id === 'tag') {
+                              setDocs((prev) => prev.map((d) => (d.id === doc.id && !d.tags.includes('待归类')
+                                ? { ...d, tags: [...d.tags, '待归类'] }
+                                : d)))
+                            }
+                          }}
+                          anchor={(
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              aria-haspopup="menu"
+                              aria-expanded={isOpen}
+                              aria-label={`${doc.name} 的更多操作`}
+                              title="更多操作（详情 / 加标签）"
+                              onClick={() => { setMenuFor(isOpen ? null : doc.id) }}
+                            >
+                              <IconEllipsisOutline16 />
+                            </Button>
+                          )}
+                        />
+                      </span>
+                    )
+                }
+              }
               return (
                 <div className={openDoc === doc.id ? 'ks-item ks-item-on' : 'ks-item'} key={doc.id}>
-                  {/* 第 1 行 = 勾选框 + 文件名。
-                      ⚠ 文件名**就是** Checkbox 的 label —— 宿主 Checkbox 的 label 是"可见且可访问"
-                        的那一个（Checkbox.tsx 原文），所以它天然把文件名渲染出来；再另起一个
-                        .ks-item-title 就会把名字显示两遍（第一版就是这样，离屏图里一眼看到）。
-                      ⚠ 行的 label 仍然只说明"怎么选"（可访问名 = 文件名由 Checkbox 负责），
-                        行的 title= 说明点击语义在「⋮」里 —— **整行可点：未做（不是做不了）**。
-                        ⚠ 2026-09-20 复核打回更正（B6）：原注释写"因为整行不可点（label 与整行可点冲突）"，
-                          把最朴素的写法（裸 onClick 挂整行）会打架说成了"做不了"，过宽。
-                          label 是可见且可访问文字 ⇒ 只有"整行无差别再吃一次 click"会打架；
-                          正当做法至少三条：① 行 onClick + event.target.closest('label,input,button') 排除；
-                          ② onClick 只绑文件名那一列；③ Checkbox 传 sr-only label + 独立的文件名元素
-                          （③ 依赖宿主是否支持 sr-only label，**未核**）。各自代价与"为什么这轮不做"
-                          写在 docs/UI-BASELINE.md 5f 的三处留痕第 1 条，并登记为 P2 候选
-                          （docs/research/weknora-ui-vs-ours.md §8.1 的 P2-2）。 */}
-                  <Checkbox
-                    className="ks-check"
-                    checked={selected.has(doc.id)}
-                    onChange={(next) => { toggleOne(doc.id, next) }}
-                    label={doc.name}
-                    title={doc.no === '' ? doc.name : `${doc.no} ${doc.name}`}
-                  />
-                  <span className="ks-item-sub">
-                    <span className="ks-item-meta">{meta}</span>
-                    <span className={st.cls}>{st.text}</span>
-                  </span>
-                  {/* 行尾「⋮」溢出菜单（P1-1）：原来常驻的「＋标签」与「详情」两个 Button
-                      收进这里 ⇒ 行内可见控件从 5 个降到 **3 个**（勾选框 + 状态徽章 + ⋮）。
-                      ⚠ 行内标签**不再常驻显示**（它们进菜单的"标签：…"只读项）；
-                        "名字后面常驻一个＋标签"这条需求改由「⋮」承担 —— 清单 P1-1 的原话
-                        就是"次要动作收进行尾溢出菜单"。 */}
-                  <span className="ks-item-more">
-                    <Menu
-                      open={isOpen}
-                      portal
-                      autoFocus
-                      align="end"
-                      items={[
-                        { id: 'detail', label: '详情' },
-                        { id: 'tag', label: '＋标签' },
-                        { id: 'tags', label: `标签：${doc.tags.length === 0 ? '（无）' : doc.tags.join('、')}`, disabled: true },
-                      ]}
-                      onClose={() => { setMenuFor(null) }}
-                      onSelect={(id) => {
-                        setMenuFor(null)
-                        if (id === 'detail') setOpenDoc(openDoc === doc.id ? null : doc.id)
-                        if (id === 'tag') {
-                          setDocs((prev) => prev.map((d) => (d.id === doc.id && !d.tags.includes('待归类')
-                            ? { ...d, tags: [...d.tags, '待归类'] }
-                            : d)))
-                        }
-                      }}
-                      anchor={(
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          aria-haspopup="menu"
-                          aria-expanded={isOpen}
-                          aria-label={`${doc.name} 的更多操作`}
-                          title="更多操作（详情 / 加标签）"
-                          onClick={() => { setMenuFor(isOpen ? null : doc.id) }}
-                        >
-                          <IconEllipsisOutline16 />
-                        </Button>
-                      )}
-                    />
-                  </span>
+                  {COLUMNS.map((col) => (
+                    <div className={`ks-cell ${col.cls}`} key={col.key}>{cellFor(col.key)}</div>
+                  ))}
                 </div>
               )
             })}
@@ -695,23 +857,27 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
               /* 空态卡（P0-5）：64px 圆图标 + 标题 + 描述 + 主按钮（照 WeKnora EmptyState）。
                   文案里的"真实实现里应显示导入到此处"这句诚实边界没删 —— 挪进 title=。
                   ⚠ P1-4（2026-09-20）：要**分清两种空** —— 这个夹子本来就没文件（给导入 CTA），
-                    还是被筛选筛没了（给"清筛选"，不给导入按钮；否则是在骗用户去导入）。 */
+                    还是被筛选/搜索筛没了（给"清除"，不给导入按钮；否则是在骗用户去导入）。
+                  ⚠ P2 头条（2026-09-20）：把"搜索"也算进第二种空里（否则搜不到东西时会
+                    显示"这个文件夹还没有文件"——那是假的，"清除"按钮也要一并清掉搜索串）。 */
               <div className="ks-empty-card">
                 <span className="ks-empty-ico"><IconFolderOpenOutline16 size={28} /></span>
                 {inFolder.length > 0 ? (
                   <>
-                    <span className="ks-empty-t">没有符合筛选的文件</span>
+                    <span className="ks-empty-t">没有符合筛选或搜索的文件</span>
                     <span className="ks-empty-d">
-                      这个目录里共 {inFolder.length} 篇，当前筛选「
-                      {FILTERS.find((f) => f.id === filter)?.text ?? ''}」一篇都没留下。
+                      这个目录里共 {inFolder.length} 篇
+                      {filter === 'all'
+                        ? <>，搜索「{search.trim()}」一篇都没命中。</>
+                        : <>，当前筛选「{FILTERS.find((f) => f.id === filter)?.text ?? ''}」与搜索一篇都没留下。</>}
                     </span>
                     <Button
                       variant="outline"
                       size="sm"
-                      title="回到「全部」，选择也会一并清空"
-                      onClick={() => { pickFilter('all') }}
+                      title="回到「全部」并清空搜索串，选择也会一并清空"
+                      onClick={() => { pickFilter('all'); pickSearch('') }}
                     >
-                      清除筛选
+                      清除筛选与搜索
                     </Button>
                   </>
                 ) : (

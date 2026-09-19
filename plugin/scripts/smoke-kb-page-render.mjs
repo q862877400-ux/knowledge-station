@@ -243,6 +243,76 @@ export function mount(container, props) {
     document.querySelectorAll('[role=menuitem]').length === 0,
     `还剩 ${document.querySelectorAll('[role=menuitem]').length} 项`)
 
+  /* ══════════ 断言 3d-3g：**真表格**（P2 头条，2026-09-20） ══════════
+   * 这一组替代了原来的 9 号断言（"本页没有搜索框"，依据是业主 2026-09-19 的"这一页不做搜索"）。
+   * 本轮任务书明确要求"列表上方加一个搜索框（宿主 Input），**必须真的过滤**" ⇒ 旧断言过时。
+   * ⚠ **不是"删掉一条换绿"**：旧的只数了 placeholder 里有没有"搜索"两个字（字符串级、
+   *   而且当时那一跑处在**标签视图**里 —— 文件视图的搜索框根本没挂载，所以它即使在
+   *   "文件视图有搜索框"的今天也照样 PASS，是一条**假绿**）；新的三条是**行为级**
+   *   （行数真的变 1 / 真的恢复）与**结构级**（表头与行的 cell 类名序列逐字相同）。
+   *   断言条数因此只增不减（26 → 31）。 */
+  // ── 断言 3d：列头行是**真列头**，且与行**同构**（同一份 COLUMNS 定义）──
+  const cellsOf = (el) => [...el.children].map((c) => c.className)
+  const headRow = container.querySelector('.ks-lhead')
+  const headCells = headRow === null ? [] : cellsOf(headRow)
+  const rowCells = q('.ks-item').map((row) => cellsOf(row))
+  check('列头行有 5 个 cell（文件名/效力/生效日期/标签/⋮），且**每一行的 cell 类名序列与表头逐字相同**',
+    headCells.length === 5 && rowCells.length === 4 && rowCells.every((cs) => JSON.stringify(cs) === JSON.stringify(headCells)),
+    `表头 ${JSON.stringify(headCells)}；第 1 行 ${JSON.stringify(rowCells[0] ?? [])}`)
+  check('列头文案就是四个列名（文件名 / 效力 / 生效日期 / 标签）',
+    ['文件名', '效力', '生效日期', '标签'].every((t) => (headRow?.textContent ?? '').includes(t)),
+    (headRow?.textContent ?? '').replace(/\s+/g, ' '))
+  // ── 断言 3e：**列模板只有一个所有者**（.ks-list）+ 行内文件图标真的在每一行里 ──
+  // 为什么断言"唯一所有者"：列对齐的机制就是"表头与行都只写 grid-template-columns:var(--ks-cols)"，
+  // 而 --ks-cols 定义在 .ks-list 上（窄/宽两档也只覆盖这一个属性）。
+  // ⚠ jsdom 不做布局 ⇒ 这里**验不了"量出来像素一样"**（那是 ui-render-shot.mjs 的 #cols 的活，
+  //   它在真 Chrome 里量 computed grid-template-columns：表头与行必须逐字相同）。
+  //   这里验的是**结构前提**：两者都是 .ks-list 的直接子元素、都用同一份 cell 类名。
+  const childrenOfList = container.querySelector('.ks-list') === null
+    ? [] : [...container.querySelector('.ks-list').children]
+  check('列头行与全部数据行都是同一个 .ks-list 的直接子元素（列模板的唯一所有者）',
+    childrenOfList.filter((el) => el.classList.contains('ks-lhead')).length === 1
+    && childrenOfList.filter((el) => el.classList.contains('ks-item')).length === 4,
+    `盒子里共 ${childrenOfList.length} 个子元素`)
+  check('每一行都有**行内文件图标**（.ks-fileico 里一个真 svg），且带类型说明 title',
+    q('.ks-item').length === 4
+    && q('.ks-item').every((row) => row.querySelector('.ks-fileico svg') !== null
+      && (row.querySelector('.ks-fileico')?.getAttribute('title') ?? '') !== ''),
+    q('.ks-item').map((row) => row.querySelector('.ks-fileico')?.getAttribute('title') ?? '(无)').join('/'))
+  // ── 断言 3f：行内**标签 chip 可见**（P2 头条要的"行内可见 chip"，不是藏进 ⋮）──
+  // ⚠ 与"行内可见控件 ≤3"不冲突：chip 是**纯展示 span**（不在 CTRL_SEL 里）。
+  //   "＋标签"的**入口**仍在行尾「⋮」（见 3c 的逐行取证）—— 这是任务书给的允许方案：
+  //   "把'标签'做成一列可见 chip、而'加标签'入口留 ⋮"。
+  const rowTags = q('.ks-item').map((row) => row.querySelectorAll('.ks-tag').length)
+  check('行内**可见**标签 chip（至少一行有 ≥1 个 .ks-tag；纯展示，不是控件）',
+    rowTags.some((n) => n > 0), `四行的 chip 数 = ${rowTags.join('/')}`)
+  // ── 断言 3g：搜索框**真的过滤**（任务书验收：只命中 1 行的串 ⇒ 行数变 1；清空 ⇒ 恢复）──
+  const searchBox = container.querySelector('.ks-search input')
+  const rowCount = () => q('.ks-item').length
+  const before9 = rowCount()
+  await setInput(searchBox, 'GB 50016-2014')            // 只命中**标准号**（d1）
+  const byNo = rowCount()
+  await setInput(searchBox, '喷水')                      // 只命中**名称**（d3）
+  const byName = rowCount()
+  await setInput(searchBox, '搜索一个不存在的串')        // 谁都不命中 ⇒ 0 行 + "被筛没了"的空态
+  const none = rowCount()
+  const emptyTitle = container.querySelector('.ks-empty-t')?.textContent ?? '(没有空态卡)'
+  await setInput(searchBox, '')                          // 清空 ⇒ 恢复
+  const restored = rowCount()
+  check('搜索框真的过滤：标准号命中 1 行、名称命中 1 行、无命中 0 行（且给空态）、清空恢复 4 行',
+    searchBox !== null && before9 === 4 && byNo === 1 && byName === 1 && none === 0 && restored === 4,
+    `行数 ${before9} → 标准号 ${byNo} → 名称 ${byName} → 无命中 ${none} → 清空 ${restored}；空态「${emptyTitle}」`)
+  // ── 断言 3h：搜索/筛选变化 ⇒ **清空选择**（否则批量动作会作用在看不见的行上）──
+  await click(q('.ks-item')[0].querySelector('input[type=checkbox]'))
+  const selectedBefore = container.querySelector('.ks-batch') !== null
+  await setInput(searchBox, '喷水')
+  check('搜索变化即清空选择（切换后批量条消失 —— 批量动作不该作用在看不见的行上）',
+    selectedBefore && container.querySelector('.ks-batch') === null,
+    `搜索前有批量条=${String(selectedBefore)}；搜索后=${String(container.querySelector('.ks-batch') !== null)}`)
+  await setInput(searchBox, '')
+  const backTo4 = rowCount()
+  check('清空搜索后回到 4 行（搜索没有留下副作用）', backTo4 === 4, `实际 ${backTo4} 行`)
+
   // ── 断言 4：全选 ──
   const headCheckbox = checkboxes[0]
   await click(headCheckbox)
@@ -300,10 +370,14 @@ export function mount(container, props) {
     preview.includes('含 「安全」「半导体」') && preview.includes('排除 「冶金」'),
     (preview.match(/含 [^（]*/)?.[0] ?? '(没解析出来)').slice(0, 60))
 
-  // ── 断言 9：知识库页**没有搜索框**（业主明确要求） ──
-  const searchish = q('input').filter((i) => /搜索|search/i.test(i.placeholder ?? ''))
-  check('本页没有搜索框（只有"提问侧"的检索语法框）',
-    searchish.length === 0, `命中 ${searchish.length} 个搜索框`)
+  // ── 原来的断言 9「本页没有搜索框」在 2026-09-20（P2 头条）**被上面 3g/3h 两条替代** ──
+  // ⚠ 就地留痕（本仓规矩：错话保留 + 更正在后）：
+  //   旧写法 `q('input').filter((i) => /搜索|search/i.test(i.placeholder))` 数的是
+  //   **placeholder 里的两个字**，而且它跑在这一段（**标签视图**已经切过来了）⇒
+  //   文件视图的搜索框即使存在也没挂载 ⇒ 它在新设计下**仍然 PASS** —— 那是一条假绿。
+  //   ⇒ 已删除，改为 3g（行为级：行数真的 4→1→1→0→4）与 3h（搜索即清空选择）。
+  //   与之配套的翻案留痕（业主 2026-09-19 曾说"这一页不做搜索"）写在
+  //   plugin/client/KsKnowledgePage.tsx 顶部的第 4 条里，需业主复核。
 
   root.unmount()
   await flush()
