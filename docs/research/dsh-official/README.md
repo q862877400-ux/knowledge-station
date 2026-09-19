@@ -22,7 +22,9 @@
 「不许自己造的东西」一节。**不要重新冷启动去读 2.8 MB 原文。**
 
 ⚠ **分片是二次加工**（含 file:line 出处）。**要改 DSH 侧的行为时，仍以原文为准**。
-原文逐字版见 Hindsight 记忆（`hindsight_search_knowledge_pages` / `hindsight_ingest_document` 存入的 `DSH 原文 …` 条目）。
+原文**已逐字入库**：171 篇 `docs/` 英文正本全部在 Hindsight 里（doc_id 前缀 `dsh-docs-`），
+账本见 [`INGEST-LEDGER.md`](INGEST-LEDGER.md)，入库/复核脚本
+`scripts/ingest-dsh-docs-into-memory.mjs`（**逐字级核对**：库里 `original_text` 的 sha256 = 磁盘文件 sha256）。
 
 ---
 
@@ -39,15 +41,23 @@
 | DSH 分片 F — 破坏性变更 / 事故复盘 / i18n | `dsh-f-i18n` | 变更时间线 / 复盘纪律 / 静默失败规定 |
 | DSH 分片 G — 客户端 UI 决策记录 | `dsh-g-ui-inject-vs-external-peer` | 右栏契约 / 样式规定 / inject vs external / 被否决的做法 |
 | DSH 分片 H — 官方技能与门禁 | `dsh-h-12` | 12 个技能 + 门禁清单 + 该复用而非自造的流程 |
-| DSH 原文 `docs/web-styling.md` | `dsh-docs-web-styling-md-web-ui-style-reference` | 逐字（**手抄**，引用请回磁盘核对） |
-| DSH 原文 `docs/AGENTS.md` | `dsh-docs-agents-md-agents-md-the-documentation-standard` | 逐字（**手抄**，已知 2 处失真，见下条） |
-| Correction：手抄失真 + 「禁止手抄长文档入库」纪律 | `correction-dsh-docs-agents-md` | 更正与纪律 |
+| DSH 原文 `docs/web-styling.md` | `dsh-docs-web-styling-md-web-ui-style-reference` | **字节级**（2026-09-19 已由脚本原地覆盖旧手抄版） |
+| DSH 原文 `docs/AGENTS.md` | `dsh-docs-agents-md-agents-md-the-documentation-standard` | **字节级**（同上；id 里 `agents-md-` 重复是历史遗留，见脚本注释） |
+| Correction：手抄失真 + 「禁止手抄长文档入库」纪律 | `correction-dsh-docs-agents-md` | 更正与纪律（**仍然有效**，但"只能手抄"这一条已被脚本取代） |
+| **171 篇官方原文（整批）** | `dsh-docs-*`（每篇一个 id，见账本） | **字节级逐字**，2026-09-19 由 `scripts/ingest-dsh-docs-into-memory.mjs` 灌入并逐篇核对哈希 |
 
-**没进记忆的**：官方 167 篇原文的其余 165 篇。理由与纪律见 `correction-dsh-docs-agents-md`——
-① Hindsight 插件**故意对子代理关闭**（`workspaceForAgent` 里 `origin === "subagent"` 直接返回 undefined），
-所以只能由主会话入库，而 2.8 MB 无法经单一会话的上下文；② 我手抄 77 行就错了 2 处（**2.6% 失真率**），
-**逐字搬运长文档进记忆本身不可信**。⇒ **权威原文永远在磁盘**（`D:\AI\DSH\deepseek-harness\docs\…`），
-记忆里存**导航 + 提炼 + 带出处的分片**。
+**现在没进记忆的语料**（别再以为"都在库里"）：
+
+| 语料 | 规模 | 状态 |
+|---|---|---|
+| `.agents/notes/` 决策记录 | 2056 篇 / 约 14.3 MB | ❌ 未入（分片 G 只触及与客户端 UI 有关的部分） |
+| `docs/**/*.zh.md` 中文译本 | 约 158 篇 | ❌ 未入（本账本口径是"英文正本"） |
+
+> 历史更正（留痕）：本 README 曾写「没进记忆的：其余 165 篇」，理由是
+> ① Hindsight 插件故意对子代理关闭（`origin === "subagent"` 直接返回 undefined）；
+> ② 手抄 77 行错 2 处（**2.6% 失真**）⇒ 逐字搬运不可信。
+> **这两条只否掉了"手抄"这一条路**：2026-09-19 改为**直连 HTTP API、从磁盘按字节读**，
+> 既不经子代理也不经我的上下文 ⇒ **171/171 已入且逐字核对通过**。原文权威性仍以磁盘为准。
 
 ---
 
@@ -78,9 +88,13 @@
 3. **组件**：官方组件目录里有 `Tag`/`Pill`/`Input`/`DisclosureRow`/`StateDot`；我们手搓了徽章与芯片。
 4. **PDF**：宿主 `ui-sidebar-documentpreview` **自带 pdf 预览**（`extensions:['pdf'], priority:'builtin'`）⇒
    我们的 `ks-evidence` 在"能看 PDF"这一层是**重叠**；差异化应明确写成**条款级证据导航**。
-5. **外置插件合规**：官方要求外置插件把共享宿主包声明为 **peerDependencies**，且拒绝嵌套/别名副本；
-   我们的 `plugin/package.json` 只声明了 cordis / dsh-tools / dsh-llm / ui-sidebar-right。
+5. **外置插件合规**（⚠ **本条已被 alpha.2 推翻，见 `ERRATA-alpha.2.md` §I**）：旧文要求外置插件把共享宿主包
+   声明为 **peerDependencies** 并拒绝嵌套/别名副本；alpha.2 把该套校验**有意移除**（理由是它重复了
+   包管理器与 loader 的职责、且会拒掉 pnpm 支持的安装源）：「External plugins use normal Node package
+   resolution…」⇒ 我们的 `plugin/package.json` 只声明了 cordis / dsh-tools / dsh-llm / ui-sidebar-right，
+   **不补就是对的**，而不再是一条合规缺口。
 6. **宿主半边合规**：工具注册官方口径是 `ctx.tools.register(defineTool({...}))`、handler 只返回 canonical JSON 且**错误必须 throw**；
    会话/插件状态官方通道是 `ctx.settings` / `ctx.storageDomain` / `session.append`——而我们把 chat-mode 开关写在 `.json` 文件里。
 
-（第 5、6 条**尚未核实我们代码的实际写法**，属于"待核查项"，不是结论。）
+（第 6 条**尚未核实我们代码的实际写法**，属于"待核查项"，不是结论。
+第 5 条已核实：`plugin/package.json` 只声明那 4 个依赖，且 alpha.2 之后**不需要**补 peer。）

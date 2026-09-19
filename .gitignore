@@ -42,3 +42,7 @@ _rescue/
 
 # 子代理/临时探针的草稿（勿入库；磁盘上保留）
 .tmp-*
+
+# 记忆入库的续跑状态（机器态，可由 scripts/ingest-dsh-docs-into-memory.mjs 重跑重建；
+# 人对账请看 docs/research/dsh-official/INGEST-LEDGER.md）
+docs/research/dsh-official/ingest-state.json

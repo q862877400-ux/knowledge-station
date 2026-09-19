@@ -218,21 +218,33 @@ function Get-GuideOrdersFromText {
 
 Write-Host ''
 Write-Host '--- 7. 开始页胶囊 order 空间（我们的号必须避开出货条目占用的号）---'
+# ⚠ 独立复核（2026-09-19）指出本节的**真弱点**：它原来即便打出 ⛔ 也 `exit 0`，
+#   也就是说它只是"提示"，不是门禁 —— 一个不会失败的检查挡不住任何东西。
+#   现在撞号或空扫会**真的让脚本以退出码 1 结束**。
+#   （仍要说清：**只有本节**参与退出码；前面几节的 ⛔ 依旧只是提示。别把 0 当"全绿"。）
+#
+# ⚠ 复核还指出：只扫 `packages/client` 比"出货全体"窄。已放宽到 `packages` 全树。
+#   但**任何脚本都看不全真正的运行时**：排序空间还包括本插件自己的 25、
+#   以及 profile 里装的其它第三方插件。所以"未与出货条目同号"**只覆盖出货树**，
+#   不构成"全局无冲突"的证明 —— 这是本节结论必须带着的限定。
 $shippedOrders = @()
-$guideFiles = git grep -l 'guide:' $To -- packages/client 2>$null
+$guideFiles = git grep -l 'guide:' $To -- packages 2>$null
 foreach ($entry in $guideFiles) {
   $gf = $entry -replace ("^" + [regex]::Escape($To) + ":"), ''   # git grep -l 输出 "ref:path"
-  if ($gf -notmatch '/src/client/') { continue }                 # 只要生产源码（排掉 tests）
+  if ($gf -notmatch '/src/') { continue }                        # 只要生产源码（排掉 tests）
+  if ($gf -match '\.(spec|test)\.') { continue }
   $txt = (git show ("{0}:{1}" -f $To, $gf) 2>$null) -join "`n"
   if ([string]::IsNullOrWhiteSpace($txt)) { continue }
   foreach ($o in (Get-GuideOrdersFromText $txt)) {
     $shippedOrders += $o
-    Write-Host ("    出货 {0,-40} order = {1,-4}  ({2})" -f $gf, $o, $To)
+    Write-Host ("    出货 {0,-56} order = {1,-4}  ({2})" -f $gf, $o, $To)
   }
 }
+$guideOrderBad = $false
 if ($shippedOrders.Count -eq 0) {
-  Write-Host '    ⚠ 一个出货 guide order 都没扫到 —— 很可能是**检查本身坏了**（不是"没有"）。'
-  Write-Host '      别把这条当通过：先核 git grep 的 pathspec 与 guide 块的写法是否变了。'
+  Write-Host '    ⛔ 一个出货 guide order 都没扫到 —— 这几乎肯定是**检查本身坏了**（不是"没有"）。'
+  Write-Host '       别把这条当通过：先核 git grep 的 pathspec 与 guide 块的写法是否变了。'
+  $guideOrderBad = $true
 }
 # 我们自己的值：从本仓源码读，避免脚本里再抄一份（抄一份就会再次不同步）
 $ksSidebar = Join-Path $repoRoot 'plugin/client/ksSidebar.ts'
@@ -243,22 +255,32 @@ if (Test-Path $ksSidebar) {
     Write-Host ("    ── 我们 KS_GUIDE_ORDER_PDF = {0}" -f $myOrder)
     if ($shippedOrders -contains $myOrder) {
       Write-Host ("    ⛔ **撞号**：出货条目也占 {0} ⇒ 两张卡先后只由注册顺序决定（等于随机）。**必须让开**。" -f $myOrder)
+      $guideOrderBad = $true
     } else {
       Write-Host ("    ✅ 未与任何出货条目同号（出货占用：{0}）" -f (($shippedOrders | Sort-Object -Unique) -join ', '))
     }
   } else {
-    Write-Host '    ⚠ 没在 ksSidebar.ts 里找到 KS_GUIDE_ORDER_PDF —— 脚本与本仓已不同步，请核。'
+    Write-Host '    ⛔ 没在 ksSidebar.ts 里找到 KS_GUIDE_ORDER_PDF —— 脚本与本仓已不同步，请核。'
+    $guideOrderBad = $true
   }
 } else {
-  Write-Host ("    ⚠ 未找到 {0}（换机器/换检出时请核）" -f $ksSidebar)
+  Write-Host ("    ⛔ 未找到 {0}（换机器/换检出时请核）" -f $ksSidebar)
+  $guideOrderBad = $true
 }
 
 Pop-Location
 Write-Host ''
 Write-Host '==============================================================='
-Write-Host ' 做完这一步之后：'
-Write-Host '  1) 按 REALIGN.md 的清单逐条判定分片是否仍成立；'
-Write-Host '  2) 对受影响的记忆条目补一条 "Correction:" 或重灌（doc_id 见 REALIGN.md）；'
-Write-Host '  3) 基线 ref 换成新版本（改 REALIGN.md 与本脚本默认 -From）。'
+if ($guideOrderBad) {
+  Write-Host ' ⛔ 第 7 节发现了**必须处理**的问题（撞号 / 空扫 / 读不到我们的值）——'
+  Write-Host '    退出码 = 1。别把它当成"报告跑完了"。'
+} else {
+  Write-Host ' 做完这一步之后：'
+  Write-Host '  1) 按 REALIGN.md 的清单逐条判定分片是否仍成立；'
+  Write-Host '  2) 对受影响的记忆条目补一条 "Correction:" 或重灌（doc_id 见 REALIGN.md）；'
+  Write-Host '  3) 基线 ref 换成新版本（改 REALIGN.md 与本脚本默认 -From）。'
+  Write-Host ''
+  Write-Host ' ⚠ 退出码 0 **只**表示第 7 节没发现问题；前面各节的 ⛔ 仍是提示，不参与退出码。'
+}
 Write-Host '==============================================================='
-exit 0
+if ($guideOrderBad) { exit 1 } else { exit 0 }

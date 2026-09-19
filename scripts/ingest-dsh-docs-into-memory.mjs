@@ -278,7 +278,10 @@ while (pending.length > 0) {
 }
 
 /* ------------------------------------------------------------ 账本 + 复核 */
-console.log('\n── 第 3 步：跟库对账（不信"提交成功"，只信库里读回来的长度）──')
+// 「长度一致」只是**必要条件**（排掉漏灌/截断/灌错文件）。要真证明"库里存的 = 磁盘那份"，
+// 得把正文取回来算哈希 —— `GET /documents/<id>` 会返回 `original_text`，实测可用。
+// 这一步是本脚本与"提交成功就算完"的分界线，故默认执行（`--no-roundtrip` 才跳过）。
+console.log('\n── 第 3 步：跟库对账（不信"提交成功"，只信库里读回来的正文哈希）──')
 const verify = new Map()
 for (let offset = 0; ; offset += 200) {
   const page = await api(`/documents?limit=200&offset=${offset}`)
@@ -286,41 +289,80 @@ for (let offset = 0; ; offset += 200) {
   if (verify.size >= (page.total ?? 0) || (page.items ?? []).length === 0) break
 }
 
-let ok = 0
+const ROUNDTRIP = !process.argv.includes('--no-roundtrip')
+const textHash = (s) => createHash('sha256').update(Buffer.from(s, 'utf8')).digest('hex')
+
+let ok = 0          // 哈希逐字一致
+let lenOnly = 0     // 长度一致但哈希不同
 const bad = []
-for (const f of files) {
-  const cur = verify.get(f.id)
-  if (cur && cur.text_length === f.chars) { ok++; state.results[f.id] = { ...state.results[f.id], status: 'verified', verified_chars: cur.text_length } }
-  else bad.push({ f, got: cur?.text_length ?? null, status: state.results[f.id]?.status ?? 'missing' })
+if (ROUNDTRIP) {
+  const roundTrips = await pool(files, CONCURRENCY, async (f) => {
+    try {
+      const d = await withRetry(() => api(`/documents/${encodeURIComponent(f.id)}`))
+      return { f, text: typeof d.original_text === 'string' ? d.original_text : null, len: d.text_length }
+    } catch (e) {
+      return { f, text: null, len: null, err: String(e.message) }
+    }
+  })
+  for (const r of roundTrips) {
+    const f = r.f
+    if (r.text !== null && textHash(r.text) === f.sha256) {
+      ok++
+      state.results[f.id] = { ...state.results[f.id], status: 'verified_verbatim', verified_chars: r.text.length }
+    } else if (r.len === f.chars) {
+      lenOnly++
+      bad.push({ f, got: r.len, status: 'length_ok_hash_differs' })
+      state.results[f.id] = { ...state.results[f.id], status: 'length_ok_hash_differs' }
+    } else {
+      bad.push({ f, got: r.len ?? r.err ?? null, status: r.err ? 'fetch_failed' : 'mismatch' })
+      state.results[f.id] = { ...state.results[f.id], status: r.err ? 'fetch_failed' : 'mismatch' }
+    }
+  }
+} else {
+  for (const f of files) {
+    const cur = verify.get(f.id)
+    if (cur && cur.text_length === f.chars) ok++
+    else bad.push({ f, got: cur?.text_length ?? null, status: 'length_only_check' })
+  }
 }
 writeFileSync(STATE_FILE, JSON.stringify(state, null, 2))
 
 const rows = files.map((f) => {
   const s = state.results[f.id] ?? {}
-  const cur = verify.get(f.id)
-  const v = cur && cur.text_length === f.chars ? '✅ 长度一致' : `⚠ ${cur?.text_length ?? '不在库'} vs ${f.chars}`
-  return `| \`${f.rel}\` | \`${f.id}\` | ${f.chars.toLocaleString()} | ${v} | ${s.facts ?? ''} | ${s.status ?? ''} |`
+  const st = s.status === 'verified_verbatim' ? '✅ 逐字一致'
+    : s.status === 'length_ok_hash_differs' ? '⚠ 长度一致但**哈希不同**'
+      : s.status === 'skipped_pre_verified' ? '✅ 逐字一致（先前已核）'
+        : `⚠ ${s.status ?? '未知'}`
+  // 带上源文件 sha256（前 16 位）：账本要能自己说明"灌进去的是哪几个字节"，
+  // 否则只有状态文件知道，账本就成了半份证据。
+  return `| \`${f.rel}\` | \`${f.id}\` | ${f.chars.toLocaleString()} | ${f.sha256.slice(0, 16)} | ${st} | ${s.facts ?? ''} |`
 })
 writeFileSync(LEDGER, [
   '# DSH 官方文档原文入库账本',
   '',
-  `> 由 \`scripts/ingest-dsh-docs-into-memory.mjs\` 生成，**不要手改**（改状态文件请用脚本重跑）。`,
-  `> 检出：\`${CHECKOUT}\` @ \`${ref}\`　记忆库：\`${BANK}\`　生成时间：${new Date().toISOString()}`,
+  '> 由 `scripts/ingest-dsh-docs-into-memory.mjs` 生成，**不要手改**（改状态文件请用脚本重跑）。',
+  `> 检出：\`${CHECKOUT}\` @ \`${ref}\`　记忆库：\`${BANK}\`　生成时间：${new Date().toLocaleString('sv-SE')}（本地时间）`,
   '',
   `- 文档总数：**${files.length}** 篇 / ${files.reduce((s, f) => s + f.bytes, 0).toLocaleString()} 字节`,
-  `- 库里长度一致（= 原文已逐字落库）：**${ok}** 篇`,
-  `- 不一致 / 缺失：**${bad.length}** 篇`,
+  `- **逐字一致（库里 \`original_text\` 的 sha256 = 磁盘文件的 sha256）：${ROUNDTRIP ? ok : '未做往返核对'}**${ROUNDTRIP ? ` / ${files.length}` : ''}`,
+  ...(ROUNDTRIP && lenOnly > 0 ? [`- ⚠ 长度一致但**哈希不同**：**${lenOnly}** 篇（见下表，这是必须解释的异常，不是通过）`] : []),
+  `- 不一致 / 缺失 / 取不回：**${bad.length}** 篇`,
   '',
-  '⚠ 「长度一致」是**必要条件**，不是逐字证明：它排除了"漏灌/截断/灌错文件"，',
-  '但不排除服务端对文本做过等价归一化。要逐字引用仍以磁盘为准（本项目的既定纪律）。',
+  `核对方式：${ROUNDTRIP
+    ? '对每篇 `GET /documents/<id>` 取回 `original_text`，算 sha256 与磁盘文件的 sha256 比对（**逐字级证明**）。'
+    : '只比对了 `text_length`（**必要条件，不是逐字证明**）—— 本次用了 `--no-roundtrip`。'}`,
   '',
-  '| 文档 | document_id | 字符 | 库里核对 | 抽取事实数 | 状态 |',
+  '⚠ 哈希一致证明"库里存的正文与磁盘那份逐字节相同（按 UTF-8 文本口径）"，',
+  '**不**证明服务端抽取出的事实条数/质量正确，也不覆盖 `.agents/notes/`、`.zh.md` 译本等未纳入本账本的语料。',
+  '⚠ 「抽取事实数」为空 = 本次跑**没有重新灌它**（它先前已入且逐字一致，被跳过），不是"抽取出了 0 条"。',
+  '',
+  '| 文档 | document_id | 字符 | 源 sha256(16) | 核对 | 抽取事实数 |',
   '|---|---|---|---|---|---|',
   ...rows,
   '',
 ].join('\n'))
 
-console.log(`\n核对结果：${ok}/${files.length} 篇长度一致；不一致 ${bad.length} 篇`)
+console.log(`\n核对结果：逐字一致 ${ok}/${files.length}${lenOnly ? `（其中长度一致但哈希不同 ${lenOnly}）` : ''}；异常 ${bad.length} 篇`)
 for (const b of bad.slice(0, 20)) console.log(`  ⚠ ${b.f.rel} — 库里 ${b.got ?? '无'} / 磁盘 ${b.f.chars}（${b.status}）`)
 console.log(`\n账本已写：${relative(repoRoot, LEDGER)}`)
 console.log(`状态文件（续跑用）：${relative(repoRoot, STATE_FILE)}`)
