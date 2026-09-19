@@ -5,6 +5,10 @@
 
 ## 动手之前
 
+- **先查有没有现成的，再决定要不要自己写**（业主 2026-09-19 裁定：**通用层「纯借鉴」，不造轮子**）：
+  有现成项目/现成思路 ⇒ **读它、抄它**（鼓励）；只能从零设计并长期维护 ⇒ **不做**（够用即止）。
+  抄之前先核许可证并留出处（WeKnora 是 MIT，需随附版权声明）。判据与出处见
+  [WeKnora 影响评估](docs/research/weknora-assessment.md) §五第 0 条。
 - **先查 DSH 有没有现成的**：写 UI/插件代码前，先看 [DSH 官方文档精读索引](docs/research/dsh-official/README.md)
   与 [升级手册](docs/research/dsh-official/REALIGN.md)。已因"自己造轮子"返工过两次（HTML 仿真界面、手搓徽章）。
 - **外置插件的硬约束与已作废的说法**都在 [ERRATA-alpha.2](docs/research/dsh-official/ERRATA-alpha.2.md)：
