@@ -24,7 +24,7 @@ import { readFile, writeFile, rm } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { dirname, join, resolve } from 'node:path'
 
-import { classifyExternal, PURITY_ONRESOLVE_FILTER } from './lib/external-allowlist.mjs'
+import { purityPlugin } from './lib/external-allowlist.mjs'
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)))
 const TMP = join(root, '.client.tmp.js')
@@ -62,31 +62,15 @@ await build({
   jsx: 'transform',
   jsxFactory: 'React.createElement',
   jsxFragment: 'React.Fragment',
-  // ⚠ **纯度门禁**（2026-09-19，DSH 适配积压第 4 条）：以前这里是
+  // ⚠ **纯度门禁**（2026-09-19，DSH 适配积压第 4 条；2026-09-20 第四轮收进共享工厂）：以前这里是
   //   `external: ['react', 'react-dom', '@deepseek-ai/*']` —— **整片 external**，
   //   于是引一个不存在的 `@deepseek-ai/xxx` 构建**不报错**、运行时才炸。
-  //   现在改成 onResolve 逐条判定：允许清单内的保持 external，**不认识的 `@deepseek-ai/*` 当场抛**。
-  //   名单与理由见 scripts/lib/external-allowlist.mjs（两份名单各有出处，且有冒烟对着 package.json 核）。
-  plugins: [{
-    name: 'ks-build-purity',
-    setup(build) {
-      // ⚠ filter 必须与 `classifyExternal` 同口径 —— 复核 2026-09-20 发现：这里原来**大小写敏感**
-      //   （`/^(@deepseek-ai\/|...)/`），于是 `@DeepSeek-AI/x` **根本进不到判定函数里**，
-      //   走普通解析。今天恰好 fail-closed（解析不到 ⇒ 构建失败），但 Windows 大小写不敏感，
-      //   盘上真有那个包时宿主单例会被静默打进产物 ⇒ 加 `i` 让**所有**大小写变体都进判定，
-      //   由 `classifyExternal` 显式拒绝（它现在对非全小写的 scope 直接抛）。
-      // ⚠ **第二轮（2026-09-20，复核 r2）**：filter 原来锚在**原串开头**（`^(@deepseek-ai\/|…)`），
-      //   于是 `x/../@deepseek-ai/dsh-util-values` **不命中** ⇒ esbuild 归一化后把盘上真包
-      //   静默内联（复核实跑 +6785B）。⇒ filter 改成**共享常量** `PURITY_ONRESOLVE_FILTER`
-      //   （定义在 `lib/external-allowlist.mjs`，与判定函数同一份文件，别再各写一份）：
-      //   它宽到足以把任何"可能被归一化进受管范围"的 specifier 送进判定；命中的普通包
-      //   由 `classifyExternal` 返回 `'bundle'` ⇒ onResolve 返回 undefined ⇒ 照旧默认解析。
-      build.onResolve({ filter: PURITY_ONRESOLVE_FILTER }, (args) => {
-        const verdict = classifyExternal(args.path)   // 不在清单里的 `@deepseek-ai/*` 会在这里抛
-        return verdict === 'external' ? { path: args.path, external: true } : undefined
-      })
-    },
-  }],
+  //   现在插件本体（filter + 判定 + 接线）**只有一份**，在 `scripts/lib/external-allowlist.mjs`
+  //   的 `purityPlugin()` 里；这里只挂载。理由（留在这免得被"顺手展开"）：
+  //   ① filter 与判定各写一份 ⇒ `x/../…` 那次绕过（filter 锚在串首、根本没触发）；
+  //   ② 接线（`args.resolveDir` 传不传）又是第三处 —— 不传就漏掉**相对路径**（复核 corr3 A1 的真空洞）。
+  //   三样同源之后，`smoke-build-purity.mjs` 能直接拿这个工厂做**真 esbuild 构建**反例。
+  plugins: [purityPlugin()],
   // pdfjs-dist 打进产物（不 external；`classifyExternal` 对它返回 'bundle'）
   logLevel: 'warning',
 })
