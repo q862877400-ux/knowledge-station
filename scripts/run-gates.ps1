@@ -267,7 +267,14 @@ try {
         }
       }
     } else {
-      Write-Host "   （还没有基线文件：用 -UpdateBaseline 记一次）" -ForegroundColor DarkGray
+      # ⚠ **没有基线文件 ⇒ 判红，不许静默放行**：删掉（或忘了提交）`gates-baseline.json` 就等于
+      #   把"只涨不跌"整条关掉、而且**没有任何提示**。第一次跑用 `-UpdateBaseline` 记一次即可。
+      if ($UpdateBaseline) {
+        Write-Host "   （还没有基线文件 ⇒ 这次 -UpdateBaseline 会记一份）" -ForegroundColor DarkGray
+      } else {
+        Write-Host "⛔ 没有基线文件 ⇒ 棘轮无从判定（不许静默放行）；用 -UpdateBaseline 记一次" -ForegroundColor Red
+        $baselineDrop = $true
+      }
     }
     if ($UpdateBaseline) {
       # ⚠ 键名与既有文件保持一致（`pytest_*` 前缀）——文档里曾写成 `{passed,skipped,total}`，
