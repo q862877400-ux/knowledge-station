@@ -824,6 +824,48 @@ for (const [what, marker] of SPEC_STRINGS) {
   check(`13 条需求在场：${what}`, deliveredText.includes(marker), marker)
 }
 
+// ── 6. 主题债务棘轮：老面板里的"写死颜色"只许减、不许增 ──
+// 背景：业主明确要「深色浅色两套配色」。新 UI（`ksGuideStyles.ts` + `KsKnowledgePage.tsx`）
+// **只走活的 `--dsw-alias-*` token**，所以天然跟着主题变；但**老面板**里还有一批写死的
+// 十六进制颜色 —— 深色主题下它们不会跟着变。
+//
+// 为什么**现在不改**（写清楚，免得后人以为这是忘了）：
+//   ① 约 130 处里有 ~110 处需要**语义判断**（哪个是危险红、哪个是警告黄）；
+//   ② 其中还有 `#c0392b55` 这种**带 alpha** 的，换成 token 会**丢掉透明度**（没有对应 token），
+//      盲改会让边框从半透明变实心 —— 那是把深色改得更糟；
+//   ③ 这些老面板**本来就在交互重设计里等着被重建**（见 `docs/INTERACTION-DESIGN.md`）；
+//   ④ 最要紧的：**我看不到像素**，改错了没人能立刻发现。
+// ⇒ 所以这一轮只做**棘轮**：数值不许涨。要减就顺手减（重建面板时自然就没了）。
+const THEME_DEBT_BASELINE = {
+  'KsBookmarksTab.tsx': 3,
+  'KsChannelsPanel.tsx': 3,
+  'KsEvidenceTab.tsx': 12,
+  'KsFilesTab.tsx': 1,
+  'KsIngestPanel.tsx': 22,
+  'KsMaterialsPanel.tsx': 5,
+  'KsReportPanel.tsx': 16,
+  'KsScopeChip.tsx': 5,
+  'KsSettingsSection.tsx': 48,
+}
+const BARE_COLOR = /#[0-9a-fA-F]{3,8}\b|rgba?\(|hsla?\(/
+const themeDebt = {}
+for (const f of clientSrcFiles) {
+  const text = await readFile(join(pluginRoot, 'client', f), 'utf8')
+  let n = 0
+  for (const line of text.split(/\r?\n/)) {
+    if (BARE_COLOR.test(line) && !line.includes('var(--dsw-')) n++
+  }
+  if (n > 0) themeDebt[f] = n
+}
+const grew = Object.keys(themeDebt).filter((f) => themeDebt[f] > (THEME_DEBT_BASELINE[f] ?? 0))
+const shrank = Object.keys(THEME_DEBT_BASELINE).filter((f) => (themeDebt[f] ?? 0) < THEME_DEBT_BASELINE[f])
+const debtTotal = Object.values(themeDebt).reduce((a, b) => a + b, 0)
+check('主题债务棘轮：写死颜色的行数**不许增加**（只许减）',
+  grew.length === 0,
+  grew.length === 0
+    ? `总 ${debtTotal} 行（基线 115）${shrank.length > 0 ? `；已减少：${shrank.join(', ')}` : ''}`
+    : grew.map((f) => `${f}: ${THEME_DEBT_BASELINE[f] ?? 0} → ${themeDebt[f]}`).join(' | '))
+
 const failed = results.filter((r) => !r.ok)
 console.log(`\n== client-entry smoke ${failed.length === 0 ? 'PASS' : 'FAIL'} `
   + `(${results.length - failed.length}/${results.length}) ==`)
