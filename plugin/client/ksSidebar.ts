@@ -230,12 +230,22 @@ export function evidenceTabTitle(_address: string): string {
  * 开始页入口胶囊的排序值。
  *
  * 官方开始页把各类型贡献的胶囊按 `order` **升序**排（`tab-registry.refresh()`：
- * `.sort((left, right) => left.order - right.order)`）。实测在用的两个值：
- * `ui-sidebar-files` = **10**（工作区文件夹）、`ui-sidebar-terminal` = **20**（新建终端）。
- * 取 **30** ⇒ 紧跟在「新建终端」下面（这正是本次需求）。
- * ⚠ 这个值是**跨插件共享的排序空间**，上游新增条目时可能需要重排。
+ * `.sort((left, right) => left.order - right.order)`）。实测在用的值：
+ * `ui-sidebar-files` = **10**（工作区文件夹）、`ui-sidebar-terminal` = **20**（新建终端）、
+ * `ui-sidebar-browser` = **30**（浏览器）。
+ *
+ * 取 **25** ⇒ 夹在「新建终端」与「浏览器」之间：仍在终端下面（原需求），
+ * 且**不与任何出货条目同号**。
+ *
+ * ⚠ **2026-09-19 实测教训**：本值原本取 **30**，当时无人占用；DSH 升到 **alpha.2 新增了
+ * `ui-sidebar-browser`，它的 guide 也取 30**
+ * （`packages/client/ui-sidebar-browser/src/client/definition.tsx`：`{ id: 'new', order: 30 }`）
+ * ⇒ 两张卡**同号**，谁在前只由注册顺序（即 bundle 顺序）决定，**看上去是随机的**。
+ * 旧注释写的「上游新增条目时可能需要重排」**应验了**。
+ * 所以：① 本值必须避开出货条目占用的号；② **每次升级 DSH 后都要重新核对**
+ * （`git grep -n "order:" <ref> -- packages/client/ui-sidebar-*`）。
  */
-export const KS_GUIDE_ORDER_PDF = 30
+export const KS_GUIDE_ORDER_PDF = 25
 
 /**
  * 开始页入口卡片的标题。
@@ -264,7 +274,7 @@ export function ksGuideEntryDescription(): string {
  * - `canOpen` 再确认一次（双保险）；
  * - `priority: 'extension'`（外部类型最高档，也是默认值——显式写出以自文档化）；
  * - **不设 `multiple`**：证据查看器是单例（`contentId` 恒定本身就保证了幂等打开）；
- * - `guide`：在侧栏**开始页**贡献一个手动入口（order 30 = 「新建终端」(20) 下面）。
+ * - `guide`：在侧栏**开始页**贡献一个手动入口（order 25 = 「新建终端」(20) 与「浏览器」(30) 之间）。
  */
 export function ksEvidenceDefinition(): KsTabDefinition {
   return {

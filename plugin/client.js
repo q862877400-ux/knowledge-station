@@ -32302,7 +32302,7 @@ function isKsEvidenceResource(address) {
 function evidenceTabTitle(_address) {
   return "PDF \u67E5\u770B\u5668";
 }
-var KS_GUIDE_ORDER_PDF = 30;
+var KS_GUIDE_ORDER_PDF = 25;
 function ksGuideEntryTitle() {
   return "\u77E5\u8BC6\u5E93";
 }

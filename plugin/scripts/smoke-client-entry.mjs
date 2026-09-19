@@ -355,14 +355,16 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     kb?.guide === undefined || kb.guide.length === 0,
     JSON.stringify(kb?.guide?.map?.((g) => g.id) ?? null))
   // ── 侧栏「开始页」手动入口（官方 guide 胶囊）──
-  // 官方 GuideBody 把每个类型贡献的胶囊按 `order` 升序排；实测在用的值：
-  // ui-sidebar-files = 10、ui-sidebar-terminal = 20（新建终端）。故 30 = 紧跟在它下面。
+  // 官方 GuideBody 把每个类型贡献的胶囊按 `order` 升序排；实测出货条目占用的号：
+  // ui-sidebar-files = 10、ui-sidebar-terminal = 20（新建终端）、
+  // ui-sidebar-browser = 30（浏览器，alpha.2 新增）。故取 25 = 终端与浏览器**之间**，
+  // 既在终端下面，又**不与任何出货条目同号**（同号时先后只由注册顺序决定，等于随机）。
   const guide = tabs.registered[0]?.guide
   check('stage 1: the type contributes exactly one guide entry (start-page capsule)',
     Array.isArray(guide) && guide.length === 1,
     JSON.stringify(guide?.map?.((g) => g.id)))
-  check('stage 1: the guide entry sorts directly BELOW 新建终端 (files 10 < terminal 20 < ours 30)',
-    guide?.[0]?.order === 30 && guide[0].order > 20 && guide[0].order > 10,
+  check('stage 1: the guide entry sorts between 新建终端 and 浏览器 (10 < terminal 20 < ours 25 < browser 30)',
+    guide?.[0]?.order === 25 && guide[0].order > 20 && guide[0].order < 30,
     `order=${guide?.[0]?.order}`)
   check('stage 1: the guide entry has a unique id, live title/description and an icon component',
     guide?.[0]?.id === 'kb'

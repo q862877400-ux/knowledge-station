@@ -142,16 +142,31 @@ pwsh -NoProfile -File scripts/dsh-docs-delta.ps1            # 默认 From=基线
 
 1. **跑门禁**：`npx tsc --noEmit -p plugin/client` · `cd plugin && npm run smoke` ·
    `npm run verify:commands` · `python scripts/verify-engine-uvicorn.py` · `mypy` · `pytest`。
-2. **重建 + 看真机**：`cd plugin && npm run build:client`，然后**必须重启 DSH 宿主**（生产模式无 watcher，
-   bundle 图只在启动时组合）才可能看到新 UI。
-3. **重点看这三处**（我们插件直接依赖）：
+2. **重建 + 看真机**：`cd plugin && npm run build:client`。
+   ⚠ **不要再说"必须重启宿主"** —— 这句话我此前说过**两次**，**两次都被证伪**：
+   alpha.1 起 `@deepseek-ai/dsh-client-hmr` 就在 `packages/bundle/web-app/cordis.patch.yml` 里
+   （alpha.1 :166-167 / alpha.2 :167-168），alpha.2 又加了 `### Live graph reconciliation`（SSE、
+   逐插件 `entry.refresh()`、CSS 在旧 disposer 排空后重注）。
+   ⇒ **插件改动是热重载的**；只有 **bootstrap / 静态装配库 / shell** 才需要重建页面。
+   （详见 `ERRATA-alpha.2.md` §D5/§H 与 §I 的 `client-plugin-loading-model` 行。）
+3. **重点看这四处**（我们插件直接依赖）：
    - `sidebar.right.tab.guide.entry` 卡片的 **key 用定义 id**（不是 kind）；
    - `priority` 是**字面量 band 字符串**，不是数字、也不 import 常量；
+   - **开始页胶囊的 `order` 是跨插件共享排序空间** —— 出货条目占号会被上游新增类型抢走，
+     **同号 ⇒ 先后由注册顺序决定（等于随机）**。实跑：
+     `git grep -n "order:" <new-ref> -- packages/client/ui-sidebar-*`
+     （alpha.2 实测：files 10 / terminal 20 / browser 30；我们已让到 **25**。
+     详见 `ERRATA-alpha.2.md` §K —— 这是**真实踩到的 bug**，不是理论风险。）
    - 样式注入是**运行时 `<style>`**（我们 esbuild 无 CSS loader），
      而 alpha.2 里 `tsdown.client.ts` 动了 +52/−7 —— 官方通道若是 `data-plugin-css` 那套，
      我们要考虑给自己的 `<style>` 打同样的标记。
 4. **顺手该做的**（与本手册独立、但同一批）：删 `entry.ts` 的 `export default`；
-   1px 中性边框 → 0.5px；改用官方 `Tag`/`Pill`/`Checkbox`；补 `peerDependencies`；文案走 locale。
+   1px 中性边框 → 0.5px；改用官方 `Tag`/`Pill`/`Checkbox`；文案走 locale。
+   ⚠ **`peerDependencies` 不要补** —— 我此前的建议**已被 alpha.2 推翻**：
+   新文写明 Desktop「**does not recursively check peer versions, duplicate packages, linked packages,
+   or ancestor dependency resolution**」（理由是那套校验重复了包管理器与 loader 的职责、且会拒掉
+   pnpm 支持的安装源）。⇒ 我们**不补就是对的**，见 `ERRATA-alpha.2.md` §I 的
+   `desktop-bundled-runtime-and-external-plugins` 行。
 
 ---
 

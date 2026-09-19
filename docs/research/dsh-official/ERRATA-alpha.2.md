@@ -163,15 +163,15 @@
 | 决策记录 | 改动 | **过期了什么 / 现在是什么** |
 |---|---|---|
 | `…/2026-09-05-sidebar-tab-types-and-navigation.md` | −1 行 | **Deferred 列表删掉了「Parameters for the shipped page types, which today declare none.」** ⇒ 出货页面类型**现在有参数了**（如 `browser` 收 `{ params: { url? } }`）。G 里凡引用该 deferred 的写法要改 |
-| `…/2026-09-04-right-sidebar-docking-infrastructure.md` | +2/−2 | ⚠️ **"State is memory-only: a reload returns every session to the collapsed default…" 被删除**，改为：「[Layout persistence and provider recovery](../architecture/2026-09-14-sidebar-layout-provider-recovery.md) owns **Session-scoped browser storage and reload**」<br>⇒ **布局不再是内存态**！G/A 里"刷新即回到折叠默认"的说法**作废**；新权威是 `2026-09-14-sidebar-layout-provider-recovery.md`（我们**没读过**这篇） |
+| `…/2026-09-04-right-sidebar-docking-infrastructure.md` | +2/−2 | ⚠️ **"State is memory-only: a reload returns every session to the collapsed default…" 被删除**，改为：「[Layout persistence and provider recovery](../architecture/2026-09-14-sidebar-layout-provider-recovery.md) owns **Session-scoped browser storage and reload**」<br>⇒ **布局不再是内存态**！G/A 里"刷新即回到折叠默认"的说法**作废**；新权威是 `2026-09-14-sidebar-layout-provider-recovery.md`（**已读，见 §J**） |
 | `…/2026-07-23-client-plugin-loading-model.md` | +19/−11 | ① **新增 chunk 支持**："an entry calls `window.__ModuleLoader__.load({ id, factory })`, while **a chunk also supplies its generated filename**"；新增 `require.async("./client.<name>.js")`（Host 只为该请求读文件、包装注册为一个 script 响应并按 URL 缓存，并发共享）<br>② **新增整节 `### Live graph reconciliation`**：modules controller 只拥有 boot manifest 建的那些 Loader entry，**完整 Host 快照**更新其模块描述并**对账**；其它 Loader 贡献者保留所有权；新模块走**单资源 URL**到达。Host SSE 适配器转发图变化、连接时发当前完整图；**"图描述的是期望的浏览器入口，不表示 Host 侧清理已完成"**<br>③ **HMR 重载语义细化**：代码替换交给同一个 modules controller；第 6 步改为"**先把新 exports 物化，再 `entry.refresh()`**；CSS 在**旧 disposer 排空之后**重注；显式物化能在 Loader 把错误降级成 console log 之前暴露 import 错误"<br>④ **bootstrap 拒绝热替换**："Bootstrap replacement is rejected before invalidation or teardown: the module system retains its initial exports… The page reports the required reload and preserves the bootstrap fiber."<br>⑤ 边界措辞改写为："Reload creates a fresh fiber and component state; it does not preserve React state inside the replaced plugin. **Static assembly libraries and the shell require a rebuilt page.** Failed imports or activation remain diagnosable and retryable **without rolling back unrelated plugins**."<br>⇒ 结论：**插件热重载是受支持的正规路径**（我此前"必须重启宿主"的说法见 §D5，于此**再次被证伪**）；但 **bootstrap / 静态装配库 / shell 仍要重建页面** |
 | `…/2026-08-15-client-shells-and-dynamic-packages.md` | +6/−2 | ① "content-addressed application combo URL" → **"revisioned"**<br>② Host 发布描述符**不拼接响应体**：每个 script URL 共用一个 lazy Promise，**首个 `GET` 才拼接**并附上对应 map URL；每个 map URL 另有独立 lazy Promise<br>③ **theme Host 贡献被前置进 index 收集**：head 里的 CSS 用 **`prefers-color-scheme` 直接决定初始画布配色**（针对 `system` 偏好），body 脚本在加载页与应用之前应用 palette 属性与 font-size 变量 |
 | `…/2026-09-08-desktop-bundled-runtime-and-external-plugins.md` | +18/−16 | ⚠️⚠️ **推翻了我给你的第 3 条建议（"补 peerDependencies"）**。原文（旧）：「**External plugins declare shared host packages as peers.**… Validation **rejects** incompatible enabled peers, nested or aliased copies of shared packages, private package links, and dependency resolution through CLI or ancestor directories… **matching version numbers alone are insufficient**」<br>新文：「**External plugins use normal Node package resolution. Desktop does not recursively check peer versions, duplicate packages, linked packages, or ancestor dependency resolution.** These checks duplicate package-manager and loader responsibilities and **reject pnpm-supported installation sources.**」<br>⇒ **那套 peer/重复包校验被有意移除了**，理由是它重复了包管理器与 loader 的职责、且会拒掉 pnpm 支持的安装源。**"外置插件必须声明 peerDependencies"不再是规定**（至少 Desktop 这条线上）<br>其余：Desktop 打包/所有权重新划界（新增引用 `2026-09-10-desktop-web-wrapper.md`、`2026-09-11-desktop-electron-node-runtime.md`）；运行时由"bundled upstream Node process"改为 **Electron RunAsNode** process；**插件管理移入共享的 `packages/boot/plugin-manager`**（Web 管理器负责包变更与激活，Electron 保留 profile 准备与原生恢复）；Node/平台变化**保留已装插件**（旧文说要 reinstall + run approved builds） |
 
 ### 由此产生的两条**行动项**
 
-1. **`2026-09-14-sidebar-layout-provider-recovery.md` 我们必须读**（新权威，管 Session 级布局持久化 + provider 恢复），
-   并把 A/G 里"布局仅内存"的说法改掉。**尚未读**。
+1. ~~**`2026-09-14-sidebar-layout-provider-recovery.md` 我们必须读**（新权威，管 Session 级布局持久化 + provider 恢复），
+   并把 A/G 里"布局仅内存"的说法改掉。~~ **已完成** —— 见 §J（该篇已读，A/G 的说法已改）。
 2. **推翻我此前的"补 peerDependencies"建议**：那条基于 alpha.1 的 Desktop note，alpha.2 已把该校验移除。
    ⇒ 要不要补 peer，改为**按 pnpm/Node 常规解析的工程判断**，而**不再引用 DSH 规定**。
    （我们 `plugin/package.json` 现在没补，**不改就是对的**。）
@@ -209,3 +209,56 @@
    若确实丢：想让它存活，就走**官方认可的路** ——「provider 自己负责恢复」，
    即把页面选择存进我们自己的 Session 级 store，而不是依赖导航参数。
 3. 存储失败不崩（内存态可用）是官方给的姿态，我们若自己加恢复逻辑应与之一致。
+
+---
+
+## K. 开始页胶囊的 `order` 是**跨插件共享的排序空间** —— 实测撞号（本次已修）
+
+### 现象
+
+业主升级到 alpha.2 后，「开始页」多出一张 **「浏览器」** 卡。查证：**不是我们插件产生的**，是
+alpha.2 **新增的出货类型** `ui-sidebar-browser`（§B1/§B6 已记：`packages/client/ui-sidebar-browser/`）。
+
+### 真正的问题（我们自己的 bug）
+
+官方的浏览器 guide 条目：
+
+```ts
+// packages/client/ui-sidebar-browser/src/client/definition.tsx
+guide: [{ id: 'new', order: 30, icon: IconGlobeOutline14, ... }]
+```
+
+而我们 `plugin/client/ksSidebar.ts` 里的 `KS_GUIDE_ORDER_PDF` **原本也是 30**。
+
+开始页按 `order` **升序**排（`tab-registry.refresh()`：`.sort((l, r) => l.order - r.order)`）——
+**同号时谁在前只由注册顺序决定**（即 bundle 顺序），也就是说：**两张卡的位置是偶然的**，
+一次无关的装配顺序变化就可能让我们的「知识库」卡跳到「浏览器」下面。
+`Array.prototype.sort` 在现代 V8 是稳定的，所以它**看起来"总是那样"**，更难被发现。
+
+> 我们当初那条注释里写着「⚠ 这个值是跨插件共享的排序空间，上游新增条目时可能需要重排」——
+> **这句话在 alpha.2 应验了**，而且是**撞号**（最坏的一种），不是简单的插队。
+
+实测出货条目占用的号：`ui-sidebar-files` = **10**、`ui-sidebar-terminal` = **20**、
+`ui-sidebar-browser` = **30**。
+
+### 修法
+
+`KS_GUIDE_ORDER_PDF` **30 → 25**：夹在「新建终端」(20) 与「浏览器」(30) 之间 ——
+既保留原需求（我们自己的入口在终端下面），又**不与任何出货条目同号**，先后变成确定的。
+（`plugin/scripts/smoke-client-entry.mjs` 的断言同步收紧为 `=== 25 && > 20 && < 30`。）
+
+### ⇒ 立下的规矩（**每次升级 DSH 都要做**）
+
+```powershell
+git grep -n "order:" <new-ref> -- packages/client/ui-sidebar-*
+```
+
+出货条目若新占 25（或改成别的号），我们**必须让开**。这是升级 checklist 的一项——
+见 `REALIGN.md`。
+
+### 顺带确认（浏览器类型的三条硬事实，供我们自己别再实现一遍）
+
+- 它是 **`builtin` + `multiple: true`**，走 `openTab('browser', { params: { url? } })`；
+- **接受公网与 loopback 的 HTTP(S)**，**拒本地文件**（把本地文件让给 Document Preview）；
+- 自带应用内 iframe 历史。
+  ⇒ 我们**不需要**自己做网页预览；**PDF/条款级证据导航才是我们的差异点**。

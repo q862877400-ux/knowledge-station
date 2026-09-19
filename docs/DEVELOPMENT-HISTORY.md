@@ -7728,3 +7728,77 @@ CCS 分类号/区间名**取自 `doc_catalog.py` 的真实全表**（非我编�
 - **知识库页是纯 UI**：页首黄条写明「数据是占位，后端接口未接」，`＋ 新建文件夹` 是 **disabled**，
   导入/效力报告/渠道台账三项是**诚实的占位页**（真入口、空内容）。**一个引擎接口都没调。**
 - **我没有在浏览器里渲染过它**（门禁证明的是接线与产物一致，不是像素）。
+
+---
+
+## §10.127 业主反馈「多了个浏览器按钮」→ 查证是官方新增；**但顺出一个我们自己的真 bug（开始页 order 撞号）**
+
+### 业主的话
+
+> 「有知识库了，但是多了个浏览器按钮」
+
+（这句同时证明：§10.126 的卡片**在业主的真机上确实渲染出来了**。）
+
+### 一、「浏览器」卡**不是我们造成的**
+
+查 alpha.2 出货包 `packages/client/ui-sidebar-browser/`：
+
+- `src/client/index.ts`：「Register the Browser type, **localized guide entry**, body, and title」；
+- `src/client/definition.tsx`：`BROWSER_KIND = 'browser'`、
+  `BROWSER_ID = '@deepseek-ai/dsh-client-ui-sidebar-browser'`、**`multiple: true`**、
+  **`priority: 'builtin'`**、`guide: [{ id: 'new', order: 30, icon: IconGlobeOutline14 }]`。
+
+⇒ 它是**官方新类型自带的应用内浏览器**：`openTab('browser', { params: { url? } })`，
+**接受公网与 loopback 的 HTTP(S)**、**拒本地文件**（把本地文件让给 Document Preview）、自带 iframe 历史。
+`ERRATA-alpha.2.md` §B1/§B6 早已登记过它 —— **只是业主先在自己的侧栏里遇见，比读到文档早**。
+
+### 二、但它的 `order: 30` **和我们撞号了** —— 这是我们的 bug
+
+`plugin/client/ksSidebar.ts` 的 `KS_GUIDE_ORDER_PDF` **原本也是 30**。而开始页按 `order` 升序排
+（`tab-registry.refresh()`：`.sort((l, r) => l.order - r.order)`），**同号 ⇒ 先后只由注册顺序
+（即 bundle 顺序）决定**。也就是说：**「知识库」与「浏览器」两张卡谁在上面是偶然的**，
+一次无关的装配顺序变化就会让它翻转 —— 而 `Array.prototype.sort` 在 V8 里是**稳定的**，
+所以它看起来"总是那样"，**更难被发现**。
+
+⚠ 最值得记的是：我们当初写这个值时留的注释就是
+「⚠ 这个值是**跨插件共享的排序空间**，上游新增条目时可能需要重排」——
+**这句话在 alpha.2 应验了，而且是撞号（最坏的一种），不是简单的插队。**
+"我当时想到了" 不等于 "我做了防护"：那条注释没有变成任何可执行的检查。
+
+**修法**：`30 → 25` —— 夹在「新建终端」(20) 与「浏览器」(30) 之间，既保留原需求
+（我们的入口在终端下面），又**不与任何出货条目同号**，先后变成**确定的**。
+实测出货占号：`ui-sidebar-files` **10** / `ui-sidebar-terminal` **20** / `ui-sidebar-browser` **30**。
+`plugin/scripts/smoke-client-entry.mjs` 的断言同步**收紧**（不是放宽）：
+`order === 25 && > 20 && < 30`。
+
+并把规矩写进 `docs/research/dsh-official/REALIGN.md` §六：**每次升级 DSH 都要跑**
+
+```powershell
+git grep -n "order:" <new-ref> -- packages/client/ui-sidebar-*
+```
+
+### 三、同批更正两处**我自己写错过的**边界（不留假话在手册里）
+
+`REALIGN.md` §六是"下次升级照着做"的手册，里面两句话**已经被证伪**，本轮一并改掉：
+
+| 原话（错） | 现在（对） | 证据 |
+|---|---|---|
+| 「重建后**必须重启 DSH 宿主**（生产模式无 watcher）」 | **插件改动是热重载的**；只有 bootstrap / 静态装配库 / shell 要重建页面 | `@deepseek-ai/dsh-client-hmr` 自 alpha.1 即在 `packages/bundle/web-app/cordis.patch.yml`（alpha.1 :166-167 / alpha.2 :167-168）；alpha.2 新增 `### Live graph reconciliation`（SSE、逐插件 `entry.refresh()`、CSS 在旧 disposer 排空后重注） |
+| 「顺手该做的：……**补 `peerDependencies`**」 | **不要补**（我们不补就是对的） | alpha.2 把 Desktop 那条校验**有意移除**：「does not recursively check peer versions, duplicate packages, linked packages, or ancestor dependency resolution」 |
+
+⇒ 这两条都属"我说过、后来被证伪"，按本仓纪律**必须留下痕迹**（`ERRATA` §I/§D5 有完整证据链），
+不能悄悄删掉。
+
+### 门禁（本轮改动：2 个源文件 + 3 篇文档）
+
+`tsc -p plugin/client` **0 错** · `client-entry` smoke **94/94** · `npm run smoke` 全链 PASS ·
+`verify:commands` **22/22** —— **零回归**。
+`plugin/client.js` 重建后 sha256 前缀 `C1CF7946DAC4DAC1`（1348327 字节；改前 `14BB55F7DABCC970`）
+—— 与改前的字节数相同、但**哈希不同**，符合"仅 `30`→`25` 一位数字"的预期。
+
+### ⚠ 边界
+
+- **我仍未在浏览器里渲染过**：顺序修复的正确性依据是"官方 `order` 升序 + 我们已独占 25"这条
+  **读码得出的事实**，不是我看了一眼真机。业主刷新/重开侧栏后应能看到「知识库」在「新建终端」下方、
+  「浏览器」上方 —— **若位置仍不对，那是我的推断错了，请告诉我**。
+- 本节只证明**排除了一个随机性**，**不证明**卡片视觉与官方逐像素一致。
