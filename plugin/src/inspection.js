@@ -631,7 +631,7 @@ function overdueDaysOf(last) {
  *   { ok: false, http, code, message } mapped 1:1 onto the route's errors.
  * `auto` marks the run as daily-timer-triggered (state.last.auto → UI shows
  * 「今日自动巡检」; the engine still receives trigger='manual' — its only
- * channel — so the Word/Excel report keeps saying 手动一键, which is honest
+ * channel — so the export keeps saying 手动一键, which is honest
  * at the engine layer).
  */
 async function startInspectionRun(ctx, manager, { auto = false } = {}) {
@@ -766,7 +766,8 @@ async function fetchBinary(base, path, { token, signal, timeoutMs = 30_000 } = {
 /**
  * POST /ks/inspection/export — 导出「上一次巡检结果」为 Excel。
  * 生成在引擎侧（openpyxl，三 sheet：汇总/明细全量/趋势），host 代理两步：
- * 1) POST 引擎 /update/report-xlsx/{batch_id}（同 docx 报告通道，批次 404 透传）；
+ * 1) POST 引擎 /update/report-xlsx/{batch_id}（批次 404 透传；⚠ 同聚合的 Word 版
+ *    `/update/report/{batch_id}` 已于 2026-09-19 拆除——业主否决 Word/PPT 交付物）；
  * 2) 经引擎 /export/download 取字节 → 同源以 attachment 回传浏览器。
  * 仅导出「已完成」批次：last 缺失 / 仍在跑 → 409。
  */

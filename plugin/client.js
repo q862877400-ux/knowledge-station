@@ -28564,15 +28564,6 @@ async function exportResearchReport(projectId, input = {}, signal) {
     signal
   );
 }
-async function exportResearchSlides(projectId, input = {}, signal) {
-  return postReport(
-    "/ks/report/research/slides",
-    projectId,
-    input,
-    "\u7814\u7A76\u62A5\u544A PPT",
-    signal
-  );
-}
 async function exportResearchDraft(projectId, input, signal) {
   return postReport(
     "/ks/report/research/draft",
@@ -33918,7 +33909,6 @@ function KsMaterialsPanel(props) {
   const conclusionMd = flow.conclusionMd;
   const draft = flow.draft;
   const [report, setReport] = (0, import_react10.useState)(null);
-  const [slides, setSlides] = (0, import_react10.useState)(null);
   const [showReport, setShowReport] = (0, import_react10.useState)(false);
   const [anchors, setAnchors] = (0, import_react10.useState)({});
   const [anchorNote, setAnchorNote] = (0, import_react10.useState)("");
@@ -34086,17 +34076,6 @@ function KsMaterialsPanel(props) {
       setShowReport(false);
       const bad = (out.warnings ?? []).length;
       return `\u7814\u7A76\u62A5\u544A\u5DF2\u751F\u6210\uFF08\u5DF2\u6279\u51C6 ${out.counts?.approved ?? 0} / \u5F85\u8BC4\u5BA1 ${out.counts?.pending ?? 0}\uFF09` + (bad > 0 ? `\u2014\u2014\u26A0 \u6709 ${bad} \u6761\u5F15\u7528\u8B66\u544A\uFF0C\u89C1\u4E0B\u65B9\uFF08\u62A5\u544A\u91CC**\u539F\u6837\u4FDD\u7559**\u4E86\u90A3\u4E9B\u5F15\u7528\uFF09` : "");
-    }, null);
-  }, [conclusionMd, projectId, researchQuery, run]);
-  const onExportSlides = (0, import_react10.useCallback)(() => {
-    if (projectId === "") return;
-    void run("slides", async () => {
-      const out = await exportResearchSlides(projectId, {
-        query: researchQuery.trim() === "" ? void 0 : researchQuery.trim(),
-        conclusionMd: conclusionMd.trim() === "" ? void 0 : conclusionMd
-      });
-      setSlides(out);
-      return `PPT \u5DF2\u751F\u6210\uFF1A${out.name ?? ""}\uFF08${out.slide_count ?? 0} \u9875\uFF09` + (out.path !== void 0 ? ` \u2192 ${out.path}` : "");
     }, null);
   }, [conclusionMd, projectId, researchQuery, run]);
   const onDraftConclusion = (0, import_react10.useCallback)(() => {
@@ -34531,17 +34510,7 @@ function KsMaterialsPanel(props) {
             style: btnStyle2(busy !== ""),
             disabled: busy !== "",
             onClick: onExportReport,
-            children: "\u751F\u6210\u7814\u7A76\u62A5\u544A\uFF08Markdown/HTML/Word\uFF09"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
-          "button",
-          {
-            type: "button",
-            style: btnStyle2(busy !== ""),
-            disabled: busy !== "",
-            onClick: onExportSlides,
-            children: "\u751F\u6210 PPT"
+            children: "\u751F\u6210\u7814\u7A76\u62A5\u544A\uFF08Markdown/HTML\uFF09"
           }
         ),
         report?.markdown !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
@@ -34656,19 +34625,6 @@ function KsMaterialsPanel(props) {
         /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("br", {}),
         (report.warnings ?? []).join("\uFF1B")
       ] }),
-      slides !== null && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
-        "PPT\uFF1A",
-        slides.name ?? "",
-        "\uFF08",
-        slides.slide_count ?? 0,
-        " \u9875\uFF09",
-        (slides.warnings ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("br", {}),
-          "\u26A0 ",
-          (slides.warnings ?? []).join("\uFF1B")
-        ] })
-      ] }),
-      slides?.name !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Deliverables, { names: [slides.name], paths: slides.path !== void 0 ? [slides.path] : [] }),
       showReport && report?.markdown !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("pre", { style: {
         marginTop: 6,
         maxHeight: 320,
@@ -34680,13 +34636,13 @@ function KsMaterialsPanel(props) {
         borderRadius: 4
       }, children: report.markdown }),
       /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
-        "\u62A5\u544A\u4E0E PPT ",
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u540C\u4E00\u4EFD\u5185\u5BB9" }),
-        "\uFF08\u90FD\u4ECE\u5F15\u64CE\u7684\u540C\u4E00\u4EFD\u5185\u5BB9\u5757\u6E32\u67D3\uFF09\uFF0C",
+        "\u62A5\u544A\u53EA\u6709",
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u4E00\u79CD\u5185\u5BB9" }),
+        "\u3001\u4E24\u79CD\u843D\u76D8\u5F62\u6001\uFF08Markdown \u662F\u4EA4\u4ED8\u7269\u672C\u4F53\uFF0C HTML \u662F\u540C\u4E00\u4EFD\u5185\u5BB9\u7684\u754C\u9762\u9884\u89C8\u5F62\u6001\uFF09\uFF0C",
         /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u672C\u673A" }),
         "\u751F\u6210\u4E0E\u4FDD\u5B58\u3001",
         /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u4E0D\u5916\u53D1" }),
-        "\uFF1BPPT \u7528\u9ED8\u8BA4\u7248\u5F0F\uFF0C \u8D85\u957F\u8981\u70B9\u4F1A\u622A\u65AD\u3001\u9875\u6570\u6709\u4E0A\u9650\uFF08\u90FD\u5199\u5728 PPT \u672B\u9875\uFF09\u3002"
+        "\u3002"
       ] })
     ] })
   ] });
@@ -34759,7 +34715,7 @@ function Deliverables(props) {
           type: "button",
           disabled: busy !== "",
           onClick: () => open(n),
-          title: deliverableKind(n) === "page" ? `${n}\uFF1A\u5728\u65B0\u6807\u7B7E\u91CC\u76F4\u63A5\u6253\u5F00\uFF08\u6D4F\u89C8\u5668\u6E32\u67D3\uFF09` : `${n}\uFF1A\u6D4F\u89C8\u5668\u6E32\u67D3\u4E0D\u4E86 Word/PPT\uFF0C\u8FD9\u91CC\u4E0B\u8F7D\u4E00\u4EFD\uFF1B\u672C\u673A\u539F\u4EF6\u5728\u4E0B\u9762\u90A3\u4E2A\u76EE\u5F55\u91CC`,
+          title: deliverableKind(n) === "page" ? `${n}\uFF1A\u5728\u65B0\u6807\u7B7E\u91CC\u76F4\u63A5\u6253\u5F00\uFF08\u6D4F\u89C8\u5668\u6E32\u67D3\uFF09` : `${n}\uFF1A\u6D4F\u89C8\u5668\u6E32\u67D3\u4E0D\u4E86\u8FD9\u79CD\u4EA7\u7269\uFF08\u5982 xlsx\uFF09\uFF0C\u8FD9\u91CC\u4E0B\u8F7D\u4E00\u4EFD\uFF1B\u672C\u673A\u539F\u4EF6\u5728\u4E0B\u9762\u90A3\u4E2A\u76EE\u5F55\u91CC`,
           style: {
             border: "1px solid var(--dsw-alias-border-l2, #ccc)",
             background: "var(--dsw-alias-bg-layer-2, #fff)",
@@ -34788,7 +34744,7 @@ function Deliverables(props) {
         {
           type: "button",
           onClick: copyFolder,
-          title: "\u590D\u5236\u76EE\u5F55\u8DEF\u5F84\uFF08\u7C98\u5230\u8D44\u6E90\u7BA1\u7406\u5668/Win+R \u5373\u53EF\u6253\u5F00 Word/PPT \u539F\u4EF6\uFF09",
+          title: "\u590D\u5236\u76EE\u5F55\u8DEF\u5F84\uFF08\u7C98\u5230\u8D44\u6E90\u7BA1\u7406\u5668/Win+R \u5373\u53EF\u6253\u5F00\u672C\u673A\u539F\u4EF6\uFF09",
           style: {
             border: "1px solid var(--dsw-alias-border-l2, #ccc)",
             background: "var(--dsw-alias-bg-layer-2, #fff)",
@@ -34806,7 +34762,7 @@ function Deliverables(props) {
       "\u6253\u5F00\u5931\u8D25\uFF1A",
       error
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { margin: "4px 0 0", color: GRAY, fontSize: 11 }, children: "Word / PPT \u6D4F\u89C8\u5668\u6E32\u67D3\u4E0D\u4E86\uFF1A\u4E0A\u9762\u7ED9\u7684\u662F**\u4E0B\u8F7D\u4E00\u4EFD**\uFF08\u672C\u673A\u539F\u4EF6\u4ECD\u5728\u4FDD\u5B58\u76EE\u5F55\u91CC\uFF09\u3002 \u300C\u7528\u7CFB\u7EDF\u9ED8\u8BA4\u7A0B\u5E8F\u4E00\u952E\u6253\u5F00\u300D\u9700\u8981\u5728\u5BBF\u4E3B\u4FA7\u52A0\u8DEF\u7531\uFF08\u8981\u91CD\u542F\u5BBF\u4E3B\uFF09\uFF0C\u672C\u8F6E\u672A\u505A\u3002" })
+    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { margin: "4px 0 0", color: GRAY, fontSize: 11 }, children: "\u975E\u7F51\u9875\u5F62\u6001\u7684\u4EA7\u7269\uFF08\u5982 xlsx\uFF09\u6D4F\u89C8\u5668\u6E32\u67D3\u4E0D\u4E86\uFF1A\u4E0A\u9762\u7ED9\u7684\u662F**\u4E0B\u8F7D\u4E00\u4EFD**\uFF08\u672C\u673A\u539F\u4EF6\u4ECD\u5728\u4FDD\u5B58\u76EE\u5F55\u91CC\uFF09\u3002 \u300C\u7528\u7CFB\u7EDF\u9ED8\u8BA4\u7A0B\u5E8F\u4E00\u952E\u6253\u5F00\u300D\u9700\u8981\u5728\u5BBF\u4E3B\u4FA7\u52A0\u8DEF\u7531\uFF08\u8981\u91CD\u542F\u5BBF\u4E3B\uFF09\uFF0C\u672C\u8F6E\u672A\u505A\u3002" })
   ] });
 }
 

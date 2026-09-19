@@ -553,11 +553,12 @@ check('inject declares only official services (no third-party hard gate)',
     // 这条证明**新的 api 函数真的被打进产物**（只有 api.ts 里那一份措辞）
     ['client 侧自采接线（响应形状不认识时抛，不谎报"没采到"）',
       '自采响应异常：缺少 collected 字段'],
-    // ---- Phase D-3b：产出入口（研究报告 / PPT，2026-09-17；§10.92 加 Word）----
-    ['产出按钮：研究报告（三形态）', '生成研究报告（Markdown/HTML/Word）'],
-    ['产出按钮：PPT', '生成 PPT'],
-    // 同一份内容这句话必须在界面上说（否则用户会怀疑"报告和 PPT 是不是两套东西"）
-    ['报告与 PPT **同源**这件事在界面上写明', '同一份内容'],
+    // ---- Phase D-3b：产出入口（研究报告，2026-09-17）----
+    // ⚠ 2026-09-19（EXECUTION-PLAN 第 4 步）：原来这里还有
+    // `['产出按钮：PPT', '生成 PPT']` 与 `['报告与 PPT **同源**…', '同一份内容']` 两条
+    // ——业主否决 Word/PPT 交付物（docs/NOT-DOING.md 第 1 条）⇒ `生成 PPT` 按钮与
+    // 那句"报告与 PPT 同源"的文案都已随通路删除（研究报告本身仍保留）。
+    ['产出按钮：研究报告（两种形态）', '生成研究报告（Markdown/HTML）'],
     // ---- Phase D-5b：结论草稿（§10.97）----
     ['产出按钮：结论草稿', '起草结论（草稿）'],
     // ⚠ 三句话少一句都会让"草稿"被读成"已批准的结论"：
@@ -593,13 +594,17 @@ check('inject declares only official services (no third-party hard gate)',
     settings.includes('title="参考资料"'))
   check('产物里同时含面板标记与设置侧文案（源码↔产物同步的间接证据）',
     bundle.includes('评审是硬门') && bundle.includes('/materials use '))
-  // ⚠ 产出侧同理：源码里那两个 handler 必须真的接在两个按钮上（否则按钮点了没反应，
+  // ⚠ 产出侧同理：源码里那个 handler 必须真的接在按钮上（否则按钮点了没反应，
   // 而产物里的文案仍然在——只查字符串抓不到"按钮没接 handler"）。
+  // ⚠ 2026-09-19（EXECUTION-PLAN 第 4 步）：原先这里还钉 `onClick={onExportSlides}` 与
+  // `exportResearchSlides(`——PPT 通路被撤（docx/NOT-DOING.md 第 1 条）⇒ 那两条断言随之删除；
+  // 改钉"PPT 的接线**不许**再出现"（负向，挡它被写回去）。
   const panel = await readFile(join(pluginRoot, 'client', 'KsMaterialsPanel.tsx'), 'utf8')
   check('产出按钮在源码里**接了 handler**（不是只有文案）',
-    panel.includes('onClick={onExportReport}') && panel.includes('onClick={onExportSlides}'))
-  check('产出用**两个不同**的路由函数（报告 ≠ PPT）',
-    panel.includes('exportResearchReport(') && panel.includes('exportResearchSlides('))
+    panel.includes('onClick={onExportReport}'))
+  check('报告仍走 api 层的路由函数', panel.includes('exportResearchReport('))
+  check('PPT 通路**不许**被写回来（交付物已撤：无按钮、无 handler、无 api 调用）',
+    !panel.includes('onExportSlides') && !panel.includes('exportResearchSlides('))
 
   // ---- 静默降级护栏（2026-09-18 由**真机** e2e 抓出来的那两处，见 §10.53）----
   // 行为上的真正闸门是 `scripts/e2e-materials-panel.mjs` 的 C3（它要一个浏览器，

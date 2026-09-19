@@ -31,7 +31,6 @@ import {
   createMaterialProject,
   exportResearchDraft,
   exportResearchReport,
-  exportResearchSlides,
   fetchExportBlob,
   fetchMaterialChunks,
   fetchMaterialInbox,
@@ -52,7 +51,6 @@ import {
   type KsMaterialTierDef,
   type KsResearchDraft,
   type KsResearchReport,
-  type KsSlideDeck,
 } from './api'
 
 export interface KsMaterialsPanelProps {
@@ -360,7 +358,6 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
   const conclusionMd = flow.conclusionMd
   const draft = flow.draft
   const [report, setReport] = useState<KsResearchReport | null>(null)
-  const [slides, setSlides] = useState<KsSlideDeck | null>(null)
   const [showReport, setShowReport] = useState(false)
   /**
    * 引用锚点健康度（**便宜**判据：只比指纹）。
@@ -558,7 +555,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
   }, [collectNote, collectUrl, projectId, run])
 
   /**
-   * 生成**研究报告**（Markdown + HTML + Word 三形态，本机落盘）。
+   * 生成**研究报告**（Markdown + HTML 两种形态，本机落盘）。
    *
    * 三条与引擎同源的纪律，界面这一层也要守住：
    * 1. **引用警告必须显示**（`warnings`）：`[[m:i]]` 对不上、或落在"仅线索/不可用"上，
@@ -566,6 +563,10 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
    * 2. **计数必须显示**（approved/pending/rejected）：报告里"待评审"是单列一节、
    *    **不进任何结论**，界面要让用户看见这个分离。
    * 3. **落盘路径必须显示**：产物在**本机**、不外发；用户得知道文件在哪。
+   *
+   * ⚠ 2026-09-19（EXECUTION-PLAN 第 4 步）：原 `onExportSlides`（生成 PPT，
+   * 走 `exportResearchSlides`）已随 PPT 交付物一并拆除——业主否决 Word/PPT 交付物
+   * （`docs/NOT-DOING.md` 第 1 条）。
    */
   const onExportReport = useCallback(() => {
     if (projectId === '') return
@@ -579,20 +580,6 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
       const bad = (out.warnings ?? []).length
       return `研究报告已生成（已批准 ${out.counts?.approved ?? 0} / 待评审 ${out.counts?.pending ?? 0}）`
         + (bad > 0 ? `——⚠ 有 ${bad} 条引用警告，见下方（报告里**原样保留**了那些引用）` : '')
-    }, null)
-  }, [conclusionMd, projectId, researchQuery, run])
-
-  /** 生成**同一份内容的 PPT**（缺依赖时引擎回可操作的错误，这里原样报出来）。 */
-  const onExportSlides = useCallback(() => {
-    if (projectId === '') return
-    void run('slides', async () => {
-      const out = await exportResearchSlides(projectId, {
-        query: researchQuery.trim() === '' ? undefined : researchQuery.trim(),
-        conclusionMd: conclusionMd.trim() === '' ? undefined : conclusionMd,
-      })
-      setSlides(out)
-      return `PPT 已生成：${out.name ?? ''}（${out.slide_count ?? 0} 页）`
-        + (out.path !== undefined ? ` → ${out.path}` : '')
     }, null)
   }, [conclusionMd, projectId, researchQuery, run])
 
@@ -1055,15 +1042,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
               disabled={busy !== ''}
               onClick={onExportReport}
             >
-              生成研究报告（Markdown/HTML/Word）
-            </button>
-            <button
-              type="button"
-              style={btnStyle(busy !== '')}
-              disabled={busy !== ''}
-              onClick={onExportSlides}
-            >
-              生成 PPT
+              生成研究报告（Markdown/HTML）
             </button>
             {report?.markdown !== undefined && (
               <button
@@ -1172,20 +1151,6 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
               {(report.warnings ?? []).join('；')}
             </p>
           )}
-          {slides !== null && (
-            <p style={{ margin: '6px 0 0', fontSize: 12, color: GRAY }}>
-              PPT：{slides.name ?? ''}（{slides.slide_count ?? 0} 页）
-              {(slides.warnings ?? []).length > 0 && (
-                <>
-                  <br />
-                  ⚠ {(slides.warnings ?? []).join('；')}
-                </>
-              )}
-            </p>
-          )}
-          {slides?.name !== undefined && (
-            <Deliverables names={[slides.name]} paths={slides.path !== undefined ? [slides.path] : []} />
-          )}
           {showReport && report?.markdown !== undefined && (
             <pre style={{
               marginTop: 6, maxHeight: 320, overflow: 'auto', fontSize: 11,
@@ -1196,9 +1161,9 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
             </pre>
           )}
           <p style={{ margin: '6px 0 0', fontSize: 12, color: GRAY }}>
-            报告与 PPT <strong>同一份内容</strong>（都从引擎的同一份内容块渲染），
-            <strong>本机</strong>生成与保存、<strong>不外发</strong>；PPT 用默认版式，
-            超长要点会截断、页数有上限（都写在 PPT 末页）。
+            报告只有<strong>一种内容</strong>、两种落盘形态（Markdown 是交付物本体，
+            HTML 是同一份内容的界面预览形态），
+            <strong>本机</strong>生成与保存、<strong>不外发</strong>。
           </p>
         </div>
       )}
@@ -1210,8 +1175,12 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
 
 /**
  * 一份产物的"能不能直接看"由**扩展名**决定（浏览器能力，不是我们的偏好）：
- * · `.html` / `.md` → 新标签里**直接渲染**（HTML 就是报告本体）；
- * · `.docx` / `.pptx` → 浏览器渲染不了 ⇒ 只能下载一份（或用户按下面给的目录自己打开）。
+ * · `.html` / `.md` → 新标签里**直接渲染**（HTML 是同一份内容的界面预览形态）；
+ * · 其余（如 `.xlsx`）→ 浏览器渲染不了 ⇒ 只能下载一份（或用户按下面给的目录自己打开）。
+ *
+ * ⚠ 2026-09-19（EXECUTION-PLAN 第 4 步）：`.docx`/`.pptx` 不再作为交付物产出
+ * （业主否决 Word/PPT 交付物，`docs/NOT-DOING.md` 第 1 条）；本函数判据是**通用**的
+ * （按扩展名分 page/binary），留着兜住 xlsx 那类产物，不必为撤销而改写。
  */
 export function deliverableKind(name: string): 'page' | 'binary' {
   return /\.(html?|md|txt)$/i.test(name) ? 'page' : 'binary'
@@ -1222,7 +1191,7 @@ export function folderOf(path: string): string {
   return path.replace(/[\\/][^\\/]*$/, '')
 }
 
-/** blob URL → 触发一次"另存为"（浏览器渲染不了 Word/PPT，只能给一份文件）。 */
+/** blob URL → 触发一次"另存为"（浏览器渲染不了非网页形态的产物，只能给一份文件）。 */
 function downloadBlob(url: string, name: string): void {
   const a = document.createElement('a')
   a.href = url
@@ -1238,8 +1207,11 @@ function downloadBlob(url: string, name: string): void {
  * 报障的真实缺口不是"导入"，而是**产物没法看**：面板当时只把三个绝对路径打成
  * `<code>`，用户拿不到手。这里给每条产物一个能点的按钮，并**如实说出**做不到的部分：
  * · `.html`/`.md` 用新标签渲染（`URL.createObjectURL` 的 blob，不落盘、不外发）；
- * · `.docx`/`.pptx` 只能"下载一份"——**本机那份原件仍在下面显示的目录里**，
- *   "一键用 Word/PPT 打开"需要新增宿主路由（要重启宿主），本轮不做，所以不写这种按钮。
+ * · 非网页形态的产物（如 `.xlsx`）只能"下载一份"——**本机那份原件仍在下面显示的目录里**，
+ *   "一键用系统默认程序打开"需要新增宿主路由（要重启宿主），本轮不做，所以不写这种按钮。
+ *
+ * ⚠ 2026-09-19（EXECUTION-PLAN 第 4 步）：`.docx`/`.pptx` 交付物已拆除，文案随之改准
+ * （原来点名 Word/PPT，现在交付物里没有这两类了）。
  *
  * ⚠ 两个实现纪律：
  * 1. blob URL 用完要 `revokeObjectURL`，但**不能立刻 revoke**——新标签还要读它
@@ -1315,7 +1287,7 @@ function Deliverables(props: { names: string[]; paths: string[] }): JSX.Element 
             onClick={() => open(n)}
             title={deliverableKind(n) === 'page'
               ? `${n}：在新标签里直接打开（浏览器渲染）`
-              : `${n}：浏览器渲染不了 Word/PPT，这里下载一份；本机原件在下面那个目录里`}
+              : `${n}：浏览器渲染不了这种产物（如 xlsx），这里下载一份；本机原件在下面那个目录里`}
             style={{
               border: '1px solid var(--dsw-alias-border-l2, #ccc)',
               background: 'var(--dsw-alias-bg-layer-2, #fff)',
@@ -1335,7 +1307,7 @@ function Deliverables(props: { names: string[]; paths: string[] }): JSX.Element 
           <button
             type="button"
             onClick={copyFolder}
-            title="复制目录路径（粘到资源管理器/Win+R 即可打开 Word/PPT 原件）"
+            title="复制目录路径（粘到资源管理器/Win+R 即可打开本机原件）"
             style={{
               border: '1px solid var(--dsw-alias-border-l2, #ccc)',
               background: 'var(--dsw-alias-bg-layer-2, #fff)',
@@ -1353,7 +1325,7 @@ function Deliverables(props: { names: string[]; paths: string[] }): JSX.Element 
         </p>
       )}
       <p style={{ margin: '4px 0 0', color: GRAY, fontSize: 11 }}>
-        Word / PPT 浏览器渲染不了：上面给的是**下载一份**（本机原件仍在保存目录里）。
+        非网页形态的产物（如 xlsx）浏览器渲染不了：上面给的是**下载一份**（本机原件仍在保存目录里）。
         「用系统默认程序一键打开」需要在宿主侧加路由（要重启宿主），本轮未做。
       </p>
     </div>

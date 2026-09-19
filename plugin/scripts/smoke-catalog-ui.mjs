@@ -134,12 +134,14 @@ const panelMod = await loadModule('client/KsMaterialsPanel.tsx')
   check('KsMaterialsPanel 导出了 deliverableKind / folderOf',
     typeof k === 'function' && typeof fo === 'function')
   if (typeof k === 'function') {
-    check('HTML/MD → 新标签直接看（page）',
+    check('网页形态 → 新标签直接看（page）',
       k('研究报告-x.html') === 'page' && k('x.htm') === 'page' && k('x.md') === 'page')
-    check('Word/PPT → 只能下载一份（binary；浏览器渲染不了）',
-      k('研究报告-x.docx') === 'binary' && k('x.pptx') === 'binary' && k('x.pdf') === 'binary')
+    // ⚠ 2026-09-19（EXECUTION-PLAN 第 4 步）：判据是**通用**的（非网页形态 ⇒ binary），
+    // 不点名 Word/PPT——那两类交付物已被业主否决并拆除（docs/NOT-DOING.md 第 1 条）。
+    check('非网页形态 → 只能下载一份（binary；浏览器渲染不了）',
+      k('效力报告-x.xlsx') === 'binary' && k('x.pdf') === 'binary' && k('x.csv') === 'binary')
     check('大小写不敏感（引擎给的名字带中文与大写扩展名都可能）',
-      k('X.HTML') === 'page' && k('X.DOCX') === 'binary')
+      k('X.HTML') === 'page' && k('X.XLSX') === 'binary')
   }
   if (typeof fo === 'function') {
     check('文件夹 = 去掉最后一段（Windows 反斜杠）',
@@ -147,7 +149,7 @@ const panelMod = await loadModule('client/KsMaterialsPanel.tsx')
         === 'C:\\Users\\Zegel\\AppData\\Roaming\\KnowledgeStation\\exports',
       fo('C:\\Users\\Zegel\\AppData\\Roaming\\KnowledgeStation\\exports\\a.html'))
     check('文件夹 = 去掉最后一段（POSIX 斜杠）',
-      fo('/home/u/exports/a.docx') === '/home/u/exports', fo('/home/u/exports/a.docx'))
+      fo('/home/u/exports/a.xlsx') === '/home/u/exports', fo('/home/u/exports/a.xlsx'))
   }
 
   const src = await readFile(join(pluginRoot, 'client', 'KsMaterialsPanel.tsx'), 'utf8')

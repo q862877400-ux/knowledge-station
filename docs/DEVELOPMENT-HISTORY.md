@@ -8658,6 +8658,21 @@ Office 往返编辑会话（`office_roundtrip.py`），以及为它们写的用�
 
 ⚠ 边界：**这一轮只改文档与登记，没动代码**；代码撤除单独一轮做（带门禁 + 独立复核）。
 
+**✅ 2026-09-19 后续：代码撤除已实施**（[EXECUTION-PLAN](EXECUTION-PLAN.md) 第 4 步）。
+上面那段"待撤"登记至此**兑现**，逐项对照如下（就地更正，不悄悄删）：
+
+| 上面登记的"待撤" | 实际处置 |
+|---|---|
+| 研究报告落 `.md`+`.html`+`.docx`（"三形态"） | **拆掉 `.docx` 那一形态**（`_to_docx` / `_docx_template_path` / `docx_render_failed` 一并删除）⇒ `files`/`names` 从三个回到两个（`.md`/`.html`） |
+| PPT 生成（`slide_export.py`） | **整个模块删除** + 引擎端点 `/report/research/slides` + 宿主路由 `/ks/report/research/slides` + 客户端 `KsSlideDeck`/`exportResearchSlides` + 界面「生成 PPT」按钮 + `tests/test_slide_export.py` |
+| 为它们写的用例 | 该删的删；`test_update_report.py` 的 REP-04 与 `test_phase7.py` 的 citations 契约**改成测留存的路径**（没连坐删） |
+| `python-pptx` 依赖声明 | **删除**（全仓 0 import）。⚠ **`python-docx` 保留**——理由就是上面那句"输入侧要留"，另外 `office_roundtrip`（编辑工具）也用它 |
+| （上面**没登记**、本轮 grep 发现的同类通路） | `report_export` 的问答依据/审查报告 Word 导出与 `_open_document`/`_templates_dir`；`update/report.py` 的更新检查报告 Word 版与 `/update/report/{batch_id}`；`server.py` 的义务清单 Word 导出 ⇒ 一并拆掉（同属"Word 产出通路"） |
+
+⚠ 边界（与上面同一口径）：`office_roundtrip.py`（用 Word 编辑条款再回传的**编辑工具**）
+**保留**——它是输入/编辑侧，不是交付 Word 文件；`.xlsx` 导出**保留**（裁决说的是 Word/PPT）。
+棘轮基线按新总账重记（删用例 ⇒ 总账下降是**预期**），由业主跑 `run-gates.ps1 -Full -UpdateBaseline`。
+
 
 
 

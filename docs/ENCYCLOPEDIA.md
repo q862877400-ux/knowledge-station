@@ -223,7 +223,17 @@ SSE `verification` 事件：`{is_valid, answer_confidence, confidence_reasons[],
 
 ## 6.7 导出（exports/report_export.py）
 
-引用块（R19 标准 Markdown 格式）；问答依据 Word；合规审查报告 Word；义务清单/检查表 Word。导出模板自定义：`%APPDATA%\KnowledgeStation\templates\` 下同名 docx 存在时作基础 Document。下载接口严格限定 exports 目录（路径穿越 403，有测试）。
+引用块（R19 标准引用**纯文本**，供前端一键复制）+ `exports/` 目录与命名约定的单一所有者；
+下载接口严格限定 exports 目录（路径穿越 403，有测试）。
+
+⚠ **2026-09-19（[EXECUTION-PLAN](EXECUTION-PLAN.md) 第 4 步）已撤销 Word/PPT 交付物**
+（见 [NOT-DOING](NOT-DOING.md) 第 1 条：业主裁定"产出物只出 Markdown"）：
+问答依据 Word、合规审查报告 Word、义务清单/检查表 Word、更新检查报告 Word、
+研究报告 `.docx`、PPT（`slide_export.py`）与 `%APPDATA%\KnowledgeStation\templates\`
+的 docx 模板机制**全部拆除**。**仍在的**：研究报告 `.md`（交付物本体）+ `.html`
+（界面预览形态）、各 xlsx 导出（效力报告 / 更新检查结果 / 公告发现）、
+以及 `office_roundtrip`（用 Word 编辑条款再回传的**编辑工具**，不是交付 Word 文件）。
+`python-docx` 因此**仍在依赖里**（输入侧解析 + `office_roundtrip` 用）。
 
 ---
 

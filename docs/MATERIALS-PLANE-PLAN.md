@@ -5,6 +5,14 @@
 > 施工纪律：**小步走、多次提交，每步一个快照**（`pwsh scripts/snapshot-project.ps1 -Label <名> -Note <说明>`）
 > 回滚：`git reset --hard step-NN-<名>`
 
+> ⚠ **读这份文件的通用前提（2026-09-19 追记）**：下文里凡是把 **PPT / `.docx` / Word**
+> 当**交付物**的地方（D-2 节、复核台账里的 "人眼确认 Word/PPT"、"PPT 行预算待修"、
+> `Deliverables` 的 "Word·PPT 下载" 等），**一律是当时的记录，不是当前能力**——
+> 业主早已否决 Word/PPT 交付物（产出物只出 Markdown，见 [NOT-DOING](NOT-DOING.md) 第 1 条），
+> 相关通路已在 [EXECUTION-PLAN](EXECUTION-PLAN.md) **第 4 步整条拆除**（含 `python-pptx` 依赖）。
+> 那些"下一步：人眼确认 Word/PPT"的待办**随之作废**，不要再当成待办读。
+> 与 Word 无关的 `.xlsx` 导出、`.md`/`.html` 报告、`office_roundtrip`（编辑工具）**不受影响**。
+
 ---
 
 ## 0. 业主已裁定的事项（本方案的前提，不是提议）
@@ -301,7 +309,8 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
   且要**刷新 GUI** 才加载新 client.js）~~ ⇒ **2026-09-18 做到了"能做的部分"**（§10.53）：
   新增真机 e2e `plugin/scripts/e2e-materials-panel.mjs`（`npm run e2e:materials`，9 条断言），
   真机已证实**面板挂得进设置界面、不炸、失败如实说**；它当场抓出两个真缺陷（见 §10.53）。
-  **仍未做到的是"happy path"**（建项目 → 扫描收件 → 批准 → 产出报告/PPT 走一遍）——
+  **仍未做到的是"happy path"**（建项目 → 扫描收件 → 批准 → 产出报告走一遍）——
+  ⚠ 2026-09-19：原文写的是"产出报告/PPT"，PPT 交付物已否决并拆除 ⇒ 这条缺口**只剩报告**（`.md`/`.html`）。
   卡在**两道门**上（见未决第 11 条：宿主路由今天 404）。
   ⚠ 两条**实测更正**：(a) 宿主**确实**按请求现读 `plugin/client.js`（不需要"重挂载才换 client"），
   **但**必须 `Network.setCacheDisabled`——`Page.reload({ignoreCache:true})` 拦不住那份
@@ -426,13 +435,19 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
   六节：研究问题 / 结论（调用方给）/ **依据按承重能力分组**（复用 `authority`，
   分组判据不另写一份）/ 已批准清单 / **未批准如实列出** / 已知限制。
   Markdown 与 HTML 从**同一份结构化文档**渲染（零新增依赖，HTML 全转义）。
-  ⚠ **§10.92 补上第三种形态 Word（`.docx`）**：还是从**同一份内容块**渲染
+  ~~⚠ **§10.92 补上第三种形态 Word（`.docx`）**：还是从**同一份内容块**渲染
   （`build_report_blocks` 仍是唯一内容来源），走 `exports/report_export._open_document`
-  既有那条 `python-docx` 通路 ⇒ 依旧零新增依赖；`dry_run` 仍只回 markdown/html。
+  既有那条 `python-docx` 通路 ⇒ 依旧零新增依赖；`dry_run` 仍只回 markdown/html。~~
+  ⚠ **2026-09-19 作废并拆除**：`.docx` 那一形态已随业主否决 Word/PPT 交付物一并删除
+  （EXECUTION-PLAN 第 4 步；NOT-DOING 第 1 条）⇒ 现在只有 `.md`（交付物本体）+ `.html`（界面预览形态）。
   **引用逐条校验**：`[[m:i]]` 不存在或落在"仅线索/不可用"⇒ 进 `warnings`（绝不静默）；
   `[[c:i]]` 本次**无法校验**，如实计数。顺带补掉 `/ks/report/*` **此前零冒烟**的覆盖缺口
   （新增 `smoke-report-routes` 19 项），并修掉 `mapProbe` 把引擎 404 翻成 502 的**归因错误**。
-- **D-2 PPT 导出（已完成，§10.38）**：方案 §8 要求的"单独立项、先论证值不值"——论证写在
+~~- **D-2 PPT 导出（已完成，§10.38）**~~
+  ⚠ **2026-09-19 作废并拆除**：PPT 交付物被业主否决（产出物只出 Markdown）⇒
+  `exports/slide_export.py`、`/report/research/slides`（引擎与主机两条路由）、
+  界面「生成 PPT」按钮、用例与 `python-pptx` 依赖**全部删除**。
+  下面这一段只留来历（当时的论证与实现记录，**不是**当前能力）：
   §10.38：**内容模型已有**（复用 `build_report_blocks`，不做第二套内容）、**依赖几乎不新增**
   （`python-pptx` 的依赖 lxml/Pillow 本仓已在；但它是**传递依赖**恰好满足，故按惯例
   **显式声明**）、业主明确要过。产出 `exports/slide_export.py` + 引擎/主机路由
@@ -510,8 +525,11 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
    "顺手点通过"——而评审闸门是本功能的立身之本；② 它在设置里与「效力报告」相邻，
    两者都是"库内东西的管理台"；③ 对话侧只留**绑定**（`/materials use <prj>`）与产出入口，
    职责清楚。⇒ **不迁移**；若将来要加"对话里快速看材料"，那是**只读**入口，不是评审入口。
-4. ~~PPT 依赖仍未立项（§8）~~ ⇒ **已立项并落地**（§10.38：D-2 论证 + `pyproject.toml`
-   显式声明 `python-pptx>=1.0`）。仍未做的：PPT 的**模板/母版**（现在用 python-pptx 默认版式）。
+4. ~~PPT 依赖仍未立项（§8）~~ ⇒ ~~**已立项并落地**（§10.38：D-2 论证 + `pyproject.toml`
+   显式声明 `python-pptx>=1.0`）。仍未做的：PPT 的**模板/母版**（现在用 python-pptx 默认版式）。~~
+   ⚠ **2026-09-19 整条作废**：PPT 交付物（连同 `python-pptx` 依赖、`slide_export.py`、
+   两条路由、界面按钮与用例）已被拆除——业主裁定产出物只出 Markdown
+   （EXECUTION-PLAN 第 4 步 / NOT-DOING 第 1 条）⇒ "模板/母版"这项**不再存在**，不是待办。
 5. **✅ 材料引用的"锚点稳定性"（已决策并落地判据，§10.48）**（独立复核 2026-09-17 提出）。
    `material` 表**不存派生全文**，也**没有解析器指纹**；`content_hash` 是**源文件字节**的哈希。
    而切片区间/页号是**解析结果**的坐标 ⇒ 一旦换解析器（PyMuPDF 版本、MinerU、或开
@@ -650,7 +668,7 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     | 编号 | 一句话 | 状态 |
     |---|---|---|
     | b10-MEDIUM-2 | 我把锚点判据改成会读盘（每份材料一次 sha256），端点却还在 `async def` ⇒ 卡单事件循环（同文件的 `reverify` 恰恰为此声明成 `def`） | ✅ 已修（step-58，§10.59：两条端点改 `def` + 两处"很便宜"说明改准 + **进 `TestSlowEndpointsAreDeclaredSync` 参数化表**，P1/P2 变异 RED） |
-    | b10-MEDIUM-1 | PPT 宽度模型把 General Punctuation（`——` `""` `''` `…`，U+2000–206F）当 **0.5em**，渲染实测 **1.000em** ⇒ 含这些标点的要点**低估行数**、渲染**裁字**：合成输入丢 42%，**产品路径**（18 份真材料→报告→pptx→PDF）丢 **98/252 汉字 = 39%**；**变异 G1（改对这类标点）22 条用例全绿 ⇒ 这一类零覆盖** | ⏳ **待修（下一步，最高优先）**；⚠ 另记：本机字体 `字`=1.020em、前缀 `· `=0.605em，**两处偏差恰好抵消**才让 38/39 临界点看起来对——换字体就会漂，这条要写进 PPT 的诚实边界 |
+    | b10-MEDIUM-1 | PPT 宽度模型把 General Punctuation（`——` `""` `''` `…`，U+2000–206F）当 **0.5em**，渲染实测 **1.000em** ⇒ 含这些标点的要点**低估行数**、渲染**裁字**：合成输入丢 42%，**产品路径**（18 份真材料→报告→pptx→PDF）丢 **98/252 汉字 = 39%**；**变异 G1（改对这类标点）22 条用例全绿 ⇒ 这一类零覆盖** | ⚰ **整条作废（2026-09-19）**：PPT 通路已拆除（[EXECUTION-PLAN](EXECUTION-PLAN.md) 第 4 步）⇒ 这个"待修"**不再存在**，别再当待办；⚠ 另记：本机字体 `字`=1.020em、前缀 `· `=0.605em，**两处偏差恰好抵消**才让 38/39 临界点看起来对——换字体就会漂，这条曾是 PPT 的诚实边界 |
     | b10-LOW-1 | `xmp`/`plaintext` **内部**的字面 `<script>`/`<style>` 仍被整串剥掉，而浏览器 `innerText` **会显示**它们 ⇒ 仍丢可见正文（零覆盖） | ⏳ 待修 |
     | b10-LOW-2 | §10.56 的表把 `A→B0` 写成"0 行"，实为 **5879 行 `std→law`**（我的探针根本没算这一格，它打印的是 `A→B`）⇒ 这个格子恰好抵消了该节要立的"根因=上一区间 `\b`→枚举的回归" | ⏳ 待改记录 |
     | b10-LOW-3 | `raw_path` 有、文件在磁盘、`content_hash=NULL` 时 `why` 谎称"源文件不在磁盘上"（文件明明在那儿）；当前不可达（两个入库口都写 content_hash），但是公开 API 的合法状态，且恢复建议误导 | ⏳ 待修（措辞 + 恢复建议） |
@@ -1327,7 +1345,7 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
   （真机 gui-10/11/12）；
   ③ "设置里的导入只接受 PDF，还有 html 呢" ⇒ 真实缺口是产物拿不到手：新增
   `fetchExportBlob`（复用引擎既有 `/api/v1/export/download`，**不新增宿主路由**）
-  + 面板 `Deliverables` 按钮组（HTML 新标签直开 / Word·PPT 下载 / 复制保存目录）；
+  + 面板 `Deliverables` 按钮组（HTML 新标签直开 / 下载一份 / 复制保存目录）；
   **真机抓到并修掉一个真 bug**：`await` 之后 `window.open` 被弹窗拦截（引擎冷启动可达 8s）
   ⇒ 改成手势同步段先占 `about:blank`；
   ④ "法律法规的目录被搞坏了" ⇒ 只读探针给出事实（法规树只有 **7** 行、且全部

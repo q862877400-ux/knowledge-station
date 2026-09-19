@@ -126,7 +126,7 @@ export async function fetchPdf(
 }
 
 /**
- * 取一份**已落盘的交付物**（研究报告的 `.md`/`.html`/`.docx`、PPT 的 `.pptx`）
+ * 取一份**已落盘的交付物**（研究报告的 `.md`/`.html`，或其它 xlsx 产物）
  * —— 2026-09-18 用户报障"设置里的导入只接受 PDF，还有 html 呢"。
  *
  * ## 为什么走引擎而不是宿主新开路由
@@ -139,9 +139,13 @@ export async function fetchPdf(
  * ## 边界（诚实写下来）
  * 拿回来的字节**不落盘**（`URL.createObjectURL` 用完要 revoke），所以：
  * · `.html` 可以在新标签里**渲染**（报告本体）；
- * · `.docx`/`.pptx` 浏览器渲染不了 ⇒ 只能下载一份，或由用户去
+ * · `.md` 只有 `text/markdown`（浏览器按纯文本显示，别指望排版）；
+ * · 非网页形态的产物（如 `.xlsx`）浏览器渲染不了 ⇒ 只能下载一份，或由用户去
  *   `设置里显示的那个绝对路径` 直接打开。想"一键用系统默认程序打开"必须加
  *   宿主路由（要重启宿主），本轮**不做**，如实写在面板文案里。
+ *
+ * ⚠ 2026-09-19（EXECUTION-PLAN 第 4 步）：`.docx`/`.pptx` 两条交付物通路已拆除
+ * （业主否决 Word/PPT 交付物，`docs/NOT-DOING.md` 第 1 条）。
  *
  * @param name 文件名（**只有 basename**，路径分隔符会被引擎判为非法）。
  */
@@ -2767,25 +2771,16 @@ export interface KsResearchReport {
   counts?: KsReportCounts
   markdown?: string
   html?: string
-  /** 落盘的绝对路径（`dry_run` 时没有）。落盘是**三个**：`.md` / `.html` / `.docx`（§10.92）。 */
+  /** 落盘的绝对路径（`dry_run` 时没有）。落盘是**两个**：`.md` / `.html`。 */
   files?: string[]
   names?: string[]
-}
-
-/** PPT 的落盘结果（缺 python-pptx 时引擎回 500 `ppt_unavailable`，不产生空文件）。 */
-export interface KsSlideDeck {
-  path?: string
-  name?: string
-  slide_count?: number
-  warnings?: string[]
-  counts?: KsReportCounts
 }
 
 /**
  * **结论草稿**的返回（Phase D-5a，§10.96）。
  *
  * ⚠ 字段名与引擎**逐字一致**（snake_case）——`ksJson` 只透传、不做命名转换
- * （同 `KsSlideDeck.slide_count` 的先例）。
+ * （同 `KsResearchDraft.llm_called` 的先例）。
  * ⚠ `status` 恒为 `unapproved_draft` —— 那是**契约的一部分**，界面必须显示；
  * 草稿**不落盘**（所以这里没有 `files`），是否采用由用户**逐次显式**决定。
  */
@@ -2845,26 +2840,22 @@ async function postReport<T>(path: string, projectId: string, input: KsReportInp
 }
 
 /**
- * POST /ks/report/research — **生成研究报告**（Markdown + HTML + Word，本机落盘）。
+ * POST /ks/report/research — **生成研究报告**（Markdown + HTML，本机落盘）。
  *
  * 内容只吃**已批准**的材料（硬门在引擎侧的检索里）；未批准的自会出现在
  * "尚未批准的材料（不会进入任何结论）"一节。`conclusion_md` 里的 `[[m:i]]` 会被
  * 引擎逐条校验，对不上的进 `warnings`——**界面必须显示**，否则用户会以为引用都成立。
- * `files`/`names` 是**三个**（`.md` / `.html` / `.docx`，§10.92，顺序固定）。
+ * `files`/`names` 是**两个**（`.md` / `.html`，顺序固定）。
+ *
+ * ⚠ 2026-09-19（EXECUTION-PLAN 第 4 步）：原 `.docx` 落盘与 PPT
+ * （`exportResearchSlides`，走 `/ks/report/research/slides`）已拆除
+ * ——业主否决 Word/PPT 交付物（`docs/NOT-DOING.md` 第 1 条）。
  */
 export async function exportResearchReport(
   projectId: string, input: KsReportInput = {}, signal?: AbortSignal,
 ): Promise<KsResearchReport> {
   return postReport<KsResearchReport>('/ks/report/research', projectId, input,
     '研究报告', signal)
-}
-
-/** POST /ks/report/research/slides — **同一份内容的 PPT**（超长要点截断、页数有上限）。 */
-export async function exportResearchSlides(
-  projectId: string, input: KsReportInput = {}, signal?: AbortSignal,
-): Promise<KsSlideDeck> {
-  return postReport<KsSlideDeck>('/ks/report/research/slides', projectId, input,
-    '研究报告 PPT', signal)
 }
 
 /**

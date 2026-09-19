@@ -592,4 +592,8 @@ WeKnora 的「**文件类型**」（PDF / DOCX / XLSX / 图片…）对我们**�
   不是"知识库列表"——抄它的界面不等于把我们的中心让出去（这条是原来那条裁定的**有效部分**，保留）。
 - **不引入它的技术栈**（Vue/TDesign/Pinia…）：我们寄生在 DSH 的 React 侧栏契约里（`KsEvidenceHost` 就是官方座位的适配层），换栈等于重写且失去宿主集成。
 - **不做 PPT/多形态分发**（业主已明确：产出物只要 Markdown）。
+  ✅ **2026-09-19 已按此撤除存量通路**（[EXECUTION-PLAN](EXECUTION-PLAN.md) 第 4 步）：
+  PPT（`slide_export.py` + `/report/research/slides` + 界面「生成 PPT」按钮）与
+  各类 Word（`.docx`）导出**全部删除**；研究报告只剩 `.md`（交付物本体）+ `.html`（界面预览形态）。
+  裁决原文见 [NOT-DOING](NOT-DOING.md) 第 1 条。
 - 本文是**设计**，不含实现；每条落地都要单独过门禁（`plugin` smoke + `verify:commands` + `tsc`）。

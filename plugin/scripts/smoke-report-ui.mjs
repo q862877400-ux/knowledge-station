@@ -1,7 +1,12 @@
 /**
  * ks-dsh-plugin — scripts/smoke-report-ui.mjs
  *
- * **客户端侧产出接线**的契约冒烟（Phase D-3b：研究报告 / PPT）。
+ * **客户端侧产出接线**的契约冒烟（Phase D-3b：研究报告）。
+ *
+ * ⚠ 2026-09-19（EXECUTION-PLAN 第 4 步）：原来还覆盖 PPT
+ * （`exportResearchSlides` → `/ks/report/research/slides`）与报告的三形态落盘
+ * （`.md`/`.html`/`.docx`）——业主否决 Word/PPT 交付物（`docs/NOT-DOING.md` 第 1 条）后
+ * 两者都已拆除 ⇒ 本节只覆盖**两个**落盘文件与两条报告路由。
  *
  * ## 为什么必须单独验（不能只靠「产物里有那句文案」）
  * 产出路由与材料路由的**参数位置不同**，客户端这一层最容易写错且**错得很安静**：
@@ -110,47 +115,29 @@ const ALLOWED = ['project_id', 'title', 'query', 'conclusion_md', 'limit', 'dry_
 {
   nextResponse = envelope({
     title: '住宿标准研究', markdown: '# 报告', html: '<h1>报告</h1>',
-    files: ['D:\\exports\\研究报告-x.md', 'D:\\exports\\研究报告-x.html',
-      'D:\\exports\\研究报告-x.docx'],
-    names: ['研究报告-x.md', '研究报告-x.html', '研究报告-x.docx'],
+    files: ['D:\\exports\\研究报告-x.md', 'D:\\exports\\研究报告-x.html'],
+    names: ['研究报告-x.md', '研究报告-x.html'],
     counts: { approved: 3, pending: 2, rejected: 1 },
     warnings: ['结论里的 [[m:9]] 在本次依据集里不存在'],
     citations: { checked_material_refs: 4, bad_material_refs: 1, unchecked_law_refs: 2 },
   })
   const out = await api.exportResearchReport(PROJ, {})
   check('成功：markdown/files/counts **原样带出**（界面要显示落盘路径与计数）',
-    out.markdown === '# 报告' && out.files?.length === 3 && out.counts?.pending === 2,
+    out.markdown === '# 报告' && out.files?.length === 2 && out.counts?.pending === 2,
     JSON.stringify({ files: out.files, counts: out.counts }))
-  check('三形态（.md/.html/.docx）都带出——界面逐条显示落盘路径（§10.92）',
-    out.files?.[2]?.endsWith('.docx') === true, JSON.stringify(out.files))
+  check('两种形态（.md/.html）都带出——界面逐条显示落盘路径（Word 形态 2026-09-19 已拆）',
+    out.files?.[0]?.endsWith('.md') === true
+      && out.files?.[1]?.endsWith('.html') === true, JSON.stringify(out.files))
   check('⚠ warnings 带出（引用对不上**不许**静默——界面必须显示）',
     Array.isArray(out.warnings) && out.warnings.length === 1, JSON.stringify(out.warnings))
   check('引用核验计数带出（含"本次无法核验"的法规引用）',
     out.citations?.unchecked_law_refs === 2 && out.citations?.checked_material_refs === 4,
     JSON.stringify(out.citations))
-}
 
-/* ---------------------------------------------------- 4. PPT 成功与依赖缺失 */
-{
-  calls = []
-  nextResponse = envelope({ path: 'D:\\exports\\研究报告-x.pptx', name: '研究报告-x.pptx',
-                            slide_count: 4, warnings: [], counts: { approved: 1 } })
-  const out = await api.exportResearchSlides(PROJ, { query: 'Q' })
-  check('打到 PPT 路由（路径逐字）',
-    calls[0].url === '/ks/report/research/slides', calls[0].url)
-  check('PPT：path / name / slide_count 带出',
-    out.path?.endsWith('.pptx') === true && out.slide_count === 4, JSON.stringify(out))
-
-  nextResponse = jsonRes({ error: { code: 'ppt_unavailable',
-    message: '缺少 python-pptx：pip install python-pptx' } }, { status: 500, ok: false })
+  // 引擎侧错误路径照旧要如实抛出（原来的 PPT 段删掉后，这两条挂到报告路由上）
   let msg = ''
-  try { await api.exportResearchSlides(PROJ, {}) } catch (err) { msg = String(err?.message ?? err) }
-  check('缺 PPT 依赖 ⇒ **抛**并带出可操作的错误（不假装导出成功）',
-    msg.includes('python-pptx'), msg)
-
   nextResponse = jsonRes({ error: { code: 'materials_not_found', message: '项目不存在: prj_x' } },
     { status: 404, ok: false })
-  msg = ''
   try { await api.exportResearchReport(PROJ, {}) } catch (err) { msg = String(err?.message ?? err) }
   check('项目不存在 ⇒ 抛并带出引擎的 404 原因（同源错误，不翻成"生成失败"）',
     msg.includes('项目不存在'), msg)
@@ -220,7 +207,7 @@ const ALLOWED = ['project_id', 'title', 'query', 'conclusion_md', 'limit', 'dry_
     if (phase === 3) return session(51235)      // 轮换后的会话
     return blobRes(7)
   }
-  const blob2 = await api.fetchExportBlob('a.docx')
+  const blob2 = await api.fetchExportBlob('a.xlsx')
   check('401 ⇒ 重取会话再试一次（四个请求：session/download/session/download）',
     calls.length === 4 && blob2.size === 7, `calls=${calls.length} size=${blob2 && blob2.size}`)
 
@@ -245,7 +232,7 @@ const ALLOWED = ['project_id', 'title', 'query', 'conclusion_md', 'limit', 'dry_
   check('`unapproved_draft` 与草稿正文带出（界面必须能看出**未经批准**）',
     out.status === 'unapproved_draft' && String(out.draft_md).includes('[[m:0]]'),
     JSON.stringify({ status: out.status, has_draft: Boolean(out.draft_md) }))
-  check('草稿**不落盘**：返回里没有 files（与报告/PPT 的关键区别）',
+  check('草稿**不落盘**：返回里没有 files（与报告的关键区别）',
     out.files === undefined, JSON.stringify(Object.keys(out)))
 
   nextResponse = jsonRes({ error: { code: 'llm_unavailable',
