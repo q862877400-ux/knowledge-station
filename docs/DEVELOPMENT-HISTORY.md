@@ -9002,3 +9002,69 @@ Office 往返编辑会话（`office_roundtrip.py`），以及为它们写的用�
 - 未跑 `run-gates.ps1` / `smoke-all.mjs` / 全量 pytest（父代理统一跑）；本轮跑的是
   `smoke-build-purity`（59/59）、`smoke-client-entry`（122/122）、
   `pytest tests/test_ledger_chain.py tests/test_channel_repo.py`（121 passed）、`chain-snapshot.py [--json]`。
+
+## §10.142 同一根因的**第三次**：宿主原语桩收成**一份从源码派生**的共享实现（`plugin/scripts/lib/ks-primitives-stub.mjs`）
+
+### 一、现象与根因（现场由业主给出，本轮**自己复现**）
+`-Full` 的 smoke 步红在 `smoke-kb-page-render.mjs`：esbuild 报
+`X [ERROR] No matching export in "…/primitives.mjs" for import "IconInfoOutline14"`
+（同族还有 `IconPlusOutline16` / `IconFolderOpenOutline16`）—— 第 5 步 P0 新用的 3 个宿主图标，那份
+**手写桩**里没有。**改前实测**：`node plugin/scripts/smoke-kb-page-render.mjs` ⇒ **exit 1**，报的正是这 3 个名字。
+同一根因**前两次**：① `smoke-settings.mjs` 漏了 `@deepseek-ai/dsh-client-ui-primitives` 的 alias
+（构建直接 `Could not resolve`）；② `smoke-client-entry.mjs` 的桩漏 4 个新图标。
+⇒ 根因不是"又漏了一个"，是**名单有多个所有者**：每个"要打包客户端代码"的冒烟各维护一份
+`export const X = Null` 列表。**修法必须把名单收成一份、且从源码派生**（手写一份新的集中名单只是换个地方漏）。
+
+### 二、改法
+新 `plugin/scripts/lib/ks-primitives-stub.mjs`（**单一所有者**）。导出：
+`collectHostPrimitiveImports(pluginRoot)`（排序去重的名字集合）、`collectHostPrimitiveMembers(pluginRoot)`
+（带用法分类）、`renderPrimitivesStubSource(members)`、`writePrimitivesStub(path, members)`、
+`stubExportNames(src)`、`primitivesStubGaps(pluginRoot, stubSource)`、
+`ksClientPrimitivesAlias(pluginRoot, tmpDir)`（返回可直接塞进 esbuild `alias` 的对象）。
+
+**派生逻辑**（扫 `plugin/client/**/*.{ts,tsx}`，**不许手写死名单**）：
+- `import { A, B as C }` ⇒ 收 **`A` 与 `B`**（桩要导出的是**被导入的那个名字**；源码里用 `C` 是它自己的事）；
+- **多行 import** 照收；`import type { X }` 与内联 `{ type X, Y }` 里的 `X` **不收**（esbuild 的 ts loader 会抹掉）；
+- `import * as NS` / 默认导入 / `export *` / **包子路径** / 动态 `import()` ⇒ **当场抛错并点名 `文件:行`**
+  （"识别不了就点名，不许静默漏"）；**注释里的 import** 由"行首是 `//`/`*`"判据挡掉。
+
+**形状**（判据 = 真读 `plugin/client/**` 看每个成员**怎么用**，不是猜）：
+组件 ⇒ 组件（`Button`/`Checkbox`/`Tag`/`Pill`/`Input`/`Menu`/`Switch`/`Modal` 给**按宿主源码形状写的
+最小实现** —— 否则渲染级冒烟的 DOM 断言全部落空；`Icon*` ⇒ `<svg data-host-icon=名字>`；认不出 ⇒ `() => null`）；
+函数（源码里出现 `X(` 调用）⇒ **可调用的最小实现**（`fileSizeText`/`relativeTime`/`rankByName` 等按语义给
+`''`/`0`，**不给 `Null`** —— 否则 SSR 期间一调用就炸）；只出现 `X.` 的常量 ⇒ `Object.freeze({})`/已知常量值。
+
+**接线**（**只换桩来源**，各冒烟原有的 `external`/loader/`absWorkingDir` 一字未动）：
+`grep -l "primitives-stub|dsh-client-ui-primitives" plugin/scripts/*.mjs` 命中 **3 个**
+（`smoke-kb-page-render`、`smoke-client-entry`、`smoke-settings`）⇒ 全改；
+**另主动多接 3 个**同样打包 `client/*.tsx` 的：`smoke-catalog-ui`、`smoke-anchor-mark`、`smoke-draft-ui`
+（它们**今天**不 import 宿主原语 ⇒ alias 目前**惰性**；接上只为"下次谁在这些面板里用了宿主组件不用回来补"，
+即本次要根治的那个形状）。`ui-render-shot.mjs` **不动**：它 alias 到的是**真宿主** `lib/index.js`
+（离屏截图要真样式），不是桩。
+
+### 三、防复发 + **变异验证**
+`smoke-settings.mjs`（实测**最便宜**：0.1s）加一条断言：**桩的导出集合 ⊇ 源码里实际具名导入的集合**，
+缺谁**点名谁**。
+**变异验证（本轮实跑）**：把 `ksClientPrimitivesAlias` 里 `writePrimitivesStub(stubPath, members)` 临时改成
+`members.slice(0, -1)`（故意漏掉最后一个成员 `Tag`）⇒ `smoke-settings` 打出
+`FAIL 宿主原语桩覆盖源码里全部具名导入（12 个成员…）— 桩缺：Tag` + `STUB_GAP: …` ⇒ **exit 1**；还原后绿。
+另在 `var/tmp/`（gitignore）用一份假 client 树单测扫描器：命名空间导入被点名到 `client/a.ts:6`；
+多行 / `B as C` / `import type` / 行注释 / 块注释 五种写法各按预期收或不收；`fileSizeText(n)`→函数桩、
+`FISH_LOGO_PATH.toUpperCase()`→常量桩、`<Tag>`→组件桩。
+
+### 四、实跑证据（命令 + 退出码；**未跑** `run-gates.ps1` / `smoke-all.mjs` / 全量 pytest —— 父代理统一跑）
+| 冒烟（`node plugin/scripts/<名>.mjs`） | 改前 | 改后 |
+|---|---|---|
+| `smoke-kb-page-render.mjs` | **exit 1**（`No matching export` ×3） | exit 0 · **PASS (23/23)** |
+| `smoke-settings.mjs` | exit 0 | exit 0 · PASS（新断言报 13 个成员 / SSR CATEGORIES_OK） |
+| `smoke-client-entry.mjs` | exit 0 | exit 0 · **PASS (122/122)** |
+| `smoke-catalog-ui.mjs` | exit 0 | exit 0 · PASS (51/51) |
+| `smoke-anchor-mark.mjs` | exit 0 | exit 0 · PASS (26/26) |
+| `smoke-draft-ui.mjs` | exit 0 | exit 0 · PASS (49/49) |
+
+### 五、边界（诚实）
+- 桩是**形状**不是宿主实现：它保证"能打包 + 能渲染出可断言的结构"，**不**保证视觉、不保证宿主组件内部行为。
+- 本文件**不**校验"这个名字在真宿主里存不存在"（另一件事）。本轮**逐个核过**宿主
+  `ui-primitives/src/index.ts` 与 `icons/index.tsx`：当前 13 个成员**全部真实存在**（含 5 个 `Icon*Outline1x`）
+  —— 没有拿桩去掩盖一个**假成员**。
+- `plugin/client/**` 源码**一行未改**（只读）；未动 `scripts/run-gates.ps1` / `scripts/gates-baseline.json`。

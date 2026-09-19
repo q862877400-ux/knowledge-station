@@ -31,6 +31,8 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 
 import { build } from 'esbuild'
 
+import { ksClientPrimitivesAlias } from './lib/ks-primitives-stub.mjs'
+
 const here = dirname(fileURLToPath(import.meta.url))
 const pluginRoot = resolve(here, '..')
 
@@ -104,29 +106,11 @@ await writeFile(pdfStubPath, [
 // "non-baseline module specifiers"；这一个是 `packages/client/web/src/seed.ts` 里那 9 个
 // 平台单例之一），所以浏览器里 require 得到，**不需要在 package.json 里声明**。
 // 但本冒烟在 **Node** 里跑、没有宿主模块表，故同样换桩——与上面 pdfjs 的处理同一个理由：
-// 我们测的是 apply() 的接线，不是渲染。桩里的成员只需**存在**（本冒烟不渲染它们）。
-// ⚠ 这里必须**逐个列出我们真正 import 的成员**：宿主那份是真的，桩漏一个就会
-//   `SyntaxError: does not provide an export named …`（比"运行时 undefined"好，至少响）。
-const primitivesStubPath = join(stubDir, 'primitives-stub.mjs')
-await writeFile(primitivesStubPath, [
-  'const Null = () => null',
-  'export const Button = Null',
-  'export const Checkbox = Null',
-  'export const Tag = Null',
-  'export const Pill = Null',
-  'export const Input = Null',
-  'export const Switch = Null',
-  'export const Modal = Null',
-  'export const Menu = Null',
-  'export const IconChevronDownOutline14 = Null',
-  // P0-1/P0-5 起我们真的调用了这几个宿主图标（见 plugin/client/ksHostPrimitives.d.ts）：
-  // 桩里必须有同名导出，否则这里就是 `No matching export`（第五步 P0 时实测红过一次）。
-  'export const IconInfoOutline14 = Null',
-  'export const IconPlusOutline16 = Null',
-  'export const IconFolderOpenOutline16 = Null',
-  'export const IconTrashOutline16 = Null',
-  '',
-].join('\n'), 'utf8')
+// 我们测的是 apply() 的接线，不是渲染。
+// ⚠ **名单不在这里手写**（2026-10 第三次红的根因就是它）：由
+//   `scripts/lib/ks-primitives-stub.mjs` **从 `plugin/client/**` 派生** ⇒
+//   **加宿主组件只改源码，本文件一行都不用动**。
+const primitivesAlias = ksClientPrimitivesAlias(pluginRoot, stubDir)
 await writeFile(entryPath,
   "export { apply, inject } from './client/entry.ts'\n", 'utf8')
 try {
@@ -134,7 +118,7 @@ try {
     entryPoints: [entryPath], bundle: true, platform: 'node', format: 'esm',
     outfile: outPath, absWorkingDir: pluginRoot, jsx: 'automatic',
     external: ['react', 'react-dom'],
-    alias: { 'pdfjs-dist': pdfStubPath, '@deepseek-ai/dsh-client-ui-primitives': primitivesStubPath },
+    alias: { 'pdfjs-dist': pdfStubPath, ...primitivesAlias },
     loader: { '.tsx': 'tsx', '.ts': 'ts' }, logLevel: 'warning',
   })
 } catch (err) {

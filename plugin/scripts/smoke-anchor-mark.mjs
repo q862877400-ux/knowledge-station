@@ -31,8 +31,16 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 
 import { build } from 'esbuild'
 
+import { ksClientPrimitivesAlias } from './lib/ks-primitives-stub.mjs'
+
 const here = dirname(fileURLToPath(import.meta.url))
 const pluginRoot = resolve(here, '..')
+
+// 宿主 `@deepseek-ai/dsh-client-ui-primitives` 的桩：**从源码派生**（lib/ks-primitives-stub.mjs，
+// 单一所有者）。被打包的 KsMaterialsPanel **今天**还没 import 宿主原语 ⇒ alias 目前惰性；
+// 接上它只为"下次谁在这个面板里用宿主组件，不用回来补 alias/补桩"（同一根因已踩三次）。
+const primStubDir = await mkdtemp(join(tmpdir(), 'ks-anchor-prim-'))
+const primitivesAlias = ksClientPrimitivesAlias(pluginRoot, primStubDir)
 
 const results = []
 function check(name, ok, detail) {
@@ -63,6 +71,7 @@ await build({
   bundle: true, platform: 'node', format: 'esm', outfile,
   absWorkingDir: pluginRoot, loader: { '.tsx': 'tsx', '.ts': 'ts' },
   external: ['react', 'react-dom', 'react/jsx-runtime', 'pdfjs-dist'],
+  alias: { ...primitivesAlias },
   logLevel: 'warning',
 })
 
@@ -139,6 +148,8 @@ if (typeof AnchorMark === 'function') {
       shown.slice(0, 90))
   }
 }
+
+await rm(primStubDir, { recursive: true, force: true })
 
 const failed = results.filter((r) => !r.ok)
 console.log(`\n== anchor-mark smoke ${failed.length === 0 ? 'PASS' : 'FAIL'} `

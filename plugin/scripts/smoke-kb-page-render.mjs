@@ -15,7 +15,8 @@
  *   代价是这套用例**依赖 DSH 检出存在**——见下面 `找不到就报错、不静默跳过`。
  *
  * ## 诚实的边界（别把它读成"像素已验证"）
- * - 宿主的 `ui-primitives` 是**按源码形状写的桩**（Button/Checkbox/Tag/Pill/Input/Menu）。
+ * - 宿主的 `ui-primitives` 是**按源码形状生成的桩**（成员名单从源码派生，见
+ *   `scripts/lib/ks-primitives-stub.mjs`；加宿主组件**不需要动本文件**）。
  *   所以这里验的是**我们这一页的组装与行为**，不是宿主组件的内部实现，更不是视觉。
  * - 样式（`ksGuideStyles`）只验"注入了"，验不了"长什么样"。
  */
@@ -26,6 +27,8 @@ import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
 import { build } from 'esbuild'
+
+import { ksClientPrimitivesAlias } from './lib/ks-primitives-stub.mjs'
 
 const here = dirname(fileURLToPath(import.meta.url))
 const pluginRoot = resolve(here, '..')
@@ -60,62 +63,12 @@ if (missing.length > 0) {
 
 const stubDir = await mkdtemp(join(tmpdir(), 'ks-render-'))
 try {
-  /* ── 1. 宿主 ui-primitives 的桩：**按源码形状**写（不是随手 mock） ── */
-  // 形状取自宿主 `packages/client/ui-primitives/src/*.tsx`（逐个读过）：
-  //   Button   <button type=button className={css[variant]}>{icon}{children}</button>
-  //   Checkbox <label><input type=checkbox checked onChange/><span>{label}</span></label>
-  //   Tag      <span data-tone={tone}>{children}</span>
-  //   Pill     onClick ? <button>{children}</button> : <span>{children}</span>
-  //   Input    <span className=wrap><input/></span>
-  const primitivesStub = join(stubDir, 'primitives.mjs')
-  await writeFile(primitivesStub, `
-import { createElement as h } from 'react'
-
-export const Button = ({ variant = 'ghost', size = 'md', icon, className, children, ...rest }) =>
-  h('button', { type: 'button', 'data-variant': variant, 'data-size': size, className, ...rest }, icon, children)
-
-export const Checkbox = ({ checked, onChange, label, disabled, title, className }) =>
-  h('label', { className, title },
-    h('input', { type: 'checkbox', checked, disabled, onChange: (e) => { onChange(e.target.checked) } }),
-    h('span', null, label))
-
-export const Tag = ({ tone = 'outline', className, children }) =>
-  h('span', { 'data-tone': tone, className }, children)
-
-export const Pill = ({ active = false, className, children, onClick, ...rest }) =>
-  onClick
-    ? h('button', { type: 'button', 'data-active': String(active), className, onClick, ...rest }, children)
-    : h('span', { 'data-active': String(active), className }, children)
-
-export const Input = ({ icon, className, ...rest }) => h('span', { className }, icon, h('input', rest))
-
-/** Menu 桩：把 items 渲染成按钮（这样"新建下拉里有什么"是可断言的），并渲染 anchor。 */
-export const Menu = ({ open, items, anchor, onSelect, onClose }) =>
-  h('span', { 'data-open': String(open) },
-    anchor,
-    open ? h('div', { role: 'menu' },
-      items.map((it) => h('button', {
-        key: it.id, type: 'button', role: 'menuitem',
-        onClick: () => { onSelect?.(it.id); onClose?.() },
-      }, it.label))) : null)
-
-export const IconChevronDownOutline14 = () => h('svg', { 'data-icon': 'chevron-down' })
-
-export const Switch = ({ checked, onChange, label, disabled, title, className }) =>
-  h('label', { className, title },
-    h('input', { type: 'checkbox', role: 'switch', checked, disabled,
-      onChange: (e) => { onChange(e.target.checked) } }),
-    h('span', null, label))
-
-/** Modal 桩：open 时把它渲染成一个可见容器（这样"窗里有什么"是可断言的）。 */
-export const Modal = ({ open, onClose, title, description, children, footer, closeLabel }) =>
-  open === false ? null : h('div', { role: 'dialog', 'aria-label': title, className: 'ks-modal-stub' },
-    h('div', { className: 'ks-modal-title' }, title),
-    description ? h('p', null, description) : null,
-    h('button', { type: 'button', 'aria-label': closeLabel ?? 'close', onClick: () => { onClose?.() } }, '×'),
-    h('div', { className: 'ks-modal-body' }, children),
-    footer ? h('div', { className: 'ks-modal-footer' }, footer) : null)
-`, 'utf8')
+  /* ── 1. 宿主 ui-primitives 的桩：**从源码派生**，单一所有者在 scripts/lib/ks-primitives-stub.mjs ──
+   * ⚠ **不再手写名单**（本文件原来那份手写名单就是 2026-10 第三次红的原因：
+   *   P0 新用了 IconInfoOutline14 / IconPlusOutline16 / IconFolderOpenOutline16，桩里没有
+   *   ⇒ `No matching export in "…/primitives.mjs"` ⇒ 整个 smoke 步 exit 1）。
+   *   现在"加一个宿主组件"只要改 `plugin/client/**`，这里一行都不用动。 */
+  const primitivesAlias = ksClientPrimitivesAlias(pluginRoot, stubDir)
 
   /* ── 2. 测试入口：把"挂载"这件事暴露出来 ── */
   const entry = join(stubDir, 'entry.mjs')
@@ -146,7 +99,7 @@ export function mount(container, props) {
     outfile: out,
     jsx: 'automatic',
     alias: {
-      '@deepseek-ai/dsh-client-ui-primitives': primitivesStub,
+      ...primitivesAlias,
       react: join(webNodeModules, 'react', 'index.js'),
       'react/jsx-runtime': join(webNodeModules, 'react', 'jsx-runtime.js'),
       'react-dom': join(webNodeModules, 'react-dom', 'index.js'),

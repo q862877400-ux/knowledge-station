@@ -93,6 +93,14 @@ esbuild 不校验命名导出）⇒ 只能靠**运行时**和**读宿主源码**
 5. **把截图路径写进本轮记录**（否则等于没验）；发现不对就改，改完重截。
 ⚠ 边界：`var/` 被 gitignore ⇒ 截图**不入库**；入库的是"哪张图、看的是什么、结论是什么"这句话。
 
+> ⚠ **宿主原语桩 = [`plugin/scripts/lib/ks-primitives-stub.mjs`](../plugin/scripts/lib/ks-primitives-stub.mjs)**
+> （2026-10）：冒烟在 Node 里打包客户端代码时，宿主 `@deepseek-ai/dsh-client-ui-primitives` 必须 alias
+> 到一份桩；**名单从源码派生**（扫 `plugin/client/**` 的具名导入）⇒ **加一个宿主组件只改源码，不必改任何冒烟**。
+> 这是同一根因的**第三次**：① `smoke-settings` 漏 alias ⇒ `Could not resolve`；② `smoke-client-entry`
+> 的桩漏 4 个图标；③ `smoke-kb-page-render` 的桩漏 3 个图标 ⇒ `No matching export`、`-Full` 的 smoke 步红。
+> 防复发断言放在**最便宜**的 `smoke-settings`（桩的导出集合 ⊇ 源码导入集合，缺谁点名谁）。
+> 详细记录（改法/变异验证/实跑证据/边界）见 [开发史 §10.142](DEVELOPMENT-HISTORY.md)。
+
 ### ⚠ 2026-09-20 实测的环境事实：**宿主 GUI 对我们的浏览器自动化是 401**
 `browser4-cli` 打开 `http://127.0.0.1:3080` 拿到的是一个 133 字节的 401 残页（`scripts[].length === 0`、
 `title` 空）；换 `localhost`、补 `Origin`/`Referer`/`Sec-Fetch-*` 头仍 401（`Invoke-WebRequest` 同样 401）。

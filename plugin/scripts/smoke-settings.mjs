@@ -17,10 +17,17 @@
  * 用法：node scripts/smoke-settings.mjs
  */
 import { build } from 'esbuild'
-import { mkdtemp, rm, writeFile } from 'node:fs/promises'
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
+
+import {
+  HOST_PRIMITIVES_SPECIFIER,
+  ksClientPrimitivesAlias,
+  primitivesStubGaps,
+  stubExportNames,
+} from './lib/ks-primitives-stub.mjs'
 
 const here = dirname(fileURLToPath(import.meta.url))
 const pluginRoot = resolve(here, '..')
@@ -78,22 +85,28 @@ const dir = await mkdtemp(join(tmpdir(), 'ks-smoke-'))
 //   本冒烟原来只写 `external: ['react','react-dom/server']` ⇒ 组件里一旦新增宿主组件的 import
 //   （5c 把 `KsIngestPanel` 的按钮换成宿主 `Button`）就会 `X [ERROR] Could not resolve
 //   "@deepseek-ai/dsh-client-ui-primitives"` ⇒ **整个 `-Full` 的 smoke 步红**。
-//   口径与 `smoke-client-entry.mjs:110-123` 一致：**逐个列出我们真正 import 的成员**——
-//   宿主那份是真的，桩漏一个就会 `does not provide an export named …`（比运行时 undefined 好）。
-const primitivesStubPath = join(dir, 'primitives-stub.mjs')
-await writeFile(primitivesStubPath, [
-  'const Null = () => null',
-  'export const Button = Null',
-  'export const Checkbox = Null',
-  'export const Tag = Null',
-  'export const Pill = Null',
-  'export const Input = Null',
-  'export const Switch = Null',
-  'export const Modal = Null',
-  'export const Menu = Null',
-  'export const IconChevronDownOutline14 = Null',
-  '',
-].join('\n'), 'utf8')
+// ⚠ **名单不再手写**（手写名单是同一根因的第三次红）：桩由
+//   `scripts/lib/ks-primitives-stub.mjs` **从 `plugin/client/**` 派生** ⇒
+//   **加宿主组件只改源码，本文件一行都不用动**。
+const primitivesAlias = ksClientPrimitivesAlias(pluginRoot, dir)
+const primitivesStubPath = primitivesAlias[HOST_PRIMITIVES_SPECIFIER]
+
+/* ── 防复发断言（本条是**最便宜**的那道网；lib 头部写着这条不变量）──────────────
+ * 判据：**桩的导出集合 ⊇ 源码里实际具名导入的集合**。缺谁就**点名谁**。
+ * 为什么放在这里：它只读文件、不构建，是**最先**能发现"桩漏了"的位置——
+ *   三次红的现场都是 esbuild 的 `No matching export …`（不提"该往哪儿加"），
+ *   或者更早的 `Could not resolve`（连桩都没接上）。 */
+{
+  const stubSource = await readFile(primitivesStubPath, 'utf8')
+  const gaps = primitivesStubGaps(pluginRoot, stubSource)
+  console.log(`${gaps.length === 0 ? 'PASS' : 'FAIL'}  宿主原语桩覆盖源码里全部具名导入`
+    + `（${stubExportNames(stubSource).length} 个成员；加宿主组件只需改 plugin/client/**，不必改冒烟）`
+    + (gaps.length === 0 ? '' : ` — 桩缺：${gaps.join(', ')}`))
+  if (gaps.length > 0) {
+    console.error('STUB_GAP: 桩漏了源码真的 import 的宿主成员 ⇒ esbuild 会报 No matching export。')
+    process.exit(1)
+  }
+}
 // 入口必须落在 plugin 目录内：相对 import 与 node_modules 解析（react 在仓库根）
 // 都按入口所在目录向上查找——放临时目录会导致三者全部解析失败。
 const entryPath = join(pluginRoot, '.smoke-settings-entry.jsx')

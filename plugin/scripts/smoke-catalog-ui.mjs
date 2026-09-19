@@ -16,15 +16,24 @@
  *
  * 用法：node scripts/smoke-catalog-ui.mjs   （退出码 0 = 全通过）
  */
-import { readFile } from 'node:fs/promises'
+import { mkdtemp, readFile, rm } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
 import { dirname, join, resolve } from 'node:path'
-import { rm } from 'node:fs/promises'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
 import { build } from 'esbuild'
 
+import { ksClientPrimitivesAlias } from './lib/ks-primitives-stub.mjs'
+
 const here = dirname(fileURLToPath(import.meta.url))
 const pluginRoot = resolve(here, '..')
+
+// 宿主 `@deepseek-ai/dsh-client-ui-primitives` 的桩：**从源码派生**（lib/ks-primitives-stub.mjs，
+// 单一所有者）。本冒烟打包的三个面板（KsFilesTab/KsMaterialsPanel/KsChannelsPanel）**今天**
+// 还没 import 宿主原语 ⇒ 这个 alias 目前是**惰性**的；接上它只为"下次谁在这些面板里用宿主组件，
+// 不用再回来补 alias/补桩"（同一根因已踩三次：漏 alias / 漏 4 图标 / 漏 3 图标）。
+const primStubDir = await mkdtemp(join(tmpdir(), 'ks-catalog-prim-'))
+const primitivesAlias = ksClientPrimitivesAlias(pluginRoot, primStubDir)
 
 const results = []
 function check(name, ok, detail) {
@@ -40,6 +49,7 @@ async function loadModule(rel) {
     bundle: true, platform: 'node', format: 'esm', outfile,
     absWorkingDir: pluginRoot, loader: { '.tsx': 'tsx', '.ts': 'ts' },
     external: ['react', 'react-dom', 'react/jsx-runtime', 'pdfjs-dist'],
+    alias: { ...primitivesAlias },
     logLevel: 'warning',
   })
   const mod = await import(pathToFileURL(outfile).href)
@@ -262,6 +272,8 @@ const panelMod = await loadModule('client/KsMaterialsPanel.tsx')
   check('可见文案里没有 markdown 粗体（JSX 不渲染它，R4b/R6b 的教训）',
     boldInText.length === 0, JSON.stringify(boldInText).slice(0, 200))
 }
+
+await rm(primStubDir, { recursive: true, force: true })
 
 const failed = results.filter((r) => !r.ok)
 console.log(`\n== catalog-ui smoke ${failed.length === 0 ? 'PASS' : 'FAIL'} `

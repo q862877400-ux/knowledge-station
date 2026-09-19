@@ -23,15 +23,24 @@
  *
  * 用法：node scripts/smoke-draft-ui.mjs   （退出码 0 = 全通过）
  */
-import { readFile, rm } from 'node:fs/promises'
+import { mkdtemp, readFile, rm } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
 import { build } from 'esbuild'
 
+import { ksClientPrimitivesAlias } from './lib/ks-primitives-stub.mjs'
+
 const here = dirname(fileURLToPath(import.meta.url))
 const pluginRoot = resolve(here, '..')
 const panelPath = join(pluginRoot, 'client', 'KsMaterialsPanel.tsx')
+
+// 宿主 `@deepseek-ai/dsh-client-ui-primitives` 的桩：**从源码派生**（lib/ks-primitives-stub.mjs，
+// 单一所有者）。KsMaterialsPanel **今天**还没 import 宿主原语 ⇒ alias 目前惰性；接上它只为
+// "下次谁在这个面板里用宿主组件，不用回来补 alias/补桩"（同一根因已踩三次）。
+const primStubDir = await mkdtemp(join(tmpdir(), 'ks-draft-prim-'))
+const primitivesAlias = ksClientPrimitivesAlias(pluginRoot, primStubDir)
 
 const results = []
 function check(name, ok, detail) {
@@ -47,6 +56,7 @@ try {
     bundle: true, platform: 'node', format: 'esm', outfile,
     absWorkingDir: pluginRoot, loader: { '.tsx': 'tsx', '.ts': 'ts' },
     external: ['react', 'react-dom', 'react/jsx-runtime', 'pdfjs-dist'],
+    alias: { ...primitivesAlias },
     logLevel: 'warning',
   })
 } catch (err) {
@@ -179,6 +189,8 @@ const NO_LLM = { status: 'unapproved_draft', draft_md: '', llm_called: false }
       !arrival.includes(forbidden), forbidden)
   }
 }
+
+await rm(primStubDir, { recursive: true, force: true })
 
 const failed = results.filter((r) => !r.ok)
 if (failed.length > 0) {
