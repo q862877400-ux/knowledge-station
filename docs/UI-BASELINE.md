@@ -607,7 +607,25 @@ esbuild 不校验命名导出）⇒ 只能靠**运行时**和**读宿主源码**
 | 行内可见控件数（`ctrls`，真控件口径） | 3/3/3/3 | **3/3/3/3 不变**（chip 是纯展示 span，不在 CTRL_SEL 里） |
 | 搜索框 | **没有** | `.ks-search` **1300: 820×34 / 520: 496×34**（宿主 Input 拉满行宽） |
 | 搜索真的过滤 | — | 行数 **4 →（标准号 GB 50016-2014）1 →（名称 喷水）1 →（不存在的串）0 →（清空）4** |
-| 深色 | — | `p2-kb-1300-dark.png`：表头带比行底深一档、chip/徽章/图标都在；`#cols` 与浅色**逐字相同** |
+| 深色 | — | `p2-kb-1300-dark.png`：表头带比行底深一档、chip/徽章/图标都在；`#cols` 与浅色**逐字相同**（⚠ **这一格写反了，更正在下**） |
+
+> ⚠ **更正（2026-09-20 P2 复核打回 D4）**：上面那格的"深色表头带比行底**深**一档"**方向说反了**。
+> 实测：dark 表头带 = `--dsw-alias-markdown-tag` = bluish-850 **`#2C2C2E`**，行底 = `--dsw-alias-bg-base`
+> = bluish-950 **`#151517`** ⇒ **表头带比行底浅**（44 vs 21）。**只有浅色**才是"带比行深"
+> （带 `#F1F3F5` = 241 vs 行 `#FFFFFF` = 255）。**深色下"浅一档"是对的观感**（深色里"浅"= 更亮 =
+> 更靠近内容层），错的是"深/浅"这两个字的方向；这句话我在写 5g 时凭 light 的印象顺手写了 dark。
+>
+> **`#cols` 现在是断言，不再只是报告值**（2026-09-20 P2 复核打回 B；变异 M4 为证）：
+
+| 量什么 | 改前（P2 头条落地时） | 改后（本批） |
+|---|---|---|
+| `#cols` 的地位 | **报告值**：表头/行不一致也 exit 0（变异 M4 实测：smoke 33/33 PASS） | **两处真断言**：① `smoke-kb-page-render`（门禁链，jsdom 里判两条 computed 声明逐字相同 + `column-gap` 相同）；② `ui-render-shot` 自己判（真 Chrome 量**解析后**的列模板与 gap），不一致打出两边值 + 宽度/主题并 exit 1 |
+| 三档覆盖 | 无（只贴过 520/1300 两个报告值） | `node plugin/scripts/smoke-kb-cols.mjs` 逐档跑：**520 → `348px 72px 36px`、900 → `272px 72px 36px`、1300 → `444px 72px 80px 132px 36px`**，每档表头 == 行、gap 都 `8px` |
+| 变异 M4（表头 `416px 100px 132px 36px` vs 行 `444px 72px 80px 132px 36px`） | smoke PASS 33/33、ui-render-shot exit 0 | smoke **FAIL 34/35 exit 1**（打印两边值）；`smoke-kb-cols` **三档全 FAIL exit 1** |
+
+> ⚠ **一条有意的覆盖取舍**：`smoke-kb-cols.mjs`（要浏览器）**不进 `smoke-all` 名单** ——
+> 门禁链目前零浏览器依赖，塞进去会让"提取树里没有 Chrome"变成门禁红。门禁链里能抓 M4 的是
+> jsdom 那一条（判"两条声明是不是同一条"）；三档的容器查询证据由本脚本逐档跑，命令写在上面。
 
 **我（代理）自己看图看到的事实**（图在 `var/tmp/ui-shots/`，**不入库**）
 1. **`p2-kb-1300.png`**：列表成了一个真表格 —— 表头行 `[✓ 全选] 文件名 | 效力 | 生效日期 | 标签`，
@@ -620,14 +638,24 @@ esbuild 不校验命名导出）⇒ 只能靠**运行时**和**读宿主源码**
 4. **`p2-kb-1300-dark.png`**（深色）：表头带/行分隔线/徽章/chip/⋮ 都在；已废止徽章是**实心红底**
    —— 这是 `--dsw-alias-state-error-secondary` 在 **dark** 下的取值，**P1-5 起就是这样、本轮一行没动**
    （`git diff` 里 `.ks-status*` 无改动），登记为观察、不算本轮回归。
+   ⚠⚠ **2026-09-20 P2 复核打回（A）：上面这两句就地更正（原话保留）。**
+   **"实心红底"不是"一档色差"，是缺陷**：dark 下 `state-error-secondary` 与 `state-error-primary`
+   **是同一条 token**（都 = red-400 `rgb(242,90,90)`）⇒ 徽章 rect 内 **1045 个像素全是那个颜色、
+   可辨文字 0 个**（复核原话："浅色 208 个 `#EC1313` 文字像素，深色只有 6 个 ≈ 0"）
+   —— 深色下「已废止」三个字与底糊成一片。**观察 → 缺陷（已修）**；
+   修法与像素证据见下面「5g-P2 复核打回」的 A 条。
+   ⚠ **归属不变**：`.ks-status*` 在这一区间零改动 ⇒ **不是 P2 回归，是 P1-5 起就有的 token 选错**
+   （P1-5 只核了"形状"，没把每条 token 在**两套主题**下解出来核一遍）。
 
 **四条护栏的自检结果**（门禁归父代理；本轮只跑任务书允许的那几条）
 - `npx tsc --noEmit -p client` → **exit 0**；
 - `node scripts/smoke-ui-scale.mjs` → **exit 0**（spacing **0/0**、font-size **0/0**）；
 - `node scripts/smoke-client-entry.mjs` → **PASS 122/122，exit 0**（含"交付产物 ↔ 现构建整份一致"，
   本轮改完 CSS/TSX 后**先重建再跑**）；
-- `node scripts/smoke-kb-page-render.mjs` → **PASS 33/33，exit 0**。⚠ **条数从 26 涨到 33**：
-  **删掉 1 条、新增 8 条**，逐条理由如下（**没有一条是为了让门禁变绿而放宽**）。
+- `node scripts/smoke-kb-page-render.mjs` → **PASS 35/35，exit 0**。⚠ **条数从 26 涨到 35**
+  （**本文件原来在这里写的是"26 → 31"—— 那是转述错的数字，见下面 D6 的更正**）：
+  **删掉 1 条、新增 8 条**（P2 头条那一批）+ **本批再加 2 条**（P2 复核打回 B/C），
+  逐条理由如下（**没有一条是为了让门禁变绿而放宽**）。
 
 **⚠ 断言变更留痕（旧的删了、新的更强；错话/旧写法保留在代码注释里）**
 - **删掉的那条**：原 9 号「本页没有搜索框（只有"提问侧"的检索语法框）」，依据是业主 2026-09-19
@@ -651,6 +679,14 @@ esbuild 不校验命名导出）⇒ 只能靠**运行时**和**读宿主源码**
   我们做的也是这一种（`useMemo` 里对 `no`/`name` 做 includes，**一个接口都没调**）。
 - **要退回怎么做**：删 `KsKnowledgePage.tsx` 的 `.ks-search` 那一段（1 个 `<span>` + 1 个 `Input`）
   与 `search`/`pickSearch`/`hitSearch`，再把 3g/3h 三条断言换回"本页没有搜索框"。
+  ⚠⚠ **2026-09-20 P2 复核打回（C）：上面这句本身**不可执行**、且方向错了，就地更正（原话保留）。**
+  复核逐字走了一遍 ⇒ `ReferenceError: needle is not defined`、smoke exit 1、页面崩（漏了 5 个落点：
+  `listed` 的 useMemo 里 `hitSearch(d)` 与 `[needle]` 依赖、空态里的 `search.trim()`、
+  空态按钮的 `pickSearch('')`、`.ks-search` 的三条样式、`IconSearchOutline16` 的 import）；
+  而"把 3g/3h 换回'本页没有搜索框'"更是**把已证伪的假绿装回去**（旧断言跑在标签视图 +
+  只数 `placeholder`）。⇒ **更正**：完整、逐落点、**已亲自走通**的退回步骤在
+  [NOT-DOING 第 13 条的「退回步骤（可执行版）」](NOT-DOING.md#第-13-条的退回步骤可执行版2026-09-20-p2-复核打回-c-补)；
+  搜索框"在/不在"现在由 `KB_FILE_VIEW_SEARCH` 声明 + 渲染级断言锚住（两个方向都判）。
 - 已登记台账：[NOT-DOING 第 13 条](NOT-DOING.md)（标"翻案进行中，待业主确认"）。
 
 **没做 / 做不到（诚实边界）**
@@ -667,14 +703,58 @@ esbuild 不校验命名导出）⇒ 只能靠**运行时**和**读宿主源码**
 **最该让复核盯的点**
 1. **搜索框这一处翻案是否成立**（业主 2026-09-19 原话 vs 本轮任务书）—— 这是本轮唯一
    "推翻业主原话"的改动；退回方案写在上面。
-2. **`smoke-kb-page-render` 从 26/26 变 33/33**：删 1 增 8 是否成立（旧的为什么是假绿、新的
-   为什么更强），以及 `≤3` **没有任何放宽**。
+2. **`smoke-kb-page-render` 从 26/26 变 35/35**：删 1 增 10（P2 头条 8 条 + 本批 2 条：3e-2 列模板
+   逐字相同、3g 前"搜索框在/不在 == 声明 `KB_FILE_VIEW_SEARCH`"）是否成立
+   （旧的为什么是假绿、新的为什么更强），以及 `≤3` **没有任何放宽**。
+   ⚠ **本条原写"从 26/26 变 33/33"** —— 33 这个数字来自**转述**（复核的 D6 指出
+   "26 → 31"实为 26 → 33）；本批加 2 条后**现数**是 **35**（`grep -c '^ *check('` 行 37 条，
+   另有 2 条在"搜索框缺席"分支里，只在退回态才跑到）。
 3. **列模板只有一处**：`grep -n "grid-template-columns" plugin/client/ksGuideStyles.ts`
    应当只在 `.ks-lhead,.ks-item`（`var(--ks-cols)`）与 `.ks-item .ks-col-name`（**嵌套**的
    16px + 1fr，不是表格列）这两处出现；`#cols` 的实测值表头与行必须逐字相同。
 4. **容器查询**：`@container (min-width:660px)` 覆盖 `display:none` 的顺序（写反过一次，
    实测宽档下两列仍是 `display:none` —— 已修，证据在 `#cols` 的 5 列 vs 3 列）。
 5. 每个"改后"值能否用同一条命令复现（`node plugin/scripts/ui-render-shot.mjs --page kb --width 520|1300`）。
+6. **本批（P2 复核打回）新增的两个可复跑命令**：
+   `node plugin/scripts/ui-badge-pixels.mjs`（徽章可读性的**像素**证据，light+dark）、
+   `node plugin/scripts/smoke-kb-cols.mjs`（列对齐三档 520/900/1300）——
+   两者都依赖真 Chrome，都**自判红**（缺件/不一致 ⇒ exit 1，不静默跳过）。
+
+### 5g-P2 复核打回（`verify-freeze-p2` = `57c992b..68ef946`；2026-09-20 本批落地）
+
+复核的 A/B/C/D 逐条落地（**错话一律保留在原处 + 更正在后**；归属如实）：
+
+| 条 | 复核发现 | 落地 |
+|---|---|---|
+| **A** | 深色「已废止」徽章**文字读不出来**：文字色与底色是同一条 token；**归属**：`.ks-status*` 在本区间 `git diff` 零改动 ⇒ **不是 P2 回归，是 P1-5 起就有的 token 缺陷** | `ksGuideStyles.ts` 的 `.ks-status-bad` 底色 `state-error-secondary` → `--dsw-alias-interactive-bg-hover-danger`（error 色族里**唯一**的浅底 token；`state-error-tertiary` **不存在**，2026-09-19 那次"幽灵 token"就抓到过它）。**顺带也更贴参照**：浅色下从"实心红底 + 暗红字"（#f25a5a / #ec1313）变成"近白底红晕 + 红字 + 1px 红描边"（#fef3f3 / #ec1313）—— 正是 §7.1 量到的"浅底 + 1px 描边 + 同色系文字"。`KsKnowledgePage.tsx` 的 STATUS 注释同步更正；5g 里"实心红底…登记为观察"改成**缺陷（已修）** |
+| **B** | 头条属性"列对齐"**没有门禁保证**：`#cols` 只是报告值 ⇒ 变异 M4（表头/行列模板不一致）smoke 33/33 PASS、ui-render-shot exit 0 | `ui-render-shot.mjs` 把 `#cols` 升级成**真断言**（表头 vs 第一行的 computed `grid-template-columns` **与** `column-gap` 逐字相同，否则打印两边值 + 宽度/主题并 exit 1；适用面之外**明说"没判"**）；`smoke-kb-page-render.mjs` 加 3e-2（jsdom 会做级联 ⇒ 判"两条声明同不同"，这是门禁链里的锚点）；新增 `smoke-kb-cols.mjs` 覆盖 520/900/1300 |
+| **C** | 搜索框翻案的**退回步骤不可执行**（逐字走 ⇒ `ReferenceError: needle is not defined`、smoke exit 1、页面崩）；且"换回'本页没有搜索框'"= 装回已证伪的**假绿**；**覆盖缺口**：9 号删了之后搜索框存在与否没人管 | ① [NOT-DOING 第 13 条](NOT-DOING.md#第-13-条的退回步骤可执行版2026-09-20-p2-复核打回-c-补)写全 **11 步逐落点**退回步骤（含复核点名的 5 个落点），并**亲自走通**（tsc 0、smoke 32/32 exit 0、四文件逐字节还原）；② 断言改成落在**文件视图**、且**真的会红**（变异 C-1：只删框、声明仍 true ⇒ FAIL 31/34 exit 1，且**不崩**）；③ 覆盖缺口**关掉**（不再是有意取舍）：新增"DOM 有没有 `.ks-search input` === 声明 `KB_FILE_VIEW_SEARCH`"，两个方向都判 |
+| **D** | 四处错话 | ① 5g 表"深色表头带比行底深一档"**方向说反**（dark 带 `#2C2C2E` **浅于**行 `#151517`；只有浅色才是带比行深）→ 就地更正框；② `KsKnowledgePage.tsx` 顶部引用的「9/9b/9c 三条」**不存在** → 更正为 **3g/3h**（原话保留）；③ `smoke-kb-page-render.mjs` 注释「26 → **31**」→ 实测 **26 → 33**、本批加 2 条后 **35**（原话保留 + 更正）；④ 复核确认**属实、不许改错**的两条：`MockDoc` 确无 `source/size/updated`（"三列没字段不做"成立）、`@container` 与 `display:none` 的**源码顺序是对的**（`.ks-list .ks-cell.ks-col-*{display:none}` 在 `@container` 之前，靠同权重后者胜）—— 本批**未动**这两处 |
+
+**A 的像素证据**（`node plugin/scripts/ui-badge-pixels.mjs`；口径 = 在徽章 rect 内数"等于 computed
+文字色的像素数"，并取 rect 内**众数色**当**实渲底色**；同色 ⇒ 可辨文字像素记 0）：
+
+| 主题 | 修前（`state-error-secondary` 底） | 修后（`interactive-bg-hover-danger` 底） |
+|---|---|---|
+| light「已废止」 | 文字 `#ec1313` / 底 `#f25a5a`（rect 内 671 px 众数）⇒ 文字像素 **229**、**对比度 1.37** ⇒ **FAIL** | 文字 `#ec1313` / 底 `#fef3f3` ⇒ 文字像素 **202**、对比度 **4.14** ⇒ PASS |
+| dark「已废止」 | 文字 `#f25a5a` / 底 **同一个** `#f25a5a` ⇒ rect 内 **1045 px 全同色**、**可辨文字 0 个**、对比度 **1.00** ⇒ **FAIL** | 文字 `#f25a5a` / 底 `#351e20` ⇒ 文字像素 **202**、对比度 **4.70** ⇒ PASS |
+| dark「现行」（对照，复核说它正常） | 文字 `#22c55e` / 底 `#233c2c` ⇒ 151 px、**5.25** | 一字未动（同左） |
+
+⚠ **两条诚实边界**：① 复核原文数的是"`#EC1313` 像素"（同一个颜色在两套主题里数），我这条按**各主题
+自己的 computed 文字色**数 ⇒ 数字不必逐字相同（浅色 229 vs 复核 208，同一量法家族、含 1px 描边）；
+② `.ks-status-ok` 在**浅色**下对比度实测 **2.09**（success-100 底 + success-500 字）—— 那是宿主那一套
+tertiary/primary 配对，**本批没动**，工具里只报告不判，**登记为观察**（别读成"合格"）。
+
+**B 的变异证据**（`var/tmp/m4-mutation.mjs`，不入库、跑完按 sha256 逐字节还原）：
+注入 M4（表头 `416px 100px 132px 36px` vs 行 `444px 72px 80px 132px 36px`）后 ——
+`smoke-kb-page-render` **FAIL 34/35，exit 1**（断言行打出 `表头 "416px…" / 行 "444px…"`）；
+`smoke-kb-cols` **520/900/1300 三档全 FAIL，exit 1**（每档都打印两边值）。原文件 sha256
+`21dc6a637f65d5cb` 还原一致。
+
+**四条护栏自检（本批跑完的记录，门禁归父代理）**：`tsc --noEmit -p client` **exit 0**；
+`smoke-ui-scale` **exit 0（spacing 0/0、font-size 0/0）**；`smoke-client-entry` **PASS 122/122 exit 0**；
+`smoke-kb-page-render` **PASS 35/35 exit 0**（先重建 `client.js`，1462951 bytes）。
+本批**没跑** `run-gates.ps1` / `smoke-all` / pytest（任务书纪律：这三样不许跑）。
 
 
 ⚠ 子代理的渲染链**已知失真**（写在这里，免得以后据此乱下结论）：无宿主外壳（侧栏/tab 条/宿主字体栈），

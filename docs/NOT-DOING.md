@@ -25,7 +25,61 @@
 | 10 | **`reflect` 的 `max_tokens` 是 4096 上限** | ⚰ **已作废**（真实上限在服务端配置 `reflect_max_completion_tokens`，默认 None） | — | [REALIGN §五之二](research/dsh-official/REALIGN.md) + 开发史 §10.131① |
 | 11 | **布局只在内存里** | ⚰ **已作废**（会话级持久化 + provider 恢复） | — | [errata/开发史记录](DEVELOPMENT-HISTORY.md) |
 | 12 | **`schemastery` 有 `.strict()`** | ⚰ **已作废**（本地 3.18.2 没有；官方那些 `.strict()` 来自 **zod**） | — | 开发史 §10.136 四 + `plugin/src/index.js` 的 Config 注释 |
-| 13 | **知识库页内的搜索框**（文件列表按标准号/名称过滤） | ⏸ **翻案进行中 —— 待业主确认**（**不是**"业主已批准"）：2026-09-19 业主 13 条里第 4 条曾明确"知识库界面不做搜索（这一页没有搜索框；搜索发生在'提问'那一侧）"，当时连渲染级断言都钉死了；**2026-09-20 的第 5 步 P2 头条任务书**直接要求"列表上方加一个搜索框（宿主 Input），必须真的过滤" ⇒ 已按任务书施工，**业主本人尚未就此表态** | 2026-09-19「知识库界面不做搜索」／2026-09-20 任务书（P2 头条第 3 条） | 归属层：[KsKnowledgePage.tsx](../plugin/client/KsKnowledgePage.tsx) 顶部第 4 条的**翻案留痕**（旧原话保留 + 更正框）+ [UI-BASELINE 5g](UI-BASELINE.md)。**若业主要退回**：删 `.ks-search` 那一段（1 个 `<span>` + 1 个 `Input`）与 `search`/`pickSearch`/`hitSearch`，再把 `smoke-kb-page-render.mjs` 的 3g/3h 换回"本页没有搜索框"（旧写法的样子留在该文件注释里） |
+| 13 | **知识库页内的搜索框**（文件列表按标准号/名称过滤） | ⏸ **翻案进行中 —— 待业主确认**（**不是**"业主已批准"）：2026-09-19 业主 13 条里第 4 条曾明确"知识库界面不做搜索（这一页没有搜索框；搜索发生在'提问'那一侧）"，当时连渲染级断言都钉死了；**2026-09-20 的第 5 步 P2 头条任务书**直接要求"列表上方加一个搜索框（宿主 Input），必须真的过滤" ⇒ 已按任务书施工，**业主本人尚未就此表态** | 2026-09-19「知识库界面不做搜索」／2026-09-20 任务书（P2 头条第 3 条） | 归属层：[KsKnowledgePage.tsx](../plugin/client/KsKnowledgePage.tsx) 顶部第 4 条的**翻案留痕**（旧原话保留 + 更正框）+ [UI-BASELINE 5g](UI-BASELINE.md)。**若业主要退回**：按下面「[第 13 条的退回步骤（可执行版）](#第-13-条的退回步骤可执行版2026-09-20-p2-复核打回-c-补)」逐条走 —— ⚠ 本节原来那句"删 `.ks-search` 那一段与 `search`/`pickSearch`/`hitSearch`，再把 3g/3h 换回'本页没有搜索框'"**不可执行**（实测 `ReferenceError: needle is not defined`、smoke exit 1、页面崩），而且会把**已证伪的假绿**装回去；错话原文与更正都在那一节里 |
 
 > ⚠ **这份台账本身也要守规矩**：翻案（如第 4 条）必须**就地改写**，不许新旧两说并存 ——
 > 两说并存正是"翻旧账"的温床。
+
+## 第 13 条的退回步骤（可执行版；2026-09-20 P2 复核打回 C 补）
+
+**先说错话（原文保留，更正在后 —— 本仓规矩）**：
+
+> **曾如此（不可执行的退回步骤）**：删 `.ks-search` 那一段（1 个 `<span>` + 1 个 `Input`）
+> 与 `search`/`pickSearch`/`hitSearch`，再把 `smoke-kb-page-render.mjs` 的 3g/3h 换回"本页没有搜索框"
+> （旧写法的样子留在该文件注释里）
+
+复核（`verify-freeze-p2`）**逐字走了一遍**，结果是：`ReferenceError: needle is not defined`、
+smoke exit 1、页面崩。两个毛病：
+
+1. **漏了 5 个落点**（只删那三处 ⇒ 编译/运行时必炸）：`listed` 的 useMemo 里 `hitSearch(d)` 调用
+   **与 `[needle]` 依赖**、空态里的 `search.trim()`、空态按钮的 `pickSearch('')`、
+   `ksGuideStyles.ts` 的 `.ks-search` 三条样式、以及 import 列表里的 `IconSearchOutline16`。
+2. **方向是错的**："把 3g/3h 换回'本页没有搜索框'"等于**把一条已证伪的假绿装回去** ——
+   旧断言跑在**标签视图**（文件视图的框即使存在也没挂载）且只数 `placeholder` 里有没有"搜索"
+   两个字 ⇒ 文件视图有没有搜索框它都 PASS。
+
+**更正（逐落点、按顺序；本批**亲自按它走了一遍**，走查证据在下一节）**：
+
+1. `KsKnowledgePage.tsx`：`export const KB_FILE_VIEW_SEARCH: boolean = true` → **`false`**
+   （这是"搜索框在/不在"的**唯一声明**，渲染与否由它决定）。
+2. 删掉 `{KB_FILE_VIEW_SEARCH && (<span className="ks-search"> … </span>)}` 整块（含它上面的注释）。
+3. 删掉 `const [search, setSearch] = useState('')`（连它上面那段"列表搜索串"注释）。
+4. 删掉 `const needle = search.trim().toLowerCase()` 与 `const hitSearch = …`（连注释）。
+5. `listed` 的 useMemo：
+   `inFolder.filter((d) => filterTest(d) && hitSearch(d))` → `inFolder.filter(filterTest)`；
+   依赖数组 `[inFolder, filterTest, needle]` → `[inFolder, filterTest]`。**`[needle]` 这一处最容易漏**。
+6. 删掉 `const pickSearch = (value: string): void => { setSearch(value); setSelected(new Set<string>()) }`（连注释）。
+7. 空态卡（"被筛没了"那一支）三处：
+   · `没有符合筛选或搜索的文件` → `没有符合筛选的文件`；
+   · 描述里的 `? <>，搜索「{search.trim()}」一篇都没命中。</> : <>，当前筛选「…」与搜索一篇都没留下。</>`
+     → 只留 `，当前筛选「{FILTERS.find(…)}」一篇都没留下。`（**`search.trim()` 在这里**）；
+   · 按钮 `onClick={() => { pickFilter('all'); pickSearch('') }}` → `{ pickFilter('all') }`，
+     文案 `清除筛选与搜索` → `清除筛选`、`title` 去掉"并清空搜索串"（**`pickSearch('')` 在这里**）。
+8. import 列表：去掉 `IconSearchOutline16`。
+9. `ksGuideStyles.ts`：删 `.ks-search{…}` / `.ks-search>span{…}` / `.ks-search input{…}` 三条与注释。
+10. `plugin/scripts/smoke-kb-page-render.mjs`：删掉 **3g / 3h 那一个 `if (searchBox === null) … else …` 块**
+    （行为级断言随功能一起走），**保留**它前面那条
+    「文件视图的搜索框"在 / 不在"与声明 `KB_FILE_VIEW_SEARCH` 一致」——
+    退回后它断言的正是"**必须真的不在**"，所以**覆盖缺口是关掉的，不是取舍**。
+    ⚠ **不许**再加一条"本页没有搜索框"那种数 `placeholder` 的断言。
+11. `node scripts/build-client.mjs`（重建交付产物 `plugin/client.js`）。
+
+**走查证据（2026-09-20，本批亲跑；变异脚本 `var/tmp/c-rollback-walkthrough.mjs`，不入库，跑完自动还原）**
+
+- **变异 C-1**（只删搜索框、声明仍 `true`）⇒ `smoke-kb-page-render` **FAIL 31/34, exit 1**，
+  红的三条是：声明一致性（`声明 KB_FILE_VIEW_SEARCH=true；DOM 里 .ks-search input 不存在`）、
+  搜索真的过滤、搜索即清空选择；**进程没有崩**（旧写法会 `TypeError` 崩，现在有可诊断的 FAIL 行）。
+- **完整 11 步退回** ⇒ `tsc --noEmit -p client` **exit 0**、`smoke-kb-page-render` **PASS 32/32, exit 0**
+  （32 = 35 − 3：3g/3h 那三条随功能删掉，声明那条留下并断言"缺席"）⇒ **能干净退回、不崩**。
+- 走查结束后四个被改文件（`KsKnowledgePage.tsx` / `ksGuideStyles.ts` / `smoke-kb-page-render.mjs` /
+  `client.js`）**逐字节还原**（脚本末尾按 sha256 核对，`git status` 干净）。
