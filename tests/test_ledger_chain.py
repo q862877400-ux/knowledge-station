@@ -362,11 +362,21 @@ class Test号段报告:
         return _row(cid, segments_json=json.dumps(segs, ensure_ascii=False), **kw)
 
     def test_死号段被点名(self):
-        """写了 `T/` 而真库里一个 T/ 号都没有 ⇒ 必须报出来（否则"渠道永不进链"没人知道）。"""
+        """写了 `T/` 而真库里一个 T/ 号都没有 ⇒ 必须报出来（否则"渠道永不进链"没人知道）。
+
+        ⚠ R7-数据轮补上**后果**那一半：报告里点名只是告警，真正要钉的是
+        "死号段 ⇒ 那条渠道在这个号上**真的不进链**"（报告与巡检行为是两件事，
+        只断言报告会让人以为护栏已经落在链上了）。
+        """
         rows = [self._seg("ch:ttbz", ["T/"])]
         rep = lc.segments_report(rows, ["GB 30871-2022"], known={"ttbz", "official_gb"})
         assert [d["segment"] for d in rep["dead"]] == ["T/"]
         assert rep["sample_size"] == 1
+        # 后果：它**没**被加进链（死号段的现场表现就是"这条渠道永远不进链"）
+        assert "ttbz" not in lc.chain_for_number("GB 30871-2022", rows)
+        # 对照：把同一个号段换成能命中的写法 ⇒ 立刻有尾巴（证明进不去是号段的锅，不是机制的锅）
+        live = [self._seg("ch:ttbz", ["GB"])]
+        assert lc.chain_for_number("GB 30871-2022", live)[-1] == "ttbz"
 
     def test_没给号表就说判不准_不假装没欠账(self):
         """**不给号表**（`[]`）⇒ `dead`/`gained` 一律不下结论，并在 `note` 里说清。

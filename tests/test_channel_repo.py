@@ -376,3 +376,61 @@ class TestShippedSeed:
         s = cr.summary()
         assert s["total"] > s["by_wiring"]["wired"]
         assert s["by_wiring"]["wired"] <= 13, "在链上的适配器最多 13 个（注册总数）"
+
+    # ── §11.0 R7-数据轮（2026-09-19）：**号段的种子契约** ────────────────────────
+    # 死号段为什么不能只在真库上量：`tests/conftest.py` 把测试库隔离到**空临时库**
+    # （真库 6417 个号那张表在用例里不存在）。所以"写了却一个号都不命中"这道护栏只能落在
+    # **种子契约**这一层：形状 + 大小写 + 拿"真库形状"的号表量一遍已声明的号段。
+    # 真库全量的那一遍由 `scripts/chain-snapshot.py` 留证据（它是唯一能读真库的入口）。
+
+    #: 真库号段的**真实形状**（R7-数据轮实测：GB/T 6129 · GB+5 位 148 · GB+4 位 119 · GBZ 12）
+    _REAL_SHAPES = ("GB/T 30871-2022", "GB/T 14308-2010", "GB 5009.11-2024",
+                    "GB 50493-2019", "GB 30871-2022", "GBZ 1-2010")
+
+    def test_种子号段形状与大小写(self):
+        """每条的 `segments_json` 必须是**非空字符串数组**、无前后空白/重复；`ch:` 名字要有适配器。
+
+        ⚠ **大小写为什么也在这里断言**：`routing._fold_segment` 刻意**不折大小写**（标准号本身大写），
+        所以 `gb` / `hj` 这种写法**永远不命中**——而"手滑会静默失效"正是 R7 要挡的那种失败。
+        单字符号段（如 `T`）免检：它同时是很多号段的合法前缀。
+        ⚠ **适配器那一条**（`ch:` 名字必须在 `routing._fold_segment` 的那套名字里）：号段的加法
+        fail-closed——代码里没有的适配器**永不进链**，写了号段只会让人以为接上了。
+        """
+        from src.core.update.channels.ledger_chain import _adapter_names
+        known = _adapter_names()
+        declared = 0
+        for r in cr.load_seed():
+            if "segments_json" not in r:
+                continue
+            segs = cr.check_segments(r["segments_json"])       # 形状不合法当场抛（写路径口径）
+            assert segs == list(r["segments_json"]), f"{r['channel_id']} 号段未归一（空白/重复）"
+            declared += 1
+            for seg in segs:
+                assert seg == seg.strip() and seg, f"{r['channel_id']} 号段带空白或为空：{seg!r}"
+                if len(seg) > 1:
+                    assert seg == seg.upper(), \
+                        f"{r['channel_id']} 号段 {seg!r} 含小写 ⇒ **永远不命中**（折叠不折大小写）"
+            if r["channel_id"].startswith("ch:"):
+                assert r["channel_id"][3:] in known, \
+                    f"{r['channel_id']} 声明了号段，但代码里没有这个适配器（fail-closed：永不进链）"
+        assert declared == 0, (
+            "随包种子今天**零号段声明**（R7-数据轮的裁定：能填的两条证据不足、覆盖清楚的几条"
+            "库里一个号都没有 ⇒ 填了就是死号段）。要填就必须同时把这条断言改成实际条数，"
+            "并先给出「这条渠道管哪些号段」的调研证据（见 CHANNEL-COVERAGE-PLAN 的 R7-数据轮）")
+
+    def test_已声明号段不许是死号段(self):
+        """拿**真库形状**的号表量每一个已声明的号段：一个号都不命中 ⇒ 红。
+
+        这就是"死号段"判据的**种子侧**版本（真库侧在全快照里）。今天 0 条声明 ⇒ 天然绿；
+        将来有人填错（例如给 `ttbz` 填 `TZ/`、给 `std_samr_hb` 填 `行标`）就当场红。
+        ⚠ 这不是"多此一举"：死号段的表现是**那条渠道永远不进链**，而台账上看不出是"写错了"
+        还是"今天没料"——与 R7 的 `segments_report['dead']` 是同一道护栏的两个入口。
+        """
+        from src.core.update.channels.routing import segment_matches
+        dead = []
+        for r in cr.load_seed():
+            for seg in cr.check_segments(r.get("segments_json")):
+                if not any(segment_matches(no, seg) for no in self._REAL_SHAPES):
+                    dead.append((r["channel_id"], seg))
+        assert dead == [], (
+            f"这些号段在真库真实形状的号表上**一个号都不命中**（写法错 ⇒ 渠道永不进链）：{dead}")
