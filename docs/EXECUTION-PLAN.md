@@ -45,3 +45,34 @@
 | 用例 | `tests/test_slide_export.py`（整个文件）、`test_research_report.py` 的 docx 三条、`test_update_report.py` 的 docx 三条、`test_phase4.py`/`test_phase7.py` 的 Word 断言、`test_material_api.py` 的慢端点表 | ✅ 该删的删；`test_update_report.py` 的 REP-04 与 `test_phase7.py` 的 citations 契约**改成测留存的路径**（没连坐删）；`test_layout_fidelity.py` **实际不含** docx/pptx 断言（施工单点名它与事实不符） |
 | 冒烟 | `plugin/scripts/smoke-report-*.mjs` 的 pptx 断言、`smoke-client-entry.mjs`、`smoke-catalog-ui.mjs` | ✅ pptx 断言全删；另加负向断言挡"PPT 接线被写回来" |
 | 收尾 | 棘轮基线按**新总账**重记（删用例 ⇒ 总账下降是**预期**）| ✅ 已重记：总账 **2144**（passed 2141 / skipped 3）（⚠ **时点说明**：这是**第 4 步当时**的账；**今天**（HEAD `d49b1ac`）是 **2146（2143 passed / 3 skipped）**、`smoke` 全链 **29 套** —— 出处 `scripts/gates-baseline.json` 与 `plugin/scripts/smoke-all.mjs` 的 `SUITES` 实数；别再把这一行当"当前值"抄）。⚠ **口径限定（复核 2026-09-20 打回）**：应说"不再有 Word/PPT **交付物**通路"——`POST /clauses/{id}/office-edit` 仍会落 `.docx`（那是裁定**保留**的"用 Word 编辑条款再回传"编辑工具，`office_roundtrip.py` 属输入/编辑侧）。字面写"不再有 Word 产出通路"**不成立**。⚠ 另修两处，且**两处我先前都低报/错判**：① 插件侧误删 `registerResearchRoute` 的真实影响面是**死 2 条路由**（该函数缺失使 `registerDraftRoute` 也挂不上），不是 1 条；② `smoke-chatmode` 的偶发**不是**我先前指认的"裸写 ⇒ 读到半截 JSON ⇒ 拒写"（复核实测：把原子写改回裸写跑 60 次 **0 红**，而原样跑 100 次红 2 次，红的是 `merge keeps the other process's sessions`）⇒ 真机制是**不持锁的写者与 CAS 的 TOCTOU**（`chatmode.js` 落盘在锁内读基线 → CAS → rename；对端 rename 落在 CAS 读与我们的 rename 之间时，用旧基线合并覆盖掉对方会话，而回读校验只看 `touched`）。修法：模块侧回读校验补"基线里有、我们没打算删、回读却没了" ⇒ 判 `retry`；测试侧对端写者改用模块导出的 `__writeStateFileAsPeerForTests`（**同一条锁协议**，不复刻）。复测数字见 [开发史 §10.140](DEVELOPMENT-HISTORY.md)（⚠ **更正（复核 r2 2026-09-20 C11）**：这里原来引的是 **§10.139**，而那张复测表在 **§10.140**；`smoke-chatmode.mjs` 头注同错，已一并改对） |
+
+---
+
+## 收尾状态（2026-09-20，自主执行轮次的交接说明）
+
+**门禁**：`pwsh -File scripts/run-gates.ps1 -Full` ⇒ **退出码 0**，6/6 步通过（tsc 0 / mypy 0 / verify:commands 0 /
+smoke 全链 0 / pytest `passed=2143 skipped=3`（总账 **2146**）/ 引擎门禁 0，棘轮 ✅）。
+快照：`step-189-step6-fixtures` 及之后的 `step-190`；冻结 tag 见下。
+
+| 步 | 状态 | 说明（证据指向） |
+|---|---|---|
+| 1 棘轮 v3 | ✅ | 键改 pytest **nodeid**；复核抓到"没跑出 `N passed` 却报绿"的假绿 ⇒ 已改成判红；绿灯也留证（`%TEMP%\ks-gates-last.txt`） |
+| 2 打包纯度 | ✅ | 只允许"基线模块 + 显式白名单"；复核三轮各抓到一个绕过（**大小写** → **分隔符/`..`** → **相对/绝对路径指向宿主单例**）⇒ 逐轮修掉，冒烟 35 → 45 → **59/59**（含真 esbuild 两向断言）。⚠ 仍**盖不到**：把宿主单例**拷进源码树**再用纯相对路径引；"源码里写错包名"的静态扫描（两条都写在 lib 的"盖不到的地方"段） |
+| 3 三处清理 | ✅ | 默认值双份 / 从未注册的 tab.title / 该用未用的原语（含 `UI-BASELINE` 两处失真更正） |
+| 4 撤 Word/PPT 产出通路 | ✅ | 引擎 + 插件 + 测试 + 文档；口径限定为"**交付物**通路"（`office-edit` 仍落 .docx，是保留的编辑工具）；误删的 `registerResearchRoute` 已恢复（**实际死 2 条路由**） |
+| 5 UI 照 WeKnora 复刻 | 🔄 | 5a 尺度 token + 页面骨架；5b 行内溢出；5c 入库面板换宿主 token（21 处硬编码 → 0）+ 能力页 4 处字面 `**` + 尺度棘轮冒烟；5d 行高 `box-sizing` 修正（实测 44/52，浅色深色、520/1300 四组一致）。**未做**：Materials/Evidence/Channels/Settings 四个老面板里约 50 处同类字面 `**`、命令面板、上传进度浮层、多选/标签抽屉、设置形态。**截图口径**：宿主 GUI 对未授权浏览器 **401** ⇒ 走离屏渲染 + 无头截图（工具已入库 `plugin/scripts/ui-render-shot.mjs` 等） |
+| 6 插件侧借鉴 6 条 | 🔄（A/B 批完成） | 施工单 `docs/research/STEP6-WORKORDER.md` 把六条**重新裁定**：①该做但**弃抄** WK 校验器（DSH 宿主机已自动校验）、②半条不该做（配对已存在）、③`isConcurrencySafe` 已做（5 个只读工具声明 true，`ks_collect` 故意不声明）、④**"照抄 `AbortSignal.any`"不该做**（DSH 同位点刻意避免）但同节两个真缺陷已修（监听泄漏、取消/超时不可分辨）、⑤**wire fixture 回放已做**（9 条 calls / 8 场景 / 14 断言，10 个变异全红）、⑥e2e 三段式**未做**（最贵，且必须用临时 profile —— 线上 `web` profile 装的是 `link:C:/Users/Zegel/dsh-ks-src/ks-dsh-plugin`，不是本仓） |
+| 6 附 | ⏳ | ⚠ **第 6 步 B 批的 `ks_answer` 声明可并行是唯一有争议的判定**（引擎单进程时是"慢"不是"错"，但同轮两条会让第二条在排队中消耗自己的 120s 预算）——复核若不同意，删那一行即可 |
+| 7 号段数据轮 | 🔄 **待业主追认** | 量测裁定"**十条一条都不填**"（库内 6417 个号只有国标号；非国标号段必然是死号段）⇒ 验收三项里 **①"chain-snapshot 显示号段带来的变化"未达成（实测变化 0、`unreachable_no_segments` 仍 10）**、②死号段清单为空、③用例覆盖达成。**这是把业主的验收项按证据判为不该做 ⇒ 必须由业主追认**。另：复核**证伪**了"`laws_db` 任何前缀都会造死号段"（`["中华"]` 命中 1 个 ⇒ "**活但语义荒谬**"），⇒ 已登记待办"号段命中量与覆盖声明量级不符要告警"（**只登记、未实现**） |
+| 8 其余 DSH 适配积压 | ⏳ 未开始 | `defineTool`（拿回 `presentCall/presentResult`）、`Config` 校验口径、文档结构拆分、git hook/CI |
+
+**明确未修 / 未验（不许当成已解决）**
+1. **不持锁的写者仍可能整批会话被静默覆盖**（`plugin/src/chatmode.js` 的落盘协议）：复核已用确定性手法复现（把 CAS→rename 窗口拉宽 400ms + 一个不持锁的对端写入 ⇒ `persisted:true` 但对端会话消失）。`lostPeer` 判据**盖不到**它（对端写在我们基线读之后）。修法候选（锁文件作为唯一写入口 + 版本令牌）**未实施**。
+2. 第 6 步 §4 的 `isConcurrencySafe` 与取消语义**未在真宿主里端到端验过**（属第 6 条 e2e）。
+3. `test_deep_server` 那条偶发的**根因仍未定**（"自旋饿死 daemon"的假说已被实测否证）。
+4. 棘轮对 `passed → skipped` 翻转**本来就不判**（脚本自认；实测出现过 `2140/4` 仍判 ✅）。
+5. 最后一批（`be87f68`..`7c6d9df`，5 个提交：纯度相对路径空洞、`chain-snapshot --json` 的 segments、§10.141 与 B1–B5 文档更正）**门禁绿但尚未派独立复核**（上一批的复核报告 `corr3` 已逐条落地）。
+
+**需要业主拍板的（只有两件）**
+- 第 7 步的**验收项①**按证据作废是否追认（不追认则要真机 A/B：`cssn`/`mohurd` 能否答出 `official_gb`+`ndls` 答不出的东西，需联网）。
+- `--ks-fs-2xs:10px`（受限字号表唯一例外）与 `.ks-guide-main` 从"逐字抄宿主 14px"改成 12px 这两处**取舍**是否接受。
