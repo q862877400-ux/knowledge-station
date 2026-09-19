@@ -8336,3 +8336,77 @@ reflect 500 {"detail":"LLM output exceeded token limits (openai/deepseek-flash, 
   （`--tags <域> --tags-match any_strict`）或降 `--budget` —— **不是**调 `max_tokens`（§10.131①）。
 - **`.zh.md` 与英文两份都在库里**：不会自动"去重"，靠标签域隔离；不指定域时两者都可能被召回。
 - **GIF / 真机**：与本节无关，仍未做（官方对插件的硬要求）。
+
+## §10.135 两处「不报错的坏」：入库接管**整条死掉** + 启动收尾竞态**泄漏定时器**
+
+承接 §10.134 之后按 [DSH 适配审计](DSH-ALIGNMENT-AUDIT.md) 的积压清单施工。本轮动的两项都是
+**"会坏但不会报错"**那一类：没有异常、没有日志、界面也大致正常，所以能活到今天。
+
+### 一、新发现（**不在**审计清单里）：入库任务接管从来没接管过
+
+`src/ingest.js` 的 `adoptJob(jobId, initialStatus)` 调轮询时写成
+`runJobPollLoop(jobId, initialStatus)`，而函数签名是 **`(manager, jobId, initialStatus)`**
+⇒ `manager` 实参收到的是 **job_id 字符串**、`jobId` 实参收到的是**状态串**，循环第一句
+`jobTick('running')` 因为 id 不匹配**立刻退出**。
+
+后果（两处调用都中招）：`POST /ks/ingest/jobs` 起步的批、以及**上次遗留的 running 批重接管**，
+宿主侧镜像**永不推进**（浏览器关掉后的权威记录是空的）。**全程不抛错**。
+
+**怎么抓出来的**：不是读代码读出来的，是**先写会失败的断言**。新增
+`scripts/smoke-lifecycle.mjs`，A 组把状态文件摆成"上次 running"、把引擎打桩成一次就返回终态，
+断言"接管必须真的去问引擎（`ensureLive` 被调用）"+"镜像推进到 done"。**修复前 0/5**：
+
+```
+FAIL  A1 接管必须真的去问引擎（ensureLive 被调用） — ensureLive=0
+FAIL  A2 宿主镜像推进到 done — status=running · statusProbes=0
+```
+
+**修法**：`adoptJob(manager, jobId, initialStatus)`，两处调用点补 `manager`。修复后 A1/A2 转绿
+（`ensureLive=2`、`statusProbes=1`）。
+
+### 二、清单第 4 项（竞态）：证实了，修法是「卸载代数」，并且**更正审计里的一个说法**
+
+审计原文写的是「同类**三处**（announce/ingest）」。**这句话不准确，就地更正**：
+
+- **inspection 是唯一"泄漏一个活句柄"的那处**——`inspectionStartupCheck` 尾部
+  `startAutoInspectionTimer` 装的是 **30s `setInterval`**，模块级 `_autoTimer` 只留一个引用；
+  卸载若落在 `await initInspectionState()` 窗口内，disposer 先跑（那时 `_autoTimer` 还是 null），
+  随后收尾把定时器装上 ⇒ **再也没人能清掉它**，而且它持有已 dispose 的 ctx。B1 断言证实：
+  `setInterval=1`。
+- **announce / ingest 的轮询是"下一 tick 自终止"的**（`while (_poll && !_poll.stopped)`）：
+  同窗口下它们会多跑一格再退出，**不是**无界泄漏。它们的真实问题是**别的**（见第三节）。
+
+**修法**（三处同形，不新增模块、不改签名）：模块内加一个 `_xxxEpoch` 代数。disposer **先**
+`_xxxEpoch += 1`、**再**停句柄（顺序反了会在等待窗口里被重新装上）；`xxxStartupCheck` 进入时
+记下代数，每个 `await` 之后比对一次，不一致就整段作废。B 组三条断言要求**双向**：
+竞态下**不许**安装（B1）+ 干净路径**必须**安装（B2）+ 卸载**必须**清掉（B3）——
+只断言 B1 会被"永远取消"的假实现骗过。
+
+### 三、顺带发现（同一主题，就地修）：卸载时**没有停**入库轮询
+
+`registerKsIngestRoutes` 的 disposer 只 dispose 路由，`stopJobPoll()` 从来没被调用
+（announce/inspection 都有）。此前**察觉不到**，因为第一节那个 bug 让轮询根本没跑起来；
+修好之后它就变成"卸载后仍在 `ensureLive()`，可能把引擎重新拉起来"。已补上
+`stopJobPoll()`。另给 `adoptJob` 的 `void runJobPollLoop(...)` 挂了 `.catch`：`void` 的
+rejection 在 Node 20+ 会**终止宿主进程**，而后台轮询失败本来就只该表现为"镜像不推进"。
+
+### 四、修好它**当场**暴露了两个"桩不真 / 污染真数据"
+
+1. `scripts/smoke-ingest.mjs` 的假 manager **缺 `touchActivity()`**（上一节 `.catch` 之前，
+   它直接把 smoke 崩掉：`TypeError: manager.touchActivity is not a function`）。它此前够不着，
+   因为轮询是死的 ⇒ **桩不真造成的是假崩，不是真缺陷**。给假 manager 补上该方法。
+2. 同一个 smoke **不设 `KS_DATA_DIR`** ⇒ 它把 `ks-ingest.json` 写进**真实**
+   `%APPDATA%\KnowledgeStation`，而那个文件正是"上次未完成任务"的权威记录 ⇒
+   **真产品下次启动会去接管一个烟测造出来的假任务**。改成指向临时目录
+   （⚠ 该变量同时决定引擎数据目录，本 smoke fetch/manager 全打桩、绝不拉引擎，安全；
+   这条理由已写进文件头）。
+
+### 五、门禁与边界
+
+- 新增 `smoke-lifecycle.mjs`（5 条断言）并接进 `npm run smoke` 全链；`smoke-ingest` **38/38**。
+- **边界①**：B1 证的是"disposer 落在 await 窗口内会泄漏"，这是**源码必然**；我没做的是
+  **真机复现**（真 HMR 重载多少次后能看到几个定时器在跑）——那需要真宿主与时间观察。
+- **边界②**：`_jobEpoch` 只盖住**启动收尾**这个窗口。**请求处理中**（路由已进入 handler、
+  卸载发生在它自己的 await 里）仍可能 `adoptJob`，我没堵——不确定它值不值得堵。
+- **边界③**：A 组断言"镜像推进到 done"用的是**打桩引擎**，不是真引擎跑真入库任务。
+

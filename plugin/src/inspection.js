@@ -878,6 +878,8 @@ function registerSettingsRoutes(ctx) {
 
 let _autoTimer = null
 let _autoFiring = false
+/** 卸载代数：disposer 递增 ⇒ 仍在 await 窗口里的启动收尾整段作废（见 inspectionStartupCheck）。 */
+let _autoEpoch = 0
 let _autoLastAttempt = 0
 
 /** 今日时点的本地 Date（today @ HH:MM）。 */
@@ -942,16 +944,25 @@ function stopAutoInspectionTimer() {
   }
 }
 
-/**
- * 启动接管 + 逾期/僵尸检测（apply 的 effect 内调用一次，fire-and-forget）：
+/** 启动接管 + 逾期/僵尸检测（apply 的 effect 内调用一次，fire-and-forget）：
  *   - last.status==='running' 且引擎健康且批真在跑 → 重新 adopt（host 曾崩，
  *     引擎若还活着就能接回轮询）；
  *   - 否则标 stale_run → UI 提示"疑似中断"。
  *   - done 且超 24h 的逾期天数在 summary 现算（overdueDaysOf），不落盘。
  *   - 尾部启动 P1 每日定时器（30s tick：到点/顺延补跑判定见 autoInspectionTick）。
+ *
+ *  ⚠ **本函数是 fire-and-forget，而它中间有多个 `await`。** 卸载（HMR 重载也算）如果落在
+ *  这些窗口里，`registerKsInspectionRoutes` 的 disposer 会先跑完（那时 `_autoTimer` 还是
+ *  null、`_autoPoll` 也还没建），随后本函数继续执行就会**在 dispose 之后安装一个 30s
+ *  `setInterval`**，它持有已 dispose 的 ctx，且模块级 `_autoTimer` 只留一个句柄 ⇒
+ *  再也没人能清掉它。`_autoEpoch` 就是为此存在的：disposer 递增，本函数在每个
+ *  await 之后比对一次自己进入时的代数，不一致就整段作废。
+ *  守卫见 scripts/smoke-lifecycle.mjs B1/B2/B3。
  */
 export async function inspectionStartupCheck(ctx, manager) {
+  const epoch = _autoEpoch
   const s = await initInspectionState()
+  if (epoch !== _autoEpoch) return
   const last = s.last
   if (!last) return
 
@@ -975,6 +986,7 @@ export async function inspectionStartupCheck(ctx, manager) {
     }
   }
 
+  if (epoch !== _autoEpoch) return
   startAutoInspectionTimer(ctx, manager)
 
   if (last.status !== 'running') return
@@ -987,6 +999,7 @@ export async function inspectionStartupCheck(ctx, manager) {
       `/api/v1/update/batch/${encodeURIComponent(last.batch_id)}`,
       { token: sess.token, timeoutMs: 10_000 },
     )
+    if (epoch !== _autoEpoch) return
     if (probe.status === 200 && probe.body && probe.body.data) {
       const status = String(probe.body.data.status ?? '')
       if (status === 'running' || status === 'pending') {
@@ -1007,6 +1020,7 @@ export async function inspectionStartupCheck(ctx, manager) {
       return
     }
   } catch { /* engine unavailable -> stale below */ }
+  if (epoch !== _autoEpoch) return
   s.stale_run = true
   void schedulePersist()
   ctx.logger?.warn?.(`ks-inspection: 上次批次 ${last.batch_id} 疑似中断（无法接管）`)
@@ -1021,6 +1035,9 @@ export function registerKsInspectionRoutes(ctx, manager) {
     registerExportRoute(ctx, manager),
   ]
   return () => {
+    // 顺序有意义：先递增代数（让仍在飞的 `inspectionStartupCheck` 作废），再停定时器
+    // ——反过来的话，等待窗口里恢复的收尾会在 clearInterval 之后重新装上。
+    _autoEpoch += 1
     stopAutoInspectionTimer()
     for (const dispose of disposers) dispose()
   }

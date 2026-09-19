@@ -65,6 +65,8 @@ const BODY_CAP = 65_536
 
 let _state = null
 let _persistChain = Promise.resolve()
+/** 卸载代数：disposer 递增 ⇒ await 窗口里的启动收尾整段作废（见 announceStartupCheck）。 */
+let _announceEpoch = 0
 
 function defaultState() {
   return {
@@ -303,15 +305,22 @@ export async function triggerAfterInspection(ctx, manager) {
  * 启动接管（apply effect 内调用一次，fire-and-forget）：上次扫描 running 遗留
  * → 引擎健康且同 scan 在跑则重新轮询接管；否则标 stale_run。
  * 同时加载状态文件（announce.js 状态在此惰性初始化）。
+ *
+ * ⚠ fire-and-forget + 多个 `await`：卸载落在窗口里时，disposer 已经 `stopPoll()` 过
+ * （那时 `_poll` 还是 null），本函数继续跑就会在 dispose 之后 `adoptScanPoll` 装一个
+ * 持有已死 ctx 的活轮询。`_announceEpoch` 让这种收尾整段作废。
  */
 export async function announceStartupCheck(ctx, manager) {
+  const epoch = _announceEpoch
   const s = await initAnnounceState()
+  if (epoch !== _announceEpoch) return
   const last = s.last
   if (!last || last.status !== 'running') return
   try {
     const sess = await manager.ensureLive()
     const probe = await apiGet(originUrl(sess.port), ENGINE_SCAN_LAST_PATH,
       { token: sess.token, timeoutMs: 10_000 })
+    if (epoch !== _announceEpoch) return
     if (probe.status === 200 && probe.body?.data) {
       const status = String(probe.body.data.status ?? '')
       const scanId = String(probe.body.data.scan_id ?? '')
@@ -327,6 +336,7 @@ export async function announceStartupCheck(ctx, manager) {
       }
     }
   } catch { /* engine unavailable -> stale below */ }
+  if (epoch !== _announceEpoch) return
   s.stale_run = true
   void schedulePersist()
   ctx.logger?.warn?.('ks-announce: 上次扫描疑似中断（无法接管）')
@@ -640,6 +650,8 @@ export function registerKsAnnounceRoutes(ctx, manager) {
     registerExportRoute(ctx, manager),
   ]
   return () => {
+    // 先递增代数（作废仍在飞的启动收尾），再停轮询——顺序反了会在等待窗口里被重新装上。
+    _announceEpoch += 1
     stopPoll()
     for (const dispose of disposers) dispose()
   }

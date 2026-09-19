@@ -364,6 +364,9 @@ export function ingestJobFilePath() {
 let _jobState = null
 let _jobPersistChain = Promise.resolve()
 let _jobPoll = null // { jobId, stopped }
+/** 卸载代数：`registerKsIngestRoutes` 的 disposer 递增它，让"仍在飞的启动收尾"作废
+ *  （否则 await 窗口里被卸载后，收尾还会 `adoptJob` 装一个活轮询）。 */
+let _jobEpoch = 0
 
 function defaultJobState() {
   return { last: null, stale_run: false }
@@ -428,11 +431,20 @@ function stopJobPoll() {
   _jobPoll = null
 }
 
-function adoptJob(jobId, initialStatus) {
+function adoptJob(manager, jobId, initialStatus) {
   if (_jobPoll && _jobPoll.jobId === jobId && !_jobPoll.stopped) return
   stopJobPoll()
   _jobPoll = { jobId, stopped: false }
-  void runJobPollLoop(jobId, initialStatus)
+  // ⚠ `manager` **必须**原样往下传：2026-09-19 修的是一个静默失效——这里曾写成
+  // `runJobPollLoop(jobId, initialStatus)`，而签名是 `(manager, jobId, initialStatus)`
+  // ⇒ `manager` 收到的是 job_id 字符串、`jobId` 收到的是状态串，循环第一句
+  // `jobTick('running')` 因 id 不匹配立刻退出。表现是宿主镜像永不推进、遗留 running
+  // 批永不重接管，**且不抛任何错**。守卫见 scripts/smoke-lifecycle.mjs A1/A2。
+  // `.catch` 不是顺手加的：`void` 的 rejection 在 Node 20+ 会**终止宿主进程**，而后台轮询
+  // 失败本来就该表现为"镜像不推进"，不该升级成把宿主带走。
+  void runJobPollLoop(manager, jobId, initialStatus).catch(() => {
+    /* best-effort：真相在引擎侧，宿主镜像只是缓存 */
+  })
 }
 
 function jobTick(jobId) {
@@ -559,12 +571,16 @@ async function markJobFailed(jobId, message) {
   })
 }
 
-/** Boot-time handover：上一个 host 进程留下的非 terminal 任务 → 接管轮询。 */
+/** Boot-time handover：上一个 host 进程留下的非 terminal 任务 → 接管轮询。
+ *  ⚠ 加载状态文件是 `await`；若卸载正好落在这个窗口里，收尾**必须作废**——
+ *  否则它会在 dispose 之后调用 `adoptJob`，装一个持有已死 ctx 的活轮询。 */
 export async function ingestJobStartupCheck(ctx, manager) {
+  const epoch = _jobEpoch
   await initJobState()
+  if (epoch !== _jobEpoch) return
   const s = jobState()
   if (s.last && !JOB_TERMINAL.has(s.last.status)) {
-    adoptJob(s.last.job_id, s.last.status)
+    adoptJob(manager, s.last.job_id, s.last.status)
   }
 }
 
@@ -628,7 +644,7 @@ async function handleJobStart(req, res, manager) {
       s.stale_run = false
       return s
     })
-    adoptJob(view.job_id, view.status)
+    adoptJob(manager, view.job_id, view.status)
     jsonResponse(res, 200, { ok: true, data: view })
   } catch (err) {
     jsonResponse(res, 503, errorBody('engine_unavailable',
@@ -729,6 +745,10 @@ export function registerKsIngestRoutes(ctx, manager) {
     registerJobDispatcher(ctx, manager),
   ]
   return () => {
+    _jobEpoch += 1
+    // 轮询必须随插件一起停：此前这里只 dispose 路由，轮询若还在跑会继续
+    // `ensureLive()`（= 卸载之后仍可能把引擎拉起来）。
+    stopJobPoll()
     for (const dispose of disposers) dispose()
   }
 }

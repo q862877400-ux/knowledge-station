@@ -25,18 +25,19 @@
 | 10 | 权威导航层 `dshdocs-C.md` 里**留着一条已被 alpha.2 放宽的规则**，且没有反向指针 ⇒ 会被再引用一次 | 一个事实一个归属层 | 就地加反向指针指向 `ERRATA-alpha.2 §A2` |
 
 **门禁**：`run-gates.ps1 -Quick` **4/4**、`-Full` **6/6**（含 pytest 2143/3 与引擎 4/4）；
-`kb-page-render` 冒烟 **22/22**；`tool` 冒烟 **69/69**。
+`kb-page-render` 冒烟 **23/23**（⚠ 首次写下的是 22/22，实为 23 —— 就地更正，数字要回实测核）；
+`tool` 冒烟 **69/69**。
 
 ---
 
-## 二、积压（按性价比排序，未做）
+## 二、积压（按性价比排序；#4 已于第二轮修掉，见 §三）
 
 | 优先级 | 项 | 性质 | 量 |
 |---|---|---|---|
 | **1** | **客户端文案 locale 化**：216 个 JSX 中文文本 + 86 个散文属性（aria/title/placeholder），**0 处 `ctx.locale`**。官方门禁 `verify-client-ui-i18n` 只 glob DSH 仓内路径 ⇒ **扫不到我们**；运行时也不崩（查不到 key 回退成 key），真正坏的是英文 locale 下宿主英文、我们整片中文（混排） | **违规** | **L**（做法已给全：`LocaleNamespaceMap` 声明合并 + `ctx.locale.register/bind` + 槽位注册加 `locale:` + `entry.ts` 的 `inject` 加 `'locale'`） |
 | **2** | **持久化归属**：`chatmode.js`/`inspection.js`/`announce.js`/`ingest.js` 四处**自造 JSON 状态文件**（直写、无 schema、无版本），绕开 `ctx.settings`/`ctx.storageDomain`。本仓自己的证据：状态只在进程启动读一次 ⇒ **别的进程改了要重启才生效** | **违规 + 会坏** | S/M/L 分三档；⚠ 诚实边界：`domain/changed` **仅进程内**，迁移**换不到**我们现手搓的跨进程锁 |
 | 3 | 6 个工具用**裸对象字面量**注册、没用官方 `defineTool({...})` | 不违规（官方承认 raw JSON-Schema 这条路），代价是自己扛参数校验 | M |
-| 4 | **启动检查的清理竞态**：`void inspectionStartupCheck(...)` 在 effect 内但**无 disposer await 它**；卸载若落在 `await` 窗口内 ⇒ `stopAutoInspectionTimer()` 先跑（timer 尚为 null）、timer 后建 ⇒ **泄漏一个 30s 定时器**，持有已 dispose 的 ctx。同类三处（announce/ingest） | **会坏**（未实测） | S/M |
+| ~~4~~ | ~~启动检查的清理竞态~~ | —— | ✅ 已修，见 §三 |
 | 5 | 构建把 `@deepseek-ai/*` **整片 external**，没有官方那种 **purity 门禁**（引到不该引的包不报错） | 缺护栏 | S（收窄为 9 个基线模块 + 显式白名单，其余 `onResolve` 抛错） |
 | 6 | `S6` 的默认值双份（`DEFAULTS` vs schema）、`S1` 的 `sidebar.right.pane.tab.title` **从未注册**但注释声称注册了、`S2` 该用未用的原语（`Tooltip`/`StateDot`/`RiskConfirmation`/`Toast`/`MarkdownText`/`FileTypeIcon`…） | 清理 | S–M |
 | 7 | **binary 交付物**（`.docx`/`.pptx`）在客户端只能"下载一份"，而官方 `loading:'renderer'` + office-to-pdf 正是为它设计的 | 不违规（概念重叠） | M |
@@ -56,3 +57,25 @@
   `import()` 才会冲突（官方靠 preset 改写成 `require.async`，esbuild 不会）。
 - 三份报告各自列了「我不确定/没查到」，**未验证的推论都没有当成结论**（例如"样式会被别的插件
   认领后误删"是源码必然推论但**未实测**；`storageDomain` 的多进程强弱**未实测**）。
+
+---
+
+## 三、第二轮已修（2026-09-19）：积压 #4 + 施工中**新发现**的两条
+
+详细记录在[开发史 §10.135](DEVELOPMENT-HISTORY.md)（含修复前 0/5 的失败输出）；此处只留结论。
+
+| 项 | 性质 | 结果 |
+|---|---|---|
+| 积压 #4 启动收尾竞态 | 会坏 | ✅ 确证（B1 断言 `setInterval=1`）并修：三处同形加**卸载代数** `_xxxEpoch`——disposer **先**递增、**再**停句柄，启动收尾在每个 `await` 后比对代数，不一致整段作废。新增 `smoke-lifecycle.mjs` 双向断言（竞态不许装 / 干净路径必须装 / 卸载必须清） |
+| **新发现**：`adoptJob` 少传 `manager` | **会坏（静默）** | ✅ 修 `runJobPollLoop(manager, jobId, initialStatus)` + 两处调用点。修复前：入库任务接管**整条死掉**（`ensureLive=0`、镜像停在 running），**不抛错** |
+| **新发现**：卸载不停入库轮询 | 会坏（潜伏） | ✅ `registerKsIngestRoutes` 的 disposer 补 `stopJobPoll()`（此前只有 announce/inspection 有）；`void runJobPollLoop` 挂 `.catch`，别让后台轮询的 rejection 终止宿主 |
+
+**⚠ 就地更正审计自己的一句话**：积压 #4 原文写的「同类**三处**（announce/ingest）」**不准确**。
+实测：**只有 inspection 泄漏一个活句柄**（30s `setInterval`，模块级单引用 ⇒ 再没人能清）；
+announce/ingest 的轮询是 `while (_poll && !_poll.stopped)` 的**下一 tick 自终止**型，同窗口只会
+多跑一格。它们真正的问题是**卸载不停轮询**（上表第三行），那是另一回事。
+
+**施工中被修复"当场"暴露的两个问题**（都属"桩不真 / 污染真数据"）：
+`smoke-ingest` 的假 manager 缺 `touchActivity()`（轮询死着时够不着，修好即刻崩 ⇒ 假崩不是真缺陷）；
+同一个 smoke 不设 `KS_DATA_DIR` ⇒ 把 `ks-ingest.json` 写进**真实**数据区 ⇒ **真产品下次启动会去
+接管烟测造的假任务**。两处均已修，理由写进文件头。

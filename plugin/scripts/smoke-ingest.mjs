@@ -18,6 +18,11 @@
  * 引擎用 `globalThis.fetch` 打桩（health 透传真引擎会让 ensureLive 起引擎，不值得为 smoke 拉起），
  * manager 也用桩：`ensureLive()` 返回固定 session。
  *
+ * 隔离（2026-09-19 补）：`KS_DATA_DIR` → 临时目录。**不设它会把 `ks-ingest.json` 写进真实
+ * `%APPDATA%\KnowledgeStation`**，而那个文件是"上次未完成任务"的权威记录 ⇒ 真产品下次启动
+ * 会去接管一个烟测造出来的假任务。⚠ 该变量同时是引擎的数据目录；本文件 fetch/manager 全打桩、
+ * 绝不拉起真引擎，所以安全（同 smoke-engine-guard 的口径）。
+ *
  * Run:  node scripts/smoke-ingest.mjs     (exit 0 = all cases pass)
  */
 
@@ -25,6 +30,8 @@ import { EventEmitter } from 'node:events'
 import { mkdtemp, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
+
+process.env.KS_DATA_DIR = await mkdtemp(join(tmpdir(), 'ks-ingest-smoke-data-'))
 
 import {
   KS_INGEST_BATCH_PATH,
@@ -79,6 +86,9 @@ function captureRoutes() {
   }
   const manager = {
     ensureLive: async () => ({ port: 65001, token: 'smoke-token' }),
+    // 真实 manager 有它（轮询每 tick 记一次活动）。2026-09-19 修 `adoptJob` 的参数错位后
+    // 轮询才**真的**会跑起来，此前这条桩缺的方法够不着 —— 桩不真造成的是假崩，不是真缺陷。
+    touchActivity() {},
   }
   const dispose = registerKsIngestRoutes(ctx, manager)
   return { byPath, dispose }
