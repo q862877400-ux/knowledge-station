@@ -32192,6 +32192,35 @@ var import_dsh_client_ui_primitives = require("@deepseek-ai/dsh-client-ui-primit
 // client/ksGuideStyles.ts
 var STYLE_ID = "ks-dsh-plugin-styles";
 var KS_STYLES = `
+/* ===================================================================================
+   \u5C3A\u5EA6\u7CFB\u7EDF\uFF08\u7B2C 5 \u6B65\u7B2C\u4E00\u5757\uFF1B\u89C4\u683C\u4E0E\u51FA\u5904\u89C1 docs/UI-BASELINE.md \u7B2C\u4E8C\u8282\uFF09
+   \u2014\u2014 \u7167 WeKnora \u77E5\u8BC6\u5E93\u7BA1\u7406\u7684**\u6210\u4F53\u7CFB**\u505A\u6CD5\uFF1A4px \u7F51\u683C\u3001\u53D7\u9650\u5B57\u53F7\u8868\u3001\u53D7\u9650\u5706\u89D2\u8868\u3001
+      \u53D7\u9650\u52A8\u6548\u65F6\u957F\u3002\u4E0A\u4E00\u8F6E UI \u96BE\u770B\u7684\u6839\u56E0\u5C31\u662F**\u6CA1\u6709\u5B83**\uFF0813px/18px \u8FD9\u79CD\u73B0\u573A\u62CD\u7684\u6570\u5B57\u6EE1\u5730\u90FD\u662F\uFF09\u3002
+
+   \u26A0 \u4E3A\u4EC0\u4E48\u6302 \`:root\` \u800C\u4E0D\u662F\u6211\u4EEC\u67D0\u4E2A\u9762\u677F\u7684\u6839\u7C7B\uFF1A
+     \u6211\u4EEC\u7684\u9762\u677F\u5206\u5E03\u5728\u5BBF\u4E3B\u7684\u591A\u4E2A\u63D2\u69FD\u91CC\uFF08\u5F00\u59CB\u9875\u5165\u53E3\u5361 / \u53F3\u4FA7\u680F\u5404 tab / \u77E5\u8BC6\u5E93\u9875\u2026\uFF09\uFF0C
+     **\u6CA1\u6709\u4E00\u4E2A\u5171\u540C\u7684\u7956\u5148**\u662F\u6211\u4EEC\u81EA\u5DF1\u7684\u3002\u6302 \`:root\` \u53EA\u662F\u628A 20 \u6765\u4E2A \`--ks-*\` \u81EA\u5B9A\u4E49\u5C5E\u6027
+     \u58F0\u660E\u51FA\u6765\uFF08\u5E26 \`ks-\` \u524D\u7F00 = \u6211\u4EEC\u81EA\u5DF1\u7684\u547D\u540D\u7A7A\u95F4\uFF09\uFF1A\u81EA\u5B9A\u4E49\u5C5E\u6027**\u672C\u8EAB\u4E0D\u4EA7\u751F\u4EFB\u4F55\u6837\u5F0F**\uFF0C
+     \u5BBF\u4E3B\u4E0D\u8BFB\u5B83\u4EEC\u5C31\u5B8C\u5168\u65E0\u611F\uFF1B\u4EE3\u4EF7\u662F\u5BBF\u4E3B DOM \u4F1A\u7EE7\u627F\u5230\u8FD9\u6279\u53D8\u91CF\uFF08\u60F0\u6027\uFF09\u3002
+     \u82E5\u54EA\u5929\u8981\u6536\u7A84\u4F5C\u7528\u57DF\uFF0C\u628A\u5B83\u4EEC\u632A\u5230\u6211\u4EEC\u5404\u9762\u677F\u6839\u7C7B\u4E0A\u5373\u53EF\uFF08\u89C4\u5219\u91CC\u7528\u7684 \`var(--ks-*)\` \u4E0D\u7528\u6539\uFF09\u3002
+   =================================================================================== */
+:root{
+  /* \u95F4\u8DDD\uFF1A4px \u7F51\u683C\uFF084/8/12/16/20/24/32/40\uFF09 */
+  --ks-space-1:4px; --ks-space-2:8px; --ks-space-3:12px; --ks-space-4:16px;
+  --ks-space-5:20px; --ks-space-6:24px; --ks-space-8:32px; --ks-space-10:40px;
+  /* \u5B57\u53F7\uFF1A\u53D7\u9650\u8868\uFF08\u9875\u9762\u6807\u9898 20/24\u3001\u533A\u5757\u6807\u9898 16\u3001\u6B63\u6587 13/14\u3001\u8F85\u52A9 11/12\uFF09 */
+  --ks-fs-xs:11px; --ks-fs-sm:12px; --ks-fs-base:13px; --ks-fs-md:14px;
+  --ks-fs-lg:16px; --ks-fs-title:20px; --ks-fs-hero:24px;
+  /* \u5706\u89D2\uFF08WeKnora \u7684 4/6/8/10/12/999\uFF09 */
+  --ks-r-sm:4px; --ks-r-md:6px; --ks-r-lg:8px; --ks-r-card:10px; --ks-r-xl:12px; --ks-r-pill:999px;
+  /* \u52A8\u6548\u65F6\u957F */
+  --ks-dur-fast:120ms; --ks-dur-base:150ms; --ks-dur-modal:200ms;
+  /* \u5206\u9694\u7EBF\u4E00\u5F8B 0.5px\uFF08\u5BBF\u4E3B\u4FA7\u672C\u6765\u5C31\u662F .5px\uFF0C\u8DDF\u7740\u5B83\uFF09 */
+  --ks-sep:.5px;
+  /* \u5361\u7247/\u5217\u8868\u51E0\u4F55\uFF08WeKnora\uFF1A\u5361\u7247\u9AD8 136 / \u7F51\u683C gap 12 / \u5217\u8868\u884C\u9AD8 60 / \u8868\u5934 40 / \u5DE6\u53F3 16\uFF09 */
+  --ks-card-h:136px; --ks-card-gap:var(--ks-space-3); --ks-row-h:60px; --ks-head-h:40px;
+}
+
 /* ---------- \u5F00\u59CB\u9875\u5165\u53E3\u5361\uFF08\u7167 TerminalGuide.module.css \u7684\u6570\u503C\uFF09 ---------- */
 .ks-guide-entry{box-sizing:border-box;display:flex;align-items:stretch;width:100%;overflow:hidden;
   border:.5px solid var(--dsw-alias-border-l4);border-radius:24px;background:var(--dsw-alias-bg-layer-1)}
@@ -32206,36 +32235,43 @@ var KS_STYLES = `
 .ks-guide-trigger{align-self:stretch;flex:none;height:auto;width:44px;padding:0;border-radius:0 24px 24px 0}
 
 /* ---------- \u77E5\u8BC6\u5E93\u9875 ---------- */
-.ks-kb{display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--dsw-alias-label-primary);
+.ks-kb{display:flex;flex-direction:column;gap:var(--ks-space-2);font-size:var(--ks-fs-base);color:var(--dsw-alias-label-primary);
   min-height:100%;box-sizing:border-box}
-.ks-kb-banner{font-size:12px;line-height:1.5;color:var(--dsw-alias-state-warn-label);
+.ks-kb-banner{font-size:var(--ks-fs-sm);line-height:1.5;color:var(--dsw-alias-state-warn-label);
   background:var(--dsw-alias-state-warn-tertiary);border:.5px solid var(--dsw-alias-border-l2);
-  border-radius:8px;padding:7px 9px}
-.ks-kb-row{display:flex;align-items:center;gap:8px}
+  border-radius:var(--ks-r-lg);padding:var(--ks-space-2) var(--ks-space-3)}
+/* ---------- \u9875\u9762\u9AA8\u67B6\uFF08\u7167 WeKnora \u5217\u8868\u9875\uFF1A\u5927\u6807\u9898 + \u4E00\u884C\u526F\u6807\u9898 + \u7EC6\u5206\u9694\u7EBF\uFF09 ----------
+   \u26A0 0.5px \u5206\u9694\u7EBF\u7528 border-top \u800C\u4E0D\u662F height:1px\uFF08\u540E\u8005\u5728 1x \u5C4F\u4E0A\u662F 1px\uFF0C\u6BD4\u53C2\u7167\u7C97\u4E00\u500D\uFF09 */
+.ks-page-head{display:flex;flex-direction:column;gap:var(--ks-space-1);padding:var(--ks-space-1) 0 var(--ks-space-3)}
+.ks-page-title{font-size:var(--ks-fs-title);line-height:1.3;font-weight:600;color:var(--dsw-alias-label-primary)}
+.ks-page-sub{font-size:var(--ks-fs-sm);line-height:1.5;color:var(--dsw-alias-label-tertiary)}
+.ks-page-rule{height:0;flex:none;border-top:var(--ks-sep) solid var(--dsw-alias-border-l2)}
+
+.ks-kb-row{display:flex;align-items:center;gap:var(--ks-space-2)}
 .ks-kb-grow{flex:1;min-width:0}
-.ks-kb-hint{font-size:12px;color:var(--dsw-alias-label-tertiary)}
-.ks-kb-btn{border:.5px solid var(--dsw-alias-border-l4);border-radius:8px;padding:4px 10px;font-size:12px;
+.ks-kb-hint{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
+.ks-kb-btn{border:var(--ks-sep) solid var(--dsw-alias-border-l4);border-radius:var(--ks-r-lg);padding:var(--ks-space-1) var(--ks-space-3);font-size:var(--ks-fs-sm);
   color:var(--dsw-alias-label-secondary);background:transparent;cursor:pointer}
 .ks-kb-btn:hover{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-kb-btn-primary{background:var(--dsw-alias-brand-primary);color:var(--dsw-alias-bg-base);
   border-color:transparent;font-weight:600}
-.ks-kb-card{border:.5px solid var(--dsw-alias-border-l2);border-radius:10px;padding:9px 10px;
+.ks-kb-card{border:var(--ks-sep) solid var(--dsw-alias-border-l2);border-radius:var(--ks-r-card);padding:var(--ks-space-2) var(--ks-space-3);
   background:var(--dsw-alias-bg-base)}
 .ks-kb-card:hover{border-color:var(--dsw-alias-border-l4)}
-.ks-kb-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
-.ks-kb-sec{font-size:12px;color:var(--dsw-alias-label-tertiary);margin-top:4px}
-.ks-kb-tree{font-size:13px}
-.ks-kb-tline{display:flex;align-items:center;gap:6px;padding:3px 6px;border-radius:6px;cursor:pointer}
+.ks-kb-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--ks-card-gap)}
+.ks-kb-sec{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary);margin-top:4px}
+.ks-kb-tree{font-size:var(--ks-fs-base)}
+.ks-kb-tline{display:flex;align-items:center;gap:var(--ks-space-1);padding:var(--ks-space-1) var(--ks-space-2);border-radius:var(--ks-r-md);cursor:pointer}
 .ks-kb-tline:hover{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-kb-tw{width:12px;flex:none;text-align:center;font-size:10px;color:var(--dsw-alias-label-caption)}
 .ks-kb-tn{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ks-kb-tc{font-size:11px;color:var(--dsw-alias-label-caption)}
-.ks-kb-doc{display:flex;gap:7px;padding:5px 6px;border-radius:6px}
+.ks-kb-doc{display:flex;gap:var(--ks-space-2);padding:var(--ks-space-1) var(--ks-space-2);border-radius:var(--ks-r-md)}
 .ks-kb-doc:hover{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-kb-no{flex:none;font-weight:600;font-family:ui-monospace,Consolas,monospace;font-size:12px}
 .ks-kb-nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   color:var(--dsw-alias-label-secondary)}
-.ks-kb-badge{flex:none;font-size:11px;border-radius:4px;padding:0 5px;
+.ks-kb-badge{flex:none;font-size:var(--ks-fs-xs);border-radius:var(--ks-r-sm);padding:0 var(--ks-space-1);
   background:var(--dsw-alias-markdown-tag);color:var(--dsw-alias-label-secondary)}
 .ks-kb-badge-ok{background:var(--dsw-alias-state-success-tertiary);color:var(--dsw-alias-state-success-primary)}
 .ks-kb-badge-warn{background:var(--dsw-alias-state-warn-tertiary);color:var(--dsw-alias-state-warn-label)}
@@ -33035,6 +33071,11 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
     ] });
   }
   return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("header", { className: "ks-page-head", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-page-title", children: "\u77E5\u8BC6\u5E93" }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-page-sub", children: "\u6CD5\u89C4/\u6807\u51C6\u7684\u843D\u70B9\uFF1A\u76EE\u5F55\u6811 + \u6761\u6B3E + \u6807\u7B7E\uFF1B\u989C\u8272\u4E00\u5F8B\u8D70\u5BBF\u4E3B\u4E3B\u9898 token\uFF0C\u6DF1\u6D45\u8272\u81EA\u52A8\u8DDF\u968F" })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-page-rule" }),
     /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-banner", children: [
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { children: "UI \u5148\u884C\uFF1A\u6570\u636E\u662F\u5360\u4F4D\uFF0C\u540E\u7AEF\u63A5\u53E3\u672A\u63A5" }),
       "\uFF08dataSource=",
@@ -33046,7 +33087,6 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
       " \u5373\u53EF\uFF0C\u4E0D\u5FC5\u91CD\u753B\u5206\u7C7B\u6CD5\u3002"
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-row", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { className: "ks-kb-grow", style: { fontSize: 14 }, children: "\u77E5\u8BC6\u5E93" }),
       /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-subtabs", children: [
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Pill, { active: view === "files", onClick: () => {
           setView("files");
@@ -33055,6 +33095,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
           setView("tags");
         }, children: "\u6807\u7B7E" })
       ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-kb-grow" }),
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
         import_dsh_client_ui_primitives3.Menu,
         {

@@ -25,6 +25,35 @@ const STYLE_ID = 'ks-dsh-plugin-styles'
 
 /** 开始页入口卡 + 知识库页的样式（类名统一 `ks-` 前缀，避免与宿主类名撞）。 */
 export const KS_STYLES = `
+/* ===================================================================================
+   尺度系统（第 5 步第一块；规格与出处见 docs/UI-BASELINE.md 第二节）
+   —— 照 WeKnora 知识库管理的**成体系**做法：4px 网格、受限字号表、受限圆角表、
+      受限动效时长。上一轮 UI 难看的根因就是**没有它**（13px/18px 这种现场拍的数字满地都是）。
+
+   ⚠ 为什么挂 \`:root\` 而不是我们某个面板的根类：
+     我们的面板分布在宿主的多个插槽里（开始页入口卡 / 右侧栏各 tab / 知识库页…），
+     **没有一个共同的祖先**是我们自己的。挂 \`:root\` 只是把 20 来个 \`--ks-*\` 自定义属性
+     声明出来（带 \`ks-\` 前缀 = 我们自己的命名空间）：自定义属性**本身不产生任何样式**，
+     宿主不读它们就完全无感；代价是宿主 DOM 会继承到这批变量（惰性）。
+     若哪天要收窄作用域，把它们挪到我们各面板根类上即可（规则里用的 \`var(--ks-*)\` 不用改）。
+   =================================================================================== */
+:root{
+  /* 间距：4px 网格（4/8/12/16/20/24/32/40） */
+  --ks-space-1:4px; --ks-space-2:8px; --ks-space-3:12px; --ks-space-4:16px;
+  --ks-space-5:20px; --ks-space-6:24px; --ks-space-8:32px; --ks-space-10:40px;
+  /* 字号：受限表（页面标题 20/24、区块标题 16、正文 13/14、辅助 11/12） */
+  --ks-fs-xs:11px; --ks-fs-sm:12px; --ks-fs-base:13px; --ks-fs-md:14px;
+  --ks-fs-lg:16px; --ks-fs-title:20px; --ks-fs-hero:24px;
+  /* 圆角（WeKnora 的 4/6/8/10/12/999） */
+  --ks-r-sm:4px; --ks-r-md:6px; --ks-r-lg:8px; --ks-r-card:10px; --ks-r-xl:12px; --ks-r-pill:999px;
+  /* 动效时长 */
+  --ks-dur-fast:120ms; --ks-dur-base:150ms; --ks-dur-modal:200ms;
+  /* 分隔线一律 0.5px（宿主侧本来就是 .5px，跟着它） */
+  --ks-sep:.5px;
+  /* 卡片/列表几何（WeKnora：卡片高 136 / 网格 gap 12 / 列表行高 60 / 表头 40 / 左右 16） */
+  --ks-card-h:136px; --ks-card-gap:var(--ks-space-3); --ks-row-h:60px; --ks-head-h:40px;
+}
+
 /* ---------- 开始页入口卡（照 TerminalGuide.module.css 的数值） ---------- */
 .ks-guide-entry{box-sizing:border-box;display:flex;align-items:stretch;width:100%;overflow:hidden;
   border:.5px solid var(--dsw-alias-border-l4);border-radius:24px;background:var(--dsw-alias-bg-layer-1)}
@@ -39,36 +68,43 @@ export const KS_STYLES = `
 .ks-guide-trigger{align-self:stretch;flex:none;height:auto;width:44px;padding:0;border-radius:0 24px 24px 0}
 
 /* ---------- 知识库页 ---------- */
-.ks-kb{display:flex;flex-direction:column;gap:10px;font-size:13px;color:var(--dsw-alias-label-primary);
+.ks-kb{display:flex;flex-direction:column;gap:var(--ks-space-2);font-size:var(--ks-fs-base);color:var(--dsw-alias-label-primary);
   min-height:100%;box-sizing:border-box}
-.ks-kb-banner{font-size:12px;line-height:1.5;color:var(--dsw-alias-state-warn-label);
+.ks-kb-banner{font-size:var(--ks-fs-sm);line-height:1.5;color:var(--dsw-alias-state-warn-label);
   background:var(--dsw-alias-state-warn-tertiary);border:.5px solid var(--dsw-alias-border-l2);
-  border-radius:8px;padding:7px 9px}
-.ks-kb-row{display:flex;align-items:center;gap:8px}
+  border-radius:var(--ks-r-lg);padding:var(--ks-space-2) var(--ks-space-3)}
+/* ---------- 页面骨架（照 WeKnora 列表页：大标题 + 一行副标题 + 细分隔线） ----------
+   ⚠ 0.5px 分隔线用 border-top 而不是 height:1px（后者在 1x 屏上是 1px，比参照粗一倍） */
+.ks-page-head{display:flex;flex-direction:column;gap:var(--ks-space-1);padding:var(--ks-space-1) 0 var(--ks-space-3)}
+.ks-page-title{font-size:var(--ks-fs-title);line-height:1.3;font-weight:600;color:var(--dsw-alias-label-primary)}
+.ks-page-sub{font-size:var(--ks-fs-sm);line-height:1.5;color:var(--dsw-alias-label-tertiary)}
+.ks-page-rule{height:0;flex:none;border-top:var(--ks-sep) solid var(--dsw-alias-border-l2)}
+
+.ks-kb-row{display:flex;align-items:center;gap:var(--ks-space-2)}
 .ks-kb-grow{flex:1;min-width:0}
-.ks-kb-hint{font-size:12px;color:var(--dsw-alias-label-tertiary)}
-.ks-kb-btn{border:.5px solid var(--dsw-alias-border-l4);border-radius:8px;padding:4px 10px;font-size:12px;
+.ks-kb-hint{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
+.ks-kb-btn{border:var(--ks-sep) solid var(--dsw-alias-border-l4);border-radius:var(--ks-r-lg);padding:var(--ks-space-1) var(--ks-space-3);font-size:var(--ks-fs-sm);
   color:var(--dsw-alias-label-secondary);background:transparent;cursor:pointer}
 .ks-kb-btn:hover{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-kb-btn-primary{background:var(--dsw-alias-brand-primary);color:var(--dsw-alias-bg-base);
   border-color:transparent;font-weight:600}
-.ks-kb-card{border:.5px solid var(--dsw-alias-border-l2);border-radius:10px;padding:9px 10px;
+.ks-kb-card{border:var(--ks-sep) solid var(--dsw-alias-border-l2);border-radius:var(--ks-r-card);padding:var(--ks-space-2) var(--ks-space-3);
   background:var(--dsw-alias-bg-base)}
 .ks-kb-card:hover{border-color:var(--dsw-alias-border-l4)}
-.ks-kb-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
-.ks-kb-sec{font-size:12px;color:var(--dsw-alias-label-tertiary);margin-top:4px}
-.ks-kb-tree{font-size:13px}
-.ks-kb-tline{display:flex;align-items:center;gap:6px;padding:3px 6px;border-radius:6px;cursor:pointer}
+.ks-kb-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--ks-card-gap)}
+.ks-kb-sec{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary);margin-top:4px}
+.ks-kb-tree{font-size:var(--ks-fs-base)}
+.ks-kb-tline{display:flex;align-items:center;gap:var(--ks-space-1);padding:var(--ks-space-1) var(--ks-space-2);border-radius:var(--ks-r-md);cursor:pointer}
 .ks-kb-tline:hover{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-kb-tw{width:12px;flex:none;text-align:center;font-size:10px;color:var(--dsw-alias-label-caption)}
 .ks-kb-tn{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ks-kb-tc{font-size:11px;color:var(--dsw-alias-label-caption)}
-.ks-kb-doc{display:flex;gap:7px;padding:5px 6px;border-radius:6px}
+.ks-kb-doc{display:flex;gap:var(--ks-space-2);padding:var(--ks-space-1) var(--ks-space-2);border-radius:var(--ks-r-md)}
 .ks-kb-doc:hover{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-kb-no{flex:none;font-weight:600;font-family:ui-monospace,Consolas,monospace;font-size:12px}
 .ks-kb-nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   color:var(--dsw-alias-label-secondary)}
-.ks-kb-badge{flex:none;font-size:11px;border-radius:4px;padding:0 5px;
+.ks-kb-badge{flex:none;font-size:var(--ks-fs-xs);border-radius:var(--ks-r-sm);padding:0 var(--ks-space-1);
   background:var(--dsw-alias-markdown-tag);color:var(--dsw-alias-label-secondary)}
 .ks-kb-badge-ok{background:var(--dsw-alias-state-success-tertiary);color:var(--dsw-alias-state-success-primary)}
 .ks-kb-badge-warn{background:var(--dsw-alias-state-warn-tertiary);color:var(--dsw-alias-state-warn-label)}

@@ -350,6 +350,16 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
 
   return (
     <div className="ks-kb">
+      {/* 页面骨架（照 WeKnora 列表页：大标题 + 一行副标题 + 0.5px 分隔线；见 docs/UI-BASELINE.md 三）
+          ⚠ 原来这里是"14px 粗体 + 右边一排按钮"的一行 —— 没有层级，标题和操作挤在同一视线高度上 */}
+      <header className="ks-page-head">
+        <div className="ks-page-title">知识库</div>
+        <div className="ks-page-sub">
+          法规/标准的落点：目录树 + 条款 + 标签；颜色一律走宿主主题 token，深浅色自动跟随
+        </div>
+      </header>
+      <div className="ks-page-rule" />
+
       <div className="ks-kb-banner">
         <strong>UI 先行：数据是占位，后端接口未接</strong>（dataSource=<code>{dataSource}</code>）。
         但**交互是真的**（勾选/全选/批量动作/打标签都作用在页面状态上），你可以直接点着体验。
@@ -357,13 +367,13 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
         <code> GET /api/v1/documents/categories</code> 即可，不必重画分类法。
       </div>
 
-      {/* 顶部：标题 + 页内二级 tab（文件 / 标签）+ 唯一的「＋ 新建」 */}
+      {/* 页内二级 tab（文件 / 标签）+ 唯一的「＋ 新建」（标题已上移到页面骨架） */}
       <div className="ks-kb-row">
-        <strong className="ks-kb-grow" style={{ fontSize: 14 }}>知识库</strong>
         <div className="ks-subtabs">
           <Pill active={view === 'files'} onClick={() => { setView('files') }}>文件</Pill>
           <Pill active={view === 'tags'} onClick={() => { setView('tags') }}>标签</Pill>
         </div>
+        <div className="ks-kb-grow" />
         <Menu
           open={newOpen}
           portal
