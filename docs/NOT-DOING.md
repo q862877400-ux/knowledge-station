@@ -25,6 +25,7 @@
 | 10 | **`reflect` 的 `max_tokens` 是 4096 上限** | ⚰ **已作废**（真实上限在服务端配置 `reflect_max_completion_tokens`，默认 None） | — | [REALIGN §五之二](research/dsh-official/REALIGN.md) + 开发史 §10.131① |
 | 11 | **布局只在内存里** | ⚰ **已作废**（会话级持久化 + provider 恢复） | — | [errata/开发史记录](DEVELOPMENT-HISTORY.md) |
 | 12 | **`schemastery` 有 `.strict()`** | ⚰ **已作废**（本地 3.18.2 没有；官方那些 `.strict()` 来自 **zod**） | — | 开发史 §10.136 四 + `plugin/src/index.js` 的 Config 注释 |
+| 13 | **知识库页内的搜索框**（文件列表按标准号/名称过滤） | ⏸ **翻案进行中 —— 待业主确认**（**不是**"业主已批准"）：2026-09-19 业主 13 条里第 4 条曾明确"知识库界面不做搜索（这一页没有搜索框；搜索发生在'提问'那一侧）"，当时连渲染级断言都钉死了；**2026-09-20 的第 5 步 P2 头条任务书**直接要求"列表上方加一个搜索框（宿主 Input），必须真的过滤" ⇒ 已按任务书施工，**业主本人尚未就此表态** | 2026-09-19「知识库界面不做搜索」／2026-09-20 任务书（P2 头条第 3 条） | 归属层：[KsKnowledgePage.tsx](../plugin/client/KsKnowledgePage.tsx) 顶部第 4 条的**翻案留痕**（旧原话保留 + 更正框）+ [UI-BASELINE 5g](UI-BASELINE.md)。**若业主要退回**：删 `.ks-search` 那一段（1 个 `<span>` + 1 个 `Input`）与 `search`/`pickSearch`/`hitSearch`，再把 `smoke-kb-page-render.mjs` 的 3g/3h 换回"本页没有搜索框"（旧写法的样子留在该文件注释里） |
 
 > ⚠ **这份台账本身也要守规矩**：翻案（如第 4 条）必须**就地改写**，不许新旧两说并存 ——
 > 两说并存正是"翻旧账"的温床。
