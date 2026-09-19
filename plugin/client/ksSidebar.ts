@@ -77,8 +77,8 @@ export const KS_EVIDENCE_ADDRESS = KS_EVIDENCE_RESOURCE_PREFIX
    合并会让"点证据跳页"和"打开管理页"抢同一个地址，重载语义立刻打结。
    ============================================================================ */
 
-/** 知识库页的四个二级页（对应 ▾ 菜单里除 PDF 之外的四项）。 */
-export type KsKbPage = 'manage' | 'ingest' | 'report' | 'channels'
+/** 知识库页的二级页（对应 ▾ 菜单里除 PDF 之外的项）。 */
+export type KsKbPage = 'manage' | 'capabilities' | 'ingest' | 'report' | 'channels'
 
 /** 知识库 tab 的实现身份与类型判别符。 */
 export const KS_KB_IMPL_ID = 'ks-dsh-plugin/knowledge'

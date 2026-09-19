@@ -100,6 +100,21 @@ export const Menu = ({ open, items, anchor, onSelect, onClose }) =>
       }, it.label))) : null)
 
 export const IconChevronDownOutline14 = () => h('svg', { 'data-icon': 'chevron-down' })
+
+export const Switch = ({ checked, onChange, label, disabled, title, className }) =>
+  h('label', { className, title },
+    h('input', { type: 'checkbox', role: 'switch', checked, disabled,
+      onChange: (e) => { onChange(e.target.checked) } }),
+    h('span', null, label))
+
+/** Modal 桩：open 时把它渲染成一个可见容器（这样"窗里有什么"是可断言的）。 */
+export const Modal = ({ open, onClose, title, description, children, footer, closeLabel }) =>
+  open === false ? null : h('div', { role: 'dialog', 'aria-label': title, className: 'ks-modal-stub' },
+    h('div', { className: 'ks-modal-title' }, title),
+    description ? h('p', null, description) : null,
+    h('button', { type: 'button', 'aria-label': closeLabel ?? 'close', onClick: () => { onClose?.() } }, '×'),
+    h('div', { className: 'ks-modal-body' }, children),
+    footer ? h('div', { className: 'ks-modal-footer' }, footer) : null)
 `, 'utf8')
 
   /* ── 2. 测试入口：把"挂载"这件事暴露出来 ── */
@@ -262,6 +277,70 @@ export function mount(container, props) {
     searchish.length === 0, `命中 ${searchish.length} 个搜索框`)
 
   root.unmount()
+  await flush()
+
+  /* ══════════════════ 能力页（业主指定：一功能一卡一窗） ══════════════════ */
+  const capContainer = document.createElement('div')
+  document.body.appendChild(capContainer)
+  const capRoot = mount(capContainer, { useTabInfo: () => ({ tab: { navigation: { params: { page: 'capabilities' } } } }), dataSource: 'render-smoke' })
+  await flush()
+
+  const cq = (sel) => [...capContainer.querySelectorAll(sel)]
+  const cClick = async (el) => {
+    el.dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }))
+    await flush()
+  }
+
+  check('能力页：三个分组都在（自带 / 我启用的 / 实验性）',
+    ['自带（', '我启用的（', '实验性（'].every((t) => (capContainer.textContent ?? '').includes(t)),
+    (capContainer.textContent ?? '').slice(0, 60))
+
+  check('能力页：八项能力都渲染成卡',
+    cq('.ks-cap-card').length === 8, `实际 ${cq('.ks-cap-card').length} 张`)
+
+  // 业主边界 2：旋钮少于 3 个的能力**不配窗**，旋钮直接内联在卡上。
+  // ⚠ 别把"内联几张"写成硬编码数字（我第一版写死 1 ⇒ 实际 2 就假红）。
+  //   断言**真正的不变量**：每张卡**要么**有「设置…」按钮、**要么**内联旋钮，且**不会两者都有**。
+  const cards = cq('.ks-cap-card')
+  const withButton = cards.filter((c) => [...c.querySelectorAll('button')].some((b) => (b.textContent ?? '').includes('设置')))
+  const withInline = cards.filter((c) => (c.textContent ?? '').includes('不单独开窗'))
+  check('能力页：每张卡恰好是一种形态（有「设置…」按钮 XOR 内联旋钮）',
+    withButton.length + withInline.length === cards.length
+    && withButton.every((c) => !(c.textContent ?? '').includes('不单独开窗')),
+    `8 张卡 ⇒ 有窗按钮 ${withButton.length} / 内联 ${withInline.length}`)
+  check('能力页：内联的正是"旋钮 < 3 个"那几项（业主边界 2）',
+    withInline.length === 2
+    && ['条款释义', '材料评审'].every((n) => withInline.some((c) => (c.textContent ?? '').includes(n))),
+    withInline.map((c) => (c.textContent ?? '').slice(0, 12)).join(' | '))
+
+  // 点「设置…」⇒ 打开**它自己的**窗
+  const dutyCard = cq('.ks-cap-card').find((c) => (c.textContent ?? '').includes('义务清单'))
+  await cClick(dutyCard.querySelector('button'))
+  const dialog = capContainer.querySelector('[role=dialog]')
+  check('能力页：点「设置…」⇒ 打开它自己的设置窗，标题带能力名',
+    dialog !== null && (dialog.getAttribute('aria-label') ?? '').includes('义务清单'),
+    dialog === null ? '没开窗' : (dialog.getAttribute('aria-label') ?? ''))
+
+  // 窗里的旋钮是真的能操作（拨一个开关/点一个选项）
+  const dialogText = dialog?.textContent ?? ''
+  check('能力页：窗里有该项能力自己的旋钮（类型/范围/模板/出处）',
+    ['义务类型', '范围', '输出模板', '带出处链接'].every((t) => dialogText.includes(t)),
+    dialogText.slice(0, 80))
+
+  const pillInDialog = dialog.querySelector('button[data-active]')
+  const before = pillInDialog?.getAttribute('data-active')
+  await cClick(pillInDialog)
+  const after = dialog.querySelector('button[data-active="true"]')?.getAttribute('data-active')
+  check('能力页：窗里的枚举旋钮**可点且状态真的变**（不是画上去的）',
+    before !== undefined && after === 'true',
+    `点了之后有 data-active=true 的胶囊：${String(after)}`)
+
+  await cClick(dialog.querySelector('button[aria-label=关闭]') ?? dialog.querySelector('button'))
+  check('能力页：关掉窗 ⇒ 窗消失',
+    capContainer.querySelector('[role=dialog]') === null,
+    capContainer.querySelector('[role=dialog]') === null ? '已关' : '还在')
+
+  capRoot.unmount()
   await flush()
 } finally {
   await rm(stubDir, { recursive: true, force: true })

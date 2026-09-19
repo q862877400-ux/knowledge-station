@@ -131,6 +131,20 @@ export const KS_STYLES = `
 .ks-parse-in{flex:1 1 220px;min-width:180px}
 .ks-empty{padding:14px 8px;text-align:center;font-size:12px;color:var(--dsw-alias-label-tertiary)}
 .ks-dot{flex:none;width:6px;height:6px;border-radius:50%;background:var(--dsw-alias-label-caption)}
+
+/* ---------- 能力页（一功能一卡一窗） ---------- */
+.ks-cap-card{display:flex;flex-direction:column;gap:2px;border:.5px solid var(--dsw-alias-border-l2);
+  border-radius:10px;padding:9px 10px;background:var(--dsw-alias-bg-base)}
+.ks-cap-card:hover{border-color:var(--dsw-alias-border-l4)}
+/* 引擎侧现状：低调一行，别抢卡片的注意力 */
+.ks-cap-engine{font-size:11px;color:var(--dsw-alias-label-caption);margin-bottom:6px}
+.ks-cap-inline{display:flex;flex-direction:column;gap:5px;margin-bottom:4px}
+/* 窗里/卡上的一行旋钮：label 左、控件右（多选时可换行） */
+.ks-knobs{display:flex;flex-direction:column;gap:9px}
+.ks-knob-row{display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap}
+.ks-knob-label{flex:0 0 118px;font-size:12px;color:var(--dsw-alias-label-secondary);
+  line-height:24px;overflow:hidden;text-overflow:ellipsis}
+.ks-knob-ctl{flex:1 1 160px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-width:0}
 `
 
 /**

@@ -158,29 +158,45 @@ node scripts/ingest-dsh-docs-into-memory.mjs             # 幂等 + 可续跑，
 
 ---
 
-## 五之二、`reflect` 报 500 时：那是**输出上限**，不是"问得太多"
+## 五之二、`reflect` 报 500 时：那是**服务端传输层上限**，不是请求里的 `max_tokens`
 
-宽问题用 `hindsight_reflect` 工具会 500：
+宽问题可能撞上这个 500：
 
 ```
 500 {"detail":"LLM output exceeded token limits (openai/deepseek-flash, scope=reflect).
      Input may need to be split into smaller chunks."}
 ```
 
-**根因（2026-09-19 从服务自身 OpenAPI 查到，不是猜的）**：`ReflectRequest.max_tokens`
-默认 **4096**（原文 "Maximum tokens for the response"）。回答超过它就**报错**（而不是截断）。
-插件那个工具**只暴露 `query`**，所以永远吃 4096。那句 "Input may need to be split" **是误导** ——
-问题在输出，不在输入。
+### ⚠ 更正：我第一版把根因说错了（2026-09-19，独立复核 + 我自己核源码后改）
 
-⇒ 宽问题改用仓库脚本（可指定上限，也能按标签域圈定范围）：
+**错的说法**（我写过、还灌进了记忆里的 `dsh` 条目）：
+「`ReflectRequest.max_tokens` 默认 4096 就是输出上限，改成 8192 就好了。」
 
-```powershell
-node scripts/hindsight-reflect.mjs --max-tokens 8192 "又宽又多问的问题"
-node scripts/hindsight-reflect.mjs --tags dsh-official-docs-zh "只在中译本里找"
-node scripts/hindsight-reflect.mjs --budget high "要挖得更深"
-```
+**对的说法**（0.10.0 服务端源码，逐条核过）：
 
-实测：同一个此前 500 的宽查询，`max_tokens: 8192` ⇒ **成功（47 s）**。
+| 事实 | 出处 |
+|---|---|
+| 请求里的 `max_tokens`（默认 4096）**不是** provider 输出上限，而是**"想要的可见长度"**，以 **prompt 指令**下达 | `engine/reflect/agent.py:794-798`、`:542-547`（注释原文：*"NOT passed as the provider's max_completion_tokens"*） |
+| **真正的传输层上限** = 服务端配置 `reflect_max_completion_tokens`，**默认 `None`**（⇒ 不传该参数，用 provider 自己的默认） | `config.py:1819`；env `HINDSIGHT_API_REFLECT_MAX_COMPLETION_TOKENS`（`config.py:968/4924`） |
+| 那个 500 **只在真被截断时**抛（`finish_reason == 'length'`） | `providers/openai_compatible_llm.py:372-376` |
+
+**实测反证**：本库唯一一条 reflect 失败记录是 **`output_tokens=8192`**，而且它是
+**split-synthesis 的 map 调用**（拿的是 `reflect_max_completion_tokens`，从来不是请求里的 `max_tokens`）。
+⇒ 我当初"改成 8192 就成功"是**巧合**，不是修好了。
+
+### 能真正缓解的四种办法（按建议顺序）
+
+1. **把问题问窄**（唯一被官方报错文案也说对的建议）；
+2. **`--budget low`**：少喂数据 ⇒ map 调用不容易撑爆；
+3. **`--tags` 圈小范围**（配 `--tags-match any_strict` 才是"只在该域里找"，
+   服务端默认 `any` 是**包含未打标签**的，不算严格作用域）；
+4. 改服务端 `HINDSIGHT_API_REFLECT_MAX_COMPLETION_TOKENS` 并重启 —— ⚠ **不一定有用**：
+   默认 `None` 时用 provider 自己的上限，而本库实测就是在 **8192** 上截断的；
+   若 provider（`deepseek-flash`）本身上限就是 8192，**调高这个配置也超不过去**。
+   （此路未实测，因为改完要重启正在用的记忆服务。）
+
+用仓库脚本走 1–3：`node scripts/hindsight-reflect.mjs --budget low --tags <域> "问题"`
+（脚本还会在 500 时明确告诉你"这不是 `--visible-tokens` 能调的"）。
 
 **尚未纳入的语料**（想灌另说，别默认以为在库里）：
 

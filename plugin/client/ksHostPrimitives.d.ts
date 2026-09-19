@@ -122,4 +122,37 @@ declare module '@deepseek-ai/dsh-client-ui-primitives' {
     readonly icon?: ReactNode
     readonly className?: string
   } & InputHTMLAttributes<HTMLInputElement>>
+
+  /**
+   * 宿主 Switch：**完全受控**的开关（`Switch.tsx`）。
+   * `label` 是**可访问名**（与 Checkbox 不同，它不渲染可见文字? —— 源码里它在 `<span>` 里）⇒ 必须传。
+   */
+  export interface DshSwitchProps {
+    readonly checked: boolean
+    readonly onChange: (next: boolean) => void
+    readonly label: string
+    readonly disabled?: boolean
+    readonly title?: string | undefined
+    readonly className?: string | undefined
+  }
+  export const Switch: ComponentType<DshSwitchProps>
+
+  /**
+   * 宿主 Modal：一个完整对话框（`Modal.tsx`）。
+   * ⚠ 它用 `createPortal` 把内容投到 `document.body` ⇒ 断言"窗里有什么"时**别只查容器**。
+   * ⚠ `closeLabel` **必填**（源码里没有默认值）：本地化后的关闭按钮可访问名。
+   */
+  export interface DshModalProps {
+    readonly open: boolean
+    readonly onClose: () => void
+    readonly title: string
+    readonly closeLabel: string
+    readonly description?: string
+    readonly children?: ReactNode
+    readonly footer?: ReactNode
+    readonly className?: string
+    readonly contentClassName?: string
+    readonly headless?: boolean
+  }
+  export const Modal: ComponentType<DshModalProps>
 }

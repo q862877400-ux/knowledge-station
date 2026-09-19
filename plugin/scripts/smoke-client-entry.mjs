@@ -104,6 +104,8 @@ await writeFile(primitivesStubPath, [
   'export const Tag = Null',
   'export const Pill = Null',
   'export const Input = Null',
+  'export const Switch = Null',
+  'export const Modal = Null',
   'export const Menu = Null',
   'export const IconChevronDownOutline14 = Null',
   '',

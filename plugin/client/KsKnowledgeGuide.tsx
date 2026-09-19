@@ -36,6 +36,7 @@ import { KS_EVIDENCE_KIND, KS_KB_KIND, type KsGuideCardProps, type KsKbPage } fr
  */
 const MENU_ITEMS: readonly { readonly id: KsKbPage | 'pdf'; readonly label: string }[] = [
   { id: 'manage', label: '知识库管理' },
+  { id: 'capabilities', label: '能力' },
   { id: 'ingest', label: '文件导入' },
   { id: 'report', label: '效力报告' },
   { id: 'channels', label: '渠道台账' },

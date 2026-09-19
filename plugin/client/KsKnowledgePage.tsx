@@ -43,6 +43,7 @@ import { useMemo, useState, type ReactNode } from 'react'
 import { Button, Checkbox, IconChevronDownOutline14, Input, Menu, Pill, Tag, type DshTagTone } from '@deepseek-ai/dsh-client-ui-primitives'
 
 import { ensureKsStyles } from './ksGuideStyles'
+import { KsCapabilityPage } from './KsCapabilityPage'
 import { describeKsQuery, parseKsQuery } from './ksSearchSyntax'
 import type { KsPaneBodyProps, KsKbInjected } from './ksSidebar'
 import { KS_KB_KIND } from './ksSidebar'
@@ -323,7 +324,12 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
     setOpenDoc(null)
   }
 
-  // ── 非「知识库管理」页：诚实的占位（真入口，空内容） ──
+  // ── 「能力」页有自己的组件（业主指定的"一功能一卡一窗"） ──
+  if (page === 'capabilities') {
+    return <KsCapabilityPage />
+  }
+
+  // ── 其余非「知识库管理」页：诚实的占位（真入口，空内容） ──
   if (page !== 'manage') {
     const LABELS: Record<string, string> = { ingest: '文件导入', report: '效力报告', channels: '渠道台账' }
     return (

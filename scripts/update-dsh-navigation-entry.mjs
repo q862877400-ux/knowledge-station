@@ -19,6 +19,8 @@ const ID = 'dsh'
 const MARKER = '## 〇、本条之上还有一层：官方原文已**逐字入库**'
 /** 第二段（2026-09-19 追加）：语料边界与实测规模。同一入口，分段插入、各有看门标记。 */
 const MARKER2 = '## 附二、语料边界与**实测**规模（2026-09-19 追加）'
+/** 第三段：**更正我自己写错的 reflect 根因**（独立复核推翻后追加，必须落在库里）。 */
+const MARKER3 = '## 附三、更正：reflect 那个 500 的根因，我上一版**写错了**'
 
 const url = `${API}/v1/default/banks/${encodeURIComponent(BANK)}/documents/${encodeURIComponent(ID)}`
 
@@ -29,7 +31,7 @@ if (typeof before !== 'string' || before.length === 0) {
   process.exit(1)
 }
 const beforeHash = createHash('sha256').update(Buffer.from(before, 'utf8')).digest('hex')
-if (before.includes(MARKER) && before.includes(MARKER2)) {
+if (before.includes(MARKER) && before.includes(MARKER2) && before.includes(MARKER3)) {
   console.log('已是更新后的版本（两段看门标记都在），无需重复写。')
   process.exit(0)
 }
@@ -105,12 +107,44 @@ ${MARKER2}
 \`.zh.md\` 我记"约 158 篇"→ 实为 **166**；\`.agents/notes/\` 我记"2056 篇 / 14.3 MB"→ 实为 **1105 篇 / 7.6 MB**。
 ⇒ 教训：**转述里的数字要回原始来源核**（与"手抄会失真"是同一类病）。
 
-**中英两份不会互相稀释**：它们带**不同标签域**，检索时可用 \`tags\` 圈定
-（实测：\`--tags dsh-official-docs-zh\` 能只从中译本里取原文作答）。
+**中英两份不会互相稀释**：它们带**不同标签域**；但注意服务端 \`tags_match\` **默认 \`any\`（包含未打标签）**，
+要"只在该域里找"必须显式 \`any_strict\`（实测：11 条来源全是 \`.zh.md\`，0 条非 zh）。
 
-⚠ **宽问题别用 \`hindsight_reflect\` 工具**：它只暴露 \`query\`，而服务端
-\`ReflectRequest.max_tokens\` 默认 **4096**，回答超了会 500（报错文案说"把输入拆小"是误导）。
-用仓库脚本 \`scripts/hindsight-reflect.mjs --max-tokens 8192 "…"\`。
+⚠ **宽问题别用 \`hindsight_reflect\` 工具**：它只暴露 \`query\`（且固定 \`budget: high\`），传不了标签域。
+用仓库脚本 \`scripts/hindsight-reflect.mjs\`。**但别以为调大 max_tokens 能修 500 —— 见附三。**
+`
+
+/** 第三段：**更正我自己写错的 reflect 根因**（独立复核推翻后追加）。 */
+const after3 = `
+
+---
+
+${MARKER3}
+
+⚠ **本节是更正，请以本节为准**；本节之前（含"附二"末尾那句）我写的那个根因**是错的**。
+
+**我写错的**：「\`ReflectRequest.max_tokens\` 默认 4096 就是输出上限，宽问题撞上它才 500；
+把它调大（8192）就好了。」
+
+**真相**（0.10.0 服务端源码，逐条核过）：
+
+| 事实 | 出处 |
+|---|---|
+| 请求里的 \`max_tokens\` **不是** provider 输出上限，而是**"想要的可见长度"**，以 **prompt 指令**下达 | \`engine/reflect/agent.py:794-798\`、\`:542-547\`（注释原文 *"NOT passed as the provider's max_completion_tokens"*） |
+| **真正的传输层上限** = 服务端配置 \`reflect_max_completion_tokens\`，**默认 None**（不传 ⇒ 用 provider 默认） | \`config.py:1819\`；env \`HINDSIGHT_API_REFLECT_MAX_COMPLETION_TOKENS\`（\`config.py:968/4924\`） |
+| 那个 500 **只在真被截断时**抛（\`finish_reason == 'length'\`） | \`providers/openai_compatible_llm.py:372-376\` |
+
+**实测反证**：本库唯一一条 reflect 失败记录是 **\`output_tokens=8192\`**，且是
+**split-synthesis 的 map 调用**（拿的是 \`reflect_max_completion_tokens\`，**从来不是**请求里的 \`max_tokens\`）。
+⇒ 我当初"改成 8192 就成功"是**巧合**，不是修好了。
+
+**真能缓解的办法**：① 把问题问窄；② 降 \`budget\`；③ 用 \`--tags\` + \`--tags-match any_strict\` 圈小范围；
+④ 改服务端配置并重启（**不一定有用**：默认 None 时用的就是 provider 上限，而实测就是在 8192 上截断的）。
+
+**这条错误的教训（比结论更值得记）**：我读 OpenAPI 看到一个**看着像答案的字段名**
+（\`max_tokens\`，描述还写着 "Maximum tokens for the response"），就**当成了根因**并写进文档与记忆。
+**字段描述 ≠ 运行时语义**；要判运行时语义得读**执行路径**（谁把它传给了谁）。
+是独立复核靠 \`agent.py\` 的注释与 \`/llm-requests\` 审计日志把我推翻的。
 `
 
 /** 第一段尾节（"对本条自身的更正"）的看门标记——这样在全新条目上重跑也不会漏掉它。 */
@@ -120,6 +154,7 @@ const after = (before.includes(MARKER)
   ? before
   : header + before + (before.includes(MARKER_FOOT) ? '' : footer))
   + (before.includes(MARKER2) ? '' : after2)
+  + (before.includes(MARKER3) ? '' : after3)
 
 const post = await fetch(`${API}/v1/default/banks/${encodeURIComponent(BANK)}/memories`, {
   method: 'POST',
