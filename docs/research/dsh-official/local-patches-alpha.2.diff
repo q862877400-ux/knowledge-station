@@ -1,0 +1,161 @@
+# DSH 检出在升级到 alpha.2 后留下的**未提交本地补丁**（快照于 2026-09-19）
+# 源：D:\AI\DSH\deepseek-harness（HEAD = ddefc45fbc = dsh-v0.1.6-alpha.2）
+# 这些改动**没有提交**。若不做任何事，下一次升级 / git checkout 会丢掉它们。
+# 逐条说明见 docs/research/dsh-official/ERRATA-alpha.2.md §F。
+
+diff --git a/packages/api/session-controller/src/client/sessions/manager.ts b/packages/api/session-controller/src/client/sessions/manager.ts
+index 79474ae2cf..3a0aaf9017 100644
+--- a/packages/api/session-controller/src/client/sessions/manager.ts
++++ b/packages/api/session-controller/src/client/sessions/manager.ts
+@@ -617,11 +617,11 @@ export class SessionManager {
+ 
+   private replaceControlBaseline(baseline: SessionControlBaseline): void {
+     this.jobsBySession.clear()
+-    for (const [sessionId, jobs] of Object.entries(baseline.jobs)) {
++    for (const [sessionId, jobs] of Object.entries(baseline?.jobs ?? {})) {
+       if (jobs.length > 0) this.jobsBySession.set(sessionId as SessionId, jobs)
+     }
+ 
+-    for (const [sessionId, block] of Object.entries(baseline.projections)) {
++    for (const [sessionId, block] of Object.entries(baseline?.projections ?? {})) {
+       const store = this.projectionStore(sessionId as SessionId)
+       const asOfSeq = sessionSeqCursor(block.asOfSeq)
+       store.seed({ ...block, asOfSeq })
+diff --git a/packages/api/session-controller/src/control.ts b/packages/api/session-controller/src/control.ts
+index 3fb8d0032e..1255fc6904 100644
+--- a/packages/api/session-controller/src/control.ts
++++ b/packages/api/session-controller/src/control.ts
+@@ -64,7 +64,7 @@ export class SessionControlController {
+ 
+   private baseline(): SessionControlBaseline {
+     const sessions = this.ctx.sessions.list()
+-    const jobs = Object.create(null) as Record<SessionId, readonly SessionJob[]>
++    const jobs = {} as Record<SessionId, readonly SessionJob[]>
+     for (const session of sessions) {
+       const agent = this.ctx.agents.get(session.id)
+       jobs[session.id] = this.jobsFor(agent)
+@@ -78,7 +78,7 @@ export class SessionControlController {
+   private projectionBaseline(
+     sessions: readonly Session[],
+   ): Readonly<Record<SessionId, SessionProjectionBaseline>> {
+-    const blocks = Object.create(null) as Record<SessionId, SessionProjectionBaseline>
++    const blocks = {} as Record<SessionId, SessionProjectionBaseline>
+     for (const session of sessions) {
+       const snapshot = this.ctx.sessionProjections.snapshot(session)
+       blocks[session.id] = {
+diff --git a/packages/boot/app-boot/src/profile-resolution/resolver.ts b/packages/boot/app-boot/src/profile-resolution/resolver.ts
+index 959482c02a..1a58330a62 100644
+--- a/packages/boot/app-boot/src/profile-resolution/resolver.ts
++++ b/packages/boot/app-boot/src/profile-resolution/resolver.ts
+@@ -690,7 +690,7 @@ export function installProfileResolution(
+         if (cacheable && !(result instanceof Promise)) state.esm = result
+         return result
+       }
+-      const routedParent = pathToFileURL(route.kind === 'fallback' ? route.entry.declarer : route.parent).href
++      const routedParent = pathToFileURL(route.kind === 'fallback' ? canonicalPath(route.entry.declarer) : route.parent).href
+       if (behavior === 'enforce') {
+         const previous = delegatedEsm
+         delegatedEsm = { parent: routedParent, request }
+diff --git a/packages/core/agent-loop/src/tool-calls.ts b/packages/core/agent-loop/src/tool-calls.ts
+index e6aca31f56..375ce7b693 100644
+--- a/packages/core/agent-loop/src/tool-calls.ts
++++ b/packages/core/agent-loop/src/tool-calls.ts
+@@ -6,13 +6,16 @@
+  * and drains started calls.
+  *
+  * Abort records synthetic error results for skipped calls so replay stays
+- * valid. A terminal scheduler failure preserves already-recorded `tool/call`
+- * events without fabricating results.
++ * valid. A terminal scheduler failure does the same for every call in the group
++ * that has no committed result: an assistant `tool_use` the provider can see
++ * must be answered inside the same turn, or every later request in that session
++ * is rejected as an unpaired call (see discussions #7011 / #7129).
+  * @module dsh-agent-loop/tool-calls
+  */
+ 
+ import type { Context } from '@deepseek-ai/cordis'
+ import { createToolResultMessage, type ToolCallBlock } from '@deepseek-ai/dsh-llm'
++import { TOOL_OUTCOME_UNKNOWN } from '@deepseek-ai/dsh-session'
+ import type { Session, SessionSeq, UserMessage } from '@deepseek-ai/dsh-session'
+ import { TOOL_ABORTED_BEFORE_DISPATCH, TOOL_RUNTIME_SCHEDULER, type ToolExecutionInput, type ToolExecutionMode, type ToolExecutionResult, type ToolRunContext } from '@deepseek-ai/dsh-tools'
+ import { assertNever } from '@deepseek-ai/dsh-util-values'
+@@ -232,6 +235,32 @@ async function runGroup(
+   } catch (error: unknown) {
+     schedulerFailure ??= { error }
+     await Promise.allSettled(inFlight.values())
++    // A call the model already emitted must never be left unanswered: the
++    // provider pairs every assistant `tool_use` with an immediate result, so an
++    // unpaired call rejects EVERY later request in the session. Close the group
++    // in model order before the failure reaches the turn boundary. Started calls
++    // report an unknown outcome (retry guidance included, as in crash repair);
++    // calls that never started reuse the post-cancellation result.
++    for (let index = committed; index < group.length; index++) {
++      // oxlint-disable-next-line typescript/no-non-null-assertion -- bounded index
++      const call = group[index]!
++      const callSeq = callSeqs[index]
++      if (callSeq === undefined) {
++        appendSkippedToolCall(session, turn, step, call.block)
++        continue
++      }
++      appendToolResult(session, turn, step, call.block, {
++        content: [{
++          type: 'text',
++          text: 'The tool call was dispatched, but the run failed before its result was recorded, so its outcome is unknown. Decide whether to retry from the tool semantics: retry only if the operation is read-only or idempotent; if it may have side effects, first verify external state or ask the user. Do not retry blindly.',
++        }],
++        isError: true,
++        error: {
++          message: 'tool dispatch failed before a result was recorded',
++          info: { name: 'ToolOutcomeUnknownError', code: TOOL_OUTCOME_UNKNOWN },
++        },
++      }, callSeq)
++    }
+     throw schedulerFailure.error
+   }
+ 
+diff --git a/packages/core/tools/src/index.ts b/packages/core/tools/src/index.ts
+index 6be7be61e2..3d802ba2bd 100644
+--- a/packages/core/tools/src/index.ts
++++ b/packages/core/tools/src/index.ts
+@@ -458,9 +458,20 @@ export interface ToolRuntimeScheduler {
+ 
+ /**
+  * Scheduler entry point omitted from the generated named service API.
++ *
++ * Registered with `Symbol.for`, NOT `Symbol`: this module is reached through
++ * more than one specifier URL at runtime (the workspace copy, the profile
++ * junction copy, and the `lib/` vs `lib/types/` build artifacts). A fresh
++ * `Symbol()` per copy means the registry's key and the consumer's key are two
++ * distinct symbols with the same description, so `registry[TOOL_RUNTIME_SCHEDULER]`
++ * resolves to `undefined` and every tool call dies with
++ * "Cannot read properties of undefined (reading 'prepare')".
++ * The global symbol registry makes all copies agree on one identity.
+  * @internal
+  */
+-export const TOOL_RUNTIME_SCHEDULER: unique symbol = Symbol('@deepseek-ai/dsh-tools.scheduler')
++export const TOOL_RUNTIME_SCHEDULER: unique symbol = Symbol.for(
++  '@deepseek-ai/dsh-tools.scheduler',
++)
+ 
+ /** Canonical error code for cancellation after a tool body was invoked. */
+ export const TOOL_ABORTED = 'ABORTED'
+diff --git a/packages/core/tools/src/ptc.ts b/packages/core/tools/src/ptc.ts
+index 7c7a80c6fe..498e2c815f 100644
+--- a/packages/core/tools/src/ptc.ts
++++ b/packages/core/tools/src/ptc.ts
+@@ -548,6 +548,7 @@ export function createRunCodeTool(registry: ToolRuntime, options: RunCodeBridgeO
+         }
+         type DispatchOutcome = { isError: true; message: string } | { isError: false; value: JsonValue }
+         const scheduler = registry[TOOL_RUNTIME_SCHEDULER]
++        if (scheduler === undefined) throw new Error('PTC scheduler missing from registry — @deepseek-ai/dsh-tools is loaded twice (check apps/cli/node_modules)')
+         const outcome = await new Promise<DispatchOutcome>((resolve, reject) => {
+           // Set by the dispatch stage (or start() for a pre-settled result): what commit() finalizes in submission order.
+           let parked:
+diff --git a/packages/ptc-runtime/ptc-runtime/src/index.ts b/packages/ptc-runtime/ptc-runtime/src/index.ts
+index ae217e590f..e81e08e114 100644
+--- a/packages/ptc-runtime/ptc-runtime/src/index.ts
++++ b/packages/ptc-runtime/ptc-runtime/src/index.ts
+@@ -1,3 +1,4 @@
++
+ /**
+  * Service Definition for the PTC execution capability seam that runs one model-written program against host async bindings.
+  * Runtimes know nothing about tools or sessions; consumers own those concerns.
