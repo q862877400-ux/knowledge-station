@@ -62,8 +62,22 @@ export const KS_STYLES = `
   /* 卡片/列表几何（WeKnora：卡片高 136 / 网格 gap 12 / 列表行高 60 / 表头 40 / 左右 16）
      ⚠ 行高分两档：60 是**全宽**文档列表的数；我们侧栏是 ~300px 窄列，用 44（口径见 UI-BASELINE 二）。
      ⚠ 卡高（136）在 5a 定义后**长期没人用**（P0-2 点名的"死 token"）——2026-09-20 已由
-       .ks-kb-cards>*{min-height:var(--ks-card-h)} 真正消费掉（同列卡因此等高），不再是暗账。 */
-  --ks-card-h:136px; --ks-card-gap:var(--ks-space-3); --ks-row-h:60px; --ks-row-h-narrow:44px; --ks-head-h:40px;
+       .ks-kb-cards>*{min-height:var(--ks-card-h)} 真正消费掉（同列卡因此等高），不再是暗账。
+     ⚠ 表头 40（--ks-head-h）同类的暗账在 P1-8 才被消费（.ks-lhead 实测 33px → 40px）。
+     ⚠ **P1-3（2026-09-20）第三档：--ks-row-h-list:52px** —— 文件行从"一行塞满"改成
+       **两行信息**（文件名 + 元数据行）后的行高。为什么不是参照的 61：WeKnora 表格页行高 61
+       不在我们的 4px 网格上（52 = 13 个网格单位），且窄侧栏里 61 会把 4 行挤出一屏；
+       目标值 52 是 weknora-ui-vs-ours §7.4 定的（"行 52px 两行"）。44 那一档**保留**：
+       树的节点行（.ks-kb-tline）仍在用它，别一起改。 */
+  --ks-card-h:136px; --ks-card-gap:var(--ks-space-3); --ks-row-h:60px; --ks-row-h-narrow:44px;
+  --ks-row-h-list:52px; --ks-head-h:40px;
+  /* 描边宽度：0.5px 是**分隔线**档（--ks-sep）；1px 是**结构化描边**档 —— 表格外框/表头底线
+     与状态徽章的描边要"真的看得见"（P1-2/P1-5 的验收就是量到这条 1px），用 0.5px 在 1x 屏上
+     会退化成半透明发丝、量不出"左右各一行描边色"。两者都进 token，不许在规则里写死 px。 */
+  --ks-stroke:1px;
+  /* 宿主 Button size=sm 的**档位**（P1-6：批量条按钮实测 28px —— 那是 .ks-batch 的
+     align-items:center 加上图标把它撑起来的，不是宿主给的档）。批量条里显式钉 24px。 */
+  --ks-btn-h-sm:24px;
 }
 
 /* ---------- 开始页入口卡（照 TerminalGuide.module.css 的数值） ----------
@@ -172,78 +186,145 @@ export const KS_STYLES = `
 .ks-rail{flex:0 1 208px;min-width:168px;display:flex;flex-direction:column;gap:var(--ks-space-2)}
 .ks-main{flex:1 1 320px;min-width:280px;display:flex;flex-direction:column;gap:var(--ks-space-2);min-height:0}
 .ks-detail{flex:0 1 232px;min-width:200px;display:flex;flex-direction:column;gap:var(--ks-space-2)}
-/* 列表头：全选 + 计数 + 新建 */
-.ks-lhead{display:flex;align-items:center;gap:var(--ks-space-2);padding:var(--ks-space-1) 0 var(--ks-space-2);
-  border-bottom:.5px solid var(--dsw-alias-border-l1)}
+/* ---------- 列表容器（P1-2，2026-09-20）：从"裸行"改成"一个盒子" ----------
+   改前：「.ks-item」 是 「.ks-main」 的**直接子元素**（DOM 里 4 个裸行），页面上量不到任何一条
+   竖边 ⇒ 列表像散落的行而不是一个列表。参照（真机 「23-kb-detail-list-1440.png」）是
+   **1114×225 的一个圆角盒**：1px 外框 + 表头底色 + 行间 1px 分隔线、**没有竖分隔线**。
+   改法：把 「.ks-lhead」 与所有 「.ks-item」 包进这一层。
+   ⚠ 只包"表头 + 行"——空态卡与批量条**不在**盒子里（空态是"这里没有行"，批量条是浮层）。
+   ⚠ 描边用 --ks-stroke(1px) 而不是 --ks-sep(.5px)：验收口径是"能量到左右两条连续外框"，
+     .5px 在 1x 屏上抗锯齿成一档浅色，恰恰量不出"两条竖边"。底色用 bg-base 而不是页面底色，
+     盒子才"浮"得起来；**没有**配 elevation 阴影（官方硬规则：描边与 elevation 不许配对）。 */
+.ks-list{border:var(--ks-stroke) solid var(--dsw-alias-border-l2);border-radius:var(--ks-r-card);
+  overflow:hidden;background:var(--dsw-alias-bg-base)}
+/* 列表头：全选 + 计数 + 新建。
+   ⚠ P1-8（2026-09-20）：「--ks-head-h:40px」 自 5a 定义起**从未被消费**（实测 .ks-lhead 只有
+     33px，与 --ks-card-h 同类暗账）。这里用 「box-sizing:border-box」 + 「min-height」 消费它
+     —— 少了 box-sizing 的话 min-height 只约束**内容盒**（就是 .ks-item 在 5d 踩过的那个坑），
+     40px 会变成 "40 + 上下内边距"。
+     底色走 --dsw-alias-bg-layer-3：**不要用 layer-2** —— 本仓主题里 layer-2 与 layer-1
+     （页面/侧栏底）**同值**（都是 neutral-bluish-00 = #f9fafb），用了就等于"表头没有底色"，
+     而 P1-2 的验收正是"表头带"（参照是 #f3f3f3）。layer-3(#ebeef2) 是唯一比 layer-1 深的一档。
+     底线 1px 与参照的表格结构线同档（--ks-stroke，不是 --ks-sep）。 */
+.ks-lhead{box-sizing:border-box;display:flex;align-items:center;gap:var(--ks-space-2);
+  min-height:var(--ks-head-h);padding:0 var(--ks-space-3);
+  background:var(--dsw-alias-bg-layer-3);border-bottom:var(--ks-stroke) solid var(--dsw-alias-border-l2)}
 .ks-lhead-name{font-size:var(--ks-fs-base);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-/* 一行文件：勾选框（label 里就是文件名）+ 标签 + 常驻「+标签」 */
-.ks-item{box-sizing:border-box;display:flex;align-items:center;gap:var(--ks-space-2);padding:var(--ks-space-1) var(--ks-space-2);
-  border-radius:var(--ks-r-md);min-width:0;flex-wrap:nowrap;min-height:var(--ks-row-h-narrow)}
-/* ⚠ 行高口径（**改在 2026-09-20 第三轮，依据 ui5 复核实测**）：
-   原来这里没有 box-sizing ⇒ .ks-item 是 **content-box** ⇒ min-height:44px 只是**内容盒**下限，
-   再加上 padding 4/8 ⇒ 真实行高 **52px**、行节距 **60px**，而文档/token 说的是 44 —— 暗账。
-   现在加 box-sizing:border-box ⇒ min-height:44px 就是**边框盒**下限，与 token 同口径。
-   ⚠ 但**实测**结论是：即便改成 border-box，宿主 Checkbox 自带的行高仍可能把行撑过 44px
-   （min-height 只是**下限**）。真实值以 ui-render-shot.mjs 量出来的 measured 为准，
-   写进 docs/UI-BASELINE.md（"实测"那两栏）——**文档必须与实测一致**，不许再照 token 反推。
-   ⚠ 注释里不许出现反引号（整段 CSS 是一个模板字符串）—— 本轮已踩**第六次**（2026-09-20 第三轮：
-     上面这段初稿用了反引号包属性名，esbuild 报 Expected ";" but found "min"）。 */
+/* 一行文件（P1-1/P1-3，2026-09-20）：**两行信息** + 行尾一个「⋮」溢出菜单。
+   改前这一行是"一行塞满"：Checkbox(文件名) + Tag 状态 + N 个标签 + ＋标签 + 详情
+   ⇒ 4 个按钮/徽章挤在 44px 里（清单 §7.2 的"行内可见控件"）。现在：
+     第 1 行 = 勾选框 + 文件名（14px 深色）
+     第 2 行 = 12px 灰元数据（标准号/生效日期 —— **都是页面里已有的字段，没有编新数据**）+ 状态徽章
+     行尾   = 一个 .ks-item-more（宿主 Menu 的 trigger）
+   ⚠ 行高 44 → 52（--ks-row-h-list），原因是两行结构；44 那一档留给树节点行。
+   ⚠ 正面约束**一条都没撤**（5b 修「详情」竖排折行的那组）：box-sizing:border-box +
+     flex-wrap:nowrap + min-width:0 仍在；行尾触发器有 .ks-item-more{flex:none;white-space:nowrap}。
+   ⚠ **"整行可点"没有做**（清单 P1-1 里那条建议）：宿主 Checkbox 的 label **就是可见文字**
+     （Checkbox.tsx: label 是"visible and accessible label"）⇒ 整行再吃一次 click 会与
+     "点勾选框 = 勾选"打架。开详情的入口保留在「⋮ → 详情」（清单的**主改法**是收进溢出菜单，
+     行可点是它的附带建议）。这条在报告与 UI-BASELINE 里都标成"未做 + 为什么"。
+   ⚠ 第 2 行由 .ks-item-main 自己的 flex-direction:column 排出，不靠 flex-wrap。 */
+/* 行 = **2 列 grid**（内容 | ⋮）。
+   ⚠ 为什么不是 3 列（勾选框 | 内容 | ⋮）：宿主 Checkbox 的 label 是 **inline-flex**
+     （Checkbox.module.css 的 .checkbox{display:inline-flex}），而 inline-level 的网格项
+     **不会拉伸**去填满自己的列 —— 3 列写法下实测 .ks-check 恒等于列的 auto 宽度
+     （24px），文件名被挤到 2px（离屏图上"名字整段没了"）。改成 2 列后，勾选框与文件名
+     同在**内容列**里（第一行），列宽 = 可用宽度 ⇒ 文件名吃满剩余宽度、自己截断。
+     这一串是拿 headless 探针逐个量出来的（auto-col-block / display:flex / width:100% /
+     justify-self:stretch 都试过），不是猜的。
+   第 2 行（.ks-item-sub）用 grid-row:2 落在同一列（内容列）正下方 ⇒ 左缘与勾选框对齐。 */
+.ks-item{box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) 36px;
+  column-gap:var(--ks-space-2);row-gap:0;
+  padding:var(--ks-space-1) var(--ks-space-3);
+  min-width:0;min-height:var(--ks-row-h-list)}
+/* 行间 1px 分隔线（参照是"只在行间、没有竖分隔线"）。
+   ⚠ 用 「+」 相邻兄弟：第一行不该有上分隔线（表头自己的 border-bottom 就是那条线）。 */
+.ks-item + .ks-item{border-top:var(--ks-stroke) solid var(--dsw-alias-border-l1)}
+
+/* ⚠ 行高口径（**历史，别删**）：5d 之前 .ks-item 是 content-box ⇒ min-height:44px 只约束
+   内容盒，实测真实行高 52px、节距 60px，而文档/token 写 44 —— 暗账。第三轮加 box-sizing
+   后实测 44/52。**P1-3（2026-09-20）改成两行结构后** token 换成 --ks-row-h-list:52px。
+   真实值以 ui-render-shot.mjs 的 measured 为准，写进 docs/UI-BASELINE.md —— 不许照 token 反推。
+   ⚠ 注释里不许出现反引号（整段 CSS 是一个模板字符串）—— 已踩第七次。 */
 .ks-item:hover{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-item-on{background:var(--dsw-alias-interactive-bg-hover)}
-/* 文件名（Checkbox 的可见文字）宽度：**给上限、不给 flex:1**。
-   5c 实测（kb@1300，行宽 820）：原来是 flex:1 ⇒ 文件名盒子吃到 46% 上限、
-   标签簇被挤到最右边，**文件名与标签之间空 285~390px**（离屏渲染量出来的 deadGap）。
-   改法（克制，不动行结构）：① 文件名只用**内容宽**、上限 40%（窄列下自然更小）；
-   ② 标签簇改成"内容宽 + 可缩"，紧跟在文件名后面 ⇒ 不再有那 300px 死白；
-   ③ 右侧按钮组的第一个 btn 用 margin-left:auto 钉在行尾（操作列对齐，与文件名长短无关）。
-   ⚠ **P0-4（2026-09-20）：上限 40% → 46%**。清单原以为"窄宽下是左轨吃掉宽度"，**实测不成立**：
-       kb@520 量到 .ks-rail 208 / .ks-main **496**（整行！）—— .ks-split 是 flex-wrap，
-       rail 与 main 的 flex-basis 之和 208+8+320 > 496 ⇒ **main 换到下一行、拿满整行宽**，
-       文件名根本没被左轨挤。真正卡住它的是**这个上限**：40% × 480（= .ks-item **内容盒** 496-16）
-       = 192，量到的 nameW 正是 192；而该行文件名（GB 50016-2014 建筑设计防火规范）在 1300 下
-       量到的内容宽是 **218** ⇒ 差 26px 被截。**百分比是按内容盒解析的**（第一版写 45% 量到 216，
-       仍差 2px —— 这个坑记在这里，免得下次又按边框盒算）。
-       46% × 480 = 220.8 ≥ 218 ⇒ 520 下这一行**全名显示**（UI-BASELINE 第六节的实测复验）。
-       为什么不是更大：行内非文件名部分（标签簇 122 + ＋标签 56 + 详情 40 + 3 个 gap 24）= 242px
-       ⇒ 文件名的安全上限是 (480-242)/480 = **49.6%**；取 46% 留 ~17px 余量给标签更多的行。
-       ⚠ 顺带记下**不改 .ks-rail** 的理由：把 rail 改 clamp(140px,34%,208px) 后 168.6+8+320 = 496.6 > 496，
-       仍然换行 ⇒ main 还是 496（文件名不受益），而 rail 里的树名（本就只有 152px）被多截一档 —— 净亏。
-   ⚠ 注释里不许出现反引号（整段 CSS 是一个模板字符串）—— 本轮已踩**第五次**（2026-09-20 5c：
-     写了一句『右侧按钮组 「margin-left:auto」钉在行尾』，那对反引号把模板截断，
-     esbuild 报 "Expected ; but found margin"）。写 CSS 属性名时**直接写**，不要加引号装饰。
-   ⚠ **第七次（2026-09-20 P0-4，就在上面那段新注释里）**：写了 .ks-split 的反引号 ⇒ 产物直接
-     构建期报 「split is not defined」。教训：**新写的注释里一个反引号都不许有**，写完必须
-     「node scripts/build-client.mjs」跑一次（这次是构建立刻抓到，没有流到产物里）。 */
-.ks-item .ks-check{flex:0 1 auto;min-width:0;max-width:46%}
-/* Checkbox 的可见文字就是文件名：撑开、可截断，别换行把行搞高 */
-.ks-item .ks-check>span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-  color:var(--dsw-alias-label-secondary);font-size:var(--ks-fs-base)}
-.ks-item .ks-check>input{flex:none}
-/* 标签组：**允许自己内部换行**（标签多了就长高），但**不许把右边的按钮挤扁**
-   —— 无宽约束时「详情」会被压成两行「详／情」（2026-09-20 离屏截图实测，见 UI-BASELINE 第六节）。
-   ⚠ 注释里**不许出现反引号**（整段 CSS 是一个模板字符串）—— 本轮已经踩了四次。 */
-.ks-item-tags{display:flex;align-items:center;gap:var(--ks-space-1);flex:0 1 auto;min-width:0;flex-wrap:wrap}
-/* 行内按钮：**永不压缩、永不折字**（这条是上面那个缺陷的正面约束）。
-   第一个行内按钮吃下剩余空间 ⇒ 按钮组钉在**行尾**（操作列对齐），文件名/标签留在左边。 */
-.ks-item-btn{flex:none;white-space:nowrap}
-.ks-item-btn:first-of-type{margin-left:auto}
-.ks-item-add{flex:none;opacity:0;white-space:nowrap}
-/* 常驻：业主明确要"名字后面常驻一个 +标签"，所以不是 hover 才出现，只是 hover 时更显眼 */
-.ks-item .ks-item-add{opacity:.35}
-.ks-item:hover .ks-item-add,.ks-item-on .ks-item-add{opacity:1}
+/* 第 1 行：勾选框 + 文件名。
+   ⚠ 宿主 Checkbox 的 label **一定是可见文字**（Checkbox.tsx 原文："localized visible and
+     accessible label"，DOM 是 <label class=checkbox><input><span>文字</span></label>）
+     ⇒ 文件名就交给它渲染（它天然带省略号能力）。但**文字那层 span 是宿主的**，样式改不动
+     （CSS Module 哈希类，只声明不了），所以文件名先用我们自己的一层包着：
+     .ks-check > span（宿主的可见文字层）里再放 .ks-item-title，字号/颜色都由后者给。
+   宽度：5c 量到"文件名与标签簇之间 285~390px 死白"（那是 flex:1 + 46% 上限的组合）。
+   现在 grid 的第 2 列 minmax(0,1fr) ⇒ 文件名吃满剩余宽度、自己截断
+   （P1-3 的验收口径：不再被 46% 的 max-width 截断）。 */
+.ks-item .ks-check{grid-area:1/1;min-width:0;align-self:end}
+.ks-item .ks-check>span{display:block;flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  color:var(--dsw-alias-label-primary);font-size:var(--ks-fs-md);line-height:1.4}
+.ks-item .ks-check>input{margin-top:2px}
+/* 第 2 行（.ks-item-sub）：元数据（12px tertiary）+ 状态徽章。
+   落在**内容列正下方**（grid-area 2/2）⇒ 左缘与文件名对齐。 */
+.ks-item-sub{grid-area:2/1;display:flex;align-items:center;gap:var(--ks-space-2);
+  min-width:0;flex-wrap:nowrap;padding-left:var(--ks-space-6)}
+.ks-item-meta{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  font-size:var(--ks-fs-sm);line-height:1.5;color:var(--dsw-alias-label-tertiary)}
+/* 状态徽章（P1-5，2026-09-20）：从**实心 Tag** 改成"浅底 + 1px 描边 + 同色系文字"。
+   改前：宿主 Tag(success) 量到 **37×13** 的实心块（底色 #e8f9ef、字 #22c55e、**没有描边**）；
+   参照真机 「23-kb-detail-list-1440.png」 是 **46×20**、浅底 + 1px 描边 + 同色字（§7.1 的 scan 线
+   在徽章左右各量到一条 1px 的 state 色列）。
+   ⇒ 高度 13 → 20（--ks-space-5），描边 1px（--ks-stroke，**不是** --ks-sep：验收要量到那 1px）。
+   色调全部由调用方挂修饰类给（.ks-status-ok / -warn / -bad），与 .ks-kb-badge-* 同一套语义；
+   **一个字面色值都没有**（描边+文字=state-*-primary，底色=state-*-tertiary/secondary）。 */
+.ks-status{flex:none;display:inline-flex;align-items:center;box-sizing:border-box;
+  height:var(--ks-space-5);padding:0 var(--ks-space-2);border:var(--ks-stroke) solid;
+  border-radius:var(--ks-r-sm);font-size:var(--ks-fs-sm);font-weight:600;white-space:nowrap}
+.ks-status-ok{background:var(--dsw-alias-state-success-tertiary);color:var(--dsw-alias-state-success-primary);
+  border-color:var(--dsw-alias-state-success-primary)}
+.ks-status-warn{background:var(--dsw-alias-state-warn-tertiary);color:var(--dsw-alias-state-warn-label);
+  border-color:var(--dsw-alias-state-warn-label)}
+.ks-status-bad{background:var(--dsw-alias-state-error-secondary);color:var(--dsw-alias-state-error-primary);
+  border-color:var(--dsw-alias-state-error-primary)}
+/* 「被替代」这一档没有专属状态色（参照也没有第四档）⇒ 走**中性档**：与另外三档**同形**
+   （同高、同 1px 描边、同圆角），只差色调 —— 这样四个徽章并排时"形"是齐的。 */
+.ks-status-neutral{background:var(--dsw-alias-markdown-tag);color:var(--dsw-alias-label-secondary);
+  border-color:var(--dsw-alias-border-l4)}
+/* 标签（行内/详情里共用）：与状态徽章同高同形（浅底 + 1px 描边 + 中性色）——照 .ks-status 的形状，
+   颜色走中性档（border-l2 + label-secondary）。 */
+.ks-tag{flex:none;display:inline-flex;align-items:center;box-sizing:border-box;
+  height:var(--ks-space-5);padding:0 var(--ks-space-2);
+  border:var(--ks-stroke) solid var(--dsw-alias-border-l2);border-radius:var(--ks-r-sm);
+  background:var(--dsw-alias-markdown-tag);color:var(--dsw-alias-label-secondary);font-size:var(--ks-fs-xs)}
+/* 行尾溢出菜单（P1-1，2026-09-20）：原来「＋标签」与「详情」是两个**常驻**行内按钮
+   （一行里 5 个可见控件）。现在收进这里，触发器只留一个「⋮」。
+   ⚠ flex:none + white-space:nowrap 是 5b 那组"永不压缩、永不折字"的正面约束**原样搬过来**
+     （当时修的是「详情」被压成「详／情」竖排）；margin-left:auto 把它钉在行尾。 */
+.ks-item-more{grid-area:1/2/3/3;align-self:center;flex:none;white-space:nowrap;
+  display:inline-flex;align-items:center}
+/* 触发器钉 --ks-btn-h-sm(24px)：宿主 size=sm 的 28px 会**顶高整个第一行**（grid 的 auto 行）
+   ⇒ 行高被撑到 64px。24px 正好落在 52px 的行高预算里（28 + 20 + 上下 4 = 52）。
+   ⚠ 与 .ks-batch-btn 同一个 token，同一份理由（"宿主档位被内容撑大"），不是新拍的数。 */
+.ks-item-more button{height:var(--ks-btn-h-sm)}
 /* 悬浮批量条（有选中才出现）。
    ⚠ 官方硬规则：「Elevated surfaces … set "border: 0" and take "box-shadow:
    var(--dsw-elevation-panel|prominent|soft)". **Never pair a --dsw-alias-border-*
    border with an lv/elevation shadow**」—— 描边由阴影自己画，颜色用
    --dsw-elevation-stroke-color 给（官方 stat-dialog.module.css:21-25 就是这个写法）。
    我第一版写成 "border:.5px solid var(--dsw-alias-border-l4)" + 阴影，属于明令禁止的配对。
-   ⚠ 这里**不能写反引号**：整段 CSS 是一个模板字符串，反引号会把它截断（本轮第三次踩）。 */
+   ⚠ 这里**不能写反引号**：整段 CSS 是一个模板字符串，反引号会把它截断（本轮第三次踩）。
+   ⚠ P1-6（2026-09-20）：从**通栏 sticky** 改成**居中限宽** —— 参照真机
+     「24-kb-detail-batchbar-1440.png」 是 330×46 的**居中**白条，我们原来是 496 通栏
+     （measured: x=12 w=496）。改法只是 width:fit-content + margin 左右 auto：
+     「border:0」 与 elevation **照旧不动**（官方禁止"中性描边 + elevation"配对，
+     不许为了更像参照而加描边）；危险动作仍是 error 色**文字**（.ks-batch .ks-danger），不是红底。
+     按钮高度：宿主 Button size=sm 在这一格被 align-items:center + 图标撑到 **28px**
+     （measured .ks-item-btn.btnH=28）—— 由 .ks-batch-btn 显式钉 --ks-btn-h-sm(24px)。 */
 .ks-batch{position:sticky;bottom:0;display:flex;align-items:center;gap:var(--ks-space-2);flex-wrap:wrap;
-  margin-top:var(--ks-space-2);padding:var(--ks-space-2) var(--ks-space-3);border:0;
+  width:fit-content;max-width:100%;margin:var(--ks-space-2) auto 0;
+  padding:var(--ks-space-2) var(--ks-space-3);border:0;
   border-radius:var(--ks-r-card);
   background:var(--dsw-specific-menu);
   --dsw-elevation-stroke-color:var(--dsw-alias-border-l1);
   box-shadow:var(--dsw-elevation-prominent)}
+.ks-batch-btn{height:var(--ks-btn-h-sm);min-height:var(--ks-btn-h-sm)}
 .ks-batch-n{font-size:var(--ks-fs-sm);font-weight:600}
 /* 危险动作（批量删除）的文字色：走宿主 state-error（**参照里也是红字**）。
    ⚠ 选择器写成 .ks-batch .ks-danger（0,2,0）：宿主的 Button CSS Module 类也是 (0,1,0)，
@@ -257,6 +338,24 @@ export const KS_STYLES = `
 .ks-field-v-mono{font-family:ui-monospace,Consolas,monospace}
 /* 页内二级 tab（文件 / 标签） */
 .ks-subtabs{display:flex;align-items:center;gap:var(--ks-space-2);flex-wrap:wrap}
+/* ---------- 筛选/切换：一排**等高胶囊**（P1-4，2026-09-20） ----------
+   参照真机 「22-kb-detail-1440.png」 / 「23-kb-detail-list-1440.png」 是一排 **5 个 140×32 等高胶囊**
+   （图标 + 文案 + ∨，间距 12px，底 #f3f3f3）；我们页内原来只有两个 Pill（文件/标签），
+   筛选**根本不存在**，行内筛选件还各是一套高度（.ks-ing-chip ≈24px）。
+   ⇒ 这一档统一成：**高 32px（--ks-space-8）+ 字号 12px（--ks-fs-sm）+ 水平间距 12px（--ks-space-3）**
+     + 图标位固定（gap 4px）。
+   ⚠ 底色**不抄**参照的 #f3f3f3：走宿主 interactive 档（hover/selected），深浅色自动跟随。
+   ⚠ 胶囊形（999px）配 corner-shape:round —— 官方硬规则（见 .ks-dot 的注释）。 */
+.ks-filters{display:flex;align-items:center;gap:var(--ks-space-3);flex-wrap:wrap;
+  font-size:var(--ks-fs-sm)}
+.ks-chip{display:inline-flex;align-items:center;gap:var(--ks-space-1);box-sizing:border-box;
+  height:var(--ks-space-8);padding:0 var(--ks-space-3);
+  border:0;border-radius:var(--ks-r-pill);corner-shape:round;
+  background:var(--dsw-alias-interactive-bg-hover);
+  font-size:var(--ks-fs-sm);font-family:inherit;line-height:1;color:var(--dsw-alias-label-primary);
+  cursor:pointer}
+.ks-chip:hover{background:var(--dsw-alias-interactive-bg-active)}
+.ks-chip-on{background:var(--dsw-alias-interactive-bg-active);font-weight:600}
 /* 标签视图：一行一个标签 + 它跨了哪些大文件夹 + 在该标签下提问 */
 .ks-tagrow{display:flex;align-items:flex-start;gap:var(--ks-space-2);padding:var(--ks-space-2);border-radius:var(--ks-r-md)}
 .ks-tagrow:hover{background:var(--dsw-alias-interactive-bg-hover)}

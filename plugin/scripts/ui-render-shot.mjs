@@ -37,7 +37,12 @@
  *                    ⚠ **它不能用来判 `position:sticky`**：`--screenshot` 在这种无头模式下
  *                      是"整页截图"，滚动位置不进产物（5c 实测：加 scrollTo 后图里只剩空白）。
  *                      批量条位置只能在**真宿主页面**里看，见 docs/UI-BASELINE.md 第五节。
- *   --interact <a,b> 可选：kb-detail / kb-select / kb-empty / kb-tags-view / ingest-batch / cap-dialog
+ *   --interact <a,b> 可选：kb-detail / kb-select / kb-filter / kb-empty / kb-empty-folder /
+ *                    kb-tags-view / ingest-batch / cap-dialog
+ *                    ⚠ kb-empty-folder 是 P1-7 补的：点一个"树里有、文件数为 0"的叶子 ⇒ 拿到
+ *                      **真的**空态（原来的 kb-empty 点树根，页面仍有文件，p05-kb-520-empty.png
+ *                      就是那么来的、名不副实）。kb-filter 是 P1-4 的：点「已废止」⇒ 看筛选
+ *                      真的作用在行数上。kb-detail 改走「⋮ → 详情」（行内常驻按钮已收进菜单）。
  *   --theme light|dark  默认 light
  *   --browser <exe>  默认自动找 Edge/Chrome（可用 $KS_BROWSER 覆盖）
  *   --harness <dir>  DSH 检出（默认 $KS_HARNESS_DIR，再退到下方 DEFAULT_HARNESS）
@@ -264,9 +269,38 @@ const click = async (el) => {
 const notes = []
 for (const how of interacts) {
   if (how === 'kb-detail') {
+    // ⚠ P1-1（2026-09-20）改道：行内的常驻「详情」按钮没了（收进行尾「⋮」溢出菜单）
+    //   ⇒ 先点第一行的「⋮」，再点菜单里的「详情」。旧写法（button[aria-label^="打开"]）
+    //   在改版后永远找不到按钮、只回一句"没找到按钮"——那种"静默没做成"正是本脚本要避免的。
     const row = q('.ks-item')[0]
-    const btn = row?.querySelector('button[aria-label^="打开"]')
-    notes.push(`kb-detail: ${await click(btn) ? '点了第一行的「打开」' : '没找到按钮'}`)
+    const more = row?.querySelector('.ks-item-more button')
+    const opened = await click(more)
+    const item = opened
+      ? [...document.querySelectorAll('[role=menuitem]')].find((el) => (el.textContent ?? '') === '详情')
+      : null
+    const done = item ? await click(item) : false
+    notes.push(`kb-detail: ${opened ? '点了第一行的「⋮」' : '没找到「⋮」'} → ${done ? '点了菜单里的「详情」' : '没找到菜单项'}`)
+  } else if (how === 'kb-filter') {
+    // P1-4 验收：筛选**真的作用在页面状态上**。点「已废止」胶囊，报出筛选前后的行数。
+    const before = q('.ks-item').length
+    const chip = byText('.ks-chip', '已废止')
+    const ok = await click(chip)
+    notes.push(`kb-filter: ${ok ? '点了「已废止」胶囊' : '没找到胶囊'}`
+      + ` → 行数 ${before} → ${q('.ks-item').length}`
+      + `，空态卡 ${q('.ks-empty-card').length} 张`)
+  } else if (how === 'kb-filter-empty') {
+    // 筛选到 **0 行** ⇒ 看"被筛没了"的那一支空态（P1-4 的两种空之一）。
+    // 怎么造出 0 行：先切到只有现行件的「供应商资料」（1 篇，status=current），
+    // 再点「已废止」⇒ 0 行。这是**页面状态**真的生效的证据，不是画出来的。
+    const folder = q('.ks-kb-cards .ks-kb-card').find((el) => (el.textContent ?? '').includes('供应商资料'))
+    const moved = await click(folder)
+    const before = q('.ks-item').length
+    const chip = byText('.ks-chip', '已废止')
+    const ok = await click(chip)
+    notes.push(`kb-filter-empty: ${moved ? '切到「供应商资料」' : '没找到自建夹卡'}`
+      + ` → 行数 ${before} → ${q('.ks-item').length}`
+      + `，空态卡 ${q('.ks-empty-card').length} 张`
+      + `，空态标题「${q('.ks-empty-t').map((el) => el.textContent).join('|')}」`)
   } else if (how === 'kb-select') {
     const box = q('input[type=checkbox]')[0]
     notes.push(`kb-select: ${await click(box) ? '点了全选' : '没找到勾选框'}`)
@@ -281,6 +315,17 @@ for (const how of interacts) {
     const node = q('.ks-kb-tline').find((el) => (el.textContent ?? '').includes('P 土木、建筑'))
     notes.push(`kb-empty: ${await click(node) ? `点了「${(node.textContent ?? '').trim()}」` : '没找到节点'}`
       + ` → 空态卡 ${q('.ks-empty-card').length} 张`)
+  } else if (how === 'kb-empty-folder') {
+    // P1-7 验收要的**真空态**：点一个"树里有、文件数为 0"的节点 ⇒ 列表 0 行 + 空态卡 1 张。
+    // 注意原有的 kb-empty 点的是树**根**节点（根下没有直接文件，点它会展开/收起，
+    // 屏幕上仍有上一次选中的夹子 ⇒ 拿不到空态）。这里选 "P15/19 工程抗震、工程防火、人防工程"
+    // ——它在种子里**没有文档**（文件都在它的子层 P16），而父节点 P 土木、建筑 默认展开。
+    // 库里 p05-kb-520-empty.png 名不副实（那一跑是有数据 + 已选中的场景）—— 这条就是补它。
+    const node = q('.ks-kb-tline').find((el) => (el.textContent ?? '').includes('P15/19'))
+    const ok = await click(node)
+    notes.push(`kb-empty-folder: ${ok ? `点了「${(node.textContent ?? '').trim()}」` : '没找到节点'}`
+      + ` → 文件行 ${q('.ks-item').length} 行，空态卡 ${q('.ks-empty-card').length} 张`
+      + `，空态标题「${q('.ks-empty-t').map((el) => el.textContent).join('|')}」`)
   } else if (how === 'kb-tags-view') {
     const pill = byText('button', '标签')
     notes.push(`kb-tags-view: ${await click(pill) ? '切到标签视图' : '没找到「标签」'}`)
@@ -349,7 +394,9 @@ const html = `<!doctype html>
   try {
     var sels = ['#ks-shell','.ks-item','.ks-detail','.ks-rail','.ks-main','.ks-kb-card','.ks-cap-card',
                 '.ks-batch','.ks-lhead','.ks-page-title','.ks-kb-tn','.ks-item-tags','.ks-item-add',
-                '.ks-cap-engine','.ks-knob-label','.ks-kb-banner','.ks-field','.ks-tagrow'];
+                '.ks-cap-engine','.ks-knob-label','.ks-kb-banner','.ks-field','.ks-tagrow',
+                '.ks-list','.ks-filters','.ks-chip','.ks-status','.ks-item-more','.ks-item-title','.ks-item-sub',
+                '.ks-check','.ks-item-meta','.ks-batch-btn','.ks-empty-card','.ks-empty-t','.ks-empty-d'];
     var out = {};
     sels.forEach(function (s) {
       var els = document.querySelectorAll(s);
@@ -366,26 +413,40 @@ const html = `<!doctype html>
       out['.ks-item#pitch'] = { n: ys.length, y: ys[0], w: 0, h: ys[1] - ys[0], fs: '', lh: ys.join(','), pad: '', gap: '', radius: '' };
     }
     // 每一行：文件名盒子有多宽、标签簇在哪、中间空多少（死白量）
+    // ⚠ P1-1（2026-09-20）起 btnH 的来源换人了：行内两个常驻 Button（＋标签/详情）收进了
+    //   行尾「⋮」溢出菜单 ⇒ 这里量到的最后一个 .ks-item-btn 是**菜单触发器**（宿主 size=sm）。
+    //   ctrls = 这一行**可见控件数**（勾选框 + 状态徽章 + ⋮）—— 就是 P1-1 的验收口径。
     if (items.length > 0) {
       out['.ks-item#rows'] = { n: items.length, y: 0, w: 0, h: 0, fs: '', lh: '', pad: '', gap: '', radius: '',
         rows: [].map.call(items, function (el) {
           var chk = el.querySelector('.ks-check');
+          var fname = chk ? chk.querySelector('span') : null;
           var tags = el.querySelector('.ks-item-tags');
-          var btns = el.querySelectorAll('.ks-item-btn');
+          var more = el.querySelector('.ks-item-more button');
           var r0 = el.getBoundingClientRect();
           var rc = chk ? chk.getBoundingClientRect() : null;
+          var rf = fname ? fname.getBoundingClientRect() : null;
           var rt = tags ? tags.getBoundingClientRect() : null;
-          var last = btns.length > 0 ? btns[btns.length - 1].getBoundingClientRect() : null;
+          var rm = more ? more.getBoundingClientRect() : null;
+          var ctrls = el.querySelectorAll('.ks-check,.ks-status,.ks-item-more').length;
           return { rowW: Math.round(r0.width), nameW: rc ? Math.round(rc.width) : null,
+                   fileNameW: rf ? Math.round(rf.width) : null,
                    nameRight: rc ? Math.round(rc.right - r0.left) : null,
                    tagsLeft: rt ? Math.round(rt.left - r0.left) : null,
                    deadGap: (rc && rt) ? Math.round(rt.left - rc.right) : null,
-                   btnH: last ? Math.round(last.height) : null };
+                   btnH: rm ? Math.round(rm.height) : null,
+                   ctrls: ctrls };
         }) };
     }
     // 每张卡（.ks-kb-card / .ks-cap-card）的**逐个高度**：判"同列卡等高"要看的就是它
     // （P0-2/P0-3 之前只能看首张，于是"212 / 115 / 85 三档"只能靠肉眼估）。
-    var cardEls = document.querySelectorAll('.ks-kb-card,.ks-cap-card');
+    // ⚠⚠ **P1-9 修正（2026-09-20）**：这里原选择器还含 「.ks-kb-card」 —— 而 「.ks-kb-card」
+    //   除了"卡"还被**两处非卡元素**复用：① 「.ks-detail」 里的占位小方块、② 标签视图里那个
+    //   包检索语法输入的描边盒。它们是 .ks-main 的**直接子元素**，高度不受 .ks-kb-cards>*
+    //   的 min-height 约束 ⇒ 于是 「#cards.h」 里冒出 72 / 66 这种"小于 136"的值，
+    //   读起来像"卡没吃到 min-height"（假的）。**只留 .ks-cap-card 之后坑就填上了**：
+    //   两个页面上确实是"卡"的只有 「.ks-kb-cards>*」 与 「.ks-cap-card」。
+    var cardEls = document.querySelectorAll('.ks-kb-cards>*,.ks-cap-card');
     if (cardEls.length > 0) {
       var hs = [].map.call(cardEls, function (el) { return Math.round(el.getBoundingClientRect().height); });
       var ws = [].map.call(cardEls, function (el) { return Math.round(el.getBoundingClientRect().width); });
@@ -393,13 +454,23 @@ const html = `<!doctype html>
     }
     // 批量条的**一行装得下吗**：w = 最后一个子元素的右缘 - 条子的右缘（正数 = 溢出/被截，
     // 负数 = 还剩多少余量）。h = 条子高（折成两行会明显变高）。P0-5 判"两行/溢出"就靠它。
+    // ⚠⚠ **P1-9 修正（2026-09-20）**：原来 「lastKid.right - br.right」 量的是"**条子**的右缘"，
+    //   而它是 sticky + width:fit-content 的**浮层**、贴右缘时会算出负数 —— 那是"条子右缘
+    //   在子元素右缘右边多少"（= 内边距 + 余量），**不是溢出**。真正的溢出判据是
+    //   "最后一个子元素的右缘有没有超过条子的**内容盒**右缘"：br.right - paddingRight。
+    //   量不动时（paddings 解析不出数字）退回旧口径，并在 title 里给出 **条子自身的绝对坐标**
+    //   （bx/bw）—— P1-6 要看的"居中且宽 < 容器"就是它，不必再去二进制里翻 BMP。
     var bar = document.querySelector('.ks-batch');
     if (bar) {
       var br = bar.getBoundingClientRect();
+      var cbs = getComputedStyle(bar);
+      var pr = parseFloat(cbs.paddingRight);
+      var barInnerRight = br.right - (isFinite(pr) ? pr : 0);
       var kids = bar.children;
       var lastKid = kids.length > 0 ? kids[kids.length - 1].getBoundingClientRect() : null;
-      out['.ks-batch#fit'] = { n: kids.length, x: 0, y: 0, w: lastKid ? Math.round(lastKid.right - br.right) : 0,
-                               h: Math.round(br.height), fs: '', lh: '', pad: '', gap: '', radius: '' };
+      out['.ks-batch#fit'] = { n: kids.length, x: Math.round(br.x), y: Math.round(br.width), w: lastKid ? Math.round(lastKid.right - barInnerRight) : 0,
+                               h: Math.round(br.height), fs: '', lh: '', pad: (isFinite(pr) ? String(Math.round(pr)) : ''),
+                               gap: '', radius: '' };
     }
     document.title = 'h=' + document.documentElement.scrollHeight + '|m=' + JSON.stringify(out);
   } catch (e) {

@@ -74,6 +74,15 @@ declare module '@deepseek-ai/dsh-client-ui-primitives' {
   export const IconFolderOpenOutline16: ComponentType<DshIconProps>
   /** 危险动作（批量删除）用的垃圾桶。 */
   export const IconTrashOutline16: ComponentType<DshIconProps>
+  /**
+   * 行尾溢出菜单的「⋮」（P1-1，2026-09-20）。
+   * 名字逐字核过宿主 `ui-primitives/src/icons/index.tsx` 的 `export const IconEllipsisOutline16`
+   * 与 `lib/index.js` 的导出列表（**不是猜的**：这个包是 external，名字写错不会构建失败，
+   * 只会运行时 undefined ⇒ 必须读源码/产物确认）。
+   */
+  export const IconEllipsisOutline16: ComponentType<DshIconProps>
+  /** 筛选条的行首图标（P1-4；语义 = "这一排是筛选"，同法核过宿主 `icons/index.tsx`）。 */
+  export const IconInspectOutline12: ComponentType<DshIconProps>
 
   /** 宿主 Menu 的一项。 */
   export interface DshMenuItem {

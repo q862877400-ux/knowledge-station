@@ -32229,8 +32229,22 @@ var KS_STYLES = `
   /* \u5361\u7247/\u5217\u8868\u51E0\u4F55\uFF08WeKnora\uFF1A\u5361\u7247\u9AD8 136 / \u7F51\u683C gap 12 / \u5217\u8868\u884C\u9AD8 60 / \u8868\u5934 40 / \u5DE6\u53F3 16\uFF09
      \u26A0 \u884C\u9AD8\u5206\u4E24\u6863\uFF1A60 \u662F**\u5168\u5BBD**\u6587\u6863\u5217\u8868\u7684\u6570\uFF1B\u6211\u4EEC\u4FA7\u680F\u662F ~300px \u7A84\u5217\uFF0C\u7528 44\uFF08\u53E3\u5F84\u89C1 UI-BASELINE \u4E8C\uFF09\u3002
      \u26A0 \u5361\u9AD8\uFF08136\uFF09\u5728 5a \u5B9A\u4E49\u540E**\u957F\u671F\u6CA1\u4EBA\u7528**\uFF08P0-2 \u70B9\u540D\u7684"\u6B7B token"\uFF09\u2014\u20142026-09-20 \u5DF2\u7531
-       .ks-kb-cards>*{min-height:var(--ks-card-h)} \u771F\u6B63\u6D88\u8D39\u6389\uFF08\u540C\u5217\u5361\u56E0\u6B64\u7B49\u9AD8\uFF09\uFF0C\u4E0D\u518D\u662F\u6697\u8D26\u3002 */
-  --ks-card-h:136px; --ks-card-gap:var(--ks-space-3); --ks-row-h:60px; --ks-row-h-narrow:44px; --ks-head-h:40px;
+       .ks-kb-cards>*{min-height:var(--ks-card-h)} \u771F\u6B63\u6D88\u8D39\u6389\uFF08\u540C\u5217\u5361\u56E0\u6B64\u7B49\u9AD8\uFF09\uFF0C\u4E0D\u518D\u662F\u6697\u8D26\u3002
+     \u26A0 \u8868\u5934 40\uFF08--ks-head-h\uFF09\u540C\u7C7B\u7684\u6697\u8D26\u5728 P1-8 \u624D\u88AB\u6D88\u8D39\uFF08.ks-lhead \u5B9E\u6D4B 33px \u2192 40px\uFF09\u3002
+     \u26A0 **P1-3\uFF082026-09-20\uFF09\u7B2C\u4E09\u6863\uFF1A--ks-row-h-list:52px** \u2014\u2014 \u6587\u4EF6\u884C\u4ECE"\u4E00\u884C\u585E\u6EE1"\u6539\u6210
+       **\u4E24\u884C\u4FE1\u606F**\uFF08\u6587\u4EF6\u540D + \u5143\u6570\u636E\u884C\uFF09\u540E\u7684\u884C\u9AD8\u3002\u4E3A\u4EC0\u4E48\u4E0D\u662F\u53C2\u7167\u7684 61\uFF1AWeKnora \u8868\u683C\u9875\u884C\u9AD8 61
+       \u4E0D\u5728\u6211\u4EEC\u7684 4px \u7F51\u683C\u4E0A\uFF0852 = 13 \u4E2A\u7F51\u683C\u5355\u4F4D\uFF09\uFF0C\u4E14\u7A84\u4FA7\u680F\u91CC 61 \u4F1A\u628A 4 \u884C\u6324\u51FA\u4E00\u5C4F\uFF1B
+       \u76EE\u6807\u503C 52 \u662F weknora-ui-vs-ours \xA77.4 \u5B9A\u7684\uFF08"\u884C 52px \u4E24\u884C"\uFF09\u300244 \u90A3\u4E00\u6863**\u4FDD\u7559**\uFF1A
+       \u6811\u7684\u8282\u70B9\u884C\uFF08.ks-kb-tline\uFF09\u4ECD\u5728\u7528\u5B83\uFF0C\u522B\u4E00\u8D77\u6539\u3002 */
+  --ks-card-h:136px; --ks-card-gap:var(--ks-space-3); --ks-row-h:60px; --ks-row-h-narrow:44px;
+  --ks-row-h-list:52px; --ks-head-h:40px;
+  /* \u63CF\u8FB9\u5BBD\u5EA6\uFF1A0.5px \u662F**\u5206\u9694\u7EBF**\u6863\uFF08--ks-sep\uFF09\uFF1B1px \u662F**\u7ED3\u6784\u5316\u63CF\u8FB9**\u6863 \u2014\u2014 \u8868\u683C\u5916\u6846/\u8868\u5934\u5E95\u7EBF
+     \u4E0E\u72B6\u6001\u5FBD\u7AE0\u7684\u63CF\u8FB9\u8981"\u771F\u7684\u770B\u5F97\u89C1"\uFF08P1-2/P1-5 \u7684\u9A8C\u6536\u5C31\u662F\u91CF\u5230\u8FD9\u6761 1px\uFF09\uFF0C\u7528 0.5px \u5728 1x \u5C4F\u4E0A
+     \u4F1A\u9000\u5316\u6210\u534A\u900F\u660E\u53D1\u4E1D\u3001\u91CF\u4E0D\u51FA"\u5DE6\u53F3\u5404\u4E00\u884C\u63CF\u8FB9\u8272"\u3002\u4E24\u8005\u90FD\u8FDB token\uFF0C\u4E0D\u8BB8\u5728\u89C4\u5219\u91CC\u5199\u6B7B px\u3002 */
+  --ks-stroke:1px;
+  /* \u5BBF\u4E3B Button size=sm \u7684**\u6863\u4F4D**\uFF08P1-6\uFF1A\u6279\u91CF\u6761\u6309\u94AE\u5B9E\u6D4B 28px \u2014\u2014 \u90A3\u662F .ks-batch \u7684
+     align-items:center \u52A0\u4E0A\u56FE\u6807\u628A\u5B83\u6491\u8D77\u6765\u7684\uFF0C\u4E0D\u662F\u5BBF\u4E3B\u7ED9\u7684\u6863\uFF09\u3002\u6279\u91CF\u6761\u91CC\u663E\u5F0F\u9489 24px\u3002 */
+  --ks-btn-h-sm:24px;
 }
 
 /* ---------- \u5F00\u59CB\u9875\u5165\u53E3\u5361\uFF08\u7167 TerminalGuide.module.css \u7684\u6570\u503C\uFF09 ----------
@@ -32339,78 +32353,145 @@ var KS_STYLES = `
 .ks-rail{flex:0 1 208px;min-width:168px;display:flex;flex-direction:column;gap:var(--ks-space-2)}
 .ks-main{flex:1 1 320px;min-width:280px;display:flex;flex-direction:column;gap:var(--ks-space-2);min-height:0}
 .ks-detail{flex:0 1 232px;min-width:200px;display:flex;flex-direction:column;gap:var(--ks-space-2)}
-/* \u5217\u8868\u5934\uFF1A\u5168\u9009 + \u8BA1\u6570 + \u65B0\u5EFA */
-.ks-lhead{display:flex;align-items:center;gap:var(--ks-space-2);padding:var(--ks-space-1) 0 var(--ks-space-2);
-  border-bottom:.5px solid var(--dsw-alias-border-l1)}
+/* ---------- \u5217\u8868\u5BB9\u5668\uFF08P1-2\uFF0C2026-09-20\uFF09\uFF1A\u4ECE"\u88F8\u884C"\u6539\u6210"\u4E00\u4E2A\u76D2\u5B50" ----------
+   \u6539\u524D\uFF1A\u300C.ks-item\u300D \u662F \u300C.ks-main\u300D \u7684**\u76F4\u63A5\u5B50\u5143\u7D20**\uFF08DOM \u91CC 4 \u4E2A\u88F8\u884C\uFF09\uFF0C\u9875\u9762\u4E0A\u91CF\u4E0D\u5230\u4EFB\u4F55\u4E00\u6761
+   \u7AD6\u8FB9 \u21D2 \u5217\u8868\u50CF\u6563\u843D\u7684\u884C\u800C\u4E0D\u662F\u4E00\u4E2A\u5217\u8868\u3002\u53C2\u7167\uFF08\u771F\u673A \u300C23-kb-detail-list-1440.png\u300D\uFF09\u662F
+   **1114\xD7225 \u7684\u4E00\u4E2A\u5706\u89D2\u76D2**\uFF1A1px \u5916\u6846 + \u8868\u5934\u5E95\u8272 + \u884C\u95F4 1px \u5206\u9694\u7EBF\u3001**\u6CA1\u6709\u7AD6\u5206\u9694\u7EBF**\u3002
+   \u6539\u6CD5\uFF1A\u628A \u300C.ks-lhead\u300D \u4E0E\u6240\u6709 \u300C.ks-item\u300D \u5305\u8FDB\u8FD9\u4E00\u5C42\u3002
+   \u26A0 \u53EA\u5305"\u8868\u5934 + \u884C"\u2014\u2014\u7A7A\u6001\u5361\u4E0E\u6279\u91CF\u6761**\u4E0D\u5728**\u76D2\u5B50\u91CC\uFF08\u7A7A\u6001\u662F"\u8FD9\u91CC\u6CA1\u6709\u884C"\uFF0C\u6279\u91CF\u6761\u662F\u6D6E\u5C42\uFF09\u3002
+   \u26A0 \u63CF\u8FB9\u7528 --ks-stroke(1px) \u800C\u4E0D\u662F --ks-sep(.5px)\uFF1A\u9A8C\u6536\u53E3\u5F84\u662F"\u80FD\u91CF\u5230\u5DE6\u53F3\u4E24\u6761\u8FDE\u7EED\u5916\u6846"\uFF0C
+     .5px \u5728 1x \u5C4F\u4E0A\u6297\u952F\u9F7F\u6210\u4E00\u6863\u6D45\u8272\uFF0C\u6070\u6070\u91CF\u4E0D\u51FA"\u4E24\u6761\u7AD6\u8FB9"\u3002\u5E95\u8272\u7528 bg-base \u800C\u4E0D\u662F\u9875\u9762\u5E95\u8272\uFF0C
+     \u76D2\u5B50\u624D"\u6D6E"\u5F97\u8D77\u6765\uFF1B**\u6CA1\u6709**\u914D elevation \u9634\u5F71\uFF08\u5B98\u65B9\u786C\u89C4\u5219\uFF1A\u63CF\u8FB9\u4E0E elevation \u4E0D\u8BB8\u914D\u5BF9\uFF09\u3002 */
+.ks-list{border:var(--ks-stroke) solid var(--dsw-alias-border-l2);border-radius:var(--ks-r-card);
+  overflow:hidden;background:var(--dsw-alias-bg-base)}
+/* \u5217\u8868\u5934\uFF1A\u5168\u9009 + \u8BA1\u6570 + \u65B0\u5EFA\u3002
+   \u26A0 P1-8\uFF082026-09-20\uFF09\uFF1A\u300C--ks-head-h:40px\u300D \u81EA 5a \u5B9A\u4E49\u8D77**\u4ECE\u672A\u88AB\u6D88\u8D39**\uFF08\u5B9E\u6D4B .ks-lhead \u53EA\u6709
+     33px\uFF0C\u4E0E --ks-card-h \u540C\u7C7B\u6697\u8D26\uFF09\u3002\u8FD9\u91CC\u7528 \u300Cbox-sizing:border-box\u300D + \u300Cmin-height\u300D \u6D88\u8D39\u5B83
+     \u2014\u2014 \u5C11\u4E86 box-sizing \u7684\u8BDD min-height \u53EA\u7EA6\u675F**\u5185\u5BB9\u76D2**\uFF08\u5C31\u662F .ks-item \u5728 5d \u8E29\u8FC7\u7684\u90A3\u4E2A\u5751\uFF09\uFF0C
+     40px \u4F1A\u53D8\u6210 "40 + \u4E0A\u4E0B\u5185\u8FB9\u8DDD"\u3002
+     \u5E95\u8272\u8D70 --dsw-alias-bg-layer-3\uFF1A**\u4E0D\u8981\u7528 layer-2** \u2014\u2014 \u672C\u4ED3\u4E3B\u9898\u91CC layer-2 \u4E0E layer-1
+     \uFF08\u9875\u9762/\u4FA7\u680F\u5E95\uFF09**\u540C\u503C**\uFF08\u90FD\u662F neutral-bluish-00 = #f9fafb\uFF09\uFF0C\u7528\u4E86\u5C31\u7B49\u4E8E"\u8868\u5934\u6CA1\u6709\u5E95\u8272"\uFF0C
+     \u800C P1-2 \u7684\u9A8C\u6536\u6B63\u662F"\u8868\u5934\u5E26"\uFF08\u53C2\u7167\u662F #f3f3f3\uFF09\u3002layer-3(#ebeef2) \u662F\u552F\u4E00\u6BD4 layer-1 \u6DF1\u7684\u4E00\u6863\u3002
+     \u5E95\u7EBF 1px \u4E0E\u53C2\u7167\u7684\u8868\u683C\u7ED3\u6784\u7EBF\u540C\u6863\uFF08--ks-stroke\uFF0C\u4E0D\u662F --ks-sep\uFF09\u3002 */
+.ks-lhead{box-sizing:border-box;display:flex;align-items:center;gap:var(--ks-space-2);
+  min-height:var(--ks-head-h);padding:0 var(--ks-space-3);
+  background:var(--dsw-alias-bg-layer-3);border-bottom:var(--ks-stroke) solid var(--dsw-alias-border-l2)}
 .ks-lhead-name{font-size:var(--ks-fs-base);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-/* \u4E00\u884C\u6587\u4EF6\uFF1A\u52FE\u9009\u6846\uFF08label \u91CC\u5C31\u662F\u6587\u4EF6\u540D\uFF09+ \u6807\u7B7E + \u5E38\u9A7B\u300C+\u6807\u7B7E\u300D */
-.ks-item{box-sizing:border-box;display:flex;align-items:center;gap:var(--ks-space-2);padding:var(--ks-space-1) var(--ks-space-2);
-  border-radius:var(--ks-r-md);min-width:0;flex-wrap:nowrap;min-height:var(--ks-row-h-narrow)}
-/* \u26A0 \u884C\u9AD8\u53E3\u5F84\uFF08**\u6539\u5728 2026-09-20 \u7B2C\u4E09\u8F6E\uFF0C\u4F9D\u636E ui5 \u590D\u6838\u5B9E\u6D4B**\uFF09\uFF1A
-   \u539F\u6765\u8FD9\u91CC\u6CA1\u6709 box-sizing \u21D2 .ks-item \u662F **content-box** \u21D2 min-height:44px \u53EA\u662F**\u5185\u5BB9\u76D2**\u4E0B\u9650\uFF0C
-   \u518D\u52A0\u4E0A padding 4/8 \u21D2 \u771F\u5B9E\u884C\u9AD8 **52px**\u3001\u884C\u8282\u8DDD **60px**\uFF0C\u800C\u6587\u6863/token \u8BF4\u7684\u662F 44 \u2014\u2014 \u6697\u8D26\u3002
-   \u73B0\u5728\u52A0 box-sizing:border-box \u21D2 min-height:44px \u5C31\u662F**\u8FB9\u6846\u76D2**\u4E0B\u9650\uFF0C\u4E0E token \u540C\u53E3\u5F84\u3002
-   \u26A0 \u4F46**\u5B9E\u6D4B**\u7ED3\u8BBA\u662F\uFF1A\u5373\u4FBF\u6539\u6210 border-box\uFF0C\u5BBF\u4E3B Checkbox \u81EA\u5E26\u7684\u884C\u9AD8\u4ECD\u53EF\u80FD\u628A\u884C\u6491\u8FC7 44px
-   \uFF08min-height \u53EA\u662F**\u4E0B\u9650**\uFF09\u3002\u771F\u5B9E\u503C\u4EE5 ui-render-shot.mjs \u91CF\u51FA\u6765\u7684 measured \u4E3A\u51C6\uFF0C
-   \u5199\u8FDB docs/UI-BASELINE.md\uFF08"\u5B9E\u6D4B"\u90A3\u4E24\u680F\uFF09\u2014\u2014**\u6587\u6863\u5FC5\u987B\u4E0E\u5B9E\u6D4B\u4E00\u81F4**\uFF0C\u4E0D\u8BB8\u518D\u7167 token \u53CD\u63A8\u3002
-   \u26A0 \u6CE8\u91CA\u91CC\u4E0D\u8BB8\u51FA\u73B0\u53CD\u5F15\u53F7\uFF08\u6574\u6BB5 CSS \u662F\u4E00\u4E2A\u6A21\u677F\u5B57\u7B26\u4E32\uFF09\u2014\u2014 \u672C\u8F6E\u5DF2\u8E29**\u7B2C\u516D\u6B21**\uFF082026-09-20 \u7B2C\u4E09\u8F6E\uFF1A
-     \u4E0A\u9762\u8FD9\u6BB5\u521D\u7A3F\u7528\u4E86\u53CD\u5F15\u53F7\u5305\u5C5E\u6027\u540D\uFF0Cesbuild \u62A5 Expected ";" but found "min"\uFF09\u3002 */
+/* \u4E00\u884C\u6587\u4EF6\uFF08P1-1/P1-3\uFF0C2026-09-20\uFF09\uFF1A**\u4E24\u884C\u4FE1\u606F** + \u884C\u5C3E\u4E00\u4E2A\u300C\u22EE\u300D\u6EA2\u51FA\u83DC\u5355\u3002
+   \u6539\u524D\u8FD9\u4E00\u884C\u662F"\u4E00\u884C\u585E\u6EE1"\uFF1ACheckbox(\u6587\u4EF6\u540D) + Tag \u72B6\u6001 + N \u4E2A\u6807\u7B7E + \uFF0B\u6807\u7B7E + \u8BE6\u60C5
+   \u21D2 4 \u4E2A\u6309\u94AE/\u5FBD\u7AE0\u6324\u5728 44px \u91CC\uFF08\u6E05\u5355 \xA77.2 \u7684"\u884C\u5185\u53EF\u89C1\u63A7\u4EF6"\uFF09\u3002\u73B0\u5728\uFF1A
+     \u7B2C 1 \u884C = \u52FE\u9009\u6846 + \u6587\u4EF6\u540D\uFF0814px \u6DF1\u8272\uFF09
+     \u7B2C 2 \u884C = 12px \u7070\u5143\u6570\u636E\uFF08\u6807\u51C6\u53F7/\u751F\u6548\u65E5\u671F \u2014\u2014 **\u90FD\u662F\u9875\u9762\u91CC\u5DF2\u6709\u7684\u5B57\u6BB5\uFF0C\u6CA1\u6709\u7F16\u65B0\u6570\u636E**\uFF09+ \u72B6\u6001\u5FBD\u7AE0
+     \u884C\u5C3E   = \u4E00\u4E2A .ks-item-more\uFF08\u5BBF\u4E3B Menu \u7684 trigger\uFF09
+   \u26A0 \u884C\u9AD8 44 \u2192 52\uFF08--ks-row-h-list\uFF09\uFF0C\u539F\u56E0\u662F\u4E24\u884C\u7ED3\u6784\uFF1B44 \u90A3\u4E00\u6863\u7559\u7ED9\u6811\u8282\u70B9\u884C\u3002
+   \u26A0 \u6B63\u9762\u7EA6\u675F**\u4E00\u6761\u90FD\u6CA1\u64A4**\uFF085b \u4FEE\u300C\u8BE6\u60C5\u300D\u7AD6\u6392\u6298\u884C\u7684\u90A3\u7EC4\uFF09\uFF1Abox-sizing:border-box +
+     flex-wrap:nowrap + min-width:0 \u4ECD\u5728\uFF1B\u884C\u5C3E\u89E6\u53D1\u5668\u6709 .ks-item-more{flex:none;white-space:nowrap}\u3002
+   \u26A0 **"\u6574\u884C\u53EF\u70B9"\u6CA1\u6709\u505A**\uFF08\u6E05\u5355 P1-1 \u91CC\u90A3\u6761\u5EFA\u8BAE\uFF09\uFF1A\u5BBF\u4E3B Checkbox \u7684 label **\u5C31\u662F\u53EF\u89C1\u6587\u5B57**
+     \uFF08Checkbox.tsx: label \u662F"visible and accessible label"\uFF09\u21D2 \u6574\u884C\u518D\u5403\u4E00\u6B21 click \u4F1A\u4E0E
+     "\u70B9\u52FE\u9009\u6846 = \u52FE\u9009"\u6253\u67B6\u3002\u5F00\u8BE6\u60C5\u7684\u5165\u53E3\u4FDD\u7559\u5728\u300C\u22EE \u2192 \u8BE6\u60C5\u300D\uFF08\u6E05\u5355\u7684**\u4E3B\u6539\u6CD5**\u662F\u6536\u8FDB\u6EA2\u51FA\u83DC\u5355\uFF0C
+     \u884C\u53EF\u70B9\u662F\u5B83\u7684\u9644\u5E26\u5EFA\u8BAE\uFF09\u3002\u8FD9\u6761\u5728\u62A5\u544A\u4E0E UI-BASELINE \u91CC\u90FD\u6807\u6210"\u672A\u505A + \u4E3A\u4EC0\u4E48"\u3002
+   \u26A0 \u7B2C 2 \u884C\u7531 .ks-item-main \u81EA\u5DF1\u7684 flex-direction:column \u6392\u51FA\uFF0C\u4E0D\u9760 flex-wrap\u3002 */
+/* \u884C = **2 \u5217 grid**\uFF08\u5185\u5BB9 | \u22EE\uFF09\u3002
+   \u26A0 \u4E3A\u4EC0\u4E48\u4E0D\u662F 3 \u5217\uFF08\u52FE\u9009\u6846 | \u5185\u5BB9 | \u22EE\uFF09\uFF1A\u5BBF\u4E3B Checkbox \u7684 label \u662F **inline-flex**
+     \uFF08Checkbox.module.css \u7684 .checkbox{display:inline-flex}\uFF09\uFF0C\u800C inline-level \u7684\u7F51\u683C\u9879
+     **\u4E0D\u4F1A\u62C9\u4F38**\u53BB\u586B\u6EE1\u81EA\u5DF1\u7684\u5217 \u2014\u2014 3 \u5217\u5199\u6CD5\u4E0B\u5B9E\u6D4B .ks-check \u6052\u7B49\u4E8E\u5217\u7684 auto \u5BBD\u5EA6
+     \uFF0824px\uFF09\uFF0C\u6587\u4EF6\u540D\u88AB\u6324\u5230 2px\uFF08\u79BB\u5C4F\u56FE\u4E0A"\u540D\u5B57\u6574\u6BB5\u6CA1\u4E86"\uFF09\u3002\u6539\u6210 2 \u5217\u540E\uFF0C\u52FE\u9009\u6846\u4E0E\u6587\u4EF6\u540D
+     \u540C\u5728**\u5185\u5BB9\u5217**\u91CC\uFF08\u7B2C\u4E00\u884C\uFF09\uFF0C\u5217\u5BBD = \u53EF\u7528\u5BBD\u5EA6 \u21D2 \u6587\u4EF6\u540D\u5403\u6EE1\u5269\u4F59\u5BBD\u5EA6\u3001\u81EA\u5DF1\u622A\u65AD\u3002
+     \u8FD9\u4E00\u4E32\u662F\u62FF headless \u63A2\u9488\u9010\u4E2A\u91CF\u51FA\u6765\u7684\uFF08auto-col-block / display:flex / width:100% /
+     justify-self:stretch \u90FD\u8BD5\u8FC7\uFF09\uFF0C\u4E0D\u662F\u731C\u7684\u3002
+   \u7B2C 2 \u884C\uFF08.ks-item-sub\uFF09\u7528 grid-row:2 \u843D\u5728\u540C\u4E00\u5217\uFF08\u5185\u5BB9\u5217\uFF09\u6B63\u4E0B\u65B9 \u21D2 \u5DE6\u7F18\u4E0E\u52FE\u9009\u6846\u5BF9\u9F50\u3002 */
+.ks-item{box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) 36px;
+  column-gap:var(--ks-space-2);row-gap:0;
+  padding:var(--ks-space-1) var(--ks-space-3);
+  min-width:0;min-height:var(--ks-row-h-list)}
+/* \u884C\u95F4 1px \u5206\u9694\u7EBF\uFF08\u53C2\u7167\u662F"\u53EA\u5728\u884C\u95F4\u3001\u6CA1\u6709\u7AD6\u5206\u9694\u7EBF"\uFF09\u3002
+   \u26A0 \u7528 \u300C+\u300D \u76F8\u90BB\u5144\u5F1F\uFF1A\u7B2C\u4E00\u884C\u4E0D\u8BE5\u6709\u4E0A\u5206\u9694\u7EBF\uFF08\u8868\u5934\u81EA\u5DF1\u7684 border-bottom \u5C31\u662F\u90A3\u6761\u7EBF\uFF09\u3002 */
+.ks-item + .ks-item{border-top:var(--ks-stroke) solid var(--dsw-alias-border-l1)}
+
+/* \u26A0 \u884C\u9AD8\u53E3\u5F84\uFF08**\u5386\u53F2\uFF0C\u522B\u5220**\uFF09\uFF1A5d \u4E4B\u524D .ks-item \u662F content-box \u21D2 min-height:44px \u53EA\u7EA6\u675F
+   \u5185\u5BB9\u76D2\uFF0C\u5B9E\u6D4B\u771F\u5B9E\u884C\u9AD8 52px\u3001\u8282\u8DDD 60px\uFF0C\u800C\u6587\u6863/token \u5199 44 \u2014\u2014 \u6697\u8D26\u3002\u7B2C\u4E09\u8F6E\u52A0 box-sizing
+   \u540E\u5B9E\u6D4B 44/52\u3002**P1-3\uFF082026-09-20\uFF09\u6539\u6210\u4E24\u884C\u7ED3\u6784\u540E** token \u6362\u6210 --ks-row-h-list:52px\u3002
+   \u771F\u5B9E\u503C\u4EE5 ui-render-shot.mjs \u7684 measured \u4E3A\u51C6\uFF0C\u5199\u8FDB docs/UI-BASELINE.md \u2014\u2014 \u4E0D\u8BB8\u7167 token \u53CD\u63A8\u3002
+   \u26A0 \u6CE8\u91CA\u91CC\u4E0D\u8BB8\u51FA\u73B0\u53CD\u5F15\u53F7\uFF08\u6574\u6BB5 CSS \u662F\u4E00\u4E2A\u6A21\u677F\u5B57\u7B26\u4E32\uFF09\u2014\u2014 \u5DF2\u8E29\u7B2C\u4E03\u6B21\u3002 */
 .ks-item:hover{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-item-on{background:var(--dsw-alias-interactive-bg-hover)}
-/* \u6587\u4EF6\u540D\uFF08Checkbox \u7684\u53EF\u89C1\u6587\u5B57\uFF09\u5BBD\u5EA6\uFF1A**\u7ED9\u4E0A\u9650\u3001\u4E0D\u7ED9 flex:1**\u3002
-   5c \u5B9E\u6D4B\uFF08kb@1300\uFF0C\u884C\u5BBD 820\uFF09\uFF1A\u539F\u6765\u662F flex:1 \u21D2 \u6587\u4EF6\u540D\u76D2\u5B50\u5403\u5230 46% \u4E0A\u9650\u3001
-   \u6807\u7B7E\u7C07\u88AB\u6324\u5230\u6700\u53F3\u8FB9\uFF0C**\u6587\u4EF6\u540D\u4E0E\u6807\u7B7E\u4E4B\u95F4\u7A7A 285~390px**\uFF08\u79BB\u5C4F\u6E32\u67D3\u91CF\u51FA\u6765\u7684 deadGap\uFF09\u3002
-   \u6539\u6CD5\uFF08\u514B\u5236\uFF0C\u4E0D\u52A8\u884C\u7ED3\u6784\uFF09\uFF1A\u2460 \u6587\u4EF6\u540D\u53EA\u7528**\u5185\u5BB9\u5BBD**\u3001\u4E0A\u9650 40%\uFF08\u7A84\u5217\u4E0B\u81EA\u7136\u66F4\u5C0F\uFF09\uFF1B
-   \u2461 \u6807\u7B7E\u7C07\u6539\u6210"\u5185\u5BB9\u5BBD + \u53EF\u7F29"\uFF0C\u7D27\u8DDF\u5728\u6587\u4EF6\u540D\u540E\u9762 \u21D2 \u4E0D\u518D\u6709\u90A3 300px \u6B7B\u767D\uFF1B
-   \u2462 \u53F3\u4FA7\u6309\u94AE\u7EC4\u7684\u7B2C\u4E00\u4E2A btn \u7528 margin-left:auto \u9489\u5728\u884C\u5C3E\uFF08\u64CD\u4F5C\u5217\u5BF9\u9F50\uFF0C\u4E0E\u6587\u4EF6\u540D\u957F\u77ED\u65E0\u5173\uFF09\u3002
-   \u26A0 **P0-4\uFF082026-09-20\uFF09\uFF1A\u4E0A\u9650 40% \u2192 46%**\u3002\u6E05\u5355\u539F\u4EE5\u4E3A"\u7A84\u5BBD\u4E0B\u662F\u5DE6\u8F68\u5403\u6389\u5BBD\u5EA6"\uFF0C**\u5B9E\u6D4B\u4E0D\u6210\u7ACB**\uFF1A
-       kb@520 \u91CF\u5230 .ks-rail 208 / .ks-main **496**\uFF08\u6574\u884C\uFF01\uFF09\u2014\u2014 .ks-split \u662F flex-wrap\uFF0C
-       rail \u4E0E main \u7684 flex-basis \u4E4B\u548C 208+8+320 > 496 \u21D2 **main \u6362\u5230\u4E0B\u4E00\u884C\u3001\u62FF\u6EE1\u6574\u884C\u5BBD**\uFF0C
-       \u6587\u4EF6\u540D\u6839\u672C\u6CA1\u88AB\u5DE6\u8F68\u6324\u3002\u771F\u6B63\u5361\u4F4F\u5B83\u7684\u662F**\u8FD9\u4E2A\u4E0A\u9650**\uFF1A40% \xD7 480\uFF08= .ks-item **\u5185\u5BB9\u76D2** 496-16\uFF09
-       = 192\uFF0C\u91CF\u5230\u7684 nameW \u6B63\u662F 192\uFF1B\u800C\u8BE5\u884C\u6587\u4EF6\u540D\uFF08GB 50016-2014 \u5EFA\u7B51\u8BBE\u8BA1\u9632\u706B\u89C4\u8303\uFF09\u5728 1300 \u4E0B
-       \u91CF\u5230\u7684\u5185\u5BB9\u5BBD\u662F **218** \u21D2 \u5DEE 26px \u88AB\u622A\u3002**\u767E\u5206\u6BD4\u662F\u6309\u5185\u5BB9\u76D2\u89E3\u6790\u7684**\uFF08\u7B2C\u4E00\u7248\u5199 45% \u91CF\u5230 216\uFF0C
-       \u4ECD\u5DEE 2px \u2014\u2014 \u8FD9\u4E2A\u5751\u8BB0\u5728\u8FD9\u91CC\uFF0C\u514D\u5F97\u4E0B\u6B21\u53C8\u6309\u8FB9\u6846\u76D2\u7B97\uFF09\u3002
-       46% \xD7 480 = 220.8 \u2265 218 \u21D2 520 \u4E0B\u8FD9\u4E00\u884C**\u5168\u540D\u663E\u793A**\uFF08UI-BASELINE \u7B2C\u516D\u8282\u7684\u5B9E\u6D4B\u590D\u9A8C\uFF09\u3002
-       \u4E3A\u4EC0\u4E48\u4E0D\u662F\u66F4\u5927\uFF1A\u884C\u5185\u975E\u6587\u4EF6\u540D\u90E8\u5206\uFF08\u6807\u7B7E\u7C07 122 + \uFF0B\u6807\u7B7E 56 + \u8BE6\u60C5 40 + 3 \u4E2A gap 24\uFF09= 242px
-       \u21D2 \u6587\u4EF6\u540D\u7684\u5B89\u5168\u4E0A\u9650\u662F (480-242)/480 = **49.6%**\uFF1B\u53D6 46% \u7559 ~17px \u4F59\u91CF\u7ED9\u6807\u7B7E\u66F4\u591A\u7684\u884C\u3002
-       \u26A0 \u987A\u5E26\u8BB0\u4E0B**\u4E0D\u6539 .ks-rail** \u7684\u7406\u7531\uFF1A\u628A rail \u6539 clamp(140px,34%,208px) \u540E 168.6+8+320 = 496.6 > 496\uFF0C
-       \u4ECD\u7136\u6362\u884C \u21D2 main \u8FD8\u662F 496\uFF08\u6587\u4EF6\u540D\u4E0D\u53D7\u76CA\uFF09\uFF0C\u800C rail \u91CC\u7684\u6811\u540D\uFF08\u672C\u5C31\u53EA\u6709 152px\uFF09\u88AB\u591A\u622A\u4E00\u6863 \u2014\u2014 \u51C0\u4E8F\u3002
-   \u26A0 \u6CE8\u91CA\u91CC\u4E0D\u8BB8\u51FA\u73B0\u53CD\u5F15\u53F7\uFF08\u6574\u6BB5 CSS \u662F\u4E00\u4E2A\u6A21\u677F\u5B57\u7B26\u4E32\uFF09\u2014\u2014 \u672C\u8F6E\u5DF2\u8E29**\u7B2C\u4E94\u6B21**\uFF082026-09-20 5c\uFF1A
-     \u5199\u4E86\u4E00\u53E5\u300E\u53F3\u4FA7\u6309\u94AE\u7EC4 \u300Cmargin-left:auto\u300D\u9489\u5728\u884C\u5C3E\u300F\uFF0C\u90A3\u5BF9\u53CD\u5F15\u53F7\u628A\u6A21\u677F\u622A\u65AD\uFF0C
-     esbuild \u62A5 "Expected ; but found margin"\uFF09\u3002\u5199 CSS \u5C5E\u6027\u540D\u65F6**\u76F4\u63A5\u5199**\uFF0C\u4E0D\u8981\u52A0\u5F15\u53F7\u88C5\u9970\u3002
-   \u26A0 **\u7B2C\u4E03\u6B21\uFF082026-09-20 P0-4\uFF0C\u5C31\u5728\u4E0A\u9762\u90A3\u6BB5\u65B0\u6CE8\u91CA\u91CC\uFF09**\uFF1A\u5199\u4E86 .ks-split \u7684\u53CD\u5F15\u53F7 \u21D2 \u4EA7\u7269\u76F4\u63A5
-     \u6784\u5EFA\u671F\u62A5 \u300Csplit is not defined\u300D\u3002\u6559\u8BAD\uFF1A**\u65B0\u5199\u7684\u6CE8\u91CA\u91CC\u4E00\u4E2A\u53CD\u5F15\u53F7\u90FD\u4E0D\u8BB8\u6709**\uFF0C\u5199\u5B8C\u5FC5\u987B
-     \u300Cnode scripts/build-client.mjs\u300D\u8DD1\u4E00\u6B21\uFF08\u8FD9\u6B21\u662F\u6784\u5EFA\u7ACB\u523B\u6293\u5230\uFF0C\u6CA1\u6709\u6D41\u5230\u4EA7\u7269\u91CC\uFF09\u3002 */
-.ks-item .ks-check{flex:0 1 auto;min-width:0;max-width:46%}
-/* Checkbox \u7684\u53EF\u89C1\u6587\u5B57\u5C31\u662F\u6587\u4EF6\u540D\uFF1A\u6491\u5F00\u3001\u53EF\u622A\u65AD\uFF0C\u522B\u6362\u884C\u628A\u884C\u641E\u9AD8 */
-.ks-item .ks-check>span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-  color:var(--dsw-alias-label-secondary);font-size:var(--ks-fs-base)}
-.ks-item .ks-check>input{flex:none}
-/* \u6807\u7B7E\u7EC4\uFF1A**\u5141\u8BB8\u81EA\u5DF1\u5185\u90E8\u6362\u884C**\uFF08\u6807\u7B7E\u591A\u4E86\u5C31\u957F\u9AD8\uFF09\uFF0C\u4F46**\u4E0D\u8BB8\u628A\u53F3\u8FB9\u7684\u6309\u94AE\u6324\u6241**
-   \u2014\u2014 \u65E0\u5BBD\u7EA6\u675F\u65F6\u300C\u8BE6\u60C5\u300D\u4F1A\u88AB\u538B\u6210\u4E24\u884C\u300C\u8BE6\uFF0F\u60C5\u300D\uFF082026-09-20 \u79BB\u5C4F\u622A\u56FE\u5B9E\u6D4B\uFF0C\u89C1 UI-BASELINE \u7B2C\u516D\u8282\uFF09\u3002
-   \u26A0 \u6CE8\u91CA\u91CC**\u4E0D\u8BB8\u51FA\u73B0\u53CD\u5F15\u53F7**\uFF08\u6574\u6BB5 CSS \u662F\u4E00\u4E2A\u6A21\u677F\u5B57\u7B26\u4E32\uFF09\u2014\u2014 \u672C\u8F6E\u5DF2\u7ECF\u8E29\u4E86\u56DB\u6B21\u3002 */
-.ks-item-tags{display:flex;align-items:center;gap:var(--ks-space-1);flex:0 1 auto;min-width:0;flex-wrap:wrap}
-/* \u884C\u5185\u6309\u94AE\uFF1A**\u6C38\u4E0D\u538B\u7F29\u3001\u6C38\u4E0D\u6298\u5B57**\uFF08\u8FD9\u6761\u662F\u4E0A\u9762\u90A3\u4E2A\u7F3A\u9677\u7684\u6B63\u9762\u7EA6\u675F\uFF09\u3002
-   \u7B2C\u4E00\u4E2A\u884C\u5185\u6309\u94AE\u5403\u4E0B\u5269\u4F59\u7A7A\u95F4 \u21D2 \u6309\u94AE\u7EC4\u9489\u5728**\u884C\u5C3E**\uFF08\u64CD\u4F5C\u5217\u5BF9\u9F50\uFF09\uFF0C\u6587\u4EF6\u540D/\u6807\u7B7E\u7559\u5728\u5DE6\u8FB9\u3002 */
-.ks-item-btn{flex:none;white-space:nowrap}
-.ks-item-btn:first-of-type{margin-left:auto}
-.ks-item-add{flex:none;opacity:0;white-space:nowrap}
-/* \u5E38\u9A7B\uFF1A\u4E1A\u4E3B\u660E\u786E\u8981"\u540D\u5B57\u540E\u9762\u5E38\u9A7B\u4E00\u4E2A +\u6807\u7B7E"\uFF0C\u6240\u4EE5\u4E0D\u662F hover \u624D\u51FA\u73B0\uFF0C\u53EA\u662F hover \u65F6\u66F4\u663E\u773C */
-.ks-item .ks-item-add{opacity:.35}
-.ks-item:hover .ks-item-add,.ks-item-on .ks-item-add{opacity:1}
+/* \u7B2C 1 \u884C\uFF1A\u52FE\u9009\u6846 + \u6587\u4EF6\u540D\u3002
+   \u26A0 \u5BBF\u4E3B Checkbox \u7684 label **\u4E00\u5B9A\u662F\u53EF\u89C1\u6587\u5B57**\uFF08Checkbox.tsx \u539F\u6587\uFF1A"localized visible and
+     accessible label"\uFF0CDOM \u662F <label class=checkbox><input><span>\u6587\u5B57</span></label>\uFF09
+     \u21D2 \u6587\u4EF6\u540D\u5C31\u4EA4\u7ED9\u5B83\u6E32\u67D3\uFF08\u5B83\u5929\u7136\u5E26\u7701\u7565\u53F7\u80FD\u529B\uFF09\u3002\u4F46**\u6587\u5B57\u90A3\u5C42 span \u662F\u5BBF\u4E3B\u7684**\uFF0C\u6837\u5F0F\u6539\u4E0D\u52A8
+     \uFF08CSS Module \u54C8\u5E0C\u7C7B\uFF0C\u53EA\u58F0\u660E\u4E0D\u4E86\uFF09\uFF0C\u6240\u4EE5\u6587\u4EF6\u540D\u5148\u7528\u6211\u4EEC\u81EA\u5DF1\u7684\u4E00\u5C42\u5305\u7740\uFF1A
+     .ks-check > span\uFF08\u5BBF\u4E3B\u7684\u53EF\u89C1\u6587\u5B57\u5C42\uFF09\u91CC\u518D\u653E .ks-item-title\uFF0C\u5B57\u53F7/\u989C\u8272\u90FD\u7531\u540E\u8005\u7ED9\u3002
+   \u5BBD\u5EA6\uFF1A5c \u91CF\u5230"\u6587\u4EF6\u540D\u4E0E\u6807\u7B7E\u7C07\u4E4B\u95F4 285~390px \u6B7B\u767D"\uFF08\u90A3\u662F flex:1 + 46% \u4E0A\u9650\u7684\u7EC4\u5408\uFF09\u3002
+   \u73B0\u5728 grid \u7684\u7B2C 2 \u5217 minmax(0,1fr) \u21D2 \u6587\u4EF6\u540D\u5403\u6EE1\u5269\u4F59\u5BBD\u5EA6\u3001\u81EA\u5DF1\u622A\u65AD
+   \uFF08P1-3 \u7684\u9A8C\u6536\u53E3\u5F84\uFF1A\u4E0D\u518D\u88AB 46% \u7684 max-width \u622A\u65AD\uFF09\u3002 */
+.ks-item .ks-check{grid-area:1/1;min-width:0;align-self:end}
+.ks-item .ks-check>span{display:block;flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  color:var(--dsw-alias-label-primary);font-size:var(--ks-fs-md);line-height:1.4}
+.ks-item .ks-check>input{margin-top:2px}
+/* \u7B2C 2 \u884C\uFF08.ks-item-sub\uFF09\uFF1A\u5143\u6570\u636E\uFF0812px tertiary\uFF09+ \u72B6\u6001\u5FBD\u7AE0\u3002
+   \u843D\u5728**\u5185\u5BB9\u5217\u6B63\u4E0B\u65B9**\uFF08grid-area 2/2\uFF09\u21D2 \u5DE6\u7F18\u4E0E\u6587\u4EF6\u540D\u5BF9\u9F50\u3002 */
+.ks-item-sub{grid-area:2/1;display:flex;align-items:center;gap:var(--ks-space-2);
+  min-width:0;flex-wrap:nowrap;padding-left:var(--ks-space-6)}
+.ks-item-meta{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  font-size:var(--ks-fs-sm);line-height:1.5;color:var(--dsw-alias-label-tertiary)}
+/* \u72B6\u6001\u5FBD\u7AE0\uFF08P1-5\uFF0C2026-09-20\uFF09\uFF1A\u4ECE**\u5B9E\u5FC3 Tag** \u6539\u6210"\u6D45\u5E95 + 1px \u63CF\u8FB9 + \u540C\u8272\u7CFB\u6587\u5B57"\u3002
+   \u6539\u524D\uFF1A\u5BBF\u4E3B Tag(success) \u91CF\u5230 **37\xD713** \u7684\u5B9E\u5FC3\u5757\uFF08\u5E95\u8272 #e8f9ef\u3001\u5B57 #22c55e\u3001**\u6CA1\u6709\u63CF\u8FB9**\uFF09\uFF1B
+   \u53C2\u7167\u771F\u673A \u300C23-kb-detail-list-1440.png\u300D \u662F **46\xD720**\u3001\u6D45\u5E95 + 1px \u63CF\u8FB9 + \u540C\u8272\u5B57\uFF08\xA77.1 \u7684 scan \u7EBF
+   \u5728\u5FBD\u7AE0\u5DE6\u53F3\u5404\u91CF\u5230\u4E00\u6761 1px \u7684 state \u8272\u5217\uFF09\u3002
+   \u21D2 \u9AD8\u5EA6 13 \u2192 20\uFF08--ks-space-5\uFF09\uFF0C\u63CF\u8FB9 1px\uFF08--ks-stroke\uFF0C**\u4E0D\u662F** --ks-sep\uFF1A\u9A8C\u6536\u8981\u91CF\u5230\u90A3 1px\uFF09\u3002
+   \u8272\u8C03\u5168\u90E8\u7531\u8C03\u7528\u65B9\u6302\u4FEE\u9970\u7C7B\u7ED9\uFF08.ks-status-ok / -warn / -bad\uFF09\uFF0C\u4E0E .ks-kb-badge-* \u540C\u4E00\u5957\u8BED\u4E49\uFF1B
+   **\u4E00\u4E2A\u5B57\u9762\u8272\u503C\u90FD\u6CA1\u6709**\uFF08\u63CF\u8FB9+\u6587\u5B57=state-*-primary\uFF0C\u5E95\u8272=state-*-tertiary/secondary\uFF09\u3002 */
+.ks-status{flex:none;display:inline-flex;align-items:center;box-sizing:border-box;
+  height:var(--ks-space-5);padding:0 var(--ks-space-2);border:var(--ks-stroke) solid;
+  border-radius:var(--ks-r-sm);font-size:var(--ks-fs-sm);font-weight:600;white-space:nowrap}
+.ks-status-ok{background:var(--dsw-alias-state-success-tertiary);color:var(--dsw-alias-state-success-primary);
+  border-color:var(--dsw-alias-state-success-primary)}
+.ks-status-warn{background:var(--dsw-alias-state-warn-tertiary);color:var(--dsw-alias-state-warn-label);
+  border-color:var(--dsw-alias-state-warn-label)}
+.ks-status-bad{background:var(--dsw-alias-state-error-secondary);color:var(--dsw-alias-state-error-primary);
+  border-color:var(--dsw-alias-state-error-primary)}
+/* \u300C\u88AB\u66FF\u4EE3\u300D\u8FD9\u4E00\u6863\u6CA1\u6709\u4E13\u5C5E\u72B6\u6001\u8272\uFF08\u53C2\u7167\u4E5F\u6CA1\u6709\u7B2C\u56DB\u6863\uFF09\u21D2 \u8D70**\u4E2D\u6027\u6863**\uFF1A\u4E0E\u53E6\u5916\u4E09\u6863**\u540C\u5F62**
+   \uFF08\u540C\u9AD8\u3001\u540C 1px \u63CF\u8FB9\u3001\u540C\u5706\u89D2\uFF09\uFF0C\u53EA\u5DEE\u8272\u8C03 \u2014\u2014 \u8FD9\u6837\u56DB\u4E2A\u5FBD\u7AE0\u5E76\u6392\u65F6"\u5F62"\u662F\u9F50\u7684\u3002 */
+.ks-status-neutral{background:var(--dsw-alias-markdown-tag);color:var(--dsw-alias-label-secondary);
+  border-color:var(--dsw-alias-border-l4)}
+/* \u6807\u7B7E\uFF08\u884C\u5185/\u8BE6\u60C5\u91CC\u5171\u7528\uFF09\uFF1A\u4E0E\u72B6\u6001\u5FBD\u7AE0\u540C\u9AD8\u540C\u5F62\uFF08\u6D45\u5E95 + 1px \u63CF\u8FB9 + \u4E2D\u6027\u8272\uFF09\u2014\u2014\u7167 .ks-status \u7684\u5F62\u72B6\uFF0C
+   \u989C\u8272\u8D70\u4E2D\u6027\u6863\uFF08border-l2 + label-secondary\uFF09\u3002 */
+.ks-tag{flex:none;display:inline-flex;align-items:center;box-sizing:border-box;
+  height:var(--ks-space-5);padding:0 var(--ks-space-2);
+  border:var(--ks-stroke) solid var(--dsw-alias-border-l2);border-radius:var(--ks-r-sm);
+  background:var(--dsw-alias-markdown-tag);color:var(--dsw-alias-label-secondary);font-size:var(--ks-fs-xs)}
+/* \u884C\u5C3E\u6EA2\u51FA\u83DC\u5355\uFF08P1-1\uFF0C2026-09-20\uFF09\uFF1A\u539F\u6765\u300C\uFF0B\u6807\u7B7E\u300D\u4E0E\u300C\u8BE6\u60C5\u300D\u662F\u4E24\u4E2A**\u5E38\u9A7B**\u884C\u5185\u6309\u94AE
+   \uFF08\u4E00\u884C\u91CC 5 \u4E2A\u53EF\u89C1\u63A7\u4EF6\uFF09\u3002\u73B0\u5728\u6536\u8FDB\u8FD9\u91CC\uFF0C\u89E6\u53D1\u5668\u53EA\u7559\u4E00\u4E2A\u300C\u22EE\u300D\u3002
+   \u26A0 flex:none + white-space:nowrap \u662F 5b \u90A3\u7EC4"\u6C38\u4E0D\u538B\u7F29\u3001\u6C38\u4E0D\u6298\u5B57"\u7684\u6B63\u9762\u7EA6\u675F**\u539F\u6837\u642C\u8FC7\u6765**
+     \uFF08\u5F53\u65F6\u4FEE\u7684\u662F\u300C\u8BE6\u60C5\u300D\u88AB\u538B\u6210\u300C\u8BE6\uFF0F\u60C5\u300D\u7AD6\u6392\uFF09\uFF1Bmargin-left:auto \u628A\u5B83\u9489\u5728\u884C\u5C3E\u3002 */
+.ks-item-more{grid-area:1/2/3/3;align-self:center;flex:none;white-space:nowrap;
+  display:inline-flex;align-items:center}
+/* \u89E6\u53D1\u5668\u9489 --ks-btn-h-sm(24px)\uFF1A\u5BBF\u4E3B size=sm \u7684 28px \u4F1A**\u9876\u9AD8\u6574\u4E2A\u7B2C\u4E00\u884C**\uFF08grid \u7684 auto \u884C\uFF09
+   \u21D2 \u884C\u9AD8\u88AB\u6491\u5230 64px\u300224px \u6B63\u597D\u843D\u5728 52px \u7684\u884C\u9AD8\u9884\u7B97\u91CC\uFF0828 + 20 + \u4E0A\u4E0B 4 = 52\uFF09\u3002
+   \u26A0 \u4E0E .ks-batch-btn \u540C\u4E00\u4E2A token\uFF0C\u540C\u4E00\u4EFD\u7406\u7531\uFF08"\u5BBF\u4E3B\u6863\u4F4D\u88AB\u5185\u5BB9\u6491\u5927"\uFF09\uFF0C\u4E0D\u662F\u65B0\u62CD\u7684\u6570\u3002 */
+.ks-item-more button{height:var(--ks-btn-h-sm)}
 /* \u60AC\u6D6E\u6279\u91CF\u6761\uFF08\u6709\u9009\u4E2D\u624D\u51FA\u73B0\uFF09\u3002
    \u26A0 \u5B98\u65B9\u786C\u89C4\u5219\uFF1A\u300CElevated surfaces \u2026 set "border: 0" and take "box-shadow:
    var(--dsw-elevation-panel|prominent|soft)". **Never pair a --dsw-alias-border-*
    border with an lv/elevation shadow**\u300D\u2014\u2014 \u63CF\u8FB9\u7531\u9634\u5F71\u81EA\u5DF1\u753B\uFF0C\u989C\u8272\u7528
    --dsw-elevation-stroke-color \u7ED9\uFF08\u5B98\u65B9 stat-dialog.module.css:21-25 \u5C31\u662F\u8FD9\u4E2A\u5199\u6CD5\uFF09\u3002
    \u6211\u7B2C\u4E00\u7248\u5199\u6210 "border:.5px solid var(--dsw-alias-border-l4)" + \u9634\u5F71\uFF0C\u5C5E\u4E8E\u660E\u4EE4\u7981\u6B62\u7684\u914D\u5BF9\u3002
-   \u26A0 \u8FD9\u91CC**\u4E0D\u80FD\u5199\u53CD\u5F15\u53F7**\uFF1A\u6574\u6BB5 CSS \u662F\u4E00\u4E2A\u6A21\u677F\u5B57\u7B26\u4E32\uFF0C\u53CD\u5F15\u53F7\u4F1A\u628A\u5B83\u622A\u65AD\uFF08\u672C\u8F6E\u7B2C\u4E09\u6B21\u8E29\uFF09\u3002 */
+   \u26A0 \u8FD9\u91CC**\u4E0D\u80FD\u5199\u53CD\u5F15\u53F7**\uFF1A\u6574\u6BB5 CSS \u662F\u4E00\u4E2A\u6A21\u677F\u5B57\u7B26\u4E32\uFF0C\u53CD\u5F15\u53F7\u4F1A\u628A\u5B83\u622A\u65AD\uFF08\u672C\u8F6E\u7B2C\u4E09\u6B21\u8E29\uFF09\u3002
+   \u26A0 P1-6\uFF082026-09-20\uFF09\uFF1A\u4ECE**\u901A\u680F sticky** \u6539\u6210**\u5C45\u4E2D\u9650\u5BBD** \u2014\u2014 \u53C2\u7167\u771F\u673A
+     \u300C24-kb-detail-batchbar-1440.png\u300D \u662F 330\xD746 \u7684**\u5C45\u4E2D**\u767D\u6761\uFF0C\u6211\u4EEC\u539F\u6765\u662F 496 \u901A\u680F
+     \uFF08measured: x=12 w=496\uFF09\u3002\u6539\u6CD5\u53EA\u662F width:fit-content + margin \u5DE6\u53F3 auto\uFF1A
+     \u300Cborder:0\u300D \u4E0E elevation **\u7167\u65E7\u4E0D\u52A8**\uFF08\u5B98\u65B9\u7981\u6B62"\u4E2D\u6027\u63CF\u8FB9 + elevation"\u914D\u5BF9\uFF0C
+     \u4E0D\u8BB8\u4E3A\u4E86\u66F4\u50CF\u53C2\u7167\u800C\u52A0\u63CF\u8FB9\uFF09\uFF1B\u5371\u9669\u52A8\u4F5C\u4ECD\u662F error \u8272**\u6587\u5B57**\uFF08.ks-batch .ks-danger\uFF09\uFF0C\u4E0D\u662F\u7EA2\u5E95\u3002
+     \u6309\u94AE\u9AD8\u5EA6\uFF1A\u5BBF\u4E3B Button size=sm \u5728\u8FD9\u4E00\u683C\u88AB align-items:center + \u56FE\u6807\u6491\u5230 **28px**
+     \uFF08measured .ks-item-btn.btnH=28\uFF09\u2014\u2014 \u7531 .ks-batch-btn \u663E\u5F0F\u9489 --ks-btn-h-sm(24px)\u3002 */
 .ks-batch{position:sticky;bottom:0;display:flex;align-items:center;gap:var(--ks-space-2);flex-wrap:wrap;
-  margin-top:var(--ks-space-2);padding:var(--ks-space-2) var(--ks-space-3);border:0;
+  width:fit-content;max-width:100%;margin:var(--ks-space-2) auto 0;
+  padding:var(--ks-space-2) var(--ks-space-3);border:0;
   border-radius:var(--ks-r-card);
   background:var(--dsw-specific-menu);
   --dsw-elevation-stroke-color:var(--dsw-alias-border-l1);
   box-shadow:var(--dsw-elevation-prominent)}
+.ks-batch-btn{height:var(--ks-btn-h-sm);min-height:var(--ks-btn-h-sm)}
 .ks-batch-n{font-size:var(--ks-fs-sm);font-weight:600}
 /* \u5371\u9669\u52A8\u4F5C\uFF08\u6279\u91CF\u5220\u9664\uFF09\u7684\u6587\u5B57\u8272\uFF1A\u8D70\u5BBF\u4E3B state-error\uFF08**\u53C2\u7167\u91CC\u4E5F\u662F\u7EA2\u5B57**\uFF09\u3002
    \u26A0 \u9009\u62E9\u5668\u5199\u6210 .ks-batch .ks-danger\uFF080,2,0\uFF09\uFF1A\u5BBF\u4E3B\u7684 Button CSS Module \u7C7B\u4E5F\u662F (0,1,0)\uFF0C
@@ -32424,6 +32505,24 @@ var KS_STYLES = `
 .ks-field-v-mono{font-family:ui-monospace,Consolas,monospace}
 /* \u9875\u5185\u4E8C\u7EA7 tab\uFF08\u6587\u4EF6 / \u6807\u7B7E\uFF09 */
 .ks-subtabs{display:flex;align-items:center;gap:var(--ks-space-2);flex-wrap:wrap}
+/* ---------- \u7B5B\u9009/\u5207\u6362\uFF1A\u4E00\u6392**\u7B49\u9AD8\u80F6\u56CA**\uFF08P1-4\uFF0C2026-09-20\uFF09 ----------
+   \u53C2\u7167\u771F\u673A \u300C22-kb-detail-1440.png\u300D / \u300C23-kb-detail-list-1440.png\u300D \u662F\u4E00\u6392 **5 \u4E2A 140\xD732 \u7B49\u9AD8\u80F6\u56CA**
+   \uFF08\u56FE\u6807 + \u6587\u6848 + \u2228\uFF0C\u95F4\u8DDD 12px\uFF0C\u5E95 #f3f3f3\uFF09\uFF1B\u6211\u4EEC\u9875\u5185\u539F\u6765\u53EA\u6709\u4E24\u4E2A Pill\uFF08\u6587\u4EF6/\u6807\u7B7E\uFF09\uFF0C
+   \u7B5B\u9009**\u6839\u672C\u4E0D\u5B58\u5728**\uFF0C\u884C\u5185\u7B5B\u9009\u4EF6\u8FD8\u5404\u662F\u4E00\u5957\u9AD8\u5EA6\uFF08.ks-ing-chip \u224824px\uFF09\u3002
+   \u21D2 \u8FD9\u4E00\u6863\u7EDF\u4E00\u6210\uFF1A**\u9AD8 32px\uFF08--ks-space-8\uFF09+ \u5B57\u53F7 12px\uFF08--ks-fs-sm\uFF09+ \u6C34\u5E73\u95F4\u8DDD 12px\uFF08--ks-space-3\uFF09**
+     + \u56FE\u6807\u4F4D\u56FA\u5B9A\uFF08gap 4px\uFF09\u3002
+   \u26A0 \u5E95\u8272**\u4E0D\u6284**\u53C2\u7167\u7684 #f3f3f3\uFF1A\u8D70\u5BBF\u4E3B interactive \u6863\uFF08hover/selected\uFF09\uFF0C\u6DF1\u6D45\u8272\u81EA\u52A8\u8DDF\u968F\u3002
+   \u26A0 \u80F6\u56CA\u5F62\uFF08999px\uFF09\u914D corner-shape:round \u2014\u2014 \u5B98\u65B9\u786C\u89C4\u5219\uFF08\u89C1 .ks-dot \u7684\u6CE8\u91CA\uFF09\u3002 */
+.ks-filters{display:flex;align-items:center;gap:var(--ks-space-3);flex-wrap:wrap;
+  font-size:var(--ks-fs-sm)}
+.ks-chip{display:inline-flex;align-items:center;gap:var(--ks-space-1);box-sizing:border-box;
+  height:var(--ks-space-8);padding:0 var(--ks-space-3);
+  border:0;border-radius:var(--ks-r-pill);corner-shape:round;
+  background:var(--dsw-alias-interactive-bg-hover);
+  font-size:var(--ks-fs-sm);font-family:inherit;line-height:1;color:var(--dsw-alias-label-primary);
+  cursor:pointer}
+.ks-chip:hover{background:var(--dsw-alias-interactive-bg-active)}
+.ks-chip-on{background:var(--dsw-alias-interactive-bg-active);font-weight:600}
 /* \u6807\u7B7E\u89C6\u56FE\uFF1A\u4E00\u884C\u4E00\u4E2A\u6807\u7B7E + \u5B83\u8DE8\u4E86\u54EA\u4E9B\u5927\u6587\u4EF6\u5939 + \u5728\u8BE5\u6807\u7B7E\u4E0B\u63D0\u95EE */
 .ks-tagrow{display:flex;align-items:flex-start;gap:var(--ks-space-2);padding:var(--ks-space-2);border-radius:var(--ks-r-md)}
 .ks-tagrow:hover{background:var(--dsw-alias-interactive-bg-hover)}
@@ -33070,11 +33169,16 @@ function describeKsQuery(query) {
 // client/KsKnowledgePage.tsx
 var import_jsx_runtime8 = require("react/jsx-runtime");
 var STATUS = {
-  current: { tone: "success", text: "\u73B0\u884C" },
-  upcoming: { tone: "warning", text: "\u5373\u5C06\u5B9E\u65BD" },
-  withdrawn: { tone: "danger", text: "\u5DF2\u5E9F\u6B62" },
-  superseded: { tone: "outline", text: "\u88AB\u66FF\u4EE3" }
+  current: { cls: "ks-status ks-status-ok", text: "\u73B0\u884C" },
+  upcoming: { cls: "ks-status ks-status-warn", text: "\u5373\u5C06\u5B9E\u65BD" },
+  withdrawn: { cls: "ks-status ks-status-bad", text: "\u5DF2\u5E9F\u6B62" },
+  superseded: { cls: "ks-status ks-status-neutral", text: "\u88AB\u66FF\u4EE3" }
 };
+var FILTERS = [
+  { id: "all", text: "\u5168\u90E8", test: () => true },
+  { id: "current", text: "\u73B0\u884C", test: (d) => d.status === "current" },
+  { id: "withdrawn", text: "\u5DF2\u5E9F\u6B62", test: (d) => d.status === "withdrawn" || d.status === "superseded" }
+];
 var STD_TREE = [
   {
     key: "P \u571F\u6728\u3001\u5EFA\u7B51",
@@ -33180,7 +33284,7 @@ function LibCard({ title, sub, nodes, current, onPick, open, toggle }) {
   return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-card", children: [
     /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-row", children: [
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { className: "ks-kb-grow ks-kb-ct", children: title }),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Tag, { tone: "neutral", children: "\u81EA\u5E26" })
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-tag", children: "\u81EA\u5E26" })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-kb-cd", children: sub }),
     /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-kb-tree", children: renderNodes(nodes, current, onPick, open, toggle) })
@@ -33201,6 +33305,8 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
   const [docs, setDocs] = (0, import_react7.useState)(SEED_DOCS);
   const [selected, setSelected] = (0, import_react7.useState)(() => /* @__PURE__ */ new Set());
   const [openDoc, setOpenDoc] = (0, import_react7.useState)(null);
+  const [menuFor, setMenuFor] = (0, import_react7.useState)(null);
+  const [filter, setFilter] = (0, import_react7.useState)("all");
   const [newOpen, setNewOpen] = (0, import_react7.useState)(false);
   const [open, setOpen] = (0, import_react7.useState)(
     () => /* @__PURE__ */ new Set(["P \u571F\u6728\u3001\u5EFA\u7B51", "C \u533B\u836F\u3001\u536B\u751F\u3001\u52B3\u52A8\u4FDD\u62A4", "Z \u73AF\u5883\u4FDD\u62A4", "\u6CD5\u5F8B", "\u884C\u653F\u6CD5\u89C4"])
@@ -33214,11 +33320,22 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
       return next;
     });
   };
-  const listed = (0, import_react7.useMemo)(() => docs.filter((d) => d.folder === folder), [docs, folder]);
+  const inFolder = (0, import_react7.useMemo)(() => docs.filter((d) => d.folder === folder), [docs, folder]);
+  const filterTest = (FILTERS.find((f) => f.id === filter) ?? FILTERS[0]).test;
+  const listed = (0, import_react7.useMemo)(() => inFolder.filter((d) => filterTest(d)), [inFolder, filterTest]);
   const current = listed.find((d) => d.id === openDoc) ?? null;
+  const pickFilter = (id) => {
+    setFilter(id);
+    setSelected(/* @__PURE__ */ new Set());
+  };
+  const pickFolder = (key) => {
+    setFolder(key);
+    setSelected(/* @__PURE__ */ new Set());
+    setOpenDoc(null);
+  };
   const tagRows = (0, import_react7.useMemo)(() => {
     const map = /* @__PURE__ */ new Map();
-    for (const d of docs) {
+    for (const d of inFolder) {
       for (const t of d.tags) {
         const row = map.get(t) ?? { folders: /* @__PURE__ */ new Set(), n: 0 };
         row.folders.add(d.folder);
@@ -33227,7 +33344,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
       }
     }
     return [...map.entries()].map(([name, row]) => ({ name, folders: [...row.folders], n: row.n })).sort((a, b) => b.n - a.n || a.name.localeCompare(b.name));
-  }, [docs]);
+  }, [inFolder]);
   const parsed = parseKsQuery(query);
   const parsedText = describeKsQuery(parsed);
   const allChecked = listed.length > 0 && listed.every((d) => selected.has(d.id));
@@ -33346,6 +33463,29 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
         }
       )
     ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-filters", role: "group", "aria-label": "\u6309\u6548\u529B\u72B6\u6001\u7B5B\u9009", children: [
+      FILTERS.map((f, i) => {
+        const on = filter === f.id;
+        return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+          "button",
+          {
+            type: "button",
+            className: on ? "ks-chip ks-chip-on" : "ks-chip",
+            "aria-pressed": on,
+            title: i === 0 ? "\u4E0D\u7B5B\u4EFB\u4F55\u72B6\u6001" : `\u53EA\u770B\u300C${f.text}\u300D\u7684\u6587\u4EF6`,
+            onClick: () => {
+              pickFilter(f.id);
+            },
+            children: [
+              i === 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconInspectOutline12, {}),
+              f.text
+            ]
+          },
+          f.id
+        );
+      }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-kb-hint", children: filter === "all" ? `\u5171 ${String(inFolder.length)} \u7BC7` : `\u7B5B\u51FA ${String(listed.length)} \u7BC7 / \u5171 ${String(inFolder.length)} \u7BC7` })
+    ] }),
     view === "tags" ? (
       // ── 标签视图（取代收藏）：标签跨大文件夹；可在标签下直接起对话 ──
       /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-main", style: { flex: "1 1 auto" }, children: [
@@ -33390,7 +33530,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
           ] })
         ] }),
         tagRows.map((row) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-tagrow", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Tag, { tone: "neutral", children: row.n }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-tag", children: row.n }),
           /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-tagrow-main", children: [
             /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-tagrow-name", children: row.name }),
             /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-tagrow-scope", children: [
@@ -33427,7 +33567,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
             sub: "\u56FD\u5BB6\u6807\u51C6\xB7\u884C\u4E1A\u6807\u51C6\xB7\u56E2\u4F53\u6807\u51C6",
             nodes: STD_TREE,
             current: folder,
-            onPick: setFolder,
+            onPick: pickFolder,
             open,
             toggle
           }
@@ -33439,7 +33579,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
             sub: "\u6CD5\u5F8B / \u884C\u653F\u6CD5\u89C4 / \u90E8\u95E8\u89C4\u7AE0 / \u5730\u65B9\u6027\u6CD5\u89C4",
             nodes: LAW_TREE,
             current: folder,
-            onPick: setFolder,
+            onPick: pickFolder,
             open,
             toggle
           }
@@ -33453,10 +33593,10 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
             tabIndex: 0,
             style: folder === f.key ? { borderColor: "var(--dsw-alias-border-l4)" } : void 0,
             onClick: () => {
-              setFolder(f.key);
+              pickFolder(f.key);
             },
             onKeyDown: (event) => {
-              if (event.key === "Enter" || event.key === " ") setFolder(f.key);
+              if (event.key === "Enter" || event.key === " ") pickFolder(f.key);
             },
             children: [
               /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { className: "ks-kb-ct", children: f.name }),
@@ -33471,87 +33611,132 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
         )) })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-main", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-lhead", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-            import_dsh_client_ui_primitives3.Checkbox,
-            {
-              checked: allChecked,
-              onChange: toggleAll,
-              label: allChecked ? "\u53D6\u6D88\u5168\u9009" : "\u5168\u9009",
-              title: `\u5168\u9009\u672C\u6587\u4EF6\u5939\u7684 ${String(listed.length)} \u7BC7`
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-lhead-name ks-kb-grow", title: folder, children: folder }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-kb-hint", children: [
-            listed.length,
-            " \u7BC7",
-            selected.size > 0 ? `\uFF08\u5DF2\u9009 ${String(selected.size)}\uFF09` : ""
-          ] })
-        ] }),
-        listed.map((doc) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: openDoc === doc.id ? "ks-item ks-item-on" : "ks-item", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-            import_dsh_client_ui_primitives3.Checkbox,
-            {
-              className: "ks-check",
-              checked: selected.has(doc.id),
-              onChange: (next) => {
-                toggleOne(doc.id, next);
-              },
-              label: doc.no === "" ? doc.name : `${doc.no}  ${doc.name}`,
-              title: "\u9009\u62E9\u8FD9\u4E00\u7BC7"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-item-tags", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Tag, { tone: STATUS[doc.status].tone, children: STATUS[doc.status].text }),
-            doc.tags.map((t) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Tag, { tone: "quiet", children: t }, t))
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-list", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-lhead", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+              import_dsh_client_ui_primitives3.Checkbox,
+              {
+                checked: allChecked,
+                onChange: toggleAll,
+                label: allChecked ? "\u53D6\u6D88\u5168\u9009" : "\u5168\u9009",
+                title: `\u5168\u9009\u672C\u6587\u4EF6\u5939\u7684 ${String(listed.length)} \u7BC7`
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-lhead-name ks-kb-grow", title: folder, children: folder }),
+            /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-kb-hint", children: [
+              listed.length,
+              " \u7BC7",
+              selected.size > 0 ? `\uFF08\u5DF2\u9009 ${String(selected.size)}\uFF09` : ""
+            ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-            import_dsh_client_ui_primitives3.Button,
-            {
-              className: "ks-item-add ks-item-btn",
-              variant: "ghost",
-              size: "sm",
-              title: "\u7ED9\u8FD9\u4E00\u7BC7\u52A0\u6807\u7B7E\uFF08\u5360\u4F4D\uFF1A\u53EA\u52A0\u5230\u9875\u9762\u72B6\u6001\uFF09",
-              onClick: () => {
-                setDocs((prev) => prev.map((d) => d.id === doc.id && !d.tags.includes("\u5F85\u5F52\u7C7B") ? { ...d, tags: [...d.tags, "\u5F85\u5F52\u7C7B"] } : d));
-              },
-              children: "\uFF0B\u6807\u7B7E"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-            import_dsh_client_ui_primitives3.Button,
-            {
-              className: "ks-item-btn",
-              variant: "ghost",
-              size: "sm",
-              title: "\u6253\u5F00\u8BE6\u60C5\uFF08\u53F3\u4FA7\uFF09",
-              "aria-label": `\u6253\u5F00 ${doc.name} \u7684\u8BE6\u60C5`,
-              onClick: () => {
-                setOpenDoc(openDoc === doc.id ? null : doc.id);
-              },
-              children: "\u8BE6\u60C5"
-            }
-          )
-        ] }, doc.id)),
+          listed.map((doc) => {
+            const st = STATUS[doc.status];
+            const meta = [doc.no === "" ? "" : doc.no, `\u751F\u6548 ${doc.effective}`].filter((s) => s !== "").join(" \xB7 ");
+            const isOpen = menuFor === doc.id;
+            return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: openDoc === doc.id ? "ks-item ks-item-on" : "ks-item", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+                import_dsh_client_ui_primitives3.Checkbox,
+                {
+                  className: "ks-check",
+                  checked: selected.has(doc.id),
+                  onChange: (next) => {
+                    toggleOne(doc.id, next);
+                  },
+                  label: doc.name,
+                  title: doc.no === "" ? doc.name : `${doc.no} ${doc.name}`
+                }
+              ),
+              "                  ",
+              /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-item-sub", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-item-meta", children: meta }),
+                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: st.cls, children: st.text })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-item-more", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+                import_dsh_client_ui_primitives3.Menu,
+                {
+                  open: isOpen,
+                  portal: true,
+                  autoFocus: true,
+                  align: "end",
+                  items: [
+                    { id: "detail", label: "\u8BE6\u60C5" },
+                    { id: "tag", label: "\uFF0B\u6807\u7B7E" },
+                    { id: "tags", label: `\u6807\u7B7E\uFF1A${doc.tags.length === 0 ? "\uFF08\u65E0\uFF09" : doc.tags.join("\u3001")}`, disabled: true }
+                  ],
+                  onClose: () => {
+                    setMenuFor(null);
+                  },
+                  onSelect: (id) => {
+                    setMenuFor(null);
+                    if (id === "detail") setOpenDoc(openDoc === doc.id ? null : doc.id);
+                    if (id === "tag") {
+                      setDocs((prev) => prev.map((d) => d.id === doc.id && !d.tags.includes("\u5F85\u5F52\u7C7B") ? { ...d, tags: [...d.tags, "\u5F85\u5F52\u7C7B"] } : d));
+                    }
+                  },
+                  anchor: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+                    import_dsh_client_ui_primitives3.Button,
+                    {
+                      variant: "ghost",
+                      size: "sm",
+                      "aria-haspopup": "menu",
+                      "aria-expanded": isOpen,
+                      "aria-label": `${doc.name} \u7684\u66F4\u591A\u64CD\u4F5C`,
+                      title: "\u66F4\u591A\u64CD\u4F5C\uFF08\u8BE6\u60C5 / \u52A0\u6807\u7B7E\uFF09",
+                      onClick: () => {
+                        setMenuFor(isOpen ? null : doc.id);
+                      },
+                      children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconEllipsisOutline16, {})
+                    }
+                  )
+                }
+              ) })
+            ] }, doc.id);
+          })
+        ] }),
         listed.length === 0 && /* 空态卡（P0-5）：64px 圆图标 + 标题 + 描述 + 主按钮（照 WeKnora EmptyState）。
-           文案里的"真实实现里应显示导入到此处"这句诚实边界没删 —— 挪进 title=。 */
+            文案里的"真实实现里应显示导入到此处"这句诚实边界没删 —— 挪进 title=。
+            ⚠ P1-4（2026-09-20）：要**分清两种空** —— 这个夹子本来就没文件（给导入 CTA），
+              还是被筛选筛没了（给"清筛选"，不给导入按钮；否则是在骗用户去导入）。 */
         /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-empty-card", children: [
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutline16, { size: 28 }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-empty-t", children: "\u8FD9\u4E2A\u6587\u4EF6\u5939\u8FD8\u6CA1\u6709\u6587\u4EF6" }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-empty-d", children: "\u5BFC\u5165\u6587\u4EF6\u540E\uFF0C\u6761\u6B3E\u4F1A\u843D\u5230\u8FD9\u4E2A\u76EE\u5F55\u4E0B\u3002\u8FD9\u91CC\u73B0\u5728\u53EA\u662F\u5360\u4F4D\u3002" }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-            import_dsh_client_ui_primitives3.Button,
-            {
-              variant: "primary",
-              size: "sm",
-              icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconPlusOutline16, {}),
-              title: "\u771F\u5B9E\u5B9E\u73B0\u91CC\u8FD9\u91CC\u662F\u300C\u5BFC\u5165\u5230\u6B64\u5904\u300D\uFF1B\u5F53\u524D\u5165\u53E3\u5728\u300C\u6587\u4EF6\u5BFC\u5165\u300D\u9875",
-              onClick: () => {
-                tab.actions.openTab(KS_KB_KIND, { replaceTab: true, params: { page: "ingest" } });
-              },
-              children: "\u5BFC\u5165\u6587\u4EF6\u2026"
-            }
-          )
+          inFolder.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-empty-t", children: "\u6CA1\u6709\u7B26\u5408\u7B5B\u9009\u7684\u6587\u4EF6" }),
+            /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-empty-d", children: [
+              "\u8FD9\u4E2A\u76EE\u5F55\u91CC\u5171 ",
+              inFolder.length,
+              " \u7BC7\uFF0C\u5F53\u524D\u7B5B\u9009\u300C",
+              FILTERS.find((f) => f.id === filter)?.text ?? "",
+              "\u300D\u4E00\u7BC7\u90FD\u6CA1\u7559\u4E0B\u3002"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+              import_dsh_client_ui_primitives3.Button,
+              {
+                variant: "outline",
+                size: "sm",
+                title: "\u56DE\u5230\u300C\u5168\u90E8\u300D\uFF0C\u9009\u62E9\u4E5F\u4F1A\u4E00\u5E76\u6E05\u7A7A",
+                onClick: () => {
+                  pickFilter("all");
+                },
+                children: "\u6E05\u9664\u7B5B\u9009"
+              }
+            )
+          ] }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-empty-t", children: "\u8FD9\u4E2A\u6587\u4EF6\u5939\u8FD8\u6CA1\u6709\u6587\u4EF6" }),
+            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-empty-d", children: "\u5BFC\u5165\u6587\u4EF6\u540E\uFF0C\u6761\u6B3E\u4F1A\u843D\u5230\u8FD9\u4E2A\u76EE\u5F55\u4E0B\u3002\u8FD9\u91CC\u73B0\u5728\u53EA\u662F\u5360\u4F4D\u3002" }),
+            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+              import_dsh_client_ui_primitives3.Button,
+              {
+                variant: "primary",
+                size: "sm",
+                icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconPlusOutline16, {}),
+                title: "\u771F\u5B9E\u5B9E\u73B0\u91CC\u8FD9\u91CC\u662F\u300C\u5BFC\u5165\u5230\u6B64\u5904\u300D\uFF1B\u5F53\u524D\u5165\u53E3\u5728\u300C\u6587\u4EF6\u5BFC\u5165\u300D\u9875",
+                onClick: () => {
+                  tab.actions.openTab(KS_KB_KIND, { replaceTab: true, params: { page: "ingest" } });
+                },
+                children: "\u5BFC\u5165\u6587\u4EF6\u2026"
+              }
+            )
+          ] })
         ] }),
         selected.size > 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-batch", title: "\u8FD9\u4E9B\u52A8\u4F5C\u90FD\u4F5C\u7528\u5728\u9875\u9762\u72B6\u6001\u4E0A\uFF0C\u4E0D\u4F1A\u5199\u8FDB\u5E93\u3002", children: [
           /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-batch-n", children: [
@@ -33559,12 +33744,13 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
             selected.size,
             " \u9879"
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Button, { variant: "ghost", size: "sm", onClick: () => {
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Button, { className: "ks-batch-btn", variant: "ghost", size: "sm", onClick: () => {
             setSelected(/* @__PURE__ */ new Set());
           }, children: "\u53D6\u6D88\u9009\u62E9" }),
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
             import_dsh_client_ui_primitives3.Button,
             {
+              className: "ks-batch-btn",
               variant: "outline",
               size: "sm",
               icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconPlusOutline16, {}),
@@ -33576,6 +33762,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
             import_dsh_client_ui_primitives3.Button,
             {
+              className: "ks-batch-btn",
               variant: "outline",
               size: "sm",
               icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutline16, {}),
@@ -33587,7 +33774,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
             import_dsh_client_ui_primitives3.Button,
             {
-              className: "ks-danger",
+              className: "ks-danger ks-batch-btn",
               variant: "outline",
               size: "sm",
               icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconTrashOutline16, {}),
@@ -33599,13 +33786,13 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
         ] })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-detail", children: current === null ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-kb-card", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-hint", children: [
-        "\u70B9\u67D0\u4E00\u884C\u7684\u300C\u8BE6\u60C5\u300D\u770B\u8FD9\u4E00\u7BC7\u7684\u5143\u6570\u636E\uFF08\u542B",
+        "\u70B9\u6BCF\u4E00\u884C\u884C\u5C3E\u7684\u300C\u22EE\u300D\u2192\u300C\u8BE6\u60C5\u300D\u770B\u8FD9\u4E00\u7BC7\u7684\u5143\u6570\u636E\uFF08\u542B",
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { children: "\u53D1\u5E03\u65E5\u671F / \u751F\u6548\u65E5\u671F / \u5E9F\u6B62\u65E5\u671F" }),
         "\uFF09\u3002"
       ] }) }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-card", children: [
         /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-row", style: { marginBottom: 6 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { className: "ks-kb-grow ks-kb-ct", title: current.name, children: current.name }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Tag, { tone: STATUS[current.status].tone, children: STATUS[current.status].text })
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: STATUS[current.status].cls, children: STATUS[current.status].text })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-fields", children: [
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Field, { label: "\u6807\u51C6\u53F7", value: current.no, mono: true }),
@@ -33616,7 +33803,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-row", style: { marginTop: 8, flexWrap: "wrap" }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-kb-hint", children: "\u6807\u7B7E" }),
-          current.tags.map((t) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Tag, { tone: "neutral", children: t }, t)),
+          current.tags.map((t) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-tag", children: t }, t)),
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
             import_dsh_client_ui_primitives3.Button,
             {

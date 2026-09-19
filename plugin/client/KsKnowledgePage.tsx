@@ -40,7 +40,7 @@
  */
 
 import { useMemo, useState, type ReactNode } from 'react'
-import { Button, Checkbox, IconChevronDownOutline14, IconFolderOpenOutline16, IconInfoOutline14, IconPlusOutline16, IconTrashOutline16, Input, Menu, Pill, Tag, type DshTagTone } from '@deepseek-ai/dsh-client-ui-primitives'
+import { Button, Checkbox, IconChevronDownOutline14, IconEllipsisOutline16, IconFolderOpenOutline16, IconInfoOutline14, IconInspectOutline12, IconPlusOutline16, IconTrashOutline16, Input, Menu, Pill } from '@deepseek-ai/dsh-client-ui-primitives'
 
 import { ensureKsStyles } from './ksGuideStyles'
 import { KsCapabilityPage } from './KsCapabilityPage'
@@ -75,12 +75,41 @@ interface MockNode {
   readonly children?: readonly MockNode[]
 }
 
-const STATUS: Record<Status, { tone: DshTagTone; text: string }> = {
-  current: { tone: 'success', text: '现行' },
-  upcoming: { tone: 'warning', text: '即将实施' },
-  withdrawn: { tone: 'danger', text: '已废止' },
-  superseded: { tone: 'outline', text: '被替代' },
+/**
+ * 效力的**呈现分档**（P1-5，2026-09-20）：状态徽章从宿主的实心 `Tag` 换成我们自己的
+ * `.ks-status`（浅底 + 1px 描边 + 同色系文字）。改的原因是实测像素：Tag 量到 **37×13** 的
+ * 实心块、**没有任何 1px 边色行**，而参照真机 `23-kb-detail-list-1440.png` 是 **46×20**、
+ * 左右各一条 1px 描边（见 docs/research/weknora-ui-vs-ours.md §7.1 的 scan 线）。
+ * 三档颜色全部由宿主 `--dsw-alias-state-*` 解出（**没有一个字面色值**）：
+ *   ok  = success-tertiary 底 + success-primary 描边/文字
+ *   warn= warn-tertiary 底 + warn-label 描边/文字
+ *   bad = error-secondary 底 + error-primary 描边/文字
+ * ⚠ **语义一个字没动**（现行/即将实施/已废止/被替代四个词的映射原样保留）。
+ */
+const STATUS: Record<Status, { cls: string; text: string }> = {
+  current: { cls: 'ks-status ks-status-ok', text: '现行' },
+  upcoming: { cls: 'ks-status ks-status-warn', text: '即将实施' },
+  withdrawn: { cls: 'ks-status ks-status-bad', text: '已废止' },
+  superseded: { cls: 'ks-status ks-status-neutral', text: '被替代' },
 }
+
+/**
+ * 状态筛选档（P1-4，2026-09-20）。
+ *
+ * ⚠ **克制的边界**：只做"全部 / 现行 / 已废止"三档 —— 因为**只有它们跟页面里真实存在的
+ * 占位数据对得上**（`MockDoc.status` 的四个取值）。不许发明我们没有的数据维度
+ * （来源 / 类型 / 日期区间都是编的，业主会一眼看出来是假筛选）。
+ *
+ * ⚠ "已废止"这一档**故意含两个状态**：`withdrawn`（已废止）与 `superseded`（被替代）——
+ * 理由写在下面对账表里：后端把这两类都算"不可用"，而分开做两个胶囊在 3 档的克制范围里
+ * 会让"现行 / 已废止"的对账看起来多出一档没人用。文案用"已废止"是对齐业主的用词。
+ * `test` 返回 true = 这一篇**留在列表里**。
+ */
+const FILTERS: readonly { readonly id: string; readonly text: string; readonly test: (d: MockDoc) => boolean }[] = [
+  { id: 'all', text: '全部', test: () => true },
+  { id: 'current', text: '现行', test: (d) => d.status === 'current' },
+  { id: 'withdrawn', text: '已废止', test: (d) => d.status === 'withdrawn' || d.status === 'superseded' },
+]
 
 /** 自带「标准」树（层级名取自 `doc_catalog.py` 的权威 CCS 表，不是编的）。 */
 const STD_TREE: readonly MockNode[] = [
@@ -217,7 +246,7 @@ function LibCard({ title, sub, nodes, current, onPick, open, toggle }: {
     <div className="ks-kb-card">
       <div className="ks-kb-row">
         <strong className="ks-kb-grow ks-kb-ct">{title}</strong>
-        <Tag tone="neutral">自带</Tag>
+        <span className="ks-tag">自带</span>
       </div>
       <div className="ks-kb-cd">{sub}</div>
       <div className="ks-kb-tree">{renderNodes(nodes, current, onPick, open, toggle)}</div>
@@ -251,6 +280,10 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
   const [docs, setDocs] = useState<readonly MockDoc[]>(SEED_DOCS)
   const [selected, setSelected] = useState<ReadonlySet<string>>(() => new Set<string>())
   const [openDoc, setOpenDoc] = useState<string | null>(null)
+  /** 行尾「⋮」溢出菜单**同一时刻只开一个**（存的是行的 id，不是布尔）。 */
+  const [menuFor, setMenuFor] = useState<string | null>(null)
+  /** 状态筛选（P1-4）：真的作用在 `listed` 上，不是画个壳。 */
+  const [filter, setFilter] = useState('all')
   const [newOpen, setNewOpen] = useState(false)
   const [open, setOpen] = useState<ReadonlySet<string>>(
     () => new Set(['P 土木、建筑', 'C 医药、卫生、劳动保护', 'Z 环境保护', '法律', '行政法规']),
@@ -266,13 +299,38 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
     })
   }
 
-  const listed = useMemo(() => docs.filter((d) => d.folder === folder), [docs, folder])
+  /** 当前文件夹里的全部（未筛选）—— 筛选条的计数要用它做分母。 */
+  const inFolder = useMemo(() => docs.filter((d) => d.folder === folder), [docs, folder])
+  /** 筛选应用在它基础上（P1-4 的"真的作用在页面状态上"就是这个 useMemo）。 */
+  const filterTest = (FILTERS.find((f) => f.id === filter) ?? FILTERS[0]).test
+  const listed = useMemo(() => inFolder.filter((d) => filterTest(d)), [inFolder, filterTest])
   const current = listed.find((d) => d.id === openDoc) ?? null
+
+  /**
+   * 换筛选档 ⇒ **清空选择**（P1-4 的"筛选变化即清空"）。
+   * 为什么必须清：选择是按行 id 存的，筛选换一档后"已选 3 项"里可能有 2 项已经不在列表里，
+   * 批量动作会作用在**看不见的行**上 —— 那是假动作。
+   */
+  const pickFilter = (id: string): void => {
+    setFilter(id)
+    setSelected(new Set<string>())
+  }
+
+  /**
+   * 换文件夹（P1-4 的连带修正）：**也要清空选择**。选择按"行 id"存，换了夹子之后
+   * 上一条选择里的行已经不在这份列表里，批量动作会作用在**看不见的行**上。
+   * 与 pickFilter 是同一个理由（筛选变化即清空）。
+   */
+  const pickFolder = (key: string): void => {
+    setFolder(key)
+    setSelected(new Set<string>())
+    setOpenDoc(null)
+  }
 
   /** 标签视图的数据**从文档状态推导**（这样"批量打标签"能立刻反映出来，不是死数据）。 */
   const tagRows = useMemo(() => {
     const map = new Map<string, { folders: Set<string>; n: number }>()
-    for (const d of docs) {
+    for (const d of inFolder) {
       for (const t of d.tags) {
         const row = map.get(t) ?? { folders: new Set<string>(), n: 0 }
         row.folders.add(d.folder)
@@ -283,7 +341,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
     return [...map.entries()]
       .map(([name, row]) => ({ name, folders: [...row.folders], n: row.n }))
       .sort((a, b) => b.n - a.n || a.name.localeCompare(b.name))
-  }, [docs])
+  }, [inFolder])
 
   const parsed = parseKsQuery(query)
   const parsedText = describeKsQuery(parsed)
@@ -407,6 +465,38 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
         />
       </div>
 
+      {/* 筛选条（P1-4，2026-09-20）：一排**等高胶囊**（高 32px / 字号 12px / 间距 12px）。
+          参照真机 22/23 是 5 个 140×32 的等高胶囊；我们原来页内**没有任何筛选**。
+          范围克制到"只有跟页面里真实占位数据对得上的三档"（见 FILTERS 的注释），
+          并且**真的作用在 listed 上**（换档即清空选择，见 pickFilter）。
+          计数写成「筛出 X 篇 / 共 Y 篇」：筛选生效时用户不用回表头换算。
+          ⚠ 图标只给"全部"那一枚（语义是"这一排是筛选"）；13 个宿主图标成员里逐个核过，
+             IconInspectOutline12 是真的（ui-primitives 的 icons 导出，名字写错不会构建失败、
+             只有真机会 undefined —— 所以这是查过才用的）。 */}
+      <div className="ks-filters" role="group" aria-label="按效力状态筛选">
+        {FILTERS.map((f, i) => {
+          const on = filter === f.id
+          return (
+            <button
+              key={f.id}
+              type="button"
+              className={on ? 'ks-chip ks-chip-on' : 'ks-chip'}
+              aria-pressed={on}
+              title={i === 0 ? '不筛任何状态' : `只看「${f.text}」的文件`}
+              onClick={() => { pickFilter(f.id) }}
+            >
+              {i === 0 && <IconInspectOutline12 />}
+              {f.text}
+            </button>
+          )
+        })}
+        <span className="ks-kb-hint">
+          {filter === 'all'
+            ? `共 ${String(inFolder.length)} 篇`
+            : `筛出 ${String(listed.length)} 篇 / 共 ${String(inFolder.length)} 篇`}
+        </span>
+      </div>
+
       {view === 'tags' ? (
         // ── 标签视图（取代收藏）：标签跨大文件夹；可在标签下直接起对话 ──
         <div className="ks-main" style={{ flex: '1 1 auto' }}>
@@ -436,7 +526,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
           </div>
           {tagRows.map((row) => (
             <div className="ks-tagrow" key={row.name}>
-              <Tag tone="neutral">{row.n}</Tag>
+              <span className="ks-tag">{row.n}</span>
               <div className="ks-tagrow-main">
                 <span className="ks-tagrow-name">{row.name}</span>
                 <span className="ks-tagrow-scope">覆盖：{row.folders.join('、')}</span>
@@ -468,11 +558,11 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
           <div className="ks-rail">
             <LibCard
               title="标准" sub="国家标准·行业标准·团体标准"
-              nodes={STD_TREE} current={folder} onPick={setFolder} open={open} toggle={toggle}
+              nodes={STD_TREE} current={folder} onPick={pickFolder} open={open} toggle={toggle}
             />
             <LibCard
               title="法律法规" sub="法律 / 行政法规 / 部门规章 / 地方性法规"
-              nodes={LAW_TREE} current={folder} onPick={setFolder} open={open} toggle={toggle}
+              nodes={LAW_TREE} current={folder} onPick={pickFolder} open={open} toggle={toggle}
             />
             <div className="ks-kb-sec">我建的（真文件夹；与上面两棵平级）</div>
             <div className="ks-kb-cards">
@@ -483,8 +573,8 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                   role="button"
                   tabIndex={0}
                   style={folder === f.key ? { borderColor: 'var(--dsw-alias-border-l4)' } : undefined}
-                  onClick={() => { setFolder(f.key) }}
-                  onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') setFolder(f.key) }}
+                  onClick={() => { pickFolder(f.key) }}
+                  onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') pickFolder(f.key) }}
                 >
                   <strong className="ks-kb-ct">{f.name}</strong>
                   <div className="ks-kb-cd">{f.desc}</div>
@@ -498,6 +588,12 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
 
           {/* 中：文件列表（无搜索框 —— 你明确说这一页不做搜索） */}
           <div className="ks-main">
+            {/* ── 列表 = **一个容器**（P1-2/P1-8，2026-09-20） ──
+                改前：.ks-lhead 只有一条 0.5px 下边框，4 个 .ks-item 是 .ks-main 的**直接子元素**
+                （DOM 裸行）⇒ 页面上量不到任何竖边。现在表头 + 全部行都在这层里：
+                1px 外框 + 圆角 10 + bg-base 底 + 表头底色、行间 1px 分隔线。
+                ⚠ 空态卡与批量条**不在**这个盒子里（一个说"这里没有行"，一个是浮层）。 */}
+            <div className="ks-list">
             <div className="ks-lhead">
               <Checkbox
                 checked={allChecked}
@@ -511,64 +607,122 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
               </span>
             </div>
 
-            {listed.map((doc) => (
-              <div className={openDoc === doc.id ? 'ks-item ks-item-on' : 'ks-item'} key={doc.id}>
-                {/* Checkbox 的 label「就是文件名」：可访问名 = 文件名，名字只渲染一次 */}
-                <Checkbox
-                  className="ks-check"
-                  checked={selected.has(doc.id)}
-                  onChange={(next) => { toggleOne(doc.id, next) }}
-                  label={doc.no === '' ? doc.name : `${doc.no}  ${doc.name}`}
-                  title="选择这一篇"
-                />
-                <span className="ks-item-tags">
-                  <Tag tone={STATUS[doc.status].tone}>{STATUS[doc.status].text}</Tag>
-                  {doc.tags.map((t) => <Tag tone="quiet" key={t}>{t}</Tag>)}
-                </span>
-                {/* 常驻「＋标签」（业主：名字后面常驻一个） */}
-                <Button
-                  className="ks-item-add ks-item-btn"
-                  variant="ghost"
-                  size="sm"
-                  title="给这一篇加标签（占位：只加到页面状态）"
-                  onClick={() => {
-                    setDocs((prev) => prev.map((d) => (d.id === doc.id && !d.tags.includes('待归类')
-                      ? { ...d, tags: [...d.tags, '待归类'] }
-                      : d)))
-                  }}
-                >
-                  ＋标签
-                </Button>
-                <Button
-                  className="ks-item-btn"
-                  variant="ghost"
-                  size="sm"
-                  title="打开详情（右侧）"
-                  aria-label={`打开 ${doc.name} 的详情`}
-                  onClick={() => { setOpenDoc(openDoc === doc.id ? null : doc.id) }}
-                >
-                  详情
-                </Button>
-              </div>
-            ))}
+            {listed.map((doc) => {
+              const st = STATUS[doc.status]
+              /**
+               * 第 2 行的**元数据**：只用页面里**已经有的字段**拼（`MockDoc.no` / `effective`）
+               * —— 不编描述、不编来源。占位数据的性质已由页首"UI 先行"告知条讲清楚，
+               * 这里再写一句"示例文案"只会把行塞满；"不编得像真数据"的做法就是**只复述已有字段**。
+               * 法规类没有标准号（no === ''）⇒ 只显示生效日期。
+               */
+              const meta = [doc.no === '' ? '' : doc.no, `生效 ${doc.effective}`]
+                .filter((s) => s !== '').join(' · ')
+              const isOpen = menuFor === doc.id
+              return (
+                <div className={openDoc === doc.id ? 'ks-item ks-item-on' : 'ks-item'} key={doc.id}>
+                  {/* 第 1 行 = 勾选框 + 文件名。
+                      ⚠ 文件名**就是** Checkbox 的 label —— 宿主 Checkbox 的 label 是"可见且可访问"
+                        的那一个（Checkbox.tsx 原文），所以它天然把文件名渲染出来；再另起一个
+                        .ks-item-title 就会把名字显示两遍（第一版就是这样，离屏图里一眼看到）。
+                      ⚠ 行的 label 仍然只说明"怎么选"（可访问名 = 文件名由 Checkbox 负责），
+                        行的 title= 说明点击语义在「⋮」里 —— 因为**整行不可点**（见样式注释：
+                        label 与"整行可点"冲突）。 */}
+                  <Checkbox
+                    className="ks-check"
+                    checked={selected.has(doc.id)}
+                    onChange={(next) => { toggleOne(doc.id, next) }}
+                    label={doc.name}
+                    title={doc.no === '' ? doc.name : `${doc.no} ${doc.name}`}
+                  />                  <span className="ks-item-sub">
+                    <span className="ks-item-meta">{meta}</span>
+                    <span className={st.cls}>{st.text}</span>
+                  </span>
+                  {/* 行尾「⋮」溢出菜单（P1-1）：原来常驻的「＋标签」与「详情」两个 Button
+                      收进这里 ⇒ 行内可见控件从 5 个降到 **3 个**（勾选框 + 状态徽章 + ⋮）。
+                      ⚠ 行内标签**不再常驻显示**（它们进菜单的"标签：…"只读项）；
+                        "名字后面常驻一个＋标签"这条需求改由「⋮」承担 —— 清单 P1-1 的原话
+                        就是"次要动作收进行尾溢出菜单"。 */}
+                  <span className="ks-item-more">
+                    <Menu
+                      open={isOpen}
+                      portal
+                      autoFocus
+                      align="end"
+                      items={[
+                        { id: 'detail', label: '详情' },
+                        { id: 'tag', label: '＋标签' },
+                        { id: 'tags', label: `标签：${doc.tags.length === 0 ? '（无）' : doc.tags.join('、')}`, disabled: true },
+                      ]}
+                      onClose={() => { setMenuFor(null) }}
+                      onSelect={(id) => {
+                        setMenuFor(null)
+                        if (id === 'detail') setOpenDoc(openDoc === doc.id ? null : doc.id)
+                        if (id === 'tag') {
+                          setDocs((prev) => prev.map((d) => (d.id === doc.id && !d.tags.includes('待归类')
+                            ? { ...d, tags: [...d.tags, '待归类'] }
+                            : d)))
+                        }
+                      }}
+                      anchor={(
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          aria-haspopup="menu"
+                          aria-expanded={isOpen}
+                          aria-label={`${doc.name} 的更多操作`}
+                          title="更多操作（详情 / 加标签）"
+                          onClick={() => { setMenuFor(isOpen ? null : doc.id) }}
+                        >
+                          <IconEllipsisOutline16 />
+                        </Button>
+                      )}
+                    />
+                  </span>
+                </div>
+              )
+            })}
+            </div>
+
             {listed.length === 0 && (
               /* 空态卡（P0-5）：64px 圆图标 + 标题 + 描述 + 主按钮（照 WeKnora EmptyState）。
-                 文案里的"真实实现里应显示导入到此处"这句诚实边界没删 —— 挪进 title=。 */
+                  文案里的"真实实现里应显示导入到此处"这句诚实边界没删 —— 挪进 title=。
+                  ⚠ P1-4（2026-09-20）：要**分清两种空** —— 这个夹子本来就没文件（给导入 CTA），
+                    还是被筛选筛没了（给"清筛选"，不给导入按钮；否则是在骗用户去导入）。 */
               <div className="ks-empty-card">
                 <span className="ks-empty-ico"><IconFolderOpenOutline16 size={28} /></span>
-                <span className="ks-empty-t">这个文件夹还没有文件</span>
-                <span className="ks-empty-d">
-                  导入文件后，条款会落到这个目录下。这里现在只是占位。
-                </span>
-                <Button
-                  variant="primary"
-                  size="sm"
-                  icon={<IconPlusOutline16 />}
-                  title="真实实现里这里是「导入到此处」；当前入口在「文件导入」页"
-                  onClick={() => { tab.actions.openTab(KS_KB_KIND, { replaceTab: true, params: { page: 'ingest' } }) }}
-                >
-                  导入文件…
-                </Button>
+                {inFolder.length > 0 ? (
+                  <>
+                    <span className="ks-empty-t">没有符合筛选的文件</span>
+                    <span className="ks-empty-d">
+                      这个目录里共 {inFolder.length} 篇，当前筛选「
+                      {FILTERS.find((f) => f.id === filter)?.text ?? ''}」一篇都没留下。
+                    </span>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      title="回到「全部」，选择也会一并清空"
+                      onClick={() => { pickFilter('all') }}
+                    >
+                      清除筛选
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <span className="ks-empty-t">这个文件夹还没有文件</span>
+                    <span className="ks-empty-d">
+                      导入文件后，条款会落到这个目录下。这里现在只是占位。
+                    </span>
+                    <Button
+                      variant="primary"
+                      size="sm"
+                      icon={<IconPlusOutline16 />}
+                      title="真实实现里这里是「导入到此处」；当前入口在「文件导入」页"
+                      onClick={() => { tab.actions.openTab(KS_KB_KIND, { replaceTab: true, params: { page: 'ingest' } }) }}
+                    >
+                      导入文件…
+                    </Button>
+                  </>
+                )}
               </div>
             )}
 
@@ -579,10 +733,14 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
             {selected.size > 0 && (
               <div className="ks-batch" title="这些动作都作用在页面状态上，不会写进库。">
                 <span className="ks-batch-n">已选 {selected.size} 项</span>
-                <Button variant="ghost" size="sm" onClick={() => { setSelected(new Set<string>()) }}>
+                {/* P1-6（2026-09-20）：四个动作按钮显式钉 24px 高（--ks-btn-h-sm）。
+                    原来实测 28px —— 那是 align-items:center 加图标把它撑起来的，不是宿主档位。
+                    ⚠ border:0 + elevation 的配对**没动**（官方硬规则）；危险动作仍是红字。 */}
+                <Button className="ks-batch-btn" variant="ghost" size="sm" onClick={() => { setSelected(new Set<string>()) }}>
                   取消选择
                 </Button>
                 <Button
+                  className="ks-batch-btn"
                   variant="outline"
                   size="sm"
                   icon={<IconPlusOutline16 />}
@@ -592,6 +750,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                   批量打标签
                 </Button>
                 <Button
+                  className="ks-batch-btn"
                   variant="outline"
                   size="sm"
                   icon={<IconFolderOpenOutline16 />}
@@ -601,7 +760,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                   移动到目录
                 </Button>
                 <Button
-                  className="ks-danger"
+                  className="ks-danger ks-batch-btn"
                   variant="outline"
                   size="sm"
                   icon={<IconTrashOutline16 />}
@@ -619,14 +778,15 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
             {current === null ? (
               <div className="ks-kb-card">
                 <div className="ks-kb-hint">
-                  点某一行的「详情」看这一篇的元数据（含<strong>发布日期 / 生效日期 / 废止日期</strong>）。
+                  点每一行行尾的「⋮」→「详情」看这一篇的元数据（含
+                  <strong>发布日期 / 生效日期 / 废止日期</strong>）。
                 </div>
               </div>
             ) : (
               <div className="ks-kb-card">
                 <div className="ks-kb-row" style={{ marginBottom: 6 }}>
                   <strong className="ks-kb-grow ks-kb-ct" title={current.name}>{current.name}</strong>
-                  <Tag tone={STATUS[current.status].tone}>{STATUS[current.status].text}</Tag>
+                  <span className={STATUS[current.status].cls}>{STATUS[current.status].text}</span>
                 </div>
                 <div className="ks-fields">
                   <Field label="标准号" value={current.no} mono />
@@ -637,7 +797,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                 </div>
                 <div className="ks-kb-row" style={{ marginTop: 8, flexWrap: 'wrap' }}>
                   <span className="ks-kb-hint">标签</span>
-                  {current.tags.map((t) => <Tag tone="neutral" key={t}>{t}</Tag>)}
+                  {current.tags.map((t) => <span className="ks-tag" key={t}>{t}</span>)}
                   <Button
                     variant="ghost"
                     size="sm"

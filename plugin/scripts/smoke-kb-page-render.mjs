@@ -173,12 +173,35 @@ export function mount(container, props) {
     && styleEl.dataset.pluginCss === 'ks-dsh-plugin/ksGuideStyles.css',
     styleEl === null ? '没有 <style>' : `data-plugin=${styleEl.dataset.plugin} data-plugin-css=${styleEl.dataset.pluginCss}`)
 
-  // ── 断言 3：文件列表 = 勾选框 + 常驻「＋标签」 ──
+  // ── 断言 3：文件列表 = 勾选框 + 每行一个「⋮」溢出菜单（P1-1 改造后的口径） ──
   const checkboxes = q('input[type=checkbox]')
-  const addTagBtns = q('button').filter((b) => (b.textContent ?? '') === '＋标签')
   // 默认文件夹 P16 工程防火 有 4 篇 ⇒ 4 个行勾选 + 1 个全选
   check('行勾选框 + 全选：勾选框数 = 文档数 + 1', checkboxes.length === 5, `实际 ${checkboxes.length}`)
-  check('每行都有常驻「＋标签」按钮', addTagBtns.length === 4, `实际 ${addTagBtns.length}`)
+  // ⚠ **本条断言于 2026-09-20 P1-1 改过（旧断言已过时，不是为了让门禁变绿而削弱）**：
+  //   原来钉的是"每行都有**常驻**「＋标签」按钮"（`button` 文本 === '＋标签'，共 4 个）。
+  //   P1-1 的施工决定就是**把行内的「＋标签」「详情」收进行尾「⋮」溢出菜单**
+  //   （依据 docs/research/weknora-ui-vs-ours.md §7.6，业主本轮任务书 P1-1 的原话"收进行尾一个
+  //   「⋮」溢出菜单"）⇒ 常驻按钮**按设计消失**，旧断言必然红。
+  //   旧的"在场"证据没有丢：`smoke-client-entry.mjs` 的 13 条需求钉子仍钉着交付产物里的
+  //   「＋标签」字面量；这里改成钉**新结构**（触发器存在 + 菜单里真的有那两项）。
+  const moreTriggers = q('.ks-item-more button[aria-haspopup=menu]')
+  check('每行都有行尾「⋮」溢出菜单触发器（一行一个 = 4 个）',
+    moreTriggers.length === 4, `实际 ${moreTriggers.length}`)
+  // 行内**可见控件数**（P1-1 的验收口径）：勾选框 + 状态徽章 + 「⋮」≤ 3。
+  const ctrlCounts = q('.ks-item').map((row) => row.querySelectorAll('.ks-check,.ks-status,.ks-item-more').length)
+  check('每行行内可见控件 ≤ 3（勾选框 + 状态徽章 + ⋮）',
+    ctrlCounts.length === 4 && ctrlCounts.every((n) => n <= 3),
+    `四行分别是 ${ctrlCounts.join('/')}`)
+  // 打开某一行的菜单：菜单里必须真有「＋标签」与「详情」（否则那两条需求是**假在场**）。
+  await click(q('.ks-item')[0].querySelector('.ks-item-more button'))
+  const menuTexts = [...document.querySelectorAll('[role=menuitem]')].map((el) => (el.textContent ?? ''))
+  check('「⋮」菜单里真的有「＋标签」与「详情」两项（收进去 ≠ 删掉）',
+    menuTexts.includes('＋标签') && menuTexts.includes('详情'),
+    menuTexts.join(' | ').slice(0, 60))
+  await click(q('.ks-item')[0].querySelector('.ks-item-more button'))
+  check('再点一次「⋮」⇒ 菜单收起（同一时刻只开一个）',
+    document.querySelectorAll('[role=menuitem]').length === 0,
+    `还剩 ${document.querySelectorAll('[role=menuitem]').length} 项`)
 
   // ── 断言 4：全选 ──
   const headCheckbox = checkboxes[0]
@@ -207,8 +230,13 @@ export function mount(container, props) {
   const rows = q('.ks-item')
   check('切到自建夹「公司制度」⇒ 列表换成它的 3 篇',
     rows.length === 3, `实际 ${rows.length}`)
-  const detailBtn = rows[0].querySelector('button[aria-label^="打开"]')
+  // ⚠ **本条也随 P1-1 改过（2026-09-20）**：行内常驻的「详情」按钮进了「⋮」菜单
+  //   ⇒ 老写法 `button[aria-label^="打开"]` 找不到东西（会 TypeError 崩在 click 里，
+  //   上面那次实跑就是这么炸的）。新写法：点该行的「⋮」→ 点菜单里的「详情」。
+  const detailBtn = rows[0].querySelector('.ks-item-more button')
   await click(detailBtn)
+  const detailItem = [...document.querySelectorAll('[role=menuitem]')].find((el) => (el.textContent ?? '') === '详情')
+  await click(detailItem)
   const detailText = container.querySelector('.ks-detail')?.textContent ?? ''
   check('详情含 发布日期 / 生效日期 / 废止日期 三个字段',
     ['发布日期', '生效日期', '废止日期'].every((t) => detailText.includes(t)),
