@@ -50,8 +50,9 @@ export const KS_STYLES = `
   --ks-dur-fast:120ms; --ks-dur-base:150ms; --ks-dur-modal:200ms;
   /* 分隔线一律 0.5px（宿主侧本来就是 .5px，跟着它） */
   --ks-sep:.5px;
-  /* 卡片/列表几何（WeKnora：卡片高 136 / 网格 gap 12 / 列表行高 60 / 表头 40 / 左右 16） */
-  --ks-card-h:136px; --ks-card-gap:var(--ks-space-3); --ks-row-h:60px; --ks-head-h:40px;
+  /* 卡片/列表几何（WeKnora：卡片高 136 / 网格 gap 12 / 列表行高 60 / 表头 40 / 左右 16）
+     ⚠ 行高分两档：60 是**全宽**文档列表的数；我们侧栏是 ~300px 窄列，用 44（口径见 UI-BASELINE 二）。 */
+  --ks-card-h:136px; --ks-card-gap:var(--ks-space-3); --ks-row-h:60px; --ks-row-h-narrow:44px; --ks-head-h:40px;
 }
 
 /* ---------- 开始页入口卡（照 TerminalGuide.module.css 的数值） ---------- */
@@ -122,7 +123,7 @@ export const KS_STYLES = `
 .ks-lhead-name{font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 /* 一行文件：勾选框（label 里就是文件名）+ 标签 + 常驻「+标签」 */
 .ks-item{display:flex;align-items:center;gap:var(--ks-space-2);padding:var(--ks-space-1) var(--ks-space-2);
-  border-radius:var(--ks-r-md);min-width:0;flex-wrap:nowrap}
+  border-radius:var(--ks-r-md);min-width:0;flex-wrap:nowrap;min-height:var(--ks-row-h-narrow)}
 .ks-item:hover{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-item-on{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-item .ks-check{flex:1 1 auto;min-width:0}

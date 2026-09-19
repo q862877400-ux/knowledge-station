@@ -32217,8 +32217,9 @@ var KS_STYLES = `
   --ks-dur-fast:120ms; --ks-dur-base:150ms; --ks-dur-modal:200ms;
   /* \u5206\u9694\u7EBF\u4E00\u5F8B 0.5px\uFF08\u5BBF\u4E3B\u4FA7\u672C\u6765\u5C31\u662F .5px\uFF0C\u8DDF\u7740\u5B83\uFF09 */
   --ks-sep:.5px;
-  /* \u5361\u7247/\u5217\u8868\u51E0\u4F55\uFF08WeKnora\uFF1A\u5361\u7247\u9AD8 136 / \u7F51\u683C gap 12 / \u5217\u8868\u884C\u9AD8 60 / \u8868\u5934 40 / \u5DE6\u53F3 16\uFF09 */
-  --ks-card-h:136px; --ks-card-gap:var(--ks-space-3); --ks-row-h:60px; --ks-head-h:40px;
+  /* \u5361\u7247/\u5217\u8868\u51E0\u4F55\uFF08WeKnora\uFF1A\u5361\u7247\u9AD8 136 / \u7F51\u683C gap 12 / \u5217\u8868\u884C\u9AD8 60 / \u8868\u5934 40 / \u5DE6\u53F3 16\uFF09
+     \u26A0 \u884C\u9AD8\u5206\u4E24\u6863\uFF1A60 \u662F**\u5168\u5BBD**\u6587\u6863\u5217\u8868\u7684\u6570\uFF1B\u6211\u4EEC\u4FA7\u680F\u662F ~300px \u7A84\u5217\uFF0C\u7528 44\uFF08\u53E3\u5F84\u89C1 UI-BASELINE \u4E8C\uFF09\u3002 */
+  --ks-card-h:136px; --ks-card-gap:var(--ks-space-3); --ks-row-h:60px; --ks-row-h-narrow:44px; --ks-head-h:40px;
 }
 
 /* ---------- \u5F00\u59CB\u9875\u5165\u53E3\u5361\uFF08\u7167 TerminalGuide.module.css \u7684\u6570\u503C\uFF09 ---------- */
@@ -32289,7 +32290,7 @@ var KS_STYLES = `
 .ks-lhead-name{font-size:13px;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 /* \u4E00\u884C\u6587\u4EF6\uFF1A\u52FE\u9009\u6846\uFF08label \u91CC\u5C31\u662F\u6587\u4EF6\u540D\uFF09+ \u6807\u7B7E + \u5E38\u9A7B\u300C+\u6807\u7B7E\u300D */
 .ks-item{display:flex;align-items:center;gap:var(--ks-space-2);padding:var(--ks-space-1) var(--ks-space-2);
-  border-radius:var(--ks-r-md);min-width:0;flex-wrap:nowrap}
+  border-radius:var(--ks-r-md);min-width:0;flex-wrap:nowrap;min-height:var(--ks-row-h-narrow)}
 .ks-item:hover{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-item-on{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-item .ks-check{flex:1 1 auto;min-width:0}
