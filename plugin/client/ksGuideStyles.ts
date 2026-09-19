@@ -60,7 +60,9 @@ export const KS_STYLES = `
   /* 分隔线一律 0.5px（宿主侧本来就是 .5px，跟着它） */
   --ks-sep:.5px;
   /* 卡片/列表几何（WeKnora：卡片高 136 / 网格 gap 12 / 列表行高 60 / 表头 40 / 左右 16）
-     ⚠ 行高分两档：60 是**全宽**文档列表的数；我们侧栏是 ~300px 窄列，用 44（口径见 UI-BASELINE 二）。 */
+     ⚠ 行高分两档：60 是**全宽**文档列表的数；我们侧栏是 ~300px 窄列，用 44（口径见 UI-BASELINE 二）。
+     ⚠ 卡高（136）在 5a 定义后**长期没人用**（P0-2 点名的"死 token"）——2026-09-20 已由
+       .ks-kb-cards>*{min-height:var(--ks-card-h)} 真正消费掉（同列卡因此等高），不再是暗账。 */
   --ks-card-h:136px; --ks-card-gap:var(--ks-space-3); --ks-row-h:60px; --ks-row-h-narrow:44px; --ks-head-h:40px;
 }
 
@@ -84,9 +86,14 @@ export const KS_STYLES = `
 /* ---------- 知识库页 ---------- */
 .ks-kb{display:flex;flex-direction:column;gap:var(--ks-space-2);font-size:var(--ks-fs-base);color:var(--dsw-alias-label-primary);
   min-height:100%;box-sizing:border-box}
-.ks-kb-banner{font-size:var(--ks-fs-sm);line-height:1.5;color:var(--dsw-alias-state-warn-label);
-  background:var(--dsw-alias-state-warn-tertiary);border:.5px solid var(--dsw-alias-border-l2);
-  border-radius:var(--ks-r-lg);padding:var(--ks-space-2) var(--ks-space-3)}
+/* 诚实告知条（**降级版**，2026-09-20 P0-1）
+   —— 它曾经是"整块 warn 底色 + 描边 + 8/12 内边距"的 4 行警告块：实测 520 下 **92px 高**、
+      1300 下 **56px**，而页标题只有 26px ⇒ 视觉权重是标题的 2.2–3.5 倍，成了全页**唯一的大色块**。
+      但它承载的是**诚实告知**（"数据是占位、后端未接"），内容**不许删** ⇒ 只降视觉权重：
+      去底色、去描边、padding 收 0、文字走 tertiary，长句压成一行（细则进 title=，hover 才看）。
+      参照的等价物是 WeKnora config.png 里那条**单行**带图标条，不是一块橙色面板。 */
+.ks-kb-banner{display:flex;align-items:center;gap:var(--ks-space-1);
+  font-size:var(--ks-fs-sm);line-height:1.5;color:var(--dsw-alias-label-tertiary)}
 /* ---------- 页面骨架（照 WeKnora 列表页：大标题 + 一行副标题 + 细分隔线） ----------
    ⚠ 0.5px 分隔线用 border-top 而不是 height:1px（后者在 1x 屏上是 1px，比参照粗一倍） */
 .ks-page-head{display:flex;flex-direction:column;gap:var(--ks-space-1);padding:var(--ks-space-1) 0 var(--ks-space-3)}
@@ -97,15 +104,50 @@ export const KS_STYLES = `
 .ks-kb-row{display:flex;align-items:center;gap:var(--ks-space-2)}
 .ks-kb-grow{flex:1;min-width:0}
 .ks-kb-hint{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
+/* ---------- 卡片标题档（P0-2，2026-09-20） ----------
+   原来卡片标题写死 13px（行内 style 与 --ks-fs-base）⇒ **卡标题与正文差 0px**，只靠字重分。
+   对照 WeKnora resource-card.less 的 15px/22px w600 + letter-spacing .01em：我们取受限字号表的
+   14px（--ks-fs-md）—— 窄列（208px 的轨）里 15px 会把标题顶得比页面副标题还大、且不在我们的
+   字号表上；14px + 600 已经把"标题 ≠ 正文"这一档立起来了。
+   ⚠ 单行截断（省略号）是刻意的：卡片标题只做识别，不做阅读；长名靠 title= 悬停看全。 */
+.ks-kb-ct{font-size:var(--ks-fs-md);font-weight:600;letter-spacing:.01em;line-height:1.4;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* 卡片描述（与"计数"分开：计数走 .ks-kb-badge 徽章，描述才是这一档）
+   —— 12px secondary（原来是 tertiary，比正文还淡）+ 两行截断（描述长了不再把卡撑高）。 */
+.ks-kb-cd{font-size:var(--ks-fs-sm);line-height:1.5;color:var(--dsw-alias-label-secondary);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  margin:var(--ks-space-1) 0 var(--ks-space-2)}
+/* 卡片页脚（放计数/元数据）：一条 0.5px 上分隔线把它和内容分开（卡内原来三块信息糊成一段）。
+   margin-top:auto 让它在"卡被 min-height 撑高"时贴到卡底（父级是 flex column）。 */
+.ks-kb-foot{display:flex;align-items:center;gap:var(--ks-space-2);
+  margin-top:auto;padding-top:var(--ks-space-2);
+  border-top:var(--ks-sep) solid var(--dsw-alias-border-l2)}
 .ks-kb-btn{border:var(--ks-sep) solid var(--dsw-alias-border-l4);border-radius:var(--ks-r-lg);padding:var(--ks-space-1) var(--ks-space-3);font-size:var(--ks-fs-sm);
   color:var(--dsw-alias-label-secondary);background:transparent;cursor:pointer}
 .ks-kb-btn:hover{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-kb-btn-primary{background:var(--dsw-alias-brand-primary);color:var(--dsw-alias-bg-base);
   border-color:transparent;font-weight:600}
-.ks-kb-card{border:var(--ks-sep) solid var(--dsw-alias-border-l2);border-radius:var(--ks-r-card);padding:var(--ks-space-2) var(--ks-space-3);
-  background:var(--dsw-alias-bg-base)}
-.ks-kb-card:hover{border-color:var(--dsw-alias-border-l4)}
-.ks-kb-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--ks-card-gap)}
+/* ---------- 卡片（P0-3，2026-09-20）：从"描边幽灵"改成宿主 elevation 面 ----------
+   之前只有 .5px 描边 + 与页面同色的白底 ⇒ 520 的图上"是不是卡片"要靠猜，同列高度还有
+   212/115/85 三档。现在：内边距走 12px（网格值）、阴影走**宿主的 elevation 档**
+   （不自己编 rgba —— 深浅色/换肤自动跟随），卡底 0.5px 分隔线（.ks-kb-foot）。
+   ⚠ 官方硬规则：「Elevated surfaces … set border: 0 and take box-shadow: var(--dsw-elevation-*)。
+      Never pair a --dsw-alias-border-* border with an lv/elevation shadow」⇒ 这里 **border:0**，
+      发丝描边由阴影里的 --dsw-elevation-stroke 画（颜色重绑成 border-l2，与改前的描边同档，
+      视觉上只多出一层极淡柔光）。hover 只把描边色提一档，语义与改前一致。 */
+.ks-kb-card{box-sizing:border-box;display:flex;flex-direction:column;
+  border:0;border-radius:var(--ks-r-card);padding:var(--ks-space-3);
+  --dsw-elevation-stroke-color:var(--dsw-alias-border-l2);
+  background:var(--dsw-alias-bg-base);box-shadow:var(--dsw-elevation-soft);
+  transition:box-shadow var(--ks-dur-fast)}
+.ks-kb-card:hover{--dsw-elevation-stroke-color:var(--dsw-alias-border-l4);
+  box-shadow:var(--dsw-elevation-panel)}
+/* 卡片网格：**同列卡等高**（align-items:stretch 是 grid 的默认值，这里写出来当"正面约束"）
+   + 子项吃 --ks-card-h 这门**曾被定义却从未消费**的高度档（见 :root 的说明）。
+   ⚠ 用 min-height 而不是 height：内容多的卡（内联旋钮的能力卡）仍能长高，不会被截断。 */
+.ks-kb-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--ks-card-gap);
+  align-items:stretch}
+.ks-kb-cards>*{min-height:var(--ks-card-h)}
 .ks-kb-sec{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary);margin-top:var(--ks-space-1)}
 .ks-kb-tree{font-size:var(--ks-fs-base)}
 .ks-kb-tline{display:flex;align-items:center;gap:var(--ks-space-1);padding:var(--ks-space-1) var(--ks-space-2);border-radius:var(--ks-r-md);cursor:pointer}
@@ -154,10 +196,25 @@ export const KS_STYLES = `
    改法（克制，不动行结构）：① 文件名只用**内容宽**、上限 40%（窄列下自然更小）；
    ② 标签簇改成"内容宽 + 可缩"，紧跟在文件名后面 ⇒ 不再有那 300px 死白；
    ③ 右侧按钮组的第一个 btn 用 margin-left:auto 钉在行尾（操作列对齐，与文件名长短无关）。
+   ⚠ **P0-4（2026-09-20）：上限 40% → 46%**。清单原以为"窄宽下是左轨吃掉宽度"，**实测不成立**：
+       kb@520 量到 .ks-rail 208 / .ks-main **496**（整行！）—— .ks-split 是 flex-wrap，
+       rail 与 main 的 flex-basis 之和 208+8+320 > 496 ⇒ **main 换到下一行、拿满整行宽**，
+       文件名根本没被左轨挤。真正卡住它的是**这个上限**：40% × 480（= .ks-item **内容盒** 496-16）
+       = 192，量到的 nameW 正是 192；而该行文件名（GB 50016-2014 建筑设计防火规范）在 1300 下
+       量到的内容宽是 **218** ⇒ 差 26px 被截。**百分比是按内容盒解析的**（第一版写 45% 量到 216，
+       仍差 2px —— 这个坑记在这里，免得下次又按边框盒算）。
+       46% × 480 = 220.8 ≥ 218 ⇒ 520 下这一行**全名显示**（UI-BASELINE 第六节的实测复验）。
+       为什么不是更大：行内非文件名部分（标签簇 122 + ＋标签 56 + 详情 40 + 3 个 gap 24）= 242px
+       ⇒ 文件名的安全上限是 (480-242)/480 = **49.6%**；取 46% 留 ~17px 余量给标签更多的行。
+       ⚠ 顺带记下**不改 .ks-rail** 的理由：把 rail 改 clamp(140px,34%,208px) 后 168.6+8+320 = 496.6 > 496，
+       仍然换行 ⇒ main 还是 496（文件名不受益），而 rail 里的树名（本就只有 152px）被多截一档 —— 净亏。
    ⚠ 注释里不许出现反引号（整段 CSS 是一个模板字符串）—— 本轮已踩**第五次**（2026-09-20 5c：
      写了一句『右侧按钮组 「margin-left:auto」钉在行尾』，那对反引号把模板截断，
-     esbuild 报 "Expected ; but found margin"）。写 CSS 属性名时**直接写**，不要加引号装饰。 */
-.ks-item .ks-check{flex:0 1 auto;min-width:0;max-width:40%}
+     esbuild 报 "Expected ; but found margin"）。写 CSS 属性名时**直接写**，不要加引号装饰。
+   ⚠ **第七次（2026-09-20 P0-4，就在上面那段新注释里）**：写了 .ks-split 的反引号 ⇒ 产物直接
+     构建期报 「split is not defined」。教训：**新写的注释里一个反引号都不许有**，写完必须
+     「node scripts/build-client.mjs」跑一次（这次是构建立刻抓到，没有流到产物里）。 */
+.ks-item .ks-check{flex:0 1 auto;min-width:0;max-width:46%}
 /* Checkbox 的可见文字就是文件名：撑开、可截断，别换行把行搞高 */
 .ks-item .ks-check>span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   color:var(--dsw-alias-label-secondary);font-size:var(--ks-fs-base)}
@@ -188,6 +245,10 @@ export const KS_STYLES = `
   --dsw-elevation-stroke-color:var(--dsw-alias-border-l1);
   box-shadow:var(--dsw-elevation-prominent)}
 .ks-batch-n{font-size:var(--ks-fs-sm);font-weight:600}
+/* 危险动作（批量删除）的文字色：走宿主 state-error（**参照里也是红字**）。
+   ⚠ 选择器写成 .ks-batch .ks-danger（0,2,0）：宿主的 Button CSS Module 类也是 (0,1,0)，
+     同权重时"谁在后面谁赢"不可控 ⇒ 必须靠权重压过去，不能靠插入顺序。 */
+.ks-batch .ks-danger{color:var(--dsw-alias-state-error-primary)}
 /* 详情字段：日期这一类 label/value 成对 */
 .ks-fields{display:flex;flex-direction:column;gap:var(--ks-space-1)}
 .ks-field{display:flex;gap:var(--ks-space-2);font-size:var(--ks-fs-sm);line-height:1.5}
@@ -207,6 +268,17 @@ export const KS_STYLES = `
   color:var(--dsw-alias-label-tertiary)}
 .ks-parse-in{flex:1 1 220px;min-width:180px}
 .ks-empty{padding:var(--ks-space-4) var(--ks-space-2);text-align:center;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
+/* ---------- 空态卡（P0-5，2026-09-20）：把"一句话居中灰字"升级成分层空态 ----------
+   照 WeKnora EmptyState：30px 图标装在 **64px 圆**里 + 标题 + 描述（限宽 360）+ 可选主按钮。
+   ⚠ 标题用 --ks-fs-lg(16px) 而不是参照的 15px：15 不在我们的受限字号表里（见 :root），
+     为"逐字像参照"把 15px 塞回来正是这份 UI 基线明令禁止的（尺度表要成体系）。
+   圆点必须配 corner-shape:round（官方 web-styling 的硬规则，见 .ks-dot 的注释）。 */
+.ks-empty-card{display:flex;flex-direction:column;align-items:center;gap:var(--ks-space-2);
+  padding:var(--ks-space-8) var(--ks-space-4);text-align:center}
+.ks-empty-ico{display:flex;align-items:center;justify-content:center;width:64px;height:64px;
+  border-radius:50%;corner-shape:round;background:var(--dsw-alias-bg-layer-3);color:var(--dsw-alias-label-tertiary)}
+.ks-empty-t{font-size:var(--ks-fs-lg);font-weight:600}
+.ks-empty-d{max-width:360px;font-size:var(--ks-fs-base);line-height:1.5;color:var(--dsw-alias-label-secondary)}
 /* ⚠ corner-shape:round 是**必须的配对**：官方 docs/web-styling.md「Pair "corner-shape: round"
    with every full-round "border-radius" ("50%", "100%", or a pill radius) so circles and capsules
    keep circular arcs」—— 少了它，支持 superellipse 的 Chromium 上圆点会被压成方角。
@@ -215,9 +287,23 @@ export const KS_STYLES = `
   background:var(--dsw-alias-label-caption)}
 
 /* ---------- 能力页（一功能一卡一窗） ---------- */
-.ks-cap-card{display:flex;flex-direction:column;gap:var(--ks-space-1);border:.5px solid var(--dsw-alias-border-l2);
-  border-radius:var(--ks-r-card);padding:var(--ks-space-2) var(--ks-space-3);background:var(--dsw-alias-bg-base)}
-.ks-cap-card:hover{border-color:var(--dsw-alias-border-l4)}
+.ks-cap-card{box-sizing:border-box;display:flex;flex-direction:column;gap:var(--ks-space-1);
+  border:0;border-radius:var(--ks-r-card);padding:var(--ks-space-3);
+  --dsw-elevation-stroke-color:var(--dsw-alias-border-l2);
+  background:var(--dsw-alias-bg-base);box-shadow:var(--dsw-elevation-soft);
+  transition:box-shadow var(--ks-dur-fast)}
+.ks-cap-card:hover{--dsw-elevation-stroke-color:var(--dsw-alias-border-l4);
+  box-shadow:var(--dsw-elevation-panel)}
+/* 补位卡（P0-5）：把每组卡的**末行补满**（照 WeKnora skill-catalog 那张虚线「＋」）。
+   ⚠ 关键是 grid-column-end:-1 —— **负行号数的是显式网格的最后一条列线**，而 repeat(auto-fill,…)
+     生成的轨道**就是**显式网格 ⇒ 这张卡自动"从下一个空位铺到本行末尾"。于是列数由 CSS 自己算，
+     2 列/3 列/5 列都铺满，不必让 JS 去量列宽（本仓的离屏渲染器跑在 jsdom 里，没有 ResizeObserver
+     也量不出 grid-template-columns ⇒ 任何"JS 量列数"的写法在截图里都看不见、无法自检）。
+   它只占位、不可点（后端未接，做一个假按钮更糟）⇒ aria-hidden + title 说明。
+   高度由 .ks-kb-cards>*{min-height:var(--ks-card-h)} 与 grid 的 stretch 保证与同排卡齐平。 */
+.ks-cap-card-add{grid-column:auto / -1;box-sizing:border-box;display:flex;align-items:center;justify-content:center;
+  gap:var(--ks-space-2);border:var(--ks-sep) dashed var(--dsw-alias-border-l4);border-radius:var(--ks-r-card);
+  color:var(--dsw-alias-label-tertiary);font-size:var(--ks-fs-sm)}
 /* 引擎侧现状：低调一行，别抢卡片的注意力 */
 .ks-cap-engine{font-size:var(--ks-fs-xs);color:var(--dsw-alias-label-caption);margin-bottom:var(--ks-space-1)}
 .ks-cap-inline{display:flex;flex-direction:column;gap:var(--ks-space-1);margin-bottom:var(--ks-space-1)}

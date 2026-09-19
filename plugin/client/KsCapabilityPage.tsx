@@ -27,7 +27,7 @@
  */
 
 import { useState, type ReactNode } from 'react'
-import { Button, Checkbox, Input, Modal, Pill, Switch, Tag } from '@deepseek-ai/dsh-client-ui-primitives'
+import { Button, Checkbox, IconInfoOutline14, IconPlusOutline16, Input, Modal, Pill, Switch, Tag } from '@deepseek-ai/dsh-client-ui-primitives'
 
 import { ensureKsStyles } from './ksGuideStyles'
 
@@ -250,10 +250,10 @@ function CapabilityCard({ cap, onOpen, open, setKnobValue, values }: {
   return (
     <div className="ks-cap-card">
       <div className="ks-kb-row">
-        <strong className="ks-kb-grow" style={{ fontSize: 'var(--ks-fs-base)' }}>{cap.name}</strong>
+        <strong className="ks-kb-grow ks-kb-ct" title={cap.name}>{cap.name}</strong>
         <Tag tone={cap.group === 'experimental' ? 'warning' : 'neutral'}>{cap.knobs.length} 个旋钮</Tag>
       </div>
-      <div className="ks-kb-hint" style={{ margin: '4px 0 8px' }}>{cap.desc}</div>
+      <div className="ks-kb-cd">{cap.desc}</div>
       <div className="ks-cap-engine">{cap.engine}</div>
       {inline ? (
         <>
@@ -321,10 +321,14 @@ export function KsCapabilityPage(): ReactNode {
       </header>
       <div className="ks-page-rule" />
 
-      <div className="ks-kb-banner">
-        <strong>UI 先行：旋钮是占位，后端接口未接。</strong>
-        这一页的结构是业主指定的：<strong>一个功能一张卡，点开就是它自己的全部旋钮</strong>，
-        而不是全部塞进设置里。但<strong>交互是真的</strong>（开关能拨、选项能选、窗能开），可以直接点着体验。
+      {/* 诚实告知条（降级版，同知识库页 P0-1）：内容没删，细则进 title=，一行灰字即可 */}
+      <div
+        className="ks-kb-banner"
+        title={'这一页的结构是业主指定的：一个功能一张卡，点开就是它自己的全部旋钮，而不是全部塞进设置里。'
+          + '交互是真的（开关能拨、选项能选、窗能开），可以直接点着体验。'}
+      >
+        <IconInfoOutline14 />
+        <strong>UI 先行：旋钮是占位，后端未接</strong>
       </div>
 
       <div className="ks-kb-row">
@@ -347,6 +351,15 @@ export function KsCapabilityPage(): ReactNode {
                   values={valuesFor(cap.id)}
                 />
               ))}
+              {/* 末行补位（P0-5）：一组一张虚线「＋ 添加能力」卡（照 WeKnora skill-catalog 第 4 格）。
+                  ⚠ **列数是 CSS 自己算的，不由 JS 猜**：.ks-cap-card-add 的 grid-column-end 用 -1
+                    （= 显式网格的最后一条列线）⇒ 它从"下一个空位"一直铺到本行末尾，
+                    于是无论 auto-fill 算出 2 列、3 列还是 5 列，这一行都被**铺满**、不再留孤位。
+                    它不可点（后端未接，做成假按钮更糟）⇒ aria-hidden + title 说明。 */}
+              <div className="ks-cap-card-add" aria-hidden="true" title="占位：将来在这里添加一项自己的功能">
+                <IconPlusOutline16 size={20} />
+                添加能力
+              </div>
             </div>
           </div>
         )

@@ -119,6 +119,12 @@ await writeFile(primitivesStubPath, [
   'export const Modal = Null',
   'export const Menu = Null',
   'export const IconChevronDownOutline14 = Null',
+  // P0-1/P0-5 起我们真的调用了这几个宿主图标（见 plugin/client/ksHostPrimitives.d.ts）：
+  // 桩里必须有同名导出，否则这里就是 `No matching export`（第五步 P0 时实测红过一次）。
+  'export const IconInfoOutline14 = Null',
+  'export const IconPlusOutline16 = Null',
+  'export const IconFolderOpenOutline16 = Null',
+  'export const IconTrashOutline16 = Null',
   '',
 ].join('\n'), 'utf8')
 await writeFile(entryPath,

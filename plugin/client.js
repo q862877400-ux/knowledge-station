@@ -32227,7 +32227,9 @@ var KS_STYLES = `
   /* \u5206\u9694\u7EBF\u4E00\u5F8B 0.5px\uFF08\u5BBF\u4E3B\u4FA7\u672C\u6765\u5C31\u662F .5px\uFF0C\u8DDF\u7740\u5B83\uFF09 */
   --ks-sep:.5px;
   /* \u5361\u7247/\u5217\u8868\u51E0\u4F55\uFF08WeKnora\uFF1A\u5361\u7247\u9AD8 136 / \u7F51\u683C gap 12 / \u5217\u8868\u884C\u9AD8 60 / \u8868\u5934 40 / \u5DE6\u53F3 16\uFF09
-     \u26A0 \u884C\u9AD8\u5206\u4E24\u6863\uFF1A60 \u662F**\u5168\u5BBD**\u6587\u6863\u5217\u8868\u7684\u6570\uFF1B\u6211\u4EEC\u4FA7\u680F\u662F ~300px \u7A84\u5217\uFF0C\u7528 44\uFF08\u53E3\u5F84\u89C1 UI-BASELINE \u4E8C\uFF09\u3002 */
+     \u26A0 \u884C\u9AD8\u5206\u4E24\u6863\uFF1A60 \u662F**\u5168\u5BBD**\u6587\u6863\u5217\u8868\u7684\u6570\uFF1B\u6211\u4EEC\u4FA7\u680F\u662F ~300px \u7A84\u5217\uFF0C\u7528 44\uFF08\u53E3\u5F84\u89C1 UI-BASELINE \u4E8C\uFF09\u3002
+     \u26A0 \u5361\u9AD8\uFF08136\uFF09\u5728 5a \u5B9A\u4E49\u540E**\u957F\u671F\u6CA1\u4EBA\u7528**\uFF08P0-2 \u70B9\u540D\u7684"\u6B7B token"\uFF09\u2014\u20142026-09-20 \u5DF2\u7531
+       .ks-kb-cards>*{min-height:var(--ks-card-h)} \u771F\u6B63\u6D88\u8D39\u6389\uFF08\u540C\u5217\u5361\u56E0\u6B64\u7B49\u9AD8\uFF09\uFF0C\u4E0D\u518D\u662F\u6697\u8D26\u3002 */
   --ks-card-h:136px; --ks-card-gap:var(--ks-space-3); --ks-row-h:60px; --ks-row-h-narrow:44px; --ks-head-h:40px;
 }
 
@@ -32251,9 +32253,14 @@ var KS_STYLES = `
 /* ---------- \u77E5\u8BC6\u5E93\u9875 ---------- */
 .ks-kb{display:flex;flex-direction:column;gap:var(--ks-space-2);font-size:var(--ks-fs-base);color:var(--dsw-alias-label-primary);
   min-height:100%;box-sizing:border-box}
-.ks-kb-banner{font-size:var(--ks-fs-sm);line-height:1.5;color:var(--dsw-alias-state-warn-label);
-  background:var(--dsw-alias-state-warn-tertiary);border:.5px solid var(--dsw-alias-border-l2);
-  border-radius:var(--ks-r-lg);padding:var(--ks-space-2) var(--ks-space-3)}
+/* \u8BDA\u5B9E\u544A\u77E5\u6761\uFF08**\u964D\u7EA7\u7248**\uFF0C2026-09-20 P0-1\uFF09
+   \u2014\u2014 \u5B83\u66FE\u7ECF\u662F"\u6574\u5757 warn \u5E95\u8272 + \u63CF\u8FB9 + 8/12 \u5185\u8FB9\u8DDD"\u7684 4 \u884C\u8B66\u544A\u5757\uFF1A\u5B9E\u6D4B 520 \u4E0B **92px \u9AD8**\u3001
+      1300 \u4E0B **56px**\uFF0C\u800C\u9875\u6807\u9898\u53EA\u6709 26px \u21D2 \u89C6\u89C9\u6743\u91CD\u662F\u6807\u9898\u7684 2.2\u20133.5 \u500D\uFF0C\u6210\u4E86\u5168\u9875**\u552F\u4E00\u7684\u5927\u8272\u5757**\u3002
+      \u4F46\u5B83\u627F\u8F7D\u7684\u662F**\u8BDA\u5B9E\u544A\u77E5**\uFF08"\u6570\u636E\u662F\u5360\u4F4D\u3001\u540E\u7AEF\u672A\u63A5"\uFF09\uFF0C\u5185\u5BB9**\u4E0D\u8BB8\u5220** \u21D2 \u53EA\u964D\u89C6\u89C9\u6743\u91CD\uFF1A
+      \u53BB\u5E95\u8272\u3001\u53BB\u63CF\u8FB9\u3001padding \u6536 0\u3001\u6587\u5B57\u8D70 tertiary\uFF0C\u957F\u53E5\u538B\u6210\u4E00\u884C\uFF08\u7EC6\u5219\u8FDB title=\uFF0Chover \u624D\u770B\uFF09\u3002
+      \u53C2\u7167\u7684\u7B49\u4EF7\u7269\u662F WeKnora config.png \u91CC\u90A3\u6761**\u5355\u884C**\u5E26\u56FE\u6807\u6761\uFF0C\u4E0D\u662F\u4E00\u5757\u6A59\u8272\u9762\u677F\u3002 */
+.ks-kb-banner{display:flex;align-items:center;gap:var(--ks-space-1);
+  font-size:var(--ks-fs-sm);line-height:1.5;color:var(--dsw-alias-label-tertiary)}
 /* ---------- \u9875\u9762\u9AA8\u67B6\uFF08\u7167 WeKnora \u5217\u8868\u9875\uFF1A\u5927\u6807\u9898 + \u4E00\u884C\u526F\u6807\u9898 + \u7EC6\u5206\u9694\u7EBF\uFF09 ----------
    \u26A0 0.5px \u5206\u9694\u7EBF\u7528 border-top \u800C\u4E0D\u662F height:1px\uFF08\u540E\u8005\u5728 1x \u5C4F\u4E0A\u662F 1px\uFF0C\u6BD4\u53C2\u7167\u7C97\u4E00\u500D\uFF09 */
 .ks-page-head{display:flex;flex-direction:column;gap:var(--ks-space-1);padding:var(--ks-space-1) 0 var(--ks-space-3)}
@@ -32264,15 +32271,50 @@ var KS_STYLES = `
 .ks-kb-row{display:flex;align-items:center;gap:var(--ks-space-2)}
 .ks-kb-grow{flex:1;min-width:0}
 .ks-kb-hint{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
+/* ---------- \u5361\u7247\u6807\u9898\u6863\uFF08P0-2\uFF0C2026-09-20\uFF09 ----------
+   \u539F\u6765\u5361\u7247\u6807\u9898\u5199\u6B7B 13px\uFF08\u884C\u5185 style \u4E0E --ks-fs-base\uFF09\u21D2 **\u5361\u6807\u9898\u4E0E\u6B63\u6587\u5DEE 0px**\uFF0C\u53EA\u9760\u5B57\u91CD\u5206\u3002
+   \u5BF9\u7167 WeKnora resource-card.less \u7684 15px/22px w600 + letter-spacing .01em\uFF1A\u6211\u4EEC\u53D6\u53D7\u9650\u5B57\u53F7\u8868\u7684
+   14px\uFF08--ks-fs-md\uFF09\u2014\u2014 \u7A84\u5217\uFF08208px \u7684\u8F68\uFF09\u91CC 15px \u4F1A\u628A\u6807\u9898\u9876\u5F97\u6BD4\u9875\u9762\u526F\u6807\u9898\u8FD8\u5927\u3001\u4E14\u4E0D\u5728\u6211\u4EEC\u7684
+   \u5B57\u53F7\u8868\u4E0A\uFF1B14px + 600 \u5DF2\u7ECF\u628A"\u6807\u9898 \u2260 \u6B63\u6587"\u8FD9\u4E00\u6863\u7ACB\u8D77\u6765\u4E86\u3002
+   \u26A0 \u5355\u884C\u622A\u65AD\uFF08\u7701\u7565\u53F7\uFF09\u662F\u523B\u610F\u7684\uFF1A\u5361\u7247\u6807\u9898\u53EA\u505A\u8BC6\u522B\uFF0C\u4E0D\u505A\u9605\u8BFB\uFF1B\u957F\u540D\u9760 title= \u60AC\u505C\u770B\u5168\u3002 */
+.ks-kb-ct{font-size:var(--ks-fs-md);font-weight:600;letter-spacing:.01em;line-height:1.4;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* \u5361\u7247\u63CF\u8FF0\uFF08\u4E0E"\u8BA1\u6570"\u5206\u5F00\uFF1A\u8BA1\u6570\u8D70 .ks-kb-badge \u5FBD\u7AE0\uFF0C\u63CF\u8FF0\u624D\u662F\u8FD9\u4E00\u6863\uFF09
+   \u2014\u2014 12px secondary\uFF08\u539F\u6765\u662F tertiary\uFF0C\u6BD4\u6B63\u6587\u8FD8\u6DE1\uFF09+ \u4E24\u884C\u622A\u65AD\uFF08\u63CF\u8FF0\u957F\u4E86\u4E0D\u518D\u628A\u5361\u6491\u9AD8\uFF09\u3002 */
+.ks-kb-cd{font-size:var(--ks-fs-sm);line-height:1.5;color:var(--dsw-alias-label-secondary);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  margin:var(--ks-space-1) 0 var(--ks-space-2)}
+/* \u5361\u7247\u9875\u811A\uFF08\u653E\u8BA1\u6570/\u5143\u6570\u636E\uFF09\uFF1A\u4E00\u6761 0.5px \u4E0A\u5206\u9694\u7EBF\u628A\u5B83\u548C\u5185\u5BB9\u5206\u5F00\uFF08\u5361\u5185\u539F\u6765\u4E09\u5757\u4FE1\u606F\u7CCA\u6210\u4E00\u6BB5\uFF09\u3002
+   margin-top:auto \u8BA9\u5B83\u5728"\u5361\u88AB min-height \u6491\u9AD8"\u65F6\u8D34\u5230\u5361\u5E95\uFF08\u7236\u7EA7\u662F flex column\uFF09\u3002 */
+.ks-kb-foot{display:flex;align-items:center;gap:var(--ks-space-2);
+  margin-top:auto;padding-top:var(--ks-space-2);
+  border-top:var(--ks-sep) solid var(--dsw-alias-border-l2)}
 .ks-kb-btn{border:var(--ks-sep) solid var(--dsw-alias-border-l4);border-radius:var(--ks-r-lg);padding:var(--ks-space-1) var(--ks-space-3);font-size:var(--ks-fs-sm);
   color:var(--dsw-alias-label-secondary);background:transparent;cursor:pointer}
 .ks-kb-btn:hover{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-kb-btn-primary{background:var(--dsw-alias-brand-primary);color:var(--dsw-alias-bg-base);
   border-color:transparent;font-weight:600}
-.ks-kb-card{border:var(--ks-sep) solid var(--dsw-alias-border-l2);border-radius:var(--ks-r-card);padding:var(--ks-space-2) var(--ks-space-3);
-  background:var(--dsw-alias-bg-base)}
-.ks-kb-card:hover{border-color:var(--dsw-alias-border-l4)}
-.ks-kb-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--ks-card-gap)}
+/* ---------- \u5361\u7247\uFF08P0-3\uFF0C2026-09-20\uFF09\uFF1A\u4ECE"\u63CF\u8FB9\u5E7D\u7075"\u6539\u6210\u5BBF\u4E3B elevation \u9762 ----------
+   \u4E4B\u524D\u53EA\u6709 .5px \u63CF\u8FB9 + \u4E0E\u9875\u9762\u540C\u8272\u7684\u767D\u5E95 \u21D2 520 \u7684\u56FE\u4E0A"\u662F\u4E0D\u662F\u5361\u7247"\u8981\u9760\u731C\uFF0C\u540C\u5217\u9AD8\u5EA6\u8FD8\u6709
+   212/115/85 \u4E09\u6863\u3002\u73B0\u5728\uFF1A\u5185\u8FB9\u8DDD\u8D70 12px\uFF08\u7F51\u683C\u503C\uFF09\u3001\u9634\u5F71\u8D70**\u5BBF\u4E3B\u7684 elevation \u6863**
+   \uFF08\u4E0D\u81EA\u5DF1\u7F16 rgba \u2014\u2014 \u6DF1\u6D45\u8272/\u6362\u80A4\u81EA\u52A8\u8DDF\u968F\uFF09\uFF0C\u5361\u5E95 0.5px \u5206\u9694\u7EBF\uFF08.ks-kb-foot\uFF09\u3002
+   \u26A0 \u5B98\u65B9\u786C\u89C4\u5219\uFF1A\u300CElevated surfaces \u2026 set border: 0 and take box-shadow: var(--dsw-elevation-*)\u3002
+      Never pair a --dsw-alias-border-* border with an lv/elevation shadow\u300D\u21D2 \u8FD9\u91CC **border:0**\uFF0C
+      \u53D1\u4E1D\u63CF\u8FB9\u7531\u9634\u5F71\u91CC\u7684 --dsw-elevation-stroke \u753B\uFF08\u989C\u8272\u91CD\u7ED1\u6210 border-l2\uFF0C\u4E0E\u6539\u524D\u7684\u63CF\u8FB9\u540C\u6863\uFF0C
+      \u89C6\u89C9\u4E0A\u53EA\u591A\u51FA\u4E00\u5C42\u6781\u6DE1\u67D4\u5149\uFF09\u3002hover \u53EA\u628A\u63CF\u8FB9\u8272\u63D0\u4E00\u6863\uFF0C\u8BED\u4E49\u4E0E\u6539\u524D\u4E00\u81F4\u3002 */
+.ks-kb-card{box-sizing:border-box;display:flex;flex-direction:column;
+  border:0;border-radius:var(--ks-r-card);padding:var(--ks-space-3);
+  --dsw-elevation-stroke-color:var(--dsw-alias-border-l2);
+  background:var(--dsw-alias-bg-base);box-shadow:var(--dsw-elevation-soft);
+  transition:box-shadow var(--ks-dur-fast)}
+.ks-kb-card:hover{--dsw-elevation-stroke-color:var(--dsw-alias-border-l4);
+  box-shadow:var(--dsw-elevation-panel)}
+/* \u5361\u7247\u7F51\u683C\uFF1A**\u540C\u5217\u5361\u7B49\u9AD8**\uFF08align-items:stretch \u662F grid \u7684\u9ED8\u8BA4\u503C\uFF0C\u8FD9\u91CC\u5199\u51FA\u6765\u5F53"\u6B63\u9762\u7EA6\u675F"\uFF09
+   + \u5B50\u9879\u5403 --ks-card-h \u8FD9\u95E8**\u66FE\u88AB\u5B9A\u4E49\u5374\u4ECE\u672A\u6D88\u8D39**\u7684\u9AD8\u5EA6\u6863\uFF08\u89C1 :root \u7684\u8BF4\u660E\uFF09\u3002
+   \u26A0 \u7528 min-height \u800C\u4E0D\u662F height\uFF1A\u5185\u5BB9\u591A\u7684\u5361\uFF08\u5185\u8054\u65CB\u94AE\u7684\u80FD\u529B\u5361\uFF09\u4ECD\u80FD\u957F\u9AD8\uFF0C\u4E0D\u4F1A\u88AB\u622A\u65AD\u3002 */
+.ks-kb-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--ks-card-gap);
+  align-items:stretch}
+.ks-kb-cards>*{min-height:var(--ks-card-h)}
 .ks-kb-sec{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary);margin-top:var(--ks-space-1)}
 .ks-kb-tree{font-size:var(--ks-fs-base)}
 .ks-kb-tline{display:flex;align-items:center;gap:var(--ks-space-1);padding:var(--ks-space-1) var(--ks-space-2);border-radius:var(--ks-r-md);cursor:pointer}
@@ -32321,10 +32363,25 @@ var KS_STYLES = `
    \u6539\u6CD5\uFF08\u514B\u5236\uFF0C\u4E0D\u52A8\u884C\u7ED3\u6784\uFF09\uFF1A\u2460 \u6587\u4EF6\u540D\u53EA\u7528**\u5185\u5BB9\u5BBD**\u3001\u4E0A\u9650 40%\uFF08\u7A84\u5217\u4E0B\u81EA\u7136\u66F4\u5C0F\uFF09\uFF1B
    \u2461 \u6807\u7B7E\u7C07\u6539\u6210"\u5185\u5BB9\u5BBD + \u53EF\u7F29"\uFF0C\u7D27\u8DDF\u5728\u6587\u4EF6\u540D\u540E\u9762 \u21D2 \u4E0D\u518D\u6709\u90A3 300px \u6B7B\u767D\uFF1B
    \u2462 \u53F3\u4FA7\u6309\u94AE\u7EC4\u7684\u7B2C\u4E00\u4E2A btn \u7528 margin-left:auto \u9489\u5728\u884C\u5C3E\uFF08\u64CD\u4F5C\u5217\u5BF9\u9F50\uFF0C\u4E0E\u6587\u4EF6\u540D\u957F\u77ED\u65E0\u5173\uFF09\u3002
+   \u26A0 **P0-4\uFF082026-09-20\uFF09\uFF1A\u4E0A\u9650 40% \u2192 46%**\u3002\u6E05\u5355\u539F\u4EE5\u4E3A"\u7A84\u5BBD\u4E0B\u662F\u5DE6\u8F68\u5403\u6389\u5BBD\u5EA6"\uFF0C**\u5B9E\u6D4B\u4E0D\u6210\u7ACB**\uFF1A
+       kb@520 \u91CF\u5230 .ks-rail 208 / .ks-main **496**\uFF08\u6574\u884C\uFF01\uFF09\u2014\u2014 .ks-split \u662F flex-wrap\uFF0C
+       rail \u4E0E main \u7684 flex-basis \u4E4B\u548C 208+8+320 > 496 \u21D2 **main \u6362\u5230\u4E0B\u4E00\u884C\u3001\u62FF\u6EE1\u6574\u884C\u5BBD**\uFF0C
+       \u6587\u4EF6\u540D\u6839\u672C\u6CA1\u88AB\u5DE6\u8F68\u6324\u3002\u771F\u6B63\u5361\u4F4F\u5B83\u7684\u662F**\u8FD9\u4E2A\u4E0A\u9650**\uFF1A40% \xD7 480\uFF08= .ks-item **\u5185\u5BB9\u76D2** 496-16\uFF09
+       = 192\uFF0C\u91CF\u5230\u7684 nameW \u6B63\u662F 192\uFF1B\u800C\u8BE5\u884C\u6587\u4EF6\u540D\uFF08GB 50016-2014 \u5EFA\u7B51\u8BBE\u8BA1\u9632\u706B\u89C4\u8303\uFF09\u5728 1300 \u4E0B
+       \u91CF\u5230\u7684\u5185\u5BB9\u5BBD\u662F **218** \u21D2 \u5DEE 26px \u88AB\u622A\u3002**\u767E\u5206\u6BD4\u662F\u6309\u5185\u5BB9\u76D2\u89E3\u6790\u7684**\uFF08\u7B2C\u4E00\u7248\u5199 45% \u91CF\u5230 216\uFF0C
+       \u4ECD\u5DEE 2px \u2014\u2014 \u8FD9\u4E2A\u5751\u8BB0\u5728\u8FD9\u91CC\uFF0C\u514D\u5F97\u4E0B\u6B21\u53C8\u6309\u8FB9\u6846\u76D2\u7B97\uFF09\u3002
+       46% \xD7 480 = 220.8 \u2265 218 \u21D2 520 \u4E0B\u8FD9\u4E00\u884C**\u5168\u540D\u663E\u793A**\uFF08UI-BASELINE \u7B2C\u516D\u8282\u7684\u5B9E\u6D4B\u590D\u9A8C\uFF09\u3002
+       \u4E3A\u4EC0\u4E48\u4E0D\u662F\u66F4\u5927\uFF1A\u884C\u5185\u975E\u6587\u4EF6\u540D\u90E8\u5206\uFF08\u6807\u7B7E\u7C07 122 + \uFF0B\u6807\u7B7E 56 + \u8BE6\u60C5 40 + 3 \u4E2A gap 24\uFF09= 242px
+       \u21D2 \u6587\u4EF6\u540D\u7684\u5B89\u5168\u4E0A\u9650\u662F (480-242)/480 = **49.6%**\uFF1B\u53D6 46% \u7559 ~17px \u4F59\u91CF\u7ED9\u6807\u7B7E\u66F4\u591A\u7684\u884C\u3002
+       \u26A0 \u987A\u5E26\u8BB0\u4E0B**\u4E0D\u6539 .ks-rail** \u7684\u7406\u7531\uFF1A\u628A rail \u6539 clamp(140px,34%,208px) \u540E 168.6+8+320 = 496.6 > 496\uFF0C
+       \u4ECD\u7136\u6362\u884C \u21D2 main \u8FD8\u662F 496\uFF08\u6587\u4EF6\u540D\u4E0D\u53D7\u76CA\uFF09\uFF0C\u800C rail \u91CC\u7684\u6811\u540D\uFF08\u672C\u5C31\u53EA\u6709 152px\uFF09\u88AB\u591A\u622A\u4E00\u6863 \u2014\u2014 \u51C0\u4E8F\u3002
    \u26A0 \u6CE8\u91CA\u91CC\u4E0D\u8BB8\u51FA\u73B0\u53CD\u5F15\u53F7\uFF08\u6574\u6BB5 CSS \u662F\u4E00\u4E2A\u6A21\u677F\u5B57\u7B26\u4E32\uFF09\u2014\u2014 \u672C\u8F6E\u5DF2\u8E29**\u7B2C\u4E94\u6B21**\uFF082026-09-20 5c\uFF1A
      \u5199\u4E86\u4E00\u53E5\u300E\u53F3\u4FA7\u6309\u94AE\u7EC4 \u300Cmargin-left:auto\u300D\u9489\u5728\u884C\u5C3E\u300F\uFF0C\u90A3\u5BF9\u53CD\u5F15\u53F7\u628A\u6A21\u677F\u622A\u65AD\uFF0C
-     esbuild \u62A5 "Expected ; but found margin"\uFF09\u3002\u5199 CSS \u5C5E\u6027\u540D\u65F6**\u76F4\u63A5\u5199**\uFF0C\u4E0D\u8981\u52A0\u5F15\u53F7\u88C5\u9970\u3002 */
-.ks-item .ks-check{flex:0 1 auto;min-width:0;max-width:40%}
+     esbuild \u62A5 "Expected ; but found margin"\uFF09\u3002\u5199 CSS \u5C5E\u6027\u540D\u65F6**\u76F4\u63A5\u5199**\uFF0C\u4E0D\u8981\u52A0\u5F15\u53F7\u88C5\u9970\u3002
+   \u26A0 **\u7B2C\u4E03\u6B21\uFF082026-09-20 P0-4\uFF0C\u5C31\u5728\u4E0A\u9762\u90A3\u6BB5\u65B0\u6CE8\u91CA\u91CC\uFF09**\uFF1A\u5199\u4E86 .ks-split \u7684\u53CD\u5F15\u53F7 \u21D2 \u4EA7\u7269\u76F4\u63A5
+     \u6784\u5EFA\u671F\u62A5 \u300Csplit is not defined\u300D\u3002\u6559\u8BAD\uFF1A**\u65B0\u5199\u7684\u6CE8\u91CA\u91CC\u4E00\u4E2A\u53CD\u5F15\u53F7\u90FD\u4E0D\u8BB8\u6709**\uFF0C\u5199\u5B8C\u5FC5\u987B
+     \u300Cnode scripts/build-client.mjs\u300D\u8DD1\u4E00\u6B21\uFF08\u8FD9\u6B21\u662F\u6784\u5EFA\u7ACB\u523B\u6293\u5230\uFF0C\u6CA1\u6709\u6D41\u5230\u4EA7\u7269\u91CC\uFF09\u3002 */
+.ks-item .ks-check{flex:0 1 auto;min-width:0;max-width:46%}
 /* Checkbox \u7684\u53EF\u89C1\u6587\u5B57\u5C31\u662F\u6587\u4EF6\u540D\uFF1A\u6491\u5F00\u3001\u53EF\u622A\u65AD\uFF0C\u522B\u6362\u884C\u628A\u884C\u641E\u9AD8 */
 .ks-item .ks-check>span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   color:var(--dsw-alias-label-secondary);font-size:var(--ks-fs-base)}
@@ -32355,6 +32412,10 @@ var KS_STYLES = `
   --dsw-elevation-stroke-color:var(--dsw-alias-border-l1);
   box-shadow:var(--dsw-elevation-prominent)}
 .ks-batch-n{font-size:var(--ks-fs-sm);font-weight:600}
+/* \u5371\u9669\u52A8\u4F5C\uFF08\u6279\u91CF\u5220\u9664\uFF09\u7684\u6587\u5B57\u8272\uFF1A\u8D70\u5BBF\u4E3B state-error\uFF08**\u53C2\u7167\u91CC\u4E5F\u662F\u7EA2\u5B57**\uFF09\u3002
+   \u26A0 \u9009\u62E9\u5668\u5199\u6210 .ks-batch .ks-danger\uFF080,2,0\uFF09\uFF1A\u5BBF\u4E3B\u7684 Button CSS Module \u7C7B\u4E5F\u662F (0,1,0)\uFF0C
+     \u540C\u6743\u91CD\u65F6"\u8C01\u5728\u540E\u9762\u8C01\u8D62"\u4E0D\u53EF\u63A7 \u21D2 \u5FC5\u987B\u9760\u6743\u91CD\u538B\u8FC7\u53BB\uFF0C\u4E0D\u80FD\u9760\u63D2\u5165\u987A\u5E8F\u3002 */
+.ks-batch .ks-danger{color:var(--dsw-alias-state-error-primary)}
 /* \u8BE6\u60C5\u5B57\u6BB5\uFF1A\u65E5\u671F\u8FD9\u4E00\u7C7B label/value \u6210\u5BF9 */
 .ks-fields{display:flex;flex-direction:column;gap:var(--ks-space-1)}
 .ks-field{display:flex;gap:var(--ks-space-2);font-size:var(--ks-fs-sm);line-height:1.5}
@@ -32374,6 +32435,17 @@ var KS_STYLES = `
   color:var(--dsw-alias-label-tertiary)}
 .ks-parse-in{flex:1 1 220px;min-width:180px}
 .ks-empty{padding:var(--ks-space-4) var(--ks-space-2);text-align:center;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
+/* ---------- \u7A7A\u6001\u5361\uFF08P0-5\uFF0C2026-09-20\uFF09\uFF1A\u628A"\u4E00\u53E5\u8BDD\u5C45\u4E2D\u7070\u5B57"\u5347\u7EA7\u6210\u5206\u5C42\u7A7A\u6001 ----------
+   \u7167 WeKnora EmptyState\uFF1A30px \u56FE\u6807\u88C5\u5728 **64px \u5706**\u91CC + \u6807\u9898 + \u63CF\u8FF0\uFF08\u9650\u5BBD 360\uFF09+ \u53EF\u9009\u4E3B\u6309\u94AE\u3002
+   \u26A0 \u6807\u9898\u7528 --ks-fs-lg(16px) \u800C\u4E0D\u662F\u53C2\u7167\u7684 15px\uFF1A15 \u4E0D\u5728\u6211\u4EEC\u7684\u53D7\u9650\u5B57\u53F7\u8868\u91CC\uFF08\u89C1 :root\uFF09\uFF0C
+     \u4E3A"\u9010\u5B57\u50CF\u53C2\u7167"\u628A 15px \u585E\u56DE\u6765\u6B63\u662F\u8FD9\u4EFD UI \u57FA\u7EBF\u660E\u4EE4\u7981\u6B62\u7684\uFF08\u5C3A\u5EA6\u8868\u8981\u6210\u4F53\u7CFB\uFF09\u3002
+   \u5706\u70B9\u5FC5\u987B\u914D corner-shape:round\uFF08\u5B98\u65B9 web-styling \u7684\u786C\u89C4\u5219\uFF0C\u89C1 .ks-dot \u7684\u6CE8\u91CA\uFF09\u3002 */
+.ks-empty-card{display:flex;flex-direction:column;align-items:center;gap:var(--ks-space-2);
+  padding:var(--ks-space-8) var(--ks-space-4);text-align:center}
+.ks-empty-ico{display:flex;align-items:center;justify-content:center;width:64px;height:64px;
+  border-radius:50%;corner-shape:round;background:var(--dsw-alias-bg-layer-3);color:var(--dsw-alias-label-tertiary)}
+.ks-empty-t{font-size:var(--ks-fs-lg);font-weight:600}
+.ks-empty-d{max-width:360px;font-size:var(--ks-fs-base);line-height:1.5;color:var(--dsw-alias-label-secondary)}
 /* \u26A0 corner-shape:round \u662F**\u5FC5\u987B\u7684\u914D\u5BF9**\uFF1A\u5B98\u65B9 docs/web-styling.md\u300CPair "corner-shape: round"
    with every full-round "border-radius" ("50%", "100%", or a pill radius) so circles and capsules
    keep circular arcs\u300D\u2014\u2014 \u5C11\u4E86\u5B83\uFF0C\u652F\u6301 superellipse \u7684 Chromium \u4E0A\u5706\u70B9\u4F1A\u88AB\u538B\u6210\u65B9\u89D2\u3002
@@ -32382,9 +32454,23 @@ var KS_STYLES = `
   background:var(--dsw-alias-label-caption)}
 
 /* ---------- \u80FD\u529B\u9875\uFF08\u4E00\u529F\u80FD\u4E00\u5361\u4E00\u7A97\uFF09 ---------- */
-.ks-cap-card{display:flex;flex-direction:column;gap:var(--ks-space-1);border:.5px solid var(--dsw-alias-border-l2);
-  border-radius:var(--ks-r-card);padding:var(--ks-space-2) var(--ks-space-3);background:var(--dsw-alias-bg-base)}
-.ks-cap-card:hover{border-color:var(--dsw-alias-border-l4)}
+.ks-cap-card{box-sizing:border-box;display:flex;flex-direction:column;gap:var(--ks-space-1);
+  border:0;border-radius:var(--ks-r-card);padding:var(--ks-space-3);
+  --dsw-elevation-stroke-color:var(--dsw-alias-border-l2);
+  background:var(--dsw-alias-bg-base);box-shadow:var(--dsw-elevation-soft);
+  transition:box-shadow var(--ks-dur-fast)}
+.ks-cap-card:hover{--dsw-elevation-stroke-color:var(--dsw-alias-border-l4);
+  box-shadow:var(--dsw-elevation-panel)}
+/* \u8865\u4F4D\u5361\uFF08P0-5\uFF09\uFF1A\u628A\u6BCF\u7EC4\u5361\u7684**\u672B\u884C\u8865\u6EE1**\uFF08\u7167 WeKnora skill-catalog \u90A3\u5F20\u865A\u7EBF\u300C\uFF0B\u300D\uFF09\u3002
+   \u26A0 \u5173\u952E\u662F grid-column-end:-1 \u2014\u2014 **\u8D1F\u884C\u53F7\u6570\u7684\u662F\u663E\u5F0F\u7F51\u683C\u7684\u6700\u540E\u4E00\u6761\u5217\u7EBF**\uFF0C\u800C repeat(auto-fill,\u2026)
+     \u751F\u6210\u7684\u8F68\u9053**\u5C31\u662F**\u663E\u5F0F\u7F51\u683C \u21D2 \u8FD9\u5F20\u5361\u81EA\u52A8"\u4ECE\u4E0B\u4E00\u4E2A\u7A7A\u4F4D\u94FA\u5230\u672C\u884C\u672B\u5C3E"\u3002\u4E8E\u662F\u5217\u6570\u7531 CSS \u81EA\u5DF1\u7B97\uFF0C
+     2 \u5217/3 \u5217/5 \u5217\u90FD\u94FA\u6EE1\uFF0C\u4E0D\u5FC5\u8BA9 JS \u53BB\u91CF\u5217\u5BBD\uFF08\u672C\u4ED3\u7684\u79BB\u5C4F\u6E32\u67D3\u5668\u8DD1\u5728 jsdom \u91CC\uFF0C\u6CA1\u6709 ResizeObserver
+     \u4E5F\u91CF\u4E0D\u51FA grid-template-columns \u21D2 \u4EFB\u4F55"JS \u91CF\u5217\u6570"\u7684\u5199\u6CD5\u5728\u622A\u56FE\u91CC\u90FD\u770B\u4E0D\u89C1\u3001\u65E0\u6CD5\u81EA\u68C0\uFF09\u3002
+   \u5B83\u53EA\u5360\u4F4D\u3001\u4E0D\u53EF\u70B9\uFF08\u540E\u7AEF\u672A\u63A5\uFF0C\u505A\u4E00\u4E2A\u5047\u6309\u94AE\u66F4\u7CDF\uFF09\u21D2 aria-hidden + title \u8BF4\u660E\u3002
+   \u9AD8\u5EA6\u7531 .ks-kb-cards>*{min-height:var(--ks-card-h)} \u4E0E grid \u7684 stretch \u4FDD\u8BC1\u4E0E\u540C\u6392\u5361\u9F50\u5E73\u3002 */
+.ks-cap-card-add{grid-column:auto / -1;box-sizing:border-box;display:flex;align-items:center;justify-content:center;
+  gap:var(--ks-space-2);border:var(--ks-sep) dashed var(--dsw-alias-border-l4);border-radius:var(--ks-r-card);
+  color:var(--dsw-alias-label-tertiary);font-size:var(--ks-fs-sm)}
 /* \u5F15\u64CE\u4FA7\u73B0\u72B6\uFF1A\u4F4E\u8C03\u4E00\u884C\uFF0C\u522B\u62A2\u5361\u7247\u7684\u6CE8\u610F\u529B */
 .ks-cap-engine{font-size:var(--ks-fs-xs);color:var(--dsw-alias-label-caption);margin-bottom:var(--ks-space-1)}
 .ks-cap-inline{display:flex;flex-direction:column;gap:var(--ks-space-1);margin-bottom:var(--ks-space-1)}
@@ -32805,13 +32891,13 @@ function CapabilityCard({ cap, onOpen, open, setKnobValue, values }) {
   const inline = cap.knobs.length < 3;
   return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-cap-card", children: [
     /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-kb-row", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { className: "ks-kb-grow", style: { fontSize: "var(--ks-fs-base)" }, children: cap.name }),
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { className: "ks-kb-grow ks-kb-ct", title: cap.name, children: cap.name }),
       /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_dsh_client_ui_primitives2.Tag, { tone: cap.group === "experimental" ? "warning" : "neutral", children: [
         cap.knobs.length,
         " \u4E2A\u65CB\u94AE"
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-kb-hint", style: { margin: "4px 0 8px" }, children: cap.desc }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-kb-cd", children: cap.desc }),
     /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-cap-engine", children: cap.engine }),
     inline ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(import_jsx_runtime7.Fragment, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-cap-inline", children: cap.knobs.map((k) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(KnobControl, { knob: k, value: values[k.id], onChange: (next) => {
@@ -32854,14 +32940,17 @@ function KsCapabilityPage() {
       /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-page-sub", children: "\u4E00\u9879\u80FD\u529B\u4E00\u5F20\u5361\uFF1A\u65CB\u94AE\u5C11\u4E8E 3 \u4E2A\u7684\u5C31\u5730\u5185\u8054\uFF0C\u591F 3 \u4E2A\u7684\u70B9\u5F00\u5B83\u81EA\u5DF1\u7684\u8BBE\u7F6E\u7A97" })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-page-rule" }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-kb-banner", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "UI \u5148\u884C\uFF1A\u65CB\u94AE\u662F\u5360\u4F4D\uFF0C\u540E\u7AEF\u63A5\u53E3\u672A\u63A5\u3002" }),
-      "\u8FD9\u4E00\u9875\u7684\u7ED3\u6784\u662F\u4E1A\u4E3B\u6307\u5B9A\u7684\uFF1A",
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4E00\u4E2A\u529F\u80FD\u4E00\u5F20\u5361\uFF0C\u70B9\u5F00\u5C31\u662F\u5B83\u81EA\u5DF1\u7684\u5168\u90E8\u65CB\u94AE" }),
-      "\uFF0C \u800C\u4E0D\u662F\u5168\u90E8\u585E\u8FDB\u8BBE\u7F6E\u91CC\u3002\u4F46",
-      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "\u4EA4\u4E92\u662F\u771F\u7684" }),
-      "\uFF08\u5F00\u5173\u80FD\u62E8\u3001\u9009\u9879\u80FD\u9009\u3001\u7A97\u80FD\u5F00\uFF09\uFF0C\u53EF\u4EE5\u76F4\u63A5\u70B9\u7740\u4F53\u9A8C\u3002"
-    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+      "div",
+      {
+        className: "ks-kb-banner",
+        title: "\u8FD9\u4E00\u9875\u7684\u7ED3\u6784\u662F\u4E1A\u4E3B\u6307\u5B9A\u7684\uFF1A\u4E00\u4E2A\u529F\u80FD\u4E00\u5F20\u5361\uFF0C\u70B9\u5F00\u5C31\u662F\u5B83\u81EA\u5DF1\u7684\u5168\u90E8\u65CB\u94AE\uFF0C\u800C\u4E0D\u662F\u5168\u90E8\u585E\u8FDB\u8BBE\u7F6E\u91CC\u3002\u4EA4\u4E92\u662F\u771F\u7684\uFF08\u5F00\u5173\u80FD\u62E8\u3001\u9009\u9879\u80FD\u9009\u3001\u7A97\u80FD\u5F00\uFF09\uFF0C\u53EF\u4EE5\u76F4\u63A5\u70B9\u7740\u4F53\u9A8C\u3002",
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_dsh_client_ui_primitives2.IconInfoOutline14, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("strong", { children: "UI \u5148\u884C\uFF1A\u65CB\u94AE\u662F\u5360\u4F4D\uFF0C\u540E\u7AEF\u672A\u63A5" })
+        ]
+      }
+    ),
     /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-kb-row", children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("span", { className: "ks-kb-hint", children: [
       CAPABILITIES.length,
       " \u9879"
@@ -32876,19 +32965,25 @@ function KsCapabilityPage() {
           "\uFF09\u2014 ",
           group.note
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "ks-kb-cards", style: { gridTemplateColumns: "repeat(auto-fill,minmax(230px,1fr))" }, children: items.map((cap) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
-          CapabilityCard,
-          {
-            cap,
-            open: openId === cap.id,
-            onOpen: (id) => {
-              setOpenId(id);
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-kb-cards", style: { gridTemplateColumns: "repeat(auto-fill,minmax(230px,1fr))" }, children: [
+          items.map((cap) => /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+            CapabilityCard,
+            {
+              cap,
+              open: openId === cap.id,
+              onOpen: (id) => {
+                setOpenId(id);
+              },
+              setKnobValue: setKnobValue(cap.id),
+              values: valuesFor(cap.id)
             },
-            setKnobValue: setKnobValue(cap.id),
-            values: valuesFor(cap.id)
-          },
-          cap.id
-        )) })
+            cap.id
+          )),
+          /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "ks-cap-card-add", "aria-hidden": "true", title: "\u5360\u4F4D\uFF1A\u5C06\u6765\u5728\u8FD9\u91CC\u6DFB\u52A0\u4E00\u9879\u81EA\u5DF1\u7684\u529F\u80FD", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_dsh_client_ui_primitives2.IconPlusOutline16, { size: 20 }),
+            "\u6DFB\u52A0\u80FD\u529B"
+          ] })
+        ] })
       ] }, group.id);
     }),
     opened !== null && /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
@@ -33084,10 +33179,10 @@ function renderNodes(nodes, current, onPick, open, toggle, depth = 0) {
 function LibCard({ title, sub, nodes, current, onPick, open, toggle }) {
   return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-card", children: [
     /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-row", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { className: "ks-kb-grow", children: title }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { className: "ks-kb-grow ks-kb-ct", children: title }),
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Tag, { tone: "neutral", children: "\u81EA\u5E26" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-kb-hint", style: { margin: "3px 0 6px" }, children: sub }),
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-kb-cd", children: sub }),
     /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-kb-tree", children: renderNodes(nodes, current, onPick, open, toggle) })
   ] });
 }
@@ -33172,12 +33267,12 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
   if (page !== "manage") {
     const LABELS = { ingest: "\u6587\u4EF6\u5BFC\u5165", report: "\u6548\u529B\u62A5\u544A", channels: "\u6E20\u9053\u53F0\u8D26" };
     return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-banner", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { children: "UI \u5148\u884C\uFF0C\u540E\u7AEF\u672A\u63A5\u3002" }),
-        "\u672C\u9875\u53EA\u843D\u4E86\u5165\u53E3\u4E0E\u5916\u58F3\uFF0C\u6570\u636E\u662F\u9875\u9762\u5185\u7684\u5360\u4F4D\u5E38\u91CF\u3002"
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-banner", title: "\u672C\u9875\u53EA\u843D\u4E86\u5165\u53E3\u4E0E\u5916\u58F3\uFF0C\u6570\u636E\u662F\u9875\u9762\u5185\u7684\u5360\u4F4D\u5E38\u91CF\u3002", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconInfoOutline14, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { children: "UI \u5148\u884C\uFF0C\u540E\u7AEF\u672A\u63A5" })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-card", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { children: LABELS[page] ?? page }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { className: "ks-kb-ct", children: LABELS[page] ?? page }),
         /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-hint", style: { marginTop: 6 }, children: [
           "\u8FD9\u4E00\u9875\u5C1A\u672A\u5B9E\u73B0\u3002\u5B83\u4F1A\u843D\u5728\u540C\u4E00\u4E2A tab \u7C7B\u578B\u91CC\uFF08\u6309 ",
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("code", { children: "params.page" }),
@@ -33196,18 +33291,17 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-page-sub", children: "\u6CD5\u89C4/\u6807\u51C6\u7684\u843D\u70B9\uFF1A\u76EE\u5F55\u6811 + \u6761\u6B3E + \u6807\u7B7E\uFF1B\u989C\u8272\u4E00\u5F8B\u8D70\u5BBF\u4E3B\u4E3B\u9898 token\uFF0C\u6DF1\u6D45\u8272\u81EA\u52A8\u8DDF\u968F" })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-page-rule" }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-banner", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { children: "UI \u5148\u884C\uFF1A\u6570\u636E\u662F\u5360\u4F4D\uFF0C\u540E\u7AEF\u63A5\u53E3\u672A\u63A5" }),
-      "\uFF08dataSource=",
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("code", { children: dataSource }),
-      "\uFF09\u3002 \u4F46",
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { children: "\u4EA4\u4E92\u662F\u771F\u7684" }),
-      "\uFF08\u52FE\u9009/\u5168\u9009/\u6279\u91CF\u52A8\u4F5C/\u6253\u6807\u7B7E\u90FD\u4F5C\u7528\u5728\u9875\u9762\u72B6\u6001\u4E0A\uFF09\uFF0C\u4F60\u53EF\u4EE5\u76F4\u63A5\u70B9\u7740\u4F53\u9A8C\u3002 \u5C42\u7EA7\u540D\u53D6\u81EA ",
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("code", { children: "doc_catalog" }),
-      " \u7684\u6743\u5A01 CCS \u8868\uFF1B\u5C06\u6765\u8FD9\u9875\u63A5",
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("code", { children: " GET /api/v1/documents/categories" }),
-      " \u5373\u53EF\uFF0C\u4E0D\u5FC5\u91CD\u753B\u5206\u7C7B\u6CD5\u3002"
-    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+      "div",
+      {
+        className: "ks-kb-banner",
+        title: `\u4EA4\u4E92\u662F\u771F\u7684\uFF1A\u52FE\u9009 / \u5168\u9009 / \u6279\u91CF\u52A8\u4F5C / \u6253\u6807\u7B7E\u90FD\u4F5C\u7528\u5728\u9875\u9762\u72B6\u6001\u4E0A\uFF0C\u53EF\u4EE5\u76F4\u63A5\u70B9\u7740\u4F53\u9A8C\u3002\u5C42\u7EA7\u540D\u53D6\u81EA doc_catalog \u7684\u6743\u5A01 CCS \u8868\uFF1B\u5C06\u6765\u8FD9\u9875\u63A5 GET /api/v1/documents/categories \u5373\u53EF\uFF0C\u4E0D\u5FC5\u91CD\u753B\u5206\u7C7B\u6CD5\u3002dataSource=${dataSource}`,
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconInfoOutline14, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { children: "UI \u5148\u884C\uFF1A\u6570\u636E\u662F\u5360\u4F4D\uFF0C\u540E\u7AEF\u63A5\u53E3\u672A\u63A5" })
+        ]
+      }
+    ),
     /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-row", children: [
       /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-subtabs", children: [
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Pill, { active: view === "files", onClick: () => {
@@ -33317,7 +33411,12 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
             }
           )
         ] }, row.name)),
-        tagRows.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-empty", children: "\u8FD8\u6CA1\u6709\u6807\u7B7E\u3002" })
+        tagRows.length === 0 && /* 空态卡（同上）；标签视图的这一支没有可点的动作 ⇒ 只给图标/标题/描述 */
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-empty-card", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconPlusOutline16, { size: 28 }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-empty-t", children: "\u8FD8\u6CA1\u6709\u6807\u7B7E" }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-empty-d", children: "\u5728\u6587\u4EF6\u5217\u8868\u91CC\u7ED9\u6587\u6863\u70B9\u300C\uFF0B\u6807\u7B7E\u300D\uFF0C\u6807\u7B7E\u4F1A\u6C47\u603B\u5230\u8FD9\u91CC\uFF0C\u5E76\u663E\u793A\u5B83\u8986\u76D6\u4E86\u54EA\u4E9B\u6587\u4EF6\u5939\u3002" })
+        ] })
       ] })
     ) : /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-split", children: [
       /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-rail", children: [
@@ -33360,12 +33459,12 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
               if (event.key === "Enter" || event.key === " ") setFolder(f.key);
             },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { style: { fontSize: 13 }, children: f.name }),
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-kb-hint", style: { margin: "4px 0 6px" }, children: f.desc }),
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-hint", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { className: "ks-kb-ct", children: f.name }),
+              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-kb-cd", children: f.desc }),
+              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-kb-foot", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-kb-badge", children: [
                 docs.filter((d) => d.folder === f.key).length,
                 " \u7BC7"
-              ] })
+              ] }) })
             ]
           },
           f.key
@@ -33434,8 +33533,27 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
             }
           )
         ] }, doc.id)),
-        listed.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-empty", children: "\u8FD9\u4E2A\u6587\u4EF6\u5939\u8FD8\u6CA1\u6709\u6587\u4EF6\u3002\u771F\u5B9E\u5B9E\u73B0\u91CC\u5E94\u663E\u793A\u300C\u5BFC\u5165\u5230\u6B64\u5904\u300D\uFF0C\u73B0\u5728\u53EA\u662F\u5360\u4F4D\u3002" }),
-        selected.size > 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-batch", children: [
+        listed.length === 0 && /* 空态卡（P0-5）：64px 圆图标 + 标题 + 描述 + 主按钮（照 WeKnora EmptyState）。
+           文案里的"真实实现里应显示导入到此处"这句诚实边界没删 —— 挪进 title=。 */
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-empty-card", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutline16, { size: 28 }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-empty-t", children: "\u8FD9\u4E2A\u6587\u4EF6\u5939\u8FD8\u6CA1\u6709\u6587\u4EF6" }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-empty-d", children: "\u5BFC\u5165\u6587\u4EF6\u540E\uFF0C\u6761\u6B3E\u4F1A\u843D\u5230\u8FD9\u4E2A\u76EE\u5F55\u4E0B\u3002\u8FD9\u91CC\u73B0\u5728\u53EA\u662F\u5360\u4F4D\u3002" }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            import_dsh_client_ui_primitives3.Button,
+            {
+              variant: "primary",
+              size: "sm",
+              icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconPlusOutline16, {}),
+              title: "\u771F\u5B9E\u5B9E\u73B0\u91CC\u8FD9\u91CC\u662F\u300C\u5BFC\u5165\u5230\u6B64\u5904\u300D\uFF1B\u5F53\u524D\u5165\u53E3\u5728\u300C\u6587\u4EF6\u5BFC\u5165\u300D\u9875",
+              onClick: () => {
+                tab.actions.openTab(KS_KB_KIND, { replaceTab: true, params: { page: "ingest" } });
+              },
+              children: "\u5BFC\u5165\u6587\u4EF6\u2026"
+            }
+          )
+        ] }),
+        selected.size > 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-batch", title: "\u8FD9\u4E9B\u52A8\u4F5C\u90FD\u4F5C\u7528\u5728\u9875\u9762\u72B6\u6001\u4E0A\uFF0C\u4E0D\u4F1A\u5199\u8FDB\u5E93\u3002", children: [
           /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-batch-n", children: [
             "\u5DF2\u9009 ",
             selected.size,
@@ -33444,10 +33562,40 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Button, { variant: "ghost", size: "sm", onClick: () => {
             setSelected(/* @__PURE__ */ new Set());
           }, children: "\u53D6\u6D88\u9009\u62E9" }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Button, { variant: "outline", size: "sm", title: "\u5360\u4F4D\uFF1A\u7ED9\u9009\u4E2D\u7684\u90FD\u52A0\u4E00\u4E2A\u6807\u7B7E", onClick: tagSelected, children: "\u6279\u91CF\u6253\u6807\u7B7E" }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Button, { variant: "outline", size: "sm", title: `\u5360\u4F4D\uFF1A\u79FB\u52A8\u5230\u300C${MOVE_TARGET}\u300D`, onClick: moveSelected, children: "\u79FB\u52A8\u5230\u76EE\u5F55" }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Button, { variant: "outline", size: "sm", title: "\u5360\u4F4D\uFF1A\u53EA\u4ECE\u9875\u9762\u72B6\u6001\u91CC\u5220\u6389", onClick: deleteSelected, children: "\u6279\u91CF\u5220\u9664" }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-kb-hint", children: "\uFF08\u90FD\u4F5C\u7528\u5728\u9875\u9762\u72B6\u6001\u4E0A\uFF0C\u4E0D\u4F1A\u5199\u8FDB\u5E93\uFF09" })
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            import_dsh_client_ui_primitives3.Button,
+            {
+              variant: "outline",
+              size: "sm",
+              icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconPlusOutline16, {}),
+              title: "\u5360\u4F4D\uFF1A\u7ED9\u9009\u4E2D\u7684\u90FD\u52A0\u4E00\u4E2A\u6807\u7B7E",
+              onClick: tagSelected,
+              children: "\u6279\u91CF\u6253\u6807\u7B7E"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            import_dsh_client_ui_primitives3.Button,
+            {
+              variant: "outline",
+              size: "sm",
+              icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutline16, {}),
+              title: `\u5360\u4F4D\uFF1A\u79FB\u52A8\u5230\u300C${MOVE_TARGET}\u300D`,
+              onClick: moveSelected,
+              children: "\u79FB\u52A8\u5230\u76EE\u5F55"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            import_dsh_client_ui_primitives3.Button,
+            {
+              className: "ks-danger",
+              variant: "outline",
+              size: "sm",
+              icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconTrashOutline16, {}),
+              title: "\u5360\u4F4D\uFF1A\u53EA\u4ECE\u9875\u9762\u72B6\u6001\u91CC\u5220\u6389",
+              onClick: deleteSelected,
+              children: "\u6279\u91CF\u5220\u9664"
+            }
+          )
         ] })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-detail", children: current === null ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-kb-card", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-hint", children: [
@@ -33456,7 +33604,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
         "\uFF09\u3002"
       ] }) }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-card", children: [
         /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-row", style: { marginBottom: 6 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { className: "ks-kb-grow", style: { fontSize: 13 }, title: current.name, children: current.name }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { className: "ks-kb-grow ks-kb-ct", title: current.name, children: current.name }),
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Tag, { tone: STATUS[current.status].tone, children: STATUS[current.status].text })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-fields", children: [

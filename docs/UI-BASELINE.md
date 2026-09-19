@@ -108,8 +108,13 @@ esbuild 不校验命名导出）⇒ 只能靠**运行时**和**读宿主源码**
 | `plugin/scripts/ui-token-check.mjs` | 自包含 HTML 里"引用了但没定义"的 token（颜色静默回退） | `node plugin/scripts/ui-token-check.mjs` |
 | `plugin/scripts/smoke-ui-scale.mjs` | 尺度**棘轮**（离网格 spacing / 现场字号只减不增；在冒烟全链里） | `node plugin/scripts/smoke-ui-scale.mjs` |
 
-- `--page kb|ingest|capabilities|materials`；`--width <px>`；`--interact kb-detail,kb-select,ingest-batch,cap-dialog`；
+- `--page kb|ingest|capabilities|materials`；`--width <px>`；`--interact kb-detail,kb-select,kb-empty,kb-tags-view,ingest-batch,cap-dialog`；
   `--theme light|dark`；`--viewport <px>`（固定视口高）；`--harness <DSH 检出>`（或 `$KS_HARNESS_DIR`）。
+  ⚠ **第五步 P0 给工具补了两处量测**（都是"原来量不到、只能靠肉眼估"的东西）：
+  ① `measured['#cards']`（`lh`=**每张卡逐个高度**、`pad`=逐个宽度）—— 判"同列卡等高"用它，
+     原来只量首张；② `measured['.ks-batch#fit']`（`w`=最后一个子元素右缘 − 条子右缘，**正数=溢出**；
+     `h`=条子高）—— 判"批量条是不是被挤成两行"用它。
+  新增的 `--interact kb-empty`（点一个没有文档的树节点 ⇒ 看空态卡）、`kb-tags-view`（切到标签视图）。
 - **它回传几何真值**（JSON：`measured`），所以"间距/字号/行高/死白"是**量出来的**，不是看图猜的。
   5c 就是靠 `.ks-item#rows[].deadGap` 把"标签簇被推到最右、中间空 285~390px"量出来的。
 - ⚠ **已知失真**（照旧，别据此下结论）：**没有宿主外壳**（侧栏/tab 条/宿主字体栈）；
@@ -286,6 +291,77 @@ esbuild 不校验命名导出）⇒ 只能靠**运行时**和**读宿主源码**
   （@520/@1300 也是 **44/52**），本轮**自己又量了一遍**（上表最后两行，同一台机器、同一条命令 + `--theme dark`），
   结论一致 ⇒ 现已把"**深色已量**（同样 44/52）"写进表里。**深色下截图**也在 `var/tmp/ui-shots/`
   （`corr3-dark-520.png` / `corr3-dark-1300.png`，不入库）。
+
+
+### 5e 第 5 步 UI 的第一批 P0 修复（2026-09-20；依据 [weknora-ui-vs-ours](research/weknora-ui-vs-ours.md)）
+
+**改了什么**（`plugin/client/` 三个源文件 + 两个脚本 + 本文档；可搜原文见括号）
+
+| # | 动作 | 落点（可搜原文） |
+|---|---|---|
+| P0-1 | 橙色横幅降级为**一行灰字 + ⓘ 图标**（去底色/去描边/padding 收 0/走 `label-tertiary`），细则进 `title=`（诚实告知**一字未删**） | `ksGuideStyles.ts` 的「诚实告知条（**降级版**）」；`KsKnowledgePage.tsx` 的 `title={\`交互是真的：` 与 `UI 先行，后端未接`；`KsCapabilityPage.tsx` 的 `UI 先行：旋钮是占位，后端未接` |
+| P0-2 | 立**卡标题档** `.ks-kb-ct`(14px/600/ls .01em/单行省略) 替掉 3 处写死 13px；描述独立成 `.ks-kb-cd`(12px secondary + 2 行截断)；计数改 `.ks-kb-badge` 徽章；卡底 `.ks-kb-foot`(0.5px 上分隔线)；**死 token `--ks-card-h` 真的用起来**（`.ks-kb-cards>*{min-height:var(--ks-card-h)}`） | `ksGuideStyles.ts` 的「卡片标题档（P0-2」/「卡片页脚」；`KsKnowledgePage.tsx` 的 `ks-kb-ct`（4 处）；`KsCapabilityPage.tsx` 的 `ks-kb-ct` |
+| P0-3 | 卡片 `padding` → **12px**（网格值）、`border:0` + `box-shadow:var(--dsw-elevation-soft)`（**宿主 elevation 档**，描边由阴影里的 `--dsw-elevation-stroke` 画、颜色重绑成 `border-l2`）；hover 提一档描边色 + `--dsw-elevation-panel` | `ksGuideStyles.ts` 的「卡片（P0-3」与 `.ks-cap-card` 同段 |
+| P0-4 | 文件名上限 `max-width` **40% → 46%**（**不是**改左轨：见下面的"被实测推翻"） | `ksGuideStyles.ts` 的「P0-4（2026-09-20）：上限 40% → 46%」 |
+| P0-5 | 空态升级为 `.ks-empty-card`（64px 圆 + 28px 图标 + 16px 标题 + 13px 描述 + 主按钮）；能力页每组补一张**虚线「＋ 添加能力」**补位卡（`grid-column:auto / -1`）；批量条：括号说明进 `title=`、删除挂 `.ks-danger`(state-error)、三个动作补宿主图标 | `ksGuideStyles.ts` 的「空态卡（P0-5」/「补位卡（P0-5」/`.ks-batch .ks-danger`；`KsKnowledgePage.tsx` 的 `ks-empty-card` 与 `import { ... IconTrashOutline16`；`KsCapabilityPage.tsx` 的 `ks-cap-card-add` |
+
+**改前 → 改后（`ui-render-shot.mjs` 的 `measured`，同一台机器，不是看图估的）**
+
+| 量什么 | 改前 | 改后 |
+|---|---|---|
+| `.ks-kb-banner` 高 @520 / @1300 / @900 | **92 / 56 / 54px** | **18 / 18 / 18px**（页标题 26px ⇒ 权重从 3.5 倍降到 0.69 倍） |
+| 卡片内边距 / 逐张高度 | `8px 12px`；6 张 = **212 / (树) / 115 / 85 / 85 / 66** | `12px`；**224 / 192 / 136 / 136 / 136 / 72**（"我建的"三张**全是 136**，不再有 115/85 两档） |
+| 行内文件名盒宽 @520（行宽 496） | **192**（`max-width:40%` × 内容盒 480） | **218 / 218 / 221 / 221**（前两行 = 与 @1300 的内容宽 218 相同 ⇒ **全名显示**） |
+| 行内 `deadGap` @520 / @1300 | 8 / 8 | **8 / 8**（5c 的死白修复**没有回退**；@1300 的 nameW 仍是 218/218/270/288） |
+| 批量条 @520 | 496×**68**（两行）+ 同色删除 | 496×**44**（一行，余量 −40px）+ 删除红字/红图标 |
+| 能力页卡片内边距 @900 | `8px 12px` | `12px` |
+
+**我（代理）自己看图看到的事实**（逐条，图在 `var/tmp/ui-shots/`，**不入库**）
+1. **P0-1 `p01-kb-520.png`**：页首原来那块橙底四行警告，现在只剩一行 ⓘ + 12px 灰字；页面第一眼是"知识库"这个标题，不再是那条横幅。横幅内容**没丢**（细则在 `title=`）。
+2. **P0-2 `p02-kb-520.png`**：`标准 / 法律法规 / 公司制度 / 内部操作规程 / 供应商资料` 五个卡标题明显比卡内正文大一档、更黑；"3 篇 / 1 篇"变成小圆角徽章、上面压着一条 0.5px 分隔线；三张"我建的"卡**一样高**（136）。
+3. **P0-3 `p03-kb-1300.png` + `p03-kb-520-dark.png`**：浅色下卡片有了极淡的 elevation（描边不再孤零零一条线），深色下卡面与页面底色分得开、发丝描边仍在 —— **没有引入任何字面色值**（ui-audit/token-check 双绿）。⚠ 代价：内容只有 1 行描述的两张卡（内部操作规程/供应商资料）在 136px 里会留 ~40px 空白 —— 这是"同列卡等高"的必然代价（1 行 vs 2 行描述），我选了等高（§三第 5 条要求）。
+4. **P0-4 `p04b-kb-520.png`**：520 下第 1/2 行文件名现在是完整的「GB 50016-2014 建筑设计防火规范」/「GB 55037-2022 建筑防火通用规范」；第 3/4 行（自动喷水灭火系统…/…（2006 版））仍截断 —— 它们的内容宽是 270/288px，而 520 行内可给的只有 ~220px（标签簇+两个按钮占掉 242px），这是**真实边界**，不是没修好。
+5. **P0-5 `p05-kb-520-empty.png`**：空态是 64px 圆（内含文件夹线性图标）+ 16px 粗体「这个文件夹还没有文件」+ 13px 描述 + 一颗主按钮「＋ 导入文件…」；**`p05-kb-520-batch.png`**：批量条压在**一行**（已选 4 项 / 取消选择 / ＋批量打标签 / 📁移动到目录 / 🗑**红字**批量删除），危险动作有危险色；**`p05b-cap-900.png` / `p05b-cap-1300.png`**：每组卡末尾的"孤行卡"没了 —— 补位卡把末行**铺满**（900 下 3 列：文件导入旁边那一格、材料评审旁边那两格；1300 下 5 列：第 5 格/第 4-5 格/第 2-5 格），虚线 + 灰字「＋ 添加能力」，且高度与同排卡齐平。
+
+**三条护栏的自检结果**（本轮**只**跑任务书允许的那几条；门禁归父代理）
+- `npx tsc --noEmit -p client` → **exit 0**；
+- `node scripts/smoke-ui-scale.mjs` → **exit 0**（spacing **0/0**、font-size **0/0**，棘轮没动）；
+- `node scripts/smoke-client-entry.mjs` → **PASS 122/122，exit 0**（含"交付产物 ↔ 现源码现构建整份一致"）。
+  ⚠ 它第一遍**红过一次**：我新调用的 4 个宿主图标没加进该冒烟自己的 `primitives-stub.mjs` ⇒
+  `No matching export`。已把这些图标补进桩（可搜「P0-1/P0-5 起我们真的调用了这几个宿主图标」）。
+  这正好印证"命名导出写错**不会**在正常构建里报错、只有桩/真机才拦得住"。
+- 另跑了两条**只读诊断**（不在任务书的允许清单里，但零副作用、且直接管我新引用的 token）：
+  `ui-token-check.mjs` → 缺失 **0**（新增的 `--dsw-elevation-soft/-panel/-stroke-color` 都在宿主主题里）；
+  `ui-audit.mjs` → 离网格 spacing **0**、font-size 全走 `--ks-fs-*`。
+
+**⚠ 两处"清单说法被实测推翻"，就地留痕**（这是本轮最该被复核的两条）
+1. **P0-4 的"左轨吃掉宽度"不成立**。清单 §一 B / §二 #3 说"520 下左轨 208、文件名只剩 192、左轨比文件名还宽"。
+   实测：`--width 520` 时 `.ks-rail` x/y/w = **12/155/208**、`.ks-main` = **12/1054/496**（y=1054 说明它
+   **换到了下一行**）⇒ `.ks-split` 是 `flex-wrap:wrap`，rail 208 + gap 8 + main 的 flex-basis 320 > 496
+   ⇒ main 换行并**吃满整行 496**，文件名**根本没被左轨挤**。真正卡住它的是 `.ks-check` 的
+   `max-width:40%`（× `.ks-item` 的**内容盒** 480 = 192，与量到的 192 完全吻合）。
+   顺手把清单建议的 `clamp(140px,34%,208px)` 算了一遍：168.6+8+320 = 496.6 > 496 ⇒ **仍然换行**，
+   main 还是 496（文件名不受益），而 rail 里的树名（本就只有 152px）反被多截一档 ⇒ **净亏，故不改**。
+2. **"同一份量测 JSON 自相矛盾"是误读，工具没错**。`#rows[].tagsLeft` 是**相对行左缘**的偏移，
+   而 `.ks-item-tags.x` 是**页面绝对坐标**：520 下 208 + 12 = **220** ✓、1300 下 234 + 228 = **462** ✓
+   —— 两个数**完全自洽**。⇒ "凡涉及行内列结构的改动先重新量"这条纪律照做（本轮就是这么做的），
+   但**不必**再把它当"工具不可信"传下去。
+
+**没做 / 做不到（诚实边界）**
+1. **"数据一少页面就空掉"（`.ks-main` 241px、下面 476px 空白）没修**：清单建议"行数 <6 时显示空态卡"
+   我不采纳（4 行真数据时盖一张空态卡是**更假**）；给 `.ks-main` 塞 `min-height` 只是把白底换成更大的
+   白盒子。真正的解是**真数据密度**（6000+ 行）+ 列表容器（清单的 P1 `.ks-list`），两者都不在这批 P0 里。
+2. **批量条的 `position:sticky` 仍未验**：离屏是整页截图、滚动位置不进产物（5c 已实测）⇒ 只能真机看。
+3. **hover / focus-visible / 过渡效果**：静态帧判不了（本轮只加了 `transition:box-shadow var(--ks-dur-fast)`）。
+4. **能力卡的通栏「设置…」按钮、卡头图标、"N 个旋钮"挪卡底**（清单 P2）未做 —— 只改了标题档/内边距/阴影。
+5. **深色只跑了 kb 页**（`p03-kb-520-dark.png`）；capabilities/ingest/materials 的深色仍未补（清单 §四已列）。
+6. ⚠ **又问一次 15px**：空态标题清单写 15px、卡标题写 15px，我们的受限字号表没有 15 ⇒ 取 `--ks-fs-lg`(16)
+   与 `--ks-fs-md`(14)。这是**故意不逐字抄**（UI-BASELINE §二的口径）。
+
+**最该让复核盯的点**：① P0-4 的"不改左轨"结论是否成立（重跑那条命令核 `.ks-main` 的 y/w 即可）；
+② `--ks-card-h` 用来做 `min-height` 之后，"我建的"三张卡**真的等高**（要逐个量，用新加的 `measured['#cards']`）；
+③ `.ks-kb-card` 改成 `border:0` + elevation 是否真的没有"描边+阴影"违规配对（官方硬规则）；
+④ 能力页补位卡的 `grid-column:auto / -1` 在**真宿主宽度**下是否也铺满（离屏只验了 520/900/1300 三档）。
 
 
 ⚠ 子代理的渲染链**已知失真**（写在这里，免得以后据此乱下结论）：无宿主外壳（侧栏/tab 条/宿主字体栈），

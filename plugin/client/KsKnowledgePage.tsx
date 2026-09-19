@@ -40,7 +40,7 @@
  */
 
 import { useMemo, useState, type ReactNode } from 'react'
-import { Button, Checkbox, IconChevronDownOutline14, Input, Menu, Pill, Tag, type DshTagTone } from '@deepseek-ai/dsh-client-ui-primitives'
+import { Button, Checkbox, IconChevronDownOutline14, IconFolderOpenOutline16, IconInfoOutline14, IconPlusOutline16, IconTrashOutline16, Input, Menu, Pill, Tag, type DshTagTone } from '@deepseek-ai/dsh-client-ui-primitives'
 
 import { ensureKsStyles } from './ksGuideStyles'
 import { KsCapabilityPage } from './KsCapabilityPage'
@@ -216,10 +216,10 @@ function LibCard({ title, sub, nodes, current, onPick, open, toggle }: {
   return (
     <div className="ks-kb-card">
       <div className="ks-kb-row">
-        <strong className="ks-kb-grow">{title}</strong>
+        <strong className="ks-kb-grow ks-kb-ct">{title}</strong>
         <Tag tone="neutral">自带</Tag>
       </div>
-      <div className="ks-kb-hint" style={{ margin: '3px 0 6px' }}>{sub}</div>
+      <div className="ks-kb-cd">{sub}</div>
       <div className="ks-kb-tree">{renderNodes(nodes, current, onPick, open, toggle)}</div>
     </div>
   )
@@ -334,11 +334,12 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
     const LABELS: Record<string, string> = { ingest: '文件导入', report: '效力报告', channels: '渠道台账' }
     return (
       <div className="ks-kb">
-        <div className="ks-kb-banner">
-          <strong>UI 先行，后端未接。</strong>本页只落了入口与外壳，数据是页面内的占位常量。
+        <div className="ks-kb-banner" title="本页只落了入口与外壳，数据是页面内的占位常量。">
+          <IconInfoOutline14 />
+          <strong>UI 先行，后端未接</strong>
         </div>
         <div className="ks-kb-card">
-          <strong>{LABELS[page] ?? page}</strong>
+          <strong className="ks-kb-ct">{LABELS[page] ?? page}</strong>
           <div className="ks-kb-hint" style={{ marginTop: 6 }}>
             这一页尚未实现。它会落在同一个 tab 类型里（按 <code>params.page</code> 分发），
             所以入口现在是<strong>真的</strong>、内容是<strong>空的</strong>——而不是一个假按钮。
@@ -360,11 +361,17 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
       </header>
       <div className="ks-page-rule" />
 
-      <div className="ks-kb-banner">
-        <strong>UI 先行：数据是占位，后端接口未接</strong>（dataSource=<code>{dataSource}</code>）。
-        但<strong>交互是真的</strong>（勾选/全选/批量动作/打标签都作用在页面状态上），你可以直接点着体验。
-        层级名取自 <code>doc_catalog</code> 的权威 CCS 表；将来这页接
-        <code> GET /api/v1/documents/categories</code> 即可，不必重画分类法。
+      {/* 诚实告知条（**降级版**，2026-09-20 P0-1）：它原来是 4 行橙底警告块，实测 520 下 92px 高、
+          而页标题只有 26px ⇒ 抢戏。内容**一个字没删**（诚实告知），长句压成一行、细则全进 title=。
+          参照等价物是 WeKnora config.png 那条单行带图标条。 */}
+      <div
+        className="ks-kb-banner"
+        title={`交互是真的：勾选 / 全选 / 批量动作 / 打标签都作用在页面状态上，可以直接点着体验。`
+          + `层级名取自 doc_catalog 的权威 CCS 表；将来这页接 GET /api/v1/documents/categories 即可，`
+          + `不必重画分类法。dataSource=${dataSource}`}
+      >
+        <IconInfoOutline14 />
+        <strong>UI 先行：数据是占位，后端接口未接</strong>
       </div>
 
       {/* 页内二级 tab（文件 / 标签）+ 唯一的「＋ 新建」（标题已上移到页面骨架） */}
@@ -444,7 +451,16 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
               </Button>
             </div>
           ))}
-          {tagRows.length === 0 && <div className="ks-empty">还没有标签。</div>}
+          {tagRows.length === 0 && (
+            /* 空态卡（同上）；标签视图的这一支没有可点的动作 ⇒ 只给图标/标题/描述 */
+            <div className="ks-empty-card">
+              <span className="ks-empty-ico"><IconPlusOutline16 size={28} /></span>
+              <span className="ks-empty-t">还没有标签</span>
+              <span className="ks-empty-d">
+                在文件列表里给文档点「＋标签」，标签会汇总到这里，并显示它覆盖了哪些文件夹。
+              </span>
+            </div>
+          )}
         </div>
       ) : (
         <div className="ks-split">
@@ -470,9 +486,11 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                   onClick={() => { setFolder(f.key) }}
                   onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') setFolder(f.key) }}
                 >
-                  <strong style={{ fontSize: 13 }}>{f.name}</strong>
-                  <div className="ks-kb-hint" style={{ margin: '4px 0 6px' }}>{f.desc}</div>
-                  <div className="ks-kb-hint">{docs.filter((d) => d.folder === f.key).length} 篇</div>
+                  <strong className="ks-kb-ct">{f.name}</strong>
+                  <div className="ks-kb-cd">{f.desc}</div>
+                  <div className="ks-kb-foot">
+                    <span className="ks-kb-badge">{docs.filter((d) => d.folder === f.key).length} 篇</span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -534,28 +552,64 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
               </div>
             ))}
             {listed.length === 0 && (
-              <div className="ks-empty">
-                这个文件夹还没有文件。真实实现里应显示「导入到此处」，现在只是占位。
+              /* 空态卡（P0-5）：64px 圆图标 + 标题 + 描述 + 主按钮（照 WeKnora EmptyState）。
+                 文案里的"真实实现里应显示导入到此处"这句诚实边界没删 —— 挪进 title=。 */
+              <div className="ks-empty-card">
+                <span className="ks-empty-ico"><IconFolderOpenOutline16 size={28} /></span>
+                <span className="ks-empty-t">这个文件夹还没有文件</span>
+                <span className="ks-empty-d">
+                  导入文件后，条款会落到这个目录下。这里现在只是占位。
+                </span>
+                <Button
+                  variant="primary"
+                  size="sm"
+                  icon={<IconPlusOutline16 />}
+                  title="真实实现里这里是「导入到此处」；当前入口在「文件导入」页"
+                  onClick={() => { tab.actions.openTab(KS_KB_KIND, { replaceTab: true, params: { page: 'ingest' } }) }}
+                >
+                  导入文件…
+                </Button>
               </div>
             )}
 
-            {/* 悬浮批量条：有选中才出现 */}
+            {/* 悬浮批量条：有选中才出现。
+                ⚠ P0-5：括号说明（原第 5 个 flex 项）挪进 title= ⇒ 不再把条子挤成两行；
+                   「批量删除」挂宿主 state-error 色（危险动作要有危险色）；三个动作补宿主图标。
+                   ⚠ 括号里那句诚实边界没删，只是换成 hover 才看。 */}
             {selected.size > 0 && (
-              <div className="ks-batch">
+              <div className="ks-batch" title="这些动作都作用在页面状态上，不会写进库。">
                 <span className="ks-batch-n">已选 {selected.size} 项</span>
                 <Button variant="ghost" size="sm" onClick={() => { setSelected(new Set<string>()) }}>
                   取消选择
                 </Button>
-                <Button variant="outline" size="sm" title="占位：给选中的都加一个标签" onClick={tagSelected}>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  icon={<IconPlusOutline16 />}
+                  title="占位：给选中的都加一个标签"
+                  onClick={tagSelected}
+                >
                   批量打标签
                 </Button>
-                <Button variant="outline" size="sm" title={`占位：移动到「${MOVE_TARGET}」`} onClick={moveSelected}>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  icon={<IconFolderOpenOutline16 />}
+                  title={`占位：移动到「${MOVE_TARGET}」`}
+                  onClick={moveSelected}
+                >
                   移动到目录
                 </Button>
-                <Button variant="outline" size="sm" title="占位：只从页面状态里删掉" onClick={deleteSelected}>
+                <Button
+                  className="ks-danger"
+                  variant="outline"
+                  size="sm"
+                  icon={<IconTrashOutline16 />}
+                  title="占位：只从页面状态里删掉"
+                  onClick={deleteSelected}
+                >
                   批量删除
                 </Button>
-                <span className="ks-kb-hint">（都作用在页面状态上，不会写进库）</span>
               </div>
             )}
           </div>
@@ -571,7 +625,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
             ) : (
               <div className="ks-kb-card">
                 <div className="ks-kb-row" style={{ marginBottom: 6 }}>
-                  <strong className="ks-kb-grow" style={{ fontSize: 13 }} title={current.name}>{current.name}</strong>
+                  <strong className="ks-kb-grow ks-kb-ct" title={current.name}>{current.name}</strong>
                   <Tag tone={STATUS[current.status].tone}>{STATUS[current.status].text}</Tag>
                 </div>
                 <div className="ks-fields">

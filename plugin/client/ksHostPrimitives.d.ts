@@ -56,6 +56,25 @@ declare module '@deepseek-ai/dsh-client-ui-primitives' {
   /** 14px 下拉箭头，用于菜单触发器。 */
   export const IconChevronDownOutline14: ComponentType<{ readonly className?: string }>
 
+  /**
+   * 宿主图标集（`ui-primitives/src/icons/`，`IconProps = { size?: number; className?: string }`，
+   * 颜色走 `currentColor` ⇒ 跟着我们的 token 走）。
+   * ⚠ 只声明**我们真调用**的那几个；名字逐个在宿主 `lib/icons/index.js` 与包根导出里核过
+   *   （写错不会构建失败，只会运行时 undefined —— 见本文件顶部的边界那条）。
+   */
+  export interface DshIconProps {
+    /** 方形边长 px；默认是字形自己的设计尺寸。 */
+    readonly size?: number
+    readonly className?: string
+  }
+  /** 单行告知条的行首图标（与宿主告示同一语义）。 */
+  export const IconInfoOutline14: ComponentType<DshIconProps>
+  /** 空态/补位卡用的「＋」与文件夹字形。 */
+  export const IconPlusOutline16: ComponentType<DshIconProps>
+  export const IconFolderOpenOutline16: ComponentType<DshIconProps>
+  /** 危险动作（批量删除）用的垃圾桶。 */
+  export const IconTrashOutline16: ComponentType<DshIconProps>
+
   /** 宿主 Menu 的一项。 */
   export interface DshMenuItem {
     readonly id: string

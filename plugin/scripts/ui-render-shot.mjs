@@ -37,7 +37,7 @@
  *                    ⚠ **它不能用来判 `position:sticky`**：`--screenshot` 在这种无头模式下
  *                      是"整页截图"，滚动位置不进产物（5c 实测：加 scrollTo 后图里只剩空白）。
  *                      批量条位置只能在**真宿主页面**里看，见 docs/UI-BASELINE.md 第五节。
- *   --interact <a,b> 可选：kb-detail / kb-select / ingest-batch / cap-dialog
+ *   --interact <a,b> 可选：kb-detail / kb-select / kb-empty / kb-tags-view / ingest-batch / cap-dialog
  *   --theme light|dark  默认 light
  *   --browser <exe>  默认自动找 Edge/Chrome（可用 $KS_BROWSER 覆盖）
  *   --harness <dir>  DSH 检出（默认 $KS_HARNESS_DIR，再退到下方 DEFAULT_HARNESS）
@@ -276,6 +276,14 @@ for (const how of interacts) {
       + ` → 批量行 ${q('button').filter((b) => /\.pdf$/.test((b.textContent ?? '').trim())).length} 条`
       + `，总账 ${container.textContent.includes('共评估') ? '有' : '无'}`
       + `，失败 ${container.textContent.includes('预览失败') ? container.textContent.split('预览失败')[1]?.slice(0, 60) : '无'}`)
+  } else if (how === 'kb-empty') {
+    // 点一个**没有文档**的树节点（自带树的根节点 "P 土木、建筑"）⇒ 看空态卡
+    const node = q('.ks-kb-tline').find((el) => (el.textContent ?? '').includes('P 土木、建筑'))
+    notes.push(`kb-empty: ${await click(node) ? `点了「${(node.textContent ?? '').trim()}」` : '没找到节点'}`
+      + ` → 空态卡 ${q('.ks-empty-card').length} 张`)
+  } else if (how === 'kb-tags-view') {
+    const pill = byText('button', '标签')
+    notes.push(`kb-tags-view: ${await click(pill) ? '切到标签视图' : '没找到「标签」'}`)
   } else if (how === 'cap-dialog') {
     const card = q('.ks-cap-card').find((c) => q('.ks-cap-card').length > 0 && [...c.querySelectorAll('button')].some((b) => (b.textContent ?? '').includes('设置')))
     notes.push(`cap-dialog: ${await click(card?.querySelector('button')) ? '开了第一张带「设置…」的窗' : '没找到'}`)
@@ -374,6 +382,24 @@ const html = `<!doctype html>
                    deadGap: (rc && rt) ? Math.round(rt.left - rc.right) : null,
                    btnH: last ? Math.round(last.height) : null };
         }) };
+    }
+    // 每张卡（.ks-kb-card / .ks-cap-card）的**逐个高度**：判"同列卡等高"要看的就是它
+    // （P0-2/P0-3 之前只能看首张，于是"212 / 115 / 85 三档"只能靠肉眼估）。
+    var cardEls = document.querySelectorAll('.ks-kb-card,.ks-cap-card');
+    if (cardEls.length > 0) {
+      var hs = [].map.call(cardEls, function (el) { return Math.round(el.getBoundingClientRect().height); });
+      var ws = [].map.call(cardEls, function (el) { return Math.round(el.getBoundingClientRect().width); });
+      out['#cards'] = { n: hs.length, y: 0, w: 0, h: 0, fs: '', lh: hs.join(','), pad: ws.join(','), gap: '', radius: '' };
+    }
+    // 批量条的**一行装得下吗**：w = 最后一个子元素的右缘 - 条子的右缘（正数 = 溢出/被截，
+    // 负数 = 还剩多少余量）。h = 条子高（折成两行会明显变高）。P0-5 判"两行/溢出"就靠它。
+    var bar = document.querySelector('.ks-batch');
+    if (bar) {
+      var br = bar.getBoundingClientRect();
+      var kids = bar.children;
+      var lastKid = kids.length > 0 ? kids[kids.length - 1].getBoundingClientRect() : null;
+      out['.ks-batch#fit'] = { n: kids.length, x: 0, y: 0, w: lastKid ? Math.round(lastKid.right - br.right) : 0,
+                               h: Math.round(br.height), fs: '', lh: '', pad: '', gap: '', radius: '' };
     }
     document.title = 'h=' + document.documentElement.scrollHeight + '|m=' + JSON.stringify(out);
   } catch (e) {
