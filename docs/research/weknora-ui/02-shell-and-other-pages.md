@@ -436,9 +436,16 @@ URL 是位置的唯一真源：`?section=<navKey>`（`config/settingsRoute.ts:47
 | `runtime-queues` | `任务队列运行时` / `后台任务队列的实时负载，以及各独立 worker 池的每实例并发配置。支持查看任务明细和安全管理，每 5 秒自动刷新。` | `:3377-3378` |
 | `platform-api-keys` | `平台 API Key` / `平台 API Key 默认可选择任意空间。请只授予必要能力；密钥明文仅在创建时显示一次。` | `:120,122` |
 | `system-audit-log` | `审计日志`（键 `system.globalSettings.audit.tabLabel`） | `:3115` |
-| `retrieval` | `搜索设置` / `配置知识库搜索和消息搜索的全局检索参数` | `:5252-5253` |
+| `retrieval`（**不是** section key，见下） | `settings/RetrievalSettings.vue` | `搜索设置` / `配置知识库搜索和消息搜索的全局检索参数` | `:5252-5253` |
 
-`retrieval` 特殊：**不是**左侧 nav 项，而是命令面板右上角齿轮抽屉里渲染（`GlobalCommandPalette.vue:154-157`，
+（`platformApiKeys.title` 与 `securityNotice` 见 §8.5，那是**系统级** API Key，不是这里的租户级。）
+
+> `RetrievalSettings.vue` **无法通过 `?section=` 到达**：它既不在 `Settings.vue` 的 `navItems`（`:351-377`），
+> 也不在 `Settings.vue` 的 section 渲染分支（`:78-196`，对 `retrieval` 零命中），
+> 唯一入口是命令面板右上角齿轮打开的 420px 抽屉（`GlobalCommandPalette.vue:154-157`，
+> `<t-drawer ... :header="t('retrievalSettings.title')" size="420px">`）。
+
+`retrieval` 特殊：**不是**左侧 nav 项也不是 `?section=` 值，而是命令面板右上角齿轮抽屉里渲染（`GlobalCommandPalette.vue:154-157`，
 `<t-drawer ... :header="t('retrievalSettings.title')" size="420px">`），让"检索参数"贴着搜索。
 
 ### 5.4 表单形态（分组 / 保存 / 校验）
@@ -558,7 +565,7 @@ roleDenied.desc: '你当前的角色无权访问此设置项。请联系本空�
   const ROLE_LEVEL: Record<string, number> = { viewer: 10, contributor: 20, admin: 30, owner: 40 }
   const hasRole = (min: 'viewer'|'contributor'|'admin'|'owner') => (ROLE_LEVEL[currentTenantRole.value] ?? 0) >= ROLE_LEVEL[min]
   ```
-- 显示名（`zh-CN.ts:330-335`）：`owner: '所有者'`、`admin: '管理员'`、`contributor: '编辑'`、`viewer: '访客'`。
+- 显示名（`zh-CN.ts:321-326`）：`owner: '所有者'`、`admin: '管理员'`、`contributor: '编辑'`、`viewer: '访客'`。
 - 图标映射（`composables/useRoleLabel.ts:26-31`）：`owner → secured`、`admin → user-circle`、`contributor → edit`、`viewer → browse`。
 
 **共享空间角色（organization role）**：三值 `admin / editor / viewer`。
@@ -629,8 +636,8 @@ SECURITY: This value is read from localStorage (`weknora_memberships`) and there
 
 `views/settings/TenantMembers.vue`（86KB）。页头描述原文（`zh-CN.ts:240`）：
 `'邀请伙伴加入当前空间并分配角色。只有 Owner 可以新增或移除成员。'`
-表格列 `member/role/joinedAt/operations`（`:336-340`）。
-关键错误文案（`:329-335`）：
+表格列 `member/role/joinedAt/operations`（`zh-CN.ts:327-332`）。
+关键错误文案（`zh-CN.ts:288-296`）：
 
 ```
 lastOwner: '无法降级、移除或退出最后一位 Owner，请先把其他成员提升为 Owner。'
@@ -638,9 +645,9 @@ userNotFound: '该邮箱尚未注册，请先邀请对方注册账号。'
 invalidRole: '角色必须是 owner / admin / contributor / viewer 之一。'
 ```
 
-它还有一个内嵌的**空间级审计日志**页签（`tenantMember.audit`，`zh-CN.ts:246-286`），
+它还有一个内嵌的**空间级审计日志**页签（`tenantMember.audit`，`zh-CN.ts:248-286`），
 列 `time/actor/action/target/path/outcome`，结果只有 `success: '成功'` / `denied: '拒绝'`，
-事件词汇表（`:280-285`）：`rbac.member_added → '新增成员'`、`rbac.member_removed → '移除成员'`、
+事件词汇表（`zh-CN.ts` audit.action 段）：`rbac.member_added → '新增成员'`、`rbac.member_removed → '移除成员'`、
 `rbac.member_role_changed → '角色变更'`、`rbac.member_left → '成员退出'`、`rbac.access_denied → '访问被拒'`、
 `rbac.invitation_sent/accepted/declined/revoked/expired → '发出邀请/接受邀请/拒绝邀请/撤销邀请/邀请过期'`。
 
@@ -1029,8 +1036,13 @@ system.queue_archived_purged: '清除全部失败任务'
 （`config/apiKeyCapabilities.ts:24-28`）。
 表格列：`名称 / API Key / 能力 / 最近使用 / 创建时间 / 操作`（`PlatformAPIKeys.vue:31-39`），
 能力列内联只显示前几个 chip，多余的折进 popup（`:49-94`）。
-页头一条 warning alert + 创建按钮（`:8-15`）。
-> 不确定性：`platformApiKeys.title / description / securityNotice` 的**具体文案我没读到**（该 locale 段在 `zh-CN.ts:119` 起，我只读了键名未逐字核对）；此处不做转述。
+页头是 warning 级别提示条 + 创建按钮（`:8-15`）。
+文案（`zh-CN.ts:120,122`，原文）：
+
+```
+title: '平台 API Key'
+securityNotice: '平台 API Key 默认可选择任意空间。请只授予必要能力；密钥明文仅在创建时显示一次。'
+```
 
 ### 8.6 开发者页（`views/dev/MarkdownTestPage.vue`）
 
@@ -1116,11 +1128,11 @@ if (e.key === '/' && !open.value && !isEditingElement(e.target)) { ... }
 | `NotifyPlugin.*` | **2** | 仅 `App.vue:227`（切换空间成功）与 `utils/loginNotify.ts:57`（登录成功） |
 
 **文案风格**（从 `zh-CN.ts` 归纳，均为原文）：
-- 成功：`common.copied: '已复制'`、`agent.messages.created: '已创建智能体'`、`agent.messages.deleted: '已智能体已删除'`（实际为 `'智能体已删除'`）
+- 成功：`common.copied: '已复制'`、`agent.messages.created: '已创建智能体'`、`agent.messages.deleted: '智能体已删除'`、`menu.renameSessionSuccess: '标题已更新'`
 - 失败：几乎都带"请稍后再试"或原因插值，如 `menu.renameSessionFailed: '修改标题失败，请稍后再试'`、
   `chatHistorySettings.toasts.saveFailed: '保存配置失败: {message}'`
 - 警告：`settings.capabilityUnavailable: '当前部署不支持此功能，已返回可用页面。'`、
-  `crew/warning` 类如 `AgentEmbedChannelPanel.vue:1008` 的 `embedPublish.previewUnavailable`
+  `embedPublish.previewUnavailable`（`AgentEmbedChannelPanel.vue:1008`）
 - **确认类弹窗的 body 必写"不可撤销/副作用边界"**，例（`zh-CN.ts:1887`）：
   `deleteConfirmMessage: '确定要删除共享空间「{name}」吗？删除后所有成员将被移除，此操作不可撤销。'`
 
@@ -1221,8 +1233,9 @@ confirmRemove: '确认移除'
 | `i18n/embed.ts`（**嵌入端独立一份**） | 2130 |
 
 - 顶层键 ≈ 80+ 个命名空间，**按"域/页面"切，不按"通用/业务"切**。
-  我实测到行号的顶层键（`zh-CN.ts`）：`localBrowser:2`、`platformApiKeys:119`、`tenantInvitation:169`、`tenantMember:238`、`userProfile:344`、`credential:366`、`integrations:380`、`agentEditor:1100`、`organization:1859`、`ollamaSettings:2306`、`modelSettings:2347`、`mcpSettings:2491`、`uploadTasks:2611`、`time:2660`、`platform:2669`、`font:2693`、`theme:2729`、`general:2737`、`language:2746`、`system:3063`、`tenant:3627`、`common:5033`、`retrievalSettings:5251`、`memorySettings:5267`、`envVarSettings:5406`、`memoryWorkspaceSettings:5457`、`chatHistorySettings:5494`、`vectorStoreSettings:5511`、`webSearchSettings:5546`、`settings:`（内含 `sandbox:5592`、`skills:6001`、`storage:6072`、`storageBackend:6146`、`parser:6189`、`weknoraCloud:6239`、`roleDenied:6292`、`capabilityUnavailable:6296`、`navGroups:6297`）、`agent:6306`、`agentStream:1480`、`batchManage:7081`、`contextualGuide:7091`、`newUserGuide:7294`、`menu:7402`、`embedPublish:4655`。
-  注意 `settings` 是个**混合命名空间**：既放 own 键（`capabilityUnavailable`、`navGroups`），又当**父级**放各子页（`sandbox`、`skills`、`parser`…）——这是历史分层痕迹。
+  我实测到行号的顶层键（`zh-CN.ts`，按行号升序）：`localBrowser:2`、`platformApiKeys:119`、`tenantInvitation:169`、`tenantMember:238`、`userProfile:344`、`credential:366`、`integrations:380`、`agentEditor:1100`、`agentStream:1480`、`organization:1859`、`ollamaSettings:2306`、`modelSettings:2347`、`mcpSettings:2491`、`uploadTasks:2611`、`time:2660`、`platform:2669`、`font:2693`、`theme:2729`、`general:2737`、`language:2746`、`system:3063`、`tenant:3627`、`embedPublish:4655`、`common:5033`、`retrievalSettings:5251`、`memorySettings:5267`、`envVarSettings:5406`、`memoryWorkspaceSettings:5457`、`chatHistorySettings:5494`、`vectorStoreSettings:5511`、`webSearchSettings:5546`、**`settings:5584`**、`agent:6306`、`batchManage:7081`、`contextualGuide:7091`、`newUserGuide:7294`、`menu:7402`。
+  `settings` 是一个**跨度 720 行的混合命名空间**（`:5584` → `:6305`）：既放 own 键（`sandbox:5592`、`skills:6001`、`storage:6072`、`storageBackend:6146`、`parser:6189`、`weknoraCloud:6239`、`roleDenied:6292`、`capabilityUnavailable:6296`、`navGroups:6297`），
+  也放零散单键（如 `autoCheckUpdate*:5587-5588`、`vectorStoreEngine`、`parserEngine`、`storageEngine`）。这是历史分层痕迹。
 - **键名风格**：`camelCase` 段用 `.` 连接（`agent.editor.basicInfo`），
   但**动作/状态叶子键本身也是 camelCase 短语**（`saveFailed`、`apiKeyCapabilitiesRequired`），
   不用 snake_case（例外：审计事件键是**点分的事件名本身**，见下）。
@@ -1287,7 +1300,7 @@ Embed i18n entry point.
 只命中 1 处非文案代码（`api/organization/index.ts:235` 的注释 `// The role user wants to upgrade to`）
 和 1 处 chunking 示例文案（`views/knowledge/settings/chunkingSamples.ts:282` 里提到 reranker"付费"）。
 唯一出现"企业"二字在用户可见文案里的是 Chrome 插件自己的模式名：
-`'打开插件设置，选择「企业/开发者」模式，填入服务 API 地址与 API Key。'`（`zh-CN.ts:493` 附近，§7.5）。
+`'打开插件设置，选择「企业/开发者」模式，填入服务 API 地址与 API Key。'`（`zh-CN.ts:475`，§7.5）。
 
 **取代"企业版"的是三套正交机制**：
 
@@ -1362,7 +1375,7 @@ Embed i18n entry point.
 7. **凭据三态组件把"保留/更换/清除"拆成三个独立动作**（`credentials/CredentialResource.vue:1-26`）：
    一个密码框 + 一个"移除"勾选框会把三种意图混在一起，能误删掉在用的 key。
 8. **危险动作就地 popconfirm，并把副作用边界写进确认文案**（`CredentialResource.vue:46-50`、`RuntimeQueues.vue` 的
-   `cancelConfirm/deleteConfirm/purgeArchivedConfirm`，`zh-CN.ts:3426-3434`）：
+   `cancelConfirm/deleteConfirm/purgeArchivedConfirm`，`zh-CN.ts:3451-3458`）：
    确认框写清"只删 Redis 记录、不回滚业务状态"这种边界，能省掉大量事后解释。
 9. **审计事件用注册表 + 默认译文兜底，并由静态扫描兜住**（`i18n/auditActionRegistry.ts`、`auditActionLocaleDefaults.ts`，
    被 `localeKeyAudit.ts:9-17` 引用）：事件名是代码常量、展示名是翻译，新增事件忘了翻译时审计脚本会报，不会悄悄漏。
@@ -1413,34 +1426,48 @@ Embed i18n entry point.
 
 **具体不确定项**
 
-4. **`platformApiKeys` 的具体文案**：我只读到键名（`zh-CN.ts:119` 起），
-   没有逐字核对 `title / description / securityNotice / capabilityMore` 的原文，故 §8.5 未引用文案。
-5. **`organization` 设置弹窗的完整页签清单**：我从 `OrganizationSettingsModal.vue:957-1027` 读到
-   `basic / permissions / members / joinRequests / sharedKb / sharedAgents`（其中部分带条件），
-   但**没有逐个验证每个页签的显示条件**，也没读它 109KB 里的全部表单。
-6. **`skills` 的 nav children 机制到底有没有真正启用**：`Settings.vue:49-57` 支持 `item.children` 渲染子菜单，
+4. **`organization` 设置弹窗的完整页签清单**：我从 `OrganizationSettingsModal.vue:957-1027` 读到
+   `basic / permissions / members / joinRequests / sharedKb / sharedAgents`（部分带条件分支），
+   但**没有逐个验证每个页签的显示条件**，也没读它 109KB 里的全部表单字段。
+5. **`skills` 的 nav children 机制到底有没有真正启用**：`Settings.vue:49-57` 支持 `item.children` 渲染子菜单，
    但 `Settings.vue:351-377` 构造的 `all` 数组里**没有任何 item 带 `children`**，
    只有 `:511-517` 的兜底代码在 `navItem.children` 存在时才展开——所以这段子菜单 UI 目前**可能是死代码**。标注为不确定。
-7. **`retrieval` section 是否曾作为左侧 nav 项存在**：它不在 `navItems` 里（`Settings.vue:351-377` 无 `retrieval`），
-   只在命令面板抽屉里用（`GlobalCommandPalette.vue:175`）。但 `Settings.vue:78-196` 的 section 渲染里也**没有** `retrieval` 分支——
-   即 `?section=retrieval` 会落到 `canSeeSection('retrieval')` 为真（`settingsAccess.ts` 无该键 ⇒ 默认 `'viewer'`）
+6. **`retrieval` section 是否曾作为左侧 nav 项存在**：它不在 `navItems` 里（`Settings.vue:351-377` 无 `retrieval`），
+   只在命令面板抽屉里用（`GlobalCommandPalette.vue:175`）。但 `Settings.vue:78-196` 的 section 渲染分支里也**没有** `retrieval`——
+   即 `?section=retrieval` 会通过 `canSeeSection('retrieval')`（`settingsAccess.ts` 无该键 ⇒ 默认 `'viewer'`）
    但内容区什么都不渲染。这是我从代码推出的一个**疑似缺陷**，未实测。
-8. **`MessagesPlugin` 828 这个数字是"命中行数"不是"调用次数"**：我用 `Select-String -AllMatches` 计数的行数，
-   一行可能多个调用；且这是**抽样口径的统计**，不代表精确调用数。
-9. **`OrganizationList` 的 `noPermissionTip` 原文**：我读到模板里用了这个变量（`:11,17,180,187`），
+7. **"MessagePlugin 828 行"是命中行数，不是调用次数**：我用 `Select-String -AllMatches` 统计行数，一行可能多个调用；
+   且这是**抽样口径的统计**，不代表精确调用数。
+8. **`OrganizationList` 的 `noPermissionTip` 原文**：模板里用了这个变量（`:11,17,180,187`），
    但没定位它的定义与文案，故 §6.3 只引用了 `canManageOrg` 的判据。
-10. **`views/system/SystemSettings.vue` 的全部设置键清单**：该页 1492 行、由后端 `system_settings` 驱动，
-    我读了页头/tab/三类控件与 `keyLabels/keyDescriptions/enumLabels` 的存在（`localeKeyAudit.ts:71-73`），
-    但**没有列出具体管理了哪些键**。
-11. **`embedPublish` 的 webhook 段文案**：我读到模板里有 `webhookUrl/webhookSecret`（`AgentEmbedChannelPanel.vue:258-276`），
-    但没读这两个键的完整原文。
-12. **"是否跟随系统"在 Wails 桌面端的实际表现**：`useTheme.ts:28-61` 会调 `runtime.WindowSetDarkTheme` 等，
-    我只能读代码判断它同步原生底色，无法确认桌面壳里的最终观感。
-13. **`views/dev` 是否只有这一个页面**：我按目录列举确认只有 `MarkdownTestPage.vue`，
-    但**没有检查 vite 配置里是否有别的 dev-only 入口**（只确认了 `embed-main.ts` 这个第二入口）。
-14. **`claw` / `chrome` / `cli` 三个落地页的完整文案**：我只摘了标题与步骤结构，未逐字读完三个文件（`ClawSkillLanding.vue` 等）。
-15. **未核对 `en-US` / `ja-JP` / `ko-KR` / `ru-RU` 的实际翻译质量**：我只用行数确认了 5 份 bundle 结构对称，
+9. **`views/system/SystemSettings.vue` 的全部设置键清单**：该页 1492 行、由后端 `system_settings` 驱动，
+   我读了页头/tab/三类控件，并确认存在 `keyLabels/keyDescriptions/enumLabels` 这类键（`localeKeyAudit.ts:71-73`），
+   但**没有列出具体管理了哪些键**。
+10. **`embedPublish` 的 webhook 段文案**：模板里有 `webhookUrl/webhookSecret`（`AgentEmbedChannelPanel.vue:258-276`），
+    但我没读这两个键的完整原文。
+11. **"是否跟随系统"在 Wails 桌面端的实际表现**：`useTheme.ts:28-61` 会调 `runtime.WindowSetDarkTheme` 等，
+    代码上它同步原生底色，但最终观感无法确认。
+12. **`views/dev` 是否只有这一个页面**：目录里只有 `MarkdownTestPage.vue`，
+    但我**没有检查 vite 配置里是否有别的 dev-only 入口**（只确认了 `embed-main.ts` 这个第二入口）。
+13. **`claw` / `chrome` / `cli` 三个落地页的完整文案**：我只摘了标题与步骤结构，未逐字读完三个文件（`ClawSkillLanding.vue` 等）。
+14. **未核对 `en-US` / `ja-JP` / `ko-KR` / `ru-RU` 的实际翻译质量**：我只用行数确认了 5 份 bundle 结构对称，
     没有抽样比对任何一条译文是否准确或是否漏译。
+15. **`organization.settings` 里 `searchable / requireApproval / memberLimit` 的后端语义**：我读了 UI 文案与开关，
+    但没验证它们是否真的在服务端生效（前端文案不等于运行时语义）。
+
+**已在写作过程中修正过的引用（留痕，不删）**
+
+- 初稿把 `agent.editor.normalDesc/agentDesc` 记成 `zh-CN.ts:6393-6394`，**实测为 `:6400-6401`**，已改。
+- 初稿把 `agentEditor` 与 `agent.editor` 的 `skillsConfigDesc` 混为一谈，记成 `:1391-1396`（该区间实际是 `agentEditor.desc.*`），
+  **实测 `agent.editor.skillsConfigDesc` 在 `:6466`**，已改。
+- 初稿把 `agent.sections / agent.empty / agent.shareScope` 记在 `:6531-6539 / :6521-6529 / :6470-6489`，
+  **实测为 `:6546-6554 / :6536-6544 / :6512` 起**，已改。
+- 初稿把 `embedPublish` 的多条文案行号记在 `:4692-4730` 一带，
+  **实测 `allowedOrigins:4660`、`primaryColor:4699`、`pageTitle:4700`、`headerTitleMode:4703`、`tabIframe:4720`、`widgetPosition:4723`、`welcomeMessage:4684`、`publishTokenWarning:4698`、`rateLimitLabel:4694`、`rateLimitDayLabel:4696`、`allowWebSearch:4742`、`allowFileUpload:4744`、`defaultLocale:4778`**，已逐条替换。
+- 初稿把 `runtime.tasks` 的确认文案记在 `:3426-3434`、状态枚举记在 `:3394-3400`，
+  **实测确认文案在 `:3451-3458`、`states` 在 `:3479-3485`、`guides` 在 `:3471-3477`、`orphaned:3449`、`unavailable:3384`、`models.title:3399`**，已改。
+- 初稿把 `settings` 命名空间说成"未定位起始行"，**实测 `settings: {` 在 `:5584`，跨度到 `:6305`**，已改。
+- 初稿曾写 `platformApiKeys` 的具体文案"未读到"；**实际可读**（`zh-CN.ts:120` 与 `:122`），已在 §8.5 补上原文。
 
 ---
 
