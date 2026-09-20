@@ -67,8 +67,10 @@
  *    **先占上一级目录文件夹，然后点开是二级目录，进入二级目录就自动出现返回上一级的按钮**）」
  * 落成 4 条（逐条对照施工，别自己发挥）：
  *   1. **顶部一条卡片带**：`KNOWLEDGE_BASES`（标准 / 法律法规 / 3 个自建夹）**统一尺寸、横向**排在一个
- *      框（`.ks-kbband`）里；框自带左右箭头（`.ks-kbband-nav`）+ **原生横向滚动容器**
- *      （`.ks-kbband-clip`，箭头 `scrollBy`；到两端时对应箭头 `disabled`，量不到布局时保持可用）
+ *      框（`.ks-kbband`）里，全部卡片一次渲染进一个**原生横向滚动容器**（`.ks-kbband-clip`，
+ *      `overflow-x:auto` + `scroll-snap-type:x mandatory`）⇒ 用户能**直接拖那条滑动条**；
+ *      框两端各一个箭头（`.ks-kbband-nav`），点一下 `scrollBy` 一屏（≈一张卡）。
+ *      到两端时对应箭头 `disabled`；**量不到布局的链**（jsdom 截图链）保持可用
  *      —— 见 `BAND_STEP_PX` / `hasLayout` 的注释（5h-补 把窗口切片换成了真滚动）。
  *   2. **不再展示目录树**：`renderNodes` / `LibCard` / `.ks-kb-tline` 那一套（连同它的展开状态
  *      `open` / `toggle`）**已删**；「我建的（真文件夹；与上面两棵平级）」这句标签**已删**（业主点名的

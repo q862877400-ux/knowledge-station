@@ -886,6 +886,98 @@ tertiary/primary 配对，**本批没动**，工具里只报告不判，**登记
 5. **原 35 条断言是否真的没被削弱**：`git diff` 里 `smoke-kb-page-render.mjs` 应当**只有新增块
    + 那 4 步导航**，原有的每一条 `check(...)` 一字未改。
 
+### 5h-补：卡片带改成**真横向滑动**（2026-09-20；业主看了 5h 的图之后把"滑动条"钉实）
+
+业主原话（**验收标准**）：
+> 「所有卡片横在顶端，**一个小框下面自带一个左右翻页滑动条**，下面是文件目录」
+
+#### ① 上一版为什么**不是**原生滚动
+5h 把"滑动条"实现成了**状态式翻页**：`BAND_WINDOW = 3` 常量 + 窗口下标 `bandStart`，
+框里恒 3 张卡，箭头是"上一组 / 下一组"**重渲染窗口**。那一版**自己标了**这个偏差
+（上面 5h 的「没做/做不到」第 1 条）：框内**没有**原生横向拖拽/滚动。
+理由是真的：箭头置灰态要在**离屏渲染链**里也确定，而那条链跑在 **jsdom** ——
+`Element-impl` 的 `scrollWidth`/`clientWidth` 是**无条件 `return 0`**（本机 jsdom v29.1.1 实读）
+⇒ "按测量值决定置灰"在那条链上**永远是灰的**，图就当不了证据。
+代价是业主真正要的东西没了：**框里根本不能拖、不能滚**。
+
+#### ② 这一版怎么解决（两处都改了，不靠"二选一"）
+| 要做的事 | 上一版的障碍 | 这一版的做法 |
+|---|---|---|
+| 真的能滚 | 窗口切片 + 重渲染 | **全部卡片一次渲染**进 `.ks-kbband-clip`：`overflow-x:auto` + `scroll-snap-type:x mandatory`，卡 `scroll-snap-align:start` |
+| 滚动条看得见 | 截图链带 `--hide-scrollbars`，条**画都不画** | **去掉那个开关**（`ui-render-shot.mjs`）；条本身**不自己画**——宿主的 `ui-theme/src/styles/scrollbar.css` 已全局给 `::-webkit-scrollbar` 8px + `--dsw-alias-scrollbar-*`（Firefox 那支走我们声明的 `scrollbar-width:thin`），**一个色值都没自己编** |
+| 箭头不永远灰 | jsdom 量不出 ⇒ 只能退回下标 | 判据分两种环境：**有布局**时按 `scrollLeft` 判两端；**没布局**（`scrollWidth === 0`）时**保持可用**，并在代码里写明"这是**渲染链限制**，不是无脑放行" |
+| "每屏几张"不再两处耦合 | `BAND_WINDOW=3` **与** `repeat(3,…)` 必须一起改 | **彻底删掉**这个概念：卡固定宽 `--ks-band-card-w`(172px)，卡宽**只有一处定义**（`.ks-kbband .ks-kb-card{flex:0 0 …}`）；容器是横向 flex，不是网格 |
+| 箭头行为 | 重渲染窗口 | `scrollBy`（一次滚一屏 ≈ 一张卡），**目标位置自己夹到 [0, max]**（真机浏览器会夹，jsdom 那类**不夹** ⇒ 不自己夹就会滚出 3680 这种假数） |
+
+#### ③ 删掉的旧状态 / 旧断言（**没有一条放宽**）
+* 代码：`BAND_WINDOW`、`bandMax`、`bandAt`、`bandCards`、`bandStart`/`setBandStart` 全部删除
+  （`KsKnowledgePage.tsx`；`repeat(3,minmax(0,1fr))` 与 `width:100%` 也一并删）。
+* 断言（`smoke-kb-page-render.mjs`，**逐条点名**）：
+  1. 原「卡片带：一屏 3 张卡，且第一屏时左箭头 disabled」→ **作废**（"一屏 3 张"随 `BAND_WINDOW` 一起消失）。
+     换成「**全部 5 张库卡一次渲染进同一个横向滚动容器**」+「箭头真的驱动 `scrollLeft`」+「到两端真置灰」
+     + 「没布局时箭头保持可用」+「说明文字是总张数口径」。
+  2. 原「点右箭头翻到最后一屏 ⇒ 右箭头 disabled、左箭头可用」→ **语义改写**成"按 `scrollLeft` 两端置灰"，
+     用**假布局桩** `withBandGeometry`（jsdom 无布局 ⇒ 不装几何根本验不到两端态）。
+  3. 原「再翻回第一屏 ⇒ 左箭头又置灰」→ 同上，并入往返断言。
+  * "5 张卡一张不少""树没了""那句标签没了""表格那一整套"**一字未动**。
+* `ui-render-shot.mjs`：`gotoCard` 不再点箭头找卡（卡**全在 DOM 里**了），只把带滚回最左；
+  `kb-band-end`/`kb-band-start` 的 note 改成报 `scrollLeft / scrollWidth / clientWidth`。
+
+#### ④ 护栏自检（**退出码**，逐条实测）
+| 护栏 | 退出码 | 实测 |
+|---|---|---|
+| `npx tsc --noEmit -p client`（cwd=`plugin`） | **0** | 无输出 |
+| `node scripts/smoke-ui-scale.mjs` | **0** | `spacing 0/0，font-size 0/0` |
+| `node scripts/smoke-client-entry.mjs` | **0** | `122/122`（含"交付产物 ↔ 现构建整份一致"） |
+| `node scripts/smoke-kb-page-render.mjs` | **0** | `56/56` |
+| `node scripts/smoke-kb-cols.mjs` | **0** | 520/900/1300 三档表头=行（`348px 72px 36px` / `488px 72px 36px` / `660px 72px 80px 132px 36px`） |
+
+`plugin/client.js` 已用 `node scripts/build-client.mjs` **重建**（1,480,249 bytes）；
+`smoke-client-entry` 的"交付产物 ↔ 从源码现构建**整份一致**"就是它与现构建一致的机械证据。
+
+#### ⑤ 截图自检（**看图**；`var/tmp/ui-shots/`，不入库）
+新增一个**只影响截图**的开关 `--band-scroll <px|end>`：在**真 Chrome** 里把卡片带滚到指定位置。
+⚠ 为什么需要它：jsdom 预渲染那趟没有布局 ⇒ `scrollLeft` 只能是 0，"滚到中段/末端"的位移出不来。
+它写的是**真元素**的 `scrollLeft`（等于用户拖了那条滚动条），位移与条的位置都由真布局算 —— 不是造假滚动。
+
+| 图 | 这一跑是什么 | 我看到的 | 机械实测（同一趟 `measured["#kbband"]`） |
+|---|---|---|---|
+| `band-1300.png` | 默认（1300） | 卡 标准/法律法规/公司制度 + **内部操作规程露半张**（"还能往右滑"的观感）；框内下方一条**灰 thumb + 浅轨道**的横向滚动条，thumb 在**最左**；下面"共 5 张 · 可左右滑动或点箭头翻页"；再下面目录层 3 张 | `clientWidth 640 / scrollWidth 908 / 可滚 268 / scrollLeft 0 / clientHeight 136 / offsetHeight 146 ⇒ **条厚 10px** / overflowX=auto / 卡总宽 908` |
+| `band-mid-1300.png` | `--band-scroll 184`（≈一张卡） | 第一张"标准"移出视野、可见变为 法律法规/公司制度/内部操作规程/供应商资料；**thumb 明显右移**（约 2/3 处） | `scrollLeft 184 / 可滚 268` |
+| `band-end-1300.png` | `--band-scroll end` | 左边缘露出"…规 / 部门规章"的`法律法规`残尾；右端到 供应商资料；**thumb 贴到最右** | `scrollLeft 268 = 可滚上限`（**自己夹住了**） |
+| `band-end-dark-1300.png` | 深色 + `--band-scroll end` | 框/卡/箭头/目录卡/滚动条**全部跟随深色 token**（条是深色的，没有浅色原生条） | 同浅色（`640/908/268`） |
+| `band-end-520.png` | 窄档 520 + `--band-scroll end` | 框 416 宽里看得到 ~2.3 张卡，**条同样在**（130px） | `clientWidth 416 / scrollWidth 908 / 可滚 492 / scrollLeft 492` |
+| `band-520.png` | 窄档默认 | 5 张卡**同宽 172、同高 136**（`#cards` 逐个实测 `172,172,172,172,172` × `136,136,136,136,136`）⇒ "尺寸统一"没破 | `clientWidth 416 / 可滚 492` |
+
+**这一轮新踩/复现的坑（留痕，别删）**
+1. **模板字符串里注释写反引号 = 当场截断**：我在 `ui-render-shot.mjs` 的**内嵌 `<script>` 注释**里写了
+   `` `--hide-scrollbars` `` ⇒ `node --check` 报的却是 **L571 的 `const html =`**
+   （"Invalid left-hand side expression in postfix operation"），**指向完全不相干的位置**。
+   定位靠的是"截断到 n 行逐个 `node --check`"。本仓同类踩坑已第 8、9 次，**这是第 10 次**。
+2. **jsdom 的 `scrollLeft` 不夹**：元素没有 `scrollBy` 方法，且 `scrollLeft` 是**不夹的存取器**
+   ⇒ 点 20 次"下一张"会累加成 `3680`（可滚只有 268）。**这就是组件里必须自己夹**的原因；
+   断言里也补了一条"连点到头 `scrollLeft` 恰好等于上限"。
+
+**没做 / 做不到（诚实边界，5h 那 5 条里被本轮消掉的是第 1 条）**
+1. **滚动条是宿主/浏览器给的原生条**，形态（粗细/圆角）由宿主 `scrollbar.css` 与浏览器决定 ——
+   我们**不画**它（自己画 = 第二套色值）。要改成自绘条，得先有宿主 token 的宽度档，目前没有。
+2. **真机宿主页面仍未看**（本仓对浏览器自动化 401）：截图链是 jsdom 预渲染 + 真 Chrome 渲染，
+   **真机里的"置灰"（有布局那一支）只有 `smoke-kb-page-render` 的假布局桩能证**，
+   没有"真宿主页里箭头变灰"的截图。**这是本轮最该复核盯的点**。
+3. 5h 的其余边界**仍然成立**：无"既有子目录又有文件"的节点；三个用户夹只有一级；
+   卡片带不是 sticky；子代理渲染链无宿主外壳、KaTeX 字体被抹掉。
+
+**最该让复核盯的点（5h-补）**
+1. **`--hide-scrollbars` 是全局移除的**（不是只给 kb 页开），影响**所有** `ui-render-shot` 截图。
+   本轮实测未变色的是：`#kbband`/`#cards`（520/1300 逐个卡宽高）、`smoke-kb-cols` 三档列模板、
+   `smoke-kb-page-render` 56/56。**但"没有别的页因此变样"这句话本轮只在卡片带与列对齐上取过证**，
+   整份 `smoke-all`（本轮按任务书**不许跑**）里是否有别的页受影响，是复核应该补的。
+2. **`hasLayout` 是锁存值**（第一次量到就翻 true，不回退）。所以"没布局 ⇒ 箭头可用"这条断言
+   **必须排在装几何桩之前**；桩撤掉之后**故意不再断言**箭头态（那是桩的残留，不是产品行为）。
+   复核别把"撤桩后没断言"读成"漏了一条"。
+3. **"每屏几张"是否真的只剩一处**：`Select-String -Pattern 'BAND_WINDOW|repeat\(3'`
+   在 `plugin/client` 与 `plugin/scripts` 里应**只剩历史留痕的注释**，没有活代码。
+
 ⚠ 子代理的渲染链**已知失真**（写在这里，免得以后据此乱下结论）：无宿主外壳（侧栏/tab 条/宿主字体栈），
 5c/5b 落库的截图只截浅色一套（⚠ **本轮 corr3 B5 补了深色的行高实测与截图**，见 5d；那两张深色图在
 `var/tmp/ui-shots/`，不入库），KaTeX 字体被抹掉（公式渲染不可信），jsdom 全局是它的桩。
