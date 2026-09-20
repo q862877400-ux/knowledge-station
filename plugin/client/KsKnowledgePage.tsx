@@ -699,10 +699,14 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
    * 的一个过滤条件，同库内下钻/返回都保留）。
    * ⚠ **只 slice、不信任 `i` 的边界**：`prev.slice(0, i)` 对负数与超长都不会抛
    *   （负数从末尾数、超长取整条）—— 但调用方只会在 `0..path.length` 上用它（见下面的渲染）。
+   *   ⚠ **本轮修正（2026-09-20 头条）：负数不是"不会抛"就没问题** —— `slice(0, -1)` 会**砍掉最后一级**
+   *   而不是回到库根，语义完全反了。当前调用点全是 `depth`（天然 ≥ 0）⇒ 那时是死代码；
+   *   但"只有调用方保证"这种边界留在共享入口上，下一个人换个调用点就会踩。⇒ 入口自己夹住：
+   *   `i <= 0` 一律当**回库根**（没有"第负几级"这种东西，最保险的读法就是回根）。
    * ⚠ **当前所在那一级不渲染成按钮**（它是"你现在在这"）：见下面的 `crumbItems`。
    */
   const enterDepth = (i: number): void => {
-    setPath((prev) => prev.slice(0, i))
+    setPath((prev) => prev.slice(0, i > 0 ? i : 0))
     setSelected(new Set<string>())
     setOpenDoc(null)
   }

@@ -399,17 +399,21 @@ export const KS_STYLES = `
 /* 焦点环用 **inset** box-shadow（不是 outline）：容器是 overflow:hidden，外扩的环会被裁掉。 */
 .ks-list-dirs .ks-item:focus-visible{outline:none;
   box-shadow:inset 0 0 0 var(--ks-stroke) var(--dsw-alias-border-l4)}
-/* 目录名那一列：**嵌套 grid 两行**（第 1 行图标 + 名字，第 2 行整条路径）——与文件层的
-   .ks-item .ks-col-name 同一种手法（那里是 16px 图标列 + 名字 / 标准号两行）。
+/* 目录名那一列（**只在行里**）：**嵌套 grid 两行**（第 1 行图标 + 名字，第 2 行整条路径）——
+   与文件层的 .ks-item .ks-col-name 同一种手法（那里是 16px 图标列 + 名字 / 标准号两行）。
+   ⚠⚠ 选择器**必须限定在 .ks-item 行内**：表头那一格的类名也是 .ks-col-dname，两行嵌套 grid
+     用到表头上会把 16px 当成第一列 ⇒ 表头的「目录」被挤进 16px、**只剩「目」**
+     （本批真 Chrome 实测：spClientW=16 / spScrollW=24，图上只显示一个字；文件层那条规则
+      写的是 .ks-item .ks-col-name，天生没这个问题）。
    ⚠ 为什么第 2 行给路径：目录名在**同名的兄弟层**里认不出来（两个「宪法与行政法」分属
      法律 / 行政法规两支）⇒ 整条 key 是唯一的消歧锚（与文件层第 2 行给标准号同一个理由：
      那一行放的都是"这一行的真身份"，不是编出来的描述）。 */
-.ks-list-dirs .ks-cell.ks-col-dname{display:grid;grid-template-columns:16px minmax(0,1fr);
+.ks-list-dirs .ks-item .ks-cell.ks-col-dname{display:grid;grid-template-columns:16px minmax(0,1fr);
   column-gap:var(--ks-space-2);row-gap:0;align-items:center}
-/* 目录名（名字那一格）：font-weight:600 —— 原来卡片上的名字就是这个字重（搬家不换样式）。
+/* 目录名（名字那一格，**只在行里**）：font-weight:600 —— 原来卡片上的名字就是这个字重（搬家不换样式）。
    ⚠ 这里把旧规则里的 flex:1 **去掉了**：新容器是 grid 单元格，flex 在它上面是死声明
      （留着会让人以为宽度归它管，而宽度归 --ks-cols）。 */
-.ks-list-dirs .ks-dir-name{grid-area:1/2;min-width:0;overflow:hidden;text-overflow:ellipsis;
+.ks-list-dirs .ks-item .ks-dir-name{grid-area:1/2;min-width:0;overflow:hidden;text-overflow:ellipsis;
   white-space:nowrap;font-size:var(--ks-fs-base);font-weight:600}
 /* 篇数列 + 进入提示列：与文件层的 .ks-col-status / .ks-col-more 同一档（居中 / 靠右）。
    ⚠ .ks-kb-badge 是 flex:none 的胶囊（卡片上原来是它），放进 grid 单元格里没问题。 */

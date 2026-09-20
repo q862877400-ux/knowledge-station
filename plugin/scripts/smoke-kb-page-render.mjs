@@ -526,9 +526,23 @@ export function mount(container, props) {
     `目录 表头 ${JSON.stringify(dirTpl)} / 行 ${JSON.stringify(dirRowTpl)}；`
     + `gap 表头 ${JSON.stringify(dirGap)} / 行 ${JSON.stringify(dirRowGap)}；`
     + `文件层表头 ${JSON.stringify(csOf(container.querySelector('.ks-list:not(.ks-list-dirs) .ks-lhead'), 'grid-template-columns'))}`)
-  /* ⚠ 行高的**声明串**要在这里先量下来（此刻在目录层）：等会儿下钻到文件层再量文件行，
+  /* ⚠⚠ 行高的**声明串**要在这里先量下来（此刻在目录层）：等会儿下钻到文件层再量文件行，
    *   两边比对 —— 不能在目录层就断言（那里没有文件行，写成"没有文件行就算过"= 恒真假绿）。 */
   const dirRowMinH = csOf(dirEls()[0] ?? null, 'min-height')
+  /* ── 断言 2f-2b（**本批实测踩坑换来的**）：目录层的列样式**不许漏进表头** ──
+   * 踩的是什么：目录名那一列的"嵌套 grid 两行"（16px 图标列 + 1fr）如果选择器写成
+   *   .ks-list-dirs .ks-cell.ks-col-dname，它会**同时命中表头**那一格（类名一样）——
+   *   表头的「目录」于是被挤进 16px 的第一列、**只剩一个「目」**。
+   *   真 Chrome 实测：spClientW=16 / spScrollW=24（两个字的宽度是 24），图上只显示一个字。
+   *   jsdom 没有布局引擎 ⇒ 量不到"挤没挤"，但**量得到 display**：表头那格在正确实现下是
+   *   flex（来自 .ks-lhead .ks-cell），被那条规则命中时会变成 grid。
+   * ⇒ 这一条判"表头每一格都是 flex（= 没被行内的 grid 样式漏进来）"。
+   *   ⚠ 这是**结构级**判据（jsdom 能判的那种）；像素级由 ui-render-shot 的真 Chrome 判。 */
+  const dirHeadDisplays = [...(dirList?.querySelector('.ks-lhead')?.children ?? [])]
+    .map((c) => csOf(c, 'display').trim())
+  check('目录层表头：每一格都没有被行内的列样式漏进来（display 必须是 flex，不是 grid）——「目录」只剩一个「目」就是这个坑',
+    dirHeadCells.length === 3 && dirHeadDisplays.every((d) => d === 'flex'),
+    `表头三格 display = ${JSON.stringify(dirHeadDisplays)}（正确 = 三个 flex）`)
   await click(cardNamed('法律法规'))
   check('点「法律法规」卡 ⇒ 进入该库、显示它的**一级目录**（法律 / 行政法规）；库根**没有**返回上一级按钮',
     dirEls().length === 2 && dirEls().map((el) => (el.textContent ?? '').trim()).join('|').includes('法律')
