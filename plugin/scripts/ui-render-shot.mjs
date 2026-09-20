@@ -1011,7 +1011,8 @@ ${bandScrollStmt}
       var shPr = parseFloat(shCs.paddingRight); if (!isFinite(shPr)) shPr = 0;
       var cLeft = shR.left + shPl;
       var cRight = shR.right - shPr;
-      // ⚠ 这一串**必须与 docs/UI-BASELINE.md 第二节的适用面一致**（Node 侧 ksPadCheck 逐条判）。
+      // ⚠ 这一串**必须与 docs/UI-BASELINE.md 第二节的适用面一致**（Node 侧 ksPadCheck 逐条判，
+      //   并有"文档适用面 ↔ 本表"的棘轮，见 PAD_SUBJECTS_ALL）。
       //   isRoot=1 表示"看它的内容盒"，0 = "看它的边框盒"。
       var padSel = [['.ks-kb', 1], ['.ks-ing', 1], ['.ks-mat', 1],
                     ['.ks-kbband', 0], ['.ks-list', 0], ['.ks-batch', 0], ['.ks-dirs', 0],
@@ -1019,7 +1020,15 @@ ${bandScrollStmt}
       var padItems = [];
       for (var pi = 0; pi < padSel.length; pi++) {
         var pel = document.querySelector(padSel[pi][0]);
-        if (!pel) continue;
+        // ⚠⚠ 5j-补（2026-09-20，复核 verify-freeze-5j 打回 E①）：**缺失不再静默跳过**。
+        //   原写法是 find-or-continue ⇒ 复核的变异 M6（把 .ks-dirs 的类名改掉，元素**整个从 DOM 消失**）
+        //   两侧全绿：items 里少一项，而 Node 侧只判"量到的那些" ⇒ "元素没了"与"留边合规"长得一样。
+        //   现在缺失也 push 一条 missing:true（d/dR 全 null），由 Node 侧按**声明的期望集合**
+        //   （PAD_REQUIRED）逐条判：声明里该有的、这里没有 ⇒ 当场红。
+        if (!pel) { padItems.push({ sel: padSel[pi][0], root: padSel[pi][1] === 1, missing: true,
+                                   d: null, dR: null, dRaw: null, dRRaw: null,
+                                   padL: null, padR: null, padT: null, padB: null, h: null, n: 0 });
+                     continue; }
         var isRoot = padSel[pi][1] === 1;
         var pR = pel.getBoundingClientRect();
         var pCs = getComputedStyle(pel);
@@ -1202,7 +1211,39 @@ const cardsCheck = {
 const PAGE_PAD_X_NARROW = 16
 const PAGE_PAD_X_WIDE = 24
 const PAGE_PAD_BREAKPOINT = 660
+/**
+ * > ⚠⚠ **5j-补（2026-09-20）：复核 `verify-freeze-5j` 打回 E① —— "元素整个消失也不红"。**
+ * > 复核的变异 **M6**：把 `.ks-dirs`（规范第二节明文点名的适用面之一）的类名改掉让它从 DOM 消失
+ * > ⇒ `ui-render-shot` **exit 0 自检通过**（items 里直接少一项）、`smoke-kb-page-render` **72/72 PASS**。
+ * > 根因就是下面这张表**原本不存在**：页面侧 `padSel` 找不到元素就 `continue`，Node 侧只判"量到的那些"
+ * > ⇒ "元素被改名/删掉"与"留边合规"不可分辨。**量不到就必须判红，不许当通过。**
+ *
+ * 两件事一起做（缺一不可）：
+ *   ① 页面侧缺失也上报（`missing:true`，见注入脚本里那段）；
+ *   ② Node 侧按**本表声明的期望集合**判存在性 —— 声明里该有、items 里没有 ⇒ 红。
+ *      ⚠ 不同页/不同场景本来就有不同的元素集（能力页没有卡片带、入库页只有一个根），
+ *      所以期望**必须按 (page|interact) 显式声明**，不能"要求全都有"（那会假红）也不能"找到就判"
+ *      （那正是被打回的假绿）。**组合没在本表里 ⇒ `coverageDeclared=false`，明说"这一跑没判覆盖面"**
+ *      （不静默通过；门禁里跑的每一组都在本表里）。
+ *   ③ 本表**并集**必须覆盖 `PAD_SUBJECTS_ALL`（= 规范第二节适用面的机器副本）——少一个就红：
+ *      这就是"规范加了适用面、脚本没跟上"的棘轮（同 token/阈值的做法）。
+ */
+const PAD_SUBJECTS_ALL = ['.ks-kb', '.ks-ing', '.ks-mat', '.ks-kbband', '.ks-list', '.ks-batch',
+  '.ks-dirs', '.ks-page-head', '.ks-kb-row', '.ks-empty-card']
+/** 键 = `${page}|${interacts.join('+')}`（与 `--page`/`--interact` 同一口径）。值 = 这一跑**必须量到**的选择器。 */
+const PAD_REQUIRED = {
+  'kb|': ['.ks-kb', '.ks-kbband', '.ks-dirs', '.ks-page-head', '.ks-kb-row'],
+  'kb|kb-select': ['.ks-kb', '.ks-kbband', '.ks-list', '.ks-batch', '.ks-page-head', '.ks-kb-row'],
+  'kb|kb-files': ['.ks-kb', '.ks-kbband', '.ks-list', '.ks-page-head', '.ks-kb-row'],
+  'kb|kb-empty-files': ['.ks-kb', '.ks-kbband', '.ks-list', '.ks-page-head', '.ks-kb-row', '.ks-empty-card'],
+  'capabilities|': ['.ks-kb', '.ks-page-head', '.ks-kb-row'],
+  'ingest|ingest-batch': ['.ks-ing'],
+  'materials|': ['.ks-mat'],
+}
+const padComboKey = `${page}|${interacts.join('+')}`
+const padRequired = PAD_REQUIRED[padComboKey] ?? null
 const stylesSrcPath = join(pluginRoot, 'client', 'ksGuideStyles.ts')
+const baselineDocPath = join(repoRoot, 'docs', 'UI-BASELINE.md')
 let ksPadTokenProblems = []
 try {
   const stylesSrc = await readFile(stylesSrcPath, 'utf8')
@@ -1231,8 +1272,43 @@ try {
     ksPadTokenProblems.push(`ksGuideStyles.ts 里页面留边的 @container 阈值 = ${JSON.stringify(bp)}，`
       + `而本脚本冻结的是 ${String(PAGE_PAD_BREAKPOINT)}（宽/窄两档的切换点只许有一个数）`)
   }
+  /* 「规范 ↔ 脚本」的**主体表棘轮**（5j-补）：从 UI-BASELINE 第二节的**适用面**那一段里抠出所有
+     `.ks-*` 选择器，要求与本脚本的 PAD_SUBJECTS_ALL **一模一样**（多一个/少一个都红）。
+     为什么必须抠文档而不是"抄一份在脚本里"：规范里加了适用面（例如再加一个 `.ks-x`）而脚本没跟上，
+     那种漂移正是本轮被打回的那一类 —— 抄一份等于允许两份各自漂移。 */
+  const docSrc = await readFile(baselineDocPath, 'utf8')
+  const segStart = docSrc.indexOf('**适用面**')
+  const segEnd = segStart === -1 ? -1 : docSrc.indexOf('**判据', segStart)
+  if (segStart === -1 || segEnd === -1) {
+    ksPadTokenProblems.push(`在 ${baselineDocPath} 里找不到「**适用面** …**判据」这一段`
+      + '（抠不到规范的主体表 ⇒ 这条棘轮无从判定，不算验过）')
+  } else {
+    const docSubjects = [...new Set((docSrc.slice(segStart, segEnd).match(/\.ks-[a-z0-9-]+/g) ?? []))]
+    const onlyDoc = docSubjects.filter((s) => !PAD_SUBJECTS_ALL.includes(s))
+    const onlyScript = PAD_SUBJECTS_ALL.filter((s) => !docSubjects.includes(s))
+    if (onlyDoc.length > 0 || onlyScript.length > 0) {
+      ksPadTokenProblems.push('规范第二节的适用面与本脚本的 PAD_SUBJECTS_ALL 不一致：'
+        + `只在规范里=[${onlyDoc.join(' ')}]、只在脚本里=[${onlyScript.join(' ')}]`
+        + '（两边必须一模一样；改了规范就要同步脚本，反之亦然）')
+    }
+  }
 } catch (e) {
-  ksPadTokenProblems.push(`读不到 ${stylesSrcPath}：${String(e)}（读不到就不算验过）`)
+  ksPadTokenProblems.push(`读不到 ${stylesSrcPath} 或 ${baselineDocPath}：${String(e)}（读不到就不算验过）`)
+}
+/* 本表并集必须覆盖规范的全部适用面（5j-补）：**声明里没出现过的科目 = 没有任何一跑在判它**。
+   这正是复核 M6 的另一半 —— 元素"有人在判"才算被保护。 */
+{
+  const covered = new Set(Object.values(PAD_REQUIRED).flat())
+  const uncovered = PAD_SUBJECTS_ALL.filter((s) => !covered.has(s))
+  if (uncovered.length > 0) {
+    ksPadTokenProblems.push(`规范点名的这些适用面在 PAD_REQUIRED 里**没有任何一跑声明**（等于没人判）：`
+      + `[${uncovered.join(' ')}] —— 给它们各补一组声明，或从规范里删掉`)
+  }
+  const unknown = [...covered].filter((s) => !PAD_SUBJECTS_ALL.includes(s))
+  if (unknown.length > 0) {
+    ksPadTokenProblems.push(`PAD_REQUIRED 里出现了不在规范适用面里的选择器：[${unknown.join(' ')}]`
+      + '（要么它该进规范，要么表里写错了）')
+  }
 }
 
 const ksp = measured['#kspad']
@@ -1245,10 +1321,44 @@ if (ksp === undefined) {
 } else if ((ksp.items ?? []).length === 0) {
   ksPadSkipReason = '这一跑一个"不得贴边"的元素都没量到 —— 量不到不算验过'
 } else {
+  /* ── 5j-补：**存在性先判**（复核 E① 的正解）──
+     声明里该有的元素，items 里必须有一条**非 missing** 的记录。缺了就是红；
+     ② 「组合没声明」⇒ 不判存在性，但**明说没判**（coverageDeclared=false），不许当通过。 */
+  const items = ksp.items ?? []
+  const bySel = new Map(items.map((it) => [it.sel, it]))
+  if (padRequired === null) {
+    ksPadProblems.push(`这一跑的组合 ${padComboKey} **没有在 PAD_REQUIRED 里声明期望元素**`
+      + ' ⇒ 存在性（"元素被改名/删掉"这一类）这一跑**没判**；要把这一跑纳入保护就给它加一行声明')
+  } else {
+    for (const sel of padRequired) {
+      const it = bySel.get(sel)
+      if (it === undefined || it.missing === true) {
+        ksPadProblems.push(`**规范点名的适用面 ${sel} 这一跑根本没量到**（元素消失/改名都会这样）`
+          + ' —— 量不到就不算验过；改回类名，或按设计把它从适用面里去掉（同时改规范与 PAD_REQUIRED）')
+      }
+    }
+  }
+  /* 档位**不许只由被测容器自己的实宽决定**（复核 E⑥ 的软点 M7：给 `.ks-page` 强制 width:600px
+     后，1300 的壳里被读成"窄档"、期望 16 ⇒ exit 0 通过）。这里再拿 shell 的**内容宽**独立钉一次：
+     ① `.ks-page` 是页面根的唯一容器，它就该**铺满** shell 内容盒（差 >1px 说明有东西在偷偷缩它）；
+     ② 档位必须与 shell 内容宽一致（壳够宽 ⇒ 必须宽档）。 */
+  const [shPl, shPr] = String(ksp.pad ?? '0/0').split('/').map(Number)
+  const shellContentW = Number(ksp.w) - (Number.isFinite(shPl) ? shPl : 0) - (Number.isFinite(shPr) ? shPr : 0)
+  if (Math.abs(Number(ksp.pageW) - shellContentW) > 1) {
+    ksPadProblems.push(`.ks-page 实测宽 ${String(ksp.pageW)}px 与 shell 内容宽 ${String(shellContentW)}px 不符`
+      + '（页面根应当铺满内容盒）—— 那会让"档位"读成错的那一档，留边期望跟着错')
+  }
   const wide = Number(ksp.pageW) >= PAGE_PAD_BREAKPOINT
+  const wideByShell = shellContentW >= PAGE_PAD_BREAKPOINT
+  if (wide !== wideByShell) {
+    ksPadProblems.push(`档位与 shell 内容宽不一致：按 .ks-page 实宽(${String(ksp.pageW)}px)读成`
+      + `${wide ? '宽' : '窄'}档，按 shell 内容宽(${String(shellContentW)}px)应是${wideByShell ? '宽' : '窄'}档`
+      + ' —— 档位必须由壳宽独立钉住，不能只信被测容器自己')
+  }
   const expect = wide ? PAGE_PAD_X_WIDE : PAGE_PAD_X_NARROW
-  for (const it of ksp.items) {
+  for (const it of items) {
     const tag = `${it.sel}${it.root === true ? '（页面根，看内容盒）' : ''}`
+    if (it.missing === true) continue
     if (!Number.isFinite(it.d) || !Number.isFinite(it.dR)) {
       ksPadProblems.push(`${tag} 的左右留边量不到（d=${JSON.stringify(it.d)} dR=${JSON.stringify(it.dR)}）`)
       continue
@@ -1293,6 +1403,12 @@ const ksPadCheck = {
   pageW: ksp?.pageW ?? null,
   shellPad: ksp?.pad ?? null,
   expect: ksp === undefined ? null : (Number(ksp.pageW) >= PAGE_PAD_BREAKPOINT ? PAGE_PAD_X_WIDE : PAGE_PAD_X_NARROW),
+  /* 5j-补（复核 E① 的正解）：**这一跑到底判了哪些元素的"存在性"**，以及有没有没判的科目。
+     门禁里的 `smoke-kb-pad-pixels.mjs` 要求 coverageDeclared=true —— 没声明就等于没保护。 */
+  comboKey: padComboKey,
+  coverageDeclared: padRequired !== null,
+  required: padRequired,
+  missingSubjects: (ksp?.items ?? []).filter((it) => it.missing === true).map((it) => it.sel),
   items: ksp?.items ?? null,
 }
 

@@ -245,8 +245,26 @@ export function mount(container, props) {
     }
   }
   const presentSubjects = PAD_SUBJECTS.filter((sel) => q(sel).length > 0)
+  /* ⚠⚠ **5j-补（2026-09-20）："至少有一个"不算判过（复核 `verify-freeze-5j` 打回 E① 的 M6）。**
+     复核铁证：把 `.ks-dirs` 的类名改掉让它**整个消失** ⇒ 本文件 **72/72 PASS exit 0**
+     —— 因为原判据只是 `presentSubjects.length > 0`（7 类里剩 6 类照样通过）。
+     "元素没了"和"元素合规"必须可分辨 ⇒ 这里按**这一跑所处状态的声明集合**逐类判存在性。
+     本块跑在**默认态**（卡片带 + 一级目录，还没下钻、还没勾选）⇒ 该有的就是下面 4 类；
+     `.ks-list` 由后面"列模板只有一个所有者"那段强制（它要求 `.ks-list` 有真子元素）、
+     `.ks-batch` 由"搜索会清空已选"那段强制（它要求搜索前批量条存在）；
+     `.ks-empty-card` 在本脚本**没有对应状态**（空态要 `--interact kb-empty-files`）⇒
+     它由 `smoke-kb-pad-pixels.mjs`（在门禁链里，真浏览器）的那一组判。
+     **写明"这里没判什么"，免得把沉默读成覆盖。** */
+  const PAD_REQUIRED_DEFAULT_STATE = ['.ks-kbband', '.ks-dirs', '.ks-page-head', '.ks-kb-row']
+  const missingHere = PAD_REQUIRED_DEFAULT_STATE.filter((sel) => q(sel).length === 0)
+  check('页面留边：默认态该有的适用面元素一个不少（.ks-kbband/.ks-dirs/.ks-page-head/.ks-kb-row —— 类名被改掉/元素被删都会在这里红）',
+    missingHere.length === 0,
+    missingHere.length === 0
+      ? `4 类都在（本状态不判 .ks-list/.ks-batch/.ks-empty-card：前三者的存在性由本文件后面的断言强制，`
+        + `.ks-empty-card 由 smoke-kb-pad-pixels.mjs 的 kb-empty-files 一组判）`
+      : `**没量到**：${missingHere.join(' ')}（元素消失/改名 ⇒ 留边管不到它；量不到不算验过）`)
   check('页面留边：卡片带/表格容器/批量条/目录层/页头/按钮行/空态卡**全都在页面根之内**（跑到容器外面就说明留边管不到它）',
-    presentSubjects.length > 0 && outside.length === 0,
+    outside.length === 0,
     presentSubjects.length === 0
       ? '这一跑一个适用面元素都没出现（那这条断言等于没判）'
       : `这一跑出现 ${presentSubjects.length} 类：${presentSubjects.join(',')}；越界：${JSON.stringify(outside)}`)

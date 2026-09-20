@@ -57,6 +57,16 @@ const SUITES = [
   'scripts/smoke-class-summary.mjs',
   'scripts/smoke-kb-page-render.mjs',
   'scripts/smoke-ui-scale.mjs',
+  // 5j-补（2026-09-20，复核 verify-freeze-5j 打回 E②/H③）：**两条要真浏览器的断言现在进链**。
+  //   打回的原话是"`ksPadCheck` 这条像素断言不在任何门禁链里"⇒ 5j 在门禁内的实际保护只有 jsdom 那 5 条
+  //   （jsdom 没有布局引擎，判不了"外缘到内容边多少像素"）；而 `.ks-batch` 折行那条更绝：
+  //   只有 `--interact kb-select` 会触发，`smoke-kb-cols` 固定 `kb-files`（那场景没有批量条）
+  //   ⇒ 折行回归**没有任何脚本抓得到**。两条脚本的位置都放在渲染类之后（真浏览器，最慢）。
+  //   ⚠ **代价与取舍（有意，别再当疏漏）**：门禁链从这一批起**需要本机有 Chromium/Edge**；
+  //   没浏览器时 `ui-render-shot.mjs` 自己报错退出 ⇒ 这两套判失败（**不是跳过**）。
+  //   理由：本仓是仓外 bundle，门禁只在本机跑；"浏览器缺了所以不判"正是复核打回的那类假绿。
+  'scripts/smoke-kb-pad-pixels.mjs',
+  'scripts/smoke-kb-cols.mjs',
   // 第 6 步 A 批（2026-10）：取消/超时可分辨 + 监听摘净（全离线、不 spawn 引擎），
   // 以及 6 个工具的 isConcurrencySafe 声明形态。两条都属"最快能发现破坏"那一档：
   // 前者红了说明排障时又分不清"用户点停止"和"引擎太慢"，后者红了说明并行静默失效。
