@@ -9432,3 +9432,33 @@ jsdom 的 `PAD_SUBJECTS`、注入的 `padSel`、第六节 5j① 表格是散文�
   （`routes_materials.py` / `material_repo.py` / `server.py` 的 health / `harvest.py` / `typed_verifier.py`）；
 - 新契约冒烟第一版有个**假绿**（`ks_materials` 的桩路径片段写错 ⇒ 回落兜底 `data:{}` ⇒ inbox 组"空文件列表"
   静默通过），已改成非空转断言，留痕在脚本注释里。
+
+### 复核 `verify-freeze-step6-1` 判 **FAIL**（A 条）—— **是我的 bug**，已修（`bb68f31`）
+
+**它怎么打的**（三重实测，不是读码）：`ANSWER_MATERIAL_USAGE` 把 `counts` 声明为 `{type:'object'}`
+**且放进 `required`**，而引擎的**失败分支**给的是 `counts: None`（`src/core/llm/ks_answer.py:698-701`，
+本批刚转发的正是这条）。它用**真的 `@deepseek-ai/dsh-tools` 的 `ToolRuntime.execute`**（真 cordis Context）
+跑出：`isError:true`、`{"name":"ToolOutputError","code":"INVALID_TOOL_OUTPUT","message":"…\"value.material_usage\"
+must match exactly one oneOf branch (matched 0)"}`；父提交 `2cb7b25` 那 6 处全是 `additionalProperties:true`
+且**当时根本没转发** `material_usage` ⇒ **这条 isError 是本批新引入的**。
+
+**最刺眼的一点**：那个 schema 的**注释是我自己写的**，第 463 行明写失败分支 `counts: null`；第 474 行却写成
+必填 `object` —— **注释写对了、代码抄错了**。判据只读代码，所以注释救不了它。
+**为什么冒烟漏**：17 组里 `ks_answer` 只有 `full-answer`（正常）/422/空信封，**没有引擎失败分支那一组**
+⇒ 94/94 全绿地放过。⇒ **"本批新增的键"必须覆盖它自己的每一条生产路径（失败分支也算）**。
+
+**修法**（照复核给的最小修）：`counts` → `oneOf:[{type:'object'},{type:'null'}]`；补一组
+`material-usage-engine-error`（`counts:null` + `error`，17 → **18 组**）；顺手更正 `materials.js` 里那条
+已过时的注释（还说 pending=0 给 `undefined`）。**我的变异验证**：把 `counts` 改回必填 `object` ⇒
+新那组 **exit 1**、诊断与复核在真运行时看到的那句**逐字相同**（`must match exactly one oneOf branch (matched 0)`）。
+
+**它同时证实的（B–F 全过）**：其余 5 个工具**逐键核对 PASS**（`ks_materials` 三个 action、`ks_collect`
+成功/失败、`resolve` 的 `data` 可为数组、`ping` 全可空）以及 `ks_answer` 的 12 个 required 键与 422 路径；
+5 条变异全红全还原（`total:number→string`、删 `dbStatus`、`type:[...]` 写法、`note` 回退成显式 `undefined`、
+删 `material_usage` 转发）；`findUndefined` 全仓定义唯一且被 import；`package.json` 有 `smoke:tool-contract`、
+`SUITES = 34`；`-Full` **exit 0**；两条诚实边界如实写在文档里、**无过度声称**。
+它还额外做了真 `ToolRuntime.register()`（6/6 OK）—— 但明确写明**不等于**完整宿主挂载。
+
+**它未判定的**：真 dsh 宿主挂载/工具被 offer 仍是未做；真引擎 payload 的字段类型仍是读码确认
+（除 `counts` 外是否还有漂移，需跑真引擎）；`effect_report` 的 `window!='all'`、`resolve` 的
+`folder_scope` 分支无场景覆盖；**94/94（现 99/99）是 18 组覆盖，不是全路径覆盖** —— 本次 FAIL 就是这个边界的实例。
