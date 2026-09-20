@@ -26,8 +26,7 @@
  * 退出码：0 = 每一组都判过且都合规；1 = 任一组红/没判到；2 = 参数错（本脚本不收参数）。
  */
 import { spawnSync } from 'node:child_process'
-import { mkdir, readFile } from 'node:fs/promises'
-import { readFileSync } from 'node:fs'
+import { mkdir } from 'node:fs/promises'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -92,6 +91,7 @@ for (const c of MATRIX) {
     rows.push({
       label, note: c.note, exit: r.status, checked: false,
       comboKey: null, tier: null, expect: null, pageW: null, required: null, missingSubjects: null,
+      allSubjects: null, declaredCombos: null,
       problems: [`量不出 JSON（${String(parseErr)}）`],
     })
     failures.push(`${label}：ui-render-shot 没吐出 JSON（exit=${String(r.status)}）⇒ 这一组**没判**`
@@ -113,7 +113,8 @@ for (const c of MATRIX) {
     label, note: c.note, exit: r.status, checked: pad.checked === true,
     comboKey: pad.comboKey ?? null,
     tier: pad.tier ?? null, expect: pad.expect ?? null, pageW: pad.pageW ?? null,
-    required: pad.required ?? null, missingSubjects: pad.missingSubjects ?? null, problems,
+    required: pad.required ?? null, missingSubjects: pad.missingSubjects ?? null,
+    allSubjects: pad.allSubjects ?? null, declaredCombos: pad.declaredCombos ?? null, problems,
   })
   for (const p of problems) failures.push(`${label}：${p}`)
 }
@@ -136,27 +137,25 @@ console.log('')
    ② 规范点名的适用面必须**每一类**都至少出现在**真跑过**那些组的 required 里；
    ③ ⚠⚠ **`PAD_REQUIRED` 声明的组合必须真被本巡查跑过**（5j-补-补-补，复核 `verify-freeze-5jbb` 的反例）：
       复核造过一个反例 —— 往 规范适用面 + `PAD_SUBJECTS_ALL` + **一个谁都不跑的新键**
-      `PAD_REQUIRED['kb|kb-detail']` 里各塞一个 `.ks-fake` ⇒ 本巡查 **exit 0、8 组全 PASS**，
+      `PAD_REQUIRED['kb|kb-detail']` 里各塞一个 `.ks-fake` ⇒ 本巡查 **exit 0、全组 PASS**，
       还照样打印"10 类适用面每一类都至少有一组在判"。根因：下面 ② 的并集是**"声明"的并集**，
-      不是**"真跑过的组合"的并集** ⇒ "声明了但没人跑"= 零保护。⇒ 现在按**源码里的 `PAD_REQUIRED` 键**
-      逐条要求：每个声明的键都必须出现在这一跑真执行过的组里（`comboKey` 取自 `ui-render-shot` 的实测输出）。
-   ④ 本脚本的 `SPEC_SUBJECTS`（第四份副本）必须与 `ui-render-shot.mjs` 的 `PAD_SUBJECTS_ALL` **逐字一致**
-      —— 否则"收窄规范要改几处"就说不清，副本会各自漂移。 */
+      不是**"真跑过的组合"的并集** ⇒ "声明了但没人跑"= 零保护。
+      ④ 本脚本的 `SPEC_SUBJECTS`（第四份副本）必须与 `ui-render-shot.mjs` 的 `PAD_SUBJECTS_ALL` **逐字一致**。
+   ⚠⚠ **5j-补×4（2026-09-20，复核 `verify-freeze-5jbbb` 打回 G/C）：声明集合改成"读活对象"，不再正则读源码。**
+      复核实测：上一版用正则从 `ui-render-shot.mjs` 源码抠键 ⇒ ① 键写成**双引号**就漏读，"声明了但没人跑"
+      的洞原样复现（exit 0、零诊断）；② 冒号换行 ⇒ 静默少读一个键；③ 表里写一句含 `'x':` 的**合法注释**
+      ⇒ 假红。⇒ 现在 `ui-render-shot` 自己把 `allSubjects` / `declaredCombos`（`Object.keys(PAD_REQUIRED)`）
+      放进 `ksPadCheck` 报出来，本脚本直接从**实测 JSON** 读 —— 引号风格、换行、注释都影响不了它。
+      下面的判据也从"解析是否为 0"升级成**双向集合相等**（声明 ⊆ 真跑过、真跑过 ⊆ 声明），
+      部分漏读也会被抓到（漏读会让 `真跑过 ⊆ 声明` 那一侧红）。 */
 const SPEC_SUBJECTS = ['.ks-kb', '.ks-ing', '.ks-mat', '.ks-kbband', '.ks-list', '.ks-batch',
   '.ks-dirs', '.ks-page-head', '.ks-kb-row', '.ks-empty-card']
-const shotSrc = readFileSync(shotScript, 'utf8')
-const subjectsLit = /const PAD_SUBJECTS_ALL = \[([\s\S]*?)\]/.exec(shotSrc)
-const requiredLit = /const PAD_REQUIRED = \{([\s\S]*?)\n\}/.exec(shotSrc)
-const declaredSubjects = subjectsLit === null ? null : [...subjectsLit[1].matchAll(/'([^']+)'/g)].map((m) => m[1])
-const declaredKeys = requiredLit === null ? null : [...requiredLit[1].matchAll(/'([^']+)':/g)].map((m) => m[1])
+/** 从**成功的实测 JSON** 里取声明集合（任一组报到即可 —— 它们来自同一个 `ui-render-shot` 进程）。 */
+const declaredSubjects = rows.map((r) => r.allSubjects).find((v) => Array.isArray(v)) ?? null
+const declaredCombos = rows.map((r) => r.declaredCombos).find((v) => Array.isArray(v)) ?? null
 const runKeys = new Set(rows.map((r) => r.comboKey).filter((k) => typeof k === 'string' && k !== ''))
 if (declaredSubjects === null) {
-  failures.push('读不出 `ui-render-shot.mjs` 的 `PAD_SUBJECTS_ALL`（读不到就不算验过）—— 副本棘轮无从判定')
-} else if (declaredSubjects.length === 0) {
-  /* ⚠ 解析出 0 个 = 源码格式变了（例如选择器改写成双引号）⇒ 这条棘轮**静默失效**。
-     "解析不到"与"不一致"必须同档判红 —— 同本仓"量不到不算验过"的一贯口径。 */
-  failures.push('从 `ui-render-shot.mjs` 解析出的 `PAD_SUBJECTS_ALL` 是**空的**（0 个）—— '
-    + '多半是那份表的写法变了导致解析失效：这条副本棘轮**不算验过**，请同步本脚本的解析或改回原格式')
+  failures.push('这一跑**没有一组**从 `ui-render-shot` 拿到声明集合（`allSubjects`）—— 读不到就不算验过')
 } else {
   const onlyHere = SPEC_SUBJECTS.filter((s) => !declaredSubjects.includes(s))
   const onlyThere = declaredSubjects.filter((s) => !SPEC_SUBJECTS.includes(s))
@@ -165,18 +164,20 @@ if (declaredSubjects === null) {
       + `只在巡查里=[${onlyHere.join(' ')}]、只在脚本里=[${onlyThere.join(' ')}]（两边必须逐字一致）`)
   }
 }
-if (declaredKeys === null) {
-  failures.push('读不出 `ui-render-shot.mjs` 的 `PAD_REQUIRED` 键（读不到就不算验过）')
-} else if (declaredKeys.length === 0) {
-  /* 同上：解析出 0 个键 ⇒ "声明的键必须真被跑过"这条棘轮静默失效 ⇒ 判红（不算验过）。 */
-  failures.push('从 `ui-render-shot.mjs` 解析出的 `PAD_REQUIRED` 键是**空的**（0 个）—— '
-    + '多半是那张表的写法变了（例如键改成双引号）导致解析失效：这条棘轮**不算验过**')
+if (declaredCombos === null) {
+  failures.push('这一跑**没有一组**报出 `PAD_REQUIRED` 的键（`declaredCombos`）—— 读不到就不算验过')
 } else {
-  const neverRun = declaredKeys.filter((k) => !runKeys.has(k))
+  const neverRun = declaredCombos.filter((k) => !runKeys.has(k))
   if (neverRun.length > 0) {
     failures.push(`**PAD_REQUIRED 声明了这些组合、本巡查却一次都不跑**：[${neverRun.join(' ')}]`
       + ' ⇒ 那些组等于**没人判**（"声明了但没人跑"=零保护，复核 `verify-freeze-5jbb` 的反例就是这条路）。'
       + '要么把它们加进 MATRIX，要么把声明删掉。')
+  }
+  const notDeclared = [...runKeys].filter((k) => !declaredCombos.includes(k))
+  if (notDeclared.length > 0) {
+    /* 这一侧兜"自报的声明集合比真跑过的还少"（例如自报被截断/漏项）—— 双向相等才算对得上。 */
+    failures.push(`本巡查**真跑过**的组合里这些**不在自报的 PAD_REQUIRED 键**中：[${notDeclared.join(' ')}]`
+      + ' ⇒ 自报的声明集合不可信（漏项/被截断），这一条棘轮不算验过')
   }
 }
 const coveredSubjects = new Set(rows.flatMap((r) => r.required ?? []))

@@ -64,7 +64,7 @@ Vue + TDesign，我们是 React + 宿主原生组件 ⇒ **照结构/视觉重�
   「适用面」那一段与本脚本的 `PAD_SUBJECTS_ALL` 之间还加了一条**互相核对**的棘轮（多一个/少一个都红）；
   ② **档位不许只由被测容器自己的实宽定**：同时拿 shell **内容宽**独立钉一次（`.ks-page` 必须铺满内容盒，
   差 >1px 就红）—— 否则给 `.ks-page` 加 `width:600px` 就能在 1300 的壳里被读成"窄档"而蒙过（复核 M7）；
-  ③ **这条像素断言进了门禁链**：`smoke-kb-pad-pixels.mjs`（8 组 page×宽×场景，逐组判
+  ③ **这条像素断言进了门禁链**：`smoke-kb-pad-pixels.mjs`（**9 组** page×宽×场景，逐组判
   `checked/skipReason/coverageDeclared/problems`）与 `smoke-kb-cols.mjs` 都进了 `smoke-all.mjs` 名单
   ⇒ **门禁链自此需要本机有 Chromium/Edge**，没浏览器就是**红**（代价与理由见第六节 5j-补）。
 - **不许绕过的做法**：给**宿主外壳**（离屏链的 `#ks-shell` / 真宿主的 tab body）加 padding ——那是宿主的地盘，
@@ -1423,7 +1423,7 @@ exit=2
    `ui-render-shot.mjs` 自己报错退出 ⇒ `smoke-kb-pad-pixels`/`smoke-kb-cols` **判失败**（不是跳过）。
    理由：本仓是仓外 bundle、门禁只在本机跑，用"环境缺件"换绿正是被打回的那一类。运行时代价约 +1–2 分钟。
 2. **`PAD_REQUIRED` 是"声明式"的**：某页某场景**没在表里声明**时，`coverageDeclared=false` ——
-   这时 `ksPadCheck` **不判存在性**，只在输出里**明说没判**（门禁里跑的 8 组都在表里，所以门禁面是全的；
+   这时 `ksPadCheck` **不判存在性**，只在输出里**明说没判**（门禁里跑的 9 组都在表里，所以门禁面是全的；
    但手工跑一个没声明的场景组合，别把"没判"读成"通过"）。
    > ⚠ **就地更正（5j-补-补，2026-09-20；上面这段原文保留）**：复核 `verify-freeze-5jb` 实测后指出
    > 上面那句"**只在输出里明说没判**"**说轻了**。实测 `--page kb --interact kb-filter`（不在表里）：

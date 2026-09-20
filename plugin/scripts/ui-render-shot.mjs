@@ -1312,8 +1312,10 @@ try {
   const uncovered = PAD_SUBJECTS_ALL.filter((s) => !covered.has(s))
   if (uncovered.length > 0) {
     ksPadTokenProblems.push(`规范点名的这些适用面在 PAD_REQUIRED 里**没有任何一跑声明**（等于没人判）：`
-      + `[${uncovered.join(' ')}] —— 给它们各补一组声明；真要从规范里去掉，得**四处一起**改`
-      + '（规范第二节 / PAD_SUBJECTS_ALL / PAD_REQUIRED / smoke-kb-pad-pixels 的 SPEC_SUBJECTS）')
+      + `[${uncovered.join(' ')}] —— 给它们各补一组声明；真要从规范里去掉，必须**同时改**：`
+      + '规范第二节 / 本文件 PAD_SUBJECTS_ALL / 本文件 PAD_REQUIRED / smoke-kb-pad-pixels 的 SPEC_SUBJECTS'
+      + '（前四者已互相绑成棘轮）；另有三处散文/间接副本（jsdom 的 PAD_SUBJECTS、注入的 padSel、'
+      + '第六节 5j① 表格）要手动同步')
   }
   const unknown = [...covered].filter((s) => !PAD_SUBJECTS_ALL.includes(s))
   if (unknown.length > 0) {
@@ -1419,6 +1421,14 @@ const ksPadCheck = {
   comboKey: padComboKey,
   coverageDeclared: padRequired !== null,
   required: padRequired,
+  /* ⚠⚠ **5j-补×4（2026-09-20，复核 `verify-freeze-5jbbb` 打回 G/C）：把"声明集合本身"报出去。**
+     复核实测：`smoke-kb-pad-pixels.mjs` 原来用**正则读本文件源码**去拿这两份表 ⇒ ① 键写成**双引号**
+     就漏读 ⇒ "声明了但没人跑"的洞原样复现（exit 0、零诊断）；② 冒号换行 ⇒ 静默少读一个键；
+     ③ 在表里写一句含 `'x':` 的**合法注释** ⇒ 假红（注释被当成声明）。
+     ⇒ 现在从**活的 JS 对象**自报（`Object.keys(PAD_REQUIRED)` + `PAD_SUBJECTS_ALL` 本体）：
+     引号风格、换行、注释都影响不了它；巡查那边读**实测 JSON**，正则那一套（连同它的假红面）整个删掉。 */
+  allSubjects: PAD_SUBJECTS_ALL,
+  declaredCombos: Object.keys(PAD_REQUIRED),
   missingSubjects: (ksp?.items ?? []).filter((it) => it.missing === true).map((it) => it.sel),
   items: ksp?.items ?? null,
 }
