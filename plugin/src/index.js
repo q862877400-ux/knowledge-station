@@ -452,6 +452,37 @@ const ANSWER_SCOPE = {
 }
 
 /**
+ * `material_usage`（材料平面使用记录，引擎侧算、本工具**必须转发**）——
+ * ⚠ 2026-09-20（第 6 步 §1 顺带抓到、本批修）：这个键**算出来了却没进返回值**
+ * （`trimAnswer` 里有、`execute` 的 `return` 漏抄），而 `params.material_project_id.description`
+ * 明写 "The result carries material_usage" ⇒ **工具对自己的承诺不成立**。
+ * 形状逐字段抄引擎（`src/core/llm/ks_answer.py:685-701` 两条分支的并集）：
+ *   正常：`{project_id, project_found, counts, notes, usable_indices}`
+ *   失败：`{project_id, counts: null, notes: [], usable_indices: [], error}`
+ * ⇒ 共有的 4 键进 `required`，`project_found`（只正常分支）与 `error`（只失败分支）只列不 required；
+ * `counts` 是**引擎自有的字典**（键随 `assemble_evidence` 变），这里按"开放的 object"声明，
+ * 不替引擎做主，也**不**假装它是我们定的形状。
+ */
+const ANSWER_MATERIAL_USAGE = {
+  oneOf: [
+    {
+      type: 'object',
+      additionalProperties: false,
+      properties: {
+        project_id: { type: 'string' },
+        project_found: { type: 'boolean' },
+        counts: { type: 'object' },
+        notes: { type: 'array', items: { type: 'string' } },
+        usable_indices: { type: 'array', items: { type: 'integer' } },
+        error: { type: 'string' },
+      },
+      required: ['project_id', 'counts', 'notes', 'usable_indices'],
+    },
+    { type: 'null' },
+  ],
+}
+
+/**
  * Build the `ks_effect_report` tool definition (P1, 2026-09-08).
  *
  * 会话内效力报告：库内标准/法规的现行快照总览。host 侧裁剪——只回统计、
@@ -1031,6 +1062,9 @@ export function makeAnswerTool(manager, chatModeOf) {
           verification: { oneOf: [ANSWER_VERIFICATION, { type: 'null' }] },
           notes: { type: 'array', items: { type: 'string' } },
           meta_summary: { type: 'string' },
+          // 2026-09-20：`params.material_project_id.description` 承诺 "The result carries
+          // material_usage" —— 这个键只正常路径有（422 路径没有）⇒ 列进 properties、**不 required**。
+          material_usage: ANSWER_MATERIAL_USAGE,
         },
         required: ['ok', 'httpStatus', 'tier', 'found', 'query', 'query_mode', 'evidence',
           'derivation', 'conclusion', 'verification', 'notes', 'meta_summary'],
@@ -1177,6 +1211,11 @@ export function makeAnswerTool(manager, chatModeOf) {
         verification: trimmed ? trimmed.verification : null,
         notes: trimmed ? trimmed.notes : [],
         meta_summary: trimmed ? trimmed.meta_summary : '',
+        // ⚠ 2026-09-20：这一行**原来漏了** —— `trimAnswer` 算出了 `material_usage`，而这里没转发，
+        // 于是 `material_project_id` 的 description 承诺的 "the result carries material_usage" 是句空话，
+        // 模型永远看不到"本次到底用了哪个项目的哪几条材料、哪些只算线索"（白名单纪律的反面例子）。
+        // 没给项目范围时引擎给 `null`（"没用材料"与"用了但没命中"必须可区分）。
+        material_usage: trimmed ? trimmed.material_usage : null,
       }
     },
   }

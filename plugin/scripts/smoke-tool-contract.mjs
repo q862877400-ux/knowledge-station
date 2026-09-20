@@ -188,7 +188,17 @@ const ANSWER_FULL = {
       citation_index_warnings: ['[[3]] 未命中'],
     },
     notes: ['只引证据内条款'],
-    material_usage: { project_id: 'prj_x', counts: { total: 2 } },
+    /* ⚠ 2026-09-20：这一桩**原本只写 `{project_id, counts}`**（简化形体），而引擎两条分支
+       （`src/core/llm/ks_answer.py:685-701`）**都**会给 `notes` / `usable_indices` ⇒
+       schema 的 `required` 照引擎写全之后，这个"简化桩"就暴露成不忠实。
+       **不是把 schema 放宽，而是把桩改成引擎真形状** —— 否则桩会替引擎掩盖形状漂移
+       （那正是本项目反复打的"夹具比真相宽松⇒永远量不到"）。 */
+    material_usage: {
+      project_id: 'prj_x', project_found: true,
+      counts: { total: 2, approved: 1, pending: 1, rejected: 0 },
+      notes: ['本项目材料已装配'],
+      usable_indices: [0],
+    },
     _meta: {
       evidence_total: 2,
       retrieval: { result_count: 2, expanded_count: 1, vector_engine: 'ok', rerank: { on: true } },
@@ -332,6 +342,15 @@ async function main() {
       && answerFull?.evidence?.length === 2
       && typeof answerFull?.answer_scope?.source === 'string',
     `ev=${answerFull?.evidence?.length} ctx=${answerFull?.verification?.unsupported_context?.length}`)
+  /* ⚠⚠ 2026-09-20（顺带抓到的第二条真缺陷的**回归位**）：`params.material_project_id.description`
+     明写 "The result carries material_usage" —— 而 `trimAnswer` 算出的 `material_usage`
+     **在 `execute` 的 return 里漏抄**，模型永远看不到"本次用了哪个项目的哪几条材料"。
+     ⚠ 光有"值满足 schema"**抓不到**它：schema 里 `material_usage` 是**条件键（不 required）**
+     （422 路径没有它）⇒ 掉了照样通过。所以这里必须有一条**显式的键在位**断言。 */
+  check('ks_answer [full-answer] — 真的转发了 material_usage（description 承诺了它，掉了不会因为 schema 红）',
+    answerFull?.material_usage?.project_id === 'prj_x'
+      && Array.isArray(answerFull?.material_usage?.usable_indices),
+    JSON.stringify(answerFull?.material_usage))
   await group('ks_answer', '422-validation-error', { query: 'x' },
     onlyPath('/api/v1/ks/answer', { code: 422, error: 'bad_request', message: 'query 太短' }, 422))
   await group('ks_answer', 'bare-envelope', { query: 'x' },
@@ -362,6 +381,30 @@ async function main() {
     materialsPending?.count === 1 && materialsPending?.review_counts?.pending === 1
       && typeof materialsPending?.note === 'string',
     `count=${materialsPending?.count} pending=${materialsPending?.review_counts?.pending} note=${typeof materialsPending?.note}`)
+  /* ⚠⚠ 2026-09-20（顺带抓到的那条真缺陷的**回归位**）：`pending === 0` 时原来返回
+     `note: undefined` —— 宿主做 lossless 快照时会把 undefined 判成"不是无损失的 JSON"⇒
+     `INVALID_TOOL_OUTPUT` ⇒ **真机上这一次调用整体 isError**。既有夹具恰好 `pending=1`，
+     所以这条路径一直没被量到（"夹具比真相宽松 ⇒ 永远量不到"）。这里补一组 pending=0：
+     ① `checkToolContract` 的 `findUndefined` 必须**没有**命中（给了 undefined 就红）；
+     ② 反过来钉住"省略键"这个修法：`note` 不在返回值里（`'note' in value === false`，
+        不是 `undefined`）—— 只判 `typeof note === 'undefined'` 会把"显式 undefined"也放过。 */
+  const materialsApprovedOnly = await group('ks_materials', 'materials-approved-only',
+    { action: 'materials', project_id: 'prj_a' },
+    onlyPath('/projects/prj_a/materials', {
+      code: 200,
+      status: 'success',
+      data: [{
+        material_id: 'mat_ok', title: '已批准的制度', review_status: 'approved',
+        chunk_count: 3, origin: 'uploaded', kind: 'policy', source_tier: 'T1',
+      }],
+    }))
+  check('ks_materials [materials-approved-only] — pending=0 时**没有** note 键（不给 undefined ⇒ 不触发 INVALID_TOOL_OUTPUT）',
+    materialsApprovedOnly?.review_counts?.pending === 0
+      && !Object.prototype.hasOwnProperty.call(materialsApprovedOnly ?? {}, 'note')
+      && !Object.values(materialsApprovedOnly ?? {}).some((v) => v === undefined),
+    `pending=${materialsApprovedOnly?.review_counts?.pending} `
+      + `hasOwn(note)=${Object.prototype.hasOwnProperty.call(materialsApprovedOnly ?? {}, 'note')} `
+      + `undefined 值个数=${Object.values(materialsApprovedOnly ?? {}).filter((v) => v === undefined).length}`)
   const inbox = await group('ks_materials', 'inbox', { action: 'inbox', project_id: 'prj_a' },
     onlyPath('/projects/prj_a/inbox', {
       code: 200,

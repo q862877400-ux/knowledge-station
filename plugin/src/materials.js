@@ -246,7 +246,16 @@ export function makeMaterialsTool(manager) {
       for (const r of rows) {
         if (r.review_status in counts) counts[r.review_status] += 1
       }
-      return {
+      /* ⚠⚠ 2026-09-20（第 6 步 §1 顺带抓到、本批修）：原来这里是
+         `note: counts.pending > 0 ? '…' : undefined` —— **显式给一个 undefined 值**。宿主在
+         `createSuccessResult` 里先做 lossless 快照（`snapshotToolValue`），**undefined 会被判成
+         "不是无损失的 JSON"** ⇒ `INVALID_TOOL_OUTPUT` ⇒ 这一次调用整体 `isError`。
+         实测（施工子代理的探针）：`findUndefined=$.note`、
+         `validateJsonSchemaValue=["value" must be a lossless JSON object]`；`pending>0` 时干净。
+         **既有冒烟夹具恰好 `pending=1`，所以这条一直没被量到** —— 新契约冒烟补了 `pending=0` 这一组。
+         ⇒ 修法：**省略键**（不给 undefined）。schema 里 `note` 本来就是"条件键"（列 properties 不 required），
+         与这个修法一致。 */
+      const out = {
         ok: true,
         action,
         project_id: projectId,
@@ -254,13 +263,14 @@ export function makeMaterialsTool(manager) {
         count: rows.length,
         review_counts: counts,
         materials: rows,
-        // 措辞纪律：**不能**因为"列到了 approved"就说"答案已会用它们"——那取决于调用方
-        // 有没有把 project_id 传给 ks_answer；也**不能**把 pending 说成不可信（它只是未评审）。
-        note: counts.pending > 0
-          ? `本项目有 ${counts.pending} 份材料**尚未评审**，它们不会进入作答；`
-            + '是否批准由**用户**判断（本工具只读，不代批）。'
-          : undefined,
       }
+      // 措辞纪律：**不能**因为"列到了 approved"就说"答案已会用它们"——那取决于调用方
+      // 有没有把 project_id 传给 ks_answer；也**不能**把 pending 说成不可信（它只是未评审）。
+      if (counts.pending > 0) {
+        out.note = `本项目有 ${counts.pending} 份材料**尚未评审**，它们不会进入作答；`
+          + '是否批准由**用户**判断（本工具只读，不代批）。'
+      }
+      return out
     },
   }
 }
