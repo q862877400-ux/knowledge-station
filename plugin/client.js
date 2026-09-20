@@ -32503,8 +32503,10 @@ var KS_STYLES = `
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ks-lhead-col{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 /* \u5217\u8868\u4E0A\u65B9\u90A3\u4E2A**\u771F\u7684\u4F1A\u8FC7\u6EE4**\u7684\u641C\u7D22\u6846\uFF08P2 \u5934\u6761\uFF09\uFF1A\u5BBF\u4E3B Input\uFF0832px \u9AD8\u3001\u81EA\u5E26\u63CF\u8FB9\u4E0E\u653E\u5927\u955C\u4F4D\uFF09
-   \u62C9\u6EE1\u6574\u884C\u5BBD\u3002\u26A0 \u5B83\u53EA\u662F**\u672C\u5730\u5217\u8868\u8FC7\u6EE4**\uFF08\u7B5B\u5F53\u524D\u76EE\u5F55\u5DF2\u52A0\u8F7D\u7684\u884C\uFF09\uFF0C\u4E0D\u662F\u8BED\u6599\u68C0\u7D22 \u2014\u2014
-   \u4E00\u4E2A\u63A5\u53E3\u90FD\u6CA1\u8C03\uFF1B\u4E0E\u4E1A\u4E3B"\u77E5\u8BC6\u5E93\u754C\u9762\u4E0D\u505A\u641C\u7D22"\u7684\u5173\u7CFB\u89C1 KsKnowledgePage.tsx \u9876\u90E8\u7684\u7FFB\u6848\u7559\u75D5\u3002 */
+   \u62C9\u6EE1\u6574\u884C\u5BBD\u3002\u26A0 \u5B83\u53EA\u662F**\u672C\u5730\u5217\u8868\u8FC7\u6EE4**\uFF08\u7B5B\u5F53\u524D\u5C42\u5DF2\u52A0\u8F7D\u7684\u6761\u76EE\uFF09\uFF0C\u4E0D\u662F\u8BED\u6599\u68C0\u7D22 \u2014\u2014
+   \u4E00\u4E2A\u63A5\u53E3\u90FD\u6CA1\u8C03\uFF1B\u4E0E\u4E1A\u4E3B"\u77E5\u8BC6\u5E93\u754C\u9762\u4E0D\u505A\u641C\u7D22"\u7684\u5173\u7CFB\u89C1 KsKnowledgePage.tsx \u9876\u90E8\u7684\u7FFB\u6848\u7559\u75D5\u3002
+   \u26A0 5i\uFF082026-09-20 \u6536\u5C3E\u6279\uFF09\uFF1A\u8FD9\u4E2A\u6846\u73B0\u5728**\u6BCF\u4E00\u5C42\u90FD\u6E32\u67D3**\uFF08\u76EE\u5F55\u5C42\u8FC7\u6EE4\u76EE\u5F55\u540D\uFF09\uFF0C\u6837\u5F0F**\u4E00\u5B57\u672A\u6539** \u2014\u2014
+     \u4E24\u5904\u6E32\u67D3\u70B9\uFF08\u6587\u4EF6\u5C42 .ks-main \u5185\u3001\u76EE\u5F55\u5C42 .ks-dirs \u4E4B\u524D\uFF09\u90FD\u9760 width:100% \u62C9\u6EE1\u90A3\u4E00\u5C42\u3002 */
 .ks-search{display:flex;width:100%;min-width:0}
 .ks-search>span{width:100%}
 .ks-search input{font-size:var(--ks-fs-sm)}
@@ -33331,7 +33333,7 @@ function describeKsQuery(query) {
 
 // client/KsKnowledgePage.tsx
 var import_jsx_runtime8 = require("react/jsx-runtime");
-var KB_FILE_VIEW_SEARCH = true;
+var KB_PAGE_SEARCH = true;
 var STATUS = {
   current: { cls: "ks-status ks-status-ok", text: "\u73B0\u884C" },
   upcoming: { cls: "ks-status ks-status-warn", text: "\u5373\u5C06\u5B9E\u65BD" },
@@ -33546,6 +33548,8 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
     () => inFolder.filter((d) => filterTest(d) && hitSearch(d)),
     [inFolder, filterTest, needle]
   );
+  const hitDirName = (name) => needle === "" || name.toLowerCase().includes(needle);
+  const kidsShown = (0, import_react7.useMemo)(() => kids.filter((child) => hitDirName(child.name)), [kids, needle]);
   const current = listed.find((d) => d.id === openDoc) ?? null;
   const pickFilter = (id) => {
     setFilter(id);
@@ -33624,6 +33628,18 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
       ] })
     ] });
   }
+  const searchBox = KB_PAGE_SEARCH ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-search", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+    import_dsh_client_ui_primitives3.Input,
+    {
+      icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconSearchOutline16, {}),
+      value: search,
+      placeholder: atFiles ? "\u641C\u7D22\u6807\u51C6\u53F7\u6216\u540D\u79F0\u2026" : "\u641C\u7D22\u76EE\u5F55\u540D\u2026",
+      "aria-label": atFiles ? "\u5728\u6587\u4EF6\u5217\u8868\u91CC\u6309\u6807\u51C6\u53F7\u6216\u540D\u79F0\u8FC7\u6EE4\uFF08\u672C\u5730\u8FC7\u6EE4\uFF0C\u4E0D\u68C0\u7D22\u8BED\u6599\uFF09" : "\u5728\u5F53\u524D\u76EE\u5F55\u5C42\u6309\u76EE\u5F55\u540D\u8FC7\u6EE4\uFF08\u672C\u5730\u8FC7\u6EE4\uFF0C\u4E0D\u68C0\u7D22\u8BED\u6599\uFF09",
+      onChange: (event) => {
+        pickSearch(event.target.value);
+      }
+    }
+  ) }) : null;
   return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb", children: [
     /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("header", { className: "ks-page-head", children: [
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-page-title", children: "\u77E5\u8BC6\u5E93" }),
@@ -33849,10 +33865,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
         ),
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-crumb-path", title: "\u5F53\u524D\u8DEF\u5F84\uFF08\u77E5\u8BC6\u5E93 / \u5404\u7EA7\u76EE\u5F55\uFF09", children: crumb }),
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-kb-grow" }),
-        !atFiles && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-crumb-n", children: [
-          kids.length,
-          " \u4E2A\u5B50\u76EE\u5F55"
-        ] })
+        !atFiles && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-crumb-n", children: needle === "" ? `${kids.length} \u4E2A\u5B50\u76EE\u5F55` : `\u7B5B\u51FA ${kidsShown.length} / \u5171 ${kids.length} \u4E2A\u5B50\u76EE\u5F55` })
       ] }),
       atFiles ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-split", children: [
         /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-main", children: [
@@ -33887,18 +33900,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
             }),
             /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-kb-hint", children: filter === "all" ? `\u5171 ${String(inFolder.length)} \u7BC7` : `\u7B5B\u51FA ${String(listed.length)} \u7BC7 / \u5171 ${String(inFolder.length)} \u7BC7` })
           ] }),
-          KB_FILE_VIEW_SEARCH && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-search", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-            import_dsh_client_ui_primitives3.Input,
-            {
-              icon: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconSearchOutline16, {}),
-              value: search,
-              placeholder: "\u641C\u7D22\u6807\u51C6\u53F7\u6216\u540D\u79F0\u2026",
-              "aria-label": "\u5728\u6587\u4EF6\u5217\u8868\u91CC\u6309\u6807\u51C6\u53F7\u6216\u540D\u79F0\u8FC7\u6EE4\uFF08\u672C\u5730\u8FC7\u6EE4\uFF0C\u4E0D\u68C0\u7D22\u8BED\u6599\uFF09",
-              onChange: (event) => {
-                pickSearch(event.target.value);
-              }
-            }
-          ) }),
+          searchBox,
           /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-list", children: [
             /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-lhead", children: COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: `ks-cell ${col.cls}`, children: [
               col.key === "name" ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
@@ -34141,27 +34143,57 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
            ⚠ 每个目录卡上的「N 篇」是**这一棵子树**里的文件数（`countUnder`，含更深层）——
              用户不用点进去就知道下面有没有东西。
            ⚠ 现有占位数据里 `USER_FOLDERS`（公司制度/内部操作规程/供应商资料）**没有子目录**，
-             所以点那三张卡会**直接**落到文件表格（`atFiles`）—— 那是数据本来的层级，不是漏做。 */
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-dirs", children: kids.map((child) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
-          "button",
-          {
-            type: "button",
-            className: "ks-dir",
-            title: `\u8FDB\u5165\u300C${child.name}\u300D\uFF08\u8FD9\u4E00\u68F5\u76EE\u5F55\u4E0B\u5171 ${String(countUnder(child))} \u7BC7\uFF09`,
-            onClick: () => {
-              enterDir(child.key);
+             所以点那三张卡会**直接**落到文件表格（`atFiles`）—— 那是数据本来的层级，不是漏做。
+           ⚠ 5i（2026-09-20 收尾批）：这一层**也常驻搜索框**（`searchBox`，过滤**目录名**）——
+             位置与文件层同构：都是"紧贴这一层的条目区上方"。没命中时给**专门的**空态
+             `没有符合搜索的目录`（+「清除搜索」），**不**复用文件层那句"没有符合筛选或搜索的文件"
+             （那是文件的话；在目录层说"文件"会把用户引到错的地方）。 */
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
+          searchBox,
+          kidsShown.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-empty-card", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutline16, { size: 28 }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-empty-t", children: "\u6CA1\u6709\u7B26\u5408\u641C\u7D22\u7684\u76EE\u5F55" }),
+            /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-empty-d", children: [
+              "\u8FD9\u4E00\u5C42\u5171 ",
+              kids.length,
+              " \u4E2A\u5B50\u76EE\u5F55\uFF0C\u641C\u7D22\u300C",
+              search.trim(),
+              "\u300D\u4E00\u4E2A\u90FD\u6CA1\u547D\u4E2D\u3002"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+              import_dsh_client_ui_primitives3.Button,
+              {
+                variant: "outline",
+                size: "sm",
+                title: "\u6E05\u7A7A\u641C\u7D22\u4E32\uFF0C\u9009\u62E9\u4E5F\u4F1A\u4E00\u5E76\u6E05\u7A7A\uFF08\u4E0E\u6587\u4EF6\u5C42\u90A3\u4E2A\u300C\u6E05\u9664\u7B5B\u9009\u4E0E\u641C\u7D22\u300D\u540C\u4E00\u53E3\u5F84\uFF09",
+                onClick: () => {
+                  pickSearch("");
+                },
+                children: "\u6E05\u9664\u641C\u7D22"
+              }
+            )
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-dirs", children: kidsShown.map((child) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+            "button",
+            {
+              type: "button",
+              className: "ks-dir",
+              title: `\u8FDB\u5165\u300C${child.name}\u300D\uFF08\u8FD9\u4E00\u68F5\u76EE\u5F55\u4E0B\u5171 ${String(countUnder(child))} \u7BC7\uFF09`,
+              onClick: () => {
+                enterDir(child.key);
+              },
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-dir-ico", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutline16, {}) }),
+                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-dir-name", children: child.name }),
+                /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-kb-badge", children: [
+                  countUnder(child),
+                  " \u7BC7"
+                ] })
+              ]
             },
-            children: [
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-dir-ico", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutline16, {}) }),
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-dir-name", children: child.name }),
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-kb-badge", children: [
-                countUnder(child),
-                " \u7BC7"
-              ] })
-            ]
-          },
-          child.key
-        )) })
+            child.key
+          )) })
+        ] })
       )
     ] })
   ] });

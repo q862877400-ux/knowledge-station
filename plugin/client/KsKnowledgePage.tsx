@@ -47,7 +47,18 @@
  *           空态里的 `search.trim()`、`pickSearch('')`、`.ks-search` 样式、`IconSearchOutline16`
  *           的 import）。**更正**：完整、逐落点、**已亲自走通**的退回步骤在
  *           `docs/NOT-DOING.md` 第 13 条；那里同时写明"**不许**把断言换回'本页没有搜索框'
- *           （那是已证伪的假绿）"，以及搜索框存在/缺席由 `KB_FILE_VIEW_SEARCH` 声明 + 断言锚住。
+ *           （那是已证伪的假绿）"，以及搜索框存在/缺席由 `KB_PAGE_SEARCH` 声明 + 断言锚住。
+ *   4b. **5i（2026-09-20 收尾批）：搜索框改成"每一层常驻"** —— 业主本轮只说"搜索框：保留"、
+ *       **没限定层级** ⇒ 按"保留"的最强解释执行：库根 / 一级目录 / 二级目录 / 文件层**都有**，
+ *       且**位置同构**（目录层在目录卡上方、文件层在筛选条与表格之间，都是"紧贴这一层的条目区"）。
+ *       目录层过滤**目录名**（不命中给 `没有符合搜索的目录` 空态 + "清除搜索"）；文件层行为不变
+ *       （按 `no`/`name` 过滤）。**搜索词的处置口径**（本批自定，写在这里就是唯一所有者）：
+ *         · **切库（点另一张卡）⇒ 清空** —— 整棵树都换了，留着是对新库的"幽灵过滤"；
+ *         · **同一库内下钻 / 返回上一级 ⇒ 保留** —— 它是**页面级**的一个过滤条件，层级切换后
+ *           继续生效（目录层按目录名、文件层按标准号/名称），框里始终看得见那个词；
+ *         · **切状态筛选档 ⇒ 保留** —— 筛选与搜索是**AND**关系（`listed` 里两个条件同时过滤），
+ *           互不清空；只有**换目录/换库**才清选择（见 `pickFilter`/`pickSearch`/`enterKb`）。
+ *       这三条都有渲染级断言（`smoke-kb-page-render.mjs` 2h–2k），不是只写在注释里。
  * 5. 只留**一个「＋ 新建」**按钮（下拉里是"新建文件夹 / 导入文件"）；
  * 6. 「公司制度」这类**自建夹与自带两棵树平级**（三段式布局里排在树下面同一列）；
  * 7. 详情里加**发布日期 / 生效日期 / 废止日期**；
@@ -77,8 +88,9 @@
  *      "乱七八糟东西"）。**删了什么、为什么**记在 docs/UI-BASELINE.md 的 5h。
  *   3. **下面是文件目录**：P2 头条那张真表格（`COLUMNS` + `--ks-cols` + 搜索 + 筛选 + 批量条 + 行尾 ⋮）
  *      **结构一字未改**，只是现在**只出现在"最末一级"**（业主："到最末一级才是文件"）。
- *      ⚠ 搜索框**仍在**（业主今天明确"保留"），位置仍是"紧贴文件表格上方"—— 它过滤的是**文件**，
- *        所以在目录层不渲染（目录层没有可筛的文件）。口径与 NOT-DOING 第 13 条同步（业主已确认保留）。
+ *      ⚠ 搜索框**仍在**（业主今天明确"保留"）。**5i 起它不再只待在文件层**（见上面第 4b 条）：
+ *        每一层常驻；文件层这一支的位置与行为**没动**（仍在筛选条与 `.ks-list` 之间，只过滤文件）。
+ *        口径与 NOT-DOING 第 13 条同步（业主已确认保留；层级口径 = 每层常驻）。
  *   4. **点卡片 = 进入该库 + 按目录逐级下钻**：`path` 是当前路径（从库根往下的节点 key）；
  *      `path.length === 0` = 库根（显示**一级目录**）；点开某个目录 = 下钻一级；
  *      **进入任何下一级**（`path.length > 0`）就出现「← 返回上一级」按钮 + 面包屑（`.ks-crumb`）；
@@ -113,19 +125,27 @@ import type { KsPaneBodyProps, KsKbInjected } from './ksSidebar'
 import { KS_KB_KIND } from './ksSidebar'
 
 /**
- * **本页文件视图里有没有那个搜索框**（P2 头条，2026-09-20）——这是"搜索框在 / 不在"的
- * **唯一声明**：`plugin/scripts/smoke-kb-page-render.mjs` 在**文件视图**里断言
- * 「DOM 里有没有 `.ks-search input`」与这个值**一致**。为什么需要它（复核 `verify-freeze-p2`
- * 的 C 条）：旧的 9 号断言（"本页没有搜索框"）被删掉之后，**搜索框的存在/缺席一度没有任何
- * 断言盯着** —— 悄悄删了它不会有任何一条红。
- * ⚠ 该断言的落点必须是**文件视图**（默认视图）：旧的 9 号断言跑在**标签视图**里，
- *   文件视图有没有那个框它都 PASS（旧断言假绿的另一半原因）。
+ * **本页有没有那个搜索框**（P2 头条，2026-09-20）——这是"搜索框在 / 不在"的**唯一声明**：
+ * `plugin/scripts/smoke-kb-page-render.mjs` 断言「DOM 里有没有 `.ks-search input`」与这个值**一致**，
+ * 并且**逐层**断言（库根 / 一级目录 / 二级目录 / 文件层各一次）。为什么需要它（复核
+ * `verify-freeze-p2` 的 C 条）：旧的 9 号断言（"本页没有搜索框"）被删掉之后，**搜索框的
+ * 存在/缺席一度没有任何断言盯着** —— 悄悄删了它不会有任何一条红。
+ *
+ * ⚠⚠ **5i（2026-09-20 收尾批）改名 + 扩层，就地留痕**：
+ *   · **曾如此**：常量名是 `KB_FILE_VIEW_SEARCH`，注释写"**本页文件视图里**有没有那个搜索框"，
+ *     并且**只有文件层**渲染它。名字与含义在当时是对的。
+ *   · **现在**：业主 2026-09-20 只说"搜索框：保留"、**没限定层级** ⇒ 本批按"保留"的**最强解释**
+ *     执行：**每一层常驻**（库根 / 各级目录层 / 文件层），目录层过滤**目录名**、文件层过滤
+ *     标准号/名称。⇒ 名字里的 `FILE_VIEW` 已经**不成立**，改名为 `KB_PAGE_SEARCH`（名字 =
+ *     含义；这是本批"修注释与代码不符"的同一条纪律）。旧名**不再保留别名**（避免两处声明）。
+ *   · 断言落点：jsdom 冒烟在**每一层**都要看到那个框（见该文件 2h–2k），文件层另外还判
+ *     "在/不在 == 这个声明"（3g）—— 两个方向都钉住，删了框或悄悄停掉某一层都会红。
  *
  * ⚠ **退回给业主 2026-09-19 的旧设计**（"这一页不做搜索"）时：把这里改成 `false`，
  *   并按 `docs/NOT-DOING.md` 第 13 条那份**可执行**步骤逐条删（本文件 + ksGuideStyles.ts +
  *   渲染级冒烟）；**不要**把断言换回"本页没有搜索框"那种数 placeholder 的写法（已证伪的假绿）。
  */
-export const KB_FILE_VIEW_SEARCH: boolean = true
+export const KB_PAGE_SEARCH: boolean = true
 
 /** 效力状态（决定 Tag 的色调 + 详情里的日期口径）。 */
 type Status = 'current' | 'upcoming' | 'withdrawn' | 'superseded'
@@ -305,10 +325,34 @@ const LAW_TREE: readonly MockNode[] = [
 /**
  * 自建夹（业主例子「公司制度」）；与上面两棵树**平级**。
  *
- * ⚠ 这里顺带修了一个**真 bug**（原版）：树的展开状态原本以 `node.name` 为键，
- * 而「宪法与行政法」在两棵法律分支下**重名** ⇒ 点一个会把另一个也展开/收起，
- * 且文档会挂到错误的分支。改成以**全路径 key** 为键。
- * 这类"用显示名当身份"的错，官方文档也点过（"Localized display text is never an identity"）。
+ * ⚠ 这里原来写着一条**与代码不符**的断言（5i 2026-09-20 收尾批核实后就地更正，
+ *   原话保留在下面，不许悄悄删）：
+ *
+ *   **曾如此（错话，原文）**：「这里顺带修了一个**真 bug**（原版）：树的展开状态原本以
+ *   `node.name` 为键，而「宪法与行政法」在两棵法律分支下**重名** ⇒ 点一个会把另一个也展开/收起，
+ *   且文档会挂到错误的分支。改成以**全路径 key** 为键。」
+ *
+ *   **实测（读数据 + 读用键的每一处）**：
+ *   · "以 `key` 为身份、不再以 `name` 为身份" —— **这半句是真的**：`nodeAtPath`/`pathNames`
+ *     （按 `child.key` 找）、`enterKb`/`enterDir`/`goUp`（`path` 存 key）、`folder = node.key`
+ *     与 `MockDoc.folder` 的对应，全部只认 `key`。重名确实因此被化解：两处「宪法与行政法」的
+ *     key 不同（`法律/宪法与行政法` vs `行政法规/宪法与行政法`），两处「安全生产」的 key 也不同
+ *     （`安全生产` vs `行政法规/宪法与行政法/安全生产`）—— 现有数据里**没有一对 key 相等**。
+ *   · "**全路径** key" —— **这半句是假的**：key 的形态**不统一**。`STD_TREE` 的**叶子**全是裸名
+ *     （`P16 工程防火` / `C65/74 劳动安全技术` / `Z60/79 污染物排放标准`），`LAW_TREE` 的
+ *     「法律」支叶子也是裸名（`安全生产`），只有「行政法规」支的叶子写成全路径
+ *     （`行政法规/宪法与行政法/安全生产`）；中间层才是全路径（`P 土木、建筑/P15/19 …`）。
+ *   · **为什么叶子是裸名**：`folder = node.key` 要**直接等于** `MockDoc.folder`
+ *     （`SEED_DOCS` 里 d1..d15 的 `folder` 就是这些裸名）。⇒ 把叶子 key 改成全路径**会同时
+ *     打断 15 篇占位文档的挂载**（要连同 `SEED_DOCS` 的 `folder` 一起改），而**功能上没有任何收益**
+ *     （key 只要在**本库内唯一**即可 —— 叶子之间本来就不互相嵌套，裸名不会撞车）。
+ *   · 另外「树的展开状态」这个 bug 描述的是**已经不存在的 UI**：目录树连同它的展开状态
+ *     （`open`/`toggle`）在 5h 已被业主点名删除（见本文件顶部 5h 第 2 条）。⇒ 那段描述**是史话**，
+ *     不是当前代码的说明。
+ *   ⇒ **结论：改注释（不是改代码）**，并且从此把这条契约写成可核的原话：
+ *     「`key` 是**身份**（本库内唯一），**不保证是全路径**；叶子的 key 必须逐字等于
+ *      `MockDoc.folder`。」动手改叶子 key 前先看这条。
+ *   这类"用显示名当身份"的错，官方文档也点过（"Localized display text is never an identity"）。
  */
 const USER_FOLDERS: readonly { readonly key: string; readonly name: string; readonly desc: string }[] = [
   { key: '公司制度', name: '公司制度', desc: '集团安全管理制度、责任制、考核办法' },
@@ -504,10 +548,13 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
   const [filter, setFilter] = useState('all')
   /**
    * 列表搜索串（P2 头条，2026-09-20）。
-   * ⚠ 这是**本地列表过滤**（只筛当前目录已加载的行，按 `no`/`name` 做 includes），
-   *   **不是**语料检索：一个接口都没调。口径与参照 WeKnora 的"搜索文档名称…"一致；
-   *   ⚠ **业主 2026-09-20 明确"搜索框：保留"** ⇒ 它不再是"任务书要求、业主未表态"的翻案态；
-   *     完整留痕（业主 2026-09-19 的旧原话 + P2 复核打回 + 今天结案）见本文件顶部第 4 条。
+   * ⚠ 这是**本地列表过滤**（只筛当前层级已加载的条目）——**不是**语料检索：一个接口都没调。
+   *   · **文件层**：按 `no`/`name` 做 includes（口径与参照 WeKnora 的"搜索文档名称…"一致）；
+   *   · **目录层（5i 2026-09-20 起）**：按**目录名** `MockNode.name` 做 includes（见 `hitDirName`）。
+   * ⚠ **业主 2026-09-20 明确"搜索框：保留"**（未限定层级）⇒ 它不再是"任务书要求、业主未表态"的
+   *   翻案态；**层级口径 = 每一层常驻**（`KB_PAGE_SEARCH` 那一段有完整留痕）。
+   * ⚠ **搜索词的处置口径**（唯一所有者在文件顶部第 4b 条）：切库清空 / 同库内下钻与返回上级保留 /
+   *   切状态筛选保留。这三条各有渲染级断言，不许只改注释。
    */
   const [search, setSearch] = useState('')
   const [newOpen, setNewOpen] = useState(false)
@@ -562,7 +609,9 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
 
   /**
    * 点一张卡 = **进入该知识库**（业主原话），回到它的库根（一级目录），
-   * 并把上一层的遗留状态清掉：选择 / 详情 / 搜索串 / 筛选档。
+   * 并把上一层的遗留状态清掉：选择 / 详情 / **搜索串** / 筛选档。
+   * ⚠ **搜索串在这里清空**（5i 口径：**切库清空**）：整棵树都换了，留着就是对**新库**的幽灵过滤。
+   *   同一库内下钻/返回上级**不清**（见 `enterDir` / `goUp`）—— 那是**页面级**的一个过滤条件。
    * ⚠ 不重置的是**卡片带的滚动位置**：用户刚点过的那张卡就在当前视野里，跳回最左会让卡片"跑掉"。
    */
   const enterKb = (id: string): void => {
@@ -574,14 +623,19 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
     setFilter('all')
   }
 
-  /** 进入一个子目录（下钻一级）—— 这是"点开是二级目录"那一步。 */
+  /** 进入一个子目录（下钻一级）—— 这是"点开是二级目录"那一步。搜索串**保留**（同库内）。 */
   const enterDir = (key: string): void => {
     setPath((prev) => [...prev, key])
     setSelected(new Set<string>())
     setOpenDoc(null)
   }
 
-  /** 「← 返回上一级」（业主："进入二级目录就自动出现返回上一级的按钮"）。 */
+  /**
+   * 「← 返回上一级」（业主："进入二级目录就自动出现返回上一级的按钮"）。
+   * ⚠ 搜索串**保留**（5i 口径）：返回后它按**那一层的条目**继续过滤（目录层比目录名、文件层比
+   *   标准号/名称）。代价是"上一层可能被这个词筛成空"—— 所以目录层给了明确的
+   *   `没有符合搜索的目录` 空态 + 「清除搜索」，不装作那一层本来就没目录。
+   */
   const goUp = (): void => {
     setPath((prev) => prev.slice(0, -1))
     setSelected(new Set<string>())
@@ -614,6 +668,14 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
     () => inFolder.filter((d) => filterTest(d) && hitSearch(d)),
     [inFolder, filterTest, needle],
   )
+  /**
+   * **目录层**的过滤（5i 2026-09-20）：按**目录名**（`MockNode.name`，用户看得见的那一串）
+   * 命中，**不**拿 `key`/整条路径去比 —— 拿 key 比会让"搜 `P16`"在一个名字完全无关的层级上
+   * 意外命中（`key` 里含父路径），那不是用户在找的东西。
+   * ⚠ 它和文件层的 `hitSearch` 共用**同一个** `needle`（同一个搜索框、同一个词）。
+   */
+  const hitDirName = (name: string): boolean => needle === '' || name.toLowerCase().includes(needle)
+  const kidsShown = useMemo(() => kids.filter((child) => hitDirName(child.name)), [kids, needle])
   const current = listed.find((d) => d.id === openDoc) ?? null
 
   /**
@@ -631,6 +693,8 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
    * 与 pickFilter 同一个理由：搜索把行筛没了之后，选择还指着看不见的行。
    * ⚠ 这里**不清 `openDoc`**（与 pickFilter 保持一致）：详情卡自己按 `listed` 取
    *   `current`，行被筛掉时它自然回落到"点 ⋮ → 详情"的提示，不需要额外状态。
+   * ⚠ 也**不清状态筛选档`filter`**（5i 口径）：搜索与筛选是 AND 关系，两个条件同时留在 `listed` 上
+   *   （清掉任一个都等于"用户没说过的重置"）。谁跟谁组合，渲染级冒烟有断言。
    */
   const pickSearch = (value: string): void => {
     setSearch(value)
@@ -724,6 +788,31 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
       </div>
     )
   }
+
+  /**
+   * **那个搜索框**（`KB_PAGE_SEARCH` 是它存在与否的唯一声明）。
+   *
+   * ⚠ 5i（2026-09-20 收尾批）：**一份定义、两处渲染**（目录层在目录卡上方、文件层在筛选条与
+   *   `.ks-list` 之间）—— 两处的**控件本体**是同一个 JSX 片段，所以"同一层只可能有一个框"、
+   *   "两层不可能长得不一样"。占位/无障碍名**随层级变**（目录层搜目录名、文件层搜标准号/名称），
+   *   因为同一个框在不同层过滤的东西**不是一回事**，用同一句 placeholder 就是骗用户。
+   * ⚠ 为什么不做成"渲染一次、用 CSS 挪位置"：两处的位置分别由各自那一层的流决定（目录层在
+   *   `.ks-dirs` 之前、文件层在 `.ks-filters` 之后），用绝对定位那套会把两个层的版式耦合起来 ——
+   *   而本批的纪律是"文件层的版式一个字都不动"（5h 的图与实测值才还成立）。
+   */
+  const searchBox = KB_PAGE_SEARCH ? (
+    <span className="ks-search">
+      <Input
+        icon={<IconSearchOutline16 />}
+        value={search}
+        placeholder={atFiles ? '搜索标准号或名称…' : '搜索目录名…'}
+        aria-label={atFiles
+          ? '在文件列表里按标准号或名称过滤（本地过滤，不检索语料）'
+          : '在当前目录层按目录名过滤（本地过滤，不检索语料）'}
+        onChange={(event) => { pickSearch(event.target.value) }}
+      />
+    </span>
+  ) : null
 
   return (
     <div className="ks-kb">
@@ -935,8 +1024,14 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
             <span className="ks-crumb-path" title="当前路径（知识库 / 各级目录）">{crumb}</span>
             <div className="ks-kb-grow" />
             {/* 目录层给"几个子目录"；**文件层不在这里再报一次篇数** —— 列表题头（.ks-list-cap）
-                已经写着「N 篇」，筛选条也写着「共 N 篇」，三处同数是噪音（5h 的第一版就是三处）。 */}
-            {!atFiles && <span className="ks-crumb-n">{kids.length} 个子目录</span>}
+                已经写着「N 篇」，筛选条也写着「共 N 篇」，三处同数是噪音（5h 的第一版就是三处）。
+                ⚠ 5i：目录层接上了搜索 ⇒ 有词时写成「筛出 X / 共 Y 个子目录」（与筛选条同一口径），
+                  用户不用自己去数剩下几张卡。 */}
+            {!atFiles && (
+              <span className="ks-crumb-n">
+                {needle === '' ? `${kids.length} 个子目录` : `筛出 ${kidsShown.length} / 共 ${kids.length} 个子目录`}
+              </span>
+            )}
           </div>
 
           {atFiles ? (
@@ -946,7 +1041,8 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                   参照 WeKnora `23-kb-detail-list-1440.png` 是一张 6 列真表格（列头 + 行内图标 +
                   行内可见 chip + 上方搜索框）；我们**抄结构不抄尺寸**（行高仍 52、表头 40）。
                   ⚠ 5h 起它只出现在**最末一级**（业主："到最末一级才是文件"）；结构一字未改。
-                  ⚠ 搜索框这一条的翻案留痕见本文件顶部第 4 条（业主 2026-09-20 已明确"保留"）。 */}
+                  ⚠ 搜索框这一条的翻案留痕见本文件顶部第 4 条、**层级口径见第 4b 条**
+                    （业主 2026-09-20 已明确"保留"；5i 起每一层常驻）。 */}
               <div className="ks-main">
                 {/* 列表题头：原来挂在 .ks-lhead 里（表头变成**真列头行**之后它就不该再待在那儿，
                     否则"文件名"列头与目录名抢同一个格子）。信息一条没少，只是上移一行。 */}
@@ -990,25 +1086,15 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                   </span>
                 </div>
 
-            {/* 搜索框（P2 头条）：宿主 `Input` + 16px 放大镜（参照那个框左侧就是一个 16px 放大镜）。
+            {/* 搜索框（P2 头条；**5i 起每一层都有** —— 控件本体在上面的 `searchBox` 常量里，
+                这里只是**文件层**那一处渲染点：位置与行为与本批之前**逐字相同**）。
                 ⚠ 它**真的过滤**：`listed` 由 `useMemo` 按 `no`/`name` 算（见 hitSearch），
                   不是画个壳 —— 验收就是"输入只命中 1 行的串 ⇒ 行数真的变 1；清空 ⇒ 恢复"。
-                ⚠ 它是**本地列表过滤**（只筛当前目录已加载的行，一个接口都没调）；
-                  与业主"知识库界面不做搜索"的关系见文件顶部第 4 条的翻案留痕。
-                ⚠ 渲染与否由 **`KB_FILE_VIEW_SEARCH`** 这一个声明决定（退回时改它，见该常量注释）：
-                  两个方向都有断言盯着（在场 ⇒ 必须能过滤；缺席 ⇒ 必须真的没有）——
+                ⚠ 它是**本地列表过滤**（只筛当前目录已加载的行，一个接口都没调）。
+                ⚠ 渲染与否由 **`KB_PAGE_SEARCH`** 这一个声明决定（退回时改它，见该常量注释）：
+                  两个方向都有断言盯着（在场 ⇒ 每一层都在且能过滤；缺席 ⇒ 必须真的没有）——
                   这是复核 verify-freeze-p2 的 C 条要的"存在/缺席与某处声明一致"。 */}
-            {KB_FILE_VIEW_SEARCH && (
-            <span className="ks-search">
-              <Input
-                icon={<IconSearchOutline16 />}
-                value={search}
-                placeholder="搜索标准号或名称…"
-                aria-label="在文件列表里按标准号或名称过滤（本地过滤，不检索语料）"
-                onChange={(event) => { pickSearch(event.target.value) }}
-              />
-            </span>
-            )}
+            {searchBox}
 
             {/* ── 列表 = **一个容器**（P1-2/P1-8，2026-09-20；P2 头条把它变成真表格） ──
                 容器里是"**列头行 + 全部行**"，两者共用 `.ks-list` 上的 `--ks-cols`
@@ -1290,9 +1376,32 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                ⚠ 每个目录卡上的「N 篇」是**这一棵子树**里的文件数（`countUnder`，含更深层）——
                  用户不用点进去就知道下面有没有东西。
                ⚠ 现有占位数据里 `USER_FOLDERS`（公司制度/内部操作规程/供应商资料）**没有子目录**，
-                 所以点那三张卡会**直接**落到文件表格（`atFiles`）—— 那是数据本来的层级，不是漏做。 */
+                 所以点那三张卡会**直接**落到文件表格（`atFiles`）—— 那是数据本来的层级，不是漏做。
+               ⚠ 5i（2026-09-20 收尾批）：这一层**也常驻搜索框**（`searchBox`，过滤**目录名**）——
+                 位置与文件层同构：都是"紧贴这一层的条目区上方"。没命中时给**专门的**空态
+                 `没有符合搜索的目录`（+「清除搜索」），**不**复用文件层那句"没有符合筛选或搜索的文件"
+                 （那是文件的话；在目录层说"文件"会把用户引到错的地方）。 */
+            <>
+            {searchBox}
+            {kidsShown.length === 0 && (
+              <div className="ks-empty-card">
+                <span className="ks-empty-ico"><IconFolderOpenOutline16 size={28} /></span>
+                <span className="ks-empty-t">没有符合搜索的目录</span>
+                <span className="ks-empty-d">
+                  这一层共 {kids.length} 个子目录，搜索「{search.trim()}」一个都没命中。
+                </span>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  title="清空搜索串，选择也会一并清空（与文件层那个「清除筛选与搜索」同一口径）"
+                  onClick={() => { pickSearch('') }}
+                >
+                  清除搜索
+                </Button>
+              </div>
+            )}
             <div className="ks-dirs">
-              {kids.map((child) => (
+              {kidsShown.map((child) => (
                 <button
                   key={child.key}
                   type="button"
@@ -1306,6 +1415,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                 </button>
               ))}
             </div>
+            </>
           )}
         </>
       )}

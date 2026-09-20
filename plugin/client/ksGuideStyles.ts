@@ -336,8 +336,10 @@ export const KS_STYLES = `
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ks-lhead-col{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 /* 列表上方那个**真的会过滤**的搜索框（P2 头条）：宿主 Input（32px 高、自带描边与放大镜位）
-   拉满整行宽。⚠ 它只是**本地列表过滤**（筛当前目录已加载的行），不是语料检索 ——
-   一个接口都没调；与业主"知识库界面不做搜索"的关系见 KsKnowledgePage.tsx 顶部的翻案留痕。 */
+   拉满整行宽。⚠ 它只是**本地列表过滤**（筛当前层已加载的条目），不是语料检索 ——
+   一个接口都没调；与业主"知识库界面不做搜索"的关系见 KsKnowledgePage.tsx 顶部的翻案留痕。
+   ⚠ 5i（2026-09-20 收尾批）：这个框现在**每一层都渲染**（目录层过滤目录名），样式**一字未改** ——
+     两处渲染点（文件层 .ks-main 内、目录层 .ks-dirs 之前）都靠 width:100% 拉满那一层。 */
 .ks-search{display:flex;width:100%;min-width:0}
 .ks-search>span{width:100%}
 .ks-search input{font-size:var(--ks-fs-sm)}

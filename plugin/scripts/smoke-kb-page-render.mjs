@@ -76,9 +76,9 @@ try {
 import { createElement } from 'react'
 import { createRoot } from 'react-dom/client'
 import * as React from 'react'
-import { KsKnowledgePage, KB_FILE_VIEW_SEARCH } from ${JSON.stringify(join(pluginRoot, 'client/KsKnowledgePage.tsx'))}
+import { KsKnowledgePage, KB_PAGE_SEARCH } from ${JSON.stringify(join(pluginRoot, 'client/KsKnowledgePage.tsx'))}
 
-export { createElement, React, KB_FILE_VIEW_SEARCH }
+export { createElement, React, KB_PAGE_SEARCH }
 export function mount(container, props) {
   const root = createRoot(container)
   root.render(createElement(KsKnowledgePage, props))
@@ -125,7 +125,7 @@ export function mount(container, props) {
   globalThis.requestAnimationFrame = (cb) => setTimeout(() => { cb(Date.now()) }, 0)
   globalThis.cancelAnimationFrame = (id) => { clearTimeout(id) }
 
-  const { mount, KB_FILE_VIEW_SEARCH } = await import(pathToFileURL(out).href)
+  const { mount, KB_PAGE_SEARCH } = await import(pathToFileURL(out).href)
   // ⚠ **刻意不用 `act`**：React 18.3 的 `act` 在 `react-dom/test-utils` 里，
   //   而 import 它会把**第二份 react/react-dom** 引进来（就是上面那个 Invalid hook call 的成因）。
   //   createRoot 的更新本来就会刷到 DOM，只要给它一个 tick。代价：拿不到 act 的同步保证，
@@ -209,6 +209,37 @@ export function mount(container, props) {
     && seenCards.size === 5
     && ['标准', '法律法规', '公司制度', '内部操作规程', '供应商资料'].every((n) => seenCards.has(n)),
     `卡 ${bandCards().length} 张：${[...seenCards].join(' / ')}；滚动容器 ${q('.ks-kbband-clip').length} 个`)
+
+  /* ── 断言 2b-2：**卡片尺寸统一**（5i 2026-09-20 收尾批；复核 `verify-freeze-5h` 的变异取证） ──
+   * 为什么补这一条：复核把卡片带里 `.ks-kb-cards` 的列模板改成 `60px 120px 200px`（三张卡三种宽）
+   * 之后，**渲染冒烟 51/51 仍然全绿** —— 因为 `.ks-kb-cards` 的宽度只有一个**报告值**
+   * （`ui-render-shot.mjs` 的 `#cards`）兜着，**全仓没有一条断言引用它**。而"知识库卡片尺寸统一"
+   * 是业主亲口点名的形态 ⇒ 它当时**没有被任何断言钉住**。
+   * 本批按**新实现**（`flex:0 0 var(--ks-band-card-w)`，横向滚动容器）造断言：
+   *   · **这一条（jsdom 侧）判**：5 张卡 computed `flex` 简写**逐字相同**且非空 —— `flex` 是
+   *     卡宽的**唯一声明来源**（`.ks-kbband .ks-kb-card`），也是 jsdom 会级联的属性（实测：`var()`
+   *     不会被解析成像素，但**声明串**原样给出 ⇒ 判"是不是同一条声明"，与 3e-2 判列模板同一口径）。
+   *     ⇒ 任何"给某一张卡单独钉一个宽"的改动（例如 `.ks-kb-card:nth-child(2){flex:0 0 60px}`）
+   *     在这里**必红**。同时钉 `min-height`（等高那一路的兜底声明）也要逐字相同。
+   *   · **这一条不判**：真像素的等宽/等高 —— jsdom **没有布局引擎**，`getBoundingClientRect` 恒 0。
+   *     真 Chrome 侧的实测断言在 `ui-render-shot.mjs` 的 `#kbcards`（`cardsCheck`，三档由
+   *     `smoke-kb-cols.mjs` 逐档跑）。两边一起，"尺寸统一"才算被钉住（缺一边都只是半个证据）。
+   *   · 等高的**结构前提**（`align-items:stretch`）单独一条：jsdom 量不到高，只能钉住这条前提。
+   * 变异证据（本批实测，见 docs/UI-BASELINE.md 5i）：
+   *   给第 2 张卡加 `.ks-kbband .ks-kb-card:nth-child(2){flex:0 0 60px}` ⇒ 本文件 FAIL（flex 数组
+   *   第 2 项变 `0 0 60px`）、`ui-render-shot` 的 cardsCheck 也 FAIL（宽度 172/60/172…）；还原即绿。
+   */
+  const bandFlex = bandCards().map((el) => dom.window.getComputedStyle(el).getPropertyValue('flex').trim())
+  const bandMinH = bandCards().map((el) => dom.window.getComputedStyle(el).getPropertyValue('min-height').trim())
+  check('卡片带：5 张卡的 computed `flex`（卡宽的唯一声明）与 `min-height` **逐字相同** —— 任一卡被单独改歪就红',
+    bandCards().length === 5
+    && bandFlex.every((v) => v !== '' && v === bandFlex[0])
+    && bandMinH.every((v) => v !== '' && v === bandMinH[0]),
+    `flex = ${JSON.stringify(bandFlex)}；min-height = ${JSON.stringify(bandMinH)}`)
+  const bandCardsBox = container.querySelector('.ks-kbband .ks-kb-cards')
+  const bandAlign = bandCardsBox === null ? null : dom.window.getComputedStyle(bandCardsBox).getPropertyValue('align-items').trim()
+  check('卡片带：容器 `.ks-kb-cards` 的 `align-items` 是 **stretch**（同排等高的前提；像素级等高由 ui-render-shot 判）',
+    bandAlign === 'stretch', `align-items = ${JSON.stringify(bandAlign)}`)
 
   /**
    * **假布局**：jsdom 没有布局引擎 —— `Element-impl` 的 `scrollWidth`/`clientWidth` 是无条件
@@ -391,6 +422,81 @@ export function mount(container, props) {
     `行 ${q('.ks-item').length} / 表头 ${q('.ks-lhead').length} / 返回 ${q('.ks-back').length}；`
     + `面包屑「${container.querySelector('.ks-crumb-path')?.textContent ?? '(没有)'}」`)
 
+  /* ══════════ 断言 2h–2o：**搜索框每一层都在**（5i 2026-09-20 收尾批） ══════════
+   * 业主 2026-09-20 只说「搜索框：保留」、**没限定层级** ⇒ 本批按"保留"的**最强解释**执行：
+   * 库根 / 一级目录 / 二级目录 / 文件层**每层常驻**（目录层过滤**目录名**、文件层过滤标准号/名称）。
+   * 为什么必须补这一组：本批之前只有**最末一级（文件层）**有 `.ks-search`，而"哪一层该有框"
+   * 没有任何断言盯着 —— 目录层有没有框，删了/没做都照样绿。
+   * ⚠ **判据一条没放宽**：`CTRL_SEL`（行内可见控件 ≤3）数的是 `.ks-item` 行**内部**，目录层的
+   *   搜索框不在行里 ⇒ 3b 那条原样保留、原样跑（本块一个字都没动它）。
+   * ⚠ **搜索词的处置口径**（唯一所有者：KsKnowledgePage.tsx 顶部第 4b 条）：
+   *   切库清空 / 同库内下钻与返回上级**保留** / 切状态筛选**保留**（搜索与筛选是 AND）——
+   *   三条在下面逐条取证，不是写在注释里就算。
+   * ⚠ 本块跑完必须把页面**还原**到"文件层 / 4 行 / 筛选=全部 / 搜索为空"（后面断言 3 起一字未改地跑）。
+   */
+  const searchInput = () => container.querySelector('.ks-search input')
+  const searchValue = () => searchInput()?.value ?? '(没有搜索框)'
+  check('搜索框（文件层）：宿主 Input 在，且 placeholder 指向**文件**口径（标准号或名称）',
+    searchInput() !== null && (searchInput().placeholder ?? '').includes('标准号或名称'),
+    `框 ${searchInput() === null ? '不在' : '在'}／placeholder「${searchInput()?.placeholder ?? ''}」`)
+  await setInput(searchInput(), '喷水')
+  check('文件层搜索真的过滤：4 行 →（「喷水」）1 行',
+    q('.ks-item').length === 1, `行数 4 → ${q('.ks-item').length}`)
+  // ── 2j：返回上一级 ⇒ 搜索词**保留**，并且它按**目录名**过滤 ──
+  await click(q('.ks-back')[0])
+  const keptValue = searchValue()
+  const dirsKept = dirEls().length
+  const dirEmptyTitle = container.querySelector('.ks-empty-t')?.textContent ?? '(没有空态卡)'
+  check('二级目录层：搜索框在、返回上级**保留**搜索词，且「喷水」在目录名上一个也不命中 ⇒ 目录层空态',
+    searchInput() !== null && keptValue === '喷水' && dirsKept === 0
+    && dirEmptyTitle === '没有符合搜索的目录',
+    `框里还是「${keptValue}」／目录卡 1 → ${dirsKept} 张／空态「${dirEmptyTitle}」`)
+  await setInput(searchInput(), '')
+  check('二级目录层：清空搜索 ⇒ 目录恢复（P15/19 这一层 1 张）',
+    dirEls().length === 1, `目录卡 ${dirEls().length} 张`)
+  // ── 2l：上一级（一级目录层）同样有框，同一个词按目录名命中/落空 ──
+  await click(q('.ks-back')[0])
+  await setInput(searchInput(), '环境')
+  const l1None = dirEls().length
+  const l1Empty = container.querySelector('.ks-empty-t')?.textContent ?? '(没有空态卡)'
+  await setInput(searchInput(), 'P15')
+  const l1Hit = dirEls().length
+  await setInput(searchInput(), '')
+  check('一级目录层：搜索框在；「环境」0 张（+空态）→「P15」1 张 → 清空恢复 1 张',
+    searchInput() !== null && l1None === 0 && l1Empty === '没有符合搜索的目录'
+    && l1Hit === 1 && dirEls().length === 1,
+    `「环境」${l1None} 张（空态「${l1Empty}」）／「P15」${l1Hit} 张／清空后 ${dirEls().length} 张`)
+  // ── 2m：库根（一级目录 3 张）── 正向命中 + 切库清空 ──
+  await click(q('.ks-back')[0])
+  const rootAll = dirEls().length
+  await setInput(searchInput(), '环境')
+  const rootHit = dirEls().length
+  const rootHitName = dirEls()[0]?.querySelector('.ks-dir-name')?.textContent ?? '(没有)'
+  check('库根：搜索框在；3 张一级目录 →（「环境」）1 张（Z 环境保护）',
+    searchInput() !== null && rootAll === 3 && rootHit === 1 && rootHitName.includes('Z 环境保护'),
+    `目录卡 ${rootAll} → ${rootHit} 张；留下的是「${rootHitName}」`)
+  await click(cardNamed('法律法规'))
+  check('切库 ⇒ 搜索词**清空**（整棵树都换了，留着就是对**新库**的幽灵过滤）',
+    searchValue() === '' && dirEls().length === 2,
+    `切到「法律法规」后框里「${searchValue()}」／一级目录 ${dirEls().length} 张`)
+  // ── 2n：切筛选档 ⇒ 搜索词**保留**（两者是 AND，不清空） ──
+  await click(cardNamed('标准'))
+  await enterStdLeaf()
+  await setInput(searchInput(), '喷水')
+  await click(byText('.ks-chip', '已废止'))
+  const andValue = searchValue()
+  const andRows = q('.ks-item').length
+  check('切状态筛选档 ⇒ 搜索词**保留**，两个条件是 AND（「喷水」是现行件；点「已废止」⇒ 0 行）',
+    andValue === '喷水' && andRows === 0,
+    `框里「${andValue}」／行数 1（喷水）→ ${andRows}（已废止 AND 喷水）`)
+  await click(byText('.ks-chip', '全部'))
+  await setInput(searchInput(), '')
+  // ── 2o：还原 + 兜底（后面所有断言的前提） ──
+  check('搜索块收尾：还原到「文件层 / 4 行 / 筛选=全部 / 搜索为空」（后面断言 3 起一字未改地跑）',
+    q('.ks-item').length === 4 && searchValue() === ''
+    && (container.querySelector('.ks-chip-on')?.textContent ?? '').includes('全部'),
+    `行 ${q('.ks-item').length} 行／框里「${searchValue()}」／选中的胶囊「${(container.querySelector('.ks-chip-on')?.textContent ?? '').trim()}」`)
+
   // ── 断言 3：文件列表 = 勾选框 + 每行一个「⋮」溢出菜单（P1-1 改造后的口径） ──
   const checkboxes = q('input[type=checkbox]')
   // 默认文件夹 P16 工程防火 有 4 篇 ⇒ 4 个行勾选 + 1 个全选
@@ -475,7 +581,10 @@ export function mount(container, props) {
    *      **本批（verify-freeze-p2 落地）又加 2 条**（3e-2 表头/行的 computed 列模板 + gap 逐字
    *      相同；3g 前"搜索框在/不在 == 声明 `KB_FILE_VIEW_SEARCH`"）⇒ 运行时是 **35/35**
    *      （文件里 `check(` 行 37 条：另有 2 条在"搜索框缺席"分支里，那一支只有在**声明 false**
-   *      的退回态才会跑到）。⇒ 以后写条数**一律现数**，别抄。 */
+   *      的退回态才会跑到）。⇒ 以后写条数**一律现数**，别抄。
+   *      ⚠ **5i（2026-09-20 收尾批）又加了一批**（卡片尺寸统一 2 条 + 搜索框每一层 2h–2o 8 条）
+   *      ⇒ 运行时条数**以那一跑打印的 `PASS (n/n)` 为准**；本文件里凡是"n/n"的历史数字
+   *      都是当时的快照，**不要**拿它当现在的基线（那正是 D6 那条错话的成因）。 */
   // ── 断言 3d：列头行是**真列头**，且与行**同构**（同一份 COLUMNS 定义）──
   const cellsOf = (el) => [...el.children].map((c) => c.className)
   const headRow = container.querySelector('.ks-lhead')
@@ -535,17 +644,20 @@ export function mount(container, props) {
     rowTags.some((n) => n > 0), `四行的 chip 数 = ${rowTags.join('/')}`)
   // ── 断言 3g：搜索框**真的过滤**（任务书验收：只命中 1 行的串 ⇒ 行数变 1；清空 ⇒ 恢复）──
   // ⚠⚠ **2026-09-20 P2 复核打回（C）补的一条**：搜索框"在 / 不在"必须与**声明**
-  //   `KB_FILE_VIEW_SEARCH` 一致（从组件里 import 的真值，不是抄一个 true）。
+  //   `KB_PAGE_SEARCH` 一致（从组件里 import 的真值，不是抄一个 true）。
   //   为什么要它：旧的 9 号断言（"本页没有搜索框"）删掉之后，**搜索框存在与否一度没有任何
   //   断言盯着** —— 悄悄删了它，3g/3h 只会**崩**（`setInput(null)` 抛 TypeError），
   //   既不是"可诊断的红"，也说不清"设计上到底该不该有"。
   //   ⚠ 落点必须是**文件视图**：这一段跑在默认的「文件」视图里（切「标签」视图在后面），
   //     旧的 9 号断言跑在标签视图 ⇒ 文件视图有没有框它都 PASS（那才是它假绿的那一半）。
   //   两个方向都钉住：声明 true ⇒ 框必须在且能过滤；声明 false（退回旧设计）⇒ 框必须真的不在。
+  //   ⚠ 5i（2026-09-20 收尾批）：常量**改名**（`KB_FILE_VIEW_SEARCH` → `KB_PAGE_SEARCH`）——
+  //     新名字与事实一致（框**每一层**都在，不再只是"文件视图"）；"在/不在 == 声明"这条
+  //     判据**一个字没放宽**，另加 2h–2o 逐层取证（见上面）。
   const searchBox = container.querySelector('.ks-search input')
-  check('文件视图的搜索框"在 / 不在"与声明 KB_FILE_VIEW_SEARCH 一致（删掉它就红，不是没人管）',
-    (searchBox !== null) === KB_FILE_VIEW_SEARCH,
-    `声明 KB_FILE_VIEW_SEARCH=${String(KB_FILE_VIEW_SEARCH)}；DOM 里 .ks-search input ${searchBox === null ? '不存在' : '存在'}`
+  check('本页的搜索框"在 / 不在"与声明 KB_PAGE_SEARCH 一致（删掉它就红，不是没人管）',
+    (searchBox !== null) === KB_PAGE_SEARCH,
+    `声明 KB_PAGE_SEARCH=${String(KB_PAGE_SEARCH)}；DOM 里 .ks-search input ${searchBox === null ? '不存在' : '存在'}`
     + `（当前视图 = 文件列表：本页默认视图，切「标签」在后）`)
   const rowCount = () => q('.ks-item').length
   if (searchBox === null) {
@@ -651,9 +763,9 @@ export function mount(container, props) {
   //     （3g/3h 是行为级：框不在时它们只会崩/失败，说不清"设计上该不该有"；而且退回旧设计时
   //     那句"把 3g/3h 换回'本页没有搜索框'"等于把**已证伪的假绿**装回去）。
   //     ⇒ 现在有一条**声明 ↔ DOM 一致性**断言（落点在**文件视图**，默认视图，就在 3g 之前）：
-  //     「DOM 里有没有 `.ks-search input`」=== 组件导出的 `KB_FILE_VIEW_SEARCH`。
-  //     两个方向都判：声明 true ⇒ 必须在且能过滤（3g/3h）；声明 false（退回旧设计）⇒ 必须真的不在。
-  //     覆盖缺口因此**关掉**了，不再是"有意的取舍"。
+  //     「DOM 里有没有 `.ks-search input`」=== 组件导出的 `KB_PAGE_SEARCH`（5i 改名，见 3g 注释）。
+  //     两个方向都判：声明 true ⇒ 必须在且能过滤（3g/3h，**每一层**另有 2h–2o）；声明 false
+  //     （退回旧设计）⇒ 必须真的不在。覆盖缺口因此**关掉**了，不再是"有意的取舍"。
 
   root.unmount()
   await flush()
