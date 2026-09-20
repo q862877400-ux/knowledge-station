@@ -232,10 +232,16 @@ if (uncovered.length > 0) {
 }
 if (!tiers.has('narrow')) failures.push('**窄档一组都没判过**（留边 16 这一档没有证据）')
 if (!tiers.has('wide')) failures.push('**宽档一组都没判过**（留边 24 这一档没有证据）')
-/* 主题也要有：复核 `verify-freeze-5jx6` 残余①—— 本脚本原来从不传 `--theme`，深色留边**从未被断言**。 */
+/* 主题也要有：复核 `verify-freeze-5jx6` 残余①—— 本脚本原来从不传 `--theme`，深色留边**从未被断言**。
+   ⚠ 5j-补×8：这里原来写成 `failures.push('…没有断言', '（5j 当时只有一张深色截图当证据）')` —— **传了两个参数**
+   ⇒ 失败清单里**多出一条独立 bullet**，读起来像两条独立结论（复核 `verify-freeze-5jx7` 的缺陷①实测到）。
+   `push` 只接一个值，多余的参数会被当成第二个元素塞进数组 ⇒ 必须拼成一个字符串。
+   ⚠⚠ **这条修复我当天弄丢过一次**（见 DEVELOPMENT-HISTORY §10.144 5j-补×8）：改完还没提交就去做变异测试，
+   变异后用 `git checkout --` 还原，把这处修复一起吃了 —— 于是 `fe35c97` 只提交了文档、消息里却写着改了脚本。
+   **纪律（AGENTS.md 已立、我又犯一次）：变异前先提交，或对副本变异。** */
 if (!rows.some((r) => r.theme === 'dark' && r.problems.length === 0)) {
-  failures.push('**深色（`--theme dark`）一组都没判过** —— 业主看的"深浅两套"里深色那一套没有断言',
-    '（5j 当时只有一张深色截图当证据）')
+  failures.push('**深色（`--theme dark`）一组都没判过** —— 业主看的"深浅两套"里深色那一套没有断言'
+    + '（5j 当时只有一张深色截图当证据）')
 }
 if (sawNoBrowser) {
   failures.push('**这一跑起不来无头浏览器**（八组都没拿到 JSON）—— 门禁链从 5j-补 起需要本机有'
