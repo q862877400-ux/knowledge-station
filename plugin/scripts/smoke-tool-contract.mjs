@@ -389,6 +389,28 @@ async function main() {
     answerMatErr?.material_usage?.counts === null
       && typeof answerMatErr?.material_usage?.error === 'string',
     JSON.stringify(answerMatErr?.material_usage))
+  /* ⚠ 2026-09-20（复核 `verify-freeze-step6-1b` 的 D②）：`material_usage` 是引擎自有的结构、我们只是直通
+     ⇒ 外层声明成**开放的 object**（不写 `additionalProperties:false`）。这一组把那个决定钉住：
+     引擎将来**加一个我们不知道的键**时，这次调用**不许**变 isError（否则又是一次"本批新引入的真机故障"）。
+     反向变异：把外层改回 `additionalProperties:false` ⇒ 这一组必须红。 */
+  const answerMatExtra = await group('ks_answer', 'material-usage-engine-extra-key',
+    { query: 'x', params: { material_project_id: 'prj_x' } },
+    onlyPath('/api/v1/ks/answer', {
+      ...ANSWER_MATERIAL_ERROR,
+      data: {
+        ...ANSWER_MATERIAL_ERROR.data,
+        material_usage: {
+          ...ANSWER_MATERIAL_ERROR.data.material_usage,
+          counts: { total: 1, approved: 1, pending: 0, rejected: 0 },
+          // 引擎**将来**可能加的第 6 个键（这里故意用一个我们今天不知道的名字）
+          future_engine_field: '引擎演化时新增的字段',
+        },
+      },
+    }))
+  check('ks_answer [material-usage-engine-extra-key] — 引擎在 material_usage 里加未知键时**不许** isError（外层是开放 object）',
+    answerMatExtra?.material_usage?.future_engine_field === '引擎演化时新增的字段'
+      && answerMatExtra?.material_usage?.counts?.total === 1,
+    JSON.stringify(answerMatExtra?.material_usage))
 
   /* -------------------------------- ks_materials -------------------------------- */
   const projects = await group('ks_materials', 'projects', {},

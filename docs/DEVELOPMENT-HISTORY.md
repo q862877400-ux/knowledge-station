@@ -9438,9 +9438,13 @@ jsdom 的 `PAD_SUBJECTS`、注入的 `padSel`、第六节 5j① 表格是散文�
 **它怎么打的**（三重实测，不是读码）：`ANSWER_MATERIAL_USAGE` 把 `counts` 声明为 `{type:'object'}`
 **且放进 `required`**，而引擎的**失败分支**给的是 `counts: None`（`src/core/llm/ks_answer.py:698-701`，
 本批刚转发的正是这条）。它用**真的 `@deepseek-ai/dsh-tools` 的 `ToolRuntime.execute`**（真 cordis Context）
-跑出：`isError:true`、`{"name":"ToolOutputError","code":"INVALID_TOOL_OUTPUT","message":"…\"value.material_usage\"
-must match exactly one oneOf branch (matched 0)"}`；父提交 `2cb7b25` 那 6 处全是 `additionalProperties:true`
-且**当时根本没转发** `material_usage` ⇒ **这条 isError 是本批新引入的**。
+跑出：`isError:true`，且错误对象**不是扁平**的 —— 实测是 `error.message` = `…"value.material_usage"
+must match exactly one oneOf branch (matched 0)`，`name`/`code` 在 **`error.info`** 下
+（`{name:'ToolOutputError', code:'INVALID_TOOL_OUTPUT'}`）。
+> ⚠ **就地更正（`verify-freeze-step6-1b` 的 E②，2026-09-20）**：这里原先把错误写成**扁平 JSON**
+> `{"name":…,"code":…,"message":…}` —— 事实为真，但**层级写错了**（按 `error.name` 取会取不到）。
+> 复核指出后已按实测层级改写。父提交 `2cb7b25` 那 6 处全是 `additionalProperties:true`
+> 且**当时根本没转发** `material_usage` ⇒ **这条 isError 是本批新引入的**。
 
 **最刺眼的一点**：那个 schema 的**注释是我自己写的**，第 463 行明写失败分支 `counts: null`；第 474 行却写成
 必填 `object` —— **注释写对了、代码抄错了**。判据只读代码，所以注释救不了它。
@@ -9462,3 +9466,30 @@ must match exactly one oneOf branch (matched 0)"}`；父提交 `2cb7b25` 那 6 �
 **它未判定的**：真 dsh 宿主挂载/工具被 offer 仍是未做；真引擎 payload 的字段类型仍是读码确认
 （除 `counts` 外是否还有漂移，需跑真引擎）；`effect_report` 的 `window!='all'`、`resolve` 的
 `folder_scope` 分支无场景覆盖；**94/94（现 99/99）是 18 组覆盖，不是全路径覆盖** —— 本次 FAIL 就是这个边界的实例。
+
+### 5j-补×9 / Step 6 §1 的第二轮定点复核（`verify-freeze-step6-1b` = `8988378`，base `d7377ae`，**2 个提交**）：**PASS** + 两条同类残余（一条不成立、一条已处理）
+
+**复核（定点）判 PASS**，并且**用真运行时**验了修复：注册进真 cordis Context + 真 `ToolRuntime`，
+跑引擎失败分支（`counts:null`）⇒ **isError=false**、正常分支 ⇒ 也 false；**负对照**（内存里改回必填
+`object`）重现上一轮那句逐字诊断 ⇒ 仪器有牙。它还确认：`counts` 从 `required` 里删掉**不该红**
+（两分支都必给 `counts`，且新组的显式值断言 `counts === null` 会抓住"漏抄"⇒ 少的是冗余第二道锁）；
+**无第二处同类缺陷**（6 个 schema 的 required/oneOf/可空逐条对了 return，嵌套 6 个形状也逐一相符）；
+`-Full` **exit 0**（34 套）、契约冒烟 99/99。
+
+**它报的两条同类残余，本批各给一个结论**：
+- ① `ks_materials.projects[].authority_policy` 声明 `object|null`，"引擎若给字符串即 isError" ⇒
+  **不成立**：查源码，`src/core/storage/material_repo.py:109` 是 `json.loads(r[2]) if r[2] else None`
+  （**反序列化成 dict**），写入端 `src/core/api/routes_materials.py:75` 还强制"必须是对象" ⇒ 声明正确。
+  复核当时明确写了这是"读码确认、非实测"，现在这条读码核完了。
+- ② `material_usage` 是引擎自有的直通结构，而外层写了 `additionalProperties:false` ⇒ **引擎将来加第 6 个键
+  就会让每次带项目的 `ks_answer` 调用整体 isError**（与本轮那个 bug 同型）。**已处理**：外层改成**开放的
+  object**（已知键照列、不写 `additionalProperties:false`），并补一组 `material-usage-engine-extra-key`
+  （带一个"我们今天不知道的键"）钉住这个决定 —— 契约冒烟 104/104（**19 组**）。
+  原则写进代码注释：**我们自己产出的字段要精确，引擎产出的结构不替它做主**。
+
+**它指出的两处文档瑕疵（都已改）**：① 代码注释里引"第 474 行"而 schema 已漂到 **485 行**（引用漂移，
+正是 AGENTS.md 点名的坏习惯）；② 本史书里把那个错误写成**扁平 JSON**，实测是 `error.message` +
+`error.info={name,code}` —— 事实真、**层级写错**（按 `error.name` 取会取不到），已按实测层级改写并留痕。
+
+**本轮末尾这个增量（开口 + 19 组 + 两处文档）由我自己用变异验证**（把外层改回 `additionalProperties:false`
+⇒ `material-usage-engine-extra-key` 那组必须红），**没有再派独立复核** —— 如实登记：它是"我自己验的"。

@@ -464,21 +464,29 @@ const ANSWER_SCOPE = {
  * 不替引擎做主，也**不**假装它是我们定的形状。
  *
  * ⚠⚠ **2026-09-20 就地更正（复核 `verify-freeze-step6-1` 打回 A，这是我的错）**：上面那段注释里我自己
- * 写着失败分支是 `counts: null`，而下面第 474 行却写成 `counts: {type:'object'}` **且放进 `required`**
+ * 写着失败分支是 `counts: null`，而 schema 里却写成 `counts: {type:'object'}` **且放进 `required`**
  * —— **抄漏了那一支的可空性**。后果不是"少个校验"，而是**真机 isError**：复核用**真
  * `@deepseek-ai/dsh-tools` 的 `ToolRuntime.execute`** 实测（引擎失败分支的 payload）⇒
- * `isError:true`、`ToolOutputError`、`INVALID_TOOL_OUTPUT`「"value.material_usage" must match exactly
- * one oneOf branch (matched 0)」；父提交那 6 处都是 `additionalProperties:true` 且当时**根本没转发**
+ * `isError:true`、`error.info = {name:'ToolOutputError', code:'INVALID_TOOL_OUTPUT'}`、
+ * `error.message` =「"value.material_usage" must match exactly one oneOf branch (matched 0)」；
+ * 父提交那 6 处都是 `additionalProperties:true` 且当时**根本没转发**
  * `material_usage` ⇒ **这条 isError 是我这一批新引入的**。
  * 漏网原因：17 组冒烟里 `ks_answer` 只有正常分支（`full-answer`）/422/空信封，**没有引擎失败分支那一组**
  * —— ⇒ 已补一组 `material-usage-engine-error`（`counts:null` + `error`），并把它钉进 required 的语义：
  * `counts` 要在（**可以**是 null），而不是"必须在"。
+ *
+ * ⚠ **另一条同类残余（复核 `verify-freeze-step6-1b` 的 D②，本轮一并处理）**：`material_usage` 是
+ * `trimAnswer` 的**无白名单直通**（引擎自有的结构），若这里写 `additionalProperties:false`，
+ * 引擎**将来加第 6 个键**就会让每次带项目的 `ks_answer` 调用整体 isError —— 与本轮那个 bug 同型。
+ * ⇒ 外层按"**开放的 object**"声明（已知键照列、**不写** `additionalProperties:false`）：
+ * 我们自己产出的字段要精确，**引擎产出的结构不替它做主**（与上面 `counts` 那支同一个道理）。
+ * 代价：PTC 侧这一层少一点类型精度；换来的是一句"引擎演化不该打穿我们"。
+ * 回归位：冒烟里 `material-usage-engine-extra-key` 一组（带一个未知键）必须仍 PASS。
  */
 const ANSWER_MATERIAL_USAGE = {
   oneOf: [
     {
       type: 'object',
-      additionalProperties: false,
       properties: {
         project_id: { type: 'string' },
         project_found: { type: 'boolean' },
