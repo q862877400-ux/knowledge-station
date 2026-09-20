@@ -150,6 +150,15 @@ console.log('')
       部分漏读也会被抓到（漏读会让 `真跑过 ⊆ 声明` 那一侧红）。 */
 const SPEC_SUBJECTS = ['.ks-kb', '.ks-ing', '.ks-mat', '.ks-kbband', '.ks-list', '.ks-batch',
   '.ks-dirs', '.ks-page-head', '.ks-kb-row', '.ks-empty-card']
+/**
+ * **冻死的"应该跑哪些组合"清单**（5j-补×5，2026-09-20）：复核 `verify-freeze-5jx4` 判 PASS 时给的加固建议 ——
+ * 上一版的判据是"**自报的**声明集合 == **真跑过的**组合集合"。若有人把 MATRIX 少跑一组、**同时**改
+ * `ui-render-shot` 的自报表达式让它也只报那一组（协调撒谎），两个集合仍相等 ⇒ 静默通过。
+ * ⇒ 这里再冻一份**清单对清单**：真跑过的组合集合必须**逐字等于**本清单。这样"少跑一组"无论自报怎么写都红。
+ * ⚠ 与 `MATRIX` **同源两份**（同文件内），改矩阵必须同步改这里 —— 不一致就红（这是设计，不是麻烦）。
+ */
+const EXPECTED_COMBOS = ['kb|', 'kb|kb-select', 'kb|kb-files', 'kb|kb-empty-files',
+  'capabilities|', 'ingest|ingest-batch', 'materials|']
 /** 从**成功的实测 JSON** 里取声明集合（任一组报到即可 —— 它们来自同一个 `ui-render-shot` 进程）。 */
 const declaredSubjects = rows.map((r) => r.allSubjects).find((v) => Array.isArray(v)) ?? null
 const declaredCombos = rows.map((r) => r.declaredCombos).find((v) => Array.isArray(v)) ?? null
@@ -178,6 +187,20 @@ if (declaredCombos === null) {
     /* 这一侧兜"自报的声明集合比真跑过的还少"（例如自报被截断/漏项）—— 双向相等才算对得上。 */
     failures.push(`本巡查**真跑过**的组合里这些**不在自报的 PAD_REQUIRED 键**中：[${notDeclared.join(' ')}]`
       + ' ⇒ 自报的声明集合不可信（漏项/被截断），这一条棘轮不算验过')
+  }
+  /* **清单对清单**（复核 `verify-freeze-5jx4` 的加固建议）：真跑过的组合必须逐字等于冻死的 EXPECTED_COMBOS。
+     为什么还要这一条：上面两条只保证"自报 == 真跑过"。若有人**同时**改矩阵（少跑一组）与自报表达式
+     （也只报那一组），两边仍相等 ⇒ 静默通过。冻一份第三方清单后，少跑一组无论自报怎么写都红。 */
+  const expectedSet = new Set(EXPECTED_COMBOS)
+  const missingRun = EXPECTED_COMBOS.filter((k) => !runKeys.has(k))
+  const extraRun = [...runKeys].filter((k) => !expectedSet.has(k))
+  if (missingRun.length > 0) {
+    failures.push(`冻死的 EXPECTED_COMBOS 里这些组合**本巡查没跑**：[${missingRun.join(' ')}]`
+      + ' ⇒ 矩阵少跑了一组（哪怕自报跟着一起少报，也在这里红）。改矩阵就要同步改 EXPECTED_COMBOS。')
+  }
+  if (extraRun.length > 0) {
+    failures.push(`本巡查跑过这些组合、冻死的 EXPECTED_COMBOS 里**没有**：[${extraRun.join(' ')}]`
+      + ' ⇒ 矩阵加了组却没更新 EXPECTED_COMBOS（两份同源，必须同步）')
   }
 }
 const coveredSubjects = new Set(rows.flatMap((r) => r.required ?? []))
