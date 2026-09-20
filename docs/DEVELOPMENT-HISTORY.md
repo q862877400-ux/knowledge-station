@@ -9119,3 +9119,69 @@ $ git log -1 --format='%h %s' 6347f4e             # 同 subject、同在 master 
 - 本轮**没有**为 A 补一条"启动时表↔链一致性校验"：选的是**运行期 `else` 兜底**那条路（两选一），
   所以"某个分支写了但没进 `SCENARIOS`"仍由**未知场景名 ⇒ exit 2** 那条挡（名字根本进不来）。
 
+
+## §10.144 5j「页面留边」落地 + 复核 `verify-freeze-5j` 判 FAIL（**两条假绿通道**）+ 5j-补 收口
+
+### 一、批次本身（`6ad64d2` feat + `fcff2bc` docs，base `8d1d4be`，**2 个提交**）
+
+业主原话：「窗口四周要留点边啊，你这按钮都快跑到侧边栏外面去了，你改一下 UI 设计规范，然后应用上」。
+
+- **规范**：`docs/UI-BASELINE.md` 第二节新增一行 + 一段。**如实写"此前没有这条规范"** —— 原来只定义了
+  元素**之间**的间距（`--ks-space-*`）与元素**内部**的内边距，**从没定义过"内容与窗口边缘的最小距离"**。
+  新增 token `--ks-page-pad-x/y-narrow:16px` / `-wide:24px`，由 `@container (min-width:660px)` 切档，
+  容器是新增的一层 `.ks-page`（CSS 里容器不能用自己的宽度查自己）。
+- **应用面**（8 类）：页面根 `.ks-kb/.ks-ing/.ks-mat`、卡片带外框 `.ks-kbband`、表格容器 `.ks-list`、
+  批量条 `.ks-batch`、目录层 `.ks-dirs`、页头 `.ks-page-head`、页面级按钮行 `.ks-kb-row`、空态卡 `.ks-empty-card`。
+  **全在我们自己的样式里，没动宿主外壳**（离屏链的 `#kspad` 特意减掉假外壳那 12px，让"靠外壳留边"量不出成绩）。
+- **改前 → 改后**（外缘到 shell **内容边**；复核独立复现，**逐格相同**）：
+  页面根 `0/0 → 16/16`（1300 `24/24`）、卡片带 `0/0 → 16/16`（1300 左缘 `0 → 24`）、
+  表格 `0/0 → 16/16`、批量条 `14/14 → 26/26`（一行 40px）、＋新建行 `0/0 → 16/16`。
+- **连带影响（登记）**：5 列档的 shell 阈值 924 → **972**（留边吃掉可用宽）；520 下批量条一度折成两行
+  （40→72px），按窄档紧凑规则收回一行；`.ks-ing`/`.ks-mat` 在设置窗里多 16px 内缩（有意、未在真宿主看过）。
+
+### 二、复核 `verify-freeze-5j`（提取树，`-Full` 第二跑 exit 0）判 **FAIL（限定一条）**
+
+复核的结论原文要点：**留边规范、全站应用、全部改前/改后数字都被独立复现为真**（`-Full` 6/6 步 + 棘轮 ✅，
+pytest `2142 passed, 4 skipped`，总账 2146 ≥ 基线）；**但** `ksPadCheck` 有两条可复现的假绿通道。
+本轮**接受这个 FAIL**（它打回得对），不辩解、不当"限定一条"糊过去。
+
+| # | 打回的点 | 复核的铁证 | 5j-补 的修法 |
+|---|---|---|---|
+| E① | **"量不到就当通过"**：`padSel` 找不到元素就 `continue` | 变异 **M6**（`.ks-dirs` 类名改掉 ⇒ 元素从 DOM 消失）⇒ `ui-render-shot` **exit 0**、jsdom **72/72 PASS** | 缺失也上报 `missing:true` + Node 侧按 **`PAD_REQUIRED`**（按 `page\|interact` 声明的期望集合）判存在性 + **规范「适用面」↔ `PAD_SUBJECTS_ALL` 棘轮** + 并集覆盖检查 |
+| E② | **这条像素断言不在任何门禁链里**（`smoke-all` 30 套不含唯二 spawn `ui-render-shot` 的脚本） | 复核逐条确认；UI-BASELINE 5g 自认"有意的覆盖取舍" | 新增 **`smoke-kb-pad-pixels.mjs`（8 组）**并与 `smoke-kb-cols.mjs` 一起**进 `smoke-all.mjs` 名单** ⇒ 门禁**需要真浏览器**，缺件=红 |
+| E③ | **M3（批量条折行）没有任何脚本抓得到**（只有 `kb-select` 触发，而 `smoke-kb-cols` 固定 `kb-files`） | 复核实测：M3 下 `ui-render-shot` 红、`smoke-kb-cols` **exit 0** | 新巡查矩阵**含 `kb-select@520/1300`** ⇒ M3 现在在新巡查里 exit 1 |
+| E⑥ | 档位只由被测容器自己的实宽定（软点） | 变异 **M7**（`.ks-page{width:600px}`）⇒ 1300 壳里读成窄档、**exit 0** | `ksPadCheck` 再与 **shell 内容宽**交叉核（`.ks-page` 必须铺满内容盒 + 档位必须与壳宽一致）⇒ M7 现在 exit 1 |
+| E⑤ | 计数错：5j ⑦-4 说"转义过的 8 处" | 复核逐行数**实为 10 处**（`ksGuideStyles.ts:33/35/36/38`） | 已在 ⑦-4 就地更正（错话保留） |
+
+**复核明确未判定的（照搬不粉饰）**：真宿主页几何（仍 401，只有离屏 + 真 Edge 证据）；`.ks-ing`/`.ks-mat`
+在设置窗里的实际观感；12 张图只亲眼读了 7 张；`.ks-empty-card` 的像素级留边复核没单独跑（本批已纳入巡查）；
+复核的提取树（约 11GB）由我清理。
+
+### 三、5j-补 的四条变异（都自己复现，各自还原；还原判据用 `git status --short`）
+
+| 变异 | 改了什么 | 现在的判定 | 对照 |
+|---|---|---|---|
+| **M6-补** | `className="ks-dirs"` → `ks-dirsGONE` | 三处同时红：`ui-render-shot` **exit 1**（"规范点名的适用面 .ks-dirs 这一跑根本没量到"）、jsdom **FAIL 72/73**、新巡查 **exit 1** | 复核当时：两侧全绿 |
+| **M3-补** | `@container (max-width:520px)` → `(max-width:1px)` | 新巡查 **exit 1**（`kb-select@520`："高 72px > 单行预算 40px + 8"） | `smoke-kb-cols` **仍 exit 0**（它跑 `kb-files`，本就没有批量条 —— E③ 的口径没变，只是现在**另有**脚本管这条） |
+| **M7-补** | `.ks-page{…;width:600px}` | `ui-render-shot --page kb --width 1300` **exit 1**：`pageW 600 vs shell 内容宽 1276`、`档位与壳宽不一致` | 复核当时：exit 0 通过 |
+| **M8**（新棘轮） | 往规范「适用面」里加 `.ks-fake` | `ui-render-shot` **exit 1**："适用面与 `PAD_SUBJECTS_ALL` 不一致：只在规范里=[.ks-fake]" | 本批新增 |
+
+### 四、协议与环境（两条写进 `AGENTS.md` 的硬事实）
+
+1. **提取树要真拷贝的是两份 `node_modules`**：复核第一跑 `-Full` 红在 `smoke-build-purity` R7/R8
+   （`Could not resolve ...\node_modules\react`），根因是提取树缺**仓库根**那份 —— 复核在**父提交**上跑
+   同一脚本红得一模一样 ⇒ **环境假红，不是 5j 的罪**。协议原文只写了 `plugin/node_modules`，本轮补上根那份。
+2. **本机 `core.autocrlf=true` ⇒ 还原判据用 `git status --short`，别用文件哈希**：`git checkout` 把源码
+   物化成 CRLF 而工作区原本是 LF，git 两边都报"干净"、**哈希却不同**；`plugin/client.js` 的磁盘字节数同样会在
+   CRLF（1,535,332）与 LF（1,497,400 = 提交 blob）之间变（`smoke-client-entry` 的整份一致断言两种形态都过）。
+3. **门禁链自此需要本机有 Chromium/Edge**（两套脚本进名单的**代价**，有意）：没浏览器 ⇒ 红，不是跳过。
+   运行时约 +1–2 分钟（11 次离屏渲染）。
+
+### 五、边界（诚实）
+
+- `PAD_REQUIRED` 是**声明式**的：某页某场景没声明时 `coverageDeclared=false`，`ksPadCheck` **不判存在性**
+  并**明说没判**（门禁里跑的 8 组都在表里 ⇒ 门禁面是全的；手工跑未声明的组合别把"没判"读成"通过"）。
+- 两处冻结常数仍是**各写一份**（`plugin/scripts/lib/**` 不许动 ⇒ 没有共享模块），本批新增的只是它们与
+  规范文档、与 `PAD_REQUIRED` 并集之间的两条核对。
+- `.ks-kbband` 的**右缘**判据在 1300 下是"无意义的恒真"（`max-width:720` ⇒ `dR=532`）：复核用全量探针
+  （每页 58–71 个 `ks-` 元素）独立量过，**没有**未被覆盖的通栏元素贴边 ⇒ 可接受。

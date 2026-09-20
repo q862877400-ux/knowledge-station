@@ -54,9 +54,19 @@ Vue + TDesign，我们是 React + 宿主原生组件 ⇒ **照结构/视觉重�
   **不许拿它当我们留边的成绩**，所以 `#kspad` 把两者（`d/dR` 与 `dRaw/dRRaw`）分开报、分别判。
 - **量法**：`ui-render-shot.mjs` 的 `measured['#kspad']`（真浏览器里逐项量 `{d,dR,dRaw,dRRaw}`，
   并报出 `.ks-page` 实测宽与档位 `tier`）；判红在 Node 侧 **`ksPadCheck`**（真 Chrome，含"批量条不许被挤成两行"），
-  jsdom 侧另有 `smoke-kb-page-render.mjs` 的 **5 条**声明/结构/冻结值断言（jsdom 没有布局引擎 ⇒ 它判不了像素）。
+  jsdom 侧另有 `smoke-kb-page-render.mjs` 的**声明/结构/冻结值 + 默认态适用面存在性**断言
+  （jsdom 没有布局引擎 ⇒ 它判不了像素）。
   两侧合起来才算钉住（同 5i 的 `cardsCheck` 口径）。**冻结值**：窄 16 / 宽 24 / 切换 660 —— 两个脚本各写一份，
   且都与 `ksGuideStyles.ts` 的 token **互相核对**（谁单方面改了数就红）。
+  ⚠ **5j-补（2026-09-20）补的三条**（复核 `verify-freeze-5j` 打回 E①/E②/E⑥ 之后）：
+  ① **"量不到"从此判红**：选择器缺失也上报（`missing:true`），Node 侧按 `PAD_REQUIRED` 的**声明集合**
+  逐条判存在性 —— "元素被改名/删掉"与"留边合规"必须可分辨（复核的变异 M6 当时**两侧全绿**）；规范的
+  「适用面」那一段与本脚本的 `PAD_SUBJECTS_ALL` 之间还加了一条**互相核对**的棘轮（多一个/少一个都红）；
+  ② **档位不许只由被测容器自己的实宽定**：同时拿 shell **内容宽**独立钉一次（`.ks-page` 必须铺满内容盒，
+  差 >1px 就红）—— 否则给 `.ks-page` 加 `width:600px` 就能在 1300 的壳里被读成"窄档"而蒙过（复核 M7）；
+  ③ **这条像素断言进了门禁链**：`smoke-kb-pad-pixels.mjs`（8 组 page×宽×场景，逐组判
+  `checked/skipReason/coverageDeclared/problems`）与 `smoke-kb-cols.mjs` 都进了 `smoke-all.mjs` 名单
+  ⇒ **门禁链自此需要本机有 Chromium/Edge**，没浏览器就是**红**（代价与理由见第六节 5j-补）。
 - **不许绕过的做法**：给**宿主外壳**（离屏链的 `#ks-shell` / 真宿主的 tab body）加 padding ——那是宿主的地盘，
   不归我们；留边必须落在**我们自己的样式**里。`#kspad` 特意减掉 `#ks-shell` 自身那 12px 就是为了让
   "靠外壳留边"这件事**量不出来假绿**。
@@ -651,6 +661,13 @@ esbuild 不校验命名导出）⇒ 只能靠**运行时**和**读宿主源码**
 > ⚠ **一条有意的覆盖取舍**：`smoke-kb-cols.mjs`（要浏览器）**不进 `smoke-all` 名单** ——
 > 门禁链目前零浏览器依赖，塞进去会让"提取树里没有 Chrome"变成门禁红。门禁链里能抓 M4 的是
 > jsdom 那一条（判"两条声明是不是同一条"）；三档的容器查询证据由本脚本逐档跑，命令写在上面。
+>
+> ⚠⚠ **就地更正（5j-补，2026-09-20；上面这段原文保留）**：复核 `verify-freeze-5j` 把这条取舍判成
+> **假绿通道（E②）** —— "像素断言不在任何门禁链里"等于它只在我手工跑时才存在。现在
+> `smoke-kb-cols.mjs` **与新增的 `smoke-kb-pad-pixels.mjs` 都在 `smoke-all.mjs` 名单里**，
+> 于是"门禁链零浏览器依赖"**从 5j-补 起不再成立**：链上有两套要真浏览器的脚本，
+> **没浏览器就是红，不是跳过**。理由：本仓是仓外 bundle，门禁只在本机跑；用"环境缺件"换绿
+> 正是被打回的那一类。代价：`-Quick`/`-Full` 都多出约 1–2 分钟（11 次离屏渲染）。
 
 **我（代理）自己看图看到的事实**（图在 `var/tmp/ui-shots/`，**不入库**）
 1. **`p2-kb-1300.png`**：列表成了一个真表格 —— 表头行 `[✓ 全选] 文件名 | 效力 | 生效日期 | 标签`，
@@ -1368,5 +1385,54 @@ exit=2
 4. **本批踩的第 13 次"注释里的反引号"**：我在 `.ks-batch` 的窄档规则注释里写了带反引号的 `.ks-main`
    ⇒ 模板当场截断（`ReferenceError: main is not defined`，报在 bundle 里一行不相干的代码上）。
    **已改成不带反引号**；请复核 `KS_STYLES` 模板里没有裸反引号（只剩 `:root` 顶部那 4 行里**转义过的** 8 处）。
+   > ⚠ **就地更正（5j-补，2026-09-20，复核 `verify-freeze-5j` 打回 E⑤）**：上面那个"**8 处**"是错的，
+   > 复核逐行数**实为 10 处**（`ksGuideStyles.ts:33/35/36/38`，2+4+2+2）。实质主张（模板里**没有裸反引号**
+   > ⇒ 模板不会被截断）**成立**；错的是这个计数 —— 而"计数不对"正是本仓要求逐条回原始来源核的那一类。
+
+### 5j-补：处理复核 `verify-freeze-5j` 的 FAIL（**两条假绿通道 + 一条软点 + 一处计数错**，2026-09-20）
+
+**复核的结论**（原文要点，保留）：`FAIL（限定一条）` —— "留边规范、全站应用、以及**全部改前/改后数字**
+都被我独立复现为真"（改前 `0/0`、改后 `16/16 → 24/24` 逐格相同；`-Full` 6/6 步 + 棘轮 ✅，pytest
+`2142 passed, 4 skipped` 总账 2146 ≥ 基线）；**但** `ksPadCheck` 有两条**可复现的假绿通道**：
+
+| # | 复核的发现 | 当时的铁证（我复现过） | 本批的修法 |
+|---|---|---|---|
+| E① | **"量不到就当通过"**：`padSel` 逐个 `querySelector`，找不到就 `continue` 静默跳过 | 变异 **M6**：把 `.ks-dirs` 的类名改掉让它从 DOM 消失 ⇒ `ui-render-shot` **exit 0 自检通过**、`smoke-kb-page-render` **72/72 PASS** | ① 页面侧缺失也上报 `missing:true`；② Node 侧按 **`PAD_REQUIRED`（按 `page\|interact` 显式声明的期望集合）**逐条判存在性，缺失即红；③ **规范「适用面」↔ 脚本 `PAD_SUBJECTS_ALL` 的棘轮**（多一个/少一个都红）；④ 并集必须覆盖规范全部适用面（"没有任何一跑在判它"也红） |
+| E② | **这条像素断言不在任何门禁链里**：`smoke-all` 的 30 套不含唯二 spawn `ui-render-shot` 的脚本 | 复核逐个跑 `smoke-all`/`run-gates.ps1` 确认；UI-BASELINE 5g 那句"有意的覆盖取舍"就是它的自认 | 新增 **`smoke-kb-pad-pixels.mjs`（8 组 page×宽×场景）**并与 `smoke-kb-cols.mjs` **一起进 `smoke-all.mjs` 名单** ⇒ 门禁链自此**需要真浏览器**；缺浏览器=**红**（见下面的边界） |
+| E③ | **M3（批量条折行）没有任何脚本抓得到**：那条只有 `--interact kb-select` 触发，而 `smoke-kb-cols` 固定 `kb-files`（那场景没有批量条） | 复核实测：M3 下 `ui-render-shot --interact kb-select` 红、`smoke-kb-cols` **exit 0 全绿** | 新巡查的矩阵里**有 `kb-select@520` 与 `kb-select@1300`** ⇒ 同一变异现在在新巡查里红（实测 exit 1、报"高 72px > 单行预算 40px + 8"） |
+| E⑥ | **档位只由被测容器自己的实宽定**（设计性软点） | 变异 **M7**：`.ks-page{width:600px}` ⇒ 1300 的壳里读成**窄档**、期望 16、**exit 0 通过** | `ksPadCheck` 再拿 **shell 内容宽**独立钉一次：`.ks-page` 必须铺满内容盒（差 >1px 红）+ 档位必须与壳宽一致 ⇒ M7 现在 **exit 1** 并打出两条诊断 |
+| E⑤ | 计数错：5j ⑦-4 说"转义过的 8 处" | 复核逐行数**实为 10 处**（`33/35/36/38`） | 已在 ⑦-4 就地更正并留痕（错话保留） |
+
+**复核明确未判定的（照搬，不粉饰）**：① 真宿主页几何**未判定**（宿主 GUI 仍 401，仍是离屏 + 真 Edge）；
+② `.ks-ing`/`.ks-mat` 在设置窗里的**实际观感未判定**（只静态确认 `KsSettingsSection` 会复用这两个面板）；
+③ 12 张图复核只亲眼读了 7 张；④ `.ks-empty-card` 的**像素级**留边复核没单独跑（本批已把它纳入
+`smoke-kb-pad-pixels` 的 `kb-empty-files` 一组）；⑤ 复核的提取树（约 11GB）由我这边清理。
+
+#### 本批的变异证据（都自己复现过，各自还原）
+
+| 变异 | 改了什么 | 现在的判定 | 还原 |
+|---|---|---|---|
+| **M6-补** | `KsKnowledgePage.tsx` 的 `className="ks-dirs"` → `ks-dirsGONE`（元素从 DOM 消失） | 三处同时红：`ui-render-shot` **exit 1**（"规范点名的适用面 .ks-dirs 这一跑根本没量到"）、jsdom **FAIL 72/73**、`smoke-kb-pad-pixels` **exit 1** | ✔ `git status` 空 |
+| **M3-补** | `@container (max-width:520px)` → `(max-width:1px)`（窄档紧凑规则失效） | `smoke-kb-pad-pixels` **exit 1**（kb-select@520 报"折行"）；对照 `smoke-kb-cols` **仍 exit 0**（它跑 `kb-files`，本来就没有批量条 —— 这正是复核 E③ 的口径） | ✔ |
+| **M7-补** | `.ks-page{…;width:600px}` | `ui-render-shot --page kb --width 1300` **exit 1**，两条诊断：`pageW 600 vs shell 内容宽 1276`、`档位与壳宽不一致` | ✔ |
+| **M8（新棘轮）** | 往规范第二节的「适用面」里加一个 `.ks-fake` | `ui-render-shot` **exit 1**："适用面与 `PAD_SUBJECTS_ALL` 不一致：只在规范里=[.ks-fake]" | ✔ |
+
+#### 边界（诚实）
+
+1. **门禁链从 5j-补 起需要本机有 Chromium/Edge**：这是把复核 E② 修掉的**代价**。没浏览器时
+   `ui-render-shot.mjs` 自己报错退出 ⇒ `smoke-kb-pad-pixels`/`smoke-kb-cols` **判失败**（不是跳过）。
+   理由：本仓是仓外 bundle、门禁只在本机跑，用"环境缺件"换绿正是被打回的那一类。运行时代价约 +1–2 分钟。
+2. **`PAD_REQUIRED` 是"声明式"的**：某页某场景**没在表里声明**时，`coverageDeclared=false` ——
+   这时 `ksPadCheck` **不判存在性**，只在输出里**明说没判**（门禁里跑的 8 组都在表里，所以门禁面是全的；
+   但手工跑一个没声明的场景组合，别把"没判"读成"通过"）。
+3. **两处冻结常数各写一份的老结构没变**（`plugin/scripts/lib/**` 不许动 ⇒ 没有共享模块）；本批新增的
+   是它们与**规范文档**、与 **`PAD_REQUIRED` 并集**之间的两条核对。
+4. **`.ks-kbband` 的右缘判据是"无意义的恒真"**（1300 下它 `max-width:720` ⇒ `dR=532`）：
+   复核用**全量探针**（每页 58–71 个 `ks-` 元素）独立量过，**没有**未被覆盖的通栏元素贴边 ⇒ 可接受；
+   唯一贴着内容边的是**零内边距的 `.ks-page` 容器本身**（设计如此）。
+5. **本机 `core.autocrlf=true`**：`git checkout` 会把源码物化成 CRLF、`git status` 仍报干净
+   ⇒ **还原的判据用 `git status --short`，别用文件哈希**（两种行尾形态哈希不同，会把"已还原"读成"没还原"；
+   本批变异的还原就是这样核的，见开发史 §10.144 的纪律条）。
+
 
 

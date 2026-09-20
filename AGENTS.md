@@ -46,6 +46,18 @@
   而交付件里是 `node_modules/...`）⇒ `smoke-client-entry` 的"交付产物 ↔ 从源码现构建**整份一致**"
   断言**假红**，看上去像"忘了 `build:client`"（实测恰好差 30 字符）。真拷贝 `plugin/node_modules`（~88MB）
   后全绿。**这条假红会指向一个不存在的罪**，所以写进协议。
+  ⚠ **补（复核 `verify-freeze-5j`，2026-09-20）：要真拷贝的是两份 —— `plugin/node_modules` 与
+  **仓库根那份 `node_modules`****。只拷前者时 `smoke-build-purity` 的 R7/R8 会红在
+  `Could not resolve ...\node_modules\react`；复核在**父提交**上跑同一脚本红得一模一样 ⇒ 那是**提取树
+  环境假红**，不是被验批次的罪。协议原文只写了 `plugin/node_modules`，漏了根那份。
+- ⚠ **变异"还原了没有"用 `git status --short` 判，别用文件哈希**（5j-补，2026-09-20 实测）：
+  本机 `core.autocrlf=true`，`git checkout` 把源码物化成 CRLF 而工作区原来是 LF（git 两边都报"干净"）
+  ⇒ **同内容的两种行尾哈希不同**，拿哈希比对会把"已还原"误读成"没还原"，或反过来。
+  同理 `plugin/client.js` 的"磁盘字节数"会在 CRLF（1,535,332）与 LF（1,497,400 = 提交 blob）间变，
+  那不是产物差异（`smoke-client-entry` 的整份一致断言两种形态都过）。
+- ⚠ **门禁链从 5j-补（2026-09-20）起需要本机有 Chromium/Edge**：`smoke-all.mjs` 名单里现在有两套
+  要真浏览器的脚本（`smoke-kb-pad-pixels`、`smoke-kb-cols`），没浏览器就是**红、不是跳过**。
+  提取树里跑门禁前先确认 `msedge.exe`/`chrome.exe` 在（本机命中的是 Edge）。
 - **复核自己造的变异必须在跑门禁前还原**：变异（例如往 `package.json` 的 `dsh.client.inject` 加一个
   假模块）与门禁并发时，同样会让上面那条整份一致断言红（复核第一遍 `-Full` 的 smoke 红就是这么来的，
   第二遍同代码全绿）。
