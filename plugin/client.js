@@ -34175,11 +34175,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
               )
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-detail", children: current === null ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-kb-card", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-hint", children: [
-            "\u70B9\u6BCF\u4E00\u884C\u884C\u5C3E\u7684\u300C\u22EE\u300D\u2192\u300C\u8BE6\u60C5\u300D\u770B\u8FD9\u4E00\u7BC7\u7684\u5143\u6570\u636E\uFF08\u542B",
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { children: "\u53D1\u5E03\u65E5\u671F / \u751F\u6548\u65E5\u671F / \u5E9F\u6B62\u65E5\u671F" }),
-            "\uFF09\u3002"
-          ] }) }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-card", children: [
+          current !== null && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-detail", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-card", children: [
             /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-row", style: { marginBottom: 6 }, children: [
               /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { className: "ks-kb-grow ks-kb-ct", title: current.name, children: current.name }),
               /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: STATUS[current.status].cls, children: STATUS[current.status].text })

@@ -1336,17 +1336,18 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
             )}
           </div>
 
-          {/* 右：详情（含你要的三个日期） */}
+          {/* 右：详情（含你要的三个日期）
+              ⚠⚠ **2026-09-20 业主：「点每一行行尾的「⋮」→「详情」看这一篇的元数据（含发布日期 / 生效日期 /
+              废止日期）。 这个卡片删除掉」** ⇒ 那张**提示卡**已删。
+              删卡后"没选中任何一行"时右栏怎么处理，是我定的（业主只说了删卡）：
+              **整栏不渲染** —— 否则会留一条 200px 的**空栏**（`.ks-detail` 有 `min-width:200px`），
+              那比提示卡更难看；选中一行时右栏才出现、表格随之变窄（主从式布局的常见行为）。
+              **可逆**：要回到"始终留栏、空白就空白"，把 `current !== null &&` 去掉、里面那支留空即可。
+              ⚠ 这一栏的**空态文案**没有任何断言依赖它（`smoke-kb-page-render.mjs` 判的是行为与结构，
+              `ui-render-shot.mjs` 的留边适用面里也没有 `.ks-detail`）—— 删它不需要改判据。 */}
+          {current !== null && (
           <div className="ks-detail">
-            {current === null ? (
-              <div className="ks-kb-card">
-                <div className="ks-kb-hint">
-                  点每一行行尾的「⋮」→「详情」看这一篇的元数据（含
-                  <strong>发布日期 / 生效日期 / 废止日期</strong>）。
-                </div>
-              </div>
-            ) : (
-              <div className="ks-kb-card">
+            <div className="ks-kb-card">
                 <div className="ks-kb-row" style={{ marginBottom: 6 }}>
                   <strong className="ks-kb-grow ks-kb-ct" title={current.name}>{current.name}</strong>
                   <span className={STATUS[current.status].cls}>{STATUS[current.status].text}</span>
@@ -1377,9 +1378,9 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                 <div className="ks-kb-hint" style={{ marginTop: 6 }}>
                   这里<strong>只显示你自己打的标签</strong>——按你的要求，取消了"领域标签"那套自动打标签。
                 </div>
-              </div>
-            )}
-              </div>
+            </div>
+          </div>
+          )}
             </div>
           ) : (
             /* ══ 目录层（一级/二级/三级…）：**只显示子目录**，不铺文件 ══
