@@ -67,6 +67,8 @@ await mkdir(outDir, { recursive: true })
 
 const rows = []
 const failures = []
+/** 缺浏览器是**全局**一件事（八组都会因此拿不到 JSON）⇒ 单独归一条，别刷屏八遍。 */
+let sawNoBrowser = false
 for (const c of MATRIX) {
   const args = [shotScript, '--page', c.page, '--width', String(c.width),
     '--out', join(outDir, `padpixels-${c.page}-${String(c.width)}${c.interact === '' ? '' : `-${c.interact}`}.png`)]
@@ -77,9 +79,22 @@ for (const c of MATRIX) {
   let parseErr = null
   try { j = JSON.parse(r.stdout ?? '') } catch (e) { parseErr = String(e) }
   if (j === null) {
-    rows.push({ label, note: c.note, exit: r.status, problems: [`量不出 JSON（${String(parseErr)}）`], checked: false })
+    /* ⚠⚠ **5j-补-补（2026-09-20，复核 `verify-freeze-5jb` 打回的缺陷①）**：这条分支**必须把行对象
+       补全**。原来只 push 了 `{label,note,exit,problems,checked}`，而下面的表格打印要读
+       `r.required.length` ⇒ **无浏览器时（八组都拿不到 JSON）脚本会在打印表格中途崩掉**
+       （`TypeError: Cannot read properties of undefined (reading 'length')`，栈顶本文件 :109），
+       "❌ …判红"那段**永远打不出来**。缺浏览器=红这条**代价**是对的，但它的诊断路径坏在崩上。
+       ⇒ 现在：字段补全 + 表格打印用 `?? '-'` 兜底 + 缺浏览器单独归一条失败行（见下面 `noBrowser`）。 */
+    const stderrTail = (r.stderr ?? '').split('\n').filter(Boolean).slice(-3).join(' / ') || '(空)'
+    const noBrowser = /找不到无头浏览器|no such file|--browser|\$KS_BROWSER/i.test(`${r.stderr ?? ''}${r.stdout ?? ''}`)
+    rows.push({
+      label, note: c.note, exit: r.status, checked: false,
+      tier: null, expect: null, pageW: null, required: null, missingSubjects: null,
+      problems: [`量不出 JSON（${String(parseErr)}）`],
+    })
     failures.push(`${label}：ui-render-shot 没吐出 JSON（exit=${String(r.status)}）⇒ 这一组**没判**`
-      + `（stderr 尾部：${(r.stderr ?? '').split('\n').filter(Boolean).slice(-3).join(' / ') || '(空)'}）`)
+      + `（stderr 尾部：${stderrTail}）`)
+    if (noBrowser) sawNoBrowser = true
     continue
   }
   const pad = j.ksPadCheck ?? {}
@@ -106,7 +121,7 @@ for (const r of rows) {
   const verdict = r.checked && r.problems.length === 0 ? 'PASS' : 'FAIL'
   console.log(`  ${String(r.label).padEnd(42)} ${String(r.tier ?? '-').padEnd(6)} `
     + `${String(r.expect ?? '-').padEnd(5)} ${String(r.pageW ?? '-').padEnd(9)} `
-    + `${String(r.required === null ? '-' : r.required.length).padEnd(9)} ${verdict}`)
+    + `${String(r.required == null ? '-' : r.required.length).padEnd(9)} ${verdict}`)
   for (const p of r.problems) console.log(`         └─ ${p}`)
 }
 const tiers = new Set(rows.filter((r) => r.problems.length === 0).map((r) => r.tier))
@@ -125,6 +140,11 @@ if (uncovered.length > 0) {
 }
 if (!tiers.has('narrow')) failures.push('**窄档一组都没判过**（留边 16 这一档没有证据）')
 if (!tiers.has('wide')) failures.push('**宽档一组都没判过**（留边 24 这一档没有证据）')
+if (sawNoBrowser) {
+  failures.push('**这一跑起不来无头浏览器**（八组都没拿到 JSON）—— 门禁链从 5j-补 起需要本机有'
+    + ' Chromium/Edge（`--browser` 或 `$KS_BROWSER` 可指路径）。**缺浏览器就是红，不是跳过**：'
+    + '把这两套脚本拿掉、或改成"没浏览器就放行"，等于把复核打回（`verify-freeze-5j` E②）的假绿通道开回来。')
+}
 
 if (failures.length > 0) {
   console.error('❌ 「页面留边」像素断言判红（业主 2026-09-20：「窗口四周要留点边啊」）：')

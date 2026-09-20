@@ -1289,7 +1289,13 @@ try {
     if (onlyDoc.length > 0 || onlyScript.length > 0) {
       ksPadTokenProblems.push('规范第二节的适用面与本脚本的 PAD_SUBJECTS_ALL 不一致：'
         + `只在规范里=[${onlyDoc.join(' ')}]、只在脚本里=[${onlyScript.join(' ')}]`
-        + '（两边必须一模一样；改了规范就要同步脚本，反之亦然）')
+        + '（两边必须一模一样）。'
+        /* ⚠ 5j-补-补：复核 `verify-freeze-5jb` 指出原来那句"改了规范就要同步脚本"**低估了**改动面。
+           实测：要**四处一起改**才能把一个适用面悄悄收窄掉（规范第二节 / 本脚本 PAD_SUBJECTS_ALL /
+           PAD_REQUIRED / smoke-kb-pad-pixels.mjs 的 SPEC_SUBJECTS）；改一两处必红。 */
+        + '⚠ 注意副本不止两处：同一份适用面还活在 PAD_REQUIRED、'
+        + '`smoke-kb-pad-pixels.mjs` 的 SPEC_SUBJECTS 与 jsdom 的 PAD_SUBJECTS 里 —— '
+        + '要收窄规范得**四处一起**改（改一两处这一条必红，这是设计）。')
     }
   }
 } catch (e) {
@@ -1302,7 +1308,8 @@ try {
   const uncovered = PAD_SUBJECTS_ALL.filter((s) => !covered.has(s))
   if (uncovered.length > 0) {
     ksPadTokenProblems.push(`规范点名的这些适用面在 PAD_REQUIRED 里**没有任何一跑声明**（等于没人判）：`
-      + `[${uncovered.join(' ')}] —— 给它们各补一组声明，或从规范里删掉`)
+      + `[${uncovered.join(' ')}] —— 给它们各补一组声明；真要从规范里去掉，得**四处一起**改`
+      + '（规范第二节 / PAD_SUBJECTS_ALL / PAD_REQUIRED / smoke-kb-pad-pixels 的 SPEC_SUBJECTS）')
   }
   const unknown = [...covered].filter((s) => !PAD_SUBJECTS_ALL.includes(s))
   if (unknown.length > 0) {
