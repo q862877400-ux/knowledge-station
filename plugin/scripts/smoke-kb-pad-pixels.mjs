@@ -89,7 +89,7 @@ for (const c of MATRIX) {
     const stderrTail = (r.stderr ?? '').split('\n').filter(Boolean).slice(-3).join(' / ') || '(空)'
     const noBrowser = /找不到无头浏览器|no such file|--browser|\$KS_BROWSER/i.test(`${r.stderr ?? ''}${r.stdout ?? ''}`)
     rows.push({
-      label, note: c.note, exit: r.status, checked: false,
+      label, note: c.note, exit: r.status, checked: false, width: c.width,
       comboKey: null, tier: null, expect: null, pageW: null, required: null, missingSubjects: null,
       allSubjects: null, declaredCombos: null,
       problems: [`量不出 JSON（${String(parseErr)}）`],
@@ -110,7 +110,7 @@ for (const c of MATRIX) {
   }
   for (const p of pad.problems ?? []) problems.push(p)
   rows.push({
-    label, note: c.note, exit: r.status, checked: pad.checked === true,
+    label, note: c.note, exit: r.status, checked: pad.checked === true, width: c.width,
     comboKey: pad.comboKey ?? null,
     tier: pad.tier ?? null, expect: pad.expect ?? null, pageW: pad.pageW ?? null,
     required: pad.required ?? null, missingSubjects: pad.missingSubjects ?? null,
@@ -155,10 +155,16 @@ const SPEC_SUBJECTS = ['.ks-kb', '.ks-ing', '.ks-mat', '.ks-kbband', '.ks-list',
  * 上一版的判据是"**自报的**声明集合 == **真跑过的**组合集合"。若有人把 MATRIX 少跑一组、**同时**改
  * `ui-render-shot` 的自报表达式让它也只报那一组（协调撒谎），两个集合仍相等 ⇒ 静默通过。
  * ⇒ 这里再冻一份**清单对清单**：真跑过的组合集合必须**逐字等于**本清单。这样"少跑一组"无论自报怎么写都红。
- * ⚠ 与 `MATRIX` **同源两份**（同文件内），改矩阵必须同步改这里 —— 不一致就红（这是设计，不是麻烦）。
+ *
+ * ⚠⚠ **5j-补×6（2026-09-20，复核 `verify-freeze-5jx5` 的宽度盲区 / 变异 V8）**：上一版键是
+ * `page|interact`（**不含宽度**）⇒ 把某一组**从宽窗换成窄窗**（例如 `materials|@1300` → `@520`）
+ * 那个键仍然"跑过"了 ⇒ **少跑一组却全绿**，报表还照样打"窄档与宽档都有"。那正是本清单声称要堵的一类。
+ * ⇒ 现在冻的是**三元组 `page|interact@width`**（9 条，与 `MATRIX` 逐行对应）。维护成本一样（同文件一行）。
+ * ⚠ 与 `MATRIX` **同源两份**（同文件内），改矩阵必须逐字同步改这里 —— 不一致就红（这是设计，不是麻烦）。
  */
-const EXPECTED_COMBOS = ['kb|', 'kb|kb-select', 'kb|kb-files', 'kb|kb-empty-files',
-  'capabilities|', 'ingest|ingest-batch', 'materials|']
+const EXPECTED_RUNS = ['kb|@520', 'kb|@1300', 'kb|kb-select@520', 'kb|kb-files@520',
+  'kb|kb-select@1300', 'kb|kb-empty-files@520', 'capabilities|@520', 'ingest|ingest-batch@520',
+  'materials|@1300']
 /** 从**成功的实测 JSON** 里取声明集合（任一组报到即可 —— 它们来自同一个 `ui-render-shot` 进程）。 */
 const declaredSubjects = rows.map((r) => r.allSubjects).find((v) => Array.isArray(v)) ?? null
 const declaredCombos = rows.map((r) => r.declaredCombos).find((v) => Array.isArray(v)) ?? null
@@ -188,19 +194,26 @@ if (declaredCombos === null) {
     failures.push(`本巡查**真跑过**的组合里这些**不在自报的 PAD_REQUIRED 键**中：[${notDeclared.join(' ')}]`
       + ' ⇒ 自报的声明集合不可信（漏项/被截断），这一条棘轮不算验过')
   }
-  /* **清单对清单**（复核 `verify-freeze-5jx4` 的加固建议）：真跑过的组合必须逐字等于冻死的 EXPECTED_COMBOS。
+  /* **清单对清单（三元组，含宽度）**：真跑过的 `page|interact@width` 必须逐字等于冻死的 EXPECTED_RUNS。
      为什么还要这一条：上面两条只保证"自报 == 真跑过"。若有人**同时**改矩阵（少跑一组）与自报表达式
-     （也只报那一组），两边仍相等 ⇒ 静默通过。冻一份第三方清单后，少跑一组无论自报怎么写都红。 */
-  const expectedSet = new Set(EXPECTED_COMBOS)
-  const missingRun = EXPECTED_COMBOS.filter((k) => !runKeys.has(k))
-  const extraRun = [...runKeys].filter((k) => !expectedSet.has(k))
+     （也只报那一组），两边仍相等 ⇒ 静默通过。冻一份第三方清单后，少跑一组无论自报怎么写都红。
+     ⚠ 5j-补×6：键**必须带宽度** —— 复核的 V8（把 `materials|@1300` 换成 `@520`）在只认组合键的版本里
+     exit 0（宽档那组静默不跑），正是本清单声称要堵的那一类。 */
+  const runTriples = rows
+    .filter((r) => typeof r.comboKey === 'string' && r.comboKey !== '' && Number.isFinite(r.width))
+    .map((r) => `${r.comboKey}@${String(r.width)}`)
+  const runSet = new Set(runTriples)
+  const expectedSet = new Set(EXPECTED_RUNS)
+  const missingRun = EXPECTED_RUNS.filter((k) => !runSet.has(k))
+  const extraRun = runTriples.filter((k) => !expectedSet.has(k))
   if (missingRun.length > 0) {
-    failures.push(`冻死的 EXPECTED_COMBOS 里这些组合**本巡查没跑**：[${missingRun.join(' ')}]`
-      + ' ⇒ 矩阵少跑了一组（哪怕自报跟着一起少报，也在这里红）。改矩阵就要同步改 EXPECTED_COMBOS。')
+    failures.push('冻死的 EXPECTED_RUNS 里这些组合**本巡查没跑**（page|interact@宽度 三元组）：'
+      + `[${missingRun.join(' ')}] ⇒ 矩阵少跑了一组（哪怕自报跟着一起少报、哪怕只是把宽窗换成窄窗，`
+      + '都在这里红）。改矩阵就要同步改 EXPECTED_RUNS。')
   }
   if (extraRun.length > 0) {
-    failures.push(`本巡查跑过这些组合、冻死的 EXPECTED_COMBOS 里**没有**：[${extraRun.join(' ')}]`
-      + ' ⇒ 矩阵加了组却没更新 EXPECTED_COMBOS（两份同源，必须同步）')
+    failures.push(`本巡查跑过这些组合、冻死的 EXPECTED_RUNS 里**没有**：[${extraRun.join(' ')}]`
+      + ' ⇒ 矩阵加了组（或改了宽度）却没更新 EXPECTED_RUNS（两份同源，必须同步）')
   }
 }
 const coveredSubjects = new Set(rows.flatMap((r) => r.required ?? []))
