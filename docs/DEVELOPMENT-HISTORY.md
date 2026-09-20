@@ -9068,3 +9068,54 @@ Office 往返编辑会话（`office_roundtrip.py`），以及为它们写的用�
   `ui-primitives/src/index.ts` 与 `icons/index.tsx`：当前 13 个成员**全部真实存在**（含 5 个 `Icon*Outline1x`）
   —— 没有拿桩去掩盖一个**假成员**。
 - `plugin/client/**` 源码**一行未改**（只读）；未动 `scripts/run-gates.ps1` / `scripts/gates-baseline.json`。
+
+## §10.143 5i 收尾批的复核打回（`verify-freeze-5i` = `581d20d`）：一条"**宣称已修但没修**"的静默通道 + 父代理自己的**基线写错**
+
+### 一、父代理的流程错误（**先记自己的错**）：任务书把批次基线引成了一个**悬空提交**
+
+给复核的 5i 任务书里，基线写的是 `0bcf034`（"5h-补 卡片带真横向滑动"那一批）。复核在冻结树上一核就塌：
+
+```
+$ git merge-base --is-ancestor 0bcf034 581d20d   # → exit 1（不是祖先）
+$ git branch --contains 0bcf034                  # → 空（没有任何分支含它）
+$ git log -1 --format='%h %s' 0bcf034
+0bcf034 docs(ui): UI-BASELINE 5h-补 —— 卡片带改成真横向滑动（就地追加一节）
+$ git log -1 --format='%h %s' 6347f4e             # 同 subject、同在 master 上
+6347f4e feat(ui): 卡片带改成**真横向滑动**（5h-补：业主把"滑动条"钉实）
+```
+
+⇒ `0bcf034` 是一个**悬空提交**（`6347f4e` 被改写后的副本，靠"看起来像上一个提交"被引进了任务书）。
+**真实批次区间是 `9f141e2..581d20d`，`git rev-list --count 9f141e2..581d20d` = 3 个提交**
+（`bdf42ad` / `2c5d524` / `581d20d`）。
+
+**规矩（此后照做）**：任务书里的基线**必须**用 `git merge-base --is-ancestor <base> <frozen>` 核过
+（退出码 0 才算数），再用 `git rev-list --count <base>..<frozen>` **数出**条数 —— 见 AGENTS.md"复核"节；
+**别凭"看起来像上一个提交"**。**这次是复核在提取树上核基线时发现的**（`--is-ancestor` 非零 +
+`branch --contains` 为空），不是父代理自查发现的。
+
+### 二、复核打回的一条真修复 + 四条措辞更正（**详细记录在 [UI-BASELINE 5i ⑧](UI-BASELINE.md) 与 `bdf42ad` 的原话**）
+
+| # | 事 | 一句话 |
+|---|---|---|
+| A | **真修复**：`ui-render-shot.mjs` 里 `handled.add(how)` 原在循环**首无条件**执行 ⇒ 循环尾 `!handled.has(how)` 是**死代码** | 探针 `'kb-fake-probe'` 复核实测 **exit 0 / `interact: []`**；本轮改用 if/else 链尾 **`else` 兜底** ⇒ 同一探针 **exit 1 并打出名字**；正常场景仍 exit 0 |
+| B1 | `handled`"堵住『表里有、链里没有』"（`bdf42ad` 提交消息）**与事实不符** | 保留错话 + 更正在后，见 5i ⑧(1) |
+| B2 | jsdom 的 `bandFlex` **不是**"尺寸全等"的硬判据 | 收窄：**jsdom 钉声明串**；**像素级**由 `cardsCheck` 钉。反例（实测）：`nth-child(2){--ks-band-card-w:60px}` ⇒ 真浏览器 **exit 1**，jsdom **67/67 全绿**（全盲） |
+| B3 | "真 Chrome"措辞 | 本机实际命中的是 **`msedge.exe`**（Edge/Chromium，同一内核）⇒ 只影响措辞 |
+| B4 | `mustLand` 调用数口径 | 实测在 `bdf42ad` 与 `581d20d` **都是 20 处**（17 个分支每个 ≥1）；"19 处"是错的，**"17 个分支全覆盖"这句成立** |
+
+（`bdf42ad` 的**提交消息本身不改**：改写历史会动 `581d20d` 的祖先 ⇒ 按本仓纪律**保留原文 + 更正在后**。）
+
+### 三、实跑证据（命令 + 退出码；本轮**未跑** `run-gates.ps1` / `smoke-all.mjs` / 全量 pytest）
+
+| 命令 | 改前 | 改后 |
+|---|---|---|
+| `node plugin/scripts/ui-render-shot.mjs --page kb --interact kb-fake-probe`（探针） | **exit 0**、`interact: []` | **exit 1**、`- kb-fake-probe: 在 SCENARIOS 表里但 if/else 链没有分支处理它` |
+| `--interact kb-files,kb-search-dirs-empty`（正常场景） | — | **exit 0**（2 条 note） |
+| `node plugin/scripts/smoke-kb-page-render.mjs`（B2 反例，变异中） | 基线 exit 0 | **exit 0 · PASS (67/67)**（对逐卡覆盖 token 全盲） |
+| `node plugin/scripts/ui-render-shot.mjs`（同一变异） | — | **exit 1** · `卡片**宽度不全等**："172,81,172,172,172"` |
+
+### 四、边界（诚实）
+- 探针与变异**跑完即删/还原**：末次 `git status --short` 干净；`ksGuideStyles.ts` 一行未改（只临时加过再删）。
+- 本轮**没有**为 A 补一条"启动时表↔链一致性校验"：选的是**运行期 `else` 兜底**那条路（两选一），
+  所以"某个分支写了但没进 `SCENARIOS`"仍由**未知场景名 ⇒ exit 2** 那条挡（名字根本进不来）。
+

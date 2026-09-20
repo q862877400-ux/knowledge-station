@@ -1000,6 +1000,11 @@ tertiary/primary 配对，**本批没动**，工具里只报告不判，**登记
 | 4 | **搜索框每层常驻**（目录层过滤目录名 + 专门空态）；声明常量改名 `KB_PAGE_SEARCH` | `plugin/client/KsKnowledgePage.tsx`（`hitDirName` / `kidsShown` / `searchBox` / 目录层空态）、`plugin/client/ksGuideStyles.ts`（只加注释，样式一字未改） | `KB_PAGE_SEARCH`、`hitDirName`、`const searchBox = `、`没有符合搜索的目录`、`筛出 ${kidsShown.length}` |
 | 5 | `LAW_TREE` 那条"改成全路径 key"的注释**与代码不符** ⇒ **改注释**（不改代码） | `plugin/client/KsKnowledgePage.tsx`（`USER_FOLDERS` 上方那段） | `**曾如此（错话，原文）**`、`不保证是全路径` |
 
+> ⚠ **第 1、2 行的口径各有一处被复核 `verify-freeze-5i`（`581d20d`）打回 ⇒ 见 ⑧ 节的
+> "错话原文 + 更正"**：①"结构级"要**收窄**成 *jsdom 只钉声明串*（像素级只有 `cardsCheck`）；
+> ②"每个分支必须落地"这句成立，但**同批另一条**守卫（`handled` 集合"堵住表里有、链里没有"）
+> **从来没生效过**（无条件 `add` ⇒ 死代码），本轮才真修（证据在 ⑧）。
+
 **第 4 条的搜索词处置口径**（自定，唯一所有者在组件顶部第 4b 条；三条都有断言）：
 **切库清空**（整棵树换了，留着是对新库的幽灵过滤）／**同库内下钻与返回上级保留**（它是页面级的
 一个过滤条件，在哪一层就按哪一层的条目过滤）／**切状态筛选保留**（筛选与搜索是 AND）。
@@ -1141,3 +1146,65 @@ exit=2
    同级 ⇒ `tsc` 报 `')' expected`；必须包一层 `<>…</>`。
 3. **我写错过一条"应然值"**（`kb-back` 期望 1 张目录、实际库根 2 张）—— 是**落地断言**当场红出来
    才发现的。⇒ 这类断言值得写：它连"我以为的产品事实"都能纠。
+
+#### ⑧ 5i-补（2026-09-20）：复核 `verify-freeze-5i`（冻结 `581d20d`）打回的**一条真修复 + 四条措辞更正**
+
+**规矩**：**错话原文保留，更正在后**（本仓纪律）。下面每条先抄原文（能搜到的照抄），再写事实与证据。
+
+**（0）真修复**：`handled` 那条"表里有、链里没有 ⇒ 红"——**从来没生效过**（本批唯一的"宣称已修但没修"）。
+
+- **错话原文**（`bdf42ad` 提交消息，**原样保留**）：
+  > `· `mustLand`：17 个分支**逐个**加落地判定（做不到就报 note + **exit 1**），并加了`
+  > `` `handled` 集合堵住"表里有、链里没有"的漏洞 ⇒ 不再有"什么都没做还成功"的路径；``
+- **事实**：`handled.add(how)` 原在循环**首无条件**执行（旧 `:443-444`）⇒ 循环尾
+  `if (!handled.has(how))` **恒假 = 死代码**。复核用探针实测：往 `SCENARIOS` 加一个
+  `'kb-fake-probe'`（链里没有对应分支）再 `--interact kb-fake-probe` ⇒ **`interact: []`、exit 0**
+  —— 正是本批要消灭的"什么都没做还成功"。
+- **改在哪**：`plugin/scripts/ui-render-shot.mjs`。删掉 `const handled = new Set()` 与那条死检查，
+  改由 if/else 链尾的 **`else` 兜底分支**接手（可搜原文：`在 SCENARIOS 表里但 if/else 链没有分支处理它`）。
+- **证据（本批亲自复跑，探针跑完即删）**：
+  | | 命令（`--page kb --interact kb-fake-probe`） | exit | 输出 |
+  |---|---|---|---|
+  | 改前（`581d20d` 原文） | 同上 | **0** | stdout JSON `"interact": []`（stderr 只有 `#kbcards 自检通过`） |
+  | 改后 | 同上 | **1** | `❌ --interact 有场景**没落地**` + `- kb-fake-probe: 在 SCENARIOS 表里但 if/else 链没有分支处理它（表与链不同步）` |
+  正常场景不受影响：`--interact kb-files,kb-search-dirs-empty` ⇒ **exit 0**、`interact` 两条 note。
+
+**（1）更正：`handled` 那句"堵住『表里有、链里没有』"** —— 见上（0）。**它是无条件 `add`、曾是死代码；
+本轮才修**，证据就是上面那两行 exit。
+
+**（2）更正：jsdom 的 `bandFlex` **不是**"尺寸全等"的硬判据**
+
+- **错话原文**（`bdf42ad` 提交消息，原样保留）：
+  > `` · `#kbcards`（只量卡片带里逐张卡的宽/高）+ 节点侧 `cardsCheck`：**全等**是硬判据 ``
+  以及本文件 **①行1** 的 `jsdom 结构级 + 真 Chrome 像素级`（"结构级"三字读起来像"jsdom 也钉了尺寸"）。
+  ⚠ 复核这条记的是"5i **①行2**"，而 ①行2 写的是 `未知场景名 ⇒ exit 2`（不是这句）——
+  这句的**原文**在 ①行1 与 `bdf42ad` 提交消息里。**引用漂移**，与 （4）的基线问题是同一个病。
+- **事实（收窄）**：**jsdom 钉的是「声明串」**（`smoke-kb-page-render.mjs` 的 `bandFlex`：
+  5 张卡 computed `flex` + `min-height` **逐字相同**，它**没有布局引擎**、量不到像素）；
+  **像素级等宽/等高由真浏览器侧 `cardsCheck` 钉**（`ui-render-shot.mjs` 量 `getBoundingClientRect`）。
+  `smoke-kb-cols.mjs` 三档对**每一档**要求 `colsCheck.checked` **与** `cardsCheck.checked`
+  **同时**为真 —— "没判到"即算失败（可搜原文：`"没跑"不能算通过`）。
+- **复核给的反例（本批亲自复跑，跑完即还原 `ksGuideStyles.ts`）**：**逐卡覆盖 token** ——
+  加一条 `.ks-kbband .ks-kb-card:nth-child(2){--ks-band-card-w:60px}`：
+  | 断言 | 实测输出 | exit |
+  |---|---|---| 
+  | jsdom（`smoke-kb-page-render.mjs`） | `PASS (67/67)`（声明串**没变** ⇒ 对它**全盲**） | **0** |
+  | 真浏览器（`ui-render-shot.mjs`） | `卡片**宽度不全等**："172,81,172,172,172"（逐张 标准=172px, 法律法规=81px, …）` | **1** |
+  ⇒ 所以"卡片尺寸统一"这句只能说成**两侧合起来**才算钉住；单说 jsdom 那侧**不成立**。
+
+**（3）措辞更正："真 Chrome"在本机实为 Edge/Chromium** ——
+脚本按 `BROWSERS` 顺序找浏览器（Chrome → Chrome x64 → Edge → Edge x64），**本机实测命中的是**
+`C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe`（同 Chromium 内核）。**只影响措辞，不影响任何结论**；
+已在 `ui-render-shot.mjs` 的 `--browser` 与 `#kbcards` 注释里就地注明。
+
+**（4）口径更正**：`mustLand` 的调用数是 **20**（不是 19）——
+`git grep -c 'mustLand(' <rev> -- plugin/scripts/ui-render-shot.mjs` 在 `bdf42ad` 与 `581d20d`
+两处**都是 20**（定义那行写的是 `const mustLand = (ok, …)`，**不含** `mustLand(` ⇒ 20 就是调用数）；
+按分支摊开：17 个分支**每个至少 1 处**（`kb-search` / `kb-search-dirs` / `kb-search-dirs-empty`
+各 2 处：主判据 + "没找到输入框"那条）⇒ `17 个分支逐个加落地判定` 这句**成立**，
+只有"19 处"这个总数口径要改成 **20**。
+
+**另**：本轮父代理给复核的**任务书基线写错**（引了一个悬空提交 `0bcf034`）——
+过程记录与"此后必须 `merge-base --is-ancestor` 核过"这条规矩在
+[开发史 §10.143 §一](DEVELOPMENT-HISTORY.md)。
+

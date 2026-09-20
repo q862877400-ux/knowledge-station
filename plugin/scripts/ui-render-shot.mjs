@@ -77,6 +77,8 @@
  *                      走「⋮ → 详情」（行内常驻按钮已收进菜单）。
  *   --theme light|dark  默认 light
  *   --browser <exe>  默认自动找 Edge/Chrome（可用 $KS_BROWSER 覆盖）
+ *                    ⚠ 文档里说的"真 Chrome"是**约定叫法**（同一 Chromium 内核）：本机
+ *                      （5i-补 2026-09-20 实测）命中的是 `msedge.exe`，不是 Google Chrome。
  *   --harness <dir>  DSH 检出（默认 $KS_HARNESS_DIR，再退到下方 DEFAULT_HARNESS）
  *   --keep           保留临时构建目录
  *
@@ -154,8 +156,13 @@ const interacts = arg('interact', PAGES[page].interact.join(',')) .split(',').ma
  *   ⇒ 现在两条路都堵死：
  *     · 名字**不在**这张表里 ⇒ 打错误 + 列出可用名字 + **exit 2**（参数错，与 `--page` 同一档）；
  *     · 名字在表里、但这一跑**没落地**（见下面的 `mustLand`）⇒ 报 note + **exit 1**（断言红）。
- *   ⚠ 这张表是**活的所有者**：加一个场景就加一行，删一个场景就删一行 —— 表与 if/else 链不一致时
- *     前者会当场红（"名字在表里但没有任何分支处理"也在 exit 1 那一档里，见 `handled` 集合）。
+ *     · 名字在表里、但 if/else 链**没有分支**接住它 ⇒ 走链尾的 `else` 兜底 ⇒ 报 note + **exit 1**。
+ *   ⚠ **更正（5i-补 2026-09-20）**：这里原写"表与 if/else 链不一致时前者会当场红（见 `handled` 集合）"
+ *     —— **那句话是错的，`handled` 从来没堵住过任何东西**：它在循环**首**无条件 `add`，
+ *     循环尾 `!handled.has(how)` 是**死代码**。复核 verify-freeze-5i（`581d20d`）实测探针
+ *     `'kb-fake-probe'`（加进本表、链里不写分支）⇒ **`interact: []`、exit 0**。
+ *     本轮改成上面的 `else` 兜底；同一探针现在 **exit 1 并打出名字**（见循环内那段注释）。
+ *   ⚠ 这张表是**活的所有者**：加一个场景就加一行，删一个场景就删一行。
  */
 const SCENARIOS = [
   'kb-files', 'kb-band-start', 'kb-band-end', 'kb-enter-law', 'kb-enter-l2', 'kb-back',
@@ -373,8 +380,11 @@ const notes = []
  */
 const landing = []
 const mustLand = (ok, msg) => { if (!ok) landing.push(msg) }
-/** 这一跑真正被 if/else 链处理过的场景名（表里有、链里没有 ⇒ 也会红）。 */
-const handled = new Set()
+/* ⚠ **更正（5i-补 2026-09-20）**：这里原来还有一个 `const handled = new Set()`，配合循环首的
+ * `handled.add(how)` 与循环尾的 `!handled.has(how)` 想表达"表里有、链里没有 ⇒ 红"。
+ * 那**从来没生效过**：`add` 在循环首**无条件**执行 ⇒ 循环尾那条检查恒假 = **死代码**
+ * （复核 verify-freeze-5i / `581d20d` 用 `'kb-fake-probe'` 探针实测：`interact: []`、exit 0）。
+ * 现在改由 if/else 链的 **`else` 兜底分支**接手（见循环内那条注释），概念只有一个所有者。 */
 /* ── 5h（2026-09-20）导航小工具：新 IA 下**默认态不再是文件表格** ──
  * 默认态 =「卡片带 + **一级目录**」（业主："先占上一级目录文件夹…到最末一级才是文件"）。
  * ⇒ 凡是要"文件表格 / 状态徽章 / 搜索框"的场景（kb-detail / kb-select / kb-search / kb-filter…），
@@ -441,7 +451,6 @@ const gotoBandEnd = async () => {
   return guard
 }
 for (const how of interacts) {
-  handled.add(how)
   if (how === 'kb-files') {
     // **5h 新增**：把页面开到"标准 / P 土木、建筑 / P15/19… / P16 工程防火"（4 行文件 + 表头）。
     // 这是 `smoke-kb-cols.mjs`（列对齐三档）与 `ui-badge-pixels.mjs`（徽章像素）**必须**先走的一步
@@ -697,9 +706,15 @@ for (const how of interacts) {
       `cap-dialog ${ok ? '点了「设置…」' : '没找到带「设置…」的卡'} 但对话框 ${document.querySelectorAll('[role=dialog]').length} 个`)
     notes.push(`cap-dialog: ${ok ? '开了第一张带「设置…」的窗' : '没找到'}`
       + `（宿主 Modal 是 portal 到 body 的，所以这里查的是 document）`)
+  } else {
+    /* ⚠ **兜底分支**（5i-补 2026-09-20）：名字在 `SCENARIOS` 表里、但这条 if/else 链**没有**任何
+     * 分支接住它 ⇒ 当场报红（走下面 `landing` 那条路 = **exit 1**，并打出这个名字）。
+     * ⚠ 为什么原来没有它：旧写法在循环**首**无条件 `handled.add(how)`，于是循环尾那条
+     *   `if (!handled.has(how))` 是**死代码** —— 复核 verify-freeze-5i（`581d20d`）实测：
+     *   往 `SCENARIOS` 加一个 `'kb-fake-probe'`（链里没有对应分支）再 `--interact kb-fake-probe`
+     *   ⇒ **`interact: []`、exit 0**，正是本批要消灭的"什么都没做还成功"。现在该探针 **exit 1**。 */
+    landing.push(`${how}: 在 SCENARIOS 表里但 if/else 链没有分支处理它（表与链不同步）`)
   }
-  /* ⚠ **表里有、链里没有**的场景名 ⇒ 也红（表与 if/else 链必须同步；否则就是"名字被接受但什么都不做"）。 */
-  if (!handled.has(how)) landing.push(`${how}: 在 SCENARIOS 表里但 if/else 链没有分支处理它（表与链不同步）`)
 }
 /* ── 未处理的场景名 / 没落地的场景 ⇒ **exit 1**（不是 exit 0） ──
  * ⚠ 这一条与上面那个 exit 2 的分工：**名字根本不存在** = 参数错（2）；名字存在但这一跑**没做成**
@@ -1058,7 +1073,18 @@ const colsCheck = {
  *   一模一样；容差只是防四舍五入的假红）。**不等宽 >1px 必红**。
  * 适用面：只有"这一跑真的有卡片带"的页面才判（kb 页一定判）；其余页面**明说没判**（skipReason）。
  * 变异实测（本批）：给第 2 张卡加 `.ks-kbband .ks-kb-card:nth-child(2){flex:0 0 60px}`
- *   ⇒ 本脚本 exit 1（宽度 172,60,172,172,172）；还原即绿。三档由 smoke-kb-cols 逐档跑。 */
+ *   ⇒ 本脚本 exit 1（宽度 172,60,172,172,172）；还原即绿。三档由 smoke-kb-cols 逐档跑。
+ * ⚠ **更正（5i-补 2026-09-20，复核 verify-freeze-5i）——两侧判的不是同一件事，别互相顶替**：
+ *   · jsdom 侧（`smoke-kb-page-render.mjs` 的 `bandFlex`）钉的是 **computed `flex` 的声明串**
+ *     逐字相同 —— 它**没有布局引擎**，量不到像素。**逐卡覆盖 token** 那种变异
+ *     （`.ks-kbband .ks-kb-card:nth-child(2){--ks-band-card-w:60px}`）声明串**仍然相同** ⇒
+ *     jsdom `PASS (67/67)` 全绿（实测），对这类**全盲**。
+ *   · **像素级等宽/等高只有这一处**（本脚本 `cardsCheck`，量 `getBoundingClientRect`）：
+ *     同一变异在这里 `卡片**宽度不全等**："172,81,172,172,172"` ⇒ **exit 1**（实测）。
+ *   · 所以"卡片尺寸统一"被钉住 = 两侧**同时**成立；`smoke-kb-cols.mjs` 三档对每一档
+ *     **同时**要求 `colsCheck.checked` 与 `cardsCheck.checked`（任一"没判到"即算失败）。
+ * ⚠ 「真 Chrome」是**约定叫法**：本脚本按 `BROWSERS` 顺序找浏览器，**本机实际命中的是
+ *   `msedge.exe`**（Edge/Chromium 内核）。措辞不精确，结论不变（同一内核、同一像素口径）。 */
 const kbc = measured['#kbcards']
 const cardsProblems = []
 let cardsSkipReason = null
