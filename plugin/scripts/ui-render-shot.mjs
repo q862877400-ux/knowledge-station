@@ -42,8 +42,11 @@
  *                    kb-enter-law / kb-enter-l2 / kb-back / ingest-batch / cap-dialog
  *                    ⚠ **5h（2026-09-20）新 IA 改了基准态**：默认态 =「卡片带 + **一级目录**」
  *                      （业主："先占上一级目录文件夹…到最末一级才是文件"）⇒ 凡是要"文件表格 /
- *                      状态徽章 / 搜索框"的场景都必须**先下钻**。脚本里那三个 helper
- *                      （`gotoStdLeaf` / `gotoBandEnd` / `cardNamed`）就是这一步，共用一份。
+ *                      状态徽章 / 搜索框"的场景都必须**先下钻**。脚本里那四个 helper
+ *                      （`gotoCard` / `gotoFilesView` / `gotoStdLeaf` / `gotoBandEnd`）就是这一步，共用一份。
+ *                      ⚠ 每个 helper 都**自带兜底**：`--interact` 允许一次给多个场景，前一个场景可能把
+ *                        窗口翻到别处、或把页切到「标签」视图 ⇒ 后一个场景会"找不到东西"（实测踩到过）。
+ *                        `gotoCard` 先翻回第一屏再往右找到目标卡，`gotoFilesView` 先切回文件视图。
  *                      为此 kb-detail / kb-select / kb-filter / kb-filter-empty / kb-search /
  *                      kb-tags-view **各自加了前置导航**（断言的实质没变：还是量行数/徽章/像素）。
  *                    ⚠ 原来那条 `kb-empty` / `kb-empty-folder` **已删**（它们点的是**树节点**
@@ -302,11 +305,44 @@ const dirNamed = (text) => q('.ks-dir').find((el) => (el.textContent ?? '').incl
 const navNamed = (which) => q('.ks-kbband-nav').find((b) => (b.getAttribute('aria-label') ?? '').includes(which))
 /** 标准 → P 土木、建筑 → P15/19… → P16 工程防火：**4 篇文件**的那一层（与渲染冒烟同一层）。 */
 const gotoStdLeaf = async () => {
+  await gotoCard('标准')
   await click(cardNamed('标准'))
   await click(dirNamed('P 土木、建筑'))
   await click(dirNamed('P15/19'))
   await click(dirNamed('P16 工程防火'))
   return q('.ks-item').length
+}
+/**
+ * 确保处在「**文件**」页内视图。
+ * ⚠ 为什么需要：`--interact` 可以一次给多个场景，前一个场景可能把页切到「标签」
+ *   —— 标签视图里**没有目录层也没有表格**（`view === 'tags'` 那一支），后面的场景就会"找不到东西"。
+ *   实测：串跑 `kb-tags-view,kb-enter-l2` 时后者报出空面包屑。点一下「文件」胶囊即可复原
+ *   （重复点同一个胶囊是无害的幂等操作）。
+ */
+const gotoFilesView = async () => {
+  const pill = q('.ks-subtabs button').find((b) => (b.textContent ?? '').trim() === '文件')
+  if (pill !== undefined) await click(pill)
+  return q('.ks-subtabs').length
+}
+/**
+ * 把卡片带窗口移到**指定卡片可见**的位置（先翻回第一屏，再往右找；都带次数上限）。
+ * ⚠ 为什么需要它：`--interact` 可以一次给多个场景，前一个场景可能已经把窗口翻到别处
+ *   ⇒ "直接找卡"会找不到（实测：串跑 `kb-filter-empty,kb-enter-law` 时第二个场景报"没找到卡"，
+ *   而它单独跑是好的）。有了这个兜底，**每个场景都自成一体**，不看前一个场景的脸色。
+ */
+const gotoCard = async (name) => {
+  await gotoFilesView()
+  let back = 0
+  while (back < 20 && navNamed('上一组') !== undefined && navNamed('上一组').disabled === false) {
+    await click(navNamed('上一组'))
+    back += 1
+  }
+  let fwd = 0
+  while (fwd < 20 && cardNamed(name) === undefined) {
+    await click(navNamed('下一组'))
+    fwd += 1
+  }
+  return { back, fwd, found: cardNamed(name) !== undefined }
 }
 /** 点右箭头翻到底（到"尾"⇒ 右箭头 disabled）。 */
 const gotoBandEnd = async () => {
@@ -345,6 +381,7 @@ for (const how of interacts) {
       + `，本屏卡片 ${q('.ks-kb-cards .ks-kb-card').map((el) => (el.querySelector('.ks-kb-ct')?.textContent ?? '').trim()).join('/')}`)
   } else if (how === 'kb-enter-law') {
     // **5h 新增**：点「法律法规」卡 = 进入该库，看它的**一级目录**（法律 / 行政法规）。
+    const g = await gotoCard('法律法规')
     const ok = await click(cardNamed('法律法规'))
     notes.push(`kb-enter-law: ${ok ? '点了「法律法规」卡' : '没找到卡'}`
       + ` → 一级目录 ${q('.ks-dir').map((el) => (el.querySelector('.ks-dir-name')?.textContent ?? '').trim()).join('/')}`
@@ -353,6 +390,7 @@ for (const how of interacts) {
   } else if (how === 'kb-enter-l2') {
     // **5h 新增**：进**二级目录**（法律法规 → 法律 ⇒ 宪法与行政法）——业主点名要的状态：
     // 「进入二级目录就自动出现返回上一级的按钮」。图上应该有「← 返回上一级」+ 面包屑「法律法规 / 法律」。
+    await gotoCard('法律法规')
     await click(cardNamed('法律法规'))
     await click(dirNamed('法律'))
     notes.push(`kb-enter-l2: 点了「法律法规」卡 → 一级目录「法律」`
@@ -361,6 +399,7 @@ for (const how of interacts) {
       + `，面包屑「${q('.ks-crumb-path').map((el) => el.textContent).join('')}」`)
   } else if (how === 'kb-back') {
     // **5h 新增**：二级目录 → 点「返回上一级」⇒ 回到一级目录层、按钮**消失**。
+    await gotoCard('法律法规')
     await click(cardNamed('法律法规'))
     await click(dirNamed('法律'))
     const before = q('.ks-back').length
@@ -399,14 +438,14 @@ for (const how of interacts) {
     // 筛选到 **0 行** ⇒ 看"被筛没了"的那一支空态（P1-4 的两种空之一）。
     // 怎么造出 0 行：先切到只有现行件的「供应商资料」（1 篇，status=current），
     // 再点「已废止」⇒ 0 行。这是**页面状态**真的生效的证据，不是画出来的。
-    // ⚠ 5h：那张卡在卡片带的**最后一屏**（共 5 张、窗口 3）⇒ 先翻到底再点它。
-    const clicks = await gotoBandEnd()
+    // ⚠ 5h：那张卡在卡片带的**最后一屏**（共 5 张、窗口 3）⇒ 用 gotoCard 把它移到可见处再点。
+    const g = await gotoCard('供应商资料')
     const folder = cardNamed('供应商资料')
     const moved = await click(folder)
     const before = q('.ks-item').length
     const chip = byText('.ks-chip', '已废止')
     const ok = await click(chip)
-    notes.push(`kb-filter-empty: 先翻 ${clicks} 次到最后一屏 → ${moved ? '点「供应商资料」卡' : '没找到卡'}`
+    notes.push(`kb-filter-empty: 先移到那一屏（back ${g.back} / fwd ${g.fwd} 次、found ${String(g.found)}） → ${moved ? '点「供应商资料」卡' : '没找到卡'}`
       + ` → 行数 ${before} → ${q('.ks-item').length}`
       + `，空态卡 ${q('.ks-empty-card').length} 张`
       + `，空态标题「${q('.ks-empty-t').map((el) => el.textContent).join('|')}」`)
@@ -474,6 +513,7 @@ for (const how of interacts) {
   } else if (how === 'kb-tags-view') {
     // ⚠ 5h：标签视图的数据按**整库**统计（标签跨目录定义）；先落到一个有文件的库
     //   （自建夹「公司制度」只有一级 ⇒ 点它就直接是文件层），免得截出空视图。
+    await gotoCard('公司制度')
     await click(cardNamed('公司制度'))
     const pill = byText('button', '标签')
     notes.push(`kb-tags-view: 先进「公司制度」（文件行 ${q('.ks-item').length} 行）→ ${await click(pill) ? '切到标签视图' : '没找到「标签」'}`
