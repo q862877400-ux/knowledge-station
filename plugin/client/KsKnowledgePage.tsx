@@ -67,8 +67,9 @@
  *    **先占上一级目录文件夹，然后点开是二级目录，进入二级目录就自动出现返回上一级的按钮**）」
  * 落成 4 条（逐条对照施工，别自己发挥）：
  *   1. **顶部一条卡片带**：`KNOWLEDGE_BASES`（标准 / 法律法规 / 3 个自建夹）**统一尺寸、横向**排在一个
- *      框（`.ks-kbband`）里；框自带左右箭头（`.ks-kbband-nav`）+ 窗口平移（`bandStart`），
- *      到第一组 / 最后一组时对应箭头 `disabled`（置灰）—— 见 `BAND_WINDOW` 的注释。
+ *      框（`.ks-kbband`）里；框自带左右箭头（`.ks-kbband-nav`）+ **原生横向滚动容器**
+ *      （`.ks-kbband-clip`，箭头 `scrollBy`；到两端时对应箭头 `disabled`，量不到布局时保持可用）
+ *      —— 见 `BAND_STEP_PX` / `hasLayout` 的注释（5h-补 把窗口切片换成了真滚动）。
  *   2. **不再展示目录树**：`renderNodes` / `LibCard` / `.ks-kb-tline` 那一套（连同它的展开状态
  *      `open` / `toggle`）**已删**；「我建的（真文件夹；与上面两棵平级）」这句标签**已删**（业主点名的
  *      "乱七八糟东西"）。**删了什么、为什么**记在 docs/UI-BASELINE.md 的 5h。
@@ -100,7 +101,7 @@
  * - 树里的文档集合是手写的样例，不是真实索引。
  */
 
-import { useMemo, useState, type ReactNode } from 'react'
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { Button, Checkbox, IconArchiveOutline20, IconChecklistOutline14, IconChevronDownOutline14, IconChevronLeftOutline14, IconChevronRightOutline14, IconEllipsisOutline16, IconFolderOpenOutline16, IconInfoOutline14, IconInspectOutline12, IconListPenOutline16, IconPlusOutline16, IconSearchOutline16, IconShieldOutline16, IconTrashOutline16, Input, Menu, Pill } from '@deepseek-ai/dsh-client-ui-primitives'
 
 import { ensureKsStyles } from './ksGuideStyles'
@@ -342,15 +343,22 @@ const NEW_ITEMS = [
 const MOVE_TARGET = '公司制度'
 
 /**
- * 卡片带**每屏显示几张卡**（窗口宽）。业主 2026-09-20：「**一个小框下面自带一个左右翻页滑动条**」。
+ * 卡片带**箭头一次滚多远**：一张卡的宽度（`.ks-kbband-clip` 的 `scrollBy` 步长）。
  *
- * ⚠ **为什么是常量而不是"量容器宽度算几张"**：箭头的置灰态必须是**确定状态**，而离屏渲染器
- *   （`plugin/scripts/ui-render-shot.mjs`）跑在 **jsdom** 里 —— 那里没有布局，`clientWidth`/
- *   `scrollWidth` 恒为 0 ⇒ "按测量值决定置灰"在这条渲染链上**永远是灰的**（图也就没法当证据）。
- *   改成"窗口下标 + 常量窗口宽"后，状态在**任何**环境里都一样，截图与真机行为一致。
- *   代价（已登记在 docs/UI-BASELINE.md 5h 的"没做/做不到"）：框内**没有**原生横向拖拽滚动。
+ * ⚠ 这里**不再有"每屏几张"的常量**。业主 2026-09-20 原话是「一个小框下面自带一个**左右翻页
+ *   滑动条**」，上一版把它实现成了**状态式翻页**（`BAND_WINDOW=3` + 窗口下标）：那一版**诚实标注**
+ *   过"框内没有原生横向拖拽/滚动"，理由是要让箭头置灰态在 **jsdom**（离屏截图链，没有布局，
+ *   `scrollWidth` 恒 0）里也确定。业主要的是**真的能拖/能滚** ⇒ 现在改成原生滚动容器：
+ *     · 全部卡片一次渲染进 `.ks-kbband-clip`（`overflow-x:auto` + `scroll-snap-type:x mandatory`），
+ *       每张卡固定宽度 `--ks-band-card-w`（"每屏几张"彻底从 CSS 里去掉，见 ksGuideStyles.ts）；
+ *     · 箭头 = `scrollBy`（一屏/一张），**不再重渲染窗口**；
+ *     · 置灰判据分两种环境（见 `hasLayout` 的注释）：**有布局**时按 `scrollLeft` 判两端；
+ *       **没布局**（jsdom 截图链）时**保持可用** —— 那是渲染链限制，不是无脑放行。
+ *   ⚠ 步长数 `184` 是"一张卡 + 一个 gap"（`--ks-band-card-w` 172 + `--ks-card-gap` 12）在 JS 侧的
+ *     镜像 —— CSS 里**只有一个**卡宽定义（`.ks-kbband .ks-kb-card{flex:0 0 var(--ks-band-card-w)}`），
+ *     这里只镜像它的**数值**、不再是"每屏几张"那种窗口口径。
  */
-const BAND_WINDOW = 3
+const BAND_STEP_PX = 184
 
 /**
  * 顶层**知识库卡**——业主 2026-09-20：「**所有卡片横在顶端**」「**点一个卡片就出来知识库内容**」。
@@ -448,10 +456,43 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
    */
   const [path, setPath] = useState<readonly string[]>([])
   /**
-   * 卡片带窗口的起始下标（左/右箭头平移一张；到第一组/最后一组时对应箭头置灰）。
-   * ⚠ 用**下标**而不是 `scrollLeft`：见 `BAND_WINDOW` 的注释（jsdom 没有布局）。
+   * 卡片带那个**横向滚动容器**（`.ks-kbband-clip`）——箭头就是对它 `scrollBy`。
+   * ⚠ 5h-补（2026-09-20）：原来这里是 `bandStart`（窗口起始下标 + `BAND_WINDOW` 切片）。
+   *   业主原话要的是"**滑动条**"（真的能拖/能滚），所以窗口切片与那个下标**一起删了**：
+   *   滚动位置是 DOM 自己的状态，React 侧只留一份"要不要置灰"的镜像（`bandLeft`）。
    */
-  const [bandStart, setBandStart] = useState(0)
+  const clipRef = useRef<HTMLDivElement | null>(null)
+  /**
+   * 滚动位置的**镜像**（只在 `onScroll` 里更新，用来算箭头置灰）。
+   * ⚠ 它**不是**布局的真源：真源是 DOM 的 `scrollLeft`（拖滚动条也会触发 `onScroll`）。
+   */
+  const [bandLeft, setBandLeft] = useState(0)
+  /**
+   * **这条渲染链有没有布局**。jsdom（`plugin/scripts/ui-render-shot.mjs` 的离屏截图链）没有布局引擎
+   * ⇒ `scrollWidth`/`clientWidth` 恒为 0。判据写成"**有布局且真的溢出**才谈两端置灰"：
+   *   · **有布局**（`scrollWidth > clientWidth`）：`scrollLeft <= 0` ⇒ 左箭头置灰；
+   *     `scrollLeft >= scrollWidth - clientWidth - 1` ⇒ 右箭头置灰。**这是真机的判据**。
+   *   · **没布局**（`scrollWidth === 0`）：**保持可用**。这是**渲染链限制**（量不出溢出方向），
+   *     不是"无脑放行"——上一版为了绕开它才退化成窗口下标，代价是**框内根本不能滚**（业主否了）。
+   *     截图链上箭头因此是**可用态**；置灰只能在**真宿主页**里看到。
+   * ⚠ 写成"第一次量到布局就锁存"的 state 而不是每次渲染现读 DOM：现读的话，**没有后续重渲染时
+   *   箭头会停在旧值上**（量完 DOM 就把它换掉，React 不会因为你换了 getter 就再渲染一次）。
+   *   锁存之后 `hasLayout` 只会 false → true，永不回退（真机不会"布局突然消失"）。
+   */
+  const [hasLayout, setHasLayout] = useState(false)
+  const measureBand = (): void => {
+    setHasLayout((prev) => prev || (clipRef.current?.scrollWidth ?? 0) > 0)
+  }
+  const bandAtStart = hasLayout && bandLeft <= 0
+  const bandAtEnd = hasLayout && clipRef.current !== null
+    && bandLeft >= clipRef.current.scrollWidth - clipRef.current.clientWidth - 1
+  /**
+   * **挂载后探一次布局**：把上面那个锁存从 false 翻成 true（首帧 ref 还没挂上、布局也还没算完）。
+   * ⚠ 在 jsdom（截图链）上探到的仍是 0 ⇒ 停在"没布局 ⇒ 箭头可用"那一支（见 `hasLayout` 的注释）。
+   */
+  useEffect(() => {
+    measureBand()
+  }, [])
   const [docs, setDocs] = useState<readonly MockDoc[]>(SEED_DOCS)
   const [selected, setSelected] = useState<ReadonlySet<string>>(() => new Set<string>())
   const [openDoc, setOpenDoc] = useState<string | null>(null)
@@ -492,14 +533,35 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
     return docs.filter((d) => keys.has(d.folder)).length
   }
 
-  const bandMax = Math.max(0, KNOWLEDGE_BASES.length - BAND_WINDOW)
-  const bandAt = Math.min(bandStart, bandMax)
-  const bandCards = KNOWLEDGE_BASES.slice(bandAt, bandAt + BAND_WINDOW)
+  /**
+   * 箭头：**一次滚一屏（≈一张卡）**，步长 `BAND_STEP_PX`（卡宽 + gap）。
+   * ⚠ 先试 `clip.scrollBy`（宿主浏览器 / 真机都有，带 `behavior:smooth` 走 CSS 的动效档位）；
+   *   **没有 `scrollBy` 的链**（jsdom 的 Element 没实现它，硬调会抛 "Not implemented"）⇒ 直接写
+   *   `scrollLeft`。两条路都**真的改了滚动位置**，区别只在有没有平滑动画。
+   * ⚠⚠ **目标位置自己夹到 [0, maxScroll]**：真机的 `scrollBy` 会自己夹住两端，但**不能指望**这一点
+   *   （jsdom 那类实现不夹 ⇒ 连点右箭头会把 `scrollLeft` 累加到远大于可滚距离，图上/断言里都是假数）。
+   *   量不出几何（`scrollWidth === 0`，jsdom）时**不滚**并**明确返回 false** —— 截图上"箭头点了没反应"
+   *   本来就是这个环境的事实，不该伪造成"滚了很远"。
+   */
+  const scrollBand = (dir: -1 | 1): boolean => {
+    const clip = clipRef.current
+    if (clip === null) return false
+    const max = clip.scrollWidth - clip.clientWidth
+    if (max <= 0) return false
+    const target = Math.max(0, Math.min(max, clip.scrollLeft + dir * BAND_STEP_PX))
+    if (typeof clip.scrollBy === 'function') {
+      clip.scrollBy({ left: target - clip.scrollLeft, behavior: 'smooth' })
+    } else {
+      clip.scrollLeft = target
+    }
+    setBandLeft(clip.scrollLeft)
+    return true
+  }
 
   /**
    * 点一张卡 = **进入该知识库**（业主原话），回到它的库根（一级目录），
    * 并把上一层的遗留状态清掉：选择 / 详情 / 搜索串 / 筛选档。
-   * ⚠ 不清的是**卡片带窗口**：用户刚点过的那张卡就在当前窗口里，跳窗会让卡片"跑掉"。
+   * ⚠ 不重置的是**卡片带的滚动位置**：用户刚点过的那张卡就在当前视野里，跳回最左会让卡片"跑掉"。
    */
   const enterKb = (id: string): void => {
     setCardId(id)
@@ -721,26 +783,43 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
 
       {/* ══ 顶部**卡片带**（业主 2026-09-20：「**所有卡片横在顶端**」「**一个小框下面自带一个
           左右翻页滑动条**」）══
-          一个框（.ks-kbband）里：左箭头 + 卡片窗口 + 右箭头。卡片来自 KNOWLEDGE_BASES
-          （标准 / 法律法规 / 3 个自建夹），**同一种卡、同一尺寸**（`.ks-kbband .ks-kb-cards`
-          是 `repeat(3,minmax(0,1fr))` 的等宽网格 + `.ks-kb-cards>*` 的 min-height ⇒ 同排等高同宽）。
+          一个框（.ks-kbband）里：左箭头 + **横向滚动容器** + 右箭头。卡片来自 KNOWLEDGE_BASES
+          （标准 / 法律法规 / 3 个自建夹），**同一种卡、同一尺寸**（`.ks-kbband .ks-kb-card` 一处
+          钉死 `flex:0 0 var(--ks-band-card-w)` + 容器 `align-items:stretch` ⇒ 同排等宽等高）。
+          ⚠ 5h-补（2026-09-20）：**全部卡片一次渲染**（不再 `slice` 窗口）⇒ 容器 `overflow-x:auto`
+             + `scroll-snap-type:x mandatory` ⇒ 用户可以**直接拖/滚**那条滚动条（业主点名的"滑动条"）。
           ⚠ 箭头是**普通 button**（与 .ks-chip 同一个先例）：宽度要能钉成 `--ks-band-nav`(24px)，
             宿主 Button 的档位会被内容撑开（P1-6 量到过 28px），钉不住就量不出"翻页控件宽度"。
-          ⚠ 到第一组 / 最后一组时箭头 `disabled` ⇒ 置灰（业主："**滚到头/到头时按钮置灰**"）。 */}
-      <div className="ks-kbband" role="group" aria-label="知识库（左右翻页切换）">
+          ⚠ 能**量到布局**时按 `scrollLeft` 判两端置灰（`bandAtStart` / `bandAtEnd`）；
+            量不到（jsdom 截图链，`scrollWidth === 0`）时**保持可用** —— 理由与边界见 `hasLayout` 的注释。 */}
+      <div className="ks-kbband" role="group" aria-label="知识库（左右滚动切换）">
         <button
           type="button"
           className="ks-kbband-nav"
-          aria-label="上一组知识库卡片"
-          title={bandAt === 0 ? '已经是第一组' : '上一组知识库卡片'}
-          disabled={bandAt === 0}
-          onClick={() => { setBandStart(Math.max(0, bandAt - 1)) }}
+          aria-label="上一张知识库卡片"
+          title={bandAtStart ? '已经在最左边' : '向左滚动一屏'}
+          disabled={bandAtStart}
+          onClick={() => { scrollBand(-1) }}
         >
           <IconChevronLeftOutline14 />
         </button>
-        <div className="ks-kbband-clip">
+        {/* ``tabIndex={0}`` + ``aria-label``：键盘用户能聚焦到这条**真的滚动条**上用 ←/→ 滚
+            （原生滚动容器默认不可聚焦）——业主点名的"滑动条"要能被键盘也够到。 */}
+        <div
+          className="ks-kbband-clip"
+          ref={clipRef}
+          tabIndex={0}
+          role="group"
+          aria-label={`知识库卡片，共 ${KNOWLEDGE_BASES.length} 张，可左右滚动`}
+          onScroll={(event) => {
+            // ⚠ 每次滚动都顺手锁存"这条链有布局"：真机上第一帧布局就有值，这里只是把状态翻过来；
+            //   jsdom 上永远是 0 ⇒ 箭头保持可用（见 `hasLayout` 的注释）。
+            measureBand()
+            setBandLeft(event.currentTarget.scrollLeft)
+          }}
+        >
           <div className="ks-kb-cards">
-            {bandCards.map((card) => {
+            {KNOWLEDGE_BASES.map((card) => {
               const on = card.id === kb.id
               return (
                 <button
@@ -765,16 +844,17 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
         <button
           type="button"
           className="ks-kbband-nav"
-          aria-label="下一组知识库卡片"
-          title={bandAt >= bandMax ? '已经是最后一组' : '下一组知识库卡片'}
-          disabled={bandAt >= bandMax}
-          onClick={() => { setBandStart(Math.min(bandMax, bandAt + 1)) }}
+          aria-label="下一张知识库卡片"
+          title={bandAtEnd ? '已经在最右边' : '向右滚动一屏'}
+          disabled={bandAtEnd}
+          onClick={() => { scrollBand(1) }}
         >
           <IconChevronRightOutline14 />
         </button>
       </div>
+      {/* 口径与事实一致：说的是**总张数**与两种滚法，**不再**报"第几张到第几张"（那是旧的窗口切片口径）。 */}
       <div className="ks-kb-hint">
-        卡片 {bandAt + 1}–{bandAt + bandCards.length} / 共 {KNOWLEDGE_BASES.length} 张（用左右箭头翻页）
+        共 {KNOWLEDGE_BASES.length} 张 · 可左右滑动或点箭头翻页
       </div>
 
       {view === 'tags' ? (

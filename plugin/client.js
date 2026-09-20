@@ -32251,6 +32251,13 @@ var KS_STYLES = `
      \u26A0 \u4E3A\u4EC0\u4E48\u4E0D\u76F4\u63A5\u7528 --ks-btn-h-sm \u5F53\u5BBD\u5EA6\uFF1A\u90A3\u4E2A\u540D\u5B57\u662F"\u6309\u94AE\u9AD8"\uFF0C\u501F\u7528\u5B83\u8868\u8FBE\u5BBD\u5EA6\u6B63\u662F\u672C\u4ED3
        \u53CD\u590D\u6293\u8FC7\u7684"\u8BED\u4E49\u6F02\u79FB"\uFF08\u540E\u6765\u8005\u4F1A\u4EE5\u4E3A\u5B83\u4FE9\u6C38\u8FDC\u540C\u503C\uFF09\u3002\u5355\u5F00\u4E00\u4E2A\u540D\u5B57\uFF0C\u503C\u540C\u6863\u3002 */
   --ks-band-nav:24px;
+  /* \u5361\u7247\u5E26\u4E0A**\u4E00\u5F20\u5361\u7684\u56FA\u5B9A\u5BBD\u5EA6**\uFF085h-\u8865\uFF0C2026-09-20\uFF09\u3002172px \u662F"\u4E0A\u4E00\u7248\u5728 1300 \u4E0B\u91CF\u5230\u7684\u5361\u5BBD"
+     \u2014\u2014 \u5BBD\u5C4F\u6846 max-width:720px\u30015 \u5F20\u5361\u8981\u80FD\u6A2A\u7740\u6ED1\uFF0C\u5361\u5BBD\u4E0D\u80FD\u8DDF\u7740\u5BB9\u5668\u8D70\uFF08\u90A3\u5C31\u662F\u7A97\u53E3\u5207\u7247\u4E86\uFF09\u3002
+     \u26A0 \u4E0E --ks-card-gap(12) \u4E00\u8D77\u51B3\u5B9A**\u4E00\u6761\u5E26\u7684\u603B\u5BBD = 5\xD7172 + 4\xD712 = 908px** \u21D2 \u5728\u4EFB\u4F55
+        \u2264720px \u7684\u6846\u91CC\u90FD\u6EA2\u51FA \u21D2 \u6EDA\u52A8\u6761\u5FC5\u7136\u51FA\u73B0\uFF08\u8FD9\u662F"\u6ED1\u52A8\u6761"\u80FD\u88AB\u770B\u89C1\u7684\u524D\u63D0\uFF0C\u4E0D\u662F\u5DE7\u5408\uFF09\u3002
+     \u26A0 JS \u4FA7 BAND_STEP_PX = 184\uFF08\u5361\u5BBD + gap\uFF09\u662F\u5B83\u7684**\u6570\u503C\u955C\u50CF**\uFF0C\u53EA\u7528\u4E8E scrollBy \u7684\u6B65\u957F\uFF1B
+        "\u6BCF\u5C4F\u51E0\u5F20"\u8FD9\u4E2A\u6982\u5FF5\u5DF2\u7ECF**\u4E0D\u5B58\u5728**\u4E86\uFF08\u4E0A\u4E00\u7248\u6B63\u662F\u5B83\u4E0E CSS \u4E24\u5904\u8026\u5408\uFF09\u3002 */
+  --ks-band-card-w:172px;
 }
 
 /* ---------- \u5F00\u59CB\u9875\u5165\u53E3\u5361\uFF08\u7167 TerminalGuide.module.css \u7684\u6570\u503C\uFF09 ----------
@@ -32340,9 +32347,10 @@ var KS_STYLES = `
    \u26A0 \u6811\u7684\u6837\u5F0F\uFF08.ks-kb-tree / .ks-kb-tline / .ks-kb-tw / .ks-kb-tn\uFF09\u4E0E .ks-rail **\u5DF2\u5220**\uFF1A
      \u4E1A\u4E3B\u8BF4"\u4E0D\u8981\u5C55\u793A\u76EE\u5F55\u6811"\u3001"\u6211\u5EFA\u7684\uFF08\u771F\u6587\u4EF6\u5939\uFF1B\u4E0E\u4E0A\u9762\u4E24\u68F5\u5E73\u7EA7\uFF09\u8FD9\u79CD\u4E71\u4E03\u516B\u7CDF\u4E1C\u897F\u5220\u4E86" \u2014\u2014
      \u5220\u4E86\u4EC0\u4E48\u3001\u4E3A\u4EC0\u4E48\u5199\u5728 docs/UI-BASELINE.md 5h\u3002
-   \u26A0 \u6846\u5BBD max-width:720px\uFF08= 180 \u4E2A 4px \u5355\u4F4D\uFF09\uFF1A\u4E1A\u4E3B\u8BF4\u7684\u662F"\u4E00\u4E2A**\u5C0F**\u6846"\uFF0C\u4E0D\u662F\u901A\u680F\uFF1B
-     \u5BBD\u5C4F\uFF081300\uFF09\u4E0B 3 \u5F20\u5361\u5404\u7EA6 202px\uFF0C\u7A84\u5C4F\uFF08520\uFF09\u4E0B\u5404\u81EA\u7F29\u5230\u7EA6 130px \u2014\u2014 **\u540C\u6392\u7B49\u5BBD\u7B49\u9AD8**\u7531
-     repeat(3,minmax(0,1fr)) \u4E0E .ks-kb-cards>* \u7684 min-height \u4FDD\u8BC1\uFF08\u5B9E\u6D4B\u503C\u89C1 5h \u7684 #cards\uFF09\u3002
+   \u26A0 \u6846\u5BBD max-width:720px\uFF08= 180 \u4E2A 4px \u5355\u4F4D\uFF09\uFF1A\u4E1A\u4E3B\u8BF4\u7684\u662F"\u4E00\u4E2A**\u5C0F**\u6846"\uFF0C\u4E0D\u662F\u901A\u680F\u3002
+   \u26A0 5h-\u8865\uFF082026-09-20\uFF09\u540E**\u5361\u5BBD\u4E0E\u6846\u5BBD\u8131\u94A9**\uFF1A\u5361\u56FA\u5B9A --ks-band-card-w(172)\uFF0C\u6846\u5185\u80FD\u540C\u65F6\u770B\u5230\u51E0\u5F20
+     \u7531\u6846\u5BBD\u51B3\u5B9A\uFF08\u5BBD\u5C4F 720 \u7684\u6846\u91CC\u7EA6 3 \u5F20 + \u534A\u70B9\u9732\u5934\uFF0C\u7A84\u5C4F 520 \u91CC\u7EA6 2 \u5F20\uFF09\u2014\u2014 \u8FD9\u6B63\u662F"\u80FD\u6ED1"\u7684\u89C2\u611F\uFF1B
+     \u4E0A\u4E00\u7248\u90A3\u53E5"\u5BBD\u5C4F 3 \u5F20\u5404\u7EA6 202px / \u7A84\u5C4F\u5404\u7F29\u5230\u7EA6 130px"\u662F**\u7A97\u53E3\u5207\u7247**\u5E74\u4EE3\u7684\u8BDD\uFF0C\u5DF2\u4F5C\u5E9F\u3002
    \u26A0 \u672C\u6BB5\u662F\u6A21\u677F\u5B57\u7B26\u4E32\u91CC\u7684\u4E00\u6BB5 CSS\uFF1A\u6CE8\u91CA\u91CC**\u4E0D\u8BB8\u51FA\u73B0\u53CD\u5F15\u53F7**\uFF08\u4F1A\u622A\u65AD\u6A21\u677F\uFF09\u2014\u2014 \u8FD9\u91CC\u8E29\u8FC7\u7B2C 8 \u6B21\u3002 */
 .ks-kbband{display:flex;align-items:center;gap:var(--ks-space-2);box-sizing:border-box;
   max-width:720px;padding:var(--ks-space-2);
@@ -32350,11 +32358,25 @@ var KS_STYLES = `
   --dsw-elevation-stroke-color:var(--dsw-alias-border-l2);
   background:var(--dsw-alias-bg-base);box-shadow:var(--dsw-elevation-soft)}
 /* \u7A97\u53E3\uFF1A**\u5361\u7247\u5E26\u7684\u53EF\u89C6\u533A**\uFF08\u5BBD\u5EA6\u7531\u6846\u51CF\u53BB\u4E24\u4E2A\u7BAD\u5934\u4E0E\u95F4\u8DDD\u7ED9\uFF09\u3002 */
-.ks-kbband-clip{flex:1;min-width:0;overflow:hidden}
-/* \u7A97\u53E3\u91CC\u6052\u4E3A **3 \u5217\u7B49\u5BBD**\uFF08BAND_WINDOW=3\uFF1B\u6362\u4E86\u5E38\u91CF\u8FD9\u91CC\u4E5F\u8981\u6539 \u2014\u2014 \u4E24\u5904\u5FC5\u987B\u4E00\u8D77\u52A8\uFF09\u3002
-   \u26A0 \u6700\u540E\u4E00\u5C4F\u53EF\u80FD\u4E0D\u8DB3 3 \u5F20\uFF08\u6211\u4EEC\u662F 5 \u5F20\u3001\u7A97\u53E3 3\u3001\u6B65\u957F 1 \u21D2 \u6C38\u8FDC\u6070\u597D 3 \u5F20\uFF09\uFF1B\u4E0D\u8DB3\u65F6
-     \u7A7A\u4F4D\u7559\u767D\uFF0C**\u4E0D\u628A\u5269\u4E0B\u7684\u5361\u62C9\u5BBD**\uFF08"\u5C3A\u5BF8\u7EDF\u4E00"\u4F18\u5148\u4E8E"\u94FA\u6EE1"\uFF09\u3002 */
-.ks-kbband .ks-kb-cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ks-kbband-clip{flex:1;min-width:0;
+  overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;
+  scrollbar-width:thin;scrollbar-color:var(--dsw-alias-scrollbar-bg-l1) transparent}
+/* \u26A0 **\u6EDA\u52A8\u6761\u53EF\u89C1\u6027**\uFF1A\u8FD9\u91CC**\u4E0D\u81EA\u5DF1\u753B\u6EDA\u52A8\u6761**\uFF08\u4E0D\u5199 height/background\uFF09\u2014\u2014 \u5BBF\u4E3B\u7684
+   ui-theme/src/styles/scrollbar.css \u5DF2\u7ECF\u5168\u5C40\u7ED9 ::-webkit-scrollbar 8px \u5BBD +
+   --dsw-alias-scrollbar-* \u62C7\u6307\u8272\uFF1B@supports not selector(::-webkit-scrollbar) \u90A3\u4E00\u652F
+   \uFF08Firefox\uFF09\u624D\u843D\u5230\u4E0A\u9762\u90A3\u6761 scrollbar-width:thin\u3002\u4E24\u6761\u8DEF\u4E92\u65A5\u3001\u4E0D\u662F\u4E24\u5957\u5E76\u5B58\u3002
+   \u8FD9\u91CC\u53EA\u8865\u4E00\u4EF6\u4E8B\uFF1Aoverflow-x:auto \u21D2 \u5185\u5BB9\u4E00\u6EA2\u51FA\uFF0C\u90A3\u6761**\u539F\u751F**\u6EDA\u52A8\u6761\u5C31\u51FA\u73B0\uFF0C
+   \u4E14\u6DF1\u6D45\u4E24\u5957\u914D\u8272\u8D70\u5BBF\u4E3B token\uFF08\u81EA\u5DF1\u753B = \u7B2C\u4E8C\u5957\u8272\u503C\uFF0C\u4E0A\u4E00\u7248\u5C31\u662F\u8FD9\u4E48\u88AB\u70B9\u540D\u7684\uFF09\u3002 */
+/* \u952E\u76D8\u53EF\u8FBE\uFF1A\u5BB9\u5668\u81EA\u5DF1\u6709 tabIndex=0\uFF08\u89C1 KsKnowledgePage.tsx\uFF09\uFF0C\u805A\u7126\u73AF\u4E5F\u8D70\u5BBF\u4E3B border \u6863\u3002 */
+.ks-kbband-clip:focus-visible{outline:var(--ks-stroke) solid var(--dsw-alias-border-l4);
+  outline-offset:calc(-1 * var(--ks-space-1))}
+/* \u5361\u5BBD**\u53EA\u5728\u8FD9\u91CC\u5B9A\u4E49\u4E00\u5904**\uFF1A\u4E0A\u4E00\u7248\u662F BAND_WINDOW=3 \u5E38\u91CF + repeat(3,\u2026) \u4E24\u5904\u8026\u5408
+   \uFF08\u6539\u4E00\u5904\u5FD8\u53E6\u4E00\u5904\u5C31\u9519\u4F4D\uFF09\u21D2 \u672C\u8F6E\u628A"\u6BCF\u5C4F\u51E0\u5F20"\u5F7B\u5E95\u4ECE CSS \u91CC\u53BB\u6389\uFF0C\u6362\u6210**\u56FA\u5B9A\u5361\u5BBD**\u3002
+   \u4E0D\u4F38\u4E0D\u7F29\uFF08flex:0 0\uFF09\u21D2 \u540C\u6392**\u7B49\u5BBD**\uFF1B\u5BB9\u5668 align-items:stretch \u21D2 \u540C\u6392**\u7B49\u9AD8**
+   \uFF08.ks-kb-cards>*{min-height:var(--ks-card-h)} \u4ECD\u515C\u5E95\uFF09\u3002
+   \u26A0 .ks-kbband .ks-kb-cards \u73B0\u5728\u662F**\u6A2A\u5411 flex \u5BB9\u5668**\uFF0C\u4E0D\u518D\u662F\u7F51\u683C\u3002 */
+.ks-kbband .ks-kb-cards{display:flex;flex-direction:row;align-items:stretch;gap:var(--ks-card-gap);
+  width:max-content}
 /* \u7BAD\u5934\uFF1A24px \u65B9\u6846\uFF08--ks-band-nav\uFF09\uFF0C\u8D70\u5BBF\u4E3B interactive \u6863\uFF1B\u5230\u5934/\u5230\u5C3E disabled \u21D2 \u7F6E\u7070\u3002 */
 .ks-kbband-nav{flex:none;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;
   width:var(--ks-band-nav);height:var(--ks-band-nav);padding:0;border:0;border-radius:var(--ks-r-md);
@@ -32363,8 +32385,13 @@ var KS_STYLES = `
 .ks-kbband-nav:disabled{background:transparent;color:var(--dsw-alias-label-caption);cursor:default}
 /* \u5361\u7247\u5E26\u4E0A\u7684\u4E00\u5F20\u5361\uFF1A\u5361\u9762\u6837\u5F0F\u4ECD\u5F52 .ks-kb-card\uFF08\u4E0E\u8BE6\u60C5\u91CC\u7684\u5360\u4F4D\u5361\u540C\u4E00\u4EFD\uFF09\uFF0C\u8FD9\u91CC\u53EA\u8865
    "\u5B83\u73B0\u5728\u662F\u4E2A button"\u8981\u6E05\u96F6\u7684\u539F\u751F\u5916\u89C2 + \u9009\u4E2D\u6001\uFF08\u9009\u4E2D = \u5F53\u524D\u6B63\u5728\u770B\u7684\u90A3\u5F20\u5E93\u5361\uFF09\u3002
-   \u26A0 \u9009\u4E2D\u6001\u8D70\u5BBF\u4E3B interactive-bg-active\uFF08\u4E0E .ks-chip-on \u540C\u4E00\u6863\uFF09\uFF0C**\u4E0D\u65B0\u589E\u8272\u503C**\u3002 */
-.ks-kbband .ks-kb-card{width:100%;font:inherit;text-align:left;color:inherit;cursor:pointer}
+   \u26A0 \u9009\u4E2D\u6001\u8D70\u5BBF\u4E3B interactive-bg-active\uFF08\u4E0E .ks-chip-on \u540C\u4E00\u6863\uFF09\uFF0C**\u4E0D\u65B0\u589E\u8272\u503C**\u3002
+   \u26A0\u26A0 **\u5361\u5BBD\u53EA\u6709\u8FD9\u4E00\u5904\u5B9A\u4E49**\uFF085h-\u8865 2026-09-20\uFF09\uFF1Aflex:0 0 var(--ks-band-card-w) + \u4E0D\u5199 width\u3002
+      \u539F\u6765\u8FD9\u91CC\u5199\u7684\u662F width:100% \u2014\u2014 \u90A3\u662F"\u8DDF\u7740\u7A97\u53E3\u7B49\u6BD4\u7F29"\u7684\u5E74\u4EE3\uFF08\u6BCF\u5C4F\u6052 3 \u5F20\uFF09\uFF1B\u73B0\u5728\u5361\u5BBD\u9489\u6B7B\uFF0C
+      \u4E00\u6761\u5361\u7247\u5E26\u7684\u603B\u5BBD = 5 \xD7 \u5361\u5BBD + 4 \xD7 gap > \u5BB9\u5668\u5BBD \u21D2 \u6EDA\u52A8\u6761**\u5FC5\u7136**\u51FA\u73B0\uFF08\u5B9E\u6D4B\u503C\u89C1 5h \u7684
+      #kbband\uFF09\u3002scroll-snap-align:start \u4E0E\u5B83\u540C\u4E00\u6761\u89C4\u5219\uFF1A\u5361\u5BBD\u4E0E\u5438\u9644\u70B9\u5929\u751F\u662F\u540C\u4E00\u4EF6\u4E8B\u3002 */
+.ks-kbband .ks-kb-card{flex:0 0 var(--ks-band-card-w);scroll-snap-align:start;
+  font:inherit;text-align:left;color:inherit;cursor:pointer}
 .ks-kbband .ks-kb-card[data-on='true']{--dsw-elevation-stroke-color:var(--dsw-alias-border-l4);
   background:var(--dsw-alias-interactive-bg-active)}
 /* ---------- 5h\uFF1A\u9762\u5305\u5C51 + \u300C\u8FD4\u56DE\u4E0A\u4E00\u7EA7\u300D + \u76EE\u5F55\u5C42 ---------- */
@@ -33404,7 +33431,7 @@ var NEW_ITEMS = [
   { id: "ingest", label: "\u5BFC\u5165\u6587\u4EF6\u2026\uFF08\u53BB\u300C\u6587\u4EF6\u5BFC\u5165\u300D\u9875\uFF09" }
 ];
 var MOVE_TARGET = "\u516C\u53F8\u5236\u5EA6";
-var BAND_WINDOW = 3;
+var BAND_STEP_PX = 184;
 var KNOWLEDGE_BASES = [
   { id: "std", name: "\u6807\u51C6", desc: "\u56FD\u5BB6\u6807\u51C6\xB7\u884C\u4E1A\u6807\u51C6\xB7\u56E2\u4F53\u6807\u51C6", root: { key: "kb:std", name: "\u6807\u51C6", children: STD_TREE } },
   { id: "law", name: "\u6CD5\u5F8B\u6CD5\u89C4", desc: "\u6CD5\u5F8B / \u884C\u653F\u6CD5\u89C4 / \u90E8\u95E8\u89C4\u7AE0 / \u5730\u65B9\u6027\u6CD5\u89C4", root: { key: "kb:law", name: "\u6CD5\u5F8B\u6CD5\u89C4", children: LAW_TREE } },
@@ -33446,7 +33473,17 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
   const [view, setView] = (0, import_react7.useState)("files");
   const [cardId, setCardId] = (0, import_react7.useState)(KNOWLEDGE_BASES[0].id);
   const [path, setPath] = (0, import_react7.useState)([]);
-  const [bandStart, setBandStart] = (0, import_react7.useState)(0);
+  const clipRef = (0, import_react7.useRef)(null);
+  const [bandLeft, setBandLeft] = (0, import_react7.useState)(0);
+  const [hasLayout, setHasLayout] = (0, import_react7.useState)(false);
+  const measureBand = () => {
+    setHasLayout((prev) => prev || (clipRef.current?.scrollWidth ?? 0) > 0);
+  };
+  const bandAtStart = hasLayout && bandLeft <= 0;
+  const bandAtEnd = hasLayout && clipRef.current !== null && bandLeft >= clipRef.current.scrollWidth - clipRef.current.clientWidth - 1;
+  (0, import_react7.useEffect)(() => {
+    measureBand();
+  }, []);
   const [docs, setDocs] = (0, import_react7.useState)(SEED_DOCS);
   const [selected, setSelected] = (0, import_react7.useState)(() => /* @__PURE__ */ new Set());
   const [openDoc, setOpenDoc] = (0, import_react7.useState)(null);
@@ -33465,9 +33502,20 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
     const keys = new Set(subtreeKeys(target));
     return docs.filter((d) => keys.has(d.folder)).length;
   };
-  const bandMax = Math.max(0, KNOWLEDGE_BASES.length - BAND_WINDOW);
-  const bandAt = Math.min(bandStart, bandMax);
-  const bandCards = KNOWLEDGE_BASES.slice(bandAt, bandAt + BAND_WINDOW);
+  const scrollBand = (dir) => {
+    const clip = clipRef.current;
+    if (clip === null) return false;
+    const max = clip.scrollWidth - clip.clientWidth;
+    if (max <= 0) return false;
+    const target = Math.max(0, Math.min(max, clip.scrollLeft + dir * BAND_STEP_PX));
+    if (typeof clip.scrollBy === "function") {
+      clip.scrollBy({ left: target - clip.scrollLeft, behavior: "smooth" });
+    } else {
+      clip.scrollLeft = target;
+    }
+    setBandLeft(clip.scrollLeft);
+    return true;
+  };
   const enterKb = (id) => {
     setCardId(id);
     setPath([]);
@@ -33637,69 +33685,79 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
         }
       )
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kbband", role: "group", "aria-label": "\u77E5\u8BC6\u5E93\uFF08\u5DE6\u53F3\u7FFB\u9875\u5207\u6362\uFF09", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kbband", role: "group", "aria-label": "\u77E5\u8BC6\u5E93\uFF08\u5DE6\u53F3\u6EDA\u52A8\u5207\u6362\uFF09", children: [
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
         "button",
         {
           type: "button",
           className: "ks-kbband-nav",
-          "aria-label": "\u4E0A\u4E00\u7EC4\u77E5\u8BC6\u5E93\u5361\u7247",
-          title: bandAt === 0 ? "\u5DF2\u7ECF\u662F\u7B2C\u4E00\u7EC4" : "\u4E0A\u4E00\u7EC4\u77E5\u8BC6\u5E93\u5361\u7247",
-          disabled: bandAt === 0,
+          "aria-label": "\u4E0A\u4E00\u5F20\u77E5\u8BC6\u5E93\u5361\u7247",
+          title: bandAtStart ? "\u5DF2\u7ECF\u5728\u6700\u5DE6\u8FB9" : "\u5411\u5DE6\u6EDA\u52A8\u4E00\u5C4F",
+          disabled: bandAtStart,
           onClick: () => {
-            setBandStart(Math.max(0, bandAt - 1));
+            scrollBand(-1);
           },
           children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconChevronLeftOutline14, {})
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-kbband-clip", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-kb-cards", children: bandCards.map((card) => {
-        const on = card.id === kb.id;
-        return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
-          "button",
-          {
-            type: "button",
-            className: "ks-kb-card",
-            "data-on": on,
-            "aria-pressed": on,
-            title: `\u8FDB\u5165\u300C${card.name}\u300D\u2014\u2014 ${card.desc}`,
-            onClick: () => {
-              enterKb(card.id);
-            },
-            children: [
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-kb-ct", children: card.name }),
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-kb-cd", children: card.desc }),
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-kb-foot", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-kb-badge", children: [
-                countUnder(card.root),
-                " \u7BC7"
-              ] }) })
-            ]
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        "div",
+        {
+          className: "ks-kbband-clip",
+          ref: clipRef,
+          tabIndex: 0,
+          role: "group",
+          "aria-label": `\u77E5\u8BC6\u5E93\u5361\u7247\uFF0C\u5171 ${KNOWLEDGE_BASES.length} \u5F20\uFF0C\u53EF\u5DE6\u53F3\u6EDA\u52A8`,
+          onScroll: (event) => {
+            measureBand();
+            setBandLeft(event.currentTarget.scrollLeft);
           },
-          card.id
-        );
-      }) }) }),
+          children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-kb-cards", children: KNOWLEDGE_BASES.map((card) => {
+            const on = card.id === kb.id;
+            return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+              "button",
+              {
+                type: "button",
+                className: "ks-kb-card",
+                "data-on": on,
+                "aria-pressed": on,
+                title: `\u8FDB\u5165\u300C${card.name}\u300D\u2014\u2014 ${card.desc}`,
+                onClick: () => {
+                  enterKb(card.id);
+                },
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-kb-ct", children: card.name }),
+                  /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-kb-cd", children: card.desc }),
+                  /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-kb-foot", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-kb-badge", children: [
+                    countUnder(card.root),
+                    " \u7BC7"
+                  ] }) })
+                ]
+              },
+              card.id
+            );
+          }) })
+        }
+      ),
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
         "button",
         {
           type: "button",
           className: "ks-kbband-nav",
-          "aria-label": "\u4E0B\u4E00\u7EC4\u77E5\u8BC6\u5E93\u5361\u7247",
-          title: bandAt >= bandMax ? "\u5DF2\u7ECF\u662F\u6700\u540E\u4E00\u7EC4" : "\u4E0B\u4E00\u7EC4\u77E5\u8BC6\u5E93\u5361\u7247",
-          disabled: bandAt >= bandMax,
+          "aria-label": "\u4E0B\u4E00\u5F20\u77E5\u8BC6\u5E93\u5361\u7247",
+          title: bandAtEnd ? "\u5DF2\u7ECF\u5728\u6700\u53F3\u8FB9" : "\u5411\u53F3\u6EDA\u52A8\u4E00\u5C4F",
+          disabled: bandAtEnd,
           onClick: () => {
-            setBandStart(Math.min(bandMax, bandAt + 1));
+            scrollBand(1);
           },
           children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconChevronRightOutline14, {})
         }
       )
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-hint", children: [
-      "\u5361\u7247 ",
-      bandAt + 1,
-      "\u2013",
-      bandAt + bandCards.length,
-      " / \u5171 ",
+      "\u5171 ",
       KNOWLEDGE_BASES.length,
-      " \u5F20\uFF08\u7528\u5DE6\u53F3\u7BAD\u5934\u7FFB\u9875\uFF09"
+      " \u5F20 \xB7 \u53EF\u5DE6\u53F3\u6ED1\u52A8\u6216\u70B9\u7BAD\u5934\u7FFB\u9875"
     ] }),
     view === "tags" ? (
       // ── 标签视图（取代收藏）：标签跨大文件夹；可在标签下直接起对话 ──

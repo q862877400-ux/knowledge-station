@@ -26,6 +26,9 @@
  *   ⇒ **那一页只能判"排版/配色"，不能判数据口径**。
  * - **全页截图（窗口高=内容高）看不出 `position:sticky`**：批量条会落在列表末尾。
  *   要判"批量条钉在底部"必须 `--viewport <h>` 用**视口高固定**的截图。
+ * - ⚠ **5h-补（2026-09-20）截图的滚动条是"真的"**：本脚本**不再**传 `--hide-scrollbars`
+ *   （那个开关会让滚动条根本不画 ⇒ 业主点名的"滑动条"在图上永远看不见）。代价：凡**真溢出**的
+ *   容器都会多出一条原生滚动条，页宽/版式可能因此变一点点 —— 这是**有意**的，不是缺陷。
  *
  * ## 用法
  *   node plugin/scripts/ui-render-shot.mjs --page kb --out var/tmp/ui-shots/kb-520.png --width 520
@@ -37,6 +40,10 @@
  *                    ⚠ **它不能用来判 `position:sticky`**：`--screenshot` 在这种无头模式下
  *                      是"整页截图"，滚动位置不进产物（5c 实测：加 scrollTo 后图里只剩空白）。
  *                      批量条位置只能在**真宿主页面**里看，见 docs/UI-BASELINE.md 第五节。
+ *   --band-scroll <px|end>  5h-补：在**真 Chrome** 里把卡片带的横向滚动容器滚到该位置（默认 0 = 不滚）。
+ *                      ⚠ 为什么要有它：jsdom 预渲染那趟**没有布局**（scrollWidth 恒 0）⇒ 卡片带的
+ *                        scrollLeft 只能是 0，"滚到中段/末端"那张图需要的位移出不来。它写的是**真元素**的
+ *                        scrollLeft（等同用户拖了那条滚动条），位移与滚动条拇指位置都由真布局算。
  *   --interact <a,b> 可选：kb-files / kb-detail / kb-select / kb-filter / kb-filter-empty /
  *                    kb-search / kb-empty-files / kb-tags-view / kb-band-start / kb-band-end /
  *                    kb-enter-law / kb-enter-l2 / kb-back / ingest-batch / cap-dialog
@@ -45,8 +52,9 @@
  *                      状态徽章 / 搜索框"的场景都必须**先下钻**。脚本里那四个 helper
  *                      （`gotoCard` / `gotoFilesView` / `gotoStdLeaf` / `gotoBandEnd`）就是这一步，共用一份。
  *                      ⚠ 每个 helper 都**自带兜底**：`--interact` 允许一次给多个场景，前一个场景可能把
- *                        窗口翻到别处、或把页切到「标签」视图 ⇒ 后一个场景会"找不到东西"（实测踩到过）。
- *                        `gotoCard` 先翻回第一屏再往右找到目标卡，`gotoFilesView` 先切回文件视图。
+ *                        卡片带滚到别处、或把页切到「标签」视图 ⇒ 后一个场景会"找不到东西"（实测踩到过）。
+ *                        `gotoCard` 先把带滚回最左（5h-补：卡片现在**全在 DOM 里**，滚回即可），
+ *                        `gotoFilesView` 先切回文件视图。
  *                      为此 kb-detail / kb-select / kb-filter / kb-filter-empty / kb-search /
  *                      kb-tags-view **各自加了前置导航**（断言的实质没变：还是量行数/徽章/像素）。
  *                    ⚠ 原来那条 `kb-empty` / `kb-empty-folder` **已删**（它们点的是**树节点**
@@ -125,6 +133,15 @@ if (fixedHeight !== null && (!Number.isFinite(fixedHeight) || fixedHeight <= 0))
   console.error(`❌ --viewport/--height 要是正数（拿到 ${String(fixedHeightRaw)}）`); process.exit(2)
 }
 const interacts = arg('interact', PAGES[page].interact.join(',')) .split(',').map((s) => s.trim()).filter(Boolean)
+/**
+ * `--band-scroll <px|end>`（5h-补，2026-09-20）：**在真浏览器里**把卡片带的横向滚动容器滚到指定位置。
+ *
+ * ⚠ 为什么需要它：jsdom 预渲染那趟**没有布局**（`scrollWidth` 恒 0）⇒ 卡片带的 `scrollLeft`
+ *   在那儿只能是 0，于是"滚到中段/末端"这张图需要的**位移**在图里出不来。
+ *   注意这不是"造假滚动"：它写的是**真 Chrome 里真元素**的 `scrollLeft`（就像用户拖了那条滚动条），
+ *   卡片位移与滚动条拇指位置都由浏览器的真布局算出来。默认 `0` = 不注入这段脚本。
+ */
+const bandScrollRaw = arg('band-scroll', '0').trim().toLowerCase()
 
 /* ────────────────────── 缺件即报错（不静默降级） ────────────────────── */
 const jsdomDir = join(harness, 'node_modules', 'jsdom')
@@ -302,7 +319,11 @@ const notes = []
 const cardNamed = (name) => q('.ks-kb-cards .ks-kb-card')
   .find((el) => (el.querySelector('.ks-kb-ct')?.textContent ?? '').trim() === name)
 const dirNamed = (text) => q('.ks-dir').find((el) => (el.textContent ?? '').includes(text))
+/** 卡片带的左右箭头（**5h-补 2026-09-20 起 aria-label 是"上一张/下一张"**：箭头改成 `scrollBy`
+ *  一次滚一张卡，不再是"上一组/下一组"的窗口翻页）。 */
 const navNamed = (which) => q('.ks-kbband-nav').find((b) => (b.getAttribute('aria-label') ?? '').includes(which))
+/** 卡片带那个横向滚动容器（`.ks-kbband-clip`）—— 滚动的真源是它的 `scrollLeft`。 */
+const bandClip = () => q('.ks-kbband-clip')[0]
 /** 标准 → P 土木、建筑 → P15/19… → P16 工程防火：**4 篇文件**的那一层（与渲染冒烟同一层）。 */
 const gotoStdLeaf = async () => {
   await gotoCard('标准')
@@ -325,30 +346,33 @@ const gotoFilesView = async () => {
   return q('.ks-subtabs').length
 }
 /**
- * 把卡片带窗口移到**指定卡片可见**的位置（先翻回第一屏，再往右找；都带次数上限）。
- * ⚠ 为什么需要它：`--interact` 可以一次给多个场景，前一个场景可能已经把窗口翻到别处
- *   ⇒ "直接找卡"会找不到（实测：串跑 `kb-filter-empty,kb-enter-law` 时第二个场景报"没找到卡"，
- *   而它单独跑是好的）。有了这个兜底，**每个场景都自成一体**，不看前一个场景的脸色。
+ * 把卡片带滚到**指定卡片可见**的位置。
+ * ⚠ 5h-补（2026-09-20）**改写**：卡片带不再是"窗口切片 + 上一组/下一组"（那时"直接找卡"会
+ *   因为**离屏的卡不在 DOM 里**而找不到），现在**全部卡片一次渲染**进一个横向滚动容器 ⇒
+ *   卡永远在 DOM 里，只需要把容器滚到它跟前。
+ * ⚠ 为什么仍保留这个 helper：`--interact` 可以一次给多个场景，前一个场景可能已经把带滚到末尾
+ *   —— 每个场景要**自成一体**，不看前一个场景的脸色（这条纪律没变）。
+ * ⚠ `scrollIntoView` 在 jsdom 里**是 no-op**（没有布局）；这里**不靠它**，只调一次，
+ *   真正的确保交给"卡在 DOM 里"这一事实 —— 本脚本要的是**真 Chrome 里**的滚动位置。
  */
 const gotoCard = async (name) => {
   await gotoFilesView()
-  let back = 0
-  while (back < 20 && navNamed('上一组') !== undefined && navNamed('上一组').disabled === false) {
-    await click(navNamed('上一组'))
-    back += 1
-  }
-  let fwd = 0
-  while (fwd < 20 && cardNamed(name) === undefined) {
-    await click(navNamed('下一组'))
-    fwd += 1
-  }
-  return { back, fwd, found: cardNamed(name) !== undefined }
+  const clip = bandClip()
+  if (clip !== undefined) clip.scrollLeft = 0
+  const card = cardNamed(name)
+  if (card !== undefined && typeof card.scrollIntoView === 'function') card.scrollIntoView()
+  await flush()
+  return { found: card !== undefined, left: clip === undefined ? null : Math.round(clip.scrollLeft) }
 }
-/** 点右箭头翻到底（到"尾"⇒ 右箭头 disabled）。 */
+/**
+ * 点右箭头一路滚到底（到"尾"⇒ 右箭头 disabled）。
+ * ⚠ 5h-补：真 Chrome 里这一步**真的会改 `scrollLeft`**（jsdom 预渲染那趟不会，见下面的注释），
+ *   所以它的 note 顺便报出 `scrollLeft/scrollWidth/clientWidth` —— 那就是"能滚 + 有滚动条"的证据。
+ */
 const gotoBandEnd = async () => {
   let guard = 0
-  while (guard < 20 && navNamed('下一组') !== undefined && navNamed('下一组').disabled === false) {
-    await click(navNamed('下一组'))
+  while (guard < 20 && navNamed('下一张') !== undefined && navNamed('下一张').disabled === false) {
+    await click(navNamed('下一张'))
     guard += 1
   }
   return guard
@@ -363,22 +387,29 @@ for (const how of interacts) {
       + ` → 文件行 ${rows} 行、表头 ${q('.ks-lhead').length} 个、返回上一级 ${q('.ks-back').length} 个`
       + `，面包屑「${q('.ks-crumb-path').map((el) => el.textContent).join('')}」`)
   } else if (how === 'kb-band-end') {
-    // **5h 新增**（业主："一个小框下面自带一个左右翻页滑动条"、"滚到头/到头时按钮置灰"）：
-    // 点右箭头翻到最后一屏 ⇒ 图上应该看到**右箭头置灰**、左箭头可用、且卡片是最后那几张。
+    // **5h 新增 / 5h-补 改口径**（业主："一个小框下面自带一个左右翻页滑动条"）：
+    // 现在"到尾"= 横向滚动容器滚到最右 ⇒ 图上应该看到**卡片真的位移了**、右箭头置灰、左箭头可用。
+    const before = bandClip() === undefined ? null : Math.round(bandClip().scrollLeft)
     const clicks = await gotoBandEnd()
-    notes.push(`kb-band-end: 点了 ${clicks} 次「下一组」 → 右箭头 disabled=${String(navNamed('下一组')?.disabled)}`
-      + `、左箭头 disabled=${String(navNamed('上一组')?.disabled)}`
-      + `，本屏卡片 ${q('.ks-kb-cards .ks-kb-card').map((el) => (el.querySelector('.ks-kb-ct')?.textContent ?? '').trim()).join('/')}`)
+    const clip = bandClip()
+    notes.push(`kb-band-end: 点了 ${clicks} 次「下一张」 → scrollLeft ${String(before)} → `
+      + `${String(clip === undefined ? null : Math.round(clip.scrollLeft))}`
+      + `（scrollWidth=${String(clip?.scrollWidth)} clientWidth=${String(clip?.clientWidth)}`
+      + ` ⇒ 可滚 ${String(clip === undefined ? null : clip.scrollWidth - clip.clientWidth)}）`
+      + `、右箭头 disabled=${String(navNamed('下一张')?.disabled)}、左箭头 disabled=${String(navNamed('上一张')?.disabled)}`
+      + `，带里 5 张卡 ${q('.ks-kb-cards .ks-kb-card').map((el) => (el.querySelector('.ks-kb-ct')?.textContent ?? '').trim()).join('/')}`)
   } else if (how === 'kb-band-start') {
-    // 回到第一屏（左箭头应置灰）——与 kb-band-end 配对，用来对照"置灰"确实是状态而不是恒灰。
+    // 滚回最左（左箭头应置灰）——与 kb-band-end 配对，用来对照"置灰"确实是状态而不是恒灰。
     await gotoBandEnd()
     let guard = 0
-    while (guard < 20 && navNamed('上一组') !== undefined && navNamed('上一组').disabled === false) {
-      await click(navNamed('上一组'))
+    while (guard < 20 && navNamed('上一张') !== undefined && navNamed('上一张').disabled === false) {
+      await click(navNamed('上一张'))
       guard += 1
     }
-    notes.push(`kb-band-start: 翻回第一屏 → 左箭头 disabled=${String(navNamed('上一组')?.disabled)}`
-      + `，本屏卡片 ${q('.ks-kb-cards .ks-kb-card').map((el) => (el.querySelector('.ks-kb-ct')?.textContent ?? '').trim()).join('/')}`)
+    const clip = bandClip()
+    notes.push(`kb-band-start: 滚回最左（点了 ${guard} 次「上一张」）→ 左箭头 disabled=${String(navNamed('上一张')?.disabled)}`
+      + `，scrollLeft=${String(clip === undefined ? null : Math.round(clip.scrollLeft))}`
+      + `，带里 5 张卡 ${q('.ks-kb-cards .ks-kb-card').map((el) => (el.querySelector('.ks-kb-ct')?.textContent ?? '').trim()).join('/')}`)
   } else if (how === 'kb-enter-law') {
     // **5h 新增**：点「法律法规」卡 = 进入该库，看它的**一级目录**（法律 / 行政法规）。
     const g = await gotoCard('法律法规')
@@ -438,14 +469,15 @@ for (const how of interacts) {
     // 筛选到 **0 行** ⇒ 看"被筛没了"的那一支空态（P1-4 的两种空之一）。
     // 怎么造出 0 行：先切到只有现行件的「供应商资料」（1 篇，status=current），
     // 再点「已废止」⇒ 0 行。这是**页面状态**真的生效的证据，不是画出来的。
-    // ⚠ 5h：那张卡在卡片带的**最后一屏**（共 5 张、窗口 3）⇒ 用 gotoCard 把它移到可见处再点。
+    // ⚠ 5h-补：卡片**全部在 DOM 里**（不再有"最后一屏"这回事）⇒ gotoCard 只把带滚回最左，
+    //   "供应商资料"这张卡本来就在 DOM 里，直接点即可（滚动位置不影响点击）。
     const g = await gotoCard('供应商资料')
     const folder = cardNamed('供应商资料')
     const moved = await click(folder)
     const before = q('.ks-item').length
     const chip = byText('.ks-chip', '已废止')
     const ok = await click(chip)
-    notes.push(`kb-filter-empty: 先移到那一屏（back ${g.back} / fwd ${g.fwd} 次、found ${String(g.found)}） → ${moved ? '点「供应商资料」卡' : '没找到卡'}`
+    notes.push(`kb-filter-empty: 先滚回带首（scrollLeft=${String(g.left)}、found ${String(g.found)}） → ${moved ? '点「供应商资料」卡' : '没找到卡'}`
       + ` → 行数 ${before} → ${q('.ks-item').length}`
       + `，空态卡 ${q('.ks-empty-card').length} 张`
       + `，空态标题「${q('.ks-empty-t').map((el) => el.textContent).join('|')}」`)
@@ -549,6 +581,29 @@ const darkAttr = themeName === 'dark' ? ' data-ds-dark-theme' : ''
  * **固定视口**时必须是 auto —— 否则 `--window-size=W,H` 下文档不足 H 时会被 100vh 撑高。
  */
 const shellMinHeight = fixedHeight === null ? '100vh' : 'auto'
+/**
+ * `--band-scroll` 的注入片段（见上面该参数的注释）。
+ * ⚠ 这段直接拼进**测量脚本开头**（不是单独一个 <script>）：单独放一个 script 会先测后滚
+ *   ⇒ 量到的 `scrollLeft` 还是 0，与图上的位移对不上。放开头 = 同一趟里"先滚再量"，两者自洽。
+ * ⚠ 拼进的是 html 那个模板字符串 ⇒ 这段里**不许出现反引号**（用单引号拼字符串）。
+ *   值只接受 `end` 或非负数；非法值直接 exit 2（**不静默忽略**）。
+ */
+let bandScrollTarget = 0
+if (bandScrollRaw !== '' && bandScrollRaw !== '0') {
+  // `end` 用 -1 当哨兵（"滚到最右"），不是"负数位置" ⇒ 先认它，再校验数字。
+  bandScrollTarget = bandScrollRaw === 'end' ? -1 : Number(bandScrollRaw)
+  if (bandScrollTarget !== -1 && (!Number.isFinite(bandScrollTarget) || bandScrollTarget < 0)) {
+    console.error('❌ --band-scroll 只接受非负数或 end（拿到 ' + bandScrollRaw + '）'); process.exit(2)
+  }
+}
+const bandScrollStmt = bandScrollTarget === 0 ? '' : [
+  '    // 5h-补 --band-scroll：在**真 Chrome** 里把卡片带滚到指定位置（jsdom 那趟没有布局，滚不动）。',
+  "    var kbc0 = document.querySelector('.ks-kbband-clip');",
+  '    if (kbc0) {',
+  '      var max0 = kbc0.scrollWidth - kbc0.clientWidth;',
+  '      kbc0.scrollLeft = ' + (bandScrollTarget === -1 ? 'max0' : 'Math.min(' + String(bandScrollTarget) + ', max0)') + ';',
+  '    }',
+].join('\n')
 
 const html = `<!doctype html>
 <html lang="zh-CN">
@@ -581,6 +636,7 @@ const html = `<!doctype html>
    ⚠ 本段在**模板字符串**里：注释不许用反引号（会截断模板），也不许写美元加大括号（会被当插值）。 */
 (function () {
   try {
+${bandScrollStmt}
     var sels = ['#ks-shell','.ks-item','.ks-detail','.ks-rail','.ks-main','.ks-kb-card','.ks-cap-card',
                 '.ks-batch','.ks-lhead','.ks-page-title','.ks-kb-tn','.ks-item-tags','.ks-item-add',
                 '.ks-cap-engine','.ks-knob-label','.ks-kb-banner','.ks-field','.ks-tagrow',
@@ -640,6 +696,33 @@ const html = `<!doctype html>
                    btnH: rm ? Math.round(rm.height) : null,
                    ctrls: ctrls };
         }) };
+    }
+    // 卡片带那条**横向滚动条**的机械证据（5h-补，2026-09-20）。
+    // 业主原话是「一个小框下面自带一个左右翻页**滑动条**」⇒ 光有 overflow-x:auto 不算数，
+    // 要在真 Chrome 里量到三件事：① 内容真的溢出（scrollWidth > clientWidth）；
+    // ② 滚动位置真的能变（scrollLeft）；③ **那条条真的占位**（clientHeight < offsetHeight
+    //    ⇒ 两值之差就是滚动条的厚度）。
+    // ⚠ 这就是**为什么本脚本不再传 --hide-scrollbars**：那个开关会把滚动条**画都不画**，
+    //   于是"到底有没有滑动条"在图上永远看不见（P1 那批图当初就是不想让滚动条入镜才加的）。
+    //   ⚠⚠ 本段是**模板字符串里的一段 JS**：注释里同样**不许出现反引号**（会当场截断上面那个
+    //      html 模板，症状是 node --check 报在 L571 的 const html 上，看着完全不相干）。
+    //   去掉它之后：只有真溢出的容器才多出一条，其余截图不受影响（**不做**假滚动条）。
+    // 借字段名（同 #cards / #cols 的先例，注释里写清就不算说谎）：
+    //   x=clientWidth y=scrollWidth w=scrollLeft h=clientHeight fs=offsetHeight lh=可滚上限
+    //   pad=cardsTotalW gap=scrollbarThickness radius=overflowX
+    var kbc = document.querySelector('.ks-kbband-clip');
+    if (kbc) {
+      var kcs = getComputedStyle(kbc);
+      var inner = kbc.querySelector('.ks-kb-cards');
+      out['#kbband'] = {
+        n: kbc.querySelectorAll('.ks-kb-card').length,
+        x: Math.round(kbc.clientWidth), y: Math.round(kbc.scrollWidth), w: Math.round(kbc.scrollLeft),
+        h: Math.round(kbc.clientHeight), fs: Math.round(kbc.offsetHeight),
+        lh: String(Math.round(kbc.scrollWidth - kbc.clientWidth)),
+        pad: inner ? Math.round(inner.getBoundingClientRect().width) : 0,
+        gap: Math.round(kbc.offsetHeight - kbc.clientHeight),
+        radius: kcs.overflowX,
+      };
     }
     // 每张卡（.ks-kb-card / .ks-cap-card）的**逐个高度**：判"同列卡等高"要看的就是它
     // （P0-2/P0-3 之前只能看首张，于是"212 / 115 / 85 三档"只能靠肉眼估）。
@@ -724,7 +807,11 @@ await writeFile(outHtml, html, 'utf8')
 /* ══════════════════════════ 4. 截图（两趟：先量高，再按高截全景） ══════════════════════════ */
 const fileUrl = pathToFileURL(outHtml).href
 const runBrowser = (args) => spawnSync(browser, [
-  '--headless=new', '--disable-gpu', '--hide-scrollbars', '--no-first-run', '--no-default-browser-check',
+  // ⚠ **5h-补（2026-09-20）：去掉了 `--hide-scrollbars`。** 业主点名的"滑动条"必须**在图上看得见**
+  //   （那是验收标准本身），而这个开关会让滚动条**根本不画** ⇒ 之前那条卡片带的滚动条在截图里
+  //   永远不存在。去掉后只有**真溢出**的容器会多出一条（没有假滚动条）；宽度/高度都可能因此变一点，
+  //   所以 5h-补 的图与断言用的是同一趟实测值。
+  '--headless=new', '--disable-gpu', '--no-first-run', '--no-default-browser-check',
   '--disable-extensions', '--virtual-time-budget=4000',
   `--user-data-dir=${join(work, 'profile')}`,
   ...args,

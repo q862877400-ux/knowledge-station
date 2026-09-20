@@ -182,6 +182,20 @@ export function mount(container, props) {
    *   "表格行为"那部分逐字保留。
    * ⚠ 这一组新增的断言钉的是**本轮头条**：卡片带 / 翻页到头的置灰 / 树与那句标签真的没了 /
    *   下钻出「返回上一级」。同样按"真控件/真状态"口径判，不是数类名。
+   *
+   * ⚠⚠ **5h-补（2026-09-20）就地改口径的断言**（业主把"滑动条"钉实：「所有卡片横在顶端，
+   *   **一个小框下面自带一个左右翻页滑动条**」⇒ 窗口切片换成真滚动容器）：
+   *   ① 原「卡片带：一屏 3 张卡，且第一屏时左箭头 disabled」—— "一屏 3 张"是**窗口切片**口径
+   *      （`BAND_WINDOW=3` + `slice`），已随那个常量作废：现在全部卡片一次渲染进一个
+   *      `overflow-x:auto` 容器，DOM 里恒为 5 张 ⇒ 旧判据 `length === 3` 在新实现下**必红且无意义**。
+   *   ② 原「点右箭头翻到最后一屏 ⇒ 右箭头 disabled / 左箭头可用」与
+   *      ③ 原「再翻回第一屏 ⇒ 左箭头又置灰」—— 语义变成"**按滚动位置**两端置灰"，
+   *      合并进下面的 `withBandGeometry`（**假布局**桩：jsdom 没有布局引擎，
+   *      `scrollWidth`/`clientWidth` 无条件返回 0 ⇒ 不装几何就永远走"没布局 ⇒ 箭头可用"那一支，
+   *      两端状态**根本验不到**；同时另有一条断言钉"没布局时箭头必须可用"，那才是截图链上的真行为）。
+   *   ⚠ **判据一条没放宽、一条没删**：5 张卡"一张不少"、树没了、标签没了都逐字保留，
+   *     只把"每屏几张"这个**已经不存在**的概念从断言里去掉；新加的是"箭头真的驱动 scrollLeft /
+   *     两端真置灰 / 说明文字是总张数口径"。
    */
   const bandCards = () => q('.ks-kb-cards .ks-kb-card')
   const dirEls = () => q('.ks-dir')
@@ -190,32 +204,125 @@ export function mount(container, props) {
   const cardNamed = (name) => bandCards().find((el) => (el.querySelector('.ks-kb-ct')?.textContent ?? '').trim() === name)
   const namesIn = (sel) => q(sel).map((el) => (el.querySelector('.ks-kb-ct')?.textContent ?? '').trim())
   const seenCards = new Set(namesIn('.ks-kb-cards .ks-kb-card'))
-  check('卡片带：一屏 3 张卡，且**第一屏时左箭头 disabled**（到"头"就置灰）',
-    bandCards().length === 3 && navBtn('上一组') !== undefined && navBtn('上一组').disabled === true
-    && navBtn('下一组').disabled === false,
-    `卡 ${bandCards().length} 张；左 disabled=${String(navBtn('上一组')?.disabled)} / 右 disabled=${String(navBtn('下一组')?.disabled)}`)
-  await click(navBtn('下一组'))
-  for (const n of namesIn('.ks-kb-cards .ks-kb-card')) seenCards.add(n)
-  await click(navBtn('下一组'))
-  for (const n of namesIn('.ks-kb-cards .ks-kb-card')) seenCards.add(n)
-  check('卡片带：点右箭头翻到**最后一屏** ⇒ 右箭头 disabled（到"尾"置灰）、左箭头可用',
-    navBtn('下一组').disabled === true && navBtn('上一组').disabled === false
-    && bandCards().length === 3,
-    `左 disabled=${String(navBtn('上一组')?.disabled)} / 右 disabled=${String(navBtn('下一组')?.disabled)}；卡 ${bandCards().length} 张`)
-  check('卡片带：翻页扫一遍能见到**全部 5 张库卡**（标准 / 法律法规 / 3 个自建夹），一张不少',
+  check('卡片带：**全部 5 张库卡一次渲染进同一个横向滚动容器**（不再是"一屏 3 张"的窗口切片）',
+    bandCards().length === 5 && q('.ks-kbband-clip').length === 1
+    && seenCards.size === 5
+    && ['标准', '法律法规', '公司制度', '内部操作规程', '供应商资料'].every((n) => seenCards.has(n)),
+    `卡 ${bandCards().length} 张：${[...seenCards].join(' / ')}；滚动容器 ${q('.ks-kbband-clip').length} 个`)
+
+  /**
+   * **假布局**：jsdom 没有布局引擎 —— `Element-impl` 的 `scrollWidth`/`clientWidth` 是无条件
+   * `return 0`。不给它装上几何，`bandNoLayout` 恒真 ⇒ 两端置灰**永远验不到**。
+   * 装的是一份**最小滚动几何**：两个宽/位置的存取器 + 一个让 `scrollBy` 真的改变 `scrollLeft`
+   * 的桩（jsdom 的 Element **没有** `scrollBy` 方法 —— 组件里那条 `typeof clip.scrollBy ===
+   * 'function'` 的兜底就是为它写的：真机走 scrollBy，这里走 `scrollLeft +=`）。
+   * ⚠ 用完（含断言抛错）**一定还原**：桩留在 `HTMLElement.prototype` 上会污染后面所有断言。
+   */
+  const withBandGeometry = async (fn) => {
+    const clip = q('.ks-kbband-clip')[0]
+    const proto = dom.window.HTMLElement.prototype
+    const had = {
+      sw: Object.getOwnPropertyDescriptor(proto, 'scrollWidth'),
+      cw: Object.getOwnPropertyDescriptor(proto, 'clientWidth'),
+      sb: Object.getOwnPropertyDescriptor(proto, 'scrollBy'),
+    }
+    const geom = { scrollWidth: 908, clientWidth: 640 }
+    Object.defineProperty(proto, 'scrollWidth', {
+      configurable: true, get() { return this === clip ? geom.scrollWidth : 0 },
+    })
+    Object.defineProperty(proto, 'clientWidth', {
+      configurable: true, get() { return this === clip ? geom.clientWidth : 0 },
+    })
+    Object.defineProperty(proto, 'scrollBy', {
+      configurable: true,
+      value(opt) {
+        if (this !== clip) return
+        const by = typeof opt === 'number' ? opt : ((opt && opt.left) ?? 0)
+        const max = geom.scrollWidth - geom.clientWidth
+        this.scrollLeft = Math.max(0, Math.min(max, this.scrollLeft + by))
+      },
+    })
+    try {
+      clip.scrollLeft = 0
+      clip.dispatchEvent(new dom.window.Event('scroll'))
+      await flush()
+      return await fn(geom)
+    } finally {
+      for (const [key, desc] of [['scrollWidth', had.sw], ['clientWidth', had.cw], ['scrollBy', had.sb]]) {
+        if (desc === undefined) delete proto[key]
+        else Object.defineProperty(proto, key, desc)
+      }
+    }
+  }
+
+  /** 滚动位置 + 两个箭头的置灰态（一次读齐，免得三处各读一遍时机不同）。 */
+  const bandState = () => {
+    const clip = q('.ks-kbband-clip')[0]
+    return {
+      left: Math.round(clip.scrollLeft),
+      atStart: navBtn('上一张').disabled === true,
+      atEnd: navBtn('下一张').disabled === true,
+    }
+  }
+  /* ⚠ 这里**先不装几何**跑一条：那才是 jsdom 截图链的真实环境（`scrollWidth` 恒 0）。 */
+  check('卡片带：**没布局的环境（jsdom 截图链）里箭头保持可用** —— 那是渲染链限制，不是"忘了置灰"',
+    navBtn('上一张').disabled === false && navBtn('下一张').disabled === false
+    && q('.ks-kbband-clip')[0].scrollWidth === 0,
+    `左 disabled=${String(navBtn('上一张').disabled)} / 右 disabled=${String(navBtn('下一张').disabled)}`
+    + ` / scrollWidth=${String(q('.ks-kbband-clip')[0].scrollWidth)}（jsdom 无布局 ⇒ 恒为 0）`)
+  await withBandGeometry(async (geom) => {
+    const s0 = bandState()
+    check('卡片带（装几何）：**停在最左 ⇒ 左箭头置灰、右箭头可用**（"到两端就置灰"在新实现下仍成立）',
+      s0.left === 0 && s0.atStart === true && s0.atEnd === false,
+      `scrollLeft=${String(s0.left)} / 左 disabled=${String(s0.atStart)} / 右 disabled=${String(s0.atEnd)}`
+      + `（几何 scrollWidth=${String(geom.scrollWidth)} clientWidth=${String(geom.clientWidth)}）`)
+    const before = q('.ks-kbband-clip')[0].scrollLeft
+    await click(navBtn('下一张'))
+    await flush(); await flush()
+    const moved = q('.ks-kbband-clip')[0].scrollLeft
+    check('卡片带（装几何）：点右箭头 ⇒ **scrollLeft 真的增大**（箭头驱动滚动，不是重渲染窗口）',
+      moved > before,
+      `scrollLeft ${String(before)} → ${String(moved)}（可滚上限 ${String(geom.scrollWidth - geom.clientWidth)}）`)
+    for (let i = 0; i < 6; i += 1) await click(navBtn('下一张'))
+    await flush(); await flush()
+    const sEnd = bandState()
+    check('卡片带（装几何）：滚到最右 ⇒ **右箭头置灰**、左箭头可用（另一端同样成立）',
+      sEnd.left > 0 && sEnd.atEnd === true && sEnd.atStart === false,
+      `scrollLeft=${String(sEnd.left)}（上限 ${String(geom.scrollWidth - geom.clientWidth)}）`
+      + ` / 左 disabled=${String(sEnd.atStart)} / 右 disabled=${String(sEnd.atEnd)}`)
+    /* ⚠ 连点 6 次右箭头后 `scrollLeft` 必须**恰好停在上限**：真机的 `scrollBy` 自己会夹，
+       但**不能指望**每个实现都夹（jsdom 那类不夹 ⇒ 会累加成 3680 这种假数）⇒ 组件里自己夹。
+       这一条就是这个"自己夹"的断言（只靠"到两端置灰"是盖不住它的）。 */
+    check('卡片带（装几何）：连点到头后 `scrollLeft` **恰好等于上限**（自己夹住，不靠浏览器夹）',
+      sEnd.left === geom.scrollWidth - geom.clientWidth,
+      `scrollLeft=${String(sEnd.left)} / 上限=${String(geom.scrollWidth - geom.clientWidth)}`)
+    for (let i = 0; i < 6; i += 1) await click(navBtn('上一张'))
+    await flush(); await flush()
+    const sBack = bandState()
+    check('卡片带（装几何）：再滚回最左 ⇒ 左箭头**又**置灰（置灰随滚动位置变，不是一次性状态）',
+      sBack.left === 0 && sBack.atStart === true,
+      `scrollLeft=${String(sBack.left)} / 左 disabled=${String(sBack.atStart)} / 右 disabled=${String(sBack.atEnd)}`)
+  })
+  /* ⚠ 桩撤了以后**这里故意不再断言箭头置灰**：组件的"有没有布局"是**锁存**的（第一次量到就翻
+     true；真机上布局不会消失），撤桩后它仍停在"有布局"那一支 ⇒ 那是**桩的残留**，不是产品行为。
+     而箭头 `disabled` 的 DOM 属性要 React 再渲染一次才会跟着变，所以此刻读到的是"装的几何下"那一态。
+     **不许**为了让这里变绿去补一次 flush —— 那只会把"桩的残留"伪造成一条产品断言。
+     "没布局 ⇒ 箭头可用"那条链已在上面的前置断言里验过（那时还没装桩）。 */
+  await flush()
+
+  check('卡片带：全部卡片一次渲染 ⇒ **5 张库卡**（标准 / 法律法规 / 3 个自建夹）一张不少',
     seenCards.size === 5
     && ['标准', '法律法规', '公司制度', '内部操作规程', '供应商资料'].every((n) => seenCards.has(n)),
-    `扫到的卡：${[...seenCards].join(' / ')}`)
+    `见到的卡：${[...seenCards].join(' / ')}`)
   check('业主点名要删的东西真的没了：**没有目录树**（.ks-kb-tline = 0），也没有「我建的（真文件夹…）」那句标签',
     q('.ks-kb-tline').length === 0 && q('.ks-kb-tree').length === 0
     && !(container.textContent ?? '').includes('我建的（真文件夹'),
     `树节点 ${q('.ks-kb-tline').length} 个 / .ks-kb-tree ${q('.ks-kb-tree').length} 个 / `
     + `含「我建的（真文件夹」=${String((container.textContent ?? '').includes('我建的（真文件夹'))}`)
-  await click(navBtn('上一组'))
-  await click(navBtn('上一组'))
-  check('卡片带：再翻回第一屏 ⇒ 左箭头**又**置灰（翻页是状态，不是一次性的）',
-    navBtn('上一组').disabled === true && seenCards.size === 5,
-    `左 disabled=${String(navBtn('上一组')?.disabled)}`)
+  check('卡片带：下面那行说明文字是**总张数口径**（"共 5 张 · 可左右滑动或点箭头翻页"），不再是"1-3/共 5 张"',
+    (container.textContent ?? '').includes('共 5 张 · 可左右滑动或点箭头翻页')
+    && !/卡片\s*1\s*[–-]\s*3/.test(container.textContent ?? ''),
+    `说明行：「${(q('.ks-kb-hint')[0]?.textContent ?? '').trim()}」`)
 
   /* ══════════ 断言 2f–2g：**点卡片 = 进入该库 + 按目录逐级下钻** ══════════
    * 业主原话：「点一个卡片就出来知识库内容，比如点法律法规，就按目录展示，先占上一级目录文件夹，

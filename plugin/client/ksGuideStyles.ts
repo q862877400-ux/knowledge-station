@@ -84,6 +84,13 @@ export const KS_STYLES = `
      ⚠ 为什么不直接用 --ks-btn-h-sm 当宽度：那个名字是"按钮高"，借用它表达宽度正是本仓
        反复抓过的"语义漂移"（后来者会以为它俩永远同值）。单开一个名字，值同档。 */
   --ks-band-nav:24px;
+  /* 卡片带上**一张卡的固定宽度**（5h-补，2026-09-20）。172px 是"上一版在 1300 下量到的卡宽"
+     —— 宽屏框 max-width:720px、5 张卡要能横着滑，卡宽不能跟着容器走（那就是窗口切片了）。
+     ⚠ 与 --ks-card-gap(12) 一起决定**一条带的总宽 = 5×172 + 4×12 = 908px** ⇒ 在任何
+        ≤720px 的框里都溢出 ⇒ 滚动条必然出现（这是"滑动条"能被看见的前提，不是巧合）。
+     ⚠ JS 侧 BAND_STEP_PX = 184（卡宽 + gap）是它的**数值镜像**，只用于 scrollBy 的步长；
+        "每屏几张"这个概念已经**不存在**了（上一版正是它与 CSS 两处耦合）。 */
+  --ks-band-card-w:172px;
 }
 
 /* ---------- 开始页入口卡（照 TerminalGuide.module.css 的数值） ----------
@@ -173,9 +180,10 @@ export const KS_STYLES = `
    ⚠ 树的样式（.ks-kb-tree / .ks-kb-tline / .ks-kb-tw / .ks-kb-tn）与 .ks-rail **已删**：
      业主说"不要展示目录树"、"我建的（真文件夹；与上面两棵平级）这种乱七八糟东西删了" ——
      删了什么、为什么写在 docs/UI-BASELINE.md 5h。
-   ⚠ 框宽 max-width:720px（= 180 个 4px 单位）：业主说的是"一个**小**框"，不是通栏；
-     宽屏（1300）下 3 张卡各约 202px，窄屏（520）下各自缩到约 130px —— **同排等宽等高**由
-     repeat(3,minmax(0,1fr)) 与 .ks-kb-cards>* 的 min-height 保证（实测值见 5h 的 #cards）。
+   ⚠ 框宽 max-width:720px（= 180 个 4px 单位）：业主说的是"一个**小**框"，不是通栏。
+   ⚠ 5h-补（2026-09-20）后**卡宽与框宽脱钩**：卡固定 --ks-band-card-w(172)，框内能同时看到几张
+     由框宽决定（宽屏 720 的框里约 3 张 + 半点露头，窄屏 520 里约 2 张）—— 这正是"能滑"的观感；
+     上一版那句"宽屏 3 张各约 202px / 窄屏各缩到约 130px"是**窗口切片**年代的话，已作废。
    ⚠ 本段是模板字符串里的一段 CSS：注释里**不许出现反引号**（会截断模板）—— 这里踩过第 8 次。 */
 .ks-kbband{display:flex;align-items:center;gap:var(--ks-space-2);box-sizing:border-box;
   max-width:720px;padding:var(--ks-space-2);
@@ -183,11 +191,25 @@ export const KS_STYLES = `
   --dsw-elevation-stroke-color:var(--dsw-alias-border-l2);
   background:var(--dsw-alias-bg-base);box-shadow:var(--dsw-elevation-soft)}
 /* 窗口：**卡片带的可视区**（宽度由框减去两个箭头与间距给）。 */
-.ks-kbband-clip{flex:1;min-width:0;overflow:hidden}
-/* 窗口里恒为 **3 列等宽**（BAND_WINDOW=3；换了常量这里也要改 —— 两处必须一起动）。
-   ⚠ 最后一屏可能不足 3 张（我们是 5 张、窗口 3、步长 1 ⇒ 永远恰好 3 张）；不足时
-     空位留白，**不把剩下的卡拉宽**（"尺寸统一"优先于"铺满"）。 */
-.ks-kbband .ks-kb-cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ks-kbband-clip{flex:1;min-width:0;
+  overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;
+  scrollbar-width:thin;scrollbar-color:var(--dsw-alias-scrollbar-bg-l1) transparent}
+/* ⚠ **滚动条可见性**：这里**不自己画滚动条**（不写 height/background）—— 宿主的
+   ui-theme/src/styles/scrollbar.css 已经全局给 ::-webkit-scrollbar 8px 宽 +
+   --dsw-alias-scrollbar-* 拇指色；@supports not selector(::-webkit-scrollbar) 那一支
+   （Firefox）才落到上面那条 scrollbar-width:thin。两条路互斥、不是两套并存。
+   这里只补一件事：overflow-x:auto ⇒ 内容一溢出，那条**原生**滚动条就出现，
+   且深浅两套配色走宿主 token（自己画 = 第二套色值，上一版就是这么被点名的）。 */
+/* 键盘可达：容器自己有 tabIndex=0（见 KsKnowledgePage.tsx），聚焦环也走宿主 border 档。 */
+.ks-kbband-clip:focus-visible{outline:var(--ks-stroke) solid var(--dsw-alias-border-l4);
+  outline-offset:calc(-1 * var(--ks-space-1))}
+/* 卡宽**只在这里定义一处**：上一版是 BAND_WINDOW=3 常量 + repeat(3,…) 两处耦合
+   （改一处忘另一处就错位）⇒ 本轮把"每屏几张"彻底从 CSS 里去掉，换成**固定卡宽**。
+   不伸不缩（flex:0 0）⇒ 同排**等宽**；容器 align-items:stretch ⇒ 同排**等高**
+   （.ks-kb-cards>*{min-height:var(--ks-card-h)} 仍兜底）。
+   ⚠ .ks-kbband .ks-kb-cards 现在是**横向 flex 容器**，不再是网格。 */
+.ks-kbband .ks-kb-cards{display:flex;flex-direction:row;align-items:stretch;gap:var(--ks-card-gap);
+  width:max-content}
 /* 箭头：24px 方框（--ks-band-nav），走宿主 interactive 档；到头/到尾 disabled ⇒ 置灰。 */
 .ks-kbband-nav{flex:none;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;
   width:var(--ks-band-nav);height:var(--ks-band-nav);padding:0;border:0;border-radius:var(--ks-r-md);
@@ -196,8 +218,13 @@ export const KS_STYLES = `
 .ks-kbband-nav:disabled{background:transparent;color:var(--dsw-alias-label-caption);cursor:default}
 /* 卡片带上的一张卡：卡面样式仍归 .ks-kb-card（与详情里的占位卡同一份），这里只补
    "它现在是个 button"要清零的原生外观 + 选中态（选中 = 当前正在看的那张库卡）。
-   ⚠ 选中态走宿主 interactive-bg-active（与 .ks-chip-on 同一档），**不新增色值**。 */
-.ks-kbband .ks-kb-card{width:100%;font:inherit;text-align:left;color:inherit;cursor:pointer}
+   ⚠ 选中态走宿主 interactive-bg-active（与 .ks-chip-on 同一档），**不新增色值**。
+   ⚠⚠ **卡宽只有这一处定义**（5h-补 2026-09-20）：flex:0 0 var(--ks-band-card-w) + 不写 width。
+      原来这里写的是 width:100% —— 那是"跟着窗口等比缩"的年代（每屏恒 3 张）；现在卡宽钉死，
+      一条卡片带的总宽 = 5 × 卡宽 + 4 × gap > 容器宽 ⇒ 滚动条**必然**出现（实测值见 5h 的
+      #kbband）。scroll-snap-align:start 与它同一条规则：卡宽与吸附点天生是同一件事。 */
+.ks-kbband .ks-kb-card{flex:0 0 var(--ks-band-card-w);scroll-snap-align:start;
+  font:inherit;text-align:left;color:inherit;cursor:pointer}
 .ks-kbband .ks-kb-card[data-on='true']{--dsw-elevation-stroke-color:var(--dsw-alias-border-l4);
   background:var(--dsw-alias-interactive-bg-active)}
 /* ---------- 5h：面包屑 + 「返回上一级」 + 目录层 ---------- */
