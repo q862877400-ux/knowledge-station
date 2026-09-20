@@ -55,8 +55,8 @@
   ⇒ **同内容的两种行尾哈希不同**，拿哈希比对会把"已还原"误读成"没还原"，或反过来。
   同理 `plugin/client.js` 的"磁盘字节数"会在 CRLF（1,535,332）与 LF（1,497,400 = 提交 blob）间变，
   那不是产物差异（`smoke-client-entry` 的整份一致断言两种形态都过）。
-- ⚠ **门禁链从 5j-补（2026-09-20）起需要本机有 Chromium/Edge**：`smoke-all.mjs` 名单里现在有两套
-  要真浏览器的脚本（`smoke-kb-pad-pixels`、`smoke-kb-cols`），没浏览器就是**红、不是跳过**。
+- ⚠ **门禁链从 5j-补（2026-09-20）起需要本机有 Chromium/Edge**：`smoke-all.mjs` 名单里现在有**三套**
+  要真浏览器的脚本（`smoke-kb-pad-pixels`、`smoke-kb-cols`、`ui-badge-pixels`），没浏览器就是**红、不是跳过**。
   提取树里跑门禁前先确认 `msedge.exe`/`chrome.exe` 在（本机命中的是 Edge）。
 - **复核自己造的变异必须在跑门禁前还原**：变异（例如往 `package.json` 的 `dsh.client.inject` 加一个
   假模块）与门禁并发时，同样会让上面那条整份一致断言红（复核第一遍 `-Full` 的 smoke 红就是这么来的，
