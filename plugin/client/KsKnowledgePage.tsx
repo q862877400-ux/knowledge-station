@@ -115,7 +115,7 @@
  * - 树里的文档集合是手写的样例，不是真实索引。
  */
 
-import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { Fragment, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { Button, Checkbox, IconArchiveOutline20, IconChecklistOutline14, IconChevronDownOutline14, IconChevronLeftOutline14, IconChevronRightOutline14, IconEllipsisOutline16, IconFolderOpenOutline16, IconInfoOutline14, IconInspectOutline12, IconListPenOutline16, IconPlusOutline16, IconSearchOutline16, IconShieldOutline16, IconTrashOutline16, Input, Menu, Pill } from '@deepseek-ai/dsh-client-ui-primitives'
 
 import { ensureKsStyles } from './ksGuideStyles'
@@ -249,6 +249,43 @@ const COLUMNS = [
 
 /** `COLUMNS` 的键联合类型（让 `renderCell` 的 switch 是穷尽的）。 */
 type ColKey = (typeof COLUMNS)[number]['key']
+
+/**
+ * **目录层**的列定义（业主 2026-09-20 头条：目录视图要**和文件列表同构**、**同一套列表机制**）。
+ *
+ * 与 `COLUMNS` **同构**（同一种写法、同一种用法）：表头 `DIR_COLUMNS.map(...)`、行
+ * `DIR_COLUMNS.map(...)`，两边的 cell 类名序列**必然逐字相同**；列**宽度**的单一所有者仍然是
+ * `.ks-list` 上的 `--ks-cols` —— 目录层给 `.ks-list` 一个**自己的** `--ks-cols`
+ * （`.ks-list-dirs` 那条规则；**同一机制、不同列数**），`DIR_COLUMNS` 自己**不写宽度**。
+ *
+ * 列**只按目录真有的字段定** —— 我们的目录（`MockNode`）只有**名称**与**这一棵子树的篇数**
+ * （`countUnder`），**没有**更新时间 / 来源 / 大小：
+ *   | 列 | 来自哪个字段 | 列头 |
+ *   |---|---|---|
+ *   | 目录名（两行里的第 1 行 = 名称，第 2 行 = 整条路径） | `name` / `key` | 目录 |
+ *   | 这一棵下的篇数 | `countUnder(child)`（真算出来的树计数） | 篇数 |
+ *   | 进入提示 | 无字段（固定字形） | （无列头） |
+ *
+ * ⚠ **列数只有 3**（文件层是 5）—— 这是"同构 ≠ 同宽"的落点：同一种机制、同一套类、
+ *   同一条行高 token（看 css），但列模板按**目录真有的字段**给。**不许**为了凑成 5 列
+ *   给目录编"更新时间/来源/大小"（我们没有那些字段；编出来就是假数据）。
+ * ⚠ 列头里**没有"文件名"那一列**：目录层的第一列叫「目录」（它装的是目录，不是文件）——
+ *   借用"文件名"当列头是把事实说错。同样地，第三列的列头是**空串**（参照里那一列也是
+ *   无字形的操作位，不占文案），与 `COLUMNS` 的 `more` 列**同一种写法**。
+ * ⚠ 列类名与文件层**不重用**（`ks-col-dname` / `ks-col-dcount` / `ks-col-dgo`，
+ *   文件层是 `ks-col-name` / `ks-col-status` / `ks-col-date` / `ks-col-tags` / `ks-col-more`）：
+ *   两层的行都挂在 `.ks-item` 上，重用类名会让"列身份"在两层之间串味（同一个类在两层
+ *   指向不同的东西）—— 那是本仓反复抓过的"身份漂移"。类名不同，机制相同。
+ */
+const DIR_COLUMNS = [
+  { key: 'dname', cls: 'ks-col-dname', head: '目录' },
+  { key: 'dcount', cls: 'ks-col-dcount', head: '篇数' },
+  // 行尾"进入提示"列：**没有列头**（与 COLUMNS 的 more 列同一种写法）
+  { key: 'dgo', cls: 'ks-col-dgo', head: '' },
+] as const
+
+/** `DIR_COLUMNS` 的键联合类型（让目录行的 `switch` 是穷尽的）。 */
+type DirColKey = (typeof DIR_COLUMNS)[number]['key']
 
 /**
  * 行内**文件图标**（P2 头条）：从**已有字段 `no`** 推出来的呈现档 ——
@@ -575,6 +612,17 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
   const folder = node.key
   /** 面包屑（库名 + 逐级目录名）。 */
   const crumb = [kb.name, ...pathNames(kb.root, path)].join(' / ')
+  /**
+   * 面包屑的**逐级条目**（业主 2026-09-20：「这种路径要**每一级都能点击跳转**」）。
+   * `depth` 就是这个条目对应的 `path` 前缀长度：点它就 `enterDepth(depth)` ⇒
+   *   第 0 条（库名）= 库根；第 k 条 = 第 k 级目录。
+   * ⚠ 末条（`depth === path.length`）是**当前所在层级** ⇒ 渲染成**不可点的 `<span>`**
+   *   （不是 disabled button：那仍是一个"按不动的按钮"，而它本来就不是按钮）。
+   *   `.ks-crumb-item` 这一层是**所有条目共有**的类（渲染级冒烟按它逐级数、并判
+   *   "只有末条不可点"）—— 点与不点因此是**同一份列表**里的两态，不是两套结构。
+   */
+  const crumbItems = [kb.name, ...pathNames(kb.root, path)]
+    .map((name, depth) => ({ name, depth, current: depth === path.length }))
 
   /** 一个节点（含后代）下共有多少篇 —— 卡片/目录上的「N 篇」都用它。 */
   const countUnder = (target: MockNode): number => {
@@ -638,6 +686,23 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
    */
   const goUp = (): void => {
     setPath((prev) => prev.slice(0, -1))
+    setSelected(new Set<string>())
+    setOpenDoc(null)
+  }
+
+  /**
+   * 点**面包屑的第 i 级** ⇒ 直接跳回那一层（业主 2026-09-20：「这种路径要**每一级都能点击跳转**」）。
+   *   · `i === 0` = 库名那一级 = **回到库根**（`path` 清空）、丢掉整条下钻路径；
+   *   · `i === k`（k ≥ 1）= 回到第 k 级目录（保留前 k 段的 key）。
+   * 口径与 `enterDir` / `goUp` **逐字一致**：清选择 + 清详情（换层后上一条选择里的行
+   * 已经不在这份列表里，批量动作会作用在看不见的行上）、**保留搜索串**（5i：搜索是**页面级**
+   * 的一个过滤条件，同库内下钻/返回都保留）。
+   * ⚠ **只 slice、不信任 `i` 的边界**：`prev.slice(0, i)` 对负数与超长都不会抛
+   *   （负数从末尾数、超长取整条）—— 但调用方只会在 `0..path.length` 上用它（见下面的渲染）。
+   * ⚠ **当前所在那一级不渲染成按钮**（它是"你现在在这"）：见下面的 `crumbItems`。
+   */
+  const enterDepth = (i: number): void => {
+    setPath((prev) => prev.slice(0, i))
     setSelected(new Set<string>())
     setOpenDoc(null)
   }
@@ -1032,7 +1097,49 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                 返回上一级
               </Button>
             )}
-            <span className="ks-crumb-path" title="当前路径（知识库 / 各级目录）">{crumb}</span>
+            {/* 面包屑**逐级可点**（业主 2026-09-20：「这种路径要**每一级都能点击跳转**」）：
+                知识库名 / 一级 / 二级 / 三级 —— 点第 i 级就回到那一层（i=0 = 回库根）。
+                ⚠ **当前所在那一级不可点**（`depth === path.length`）：渲染成 `<span aria-current="page">`
+                  **不是**按钮 —— "你现在在这"不该是一个按不动的假按钮。
+                ⚠ 结构：外层 `.ks-crumb-path`（仍然在，且仍然是**测量锚点**，见 ui-render-shot.mjs 的
+                  `.ks-crumb-path` 几何项）里面是 `item / 分隔符 / item / …`。
+                  **分隔符与条目是兄弟**（不是把 `/` 塞进条目里）：条目的 textContent 因此
+                  **只等于那一级的名字**（渲染级冒烟按它逐级比对，不会被 `/` 污染）。
+                  ⚠ 分隔符**没有空白字符**（`/` 就一个字符）：两条目之间若插一个纯文本空格，
+                  在 flex 行里会多出一个匿名文本项、在段之间顶出空隙 —— 那是版式 bug，
+                  所以段间空隙一律交给 `.ks-crumb-sep` 的 `padding`。
+                ⚠ 整条仍必须**收敛**（520 档是硬约束）：它还是 `.ks-crumb` 那个 nowrap flex 行，
+                  条目 `flex:0 1 auto` 可缩、`overflow:hidden` 由 `.ks-crumb` 兜 ⇒ 窄窗下尾巴被裁掉、
+                  不会被撑破（见 ksGuideStyles.ts 的 `.ks-crumb*` 那一段）。 */}
+            <span className="ks-crumb-path" title={`当前路径（知识库 / 各级目录）：${crumb}`}>
+              {crumbItems.map((c, i) => (
+                <Fragment key={`${String(c.depth)}:${c.name}`}>
+                  {i > 0 && <span className="ks-crumb-sep" aria-hidden="true">/</span>}
+                  <span className="ks-crumb-item">
+                    {c.current ? (
+                      <span
+                        className="ks-crumb-here"
+                        aria-current="page"
+                        data-current="true"
+                        title="你现在在这一级（不可点）"
+                      >
+                        {c.name}
+                      </span>
+                    ) : (
+                      <button
+                        type="button"
+                        className="ks-crumb-go"
+                        aria-label={c.depth === 0 ? `回到「${c.name}」的知识库根目录` : `回到「${c.name}」这一级`}
+                        title={c.depth === 0 ? `回到「${c.name}」根目录` : `回到「${c.name}」`}
+                        onClick={() => { enterDepth(c.depth) }}
+                      >
+                        {c.name}
+                      </button>
+                    )}
+                  </span>
+                </Fragment>
+              ))}
+            </span>
             <div className="ks-kb-grow" />
             {/* 目录层给"几个子目录"；**文件层不在这里再报一次篇数** —— 列表题头（.ks-list-cap）
                 已经写着「N 篇」，筛选条也写着「共 N 篇」，三处同数是噪音（5h 的第一版就是三处）。
@@ -1385,14 +1492,35 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
           ) : (
             /* ══ 目录层（一级/二级/三级…）：**只显示子目录**，不铺文件 ══
                业主："先占上一级目录文件夹，然后点开是二级目录"；"到最末一级才是文件"。
-               ⚠ 每个目录卡上的「N 篇」是**这一棵子树**里的文件数（`countUnder`，含更深层）——
+               ⚠ 每个目录行上的「N 篇」是**这一棵子树**里的文件数（`countUnder`，含更深层）——
                  用户不用点进去就知道下面有没有东西。
                ⚠ 现有占位数据里 `USER_FOLDERS`（公司制度/内部操作规程/供应商资料）**没有子目录**，
                  所以点那三张卡会**直接**落到文件表格（`atFiles`）—— 那是数据本来的层级，不是漏做。
                ⚠ 5i（2026-09-20 收尾批）：这一层**也常驻搜索框**（`searchBox`，过滤**目录名**）——
                  位置与文件层同构：都是"紧贴这一层的条目区上方"。没命中时给**专门的**空态
                  `没有符合搜索的目录`（+「清除搜索」），**不**复用文件层那句"没有符合筛选或搜索的文件"
-                 （那是文件的话；在目录层说"文件"会把用户引到错的地方）。 */
+                 （那是文件的话；在目录层说"文件"会把用户引到错的地方）。
+               ⚠⚠ **2026-09-20 头条（业主：「把子目录文件夹的视图，做成和文件列表一样的视图」）**：
+                 目录层从**卡片网格**（`.ks-dirs` grid + `.ks-dir` 卡片按钮）改成**与文件列表同构的列表**：
+                   容器 = `.ks-list`（**同一套类**）+ 一条**它自己的** `--ks-cols`（`ksGuideStyles.ts`
+                     里的 `.ks-list-dirs`；列模板仍然只有 `.ks-list` 那一处所有者，行/表头都只写
+                     `grid-template-columns:var(--ks-cols)`）；
+                   表头 = 同一个 `.ks-lhead` + `DIR_COLUMNS.map(...)`；行 = 同一个 `.ks-item` +
+                     `DIR_COLUMNS.map(...)` ⇒ 两侧 cell 类名序列**必然逐字相同**（与文件层同一条断言口径）；
+                   行高 = 同一个 `--ks-row-h-list`（52px，与文件行一致）。
+                 ⚠ `.ks-dirs` 这个类**留在容器上**（它被三处外部锚点按名引用：`ui-render-shot.mjs` 的
+                   `#kspad` 留边适用面、`PAD_SUBJECTS_ALL`、`smoke-kb-pad-pixels.mjs` 的 `SPEC_SUBJECTS`
+                   —— 且那三处要求逐字一致）。它**不再**是网格：新几何由 `.ks-list-dirs` 给
+                   （`ksGuideStyles.ts` 里 `.ks-list-dirs` 那条 `display:block` 覆盖掉旧的
+                   `display:grid` + `grid-template-columns:repeat(auto-fill,minmax(220px,1fr))`）。
+                 ⚠ **整行可点**（业主：「每一级都能点击跳转」的同一条诉求；文件行那边"整行可点"仍是
+                   未做项，因为文件名**就是**宿主 Checkbox 的可见 label —— 目录行**没有勾选框**，
+                   所以"行本身就是 `<button>`"这条路在目录层**没有那个冲突**，可以直接做）。
+                   键盘可达：它是原生 `<button>`（Tab 聚焦 + Enter/Space 激活，不用手写 keydown）；
+                   焦点可见由 `ksGuideStyles.ts` 的 `.ks-list-dirs .ks-item:focus-visible` 给
+                   （inset 环 —— 容器是 `overflow:hidden`，外扩环会被裁掉）。
+                 ⚠ 空态卡（"没有符合搜索的目录"）**在列表盒子之外**，与文件层同一手法：
+                   盒子只装"列头 + 行"（`smoke-kb-page-render.mjs` 判 `.ks-list` 的**直接子元素**）。 */
             <>
             {searchBox}
             {kidsShown.length === 0 && (
@@ -1412,20 +1540,55 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                 </Button>
               </div>
             )}
-            <div className="ks-dirs">
-              {kidsShown.map((child) => (
-                <button
-                  key={child.key}
-                  type="button"
-                  className="ks-dir"
-                  title={`进入「${child.name}」（这一棵目录下共 ${String(countUnder(child))} 篇）`}
-                  onClick={() => { enterDir(child.key) }}
-                >
-                  <span className="ks-dir-ico"><IconFolderOpenOutline16 /></span>
-                  <span className="ks-dir-name">{child.name}</span>
-                  <span className="ks-kb-badge">{countUnder(child)} 篇</span>
-                </button>
-              ))}
+            <div className="ks-list ks-list-dirs ks-dirs">
+              {/* 列头行：与目录行**同构**（同一份 `DIR_COLUMNS`），cell 类名序列因此逐字相同。 */}
+              <div className="ks-lhead">
+                {DIR_COLUMNS.map((col) => (
+                  <div className={`ks-cell ${col.cls}`} key={col.key}>
+                    {col.head === '' ? null : <span className="ks-lhead-col">{col.head}</span>}
+                  </div>
+                ))}
+              </div>
+              {kidsShown.map((child) => {
+                const n = countUnder(child)
+                /**
+                 * 一个 cell 的内容（`DIR_COLUMNS.map` 逐列取）。列身份由 `DIR_COLUMNS` 定义、
+                 * 列宽由 `.ks-list` / `.ks-list-dirs` 的 `--ks-cols` 定义 ⇒ 表头与行的对齐是
+                 * **结构保证**的（与文件层的 `cellFor` 同一口径）。
+                 */
+                const dirCell = (key: DirColKey): ReactNode => {
+                  switch (key) {
+                    case 'dname':
+                      return (
+                        <>
+                          <span className="ks-fileico" title="目录"><IconFolderOpenOutline16 /></span>
+                          <span className="ks-dir-name" title={child.key}>{child.name}</span>
+                          <span className="ks-item-sub">
+                            <span className="ks-item-meta">{child.key}</span>
+                          </span>
+                        </>
+                      )
+                    case 'dcount':
+                      return <span className="ks-kb-badge">{n} 篇</span>
+                    case 'dgo':
+                      return <span className="ks-dir-go"><IconChevronRightOutline14 /></span>
+                  }
+                }
+                return (
+                  <button
+                    key={child.key}
+                    type="button"
+                    className="ks-item ks-dir-row"
+                    title={`进入「${child.name}」（这一棵目录下共 ${String(n)} 篇）`}
+                    aria-label={`进入目录「${child.name}」，这一棵目录下共 ${String(n)} 篇`}
+                    onClick={() => { enterDir(child.key) }}
+                  >
+                    {DIR_COLUMNS.map((col) => (
+                      <div className={`ks-cell ${col.cls}`} key={col.key}>{dirCell(col.key)}</div>
+                    ))}
+                  </button>
+                )
+              })}
             </div>
             </>
           )}

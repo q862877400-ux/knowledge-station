@@ -297,11 +297,32 @@ export function mount(container, props) {
    *     两端真置灰 / 说明文字是总张数口径"。
    */
   const bandCards = () => q('.ks-kb-cards .ks-kb-card')
-  const dirEls = () => q('.ks-dir')
+  /* ⚠⚠ **2026-09-20 头条改口径：目录层从"卡片网格"改成"与文件列表同构的列表"**。
+   * 业主原话：「把子目录文件夹的视图，做成和文件列表一样的视图」⇒ 目录不再是 `.ks-dir` 卡片按钮，
+   * 而是 `.ks-list-dirs` 里的**行**（`.ks-item.ks-dir-row`），表头是同一个 `.ks-lhead`。
+   * ⇒ 这里只换**选择器**（`.ks-dir` → `.ks-dir-row`），**判据一条没放宽**：下面每一条断言
+   *   原来数几张"目录卡"、现在就数几行"目录行"，期望条数**逐字不变**。
+   * ⚠ 为什么用 `.ks-dir-row`（而不是裸 `.ks-item`）：文件层的行也是 `.ks-item` ——
+   *   必须能分辨"这一行的身份是目录"还是"是文件"（否则"目录层显示 3 个目录、0 行文件"
+   *   这类断言会自我打脸）。`.ks-dir-row` 是目录行的**身份类**。
+   * ⚠ 目录名的选择器从 `.ks-dir-name` 换到 `.ks-col-dname .ks-dir-name`：`.ks-dir-name`
+   *   这个名字**保留**在目录行的名字元素上（旧锚点不完全作废），但行里另有路径那一行，
+   *   按"列"定位更准（列身份归 DIR_COLUMNS）。 */
+  const dirEls = () => q('.ks-dir-row')
+  const dirNameOf = (row) => (row?.querySelector('.ks-col-dname .ks-dir-name')?.textContent ?? '').trim()
+  /* **文件行**（目录层的行也是 `.ks-item` ⇒ 这两件事从此必须分开数）。
+   * 文件行的身份类是 `.ks-check`（文件名就是宿主 Checkbox 的可见 label，见 KsKnowledgePage.tsx
+   * 的 name 分支）—— 目录行**没有**勾选框（它的整行是 button），所以这条区分是稳的。
+   * ⚠ 下面凡是"这一层有几行**文件**"的断言，一律走 fileRows()；凡是要"当前可见行总数"的
+   *   （例如批量选择、搜索过滤文件名），也一律走 fileRows() —— 它们在**文件层**跑，
+   *   那一层本来就没有目录行。 */
+  const fileRows = () => q('.ks-item').filter((row) => row.querySelector('.ks-check') !== null)
   const navBtn = (which) => q('.ks-kbband-nav').find((b) => (b.getAttribute('aria-label') ?? '').includes(which))
   /** 按**卡名**找那一张卡（名字在 `.ks-kb-ct` 里；卡上还有描述与篇数 ⇒ 整卡文本不能直接比对）。 */
   const cardNamed = (name) => bandCards().find((el) => (el.querySelector('.ks-kb-ct')?.textContent ?? '').trim() === name)
   const namesIn = (sel) => q(sel).map((el) => (el.querySelector('.ks-kb-ct')?.textContent ?? '').trim())
+  /** 一个元素的 computed 属性（`null` 元素 ⇒ `null`；取不到值本身不算"相同"）。 */
+  const csOf = (el, prop) => el === null ? null : dom.window.getComputedStyle(el).getPropertyValue(prop)
   const seenCards = new Set(namesIn('.ks-kb-cards .ks-kb-card'))
   check('卡片带：**全部 5 张库卡一次渲染进同一个横向滚动容器**（不再是"一屏 3 张"的窗口切片）',
     bandCards().length === 5 && q('.ks-kbband-clip').length === 1
@@ -460,66 +481,188 @@ export function mount(container, props) {
    * ⚠ 用「法律法规」这一支取证：它的占位数据是**恰好三级目录 + 文件**（法律 → 宪法与行政法 →
    *   安全生产 = 文件层），能把"一级 → 二级 → 文件"整条路走完。 */
   check('默认态：显示**一级目录**（标准库的 3 个 CCS 大类），**不是**直接铺文件',
-    dirEls().length === 3 && q('.ks-item').length === 0 && q('.ks-lhead').length === 0,
-    `目录卡 ${dirEls().length} 张 / 文件行 ${q('.ks-item').length} / 表头 ${q('.ks-lhead').length}`)
+    dirEls().length === 3 && fileRows().length === 0 && q('.ks-lhead').length === 1,
+    `目录行 ${dirEls().length} 行 / 文件行 ${fileRows().length} / 表头 ${q('.ks-lhead').length}`)
+  /* ── 断言 2f-1/2f-2（**2026-09-20 头条新增**）：目录层 = **与文件列表同构的列表** ──
+   * 业主原话：「把子目录文件夹的视图，做成和文件列表一样的视图」。
+   * 为什么必须补这一组：本批之前"目录层是不是列表"**没有任何断言**（它是卡片网格，
+   * 而断言只数 `.ks-dir` 的个数）⇒ 把它改回卡片网格，旧断言照样全绿。
+   * 这一组按**结构**判（不是像素，像素由 ui-render-shot 的 `#cols`/`#kspad` 判）：
+   *   ① 容器是**同一套类** `.ks-list`（+.ks-list-dirs）+ 一条**自己的** `--ks-cols`；
+   *   ② 表头与**每一行**都按 DIR_COLUMNS 渲染 ⇒ cell 类名序列**逐字相同**（与文件层 3d 同口径）；
+   *   ③ 列模板仍然**只有一个所有者**：行/表头都只写 grid-template-columns:var(--ks-cols)，
+   *      且两者的 computed 值**逐字相同**（与文件层 3e-2 同口径）—— 谁偷偷另写一套列宽就红。 */
+  const dirList = container.querySelector('.ks-list-dirs')
+  const dirHeadCells = dirList === null ? [] : [...(dirList.querySelector('.ks-lhead')?.children ?? [])].map((c) => c.className)
+  const dirRowCells = dirEls().map((row) => [...row.children].map((c) => c.className))
+  check('目录层：容器是**同一套列表类** `.ks-list`（+`.ks-list-dirs`），表头是同一个 `.ks-lhead`，行是 `.ks-item.ks-dir-row`',
+    dirList !== null && dirList.classList.contains('ks-list')
+    && dirList.querySelector('.ks-lhead') !== null
+    && dirEls().length === 3 && dirEls().every((row) => row.classList.contains('ks-item'))
+    && dirEls().every((row) => row.tagName === 'BUTTON'),
+    `容器类名=${JSON.stringify(dirList?.className ?? null)}；表头 ${dirList?.querySelectorAll('.ks-lhead').length ?? 0} 个；`
+    + `行 ${dirEls().length} 行（都是 button=${String(dirEls().every((r) => r.tagName === 'BUTTON'))}）`)
+  check('目录层：表头与**每一行**的 cell 类名序列**逐字相同**（两侧都按同一份 DIR_COLUMNS 渲染，列数 3）',
+    dirHeadCells.length === 3 && dirRowCells.length === 3
+    && dirRowCells.every((cs) => JSON.stringify(cs) === JSON.stringify(dirHeadCells)),
+    `表头 ${JSON.stringify(dirHeadCells)}；第 1 行 ${JSON.stringify(dirRowCells[0] ?? [])}`)
+  check('目录层：列头文案就是「目录 / 篇数」（第 3 列无列头，与文件层的 ⋮ 列同一种写法）',
+    (dirList?.querySelector('.ks-lhead')?.textContent ?? '').includes('目录')
+    && (dirList?.querySelector('.ks-lhead')?.textContent ?? '').includes('篇数'),
+    (dirList?.querySelector('.ks-lhead')?.textContent ?? '').replace(/\s+/g, ' '))
+  const dirHeadEl = dirList?.querySelector('.ks-lhead') ?? null
+  const dirRowEl = dirEls()[0] ?? null
+  const dirTpl = csOf(dirHeadEl, 'grid-template-columns')
+  const dirRowTpl = csOf(dirRowEl, 'grid-template-columns')
+  const dirGap = csOf(dirHeadEl, 'column-gap')
+  const dirRowGap = csOf(dirRowEl, 'column-gap')
+  /* ⚠ 与文件层**必须不同**：目录层的 --ks-cols 是 3 列（文件层是 3 或 5 列）。
+   * 这一条同时钉住"目录层有自己的列模板"—— 若有人把目录层直接接到文件层那条
+   * --ks-cols 上（5 列），这里会红（列数与文件名列都在）。 */
+  check('目录层：表头行与目录行的 computed grid-template-columns / column-gap **逐字相同**，且列模板**不是**文件层那一条',
+    Boolean(dirTpl) && Boolean(dirRowTpl) && Boolean(dirGap) && Boolean(dirRowGap)
+    && dirTpl === dirRowTpl && dirGap === dirRowGap
+    && dirTpl !== csOf(container.querySelector('.ks-list:not(.ks-list-dirs) .ks-lhead'), 'grid-template-columns'),
+    `目录 表头 ${JSON.stringify(dirTpl)} / 行 ${JSON.stringify(dirRowTpl)}；`
+    + `gap 表头 ${JSON.stringify(dirGap)} / 行 ${JSON.stringify(dirRowGap)}；`
+    + `文件层表头 ${JSON.stringify(csOf(container.querySelector('.ks-list:not(.ks-list-dirs) .ks-lhead'), 'grid-template-columns'))}`)
+  /* ⚠ 行高的**声明串**要在这里先量下来（此刻在目录层）：等会儿下钻到文件层再量文件行，
+   *   两边比对 —— 不能在目录层就断言（那里没有文件行，写成"没有文件行就算过"= 恒真假绿）。 */
+  const dirRowMinH = csOf(dirEls()[0] ?? null, 'min-height')
   await click(cardNamed('法律法规'))
   check('点「法律法规」卡 ⇒ 进入该库、显示它的**一级目录**（法律 / 行政法规）；库根**没有**返回上一级按钮',
     dirEls().length === 2 && dirEls().map((el) => (el.textContent ?? '').trim()).join('|').includes('法律')
-    && q('.ks-item').length === 0 && q('.ks-back').length === 0,
-    `一级目录 ${dirEls().length} 张；返回按钮 ${q('.ks-back').length} 个；`
+    && fileRows().length === 0 && q('.ks-back').length === 0,
+    `一级目录 ${dirEls().length} 行；返回按钮 ${q('.ks-back').length} 个；`
     + `面包屑「${container.querySelector('.ks-crumb-path')?.textContent ?? '(没有)'}」`)
-  await click(dirEls().find((el) => (el.textContent ?? '').trim().startsWith('法律')))
-  check('点开一级目录「法律」⇒ 显示**二级目录**（宪法与行政法），并**自动出现**「返回上一级」按钮',
-    dirEls().length === 1 && (dirEls()[0].textContent ?? '').includes('宪法与行政法')
-    && q('.ks-back').length === 1,
-    `二级目录 ${dirEls().length} 张；返回按钮 ${q('.ks-back').length} 个；`
-    + `面包屑「${container.querySelector('.ks-crumb-path')?.textContent ?? '(没有)'}」`)
+  /* ══════════ 断言 2f-3..2f-6（**2026-09-20 头条新增**）：**面包屑每一级都能点** ══════════
+   * 业主原话：「标准 / P 土木、建筑 / P15/19 工程抗震、工程防火、人防工程 / P16 工程防火
+   *   这种路径要**每一级都能点击跳转**」。
+   * 此刻的准确状态：刚**进入「法律法规」库根**（还没下钻）⇒ 面包屑只有 **1 个条目**，
+   *   它是**当前级**（库名「法律法规」，不可点）。⚠ 这正是"当前级不可点"最干净的一态：
+   *   库根时**一个可点条目都没有**（没有上一级可回）。
+   * 为什么必须补这一组：本批之前面包屑是**一整行纯文本 span**（`.ks-crumb-path`），
+   *   "每一级能不能点"这件事**没有任何断言**（旧断言只比对那一行的 textContent）。
+   * 按"真控件/真行为"判，不按类名数：
+   *   ① 条目数 = 路径级数（库名 + 每一级目录，一个不落）；
+   *   ② **当前级**必须是**不可点**的（不是 button；`aria-current` 标出"你现在在这"）；
+   *   ③ 其余每一级都是**真 button**（Tab 可达、有 aria-label）；
+   *   ④ 点某一级 ⇒ `path` 真的被切到那一层（按下一层的目录行/文件行回证，不只看面包屑自己）。 */
+  const crumbBtns = () => q('.ks-crumb-go')
+  const crumbHere = () => q('.ks-crumb-here')
+  const crumbItems = () => q('.ks-crumb-path .ks-crumb-item')
+  const crumbText = (el) => (el.textContent ?? '').trim()
+  check('面包屑（库根态）：1 个条目 = 库名「法律法规」，且它是**当前级 = 不可点**（0 个可点条目，没有上一级可回）',
+    crumbItems().length === 1 && crumbText(crumbHere()[0]) === '法律法规'
+    && crumbHere()[0].getAttribute('aria-current') === 'page' && crumbHere()[0].tagName !== 'BUTTON'
+    && crumbBtns().length === 0,
+    `条目 ${String(crumbItems().length)} 个（${crumbItems().map(crumbText).join(' | ')}）／`
+    + `不可点 ${String(crumbHere().length)} 个／可点 ${String(crumbBtns().length)} 个；`
+    + `aria-current=${JSON.stringify(crumbHere()[0]?.getAttribute('aria-current') ?? null)}`)
+  await click(dirEls().find((el) => dirNameOf(el) === '法律'))
+  check('面包屑（一级目录态）：**逐级**渲染成 2 个条目（库名 + 「法律」）；只有**末条**不可点，前 1 条是真 button',
+    crumbItems().length === 2 && crumbItems().map(crumbText).join(' | ') === '法律法规 | 法律'
+    && crumbHere().length === 1 && crumbText(crumbHere()[0]) === '法律'
+    && crumbBtns().length === 1 && crumbText(crumbBtns()[0]) === '法律法规'
+    && crumbBtns()[0].tagName === 'BUTTON'
+    && (crumbBtns()[0].getAttribute('aria-label') ?? '').includes('法律法规'),
+    `条目 ${String(crumbItems().length)} 个：${crumbItems().map(crumbText).join(' | ')}；`
+    + `可点 ${String(crumbBtns().length)}：${crumbBtns().map((b) => b.getAttribute('aria-label') ?? '(无)').join(' | ')}；`
+    + `不可点「${crumbHere().map(crumbText).join('/')}」`)
+  check('面包屑**逐级写全**（`textContent` 与旧的一整行纯文本**逐字相同**：库名 / 一级，分隔符是独立的 `/`）',
+    (container.querySelector('.ks-crumb-path')?.textContent ?? '') === '法律法规/法律',
+    `面包屑 textContent「${container.querySelector('.ks-crumb-path')?.textContent ?? '(没有)'}」`
+    + `（分隔符元素 ${String(q('.ks-crumb-sep').length)} 个）`)
+  await click(crumbBtns()[0])  // 第 0 条 = 库名 ⇒ 回库根
+  check('点面包屑第 0 级（库名）⇒ 真的回到**库根**（2 行一级目录：「法律」不再被选中，当前级回到库名）',
+    dirEls().length === 2 && dirEls().map(dirNameOf).join('|') === '法律|行政法规'
+    && q('.ks-crumb-go').length === 0 && crumbHere().length === 1 && crumbText(crumbHere()[0]) === '法律法规',
+    `目录行 ${String(dirEls().length)}（${dirEls().map(dirNameOf).join('/')}）／`
+    + `可点条目 ${String(q('.ks-crumb-go').length)} 个／当前级「${crumbHere().map(crumbText).join('/')}」`)
+  await click(dirEls().find((el) => dirNameOf(el) === '法律'))
   await click(dirEls()[0])
   check('二级目录「宪法与行政法」里还有**第三级目录**（安全生产）—— 法律这一支的占位数据就是三级',
-    dirEls().length === 1 && (dirEls()[0].textContent ?? '').includes('安全生产') && q('.ks-item').length === 0,
-    `目录卡 ${dirEls().length} 张 / 文件行 ${q('.ks-item').length}；`
+    dirEls().length === 1 && dirNameOf(dirEls()[0]) === '安全生产' && fileRows().length === 0
+    && crumbItems().length === 3,
+    `目录行 ${String(dirEls().length)} 行（${dirEls().map(dirNameOf).join('/')}）/ 文件行 ${String(fileRows().length)}；`
+    + `面包屑条目 ${String(crumbItems().length)} 个；`
     + `面包屑「${container.querySelector('.ks-crumb-path')?.textContent ?? '(没有)'}」`)
+  await click(dirEls()[0])   // 再下一级：安全生产（文件层）
+  check('面包屑（文件层）：4 个条目（库名 + 3 级目录），**前 3 条都是真 button**，只有末条「安全生产」不可点',
+    crumbItems().length === 4 && crumbBtns().length === 3 && crumbHere().length === 1
+    && crumbText(crumbHere()[0]) === '安全生产'
+    && crumbBtns().map(crumbText).join('|') === '法律法规|法律|宪法与行政法'
+    && fileRows().length === 2,
+    `条目 ${String(crumbItems().length)}：${crumbItems().map(crumbText).join(' | ')}；`
+    + `可点 ${String(crumbBtns().length)}／当前级「${crumbHere().map(crumbText).join('/')}」`)
+  /* 点**第 2 级**（「宪法与行政法」）⇒ 从 4 层切回前 2 级：这一层应当又只剩「安全生产」1 个子目录，
+   * 且当前级变成「宪法与行政法」。⚠ 这条是"点第 i 级回到第 i 层"的**正向**取证
+   * （不是只看面包屑变短 —— 它按下一层的目录行回证）。 */
+  await click(crumbBtns()[2])
+  check('点面包屑第 2 级（「宪法与行政法」）⇒ 真的切回那一层（当前级变了，且它下面只剩「安全生产」1 行）',
+    crumbItems().length === 3 && crumbText(crumbHere()[0]) === '宪法与行政法'
+    && dirEls().length === 1 && dirNameOf(dirEls()[0]) === '安全生产' && fileRows().length === 0,
+    `当前级「${crumbHere().map(crumbText).join('/')}」／目录行 ${String(dirEls().length)} 行`
+    + `（${dirEls().map(dirNameOf).join('/')}）／文件行 ${String(fileRows().length)}`)
   await click(dirEls()[0])
   check('再下一级（安全生产）才是**文件表格**：表头 1 个 + 2 行（安全生产法 / 消防法），返回按钮仍在',
-    q('.ks-lhead').length === 1 && q('.ks-item').length === 2 && q('.ks-back').length === 1,
-    `表头 ${q('.ks-lhead').length} / 行 ${q('.ks-item').length} / 返回 ${q('.ks-back').length}；`
+    q('.ks-lhead').length === 1 && fileRows().length === 2 && q('.ks-back').length === 1
+    && q('.ks-dir-row').length === 0,
+    `表头 ${String(q('.ks-lhead').length)} / 文件行 ${String(fileRows().length)} / 目录行 ${String(q('.ks-dir-row').length)} / 返回 ${String(q('.ks-back').length)}；`
     + `面包屑「${container.querySelector('.ks-crumb-path')?.textContent ?? '(没有)'}」`)
   const crumbFiles = container.querySelector('.ks-crumb-path')?.textContent ?? ''
+  /* ⚠ **期望串里的空格没了，这是本批的**可见改动**，不是判据放宽**：
+   * 改前面包屑是**一整行纯文本**（`[kb.name, ...pathNames].join(' / ')` ⇒ 段间是 " / "）；
+   * 改后每一级是独立条目、分隔符是独立的 `<span class="ks-crumb-sep">/</span>`
+   * （**看不到空白**：两条 entry 之间若插一个纯文本空格，在 flex 行里会**多出一个匿名
+   * 文本项**、在段之间顶出空隙，那是版式 bug）。⇒ 拼接后的字符串就是
+   * `法律法规/法律/宪法与行政法/安全生产`。
+   * 判据本身**没有放宽**：仍然是"**逐字**等于库名 + 每一级目录名，一个不落"；
+   * 级数与各级名字若有任何缺失/错位，这一条照样红（要"更宽"反而应该去比对各条目，
+   * 上面那几条已经逐条比过了）。 */
   check('文件层的面包屑**逐级写全**（库名 + 每一级目录名，一个不落）',
-    crumbFiles === '法律法规 / 法律 / 宪法与行政法 / 安全生产', `面包屑「${crumbFiles}」`)
+    crumbFiles === '法律法规/法律/宪法与行政法/安全生产', `面包屑「${crumbFiles}」`)
   await click(q('.ks-back')[0])
-  check('点「返回上一级」⇒ 真的回到**上一级目录层**（1 张目录卡、0 行文件），按钮仍在',
-    dirEls().length === 1 && q('.ks-item').length === 0 && q('.ks-back').length === 1,
-    `目录卡 ${dirEls().length} / 文件行 ${q('.ks-item').length} / 返回 ${q('.ks-back').length}；`
+  check('点「返回上一级」⇒ 真的回到**上一级目录层**（1 行目录、0 行文件），按钮仍在',
+    dirEls().length === 1 && fileRows().length === 0 && q('.ks-back').length === 1,
+    `目录行 ${dirEls().length} / 文件行 ${fileRows().length} / 返回 ${q('.ks-back').length}；`
     + `面包屑「${container.querySelector('.ks-crumb-path')?.textContent ?? '(没有)'}」`)
   await click(q('.ks-back')[0])
-  check('再点一次 ⇒ 又上一层（1 张目录卡：宪法与行政法），按钮仍在',
-    dirEls().length === 1 && q('.ks-item').length === 0 && q('.ks-back').length === 1
-    && (dirEls()[0].textContent ?? '').includes('宪法与行政法'),
-    `目录卡 ${dirEls().length} / 返回 ${q('.ks-back').length}；`
+  check('再点一次 ⇒ 又上一层（1 行目录：宪法与行政法），按钮仍在',
+    dirEls().length === 1 && fileRows().length === 0 && q('.ks-back').length === 1
+    && dirNameOf(dirEls()[0]) === '宪法与行政法',
+    `目录行 ${dirEls().length} / 返回 ${q('.ks-back').length}；`
     + `面包屑「${container.querySelector('.ks-crumb-path')?.textContent ?? '(没有)'}」`)
   await click(q('.ks-back')[0])
-  check('第三次「返回上一级」⇒ 回到库根（2 张一级目录），按钮**消失**（库根没有上一级）',
+  check('第三次「返回上一级」⇒ 回到库根（2 行一级目录），按钮**消失**（库根没有上一级）',
     dirEls().length === 2 && q('.ks-back').length === 0,
-    `目录卡 ${dirEls().length} / 返回按钮 ${q('.ks-back').length}；`
+    `目录行 ${dirEls().length} / 返回按钮 ${q('.ks-back').length}；`
     + `面包屑「${container.querySelector('.ks-crumb-path')?.textContent ?? '(没有)'}」`)
 
-  /* ⚠ 从这里往下，全部是**原有的表格断言**（一字未改）——先把页面开回
+  /* ⚠ 从这里往下，全部是**原有的表格断言**（判据一字未放宽；只把"数文件行"改成 fileRows()，
+   * 因为目录行现在也是 `.ks-item`）——先把页面开回
    * 「标准 → P 土木、建筑 → P15/19… → P16 工程防火」，那一层有 **4 篇**文件。 */
   const enterStdLeaf = async () => {
-    await click(dirEls().find((el) => (el.textContent ?? '').includes('P 土木、建筑')))
-    await click(dirEls().find((el) => (el.textContent ?? '').includes('P15/19')))
-    await click(dirEls().find((el) => (el.textContent ?? '').includes('P16 工程防火')))
+    await click(dirEls().find((el) => dirNameOf(el).includes('P 土木、建筑')))
+    await click(dirEls().find((el) => dirNameOf(el).includes('P15/19')))
+    await click(dirEls().find((el) => dirNameOf(el).includes('P16 工程防火')))
   }
   await click(cardNamed('标准'))
-  check('点回「标准」卡 ⇒ 回到它的库根（一级目录 3 张）——换库后层级归零',
+  check('点回「标准」卡 ⇒ 回到它的库根（一级目录 3 行）——换库后层级归零',
     dirEls().length === 3 && q('.ks-back').length === 0,
-    `目录卡 ${dirEls().length} / 返回按钮 ${q('.ks-back').length}`)
+    `目录行 ${dirEls().length} / 返回按钮 ${q('.ks-back').length}`)
   await enterStdLeaf()
   check('下钻到最末一级（标准 / P 土木、建筑 / P15/19… / P16 工程防火）⇒ 4 行文件 + 表头 1 个 + 返回上一级在',
-    q('.ks-item').length === 4 && q('.ks-lhead').length === 1 && q('.ks-back').length === 1,
-    `行 ${q('.ks-item').length} / 表头 ${q('.ks-lhead').length} / 返回 ${q('.ks-back').length}；`
+    fileRows().length === 4 && q('.ks-lhead').length === 1 && q('.ks-back').length === 1,
+    `行 ${fileRows().length} / 表头 ${q('.ks-lhead').length} / 返回 ${q('.ks-back').length}；`
     + `面包屑「${container.querySelector('.ks-crumb-path')?.textContent ?? '(没有)'}」`)
+  /* ── 断言 2f-7：目录行与文件行的**行高是同一个 token**（"和文件列表一样的视图"最硬的一条）──
+   * ⚠ jsdom 没有布局 ⇒ 这里判的是两层的 computed `min-height` **声明串逐字相同**
+   *   （真像素由 ui-render-shot.mjs 在真 Chrome 里量 `.ks-item` 的几何）。
+   *   ⇒ 谁给目录行单独拍一个行高（例如 40px），这一条必红。 */
+  check('目录行与文件行的 computed `min-height` **逐字相同**（同一个行高 token ⇒ 同一个列表机制）',
+    Boolean(dirRowMinH) && dirRowMinH === csOf(fileRows()[0] ?? null, 'min-height'),
+    `目录行 ${JSON.stringify(dirRowMinH)} / 文件行 ${JSON.stringify(csOf(fileRows()[0] ?? null, 'min-height'))}`)
 
   /* ══════════ 断言 2h–2o：**搜索框每一层都在**（5i 2026-09-20 收尾批） ══════════
    * 业主 2026-09-20 只说「搜索框：保留」、**没限定层级** ⇒ 本批按"保留"的**最强解释**执行：
@@ -540,7 +683,7 @@ export function mount(container, props) {
     `框 ${searchInput() === null ? '不在' : '在'}／placeholder「${searchInput()?.placeholder ?? ''}」`)
   await setInput(searchInput(), '喷水')
   check('文件层搜索真的过滤：4 行 →（「喷水」）1 行',
-    q('.ks-item').length === 1, `行数 4 → ${q('.ks-item').length}`)
+    fileRows().length === 1, `行数 4 → ${fileRows().length}`)
   // ── 2j：返回上一级 ⇒ 搜索词**保留**，并且它按**目录名**过滤 ──
   await click(q('.ks-back')[0])
   const keptValue = searchValue()
@@ -584,7 +727,7 @@ export function mount(container, props) {
   await setInput(searchInput(), '喷水')
   await click(byText('.ks-chip', '已废止'))
   const andValue = searchValue()
-  const andRows = q('.ks-item').length
+  const andRows = fileRows().length
   check('切状态筛选档 ⇒ 搜索词**保留**，两个条件是 AND（「喷水」是现行件；点「已废止」⇒ 0 行）',
     andValue === '喷水' && andRows === 0,
     `框里「${andValue}」／行数 1（喷水）→ ${andRows}（已废止 AND 喷水）`)
@@ -592,9 +735,9 @@ export function mount(container, props) {
   await setInput(searchInput(), '')
   // ── 2o：还原 + 兜底（后面所有断言的前提） ──
   check('搜索块收尾：还原到「文件层 / 4 行 / 筛选=全部 / 搜索为空」（后面断言 3 起一字未改地跑）',
-    q('.ks-item').length === 4 && searchValue() === ''
+    fileRows().length === 4 && searchValue() === ''
     && (container.querySelector('.ks-chip-on')?.textContent ?? '').includes('全部'),
-    `行 ${q('.ks-item').length} 行／框里「${searchValue()}」／选中的胶囊「${(container.querySelector('.ks-chip-on')?.textContent ?? '').trim()}」`)
+    `行 ${fileRows().length} 行／框里「${searchValue()}」／选中的胶囊「${(container.querySelector('.ks-chip-on')?.textContent ?? '').trim()}」`)
 
   // ── 断言 3：文件列表 = 勾选框 + 每行一个「⋮」溢出菜单（P1-1 改造后的口径） ──
   const checkboxes = q('input[type=checkbox]')
@@ -630,11 +773,11 @@ export function mount(container, props) {
   const CTRL_SEL = 'button,input,select,textarea,[role=button],[role=checkbox],[role=switch],[contenteditable=true],.ks-status'
   // 数的是**行元素内部**：`document.querySelectorAll` 会连 portal 到 body 的菜单项一起数进来，
   // 这里只用 row 作用域 ⇒ 菜单内容天然不算"行内"。
-  const ctrlCounts = q('.ks-item').map((row) => row.querySelectorAll(CTRL_SEL).length)
+  const ctrlCounts = fileRows().map((row) => row.querySelectorAll(CTRL_SEL).length)
   // ⚠ 只读诊断（2026-09-20 打回留痕用，**不参与判定**）：把**已被废弃的旧口径**
   //   （写死类名清单）也数一遍，变异实验里用来复现"旧写法假绿"。跑门禁时这行只是多一次
   //   querySelectorAll，不改任何 PASS/FAIL 语义。
-  const oldCtrlCounts = q('.ks-item').map((row) => row.querySelectorAll('.ks-check,.ks-status,.ks-item-more').length)
+  const oldCtrlCounts = fileRows().map((row) => row.querySelectorAll('.ks-check,.ks-status,.ks-item-more').length)
   if (process.env.KS_CTRL_LEGACY_DIAG === '1') {
     console.log(`  · 只读诊断：旧口径（写死类名清单）四行 = ${oldCtrlCounts.join('/')}`
       + `；新口径（真控件）= ${ctrlCounts.join('/')}`)
@@ -649,7 +792,7 @@ export function mount(container, props) {
   //   `role=menuitem` 由宿主 Menu portal 到 `<body>`，不在 container 里 ⇒ 查 document。
   const menuByRow = []
   const menuMisses = []
-  for (const [i, row] of q('.ks-item').entries()) {
+  for (const [i, row] of fileRows().entries()) {
     await click(row.querySelector('.ks-item-more button'))
     const texts = [...document.querySelectorAll('[role=menuitem]')].map((el) => (el.textContent ?? ''))
     menuByRow.push(texts)
@@ -658,7 +801,7 @@ export function mount(container, props) {
     if (document.querySelectorAll('[role=menuitem]').length !== 0) menuMisses.push(`第${String(i)}行菜单没收起`)
   }
   check('四行的「⋮」菜单**逐行**都含「＋标签」与「详情」两项（只核第 0 行 = 覆盖不到 3 行）',
-    q('.ks-item').length === 4 && menuMisses.length === 0,
+    fileRows().length === 4 && menuMisses.length === 0,
     menuMisses.length === 0
       ? `四行菜单：${menuByRow.map((t) => t.length).join('/')} 项`
       : menuMisses.join(' ; '))
@@ -688,7 +831,7 @@ export function mount(container, props) {
   const cellsOf = (el) => [...el.children].map((c) => c.className)
   const headRow = container.querySelector('.ks-lhead')
   const headCells = headRow === null ? [] : cellsOf(headRow)
-  const rowCells = q('.ks-item').map((row) => cellsOf(row))
+  const rowCells = fileRows().map((row) => cellsOf(row))
   check('列头行有 5 个 cell（文件名/效力/生效日期/标签/⋮），且**每一行的 cell 类名序列与表头逐字相同**',
     headCells.length === 5 && rowCells.length === 4 && rowCells.every((cs) => JSON.stringify(cs) === JSON.stringify(headCells)),
     `表头 ${JSON.stringify(headCells)}；第 1 行 ${JSON.stringify(rowCells[0] ?? [])}`)
@@ -720,7 +863,6 @@ export function mount(container, props) {
   //   取到空值也算红（"取不到值" ≠ "相同"）。
   const headRowEl = container.querySelector('.ks-lhead')
   const firstRowEl = container.querySelector('.ks-item')
-  const csOf = (el, prop) => el === null ? null : dom.window.getComputedStyle(el).getPropertyValue(prop)
   const headTpl = csOf(headRowEl, 'grid-template-columns')
   const rowTpl = csOf(firstRowEl, 'grid-template-columns')
   const headGap = csOf(headRowEl, 'column-gap')
@@ -730,15 +872,15 @@ export function mount(container, props) {
     && headTpl === rowTpl && headGap === rowGap,
     `表头 ${JSON.stringify(headTpl)} / 行 ${JSON.stringify(rowTpl)}；gap 表头 ${JSON.stringify(headGap)} / 行 ${JSON.stringify(rowGap)}`)
   check('每一行都有**行内文件图标**（.ks-fileico 里一个真 svg），且带类型说明 title',
-    q('.ks-item').length === 4
-    && q('.ks-item').every((row) => row.querySelector('.ks-fileico svg') !== null
+    fileRows().length === 4
+    && fileRows().every((row) => row.querySelector('.ks-fileico svg') !== null
       && (row.querySelector('.ks-fileico')?.getAttribute('title') ?? '') !== ''),
-    q('.ks-item').map((row) => row.querySelector('.ks-fileico')?.getAttribute('title') ?? '(无)').join('/'))
+    fileRows().map((row) => row.querySelector('.ks-fileico')?.getAttribute('title') ?? '(无)').join('/'))
   // ── 断言 3f：行内**标签 chip 可见**（P2 头条要的"行内可见 chip"，不是藏进 ⋮）──
   // ⚠ 与"行内可见控件 ≤3"不冲突：chip 是**纯展示 span**（不在 CTRL_SEL 里）。
   //   "＋标签"的**入口**仍在行尾「⋮」（见 3c 的逐行取证）—— 这是任务书给的允许方案：
   //   "把'标签'做成一列可见 chip、而'加标签'入口留 ⋮"。
-  const rowTags = q('.ks-item').map((row) => row.querySelectorAll('.ks-tag').length)
+  const rowTags = fileRows().map((row) => row.querySelectorAll('.ks-tag').length)
   check('行内**可见**标签 chip（至少一行有 ≥1 个 .ks-tag；纯展示，不是控件）',
     rowTags.some((n) => n > 0), `四行的 chip 数 = ${rowTags.join('/')}`)
   // ── 断言 3g：搜索框**真的过滤**（任务书验收：只命中 1 行的串 ⇒ 行数变 1；清空 ⇒ 恢复）──
@@ -758,7 +900,7 @@ export function mount(container, props) {
     (searchBox !== null) === KB_PAGE_SEARCH,
     `声明 KB_PAGE_SEARCH=${String(KB_PAGE_SEARCH)}；DOM 里 .ks-search input ${searchBox === null ? '不存在' : '存在'}`
     + `（当前视图 = 文件列表：本页默认视图，切「标签」在后）`)
-  const rowCount = () => q('.ks-item').length
+  const rowCount = () => fileRows().length
   if (searchBox === null) {
     // 声明说"没有框"时，行为级断言**判为失败**（而不是让下面 setInput(null) 崩掉）：
     // 这两条是"框在场才成立"的行为验收 —— 缺席时它们必须红，且要能说清为什么。
@@ -781,7 +923,7 @@ export function mount(container, props) {
       before9 === 4 && byNo === 1 && byName === 1 && none === 0 && restored === 4,
       `行数 ${before9} → 标准号 ${byNo} → 名称 ${byName} → 无命中 ${none} → 清空 ${restored}；空态「${emptyTitle}」`)
     // ── 断言 3h：搜索/筛选变化 ⇒ **清空选择**（否则批量动作会作用在看不见的行上）──
-    await click(q('.ks-item')[0].querySelector('input[type=checkbox]'))
+    await click(fileRows()[0].querySelector('input[type=checkbox]'))
     const selectedBefore = container.querySelector('.ks-batch') !== null
     await setInput(searchBox, '喷水')
     check('搜索变化即清空选择（切换后批量条消失 —— 批量动作不该作用在看不见的行上）',
@@ -809,14 +951,14 @@ export function mount(container, props) {
   // ── 断言 6：批量删除**真的改了状态**（不是假按钮） ──
   await click(byText('.ks-batch button', '批量删除'))
   check('点「批量删除」⇒ 行数真的减少到 0，批量条消失',
-    q('.ks-item').length === 0 && batch() === null,
-    `剩 ${q('.ks-item').length} 行`)
+    fileRows().length === 0 && batch() === null,
+    `剩 ${fileRows().length} 行`)
 
   // ── 断言 7：详情里的三个日期（业主点名要的） ──
   // 换到「法律法规」树的某个文件夹（删空了 P16），先切到自建夹「公司制度」更稳
   const companyCard = q('.ks-kb-cards .ks-kb-card').find((el) => (el.textContent ?? '').includes('公司制度'))
   await click(companyCard)
-  const rows = q('.ks-item')
+  const rows = fileRows()
   check('切到自建夹「公司制度」⇒ 列表换成它的 3 篇',
     rows.length === 3, `实际 ${rows.length}`)
   // ⚠ **本条也随 P1-1 改过（2026-09-20）**：行内常驻的「详情」按钮进了「⋮」菜单

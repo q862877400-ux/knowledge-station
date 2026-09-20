@@ -243,27 +243,52 @@ export const KS_STYLES = `
   background:var(--dsw-alias-interactive-bg-active)}
 /* ---------- 5h：面包屑 + 「返回上一级」 + 目录层 ---------- */
 /* 面包屑行：左边是返回按钮（只在 path.length>0 时渲染），中间是当前路径，右边是计数。
-   ⚠ 路径用**节点名**（不是 key）—— 见 KsKnowledgePage.tsx 的 pathNames 注释。 */
+   ⚠ 路径用**节点名**（不是 key）—— 见 KsKnowledgePage.tsx 的 pathNames 注释。
+   ⚠⚠ **2026-09-20 头条：路径改成"每一级都能点"**（业主：「这种路径要每一级都能点击跳转」）。
+      结构：外层 .ks-crumb-path 里是「条目 / 分隔符 / 条目 / …」——.ks-crumb-item（一级一个）
+      + .ks-crumb-sep（斜杠，**与条目是兄弟**，见 KsKnowledgePage.tsx 的同名注释）；
+      条目内部要么是可点的 .ks-crumb-go（button），要么是**当前级**的 .ks-crumb-here（span）。
+      **收敛口径不变**：整条仍是 nowrap flex，条目 flex:0 1 auto（可缩）+ .ks-crumb 的
+      overflow:hidden ⇒ 窄窗（520）下尾巴被裁掉，不会把行撑破；条目自己还有
+      text-overflow:ellipsis（长目录名被压缩时给省略号）。
+      ⚠ 为什么条目**必须可缩**（不能 flex:none）：不可缩的话整条宽度就是各段之和，
+        520 档下它会把右侧的 .ks-crumb-n（"N 个子目录"）挤出可视区（那正是下面这条注释
+        记的坑：长面包屑把计数挤到第二行、图上"4"和"篇"分家）。 */
 .ks-crumb{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}
-.ks-crumb-path{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+.ks-crumb-path{display:flex;align-items:center;min-width:0;overflow:hidden;
   font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
+.ks-crumb-item{display:inline-flex;align-items:center;flex:0 1 auto;min-width:0}
+.ks-crumb-sep{flex:none;color:var(--dsw-alias-label-caption);padding:0 var(--ks-space-1)}
+/* 可点的那几级：**把 button 打回文字**（透明底 / 零内边距 / 继承字号色）——它长得像路径文本，
+   但仍然是个真 button（Tab 可达、Enter/Space 可激活、aria-label 有话说）。
+   hover 与文件行同档：宿主 interactive-bg-hover 当底（**不新造色值**）+ label-secondary 提亮。
+   ⚠ text-decoration:none 不能省：button 在部分 UA 样式表里会带下划线。 */
+.ks-crumb-go{flex:0 1 auto;min-width:0;border:0;background:transparent;padding:0;margin:0;
+  font:inherit;color:inherit;cursor:pointer;text-decoration:none;border-radius:var(--ks-r-sm);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ks-crumb-go:hover{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-secondary)}
+.ks-crumb-go:focus-visible{outline:var(--ks-stroke) solid var(--dsw-alias-border-l4);outline-offset:1px}
+/* 当前所在那一级：**不可点**（它是 span，不是 disabled button）。
+   为了"看得出在哪"：文字用 label-secondary（比其余级的 tertiary 重一档）、去掉所有可点的
+   视觉线索（cursor:default + 不给 hover 底）。 */
+.ks-crumb-here{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  color:var(--dsw-alias-label-secondary);cursor:default}
 /* 目录层的"N 个子目录"：**必须 nowrap + flex:none** —— 第一版用的是 .ks-kb-hint（可压缩），
    长面包屑（四级的"标准 / P 土木、建筑 / P15/19… / P16 工程防火"）会把它挤到第二行，
    图上就是"4"和"篇"分家（520/1300 两张图里都看得到）。 */
 .ks-crumb-n{flex:none;white-space:nowrap;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
 .ks-back{flex:none}
-/* 目录层：一排目录卡（图标 + 目录名 + 这一棵下的篇数）。与卡片带**不同**的一档：
-   目录卡是"列表项"，不占 min-height:136 —— 它是扫读用的，行高按 --ks-space-10(40px)。 */
-.ks-dirs{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--ks-space-2)}
-.ks-dir{display:flex;align-items:center;gap:var(--ks-space-2);box-sizing:border-box;
-  min-height:var(--ks-space-10);padding:var(--ks-space-2);
-  border:0;border-radius:var(--ks-r-md);text-align:left;font:inherit;color:var(--dsw-alias-label-primary);
-  background:var(--dsw-alias-bg-base);cursor:pointer;
-  --dsw-elevation-stroke-color:var(--dsw-alias-border-l2);box-shadow:var(--dsw-elevation-soft)}
-.ks-dir:hover{--dsw-elevation-stroke-color:var(--dsw-alias-border-l4);box-shadow:var(--dsw-elevation-panel)}
-.ks-dir-ico{flex:none;display:inline-flex;align-items:center;color:var(--dsw-alias-label-secondary)}
-.ks-dir-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-  font-size:var(--ks-fs-base);font-weight:600}
+/* 目录层的容器：**沿用 .ks-list 这一套**（JSX 里的类是 ks-list / ks-list-dirs / ks-dirs）。
+   ⚠ 这里原来是一条**卡片网格**（display:grid + repeat(auto-fill,minmax(220px,1fr))）；
+   2026-09-20 头条把它换成**与文件列表同构的列表** ⇒ 旧网格声明**已删**（留着会与下面
+   .ks-list-dirs 的 display:block 打架、也让"目录层到底是什么形状"出现两个所有者）。
+   ⚠ .ks-dirs 这个类**刻意留在容器上**：它被三处外部锚点**按名**引用，且那三处要求逐字一致
+     （ui-render-shot.mjs 的 #kspad 留边适用面与 PAD_SUBJECTS_ALL、smoke-kb-pad-pixels.mjs 的
+     SPEC_SUBJECTS）⇒ 改名会同时打断那三处。它现在**只是这个容器的第二个名字**，
+     几何一律由 .ks-list-dirs 给（见 .ks-list 那一段）。
+   ⚠ .ks-dir-name 也不是死笔名：目录行的名字元素仍用它（见 .ks-list-dirs 那一段的覆盖）。
+   ⚠ 这一条**只剩注释、没有声明**：容器的旧网格声明已删、新几何全在 .ks-list-dirs 那一条
+     （写在这里只会多一个所有者）。留注释是为了让"这个类还在、别删"这件事有出处。 */
 .ks-kb-sec{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary);margin-top:var(--ks-space-1)}
 .ks-kb-doc{display:flex;gap:var(--ks-space-2);padding:var(--ks-space-1) var(--ks-space-2);border-radius:var(--ks-r-md)}
 .ks-kb-doc:hover{background:var(--dsw-alias-interactive-bg-hover)}
@@ -332,6 +357,66 @@ export const KS_STYLES = `
    grid-template-columns:var(--ks-cols)：别在下面任何一条规则里再写一遍）。 */
 .ks-lhead,.ks-item{display:grid;grid-template-columns:var(--ks-cols);
   column-gap:var(--ks-space-2);align-items:center;box-sizing:border-box}
+
+/* ══════════ 目录层 = **与文件列表同构的列表**（2026-09-20 头条） ══════════
+   业主原话：「把子目录文件夹的视图，做成和文件列表一样的视图」「这种路径要每一级都能点击跳转」。
+   容器 / 表头 / 行**复用文件列表那一套类**（JSX 里的类是 ks-list + ks-list-dirs + ks-dirs、
+   ks-lhead、ks-item + ks-dir-row），这里只做**目录层自己的两件事**：
+     ① 一条**自己的** --ks-cols（同一机制、不同列数：3 列 —— 目录 / 篇数 / 进入提示）；
+     ② 旧表单的**卡片外观覆盖**（.ks-list 的 elevation 白底盒、.ks-item 的行为都是为文件行定的）。
+   ⚠ 列**宽度**的所有者仍然只有一处：**这条** --ks-cols。.ks-lhead / .ks-item 上照旧只写
+     grid-template-columns:var(--ks-cols)（上面那一条），谁也不许再写一套列宽 ——
+     与文件层同一条纪律（P2 头条的验收口径）。
+   ⚠ 为什么要有 --ks-col-dcount / --ks-col-dgo 这两个中间变量：与文件层 --ks-col-more
+     等**同一种写法**（列宽进变量、模板只引用变量）。值都在 4px 网格上（64/16）。
+   ⚠ **别把 .ks-list-dirs 写成 .ks-dirs**：.ks-dirs 只是容器的旧名字（三处外部锚点按名引用它，
+     见上面那一段注释），**几何归 .ks-list-dirs**。两者在 JSX 里同时挂在同一个 div 上。
+   ⚠ 本段注释里**一个反引号都没有**（整段 CSS 在模板字符串里；反引号会截断它 ——
+     本批实测踩到过一次：被截断后 .ks-list-dirs 的规则整段没进产物，列对齐自检当场红）。 */
+.ks-list-dirs{--ks-col-dcount:64px;--ks-col-dgo:16px;
+  --ks-cols:minmax(0,1fr) var(--ks-col-dcount) var(--ks-col-dgo);
+  display:block;background:transparent;box-shadow:none;
+  --dsw-elevation-stroke-color:transparent}
+/* 目录行本身是个 **button**（整行可点 + 键盘可达：Tab 聚焦、Enter/Space 激活）。
+   ⚠ 要打回"一行列表项"的样子：原生 button 的 font/text-align/color 都得清零，
+     底色/描边清零（默认按钮外观一律不许冒出来）。
+   ⚠ 行高与文件行**同一个 token**（--ks-row-h-list，52px）—— "和文件列表一样的视图"最硬的一条：
+     两层行高逐像素一致（第一列也是**两行**：目录名 + 整条路径，手法同文件层的名字 + 标准号：
+     都用 .ks-item-sub + grid-area:2/2）。
+   ⚠ 这里**不写** border / padding（padding 由共享的 .ks-item 给，两条同权重、靠源码顺序叠加）。
+   ⚠⚠ **width:100% 是必须的，不是保险**（本批真 Chrome 实测到的坑，正是列对齐自检抓出来的）：
+     .ks-item 是 div 时（文件行）作为块级盒**自动铺满**容器宽；换成 button（目录行）之后它是
+     **shrink-to-fit**（宽度 = 内容 max-content 之和）⇒ 实测**行宽只有 346px**（容器 1276px），
+     而 minmax(0,1fr) 那一列跟着塌到 206.328px ⇒ 同一层里出现**表头 1152px / 行 206.328px**
+     这种"同一条模板解出两个值"的假象（ui-render-shot 的 #cols 报的正是它）。
+     ⇒ 整行可点改成 button 之后，**必须显式给满宽**。
+     ⚠ 用 width:100% 而不是 align-self:stretch：这一层容器是 .ks-list-dirs{display:block}
+       （原卡片网格的 grid 已删）⇒ button 是**块级**子盒，100% = 容器内容宽，
+       与文件层的 div 行同宽（两层的行对齐口径因此完全一致）。 */
+.ks-list-dirs .ks-item{width:100%;font:inherit;text-align:left;color:var(--dsw-alias-label-primary);
+  background:transparent;border:0;cursor:pointer;text-decoration:none}
+.ks-list-dirs .ks-item:hover{background:var(--dsw-alias-interactive-bg-hover)}
+/* 焦点环用 **inset** box-shadow（不是 outline）：容器是 overflow:hidden，外扩的环会被裁掉。 */
+.ks-list-dirs .ks-item:focus-visible{outline:none;
+  box-shadow:inset 0 0 0 var(--ks-stroke) var(--dsw-alias-border-l4)}
+/* 目录名那一列：**嵌套 grid 两行**（第 1 行图标 + 名字，第 2 行整条路径）——与文件层的
+   .ks-item .ks-col-name 同一种手法（那里是 16px 图标列 + 名字 / 标准号两行）。
+   ⚠ 为什么第 2 行给路径：目录名在**同名的兄弟层**里认不出来（两个「宪法与行政法」分属
+     法律 / 行政法规两支）⇒ 整条 key 是唯一的消歧锚（与文件层第 2 行给标准号同一个理由：
+     那一行放的都是"这一行的真身份"，不是编出来的描述）。 */
+.ks-list-dirs .ks-cell.ks-col-dname{display:grid;grid-template-columns:16px minmax(0,1fr);
+  column-gap:var(--ks-space-2);row-gap:0;align-items:center}
+/* 目录名（名字那一格）：font-weight:600 —— 原来卡片上的名字就是这个字重（搬家不换样式）。
+   ⚠ 这里把旧规则里的 flex:1 **去掉了**：新容器是 grid 单元格，flex 在它上面是死声明
+     （留着会让人以为宽度归它管，而宽度归 --ks-cols）。 */
+.ks-list-dirs .ks-dir-name{grid-area:1/2;min-width:0;overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap;font-size:var(--ks-fs-base);font-weight:600}
+/* 篇数列 + 进入提示列：与文件层的 .ks-col-status / .ks-col-more 同一档（居中 / 靠右）。
+   ⚠ .ks-kb-badge 是 flex:none 的胶囊（卡片上原来是它），放进 grid 单元格里没问题。 */
+.ks-list-dirs .ks-cell.ks-col-dcount{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}
+.ks-list-dirs .ks-cell.ks-col-dgo{display:flex;align-items:center;justify-content:flex-end}
+.ks-dir-go{display:inline-flex;align-items:center;color:var(--dsw-alias-label-tertiary)}
+.ks-list-dirs .ks-item:hover .ks-dir-go{color:var(--dsw-alias-label-secondary)}
 /* 列头行：全选 + 列名。⚠ P1-8（2026-09-20）消费了 --ks-head-h:40px（改前实测只有 33px，
    与 --ks-card-h 同类暗账）；少了 box-sizing 的话 min-height 只约束**内容盒**。
    底色踩过一个坑（P1-9b 实测）：先写 --dsw-alias-bg-layer-2、再写 layer-3，两个**都是白的**

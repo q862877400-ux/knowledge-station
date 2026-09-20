@@ -60,6 +60,13 @@ const MATRIX = [
   { page: 'kb', width: 520, interact: 'kb-files', note: '文件表（无批量条；smoke-kb-cols 也跑这一档）' },
   { page: 'kb', width: 1300, interact: 'kb-select', note: '文件表 + 批量条（宽档）' },
   { page: 'kb', width: 520, interact: 'kb-empty-files', note: '空态卡' },
+  /* ⚠ **2026-09-20 头条新增**：`kb-crumb`（面包屑逐级可点）也走一遍真 Chrome。
+   *   两件事一起做，缺一不可：
+   *     ① 这一跑 `ui-render-shot` 自己下断言（可点级别必须是 button、点第 i 级真的回到第 i 层）；
+   *     ② 它同时把**目录层的新形态**（`.ks-list-dirs` 列表）纳入留边适用面 ——
+   *        这一跑在 `PAD_REQUIRED['kb|kb-crumb']` 里声明了期望元素，所以元素被改名/删掉会红。
+   *   ⚠ 只加这一组、**没动**其它组的判据（覆盖面只涨不跌）。 */
+  { page: 'kb', width: 520, interact: 'kb-crumb', note: '面包屑逐级可点 + 目录层列表（窄档）' },
   { page: 'kb', width: 520, interact: 'kb-select', theme: 'dark', note: '深色：留边 + 批量条折行（业主看的深浅两套）' },
   { page: 'capabilities', width: 520, interact: '', note: '能力页' },
   { page: 'ingest', width: 520, interact: '', note: '入库面板' },
@@ -154,6 +161,12 @@ console.log('')
       放进 `ksPadCheck` 报出来，本脚本直接从**实测 JSON** 读 —— 引号风格、换行、注释都影响不了它。
       下面的判据也从"解析是否为 0"升级成**双向集合相等**（声明 ⊆ 真跑过、真跑过 ⊆ 声明），
       部分漏读也会被抓到（漏读会让 `真跑过 ⊆ 声明` 那一侧红）。 */
+/* ⚠⚠ **2026-09-20 头条：这一条不改**。目录层换了形态（卡片网格 → 与文件列表同构的列表），
+   但新容器同时挂着 `.ks-list` 与 `.ks-dirs` 两个类 —— **两个都已经在本表里** ⇒ 覆盖面没变窄。
+   本表必须与 `ui-render-shot.mjs` 的 `PAD_SUBJECTS_ALL` **逐字一致**（下面的双向集合判据会抓），
+   而那一侧又绑着规范第二节 ⇒ 为同一个元素再加第三个名字（`.ks-list-dirs`）会连规范一起改宽，
+   等于把"适用面"越改越大。本批实测过那条路的代价：加完自检立刻红在
+   「规范第二节的适用面与本脚本的 PAD_SUBJECTS_ALL 不一致 ⇒ 只在脚本里=[.ks-list-dirs]」。 */
 const SPEC_SUBJECTS = ['.ks-kb', '.ks-ing', '.ks-mat', '.ks-kbband', '.ks-list', '.ks-batch',
   '.ks-dirs', '.ks-page-head', '.ks-kb-row', '.ks-empty-card']
 /**
@@ -165,11 +178,12 @@ const SPEC_SUBJECTS = ['.ks-kb', '.ks-ing', '.ks-mat', '.ks-kbband', '.ks-list',
  * ⚠⚠ **5j-补×6（2026-09-20，复核 `verify-freeze-5jx5` 的宽度盲区 / 变异 V8）**：上一版键是
  * `page|interact`（**不含宽度**）⇒ 把某一组**从宽窗换成窄窗**（例如 `materials|@1300` → `@520`）
  * 那个键仍然"跑过"了 ⇒ **少跑一组却全绿**，报表还照样打"窄档与宽档都有"。那正是本清单声称要堵的一类。
- * ⇒ 现在冻的是**三元组 `page|interact@width`**（9 条，与 `MATRIX` 逐行对应）。维护成本一样（同文件一行）。
+ * ⇒ 现在冻的是**三元组 `page|interact@width`**（10 条，与 `MATRIX` 逐行对应）。维护成本一样（同文件一行）。
  * ⚠ 与 `MATRIX` **同源两份**（同文件内），改矩阵必须逐字同步改这里 —— 不一致就红（这是设计，不是麻烦）。
  */
 const EXPECTED_RUNS = ['kb|@520', 'kb|@1300', 'kb|kb-select@520', 'kb|kb-files@520',
-  'kb|kb-select@1300', 'kb|kb-empty-files@520', 'kb|kb-select@520#dark', 'capabilities|@520',
+  'kb|kb-select@1300', 'kb|kb-empty-files@520', 'kb|kb-crumb@520', 'kb|kb-select@520#dark',
+  'capabilities|@520',
   'ingest|ingest-batch@520', 'materials|@1300']
 /** 从**成功的实测 JSON** 里取声明集合（任一组报到即可 —— 它们来自同一个 `ui-render-shot` 进程）。 */
 const declaredSubjects = rows.map((r) => r.allSubjects).find((v) => Array.isArray(v)) ?? null
