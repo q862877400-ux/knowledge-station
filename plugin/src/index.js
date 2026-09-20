@@ -460,8 +460,19 @@ const ANSWER_SCOPE = {
  *   正常：`{project_id, project_found, counts, notes, usable_indices}`
  *   失败：`{project_id, counts: null, notes: [], usable_indices: [], error}`
  * ⇒ 共有的 4 键进 `required`，`project_found`（只正常分支）与 `error`（只失败分支）只列不 required；
- * `counts` 是**引擎自有的字典**（键随 `assemble_evidence` 变），这里按"开放的 object"声明，
+ * `counts` 是**引擎自有的字典**（键随 `assemble_evidence` 变），这里按"**可空的开放 object**"声明，
  * 不替引擎做主，也**不**假装它是我们定的形状。
+ *
+ * ⚠⚠ **2026-09-20 就地更正（复核 `verify-freeze-step6-1` 打回 A，这是我的错）**：上面那段注释里我自己
+ * 写着失败分支是 `counts: null`，而下面第 474 行却写成 `counts: {type:'object'}` **且放进 `required`**
+ * —— **抄漏了那一支的可空性**。后果不是"少个校验"，而是**真机 isError**：复核用**真
+ * `@deepseek-ai/dsh-tools` 的 `ToolRuntime.execute`** 实测（引擎失败分支的 payload）⇒
+ * `isError:true`、`ToolOutputError`、`INVALID_TOOL_OUTPUT`「"value.material_usage" must match exactly
+ * one oneOf branch (matched 0)」；父提交那 6 处都是 `additionalProperties:true` 且当时**根本没转发**
+ * `material_usage` ⇒ **这条 isError 是我这一批新引入的**。
+ * 漏网原因：17 组冒烟里 `ks_answer` 只有正常分支（`full-answer`）/422/空信封，**没有引擎失败分支那一组**
+ * —— ⇒ 已补一组 `material-usage-engine-error`（`counts:null` + `error`），并把它钉进 required 的语义：
+ * `counts` 要在（**可以**是 null），而不是"必须在"。
  */
 const ANSWER_MATERIAL_USAGE = {
   oneOf: [
@@ -471,7 +482,7 @@ const ANSWER_MATERIAL_USAGE = {
       properties: {
         project_id: { type: 'string' },
         project_found: { type: 'boolean' },
-        counts: { type: 'object' },
+        counts: { oneOf: [{ type: 'object' }, { type: 'null' }] },
         notes: { type: 'array', items: { type: 'string' } },
         usable_indices: { type: 'array', items: { type: 'integer' } },
         error: { type: 'string' },

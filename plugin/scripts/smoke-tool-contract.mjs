@@ -210,6 +210,30 @@ const ANSWER_FULL = {
 const ANSWER_BARE = {
   code: 200, status: 'success', data: { tier: 'reference', notes: [] },
 }
+/**
+ * ⚠⚠ 2026-09-20（复核 `verify-freeze-step6-1` 打回 A 的**回归位**）：引擎**材料装配失败**那一支
+ * （`src/core/llm/ks_answer.py:698-701`）给的是 `{project_id, counts: null, notes: [], usable_indices: [],
+ * error}` —— `counts` **是 null**。我第一版 schema 把它写成必填的 `object`（自己的注释里都写着 null），
+ * 复核用**真 `ToolRuntime.execute`** 跑出 `INVALID_TOOL_OUTPUT`（真机 isError）。
+ * 这一组就是那次的漏网处：**17 组里 `ks_answer` 只有正常分支/422/空信封**。
+ */
+const ANSWER_MATERIAL_ERROR = {
+  code: 200,
+  status: 'success',
+  data: {
+    tier: 'reference',
+    evidence: [],
+    derivation: '',
+    conclusion: '',
+    verification: null,
+    notes: ['【参考资料】项目 prj_x 的材料载入失败'],
+    material_usage: {
+      project_id: 'prj_x', counts: null, notes: [], usable_indices: [],
+      error: '项目材料载入失败: boom',
+    },
+    _meta: { evidence_total: 0, retrieval: { result_count: 0, expanded_count: 0 }, llm_raw_length: 12 },
+  },
+}
 
 const MATERIAL_ROWS = [{
   material_id: 'mat_1', title: '某公司 2024 年年度报告', source_tier: 'T3',
@@ -355,6 +379,16 @@ async function main() {
     onlyPath('/api/v1/ks/answer', { code: 422, error: 'bad_request', message: 'query 太短' }, 422))
   await group('ks_answer', 'bare-envelope', { query: 'x' },
     onlyPath('/api/v1/ks/answer', ANSWER_BARE))
+  /* 引擎材料装配**失败**那一支：`material_usage.counts === null`。
+     ⚠ 这一组的价值不在"值满足 schema"那一句（它当然要满足），而在于**它把那条路径钉进覆盖**：
+     上一版正是缺这一组，才让"`counts` 写成必填 object"这个真机 isError 全绿地溜过去。 */
+  const answerMatErr = await group('ks_answer', 'material-usage-engine-error',
+    { query: 'x', params: { material_project_id: 'prj_x' } },
+    onlyPath('/api/v1/ks/answer', ANSWER_MATERIAL_ERROR))
+  check('ks_answer [material-usage-engine-error] — 引擎失败分支（counts:null + error）能原样通过自己的 schema',
+    answerMatErr?.material_usage?.counts === null
+      && typeof answerMatErr?.material_usage?.error === 'string',
+    JSON.stringify(answerMatErr?.material_usage))
 
   /* -------------------------------- ks_materials -------------------------------- */
   const projects = await group('ks_materials', 'projects', {},

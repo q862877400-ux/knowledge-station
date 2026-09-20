@@ -169,8 +169,10 @@ export function makeMaterialsTool(manager) {
             required: ['approved', 'pending', 'rejected'],
           },
           materials: { type: 'array', items: MATERIAL_ROW },
-          // ⚠ `note` 只在 action=materials 且 pending>0 时是字符串；pending=0 时字段值是
-          // `undefined`（**既有实现**如此，不是本 schema 造成的）——schema 只能如实声明 string。
+          // ⚠ `note` 只在 action=materials 且 pending>0 时出现（字符串）。**2026-09-20 更正**：这条注释
+          // 原文写着"pending=0 时字段值是 `undefined`（既有实现如此）"—— 那个"既有实现"**已被修掉**
+          // （显式 undefined 会让宿主 lossless 快照判 INVALID_TOOL_OUTPUT ⇒ 真机 isError；见本文件
+          // action==='materials' 那段的长注释）。现在是**省略键**，所以 schema 这里列而不 required 正合适。
           note: { type: 'string' },
         },
         required: ['ok', 'action'],
