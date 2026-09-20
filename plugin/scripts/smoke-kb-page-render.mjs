@@ -173,6 +173,87 @@ export function mount(container, props) {
     && styleEl.dataset.pluginCss === 'ks-dsh-plugin/ksGuideStyles.css',
     styleEl === null ? '没有 <style>' : `data-plugin=${styleEl.dataset.plugin} data-plugin-css=${styleEl.dataset.pluginCss}`)
 
+  /* ══════════ 断言 3j：**页面留边**（5j，2026-09-20；业主：「窗口四周要留点边啊」） ══════════
+   * 规范：docs/UI-BASELINE.md 第二节「页面留边」；落地记录：第六节 5j。
+   * 判据：页面根 / 卡片带外框 / 表格容器 / 批量条 / 页内按钮行 的元素外缘到 shell 边缘
+   *   ≥ --ks-page-pad-x（窄 16 / 宽 24）。
+   * ⚠ **这一侧没有布局引擎**（jsdom 的 getBoundingClientRect 恒 0）⇒ 它判不了像素，只能钉
+   *   **声明与结构**：① 页面根被 `.ks-page` 容器包着（容器查询的前提）；② 页面根的 padding
+   *   走留边 token；③ 所有"不得贴边"的元素都在页面根**之内**、且没有被负外边距抵消。
+   *   **像素级**（外缘到 shell 内容边 ≥ 该档留边）由 `ui-render-shot.mjs` 的 `ksPadCheck` 在
+   *   真 Chrome 里判 —— 两侧合起来才算钉住（同 5i 的 cardsCheck 口径，**别互相顶替**）。
+   * ⚠ 期望值是**冻结的规范值**（与 ui-render-shot.mjs 顶部的 PAGE_PAD_* **必须同值**），
+   *   并且要与注入样式表里的 token 定义互相核对 —— 谁改了 token 而没改这两处（或反之）就红。 */
+  const PAGE_PAD_X_NARROW = 16
+  const PAGE_PAD_X_WIDE = 24
+  const PAGE_PAD_BREAKPOINT = 660
+  const pageWrap = q('.ks-page')
+  const kbRoot = q('.ks-kb')[0] ?? null
+  check('页面留边：页面根外面有一层 `.ks-page` 容器（宽/窄两档就是按**它**的宽度切的）',
+    pageWrap.length === 1 && kbRoot !== null && kbRoot.parentElement === pageWrap[0],
+    `根数 .ks-page=${pageWrap.length} / .ks-kb=${q('.ks-kb').length}；`
+      + `.ks-kb 的父元素类名=${JSON.stringify(kbRoot?.parentElement?.className ?? null)}`)
+  const rootCs = kbRoot === null ? null : dom.window.getComputedStyle(kbRoot)
+  const rootPad = rootCs === null
+    ? { l: null, r: null, t: null, b: null }
+    : {
+        l: rootCs.getPropertyValue('padding-left').trim(),
+        r: rootCs.getPropertyValue('padding-right').trim(),
+        t: rootCs.getPropertyValue('padding-top').trim(),
+        b: rootCs.getPropertyValue('padding-bottom').trim(),
+      }
+  // jsdom 对 `var()` 值**可能**原样保留（同 bandFlex 的 computed flex）、也可能解析成 px；
+  // 两种都接受，但**必须是留边 token 或该档的规范值** —— 少了/写成 0 就红（变异要抓的正是它）。
+  const padOk = (v) => v === 'var(--ks-page-pad-x)' || v === 'var(--ks-page-pad-y)'
+    || v === `${String(PAGE_PAD_X_NARROW)}px` || v === `${String(PAGE_PAD_X_WIDE)}px`
+  check('页面留边：页面根的 padding 四个方向都走留边 token（不是 0、不是现场拍的数字）',
+    rootPad.l !== null && [rootPad.l, rootPad.r].every(padOk) && [rootPad.t, rootPad.b].every(padOk),
+    `padding 左=${JSON.stringify(rootPad.l)} 右=${JSON.stringify(rootPad.r)} `
+      + `上=${JSON.stringify(rootPad.t)} 下=${JSON.stringify(rootPad.b)}`)
+  const sheetText = styleEl?.textContent ?? ''
+  const tokenOf = (name) => {
+    const m = new RegExp(`--${name}\\s*:\\s*(\\d+)px`).exec(sheetText)
+    return m === null ? null : Number(m[1])
+  }
+  // ⚠ 只认**页面留边那一条** @container（body 里出现 .ks-page）：本表里另有一条给 .ks-list
+  //   切列档的同阈值 @container，取"第一个"会认错对象（那会让阈值改歪却全绿）。
+  let bpFound = null
+  for (const m of sheetText.matchAll(/@container\s*\(min-width:\s*(\d+)px\)\s*\{([^}]*)\}/g)) {
+    if (m[2].includes('.ks-page')) { bpFound = Number(m[1]); break }
+  }
+  check('页面留边：注入样式表里的两档 token 与阈值 = 规范的冻结值（窄 16 / 宽 24 / 阈值 660）',
+    tokenOf('ks-page-pad-x-narrow') === PAGE_PAD_X_NARROW
+    && tokenOf('ks-page-pad-x-wide') === PAGE_PAD_X_WIDE
+    && bpFound === PAGE_PAD_BREAKPOINT,
+    `--ks-page-pad-x-narrow=${JSON.stringify(tokenOf('ks-page-pad-x-narrow'))} `
+      + `--ks-page-pad-x-wide=${JSON.stringify(tokenOf('ks-page-pad-x-wide'))} `
+      + `@container=${JSON.stringify(bpFound)}`)
+  // 适用面（与 UI-BASELINE 第二节逐条一致）：这些元素**必须**是页面根的后代 ——
+  // 只要有一个跑到 `.ks-page` 外面，留边就管不到它（那是最容易悄悄发生的回归）。
+  const PAD_SUBJECTS = ['.ks-kbband', '.ks-list', '.ks-batch', '.ks-dirs',
+    '.ks-page-head', '.ks-kb-row', '.ks-empty-card']
+  const outside = []
+  const negMargin = []
+  for (const sel of PAD_SUBJECTS) {
+    for (const el of q(sel)) {
+      if (pageWrap.length === 1 && !pageWrap[0].contains(el)) outside.push(sel)
+      const cs = dom.window.getComputedStyle(el)
+      for (const prop of ['margin-left', 'margin-right']) {
+        const v = parseFloat(cs.getPropertyValue(prop))
+        if (Number.isFinite(v) && v < 0) negMargin.push(`${sel} ${prop}=${String(v)}`)
+      }
+    }
+  }
+  const presentSubjects = PAD_SUBJECTS.filter((sel) => q(sel).length > 0)
+  check('页面留边：卡片带/表格容器/批量条/目录层/页头/按钮行/空态卡**全都在页面根之内**（跑到容器外面就说明留边管不到它）',
+    presentSubjects.length > 0 && outside.length === 0,
+    presentSubjects.length === 0
+      ? '这一跑一个适用面元素都没出现（那这条断言等于没判）'
+      : `这一跑出现 ${presentSubjects.length} 类：${presentSubjects.join(',')}；越界：${JSON.stringify(outside)}`)
+  check('页面留边：适用面元素没有用负外边距把留边抵消掉（负 margin 是"绕过留边"的典型写法）',
+    negMargin.length === 0,
+    negMargin.length === 0 ? '无负 margin' : negMargin.join(' | '))
+
   /* ══════════ 断言 2b–2g：**5h 新 IA**（业主 2026-09-20 亲口定的形态） ══════════
    * 为什么这一组必须在**原有断言之前**：默认态的**形状**变了 ——
    *   旧：左轨（两棵目录树 + 自建夹卡）→ 中间直接摆**文件表格**；

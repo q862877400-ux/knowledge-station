@@ -91,6 +91,20 @@ export const KS_STYLES = `
      ⚠ JS 侧 BAND_STEP_PX = 184（卡宽 + gap）是它的**数值镜像**，只用于 scrollBy 的步长；
         "每屏几张"这个概念已经**不存在**了（上一版正是它与 CSS 两处耦合）。 */
   --ks-band-card-w:172px;
+  /* 页面留边（**内容与窗口/面板边缘**的留边；与上面那组"元素之间"的 --ks-space-* 是两件事）。
+     ⚠ 5j（2026-09-20）新增 —— **这是补一个规范缺口，不是"一直都有"**：第二节此前只定义了
+       元素**之间**的间距与元素**内部**的内边距，**从没定义过"页面内容离窗口边缘多远"**
+       ⇒ 每个页面根各自决定留不留（实测改前：页面根 0px，卡片带/表格/批量条全部贴到边缘）。
+       业主原话与去向见 UI-BASELINE 第二节同名一段 + 第六节 5j。
+     值：窄档 16 / 宽档 24（都在 4px 网格上；竖向同两档）。
+     ⚠ 窄档为什么不再大：520 的栏里 .ks-main 最小宽 280 + .ks-detail 最小宽 200 + 间距 8 = 488
+       = 520 − 2×16；留 20 就会把它们挤成两行（可用宽 = 页面根宽 − 2×留边）。
+     ⚠ 为什么不是参照的 28/32：那是 WeKnora 1440 全宽文档页的数（实测出处见第二节），
+       我们的窄档只有 520。 */
+  --ks-page-pad-x-narrow:16px; --ks-page-pad-x-wide:24px;
+  --ks-page-pad-y-narrow:16px; --ks-page-pad-y-wide:24px;
+  --ks-page-pad-x:var(--ks-page-pad-x-narrow);
+  --ks-page-pad-y:var(--ks-page-pad-y-narrow);
 }
 
 /* ---------- 开始页入口卡（照 TerminalGuide.module.css 的数值） ----------
@@ -490,6 +504,17 @@ export const KS_STYLES = `
   --dsw-elevation-stroke-color:var(--dsw-alias-border-l1);
   box-shadow:var(--dsw-elevation-prominent)}
 .ks-batch-btn{height:var(--ks-btn-h-sm);min-height:var(--ks-btn-h-sm)}
+/* ⚠ **5j（2026-09-20）窄档紧凑化 —— 这是页面留边的连带修复，不是顺手改**：
+   留边吃掉 2×16=32px 后，520 档里 .ks-main 从 496 落到 464，而这条批量条的**自然宽是 468**
+   ⇒ 实测从**一行 40px** 变成**两行 72px**（"批量删除"被挤到第二行）。留边是业主要的东西、
+   不能为它减，所以按**现有 @container 口径**（.ks-main 就是那个容器）在窄档把条子收紧凑：
+   gap 8→4、左右内边距 12→8 ⇒ 自然宽 468−16−8=444 < 464，实测回到**一行**。
+   阈值 520 取的是"这条条子放不下"的可用宽上界（468），不是拍脑袋的断点。
+   ⚠ 与 .ks-batch 主规则同权重 ⇒ 靠**源码顺序**压过它（写在它之后），条件是 max-width。
+   ⚠ 本段在模板字符串里：注释里**不许出现反引号**（会截断模板，本轮已踩第 13 次）。 */
+@container (max-width:520px){
+  .ks-batch{gap:var(--ks-space-1);padding:var(--ks-space-2)}
+}
 .ks-batch-n{font-size:var(--ks-fs-sm);font-weight:600}
 /* 危险动作（批量删除）的文字色：走宿主 state-error（**参照里也是红字**）。
    ⚠ 选择器写成 .ks-batch .ks-danger（0,2,0）：宿主的 Button CSS Module 类也是 (0,1,0)，
@@ -642,6 +667,41 @@ export const KS_STYLES = `
   border-color:var(--dsw-alias-state-error-primary)}
 .ks-ing-tone-muted{color:var(--dsw-alias-label-secondary);
   border-color:var(--dsw-alias-border-l2)}
+
+/* ===================================================================================
+   ---------- 页面留边（5j，2026-09-20；**这是补规范缺口，不是"一直都有"**） ----------
+
+   业主原话：「窗口四周要留点边啊，你这按钮都快跑到侧边栏外面去了，你改一下 UI 设计规范，
+   然后应用上」。⇒ 两件事：① 规范原来**只定义了元素之间**的间距（--ks-space-*，4px 网格），
+   **从没定义过"页面内容与窗口边缘的最小距离"** —— 所以每个页面根各自决定留不留；
+   ② 实测改前：页面根 0px、卡片带 / 表格容器 / 批量条 / ＋新建那一行**全部贴到 shell 内容边**。
+
+   判据（与第二节同名一段逐字一致）：**页面根 / 卡片带外框 / 表格容器 / 批量条 / 页面级按钮行
+   的元素外缘（页面根看它的**内容盒**外缘）到 shell 内容边的最小距离 ≥ --ks-page-pad-x**。
+
+   ⚠ **为什么容器是外面那个 .ks-page**（而不是让页面根自己当容器）：
+     CSS 里容器**不能**用自己的宽度查自己（cqw 也只看**就近祖先**容器）⇒ 页面根自己当容器的话，
+     它自己的 padding 永远读不到宽档值（只有后代读得到）。
+     .ks-page 只承担 container-type（**零内边距、零外边距**）⇒ **不是"盒子套盒子"**：
+     可用宽 = 页面根宽 − 2×留边，一分不多（第二节那条边界的兑现）。
+   ⚠ **为什么按容器宽切档而不是 @media**：宿主右侧栏宽度是业主自己拖的，与视口宽**没有关系**
+     （同一视口下 520 与 1300 都出现过）——同一条理由见 .ks-main 的 container-type 注释。
+     阈值 660 与 .ks-main 的列档**同一个数**，两个档位因此永远对齐（不新立口径）。
+   ⚠ 竖向留边同样两档；批量条的**竖向**是它自己的 position:sticky（贴滚动口下沿，故意的），
+     不在这条判据里 —— 那条只能在真宿主页里看（离屏渲染看不见 sticky，见第五节已知失真）。
+   ⚠ 本段是模板字符串里的一段 CSS：注释里**不许出现反引号**（会截断模板）。 */
+.ks-page{container-type:inline-size;min-height:100%;box-sizing:border-box}
+.ks-kb,.ks-ing,.ks-mat{
+  padding-top:var(--ks-page-pad-y);padding-bottom:var(--ks-page-pad-y);
+  padding-left:var(--ks-page-pad-x);padding-right:var(--ks-page-pad-x)}
+/* 宽档：页面根宽 ≥ 660 ⇒ 换成 24（与 .ks-main 的列档同阈值、同一条容器）。
+   ⚠ 这里只改**自定义属性**（在 .ks-kb 等元素上），padding 那条声明从元素自己的 computed
+     变量取值 ⇒ 效果等价于"页面的 padding 变小/变大"，但容器查询**没有**去查自己。 */
+@container (min-width:660px){
+  .ks-page .ks-kb,.ks-page .ks-ing,.ks-page .ks-mat{
+    --ks-page-pad-x:var(--ks-page-pad-x-wide);
+    --ks-page-pad-y:var(--ks-page-pad-y-wide)}
+}
 `
 
 /**

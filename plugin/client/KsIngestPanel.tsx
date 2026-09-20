@@ -338,6 +338,10 @@ export function KsIngestPanel(props: KsIngestPanelProps): JSX.Element {
     || detailState.status === 'loading'
 
   return (
+    // ⚠ 5j（2026-09-20）：`.ks-page` 只做 container-type（页面留边的宽/窄两档靠它切；
+    //    CSS 里容器不能用自己的宽度查自己 ⇒ 留边落在后代的 `.ks-ing` 上）。
+    //    零内边距零外边距 ⇒ 不是"盒子套盒子"。里面的 JSX 缩进保持原样（本批不重排）。
+    <div className="ks-page">
     <div className="ks-ing">
       <div className="ks-ing-note">
         只读预览：<b>不写库、不移动文件、默认不外发</b>。
@@ -538,6 +542,7 @@ export function KsIngestPanel(props: KsIngestPanelProps): JSX.Element {
         </div>
       ) : null}
       {detail ? <ReportDetail report={detail} /> : null}
+    </div>
     </div>
   )
 }

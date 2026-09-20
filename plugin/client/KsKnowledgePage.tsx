@@ -773,6 +773,11 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
   if (page !== 'manage') {
     const LABELS: Record<string, string> = { ingest: '文件导入', report: '效力报告', channels: '渠道台账' }
     return (
+      // ⚠ 5j（2026-09-20）：外面这一层 `.ks-page` **只做 container-type**（页面留边的宽/窄两档
+      //    靠它切；CSS 里容器不能用自己的宽度查自己，所以留边必须落在它的后代 `.ks-kb` 上）。
+      //    它零内边距、零外边距 ⇒ 不是"盒子套盒子"，可用宽 = 页面根宽 − 2×留边，一分不多。
+      //    ⚠ 里面的 JSX 缩进**保持原样**：本批只加这一层，不去重排既有代码的缩进（否则回读全是噪声）。
+      <div className="ks-page">
       <div className="ks-kb">
         <div className="ks-kb-banner" title="本页只落了入口与外壳，数据是页面内的占位常量。">
           <IconInfoOutline14 />
@@ -785,6 +790,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
             所以入口现在是<strong>真的</strong>、内容是<strong>空的</strong>——而不是一个假按钮。
           </div>
         </div>
+      </div>
       </div>
     )
   }
@@ -815,6 +821,11 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
   ) : null
 
   return (
+    // ⚠ 5j（2026-09-20）：外面这一层 `.ks-page` **只做 container-type**（页面留边的宽/窄两档
+    //    靠它切；CSS 里容器不能用自己的宽度查自己 ⇒ 留边落在它的后代 `.ks-kb` 上）。
+    //    零内边距零外边距 ⇒ 不是"盒子套盒子"，可用宽 = 页面根宽 − 2×留边。
+    //    ⚠ 里面 600 行的 JSX 缩进**保持原样**：本批只加这一层，不重排既有代码的缩进。
+    <div className="ks-page">
     <div className="ks-kb">
       {/* 页面骨架（照 WeKnora 列表页：大标题 + 一行副标题 + 0.5px 分隔线；见 docs/UI-BASELINE.md 三）
           ⚠ 原来这里是"14px 粗体 + 右边一排按钮"的一行 —— 没有层级，标题和操作挤在同一视线高度上 */}
@@ -1419,6 +1430,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
           )}
         </>
       )}
+    </div>
     </div>
   )
 }

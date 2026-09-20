@@ -307,6 +307,10 @@ export function KsCapabilityPage(): ReactNode {
   }
 
   return (
+    // ⚠ 5j（2026-09-20）：`.ks-page` 只做 container-type（页面留边的宽/窄两档靠它切；
+    //    CSS 里容器不能用自己的宽度查自己 ⇒ 留边落在后代的 `.ks-kb` 上）。
+    //    零内边距零外边距 ⇒ 不是"盒子套盒子"。里面的 JSX 缩进保持原样（本批不重排）。
+    <div className="ks-page">
     <div className="ks-kb">
       {/* 页面骨架：**与知识库页同一套**（.ks-page-head/.ks-page-title/.ks-page-sub/.ks-page-rule）。
           5c 之前这里是「inline 14px 粗体」的一行 ⇒ 两个页面的页头**不同级**：知识库页 20px、
@@ -394,6 +398,7 @@ export function KsCapabilityPage(): ReactNode {
           </div>
         </Modal>
       )}
+    </div>
     </div>
   )
 }

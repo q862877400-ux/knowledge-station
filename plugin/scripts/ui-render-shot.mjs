@@ -821,7 +821,12 @@ ${bandScrollStmt}
                    ⚠ .ks-rail 与 .ks-kb-tn 留在名单里但**已经量不到**（树/目录轨被业主点名删了）
                      —— 不删这两个名字是为了让"量不到"在产物里**可见**（5h 之前的图里有值）。 */
                 '.ks-kbband','.ks-kbband-nav','.ks-kbband-clip','.ks-crumb','.ks-crumb-path','.ks-back',
-                '.ks-dirs','.ks-dir','.ks-dir-name'];
+                '.ks-dirs','.ks-dir','.ks-dir-name',
+                /* 5j（2026-09-20）页面留边：量这几个盒子的**绝对坐标**（.ks-page 是那个只管
+                   container-type 的容器，.ks-kb/.ks-ing/.ks-mat 是三个页面根，.ks-split 是
+                   "详情栏有没有被挤到第二行"的锚点）。**判据不在这里**（这里只报告），
+                   Node 侧的 ksPadCheck 按 #kspad 逐条判 —— 见本段下面的 #kspad 段。 */
+                '.ks-page','.ks-kb','.ks-ing','.ks-mat','.ks-split'];
     var out = {};
     sels.forEach(function (s) {
       var els = document.querySelectorAll(s);
@@ -986,6 +991,61 @@ ${bandScrollStmt}
                    color: s.color, bg: s.backgroundColor, border: s.borderTopColor };
         }) };
     }
+    // **页面留边**（5j，2026-09-20）：量"元素外缘到 shell **内容边**的最小距离"。
+    // 业主原话是「窗口四周要留点边啊，你这按钮都快跑到侧边栏外面去了」⇒ 判据变成可量的：
+    // 页面根 / 卡片带外框 / 表格容器 / 批量条 / 页内按钮行 / 空态卡 的**外缘**
+    // 到 shell 内容边 ≥ --ks-page-pad-x（规范值见 docs/UI-BASELINE.md 第二节，Node 侧钉数）。
+    // ⚠ **为什么减掉 shell 的 padding**：#ks-shell 那 12px 是**本脚本自己的假外壳**（见 ks-shell-css），
+    //   不是我们样式的贡献。不减掉它，我们的留边会被假外壳"垫高"，而变异（把留边改成 0）
+    //   还剩 12px 兜着 —— 那正是"靠宿主外壳留边"的假绿。d/dR 是**我们自己**的距离；
+    //   dRaw/dRRaw 是到 shell 外框（= 窗口代理）的距离，一并报出（业主说的"窗口四周"）。
+    // ⚠ 页面根看**内容盒**（padding 在它自己身上，它的边框盒外缘本来就贴着 shell 内容边 ——
+    //   那是"根铺满"的正常形态，不是"内容贴边"）；其余元素看**边框盒**（外框就是用户看到的边）。
+    // 借字段名（同 #cards / #cols 的先例）：x=shell 内容盒左缘 y=shell 内容盒右缘
+    //   w=shell 宽 h=shell 高 fs='' lh='' pad=shell 自己的左右 padding gap='' radius=''。
+    var shellEl = document.getElementById('ks-shell');
+    if (shellEl) {
+      var shR = shellEl.getBoundingClientRect();
+      var shCs = getComputedStyle(shellEl);
+      var shPl = parseFloat(shCs.paddingLeft); if (!isFinite(shPl)) shPl = 0;
+      var shPr = parseFloat(shCs.paddingRight); if (!isFinite(shPr)) shPr = 0;
+      var cLeft = shR.left + shPl;
+      var cRight = shR.right - shPr;
+      // ⚠ 这一串**必须与 docs/UI-BASELINE.md 第二节的适用面一致**（Node 侧 ksPadCheck 逐条判）。
+      //   isRoot=1 表示"看它的内容盒"，0 = "看它的边框盒"。
+      var padSel = [['.ks-kb', 1], ['.ks-ing', 1], ['.ks-mat', 1],
+                    ['.ks-kbband', 0], ['.ks-list', 0], ['.ks-batch', 0], ['.ks-dirs', 0],
+                    ['.ks-page-head', 0], ['.ks-kb-row', 0], ['.ks-empty-card', 0]];
+      var padItems = [];
+      for (var pi = 0; pi < padSel.length; pi++) {
+        var pel = document.querySelector(padSel[pi][0]);
+        if (!pel) continue;
+        var isRoot = padSel[pi][1] === 1;
+        var pR = pel.getBoundingClientRect();
+        var pCs = getComputedStyle(pel);
+        var ppl = parseFloat(pCs.paddingLeft); if (!isFinite(ppl)) ppl = 0;
+        var ppr = parseFloat(pCs.paddingRight); if (!isFinite(ppr)) ppr = 0;
+        var ppt = parseFloat(pCs.paddingTop); if (!isFinite(ppt)) ppt = 0;
+        var ppb = parseFloat(pCs.paddingBottom); if (!isFinite(ppb)) ppb = 0;
+        var vL = isRoot ? pR.left + ppl : pR.left;
+        var vR = isRoot ? pR.right - ppr : pR.right;
+        // 页面根自己的**生效留边**（宽/窄两档由 .ks-page 的容器查询切）：
+        // 报出来给 Node 侧核对"量到的档位"与"该档的规范值"是不是同一个。
+        // h/padT/padB 是给**批量条**用的：留边会挤窄可用宽，条子会从一行变两行
+        // （5j 实测：520 下 40px→72px）⇒ 这个高度得有断言兜着，不能只靠看图。
+        padItems.push({ sel: padSel[pi][0], root: isRoot,
+                        d: Math.round(vL - cLeft), dR: Math.round(cRight - vR),
+                        dRaw: Math.round(vL - shR.left), dRRaw: Math.round(shR.right - vR),
+                        padL: Math.round(ppl), padR: Math.round(ppr),
+                        padT: Math.round(ppt), padB: Math.round(ppb), h: Math.round(pR.height), n: 1 });
+      }
+      var pageBox = document.querySelector('.ks-page');
+      out['#kspad'] = { n: padItems.length, x: Math.round(cLeft), y: Math.round(cRight),
+                        w: Math.round(shR.width), h: Math.round(shR.height), fs: '', lh: '',
+                        pad: String(Math.round(shPl)) + '/' + String(Math.round(shPr)), gap: '',
+                        radius: '', pageW: pageBox ? Math.round(pageBox.getBoundingClientRect().width) : 0,
+                        pageN: document.querySelectorAll('.ks-page').length, items: padItems };
+    }
     document.title = 'h=' + document.documentElement.scrollHeight + '|m=' + JSON.stringify(out);
   } catch (e) {
     document.title = 'h=' + document.documentElement.scrollHeight + '|m={"error":' + JSON.stringify(String(e)) + '}';
@@ -1120,6 +1180,122 @@ const cardsCheck = {
   items: kbc?.items ?? null,
 }
 
+/* ══════════ `#kspad` 的**真断言**（5j，2026-09-20；业主：「窗口四周要留点边啊」） ══════════
+ * 来源：业主 2026-09-20 原话「窗口四周要留点边啊，你这按钮都快跑到侧边栏外面去了，你改一下 UI
+ *   设计规范，然后应用上」。改前**只有报告值没有断言**的风险与本仓已踩三次的坑一模一样
+ *   （`#cols` 变异 M4、`#cards` 变异逐卡覆盖 token 都是"报告值全绿"）⇒ 这里一次立成真断言。
+ *
+ * 判据（与 docs/UI-BASELINE.md 第二节「页面留边」逐字一致）：
+ *   页面根（.ks-kb/.ks-ing/.ks-mat，看**内容盒**）/ 卡片带外框 `.ks-kbband` / 表格容器 `.ks-list`
+ *   / 批量条 `.ks-batch` / 目录层 `.ks-dirs` / 页头 `.ks-page-head` / 页内按钮行 `.ks-kb-row`
+ *   / 空态卡 `.ks-empty-card` 的**外缘**到 shell **内容边**的最小距离 ≥ 该档的 --ks-page-pad-x。
+ *
+ * ⚠ **期望值必须是"冻结的规范值"，不能从被测元素自己的 computed padding 反推** ——
+ *   否则"把留边改成 0"会让期望值一起变成 0，断言恒真（那是本仓最恨的假绿）。所以：
+ *   ① 下面三个 PAGE_PAD_* 是**规范锚点**（冻结常数，出处 UI-BASELINE 第二节 + 5j）；
+ *   ② 同时从 `ksGuideStyles.ts` **抠出** :root 里的 token 定义与 @container 阈值，三者必须一致
+ *      —— 谁改了 token 而没改这里（或反过来），这一条就红（"规范 ↔ 实现"的棘轮）。
+ * ⚠ `d`/`dR` 是**我们自己样式**给出的距离（已减掉本脚本假外壳 #ks-shell 的 12px padding）；
+ *   `dRaw`/`dRRaw` 是到 shell 外框（窗口代理）的距离。两者都判 —— 业主说的是"窗口四周"。
+ * ⚠ 适用面：`.ks-page` 不在这一跑里（页面根没被包住）⇒ **明说没判**（ksPadCheck.skipReason），
+ *   不静默通过；量到的档位由 `.ks-page` 的实测宽与阈值比出来（与浏览器里容器查询同一口径）。 */
+const PAGE_PAD_X_NARROW = 16
+const PAGE_PAD_X_WIDE = 24
+const PAGE_PAD_BREAKPOINT = 660
+const stylesSrcPath = join(pluginRoot, 'client', 'ksGuideStyles.ts')
+let ksPadTokenProblems = []
+try {
+  const stylesSrc = await readFile(stylesSrcPath, 'utf8')
+  const tokenOf = (name) => {
+    const m = new RegExp(`--${name}\\s*:\\s*(\\d+)px`).exec(stylesSrc)
+    return m === null ? null : Number(m[1])
+  }
+  const tkNarrow = tokenOf('ks-page-pad-x-narrow')
+  const tkWide = tokenOf('ks-page-pad-x-wide')
+  if (tkNarrow !== PAGE_PAD_X_NARROW) {
+    ksPadTokenProblems.push(`ksGuideStyles.ts 的 --ks-page-pad-x-narrow = ${JSON.stringify(tkNarrow)}，`
+      + `而本脚本冻结的规范值是 ${String(PAGE_PAD_X_NARROW)}（改了 token 就要同步 UI-BASELINE 第二节与本脚本）`)
+  }
+  if (tkWide !== PAGE_PAD_X_WIDE) {
+    ksPadTokenProblems.push(`ksGuideStyles.ts 的 --ks-page-pad-x-wide = ${JSON.stringify(tkWide)}，`
+      + `而本脚本冻结的规范值是 ${String(PAGE_PAD_X_WIDE)}（同上）`)
+  }
+  const mBp = /@container\s*\(min-width:\s*(\d+)px\)\s*\{([^}]*)\}/g
+  let bp = null
+  // ⚠ 只认**页面留边那一条** @container（body 里出现 .ks-page）—— 本表里还有一条给
+  //   `.ks-list` 切列档的 `@container (min-width:660px)`，取"第一个 @container"会认错对象。
+  for (const m of stylesSrc.matchAll(mBp)) {
+    if (m[2].includes('.ks-page')) { bp = Number(m[1]); break }
+  }
+  if (bp !== PAGE_PAD_BREAKPOINT) {
+    ksPadTokenProblems.push(`ksGuideStyles.ts 里页面留边的 @container 阈值 = ${JSON.stringify(bp)}，`
+      + `而本脚本冻结的是 ${String(PAGE_PAD_BREAKPOINT)}（宽/窄两档的切换点只许有一个数）`)
+  }
+} catch (e) {
+  ksPadTokenProblems.push(`读不到 ${stylesSrcPath}：${String(e)}（读不到就不算验过）`)
+}
+
+const ksp = measured['#kspad']
+const ksPadProblems = ksPadTokenProblems.slice()
+let ksPadSkipReason = null
+if (ksp === undefined) {
+  ksPadSkipReason = `这一跑没量到 #kspad（page=${page}）—— 量不到不算验过`
+} else if (ksp.pageN !== 1) {
+  ksPadSkipReason = `.ks-page 容器实测 ${String(ksp.pageN)} 个（期望恰好 1 个）—— 页面根没被包住，这一跑不判`
+} else if ((ksp.items ?? []).length === 0) {
+  ksPadSkipReason = '这一跑一个"不得贴边"的元素都没量到 —— 量不到不算验过'
+} else {
+  const wide = Number(ksp.pageW) >= PAGE_PAD_BREAKPOINT
+  const expect = wide ? PAGE_PAD_X_WIDE : PAGE_PAD_X_NARROW
+  for (const it of ksp.items) {
+    const tag = `${it.sel}${it.root === true ? '（页面根，看内容盒）' : ''}`
+    if (!Number.isFinite(it.d) || !Number.isFinite(it.dR)) {
+      ksPadProblems.push(`${tag} 的左右留边量不到（d=${JSON.stringify(it.d)} dR=${JSON.stringify(it.dR)}）`)
+      continue
+    }
+    if (it.d < expect) {
+      ksPadProblems.push(`${tag} **左缘贴边**：到 shell 内容边只有 ${String(it.d)}px < 该档留边 ${String(expect)}px`
+        + `（到 shell 外框 ${String(it.dRaw)}px）`)
+    }
+    if (it.dR < expect) {
+      ksPadProblems.push(`${tag} **右缘贴边**：距 shell 内容边右缘只有 ${String(it.dR)}px < 该档留边 ${String(expect)}px`
+        + `（距 shell 外框 ${String(it.dRRaw)}px）`)
+    }
+    if (it.dRaw < expect) {
+      ksPadProblems.push(`${tag} **距窗口代理左缘**只有 ${String(it.dRaw)}px < ${String(expect)}px`
+        + '（连本脚本假外壳那 12px 一起算上都不够 ⇒ 真机上只会更窄）')
+    }
+    if (it.dRRaw < expect) {
+      ksPadProblems.push(`${tag} **距窗口代理右缘**只有 ${String(it.dRRaw)}px < ${String(expect)}px（同上）`)
+    }
+    if (it.root === true && it.padL !== expect) {
+      ksPadProblems.push(`${tag} 自己声明的 padding-left = ${String(it.padL)}px，`
+        + `与这一档（${wide ? '宽' : '窄'}档，页面根宽 ${String(ksp.pageW)}px）的规范值 ${String(expect)}px 不符`
+        + ' —— 档位没切对，或 token 没被消费')
+    }
+  }
+  /* 批量条**不许因为留边被挤成两行**（5j 的连带修复，见 ksGuideStyles 的窄档紧凑规则）：
+     单行 = padding-top + --ks-btn-h-sm(24) + padding-bottom（实测 520 下 8+24+8 = 40）；
+     两行 = 72（5j 变异实测）。判据留 8px 余量：h > 单行预算 + 8 就是折行了。 */
+  const batchItem = (ksp.items ?? []).find((it) => it.sel === '.ks-batch')
+  const batchOneRow = batchItem === undefined ? null : batchItem.padT + 24 + batchItem.padB
+  if (batchItem !== undefined && Number.isFinite(batchItem.h) && batchItem.h > batchOneRow + 8) {
+    ksPadProblems.push(`.ks-batch **被挤成两行**（高 ${String(batchItem.h)}px > 单行预算 ${String(batchOneRow)}px + 8）`
+      + ' —— 留边吃掉可用宽之后条子折行了；按现有 @container 口径在窄档把它收紧凑'
+      + '（ksGuideStyles.ts 的 `@container (max-width:520px){.ks-batch{...}}`）')
+  }
+}
+const ksPadCheck = {
+  checked: ksPadProblems.length === 0 && ksPadSkipReason === null,
+  skipReason: ksPadSkipReason,
+  problems: ksPadProblems,
+  tier: ksp === undefined ? null : (Number(ksp.pageW) >= PAGE_PAD_BREAKPOINT ? 'wide' : 'narrow'),
+  pageW: ksp?.pageW ?? null,
+  shellPad: ksp?.pad ?? null,
+  expect: ksp === undefined ? null : (Number(ksp.pageW) >= PAGE_PAD_BREAKPOINT ? PAGE_PAD_X_WIDE : PAGE_PAD_X_NARROW),
+  items: ksp?.items ?? null,
+}
+
 // --viewport 给定时**按视口高截**（这才看得出 position:sticky；全页截图看不出来）
 const shotHeight = fixedHeight ?? Math.max(320, Math.min(cssHeight, 6000))
 
@@ -1150,6 +1326,7 @@ console.log(JSON.stringify({
   measured,
   colsCheck,
   cardsCheck,
+  ksPadCheck,
   renderedChars: rendered.length,
   bundle: { js: bundleJs.replace(work, '<work>'), primitivesCssChars: primitivesCss.length },
   browser,
@@ -1186,6 +1363,25 @@ if (cardsSkipReason !== null) {
   console.error('   ⇒ 卡宽的唯一声明是 ksGuideStyles.ts 的 `.ks-kbband .ks-kb-card{flex:0 0 var(--ks-band-card-w)}`，')
   console.error('      同排等高靠容器 `.ks-kbband .ks-kb-cards{align-items:stretch}` + `>*{min-height:var(--ks-card-h)}`。')
   console.error('      给**单张卡**另钉宽度/高度（例如 :nth-child(2){flex:0 0 60px}）就是这条断言要抓的回归。')
+  process.exit(1)
+}
+
+/* `#kspad` 的自检结论同样走 **stderr**（理由同上：stdout 必须是完整可 JSON.parse 的一份产物）。 */
+if (ksPadSkipReason !== null) {
+  console.error(`· #kspad 自检：**这一跑不判**（${ksPadSkipReason}）`)
+} else if (ksPadProblems.length === 0) {
+  const detail = (ksPadCheck.items ?? []).map((it) => `${it.sel} ${String(it.d)}/${String(it.dR)}`).join('、')
+  console.error(`· #kspad 自检通过：${ksPadCheck.tier === 'wide' ? '宽' : '窄'}档（页面根宽 `
+    + `${String(ksPadCheck.pageW)}px）留边 ${String(ksPadCheck.expect)}px；逐项 左/右 = ${detail}`
+    + `（page=${page} width=${width} theme=${themeName}）`)
+} else {
+  console.error('')
+  console.error(`❌ 页面留边自检失败（业主：「窗口四周要留点边啊」；page=${page} width=${width} theme=${themeName}）：`)
+  for (const p of ksPadProblems) console.error(`   - ${p}`)
+  console.error('   ⇒ 页面根 / 卡片带外框 / 表格容器 / 批量条 / 页内按钮行 都不许贴边：')
+  console.error('      ksGuideStyles.ts 的 `.ks-kb,.ks-ing,.ks-mat{padding-*:var(--ks-page-pad-x|y)}`，')
+  console.error('      值在 :root 的 --ks-page-pad-x-narrow/wide（窄 16 / 宽 24，@container 660 切档）。')
+  console.error('      把留边改成 0（或负 margin）、或把 token 改歪，就是这条断言要抓的回归。')
   process.exit(1)
 }
 

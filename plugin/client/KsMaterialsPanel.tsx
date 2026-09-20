@@ -699,7 +699,13 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
   const current = projects.find((p) => p.project_id === projectId)
 
   return (
-    <div style={{ fontSize: 13 }}>
+    // ⚠ 5j（2026-09-20）：`.ks-page` 只做 container-type（页面留边的宽/窄两档靠它切；
+    //    CSS 里容器不能用自己的宽度查自己 ⇒ 留边落在后代的 `.ks-mat` 上）。
+    //    零内边距零外边距 ⇒ 不是"盒子套盒子"。里面的 JSX 缩进保持原样（本批不重排）。
+    //    ⚠ 本组件**同时**被设置窗的 KsCategory 包着渲染 ⇒ 那处会多出这层留边（16px）：
+    //      这是有意的（弹窗内容同样不该贴边），但它**不在**本轮的验收面上（见 UI-BASELINE 5j 边界）。
+    <div className="ks-page">
+    <div className="ks-mat" style={{ fontSize: 13 }}>
       <p style={{ margin: '0 0 10px', fontSize: 12, color: 'var(--dsw-alias-label-secondary, #666)' }}>
         <strong>评审是硬门</strong>：只有<strong>已批准</strong>的材料会进入作答与产出物。
         未批准的材料不会被检索、不会被引用。所有决定都由<strong>你</strong>做出（本面板没有"全部通过"）。
@@ -1167,6 +1173,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
           </p>
         </div>
       )}
+    </div>
     </div>
   )
 }
