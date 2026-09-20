@@ -45,8 +45,13 @@
  *                        scrollLeft 只能是 0，"滚到中段/末端"那张图需要的位移出不来。它写的是**真元素**的
  *                        scrollLeft（等同用户拖了那条滚动条），位移与滚动条拇指位置都由真布局算。
  *   --interact <a,b> 可选：kb-files / kb-detail / kb-select / kb-filter / kb-filter-empty /
- *                    kb-search / kb-empty-files / kb-tags-view / kb-band-start / kb-band-end /
+ *                    kb-search / kb-search-dirs / kb-search-dirs-empty / kb-empty-files /
+ *                    kb-tags-view / kb-band-start / kb-band-end /
  *                    kb-enter-law / kb-enter-l2 / kb-back / ingest-batch / cap-dialog
+ *                    ⚠⚠ **5i（2026-09-20 收尾批）：未知场景名 ⇒ 报错 + exit 2**（列出可用名字）。
+ *                      复核实测旧行为：`--interact kb-empty`（已删掉的场景名）⇒ `notes=[]`、**exit 0**。
+ *                      另外**每个分支都必须"落地"**：做不到就报 note + **exit 1**（`mustLand`），
+ *                      不再有"什么都没做还成功"的路径（见 `SCENARIOS` 与 `landing` 的注释）。
  *                    ⚠ **5h（2026-09-20）新 IA 改了基准态**：默认态 =「卡片带 + **一级目录**」
  *                      （业主："先占上一级目录文件夹…到最末一级才是文件"）⇒ 凡是要"文件表格 /
  *                      状态徽章 / 搜索框"的场景都必须**先下钻**。脚本里那四个 helper
@@ -84,7 +89,13 @@
  * ⚠ 没有 `.ks-lhead` 的页面（capabilities/material/ingest）与**没有数据行**的场景（空态截图）
  *   不适用这条断言 ⇒ 本脚本**明说"这条没判"**（打印 note），不是静默通过。
  *
- * 退出码：0 = 图已生成且（适用时）列对齐自检通过；1 = 缺件/截图失败/列对齐自检失败（**不是通过**）；2 = 参数错。
+ * ⚠⚠ **5i（2026-09-20 收尾批）又加了一条真断言**：`#kbcards`（卡片带里逐张卡的宽/高）必须
+ *   **全等**，不等 ⇒ 逐张打印实际值 + **exit 1**（`cardsCheck`）。为什么：复核把列模板改成
+ *   `60px 120px 200px`（三张卡三种宽）之后**渲染冒烟 51/51 全绿** —— 旧的 `#cards` 只是报告值，
+ *   全仓没有断言引用它，而"知识库卡片尺寸统一"是业主点名的形态。同样三档由 `smoke-kb-cols` 跑。
+ *
+ * 退出码：0 = 图已生成且（适用时）列对齐/卡片尺寸自检通过；1 = 缺件/截图失败/自检失败/**--interact
+ *   场景没落地**（**不是通过**）；2 = 参数错（含**未知的 --interact 场景名**，5i 起）。
  */
 import { existsSync } from 'node:fs'
 import { mkdir, mkdtemp, readFile, readdir, rm, writeFile } from 'node:fs/promises'
@@ -133,6 +144,33 @@ if (fixedHeight !== null && (!Number.isFinite(fixedHeight) || fixedHeight <= 0))
   console.error(`❌ --viewport/--height 要是正数（拿到 ${String(fixedHeightRaw)}）`); process.exit(2)
 }
 const interacts = arg('interact', PAGES[page].interact.join(',')) .split(',').map((s) => s.trim()).filter(Boolean)
+/**
+ * **`--interact` 的合法场景名**（唯一所有者）。
+ *
+ * ⚠⚠ **5i（2026-09-20 收尾批）：未知场景名不再静默通过。**
+ *   复核实测：`--interact kb-empty`（一个**已删掉**的场景名 —— 它点的是被业主点名删掉的目录树
+ *   `.ks-kb-tline`）⇒ 循环里没有分支接住它 ⇒ `notes=[]`、**exit 0**。而这个文件自己的注释还写着
+ *   "那种静默没做成正是本脚本要避免的" —— 同一个病：**什么都不做还能成功**。
+ *   ⇒ 现在两条路都堵死：
+ *     · 名字**不在**这张表里 ⇒ 打错误 + 列出可用名字 + **exit 2**（参数错，与 `--page` 同一档）；
+ *     · 名字在表里、但这一跑**没落地**（见下面的 `mustLand`）⇒ 报 note + **exit 1**（断言红）。
+ *   ⚠ 这张表是**活的所有者**：加一个场景就加一行，删一个场景就删一行 —— 表与 if/else 链不一致时
+ *     前者会当场红（"名字在表里但没有任何分支处理"也在 exit 1 那一档里，见 `handled` 集合）。
+ */
+const SCENARIOS = [
+  'kb-files', 'kb-band-start', 'kb-band-end', 'kb-enter-law', 'kb-enter-l2', 'kb-back',
+  'kb-detail', 'kb-filter', 'kb-filter-empty', 'kb-search', 'kb-search-dirs',
+  'kb-search-dirs-empty', 'kb-select', 'kb-empty-files', 'kb-tags-view',
+  'ingest-batch', 'cap-dialog',
+]
+const unknownScenarios = interacts.filter((name) => !SCENARIOS.includes(name))
+if (unknownScenarios.length > 0) {
+  console.error(`❌ 未知的 --interact 场景名：${unknownScenarios.join(', ')}`)
+  console.error(`   可用场景名（共 ${String(SCENARIOS.length)} 个）：${SCENARIOS.join(' / ')}`)
+  console.error('   ⚠ 这不是"忽略一下继续跑"的情况：旧行为是**什么都不做还 exit 0**（复核 verify-freeze-5h'
+    + ' 实测 --interact kb-empty ⇒ notes=[]、exit 0），那种静默本批已堵死。')
+  process.exit(2)
+}
 /**
  * `--band-scroll <px|end>`（5h-补，2026-09-20）：**在真浏览器里**把卡片带的横向滚动容器滚到指定位置。
  *
@@ -311,7 +349,32 @@ const click = async (el) => {
   await flush()
   return true
 }
+/**
+ * 往**受控 input** 里打字（`kb-search` 与两个目录层搜索场景共用）。
+ * ⚠ 必须走**原生 setter**：直接 `el.value = x` 会被 React 的 value tracker 判成"没变化"而不触发
+ *   `onChange` —— 渲染级冒烟第一版就是这么失败的（本脚本当初也踩过同一个坑）。
+ */
+const setSearchInput = async (el, value) => {
+  const nativeSetter = Object.getOwnPropertyDescriptor(dom.window.HTMLInputElement.prototype, 'value').set
+  nativeSetter.call(el, value)
+  el.dispatchEvent(new dom.window.Event('input', { bubbles: true }))
+  await flush()
+}
 const notes = []
+/**
+ * **场景"落地"的判定**（5i 2026-09-20 收尾批；与上面的 `SCENARIOS` 表配套）。
+ *
+ * 为什么要有它：`--interact` 的每个分支都必须**真的做到那一件事**，做不到就得**报红**，
+ * 不能只在 note 里写一句"没找到卡"然后 exit 0 —— 那就是"什么都没做还成功"。
+ * ⚠ 边界（诚实）：**卡片带那两个**场景在 jsdom 里"滚动"本来就动不了（没有布局引擎，
+ *   `scrollWidth` 恒 0，组件里那条兜底明说"量不出几何就不滚并返回 false"）⇒ 它们的落地判据
+ *   只能钉到"这条带 + 5 张卡真的在 DOM 里、箭头真的被点到"，**位移**由真 Chrome 的
+ *   `--band-scroll` 那一趟（或 `measured["#kbband"]`）取证。这不是放宽：件数少了在这里必红。
+ */
+const landing = []
+const mustLand = (ok, msg) => { if (!ok) landing.push(msg) }
+/** 这一跑真正被 if/else 链处理过的场景名（表里有、链里没有 ⇒ 也会红）。 */
+const handled = new Set()
 /* ── 5h（2026-09-20）导航小工具：新 IA 下**默认态不再是文件表格** ──
  * 默认态 =「卡片带 + **一级目录**」（业主："先占上一级目录文件夹…到最末一级才是文件"）。
  * ⇒ 凡是要"文件表格 / 状态徽章 / 搜索框"的场景（kb-detail / kb-select / kb-search / kb-filter…），
@@ -378,11 +441,13 @@ const gotoBandEnd = async () => {
   return guard
 }
 for (const how of interacts) {
+  handled.add(how)
   if (how === 'kb-files') {
     // **5h 新增**：把页面开到"标准 / P 土木、建筑 / P15/19… / P16 工程防火"（4 行文件 + 表头）。
     // 这是 `smoke-kb-cols.mjs`（列对齐三档）与 `ui-badge-pixels.mjs`（徽章像素）**必须**先走的一步
     // —— 它们验的是**表格/徽章**，而默认态现在停在目录层（业主本轮定的 IA）。
     const rows = await gotoStdLeaf()
+    mustLand(rows === 4 && q('.ks-lhead').length === 1, `kb-files 只下钻到 ${rows} 行（期望 4 行 + 1 个表头）`)
     notes.push(`kb-files: 下钻到「标准 / P 土木、建筑 / P15/19… / P16 工程防火」`
       + ` → 文件行 ${rows} 行、表头 ${q('.ks-lhead').length} 个、返回上一级 ${q('.ks-back').length} 个`
       + `，面包屑「${q('.ks-crumb-path').map((el) => el.textContent).join('')}」`)
@@ -392,6 +457,9 @@ for (const how of interacts) {
     const before = bandClip() === undefined ? null : Math.round(bandClip().scrollLeft)
     const clicks = await gotoBandEnd()
     const clip = bandClip()
+    // ⚠ 落地判据见 `mustLand` 的注释：jsdom 里滚不动是**环境事实**，这里只钉"带和 5 张卡真的在"。
+    mustLand(clip !== undefined && q('.ks-kb-cards .ks-kb-card').length === 5,
+      `kb-band-end 找不到卡片带或卡片不是 5 张（卡 ${q('.ks-kb-cards .ks-kb-card').length} 张、点击 ${clicks} 次）`)
     notes.push(`kb-band-end: 点了 ${clicks} 次「下一张」 → scrollLeft ${String(before)} → `
       + `${String(clip === undefined ? null : Math.round(clip.scrollLeft))}`
       + `（scrollWidth=${String(clip?.scrollWidth)} clientWidth=${String(clip?.clientWidth)}`
@@ -407,6 +475,8 @@ for (const how of interacts) {
       guard += 1
     }
     const clip = bandClip()
+    mustLand(clip !== undefined && q('.ks-kb-cards .ks-kb-card').length === 5,
+      `kb-band-start 找不到卡片带或卡片不是 5 张（卡 ${q('.ks-kb-cards .ks-kb-card').length} 张）`)
     notes.push(`kb-band-start: 滚回最左（点了 ${guard} 次「上一张」）→ 左箭头 disabled=${String(navNamed('上一张')?.disabled)}`
       + `，scrollLeft=${String(clip === undefined ? null : Math.round(clip.scrollLeft))}`
       + `，带里 5 张卡 ${q('.ks-kb-cards .ks-kb-card').map((el) => (el.querySelector('.ks-kb-ct')?.textContent ?? '').trim()).join('/')}`)
@@ -414,6 +484,8 @@ for (const how of interacts) {
     // **5h 新增**：点「法律法规」卡 = 进入该库，看它的**一级目录**（法律 / 行政法规）。
     const g = await gotoCard('法律法规')
     const ok = await click(cardNamed('法律法规'))
+    mustLand(ok && q('.ks-dir').length === 2, `kb-enter-law ${ok ? '点了卡' : '没找到卡（gotoCard found=' + String(g.found) + '）'}`
+      + ` 但一级目录只有 ${q('.ks-dir').length} 张（期望 2）`)
     notes.push(`kb-enter-law: ${ok ? '点了「法律法规」卡' : '没找到卡'}`
       + ` → 一级目录 ${q('.ks-dir').map((el) => (el.querySelector('.ks-dir-name')?.textContent ?? '').trim()).join('/')}`
       + `，文件行 ${q('.ks-item').length}，返回上一级 ${q('.ks-back').length} 个`
@@ -424,10 +496,15 @@ for (const how of interacts) {
     await gotoCard('法律法规')
     await click(cardNamed('法律法规'))
     await click(dirNamed('法律'))
+    const l2Crumb = q('.ks-crumb-path').map((el) => el.textContent).join('')
+    // ⚠ 这条正是复核第 3 组串跑（`kb-tags-view,kb-enter-l2`）打回的地方：面包屑曾是 **空串**。
+    //   落地判据因此**逐字钉面包屑**（不是"有目录层就算数"）。
+    mustLand(l2Crumb === '法律法规 / 法律' && q('.ks-dir').length === 1,
+      `kb-enter-l2 没到二级目录：面包屑「${l2Crumb}」（期望「法律法规 / 法律」）、目录卡 ${q('.ks-dir').length} 张（期望 1）`)
     notes.push(`kb-enter-l2: 点了「法律法规」卡 → 一级目录「法律」`
       + ` → 二级目录 ${q('.ks-dir').map((el) => (el.querySelector('.ks-dir-name')?.textContent ?? '').trim()).join('/')}`
       + `，返回上一级 ${q('.ks-back').length} 个`
-      + `，面包屑「${q('.ks-crumb-path').map((el) => el.textContent).join('')}」`)
+      + `，面包屑「${l2Crumb}」`)
   } else if (how === 'kb-back') {
     // **5h 新增**：二级目录 → 点「返回上一级」⇒ 回到一级目录层、按钮**消失**。
     await gotoCard('法律法规')
@@ -435,8 +512,12 @@ for (const how of interacts) {
     await click(dirNamed('法律'))
     const before = q('.ks-back').length
     await click(q('.ks-back')[0])
+    const backDirs = q('.ks-dir').map((el) => (el.querySelector('.ks-dir-name')?.textContent ?? '').trim()).join('/')
+    // 从「法律法规 → 法律」返回 ⇒ 回到**库根**（法律 / 行政法规 **2 张**）、返回按钮消失。
+    mustLand(before === 1 && q('.ks-dir').length === 2 && q('.ks-back').length === 0,
+      `kb-back 没回到库根：返回按钮 ${before} → ${q('.ks-back').length} 个、目录卡 ${q('.ks-dir').length} 张（期望 2 张、0 个按钮）`)
     notes.push(`kb-back: 二级目录（返回按钮 ${before} 个）→ 点「返回上一级」`
-      + ` → 目录 ${q('.ks-dir').map((el) => (el.querySelector('.ks-dir-name')?.textContent ?? '').trim()).join('/')}`
+      + ` → 目录 ${backDirs}`
       + `，返回上一级 ${q('.ks-back').length} 个`
       + `，面包屑「${q('.ks-crumb-path').map((el) => el.textContent).join('')}」`)
   } else if (how === 'kb-detail') {
@@ -452,6 +533,8 @@ for (const how of interacts) {
       ? [...document.querySelectorAll('[role=menuitem]')].find((el) => (el.textContent ?? '') === '详情')
       : null
     const done = item ? await click(item) : false
+    mustLand(done && q('.ks-detail .ks-kb-card').length === 1,
+      `kb-detail 没打开详情卡（下钻 ${rows} 行／⋮ ${String(opened)}／菜单项 ${String(item !== null)}／详情卡 ${q('.ks-detail .ks-kb-card').length} 张）`)
     notes.push(`kb-detail: 先下钻（文件行 ${rows} 行）→ ${opened ? '点了第一行的「⋮」' : '没找到「⋮」'}`
       + ` → ${done ? '点了菜单里的「详情」' : '没找到菜单项'}`
       + `，详情卡 ${q('.ks-detail .ks-kb-card').length} 张`)
@@ -462,6 +545,8 @@ for (const how of interacts) {
     const before = q('.ks-item').length
     const chip = byText('.ks-chip', '已废止')
     const ok = await click(chip)
+    mustLand(ok && before === 4 && q('.ks-item').length === 1,
+      `kb-filter 没筛出 1 行（胶囊 ${String(ok)}／行数 ${before} → ${q('.ks-item').length}）`)
     notes.push(`kb-filter: ${ok ? '点了「已废止」胶囊' : '没找到胶囊'}`
       + ` → 行数 ${before} → ${q('.ks-item').length}`
       + `，空态卡 ${q('.ks-empty-card').length} 张`)
@@ -477,57 +562,107 @@ for (const how of interacts) {
     const before = q('.ks-item').length
     const chip = byText('.ks-chip', '已废止')
     const ok = await click(chip)
+    mustLand(moved && ok && before === 1 && q('.ks-item').length === 0 && q('.ks-empty-card').length === 1,
+      `kb-filter-empty 没造出空态（卡 ${String(moved)}／胶囊 ${String(ok)}／行数 ${before} → ${q('.ks-item').length}`
+      + `／空态卡 ${q('.ks-empty-card').length} 张）`)
     notes.push(`kb-filter-empty: 先滚回带首（scrollLeft=${String(g.left)}、found ${String(g.found)}） → ${moved ? '点「供应商资料」卡' : '没找到卡'}`
       + ` → 行数 ${before} → ${q('.ks-item').length}`
       + `，空态卡 ${q('.ks-empty-card').length} 张`
       + `，空态标题「${q('.ks-empty-t').map((el) => el.textContent).join('|')}」`)
   } else if (how === 'kb-search') {
     // P2 头条验收：**搜索框真的过滤**（不是画个壳）。
-    // ⚠ 5h：先下钻到文件层（搜索框跟着**文件表格**走；目录层没有可筛的文件）。
+    // ⚠ 5h：先下钻到文件层。⚠ 5i：文件层这一支的**位置与行为都没变**；目录层新加了同一个框
+    //   （见下面 `kb-search-dirs`）。
     await gotoStdLeaf()
 
     // 分三步取证：① 输入只命中 1 行的串 ⇒ 行数真的变 1；② 只命中名称的串 ⇒ 也是 1；
     // ③ 清空 ⇒ 恢复原行数。受控 input 必须走**原生 setter**（直接 el.value = x 会被
     // React 的 value tracker 判成"没变化"而不触发 onChange —— 渲染级冒烟第一版就是这么失败的）。
-    const setInput = async (el, value) => {
-      const nativeSetter = Object.getOwnPropertyDescriptor(dom.window.HTMLInputElement.prototype, 'value').set
-      nativeSetter.call(el, value)
-      el.dispatchEvent(new dom.window.Event('input', { bubbles: true }))
-      await flush()
-    }
     const box = q('.ks-search input')[0]
     if (!box) {
+      mustLand(false, 'kb-search 没找到 .ks-search 里的输入框（这一条不判 = 失败，不是通过）')
       notes.push('kb-search: 没找到 .ks-search 里的输入框')
     } else {
       const before = q('.ks-item').length
-      await setInput(box, 'GB 50016-2014')
+      await setSearchInput(box, 'GB 50016-2014')
       const byNo = q('.ks-item').length
-      await setInput(box, '喷水')
+      await setSearchInput(box, '喷水')
       const byName = q('.ks-item').length
-      await setInput(box, '搜索一个不存在的串')
+      await setSearchInput(box, '搜索一个不存在的串')
       const none = q('.ks-item').length
       const emptyCard = q('.ks-empty-t').map((el) => el.textContent).join('|')
-      await setInput(box, '')
+      await setSearchInput(box, '')
       const after = q('.ks-item').length
+      mustLand(before === 4 && byNo === 1 && byName === 1 && none === 0 && after === 4,
+        `kb-search 过滤不成立：行数 初始 ${before}（期望 4）→ 标准号 ${byNo}（1）→ 名称 ${byName}（1）`
+        + ` → 不存在 ${none}（0）→ 清空 ${after}（4）`)
       notes.push(`kb-search: 行数 初始 ${before} → 标准号「GB 50016-2014」${byNo}`
         + ` → 名称「喷水」${byName} → 不存在「搜索一个不存在的串」${none}（空态「${emptyCard}」）`
         + ` → 清空 ${after}`)
       // 收尾**停在"筛出 1 行"的状态**（不是清空态）：这样这张图本身就是"搜索真的生效"的像素证据
       // （图上搜索框里有字、表里只剩 1 行）。清空那一步的证据在上面那条 note 里（行数回到 before）。
-      await setInput(box, '喷水')
+      await setSearchInput(box, '喷水')
       notes.push(`kb-search（收尾）: 搜索框留在「喷水」⇒ 图上是 1 行`
         + `（体量 ${q('.ks-item').length} / 表头 ${q('.ks-lhead').length}）`)
+    }
+  } else if (how === 'kb-search-dirs') {
+    /* **5i 新增**（业主 2026-09-20 只说"搜索框：保留"、未限定层级 ⇒ 按最强解释"每层常驻"）：
+     * 库根（一级目录层）也用**同一个搜索框**过滤，过滤对象是**目录名**。
+     * 这一跑停在"框里有词 + 目录被筛到 1 张"的状态 ⇒ 这一张图就是"目录层有搜索框且真的过滤"的证据。
+     * ⚠ 判据：3 张一级目录 → 「环境」1 张（Z 环境保护）→ 清空回 3 张；每一步都打印实际张数。 */
+    await gotoCard('标准')
+    await click(cardNamed('标准'))
+    const box = q('.ks-search input')[0]
+    const all = q('.ks-dir').length
+    if (!box) {
+      mustLand(false, 'kb-search-dirs 目录层没有 .ks-search 输入框（每一层常驻是本轮的验收）')
+      notes.push('kb-search-dirs: 目录层没找到 .ks-search 里的输入框')
+    } else {
+      await setSearchInput(box, '环境')
+      const hit = q('.ks-dir').length
+      const hitName = q('.ks-dir-name').map((el) => (el.textContent ?? '').trim()).join('/')
+      await setSearchInput(box, '')
+      const restored = q('.ks-dir').length
+      mustLand(all === 3 && hit === 1 && hitName.includes('Z 环境保护') && restored === 3,
+        `kb-search-dirs 目录名过滤不成立：目录 ${all}（期望 3）→「环境」${hit}（1）→ 清空 ${restored}（3）`)
+      notes.push(`kb-search-dirs: 库根目录 ${all} 张 →「环境」${hit} 张（${hitName}）→ 清空 ${restored} 张；`
+        + `面包屑「${q('.ks-crumb-path').map((el) => el.textContent).join('')}」、子目录计数「${q('.ks-crumb-n').map((el) => el.textContent).join('')}」`)
+      // 收尾停在"被筛到 1 张"那一态：图上要看得到**目录层的搜索框**（不是空表）。
+      await setSearchInput(box, '环境')
+      notes.push(`kb-search-dirs（收尾）: 框里留在「环境」⇒ 图上是 1 张目录卡`
+        + `（目录 ${q('.ks-dir').length} 张 / 文件行 ${q('.ks-item').length}）`)
+    }
+  } else if (how === 'kb-search-dirs-empty') {
+    /* **5i 新增**：目录层搜索**没命中** ⇒ 专门的空态「没有符合搜索的目录」+「清除搜索」
+     * （不复用文件层那句"没有符合筛选或搜索的文件"）。图上要看到那个空态卡与框里的词。 */
+    await gotoCard('标准')
+    await click(cardNamed('标准'))
+    const box = q('.ks-search input')[0]
+    if (!box) {
+      mustLand(false, 'kb-search-dirs-empty 目录层没有 .ks-search 输入框')
+      notes.push('kb-search-dirs-empty: 目录层没找到 .ks-search 里的输入框')
+    } else {
+      await setSearchInput(box, '不存在的目录')
+      const dirs = q('.ks-dir').length
+      const title = q('.ks-empty-t').map((el) => el.textContent).join('|')
+      mustLand(dirs === 0 && title === '没有符合搜索的目录',
+        `kb-search-dirs-empty 空态不对：目录 ${dirs} 张（期望 0）、空态标题「${title}」（期望「没有符合搜索的目录」）`)
+      notes.push(`kb-search-dirs-empty: 框里「不存在的目录」⇒ 目录 ${dirs} 张、空态标题「${title}」、`
+        + `清除按钮 ${byText('.ks-empty-card button', '清除搜索') !== undefined ? '在' : '不在'}`)
     }
   } else if (how === 'kb-select') {
     // ⚠ 5h：先下钻到文件层（要选的是**文件行**的勾选框）。
     const rows = await gotoStdLeaf()
     const box = q('input[type=checkbox]')[0]
+    mustLand(rows === 4 && box !== undefined, `kb-select 没走到文件层或没有勾选框（行 ${rows}／框 ${String(box !== undefined)}）`)
     notes.push(`kb-select: 先下钻（文件行 ${rows} 行）→ ${await click(box) ? '点了全选' : '没找到勾选框'}`
       + ` → 批量条 ${q('.ks-batch').length} 条`)
   } else if (how === 'ingest-batch') {
     const ok = await click(byText('button', '开始预览'))
+    const batchRows = q('button').filter((b) => /\.pdf$/.test((b.textContent ?? '').trim())).length
+    mustLand(ok && batchRows > 0, `ingest-batch ${ok ? '点了按钮' : '没找到「开始预览」'} 但批量行 ${batchRows} 条`)
     notes.push(`ingest-batch: ${ok ? '点了「开始预览」' : '没找到按钮'}`
-      + ` → 批量行 ${q('button').filter((b) => /\.pdf$/.test((b.textContent ?? '').trim())).length} 条`
+      + ` → 批量行 ${batchRows} 条`
       + `，总账 ${container.textContent.includes('共评估') ? '有' : '无'}`
       + `，失败 ${container.textContent.includes('预览失败') ? container.textContent.split('预览失败')[1]?.slice(0, 60) : '无'}`)
   } else if (how === 'kb-empty-files') {
@@ -539,21 +674,43 @@ for (const how of interacts) {
     await click(q('input[type=checkbox]')[0])
     const selected = q('.ks-batch').length
     await click(byText('.ks-batch button', '批量删除'))
+    const emptyTitle = q('.ks-empty-t').map((el) => el.textContent).join('|')
+    mustLand(q('.ks-item').length === 0 && emptyTitle.includes('这个文件夹还没有文件'),
+      `kb-empty-files 没拿到"本来就没文件"那一支空态：行 ${q('.ks-item').length}／空态「${emptyTitle}」`)
     notes.push(`kb-empty-files: 先下钻（4 行）→ 全选（批量条 ${selected} 条）→ 点「批量删除」`
       + ` → 文件行 ${q('.ks-item').length} 行，空态卡 ${q('.ks-empty-card').length} 张`
-      + `，空态标题「${q('.ks-empty-t').map((el) => el.textContent).join('|')}」`)
+      + `，空态标题「${emptyTitle}」`)
   } else if (how === 'kb-tags-view') {
     // ⚠ 5h：标签视图的数据按**整库**统计（标签跨目录定义）；先落到一个有文件的库
     //   （自建夹「公司制度」只有一级 ⇒ 点它就直接是文件层），免得截出空视图。
     await gotoCard('公司制度')
     await click(cardNamed('公司制度'))
     const pill = byText('button', '标签')
-    notes.push(`kb-tags-view: 先进「公司制度」（文件行 ${q('.ks-item').length} 行）→ ${await click(pill) ? '切到标签视图' : '没找到「标签」'}`
+    const ok = await click(pill)
+    mustLand(ok && q('.ks-tagrow').length > 0, `kb-tags-view ${ok ? '切了标签视图' : '没找到「标签」'} 但标签行 ${q('.ks-tagrow').length} 行`)
+    notes.push(`kb-tags-view: 先进「公司制度」（文件行 ${q('.ks-item').length} 行）→ ${ok ? '切到标签视图' : '没找到「标签」'}`
       + `（标签行 ${q('.ks-tagrow').length} 行）`)
   } else if (how === 'cap-dialog') {
     const card = q('.ks-cap-card').find((c) => q('.ks-cap-card').length > 0 && [...c.querySelectorAll('button')].some((b) => (b.textContent ?? '').includes('设置')))
-    notes.push(`cap-dialog: ${await click(card?.querySelector('button')) ? '开了第一张带「设置…」的窗' : '没找到'}`)
+    const ok = await click(card?.querySelector('button'))
+    mustLand(ok && document.querySelectorAll('[role=dialog]').length > 0,
+      `cap-dialog ${ok ? '点了「设置…」' : '没找到带「设置…」的卡'} 但对话框 ${document.querySelectorAll('[role=dialog]').length} 个`)
+    notes.push(`cap-dialog: ${ok ? '开了第一张带「设置…」的窗' : '没找到'}`
+      + `（宿主 Modal 是 portal 到 body 的，所以这里查的是 document）`)
   }
+  /* ⚠ **表里有、链里没有**的场景名 ⇒ 也红（表与 if/else 链必须同步；否则就是"名字被接受但什么都不做"）。 */
+  if (!handled.has(how)) landing.push(`${how}: 在 SCENARIOS 表里但 if/else 链没有分支处理它（表与链不同步）`)
+}
+/* ── 未处理的场景名 / 没落地的场景 ⇒ **exit 1**（不是 exit 0） ──
+ * ⚠ 这一条与上面那个 exit 2 的分工：**名字根本不存在** = 参数错（2）；名字存在但这一跑**没做成**
+ *   = 断言红（1）。两者都堵死"什么都没做还成功"那条路。 */
+if (landing.length > 0) {
+  console.error('❌ --interact 有场景**没落地**（这一跑不算通过）：')
+  for (const p of landing) console.error(`   - ${p}`)
+  console.error(`   跑过的场景：${interacts.join(' / ')}`)
+  console.error('   ⇒ 每个分支都必须真的做到那一件事；做不到就**报红**，不许在 note 里写一句'
+    + '"没找到"然后 exit 0（复核 verify-freeze-5h 实测过这种静默）。')
+  process.exit(1)
 }
 
 const rendered = container.innerHTML
@@ -738,6 +895,29 @@ ${bandScrollStmt}
       var ws = [].map.call(cardEls, function (el) { return Math.round(el.getBoundingClientRect().width); });
       out['#cards'] = { n: hs.length, y: 0, w: 0, h: 0, fs: '', lh: hs.join(','), pad: ws.join(','), gap: '', radius: '' };
     }
+    // **卡片带里每一张卡的逐个宽/高**（5i 2026-09-20 收尾批）。
+    // 为什么另开一个键：上面那个 #cards 是 .ks-kb-cards>*,.ks-cap-card **混在一起**的报告值，
+    // 而且**全仓没有一条断言引用它** —— 复核 verify-freeze-5h 把列模板改成 60px 120px 200px
+    // （三张卡三种宽）之后，渲染冒烟 51/51 仍然全绿。而"知识库卡片尺寸统一"是业主亲口点名的形态。
+    // 这里只量**卡片带**里的卡，逐张报 {name,w,h}，Node 侧按"全等"下断言（见文件末尾 cardsCheck）。
+    // 借字段名（同 #cards / #cols 的先例）：x=最小宽 y=最大宽 w=最小高 h=最大高，
+    //   lh=逐张宽 pad=逐张高，items=逐张明细。
+    // ⚠ 本段是模板字符串里的一段 JS：注释里**不许出现反引号**（第 11 次踩，见 UI-BASELINE 5h-补）。
+    var bandCardEls = document.querySelectorAll('.ks-kbband .ks-kb-cards>.ks-kb-card');
+    if (bandCardEls.length > 0) {
+      var bw = [].map.call(bandCardEls, function (el) { return Math.round(el.getBoundingClientRect().width); });
+      var bh = [].map.call(bandCardEls, function (el) { return Math.round(el.getBoundingClientRect().height); });
+      out['#kbcards'] = {
+        n: bandCardEls.length,
+        x: Math.min.apply(null, bw), y: Math.max.apply(null, bw),
+        w: Math.min.apply(null, bh), h: Math.max.apply(null, bh),
+        fs: '', lh: bw.join(','), pad: bh.join(','), gap: '', radius: '',
+        items: [].map.call(bandCardEls, function (el, i) {
+          var t = el.querySelector('.ks-kb-ct');
+          return { name: t ? (t.textContent || '').trim() : '', w: bw[i], h: bh[i] };
+        }),
+      };
+    }
     // 批量条的**一行装得下吗**：w = 最后一个子元素的右缘 - 条子的右缘（正数 = 溢出/被截，
     // 负数 = 还剩多少余量）。h = 条子高（折成两行会明显变高）。P0-5 判"两行/溢出"就靠它。
     // ⚠⚠ **P1-9 修正（2026-09-20）**：原来 「lastKid.right - br.right」 量的是"**条子**的右缘"，
@@ -867,6 +1047,53 @@ const colsCheck = {
   gapRow: cols?.radius ?? null,
 }
 
+/* ══════════ `#kbcards` 的**真断言**（5i 2026-09-20 收尾批；卡片尺寸统一） ══════════
+ * 复核 `verify-freeze-5h` 的变异：把卡片带里 `.ks-kb-cards` 的列模板改成 `60px 120px 200px`
+ * （三张卡三种宽）⇒ **渲染冒烟 51/51 依旧绿** —— 因为 `#cards` 只是**报告值**，全仓没有断言引用它。
+ * "知识库卡片尺寸统一"是业主点名的形态，不能只有一个报告值兜着 ⇒ 这里把它变成**带诊断的失败**：
+ *   ① 卡片带里**每一张卡的宽度必须全等**（真 Chrome 的 `getBoundingClientRect`，逐张打印实际值）；
+ *   ② **每一张卡的高度也必须全等**；
+ *   ③ 量到 0 / 取不到值也算红（"没验到"不能渲染成"通过"）。
+ * ⚠ 容差 1px：值已经 `Math.round`，等宽卡在亚像素上也可能差 1（本轮实测是 172×5 / 136×5，
+ *   一模一样；容差只是防四舍五入的假红）。**不等宽 >1px 必红**。
+ * 适用面：只有"这一跑真的有卡片带"的页面才判（kb 页一定判）；其余页面**明说没判**（skipReason）。
+ * 变异实测（本批）：给第 2 张卡加 `.ks-kbband .ks-kb-card:nth-child(2){flex:0 0 60px}`
+ *   ⇒ 本脚本 exit 1（宽度 172,60,172,172,172）；还原即绿。三档由 smoke-kb-cols 逐档跑。 */
+const kbc = measured['#kbcards']
+const cardsProblems = []
+let cardsSkipReason = null
+if (kbc === undefined) {
+  cardsSkipReason = `本页没有卡片带（page=${page}），卡片尺寸统一不适用`
+} else if (kbc.n < 2) {
+  cardsSkipReason = `卡片带里只有 ${String(kbc.n)} 张卡，没有"全等"可比`
+} else {
+  const ws = String(kbc.lh).split(',').map((v) => Number(v.trim()))
+  const hs = String(kbc.pad).split(',').map((v) => Number(v.trim()))
+  const bad = (arr) => arr.length !== kbc.n || arr.some((v) => !Number.isFinite(v) || v <= 0)
+  const spread = (arr) => Math.max(...arr) - Math.min(...arr)
+  if (bad(ws)) {
+    cardsProblems.push(`有卡的宽度量不到（<=0 或个数不对）：${JSON.stringify(String(kbc.lh))}（期望 ${String(kbc.n)} 个正数）`)
+  } else if (spread(ws) > 1) {
+    cardsProblems.push(`卡片**宽度不全等**：${JSON.stringify(kbc.lh)}`
+      + `（逐张 ${JSON.stringify((kbc.items ?? []).map((it) => `${it.name}=${String(it.w)}px`))}）`)
+  }
+  if (bad(hs)) {
+    cardsProblems.push(`有卡的高度量不到（<=0 或个数不对）：${JSON.stringify(String(kbc.pad))}（期望 ${String(kbc.n)} 个正数）`)
+  } else if (spread(hs) > 1) {
+    cardsProblems.push(`卡片**高度不全等**：${JSON.stringify(kbc.pad)}`
+      + `（逐张 ${JSON.stringify((kbc.items ?? []).map((it) => `${it.name}=${String(it.h)}px`))}）`)
+  }
+}
+const cardsCheck = {
+  checked: cardsProblems.length === 0 && cardsSkipReason === null,
+  skipReason: cardsSkipReason,
+  problems: cardsProblems,
+  count: kbc?.n ?? null,
+  widths: kbc?.lh ?? null,
+  heights: kbc?.pad ?? null,
+  items: kbc?.items ?? null,
+}
+
 // --viewport 给定时**按视口高截**（这才看得出 position:sticky；全页截图看不出来）
 const shotHeight = fixedHeight ?? Math.max(320, Math.min(cssHeight, 6000))
 
@@ -896,6 +1123,7 @@ console.log(JSON.stringify({
   cssHeight,
   measured,
   colsCheck,
+  cardsCheck,
   renderedChars: rendered.length,
   bundle: { js: bundleJs.replace(work, '<work>'), primitivesCssChars: primitivesCss.length },
   browser,
@@ -916,6 +1144,22 @@ if (colsSkipReason !== null) {
   console.error('   ⇒ 表头（.ks-lhead）与数据行（.ks-item）必须共用同一条列模板：')
   console.error('      ksGuideStyles.ts 的 `.ks-lhead,.ks-item{grid-template-columns:var(--ks-cols)}`')
   console.error('      与 `.ks-list` 上唯一的 --ks-cols（宽/窄两档也只覆盖这一个属性）。')
+  process.exit(1)
+}
+
+/* `#kbcards` 的自检结论同样走 **stderr**（理由同上：stdout 必须是完整可 JSON.parse 的一份产物）。 */
+if (cardsSkipReason !== null) {
+  console.error(`· #kbcards 自检：**这一跑不判**（${cardsSkipReason}）`)
+} else if (cardsProblems.length === 0) {
+  console.error(`· #kbcards 自检通过：${String(cardsCheck.count)} 张卡宽全等 ${JSON.stringify(cardsCheck.widths)}、`
+    + `高全等 ${JSON.stringify(cardsCheck.heights)}（page=${page} width=${width} theme=${themeName}）`)
+} else {
+  console.error('')
+  console.error(`❌ 卡片尺寸统一自检失败（业主点名的形态"知识库卡片尺寸统一"；page=${page} width=${width} theme=${themeName}）：`)
+  for (const p of cardsProblems) console.error(`   - ${p}`)
+  console.error('   ⇒ 卡宽的唯一声明是 ksGuideStyles.ts 的 `.ks-kbband .ks-kb-card{flex:0 0 var(--ks-band-card-w)}`，')
+  console.error('      同排等高靠容器 `.ks-kbband .ks-kb-cards{align-items:stretch}` + `>*{min-height:var(--ks-card-h)}`。')
+  console.error('      给**单张卡**另钉宽度/高度（例如 :nth-child(2){flex:0 0 60px}）就是这条断言要抓的回归。')
   process.exit(1)
 }
 

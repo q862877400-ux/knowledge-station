@@ -61,6 +61,7 @@ for (const width of widths) {
   let payload = null
   try { payload = JSON.parse(r.stdout) } catch { payload = null }
   const cc = payload?.colsCheck ?? null
+  const kc = payload?.cardsCheck ?? null
   const row = {
     width,
     exit: r.status,
@@ -71,32 +72,52 @@ for (const width of widths) {
     gapHeader: cc?.gapHeader ?? null,
     gapRow: cc?.gapRow ?? null,
     problems: cc?.problems ?? [],
+    cardsChecked: kc?.checked ?? false,
+    cardsSkipReason: kc?.skipReason ?? null,
+    cardsWidths: kc?.widths ?? null,
+    cardsHeights: kc?.heights ?? null,
+    cardsProblems: kc?.problems ?? [],
   }
   rows.push(row)
   if (r.status !== 0) {
     failures.push(`width=${width}：ui-render-shot exit=${String(r.status)} —— `
-      + (row.problems.length > 0 ? row.problems.join('；') : (r.stderr ?? '').trim().split('\n').slice(-3).join(' / ')))
-  } else if (!row.checked) {
-    failures.push(`width=${width}：列对齐**没判到**（${row.skipReason ?? 'colsCheck 缺失'}）—— "没跑"不能算通过`)
+      + ([...row.problems, ...row.cardsProblems].length > 0
+        ? [...row.problems, ...row.cardsProblems].join('；')
+        : (r.stderr ?? '').trim().split('\n').slice(-3).join(' / ')))
+  } else {
+    if (!row.checked) {
+      failures.push(`width=${width}：列对齐**没判到**（${row.skipReason ?? 'colsCheck 缺失'}）—— "没跑"不能算通过`)
+    }
+    // ⚠ 5i：卡片尺寸统一（`#kbcards`）与列对齐**同样要求"判到且通过"**（不是"没判也算过"）。
+    if (!row.cardsChecked) {
+      failures.push(`width=${width}：卡片尺寸统一**没判到**（${row.cardsSkipReason ?? 'cardsCheck 缺失'}）—— "没跑"不能算通过`)
+    }
   }
 }
 
 console.log('列对齐三档巡查（每档都跑一遍真 Chrome 的 ui-render-shot）：')
 console.log('  宽度   判定    表头 grid-template-columns                 行 grid-template-columns                 gap(表头/行)')
 for (const r of rows) {
-  const verdict = r.exit !== 0 ? `FAIL(exit ${String(r.exit)})` : (r.checked ? 'PASS' : 'SKIP')
+  const verdict = r.exit !== 0 ? `FAIL(exit ${String(r.exit)})` : (r.checked && r.cardsChecked ? 'PASS' : 'SKIP')
   console.log(`  ${String(r.width).padEnd(6)} ${verdict.padEnd(7)} ${String(r.header).padEnd(42)} ${String(r.rowTpl).padEnd(40)} ${String(r.gapHeader)}/${String(r.gapRow)}`)
   for (const p of r.problems) console.log(`         └─ ${p}`)
 }
 const wide = rows.filter((r) => r.checked).map((r) => `${r.width}:${String(r.header).split(' ').length} 列`)
 console.log(`  档位（按表头列数）：${wide.join(' / ') || '(没有判到的档)'}`)
+console.log('  卡片尺寸统一（5i 起的第二条自检；逐张实测宽/高）：')
+for (const r of rows) {
+  console.log(`  ${String(r.width).padEnd(6)} 卡宽 ${String(r.cardsWidths)} ／卡高 ${String(r.cardsHeights)}`)
+  for (const p of r.cardsProblems) console.log(`         └─ ${p}`)
+}
 console.log('')
 
 if (failures.length > 0) {
-  console.error('❌ 列对齐巡查判红（P2 头条"列对齐"的验收；变异 M4 走的就是这条路）：')
+  console.error('❌ 列对齐/卡片尺寸巡查判红（P2 头条"列对齐" + 业主点名的"卡片尺寸统一"）：')
   for (const f of failures) console.error(`   - ${f}`)
-  console.error('   ⇒ 表头（.ks-lhead）与数据行（.ks-item）必须共用同一条 --ks-cols 模板，')
+  console.error('   ⇒ 列对齐：表头（.ks-lhead）与数据行（.ks-item）必须共用同一条 --ks-cols 模板，')
   console.error('      见 plugin/client/ksGuideStyles.ts 的 `.ks-lhead,.ks-item{grid-template-columns:var(--ks-cols)}`。')
+  console.error('   ⇒ 卡片尺寸：卡宽的唯一声明是 `.ks-kbband .ks-kb-card{flex:0 0 var(--ks-band-card-w)}`，')
+  console.error('      同排等高靠容器 `align-items:stretch` + `>*{min-height:var(--ks-card-h)}`。')
   process.exit(1)
 }
-console.log(`✅ 列对齐巡查通过：${widths.join(' / ')} 三档的表头与第一行逐字相同（gap 也相同）。`)
+console.log(`✅ 列对齐 + 卡片尺寸巡查通过：${widths.join(' / ')} 三档的表头与第一行逐字相同（gap 也相同），卡片带逐张等宽等高。`)
