@@ -321,6 +321,136 @@ function validationError(probe, query, queryMode) {
     meta_summary: '',
   }
 }
+
+/* ------------------------------------------------------------------ *
+ * 第 6 步 §1：`output.schema` 的"可空 / 引擎自带块"形状（一份定义，四处 schema 共用）
+ *
+ * 两条**实测**硬约束（`docs/research/STEP6-WORKORDER.md` §1 的【实测】表）：
+ *   ① 可空**不能**写 `type:['string','null']` —— register 期直接被拒
+ *      （`schema.type must be a single type string`），取值期还会 THROW；
+ *      只能用 `oneOf:[{type:'<T>'},{type:'null'}]`。
+ *   ② `additionalProperties:false` 时，**条件性出现的键也必须列进 `properties`**：
+ *      它出现的那一次就是 `"value.x" is not a declared property`。
+ *
+ * 为什么 schema 要精确到这一步（这是 6 条里唯一有真实回归风险的）：宿主**注册期**
+ * `assertSupportedJsonSchema(output.schema)`（(DSH) `packages/core/tools/src/index.ts:1062`）
+ * 不通过 ⇒ 抛错 ⇒ **整个插件挂不上**；**取值期** `validateJsonSchemaValue`
+ * （同文件 `:1813-1816`）不通过 ⇒ **每次调用都 isError**。故 schema 只能描述**真实**形状，
+ * **严禁**为了过门禁回退成 `additionalProperties:true` 或裁掉返回字段。
+ * ------------------------------------------------------------------ */
+/** 可空标量：null 是**有意义的值**（"引擎没给"），不是缺字段。 */
+const NULLABLE_STRING = { oneOf: [{ type: 'string' }, { type: 'null' }] }
+const NULLABLE_NUMBER = { oneOf: [{ type: 'number' }, { type: 'null' }] }
+const NULLABLE_BOOLEAN = { oneOf: [{ type: 'boolean' }, { type: 'null' }] }
+/** 引擎自带的 JSON 块（命中体 / 四色计数 / 原始信封）：形状不归本仓定义，故只钉"是对象"。 */
+const NULLABLE_OBJECT = { oneOf: [{ type: 'object' }, { type: 'null' }] }
+
+/** `ks_effect_report` 的红/黄清单（`makeEffectReportTool` 的 `out.red_list`/`out.yellow_list` 同形）。 */
+const EFFECT_COLOR_LIST = {
+  type: 'object',
+  additionalProperties: false,
+  properties: {
+    count: { type: 'number' },
+    docs: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          doc_id: NULLABLE_STRING,
+          standard_no: NULLABLE_STRING,
+          standard_name: NULLABLE_STRING,
+          status: NULLABLE_STRING,
+          effective_from: NULLABLE_STRING,
+          superseded_by: NULLABLE_STRING,
+          withdrawn_date: NULLABLE_STRING,
+          evidence_url: NULLABLE_STRING,
+        },
+        required: ['doc_id', 'standard_no', 'standard_name', 'status',
+          'effective_from', 'superseded_by', 'withdrawn_date', 'evidence_url'],
+      },
+    },
+  },
+  required: ['count', 'docs'],
+}
+
+/** `ks_answer` 的证据条目（`trimEvidence` 的形状，搜 `function trimEvidence`）。 */
+const ANSWER_EVIDENCE = {
+  type: 'object',
+  additionalProperties: false,
+  properties: {
+    standard_no: NULLABLE_STRING,
+    clause_number: NULLABLE_STRING,
+    title: NULLABLE_STRING,
+    legal_status: NULLABLE_STRING,
+    legal_hierarchy: NULLABLE_STRING,
+    page_start: NULLABLE_NUMBER,
+    snippet: NULLABLE_STRING,
+    doc_id: NULLABLE_STRING,
+    clause_revision_id: NULLABLE_STRING,
+    evidence_url: NULLABLE_STRING,
+    bookmarked: NULLABLE_BOOLEAN,
+  },
+  required: ['standard_no', 'clause_number', 'title', 'legal_status', 'legal_hierarchy',
+    'page_start', 'snippet', 'doc_id', 'clause_revision_id', 'evidence_url', 'bookmarked'],
+}
+
+/** `ks_answer` 的核验块（`trimVerification` 的形状，`src/trim.js` 的 `export function trimVerification`）。 */
+const ANSWER_VERIFY_LIST = {
+  type: 'array',
+  items: { oneOf: [{ type: 'string' }, { type: 'number' }, { type: 'boolean' }, { type: 'null' }] },
+}
+const ANSWER_VERIFICATION = {
+  type: 'object',
+  additionalProperties: false,
+  properties: {
+    is_valid: { type: 'boolean' },
+    answer_confidence: { type: 'string' },
+    confidence_reasons: ANSWER_VERIFY_LIST,
+    unsupported_clauses: ANSWER_VERIFY_LIST,
+    unsupported_context: {
+      type: 'array',
+      items: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          clause_number: NULLABLE_STRING,
+          standard_no: NULLABLE_STRING,
+          verdict: NULLABLE_STRING,
+          reason: NULLABLE_STRING,
+        },
+        required: ['clause_number', 'standard_no', 'verdict', 'reason'],
+      },
+    },
+    unverified_numbers: ANSWER_VERIFY_LIST,
+    modality_violations: ANSWER_VERIFY_LIST,
+    legal_element_violations: ANSWER_VERIFY_LIST,
+    citation_index_warnings: ANSWER_VERIFY_LIST,
+  },
+  required: ['is_valid', 'answer_confidence', 'confidence_reasons', 'unsupported_clauses',
+    'unsupported_context', 'unverified_numbers', 'modality_violations',
+    'legal_element_violations', 'citation_index_warnings'],
+}
+
+/** `ks_answer` 的 `answer_scope` 回显块（搜 `const scope = {`）——**只有**正常路径有它。 */
+const ANSWER_SCOPE = {
+  type: 'object',
+  additionalProperties: false,
+  properties: {
+    forensic: { type: 'boolean' },
+    bookmarks_only: { type: 'boolean' },
+    folder: { type: 'boolean' },
+    folder_id: NULLABLE_STRING,
+    folder_name: NULLABLE_STRING,
+    material: { type: 'boolean' },
+    material_project_id: NULLABLE_STRING,
+    material_project_name: NULLABLE_STRING,
+    source: { type: 'string', enum: ['session', 'parent', 'none'] },
+  },
+  required: ['forensic', 'bookmarks_only', 'folder', 'folder_id', 'folder_name',
+    'material', 'material_project_id', 'material_project_name', 'source'],
+}
+
 /**
  * Build the `ks_effect_report` tool definition (P1, 2026-09-08).
  *
@@ -358,7 +488,60 @@ export function makeEffectReportTool(manager) {
       description: '可选：include_attention / limit。',
     },
     output: {
-      schema: { type: 'object', additionalProperties: true },
+      // 第 6 步 §1：精确形状 —— 逐字段抄 `execute` 的 `const out = {...}`（本文件，搜
+      // `const out = {` 下面那个字面量）＋ 三处条件增补（`out.window` / `out.attention_error`
+      // / `out.red_list`+`out.yellow_list`，都搜得到）。那 4 个**条件性出现**的键也必须列进
+      // `properties`：`additionalProperties:false` 下没列的键一旦出现就是违规。
+      schema: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          ok: { type: 'boolean' },
+          generated_at: NULLABLE_STRING,
+          total: { type: 'number' },
+          colors: {
+            type: 'object',
+            additionalProperties: false,
+            properties: {
+              red: { type: 'number' },
+              yellow: { type: 'number' },
+              green: { type: 'number' },
+              gray: { type: 'number' },
+            },
+            required: ['red', 'yellow', 'green', 'gray'],
+          },
+          std_total: { type: 'number' },
+          law_total: { type: 'number' },
+          trees: {
+            type: 'array',
+            items: {
+              type: 'object',
+              additionalProperties: false,
+              properties: {
+                top: NULLABLE_STRING,
+                name: NULLABLE_STRING,
+                colors: NULLABLE_OBJECT,
+                categories: {
+                  type: 'array',
+                  items: {
+                    type: 'object',
+                    additionalProperties: false,
+                    properties: { name: NULLABLE_STRING, colors: NULLABLE_OBJECT },
+                    required: ['name', 'colors'],
+                  },
+                },
+              },
+              required: ['top', 'name', 'colors', 'categories'],
+            },
+          },
+          // 以下 4 个键**只在特定分支出现**（非默认窗口 / 清单失败 / 清单成功），故不 required。
+          window: { type: 'string' },
+          attention_error: { type: 'string' },
+          red_list: EFFECT_COLOR_LIST,
+          yellow_list: EFFECT_COLOR_LIST,
+        },
+        required: ['ok', 'generated_at', 'total', 'colors', 'std_total', 'law_total', 'trees'],
+      },
       render: (_args, value) => [{ type: 'text', text: JSON.stringify(value, null, 2) }],
     },
     // verifier F3：summary + 红黄清单共 2 次引擎调用，每次内层 15s 上限 →
@@ -502,7 +685,33 @@ export function makePingTool(manager) {
       description: 'No arguments.',
     },
     output: {
-      schema: { type: 'object', additionalProperties: true },
+      // 第 6 步 §1：逐字段抄 `execute` 的 `return {...}`（搜 `uptimeSeconds`）。
+      // `/api/v1/health` 是**扁平 JSON**（无信封），可空字段全是 `body?.x ?? null`。
+      schema: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          ok: { type: 'boolean' },
+          httpStatus: { type: 'number' },
+          engine: {
+            type: 'object',
+            additionalProperties: false,
+            properties: {
+              port: { type: 'number' },
+              pid: { type: 'number' },
+              reused: { type: 'boolean' },
+            },
+            required: ['port', 'pid', 'reused'],
+          },
+          status: NULLABLE_STRING,
+          uptimeSeconds: NULLABLE_NUMBER,
+          dbStatus: NULLABLE_STRING,
+          vectorEngine: NULLABLE_STRING,
+          parserWorker: NULLABLE_STRING,
+        },
+        required: ['ok', 'httpStatus', 'engine', 'status', 'uptimeSeconds',
+          'dbStatus', 'vectorEngine', 'parserWorker'],
+      },
       render: (_args, value) => [{ type: 'text', text: JSON.stringify(value, null, 2) }],
     },
     timeoutMs: 20_000,
@@ -576,7 +785,38 @@ export function makeResolveTool(manager, chatModeOf) {
       additionalProperties: false,
     },
     output: {
-      schema: { type: 'object', additionalProperties: true },
+      // 第 6 步 §1：逐字段抄 `execute` 的 `return {...}`（搜 `envelope: body`）。三个键
+      // （`scope_notice`/`folder_name`/`folder_notice`）**只在特定范围标记下展开**，故不 required。
+      // `data` 直接来自引擎 `body.data`：`isEmpty` 自己判了 `Array.isArray(data)` ⇒ 它可能是
+      // **数组**（查无此条时引擎可能给 `[]`），所以类型是 object|array|null，不是 object|null。
+      schema: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          standard_no: { type: 'string' },
+          clause_number: { type: 'string' },
+          httpStatus: { type: 'number' },
+          ok: { type: 'boolean' },
+          found: { type: 'boolean' },
+          data: { oneOf: [{ type: 'object' }, { type: 'array' }, { type: 'null' }] },
+          evidence_url: NULLABLE_STRING,
+          bookmarked: NULLABLE_BOOLEAN,
+          legal_status: NULLABLE_STRING,
+          bookmarks_scope: {
+            oneOf: [{ type: 'string', enum: ['inside', 'outside'] }, { type: 'null' }],
+          },
+          scope_notice: { type: 'string' },
+          folder_scope: {
+            oneOf: [{ type: 'string', enum: ['inside', 'outside', 'unknown'] }, { type: 'null' }],
+          },
+          folder_name: NULLABLE_STRING,
+          folder_notice: { type: 'string' },
+          // 原始信封（`body`）——排障要能看到引擎到底回了什么，故原样带出。
+          envelope: NULLABLE_OBJECT,
+        },
+        required: ['standard_no', 'clause_number', 'httpStatus', 'ok', 'found', 'data',
+          'evidence_url', 'bookmarked', 'legal_status', 'bookmarks_scope', 'folder_scope', 'envelope'],
+      },
       render: (_args, value) => [{ type: 'text', text: JSON.stringify(value, null, 2) }],
     },
     timeoutMs: 25_000,
@@ -764,7 +1004,37 @@ export function makeAnswerTool(manager, chatModeOf) {
       additionalProperties: false,
     },
     output: {
-      schema: { type: 'object', additionalProperties: true },
+      // 第 6 步 §1：**两条**返回路径都要装得下 —— 正常路径（搜 `answer_scope: scope`）与
+      // 422 路径 `validationError()`（搜 `error: { code, message }`）。两条共有的 12 个键
+      // 进 `required`；`answer_scope`（只正常路径有）与 `error`（只 422 有）**必须列进
+      // `properties` 但不 required**：漏列的后果是那条路径每次调用都 isError。
+      schema: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          ok: { type: 'boolean' },
+          httpStatus: { type: 'number' },
+          answer_scope: ANSWER_SCOPE,
+          tier: NULLABLE_STRING,
+          found: { type: 'boolean' },
+          query: { type: 'string' },
+          query_mode: { type: 'string' },
+          error: {
+            type: 'object',
+            additionalProperties: false,
+            properties: { code: { type: 'string' }, message: { type: 'string' } },
+            required: ['code', 'message'],
+          },
+          evidence: { type: 'array', items: ANSWER_EVIDENCE },
+          derivation: { type: 'string' },
+          conclusion: { type: 'string' },
+          verification: { oneOf: [ANSWER_VERIFICATION, { type: 'null' }] },
+          notes: { type: 'array', items: { type: 'string' } },
+          meta_summary: { type: 'string' },
+        },
+        required: ['ok', 'httpStatus', 'tier', 'found', 'query', 'query_mode', 'evidence',
+          'derivation', 'conclusion', 'verification', 'notes', 'meta_summary'],
+      },
       render: (_args, value) => [{ type: 'text', text: JSON.stringify(value, null, 2) }],
     },
     timeoutMs: 120_000,

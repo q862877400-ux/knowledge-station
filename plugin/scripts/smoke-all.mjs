@@ -35,6 +35,11 @@ const SUITES = [
   'scripts/smoke-settings.mjs',
   'scripts/smoke-settings-guard.mjs',
   'scripts/smoke-effect-tool.mjs',
+  // 第 6 步 §1（2026-10）：6 个模型工具的 `output.schema` 契约（schema 在宿主支持的子集内
+  // + 返回值满足自己声明的 schema + 无 undefined + render 给出非空 text 块）。
+  // 位置按"最快能发现破坏的排前面"：它是纯离线契约检查（零引擎、秒级），而且红了说明
+  // **真机上整个插件挂不上**或**每次调用都 isError**——比渲染类早发现得多。
+  'scripts/smoke-tool-contract.mjs',
   'scripts/smoke-chatmode.mjs',
   'scripts/smoke-ingest.mjs',
   'scripts/smoke-lifecycle.mjs',

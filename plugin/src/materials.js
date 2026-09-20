@@ -43,6 +43,38 @@ function trimMaterialRow(r) {
   }
 }
 
+/* ------------------------------------------------------------------ *
+ * 第 6 步 §1：`output.schema` 的形状（宿主注册期/取值期都吃它）
+ *
+ * 实测硬约束（`docs/research/STEP6-WORKORDER.md` §1【实测】表）：可空**只能**用
+ * `oneOf:[{type:'<T>'},{type:'null'}]`（`type:[...]` 会被 register 期直接拒）；
+ * `additionalProperties:false` 下**条件性出现的键也必须列进 `properties`**。
+ * ------------------------------------------------------------------ */
+const NULLABLE_STRING = { oneOf: [{ type: 'string' }, { type: 'null' }] }
+
+/** `trimMaterialRow` 的对外形状（搜 `function trimMaterialRow`）——13 个键一个不缺。 */
+const MATERIAL_ROW = {
+  type: 'object',
+  additionalProperties: false,
+  properties: {
+    material_id: NULLABLE_STRING,
+    title: NULLABLE_STRING,
+    source_tier: NULLABLE_STRING,
+    tier_label: NULLABLE_STRING,
+    tier_source: NULLABLE_STRING,
+    task_role: NULLABLE_STRING,
+    review_status: NULLABLE_STRING,
+    chunk_count: { oneOf: [{ type: 'number' }, { type: 'null' }] },
+    origin: NULLABLE_STRING,
+    kind: NULLABLE_STRING,
+    url: NULLABLE_STRING,
+    domain: NULLABLE_STRING,
+    tier_reason: NULLABLE_STRING,
+  },
+  required: ['material_id', 'title', 'source_tier', 'tier_label', 'tier_source',
+    'task_role', 'review_status', 'chunk_count', 'origin', 'kind', 'url', 'domain', 'tier_reason'],
+}
+
 /**
  * Build the read-only `ks_materials` tool.
  *
@@ -85,7 +117,64 @@ export function makeMaterialsTool(manager) {
       additionalProperties: false,
     },
     output: {
-      schema: { type: 'object', additionalProperties: true },
+      // 第 6 步 §1：**三个 action 返回三套字段** ⇒ 按施工单 §1 的推荐形态：schema 列
+      // **全部可能键**、`required` 只留永远存在的 `ok`/`action`（不做 `oneOf` 三支——
+      // 三支的键大半重合，读起来反而看不出哪里是权限边界）。
+      // 逐字段抄 `execute` 的三处 `return {...}`（搜 `action,`／`review_counts`／`files:`）。
+      schema: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          ok: { type: 'boolean' },
+          action: { type: 'string', enum: ['projects', 'materials', 'inbox'] },
+          count: { type: 'number' },
+          projects: {
+            type: 'array',
+            items: {
+              type: 'object',
+              additionalProperties: false,
+              properties: {
+                project_id: NULLABLE_STRING,
+                name: NULLABLE_STRING,
+                // 引擎把它存成 JSON（`json.loads`），POST 侧校验"必须是对象"⇒ object|null。
+                authority_policy: { oneOf: [{ type: 'object' }, { type: 'null' }] },
+              },
+              required: ['project_id', 'name', 'authority_policy'],
+            },
+          },
+          hint: { type: 'string' },
+          project_id: { type: 'string' },
+          dir: NULLABLE_STRING,
+          files: {
+            type: 'array',
+            items: {
+              type: 'object',
+              additionalProperties: false,
+              properties: {
+                file_name: NULLABLE_STRING,
+                size: { oneOf: [{ type: 'number' }, { type: 'null' }] },
+              },
+              required: ['file_name', 'size'],
+            },
+          },
+          filtered_by: NULLABLE_STRING,
+          review_counts: {
+            type: 'object',
+            additionalProperties: false,
+            properties: {
+              approved: { type: 'number' },
+              pending: { type: 'number' },
+              rejected: { type: 'number' },
+            },
+            required: ['approved', 'pending', 'rejected'],
+          },
+          materials: { type: 'array', items: MATERIAL_ROW },
+          // ⚠ `note` 只在 action=materials 且 pending>0 时是字符串；pending=0 时字段值是
+          // `undefined`（**既有实现**如此，不是本 schema 造成的）——schema 只能如实声明 string。
+          note: { type: 'string' },
+        },
+        required: ['ok', 'action'],
+      },
       render: (_args, value) => [{ type: 'text', text: JSON.stringify(value, null, 2) }],
     },
     timeoutMs: 30_000,

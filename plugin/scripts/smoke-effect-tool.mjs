@@ -24,6 +24,10 @@ import { mkdtemp } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
+// 第 6 步 §1：`findUndefined` **已搬进** `scripts/lib/tool-contract.mjs`（工具契约门禁
+// `smoke-tool-contract.mjs` 也要用它）——这里 import，**不再留第二份**（抄两份 = 两个漂移点）。
+import { findUndefined } from './lib/tool-contract.mjs'
+
 // 隔离落盘：本脚本会 setMode()（查法规模式的用具例）。verifier 四轮 P2-H4：不隔离就会把
 // 用例会话写进用户的 %APPDATA%\KnowledgeStation\ks-chatmode.json。
 // 注意用 **KS_CHATMODE_DIR**（只挪开关状态文件）而**不是** KS_DATA_DIR —— 后者同时决定
@@ -66,25 +70,6 @@ const results = []
 function check(name, ok, detail) {
   results.push({ name, ok })
   console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}${detail === undefined ? '' : ` — ${detail}`}`)
-}
-
-/** Deep scan for `undefined` (DSH tool output is validated losslessly). */
-function findUndefined(value, path = '$') {
-  if (value === undefined) return path
-  if (Array.isArray(value)) {
-    for (let i = 0; i < value.length; i += 1) {
-      const hit = findUndefined(value[i], `${path}[${i}]`)
-      if (hit) return hit
-    }
-    return null
-  }
-  if (value && typeof value === 'object') {
-    for (const [k, v] of Object.entries(value)) {
-      const hit = findUndefined(v, `${path}.${k}`)
-      if (hit) return hit
-    }
-  }
-  return null
 }
 
 /** 合成一份 E1 信封 + 红/黄清单响应（用于不可空转的映射断言）。 */

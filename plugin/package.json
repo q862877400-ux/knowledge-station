@@ -11,6 +11,7 @@
     "smoke:settings": "node scripts/smoke-settings.mjs",
     "smoke:guard": "node scripts/smoke-settings-guard.mjs",
     "smoke:tools": "node scripts/smoke-effect-tool.mjs",
+    "smoke:tool-contract": "node scripts/smoke-tool-contract.mjs",
     "smoke:chatmode": "node scripts/smoke-chatmode.mjs",
     "smoke:client-entry": "node scripts/smoke-client-entry.mjs",
     "smoke:ingest": "node scripts/smoke-ingest.mjs",

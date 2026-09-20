@@ -1,0 +1,433 @@
+/**
+ * ks-dsh-plugin — scripts/smoke-tool-contract.mjs
+ *
+ * 第 6 步 §1 的门禁：**6 个模型工具的返回值必须满足它们自己声明的 `output.schema`**，
+ * 且那份 schema 本身必须是宿主支持的子集。
+ *
+ * ## 为什么必须有一条**离线**门禁（真机那两个消费点长什么样）
+ * 宿主的两条检查都只在真机上生效：
+ *   · 注册期 `assertSupportedJsonSchema(tool.output.schema)`（(DSH)
+ *     `packages/core/tools/src/index.ts:1062`）——schema 用了子集外的关键字 ⇒ 抛错 ⇒
+ *     **整个插件挂不上**（不是这一个工具不可用）；
+ *   · 取值期 `snapshotToolValue` + `validateJsonSchemaValue`（同文件 `:1813-1816`）——
+ *     返回值和 schema 对不上 ⇒ `ToolOutputError` ⇒ **每次调用都 isError**。
+ * 两者在离线侧（本仓所有其它冒烟）**完全静默** ⇒ 必须有一条能当场红、又不依赖真宿主的脚本。
+ *
+ * ## 怎么做到零依赖、不 spawn 引擎、不发真实网络请求
+ *   1. `apply()` 用**假 cordis ctx**（口径照 `smoke-effect-tool.mjs` 的 `_services`：
+ *      可缺省服务一律走 `ctx.get(name)`），`tools.register` 只把定义**捕获**下来；
+ *   2. `globalThis.fetch` **全量打桩**：路由到本文件里的桩响应，没有兜底的真实 fetch；
+ *   3. `KS_DATA_DIR` 指向临时目录并预置一份"健康"的 `engine.session.json` ⇒
+ *      `ensureLive()` 探活即 200 ⇒ **绝不 spawn 引擎**（数据写 %TEMP%，代码树零运行产物）。
+ *
+ * ## 断言分两类（**反向对照是这条门禁的全部价值**）
+ *   · 正向：每个工具各 1–3 组 `(args, 桩响应)`，每组过 `checkToolContract`
+ *     （schema 合法 / 值无 undefined / 值满足 schema / render 给出非空 text 块）；
+ *   · 反向（A4/A5）：把同一个值拿去喂**故意错**的 schema，断言**必须出现违规**——
+ *     没有这两条，上面那四条完全可能是空转的假绿（施工单 §1"怎么验"的 A4 原话：
+ *     "A2 空转 ⇒ 整个第 1 条是假绿"）。
+ *
+ * 跑法：node scripts/smoke-tool-contract.mjs   （退出码 0 = 全通过）
+ */
+
+import { mkdtemp, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+
+// 隔离落盘（同 `smoke-effect-tool.mjs` 的理由）：`apply()` 会拉起整个 host 半边，
+// 其中有会落盘的状态文件与引擎会话文件。两个变量都指向临时目录。
+process.env.KS_CHATMODE_DIR = await mkdtemp(join(tmpdir(), 'ks-tool-contract-chatmode-'))
+const DATA_DIR = await mkdtemp(join(tmpdir(), 'ks-tool-contract-data-'))
+process.env.KS_DATA_DIR = DATA_DIR
+// 预置"健康"的引擎会话：`ensureLive()` 读到它会去探活（fetch 已打桩 ⇒ 200）⇒ 复用，不 spawn。
+// pid 用本进程：`parseSession` 只要求正整数；复用路径不查进程存活（(engine.js) `_ensureLive`）。
+await writeFile(join(DATA_DIR, 'engine.session.json'), JSON.stringify({
+  port: 45_777, pid: process.pid, token: 'tok_smoke_contract', started_at: null,
+}))
+
+const { apply } = await import('../src/index.js')
+const { setMode, effectiveChatMode, __resetChatModeForTests } = await import('../src/chatmode.js')
+const { checkToolContract, violationsOf } = await import('./lib/tool-contract.mjs')
+
+const results = []
+function check(name, ok, detail) {
+  results.push({ name, ok })
+  console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}${detail === undefined ? '' : ` — ${detail}`}`)
+}
+
+/* ------------------------------------------------------------------ *
+ * 假引擎桩（`globalThis.fetch` 全量打桩；**没有**兜底的真实 fetch）
+ * ------------------------------------------------------------------ */
+
+/** `/api/v1/health` 的扁平体（引擎 `health()` 的真实字段，`src/core/api/server.py`）。 */
+const HEALTH_OK = {
+  status: 'healthy', uptime_seconds: 12, db_status: 'ok',
+  vector_engine: 'ok', parser_worker: 'ok',
+}
+/** 只有 `status` 的稀疏体：其余字段缺席 ⇒ 工具必须回 `null`（**不是** undefined）。 */
+const HEALTH_SPARSE = { status: 'degraded' }
+
+/** 兜底响应：`apply()` 里那几条 fire-and-forget 的启动巡检/公告/入库接线也会打 fetch。 */
+const benign = (path) => (path.startsWith('/api/v1/health')
+  ? { body: HEALTH_OK }
+  : { body: { code: 200, status: 'success', data: {} } })
+
+/** 当前场景的响应器：`(path, init) => ({ http?, body })`（未命中一律回落 `benign`）。 */
+let responder = benign
+
+const stripOrigin = (url) => String(url).replace(/^https?:\/\/[^/]+/, '')
+
+globalThis.fetch = async (url, init) => {
+  const path = stripOrigin(url)
+  const r = responder(path, init)
+  const status = r.http ?? 200
+  return {
+    status,
+    ok: status >= 200 && status < 300,
+    text: async () => JSON.stringify(r.body ?? r),
+  }
+}
+
+/* ------------------------------------------------------------------ *
+ * 假 cordis ctx（口径照 `smoke-effect-tool.mjs` 的 `_services`）
+ * ------------------------------------------------------------------ */
+
+const fakeSessions = new Map()
+const tools = new Map()
+const registeredCommands = []
+const _services = {
+  tools: { register(tool) { tools.set(tool.name, tool) } },
+  webServer: { register() { return () => {} } },
+  systemPrompt: { section() { return () => {} } },
+  agents: { get(sessionId) { return fakeSessions.get(sessionId) } },
+  commands: { register(def) { registeredCommands.push(def); return () => {} } },
+  logger: { info() {}, warn() {}, error() {} },
+}
+const ctx = {
+  ..._services,
+  /** cordis 的服务查找：**只返回已提供的服务**（这里用同一张表模拟）。 */
+  get(name) { return _services[name] },
+  effect(fn) { return fn() },
+}
+
+/* ------------------------------------------------------------------ *
+ * 桩响应数据
+ * ------------------------------------------------------------------ */
+
+const EFFECT_SUMMARY = {
+  code: 200,
+  status: 'success',
+  data: {
+    generated_at: '2026-10-01 09:00:00',
+    window: 'all',
+    colors: { red: 2, yellow: 1, green: 5, gray: 2 },
+    total: 10,
+    std: { total: 8, colors: { red: 2, yellow: 1, green: 4, gray: 1 } },
+    law: { total: 2, colors: { red: 0, yellow: 0, green: 1, gray: 1 } },
+    tree: [
+      {
+        top: 'std',
+        name: '国家标准·行业标准·团体标准',
+        colors: { red: 2, yellow: 1, green: 4, gray: 1 },
+        items: [
+          { name: 'C 医药、卫生、劳动保护', colors: { red: 1, yellow: 1, green: 1, gray: 1 } },
+          { name: 'F 能源、核技术', colors: { red: 1, yellow: 0, green: 1, gray: 0 } },
+          { name: 'J 机械', colors: { red: 0, yellow: 0, green: 1, gray: 0 } },
+          { name: 'K 电工', colors: { red: 0, yellow: 0, green: 1, gray: 0 } },
+        ],
+      },
+      { top: 'law', name: '法律法规', colors: { red: 0, yellow: 0, green: 1, gray: 1 }, items: [] },
+    ],
+  },
+}
+/** 一红一黄：**第二条故意没有 `doc_id`** ⇒ `evidence_url` 必须是 `null`（覆盖可空字段）。 */
+const EFFECT_DOCS = [
+  { status: 'superseded', color: 'red', doc_id: 'doc_r1', standard_no: 'GB 1111-2011',
+    standard_name: '红一号', effective_from: '2011-01-01', superseded_by: 'GB 1111-2021',
+    withdrawn_date: null },
+  { status: 'upcoming', color: 'yellow', standard_no: 'GB 3333-2026', standard_name: '黄一号',
+    effective_from: '2099-01-01', superseded_by: null, withdrawn_date: null },
+]
+
+const RESOLVE_HIT = {
+  code: 200,
+  status: 'success',
+  data: {
+    doc_id: 'doc_r9', page_start: 7, clause_revision_id: 'rev_r9', clause_key: 'k_r9',
+    standard_no: 'GB 2222-2020', clause_number: '3.1', legal_status: 'effective',
+    bookmarked: false,
+  },
+}
+
+const ANSWER_FULL = {
+  code: 200,
+  status: 'success',
+  data: {
+    tier: 'direct',
+    evidence: [
+      { doc_id: 'doc_a1', page_start: 3, clause_revision_id: 'rev_a1', standard_no: 'GB 1111-2020',
+        clause_number: '5.1.2', title: '高处作业分级', legal_status: 'effective',
+        legal_hierarchy: '国家标准', snippet: '高处作业分级……', bookmarked: true },
+      // 第二条**不给 bookmarked / snippet / page_start** ⇒ 必须是 null（旧引擎/异常路径不造字段）
+      { doc_id: 'doc_a2', standard_no: 'GB 2222-2020', clause_number: '3.1' },
+    ],
+    derivation: '按条款推导',
+    conclusion: '结论',
+    verification: {
+      is_valid: true,
+      answer_confidence: 'high',
+      confidence_reasons: ['核验通过且证据高可信'],
+      unsupported_clauses: ['9.9.9'],
+      unsupported_context: [{
+        clause_number: '9.9.9', standard_no: 'GB 9999-2020',
+        verdict: 'outside_evidence_standard', reason: '本轮证据里没有这部标准',
+      }],
+      unverified_numbers: [],
+      modality_violations: [{ clause_number: '5.1.2', kind: 'must' }],
+      legal_element_violations: [],
+      citation_index_warnings: ['[[3]] 未命中'],
+    },
+    notes: ['只引证据内条款'],
+    material_usage: { project_id: 'prj_x', counts: { total: 2 } },
+    _meta: {
+      evidence_total: 2,
+      retrieval: { result_count: 2, expanded_count: 1, vector_engine: 'ok', rerank: { on: true } },
+      llm_raw_length: 1234,
+    },
+  },
+}
+/** 200 但 `data` 只有 tier/notes：`evidence` 缺席、`verification` 缺席 ⇒ 全给 null/空。 */
+const ANSWER_BARE = {
+  code: 200, status: 'success', data: { tier: 'reference', notes: [] },
+}
+
+const MATERIAL_ROWS = [{
+  material_id: 'mat_1', title: '某公司 2024 年年度报告', source_tier: 'T3',
+  tier_label: '线索（网上找来的）', tier_source: 'system', task_role: 'reference',
+  review_status: 'pending', chunk_count: 12, origin: 'collected', kind: 'report',
+  url: 'https://example.com/a', domain: 'example.com', tier_reason: '自采：HTTP 200',
+}]
+
+const COLLECTED_MATERIAL = {
+  material_id: 'mat_9', title: '某局行政处罚决定书', review_status: 'pending', source_tier: 'T3',
+  origin: 'collected', lifecycle: null, url: 'https://example.com/b', domain: 'example.com',
+  tier_reason: '自采：HTTP 200',
+}
+
+/* ------------------------------------------------------------------ *
+ * 场景运行器
+ * ------------------------------------------------------------------ */
+
+const execFor = (sessionId) => ({ agent: { session: { id: sessionId, header: {} } } })
+
+let groupCount = 0
+/**
+ * 跑一组 `(tool, args, 桩响应)` 并过契约门禁。
+ *
+ * ⚠ `execute()` **抛错**也要如实判 FAIL（不许静默跳过）——那正是真机上
+ * `INVALID_TOOL_OUTPUT`/`projectionError` 的离线对应物。
+ */
+async function group(toolName, label, args, responderFn, sessionId = 'smoke-contract') {
+  groupCount += 1
+  const tool = tools.get(toolName)
+  if (typeof tool?.execute !== 'function') {
+    check(`${toolName} [${label}] — the tool is registered`, false, 'tools.get() 不是工具定义')
+    return null
+  }
+  responder = responderFn
+  let value = null
+  try {
+    value = await tool.execute(args, execFor(sessionId))
+  } catch (error) {
+    check(`${toolName} [${label}] — execute() resolved`, false, String(error?.message ?? error))
+    return null
+  }
+  const report = checkToolContract(tool, args, value)
+  for (const c of report.checks) check(`${toolName} [${label}] — ${c.name}`, c.ok, c.detail)
+  return value
+}
+
+/** 只认某一个路径片段的响应器（其余回落 `benign`，免得启动接线把场景搅浑）。 */
+const onlyPath = (fragment, body, http) => (path) => (path.includes(fragment)
+  ? { body, http }
+  : benign(path))
+
+/** 精确路径匹配的响应器（用于 `/materials/projects` 这种**是别人前缀**的路径）。 */
+const exactPath = (target, body) => (path) => (path.split('?')[0] === target
+  ? { body }
+  : benign(path))
+
+async function main() {
+  console.log('=== model-tool output.schema contract smoke ===')
+  apply(ctx, {})
+
+  check('6 个模型工具都被 apply() 注册（否则本冒烟是空转）',
+    ['ks_ping', 'ks_resolve_clause', 'ks_answer', 'ks_effect_report',
+      'ks_materials', 'ks_collect'].every((n) => tools.has(n)),
+    [...tools.keys()].join(','))
+
+  __resetChatModeForTests()
+
+  /* ------------------------------ ks_effect_report ------------------------------ */
+  const effectFull = await group('ks_effect_report', 'summary+lists', { limit: 2 }, (path) => (
+    path.includes('/api/v1/report/effect/color')
+      ? { body: { code: 200, status: 'success', data: { colors: { red: 2, yellow: 1 }, count: 3, per_color: true, docs: EFFECT_DOCS } } }
+      : onlyPath('/api/v1/report/effect', EFFECT_SUMMARY)(path)
+  ))
+  check('ks_effect_report [summary+lists] — 红/黄清单都在（这组不是只走了统计分支）',
+    Array.isArray(effectFull?.red_list?.docs) && Array.isArray(effectFull?.yellow_list?.docs),
+    `red=${effectFull?.red_list?.docs?.length} yellow=${effectFull?.yellow_list?.docs?.length}`)
+  check('ks_effect_report [summary+lists] — 无 doc_id 的行的 evidence_url 是 null',
+    effectFull?.yellow_list?.docs?.[0]?.evidence_url === null,
+    String(effectFull?.yellow_list?.docs?.[0]?.evidence_url))
+
+  await group('ks_effect_report', 'stats-only', { include_attention: false },
+    onlyPath('/api/v1/report/effect', EFFECT_SUMMARY))
+  await group('ks_effect_report', 'list-failure', { limit: 2 },
+    (path) => (path.includes('/api/v1/report/effect/color')
+      ? { http: 500, body: { code: 500, message: 'boom' } }
+      : onlyPath('/api/v1/report/effect', EFFECT_SUMMARY)(path)))
+
+  /* ---------------------------------- ks_ping ---------------------------------- */
+  const pingFull = await group('ks_ping', 'healthy', {},
+    onlyPath('/api/v1/health', HEALTH_OK))
+  const pingSparse = await group('ks_ping', 'sparse-health', {},
+    onlyPath('/api/v1/health', HEALTH_SPARSE))
+  check('ks_ping [healthy] — health 的五项都透出（这组真的读到了引擎体）',
+    pingFull?.status === 'healthy' && pingFull?.vectorEngine === 'ok'
+      && pingFull?.engine?.reused === true,
+    JSON.stringify({ status: pingFull?.status, vector: pingFull?.vectorEngine }))
+  check('ks_ping [sparse-health] — 引擎没给的字段是 null（**不是** undefined）',
+    pingSparse?.uptimeSeconds === null && pingSparse?.dbStatus === null
+      && pingSparse?.vectorEngine === null && pingSparse?.parserWorker === null
+      && pingSparse?.status === 'degraded',
+    JSON.stringify(pingSparse))
+
+  /* ----------------------------- ks_resolve_clause ----------------------------- */
+  await group('ks_resolve_clause', 'hit', { standard_no: 'GB 2222-2020', clause_number: '3.1' },
+    onlyPath('/api/v1/clauses/resolve', RESOLVE_HIT))
+  // ⚠ 「仅收藏」**依附于** forensic（(chatmode.js) `normalizeMode`：`forensic || scoped` 才留
+  // bookmarksOnly）⇒ 只 setMode({bookmarksOnly:true}) 是**空转**。这里两个都开，并当场断言
+  // 开关真的生效——否则下面那组会变成"永远绿"的假绿。
+  setMode('smoke-contract-bookmarks', { forensic: true, bookmarksOnly: true })
+  check('前置：用例会话的「仅收藏」真的开了（不然下面那组是空转）',
+    effectiveChatMode('smoke-contract-bookmarks').bookmarksOnly === true)
+  const resolveOutside = await group('ks_resolve_clause', 'hit-outside-bookmarks',
+    { standard_no: 'GB 2222-2020', clause_number: '3.1' },
+    onlyPath('/api/v1/clauses/resolve', RESOLVE_HIT), 'smoke-contract-bookmarks')
+  check('ks_resolve_clause [hit-outside-bookmarks] — 真的走到了 scope_notice 分支',
+    typeof resolveOutside?.scope_notice === 'string'
+      && resolveOutside?.bookmarks_scope === 'outside',
+    `${String(resolveOutside?.bookmarks_scope)} / notice=${typeof resolveOutside?.scope_notice}`)
+  setMode('smoke-contract-bookmarks', { bookmarksOnly: false, forensic: false })
+  await group('ks_resolve_clause', 'not-found',
+    { standard_no: 'GB 00000-9999', clause_number: '99.99.99' },
+    onlyPath('/api/v1/clauses/resolve', { code: 404, error: 'clause_not_found' }, 404))
+
+  /* --------------------------------- ks_answer --------------------------------- */
+  const answerFull = await group('ks_answer', 'full-answer', { query: '高处作业怎么分级' },
+    onlyPath('/api/v1/ks/answer', ANSWER_FULL))
+  check('ks_answer [full-answer] — 核验块与证据都在（不是空壳）',
+    answerFull?.verification?.unsupported_context?.length === 1
+      && answerFull?.evidence?.length === 2
+      && typeof answerFull?.answer_scope?.source === 'string',
+    `ev=${answerFull?.evidence?.length} ctx=${answerFull?.verification?.unsupported_context?.length}`)
+  await group('ks_answer', '422-validation-error', { query: 'x' },
+    onlyPath('/api/v1/ks/answer', { code: 422, error: 'bad_request', message: 'query 太短' }, 422))
+  await group('ks_answer', 'bare-envelope', { query: 'x' },
+    onlyPath('/api/v1/ks/answer', ANSWER_BARE))
+
+  /* -------------------------------- ks_materials -------------------------------- */
+  const projects = await group('ks_materials', 'projects', {},
+    exactPath('/api/v1/materials/projects', {
+      code: 200,
+      status: 'success',
+      data: [
+        { project_id: 'prj_a', name: '财报分析', authority_policy: { criterion: ['公司制度'] } },
+        { project_id: 'prj_b', name: '宿舍改造', authority_policy: null },
+      ],
+    }))
+  check('ks_materials [projects] — 项目行真的透出来了（不是空壳）',
+    projects?.count === 2 && projects?.projects?.[0]?.project_id === 'prj_a',
+    JSON.stringify(projects?.count))
+  const materialsPending = await group('ks_materials', 'materials-pending',
+    { action: 'materials', project_id: 'prj_a' },
+    // ⚠ 片段必须是**完整**的 `/projects/prj_a/materials`：写成 `/materials/prj_a/materials`
+    // 就永远匹配不上，于是回落 `benign`（data:{}）——那是本文件第一版的**假绿**（数组断言
+    // 会红，object 断言会静默过）。这条注释就是那次实测的留痕。
+    onlyPath('/projects/prj_a/materials', {
+      code: 200, status: 'success', data: MATERIAL_ROWS,
+    }))
+  check('ks_materials [materials-pending] — 走到 pending>0 分支（note 是字符串）',
+    materialsPending?.count === 1 && materialsPending?.review_counts?.pending === 1
+      && typeof materialsPending?.note === 'string',
+    `count=${materialsPending?.count} pending=${materialsPending?.review_counts?.pending} note=${typeof materialsPending?.note}`)
+  const inbox = await group('ks_materials', 'inbox', { action: 'inbox', project_id: 'prj_a' },
+    onlyPath('/projects/prj_a/inbox', {
+      code: 200,
+      status: 'success',
+      data: { dir: 'C:/tmp/prj_a', files: [{ path: 'C:/tmp/prj_a/a.pdf', file_name: 'a.pdf', size: 1024 }] },
+    }))
+  check('ks_materials [inbox] — 文件行真的透出来了（不是空壳）',
+    inbox?.count === 1 && inbox?.files?.[0]?.file_name === 'a.pdf' && inbox?.dir === 'C:/tmp/prj_a',
+    JSON.stringify({ count: inbox?.count, dir: inbox?.dir }))
+
+  /* --------------------------------- ks_collect --------------------------------- */
+  const collected = await group('ks_collect', 'collected',
+    { url: 'https://example.com/b', project_id: 'prj_a' },
+    onlyPath('/collect', {
+      code: 200,
+      status: 'success',
+      data: { collected: true, status: 200, truncated: false, duplicate: false, material: COLLECTED_MATERIAL },
+    }))
+  check('ks_collect [collected] — 材料条目真的透出来了（不是空壳）',
+    collected?.collected === true && collected?.material?.material_id === 'mat_9',
+    JSON.stringify(collected?.material?.material_id))
+  await group('ks_collect', 'refused', { url: 'http://127.0.0.1/x', project_id: 'prj_a' },
+    onlyPath('/collect', {
+      code: 200,
+      status: 'success',
+      data: { collected: false, reason: 'URL 被 SSRF 纪律拒绝（仅 http/https 且禁内网/保留地址）' },
+    }))
+
+  /* ------------------------- A4/A5 反向对照（最重要的一段） -------------------------
+   * 把**同一批真实返回值**拿去喂两份**故意错**的 schema：必须出现违规。
+   * 没有这一段，上面所有"值满足 schema"都可能是空转的假绿。
+   * --------------------------------------------------------------------------- */
+  const primary = new Map([
+    ['ks_effect_report', effectFull],
+    ['ks_ping', pingFull],
+    ['ks_resolve_clause', resolveOutside],
+    ['ks_answer', answerFull],
+    ['ks_materials', materialsPending],
+    ['ks_collect', collected],
+  ])
+  const EMPTY_OBJECT_SCHEMA = { type: 'object', additionalProperties: false, properties: {}, required: [] }
+  for (const [name, value] of primary) {
+    if (value === null) {
+      check(`A4 ${name} — 非空转（空 properties 必须判违规）`, false, '该工具没有可用的值（上一组已红）')
+      continue
+    }
+    const violations = violationsOf(EMPTY_OBJECT_SCHEMA, value)
+    check(`A4 ${name} returned a value its own schema rejects（非空转）`,
+      violations.length > 0,
+      violations.slice(0, 1).join('; ') || '(零违规 ⇒ 校验器空转)')
+  }
+  for (const [name, value] of primary) {
+    if (value === null) continue
+    check(`A5 ${name} — 根类型写错必须红`,
+      violationsOf({ type: 'array' }, value).length > 0, '')
+  }
+
+  responder = benign
+
+  const failed = results.filter((r) => !r.ok)
+  console.log(`\n== tool contract smoke ${failed.length === 0 ? 'PASS' : 'FAIL'} `
+    + `(${results.length - failed.length}/${results.length}; ${groupCount} 组场景) ==`)
+  process.exit(failed.length === 0 ? 0 : 1)
+}
+
+main().catch((err) => {
+  console.error(`[fatal] ${err && err.stack ? err.stack : err}`)
+  process.exit(1)
+})

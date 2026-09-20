@@ -60,6 +60,34 @@ function trimCollected(m) {
   }
 }
 
+/* ------------------------------------------------------------------ *
+ * 第 6 步 §1：`output.schema` 的形状（宿主注册期/取值期都吃它）
+ *
+ * 实测硬约束（`docs/research/STEP6-WORKORDER.md` §1【实测】表）：可空**只能**用
+ * `oneOf:[{type:'<T>'},{type:'null'}]`（`type:[...]` 会被 register 期直接拒）；
+ * `additionalProperties:false` 下**条件性出现的键也必须列进 `properties`**。
+ * ------------------------------------------------------------------ */
+const NULLABLE_STRING = { oneOf: [{ type: 'string' }, { type: 'null' }] }
+
+/** `trimCollected` 的对外形状（搜 `function trimCollected`）——9 个键一个不缺。 */
+const COLLECTED_MATERIAL = {
+  type: 'object',
+  additionalProperties: false,
+  properties: {
+    material_id: NULLABLE_STRING,
+    title: NULLABLE_STRING,
+    review_status: NULLABLE_STRING,
+    source_tier: NULLABLE_STRING,
+    origin: NULLABLE_STRING,
+    lifecycle: NULLABLE_STRING,
+    url: NULLABLE_STRING,
+    domain: NULLABLE_STRING,
+    tier_reason: NULLABLE_STRING,
+  },
+  required: ['material_id', 'title', 'review_status', 'source_tier', 'origin',
+    'lifecycle', 'url', 'domain', 'tier_reason'],
+}
+
 /**
  * Build the writing `ks_collect` tool.
  *
@@ -109,7 +137,28 @@ export function makeCollectTool(manager, chatModeOf) {
       additionalProperties: false,
     },
     output: {
-      schema: { type: 'object', additionalProperties: true },
+      // 第 6 步 §1：**两条**返回路径都要装得下（抓取失败是**结果**不是异常）——
+      // 失败分支（搜 `collected: false`）与成功分支（搜 `collected: true`）共有的 6 个键
+      // 进 `required`；`status`/`reason`（只失败分支有）与 `duplicate`/`truncated`/`material`
+      // （只成功分支有）列进 `properties` 但不 required。
+      schema: {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          ok: { type: 'boolean' },
+          project_id: { type: 'string' },
+          collected: { type: 'boolean' },
+          status: { oneOf: [{ type: 'number' }, { type: 'null' }] },
+          reason: NULLABLE_STRING,
+          duplicate: { type: 'boolean' },
+          truncated: { type: 'boolean' },
+          material: { oneOf: [COLLECTED_MATERIAL, { type: 'null' }] },
+          session_collected: { type: 'number' },
+          session_limit: { type: 'number' },
+          hint: { type: 'string' },
+        },
+        required: ['ok', 'project_id', 'collected', 'session_collected', 'session_limit', 'hint'],
+      },
       render: (_args, value) => [{ type: 'text', text: JSON.stringify(value, null, 2) }],
     },
     timeoutMs: 60_000,
