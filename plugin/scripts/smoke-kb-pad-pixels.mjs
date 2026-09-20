@@ -48,8 +48,10 @@ if (process.argv.slice(2).length > 0) {
  *   ④ `ksPadCheck.coverageDeclared === true`（这一组在 `PAD_REQUIRED` 里声明了期望元素，
  *      否则存在性没判 —— 那正是复核 E① 的假绿通道）；
  *   ⑤ `problems` 空（贴边 / 档位错 / 批量条折行 / 适用面消失，都在这里报）。
- * 覆盖要求（下面还会独立判一次）：**窄档与宽档都必须至少有一组**。
+ * 覆盖要求（下面还会独立判一次）：**窄档与宽档都必须至少有一组**、**深色必须至少有一组**。
  *   ⚠ `interact` 空串 = 用 `ui-render-shot` 里 PAGES 的默认场景（kb 是 []、ingest 是 ingest-batch）。
+ *   ⚠ `theme` 省略 = `light`（本脚本**从不传 `--theme`** 的那一版等于"深色留边从来没被断言过" ——
+ *     复核 `verify-freeze-5jx6` 的残余①指出来的，5j 当时只有一张深色**截图**当证据、没有断言）。
  */
 const MATRIX = [
   { page: 'kb', width: 520, interact: '', note: '默认态：卡片带 + 一级目录' },
@@ -58,6 +60,7 @@ const MATRIX = [
   { page: 'kb', width: 520, interact: 'kb-files', note: '文件表（无批量条；smoke-kb-cols 也跑这一档）' },
   { page: 'kb', width: 1300, interact: 'kb-select', note: '文件表 + 批量条（宽档）' },
   { page: 'kb', width: 520, interact: 'kb-empty-files', note: '空态卡' },
+  { page: 'kb', width: 520, interact: 'kb-select', theme: 'dark', note: '深色：留边 + 批量条折行（业主看的深浅两套）' },
   { page: 'capabilities', width: 520, interact: '', note: '能力页' },
   { page: 'ingest', width: 520, interact: '', note: '入库面板' },
   { page: 'materials', width: 1300, interact: '', note: '资料面板' },
@@ -71,11 +74,14 @@ const failures = []
 /** 缺浏览器是**全局**一件事（八组都会因此拿不到 JSON）⇒ 单独归一条，别刷屏八遍。 */
 let sawNoBrowser = false
 for (const c of MATRIX) {
+  const theme = c.theme ?? 'light'
   const args = [shotScript, '--page', c.page, '--width', String(c.width),
-    '--out', join(outDir, `padpixels-${c.page}-${String(c.width)}${c.interact === '' ? '' : `-${c.interact}`}.png`)]
+    '--out', join(outDir, `padpixels-${c.page}-${String(c.width)}${c.interact === '' ? '' : `-${c.interact}`}${theme === 'light' ? '' : `-${theme}`}.png`)]
   if (c.interact !== '') args.push('--interact', c.interact)
+  if (theme !== 'light') args.push('--theme', theme)
   const r = spawnSync(process.execPath, args, { cwd: repoRoot, encoding: 'utf8', timeout: 240_000 })
   const label = `${c.page}|${c.interact === '' ? '(默认场景)' : c.interact}@${String(c.width)}`
+    + (theme === 'light' ? '' : `[${theme}]`)
   let j = null
   let parseErr = null
   try { j = JSON.parse(r.stdout ?? '') } catch (e) { parseErr = String(e) }
@@ -89,7 +95,7 @@ for (const c of MATRIX) {
     const stderrTail = (r.stderr ?? '').split('\n').filter(Boolean).slice(-3).join(' / ') || '(空)'
     const noBrowser = /找不到无头浏览器|no such file|--browser|\$KS_BROWSER/i.test(`${r.stderr ?? ''}${r.stdout ?? ''}`)
     rows.push({
-      label, note: c.note, exit: r.status, checked: false, width: c.width,
+      label, note: c.note, exit: r.status, checked: false, width: c.width, theme,
       comboKey: null, tier: null, expect: null, pageW: null, required: null, missingSubjects: null,
       allSubjects: null, declaredCombos: null,
       problems: [`量不出 JSON（${String(parseErr)}）`],
@@ -110,7 +116,7 @@ for (const c of MATRIX) {
   }
   for (const p of pad.problems ?? []) problems.push(p)
   rows.push({
-    label, note: c.note, exit: r.status, checked: pad.checked === true, width: c.width,
+    label, note: c.note, exit: r.status, checked: pad.checked === true, width: c.width, theme,
     comboKey: pad.comboKey ?? null,
     tier: pad.tier ?? null, expect: pad.expect ?? null, pageW: pad.pageW ?? null,
     required: pad.required ?? null, missingSubjects: pad.missingSubjects ?? null,
@@ -163,8 +169,8 @@ const SPEC_SUBJECTS = ['.ks-kb', '.ks-ing', '.ks-mat', '.ks-kbband', '.ks-list',
  * ⚠ 与 `MATRIX` **同源两份**（同文件内），改矩阵必须逐字同步改这里 —— 不一致就红（这是设计，不是麻烦）。
  */
 const EXPECTED_RUNS = ['kb|@520', 'kb|@1300', 'kb|kb-select@520', 'kb|kb-files@520',
-  'kb|kb-select@1300', 'kb|kb-empty-files@520', 'capabilities|@520', 'ingest|ingest-batch@520',
-  'materials|@1300']
+  'kb|kb-select@1300', 'kb|kb-empty-files@520', 'kb|kb-select@520#dark', 'capabilities|@520',
+  'ingest|ingest-batch@520', 'materials|@1300']
 /** 从**成功的实测 JSON** 里取声明集合（任一组报到即可 —— 它们来自同一个 `ui-render-shot` 进程）。 */
 const declaredSubjects = rows.map((r) => r.allSubjects).find((v) => Array.isArray(v)) ?? null
 const declaredCombos = rows.map((r) => r.declaredCombos).find((v) => Array.isArray(v)) ?? null
@@ -198,10 +204,13 @@ if (declaredCombos === null) {
      为什么还要这一条：上面两条只保证"自报 == 真跑过"。若有人**同时**改矩阵（少跑一组）与自报表达式
      （也只报那一组），两边仍相等 ⇒ 静默通过。冻一份第三方清单后，少跑一组无论自报怎么写都红。
      ⚠ 5j-补×6：键**必须带宽度** —— 复核的 V8（把 `materials|@1300` 换成 `@520`）在只认组合键的版本里
-     exit 0（宽档那组静默不跑），正是本清单声称要堵的那一类。 */
+     exit 0（宽档那组静默不跑），正是本清单声称要堵的那一类。
+     ⚠ 5j-补×7：键**也带主题**（`#dark`；`light` 不写）—— 复核 `verify-freeze-5jx6` 的残余①：本脚本
+     原来**从不传 `--theme`** ⇒ 跑的全是浅色，"深色下的留边"只有一张截图当证据、没有任何断言。
+     现在矩阵里有一组 `theme:'dark'`，键是 `kb|kb-select@520#dark`。 */
   const runTriples = rows
     .filter((r) => typeof r.comboKey === 'string' && r.comboKey !== '' && Number.isFinite(r.width))
-    .map((r) => `${r.comboKey}@${String(r.width)}`)
+    .map((r) => `${r.comboKey}@${String(r.width)}${r.theme === 'dark' ? '#dark' : ''}`)
   const runSet = new Set(runTriples)
   const expectedSet = new Set(EXPECTED_RUNS)
   const missingRun = EXPECTED_RUNS.filter((k) => !runSet.has(k))
@@ -223,6 +232,11 @@ if (uncovered.length > 0) {
 }
 if (!tiers.has('narrow')) failures.push('**窄档一组都没判过**（留边 16 这一档没有证据）')
 if (!tiers.has('wide')) failures.push('**宽档一组都没判过**（留边 24 这一档没有证据）')
+/* 主题也要有：复核 `verify-freeze-5jx6` 残余①—— 本脚本原来从不传 `--theme`，深色留边**从未被断言**。 */
+if (!rows.some((r) => r.theme === 'dark' && r.problems.length === 0)) {
+  failures.push('**深色（`--theme dark`）一组都没判过** —— 业主看的"深浅两套"里深色那一套没有断言',
+    '（5j 当时只有一张深色截图当证据）')
+}
 if (sawNoBrowser) {
   failures.push('**这一跑起不来无头浏览器**（八组都没拿到 JSON）—— 门禁链从 5j-补 起需要本机有'
     + ' Chromium/Edge（`--browser` 或 `$KS_BROWSER` 可指路径）。**缺浏览器就是红，不是跳过**：'
@@ -238,5 +252,5 @@ if (failures.length > 0) {
   console.error('      "元素被改名/删掉"会以"根本没量到"的形态在这里红 —— 那是设计，不是误报。')
   process.exit(1)
 }
-console.log(`✅ 页面留边巡查通过：${MATRIX.length} 组（窄档与宽档都有），`
+console.log(`✅ 页面留边巡查通过：${MATRIX.length} 组（窄档与宽档都有、深色一组也在），`
   + `规范点名的 ${SPEC_SUBJECTS.length} 类适用面每一类都至少有一组在判。`)
