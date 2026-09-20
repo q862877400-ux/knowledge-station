@@ -37,15 +37,28 @@
  *                    ⚠ **它不能用来判 `position:sticky`**：`--screenshot` 在这种无头模式下
  *                      是"整页截图"，滚动位置不进产物（5c 实测：加 scrollTo 后图里只剩空白）。
  *                      批量条位置只能在**真宿主页面**里看，见 docs/UI-BASELINE.md 第五节。
- *   --interact <a,b> 可选：kb-detail / kb-select / kb-filter / kb-filter-empty / kb-search /
- *                    kb-empty / kb-empty-folder / kb-tags-view / ingest-batch / cap-dialog
+ *   --interact <a,b> 可选：kb-files / kb-detail / kb-select / kb-filter / kb-filter-empty /
+ *                    kb-search / kb-empty-files / kb-tags-view / kb-band-start / kb-band-end /
+ *                    kb-enter-law / kb-enter-l2 / kb-back / ingest-batch / cap-dialog
+ *                    ⚠ **5h（2026-09-20）新 IA 改了基准态**：默认态 =「卡片带 + **一级目录**」
+ *                      （业主："先占上一级目录文件夹…到最末一级才是文件"）⇒ 凡是要"文件表格 /
+ *                      状态徽章 / 搜索框"的场景都必须**先下钻**。脚本里那三个 helper
+ *                      （`gotoStdLeaf` / `gotoBandEnd` / `cardNamed`）就是这一步，共用一份。
+ *                      为此 kb-detail / kb-select / kb-filter / kb-filter-empty / kb-search /
+ *                      kb-tags-view **各自加了前置导航**（断言的实质没变：还是量行数/徽章/像素）。
+ *                    ⚠ 原来那条 `kb-empty` / `kb-empty-folder` **已删**（它们点的是**树节点**
+ *                      `.ks-kb-tline`，而树被业主点名删掉 ⇒ 写法永远找不到节点）。替代品
+ *                      `kb-empty-files`：下钻 → 全选 → 批量删除 ⇒ 目录**真的**空了，拿到
+ *                      "这个文件夹还没有文件"那一支空态（比旧写法更真，不是点一个假节点）。
+ *                    ⚠ `kb-files` 是给 `smoke-kb-cols.mjs`（列对齐三档）与 `ui-badge-pixels.mjs`
+ *                      （徽章像素）用的**前置步骤**：它们验的是表格/徽章，而默认态停在目录层。
+ *                    ⚠ kb-band-end / kb-band-start / kb-enter-law / kb-enter-l2 / kb-back 都是 5h 新增，
+ *                      对应业主原话里的"左右翻页滑动条"与"进入二级目录就自动出现返回上一级的按钮"。
  *                    ⚠ kb-search 是 P2 头条（2026-09-20）补的：往列表上方的搜索框里打字，
  *                      报出"行数 初始 → 按标准号 → 按名称 → 不存在的串 → 清空"五步，
  *                      用来证明那个框**真的过滤**（不是画个壳）。
- *                    ⚠ kb-empty-folder 是 P1-7 补的：点一个"树里有、文件数为 0"的叶子 ⇒ 拿到
- *                      **真的**空态（原来的 kb-empty 点树根，页面仍有文件，p05-kb-520-empty.png
- *                      就是那么来的、名不副实）。kb-filter 是 P1-4 的：点「已废止」⇒ 看筛选
- *                      真的作用在行数上。kb-detail 改走「⋮ → 详情」（行内常驻按钮已收进菜单）。
+ *                    ⚠ kb-filter 是 P1-4 的：点「已废止」⇒ 看筛选真的作用在行数上。kb-detail
+ *                      走「⋮ → 详情」（行内常驻按钮已收进菜单）。
  *   --theme light|dark  默认 light
  *   --browser <exe>  默认自动找 Edge/Chrome（可用 $KS_BROWSER 覆盖）
  *   --harness <dir>  DSH 检出（默认 $KS_HARNESS_DIR，再退到下方 DEFAULT_HARNESS）
@@ -279,11 +292,89 @@ const click = async (el) => {
   return true
 }
 const notes = []
+/* ── 5h（2026-09-20）导航小工具：新 IA 下**默认态不再是文件表格** ──
+ * 默认态 =「卡片带 + **一级目录**」（业主："先占上一级目录文件夹…到最末一级才是文件"）。
+ * ⇒ 凡是要"文件表格 / 状态徽章 / 搜索框"的场景（kb-detail / kb-select / kb-search / kb-filter…），
+ *   都必须**先下钻**到最末一级。这三个 helper 就是那几步，写在这里共用一份。 */
+const cardNamed = (name) => q('.ks-kb-cards .ks-kb-card')
+  .find((el) => (el.querySelector('.ks-kb-ct')?.textContent ?? '').trim() === name)
+const dirNamed = (text) => q('.ks-dir').find((el) => (el.textContent ?? '').includes(text))
+const navNamed = (which) => q('.ks-kbband-nav').find((b) => (b.getAttribute('aria-label') ?? '').includes(which))
+/** 标准 → P 土木、建筑 → P15/19… → P16 工程防火：**4 篇文件**的那一层（与渲染冒烟同一层）。 */
+const gotoStdLeaf = async () => {
+  await click(cardNamed('标准'))
+  await click(dirNamed('P 土木、建筑'))
+  await click(dirNamed('P15/19'))
+  await click(dirNamed('P16 工程防火'))
+  return q('.ks-item').length
+}
+/** 点右箭头翻到底（到"尾"⇒ 右箭头 disabled）。 */
+const gotoBandEnd = async () => {
+  let guard = 0
+  while (guard < 20 && navNamed('下一组') !== undefined && navNamed('下一组').disabled === false) {
+    await click(navNamed('下一组'))
+    guard += 1
+  }
+  return guard
+}
 for (const how of interacts) {
-  if (how === 'kb-detail') {
+  if (how === 'kb-files') {
+    // **5h 新增**：把页面开到"标准 / P 土木、建筑 / P15/19… / P16 工程防火"（4 行文件 + 表头）。
+    // 这是 `smoke-kb-cols.mjs`（列对齐三档）与 `ui-badge-pixels.mjs`（徽章像素）**必须**先走的一步
+    // —— 它们验的是**表格/徽章**，而默认态现在停在目录层（业主本轮定的 IA）。
+    const rows = await gotoStdLeaf()
+    notes.push(`kb-files: 下钻到「标准 / P 土木、建筑 / P15/19… / P16 工程防火」`
+      + ` → 文件行 ${rows} 行、表头 ${q('.ks-lhead').length} 个、返回上一级 ${q('.ks-back').length} 个`
+      + `，面包屑「${q('.ks-crumb-path').map((el) => el.textContent).join('')}」`)
+  } else if (how === 'kb-band-end') {
+    // **5h 新增**（业主："一个小框下面自带一个左右翻页滑动条"、"滚到头/到头时按钮置灰"）：
+    // 点右箭头翻到最后一屏 ⇒ 图上应该看到**右箭头置灰**、左箭头可用、且卡片是最后那几张。
+    const clicks = await gotoBandEnd()
+    notes.push(`kb-band-end: 点了 ${clicks} 次「下一组」 → 右箭头 disabled=${String(navNamed('下一组')?.disabled)}`
+      + `、左箭头 disabled=${String(navNamed('上一组')?.disabled)}`
+      + `，本屏卡片 ${q('.ks-kb-cards .ks-kb-card').map((el) => (el.querySelector('.ks-kb-ct')?.textContent ?? '').trim()).join('/')}`)
+  } else if (how === 'kb-band-start') {
+    // 回到第一屏（左箭头应置灰）——与 kb-band-end 配对，用来对照"置灰"确实是状态而不是恒灰。
+    await gotoBandEnd()
+    let guard = 0
+    while (guard < 20 && navNamed('上一组') !== undefined && navNamed('上一组').disabled === false) {
+      await click(navNamed('上一组'))
+      guard += 1
+    }
+    notes.push(`kb-band-start: 翻回第一屏 → 左箭头 disabled=${String(navNamed('上一组')?.disabled)}`
+      + `，本屏卡片 ${q('.ks-kb-cards .ks-kb-card').map((el) => (el.querySelector('.ks-kb-ct')?.textContent ?? '').trim()).join('/')}`)
+  } else if (how === 'kb-enter-law') {
+    // **5h 新增**：点「法律法规」卡 = 进入该库，看它的**一级目录**（法律 / 行政法规）。
+    const ok = await click(cardNamed('法律法规'))
+    notes.push(`kb-enter-law: ${ok ? '点了「法律法规」卡' : '没找到卡'}`
+      + ` → 一级目录 ${q('.ks-dir').map((el) => (el.querySelector('.ks-dir-name')?.textContent ?? '').trim()).join('/')}`
+      + `，文件行 ${q('.ks-item').length}，返回上一级 ${q('.ks-back').length} 个`
+      + `，面包屑「${q('.ks-crumb-path').map((el) => el.textContent).join('')}」`)
+  } else if (how === 'kb-enter-l2') {
+    // **5h 新增**：进**二级目录**（法律法规 → 法律 ⇒ 宪法与行政法）——业主点名要的状态：
+    // 「进入二级目录就自动出现返回上一级的按钮」。图上应该有「← 返回上一级」+ 面包屑「法律法规 / 法律」。
+    await click(cardNamed('法律法规'))
+    await click(dirNamed('法律'))
+    notes.push(`kb-enter-l2: 点了「法律法规」卡 → 一级目录「法律」`
+      + ` → 二级目录 ${q('.ks-dir').map((el) => (el.querySelector('.ks-dir-name')?.textContent ?? '').trim()).join('/')}`
+      + `，返回上一级 ${q('.ks-back').length} 个`
+      + `，面包屑「${q('.ks-crumb-path').map((el) => el.textContent).join('')}」`)
+  } else if (how === 'kb-back') {
+    // **5h 新增**：二级目录 → 点「返回上一级」⇒ 回到一级目录层、按钮**消失**。
+    await click(cardNamed('法律法规'))
+    await click(dirNamed('法律'))
+    const before = q('.ks-back').length
+    await click(q('.ks-back')[0])
+    notes.push(`kb-back: 二级目录（返回按钮 ${before} 个）→ 点「返回上一级」`
+      + ` → 目录 ${q('.ks-dir').map((el) => (el.querySelector('.ks-dir-name')?.textContent ?? '').trim()).join('/')}`
+      + `，返回上一级 ${q('.ks-back').length} 个`
+      + `，面包屑「${q('.ks-crumb-path').map((el) => el.textContent).join('')}」`)
+  } else if (how === 'kb-detail') {
     // ⚠ P1-1（2026-09-20）改道：行内的常驻「详情」按钮没了（收进行尾「⋮」溢出菜单）
     //   ⇒ 先点第一行的「⋮」，再点菜单里的「详情」。旧写法（button[aria-label^="打开"]）
     //   在改版后永远找不到按钮、只回一句"没找到按钮"——那种"静默没做成"正是本脚本要避免的。
+    // ⚠ 5h（2026-09-20）：**先下钻到文件层**（默认态现在是目录层，没有行可点）。
+    const rows = await gotoStdLeaf()
     const row = q('.ks-item')[0]
     const more = row?.querySelector('.ks-item-more button')
     const opened = await click(more)
@@ -291,9 +382,13 @@ for (const how of interacts) {
       ? [...document.querySelectorAll('[role=menuitem]')].find((el) => (el.textContent ?? '') === '详情')
       : null
     const done = item ? await click(item) : false
-    notes.push(`kb-detail: ${opened ? '点了第一行的「⋮」' : '没找到「⋮」'} → ${done ? '点了菜单里的「详情」' : '没找到菜单项'}`)
+    notes.push(`kb-detail: 先下钻（文件行 ${rows} 行）→ ${opened ? '点了第一行的「⋮」' : '没找到「⋮」'}`
+      + ` → ${done ? '点了菜单里的「详情」' : '没找到菜单项'}`
+      + `，详情卡 ${q('.ks-detail .ks-kb-card').length} 张`)
   } else if (how === 'kb-filter') {
     // P1-4 验收：筛选**真的作用在页面状态上**。点「已废止」胶囊，报出筛选前后的行数。
+    // ⚠ 5h：先下钻到文件层（4 行里 1 行是已废止 ⇒ 筛选后应剩 1 行）。
+    await gotoStdLeaf()
     const before = q('.ks-item').length
     const chip = byText('.ks-chip', '已废止')
     const ok = await click(chip)
@@ -304,17 +399,22 @@ for (const how of interacts) {
     // 筛选到 **0 行** ⇒ 看"被筛没了"的那一支空态（P1-4 的两种空之一）。
     // 怎么造出 0 行：先切到只有现行件的「供应商资料」（1 篇，status=current），
     // 再点「已废止」⇒ 0 行。这是**页面状态**真的生效的证据，不是画出来的。
-    const folder = q('.ks-kb-cards .ks-kb-card').find((el) => (el.textContent ?? '').includes('供应商资料'))
+    // ⚠ 5h：那张卡在卡片带的**最后一屏**（共 5 张、窗口 3）⇒ 先翻到底再点它。
+    const clicks = await gotoBandEnd()
+    const folder = cardNamed('供应商资料')
     const moved = await click(folder)
     const before = q('.ks-item').length
     const chip = byText('.ks-chip', '已废止')
     const ok = await click(chip)
-    notes.push(`kb-filter-empty: ${moved ? '切到「供应商资料」' : '没找到自建夹卡'}`
+    notes.push(`kb-filter-empty: 先翻 ${clicks} 次到最后一屏 → ${moved ? '点「供应商资料」卡' : '没找到卡'}`
       + ` → 行数 ${before} → ${q('.ks-item').length}`
       + `，空态卡 ${q('.ks-empty-card').length} 张`
       + `，空态标题「${q('.ks-empty-t').map((el) => el.textContent).join('|')}」`)
   } else if (how === 'kb-search') {
     // P2 头条验收：**搜索框真的过滤**（不是画个壳）。
+    // ⚠ 5h：先下钻到文件层（搜索框跟着**文件表格**走；目录层没有可筛的文件）。
+    await gotoStdLeaf()
+
     // 分三步取证：① 输入只命中 1 行的串 ⇒ 行数真的变 1；② 只命中名称的串 ⇒ 也是 1；
     // ③ 清空 ⇒ 恢复原行数。受控 input 必须走**原生 setter**（直接 el.value = x 会被
     // React 的 value tracker 判成"没变化"而不触发 onChange —— 渲染级冒烟第一版就是这么失败的）。
@@ -348,33 +448,36 @@ for (const how of interacts) {
         + `（体量 ${q('.ks-item').length} / 表头 ${q('.ks-lhead').length}）`)
     }
   } else if (how === 'kb-select') {
+    // ⚠ 5h：先下钻到文件层（要选的是**文件行**的勾选框）。
+    const rows = await gotoStdLeaf()
     const box = q('input[type=checkbox]')[0]
-    notes.push(`kb-select: ${await click(box) ? '点了全选' : '没找到勾选框'}`)
+    notes.push(`kb-select: 先下钻（文件行 ${rows} 行）→ ${await click(box) ? '点了全选' : '没找到勾选框'}`
+      + ` → 批量条 ${q('.ks-batch').length} 条`)
   } else if (how === 'ingest-batch') {
     const ok = await click(byText('button', '开始预览'))
     notes.push(`ingest-batch: ${ok ? '点了「开始预览」' : '没找到按钮'}`
       + ` → 批量行 ${q('button').filter((b) => /\.pdf$/.test((b.textContent ?? '').trim())).length} 条`
       + `，总账 ${container.textContent.includes('共评估') ? '有' : '无'}`
       + `，失败 ${container.textContent.includes('预览失败') ? container.textContent.split('预览失败')[1]?.slice(0, 60) : '无'}`)
-  } else if (how === 'kb-empty') {
-    // 点一个**没有文档**的树节点（自带树的根节点 "P 土木、建筑"）⇒ 看空态卡
-    const node = q('.ks-kb-tline').find((el) => (el.textContent ?? '').includes('P 土木、建筑'))
-    notes.push(`kb-empty: ${await click(node) ? `点了「${(node.textContent ?? '').trim()}」` : '没找到节点'}`
-      + ` → 空态卡 ${q('.ks-empty-card').length} 张`)
-  } else if (how === 'kb-empty-folder') {
-    // P1-7 验收要的**真空态**：点一个"树里有、文件数为 0"的节点 ⇒ 列表 0 行 + 空态卡 1 张。
-    // 注意原有的 kb-empty 点的是树**根**节点（根下没有直接文件，点它会展开/收起，
-    // 屏幕上仍有上一次选中的夹子 ⇒ 拿不到空态）。这里选 "P15/19 工程抗震、工程防火、人防工程"
-    // ——它在种子里**没有文档**（文件都在它的子层 P16），而父节点 P 土木、建筑 默认展开。
-    // 库里 p05-kb-520-empty.png 名不副实（那一跑是有数据 + 已选中的场景）—— 这条就是补它。
-    const node = q('.ks-kb-tline').find((el) => (el.textContent ?? '').includes('P15/19'))
-    const ok = await click(node)
-    notes.push(`kb-empty-folder: ${ok ? `点了「${(node.textContent ?? '').trim()}」` : '没找到节点'}`
+  } else if (how === 'kb-empty-files') {
+    // **5h 新增，替代原来的 kb-empty / kb-empty-folder**（那两个场景点的是**树节点**，
+    // 而树在本轮被业主点名删掉了 ⇒ 它们的写法再也找不到节点）。
+    // 新的取法**比旧的更真**：下钻到文件层 → 全选 → 批量删除 ⇒ 目录真的空了，
+    // 于是拿到"这个文件夹还没有文件"这一支空态（**不是**被筛没的那一支）。
+    await gotoStdLeaf()
+    await click(q('input[type=checkbox]')[0])
+    const selected = q('.ks-batch').length
+    await click(byText('.ks-batch button', '批量删除'))
+    notes.push(`kb-empty-files: 先下钻（4 行）→ 全选（批量条 ${selected} 条）→ 点「批量删除」`
       + ` → 文件行 ${q('.ks-item').length} 行，空态卡 ${q('.ks-empty-card').length} 张`
       + `，空态标题「${q('.ks-empty-t').map((el) => el.textContent).join('|')}」`)
   } else if (how === 'kb-tags-view') {
+    // ⚠ 5h：标签视图的数据按**整库**统计（标签跨目录定义）；先落到一个有文件的库
+    //   （自建夹「公司制度」只有一级 ⇒ 点它就直接是文件层），免得截出空视图。
+    await click(cardNamed('公司制度'))
     const pill = byText('button', '标签')
-    notes.push(`kb-tags-view: ${await click(pill) ? '切到标签视图' : '没找到「标签」'}`)
+    notes.push(`kb-tags-view: 先进「公司制度」（文件行 ${q('.ks-item').length} 行）→ ${await click(pill) ? '切到标签视图' : '没找到「标签」'}`
+      + `（标签行 ${q('.ks-tagrow').length} 行）`)
   } else if (how === 'cap-dialog') {
     const card = q('.ks-cap-card').find((c) => q('.ks-cap-card').length > 0 && [...c.querySelectorAll('button')].some((b) => (b.textContent ?? '').includes('设置')))
     notes.push(`cap-dialog: ${await click(card?.querySelector('button')) ? '开了第一张带「设置…」的窗' : '没找到'}`)
@@ -444,7 +547,13 @@ const html = `<!doctype html>
                 '.ks-list','.ks-filters','.ks-chip','.ks-status','.ks-item-more','.ks-item-title','.ks-item-sub',
                 '.ks-check','.ks-item-meta','.ks-batch-btn','.ks-empty-card','.ks-empty-t','.ks-empty-d',
                 '.ks-search','.ks-fileico','.ks-list-cap','.ks-cell','.ks-col-tags','.ks-col-date','.ks-col-status',
-                '.ks-lhead-col','.ks-tag'];
+                '.ks-lhead-col','.ks-tag',
+                /* 5h（2026-09-20）新 IA 的量点：卡片带（框/箭头）、面包屑、返回按钮、目录层。
+                   ⚠ 注意这段在**模板字符串**里：注释里不许出现反引号（会截断模板，本轮已踩）。
+                   ⚠ .ks-rail 与 .ks-kb-tn 留在名单里但**已经量不到**（树/目录轨被业主点名删了）
+                     —— 不删这两个名字是为了让"量不到"在产物里**可见**（5h 之前的图里有值）。 */
+                '.ks-kbband','.ks-kbband-nav','.ks-kbband-clip','.ks-crumb','.ks-crumb-path','.ks-back',
+                '.ks-dirs','.ks-dir','.ks-dir-name'];
     var out = {};
     sels.forEach(function (s) {
       var els = document.querySelectorAll(s);

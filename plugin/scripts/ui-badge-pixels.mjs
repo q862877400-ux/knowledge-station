@@ -156,7 +156,11 @@ const rows = []
 const problems = []
 for (const theme of themes) {
   const outPng = join(outDir, `badge-${width}-${theme}.png`)
-  const r = spawnSync(process.execPath, [shotScript, '--page', 'kb', '--width', String(width), '--theme', theme, '--out', outPng], {
+  // ⚠ **5h（2026-09-20）：必须带 `--interact kb-files`** —— 状态徽章只在**文件表格**里，
+  //   而本轮 IA 重构后 kb 页默认停在「卡片带 + 一级目录」（业主："到最末一级才是文件"）
+  //   ⇒ 不先下钻就没有 `.ks-status`，本脚本会走"#status 里没有徽章条目"的失败分支
+  //   （那是对的：没量到 ≠ 通过）。断言与阈值一个字没改，只是多一步导航。
+  const r = spawnSync(process.execPath, [shotScript, '--page', 'kb', '--width', String(width), '--theme', theme, '--interact', 'kb-files', '--out', outPng], {
     cwd: repoRoot, encoding: 'utf8', timeout: 180_000,
   })
   if (r.status !== 0) {

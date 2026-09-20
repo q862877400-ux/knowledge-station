@@ -173,6 +173,117 @@ export function mount(container, props) {
     && styleEl.dataset.pluginCss === 'ks-dsh-plugin/ksGuideStyles.css',
     styleEl === null ? '没有 <style>' : `data-plugin=${styleEl.dataset.plugin} data-plugin-css=${styleEl.dataset.pluginCss}`)
 
+  /* ══════════ 断言 2b–2g：**5h 新 IA**（业主 2026-09-20 亲口定的形态） ══════════
+   * 为什么这一组必须在**原有断言之前**：默认态的**形状**变了 ——
+   *   旧：左轨（两棵目录树 + 自建夹卡）→ 中间直接摆**文件表格**；
+   *   新：顶部**卡片带**（一个框 + 左右翻页箭头）→ 下面是**目录层** → 走到**最末一级**才是表格。
+   * ⇒ 下面原有那一整套断言（3 号起：勾选框 / ⋮ 菜单 / 真表格 / 列对齐 / 搜索过滤 / 批量条 /
+   *   三日期 / 标签视图）**一条没删、一条没放宽**，只是前面**多走几步下钻**（见 `enterStdLeaf`）——
+   *   "表格行为"那部分逐字保留。
+   * ⚠ 这一组新增的断言钉的是**本轮头条**：卡片带 / 翻页到头的置灰 / 树与那句标签真的没了 /
+   *   下钻出「返回上一级」。同样按"真控件/真状态"口径判，不是数类名。
+   */
+  const bandCards = () => q('.ks-kb-cards .ks-kb-card')
+  const dirEls = () => q('.ks-dir')
+  const navBtn = (which) => q('.ks-kbband-nav').find((b) => (b.getAttribute('aria-label') ?? '').includes(which))
+  /** 按**卡名**找那一张卡（名字在 `.ks-kb-ct` 里；卡上还有描述与篇数 ⇒ 整卡文本不能直接比对）。 */
+  const cardNamed = (name) => bandCards().find((el) => (el.querySelector('.ks-kb-ct')?.textContent ?? '').trim() === name)
+  const namesIn = (sel) => q(sel).map((el) => (el.querySelector('.ks-kb-ct')?.textContent ?? '').trim())
+  const seenCards = new Set(namesIn('.ks-kb-cards .ks-kb-card'))
+  check('卡片带：一屏 3 张卡，且**第一屏时左箭头 disabled**（到"头"就置灰）',
+    bandCards().length === 3 && navBtn('上一组') !== undefined && navBtn('上一组').disabled === true
+    && navBtn('下一组').disabled === false,
+    `卡 ${bandCards().length} 张；左 disabled=${String(navBtn('上一组')?.disabled)} / 右 disabled=${String(navBtn('下一组')?.disabled)}`)
+  await click(navBtn('下一组'))
+  for (const n of namesIn('.ks-kb-cards .ks-kb-card')) seenCards.add(n)
+  await click(navBtn('下一组'))
+  for (const n of namesIn('.ks-kb-cards .ks-kb-card')) seenCards.add(n)
+  check('卡片带：点右箭头翻到**最后一屏** ⇒ 右箭头 disabled（到"尾"置灰）、左箭头可用',
+    navBtn('下一组').disabled === true && navBtn('上一组').disabled === false
+    && bandCards().length === 3,
+    `左 disabled=${String(navBtn('上一组')?.disabled)} / 右 disabled=${String(navBtn('下一组')?.disabled)}；卡 ${bandCards().length} 张`)
+  check('卡片带：翻页扫一遍能见到**全部 5 张库卡**（标准 / 法律法规 / 3 个自建夹），一张不少',
+    seenCards.size === 5
+    && ['标准', '法律法规', '公司制度', '内部操作规程', '供应商资料'].every((n) => seenCards.has(n)),
+    `扫到的卡：${[...seenCards].join(' / ')}`)
+  check('业主点名要删的东西真的没了：**没有目录树**（.ks-kb-tline = 0），也没有「我建的（真文件夹…）」那句标签',
+    q('.ks-kb-tline').length === 0 && q('.ks-kb-tree').length === 0
+    && !(container.textContent ?? '').includes('我建的（真文件夹'),
+    `树节点 ${q('.ks-kb-tline').length} 个 / .ks-kb-tree ${q('.ks-kb-tree').length} 个 / `
+    + `含「我建的（真文件夹」=${String((container.textContent ?? '').includes('我建的（真文件夹'))}`)
+  await click(navBtn('上一组'))
+  await click(navBtn('上一组'))
+  check('卡片带：再翻回第一屏 ⇒ 左箭头**又**置灰（翻页是状态，不是一次性的）',
+    navBtn('上一组').disabled === true && seenCards.size === 5,
+    `左 disabled=${String(navBtn('上一组')?.disabled)}`)
+
+  /* ══════════ 断言 2f–2g：**点卡片 = 进入该库 + 按目录逐级下钻** ══════════
+   * 业主原话：「点一个卡片就出来知识库内容，比如点法律法规，就按目录展示，先占上一级目录文件夹，
+   * 然后点开是二级目录，进入二级目录就自动出现返回上一级的按钮」。
+   * ⚠ 用「法律法规」这一支取证：它的占位数据是**恰好三级目录 + 文件**（法律 → 宪法与行政法 →
+   *   安全生产 = 文件层），能把"一级 → 二级 → 文件"整条路走完。 */
+  check('默认态：显示**一级目录**（标准库的 3 个 CCS 大类），**不是**直接铺文件',
+    dirEls().length === 3 && q('.ks-item').length === 0 && q('.ks-lhead').length === 0,
+    `目录卡 ${dirEls().length} 张 / 文件行 ${q('.ks-item').length} / 表头 ${q('.ks-lhead').length}`)
+  await click(cardNamed('法律法规'))
+  check('点「法律法规」卡 ⇒ 进入该库、显示它的**一级目录**（法律 / 行政法规）；库根**没有**返回上一级按钮',
+    dirEls().length === 2 && dirEls().map((el) => (el.textContent ?? '').trim()).join('|').includes('法律')
+    && q('.ks-item').length === 0 && q('.ks-back').length === 0,
+    `一级目录 ${dirEls().length} 张；返回按钮 ${q('.ks-back').length} 个；`
+    + `面包屑「${container.querySelector('.ks-crumb-path')?.textContent ?? '(没有)'}」`)
+  await click(dirEls().find((el) => (el.textContent ?? '').trim().startsWith('法律')))
+  check('点开一级目录「法律」⇒ 显示**二级目录**（宪法与行政法），并**自动出现**「返回上一级」按钮',
+    dirEls().length === 1 && (dirEls()[0].textContent ?? '').includes('宪法与行政法')
+    && q('.ks-back').length === 1,
+    `二级目录 ${dirEls().length} 张；返回按钮 ${q('.ks-back').length} 个；`
+    + `面包屑「${container.querySelector('.ks-crumb-path')?.textContent ?? '(没有)'}」`)
+  await click(dirEls()[0])
+  check('二级目录「宪法与行政法」里还有**第三级目录**（安全生产）—— 法律这一支的占位数据就是三级',
+    dirEls().length === 1 && (dirEls()[0].textContent ?? '').includes('安全生产') && q('.ks-item').length === 0,
+    `目录卡 ${dirEls().length} 张 / 文件行 ${q('.ks-item').length}；`
+    + `面包屑「${container.querySelector('.ks-crumb-path')?.textContent ?? '(没有)'}」`)
+  await click(dirEls()[0])
+  check('再下一级（安全生产）才是**文件表格**：表头 1 个 + 2 行（安全生产法 / 消防法），返回按钮仍在',
+    q('.ks-lhead').length === 1 && q('.ks-item').length === 2 && q('.ks-back').length === 1,
+    `表头 ${q('.ks-lhead').length} / 行 ${q('.ks-item').length} / 返回 ${q('.ks-back').length}；`
+    + `面包屑「${container.querySelector('.ks-crumb-path')?.textContent ?? '(没有)'}」`)
+  const crumbFiles = container.querySelector('.ks-crumb-path')?.textContent ?? ''
+  check('文件层的面包屑**逐级写全**（库名 + 每一级目录名，一个不落）',
+    crumbFiles === '法律法规 / 法律 / 宪法与行政法 / 安全生产', `面包屑「${crumbFiles}」`)
+  await click(q('.ks-back')[0])
+  check('点「返回上一级」⇒ 真的回到**上一级目录层**（1 张目录卡、0 行文件），按钮仍在',
+    dirEls().length === 1 && q('.ks-item').length === 0 && q('.ks-back').length === 1,
+    `目录卡 ${dirEls().length} / 文件行 ${q('.ks-item').length} / 返回 ${q('.ks-back').length}；`
+    + `面包屑「${container.querySelector('.ks-crumb-path')?.textContent ?? '(没有)'}」`)
+  await click(q('.ks-back')[0])
+  check('再点一次 ⇒ 又上一层（1 张目录卡：宪法与行政法），按钮仍在',
+    dirEls().length === 1 && q('.ks-item').length === 0 && q('.ks-back').length === 1
+    && (dirEls()[0].textContent ?? '').includes('宪法与行政法'),
+    `目录卡 ${dirEls().length} / 返回 ${q('.ks-back').length}；`
+    + `面包屑「${container.querySelector('.ks-crumb-path')?.textContent ?? '(没有)'}」`)
+  await click(q('.ks-back')[0])
+  check('第三次「返回上一级」⇒ 回到库根（2 张一级目录），按钮**消失**（库根没有上一级）',
+    dirEls().length === 2 && q('.ks-back').length === 0,
+    `目录卡 ${dirEls().length} / 返回按钮 ${q('.ks-back').length}；`
+    + `面包屑「${container.querySelector('.ks-crumb-path')?.textContent ?? '(没有)'}」`)
+
+  /* ⚠ 从这里往下，全部是**原有的表格断言**（一字未改）——先把页面开回
+   * 「标准 → P 土木、建筑 → P15/19… → P16 工程防火」，那一层有 **4 篇**文件。 */
+  const enterStdLeaf = async () => {
+    await click(dirEls().find((el) => (el.textContent ?? '').includes('P 土木、建筑')))
+    await click(dirEls().find((el) => (el.textContent ?? '').includes('P15/19')))
+    await click(dirEls().find((el) => (el.textContent ?? '').includes('P16 工程防火')))
+  }
+  await click(cardNamed('标准'))
+  check('点回「标准」卡 ⇒ 回到它的库根（一级目录 3 张）——换库后层级归零',
+    dirEls().length === 3 && q('.ks-back').length === 0,
+    `目录卡 ${dirEls().length} / 返回按钮 ${q('.ks-back').length}`)
+  await enterStdLeaf()
+  check('下钻到最末一级（标准 / P 土木、建筑 / P15/19… / P16 工程防火）⇒ 4 行文件 + 表头 1 个 + 返回上一级在',
+    q('.ks-item').length === 4 && q('.ks-lhead').length === 1 && q('.ks-back').length === 1,
+    `行 ${q('.ks-item').length} / 表头 ${q('.ks-lhead').length} / 返回 ${q('.ks-back').length}；`
+    + `面包屑「${container.querySelector('.ks-crumb-path')?.textContent ?? '(没有)'}」`)
+
   // ── 断言 3：文件列表 = 勾选框 + 每行一个「⋮」溢出菜单（P1-1 改造后的口径） ──
   const checkboxes = q('input[type=checkbox]')
   // 默认文件夹 P16 工程防火 有 4 篇 ⇒ 4 个行勾选 + 1 个全选

@@ -49,7 +49,13 @@ const rows = []
 const failures = []
 for (const width of widths) {
   const outPng = join(outDir, `cols-${width}.png`)
-  const r = spawnSync(process.execPath, [shotScript, '--page', 'kb', '--width', String(width), '--out', outPng], {
+  // ⚠ **5h（2026-09-20）：必须带 `--interact kb-files`。**
+  //   本轮 IA 重构后，kb 页的**默认态是"卡片带 + 一级目录"**（业主："先占上一级目录文件夹…
+  //   到最末一级才是文件"）⇒ 不先下钻就**没有** `.ks-lhead` / 数据行，`colsCheck` 会走
+  //   "这一跑没有数据行"的 skip 分支 ⇒ 本脚本按**失败**记（"没跑"不能算通过）。
+  //   ⚠ 这**不是**放宽断言：`colsCheck.checked === true` 的要求一字未动（下面 still 判它），
+  //     只是把"跑到文件层"这一步补进调用里 —— 断言判的仍是表头与第一行的列模板逐字相同。
+  const r = spawnSync(process.execPath, [shotScript, '--page', 'kb', '--width', String(width), '--interact', 'kb-files', '--out', outPng], {
     cwd: repoRoot, encoding: 'utf8', timeout: 180_000,
   })
   let payload = null
