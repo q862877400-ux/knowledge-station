@@ -9389,3 +9389,46 @@ jsdom 的 `PAD_SUBJECTS`、注入的 `padSel`、第六节 5j① 表格是散文�
 ⇒ 现在进链（`smoke-all.mjs` 32 → **33 套**，实跑 +2 次渲染 ~20s），并把 AGENTS.md / UI-BASELINE 里
 "两套要真浏览器的脚本"更正为**三套**。**验证方式**：`-Full` exit 0 且链打印 `33/33 套全过`
 （`SUITES.length` 就是 spawn 的次数，runner 是纯顺序循环、任一条非零即停 —— 这一点上一轮复核独立验过）。
+
+## §10.146 第 6 步 §1：6 个 `output.schema` 收紧 + 离线契约门禁（`3839bdd` + `b25c49a`）
+
+**为什么做**：此前 6 个工具的 `output.schema` **完全相同且等于"什么都不承诺"**
+（`{type:'object',additionalProperties:true}`）⇒ 宿主那条"返回值必须满足它自己声明的 schema"
+（(DSH) `packages/core/tools/src/index.ts:1813-1816`）**永远通过、形同不存在**；而且 PTC 模式下
+`tools.<name>(args)` 的返回类型也只能退化到 `JsonValue`。规范与实现见
+[STEP6 施工单](research/STEP6-WORKORDER.md) 第 1 节（含【实测】子集边界表：`type:[...]` 会被 register 期直接拒、
+裸 `enum` 不被接受、可空只能用 `oneOf`）。
+
+**做了什么**
+1. 6 处 schema 收紧成 `additionalProperties:false` + 列全 `properties` + `required`；可空一律
+   `oneOf:[{type:'T'},{type:'null'}]`；**形状逐字段从 `execute` 的 `return` 字面量抄**（不凭印象）。
+   多分支工具（`ks_answer` 正常/422、`ks_materials` 三 action、`ks_collect` 成功/失败）统一按
+   "**列全部可能键、`required` 只留永远存在的**"办。
+2. 新增 `plugin/scripts/lib/tool-contract.mjs`（`checkToolContract`：`assertSupportedJsonSchema` +
+   `validateJsonSchemaValue` + render 必须给出非空且首块为 text 的 `ContentBlock[]` + lossless），
+   `findUndefined` 从 `smoke-effect-tool.mjs` **搬进来、全仓只留一份**。
+3. 新增 `plugin/scripts/smoke-tool-contract.mjs`：6 工具 × 17 组 `(args, 桩响应)`（零引擎零网络），
+   进 `smoke-all` 名单（紧跟 `smoke-effect-tool`）⇒ 全链 **34 套**。
+4. 顺带抓到两条**既有真缺陷**，本批一并修（`b25c49a`，见下）。
+
+**风险与验收**：这是 6 条里唯一有真实回归风险的 —— schema 与实现不符 ⇒ 注册期挂不上 / 每次调用 `isError`。
+⇒ `-Full` **6/6 步 + 棘轮 ✅ exit 0**；契约冒烟 **94/94**。
+
+### 顺带抓到的两条真缺陷（都是"工具对自己的承诺不成立"）
+
+| # | 缺陷 | 为什么一直没被量到 | 修法 + 回归位 |
+|---|---|---|---|
+| ① | `materials.js` 的 `action:'materials'` 在 `pending=0` 时返回 `note: undefined` ⇒ 宿主 lossless 快照判"不是无损失的 JSON" ⇒ **真机那次调用整体 `isError`** | **既有冒烟夹具恰好 `pending=1`**（"夹具比真相宽松 ⇒ 永远量不到"） | 改成**省略键**；补 `materials-approved-only`（pending=0）一组，判 `hasOwnProperty('note')===false` **且**返回值里无任何 `undefined`（只判 `typeof === 'undefined'` 会把"显式 undefined"放过） |
+| ② | `ks_answer` 的 `execute` **漏转发 `material_usage`**，而 `params.material_project_id.description` 明写 "The result carries material_usage" ⇒ 模型永远看不到"本次用了哪个项目的哪几条材料" | 该键在 schema 里是**条件键（不 required）**（422 路径没有）⇒ **掉了照样通过** | 加转发 + `ANSWER_MATERIAL_USAGE`（形状抄引擎 `ks_answer.py:685-701` 两分支并集）+ **显式键在位断言**；并把那条"简化桩"改成**引擎真形状**（引擎两条分支都会给 `notes`/`usable_indices`） |
+
+**变异证据（提交后做、逐条还原）**：① 把 `note` 改回显式 `undefined` ⇒ 契约冒烟 **exit 1**、
+三条诊断（`value has no undefined (lossless) — $.note`、`must be a lossless JSON object`、
+`hasOwn(note)=true`）；② 删掉 `material_usage` 转发 ⇒ **exit 1**（新加的那条键在位断言）。
+两次还原后 **94/94**。
+
+### 诚实边界（继承施工者 + 我的核对）
+- **未在真 dsh 宿主里验**"插件真的挂上 + 工具被 offer"（那是第 6 步 §6 的三段式 e2e）；
+- 6 个 schema 只在**桩响应**的真实返回值上跑过 validator；**真引擎 payload 的字段类型是读码确认、非实测**
+  （`routes_materials.py` / `material_repo.py` / `server.py` 的 health / `harvest.py` / `typed_verifier.py`）；
+- 新契约冒烟第一版有个**假绿**（`ks_materials` 的桩路径片段写错 ⇒ 回落兜底 `data:{}` ⇒ inbox 组"空文件列表"
+  静默通过），已改成非空转断言，留痕在脚本注释里。
