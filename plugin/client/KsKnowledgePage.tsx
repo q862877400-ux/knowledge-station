@@ -34,9 +34,14 @@
  *           本批加 2 条后是 **35/35**，里面没有 9/9b/9c 这种编号）。
  *           这句错话与 P2 复核的 D6（"断言条数 26 → 31"实为 **26 → 33**）是同一类错：
  *           数字/编号是**转述**的，没有回文件数一遍。⇒ 更正后的说法就是上面那两个名字。
- *      · ⚠ **需要业主复核**：这条翻掉了他的原话，若他不同意，删掉 `.ks-search` 那一段
- *        并把断言换回去即可（改动面：本文件 + ksGuideStyles.ts + 渲染级冒烟）。
+ *      · ⚠ **需要业主复核 → 2026-09-20 已由业主本人结案（结论：保留）**。
+ *        **曾如此**：这里写着"若他不同意，删掉 `.ks-search` 那一段并把断言换回去即可"。
+ *        **现在**：业主 2026-09-20 亲口说「**搜索框：保留**」⇒ 本页的搜索框是**业主确认过的**，
+ *        不再是"任务书要求、业主未表态"的翻案态；台账 [NOT-DOING 第 13 条](../docs/NOT-DOING.md)
+ *        已同步改成"业主 2026-09-20 明确：保留"。退回步骤**保留在台账里**（仍然可执行、仍然不许
+ *        把断言换回"本页没有搜索框"那种已证伪的假绿），但**不再是待办**。
  *        ⚠⚠ **2026-09-20 P2 复核打回（C）：上一句"把断言换回去"是**不可执行**的、且换错方向。**
+ *           （这段打回针对的是**上面那块被结案的原话**，原话仍保留在上面，不许因为"结案了"就删掉。）
  *           复核逐字走了一遍 ⇒ `ReferenceError: needle is not defined`、smoke exit 1、页面崩：
  *           那段错话漏掉了 5 个落点（`listed` 的 useMemo 里 `hitSearch(d)` 与 `[needle]` 依赖、
  *           空态里的 `search.trim()`、`pickSearch('')`、`.ks-search` 样式、`IconSearchOutline16`
@@ -54,6 +59,35 @@
  * 13. 与 DSH 同风格：全部用**宿主自己的原语**（`Button`/`Checkbox`/`Tag`/`Pill`/`Input`/`Menu`），
  *     颜色走活的 `--dsw-alias-*` token ⇒ **深浅两套配色自动跟随**，我不写两套色值。
  *
+ * ## 2026-09-20 5h：**信息架构（IA）重构 —— 业主当天亲口定的形态**
+ * 业主原话（**这就是验收标准**）：
+ *   「搜索框：保留。**B 不分页**（知识库卡片尺寸统一不要展示目录树，我建的（真文件夹；与上面两棵平级）
+ *    这种乱七八糟东西删了，然后**所有卡片横在顶端**，**一个小框下面自带一个左右翻页滑动条**，
+ *    **下面是文件目录**，**点一个卡片就出来知识库内容**，比如点法律法规，就按目录展示，
+ *    **先占上一级目录文件夹，然后点开是二级目录，进入二级目录就自动出现返回上一级的按钮**）」
+ * 落成 4 条（逐条对照施工，别自己发挥）：
+ *   1. **顶部一条卡片带**：`KNOWLEDGE_BASES`（标准 / 法律法规 / 3 个自建夹）**统一尺寸、横向**排在一个
+ *      框（`.ks-kbband`）里；框自带左右箭头（`.ks-kbband-nav`）+ 窗口平移（`bandStart`），
+ *      到第一组 / 最后一组时对应箭头 `disabled`（置灰）—— 见 `BAND_WINDOW` 的注释。
+ *   2. **不再展示目录树**：`renderNodes` / `LibCard` / `.ks-kb-tline` 那一套（连同它的展开状态
+ *      `open` / `toggle`）**已删**；「我建的（真文件夹；与上面两棵平级）」这句标签**已删**（业主点名的
+ *      "乱七八糟东西"）。**删了什么、为什么**记在 docs/UI-BASELINE.md 的 5h。
+ *   3. **下面是文件目录**：P2 头条那张真表格（`COLUMNS` + `--ks-cols` + 搜索 + 筛选 + 批量条 + 行尾 ⋮）
+ *      **结构一字未改**，只是现在**只出现在"最末一级"**（业主："到最末一级才是文件"）。
+ *      ⚠ 搜索框**仍在**（业主今天明确"保留"），位置仍是"紧贴文件表格上方"—— 它过滤的是**文件**，
+ *        所以在目录层不渲染（目录层没有可筛的文件）。口径与 NOT-DOING 第 13 条同步（业主已确认保留）。
+ *   4. **点卡片 = 进入该库 + 按目录逐级下钻**：`path` 是当前路径（从库根往下的节点 key）；
+ *      `path.length === 0` = 库根（显示**一级目录**）；点开某个目录 = 下钻一级；
+ *      **进入任何下一级**（`path.length > 0`）就出现「← 返回上一级」按钮 + 面包屑（`.ks-crumb`）；
+ *      走到**没有子节点的节点**才是文件表格。
+ *      ⚠ **层级以现有占位数据为准，没有新造一级数据**（业主："不许凭空发明新数据"）。实读结果：
+ *        · `STD_TREE`：**3 级** —— P 土木、建筑 → P15/19… → P16 工程防火（文件在此）；
+ *          C/Z 两支只有 **2 级**（大类 → 区间/类目 = 文件所在层）。
+ *        · `LAW_TREE`：**3 级** —— 法律/行政法规 → 宪法与行政法 → 安全生产（文件在此）。
+ *        · `USER_FOLDERS`：**1 级** —— 夹子下**直接**是文件，**没有子目录可下钻**（如实说明，不补数据）。
+ *      ⇒ 因此本页的下钻是**按真实层级走到底**（业主的"一级 → 二级 → 文件"在 C/Z 两支与用户的
+ *        两级数据上逐字成立；P / 法律法规两支是三级 —— 那是数据本来的级数，不是多做了一层）。
+ *
  * ## 设计依据（非我杜撰）
  * 业主定调：「**法规标准的几级目录应该是对应知识库文件夹的不同层文件夹名**」。
  * ⇒ 树里每一层**就是**文件夹层级，且层级名来自分类法：标准 = CCS 大类 → CCS 区间 → CCS 类目；
@@ -67,7 +101,7 @@
  */
 
 import { useMemo, useState, type ReactNode } from 'react'
-import { Button, Checkbox, IconArchiveOutline20, IconChecklistOutline14, IconChevronDownOutline14, IconEllipsisOutline16, IconFolderOpenOutline16, IconInfoOutline14, IconInspectOutline12, IconListPenOutline16, IconPlusOutline16, IconSearchOutline16, IconShieldOutline16, IconTrashOutline16, Input, Menu, Pill } from '@deepseek-ai/dsh-client-ui-primitives'
+import { Button, Checkbox, IconArchiveOutline20, IconChecklistOutline14, IconChevronDownOutline14, IconChevronLeftOutline14, IconChevronRightOutline14, IconEllipsisOutline16, IconFolderOpenOutline16, IconInfoOutline14, IconInspectOutline12, IconListPenOutline16, IconPlusOutline16, IconSearchOutline16, IconShieldOutline16, IconTrashOutline16, Input, Menu, Pill } from '@deepseek-ai/dsh-client-ui-primitives'
 
 import { ensureKsStyles } from './ksGuideStyles'
 import { KsCapabilityPage } from './KsCapabilityPage'
@@ -307,60 +341,76 @@ const NEW_ITEMS = [
 /** 批量操作里"移动到"的目标（真实实现里应由后端给目录列表）。 */
 const MOVE_TARGET = '公司制度'
 
-/** 递归渲染树节点。展开状态以**全路径 key** 记，不用显示名（重名会串）。 */
-function renderNodes(
-  nodes: readonly MockNode[],
-  current: string,
-  onPick: (key: string) => void,
-  open: ReadonlySet<string>,
-  toggle: (key: string) => void,
-  depth = 0,
-): ReactNode {
-  return nodes.map((node) => {
-    const isOpen = open.has(node.key)
-    const kids = node.children ?? []
-    const on = current === node.key
-    return (
-      <div key={node.key}>
-        <div
-          className="ks-kb-tline"
-          role="button"
-          tabIndex={0}
-          style={{ paddingLeft: 6 + depth * 12, ...(on ? { background: 'var(--dsw-alias-interactive-bg-hover)' } : {}) }}
-          onClick={() => { if (kids.length > 0) toggle(node.key); onPick(node.key) }}
-          onKeyDown={(event) => {
-            if (event.key === 'Enter' || event.key === ' ') { if (kids.length > 0) toggle(node.key); onPick(node.key) }
-          }}
-        >
-          <span className="ks-kb-tw">{kids.length > 0 ? (isOpen ? '▾' : '▸') : '·'}</span>
-          <span className="ks-kb-tn" title={node.name}>{node.name}</span>
-        </div>
-        {isOpen && kids.length > 0 && renderNodes(kids, current, onPick, open, toggle, depth + 1)}
-      </div>
-    )
-  })
+/**
+ * 卡片带**每屏显示几张卡**（窗口宽）。业主 2026-09-20：「**一个小框下面自带一个左右翻页滑动条**」。
+ *
+ * ⚠ **为什么是常量而不是"量容器宽度算几张"**：箭头的置灰态必须是**确定状态**，而离屏渲染器
+ *   （`plugin/scripts/ui-render-shot.mjs`）跑在 **jsdom** 里 —— 那里没有布局，`clientWidth`/
+ *   `scrollWidth` 恒为 0 ⇒ "按测量值决定置灰"在这条渲染链上**永远是灰的**（图也就没法当证据）。
+ *   改成"窗口下标 + 常量窗口宽"后，状态在**任何**环境里都一样，截图与真机行为一致。
+ *   代价（已登记在 docs/UI-BASELINE.md 5h 的"没做/做不到"）：框内**没有**原生横向拖拽滚动。
+ */
+const BAND_WINDOW = 3
+
+/**
+ * 顶层**知识库卡**——业主 2026-09-20：「**所有卡片横在顶端**」「**点一个卡片就出来知识库内容**」。
+ *
+ * ⚠ **全部来自现有占位数据，一个新库都没造**（业主："不许凭空发明新数据"）：
+ *   · 标准     = `STD_TREE`（CCS：大类 → 区间/类目 → 类目）
+ *   · 法律法规 = `LAW_TREE`（效力层级 → 法律部门 → 业务领域）
+ *   · 剩下三张 = `USER_FOLDERS` 里**每一个**真文件夹各成一张卡（业主原话里的"各'我建的'合集"）
+ * ⚠ 原来那句「**我建的（真文件夹；与上面两棵平级）**」的分组标签**已按业主原话删掉** ——
+ *   所有库在卡片带里**同一种卡**，不再分"自带的"和"我建的"两组。
+ */
+interface KnowledgeBase {
+  readonly id: string
+  readonly name: string
+  readonly desc: string
+  /**
+   * 这棵库的根节点。`key` 只用于遍历（文件层级用的是**节点自己的 key**，与 `MockDoc.folder` 同口径）。
+   * ⚠ 两个自带库的根 `key` 写成 `kb:std` / `kb:law`（**没有任何文档挂在这两个 key 上**）——
+   *   它们只是"根"，不是一个文件夹。
+   */
+  readonly root: MockNode
 }
 
-/** 一个自带树的外壳（标题 + 层级说明 + 树体）。 */
-function LibCard({ title, sub, nodes, current, onPick, open, toggle }: {
-  readonly title: string
-  readonly sub: string
-  readonly nodes: readonly MockNode[]
-  readonly current: string
-  readonly onPick: (key: string) => void
-  readonly open: ReadonlySet<string>
-  readonly toggle: (key: string) => void
-}): ReactNode {
-  return (
-    <div className="ks-kb-card">
-      <div className="ks-kb-row">
-        <strong className="ks-kb-grow ks-kb-ct">{title}</strong>
-        <span className="ks-tag">自带</span>
-      </div>
-      <div className="ks-kb-cd">{sub}</div>
-      <div className="ks-kb-tree">{renderNodes(nodes, current, onPick, open, toggle)}</div>
-    </div>
-  )
+const KNOWLEDGE_BASES: readonly KnowledgeBase[] = [
+  { id: 'std', name: '标准', desc: '国家标准·行业标准·团体标准', root: { key: 'kb:std', name: '标准', children: STD_TREE } },
+  { id: 'law', name: '法律法规', desc: '法律 / 行政法规 / 部门规章 / 地方性法规', root: { key: 'kb:law', name: '法律法规', children: LAW_TREE } },
+  ...USER_FOLDERS.map((f) => ({ id: f.key, name: f.name, desc: f.desc, root: { key: f.key, name: f.name } })),
+]
+
+/** 一个节点**自己 + 全部后代**的 key（用来数"这个目录下共有多少篇文件"）。 */
+function subtreeKeys(node: MockNode): string[] {
+  return [node.key, ...(node.children ?? []).flatMap((child) => subtreeKeys(child))]
+}
+
+/** 顺着 `path`（全路径 key 数组）走到当前节点；走不通就回落到当前位置（状态不该出现"走不通"）。 */
+function nodeAtPath(root: MockNode, path: readonly string[]): MockNode {
+  let node = root
+  for (const key of path) {
+    const next = (node.children ?? []).find((child) => child.key === key)
+    if (next === undefined) return node
+    node = next
+  }
+  return node
+}
+
+/**
+ * 面包屑上要显示的**目录名**（不是 key）。
+ * ⚠ 必须另走一遍取 `name`：`MockNode.key` 是"父/子"全路径（`法律/宪法与行政法`），
+ *   直接展示会把面包屑弄成一串路径分隔符 —— 而且它正是当初修掉的"用显示名当身份"的反面病。
+ */
+function pathNames(root: MockNode, path: readonly string[]): string[] {
+  const names: string[] = []
+  let node = root
+  for (const key of path) {
+    const next = (node.children ?? []).find((child) => child.key === key)
+    if (next === undefined) break
+    names.push(next.name)
+    node = next
+  }
+  return names
 }
 
 /** 详情里的一行字段（日期用同一套排版，免得每个字段各写一遍）。 */
@@ -385,7 +435,23 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
   const page = (tab.navigation.params as { page?: string } | undefined)?.page ?? 'manage'
 
   const [view, setView] = useState<'files' | 'tags'>('files')
-  const [folder, setFolder] = useState('P16 工程防火')
+  /**
+   * 当前选中的知识库卡（业主："**点一个卡片就出来知识库内容**"）。
+   * ⚠ 默认选中**第一张（标准）**并在它的**库根**（显示一级目录）：这样"下面是文件目录"从第一屏
+   *   就是有内容的，而不是一块空白 —— 与 P2 及以前"默认停在某个目录"的行为一致（只是层级上移了一层）。
+   */
+  const [cardId, setCardId] = useState(KNOWLEDGE_BASES[0].id)
+  /**
+   * 目录下钻的**当前路径**（从库根往下的节点 key 数组）。业主原话：
+   * 「先占上一级目录文件夹，然后点开是二级目录，进入二级目录就自动出现返回上一级的按钮」。
+   * ⚠ `path.length === 0` = 库根（显示**一级目录**）；**没有子节点的节点** = 文件表格。
+   */
+  const [path, setPath] = useState<readonly string[]>([])
+  /**
+   * 卡片带窗口的起始下标（左/右箭头平移一张；到第一组/最后一组时对应箭头置灰）。
+   * ⚠ 用**下标**而不是 `scrollLeft`：见 `BAND_WINDOW` 的注释（jsdom 没有布局）。
+   */
+  const [bandStart, setBandStart] = useState(0)
   const [docs, setDocs] = useState<readonly MockDoc[]>(SEED_DOCS)
   const [selected, setSelected] = useState<ReadonlySet<string>>(() => new Set<string>())
   const [openDoc, setOpenDoc] = useState<string | null>(null)
@@ -397,25 +463,78 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
    * 列表搜索串（P2 头条，2026-09-20）。
    * ⚠ 这是**本地列表过滤**（只筛当前目录已加载的行，按 `no`/`name` 做 includes），
    *   **不是**语料检索：一个接口都没调。口径与参照 WeKnora 的"搜索文档名称…"一致；
-   *   与业主 2026-09-19「知识库界面不做搜索」的关系见本文件顶部第 4 条的**翻案留痕**。
+   *   ⚠ **业主 2026-09-20 明确"搜索框：保留"** ⇒ 它不再是"任务书要求、业主未表态"的翻案态；
+   *     完整留痕（业主 2026-09-19 的旧原话 + P2 复核打回 + 今天结案）见本文件顶部第 4 条。
    */
   const [search, setSearch] = useState('')
   const [newOpen, setNewOpen] = useState(false)
-  const [open, setOpen] = useState<ReadonlySet<string>>(
-    () => new Set(['P 土木、建筑', 'C 医药、卫生、劳动保护', 'Z 环境保护', '法律', '行政法规']),
-  )
   const [query, setQuery] = useState('')
 
-  const toggle = (key: string): void => {
-    setOpen((prev) => {
-      const next = new Set(prev)
-      if (next.has(key)) next.delete(key)
-      else next.add(key)
-      return next
-    })
+  /* ── 当前库 / 当前节点 / 当前层级（全部**推导**出来，不另存一份 —— 免得两处状态打架） ── */
+  const kb = KNOWLEDGE_BASES.find((card) => card.id === cardId) ?? KNOWLEDGE_BASES[0]
+  const node = nodeAtPath(kb.root, path)
+  const kids = node.children ?? []
+  /**
+   * **到最末一级了吗**：没有子目录的节点才是文件。
+   * 业主："到最末一级才是文件（表格）"⇒ 有子目录时**只显示目录**，不把文件铺出来。
+   * ⚠ 现有占位数据里**没有"既有子目录又有文件"的节点**（文件都挂在叶子上）；
+   *   真有那种节点时这里会只显示目录 —— 登记为 5h 的诚实边界，不假装支持。
+   */
+  const atFiles = kids.length === 0
+  /** 文件层级的目录 key —— 与 `MockDoc.folder` 同一口径（叶子节点的 key 就是文件夹名）。 */
+  const folder = node.key
+  /** 面包屑（库名 + 逐级目录名）。 */
+  const crumb = [kb.name, ...pathNames(kb.root, path)].join(' / ')
+
+  /** 一个节点（含后代）下共有多少篇 —— 卡片/目录上的「N 篇」都用它。 */
+  const countUnder = (target: MockNode): number => {
+    const keys = new Set(subtreeKeys(target))
+    return docs.filter((d) => keys.has(d.folder)).length
   }
 
-  /** 当前文件夹里的全部（未筛选）—— 筛选条的计数要用它做分母。 */
+  const bandMax = Math.max(0, KNOWLEDGE_BASES.length - BAND_WINDOW)
+  const bandAt = Math.min(bandStart, bandMax)
+  const bandCards = KNOWLEDGE_BASES.slice(bandAt, bandAt + BAND_WINDOW)
+
+  /**
+   * 点一张卡 = **进入该知识库**（业主原话），回到它的库根（一级目录），
+   * 并把上一层的遗留状态清掉：选择 / 详情 / 搜索串 / 筛选档。
+   * ⚠ 不清的是**卡片带窗口**：用户刚点过的那张卡就在当前窗口里，跳窗会让卡片"跑掉"。
+   */
+  const enterKb = (id: string): void => {
+    setCardId(id)
+    setPath([])
+    setSelected(new Set<string>())
+    setOpenDoc(null)
+    setSearch('')
+    setFilter('all')
+  }
+
+  /** 进入一个子目录（下钻一级）—— 这是"点开是二级目录"那一步。 */
+  const enterDir = (key: string): void => {
+    setPath((prev) => [...prev, key])
+    setSelected(new Set<string>())
+    setOpenDoc(null)
+  }
+
+  /** 「← 返回上一级」（业主："进入二级目录就自动出现返回上一级的按钮"）。 */
+  const goUp = (): void => {
+    setPath((prev) => prev.slice(0, -1))
+    setSelected(new Set<string>())
+    setOpenDoc(null)
+  }
+
+  /**
+   * 当前**库**下的全部文件（标签视图用）。
+   * ⚠ 标签是"**跨知识库文件夹定义**的"（业主 2026-09-19 第 2 条）⇒ 它统计**整个库**，
+   *   而不是当前那一层目录里的文件。
+   */
+  const kbDocs = useMemo(() => {
+    const keys = new Set(subtreeKeys(kb.root))
+    return docs.filter((d) => keys.has(d.folder))
+  }, [docs, kb])
+
+  /** 当前**目录**（最末一级）里的全部文件 —— 筛选条的计数要用它做分母。 */
   const inFolder = useMemo(() => docs.filter((d) => d.folder === folder), [docs, folder])
   /** 筛选应用在它基础上（P1-4 的"真的作用在页面状态上"就是这个 useMemo）。 */
   const filterTest = (FILTERS.find((f) => f.id === filter) ?? FILTERS[0]).test
@@ -455,20 +574,17 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
   }
 
   /**
-   * 换文件夹（P1-4 的连带修正）：**也要清空选择**。选择按"行 id"存，换了夹子之后
+   * 换目录（下钻 / 返回上一级）**也要清空选择**。选择按"行 id"存，换了夹子之后
    * 上一条选择里的行已经不在这份列表里，批量动作会作用在**看不见的行**上。
    * 与 pickFilter 是同一个理由（筛选变化即清空）。
+   * ⚠ 这段原叫 `pickFolder`（旧 IA 里点树节点换夹子）；新 IA 里换目录的两条路是
+   *   `enterDir`（下钻）与 `goUp`（返回上一级），两者各自清选择 + 详情，见上面的定义。
    */
-  const pickFolder = (key: string): void => {
-    setFolder(key)
-    setSelected(new Set<string>())
-    setOpenDoc(null)
-  }
 
   /** 标签视图的数据**从文档状态推导**（这样"批量打标签"能立刻反映出来，不是死数据）。 */
   const tagRows = useMemo(() => {
     const map = new Map<string, { folders: Set<string>; n: number }>()
-    for (const d of inFolder) {
+    for (const d of kbDocs) {
       for (const t of d.tags) {
         const row = map.get(t) ?? { folders: new Set<string>(), n: 0 }
         row.folders.add(d.folder)
@@ -479,7 +595,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
     return [...map.entries()]
       .map(([name, row]) => ({ name, folders: [...row.folders], n: row.n }))
       .sort((a, b) => b.n - a.n || a.name.localeCompare(b.name))
-  }, [inFolder])
+  }, [kbDocs])
 
   const parsed = parseKsQuery(query)
   const parsedText = describeKsQuery(parsed)
@@ -552,7 +668,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
       <header className="ks-page-head">
         <div className="ks-page-title">知识库</div>
         <div className="ks-page-sub">
-          法规/标准的落点：目录树 + 条款 + 标签；颜色一律走宿主主题 token，深浅色自动跟随
+          法规/标准的落点：知识库 → 目录 → 条款 + 标签；颜色一律走宿主主题 token，深浅色自动跟随
         </div>
       </header>
       <div className="ks-page-rule" />
@@ -603,36 +719,62 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
         />
       </div>
 
-      {/* 筛选条（P1-4，2026-09-20）：一排**等高胶囊**（高 32px / 字号 12px / 间距 12px）。
-          参照真机 22/23 是 5 个 140×32 的等高胶囊；我们原来页内**没有任何筛选**。
-          范围克制到"只有跟页面里真实占位数据对得上的三档"（见 FILTERS 的注释），
-          并且**真的作用在 listed 上**（换档即清空选择，见 pickFilter）。
-          计数写成「筛出 X 篇 / 共 Y 篇」：筛选生效时用户不用回表头换算。
-          ⚠ 图标只给"全部"那一枚（语义是"这一排是筛选"）；13 个宿主图标成员里逐个核过，
-             IconInspectOutline12 是真的（ui-primitives 的 icons 导出，名字写错不会构建失败、
-             只有真机会 undefined —— 所以这是查过才用的）。 */}
-      <div className="ks-filters" role="group" aria-label="按效力状态筛选">
-        {FILTERS.map((f, i) => {
-          const on = filter === f.id
-          return (
-            <button
-              key={f.id}
-              type="button"
-              className={on ? 'ks-chip ks-chip-on' : 'ks-chip'}
-              aria-pressed={on}
-              title={i === 0 ? '不筛任何状态' : `只看「${f.text}」的文件`}
-              onClick={() => { pickFilter(f.id) }}
-            >
-              {i === 0 && <IconInspectOutline12 />}
-              {f.text}
-            </button>
-          )
-        })}
-        <span className="ks-kb-hint">
-          {filter === 'all'
-            ? `共 ${String(inFolder.length)} 篇`
-            : `筛出 ${String(listed.length)} 篇 / 共 ${String(inFolder.length)} 篇`}
-        </span>
+      {/* ══ 顶部**卡片带**（业主 2026-09-20：「**所有卡片横在顶端**」「**一个小框下面自带一个
+          左右翻页滑动条**」）══
+          一个框（.ks-kbband）里：左箭头 + 卡片窗口 + 右箭头。卡片来自 KNOWLEDGE_BASES
+          （标准 / 法律法规 / 3 个自建夹），**同一种卡、同一尺寸**（`.ks-kbband .ks-kb-cards`
+          是 `repeat(3,minmax(0,1fr))` 的等宽网格 + `.ks-kb-cards>*` 的 min-height ⇒ 同排等高同宽）。
+          ⚠ 箭头是**普通 button**（与 .ks-chip 同一个先例）：宽度要能钉成 `--ks-band-nav`(24px)，
+            宿主 Button 的档位会被内容撑开（P1-6 量到过 28px），钉不住就量不出"翻页控件宽度"。
+          ⚠ 到第一组 / 最后一组时箭头 `disabled` ⇒ 置灰（业主："**滚到头/到头时按钮置灰**"）。 */}
+      <div className="ks-kbband" role="group" aria-label="知识库（左右翻页切换）">
+        <button
+          type="button"
+          className="ks-kbband-nav"
+          aria-label="上一组知识库卡片"
+          title={bandAt === 0 ? '已经是第一组' : '上一组知识库卡片'}
+          disabled={bandAt === 0}
+          onClick={() => { setBandStart(Math.max(0, bandAt - 1)) }}
+        >
+          <IconChevronLeftOutline14 />
+        </button>
+        <div className="ks-kbband-clip">
+          <div className="ks-kb-cards">
+            {bandCards.map((card) => {
+              const on = card.id === kb.id
+              return (
+                <button
+                  key={card.id}
+                  type="button"
+                  className="ks-kb-card"
+                  data-on={on}
+                  aria-pressed={on}
+                  title={`进入「${card.name}」—— ${card.desc}`}
+                  onClick={() => { enterKb(card.id) }}
+                >
+                  <span className="ks-kb-ct">{card.name}</span>
+                  <span className="ks-kb-cd">{card.desc}</span>
+                  <span className="ks-kb-foot">
+                    <span className="ks-kb-badge">{countUnder(card.root)} 篇</span>
+                  </span>
+                </button>
+              )
+            })}
+          </div>
+        </div>
+        <button
+          type="button"
+          className="ks-kbband-nav"
+          aria-label="下一组知识库卡片"
+          title={bandAt >= bandMax ? '已经是最后一组' : '下一组知识库卡片'}
+          disabled={bandAt >= bandMax}
+          onClick={() => { setBandStart(Math.min(bandMax, bandAt + 1)) }}
+        >
+          <IconChevronRightOutline14 />
+        </button>
+      </div>
+      <div className="ks-kb-hint">
+        卡片 {bandAt + 1}–{bandAt + bandCards.length} / 共 {KNOWLEDGE_BASES.length} 张（用左右箭头翻页）
       </div>
 
       {view === 'tags' ? (
@@ -691,53 +833,80 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
           )}
         </div>
       ) : (
-        <div className="ks-split">
-          {/* 左：自带两棵树 + 自建夹（「平级」，同一列依次排下去） */}
-          <div className="ks-rail">
-            <LibCard
-              title="标准" sub="国家标准·行业标准·团体标准"
-              nodes={STD_TREE} current={folder} onPick={pickFolder} open={open} toggle={toggle}
-            />
-            <LibCard
-              title="法律法规" sub="法律 / 行政法规 / 部门规章 / 地方性法规"
-              nodes={LAW_TREE} current={folder} onPick={pickFolder} open={open} toggle={toggle}
-            />
-            <div className="ks-kb-sec">我建的（真文件夹；与上面两棵平级）</div>
-            <div className="ks-kb-cards">
-              {USER_FOLDERS.map((f) => (
-                <div
-                  className="ks-kb-card"
-                  key={f.key}
-                  role="button"
-                  tabIndex={0}
-                  style={folder === f.key ? { borderColor: 'var(--dsw-alias-border-l4)' } : undefined}
-                  onClick={() => { pickFolder(f.key) }}
-                  onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') pickFolder(f.key) }}
-                >
-                  <strong className="ks-kb-ct">{f.name}</strong>
-                  <div className="ks-kb-cd">{f.desc}</div>
-                  <div className="ks-kb-foot">
-                    <span className="ks-kb-badge">{docs.filter((d) => d.folder === f.key).length} 篇</span>
-                  </div>
-                </div>
-              ))}
-            </div>
+        <>
+          {/* ══ 面包屑 + 「← 返回上一级」（业主："进入二级目录就自动出现返回上一级的按钮"）══
+              ⚠ 按钮的出现条件是 **path.length > 0**（= 已经离开库根，进了下一级），
+                库根（path 为空）没有"上一级"可回 ⇒ 不显示。</> */}
+          <div className="ks-crumb">
+            {path.length > 0 && (
+              <Button
+                variant="outline"
+                size="sm"
+                className="ks-back"
+                title={`回到上一级（现在在：${crumb}）`}
+                onClick={goUp}
+              >
+                <IconChevronLeftOutline14 />
+                返回上一级
+              </Button>
+            )}
+            <span className="ks-crumb-path" title="当前路径（知识库 / 各级目录）">{crumb}</span>
+            <div className="ks-kb-grow" />
+            {/* 目录层给"几个子目录"；**文件层不在这里再报一次篇数** —— 列表题头（.ks-list-cap）
+                已经写着「N 篇」，筛选条也写着「共 N 篇」，三处同数是噪音（5h 的第一版就是三处）。 */}
+            {!atFiles && <span className="ks-crumb-n">{kids.length} 个子目录</span>}
           </div>
 
-          {/* 中：**真表格**（P2 头条，2026-09-20）
-              —— 列头 + 列对齐 + 行内文件图标 + 列表上方的搜索框。
-              参照 WeKnora `23-kb-detail-list-1440.png` 是一张 6 列真表格（列头 + 行内图标 +
-              行内可见 chip + 上方搜索框）；我们**抄结构不抄尺寸**（行高仍 52、表头 40）。
-              ⚠ 搜索框这一条的翻案留痕见本文件顶部第 4 条（业主 2026-09-19 曾说"这一页不做搜索"）。 */}
-          <div className="ks-main">
-            {/* 列表题头：原来挂在 .ks-lhead 里（表头变成**真列头行**之后它就不该再待在那儿，
-                否则"文件名"列头与目录名抢同一个格子）。信息一条没少，只是上移一行。 */}
-            <div className="ks-list-cap">
-              <span className="ks-lhead-name ks-kb-grow" title={folder}>{folder}</span>
-              <span className="ks-kb-hint">
-                {listed.length} 篇{selected.size > 0 ? `（已选 ${String(selected.size)}）` : ''}
-              </span>
-            </div>
+          {atFiles ? (
+            <div className="ks-split">
+              {/* 中：**真表格**（P2 头条，2026-09-20）
+                  —— 列头 + 列对齐 + 行内文件图标 + 列表上方的搜索框。
+                  参照 WeKnora `23-kb-detail-list-1440.png` 是一张 6 列真表格（列头 + 行内图标 +
+                  行内可见 chip + 上方搜索框）；我们**抄结构不抄尺寸**（行高仍 52、表头 40）。
+                  ⚠ 5h 起它只出现在**最末一级**（业主："到最末一级才是文件"）；结构一字未改。
+                  ⚠ 搜索框这一条的翻案留痕见本文件顶部第 4 条（业主 2026-09-20 已明确"保留"）。 */}
+              <div className="ks-main">
+                {/* 列表题头：原来挂在 .ks-lhead 里（表头变成**真列头行**之后它就不该再待在那儿，
+                    否则"文件名"列头与目录名抢同一个格子）。信息一条没少，只是上移一行。 */}
+                <div className="ks-list-cap">
+                  <span className="ks-lhead-name ks-kb-grow" title={crumb}>{node.name}</span>
+                  <span className="ks-kb-hint">
+                    {listed.length} 篇{selected.size > 0 ? `（已选 ${String(selected.size)}）` : ''}
+                  </span>
+                </div>
+
+                {/* 筛选条（P1-4，2026-09-20；5h 从页级搬进"文件层"——它筛的是**文件**）。
+                    一排**等高胶囊**（高 32px / 字号 12px / 间距 12px）。
+                    参照真机 22/23 是 5 个 140×32 的等高胶囊；我们原来页内**没有任何筛选**。
+                    范围克制到"只有跟页面里真实占位数据对得上的三档"（见 FILTERS 的注释），
+                    并且**真的作用在 listed 上**（换档即清空选择，见 pickFilter）。
+                    计数写成「筛出 X 篇 / 共 Y 篇」：筛选生效时用户不用回表头换算。
+                    ⚠ 图标只给"全部"那一枚（语义是"这一排是筛选"）；13 个宿主图标成员里逐个核过，
+                      IconInspectOutline12 是真的（ui-primitives 的 icons 导出，名字写错不会构建失败、
+                      只有真机会 undefined —— 所以这是查过才用的）。 */}
+                <div className="ks-filters" role="group" aria-label="按效力状态筛选">
+                  {FILTERS.map((f, i) => {
+                    const on = filter === f.id
+                    return (
+                      <button
+                        key={f.id}
+                        type="button"
+                        className={on ? 'ks-chip ks-chip-on' : 'ks-chip'}
+                        aria-pressed={on}
+                        title={i === 0 ? '不筛任何状态' : `只看「${f.text}」的文件`}
+                        onClick={() => { pickFilter(f.id) }}
+                      >
+                        {i === 0 && <IconInspectOutline12 />}
+                        {f.text}
+                      </button>
+                    )
+                  })}
+                  <span className="ks-kb-hint">
+                    {filter === 'all'
+                      ? `共 ${String(inFolder.length)} 篇`
+                      : `筛出 ${String(listed.length)} 篇 / 共 ${String(inFolder.length)} 篇`}
+                  </span>
+                </div>
 
             {/* 搜索框（P2 头条）：宿主 `Input` + 16px 放大镜（参照那个框左侧就是一个 16px 放大镜）。
                 ⚠ 它**真的过滤**：`listed` 由 `useMemo` 按 `no`/`name` 算（见 hitSearch），
@@ -1031,8 +1200,32 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                 </div>
               </div>
             )}
-          </div>
-        </div>
+              </div>
+            </div>
+          ) : (
+            /* ══ 目录层（一级/二级/三级…）：**只显示子目录**，不铺文件 ══
+               业主："先占上一级目录文件夹，然后点开是二级目录"；"到最末一级才是文件"。
+               ⚠ 每个目录卡上的「N 篇」是**这一棵子树**里的文件数（`countUnder`，含更深层）——
+                 用户不用点进去就知道下面有没有东西。
+               ⚠ 现有占位数据里 `USER_FOLDERS`（公司制度/内部操作规程/供应商资料）**没有子目录**，
+                 所以点那三张卡会**直接**落到文件表格（`atFiles`）—— 那是数据本来的层级，不是漏做。 */
+            <div className="ks-dirs">
+              {kids.map((child) => (
+                <button
+                  key={child.key}
+                  type="button"
+                  className="ks-dir"
+                  title={`进入「${child.name}」（这一棵目录下共 ${String(countUnder(child))} 篇）`}
+                  onClick={() => { enterDir(child.key) }}
+                >
+                  <span className="ks-dir-ico"><IconFolderOpenOutline16 /></span>
+                  <span className="ks-dir-name">{child.name}</span>
+                  <span className="ks-kb-badge">{countUnder(child)} 篇</span>
+                </button>
+              ))}
+            </div>
+          )}
+        </>
       )}
     </div>
   )

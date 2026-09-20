@@ -97,6 +97,16 @@ declare module '@deepseek-ai/dsh-client-ui-primitives' {
   export const IconListPenOutline16: ComponentType<DshIconProps>
   export const IconArchiveOutline20: ComponentType<DshIconProps>
   export const IconSearchOutline16: ComponentType<DshIconProps>
+  /**
+   * 5h（2026-09-20）卡片带**左右翻页**用的两个箭头。
+   * 名字逐字核过宿主检出 `packages/client/ui-primitives/lib/index.js`
+   * （一条命令数出来的候选全集：`IconChevronDownOutline14` / `IconChevronLeftOutline14` /
+   *  `IconChevronRightOutline14` / `IconChevronUpOutline14` —— 左右两枚**真的在**导出里，
+   *  同法核过 `const IconChevronLeftOutline14` 的定义与 export 列表）。
+   * ⚠ 同一条边界：写了不存在的名字**不会构建失败**，只会在真机变成 undefined（箭头整块消失）。
+   */
+  export const IconChevronLeftOutline14: ComponentType<DshIconProps>
+  export const IconChevronRightOutline14: ComponentType<DshIconProps>
 
   /** 宿主 Menu 的一项。 */
   export interface DshMenuItem {

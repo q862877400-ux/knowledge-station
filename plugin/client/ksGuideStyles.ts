@@ -78,6 +78,12 @@ export const KS_STYLES = `
   /* 宿主 Button size=sm 的**档位**（P1-6：批量条按钮实测 28px —— 那是 .ks-batch 的
      align-items:center 加上图标把它撑起来的，不是宿主给的档）。批量条里显式钉 24px。 */
   --ks-btn-h-sm:24px;
+  /* 卡片带左右**翻页箭头**的方框边长（5h，2026-09-20）。24px = 与 .ks-batch-btn /
+     .ks-item-more button 同一个档位（--ks-btn-h-sm），只是这里要的是**宽高都钉死**的方框
+     —— 业主今天要"一个小框下面自带一个左右翻页滑动条"，箭头宽度就是那条滑动条的实测口径。
+     ⚠ 为什么不直接用 --ks-btn-h-sm 当宽度：那个名字是"按钮高"，借用它表达宽度正是本仓
+       反复抓过的"语义漂移"（后来者会以为它俩永远同值）。单开一个名字，值同档。 */
+  --ks-band-nav:24px;
 }
 
 /* ---------- 开始页入口卡（照 TerminalGuide.module.css 的数值） ----------
@@ -162,13 +168,62 @@ export const KS_STYLES = `
 .ks-kb-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--ks-card-gap);
   align-items:stretch}
 .ks-kb-cards>*{min-height:var(--ks-card-h)}
+/* ---------- 5h（2026-09-20）**卡片带**：一个框 + 左右翻页箭头 ----------
+   业主原话：「**所有卡片横在顶端**」「**一个小框下面自带一个左右翻页滑动条**」。
+   ⚠ 树的样式（.ks-kb-tree / .ks-kb-tline / .ks-kb-tw / .ks-kb-tn）与 .ks-rail **已删**：
+     业主说"不要展示目录树"、"我建的（真文件夹；与上面两棵平级）这种乱七八糟东西删了" ——
+     删了什么、为什么写在 docs/UI-BASELINE.md 5h。
+   ⚠ 框宽 max-width:720px（= 180 个 4px 单位）：业主说的是"一个**小**框"，不是通栏；
+     宽屏（1300）下 3 张卡各约 202px，窄屏（520）下各自缩到约 130px —— **同排等宽等高**由
+     repeat(3,minmax(0,1fr)) 与 .ks-kb-cards>* 的 min-height 保证（实测值见 5h 的 #cards）。
+   ⚠ 本段是模板字符串里的一段 CSS：注释里**不许出现反引号**（会截断模板）—— 这里踩过第 8 次。 */
+.ks-kbband{display:flex;align-items:center;gap:var(--ks-space-2);box-sizing:border-box;
+  max-width:720px;padding:var(--ks-space-2);
+  border:0;border-radius:var(--ks-r-card);
+  --dsw-elevation-stroke-color:var(--dsw-alias-border-l2);
+  background:var(--dsw-alias-bg-base);box-shadow:var(--dsw-elevation-soft)}
+/* 窗口：**卡片带的可视区**（宽度由框减去两个箭头与间距给）。 */
+.ks-kbband-clip{flex:1;min-width:0;overflow:hidden}
+/* 窗口里恒为 **3 列等宽**（BAND_WINDOW=3；换了常量这里也要改 —— 两处必须一起动）。
+   ⚠ 最后一屏可能不足 3 张（我们是 5 张、窗口 3、步长 1 ⇒ 永远恰好 3 张）；不足时
+     空位留白，**不把剩下的卡拉宽**（"尺寸统一"优先于"铺满"）。 */
+.ks-kbband .ks-kb-cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+/* 箭头：24px 方框（--ks-band-nav），走宿主 interactive 档；到头/到尾 disabled ⇒ 置灰。 */
+.ks-kbband-nav{flex:none;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;
+  width:var(--ks-band-nav);height:var(--ks-band-nav);padding:0;border:0;border-radius:var(--ks-r-md);
+  background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-secondary);cursor:pointer}
+.ks-kbband-nav:hover:enabled{background:var(--dsw-alias-interactive-bg-active)}
+.ks-kbband-nav:disabled{background:transparent;color:var(--dsw-alias-label-caption);cursor:default}
+/* 卡片带上的一张卡：卡面样式仍归 .ks-kb-card（与详情里的占位卡同一份），这里只补
+   "它现在是个 button"要清零的原生外观 + 选中态（选中 = 当前正在看的那张库卡）。
+   ⚠ 选中态走宿主 interactive-bg-active（与 .ks-chip-on 同一档），**不新增色值**。 */
+.ks-kbband .ks-kb-card{width:100%;font:inherit;text-align:left;color:inherit;cursor:pointer}
+.ks-kbband .ks-kb-card[data-on='true']{--dsw-elevation-stroke-color:var(--dsw-alias-border-l4);
+  background:var(--dsw-alias-interactive-bg-active)}
+/* ---------- 5h：面包屑 + 「返回上一级」 + 目录层 ---------- */
+/* 面包屑行：左边是返回按钮（只在 path.length>0 时渲染），中间是当前路径，右边是计数。
+   ⚠ 路径用**节点名**（不是 key）—— 见 KsKnowledgePage.tsx 的 pathNames 注释。 */
+.ks-crumb{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}
+.ks-crumb-path{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
+/* 目录层的"N 个子目录"：**必须 nowrap + flex:none** —— 第一版用的是 .ks-kb-hint（可压缩），
+   长面包屑（四级的"标准 / P 土木、建筑 / P15/19… / P16 工程防火"）会把它挤到第二行，
+   图上就是"4"和"篇"分家（520/1300 两张图里都看得到）。 */
+.ks-crumb-n{flex:none;white-space:nowrap;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
+.ks-back{flex:none}
+/* 目录层：一排目录卡（图标 + 目录名 + 这一棵下的篇数）。与卡片带**不同**的一档：
+   目录卡是"列表项"，不占 min-height:136 —— 它是扫读用的，行高按 --ks-space-10(40px)。 */
+.ks-dirs{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:var(--ks-space-2)}
+.ks-dir{display:flex;align-items:center;gap:var(--ks-space-2);box-sizing:border-box;
+  min-height:var(--ks-space-10);padding:var(--ks-space-2);
+  border:0;border-radius:var(--ks-r-md);text-align:left;font:inherit;color:var(--dsw-alias-label-primary);
+  background:var(--dsw-alias-bg-base);cursor:pointer;
+  --dsw-elevation-stroke-color:var(--dsw-alias-border-l2);box-shadow:var(--dsw-elevation-soft)}
+.ks-dir:hover{--dsw-elevation-stroke-color:var(--dsw-alias-border-l4);box-shadow:var(--dsw-elevation-panel)}
+.ks-dir-ico{flex:none;display:inline-flex;align-items:center;color:var(--dsw-alias-label-secondary)}
+.ks-dir-name{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  font-size:var(--ks-fs-base);font-weight:600}
 .ks-kb-sec{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary);margin-top:var(--ks-space-1)}
-.ks-kb-tree{font-size:var(--ks-fs-base)}
-.ks-kb-tline{display:flex;align-items:center;gap:var(--ks-space-1);padding:var(--ks-space-1) var(--ks-space-2);border-radius:var(--ks-r-md);cursor:pointer}
-.ks-kb-tline:hover{background:var(--dsw-alias-interactive-bg-hover)}
-.ks-kb-tw{width:12px;flex:none;text-align:center;font-size:var(--ks-fs-2xs);color:var(--dsw-alias-label-caption)}
-.ks-kb-tn{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.ks-kb-tc{font-size:var(--ks-fs-xs);color:var(--dsw-alias-label-caption)}
 .ks-kb-doc{display:flex;gap:var(--ks-space-2);padding:var(--ks-space-1) var(--ks-space-2);border-radius:var(--ks-r-md)}
 .ks-kb-doc:hover{background:var(--dsw-alias-interactive-bg-hover)}
 .ks-kb-no{flex:none;font-weight:600;font-family:ui-monospace,Consolas,monospace;font-size:var(--ks-fs-sm)}
@@ -180,10 +235,11 @@ export const KS_STYLES = `
 .ks-kb-badge-warn{background:var(--dsw-alias-state-warn-tertiary);color:var(--dsw-alias-state-warn-label)}
 .ks-kb-badge-bad{background:var(--dsw-alias-state-error-secondary);color:var(--dsw-alias-state-error-primary)}
 
-/* ---------- 知识库页：三段式（目录轨 | 文件列表 | 详情） ---------- */
-/* 一列放不下就换行：右栏宽度是业主自己拖的，不许假设它有多宽。 */
+/* ---------- 知识库页（5h 起）：**文件列表 | 详情** 两段式 ---------- */
+/* 一列放不下就换行：右栏宽度是业主自己拖的，不许假设它有多宽。
+   ⚠ 5h 删掉了第三段「目录轨」（.ks-rail）—— 目录改成卡片带下面的**目录层**（.ks-dirs），
+     不再占列表左边那一列（业主："不要展示目录树"）。.ks-split 本身没变（它只管换行）。 */
 .ks-split{display:flex;gap:var(--ks-space-2);align-items:flex-start;flex-wrap:wrap;min-height:0}
-.ks-rail{flex:0 1 208px;min-width:168px;display:flex;flex-direction:column;gap:var(--ks-space-2)}
 /* ⚠ P2 头条（2026-09-20）：.ks-main 是**容器查询的容器**（container-type:inline-size）
    —— 表格的列档（窄档 3 列 / 宽档 5 列）按**它自己的宽度**切，不是按视口切。
    为什么不能用 @media：宿主右栏的宽度是业主自己拖的，与视口宽**没有关系**
