@@ -53,7 +53,7 @@
  *      面板上会**明说**这一点（不许让用户以为它进了某个目录）。
  */
 
-import { useCallback, useEffect, useMemo, useRef, useState, type MouseEvent as ReactMouseEvent, type ReactNode } from 'react'
+import { Fragment, useCallback, useEffect, useMemo, useRef, useState, type MouseEvent as ReactMouseEvent, type ReactNode } from 'react'
 import { Button, IconArchiveOutline20, IconChecklistOutline14, IconChevronDownOutline14, IconChevronLeftOutline14, IconChevronRightOutline14, IconEllipsisOutline16, IconFolderOpenOutline16, IconInfoOutline14, IconListPenOutline16, IconPlusOutline16, IconRefreshOutline16, IconSearchOutline16, IconShieldOutline16, Input, Menu } from '@deepseek-ai/dsh-client-ui-primitives'
 
 import {
@@ -378,9 +378,11 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
   /** 进某一级（左列树点名字 / 右侧点目录行 / 面包屑点某一节都走这里）。 */
   const goto = useCallback((id: string | null): void => {
     setLevelId(id)
-    setSearch('')
     setOpenDoc(null)
     setMenuFor(null)
+    /* ⚠ 搜索串**不清**（沿用 5i 的既有口径：搜索是**页面级**的一个过滤条件，换层后继续生效 ——
+       目录层按目录名、文件层按标准号/名称）。框里始终看得见那个词，不会变成"幽灵过滤"；
+       真被筛空时给的是**搜索空态**（含「清除搜索」），不会假装"这一层本来就没东西"。 */
     void loadLevel(id, 0)
   }, [loadLevel])
 
@@ -476,13 +478,13 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
       let last = started.total
       let parsed = 0
       for (let i = 0; i < 300; i += 1) {
-        await sleep(2000)
         const st = await withSession((port, token) => fetchBulkIngest(port, token, started.batch_id))
         last = st.total
         parsed = st.parsed
         setUpMsg(`已解析 ${parsed} / ${last} 篇${st.errors > 0 ? `（失败 ${st.errors}）` : ''}…`)
         if (st.status !== 'running' && st.status !== 'pending') break
         if (st.pending === 0 && st.scanned >= st.total && st.total > 0) break
+        await sleep(2000)
       }
       const after = await withSession((port, token) => fetchDocsFlat(port, token))
       const fresh = after.filter((d) => !beforeIds.has(d.doc_id)).map((d) => d.doc_id)
@@ -609,10 +611,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
     )
   }
 
-  const rootKids = tree.root?.kids ?? []
-
   return (
-    // ⚠ 外面这一层 `.ks-page` **只做 container-type**（页面留边的宽/窄两档靠它切 ⇒ 留边落在 `.ks-kb`）。
     <div className="ks-page">
       <div className="ks-kb">
         <header className="ks-page-head">
@@ -679,30 +678,35 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
               </span>
               {crumb.map((node, i) => {
                 const here = i === crumb.length - 1
+                /* ⚠ 分隔符是**条目的兄弟**（不是塞进条目里）——`.ks-crumb-item` 的 textContent
+                   因此**只等于那一级的名字**（渲染级冒烟与 ui-render-shot 都按它逐段比对；
+                   本批一开始把 sep 放进 item 里，实测面包屑变成「知识库//标准」，当场红）。 */
                 return (
-                  <span className="ks-crumb-item" key={node.folder_id}>
+                  <Fragment key={node.folder_id}>
                     <span className="ks-crumb-sep" aria-hidden="true">/</span>
-                    {here ? (
-                      <span
-                        className="ks-crumb-here"
-                        aria-current="page"
-                        data-current="true"
-                        title="你现在在这一级（不可点）"
-                      >
-                        {node.name}
-                      </span>
-                    ) : (
-                      <button
-                        type="button"
-                        className="ks-crumb-go"
-                        aria-label={`回到「${node.name}」这一级`}
-                        title={`回到「${node.name}」`}
-                        onClick={() => { goto(node.folder_id) }}
-                      >
-                        {node.name}
-                      </button>
-                    )}
-                  </span>
+                    <span className="ks-crumb-item">
+                      {here ? (
+                        <span
+                          className="ks-crumb-here"
+                          aria-current="page"
+                          data-current="true"
+                          title="你现在在这一级（不可点）"
+                        >
+                          {node.name}
+                        </span>
+                      ) : (
+                        <button
+                          type="button"
+                          className="ks-crumb-go"
+                          aria-label={`回到「${node.name}」这一级`}
+                          title={`回到「${node.name}」`}
+                          onClick={() => { goto(node.folder_id) }}
+                        >
+                          {node.name}
+                        </button>
+                      )}
+                    </span>
+                  </Fragment>
                 )
               })}
             </span>
@@ -790,9 +794,9 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
           <div className="ks-kb-tree">
             <div className="ks-tree-head">目录</div>
             <div className="ks-tree-body">
+              {/* ⚠ **只调一次** `renderTreeRow('root', …)`：它自己会把展开的子节点递归渲染出来
+                  （外面再 map 一遍 rootKids 就是双份 —— 本批实测：树上出现两份一级目录）。 */}
               {renderTreeRow('root', '最外层', null, 0, levelId === null)}
-              {treeOpen.has('root') ? rootKids.map((kid) => renderTreeRow(
-                kid.folder_id, kid.name, kid.file_count_deep, 1, kid.folder_id === levelId)) : null}
               {tree.root?.loading === true ? <div className="ks-tree-hint">正在读取…</div> : null}
             </div>
           </div>

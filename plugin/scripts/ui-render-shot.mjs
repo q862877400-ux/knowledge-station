@@ -40,41 +40,28 @@
  *                    ⚠ **它不能用来判 `position:sticky`**：`--screenshot` 在这种无头模式下
  *                      是"整页截图"，滚动位置不进产物（5c 实测：加 scrollTo 后图里只剩空白）。
  *                      批量条位置只能在**真宿主页面**里看，见 docs/UI-BASELINE.md 第五节。
- *   --band-scroll <px|end>  5h-补：在**真 Chrome** 里把卡片带的横向滚动容器滚到该位置（默认 0 = 不滚）。
- *                      ⚠ 为什么要有它：jsdom 预渲染那趟**没有布局**（scrollWidth 恒 0）⇒ 卡片带的
- *                        scrollLeft 只能是 0，"滚到中段/末端"那张图需要的位移出不来。它写的是**真元素**的
- *                        scrollLeft（等同用户拖了那条滚动条），位移与滚动条拇指位置都由真布局算。
- *   --interact <a,b> 可选：kb-files / kb-detail / kb-select / kb-filter / kb-filter-empty /
- *                    kb-search / kb-search-dirs / kb-search-dirs-empty / kb-empty-files /
- *                    kb-tags-view / kb-band-start / kb-band-end /
- *                    kb-enter-law / kb-enter-l2 / kb-back / ingest-batch / cap-dialog
- *                    ⚠⚠ **5i（2026-09-20 收尾批）：未知场景名 ⇒ 报错 + exit 2**（列出可用名字）。
- *                      复核实测旧行为：`--interact kb-empty`（已删掉的场景名）⇒ `notes=[]`、**exit 0**。
- *                      另外**每个分支都必须"落地"**：做不到就报 note + **exit 1**（`mustLand`），
- *                      不再有"什么都没做还成功"的路径（见 `SCENARIOS` 与 `landing` 的注释）。
- *                    ⚠ **5h（2026-09-20）新 IA 改了基准态**：默认态 =「卡片带 + **一级目录**」
- *                      （业主："先占上一级目录文件夹…到最末一级才是文件"）⇒ 凡是要"文件表格 /
- *                      状态徽章 / 搜索框"的场景都必须**先下钻**。脚本里那四个 helper
- *                      （`gotoCard` / `gotoFilesView` / `gotoStdLeaf` / `gotoBandEnd`）就是这一步，共用一份。
- *                      ⚠ 每个 helper 都**自带兜底**：`--interact` 允许一次给多个场景，前一个场景可能把
- *                        卡片带滚到别处、或把页切到「标签」视图 ⇒ 后一个场景会"找不到东西"（实测踩到过）。
- *                        `gotoCard` 先把带滚回最左（5h-补：卡片现在**全在 DOM 里**，滚回即可），
- *                        `gotoFilesView` 先切回文件视图。
- *                      为此 kb-detail / kb-select / kb-filter / kb-filter-empty / kb-search /
- *                      kb-tags-view **各自加了前置导航**（断言的实质没变：还是量行数/徽章/像素）。
- *                    ⚠ 原来那条 `kb-empty` / `kb-empty-folder` **已删**（它们点的是**树节点**
- *                      `.ks-kb-tline`，而树被业主点名删掉 ⇒ 写法永远找不到节点）。替代品
- *                      `kb-empty-files`：下钻 → 全选 → 批量删除 ⇒ 目录**真的**空了，拿到
- *                      "这个文件夹还没有文件"那一支空态（比旧写法更真，不是点一个假节点）。
+ *   --interact <a,b> 可选：kb-files / kb-level / kb-crumb / kb-back / kb-detail /
+ *                    kb-search / kb-search-dirs / kb-search-dirs-empty / kb-empty /
+ *                    kb-page / kb-upload / ingest-batch / cap-dialog
+ *                    ⚠⚠ **未知场景名 ⇒ 报错 + exit 2**（列出可用名字）；**每个分支都必须"落地"**：
+ *                      做不到就报 note + **exit 1**（`mustLand`），没有"什么都没做还成功"的路径。
+ *                    ⚠⚠ **2026-09-21（KB-FOLDER-PLAN 第 3 步）这一组场景**随页面一起重写：
+ *                      旧的 `kb-band-start` / `kb-band-end` / `kb-select` / `kb-tags-view` /
+ *                      `kb-filter` / `kb-filter-empty` / `kb-enter-law` / `kb-enter-l2` 判的界面
+ *                      **整块不存在了**（卡片带、批量条、标签视图、状态筛选胶囊都随本批删除），
+ *                      继续留着它们只会变成"分支里找不到东西 ⇒ 报红"的噪声。替代：
+ *                        · `kb-band-*` 的"翻页真的换位置" → **`kb-page`**（后端分页：翻页条 + offset）
+ *                        · `kb-filter*` 的"筛选真的作用在行数上" → **`kb-search`**（同一件事的搜索版）
+ *                        · `kb-enter-law` / `kb-enter-l2` → **`kb-level`**（进某一级看它的下级目录）
+ *                        · `kb-empty-files`（下钻 → 全选 → 批量删除） → **`kb-empty`**
+ *                          （进一个**真的空目录**看「这一层还没有东西」；批量删除已不在本批）
+ *                        · `kb-select` → **`kb-upload`**（打开上传面板：本批新增的入口）
+ *                      新增：`kb-crumb`（面包屑逐级可点，判据不变，只是换到真树的那条路径）、
+ *                      `kb-back`（返回上一层）。
  *                    ⚠ `kb-files` 是给 `smoke-kb-cols.mjs`（列对齐三档）与 `ui-badge-pixels.mjs`
- *                      （徽章像素）用的**前置步骤**：它们验的是表格/徽章，而默认态停在目录层。
- *                    ⚠ kb-band-end / kb-band-start / kb-enter-law / kb-enter-l2 / kb-back 都是 5h 新增，
- *                      对应业主原话里的"左右翻页滑动条"与"进入二级目录就自动出现返回上一级的按钮"。
- *                    ⚠ kb-search 是 P2 头条（2026-09-20）补的：往列表上方的搜索框里打字，
- *                      报出"行数 初始 → 按标准号 → 按名称 → 不存在的串 → 清空"五步，
- *                      用来证明那个框**真的过滤**（不是画个壳）。
- *                    ⚠ kb-filter 是 P1-4 的：点「已废止」⇒ 看筛选真的作用在行数上。kb-detail
- *                      走「⋮ → 详情」（行内常驻按钮已收进菜单）。
+ *                      （徽章像素）用的**前置步骤**：默认态停在**最外层**（只有目录行）。
+ *                    ⚠ `kb-level`（法律法规：**1 行目录 + 1 行文件**）是 `levelCheck` 的取证场景
+ *                      —— 那是本版新增的几何断言（左列与右栏并排 + 两类行高逐字相同）。
  *   --theme light|dark  默认 light
  *   --browser <exe>  默认自动找 Edge/Chrome（可用 $KS_BROWSER 覆盖）
  *                    ⚠ 文档里说的"真 Chrome"是**约定叫法**（同一 Chromium 内核）：本机
@@ -91,12 +78,14 @@
  * ⚠ 没有 `.ks-lhead` 的页面（capabilities/material/ingest）与**没有数据行**的场景（空态截图）
  *   不适用这条断言 ⇒ 本脚本**明说"这条没判"**（打印 note），不是静默通过。
  *
- * ⚠⚠ **5i（2026-09-20 收尾批）又加了一条真断言**：`#kbcards`（卡片带里逐张卡的宽/高）必须
- *   **全等**，不等 ⇒ 逐张打印实际值 + **exit 1**（`cardsCheck`）。为什么：复核把列模板改成
- *   `60px 120px 200px`（三张卡三种宽）之后**渲染冒烟 51/51 全绿** —— 旧的 `#cards` 只是报告值，
- *   全仓没有断言引用它，而"知识库卡片尺寸统一"是业主点名的形态。同样三档由 `smoke-kb-cols` 跑。
+ * ⚠⚠ **2026-09-21（第 3 步）就地改写**：上一版这里的真断言是 `#kbcards`（卡片带里逐张卡
+ *   的宽/高必须**全等**），因为"知识库卡片尺寸统一"是业主点名的形态。**卡片带已被业主删掉**
+ *   （"原来的大卡片去掉"）⇒ 那条断言**没有主体**了。取代它的是 `levelCheck`（见下面同名一段）：
+ *   判**新的真实几何** —— ① 左列目录树与右栏**并排**（不是换行堆叠）；② 同一级里**目录行与
+ *   文件行**的行高**逐字相同**（"目录层与文件列表同构"这句承诺的可量形态）。判据强度不减：
+ *   量不到就红（不许静默 skip），由 `smoke-kb-cols.mjs` 三档逐档跑。
  *
- * 退出码：0 = 图已生成且（适用时）列对齐/卡片尺寸自检通过；1 = 缺件/截图失败/自检失败/**--interact
+ * 退出码：0 = 图已生成且（适用时）列对齐/几何自检通过；1 = 缺件/截图失败/自检失败/**--interact
  *   场景没落地**（**不是通过**）；2 = 参数错（含**未知的 --interact 场景名**，5i 起）。
  */
 import { existsSync } from 'node:fs'
@@ -167,9 +156,8 @@ const interacts = arg('interact', PAGES[page].interact.join(',')) .split(',').ma
  *   ⚠ 这张表是**活的所有者**：加一个场景就加一行，删一个场景就删一行。
  */
 const SCENARIOS = [
-  'kb-files', 'kb-band-start', 'kb-band-end', 'kb-enter-law', 'kb-crumb', 'kb-enter-l2', 'kb-back',
-  'kb-detail', 'kb-filter', 'kb-filter-empty', 'kb-search', 'kb-search-dirs',
-  'kb-search-dirs-empty', 'kb-select', 'kb-empty-files', 'kb-tags-view',
+  'kb-files', 'kb-level', 'kb-crumb', 'kb-back', 'kb-detail', 'kb-search',
+  'kb-search-dirs', 'kb-search-dirs-empty', 'kb-empty', 'kb-page', 'kb-upload',
   'ingest-batch', 'cap-dialog',
 ]
 const unknownScenarios = interacts.filter((name) => !SCENARIOS.includes(name))
@@ -181,14 +169,18 @@ if (unknownScenarios.length > 0) {
   process.exit(2)
 }
 /**
- * `--band-scroll <px|end>`（5h-补，2026-09-20）：**在真浏览器里**把卡片带的横向滚动容器滚到指定位置。
- *
- * ⚠ 为什么需要它：jsdom 预渲染那趟**没有布局**（`scrollWidth` 恒 0）⇒ 卡片带的 `scrollLeft`
- *   在那儿只能是 0，于是"滚到中段/末端"这张图需要的**位移**在图里出不来。
- *   注意这不是"造假滚动"：它写的是**真 Chrome 里真元素**的 `scrollLeft`（就像用户拖了那条滚动条），
- *   卡片位移与滚动条拇指位置都由浏览器的真布局算出来。默认 `0` = 不注入这段脚本。
+ * ⚠⚠ **2026-09-21（第 3 步）：`--band-scroll` 已撤除，并且**显式拒绝**。**
+ * 它滚的是卡片带（`.ks-kbband-clip`）—— 那块界面已被业主删掉（"原来的大卡片去掉"）。
+ * 一个"还在收参数但什么都不做"的开关正是本仓最恨的静默失败 ⇒ 传了就**exit 2** 并说清原因。
+ * 旧口径（留痕，别删）：在**真 Chrome** 里把卡片带滚到该位置；jsdom 预渲染那趟没有布局，
+ * `scrollLeft` 只能是 0，所以"滚到中段/末端"那张图需要它（它写的是真元素的 scrollLeft）。
  */
-const bandScrollRaw = arg('band-scroll', '0').trim().toLowerCase()
+if (process.argv.includes('--band-scroll')) {
+  console.error('❌ `--band-scroll` 已撤除：它滚的是**卡片带**（.ks-kbband-clip），')
+  console.error('   而卡片带在 2026-09-21（KB-FOLDER-PLAN 第 3 步，业主"原来的大卡片去掉"）已删除。')
+  console.error('   现在没有横向滚动容器可滚；这条开关不再有任何作用，故**拒绝**而不是静默忽略。')
+  process.exit(2)
+}
 
 /* ────────────────────── 缺件即报错（不静默降级） ────────────────────── */
 const jsdomDir = join(harness, 'node_modules', 'jsdom')
@@ -317,14 +309,125 @@ const stubBatch = {
     { path: stubFiles[4].path, file_name: stubFiles[4].file_name, verdict: 'block', grade: 'D', pages: 0, total_clauses: 0, doc_confidence: 0.0, one_line: 'D 级 · 文件损坏，无法解析', reasons: ['解析失败'], error: 'PDF 结构损坏（EOF 缺失）' },
   ],
 }
-globalThis.fetch = async (input) => {
+/* ── STUB（2026-09-21 第 3 步扩充）：知识库页**现在真的调引擎** `/api/v1/kb/*`，
+      所以这里必须按 `src/core/api/routes_kb_folders.py` 的**真实返回形状**回话，
+      否则截图里只会是一块"读不到知识库"的错误条（那就白截了）。
+      形状与 `plugin/scripts/smoke-kb-page-render.mjs` 的桩**同源**：同一棵四层小树；
+      这里的数据要够拍出"左列目录 + 右栏当前这一级 + 分页 + 上传面板"。 ── */
+const KB_API = 'http://127.0.0.1:1234'
+const kbFolder = (id, name, parentId, direct, deep, foldersDeep) => ({
+  folder_id: id, parent_id: parentId, name, sort: 0, created_at: '2026-09-21 10:00:00',
+  file_count_direct: direct, file_count_deep: deep, folder_count_deep: foldersDeep,
+})
+const KB_F = {
+  std: kbFolder('fld_std', '标准', null, 0, 14, 3),
+  law: kbFolder('fld_law', '法律法规', null, 1, 3, 1),
+  empty: kbFolder('fld_empty', '空目录', null, 0, 0, 0),
+  big: kbFolder('fld_big', '大批量', null, 120, 120, 0),
+  p16: kbFolder('fld_p16', 'P16 工程防火', 'fld_std', 4, 4, 0),
+  cca: kbFolder('fld_cca', '宪法与行政法', 'fld_law', 2, 2, 0),
+}
+/** ⚠ **`fld_law` 故意同时有 1 个下级目录 + 1 篇文件** —— 那是 `levelCheck` 的取证场景
+    （同一级里两类行的行高必须逐字相同；只有两层同时在场才量得动）。 */
+const KB_SUBS = {
+  root: [KB_F.std, KB_F.law, KB_F.empty, KB_F.big],
+  fld_std: [KB_F.p16], fld_law: [KB_F.cca],
+  fld_p16: [], fld_cca: [], fld_empty: [], fld_big: [],
+}
+const KB_CRUMB = {
+  root: [], fld_std: [KB_F.std], fld_law: [KB_F.law], fld_empty: [KB_F.empty],
+  fld_big: [KB_F.big], fld_p16: [KB_F.std, KB_F.p16], fld_cca: [KB_F.law, KB_F.cca],
+}
+const kbDoc = (id, no, name, extra = {}) => ({
+  doc_id: id, standard_no: no, standard_name: name, legal_status: 'effective',
+  legal_hierarchy: 'GB', doc_type: 'standard', ccs_code: 'P16', ccs_name: '工程防火',
+  published_at: '2017-05-27', effective_from: '2018-01-01', withdrawn_date: null,
+  superseded_by: null, stage: 'filed', confidence: 0.93, failure_kind: null,
+  suggested_folder_id: null, ...extra,
+})
+const KB_DOCS_P16 = [
+  kbDoc('doc_fire_50016', 'GB 50016-2014', '建筑设计防火规范'),
+  kbDoc('doc_fire_55037', 'GB 55037-2022', '建筑防火通用规范'),
+  kbDoc('doc_fire_50084', 'GB 50084-2017', '自动喷水灭火系统设计规范'),
+  kbDoc('doc_fire_old', 'GB 50016-2006', '建筑设计防火规范（2006 版）',
+    { legal_status: 'withdrawn', withdrawn_date: '2015-05-01', stage: 'failed', failure_kind: '表格' }),
+]
+const KB_DOCS_CCA = [
+  kbDoc('doc_law_safety', '', '中华人民共和国安全生产法', { legal_hierarchy: '法律', stage: 'confirming' }),
+  kbDoc('doc_law_fire', '', '中华人民共和国消防法', { legal_hierarchy: '法律', stage: 'queued' }),
+]
+const KB_DOCS_LAW = [kbDoc('doc_law_reg', '', '危险化学品安全管理条例', { legal_hierarchy: '行政法规' })]
+const KB_DOCS_BIG = Array.from({ length: 120 }, (_, i) =>
+  kbDoc(`doc_big_${String(i)}`, `GB/T 90${String(i).padStart(2, '0')}-2020`, `批量测试标准 ${String(i)}`))
+const KB_ITEMS = {
+  root: [], fld_std: [], fld_law: KB_DOCS_LAW, fld_empty: [],
+  fld_p16: KB_DOCS_P16, fld_cca: KB_DOCS_CCA, fld_big: KB_DOCS_BIG,
+}
+let kbDocsInLib = [kbDoc('doc_existing', 'GB 1-2000', '库里原有的一篇')]
+let kbBulkSeq = 0
+const kbLevel = (rawParent) => {
+  const id = rawParent === null || rawParent === '' ? 'root' : rawParent
+  return { code: 200, status: 'success', data: {
+    folder: id === 'root' ? null : (Object.values(KB_F).find((f) => f.folder_id === id) ?? null),
+    breadcrumb: KB_CRUMB[id] ?? [], subfolders: KB_SUBS[id] ?? [],
+    total: (KB_SUBS[id] ?? []).length, offset: 0, limit: 200, has_more: false,
+  } }
+}
+const kbItems = (folderId, offset, limit) => {
+  const key = folderId === 'root' || folderId === 'null' ? 'root' : folderId
+  const all = KB_ITEMS[key] ?? []
+  const page = all.slice(offset, offset + limit)
+  return { code: 200, status: 'success', data: {
+    folder: key === 'root' ? null : (Object.values(KB_F).find((f) => f.folder_id === key) ?? null),
+    breadcrumb: KB_CRUMB[key] ?? [], items: page, total: all.length, offset, limit,
+    has_more: offset + page.length < all.length,
+  } }
+}
+
+globalThis.fetch = async (input, init = {}) => {
   const url = typeof input === 'string' ? input : String(input?.url ?? input)
-  const reply = (payload) => ({ ok: true, status: 200, json: async () => payload, text: async () => JSON.stringify(payload) })
+  const method = String(init?.method ?? 'GET').toUpperCase()
+  const reply = (payload, status = 200) => ({
+    ok: status >= 200 && status < 300, status,
+    json: async () => payload, text: async () => JSON.stringify(payload),
+  })
+  if (url === '/ks/session') {
+    return reply({ ok: true, engine: { port: 1234, pid: 42, reused: false }, token: 'stub-token' })
+  }
   if (url.includes('/ks/ingest/inbox-default')) return reply({ ok: true, data: { dir: STUB_DIR } })
   if (url.includes('/ks/ingest/inbox')) return reply({ ok: true, data: { dir: STUB_DIR, count: stubFiles.length, files: stubFiles } })
   if (url.includes('/ks/ingest/preview/batch')) return reply({ ok: true, data: stubBatch })
   if (url.includes('/ks/ingest/preview')) return reply({ ok: true, data: null })
-  return reply({ ok: false, error: { code: 'STUB_MISS', message: `未预料的请求：${url}` } })
+  if (url.startsWith(KB_API)) {
+    const u = new URL(url)
+    const p = u.pathname
+    if (p === '/api/v1/kb/folders') return reply(kbLevel(u.searchParams.get('parent_id')))
+    const mItems = /^\/api\/v1\/kb\/folders\/([^/]+)\/items$/.exec(p)
+    if (mItems !== null) {
+      return reply(kbItems(decodeURIComponent(mItems[1]),
+        Number(u.searchParams.get('offset') ?? '0'), Number(u.searchParams.get('limit') ?? '50')))
+    }
+    if (p === '/api/v1/kb/inbox/confirm' || p === '/api/v1/kb/members') {
+      return reply({ code: 200, status: 'success', data: { confirmed: 0, added: 0, skipped: 0, removed_from_pending: 0 } })
+    }
+    if (p === '/api/v1/documents') return reply({ code: 200, status: 'success', data: kbDocsInLib })
+    if (p === '/api/v1/ingest/bulk' && method === 'POST') {
+      kbBulkSeq += 1
+      const batchId = `bulk_${String(kbBulkSeq)}`
+      kbDocsInLib = [...kbDocsInLib, kbDoc(`${batchId}_a`, 'GB 70000-2026', `新导入的一篇 A（${batchId}）`)]
+      return reply({ code: 200, status: 'success', data: { batch_id: batchId, total: 1 } })
+    }
+    if (/^\/api\/v1\/ingest\/bulk\/[^/]+\/resume$/.test(p)) {
+      return reply({ code: 200, status: 'success', data: { batch_id: p.split('/')[5] } })
+    }
+    if (/^\/api\/v1\/ingest\/bulk\/[^/]+$/.test(p)) {
+      return reply({ code: 200, status: 'success', data: {
+        batch_id: p.split('/')[5], status: 'done', total: 1, scanned: 1, parsed: 1,
+        pending: 0, errors: 0, pause_reason: null,
+      } })
+    }
+  }
+  return reply({ ok: false, error: { code: 'STUB_MISS', message: `未预料的请求：${url}` } }, 404)
 }
 
 const { mount } = await import(pathToFileURL(bundleJs).href)
@@ -375,10 +478,10 @@ const notes = []
  *
  * 为什么要有它：`--interact` 的每个分支都必须**真的做到那一件事**，做不到就得**报红**，
  * 不能只在 note 里写一句"没找到卡"然后 exit 0 —— 那就是"什么都没做还成功"。
- * ⚠ 边界（诚实）：**卡片带那两个**场景在 jsdom 里"滚动"本来就动不了（没有布局引擎，
- *   `scrollWidth` 恒 0，组件里那条兜底明说"量不出几何就不滚并返回 false"）⇒ 它们的落地判据
- *   只能钉到"这条带 + 5 张卡真的在 DOM 里、箭头真的被点到"，**位移**由真 Chrome 的
- *   `--band-scroll` 那一趟（或 `measured["#kbband"]`）取证。这不是放宽：件数少了在这里必红。
+ *   ⚠ 边界（诚实）：**旧版那两个卡片带场景**在 jsdom 里"滚动"本来就动不了（没有布局引擎，
+ *   `scrollWidth` 恒 0）⇒ 它们的落地判据只能钉到"这条带 + 5 张卡真的在 DOM 里、箭头真的被点到"。
+ *   **2026-09-21（第 3 步）起那条带整个删除了**，`kb-page` 取代了"翻页"这件事，而它判的是
+ *   **后端分页**（点「下一页」⇒ 行数/页码真的变）—— 不再是"滚不滚得动"。
  */
 const landing = []
 const mustLand = (ok, msg) => { if (!ok) landing.push(msg) }
@@ -387,340 +490,252 @@ const mustLand = (ok, msg) => { if (!ok) landing.push(msg) }
  * 那**从来没生效过**：`add` 在循环首**无条件**执行 ⇒ 循环尾那条检查恒假 = **死代码**
  * （复核 verify-freeze-5i / `581d20d` 用 `'kb-fake-probe'` 探针实测：`interact: []`、exit 0）。
  * 现在改由 if/else 链的 **`else` 兜底分支**接手（见循环内那条注释），概念只有一个所有者。 */
-/* ── 5h（2026-09-20）导航小工具：新 IA 下**默认态不再是文件表格** ──
- * 默认态 =「卡片带 + **一级目录**」（业主："先占上一级目录文件夹…到最末一级才是文件"）。
- * ⇒ 凡是要"文件表格 / 状态徽章 / 搜索框"的场景（kb-detail / kb-select / kb-search / kb-filter…），
- *   都必须**先下钻**到最末一级。这三个 helper 就是那几步，写在这里共用一份。 */
-const cardNamed = (name) => q('.ks-kb-cards .ks-kb-card')
-  .find((el) => (el.querySelector('.ks-kb-ct')?.textContent ?? '').trim() === name)
-/* ⚠⚠ **2026-09-20 头条：目录层从"卡片网格"改成"与文件列表同构的列表"** ⇒ 这里的目录锚点跟着换：
- * `.ks-dir`（卡片按钮）→ `.ks-dir-row`（目录行），名字也从"整行文本"改成**按列取**
- * （`.ks-col-dname .ks-dir-name`）—— 行里现在还有整条路径那一行，按整行文本比会误命中
- * （例如按整行取，`P 土木、建筑` 那一行还含 `标准/P 土木、建筑`）。
- * ⚠ 判据仍是**子串**匹配（与原实现同一口径，不是放宽也不是收紧）：本函数的历史调用点给的是
- *   `P15/19` 这种**名字前缀**，而那一级的完整名字是 `P15/19 工程抗震、工程防火、人防工程`
- *   —— 换成"全等"会当场找不到元素（本批实测：kb-files 卡在"P 土木、建筑"那一层、
- *   `P15/19` 之后目录数不再变化，报 `只下钻到 1 行`）。
- *   取**名字那一列**做子串匹配已经足够精确：那一格里只有目录名，不含路径、不含篇数。 */
-const dirNamed = (text) => q('.ks-dir-row')
-  .find((el) => (el.querySelector('.ks-col-dname .ks-dir-name')?.textContent ?? '').includes(text))
-/** 面包屑的**拼接文本**（逐级条目之间由独立的 `/` 分隔符连接，条目自己只含那一级的名字）。 */
+/* ── 2026-09-21（第 3 步）导航小工具：新形态下**默认态 = 最外层**（只有目录行，
+ *  文件在更深的层里）⇒ 凡是要"文件表格 / 状态徽章 / 搜索框"的场景都必须**先走进去**。
+ *  这几个 helper 就是那几步，共用一份（旧版的 gotoCard/gotoFilesView/gotoBandEnd 随卡片带删除）。 ── */
+const dirRows = () => q('.ks-dir-row')
+const dirNameOf = (el) => (el?.querySelector('.ks-col-dname .ks-dir-name')?.textContent ?? '').trim()
+const dirNamed = (text) => dirRows().find((el) => dirNameOf(el).includes(text))
+const fileRows = () => q('.ks-item.ks-file-row')
 const crumbText = () => q('.ks-crumb-item').map((el) => (el.textContent ?? '').trim()).join('/')
-/** 卡片带的左右箭头（**5h-补 2026-09-20 起 aria-label 是"上一张/下一张"**：箭头改成 `scrollBy`
- *  一次滚一张卡，不再是"上一组/下一组"的窗口翻页）。 */
-const navNamed = (which) => q('.ks-kbband-nav').find((b) => (b.getAttribute('aria-label') ?? '').includes(which))
-/** 卡片带那个横向滚动容器（`.ks-kbband-clip`）—— 滚动的真源是它的 `scrollLeft`。 */
-const bandClip = () => q('.ks-kbband-clip')[0]
-/** 标准 → P 土木、建筑 → P15/19… → P16 工程防火：**4 篇文件**的那一层（与渲染冒烟同一层）。 */
-const gotoStdLeaf = async () => {
-  await gotoCard('标准')
-  await click(cardNamed('标准'))
-  const s1 = q('.ks-dir-row').length
-  await click(dirNamed('P 土木、建筑'))
-  const s2 = q('.ks-dir-row').length
-  await click(dirNamed('P15/19'))
-  const s3 = q('.ks-dir-row').length
-  await click(dirNamed('P16 工程防火'))
-  const s4 = q('.ks-item').length
-  /* ⚠ 这一段 note 是**这轮踩坑换来的**：`P15/19` 那一级完整名字是
-     `P15/19 工程抗震、工程防火、人防工程`，所以 dirNamed 必须按**子串**匹配（见它的注释）。
-     留下逐步计数，是为了下次"下钻少了一层"时一眼看出断在哪一步。 */
-  notes.push(`gotoStdLeaf 逐步：卡后目录 ${s1} → P土木后 ${s2} → P15/19 后 ${s3} → P16 后文件行 ${s4}`
-    + `（当前面包屑「${crumbText()}」）`)
-  return q('.ks-item').length
+const treeLabels = () => q('.ks-tree-label').map((el) => (el.textContent ?? '').trim())
+const backBtn = () => q('.ks-back')[0]
+/** **回最外层**：点面包屑第 0 段（「知识库」）；已经在最外层时它是不可点的 `.ks-crumb-here` ⇒ 空操作。
+ * ⚠ 每个场景都**自成一体**（`--interact` 允许一次给多个场景，前一个可能把页带到很深的层）。 */
+const gotoRoot = async () => {
+  const go = q('.ks-crumb-go')[0]
+  if (go !== undefined) await click(go)
+  return { crumb: crumbText(), dirs: dirRows().length, atRoot: q('.ks-crumb-here')[0]?.textContent?.trim() === '知识库' }
 }
-/**
- * 确保处在「**文件**」页内视图。
- * ⚠ 为什么需要：`--interact` 可以一次给多个场景，前一个场景可能把页切到「标签」
- *   —— 标签视图里**没有目录层也没有表格**（`view === 'tags'` 那一支），后面的场景就会"找不到东西"。
- *   实测：串跑 `kb-tags-view,kb-enter-l2` 时后者报出空面包屑。点一下「文件」胶囊即可复原
- *   （重复点同一个胶囊是无害的幂等操作）。
- */
-const gotoFilesView = async () => {
-  const pill = q('.ks-subtabs button').find((b) => (b.textContent ?? '').trim() === '文件')
-  if (pill !== undefined) await click(pill)
-  return q('.ks-subtabs').length
-}
-/**
- * 把卡片带滚到**指定卡片可见**的位置。
- * ⚠ 5h-补（2026-09-20）**改写**：卡片带不再是"窗口切片 + 上一组/下一组"（那时"直接找卡"会
- *   因为**离屏的卡不在 DOM 里**而找不到），现在**全部卡片一次渲染**进一个横向滚动容器 ⇒
- *   卡永远在 DOM 里，只需要把容器滚到它跟前。
- * ⚠ 为什么仍保留这个 helper：`--interact` 可以一次给多个场景，前一个场景可能已经把带滚到末尾
- *   —— 每个场景要**自成一体**，不看前一个场景的脸色（这条纪律没变）。
- * ⚠ `scrollIntoView` 在 jsdom 里**是 no-op**（没有布局）；这里**不靠它**，只调一次，
- *   真正的确保交给"卡在 DOM 里"这一事实 —— 本脚本要的是**真 Chrome 里**的滚动位置。
- */
-const gotoCard = async (name) => {
-  await gotoFilesView()
-  const clip = bandClip()
-  if (clip !== undefined) clip.scrollLeft = 0
-  const card = cardNamed(name)
-  if (card !== undefined && typeof card.scrollIntoView === 'function') card.scrollIntoView()
-  await flush()
-  return { found: card !== undefined, left: clip === undefined ? null : Math.round(clip.scrollLeft) }
-}
-/**
- * 点右箭头一路滚到底（到"尾"⇒ 右箭头 disabled）。
- * ⚠ 5h-补：真 Chrome 里这一步**真的会改 `scrollLeft`**（jsdom 预渲染那趟不会，见下面的注释），
- *   所以它的 note 顺便报出 `scrollLeft/scrollWidth/clientWidth` —— 那就是"能滚 + 有滚动条"的证据。
- */
-const gotoBandEnd = async () => {
-  let guard = 0
-  while (guard < 20 && navNamed('下一张') !== undefined && navNamed('下一张').disabled === false) {
-    await click(navNamed('下一张'))
-    guard += 1
+/** 从**最外层**往下走一串目录名（每一步都真的点右侧那一行；走不通就停）。 */
+const gotoPath = async (names) => {
+  await gotoRoot()
+  const trail = []
+  for (const n of names) {
+    const row = dirNamed(n)
+    if (row === undefined) break
+    await click(row)
+    trail.push(n)
   }
-  return guard
+  return trail
+}
+/**
+ * **标准 → P16 工程防火**：4 篇文件的那一层（`smoke-kb-cols.mjs` 的列对齐三档与
+ * `ui-badge-pixels.mjs` 的徽章像素**必须**先走到这里 —— 它们验的是表格/徽章）。
+ */
+const gotoStdLeaf = async () => {
+  const trail = await gotoPath(['标准', 'P16 工程防火'])
+  notes.push(`gotoStdLeaf 逐步：走了 ${trail.join(' / ')}`
+    + `（文件行 ${fileRows().length}、目录行 ${dirRows().length}、面包屑「${crumbText()}」）`)
+  return fileRows().length
 }
 for (const how of interacts) {
   if (how === 'kb-files') {
-    // **5h 新增**：把页面开到"标准 / P 土木、建筑 / P15/19… / P16 工程防火"（4 行文件 + 表头）。
-    // 这是 `smoke-kb-cols.mjs`（列对齐三档）与 `ui-badge-pixels.mjs`（徽章像素）**必须**先走的一步
-    // —— 它们验的是**表格/徽章**，而默认态现在停在目录层（业主本轮定的 IA）。
+    /* 把页面开到「标准 / P16 工程防火」（4 行文件 + 1 个文件表头）。
+       这是 `smoke-kb-cols.mjs`（列对齐三档）与 `ui-badge-pixels.mjs`（徽章像素）**必须**先走的一步
+       —— 它们验的是表格/徽章，而默认态停在**最外层**（只有目录行）。 */
     const rows = await gotoStdLeaf()
-    mustLand(rows === 4 && q('.ks-lhead').length === 1, `kb-files 只下钻到 ${rows} 行（期望 4 行 + 1 个表头）`)
-    notes.push(`kb-files: 下钻到「标准 / P 土木、建筑 / P15/19… / P16 工程防火」`
-      + ` → 文件行 ${rows} 行、表头 ${q('.ks-lhead').length} 个、返回上一级 ${q('.ks-back').length} 个`
+    mustLand(rows === 4 && q('.ks-list .ks-lhead').length === 1 && q('.ks-list-dirs').length === 0,
+      `kb-files 只下钻到 ${String(rows)} 行（期望 4 行 + 1 个文件表头 + 0 个目录层）`)
+    notes.push(`kb-files: 走到「标准 / P16 工程防火」 → 文件行 ${String(rows)}、`
+      + `文件表头 ${String(q('.ks-list .ks-lhead').length)}、目录层 ${String(q('.ks-list-dirs').length)}`
       + `，面包屑「${crumbText()}」`)
-  } else if (how === 'kb-band-end') {
-    // **5h 新增 / 5h-补 改口径**（业主："一个小框下面自带一个左右翻页滑动条"）：
-    // 现在"到尾"= 横向滚动容器滚到最右 ⇒ 图上应该看到**卡片真的位移了**、右箭头置灰、左箭头可用。
-    const before = bandClip() === undefined ? null : Math.round(bandClip().scrollLeft)
-    const clicks = await gotoBandEnd()
-    const clip = bandClip()
-    // ⚠ 落地判据见 `mustLand` 的注释：jsdom 里滚不动是**环境事实**，这里只钉"带和 5 张卡真的在"。
-    mustLand(clip !== undefined && q('.ks-kb-cards .ks-kb-card').length === 5,
-      `kb-band-end 找不到卡片带或卡片不是 5 张（卡 ${q('.ks-kb-cards .ks-kb-card').length} 张、点击 ${clicks} 次）`)
-    notes.push(`kb-band-end: 点了 ${clicks} 次「下一张」 → scrollLeft ${String(before)} → `
-      + `${String(clip === undefined ? null : Math.round(clip.scrollLeft))}`
-      + `（scrollWidth=${String(clip?.scrollWidth)} clientWidth=${String(clip?.clientWidth)}`
-      + ` ⇒ 可滚 ${String(clip === undefined ? null : clip.scrollWidth - clip.clientWidth)}）`
-      + `、右箭头 disabled=${String(navNamed('下一张')?.disabled)}、左箭头 disabled=${String(navNamed('上一张')?.disabled)}`
-      + `，带里 5 张卡 ${q('.ks-kb-cards .ks-kb-card').map((el) => (el.querySelector('.ks-kb-ct')?.textContent ?? '').trim()).join('/')}`)
-  } else if (how === 'kb-band-start') {
-    // 滚回最左（左箭头应置灰）——与 kb-band-end 配对，用来对照"置灰"确实是状态而不是恒灰。
-    await gotoBandEnd()
-    let guard = 0
-    while (guard < 20 && navNamed('上一张') !== undefined && navNamed('上一张').disabled === false) {
-      await click(navNamed('上一张'))
-      guard += 1
-    }
-    const clip = bandClip()
-    mustLand(clip !== undefined && q('.ks-kb-cards .ks-kb-card').length === 5,
-      `kb-band-start 找不到卡片带或卡片不是 5 张（卡 ${q('.ks-kb-cards .ks-kb-card').length} 张）`)
-    notes.push(`kb-band-start: 滚回最左（点了 ${guard} 次「上一张」）→ 左箭头 disabled=${String(navNamed('上一张')?.disabled)}`
-      + `，scrollLeft=${String(clip === undefined ? null : Math.round(clip.scrollLeft))}`
-      + `，带里 5 张卡 ${q('.ks-kb-cards .ks-kb-card').map((el) => (el.querySelector('.ks-kb-ct')?.textContent ?? '').trim()).join('/')}`)
-  } else if (how === 'kb-enter-law') {
-    // **5h 新增**：点「法律法规」卡 = 进入该库，看它的**一级目录**（法律 / 行政法规）。
-    const g = await gotoCard('法律法规')
-    const ok = await click(cardNamed('法律法规'))
-    mustLand(ok && q('.ks-dir-row').length === 2, `kb-enter-law ${ok ? '点了卡' : '没找到卡（gotoCard found=' + String(g.found) + '）'}`
-      + ` 但一级目录只有 ${q('.ks-dir-row').length} 张（期望 2）`)
-    notes.push(`kb-enter-law: ${ok ? '点了「法律法规」卡' : '没找到卡'}`
-      + ` → 一级目录 ${q('.ks-dir-row').map((el) => (el.querySelector('.ks-col-dname .ks-dir-name')?.textContent ?? '').trim()).join('/')}`
-      + `，文件行 ${q('.ks-item').length}，返回上一级 ${q('.ks-back').length} 个`
-      + `，面包屑「${crumbText()}」`)
+  } else if (how === 'kb-level') {
+    /* 进**法律法规**那一级：它有 **1 个下级目录 + 1 篇文件**（两种行同时在 DOM 里）。
+       这一跑同时是 `levelCheck`（左列与右栏并排 + 两类行高逐字相同）的取证场景。 */
+    const trail = await gotoPath(['法律法规'])
+    mustLand(trail.length === 1 && dirRows().length === 1 && fileRows().length === 1
+      && q('.ks-list-dirs').length === 1 && q('.ks-list:not(.ks-list-dirs)').length === 1,
+      `kb-level 没走到"两种行同时在"的那一级：走过 ${trail.join('/')}、目录行 ${String(dirRows().length)}、`
+      + `文件行 ${String(fileRows().length)}`)
+    notes.push(`kb-level: 走到「法律法规」 → 目录行 ${String(dirRows().length)}（${dirRows().map(dirNameOf).join(',')}）`
+      + ` + 文件行 ${String(fileRows().length)}、面包屑「${crumbText()}」、`
+      + `左列当前级「${q('.ks-tree-row[data-on="true"] .ks-tree-label').map((el) => el.textContent).join(',')}」`)
   } else if (how === 'kb-crumb') {
-    /* ⚠⚠ **2026-09-20 头条新增**（业主：「这种路径要**每一级都能点击跳转**」）。
-     * 为什么必须补：本批之前面包屑是**一整行纯文本** ⇒ "每一级能不能点"在**真 Chrome** 里
-     *   没有任何断言（`kb-enter-l2` 只逐字比了那一行的 textContent）。这一条走**完整一跳**：
-     *   下钻到「法律法规 / 法律 / 宪法与行政法」（3 级）⇒ 点面包屑**第 1 级**（「法律」）
-     *   ⇒ 必须回到"法律 / 宪法与行政法"那一层（1 行目录 = 宪法与行政法），且当前级变成「法律」。
-     *   ⚠ 与渲染冒烟那一组**不重复**：那边在 jsdom 里判结构与行为，这边在真浏览器里判
-     *   **真的点得动**（命中区/叠放次序/`pointer-events` 这类只有真布局才会暴露的问题）。
-     * ⚠ 判据按"真控件"：可点级别必须是 `<button>`（键盘可达），当前级必须是**不可点**的。 */
-    await gotoCard('法律法规')
-    await click(cardNamed('法律法规'))
-    await click(dirNamed('法律'))
-    await click(dirNamed('宪法与行政法'))
+    /* 面包屑**逐级可点**（业主：「这种路径要每一级都能点击跳转」）。
+       本批改成真树之后走的是「法律法规 → 宪法与行政法」（2 级）⇒ 面包屑 3 段：
+       「知识库 / 法律法规 / 宪法与行政法」，前两段是可点的 `<button>`，末段是**不可点**的当前级。
+       判据与旧版**逐字一致**（可点级别必须是 button、当前级必须不是、点第 i 级真的回到第 i 层），
+       只是路径换成真树的那一条。 */
+    await gotoPath(['法律法规', '宪法与行政法'])
     const btns = q('.ks-crumb-go')
     const here = q('.ks-crumb-here')
     const btnsText = btns.map((el) => (el.textContent ?? '').trim()).join('/')
     const hereText = here.map((el) => (el.textContent ?? '').trim()).join('/')
-    const dirsBefore = q('.ks-dir-row').length
-    const clicked = btns.length > 1 ? await click(btns[1]) : false   // 第 1 级 = 「法律」
-    const dirsAfter = q('.ks-dir-row').map((el) => (el.querySelector('.ks-col-dname .ks-dir-name')?.textContent ?? '').trim()).join('/')
-    const hereAfter = q('.ks-crumb-here').map((el) => (el.textContent ?? '').trim()).join('/')
+    const dirsBefore = dirRows().length
+    const filesBefore = fileRows().length
+    const clicked = btns.length > 1 ? await click(btns[1]) : false   // 第 1 段 = 「法律法规」
+    /* ⚠⚠ **必须重新查一次 DOM**（本批实测踩到）：`here` 是**点击前**的 NodeList —— React 重渲染后
+       读它的 `textContent` 可能还是旧文本（快照）⇒ 拿它判"当前级变没变"会**假红**
+       （实测报「点第 1 段 true 后：当前级仍是宪法与行政法」，而同一跳的 `dirsAfter` 已经
+       是「法律法规」的下级目录了 —— 页面其实已经切过去了）。 */
+    const hereNow = q('.ks-crumb-here')
+    const hereAfter = hereNow.map((el) => (el.textContent ?? '').trim()).join('/')
+    const dirsAfter = dirRows().map(dirNameOf).join(',')
     mustLand(btns.every((el) => el.tagName === 'BUTTON')
       && here.length === 1 && here[0].tagName !== 'BUTTON'
-      && btnsText === '法律法规/法律' && hereText === '宪法与行政法'
-      && clicked === true && dirsBefore === 1 && dirsAfter === '宪法与行政法' && hereAfter === '法律',
+      && btnsText === '知识库/法律法规' && hereText === '宪法与行政法'
+      && clicked === true && dirsBefore === 0 && filesBefore === 2
+      && dirsAfter.includes('宪法与行政法') && hereAfter === '法律法规',
       `kb-crumb 面包屑跳转不成立：可点条目 [${btnsText}]（都是 button=${String(btns.every((el) => el.tagName === 'BUTTON'))}）`
       + `、当前级「${hereText}」（不是 button=${String(here[0]?.tagName !== 'BUTTON')}）`
-      + `；点第 1 级 ${String(clicked)} 后：当前级「${hereAfter}」（期望「法律」）、`
-      + `目录行 ${dirsBefore} → ${dirsAfter}（期望「宪法与行政法」）`)
-    notes.push(`kb-crumb: 下钻到「法律法规 / 法律 / 宪法与行政法」（目录行 ${dirsBefore} 行）`
+      + `；点第 1 段 ${String(clicked)} 后：当前级「${hereAfter}」（期望「法律法规」）、`
+      + `这一级目录 ${dirsAfter}（期望含「宪法与行政法」）`)
+    notes.push(`kb-crumb: 下钻到「法律法规 / 宪法与行政法」（文件行 ${String(filesBefore)} 行）`
       + `，面包屑可点 [${btnsText}] + 当前级「${hereText}」`
-      + ` → 点第 1 级「法律」：当前级「${hereAfter}」、这一层目录 ${dirsAfter}`)
-  } else if (how === 'kb-enter-l2') {
-    // **5h 新增**：进**二级目录**（法律法规 → 法律 ⇒ 宪法与行政法）——业主点名要的状态：
-    // 「进入二级目录就自动出现返回上一级的按钮」。图上应该有「← 返回上一级」+ 面包屑「法律法规 / 法律」。
-    await gotoCard('法律法规')
-    await click(cardNamed('法律法规'))
-    await click(dirNamed('法律'))
-    const l2Crumb = crumbText()
-    // ⚠ 这条正是复核第 3 组串跑（`kb-tags-view,kb-enter-l2`）打回的地方：面包屑曾是 **空串**。
-    //   落地判据因此**逐字钉面包屑**（不是"有目录层就算数"）。
-    mustLand(l2Crumb === '法律法规/法律' && q('.ks-dir-row').length === 1,
-      `kb-enter-l2 没到二级目录：面包屑「${l2Crumb}」（期望「法律法规/法律」）、目录卡 ${q('.ks-dir-row').length} 张（期望 1）`)
-    notes.push(`kb-enter-l2: 点了「法律法规」卡 → 一级目录「法律」`
-      + ` → 二级目录 ${q('.ks-dir-row').map((el) => (el.querySelector('.ks-col-dname .ks-dir-name')?.textContent ?? '').trim()).join('/')}`
-      + `，返回上一级 ${q('.ks-back').length} 个`
-      + `，面包屑「${l2Crumb}」`)
+      + ` → 点第 1 段「法律法规」：当前级「${hereAfter}」、这一级目录 ${dirsAfter}`)
   } else if (how === 'kb-back') {
-    // **5h 新增**：二级目录 → 点「返回上一级」⇒ 回到一级目录层、按钮**消失**。
-    await gotoCard('法律法规')
-    await click(cardNamed('法律法规'))
-    await click(dirNamed('法律'))
-    const before = q('.ks-back').length
-    await click(q('.ks-back')[0])
-    const backDirs = q('.ks-dir-row').map((el) => (el.querySelector('.ks-col-dname .ks-dir-name')?.textContent ?? '').trim()).join('/')
-    // 从「法律法规 → 法律」返回 ⇒ 回到**库根**（法律 / 行政法规 **2 张**）、返回按钮消失。
-    mustLand(before === 1 && q('.ks-dir-row').length === 2 && q('.ks-back').length === 0,
-      `kb-back 没回到库根：返回按钮 ${before} → ${q('.ks-back').length} 个、目录卡 ${q('.ks-dir-row').length} 张（期望 2 张、0 个按钮）`)
-    notes.push(`kb-back: 二级目录（返回按钮 ${before} 个）→ 点「返回上一级」`
-      + ` → 目录 ${backDirs}`
-      + `，返回上一级 ${q('.ks-back').length} 个`
-      + `，面包屑「${crumbText()}」`)
+    /* 「← 返回上一层」：从二级目录点一下 ⇒ 回到上一级；且**最外层时按钮 disabled**
+       （旧版是"按钮消失"，新形态是"按钮在但置灰 + 明确说你在最外层" —— 判据跟着改成新行为）。 */
+    await gotoPath(['法律法规', '宪法与行政法'])
+    const before = backBtn()?.disabled
+    await click(backBtn())
+    const midCrumb = crumbText()
+    const midDirs = dirRows().length
+    await click(backBtn())
+    const rootCrumb = crumbText()
+    const rootDirs = dirRows().length
+    const rootDisabled = backBtn()?.disabled
+    mustLand(before === false && midCrumb === '知识库/法律法规' && midDirs === 1
+      && rootCrumb === '知识库' && rootDirs === 4 && rootDisabled === true,
+      `kb-back 没逐级退回：起手 disabled=${String(before)}（期望 false）；`
+      + `退一级后 面包屑「${midCrumb}」（期望「知识库/法律法规」）目录 ${String(midDirs)}（期望 1）；`
+      + `再退一级后 面包屑「${rootCrumb}」（期望「知识库」）目录 ${String(rootDirs)}（期望 4）`
+      + ` 返回 disabled=${String(rootDisabled)}（期望 true）`)
+    notes.push(`kb-back: 二级目录（返回 disabled=${String(before)}）→ 点「返回上一层」→ 面包屑「${midCrumb}」`
+      + `、目录 ${String(midDirs)} 行 → 再点一次 → 面包屑「${rootCrumb}」、目录 ${String(rootDirs)} 行、`
+      + `返回 disabled=${String(rootDisabled)}（最外层）`)
   } else if (how === 'kb-detail') {
-    // ⚠ P1-1（2026-09-20）改道：行内的常驻「详情」按钮没了（收进行尾「⋮」溢出菜单）
-    //   ⇒ 先点第一行的「⋮」，再点菜单里的「详情」。旧写法（button[aria-label^="打开"]）
-    //   在改版后永远找不到按钮、只回一句"没找到按钮"——那种"静默没做成"正是本脚本要避免的。
-    // ⚠ 5h（2026-09-20）：**先下钻到文件层**（默认态现在是目录层，没有行可点）。
+    /* 整行可点 → 详情（业主 2026-09-21 定）。
+       ⚠ 本批**勾选框已撤**：分流规则只剩"按钮/菜单不处理，其余任意处打开详情"。
+       这里点的是**生效日期那一格**（非交互处）——正是"整行可点"的取证点。 */
     const rows = await gotoStdLeaf()
-    const row = q('.ks-item')[0]
-    const more = row?.querySelector('.ks-item-more button')
-    const opened = await click(more)
-    const item = opened
-      ? [...document.querySelectorAll('[role=menuitem]')].find((el) => (el.textContent ?? '') === '详情')
-      : null
-    const done = item ? await click(item) : false
-    mustLand(done && q('.ks-detail .ks-kb-card').length === 1,
-      `kb-detail 没打开详情卡（下钻 ${rows} 行／⋮ ${String(opened)}／菜单项 ${String(item !== null)}／详情卡 ${q('.ks-detail .ks-kb-card').length} 张）`)
-    notes.push(`kb-detail: 先下钻（文件行 ${rows} 行）→ ${opened ? '点了第一行的「⋮」' : '没找到「⋮」'}`
-      + ` → ${done ? '点了菜单里的「详情」' : '没找到菜单项'}`
-      + `，详情卡 ${q('.ks-detail .ks-kb-card').length} 张`)
-  } else if (how === 'kb-filter') {
-    // P1-4 验收：筛选**真的作用在页面状态上**。点「已废止」胶囊，报出筛选前后的行数。
-    // ⚠ 5h：先下钻到文件层（4 行里 1 行是已废止 ⇒ 筛选后应剩 1 行）。
-    await gotoStdLeaf()
-    const before = q('.ks-item').length
-    const chip = byText('.ks-chip', '已废止')
-    const ok = await click(chip)
-    mustLand(ok && before === 4 && q('.ks-item').length === 1,
-      `kb-filter 没筛出 1 行（胶囊 ${String(ok)}／行数 ${before} → ${q('.ks-item').length}）`)
-    notes.push(`kb-filter: ${ok ? '点了「已废止」胶囊' : '没找到胶囊'}`
-      + ` → 行数 ${before} → ${q('.ks-item').length}`
-      + `，空态卡 ${q('.ks-empty-card').length} 张`)
-  } else if (how === 'kb-filter-empty') {
-    // 筛选到 **0 行** ⇒ 看"被筛没了"的那一支空态（P1-4 的两种空之一）。
-    // 怎么造出 0 行：先切到只有现行件的「供应商资料」（1 篇，status=current），
-    // 再点「已废止」⇒ 0 行。这是**页面状态**真的生效的证据，不是画出来的。
-    // ⚠ 5h-补：卡片**全部在 DOM 里**（不再有"最后一屏"这回事）⇒ gotoCard 只把带滚回最左，
-    //   "供应商资料"这张卡本来就在 DOM 里，直接点即可（滚动位置不影响点击）。
-    const g = await gotoCard('供应商资料')
-    const folder = cardNamed('供应商资料')
-    const moved = await click(folder)
-    const before = q('.ks-item').length
-    const chip = byText('.ks-chip', '已废止')
-    const ok = await click(chip)
-    mustLand(moved && ok && before === 1 && q('.ks-item').length === 0 && q('.ks-empty-card').length === 1,
-      `kb-filter-empty 没造出空态（卡 ${String(moved)}／胶囊 ${String(ok)}／行数 ${before} → ${q('.ks-item').length}`
-      + `／空态卡 ${q('.ks-empty-card').length} 张）`)
-    notes.push(`kb-filter-empty: 先滚回带首（scrollLeft=${String(g.left)}、found ${String(g.found)}） → ${moved ? '点「供应商资料」卡' : '没找到卡'}`
-      + ` → 行数 ${before} → ${q('.ks-item').length}`
-      + `，空态卡 ${q('.ks-empty-card').length} 张`
-      + `，空态标题「${q('.ks-empty-t').map((el) => el.textContent).join('|')}」`)
+    const row = fileRows()[2]
+    await click(row?.querySelector('.ks-col-date'))
+    const card = q('.ks-detail .ks-kb-card').length
+    const text = q('.ks-detail')[0]?.textContent ?? ''
+    mustLand(card === 1 && text.includes('自动喷水灭火系统设计规范') && text.includes('GB 50084-2017'),
+      `kb-detail 没打开**那一篇**的详情（下钻 ${String(rows)} 行／详情卡 ${String(card)} 张／`
+      + `内容「${text.slice(0, 50)}」）`)
+    notes.push(`kb-detail: 走到文件层（${String(rows)} 行）→ 点第 3 行的**生效日期格**`
+      + ` → 详情卡 ${String(card)} 张，「${text.slice(0, 40)}…」`)
   } else if (how === 'kb-search') {
-    // P2 头条验收：**搜索框真的过滤**（不是画个壳）。
-    // ⚠ 5h：先下钻到文件层。⚠ 5i：文件层这一支的**位置与行为都没变**；目录层新加了同一个框
-    //   （见下面 `kb-search-dirs`）。
+    /* 搜索框**真的过滤**（不是画个壳）：五步取证 —— 初始 → 按标准号 → 按名称 → 不存在的串（空态）
+       → 清空恢复。受控 input 必须走**原生 setter**（直接 el.value = x 会被 React 的 value tracker
+       判成"没变化"而不触发 onChange —— 渲染冒烟第一版就是这么失败的）。 */
     await gotoStdLeaf()
-
-    // 分三步取证：① 输入只命中 1 行的串 ⇒ 行数真的变 1；② 只命中名称的串 ⇒ 也是 1；
-    // ③ 清空 ⇒ 恢复原行数。受控 input 必须走**原生 setter**（直接 el.value = x 会被
-    // React 的 value tracker 判成"没变化"而不触发 onChange —— 渲染级冒烟第一版就是这么失败的）。
     const box = q('.ks-search input')[0]
     if (!box) {
       mustLand(false, 'kb-search 没找到 .ks-search 里的输入框（这一条不判 = 失败，不是通过）')
       notes.push('kb-search: 没找到 .ks-search 里的输入框')
     } else {
-      const before = q('.ks-item').length
+      const before = fileRows().length
       await setSearchInput(box, 'GB 50016-2014')
-      const byNo = q('.ks-item').length
+      const byNo = fileRows().length
       await setSearchInput(box, '喷水')
-      const byName = q('.ks-item').length
+      const byName = fileRows().length
       await setSearchInput(box, '搜索一个不存在的串')
-      const none = q('.ks-item').length
-      const emptyCard = q('.ks-empty-t').map((el) => el.textContent).join('|')
+      const none = fileRows().length
+      const emptyTitle = q('.ks-empty-t').map((el) => el.textContent).join('|')
       await setSearchInput(box, '')
-      const after = q('.ks-item').length
+      const after = fileRows().length
       mustLand(before === 4 && byNo === 1 && byName === 1 && none === 0 && after === 4,
-        `kb-search 过滤不成立：行数 初始 ${before}（期望 4）→ 标准号 ${byNo}（1）→ 名称 ${byName}（1）`
-        + ` → 不存在 ${none}（0）→ 清空 ${after}（4）`)
-      notes.push(`kb-search: 行数 初始 ${before} → 标准号「GB 50016-2014」${byNo}`
-        + ` → 名称「喷水」${byName} → 不存在「搜索一个不存在的串」${none}（空态「${emptyCard}」）`
-        + ` → 清空 ${after}`)
-      // 收尾**停在"筛出 1 行"的状态**（不是清空态）：这样这张图本身就是"搜索真的生效"的像素证据
-      // （图上搜索框里有字、表里只剩 1 行）。清空那一步的证据在上面那条 note 里（行数回到 before）。
+        `kb-search 过滤不成立：行数 初始 ${String(before)}（期望 4）→ 标准号 ${String(byNo)}（1）`
+        + ` → 名称 ${String(byName)}（1）→ 不存在 ${String(none)}（0）→ 清空 ${String(after)}（4）`)
+      notes.push(`kb-search: 行数 初始 ${String(before)} → 标准号「GB 50016-2014」${String(byNo)}`
+        + ` → 名称「喷水」${String(byName)} → 不存在「搜索一个不存在的串」${String(none)}（空态「${emptyTitle}」）`
+        + ` → 清空 ${String(after)}`)
+      // 收尾**停在"筛出 1 行"的状态**：这张图本身就是"搜索真的生效"的像素证据。
       await setSearchInput(box, '喷水')
       notes.push(`kb-search（收尾）: 搜索框留在「喷水」⇒ 图上是 1 行`
-        + `（体量 ${q('.ks-item').length} / 表头 ${q('.ks-lhead').length}）`)
+        + `（文件行 ${String(fileRows().length)} / 表头 ${String(q('.ks-lhead').length)}）`)
     }
   } else if (how === 'kb-search-dirs') {
-    /* **5i 新增**（业主 2026-09-20 只说"搜索框：保留"、未限定层级 ⇒ 按最强解释"每层常驻"）：
-     * 库根（一级目录层）也用**同一个搜索框**过滤，过滤对象是**目录名**。
-     * 这一跑停在"框里有词 + 目录被筛到 1 张"的状态 ⇒ 这一张图就是"目录层有搜索框且真的过滤"的证据。
-     * ⚠ 判据：3 张一级目录 → 「环境」1 张（Z 环境保护）→ 清空回 3 张；每一步都打印实际张数。 */
-    await gotoCard('标准')
-    await click(cardNamed('标准'))
+    /* **目录层**的搜索：过滤对象是**目录名**（同一个框，每层常驻）。
+       这一跑停在"框里有词 + 目录被筛到 1 行"的状态 ⇒ 这张图就是"目录层有搜索框且真的过滤"的证据。 */
+    await gotoPath(['标准'])
     const box = q('.ks-search input')[0]
-    const all = q('.ks-dir-row').length
+    const all = dirRows().length
     if (!box) {
-      mustLand(false, 'kb-search-dirs 目录层没有 .ks-search 输入框（每一层常驻是本轮的验收）')
+      mustLand(false, 'kb-search-dirs 目录层没有 .ks-search 输入框（每一层常驻是验收）')
       notes.push('kb-search-dirs: 目录层没找到 .ks-search 里的输入框')
     } else {
-      await setSearchInput(box, '环境')
-      const hit = q('.ks-dir-row').length
-      const hitName = q('.ks-col-dname .ks-dir-name').map((el) => (el.textContent ?? '').trim()).join('/')
+      await setSearchInput(box, 'P16')
+      const hit = dirRows().length
+      const hitName = dirRows().map(dirNameOf).join('/')
       await setSearchInput(box, '')
-      const restored = q('.ks-dir-row').length
-      mustLand(all === 3 && hit === 1 && hitName.includes('Z 环境保护') && restored === 3,
-        `kb-search-dirs 目录名过滤不成立：目录 ${all}（期望 3）→「环境」${hit}（1）→ 清空 ${restored}（3）`)
-      notes.push(`kb-search-dirs: 库根目录 ${all} 张 →「环境」${hit} 张（${hitName}）→ 清空 ${restored} 张；`
-        + `面包屑「${crumbText()}」、子目录计数「${q('.ks-crumb-n').map((el) => el.textContent).join('')}」`)
-      // 收尾停在"被筛到 1 张"那一态：图上要看得到**目录层的搜索框**（不是空表）。
-      await setSearchInput(box, '环境')
-      notes.push(`kb-search-dirs（收尾）: 框里留在「环境」⇒ 图上是 1 张目录卡`
-        + `（目录 ${q('.ks-dir-row').length} 张 / 文件行 ${q('.ks-item').length}）`)
+      const restored = dirRows().length
+      mustLand(all === 1 && hit === 1 && hitName.includes('P16 工程防火') && restored === 1,
+        `kb-search-dirs 目录名过滤不成立：目录 ${String(all)}（期望 1）→「P16」${String(hit)}（1）→ 清空 ${String(restored)}（1）`)
+      notes.push(`kb-search-dirs: 「标准」这一级目录 ${String(all)} 行 →「P16」${String(hit)} 行（${hitName}）→ 清空 ${String(restored)} 行；`
+        + `面包屑「${crumbText()}」、右侧计数「${q('.ks-crumb-n').map((el) => el.textContent).join('')}」`)
+      await setSearchInput(box, 'P16')
+      notes.push(`kb-search-dirs（收尾）: 框里留在「P16」⇒ 图上是 1 行目录`
+        + `（目录 ${String(dirRows().length)} 行 / 文件行 ${String(fileRows().length)}）`)
     }
   } else if (how === 'kb-search-dirs-empty') {
-    /* **5i 新增**：目录层搜索**没命中** ⇒ 专门的空态「没有符合搜索的目录」+「清除搜索」
-     * （不复用文件层那句"没有符合筛选或搜索的文件"）。图上要看到那个空态卡与框里的词。 */
-    await gotoCard('标准')
-    await click(cardNamed('标准'))
+    /* 目录层搜索**没命中** ⇒ 专门的空态「这一层没有符合搜索的条目」+「清除搜索」
+       ⚠ 本批把两种空**分开**：这一条判的是"被搜索筛没了"，不是"这一层本来就没东西"（下面 kb-empty）。 */
+    await gotoPath(['标准'])
     const box = q('.ks-search input')[0]
     if (!box) {
       mustLand(false, 'kb-search-dirs-empty 目录层没有 .ks-search 输入框')
       notes.push('kb-search-dirs-empty: 目录层没找到 .ks-search 里的输入框')
     } else {
       await setSearchInput(box, '不存在的目录')
-      const dirs = q('.ks-dir-row').length
+      const dirs = dirRows().length
       const title = q('.ks-empty-t').map((el) => el.textContent).join('|')
-      mustLand(dirs === 0 && title === '没有符合搜索的目录',
-        `kb-search-dirs-empty 空态不对：目录 ${dirs} 张（期望 0）、空态标题「${title}」（期望「没有符合搜索的目录」）`)
-      notes.push(`kb-search-dirs-empty: 框里「不存在的目录」⇒ 目录 ${dirs} 张、空态标题「${title}」、`
+      mustLand(dirs === 0 && title === '这一层没有符合搜索的条目',
+        `kb-search-dirs-empty 空态不对：目录 ${String(dirs)} 行（期望 0）、空态标题「${title}」（期望「这一层没有符合搜索的条目」）`)
+      notes.push(`kb-search-dirs-empty: 框里「不存在的目录」⇒ 目录 ${String(dirs)} 行、空态标题「${title}」、`
         + `清除按钮 ${byText('.ks-empty-card button', '清除搜索') !== undefined ? '在' : '不在'}`)
     }
-  } else if (how === 'kb-select') {
-    // ⚠ 5h：先下钻到文件层（要选的是**文件行**的勾选框）。
-    const rows = await gotoStdLeaf()
-    const box = q('input[type=checkbox]')[0]
-    mustLand(rows === 4 && box !== undefined, `kb-select 没走到文件层或没有勾选框（行 ${rows}／框 ${String(box !== undefined)}）`)
-    notes.push(`kb-select: 先下钻（文件行 ${rows} 行）→ ${await click(box) ? '点了全选' : '没找到勾选框'}`
-      + ` → 批量条 ${q('.ks-batch').length} 条`)
+  } else if (how === 'kb-empty') {
+    /* **真的空目录**（stub 里「空目录」那一支：既没有下级目录也没有文件）⇒ 如实说"这一层还没有东西"。
+       ⚠ 与 `kb-search-dirs-empty` 判的是**两种不同的空**，两条都要有（旧版那条"下钻 → 全选 → 批量删除"
+       已随批量动作撤除，替代品比它更直接：库里的空目录本来就存在）。 */
+    await gotoPath(['空目录'])
+    const title = q('.ks-empty-t').map((el) => el.textContent).join('|')
+    mustLand(dirRows().length === 0 && fileRows().length === 0 && q('.ks-empty-card').length === 1
+      && title === '这一层还没有东西',
+      `kb-empty 没拿到"本来就没东西"那一支空态：目录 ${String(dirRows().length)} 行／文件 ${String(fileRows().length)} 行／`
+      + `空态卡 ${String(q('.ks-empty-card').length)} 张／标题「${title}」`)
+    notes.push(`kb-empty: 进「空目录」 → 目录 ${String(dirRows().length)} 行、文件 ${String(fileRows().length)} 行、`
+      + `空态卡 ${String(q('.ks-empty-card').length)} 张、标题「${title}」`)
+  } else if (how === 'kb-page') {
+    /* **后端分页**（本批新增的界面口）：120 篇那一级 ⇒ 第一页 50 行 + 分页条；
+       点「下一页」⇒ 还是 50 行、页码文字变成第 2 页（真 Chrome 里量**布局后**的行数）。 */
+    await gotoPath(['大批量'])
+    const first = fileRows().length
+    const pager = q('.ks-pager-n')[0]?.textContent ?? ''
+    const next = q('.ks-pager-btn')[1]
+    const clicked = await click(next)
+    const second = fileRows().length
+    const pager2 = q('.ks-pager-n')[0]?.textContent ?? ''
+    mustLand(first === 50 && pager.includes('第 1 / 3 页') && clicked === true
+      && second === 50 && pager2.includes('第 2 / 3 页'),
+      `kb-page 分页不成立：第一页 ${String(first)} 行（期望 50）、分页条「${pager}」（期望含「第 1 / 3 页」）；`
+      + `点下一页 ${String(clicked)} 后 ${String(second)} 行（期望 50）、分页条「${pager2}」（期望含「第 2 / 3 页」）`)
+    notes.push(`kb-page: 「大批量」第一页 ${String(first)} 行、分页条「${pager.trim()}」`
+      + ` → 点「下一页」 → ${String(second)} 行、分页条「${pager2.trim()}」`)
+  } else if (how === 'kb-upload') {
+    /* **每级上传**的入口（本批新增）：点开面板 ⇒ 来源目录默认填 host 的「待入库」目录，
+       并且**如实写着这一层导入会落在哪儿**（最外层 = 留在最外层 / 目录里 = 直接放进这一级）。
+       ⚠ 这里**不点「导入到这一层」**：那会真的走引擎的真导入（`/api/v1/ingest/bulk`），
+         而本脚本要的是一张**面板的图**；导入链路的断言在渲染冒烟（带 fetch 桩）里逐条钉着。 */
+    await gotoPath(['标准'])
+    await click(q('.ks-upload-open')[0])
+    const dir = q('.ks-upload-dir input')[0]?.value ?? ''
+    const note = q('.ks-upload-note')[0]?.textContent ?? ''
+    /* ⚠ 这里**只要求来源目录被填上了非空值**（它来自同源 `/ks/ingest/inbox-default` 的 `data.dir`）——
+       不把那个绝对路径**钉死**：那是 host 按本机数据目录给的（本脚本的桩给的是
+       `D:\KnowledgeStation\inbox`，真机给的是「待入库」），钉死就是拿桩的常量当规范。 */
+    mustLand(q('.ks-upload').length === 1 && dir.trim().length > 0
+      && note.includes('标准') && note.includes('不会进自动识别'),
+      `kb-upload 面板不成立：面板 ${String(q('.ks-upload').length)} 个、来源目录「${dir}」、`
+      + `说明「${note.slice(0, 60)}」`)
+    notes.push(`kb-upload: 进「标准」→ 点「上传到这一层」→ 面板 ${String(q('.ks-upload').length)} 个、`
+      + `来源目录「${dir}」、说明「${note.trim().slice(0, 60)}…」`)
   } else if (how === 'ingest-batch') {
     const ok = await click(byText('button', '开始预览'))
     const batchRows = q('button').filter((b) => /\.pdf$/.test((b.textContent ?? '').trim())).length
@@ -729,31 +744,6 @@ for (const how of interacts) {
       + ` → 批量行 ${batchRows} 条`
       + `，总账 ${container.textContent.includes('共评估') ? '有' : '无'}`
       + `，失败 ${container.textContent.includes('预览失败') ? container.textContent.split('预览失败')[1]?.slice(0, 60) : '无'}`)
-  } else if (how === 'kb-empty-files') {
-    // **5h 新增，替代原来的 kb-empty / kb-empty-folder**（那两个场景点的是**树节点**，
-    // 而树在本轮被业主点名删掉了 ⇒ 它们的写法再也找不到节点）。
-    // 新的取法**比旧的更真**：下钻到文件层 → 全选 → 批量删除 ⇒ 目录真的空了，
-    // 于是拿到"这个文件夹还没有文件"这一支空态（**不是**被筛没的那一支）。
-    await gotoStdLeaf()
-    await click(q('input[type=checkbox]')[0])
-    const selected = q('.ks-batch').length
-    await click(byText('.ks-batch button', '批量删除'))
-    const emptyTitle = q('.ks-empty-t').map((el) => el.textContent).join('|')
-    mustLand(q('.ks-item').length === 0 && emptyTitle.includes('这个文件夹还没有文件'),
-      `kb-empty-files 没拿到"本来就没文件"那一支空态：行 ${q('.ks-item').length}／空态「${emptyTitle}」`)
-    notes.push(`kb-empty-files: 先下钻（4 行）→ 全选（批量条 ${selected} 条）→ 点「批量删除」`
-      + ` → 文件行 ${q('.ks-item').length} 行，空态卡 ${q('.ks-empty-card').length} 张`
-      + `，空态标题「${emptyTitle}」`)
-  } else if (how === 'kb-tags-view') {
-    // ⚠ 5h：标签视图的数据按**整库**统计（标签跨目录定义）；先落到一个有文件的库
-    //   （自建夹「公司制度」只有一级 ⇒ 点它就直接是文件层），免得截出空视图。
-    await gotoCard('公司制度')
-    await click(cardNamed('公司制度'))
-    const pill = byText('button', '标签')
-    const ok = await click(pill)
-    mustLand(ok && q('.ks-tagrow').length > 0, `kb-tags-view ${ok ? '切了标签视图' : '没找到「标签」'} 但标签行 ${q('.ks-tagrow').length} 行`)
-    notes.push(`kb-tags-view: 先进「公司制度」（文件行 ${q('.ks-item').length} 行）→ ${ok ? '切到标签视图' : '没找到「标签」'}`
-      + `（标签行 ${q('.ks-tagrow').length} 行）`)
   } else if (how === 'cap-dialog') {
     const card = q('.ks-cap-card').find((c) => q('.ks-cap-card').length > 0 && [...c.querySelectorAll('button')].some((b) => (b.textContent ?? '').includes('设置')))
     const ok = await click(card?.querySelector('button'))
@@ -810,27 +800,10 @@ const darkAttr = themeName === 'dark' ? ' data-ds-dark-theme' : ''
 const shellMinHeight = fixedHeight === null ? '100vh' : 'auto'
 /**
  * `--band-scroll` 的注入片段（见上面该参数的注释）。
- * ⚠ 这段直接拼进**测量脚本开头**（不是单独一个 <script>）：单独放一个 script 会先测后滚
- *   ⇒ 量到的 `scrollLeft` 还是 0，与图上的位移对不上。放开头 = 同一趟里"先滚再量"，两者自洽。
- * ⚠ 拼进的是 html 那个模板字符串 ⇒ 这段里**不许出现反引号**（用单引号拼字符串）。
- *   值只接受 `end` 或非负数；非法值直接 exit 2（**不静默忽略**）。
+ * ⚠⚠ **2026-09-21（第 3 步）：`--band-scroll` 的注入段整段删除** —— 它滚的是卡片带
+ *   （`.ks-kbband-clip`），那块界面已被业主删掉；现在没有横向滚动容器可滚。
+ *   参数本身在更上面被**显式拒绝**（exit 2），所以这里不再有 `bandScrollStmt`。
  */
-let bandScrollTarget = 0
-if (bandScrollRaw !== '' && bandScrollRaw !== '0') {
-  // `end` 用 -1 当哨兵（"滚到最右"），不是"负数位置" ⇒ 先认它，再校验数字。
-  bandScrollTarget = bandScrollRaw === 'end' ? -1 : Number(bandScrollRaw)
-  if (bandScrollTarget !== -1 && (!Number.isFinite(bandScrollTarget) || bandScrollTarget < 0)) {
-    console.error('❌ --band-scroll 只接受非负数或 end（拿到 ' + bandScrollRaw + '）'); process.exit(2)
-  }
-}
-const bandScrollStmt = bandScrollTarget === 0 ? '' : [
-  '    // 5h-补 --band-scroll：在**真 Chrome** 里把卡片带滚到指定位置（jsdom 那趟没有布局，滚不动）。',
-  "    var kbc0 = document.querySelector('.ks-kbband-clip');",
-  '    if (kbc0) {',
-  '      var max0 = kbc0.scrollWidth - kbc0.clientWidth;',
-  '      kbc0.scrollLeft = ' + (bandScrollTarget === -1 ? 'max0' : 'Math.min(' + String(bandScrollTarget) + ', max0)') + ';',
-  '    }',
-].join('\n')
 
 const html = `<!doctype html>
 <html lang="zh-CN">
@@ -855,38 +828,33 @@ const html = `<!doctype html>
 <body${darkAttr}>
 <div id="ks-shell">${rendered}</div>
 <script>
-/* 量高 + 量几何：**浏览器里算出来的真值**，随 dump-dom 回传（截的是同一份 HTML）。   ⚠ .ks-item 那几项是 5c 为「文件名与标签簇之间有没有死白」专门加的：
-     · .ks-check   = 文件名（含勾选框）的盒子
-     · .ks-item-tags = 标签簇
-     · deadGap = 标签簇左缘 - 文件名盒子右缘（**死白就是它**）
-     · .ks-item-btn = 「＋标签」「详情」（右端按钮，flex:none，用来判"没被挤扁"）
+/* 量高 + 量几何：**浏览器里算出来的真值**，随 dump-dom 回传（截的是同一份 HTML）。
    ⚠ 本段在**模板字符串**里：注释不许用反引号（会截断模板），也不许写美元加大括号（会被当插值）。 */
 (function () {
   try {
-${bandScrollStmt}
     var sels = ['#ks-shell','.ks-item','.ks-detail','.ks-rail','.ks-main','.ks-kb-card','.ks-cap-card',
-                '.ks-batch','.ks-lhead','.ks-page-title','.ks-kb-tn','.ks-item-tags','.ks-item-add',
-                '.ks-cap-engine','.ks-knob-label','.ks-kb-banner','.ks-field','.ks-tagrow',
-                '.ks-list','.ks-filters','.ks-chip','.ks-status','.ks-item-more','.ks-item-title','.ks-item-sub',
-                '.ks-check','.ks-item-meta','.ks-batch-btn','.ks-empty-card','.ks-empty-t','.ks-empty-d',
-                '.ks-search','.ks-fileico','.ks-list-cap','.ks-cell','.ks-col-tags','.ks-col-date','.ks-col-status',
-                '.ks-lhead-col','.ks-tag',
-                /* 5h（2026-09-20）新 IA 的量点：卡片带（框/箭头）、面包屑、返回按钮、目录层。
-                   ⚠ 注意这段在**模板字符串**里：注释里不许出现反引号（会截断模板，本轮已踩）。
-                   ⚠ .ks-rail 与 .ks-kb-tn 留在名单里但**已经量不到**（树/目录轨被业主点名删了）
-                     —— 不删这两个名字是为了让"量不到"在产物里**可见**（5h 之前的图里有值）。 */
-                '.ks-kbband','.ks-kbband-nav','.ks-kbband-clip','.ks-crumb','.ks-crumb-path','.ks-back',
-                /* ⚠⚠ 2026-09-20 头条：目录层改成"与文件列表同构的列表" ⇒ 量点跟着换。
-                   · 删掉的：'.ks-dir'（卡片按钮不存在了）。
-                   · 加的：'.ks-list-dirs'（目录层那个列表容器）、'.ks-dir-row'（目录行）、
-                     '.ks-crumb-item' / '.ks-crumb-go' / '.ks-crumb-here'（面包屑逐级可点的新结构）。
-                   · 保留的：'.ks-dirs'（容器**第二个名字**，仍挂在同一个 div 上；它同时是三处
-                     留边锚点按名引用的类，见 #kspad 与 PAD_SUBJECTS_ALL）、'.ks-dir-name'
-                     （目录行里那个名字元素仍然用它）。
-                   ⚠ .ks-dir 留在名单里但**已经量不到**（与 .ks-rail/.ks-kb-tn 同一种处理：
-                     让"量不到"在产物里可见，而不是悄悄删掉）。 */
-                '.ks-list-dirs','.ks-dir-row','.ks-crumb-item','.ks-crumb-go','.ks-crumb-here',
-                '.ks-dirs','.ks-dir','.ks-dir-name',
+                '.ks-lhead','.ks-page-title','.ks-kb-tn','.ks-item-tags','.ks-item-add',
+                '.ks-cap-engine','.ks-knob-label','.ks-kb-banner','.ks-field',
+                '.ks-list','.ks-status','.ks-item-more','.ks-item-title','.ks-item-sub',
+                '.ks-item-name','.ks-item-meta','.ks-empty-card','.ks-empty-t','.ks-empty-d',
+                '.ks-search','.ks-fileico','.ks-list-cap','.ks-cell','.ks-col-stage','.ks-col-date','.ks-col-status',
+                '.ks-lhead-col',
+                /* ⚠ 名单里**刻意留着几个已经量不到的名字**（.ks-rail / .ks-kb-tn / .ks-item-tags /
+                   .ks-item-add / .ks-tag / .ks-batch / .ks-chip / .ks-filters / .ks-tagrow /
+                   .ks-kbband* / .ks-dir / .ks-check / .ks-col-tags）：它们对应的界面在
+                   2026-09-20/21 两轮里被业主点名删掉 ⇒ 让"量不到"在产物里**可见**，
+                   而不是悄悄从名单里抠掉（那才让人以为"从来没有过"）。
+                   ⚠ 本段在模板字符串里：注释里不许出现反引号。 */
+                '.ks-rail','.ks-kb-tn','.ks-item-tags','.ks-item-add','.ks-tag','.ks-batch','.ks-batch-btn',
+                '.ks-chip','.ks-filters','.ks-tagrow','.ks-dir','.ks-check','.ks-col-tags',
+                '.ks-kbband','.ks-kbband-nav','.ks-kbband-clip',
+                /* 2026-09-21（第 3 步）新形态的量点：左列目录树 / 面包屑（逐级可点）/ 返回 /
+                   目录层列表 / 翻页条 / 上传面板 / 错误条。 */
+                '.ks-kb-tree','.ks-tree-head','.ks-tree-row','.ks-tree-name','.ks-tree-count',
+                '.ks-crumb','.ks-crumb-path','.ks-crumb-item','.ks-crumb-go','.ks-crumb-here','.ks-crumb-n',
+                '.ks-back','.ks-pager','.ks-pager-n','.ks-pager-btn','.ks-upload','.ks-upload-row',
+                '.ks-upload-note','.ks-upload-msg','.ks-kb-err',
+                '.ks-list-dirs','.ks-dir-row','.ks-dirs','.ks-dir-name',
                 /* 5j（2026-09-20）页面留边：量这几个盒子的**绝对坐标**（.ks-page 是那个只管
                    container-type 的容器，.ks-kb/.ks-ing/.ks-mat 是三个页面根，.ks-split 是
                    "详情栏有没有被挤到第二行"的锚点）。**判据不在这里**（这里只报告），
@@ -939,31 +907,39 @@ ${bandScrollStmt}
                    ctrls: ctrls };
         }) };
     }
-    // 卡片带那条**横向滚动条**的机械证据（5h-补，2026-09-20）。
-    // 业主原话是「一个小框下面自带一个左右翻页**滑动条**」⇒ 光有 overflow-x:auto 不算数，
-    // 要在真 Chrome 里量到三件事：① 内容真的溢出（scrollWidth > clientWidth）；
-    // ② 滚动位置真的能变（scrollLeft）；③ **那条条真的占位**（clientHeight < offsetHeight
-    //    ⇒ 两值之差就是滚动条的厚度）。
-    // ⚠ 这就是**为什么本脚本不再传 --hide-scrollbars**：那个开关会把滚动条**画都不画**，
-    //   于是"到底有没有滑动条"在图上永远看不见（P1 那批图当初就是不想让滚动条入镜才加的）。
-    //   ⚠⚠ 本段是**模板字符串里的一段 JS**：注释里同样**不许出现反引号**（会当场截断上面那个
-    //      html 模板，症状是 node --check 报在 L571 的 const html 上，看着完全不相干）。
-    //   去掉它之后：只有真溢出的容器才多出一条，其余截图不受影响（**不做**假滚动条）。
-    // 借字段名（同 #cards / #cols 的先例，注释里写清就不算说谎）：
-    //   x=clientWidth y=scrollWidth w=scrollLeft h=clientHeight fs=offsetHeight lh=可滚上限
-    //   pad=cardsTotalW gap=scrollbarThickness radius=overflowX
-    var kbc = document.querySelector('.ks-kbband-clip');
-    if (kbc) {
-      var kcs = getComputedStyle(kbc);
-      var inner = kbc.querySelector('.ks-kb-cards');
-      out['#kbband'] = {
-        n: kbc.querySelectorAll('.ks-kb-card').length,
-        x: Math.round(kbc.clientWidth), y: Math.round(kbc.scrollWidth), w: Math.round(kbc.scrollLeft),
-        h: Math.round(kbc.clientHeight), fs: Math.round(kbc.offsetHeight),
-        lh: String(Math.round(kbc.scrollWidth - kbc.clientWidth)),
-        pad: inner ? Math.round(inner.getBoundingClientRect().width) : 0,
-        gap: Math.round(kbc.offsetHeight - kbc.clientHeight),
-        radius: kcs.overflowX,
+    /* ⚠⚠ **2026-09-21（第 3 步）：#kbband / #kbcards 两个量点整段删除。**
+       它们量的是**卡片带**（.ks-kbband-clip 的滚动几何、逐张卡的宽/高"全等"），
+       而卡片带已被业主删掉（"原来的大卡片去掉"）⇒ 量点没有主体了。
+       取代它们的是下面两个新量点（Node 侧的 levelCheck 逐条判）：
+         · #kbtree    —— 左列目录树与右栏的**相对位置**（必须并排，不是换行堆叠）
+         · #levelrows —— 同一级里**目录行与文件行**的行高（必须逐字相同） */
+    /* 左列目录树（.ks-kb-tree）与右栏（.ks-main）的绝对坐标：判"并排"。
+       借字段名（同 #cards / #cols 的先例，注释里写清就不算说谎）：
+         x=左列右缘 y=右栏左缘 w=左列宽 h=右栏宽 fs='' lh=左列高 pad='' gap='' radius='' */
+    var treeEl = document.querySelector('.ks-kb-tree');
+    var mainEl = document.querySelector('.ks-main');
+    if (treeEl && mainEl) {
+      var tr = treeEl.getBoundingClientRect();
+      var mr = mainEl.getBoundingClientRect();
+      out['#kbtree'] = {
+        n: document.querySelectorAll('.ks-kb-tree').length,
+        x: Math.round(tr.right), y: Math.round(mr.left),
+        w: Math.round(tr.width), h: Math.round(mr.width),
+        fs: '', lh: String(Math.round(tr.height)), pad: '', gap: '', radius: '',
+      };
+    }
+    /* 同一级里**两类行**的行高（目录行 + 文件行）。判据：两者必须逐字相同
+       （"目录层与文件列表同构"这句承诺的可量形态：同一个 --ks-row-h-list）。
+       借字段名：x=目录行数 y=文件行数 w=目录行高 h=文件行高 fs='' lh='' pad='' gap='' radius='' */
+    var dirRowEls = document.querySelectorAll('.ks-dir-row');
+    var fileRowEls = document.querySelectorAll('.ks-item.ks-file-row');
+    if (dirRowEls.length > 0 && fileRowEls.length > 0) {
+      out['#levelrows'] = {
+        n: dirRowEls.length + fileRowEls.length,
+        x: dirRowEls.length, y: fileRowEls.length,
+        w: Math.round(dirRowEls[0].getBoundingClientRect().height),
+        h: Math.round(fileRowEls[0].getBoundingClientRect().height),
+        fs: '', lh: '', pad: '', gap: '', radius: '',
       };
     }
     // 每张卡（.ks-kb-card / .ks-cap-card）的**逐个高度**：判"同列卡等高"要看的就是它
@@ -980,37 +956,14 @@ ${bandScrollStmt}
       var ws = [].map.call(cardEls, function (el) { return Math.round(el.getBoundingClientRect().width); });
       out['#cards'] = { n: hs.length, y: 0, w: 0, h: 0, fs: '', lh: hs.join(','), pad: ws.join(','), gap: '', radius: '' };
     }
-    // **卡片带里每一张卡的逐个宽/高**（5i 2026-09-20 收尾批）。
-    // 为什么另开一个键：上面那个 #cards 是 .ks-kb-cards>*,.ks-cap-card **混在一起**的报告值，
-    // 而且**全仓没有一条断言引用它** —— 复核 verify-freeze-5h 把列模板改成 60px 120px 200px
-    // （三张卡三种宽）之后，渲染冒烟 51/51 仍然全绿。而"知识库卡片尺寸统一"是业主亲口点名的形态。
-    // 这里只量**卡片带**里的卡，逐张报 {name,w,h}，Node 侧按"全等"下断言（见文件末尾 cardsCheck）。
-    // 借字段名（同 #cards / #cols 的先例）：x=最小宽 y=最大宽 w=最小高 h=最大高，
-    //   lh=逐张宽 pad=逐张高，items=逐张明细。
-    // ⚠ 本段是模板字符串里的一段 JS：注释里**不许出现反引号**（第 11 次踩，见 UI-BASELINE 5h-补）。
-    var bandCardEls = document.querySelectorAll('.ks-kbband .ks-kb-cards>.ks-kb-card');
-    if (bandCardEls.length > 0) {
-      var bw = [].map.call(bandCardEls, function (el) { return Math.round(el.getBoundingClientRect().width); });
-      var bh = [].map.call(bandCardEls, function (el) { return Math.round(el.getBoundingClientRect().height); });
-      out['#kbcards'] = {
-        n: bandCardEls.length,
-        x: Math.min.apply(null, bw), y: Math.max.apply(null, bw),
-        w: Math.min.apply(null, bh), h: Math.max.apply(null, bh),
-        fs: '', lh: bw.join(','), pad: bh.join(','), gap: '', radius: '',
-        items: [].map.call(bandCardEls, function (el, i) {
-          var t = el.querySelector('.ks-kb-ct');
-          return { name: t ? (t.textContent || '').trim() : '', w: bw[i], h: bh[i] };
-        }),
-      };
-    }
     // **能力页每一张 .ks-cap-card 的逐个宽/高 + 逐排分组**（2026-09-21；父代理裁定的断言口径）。
     // 为什么另开一个键：#cards 是 .ks-kb-cards>*,.ks-cap-card **混在一起**的报告值（无断言引用），
-    //   #kbcards 只量**卡片带里**的卡（能力页一张都没有 => 它在能力页恒 undefined）。
+    //   #kbcards（卡片带那一份）已随卡片带删除 ⇒ 能力页这份是唯一直判"卡"的量点。
     // 口径（父代理 2026-09-21 裁定，见 docs/UI-BASELINE.md 那节）：
     //   **不判"尺寸统一"**（实测宽全等、高三档，页面级等高不是意图）——只断两条站得住的：
     //   ① 本页所有 .ks-cap-card **等宽**；② **同一排**的高度全等（grid align-items:stretch 的不变式）。
     //   => 这里必须把"排"报出去（按 getBoundingClientRect().top 分组，Node 侧判组内等高）。
-    // 借字段名（同 #cards / #kbcards 的先例）：x=最小宽 y=最大宽 w=最小高 h=最大高，
+    // 借字段名（同 #cards / #cols 的先例）：x=最小宽 y=最大宽 w=最小高 h=最大高，
     //   lh=逐张宽 pad=逐张高，items=逐张明细 {name,w,h,top}。
     // ⚠ 本段是模板字符串里的一段 JS：注释里**不许出现反引号**（见 UI-BASELINE 5h-补）。
     var capEls = document.querySelectorAll('.ks-cap-card');
@@ -1029,26 +982,10 @@ ${bandScrollStmt}
         }),
       };
     }
-    // 批量条的**一行装得下吗**：w = 最后一个子元素的右缘 - 条子的右缘（正数 = 溢出/被截，
-    // 负数 = 还剩多少余量）。h = 条子高（折成两行会明显变高）。P0-5 判"两行/溢出"就靠它。
-    // ⚠⚠ **P1-9 修正（2026-09-20）**：原来 「lastKid.right - br.right」 量的是"**条子**的右缘"，
-    //   而它是 sticky + width:fit-content 的**浮层**、贴右缘时会算出负数 —— 那是"条子右缘
-    //   在子元素右缘右边多少"（= 内边距 + 余量），**不是溢出**。真正的溢出判据是
-    //   "最后一个子元素的右缘有没有超过条子的**内容盒**右缘"：br.right - paddingRight。
-    //   量不动时（paddings 解析不出数字）退回旧口径，并在 title 里给出 **条子自身的绝对坐标**
-    //   （bx/bw）—— P1-6 要看的"居中且宽 < 容器"就是它，不必再去二进制里翻 BMP。
-    var bar = document.querySelector('.ks-batch');
-    if (bar) {
-      var br = bar.getBoundingClientRect();
-      var cbs = getComputedStyle(bar);
-      var pr = parseFloat(cbs.paddingRight);
-      var barInnerRight = br.right - (isFinite(pr) ? pr : 0);
-      var kids = bar.children;
-      var lastKid = kids.length > 0 ? kids[kids.length - 1].getBoundingClientRect() : null;
-      out['.ks-batch#fit'] = { n: kids.length, x: Math.round(br.x), y: Math.round(br.width), w: lastKid ? Math.round(lastKid.right - barInnerRight) : 0,
-                               h: Math.round(br.height), fs: '', lh: '', pad: (isFinite(pr) ? String(Math.round(pr)) : ''),
-                               gap: '', radius: '' };
-    }
+    /* ⚠⚠ **2026-09-21（第 3 步）**：.ks-batch#fit 那个量点（批量条"一行装得下吗"）**已删除** ——
+       悬浮批量条随"批量选择动作不在本批"整块撤掉，没有主体了。
+       --hide-scrollbars 那条取舍（5h-补 为让卡片带的滑动条入镜而撤掉它）也随卡片带一起失去对象；
+       本脚本**仍然不传**那个开关（不为了旧理由改回去，改回去只会少一个真实滚动条的可见性）。 */
     // 表格列对齐（P2 头条，2026-09-20）：**表头行与数据行的 computed 列模板必须逐字相同**。
     // 这是"列对齐"的唯一机械证据（jsdom 里量不到网格），所以放在真 Chrome 的这段脚本里量。
     // ⚠⚠ **P2 复核打回 B（2026-09-20，变异 M4）**：原来它只是**报告值**（没有断言）⇒ 把表头的
@@ -1153,7 +1090,7 @@ ${bandScrollStmt}
       //   并有"文档适用面 ↔ 本表"的棘轮，见 PAD_SUBJECTS_ALL）。
       //   isRoot=1 表示"看它的内容盒"，0 = "看它的边框盒"。
       var padSel = [['.ks-kb', 1], ['.ks-ing', 1], ['.ks-mat', 1],
-                    ['.ks-kbband', 0], ['.ks-list', 0], ['.ks-batch', 0], ['.ks-dirs', 0],
+                    ['.ks-kb-tree', 0], ['.ks-list', 0], ['.ks-dirs', 0],
                     ['.ks-page-head', 0], ['.ks-kb-row', 0], ['.ks-empty-card', 0]];
       /* ⚠⚠ 2026-09-20 头条：目录层换了形态（卡片网格 → 与文件列表同构的列表），但**不新增适用面**：
          新容器同时挂着 .ks-list 与 .ks-dirs 两个类，**两个都已在上面这张表里** ⇒ 覆盖没变窄。
@@ -1279,62 +1216,82 @@ const colsCheck = {
 }
 
 
-/* ══════════ `#kbcards` 的**真断言**（5i 2026-09-20 收尾批；卡片尺寸统一） ══════════
- * 复核 `verify-freeze-5h` 的变异：把卡片带里 `.ks-kb-cards` 的列模板改成 `60px 120px 200px`
- * （三张卡三种宽）⇒ **渲染冒烟 51/51 依旧绿** —— 因为 `#cards` 只是**报告值**，全仓没有断言引用它。
- * "知识库卡片尺寸统一"是业主点名的形态，不能只有一个报告值兜着 ⇒ 这里把它变成**带诊断的失败**：
- *   ① 卡片带里**每一张卡的宽度必须全等**（真 Chrome 的 `getBoundingClientRect`，逐张打印实际值）；
- *   ② **每一张卡的高度也必须全等**；
- *   ③ 量到 0 / 取不到值也算红（"没验到"不能渲染成"通过"）。
- * ⚠ 容差 1px：值已经 `Math.round`，等宽卡在亚像素上也可能差 1（本轮实测是 172×5 / 136×5，
- *   一模一样；容差只是防四舍五入的假红）。**不等宽 >1px 必红**。
- * 适用面：只有"这一跑真的有卡片带"的页面才判（kb 页一定判）；其余页面**明说没判**（skipReason）。
- * 变异实测（本批）：给第 2 张卡加 `.ks-kbband .ks-kb-card:nth-child(2){flex:0 0 60px}`
- *   ⇒ 本脚本 exit 1（宽度 172,60,172,172,172）；还原即绿。三档由 smoke-kb-cols 逐档跑。
- * ⚠ **更正（5i-补 2026-09-20，复核 verify-freeze-5i）——两侧判的不是同一件事，别互相顶替**：
- *   · jsdom 侧（`smoke-kb-page-render.mjs` 的 `bandFlex`）钉的是 **computed `flex` 的声明串**
- *     逐字相同 —— 它**没有布局引擎**，量不到像素。**逐卡覆盖 token** 那种变异
- *     （`.ks-kbband .ks-kb-card:nth-child(2){--ks-band-card-w:60px}`）声明串**仍然相同** ⇒
- *     jsdom `PASS (67/67)` 全绿（实测），对这类**全盲**。
- *   · **像素级等宽/等高只有这一处**（本脚本 `cardsCheck`，量 `getBoundingClientRect`）：
- *     同一变异在这里 `卡片**宽度不全等**："172,81,172,172,172"` ⇒ **exit 1**（实测）。
- *   · 所以"卡片尺寸统一"被钉住 = 两侧**同时**成立；`smoke-kb-cols.mjs` 三档对每一档
- *     **同时**要求 `colsCheck.checked` 与 `cardsCheck.checked`（任一"没判到"即算失败）。
+/* ══════════ `#kbtree` / `#levelrows` 的**真断言**（2026-09-21 第 3 步；取代 `cardsCheck`） ══════════
+ * 判据与来历见下面那一大段；这里只留一句**旧口径的留痕**（不许删）：
+ *   上一版本段判的是"卡片带里 5 张卡的宽/高**全等**"（`#kbcards` + `cardsCheck`），
+ *   复核 `verify-freeze-5h` 曾证明"只报告不断言"会让三张卡三种宽也全绿 —— 那个教训
+ *   （**报告值必须有断言兜着**）原样搬到了新判据上：`levelCheck` 同样是"量不到就红"。 */
+/* **为什么换**：上一版这条断言判的是"卡片带里每一张卡的宽/高**全等**"
+ *   （业主点名的"知识库卡片尺寸统一"）。**卡片带已被业主删掉**（"原来的大卡片去掉"，
+ *   KB-FOLDER-PLAN 第 3 步）⇒ 那条断言**没有主体**了，继续留着只会永远 skip。
+ *   ⇒ 取代它的不是"删掉就算"，而是**判新的真实几何**（同一条纪律：真 Chrome 的
+ *   `getBoundingClientRect` + 量不到就红 + 诊断逐条打印）：
+ *     ① **左列与右栏并排**：`.ks-kb-tree` 的右缘 ≤ `.ks-main` 的左缘 + 1px。
+ *        这是 520 档（宿主侧栏默认宽）的硬约束 —— 目录列 168 + gap 8 + 主栏 min 260 = 436 < 488
+ *        （页面根宽 − 2×16 留边）。**变异**：给 `.ks-kb-tree` 加 `flex-basis:100%` ⇒ 换行 ⇒ 左缘
+ *        跑到右栏下面 ⇒ 这一条**红**（下面那段注释记着实测）。
+ *     ② **同一级里两类行的行高逐字相同**（目录行 vs 文件行，±1px 容差）：这是"目录层与文件列表
+ *        同构"这句承诺的**可量形态**（都吃 `--ks-row-h-list`）。只有在**两种行同时在 DOM 里**的
+ *        那一级（stub 的「法律法规」）才量得动，所以 `kb-level` 场景是它的取证场景。
+ *     ③ 量不到 / 取不到值 ⇒ **红**（"没验到"不能渲染成"通过"）。
+ * 适用面：`page === 'kb'` 时**必须**判到（kb 页一定有左列+右栏）；其余页面**明说没判**（skipReason）。
  * ⚠ 「真 Chrome」是**约定叫法**：本脚本按 `BROWSERS` 顺序找浏览器，**本机实际命中的是
  *   `msedge.exe`**（Edge/Chromium 内核）。措辞不精确，结论不变（同一内核、同一像素口径）。 */
-const kbc = measured['#kbcards']
-const cardsProblems = []
-let cardsSkipReason = null
-if (kbc === undefined) {
-  cardsSkipReason = `本页没有卡片带（page=${page}），卡片尺寸统一不适用`
-} else if (kbc.n < 2) {
-  cardsSkipReason = `卡片带里只有 ${String(kbc.n)} 张卡，没有"全等"可比`
+const kbt = measured['#kbtree']
+const lvr = measured['#levelrows']
+const levelProblems = []
+let levelSkipReason = null
+/** 判据②（两层行高一致）这一跑**到底判没判**（两种行不同时在场 ⇒ false）。巡查脚本据此做覆盖面判据。 */
+let rowHeightJudged = false
+if (page !== 'kb') {
+  levelSkipReason = `本页不是知识库页（page=${page}），左列/行高几何不适用`
+} else if (kbt === undefined) {
+  levelProblems.push('这一跑**量不到 `#kbtree`**（左列目录树或右栏不在 DOM 里）—— 量不到就不算验过')
 } else {
-  const ws = String(kbc.lh).split(',').map((v) => Number(v.trim()))
-  const hs = String(kbc.pad).split(',').map((v) => Number(v.trim()))
-  const bad = (arr) => arr.length !== kbc.n || arr.some((v) => !Number.isFinite(v) || v <= 0)
-  const spread = (arr) => Math.max(...arr) - Math.min(...arr)
-  if (bad(ws)) {
-    cardsProblems.push(`有卡的宽度量不到（<=0 或个数不对）：${JSON.stringify(String(kbc.lh))}（期望 ${String(kbc.n)} 个正数）`)
-  } else if (spread(ws) > 1) {
-    cardsProblems.push(`卡片**宽度不全等**：${JSON.stringify(kbc.lh)}`
-      + `（逐张 ${JSON.stringify((kbc.items ?? []).map((it) => `${it.name}=${String(it.w)}px`))}）`)
+  const treeRight = Number(kbt.x)
+  const mainLeft = Number(kbt.y)
+  if (!Number.isFinite(treeRight) || !Number.isFinite(mainLeft) || Number(kbt.w) <= 0 || Number(kbt.h) <= 0) {
+    levelProblems.push(`左列/右栏的几何量不到或为 0：左列宽 ${JSON.stringify(kbt.w)}、右栏宽 ${JSON.stringify(kbt.h)}、`
+      + `左列右缘 ${JSON.stringify(kbt.x)}、右栏左缘 ${JSON.stringify(kbt.y)}`)
+  } else if (treeRight > mainLeft + 1) {
+    levelProblems.push(`**左列目录树与右栏没有并排**（换行堆叠了）：左列右缘 ${String(treeRight)}px > `
+      + `右栏左缘 ${String(mainLeft)}px + 1（左列宽 ${String(kbt.w)}、右栏宽 ${String(kbt.h)}）`
+      + ' —— 两列必须在同一行里；换行说明左列宽/主栏最小宽把这一行撑破了（520 档的硬约束）')
   }
-  if (bad(hs)) {
-    cardsProblems.push(`有卡的高度量不到（<=0 或个数不对）：${JSON.stringify(String(kbc.pad))}（期望 ${String(kbc.n)} 个正数）`)
-  } else if (spread(hs) > 1) {
-    cardsProblems.push(`卡片**高度不全等**：${JSON.stringify(kbc.pad)}`
-      + `（逐张 ${JSON.stringify((kbc.items ?? []).map((it) => `${it.name}=${String(it.h)}px`))}）`)
+  if (lvr === undefined) {
+    /* ⚠ **"两种行不同时在场"不算失败**（诚实边界）：只有**同时**有下级目录与文件的那些层级才量得动
+       "两层行高一致"（stub 里的「法律法规」）。一个只有目录（最外层）或只有文件（最深处）的层级
+       **天然没有比较对象** ⇒ 这里不报错，而是把 `rowHeightJudged=false` 报出去，
+       由**巡查脚本**（`smoke-kb-pad-pixels.mjs`）用一条**覆盖面**判据保证"至少要有一跑真的判过它"
+       （与能力页 capCardsCheck 的"多卡排"那条同一种纪律：声明了不等于跑过）。 */
+    rowHeightJudged = false
+  } else {
+    const dh = Number(lvr.w)
+    const fh = Number(lvr.h)
+    if (!Number.isFinite(dh) || !Number.isFinite(fh) || dh <= 0 || fh <= 0) {
+      levelProblems.push(`两类行的行高量不到或为 0：目录行 ${JSON.stringify(lvr.w)} / 文件行 ${JSON.stringify(lvr.h)}`)
+    } else if (Math.abs(dh - fh) > 1) {
+      levelProblems.push(`**目录行与文件行的行高不同**：目录行 ${String(dh)}px vs 文件行 ${String(fh)}px`
+        + '（容差 1px）—— 两层必须吃同一个行高 token（--ks-row-h-list），'
+        + '否则"目录层与文件列表同构"就成了空话（真机上一眼能看出两层行距不一样）')
+    } else {
+      rowHeightJudged = true
+    }
   }
 }
-const cardsCheck = {
-  checked: cardsProblems.length === 0 && cardsSkipReason === null,
-  skipReason: cardsSkipReason,
-  problems: cardsProblems,
-  count: kbc?.n ?? null,
-  widths: kbc?.lh ?? null,
-  heights: kbc?.pad ?? null,
-  items: kbc?.items ?? null,
+const levelCheck = {
+  checked: levelProblems.length === 0 && levelSkipReason === null,
+  skipReason: levelSkipReason,
+  problems: levelProblems,
+  rowHeightJudged,
+  treeRight: kbt?.x ?? null,
+  mainLeft: kbt?.y ?? null,
+  treeWidth: kbt?.w ?? null,
+  mainWidth: kbt?.h ?? null,
+  dirRowH: lvr?.w ?? null,
+  fileRowH: lvr?.h ?? null,
+  dirRows: lvr?.x ?? null,
+  fileRows: lvr?.y ?? null,
 }
 
 /* ══════════ `#capcards` 的**真断言**（2026-09-21；能力页：**等宽** + **同排等高**） ══════════
@@ -1394,19 +1351,28 @@ const PAGE_PAD_BREAKPOINT = 660
  *   ③ 本表**并集**必须覆盖 `PAD_SUBJECTS_ALL`（= 规范第二节适用面的机器副本）——少一个就红：
  *      这就是"规范加了适用面、脚本没跟上"的棘轮（同 token/阈值的做法）。
  */
-const PAD_SUBJECTS_ALL = ['.ks-kb', '.ks-ing', '.ks-mat', '.ks-kbband', '.ks-list', '.ks-batch',
+const PAD_SUBJECTS_ALL = ['.ks-kb', '.ks-ing', '.ks-mat', '.ks-kb-tree', '.ks-list',
   '.ks-dirs', '.ks-page-head', '.ks-kb-row', '.ks-empty-card']
-/** 键 = `${page}|${interacts.join('+')}`（与 `--page`/`--interact` 同一口径）。值 = 这一跑**必须量到**的选择器。 */
+/** 键 = `${page}|${interacts.join('+')}`（与 `--page`/`--interact` 同一口径）。值 = 这一跑**必须量到**的选择器。
+ *  ⚠⚠ **2026-09-21（第 3 步）就地更新**：`.ks-kbband`（卡片带）与 `.ks-batch`（批量条）**已删**
+ *    ⇒ 从适用面里去掉；新增 `.ks-kb-tree`（左列目录树，必须不贴边）。
+ *    ⚠ 三处副本同批一起改：docs/UI-BASELINE.md 第二节的适用面 / 本文件的 `PAD_SUBJECTS_ALL` 与
+ *      `PAD_REQUIRED` / `smoke-kb-pad-pixels.mjs` 的 `SPEC_SUBJECTS`
+ *      （前四处互相绑着棘轮，只改一两处必红）。 */
 const PAD_REQUIRED = {
-  'kb|': ['.ks-kb', '.ks-kbband', '.ks-dirs', '.ks-page-head', '.ks-kb-row'],
-  /* ⚠ kb-crumb（2026-09-20 头条新增场景）**必须在这里声明**：不声明 ⇒ `coverageDeclared=false`，
-   *   留边的"元素被改名/删掉"这一类在那一跑**等于没判**（本批实测到这条自报）。
-   *   这一跑停在目录层（1 行目录 + 1 个目录层表头 + 0 行文件）⇒ 期望与 `kb|` 同集
-   *   （目录层那个容器同时挂着 .ks-list 与 .ks-dirs，两个都在这一集里）。 */
-  'kb|kb-crumb': ['.ks-kb', '.ks-kbband', '.ks-dirs', '.ks-page-head', '.ks-kb-row'],
-  'kb|kb-select': ['.ks-kb', '.ks-kbband', '.ks-list', '.ks-batch', '.ks-page-head', '.ks-kb-row'],
-  'kb|kb-files': ['.ks-kb', '.ks-kbband', '.ks-list', '.ks-page-head', '.ks-kb-row'],
-  'kb|kb-empty-files': ['.ks-kb', '.ks-kbband', '.ks-list', '.ks-page-head', '.ks-kb-row', '.ks-empty-card'],
+  'kb|': ['.ks-kb', '.ks-kb-tree', '.ks-dirs', '.ks-page-head', '.ks-kb-row'],
+  /* 这些 kb 组合都在**目录层**（.ks-list-dirs 那个容器同时挂着 .ks-dirs ⇒ 两个类都在这一集里）：
+     kb-crumb（面包屑逐级可点的路径）/ kb-level（1 目录 + 1 文件的同构取证）/ kb-upload（进「标准」那一级）。
+     ⚠ **只声明 `smoke-kb-pad-pixels.mjs` 的矩阵真的会跑的那些组合** —— 那条棘轮要求
+       "声明了就必须有人跑"（`kb-back` / `kb-search` / `kb-search-dirs-empty` 只在 jsdom 冒烟里判，
+       矩阵不跑它们 ⇒ 不能在这里声明，否则会红在"声明了但没人跑"上）。 */
+  'kb|kb-crumb': ['.ks-kb', '.ks-kb-tree', '.ks-dirs', '.ks-page-head', '.ks-kb-row'],
+  'kb|kb-level': ['.ks-kb', '.ks-kb-tree', '.ks-dirs', '.ks-list', '.ks-page-head', '.ks-kb-row'],
+  'kb|kb-upload': ['.ks-kb', '.ks-kb-tree', '.ks-dirs', '.ks-page-head', '.ks-kb-row'],
+  'kb|kb-page': ['.ks-kb', '.ks-kb-tree', '.ks-list', '.ks-page-head', '.ks-kb-row'],
+  'kb|kb-files': ['.ks-kb', '.ks-kb-tree', '.ks-list', '.ks-page-head', '.ks-kb-row'],
+  /* 空目录那一级：没有目录层也没有文件表 ⇒ 主体是空态卡（+ 左列与顶上那一行）。 */
+  'kb|kb-empty': ['.ks-kb', '.ks-kb-tree', '.ks-page-head', '.ks-kb-row', '.ks-empty-card'],
   'capabilities|': ['.ks-kb', '.ks-page-head', '.ks-kb-row'],
   'ingest|ingest-batch': ['.ks-ing'],
   'materials|': ['.ks-mat'],
@@ -1568,16 +1534,12 @@ if (ksp === undefined) {
         + ' —— 档位没切对，或 token 没被消费')
     }
   }
-  /* 批量条**不许因为留边被挤成两行**（5j 的连带修复，见 ksGuideStyles 的窄档紧凑规则）：
-     单行 = padding-top + --ks-btn-h-sm(24) + padding-bottom（实测 520 下 8+24+8 = 40）；
-     两行 = 72（5j 变异实测）。判据留 8px 余量：h > 单行预算 + 8 就是折行了。 */
-  const batchItem = (ksp.items ?? []).find((it) => it.sel === '.ks-batch')
-  const batchOneRow = batchItem === undefined ? null : batchItem.padT + 24 + batchItem.padB
-  if (batchItem !== undefined && Number.isFinite(batchItem.h) && batchItem.h > batchOneRow + 8) {
-    ksPadProblems.push(`.ks-batch **被挤成两行**（高 ${String(batchItem.h)}px > 单行预算 ${String(batchOneRow)}px + 8）`
-      + ' —— 留边吃掉可用宽之后条子折行了；按现有 @container 口径在窄档把它收紧凑'
-      + '（ksGuideStyles.ts 的 `@container (max-width:520px){.ks-batch{...}}`）')
-  }
+  /* ⚠ **批量条"不许被挤成两行"那条已随批量条删除**（2026-09-21 第 3 步）：
+     它的主体 `.ks-batch` 不在了（"批量选择动作不在本批"）⇒ 这条判据没有对象。
+     留痕：它原本是 5j 页面留边的连带修复（留边吃掉可用宽 ⇒ 条子折行 40→72px），
+     现在页面上**没有横排条子**了，同类风险转移到 `.ks-kb-row`（顶上那一排：返回 + 路径 +
+     上传 + 刷新）—— 它在窄档会不会折行由 `PAD_REQUIRED` 的存在性 + 截图人眼确认，
+     **没有**加像素断言（不凭空造一条没有来历的判据）。 */
 }
 const ksPadCheck = {
   checked: ksPadProblems.length === 0 && ksPadSkipReason === null,
@@ -1627,8 +1589,10 @@ const DIR_COLS_EXPECTED = 3
  *   ③ 真 Chrome 量到的轨道必须等于这两个常数。 */
 const DIR_COL_DCOUNT_EXPECTED = 64
 const DIR_COL_DGO_EXPECTED = 16
-/** **冻结**：哪些组合必须看得到目录层（+ 它们的 `PAD_REQUIRED` 必须声明 `.ks-dirs`）。 */
-const DIR_LAYER_COMBOS = ['kb|', 'kb|kb-crumb']
+/** **冻结**：哪些组合必须看得到目录层（+ 它们的 `PAD_REQUIRED` 必须声明 `.ks-dirs`）。
+ *  ⚠ 这份清单**只列矩阵（`smoke-kb-pad-pixels.mjs` 的 MATRIX）真的会跑的组合** ——
+ *    列了没人跑的组合会让 `dirColsPresenceRequired` 在手动跑那些场景时红（且没有意义）。 */
+const DIR_LAYER_COMBOS = ['kb|', 'kb|kb-crumb', 'kb|kb-level', 'kb|kb-upload']
 const dirColsPresenceRequired = DIR_LAYER_COMBOS.includes(padComboKey)
 let dirTokenDcount = null
 let dirTokenDgo = null
@@ -1759,7 +1723,7 @@ console.log(JSON.stringify({
   measured,
   colsCheck,
   dirColsCheck,
-  cardsCheck,
+  levelCheck,
   capCardsCheck,
   ksPadCheck,
   renderedChars: rendered.length,
@@ -1785,19 +1749,27 @@ if (colsSkipReason !== null) {
   process.exit(1)
 }
 
-/* `#kbcards` 的自检结论同样走 **stderr**（理由同上：stdout 必须是完整可 JSON.parse 的一份产物）。 */
-if (cardsSkipReason !== null) {
-  console.error(`· #kbcards 自检：**这一跑不判**（${cardsSkipReason}）`)
-} else if (cardsProblems.length === 0) {
-  console.error(`· #kbcards 自检通过：${String(cardsCheck.count)} 张卡宽全等 ${JSON.stringify(cardsCheck.widths)}、`
-    + `高全等 ${JSON.stringify(cardsCheck.heights)}（page=${page} width=${width} theme=${themeName}）`)
+/* `#kbtree` / `#levelrows` 的自检结论同样走 **stderr**（理由同上：stdout 必须是完整可 JSON.parse 的产物）。
+   ⚠ 这一条**取代**了 5i 起的 `#kbcards`（卡片尺寸统一）—— 卡片带已被业主删掉；判据与来历见
+   上面 `levelCheck` 那段注释（"报告值必须有断言兜着"的教训原样搬了过来）。 */
+if (levelSkipReason !== null) {
+  console.error(`· #kbtree/#levelrows 自检：**这一跑不判**（${levelSkipReason}）`)
+} else if (levelProblems.length === 0) {
+  console.error(`· #kbtree/#levelrows 自检通过：左列右缘 ${String(levelCheck.treeRight)}px ≤ 右栏左缘 `
+    + `${String(levelCheck.mainLeft)}px（左列 ${String(levelCheck.treeWidth)}px / 右栏 ${String(levelCheck.mainWidth)}px）；`
+    + (levelCheck.rowHeightJudged
+      ? `目录行高 ${String(levelCheck.dirRowH)}px = 文件行高 ${String(levelCheck.fileRowH)}px`
+      : '两层行高这一条**这一跑没对象**（没有"目录行 + 文件行"同时在的层级）')
+    + `（${String(levelCheck.dirRows)} 目录行 / ${String(levelCheck.fileRows)} 文件行；`
+    + `page=${page} width=${width} theme=${themeName}）`)
 } else {
   console.error('')
-  console.error(`❌ 卡片尺寸统一自检失败（业主点名的形态"知识库卡片尺寸统一"；page=${page} width=${width} theme=${themeName}）：`)
-  for (const p of cardsProblems) console.error(`   - ${p}`)
-  console.error('   ⇒ 卡宽的唯一声明是 ksGuideStyles.ts 的 `.ks-kbband .ks-kb-card{flex:0 0 var(--ks-band-card-w)}`，')
-  console.error('      同排等高靠容器 `.ks-kbband .ks-kb-cards{align-items:stretch}` + `>*{min-height:var(--ks-card-h)}`。')
-  console.error('      给**单张卡**另钉宽度/高度（例如 :nth-child(2){flex:0 0 60px}）就是这条断言要抓的回归。')
+  console.error(`❌ 知识库页几何自检失败（左列并排 + 目录/文件两层行高一致；page=${page} width=${width} theme=${themeName}）：`)
+  for (const p of levelProblems) console.error(`   - ${p}`)
+  console.error('   ⇒ 左列宽/主栏最小宽在 ksGuideStyles.ts 的 `.ks-kb-tree{flex:0 0 168px...}` 与')
+  console.error('      `.ks-main{flex:1 1 320px;min-width:260px...}`（168 + 8 + 260 = 436 < 488 = 520 − 2×16）。')
+  console.error('   ⇒ 两层行高都吃 `.ks-item{min-height:var(--ks-row-h-list)}` 这一个 token；')
+  console.error('      给目录行另钉行高（或让它不吃 .ks-item）就是这条断言要抓的回归。')
   process.exit(1)
 }
 

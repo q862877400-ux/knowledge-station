@@ -9,7 +9,15 @@
  * 现在两个地方一起判：① `smoke-kb-page-render.mjs`（jsdom，门禁链里）判"两条声明同不同"；
  * ② `ui-render-shot.mjs` 自己判（真 Chrome 里量**解析后**的像素列模板）—— 本脚本把 ② 按
  * **三档宽度**跑一遍，任一档红即红。为什么必须三档：列档是 `@container (min-width:660px)`
- * 切的（宽档 5 列 / 窄档 3 列），**单跑一档证明不了另一档**。
+ * 切的（宽档多两列），**单跑一档证明不了另一档**。
+ *
+ * ## ⚠ 2026-09-21（KB-FOLDER-PLAN 第 3 步）本脚本的第二个主体换了
+ * 原来它同时要求 `cardsCheck`（**卡片带**里逐张卡等宽等高 —— 业主点名的"卡片尺寸统一"）。
+ * 卡片带已被业主删掉（"原来的大卡片去掉"）⇒ 换成本步的**新几何** `levelCheck`：
+ *   ① 左列目录树与右栏**并排**（`.ks-kb-tree` 右缘 ≤ `.ks-main` 左缘）；
+ *   ② 同一级里**目录行与文件行**的行高逐字相同（"目录层与文件列表同构"的可量形态）。
+ * 纪律**一字未改**：三档每一档都必须 `levelCheck.checked === true` 且 `skipReason === null`
+ * （"没判到"照样算失败），`problems` 非空即红。
  *
  * ## 边界（诚实）
  * - 三档宽度按"**容器宽**"选的是**视口宽**：`ui-render-shot.mjs` 的 `#ks-shell` 是定宽
@@ -56,19 +64,24 @@ const rows = []
 const failures = []
 for (const width of widths) {
   const outPng = join(outDir, `cols-${width}.png`)
-  // ⚠ **5h（2026-09-20）：必须带 `--interact kb-files`。**
-  //   本轮 IA 重构后，kb 页的**默认态是"卡片带 + 一级目录"**（业主："先占上一级目录文件夹…
-  //   到最末一级才是文件"）⇒ 不先下钻就**没有** `.ks-lhead` / 数据行，`colsCheck` 会走
-  //   "这一跑没有数据行"的 skip 分支 ⇒ 本脚本按**失败**记（"没跑"不能算通过）。
+  // ⚠ **必须带 `--interact kb-files`。**
+  //   第 3 步之后 kb 页的**默认态是"最外层"**（只有目录行、没有文件行）⇒ 不先走进去就**没有**
+  //   `.ks-list .ks-lhead` / 文件行，`colsCheck` 会走"这一跑没有数据行"的 skip 分支 ⇒
+  //   本脚本按**失败**记（"没跑"不能算通过）。
   //   ⚠ 这**不是**放宽断言：`colsCheck.checked === true` 的要求一字未动（下面 still 判它），
-  //     只是把"跑到文件层"这一步补进调用里 —— 断言判的仍是表头与第一行的列模板逐字相同。
+  //     只是把"走到文件层"这一步补进调用里 —— 断言判的仍是表头与第一行的列模板逐字相同。
+  //   ⚠ `levelCheck` 的两条判据在这一跑**只判得到一条**：文件层有 `.ks-kb-tree` + `.ks-main`
+  //     （判"并排"），而"两类行行高相同"需要目录行与文件行同时在 —— `kb-files` 停在
+  //     「标准 / P16 工程防火」（这一级**没有**下级目录）⇒ `levelCheck.rowHeightJudged === false`。
+  //     ⇒ **没有对象**不算失败（那一半的取证场景是 `--interact kb-level`，归
+  //     `smoke-kb-pad-pixels.mjs` 的矩阵；它有一条覆盖面判据要求"至少一跑真的判过行高"）。 */
   const r = spawnSync(process.execPath, [shotScript, '--page', 'kb', '--width', String(width), '--interact', 'kb-files', '--out', outPng], {
     cwd: repoRoot, encoding: 'utf8', timeout: 180_000,
   })
   let payload = null
   try { payload = JSON.parse(r.stdout) } catch { payload = null }
   const cc = payload?.colsCheck ?? null
-  const kc = payload?.cardsCheck ?? null
+  const lc = payload?.levelCheck ?? null
   const row = {
     width,
     exit: r.status,
@@ -79,52 +92,60 @@ for (const width of widths) {
     gapHeader: cc?.gapHeader ?? null,
     gapRow: cc?.gapRow ?? null,
     problems: cc?.problems ?? [],
-    cardsChecked: kc?.checked ?? false,
-    cardsSkipReason: kc?.skipReason ?? null,
-    cardsWidths: kc?.widths ?? null,
-    cardsHeights: kc?.heights ?? null,
-    cardsProblems: kc?.problems ?? [],
+    levelChecked: lc?.checked ?? false,
+    levelSkipReason: lc?.skipReason ?? null,
+    levelProblems: lc?.problems ?? [],
+    rowHeightJudged: lc?.rowHeightJudged === true,
+    treeRight: lc?.treeRight ?? null,
+    mainLeft: lc?.mainLeft ?? null,
   }
   rows.push(row)
   if (r.status !== 0) {
     failures.push(`width=${width}：ui-render-shot exit=${String(r.status)} —— `
-      + ([...row.problems, ...row.cardsProblems].length > 0
-        ? [...row.problems, ...row.cardsProblems].join('；')
+      + ([...row.problems, ...row.levelProblems].length > 0
+        ? [...row.problems, ...row.levelProblems].join('；')
         : (r.stderr ?? '').trim().split('\n').slice(-3).join(' / ')))
   } else {
     if (!row.checked) {
       failures.push(`width=${width}：列对齐**没判到**（${row.skipReason ?? 'colsCheck 缺失'}）—— "没跑"不能算通过`)
     }
-    // ⚠ 5i：卡片尺寸统一（`#kbcards`）与列对齐**同样要求"判到且通过"**（不是"没判也算过"）。
-    if (!row.cardsChecked) {
-      failures.push(`width=${width}：卡片尺寸统一**没判到**（${row.cardsSkipReason ?? 'cardsCheck 缺失'}）—— "没跑"不能算通过`)
+    /* ⚠ 2026-09-21（第 3 步）：这一档原来要求的是 `cardsCheck`（卡片带里逐张卡等宽等高）。
+       卡片带已被业主删掉 ⇒ 换成 **`levelCheck`**（左列与右栏并排 + 目录/文件两层行高逐字相同）。
+       纪律一字未改：**"判到且通过"**，`skipReason` 非空 / `checked !== true` 都算失败。 */
+    if (!row.levelChecked) {
+      failures.push(`width=${width}：知识库几何（左列并排 + 两层行高一致）**没判到**`
+        + `（${row.levelSkipReason ?? 'levelCheck 缺失'}）—— "没跑"不能算通过`)
     }
+    for (const p of row.levelProblems) failures.push(`width=${width}：${p}`)
   }
 }
 
 console.log('列对齐三档巡查（每档都跑一遍真 Chrome 的 ui-render-shot）：')
 console.log('  宽度   判定    表头 grid-template-columns                 行 grid-template-columns                 gap(表头/行)')
 for (const r of rows) {
-  const verdict = r.exit !== 0 ? `FAIL(exit ${String(r.exit)})` : (r.checked && r.cardsChecked ? 'PASS' : 'SKIP')
+  const verdict = r.exit !== 0 ? `FAIL(exit ${String(r.exit)})` : (r.checked && r.levelChecked ? 'PASS' : 'SKIP')
   console.log(`  ${String(r.width).padEnd(6)} ${verdict.padEnd(7)} ${String(r.header).padEnd(42)} ${String(r.rowTpl).padEnd(40)} ${String(r.gapHeader)}/${String(r.gapRow)}`)
   for (const p of r.problems) console.log(`         └─ ${p}`)
 }
 const wide = rows.filter((r) => r.checked).map((r) => `${r.width}:${String(r.header).split(' ').length} 列`)
 console.log(`  档位（按表头列数）：${wide.join(' / ') || '(没有判到的档)'}`)
-console.log('  卡片尺寸统一（5i 起的第二条自检；逐张实测宽/高）：')
+console.log('  知识库几何（2026-09-21 起取代"卡片尺寸统一"；左列右缘 ≤ 右栏左缘）：')
 for (const r of rows) {
-  console.log(`  ${String(r.width).padEnd(6)} 卡宽 ${String(r.cardsWidths)} ／卡高 ${String(r.cardsHeights)}`)
-  for (const p of r.cardsProblems) console.log(`         └─ ${p}`)
+  console.log(`  ${String(r.width).padEnd(6)} 左列右缘 ${String(r.treeRight)}px ≤ 右栏左缘 ${String(r.mainLeft)}px`
+    + `（并排判过=${String(r.levelChecked)}；两层行高这一跑判到=${String(r.rowHeightJudged)}`
+    + `${r.rowHeightJudged ? '' : ' —— 这一级没有下级目录，行高那一半归 kb-level 场景'}）`)
+  for (const p of r.levelProblems) console.log(`         └─ ${p}`)
 }
 console.log('')
 
 if (failures.length > 0) {
-  console.error('❌ 列对齐/卡片尺寸巡查判红（P2 头条"列对齐" + 业主点名的"卡片尺寸统一"）：')
+  console.error('❌ 列对齐/知识库几何巡查判红（P2 头条"列对齐" + 第 3 步"左列目录与右栏并排"）：')
   for (const f of failures) console.error(`   - ${f}`)
   console.error('   ⇒ 列对齐：表头（.ks-lhead）与数据行（.ks-item）必须共用同一条 --ks-cols 模板，')
   console.error('      见 plugin/client/ksGuideStyles.ts 的 `.ks-lhead,.ks-item{grid-template-columns:var(--ks-cols)}`。')
-  console.error('   ⇒ 卡片尺寸：卡宽的唯一声明是 `.ks-kbband .ks-kb-card{flex:0 0 var(--ks-band-card-w)}`，')
-  console.error('      同排等高靠容器 `align-items:stretch` + `>*{min-height:var(--ks-card-h)}`。')
+  console.error('   ⇒ 几何：左列宽/主栏最小宽见 `.ks-kb-tree{flex:0 0 168px}` 与 `.ks-main{min-width:260px}`；')
+  console.error('      两层行高都吃 `.ks-item{min-height:var(--ks-row-h-list)}`。')
   process.exit(1)
 }
-console.log(`✅ 列对齐 + 卡片尺寸巡查通过：${widths.join(' / ')} 三档的表头与第一行逐字相同（gap 也相同），卡片带逐张等宽等高。`)
+console.log(`✅ 列对齐 + 知识库几何巡查通过：${widths.join(' / ')} 三档的表头与第一行逐字相同（gap 也相同），`
+  + `且左列目录与右栏并排、目录行与文件行行高一致。`)

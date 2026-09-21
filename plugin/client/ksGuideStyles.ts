@@ -30,12 +30,12 @@ export const KS_STYLES = `
    —— 照 WeKnora 知识库管理的**成体系**做法：4px 网格、受限字号表、受限圆角表、
       受限动效时长。上一轮 UI 难看的根因就是**没有它**（13px/18px 这种现场拍的数字满地都是）。
 
-   ⚠ 为什么挂 \`:root\` 而不是我们某个面板的根类：
+   ⚠ 为什么挂 :root 而不是我们某个面板的根类：
      我们的面板分布在宿主的多个插槽里（开始页入口卡 / 右侧栏各 tab / 知识库页…），
-     **没有一个共同的祖先**是我们自己的。挂 \`:root\` 只是把 20 来个 \`--ks-*\` 自定义属性
-     声明出来（带 \`ks-\` 前缀 = 我们自己的命名空间）：自定义属性**本身不产生任何样式**，
+     **没有一个共同的祖先**是我们自己的。挂 :root 只是把 20 来个 --ks-* 自定义属性
+     声明出来（带 ks- 前缀 = 我们自己的命名空间）：自定义属性**本身不产生任何样式**，
      宿主不读它们就完全无感；代价是宿主 DOM 会继承到这批变量（惰性）。
-     若哪天要收窄作用域，把它们挪到我们各面板根类上即可（规则里用的 \`var(--ks-*)\` 不用改）。
+     若哪天要收窄作用域，把它们挪到我们各面板根类上即可（规则里用的 var(--ks-*) 不用改）。
    =================================================================================== */
 :root{
   /* 间距：4px 网格（4/8/12/16/20/24/32/40）。
@@ -79,8 +79,8 @@ export const KS_STYLES = `
   --ks-stroke:1px;
   /* 宿主 Button size=sm 的**档位**（P1-6：批量条按钮实测 28px —— 那是 .ks-batch 的
      align-items:center 加上图标把它撑起来的，不是宿主给的档）。行尾「⋮」显式钉 24px。
-     ⚠ 2026-09-21（第 3 步）：批量条 \`.ks-batch\` 已随"批量动作不在本批"撤掉，
-       这个 token 的消费方只剩 \`.ks-item-more button\`（口径没变，名字没改）。 */
+     ⚠ 2026-09-21（第 3 步）：批量条 .ks-batch 已随"批量动作不在本批"撤掉，
+       这个 token 的消费方只剩 .ks-item-more button（口径没变，名字没改）。 */
   --ks-btn-h-sm:24px;
 
   /* 页面留边（**内容与窗口/面板边缘**的留边；与上面那组"元素之间"的 --ks-space-* 是两件事）。
@@ -150,10 +150,10 @@ export const KS_STYLES = `
 .ks-kb-cd{font-size:var(--ks-fs-sm);line-height:1.5;color:var(--dsw-alias-label-secondary);
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
   margin:var(--ks-space-1) 0 var(--ks-space-2)}
-/* ⚠ **2026-09-21（第 3 步）删除记录**：\`.ks-kb-foot\`（卡片页脚，卡片带的卡底分隔线）已随卡片带
+/* ⚠ **2026-09-21（第 3 步）删除记录**：.ks-kb-foot（卡片页脚，卡片带的卡底分隔线）已随卡片带
    一起删除 —— 全仓 grep 已无消费者。
    ⚠ 另外这几条**在本批之前就没人消费**（登记，不属本批范围，故**不删**以免把 diff 扯到别的面上）：
-     \`.ks-kb-btn\` / \`.ks-kb-btn-primary\` / \`.ks-kb-doc\` / \`.ks-kb-no\` / \`.ks-kb-nm\`
+     .ks-kb-btn / .ks-kb-btn-primary / .ks-kb-doc / .ks-kb-no / .ks-kb-nm
      —— 它们与"卡片带"无关，是更早的迭代留下的；要清就单开一批清（免得与本次改版的判据混在一起）。 */
 .ks-kb-btn{border:var(--ks-sep) solid var(--dsw-alias-border-l4);border-radius:var(--ks-r-lg);padding:var(--ks-space-1) var(--ks-space-3);font-size:var(--ks-fs-sm);
   color:var(--dsw-alias-label-secondary);background:transparent;cursor:pointer}
@@ -168,7 +168,7 @@ export const KS_STYLES = `
       Never pair a --dsw-alias-border-* border with an lv/elevation shadow」⇒ 这里 **border:0**，
       发丝描边由阴影里的 --dsw-elevation-stroke 画（颜色重绑成 border-l2，与改前的描边同档）。
    ⚠ 2026-09-21（第 3 步）：业主定案"原来的**大卡片去掉**" ⇒ 卡片带（.ks-kbband / .ks-kb-cards
-      / --ks-band-*）整段已删；\`.ks-kb-card\` 本身**保留**，它现在只被"文件详情"那一张卡消费。 */
+      / --ks-band-*）整段已删；.ks-kb-card 本身**保留**，它现在只被"文件详情"那一张卡消费。 */
 .ks-kb-card{box-sizing:border-box;display:flex;flex-direction:column;
   border:0;border-radius:var(--ks-r-card);padding:var(--ks-space-3);
   --dsw-elevation-stroke-color:var(--dsw-alias-border-l2);
@@ -180,7 +180,7 @@ export const KS_STYLES = `
    + 子项吃 --ks-card-h 这门高度档。
    ⚠ 用 min-height 而不是 height：内容多的卡仍能长高，不会被截断。
    ⚠ **2026-09-21（第 3 步）就地更正**：本条的消费者已从"卡片带"换成**能力页**
-     （\`KsCapabilityPage.tsx\` 用 \`.ks-kb-cards\` + 内联 \`gridTemplateColumns\` 排它那 8 张卡）
+     （KsCapabilityPage.tsx 用 .ks-kb-cards + 内联 gridTemplateColumns 排它那 8 张卡）
      —— 卡片带（.ks-kbband）已随业主要求删除，但这个**网格基类留着、有人用**，
      不是死代码（删了能力页会塌成一列）。 */
 .ks-kb-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--ks-card-gap);
@@ -189,7 +189,7 @@ export const KS_STYLES = `
 /* ---------- 面包屑 + 「返回上一层」 + 目录树（5h 起；2026-09-21 第 3 步改成真路径） ----------
    面包屑行：左边是返回按钮（**在最外层时 disabled**），中间是当前路径，右边是这一级的计数
    （最外层那一格如实写"你在最外层"）。
-   ⚠ 路径用**后端给的目录名**（\`data.breadcrumb\` 逐条），不是本地推的 key。
+   ⚠ 路径用**后端给的目录名**（data.breadcrumb 逐条），不是本地推的 key。
    ⚠ 结构：外层 .ks-crumb-path 里是「条目 / 分隔符 / 条目 / …」——.ks-crumb-item（一级一个）
      + .ks-crumb-sep（斜杠，**与条目是兄弟**）；条目内部要么是可点的 .ks-crumb-go（button），
      要么是**当前级**的 .ks-crumb-here（span）。
@@ -246,13 +246,13 @@ export const KS_STYLES = `
    一列放不下就换行：右栏宽度是业主自己拖的，不许假设它有多宽。
    ⚠ 5h 删掉了第三段「目录轨」（.ks-rail）—— 那一版业主说"不要展示目录树"；
      **2026-09-21 第 3 步又把它请回来**（业主本轮定案：「**左边一列目录**，点一级进去看里面」）
-     ⇒ 左列现在是 \`.ks-kb-tree\`（真目录树，按需展开）。两次改动的依据都是业主原话。 */
+     ⇒ 左列现在是 .ks-kb-tree（真目录树，按需展开）。两次改动的依据都是业主原话。 */
 .ks-split{display:flex;gap:var(--ks-space-2);align-items:flex-start;flex-wrap:wrap;min-height:0}
 /* 左列目录树（第 3 步新增）：
    · 固定窄列（168px）+ 不伸不缩 —— 右栏才是内容；窄档（520）下 168 + gap 8 + 主栏 min 260
      = 436 < 488（页面根宽 − 2×16 留边），**不会把主栏挤到第二行**（留边那条注释算过这笔账）。
    · 自己可滚动（目录多了内部滚，不把整页顶长）。
-   ⚠ 它**不是**新的留边适用面之外的东西：\`.ks-kb-tree\` 已加进 UI-BASELINE 第二节的适用面
+   ⚠ 它**不是**新的留边适用面之外的东西：.ks-kb-tree 已加进 UI-BASELINE 第二节的适用面
      与三处脚本副本（见那一节）。 */
 .ks-kb-tree{flex:0 0 168px;min-width:168px;max-height:520px;overflow:auto;box-sizing:border-box;
   border:0;border-radius:var(--ks-r-card);padding:var(--ks-space-2);
@@ -289,13 +289,18 @@ export const KS_STYLES = `
    —— 表格的列档（窄档 / 宽档）按**它自己的宽度**切，不是按视口切。
    为什么不能用 @media：宿主右栏的宽度是业主自己拖的，与视口宽**没有关系**
    （1300 视口下 .ks-main 只有 820px，而 520 视口下它是 496px，都在同一个视口区间里）。
-   ⚠ **第 3 步起 min-width 收到 260px**：左边多了 168px 的目录树，两列要在 520 档
-     的 488px 可用宽里并排 ⇒ 168 + 8 + 260 = 436（留 52px 余量）。
+   ⚠ **第 3 步起 min-width 与 flex-basis 都收到 260px**：左边多了 168px 的目录树，
+     两列要在 520 档的 **464px** 可用宽（页面根 496 − 2×16 留边）里并排
+     ⇒ 168 + 8 + 260 = 436 ≤ 464（留 28px 余量）。
+   ⚠⚠ **flex-basis 必须与 min-width 同值（本批真 Chrome 实测踩到，levelCheck 当场红）**：
+     flex-wrap:wrap 决定**换行**看的是 flex-basis，不是 min-width —— basis 写 320 时
+     168 + 8 + 320 = 496 > 464 ⇒ 主栏被挤到**第二行**（量到的几何：左列右缘 196px > 右栏左缘 28px）。
+     旧值 320 是"两列时代"（可用宽 496）的数，左列出现之后它必须一起收。
    ⚠ container-type:inline-size 只加"行内尺寸不依赖内容"的包含 ⇒ 它是 flex 项，宽度由 flex 行给。 */
-.ks-main{flex:1 1 320px;min-width:260px;display:flex;flex-direction:column;gap:var(--ks-space-2);
+.ks-main{flex:1 1 260px;min-width:260px;display:flex;flex-direction:column;gap:var(--ks-space-2);
   min-height:0;container-type:inline-size}
 .ks-detail{flex:0 1 232px;min-width:200px;display:flex;flex-direction:column;gap:var(--ks-space-2)}
-/* 文件分页条（第 3 步）：后端 \`limit/offset/has_more\` 的界面口。 */
+/* 文件分页条（第 3 步）：后端 limit/offset/has_more 的界面口。 */
 .ks-pager{display:flex;align-items:center;justify-content:center;gap:var(--ks-space-2)}
 .ks-pager-n{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary);white-space:nowrap}
 .ks-pager-btn{height:var(--ks-btn-h-sm);min-height:var(--ks-btn-h-sm)}
@@ -333,9 +338,9 @@ export const KS_STYLES = `
      ⚠ 为什么窄档舍掉的是这两列：窄列里塞 5 列会把**名称**挤到 200px 以内，而行里最需要
        宽度的就是名称；效力是 20px 的徽章、信息密度最高，留下。
      ⚠ **2026-09-21（第 3 步）第 4 列从「标签」换成「处理状态」**：标签在本批**没有落库的接口**
-       （\`doc_meta.domain_tags\` 是原始 JSON 串，而 \`/kb/.../items\` 不下发解析后的列表）⇒ 留着那一列
+       （doc_meta.domain_tags 是原始 JSON 串，而 /kb/.../items 不下发解析后的列表）⇒ 留着那一列
        只能是空壳或假数据；而"所有文件都要显示处理状态"是方案 §一里业主明说的 ⇒ 第 4 列改成
-       \`--ks-col-stage\`（值来自后端 \`stage\`，本批如实显示，第 4 步做完整）。 */
+       --ks-col-stage（值来自后端 stage，本批如实显示，第 4 步做完整）。 */
 .ks-list{--ks-col-status:72px;--ks-col-date:80px;--ks-col-stage:96px;--ks-col-more:36px;
   --ks-cols:minmax(0,1fr) var(--ks-col-status) var(--ks-col-more);
   border:0;border-radius:var(--ks-r-card);overflow:hidden;
@@ -489,14 +494,14 @@ export const KS_STYLES = `
      （左缘与名字对齐，与 .ks-item-sub 的 grid-area:2/2 是同一个手法）。
    ⚠ **2026-09-21（第 3 步）就地更正**：本段原来写"图标只能在**勾选框**之前：名字与勾选框是
      同一个元素（Checkbox 的可见 label），插不进它们中间" —— **勾选框已随"批量动作不在本批"撤掉**
-     ⇒ 名字现在是我们自己的 \`.ks-item-name\`（可见文本就在这一层，\`title=\` 给全名）。
+     ⇒ 名字现在是我们自己的 .ks-item-name（可见文本就在这一层，title= 给全名）。
      留痕：那条"③ 做不了（Checkbox 的 label 必可见）"的结论**仍然成立**，
      但它现在**不再是**这一列的形状约束（约束它的人已经不存在了）。 */
 .ks-item .ks-col-name{display:grid;grid-template-columns:16px minmax(0,1fr);
   column-gap:var(--ks-space-2);row-gap:0;align-items:center}
 .ks-fileico{grid-area:1/1;grid-row:1/3;display:inline-flex;align-items:center;justify-content:center;
   width:16px;height:16px;color:var(--dsw-alias-label-tertiary)}
-/* 第 1 行：文件名（我们自己的元素 —— 可省略号、\`title=\` 给全名）。 */
+/* 第 1 行：文件名（我们自己的元素 —— 可省略号、title= 给全名）。 */
 .ks-item .ks-item-name{grid-area:1/2;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   color:var(--dsw-alias-label-primary);font-size:var(--ks-fs-md);line-height:1.4}
 /* 第 2 行（.ks-item-sub）：标准号（12px tertiary），落在**文件名那一段**的正下方。 */
@@ -508,7 +513,7 @@ export const KS_STYLES = `
 .ks-item .ks-col-status{display:flex;align-items:center}
 .ks-item .ks-col-date{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary)}
 /* 处理状态列（第 3 步新增；第 4 列从"标签"换成它）：纯文本 + nowrap，
-   值来自后端 \`stage\`（中文标签是客户端镜像，见 KsKnowledgePage.tsx 的 STAGE_LABELS 注释）。
+   值来自后端 stage（中文标签是客户端镜像，见 KsKnowledgePage.tsx 的 STAGE_LABELS 注释）。
    ⚠ 这里**不写 display**：显示/隐藏由上面 .ks-list 的窄/宽档唯一决定（写了会与它抢）。 */
 .ks-item .ks-col-stage{align-items:center;overflow:hidden;
   font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);white-space:nowrap;
@@ -560,17 +565,17 @@ export const KS_STYLES = `
 .ks-field-v-mono{font-family:ui-monospace,Consolas,monospace}
 /* ⚠⚠ **2026-09-21（第 3 步）就地删除记录（本仓规矩：删了什么必须留痕）**：
    下面这几组选择器**已随功能一起删掉**，不是"忘了写"：
-     · \`.ks-tag\`（行内/详情里的标签 chip）、\`.ks-tagrow*\`、\`.ks-parse*\`、\`.ks-subtabs\`
+     · .ks-tag（行内/详情里的标签 chip）、.ks-tagrow*、.ks-parse*、.ks-subtabs
        —— 标签视图 + 行内/批量「＋标签」的全部样式。**按下去只改内存、不落库**（方案 §六
        最后一条明令不许留），本批一处不留；标签要落地需要后端的标签接口，属后续批次。
-     · \`.ks-filters\` / \`.ks-chip\` / \`.ks-chip-on\` —— 状态筛选胶囊。文件列表现在是**后端分页**，
-       而 \`/kb/folders/{id}/items\` **没有状态筛选参数** ⇒ 前端只筛当前一页会静默撒谎
+     · .ks-filters / .ks-chip / .ks-chip-on —— 状态筛选胶囊。文件列表现在是**后端分页**，
+       而 /kb/folders/{id}/items **没有状态筛选参数** ⇒ 前端只筛当前一页会静默撒谎
        （"筛出 0 篇"其实后面几页有）。诚实的版本要后端加参数（本批不许改后端）⇒ 不做。
-     · \`.ks-batch\` / \`.ks-batch-btn\` / \`.ks-batch-n\` / \`.ks-batch .ks-danger\` —— 悬浮批量条。
+     · .ks-batch / .ks-batch-btn / .ks-batch-n / .ks-batch .ks-danger —— 悬浮批量条。
        方案 §五第 3 步的"本批不做"点名了"**批量选择动作**"⇒ 勾选与批量条一并撤掉
        （留着要么是假动作，要么就得在这一批顺手做掉"批量删除真删库"这件不可逆的事）。
-   判据（有牙）：\`plugin/scripts/smoke-kb-page-render.mjs\` 里那几条"这些假动作真的没了"的断言
-   （\`.ks-batch\` / \`.ks-chip\` / \`.ks-tagrow\` / \`.ks-subtabs\` 计数恒 0 + 菜单里没有「＋标签」）；把任一处
+   判据（有牙）：plugin/scripts/smoke-kb-page-render.mjs 里那几条"这些假动作真的没了"的断言
+   （.ks-batch / .ks-chip / .ks-tagrow / .ks-subtabs 计数恒 0 + 菜单里没有「＋标签」）；把任一处
    加回来都会当场红。 */
 /* 行尾溢出菜单（P1-1，2026-09-20）：原来「＋标签」与「详情」是两个**常驻**行内按钮
    （一行里 5 个可见控件）。现在收进这里，触发器只留一个「⋮」。

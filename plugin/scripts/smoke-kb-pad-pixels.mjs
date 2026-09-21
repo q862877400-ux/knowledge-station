@@ -59,20 +59,20 @@ if (process.argv.slice(2).length > 0) {
  *     复核 `verify-freeze-5jx6` 的残余①指出来的，5j 当时只有一张深色**截图**当证据、没有断言）。
  */
 const MATRIX = [
-  { page: 'kb', width: 520, interact: '', note: '默认态：卡片带 + 一级目录' },
+  { page: 'kb', width: 520, interact: '', note: '默认态（最外层：左列目录 + 右侧下级目录）' },
   { page: 'kb', width: 1300, interact: '', note: '默认态（宽档）' },
-  { page: 'kb', width: 520, interact: 'kb-select', note: '文件表 + 批量条' },
-  { page: 'kb', width: 520, interact: 'kb-files', note: '文件表（无批量条；smoke-kb-cols 也跑这一档）' },
-  { page: 'kb', width: 1300, interact: 'kb-select', note: '文件表 + 批量条（宽档）' },
-  { page: 'kb', width: 520, interact: 'kb-empty-files', note: '空态卡' },
-  /* ⚠ **2026-09-20 头条新增**：`kb-crumb`（面包屑逐级可点）也走一遍真 Chrome。
-   *   两件事一起做，缺一不可：
-   *     ① 这一跑 `ui-render-shot` 自己下断言（可点级别必须是 button、点第 i 级真的回到第 i 层）；
-   *     ② 它同时把**目录层的新形态**（`.ks-list-dirs` 列表）纳入留边适用面 ——
-   *        这一跑在 `PAD_REQUIRED['kb|kb-crumb']` 里声明了期望元素，所以元素被改名/删掉会红。
-   *   ⚠ 只加这一组、**没动**其它组的判据（覆盖面只涨不跌）。 */
+  { page: 'kb', width: 520, interact: 'kb-level', note: '目录层（法律法规：1 目录 + 1 文件 —— levelCheck 行高那一半的取证场景）' },
+  { page: 'kb', width: 520, interact: 'kb-page', note: '大批量那一级：文件表 + 分页条' },
+  { page: 'kb', width: 520, interact: 'kb-files', note: '文件表（smoke-kb-cols 也跑这一档）' },
+  { page: 'kb', width: 1300, interact: 'kb-level', note: '目录层（宽档：左列与右栏并排的宽档取证）' },
+  { page: 'kb', width: 520, interact: 'kb-empty', note: '空目录的空态卡' },
+  { page: 'kb', width: 520, interact: 'kb-upload', note: '上传面板（本批新增的每级上传入口）' },
+  /* ⚠ **2026-09-21（第 3 步）就地改写**：这一组原来是 `kb-crumb`（面包屑逐级可点），
+     判据没变、只是面包屑现在是**后端给的**真路径；场景名保留。 */
   { page: 'kb', width: 520, interact: 'kb-crumb', note: '面包屑逐级可点 + 目录层列表（窄档）' },
-  { page: 'kb', width: 520, interact: 'kb-select', theme: 'dark', note: '深色：留边 + 批量条折行（业主看的深浅两套）' },
+  /* ⚠ 深色那一组原来落在 `kb-select`（批量条折行）；批量条已删 ⇒ 换成 `kb-level`
+     （深色下**目录层**的留边与两类行的几何）。 */
+  { page: 'kb', width: 520, interact: 'kb-level', theme: 'dark', note: '深色：留边 + 目录层几何（业主看的深浅两套）' },
   { page: 'capabilities', width: 520, interact: '', note: '能力页（窄档：单列，8 排都是单卡排）' },
   /* ⚠ **2026-09-21 新增这一组**：能力卡的"**同排等高**"只有在**一排 >= 2 张卡**时才判得动
    *   （窄档 520 是单列 ⇒ 8 排全是单卡排，"同排等高"在那几排上**恒真**）。
@@ -132,6 +132,23 @@ for (const c of MATRIX) {
       + ' ⇒ 存在性没判（复核 E① 的假绿通道）')
   }
   for (const p of pad.problems ?? []) problems.push(p)
+  /* ⚠⚠ **知识库页几何（2026-09-21 第 3 步起取代"卡片尺寸统一"）**：`levelCheck`。
+   *   两条判据：① 左列目录树与右栏并排；② 同一级里目录行与文件行行高逐字相同。
+   *   `page === 'kb'` 时**必须判到**（`skipReason` 非空 / `checked !== true` 都算失败）。
+   *   ⚠ 判据②只在"两种行同时在"的层级有对象 ⇒ `rowHeightJudged` 由本脚本的**覆盖面**判据
+   *     单独要求"至少一跑真的判过它"（同能力页"多卡排"那条纪律：声明了不等于跑过）。 */
+  const lc = j.levelCheck ?? {}
+  let levelChecked = null
+  let rowHeightJudged = null
+  if (c.page === 'kb') {
+    levelChecked = lc.checked === true && (lc.skipReason ?? null) === null
+    rowHeightJudged = lc.rowHeightJudged === true
+    if ((lc.skipReason ?? null) !== null) {
+      problems.push(`levelCheck.skipReason 非空（kb 页不许"这一跑不判"）：${String(lc.skipReason)}`)
+    }
+    if (lc.checked !== true) problems.push('levelCheck.checked !== true（左列并排 / 两层行高一致）')
+    for (const p of lc.problems ?? []) problems.push(p)
+  }
   /* ⚠⚠ **能力页另有第二条断言**（2026-09-21 新增）：`capCardsCheck` = **等宽 + 同排等高 + 防空转**
    *   （口径是父代理裁定：**不判"尺寸统一"**，只判这两条站得住的）。
    *   它**只对能力页适用** ⇒ 其余页面 `skipReason` 非空是**正常**的（`.ks-cap-card` 是能力页专有形态），
@@ -155,6 +172,7 @@ for (const c of MATRIX) {
     tier: pad.tier ?? null, expect: pad.expect ?? null, pageW: pad.pageW ?? null,
     required: pad.required ?? null, missingSubjects: pad.missingSubjects ?? null,
     allSubjects: pad.allSubjects ?? null, declaredCombos: pad.declaredCombos ?? null,
+    levelChecked, rowHeightJudged,
     capChecked, capCount: capc.count ?? null, capRowCount: capc.rowCount ?? null, capMaxRow,
     problems,
   })
@@ -202,7 +220,7 @@ console.log('')
    而那一侧又绑着规范第二节 ⇒ 为同一个元素再加第三个名字（`.ks-list-dirs`）会连规范一起改宽，
    等于把"适用面"越改越大。本批实测过那条路的代价：加完自检立刻红在
    「规范第二节的适用面与本脚本的 PAD_SUBJECTS_ALL 不一致 ⇒ 只在脚本里=[.ks-list-dirs]」。 */
-const SPEC_SUBJECTS = ['.ks-kb', '.ks-ing', '.ks-mat', '.ks-kbband', '.ks-list', '.ks-batch',
+const SPEC_SUBJECTS = ['.ks-kb', '.ks-ing', '.ks-mat', '.ks-kb-tree', '.ks-list',
   '.ks-dirs', '.ks-page-head', '.ks-kb-row', '.ks-empty-card']
 /**
  * **冻死的"应该跑哪些组合"清单**（5j-补×5，2026-09-20）：复核 `verify-freeze-5jx4` 判 PASS 时给的加固建议 ——
@@ -216,8 +234,9 @@ const SPEC_SUBJECTS = ['.ks-kb', '.ks-ing', '.ks-mat', '.ks-kbband', '.ks-list',
  * ⇒ 现在冻的是**三元组 `page|interact@width`**（10 条，与 `MATRIX` 逐行对应）。维护成本一样（同文件一行）。
  * ⚠ 与 `MATRIX` **同源两份**（同文件内），改矩阵必须逐字同步改这里 —— 不一致就红（这是设计，不是麻烦）。
  */
-const EXPECTED_RUNS = ['kb|@520', 'kb|@1300', 'kb|kb-select@520', 'kb|kb-files@520',
-  'kb|kb-select@1300', 'kb|kb-empty-files@520', 'kb|kb-crumb@520', 'kb|kb-select@520#dark',
+const EXPECTED_RUNS = ['kb|@520', 'kb|@1300', 'kb|kb-level@520', 'kb|kb-page@520',
+  'kb|kb-files@520', 'kb|kb-level@1300', 'kb|kb-empty@520', 'kb|kb-upload@520',
+  'kb|kb-crumb@520', 'kb|kb-level@520#dark',
   'capabilities|@520', 'capabilities|@900',
   'ingest|ingest-batch@520', 'materials|@1300']
 /** 从**成功的实测 JSON** 里取声明集合（任一组报到即可 —— 它们来自同一个 `ui-render-shot` 进程）。 */
@@ -309,6 +328,20 @@ if (!capRunRows.some((r) => (r.capMaxRow ?? 0) >= 2)) {
   failures.push('**能力卡的"同排等高"没有任何一组是在多卡排上判的**（跑过的能力页每一排都只有 1 张卡）'
     + ' ⇒ 单卡排上它恒真 = 没判到 align-items:stretch；至少保留一组宽档（3 列）的能力页组合')
 }
+/* ── **知识库页几何（levelCheck）的覆盖面**（2026-09-21 第 3 步新增） ──
+   判据②（目录行与文件行行高一致）只在"两种行同时在"的层级**有对象** ⇒ 光要求
+   `levelCheck.checked === true` 是盖不住它的（一个只有目录行的层级也算"通过"）。
+   ⇒ 与能力页"多卡排"完全同一种纪律：**至少要有一跑真的判过它**（`rowHeightJudged === true`）。
+   ⚠ 取证场景是 `--interact kb-level`（stub 的「法律法规」：1 个下级目录 + 1 篇文件）。 */
+const kbRunRows = rows.filter((r) => r.page === 'kb')
+if (!kbRunRows.some((r) => r.levelChecked === true)) {
+  failures.push('**知识库页的 `levelCheck` 一组都没判过**（左列并排 / 两层行高一致全是空的）'
+    + ' ⇒ 把 kb 的几组留在 MATRIX 里（改矩阵要同步改 EXPECTED_RUNS）')
+}
+if (!kbRunRows.some((r) => r.rowHeightJudged === true)) {
+  failures.push('**"目录行与文件行行高一致"没有任何一组真的判过**（每一跑都只有目录行或只有文件行）'
+    + ' ⇒ 那条判据恒不生效；至少保留一组 `--interact kb-level`（1 个下级目录 + 1 篇文件）')
+}
 if (sawNoBrowser) {
   failures.push(`**这一跑起不来无头浏览器**（${String(MATRIX.length)} 组都没拿到 JSON）—— 门禁链从 5j-补 起需要本机有`
     + ' Chromium/Edge（`--browser` 或 `$KS_BROWSER` 可指路径）。**缺浏览器就是红，不是跳过**：'
@@ -326,4 +359,5 @@ if (failures.length > 0) {
 }
 console.log(`✅ 页面留边巡查通过：${MATRIX.length} 组（窄档与宽档都有、深色一组也在），`
   + `规范点名的 ${SPEC_SUBJECTS.length} 类适用面每一类都至少有一组在判；`
-  + `能力页的 capCardsCheck（等宽 + 同排等高 + 防空转）也在判，其中至少一组是在多卡排上判的。`)
+  + `能力页的 capCardsCheck（等宽 + 同排等高 + 防空转）也在判，其中至少一组是在多卡排上判的；`
+  + `知识库页的 levelCheck（左列并排 + 两层行高一致）也在判，其中至少一组真的判到了两层行高。`)
