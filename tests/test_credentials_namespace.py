@@ -46,7 +46,14 @@ LEGACY_ALLOWED_FILES = {
     "scripts/make_handoff_zip.py",           # 交接清单文档字符串
     # 真宿主 e2e（2026-09-21 加）：**只**用于断言"起宿主的子进程环境里已把这些旧名剥干净"
     # （钱的安全自证：万一模型没被假 provider 接住，宿主会拿真 key 打真 API）。
-    # 它**不读值、不写值、不打印值**，只是 `key in env` 的存在性检查 ⇒ 复核用途后放行。
+    # ⚠ **更正（2026-09-21 复核打回，错话保留）**：这里原写的是它"**不读值、不写值、不打印值**"。
+    # **"不打印值"当时是假的**：那一版 `e2e-install-compose.mjs` 的诊断里是
+    # `` DEEPSEEK_API_KEY=${String(headlessEnv.DEEPSEEK_API_KEY)} ``，复核实测把父环境设成
+    # `SHOULD-NOT-LEAK` 后**真的打出了值**（失败步输出还会被 `run-gates.ps1` 落盘）。
+    # 现在它只打**存在性**（`存在=是/否`），并加了输出口 `redact()` 兜底 ⇒ 这句才是真的。
+    # **为什么允许它提及旧名**：剥 key 那条断言按定义要点名 `DEEPSEEK_API_KEY`
+    # （`Object.keys(env)` 的存在性检查 + `env.DEEPSEEK_API_KEY === undefined`）——
+    # 旧名**必须**出现在源码里，这正是白名单条目的用途（人工复核过：无读值/写值/打印值）。
     "plugin/scripts/e2e-install-compose.mjs",
 }
 #: 扫描射程（verifier mut9：只扫 src/ 会漏掉脚本层的裸名写入）

@@ -17,10 +17,33 @@
  *   2. 兜底 `<检出>/packages/core/tools/lib/index.js`。
  * 两条都不存在 ⇒ 红（说明检出没构建）。
  *
+ * ### ⚠ 口径更正（2026-09-21 复核打回）：**"同一份文件"这句不成立**
+ * 本文件原来把上面解析到的入口写成"真包"，读者容易顺推成"这就是宿主加载的那一份"。**不是**：
+ * 实测（复核用 `import.meta.resolve` 做的）宿主是
+ * `node --import tsx/esm apps/cli/src/bin.ts`，经 **tsx + `tsconfig.base.json` 的 paths** 加载
+ * **`packages/core/tools/src/index.ts`（源码）**；本脚本解析的是 `exports['.']` 的
+ * **`lib/index.js`（构建产物）** ⇒ **陈旧构建风险**：检出改过源码但没重建时，这里验的是旧行为。
+ * 复核只抽样对照过（导出键集、`ToolRuntime` 原型名、6 工具 × parameters/output 共 12 次
+ * `assertSupportedJsonSchema`、`validateJsonSchemaValue` 4 样例 ⇒ 一致；**抽样 ≠ 全部**）。
+ * ⇒ 现在**把两条路径都打印出来**（A1 的 `entry`=本脚本解析到的、`hostEntry`=宿主实际加载的），
+ *    注释里写清风险；**不许**再把这个入口说成"宿主加载的那一份"。
+ *
+ * ### ⚠ 覆盖缺口更正（2026-09-21 复核打回）：A2/A3 **不覆盖 `apply()` 的真注册表**
+ * 复核实测：删掉 `plugin/src/index.js:1518` 的 `ctx.tools.register(makePingTool(manager))`
+ * ⇒ e2e **红**（5/6），而**本脚本仍 9/9 PASS** —— 因为本脚本是**自己**造 6 个定义再注册的，
+ * 它验的是"**用插件真工厂造出的这 6 个定义**在真 `ToolRuntime` 上的契约"
+ * （`register()` 收下 / `schemas()` 投影 / `executionMode` / `execute()` / 输出 schema 正反），
+ * **不是**"`apply()` 真的把 6 个注册进了真注册表"。那条由 **e2e 的 offer 断言**兜
+ * （`e2e-install-compose.mjs` 第 8 条：宿主真请求里 6 个 ks_ 工具全在）。
+ * ⇒ A3 的名字与宣称已按此收紧，别再读成"注册路径被验过"。
+ *
  * ## 断言（每条都打实测数字）
- *   A1 真包可解析且导出 `ToolRuntime`（打印检出路径 + 该包 version + 解析到的入口文件）
+ *   A1 真包可解析且导出 `ToolRuntime`（打印检出路径 + 该包 version + **两条入口**：
+ *      本脚本解析到的构建产物、宿主经 tsx+paths 实际加载的源码 + 各自的 mtime）
  *   A2 6/6 工具过宿主自己的 `register()`（用插件**真工厂**造定义，不手抄 schema）
- *   A3 `schemas()` 投影**正好**这 6 个名字（不多不少）
+ *   A3 `schemas()` 投影**正好**这 6 个名字（不多不少）——
+ *      **范围仅限"本脚本用真工厂造出的这 6 个定义"**；`apply()` 的真注册路径由 e2e 的
+ *      offer 断言兜（见上面的⚠口径更正）
  *   A4 投影里**没有** `output / execute / timeoutMs / isConcurrencySafe`（非 wire 字段）
  *   A5 `executionMode`：ks_ping → parallel；ks_collect → exclusive（其余 4 个也打印实测值）
  *   A6 真 `execute('ks_ping')` 走通：`isError:false` 且值满足 `output.schema`
@@ -30,7 +53,7 @@
  * 跑法：`node plugin/scripts/verify-tools-real.mjs`（退出码 0 = 全通过；工作目录不限）
  */
 
-import { existsSync, readFileSync, rmSync } from 'node:fs'
+import { existsSync, readFileSync, rmSync, statSync } from 'node:fs'
 import { mkdtemp } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join, resolve } from 'node:path'
@@ -97,7 +120,63 @@ function resolveCheckoutPackage(pkgDir, label) {
     fatal(`解析不到真包 ${label} 的构建产物（${manifestPath} 的 exports/main 与 lib/index.js 都不存在）`
       + ` ⇒ 这个检出没构建。\n  期望其中之一存在：${candidates.join(' ｜ ')}`)
   }
-  return { manifest, entry: found, candidates }
+  return { manifest, entry: found, candidates, mtimeMs: mtimeOf(found) }
+}
+
+/** 文件的 mtime（毫秒）；读不到给 null（不当成错误 —— 它只是诊断信号）。 */
+function mtimeOf(path) {
+  try { return statSync(path).mtimeMs } catch { return null }
+}
+
+/** mtime 的显示形式（诊断用；读不到就打 `(未知)`）。 */
+function fmtTime(mtimeMs) {
+  return mtimeMs === null ? '(未知)' : new Date(mtimeMs).toISOString()
+}
+
+/**
+ * 解析**宿主实际加载的入口**（2026-09-21 复核打回新增，只为把口径说清）。
+ *
+ * 宿主是 `node --import tsx/esm apps/cli/src/bin.ts` ⇒ tsx 认 `tsconfig.base.json` 的
+ * `paths`（实测 `:484 "@deepseek-ai/dsh-tools": ["./packages/core/tools/src"]`）⇒ 加载的是
+ * **源码** `packages/core/tools/src/index.ts`，而本脚本解析的是**构建产物**
+ * `packages/core/tools/lib/index.js`。⇒ 两者**不是同一份文件**（陈旧构建风险）。
+ *
+ * 本函数**只做读**：读 tsconfig 的 paths → 拼出候选 →挑第一个存在的（目录 → `index.ts`）。
+ * 解析不到就返回 `{ entry: null, note: '…' }`，**不判红**——它不是本脚本的被验物，
+ * 只是让读报告的人一眼看见"验的不是宿主那份"。
+ * @param {string} specifier 包名（如 `@deepseek-ai/dsh-tools`）
+ * @returns {{ entry: string|null, mtimeMs: number|null, note: string }}
+ */
+function resolveHostLoadedEntry(specifier) {
+  const tsconfigPath = join(CHECKOUT, 'tsconfig.base.json')
+  if (!existsSync(tsconfigPath)) return { entry: null, mtimeMs: null, note: `（读不到 ${tsconfigPath}）` }
+  // ⚠ 实测（2026-09-21）：`tsconfig.base.json` 是 **JSONC**（第 2 行就是 `//` 注释）⇒
+  // `JSON.parse` 必抛（我第一版就是这么写的，于是这条静默退化成"(未解析到)"）。
+  // 不引 JSONC 解析依赖：只**正则抽** `"<specifier>": [ … ]` 的第一个字符串即可 ——
+  // 这是诊断信息，够了；抽不到就如实说"抽不到"，不猜。
+  let mapped = null
+  try {
+    const raw = readFileSync(tsconfigPath, 'utf8')
+    const escaped = specifier.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    const hit = new RegExp(`"${escaped}"\\s*:\\s*\\[\\s*"([^"]+)"`).exec(raw)
+    mapped = hit === null ? null : [hit[1]]
+  } catch { mapped = null }
+  if (mapped === null) {
+    return { entry: null, mtimeMs: null,
+      note: `（在 ${tsconfigPath}（JSONC）里抽不到 "${specifier}" 的 paths 映射）` }
+  }
+  const candidates = []
+  for (const target of mapped) {
+    const base = resolve(CHECKOUT, target)
+    candidates.push(base, `${base}.ts`, join(base, 'index.ts'))
+  }
+  const found = candidates.find((p) => existsSync(p))
+  if (found === undefined) {
+    return { entry: null, mtimeMs: null, note: `（paths=${JSON.stringify(mapped)} 都解析不到）` }
+  }
+  // 目录形式的映射（`"./packages/core/tools/src"`）落到 `index.ts` 才算入口文件。
+  const entry = statSync(found).isDirectory() ? join(found, 'index.ts') : found
+  return { entry, mtimeMs: mtimeOf(entry), note: '' }
 }
 
 /** 从检出解析真 `@deepseek-ai/dsh-tools` 的入口文件（找不到 ⇒ fatal，不退回本仓副本）。 */
@@ -133,10 +212,24 @@ async function main() {
   const real = resolveRealTools()
   const mod = await import(pathToFileURL(real.entry).href)
   const ToolRuntime = mod.default ?? mod.ToolRuntime
+  /* ★ A1 的两条路径（2026-09-21 复核打回）：**本脚本解析到的入口** ≠ **宿主实际加载的入口**。
+     宿主经 tsx + `tsconfig.base.json` 的 paths 加载 `packages/core/tools/src/index.ts`（源码），
+     本脚本解析 package.json 的 `exports['.']` ⇒ `lib/index.js`（构建产物）。
+     下面把两者都解析出来、并做一次 mtime 对比当作**陈旧构建风险的可见信号**。 */
+  const hostEntry = resolveHostLoadedEntry('@deepseek-ai/dsh-tools')
+  const staleBuild = hostEntry.mtimeMs !== null && real.mtimeMs !== null && hostEntry.mtimeMs > real.mtimeMs
   check('A1 真 @deepseek-ai/dsh-tools 可解析且导出 ToolRuntime',
     typeof ToolRuntime === 'function' && mod.ToolRuntime === ToolRuntime,
-    `checkout=${CHECKOUT} version=${real.manifest.version} entry=${real.entry}`)
-
+    `checkout=${CHECKOUT} version=${real.manifest.version}`
+      + `\n            本脚本解析到的入口（package.json exports['.'] / main / lib）= ${real.entry}`
+      + `（mtime=${fmtTime(real.mtimeMs)}）`
+      + `\n            宿主实际加载的入口（tsx + tsconfig paths）= ${hostEntry.entry ?? '(未解析到)'}`
+      + `${hostEntry.note === '' ? '' : ` ${hostEntry.note}`}`
+      + `（mtime=${fmtTime(hostEntry.mtimeMs)}）`
+      + `\n            ⚠ 这是**两份不同的产物**（源码 vs 构建产物）⇒ 陈旧构建风险；`
+      + `本脚本**只**在解析到的那份上验，不宣称"与宿主同一份"（口径见文件头）`
+      + `${staleBuild ? '\n            ⚠⚠ 源码 mtime **晚于**构建产物 ⇒ 这份 lib/ 可能已陈旧，'
+        + '先重建检出再读本脚本的结果' : ''}`)
   const { Context } = await import(pathToFileURL(resolveCheckoutPackage('vendor/cordis', '@deepseek-ai/cordis').entry).href)
   const SystemPrompt = (await import(pathToFileURL(
     resolveCheckoutPackage('packages/core/system-prompt', '@deepseek-ai/dsh-system-prompt').entry).href)).default
@@ -195,12 +288,17 @@ async function main() {
     registered.length === EXPECTED.length,
     `${registered.length}/${EXPECTED.length}：${registered.join(',') || '(none)'}`)
 
-  /* ------------------------------ A3 投影正好 6 个 ------------------------------ */
+  /* ------------------------------ A3 投影正好 6 个 ------------------------------
+   * ⚠ **口径收紧（2026-09-21 复核打回）**：这里验的是**本脚本自己用插件真工厂造出的这 6 个
+   * 定义**在真 `ToolRuntime` 上的投影，**不是** "`apply()` 的真注册表里正好这 6 个"。
+   * 复核实测：删掉 `plugin/src/index.js:1518` 的 `register(makePingTool(manager))` ⇒
+   * **本脚本仍 9/9 PASS**，而 e2e 红（5/6）⇒ 注册路径那一段**不归本脚本管**，由 e2e 第 8 条
+   * （宿主真请求里 6 个 ks_ 工具全在）兜。断言名已按此收紧，别再读成覆盖了注册路径。 */
   const schemas = ctx.tools.schemas()
   const names = schemas.map((s) => s.name).sort()
   const extra = names.filter((n) => !EXPECTED.includes(n))
   const missing = EXPECTED.filter((n) => !names.includes(n))
-  check('A3 schemas() 投影正好这 6 个名字（不多不少）',
+  check('A3 schemas() 投影正好这 6 个名字（**本脚本自建的 6 个定义**；不含 apply() 的注册路径）',
     extra.length === 0 && missing.length === 0,
     `${names.length} 条：${names.join(',')}${extra.length ? ` ｜多出=${extra.join(',')}` : ''}`
       + `${missing.length ? ` ｜缺=${missing.join(',')}` : ''}`)
