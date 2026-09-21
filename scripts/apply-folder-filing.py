@@ -106,11 +106,19 @@ DEFAULT_SCHEMA = _REPO / "src" / "core" / "storage" / "schema.sql"
 TARGET_TABLES: tuple[str, ...] = ("folder", "folder_member", "doc_filing_state")
 
 #: 顶层预建（业主 2026-09-21 定）：名字 → 手定顺序（写进 folder.sort）。
-#: ⚠ 名字清单的**唯一所有者**是 ``folder_store.PREBUILT_TOP_NAMES``（接口侧也读它，
-#: 免得两处各写一份）。本脚本**只**挂上自己手定的 ``sort``（业务顺序），名字从所有者取。
+#: ⚠ 名字清单的**唯一所有者**是 ``folder_store.PREBUILT_TOP_NAMES``。
+#: ⚠ **更正（复核 2026-09-21 打回这条说法）**：这里原写"（**接口侧也读它**，免得两处各写一份）"——
+#:   **那句是错的**：`PREBUILT_TOP_NAMES` 目前**只有本脚本一个代码消费者**；
+#:   `routes_kb_folders.py` 反而明写"**不限制顶层名字**"（它按库里的实际目录走）。
+#:   站得住的说法只有：**名字不许在本脚本里再抄一份**（下面那条断言管这件事）。
+#: ⚠⚠ 同一次复核还指出：下面那条断言是**自反的**（两边同源 ⇒ 恒真），只能拦"在这一行改字面量"，
+#:   拦不住"别处另写一份" ⇒ 已改成与**冻结字面量**比（改常量就得动这一行，逼人显式确认）。
 _TOP_SORTS: tuple[int, ...] = (10, 20, 30, 90)
+#: 冻结字面量：**故意**手写一遍（这是"改动必须显式"的那道闸，不是冗余）。
+FROZEN_TOP_NAMES: tuple[str, ...] = ("标准", "法律法规", "公司制度", "待分类")
+assert fs.PREBUILT_TOP_NAMES == FROZEN_TOP_NAMES, (
+    "顶层名字变了 —— 真树的形状跟着变；确认无误后同步改 FROZEN_TOP_NAMES 与方案文档")
 PREBUILT_TOPS: tuple[tuple[str, int], ...] = tuple(zip(fs.PREBUILT_TOP_NAMES, _TOP_SORTS))
-assert tuple(n for n, _ in PREBUILT_TOPS) == fs.PREBUILT_TOP_NAMES   # 名字不许在这里抄
 STANDARD_TOP = fs.STANDARD_TOP_NAME
 PENDING_TOP = fs.PENDING_TOP_NAME
 #: 计划里推导出来的第一层。它挂在「标准」下面就是**重复的一层** ⇒ 跳过（方案 §九业主已定）。
