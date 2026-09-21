@@ -898,7 +898,12 @@ const html = `<!doctype html>
           var rt = tags ? tags.getBoundingClientRect() : null;
           var rm = more ? more.getBoundingClientRect() : null;
           var ctrls = el.querySelectorAll('button,input,select,textarea,[role=button],[role=checkbox],[role=switch],[contenteditable=true],.ks-status').length;
-          return { rowW: Math.round(r0.width), nameW: rc ? Math.round(rc.width) : null,
+          // 这一行是哪一层（2026-09-21 补）：目录行与文件行的行内控件数**不是一回事**
+          // （目录行 0 个、文件行 = ⋮ + 状态徽章）⇒ 判"等于冻结值"时必须先按层分开。
+          var kind = el.classList.contains('ks-file-row') ? 'file'
+            : (el.classList.contains('ks-dir-row') ? 'dir' : '?');
+          return { kind: kind,
+                   rowW: Math.round(r0.width), nameW: rc ? Math.round(rc.width) : null,
                    fileNameW: rf ? Math.round(rf.width) : null,
                    nameRight: rc ? Math.round(rc.right - r0.left) : null,
                    tagsLeft: rt ? Math.round(rt.left - r0.left) : null,
@@ -913,6 +918,22 @@ const html = `<!doctype html>
        取代它们的是下面两个新量点（Node 侧的 levelCheck 逐条判）：
          · #kbtree    —— 左列目录树与右栏的**相对位置**（必须并排，不是换行堆叠）
          · #levelrows —— 同一级里**目录行与文件行**的行高（必须逐字相同） */
+    /* **目录层表头每一格的 display**（2026-09-21 复核 verify-freeze-kb-ui3 打回 §④-C 第 3 条：
+       旧版第 29 条判的是"表头每一格必须是 flex，不能是 grid"—— 那一格被 grid 接管时，
+       「目录」两个字会被当成两轨、只剩一个「目」。这条断言在本批重写时**掉了**，补回来。
+       ⚠ 本段在**注入脚本**里（外层是模板字符串）：注释里绝对不能出现反引号 —— 第 18 次了。
+       借字段名：n=表头格数 x=display 是 flex 的格数 y=display 是 grid 的格数
+       w=1 表示量到了 h=0 fs='' lh=逐格 display 串 pad='' gap='' radius='' */
+    var dhCells = document.querySelectorAll('.ks-list-dirs .ks-lhead .ks-cell');
+    if (dhCells.length > 0) {
+      var dhDisplays = [].map.call(dhCells, function (el) { return getComputedStyle(el).display; });
+      out['#dirhead'] = {
+        n: dhCells.length,
+        x: dhDisplays.filter(function (d) { return d === 'flex'; }).length,
+        y: dhDisplays.filter(function (d) { return d === 'grid'; }).length,
+        w: 1, h: 0, fs: '', lh: dhDisplays.join(','), pad: '', gap: '', radius: '',
+      };
+    }
     /* 左列目录树（.ks-kb-tree）与右栏（.ks-main）的绝对坐标：判"并排"。
        借字段名（同 #cards / #cols 的先例，注释里写清就不算说谎）：
          x=左列右缘 y=右栏左缘 w=左列宽 h=右栏宽 fs='' lh=左列高 pad='' gap='' radius='' */
@@ -1803,6 +1824,93 @@ const stageColCheck = {
   frozenMin: STAGE_COL_MIN_MAIN_PX,
 }
 
+/* ══════════ 复核 `verify-freeze-kb-ui3` 打回 §④-C 补回来的两条（2026-09-21） ══════════
+ * 那两条旧判据在本批重写时**掉了**（主体仍在、判据没了）：
+ *   ① 旧第 59 条「每行行内**可见控件 ≤ 3**」（P1-1 的验收口径）—— 本脚本一直在
+ *      `'.ks-item#rows'` 里逐行**量** `ctrls`，但 Node 侧**零断言**（量了不判 ⇒ 加一个行内按钮
+ *      不会有任何东西响）。现在把它变成会红的判据。
+ *   ② 旧第 29 条「目录层表头每一格 display 必须是 flex 不是 grid」（「目录」只剩一个「目」那个坑）。
+ * ⚠ 口径不变：`ctrls` 用的是**真控件选择器**（button/input/select/textarea/[role=*]/contenteditable
+ *   + 展示用的 .ks-status），不是写死的类名清单（那段更正见 `'.ks-item#rows'` 的注释）。
+ * 适用面：只有这一跑**真的有数据行 / 真的有目录层表头**时才判；没有对象**明说没判**（skipReason）。 */
+const ROW_CTRLS_MAX = 3
+/* **冻结的构成**（2026-09-21）：知识库页的文件行行内**只有两样** —— 行尾「⋮」触发器 + 只展示的
+   `.ks-status` 徽章。`ROW_CTRLS_MAX = 3` 是 P1-1 的历史上限（仍然判）；下面这条**等于 2** 才是
+   真正有牙的那条：行内再加**任何一样**能点的东西（不管挂什么类名）都会让它红，
+   逼着改的人**显式**改这个常数并在注释里说明为什么。
+   ⚠ 只在 `page === 'kb'` 上判"等于"（其它页面的行构成不同，只吃上面那个上限）。 */
+const ROW_CTRLS_EXPECTED = 2
+const rowCtrls = measured['.ks-item#rows']
+const rowCtrlsProblems = []
+let rowCtrlsSkipReason = null
+/* ⚠ 逐行数据的字段名是 `rows`（不是 `items`）—— 见量点那里 `{ …, rows: [...] }` 的定义。
+   写错的话这里会安静地走"没有文件行"的 skip 分支（我第一版就写错成 `items`，实测到了）。 */
+const rowCtrlsRows = Array.isArray(rowCtrls?.rows) ? rowCtrls.rows : []
+/* ⚠ 只判**文件行**：`.ks-item` 同时命中目录行（行内 0 个控件）—— 不分层就会把目录行当成
+   "少了一样东西"而假红（第一版实测：默认态 4 行目录 ⇒ 实测 [0,0,0,0] ⇒ red）。 */
+const rowCtrlsFileRows = rowCtrlsRows.filter((it) => it.kind === 'file')
+if (rowCtrls === undefined || rowCtrlsFileRows.length === 0) {
+  rowCtrlsSkipReason = '这一跑没有文件行（最外层/空目录/只有目录行），行内控件数没有对象'
+} else {
+  const counts = rowCtrlsFileRows.map((it) => Number(it.ctrls))
+  if (page === 'kb') {
+    const odd = counts.filter((c) => c !== ROW_CTRLS_EXPECTED)
+    if (odd.length > 0) {
+      rowCtrlsProblems.push(`知识库页的文件行行内可见控件数应当是**冻结的 ${String(ROW_CTRLS_EXPECTED)}**`
+        + `（行尾「⋮」+ 只展示的 .ks-status 徽章），实测 ${JSON.stringify(counts)}`
+        + ' —— 行内加了/少了能点的东西？加了就**显式**改 ROW_CTRLS_EXPECTED 并说明为什么')
+    }
+  }
+  const over = counts.filter((c) => !Number.isFinite(c) || c > ROW_CTRLS_MAX)
+  if (over.length > 0) {
+    rowCtrlsProblems.push(`有 ${String(over.length)} 行的行内可见控件数 > ${String(ROW_CTRLS_MAX)}`
+      + `（实测 ${JSON.stringify(counts)}）—— 行内又塞了能点的东西（不管挂什么类名，这个数都会 +1）；`
+      + 'P1-1 的验收口径就是"行内就一个 ⋮"，其余收进溢出菜单')
+  }
+  if (new Set(counts).size > 1) {
+    rowCtrlsProblems.push(`各行行内控件数**不一致**（${JSON.stringify(counts)}）——`
+      + '同一层的行应当长得一样；不一致说明某一行多/少了控件')
+  }
+}
+const rowCtrlsCheck = {
+  checked: rowCtrlsProblems.length === 0 && rowCtrlsSkipReason === null,
+  skipReason: rowCtrlsSkipReason,
+  problems: rowCtrlsProblems,
+  counts: rowCtrlsFileRows.map((it) => it.ctrls),
+  max: ROW_CTRLS_MAX,
+}
+
+const DIR_HEAD_CELLS_EXPECTED = 3
+const dirHead = measured['#dirhead']
+const dirHeadProblems = []
+let dirHeadSkipReason = null
+const dirHeadPresenceRequired = DIR_LAYER_COMBOS.includes(padComboKey)
+if (dirHead === undefined || !String(dirHead.lh ?? '').trim()) {
+  if (dirHeadPresenceRequired) {
+    dirHeadProblems.push(`这一跑的组合（${padComboKey}）在**冻结清单** DIR_LAYER_COMBOS 里（它必须有目录层），`
+      + '而目录层表头格的 display **一点都没量到** —— 量不到就不算验过')
+  } else {
+    dirHeadSkipReason = `这一跑的组合（${padComboKey}）不在冻结清单 DIR_LAYER_COMBOS 里 —— 目录层表头格不适用`
+  }
+} else {
+  const shows = String(dirHead.lh).split(',')
+  if (shows.length !== DIR_HEAD_CELLS_EXPECTED) {
+    dirHeadProblems.push(`目录层表头格数 = ${String(shows.length)}，期望 ${String(DIR_HEAD_CELLS_EXPECTED)}`
+      + `（目录 / 篇数 / 进入提示）：${JSON.stringify(shows)}`)
+  }
+  if (shows.some((d) => d !== 'flex')) {
+    dirHeadProblems.push(`目录层表头有格子的 computed display 不是 flex：${JSON.stringify(shows)}`
+      + ' —— 那一格一旦被 grid 接管，「目录」两个字会被当成两轨、**只剩一个「目」**（旧第 29 条抓的就是它）')
+  }
+}
+const dirHeadCheck = {
+  checked: dirHeadProblems.length === 0 && dirHeadSkipReason === null,
+  skipReason: dirHeadSkipReason,
+  problems: dirHeadProblems,
+  displays: dirHead?.lh ?? null,
+  cells: dirHead?.n ?? null,
+}
+
 // --viewport 给定时**按视口高截**（这才看得出 position:sticky；全页截图看不出来）
 const shotHeight = fixedHeight ?? Math.max(320, Math.min(cssHeight, 6000))
 
@@ -1834,6 +1942,8 @@ console.log(JSON.stringify({
   colsCheck,
   dirColsCheck,
   stageColCheck,
+  rowCtrlsCheck,
+  dirHeadCheck,
   levelCheck,
   capCardsCheck,
   ksPadCheck,
@@ -1940,6 +2050,31 @@ if (stageColSkipReason !== null) {
   console.error('   ⇒ 口径：ksGuideStyles.ts 的 `.ks-list{--ks-cols:…3 轨…}`（窄档）与')
   console.error('      `@container (min-width:660px){…5 轨 + 这两列 display:flex}`（宽档）；')
   console.error('      窄档两条 `display:none` 必须写在 @container **之前**（同权重靠顺序覆盖）。')
+  process.exit(1)
+}
+
+/* 复核打回 §④-C 补回来的两条（行内控件数 / 目录层表头格）—— 结论同样走 stderr。 */
+if (rowCtrlsSkipReason !== null) {
+  console.error(`· #rows 行内控件自检：**这一跑不判**（${rowCtrlsSkipReason}）`)
+} else if (rowCtrlsProblems.length === 0) {
+  console.error(`· #rows 行内控件自检通过：每行可见控件 ${JSON.stringify(rowCtrlsCheck.counts)}`
+    + `（上限 ${String(ROW_CTRLS_MAX)}，真控件选择器口径；page=${page} width=${width} theme=${themeName}）`)
+} else {
+  console.error('')
+  console.error(`❌ 行内控件数自检失败（P1-1 验收口径；page=${page} width=${width} theme=${themeName}）：`)
+  for (const p of rowCtrlsProblems) console.error(`   - ${p}`)
+  process.exit(1)
+}
+if (dirHeadSkipReason !== null) {
+  console.error(`· #dirhead 自检：**这一跑不判**（${dirHeadSkipReason}）`)
+} else if (dirHeadProblems.length === 0) {
+  console.error(`· #dirhead 自检通过：目录层 ${String(dirHeadCheck.cells)} 个表头格的 display 全是 flex`
+    + `（page=${page} width=${width} theme=${themeName}）`)
+} else {
+  console.error('')
+  console.error(`❌ 目录层表头格自检失败（旧第 29 条：「目录」只剩一个「目」那个坑；`
+    + `page=${page} width=${width} theme=${themeName}）：`)
+  for (const p of dirHeadProblems) console.error(`   - ${p}`)
   process.exit(1)
 }
 

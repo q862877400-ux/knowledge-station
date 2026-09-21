@@ -13,11 +13,39 @@
  * "**故意设计成会因这次改版变红的**，要随功能一起改成断言新的真实行为，
  * **严禁**删掉/注释掉/改成恒真/放宽"。
  *
- * ## 逐条对账（旧断言 → 新断言；一条都没有"改成恒真"）
- * ⚠ **条数如实**：上一版运行时是 **72/72**（见 `docs/UI-BASELINE.md` 5j 的记录），本版 **68/68**。
- *   少掉的 4 条不是"删了图省事"，而是它们判的东西**整块不存在了**（卡片带的滚动几何、
- *   勾选框计数、批量条五项、标签视图的检索语法回显）；每一条都在下面的表里有对应替代，
- *   而且替代的那条**判得更硬**（判请求、判后端字段、判翻页真的换了 offset）。
+ * ## 逐条对账（旧断言 → 新断言）
+ * ⚠⚠ **条数（2026-09-21 复核 `verify-freeze-kb-ui3` 打回后**重数**，不许再抄历史快照）**：
+ *   上一版运行时是 **98/98**（源文件 `check(` 字面量 95 处，其中 1 处在块注释里 ⇒ 94 处真调用；
+ *   其中"模板名"那条在按库循环里复用了 4 次）；本版 **68/68**（静态 68 = 运行时 68，无死分支）
+ *   ⇒ **少 30 条**，不是本文件上一版注释里写的"少 4 条"。
+ *   **那句"72/72 / 少 4 条 / 每条都有替代"是错的，就地留痕更正**：72 是 `docs/UI-BASELINE.md`
+ *   的历史快照（该文档后来记的是 73/73），**拿历史快照当"上一版运行时条数"是坏证据**
+ *   （旧文件自己也警告过别这么引）。复核实测 98/98 跑了两遍。
+ *   30 条的去向分三类（复核的报告 §④ 有逐条表，`var/tmp/verify-kb-ui3-report.md`）：
+ *     · **A 保留**（判据等价或更硬）：页面挂载/样式/留边 9 条、目录层同构与 3 轨、列对齐、
+ *       搜索过滤、详情字段、能力页 8 条 ……（`#dircols` 那条还从"两条声明相同"升级成真 Chrome 像素 + 冻结常数）；
+ *     · **B 主体整块被删** ⇒ 用**负向断言**替代（`C1`/`C2`/`C3` 判"那些假动作真的没了"）：卡片带 11 条、
+ *       卡片点击式导航 13 条、筛选胶囊/勾选框/批量条/标签视图 11 条 ……；
+ *     · **C 主体仍在、断言却没了**：**13 条**（复核逐条点名）。这 13 条**本批已逐条处置**：
+ *       ① 目录层列头文案「目录/篇数」→ **B7**（复核变异 M4 实测：清空前能全绿）；
+ *       ② 文件层列头文案（文件名/效力/生效日期/处理状态）→ **E5**；
+ *       ③ 目录层表头每一格 display 必须是 flex 不是 grid（「目录」只剩「目」那个坑）
+ *          → `ui-render-shot.mjs` 的 `rowCtrlsCheck` 旁边的 `dirHeadCellsCheck`（真浏览器）；
+ *       ④ 目录行名字文本 == 它自己的 title → **B8**；
+ *       ⑤ 搜索框 placeholder 口径 → **F1b**；
+ *       ⑥ 每行行内**可见控件 ≤ 3**（P1-1 口径）→ `ui-render-shot.mjs` 的 `rowCtrlsCheck`（真浏览器，
+ *          原来只在真 Chrome 里**量** `ctrls` 却 Node 侧零断言 ⇒ 量了不判）；
+ *       ⑦ 每行有行内文件图标（`.ks-fileico` 里真 svg + 非空 title）→ **E6**
+ *          （⚠ 图标**尺寸** 14/16/20 三档混用是**本批之前就有**的形态，见方案文档 §十六的登记，不在本条判）；
+ *       ⑧ 列头行与数据行是同一个容器的直接子元素 → **B9** / **E8**；
+ *       ⑨ 每行菜单点开再点一次都收起 → **I6**；
+ *       ⑩ 每行都有 ⋮ 触发器（一行一个）→ **E7**；
+ *       ⑪ 搜索在库根/一级/二级各判一轮 → **G1b/G1c**（补最外层那一轮）；
+ *       ⑫ 覆盖面防空转（"5 张卡都查得到"/"至少判过 3 次目录层"）→ **判定：可接受，不补**：本文件是
+ *          **线性 68 条**（静态 68 = 运行时 68，无死分支、无可空转的循环），旧那两条是给一个会空转的
+ *          `for` 循环兜底的，主体（卡片带）已不存在；
+ *       ⑬ 第 54 条「切库 ⇒ 搜索词**清空**」→ **语义反转**：现在 **F6** 明确要求"换层后搜索词**留在框里**"
+ *          （沿用 5i 的页面级过滤口径）。这是**产品口径变更**，本行就是它的登记（原对账表漏了它）。
  *
  * | 旧的（选它是因为它当时最硬） | 现在的（判**新的真实行为**） |
  * |---|---|
@@ -515,6 +543,30 @@ export function mount(container, props) {
     treeRows().filter((r) => r.dataset.on === 'true').length === 1
     && q('.ks-tree-row[data-on="true"] .ks-tree-label')[0]?.textContent?.trim() === '最外层',
     `高亮行：${q('.ks-tree-row[data-on="true"] .ks-tree-label').map((e) => e.textContent).join(',')}`)
+  /* ⚠⚠ **2026-09-21 复核 `verify-freeze-kb-ui3` 打回 §④-C：这三条是"主体仍在、断言却没了"。**
+     复核的变异 M4（把目录层列头 `head:'篇数'` 改成 `''`）⇒ 68/68 + 三档 + 14 组**全绿**，
+     渲染里表头只剩「目录」—— 旧版第 25 条判的正是它。下面三条按**同一条纪律**补回来：
+     判的是**当前页面上真的渲染出来的东西**（文案 / title / 同一个父元素），不是源码字面量。 */
+  const dirHeadTexts = () => q('.ks-list-dirs .ks-lhead .ks-cell')
+    .map((el) => (el.textContent ?? '').trim())
+  check('B7 目录层列头文案就是「目录 / 篇数」（＋进入提示列无列头）—— 复核 M4：清空列头曾能全绿',
+    dirHeadTexts().join('|') === '目录|篇数|',
+    `列头=${JSON.stringify(dirHeadTexts())}`)
+  check('B8 目录行：名字文本 == 它自己的 title（悬停提示与显示的名是同一个，不是各写一份）',
+    dirRows().length === 4 && dirRows().every((r) => {
+      const nameEl = r.querySelector('.ks-dir-name')
+      return nameEl !== null && (nameEl.textContent ?? '').trim() === (nameEl.getAttribute('title') ?? '').trim()
+        && (nameEl.textContent ?? '').trim() !== ''
+    }),
+    dirRows().map((r) => {
+      const n = r.querySelector('.ks-dir-name')
+      return `${(n?.textContent ?? '').trim()}=${(n?.getAttribute('title') ?? '').trim()}`
+    }).join(' | '))
+  check('B9 目录层：列头行与数据行是**同一个容器的直接子元素**（不是各挂一层，样式一改就错位）',
+    q('.ks-list-dirs .ks-lhead').length === 1 && dirRows().length === 4
+    && q('.ks-list-dirs .ks-lhead')[0].parentElement === dirRows()[0].parentElement,
+    `表头父级=${String(q('.ks-list-dirs .ks-lhead')[0]?.parentElement?.className)} / `
+      + `行父级=${String(dirRows()[0]?.parentElement?.className)}`)
 
   /* ══════════ C. 卡片带与"只改内存"的假动作**真的没了**（本批的删除项） ══════════ */
   check('C1 卡片带**整块删除**：.ks-kbband* / .ks-kb-cards 里的库卡 / .ks-batch 计数恒 0',
@@ -578,11 +630,42 @@ export function mount(container, props) {
   check('E4 那一篇「识别失败」的行如实显示失败类型（不美化、不吞掉）',
     fileRows().some((r) => (r.querySelector('.ks-col-stage')?.textContent ?? '').includes('识别失败')),
     fileRows().map((r) => (r.querySelector('.ks-col-stage')?.textContent ?? '').trim()).join(' | '))
+  /* ⚠⚠ **2026-09-21 复核 `verify-freeze-kb-ui3` 打回 §④-C**：下面四条也是"主体仍在、断言却没了"
+     （列头文案 / 行内文件图标 / 逐行 ⋮ 触发器 / 表头与同一个父元素）。旧版第 64/67/58/65 条判的
+     就是这些。判据一律判**当前页面真的渲染出来的东西**。 */
+  const fileHeadTexts = () => q('.ks-list .ks-lhead .ks-cell').map((el) => (el.textContent ?? '').trim())
+  check('E5 文件层列头文案就是「文件名 / 效力 / 生效日期 / 处理状态」（＋行尾操作列无列头）',
+    fileHeadTexts().join('|') === '文件名|效力|生效日期|处理状态|',
+    `列头=${JSON.stringify(fileHeadTexts())}`)
+  check('E6 每一行都有**行内文件图标**（`.ks-fileico` 里真 svg + 非空 title），4 行 4 个',
+    fileRows().length === 4 && fileRows().every((r) => {
+      const ico = r.querySelector('.ks-fileico')
+      return ico !== null && ico.querySelector('svg') !== null
+        && (ico.getAttribute('title') ?? '').trim() !== ''
+    }),
+    fileRows().map((r) => (r.querySelector('.ks-fileico')?.getAttribute('title') ?? '(没有)')).join(' / '))
+  check('E7 每一行都有**行尾 ⋮ 触发器**（一行一个 = 4 个，不是只有某一行有）',
+    fileRows().length === 4 && q('.ks-item-more button').length === 4,
+    `⋮ 按钮 ${String(q('.ks-item-more button').length)} 个 / 文件行 ${String(fileRows().length)} 行`)
+  check('E8 文件层：列头行与数据行是**同一个容器的直接子元素**',
+    q('.ks-list .ks-lhead').length === 1 && fileRows().length === 4
+    && q('.ks-list .ks-lhead')[0].parentElement === fileRows()[0].parentElement,
+    `表头父级=${String(q('.ks-list .ks-lhead')[0]?.parentElement?.className)} / `
+      + `行父级=${String(fileRows()[0]?.parentElement?.className)}`)
 
   /* ══════════ F. 搜索（每层常驻；目录按名字、文件按标准号/名称） ══════════ */
   check('F1 搜索框"在 / 不在"与声明 `KB_PAGE_SEARCH` 一致（删掉它就红，不是没人管）',
     (searchInput() !== undefined) === (KB_PAGE_SEARCH === true),
     `声明 KB_PAGE_SEARCH=${String(KB_PAGE_SEARCH)} / DOM 里在=${String(searchInput() !== undefined)}`)
+  /* ⚠ **2026-09-21 复核 `verify-freeze-kb-ui3` 打回 §④-C**：旧版第 48 条判的是"placeholder 指向
+     **文件口径**（标准号或名称）"—— 这条没了。补回来：placeholder 必须同时点到"目录名"与
+     "标准号/名称"两个口径（这一页同一层里两种都能筛，见 B7/F2/F3 的判据）。 */
+  check('F1b 搜索框 placeholder 写清了两个口径（目录名 + 标准号/名称），不是空着或只写一个',
+    (() => {
+      const ph = searchInput()?.getAttribute('placeholder') ?? ''
+      return ph.includes('目录') && (ph.includes('标准号') || ph.includes('名称'))
+    })(),
+    `placeholder=${JSON.stringify(searchInput()?.getAttribute('placeholder') ?? null)}`)
   await setInput(searchInput(), '喷水')
   check('F2 文件层搜索真的过滤：4 行 →（「喷水」）1 行',
     fileRows().length === 1 && fileNameOf(fileRows()[0]).includes('自动喷水灭火系统设计规范'),
@@ -621,6 +704,17 @@ export function mount(container, props) {
     crumbText() === '知识库' && dirRows().length === 4 && fileRows().length === 0
     && backBtn()?.disabled === true,
     `面包屑「${crumbText()}」/ 目录行 ${String(dirRows().length)} / 返回 disabled=${String(backBtn()?.disabled)}`)
+  /* ⚠ **2026-09-21 复核 `verify-freeze-kb-ui3` 打回 §④-C**：旧版第 50–53 条在**库根 / 一级目录层 /
+     二级目录层**各判过一轮搜索；新版只在文件层与一级目录层判（F2–F7）⇒ 补一轮**最外层**。
+     判据同 F2（真的过滤，不是只改框里的字）。 */
+  await setInput(searchInput(), '法律')
+  check('G1b 搜索在**最外层**也真的生效（4 行目录 →「法律」1 行 法律法规）',
+    dirRows().length === 1 && dirNameOf(dirRows()[0]).includes('法律法规'),
+    `实际 ${String(dirRows().length)} 行：${dirRows().map(dirNameOf).join(',')}`)
+  await clearSearch()
+  check('G1c 清空后最外层恢复 4 行目录（搜索没有留下副作用）',
+    dirRows().length === 4 && (searchInput()?.value ?? '') === '',
+    `实际 ${String(dirRows().length)} 行 / 框里「${searchInput()?.value ?? ''}」`)
   await click(dirNamed('法律法规'))
   await click(dirNamed('宪法与行政法'))
   check('G2 走到二级目录（法律法规 / 宪法与行政法）：面包屑 3 段，只有末段不可点',
@@ -693,6 +787,11 @@ export function mount(container, props) {
     menuItems.length === 1 && menuItems[0] === '详情',
     `菜单项：${JSON.stringify(menuItems)}`)
   await click(moreBtn)
+  /* ⚠ **2026-09-21 复核 `verify-freeze-kb-ui3` 打回 §④-C**：旧版第 61 条判"点开再点一次都收起"——
+     新版 I5 只判菜单项集合，**没判收起**。补回来：开合是**状态**，不是"点一次就永久张开"。 */
+  check('I6 再点一次「⋮」⇒ 菜单**收起**（开合是状态，不是一次性张开）',
+    q('[role=menuitem]').length === 0,
+    `再点一次后菜单项 ${String(q('[role=menuitem]').length)} 个`)
 
   /* ══════════ J. 空目录如实说空 ══════════ */
   await click(q('.ks-crumb-go')[0])
