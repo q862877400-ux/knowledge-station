@@ -1197,6 +1197,11 @@ exit=2
    > （宽全等 236，高 151×4 / 201×3 / 261×1）⇒ 页面级"尺寸统一"**事实不成立** ⇒ 本轮**没下断言、也没改 CSS**。
    > 原始数字、量法、两次"量点有牙"的变异证据见文末「能力页卡片尺寸**先量后判**」一节。
    > ⚠ **别把这条边界读成"只是没写断言"**——是"事实不满足 + 没人授权改 CSS"两件事叠在一起。
+   > ⚠⚠ **2026-09-21 当天稍后的状态（父代理裁定后落地，就地更新）**：`capabilities` 页现在**有**断言了
+   > ——`capCardsCheck`（`#capcards` 探针 + `plugin/scripts/lib/cap-cards-check.mjs` 判据），
+   > 但断的**不是**"尺寸统一"，而是 **① 所有 `.ks-cap-card` 等宽 ② 同一排高度全等 ③ 量到 0 张即红
+   > ④ 排数 >= 2**。`cardsCheck` 在能力页**仍然**走 `skipReason`（这一条边界对 `cardsCheck` 仍成立）。
+   > 落地记录与变异自证见文末新增的「能力卡几何**落地**」一节。
 4. **`kb-band-*` 场景的"滚动位移"在 jsdom 那趟本来就出不来**（没有布局引擎）⇒ 它们的落地判据
    只钉到"带 + 5 张卡在、箭头被点到"，**位移**由真 Chrome 的 `--band-scroll` / `#kbband` 取证。
    这不是放宽（件数少了在这里必红），但复核要知道这条边界。
@@ -1707,3 +1712,62 @@ Application\msedge.exe`，本机命中它）跑 `--headless=new --dump-dom` 读�
    （结论"不统一"在华/窄两档已重现，但 520 档没有数字）。
 4. 本轮的"统一"判据**只按 `getBoundingClientRect` 的整数像素**（与 `cardsCheck` 同口径、同样 1px 容差
    的取整前提）；没量圆角/描边等视觉尺寸。
+
+### 能力卡几何**落地**（2026-09-21，紧接着上一节）：断的是**等宽 + 同排等高**（**不是**"尺寸统一"）
+
+**父代理裁定**（在上一节交上去的两条路里选了**窄口径**，并明确"名字里不许出现统一/尺寸统一"）：
+页面级"尺寸统一"**不是意图** —— "统一尺寸"那句业主原话指的是**知识库卡片带**（`cardsCheck` 已钉那一处）
+⇒ 断言**只**写站得住的两条：
+① **等宽**（本页所有 `.ks-cap-card` 宽度全等）；② **同排等高**（按 `getBoundingClientRect().top` 分组，
+**组内**高度全等 —— 钉的是 grid `align-items:stretch` 这个不变式，有人改成 `start` 就会一排参差）；
+③ **防空转**：量到 **0 张 ⇒ 红**（**不是**静默跳过、**也不是**"本页不适用"）；④ **排数 ≥ 2**（防 fixture 退化成一张/一排）。
+⚠ **不把"8 张"冻成常量**：能力卡数量随功能增加 ⇒ 钉死会假红；下界只要求 ≥1（由 ③ 给），"这确实是一张网格"由 ④ 给。
+
+**落点（文件）**：
+- 探针：`plugin/scripts/ui-render-shot.mjs` 的注入脚本里新增 `#capcards`（逐张 `{name,w,h,top}`；**一张都没有时不产出该键**）；
+- 判据：`plugin/scripts/lib/cap-cards-check.mjs`（**唯一所有者** —— 单开模块是为了变异跑能 import **同一份**判据，
+  而不是抄第二份；`ui-render-shot.mjs` 只调 `checkCapCards(measured, page)`）；
+- 结论进 stdout 的 JSON（`capCardsCheck`）+ **stderr** 自检（有问题 ⇒ `exit 1`，stdout 仍是可 `JSON.parse` 的一份产物）；
+- **冒烟落点**：`plugin/scripts/smoke-kb-pad-pixels.mjs`（**本来就在 `smoke-all.mjs` 名单里** ⇒ **没动 `smoke-all.mjs` 的名单**）：
+  对 `page === 'capabilities'` 的每一组要求 `capCardsCheck.skipReason === null && checked === true`；
+  另加**两条覆盖面**判据（至少一组真判过 `capCardsCheck`；至少一组是在**多卡排**上判的）。
+
+**实测（真 Edge，`getBoundingClientRect` 整数像素）**：
+
+| 档 | n | 逐张宽 | 逐排高 | 排数 | 最多一排几张 |
+|---|---|---|---|---|---|
+| `capabilities@520`（smoke 矩阵原有） | 8 | 464×8 | 136×6 / 153 / 181 | 8 | **1** |
+| `capabilities@900`（**本批加入矩阵**） | 8 | 268×8 | 136×3 / 136 / 201×3 / 261 | 4 | **3** |
+| `capabilities@1300`（核对用，未进矩阵） | 8 | 236×8 | 151×4 / 201×3 / 261 | 4 | 4 |
+
+⚠ **520 是单列** ⇒ 8 排全是**单卡排**，"同排等高"在那几排上**恒真** ⇒ 这就是本批把 `capabilities@900`
+加进 `MATRIX`（并同步 `EXPECTED_RUNS`）的原因，也是那条"至少一组在多卡排上判"的覆盖面判据存在的理由。
+（1300 档只做了核对，**没进矩阵** —— 不为它再加一次浏览器跑。）
+
+**冒烟证据（单跑，没跑 `run-gates.ps1`）**：
+`node plugin/scripts/smoke-kb-pad-pixels.mjs` ⇒ **exit 0 · 12 组 PASS**
+（新组 `capabilities|@900` 报 `n=8 张 / 4 排 / 最多一排 3 张`；旧组 `@520` 报 `8 排 / 最多一排 1 张`）；
+`node plugin/scripts/smoke-kb-cols.mjs` ⇒ **exit 0**（520/900/1300 三档列对齐 + 卡片带逐张等宽等高，未被本批影响）。
+
+**变异自证（四条；全部只动 `%TEMP%` 的 fixture 副本，代码树全程干净；判据用的是同一份 lib）**：
+
+| # | 变异（只动副本） | 结果 | 还原 |
+|---|---|---|---|
+| ctrl | 不改（对照） | `n=8 排=4 宽=268×8` ⇒ **PASS** | 副本随 `%TEMP%` 弃 |
+| ①a | 副本 `<head>` 追加 `.ks-kb-cards>.ks-cap-card:nth-child(2){max-width:120px}` | **FAIL**：`能力卡宽度不全等：最窄 120px / 最宽 268px`（逐张 `{name,w,h}` 全打出来，两次命中 120） | 同上 |
+| ①b | 副本 `<head>` 追加 `.ks-kb-cards{align-items:start}` | **FAIL**：`同一排（top=499px）的高度不全等：合同审计=136px / 制度差距分析=136px / 条款释义 / 批量问答=201px` | 同上 |
+| ② | **只**把副本 `<script>` 里那份 selector 副本改成 `.ks-cap-card-TYPO`（**CSS 与 DOM 的类名一字不动**） | **FAIL**：`量到 0 张 .ks-cap-card（#capcards = null）` | 同上 |
+
+复跑方式（可复现，**不需要任何未入库脚本**）：`node plugin/scripts/ui-render-shot.mjs --page capabilities
+--width 900 --out var/tmp/ui-shots/cap-fixture.png` 会写出自包含 fixture（同名 `.html`，CSS + 探针全内联）
+⇒ 拷到 `%TEMP%` ⇒ 按上表三种改法之一改副本（② 只在 `<script>` 那一段里替换，CSS 不动）⇒ 用**同一个
+`msedge.exe`**（`C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe`）跑
+`--headless=new --disable-gpu --virtual-time-budget=4000 --dump-dom --window-size=800,600 <副本>`
+（与脚本里 `runBrowser` 同参数）⇒ 从 `<title>…|m={…}</title>` 取回测量值（`&quot;` 还原后 `JSON.parse`）
+⇒ 喂给 `lib/cap-cards-check.mjs` 的 `checkCapCards(measured, 'capabilities')`。
+
+**两条新的边界（诚实）**：
+1. "同排等高"在**单卡排**上**恒真** ⇒ 覆盖面判据保证的是"跑过的组里至少有一组在多卡排上判过"，
+   **不保证每一档都判到**；谁把 `capabilities@900` 从矩阵删掉，那条覆盖面判据就红（这正是它的用途）。
+2. 只按 `getBoundingClientRect` 的整数像素 + 1px 容差；**没量**圆角/描边/字号，能力页也**故意没有**
+   "页面级等高"的判据 —— 那要先改 CSS，超出本批授权（两条路见上一节）。

@@ -16,6 +16,11 @@
  * - 只判 `ksPadCheck`：**留边几何**（元素外缘到 shell 内容边的距离、档位、批量条折行）
  *   与**存在性**（规范点名的适用面这一跑必须量到 —— 复核 E① 的 M6 就是"元素消失也不红"）。
  *   其余视觉问题（对比度、排版、hover/focus）它不管。
+ * - ⚠ **2026-09-21 起，本脚本还判第二个主体**：能力页的 `capCardsCheck`
+ *   （`.ks-cap-card` 的**等宽** + **同排等高** + 防空转；口径 = 父代理裁定，**不判"尺寸统一"**）。
+ *   它**只对 `page === 'capabilities'` 的组**要求判（其余页面 `skipReason` 非空是正常的），
+ *   另有两条**覆盖面**判据（至少一组真判过、至少一组是在**多卡排**上判的）。
+ *   详细口径见 `ui-render-shot.mjs` 里 `#capcards` 那段注释与 docs/UI-BASELINE.md 同名一节。
  * - 要真浏览器（同 `ui-render-shot.mjs`）：找不到无头浏览器 ⇒ `ui-render-shot` 自己**报错退出**，
  *   本脚本按失败转达（"没跑"≠"通过"）。⚠ 这意味着**门禁链从 5j-补 起需要本机有 Chromium/Edge**
  *   —— 这是**有意的取舍**，理由与代价登记在 docs/UI-BASELINE.md 5j-补（别再当成疏漏）。
@@ -68,7 +73,12 @@ const MATRIX = [
    *   ⚠ 只加这一组、**没动**其它组的判据（覆盖面只涨不跌）。 */
   { page: 'kb', width: 520, interact: 'kb-crumb', note: '面包屑逐级可点 + 目录层列表（窄档）' },
   { page: 'kb', width: 520, interact: 'kb-select', theme: 'dark', note: '深色：留边 + 批量条折行（业主看的深浅两套）' },
-  { page: 'capabilities', width: 520, interact: '', note: '能力页' },
+  { page: 'capabilities', width: 520, interact: '', note: '能力页（窄档：单列，8 排都是单卡排）' },
+  /* ⚠ **2026-09-21 新增这一组**：能力卡的"**同排等高**"只有在**一排 >= 2 张卡**时才判得动
+   *   （窄档 520 是单列 ⇒ 8 排全是单卡排，"同排等高"在那几排上**恒真**）。
+   *   宽档 900 是 3 列 + `align-items:stretch` ⇒ 才真的量得到"一排三张一样高"。
+   *   ⇒ 本脚本下面有一条**覆盖面**判据：至少有一组 capabilities 报到"有一排 >= 2 张卡"。 */
+  { page: 'capabilities', width: 900, interact: '', note: '能力页（宽档 3 列：同排等高才有内容）' },
   { page: 'ingest', width: 520, interact: '', note: '入库面板' },
   { page: 'materials', width: 1300, interact: '', note: '资料面板' },
 ]
@@ -78,7 +88,7 @@ await mkdir(outDir, { recursive: true })
 
 const rows = []
 const failures = []
-/** 缺浏览器是**全局**一件事（八组都会因此拿不到 JSON）⇒ 单独归一条，别刷屏八遍。 */
+/** 缺浏览器是**全局**一件事（每一组都会因此拿不到 JSON）⇒ 单独归一条，别刷屏。 */
 let sawNoBrowser = false
 for (const c of MATRIX) {
   const theme = c.theme ?? 'light'
@@ -102,9 +112,9 @@ for (const c of MATRIX) {
     const stderrTail = (r.stderr ?? '').split('\n').filter(Boolean).slice(-3).join(' / ') || '(空)'
     const noBrowser = /找不到无头浏览器|no such file|--browser|\$KS_BROWSER/i.test(`${r.stderr ?? ''}${r.stdout ?? ''}`)
     rows.push({
-      label, note: c.note, exit: r.status, checked: false, width: c.width, theme,
+      label, note: c.note, exit: r.status, checked: false, width: c.width, theme, page: c.page,
       comboKey: null, tier: null, expect: null, pageW: null, required: null, missingSubjects: null,
-      allSubjects: null, declaredCombos: null,
+      allSubjects: null, declaredCombos: null, capChecked: null, capCount: null, capRowCount: null, capMaxRow: null,
       problems: [`量不出 JSON（${String(parseErr)}）`],
     })
     failures.push(`${label}：ui-render-shot 没吐出 JSON（exit=${String(r.status)}）⇒ 这一组**没判**`
@@ -122,12 +132,31 @@ for (const c of MATRIX) {
       + ' ⇒ 存在性没判（复核 E① 的假绿通道）')
   }
   for (const p of pad.problems ?? []) problems.push(p)
+  /* ⚠⚠ **能力页另有第二条断言**（2026-09-21 新增）：`capCardsCheck` = **等宽 + 同排等高 + 防空转**
+   *   （口径是父代理裁定：**不判"尺寸统一"**，只判这两条站得住的）。
+   *   它**只对能力页适用** ⇒ 其余页面 `skipReason` 非空是**正常**的（`.ks-cap-card` 是能力页专有形态），
+   *   这里**只在 `page === 'capabilities'` 时**要求 `skipReason === null && checked === true`。
+   *   ⚠ 与 `ksPadCheck` 同一种纪律：能力页这一侧**没有"不判"的出路**（0 张即红，见脚本里那条分支）。 */
+  const capc = j.capCardsCheck ?? {}
+  let capChecked = null
+  let capMaxRow = null
+  if (c.page === 'capabilities') {
+    capChecked = capc.checked === true && (capc.skipReason ?? null) === null
+    if ((capc.skipReason ?? null) !== null) {
+      problems.push(`capCardsCheck.skipReason 非空（能力页不许"这一跑不判"）：${String(capc.skipReason)}`)
+    }
+    if (capc.checked !== true) problems.push('capCardsCheck.checked !== true（能力卡等宽/同排等高/防空转）')
+    for (const p of capc.problems ?? []) problems.push(p)
+    capMaxRow = Math.max(0, ...(capc.rows ?? []).map((row) => (row.names ?? []).length))
+  }
   rows.push({
-    label, note: c.note, exit: r.status, checked: pad.checked === true, width: c.width, theme,
+    label, note: c.note, exit: r.status, checked: pad.checked === true, width: c.width, theme, page: c.page,
     comboKey: pad.comboKey ?? null,
     tier: pad.tier ?? null, expect: pad.expect ?? null, pageW: pad.pageW ?? null,
     required: pad.required ?? null, missingSubjects: pad.missingSubjects ?? null,
-    allSubjects: pad.allSubjects ?? null, declaredCombos: pad.declaredCombos ?? null, problems,
+    allSubjects: pad.allSubjects ?? null, declaredCombos: pad.declaredCombos ?? null,
+    capChecked, capCount: capc.count ?? null, capRowCount: capc.rowCount ?? null, capMaxRow,
+    problems,
   })
   for (const p of problems) failures.push(`${label}：${p}`)
 }
@@ -140,6 +169,12 @@ for (const r of rows) {
     + `${String(r.expect ?? '-').padEnd(5)} ${String(r.pageW ?? '-').padEnd(9)} `
     + `${String(r.required == null ? '-' : r.required.length).padEnd(9)} ${verdict}`)
   for (const p of r.problems) console.log(`         └─ ${p}`)
+  if (r.page === 'capabilities') {
+    /* 能力卡那一侧的报告（2026-09-21）：**只报实测值，不冻死张数** —— 能力卡数量随功能增加。 */
+    console.log(`         └─ 能力卡 capCardsCheck：${r.capChecked === true ? 'PASS' : 'FAIL'}`
+      + `（n=${String(r.capCount ?? '-')} 张 / ${String(r.capRowCount ?? '-')} 排 /`
+      + ` 最多一排 ${String(r.capMaxRow ?? '-')} 张）`)
+  }
 }
 const tiers = new Set(rows.filter((r) => r.problems.length === 0).map((r) => r.tier))
 console.log(`  判过的档位：${[...tiers].join(' / ') || '(一组都没判过)'}`)
@@ -183,7 +218,7 @@ const SPEC_SUBJECTS = ['.ks-kb', '.ks-ing', '.ks-mat', '.ks-kbband', '.ks-list',
  */
 const EXPECTED_RUNS = ['kb|@520', 'kb|@1300', 'kb|kb-select@520', 'kb|kb-files@520',
   'kb|kb-select@1300', 'kb|kb-empty-files@520', 'kb|kb-crumb@520', 'kb|kb-select@520#dark',
-  'capabilities|@520',
+  'capabilities|@520', 'capabilities|@900',
   'ingest|ingest-batch@520', 'materials|@1300']
 /** 从**成功的实测 JSON** 里取声明集合（任一组报到即可 —— 它们来自同一个 `ui-render-shot` 进程）。 */
 const declaredSubjects = rows.map((r) => r.allSubjects).find((v) => Array.isArray(v)) ?? null
@@ -257,8 +292,25 @@ if (!rows.some((r) => r.theme === 'dark' && r.problems.length === 0)) {
   failures.push('**深色（`--theme dark`）一组都没判过** —— 业主看的"深浅两套"里深色那一套没有断言'
     + '（5j 当时只有一张深色截图当证据）')
 }
+/* ── **能力卡断言（capCardsCheck，2026-09-21 新增的第二个主体）的覆盖面** ──
+   两条，缺一不可（与上面"窄/宽档""深色""适用面"那几条同一种纪律：**声明了不等于跑过**）：
+     ① 至少要有一组 `capabilities` **真的判过** `capCardsCheck`
+        —— 否则这条断言一行都不在门禁里（5j 打回 E② 就是这么来的：断言在，但没人跑）；
+     ② 至少要有一组的"同排等高"是**在多卡排**上判的（一排 >= 2 张卡）——
+        窄档 520 是**单列**（实测 8 排全是单卡排），单卡排上"同排等高"**恒真**
+        ⇒ 只跑窄档等于没判 `align-items:stretch`。宽档 900 是 3 列，才有 3 张一排。
+   ⚠ 这两条**不**把张数/排数冻死（能力卡数量会随功能增加）；冻死的是"跑哪些组合"（EXPECTED_RUNS）。 */
+const capRunRows = rows.filter((r) => r.page === 'capabilities')
+if (!capRunRows.some((r) => r.capChecked === true)) {
+  failures.push('**能力页的 `capCardsCheck` 一组都没判过**（.ks-cap-card 的等宽 / 同排等高 / 防空转全是空的）'
+    + ' ⇒ 把 capabilities 留在 MATRIX 里（改矩阵要同步改 EXPECTED_RUNS）')
+}
+if (!capRunRows.some((r) => (r.capMaxRow ?? 0) >= 2)) {
+  failures.push('**能力卡的"同排等高"没有任何一组是在多卡排上判的**（跑过的能力页每一排都只有 1 张卡）'
+    + ' ⇒ 单卡排上它恒真 = 没判到 align-items:stretch；至少保留一组宽档（3 列）的能力页组合')
+}
 if (sawNoBrowser) {
-  failures.push('**这一跑起不来无头浏览器**（八组都没拿到 JSON）—— 门禁链从 5j-补 起需要本机有'
+  failures.push(`**这一跑起不来无头浏览器**（${String(MATRIX.length)} 组都没拿到 JSON）—— 门禁链从 5j-补 起需要本机有`
     + ' Chromium/Edge（`--browser` 或 `$KS_BROWSER` 可指路径）。**缺浏览器就是红，不是跳过**：'
     + '把这两套脚本拿掉、或改成"没浏览器就放行"，等于把复核打回（`verify-freeze-5j` E②）的假绿通道开回来。')
 }
@@ -273,4 +325,5 @@ if (failures.length > 0) {
   process.exit(1)
 }
 console.log(`✅ 页面留边巡查通过：${MATRIX.length} 组（窄档与宽档都有、深色一组也在），`
-  + `规范点名的 ${SPEC_SUBJECTS.length} 类适用面每一类都至少有一组在判。`)
+  + `规范点名的 ${SPEC_SUBJECTS.length} 类适用面每一类都至少有一组在判；`
+  + `能力页的 capCardsCheck（等宽 + 同排等高 + 防空转）也在判，其中至少一组是在多卡排上判的。`)

@@ -106,6 +106,8 @@ import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { spawnSync } from 'node:child_process'
 
+import { checkCapCards } from './lib/cap-cards-check.mjs'
+
 const here = dirname(fileURLToPath(import.meta.url))
 const repoRoot = resolve(here, '..', '..')
 const pluginRoot = join(repoRoot, 'plugin')
@@ -1001,6 +1003,32 @@ ${bandScrollStmt}
         }),
       };
     }
+    // **能力页每一张 .ks-cap-card 的逐个宽/高 + 逐排分组**（2026-09-21；父代理裁定的断言口径）。
+    // 为什么另开一个键：#cards 是 .ks-kb-cards>*,.ks-cap-card **混在一起**的报告值（无断言引用），
+    //   #kbcards 只量**卡片带里**的卡（能力页一张都没有 => 它在能力页恒 undefined）。
+    // 口径（父代理 2026-09-21 裁定，见 docs/UI-BASELINE.md 那节）：
+    //   **不判"尺寸统一"**（实测宽全等、高三档，页面级等高不是意图）——只断两条站得住的：
+    //   ① 本页所有 .ks-cap-card **等宽**；② **同一排**的高度全等（grid align-items:stretch 的不变式）。
+    //   => 这里必须把"排"报出去（按 getBoundingClientRect().top 分组，Node 侧判组内等高）。
+    // 借字段名（同 #cards / #kbcards 的先例）：x=最小宽 y=最大宽 w=最小高 h=最大高，
+    //   lh=逐张宽 pad=逐张高，items=逐张明细 {name,w,h,top}。
+    // ⚠ 本段是模板字符串里的一段 JS：注释里**不许出现反引号**（见 UI-BASELINE 5h-补）。
+    var capEls = document.querySelectorAll('.ks-cap-card');
+    if (capEls.length > 0) {
+      var cw = [].map.call(capEls, function (el) { return Math.round(el.getBoundingClientRect().width); });
+      var chh = [].map.call(capEls, function (el) { return Math.round(el.getBoundingClientRect().height); });
+      var ctop = [].map.call(capEls, function (el) { return Math.round(el.getBoundingClientRect().top); });
+      out['#capcards'] = {
+        n: capEls.length,
+        x: Math.min.apply(null, cw), y: Math.max.apply(null, cw),
+        w: Math.min.apply(null, chh), h: Math.max.apply(null, chh),
+        fs: '', lh: cw.join(','), pad: chh.join(','), gap: '', radius: '',
+        items: [].map.call(capEls, function (el, i) {
+          var t = el.querySelector('.ks-kb-ct');
+          return { name: t ? (t.textContent || '').trim() : '', w: cw[i], h: chh[i], top: ctop[i] };
+        }),
+      };
+    }
     // 批量条的**一行装得下吗**：w = 最后一个子元素的右缘 - 条子的右缘（正数 = 溢出/被截，
     // 负数 = 还剩多少余量）。h = 条子高（折成两行会明显变高）。P0-5 判"两行/溢出"就靠它。
     // ⚠⚠ **P1-9 修正（2026-09-20）**：原来 「lastKid.right - br.right」 量的是"**条子**的右缘"，
@@ -1308,6 +1336,24 @@ const cardsCheck = {
   heights: kbc?.pad ?? null,
   items: kbc?.items ?? null,
 }
+
+/* ══════════ `#capcards` 的**真断言**（2026-09-21；能力页：**等宽** + **同排等高**） ══════════
+ * 判据的**唯一所有者**是 plugin/scripts/lib/cap-cards-check.mjs（口径、为何单开模块都写在那一处）。
+ * 这里只做一件事：把探针量到的 `#capcards` 交给它，并把结论带进 stdout 的 JSON 与 stderr 自检。
+ * 三条来历（不许删）：
+ *   ① 上一轮**先量后判**的实测：8 张 .ks-cap-card 宽全等（900 档 268 / 1300 档 236）、高按组三档
+ *      （136/201/261），同排等高由 grid align-items:stretch 保证 ⇒ 页面级"尺寸统一"**不是意图**
+ *      （业主那句"统一尺寸"指的是**知识库卡片带**，cardsCheck 已钉那一处）⇒ 本批**不判"统一"**；
+ *   ② 父代理 2026-09-21 的裁定：只断 ① 等宽 ② 同排等高 ③ 量到 0 张即红 ④ 排数 >= 2，
+ *      **不许**把"8 张"钉成冻结常量（能力卡会随功能增加，钉死会假红）；
+ *   ③ 单开 lib 模块的理由：像素判据的**变异自证**必须在 %TEMP% 的 fixture 副本上跑，
+ *      而那份副本要经过**同一份**判据 —— 抄一份就是本仓最恨的"两份各自漂移"。
+ * 变异实测（本批，结果写进 docs/UI-BASELINE.md 那一节）：
+ *   ① fixture 副本里给某张卡加宽度覆盖 ⇒ **等宽**红；把容器改成 align-items:start ⇒ **同排等高**红；
+ *   ② 探针的 selector 在副本里改坏 ⇒ 红在**量到 0 张**上。 */
+const capCardsCheck = checkCapCards(measured, page)
+const capCardsProblems = capCardsCheck.problems
+const capCardsSkipReason = capCardsCheck.skipReason
 
 /* ══════════ `#kspad` 的**真断言**（5j，2026-09-20；业主：「窗口四周要留点边啊」） ══════════
  * 来源：业主 2026-09-20 原话「窗口四周要留点边啊，你这按钮都快跑到侧边栏外面去了，你改一下 UI
@@ -1714,6 +1760,7 @@ console.log(JSON.stringify({
   colsCheck,
   dirColsCheck,
   cardsCheck,
+  capCardsCheck,
   ksPadCheck,
   renderedChars: rendered.length,
   bundle: { js: bundleJs.replace(work, '<work>'), primitivesCssChars: primitivesCss.length },
@@ -1751,6 +1798,24 @@ if (cardsSkipReason !== null) {
   console.error('   ⇒ 卡宽的唯一声明是 ksGuideStyles.ts 的 `.ks-kbband .ks-kb-card{flex:0 0 var(--ks-band-card-w)}`，')
   console.error('      同排等高靠容器 `.ks-kbband .ks-kb-cards{align-items:stretch}` + `>*{min-height:var(--ks-card-h)}`。')
   console.error('      给**单张卡**另钉宽度/高度（例如 :nth-child(2){flex:0 0 60px}）就是这条断言要抓的回归。')
+  process.exit(1)
+}
+
+/* `#capcards` 的自检结论同样走 **stderr**（理由同上：stdout 必须是完整可 JSON.parse 的一份产物）。 */
+if (capCardsSkipReason !== null) {
+  console.error(`· #capcards 自检：**这一跑不判**（${capCardsSkipReason}）`)
+} else if (capCardsProblems.length === 0) {
+  console.error(`· #capcards 自检通过：${String(capCardsCheck.count)} 张能力卡**等宽** ${JSON.stringify(capCardsCheck.widths)}、`
+    + `${String(capCardsCheck.rowCount)} 排各自**同排等高** ${JSON.stringify((capCardsCheck.rows ?? []).map((r) => r.heights))}`
+    + `（page=${page} width=${width} theme=${themeName}）`)
+} else {
+  console.error('')
+  console.error(`❌ 能力卡几何自检失败（等宽 + 同排等高；page=${page} width=${width} theme=${themeName}）：`)
+  for (const p of capCardsProblems) console.error(`   - ${p}`)
+  console.error('   ⇒ 口径：能力页**不判"尺寸统一"**（实测宽全等、高三档，页面级等高不是意图）——')
+  console.error('      只判 ① 所有 .ks-cap-card 等宽 ② 同一排高度全等 ③ 量到 0 张即红 ④ 排数 >= 2。')
+  console.error('      卡宽的唯一所有者是 `.ks-kb-cards` 的 grid 列（能力页 repeat(auto-fill,minmax(230px,1fr))）；')
+  console.error('      同排等高是 `align-items:stretch`。改这两处（或给单张卡另钉宽/高）就是这条要抓的回归。')
   process.exit(1)
 }
 
