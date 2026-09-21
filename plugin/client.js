@@ -34871,7 +34871,7 @@ function askWhereText(scope) {
   if (nf === 1) return `\u5728${scope.label}\u91CC\u63D0\u95EE`;
   return `\u5728\u8FD9 ${String(nd)} \u7BC7\u6587\u4EF6\u91CC\u63D0\u95EE`;
 }
-function KsKnowledgePage({ useTabInfo, dataSource }) {
+function KsKnowledgePage({ useTabInfo }) {
   ensureKsStyles();
   const { tab } = useTabInfo();
   const page = tab.navigation.params?.page ?? "manage";
@@ -36522,22 +36522,8 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
     ] }) : null
   ] });
   return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-kb", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("header", { className: "ks-page-head", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-page-title", children: "\u77E5\u8BC6\u5E93" }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-page-sub", children: "\u6CD5\u89C4/\u6807\u51C6\u7684\u843D\u70B9\uFF1A\u77E5\u8BC6\u5E93 \u2192 \u76EE\u5F55 \u2192 \u6761\u6B3E\uFF1B\u989C\u8272\u4E00\u5F8B\u8D70\u5BBF\u4E3B\u4E3B\u9898 token\uFF0C\u6DF1\u6D45\u8272\u81EA\u52A8\u8DDF\u968F" })
-    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("header", { className: "ks-page-head", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-page-title", children: "\u77E5\u8BC6\u5E93" }) }),
     /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-page-rule" }),
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
-      "div",
-      {
-        className: "ks-kb-banner",
-        title: `\u6570\u636E\u6765\u81EA\u672C\u673A\u77E5\u8BC6\u5E93\u5F15\u64CE\uFF08/api/v1/kb/*\uFF09\u3002\u5DE6\u8FB9\u4E00\u5217\u662F\u76EE\u5F55\uFF0C\u53F3\u8FB9\u53EA\u663E\u793A\u201C\u5F53\u524D\u8FD9\u4E00\u5C42\u201D\uFF1B\u6BCF\u4E00\u7EA7\u90FD\u80FD\u4E0A\u4F20\uFF0C\u4E0A\u4F20\u8FDB\u67D0\u4E00\u7EA7\u5C31\u843D\u5728\u90A3\u4E00\u7EA7\uFF08\u4E0D\u518D\u8FDB\u81EA\u52A8\u8BC6\u522B\uFF09\uFF1B\u300C\u5F85\u5206\u7C7B\u300D\u90A3\u4E00\u5C42\u662F\u6392\u961F\u7B49\u5F52\u4F4D\u7684\u6587\u4EF6\uFF08\u8FDE\u540C\u8BC6\u522B\u5931\u8D25\u7684\u90A3\u4E00\u6279\uFF09\u3002dataSource=${dataSource}`,
-        children: [
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives4.IconInfoOutline14, {}),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("strong", { children: "\u771F\u5E93\uFF1A\u5DE6\u8FB9\u76EE\u5F55\u3001\u53F3\u8FB9\u5F53\u524D\u8FD9\u4E00\u5C42" })
-        ]
-      }
-    ),
     /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-kb-row", children: [
       /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
         import_dsh_client_ui_primitives4.Button,
@@ -37250,8 +37236,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
               value: current.confidence === null ? "" : String(current.confidence)
             }
           )
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-kb-hint", style: { marginTop: 6 }, children: "\u8FD9\u91CC\u7684\u6BCF\u4E2A\u5B57\u90FD\u6765\u81EA\u5E93\u91CC\u8FD9\u4E00\u7BC7\u7684\u771F\u5B9E\u5B57\u6BB5\uFF1B\u6CA1\u6709\u7684\u5B57\u6BB5\u663E\u793A\u300C\u2014\u300D\uFF0C**\u4E0D\u7F16**\u3002" })
+        ] })
       ] }) }) : null
     ] })
   ] }) });

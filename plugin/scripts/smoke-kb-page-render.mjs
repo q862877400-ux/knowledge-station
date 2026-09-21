@@ -836,6 +836,20 @@ export function mount(container, props) {
   check('A3 桩里那 4 个顶层目录名**真的出现在页面上**（不再显示样板里的假目录/假文档）',
     shownOnPage.length === 4,
     `出现 ${shownOnPage.length}/4：${shownOnPage.join(' / ')}`)
+  /* ⚠⚠ **2026-09-22（业主点名删"AI 味"文案）新增这条负向判据**（结构层，补字符串层那三条）：
+     业主原话：「…这种话为什么要放进来，AI 味很重；还有这个 `真库：左边目录、右边当前这一层`
+     这个放在这里干什么。把这种 AI 味道很重的、也没啥实际功能的描述都去掉。」
+     ⇒ 顶部那两处**连同容器**都已删：标题下那行副标题（`.ks-page-sub`）与那条 ⓘ 说明条
+     （`.ks-kb-banner`）。**判"容器真的没了"比判字符串更硬**：换个说法把说明条放回来也红。
+     ⚠ 这两个类**没从样式里删**（能力页 `KsCapabilityPage` 与本页"尚未实现"的占位条仍在用）
+     ⇒ 本条只判**这个页头里**没挂着它们；**标题本身必须还在**（别顺手把整块页头删了）。 */
+  const headTitle = (q('.ks-page-title')[0]?.textContent ?? '').trim()
+  check('A4 页头里**不再有**那两处"AI 味"文案的容器（`.ks-page-sub` 副标题 / `.ks-kb-banner` ⓘ 说明条）'
+    + '，而页面标题仍在 —— 业主 2026-09-22 点名删',
+    q('.ks-page-title').length === 1 && headTitle === '知识库'
+    && q('.ks-page-sub').length === 0 && q('.ks-kb-banner').length === 0,
+    `标题 ${String(q('.ks-page-title').length)} 个（文字=「${headTitle}」）`
+      + ` / .ks-page-sub ${String(q('.ks-page-sub').length)} 个 / .ks-kb-banner ${String(q('.ks-kb-banner').length)} 个`)
 
   /* ══════════ B. 左列目录 + 右侧只显示当前这一级 ══════════ */
   /* ⚠⚠ **2026-09-21（第 4 步）就地改判据（原文见下）**：这一条原来钉的树形状是

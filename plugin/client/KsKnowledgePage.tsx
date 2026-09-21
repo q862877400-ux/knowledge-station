@@ -394,7 +394,7 @@ interface TreeNode {
  * @param props - 框架给的运行时 props（含 `useTabInfo`）与本插件注入的面。
  * @returns 知识库页；`params.page` 指向尚未实现的页时给**诚实的占位**。
  */
-export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & KsKbInjected): ReactNode {
+export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected): ReactNode {
   ensureKsStyles()
   const { tab } = useTabInfo()
   const page = (tab.navigation.params as { page?: string } | undefined)?.page ?? 'manage'
@@ -2445,25 +2445,21 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
       <div className="ks-kb">
         <header className="ks-page-head">
           <div className="ks-page-title">知识库</div>
-          <div className="ks-page-sub">
-            法规/标准的落点：知识库 → 目录 → 条款；颜色一律走宿主主题 token，深浅色自动跟随
-          </div>
         </header>
         <div className="ks-page-rule" />
 
-        {/* 诚实告知条：这一页**现在接的是真库**（不再是占位）。文案只说事实，
-            细则（接口名/边界）挂在 title= 里，正文不堆黑话。 */}
-        <div
-          className="ks-kb-banner"
-          title={'数据来自本机知识库引擎（/api/v1/kb/*）。左边一列是目录，右边只显示“当前这一层”；'
-            + '每一级都能上传，上传进某一级就落在那一级（不再进自动识别）；'
-            + '「待分类」那一层是排队等归位的文件（连同识别失败的那一批）。'
-            + `dataSource=${dataSource}`}
-        >
-          <IconInfoOutline14 />
-          <strong>真库：左边目录、右边当前这一层</strong>
-        </div>
-
+        {/* ⚠⚠ **业主 2026-09-22 点名删掉两处"AI 味很重、也没啥实际功能"的描述**（原话）：
+              「这种话为什么要放进来，AI 味很重；还有这个 `真库：左边目录、右边当前这一层`
+                这个放在这里干什么。把这种 AI 味道很重的、也没啥实际功能的描述都去掉。」
+            ① **标题下那行副标题**（原文，留痕）：
+               `法规/标准的落点：知识库 → 目录 → 条款；颜色一律走宿主主题 token，深浅色自动跟随`
+               —— 讲的是**实现细节**（主题 token）与**设计说明**（"落点"），不是给用户看的信息；
+            ② **顶上那条 ⓘ 告知条**（原文，留痕）：`真库：左边目录、右边当前这一层`
+               （外加一长串挂 title 的接口名/版式描述）—— **描述版式 = 说废话**。
+            ⇒ 两处**连同容器与图标一起删干净**（不留空壳）。`.ks-page-sub` / `.ks-kb-banner`
+               这两个类**没删**：能力页（`KsCapabilityPage`）与本页"尚未实现"的占位条仍在用。
+            ⚠ 判据同步翻成**负向**（`smoke-client-entry` 的在场字面量表 + jsdom 的 K 段），
+               原文与理由留在那些断言里。 */}
         {/* 顶上一行：返回上一层 + 逐级可点的路径 + 上传/刷新 */}
         <div className="ks-kb-row">
           <Button
@@ -3229,9 +3225,11 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                     value={current.confidence === null ? '' : String(current.confidence)}
                   />
                 </div>
-                <div className="ks-kb-hint" style={{ marginTop: 6 }}>
-                  这里的每个字都来自库里这一篇的真实字段；没有的字段显示「—」，**不编**。
-                </div>
+                {/* ⚠⚠ **2026-09-22 业主点名删掉这一类**（"这种 AI 味道很重的、也没啥实际功能的描述都去掉"）：
+                    这一行原文（留痕）：`这里的每个字都来自库里这一篇的真实字段；没有的字段显示「—」，**不编**。`
+                    两处都踩在口径上 —— "来自库里这一篇的真实字段" 是**讲实现/数据来源**，
+                    "**不编**" 是**自夸**（而且 `**` 在 JSX 里根本不渲染成粗体，屏幕上就是两颗星，
+                    更难看）。上面的字段自己会说话（没有的值显示「—」），不需要这段旁白。 */}
               </div>
             </div>
           ) : null}
