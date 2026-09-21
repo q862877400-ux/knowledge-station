@@ -635,6 +635,12 @@ export const KS_STYLES = `
    按钮里的字**不许断行**。 */
 .ks-list-cap{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0;flex-wrap:wrap}
 .ks-list-cap>button{white-space:nowrap}
+/* ⚠⚠ **2026-09-22（读图发现）**：提问入口搬进这一行之后，窄档（主栏 288px）实测把
+   **文件夹名挤成「知...」**（名字那一格是 flex:1，会被按钮压到只剩十几像素）——
+   而这一行的全部意义就是"看清楚这是哪个文件夹"。⇒ 给名字一个**最小可读宽度**
+   （6em ≈ 13px 字号下的 6 个中文字）：挤不下时**这一行换行**（按钮/计数落到下一行），
+   而不是把名字截成一个字。宽档一行放得下 ⇒ 行为不变。 */
+.ks-list-cap .ks-lhead-name{min-width:6em}
 .ks-lhead .ks-cell{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}
 .ks-lhead-name{font-size:var(--ks-fs-base);font-weight:600;color:var(--dsw-alias-label-primary);
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

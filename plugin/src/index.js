@@ -235,10 +235,16 @@ function sanitizeParams(raw) {
    *   · 数组 ⇒ 逐项去空白/去重/丢非法项；**用户给的空数组如实传**（引擎据此判"范围内一篇都没有"，
    *     与"没给范围"严格区分 —— 那正是"绝不退化成全库"这条红线，宿主不许替它改写）；
    *   · 全是不合法项 ⇒ 传空数组（同上，让引擎按"空范围"处理，**不静默当没给**）；
-   *   · **超上限不再静默截断**（复核 LOW-2 实测 600 个 id 被悄悄砍成 500）⇒
-   *     `kb_folder_ids` 超过引擎自己的 200 个根上限、`kb_doc_ids` 超过 2000 ⇒ **显式报错**。
-   *     （引擎侧 `folder_scope` 对 >200 个根会抛 `invalid_scope`；宿主先报错能把话说清楚。） */
-  const KB_SCOPE_LIMITS = { kb_folder_ids: 200, kb_doc_ids: 2000 }
+   *   · **超上限不再静默截断**（复核 LOW-2 实测 600 个 id 被悄悄砍成 500）⇒ **显式报错**。
+   *     `kb_folder_ids` 上限 **200 = 引擎自己的硬上限**（`folder_store.folder_scope`：
+   *     "一次最多并集 200 个目录" ⇒ `invalid_scope`）；宿主先报错能把话说清楚。
+   *     `kb_doc_ids` 上限 **20000**（2026-09-22 复核指出原来的 2000 **没有依据**，这里把依据写明）：
+   *     **引擎对文档 id 没有任何上限**（引擎侧只对"目录根数"封顶），所以宿主这个数只能是
+   *     **载荷兜底**、不是语义约束 —— 取值依据是**实测的真库规模**：整个库 6417 篇
+   *     （2026-09-22 只读探针）、"整库的 doc_id 全列出来"是 213 KB JSON；20000 ≈ **今天的 3 倍**，
+   *     任何**正当**的单篇/待分类/多选范围都过得去，而真要覆盖整个库时正确的旋钮是
+   *     `kb_folder_ids`（或干脆不给范围）。⚠ 它是**兜底值、不是契约**：库长大了就往上调。 */
+  const KB_SCOPE_LIMITS = { kb_folder_ids: 200, kb_doc_ids: 20000 }
   for (const key of ['kb_folder_ids', 'kb_doc_ids']) {
     const v = raw[key]
     if (v === undefined || v === null) continue
@@ -1070,6 +1076,15 @@ export function makeAnswerTool(manager, chatModeOf) {
       'When citing an evidence item in your answer, render its evidence_url as a clickable ' +
       'Markdown link, e.g. [依据：<standard_no> <clause_number>](<evidence_url>) — the GUI ' +
       'opens the original PDF at that page when the user clicks it. ' +
+      // ⚠ 复核 2026-09-22：`null`（没给范围 ⇒ 全库）与 `[]`（⇒ 422，一次检索都不做）语义不同，
+      //   必须写在模型看得见的地方，别让它靠猜。参数级描述见下面 `kb_folder_ids` / `kb_doc_ids`。
+      'Scope: params.kb_folder_ids (folder ids: each means that folder AND all its children) and ' +
+      'params.kb_doc_ids (explicit doc ids, for files not filed in any folder yet) restrict ' +
+      'RETRIEVAL itself; several ids = the union, and the two knobs together are also a union. ' +
+      'OMIT them for the whole library. An EMPTY array is NOT "no scope" and is not an acceptable ' +
+      'scope input: the engine answers HTTP 422 and does no retrieval at all — it never falls back ' +
+      'to the whole library. (Different case: a folder that exists but whose subtree is empty ⇒ ' +
+      'HTTP 200, no retrieval, and an honest "nothing inside the scope".) ' +
       'IMPORTANT — verification.unsupported_context: if it lists a clause number you cited, ' +
       'that citation is NOT supported and you MUST disclose it in your own words rather than ' +
       'silently dropping it: name the standard, then say which case it is — ' +
@@ -1133,7 +1148,18 @@ export function makeAnswerTool(manager, chatModeOf) {
                 '"this folder AND every folder below it"; several ids = the union. NOT the same ' +
                 'thing as folder_id (bookmark folder, which only filters evidence). An unknown ' +
                 'folder id makes the engine answer 404 rather than silently widening to the whole ' +
-                'library. Omitted = no folder restriction.',
+                'library. ' +
+                // ⚠ 复核 2026-09-22 要求把两个数写进描述（模型要能自己判断会不会被拒）。
+                'Limit: 200 ids (= the engine\'s own cap on how many roots one ask may union; ' +
+                'the engine answers invalid_scope above that, the host refuses first with a clear ' +
+                'message — it never truncates silently). Combined with kb_doc_ids the two are a ' +
+                'UNION (further narrowed only by the bookmark folder_id, which filters evidence). ' +
+                'OMITTED (or null) = no folder restriction. An EMPTY array [] is NOT the same ' +
+                'thing: [] is not an acceptable scope input at all — the engine answers HTTP 422 ' +
+                'and performs NO retrieval, and it never silently falls back to the whole library. ' +
+                '(Different case: a folder that DOES exist but whose subtree holds no documents is ' +
+                'a legitimate but empty scope ⇒ HTTP 200, no retrieval, and an honest "nothing ' +
+                'inside the scope".)',
             },
             kb_doc_ids: {
               type: 'array',
@@ -1141,7 +1167,16 @@ export function makeAnswerTool(manager, chatModeOf) {
               description:
                 'Restrict RETRIEVAL to an explicit list of documents (doc ids) — use this for files ' +
                 'that are not in any folder yet (the 待分类 layer). Combined with kb_folder_ids it ' +
-                'is the union of both. Omitted = no document restriction.',
+                'is the union of both. ' +
+                'Limit: 20000 ids. ⚠ The engine itself has NO document-id cap — this is only a ' +
+                'payload sanity bound (the host refuses OVER-limit input with a clear message ' +
+                'instead of truncating it, because a truncated scope answers a different ' +
+                'question). Basis: the whole real library is 6417 docs (measured 2026-09-22), so ' +
+                '20000 is ~3x today\'s library; if a scope really covers the entire library, use ' +
+                'kb_folder_ids or omit the scope altogether. ' +
+                'OMITTED (or null) = no document restriction. An EMPTY array [] is NOT the same ' +
+                'thing: [] is not an acceptable scope input — the engine answers HTTP 422 and ' +
+                'performs NO retrieval, and it never silently falls back to the whole library.',
             },
           },
           additionalProperties: false,

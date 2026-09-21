@@ -1,4 +1,8 @@
+import gc
+import os
+import shutil
 import tempfile
+import time
 from pathlib import Path
 
 import pytest
@@ -6,18 +10,49 @@ import pytest
 
 @pytest.fixture(scope="session", autouse=True)
 def _isolate_data_dir():
-    with tempfile.TemporaryDirectory(prefix="ks_test_", ignore_cleanup_errors=True) as td:
-        import os
-        old = os.environ.get("KS_DATA_DIR")
-        os.environ["KS_DATA_DIR"] = td
-        from src.core import config
+    """全量测试的会话级临时数据目录。
+
+    ⚠⚠ **2026-09-22 修（同一个病根，会话级这一份漏得更多）**：以前是
+    `tempfile.TemporaryDirectory(prefix="ks_test_", ignore_cleanup_errors=True)` ——
+    FastAPI 的**同步**路由跑在 AnyIO 线程池的 worker 线程里，那些线程自己握着一份库连接、
+    比用例活得长，`close_thread_connection()` 关不到它们 ⇒ Windows 上 `knowledge.db`
+    一直被占着（`WinError 32`），`ignore_cleanup_errors=True` 把失败**静默吞掉**
+    ⇒ **每跑一次 pytest 漏一个目录**（2026-09-22 清点时 `%TEMP%` 里已积压 *1833* 个 `ks_test_*`）。
+    现在：`close_all_connections()` 真关所有线程那一份（并摘掉那个线程的键），清理自己来、
+    失败**抛出去**（不许静默）。取证与手法见 `src/core/storage/sqlite_db.py::close_all_connections`。
+    """
+    from src.core.storage.sqlite_db import close_all_connections, close_thread_connection
+
+    td = Path(tempfile.mkdtemp(prefix="ks_test_"))
+    old = os.environ.get("KS_DATA_DIR")
+    os.environ["KS_DATA_DIR"] = str(td)
+    from src.core import config
+    config.reset_settings()
+    try:
+        yield td
+    finally:
         config.reset_settings()
-        yield Path(td)
-        config.reset_settings()
+        close_thread_connection()
+        close_all_connections()
+        gc.collect()
         if old is None:
             os.environ.pop("KS_DATA_DIR", None)
         else:
             os.environ["KS_DATA_DIR"] = old
+        last: OSError | None = None
+        for delay in (0.0, 0.2, 0.5, 1.0):
+            if delay:
+                time.sleep(delay)
+            try:
+                shutil.rmtree(td)
+                last = None
+                break
+            except OSError as e:  # noqa: PERF203 - 退避重试，故意逐个接
+                last = e
+        if last is not None:
+            raise AssertionError(
+                "会话级临时数据目录没清掉（清理失败**不许静默**）："
+                f"{td} —— {type(last).__name__}: {last}")
 
 
 @pytest.fixture()

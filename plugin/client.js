@@ -33509,6 +33509,12 @@ var KS_STYLES = `
    \u6309\u94AE\u91CC\u7684\u5B57**\u4E0D\u8BB8\u65AD\u884C**\u3002 */
 .ks-list-cap{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0;flex-wrap:wrap}
 .ks-list-cap>button{white-space:nowrap}
+/* \u26A0\u26A0 **2026-09-22\uFF08\u8BFB\u56FE\u53D1\u73B0\uFF09**\uFF1A\u63D0\u95EE\u5165\u53E3\u642C\u8FDB\u8FD9\u4E00\u884C\u4E4B\u540E\uFF0C\u7A84\u6863\uFF08\u4E3B\u680F 288px\uFF09\u5B9E\u6D4B\u628A
+   **\u6587\u4EF6\u5939\u540D\u6324\u6210\u300C\u77E5...\u300D**\uFF08\u540D\u5B57\u90A3\u4E00\u683C\u662F flex:1\uFF0C\u4F1A\u88AB\u6309\u94AE\u538B\u5230\u53EA\u5269\u5341\u51E0\u50CF\u7D20\uFF09\u2014\u2014
+   \u800C\u8FD9\u4E00\u884C\u7684\u5168\u90E8\u610F\u4E49\u5C31\u662F"\u770B\u6E05\u695A\u8FD9\u662F\u54EA\u4E2A\u6587\u4EF6\u5939"\u3002\u21D2 \u7ED9\u540D\u5B57\u4E00\u4E2A**\u6700\u5C0F\u53EF\u8BFB\u5BBD\u5EA6**
+   \uFF086em \u2248 13px \u5B57\u53F7\u4E0B\u7684 6 \u4E2A\u4E2D\u6587\u5B57\uFF09\uFF1A\u6324\u4E0D\u4E0B\u65F6**\u8FD9\u4E00\u884C\u6362\u884C**\uFF08\u6309\u94AE/\u8BA1\u6570\u843D\u5230\u4E0B\u4E00\u884C\uFF09\uFF0C
+   \u800C\u4E0D\u662F\u628A\u540D\u5B57\u622A\u6210\u4E00\u4E2A\u5B57\u3002\u5BBD\u6863\u4E00\u884C\u653E\u5F97\u4E0B \u21D2 \u884C\u4E3A\u4E0D\u53D8\u3002 */
+.ks-list-cap .ks-lhead-name{min-width:6em}
 .ks-lhead .ks-cell{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}
 .ks-lhead-name{font-size:var(--ks-fs-base);font-weight:600;color:var(--dsw-alias-label-primary);
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -35548,7 +35554,7 @@ function KsKnowledgePage({ useTabInfo }) {
   }, [afterAction, flatFolders, withSession]);
   const runRemove = (0, import_react8.useCallback)(async (targets) => {
     if (levelId === null) {
-      setActMsg('\u6700\u5916\u5C42\u7684\u6587\u4EF6\u4E0D\u5C5E\u4E8E\u4EFB\u4F55\u76EE\u5F55\uFF0C"\u4ECE\u8FD9\u4E00\u5C42\u62FF\u6389"\u5728\u8FD9\u91CC\u6CA1\u6709\u5BF9\u8C61\u3002');
+      setActMsg("\u6700\u5916\u5C42\u7684\u6587\u4EF6\u4E0D\u5C5E\u4E8E\u4EFB\u4F55\u76EE\u5F55\uFF0C\u300C\u79FB\u51FA\u300D\u5728\u8FD9\u91CC\u6CA1\u6709\u5BF9\u8C61\u3002");
       return;
     }
     const docIds = docIdsOf(targets);
@@ -35564,10 +35570,10 @@ function KsKnowledgePage({ useTabInfo }) {
         levelId,
         docIds.map((id) => ({ kind: "file", id }))
       ));
-      setActMsg(`\u5DF2\u4ECE\u300C${levelName}\u300D\u62FF\u6389 ${String(r.removed)} \u7BC7\uFF08**\u53EA\u53BB\u6389\u8FD9\u4E00\u5904\u7684\u5F52\u5C5E\uFF0C\u6587\u4EF6\u6CA1\u6709\u5220**\uFF1B\u8FD8\u6302\u5728\u522B\u7684\u76EE\u5F55\u91CC\u7684\u7167\u65E7\u5728\u90A3\u91CC\uFF09\u3002`);
+      setActMsg(`\u5DF2\u4ECE\u300C${levelName}\u300D\u79FB\u51FA ${String(r.removed)} \u7BC7\uFF08\u53EA\u53BB\u6389\u8FD9\u4E00\u5904\u7684\u5F52\u5C5E\uFF0C**\u6587\u4EF6\u6CA1\u6709\u5220**\uFF1B\u8FD8\u6302\u5728\u522B\u7684\u76EE\u5F55\u91CC\u7684\u7167\u65E7\u5728\u90A3\u91CC\uFF09\u3002`);
       await afterAction();
     } catch (error) {
-      setActMsg(`\u6CA1\u62FF\u6389\uFF1A${errorText(error)}`);
+      setActMsg(`\u6CA1\u79FB\u51FA\uFF1A${errorText(error)}`);
     } finally {
       setBusy(false);
     }
@@ -35938,10 +35944,16 @@ function KsKnowledgePage({ useTabInfo }) {
       { id: "place", label: "\u653E\u8FDB\u67D0\u4E2A\u76EE\u5F55\u2026" },
       ...doc.suggested_folder_id !== null ? [{ id: "accept", label: `\u6309\u5EFA\u8BAE\u5F52\u4F4D\uFF08${sugLabel}\uFF09` }] : [],
       ...doc.suggest_new_parent_id !== null && doc.suggest_new_name !== null ? [{ id: "new", label: `\u5728\u5EFA\u8BAE\u4F4D\u7F6E\u65B0\u5EFA\u300C${doc.suggest_new_name}\u300D` }] : [],
-      /* 第 6 步：这一篇**还没进任何目录** ⇒ 只能用**显式文件范围**（`kb_doc_ids`）问。 */
-      { id: "ask", label: "\u5728\u6B64\u8303\u56F4\u5185\u63D0\u95EE" },
+      /* 第 6 步：这一篇**还没进任何目录** ⇒ 只能用**显式文件范围**（`kb_doc_ids`）问。
+         ⚠ **2026-09-22 业主改的文案**：在**单个文件**上点开三个点 ⇒ 写「在此文件中提问」
+         （原话："在此范围内提问——如果是在**单个文件**上点开三个点，那就应该展示**在此文件中提问**"）。
+         行为**一字未变**（还是只问这一篇）。 */
+      { id: "ask", label: "\u5728\u6B64\u6587\u4EF6\u4E2D\u63D0\u95EE" },
       { id: "retry", label: "\u91CD\u6765\u4E00\u6B21\uFF08\u91CD\u65B0\u89E3\u6790\uFF09" },
-      { id: "delete", label: "\u5220\u6389\u2026" }
+      /* ⚠ **2026-09-22 业主**："「从这一层拿掉」是啥意思，删除就说删除" ——
+         这一条是**真删文档**（不可逆，后面有二次确认面板）⇒ 文案就是「删除」。
+         原文（留痕）：`{ id: 'delete', label: '删掉…' }` */
+      { id: "delete", label: "\u5220\u9664" }
     ];
     const cell = (key) => {
       switch (key) {
@@ -36120,11 +36132,11 @@ function KsKnowledgePage({ useTabInfo }) {
           variant: "outline",
           size: "sm",
           className: "ks-batch-btn",
-          title: "\u632A\u5230\u67D0\u4E2A\u76EE\u5F55\uFF08\u53EA\u6539\u6302\u5728\u54EA\uFF1A\u76EE\u5F55\u8D70 folders/{id}/move\u3001\u6587\u4EF6\u8D70 members/move\uFF1B\u78C1\u76D8\u6587\u4EF6\u4E0D\u52A8\uFF09",
+          title: "\u79FB\u52A8\u5230\u67D0\u4E2A\u76EE\u5F55\uFF08\u53EA\u6539\u6302\u5728\u54EA\uFF1A\u76EE\u5F55\u8D70 folders/{id}/move\u3001\u6587\u4EF6\u8D70 members/move\uFF1B\u78C1\u76D8\u6587\u4EF6\u4E0D\u52A8\uFF09",
           onClick: () => {
             openAction("move", [...picked]);
           },
-          children: "\u632A\u5230\u2026"
+          children: "\u79FB\u52A8\u5230\u2026"
         }
       ) : null,
       pickedFolderIds.length + pickedDocIds.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
@@ -36146,11 +36158,11 @@ function KsKnowledgePage({ useTabInfo }) {
           variant: "outline",
           size: "sm",
           className: "ks-batch-btn",
-          title: "\u53EA\u53BB\u6389\u8FD9\u4E9B\u6587\u4EF6\u5728\u300C\u5F53\u524D\u8FD9\u4E00\u5C42\u300D\u7684\u5F52\u5C5E \u2014\u2014 \u6587\u4EF6\u4E0D\u5220\uFF0C\u522B\u5904\u8FD8\u6302\u7740\u7684\u7167\u65E7",
+          title: "\u79FB\u51FA\uFF1A\u53EA\u53BB\u6389\u8FD9\u4E9B\u6587\u4EF6\u5728\u300C\u5F53\u524D\u8FD9\u4E00\u5C42\u300D\u7684\u5F52\u5C5E \u2014\u2014 **\u6587\u4EF6\u4E0D\u4F1A\u5220\u9664**\uFF08\u8FD8\u5728\u5E93\u91CC\uFF09\uFF0C\u522B\u5904\u8FD8\u6302\u7740\u7684\u7167\u65E7",
           onClick: () => {
             void runRemove([...picked]);
           },
-          children: "\u4ECE\u8FD9\u4E00\u5C42\u62FF\u6389"
+          children: "\u79FB\u51FA"
         }
       ) : null,
       pickedFolderIds.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
@@ -36178,11 +36190,11 @@ function KsKnowledgePage({ useTabInfo }) {
   const pickVerb = {
     place: "\u653E\u8FDB",
     new: "\u653E\u8FDB",
-    move: "\u632A\u5230",
+    move: "\u79FB\u52A8\u5230",
     copy: "\u590D\u5236\u5230",
     add: "\u6302\u8FDB"
   };
-  const pickEmptyHint = flatFolders.length === 0 ? "\u6B63\u5728\u8BFB\u76EE\u5F55\u6E05\u5355\u2026" : pickBase.length === 0 ? "\u6CA1\u6709\u53EF\u9009\u7684\u76EE\u7684\u5730\uFF1A\u552F\u4E00\u7684\u90A3\u51E0\u4E2A\u76EE\u5F55\u5C31\u662F\u4F60\u6B63\u5728\u632A/\u590D\u5236\u7684\u76EE\u5F55\u81EA\u5DF1\uFF08\u4E0D\u80FD\u632A\u8FDB\u81EA\u5DF1\u7684\u4E0B\u7EA7\uFF09" : "\u6CA1\u6709\u5339\u914D\u7684\u76EE\u5F55";
+  const pickEmptyHint = flatFolders.length === 0 ? "\u6B63\u5728\u8BFB\u76EE\u5F55\u6E05\u5355\u2026" : pickBase.length === 0 ? "\u6CA1\u6709\u53EF\u9009\u7684\u76EE\u7684\u5730\uFF1A\u552F\u4E00\u7684\u90A3\u51E0\u4E2A\u76EE\u5F55\u5C31\u662F\u4F60\u6B63\u5728\u79FB\u52A8/\u590D\u5236\u7684\u76EE\u5F55\u81EA\u5DF1\uFF08\u4E0D\u80FD\u79FB\u8FDB\u81EA\u5DF1\u7684\u4E0B\u7EA7\uFF09" : "\u6CA1\u6709\u5339\u914D\u7684\u76EE\u5F55";
   const actionPanel = action === null ? null : /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
     "div",
     {
@@ -36418,7 +36430,7 @@ function KsKnowledgePage({ useTabInfo }) {
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-act-row", children: [
           /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { className: "ks-act-hint", children: [
-            "\u5C06",
+            "\u5373\u5C06",
             pickVerb[action.kind] ?? "\u653E\u8FDB",
             "\uFF1A",
             pickPathOf === "" ? "\uFF08\u8FD8\u6CA1\u9009\uFF09" : pickPathOf
@@ -36927,8 +36939,8 @@ function KsKnowledgePage({ useTabInfo }) {
             const dirMenu = [
               { id: "rename", label: "\u6539\u540D\u2026" },
               { id: "mkdir", label: "\u5728\u8FD9\u4E2A\u76EE\u5F55\u4E0B\u65B0\u5EFA\u2026" },
-              { id: "move", label: "\u632A\u5230\u67D0\u4E2A\u76EE\u5F55\u2026" },
-              { id: "copy", label: "\u590D\u5236\u5230\u67D0\u4E2A\u76EE\u5F55\u2026" },
+              { id: "move", label: "\u79FB\u52A8\u5230" },
+              { id: "copy", label: "\u590D\u5236\u5230" },
               /* 第 6 步：在**这一个目录**（它 + 全部下级）里提问。 */
               { id: "ask", label: "\u5728\u6B64\u8303\u56F4\u5185\u63D0\u95EE" },
               { id: "delete", label: "\u5220\u6389\u8FD9\u4E2A\u76EE\u5F55\u2026" }
@@ -36945,7 +36957,7 @@ function KsKnowledgePage({ useTabInfo }) {
                         togglePick(pickDirKey(child.folder_id), next);
                       },
                       label: child.name,
-                      title: `\u9009\u4E2D\u76EE\u5F55\u300C${child.name}\u300D\uFF08\u9009\u4E2D\u540E\u4E0B\u9762\u4F1A\u51FA\u73B0\u6279\u91CF\u6761\uFF1A\u632A\u5230\u2026 / \u590D\u5236\u5230\u2026 / \u5220\u6389\u76EE\u5F55\u2026\uFF09`
+                      title: `\u9009\u4E2D\u76EE\u5F55\u300C${child.name}\u300D\uFF08\u9009\u4E2D\u540E\u4E0B\u9762\u4F1A\u51FA\u73B0\u6279\u91CF\u6761\uFF1A\u79FB\u52A8\u5230\u2026 / \u590D\u5236\u5230\u2026 / \u5220\u6389\u76EE\u5F55\u2026\uFF09`
                     }
                   ) });
                 case "dname":
@@ -37001,7 +37013,7 @@ function KsKnowledgePage({ useTabInfo }) {
                           "aria-haspopup": "menu",
                           "aria-expanded": isOpen,
                           "aria-label": `\u76EE\u5F55\u300C${child.name}\u300D\u7684\u64CD\u4F5C`,
-                          title: "\u5904\u7F6E\u8FD9\u4E2A\u76EE\u5F55\uFF08\u6539\u540D / \u65B0\u5EFA\u4E0B\u7EA7 / \u632A / \u590D\u5236 / \u5220\uFF09",
+                          title: "\u5904\u7F6E\u8FD9\u4E2A\u76EE\u5F55\uFF08\u6539\u540D / \u65B0\u5EFA\u4E0B\u7EA7 / \u79FB\u52A8\u5230 / \u590D\u5236\u5230 / \u5220\uFF09",
                           onClick: () => {
                             setMenuFor(isOpen ? null : pickDirKey(child.folder_id));
                           },
@@ -37074,12 +37086,13 @@ function KsKnowledgePage({ useTabInfo }) {
             const fileKey = pickFileKey(doc.doc_id);
             const fileMenu = [
               { id: "detail", label: "\u8BE6\u60C5" },
-              /* 第 6 步：**这一篇**的范围（`kb_doc_ids`）—— 与"这一级"的范围是两回事。 */
-              { id: "ask", label: "\u5728\u6B64\u8303\u56F4\u5185\u63D0\u95EE" },
+              /* 第 6 步：**这一篇**的范围（`kb_doc_ids`）—— 与"这一级"的范围是两回事。
+                 ⚠ 2026-09-22 业主：**单个文件**上点开三个点 ⇒ 文案是「在此文件中提问」。 */
+              { id: "ask", label: "\u5728\u6B64\u6587\u4EF6\u4E2D\u63D0\u95EE" },
               ...levelId === null ? [{ id: "add", label: "\u52A0\u8FDB\u67D0\u4E2A\u76EE\u5F55\u2026" }] : [
-                { id: "move", label: "\u632A\u5230\u67D0\u4E2A\u76EE\u5F55\u2026" },
-                { id: "copy", label: "\u590D\u5236\u5230\u67D0\u4E2A\u76EE\u5F55\u2026" },
-                { id: "remove", label: "\u4ECE\u8FD9\u4E00\u5C42\u62FF\u6389" }
+                { id: "move", label: "\u79FB\u52A8\u5230" },
+                { id: "copy", label: "\u590D\u5236\u5230" },
+                { id: "remove", label: "\u79FB\u51FA" }
               ]
             ];
             const cellFor = (key) => {
@@ -37147,7 +37160,7 @@ function KsKnowledgePage({ useTabInfo }) {
                           "aria-haspopup": "menu",
                           "aria-expanded": isOpen,
                           "aria-label": `${doc.standard_name ?? doc.doc_id} \u7684\u66F4\u591A\u64CD\u4F5C`,
-                          title: "\u66F4\u591A\u64CD\u4F5C\uFF08\u8BE6\u60C5 / \u632A / \u590D\u5236 / \u4ECE\u8FD9\u4E00\u5C42\u62FF\u6389\uFF09",
+                          title: "\u66F4\u591A\u64CD\u4F5C\uFF08\u8BE6\u60C5 / \u79FB\u52A8\u5230 / \u590D\u5236\u5230 / \u79FB\u51FA\uFF09\u2014\u2014\u300C\u79FB\u51FA\u300D\u53EA\u628A\u8FD9\u4E00\u7BC7\u4ECE\u5F53\u524D\u76EE\u5F55\u79FB\u51FA\uFF0C\u6587\u4EF6\u4E0D\u4F1A\u5220\u9664",
                           onClick: () => {
                             setMenuFor(isOpen ? null : doc.doc_id);
                           },

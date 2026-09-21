@@ -1368,7 +1368,7 @@ smoke-trim: 1/34 FAILED
 | 复核条目 | 处置 |
 |---|---|
 | **LOW-1** 非数组 `kb_folder_ids` 被整键静默丢掉（⇒ 请求体 `params=null` ⇒ 悄悄变全库） | **改**：字符串按引擎口径（`_as_list`）**规范化成单项数组**；数字/布尔/对象 ⇒ **显式抛错**（`must be an array of strings`）。判据：`smoke-tool-contract` 的 `kb-scope-string-normalized` + `kb-scope-non-array-rejected` |
-| **LOW-2** 600 个 id 被静默 `slice(0,500)` | **改**：不再截断 —— `kb_folder_ids` > 200（引擎自己的根上限）/ `kb_doc_ids` > 2000 ⇒ **显式抛错**。判据：`kb-scope-over-limit-rejected` |
+| **LOW-2** 600 个 id 被静默 `slice(0,500)` | **改**：不再截断 —— `kb_folder_ids` > 200（引擎自己的根上限）⇒ 显式抛错；`kb_doc_ids` 的上限 **2026-09-22 由 2000 改成 20000**（见本节末尾的更正：2000 没有依据）。判据：`kb-scope-over-limit-rejected` + `kb-scope-doc-over-limit-rejected`（后者用**从源码读出来的**上限 +1） |
 | **LOW-3** 同一条件两个端点状态码不同（/resolve 422 `invalid_scope` vs /ks/answer 404） | **改**：`ks_answer` 按错误码分流 —— 只有 `folder_not_found` ⇒ 404；其余（含 `invalid_scope`）⇒ `ValueError` ⇒ **422**。判据：新增 `test_two_endpoints_agree_on_too_many_folders`（201 个目录：两边都 422；不存在的目录仍 404） |
 | **LOW-4** 运行时 `scope` 多一个 `roots`，schema 只声明 5 键（⊂ 不是 =） | **改**：`roots` 进 schema 的 `properties`（只给目录范围时才有 ⇒ **不进 `required`**）。判据：`smoke-tool-contract` 的 schema 键覆盖检查 |
 | **LOW-5** `['  ']` 发 `[]`，而注释写"不带这个键" | **改注释**（行为是安全侧、保持不变）：用户给的空数组**如实传**；全是不合法项时也传空数组（引擎按"空范围"处理并 422，**不静默当没给**） |
@@ -1406,6 +1406,36 @@ smoke-trim: 1/34 FAILED
 
 ⚠ **范围声明**：本报告只覆盖 `a6bb815`；复核期间主仓已前进（`fd65327` = 业主的界面要求）且工作区另有改动
 ⇒ **别把 `a6bb815` 的结论当成当前 HEAD 的结论**，在办批次必须重跑门禁。
+
+## 二十一·补4、收口轮残余 7 条：逐条闭环（2026-09-22，随业主文案那一批一起做）
+
+| 残余 | 处置 | 取证 |
+|---|---|---|
+| ② `askCheck.gap` 量的是 chip 的**直接父元素**（套 wrapper 退化成恒真） | **改**：量**那一行本体**（`closest()` 找行元素，取内容盒右缘）+ 新增**元素身份**比较 `chipRowSame` | **对照变异**（wrapper + 行不折行 + chip 不收缩）：新写法 `chipOverflowPx=272` ⇒ 红；老写法同一次渲染 `=0` ⇒ 会漏。见 `docs/UI-BASELINE.md` §5p |
+| ④ 200 / 2000 两个上限没写进参数描述（2000 也没依据） | **改**：`kb_doc_ids` 上限 ⇒ **20000**，依据写进源码注释（引擎对文档 id **没有**上限 ⇒ 这个数只能是**载荷兜底**；依据 = 真库 6417 篇的 ~3 倍，2026-09-22 只读实测）；**两个数**都写进 `ks_answer` 的参数描述 | `smoke-tool-contract` 新增：**从源码读 `KB_SCOPE_LIMITS`**，要求参数描述里的 `Limit: N ids` 与**同一个数**；3 种变异（代码改 / 描述改 / folder 数改）**全红** ⇒ 130 → **134/134** |
+| ⑥ 新用例模块每跑一次漏一个 ~2.6 MB 的 `ks_scope_*`（`ignore_cleanup_errors=True` **静默吞掉**清理失败） | **改（根因不在"忘关连接"）**：本模块末两条用例走 `client` ⇒ FastAPI **同步**路由在 **AnyIO worker 线程**里 `get_db_connection()`，那份连接**比用例活得长**，`close_thread_connection()` 只关当前线程 ⇒ Windows `WinError 32`。新增 `sqlite_db.close_all_connections()`（关**所有线程**那份，并**摘掉那个线程 `_local` 的键** —— 不摘的话被复用的线程会拿到**已关闭**的连接）；fixture 改成 `mkdtemp` + 自清（退避重试）+ **失败抛出**（teardown 报 error，**不静默**）。⚠⚠ **同一处还踩了第二个坑（全量跑才现形、单跑恒绿）**：重写时漏掉了 setup 里的 `close_thread_connection()` ⇒ 主线程攥着**上一个模块**的连接，`init_schema()` 把种子数据写进**上一个库**，而末两条走 `client` 的用例在 worker 线程里打开的是新目录 ⇒ `sqlite3.OperationalError: no such table: folder` ⇒ 500。**改法：setup 与 teardown 两处都调 `close_all_connections()`**（只关当前线程不够） | 3 次单跑 `%TEMP%\ks_scope_*`：**59 → 59 → 59**（修前每跑 +1）；**变异**（去掉 teardown 那次 `close_all_connections()`）⇒ teardown **AssertionError/ERROR** 且目录 59 → **60** ⇒ 两条性质（真清、不静默）都有反例支撑。新模块 `tests/test_sqlite_conn_registry.py` 3 条，3 种变异各红一条；**全量 pytest 复跑**见本节末 |
+| ⑦ `kb_folder_ids: null`（⇒ 全库）与 `[]`（⇒ 422）语义不同、对模型不显然 | **改**：写进 `ks_answer` 的**参数描述**（两个旋钮各一段：`OMITTED (or null) = …` / `EMPTY array [] is NOT the same thing ⇒ 422 且一次检索都不做`）与**工具描述**一段；顺带写清**第三种**情形"目录存在但子树为空 ⇒ 200 + 如实说范围内没有" | 同 ④ 那条判据的第二条（描述里必须有 `422`/`OMITTED`/工具描述里的 `EMPTY array`） |
+| ① 那一行**自身**越出页面留边的判据缺失 | **登记（不改）**：右边界目前由行内 gap 判（够用），单独判"行自身越界"要新增一个量点与冻结常数，收益未证 | — |
+| ③ `B10` 只判**右侧目录行**、左树无判据 | **登记（不改）**：左树图标形态由渲染冒烟的树判据覆盖 | — |
+| ⑤ 窄档 `gap=0` 贴边界 + 容差 1px | **登记（不改）**：容差是为渲染取整留的；变异③（`display:none`）实测把 chip 高度打到 0 并被抓住 | — |
+
+⚠ **顺带发现（同一病根、更大的量）**：`tests/conftest.py` 的**会话级**临时目录用的是同一个
+`ignore_cleanup_errors=True` 写法 ⇒ `%TEMP%` 里已积压 **1833 个** `ks_test_*`（本模块的 `ks_scope_*` 59 个）。
+已按同法一并修（`close_all_connections()` + 自清 + 失败抛出）。⚠ **那 1833 个旧目录没删** ——
+按仓库纪律"临时目录清理只许动自己那一份"，要清需先点头。
+
+## 二十一·补5、登记（**本批不做，零代码改动**）
+
+> **网页抓取的途径要在设置界面可以手动配置。**
+> —— 业主 2026-09-22 原话：「还要在**设置界面**把这个网页抓取的途径改为**可以手动配置**的，
+> 不过这个**不着急，记在账上以后再做**。」
+>
+> **父代理 2026-09-22 登记，本批不做**（只登记，零代码改动）。
+> 背景：CCS 分类号的查询链是「官方接口（`src/core/update/channels/cssn.py`）→ 网页抓取
+> （`src/core/knowledge/ccs_fetcher.py`）→ 本地兜底（`LOCAL_CCS` / 种子文件）」，
+> 将来那条**网页抓取**的入口/地址/开关要能在设置界面里手动配置。
+> ⚠ 关联更正（同日）：网页抓取这套**保留**、不删 —— 业主："网页抓取还是要**留着作为备选**，
+> 有时候**官方接口可能不返回一些老标准的数据**"。
 
 
 

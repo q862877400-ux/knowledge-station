@@ -42,7 +42,11 @@
  *                      批量条位置只能在**真宿主页面**里看，见 docs/UI-BASELINE.md 第五节。
  *   --interact <a,b> 可选：kb-files / kb-level / kb-crumb / kb-back / kb-detail /
  *                    kb-search / kb-search-dirs / kb-search-dirs-empty / kb-empty /
- *                    kb-page / kb-upload / ingest-batch / cap-dialog
+ *                    kb-page / kb-upload / kb-inbox / kb-inbox-picked / kb-dir-manage /
+ *                    kb-ask / kb-filemenu / kb-dirmenu / ingest-batch / cap-dialog
+ *                    ⚠ `kb-filemenu` / `kb-dirmenu`（2026-09-22）：把**文件行 / 目录行**的 ⋮ 菜单
+ *                      打开，逐条判渲染出来的文案（业主定的「移动到 / 复制到 / 在此文件中提问 /
+ *                      移出」那一套）+ 「移出」不是删除的 title。取证截图也用这两个场景。
  *                    ⚠⚠ **未知场景名 ⇒ 报错 + exit 2**（列出可用名字）；**每个分支都必须"落地"**：
  *                      做不到就报 note + **exit 1**（`mustLand`），没有"什么都没做还成功"的路径。
  *                    ⚠⚠ **2026-09-21（KB-FOLDER-PLAN 第 3 步）这一组场景**随页面一起重写：
@@ -158,7 +162,8 @@ const interacts = arg('interact', PAGES[page].interact.join(',')) .split(',').ma
 const SCENARIOS = [
   'kb-files', 'kb-level', 'kb-crumb', 'kb-back', 'kb-detail', 'kb-search',
   'kb-search-dirs', 'kb-search-dirs-empty', 'kb-empty', 'kb-page', 'kb-upload',
-  'kb-inbox', 'kb-inbox-picked', 'kb-dir-manage', 'kb-ask', 'ingest-batch', 'cap-dialog',
+  'kb-inbox', 'kb-inbox-picked', 'kb-dir-manage', 'kb-ask', 'kb-filemenu', 'kb-dirmenu',
+  'ingest-batch', 'cap-dialog',
 ]
 const unknownScenarios = interacts.filter((name) => !SCENARIOS.includes(name))
 if (unknownScenarios.length > 0) {
@@ -625,6 +630,23 @@ const setSearchInput = async (el, value) => {
 }
 const notes = []
 /**
+ * **截图取证专用**：把宿主 `Menu` 那份 `portal` 出去的菜单**搬进容器**。
+ *
+ * 为什么需要它：`Menu` 是 `createPortal(list, document.body)`（`ui-primitives/src/Menu.tsx`：
+ * "portal - render the list into document.body, fixed-positioned"）⇒ 它在 `#root` **外面**，
+ * 而本脚本截图只序列化 `container.innerHTML` ⇒ 不搬的话**图里永远看不到菜单**
+ * （2026-09-22 实测：`kb-filemenu` 的断言全过、截图却是一张没有菜单的页面）。
+ * ⚠ 断言**已经跑在真 DOM**（document 作用域）上了，这一步只影响截图；也**只**给
+ *   `--interact kb-filemenu` / `kb-dirmenu` 用。
+ * ⚠ jsdom 没有布局引擎 ⇒ 菜单在图里的**位置**不可信（大致落在页面左上/末尾），
+ *   这张图的证据是**菜单文字**，不是它挂在哪儿（位置由 jsdom 冒烟 + 真机使用判）。
+ */
+const moveMenusIntoShot = () => {
+  for (const el of [...dom.window.document.querySelectorAll('[role="menu"]')]) {
+    container.appendChild(el)
+  }
+}
+/**
  * **场景"落地"的判定**（5i 2026-09-20 收尾批；与上面的 `SCENARIOS` 表配套）。
  *
  * 为什么要有它：`--interact` 的每个分支都必须**真的做到那一件事**，做不到就得**报红**，
@@ -739,6 +761,54 @@ for (const how of interacts) {
       `kb-ask 的答案区没回显实际范围 / 没有依据：echo=「${echoText}」、依据 ${String(evRows)} 条`)
     notes.push(`kb-ask: 又真问了一次 ⇒ 请求 params=${JSON.stringify(sentParams)}、`
       + `答案区回显「${echoText}」、依据 ${String(evRows)} 条（这张截图里能看到整条答案）`)
+  } else if (how === 'kb-filemenu') {
+    /* ⚠ **2026-09-22（业主点菜单文案那一轮）**：**文件行**的 ⋮ 菜单 —— 文案是业主亲口定的：
+       「在此文件中提问」（单篇文件）/「移动到」/「复制到」/「移出」。这一跑在**真浏览器**里把菜单
+       打开、**逐条抄下渲染出来的文字**（jsdom 侧另有 `smoke-kb-page-render` 的 I5 整串相等判据），
+       并判"「移出」不是删除"那句真相挂在这一行的 **⋮ 按钮 title** 上（DSH 的 `MenuItem` 没有
+       `title` 字段 ⇒ 菜单项上挂不了提示，`menu-fix` 那次已核）。
+       ⚠ 为什么值得在真浏览器里再判一次：菜单项是**用户直接看的东西**，
+          jsdom 的 textContent 判据挡不住"某一项被 CSS 藏了 / 两个菜单叠在一起"。 */
+    const rows = await gotoStdLeaf()
+    mustLand(rows === 4, `kb-filemenu 没走到 4 篇文件那一级（文件行 ${String(rows)}）`)
+    const moreBtn = q('.ks-item.ks-file-row .ks-item-more button')[0]
+    const opened = await click(moreBtn)
+    for (let i = 0; i < 3; i += 1) await flush()
+    /* ⚠ 菜单项要**按 document 查**：宿主的 `Menu` 带 `portal` ⇒
+       `createPortal(list, document.body)`（`ui-primitives/src/Menu.tsx`：
+       "portal - render the list into document.body, fixed-positioned"）
+       ⇒ 它在 `#root` **外面**，容器作用域的 `q()` 查不到（本场景第一次跑就是这么红的：
+       inContainer=0 / inDocument=5）。 */
+    const menuItemsNow = () => [...dom.window.document.querySelectorAll('[role=menuitem]')]
+      .map((el) => (el.textContent ?? '').trim())
+    const items = menuItemsNow()
+    const want = ['详情', '在此文件中提问', '移动到', '复制到', '移出']
+    mustLand(opened && items.join('|') === want.join('|'),
+      `kb-filemenu 文件行 ⋮ 菜单不是 ${JSON.stringify(want)}，实测 ${JSON.stringify(items)} —— `
+      + '业主 2026-09-22：「在**单个文件**上点开三个点，那就应该展示**在此文件中提问**」；'
+      + '「复制到某个目录，直接就写复制到；挪到某个目录直接写移动到」')
+    const tip = moreBtn?.getAttribute('title') ?? ''
+    mustLand(tip.includes('移出') && tip.includes('文件不会删除'),
+      `kb-filemenu 「⋮」按钮的 title 没写清「移出」只移出、文件不删：${tip}`)
+    notes.push(`kb-filemenu: 文件行 ⋮ 菜单 = ${JSON.stringify(items)}；`
+      + `⋮ 按钮 title =「${tip}」`)
+    moveMenusIntoShot()
+  } else if (how === 'kb-dirmenu') {
+    /* ⚠ **2026-09-22**：**目录行**的 ⋮ 菜单 —— 业主定的是「移动到」「复制到」，
+       而「在此范围内提问」在**目录**上保持原样（问的是那一棵目录）；
+       `删掉这个目录…` 是**真删目录**（先读影响再二选一）⇒ 文案保持。 */
+    await gotoRoot()
+    for (let i = 0; i < 2; i += 1) await flush()
+    const dirMoreBtn = q('.ks-item.ks-dir-row .ks-item-more button')[0]
+    const openedDir = await click(dirMoreBtn)
+    for (let i = 0; i < 3; i += 1) await flush()
+    const dirItems = [...dom.window.document.querySelectorAll('[role=menuitem]')]
+      .map((el) => (el.textContent ?? '').trim())
+    const wantDir = ['改名…', '在这个目录下新建…', '移动到', '复制到', '在此范围内提问', '删掉这个目录…']
+    mustLand(openedDir && dirItems.join('|') === wantDir.join('|'),
+      `kb-dirmenu 目录行 ⋮ 菜单不是 ${JSON.stringify(wantDir)}，实测 ${JSON.stringify(dirItems)}`)
+    notes.push(`kb-dirmenu: 目录行 ⋮ 菜单 = ${JSON.stringify(dirItems)}`)
+    moveMenusIntoShot()
   } else if (how === 'kb-level') {
     /* 进**法律法规**那一级：它有 **1 个下级目录 + 1 篇文件**（两种行同时在 DOM 里）。
        这一跑同时是 `levelCheck`（左列与右栏并排 + 两类行高逐字相同）的取证场景。 */
@@ -1416,31 +1486,42 @@ const html = `<!doctype html>
     // 判据在 Node 侧 askCheck 逐条下（这里只量，不判）。
     // 借字段名（同 #cards / #cols 的先例）：n=按钮个数 x=chip 个数 y=面板个数
     // w=按钮高 h=chip 高 pad=面板高 fs=按钮文字 lh=chip 文字
-    // gap=chip **右缘溢出量**（chip 右缘 - 页面根内容盒右缘；<=0 = 没溢出）
-    // radius=页面根的右内边距（这一档的留边，供诊断）。
+    // gap=chip **右缘溢出量**（chip 右缘 - **它所在那一行**的内容盒右缘；<=1 = 没溢出）
+    // ⚠ 2026-09-22 复核打回 §1 之前，这里的基准是 chip 的**直接父元素** —— 套一层 wrapper 就恒 0。
+    // radius=那一行的右内边距（这一档的留边，供诊断）。
     // ⚠ 本段在**注入脚本**里（外层是模板字符串）：注释里不许出现反引号与美元加大括号。
     var askBtnEl = document.querySelector('.ks-ask-open');
     var askChipEl = document.querySelector('.ks-ask-chip');
     var askPanelEl = document.querySelector('.ks-ask');
     if (askBtnEl || askChipEl || askPanelEl) {
       // 按钮/chip "在哪一行"：以**最近的已知行容器**为准（文件名那一行 vs 工具栏 vs 其它）。
-      // ⚠⚠ **2026-09-22（业主界面要求）**：按钮与 chip 搬到了**当前文件夹名那一行**
-      //   （.ks-list-cap，搜索框上面）⇒ 溢出也改成对着**这一行**量：原来对着页面根量，
-      //   对栏内元素太松（栏在页面里本来就有余量），测不出"被挤出这一行"。
+      // ⚠⚠ **2026-09-22（复核打回 §1）**：溢出量原来量的是 chip 的**直接父元素**
+      //   （chip 的直接父元素）—— 那个写法**只要给 chip 套一层 wrapper 就退化成恒真**：
+      //   wrapper 的内容盒右缘恒等于 chip 的右缘 ⇒ 溢出量恒 ≈ 0，chip 真被挤出这一行也报绿。
+      //   ⇒ 现在改成量**那一行本体**：用 closest() 按**类名**找到行元素（.ks-list-cap /
+      //   .ks-kb-row / .ks-ask），再拿它的内容盒右缘当基准；并额外量一个**元素身份**比较
+      //   （chipRowSame：chip 所在的行元素 === 按钮所在的行元素），不靠"父元素是谁"推。
+      //   ⚠ 本段在**注入脚本**里（外层是模板字符串）：注释里**绝对不能出现反引号** ——
+      //     2026-09-22 我在这里又踩了两次（本次第 22、23 次），报错都指向不相干的行。
+      var askRowEl = function (el) {
+        if (!el) return null;
+        return el.closest('.ks-list-cap') || el.closest('.ks-kb-row') || el.closest('.ks-ask');
+      };
       var askRowOf = function (el) {
         if (!el) return '(没有元素)';
-        if (el.closest('.ks-list-cap')) return 'list-cap';
-        if (el.closest('.ks-kb-row')) return 'kb-row';
-        if (el.closest('.ks-ask')) return 'ask-panel';
-        return 'other';
+        var r = askRowEl(el);
+        if (!r) return 'other';
+        if (r.classList.contains('ks-list-cap')) return 'list-cap';
+        if (r.classList.contains('ks-kb-row')) return 'kb-row';
+        return 'ask-panel';
       };
-      var chipParentEl = askChipEl ? askChipEl.parentElement : null;
-      var chipParentCs = chipParentEl ? getComputedStyle(chipParentEl) : null;
-      var chipParentRect = chipParentEl ? chipParentEl.getBoundingClientRect() : null;
+      var askChipRowEl = askRowEl(askChipEl);
+      var chipRowCs = askChipRowEl ? getComputedStyle(askChipRowEl) : null;
+      var chipRowRect = askChipRowEl ? askChipRowEl.getBoundingClientRect() : null;
       var chipRect = askChipEl ? askChipEl.getBoundingClientRect() : null;
       var rowRight = null;
-      if (chipParentRect && chipParentCs) {
-        rowRight = chipParentRect.right - (parseFloat(chipParentCs.paddingRight) || 0);
+      if (chipRowRect && chipRowCs) {
+        rowRight = chipRowRect.right - (parseFloat(chipRowCs.paddingRight) || 0);
       }
       out['#ask'] = {
         n: askBtnEl ? 1 : 0,
@@ -1452,9 +1533,11 @@ const html = `<!doctype html>
         lh: askChipEl ? (askChipEl.textContent || '').trim() : '',
         pad: askPanelEl ? Math.round(askPanelEl.getBoundingClientRect().height) : 0,
         gap: (chipRect && rowRight !== null) ? Math.round(chipRect.right - rowRight) : '',
-        radius: chipParentCs ? (parseFloat(chipParentCs.paddingRight) || 0) : '',
+        radius: chipRowCs ? (parseFloat(chipRowCs.paddingRight) || 0) : '',
         where: askRowOf(askBtnEl),
         chipWhere: askRowOf(askChipEl),
+        chipRowSame: (askBtnEl && askChipEl)
+          ? (askRowEl(askChipEl) === askRowEl(askBtnEl)) : '',
       };
     }
     // **目录层的列几何**（2026-09-21，复核 verify-freeze-dirlist 的变异 M5 打回）：
@@ -1827,6 +1910,12 @@ const PAD_REQUIRED = {
        右缘溢出）—— 往 PAD_REQUIRED 里加新选择器会连带要求改规范第二节的适用面清单
        （四处棘轮），而这一批不需要把它算作"留边适用面"。 */
   'kb|kb-ask': ['.ks-kb', '.ks-kb-tree', '.ks-list', '.ks-page-head', '.ks-kb-row'],
+  /* ⚠ **2026-09-22（业主点菜单文案那一轮）**：`kb-filemenu` / `kb-dirmenu` 把**文件行 / 目录行**的
+     ⋮ 菜单在真浏览器里打开、逐条判渲染出来的文案（业主定的那一套词）+ 「移出」不是删除那句 title。
+     ⚠ 声明了就**必须有人跑**（pad-pixels 的棘轮）⇒ 这两组同时进了那个脚本的 `MATRIX`
+       与 `EXPECTED_RUNS`（否则会红在"声明了但没人跑"上）。 */
+  'kb|kb-filemenu': ['.ks-kb', '.ks-kb-tree', '.ks-list', '.ks-page-head', '.ks-kb-row'],
+  'kb|kb-dirmenu': ['.ks-kb', '.ks-kb-tree', '.ks-dirs', '.ks-page-head', '.ks-kb-row'],
   /* 勾了两篇 ⇒ 悬浮批量条在场，**必须不贴边**（它是第 4 步做回来的真批量条）。 */
   'kb|kb-inbox-picked': ['.ks-kb', '.ks-kb-tree', '.ks-page-head', '.ks-kb-row', '.ks-batch'],
   /* 第 5 步：目录层勾两个 + 删目录确认面板（.ks-act-del）在场。批量条与目录层同屏 ⇒ 两个都得判。 */
@@ -2080,7 +2169,11 @@ const DIR_HEAD_CELLS_EXPECTED = DIR_COLS_EXPECTED
  *    ② 清单里的每个组合都必须在 `PAD_REQUIRED` 里声明 `.ks-dirs`（下详）；
  *    ③ **反向**：凡是在 `PAD_REQUIRED` 里声明了 `.ks-dirs` 的 kb 组合，都必须在这份清单里
  *    （否则"新加一个目录层组合但不入清单"就是这么绕过去的）。 */
-const DIR_LAYER_COMBOS = ['kb|', 'kb|kb-crumb', 'kb|kb-level', 'kb|kb-upload', 'kb|kb-dir-manage']
+const DIR_LAYER_COMBOS = ['kb|', 'kb|kb-crumb', 'kb|kb-level', 'kb|kb-upload', 'kb|kb-dir-manage',
+  /* 2026-09-22：目录行的 ⋮ 菜单（`kb-dirmenu`）—— 它停在最外层，有目录层 ⇒ 入清单
+     （否则上面第 ③ 条守卫会红："声明了 .ks-dirs 却不在清单里"）。
+     它同时在 `smoke-kb-pad-pixels.mjs` 的 MATRIX 里跑 ⇒ 列几何这一跑真的量得到。 */
+  'kb|kb-dirmenu']
 const dirColsPresenceRequired = DIR_LAYER_COMBOS.includes(padComboKey)
 /* ── 目录层的**页码源声明**（第 5 步 §5 的守卫）：从页面源码抠 `DIR_COLUMNS` 的条数 ──
    ⚠ 抠的是**声明本体**（`DIR_COLUMNS = [ … ] as const` 里的 `key: '…'` 条数），不是"文本里出现过
@@ -2456,6 +2549,13 @@ if (padComboKey !== 'kb|kb-ask') {
     askProblems.push(`范围 chip **跟着按钮一起搬家**：它应当在同一行（.ks-list-cap），实测 `
       + `${JSON.stringify(ask.chipWhere)}`)
   }
+  /* ①c **元素身份**（复核打回 §1 的另一半）：chip 与按钮必须在**同一个行元素**里 ——
+     判"哪一行"不许靠"父元素是谁"推（套一层 wrapper 就推错了）。 */
+  if (ask.chipN === 1 && ask.chipRowSame !== true) {
+    askProblems.push('范围 chip 与入口按钮**不在同一个行元素里**（chipRowSame='
+      + `${JSON.stringify(ask.chipRowSame)}；按钮行=${JSON.stringify(ask.where)}、chip 行=`
+      + `${JSON.stringify(ask.chipWhere)}）—— 两者必须挂在同一行（.ks-list-cap）`)
+  }
   if (!Number.isFinite(ask.w) || ask.w <= 0) {
     askProblems.push(`「在此范围内提问」按钮在真 Chrome 里高度 = ${JSON.stringify(ask.w)}px`
       + ' —— 存在不等于看得见（display:none / 空盒子都是 0）')
@@ -2502,6 +2602,7 @@ const askCheck = {
   pagePadRight: ask?.radius ?? null,
   buttonRow: ask?.where ?? null,
   chipRow: ask?.chipWhere ?? null,
+  chipRowSameAsButtonRow: ask?.chipRowSame ?? null,
 }
 /* ══════════ 复核 `verify-freeze-kb-ui3` 打回 §④-C 补回来的两条（2026-09-21）
  * 那两条旧判据在本批重写时**掉了**（主体仍在、判据没了）：
@@ -2819,7 +2920,8 @@ if (askSkipReason !== null) {
   console.error(`· #ask 自检通过：入口按钮高 ${String(askCheck.buttonH)}px、`
     + `chip ${String(askCheck.chipH)}px（文字「${String(askCheck.chipText)}」）、`
     + `面板 ${String(askCheck.panelH)}px；chip 右缘溢出 ${String(askCheck.chipOverflowPx)}px`
-    + `（页面根右内边距 ${String(askCheck.pagePadRight)}px；page=${page} width=${width} theme=${themeName}）`)
+    + `（同一行元素=${String(askCheck.chipRowSameAsButtonRow)}；`
+    + `那一行右内边距 ${String(askCheck.pagePadRight)}px；page=${page} width=${width} theme=${themeName}）`)
 } else {
   console.error('')
   console.error(`❌ 范围提问界面自检失败（第 6 步：业主「每一级都能在此范围内提问」；`

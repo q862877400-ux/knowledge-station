@@ -86,6 +86,13 @@ const MATRIX = [
   { page: 'kb', width: 520, interact: 'kb-ask', note: '按目录范围提问（窄档：chip + 面板看得见且不溢出）' },
   { page: 'kb', width: 1300, interact: 'kb-ask', note: '按目录范围提问（宽档）' },
   { page: 'kb', width: 520, interact: 'kb-ask', theme: 'dark', note: '深色：按目录范围提问（chip + 面板）' },
+  /* ⚠ **2026-09-22（业主点菜单文案那一轮）新增两组**：行尾 ⋮ 菜单的**文案**是业主逐条定的
+     （「移动到 / 复制到 / 在此文件中提问 / 移出」），这一批在 `ui-render-shot` 的两个场景里
+     **在真浏览器里把菜单打开、逐条判渲染出来的文字**（jsdom 侧另有整串相等判据）。
+     它们同时也进本脚本的 `MATRIX`：`ui-render-shot` 的 `PAD_REQUIRED` 声明了这两个组合 ⇒
+     本脚本的棘轮要求"声明了就必须有人跑"（少跑一组会红）。 */
+  { page: 'kb', width: 520, interact: 'kb-filemenu', note: '文件行 ⋮ 菜单：文案（这是取证截图之一）' },
+  { page: 'kb', width: 520, interact: 'kb-dirmenu', note: '目录行 ⋮ 菜单：文案（这是取证截图之一）' },
   /* ⚠ 深色那一组原来落在 `kb-select`（批量条折行）；批量条已删 ⇒ 换成 `kb-level`
      （深色下**目录层**的留边与两类行的几何）。 */
   { page: 'kb', width: 520, interact: 'kb-level', theme: 'dark', note: '深色：留边 + 目录层几何（业主看的深浅两套）' },
@@ -286,7 +293,8 @@ const SPEC_SUBJECTS = ['.ks-kb', '.ks-ing', '.ks-mat', '.ks-kb-tree', '.ks-list'
  * ⚠⚠ **5j-补×6（2026-09-20，复核 `verify-freeze-5jx5` 的宽度盲区 / 变异 V8）**：上一版键是
  * `page|interact`（**不含宽度**）⇒ 把某一组**从宽窗换成窄窗**（例如 `materials|@1300` → `@520`）
  * 那个键仍然"跑过"了 ⇒ **少跑一组却全绿**，报表还照样打"窄档与宽档都有"。那正是本清单声称要堵的一类。
- * ⇒ 现在冻的是**三元组 `page|interact@width`**（10 条，与 `MATRIX` 逐行对应）。维护成本一样（同文件一行）。
+ * ⇒ 现在冻的是**三元组 `page|interact@width`**（5j 时是 10 条，与当时的 `MATRIX` 逐行对应；
+ *   **条数会随矩阵涨**（2026-09-22 已是 24 条）—— 别抄这个数，以清单本体与 `MATRIX` 为准）。
  * ⚠ 与 `MATRIX` **同源两份**（同文件内），改矩阵必须逐字同步改这里 —— 不一致就红（这是设计，不是麻烦）。
  */
 const EXPECTED_RUNS = ['kb|@520', 'kb|@1300', 'kb|kb-level@520', 'kb|kb-page@520',
@@ -298,6 +306,8 @@ const EXPECTED_RUNS = ['kb|@520', 'kb|@1300', 'kb|kb-level@520', 'kb|kb-page@520
   'kb|kb-dir-manage@520', 'kb|kb-dir-manage@520#dark',
   /* 第 6 步：按目录范围提问（窄 / 宽 / 深色各一跑）。 */
   'kb|kb-ask@520', 'kb|kb-ask@1300', 'kb|kb-ask@520#dark',
+  /* 2026-09-22：行尾 ⋮ 菜单文案（文件行 / 目录行各一跑，也是业主文案的取证截图）。 */
+  'kb|kb-filemenu@520', 'kb|kb-dirmenu@520',
   'capabilities|@520', 'capabilities|@900',
   'ingest|ingest-batch@520', 'materials|@1300']
 /** 从**成功的实测 JSON** 里取声明集合（任一组报到即可 —— 它们来自同一个 `ui-render-shot` 进程）。 */

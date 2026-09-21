@@ -37,22 +37,70 @@ from src.core.storage import clause_repo
 
 @pytest.fixture(scope="module", autouse=True)
 def _own_data_dir():
-    """本模块私有的临时数据目录（跑完即弃；其他模块零影响，见文件头）。"""
-    with tempfile.TemporaryDirectory(prefix="ks_scope_", ignore_cleanup_errors=True) as td:
-        old = os.environ.get("KS_DATA_DIR")
-        os.environ["KS_DATA_DIR"] = td
-        from src.core import config
+    """本模块私有的临时数据目录（跑完即弃；其他模块零影响，见文件头）。
+
+    ⚠⚠ **2026-09-22（父代理点名的缺陷：每跑一次漏一个 ~2.6 MB 的 `ks_scope_*`）**：
+    以前这里写的是 `tempfile.TemporaryDirectory(prefix="ks_scope_", ignore_cleanup_errors=True)`。
+    根因**不是**"忘了关连接"，而是本模块最后两条用例走 `client` fixture ——
+    FastAPI 的**同步**路由跑在 **AnyIO 线程池的 worker 线程**里，那些线程自己 `get_db_connection()`
+    建了一份、且**比用例活得长**；`close_thread_connection()` 只关**当前**线程那一份 ⇒
+    Windows 上 `knowledge.db` 一直被占着（`WinError 32`），而 `ignore_cleanup_errors=True`
+    把这条失败**静默吞掉**（实测取证见 `var/tmp/probe_conn_holder.py`：
+    sessionfinish 时那条 worker 线程的连接仍 `QUERYABLE`）。
+    ⇒ 现在：① `close_all_connections()` 真把**所有线程**那份关掉（并摘掉那个线程 `_local` 里的键，
+    不摘的话那个被复用的线程下次会拿到已关闭的连接）；② 清理**自己做**
+    （`mkdtemp` + `shutil.rmtree` + 退避重试），仍失败就**抛出去**（teardown 报 error），**不许静默**。
+
+    ⚠⚠ **2026-09-22 我自己踩的第二个坑（全量跑才现形，单跑恒绿）**：重写时把原来 setup 里的
+    `close_thread_connection()` 漏掉了 ⇒ 全量跑时**主线程**手里还攥着**上一个模块**（会话库）的连接，
+    于是 `init_schema()` 把种子数据写进了**会话库**，而最后两条走 `client` 的用例在 **worker 线程**里
+    按**新** `KS_DATA_DIR` 打开的是我这个空目录 ⇒ 那两条红（`404/422` 对不上）。
+    ⇒ setup 里也要关：**只关当前线程是不够的**（worker 线程那份同样会指向上一个库），
+    所以 setup/teardown 两处都调 `close_all_connections()` —— 关掉之后每一条线程下次
+    `get_db_connection()` 会按**当时的** `KS_DATA_DIR` 重新建连接。
+    """
+    import gc
+    import shutil
+    import time
+
+    from src.core.storage.sqlite_db import close_all_connections, close_thread_connection
+
+    td = Path(tempfile.mkdtemp(prefix="ks_scope_"))
+    old = os.environ.get("KS_DATA_DIR")
+    os.environ["KS_DATA_DIR"] = str(td)
+    from src.core import config
+    config.reset_settings()
+    # ⚠ 必须在 init_schema **之前**：把上个模块留在**任何线程**里的连接关掉（含主线程），
+    #   否则种子数据会写进上一个库（见上面那段留痕）。
+    close_thread_connection()
+    close_all_connections()
+    from src.core.storage.sqlite_db import init_schema
+    init_schema()
+    try:
+        yield td
+    finally:
         config.reset_settings()
-        from src.core.storage.sqlite_db import close_thread_connection, init_schema
         close_thread_connection()
-        init_schema()
-        yield Path(td)
-        config.reset_settings()
-        close_thread_connection()
+        close_all_connections()
+        gc.collect()
         if old is None:
             os.environ.pop("KS_DATA_DIR", None)
         else:
             os.environ["KS_DATA_DIR"] = old
+        last: OSError | None = None
+        for delay in (0.0, 0.2, 0.5, 1.0):
+            if delay:
+                time.sleep(delay)
+            try:
+                shutil.rmtree(td)
+                last = None
+                break
+            except OSError as e:  # noqa: PERF203 - 退避重试，故意逐个接
+                last = e
+        if last is not None:
+            raise AssertionError(
+                "本模块的临时数据目录没清掉（清理失败**不许静默**）："
+                f"{td} —— {type(last).__name__}: {last}")
 
 
 @pytest.fixture(autouse=True)

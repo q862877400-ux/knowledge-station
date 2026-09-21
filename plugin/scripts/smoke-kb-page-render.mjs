@@ -20,8 +20,11 @@
  *   ⚠ **这个数字会随改动漂，别抄它**：以脚本结尾打印的「== kb-page-render smoke PASS (N/N) ==」为准。
  *   ⚠ 第 5 步收尾时是 **130/130**、第 6 步加入 R1~R18 后是 **148/148**（每轮**实跑**出来的数）；
  *     2026-09-22 业主两条界面改动（删文件行图标 + 提问入口搬家）再加 B10/R5b/R5c，
- *     复核 MEDIUM-2 的运行时复现再加 R19a/R19b ⇒ 现在是 **153/153**（以脚本结尾打印的为准）。
- *   2026-09-21 第二轮复核就是靠这条抓到头部三处旧数字没改干净 —— 写数字就要**当轮**改干净）
+ *     复核 MEDIUM-2 的运行时复现再加 R19a/R19b ⇒ 是 **153/153**；
+ *     2026-09-22 业主改菜单文案那一轮（移动到 / 复制到 / 在此文件中提问 / 移出）**改判据不改条数**，
+ *     外加新增 I5b（「⋮」按钮 title 里那句"文件不会删除"）+ P23b（移出后的消息）⇒ 现在是 **156/156**
+ *     （以脚本结尾打印的为准）。
+ *     2026-09-21 第二轮复核就是靠这条抓到头部三处旧数字没改干净 —— 写数字就要**当轮**改干净）
  *   ⇒ **少 30 条**，不是本文件上一版注释里写的"少 4 条"。
  *   **那句"72/72 / 少 4 条 / 每条都有替代"是错的，就地留痕更正**：72 是 `docs/UI-BASELINE.md`
  *   的历史快照（该文档后来记的是 73/73），**拿历史快照当"上一版运行时条数"是坏证据**
@@ -1187,10 +1190,27 @@ export function mount(container, props) {
      「在此范围内提问」（`params.kb_doc_ids` = 只在这一篇里问）⇒ 菜单多一样。
      判据改成新的真行为（不是删掉、不是放宽）：这一篇在某个目录里 ⇒ 恰好这五样。
      原文：`menuItems.join('|') === '详情|挪到某个目录…|复制到某个目录…|从这一层拿掉'` */
-  check('I5 行尾「⋮」菜单 = 详情 + 在此范围内提问 + 挪到…/复制到…/从这一层拿掉'
+  /* ⚠⚠ **2026-09-22（业主改文案）就地改判据（原文见下，别删）**：业主原话
+     「复制到某个目录，直接就写**复制到**；挪到某个目录直接写**移动到**；在此范围内提问——
+     如果是在**单个文件**上点开三个点，那就应该展示**在此文件中提问**；**从这一层拿掉**是啥意思，
+     删除就说删除」。
+     ⇒ 这一层（文件在某个目录里）菜单文案变成 **在此文件中提问 / 移动到 / 复制到 / 移出**。
+     ⚠ 「移出」@这一层**不是删除**（只去掉这一处的归属，文件还在「待分类」里），所以文案叫「移出」
+     而不是「删除」；"文件不会删"这句话挂在**触发行尾「⋮」按钮的 title** 上（DSH 的 `MenuItem` 没有
+     `title` 字段 ⇒ 菜单项本身挂不了提示，见 ui 复核记录）。判据仍判**恰好这五样**（不是放宽）。
+     原文：`menuItems.join('|') === '详情|在此范围内提问|挪到某个目录…|复制到某个目录…|从这一层拿掉'` */
+  check('I5 行尾「⋮」菜单 = 详情 + 在此文件中提问 + 移动到/复制到/移出'
     + '（在目录里那一套；＋标签那种假动作仍然没有）',
-    menuItems.join('|') === '详情|在此范围内提问|挪到某个目录…|复制到某个目录…|从这一层拿掉',
+    menuItems.join('|') === '详情|在此文件中提问|移动到|复制到|移出',
     `菜单项：${JSON.stringify(menuItems)}`)
+  /* ⚠ **2026-09-22（业主改文案）新增**：菜单项里的「移出」字面上像"删掉" ⇒ **真相必须留在看得见的地方**。
+     DSH 的 `MenuItem` **没有 `title` 字段**（只有 id/label/disabled/icon/danger/submenu，见 ui-primitives 的
+     `Menu.tsx`）⇒ 菜单项本身挂不了提示；能挂的是**触发行尾「⋮」的那个按钮**。判据挂在那里。 */
+  check('I5b 这一行的「⋮」按钮 title 里如实写着「移出」只移出、**文件不会删除**'
+    + '（`MenuItem` 没有 title 字段 ⇒ 菜单项上挂不了提示，只能挂触发器）',
+    (moreBtn.getAttribute('title') ?? '').includes('移出')
+    && (moreBtn.getAttribute('title') ?? '').includes('文件不会删除'),
+    `title：${moreBtn.getAttribute('title') ?? '(没有 title)'}`)
   await click(moreBtn)
   /* ⚠ **2026-09-21 复核 `verify-freeze-kb-ui3` 打回 §④-C**：旧版第 61 条判"点开再点一次都收起"——
      新版 I5 只判菜单项集合，**没判收起**。补回来：开合是**状态**，不是"点一次就永久张开"。 */
@@ -1346,13 +1366,14 @@ export function mount(container, props) {
   await click(badRow.querySelector('.ks-item-more button'))
   /* ⚠ 第 6 步：待分类行的菜单也多了「在此范围内提问」（走 `kb_doc_ids`）⇒ 3 样变 4 样（就地改）。
      原文（复核 LOW-6 要求留痕）：`badMenu.length === 3 && …` —— 五样里没有这一条。 */
+  /* ⚠⚠ **2026-09-22（业主改文案）就地改判据（原文见下，别删）**：待分类层（一篇文件）⇒
+     「在此文件中提问」；而这一条是**真删文档**（不可逆 + 二次确认面板）⇒ 业主说"删除就说删除"，
+     文案 =「删除」（原文：`{ id: 'delete', label: '删掉…' }`）。
+     顺手从"长度 + some()"改成**整串相等**（更紧，不是放宽）：4 样一字不差。
+     原文：`badMenu.length === 4 && …badMenu.some((t) => t.includes('在此范围内提问'))…includes('删掉')` */
   check('N6 兜底桶（没有建议）那一篇的 ⋮ 菜单里**没有**「按建议归位 / 在建议位置新建」（死按钮不许渲染）'
-    + '，且有「在此范围内提问」',
-    badMenu.length === 4 && !badMenu.some((t) => t.includes('按建议归位'))
-    && !badMenu.some((t) => t.includes('在建议位置新建'))
-    && badMenu.some((t) => t.includes('放进某个目录')) && badMenu.some((t) => t.includes('重来一次'))
-    && badMenu.some((t) => t.includes('在此范围内提问'))
-    && badMenu.some((t) => t.includes('删掉')),
+    + '，且恰好是「放进某个目录… / 在此文件中提问 / 重来一次（重新解析）/ 删除」四样（这是真删，文案就叫删除）',
+    badMenu.join('|') === '放进某个目录…|在此文件中提问|重来一次（重新解析）|删除',
     `菜单项：${JSON.stringify(badMenu)}`)
   const okRow = inboxRows().find((r) => (r.querySelector('.ks-item-name')?.textContent ?? '').includes('待确认的一篇'))
   await click(okRow.querySelector('.ks-item-more button'))
@@ -1483,8 +1504,16 @@ export function mount(container, props) {
   /* ⚠ 第 6 步给目录行加了「在此范围内提问」（在这一棵目录里问）⇒ 五样变六样（就地改，不是放宽）。
      原文（复核 LOW-6 要求留痕）：`q('[role=menuitem]').length === 5 && renameItem !== undefined`。 */
   const dirAskItem = q('[role=menuitem]').find((el) => (el.textContent ?? '').trim() === '在此范围内提问')
-  check('P5 目录行的 ⋮ 菜单里有「改名…/新建…/挪到…/复制到…/在此范围内提问/删掉…」六样（目录操作接上了）',
-    q('[role=menuitem]').length === 6 && renameItem !== undefined && dirAskItem !== undefined,
+  /* ⚠⚠ **2026-09-22（业主改文案）就地改判据（原文见下，别删）**：目录行菜单的
+     `挪到某个目录…` ⇒ **`移动到`**、`复制到某个目录…` ⇒ **`复制到`**（业主："直接就写移动/复制"）；
+     「在此范围内提问」目录行**保持原样**（问的是那一棵目录）；`删掉这个目录…` 是真删目录 ⇒ 保持。
+     ⇒ 六样一字不差（从"长度 6 + 两个 some()"改成整串相等，更紧不是放宽）。
+     原文：`q('[role=menuitem]').length === 6 && renameItem !== undefined && dirAskItem !== undefined` */
+  check('P5 目录行的 ⋮ 菜单恰好是「改名…/在这个目录下新建…/移动到/复制到/在此范围内提问/删掉这个目录…」六样'
+    + '（目录操作接上了）',
+    q('[role=menuitem]').map((el) => (el.textContent ?? '').trim()).join('|')
+      === '改名…|在这个目录下新建…|移动到|复制到|在此范围内提问|删掉这个目录…'
+    && renameItem !== undefined && dirAskItem !== undefined,
     `菜单项：${JSON.stringify(q('[role=menuitem]').map((el) => (el.textContent ?? '').trim()))}`)
   await click(renameItem)
   check('P6 改名面板**预填了当前名字**（改名前先看见它现在叫什么）',
@@ -1499,10 +1528,10 @@ export function mount(container, props) {
     `请求：${JSON.stringify(renamedFolders)}`)
   /* ── 挪目录：选择器要**排除自己与自己的下级** ── */
   await click(dirMoreBtn('标准'))
-  await click(q('[role=menuitem]').find((el) => (el.textContent ?? '').includes('挪到某个目录')))
+  await click(q('[role=menuitem]').find((el) => (el.textContent ?? '').trim() === '移动到'))
   await flush()
   const moveChoices = q('.ks-act-item').map((el) => (el.textContent ?? '').trim())
-  check('P8 「挪到某个目录…」的选择器**排除了自己与自己的下级**（只剩「法律法规」—— 点不到必然失败的去处）',
+  check('P8 「移动到」的选择器**排除了自己与自己的下级**（只剩「法律法规」—— 点不到必然失败的去处）',
     q('.ks-act').length === 1 && q('.ks-act-item').length === 1
     && moveChoices[0].includes('法律法规'),
     `可选 ${String(q('.ks-act-item').length)} 个：${JSON.stringify(moveChoices)}`)
@@ -1515,7 +1544,7 @@ export function mount(container, props) {
     `请求：${JSON.stringify(movedFolders)}`)
   /* ── 复制目录：共享成员（多一处位置） ── */
   await click(dirMoreBtn('法律法规'))
-  await click(q('[role=menuitem]').find((el) => (el.textContent ?? '').includes('复制到某个目录')))
+  await click(q('[role=menuitem]').find((el) => (el.textContent ?? '').trim() === '复制到'))
   await flush()
   await click(q('.ks-act-item')[0])
   await click(actGo())
@@ -1582,7 +1611,10 @@ export function mount(container, props) {
     deletedFolders.length === 3 && deletedFolders[2].folder_id === 'fld_std'
     && deletedFolders[2].mode === 'reparent',
     `请求：${JSON.stringify(deletedFolders)}`)
-  /* ── 文件层：勾选 + 批量（挪 / 复制 / 从这一层拿掉）── */
+  /* ── 文件层：勾选 + 批量（移动到 / 复制到 / 移出）──
+     ⚠ **2026-09-22 业主改文案**：批量条从 `挪到…`/`从这一层拿掉` ⇒ **`移动到…`/`移出`**
+     （业主："挪到某个目录直接写移动到"；"「从这一层拿掉」是啥意思" ⇒ 定词「移出」）。
+     「移出」**不是删除**（只去掉这一处的归属，文件还在库里）—— 真相挂在它的 title 上。 */
   await click(dirNamed('大批量'))                 // 120 篇那一级，勾前两行
   const fileBoxes = () => q('.ks-col-fpick input[type=checkbox]')
   check('P18 文件层**每行一个勾选框**（50 行 50 个），没勾选时没有批量条',
@@ -1592,17 +1624,17 @@ export function mount(container, props) {
   await click(fileBoxes()[0])
   await click(fileBoxes()[1])
   const batchTexts = () => [...q('.ks-batch button')].map((b) => (b.textContent ?? '').trim())
-  check('P19 勾两篇 ⇒ 批量条出现：**已选 2 篇** + 挪到… / 复制到… / 从这一层拿掉 / 取消选择',
+  check('P19 勾两篇 ⇒ 批量条出现：**已选 2 篇** + 移动到… / 复制到… / 移出 / 取消选择',
     (q('.ks-batch-n')[0]?.textContent ?? '').includes('已选 2 篇')
-    && ['挪到…', '复制到…', '从这一层拿掉'].every((t) => batchTexts().some((b) => b.includes(t))),
+    && ['移动到…', '复制到…', '移出'].every((t) => batchTexts().some((b) => b.includes(t))),
     `批量条：${JSON.stringify(batchTexts())}`)
-  await click([...q('.ks-batch button')].find((b) => (b.textContent ?? '').includes('挪到…')))
+  await click([...q('.ks-batch button')].find((b) => (b.textContent ?? '').includes('移动到…')))
   await flush()
   await click(q('.ks-act-item').find((el) => (el.textContent ?? '').includes('法律法规')))
   await click(actGo())
   await flush(); await flush()
   const moveOp = memberOps.find((o) => o.op === 'move')
-  check('P20 批量「挪到…」⇒ **真的发** `POST /kb/members/move`（from=当前层 fld_big、to=选中目录、items=勾的那两条）',
+  check('P20 批量「移动到…」⇒ **真的发** `POST /kb/members/move`（from=当前层 fld_big、to=选中目录、items=勾的那两条）',
     moveOp !== undefined && moveOp.body.from_folder_id === 'fld_big'
     && moveOp.body.to_folder_id === 'fld_law'
     && moveOp.body.items?.length === 2
@@ -1623,12 +1655,25 @@ export function mount(container, props) {
     && copyOp.body.from_folder_id === undefined && copyOp.body.items?.length === 1,
     `请求：${JSON.stringify(copyOp?.body ?? null)}`)
   await click(fileBoxes()[0])
-  await click([...q('.ks-batch button')].find((b) => (b.textContent ?? '').includes('从这一层拿掉')))
+  /* 「移出」这个词的字面意思会被读成"删掉" ⇒ 先把它按钮上的 title 抄下来（点完批量条就没了）。 */
+  const rmBatchBtn = [...q('.ks-batch button')].find((b) => (b.textContent ?? '').trim() === '移出')
+  const rmBatchTitle = rmBatchBtn?.getAttribute('title') ?? ''
+  await click(rmBatchBtn)
   await flush(); await flush()
   const rmOp = memberOps.find((o) => o.op === 'remove')
-  check('P23 「从这一层拿掉」⇒ **真的发** `POST /kb/members/remove`（folder_id = 当前层、items = 勾的那条）—— 只删归属行，不删文件',
-    rmOp !== undefined && rmOp.body.folder_id === 'fld_big' && rmOp.body.items?.length === 1,
-    `请求：${JSON.stringify(rmOp?.body ?? null)}`)
+  check('P23 「移出」⇒ **真的发** `POST /kb/members/remove`（folder_id = 当前层、items = 勾的那条）—— 只删归属行，不删文件'
+    + '；且按钮 title 如实写着"文件不会删除"',
+    rmOp !== undefined && rmOp.body.folder_id === 'fld_big' && rmOp.body.items?.length === 1
+    && rmBatchTitle.includes('文件不会删除'),
+    `请求：${JSON.stringify(rmOp?.body ?? null)} / 按钮 title：${rmBatchTitle}`)
+  /* 动作**做完之后**再说一遍真相（业主："「从这一层拿掉」是啥意思" ⇒ 词压成「移出」之后，
+     菜单项那两个字的歧义必须在消息里被消掉）：消息里必须出现「移出」+「文件没有删」，
+     并且**不许**出现把它说成删除的说法。 */
+  const rmMsg = (q('.ks-ib-msg')[0]?.textContent ?? '').trim()
+  check('P23b 「移出」做完 ⇒ 消息里如实写「移出」+「文件没有删」（**不许**把这个动作说成删除）',
+    rmMsg.includes('移出') && rmMsg.includes('文件没有删')
+    && !rmMsg.includes('已删除') && !rmMsg.includes('删掉'),
+    `消息：${rmMsg}`)
   /* ── 最外层那些"还没进任何目录"的文件：只有「加进目录」，不给"挪"（没有来源目录）── */
   ITEMS.root = [doc('doc_unfiled_1', 'GB 80001-2026', '还没进任何目录的一篇')]
   await click(q('.ks-crumb-go')[0])
@@ -1639,10 +1684,12 @@ export function mount(container, props) {
   await click(fileRows()[0].querySelector('.ks-item-more button'))
   const topMenu = q('[role=menuitem]').map((el) => (el.textContent ?? '').trim())
   /* ⚠ 第 6 步：最外层那些"还没进任何目录"的文件也有「在此范围内提问」（走 `kb_doc_ids`）。
-     原文（复核 LOW-6 要求留痕）：`topMenu.join('|') === '详情|加进某个目录…'`。 */
-  check('P25 最外层文件的 ⋮ 菜单 = 详情 + 在此范围内提问 + 「加进某个目录…」'
-    + '（**没有**"挪到"，它没有来源目录 —— 不给死按钮）',
-    topMenu.join('|') === '详情|在此范围内提问|加进某个目录…',
+     原文（复核 LOW-6 要求留痕）：`topMenu.join('|') === '详情|加进某个目录…'`。
+     ⚠ **2026-09-22（业主改文案）**：**单篇文件**上一律写「在此文件中提问」（"在单个文件上点开
+     三个点，那就应该展示在此文件中提问"）⇒ 最外层这三样跟着变。 */
+  check('P25 最外层文件的 ⋮ 菜单 = 详情 + 在此文件中提问 + 「加进某个目录…」'
+    + '（**没有**"移动"，它没有来源目录 —— 不给死按钮）',
+    topMenu.join('|') === '详情|在此文件中提问|加进某个目录…',
     `菜单项：${JSON.stringify(topMenu)}`)
   await click(q('[role=menuitem]').find((el) => (el.textContent ?? '').includes('加进某个目录')))
   await flush()
@@ -1656,16 +1703,17 @@ export function mount(container, props) {
     && JSON.parse(addCall.body ?? '{}').folder_id === 'fld_std'
     && JSON.parse(addCall.body ?? '{}').items?.[0]?.kind === 'file',
     addCall === undefined ? '(没调 members)' : (addCall.body ?? '').slice(0, 140))
-  /* ── 目录层批量：勾两个目录 ⇒ 批量条给的是"目录那一套"（挪/复制/删目录），**没有**"从这一层拿掉" ── */
+  /* ── 目录层批量：勾两个目录 ⇒ 批量条给的是"目录那一套"（移动/复制/删目录），**没有**"移出" ──
+     ⚠ **2026-09-22 业主改文案**：`挪到…` ⇒ **`移动到…`**；文件专属的 `从这一层拿掉` ⇒ **`移出`**。 */
   const dirBoxes = () => q('.ks-list-dirs .ks-col-dpick input[type=checkbox]')
   await click(dirBoxes()[0])
   await click(dirBoxes()[1])
   const dirBatch = () => [...q('.ks-batch button')].map((b) => (b.textContent ?? '').trim())
-  check('P27 目录层勾两个 ⇒ 批量条按**目录那一套**给动作（挪到… / 复制到… / 删掉目录…），'
-    + '标签是「已选 2 个目录」，且**没有**「从这一层拿掉 / 删除文档」那种文件动作',
+  check('P27 目录层勾两个 ⇒ 批量条按**目录那一套**给动作（移动到… / 复制到… / 删掉目录…），'
+    + '标签是「已选 2 个目录」，且**没有**「移出 / 删除文档」那种文件动作',
     (q('.ks-batch-n')[0]?.textContent ?? '').includes('已选 2 个目录')
-    && ['挪到…', '复制到…', '删掉目录…'].every((t) => dirBatch().some((b) => b.includes(t)))
-    && !dirBatch().some((b) => b.includes('从这一层拿掉') || b.includes('删除文档')),
+    && ['移动到…', '复制到…', '删掉目录…'].every((t) => dirBatch().some((b) => b.includes(t)))
+    && !dirBatch().some((b) => b.includes('移出') || b.includes('删除文档')),
     `批量条：${JSON.stringify(dirBatch())}`)
   const previewBefore = callsOf('/delete-preview').length
   await click([...q('.ks-batch button')].find((b) => (b.textContent ?? '').includes('删掉目录…')))
@@ -1903,9 +1951,11 @@ export function mount(container, props) {
   const isFileRow = fileRow0 !== undefined
   await click(fileRow0?.querySelector('.ks-item-more button'))
   const aMenu = aq('[role=menuitem]').map((el) => (el.textContent ?? '').trim())
-  check('R14 文件行的 ⋮ 菜单里有「在此范围内提问」（一篇文件也是一个范围）',
-    aMenu.includes('在此范围内提问'), `菜单项：${JSON.stringify(aMenu)}`)
-  await click(aq('[role=menuitem]').find((el) => (el.textContent ?? '').trim() === '在此范围内提问'))
+  /* ⚠ **2026-09-22（业主改文案）**：**单篇文件**上一律叫「在此文件中提问」
+     （原话："在单个文件上点开三个点，那就应该展示在此文件中提问"）；行为一字未变。 */
+  check('R14 文件行的 ⋮ 菜单里有「在此文件中提问」（一篇文件也是一个范围）',
+    aMenu.includes('在此文件中提问'), `菜单项：${JSON.stringify(aMenu)}`)
+  await click(aq('[role=menuitem]').find((el) => (el.textContent ?? '').trim() === '在此文件中提问'))
   await waitMs(20); await flush()
   check('R15 一篇文件的范围 ⇒ chip 写「1 篇文件」、抬头写「在这 1 篇文件里提问」'
     + '（与"某一级及其下级"是两种范围，界面上分得清）',

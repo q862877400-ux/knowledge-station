@@ -30,9 +30,10 @@
  * 跑法：node scripts/smoke-tool-contract.mjs   （退出码 0 = 全通过）
  */
 
-import { mkdtemp, writeFile } from 'node:fs/promises'
+import { mkdtemp, readFile, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 // 隔离落盘（同 `smoke-effect-tool.mjs` 的理由）：`apply()` 会拉起整个 host 半边，
 // 其中有会落盘的状态文件与引擎会话文件。两个变量都指向临时目录。
@@ -520,6 +521,46 @@ async function main() {
   await expectThrow('kb-scope-over-limit-rejected',
     { query: 'x', params: { kb_folder_ids: Array.from({ length: 201 }, (_, i) => `kbf_${String(i)}`) } },
     'over the limit')
+  /* ⚠⚠ **2026-09-22（复核：`kb_doc_ids` 的 2000 没有依据）** —— 上限改成 **20000**，并把依据
+     写进注释（引擎对文档 id 本身**没有**上限；20000 ≈ 今天真库 6417 篇的 3 倍，只是**载荷兜底**）。
+     ⚠ 下面这两个数**从源码里读出来**（`KB_SCOPE_LIMITS`），**不写死**：
+       ① 闸门那一条用 `docLimit + 1` ⇒ 证明"闸就在这个数上"（多了就显式报错、不静默截断）；
+       ② 描述那一条要求**参数描述里的 `Limit: N ids` 与源码同一个 N** ⇒
+          "代码改了、描述没改"（或反过来）当场红 —— 模型正是照着描述判断会不会被拒。
+     ⚠ 为什么必须从源码读：第一版我把 20000 写死在断言里，**变异（描述改成 3000）照样全绿**，
+     因为描述里另一句 "20000 is ~3x today's library" 也含这个子串 ⇒ 那种判据看着有牙、其实恒真。 */
+  const pluginSrc = await readFile(
+    join(dirname(fileURLToPath(import.meta.url)), '..', 'src', 'index.js'), 'utf8')
+  const limitsMatch = /KB_SCOPE_LIMITS = \{ kb_folder_ids: (\d+), kb_doc_ids: (\d+) \}/.exec(pluginSrc)
+  const folderLimit = limitsMatch ? Number(limitsMatch[1]) : NaN
+  const docLimit = limitsMatch ? Number(limitsMatch[2]) : NaN
+  check('ks_answer [上限] — 从源码里读到了两个上限（读不到就不算验过）',
+    Number.isInteger(folderLimit) && Number.isInteger(docLimit),
+    `KB_SCOPE_LIMITS = folder ${String(folderLimit)} / doc ${String(docLimit)}`)
+  const docIdsOverLimit = Array.from({ length: docLimit + 1 }, (_, i) => `doc_${String(i)}`)
+  await expectThrow('kb-scope-doc-over-limit-rejected',
+    { query: 'x', params: { kb_doc_ids: docIdsOverLimit } }, `limit of ${String(docLimit)}`)
+  const ksAnswerTool = tools.get('ks_answer')
+  /* ⚠ 注册进来的就是**定义对象本体**（`parameters` 在顶层，不是 `input.schema`）—— 写错路径的
+     后果是 `{}` ⇒ 两条断言直接红（这一次就是这么发现的，见上面的 raw 输出）。 */
+  const scopeParamProps = ksAnswerTool?.parameters?.properties?.params?.properties ?? {}
+  const folderDesc = String(scopeParamProps?.kb_folder_ids?.description ?? '')
+  const docDesc = String(scopeParamProps?.kb_doc_ids?.description ?? '')
+  check('ks_answer [params 描述] — 参数描述里的 `Limit: N ids` 与源码的 `KB_SCOPE_LIMITS` '
+    + '**同一个数**（`kb_folder_ids` = 引擎自己的根数上限；`kb_doc_ids` = 载荷兜底，依据在源码注释里）',
+    folderDesc.includes(`Limit: ${String(folderLimit)} ids`)
+    && docDesc.includes(`Limit: ${String(docLimit)} ids`),
+    `源码 folder=${String(folderLimit)} / doc=${String(docLimit)}；`
+      + `描述里有 "Limit: ${String(folderLimit)} ids"=${String(folderDesc.includes(`Limit: ${String(folderLimit)} ids`))}、`
+      + `"Limit: ${String(docLimit)} ids"=${String(docDesc.includes(`Limit: ${String(docLimit)} ids`))}`)
+  check('ks_answer [params 描述] — `null`（没给范围 ⇒ 全库）与 `[]`（⇒ 422、一次检索都不做）'
+    + '的**语义差异**写在模型看得见的地方（参数描述 + 工具描述），别让它靠猜',
+    folderDesc.includes('422') && folderDesc.includes('OMITTED')
+    && docDesc.includes('422') && docDesc.includes('OMITTED')
+    && String(ksAnswerTool?.description ?? '').includes('EMPTY array'),
+    `folder: 422=${String(folderDesc.includes('422'))} OMITTED=${String(folderDesc.includes('OMITTED'))} / `
+      + `doc: 422=${String(docDesc.includes('422'))} OMITTED=${String(docDesc.includes('OMITTED'))} / `
+      + `tool desc 有 EMPTY array=${String(String(ksAnswerTool?.description ?? '').includes('EMPTY array'))}`)
   const scopeSchemaProps = tools.get('ks_answer').output.schema.properties.scope.oneOf[0].properties
   check('ks_answer [schema] — 运行时 `scope` 的每个键都在 schema 里（含只给目录范围时多出来的 roots）',
     ['kind', 'folder_ids', 'folder_count', 'doc_count', 'empty', 'roots']

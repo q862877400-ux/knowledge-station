@@ -1302,10 +1302,10 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
     }
   }, [afterAction, flatFolders, withSession])
 
-  /** **从这一层拿掉**（只删归属行，**不删文件**；别处还挂着的照旧）。 */
+  /** **移出**（业主 2026-09-22 定的词）= 只删这一处的归属行，**文件不删**；别处还挂着的照旧。 */
   const runRemove = useCallback(async (targets: readonly string[]): Promise<void> => {
     if (levelId === null) {
-      setActMsg('最外层的文件不属于任何目录，"从这一层拿掉"在这里没有对象。')
+      setActMsg('最外层的文件不属于任何目录，「移出」在这里没有对象。')
       return
     }
     const docIds = docIdsOf(targets)
@@ -1314,11 +1314,13 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
     try {
       const r = await withSession((port, token) => removeKbMembers(port, token, levelId,
         docIds.map((id) => ({ kind: 'file' as const, id }))))
-      setActMsg(`已从「${levelName}」拿掉 ${String(r.removed)} 篇`
-        + '（**只去掉这一处的归属，文件没有删**；还挂在别的目录里的照旧在那里）。')
+      /* ⚠ 动作完成后**再如实说一遍**"文件没有删"（业主：这个动作的真相必须留在一处；
+         菜单项文字被压成两个字之后，这里是唯一每次都看得见的地方）。 */
+      setActMsg(`已从「${levelName}」移出 ${String(r.removed)} 篇`
+        + '（只去掉这一处的归属，**文件没有删**；还挂在别的目录里的照旧在那里）。')
       await afterAction()
     } catch (error) {
-      setActMsg(`没拿掉：${errorText(error)}`)
+      setActMsg(`没移出：${errorText(error)}`)
     } finally {
       setBusy(false)
     }
@@ -1827,10 +1829,16 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
         ? [{ id: 'accept', label: `按建议归位（${sugLabel}）` }] : []),
       ...(doc.suggest_new_parent_id !== null && doc.suggest_new_name !== null
         ? [{ id: 'new', label: `在建议位置新建「${doc.suggest_new_name}」` }] : []),
-      /* 第 6 步：这一篇**还没进任何目录** ⇒ 只能用**显式文件范围**（`kb_doc_ids`）问。 */
-      { id: 'ask', label: '在此范围内提问' },
+      /* 第 6 步：这一篇**还没进任何目录** ⇒ 只能用**显式文件范围**（`kb_doc_ids`）问。
+         ⚠ **2026-09-22 业主改的文案**：在**单个文件**上点开三个点 ⇒ 写「在此文件中提问」
+         （原话："在此范围内提问——如果是在**单个文件**上点开三个点，那就应该展示**在此文件中提问**"）。
+         行为**一字未变**（还是只问这一篇）。 */
+      { id: 'ask', label: '在此文件中提问' },
       { id: 'retry', label: '重来一次（重新解析）' },
-      { id: 'delete', label: '删掉…' },
+      /* ⚠ **2026-09-22 业主**："「从这一层拿掉」是啥意思，删除就说删除" ——
+         这一条是**真删文档**（不可逆，后面有二次确认面板）⇒ 文案就是「删除」。
+         原文（留痕）：`{ id: 'delete', label: '删掉…' }` */
+      { id: 'delete', label: '删除' },
     ]
     const cell = (key: InboxColKey): ReactNode => {
       switch (key) {
@@ -2025,10 +2033,10 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
               variant="outline"
               size="sm"
               className="ks-batch-btn"
-              title="挪到某个目录（只改挂在哪：目录走 folders/{id}/move、文件走 members/move；磁盘文件不动）"
+              title="移动到某个目录（只改挂在哪：目录走 folders/{id}/move、文件走 members/move；磁盘文件不动）"
               onClick={() => { openAction('move', [...picked]) }}
             >
-              挪到…
+              移动到…
             </Button>
           ) : null}
           {pickedFolderIds.length + pickedDocIds.length > 0 ? (
@@ -2047,10 +2055,10 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
               variant="outline"
               size="sm"
               className="ks-batch-btn"
-              title="只去掉这些文件在「当前这一层」的归属 —— 文件不删，别处还挂着的照旧"
+              title="移出：只去掉这些文件在「当前这一层」的归属 —— **文件不会删除**（还在库里），别处还挂着的照旧"
               onClick={() => { void runRemove([...picked]) }}
             >
-              从这一层拿掉
+              移出
             </Button>
           ) : null}
           {pickedFolderIds.length > 0 ? (
@@ -2093,15 +2101,17 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
     : (pickedFolderIds.length > 0
       ? `${String(pickedFolderIds.length)} 个目录`
       : `${String(pickedDocIds.length)} 篇文件`)
-  /** 选择器那一段的动词（面板标题与"将…到"都用它，一处定义别处不重写）。 */
+  /** 选择器那一段的动词（面板标题与"将…到"都用它，一处定义别处不重写）。
+   *  ⚠ **2026-09-22 业主改的文案**：`move` 由「挪到」改成「**移动到**」
+   *  （原话："挪到某个目录直接写**移动到**"）。`copy` 本来就是「复制到」✓。 */
   const pickVerb: Record<string, string> = {
-    place: '放进', new: '放进', move: '挪到', copy: '复制到', add: '挂进',
+    place: '放进', new: '放进', move: '移动到', copy: '复制到', add: '挂进',
   }
   /** 选择器里为空时的原因（分得清"还没读到"与"被排除了"，不是一句"没有匹配"）。 */
   const pickEmptyHint = flatFolders.length === 0
     ? '正在读目录清单…'
     : (pickBase.length === 0
-      ? '没有可选的目的地：唯一的那几个目录就是你正在挪/复制的目录自己（不能挪进自己的下级）'
+      ? '没有可选的目的地：唯一的那几个目录就是你正在移动/复制的目录自己（不能移进自己的下级）'
       : '没有匹配的目录')
   const actionPanel = action === null ? null : (
     <div
@@ -2330,7 +2340,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
           </div>
           <div className="ks-act-row">
             <span className="ks-act-hint">
-              将{pickVerb[action.kind] ?? '放进'}：
+              即将{pickVerb[action.kind] ?? '放进'}：
               {pickPathOf === '' ? '（还没选）' : pickPathOf}
             </span>
             <Button
@@ -2902,13 +2912,15 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                 {dirsShown.map((child) => {
                   const isOpen = menuFor === pickDirKey(child.folder_id)
                   /* 目录行的 ⋮ 菜单（第 5 步）：改名 / 新建下级 / 挪 / 复制 / 删。
-                     ⚠ 「删掉…」删的是**目录**（先拉 delete-preview 把影响列出来），
-                       不是删文档 —— 文档删除的入口只有「待分类」层那一个。 */
+                     ⚠ **2026-09-22 业主改的文案**：`挪到某个目录…` ⇒ **`移动到`**、
+                     `复制到某个目录…` ⇒ **`复制到`**（原话："挪到某个目录直接写移动到；复制到某个目录，直接就写复制到"）。
+                     「在此范围内提问」**目录行保持原样**（问的是那一棵目录）；
+                     `删掉这个目录…` 是**真删目录**（先拉 delete-preview 再二选一）⇒ 保持。 */
                   const dirMenu: { id: string; label: string }[] = [
                     { id: 'rename', label: '改名…' },
                     { id: 'mkdir', label: '在这个目录下新建…' },
-                    { id: 'move', label: '挪到某个目录…' },
-                    { id: 'copy', label: '复制到某个目录…' },
+                    { id: 'move', label: '移动到' },
+                    { id: 'copy', label: '复制到' },
                     /* 第 6 步：在**这一个目录**（它 + 全部下级）里提问。 */
                     { id: 'ask', label: '在此范围内提问' },
                     { id: 'delete', label: '删掉这个目录…' },
@@ -2923,7 +2935,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                               checked={picked.has(pickDirKey(child.folder_id))}
                               onChange={(next) => { togglePick(pickDirKey(child.folder_id), next) }}
                               label={child.name}
-                              title={`选中目录「${child.name}」（选中后下面会出现批量条：挪到… / 复制到… / 删掉目录…）`}
+                              title={`选中目录「${child.name}」（选中后下面会出现批量条：移动到… / 复制到… / 删掉目录…）`}
                             />
                           </span>
                         )
@@ -2973,7 +2985,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                                   aria-haspopup="menu"
                                   aria-expanded={isOpen}
                                   aria-label={`目录「${child.name}」的操作`}
-                                  title="处置这个目录（改名 / 新建下级 / 挪 / 复制 / 删）"
+                                  title="处置这个目录（改名 / 新建下级 / 移动到 / 复制到 / 删）"
                                   onClick={() => { setMenuFor(isOpen ? null : pickDirKey(child.folder_id)) }}
                                 >
                                   <IconEllipsisOutline16 />
@@ -3056,20 +3068,31 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                   /**
                    * 文件行的 ⋮ 菜单（第 5 步）—— **按"这一篇现在挂在哪"给动作**：
                    *   · 最外层那些文件**还没进任何目录**（后端 `list_folder(None)` 的语义）⇒
-                   *     给的是「加进某个目录…」（`members`）；"挪"在这里没有来源目录，不给死按钮。
-                   *   · 在某个目录里 ⇒ 「挪到…」（`members/move`，来源 = 当前这一级）、
-                   *     「复制到…」（多一处位置）、「从这一层拿掉」（只删归属行，**不删文件**）。
+                   *     给的是「加进某个目录…」（`members`）；"移动"在这里没有来源目录，不给死按钮。
+                   *   · 在某个目录里 ⇒ 「移动到」（`members/move`，来源 = 当前这一级）、
+                   *     「复制到」（多一处位置）、「移出」（只删归属行，**不删文件**）。
                    *   · **删文档**（不可逆）**不在这里** —— 只有「待分类」层那一个入口。
+                   *
+                   * ⚠⚠ **2026-09-22 业主改的文案**（原话："挪到某个目录直接写移动到；复制到某个目录，
+                   *   直接就写复制到"；"「从这一层拿掉」是啥意思，删除就说删除"）：
+                   *   `挪到某个目录…` ⇒ **`移动到`**；`复制到某个目录…` ⇒ **`复制到`**；
+                   *   `从这一层拿掉` ⇒ **`移出`**（业主选定的词）。
+                   *   ⚠ **"移出"的真相必须留在一处**：这个动作**只把这一篇从当前目录移出，
+                   *   文件本身不删**（还在库里，别处挂着的照旧）。宿主 `MenuItem` **没有 `title` 字段**
+                   *   （`ui-primitives/src/Menu.tsx` 的 `MenuItem` 只有 id/label/disabled/icon/danger/submenu
+                   *   —— 源码读过）⇒ 没法给菜单项本身挂悬停说明；改成挂在**这一行的 ⋮ 触发按钮**上
+                   *   （见下面那行 title）+ 批量条「移出」的 title + 动作完成后 `actMsg` 里如实说明。
                    */
                   const fileMenu: { id: string; label: string }[] = [
                     { id: 'detail', label: '详情' },
-                    /* 第 6 步：**这一篇**的范围（`kb_doc_ids`）—— 与"这一级"的范围是两回事。 */
-                    { id: 'ask', label: '在此范围内提问' },
+                    /* 第 6 步：**这一篇**的范围（`kb_doc_ids`）—— 与"这一级"的范围是两回事。
+                       ⚠ 2026-09-22 业主：**单个文件**上点开三个点 ⇒ 文案是「在此文件中提问」。 */
+                    { id: 'ask', label: '在此文件中提问' },
                     ...(levelId === null
                       ? [{ id: 'add', label: '加进某个目录…' }]
-                      : [{ id: 'move', label: '挪到某个目录…' },
-                        { id: 'copy', label: '复制到某个目录…' },
-                        { id: 'remove', label: '从这一层拿掉' }]),
+                      : [{ id: 'move', label: '移动到' },
+                        { id: 'copy', label: '复制到' },
+                        { id: 'remove', label: '移出' }]),
                   ]
                   const cellFor = (key: ColKey): ReactNode => {
                     switch (key) {
@@ -3137,7 +3160,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                                   aria-haspopup="menu"
                                   aria-expanded={isOpen}
                                   aria-label={`${doc.standard_name ?? doc.doc_id} 的更多操作`}
-                                  title="更多操作（详情 / 挪 / 复制 / 从这一层拿掉）"
+                                  title="更多操作（详情 / 移动到 / 复制到 / 移出）——「移出」只把这一篇从当前目录移出，文件不会删除"
                                   onClick={() => { setMenuFor(isOpen ? null : doc.doc_id) }}
                                 >
                                   <IconEllipsisOutline16 />

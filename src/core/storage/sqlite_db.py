@@ -14,6 +14,24 @@ _SCHEMA_PATH = Path(__file__).parent / "schema.sql"
 
 _local = threading.local()
 
+#: 跨线程登记「这份连接挂在**哪个线程**的 `_local` 的**哪把键**上」——
+#: 只给 `close_all_connections()` 用（`_local` 是线程局部代理，**直接**拿别的线程那份是拿不到的；
+#: 但建连接的那一刻就在那个线程里，可以顺手 `vars(_local)` 把它那份**字典对象**抓下来，
+#: 主线程之后改这个字典，拥有它的线程**看得见** —— 2026-09-22 用
+#: `var/tmp/probe-threadlocal-handoff.py` 实测过：摘掉键之后那个线程再读就是 AttributeError）。
+#: ⚠ `sqlite3.Connection` **不支持 weakref**（实测 `TypeError: cannot create weak reference`），
+#: 所以这里只能存强引用；登记表在 `close_thread_connection()` / `close_all_connections()`
+#: 里随关随清（建连接时也顺手剔掉已被关掉的登记），不会无限涨。
+_registry: list[tuple[sqlite3.Connection, dict[str, object], str]] = []
+_registry_lock = threading.Lock()
+
+
+def _register(conn: sqlite3.Connection, owner: dict[str, object], key: str) -> None:
+    with _registry_lock:
+        # 顺手剔掉"键已经不在那个字典里（或已被换掉）"的旧登记：那是已经被关掉/替换掉的连接。
+        _registry[:] = [e for e in _registry if e[1].get(e[2]) is e[0]]
+        _registry.append((conn, owner, key))
+
 
 def load_vec_extension(conn: sqlite3.Connection) -> bool:
     """加载 sqlite-vec 扩展；失败时返回 False（检索自动降级，见 R30）。"""
@@ -47,6 +65,7 @@ def get_db_connection(db_path: Path | None = None) -> sqlite3.Connection:
         conn = sqlite3.connect(str(path), check_same_thread=False)
         _configure(conn)
         setattr(_local, key, conn)
+        _register(conn, vars(_local), key)
     return conn
 
 
@@ -154,3 +173,46 @@ def close_thread_connection() -> None:
         if isinstance(conn, sqlite3.Connection):
             conn.close()
             delattr(_local, key)
+            _forget(conn)
+
+
+def _forget(conn: sqlite3.Connection) -> None:
+    """把这份连接从跨线程登记表里摘掉（关掉它的时候调）。"""
+    with _registry_lock:
+        _registry[:] = [e for e in _registry if e[0] is not conn]
+
+
+def close_all_connections() -> int:
+    """把**所有线程**上登记的库连接都关掉，返回关掉的个数。
+
+    ## 为什么需要它（2026-09-22 实测，不是推测）
+
+    `close_thread_connection()` 只关**调用线程**那一份。而 FastAPI 的**同步**路由是跑在
+    AnyIO 线程池的 worker 线程里的 —— 那些线程自己会 `get_db_connection()` 建一份并一直握着
+    （线程池线程活得比用例长）。后果：Windows 上临时数据目录**删不掉**
+    （`PermissionError: [WinError 32] ... knowledge.db`），而各处的
+    `TemporaryDirectory(..., ignore_cleanup_errors=True)` 会把这条失败**静默吞掉** ——
+    实测每跑一次 `tests/test_kb_scope_retrieval.py` 就漏一个 ~2.6 MB 的 `ks_scope_*` 目录，
+    会话级那个 `ks_test_*` 目录同样漏（2026-09-22 清点时 `%TEMP%` 里已积压上千个）。
+
+    ⚠ **关的同时必须把那个线程 `_local` 里的键摘掉**：不摘的话，那个（会被复用的）线程
+    下次 `get_db_connection()` 拿到的是**已关闭**的连接，报
+    `Cannot operate on a closed database`。摘键靠建连接时抓下来的那份字典对象，
+    实测在那个线程里立刻可见（见 `_registry` 的注释）。
+
+    用途：整进程优雅退场、以及测试收尾（测试库要能真删掉）。
+    """
+    with _registry_lock:
+        entries, _registry[:] = list(_registry), []
+    closed = 0
+    for conn, owner, key in entries:
+        if owner.get(key) is conn:
+            owner.pop(key, None)          # 先摘键再关：别让别的线程捞到一个正在关的连接
+        try:
+            conn.close()
+            closed += 1
+        except sqlite3.Error:
+            # 已经关掉的连接再 close() 是 no-op；真出错也只影响"关得干净不干净"，
+            # 这里如实计数、不假装成功（调用方按 `closed` 与自己的清单对账）。
+            continue
+    return closed
