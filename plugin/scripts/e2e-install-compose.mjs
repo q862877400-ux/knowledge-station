@@ -446,8 +446,7 @@ async function main() {
   const resultEngine = parsedToolResult?.engine ?? null
   const engineResultPort = resultEngine?.port ?? null
   const engineResultReused = resultEngine?.reused ?? null
-  const realEnginePorts = [...new Set(
-    [...`${run.stdout ?? ''}\n${run.stderr ?? ''}`.matchAll(/KNOWLEDGE_STATION_PORT=(\d+)/g)].map((m) => Number(m[1])))]
+  const engineResultPid = resultEngine?.pid ?? null
   const pingBoundToFakeEngine = engineResultPort === enginePort && engineResultReused === true
   const pingDiag = toolResultText === null
     ? '⛔ 没收到 tool result（模型可能没调 ks_ping）'
@@ -455,7 +454,7 @@ async function main() {
       + `（${engineResultPort === enginePort ? '相符' : '❌ 不符'}）`
       + ` ｜ reused=${String(engineResultReused)}（期望 true）`
       + ` ｜ ok=${String(parsedToolResult?.ok)} httpStatus=${String(parsedToolResult?.httpStatus)}`
-      + ` ｜ 宿主输出里的真引擎端口=${realEnginePorts.join(',') || '(无)'}`
+      + ` ｜ tool result 的 engine.pid=${String(engineResultPid)}`
       + `${engineResultPort !== enginePort ? ' ⇒ 工具执行打到了**别的**引擎上（真 python 顶包？）' : ''}`
       + `\n            tool result 片段：${toolResultText.replace(/\s+/g, ' ').slice(0, 240)}`
   check('8. ks_ping 的 tool result **绑在假引擎上**：ok:true + httpStatus:200 + '
