@@ -1563,13 +1563,18 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                 const dirCell = (key: DirColKey): ReactNode => {
                   switch (key) {
                     case 'dname':
+                      /* ⚠⚠ 2026-09-21（我读图抓到的缺陷，施工子代理关机前没来得及报）：
+                         这里原来照抄了**文件行**的"两行"结构，第二行放 `child.key` ——
+                         而 `key` 是**内部标识**：库根那一级的目录 key 恰好等于显示名 ⇒ 图上**名字重复两遍**；
+                         往里走一级就变成**内部路径**（真 Chrome 实测：`法律/宪法与行政法` 直接印在名字下面）。
+                         业主的验收词是"做成和文件列表一样的视图"——**视图种类**一致即可，不该把内部键当内容。
+                         ⇒ 删掉第二行（目录没有"标准号"那种值得放第二行的真字段；**不编**一个）。
+                         ⚠ tooltip 也一并从 `child.key` 改成 `child.name`（长名被省略号截断时要有全名可看，
+                           但**不暴露内部键**）。 */
                       return (
                         <>
                           <span className="ks-fileico" title="目录"><IconFolderOpenOutline16 /></span>
-                          <span className="ks-dir-name" title={child.key}>{child.name}</span>
-                          <span className="ks-item-sub">
-                            <span className="ks-item-meta">{child.key}</span>
-                          </span>
+                          <span className="ks-dir-name" title={child.name}>{child.name}</span>
                         </>
                       )
                     case 'dcount':

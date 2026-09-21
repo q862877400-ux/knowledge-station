@@ -34400,8 +34400,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
                     case "dname":
                       return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
                         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-fileico", title: "\u76EE\u5F55", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutline16, {}) }),
-                        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-dir-name", title: child.key, children: child.name }),
-                        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-item-sub", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-item-meta", children: child.key }) })
+                        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-dir-name", title: child.name, children: child.name })
                       ] });
                     case "dcount":
                       return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-kb-badge", children: [
