@@ -1566,15 +1566,24 @@ const ksPadCheck = {
  *   与 `DIR_COLUMNS` 同数）；② **轨道和 + gap×(n−1) 必须铺满容器内容宽**（±1px）—— 死白就红。
  * ⚠ 只判"能不能铺满"不够：把三轨写成 `1fr 1fr 1fr` 也铺满 —— 而它**不是**我们的模板
  *   （下面那条固定轨判据才拦得住它；这句原写"与①合判"，是**假话**，复核 B③ 已证伪）。
- * ⚠ 适用面：`PAD_REQUIRED` 声明了"这一跑必须量到 `.ks-dirs`"时，`#dircols` **必须量到**；
- *   没声明才**明说没判**（不静默通过 —— 这一条也是复核第二轮 F 的洞）。 */
+ * ⚠ 适用面：**冻结清单 `DIR_LAYER_COMBOS` 里的组合**必须量到 `#dircols`（并同时要求它们的
+ *   `PAD_REQUIRED` 声明里有 `.ks-dirs`）—— 没在清单里才**明说没判**。
+ *   ⚠ 第二轮复核（C④c）证伪过上一版：只按 `PAD_REQUIRED` 判"要不要量到" ⇒ **同时改小声明表 +
+ *   让探针不产出**就能回到静默 skip + exit 0（并集棘轮不响）。所以"哪些组合必须有目录层"必须是
+ *   **本文件的冻结清单**，不是被声明的那张表。 */
 const DIR_COLS_EXPECTED = 3
-/* ⚠⚠ **2026-09-21 第二轮（复核 verify-freeze-dirlist-guards 的 B③ 打回）**：只判"轨道数=3 + 铺满"**不够** ——
- * 复核实测 `--ks-cols:1fr 1fr 1fr`（396px 396px 396px，铺满 1204px）与 `minmax(0,1fr) 200px 16px`
- * **都全绿**，而它们都不是我们的模板（篇数列从 64px 变 200px）。⇒ 这里再钉**两条固定轨的真实像素**：
- * 轨道 2 = 声明里的 `--ks-col-dcount`、轨道 3 = `--ks-col-dgo`（从 `ksGuideStyles.ts` 抠出来，
- * 与"冻结值"同一套路：改了 token 而没改这里就红）。 */
-const dirColsPresenceRequired = Array.isArray(padRequired) && padRequired.includes('.ks-dirs')
+/* ⚠⚠ **2026-09-21 第三轮：两条固定轨的期望值必须是**冻结常数**，不能从被测物反推。**
+ * 第二轮复核（C④a）证伪过我上一版：期望值"从 `ksGuideStyles.ts` 抠 `--ks-col-dcount`" ⇒
+ * **改 token 本身**（64px→200px）两边一起变、**全绿** —— 这正是 `#kspad` 那段注释警告过的
+ * "从被测物反推期望值 ⇒ 断言恒真"。现在的规矩同 `PAGE_PAD_*`：
+ *   ① 下面两个常数是**规范锚**（冻结）；
+ *   ② 同时从 `ksGuideStyles.ts` 抠出 token 声明，**两者必须一致**（谁单方面改就红）；
+ *   ③ 真 Chrome 量到的轨道必须等于这两个常数。 */
+const DIR_COL_DCOUNT_EXPECTED = 64
+const DIR_COL_DGO_EXPECTED = 16
+/** **冻结**：哪些组合必须看得到目录层（+ 它们的 `PAD_REQUIRED` 必须声明 `.ks-dirs`）。 */
+const DIR_LAYER_COMBOS = ['kb|', 'kb|kb-crumb']
+const dirColsPresenceRequired = DIR_LAYER_COMBOS.includes(padComboKey)
 let dirTokenDcount = null
 let dirTokenDgo = null
 try {
@@ -1607,14 +1616,14 @@ if (dirTokenDcount === null || dirTokenDgo === null) {
     + ` --ks-col-dgo（${JSON.stringify(dirTokenDgo)}）—— 读不到就不算验过（这两条固定轨是判据的锚）`)
 }
 if (dirCols === undefined) {
-  /* ⚠⚠ **"量不到"不许静默跳过**（复核第二轮 F 的洞）：原来无条件 skip + exit 0 ⇒ 探测器不产出也能过，
-     而 skip 文案还错说"当前不在目录层"。现在按 `PAD_REQUIRED` 的**声明**判：
-     这一跑声明了必须量到 `.ks-dirs` ⇒ 目录层就在页面上 ⇒ `#dircols` **必须**量到，否则红。 */
+  /* ⚠⚠ **"量不到"不许静默跳过**：判据的锚是**冻结清单** `DIR_LAYER_COMBOS`（不是被声明的
+     `PAD_REQUIRED` —— 第二轮复核 C④c 证明"同时改小声明表"就能把这条绕回 exit 0）。 */
   if (dirColsPresenceRequired) {
-    dirColsProblems.push(`这一跑的组合（${padComboKey}）在 PAD_REQUIRED 里声明了必须量到 .ks-dirs，`
-      + '而 #dircols **一点都没产出** —— 量不到就不算验过（目录层在页面上却量不到，是探针坏了，不是"不适用"）')
+    dirColsProblems.push(`这一跑的组合（${padComboKey}）在**冻结清单** DIR_LAYER_COMBOS 里`
+      + '（它必须有目录层），而 #dircols **一点都没产出** —— 量不到就不算验过'
+      + '（目录层在页面上却量不到，是探针坏了，不是"不适用"）')
   } else {
-    dirColsSkipReason = `这一跑没有声明目录层（${padComboKey} 的 PAD_REQUIRED 不含 .ks-dirs）—— 目录层列几何不适用`
+    dirColsSkipReason = `这一跑的组合（${padComboKey}）不在冻结清单 DIR_LAYER_COMBOS 里 —— 目录层列几何不适用`
   }
 } else if (!String(dirCols.lh ?? '').trim() || dirCols.lh === '(没有网格元素)') {
   dirColsProblems.push(`取不到目录层的 grid-template-columns（拿到 ${JSON.stringify(dirCols.lh)}）—— 取不到就不算验过`)
@@ -1631,10 +1640,10 @@ if (dirCols === undefined) {
     dirColsProblems.push(`目录层轨道里有**非 px** 值（解析后应为纯像素）：${JSON.stringify(tracks)}`
       + ' —— 只有全部解析成像素，"铺满"与"固定轨对不对"才可判')
   } else {
-    /* 固定轨逐条对 token（复核 B③：`1fr 1fr 1fr` 与 `… 200px 16px` 都曾全绿）。 */
-    if (px.length >= 3 && (px[1] !== dirTokenDcount || px[2] !== dirTokenDgo)) {
-      dirColsProblems.push(`目录层的两条固定轨与 token 不符：实测第 2 轨 ${String(px[1])}px / 第 3 轨 ${String(px[2])}px，`
-        + `而 --ks-col-dcount = ${String(dirTokenDcount)}px / --ks-col-dgo = ${String(dirTokenDgo)}px`
+    /* 固定轨**对冻结常数**（不是对从被测文件抠出来的 token —— 那会恒真；复核 C④a 证伪）。 */
+    if (px.length >= 3 && (px[1] !== DIR_COL_DCOUNT_EXPECTED || px[2] !== DIR_COL_DGO_EXPECTED)) {
+      dirColsProblems.push(`目录层的两条固定轨与冻结规范值不符：实测第 2 轨 ${String(px[1])}px / 第 3 轨 ${String(px[2])}px，`
+        + `而冻结值是 ${String(DIR_COL_DCOUNT_EXPECTED)}px / ${String(DIR_COL_DGO_EXPECTED)}px`
         + `：${JSON.stringify(dirCols.lh)} —— 把篇数/进入提示列改成别的宽度（或写成 1fr）就是这条要抓的回归`)
     }
     if (Math.abs(px.reduce((a, b) => a + b, 0) + gap * (tracks.length - 1) - Number(dirCols.y)) > 1) {
@@ -1643,6 +1652,23 @@ if (dirCols === undefined) {
         + `而容器内容宽 ${String(dirCols.y)}px（差 >1px ⇒ 右侧死白或溢出）：${JSON.stringify(dirCols.lh)}`)
     }
   }
+}
+/* **规范 ↔ 实现**的棘轮（同 `PAGE_PAD_*` 那一套）：`ksGuideStyles.ts` 里两条 token 的声明必须等于冻结常数，
+   谁单方面改（改 token 或改常数）都在这里红 —— 这条才是"改了 token 而没改这里就红"的**真**判据。 */
+if (dirTokenDcount !== null && dirTokenDcount !== DIR_COL_DCOUNT_EXPECTED) {
+  dirColsProblems.push(`ksGuideStyles.ts 的 --ks-col-dcount = ${String(dirTokenDcount)}px，`
+    + `而本脚本冻结的规范值是 ${String(DIR_COL_DCOUNT_EXPECTED)}px（改 token 就要同步这里的常数与注释）`)
+}
+if (dirTokenDgo !== null && dirTokenDgo !== DIR_COL_DGO_EXPECTED) {
+  dirColsProblems.push(`ksGuideStyles.ts 的 --ks-col-dgo = ${String(dirTokenDgo)}px，`
+    + `而本脚本冻结的规范值是 ${String(DIR_COL_DGO_EXPECTED)}px（同上）`)
+}
+/* **冻结清单 ↔ 声明表**的棘轮：清单里的组合必须真的在 `PAD_REQUIRED` 里声明 `.ks-dirs`
+   （否则"声明表被同改小 + 探针不产出"那条路又会打开）。 */
+if (dirColsPresenceRequired && !(Array.isArray(padRequired) && padRequired.includes('.ks-dirs'))) {
+  dirColsProblems.push(`组合 ${padComboKey} 在冻结清单 DIR_LAYER_COMBOS 里（必须有目录层），`
+    + `但它的 PAD_REQUIRED 声明里**没有 .ks-dirs**（拿到 ${JSON.stringify(padRequired)}）`
+    + ' —— 这两处必须一致；谁改了一处而没改另一处，就在这里红')
 }
 const dirColsCheck = {
   checked: dirColsProblems.length === 0 && dirColsSkipReason === null,

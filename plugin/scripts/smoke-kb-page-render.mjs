@@ -732,6 +732,30 @@ export function mount(container, props) {
     await click(dirEls().find((el) => dirNameOf(el).includes('P15/19')))
     await click(dirEls().find((el) => dirNameOf(el).includes('P16 工程防火')))
   }
+  /* ⚠⚠ **2026-09-21 第三轮（复核 verify-freeze-dirlist-guards2 的 C④b 打回）：内容判据要**覆盖全部库**。**
+     复核造的绕过：把泄漏**按库**加上（只在 `kb.name === '标准'` 且 `path.length > 0` 时加回第二行）⇒
+     本文件当时只在**主流程走到的那三个层**判 ⇒ **整套 88/88 全绿**，而真机上照样印内部路径
+     （复核独立扫描实测 `P15/19 工程抗震…P 土木、建筑/P15/19 工程抗震…4 篇`）。
+     ⇒ 这里**遍历卡片带里的每一个库**：进库 → 在它的目录层判一次；有更深一层就再下钻判一次。
+     判据本身没变（还是 `dirRowContentCheck`），变的是**覆盖面** —— 这正是"按库加回"绕不过去的原因。
+     ⚠ 位置很讲究：**必须放在 kb 页还挂着、且 `cardNamed` / 目录行 helper 都在**的地方（我第一版放在文件末尾，
+     那时页面已切到能力页 ⇒ `.ks-kb-cards` 查不到 ⇒ **循环空转、一条都没跑**）。下面两条"覆盖面"断言
+     就是给这种空转兜底的（跑不到 5 张卡 / 内容判据少于 3 次 ⇒ 红）。 */
+  const libNames = namesIn('.ks-kb-cards .ks-kb-card')
+  check('内容判据覆盖全部库：卡片带里能查到全部 5 张库卡（查不到 ⇒ 循环会空转，那是假绿）',
+    libNames.length === 5, `查到 ${String(libNames.length)} 张：[${libNames.join('|')}]`)
+  let dirContentChecks = 0
+  for (const lib of libNames) {
+    await click(cardNamed(lib))
+    if (dirEls().length > 0) {
+      dirRowContentCheck(`库「${lib}」根`)
+      dirContentChecks += 1
+      await click(dirEls()[0])
+      if (dirEls().length > 0) { dirRowContentCheck(`库「${lib}」下钻一级`); dirContentChecks += 1 }
+    }
+  }
+  check('内容判据的覆盖面：至少真的判过 3 次目录层（占位数据里 标准/法律法规 各有目录层）',
+    dirContentChecks >= 3, `实判 ${String(dirContentChecks)} 次（库：${libNames.join('|')}）`)
   await click(cardNamed('标准'))
   check('点回「标准」卡 ⇒ 回到它的库根（一级目录 3 行）——换库后层级归零',
     dirEls().length === 3 && q('.ks-back').length === 0,
