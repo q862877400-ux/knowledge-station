@@ -287,7 +287,8 @@ def test_missing_tables_are_created_and_nothing_else_is_touched(_isolate_data_di
                     (t,)) == []
     before = {r["name"]: r["sql"] for r in
               _sql(db, "SELECT name, sql FROM sqlite_master WHERE sql IS NOT NULL")}
-    assert _run(db, tmp_path, "--apply") == 0
+    rc = _run(db, tmp_path, "--apply")
+    assert rc == 0
     after = {r["name"]: r["sql"] for r in
              _sql(db, "SELECT name, sql FROM sqlite_master WHERE sql IS NOT NULL")}
     # 既有对象一个都没改

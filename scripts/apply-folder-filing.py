@@ -730,6 +730,8 @@ def _print_plan_summary(plan: dict, payload: dict, existing: dict, tables: dict,
         print(f"- 这三张表里**现在已有 {n_rows} 行**：{rows_before}"
               + ("（干净的白纸，第一次落库）" if n_rows == 0 else
                  "  ⚠ 不是白纸：会按名字复用目录、覆盖状态，并**再备份一份**"))
+    else:
+        print("- 这三张表**还不存在**（全新库）⇒ 本次按 schema.sql 把它们建出来（含索引）")
     tops = " · ".join(f"{n}(sort={v})" for n, v in PREBUILT_TOPS)
     print(f"- 顶层目录：{tops}；按名字复用已存在的 "
           f"{len([n for n, _ in PREBUILT_TOPS if (None, n) in existing])} 个")
