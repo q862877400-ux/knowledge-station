@@ -27,10 +27,16 @@
 
 ════ 已知取舍（写在这里，免得日后当 bug 查）════
 
-1. 挪动目录会连它在**原主位置**的那条成员边一起移走。若那个位置本来就是"复制出来的
-   一处"，那一处也会一并消失 —— 两种边落在同一张表里，**无法区分来路**。
-2. 排序按名字的 **Unicode 码位**（``ORDER BY name``），不是拼音。稳定但不合中文语感，
-   方案只要求"按名字排"，拼音序要额外的排序键，留到有需求时再说。
+1. **挪动按"从哪一处 → 到哪一处"**（2026-09-21 第 2 步修准）：``move_folder`` 收
+   ``from_parent_id``，只动**这一次出现**的那条边；**只有 ``from_parent_id`` 正是
+   主位置（``folder.parent_id``）时才更新 ``parent_id``**。省略 ``from_parent_id``
+   ⇒ 取当前主位置（= "挪这个目录本身"，调用方最常要的那件事）。
+   ⚠ 残余取舍（诚实登记）：从**复制出来的那一处**挪走时（``from_parent_id`` 不是主位置）
+   只删那条边、**不补**新边 —— 目录本体没动，"另一处该留在哪儿"没有答案。见
+   ``move_folder`` docstring。
+2. 排序按 **(sort, 拼音名, 名)**（``lazy_pinyin``）。``sort`` 是**手定顺序**（顶层
+   10/20/30/90），拼音只在同级里兜底。⚠ 拼音**不是唯一键**（同音异体字），所以第三段
+   必须留原名。
 3. 读函数（``list_folder`` / ``folder_scope`` / 两个状态列表）**不开写事务**：它们是
    只读的，在 2.2 GB 真库上抢写锁会把入库挡在后面。写函数一律走
    ``write_transaction``（BEGIN IMMEDIATE，单写者纪律）。
@@ -60,6 +66,12 @@ ITEM_KINDS: tuple[str, ...] = ("folder", "file")
 #: 删非空目录的两种模式（方案 §二第 2 条）；空目录不需要模式
 DELETE_MODES: tuple[str, ...] = ("reparent", "purge")
 
+#: 归位脚本预建的四个顶层目录名（业主 2026-09-21 定：标准 / 法律法规 / 公司制度 / 待分类）。
+#: ⚠ 这里是**唯一所有者**：``scripts/apply-folder-filing.py`` 与新的
+#: ``/api/v1/kb/folders`` 都从这里取 —— 两处各写一份迟早漂移，而脚本拿顶层名字当
+#: "归位前是否已归位"的判据，漂移了那条判定就会失准。
+PREBUILT_TOP_NAMES: tuple[str, ...] = ("标准", "法律法规", "公司制度", "待分类")
+
 #: 处理状态五枚举 —— 与 schema.sql 的 CHECK 一字不差
 STAGES: tuple[str, ...] = ("queued", "recognizing", "confirming", "filed", "failed")
 STAGE_LABELS: dict[str, str] = {
@@ -88,6 +100,43 @@ _BAD_NAME_CHARS: tuple[str, ...] = ("\\", "\x00")
 
 def _err(msg: str, code: str) -> KnowledgeStationError:
     return KnowledgeStationError(msg, code=code)
+
+
+# ──────────────────────────────── 排序键 ────────────────────────────────
+#
+# 方案 §二第 3 条「同一类里按名字排」+ 业主 2026-09-21 追加「按拼音」。
+# ``folder.sort`` 是**手定顺序**（归位脚本预建的四个顶层 10/20/30/90 就靠它表达
+# 业务顺序：拼音会把「待分类」排到第二位，那不是业主要的）；拼音是**同级兜底**。
+# ⇒ 排序键统一是 ``(sort, 拼音, 原名)`` 三元组：
+#   · ``sort`` 不等时它说了算（顶层顺序由它定死）；
+#   · 相等时按拼音（中文语感）；
+#   · 拼音相同（同音异体字）时按原名 —— 保证是**全序**、结果稳定可重现。
+_pinyin_cache: dict[str, str] = {}
+
+
+def pinyin_of(name: str) -> str:
+    """名字的拼音键（无拼音库时**原样返回** —— 退化成名字序，不虚构拼音）。"""
+    key = str(name or "")
+    hit = _pinyin_cache.get(key)
+    if hit is not None:
+        return hit
+    try:
+        from pypinyin import Style, lazy_pinyin
+        val = "".join(lazy_pinyin(key, style=Style.NORMAL, errors=lambda ch: ""))
+    except Exception:                      # noqa: BLE001 — 缺依赖不许让读路径崩
+        val = key
+    _pinyin_cache[key] = val
+    return val
+
+
+def _name_sort_key(row: Any) -> tuple[int, str, str]:
+    """目录行的排序键 ``(sort, 拼音, 名)``。"""
+    return (int(row["sort"] or 0), pinyin_of(row["name"]), str(row["name"] or ""))
+
+
+def _sort_key_of_value(sort: Any, name: Any) -> tuple[int, str, str]:
+    """同一个排序键，但入参是裸值（给"还没进库"的候选目录用）。"""
+    return (int(sort or 0), pinyin_of(str(name or "")), str(name or ""))
 
 
 def _doc_columns(conn: sqlite3.Connection) -> list[str]:
@@ -374,44 +423,80 @@ def rename_folder(folder_id: str, new_name: str, db_path: Path | None = None) ->
         return {"folder_id": folder_id, "name": clean, "parent_id": row["parent_id"]}
 
 
-def move_folder(folder_id: str, new_parent_id: str | None,
+def move_folder(folder_id: str, to_parent_id: str | None,
+                from_parent_id: str | None = None,
                 db_path: Path | None = None) -> dict:
-    """挪目录到 ``new_parent_id`` 下（``None`` = 挪到顶层）。
+    """把目录**从 ``from_parent_id`` 那一处**挪到 ``to_parent_id`` 下（第 2 步修准）。
 
-    拒绝：挪进它自己 / 挪进它的任何下级（``folder_cycle``）、同名冲突、层数或路径超限。
-    见模块头「已知取舍 1」：它在**原主位置**的那条成员边会一并移走。
+    语义（= 方案 §九登记的那处待修缺陷的修法）：
+
+    * ``from_parent_id`` 省略（``None``）⇒ **取当前主位置**（``folder.parent_id``），
+      也就是调用方最常要的那件事："把这个目录挪到别处"。``to_parent_id=None`` = 挪到顶层。
+    * **只动这一次出现的那条边**：删 ``(from_parent, folder)``、加 ``(to_parent, folder)``。
+      ⇒ 一个"复制出来的、同时挂在两处"的目录不会因为挪一处而把另一处也带走。
+    * **只有 ``from_parent_id`` 正是主位置时才更新 ``folder.parent_id``**；否则目录本体
+      不动（``parent_id`` 原样保留）—— 那一次挪动只删掉这条边，**不补新边**：
+      从"复制出来的一处"把目录挪走时，新位置就是它原来的主位置，那条边已经在了。
+      返回值的 ``updated_main_position`` 如实说明走的是哪条路。
+
+    拒绝：``from_parent_id`` 那一处其实没有这个目录（``folder_not_in_parent``）、
+    挪进它自己或它的任何下级（``folder_cycle``）、同名冲突、层数或路径超限。
     """
     with write_transaction(db_path) as conn:
         row = _folder_row(conn, folder_id)
+        main_parent = row["parent_id"]
+        src = main_parent if from_parent_id is None else from_parent_id
+        if src == to_parent_id:
+            return {"folder_id": folder_id, "parent_id": main_parent, "name": row["name"],
+                    "from_parent_id": src, "to_parent_id": to_parent_id,
+                    "updated_main_position": False, "moved": False,
+                    "reason": "已经在那一处了"}
+        if src is not None:
+            _folder_row(conn, src)
+            here = conn.execute(
+                "SELECT 1 FROM folder_member WHERE folder_id=? AND item_kind='folder'"
+                " AND item_id=?", (src, folder_id)).fetchone()
+            if here is None:
+                raise _err(
+                    f"目录 {folder_id} 并不在 {src} 那一处（这条边不存在）",
+                    "folder_not_in_parent")
+
         edges = _folder_edges(conn)
-        if new_parent_id is not None:
-            _folder_row(conn, new_parent_id)
-            _assert_folder_attach_ok(conn, container_id=new_parent_id, child_id=folder_id)
-            base_depth = _depth_of(conn, new_parent_id)
+        if to_parent_id is not None:
+            _folder_row(conn, to_parent_id)
+            _assert_folder_attach_ok(conn, container_id=to_parent_id, child_id=folder_id)
+            base_depth = _depth_of(conn, to_parent_id)
         else:
             base_depth = 0
         height = _subtree_height(conn, folder_id, edges)
-        if base_depth + height > MAX_DEPTH:
+        # 层数只在**真的把这棵子树搬到新位置**时才可能变。只删一条边（源不是主位置）
+        # 时树没动 ⇒ 不拿新位置去卡它（否则"从复制处挪走"会被一条无关的上限拒掉）。
+        moves_tree = (src == main_parent)
+        if moves_tree and base_depth + height > MAX_DEPTH:
             raise _err(
                 f"挪过去会到第 {base_depth + height} 层，超过上限 {MAX_DEPTH} 层",
                 "folder_depth_exceeded")
-        _assert_name_free(conn, new_parent_id, row["name"], exclude_id=folder_id)
-        names = {r["folder_id"]: r["name"] for r in
-                 conn.execute("SELECT folder_id, name FROM folder")}
-        _assert_path_len(conn, new_parent_id, row["name"],
-                         suffix_len=_subtree_suffix_len(conn, folder_id, names, edges))
-        old_parent = row["parent_id"]
-        conn.execute("UPDATE folder SET parent_id=? WHERE folder_id=?",
-                     (new_parent_id, folder_id))
-        if old_parent is not None:
+        if moves_tree:
+            _assert_name_free(conn, to_parent_id, row["name"], exclude_id=folder_id)
+            names = {r["folder_id"]: r["name"] for r in
+                     conn.execute("SELECT folder_id, name FROM folder")}
+            _assert_path_len(conn, to_parent_id, row["name"],
+                             suffix_len=_subtree_suffix_len(conn, folder_id, names, edges))
+        if src is not None:
             conn.execute(
                 "DELETE FROM folder_member WHERE folder_id=? AND item_kind='folder'"
-                " AND item_id=?", (old_parent, folder_id))
-        if new_parent_id is not None:
+                " AND item_id=?", (src, folder_id))
+        if moves_tree:
+            conn.execute("UPDATE folder SET parent_id=? WHERE folder_id=?",
+                         (to_parent_id, folder_id))
+        if to_parent_id is not None:
             conn.execute(
                 "INSERT OR IGNORE INTO folder_member(folder_id, item_kind, item_id)"
-                " VALUES (?,?,?)", (new_parent_id, "folder", folder_id))
-        return {"folder_id": folder_id, "parent_id": new_parent_id, "name": row["name"]}
+                " VALUES (?,?,?)", (to_parent_id, "folder", folder_id))
+        main_now = _folder_row(conn, folder_id)["parent_id"]
+        return {"folder_id": folder_id, "parent_id": main_now, "name": row["name"],
+                "from_parent_id": src, "to_parent_id": to_parent_id,
+                "updated_main_position": moves_tree, "moved": True}
 
 
 def copy_folder(folder_id: str, new_parent_id: str | None = None,
@@ -762,6 +847,9 @@ def list_folder(folder_id: str | None = None, file_offset: int = 0, file_limit: 
 
     每个下级目录带 ``file_count_deep``：**含更深层**的文件数（去重：一个文件挂在
     子树里多处只算一次）；``folder_count_deep`` 同理。
+
+    **排序**（方案 §二第 3 条 + 业主 2026-09-21「按拼音」）：下级目录按
+    ``(sort, 拼音名, 名)``；文件按 ``standard_no``。⚠ 顺序是**全序**、结果可重现。
     """
     offset = max(0, int(file_offset))
     limit = int(file_limit)
@@ -774,7 +862,7 @@ def list_folder(folder_id: str | None = None, file_offset: int = 0, file_limit: 
         breadcrumb: list[dict] = []
         sub_rows = conn.execute(
             "SELECT folder_id, parent_id, name, sort, created_at FROM folder"
-            " WHERE parent_id IS NULL ORDER BY name").fetchall()
+            " WHERE parent_id IS NULL").fetchall()
     else:
         row = _folder_row(conn, folder_id)
         folder = dict(row)
@@ -785,12 +873,15 @@ def list_folder(folder_id: str | None = None, file_offset: int = 0, file_limit: 
             " WHERE folder_id IN ("
             "   SELECT item_id FROM folder_member WHERE folder_id=? AND item_kind='folder'"
             "   UNION SELECT folder_id FROM folder WHERE parent_id=?"
-            ") ORDER BY name", (folder_id, folder_id)).fetchall()
+            ")", (folder_id, folder_id)).fetchall()
 
     edges = _folder_edges(conn)
     file_edges = _file_edges(conn)
     subfolders = []
-    for r in sub_rows:
+    # ⚠ 排序在 **Python 里**做，不写成 SQL 的 ``ORDER BY``：拼音键要 pypinyin 算
+    #   （SQLite 里没有这个函数），而 `lazy_pinyin` 是纯 Python。层级宽度在现实中是
+    #   几十到几百（真库实测最大 L3 一层 206 个），一次全取再排完全够用。
+    for r in sorted(sub_rows, key=_name_sort_key):
         subtree = _subtree_ids(conn, [r["folder_id"]], edges)
         deep_files: set[str] = set()
         for fid in subtree:
@@ -866,6 +957,207 @@ def folder_scope(folder_ids: str | Iterable[str], db_path: Path | None = None) -
     for fid in sub:
         docs |= file_edges.get(fid, set())
     return {"folder_ids": sub, "doc_ids": docs, "roots": list(roots)}
+
+
+# ─────────────── 「待分类」：建议去向（只匹配现有目录）+ 批量确认归位 ───────────────
+
+def folder_tree_index(db_path: Path | None = None) -> dict:
+    """把整棵目录树读成一个纯字典（给"按路径匹配现有目录"用，**不开写事务**）。
+
+    形状：``{"by_id": {fid: {folder_id,parent_id,name,sort}},
+    "children": {pid: [fid, ...]}, "by_path": {"A › B › C": fid},
+    "name_index": {名字: [fid, ...]}, "roots": [fid, ...]}``。
+
+    ⚠ ``by_path`` 用 ``folder_filing_plan.PATH_SEP``（`` › ``）连接 —— 与
+    ``breadcrumb`` 的显示口径一致，免得两处各写一个分隔符。
+    """
+    from src.core.knowledge.folder_filing_plan import PATH_SEP
+    conn = get_db_connection(db_path)
+    by_id: dict[str, dict] = {}
+    children: dict[str, list[str]] = {}
+    name_index: dict[str, list[str]] = {}
+    roots: list[str] = []
+    for r in conn.execute(
+            "SELECT folder_id, parent_id, name, sort, created_at FROM folder"):
+        d = dict(r)
+        by_id[r["folder_id"]] = d
+        name_index.setdefault(str(r["name"]), []).append(r["folder_id"])
+        if r["parent_id"] is None:
+            roots.append(r["folder_id"])
+        else:
+            children.setdefault(r["parent_id"], []).append(r["folder_id"])
+    # 成员边也算"下级"（复制出来的位置）——按路径匹配时两个位置都算命中
+    for r in conn.execute(
+            "SELECT folder_id, item_id FROM folder_member WHERE item_kind='folder'"):
+        lst = children.setdefault(r["folder_id"], [])
+        if r["item_id"] not in lst:
+            lst.append(r["item_id"])
+    by_path: dict[str, str] = {}
+
+    def _walk(fid: str, prefix: list[str], seen: set[str]) -> None:
+        if fid in seen or len(prefix) >= MAX_DEPTH:
+            return
+        seen = seen | {fid}
+        row = by_id.get(fid)
+        if row is None:
+            return
+        path = prefix + [str(row["name"])]
+        by_path.setdefault(PATH_SEP.join(path), fid)
+        for ch in children.get(fid, ()):
+            _walk(ch, path, seen)
+
+    for fid in roots:
+        _walk(fid, [], set())
+    return {"by_id": by_id, "children": children, "by_path": by_path,
+            "name_index": name_index, "roots": roots}
+
+
+def suggest_folder_for_doc(doc: dict, index: dict | None = None,
+                           db_path: Path | None = None) -> dict | None:
+    """给一篇**还没归位**的文档算"建议放进哪个**现有**目录"（方案 §一「待分类」）。
+
+    纪律（业主要求）：**只匹配现有目录，绝不自行新建**。
+
+    * 现成建议优先：``doc_filing_state.suggested_folder_id`` 指向真实存在的目录 ⇒ 用它。
+    * 否则按**现有分类口径**（``doc_filing_plan`` → ``classify_document``，与
+      ``/documents/categories`` 同一份判断）算出"它该在哪"，再在目录树里**找到**这条路径：
+      ``by_path`` 命中 ⇒ 建议它。
+    * 都找不到 ⇒ 返回 ``None``。「该新建什么目录」那一步（``suggest_new_path``）**留给
+      第 4 步的识别人工环节**，本函数**不猜、不建**（写了就等于替业主做决定）。
+
+    返回 ``{"matched": "stored"|"path", "folder_id", "path", "folder_name"}``。
+    """
+    index = folder_tree_index(db_path) if index is None else index
+    doc_id = str(doc.get("doc_id") or "")
+    stored = doc.get("suggested_folder_id")
+    if stored and str(stored) in index["by_id"]:
+        row = index["by_id"][str(stored)]
+        return {"matched": "stored", "folder_id": str(stored),
+                "path": _path_of_id(index, str(stored)), "folder_name": row["name"]}
+    from src.core.knowledge import folder_filing_plan as plan_mod
+    if not doc_id:
+        return None
+    d = dict(doc)
+    d["domain_tags"] = plan_mod.tags_of(d)
+    try:
+        cls = plan_mod.classify_document(d)          # type: ignore[attr-defined]
+    except Exception:                                # noqa: BLE001 — 分类炸了不许让列表崩
+        return None
+    path = plan_mod.path_of(cls)
+    if any(not seg.strip() for seg in path):
+        return None
+    # 先按完整路径找；找不到就**逐级退**（L4 没有就退到 L3，再退到 L2）——
+    # 这叫"放进现有的最近一层目录"，不是"新建一层"。
+    for depth in range(len(path), 1, -1):
+        key = plan_mod.show_path(path[:depth])
+        fid = index["by_path"].get(key)
+        if fid is not None:
+            return {"matched": "path", "folder_id": fid, "path": key,
+                    "folder_name": index["by_id"][fid]["name"]}
+    return None
+
+
+def _path_of_id(index: dict, folder_id: str) -> str:
+    """目录 id → 显示路径（沿 ``parent_id`` 往上；断链就停）。"""
+    from src.core.knowledge.folder_filing_plan import PATH_SEP
+    names: list[str] = []
+    seen: set[str] = set()
+    cur: str | None = folder_id
+    while cur is not None and cur not in seen and len(names) <= MAX_DEPTH:
+        seen.add(cur)
+        row = index["by_id"].get(cur)
+        if row is None:
+            break
+        names.append(str(row["name"]))
+        cur = row["parent_id"]
+    names.reverse()
+    return PATH_SEP.join(names)
+
+
+#: 待分类确认环节里"就在这一层新建"的父目录名（业主口径：认不出就留在这儿）
+PENDING_TOP_NAME = "待分类"
+
+
+def confirm_inbox_decisions(decisions: list[dict],
+                            db_path: Path | None = None) -> dict:
+    """**批量确认归位**（方案 §一「待分类」：认好放走的文件不再在「待分类」展示）。
+
+    每条决定 ``{doc_id, action, target_folder_id?, new_parent_id?, new_name?}``：
+
+    * ``accept``   —— 接受系统建议（``doc_filing_state.suggested_folder_id``）。
+    * ``existing`` —— 改为放进**现有**目录（``target_folder_id`` 必填）。
+    * ``new``      —— 在 ``new_parent_id``（省略 = 顶层「待分类」）下**新建** ``new_name``
+      再放进去；这正是业主说的「将在 XXX 目录下新建 XXX 文件夹存放此文件」。
+
+    **一个事务**：整批全成或全败（半批归位会出现"界面显示成功、实际只放了一半"）。
+    落位后：``stage='filed'`` + 记 ``placed_*`` + **从「待分类」那一处拿掉**
+    （只删那一条归属行，别处若也挂着不动）。
+
+    返回 ``{"confirmed": N, "targets": [...], "created": [...],
+    "removed_from_pending": N}``。
+    """
+    if not isinstance(decisions, list) or not decisions:
+        raise _err("decisions 不能为空", "invalid_decision")
+    out_targets: list[dict] = []
+    created: list[dict] = []
+    removed = 0
+    with write_transaction(db_path) as conn:
+        pending_id = conn.execute(
+            "SELECT folder_id FROM folder WHERE parent_id IS NULL AND name=?",
+            (PENDING_TOP_NAME,)).fetchone()
+        pending_fid = None if pending_id is None else pending_id["folder_id"]
+        for i, raw in enumerate(decisions):
+            if not isinstance(raw, dict):
+                raise _err(f"decisions[{i}] 必须是对象", "invalid_decision")
+            doc_id = str(raw.get("doc_id") or "")
+            if not doc_id:
+                raise _err(f"decisions[{i}] 缺少 doc_id", "invalid_decision")
+            action = str(raw.get("action") or "")
+            if action not in ("accept", "existing", "new"):
+                raise _err(
+                    f"decisions[{i}].action 只能是 accept/existing/new，收到 {action!r}",
+                    "invalid_decision")
+            if action == "accept":
+                row = conn.execute(
+                    "SELECT suggested_folder_id FROM doc_filing_state WHERE doc_id=?",
+                    (doc_id,)).fetchone()
+                target = None if row is None else row["suggested_folder_id"]
+                if not target:
+                    raise _err(
+                        f"[{doc_id}] 没有可接受的建议（suggested_folder_id 为空）；"
+                        "请指定要放进哪个目录（action='existing'）", "no_suggestion")
+                target = str(target)
+            elif action == "existing":
+                target = str(raw.get("target_folder_id") or "")
+                if not target:
+                    raise _err(f"decisions[{i}] action='existing' 缺少 target_folder_id",
+                               "invalid_decision")
+            else:
+                parent = raw.get("new_parent_id") or pending_fid
+                name = str(raw.get("new_name") or "").strip()
+                if not name:
+                    raise _err(f"decisions[{i}] action='new' 缺少 new_name",
+                               "invalid_decision")
+                made = _create_folder_in_tx(conn, name, parent)
+                created.append(made)
+                target = made["folder_id"]
+            _add_member_in_tx(conn, target, "file", doc_id)
+            conn.execute(
+                "INSERT INTO doc_filing_state(doc_id, stage) VALUES (?, 'filed')"
+                " ON CONFLICT(doc_id) DO UPDATE SET stage='filed'", (doc_id,))
+            conn.execute(
+                "UPDATE doc_filing_state SET placed_folder_id=?, placed_by=?,"
+                " placed_at=datetime('now'), updated_at=datetime('now') WHERE doc_id=?",
+                (target, str(raw.get("placed_by") or "inbox-confirm"), doc_id))
+            if pending_fid is not None and pending_fid != target:
+                cur = conn.execute(
+                    "DELETE FROM folder_member WHERE folder_id=? AND item_kind='file'"
+                    " AND item_id=?", (pending_fid, doc_id))
+                removed += int(cur.rowcount > 0)
+            out_targets.append({"doc_id": doc_id, "folder_id": target,
+                                "action": action})
+    return {"confirmed": len(out_targets), "targets": out_targets,
+            "created": created, "removed_from_pending": removed}
 
 
 # ─────────────────────────── 文件处理状态 ───────────────────────────

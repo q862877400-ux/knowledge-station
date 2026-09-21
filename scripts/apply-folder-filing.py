@@ -104,7 +104,9 @@ DEFAULT_SCHEMA = _REPO / "src" / "core" / "storage" / "schema.sql"
 #: 本步只碰这三张新表（schema.sql 里的 33~35 号表）
 TARGET_TABLES: tuple[str, ...] = ("folder", "folder_member", "doc_filing_state")
 
-#: 顶层预建（业主 2026-09-21 定）：名字 → 手定顺序（写进 folder.sort）
+#: 顶层预建（业主 2026-09-21 定）：名字 → 手定顺序（写进 folder.sort）。
+#: ⚠ 名字清单的**唯一所有者**是 ``folder_store.PREBUILT_TOP_NAMES``（接口侧也读它，
+#: 免得两处各写一份）。本脚本只额外挂上自己手定的 ``sort``。
 PREBUILT_TOPS: tuple[tuple[str, int], ...] = (
     ("标准", 10), ("法律法规", 20), ("公司制度", 30), ("待分类", 90),
 )
@@ -116,6 +118,13 @@ PLAN_STD_LEVEL1 = "国家标准·行业标准·团体标准"
 #: 第 1 步实测的真库数字（2026-09-21，提交 43d1fa5/44a6cfb/7991e8c/2d60bf6）。
 #: 只用来在预演时**提示**"和记录不一样"，**不作为闸门**（真库会变，闸门会变成假红）。
 RECORDED = {"total_docs": 6417, "filed": 6036, "no_class": 379, "hidden": 2, "folders": 1124}
+
+#: SQLite 自己的表（对账时不算"用户对象"）
+_SQLITE_INTERNAL = ("sqlite_",)
+
+#: 清点"既有对象一个都没动"时跳过的表（它们**大且可重建**，清点行数很贵又没信息量：
+#: FTS/向量虚拟表及其影子表由引擎维护，行数本就随索引重建而变）
+_HEAVY_TABLE_PREFIXES = ("clause_fts", "material_fts", "vec_", "doc_vec", "clause_vec")
 
 #: 归位要读的列（与 /documents/categories 同口径；catalog_hidden 读取时自适应）
 _DOC_COLS = ("doc_id", "standard_no", "standard_name", "legal_hierarchy", "doc_type",
@@ -196,6 +205,60 @@ def _engine_status(data_dir: Path) -> dict[str, Any]:
 
 # ─────────────────────────── 只取三张表的 DDL ───────────────────────────
 
+def _strip_sql_comments(raw: str) -> list[str]:
+    """去掉 SQL 注释后切分成**语句列表**。
+
+    ⚠ **必须连行内 `--` 一起去掉**（2026-09-21 实测踩到）：schema.sql 里
+    ``page_breaks TEXT,   -- 2026-09-01 B3: 页界 …`` 这种**行尾**注释若留着，最后一段
+    会被读成一个叫 ``PDF页`` 的"列" ⇒ 对账凭空报"缺列"。
+
+    ⚠ **切分 `;` 必须避开字符串字面量**（同一次实测踩到，更凶）：schema.sql 里有
+    ``DEFAULT '...;...'``（FTS 的 ``tokenize`` 参数、触发器体里的 ``';'``）
+    ⇒ 无脑按 `;` 切会切出 ``'i'`` / ``'d'`` / ``')'`` 这种碎片，把后面几条
+    ``CREATE TABLE`` 整段吃掉，于是脚本报"**找不到这三张表的建表语句**"。
+    所以这里按**单引号状态机**切分（SQLite 用 `''` 表示字面量里的单引号）。
+
+    ⚠ **返回 list，不返回 join 起来的字符串**（实测踩到的第三个坑）：返回字符串时
+    调用方 ``for stmt in ...`` 迭代的是**单个字符**，`re.match` 一条都匹配不上
+    —— 症状与"schema.sql 里没有这三张表"一模一样，极难往这里想。
+    """
+    out: list[str] = []
+    cur: list[str] = []
+    in_str = False
+    i = 0
+    n = len(raw)
+    while i < n:
+        ch = raw[i]
+        if in_str:
+            cur.append(ch)
+            if ch == "'":
+                if i + 1 < n and raw[i + 1] == "'":      # '' = 字面量里的一个单引号
+                    cur.append("'")
+                    i += 2
+                    continue
+                in_str = False
+            i += 1
+            continue
+        if ch == "'":
+            in_str = True
+            cur.append(ch)
+            i += 1
+            continue
+        if ch == "-" and i + 1 < n and raw[i + 1] == "-":   # 行注释：吃到换行为止
+            while i < n and raw[i] != "\n":
+                i += 1
+            continue
+        if ch == ";":
+            out.append("".join(cur).strip())
+            cur = []
+            i += 1
+            continue
+        cur.append(ch)
+        i += 1
+    out.append("".join(cur).strip())
+    return [s for s in out if s]
+
+
 def target_ddl(schema_path: Path = DEFAULT_SCHEMA) -> list[str]:
     """从 ``schema.sql`` 里**现取**那三张表的建表/建索引语句（不手抄一份）。
 
@@ -203,22 +266,18 @@ def target_ddl(schema_path: Path = DEFAULT_SCHEMA) -> list[str]:
     的那些（索引按 ``ON <表>`` 判定）。安全一条不省：每条必须真的带 ``IF NOT EXISTS``、
     括号必须配平（防止切分切出半截语句还照跑）。
     """
-    raw = schema_path.read_text(encoding="utf-8")
-    body = "\n".join(ln for ln in raw.splitlines() if not ln.lstrip().startswith("--"))
     out: list[str] = []
-    for stmt in (s.strip() for s in body.split(";")):
-        if not stmt:
+    for stmt in _strip_sql_comments(schema_path.read_text(encoding="utf-8")):
+        head = re.match(r"CREATE\s+(?:UNIQUE\s+)?(TABLE|INDEX)\s+IF\s+NOT\s+EXISTS\s+"
+                        r"([A-Za-z_]\w*)", stmt, re.IGNORECASE)
+        if head is None:
             continue
-        m = re.match(r"CREATE\s+(?:UNIQUE\s+)?(TABLE|INDEX)\s+IF\s+NOT\s+EXISTS\s+"
-                     r"([A-Za-z_]\w*)", stmt, re.IGNORECASE)
-        if not m:
-            continue
-        kind, name = m.group(1).upper(), m.group(2)
+        kind, name = head.group(1).upper(), head.group(2)
         if kind == "TABLE":
             keep = name in TARGET_TABLES
         else:
             on = re.search(r"\bON\s+([A-Za-z_]\w*)", stmt, re.IGNORECASE)
-            keep = bool(on) and on.group(1) in TARGET_TABLES
+            keep = on is not None and on.group(1) in TARGET_TABLES
         if not keep:
             continue
         if "IF NOT EXISTS" not in stmt.upper():
@@ -250,7 +309,12 @@ def _schema_fingerprint(conn: sqlite3.Connection) -> dict[str, str]:
 
 
 def _assert_only_additions(before: dict[str, str], after: dict[str, str]) -> list[str]:
-    """既有对象一个都不许改、不许删；新增的必须是那三张表自己的东西。返回新增清单。"""
+    """既有对象一个都不许改、不许删；新增的必须是那三张表自己的东西。返回新增清单。
+
+    ⚠ **这条只管"本次建表前后"**（三条 DDL 全是 ``IF NOT EXISTS`` ⇒ 它只可能看见新增）。
+    对"库**事先**就被人动过"（删了索引 / 少了列）**零侦测力** —— 那由
+    ``schema_drift`` 拿 ``schema.sql`` 对账兜住（2026-09-21 复核实测的"没有牙的保护"）。
+    """
     changed = [k for k, v in before.items() if after.get(k) != v]
     if changed:
         raise Abort(f"既有表/列被改动了（本步绝不许）：{changed[:10]}")
@@ -261,10 +325,217 @@ def _assert_only_additions(before: dict[str, str], after: dict[str, str]) -> lis
     return added
 
 
+# ═══════════ 对账：schema.sql 声明的既有对象 ⇄ 库里的实际对象 ═══════════
+#
+# ⚠ **为什么必须有这一块**（2026-09-21 独立复核在 `verify-freeze-kb-filed` 上实测）：
+# 原来那句"既有表/列指纹一个都没变"**只比"本次建表前后"**，而三条建表语句全是
+# `IF NOT EXISTS` ⇒ 那个分支**永远不会响**。实测：先删掉一个既有索引
+# （`idx_alias_lookup`）或给 `doc_meta` 加一列，再 `--apply` ⇒ **exit 0 照写**、
+# 还打印"一个都没变"。
+#
+# 现在改成**拿 schema.sql 里声明的对象当基准，与库里的实际对象对账**：
+#   · 库里**少了**声明的表 / 索引 / 列  ⇒ 报（这是"库被删过东西"）
+#   · 库里多出**声明之外的列**          ⇒ **只登记、不中止**（生产的 `ensure_additive_columns`
+#     合法地给既有表加列，拿它当中止条件会把正常库判死）
+# 对不上 ⇒ 由调用方**中止不写**。
+
+_VIRTUAL_TABLE = re.compile(r"\)\s*USING\s+\w+", re.IGNORECASE)
+
+
+def _split_top_level(body: str) -> list[str]:
+    """按**顶层**逗号切分一段 SQL（括号里的逗号不算）。"""
+    parts: list[str] = []
+    depth = 0
+    cur = ""
+    in_str: str | None = None
+    for ch in body:
+        if in_str:
+            cur += ch
+            if ch == in_str:
+                in_str = None
+            continue
+        if ch in ("'", '"'):
+            in_str = ch
+            cur += ch
+            continue
+        if ch == "(":
+            depth += 1
+        elif ch == ")":
+            depth -= 1
+        if ch == "," and depth == 0:
+            parts.append(cur)
+            cur = ""
+            continue
+        cur += ch
+    if cur.strip():
+        parts.append(cur)
+    return parts
+
+
+def _columns_from_create(stmt: str) -> list[str]:
+    """``CREATE TABLE`` 语句里声明的列名（表级约束与虚拟表列自动跳过）。
+
+    跳过：以 ``CONSTRAINT`` / ``PRIMARY`` / ``UNIQUE`` / ``CHECK`` / ``FOREIGN``
+    开头的表级约束；``sqlite_`` 内部列；FTS 的 ``*`` 列；虚拟表（带 ``USING``）
+    —— 它的列由扩展定义，拿 DDL 对账会假红。
+    """
+    if _VIRTUAL_TABLE.search(stmt):
+        return []
+    i = stmt.find("(")
+    j = stmt.rfind(")")
+    if i < 0 or j <= i:
+        return []
+    cols: list[str] = []
+    for part in _split_top_level(stmt[i + 1:j]):
+        head = part.strip()
+        if not head:
+            continue
+        m = re.match(r'^(?:"([^"]+)"|`([^`]+)`|\[([^\]]+)\]|([A-Za-z_]\w*))', head)
+        if not m:
+            continue
+        name = next((g for g in m.groups() if g), "")
+        if not name or name.startswith(_SQLITE_INTERNAL):
+            continue
+        if name.upper() in ("CONSTRAINT", "PRIMARY", "UNIQUE", "CHECK", "FOREIGN"):
+            continue
+        cols.append(name)
+    return cols
+
+
+def declared_objects(schema_path: Path = DEFAULT_SCHEMA) -> dict:
+    """``schema.sql`` 声明的对象：``{"tables": {名: [列…]}, "indexes": {名: 表}}``。"""
+    tables: dict[str, list[str]] = {}
+    indexes: dict[str, str] = {}
+    for stmt in _strip_sql_comments(schema_path.read_text(encoding="utf-8")):
+        if not stmt:
+            continue
+        m = re.match(r"CREATE\s+(?:UNIQUE\s+)?(TABLE|INDEX)\s+IF\s+NOT\s+EXISTS\s+"
+                     r"([A-Za-z_]\w*)", stmt, re.IGNORECASE)
+        if not m:
+            continue
+        kind, name = m.group(1).upper(), m.group(2)
+        if kind == "TABLE":
+            tables[name] = _columns_from_create(stmt)
+        else:
+            on = re.search(r"\bON\s+([A-Za-z_]\w*)", stmt, re.IGNORECASE)
+            indexes[name] = on.group(1) if on else ""
+    return {"tables": tables, "indexes": indexes}
+
+
+def _live_objects(conn: sqlite3.Connection) -> dict:
+    """库里的用户对象：``{"tables": {名: [列…]}, "indexes": {名: 表}}``（不含 ``sqlite_*``）。"""
+    tables: dict[str, list[str]] = {}
+    for r in conn.execute("SELECT name, sql FROM sqlite_master WHERE type='table'"):
+        name = str(r["name"])
+        if name.startswith(_SQLITE_INTERNAL) or name in _HEAVY_TABLE_PREFIXES \
+                or name.startswith(_HEAVY_TABLE_PREFIXES):
+            continue
+        cols = [str(c[1]) for c in conn.execute(f'PRAGMA table_info("{name}")')]
+        tables[name] = cols
+    indexes: dict[str, str] = {}
+    for r in conn.execute(
+            "SELECT name, tbl_name FROM sqlite_master WHERE type='index'"):
+        name = str(r["name"])
+        if name.startswith(_SQLITE_INTERNAL):
+            continue
+        indexes[name] = str(r["tbl_name"])
+    return {"tables": tables, "indexes": indexes}
+
+
+def schema_drift(db_path: Path, schema_path: Path = DEFAULT_SCHEMA) -> dict:
+    """拿 ``schema.sql`` 声明的对象与库里的实际对象**对账**（只读）。
+
+    * ``missing_tables`` —— 声明了、库里没有的表。
+    * ``missing_columns`` —— 声明了、库里那一列没有（形如 ``表.列``）。
+    * ``missing_indexes`` —— 声明了、库里没有的索引（表还在才算 —— 表自己都没了就
+      已经在 ``missing_tables`` 里报了，不必报两遍）。
+    * ``extra_columns`` —— 库里**有**、``schema.sql`` 没声明的列。**合法**（生产的
+      ``ensure_additive_columns`` 就这么给既有表加列）⇒ **只登记、不当中止理由**。
+
+    ⚠ **本步自己那三张表（``TARGET_TABLES``）不参与缺列检查**（2026-09-21 实测踩到）：
+    它们**本来就可能还不存在**（老库靠本脚本建），而"声明了却没有"对它们正是
+    **要动手做的事**，不是"库被人动过"的证据 ⇒ 拿它当中止理由会让脚本永远开不了工。
+    它们的建成与否由 ``_target_tables_present`` / ``IF NOT EXISTS`` 管。
+
+    ⚠ **缺列只在"库里那张表有列信息"时才判**：``PRAGMA table_info`` 对虚拟表返回空，
+    拿空当"列全缺"就是纯假红。
+    """
+    declared = declared_objects(schema_path)
+    conn = _open_readonly(db_path)
+    try:
+        live = _live_objects(conn)
+    finally:
+        conn.close()
+    missing_tables = [t for t in declared["tables"]
+                      if t not in live["tables"] and t not in TARGET_TABLES]
+    missing_columns = [f"{t}.{c}" for t, cols in declared["tables"].items()
+                       if t not in TARGET_TABLES and t in live["tables"]
+                       and live["tables"][t]
+                       for c in cols if c not in live["tables"][t]]
+    missing_indexes = [ix for ix, tbl in declared["indexes"].items()
+                       if ix not in live["indexes"] and tbl in live["tables"]]
+    extra_columns = [f"{t}.{c}" for t, cols in live["tables"].items()
+                     if t in declared["tables"]
+                     for c in cols if c not in declared["tables"][t]]
+    ok = not (missing_tables or missing_columns or missing_indexes)
+    return {"ok": ok, "missing_tables": missing_tables,
+            "missing_columns": missing_columns, "missing_indexes": missing_indexes,
+            "extra_columns": extra_columns,
+            "declared_counts": {"tables": len(declared["tables"]),
+                                "indexes": len(declared["indexes"])},
+            "live_counts": {"tables": len(live["tables"]), "indexes": len(live["indexes"])}}
+
+
+def _entity_tables(conn: sqlite3.Connection) -> list[str]:
+    """实体表清单（清点"库有没有被动过"用；虚拟表/影子表/内部表排除）。"""
+    out: list[str] = []
+    for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'"):
+        name = str(r["name"])
+        if name.startswith(_SQLITE_INTERNAL):
+            continue
+        if name.startswith(_HEAVY_TABLE_PREFIXES) or name in _HEAVY_TABLE_PREFIXES:
+            continue
+        out.append(name)
+    return sorted(out)
+
+
+def db_state(db_path: Path) -> dict:
+    """"库有没有被动过"的一个总指纹（给"中止不写"当证据用，只读）。
+
+    四样：``.db`` 大小 + ``-wal`` 大小 + **每张实体表的行数** + **schema 对象名集合**。
+    任何一项变了就说明有人写过（哪怕只是一行）。
+    """
+    st = db_path.stat()
+    wal = db_path.with_name(db_path.name + "-wal")
+    conn = _open_readonly(db_path)
+    try:
+        rows = {t: int(conn.execute(f'SELECT COUNT(*) FROM "{t}"').fetchone()[0])
+                for t in _entity_tables(conn)}
+        objects = sorted(f"{r['type']}:{r['name']}" for r in conn.execute(
+            "SELECT type, name FROM sqlite_master WHERE sql IS NOT NULL"
+            " AND name NOT LIKE 'sqlite_%'"))
+    finally:
+        conn.close()
+    return {"db_size": st.st_size, "db_mtime_ns": st.st_mtime_ns,
+            "wal_size": wal.stat().st_size if wal.exists() else 0,
+            "rows": rows, "objects": objects}
+
+
 # ─────────────────────────── 建三张新表（只许新增） ───────────────────────────
 
 def ensure_target_tables(db_path: Path, schema_path: Path = DEFAULT_SCHEMA) -> dict:
-    """按 schema.sql 的 DDL 建那三张表（``IF NOT EXISTS``），并证明**没动任何既有东西**。"""
+    """按 schema.sql 的 DDL 建那三张表（``IF NOT EXISTS``），并证明**没动任何既有东西**。
+
+    两道检查（**先对账、再建表**）：
+    ① ``schema_drift`` —— 拿 ``schema.sql`` 声明的对象与库里的实际对象对账（"库**事先**
+       就被人删过东西"只有它能侦测到）；
+    ② ``_assert_only_additions`` —— 本次建表前后既有对象一个都没改（防"建表语句自己写错"）。
+    """
+    drift = schema_drift(db_path, schema_path)
+    if not drift["ok"]:
+        raise Abort("库与 schema.sql 对不上（缺表/缺列/缺索引），拒绝建表更拒绝写数据："
+                    f"tables={drift['missing_tables'][:5]} cols={drift['missing_columns'][:5]}"
+                    f" indexes={drift['missing_indexes'][:5]}")
     stmts = target_ddl(schema_path)
     conn = sqlite3.connect(str(db_path))
     conn.row_factory = sqlite3.Row
@@ -277,7 +548,8 @@ def ensure_target_tables(db_path: Path, schema_path: Path = DEFAULT_SCHEMA) -> d
         conn.commit()
         added = _assert_only_additions(before, _schema_fingerprint(conn))
         return {"statements": len(stmts), "existed_before": have_before,
-                "created_objects": added, "targets_present": _target_tables_present(conn)}
+                "created_objects": added, "schema_drift": drift,
+                "targets_present": _target_tables_present(conn)}
     except sqlite3.Error as e:
         conn.rollback()
         raise Abort(f"建表失败（既有表/列没动）：{type(e).__name__}: {e}") from e
@@ -698,6 +970,45 @@ def _print_rollback(db_path: Path, backup_path: str | None) -> None:
     print(f'   copy /Y "{backup_path or "<本次备份路径>"}" "{db_path}"')
 
 
+def _db_state_diff(before: dict, after: dict) -> dict:
+    """两次 ``db_state`` 的差异（只报变化项；给"中止不写"当证据）。"""
+    changed: dict[str, Any] = {}
+    for k in ("db_size", "wal_size"):
+        if before[k] != after[k]:
+            changed[k] = {"before": before[k], "after": after[k]}
+    rows = {t: {"before": before["rows"].get(t), "after": after["rows"].get(t)}
+            for t in set(before["rows"]) | set(after["rows"])
+            if before["rows"].get(t) != after["rows"].get(t)}
+    if rows:
+        changed["rows"] = rows
+    gone = [o for o in before["objects"] if o not in set(after["objects"])]
+    new = [o for o in after["objects"] if o not in set(before["objects"])]
+    if gone:
+        changed["objects_removed"] = gone
+    if new:
+        changed["objects_added"] = new
+    return changed
+
+
+def _print_no_write_proof(src: Path, before: dict, after: dict) -> None:
+    """把"真的一个字节都没写"打印成**可核对的三个数**。"""
+    diff = _db_state_diff(before, after)
+    print(f"{BANNER}\n零写入证据（同一个库，中止/预演前后各清点一次）\n{BANNER}")
+    print(f"- .db 大小 {before['db_size']:,} → {after['db_size']:,}"
+          f"（{after['db_size'] - before['db_size']:+,} 字节）")
+    print(f"- -wal 大小 {before['wal_size']:,} → {after['wal_size']:,}")
+    print(f"- 既有表行数：清点了 {len(before['rows'])} 张；变化的 "
+          f"{len(diff.get('rows', {}))} 张")
+    print(f"- schema 对象：{len(before['objects'])} 个；新增 "
+          f"{len(diff.get('objects_added', []))}、消失 "
+          f"{len(diff.get('objects_removed', []))}")
+    if diff:
+        print(f"  ⚠ **竟然变了**：{diff}")
+    else:
+        print("  ✓ 三样全同 ⇒ 这次运行**连一行都没写**")
+    print(BANNER)
+
+
 def _print_plan_summary(plan: dict, payload: dict, existing: dict, tables: dict,
                         engine: dict, apply: bool, backup_dir: Path,
                         backup_path: str | None, rows_before: dict | None = None) -> None:
@@ -780,7 +1091,12 @@ def _print_read_back(v: dict, after: dict) -> None:
     print(f"- 库文件（含 -wal/-shm）：写入前 {after['before_total']:,} 字节 → "
           f"写入后 {after['after_total']:,} 字节（{after['delta']:+,}）；"
           f".db 本体 {after['db_before']:,} → {after['db_after']:,}"
-          "（WAL 模式下本体可能不涨，看总量）")
+          f"（{after['db_after'] - after['db_before']:+,}）；"
+          f"-wal {after['wal_before']:,} → {after['wal_after']:,}"
+          f"（{after['wal_after'] - after['wal_before']:+,}）")
+    print("  ⚠ 这三个数要**一起看**：`-wal` 被 checkpoint 收进 `.db` 时总量可能变小，"
+          "而 `.db` 本体**是涨的**（第 1 步实测 `.db` +2,879,488 / 合计 −1,965,664，"
+          "只看合集会读成「库没长大」）")
     print(f"  {'✓ 总量一致地增长了' if after['grew'] else '⚠ 总量没涨（引擎 checkpoint 也会这样）'}")
     print(f"\n随机抽 {len(v['spot_check'])} 个目录（种子 {after['seed']}）"
           "——目录名 → 里面的文件名：")
@@ -864,6 +1180,30 @@ def _main(argv: list[str] | None) -> int:
     _print_plan_summary(plan, payload, existing, tables, engine, args.apply,
                         Path(args.backup_dir), None, rows_before)
 
+    # ── 对账：库里的实际对象 vs schema.sql 声明的对象（只读；先做，早于任何写入）──
+    state_before = db_state(src)
+    drift = schema_drift(src)
+    print(f"- 对账（库 vs schema.sql）：声明的表 {drift['declared_counts']['tables']} /"
+          f" 索引 {drift['declared_counts']['indexes']}；库里实体表"
+          f" {drift['live_counts']['tables']} / 索引 {drift['live_counts']['indexes']}"
+          f" ⇒ {'对得上' if drift['ok'] else '**对不上**'}")
+    if drift["extra_columns"]:
+        print(f"  · 库里多出 schema.sql 没声明的列 {len(drift['extra_columns'])} 个"
+              f"（**合法**：生产用 ensure_additive_columns 给既有表加列，例如"
+              f" catalog_hidden）⇒ 只登记、不中止：{drift['extra_columns'][:8]}")
+    if not drift["ok"]:
+        print(f"\n[FAIL] 库里有 schema.sql 声明、实际却**缺失**的东西 —— 库在跑本脚本之前"
+              f"就被人动过。\n       本脚本**中止、一个字节都不写**（连备份都不建）。",
+              file=sys.stderr)
+        for label, key in (("缺表", "missing_tables"), ("缺列", "missing_columns"),
+                           ("缺索引", "missing_indexes")):
+            if drift[key]:
+                print(f"       {label}：{drift[key][:20]}", file=sys.stderr)
+        print("       先弄清是谁动过（或从备份还原），再重跑。", file=sys.stderr)
+        _print_no_write_proof(src, state_before, db_state(src))
+        _print_rollback(src, None)
+        return 2
+
     # 老结构（没跳层）还在 ⇒ 拒绝往下走：静默建出两棵并存的树是最坏的一种错
     if PLAN_STD_LEVEL1 in root_names:
         print(f"\n[FAIL] 真库顶层已经有「{PLAN_STD_LEVEL1}」这个目录 —— 说明早先按**没跳层**的"
@@ -882,6 +1222,7 @@ def _main(argv: list[str] | None) -> int:
         print(f"\n{BANNER}\n预演到此为止：**真库一个字节都没写**"
               f"（.db 大小与 mtime {'✓ 前后一致' if untouched else '⚠ 竟然变了！'}{wal_note}）\n"
               f"要真的落库，加上 --apply（会先整份备份）。\n{BANNER}")
+        _print_no_write_proof(src, state_before, db_state(src))
         _print_rollback(src, None)
         if args.report:
             _write_report(args, plan, payload, {"dry_run": True, "untouched": untouched})
@@ -901,7 +1242,8 @@ def _main(argv: list[str] | None) -> int:
 
     ensure = ensure_target_tables(src)
     print(f"[建表 OK] 已有 {ensure['existed_before'] or '无'}；新增对象 "
-          f"{len(ensure['created_objects'])} 个；既有表/列指纹**一个都没变**")
+          f"{len(ensure['created_objects'])} 个；对账 {ensure['schema_drift']['ok']}"
+          "（① 库 vs schema.sql 声明；② 本次建表前后既有对象指纹）")
 
     from src.core.knowledge import folder_store as fs
     t0 = time.time()
@@ -927,6 +1269,7 @@ def _main(argv: list[str] | None) -> int:
         "before_total": before["total_size"], "after_total": after["total_size"],
         "delta": after["total_size"] - before["total_size"],
         "db_before": before["db"]["size"], "db_after": after["db"]["size"],
+        "wal_before": before["wal"]["size"], "wal_after": after["wal"]["size"],
         "grew": grew, "seed": args.seed})
     _print_rollback(src, backup["path"])
 
