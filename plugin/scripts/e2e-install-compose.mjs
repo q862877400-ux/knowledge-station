@@ -20,17 +20,35 @@
  *   8. 断言 exit 0 / 6 个 ks_ 工具全在 / ks_ping 的 tool result 里 ok:true + httpStatus:200 /
  *      stdout 里有 `e2e-done`
  *
- * ## 两条**实测钉死**的装配细节（照抄，别猜）
+ * ## 两条装配细节（**第一条实测钉死；第二条见下面的更正，别照抄旧的结论**）
  *   · **headless profile 没有 `webserver` 行**（只有 `web-app` bundle 挂它，
  *     见 `packages/bundle/web-app/cordis.patch.yml` 的 `- id: webserver`）⇒ 直接装我们的插件，
  *     插件会 PENDING（实测原文：`ks-engine (ks-dsh-plugin): pending (waiting for service: webServer)`）。
  *     ⇒ overlay 必须补一行 webserver（`@deepseek-ai/dsh-host-webserver`，profile 的
  *     module-fallback 会从检出解析到它；`port: 0` = 系统分配，不占端口）。
- *   · **settings.yaml 这条路对 headless 不可靠**：实测同一份 `llm-pi-ai.providers` +
- *     `agent-default-model` 写进 `$DSH_HOME/settings.yaml` 后，请求**根本没到假网关**
- *     （`TRANSPORT: Connection error.`，`NODE_DEBUG=net` 显示一次 TCP 连接都没有）——
- *     原因未查明。而 `--patch` 覆盖同两行**能跑通** ⇒ 本脚本用 `--patch`（`--patch` 是
- *     `args.ts:155` 的正式接口，可重复）。
+ *   · **`--patch` 覆盖 `agent-default-model` + `llm-pi-ai` 这条**是本脚本实际走的、
+ *     **实测能跑通**的路（`--patch` 是 `args.ts:155` 的正式接口，可重复）。
+ *
+ * ### ⚠ 更正（2026-09-21，复核要求限时探一次之后）：settings 路的旧结论**撤回**
+ * 本文件第一版写的是"settings.yaml 这条路对 headless 不可靠 …… `TRANSPORT: Connection error.`，
+ * `NODE_DEBUG=net` 显示一次 TCP 连接都没有 ⇒ 改用 `--patch`"。**那句话保留，但它现在站不住**：
+ * 复核让我限时探根因，我探到的是——**我当时那些最小探针自己是坏的**：
+ *   ① 探针网关只发 `data: [DONE]`、**没有 content chunk** ⇒ pi-ai 的流永远不结束（TCP 连上了、
+ *      HTTP 请求也到了，但宿主一直等）——`NODE_DEBUG=net` 里能看到 `afterConnect` + `_read`；
+ *   ② 探针**没有设 `KS_DATA_DIR`** ⇒ 插件会去找**真** `%APPDATA%\KnowledgeStation` 的引擎会话。
+ *   ⇒ 所以"settings 路不行"这个结论**不能维持**，我**没有**证明它。
+ * **已经**能钉住的只有两条（都有原文）：
+ *   · **`settings.yaml` 在 headless 档确实被读了**：往里写坏 YAML，宿主当场报
+ *     `settings (@deepseek-ai/dsh-settings-file): Error: settings-file: invalid document at
+ *     <home>\settings.yaml: BAD_INDENT at line 3, column 1` ⇒ 文件**有**消费者。
+ *   · **`--dump-config` 天生看不到 settings 内容**：headless 的 dump 里
+ *     `- id: llm-pi-ai` 这一行**在**（`name: '@deepseek-ai/dsh-llm-pi-ai'`，行后**没有 `config:`**，
+ *     与 `packages/bundle/base/cordis.patch.yml` 里该行的形状一致）；整份 363 行 dump 里
+ *     `providers` 命中 **0** 行、`ks-fake` 命中 **0** 行。⇒ "dump 里没有 providers" **不是**根因，
+ *     那只是 dump 只打组合层（settings 是运行时 provider）。
+ * **未查明** = "settings 里的 `llm-pi-ai.providers.ks-fake` / `agent-default-model` 在 headless
+ * 档到底有没有变成可用路由"。要查清得用**好探针**（带 content chunk 的网关 + 设 `KS_DATA_DIR`）
+ * 重跑一次；本脚本继续用 `--patch`（已知能通、且不依赖这个问题）。
  *
  * ## 钱（业主明令："真花钱"不可自作主张）
  * 起宿主的子进程环境里**剥掉所有 `*_API_KEY`**（尤其 `DEEPSEEK_API_KEY`）与 `KS_PYTHON`，
@@ -38,9 +56,11 @@
  * 另：`overlay` 把 `llm-pi-ai` 的 providers **整体替换**成只有 `ks-fake` 一条 ⇒ 即使
  * settings/组合层有别的 provider，宿主的默认模型路由也只能落到假网关（端点仅 127.0.0.1）。
  *
- * ## 环境隔离
+ * ## 环境隔离（实测数字，2026-09-21 复核要求补）
  * `$DSH_HOME` 只设给**子进程**（绝不动 `web` profile，也绝不动本进程环境）；
- * 所有产物落 `%TEMP%\ks-e2e-<pid>-*`，`finally` 里删干净；代码树零运行产物。
+ * 所有产物落 `%TEMP%\ks-e2e-<pid>-*`，`finally` 里**同步/await 删干净**；代码树零运行产物。
+ * **实测**：`%TEMP%\ks-e2e-*` 在连跑 3 次 + 再跑 2 次前后都是 **0 个**（本脚本自己清干净）。
+ * （同批的 `verify-tools-real.mjs` 当时每跑泄漏 2 个目录 —— 已在那边修掉并在注释里留痕。）
  *
  * 跑法：`node plugin/scripts/e2e-install-compose.mjs`（退出码 0 = 全通过）
  */
@@ -278,23 +298,33 @@ async function main() {
         + `\n--- stdout 尾部 ---\n${tail(run.stdout)}\n--- stderr 尾部 ---\n${tail(run.stderr)}`
       : `exit=${run.code}，${run.ms}ms`)
 
-  /* --------------------- 8. 工具清单 + ks_ping 真的执行了 --------------------- */
-  const first = gatewayRequests[0]
-  const offered = first?.toolNames ?? []
-  const offeredKs = offered.filter((n) => n.startsWith('ks_'))
+  /* --------------------- 8. 工具清单 + ks_ping 真的执行了 ---------------------
+   * ⚠ **位置无关**（2026-09-21 复核要求 + 自查）：请求序列是 DSH 内部行为（实测一轮
+   * 3 个请求：第 1 个 tools=30、第 2 个 tools=0、第 3 个 tools=30 且带回结果），换个版本
+   * 就可能变 ⇒ 断言只依赖**语义**：
+   *   · "所有收到过的请求里，至少有一个带着我们的全部 6 个工具"（不是"第 1 个必须带"）；
+   *   · "至少有一个请求带着 ks_ping 的 tool result，且里面 ok:true + httpStatus:200"
+   *     （不是"第 3 个必须是它"）。
+   * **本文件里没有任何"正好 N 个请求"的硬编码**（唯一的按序号分支是假网关自己的应答
+   * 剧本：第 1 个请求回 tool_calls，其余回纯文本 —— 那是**我们造的行为**，不是断言）。
+   * ------------------------------------------------------------------------- */
+  const allOffered = gatewayRequests.flatMap((r) => r.toolNames)
+  const offeredKs = [...new Set(allOffered.filter((n) => n.startsWith('ks_')))]
   const missingKs = KS_TOOLS.filter((n) => !offeredKs.includes(n))
-  check('8. 假网关从宿主第一个请求里读到工具清单（宿主真的发出了请求）',
-    first !== undefined,
-    first === undefined
+  const carrier = gatewayRequests.find((r) => KS_TOOLS.every((n) => r.toolNames.includes(n)))
+  check('8. 假网关从宿主请求里读到过工具清单（宿主真的发出了请求）',
+    gatewayRequests.length > 0,
+    gatewayRequests.length === 0
       ? `⛔ 一个请求都没收到；命令行=${run.commandLine}\n--- stderr 尾部 ---\n${tail(run.stderr)}`
-      : `第 1 个请求 ${first.url} model=${first.model} stream=${first.stream}`
-        + ` tools=${first.toolCount} 个`)
+      : `共 ${gatewayRequests.length} 个请求；带全部 6 个工具的请求序号=`
+        + `${carrier === undefined ? '(无)' : carrier.n}`)
   check('8. 我们的 6 个工具**全在** offer 给模型的清单里（包含断言，不是"正好"）',
-    missingKs.length === 0 && offeredKs.length >= KS_TOOLS.length,
+    missingKs.length === 0,
     `命中 ${offeredKs.length}/6：${offeredKs.join(',') || '(none)'}`
       + `${missingKs.length ? ` ｜缺：${missingKs.join(',')}` : ''}`
-      + ` ｜宿主 offer 的工具总数=${offered.length}`)
-  console.log(`      宿主 offer 的完整工具清单（${offered.length} 个）：${offered.join(', ')}`)
+      + ` ｜承载它们的那个请求 offer 总数=${carrier?.toolCount ?? '(n/a)'}`)
+  console.log(`      宿主 offer 的完整工具清单（取并集，去重后 ${[...new Set(allOffered)].length} 个）：`
+    + `${[...new Set(allOffered)].join(', ')}`)
 
   const pingOk = toolResultText !== null && /"ok"\s*:\s*true/.test(toolResultText)
     && /"httpStatus"\s*:\s*200/.test(toolResultText)
@@ -313,7 +343,9 @@ async function main() {
   return finish(null, {
     gatewayRequests: gatewayRequests.map((r) => ({ n: r.n, url: r.url, model: r.model,
       stream: r.stream, toolCount: r.toolCount, ksTools: r.toolNames.filter((n) => n.startsWith('ks_')) })),
-    offeredToolCount: offered.length,
+    offeredToolCountUnion: [...new Set(allOffered)].length,
+    carrierRequestNumber: carrier?.n ?? null,
+    carrierToolCount: carrier?.toolCount ?? null,
     offeredKsTools: offeredKs,
     toolResultSnippet: toolResultText === null ? null : toolResultText.replace(/\s+/g, ' ').slice(0, 400),
     dumpHits: { bundleHeader: bundleHeaderHits[0] ?? null, engineRow: engineRowHits[0] ?? null },
