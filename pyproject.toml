@@ -36,6 +36,11 @@ dependencies = [
     #   曾显式声明的理由（pptx 只是传递依赖恰好满足，见 requests/bs4 那条教训）随之作废。
     # 已删除：python-multipart（全仓 0 import、120 端点无 multipart 表单，
     #   venv 中仅作为 mineru 传递依赖存在）
+    # 知识库目录排序：业主 2026-09-21 要求"同级按拼音"（纯 Python、MIT、840KB；
+    #   已实测装得上：0.55.0，走本地缓存无需联网）。一级目录另有**手定顺序**
+    #   （`folder.sort`：标准 10 / 法律法规 20 / 公司制度 30 / 待分类 90），
+    #   所以排序口径是"手定顺序优先、拼音兜底"，见 folder_store 的 list 函数。
+    "pypinyin>=0.55",
 ]
 
 [project.optional-dependencies]
