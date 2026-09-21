@@ -41,6 +41,12 @@
   再用 `git rev-list --count <base>..<frozen>` **数出**提交条数写进任务书（不凭印象）。
 - verifier **必须在冻结提交的提取树上验**（`git worktree add`/`git archive`），并在报告首尾各记一次
   `git rev-parse HEAD` + `git status --short`。**"边改边验"是双向污染。**
+  ⚠ **派 verifier 之前要机械地确认"没人还在写这棵树"**（2026-09-21 实测踩到）：我拿到实施代理的报告就派了复核，
+  而实施代理**自己的变异周期**在复核进行中把主仓弄脏过（`plugin/client/KsKnowledgePage.tsx` 被删掉两行保护，
+  mtime `18:30:01`）。复核当场留快照（`var/tmp/verify-ui-cards-row-workingtree-drift-20260921-1830.tsx`）
+  并 `git checkout --` 还原 ⇒ 那轮结论没被污染。但那是**复核尽责**，不是流程。
+  ⇒ 派复核前两条机械动作：① `git status --short` **必须空**；② `list_agents` 确认**没有实施代理在跑**
+  （它报 finish 之前，变异/还原可能还在进行）。
 - ⚠ **提取树里装依赖必须"真拷贝"，别用 junction/符号链接**（复核实测两次，2026-09-20 定成协议）：
   esbuild 会把**经 junction 解析**的依赖打成**绝对路径**写进产物（`D:/.../plugin/node_modules/...`，
   而交付件里是 `node_modules/...`）⇒ `smoke-client-entry` 的"交付产物 ↔ 从源码现构建**整份一致**"
