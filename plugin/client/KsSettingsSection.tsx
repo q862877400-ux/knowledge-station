@@ -64,7 +64,6 @@ import {
 import { KsReportPanel } from './KsReportPanel'
 import { KsMaterialsPanel } from './KsMaterialsPanel'
 import { KsChannelsPanel } from './KsChannelsPanel'
-import { KsIngestPanel } from './KsIngestPanel'
 import {
   KS_PREFS_DEFAULT,
   getPrefsSnapshot,
@@ -164,7 +163,6 @@ export function KsSettingsSection(props: KsSettingsSectionInjected): JSX.Element
   const [reportOpen, setReportOpen] = useState(false)
   const [materialsOpen, setMaterialsOpen] = useState(false)
   const [channelsOpen, setChannelsOpen] = useState(false)
-  const [ingestOpen, setIngestOpen] = useState(false)
   const [inspectionOpen, setInspectionOpen] = useState(false)
   const [inspectionOpenedOnce, setInspectionOpenedOnce] = useState(false)
   const [announceOpen, setAnnounceOpen] = useState(false)
@@ -246,15 +244,17 @@ export function KsSettingsSection(props: KsSettingsSectionInjected): JSX.Element
         <KsChannelsPanel visible={channelsOpen} />
       </KsCategory>
 
-      <KsCategory
-        title="入库预览"
-        open={ingestOpen}
-        onToggle={setIngestOpen}
-        hint="入库前只读体检（✅/⚠️/❌ 分桶），不写库；默认不外发（可显式开启云深度解析）"
-      >
-        <KsIngestPanel visible={ingestOpen} />
-      </KsCategory>
-
+      {/* ⚠⚠ **2026-09-21（第 4 步）就地撤掉「入库预览」这一组**（原文保留在下面，别删）：
+          它原来把 `KsIngestPanel`（只读体检 ✅/⚠️/❌ 分桶）挂在这里。
+          业主：「不要两个页面」⇒ 导入这件事**只有一个落点**：知识库页 →「待分类」层上的
+          导入面板（那里有「来源目录」+「先体检（只读）」+「导入到这一层」+「覆盖重导」）。
+          这里再留一个入口就是第二个页面。**删掉的是入口，不是能力**：体检那一步已经并进
+          待分类层的面板（`KsKnowledgePage.tsx` 的 `runCheck`，走同一条
+          `/ks/ingest/preview/batch`，默认不外发）。
+          ⚠ `KsIngestPanel.tsx` 本身**留在仓里**（它的渲染与路由判据还在
+          `plugin/scripts/smoke-ingest.mjs` / `ui-render-shot.mjs` 的 `--page ingest` 上跑着）
+          —— 属于"产品里已无入口、代码与判据暂留"的状态，登记在报告里；
+          第 5 步若确认不再需要，连它的冒烟一起删。 */}
       <KsCategory title="每日巡检" open={inspectionOpen} onToggle={(next) => { setInspectionOpen(next); setInspectionOpenedOnce(true) }} hint="关注标准对照官网公告">
         <KsInspectionPanel openedOnce={inspectionOpenedOnce} />
       </KsCategory>

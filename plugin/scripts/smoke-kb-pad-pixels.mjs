@@ -67,6 +67,11 @@ const MATRIX = [
   { page: 'kb', width: 1300, interact: 'kb-level', note: '目录层（宽档：左列与右栏并排的宽档取证）' },
   { page: 'kb', width: 520, interact: 'kb-empty', note: '空目录的空态卡' },
   { page: 'kb', width: 520, interact: 'kb-upload', note: '上传面板（本批新增的每级上传入口）' },
+  /* ⚠ **2026-09-21（第 4 步）新增三组**：「待分类」层要**两个档位**都判
+     （状态列在两个档位都必须看得见、建议去向列窄藏宽显），外加"勾选后批量条在场且不贴边"那一组。 */
+  { page: 'kb', width: 520, interact: 'kb-inbox', note: '待分类层（窄档：状态列必须看得见、建议去向藏）' },
+  { page: 'kb', width: 1300, interact: 'kb-inbox', note: '待分类层（宽档：5 列全在）' },
+  { page: 'kb', width: 520, interact: 'kb-inbox-picked', note: '待分类层勾选后：悬浮批量条（真批量）' },
   /* ⚠ **2026-09-21（第 3 步）就地改写**：这一组原来是 `kb-crumb`（面包屑逐级可点），
      判据没变、只是面包屑现在是**后端给的**真路径；场景名保留。 */
   { page: 'kb', width: 520, interact: 'kb-crumb', note: '面包屑逐级可点 + 目录层列表（窄档）' },
@@ -149,6 +154,21 @@ for (const c of MATRIX) {
     if (lc.checked !== true) problems.push('levelCheck.checked !== true（左列并排 / 两层行高一致）')
     for (const p of lc.problems ?? []) problems.push(p)
   }
+  /* ⚠⚠ **「待分类」层另有第三条断言**（2026-09-21 第 4 步）：`inboxCheck` = 列对齐（5 轨）+
+   *   **状态列在两个档位都必须看得见**（业主"每篇状态如实显示"的真浏览器形态）+
+   *   建议去向列窄藏宽显 + 每行一个勾选框与一个 ⋮ + 批量条在勾选后在场。
+   *   它**只对跑了 kb-inbox 场景的组适用**：靠 `comboKey` 判断，而不是"有就判"——
+   *   没跑到那一层的组**明说没判**（不静默通过，也不假红）。 */
+  const ib = j.inboxCheck ?? {}
+  let inboxChecked = null
+  if (typeof pad.comboKey === 'string' && pad.comboKey.includes('kb-inbox')) {
+    inboxChecked = ib.checked === true && (ib.skipReason ?? null) === null
+    if ((ib.skipReason ?? null) !== null) {
+      problems.push(`inboxCheck.skipReason 非空（这一组是待分类层，不许"这一跑不判"）：${String(ib.skipReason)}`)
+    }
+    if (ib.checked !== true) problems.push('inboxCheck.checked !== true（列对齐/状态列可见/勾选与 ⋮）')
+    for (const p of ib.problems ?? []) problems.push(p)
+  }
   /* ⚠⚠ **能力页另有第二条断言**（2026-09-21 新增）：`capCardsCheck` = **等宽 + 同排等高 + 防空转**
    *   （口径是父代理裁定：**不判"尺寸统一"**，只判这两条站得住的）。
    *   它**只对能力页适用** ⇒ 其余页面 `skipReason` 非空是**正常**的（`.ks-cap-card` 是能力页专有形态），
@@ -174,6 +194,7 @@ for (const c of MATRIX) {
     allSubjects: pad.allSubjects ?? null, declaredCombos: pad.declaredCombos ?? null,
     levelChecked, rowHeightJudged,
     capChecked, capCount: capc.count ?? null, capRowCount: capc.rowCount ?? null, capMaxRow,
+    inboxChecked,
     problems,
   })
   for (const p of problems) failures.push(`${label}：${p}`)
@@ -221,7 +242,7 @@ console.log('')
    等于把"适用面"越改越大。本批实测过那条路的代价：加完自检立刻红在
    「规范第二节的适用面与本脚本的 PAD_SUBJECTS_ALL 不一致 ⇒ 只在脚本里=[.ks-list-dirs]」。 */
 const SPEC_SUBJECTS = ['.ks-kb', '.ks-ing', '.ks-mat', '.ks-kb-tree', '.ks-list',
-  '.ks-dirs', '.ks-page-head', '.ks-kb-row', '.ks-empty-card']
+  '.ks-dirs', '.ks-page-head', '.ks-kb-row', '.ks-empty-card', '.ks-batch']
 /**
  * **冻死的"应该跑哪些组合"清单**（5j-补×5，2026-09-20）：复核 `verify-freeze-5jx4` 判 PASS 时给的加固建议 ——
  * 上一版的判据是"**自报的**声明集合 == **真跑过的**组合集合"。若有人把 MATRIX 少跑一组、**同时**改
@@ -237,6 +258,8 @@ const SPEC_SUBJECTS = ['.ks-kb', '.ks-ing', '.ks-mat', '.ks-kb-tree', '.ks-list'
 const EXPECTED_RUNS = ['kb|@520', 'kb|@1300', 'kb|kb-level@520', 'kb|kb-page@520',
   'kb|kb-files@520', 'kb|kb-level@1300', 'kb|kb-empty@520', 'kb|kb-upload@520',
   'kb|kb-crumb@520', 'kb|kb-level@520#dark',
+  /* 第 4 步：待分类层窄/宽两档 + 勾选后的批量条那一跑。 */
+  'kb|kb-inbox@520', 'kb|kb-inbox@1300', 'kb|kb-inbox-picked@520',
   'capabilities|@520', 'capabilities|@900',
   'ingest|ingest-batch@520', 'materials|@1300']
 /** 从**成功的实测 JSON** 里取声明集合（任一组报到即可 —— 它们来自同一个 `ui-render-shot` 进程）。 */
@@ -341,6 +364,25 @@ if (!kbRunRows.some((r) => r.levelChecked === true)) {
 if (!kbRunRows.some((r) => r.rowHeightJudged === true)) {
   failures.push('**"目录行与文件行行高一致"没有任何一组真的判过**（每一跑都只有目录行或只有文件行）'
     + ' ⇒ 那条判据恒不生效；至少保留一组 `--interact kb-level`（1 个下级目录 + 1 篇文件）')
+}
+/* ── **「待分类」层（inboxCheck，2026-09-21 第 4 步新增的第三个主体）的覆盖面** ──
+   三条，缺一不可（同一种纪律：**声明了不等于跑过**）：
+     ① 至少要有一组**真的判过** `inboxCheck`（否则业主"每篇状态如实显示"在门禁里又是空的）；
+     ② 窄档与宽档**各至少一组** —— 状态列在两个档位都必须看得见，而"建议去向列"是窄藏宽显，
+        只跑一档就有一半的规则没人判（与 `stageColCheck` 那条三档纪律同一个理由）；
+     ③ 至少要有一跑**带着批量条**（勾选后那一组）—— 条子回适用面了，就得有真跑过的对象。 */
+const inboxRunRows = rows.filter((r) => typeof r.comboKey === 'string' && r.comboKey.startsWith('kb|kb-inbox'))
+if (!inboxRunRows.some((r) => r.inboxChecked === true)) {
+  failures.push('**「待分类」层的 `inboxCheck` 一组都没判过**（列对齐 / 状态列可见 / 勾选与 ⋮ 全是空的）'
+    + ' ⇒ 把 kb-inbox 的两档留在 MATRIX 里（改矩阵要同步改 EXPECTED_RUNS）')
+}
+if (!inboxRunRows.some((r) => r.comboKey === 'kb|kb-inbox' && r.width === 520 && r.inboxChecked === true)
+  || !inboxRunRows.some((r) => r.comboKey === 'kb|kb-inbox' && r.width === 1300 && r.inboxChecked === true)) {
+  failures.push('**「待分类」层的窄档与宽档没有各判过一次**（状态列两个档位都要看得见；'
+    + '建议去向列是窄藏宽显，只跑一档等于一半规则没人判）')
+}
+if (!rows.some((r) => r.comboKey === 'kb|kb-inbox-picked' && r.inboxChecked === true)) {
+  failures.push('**批量条没被任何一跑盖住**（第 4 步把 .ks-batch 放回留边适用面 ⇒ 必须有勾选后那一组）')
 }
 if (sawNoBrowser) {
   failures.push(`**这一跑起不来无头浏览器**（${String(MATRIX.length)} 组都没拿到 JSON）—— 门禁链从 5j-补 起需要本机有`

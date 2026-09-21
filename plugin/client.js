@@ -27994,40 +27994,6 @@ async function fetchIngestInboxDefault(signal) {
   }
   return dir;
 }
-async function fetchIngestInbox(dir, signal) {
-  const qs = new URLSearchParams({ dir }).toString();
-  const res = await fetch(`/ks/ingest/inbox?${qs}`, {
-    method: "GET",
-    headers: { accept: "application/json" },
-    signal
-  });
-  if (!res.ok) throw await parseIngestError(res);
-  const body = await res.json().catch(() => null);
-  if (body?.ok !== true) throw new Error("\u5F85\u5165\u5E93\u76EE\u5F55\u5217\u8868\u54CD\u5E94\u5F02\u5E38");
-  return {
-    dir: body.data?.dir ?? dir,
-    count: typeof body.data?.count === "number" ? body.data.count : 0,
-    files: Array.isArray(body.data?.files) ? body.data.files : [],
-    degraded: body.degraded
-  };
-}
-async function fetchIngestPreview(path, opts = {}) {
-  const payload = {
-    path,
-    doc_type: opts.docType ?? "standard"
-  };
-  if (opts.allowDeep === true) payload.allow_deep = true;
-  const res = await fetch("/ks/ingest/preview", {
-    method: "POST",
-    headers: { accept: "application/json", "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-    signal: opts.signal
-  });
-  if (!res.ok) throw await parseIngestError(res);
-  const body = await res.json().catch(() => null);
-  if (body?.ok !== true || body.data === void 0) throw new Error("\u5165\u5E93\u9884\u89C8\u54CD\u5E94\u5F02\u5E38");
-  return body.data;
-}
 async function fetchIngestBatch(req, signal) {
   const payload = { dir: req.dir };
   if (req.sample !== void 0) payload.sample = req.sample;
@@ -28043,50 +28009,6 @@ async function fetchIngestBatch(req, signal) {
   if (!res.ok) throw await parseIngestError(res);
   const body = await res.json().catch(() => null);
   if (body?.ok !== true || body.data === void 0) throw new Error("\u6279\u91CF\u9884\u89C8\u54CD\u5E94\u5F02\u5E38");
-  return body.data;
-}
-async function startIngestJob(req, signal) {
-  const payload = { dir: req.dir };
-  if (req.recursive === true) payload.recursive = true;
-  if (req.batchSize !== void 0 && req.batchSize > 0) payload.batch_size = req.batchSize;
-  if (req.docType !== void 0) payload.doc_type = req.docType;
-  if (req.allowDeep === true) payload.allow_deep = true;
-  const res = await fetch("/ks/ingest/preview/jobs", {
-    method: "POST",
-    headers: { accept: "application/json", "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-    signal
-  });
-  if (!res.ok) throw await parseIngestError(res);
-  const body = await res.json().catch(() => null);
-  if (body?.ok !== true || body.data === void 0) throw new Error("\u5168\u91CF\u9884\u89C8\u542F\u52A8\u54CD\u5E94\u5F02\u5E38");
-  return body.data;
-}
-async function fetchIngestJob(jobId, opts = {}) {
-  const qs = new URLSearchParams({
-    rows_offset: String(opts.rowsOffset ?? 0),
-    rows_limit: String(opts.rowsLimit ?? 200)
-  });
-  const res = await fetch(`/ks/ingest/preview/jobs/${encodeURIComponent(jobId)}?${qs}`, {
-    method: "GET",
-    headers: { accept: "application/json" },
-    signal: opts.signal
-  });
-  if (!res.ok) throw await parseIngestError(res);
-  const body = await res.json().catch(() => null);
-  if (body?.ok !== true || body.data === void 0) throw new Error("\u5168\u91CF\u9884\u89C8\u8FDB\u5EA6\u54CD\u5E94\u5F02\u5E38");
-  return body.data;
-}
-async function abortIngestJob(jobId, signal) {
-  const res = await fetch(`/ks/ingest/preview/jobs/${encodeURIComponent(jobId)}/abort`, {
-    method: "POST",
-    headers: { accept: "application/json", "Content-Type": "application/json" },
-    body: "{}",
-    signal
-  });
-  if (!res.ok) throw await parseIngestError(res);
-  const body = await res.json().catch(() => null);
-  if (body?.ok !== true || body.data === void 0) throw new Error("\u5168\u91CF\u9884\u89C8\u4E2D\u65AD\u54CD\u5E94\u5F02\u5E38");
   return body.data;
 }
 var InspectionHttpError = class extends Error {
@@ -28700,6 +28622,202 @@ async function fetchKbFolderItems(port, token, folderId, opts = {}) {
     has_more: data.has_more === true
   };
 }
+function normalizeKbInboxItem(value) {
+  const o = objOf(value);
+  const id = str(o?.doc_id);
+  if (o === null || id === null) return null;
+  return {
+    doc_id: id,
+    standard_no: str(o.standard_no),
+    standard_name: str(o.standard_name),
+    stage: str(o.stage) ?? "queued",
+    stage_label: str(o.stage_label) ?? "",
+    confidence: num(o.confidence),
+    failure_kind: str(o.failure_kind),
+    suggested_folder_id: str(o.suggested_folder_id),
+    suggested_path: str(o.suggested_path),
+    suggest_new_parent_id: str(o.suggest_new_parent_id),
+    suggest_new_name: str(o.suggest_new_name),
+    catalog_hidden: num(o.catalog_hidden)
+  };
+}
+async function fetchKbInbox(port, token, opts = {}) {
+  const qs = new URLSearchParams();
+  qs.set("limit", String(opts.limit ?? 50));
+  qs.set("offset", String(opts.offset ?? 0));
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/inbox?${qs.toString()}`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal: opts.signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  const rows = Array.isArray(data.items) ? data.items : [];
+  return {
+    items: rows.map(normalizeKbInboxItem).filter((r) => r !== null),
+    total: intOf(data.total, rows.length),
+    offset: intOf(data.offset, opts.offset ?? 0),
+    limit: intOf(data.limit, opts.limit ?? 50),
+    has_more: data.has_more === true
+  };
+}
+async function confirmKbInbox(port, token, decisions, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/inbox/confirm`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ decisions }),
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  const created = Array.isArray(data.created) ? data.created.length : 0;
+  return {
+    confirmed: intOf(data.confirmed, 0),
+    removed_from_pending: intOf(data.removed_from_pending, 0),
+    created
+  };
+}
+async function reingestKbDocs(port, token, docIds, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/inbox/reingest`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ doc_ids: docIds }),
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  const started = Array.isArray(data.started) ? data.started : [];
+  const skipped = Array.isArray(data.skipped) ? data.skipped : [];
+  return {
+    queued: intOf(data.queued, 0),
+    started: started.map((s) => {
+      const o = objOf(s) ?? {};
+      return { doc_id: str(o.doc_id) ?? "", path: str(o.path) ?? "", standard_no: str(o.standard_no) ?? "" };
+    }).filter((s) => s.doc_id !== ""),
+    skipped: skipped.map((s) => {
+      const o = objOf(s) ?? {};
+      return { doc_id: str(o.doc_id) ?? "", reason: str(o.reason) ?? "" };
+    })
+  };
+}
+async function fetchKbReingestStatus(port, token, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/inbox/reingest/status`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  const results = Array.isArray(data.results) ? data.results : [];
+  return {
+    running: data.running === true,
+    total: intOf(data.total, 0),
+    done: intOf(data.done, 0),
+    results: results.map((r) => {
+      const o = objOf(r) ?? {};
+      return {
+        doc_id: str(o.doc_id) ?? "",
+        status: str(o.status) ?? void 0,
+        total_clauses: num(o.total_clauses) ?? void 0,
+        filing_stage: str(o.filing_stage) ?? void 0,
+        error: str(o.error) ?? void 0
+      };
+    }),
+    started_at: str(data.started_at),
+    finished_at: str(data.finished_at)
+  };
+}
+async function fetchKbFoldersFlat(port, token, opts = {}) {
+  const qs = new URLSearchParams();
+  if (opts.q !== void 0 && opts.q !== "") qs.set("q", opts.q);
+  const suffix = qs.toString() === "" ? "" : `?${qs.toString()}`;
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/folders/flat${suffix}`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal: opts.signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  const rows = Array.isArray(data.items) ? data.items : [];
+  return rows.map((r) => {
+    const o = objOf(r) ?? {};
+    return {
+      folder_id: str(o.folder_id) ?? "",
+      parent_id: str(o.parent_id),
+      name: str(o.name) ?? "",
+      path: str(o.path) ?? "",
+      depth: intOf(o.depth, 1)
+    };
+  }).filter((f) => f.folder_id !== "");
+}
+async function fetchKbStageLabels(port, token, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/stage-labels`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  const raw = objOf(data.labels) ?? {};
+  const labels = {};
+  for (const [k, v] of Object.entries(raw)) if (typeof v === "string") labels[k] = v;
+  const stages = Array.isArray(data.stages) ? data.stages.filter((s) => typeof s === "string") : [];
+  return { labels, stages };
+}
 async function fileDocsIntoFolder(port, token, folderId, docIds, signal) {
   const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/inbox/confirm`, {
     method: "POST",
@@ -28730,12 +28848,12 @@ async function fileDocsIntoFolder(port, token, folderId, docIds, signal) {
     removed_from_pending: intOf(data.removed_from_pending, 0)
   };
 }
-async function startBulkIngest(port, token, srcDir, signal) {
+async function startBulkIngest(port, token, srcDir, opts = {}) {
   const res = await fetch(`http://127.0.0.1:${port}/api/v1/ingest/bulk`, {
     method: "POST",
     headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
-    body: JSON.stringify({ src_dir: srcDir }),
-    signal
+    body: JSON.stringify({ src_dir: srcDir, reingest: opts.reingest === true }),
+    signal: opts.signal
   });
   if (res.status === 401) {
     clearSession();
@@ -32836,8 +32954,105 @@ var KS_STYLES = `
   font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
 /* \u5217\u8868\u9898\u5934\uFF08\u76EE\u5F55\u540D + \u8BA1\u6570\uFF09\uFF1AP2 \u5934\u6761\u628A\u5B83\u4ECE .ks-lhead \u91CC**\u4E0A\u79FB\u4E00\u884C** \u2014\u2014
    \u8868\u5934\u53D8\u6210"\u771F\u5217\u5934\u884C"\u4E4B\u540E\uFF0C\u76EE\u5F55\u540D\u518D\u5360\u7740"\u6587\u4EF6\u540D"\u90A3\u4E00\u683C\u5C31\u4F1A\u4E0E\u5217\u5934\u62A2\u4F4D\u7F6E\u3002 */
-.ks-list-cap{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}
-.ks-lhead .ks-cell{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}
+/* \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 \u300C\u5F85\u5206\u7C7B\u300D\u5C42\uFF08KB-FOLDER-PLAN \u7B2C 4 \u6B65\uFF0C2026-09-21\uFF09 \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550
+   \u4E0E\u76EE\u5F55\u5C42\u540C\u4E00\u79CD\u505A\u6CD5\uFF1A**\u590D\u7528** .ks-list/.ks-lhead/.ks-item \u8FD9\u4E00\u5957\u673A\u5236\uFF0C\u53EA\u7ED9\u5B83\u4E00\u6761
+   **\u81EA\u5DF1\u7684** --ks-cols\uFF08\u52FE\u9009 / \u6587\u4EF6\u540D / \u72B6\u6001 / \u5EFA\u8BAE\u53BB\u5411 / \u22EE = 5 \u8F68\uFF09\u3002
+   \u4E1A\u4E3B\u70B9\u540D\u7684\u56DB\u6837\uFF1A**\u6587\u4EF6\u540D / \u72B6\u6001 / \u5EFA\u8BAE\u53BB\u5411 / \u22EE**\uFF08\u52FE\u9009\u5217\u662F\u63A7\u4EF6\u3001\u65E0\u5217\u5934\uFF09\u3002
+
+   \u26A0 \u7A84\u6863\u85CF\u7684\u662F**\u5EFA\u8BAE\u53BB\u5411**\uFF0C**\u4E0D\u662F\u72B6\u6001**\uFF1A\u4E1A\u4E3B"\u6BCF\u7BC7\u72B6\u6001\u5982\u5B9E\u663E\u793A"\u662F\u786C\u8981\u6C42
+     \uFF08\u89C1 ui-render-shot.mjs \u7684 inboxStageCheck\uFF1A\u771F\u6D4F\u89C8\u5668\u91CC\u91CF display\uFF0C\u4E24\u4E2A\u65B9\u5411\u90FD\u9489\u4F4F\uFF09\uFF1B
+     \u5EFA\u8BAE\u53BB\u5411\u5728\u7A84\u680F\u91CC\u585E\u4E0D\u4E0B\u65F6\u53EF\u4EE5\u4ECE \u22EE \u83DC\u5355\u91CC\u62FF\u5230\u540C\u4E00\u4EF6\u4E8B\uFF08"\u6309\u5EFA\u8BAE\u5F52\u4F4D\uFF08\u8DEF\u5F84\uFF09"\uFF09\u3002
+   \u7A84/\u5BBD\u4E24\u6863\u7684\u5207\u6362\u70B9\u4E0E\u6587\u4EF6\u5C42**\u540C\u4E00\u4E2A\u6570**\uFF08660\uFF0C\u5BB9\u5668\u662F .ks-main\uFF09\u3002
+   \u26A0 \u8FD9\u6BB5\u6CE8\u91CA\u91CC**\u4E00\u4E2A\u53CD\u5F15\u53F7\u90FD\u6CA1\u6709**\uFF08\u6574\u6BB5\u5728\u6A21\u677F\u5B57\u7B26\u4E32\u91CC\uFF0C\u53CD\u5F15\u53F7\u4F1A\u622A\u65AD\u5B83\uFF09\u3002 */
+.ks-list-inbox{--ks-col-pick:22px;--ks-col-istage:132px;--ks-col-imore:36px;
+  --ks-cols:var(--ks-col-pick) minmax(0,1fr) var(--ks-col-istage) var(--ks-col-imore)}
+.ks-list .ks-cell.ks-col-idest{display:none}
+@container (min-width:660px){
+  .ks-list-inbox{--ks-cols:var(--ks-col-pick) minmax(0,1fr) var(--ks-col-istage) minmax(0,1fr) var(--ks-col-imore)}
+  .ks-list .ks-cell.ks-col-idest{display:flex}
+}
+.ks-list-inbox .ks-item{width:100%;box-sizing:border-box;padding:0 var(--ks-space-3);
+  border-top:0.5px solid var(--dsw-alias-border-l2)}
+.ks-list-inbox .ks-item:first-of-type{border-top:0}
+.ks-item .ks-col-pick{display:flex;align-items:center;justify-content:center}
+.ks-item .ks-col-istage{display:flex;align-items:center;overflow:hidden}
+.ks-item .ks-col-idest{align-items:center;overflow:hidden;min-width:0}
+/* \u52FE\u9009\u6846\uFF1A\u5BBF\u4E3B\u7684 Checkbox \u628A label \u6E32\u67D3\u6210\u53EF\u89C1 span \u21D2 \u8FD9\u91CC\u628A\u5B83\u505A\u6210 **sr-only**
+   \uFF08\u89C6\u89C9\u4E0A\u4E0D\u91CD\u590D\u663E\u793A\u7B2C\u4E8C\u904D\u6587\u4EF6\u540D\uFF0C\u4F46\u53EF\u8BBF\u95EE\u540D\u8FD8\u5728 \u2014\u2014 \u76F4\u63A5 display:none \u4F1A\u628A\u5B83\u4ECE
+   \u65E0\u969C\u788D\u6811\u91CC\u6458\u6389\uFF0C\u90A3\u662F\u53E6\u4E00\u79CD\u5077\u61D2\uFF09\u3002 */
+.ks-pick{display:flex;align-items:center;justify-content:center}
+.ks-pick-cb>span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+/* \u72B6\u6001\uFF1A\u6863\u4F4D\u5FBD\u7AE0 + \u5931\u8D25\u539F\u56E0 + \u8BC6\u522B\u7387\uFF08\u6709\u624D\u663E\u793A\uFF09+ "\u4E0D\u5728\u76EE\u5F55\u91CC"\uFF08\u6B63\u6587\u4E3A\u96F6\u90A3\u4E00\u6279\uFF09\u3002
+   \u26A0 \u5FBD\u7AE0\u989C\u8272\u6309**\u6863\u4F4D**\u7ED9\uFF08\u6392\u961F\u4E2D=\u4E2D\u6027 / \u8BC6\u522B\u4E2D=\u4FE1\u606F / \u5F85\u786E\u8BA4=\u8B66\u793A / \u8BC6\u522B\u5931\u8D25=\u9519\u8BEF\uFF09\u3002 */
+.ks-stage{display:flex;align-items:center;gap:var(--ks-space-1);min-width:0;flex-wrap:wrap}
+.ks-stage-tag{flex:none;padding:0 var(--ks-space-2);border-radius:var(--ks-r-pill);corner-shape:round;border-width:0.5px;border-style:solid;
+  font-size:var(--ks-fs-xs);border-color:var(--dsw-alias-border-l3);
+  background:var(--dsw-alias-markdown-tag);color:var(--dsw-alias-label-secondary)}
+.ks-stage-queued{background:var(--dsw-alias-markdown-tag);color:var(--dsw-alias-label-secondary)}
+.ks-stage-recognizing{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}
+.ks-stage-confirming{background:var(--dsw-alias-state-warn-secondary);color:var(--dsw-alias-state-warn-primary);
+  border-color:var(--dsw-alias-state-warn-primary)}
+.ks-stage-failed{background:var(--dsw-alias-interactive-bg-hover-danger);color:var(--dsw-alias-state-error-primary);
+  border-color:var(--dsw-alias-state-error-primary)}
+.ks-stage-why,.ks-stage-conf,.ks-stage-hidden{font-size:var(--ks-fs-xs);overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap}
+.ks-stage-why{color:var(--dsw-alias-state-error-primary)}
+.ks-stage-conf{color:var(--dsw-alias-label-tertiary)}
+.ks-stage-hidden{color:var(--dsw-alias-state-warn-primary)}
+/* \u5EFA\u8BAE\u53BB\u5411\uFF1A\u8DEF\u5F84 + \uFF08\u53EF\u9009\uFF09"\uFF0B\u65B0\u5EFA XXX" */
+.ks-dest{display:flex;flex-direction:column;min-width:0;font-size:var(--ks-fs-sm)}
+.ks-dest-path{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--dsw-alias-label-secondary)}
+.ks-dest-new{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--dsw-alias-label-tertiary);
+  font-size:var(--ks-fs-xs)}
+/* \u5DE6\u5217\u90A3\u4E00\u884C\uFF08\u300C\u5F85\u5206\u7C7B\u300D\u4E0D\u5728 folder \u8868\u91CC\uFF0C\u4F46\u6837\u5F0F\u4E0E\u522B\u7684\u884C\u4E00\u81F4 \u2014\u2014 \u53EA\u591A\u4E00\u4E2A\u4E2D\u6027\u6309\u94AE\u6001\uFF09 */
+.ks-tree-name-inbox{font-weight:600}
+.ks-tree-count-inbox{color:var(--dsw-alias-label-secondary)}
+/* \u4E00\u6B21\u52A8\u4F5C\u7684\u7ED3\u679C/\u5931\u8D25**\u539F\u8BDD**\uFF08\u6210\u529F\u4E0E\u5931\u8D25\u90FD\u663E\u793A\u5728\u8FD9\u91CC\uFF0C\u4E0D\u7F8E\u5316\uFF09 */
+.ks-ib-msg{padding:var(--ks-space-2) var(--ks-space-3);border-radius:var(--ks-r-md);
+  background:var(--dsw-alias-bg-layer-3);font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary)}
+/* \u6279\u91CF\u6761\uFF08\u7B2C 4 \u6B65**\u505A\u56DE\u771F\u7684**\uFF1A\u6BCF\u6761\u90FD\u5BF9\u5E94\u771F\u63A5\u53E3\uFF09\u3002\u60AC\u6D6E\u5728\u5217\u8868\u4E0A\u65B9\u3001\u5C45\u4E2D\u9650\u5BBD\u3002
+   \u26A0 \u5B83\u662F\u9875\u9762\u7559\u8FB9\u7684\u9002\u7528\u9762\u4E4B\u4E00\uFF08docs/UI-BASELINE.md \u7B2C\u4E8C\u8282\uFF09\u21D2 \u4E0D\u8BB8\u8D34\u8FB9\u3002
+   \u26A0\u26A0 **\u5FC5\u987B\u5141\u8BB8\u6298\u884C**\uFF08flex-wrap:wrap\uFF09\uFF1A\u7A84\u6863\uFF08520 \u21D2 .ks-main \u53EA\u6709 288px\uFF09\u91CC
+   \u4E94\u4E2A\u6309\u94AE + \u8BA1\u6570\u5728\u4E00\u884C\u91CC\u653E\u4E0D\u4E0B\uFF0C\u800C\u6309\u94AE\u662F white-space:nowrap\uFF08\u4E0D\u8BB8\u628A"\u91CD\u6765\u4E00\u6B21"\u538B\u6210
+   \u7AD6\u6392\uFF09\u21D2 \u4E0D\u7ED9\u6298\u884C\u65F6\u6761\u5B50\u4F1A**\u6A2A\u7740\u6EA2\u51FA\u53F3\u7F18**\uFF08ui-render-shot \u5B9E\u6D4B\uFF1A.ks-batch \u53F3\u7F18\u8D34\u8FB9 -8px\uFF09\u3002
+   \u7A84\u6863\u6298\u6210\u4E24\u884C\u662F**\u5982\u5B9E**\u7684\u4EE3\u4EF7\uFF1A\u6761\u5B50\u5185\u5BB9\u662F\u771F\u7684\u591A\uFF0C\u538B\u6241\u5B83\u53EA\u4F1A\u8BA9\u5B57\u8BFB\u4E0D\u51FA\u6765\u3002
+   \u7559\u75D5\uFF1A\u7B2C 3 \u6B65\u5220\u6389\u7684\u90A3\u6761"\u6279\u91CF\u6761\u4E0D\u8BB8\u88AB\u6324\u6210\u4E24\u884C"\u7684\u50CF\u7D20\u65AD\u8A00**\u6CA1\u6709**\u6062\u590D \u2014\u2014
+   \u5B83\u5F53\u65F6\u5224\u7684\u662F**\u5047**\u6279\u91CF\u6761\u7684 40px \u5355\u884C\u9884\u7B97\uFF0C\u800C\u73B0\u5728\u8FD9\u4E00\u6761\u662F**\u591A\u884C**\u7684\u60AC\u6D6E\u5DE5\u5177\u6761\uFF0C
+   \u6062\u590D\u65E7\u9608\u503C\u7B49\u4E8E\u62FF\u4E00\u4E2A\u4E0D\u6210\u7ACB\u7684\u9884\u7B97\u53BB\u5361\u771F\u4E1C\u897F\uFF1B\u6539\u7531\u7559\u8FB9\u5224\u636E\uFF08PAD_REQUIRED \u91CC\u7684 .ks-batch\uFF09
+   \u4FDD\u8BC1\u5B83\u4E0D\u8D34\u8FB9\u3002 */
+.ks-batch{position:sticky;bottom:var(--ks-space-2);z-index:2;display:flex;align-items:center;
+  flex-wrap:wrap;justify-content:center;
+  gap:var(--ks-space-2);width:fit-content;max-width:100%;box-sizing:border-box;
+  margin:0 auto;padding:var(--ks-space-2) var(--ks-space-3);
+  border:0;border-radius:var(--ks-r-card);background:var(--dsw-alias-bg-layer-3);
+  --dsw-elevation-stroke-color:var(--dsw-alias-border-l2);box-shadow:var(--dsw-elevation-soft)}
+.ks-batch-n{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);white-space:nowrap}
+.ks-batch-btn{height:var(--ks-btn-h-sm);white-space:nowrap}
+.ks-batch .ks-danger{color:var(--dsw-alias-state-error-primary)}
+/* \u52A8\u4F5C\u9762\u677F\uFF08\u76EE\u5F55\u9009\u62E9\u5668 / \u5220\u9664\u4E8C\u6B21\u786E\u8BA4\uFF09 */
+.ks-act{display:flex;flex-direction:column;gap:var(--ks-space-2);padding:var(--ks-space-2) var(--ks-space-3);
+  border:0.5px solid var(--dsw-alias-border-l2);border-radius:var(--ks-r-card);
+  background:var(--dsw-alias-bg-base)}
+.ks-act-del{border-color:var(--dsw-alias-state-error-primary)}
+.ks-act-head{display:flex;align-items:center;gap:var(--ks-space-2);font-size:var(--ks-fs-base)}
+.ks-act-hint{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
+.ks-act-row{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}
+.ks-act-label{flex:0 0 auto;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
+.ks-act-name,.ks-act-search{flex:1;min-width:0}
+.ks-act-list{max-height:220px;overflow:auto;display:flex;flex-direction:column;
+  border:0.5px solid var(--dsw-alias-border-l2);border-radius:var(--ks-r-md)}
+.ks-act-item{display:flex;align-items:center;gap:var(--ks-space-2);min-height:28px;padding:var(--ks-space-1) var(--ks-space-2);
+  border:0;background:transparent;font:inherit;text-align:left;color:var(--dsw-alias-label-primary);cursor:pointer}
+.ks-act-item[data-on="true"]{background:var(--dsw-alias-interactive-bg-hover)}
+.ks-act-item:hover{background:var(--dsw-alias-interactive-bg-hover)}
+.ks-act-item-name{flex:none;max-width:40%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ks-act-item-path{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  font-size:var(--ks-fs-xs);color:var(--dsw-alias-label-tertiary)}
+.ks-act .ks-danger{color:var(--dsw-alias-state-error-primary)}
+.ks-upload-check{flex:none}
+.ks-upload-hint{flex:1;min-width:0;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary);
+  overflow:hidden;text-overflow:ellipsis}
+.ks-list-cap{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}.ks-lhead .ks-cell{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}
 .ks-lhead-name{font-size:var(--ks-fs-base);font-weight:600;color:var(--dsw-alias-label-primary);
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ks-lhead-col{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -33637,10 +33852,23 @@ var STAGE_LABELS = {
   filed: "\u5DF2\u5F52\u4F4D",
   failed: "\u8BC6\u522B\u5931\u8D25"
 };
-function stageText(raw) {
+function stageText(raw, labels = STAGE_LABELS) {
   if (raw === null || raw === "") return "\u2014";
-  return STAGE_LABELS[raw] ?? raw;
+  return labels[raw] ?? STAGE_LABELS[raw] ?? raw;
 }
+function confidenceText(value) {
+  if (value === null || !Number.isFinite(value)) return "";
+  const pct = value <= 1 ? value * 100 : value;
+  return `${String(Math.round(pct))}%`;
+}
+var INBOX_COLUMNS = [
+  { key: "pick", cls: "ks-col-pick", head: "" },
+  { key: "iname", cls: "ks-col-iname", head: "\u6587\u4EF6\u540D" },
+  { key: "istage", cls: "ks-col-istage", head: "\u72B6\u6001" },
+  { key: "idest", cls: "ks-col-idest", head: "\u5EFA\u8BAE\u53BB\u5411" },
+  { key: "imore", cls: "ks-col-imore", head: "" }
+];
+var INBOX_PAGE_SIZE = 50;
 var COLUMNS = [
   { key: "name", cls: "ks-col-name", head: "\u6587\u4EF6\u540D" },
   { key: "status", cls: "ks-col-status", head: "\u6548\u529B" },
@@ -33704,10 +33932,27 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
   const [search, setSearch] = (0, import_react7.useState)("");
   const [openDoc, setOpenDoc] = (0, import_react7.useState)(null);
   const [menuFor, setMenuFor] = (0, import_react7.useState)(null);
+  const [layer, setLayer] = (0, import_react7.useState)(page === "ingest" ? "inbox" : "folder");
+  const [inbox, setInbox] = (0, import_react7.useState)([]);
+  const [inboxTotal, setInboxTotal] = (0, import_react7.useState)(0);
+  const [inboxKnown, setInboxKnown] = (0, import_react7.useState)(false);
+  const [inboxOffset, setInboxOffset] = (0, import_react7.useState)(0);
+  const [inboxMore, setInboxMore] = (0, import_react7.useState)(false);
+  const [picked, setPicked] = (0, import_react7.useState)(() => /* @__PURE__ */ new Set());
+  const [action, setAction] = (0, import_react7.useState)(null);
+  const [pickFolder, setPickFolder] = (0, import_react7.useState)("");
+  const [pickQuery, setPickQuery] = (0, import_react7.useState)("");
+  const [newName, setNewName] = (0, import_react7.useState)("");
+  const [actMsg, setActMsg] = (0, import_react7.useState)("");
+  const [flatFolders, setFlatFolders] = (0, import_react7.useState)([]);
+  const [stageLabels, setStageLabels] = (0, import_react7.useState)(STAGE_LABELS);
+  const [reingesting, setReingesting] = (0, import_react7.useState)(false);
   const [upOpen, setUpOpen] = (0, import_react7.useState)(false);
   const [upDir, setUpDir] = (0, import_react7.useState)("");
   const [upPhase, setUpPhase] = (0, import_react7.useState)("idle");
   const [upMsg, setUpMsg] = (0, import_react7.useState)("");
+  const [upCheck, setUpCheck] = (0, import_react7.useState)("");
+  const [upReingest, setUpReingest] = (0, import_react7.useState)(false);
   const abortRef = (0, import_react7.useRef)(null);
   const withSession = (0, import_react7.useCallback)(async (fn, signal) => {
     let session = await fetchSession(signal);
@@ -33767,12 +34012,6 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
       if (!ctrl.signal.aborted) setBusy(false);
     }
   }, [withSession]);
-  (0, import_react7.useEffect)(() => {
-    void loadLevel(null, 0);
-    return () => {
-      abortRef.current?.abort();
-    };
-  }, [loadLevel]);
   const currentFolder = levelId === null ? null : crumb.find((f) => f.folder_id === levelId) ?? null;
   const levelName = currentFolder?.name ?? "\u77E5\u8BC6\u5E93";
   const toggleTree = (0, import_react7.useCallback)(async (key) => {
@@ -33796,20 +34035,269 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
     }
   }, [putTree, treeOpen, withSession]);
   const goto = (0, import_react7.useCallback)((id) => {
+    setLayer("folder");
     setLevelId(id);
     setOpenDoc(null);
     setMenuFor(null);
+    setAction(null);
     void loadLevel(id, 0);
   }, [loadLevel]);
   const goUp = (0, import_react7.useCallback)(() => {
+    if (layer === "inbox") {
+      goto(null);
+      return;
+    }
     if (levelId === null) return;
     const parent = crumb.length >= 2 ? crumb[crumb.length - 2] : null;
     goto(parent === null ? null : parent.folder_id);
-  }, [crumb, goto, levelId]);
+  }, [crumb, goto, layer, levelId]);
   const goPage = (0, import_react7.useCallback)((offset) => {
     if (offset < 0) return;
     void loadLevel(levelId, offset, { silent: true });
   }, [levelId, loadLevel]);
+  const loadInbox = (0, import_react7.useCallback)(async (offset, opts = {}) => {
+    abortRef.current?.abort();
+    const ctrl = new AbortController();
+    abortRef.current = ctrl;
+    if (opts.silent !== true) {
+      setPhase("loading");
+      setErrMsg("");
+    }
+    setBusy(true);
+    try {
+      const [page2, labels] = await withSession(async (port, token) => {
+        const p = await fetchKbInbox(port, token, {
+          limit: INBOX_PAGE_SIZE,
+          offset,
+          signal: ctrl.signal
+        });
+        let lb = null;
+        try {
+          lb = await fetchKbStageLabels(port, token, ctrl.signal);
+        } catch {
+          lb = null;
+        }
+        return [p, lb];
+      }, ctrl.signal);
+      if (ctrl.signal.aborted) return;
+      if (labels !== null && Object.keys(labels.labels).length > 0) setStageLabels(labels.labels);
+      setInbox(page2.items);
+      setInboxTotal(page2.total);
+      setInboxKnown(true);
+      setInboxOffset(page2.offset);
+      setInboxMore(page2.has_more);
+      setPhase("ready");
+    } catch (error) {
+      if (ctrl.signal.aborted) return;
+      setPhase("error");
+      setErrMsg(errorText(error));
+    } finally {
+      if (!ctrl.signal.aborted) setBusy(false);
+    }
+  }, [withSession]);
+  const refreshInboxBadge = (0, import_react7.useCallback)(async () => {
+    try {
+      const page2 = await withSession((port, token) => fetchKbInbox(port, token, { limit: 1 }));
+      setInboxTotal(page2.total);
+      setInboxKnown(true);
+    } catch {
+    }
+  }, [withSession]);
+  const gotoInbox = (0, import_react7.useCallback)(() => {
+    setLayer("inbox");
+    setOpenDoc(null);
+    setMenuFor(null);
+    setAction(null);
+    setActMsg("");
+    void loadInbox(0);
+  }, [loadInbox]);
+  (0, import_react7.useEffect)(() => {
+    if (page === "ingest") {
+      void loadInbox(0);
+      return () => {
+        abortRef.current?.abort();
+      };
+    }
+    void loadLevel(null, 0);
+    void refreshInboxBadge();
+    return () => {
+      abortRef.current?.abort();
+    };
+  }, [loadInbox, loadLevel, page, refreshInboxBadge]);
+  const ensureFlatFolders = (0, import_react7.useCallback)(async () => {
+    if (flatFolders.length > 0) return;
+    try {
+      const rows = await withSession((port, token) => fetchKbFoldersFlat(port, token));
+      setFlatFolders(rows);
+    } catch (error) {
+      setActMsg(`\u8BFB\u4E0D\u5230\u76EE\u5F55\u6E05\u5355\uFF1A${errorText(error)}`);
+    }
+  }, [flatFolders.length, withSession]);
+  const togglePick = (0, import_react7.useCallback)((docId, next) => {
+    setActMsg("");
+    setPicked((prev) => {
+      const out = new Set(prev);
+      if (next) out.add(docId);
+      else out.delete(docId);
+      return out;
+    });
+  }, []);
+  const openAction = (0, import_react7.useCallback)((kind, targets) => {
+    if (targets.length === 0) return;
+    setActMsg("");
+    setAction({ kind, targets });
+    setPickQuery("");
+    if (kind === "place") {
+      setPickFolder("");
+      void ensureFlatFolders();
+    }
+    if (kind === "new") {
+      const withSug = inbox.filter((r) => targets.includes(r.doc_id) && r.suggest_new_parent_id !== null && r.suggest_new_name !== null);
+      const first = withSug[0];
+      setPickFolder(first?.suggest_new_parent_id ?? "");
+      setNewName(first?.suggest_new_name ?? "");
+      void ensureFlatFolders();
+    }
+  }, [ensureFlatFolders, inbox]);
+  const placeInto = (0, import_react7.useCallback)(async (targets, folderId) => {
+    if (folderId === "") {
+      setActMsg("\u5148\u9009\u4E00\u4E2A\u76EE\u5F55");
+      return;
+    }
+    setBusy(true);
+    try {
+      const res = await withSession((port, token) => confirmKbInbox(
+        port,
+        token,
+        targets.map((docId) => ({
+          doc_id: docId,
+          action: "existing",
+          target_folder_id: folderId,
+          placed_by: "kb-inbox-manual"
+        }))
+      ));
+      setActMsg(`\u5DF2\u653E\u8FDB\u300C${flatFolders.find((f) => f.folder_id === folderId)?.path ?? folderId}\u300D${String(res.confirmed)} \u7BC7\uFF08\u4ECE\u300C\u5F85\u5206\u7C7B\u300D\u62FF\u6389 ${String(res.removed_from_pending)} \u7BC7\uFF09\u3002`);
+      setAction(null);
+      setPicked(/* @__PURE__ */ new Set());
+      await loadInbox(inboxOffset, { silent: true });
+    } catch (error) {
+      setActMsg(`\u6CA1\u653E\u6210\uFF1A${errorText(error)}`);
+    } finally {
+      setBusy(false);
+    }
+  }, [flatFolders, inboxOffset, loadInbox, withSession]);
+  const placeIntoNew = (0, import_react7.useCallback)(async (targets, parentId, name) => {
+    const clean = name.trim();
+    if (parentId === "" || clean === "") {
+      setActMsg("\u7236\u76EE\u5F55\u4E0E\u65B0\u76EE\u5F55\u540D\u90FD\u8981\u586B");
+      return;
+    }
+    setBusy(true);
+    try {
+      const res = await withSession((port, token) => confirmKbInbox(
+        port,
+        token,
+        targets.map((docId) => ({
+          doc_id: docId,
+          action: "new",
+          new_parent_id: parentId,
+          new_name: clean,
+          placed_by: "kb-inbox-new"
+        }))
+      ));
+      const parentPath = flatFolders.find((f) => f.folder_id === parentId)?.path ?? parentId;
+      setActMsg(`\u5DF2\u5728\u300C${parentPath}\u300D\u4E0B\u65B0\u5EFA\u300C${clean}\u300D\u5E76\u653E\u8FDB ${String(res.confirmed)} \u7BC7\uFF08\u65B0\u76EE\u5F55 ${String(res.created)} \u4E2A\uFF09\u3002`);
+      setAction(null);
+      setPicked(/* @__PURE__ */ new Set());
+      await loadInbox(inboxOffset, { silent: true });
+    } catch (error) {
+      setActMsg(`\u6CA1\u653E\u6210\uFF1A${errorText(error)}`);
+    } finally {
+      setBusy(false);
+    }
+  }, [flatFolders, inboxOffset, loadInbox, withSession]);
+  const acceptSuggestions = (0, import_react7.useCallback)(async (targets) => {
+    const ok = targets.filter((docId) => (inbox.find((r) => r.doc_id === docId)?.suggested_folder_id ?? null) !== null);
+    const skipped = targets.length - ok.length;
+    if (ok.length === 0) {
+      setActMsg(`\u8FD9 ${String(targets.length)} \u7BC7\u7CFB\u7EDF\u90FD\u6CA1\u7ED9\u51FA\u5EFA\u8BAE\uFF08\u8BA4\u4E0D\u51FA\u8BE5\u653E\u54EA\uFF09\u2014\u2014\u8BF7\u7528\u300C\u653E\u8FDB\u67D0\u4E2A\u76EE\u5F55\u300D\u81EA\u5DF1\u6307\u5B9A\u53BB\u5904\u3002`);
+      return;
+    }
+    setBusy(true);
+    try {
+      const res = await withSession((port, token) => confirmKbInbox(
+        port,
+        token,
+        ok.map((docId) => ({ doc_id: docId, action: "accept", placed_by: "kb-inbox-accept" }))
+      ));
+      setActMsg(`\u6309\u5EFA\u8BAE\u5F52\u4F4D ${String(res.confirmed)} \u7BC7` + (skipped > 0 ? `\uFF1B**${String(skipped)} \u7BC7\u7CFB\u7EDF\u6CA1\u7ED9\u5EFA\u8BAE\uFF0C\u6CA1\u6709\u52A8\u5B83\u4EEC**\uFF08\u5B83\u4EEC\u53EA\u80FD\u624B\u52A8\u6307\u5B9A\u53BB\u5904\uFF09` : "") + `\uFF08\u4ECE\u300C\u5F85\u5206\u7C7B\u300D\u62FF\u6389 ${String(res.removed_from_pending)} \u7BC7\uFF09\u3002`);
+      setAction(null);
+      setPicked(/* @__PURE__ */ new Set());
+      await loadInbox(inboxOffset, { silent: true });
+    } catch (error) {
+      setActMsg(`\u6CA1\u5F52\u4F4D\u6210\uFF1A${errorText(error)}`);
+    } finally {
+      setBusy(false);
+    }
+  }, [inbox, inboxOffset, loadInbox, withSession]);
+  const runReingest = (0, import_react7.useCallback)(async (targets) => {
+    setBusy(true);
+    try {
+      const res = await withSession((port, token) => reingestKbDocs(port, token, targets));
+      const skipped = res.skipped.map((s) => `${s.doc_id}\uFF1A${s.reason}`).join("\uFF1B");
+      setActMsg(`\u5DF2\u5F00\u59CB\u91CD\u6765\u4E00\u6B21\uFF1A${String(res.queued)} \u7BC7\u6392\u961F\u91CD\u65B0\u89E3\u6790\uFF08\u72B6\u6001\u5217\u4F1A\u4ECE\u300C\u8BC6\u522B\u4E2D\u300D\u53D8\u6210\u300C\u5F85\u786E\u8BA4\u300D\u6216\u300C\u8BC6\u522B\u5931\u8D25\u300D\uFF0C\u8DD1\u5B8C\u81EA\u52A8\u5237\u65B0\uFF09\u3002` + (skipped === "" ? "" : ` \u2014\u2014 **\u8FD9\u4E9B\u6CA1\u91CD\u6765**\uFF1A${skipped}`));
+      setAction(null);
+      setReingesting(res.queued > 0);
+      await loadInbox(inboxOffset, { silent: true });
+    } catch (error) {
+      setActMsg(`\u6CA1\u80FD\u5F00\u59CB\u91CD\u6765\uFF1A${errorText(error)}`);
+    } finally {
+      setBusy(false);
+    }
+  }, [inboxOffset, loadInbox, withSession]);
+  const removeDocs = (0, import_react7.useCallback)(async (targets) => {
+    setBusy(true);
+    try {
+      await withSession((port, token) => batchDeleteDocs(port, [...targets], token));
+      setActMsg(`\u5DF2\u5220\u9664 ${String(targets.length)} \u7BC7\uFF08\u6761\u6B3E/\u5411\u91CF/\u8BC1\u636E\u4E00\u5E76\u5220\u9664\uFF1B\u6536\u85CF\u4E0E\u6279\u6CE8\u662F\u7528\u6237\u8D44\u4EA7\uFF0C\u4E0D\u5220\uFF09\u3002`);
+      setAction(null);
+      setPicked(/* @__PURE__ */ new Set());
+      await loadInbox(inboxOffset, { silent: true });
+    } catch (error) {
+      setActMsg(`\u6CA1\u5220\u6210\uFF1A${errorText(error)}`);
+    } finally {
+      setBusy(false);
+    }
+  }, [inboxOffset, loadInbox, withSession]);
+  (0, import_react7.useEffect)(() => {
+    if (!reingesting) return void 0;
+    let stopped = false;
+    const timer = setInterval(() => {
+      void (async () => {
+        try {
+          const st = await withSession((port, token) => fetchKbReingestStatus(port, token));
+          if (stopped) return;
+          if (st.running) {
+            setActMsg(`\u91CD\u6765\u4E00\u6B21\u8FDB\u884C\u4E2D\uFF1A${String(st.done)} / ${String(st.total)} \u7BC7\u8DD1\u5B8C\u2026`);
+            return;
+          }
+          setReingesting(false);
+          const failed = st.results.filter((r) => r.status !== "ok").length;
+          setActMsg(`\u91CD\u6765\u4E00\u6B21\u5B8C\u6210\uFF1A${String(st.done)} \u7BC7\u8DD1\u5B8C` + (failed > 0 ? `\uFF0C\u5176\u4E2D ${String(failed)} \u7BC7\u4ECD\u6CA1\u6210\uFF08\u72B6\u6001\u5217\u91CC\u5199\u660E\u4E86\u539F\u56E0\uFF09` : "") + "\u3002\u4E0B\u9762\u8FD9\u4E00\u5C42\u5DF2\u6309\u6700\u65B0\u72B6\u6001\u91CD\u8BFB\u3002");
+          await loadInbox(inboxOffset, { silent: true });
+        } catch (error) {
+          if (!stopped) {
+            setReingesting(false);
+            setActMsg(`\u67E5\u91CD\u6765\u4E00\u6B21\u8FDB\u5EA6\u5931\u8D25\uFF1A${errorText(error)}`);
+          }
+        }
+      })();
+    }, 3e3);
+    return () => {
+      stopped = true;
+      clearInterval(timer);
+    };
+  }, [inboxOffset, loadInbox, reingesting, withSession]);
   const needle = search.trim().toLowerCase();
   const dirsShown = (0, import_react7.useMemo)(
     () => needle === "" ? subs : subs.filter((f) => f.name.toLowerCase().includes(needle)),
@@ -33849,9 +34337,9 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
     try {
       const before = await withSession((port, token) => fetchDocsFlat(port, token));
       const beforeIds = new Set(before.map((d) => d.doc_id));
-      const started = await withSession((port, token) => startBulkIngest(port, token, dir));
+      const started = await withSession((port, token) => startBulkIngest(port, token, dir, { reingest: upReingest }));
       await withSession((port, token) => resumeBulkIngest(port, token, started.batch_id));
-      setUpMsg(`\u6279\u6B21 ${started.batch_id} \u5DF2\u5F00\u59CB\uFF08\u5171 ${started.total} \u4E2A\u6587\u4EF6\uFF09\uFF0C\u7B49\u5F85\u89E3\u6790\u2026`);
+      setUpMsg(`\u6279\u6B21 ${started.batch_id} \u5DF2\u5F00\u59CB\uFF08\u5171 ${started.total} \u4E2A\u6587\u4EF6\uFF09${upReingest ? "\uFF0C**\u8986\u76D6\u91CD\u5BFC**\uFF08\u540C\u53F7\u65E7\u6587\u6863\u4F1A\u88AB\u66FF\u6362\uFF09" : ""}\uFF0C\u7B49\u5F85\u89E3\u6790\u2026`);
       let last = started.total;
       let parsed = 0;
       for (let i = 0; i < 300; i += 1) {
@@ -33870,9 +34358,15 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
         setUpMsg(`\u8FD9\u4E00\u6279\u6CA1\u6709\u65B0\u589E\u6587\u4EF6\uFF08\u5171\u770B\u4E86 ${last} \u4E2A\uFF0C\u5DF2\u89E3\u6790 ${parsed} \u4E2A\uFF1B\u5E93\u91CC\u5DF2\u6709\u7684\u4E0D\u4F1A\u91CD\u590D\u8FDB\uFF09\u3002`);
         return;
       }
-      if (levelId !== null) {
+      if (layer === "folder" && levelId !== null) {
         const res = await withSession((port, token) => fileDocsIntoFolder(port, token, levelId, fresh));
         setUpMsg(`\u5BFC\u5165\u5B8C\u6210\uFF1A\u65B0\u5165\u5E93 ${fresh.length} \u7BC7\uFF0C\u5DF2\u653E\u8FDB\u300C${levelName}\u300D${res.confirmed} \u7BC7\uFF08\u4ECE\u300C\u5F85\u5206\u7C7B\u300D\u62FF\u6389 ${res.removed_from_pending} \u7BC7\uFF09\u3002`);
+        setUpPhase("done");
+        await loadLevel(levelId, 0, { silent: true });
+        return;
+      }
+      if (layer === "inbox") {
+        setUpMsg(`\u5BFC\u5165\u5B8C\u6210\uFF1A\u65B0\u5165\u5E93 ${fresh.length} \u7BC7\uFF0C\u5C31\u6392\u5728\u4E0B\u9762\u8FD9\u4E2A\u5217\u8868\u91CC\uFF08\u72B6\u6001\u5982\u5B9E\u663E\u793A\uFF09\u2014\u2014 \u5728\u8FD9\u513F\u76F4\u63A5\u5904\u7F6E\u3002`);
       } else {
         setUpMsg(`\u5BFC\u5165\u5B8C\u6210\uFF1A\u65B0\u5165\u5E93 ${fresh.length} \u7BC7\u3002\u4F60\u73B0\u5728\u505C\u5728**\u6700\u5916\u5C42** \u21D2 \u5B83\u4EEC\u7559\u5728\u6700\u5916\u5C42\uFF08\u8FD8\u6CA1\u5F52\u4F4D\uFF0C\u4F1A\u51FA\u73B0\u5728\u300C\u5F85\u5206\u7C7B\u300D\u91CC\uFF1B\u8FDB\u4E00\u4E2A\u76EE\u5F55\u518D\u4E0A\u4F20\u624D\u4F1A\u76F4\u63A5\u843D\u8FDB\u90A3\u4E2A\u76EE\u5F55\uFF09\u3002`);
       }
@@ -33882,12 +34376,27 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
       setUpPhase("error");
       setUpMsg(`\u5BFC\u5165\u5931\u8D25\uFF1A${errorText(error)}`);
     }
-  }, [levelId, levelName, loadLevel, upDir, upPhase, withSession]);
+  }, [layer, levelId, levelName, loadLevel, upDir, upPhase, upReingest, withSession]);
+  const runCheck = (0, import_react7.useCallback)(async () => {
+    const dir = upDir.trim();
+    if (dir === "") {
+      setUpCheck("\u5148\u586B\u4E00\u4E2A\u6765\u6E90\u76EE\u5F55");
+      return;
+    }
+    setUpCheck("\u6B63\u5728\u4F53\u68C0\uFF08\u53EA\u8BFB\uFF0C\u4E0D\u5199\u5E93\uFF09\u2026");
+    try {
+      const rep = await fetchIngestBatch({ dir, sample: 5, allowDeep: false });
+      const b = rep.buckets;
+      setUpCheck(`\u4F53\u68C0\u5B8C\uFF08\u53EA\u8BFB\uFF0C\u5E93\u91CC\u4E00\u7BC7\u90FD\u6CA1\u591A\uFF09\uFF1A\u80FD\u8FDB ${String(b.ok)} \u7BC7 / \u8981\u7559\u610F ${String(b.warn)} \u7BC7 / \u8FDB\u4E0D\u4E86 ${String(b.block)} \u7BC7\uFF08\u770B\u4E86 ${String(rep.evaluated)} \u7BC7\uFF0C\u5916\u53D1\uFF1A${rep.egress}\uFF09\u3002`);
+    } catch (error) {
+      setUpCheck(`\u4F53\u68C0\u5931\u8D25\uFF1A${errorText(error)}`);
+    }
+  }, [upDir]);
   if (page === "capabilities") {
     return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(KsCapabilityPage, {});
   }
-  if (page !== "manage") {
-    const LABELS = { ingest: "\u6587\u4EF6\u5BFC\u5165", report: "\u6548\u529B\u62A5\u544A", channels: "\u6E20\u9053\u53F0\u8D26" };
+  if (page !== "manage" && page !== "ingest") {
+    const LABELS = { report: "\u6548\u529B\u62A5\u544A", channels: "\u6E20\u9053\u53F0\u8D26" };
     return (
       // ⚠ 外面这一层 `.ks-page` **只做 container-type**（页面留边的宽/窄两档靠它切；
       //    CSS 里容器不能用自己的宽度查自己，所以留边必须落在它的后代 `.ks-kb` 上）。
@@ -33924,7 +34433,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
       }
     }
   ) }) : null;
-  const renderTreeRow = (key, name, count, depth, isCurrent) => {
+  const renderTreeRow = (key, name, count, depth, isCurrent, before) => {
     const node = tree[key];
     const expanded = treeOpen.has(key);
     const hasKids = (node?.kids?.length ?? 0) > 0 || node?.kids === void 0;
@@ -33970,6 +34479,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
           ]
         }
       ),
+      before,
       node?.loading === true ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-tree-hint", children: "\u6B63\u5728\u8BFB\u53D6\u8FD9\u4E00\u5C42\u2026" }) : null,
       node?.error !== void 0 ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-tree-hint ks-tree-err", children: [
         "\u8BFB\u4E0D\u5230\u4E0B\u4E00\u5C42\uFF1A",
@@ -33984,6 +34494,417 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
       )) : null
     ] }, key);
   };
+  const inboxTreeRow = /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-tree-node ks-tree-inbox", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+    "div",
+    {
+      className: "ks-tree-row",
+      "data-on": layer === "inbox" ? "true" : "false",
+      "data-depth": 1,
+      "aria-current": layer === "inbox" ? "true" : void 0,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-tree-caret ks-tree-caret-leaf", "aria-hidden": "true" }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+          "button",
+          {
+            type: "button",
+            className: "ks-tree-name ks-tree-name-inbox",
+            title: inboxKnown ? `\u5F85\u5206\u7C7B\uFF1A\u8FD8\u6CA1\u5F52\u4F4D\u7684\u6587\u4EF6 ${String(inboxTotal)} \u7BC7\uFF08\u542B\u8BC6\u522B\u5931\u8D25\u7684\u90A3\u4E00\u6279\uFF09` : "\u5F85\u5206\u7C7B\uFF1A\u8FD8\u6CA1\u5F52\u4F4D\u7684\u6587\u4EF6",
+            onClick: gotoInbox,
+            children: [
+              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconChecklistOutline14, {}),
+              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-tree-label", children: "\u5F85\u5206\u7C7B" })
+            ]
+          }
+        ),
+        inboxKnown ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-tree-count ks-tree-count-inbox", children: inboxTotal }) : null
+      ]
+    }
+  ) }, "__inbox");
+  const inboxShown = (0, import_react7.useMemo)(() => {
+    if (needle === "") return inbox;
+    return inbox.filter((r) => (r.standard_no ?? "").toLowerCase().includes(needle) || (r.standard_name ?? "").toLowerCase().includes(needle) || (r.suggested_path ?? "").toLowerCase().includes(needle));
+  }, [inbox, needle]);
+  const pickedRows = inbox.filter((r) => picked.has(r.doc_id));
+  const pickedWithSuggestion = pickedRows.filter((r) => r.suggested_folder_id !== null).length;
+  const pickPathOf = flatFolders.find((f) => f.folder_id === pickFolder)?.path ?? "";
+  const PICK_ROWS_MAX = 60;
+  const pickNeedle = pickQuery.trim().toLowerCase();
+  const pickMatched = pickNeedle === "" ? flatFolders : flatFolders.filter((f) => f.path.toLowerCase().includes(pickNeedle));
+  const flatShown = pickMatched.slice(0, PICK_ROWS_MAX);
+  const flatHidden = pickMatched.length - flatShown.length;
+  const renderInboxRow = (doc) => {
+    const isOpen = menuFor === doc.doc_id;
+    const sugLabel = doc.suggested_path ?? "";
+    const menuItems = [
+      { id: "place", label: "\u653E\u8FDB\u67D0\u4E2A\u76EE\u5F55\u2026" },
+      ...doc.suggested_folder_id !== null ? [{ id: "accept", label: `\u6309\u5EFA\u8BAE\u5F52\u4F4D\uFF08${sugLabel}\uFF09` }] : [],
+      ...doc.suggest_new_parent_id !== null && doc.suggest_new_name !== null ? [{ id: "new", label: `\u5728\u5EFA\u8BAE\u4F4D\u7F6E\u65B0\u5EFA\u300C${doc.suggest_new_name}\u300D` }] : [],
+      { id: "retry", label: "\u91CD\u6765\u4E00\u6B21\uFF08\u91CD\u65B0\u89E3\u6790\uFF09" },
+      { id: "delete", label: "\u5220\u6389\u2026" }
+    ];
+    const cell = (key) => {
+      switch (key) {
+        case "pick":
+          return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-pick", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            import_dsh_client_ui_primitives3.Checkbox,
+            {
+              className: "ks-pick-cb",
+              checked: picked.has(doc.doc_id),
+              onChange: (next) => {
+                togglePick(doc.doc_id, next);
+              },
+              label: doc.standard_name ?? doc.doc_id,
+              title: `\u9009\u4E2D\u300C${doc.standard_name ?? doc.doc_id}\u300D\uFF08\u9009\u4E2D\u540E\u4E0B\u9762\u4F1A\u51FA\u73B0\u6279\u91CF\u5904\u7F6E\u6761\uFF09`
+            }
+          ) });
+        case "iname":
+          return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-fileico", title: docGlyphLabel(doc.standard_no), children: docGlyph(doc.standard_no) }),
+            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-item-name", title: doc.standard_name ?? doc.doc_id, children: doc.standard_name ?? doc.doc_id }),
+            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-item-sub", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-item-meta", children: doc.standard_no === null || doc.standard_no === "" ? "\u2014" : doc.standard_no }) })
+          ] });
+        case "istage":
+          return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-stage", "data-stage": doc.stage, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: `ks-stage-tag ks-stage-${doc.stage}`, children: doc.stage_label !== "" ? doc.stage_label : stageText(doc.stage, stageLabels) }),
+            doc.failure_kind === null || doc.failure_kind === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-stage-why", title: doc.failure_kind, children: [
+              "\uFF08",
+              doc.failure_kind,
+              "\uFF09"
+            ] }),
+            confidenceText(doc.confidence) === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-stage-conf", title: "\u8BC6\u522B\u7387\uFF08\u4E0E\u5165\u5E93\u9884\u89C8\u540C\u4E00\u4E2A\u6570\uFF09", children: [
+              "\u8BC6\u522B\u7387 ",
+              confidenceText(doc.confidence)
+            ] }),
+            doc.catalog_hidden === 1 ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+              "span",
+              {
+                className: "ks-stage-hidden",
+                title: "\u6B63\u6587\u6761\u6B3E\u4E3A\u96F6 \u21D2 \u8FD9\u7BC7\u4E0D\u5728\u76EE\u5F55\u91CC\uFF0C\u53EA\u80FD\u5728\u300C\u5F85\u5206\u7C7B\u300D\u91CC\u770B\u5230",
+                children: "\u4E0D\u5728\u76EE\u5F55\u91CC"
+              }
+            ) : null
+          ] });
+        case "idest":
+          return sugLabel === "" ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-kb-hint", title: "\u7CFB\u7EDF\u8BA4\u4E0D\u51FA\u5B83\u8BE5\u8FDB\u54EA\u4E2A\u73B0\u6709\u76EE\u5F55\uFF08\u515C\u5E95\u6876\uFF09\u2014\u2014\u53EA\u80FD\u624B\u52A8\u6307\u5B9A\u53BB\u5904", children: "\u6CA1\u6709\u5EFA\u8BAE" }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-dest", title: `\u7CFB\u7EDF\u5EFA\u8BAE\u653E\u8FDB\uFF1A${sugLabel}`, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-dest-path", children: sugLabel }),
+            doc.suggest_new_name === null ? null : /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-dest-new", children: [
+              "\uFF0B\u65B0\u5EFA\u300C",
+              doc.suggest_new_name,
+              "\u300D"
+            ] })
+          ] });
+        case "imore":
+          return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-item-more", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            import_dsh_client_ui_primitives3.Menu,
+            {
+              open: isOpen,
+              portal: true,
+              autoFocus: true,
+              align: "end",
+              items: menuItems,
+              onClose: () => {
+                setMenuFor(null);
+              },
+              onSelect: (id) => {
+                setMenuFor(null);
+                if (id === "place") openAction("place", [doc.doc_id]);
+                else if (id === "accept") void acceptSuggestions([doc.doc_id]);
+                else if (id === "new") openAction("new", [doc.doc_id]);
+                else if (id === "retry") void runReingest([doc.doc_id]);
+                else if (id === "delete") openAction("del", [doc.doc_id]);
+              },
+              anchor: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+                import_dsh_client_ui_primitives3.Button,
+                {
+                  variant: "ghost",
+                  size: "sm",
+                  "aria-haspopup": "menu",
+                  "aria-expanded": isOpen,
+                  "aria-label": `${doc.standard_name ?? doc.doc_id} \u7684\u5904\u7F6E\u64CD\u4F5C`,
+                  title: "\u5904\u7F6E\u8FD9\u4E00\u7BC7\uFF08\u653E\u8FDB\u76EE\u5F55 / \u6309\u5EFA\u8BAE\u5F52\u4F4D / \u91CD\u6765\u4E00\u6B21 / \u5220\u9664\uFF09",
+                  onClick: () => {
+                    setMenuFor(isOpen ? null : doc.doc_id);
+                  },
+                  children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconEllipsisOutline16, {})
+                }
+              )
+            }
+          ) });
+      }
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-item ks-inbox-row", "data-doc-id": doc.doc_id, children: INBOX_COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: `ks-cell ${col.cls}`, children: cell(col.key) }, col.key)) }, doc.doc_id);
+  };
+  const batchBar = picked.size === 0 ? null : /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-batch", role: "toolbar", "aria-label": "\u6279\u91CF\u5904\u7F6E\u9009\u4E2D\u7684\u6587\u4EF6", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-batch-n", children: [
+      "\u5DF2\u9009 ",
+      picked.size,
+      " \u7BC7"
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+      import_dsh_client_ui_primitives3.Button,
+      {
+        variant: "outline",
+        size: "sm",
+        className: "ks-batch-btn",
+        disabled: pickedWithSuggestion === 0,
+        title: pickedWithSuggestion === 0 ? "\u9009\u4E2D\u7684\u8FD9\u4E9B\u7CFB\u7EDF\u90FD\u6CA1\u7ED9\u51FA\u5EFA\u8BAE\uFF08\u8BA4\u4E0D\u51FA\u8BE5\u653E\u54EA\uFF09\u2014\u2014\u8BF7\u7528\u300C\u653E\u8FDB\u540C\u4E00\u76EE\u5F55\u300D\u81EA\u5DF1\u6307\u5B9A" : `\u53EA\u5BF9\u5176\u4E2D ${String(pickedWithSuggestion)} \u7BC7\u6709\u5EFA\u8BAE\u7684\u5F52\u4F4D\uFF1B\u6CA1\u5EFA\u8BAE\u7684\u4E0D\u4F1A\u88AB\u52A8`,
+        onClick: () => {
+          void acceptSuggestions([...picked]);
+        },
+        children: [
+          "\u63A5\u53D7\u5EFA\u8BAE",
+          pickedWithSuggestion === 0 ? "" : `\uFF08${String(pickedWithSuggestion)}\uFF09`
+        ]
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+      import_dsh_client_ui_primitives3.Button,
+      {
+        variant: "outline",
+        size: "sm",
+        className: "ks-batch-btn",
+        onClick: () => {
+          openAction("place", [...picked]);
+        },
+        children: "\u653E\u8FDB\u540C\u4E00\u76EE\u5F55"
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+      import_dsh_client_ui_primitives3.Button,
+      {
+        variant: "outline",
+        size: "sm",
+        className: "ks-batch-btn",
+        title: "\u8BA9\u5F15\u64CE\u628A\u8FD9\u6279\u91CD\u65B0\u89E3\u6790\u4E00\u904D\uFF08\u540E\u53F0\u8DD1\uFF0C\u72B6\u6001\u5217\u4F1A\u8DDF\u7740\u53D8\uFF09",
+        onClick: () => {
+          void runReingest([...picked]);
+        },
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconRefreshOutline16, {}),
+          "\u91CD\u6765\u4E00\u6B21"
+        ]
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+      import_dsh_client_ui_primitives3.Button,
+      {
+        variant: "outline",
+        size: "sm",
+        className: "ks-batch-btn ks-danger",
+        title: "\u5220\u9664\u662F\u4E0D\u53EF\u64A4\u9500\u7684\uFF08\u6761\u6B3E/\u5411\u91CF/\u8BC1\u636E\u4E00\u5E76\u5220\uFF1B\u6536\u85CF\u4E0E\u6279\u6CE8\u4E0D\u5220\uFF09",
+        onClick: () => {
+          openAction("del", [...picked]);
+        },
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconTrashOutline16, {}),
+          "\u5220\u9664"
+        ]
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Button, { variant: "ghost", size: "sm", className: "ks-batch-btn", onClick: () => {
+      setPicked(/* @__PURE__ */ new Set());
+    }, children: "\u53D6\u6D88\u9009\u62E9" })
+  ] });
+  const actionPanel = action === null ? null : /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+    "div",
+    {
+      className: action.kind === "del" ? "ks-act ks-act-del" : "ks-act",
+      role: "group",
+      "aria-label": action.kind === "del" ? "\u5220\u9664\u786E\u8BA4" : "\u9009\u62E9\u76EE\u6807\u76EE\u5F55",
+      children: action.kind === "del" ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-act-head", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconWarningOutline16, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("strong", { children: [
+            "\u786E\u8BA4\u5220\u9664 ",
+            action.targets.length,
+            " \u7BC7\uFF1F"
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-act-hint", children: "\u5220\u9664\u4E0D\u53EF\u64A4\u9500\uFF1A\u6761\u6B3E\u3001\u5411\u91CF\u3001\u8BC1\u636E\u4E00\u8D77\u5220\uFF08\u6536\u85CF\u4E0E\u6279\u6CE8\u662F\u7528\u6237\u8D44\u4EA7\uFF0C\u4E0D\u5220\uFF09\u3002" }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-act-row", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Button, { variant: "outline", size: "sm", onClick: () => {
+            setAction(null);
+          }, children: "\u53D6\u6D88" }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+            import_dsh_client_ui_primitives3.Button,
+            {
+              variant: "primary",
+              size: "sm",
+              className: "ks-act-go ks-danger",
+              onClick: () => {
+                void removeDocs(action.targets);
+              },
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconTrashOutline16, {}),
+                "\u786E\u8BA4\u5220\u9664"
+              ]
+            }
+          )
+        ] })
+      ] }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-act-head", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { children: action.kind === "new" ? `\u5728\u9009\u4E2D\u7684\u76EE\u5F55\u4E0B\u65B0\u5EFA\u300C${newName.trim() === "" ? "\u2026" : newName.trim()}\u300D\u518D\u653E ${action.targets.length} \u7BC7` : `\u628A ${action.targets.length} \u7BC7\u653E\u8FDB\u54EA\u4E2A\u76EE\u5F55\uFF1F` }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Button, { variant: "ghost", size: "sm", title: "\u5173\u6389\u8FD9\u4E2A\u9762\u677F", onClick: () => {
+            setAction(null);
+          }, children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconCloseOutline16, {}) })
+        ] }),
+        action.kind === "new" ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-act-row", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-act-label", children: "\u65B0\u76EE\u5F55\u540D" }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            import_dsh_client_ui_primitives3.Input,
+            {
+              className: "ks-act-name",
+              value: newName,
+              placeholder: "\u65B0\u76EE\u5F55\u7684\u540D\u5B57",
+              "aria-label": "\u65B0\u5EFA\u76EE\u5F55\u7684\u540D\u5B57",
+              onChange: (event) => {
+                setNewName(event.target.value);
+              }
+            }
+          )
+        ] }) : null,
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-act-row", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-act-label", children: "\u627E\u76EE\u5F55" }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            import_dsh_client_ui_primitives3.Input,
+            {
+              className: "ks-act-search",
+              value: pickQuery,
+              placeholder: "\u6309\u540D\u5B57\u6216\u8DEF\u5F84\u627E\uFF0C\u4F8B\u5982 \u5DE5\u7A0B\u9632\u706B",
+              "aria-label": "\u6309\u540D\u5B57\u6216\u8DEF\u5F84\u8FC7\u6EE4\u76EE\u5F55\u6E05\u5355",
+              onChange: (event) => {
+                setPickQuery(event.target.value);
+              }
+            }
+          )
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-act-list", children: [
+          flatShown.map((f) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+            "button",
+            {
+              type: "button",
+              className: "ks-act-item",
+              "data-on": pickFolder === f.folder_id ? "true" : "false",
+              "data-depth": f.depth,
+              title: f.path,
+              onClick: () => {
+                setPickFolder(f.folder_id);
+              },
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutline16, {}),
+                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-act-item-name", children: f.name }),
+                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-act-item-path", children: f.path })
+              ]
+            },
+            f.folder_id
+          )),
+          flatShown.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-act-hint", children: flatFolders.length === 0 ? "\u6B63\u5728\u8BFB\u76EE\u5F55\u6E05\u5355\u2026" : "\u6CA1\u6709\u5339\u914D\u7684\u76EE\u5F55" }) : null,
+          flatHidden > 0 ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-act-hint", children: [
+            "\u8FD8\u6709 ",
+            flatHidden,
+            " \u4E2A\u6CA1\u5217\u51FA\u6765\uFF08\u4E00\u5171 ",
+            flatFolders.length,
+            " \u4E2A\u76EE\u5F55\uFF09\u2014\u2014 \u7528\u4E0A\u9762\u7684\u641C\u7D22\u7F29\u5C0F\u8303\u56F4\u3002"
+          ] }) : null
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-act-row", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-act-hint", children: [
+            "\u5C06\u653E\u8FDB\uFF1A",
+            pickPathOf === "" ? "\uFF08\u8FD8\u6CA1\u9009\uFF09" : pickPathOf
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+            import_dsh_client_ui_primitives3.Button,
+            {
+              variant: "primary",
+              size: "sm",
+              className: "ks-act-go",
+              disabled: pickFolder === "" || action.kind === "new" && newName.trim() === "",
+              onClick: () => {
+                void (action.kind === "new" ? placeIntoNew(action.targets, pickFolder, newName) : placeInto(action.targets, pickFolder));
+              },
+              children: action.kind === "new" ? "\u65B0\u5EFA\u5E76\u653E\u8FDB\u53BB" : `\u653E\u8FDB\u300C${pickPathOf.split(" \u203A ").slice(-1)[0]}\u300D`
+            }
+          )
+        ] })
+      ] })
+    }
+  );
+  const inboxMain = /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-list-cap", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-lhead-name ks-kb-grow", title: "\u77E5\u8BC6\u5E93 / \u5F85\u5206\u7C7B", children: "\u5F85\u5206\u7C7B" }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-kb-hint", children: [
+        inboxTotal,
+        " \u7BC7\u8FD8\u6CA1\u5F52\u4F4D",
+        needle === "" ? "" : `\uFF08\u672C\u9875\u7B5B\u51FA ${inboxShown.length} \u7BC7\uFF09`
+      ] })
+    ] }),
+    searchBox,
+    batchBar,
+    actionPanel,
+    actMsg === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-ib-msg", role: "status", children: actMsg }),
+    inbox.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-list ks-list-inbox ks-inbox", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-lhead", children: INBOX_COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: `ks-cell ${col.cls}`, children: col.head === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-lhead-col", children: col.head }) }, col.key)) }),
+      inboxShown.map(renderInboxRow)
+    ] }) : null,
+    inbox.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-empty-card", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconChecklistOutline14, { size: 28 }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-empty-t", children: "\u6CA1\u6709\u6392\u961F\u7B49\u5F52\u4F4D\u7684\u6587\u4EF6" }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-empty-d", children: "\u5E93\u91CC\u6BCF\u4E00\u7BC7\u90FD\u5DF2\u7ECF\u5F52\u4F4D\u4E86\u3002\u7528\u4E0A\u9762\u7684\u300C\u4E0A\u4F20\u5230\u8FD9\u4E00\u5C42\u300D\u628A\u65B0\u6587\u4EF6\u5BFC\u8FDB\u6765\uFF0C \u5B83\u4EEC\u4F1A\u5148\u6392\u961F\u7B49\u5728\u8FD9\u91CC\u3002" })
+    ] }) : null,
+    inbox.length > 0 && inboxShown.length === 0 && needle !== "" ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-empty-card", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconSearchOutline16, { size: 28 }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-empty-t", children: "\u8FD9\u4E00\u5C42\u6CA1\u6709\u7B26\u5408\u641C\u7D22\u7684\u6761\u76EE" }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-empty-d", children: [
+        "\u672C\u9875 ",
+        inbox.length,
+        " \u7BC7\u91CC\u6CA1\u6709\u6807\u51C6\u53F7/\u540D\u79F0\u542B\u300C",
+        search.trim(),
+        "\u300D\u7684\u3002 \uFF08\u53EA\u7B5B\u5DF2\u7ECF\u8BFB\u51FA\u6765\u7684\u8FD9\u4E00\u9875\uFF1B\u7FFB\u9875\u540E\u53EF\u80FD\u8FD8\u6709\u3002\uFF09"
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Button, { variant: "outline", size: "sm", title: "\u6E05\u7A7A\u641C\u7D22\u4E32", onClick: () => {
+        setSearch("");
+      }, children: "\u6E05\u9664\u641C\u7D22" })
+    ] }) : null,
+    inboxTotal > INBOX_PAGE_SIZE ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-pager", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        import_dsh_client_ui_primitives3.Button,
+        {
+          variant: "outline",
+          size: "sm",
+          className: "ks-pager-btn",
+          disabled: busy || inboxOffset <= 0,
+          title: "\u4E0A\u4E00\u9875",
+          onClick: () => {
+            void loadInbox(Math.max(0, inboxOffset - INBOX_PAGE_SIZE), { silent: true });
+          },
+          children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconChevronLeftOutline14, {})
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-pager-n", children: [
+        "\u7B2C ",
+        Math.floor(inboxOffset / INBOX_PAGE_SIZE) + 1,
+        " / ",
+        Math.max(1, Math.ceil(inboxTotal / INBOX_PAGE_SIZE)),
+        " \u9875 \xB7 \u5171 ",
+        inboxTotal,
+        " \u7BC7"
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        import_dsh_client_ui_primitives3.Button,
+        {
+          variant: "outline",
+          size: "sm",
+          className: "ks-pager-btn",
+          disabled: busy || !inboxMore,
+          title: "\u4E0B\u4E00\u9875",
+          onClick: () => {
+            void loadInbox(inboxOffset + INBOX_PAGE_SIZE, { silent: true });
+          },
+          children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconChevronRightOutline14, {})
+        }
+      )
+    ] }) : null
+  ] });
   return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb", children: [
     /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("header", { className: "ks-page-head", children: [
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-page-title", children: "\u77E5\u8BC6\u5E93" }),
@@ -33994,7 +34915,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
       "div",
       {
         className: "ks-kb-banner",
-        title: `\u6570\u636E\u6765\u81EA\u672C\u673A\u77E5\u8BC6\u5E93\u5F15\u64CE\uFF08/api/v1/kb/*\uFF09\u3002\u5DE6\u8FB9\u4E00\u5217\u662F\u76EE\u5F55\uFF0C\u53F3\u8FB9\u53EA\u663E\u793A\u201C\u5F53\u524D\u8FD9\u4E00\u5C42\u201D\uFF1B\u6BCF\u4E00\u7EA7\u90FD\u80FD\u4E0A\u4F20\uFF0C\u4E0A\u4F20\u8FDB\u67D0\u4E00\u7EA7\u5C31\u843D\u5728\u90A3\u4E00\u7EA7\uFF08\u4E0D\u518D\u8FDB\u81EA\u52A8\u8BC6\u522B\uFF09\u3002dataSource=${dataSource}`,
+        title: `\u6570\u636E\u6765\u81EA\u672C\u673A\u77E5\u8BC6\u5E93\u5F15\u64CE\uFF08/api/v1/kb/*\uFF09\u3002\u5DE6\u8FB9\u4E00\u5217\u662F\u76EE\u5F55\uFF0C\u53F3\u8FB9\u53EA\u663E\u793A\u201C\u5F53\u524D\u8FD9\u4E00\u5C42\u201D\uFF1B\u6BCF\u4E00\u7EA7\u90FD\u80FD\u4E0A\u4F20\uFF0C\u4E0A\u4F20\u8FDB\u67D0\u4E00\u7EA7\u5C31\u843D\u5728\u90A3\u4E00\u7EA7\uFF08\u4E0D\u518D\u8FDB\u81EA\u52A8\u8BC6\u522B\uFF09\uFF1B\u300C\u5F85\u5206\u7C7B\u300D\u90A3\u4E00\u5C42\u662F\u6392\u961F\u7B49\u5F52\u4F4D\u7684\u6587\u4EF6\uFF08\u8FDE\u540C\u8BC6\u522B\u5931\u8D25\u7684\u90A3\u4E00\u6279\uFF09\u3002dataSource=${dataSource}`,
         children: [
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconInfoOutline14, {}),
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { children: "\u771F\u5E93\uFF1A\u5DE6\u8FB9\u76EE\u5F55\u3001\u53F3\u8FB9\u5F53\u524D\u8FD9\u4E00\u5C42" })
@@ -34008,8 +34929,8 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
           variant: "outline",
           size: "sm",
           className: "ks-back",
-          disabled: levelId === null,
-          title: levelId === null ? "\u4F60\u5DF2\u7ECF\u662F\u6700\u5916\u5C42\uFF0C\u6CA1\u6709\u4E0A\u4E00\u7EA7\u53EF\u56DE" : `\u56DE\u5230\u4E0A\u4E00\u5C42\uFF08\u73B0\u5728\u5728\uFF1A${["\u77E5\u8BC6\u5E93", ...crumb.map((f) => f.name)].join(" / ")}\uFF09`,
+          disabled: layer === "folder" && levelId === null,
+          title: layer === "inbox" ? "\u56DE\u5230\u6700\u5916\u5C42\uFF08\u79BB\u5F00\u300C\u5F85\u5206\u7C7B\u300D\uFF09" : levelId === null ? "\u4F60\u5DF2\u7ECF\u662F\u6700\u5916\u5C42\uFF0C\u6CA1\u6709\u4E0A\u4E00\u7EA7\u53EF\u56DE" : `\u56DE\u5230\u4E0A\u4E00\u5C42\uFF08\u73B0\u5728\u5728\uFF1A${["\u77E5\u8BC6\u5E93", ...crumb.map((f) => f.name)].join(" / ")}\uFF09`,
           onClick: goUp,
           children: [
             /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconChevronLeftOutline14, {}),
@@ -34021,10 +34942,10 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
         "span",
         {
           className: "ks-crumb",
-          title: `\u5F53\u524D\u8DEF\u5F84\uFF1A${["\u77E5\u8BC6\u5E93", ...crumb.map((f) => f.name)].join(" / ")}`,
+          title: `\u5F53\u524D\u8DEF\u5F84\uFF1A${layer === "inbox" ? "\u77E5\u8BC6\u5E93 / \u5F85\u5206\u7C7B" : ["\u77E5\u8BC6\u5E93", ...crumb.map((f) => f.name)].join(" / ")}`,
           children: [
             /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-crumb-path", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-crumb-item", children: levelId === null ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-crumb-item", children: layer === "folder" && levelId === null ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
                 "span",
                 {
                   className: "ks-crumb-here",
@@ -34046,7 +34967,20 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
                   children: "\u77E5\u8BC6\u5E93"
                 }
               ) }),
-              crumb.map((node, i) => {
+              layer === "inbox" ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_react7.Fragment, { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-crumb-sep", "aria-hidden": "true", children: "/" }),
+                /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-crumb-item", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+                  "span",
+                  {
+                    className: "ks-crumb-here",
+                    "aria-current": "page",
+                    "data-current": "true",
+                    title: "\u4F60\u73B0\u5728\u5728\u300C\u5F85\u5206\u7C7B\u300D\uFF08\u4E0D\u53EF\u70B9\uFF09",
+                    children: "\u5F85\u5206\u7C7B"
+                  }
+                ) })
+              ] }, "__inbox") : null,
+              layer === "inbox" ? null : crumb.map((node, i) => {
                 const here = i === crumb.length - 1;
                 return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_react7.Fragment, { children: [
                   /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-crumb-sep", "aria-hidden": "true", children: "/" }),
@@ -34075,7 +35009,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
                 ] }, node.folder_id);
               })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-crumb-n", children: levelId === null ? "\u4F60\u5728\u6700\u5916\u5C42" : `${subs.length} \u4E2A\u5B50\u76EE\u5F55 \xB7 ${filesTotal} \u7BC7\u6587\u4EF6` })
+            /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-crumb-n", children: layer === "inbox" ? `\u8FD8\u6CA1\u5F52\u4F4D ${String(inboxTotal)} \u7BC7` : levelId === null ? "\u4F60\u5728\u6700\u5916\u5C42" : `${subs.length} \u4E2A\u5B50\u76EE\u5F55 \xB7 ${filesTotal} \u7BC7\u6587\u4EF6` })
           ]
         }
       ),
@@ -34087,7 +35021,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
           size: "sm",
           className: "ks-upload-open",
           "aria-expanded": upOpen,
-          title: levelId === null ? "\u628A\u300C\u6765\u6E90\u76EE\u5F55\u300D\u91CC\u7684\u6587\u4EF6\u5BFC\u5165\u77E5\u8BC6\u5E93\uFF08\u4F60\u73B0\u5728\u5728\u6700\u5916\u5C42 \u21D2 \u5B83\u4EEC\u4F1A\u7559\u5728\u6700\u5916\u5C42\uFF0C\u8FD8\u6CA1\u5F52\u4F4D\uFF09" : `\u628A\u300C\u6765\u6E90\u76EE\u5F55\u300D\u91CC\u7684\u6587\u4EF6\u5BFC\u5165\u5E76\u76F4\u63A5\u653E\u8FDB\u300C${levelName}\u300D`,
+          title: layer === "inbox" ? "\u628A\u300C\u6765\u6E90\u76EE\u5F55\u300D\u91CC\u7684\u6587\u4EF6\u5BFC\u8FDB\u6765\uFF08\u5C31\u5728\u8FD9\u4E2A\u5217\u8868\u91CC\u6392\u961F\uFF0C\u7B49\u4F60\u5904\u7F6E\uFF09" : levelId === null ? "\u628A\u300C\u6765\u6E90\u76EE\u5F55\u300D\u91CC\u7684\u6587\u4EF6\u5BFC\u5165\u77E5\u8BC6\u5E93\uFF08\u4F60\u73B0\u5728\u5728\u6700\u5916\u5C42 \u21D2 \u5B83\u4EEC\u4F1A\u7559\u5728\u6700\u5916\u5C42\uFF0C\u8FD8\u6CA1\u5F52\u4F4D\uFF09" : `\u628A\u300C\u6765\u6E90\u76EE\u5F55\u300D\u91CC\u7684\u6587\u4EF6\u5BFC\u5165\u5E76\u76F4\u63A5\u653E\u8FDB\u300C${levelName}\u300D`,
           onClick: () => {
             void openUpload();
           },
@@ -34103,9 +35037,10 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
           variant: "ghost",
           size: "sm",
           className: "ks-refresh",
-          title: "\u91CD\u65B0\u8BFB\u53D6\u5F53\u524D\u8FD9\u4E00\u7EA7",
+          title: "\u91CD\u65B0\u8BFB\u53D6\u5F53\u524D\u8FD9\u4E00\u5C42",
           onClick: () => {
-            void loadLevel(levelId, fileOffset, { silent: true });
+            if (layer === "inbox") void loadInbox(inboxOffset, { silent: true });
+            else void loadLevel(levelId, fileOffset, { silent: true });
           },
           children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconRefreshOutline16, {})
         }
@@ -34133,7 +35068,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
             size: "sm",
             className: "ks-upload-go",
             disabled: upPhase === "running" || upDir.trim() === "",
-            title: levelId === null ? "\u5BFC\u5165\u8FD9\u4E9B\u6587\u4EF6\uFF1B\u4F60\u5728\u6700\u5916\u5C42 \u21D2 \u5B83\u4EEC\u4F1A\u7559\u5728\u6700\u5916\u5C42\uFF08\u4F1A\u51FA\u73B0\u5728\u300C\u5F85\u5206\u7C7B\u300D\u91CC\uFF09" : `\u5BFC\u5165\u8FD9\u4E9B\u6587\u4EF6\u5E76\u76F4\u63A5\u653E\u8FDB\u300C${levelName}\u300D\uFF08\u4E0D\u8FDB\u81EA\u52A8\u8BC6\u522B\uFF09`,
+            title: layer === "inbox" ? "\u5BFC\u5165\u8FD9\u4E9B\u6587\u4EF6\uFF1B\u5B83\u4EEC\u5C31\u6392\u5728\u300C\u5F85\u5206\u7C7B\u300D\u8FD9\u4E2A\u5217\u8868\u91CC\u7B49\u4F60\u5904\u7F6E" : levelId === null ? "\u5BFC\u5165\u8FD9\u4E9B\u6587\u4EF6\uFF1B\u4F60\u5728\u6700\u5916\u5C42 \u21D2 \u5B83\u4EEC\u4F1A\u7559\u5728\u6700\u5916\u5C42\uFF08\u4F1A\u51FA\u73B0\u5728\u300C\u5F85\u5206\u7C7B\u300D\u91CC\uFF09" : `\u5BFC\u5165\u8FD9\u4E9B\u6587\u4EF6\u5E76\u76F4\u63A5\u653E\u8FDB\u300C${levelName}\u300D\uFF08\u4E0D\u8FDB\u81EA\u52A8\u8BC6\u522B\uFF09`,
             onClick: () => {
               void runUpload();
             },
@@ -34141,8 +35076,43 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
           }
         )
       ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-upload-row", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-upload-label", children: "\u5148\u770B\u4E00\u773C" }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+          import_dsh_client_ui_primitives3.Button,
+          {
+            variant: "outline",
+            size: "sm",
+            className: "ks-upload-check",
+            disabled: upDir.trim() === "",
+            title: "\u53EA\u8BFB\u4F53\u68C0\uFF08\u62BD\u6837 5 \u7BC7\uFF09\uFF1A\u80FD\u8FDB / \u8981\u7559\u610F / \u8FDB\u4E0D\u4E86\uFF1B\u4E0D\u5199\u5E93\u3001\u4E0D\u8C03\u4E91\u89E3\u6790",
+            onClick: () => {
+              void runCheck();
+            },
+            children: [
+              /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.IconChecklistOutline14, {}),
+              "\u5148\u4F53\u68C0\uFF08\u53EA\u8BFB\uFF09"
+            ]
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-upload-hint", children: upCheck === "" ? "\u4F53\u68C0\u53EA\u662F\u770B\u4E00\u773C\uFF0C\u5E93\u91CC\u4E00\u7BC7\u90FD\u4E0D\u4F1A\u591A\u3002" : upCheck })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-upload-row", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-upload-label", children: "\u8986\u76D6" }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+          import_dsh_client_ui_primitives3.Checkbox,
+          {
+            checked: upReingest,
+            onChange: (next) => {
+              setUpReingest(next);
+            },
+            label: "\u8986\u76D6\u91CD\u5BFC\uFF08\u540C\u6807\u51C6\u53F7\u7684\u65E7\u6587\u6863\u4F1A\u88AB\u66FF\u6362\uFF09",
+            title: "\u6253\u5F00\u540E\uFF1A\u8FD9\u6B21\u5BFC\u5165\u660E\u77E5\u5E93\u91CC\u5DF2\u6709\u540C\u53F7/\u540C\u6587\u4EF6\u7684\u767B\u8BB0\u4E5F\u91CD\u65B0\u89E3\u6790\u4E00\u904D\uFF0C\u65E7\u6587\u6863\u4F1A\u88AB\u5220\u6389\u518D\u5EFA\u3002"
+          }
+        )
+      ] }),
       /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-upload-note", children: [
-        levelId === null ? "\u4F60\u5728\u6700\u5916\u5C42\uFF1A\u5BFC\u5165\u7684\u6587\u4EF6\u4F1A\u7559\u5728\u6700\u5916\u5C42\uFF08\u8FD8\u6CA1\u5F52\u4F4D\uFF0C\u4F1A\u51FA\u73B0\u5728\u300C\u5F85\u5206\u7C7B\u300D\u91CC\uFF09\u3002" : `\u5BFC\u5165\u5B8C\u6210\u540E\uFF0C\u65B0\u6587\u4EF6\u4F1A\u76F4\u63A5\u653E\u8FDB\u300C${levelName}\u300D\uFF0C\u4E0D\u4F1A\u8FDB\u81EA\u52A8\u8BC6\u522B\u3002`,
+        layer === "inbox" ? "\u4F60\u5728\u300C\u5F85\u5206\u7C7B\u300D\uFF1A\u5BFC\u5165\u7684\u6587\u4EF6\u5C31\u6392\u5728\u4E0B\u9762\u8FD9\u4E2A\u5217\u8868\u91CC\uFF08\u8FD8\u6CA1\u5F52\u4F4D\uFF09\uFF0C\u5F53\u573A\u5C31\u80FD\u5904\u7F6E\u3002" : levelId === null ? "\u4F60\u5728\u6700\u5916\u5C42\uFF1A\u5BFC\u5165\u7684\u6587\u4EF6\u4F1A\u7559\u5728\u6700\u5916\u5C42\uFF08\u8FD8\u6CA1\u5F52\u4F4D\uFF0C\u4F1A\u51FA\u73B0\u5728\u300C\u5F85\u5206\u7C7B\u300D\u91CC\uFF09\u3002" : `\u5BFC\u5165\u5B8C\u6210\u540E\uFF0C\u65B0\u6587\u4EF6\u4F1A\u76F4\u63A5\u653E\u8FDB\u300C${levelName}\u300D\uFF0C\u4E0D\u4F1A\u8FDB\u81EA\u52A8\u8BC6\u522B\u3002`,
         " ",
         "\u626B\u63CF\u4EF6/\u5927\u6587\u4EF6\u89E3\u6790\u8981\u7B49\u4E00\u4F1A\u513F\uFF0C\u4E0B\u9762\u7684\u8FDB\u5EA6\u8BF4\u7684\u662F\u5E93\u91CC\u771F\u7684\u89E3\u6790\u4E86\u591A\u5C11\u7BC7\u3002"
       ] }),
@@ -34151,19 +35121,35 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
     phase === "error" ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-err", role: "alert", children: [
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { children: "\u8BFB\u4E0D\u5230\u77E5\u8BC6\u5E93" }),
       /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-kb-hint", children: errMsg }),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives3.Button, { variant: "outline", size: "sm", onClick: () => {
-        void loadLevel(levelId, 0);
-      }, children: "\u91CD\u8BD5" })
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+        import_dsh_client_ui_primitives3.Button,
+        {
+          variant: "outline",
+          size: "sm",
+          onClick: () => {
+            if (layer === "inbox") void loadInbox(inboxOffset);
+            else void loadLevel(levelId, 0);
+          },
+          children: "\u91CD\u8BD5"
+        }
+      )
     ] }) : null,
     /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-split", children: [
       /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-tree", children: [
         /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-tree-head", children: "\u76EE\u5F55" }),
         /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-tree-body", children: [
-          renderTreeRow("root", "\u6700\u5916\u5C42", null, 0, levelId === null),
+          renderTreeRow(
+            "root",
+            "\u6700\u5916\u5C42",
+            null,
+            0,
+            layer === "folder" && levelId === null,
+            inboxTreeRow
+          ),
           tree.root?.loading === true ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-tree-hint", children: "\u6B63\u5728\u8BFB\u53D6\u2026" }) : null
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-main", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-main", children: layer === "inbox" ? inboxMain : /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
         /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-list-cap", children: [
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-lhead-name ks-kb-grow", title: ["\u77E5\u8BC6\u5E93", ...crumb.map((f) => f.name)].join(" / "), children: levelName }),
           /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-kb-hint", children: [
@@ -34364,8 +35350,8 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
             }
           )
         ] }) : null
-      ] }),
-      current !== null ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-detail", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-card", children: [
+      ] }) }),
+      layer === "folder" && current !== null ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-detail", children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-card", children: [
         /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-kb-row", style: { marginBottom: 6 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { className: "ks-kb-grow ks-kb-ct", title: current.standard_name ?? current.doc_id, children: current.standard_name ?? current.doc_id }),
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: STATUS[statusOf(current.legal_status)].cls, children: STATUS[statusOf(current.legal_status)].text })
@@ -34377,7 +35363,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Field, { label: "\u5E9F\u6B62\u65E5\u671F", value: current.withdrawn_date ?? "" }),
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Field, { label: "\u88AB\u66FF\u4EE3\u4E3A", value: current.superseded_by ?? "", mono: true }),
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Field, { label: "\u6240\u5C5E\u76EE\u5F55", value: levelName }),
-          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Field, { label: "\u5904\u7406\u72B6\u6001", value: stageText(current.stage) }),
+          /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(Field, { label: "\u5904\u7406\u72B6\u6001", value: stageText(current.stage, stageLabels) }),
           /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
             Field,
             {
@@ -34482,7 +35468,7 @@ function KsScopeChip(props) {
 }
 
 // client/KsSettingsSection.tsx
-var import_react13 = require("react");
+var import_react12 = require("react");
 
 // client/KsReportPanel.tsx
 var import_react9 = require("react");
@@ -36330,482 +37316,6 @@ var $trWarn = {
   background: "var(--dsw-alias-bg-layer-1, #fff8f8)"
 };
 
-// client/KsIngestPanel.tsx
-var import_react12 = require("react");
-var import_dsh_client_ui_primitives4 = require("@deepseek-ai/dsh-client-ui-primitives");
-var import_jsx_runtime13 = require("react/jsx-runtime");
-var VERDICT_META = {
-  ok: { icon: "\u2705", label: "\u53EF\u5165\u5E93", tone: "ok" },
-  warn: { icon: "\u26A0\uFE0F", label: "\u9700\u4EBA\u5DE5\u786E\u8BA4", tone: "warn" },
-  block: { icon: "\u274C", label: "\u4E0D\u5EFA\u8BAE\u5165\u5E93", tone: "block" }
-};
-function verdictMeta(v) {
-  return VERDICT_META[v] ?? { icon: "\u2754", label: v || "\u672A\u77E5", tone: "muted" };
-}
-function fmtSize(n) {
-  if (!Number.isFinite(n) || n <= 0) return "-";
-  if (n < 1024) return `${n} B`;
-  if (n < 1024 * 1024) return `${(n / 1024).toFixed(0)} KB`;
-  return `${(n / 1024 / 1024).toFixed(1)} MB`;
-}
-function BucketBar(props) {
-  const { batch } = props;
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-buckets", children: [
-    ["ok", "warn", "block"].map((k) => {
-      const meta = verdictMeta(k);
-      return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: `ks-ing-chip ks-ing-tone-${meta.tone}`, children: [
-        meta.icon,
-        " ",
-        meta.label,
-        " ",
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("b", { children: batch.buckets[k] ?? 0 })
-      ] }, k);
-    }),
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-ing-note", children: [
-      "\u5171\u8BC4\u4F30 ",
-      batch.evaluated,
-      " \u672C",
-      batch.unprocessed > 0 ? `\uFF08\u672A\u5904\u7406 ${batch.unprocessed} \u672C\uFF09` : "",
-      batch.truncated ? "\uFF08\u5019\u9009\u8D85\u51FA\u4E0A\u9650\uFF0C\u5DF2\u622A\u65AD\uFF09" : "",
-      batch.conservation_ok ? "" : " \u26A0\uFE0F \u8BA1\u6570\u4E0D\u5B88\u6052\uFF0C\u8BF7\u62A5\u544A",
-      " \xB7 ",
-      "\u8017\u65F6 ",
-      (batch.elapsed_ms / 1e3).toFixed(1),
-      "s"
-    ] })
-  ] });
-}
-function ReportDetail(props) {
-  const { report: r } = props;
-  const meta = verdictMeta(r.verdict);
-  const rec = r.recognition ?? {};
-  const lay = r.layout ?? {};
-  const dist = r.knowledge_type_distribution ?? {};
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-card", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-h", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: `ks-ing-tone-${meta.tone}`, children: meta.icon }),
-      " ",
-      meta.label,
-      " \xB7 ",
-      r.grade,
-      " \u7EA7 \xB7 ",
-      r.status === "ok" ? "\u89E3\u6790\u6210\u529F" : "\u89E3\u6790\u5931\u8D25",
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ing-h-sub", children: r.one_line ?? "" })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-ing-note", children: r.verdict_reasons.map((x) => `[${x.code}] ${x.reason}`).join(" \xB7 ") }),
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
-      "\u9875\u6570 ",
-      r.pages,
-      " \xB7 \u6761\u6B3E ",
-      r.total_clauses,
-      r.clauses_dropped_tiny > 0 ? `\uFF08\u4E22\u5F03\u788E\u7247 ${r.clauses_dropped_tiny}\uFF09` : "",
-      " \xB7 ",
-      "\u8BC6\u522B\u7F6E\u4FE1\u5EA6 ",
-      r.doc_confidence,
-      " \xB7 ",
-      "\u6587\u672C\u5C42 ",
-      rec.text_layer_state || "-",
-      rec.skew_measured ? ` \xB7 \u503E\u659C ${rec.skew_deg}\xB0` : " \xB7 \u503E\u659C\u672A\u6D4B",
-      " \xB7 ",
-      "\u6BCF\u9875 ",
-      lay.chars_per_page,
-      " \u5B57",
-      typeof lay.tables_rebuilt === "number" && lay.tables_rebuilt > 0 ? ` \xB7 \u8868\u683C ${lay.tables_rebuilt}` : "",
-      " \xB7 ",
-      r.egress === "none" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { children: "\u4E0D\u5916\u53D1\uFF08\u672A\u542F\u7528\u4E91\u6DF1\u5EA6\u901A\u9053\uFF09" }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ing-warn", children: "\u5DF2\u5141\u8BB8\u4E91\u6DF1\u5EA6\u901A\u9053\u2014\u2014\u626B\u63CF\u4EF6\u4F1A\u4E0A\u4F20\u4E91\u7AEF\uFF08\u672C\u6B21\u662F\u5426\u771F\u7684\u4E0A\u4F20\u53D6\u51B3\u4E8E\u8BE5\u6587\u6863\u6709\u65E0\u6587\u672C\u5C42\uFF1B \u7CBE\u786E\u8BB0\u5F55\u89C1\u5916\u53D1\u5BA1\u8BA1\uFF09" })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
-      "\u6807\u51C6\u53F7\u731C\u6D4B ",
-      r.standard_no_guess?.value ?? "\uFF08\u672A\u8BC6\u522B\uFF09",
-      " \xB7 ",
-      "\u540D\u79F0 ",
-      r.standard_name_guess?.value ?? "\uFF08\u672A\u8BC6\u522B\uFF09",
-      " \xB7 ",
-      "\u5206\u578B ",
-      Object.entries(dist).map(([k, v]) => `${k}${v}`).join(" ") || "-"
-    ] }),
-    r.duplicate?.kind && r.duplicate.kind !== "none" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note ks-ing-warn", children: [
-      "\u5E93\u5185\u91CD\u590D\uFF08",
-      r.duplicate.kind,
-      "\uFF09\uFF1A",
-      r.duplicate.message ?? ""
-    ] }) : null,
-    r.head_samples?.length ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-sub", children: [
-        "\u524D ",
-        r.head_samples.length,
-        " \u6761\u6837\u4F8B"
-      ] }),
-      r.head_samples.map((s) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ing-mono", children: s.number }),
-        " \xB7 ",
-        s.knowledge_type,
-        "\uFF08",
-        s.type_confidence ?? "-",
-        "\uFF09",
-        s.modality ? ` \xB7 \u6A21\u6001 ${s.modality}` : "",
-        " \xB7 ",
-        "\u7F6E\u4FE1 ",
-        s.ocr_confidence,
-        s.suspicious ? " \xB7 \u53EF\u7591" : "",
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-ing-indent", children: s.head })
-      ] }, `h${s.ordinal}`))
-    ] }) : null,
-    r.ocr_suspects?.length ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-sub ks-ing-warn", children: [
-        "\u53EF\u7591\u6761\u6B3E ",
-        r.ocr_suspects.length,
-        r.ocr_suspects_truncated ? "\uFF08\u5DF2\u622A\u65AD\uFF09" : ""
-      ] }),
-      r.ocr_suspects.slice(0, 8).map((s) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ing-mono", children: s.number }),
-        " \xB7 ",
-        s.ocr_confidence,
-        " \xB7 ",
-        s.reasons.join("/")
-      ] }, `s${s.ordinal}`))
-    ] }) : null,
-    r.collected_signals && Object.keys(r.collected_signals).length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
-      "\u4F53\u68C0\u6807\u7B7E\uFF1A",
-      Object.entries(r.collected_signals).filter(([k]) => k !== "table_anomaly_clauses").map(([k, v]) => `${k}\xD7${String(v)}`).join(" \xB7 ") || "\uFF08\u65E0\uFF09"
-    ] }) : null
-  ] });
-}
-function KsIngestPanel(props) {
-  ensureKsStyles();
-  const { visible } = props;
-  const abortRef = (0, import_react12.useRef)(null);
-  const [dir, setDir] = (0, import_react12.useState)("");
-  const [dirInput, setDirInput] = (0, import_react12.useState)("");
-  const [files, setFiles] = (0, import_react12.useState)([]);
-  const [degraded, setDegraded] = (0, import_react12.useState)(null);
-  const [listState, setListState] = (0, import_react12.useState)({ status: "idle" });
-  const [batchState, setBatchState] = (0, import_react12.useState)({ status: "idle" });
-  const [batch, setBatch] = (0, import_react12.useState)(null);
-  const [sample, setSample] = (0, import_react12.useState)(5);
-  const [detail, setDetail] = (0, import_react12.useState)(null);
-  const [detailName, setDetailName] = (0, import_react12.useState)("");
-  const [detailState, setDetailState] = (0, import_react12.useState)({ status: "idle" });
-  const [job, setJob] = (0, import_react12.useState)(null);
-  const [jobError, setJobError] = (0, import_react12.useState)(null);
-  const [allowDeep, setAllowDeep] = (0, import_react12.useState)(false);
-  const pollRef = (0, import_react12.useRef)(null);
-  const newController = (0, import_react12.useCallback)(() => {
-    abortRef.current?.abort();
-    const c = new AbortController();
-    abortRef.current = c;
-    return c;
-  }, []);
-  const loadInbox = (0, import_react12.useCallback)(async (override) => {
-    const c = newController();
-    setListState({ status: "loading" });
-    try {
-      const target = override ?? dir ?? "";
-      const inbox = target ? await fetchIngestInbox(target, c.signal) : await (async () => {
-        const d = await fetchIngestInboxDefault(c.signal);
-        setDirInput(d);
-        return await fetchIngestInbox(d, c.signal);
-      })();
-      setDir(inbox.dir);
-      setDirInput(inbox.dir);
-      setFiles(inbox.files ?? []);
-      setDegraded(inbox.degraded ?? null);
-      setListState({ status: "ready" });
-    } catch (e) {
-      if (e.name === "AbortError") return;
-      setListState({ status: "error", message: e instanceof Error ? e.message : String(e) });
-    }
-  }, [dir, newController]);
-  (0, import_react12.useEffect)(() => {
-    if (!visible) return;
-    if (listState.status === "idle") void loadInbox();
-  }, [visible, listState.status, loadInbox]);
-  (0, import_react12.useEffect)(() => () => abortRef.current?.abort(), []);
-  const startBatch = (0, import_react12.useCallback)(async () => {
-    const c = newController();
-    setBatchState({ status: "loading" });
-    setDetail(null);
-    setDetailState({ status: "idle" });
-    try {
-      const out = await fetchIngestBatch({ dir, sample, allowDeep }, c.signal);
-      setBatch(out);
-      setBatchState({ status: "ready" });
-    } catch (e) {
-      if (e.name === "AbortError") return;
-      setBatchState({ status: "error", message: e instanceof Error ? e.message : String(e) });
-    }
-  }, [dir, sample, allowDeep, newController]);
-  const openDetail = (0, import_react12.useCallback)(async (row) => {
-    const c = newController();
-    setDetailName(row.file_name);
-    setDetail(null);
-    setDetailState({ status: "loading" });
-    try {
-      const rep = await fetchIngestPreview(row.path, { allowDeep, signal: c.signal });
-      setDetail(rep);
-      setDetailState({ status: "ready" });
-    } catch (e) {
-      if (e.name === "AbortError") return;
-      setDetailState({ status: "error", message: e instanceof Error ? e.message : String(e) });
-    }
-  }, [allowDeep, newController]);
-  const stopJobPolling = (0, import_react12.useCallback)(() => {
-    if (pollRef.current !== null) {
-      clearInterval(pollRef.current);
-      pollRef.current = null;
-    }
-  }, []);
-  const pollJob = (0, import_react12.useCallback)(async (jobId) => {
-    try {
-      const v = await fetchIngestJob(jobId);
-      setJob(v);
-      setJobError(null);
-      if (v.status === "done" || v.status === "aborted" || v.status === "failed") {
-        stopJobPolling();
-      }
-    } catch (e) {
-      setJobError(e instanceof Error ? e.message : String(e));
-    }
-  }, [stopJobPolling]);
-  const startFullJob = (0, import_react12.useCallback)(async () => {
-    setJobError(null);
-    setJob(null);
-    try {
-      const v = await startIngestJob({ dir, allowDeep });
-      setJob(v);
-      stopJobPolling();
-      pollRef.current = setInterval(() => void pollJob(v.job_id), 1500);
-    } catch (e) {
-      setJobError(e instanceof Error ? e.message : String(e));
-    }
-  }, [dir, allowDeep, pollJob, stopJobPolling]);
-  const abortFullJob = (0, import_react12.useCallback)(async () => {
-    if (!job) return;
-    try {
-      await abortIngestJob(job.job_id);
-    } catch (e) {
-      setJobError(e instanceof Error ? e.message : String(e));
-    }
-  }, [job]);
-  (0, import_react12.useEffect)(() => () => stopJobPolling(), [stopJobPolling]);
-  const busy = listState.status === "loading" || batchState.status === "loading" || detailState.status === "loading";
-  return (
-    // ⚠ 5j（2026-09-20）：`.ks-page` 只做 container-type（页面留边的宽/窄两档靠它切；
-    //    CSS 里容器不能用自己的宽度查自己 ⇒ 留边落在后代的 `.ks-ing` 上）。
-    //    零内边距零外边距 ⇒ 不是"盒子套盒子"。里面的 JSX 缩进保持原样（本批不重排）。
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
-        "\u53EA\u8BFB\u9884\u89C8\uFF1A",
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("b", { children: "\u4E0D\u5199\u5E93\u3001\u4E0D\u79FB\u52A8\u6587\u4EF6\u3001\u9ED8\u8BA4\u4E0D\u5916\u53D1" }),
-        '\u3002 \u626B\u63CF\u4EF6\u9ED8\u8BA4\u53EA\u62A5"\u65E0\u6587\u672C\u5C42"\uFF0C',
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("b", { children: "\u4E0D\u4F1A" }),
-        "\u5077\u5077\u4E0A\u4F20\u5230\u4E91\u89E3\u6790\uFF1B\u786E\u9700\u4E91\u6DF1\u5EA6\u89E3\u6790\u65F6\uFF0C \u52FE\u9009\u4E0B\u9762\u7684",
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("b", { children: "\u300C\u5141\u8BB8\u4E91\u6DF1\u5EA6\u89E3\u6790\u300D" }),
-        "\u663E\u5F0F\u5F00\u542F\uFF08\u4F1A\u5916\u53D1\uFF0C\u62A5\u544A\u91CC\u4F1A\u5982\u5B9E\u6807\u6CE8 egress\uFF09\u3002 \u6B63\u5F0F\u5165\u5E93\uFF08\u786E\u8BA4\u540E\u539F\u5B50\u5199\u5165\uFF09\u662F\u4E0B\u4E00\u91CC\u7A0B\u7891\uFF0C\u6B64\u9875\u4E0D\u63D0\u4F9B\u3002"
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("label", { className: "ks-ing-note ks-ing-toggle", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-          "input",
-          {
-            type: "checkbox",
-            checked: allowDeep,
-            onChange: (e) => setAllowDeep(e.target.checked),
-            "aria-label": "\u5141\u8BB8\u4E91\u6DF1\u5EA6\u89E3\u6790"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { children: [
-          "\u5141\u8BB8\u4E91\u6DF1\u5EA6\u89E3\u6790\uFF08",
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("b", { children: "\u4F1A\u628A\u626B\u63CF\u4EF6\u4E0A\u4F20\u5230\u4E91\u7AEF" }),
-          "\uFF1B\u9ED8\u8BA4\u5173\u95ED\uFF09\u3002",
-          allowDeep ? "\u672C\u6B21\u9884\u89C8\u5C06\u5982\u5B9E\u6807\u6CE8 egress=deep_channel\u3002" : "\u672C\u6B21\u9884\u89C8\u4E0D\u5916\u53D1\uFF08egress=none\uFF09\u3002"
-        ] })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-row", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ing-note", children: "\u5F85\u5165\u5E93\u76EE\u5F55\uFF1A" }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-          "input",
-          {
-            className: "ks-ing-mono ks-ing-dir",
-            value: dirInput,
-            onChange: (e) => setDirInput(e.target.value),
-            spellCheck: false,
-            "aria-label": "\u5F85\u5165\u5E93\u76EE\u5F55"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.Button, { variant: "outline", size: "sm", disabled: busy, onClick: () => void loadInbox(dirInput), children: "\u5237\u65B0\u5217\u8868" })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
-        "\u8BE5\u76EE\u5F55\u4E0B PDF\uFF1A",
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("b", { children: files.length }),
-        " \u4E2A",
-        degraded === "engine_unavailable" ? "\uFF08\u5F15\u64CE\u672A\u542F\u52A8\uFF1A\u4EE5\u4E0B\u4E3A host \u76F4\u63A5\u5217\u76EE\u5F55\u7684\u7ED3\u679C\uFF09" : ""
-      ] }),
-      files.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-ing-note", children: "\u628A\u8981\u5165\u5E93\u7684 PDF \u653E\u8FDB\u4E0A\u9762\u7684\u76EE\u5F55\uFF0C\u7136\u540E\u70B9\u300C\u5237\u65B0\u5217\u8868\u300D\u3002" }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-files", children: [
-        files.slice(0, 12).map((f) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-mono", children: [
-          f.file_name,
-          " ",
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ing-size", children: fmtSize(f.size) })
-        ] }, f.path)),
-        files.length > 12 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
-          "\u2026\u8FD8\u6709 ",
-          files.length - 12,
-          " \u4E2A"
-        ] }) : null
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-row", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ing-note", children: "\u62BD\u6837\uFF08\u672C\uFF09" }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-          "input",
-          {
-            className: "ks-ing-num",
-            type: "number",
-            min: 0,
-            value: sample,
-            onChange: (e) => setSample(Math.max(0, Number(e.target.value) || 0)),
-            "aria-label": "\u62BD\u6837\u672C\u6570"
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ing-note", children: "0 = \u4E0D\u62BD\u6837\uFF08\u5168\u90E8\uFF0C\u4E0A\u9650 200\uFF09" }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-          import_dsh_client_ui_primitives4.Button,
-          {
-            variant: "primary",
-            size: "sm",
-            disabled: busy || files.length === 0,
-            onClick: () => void startBatch(),
-            children: "\u5F00\u59CB\u9884\u89C8"
-          }
-        ),
-        batchState.status === "loading" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ing-note", children: "\u9884\u89C8\u4E2D\u2026\uFF08\u89E3\u6790 + \u4F53\u68C0\uFF0C\u626B\u63CF\u4EF6\u53EF\u80FD\u8981\u51E0\u79D2\uFF09" }) : null
-      ] }),
-      batchState.status === "error" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note ks-ing-err", children: [
-        "\u9884\u89C8\u5931\u8D25\uFF1A",
-        batchState.message
-      ] }) : null,
-      batch ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(BucketBar, { batch }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-ing-note", children: "\u70B9\u6587\u4EF6\u540D\u770B\u8BE5\u672C\u7684\u5B8C\u6574\u4F53\u68C0\u62A5\u544A\uFF08\u5206\u7EA7/\u88C1\u51B3\u7406\u7531/\u6837\u4F8B/\u53EF\u7591\u6761\u6B3E/\u67E5\u91CD\uFF09\u3002" }),
-        batch.files.map((row, i) => {
-          const meta = verdictMeta(row.verdict);
-          return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: i === 0 ? "ks-ing-line ks-ing-line-first" : "ks-ing-line", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: `ks-ing-icon ks-ing-tone-${meta.tone}`, children: meta.icon }),
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-grow", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-                "button",
-                {
-                  type: "button",
-                  className: "ks-ing-link",
-                  onClick: () => void openDetail(row),
-                  children: row.file_name
-                }
-              ),
-              /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
-                row.grade,
-                " \u7EA7 \xB7 ",
-                row.pages,
-                " \u9875 \xB7 ",
-                row.total_clauses,
-                " \u6761",
-                " \xB7 ",
-                row.reasons.join("/") || "OK",
-                row.error ? ` \xB7 ${row.error}` : ""
-              ] })
-            ] })
-          ] }, row.path);
-        })
-      ] }) : null,
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-async", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-ing-sub", children: "\u5168\u91CF\u9884\u89C8\uFF08\u5F02\u6B65\uFF0C\u4E07\u7EA7\u53EF\u7528\uFF09" }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-ing-note", children: "\u4E0A\u9762\u7684\u540C\u6B65\u9884\u89C8\u5355\u8BF7\u6C42\u4E0A\u9650 200 \u672C\uFF1B\u8FD9\u91CC\u8D70\u5F15\u64CE\u540E\u53F0\u4EFB\u52A1\uFF0C\u51E0\u4E07\u672C\u4E5F\u80FD\u8DD1\u2014\u2014 \u5173\u6389\u6D4F\u89C8\u5668 host \u4E5F\u4F1A\u7EE7\u7EED\u63A8\u8FDB\uFF0C\u56DE\u6765\u65F6\u81EA\u52A8\u6062\u590D\u8FDB\u5EA6\u663E\u793A\u3002" }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-row", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-            import_dsh_client_ui_primitives4.Button,
-            {
-              variant: "outline",
-              size: "sm",
-              disabled: job !== null && (job.status === "running" || job.status === "pending"),
-              onClick: () => void startFullJob(),
-              children: "\u5BF9\u6574\u4E2A\u76EE\u5F55\u53D1\u8D77\u5168\u91CF\u9884\u89C8"
-            }
-          ),
-          job && (job.status === "running" || job.status === "pending") ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.Button, { variant: "ghost", size: "sm", onClick: () => void abortFullJob(), children: "\u4E2D\u65AD" }) : null
-        ] }),
-        jobError ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note ks-ing-err", children: [
-          "\u4EFB\u52A1\u5931\u8D25\uFF1A",
-          jobError
-        ] }) : null,
-        job ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
-            "\u72B6\u6001\uFF1A",
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("b", { children: job.status }),
-            " \xB7 ",
-            "\u5DF2\u4F53\u68C0 ",
-            job.done,
-            "/",
-            job.total,
-            job.stale === true ? " \xB7 \uFF08\u5F15\u64CE\u4E0D\u53EF\u8FBE\uFF1A\u663E\u793A host \u955C\u50CF\u5FEB\u7167\uFF09" : "",
-            job.error ? ` \xB7 ${job.error}` : ""
-          ] }),
-          job.total > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-            "div",
-            {
-              className: "ks-ing-progress",
-              role: "progressbar",
-              "aria-label": "\u5168\u91CF\u9884\u89C8\u8FDB\u5EA6",
-              children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-                "div",
-                {
-                  className: "ks-ing-progress-fill",
-                  style: { width: `${Math.min(100, Math.round(job.done / job.total * 100))}%` }
-                }
-              )
-            }
-          ) : null,
-          job.status === "done" || job.status === "aborted" || job.status === "failed" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
-            "\u4E09\u6876\u603B\u8D26\uFF1A\u2705 \u53EF\u5165\u5E93 ",
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("b", { children: job.buckets?.ok ?? 0 }),
-            " \xB7 ",
-            "\u26A0\uFE0F \u9700\u5904\u7406 ",
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("b", { children: job.buckets?.warn ?? 0 }),
-            " \xB7 ",
-            "\u274C \u963B\u65AD ",
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("b", { children: job.buckets?.block ?? 0 }),
-            job.status === "aborted" ? "\uFF08\u5DF2\u4E2D\u65AD\uFF1A\u4EE5\u4E0A\u4E3A\u90E8\u5206\u7ED3\u679C\uFF09" : ""
-          ] }) : null,
-          job.rows && job.rows.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
-            job.rows.slice(0, 10).map((row) => {
-              const meta = verdictMeta(row.verdict);
-              return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: `ks-ing-tone-${meta.tone}`, children: meta.icon }),
-                " ",
-                row.file_name,
-                " \u2014 ",
-                row.one_line || `${row.grade} \u7EA7 \xB7 ${row.pages} \u9875`
-              ] }, row.path);
-            }),
-            job.rows_count !== void 0 && job.rows_count > 10 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
-              "\u2026\u5171 ",
-              job.rows_count,
-              " \u884C\uFF08\u524D 10 \u884C\u9884\u89C8\uFF09"
-            ] }) : null
-          ] }) : null
-        ] }) : null
-      ] }),
-      detailState.status === "loading" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note", children: [
-        "\u52A0\u8F7D ",
-        detailName,
-        " \u7684\u62A5\u544A\u2026"
-      ] }) : null,
-      detailState.status === "error" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ing-note ks-ing-err", children: [
-        detailName,
-        " \u62A5\u544A\u5931\u8D25\uFF1A",
-        detailState.message
-      ] }) : null,
-      detail ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(ReportDetail, { report: detail }) : null
-    ] }) })
-  );
-}
-
 // client/ksPrefs.ts
 var KS_SHOW_ARROW_KEY = "showArrow";
 var LS_KEY = "ks-dsh-plugin.prefs.v1";
@@ -36861,7 +37371,7 @@ try {
 }
 
 // client/KsSettingsSection.tsx
-var import_jsx_runtime14 = require("react/jsx-runtime");
+var import_jsx_runtime13 = require("react/jsx-runtime");
 var SUMMARY_HINT = {
   marginLeft: 8,
   fontSize: 11,
@@ -36869,42 +37379,41 @@ var SUMMARY_HINT = {
   color: "var(--dsw-alias-label-secondary, #888)"
 };
 function KsCategory({ title, hint, open, onToggle, children }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
     "details",
     {
       open,
       onToggle: (e) => onToggle(e.currentTarget.open),
       style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("summary", { style: { cursor: "pointer", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)", fontSize: 13, padding: "4px 0" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("summary", { style: { cursor: "pointer", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)", fontSize: 13, padding: "4px 0" }, children: [
           title,
-          hint !== void 0 && hint !== null ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: SUMMARY_HINT, children: hint }) : null
+          hint !== void 0 && hint !== null ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: SUMMARY_HINT, children: hint }) : null
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { style: { paddingTop: 2 }, children })
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { style: { paddingTop: 2 }, children })
       ]
     }
   );
 }
 function KsSettingsSection(props) {
   const { openEvidence } = props;
-  const stored = (0, import_react13.useSyncExternalStore)(
+  const stored = (0, import_react12.useSyncExternalStore)(
     subscribePrefs,
     () => getPrefsSnapshot().showArrow,
     () => KS_PREFS_DEFAULT.showArrow
   );
-  const [saving, setSaving] = (0, import_react13.useState)(false);
-  const [error, setError] = (0, import_react13.useState)(null);
+  const [saving, setSaving] = (0, import_react12.useState)(false);
+  const [error, setError] = (0, import_react12.useState)(null);
   const shown = stored;
-  const [arrowOpen, setArrowOpen] = (0, import_react13.useState)(false);
-  const [reportOpen, setReportOpen] = (0, import_react13.useState)(false);
-  const [materialsOpen, setMaterialsOpen] = (0, import_react13.useState)(false);
-  const [channelsOpen, setChannelsOpen] = (0, import_react13.useState)(false);
-  const [ingestOpen, setIngestOpen] = (0, import_react13.useState)(false);
-  const [inspectionOpen, setInspectionOpen] = (0, import_react13.useState)(false);
-  const [inspectionOpenedOnce, setInspectionOpenedOnce] = (0, import_react13.useState)(false);
-  const [announceOpen, setAnnounceOpen] = (0, import_react13.useState)(false);
-  const [announceOpenedOnce, setAnnounceOpenedOnce] = (0, import_react13.useState)(false);
-  const [apiOpen, setApiOpen] = (0, import_react13.useState)(false);
+  const [arrowOpen, setArrowOpen] = (0, import_react12.useState)(false);
+  const [reportOpen, setReportOpen] = (0, import_react12.useState)(false);
+  const [materialsOpen, setMaterialsOpen] = (0, import_react12.useState)(false);
+  const [channelsOpen, setChannelsOpen] = (0, import_react12.useState)(false);
+  const [inspectionOpen, setInspectionOpen] = (0, import_react12.useState)(false);
+  const [inspectionOpenedOnce, setInspectionOpenedOnce] = (0, import_react12.useState)(false);
+  const [announceOpen, setAnnounceOpen] = (0, import_react12.useState)(false);
+  const [announceOpenedOnce, setAnnounceOpenedOnce] = (0, import_react12.useState)(false);
+  const [apiOpen, setApiOpen] = (0, import_react12.useState)(false);
   const onToggle = (next) => {
     setError(null);
     setSaving(true);
@@ -36916,15 +37425,15 @@ function KsSettingsSection(props) {
       setSaving(false);
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("section", { style: { padding: "8px 16px" }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { margin: "0 0 8px", fontSize: 13, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u914D\u7F6E\u300C\u6CD5\u89C4\u6807\u51C6\u77E5\u8BC6\u5E93\u300D\u63D2\u4EF6\uFF1A\u8BC1\u636E PDF \u884C\u4E3A\u3001\u6548\u529B\u62A5\u544A\u3001\u5165\u5E93\u9884\u89C8\u4E0E\u5DE1\u68C0\u3002 \u5404\u7C7B\u76EE\u9ED8\u8BA4\u6536\u8D77\uFF0C\u70B9\u51FB\u5C55\u5F00\u3002" }),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(KsCategory, { title: "\u8BC1\u636E\u67E5\u770B\u5668", open: arrowOpen, onToggle: setArrowOpen, hint: "\u7EA2\u7BAD\u5934\u5B9A\u4F4D\u5F00\u5173", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 10, padding: "8px 0" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { flex: 1 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { display: "block", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u663E\u793A\u7EA2\u8272\u5B9A\u4F4D\u7BAD\u5934" }),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { display: "block", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u5728 PDF \u8BC1\u636E\u9875\u7528\u7EA2\u7BAD\u5934\u6807\u51FA\u5F15\u7528\u6761\u6B3E\u4F4D\u7F6E\uFF1B\u5173\u95ED\u540E\u4EC5\u8DF3\u9875\u3002" })
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("section", { style: { padding: "8px 16px" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { style: { margin: "0 0 8px", fontSize: 13, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u914D\u7F6E\u300C\u6CD5\u89C4\u6807\u51C6\u77E5\u8BC6\u5E93\u300D\u63D2\u4EF6\uFF1A\u8BC1\u636E PDF \u884C\u4E3A\u3001\u6548\u529B\u62A5\u544A\u3001\u5165\u5E93\u9884\u89C8\u4E0E\u5DE1\u68C0\u3002 \u5404\u7C7B\u76EE\u9ED8\u8BA4\u6536\u8D77\uFF0C\u70B9\u51FB\u5C55\u5F00\u3002" }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(KsCategory, { title: "\u8BC1\u636E\u67E5\u770B\u5668", open: arrowOpen, onToggle: setArrowOpen, hint: "\u7EA2\u7BAD\u5934\u5B9A\u4F4D\u5F00\u5173", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 10, padding: "8px 0" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { flex: 1 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { display: "block", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u663E\u793A\u7EA2\u8272\u5B9A\u4F4D\u7BAD\u5934" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { display: "block", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u5728 PDF \u8BC1\u636E\u9875\u7528\u7EA2\u7BAD\u5934\u6807\u51FA\u5F15\u7528\u6761\u6B3E\u4F4D\u7F6E\uFF1B\u5173\u95ED\u540E\u4EC5\u8DF3\u9875\u3002" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           "input",
           {
             type: "checkbox",
@@ -36935,60 +37444,50 @@ function KsSettingsSection(props) {
           }
         )
       ] }),
-      error !== null && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { role: "alert", style: { color: "var(--dsw-alias-state-warn-primary)", fontSize: 12 }, children: [
+      error !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("p", { role: "alert", style: { color: "var(--dsw-alias-state-warn-primary)", fontSize: 12 }, children: [
         "\u4FDD\u5B58\u5931\u8D25\uFF1A",
         error
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
       KsCategory,
       {
         title: "\u6548\u529B\u62A5\u544A",
         open: reportOpen,
         onToggle: setReportOpen,
         hint: "\u56DB\u8272\u5206\u7EC4\u603B\u89C8\uFF08\u{1F7E2}\u73B0\u884C/\u{1F534}\u5E9F\u6B62/\u{1F7E1}\u5373\u5C06\u5B9E\u65BD/\u26AA\u672A\u77E5\uFF09\uFF0C\u53EF\u5BFC\u51FA Excel",
-        children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(KsReportPanel, { visible: reportOpen, openEvidence })
+        children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KsReportPanel, { visible: reportOpen, openEvidence })
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
       KsCategory,
       {
         title: "\u53C2\u8003\u8D44\u6599",
         open: materialsOpen,
         onToggle: setMaterialsOpen,
         hint: "\u4E0A\u4F20\u7684\u8D22\u62A5/\u5236\u5EA6/\u6587\u7AE0\u5728\u8FD9\u91CC\u9010\u4EFD\u8BC4\u5BA1\u2014\u2014\u53EA\u6709\u300C\u5DF2\u6279\u51C6\u300D\u7684\u6750\u6599\u4F1A\u8FDB\u5165\u4F5C\u7B54\u4E0E\u4EA7\u51FA\u7269",
-        children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(KsMaterialsPanel, { visible: materialsOpen })
+        children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KsMaterialsPanel, { visible: materialsOpen })
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
       KsCategory,
       {
         title: "\u6E20\u9053\u53F0\u8D26",
         open: channelsOpen,
         onToggle: setChannelsOpen,
         hint: "\u5DE1\u68C0\u7528\u5230\u7684\u6BCF\u6761\u6E20\u9053\uFF1A\u94FE\u63A5\u3001\u63A5\u7EBF\u72B6\u6001\u3001\u6709\u6548\u6027\u5B9E\u6D4B\u3001\u4E0A\u6B21\u6210\u529F\u67E5\u8BE2\u2014\u2014\u65B9\u4FBF\u4EBA\u5DE5\u7EF4\u62A4",
-        children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(KsChannelsPanel, { visible: channelsOpen })
+        children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KsChannelsPanel, { visible: channelsOpen })
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-      KsCategory,
-      {
-        title: "\u5165\u5E93\u9884\u89C8",
-        open: ingestOpen,
-        onToggle: setIngestOpen,
-        hint: "\u5165\u5E93\u524D\u53EA\u8BFB\u4F53\u68C0\uFF08\u2705/\u26A0\uFE0F/\u274C \u5206\u6876\uFF09\uFF0C\u4E0D\u5199\u5E93\uFF1B\u9ED8\u8BA4\u4E0D\u5916\u53D1\uFF08\u53EF\u663E\u5F0F\u5F00\u542F\u4E91\u6DF1\u5EA6\u89E3\u6790\uFF09",
-        children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(KsIngestPanel, { visible: ingestOpen })
-      }
-    ),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(KsCategory, { title: "\u6BCF\u65E5\u5DE1\u68C0", open: inspectionOpen, onToggle: (next) => {
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KsCategory, { title: "\u6BCF\u65E5\u5DE1\u68C0", open: inspectionOpen, onToggle: (next) => {
       setInspectionOpen(next);
       setInspectionOpenedOnce(true);
-    }, hint: "\u5173\u6CE8\u6807\u51C6\u5BF9\u7167\u5B98\u7F51\u516C\u544A", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(KsInspectionPanel, { openedOnce: inspectionOpenedOnce }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(KsCategory, { title: "\u516C\u544A\u53D1\u73B0", open: announceOpen, onToggle: (next) => {
+    }, hint: "\u5173\u6CE8\u6807\u51C6\u5BF9\u7167\u5B98\u7F51\u516C\u544A", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KsInspectionPanel, { openedOnce: inspectionOpenedOnce }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KsCategory, { title: "\u516C\u544A\u53D1\u73B0", open: announceOpen, onToggle: (next) => {
       setAnnounceOpen(next);
       setAnnounceOpenedOnce(true);
-    }, hint: "\u81EA\u5B9A\u4E49\u516C\u544A\u6E90\u626B\u63CF", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(KsAnnounceSourcesSection, { openedOnce: announceOpenedOnce }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(KsApiConfigSection, { open: apiOpen, onOpenChange: setApiOpen })
+    }, hint: "\u81EA\u5B9A\u4E49\u516C\u544A\u6E90\u626B\u63CF", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KsAnnounceSourcesSection, { openedOnce: announceOpenedOnce }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KsApiConfigSection, { open: apiOpen, onOpenChange: setApiOpen })
   ] });
 }
 var COUNT_LABELS = {
@@ -37044,13 +37543,13 @@ function statusText(s) {
 }
 function KsInspectionPanel(props) {
   const { openedOnce } = props;
-  const [summary, setSummary] = (0, import_react13.useState)(null);
-  const [busy, setBusy] = (0, import_react13.useState)(false);
-  const [exporting, setExporting] = (0, import_react13.useState)(false);
-  const [error, setError] = (0, import_react13.useState)(null);
-  const [expError, setExpError] = (0, import_react13.useState)(null);
-  const [loadError, setLoadError] = (0, import_react13.useState)(false);
-  const load = (0, import_react13.useCallback)(async () => {
+  const [summary, setSummary] = (0, import_react12.useState)(null);
+  const [busy, setBusy] = (0, import_react12.useState)(false);
+  const [exporting, setExporting] = (0, import_react12.useState)(false);
+  const [error, setError] = (0, import_react12.useState)(null);
+  const [expError, setExpError] = (0, import_react12.useState)(null);
+  const [loadError, setLoadError] = (0, import_react12.useState)(false);
+  const load = (0, import_react12.useCallback)(async () => {
     try {
       const s = await fetchInspectionSummary();
       setSummary(s);
@@ -37059,12 +37558,12 @@ function KsInspectionPanel(props) {
       setLoadError(true);
     }
   }, []);
-  (0, import_react13.useEffect)(() => {
+  (0, import_react12.useEffect)(() => {
     if (!openedOnce) return;
     void load();
   }, [openedOnce, load]);
   const isRunning = summary?.last?.status === "running";
-  (0, import_react13.useEffect)(() => {
+  (0, import_react12.useEffect)(() => {
     if (!isRunning) return;
     let alive = true;
     let timer;
@@ -37105,8 +37604,8 @@ function KsInspectionPanel(props) {
   const last = summary?.last ?? null;
   const overdue = summary?.overdue_days ?? 0;
   const settings = summary?.settings ?? null;
-  const [autoSaving, setAutoSaving] = (0, import_react13.useState)(false);
-  const [autoError, setAutoError] = (0, import_react13.useState)(null);
+  const [autoSaving, setAutoSaving] = (0, import_react12.useState)(false);
+  const [autoError, setAutoError] = (0, import_react12.useState)(null);
   const patchSettings = async (patch) => {
     setAutoSaving(true);
     setAutoError(null);
@@ -37134,32 +37633,32 @@ function KsInspectionPanel(props) {
       setExporting(false);
     }
   };
-  const colorDot = (c, n) => /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { title: COUNT_LABELS[c], style: { display: "inline-flex", alignItems: "center", gap: 4, color: c, fontSize: 12 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { width: 8, height: 8, borderRadius: "50%", background: c, display: "inline-block" } }),
+  const colorDot = (c, n) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { title: COUNT_LABELS[c], style: { display: "inline-flex", alignItems: "center", gap: 4, color: c, fontSize: 12 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { width: 8, height: 8, borderRadius: "50%", background: c, display: "inline-block" } }),
     n
   ] }, c);
-  return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "8px 0 2px" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u6BCF\u65E5\u5DE1\u68C0\uFF08\u5173\u6CE8\u6807\u51C6\uFF09" }),
-      overdue > 0 && last?.status === "done" && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { fontSize: 12, color: "#b8860b", border: "1px solid #b8860b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "8px 0 2px" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u6BCF\u65E5\u5DE1\u68C0\uFF08\u5173\u6CE8\u6807\u51C6\uFF09" }),
+      overdue > 0 && last?.status === "done" && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { fontSize: 12, color: "#b8860b", border: "1px solid #b8860b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: [
         "\u5DF2\u903E\u671F ",
         overdue,
         " \u5929"
       ] }),
-      summary?.stale_run === true && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { fontSize: 12, color: "#c0392b", border: "1px solid #c0392b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: "\u4E0A\u6B21\u7591\u4F3C\u4E2D\u65AD" })
+      summary?.stale_run === true && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { fontSize: 12, color: "#c0392b", border: "1px solid #c0392b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: "\u4E0A\u6B21\u7591\u4F3C\u4E2D\u65AD" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { margin: "2px 0 8px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u5BF9\u7167\u5B98\u7F51\u516C\u544A\u68C0\u67E5\u5173\u6CE8\u6807\u51C6/\u6536\u85CF\u6807\u51C6\u662F\u5426\u51FA\u73B0\u65B0\u7248\u3001\u5E9F\u6B62\u6216\u66FF\u4EE3\uFF1B\u4EC5\u6BD4\u5BF9\u4E0D\u6539\u5E93\uFF0C\u53D8\u66F4\u4EE5\u4E09\u8272\u5217\u51FA\u3002" }),
-    loadError && summary === null && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 6px" }, children: "\u5DE1\u68C0\u72B6\u6001\u8BFB\u53D6\u5931\u8D25\uFF08host \u8DEF\u7531\u4E0D\u53EF\u7528\uFF1F\u8BF7\u5237\u65B0\u91CD\u8BD5\uFF09" }),
-    last !== null && last.status === "failed" && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 6px" }, children: last.error ?? "\u5DE1\u68C0\u6279\u6B21\u5931\u8D25" }),
-    status !== null && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "2px 0 4px" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { color: status.tone, fontSize: 13 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { style: { margin: "2px 0 8px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u5BF9\u7167\u5B98\u7F51\u516C\u544A\u68C0\u67E5\u5173\u6CE8\u6807\u51C6/\u6536\u85CF\u6807\u51C6\u662F\u5426\u51FA\u73B0\u65B0\u7248\u3001\u5E9F\u6B62\u6216\u66FF\u4EE3\uFF1B\u4EC5\u6BD4\u5BF9\u4E0D\u6539\u5E93\uFF0C\u53D8\u66F4\u4EE5\u4E09\u8272\u5217\u51FA\u3002" }),
+    loadError && summary === null && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 6px" }, children: "\u5DE1\u68C0\u72B6\u6001\u8BFB\u53D6\u5931\u8D25\uFF08host \u8DEF\u7531\u4E0D\u53EF\u7528\uFF1F\u8BF7\u5237\u65B0\u91CD\u8BD5\uFF09" }),
+    last !== null && last.status === "failed" && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 6px" }, children: last.error ?? "\u5DE1\u68C0\u6279\u6B21\u5931\u8D25" }),
+    status !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "2px 0 4px" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { color: status.tone, fontSize: 13 }, children: [
         isRunning ? "\u23F3" : last?.status === "done" ? "\u2705" : last?.status === "failed" ? "\u274C" : "",
         " ",
         status.text
       ] }),
-      last !== null && last.total > 0 && last.status !== "running" && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { display: "inline-flex", gap: 10 }, children: ["red", "yellow", "green", "gray"].map((k) => colorDot(k, last.counts[k])) })
+      last !== null && last.total > 0 && last.status !== "running" && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { display: "inline-flex", gap: 10 }, children: ["red", "yellow", "green", "gray"].map((k) => colorDot(k, last.counts[k])) })
     ] }),
-    last !== null && last.by_type !== null && last.status !== "running" && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)", padding: "0 0 4px", lineHeight: "18px" }, children: (() => {
+    last !== null && last.by_type !== null && last.status !== "running" && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)", padding: "0 0 4px", lineHeight: "18px" }, children: (() => {
       const bt = last.by_type;
       if (last.total === 0) {
         return "\u672C\u6B21\u5DE1\u68C0\u6E05\u5355\u4E3A\u7A7A\uFF1A\u5173\u6CE8\u9762\u6682\u65E0\u6807\u51C6\u3001\u4E5F\u65E0\u65B0\u5165\u5E93\u5F85\u9996\u68C0\u6587\u6863\u2014\u2014\u6536\u85CF\u6807\u51C6\u6216\u5BFC\u5165\u65B0\u6587\u6863\u540E\u518D\u5DE1\u68C0";
@@ -37183,7 +37682,7 @@ function KsInspectionPanel(props) {
       const otherText = other.length > 0 ? ` \xB7 ${other.join(" / ")}` : "";
       return `\u5171\u68C0 ${last.total} \u9879${focusText}${otherText}`;
     })() }),
-    last !== null && last.status !== "running" && last.by_class !== null && last.by_class !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+    last !== null && last.status !== "running" && last.by_class !== null && last.by_class !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
       "div",
       {
         style: {
@@ -37215,8 +37714,8 @@ function KsInspectionPanel(props) {
         })()
       }
     ),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "4px 0", flexWrap: "wrap" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "4px 0", flexWrap: "wrap" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         "button",
         {
           type: "button",
@@ -37236,7 +37735,7 @@ function KsInspectionPanel(props) {
           children: busy ? "\u542F\u52A8\u4E2D\u2026" : isRunning ? "\u5DE1\u68C0\u4E2D\u2026" : overdue > 0 ? "\u8865\u8DD1\u4ECA\u65E5\u5DE1\u68C0" : "\u4ECA\u65E5\u5DE1\u68C0\uFF08tier0\uFF09"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         "button",
         {
           type: "button",
@@ -37255,20 +37754,20 @@ function KsInspectionPanel(props) {
           children: exporting ? "\u5BFC\u51FA\u4E2D\u2026" : "\u5BFC\u51FA\u5DE1\u67E5\u7ED3\u679C\uFF08Excel\uFF09"
         }
       ),
-      expError !== null && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: expError }),
-      error !== null && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: error })
+      expError !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: expError }),
+      error !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: error })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 6, paddingTop: 2 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 10, padding: "8px 0 2px" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { flex: 1 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { display: "block", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u6BCF\u65E5\u81EA\u52A8\u5DE1\u68C0" }),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { display: "block", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 6, paddingTop: 2 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 10, padding: "8px 0 2px" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { flex: 1 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { display: "block", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u6BCF\u65E5\u81EA\u52A8\u5DE1\u68C0" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { display: "block", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
             "\u5F00\u542F\u540E\u6BCF\u65E5 ",
             settings?.time ?? "08:30",
             " \u81EA\u52A8\u68C0\u67E5\u5173\u6CE8\u9762\uFF1Bdsh \u672A\u5F00\u542F\u65F6\uFF0C\u4E0B\u6B21\u542F\u52A8\u8865\u8DD1\u5F53\u5929\u4E00\u6B21\u3002"
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           "input",
           {
             type: "checkbox",
@@ -37279,9 +37778,9 @@ function KsInspectionPanel(props) {
           }
         )
       ] }),
-      settings?.autoEnabled === true && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 10, padding: "2px 0" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6BCF\u65E5\u65F6\u70B9" }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+      settings?.autoEnabled === true && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("label", { style: { display: "flex", alignItems: "center", gap: 10, padding: "2px 0" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6BCF\u65E5\u65F6\u70B9" }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           "input",
           {
             type: "time",
@@ -37295,9 +37794,9 @@ function KsInspectionPanel(props) {
             style: { fontSize: 12, padding: "2px 6px" }
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #999)" }, children: "\u5468\u65E5 tier1 \u5168\u5E93\u6EDA\u52A8\uFF08P2 \u5F00\u653E\uFF09" })
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #999)" }, children: "\u5468\u65E5 tier1 \u5168\u5E93\u6EDA\u52A8\uFF08P2 \u5F00\u653E\uFF09" })
       ] }),
-      autoError !== null && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "2px 0 0" }, children: [
+      autoError !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "2px 0 0" }, children: [
         "\u4FDD\u5B58\u5931\u8D25\uFF1A",
         autoError
       ] })
@@ -37328,17 +37827,17 @@ function sourceStatusText(p) {
 }
 function KsAnnounceSourcesSection(props) {
   const { openedOnce } = props;
-  const [summary, setSummary] = (0, import_react13.useState)(null);
-  const [scanning, setScanning] = (0, import_react13.useState)(false);
-  const [error, setError] = (0, import_react13.useState)(null);
-  const [loadError, setLoadError] = (0, import_react13.useState)(false);
-  const [sources, setSources] = (0, import_react13.useState)(null);
-  const [sourcesError, setSourcesError] = (0, import_react13.useState)(null);
-  const [newName, setNewName] = (0, import_react13.useState)("");
-  const [newUrl, setNewUrl] = (0, import_react13.useState)("");
-  const [adding, setAdding] = (0, import_react13.useState)(false);
-  const [addError, setAddError] = (0, import_react13.useState)(null);
-  const load = (0, import_react13.useCallback)(async () => {
+  const [summary, setSummary] = (0, import_react12.useState)(null);
+  const [scanning, setScanning] = (0, import_react12.useState)(false);
+  const [error, setError] = (0, import_react12.useState)(null);
+  const [loadError, setLoadError] = (0, import_react12.useState)(false);
+  const [sources, setSources] = (0, import_react12.useState)(null);
+  const [sourcesError, setSourcesError] = (0, import_react12.useState)(null);
+  const [newName, setNewName] = (0, import_react12.useState)("");
+  const [newUrl, setNewUrl] = (0, import_react12.useState)("");
+  const [adding, setAdding] = (0, import_react12.useState)(false);
+  const [addError, setAddError] = (0, import_react12.useState)(null);
+  const load = (0, import_react12.useCallback)(async () => {
     try {
       const s = await fetchAnnounceSummary();
       setSummary(s);
@@ -37347,12 +37846,12 @@ function KsAnnounceSourcesSection(props) {
       setLoadError(true);
     }
   }, []);
-  (0, import_react13.useEffect)(() => {
+  (0, import_react12.useEffect)(() => {
     if (!openedOnce) return;
     void load();
   }, [openedOnce, load]);
   const isRunning = summary?.last?.status === "running";
-  (0, import_react13.useEffect)(() => {
+  (0, import_react12.useEffect)(() => {
     if (!isRunning) return;
     let alive = true;
     let timer;
@@ -37385,8 +37884,8 @@ function KsAnnounceSourcesSection(props) {
       setScanning(false);
     }
   };
-  const [exportingAnn, setExportingAnn] = (0, import_react13.useState)(false);
-  const [annExportError, setAnnExportError] = (0, import_react13.useState)(null);
+  const [exportingAnn, setExportingAnn] = (0, import_react12.useState)(false);
+  const [annExportError, setAnnExportError] = (0, import_react12.useState)(null);
   const onAnnExport = async () => {
     if (exportingAnn) return;
     setExportingAnn(true);
@@ -37399,7 +37898,7 @@ function KsAnnounceSourcesSection(props) {
       setExportingAnn(false);
     }
   };
-  const loadSources = (0, import_react13.useCallback)(async () => {
+  const loadSources = (0, import_react12.useCallback)(async () => {
     setSourcesError(null);
     try {
       const d = await fetchAnnounceSources();
@@ -37444,44 +37943,44 @@ function KsAnnounceSourcesSection(props) {
   };
   const last = summary?.last ?? null;
   const failedCount = last?.per_source.filter((p) => p.status === "failed").length ?? 0;
-  return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "8px 0 2px", flexWrap: "wrap" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u516C\u544A\u53D1\u73B0\uFF08\u81EA\u5B9A\u4E49\u516C\u544A\u6E90\uFF09" }),
-      summary?.stale_run === true && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { fontSize: 12, color: "#c0392b", border: "1px solid #c0392b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: "\u4E0A\u6B21\u626B\u63CF\u7591\u4F3C\u4E2D\u65AD" })
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "8px 0 2px", flexWrap: "wrap" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: "\u516C\u544A\u53D1\u73B0\uFF08\u81EA\u5B9A\u4E49\u516C\u544A\u6E90\uFF09" }),
+      summary?.stale_run === true && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { fontSize: 12, color: "#c0392b", border: "1px solid #c0392b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: "\u4E0A\u6B21\u626B\u63CF\u7591\u4F3C\u4E2D\u65AD" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "2px 0 4px", flexWrap: "wrap", fontSize: 13 }, children: isRunning ? /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { color: "var(--dsw-alias-label-primary, #111)" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "2px 0 4px", flexWrap: "wrap", fontSize: 13 }, children: isRunning ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { color: "var(--dsw-alias-label-primary, #111)" }, children: [
       "\u23F3 \u626B\u63CF\u4E2D \xB7 ",
       last?.sources_done ?? 0,
       "/",
       last?.sources_total ?? 0,
       " \u6E90"
-    ] }) : last?.status === "done" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(import_jsx_runtime14.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+    ] }) : last?.status === "done" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
         "\u6700\u8FD1\u626B\u63CF ",
         fmtTs(last.finished_at)
       ] }),
-      last.baseline_count > 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)", fontSize: 12 }, children: [
+      last.baseline_count > 0 && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)", fontSize: 12 }, children: [
         "\u6536\u5F55 ",
         last.baseline_count
       ] }),
-      last.new_count > 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { fontSize: 12, color: "#b8860b", border: "1px solid #b8860b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: [
+      last.new_count > 0 && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { fontSize: 12, color: "#b8860b", border: "1px solid #b8860b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: [
         "\u65B0 ",
         last.new_count,
         " \u6761"
       ] }),
-      failedCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { fontSize: 12, color: "#c0392b", border: "1px solid #c0392b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: [
+      failedCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { fontSize: 12, color: "#c0392b", border: "1px solid #c0392b55", borderRadius: 4, padding: "0 6px", lineHeight: "18px" }, children: [
         "\u5931\u8D25 ",
         failedCount,
         " \u4E2A\u6E90"
       ] })
-    ] }) : last?.status === "failed" ? /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { color: "#c0392b", fontSize: 13 }, children: [
+    ] }) : last?.status === "failed" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { color: "#c0392b", fontSize: 13 }, children: [
       "\u4E0A\u6B21\u626B\u63CF\u5931\u8D25",
       last.error ? `\uFF1A${last.error}` : ""
-    ] }) : /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u5C1A\u672A\u626B\u63CF" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { margin: "2px 0 8px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6DFB\u52A0\u5B98\u65B9\u516C\u544A\u5217\u8868\u9875\u5730\u5740\uFF0C\u968F\u6BCF\u65E5\u5DE1\u68C0\u81EA\u52A8\u68C0\u67E5\u65B0\u516C\u544A\uFF1B\u4EC5\u652F\u6301\u516C\u7F51 http/https\uFF0C\u89E3\u6790\u5931\u8D25\u4F1A\u5982\u5B9E\u663E\u793A\u539F\u56E0\u3002" }),
-    loadError && summary === null && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 6px" }, children: "\u516C\u544A\u72B6\u6001\u8BFB\u53D6\u5931\u8D25\uFF08host \u8DEF\u7531\u4E0D\u53EF\u7528\uFF1F\u8BF7\u5237\u65B0\u91CD\u8BD5\uFF09" }),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "4px 0" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+    ] }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u5C1A\u672A\u626B\u63CF" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { style: { margin: "2px 0 8px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6DFB\u52A0\u5B98\u65B9\u516C\u544A\u5217\u8868\u9875\u5730\u5740\uFF0C\u968F\u6BCF\u65E5\u5DE1\u68C0\u81EA\u52A8\u68C0\u67E5\u65B0\u516C\u544A\uFF1B\u4EC5\u652F\u6301\u516C\u7F51 http/https\uFF0C\u89E3\u6790\u5931\u8D25\u4F1A\u5982\u5B9E\u663E\u793A\u539F\u56E0\u3002" }),
+    loadError && summary === null && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 6px" }, children: "\u516C\u544A\u72B6\u6001\u8BFB\u53D6\u5931\u8D25\uFF08host \u8DEF\u7531\u4E0D\u53EF\u7528\uFF1F\u8BF7\u5237\u65B0\u91CD\u8BD5\uFF09" }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "4px 0" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         "button",
         {
           type: "button",
@@ -37500,7 +37999,7 @@ function KsAnnounceSourcesSection(props) {
           children: scanning ? "\u542F\u52A8\u4E2D\u2026" : isRunning ? "\u626B\u63CF\u4E2D\u2026" : "\u626B\u63CF\u516C\u544A\u6E90"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         "button",
         {
           type: "button",
@@ -37519,27 +38018,27 @@ function KsAnnounceSourcesSection(props) {
           children: exportingAnn ? "\u5BFC\u51FA\u4E2D\u2026" : "\u5BFC\u51FA\u516C\u544A\u53D1\u73B0\uFF08Excel\uFF09"
         }
       ),
-      annExportError !== null && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: annExportError }),
-      error !== null && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: error })
+      annExportError !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: annExportError }),
+      error !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: error })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("details", { style: { fontSize: 12, margin: "2px 0", color: "var(--dsw-alias-label-secondary, #666)" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("summary", { style: { cursor: "pointer" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("details", { style: { fontSize: 12, margin: "2px 0", color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("summary", { style: { cursor: "pointer" }, children: [
         "\u6700\u8FD1\u516C\u544A\uFF08",
         last?.recent.length ?? 0,
         " \u6761\uFF0C\u70B9\u51FB\u5C55\u5F00\uFF09"
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("ul", { style: { margin: "6px 0 0", paddingLeft: 18 }, children: [
-        (last?.recent ?? []).map((r, i) => /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("li", { style: { lineHeight: "20px" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("a", { href: r.url, target: "_blank", rel: "noreferrer", style: { color: "var(--dsw-alias-label-primary, #111)" }, children: r.title }),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #888)" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("ul", { style: { margin: "6px 0 0", paddingLeft: 18 }, children: [
+        (last?.recent ?? []).map((r, i) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("li", { style: { lineHeight: "20px" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("a", { href: r.url, target: "_blank", rel: "noreferrer", style: { color: "var(--dsw-alias-label-primary, #111)" }, children: r.title }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #888)" }, children: [
             r.source_name ? ` \xB7 ${r.source_name}` : "",
             r.published_date ? ` \xB7 ${r.published_date}` : ""
           ] })
         ] }, `${r.url}-${i}`)),
-        (last?.recent.length ?? 0) === 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("li", { style: { listStyle: "none", marginLeft: -18 }, children: "\u6682\u65E0\u8BB0\u5F55\uFF08\u626B\u63CF\u540E\u663E\u793A\u6700\u8FD1 5 \u6761\uFF09" })
+        (last?.recent.length ?? 0) === 0 && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("li", { style: { listStyle: "none", marginLeft: -18 }, children: "\u6682\u65E0\u8BB0\u5F55\uFF08\u626B\u63CF\u540E\u663E\u793A\u6700\u8FD1 5 \u6761\uFF09" })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
       "details",
       {
         style: { fontSize: 12, margin: "2px 0", color: "var(--dsw-alias-label-secondary, #666)" },
@@ -37549,15 +38048,15 @@ function KsAnnounceSourcesSection(props) {
           }
         },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("summary", { style: { cursor: "pointer" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("summary", { style: { cursor: "pointer" }, children: [
             "\u6E90\u7BA1\u7406\uFF08",
             sources === null ? "\u5C55\u5F00\u52A0\u8F7D" : `${sources.length} \u4E2A`,
             "\uFF09"
           ] }),
-          sources === null ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { margin: "6px 0 0" }, children: "\u52A0\u8F7D\u4E2D\u2026" }) : sources.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { margin: "6px 0 0" }, children: "\u8FD8\u6CA1\u6709\u516C\u544A\u6E90\u2014\u2014\u5728\u4E0B\u65B9\u6DFB\u52A0\u7B2C\u4E00\u4E2A\u3002" }) : /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { style: { margin: "6px 0 0" }, children: sources.map((src) => {
+          sources === null ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { style: { margin: "6px 0 0" }, children: "\u52A0\u8F7D\u4E2D\u2026" }) : sources.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { style: { margin: "6px 0 0" }, children: "\u8FD8\u6CA1\u6709\u516C\u544A\u6E90\u2014\u2014\u5728\u4E0B\u65B9\u6DFB\u52A0\u7B2C\u4E00\u4E2A\u3002" }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { style: { margin: "6px 0 0" }, children: sources.map((src) => {
             const ps = last?.per_source.find((p) => p.id === src.id);
-            return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "3px 0", flexWrap: "wrap" }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+            return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "3px 0", flexWrap: "wrap" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
                 "input",
                 {
                   type: "checkbox",
@@ -37566,10 +38065,10 @@ function KsAnnounceSourcesSection(props) {
                   onChange: (e) => void onToggleEnabled(src, e.currentTarget.checked)
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { color: "var(--dsw-alias-label-primary, #111)", minWidth: 90 }, children: src.name }),
-              /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { title: src.url, style: { color: "var(--dsw-alias-label-secondary, #888)", maxWidth: 260, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: src.url }),
-              /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { children: sourceStatusText(ps) }),
-              /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { color: "var(--dsw-alias-label-primary, #111)", minWidth: 90 }, children: src.name }),
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { title: src.url, style: { color: "var(--dsw-alias-label-secondary, #888)", maxWidth: 260, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }, children: src.url }),
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { children: sourceStatusText(ps) }),
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
                 "button",
                 {
                   type: "button",
@@ -37580,9 +38079,9 @@ function KsAnnounceSourcesSection(props) {
               )
             ] }, src.id);
           }) }),
-          sourcesError !== null && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: sourcesError }),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, marginTop: 8, flexWrap: "wrap" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+          sourcesError !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: sourcesError }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, marginTop: 8, flexWrap: "wrap" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
               "input",
               {
                 value: newName,
@@ -37591,7 +38090,7 @@ function KsAnnounceSourcesSection(props) {
                 style: { fontSize: 12, padding: "3px 8px", width: 170 }
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
               "input",
               {
                 value: newUrl,
@@ -37600,7 +38099,7 @@ function KsAnnounceSourcesSection(props) {
                 style: { fontSize: 12, padding: "3px 8px", flex: 1, minWidth: 220 }
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
               "button",
               {
                 type: "button",
@@ -37619,7 +38118,7 @@ function KsAnnounceSourcesSection(props) {
               }
             )
           ] }),
-          addError !== null && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: addError })
+          addError !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: addError })
         ]
       }
     )
@@ -37638,16 +38137,16 @@ function btnStyle3(disabled) {
 }
 function KsApiConfigSection(props) {
   const { open, onOpenChange } = props;
-  const [status, setStatus] = (0, import_react13.useState)(null);
-  const [err, setErr] = (0, import_react13.useState)(null);
-  const [busy, setBusy] = (0, import_react13.useState)(null);
-  const [cloudKey, setCloudKey] = (0, import_react13.useState)("");
-  const [cloudUrl, setCloudUrl] = (0, import_react13.useState)("");
-  const [cloudMode, setCloudMode] = (0, import_react13.useState)("");
-  const [llmKey, setLlmKey] = (0, import_react13.useState)("");
-  const [llmUrl, setLlmUrl] = (0, import_react13.useState)("");
-  const [tests, setTests] = (0, import_react13.useState)({});
-  const load = (0, import_react13.useCallback)(async () => {
+  const [status, setStatus] = (0, import_react12.useState)(null);
+  const [err, setErr] = (0, import_react12.useState)(null);
+  const [busy, setBusy] = (0, import_react12.useState)(null);
+  const [cloudKey, setCloudKey] = (0, import_react12.useState)("");
+  const [cloudUrl, setCloudUrl] = (0, import_react12.useState)("");
+  const [cloudMode, setCloudMode] = (0, import_react12.useState)("");
+  const [llmKey, setLlmKey] = (0, import_react12.useState)("");
+  const [llmUrl, setLlmUrl] = (0, import_react12.useState)("");
+  const [tests, setTests] = (0, import_react12.useState)({});
+  const load = (0, import_react12.useCallback)(async () => {
     try {
       setStatus(await fetchApiConfig());
       setErr(null);
@@ -37655,8 +38154,8 @@ function KsApiConfigSection(props) {
       setErr(e instanceof Error ? e.message : String(e));
     }
   }, []);
-  const [openedOnce, setOpenedOnce] = (0, import_react13.useState)(false);
-  (0, import_react13.useEffect)(() => {
+  const [openedOnce, setOpenedOnce] = (0, import_react12.useState)(false);
+  (0, import_react12.useEffect)(() => {
     if (!open || openedOnce) return;
     setOpenedOnce(true);
     void load();
@@ -37707,10 +38206,10 @@ function KsApiConfigSection(props) {
     const configured2 = st?.configured === true;
     const t = tests[ch];
     const dirty = keyVal.trim().length > 0 || urlVal.trim().length > 0 || modeDirty;
-    return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { marginTop: 8 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, fontSize: 12 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: label }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: {
+    return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { marginTop: 8 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, fontSize: 12 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)" }, children: label }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: {
           fontSize: 11,
           padding: "0 6px",
           lineHeight: "17px",
@@ -37718,17 +38217,17 @@ function KsApiConfigSection(props) {
           color: configured2 ? "#2e7d32" : "#888",
           border: `1px solid ${configured2 ? "#2e7d3255" : "#88888855"}`
         }, children: configured2 ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E" }),
-        st?.base_url && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
+        st?.base_url && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
           "\u5F53\u524D\u751F\u6548 ",
           st.base_url
         ] }),
-        ch === "mineru_cloud" && st?.model_version && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
+        ch === "mineru_cloud" && st?.model_version && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
           "\xB7 \u6A21\u5F0F ",
           st.model_version
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 6, marginTop: 4, flexWrap: "wrap" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 6, marginTop: 4, flexWrap: "wrap" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           "input",
           {
             type: "password",
@@ -37739,7 +38238,7 @@ function KsApiConfigSection(props) {
             style: { fontSize: 12, padding: "3px 8px", width: 220 }
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           "input",
           {
             value: urlVal,
@@ -37749,7 +38248,7 @@ function KsApiConfigSection(props) {
           }
         ),
         modeSlot,
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           "button",
           {
             type: "button",
@@ -37764,7 +38263,7 @@ function KsApiConfigSection(props) {
             children: busy === `save-${ch}` ? "\u4FDD\u5B58\u4E2D\u2026" : "\u4FDD\u5B58"
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           "button",
           {
             type: "button",
@@ -37776,12 +38275,12 @@ function KsApiConfigSection(props) {
           }
         )
       ] }),
-      dirty && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: { margin: "3px 0 0", fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
+      dirty && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("p", { style: { margin: "3px 0 0", fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: [
         "\u63A2\u6D4B\u4F7F\u7528\u5DF2\u4FDD\u5B58\u7684\u51ED\u636E\uFF1B\u65B0\u586B\u7684 Key / Base URL / \u6A21\u5F0F\u8BF7\u5148\u4FDD\u5B58\u3002 \u7559\u7A7A\u8868\u793A\u4FDD\u6301\u4E0D\u53D8\uFF0C\u8F93\u5165 ",
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("code", { children: "-" }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("code", { children: "-" }),
         " \u8868\u793A\u6E05\u9664\u8BE5\u503C\uFF08Key \u6E05\u9664\u540E\u56DE\u5230\u7EAF\u672C\u5730\u901A\u9053\uFF09\u3002"
       ] }),
-      t && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: { margin: "3px 0 0", fontSize: 12, color: t.ok ? "#2e7d32" : "#c0392b" }, children: [
+      t && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("p", { style: { margin: "3px 0 0", fontSize: 12, color: t.ok ? "#2e7d32" : "#c0392b" }, children: [
         t.ok ? "\u2705 " : "\u274C ",
         t.detail
       ] })
@@ -37796,9 +38295,9 @@ function KsApiConfigSection(props) {
     vlm: "vlm\uFF08\u63A8\u8350\uFF09\uFF1A\u7AEF\u5230\u7AEF\u89C6\u89C9\u5927\u6A21\u578B\uFF0C\u590D\u6742\u7248\u5F0F\u4E0E\u626B\u63CF\u4EF6\u66F4\u5F3A\uFF1Benable_formula \u5BF9 vlm \u53EA\u5F71\u54CD\u884C\u5185\u516C\u5F0F\uFF0Cenable_table \u4ECD\u751F\u6548\u3002",
     "MinerU-HTML": "MinerU-HTML\uFF1A\u4EC5\u7528\u4E8E HTML \u6E90\u6587\u4EF6\uFF08PDF \u8BF7\u52FF\u9009\uFF09\u3002"
   };
-  const cloudModeSlot = /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { display: "inline-flex", alignItems: "center", gap: 4, fontSize: 12 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6A21\u5F0F" }),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+  const cloudModeSlot = /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { display: "inline-flex", alignItems: "center", gap: 4, fontSize: 12 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: "\u6A21\u5F0F" }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
       "select",
       {
         value: effectiveCloudMode,
@@ -37812,37 +38311,37 @@ function KsApiConfigSection(props) {
           background: "#fff",
           color: "#111"
         },
-        children: cloudModes.map((m) => /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("option", { value: m, children: m }, m))
+        children: cloudModes.map((m) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("option", { value: m, children: m }, m))
       }
     ),
-    cloudModeDirty && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { fontSize: 11, color: "#c0392b" }, children: "\u672A\u4FDD\u5B58" })
+    cloudModeDirty && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { fontSize: 11, color: "#c0392b" }, children: "\u672A\u4FDD\u5B58" })
   ] });
-  return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
     "details",
     {
       open,
       onToggle: (e) => onOpenChange(e.currentTarget.open),
       style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("summary", { style: { cursor: "pointer", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)", fontSize: 13, padding: "4px 0" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("summary", { style: { cursor: "pointer", fontWeight: 600, color: "var(--dsw-alias-label-primary, #111)", fontSize: 13, padding: "4px 0" }, children: [
           "API\u914D\u7F6E",
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: SUMMARY_HINT, children: "\u4E91 OCR / LLM \u51ED\u636E\uFF08\u52A0\u5BC6\u5B58\u50A8\uFF09" }),
-          status !== null && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { marginLeft: 8, fontSize: 11, fontWeight: 400, color: status.mineru_cloud.configured ? "#2e7d32" : "#888" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: SUMMARY_HINT, children: "\u4E91 OCR / LLM \u51ED\u636E\uFF08\u52A0\u5BC6\u5B58\u50A8\uFF09" }),
+          status !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { marginLeft: 8, fontSize: 11, fontWeight: 400, color: status.mineru_cloud.configured ? "#2e7d32" : "#888" }, children: [
             "\u4E91 OCR ",
             status.mineru_cloud.configured ? "\u5DF2\u914D\u7F6E" : "\u672A\u914D\u7F6E"
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
           "\u914D\u7F6E\u4E91 OCR Key \u540E\uFF0C\u5BFC\u5165\u6587\u4EF6\u4F18\u5148\u8D70\u4E91\u89E3\u6790\u3001\u672C\u5730\u515C\u5E95\uFF1B\u672A\u914D\u7F6E\u5219\u76F4\u63A5\u8D70\u672C\u5730\u901A\u9053\uFF08\u7EAF\u672C\u5730\u4E0D\u5916\u53D1\uFF09\u3002",
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("b", { children: "\u6A21\u5F0F" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("b", { children: "\u6A21\u5F0F" }),
           "\u5BF9\u5E94 MinerU \u5B98\u65B9 v4 \u7684 ",
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("code", { children: "model_version" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("code", { children: "model_version" }),
           "\uFF1A",
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("code", { children: "pipeline" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("code", { children: "pipeline" }),
           "\uFF08\u9ED8\u8BA4\uFF09\uFF0F",
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("code", { children: "vlm" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("code", { children: "vlm" }),
           "\uFF08\u63A8\u8350\uFF0C\u7AEF\u5230\u7AEF\u89C6\u89C9\u5927\u6A21\u578B\uFF09\uFF0F",
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("code", { children: "MinerU-HTML" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("code", { children: "MinerU-HTML" }),
           "\uFF08\u4EC5 HTML \u6E90\u6587\u4EF6\uFF09\u3002 \u51ED\u636E\u53EA\u5199\u5165\u672C\u673A\u52A0\u5BC6\u5B58\u50A8\uFF08Windows DPAPI\uFF0Csecrets.json\uFF09\uFF0C\u4E0D\u56DE\u663E\u3001\u4E0D\u5165\u5E93\u3002"
         ] }),
         chan(
@@ -37856,7 +38355,7 @@ function KsApiConfigSection(props) {
           cloudModeDirty
         ),
         chan("llm", "\u{1F916} LLM \u95EE\u7B54\u901A\u9053", llmKey, setLlmKey, llmUrl, setLlmUrl),
-        err !== null && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "6px 0 0" }, children: err })
+        err !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "6px 0 0" }, children: err })
       ]
     }
   );

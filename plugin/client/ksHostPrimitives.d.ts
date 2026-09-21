@@ -114,6 +114,15 @@ declare module '@deepseek-ai/dsh-client-ui-primitives' {
    * ⚠ 同一条边界：写了不存在的名字**不会构建失败**，只会在真机变成 undefined（按钮只剩文字）。
    */
   export const IconRefreshOutline16: ComponentType<DshIconProps>
+  /**
+   * 第 4 步（2026-09-21）新用的两枚：动作面板的**关掉**（×）与删除二次确认的**警告**。
+   * 名字逐字核过宿主检出 `packages/client/ui-primitives/lib/index.js` 的两条
+   * `const IconCloseOutline16 = jsx("svg"…` / `const IconWarningOutline16 = jsxs("svg"…`
+   * 与同一文件末尾的 export 列表（两处都在；`IconWarningOutline16` 的默认 size 是 14）。
+   * ⚠ 同一条边界：写了不存在的名字**不会构建失败**，只会在真机变成 undefined（图标整块消失）。
+   */
+  export const IconCloseOutline16: ComponentType<DshIconProps>
+  export const IconWarningOutline16: ComponentType<DshIconProps>
 
   /** 宿主 Menu 的一项。 */
   export interface DshMenuItem {

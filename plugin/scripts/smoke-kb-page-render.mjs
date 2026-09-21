@@ -227,6 +227,43 @@ export function mount(container, props) {
     fld_p16: [F.std, F.p16],
     fld_cca: [F.law, F.cca],
   }
+  /* ── 「待分类」层的桩（第 4 步）：形状逐字照 `routes_kb_folders.py` 的 kb_inbox ──
+     四篇覆盖四种档位 + 兜底桶（没有建议的那一篇，界面上**不许**渲染接受建议）。 */
+  const INBOX_ITEMS = [
+    { doc_id: 'doc_in_q', standard_no: 'GB/T 90001-2020', standard_name: '排队中的一篇',
+      stage: 'queued', stage_label: '排队中', confidence: null, failure_kind: null,
+      suggested_folder_id: F.p16.folder_id, suggested_path: '标准 › P 土木、建筑 › P16 工程防火',
+      suggest_new_parent_id: null, suggest_new_name: null, catalog_hidden: 0 },
+    { doc_id: 'doc_in_rec', standard_no: 'GB/T 90002-2020', standard_name: '识别中的一篇',
+      stage: 'recognizing', stage_label: '识别中', confidence: null, failure_kind: null,
+      suggested_folder_id: null, suggested_path: null,
+      suggest_new_parent_id: null, suggest_new_name: null, catalog_hidden: 0 },
+    { doc_id: 'doc_in_ok', standard_no: 'GB/T 90003-2020', standard_name: '待确认的一篇',
+      stage: 'confirming', stage_label: '待确认', confidence: 0.93, failure_kind: null,
+      suggested_folder_id: F.p16.folder_id, suggested_path: '标准 › P 土木、建筑 › P16 工程防火',
+      suggest_new_parent_id: F.p16.folder_id, suggest_new_name: 'P16 工程防火（新）',
+      catalog_hidden: 0 },
+    { doc_id: 'doc_in_bad', standard_no: 'GB/T 90004-2020', standard_name: '识别失败的一篇',
+      stage: 'failed', stage_label: '识别失败', confidence: 0.4,
+      failure_kind: '解析失败（正文条款为零）',
+      suggested_folder_id: null, suggested_path: null,
+      suggest_new_parent_id: null, suggest_new_name: null, catalog_hidden: 1 },
+  ]
+  /** 整棵目录树的扁平清单（选择器用）：真形状那四级 + 顶层。 */
+  const FLAT_FOLDERS = [
+    { folder_id: F.std.folder_id, parent_id: null, name: '标准', path: '标准', depth: 1 },
+    { folder_id: 'fld_p', parent_id: F.std.folder_id, name: 'P 土木、建筑',
+      path: '标准 › P 土木、建筑', depth: 2 },
+    { folder_id: 'fld_p1519', parent_id: 'fld_p', name: 'P15/19 工程抗震、工程防火、人防工程',
+      path: '标准 › P 土木、建筑 › P15/19 工程抗震、工程防火、人防工程', depth: 3 },
+    { folder_id: F.p16.folder_id, parent_id: 'fld_p1519', name: 'P16 工程防火',
+      path: '标准 › P 土木、建筑 › P15/19 工程抗震、工程防火、人防工程 › P16 工程防火', depth: 4 },
+    { folder_id: F.law.folder_id, parent_id: null, name: '法律法规', path: '法律法规', depth: 1 },
+  ]
+  /** 「重来一次」的状态（桩：起手 running，读一次之后 done）。 */
+  let reingestRunning = false
+  const reingestSeen = []
+  const deletedDocs = []
   const doc = (id, no, name, extra = {}) => ({
     doc_id: id, standard_no: no, standard_name: name,
     legal_status: 'effective', legal_hierarchy: 'GB', doc_type: 'standard',
@@ -317,6 +354,56 @@ export function mount(container, props) {
     if (p === '/api/v1/kb/inbox/confirm') {
       const decisions = JSON.parse(body ?? '{}').decisions ?? []
       return json({ code: 200, status: 'success', data: { confirmed: decisions.length, removed_from_pending: 0 } })
+    }
+    /* ── 第 4 步的四条（形状逐字照 `routes_kb_folders.py` + `reingest.py`）── */
+    if (p === '/api/v1/kb/inbox') {
+      const limit = Number(u.searchParams.get('limit') ?? '50')
+      const offset = Number(u.searchParams.get('offset') ?? '0')
+      const page = INBOX_ITEMS.slice(offset, offset + limit)
+      return json({ code: 200, status: 'success', data: {
+        items: page, total: INBOX_ITEMS.length, offset, limit,
+        has_more: offset + page.length < INBOX_ITEMS.length,
+      } })
+    }
+    if (p === '/api/v1/kb/stage-labels') {
+      return json({ code: 200, status: 'success', data: {
+        labels: { queued: '排队中', recognizing: '识别中', confirming: '待确认',
+                  filed: '已归位', failed: '识别失败' },
+        stages: ['queued', 'recognizing', 'confirming', 'filed', 'failed'],
+        unfiled: ['queued', 'recognizing', 'confirming', 'failed'],
+      } })
+    }
+    if (p === '/api/v1/kb/folders/flat') {
+      const qq = String(u.searchParams.get('q') ?? '').toLowerCase()
+      const rows = qq === '' ? FLAT_FOLDERS
+        : FLAT_FOLDERS.filter((f) => f.path.toLowerCase().includes(qq))
+      return json({ code: 200, status: 'success', data: {
+        items: rows, total: rows.length, offset: 0, limit: 0, sep: ' › ' } })
+    }
+    if (p === '/api/v1/kb/inbox/reingest' && method === 'POST') {
+      const ids = JSON.parse(body ?? '{}').doc_ids ?? []
+      reingestSeen.push(...ids)
+      reingestRunning = true
+      return json({ code: 200, status: 'success', data: {
+        queued: ids.length,
+        started: ids.map((id) => ({ doc_id: id, path: 'D:\\待入库\\x.pdf', standard_no: 'GB/T 1-2020' })),
+        skipped: [],
+      } })
+    }
+    if (p === '/api/v1/kb/inbox/reingest/status') {
+      /* 桩：第一次读到 running=true，之后 done（界面据此从"进行中"走到"完成"）。 */
+      const wasRunning = reingestRunning
+      reingestRunning = false
+      return json({ code: 200, status: 'success', data: {
+        running: wasRunning, total: reingestSeen.length, done: wasRunning ? 0 : reingestSeen.length,
+        results: wasRunning ? [] : reingestSeen.map((id) => ({ doc_id: id, status: 'ok' })),
+        started_at: '2026-09-21 10:00:00', finished_at: wasRunning ? null : '2026-09-21 10:00:05',
+      } })
+    }
+    if (p === '/api/v1/documents/batch-delete' && method === 'POST') {
+      const ids = JSON.parse(body ?? '{}').doc_ids ?? []
+      deletedDocs.push(...ids)
+      return json({ code: 200, status: 'success', data: { deleted: ids.length } })
     }
     if (p === '/api/v1/kb/members') {
       const items = JSON.parse(body ?? '{}').items ?? []
@@ -518,9 +605,15 @@ export function mount(container, props) {
     `出现 ${shownOnPage.length}/4：${shownOnPage.join(' / ')}`)
 
   /* ══════════ B. 左列目录 + 右侧只显示当前这一级 ══════════ */
-  check('B1 左列是**真目录列**（.ks-kb-tree + 最外层行 + 4 个一级目录），可滚动容器在',
+  /* ⚠⚠ **2026-09-21（第 4 步）就地改判据（原文见下）**：这一条原来钉的树形状是
+     「最外层 / 标准 / 法律法规 / 空目录 / 大批量」（4 个一级目录）。
+     第 4 步在左列加了**「待分类」那一行**（它是**页面上的一层**，不在 `folder` 表里；
+     位置在最外层之后、一级目录之前）⇒ 树形状**多一行**。判据改成新的真形状，
+     并且**额外要求那一行真的是"待分类"**（不是随便多了一行还能过）。 */
+  check('B1 左列是**真目录列**（.ks-kb-tree + 最外层行 + 「待分类」层 + 4 个一级目录），可滚动容器在',
     q('.ks-kb-tree').length === 1 && q('.ks-tree-body').length === 1
-    && treeNames().slice(0, 5).join('/') === '最外层/标准/法律法规/空目录/大批量',
+    && q('.ks-tree-name-inbox').length === 1
+    && treeNames().slice(0, 6).join('/') === '最外层/待分类/标准/法律法规/空目录/大批量',
     `树里：${treeNames().join(' / ')}`)
   check('B2 落在最外层：右侧只列**下级目录**（4 行）、0 行文件，且目录层是**与文件列表同构的列表**',
     dirRows().length === 4 && fileRows().length === 0
@@ -571,19 +664,30 @@ export function mount(container, props) {
     `表头父级=${String(q('.ks-list-dirs .ks-lhead')[0]?.parentElement?.className)} / `
       + `行父级=${String(dirRows()[0]?.parentElement?.className)}`)
 
-  /* ══════════ C. 卡片带与"只改内存"的假动作**真的没了**（本批的删除项） ══════════ */
-  check('C1 卡片带**整块删除**：.ks-kbband* / .ks-kb-cards 里的库卡 / .ks-batch 计数恒 0',
+  /* ══════════ C. 卡片带与"只改内存"的假动作**真的没了** ══════════
+     ⚠⚠ **2026-09-21（第 4 步）就地改判据（原文保留在下面，别删）**：
+     这两条原来判的是"`.ks-batch` 计数恒 0 + `input[type=checkbox]` 恒 0"
+     （= 第 3 步按"不许留假动作"把**假的**批量条与勾选拆干净）。
+     第 4 步把**真的**批量做回来了（每条动作都对应真接口：confirm / reingest /
+     batch-delete）⇒ 那两句**不再成立**，但判据不许删、不许放宽，改成判**新的真行为**：
+       · 卡片带仍然恒 0（那一块界面是真的没了，没变）；
+       · **没勾选时批量条必须是 0**（挂着一条空条子就是"看着能点、其实没有对象"）；
+       · 勾选列**只出现在「待分类」层**（目录层/文件层不许冒出勾选框 —— 那两层本批没做批量）。 */
+  check('C1 卡片带**整块删除**（.ks-kbband* 恒 0）+ 没勾选时**没有**批量条（空的条子等于假动作）',
     q('.ks-kbband').length === 0 && q('.ks-kbband-clip').length === 0
     && q('.ks-kbband-nav').length === 0 && q('.ks-kbband .ks-kb-card').length === 0
     && q('.ks-batch').length === 0,
     `kbband=${String(q('.ks-kbband').length)} / clip=${String(q('.ks-kbband-clip').length)} / `
       + `nav=${String(q('.ks-kbband-nav').length)} / batch=${String(q('.ks-batch').length)}`)
-  check('C2 "只改内存不落库"的那几样**一处不留**：标签视图/筛选胶囊/勾选框',
+  check('C2 "只改内存不落库"的那几样仍然一处不留（标签视图/筛选胶囊/占位视图）；勾选列**只在待分类层**',
     q('.ks-subtabs').length === 0 && q('.ks-tagrow').length === 0 && q('.ks-parse').length === 0
-    && q('.ks-chip').length === 0 && q('input[type=checkbox]').length === 0,
+    && q('.ks-chip').length === 0
+    && q('.ks-dirs input[type=checkbox]').length === 0
+    && q('.ks-list:not(.ks-list-dirs):not(.ks-list-inbox) input[type=checkbox]').length === 0,
     `subtabs=${String(q('.ks-subtabs').length)} tagrow=${String(q('.ks-tagrow').length)} `
       + `parse=${String(q('.ks-parse').length)} chip=${String(q('.ks-chip').length)} `
-      + `checkbox=${String(q('input[type=checkbox]').length)}`)
+      + `目录层勾选=${String(q('.ks-dirs input[type=checkbox]').length)} `
+      + `文件层勾选=${String(q('.ks-list:not(.ks-list-dirs):not(.ks-list-inbox) input[type=checkbox]').length)}`)
   check('C3 页面文本里没有"占位"字样的假动作（新建文件夹占位 / 移动到某目录）',
     !(container.textContent ?? '').includes('新建文件夹')
     && !(container.textContent ?? '').includes('移动到')
@@ -857,6 +961,142 @@ export function mount(container, props) {
     calls.slice(beforeDirUpload).filter((c) => c.url.includes('/api/v1/kb/folders')).length >= 2,
     `重读次数：${String(calls.slice(beforeDirUpload).filter((c) => c.url.includes('/api/v1/kb/folders')).length)}`)
 
+  /* ══════════ N. 「待分类」这一层（KB-FOLDER-PLAN 第 4 步）══════════
+     这一节判的**全是真行为**：入口真的能进、状态如实上屏、处置动作真的打到接口。
+     ⚠ 真浏览器里"看不看得见"的判据**不在这里**（jsdom 的 textContent 不算证据 ——
+       第 3 步复核自己踩出来的洞）⇒ 那一条在 `ui-render-shot.mjs` 的 `inboxStageCheck`。 */
+  const inboxRows = () => q('.ks-inbox-row')
+  const inboxNames = () => inboxRows().map((r) => (r.querySelector('.ks-item-name')?.textContent ?? '').trim())
+  const inboxStages = () => inboxRows().map((r) => (r.querySelector('.ks-col-istage')?.textContent ?? '').replace(/\s+/g, ' ').trim())
+  const inboxDests = () => inboxRows().map((r) => (r.querySelector('.ks-col-idest')?.textContent ?? '').trim())
+  /** 回到最外层（左列第一行），再点「待分类」那一行。 */
+  const gotoInboxLayer = async () => {
+    if (q('.ks-crumb-here')[0]?.textContent?.trim() !== '知识库') await click(q('.ks-crumb-go')[0])
+    await click(q('.ks-tree-name-inbox')[0])
+    await flush()
+  }
+  await gotoInboxLayer()
+  check('N1 左列「待分类」那一行点得进去：右栏换成待分类列表（.ks-list-inbox）+ 面包屑「知识库/待分类」、末段不可点',
+    q('.ks-list-inbox').length === 1 && inboxRows().length === 4
+    && crumbText() === '知识库/待分类'
+    && crumbItems()[0].clickable === true && crumbItems()[1].clickable === false,
+    `列表 ${String(q('.ks-list-inbox').length)} 个 / 行 ${String(inboxRows().length)} / 面包屑「${crumbText()}」`)
+  const inboxHeadTexts = () => q('.ks-list-inbox .ks-lhead .ks-cell').map((el) => (el.textContent ?? '').trim())
+  check('N2 待分类层：列头文案就是「文件名 / 状态 / 建议去向」（勾选列与 ⋮ 列无列头），'
+    + '且表头与每一行的 cell 类名序列**逐字相同**（5 列）',
+    inboxHeadTexts().join('|') === '|文件名|状态|建议去向|'
+    && cellClasses(q('.ks-list-inbox .ks-lhead')[0]).join('|')
+      === cellClasses(inboxRows()[0]).join('|')
+    && cellClasses(inboxRows()[0]).length === 5,
+    `列头=${JSON.stringify(inboxHeadTexts())} / 行 cell=${cellClasses(inboxRows()[0]).join('|')}`)
+  check('N3 每篇的状态**如实**上屏（四档各一行）：排队中 / 识别中 / 待确认 / 识别失败（带失败原因）',
+    inboxStages().join(' || ').includes('排队中') && inboxStages().join(' || ').includes('识别中')
+    && inboxStages().join(' || ').includes('待确认') && inboxStages().join(' || ').includes('识别失败')
+    && inboxStages().join(' || ').includes('解析失败（正文条款为零）'),
+    inboxStages().join(' || '))
+  check('N4 识别率（后端 confidence）与"不在目录里"（catalog_hidden=1）都如实显示',
+    inboxStages().some((t) => t.includes('识别率 93%'))
+    && inboxStages().some((t) => t.includes('不在目录里')),
+    inboxStages().join(' || '))
+  check('N5 建议去向如实：有建议的显示**后端给的路径**、认不出的显示「没有建议」',
+    inboxDests().some((t) => t.includes('标准 › P 土木、建筑 › P16 工程防火'))
+    && inboxDests().filter((t) => t.includes('没有建议')).length === 2,
+    inboxDests().join(' || '))
+  /* 兜底桶那一篇（没有建议）的菜单里**不许**出现「按建议归位 / 在建议位置新建」——
+     后端对它们回 422 no_suggestion，渲染出来就是死按钮。 */
+  const badRow = inboxRows().find((r) => (r.querySelector('.ks-item-name')?.textContent ?? '').includes('识别失败的一篇'))
+  await click(badRow.querySelector('.ks-item-more button'))
+  const badMenu = q('[role=menuitem]').map((el) => (el.textContent ?? '').trim())
+  await click(badRow.querySelector('.ks-item-more button'))
+  check('N6 兜底桶（没有建议）那一篇的 ⋮ 菜单里**没有**「按建议归位 / 在建议位置新建」（死按钮不许渲染）',
+    badMenu.length === 3 && !badMenu.some((t) => t.includes('按建议归位'))
+    && !badMenu.some((t) => t.includes('在建议位置新建'))
+    && badMenu.some((t) => t.includes('放进某个目录')) && badMenu.some((t) => t.includes('重来一次'))
+    && badMenu.some((t) => t.includes('删掉')),
+    `菜单项：${JSON.stringify(badMenu)}`)
+  const okRow = inboxRows().find((r) => (r.querySelector('.ks-item-name')?.textContent ?? '').includes('待确认的一篇'))
+  await click(okRow.querySelector('.ks-item-more button'))
+  const okMenu = q('[role=menuitem]').map((el) => (el.textContent ?? '').trim())
+  await click(okRow.querySelector('.ks-item-more button'))
+  check('N7 有建议的那一篇菜单里**有**「按建议归位（带路径）」与「在建议位置新建 XXX」',
+    okMenu.some((t) => t.includes('按建议归位') && t.includes('P16 工程防火'))
+    && okMenu.some((t) => t.includes('在建议位置新建')),
+    `菜单项：${JSON.stringify(okMenu)}`)
+  /* 勾选 ⇒ 批量条出现；取消 ⇒ 消失。 */
+  const pickBoxes = () => q('.ks-inbox-row .ks-col-pick input[type=checkbox]')
+  check('N8 待分类行**每行一个勾选框**（4 行 4 个），没勾选时批量条是 0 条',
+    pickBoxes().length === 4 && q('.ks-batch').length === 0,
+    `勾选框 ${String(pickBoxes().length)} 个 / 批量条 ${String(q('.ks-batch').length)} 条`)
+  await click(pickBoxes()[0])
+  const batchBtns = () => [...q('.ks-batch button')].map((b) => (b.textContent ?? '').trim())
+  check('N9 勾一篇 ⇒ 批量条真的出现（4 个动作 + 取消选择），四个动作都念得出来',
+    q('.ks-batch').length === 1 && (q('.ks-batch-n')[0]?.textContent ?? '').includes('已选 1 篇')
+    && ['接受建议', '放进同一目录', '重来一次', '删除'].every((t) => batchBtns().some((b) => b.includes(t))),
+    `批量条：${JSON.stringify(batchBtns())}`)
+  /* ⚠ 这一篇（排队中的那一篇）**有建议** ⇒ 「接受建议」可用；换选兜底桶那篇 ⇒ 必须**禁用**。 */
+  const acceptBtn = () => [...q('.ks-batch button')].find((b) => (b.textContent ?? '').includes('接受建议'))
+  const enabledWithSuggestion = acceptBtn()?.disabled === false
+  await click(pickBoxes()[0])                    // 取消第一篇
+  await click(pickBoxes()[3])                    // 选兜底桶那篇
+  const disabledWithout = acceptBtn()?.disabled === true
+  check('N10 「接受建议」只在**选中的确有建议**时可用：选兜底桶那篇 ⇒ 按钮禁用（按下去会 422）',
+    enabledWithSuggestion && disabledWithout && acceptBtn() !== undefined
+    && (acceptBtn().getAttribute('title') ?? '').includes('没给出建议'),
+    `有建议时 disabled=${String(!enabledWithSuggestion)} / 无建议时 disabled=${String(disabledWithout)}`
+      + ` / title=${(acceptBtn()?.getAttribute('title') ?? '(没有)').slice(0, 40)}`)
+  /* 放进同一目录：真的开选择器，选一行 ⇒ 真的发 confirm(existing)。 */
+  await click(pickBoxes()[3])
+  await click(pickBoxes()[0])
+  await click([...q('.ks-batch button')].find((b) => (b.textContent ?? '').includes('放进同一目录')))
+  await flush()
+  check('N11 「放进同一目录」⇒ 真的打开目录选择器（整棵树扁平清单里按名字找 + 逐行可点）',
+    q('.ks-act').length === 1 && q('.ks-act-item').length === 5
+    && (q('.ks-act-search input')[0] !== undefined),
+    `面板 ${String(q('.ks-act').length)} 个 / 目录行 ${String(q('.ks-act-item').length)}`)
+  await click(q('.ks-act-item').find((el) => (el.textContent ?? '').includes('P16 工程防火')))
+  const beforePlace = calls.length
+  await click(q('.ks-act-go')[0])
+  await flush(); await flush()
+  const placeCall = calls.slice(beforePlace).find((c) => c.url === `${API}/api/v1/kb/inbox/confirm`)
+  const placeBody = placeCall === undefined ? null : JSON.parse(placeCall.body ?? '{}')
+  check('N12 选择器里选完点确认 ⇒ 真的发 `POST /kb/inbox/confirm`（action=existing、target=选中的那个目录）',
+    placeBody !== null && placeBody.decisions?.length === 1
+    && placeBody.decisions[0].action === 'existing'
+    && placeBody.decisions[0].target_folder_id === 'fld_p16',
+    placeCall === undefined ? '(没调 confirm)' : (placeCall.body ?? '').slice(0, 140))
+  /* 重来一次：真的发 reingest，并把这一层重读一遍。 */
+  const beforeRetry = calls.length
+  await click(pickBoxes()[1])
+  await click([...q('.ks-batch button')].find((b) => (b.textContent ?? '').includes('重来一次')))
+  await flush(); await flush()
+  const retryCalls = calls.slice(beforeRetry)
+  const retryCall = retryCalls.find((c) => c.url === `${API}/api/v1/kb/inbox/reingest`)
+  check('N13 「重来一次」⇒ 真的发 `POST /kb/inbox/reingest`（带选中的 doc_id），并重读这一层',
+    retryCall !== undefined
+    && JSON.parse(retryCall.body ?? '{}').doc_ids?.includes('doc_in_rec')
+    && retryCalls.filter((c) => c.url.includes('/api/v1/kb/inbox?')).length >= 1,
+    `这一跳：${retryCalls.map((c) => `${c.method} ${c.url.replace(API, '')}`).join(' , ')}`)
+  /* 删除的**二次确认**：点「删除」只是开确认面板，**不许**当场删；点「确认删除」才真删。 */
+  const beforeDel = calls.length
+  await click([...q('.ks-batch button')].find((b) => (b.textContent ?? '').includes('删除')))
+  await flush()
+  const openedConfirm = q('.ks-act-del').length === 1
+  const confirmText = (q('.ks-act-del')[0]?.textContent ?? '').replace(/\s+/g, '')
+  const deletedBeforeConfirm = calls.slice(beforeDel).some((c) => c.url.includes('batch-delete'))
+  await click([...q('.ks-act-del button')].find((b) => (b.textContent ?? '').includes('确认删除')))
+  await flush(); await flush()
+  const delCalls = calls.slice(beforeDel)
+  const delCall = delCalls.find((c) => c.url === `${API}/api/v1/documents/batch-delete`)
+  check('N14 删除**要二次确认**：点「删除」只开确认面板（此时一条删除请求都没发）；'
+    + '点「确认删除」才真的发 `/documents/batch-delete`（confirm=true）',
+    openedConfirm && deletedBeforeConfirm === false && delCall !== undefined
+    && JSON.parse(delCall.body ?? '{}').confirm === true,
+    `确认面板（点确认前）${String(openedConfirm)} / 确认前发过删除=${String(deletedBeforeConfirm)}`
+      + ` / 删除请求：${delCall === undefined ? '(没有)' : (delCall.body ?? '').slice(0, 120)}`)
+  check('N15 删除面板如实写明"不可撤销"与"收藏/批注不删"（不是一句含糊的"确定吗"）',
+    confirmText.includes('不可撤销') && confirmText.includes('收藏') && confirmText.includes('批注'),
+    `确认面板原话：${confirmText.slice(0, 90)}`)
+
   root.unmount()
   await flush()
 
@@ -878,6 +1118,36 @@ export function mount(container, props) {
     && [...errContainer.querySelectorAll('.ks-tree-label')].some((el) => (el.textContent ?? '').includes('标准')),
     `错误条还在=${String(errContainer.querySelector('.ks-kb-err') !== null)}`)
   errRoot.unmount()
+  await flush()
+
+  /* ══════════════════ M. 「不要两个页面」：原来的「文件导入」入口落到待分类层 ══════════════════ */
+  const ingContainer = document.createElement('div')
+  document.body.appendChild(ingContainer)
+  const ingRoot = mount(ingContainer, {
+    useTabInfo: () => ({ tab: { navigation: { params: { page: 'ingest' } } } }),
+    dataSource: 'render-smoke',
+  })
+  await flush(); await flush(); await flush()
+  const iq = (sel) => [...ingContainer.querySelectorAll(sel)]
+  check('M1 `params.page=ingest`（开始页 ▾ 的「文件导入」）**直接落到「待分类」那一层**'
+    + '—— 不再是一页"尚未实现"的占位（业主：不要两个页面）',
+    ingContainer.querySelector('.ks-list-inbox') !== null
+    && iq('.ks-inbox-row').length === 4
+    && !(ingContainer.textContent ?? '').includes('这一页尚未实现'),
+    `待分类列表 ${String(iq('.ks-list-inbox').length)} 个 / 行 ${String(iq('.ks-inbox-row').length)}`
+      + ` / 含"尚未实现"=${String((ingContainer.textContent ?? '').includes('这一页尚未实现'))}`)
+  /* 这一层上的导入面板：入口在、体检按钮在、覆盖开关在（默认**关**）。 */
+  await click(iq('.ks-upload-open')[0])
+  await flush()
+  const reingestCb = iq('.ks-upload input[type=checkbox]')
+  check('M2 待分类层上就是导入面板（来源目录 + 先体检 + 导入），"覆盖重导"开关默认**关**'
+    + '（它会替换同号旧文档，不许替业主默认打开）',
+    iq('.ks-upload').length === 1 && iq('.ks-upload-check').length === 1
+    && iq('.ks-upload-go').length === 1
+    && reingestCb.length === 1 && reingestCb[0].checked === false,
+    `面板 ${String(iq('.ks-upload').length)} / 体检钮 ${String(iq('.ks-upload-check').length)}`
+      + ` / 覆盖勾选 ${String(reingestCb.length)} 个（checked=${String(reingestCb[0]?.checked)}）`)
+  ingRoot.unmount()
   await flush()
 
   /* ══════════════════ 能力页（业主指定：一功能一卡一窗） ══════════════════ */

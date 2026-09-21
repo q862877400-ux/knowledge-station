@@ -5,8 +5,15 @@
  * react-dom/server 做一次 SSR：渲染期抛错会直接打印堆栈。
  *
  * 断言（2026-11 迁移后升级为硬判据）：
- *   1. 六个折叠类目（证据查看器/效力报告/入库预览/每日巡检/公告发现/API配置）
- *      全部渲染——效力报告与入库预览已从侧栏 tab 迁入设置栏目；
+ *   1. **五个**折叠类目（证据查看器/效力报告/每日巡检/公告发现/API配置）全部渲染
+ *      —— 效力报告已从侧栏 tab 迁入设置栏目。
+ *      ⚠⚠ **2026-09-21（KB-FOLDER-PLAN 第 4 步）就地减一**：原来的第六个是「入库预览」
+ *      （挂 `KsIngestPanel` 的只读体检）。业主「不要两个页面」⇒ 导入只有一个落点：
+ *      知识库页「待分类」层上的导入面板（来源目录 + 先体检（只读）+ 导入 + 覆盖重导）。
+ *      **删掉的是入口，不是能力**（体检那一步并进待分类层，走同一条
+ *      `/ks/ingest/preview/batch`）；`KsIngestPanel.tsx` 本身与它在 `smoke-ingest.mjs` /
+ *      `ui-render-shot.mjs --page ingest` 上的判据都还在（登记：产品里已无入口，代码暂留）。
+ *      判据强度不变：少一个类目、或多一个没声明的类目，这里都会红。
  *   2. 旧「打开效力报告」入口按钮不复存在；
  *   3. 全部 <details> 默认收起（SSR 初始树无 open 属性）；
  *   4. 懒加载门：SSR 期间（=所有面板 visible=false）零网络请求。
@@ -63,17 +70,19 @@ try {
   const html = renderToString(React.createElement(KsSettingsSection, { service }))
   console.log('SSR_OK html_len=' + html.length)
 
-  // 六个折叠类目全部在场（2026-11 用户拍板：全部进设置、全折叠）。
-  for (const cat of ['证据查看器', '效力报告', '入库预览', '每日巡检', '公告发现', 'API配置']) {
+  // 五个折叠类目全部在场（2026-11 用户拍板：全部进设置、全折叠；第 4 步撤掉「入库预览」）。
+  for (const cat of ['证据查看器', '效力报告', '每日巡检', '公告发现', 'API配置']) {
     if (!html.includes(cat)) { console.error('MISSING_CATEGORY: ' + cat); process.exit(1) }
   }
+  // 第 4 步撤掉的那一个**不许回来**：它一回来就是"两个页面"（判据与上面那条同强度）。
+  if (html.includes('入库前只读体检')) { console.error('STALE_CATEGORY: 入库预览 又被挂回设置了'); process.exit(1) }
   // 旧入口按钮必须消失（不再是“打开效力报告”跳转，而是内嵌面板）。
   if (html.includes('打开效力报告')) { console.error('STALE_ENTRY_BUTTON still rendered'); process.exit(1) }
   // 全部类目默认收起：SSR 初始树不应带 open 属性（<details open>）。
   if (/<details[^>]+open/.test(html)) { console.error('CATEGORY_NOT_FOLDED: some <details> renders open'); process.exit(1) }
   // 懒加载门：SSR 期零请求。
   if (fetched.length > 0) { console.error('FETCH_DURING_SSR: ' + fetched.join(',')); process.exit(1) }
-  console.log('CATEGORIES_OK 6 collapsed categories rendered, 0 fetches during SSR')
+  console.log('CATEGORIES_OK 5 collapsed categories rendered, 0 fetches during SSR')
 } catch (e) {
   console.error('SSR_FAIL: ' + (e && e.stack ? e.stack : String(e)))
   process.exit(1)

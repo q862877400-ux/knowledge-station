@@ -158,7 +158,7 @@ const interacts = arg('interact', PAGES[page].interact.join(',')) .split(',').ma
 const SCENARIOS = [
   'kb-files', 'kb-level', 'kb-crumb', 'kb-back', 'kb-detail', 'kb-search',
   'kb-search-dirs', 'kb-search-dirs-empty', 'kb-empty', 'kb-page', 'kb-upload',
-  'ingest-batch', 'cap-dialog',
+  'kb-inbox', 'kb-inbox-picked', 'ingest-batch', 'cap-dialog',
 ]
 const unknownScenarios = interacts.filter((name) => !SCENARIOS.includes(name))
 if (unknownScenarios.length > 0) {
@@ -363,6 +363,39 @@ const KB_ITEMS = {
   root: [], fld_std: [], fld_law: KB_DOCS_LAW, fld_empty: [],
   fld_p16: KB_DOCS_P16, fld_cca: KB_DOCS_CCA, fld_big: KB_DOCS_BIG,
 }
+/* ── 「待分类」层的桩（第 4 步）：形状逐字照 `routes_kb_folders.py` 的 kb_inbox ──
+   四篇覆盖四种档位 + 兜底桶；状态列/建议去向列都要有真东西可量。 ── */
+const kbInboxItem = (id, no, name, extra = {}) => ({
+  doc_id: id, standard_no: no, standard_name: name, stage: 'queued', stage_label: '排队中',
+  confidence: null, failure_kind: null, suggested_folder_id: null, suggested_path: null,
+  suggest_new_parent_id: null, suggest_new_name: null, catalog_hidden: 0, ...extra,
+})
+const KB_INBOX = [
+  kbInboxItem('doc_in_q', 'GB/T 90001-2020', '排队中的一篇',
+    { suggested_folder_id: KB_F.p16.folder_id,
+      suggested_path: '标准 › P 土木、建筑 › P15/19 工程抗震、工程防火、人防工程 › P16 工程防火' }),
+  kbInboxItem('doc_in_rec', 'GB/T 90002-2020', '识别中的一篇',
+    { stage: 'recognizing', stage_label: '识别中' }),
+  kbInboxItem('doc_in_ok', 'GB/T 90003-2020', '待确认的一篇',
+    { stage: 'confirming', stage_label: '待确认', confidence: 0.93,
+      suggested_folder_id: KB_F.p16.folder_id,
+      suggested_path: '标准 › P 土木、建筑 › P15/19 工程抗震、工程防火、人防工程 › P16 工程防火',
+      suggest_new_parent_id: KB_F.p16.folder_id, suggest_new_name: 'P16 工程防火（新）' }),
+  kbInboxItem('doc_in_bad', 'GB/T 90004-2020', '识别失败的一篇',
+    { stage: 'failed', stage_label: '识别失败', confidence: 0.4,
+      failure_kind: '解析失败（正文条款为零）', catalog_hidden: 1 }),
+]
+/** 目录选择器用的扁平清单（整棵小树）。 */
+const KB_FLAT = [
+  { folder_id: KB_F.std.folder_id, parent_id: null, name: '标准', path: '标准', depth: 1 },
+  { folder_id: KB_F.law.folder_id, parent_id: null, name: '法律法规', path: '法律法规', depth: 1 },
+  { folder_id: KB_F.p16.folder_id, parent_id: KB_F.std.folder_id, name: 'P16 工程防火',
+    path: '标准 › P 土木、建筑 › P15/19 工程抗震、工程防火、人防工程 › P16 工程防火', depth: 4 },
+]
+const KB_STAGE_LABELS = { queued: '排队中', recognizing: '识别中', confirming: '待确认',
+                          filed: '已归位', failed: '识别失败' }
+let kbReingestRunning = false
+const kbReingestSeen = []
 let kbDocsInLib = [kbDoc('doc_existing', 'GB 1-2000', '库里原有的一篇')]
 let kbBulkSeq = 0
 const kbLevel = (rawParent) => {
@@ -409,6 +442,44 @@ globalThis.fetch = async (input, init = {}) => {
     }
     if (p === '/api/v1/kb/inbox/confirm' || p === '/api/v1/kb/members') {
       return reply({ code: 200, status: 'success', data: { confirmed: 0, added: 0, skipped: 0, removed_from_pending: 0 } })
+    }
+    /* ── 第 4 步：「待分类」层的四条（形状逐字照 routes_kb_folders.py / reingest.py）── */
+    if (p === '/api/v1/kb/inbox') {
+      const offset = Number(u.searchParams.get('offset') ?? '0')
+      const limit = Number(u.searchParams.get('limit') ?? '50')
+      const page = KB_INBOX.slice(offset, offset + limit)
+      return reply({ code: 200, status: 'success', data: {
+        items: page, total: KB_INBOX.length, offset, limit,
+        has_more: offset + page.length < KB_INBOX.length } })
+    }
+    if (p === '/api/v1/kb/stage-labels') {
+      return reply({ code: 200, status: 'success', data: {
+        labels: KB_STAGE_LABELS, stages: ['queued', 'recognizing', 'confirming', 'filed', 'failed'],
+        unfiled: ['queued', 'recognizing', 'confirming', 'failed'] } })
+    }
+    if (p === '/api/v1/kb/folders/flat') {
+      const qq = String(u.searchParams.get('q') ?? '').toLowerCase()
+      const rows = qq === '' ? KB_FLAT : KB_FLAT.filter((f) => f.path.toLowerCase().includes(qq))
+      return reply({ code: 200, status: 'success', data: {
+        items: rows, total: rows.length, offset: 0, limit: 0, sep: ' › ' } })
+    }
+    if (p === '/api/v1/kb/inbox/reingest' && method === 'POST') {
+      const ids = JSON.parse(init?.body ?? '{}').doc_ids ?? []
+      kbReingestSeen.push(...ids)
+      kbReingestRunning = true
+      return reply({ code: 200, status: 'success', data: {
+        queued: ids.length, started: ids.map((id) => ({ doc_id: id, path: 'D:\\x.pdf', standard_no: 'GB/T 1-2020' })),
+        skipped: [] } })
+    }
+    if (p === '/api/v1/kb/inbox/reingest/status') {
+      const was = kbReingestRunning
+      kbReingestRunning = false
+      return reply({ code: 200, status: 'success', data: {
+        running: was, total: kbReingestSeen.length, done: was ? 0 : kbReingestSeen.length,
+        results: [], started_at: null, finished_at: null } })
+    }
+    if (p === '/api/v1/documents/batch-delete' && method === 'POST') {
+      return reply({ code: 200, status: 'success', data: { deleted: 0 } })
     }
     if (p === '/api/v1/documents') return reply({ code: 200, status: 'success', data: kbDocsInLib })
     if (p === '/api/v1/ingest/bulk' && method === 'POST') {
@@ -736,6 +807,35 @@ for (const how of interacts) {
       + `说明「${note.slice(0, 60)}」`)
     notes.push(`kb-upload: 进「标准」→ 点「上传到这一层」→ 面板 ${String(q('.ks-upload').length)} 个、`
       + `来源目录「${dir}」、说明「${note.trim().slice(0, 60)}…」`)
+  } else if (how === 'kb-inbox') {
+    /* 「待分类」这一层（第 4 步）：左列那一行点进去 ⇒ 四行待分类（四种档位各一行）。
+       这一跑同时是 `inboxCheck`（真 Chrome 里量：列对齐 / 状态列**看得见** / 勾选框与 ⋮ 逐行在场）
+       的取证场景 —— 业主"每篇状态如实显示"必须有**真浏览器里量得到**的判据。 */
+    await gotoRoot()
+    await click(q('.ks-tree-name-inbox')[0])
+    const rows = q('.ks-item.ks-inbox-row')
+    mustLand(rows.length === 4 && q('.ks-list-inbox').length === 1
+      && q('.ks-search input').length === 1,
+      `kb-inbox 没走到待分类层：行 ${String(rows.length)}（期望 4）、列表 ${String(q('.ks-list-inbox').length)} 个、`
+        + `搜索框 ${String(q('.ks-search input').length)} 个`)
+    notes.push(`kb-inbox: 待分类层 → 行 ${String(rows.length)}、列头「`
+      + `${q('.ks-list-inbox .ks-lhead .ks-cell').map((el) => (el.textContent ?? '').trim()).join('|')}」`
+      + `、状态列首行「${(q('.ks-inbox-row .ks-col-istage')[0]?.textContent ?? '').replace(/\s+/g, ' ').trim()}」`)
+  } else if (how === 'kb-inbox-picked') {
+    /* 勾两篇 ⇒ 悬浮批量条出现（**真**批量：四条动作都对应真接口）。
+       这一跑是 `inboxCheck` 里"批量条在场且不贴边"（`PAD_REQUIRED` 声明了 `.ks-batch`）的取证场景。 */
+    await gotoRoot()
+    await click(q('.ks-tree-name-inbox')[0])
+    const boxes = q('.ks-inbox-row .ks-col-pick input[type=checkbox]')
+    await click(boxes[0])
+    await click(boxes[3])
+    const btns = [...q('.ks-batch button')].map((b) => (b.textContent ?? '').trim())
+    mustLand(q('.ks-batch').length === 1 && boxes.length === 4
+      && ['接受建议', '放进同一目录', '重来一次', '删除'].every((t) => btns.some((b) => b.includes(t))),
+      `kb-inbox-picked 批量条不成立：条 ${String(q('.ks-batch').length)} 个、勾选框 ${String(boxes.length)} 个、`
+        + `按钮 ${JSON.stringify(btns)}`)
+    notes.push(`kb-inbox-picked: 勾 2 篇 → 批量条「${(q('.ks-batch-n')[0]?.textContent ?? '').trim()}」`
+      + `、按钮 ${JSON.stringify(btns)}`)
   } else if (how === 'ingest-batch') {
     const ok = await click(byText('button', '开始预览'))
     const batchRows = q('button').filter((b) => /\.pdf$/.test((b.textContent ?? '').trim())).length
@@ -855,11 +955,16 @@ const html = `<!doctype html>
                 '.ks-back','.ks-pager','.ks-pager-n','.ks-pager-btn','.ks-upload','.ks-upload-row',
                 '.ks-upload-note','.ks-upload-msg','.ks-kb-err',
                 '.ks-list-dirs','.ks-dir-row','.ks-dirs','.ks-dir-name',
+                /* 2026-09-21（第 4 步）「待分类」层的量点：列表 / 行 / 勾选 / 状态 / 建议去向 / 批量条。 */
+                '.ks-list-inbox','.ks-inbox-row','.ks-col-pick','.ks-col-iname','.ks-col-istage',
+                '.ks-col-idest','.ks-col-imore','.ks-stage','.ks-stage-tag','.ks-stage-why',
+                '.ks-stage-conf','.ks-stage-hidden','.ks-dest','.ks-dest-path','.ks-dest-new',
+                '.ks-batch-n','.ks-act','.ks-act-item','.ks-tree-name-inbox',
                 /* 5j（2026-09-20）页面留边：量这几个盒子的**绝对坐标**（.ks-page 是那个只管
                    container-type 的容器，.ks-kb/.ks-ing/.ks-mat 是三个页面根，.ks-split 是
                    "详情栏有没有被挤到第二行"的锚点）。**判据不在这里**（这里只报告），
                    Node 侧的 ksPadCheck 按 #kspad 逐条判 —— 见本段下面的 #kspad 段。 */
-                '.ks-page','.ks-kb','.ks-ing','.ks-mat','.ks-split'];
+                '.ks-page','.ks-kb','.ks-ing','.ks-mat','.ks-split','.ks-batch'];
     var out = {};
     sels.forEach(function (s) {
       var els = document.querySelectorAll(s);
@@ -901,7 +1006,8 @@ const html = `<!doctype html>
           // 这一行是哪一层（2026-09-21 补）：目录行与文件行的行内控件数**不是一回事**
           // （目录行 0 个、文件行 = ⋮ + 状态徽章）⇒ 判"等于冻结值"时必须先按层分开。
           var kind = el.classList.contains('ks-file-row') ? 'file'
-            : (el.classList.contains('ks-dir-row') ? 'dir' : '?');
+            : (el.classList.contains('ks-dir-row') ? 'dir'
+              : (el.classList.contains('ks-inbox-row') ? 'inbox' : '?'));
           return { kind: kind,
                    rowW: Math.round(r0.width), nameW: rc ? Math.round(rc.width) : null,
                    fileNameW: rf ? Math.round(rf.width) : null,
@@ -1025,7 +1131,12 @@ const html = `<!doctype html>
     //   ⚠ 变量的**借用**口径与文件末尾那段 Node 侧注释一致（lh=表头模板 / pad=行模板 /
     //     gap=表头列距 / radius=行列距）。
     var dirList = document.querySelector('.ks-list-dirs');
-    var fileList = document.querySelector('.ks-list:not(.ks-list-dirs)');
+    /* ⚠⚠ **2026-09-21（第 4 步）就地收窄**：文件层的选择器加上 :not(.ks-list-inbox)
+       —— 「待分类」层也有一个 .ks-list（它有自己的 5 轨列模板：勾选/文件名/状态/建议去向/⋮）。
+       不收窄的话，kb-inbox 那一跑会把**待分类层**当成文件层来量（列模板当然"相等"，
+       但状态列的类名/列头完全不是一回事）⇒ #cols / #stagecol 会报**假红**或**假绿**。
+       待分类层有自己的量点 #inboxcols（见下面那一段，Node 侧 inboxCheck 逐条判）。 */
+    var fileList = document.querySelector('.ks-list:not(.ks-list-dirs):not(.ks-list-inbox)');
     var lhead = null;
     var firstRow = null;
     if (dirList && dirList.querySelector('.ks-item')) {
@@ -1059,7 +1170,7 @@ const html = `<!doctype html>
     // 借字段名（同 #cards / #cols 的先例）：n=文件行数 x=状态列列头在不在 y=主栏内容宽
     // w=1 表示状态列可见 h=1 表示生效日期列可见 fs=状态列列头文案
     // lh=状态列 computed display pad=生效日期列 computed display。
-    var fileListEl = document.querySelector('.ks-list:not(.ks-list-dirs)');
+    var fileListEl = document.querySelector('.ks-list:not(.ks-list-dirs):not(.ks-list-inbox)');
     var fRows = fileListEl ? fileListEl.querySelectorAll('.ks-item') : [];
     var stageCell0 = fileListEl ? fileListEl.querySelector('.ks-item .ks-col-stage') : null;
     var dateCell0 = fileListEl ? fileListEl.querySelector('.ks-item .ks-col-date') : null;
@@ -1076,6 +1187,42 @@ const html = `<!doctype html>
       pad: dateCell0 ? getComputedStyle(dateCell0).display : '(没有日期列单元格)',
       gap: '', radius: '',
     };
+    // **「待分类」层的几何 + 状态列到底看不看得见**（2026-09-21 第 4 步）。
+    // 为什么必须**真浏览器里量**：jsdom 那条判的是 textContent，而 display:none 的元素照样
+    // 取得到文字（第 3 步复核自己踩出来的洞）⇒ 业主"每篇状态如实显示"要有可量形态。
+    // 判据在 Node 侧 inboxCheck 逐条下（这里只量，不判）。
+    // 借字段名（同 #cards / #cols 的先例）：n=行数 x=列头轨道数 y=列头模板 w=行模板
+    // h=1 状态列看得见、0 看不见 fs=状态列列头文案 lh=状态列 computed display
+    // pad=建议去向列 computed display，另加 pickN/checkedN/batch 三个诊断字段。
+    // ⚠ 本段在**注入脚本**里（外层是模板字符串）：注释里不许出现反引号与美元加大括号。
+    var inboxList = document.querySelector('.ks-list-inbox');
+    if (inboxList) {
+      var iHead = inboxList.querySelector('.ks-lhead');
+      var iRow = inboxList.querySelector('.ks-item');
+      var iHeadCs = iHead ? getComputedStyle(iHead) : null;
+      var iRowCs = iRow ? getComputedStyle(iRow) : null;
+      var iStageCell = inboxList.querySelector('.ks-item .ks-col-istage');
+      var iDestCell = inboxList.querySelector('.ks-item .ks-col-idest');
+      var iStageHead = inboxList.querySelector('.ks-lhead .ks-col-istage');
+      var iMain = document.querySelector('.ks-main');
+      var iPicks = inboxList.querySelectorAll('.ks-col-pick input[type=checkbox]');
+      var iChecked = 0;
+      for (var pi2 = 0; pi2 < iPicks.length; pi2++) { if (iPicks[pi2].checked) iChecked++; }
+      out['#inboxcols'] = {
+        n: inboxList.querySelectorAll('.ks-item').length,
+        x: iHead ? iHead.children.length : 0,
+        y: iHeadCs ? iHeadCs.gridTemplateColumns : '(没有表头)',
+        w: iRowCs ? iRowCs.gridTemplateColumns : '(没有数据行)',
+        h: iStageCell && getComputedStyle(iStageCell).display !== 'none' ? 1 : 0,
+        fs: iStageHead ? (iStageHead.textContent || '').trim() : '',
+        lh: iStageCell ? getComputedStyle(iStageCell).display : '(没有状态列单元格)',
+        pad: iDestCell ? getComputedStyle(iDestCell).display : '(没有建议去向单元格)',
+        gap: String(iMain ? Math.round(iMain.clientWidth) : 0),
+        radius: JSON.stringify({ pickN: iPicks.length, checkedN: iChecked,
+          batchN: document.querySelectorAll('.ks-batch').length,
+          rows: inboxList.querySelectorAll('.ks-item .ks-col-imore button').length }),
+      };
+    }
     // **目录层的列几何**（2026-09-21，复核 verify-freeze-dirlist 的变异 M5 打回）：
     // 复核把目录层的 --ks-cols 换成**文件层那 5 列** ⇒ 本脚本的 #cols 自检**照样通过**
     // （它只比"表头 == 行"，两边当然一起变），而真机上是**首列 344→88px + 168px 死白**。
@@ -1139,7 +1286,10 @@ const html = `<!doctype html>
       //   isRoot=1 表示"看它的内容盒"，0 = "看它的边框盒"。
       var padSel = [['.ks-kb', 1], ['.ks-ing', 1], ['.ks-mat', 1],
                     ['.ks-kb-tree', 0], ['.ks-list', 0], ['.ks-dirs', 0],
-                    ['.ks-page-head', 0], ['.ks-kb-row', 0], ['.ks-empty-card', 0]];
+                    ['.ks-page-head', 0], ['.ks-kb-row', 0], ['.ks-empty-card', 0],
+                    /* 第 4 步：悬浮批量条（.ks-batch）**回到适用面**里 —— 第 3 步它随"假批量"
+                       一起从这份表和规范里撤掉过；现在批量是真接口驱动的，条子也必须不贴边。 */
+                    ['.ks-batch', 0]];
       /* ⚠⚠ 2026-09-20 头条：目录层换了形态（卡片网格 → 与文件列表同构的列表），但**不新增适用面**：
          新容器同时挂着 .ks-list 与 .ks-dirs 两个类，**两个都已在上面这张表里** ⇒ 覆盖没变窄。
          为什么**刻意不加** .ks-list-dirs 这个第三名字：这张表与"规范第二节 + PAD_SUBJECTS_ALL
@@ -1400,7 +1550,7 @@ const PAGE_PAD_BREAKPOINT = 660
  *      这就是"规范加了适用面、脚本没跟上"的棘轮（同 token/阈值的做法）。
  */
 const PAD_SUBJECTS_ALL = ['.ks-kb', '.ks-ing', '.ks-mat', '.ks-kb-tree', '.ks-list',
-  '.ks-dirs', '.ks-page-head', '.ks-kb-row', '.ks-empty-card']
+  '.ks-dirs', '.ks-page-head', '.ks-kb-row', '.ks-empty-card', '.ks-batch']
 /** 键 = `${page}|${interacts.join('+')}`（与 `--page`/`--interact` 同一口径）。值 = 这一跑**必须量到**的选择器。
  *  ⚠⚠ **2026-09-21（第 3 步）就地更新**：`.ks-kbband`（卡片带）与 `.ks-batch`（批量条）**已删**
  *    ⇒ 从适用面里去掉；新增 `.ks-kb-tree`（左列目录树，必须不贴边）。
@@ -1421,6 +1571,11 @@ const PAD_REQUIRED = {
   'kb|kb-files': ['.ks-kb', '.ks-kb-tree', '.ks-list', '.ks-page-head', '.ks-kb-row'],
   /* 空目录那一级：没有目录层也没有文件表 ⇒ 主体是空态卡（+ 左列与顶上那一行）。 */
   'kb|kb-empty': ['.ks-kb', '.ks-kb-tree', '.ks-page-head', '.ks-kb-row', '.ks-empty-card'],
+  /* 「待分类」层（第 4 步）：导入面板入口 + 待分类列表；**没勾选时没有批量条** ⇒ 不声明 .ks-batch
+     （声明了就必须量到，而这一跑确实没有它）。 */
+  'kb|kb-inbox': ['.ks-kb', '.ks-kb-tree', '.ks-page-head', '.ks-kb-row'],
+  /* 勾了两篇 ⇒ 悬浮批量条在场，**必须不贴边**（它是第 4 步做回来的真批量条）。 */
+  'kb|kb-inbox-picked': ['.ks-kb', '.ks-kb-tree', '.ks-page-head', '.ks-kb-row', '.ks-batch'],
   'capabilities|': ['.ks-kb', '.ks-page-head', '.ks-kb-row'],
   'ingest|ingest-batch': ['.ks-ing'],
   'materials|': ['.ks-mat'],
@@ -1824,6 +1979,95 @@ const stageColCheck = {
   frozenMin: STAGE_COL_MIN_MAIN_PX,
 }
 
+/* ══════════ `#inboxcols` 的**真断言**（2026-09-21 第 4 步：「待分类」这一层） ══════════
+ * 为什么必须真浏览器里量：业主"每篇状态如实显示""好发现哪些要人工修"是**看得见**的要求，
+ * 而 jsdom 的 textContent 对 display:none 照样取得到（第 3 步复核自己踩出来的洞）。
+ * 判据（两个方向都钉住，与 `stageColCheck` 同一纪律）：
+ *   ① 列头与数据行的 grid-template-columns 必须**逐字相同**、且列数 = **冻结的 5**
+ *      （勾选 / 文件名 / 状态 / 建议去向 / ⋮ —— 与 `INBOX_COLUMNS` 同数）；
+ *   ② 状态列列头文案必须还是「状态」，且**主栏够宽时状态列必须看得见**、窄档也必须看得见
+ *      （业主"每篇显示状态"没有"窄了就不显示"这个例外 —— 窄档藏的是**建议去向**那一列）；
+ *   ③ 窄档下**建议去向**必须是 `none`、宽档必须是 `flex`（有意规则，两个方向都钉）；
+ *   ④ 每一行都要有勾选框与 ⋮（逐行数出来，不是"至少有"）；
+ *   ⑤ 量不到 / 取不到值 ⇒ **红**（"没验到"不能渲染成"通过"）。
+ * 适用面：只有这一跑**是「待分类」层**（有 `.ks-list-inbox`）时才判；其余**明说没判**。 */
+const INBOX_COLS_WIDE = 5
+const INBOX_COLS_NARROW = 4
+const INBOX_STAGE_HEAD_EXPECTED = '状态'
+const inbox = measured['#inboxcols']
+const inboxProblems = []
+let inboxSkipReason = null
+if (inbox === undefined) {
+  inboxSkipReason = `这一跑不是「待分类」层（没有 .ks-list-inbox；page=${page}）—— 待分类几何不适用`
+} else if (!inbox.n) {
+  inboxSkipReason = '这一跑待分类层没有数据行（空列表），列几何没有对象'
+} else {
+  const mainW = Number(inbox.gap) || 0
+  const wide = mainW >= STAGE_COL_MIN_MAIN_PX
+  const destShown = String(inbox.pad) !== 'none'
+  const tracksOf = (tpl) => String(tpl ?? '').split(/\s+/).filter((s) => s !== '')
+  if (!inbox.y || !inbox.w || String(inbox.y).startsWith('(没有') || String(inbox.w).startsWith('(没有')) {
+    inboxProblems.push(`取不到待分类层的列模板（表头 ${JSON.stringify(inbox.y)} / 行 ${JSON.stringify(inbox.w)}）`
+      + ' —— 取不到就不算验过')
+  } else {
+    if (String(inbox.y) !== String(inbox.w)) {
+      inboxProblems.push(`待分类层表头与行的 grid-template-columns 不一致：表头 ${JSON.stringify(inbox.y)}`
+        + ` / 行 ${JSON.stringify(inbox.w)} —— 两层必须共用同一条 --ks-cols`)
+    }
+    /* 轨道数是**两档各自冻结**的：窄档 4 轨（建议去向被藏，那一格不占轨）、宽档 5 轨。
+       两个方向都钉住 —— 窄档少藏一列、或宽档没恢复那一列，都在这里红。 */
+    const want = wide ? INBOX_COLS_WIDE : INBOX_COLS_NARROW
+    const tracks = tracksOf(inbox.y).length
+    if (tracks !== want) {
+      inboxProblems.push(`待分类层列数 = ${String(tracks)}，期望 ${String(want)}`
+        + `（${wide ? '宽' : '窄'}档：${wide ? '勾选 / 文件名 / 状态 / 建议去向 / ⋮' : '勾选 / 文件名 / 状态 / ⋮'}`
+        + ` —— 与 INBOX_COLUMNS + 建议去向列的显隐配套）：${JSON.stringify(inbox.y)}`)
+    }
+  }
+  if (inbox.fs !== INBOX_STAGE_HEAD_EXPECTED) {
+    inboxProblems.push(`待分类层的状态列列头是 ${JSON.stringify(inbox.fs)}，`
+      + `期望 ${JSON.stringify(INBOX_STAGE_HEAD_EXPECTED)} —— 列头文案（或列顺序）被改了`)
+  }
+  /* ② 状态列**两个档位都必须看得见**（这是这一条的主要目的）。 */
+  if (inbox.h !== 1) {
+    inboxProblems.push(`**待分类层的状态列是隐藏的**（computed display = ${JSON.stringify(inbox.lh)}，`
+      + `主栏内容宽 ${String(mainW)}px）—— 业主「每篇的状态如实显示」在这一档没有兑现；`
+      + '窄档能藏的只有「建议去向」那一列（见 ksGuideStyles.ts 的 .ks-list-inbox 容器查询）')
+  }
+  /* ③ 建议去向：窄档藏、宽档显（有意规则，两个方向都钉）。 */
+  if (wide && !destShown) {
+    inboxProblems.push(`宽档（主栏 ${String(mainW)}px ≥ ${String(STAGE_COL_MIN_MAIN_PX)}px）下`
+      + `**建议去向列是隐藏的**（display=${JSON.stringify(inbox.pad)}）—— 宽档应当 5 列全在`)
+  }
+  if (!wide && destShown) {
+    inboxProblems.push(`窄档（主栏 ${String(mainW)}px < ${String(STAGE_COL_MIN_MAIN_PX)}px）下`
+      + `建议去向列是显示的（display=${JSON.stringify(inbox.pad)}）—— 窄档**故意**藏这一列`
+      + '（挤不下）；要改成永远显示就同时改这里与 ksGuideStyles.ts')
+  }
+  const diag = (() => { try { return JSON.parse(String(inbox.radius ?? '{}')) } catch { return {} } })()
+  if (Number(diag.pickN) !== Number(inbox.n)) {
+    inboxProblems.push(`待分类层每行都应当有一个勾选框：${String(inbox.n)} 行却有 ${String(diag.pickN)} 个`
+      + '（少一个 = 那一篇没法批量处置）')
+  }
+  if (Number(diag.rows) !== Number(inbox.n)) {
+    inboxProblems.push(`待分类层每行都应当有一个 ⋮ 处置按钮：${String(inbox.n)} 行却有 ${String(diag.rows)} 个`)
+  }
+}
+const inboxCheck = {
+  checked: inboxProblems.length === 0 && inboxSkipReason === null,
+  skipReason: inboxSkipReason,
+  problems: inboxProblems,
+  rows: inbox?.n ?? null,
+  tracks: inbox === undefined || !inbox.y ? null : String(inbox.y).split(/\s+/).filter((s) => s !== '').length,
+  header: inbox?.y ?? null,
+  row: inbox?.w ?? null,
+  stageHead: inbox?.fs ?? null,
+  stageDisplay: inbox?.lh ?? null,
+  destDisplay: inbox?.pad ?? null,
+  mainWidth: inbox?.gap ?? null,
+  batchN: (() => { try { return JSON.parse(String(inbox?.radius ?? '{}')).batchN ?? null } catch { return null } })(),
+}
+
 /* ══════════ 复核 `verify-freeze-kb-ui3` 打回 §④-C 补回来的两条（2026-09-21） ══════════
  * 那两条旧判据在本批重写时**掉了**（主体仍在、判据没了）：
  *   ① 旧第 59 条「每行行内**可见控件 ≤ 3**」（P1-1 的验收口径）—— 本脚本一直在
@@ -1840,6 +2084,10 @@ const ROW_CTRLS_MAX = 3
    逼着改的人**显式**改这个常数并在注释里说明为什么。
    ⚠ 只在 `page === 'kb'` 上判"等于"（其它页面的行构成不同，只吃上面那个上限）。 */
 const ROW_CTRLS_EXPECTED = 2
+/* **「待分类」行的冻结构成**（第 4 步）：勾选框（真 input） + 行尾「⋮」= 2。
+   ⚠ 状态那一列是 `.ks-stage-tag` 之类的**只展示 span**，不是 `.ks-status` 徽章
+     （ctrls 口径只把 `.ks-status` 算进来）⇒ 待分类行也是 2；再加任何能点的东西都会红。 */
+const ROW_CTRLS_INBOX_EXPECTED = 2
 const rowCtrls = measured['.ks-item#rows']
 const rowCtrlsProblems = []
 let rowCtrlsSkipReason = null
@@ -1849,27 +2097,41 @@ const rowCtrlsRows = Array.isArray(rowCtrls?.rows) ? rowCtrls.rows : []
 /* ⚠ 只判**文件行**：`.ks-item` 同时命中目录行（行内 0 个控件）—— 不分层就会把目录行当成
    "少了一样东西"而假红（第一版实测：默认态 4 行目录 ⇒ 实测 [0,0,0,0] ⇒ red）。 */
 const rowCtrlsFileRows = rowCtrlsRows.filter((it) => it.kind === 'file')
-if (rowCtrls === undefined || rowCtrlsFileRows.length === 0) {
-  rowCtrlsSkipReason = '这一跑没有文件行（最外层/空目录/只有目录行），行内控件数没有对象'
+/* 「待分类」行（第 4 步）—— 与文件行**分开判**（它的构成就是不一样：一个勾选框 + 一个 ⋮）。 */
+const rowCtrlsInboxRows = rowCtrlsRows.filter((it) => it.kind === 'inbox')
+if (rowCtrls === undefined || (rowCtrlsFileRows.length === 0 && rowCtrlsInboxRows.length === 0)) {
+  rowCtrlsSkipReason = '这一跑没有文件行也没有待分类行（最外层/空目录/只有目录行），行内控件数没有对象'
 } else {
   const counts = rowCtrlsFileRows.map((it) => Number(it.ctrls))
-  if (page === 'kb') {
+  const inboxCounts = rowCtrlsInboxRows.map((it) => Number(it.ctrls))
+  if (page === 'kb' && rowCtrlsFileRows.length > 0) {
     const odd = counts.filter((c) => c !== ROW_CTRLS_EXPECTED)
     if (odd.length > 0) {
       rowCtrlsProblems.push(`知识库页的文件行行内可见控件数应当是**冻结的 ${String(ROW_CTRLS_EXPECTED)}**`
         + `（行尾「⋮」+ 只展示的 .ks-status 徽章），实测 ${JSON.stringify(counts)}`
         + ' —— 行内加了/少了能点的东西？加了就**显式**改 ROW_CTRLS_EXPECTED 并说明为什么')
     }
+    if (new Set(counts).size > 1) {
+      rowCtrlsProblems.push(`文件行之间行内控件数**不一致**（${JSON.stringify(counts)}）——`
+        + '同一层的行应当长得一样；不一致说明某一行多/少了控件')
+    }
   }
-  const over = counts.filter((c) => !Number.isFinite(c) || c > ROW_CTRLS_MAX)
+  if (page === 'kb' && rowCtrlsInboxRows.length > 0) {
+    const odd = inboxCounts.filter((c) => c !== ROW_CTRLS_INBOX_EXPECTED)
+    if (odd.length > 0) {
+      rowCtrlsProblems.push(`待分类行的行内可见控件数应当是**冻结的 ${String(ROW_CTRLS_INBOX_EXPECTED)}**`
+        + `（勾选框 + 行尾「⋮」），实测 ${JSON.stringify(inboxCounts)}`
+        + ' —— 行内又塞了能点的东西？加了就**显式**改 ROW_CTRLS_INBOX_EXPECTED 并说明为什么')
+    }
+    if (new Set(inboxCounts).size > 1) {
+      rowCtrlsProblems.push(`待分类行之间行内控件数**不一致**（${JSON.stringify(inboxCounts)}）`)
+    }
+  }
+  const over = [...counts, ...inboxCounts].filter((c) => !Number.isFinite(c) || c > ROW_CTRLS_MAX)
   if (over.length > 0) {
     rowCtrlsProblems.push(`有 ${String(over.length)} 行的行内可见控件数 > ${String(ROW_CTRLS_MAX)}`
-      + `（实测 ${JSON.stringify(counts)}）—— 行内又塞了能点的东西（不管挂什么类名，这个数都会 +1）；`
-      + 'P1-1 的验收口径就是"行内就一个 ⋮"，其余收进溢出菜单')
-  }
-  if (new Set(counts).size > 1) {
-    rowCtrlsProblems.push(`各行行内控件数**不一致**（${JSON.stringify(counts)}）——`
-      + '同一层的行应当长得一样；不一致说明某一行多/少了控件')
+      + `（实测 ${JSON.stringify([...counts, ...inboxCounts])}）—— 行内又塞了能点的东西`
+      + '（不管挂什么类名，这个数都会 +1）；P1-1 的验收口径就是"行内就一个 ⋮"，其余收进溢出菜单')
   }
 }
 const rowCtrlsCheck = {
@@ -1877,6 +2139,7 @@ const rowCtrlsCheck = {
   skipReason: rowCtrlsSkipReason,
   problems: rowCtrlsProblems,
   counts: rowCtrlsFileRows.map((it) => it.ctrls),
+  inboxCounts: rowCtrlsInboxRows.map((it) => it.ctrls),
   max: ROW_CTRLS_MAX,
 }
 
@@ -1942,6 +2205,7 @@ console.log(JSON.stringify({
   colsCheck,
   dirColsCheck,
   stageColCheck,
+  inboxCheck,
   rowCtrlsCheck,
   dirHeadCheck,
   levelCheck,
@@ -2050,6 +2314,26 @@ if (stageColSkipReason !== null) {
   console.error('   ⇒ 口径：ksGuideStyles.ts 的 `.ks-list{--ks-cols:…3 轨…}`（窄档）与')
   console.error('      `@container (min-width:660px){…5 轨 + 这两列 display:flex}`（宽档）；')
   console.error('      窄档两条 `display:none` 必须写在 @container **之前**（同权重靠顺序覆盖）。')
+  process.exit(1)
+}
+
+/* `#inboxcols` 的自检结论同样走 **stderr**（第 4 步：「待分类」层的列几何 + 状态列可见性）。 */
+if (inboxSkipReason !== null) {
+  console.error(`· #inboxcols 自检：**这一跑不判**（${inboxSkipReason}）`)
+} else if (inboxProblems.length === 0) {
+  console.error(`· #inboxcols 自检通过：待分类层 ${String(inboxCheck.rows)} 行、${String(inboxCheck.tracks)} 轨、`
+    + `表头=行=${JSON.stringify(inboxCheck.header)}；状态列「${String(inboxCheck.stageHead)}」`
+    + `display=${JSON.stringify(inboxCheck.stageDisplay)}、建议去向 display=${JSON.stringify(inboxCheck.destDisplay)}`
+    + `（主栏 ${String(inboxCheck.mainWidth)}px、批量条 ${String(inboxCheck.batchN)} 条；`
+    + `page=${page} width=${width} theme=${themeName}）`)
+} else {
+  console.error('')
+  console.error(`❌ 待分类层几何/可见性自检失败（page=${page} width=${width} theme=${themeName}）：`)
+  for (const p of inboxProblems) console.error(`   - ${p}`)
+  console.error('   ⇒ 列模板：ksGuideStyles.ts 的 `.ks-list-inbox{--ks-cols:…5 轨…}`（窄档 4 轨 +')
+  console.error('      窄档 `.ks-list .ks-cell.ks-col-idest{display:none}`，宽档 @container 660 恢复）。')
+  console.error('   ⇒ **状态列永远可见**是业主的硬要求（"所有文件都要显示处理状态"）；')
+  console.error('      窄档能藏的只有「建议去向」。改这一列就是这条断言要抓的回归。')
   process.exit(1)
 }
 

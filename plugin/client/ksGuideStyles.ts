@@ -443,8 +443,105 @@ export const KS_STYLES = `
   font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
 /* 列表题头（目录名 + 计数）：P2 头条把它从 .ks-lhead 里**上移一行** ——
    表头变成"真列头行"之后，目录名再占着"文件名"那一格就会与列头抢位置。 */
-.ks-list-cap{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}
-.ks-lhead .ks-cell{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}
+/* ══════════ 「待分类」层（KB-FOLDER-PLAN 第 4 步，2026-09-21） ══════════
+   与目录层同一种做法：**复用** .ks-list/.ks-lhead/.ks-item 这一套机制，只给它一条
+   **自己的** --ks-cols（勾选 / 文件名 / 状态 / 建议去向 / ⋮ = 5 轨）。
+   业主点名的四样：**文件名 / 状态 / 建议去向 / ⋮**（勾选列是控件、无列头）。
+
+   ⚠ 窄档藏的是**建议去向**，**不是状态**：业主"每篇状态如实显示"是硬要求
+     （见 ui-render-shot.mjs 的 inboxStageCheck：真浏览器里量 display，两个方向都钉住）；
+     建议去向在窄栏里塞不下时可以从 ⋮ 菜单里拿到同一件事（"按建议归位（路径）"）。
+   窄/宽两档的切换点与文件层**同一个数**（660，容器是 .ks-main）。
+   ⚠ 这段注释里**一个反引号都没有**（整段在模板字符串里，反引号会截断它）。 */
+.ks-list-inbox{--ks-col-pick:22px;--ks-col-istage:132px;--ks-col-imore:36px;
+  --ks-cols:var(--ks-col-pick) minmax(0,1fr) var(--ks-col-istage) var(--ks-col-imore)}
+.ks-list .ks-cell.ks-col-idest{display:none}
+@container (min-width:660px){
+  .ks-list-inbox{--ks-cols:var(--ks-col-pick) minmax(0,1fr) var(--ks-col-istage) minmax(0,1fr) var(--ks-col-imore)}
+  .ks-list .ks-cell.ks-col-idest{display:flex}
+}
+.ks-list-inbox .ks-item{width:100%;box-sizing:border-box;padding:0 var(--ks-space-3);
+  border-top:0.5px solid var(--dsw-alias-border-l2)}
+.ks-list-inbox .ks-item:first-of-type{border-top:0}
+.ks-item .ks-col-pick{display:flex;align-items:center;justify-content:center}
+.ks-item .ks-col-istage{display:flex;align-items:center;overflow:hidden}
+.ks-item .ks-col-idest{align-items:center;overflow:hidden;min-width:0}
+/* 勾选框：宿主的 Checkbox 把 label 渲染成可见 span ⇒ 这里把它做成 **sr-only**
+   （视觉上不重复显示第二遍文件名，但可访问名还在 —— 直接 display:none 会把它从
+   无障碍树里摘掉，那是另一种偷懒）。 */
+.ks-pick{display:flex;align-items:center;justify-content:center}
+.ks-pick-cb>span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+/* 状态：档位徽章 + 失败原因 + 识别率（有才显示）+ "不在目录里"（正文为零那一批）。
+   ⚠ 徽章颜色按**档位**给（排队中=中性 / 识别中=信息 / 待确认=警示 / 识别失败=错误）。 */
+.ks-stage{display:flex;align-items:center;gap:var(--ks-space-1);min-width:0;flex-wrap:wrap}
+.ks-stage-tag{flex:none;padding:0 var(--ks-space-2);border-radius:var(--ks-r-pill);corner-shape:round;border-width:0.5px;border-style:solid;
+  font-size:var(--ks-fs-xs);border-color:var(--dsw-alias-border-l3);
+  background:var(--dsw-alias-markdown-tag);color:var(--dsw-alias-label-secondary)}
+.ks-stage-queued{background:var(--dsw-alias-markdown-tag);color:var(--dsw-alias-label-secondary)}
+.ks-stage-recognizing{background:var(--dsw-alias-interactive-bg-hover);color:var(--dsw-alias-label-primary)}
+.ks-stage-confirming{background:var(--dsw-alias-state-warn-secondary);color:var(--dsw-alias-state-warn-primary);
+  border-color:var(--dsw-alias-state-warn-primary)}
+.ks-stage-failed{background:var(--dsw-alias-interactive-bg-hover-danger);color:var(--dsw-alias-state-error-primary);
+  border-color:var(--dsw-alias-state-error-primary)}
+.ks-stage-why,.ks-stage-conf,.ks-stage-hidden{font-size:var(--ks-fs-xs);overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap}
+.ks-stage-why{color:var(--dsw-alias-state-error-primary)}
+.ks-stage-conf{color:var(--dsw-alias-label-tertiary)}
+.ks-stage-hidden{color:var(--dsw-alias-state-warn-primary)}
+/* 建议去向：路径 + （可选）"＋新建 XXX" */
+.ks-dest{display:flex;flex-direction:column;min-width:0;font-size:var(--ks-fs-sm)}
+.ks-dest-path{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--dsw-alias-label-secondary)}
+.ks-dest-new{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--dsw-alias-label-tertiary);
+  font-size:var(--ks-fs-xs)}
+/* 左列那一行（「待分类」不在 folder 表里，但样式与别的行一致 —— 只多一个中性按钮态） */
+.ks-tree-name-inbox{font-weight:600}
+.ks-tree-count-inbox{color:var(--dsw-alias-label-secondary)}
+/* 一次动作的结果/失败**原话**（成功与失败都显示在这里，不美化） */
+.ks-ib-msg{padding:var(--ks-space-2) var(--ks-space-3);border-radius:var(--ks-r-md);
+  background:var(--dsw-alias-bg-layer-3);font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary)}
+/* 批量条（第 4 步**做回真的**：每条都对应真接口）。悬浮在列表上方、居中限宽。
+   ⚠ 它是页面留边的适用面之一（docs/UI-BASELINE.md 第二节）⇒ 不许贴边。
+   ⚠⚠ **必须允许折行**（flex-wrap:wrap）：窄档（520 ⇒ .ks-main 只有 288px）里
+   五个按钮 + 计数在一行里放不下，而按钮是 white-space:nowrap（不许把"重来一次"压成
+   竖排）⇒ 不给折行时条子会**横着溢出右缘**（ui-render-shot 实测：.ks-batch 右缘贴边 -8px）。
+   窄档折成两行是**如实**的代价：条子内容是真的多，压扁它只会让字读不出来。
+   留痕：第 3 步删掉的那条"批量条不许被挤成两行"的像素断言**没有**恢复 ——
+   它当时判的是**假**批量条的 40px 单行预算，而现在这一条是**多行**的悬浮工具条，
+   恢复旧阈值等于拿一个不成立的预算去卡真东西；改由留边判据（PAD_REQUIRED 里的 .ks-batch）
+   保证它不贴边。 */
+.ks-batch{position:sticky;bottom:var(--ks-space-2);z-index:2;display:flex;align-items:center;
+  flex-wrap:wrap;justify-content:center;
+  gap:var(--ks-space-2);width:fit-content;max-width:100%;box-sizing:border-box;
+  margin:0 auto;padding:var(--ks-space-2) var(--ks-space-3);
+  border:0;border-radius:var(--ks-r-card);background:var(--dsw-alias-bg-layer-3);
+  --dsw-elevation-stroke-color:var(--dsw-alias-border-l2);box-shadow:var(--dsw-elevation-soft)}
+.ks-batch-n{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);white-space:nowrap}
+.ks-batch-btn{height:var(--ks-btn-h-sm);white-space:nowrap}
+.ks-batch .ks-danger{color:var(--dsw-alias-state-error-primary)}
+/* 动作面板（目录选择器 / 删除二次确认） */
+.ks-act{display:flex;flex-direction:column;gap:var(--ks-space-2);padding:var(--ks-space-2) var(--ks-space-3);
+  border:0.5px solid var(--dsw-alias-border-l2);border-radius:var(--ks-r-card);
+  background:var(--dsw-alias-bg-base)}
+.ks-act-del{border-color:var(--dsw-alias-state-error-primary)}
+.ks-act-head{display:flex;align-items:center;gap:var(--ks-space-2);font-size:var(--ks-fs-base)}
+.ks-act-hint{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
+.ks-act-row{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}
+.ks-act-label{flex:0 0 auto;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
+.ks-act-name,.ks-act-search{flex:1;min-width:0}
+.ks-act-list{max-height:220px;overflow:auto;display:flex;flex-direction:column;
+  border:0.5px solid var(--dsw-alias-border-l2);border-radius:var(--ks-r-md)}
+.ks-act-item{display:flex;align-items:center;gap:var(--ks-space-2);min-height:28px;padding:var(--ks-space-1) var(--ks-space-2);
+  border:0;background:transparent;font:inherit;text-align:left;color:var(--dsw-alias-label-primary);cursor:pointer}
+.ks-act-item[data-on="true"]{background:var(--dsw-alias-interactive-bg-hover)}
+.ks-act-item:hover{background:var(--dsw-alias-interactive-bg-hover)}
+.ks-act-item-name{flex:none;max-width:40%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ks-act-item-path{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  font-size:var(--ks-fs-xs);color:var(--dsw-alias-label-tertiary)}
+.ks-act .ks-danger{color:var(--dsw-alias-state-error-primary)}
+.ks-upload-check{flex:none}
+.ks-upload-hint{flex:1;min-width:0;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary);
+  overflow:hidden;text-overflow:ellipsis}
+.ks-list-cap{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}.ks-lhead .ks-cell{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}
 .ks-lhead-name{font-size:var(--ks-fs-base);font-weight:600;color:var(--dsw-alias-label-primary);
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ks-lhead-col{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
