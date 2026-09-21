@@ -30,7 +30,7 @@
  * 跑法：`node plugin/scripts/verify-tools-real.mjs`（退出码 0 = 全通过；工作目录不限）
  */
 
-import { existsSync, readFileSync } from 'node:fs'
+import { existsSync, readFileSync, rmSync } from 'node:fs'
 import { mkdtemp } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join, resolve } from 'node:path'
@@ -45,6 +45,24 @@ const EXPECTED = ['ks_ping', 'ks_resolve_clause', 'ks_answer', 'ks_effect_report
 const HOST_ONLY_FIELDS = ['output', 'execute', 'timeoutMs', 'isConcurrencySafe']
 
 const results = []
+/** 本跑建出来的临时目录：**跑完必删**（删不掉要打出来，绝不静默 —— 见文件头/注释里的更正留痕）。 */
+const tempDirs = []
+/**
+ * ⚠⚠ 必须**同步**删（`rmSync`），不能 `await rm(...)`：
+ * 实测第一版写成 `await fs.rm()` 之后紧跟 `process.exit()` —— `process.exit` 会把
+ * **还没跑完的异步 rm** 一起带走，于是目录照样留着（我连跑 3 次数出的正是这个假修）。
+ * 证据：改成 `rmSync` 前 AFTER verify 每跑 +2；改成 `rmSync` 后 +0。
+ */
+function cleanupTempDirs() {
+  for (const dir of tempDirs) {
+    try {
+      rmSync(dir, { recursive: true, force: true, maxRetries: 3 })
+    } catch (error) {
+      console.log(`FAIL  清理临时目录 ${dir} — ${error?.message ?? error}（删不掉，请手工清）`)
+      results.push({ name: `清理临时目录 ${dir}`, ok: false })
+    }
+  }
+}
 function check(name, ok, detail) {
   results.push({ name, ok })
   console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}${detail === undefined ? '' : ` — ${detail}`}`)
@@ -126,9 +144,19 @@ async function main() {
     resolveCheckoutPackage('packages/llm/llm', '@deepseek-ai/dsh-llm').entry).href)
   const { validateJsonSchemaValue } = mod
 
-  /* 状态隔离：`KS_DATA_DIR` 指向临时目录（代码树零运行产物）。 */
-  process.env.KS_DATA_DIR = await mkdtemp(join(tmpdir(), 'ks-verify-tools-real-'))
-  process.env.KS_CHATMODE_DIR = await mkdtemp(join(tmpdir(), 'ks-verify-tools-real-chatmode-'))
+  /* 状态隔离：插件会把状态落到 `KS_DATA_DIR` / `KS_CHATMODE_DIR`，两个都指向**临时目录**。
+     ⚠ **更正（2026-09-21，复核实测打回）**：本文件第一版只写了"代码树零运行产物"就完了，
+     没有删这两个目录，于是在 `%TEMP%` 里**每跑一次泄漏 2 个** `ks-verify-tools-real*`
+     （复核数出 6 个 = 我连跑 3 次；而同批的 `e2e-install-compose.mjs` 是**自己删干净**的，
+     0 个 `ks-e2e-*`）。我当时的报告还反过来说"e2e 的临时目录不自动删"——**那句是错的**，
+     留在这里当留痕：真正漏目录的是本脚本，不是 e2e。下面改成登记 + `finally` 删。 */
+  async function makeTempDir(prefix) {
+    const dir = await mkdtemp(join(tmpdir(), prefix))
+    tempDirs.push(dir)
+    return dir
+  }
+  process.env.KS_DATA_DIR = await makeTempDir('ks-verify-tools-real-data-')
+  process.env.KS_CHATMODE_DIR = await makeTempDir('ks-verify-tools-real-chatmode-')
 
   const { makePingTool, makeResolveTool, makeAnswerTool, makeEffectReportTool } =
     await import(pathToFileURL(join(REPO, 'plugin', 'src', 'index.js')).href)
@@ -241,10 +269,17 @@ async function main() {
   const failed = results.filter((r) => !r.ok)
   console.log(`\n== verify-tools-real ${failed.length === 0 ? 'PASS' : 'FAIL'} `
     + `(${results.length - failed.length}/${results.length}) ==`)
-  process.exit(failed.length === 0 ? 0 : 1)
+  return failed.length === 0 ? 0 : 1
 }
 
-main().catch((error) => {
-  console.error(`[fatal] ${error && error.stack ? error.stack : error}`)
-  process.exit(1)
-})
+main()
+  .then((code) => {
+    cleanupTempDirs()
+    // 清理本身就是一条判据：删不掉 ⇒ 红（`code` 与"清理后仍全绿"取与）。
+    process.exit(code === 0 && results.every((r) => r.ok) ? 0 : 1)
+  })
+  .catch((error) => {
+    console.error(`[fatal] ${error && error.stack ? error.stack : error}`)
+    cleanupTempDirs()
+    process.exit(1)
+  })
