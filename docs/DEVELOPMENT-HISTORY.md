@@ -9637,11 +9637,15 @@ must match exactly one oneOf branch (matched 0)`，`name`/`code` 在 **`error.in
 **`src/index.ts`（源码）** ⇒ **不是同一份文件**（陈旧构建风险；复核只抽样对照过一致性，**抽样 ≠ 全部**）。
 **修法**：A1 现在把**两条入口 + 各自 mtime** 都打出来，源码更新时另打陈旧构建警告。
 
-**(4) 清理失败被吞（与 `verify-tools-real` 口径不一致）。**
-复核实测：探针让删除失败时 `verify-tools-real` **exit 1**，而 e2e 只打 `（清理告警：…）`**仍 exit 0**。
-**修法**（`0969447`）：清理失败登记成一条失败断言、**计入退出码**（告警文案保留）。
-**实测**：清理成功时**仍是 14/14 PASS / exit 0**（不新增空转断言）；清理失败时**多一条**
-（`FAIL 清理临时目录/服务（1 处失败 ⇒ 计入退出码）`、`14/15`、**exit 1**）。
+**(5) 实施过程自己的两处手滑（同类，记下来免得重犯）。**
+① 用 `Get-Content -Raw | Set-Content` 造变异副本 ⇒ **CJK 被写成 `?`**；同一手法还一度用在**工作区文件**上
+（之后用 `git diff` / `git show HEAD:` 逐字节核对过"工作区 ≡ 提交内容"，那 3 个提交只含预期改动）；
+此后改用 node 的 `fs.readFileSync/writeFileSync(..., 'utf8')`。
+② 曾把**变异副本放进代码树**，并往 `.gitignore` 加 `plugin/scripts/e2e-mut*.mjs` 遮它 —— 副本里的
+`_API_KEY` 文本被 `tests/test_credentials_namespace.py` 的**全仓旧名扫描**抓到（那条用例红 ⇒ 门禁红）。
+**处置**：副本改放 `%TEMP%`；`.gitignore` 里那条 **glob 已删除**（原地留注释说明原委）——
+理由是「**静默不跟踪**」比"多一条死规则"危险得多（本仓 §10 批 0 第 1 条正是 `.gitignore` 吞掉
+5 个生产文件的事故）。父代理复核时也顺手把"变异副本不许进代码树"这条并进 AGENTS.md 的清理规矩。
 
 另修一处**红得不可诊断**（复核变异 5：overlay 去掉 webserver 行 ⇒ e2e 红，但全程无 `pending`/`webServer` 字样、
 dump 两条仍绿）：现在"工具没被 offer"时会把宿主给的**插件待命原因**捞进失败信息。**实测原文**：

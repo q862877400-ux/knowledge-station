@@ -47,10 +47,10 @@ _rescue/
 # 人对账请看 docs/research/dsh-official/INGEST-LEDGER.md）
 docs/research/dsh-official/ingest-state*.json
 
-# ⚠ 更正（2026-09-22）：这条 `plugin/scripts/e2e-mut*.mjs` 是**为我自己造变异副本**加的，
-# 加完实测**它不够**：副本放在代码树里会被 `tests/test_credentials_namespace.py` 的
-# **全仓旧名扫描**扫到（副本里含 `_API_KEY` 文本）⇒ 那条用例红、门禁跟着红。
-# 现在的做法是**把变异副本放到 `%TEMP%` 去**（副本内把 `REPO` 改成仓库绝对路径），
-# 树里不留任何副本 ⇒ 这条 glob 已无实际使用者。**保留**（不删）是因为仓规「错话/多余动作
-# 保留 + 就地更正」：删了就看不出我曾用"往树里放副本 + 靠 ignore 遮住"这个坏办法。
-plugin/scripts/e2e-mut*.mjs
+# ⚠ 教训留痕（2026-09-22，错话/多余动作保留 + 就地更正）：这里曾加过一条
+#   `plugin/scripts/e2e-mut*.mjs`，为的是"把**变异副本**放进代码树、再用 ignore 遮住"。
+#   **那个办法是坏的**：① 副本会被 `tests/test_credentials_namespace.py` 的**全仓旧名扫描**扫到
+#   ⇒ 那条用例红、门禁跟着红；② 更糟的是"静默不跟踪"—— 将来真有人建同名文件就会**悄悄不进 git**
+#   （本仓真出过 `.gitignore` 吞生产文件的事故，见开发史 §10 批 0 第 1 条）。
+#   ⇒ **glob 已删除**；现在把变异副本放 `%TEMP%`（副本内把 `REPO` 指向仓库绝对路径），树里不留副本。
+#   完整经过见 `docs/DEVELOPMENT-HISTORY.md` §10.148 的更正小节。
