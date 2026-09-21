@@ -1071,6 +1071,48 @@ clause_revision=1`）⇒ 机制成立（两次 `fast_scan` 抢写 checkpoint）�
 **未验（复核列的）**：`run-gates.ps1` 全链（按纪律没跑）、`pytest`（没跑）、真浏览器里点"取消"、
 B 段只有 2 个样本、多对多只最简形态、深色 `kb-dir-manage` 单独没跑、`/kb/inbox` 只读代码核。
 
+## 二十·补2、R1–R6 的第 2 轮定向复核（同一病根收口，2026-09-21，冻结 `verify-freeze-kb-step5-fix`）
+
+复核报告：`var/tmp/verify-kb-step5-fix-report.md`（冻结 `8687f25`；实施代理的修在 `fd5aaa2` + `8687f25`）。
+**结论：R1–R7 全部"已接上"并有实测，但它的反向分支是死的（新残余，已由我在 `543bc63` 修掉）。**
+
+- **R1 已接上**：A2（页面 `DIR_COLUMNS` 多一列）+ `--interact kb-page` ⇒ exit 1，JSON `checked:false`、
+  `problems`/`sharedProblems` 都有该条 —— **`skipReason` 非空不再吞掉共享守卫**；A2 我的那版（`PAD_REQUIRED`
+  加 `.ks-dirs`）、A3（删清单条）、A5（清空）在这一跑也都 exit 1。
+- **R2 已接上**：V7（探一次就走）⇒ `FAIL K3b … resume 之前的应答：["running"]`，129/130（**只有 K3b 红**）。
+  ⚠ 边界如实划清：桩**第一次轮询就报 `scan_complete`**（客户端不改）⇒ 130/130 绿 ⇒ 这条判据**抓不了
+  "协调改桩"**（oracle 是桩自己），也抓不了"等得够不够久"（桩固定第 2 次就报完成，只判顺序形状）。
+  ⇒ 登记为 **R-new-3（低·桩驱动判据的固有边界）**。
+- **R3 已接上**：V6（把面板整块挡住 + 重建交付产物）⇒ jsdom **K8 红**（129/130）**且**真浏览器
+  `❌ --interact 有场景没落地 … kb-upload 的「逐篇看」没把入库预览面板挂出来`（exit 1）；
+  CSS `display:none` ⇒ 真浏览器 exit 1（`.ks-ing` 高度 0px），jsdom 130/130 绿（**jsdom 看不见 CSS**）
+  ⇒ 登记为 **R-new-2（低）**：复活的"看得见"只由真浏览器那一半守，全量门禁含 `kb|kb-upload` 故整链抓得到。
+  新加的"已声明主体高度必须 > 0"**没有误伤**：干净全矩阵 `smoke-kb-pad-pixels` 19/19 PASS、`不判/❌/FAIL` 命中 0 行。
+- **R4 有牙**：干净树 `2 passed, 12 deselected`；改回 `0.0` ⇒ 崩掉那条 FAILED；**过度修正成"一律 None"**
+  ⇒ 正常那条 FAILED ⇒ **两个方向都活**。
+- **R5/R6 如实**：提示文案已是 4 轨（`--ks-col-dpick/dcount/dmore`，`--ks-col-dgo` 不再出现）；
+  R6 的"文件层那一半恒真、真判在 P18/E2/E5"核过是真的。
+- **R7 无残留**，且它机械核了 `git diff 9331fea..8687f25 -- docs/KB-FOLDER-PLAN.md`：删的 6 行**没有一行**
+  落在我 §二十·补 的两处更正框里（`:1049`/`:1067` 完好）。
+
+### ⚠ R-new-1（中）：**死分支** —— 已在 `543bc63` 修掉（附我自己的正向验证）
+
+`ui-render-shot.mjs` 的 `pageWrapped` skip 分支里嵌了**裸反引号**（`` `.ks-page` ``）⇒ 余下被解析成
+**标签模板调用** ``page`…` `` ⇒ 那一分支永远抛 `TypeError: page is not a function`。
+`node --check` **退出 0**（静态检查看不见），干净树上该分支不可达 ⇒ **全量门禁全绿也发现不了**；
+一旦真的走到，全矩阵 15 跑都报"量不出 JSON（SyntaxError）" + **24 条误导性覆盖面红**，没有一条指向真因。
+**这是全仓第 19 次反引号事故，也是第一次落在死分支上。**
+
+**修法**：那一行里的反引号换成普通写法（一行）。**我的正向验证（当场做的）**：
+把页面根那层 `.ks-page` 改名（判据脚本一字未改）⇒ ① 修之前：`TypeError: page is not a function`；
+② 修之后：`#kspad 自检：**这一跑不判**（.ks-page 容器实测 0 个 …页面根没被包住…）`，
+**且下游 `smoke-kb-pad-pixels` exit 1**，每一跑都明确写"**skipReason 非空（这一跑不判）：…**"
+（不是静默通过）；还原 ⇒ `git status --short` 空。
+
+**残余（登记，不再深挖）**：R-new-2（jsdom 看不见 CSS ⇒"看得见"只由真浏览器那半守）、
+R-new-3（K3b 的 oracle 是桩 ⇒ 抓不了协调改桩）。**同一病根到此两轮收口。**
+
+
 
 
 
