@@ -349,8 +349,13 @@ export function mount(container, props) {
   let failFolders = false
   /* ── 第 6 步：按**知识库目录范围**提问 ──
      `askAnswerMode` 是"引擎这次怎么答"的开关：`in`（范围内有依据）/ `noscope`
-     （**装作没收到范围** —— 界面必须当众标红，不许静默当成范围内检索）。 */
+     （**装作没收到范围** —— 界面必须当众标红，不许静默当成范围内检索）。
+     `answerHold`（2026-09-22，复核 MEDIUM-2）：把**下一次** `/ks/answer` 卡住不返回，
+     用来复现"问 A（慢）→ 换范围问 B → B 先回 → A 后回 ⇒ A 的答案盖在 B 的范围上"。
+     `answerHeldScope` 记录那次被卡住的请求是哪个范围（证明"A 真的在飞"）。 */
   let askAnswerMode = 'in'
+  let answerHold = null
+  let answerHeldScope = null
   /**
    * 一个范围的**权威规模**：这些目录**及其所有下级**里的目录集合 + 文件集合。
    * ⚠ `/kb/scope/resolve` 与 `/ks/answer` 的桩**共用这一份算法** ⇒ 界面 chip 上的篇数
@@ -628,6 +633,16 @@ export function mount(container, props) {
           tier: 'reference', evidence: [], derivation: '', conclusion: '',
           notes: ['【知识库目录范围】范围内没有文件，没有做任何检索。'], scope: echo } })
       }
+      /* ⚠ 结论里带上**这一篇/这个目录**的标记：这样 R19（慢答案 vs 新答案）能一眼看出
+         屏幕上留着的答案到底是哪一次问的（A=fld_std / B=fld_law）。 */
+      const rootTag = roots[0] ?? docs[0] ?? 'x'
+      /* ⚠ MEDIUM-2 的复现开关：这一次请求**卡住不返回**（记下它是哪个范围，证明它真在飞）。 */
+      if (answerHold !== null) {
+        const gate = answerHold
+        answerHold = null
+        answerHeldScope = rootTag
+        await gate
+      }
       return json({ code: 200, status: 'success', data: {
         tier: 'standard',
         evidence: [{ clause_revision_id: `cr_${roots[0] ?? 'x'}`, doc_id: sc.doc_ids[0] ?? docs[0],
@@ -635,7 +650,7 @@ export function mount(container, props) {
           legal_status: 'effective', legal_hierarchy: 'GB', page_start: 12,
           snippet: '桩：这一条来自范围内那批文档。', effective_from: '2023-06-01' }],
         derivation: '桩推导：范围内的依据支持这个结论。',
-        conclusion: '桩结论：范围内答得出。',
+        conclusion: `桩结论：范围内答得出（${rootTag}）。`,
         notes: ['【知识库目录范围】检索已在范围内限定。'], scope: echo } })
     }
     return json({ ok: false, error: { code: 'STUB_MISS', message: `未预料的请求：${url}` } }, 404)
@@ -1901,6 +1916,46 @@ export function mount(container, props) {
     isInboxRow && aSorted(aParams().kb_doc_ids) === 'doc_in_q'
     && (aChip()?.textContent ?? '').includes('0 个目录 · 1 篇'),
     `params=${JSON.stringify(aParams())} / chip=「${(aChip()?.textContent ?? '(没有)').trim()}」`)
+
+  /* ══════════ R19（复核 MEDIUM-2）：**切范围时"旧答案覆盖新答案"** —— 运行时复现 ══════════
+   * 复核是**读码结论、未复现**：`askSeqRef` 只护 chip 的篇数（`loadAskCounts`），
+   * `runAsk` 里 `setAskRes/setAskPhase` **没有新鲜度检查**，而 `openAsk`/`clearAsk` 会把
+   * `askPhase` 重置回 `idle` ⇒ "问 A（慢）→ 换范围再问 B → B 先回 → A 后回"时，
+   * **A 的答案会盖在 B 的范围上**（chip 写的是 B）。
+   *
+   * 复现手法（不 mock 组件、只把**桩的响应卡住**）：
+   *   ① 范围 = 标准（fld_std）⇒ 让下一次 `/ks/answer` **卡在闸门上**（桩记下它卡的是哪个范围）；
+   *   ② 立刻**换成** 法律法规（fld_law）再问一次 ⇒ 这一次正常返回 ⇒ 屏幕上应当是 B 的答案；
+   *   ③ 放闸 ⇒ A 的答案这时才回来 ⇒ **屏幕必须还是 B 的**（序号守卫把它整个丢弃）。
+   * 桩给 A/B 的结论里各带自己的范围标记（`桩结论：范围内答得出（fld_std/fld_law）`）+
+   * 回显的篇数也不同（fld_std 子树 4 篇 / fld_law 子树 2 篇）⇒ 一眼看得出谁盖了谁。 */
+  const gate = {}
+  const gatePromise = new Promise((resolve) => { gate.release = resolve })
+  await click(aq('.ks-ask-clear')[0]); await flush()
+  await click(aq('.ks-crumb-go')[0]); await flush()          // 回最外层
+  await click(aDirNamed('标准')); await flush()               // 范围 A = 标准
+  await openAskAndSettle(aAskBtn())
+  answerHold = gatePromise                                   // 让 A 的响应卡住
+  await setInput(aAskInput(), 'A 的问题')
+  await click(aGo()); await flush(); await flush()
+  const aHeld = answerHeldScope
+  check('R19a 复现前提：A 那次请求**真的卡在闸门上**（桩记下了它卡的范围）',
+    aHeld === 'fld_std' && aq('.ks-ask-go')[0]?.textContent?.includes('在问'),
+    `卡住的范围=${String(aHeld)} / 按钮文字=「${(aq('.ks-ask-go')[0]?.textContent ?? '').trim()}」`)
+  await click(aq('.ks-ask-clear')[0]); await flush()          // 换范围（B）
+  await click(aq('.ks-crumb-go')[0]); await flush()           // ⚠ 先回最外层，才看得到「法律法规」
+  await click(aDirNamed('法律法规')); await flush()
+  await openAskAndSettle(aAskBtn())
+  await setInput(aAskInput(), 'B 的问题')
+  await click(aGo()); await flush(); await flush()
+  const bEcho = aText().includes('2 个目录 · 2 篇') && aText().includes('（fld_law）')
+  gate.release()                                              // 放闸：A 现在才回来
+  await waitMs(30); await flush(); await flush()
+  check('R19b 慢答案（A）回来时**不许覆盖**新答案（B）—— 屏幕仍应是 B 的范围与结论',
+    bEcho && aText().includes('（fld_law）') && !aText().includes('（fld_std）')
+    && aText().includes('2 个目录 · 2 篇') && !aText().includes('2 个目录 · 4 篇'),
+    `B 先到的判断=${String(bEcho)} / 放闸后含 fld_std=${String(aText().includes('（fld_std）'))} / `
+      + `含「2 个目录 · 4 篇」=${String(aText().includes('2 个目录 · 4 篇'))}`)
   askRoot.unmount()
   await flush()
 
