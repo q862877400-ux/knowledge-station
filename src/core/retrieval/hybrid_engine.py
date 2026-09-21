@@ -5,7 +5,7 @@ import json
 import logging
 import re
 import sqlite3
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Sequence
 
 from src.core.domain.models import ClauseRevisionModel, MODALITY_STRENGTH, SEARCH_CHANNELS
 from src.core.retrieval import embedder
@@ -68,13 +68,47 @@ def perform_hybrid_search(
     rerank: bool = True,
     rerank_n: int = 24,
     rerank_k: Optional[int] = None,
+    doc_ids: Optional[Sequence[str]] = None,
 ) -> List[ClauseRevisionModel]:
-    """六路召回 + RRF(k=60) 融合 + 时效过滤。向量引擎离线时自动降级（R30）。"""
+    """六路召回 + RRF(k=60) 融合 + 时效过滤。向量引擎离线时自动降级（R30）。
+
+    `doc_ids`（2026-09-21 第 6 步：**按目录范围提问**）—— **在检索层**把候选限定在这批文档里：
+      * `None`（缺省）= 不限定（历史行为，逐字不变）；
+      * **空序列 `[]` = "范围里一篇都没有"** ⇒ 直接返回 `[]`，**绝不退化成全库**
+        （空范围若被当成"没给范围"，"范围内提问"就会悄悄变成全库提问 —— 那是最坏的一种谎）；
+      * 非空 ⇒ **六条召回通道每一条**都在 SQL 里带上范围约束（不是取回 top_k 之后再筛：
+        那样 top_k 会被范围外的命中吃掉，出现"范围内明明有却答不出"）。
+      ⚠ 范围用 `json_each(?)` 一次传进 SQL（本机 SQLite 3.53.1 带 JSON1；避免 IN 列表的变量数上限）。
+      ⚠ 向量通道（通道 C）的实测口径（`var/tmp/probe-vec-scope.py`，sqlite-vec v0.1.9）：
+        **子查询形式** `clause_revision_id IN (SELECT … json_each(?))` 是"带约束地找 k 个"
+        （全局最近的两条都在范围外时，它仍返回范围内最近的那条）；而**字面量列表**
+        `IN ('a','b')` 会走"先 KNN 再筛"（实测返回空）⇒ 这里**只许用子查询形式**。
+    """
     conn = _conn()
     if channels is None:
         channels = list(SEARCH_CHANNELS)
     scores: Dict[str, float] = {}
     degraded = {"vector_engine": "offline"}
+
+    # ── 文档范围（第 6 步）：空范围 ⇒ 不检索（**不许**退化成全库） ─────────────────
+    scope_active = doc_ids is not None
+    scope_json = ""
+    if scope_active:
+        wanted = sorted({str(d) for d in (doc_ids or ()) if str(d).strip() != ""})
+        if not wanted:
+            logger.info("范围提问：范围为空（0 篇）⇒ 不做任何检索，直接返回空")
+            return []
+        scope_json = json.dumps(wanted, ensure_ascii=False)
+        logger.info("范围提问：候选限定在 %d 篇文档内（检索层过滤，六通道）", len(wanted))
+
+    def _scope_doc(param: str = "cr.doc_id") -> str:
+        """范围 SQL 片段（**只在真的限定范围时**拼进查询）。"""
+        return f" AND {param} IN (SELECT value FROM json_each(?))"
+
+    def _scope_clause(param: str = "clause_revision_id") -> str:
+        """FTS/向量表没有 doc_id 列 ⇒ 回 `clause_revision.doc_id` 判（同为检索层过滤）。"""
+        return (f" AND {param} IN (SELECT clause_revision_id FROM clause_revision"
+                f" WHERE doc_id IN (SELECT value FROM json_each(?)))")
 
     # 通道 A: 条款号/法条号精确匹配
     if "exact" in channels:
@@ -101,6 +135,7 @@ def perform_hybrid_search(
                    # **另一条 SQL 通道**，两处判据要一致。
                    else " AND (dm.legal_status IS NULL OR dm.legal_status"
                         " NOT IN ('withdrawn','superseded'))")
+                + (_scope_doc() if scope_active else "")
                 # ⚠ 排序必须**显式把"未核验"放最后**（2026-09-18 复核 b9 的 LOW-3）：
                 # SQLite 的 `ORDER BY x` 把 **NULL 排在最前**，而 `rank` 直接决定
                 # `CHANNEL_WEIGHTS / (RRF_K + rank + 1)` ⇒ 上面那两处刚把 NULL **放进来**，
@@ -116,7 +151,7 @@ def perform_hybrid_search(
                 # ⚠ 另一处不对称：**A 这条没有 id 兜底** ⇒ 同状态多行时次序仍不保证（非全序）；
                 # D/E 用 `cr.clause_revision_id` 兜底成全序（见各自注释）。
                 + " ORDER BY (dm.legal_status IS NULL), dm.legal_status",
-                (exact_no,)).fetchall()
+                ((exact_no, scope_json) if scope_active else (exact_no,))).fetchall()
             for rank, row in enumerate(rows):
                 scores[row[0]] = scores.get(row[0], 0.0) + CHANNEL_WEIGHTS["exact"] / (RRF_K + rank + 1)
 
@@ -127,7 +162,9 @@ def perform_hybrid_search(
             try:
                 rows = conn.execute(
                     "SELECT clause_revision_id FROM clause_fts WHERE clause_fts MATCH ?"
-                    " ORDER BY rank LIMIT 20", (fq,)).fetchall()
+                    + (_scope_clause() if scope_active else "")
+                    + " ORDER BY rank LIMIT 20",
+                    ((fq, scope_json) if scope_active else (fq,))).fetchall()
                 for rank, row in enumerate(rows):
                     scores[row[0]] = scores.get(row[0], 0.0) + CHANNEL_WEIGHTS["fts"] / (RRF_K + rank + 1)
             except sqlite3.OperationalError as e:
@@ -140,8 +177,11 @@ def perform_hybrid_search(
             q_emb = embedder.embed_query(query)
             rows = conn.execute(
                 "SELECT clause_revision_id, distance FROM clause_vec"
-                " WHERE embedding MATCH ? AND k = 20 ORDER BY distance",
-                (json.dumps(q_emb),)).fetchall()
+                " WHERE embedding MATCH ? AND k = 20"
+                + (_scope_clause("clause_revision_id") if scope_active else "")
+                + " ORDER BY distance",
+                ((json.dumps(q_emb), scope_json) if scope_active
+                 else (json.dumps(q_emb),))).fetchall()
             for rank, row in enumerate(rows):
                 scores[row[0]] = scores.get(row[0], 0.0) + CHANNEL_WEIGHTS["vec"] / (RRF_K + rank + 1)
             degraded["vector_engine"] = "ok"
@@ -158,6 +198,7 @@ def perform_hybrid_search(
                # 同上（通道 A 那条注释）：NULL 是"未核验"，不是"已废止"。
                else " AND (dm.legal_status IS NULL OR dm.legal_status"
                     " NOT IN ('withdrawn','superseded'))")
+            + (_scope_doc() if scope_active else "")
             # ⚠ 这一条**原先完全没有 ORDER BY**（复核 b9 的 LOW-3 顺带指出、本步修，
             # 方案未决第 12 条的 INFO-6）：`rank` 直接决定
             # `CHANNEL_WEIGHTS / (RRF_K + rank + 1)`，而**没有 ORDER BY 的 SELECT 返回次序
@@ -167,7 +208,7 @@ def perform_hybrid_search(
             # 保证**全序**（同状态多行时也确定）。取舍（已废止排在未核验之前）与 A 相同，
             # 见通道 A 那条注释——**口径的唯一所有者在 A**，这里只负责"更全"（多了 id 兜底）。
             + " ORDER BY (dm.legal_status IS NULL), dm.legal_status, cr.clause_revision_id",
-            (modality_filter,)).fetchall()
+            ((modality_filter, scope_json) if scope_active else (modality_filter,))).fetchall()
         for rank, row in enumerate(rows):
             scores[row[0]] = scores.get(row[0], 0.0) + CHANNEL_WEIGHTS["modality"] / (RRF_K + rank + 1)
 
@@ -182,14 +223,15 @@ def perform_hybrid_search(
             # 缺行时 `dm.legal_status` 为 NULL ⇒ 正好落进"未核验"那一档（沉底），语义也对。
             " LEFT JOIN doc_meta dm ON dm.doc_id = cr.doc_id"
             " WHERE cr.subject = ? AND cr.knowledge_type = 'legal'"
+            + (_scope_doc() if scope_active else "")
             # ⚠ 这条原先**没有 ORDER BY**（复核 b9 的 LOW-3 顺带指出、§10.58 先补了"确定性"）：
             # `rank` 直接决定 `CHANNEL_WEIGHTS / (RRF_K + rank + 1)`，没有 ORDER BY 的返回次序
             # 是未定义的 ⇒ 同一查询的权重分配不可复现。
             # 本步把**口径与通道 A/D 对齐**：未核验（NULL）沉底、已知状态按名排、id 兜底成全序。
             # 取舍（已废止排在未核验之前）见通道 A 注释（唯一所有者）；本处与 A 的差别是
             # **多了 id 兜底** ⇒ 这条是**全序**，A 不是（复核 b12 的 INFO）。
-            " ORDER BY (dm.legal_status IS NULL), dm.legal_status, cr.clause_revision_id",
-            (subject_filter,)).fetchall()
+            + " ORDER BY (dm.legal_status IS NULL), dm.legal_status, cr.clause_revision_id",
+            ((subject_filter, scope_json) if scope_active else (subject_filter,))).fetchall()
         for rank, row in enumerate(rows):
             scores[row[0]] = scores.get(row[0], 0.0) + CHANNEL_WEIGHTS["legal_element"] / (RRF_K + rank + 1)
 
@@ -200,8 +242,10 @@ def perform_hybrid_search(
             try:
                 rows = conn.execute(
                     "SELECT clause_revision_id FROM clause_fts"
-                    " WHERE behavior_scope_segmented MATCH ? ORDER BY rank LIMIT 20",
-                    (fq,)).fetchall()
+                    " WHERE behavior_scope_segmented MATCH ?"
+                    + (_scope_clause() if scope_active else "")
+                    + " ORDER BY rank LIMIT 20",
+                    ((fq, scope_json) if scope_active else (fq,))).fetchall()
                 for rank, row in enumerate(rows):
                     scores[row[0]] = scores.get(row[0], 0.0) + CHANNEL_WEIGHTS["behavior_scope"] / (RRF_K + rank + 1)
             except sqlite3.OperationalError as e:
@@ -391,17 +435,30 @@ def search_with_details(query: str, **kwargs: Any) -> Dict[str, Any]:
     if modality_filter is None:
         modality_filter = extract_modality_from_query(query)
     expand_chain = kwargs.pop("expand_chain", True)
+    # ⚠ 第 6 步（范围提问）：**证据链扩展也必须留在范围内** —— 扩展是沿着 evidence_edge
+    #   从命中条款往外走一跳，目标条款**可能落在范围外**；不筛的话，"范围内提问"的答案里
+    #   会混进范围外的条款（`ks_answer` 会把 expanded 合进证据列表）。这里按 doc_id 再筛一道。
+    scope_kw = kwargs.get("doc_ids")
+    allowed_docs = None if scope_kw is None else {str(d) for d in scope_kw}
     results = perform_hybrid_search(query, modality_filter=modality_filter, **kwargs)
     expanded: list[dict] = []
     if expand_chain and results:
         expanded = expand_evidence_chain(
             conn := _conn(),
             [r.clause_revision_id for r in results], max_hops=1)
+        if allowed_docs is not None:
+            expanded = [e for e in expanded
+                        if str(getattr(e["clause"], "doc_id", "") or "") in allowed_docs]
     return {
         "results": results,
         "expanded": expanded,
         "debug": {
             "modality_filter": modality_filter,
+            # 范围提问的可审计元数据（第 6 步）：**这一次到底限定在哪批文档里**。
+            "doc_scope": (None if scope_kw is None else {
+                "active": True, "doc_count": len(allowed_docs or ()),
+                "empty": len(allowed_docs or ()) == 0,
+            }),
             # ⚠ **同名不同义**（复核 b13 的 INFO-2）：这里的 `vector_engine` 是**三态**
             # （`ok`/`offline`/`unknown`，`embedder.health()` 的结论）；而同一个 dict 之外的
             # `degraded["vector_engine"]`（本函数上面）是**二态** `ok`/`offline`，且含义不同

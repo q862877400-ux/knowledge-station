@@ -3790,6 +3790,106 @@ export async function fileDocsIntoFolder(
 }
 
 /*
+ * ── 第 6 步：按**知识库目录范围**提问（`POST /api/v1/ks/answer`）──────────────────
+ *
+ * ⚠ 与收藏夹那条**不是一回事**（名字刻意不同，防歧义）：
+ *   · `params.folder_id` = **收藏夹**（书签夹）—— 引擎里只对**证据**做后置过滤，**不动检索**；
+ *   · `params.kb_folder_ids` = **知识库目录**（本步新增）—— 引擎**在检索层**把六条召回通道
+ *     全部限定在"这些目录及其所有下级"的文档里；多选 = **并集**；
+ *   · `params.kb_doc_ids` = 显式文件范围（「待分类」那一层用：那批文件还没进任何目录）。
+ * ⚠ 空范围（目录里一篇都没有）⇒ 引擎**一次检索都不做**，如实说"范围内没有"，**绝不**退化成全库。
+ * ⚠ 回参里的 `scope` 是"这一次到底限定在哪"的权威数字（`folder_count`/`doc_count`/`empty`），
+ *   界面上的范围 chip **必须**用它，不要拿"选了几个目录"自己编篇数。
+ */
+
+/** `POST /api/v1/ks/answer` 里我们关心的那几个字段（其余原样透传给调用方渲染）。 */
+export interface KsAnswerScope {
+  kind: string
+  folder_ids: string[]
+  folder_count: number
+  doc_count: number
+  empty: boolean
+}
+
+export interface KsAnswerResult {
+  tier: string
+  evidence: Array<Record<string, unknown>>
+  derivation: string
+  conclusion: string
+  notes: string[]
+  /** 知识库目录范围的回显；**没给范围时是 `null`**（"没限定"与"限定了但范围内没有"可区分）。 */
+  scope: KsAnswerScope | null
+  [k: string]: unknown
+}
+
+function normalizeAnswerScope(value: unknown): KsAnswerScope | null {
+  const o = objOf(value)
+  if (o === null) return null
+  return {
+    kind: str(o.kind) ?? 'kb',
+    folder_ids: Array.isArray(o.folder_ids)
+      ? o.folder_ids.filter((x): x is string => typeof x === 'string') : [],
+    folder_count: intOf(o.folder_count, 0),
+    doc_count: intOf(o.doc_count, 0),
+    empty: o.empty === true,
+  }
+}
+
+/**
+ * 问一次（取证答案）。范围三选一：`kbFolderIds`（知识库目录，多选=并集）/
+ * `kbDocIds`（显式文件范围）/ 都不给 = 全库。
+ */
+export async function askKsAnswer(
+  port: number, token: string, query: string,
+  opts: {
+    kbFolderIds?: readonly string[]
+    kbDocIds?: readonly string[]
+    topK?: number
+    signal?: AbortSignal
+  } = {},
+): Promise<KsAnswerResult> {
+  const params: Record<string, unknown> = {}
+  if (opts.kbFolderIds !== undefined && opts.kbFolderIds.length > 0) {
+    params.kb_folder_ids = [...opts.kbFolderIds]
+  }
+  if (opts.kbDocIds !== undefined && opts.kbDocIds.length > 0) {
+    params.kb_doc_ids = [...opts.kbDocIds]
+  }
+  if (opts.topK !== undefined) params.top_k = opts.topK
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/ks/answer`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`, 'Content-Type': 'application/json',
+      accept: 'application/json',
+    },
+    body: JSON.stringify({ query, params }),
+    signal: opts.signal,
+  })
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (!res.ok) {
+    /* 404 `kb_scope_not_found` 等由引擎原话透传（端点会把"目录不存在"如实报出来，
+       绝不静默当成全库）。 */
+    throw new Error(await engineErrorMessage(res, `引擎返回 HTTP ${res.status}`))
+  }
+  let body: unknown = null
+  try { body = await res.json() } catch { /* non-JSON body */ }
+  const d = dataOf(body)
+  return {
+    ...d,
+    tier: str(d.tier) ?? 'reference',
+    evidence: Array.isArray(d.evidence)
+      ? d.evidence.filter((x): x is Record<string, unknown> => objOf(x) !== null) : [],
+    derivation: str(d.derivation) ?? '',
+    conclusion: str(d.conclusion) ?? '',
+    notes: Array.isArray(d.notes) ? d.notes.filter((x): x is string => typeof x === 'string') : [],
+    scope: normalizeAnswerScope(d.scope),
+  }
+}
+
+/*
  * ── 上传用的**真导入**通路（引擎侧，不是 host 代理的那套「预览」）──
  *
  * ⚠ 事实核对（写在这里免得下一个人再猜一次）：

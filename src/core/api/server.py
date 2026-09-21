@@ -2279,6 +2279,10 @@ def create_app(token: str) -> FastAPI:
         from src.core.llm import ks_answer
         try:
             data = ks_answer.answer(query, params=params, query_mode=query_mode)
+        except ks_answer.KbScopeNotFound as e:
+            # 知识库目录范围里有点不存在的目录 ⇒ **404**（与 /kb/scope/resolve 同一立论：
+            # 绝不静默返回"空范围"，更不许降级成全库提问）。
+            return _json_error(404, "kb_scope_not_found", str(e))
         except ValueError as e:
             return _json_error(422, "bad_request", str(e))
         except Exception as e:  # noqa: BLE001 - 兜底：返回可审计错误，不崩引擎

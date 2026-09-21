@@ -523,6 +523,64 @@ def _upcoming_notes(evidence: List[Dict[str, Any]]) -> List[str]:
 # 主流程
 # ---------------------------------------------------------------------------
 
+class KbScopeNotFound(ValueError):
+    """知识库**目录范围**里有不存在的目录（第 6 步）。
+
+    ⚠ 为什么单独一个异常类：`scope/resolve` 与 `folder_scope` 的既有立论是"**任一目录不存在
+    ⇒ 当场报错**"，因为把"目录不存在"静默当成"空范围"（或更糟：当成"没给范围"）会让
+    「在此范围内提问」悄悄变成**全库提问** —— 那是最坏的一种谎。端点据它回 **404**。
+    """
+
+
+def _resolve_kb_scope(params: Dict[str, Any]) -> tuple[Optional[List[str]], Optional[Dict[str, Any]]]:
+    """解析**知识库目录范围**（第 6 步）⇒ `(doc_ids, scope_info)`；没给范围时 `(None, None)`。
+
+    两个入参（**名字与收藏夹那个 `folder_id` 刻意不同**，防歧义）：
+      * `kb_folder_ids`：知识库**目录** id 列表 —— 取"这些目录**及其所有下级**"的并集
+        （业主口径：多选几个目录 = 取并集）；
+      * `kb_doc_ids`：显式文件范围（「待分类」那一层用它：那批文件**还没进任何目录**，
+        没有目录可指）。两者同时给 ⇒ **并集**（与"多选目录取并集"同一口径）。
+
+    ⚠ 空范围**绝不被当成"没给范围"**：返回 `([], info)`（`info["empty"]=True`），
+    由调用方走"范围内没有 ⇒ 不检索"的分支 —— 绝不退化成全库。
+    """
+    raw_folders = params.get("kb_folder_ids")
+    raw_docs = params.get("kb_doc_ids")
+    if raw_folders is None and raw_docs is None:
+        return None, None
+
+    def _as_list(value: Any, name: str) -> List[str]:
+        items = [value] if isinstance(value, str) else value
+        if not isinstance(items, (list, tuple)) or not items:
+            raise ValueError(f"{name} 必须是非空数组")
+        out = [str(x) for x in items if str(x).strip() != ""]
+        if not out:
+            raise ValueError(f"{name} 里没有有效的 id")
+        return out
+
+    doc_ids: set = set()
+    info: Dict[str, Any] = {"kind": "kb", "folder_ids": [], "folder_count": 0,
+                            "doc_count": 0, "empty": False}
+    if raw_folders is not None:
+        folders = _as_list(raw_folders, "kb_folder_ids")
+        from src.core.exceptions import KnowledgeStationError
+        from src.core.knowledge import folder_store as fs
+        try:
+            scope = fs.folder_scope(folders)
+        except KnowledgeStationError as exc:
+            # 目录不存在 / 范围为空 / 超过 200 个 ⇒ 如实报错（端点回 404），**不**降级成全库
+            raise KbScopeNotFound(f"知识库目录范围解析失败：{exc}") from exc
+        doc_ids |= {str(d) for d in scope["doc_ids"]}
+        info["folder_ids"] = sorted(str(f) for f in scope["folder_ids"])
+        info["folder_count"] = len(info["folder_ids"])
+        info["roots"] = sorted(str(r) for r in scope["roots"])
+    if raw_docs is not None:
+        doc_ids |= set(_as_list(raw_docs, "kb_doc_ids"))
+    info["doc_count"] = len(doc_ids)
+    info["empty"] = info["doc_count"] == 0
+    return sorted(doc_ids), info
+
+
 def answer(query: str,
            params: Optional[Dict[str, Any]] = None,
            query_mode: Optional[str] = None) -> Dict[str, Any]:
@@ -531,7 +589,12 @@ def answer(query: str,
     Args:
         query: 用户问题。
         params: 可选; 支持 top_k / channels / include_superseded / rerank / history /
-              bookmarks_only / answer_scope / max_evidence / folder_id（夹内提问）。
+              bookmarks_only / answer_scope / max_evidence / folder_id（**收藏夹**内提问，
+              只对证据做后置过滤）。
+              ⚠ 第 6 步新增 **kb_folder_ids / kb_doc_ids** = **知识库目录范围**（在**检索层**
+              限定候选，见 `hybrid_engine.perform_hybrid_search(doc_ids=…)`）—— 与"收藏夹"
+              是两件事，名字刻意不同；两者同时给 ⇒ 先按知识库范围检索、再按收藏夹过滤证据，
+              实际语义是**交集**（见 KB-FOLDER-PLAN §二十一）。
         query_mode: thorough|default|quick|guess，缺省 'default'。
 
     Returns:
@@ -543,6 +606,9 @@ def answer(query: str,
     query = str(query).strip()
     mode = query_mode or "default"
     params = params or {}
+    # 知识库目录范围（第 6 步）：**先解析** —— 目录不存在时当场抛 KbScopeNotFound（端点 404），
+    # 绝不静默当成"没给范围"（那会让范围内提问变成全库提问）。
+    kb_doc_ids, kb_scope = _resolve_kb_scope(params)
 
     top_k = int(params.get("top_k", 8))
     channels = params.get("channels")
@@ -577,8 +643,19 @@ def answer(query: str,
         logger.warning("ks_answer 别名扩展降级（不阻塞）: %s", e)
         search_query = expand_query_with_history(refined, history)
 
-    out = search_with_details(search_query, top_k=top_k, channels=channels,
-                              include_superseded=include_superseded, rerank=rerank)
+    if kb_doc_ids is not None and not kb_doc_ids:
+        # **空范围**（目录存在但里面一篇没有 / 显式给了空列表）：**一次检索都不做**。
+        # 这是本步最硬的一条：空范围若被当成"没给范围"，"范围内提问"就会悄悄变成全库提问。
+        out: Dict[str, Any] = {
+            "results": [], "expanded": [],
+            "debug": {"doc_scope": {"active": True, "doc_count": 0, "empty": True},
+                      "result_count": 0, "expanded_count": 0, "channels": channels or [],
+                      "vector_engine": "unknown", "rerank": {}},
+        }
+    else:
+        out = search_with_details(search_query, top_k=top_k, channels=channels,
+                                  include_superseded=include_superseded, rerank=rerank,
+                                  **({} if kb_doc_ids is None else {"doc_ids": kb_doc_ids}))
 
     # 证据链扩展（R5a）→ 检索结果 + 扩展项合并
     raw: List[ClauseRevisionModel] = list(out.get("results") or [])
@@ -763,6 +840,16 @@ def answer(query: str,
             notes.append(
                 f"【收藏夹】{reason}，本轮**未能**限定在收藏夹内；"
                 "结论不得声称已限定收藏夹范围。")
+    # 知识库目录范围（第 6 步）：把"这次到底限定在什么范围里检索的"如实写进 notes ——
+    # 业主/审计要能一眼看出来（界面上另有一颗范围 chip，见 KsKnowledgePage 的范围提问条）。
+    if kb_scope is not None:
+        where = (f"{kb_scope['folder_count']} 个目录（含所有下级）"
+                 if kb_scope["folder_count"] > 0 else "0 个目录")
+        notes.append(
+            f"【知识库目录范围】本次**在检索层**限定在 {where} / {kb_scope['doc_count']} 篇文件内"
+            "（不是取回之后再筛 —— 范围外的命中不会占用候选名额）。"
+            + ("⚠ 该范围内**一篇文件都没有** ⇒ 本轮**没有做任何检索**"
+               "（**没有**退化成全库提问）。" if kb_scope["empty"] else ""))
     # 材料平面：把"有没有真的用上项目材料"如实写进 notes（可见性硬需求）。
     # 措辞纪律：**不能**因为"取到了材料"就说"结论已依据公司制度"——那只证明材料进了提示词。
     if material_usage is not None:
@@ -798,6 +885,9 @@ def answer(query: str,
         # 材料平面的使用记录（**可审计**：用了哪个项目、各组几条、为什么被降级）。
         # 没给项目范围时是 None——"没用材料"与"用了但没命中"必须能区分。
         "material_usage": material_usage,
+        # 知识库目录范围（第 6 步）：没给范围时是 None —— "没限定"与"限定了但范围内没有"
+        # 必须能区分（前者全库检索，后者**不检索**）。
+        "scope": kb_scope,
         # 内部调试/审计信息（供已接入的 debug_dump / 前端隐去）
         "_meta": {
             "query": query, "search_query": search_query,
@@ -807,6 +897,7 @@ def answer(query: str,
             "cite_warnings": cite_warnings,
             "material_project_id": material_project_id,
             "material_total": material_count,
+            "kb_scope": kb_scope,
         },
     }
 
