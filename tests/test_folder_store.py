@@ -460,6 +460,33 @@ def test_build_folder_tree_batch_atomic(db):
     assert fs.get_filing_state(d2)["stage"] == "queued"
 
 
+def test_build_folder_tree_reuse_existing_is_idempotent(db):
+    """``reuse_existing=True`` ⇒ 同一批 nodes 重复跑**不建重复目录**（一次性归位脚本要的幂等）。
+
+    2026-09-21 加：真库归位脚本要能"重跑一次不出第二棵树"，而默认口径（严格新建）
+    第二次会当场 ``folder_name_conflict``。
+    """
+    d1 = mkdoc(db, f"re_{next(_seq)}")
+    n1, n2 = nm("复用根"), nm("复用子")
+    nodes = [{"key": "k1", "name": n1, "parent_key": None, "sort": 10},
+             {"key": "k2", "name": n2, "parent_key": "k1"}]
+    first = fs.build_folder_tree(nodes, [{"folder_key": "k2", "item_kind": "file",
+                                          "item_id": d1}],
+                                 [{"doc_id": d1, "stage": "queued"}],
+                                 reuse_existing=True)
+    assert first["folders_created"] == 2 and first["folders_reused"] == 0
+    second = fs.build_folder_tree(nodes, [{"folder_key": "k2", "item_kind": "file",
+                                           "item_id": d1}],
+                                  [{"doc_id": d1, "stage": "filed", "placed_folder_key": "k2"}],
+                                  reuse_existing=True)
+    assert second["folders_created"] == 0 and second["folders_reused"] == 2
+    assert second["key_to_id"] == first["key_to_id"]        # 复用到的就是原来那两个
+    assert second["members_added"] == 0 and second["members_skipped"] == 1
+    assert db.execute("SELECT COUNT(*) FROM folder WHERE name=?", (n1,)).fetchone()[0] == 1
+    # 默认口径仍然是**严格新建**（同名同层当场报错，绝不悄悄复用）
+    expect_code("folder_name_conflict", fs.build_folder_tree, nodes)
+
+
 # ─────────────────────────── 处理状态 ───────────────────────────
 
 def test_filing_state_lifecycle_and_lists(db):

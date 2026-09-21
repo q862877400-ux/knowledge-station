@@ -265,16 +265,23 @@ def _assert_path_len(conn: sqlite3.Connection, parent_id: str | None, name: str,
                    "invalid_folder_name")
 
 
-def _assert_name_free(conn: sqlite3.Connection, parent_id: str | None, name: str,
-                      exclude_id: str | None = None) -> None:
-    """同名同层拒绝（含根层）。DB 侧另有两条件部分唯一索引兜底（见 schema.sql）。"""
+def _find_child_by_name(conn: sqlite3.Connection, parent_id: str | None,
+                        name: str) -> str | None:
+    """这一层里同名的目录 id（没有 = None）。``parent_id=None`` 找的是根层。"""
     if parent_id is None:
         row = conn.execute("SELECT folder_id FROM folder WHERE parent_id IS NULL AND name=?",
                            (name,)).fetchone()
     else:
         row = conn.execute("SELECT folder_id FROM folder WHERE parent_id=? AND name=?",
                            (parent_id, name)).fetchone()
-    if row is not None and row["folder_id"] != exclude_id:
+    return None if row is None else row["folder_id"]
+
+
+def _assert_name_free(conn: sqlite3.Connection, parent_id: str | None, name: str,
+                      exclude_id: str | None = None) -> None:
+    """同名同层拒绝（含根层）。DB 侧另有两条件部分唯一索引兜底（见 schema.sql）。"""
+    found = _find_child_by_name(conn, parent_id, name)
+    if found is not None and found != exclude_id:
         raise _err(f"同一层已有同名目录: {name}", "folder_name_conflict")
 
 
@@ -656,7 +663,8 @@ def move_member(item_kind: str, item_id: str, from_folder_id: str, to_folder_id:
 
 def build_folder_tree(nodes: list[dict], memberships: list[dict] | None = None,
                       states: list[dict] | None = None,
-                      db_path: Path | None = None) -> dict:
+                      db_path: Path | None = None,
+                      reuse_existing: bool = False) -> dict:
     """**一个事务**里把"目录树 + 归属 + 状态"建起来（全成或全败）。
 
     这是给"现有数据一次性归位"用的批量入口。为什么不能拿 ``create_folder`` /
@@ -666,12 +674,18 @@ def build_folder_tree(nodes: list[dict], memberships: list[dict] | None = None,
     * ``nodes``: ``[{"key","name","parent_key"|None,"sort"?}]``，**父必须排在子之前**。
     * ``memberships``: ``[{"folder_key","item_kind","item_id"}]``（``folder_key`` 指向 nodes 的 key）。
     * ``states``: ``[{"doc_id","stage","placed_folder_key"?,"confidence"?,"placed_by"?}]``。
+    * ``reuse_existing``: True 时**按名字复用已存在的目录**（同一层同名的那个），缺的才新建
+      ⇒ 同一批 nodes 重复跑**不会建重复目录**（``folders_reused`` 报复用了几条）。
+      默认 False = 严格新建（同名同层当场报 ``folder_name_conflict``）。
+      ⚠ 复用只按"父 + 名字"配对：**不看** sort/created_at，也不校验复用到的那个目录
+      底下本来是什么 —— 调用方（一次性归位脚本）负责确认"名字对得上就是同一个目录"。
 
     校验一条都没省：名字/层数/路径/同名同层/成环/引用存在性全走同一套内部函数。
-    返回 ``{"folders_created","members_added","members_skipped","states_set","key_to_id"}``。
+    返回 ``{"folders_created","folders_reused","members_added","members_skipped",
+    "states_set","key_to_id"}``。
     """
     key_to_id: dict[str, str] = {}
-    added = skipped = states_set = 0
+    added = skipped = states_set = reused = 0
     with write_transaction(db_path) as conn:
         for node in nodes:
             key = str(node["key"])
@@ -685,6 +699,12 @@ def build_folder_tree(nodes: list[dict], memberships: list[dict] | None = None,
                     raise _err(f"上级目录还没建（nodes 必须父先子后）: {pkey}",
                                "invalid_folder_key")
                 parent_id = key_to_id[str(pkey)]
+            if reuse_existing:
+                found = _find_child_by_name(conn, parent_id, _clean_name(node["name"]))
+                if found is not None:
+                    key_to_id[key] = found
+                    reused += 1
+                    continue
             created = _create_folder_in_tx(conn, node["name"], parent_id,
                                            int(node.get("sort") or 0))
             key_to_id[key] = created["folder_id"]
@@ -725,8 +745,9 @@ def build_folder_tree(nodes: list[dict], memberships: list[dict] | None = None,
                 (doc_id, stage or "queued", s.get("confidence"), placed_id,
                  s.get("placed_by"), placed_at))
             states_set += 1
-    return {"folders_created": len(key_to_id), "members_added": added,
-            "members_skipped": skipped, "states_set": states_set, "key_to_id": key_to_id}
+    return {"folders_created": len(key_to_id) - reused, "folders_reused": reused,
+            "members_added": added, "members_skipped": skipped, "states_set": states_set,
+            "key_to_id": key_to_id}
 
 
 # ─────────────────────────── 列某一级的内容（文件分页） ───────────────────────────
