@@ -5,8 +5,11 @@
 
 1. **范围内答得出 / 范围外答不出**（两个方向都要）——范围是真的在**检索层**生效，
    不是"取回 top_k 之后再筛"：那条老路会让范围外的命中**吃掉候选名额**，症状是
-   "范围内明明有、却答不出"（下面的 `test_scope_filter_is_in_retrieval_not_post_filter`
-   专门钉它：范围外 3 条强命中 + 范围内 1 条弱命中、top_k=1 ⇒ 必须返回范围内那条）。
+   "范围内明明有、却答不出"。两条用例专门钉它，且**都带前提断言**
+   （`test_scope_filter_is_in_retrieval_not_post_filter` 与
+   `test_answer_still_answers_when_out_of_scope_hits_saturate_topk`：
+   先断言"不留范围时第一名在范围外"，前提不成立 ⇒ **判据自己红**）。
+   ⚠ 复核 HIGH-1 打回前，这两条靠"碰巧的语料统计"才红（单独跑是绿的）—— 详见各条 docstring。
 2. **六条召回通道**（exact / fts / vec / modality / legal_element / behavior_scope）
    **每一条**都被范围约束（不许只堵一条）。
 3. **空范围绝不许退化成全库**（照 `folder_scope` / `scope/resolve` 的既有立论）：
@@ -87,20 +90,39 @@ def scope_db(_own_data_dir):
     ]
     for d in docs:
         clause_repo.insert_document(conn, d)
+    # ⚠⚠ **2026-09-21（复核 HIGH-1 打回后重做）**：这段 fixture 的**排序前提**以前是错的 ——
+    #   旧注释写着"范围外 3 条**强命中**……正是会被 top_k 吃掉的那批"，而复核实测
+    #   全局 FTS 第一名其实是**范围内**那条（`['in_exact','out_hot2','out_hot1',…]`）：
+    #   BM25 的**长度归一**让短正文的 `in_exact` 压过了关键词重复更多的 `out_hot1`。
+    #   后果：把范围挪到"取回之后"（合法变异）时，**那两条用例单独跑都是绿的**
+    #   （只有先跑的向量用例塞了 25 行、改了语料统计之后才偶然翻成红）。
+    # ⇒ 现在把三条正文改成**长度/词频都拉开**，并让用例先断言"不留范围时第一名确实在范围外"
+    #   （前提不成立 ⇒ **判据自己红**，不许"碰巧红"）。测出来的序见下面两条用例的断言消息。
     clause_repo.insert_clauses([
-        # 范围内：一条弱命中（FTS 只命中一个词）+ 六通道各一条
-        _clause("in_weak", "1.0.1", "范围内的普通条款（只提到一次防火间距）", "in_doc"),
-        _clause("in_exact", "5.2.3", "范围内的精确号条款：防火间距不应小于13m", "in_doc"),
+        # 范围内：一条**很长**的弱命中（只提到一次防火间距）——长正文 ⇒ BM25 分数低
+        _clause("in_weak", "1.0.1",
+                "范围内的普通条款（只提到一次防火间距）。"
+                + "本条其余文字与查询无关，纯粹用来把正文拉长、压低它在 BM25 里的得分："
+                + "甲乙丙丁戊己庚辛壬癸甲乙丙丁戊己庚辛壬癸甲乙丙丁戊己庚辛壬癸甲乙丙丁戊己庚辛壬癸。",
+                "in_doc"),
+        # 范围内：精确号那条（命中全部查询词，但正文也不短 ⇒ 全局排名**不是**第一）
+        _clause("in_exact", "5.2.3",
+                "范围内的精确号条款：防火间距不应小于13m。"
+                + "本条其余文字同样与查询无关，用来保证「全局第一名在范围外」这个前提成立："
+                + "子丑寅卯辰巳午未申酉戌亥子丑寅卯辰巳午未申酉戌亥子丑寅卯辰巳午未申酉戌亥。",
+                "in_doc"),
         _clause("in_mod", "1.0.2", "范围内模态条款", "in_doc", modality="严禁"),
         _clause("in_sub", "1.0.3", "范围内义务主体条款", "in_doc", ktype="legal",
                 subject="建设单位"),
         _clause("in_beh", "1.0.4", "范围内行为客体条款", "in_doc",
                 behavior_scope="动火作业 审批"),
-        # 范围外：三条**强命中**（同一批关键词反复出现）——正是"会被 top_k 吃掉"的那批
-        _clause("out_hot1", "5.2.3", "范围外强命中：防火间距 防火间距 防火间距 不应小于13m", "out_doc",
+        # 范围外：**真的**强命中 —— 正文短 + 查询词重复三次 ⇒ 全局第一名（用例里有前提断言钉它）
+        _clause("out_hot1", "5.2.3",
+                "防火间距不应小于13m防火间距不应小于13m防火间距不应小于13m", "out_doc",
                 standard="GB 90002-2026"),
-        _clause("out_hot2", "5.2.3", "范围外强命中：防火间距 防火间距 不应小于13m", "out_doc",
-                standard="GB 90002-2026"),
+        _clause("out_hot2", "5.2.3",
+                "范围外强命中：防火间距 不应小于13m（这一条正文比上面那条长，用来当第二名对照）",
+                "out_doc", standard="GB 90002-2026"),
         _clause("out_hot3", "1.0.9", "范围外强命中：防火间距与防火分区", "out_doc",
                 standard="GB 90002-2026", modality="严禁", ktype="legal", subject="建设单位",
                 behavior_scope="动火作业 审批"),
@@ -138,14 +160,28 @@ def test_unrestricted_search_still_sees_both(scope_db):
 def test_scope_filter_is_in_retrieval_not_post_filter(scope_db):
     """**核心判据**：范围过滤必须发生在**检索层**。
 
-    场景：范围外 3 条强命中 + 范围内 1 条弱命中，`top_k=1`。
-      · 若过滤发生在"取回 top_k 之后"⇒ 候选按**全库**排序，前 1 名是范围外那条 ⇒ 筛完**空**、
+    场景：`top_k=1`、`channels=["fts"]`、查询 = 两条正文都命中的那句。
+      · 若过滤发生在"取回 top_k 之后"⇒ 候选按**全库**排序，前 1 名是**范围外**那条 ⇒ 筛完**空**、
         "范围内明明有却答不出"（这正是任务书点名要避免的那种实现）；
       · 在检索层过滤 ⇒ 候选里只有范围内那条 ⇒ **必须返回它**。
+
+    ⚠⚠ **2026-09-21（复核 HIGH-1 打回后补的前提断言）**：这条用例以前**抓不住**那个形态 ——
+    它默认"全库第 1 名在范围外"，而实测当时全库第 1 名是**范围内**的 `in_exact`
+    （BM25 长度归一）⇒ 把范围挪到取回之后它**单独跑照样绿**。现在先断言前提：
+    **不留范围时 `top_k=1` 必须是 `out_hot1`（范围外那条）**；前提不成立 ⇒ **这条自己红**，
+    而不是悄悄退化成恒真（棘轮看不见"把断言换成恒真"，这条前提断言正是补它的）。
     """
     from src.core.retrieval.hybrid_engine import perform_hybrid_search
-    res = perform_hybrid_search("防火间距 不应小于13m", top_k=1, channels=["fts"],
-                                rerank=False, doc_ids=IN_SCOPE)
+    q = "防火间距 不应小于13m"
+    # ① 前提（不许省）：不留范围时第一名**确实**在范围外
+    unrestricted = _ids(perform_hybrid_search(q, top_k=1, channels=["fts"], rerank=False))
+    assert unrestricted == ["out_hot1"], (
+        "**前提不成立**：不留范围时 FTS 第一名应当是范围外的 out_hot1，实测 "
+        f"{unrestricted} —— 这样这条用例根本无法区分「检索层过滤」与「取回后再筛」"
+        "（两者都会返回范围内那条）。要么调 fixture 让范围外那条真的排第一，"
+        "要么换一个前提成立的查询；**不许**就这样放过（那会让本判据变成恒真）")
+    # ② 判据本体：范围内 top_k=1 ⇒ 必须是范围内那条（取回后筛的写法会返回空）
+    res = perform_hybrid_search(q, top_k=1, channels=["fts"], rerank=False, doc_ids=IN_SCOPE)
     assert _ids(res) == ["in_exact"], (
         "范围内那条没被返回 ⇒ 过滤很可能发生在取回之后（top_k 被范围外的命中吃掉了）："
         f"{_ids(res)}")
@@ -178,9 +214,14 @@ def test_every_channel_is_restricted(scope_db):
 def test_vec_channel_is_restricted_without_the_model(scope_db, monkeypatch):
     """**向量通道**也要被堵住 —— 直接塞假向量，模型离线也能验。
 
-    ⚠ 实测口径（`var/tmp/probe-vec-scope.py`，sqlite-vec v0.1.9）：范围约束必须写成
-    **子查询**（`clause_revision_id IN (SELECT … json_each(?))`）—— 字面量列表形式会走
-    "先 KNN 再筛"（全局最近的两条都在范围外时返回**空**，那就是假报"范围内没有"）。
+    ⚠ 实测口径（`var/tmp/probe-vec-scope.py`，sqlite-vec v0.1.9 / SQLite 3.53.1）——
+    **两句分开写**（复核 INFO-2 指出上一版把两种形态混成一句"先 KNN 再筛"，会让人推出错误的容量结论）：
+      1. **子查询**形式（`clause_revision_id IN (SELECT … json_each(?))`）是**带约束的 KNN**：
+         25 条更近的范围外行也压不掉范围内那条（本用例判的就是它）；
+      2. **双元素字面量列表**（`IN ('a','b')`）比"先 KNN 再筛"**更糟**：它**连全局 top-k 里
+         本来有的那条也返回 0 行**（复核在"只有一行"的表上也是 0 行）；
+         真正"先 KNN 再筛"的是**单字面量/等值**写法（`clause_revision_id = ?`）。
+    ⇒ 结论不变（**只许用子查询**），但别再照"先 KNN 再筛"推理容量。
     """
     from src.core.retrieval import embedder as emb
     from src.core.retrieval.hybrid_engine import perform_hybrid_search
@@ -199,23 +240,38 @@ def test_vec_channel_is_restricted_without_the_model(scope_db, monkeypatch):
         _clause(f"out_bulk{i}", f"9.9.{i}", "范围外批量近邻", "out_doc",
                 standard="GB 90002-2026") for i in range(25)
     ])
-    for cid, v in vecs.items():
-        conn.execute("DELETE FROM clause_vec WHERE clause_revision_id=?", (cid,))
-        conn.execute("INSERT INTO clause_vec(clause_revision_id, embedding) VALUES (?,?)",
-                     (cid, json.dumps(v)))
-    for i in range(25):
-        conn.execute("DELETE FROM clause_vec WHERE clause_revision_id=?", (f"out_bulk{i}",))
-        conn.execute("INSERT INTO clause_vec(clause_revision_id, embedding) VALUES (?,?)",
-                     (f"out_bulk{i}", json.dumps([1.0] + [0.0] * 511)))
-    conn.commit()
-    monkeypatch.setattr(emb, "is_available", lambda: True)
-    monkeypatch.setattr(emb, "embed_query", lambda q: [1.0] + [0.0] * 511)
-    rows = perform_hybrid_search("随便问点什么", top_k=5, channels=["vec"], rerank=False,
-                                 doc_ids=IN_SCOPE)
-    ids = _ids(rows)
-    assert ids, ("向量通道在范围内**一条都没返回** ⇒ 范围约束写成了「先 KNN 再筛」"
-                 "（范围外的近邻把 k=20 的名额吃光了）")
-    assert not any(i.startswith("out_") for i in ids), f"向量通道没被范围堵住：{ids}"
+    try:
+        for cid, v in vecs.items():
+            conn.execute("DELETE FROM clause_vec WHERE clause_revision_id=?", (cid,))
+            conn.execute("INSERT INTO clause_vec(clause_revision_id, embedding) VALUES (?,?)",
+                         (cid, json.dumps(v)))
+        for i in range(25):
+            conn.execute("DELETE FROM clause_vec WHERE clause_revision_id=?", (f"out_bulk{i}",))
+            conn.execute("INSERT INTO clause_vec(clause_revision_id, embedding) VALUES (?,?)",
+                         (f"out_bulk{i}", json.dumps([1.0] + [0.0] * 511)))
+        conn.commit()
+        monkeypatch.setattr(emb, "is_available", lambda: True)
+        monkeypatch.setattr(emb, "embed_query", lambda q: [1.0] + [0.0] * 511)
+        rows = perform_hybrid_search("随便问点什么", top_k=5, channels=["vec"], rerank=False,
+                                     doc_ids=IN_SCOPE)
+        ids = _ids(rows)
+        assert ids, ("向量通道在范围内**一条都没返回** ⇒ 范围约束写成了「先 KNN 再筛」"
+                     "（范围外的近邻把 k=20 的名额吃光了）")
+        assert not any(i.startswith("out_") for i in ids), f"向量通道没被范围堵住：{ids}"
+    finally:
+        # ⚠⚠ **2026-09-21（复核 HIGH-1 的根因之一）**：这 25 行以前**留在库里**，
+        # 改变了 FTS5 的 BM25 统计量 ⇒ 把**后面**用例的全库排名"翻"了过来，
+        # 于是那两条"取回后筛"的用例只有全量跑才红（顺序相关的偶然）。
+        # 现在**跑完就清**：本用例只该证明"向量通道被堵住"，不许顺手改别人的语料。
+        for i in range(25):
+            for sql in ("DELETE FROM clause_vec WHERE clause_revision_id=?",
+                        "DELETE FROM clause_fts WHERE clause_revision_id=?",
+                        "DELETE FROM clause_revision WHERE clause_revision_id=?"):
+                try:
+                    conn.execute(sql, (f"out_bulk{i}",))
+                except Exception:  # noqa: BLE001 - 表不存在就跳过（列名随 schema 变）
+                    pass
+        conn.commit()
 
 
 # ═════════════ 3. 空范围绝不退化成全库 ═════════════
@@ -266,17 +322,29 @@ def test_answer_scope_is_echoed_and_restricts_retrieval(scope_db, kb_folders, mo
 def test_answer_still_answers_when_out_of_scope_hits_saturate_topk(scope_db, kb_folders, monkeypatch):
     """**"在取回后筛"必红的那一条**（`top_k` 被范围外命中吃光的情形）。
 
-    场景：范围外那篇里同一条关键词堆了三遍（FTS 打分明显更高），`top_k=1`。
+    场景：范围外那条同一条关键词堆了三遍（FTS 打分明显更高），`top_k=1`。
       · 在**检索层**过滤 ⇒ 候选里只有范围内那条 ⇒ 证据非空、是 `in_doc`；
       · 在**取回之后**筛 ⇒ 全库第 1 名是范围外那条 ⇒ 筛完**一篇证据都不剩** ⇒
         "范围内明明有却答不出"。
     ⚠ 为什么必须单开一条：`test_answer_scope_is_echoed_and_restricts_retrieval` 只断言
       "范围外的不许进来" —— 那条判据**取回后筛也满足**（筛掉就是了），抓不到这个症状。
+
+    ⚠⚠ **2026-09-21（复核 HIGH-1 打回后）**：这条以前**依赖前序用例**（向量那条往 out_doc 塞了
+    25 行、改了 BM25 统计）才偶然变红 —— 单独跑是绿的。现在：① fixture 让范围外那条**本来就**排第一；
+    ② 先断言前提（不留范围时 `top_k=1` = `out_hot1`），前提不成立就红；③ 向量用例跑完**自己清理**
+    那 25 行（不再污染后面的语料）。⇒ 单跑、全量跑、换顺序都必须红/绿一致。
     """
     from src.core.llm import ks_answer
+    from src.core.retrieval.hybrid_engine import perform_hybrid_search
+    # ① 前提（不许省）：`answer()` 走的就是这次检索；不留范围时第一名必须在范围外。
+    q = "防火间距 不应小于13m"
+    unrestricted = _ids(perform_hybrid_search(q, top_k=1, channels=["fts"], rerank=False))
+    assert unrestricted == ["out_hot1"], (
+        "**前提不成立**：不留范围时 FTS 第一名应当是范围外的 out_hot1，实测 "
+        f"{unrestricted} ⇒ 这条用例抓不住「取回后再筛」，不许放过")
     monkeypatch.setattr(ks_answer, "_stream_llm",
                         lambda messages: iter(["【推导区】\n推导\n【结论区】\n结论"]))
-    data = ks_answer.answer("防火间距 不应小于13m", params={
+    data = ks_answer.answer(q, params={
         "kb_folder_ids": [kb_folders["in"]], "top_k": 1, "channels": ["fts"]})
     docs = {ev["doc_id"] for ev in data["evidence"]}
     assert docs == {"in_doc"}, (
