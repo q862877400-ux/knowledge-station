@@ -107,6 +107,13 @@ declare module '@deepseek-ai/dsh-client-ui-primitives' {
    */
   export const IconChevronLeftOutline14: ComponentType<DshIconProps>
   export const IconChevronRightOutline14: ComponentType<DshIconProps>
+  /**
+   * 第 3 步（2026-09-21）「刷新当前这一级」用的那枚。
+   * 名字逐字核过宿主检出 `packages/client/ui-primitives/lib/index.js` 的
+   * `const IconRefreshOutline16 = …` 与同一文件的 export 列表（两处都在）。
+   * ⚠ 同一条边界：写了不存在的名字**不会构建失败**，只会在真机变成 undefined（按钮只剩文字）。
+   */
+  export const IconRefreshOutline16: ComponentType<DshIconProps>
 
   /** 宿主 Menu 的一项。 */
   export interface DshMenuItem {

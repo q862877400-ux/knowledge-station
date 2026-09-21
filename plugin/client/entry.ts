@@ -318,13 +318,14 @@ function registerSidebarSurfaces(
           inject: (): KsEvidenceHostInjected => ({ openEvidence }),
         }, KsEvidenceHost))
 
-        // ②b 「知识库」pane body。注意它**不注入任何引擎面**：本轮只有 UI，
-        //     页面数据是组件内的占位常量（`dataSource: 'mock'`），
-        //     将来接引擎时换成注入的数据函数即可，页面形状不用改。
+        // ②b 「知识库」pane body。**2026-09-21（第 3 步）起它自己调引擎**：
+        //     页面通过 `client/api.ts` 走 `/api/v1/kb/*`（列某一级 / 列文件 / 上传落位），
+        //     注入面只剩一个**诊断标签** `dataSource`（谁是这一页的挂载者），不参与取数。
+        //     `useTabInfo` 由框架按 hookContext 给（不在这里注入）。
         disposeKbBody = ctx.slots.inject('sidebar.right.pane.tab', () => ctx.slots!.register({
           name: 'sidebar.right.pane.tab',
           key: KS_KB_IMPL_ID,
-          inject: (): KsKbInjected => ({ dataSource: 'mock' }),
+          inject: (): KsKbInjected => ({ dataSource: 'engine' }),
         }, KsKnowledgePage))
 
         // ②c 开始页那张卡（「知识库」+ ▾ 二级目录）。

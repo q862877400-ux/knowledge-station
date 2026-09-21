@@ -353,9 +353,15 @@ export interface KsPaneBodyProps {
 /**
  * 「知识库」页当前注入的面。
  *
- * ⚠ 本轮**只有 UI**：`dataSource` 恒为 `'mock'`，页面数据是组件内的占位常量，
- * 没有任何 `/ks/*` 调用。将来接引擎时把数据源换成注入的函数，页面的形状不用改。
+ * ⚠ **2026-09-21 就地更正（第 3 步「界面骨架」；错话保留在下面）**：
+ *   **曾如此（错的）**：「本轮**只有 UI**：`dataSource` 恒为 `'mock'`，页面数据是组件内的
+ *   占位常量，没有任何 `/ks/*` 调用。」
+ *   **实测**：`KsKnowledgePage` 现在**真的**通过 `client/api.ts` 调引擎的 `/api/v1/kb/*`
+ *   （列某一级、列文件、上传落位），页面里**一个占位常量都没有**（`SEED_DOCS` 等已随批删除）。
+ *   `dataSource` 因此从"数据来源的**声明**"退化成"这一次是谁挂的页面"的**诊断标签**
+ *   （冒烟会传自己的名字）⇒ 类型从字面量 `'mock'` 放宽成 `string`，取值在 `entry.ts`。
  */
 export interface KsKbInjected {
-  readonly dataSource: 'mock'
+  /** 谁挂的这一页（真宿主是 `'engine'`，冒烟各传自己的名字）——只用于诊断展示，不参与取数。 */
+  readonly dataSource: string
 }

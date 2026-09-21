@@ -2872,3 +2872,421 @@ export async function exportResearchDraft(
   return postReport<KsResearchDraft>('/ks/report/research/draft', projectId, input,
     '结论草稿', signal)
 }
+
+/* ------------------------------------------------------------------ *
+ * 知识库多级目录（KB-FOLDER-PLAN 第 2 步的接口 → 第 3 步接界面）
+ *
+ * 接口真源：`src/core/api/routes_kb_folders.py`（**本文件只做 HTTP 外形**，
+ * 形状逐字照那里的 docstring + 代码）；返回包装是 `{code,status,data}` ⇒
+ * 一律读 `body.data`（与 `batchDeleteDocs` 同一口径）。
+ *
+ * ⚠ 三条形状上的事实（照源码，不照印象）：
+ *   · `GET /kb/folders` **省略 `parent_id` = 顶层**；顶层 `data.folder` 是 `null`，
+ *     `data.breadcrumb` 是 `[]`（空数组，不是 null）。
+ *   · `GET /kb/folders/{id}/items` 顶层要传 **`folder_id='root'`**（源码里
+ *     `root`/`null` 都当顶层）；空目录是 `items: []` 而**不是 404**。
+ *   · `POST /kb/members` 的 `folder_id` 必须是一个**真目录 id**（`folder_store._folder_row`
+ *     查不到就 404）⇒ **顶层**（`root`）挂不了成员；顶层文件本来就是"还没进任何目录"的那些。
+ * ------------------------------------------------------------------ */
+
+/** 一个知识库目录（`folder_store.list_folder` 的子目录条目）。 */
+export interface KsKbFolder {
+  folder_id: string
+  parent_id: string | null
+  name: string
+  sort: number
+  created_at: string | null
+  /** 这一级**直接**放的篇数（不含下级）。 */
+  file_count_direct: number
+  /** 这一棵子树里的篇数（去重：同一篇挂多处只算一次）。 */
+  file_count_deep: number
+  /** 这一棵子树里的目录数（不含自己）。 */
+  folder_count_deep: number
+}
+
+/**
+ * 这一级**直接**放的一篇文件（`doc_meta` 行 + `doc_filing_state` 的处理状态）。
+ *
+ * ⚠ 处理状态三个字段是后端 `list_folder` 里 `COALESCE(s.stage,'queued')` 那一组：
+ *   `stage` ∈ queued/recognizing/confirming/filed/failed（中文标签的所有者是
+ *   `folder_store.STAGE_LABELS`，接口**没有**下发标签 ⇒ 客户端那份镜像在页面里）。
+ *   **没有状态行 = 从未处理**，后端按 `queued` 报（不是 null）。
+ */
+export interface KsKbFile {
+  doc_id: string
+  standard_no: string | null
+  standard_name: string | null
+  legal_status: string | null
+  legal_hierarchy: string | null
+  doc_type: string | null
+  ccs_code: string | null
+  ccs_name: string | null
+  published_at: string | null
+  effective_from: string | null
+  withdrawn_date: string | null
+  superseded_by: string | null
+  stage: string | null
+  confidence: number | null
+  failure_kind: string | null
+  suggested_folder_id: string | null
+}
+
+/** 分页信封（目录列表与文件列表共用这五个字段，口径见路由模块头）。 */
+export interface KsKbPageInfo {
+  total: number
+  offset: number
+  limit: number
+  has_more: boolean
+}
+
+export interface KsKbLevel extends KsKbPageInfo {
+  /** 本级目录；**顶层是 `null`**（顶层不是一行目录记录）。 */
+  folder: KsKbFolder | null
+  /** 从顶层到本级的目录链；顶层是 `[]`。 */
+  breadcrumb: KsKbFolder[]
+  subfolders: KsKbFolder[]
+}
+
+export interface KsKbLevelFiles extends KsKbPageInfo {
+  folder: KsKbFolder | null
+  breadcrumb: KsKbFolder[]
+  items: KsKbFile[]
+}
+
+function objOf(value: unknown): Record<string, unknown> | null {
+  return value !== null && typeof value === 'object' ? (value as Record<string, unknown>) : null
+}
+
+/** `{code,status,data}` 外壳里的 `data`（缺了就当空对象 —— 调用方按字段判）。 */
+function dataOf(body: unknown): Record<string, unknown> {
+  const wrapped = objOf(body)
+  return objOf(wrapped?.data) ?? wrapped ?? {}
+}
+
+function intOf(value: unknown, fallback: number): number {
+  return typeof value === 'number' && Number.isFinite(value) ? value : fallback
+}
+
+function normalizeKbFolder(value: unknown): KsKbFolder | null {
+  const o = objOf(value)
+  const id = str(o?.folder_id)
+  if (o === null || id === null) return null
+  return {
+    folder_id: id,
+    parent_id: str(o.parent_id),
+    name: str(o.name) ?? id,
+    sort: intOf(o.sort, 0),
+    created_at: str(o.created_at),
+    file_count_direct: intOf(o.file_count_direct, 0),
+    file_count_deep: intOf(o.file_count_deep, 0),
+    folder_count_deep: intOf(o.folder_count_deep, 0),
+  }
+}
+
+function normalizeKbFile(value: unknown): KsKbFile | null {
+  const o = objOf(value)
+  const id = str(o?.doc_id)
+  if (o === null || id === null) return null
+  return {
+    doc_id: id,
+    standard_no: str(o.standard_no),
+    standard_name: str(o.standard_name),
+    legal_status: str(o.legal_status),
+    legal_hierarchy: str(o.legal_hierarchy),
+    doc_type: str(o.doc_type),
+    ccs_code: str(o.ccs_code),
+    ccs_name: str(o.ccs_name),
+    published_at: str(o.published_at),
+    effective_from: str(o.effective_from),
+    withdrawn_date: str(o.withdrawn_date),
+    superseded_by: str(o.superseded_by),
+    stage: str(o.stage),
+    confidence: num(o.confidence),
+    failure_kind: str(o.failure_kind),
+    suggested_folder_id: str(o.suggested_folder_id),
+  }
+}
+
+/** 引擎错误体 `{error:{code,message}}` 的 message（透传业务失败，见 `batchDeleteDocs`）。 */
+async function engineErrorMessage(res: Response, fallback: string): Promise<string> {
+  try {
+    const b = await res.json()
+    const e = objOf(objOf(b)?.error)
+    const m = e?.message
+    if (typeof m === 'string' && m !== '') return m
+  } catch { /* 保持兜底文案 */ }
+  return fallback
+}
+
+/**
+ * 列**某一级**的下级目录（懒展开用）。
+ *
+ * @param parentId - 上级目录 id；`null`/省略 = 库的**顶层**（源码里省略 parent_id 就是这个意思）。
+ */
+export async function fetchKbFolders(
+  port: number,
+  token: string,
+  parentId: string | null,
+  opts: { limit?: number; offset?: number; signal?: AbortSignal } = {},
+): Promise<KsKbLevel> {
+  const qs = new URLSearchParams()
+  if (parentId !== null) qs.set('parent_id', parentId)
+  if (opts.limit !== undefined) qs.set('limit', String(opts.limit))
+  if (opts.offset !== undefined) qs.set('offset', String(opts.offset))
+  const suffix = qs.toString() === '' ? '' : `?${qs.toString()}`
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/folders${suffix}`, {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${token}`, accept: 'application/json' },
+    signal: opts.signal,
+  })
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `引擎返回 HTTP ${res.status}`))
+  let body: unknown = null
+  try { body = await res.json() } catch { /* non-JSON body */ }
+  const data = dataOf(body)
+  const subs = Array.isArray(data.subfolders) ? data.subfolders : []
+  const crumb = Array.isArray(data.breadcrumb) ? data.breadcrumb : []
+  return {
+    folder: normalizeKbFolder(data.folder),
+    breadcrumb: crumb.map(normalizeKbFolder).filter((f): f is KsKbFolder => f !== null),
+    subfolders: subs.map(normalizeKbFolder).filter((f): f is KsKbFolder => f !== null),
+    total: intOf(data.total, subs.length),
+    offset: intOf(data.offset, opts.offset ?? 0),
+    limit: intOf(data.limit, opts.limit ?? 200),
+    has_more: data.has_more === true,
+  }
+}
+
+/**
+ * 列**某一级直接放**的文件（**不含**下级目录里的），按 `limit/offset` 分页。
+ *
+ * @param folderId - 目录 id；**顶层传 `'root'`**（源码里 `root`/`null` 都当顶层）。
+ */
+export async function fetchKbFolderItems(
+  port: number,
+  token: string,
+  folderId: string,
+  opts: { limit?: number; offset?: number; signal?: AbortSignal } = {},
+): Promise<KsKbLevelFiles> {
+  const qs = new URLSearchParams()
+  qs.set('limit', String(opts.limit ?? 50))
+  qs.set('offset', String(opts.offset ?? 0))
+  const res = await fetch(
+    `http://127.0.0.1:${port}/api/v1/kb/folders/${encodeURIComponent(folderId)}/items?${qs.toString()}`,
+    {
+      method: 'GET',
+      headers: { Authorization: `Bearer ${token}`, accept: 'application/json' },
+      signal: opts.signal,
+    },
+  )
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `引擎返回 HTTP ${res.status}`))
+  let body: unknown = null
+  try { body = await res.json() } catch { /* non-JSON body */ }
+  const data = dataOf(body)
+  const rows = Array.isArray(data.items) ? data.items : []
+  const crumb = Array.isArray(data.breadcrumb) ? data.breadcrumb : []
+  return {
+    folder: normalizeKbFolder(data.folder),
+    breadcrumb: crumb.map(normalizeKbFolder).filter((f): f is KsKbFolder => f !== null),
+    items: rows.map(normalizeKbFile).filter((f): f is KsKbFile => f !== null),
+    total: intOf(data.total, rows.length),
+    offset: intOf(data.offset, opts.offset ?? 0),
+    limit: intOf(data.limit, opts.limit ?? 50),
+    has_more: data.has_more === true,
+  }
+}
+
+/** `POST /kb/members` 的出参（批量加成员；已在那处的**幂等跳过**）。 */
+export interface KsKbAddMembersResult {
+  folder_id: string
+  added: number
+  skipped: number
+  total: number
+}
+
+/**
+ * 把**已存在**的条目加进某目录（上传/挪入的落位接口）。
+ *
+ * ⚠⚠ **顶层（`root`）挂不了**：`folder_store._add_member_in_tx` 先 `_folder_row(conn, folder_id)`
+ *   查这条目录记录，查不到就 404 `folder_not_found`；而"顶层"在库里**不是一行记录**
+ *   （`folder.parent_id IS NULL` 的那些才是顶层目录）⇒ 调用方必须自己判"当前在最外层"。
+ */
+export async function addKbMembers(
+  port: number,
+  token: string,
+  folderId: string,
+  items: ReadonlyArray<{ kind: 'file' | 'folder'; id: string }>,
+  signal?: AbortSignal,
+): Promise<KsKbAddMembersResult> {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/members`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify({ folder_id: folderId, items: items.map((it) => ({ kind: it.kind, id: it.id })) }),
+    signal,
+  })
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `引擎返回 HTTP ${res.status}`))
+  let body: unknown = null
+  try { body = await res.json() } catch { /* non-JSON body */ }
+  const data = dataOf(body)
+  return {
+    folder_id: str(data.folder_id) ?? folderId,
+    added: intOf(data.added, 0),
+    skipped: intOf(data.skipped, 0),
+    total: intOf(data.total, items.length),
+  }
+}
+
+/**
+ * `POST /kb/inbox/confirm` 的 `action='existing'` —— **把这批文件放进某个目录并标成已归位**。
+ *
+ * ⚠ 为什么上传落位走**这一条**而不是只调 `addKbMembers`（两处形状都是照源码读出来的）：
+ *   · `add_member` **只写 `folder_member`**，不碰 `doc_filing_state`；
+ *   · 「待分类」的口径是 `COALESCE(s.stage,'queued') IN (queued,recognizing,confirming,failed)`
+ *     （`folder_store.list_pending_filing`）⇒ **刚导入的文件没有状态行 = `queued`**，
+ *     只挂目录的话它**照样出现在「待分类」里**（= 进了自动识别那条线）。
+ *   · `confirm_inbox_decisions(action='existing', target_folder_id=…)` 在**同一个事务**里
+ *     做三件事：`_add_member_in_tx(target,'file',doc_id)`、`stage='filed'`、
+ *     记 `placed_folder_id/placed_by/placed_at`，并把该文件从「待分类」那一处拿掉。
+ *   ⇒ 业主那句「**上传进当前这一层 = 不进自动识别**」在现有接口里**只有这一条**能如实表达。
+ */
+export async function fileDocsIntoFolder(
+  port: number,
+  token: string,
+  folderId: string,
+  docIds: readonly string[],
+  signal?: AbortSignal,
+): Promise<{ confirmed: number; removed_from_pending: number }> {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/inbox/confirm`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify({
+      decisions: docIds.map((docId) => ({
+        doc_id: docId, action: 'existing', target_folder_id: folderId, placed_by: 'kb-upload',
+      })),
+    }),
+    signal,
+  })
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `引擎返回 HTTP ${res.status}`))
+  let body: unknown = null
+  try { body = await res.json() } catch { /* non-JSON body */ }
+  const data = dataOf(body)
+  return {
+    confirmed: intOf(data.confirmed, 0),
+    removed_from_pending: intOf(data.removed_from_pending, 0),
+  }
+}
+
+/*
+ * ── 上传用的**真导入**通路（引擎侧，不是 host 代理的那套「预览」）──
+ *
+ * ⚠ 事实核对（写在这里免得下一个人再猜一次）：
+ *   · `plugin/src/ingest.js` 代理的是 `/api/v1/ingest/**preview**` 一族 —— 那是
+ *     **只读体检（dry-run）**，不建文档；
+ *   · **真导入**是引擎的 `POST /api/v1/ingest/bulk`（`src/core/api/routes_update.py`
+ *     `bulk_ingest_start` → 后台线程 `fast_scan` → `resume` 逐件解析建 `doc_meta`），
+ *     host **没有**给它做代理；本文件按既有范式（`fetchSession` 拿 port+token 后直连
+ *     回环引擎，见 `fetchDocTree`）直接调它。
+ */
+
+/** 一个批量导入批次的进度（`GET /api/v1/ingest/bulk/{batch_id}`）。 */
+export interface KsBulkIngestStatus {
+  batch_id: string
+  /** running / done / failed / paused（`bulk_import_batch.status`）。 */
+  status: string
+  total: number
+  scanned: number
+  parsed: number
+  pending: number
+  errors: number
+  pause_reason: string | null
+}
+
+/** `POST /api/v1/ingest/bulk` —— 启动批量导入，立即返回 `batch_id`（后台快扫）。 */
+export async function startBulkIngest(
+  port: number, token: string, srcDir: string, signal?: AbortSignal,
+): Promise<{ batch_id: string; total: number }> {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/ingest/bulk`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify({ src_dir: srcDir }),
+    signal,
+  })
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `引擎返回 HTTP ${res.status}`))
+  let body: unknown = null
+  try { body = await res.json() } catch { /* non-JSON body */ }
+  const data = dataOf(body)
+  const batchId = str(data.batch_id)
+  if (batchId === null) throw new Error('批量导入响应里没有 batch_id')
+  return { batch_id: batchId, total: intOf(data.total, 0) }
+}
+
+/** `POST /api/v1/ingest/bulk/{id}/resume` —— 快扫完成后开始逐件解析（后台线程）。 */
+export async function resumeBulkIngest(
+  port: number, token: string, batchId: string, signal?: AbortSignal,
+): Promise<void> {
+  const res = await fetch(
+    `http://127.0.0.1:${port}/api/v1/ingest/bulk/${encodeURIComponent(batchId)}/resume`,
+    {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', accept: 'application/json' },
+      body: '{}',
+      signal,
+    },
+  )
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `引擎返回 HTTP ${res.status}`))
+}
+
+/** `GET /api/v1/ingest/bulk/{id}` —— 批次进度（快扫 checked/total + 解析队列统计）。 */
+export async function fetchBulkIngest(
+  port: number, token: string, batchId: string, signal?: AbortSignal,
+): Promise<KsBulkIngestStatus> {
+  const res = await fetch(
+    `http://127.0.0.1:${port}/api/v1/ingest/bulk/${encodeURIComponent(batchId)}`,
+    {
+      method: 'GET',
+      headers: { Authorization: `Bearer ${token}`, accept: 'application/json' },
+      signal,
+    },
+  )
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `引擎返回 HTTP ${res.status}`))
+  let body: unknown = null
+  try { body = await res.json() } catch { /* non-JSON body */ }
+  const data = dataOf(body)
+  return {
+    batch_id: str(data.batch_id) ?? batchId,
+    status: str(data.status) ?? 'unknown',
+    total: intOf(data.total, 0),
+    scanned: intOf(data.scanned, 0),
+    parsed: intOf(data.parsed, 0),
+    pending: intOf(data.pending, 0),
+    errors: intOf(data.errors, 0),
+    pause_reason: str(data.pause_reason),
+  }
+}
