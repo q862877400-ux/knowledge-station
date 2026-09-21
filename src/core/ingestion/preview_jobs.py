@@ -125,7 +125,11 @@ def _worker(job_id: str) -> None:
                 "verdict": rep.get("verdict"), "grade": rep.get("grade"),
                 "pages": rep.get("pages", 0),
                 "total_clauses": rep.get("total_clauses", 0),
-                "doc_confidence": rep.get("doc_confidence", 0.0),
+                # ⚠ 第 5 步（2026-09-21 复核 R4）：这里原来写 `.get("doc_confidence", 0.0)` ——
+                #   于是**同一篇**在「异步全量预览」里崩掉时这一格是 `0.0`，而同步预览同一篇给
+                #   `None`（"算不出来"）。0.0 会被读成"真算出来 0 分"，正是本批挂账 ③b 要统一的那件事。
+                #   ⇒ 缺省给 `None`（"算不出来"），与 `dry_run` / `pipeline` 两侧同一口径。
+                "doc_confidence": rep.get("doc_confidence"),
                 "one_line": rep.get("one_line") or "",
                 "reasons": [r.get("code") for r in (rep.get("verdict_reasons") or [])][:4],
                 "error": rep.get("error_message"),

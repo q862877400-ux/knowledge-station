@@ -319,8 +319,9 @@ export function mount(container, props) {
   let docsInLib = [doc('doc_existing', 'GB 1-2000', '库里原有的一篇')]
   let bulkSeq = 0
   /* ⚠⚠ **2026-09-21（第 5 步）就地改成"两段式"桩**：真接口的 `resume` docstring 明写
-     「**快扫完成后调用**」，而旧 UI 是 start 完**紧跟**着 resume（实测会把快扫打断、
-     把已排好的队列覆盖成空 ⇒ 批次报 `parsed=0`，界面还说"没有新增文件"）。
+     「**快扫完成后调用**」，而旧 UI 是 start 完**紧跟**着 resume —— 那是一条**竞态**
+     （两次 `fast_scan` 抢写 checkpoint：`parsed=0` 与 `parsed=1` 复核都实测到过），
+     实测到的那一次会把快扫打断、把已排好的队列覆盖成空，界面还说"没有新增文件"。
      桩现在按真相位走：`resume` 之前先报 `running`（快扫中）、再报 `paused/scan_complete`
      （等 resume），`resume` 之后才报 `done` + 解析数字 —— 这样"顺序错"会**当场红**。
      `bulkAddsHidden` = 这一批进来的文档**不出现在 `/api/v1/documents`** 里
@@ -540,12 +541,17 @@ export function mount(container, props) {
       if (!bulkResumed) {
         bulkStatusPolls += 1
         if (bulkStatusPolls < 2) {
-          return json({ code: 200, status: 'success', data: {
-            ...common, status: 'running', scanned: 0, total: 0, parsed: 0, pending: 0, errors: 0 } })
+          const running = { code: 200, status: 'success', data: {
+            ...common, status: 'running', scanned: 0, total: 0, parsed: 0, pending: 0, errors: 0 } }
+          /* ⚠ R2：把**响应体**挂到这一次请求记录上（K3b 要判"resume 之前到底看到了什么"）。 */
+          calls[calls.length - 1].resp = running.data
+          return json(running)
         }
-        return json({ code: 200, status: 'success', data: {
+        const scanned = { code: 200, status: 'success', data: {
           ...common, status: 'paused', pause_reason: 'scan_complete',
-          scanned: 2, total: 2, parsed: 0, pending: 0, errors: 0 } })
+          scanned: 2, total: 2, parsed: 0, pending: 0, errors: 0 } }
+        calls[calls.length - 1].resp = scanned.data
+        return json(scanned)
       }
       return json({ code: 200, status: 'success', data: {
         ...common, status: 'done', total: 2, scanned: 2, parsed: 2, pending: 0, errors: 0 } })
@@ -825,7 +831,10 @@ export function mount(container, props) {
        第 5 步业主明说"文件操作要能批量做" ⇒ 目录层/文件层**各有一条勾选列**，
        那两句不再成立；判据改成**新的真行为**（不是删掉、也不是放宽）：
          · 目录层勾选框数 == 目录行数（每行一个，多一个少一个都红）；
-         · 文件层勾选框数 == 文件行数（这一跑在最外层 ⇒ 0 行 / 0 个）；
+         · 文件层：**这一跑在最外层 ⇒ 文件行 0 行**，所以这一半**恒真**（0 == 0）。
+           ⚠ 复核 R6 点名了这一点，处置 = **在注释里写明恒真是设计** + 真判在**有文件行**的那一跑：
+           `P18`（「大批量」那一级 50 行 / 50 个勾选框）与 `E2/E5`（文件层列头就是带勾选列的 6 列）。
+           这里保留这一半是为了让"文件层冒出一个不该有的勾选框"在最外层也能被看见（1 != 0 会红）。
          · 「待分类」层的勾选在 N8 单独判（那一层这一跑不在屏上）。
        原文：`q('.ks-dirs input[type=checkbox]').length === 0
        && q('.ks-list:not(.ks-list-dirs):not(.ks-list-inbox) input[type=checkbox]').length === 0` */
@@ -1077,6 +1086,27 @@ export function mount(container, props) {
   check('K2 最外层时**如实说**"文件会留在最外层（还没归位）"，不是含糊的"已放进某个目录"',
     (q('.ks-upload-note')[0]?.textContent ?? '').includes('留在最外层'),
     (q('.ks-upload-note')[0]?.textContent ?? '').trim().slice(0, 80))
+  /* ⚠⚠ **2026-09-21 第 5 步复核 R3**：`KsIngestPanel` 的"复活"必须有**真判据**。
+     复核的变异 V6（把 `{upPreview ? (` 改成 `{false ? (`，并重建 `client.js`）当时**全绿** ——
+     四张清单只钉了"bundle 里有『逐篇看』这个字符串"。这里判**结构**（面板真的挂进 DOM + 自己的特征文案
+     + `aria-expanded`），真 Chrome 侧由 `ui-render-shot` 的 `kb|kb-upload` 声明 `.ks-ing` 并量它的高度
+     （`h > 0`）—— 两半合起来才是"点下去真的看得见"。 */
+  await click(q('.ks-upload-preview-open')[0])
+  await flush()
+  const prevWrap = q('.ks-upload-preview')
+  const prevIng = q('.ks-upload-preview .ks-ing')
+  const prevText = prevIng[0]?.textContent ?? ''
+  check('K8 点「逐篇看」⇒ **复活的入库预览面板真的挂进 DOM**（.ks-upload-preview + 里面的 .ks-ing + 面板自己的文案）',
+    prevWrap.length === 1 && prevIng.length === 1 && prevText.includes('只读预览')
+    && (q('.ks-upload-preview-open')[0]?.getAttribute('aria-expanded') ?? '') === 'true',
+    `.ks-upload-preview ${String(prevWrap.length)} 个 / .ks-ing ${String(prevIng.length)} 个 / `
+      + `文案含「只读预览」=${String(prevText.includes('只读预览'))}`)
+  await click(q('.ks-upload-preview-open')[0])       // 收起来（别让它留在后面的判据里）
+  await flush()
+  check('K9 再点一次「逐篇看」⇒ 面板**收起**（开合是状态，不是一次性挂上）',
+    q('.ks-upload-preview').length === 0
+    && (q('.ks-upload-preview-open')[0]?.getAttribute('aria-expanded') ?? '') === 'false',
+    `收起后 .ks-upload-preview ${String(q('.ks-upload-preview').length)} 个`)
   const beforeTopUpload = calls.length
   await click(q('.ks-upload-go')[0])
   await waitMs(2500); await flush(); await flush()
@@ -1087,16 +1117,23 @@ export function mount(container, props) {
     && topUploadCalls.some((c) => c.method === 'POST' && c.url.includes('/ingest/bulk/bulk_1/resume'))
     && !topUploadCalls.some((c) => c.url.includes('/ks/ingest/preview')),
     `这一跳：${topUploadCalls.map((c) => `${c.method} ${c.url.replace(API, '')}`).join(' , ')}`)
-  check('K3b **两段式握手**：先等快扫报 `scan_complete` 再 resume（真接口的 resume docstring 就是这条；'
-    + '旧 UI 紧跟 start 就 resume ⇒ 实测把快扫打断、队列被覆盖成空、界面还说"没有新增文件"）',
+  /* ⚠⚠ **2026-09-21 第 5 步复核 R2（判据没接线，已修）**：这条原来只数"bulk 与 resume 之间
+     poll 过 ≥1 次" ⇒ 复核的变异 V7（探一次就走 = **旧语义**）**128/128 且 K3b PASS**，
+     等于本批最核心的那个修复**没有判据看着**。现在判**响应**：resume 之前必须**真的看到过**
+     `pause_reason === 'scan_complete'` 那一次应答（桩把响应体挂在请求记录上）。 */
+  check('K3b **两段式握手**：resume 之前必须**真的读到过 `scan_complete`**（不是"扫了一眼就往下走"）'
+    + '—— 真接口的 resume docstring 就是这条；旧写法紧跟 start 就 resume，**有时**会把已排好的清单丢掉（竞态）',
     (() => {
       const iBulk = topUploadCalls.findIndex((c) => c.method === 'POST' && c.url === `${API}/api/v1/ingest/bulk`)
       const iResume = topUploadCalls.findIndex((c) => c.url.includes('/resume'))
       const polls = topUploadCalls.slice(iBulk + 1, iResume)
-        .filter((c) => c.url.includes('/api/v1/ingest/bulk/'))
+        .filter((c) => c.url.includes('/api/v1/ingest/bulk/') && c.resp !== undefined)
       return iBulk >= 0 && iResume > iBulk && polls.length >= 1
+        && polls.some((c) => c.resp.pause_reason === 'scan_complete')
     })(),
-    `这一跳：${topUploadCalls.map((c) => `${c.method} ${c.url.replace(API, '')}`).join(' , ')}`)
+    `resume 之前的应答：${JSON.stringify(topUploadCalls.slice(0, topUploadCalls.findIndex((c) => c.url.includes('/resume')))
+      .filter((c) => c.resp !== undefined).map((c) => c.resp.pause_reason ?? c.resp.status))}
+     ／这一跳：${topUploadCalls.map((c) => `${c.method} ${c.url.replace(API, '')}`).join(' , ')}`)
   check('K4 最外层导入**不调**落位接口（没有可挂的目录 —— 顶层在库里不是一行记录），并如实报"留在最外层"',
     !topUploadCalls.some((c) => c.url.includes('/kb/inbox/confirm'))
     && !topUploadCalls.some((c) => c.url.includes('/kb/members'))

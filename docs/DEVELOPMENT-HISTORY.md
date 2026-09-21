@@ -9850,10 +9850,12 @@ v29.1.1，对应 HTML 规范的 fire-a-synthetic-pointer-event），`el.click()`
    页面 `DIR_COLUMNS` 条数 + CSS token 三方对齐）；`DIR_LAYER_COMBOS` 加非空与**双向**一致守卫。
 
 **副本库端到端（§4②）跑出两处真缺陷，都修了**（细节与原始数字见 KB-FOLDER-PLAN §二十）：
-* **上传根本不会解析**：`resume` 的契约是"快扫完成后调用"，而 UI 紧跟 start 就 resume ⇒
+* **上传有时不会解析（竞态）**：`resume` 的契约是"快扫完成后调用"，而 UI 紧跟 start 就 resume ⇒
   resume 里的幂等 `pause_batch` 打断快扫；`resume_batch` 再扫一遍时把**自己建的占位行**当成
-  `duplicate_file` ⇒ 新队列为空 ⇒ 解析循环直接 `done`（`parsed=0`），界面还说"没有新增文件"。
+  `duplicate_file` ⇒ 新队列可能为空 ⇒ 解析循环直接 `done`（`parsed=0`），界面还说"没有新增文件"。
   ⇒ 改成两段式握手（先等 `scan_complete` 再 resume），实测 `parsed=1` / `clause_revision` 真进库。
+  ⚠ **措辞更正（复核打回，留痕）**：这里原写"**上传根本不会解析**"—— 复核在两个独立新库上重跑旧语义，
+  **一次复现、一次没复现** ⇒ 机制成立但**是竞态**，不是必然；见 KB-FOLDER-PLAN §二十·补。
 * **界面说假话**：`/api/v1/documents` 看不到 `catalog_hidden=1` 的文档，而"正文条款为零"那类正好被隐藏
   ⇒ 拿"导入前后差集"当"进来了哪些"必然漏报 ⇒ 改成按批次自己的 `parsed` 说话并如实说明它们在哪。
 

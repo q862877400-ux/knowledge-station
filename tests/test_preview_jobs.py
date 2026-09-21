@@ -193,6 +193,59 @@ class TestPagination:
                                        "one_line", "reasons", "error"}
 
 
+class TestConfidenceIsNeverFaked:
+    """识别率"算不出来"在**异步全量预览**里也必须是 `None`，**不是 `0.0`**（2026-09-21 第 5 步复核 R4）。
+
+    来历（复核实测）：`preview_jobs` 那一行原来写 `rep.get("doc_confidence", 0.0)` ——
+    单件崩掉时那篇的报告是代码里现拼的（没有 `doc_confidence` 这个键）⇒ 这一格落到 `0.0`，
+    而**同一篇**走同步预览给的是 `None`（"算不出来"）。`0.0` 会被读成"真算出来 0 分"，
+    正是本批挂账 ③b 要统一的那件事。
+
+    ⚠ 正向那条（切得出条款 ⇒ 两侧都是**数字**）也必须一起钉：不许为了统一口径把正常情形也弄成 None。
+    """
+
+    def test_crashed_item_is_none_not_zero(self, tmp_path, monkeypatch):
+        from src.core.ingestion import dry_run
+
+        def _boom(pdf_path, **kw):
+            raise RuntimeError("预览炸了（本用例故意打断）")
+
+        monkeypatch.setattr(dry_run, "analyze_preview_report", _boom)
+        p = _make_pdf(tmp_path / "boom.pdf")
+        fin = _wait_terminal(preview_jobs.create_job([str(p)])["job_id"])
+        assert fin["status"] == "done"
+        row = fin["rows"][0]
+        assert row["doc_confidence"] is None, \
+            f"崩掉那一篇的识别率必须是 None（算不出来），实测 {row['doc_confidence']!r}"
+        assert row["doc_confidence"] != 0.0, "0.0 会被读成'真算出 0 分'—— 不许拿它冒充'算不出来'"
+
+    def test_uncomputable_report_keeps_none_and_normal_keeps_number(self, tmp_path, monkeypatch):
+        from src.core.ingestion import dry_run
+
+        def _fake(pdf_path, **kw):
+            # 与 `dry_run` 的真实形状一致：算不出来 ⇒ `None`；算得出 ⇒ 数字。
+            return {"status": "ok", "verdict": "warn", "grade": "C", "pages": 1,
+                    "total_clauses": 0, "doc_confidence": None, "one_line": "",
+                    "verdict_reasons": [], "layout": {"pages": 1},
+                    "ocr_suspects": [], "typing_quality": {"distribution": {}},
+                    "egress": "none"}
+
+        monkeypatch.setattr(dry_run, "analyze_preview_report", _fake)
+        p = _make_pdf(tmp_path / "none.pdf")
+        fin = _wait_terminal(preview_jobs.create_job([str(p)])["job_id"])
+        assert fin["rows"][0]["doc_confidence"] is None, fin["rows"][0]
+
+        def _fake_num(pdf_path, **kw):
+            rep = _fake(pdf_path, **kw)
+            rep["doc_confidence"] = 0.93
+            return rep
+
+        monkeypatch.setattr(dry_run, "analyze_preview_report", _fake_num)
+        p2 = _make_pdf(tmp_path / "num.pdf")
+        fin2 = _wait_terminal(preview_jobs.create_job([str(p2)])["job_id"])
+        assert fin2["rows"][0]["doc_confidence"] == 0.93, fin2["rows"][0]
+
+
 class TestEgressContract:
     """异步路径的外发口径（2026-09-17 D5）：
 

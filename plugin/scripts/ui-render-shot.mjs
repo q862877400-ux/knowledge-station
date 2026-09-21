@@ -878,6 +878,20 @@ for (const how of interacts) {
       + `说明「${note.slice(0, 60)}」`)
     notes.push(`kb-upload: 进「标准」→ 点「上传到这一层」→ 面板 ${String(q('.ks-upload').length)} 个、`
       + `来源目录「${dir}」、说明「${note.trim().slice(0, 60)}…」`)
+    /* ⚠⚠ **2026-09-21 第 5 步复核 R3**：顺手点开「逐篇看」⇒ **复活的入库预览面板**（`KsIngestPanel`，
+       `.ks-ing`）必须真的挂进 DOM。判据分两半：
+        · 这里（jsdom 结构）：`.ks-upload-preview` 在、里面的 `.ks-ing` 在、面板自己的特征文案在；
+        · 真 Chrome（#kspad）：`kb|kb-upload` 这一跑**声明了** `.ks-ing` ⇒ 量不到或高度 0 都红
+          （复核的变异 V6「`{false ? (` 让它永不挂载」在这一半当场红）。 */
+    await click(q('.ks-upload-preview-open')[0])
+    const prevOpen = q('.ks-upload-preview').length
+    const ingOpen = q('.ks-upload-preview .ks-ing').length
+    const ingText = q('.ks-upload-preview .ks-ing')[0]?.textContent ?? ''
+    mustLand(prevOpen === 1 && ingOpen === 1 && ingText.includes('只读预览'),
+      `kb-upload 的「逐篇看」没把入库预览面板挂出来：.ks-upload-preview ${String(prevOpen)} 个、`
+      + `.ks-ing ${String(ingOpen)} 个、面板文案含「只读预览」=${String(ingText.includes('只读预览'))}`)
+    notes.push(`kb-upload（逐篇看）: 点开后面板 ${String(prevOpen)} 个 / .ks-ing ${String(ingOpen)} 个`
+      + `（文案含「只读预览」=${String(ingText.includes('只读预览'))}）—— 真 Chrome 侧由 #kspad 量它的高度`)
   } else if (how === 'kb-inbox') {
     /* 「待分类」这一层（第 4 步）：左列那一行点进去 ⇒ 四行待分类（四种档位各一行）。
        这一跑同时是 `inboxCheck`（真 Chrome 里量：列对齐 / 状态列**看得见** / 勾选框与 ⋮ 逐行在场）
@@ -1637,7 +1651,9 @@ const PAD_REQUIRED = {
        矩阵不跑它们 ⇒ 不能在这里声明，否则会红在"声明了但没人跑"上）。 */
   'kb|kb-crumb': ['.ks-kb', '.ks-kb-tree', '.ks-dirs', '.ks-page-head', '.ks-kb-row'],
   'kb|kb-level': ['.ks-kb', '.ks-kb-tree', '.ks-dirs', '.ks-list', '.ks-page-head', '.ks-kb-row'],
-  'kb|kb-upload': ['.ks-kb', '.ks-kb-tree', '.ks-dirs', '.ks-page-head', '.ks-kb-row'],
+  /* ⚠ 2026-09-21 第 5 步复核 R3：这一跑**同时**点开「逐篇看」⇒ 复活的入库面板（`.ks-ing`）必须
+     真的挂在 DOM 里、并且在真 Chrome 里量得到高度（声明了就必须看得见，见 ksPadCheck 那条新断言）。 */
+  'kb|kb-upload': ['.ks-kb', '.ks-kb-tree', '.ks-dirs', '.ks-page-head', '.ks-kb-row', '.ks-ing'],
   'kb|kb-page': ['.ks-kb', '.ks-kb-tree', '.ks-list', '.ks-page-head', '.ks-kb-row'],
   'kb|kb-files': ['.ks-kb', '.ks-kb-tree', '.ks-list', '.ks-page-head', '.ks-kb-row'],
   /* 空目录那一级：没有目录层也没有文件表 ⇒ 主体是空态卡（+ 左列与顶上那一行）。 */
@@ -1762,6 +1778,17 @@ if (ksp === undefined) {
       if (it === undefined || it.missing === true) {
         ksPadProblems.push(`**规范点名的适用面 ${sel} 这一跑根本没量到**（元素消失/改名都会这样）`
           + ' —— 量不到就不算验过；改回类名，或按设计把它从适用面里去掉（同时改规范与 PAD_REQUIRED）')
+        continue
+      }
+      /* ⚠⚠ **2026-09-21 第 5 步复核 R3（真缺陷，已修）**：存在 ≠ 看得见。
+         复核的变异 V6（把 `{upPreview ? (` 改成 `{false ? (`）让复活的入库预览面板**永远不挂载** ——
+         而四张清单只钉了"bundle 里有『逐篇看』这个字符串"⇒ 全绿。
+         现在对**每一个已声明的主体**再加一条：实渲高度必须 > 0（`display:none` / 空盒子的高度都是 0）——
+         这就是"真浏览器里量得到"的那一半，配 jsdom 侧的结构判据（K8）一起用。 */
+      if (!Number.isFinite(it.h) || it.h <= 0) {
+        ksPadProblems.push(`**规范点名的适用面 ${sel} 在真 Chrome 里高度 = ${JSON.stringify(it.h)}px`
+          + '（display:none / 没挂载 / 空盒子都会这样）—— **存在不等于看得见**，'
+          + '声明了它就必须真的渲染出高度；要么让它可见，要么按设计把它从这一跑的 PAD_REQUIRED 里去掉')
       }
     }
   }
@@ -1895,7 +1922,15 @@ try {
   dirColsFromPage = m === null ? null : (m[1].match(/key: '/g) ?? []).length
 } catch { /* 读不到 ⇒ 下面的判据报红（读不到就不算验过） */ }
 const dirColsProblemsShared = []
-const dirColsProblems = [...dirColsProblemsShared]
+/* ⚠⚠ **2026-09-21 第 5 步复核 R1（真缺陷，已修）**：这里原来写
+   `const dirColsProblems = [...dirColsProblemsShared]` —— 那是在 `dirColsProblemsShared`
+   **还是空数组**的时候拍的快照（三条共享守卫在**下面**那个块里才 push 进去）⇒ 共享守卫
+   **只**经 `dirHeadCheck`（它自己那份快照在 push 之后）存活，而 `dirHeadCheck` 在没有目录层
+   表头的场景（例如冻结清单里的 `kb|kb-page`）会走 skip 分支 ⇒ 复核的变异 A2 + `kb-page`
+   **exit 0**、两行都"这一跑不判"、JSON 里 `problems:[]` 却 `checked:true`。
+   ⇒ 现在**不拍快照**：共享守卫只在最后与本次的问题清单**合并**（见下面 `dirColsProblemsAll`），
+   并且**只看共享守卫**决定要不要 exit 1（它们是全局一致性，与"这一跑有没有目录层"无关）。 */
+const dirColsProblems = []
 let dirColsSkipReason = null
 if (DIR_LAYER_COMBOS.length === 0) {
   dirColsProblemsShared.push('**冻结清单 DIR_LAYER_COMBOS 是空的** —— 目录层的列几何/表头判据'
@@ -2021,10 +2056,16 @@ if (dirColsPresenceRequired && !(Array.isArray(padRequired) && padRequired.inclu
     + `但它的 PAD_REQUIRED 声明里**没有 .ks-dirs**（拿到 ${JSON.stringify(padRequired)}）`
     + ' —— 这两处必须一致；谁改了一处而没改另一处，就在这里红')
 }
+/* ⚠ R1（2026-09-21 复核打回后修）：**共享守卫与本次的问题清单在这里才合并** ——
+   三条全局一致性守卫（清单非空 / 双向一致 / 源码声明条数）与"这一跑有没有目录层"无关，
+   所以：① 它们**任何时候**都要出现在 `problems` 里；② 只要它们响，`checked` 就是 false
+   （下面的 stderr 分支也据此 exit 1，不再被 skipReason 吞掉）。 */
+const dirColsProblemsAll = [...dirColsProblems, ...dirColsProblemsShared]
 const dirColsCheck = {
-  checked: dirColsProblems.length === 0 && dirColsSkipReason === null,
+  checked: dirColsProblemsAll.length === 0 && dirColsSkipReason === null,
   skipReason: dirColsSkipReason,
-  problems: dirColsProblems,
+  problems: dirColsProblemsAll,
+  sharedProblems: dirColsProblemsShared,
   template: dirCols?.lh ?? null,
   tracks: dirCols === undefined ? null : dircTracks(dirCols.lh).length,
   containerWidth: dirCols?.y ?? null,
@@ -2452,7 +2493,14 @@ if (capCardsSkipReason !== null) {
    ⚠ 这一条的来历见上面 `#dircols` 那段注释：复核 `verify-freeze-dirlist` 的变异 M5 证明
    "目录层有没有自己的列模板"在真 Chrome 里**没有任何判据**（把文件层那 5 列接上去照样全绿）。
    现在它是一条**会红**的判据：轨道数必须 3、轨道和 + gap 必须铺满容器（差 >1px 即红）。 */
-if (dirColsSkipReason !== null) {
+if (dirColsProblemsShared.length > 0) {
+  /* ⚠ R1：**共享守卫优先**（它们与"这一跑有没有目录层"无关）—— 不许被 skipReason 吞掉。 */
+  console.error('')
+  console.error(`❌ 目录层的**全局守卫**失败（page=${page} width=${width} theme=${themeName}；`
+    + '与这一跑有没有目录层无关）：')
+  for (const p of dirColsProblemsShared) console.error(`   - ${p}`)
+  process.exit(1)
+} else if (dirColsSkipReason !== null) {
   console.error(`· #dircols 自检：**这一跑不判**（${dirColsSkipReason}）`)
 } else if (dirColsProblems.length === 0) {
   console.error(`· #dircols 自检通过：目录层 ${String(dirColsCheck.tracks)} 轨 `
@@ -2462,10 +2510,11 @@ if (dirColsSkipReason !== null) {
   console.error('')
   console.error(`❌ 目录层列几何自检失败（page=${page} width=${width} theme=${themeName}）：`)
   for (const p of dirColsProblems) console.error(`   - ${p}`)
-  console.error('   ⇒ 目录层**只用自己那一条** --ks-cols（3 轨：目录 / 篇数 / 进入提示）：')
-  console.error('      ksGuideStyles.ts 的 `.ks-list-dirs{--ks-col-dcount:64px;--ks-col-dgo:16px;')
-  console.error('      --ks-cols:minmax(0,1fr) var(--ks-col-dcount) var(--ks-col-dgo)}`。')
-  console.error('      接到文件层那条（status/date/tags/more）或写成固定宽，就是这条断言要抓的回归。')
+  console.error('   ⇒ 目录层**只用自己那一条** --ks-cols（4 轨：勾选 / 目录 / 篇数 / ⋮）：')
+  console.error('      ksGuideStyles.ts 的 `.ks-list-dirs{--ks-col-dpick:32px;--ks-col-dcount:64px;')
+  console.error('      --ks-col-dmore:28px; --ks-cols:var(--ks-col-dpick) minmax(0,1fr)')
+  console.error('      var(--ks-col-dcount) var(--ks-col-dmore)}`。')
+  console.error('      接到文件层那条（fpick/name/status/date/stage/more）或写成固定宽，就是这条要抓的回归。')
   process.exit(1)
 }
 

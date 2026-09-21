@@ -1204,12 +1204,16 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
          而旧代码**紧跟着就调 resume**。实测后果（真 PDF，副本库）：
            ① resume 路由进来先调一次幂等的 `pause_batch` ⇒ 正在跑的**快扫被暂停**；
            ② `resume_batch` 见"还有没扫完的"⇒ 又跑一遍快扫；这一遍把上一遍**自己建的占位行**
-              当成 `duplicate_file`（`_known_files` 按"文件大小+哈希"认重）⇒ 新队列是空的；
+              当成 `duplicate_file`（`_known_files` 按"文件大小+哈希"认重）⇒ 新队列可能是空的；
            ③ 于是解析循环拿到**空队列**、直接落 `done`：批次报 `parsed=0`，界面（旧代码还会
               当场跳出轮询）对业主说"这一批没有新增文件" —— 而文件其实一份条款都没进去。
+         ⚠⚠ **措辞更正（2026-09-21 第 5 步复核，留痕不许删）**：这里我原来写的是"**上传根本不会解析**"
+            —— 复核在两个独立新库上实测，**一次复现**（`parsed=0/queue=0/clause_revision=0`）、
+            **一次没复现**（`parsed=1/clause_revision=1`）⇒ 机制成立（**两次 `fast_scan` 抢写 checkpoint**），
+            但它是**竞态（有时会）**，不是"必然不解析"。绝对措辞一律降级成"竞态"。
          ⇒ 现在按接口自己的契约走：**先等快扫完成（`pause_reason='scan_complete'`）再 resume**。
          ⚠ 后端那条"续扫会覆盖队列"的行为**不在本批改**（跨轮次发现只登记）——
-            见 `docs/KB-FOLDER-PLAN.md` §五待办里的那条挂账。 */
+            见 `docs/KB-FOLDER-PLAN.md` §二十.5 里那条挂账。 */
       setUpMsg(`批次 ${started.batch_id} 已建，正在快扫来源目录（建清单，还没开始解析）…`)
       let last = started.total
       let scanDone = false
