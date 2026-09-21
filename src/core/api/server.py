@@ -3335,6 +3335,12 @@ def create_app(token: str) -> FastAPI:
     from src.core.api import routes_materials
     routes_materials.register(app, _json_error)
 
+    # 知识库多级目录（KB-FOLDER-PLAN §五第 2 步）：目录增删改查 + 待分类 + 范围集合。
+    # ⚠ 与收藏夹（/api/v1/bookmark-folders）**无关**：那是单层收藏夹（folder_id 前缀 bmf_），
+    #   本族是无限层级知识库目录（前缀 fld_），两张表各自表内引用，任何查询不得跨表 join。
+    from src.core.api import routes_kb_folders
+    routes_kb_folders.register(app, _json_error)
+
 
     return app
 
