@@ -263,6 +263,27 @@ def test_answer_scope_is_echoed_and_restricts_retrieval(scope_db, kb_folders, mo
     assert data["_meta"]["kb_scope"]["doc_count"] == 1
 
 
+def test_answer_still_answers_when_out_of_scope_hits_saturate_topk(scope_db, kb_folders, monkeypatch):
+    """**"在取回后筛"必红的那一条**（`top_k` 被范围外命中吃光的情形）。
+
+    场景：范围外那篇里同一条关键词堆了三遍（FTS 打分明显更高），`top_k=1`。
+      · 在**检索层**过滤 ⇒ 候选里只有范围内那条 ⇒ 证据非空、是 `in_doc`；
+      · 在**取回之后**筛 ⇒ 全库第 1 名是范围外那条 ⇒ 筛完**一篇证据都不剩** ⇒
+        "范围内明明有却答不出"。
+    ⚠ 为什么必须单开一条：`test_answer_scope_is_echoed_and_restricts_retrieval` 只断言
+      "范围外的不许进来" —— 那条判据**取回后筛也满足**（筛掉就是了），抓不到这个症状。
+    """
+    from src.core.llm import ks_answer
+    monkeypatch.setattr(ks_answer, "_stream_llm",
+                        lambda messages: iter(["【推导区】\n推导\n【结论区】\n结论"]))
+    data = ks_answer.answer("防火间距 不应小于13m", params={
+        "kb_folder_ids": [kb_folders["in"]], "top_k": 1, "channels": ["fts"]})
+    docs = {ev["doc_id"] for ev in data["evidence"]}
+    assert docs == {"in_doc"}, (
+        "范围内那条**没被答出来**（top_k=1 被范围外的强命中吃掉了）—— "
+        f"范围过滤很可能发生在取回之后：{sorted(docs)}")
+
+
 def test_answer_rejects_unknown_folder_instead_of_falling_back(scope_db):
     """目录不存在 ⇒ **报错**（`KbScopeNotFound`），绝不静默当成"没给范围"全库检索。"""
     from src.core.llm import ks_answer
