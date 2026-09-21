@@ -637,5 +637,71 @@ bind 被系统拒绝，而 Spring Boot 把它报成了"已被占用"。
    现在按**那一个标准号**认行。教训同本文件反复出现的"自指/环境依赖的判据"：
    **判据要指向被测对象本身**，别指向"这个库里第一个碰到的行"。
 
+### 19.7 父代理全量门禁打回与更正（2026-09-21，第二轮）
+
+**实情**：我上一轮只跑了 4 个测试文件（`test_kb_folder_api` / `test_folder_store` /
+`test_filing_state_pipeline` / `test_bulk_import`）就报了"全绿"，而父代理跑全量
+（`run-gates.ps1 -Full`）拿到 **3 failed / 2267 passed / 3 skipped**。
+⇒ **教训（我的错）**：本步改了**共享库口径**、又**新建了会写库的用例文件**，
+这两件事正属于"必须跑全量"的改动面；"只跑被触碰面"在这里不成立。
+
+**两类根因 + 改法**：
+
+1. **口径变更没改既有用例**（2 条红）：
+   `tests/test_apply_folder_filing.py` 的 `test_hidden_docs_go_to_pending_as_failed`（381==379）
+   与 `test_read_back_matches_the_database`（`pending_list_visible` 381==379）——
+   两处都是按**旧口径**（列表过滤 `catalog_hidden=0` ⇒ 379）写的。
+   ⇒ 父代理裁定"新口径是对的（§十七③ 看不到就修不了）"，并要求**判构成**、不许只把常数改成 381。
+   新写法（两处都留了原文注释）：
+   · 前者：`total == _N_NO_CLASS + _N_HIDDEN`（379+2）**且**逐项统计
+     `by_stage == {"queued": 379, "failed": 2}`**且**
+     `{catalog_hidden == 1 的那几篇} == {t_hid_1, t_hid_2}`（= 被隐藏的那两篇**确实在列表里**，
+     这才是有意义的那一条）；
+   · 后者：`pending_list_visible == pending_docs == 379+2` **且** `pending_by_stage` 同上。
+   连带改了 `scripts/apply-folder-filing.py` 里那句**已经变味**的输出：过去恒定打印
+   "差额 N 篇是 catalog_hidden=1"，现在差额正常就是 0 ⇒ 改成只在真有差额时才解释为什么。
+
+2. **我的新用例文件污染共享库**（1 条红）：
+   `tests/test_quality_rules.py::test_qh_02_quality_issues_endpoint_shape` 红在
+   `assert len(data) == 5` 却拿到 **17**。复现（父代理给的两条命令，我实测）：
+   · `pytest -q tests/test_quality_rules.py` ⇒ **43 passed**；
+   · `pytest -q tests/test_filing_state_pipeline.py tests/test_quality_rules.py` ⇒ **1 failed**。
+   根因：`test_filing_state_pipeline.py` 的用例**真的跑入库**（往 conftest 的**会话级共享临时库**
+   写条款/文档行），后跑的模块读到自己没造的行。
+   ⇒ 照 `tests/test_ks_answer.py` 的**既有先例**给这个文件加 **module 级私有临时数据目录**
+   （`tempfile` + env 切换 + `config.reset_settings()` + `close_thread_connection()`，跑完还原）。
+   **判据（质量问题的条数）一个字没改。**
+   修后实测：单跑 **43 passed**；两文件同进程 **63 passed**（原先是 1 failed）。
+   ⚠ 这也解释了"为什么只在同一进程里红"：会话级 `KS_DATA_DIR` 让同进程模块共享一个库 ——
+   正是 ENCYCLOPEDIA §13.3 那条共享库约定要防的事。
+
+3. **另有一条与本批无关的既有 flake**（如实登记，不算在本批账上）：
+   在**同一个提交树**上我跑了两次全量 `pytest`：
+   · 第一次：`1 failed, 2269 passed, 3 skipped` —— 红的是
+     `tests/test_compliance.py::test_behavior_review_face_collection`
+     （`assert verdicts[0]["verdict"] == "red"`）；
+   · 第二次（**同一棵树、什么都没改**）：`2270 passed, 3 skipped, 0 failed`。
+   该条单独跑 **passed**（耗时 331s，日志里是 `hf_xet.download_files` —— 它要 BGE 模型）。
+   结构性证据：pytest 按文件名收集，`tests/test_compliance.py`（c）**排在**
+   `tests/test_filing_state_pipeline.py`（f）**之前** ⇒ 我的模块在它之后才跑，
+   不可能污染它；它的判决来自 `perform_hybrid_search`（向量通道要那份模型；`embedder`
+   加载失败后有 60s 冷却窗口）⇒ **环境/网络敏感**，与本批改动**无代码路径**。
+   本批既没改它的判据、也没改它被测的代码；要不要给它加"模型不可用时跳过/如实降级"的判据，
+   留给父代理决定。
+
+**全量 pytest 实测（修后，我跑的）**：`2270 passed, 3 skipped, 0 failed`
+（`& .\.venv\Scripts\python.exe -m pytest -q -rs --durations=10`，694.91s；明细存
+`var/tmp/pytest-full-run2.txt`）；父代理点名的三个文件同进程 ⇒ **85 passed**。
+
+### 19.8 父代理裁定（登记备查）
+
+1. **批量导入的空转缺陷：留下**（父代理独立只读查真库：状态行 6417 = filed 6036 / queued 379 /
+   failed 2，与我报的一致；**条款行 = 0 的文档 0 篇** ⇒ 那个缺陷**没有污染真库**；
+   但"现在不修，第 5 步的'上传即入库'就是假的"）。
+2. **`KsIngestPanel.tsx` 现在不要删** —— 它是那组只读"先体检"接口的**第二个渲染面**，
+   删它会牵动 `smoke-kb-pad-pixels` 的矩阵与 `UI-BASELINE` 的适用面（刚冻结的判据）。
+   **第 5 步做"上传到任意一级"时必须二选一：接回上传流程（复活），
+   或连矩阵与基线条目一起删 —— 不许就那么悬着。**
+
 
 

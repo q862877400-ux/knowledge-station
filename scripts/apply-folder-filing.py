@@ -905,8 +905,12 @@ def read_back(db_path: Path, *, plan: dict, payload: dict, existing_total: int,
             out["pending_by_stage"][r["stage"]] = \
                 out["pending_by_stage"].get(r["stage"], 0) + 1
         out["pending_sample"] = [dict(r) for r in rows[:10]]
-        # 「待分类」**列表接口**里能看到几篇：它按 catalog_hidden=0 过滤，所以被隐藏的那几篇
-        # 只在这一级目录里看得到、不在列表里（方案 §十 的"回来的路"要跟状态一起修）
+        # 「待分类」**列表接口**里能看到几篇。
+        # ⚠ **口径已变（2026-09-21，KB-FOLDER-PLAN 第 4 步）**：过去列表按 `catalog_hidden=0`
+        #   过滤 ⇒ 解析失败的那 2 篇只在「待分类」这一级目录里看得到、不在列表里
+        #   （方案 §十 登记的缺陷）。第 4 步改成 `可见 OR stage='failed'` ⇒ 那批**也能在列表里
+        #   看到**（这正是它们唯一走得通的回头路：在那里点「重来一次」）。
+        #   ⇒ 现在差额正常就是 **0**；下面那一行打印只在真有差额时才解释为什么。
         out["pending_list_visible"] = int(
             fs.list_pending_filing(offset=0, limit=1, db_path=db_path)["total"])
 
@@ -1100,10 +1104,17 @@ def _print_read_back(v: dict, after: dict) -> None:
         print(f"  ⚠ 「{STANDARD_TOP}」下面又出现了「{PLAN_STD_LEVEL1}」——重复层没跳过！")
     print(f"- 「{PENDING_TOP}」里 {v['pending_docs']} 篇（按状态 {v['pending_by_stage']}）")
     if "pending_list_visible" in v:
-        print(f"  其中「待分类」**列表接口**看得到 {v['pending_list_visible']} 篇 ——"
-              f"差额 {v['pending_docs'] - v['pending_list_visible']} 篇是 catalog_hidden=1"
-              "（方案 §十：那几篇只有在这一级目录里看得见，"
-              "「放回目录」的路要在第 4 步跟状态一起修）")
+        # ⚠ 差额现在是 **0**（第 4 步改了列表口径，见 read_back 里的注释）：解析失败的那批
+        #   也能在「待分类」列表里看到 ⇒ 只有在**真有**差额时才解释"为什么少了"。
+        gap = v["pending_docs"] - v["pending_list_visible"]
+        if gap == 0:
+            print(f"  其中「待分类」**列表接口**看得到 {v['pending_list_visible']} 篇 ——"
+                  "**一篇不少**（第 4 步起：识别失败的那批也在列表里，"
+                  "它们因此有了一条回头路：在「待分类」里点「重来一次」）")
+        else:
+            print(f"  其中「待分类」**列表接口**看得到 {v['pending_list_visible']} 篇 ——"
+                  f"差额 {gap} 篇（列表口径与目录成员不一致：查 §十七 与"
+                  " folder_store.list_pending_filing 的口径注释）")
     for p in v["pending_sample"][:4]:
         print(f"    · {p['standard_no']} [{p['stage']}] {p['failure_kind'] or ''}")
     print(f"- 库文件（含 -wal/-shm）：写入前 {after['before_total']:,} 字节 → "

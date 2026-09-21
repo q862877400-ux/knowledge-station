@@ -27,6 +27,8 @@
 from __future__ import annotations
 
 import json
+import os
+import tempfile
 import time
 from pathlib import Path
 
@@ -39,6 +41,41 @@ from _kb_folder_api_fixtures import std_tree, tops  # noqa: F401
 from src.core.ingestion import bulk
 from src.core.ingestion import pipeline as pipeline_mod
 from src.core.knowledge import folder_store as fs
+
+
+@pytest.fixture(scope="module", autouse=True)
+def _own_data_dir():
+    """**本模块私有的临时数据目录**（跑完即弃，其他模块零影响）。
+
+    ⚠⚠ 为什么必须有它（2026-09-21 父代理全量 pytest 打回，实测复现）：
+    本文件的用例**真的跑入库**（`run_full_ingest` 往库里写条款/文档行）。
+    不隔离时它们写进的是 conftest 那个**会话级**共享临时库 ⇒ 同会话别的模块读到自己没造的行：
+    `pytest -q tests/test_quality_rules.py` 单跑 43 passed，而
+    `pytest -q tests/test_filing_state_pipeline.py tests/test_quality_rules.py` 同进程
+    ⇒ `test_qh_02…endpoint_shape` 红在 `assert len(data) == 5`（实测拿到 17）。
+    ⇒ 这是**我的用例污染共享状态**，不是被测代码的错；判据（5 条质量问题）一个字没改。
+
+    做法照 `tests/test_ks_answer.py` 那份**既有先例**（module 级私有库 + env 切换 +
+    `reset_settings()` + 清线程连接缓存，结束后原样还原）：
+    module 级 = 本模块内等效独立运行，且不会在会话中途把全局 KS_DATA_DIR 改掉影响别的模块
+    （ENCYCLOPEDIA §13.3 的共享库约定）。
+    """
+    with tempfile.TemporaryDirectory(prefix="ks_filing_", ignore_cleanup_errors=True) as td:
+        old = os.environ.get("KS_DATA_DIR")
+        os.environ["KS_DATA_DIR"] = td
+        from src.core import config
+        config.reset_settings()
+        # 默认连接缓存的 key 固定是 "conn_default"（不看路径）：前序模块可能已把该线程连接
+        # 指向旧库 ⇒ 清掉，让本模块在新数据目录上重连。
+        from src.core.storage.sqlite_db import close_thread_connection
+        close_thread_connection()
+        yield Path(td)
+        config.reset_settings()
+        close_thread_connection()
+        if old is None:
+            os.environ.pop("KS_DATA_DIR", None)
+        else:
+            os.environ["KS_DATA_DIR"] = old
 
 #: 一页够切出真条款的正文（条款号 + 中文正文；切分器按行首条款号切）。
 REAL_BLOCKS = [

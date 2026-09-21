@@ -217,12 +217,24 @@ def test_hidden_docs_go_to_pending_as_failed(fdb, tmp_path):
     assert "解析失败" in rows["t_hid_2"]["failure_kind"]
     assert rows["t_nc_000"]["stage"] == "queued"
     assert rows["t_law_0"]["stage"] == "queued"
-    # 「待分类」这一级里 381 篇；而**列表接口**只给 379 —— 它按 `catalog_hidden=0` 过滤，
-    # 那 2 篇解析失败的只在目录里看得见（方案 §十 已登记的缺陷，"回来的路"第 4 步修）
+    # ⚠⚠ **2026-09-21（KB-FOLDER-PLAN 第 4 步）口径变更，就地把断言改成判「构成」**
+    #   （原文保留在下面，别删）：原来是 `listed["total"] == _N_NO_CLASS`（379）——
+    #   那时**列表接口**按 `catalog_hidden=0` 过滤，那 2 篇解析失败的真标准**在列表里看不到**
+    #   （方案 §十 登记的缺陷）。第 4 步按 §十七③「看不到就修不了」把它改成
+    #   `可见 OR stage='failed'` ⇒ 待分类 = **381**（379 queued + 2 failed），那 2 篇能看见、
+    #   能被「重来一次」修。**判据不写成一个孤零零的 381**（那等于把口径藏进一个数字里），
+    #   而是逐项判构成 + 判"被隐藏的那两篇确实在列表里"。
     from src.core.knowledge import folder_store as fs
     listed = fs.list_pending_filing(limit=5000, db_path=fdb)
-    assert listed["total"] == _N_NO_CLASS
-    assert len(listed["items"]) == _N_NO_CLASS
+    assert listed["total"] == _N_NO_CLASS + _N_HIDDEN          # 379 + 2 = 381
+    assert len(listed["items"]) == _N_NO_CLASS + _N_HIDDEN
+    by_stage: dict[str, int] = {}
+    for it in listed["items"]:
+        by_stage[str(it["stage"])] = by_stage.get(str(it["stage"]), 0) + 1
+    assert by_stage == {"queued": _N_NO_CLASS, "failed": _N_HIDDEN}, by_stage
+    # 「识别失败」的那两篇**就在列表里**（它们 `catalog_hidden=1`，过去正是被这一条挡掉的）
+    hidden_in_list = {it["doc_id"] for it in listed["items"] if it["catalog_hidden"] == 1}
+    assert hidden_in_list == {"t_hid_1", "t_hid_2"}, hidden_in_list
     assert set(rows) == {f"t_nc_{i:03d}" for i in range(_N_OTHER_STANDARD)} \
         | {f"t_law_{i}" for i in range(_N_UNDEFINED_LAW)} | {"t_hid_1", "t_hid_2"}
 
@@ -535,7 +547,15 @@ def test_read_back_matches_the_database(fdb, tmp_path):
         fdb, "SELECT COUNT(*) AS n FROM doc_filing_state")["n"]
     assert v["folders_by_depth"] == {1: 4, 2: 2, 3: 2, 4: 2}
     assert v["pending_docs"] == _N_NO_CLASS + _N_HIDDEN
-    assert v["pending_list_visible"] == _N_NO_CLASS     # 列表接口按 catalog_hidden=0 过滤
+    # ⚠⚠ **2026-09-21（KB-FOLDER-PLAN 第 4 步）口径变更，就地改成判「构成」**（原文保留：
+    #   原来是 `v["pending_list_visible"] == _N_NO_CLASS`（379）——「列表接口按
+    #   `catalog_hidden=0` 过滤」。第 4 步按 §十七③ 改成 `可见 OR stage='failed'`
+    #   ⇒ 列表里能看到的就是**全部**待分类（381 = 379 queued + 2 failed），
+    #   那 2 篇解析失败的真标准因此有了一条回头路（能在「待分类」里点「重来一次」）。
+    #   ⇒ 判据改成三件事一起判：总数 = 待分类总数、**逐状态构成**、以及差额恰为 0 的原因。
+    assert v["pending_list_visible"] == v["pending_docs"] == _N_NO_CLASS + _N_HIDDEN
+    assert v["pending_by_stage"] == {"queued": _N_NO_CLASS, "failed": _N_HIDDEN}, \
+        v["pending_by_stage"]
     assert len(v["spot_check"]) == min(20, v["folders_total"])   # 随机抽 20 个目录
     assert all({"path", "files", "files_total"} <= set(s) for s in v["spot_check"])
     assert v["standard_has_redundant_level"] is False
