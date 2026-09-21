@@ -33501,7 +33501,15 @@ var KS_STYLES = `
 .ks-ask-evtitle{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary)}
 .ks-ask-evtext,.ks-ask-note{min-width:0;overflow-wrap:anywhere;
   font-size:var(--ks-fs-sm);line-height:1.5;color:var(--dsw-alias-label-tertiary)}
-.ks-list-cap{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}.ks-lhead .ks-cell{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}
+/* \u26A0\u26A0 **\u4E1A\u4E3B 2026-09-22**\uFF1A\u300C\u5728\u6B64\u8303\u56F4\u5185\u63D0\u95EE\u300D+ \u8303\u56F4 chip \u642C\u8FDB**\u8FD9\u4E00\u884C**\uFF08\u5F53\u524D\u6587\u4EF6\u5939\u540D\u90A3\u4E00\u6761 bar\uFF0C
+   \u641C\u7D22\u6846\u4E0A\u9762\uFF09\u2014\u2014 \u539F\u8BDD\uFF1A"\u6309\u94AE\u6539\u5230\u641C\u7D22\u680F\u4E0A\u9762\u663E\u793A\u6587\u4EF6\u5939\u540D\u79F0\u7684 bar \u4E0A\uFF0C\u8FD9\u6837\u5C31\u5F88\u6E05\u695A\u662F\u5728\u8FD9\u4E2A\u6587\u4EF6\u5939\u5185
+   \u8FDB\u884C\u641C\u7D22"\u3002\u8FD9\u4E00\u884C\u56E0\u6B64\u591A\u4E24\u4E2A\u6210\u5458 \u21D2 **\u5141\u8BB8\u6298\u884C**\uFF08\u7A84\u6863\u4E0D\u8BB8\u628A chip \u6324\u6CA1\u3001\u4E5F\u4E0D\u8BB8\u538B\u6210\u7AD6\u6392 \u2014\u2014
+   \u7B2C 6 \u6B65\u5728\u5DE5\u5177\u680F\u4E0A\u5C31\u8E29\u8FC7\u4E00\u6B21"\u6309\u94AE\u88AB\u538B\u6210\u7AD6\u6392 + \u4E0E\u9762\u5305\u5C51\u53E0\u5B57"\uFF0C\u89C1 .ks-kb-row \u90A3\u6BB5\u7559\u75D5\uFF09\uFF0C
+   \u26A0 \u672C\u6BB5\u5728\u6A21\u677F\u5B57\u7B26\u4E32\u91CC\uFF0C**\u4E0D\u8BB8\u51FA\u73B0\u53CD\u5F15\u53F7**\uFF08\u672C\u4ED3\u5DF2\u8E29 20 \u6B21\uFF09\u3002
+   \u6309\u94AE\u91CC\u7684\u5B57**\u4E0D\u8BB8\u65AD\u884C**\u3002 */
+.ks-list-cap{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0;flex-wrap:wrap}
+.ks-list-cap>button{white-space:nowrap}
+.ks-lhead .ks-cell{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}
 .ks-lhead-name{font-size:var(--ks-fs-base);font-weight:600;color:var(--dsw-alias-label-primary);
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ks-lhead-col{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -34811,20 +34819,6 @@ var DIR_COLUMNS = [
   { key: "dcount", cls: "ks-col-dcount", head: "\u7BC7\u6570" },
   { key: "dmore", cls: "ks-col-dmore", head: "" }
 ];
-function docGlyph(no) {
-  const v = no ?? "";
-  if (v === "") return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives4.IconShieldOutline16, {});
-  if (/^GB/i.test(v)) return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives4.IconChecklistOutline14, {});
-  if (/^KS-/i.test(v)) return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives4.IconListPenOutline16, {});
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives4.IconArchiveOutline20, {});
-}
-function docGlyphLabel(no) {
-  const v = no ?? "";
-  if (v === "") return "\u6CD5\u5F8B\u6CD5\u89C4 / \u65E0\u6807\u51C6\u53F7";
-  if (/^GB/i.test(v)) return "\u6807\u51C6";
-  if (/^KS-/i.test(v)) return "\u516C\u53F8\u5236\u5EA6 / \u89C4\u7A0B";
-  return "\u8D44\u6599 / \u8BB0\u5F55";
-}
 function Field({ label, value, mono = false }) {
   return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-field", children: [
     /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-field-k", children: label }),
@@ -35150,6 +35144,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
   const openAsk = (0, import_react8.useCallback)((keys) => {
     const scope = askScopeOf(keys, folderRowsForAsk);
     if (scope === null) return;
+    askSeqRef.current += 1;
     setAskScope(scope);
     setAskOpen(true);
     setAskRes(null);
@@ -35180,6 +35175,8 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
   const runAsk = (0, import_react8.useCallback)(async () => {
     const text = askQ.trim();
     if (text === "" || askScope === null) return;
+    askSeqRef.current += 1;
+    const seq = askSeqRef.current;
     setAskPhase("running");
     setAskMsg("");
     try {
@@ -35187,14 +35184,52 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
         kbFolderIds: askScope.folderIds,
         kbDocIds: askScope.docIds
       }));
+      if (askSeqRef.current !== seq) return;
       setAskRes(out);
       setAskPhase("done");
     } catch (error) {
+      if (askSeqRef.current !== seq) return;
       setAskRes(null);
       setAskPhase("error");
       setAskMsg(errorText(error));
     }
   }, [askQ, askScope, withSession]);
+  const askEntry = /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
+      import_dsh_client_ui_primitives4.Button,
+      {
+        variant: "outline",
+        size: "sm",
+        className: "ks-ask-open",
+        "aria-expanded": askOpen,
+        disabled: askHereScope === null,
+        title: askHereScope !== null ? `\u5728${askHereScope.label}\u91CC\u63D0\u95EE\uFF08\u53EA\u5728\u8FD9\u4E2A\u8303\u56F4\u91CC\u68C0\u7D22\uFF1B\u591A\u9009=\u5E76\u96C6\uFF09` : askHereWhy,
+        onClick: () => {
+          void openAsk(askHereKeys);
+        },
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives4.IconSearchOutline16, {}),
+          "\u5728\u6B64\u8303\u56F4\u5185\u63D0\u95EE"
+        ]
+      }
+    ),
+    askScope === null ? null : /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { className: "ks-ask-chip", "data-ks-ask-chip": "on", title: askWhereText(askScope), children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-ask-chip-tag", children: "\u8303\u56F4" }),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-ask-chip-name", children: askScope.label }),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-ask-chip-n", children: askCountErr !== "" ? `\u6570\u4E0D\u51FA\u6765\uFF1A${askCountErr}` : askCounts === null ? "\u6B63\u5728\u6570\u2026" : `${String(askCounts.folder_count)} \u4E2A\u76EE\u5F55 \xB7 ${String(askCounts.doc_count)} \u7BC7` }),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+        "button",
+        {
+          type: "button",
+          className: "ks-ask-chip-x",
+          "aria-label": "\u6E05\u6389\u8303\u56F4",
+          title: "\u6E05\u6389\u8303\u56F4\uFF08\u8FDE\u63D0\u95EE\u9762\u677F\u4E00\u8D77\u6536\u8D77\uFF1B\u6E05\u6389\u4E4B\u540E\u8FD9\u4E00\u9875\u4E0D\u4F1A\u505A\u300C\u4E0D\u9650\u5B9A\u8303\u56F4\u300D\u7684\u63D0\u95EE\uFF09",
+          onClick: clearAsk,
+          children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives4.IconCloseOutline16, {})
+        }
+      )
+    ] })
+  ] });
   const togglePick = (0, import_react8.useCallback)((key, next) => {
     setActMsg("");
     setPicked((prev) => {
@@ -35925,7 +35960,6 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
           ) });
         case "iname":
           return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-fileico", title: docGlyphLabel(doc.standard_no), children: docGlyph(doc.standard_no) }),
             /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-item-name", title: doc.standard_name ?? doc.doc_id, children: doc.standard_name ?? doc.doc_id }),
             /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-item-sub", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-item-meta", children: doc.standard_no === null || doc.standard_no === "" ? "\u2014" : doc.standard_no }) })
           ] });
@@ -36413,6 +36447,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
   const inboxMain = /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
     /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-list-cap", children: [
       /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-lhead-name ks-kb-grow", title: "\u77E5\u8BC6\u5E93 / \u5F85\u5206\u7C7B", children: "\u5F85\u5206\u7C7B" }),
+      askEntry,
       /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { className: "ks-kb-hint", children: [
         inboxTotal,
         " \u7BC7\u8FD8\u6CA1\u5F52\u4F4D",
@@ -36595,40 +36630,6 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
         }
       ),
       /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-kb-grow" }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
-        import_dsh_client_ui_primitives4.Button,
-        {
-          variant: "outline",
-          size: "sm",
-          className: "ks-ask-open",
-          "aria-expanded": askOpen,
-          disabled: askHereScope === null,
-          title: askHereScope !== null ? `\u5728${askHereScope.label}\u91CC\u63D0\u95EE\uFF08\u53EA\u5728\u8FD9\u4E2A\u8303\u56F4\u91CC\u68C0\u7D22\uFF1B\u591A\u9009=\u5E76\u96C6\uFF09` : askHereWhy,
-          onClick: () => {
-            void openAsk(askHereKeys);
-          },
-          children: [
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives4.IconSearchOutline16, {}),
-            "\u5728\u6B64\u8303\u56F4\u5185\u63D0\u95EE"
-          ]
-        }
-      ),
-      askScope === null ? null : /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { className: "ks-ask-chip", "data-ks-ask-chip": "on", title: askWhereText(askScope), children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-ask-chip-tag", children: "\u8303\u56F4" }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-ask-chip-name", children: askScope.label }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-ask-chip-n", children: askCountErr !== "" ? `\u6570\u4E0D\u51FA\u6765\uFF1A${askCountErr}` : askCounts === null ? "\u6B63\u5728\u6570\u2026" : `${String(askCounts.folder_count)} \u4E2A\u76EE\u5F55 \xB7 ${String(askCounts.doc_count)} \u7BC7` }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-          "button",
-          {
-            type: "button",
-            className: "ks-ask-chip-x",
-            "aria-label": "\u6E05\u6389\u8303\u56F4",
-            title: "\u6E05\u6389\u8303\u56F4\uFF08\u8FDE\u63D0\u95EE\u9762\u677F\u4E00\u8D77\u6536\u8D77\uFF1B\u6E05\u6389\u4E4B\u540E\u8FD9\u4E00\u9875\u4E0D\u4F1A\u505A\u300C\u4E0D\u9650\u5B9A\u8303\u56F4\u300D\u7684\u63D0\u95EE\uFF09",
-            onClick: clearAsk,
-            children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives4.IconCloseOutline16, {})
-          }
-        )
-      ] }),
       layer === "folder" ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
         import_dsh_client_ui_primitives4.Button,
         {
@@ -36920,6 +36921,7 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
       /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-main", children: layer === "inbox" ? inboxMain : /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
         /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-list-cap", children: [
           /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-lhead-name ks-kb-grow", title: ["\u77E5\u8BC6\u5E93", ...crumb.map((f) => f.name)].join(" / "), children: levelName }),
+          askEntry,
           /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { className: "ks-kb-hint", children: [
             subs.length,
             " \u4E2A\u5B50\u76EE\u5F55 \xB7 ",
@@ -37111,7 +37113,6 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
                   ) });
                 case "name":
                   return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-fileico", title: docGlyphLabel(doc.standard_no), children: docGlyph(doc.standard_no) }),
                     /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-item-name", title: doc.standard_name ?? doc.doc_id, children: doc.standard_name ?? doc.doc_id }),
                     /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-item-sub", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-item-meta", children: doc.standard_no === null || doc.standard_no === "" ? "\u2014" : doc.standard_no }) })
                   ] });

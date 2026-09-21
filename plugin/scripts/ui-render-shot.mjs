@@ -712,6 +712,12 @@ for (const how of interacts) {
       `kb-ask 的提问面板/抬头不对：面板 ${String(q('.ks-ask').length)} 个、抬头「${whereText}」`)
     mustLand(Array.isArray(seen) && seen.includes('fld_p16'),
       `kb-ask 没按当前这一级去解析范围（最后一条 folder_ids=${JSON.stringify(seen)}）`)
+    /* ⚠ **2026-09-22（业主界面要求）**：入口必须在**当前文件夹名那一行**（jsdom 侧这一半；
+       真浏览器侧由 `#ask` 的 `where` 字段与 askCheck 判）。 */
+    mustLand(askBtn !== undefined && askBtn.closest('.ks-list-cap') !== null
+      && askBtn.closest('.ks-kb-row') === null,
+      'kb-ask 的「在此范围内提问」不在 .ks-list-cap 那一行（或还留在工具栏里）—— '
+      + '业主 2026-09-22 亲定它要跟着"当前文件夹名"那一行走')
     notes.push(`kb-ask: 走到「标准 / P16 工程防火」 → 文件行 ${String(rows)}、`
       + `chip=「${chipText}」、抬头「${whereText}」、解析范围=${JSON.stringify(seen)}；`
       + '真 Chrome 侧由 #ask 量 chip / 按钮 / 面板的**高度与右缘溢出**')
@@ -1115,6 +1121,9 @@ const html = `<!doctype html>
                 '.ks-cap-engine','.ks-knob-label','.ks-kb-banner','.ks-field',
                 '.ks-list','.ks-status','.ks-item-more','.ks-item-title','.ks-item-sub',
                 '.ks-item-name','.ks-item-meta','.ks-empty-card','.ks-empty-t','.ks-empty-d',
+                /* ⚠ .ks-fileico 现在**只由目录行**使用（2026-09-22 业主把文件行那个图标删了，
+                   见 smoke-kb-page-render 的 E6/B10）；名字留在名单里是因为它仍然量得到。
+                   ⚠ 本段在模板字符串里：注释里不许出现反引号（本仓已踩 21 次）。 */
                 '.ks-search','.ks-fileico','.ks-list-cap','.ks-cell','.ks-col-stage','.ks-col-date','.ks-col-status',
                 '.ks-lhead-col',
                 /* ⚠ 名单里**刻意留着几个已经量不到的名字**（.ks-rail / .ks-kb-tn / .ks-item-tags /
@@ -1414,13 +1423,24 @@ const html = `<!doctype html>
     var askChipEl = document.querySelector('.ks-ask-chip');
     var askPanelEl = document.querySelector('.ks-ask');
     if (askBtnEl || askChipEl || askPanelEl) {
-      var pageRootEl = document.querySelector('.ks-page > .ks-kb, .ks-kb');
-      var rootCs = pageRootEl ? getComputedStyle(pageRootEl) : null;
-      var rootRect = pageRootEl ? pageRootEl.getBoundingClientRect() : null;
+      // 按钮/chip "在哪一行"：以**最近的已知行容器**为准（文件名那一行 vs 工具栏 vs 其它）。
+      // ⚠⚠ **2026-09-22（业主界面要求）**：按钮与 chip 搬到了**当前文件夹名那一行**
+      //   （.ks-list-cap，搜索框上面）⇒ 溢出也改成对着**这一行**量：原来对着页面根量，
+      //   对栏内元素太松（栏在页面里本来就有余量），测不出"被挤出这一行"。
+      var askRowOf = function (el) {
+        if (!el) return '(没有元素)';
+        if (el.closest('.ks-list-cap')) return 'list-cap';
+        if (el.closest('.ks-kb-row')) return 'kb-row';
+        if (el.closest('.ks-ask')) return 'ask-panel';
+        return 'other';
+      };
+      var chipParentEl = askChipEl ? askChipEl.parentElement : null;
+      var chipParentCs = chipParentEl ? getComputedStyle(chipParentEl) : null;
+      var chipParentRect = chipParentEl ? chipParentEl.getBoundingClientRect() : null;
       var chipRect = askChipEl ? askChipEl.getBoundingClientRect() : null;
-      var contentRight = null;
-      if (rootRect && rootCs) {
-        contentRight = rootRect.right - (parseFloat(rootCs.paddingRight) || 0);
+      var rowRight = null;
+      if (chipParentRect && chipParentCs) {
+        rowRight = chipParentRect.right - (parseFloat(chipParentCs.paddingRight) || 0);
       }
       out['#ask'] = {
         n: askBtnEl ? 1 : 0,
@@ -1431,8 +1451,10 @@ const html = `<!doctype html>
         fs: askBtnEl ? (askBtnEl.textContent || '').trim() : '',
         lh: askChipEl ? (askChipEl.textContent || '').trim() : '',
         pad: askPanelEl ? Math.round(askPanelEl.getBoundingClientRect().height) : 0,
-        gap: (chipRect && contentRight !== null) ? Math.round(chipRect.right - contentRight) : '',
-        radius: rootCs ? (parseFloat(rootCs.paddingRight) || 0) : '',
+        gap: (chipRect && rowRight !== null) ? Math.round(chipRect.right - rowRight) : '',
+        radius: chipParentCs ? (parseFloat(chipParentCs.paddingRight) || 0) : '',
+        where: askRowOf(askBtnEl),
+        chipWhere: askRowOf(askChipEl),
       };
     }
     // **目录层的列几何**（2026-09-21，复核 verify-freeze-dirlist 的变异 M5 打回）：
@@ -2423,6 +2445,17 @@ if (padComboKey !== 'kb|kb-ask') {
   } else if (!String(ask.fs).includes('在此范围内提问')) {
     askProblems.push(`入口按钮的文字是「${String(ask.fs)}」，里面没有「在此范围内提问」`)
   }
+  /* ①b **它在哪一行**（业主 2026-09-22 亲定的位置）：必须是当前文件夹名那一行（`.ks-list-cap`），
+     不许回到工具栏。判据钉住位置 ⇒ "挪回旧工具栏"这种改动**当场红**（变异②）。 */
+  if (ask.where !== 'list-cap') {
+    askProblems.push(`「在此范围内提问」按钮**不在当前文件夹名那一行**（.ks-list-cap），实测在哪一行：`
+      + `${JSON.stringify(ask.where)} —— 业主 2026-09-22 明说"按钮改到搜索栏上面显示文件夹名称的 `
+      + `bar 上，这样就很清楚是在这个文件夹内进行搜索"；挪回工具栏/别处都算违反`)
+  }
+  if (ask.chipN === 1 && ask.chipWhere !== 'list-cap') {
+    askProblems.push(`范围 chip **跟着按钮一起搬家**：它应当在同一行（.ks-list-cap），实测 `
+      + `${JSON.stringify(ask.chipWhere)}`)
+  }
   if (!Number.isFinite(ask.w) || ask.w <= 0) {
     askProblems.push(`「在此范围内提问」按钮在真 Chrome 里高度 = ${JSON.stringify(ask.w)}px`
       + ' —— 存在不等于看得见（display:none / 空盒子都是 0）')
@@ -2441,13 +2474,16 @@ if (padComboKey !== 'kb|kb-ask') {
   if (!Number.isFinite(ask.pad) || ask.pad <= 0) {
     askProblems.push(`提问面板在真 Chrome 里高度 = ${JSON.stringify(ask.pad)}px —— 存在不等于看得见`)
   }
-  /* ② chip 右缘不许越过页面根的内容盒右缘（越过 = 贴边/溢出，窄档最容易发生）。 */
+  /* ② chip 右缘不许越过**它所在那一行**的内容盒右缘（越过 = 被挤出这一行；窄档 + 长目录名最容易）。 */
   if (!Number.isFinite(ask.gap)) {
     askProblems.push(`量不到 chip 的右缘溢出量（gap=${JSON.stringify(ask.gap)}）—— 取不到值就不算验过`)
-  } else if (ask.gap > 0) {
-    askProblems.push(`范围 chip **溢出页面右缘** ${String(ask.gap)}px`
-      + `（页面根右内边距 ${String(ask.radius)}px）—— 窄档里长目录名会把这一行顶破，`
-      + 'chip 里的名字那一格必须能收缩（min-width:0 + 省略号）')
+  } else if (ask.gap > 1) {
+    /* ⚠ 容差 1px（渲染取整）：chip 作为 flex 项**本来就允许收缩到正好铺满那一行**
+       （`gap == 0` 是正常形态）；真出问题是它**缩不下去**（`min-width:0` 被去掉、
+       名字那一格不可收缩）⇒ 顶出这一行 ⇒ gap > 0。 */
+    askProblems.push(`范围 chip **被挤出所在那一行** ${String(ask.gap)}px（该行右内边距 `
+      + `${String(ask.radius)}px；所在行=${JSON.stringify(ask.chipWhere)}）—— 窄档里长目录名会把这一行顶破，`
+      + 'chip 里的名字那一格必须能收缩（min-width:0 + 省略号），这一行还必须能折行')
   }
 }
 const askCheck = {
@@ -2464,6 +2500,8 @@ const askCheck = {
   panelH: ask?.pad ?? null,
   chipOverflowPx: ask?.gap ?? null,
   pagePadRight: ask?.radius ?? null,
+  buttonRow: ask?.where ?? null,
+  chipRow: ask?.chipWhere ?? null,
 }
 /* ══════════ 复核 `verify-freeze-kb-ui3` 打回 §④-C 补回来的两条（2026-09-21）
  * 那两条旧判据在本批重写时**掉了**（主体仍在、判据没了）：

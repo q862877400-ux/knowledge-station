@@ -74,7 +74,7 @@
  */
 
 import { Fragment, useCallback, useEffect, useMemo, useRef, useState, type MouseEvent as ReactMouseEvent, type ReactNode } from 'react'
-import { Button, Checkbox, IconArchiveOutline20, IconChecklistOutline14, IconChevronDownOutline14, IconChevronLeftOutline14, IconChevronRightOutline14, IconCloseOutline16, IconEllipsisOutline16, IconFolderOpenOutline16, IconInfoOutline14, IconListPenOutline16, IconPlusOutline16, IconRefreshOutline16, IconSearchOutline16, IconShieldOutline16, IconTrashOutline16, IconWarningOutline16, Input, Menu } from '@deepseek-ai/dsh-client-ui-primitives'
+import { Button, Checkbox, IconChecklistOutline14, IconChevronDownOutline14, IconChevronLeftOutline14, IconChevronRightOutline14, IconCloseOutline16, IconEllipsisOutline16, IconFolderOpenOutline16, IconInfoOutline14, IconPlusOutline16, IconRefreshOutline16, IconSearchOutline16, IconTrashOutline16, IconWarningOutline16, Input, Menu } from '@deepseek-ai/dsh-client-ui-primitives'
 
 import {
   addKbMembers,
@@ -250,29 +250,19 @@ const DIR_COLUMNS = [
 type DirColKey = (typeof DIR_COLUMNS)[number]['key']
 
 /**
- * 行内**文件图标**：从**已有字段 `standard_no`** 推出来的呈现档（没有新字段、没有编数据）：
- *   `''`      → 法律法规（法律/行政法规本来就没有标准号）→ 盾
- *   `GB` 开头 → 国家标准/行业标准                          → 清单
- *   `KS-` 开头 → 公司制度 / 内部规程                        → 文档+笔
- *   其余      → 资料 / 记录                                 → 归档盒
- * ⚠ 四个字形都是宿主的真实导出（逐个在检出 `ui-primitives/lib/index.js` 里核过）；
- *   它是**装饰性**的扫读锚点，类型文字挂在 `title=` 上。
+ * ⚠⚠ **已删除（业主 2026-09-22）**：原来这里有一对 `docGlyph()` / `docGlyphLabel()`
+ * —— 按 `standard_no` 推断"文件类型字形"（盾 / 清单 / 文档+笔 / 归档盒）贴在**文件行**前面。
+ * 业主看完真机图后说："文件前面那个莫名其妙的图标可以删除"；同一句里**保留**了目录行前面的
+ * 文件夹图标（"文件夹前面一个小文件夹图标做得好"）。
+ *
+ * 留痕（不是悄悄删）：
+ *   · 判据 `smoke-kb-page-render` 的 **E6** 原来判"每一行都有行内文件图标（`.ks-fileico` +
+ *     真 svg + 非空 title）"—— 本轮**就地翻过来**：文件行**不许有** `.ks-fileico`、
+ *     **目录行必须仍有**文件夹图标（原文留在那条断言里）。
+ *   · `docs/KB-FOLDER-PLAN.md` §十六 登记的残余"文件行图标尺寸 14/16/20 三档混用"
+ *     **因本次删除而消失**（该文档已就地标注）。
+ *   · 类名 `.ks-fileico` 保留（现在只由**目录行**使用）—— 换名会牵动一圈判据，收益只是好看。
  */
-function docGlyph(no: string | null): ReactNode {
-  const v = no ?? ''
-  if (v === '') return <IconShieldOutline16 />
-  if (/^GB/i.test(v)) return <IconChecklistOutline14 />
-  if (/^KS-/i.test(v)) return <IconListPenOutline16 />
-  return <IconArchiveOutline20 />
-}
-
-function docGlyphLabel(no: string | null): string {
-  const v = no ?? ''
-  if (v === '') return '法律法规 / 无标准号'
-  if (/^GB/i.test(v)) return '标准'
-  if (/^KS-/i.test(v)) return '公司制度 / 规程'
-  return '资料 / 记录'
-}
 
 /** 详情里的一行字段（日期用同一套排版，免得每个字段各写一遍）。 */
 function Field({ label, value, mono = false }: { readonly label: string; readonly value: string; readonly mono?: boolean }): ReactNode {
@@ -819,6 +809,9 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
   const openAsk = useCallback((keys: readonly string[]): void => {
     const scope = askScopeOf(keys, folderRowsForAsk)
     if (scope === null) return
+    /* ⚠ 换范围 ⇒ **领一个新号**：正在飞的那次问答/数篇数回来时会被判作废
+       （否则"问 A（慢）→ 换成 B → A 后回"会把 A 的答案挂到 B 的范围上，见 `runAsk`）。 */
+    askSeqRef.current += 1
     setAskScope(scope)
     setAskOpen(true)
     setAskRes(null)
@@ -867,10 +860,18 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
   /**
    * 真问一次。⚠ 范围**一定**随请求发出去（`params.kb_folder_ids` / `kb_doc_ids`），
    * 回参里的 `scope` 是引擎的权威回显 —— 答案区照它显示"这次到底在什么范围里检索的"。
+   *
+   * ⚠⚠ **2026-09-21（复核 MEDIUM-2 打回后补）**：`askSeqRef` 以前**只护 chip 的篇数**
+   * （`loadAskCounts`），答题这一路**没有新鲜度检查** —— 而 `openAsk`/`clearAsk` 会把
+   * `askPhase` 重置回 `idle`，于是"问 A（慢）→ 换范围再问 B → B 先回 → A 后回"时，
+   * **A 的答案会盖在 B 的范围上**（chip 写的是 B）。现在给结果与相位**同款序号守卫**：
+   * 发起时领一个号，回来后号变了就**整个丢弃**（连相位都不动，免得把 B 的 'done' 打回 'running'）。
    */
   const runAsk = useCallback(async (): Promise<void> => {
     const text = askQ.trim()
     if (text === '' || askScope === null) return
+    askSeqRef.current += 1
+    const seq = askSeqRef.current
     setAskPhase('running')
     setAskMsg('')
     try {
@@ -878,14 +879,70 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
         kbFolderIds: askScope.folderIds,
         kbDocIds: askScope.docIds,
       }))
+      if (askSeqRef.current !== seq) return   // 期间换了范围/又问了别的 ⇒ 这次作废
       setAskRes(out)
       setAskPhase('done')
     } catch (error) {
+      if (askSeqRef.current !== seq) return
       setAskRes(null)
       setAskPhase('error')
       setAskMsg(errorText(error))
     }
   }, [askQ, askScope, withSession])
+
+  /**
+   * **第 6 步的提问入口**（业主 2026-09-22 定了它的位置）：「在此范围内提问」+ 范围 chip
+   * 放在**当前文件夹名那一行**（`.ks-list-cap`，搜索框**上面**那一行）——
+   * 业主原话："按钮改到搜索栏上面显示文件夹名称的 bar 上，这样就很清楚是在这个文件夹内进行搜索"。
+   *
+   * ⚠ 目录层与「待分类」层**共用这一个片段**（不许各写一套，否则"位置"就有了两个所有者）。
+   * ⚠ 范围 chip **没打开提问面板时也必须看得见**（按钮搬出工具栏之后尤其重要：不然用户不知道
+   *   自己正被限定在一个范围里）—— 这一行挤不下就**折行**（`.ks-list-cap{flex-wrap:wrap}`），
+   *   不许把 chip 挤没、也不许让它溢出右缘（真浏览器侧由 `askCheck` 量）。
+   * ⚠ 禁用 + 原因（最外层 / 「待分类」没勾选）的行为**一字不变**：**不给**"悄悄变成全库提问"的路。
+   */
+  const askEntry = (
+    <>
+      <Button
+        variant="outline"
+        size="sm"
+        className="ks-ask-open"
+        aria-expanded={askOpen}
+        disabled={askHereScope === null}
+        title={askHereScope !== null
+          ? `在${askHereScope.label}里提问（只在这个范围里检索；多选=并集）`
+          : askHereWhy}
+        onClick={() => { void openAsk(askHereKeys) }}
+      >
+        <IconSearchOutline16 />
+        在此范围内提问
+      </Button>
+      {/* 范围 chip（业主："发起前/发起后都要能看出当前范围是什么"）：目录名 + 篇数 + 可清掉。
+          ⚠ 篇数**只认引擎的数**：读中就说"正在数…"，读不到就把**原话**显示出来（含 404）。 */}
+      {askScope === null ? null : (
+        <span className="ks-ask-chip" data-ks-ask-chip="on" title={askWhereText(askScope)}>
+          <span className="ks-ask-chip-tag">范围</span>
+          <span className="ks-ask-chip-name">{askScope.label}</span>
+          <span className="ks-ask-chip-n">
+            {askCountErr !== ''
+              ? `数不出来：${askCountErr}`
+              : (askCounts === null
+                ? '正在数…'
+                : `${String(askCounts.folder_count)} 个目录 · ${String(askCounts.doc_count)} 篇`)}
+          </span>
+          <button
+            type="button"
+            className="ks-ask-chip-x"
+            aria-label="清掉范围"
+            title="清掉范围（连提问面板一起收起；清掉之后这一页不会做「不限定范围」的提问）"
+            onClick={clearAsk}
+          >
+            <IconCloseOutline16 />
+          </button>
+        </span>
+      )}
+    </>
+  )
 
   /** 勾/取消一条（批量选择）。`key` 是 `f:`/`d:` key（见 `pickFileKey`）。 */
   const togglePick = useCallback((key: string, next: boolean): void => {
@@ -1794,9 +1851,9 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
         case 'iname':
           return (
             <>
-              <span className="ks-fileico" title={docGlyphLabel(doc.standard_no)}>
-                {docGlyph(doc.standard_no)}
-              </span>
+              {/* ⚠⚠ **业主 2026-09-22**："文件前面那个莫名其妙的图标可以删除" ⇒
+                  文件行**不再有**行内图标（目录行的文件夹图标保留，业主说那个做得好）。
+                  判据 `E6` 已**翻过来**（文件行不许有 `.ks-fileico`、目录行必须有）。 */}
               <span className="ks-item-name" title={doc.standard_name ?? doc.doc_id}>
                 {doc.standard_name ?? doc.doc_id}
               </span>
@@ -2304,6 +2361,8 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
     <>
       <div className="ks-list-cap">
         <span className="ks-lhead-name ks-kb-grow" title="知识库 / 待分类">待分类</span>
+        {/* 业主 2026-09-22：提问入口就在**这一行**（文件名那一条 bar 上） */}
+        {askEntry}
         <span className="ks-kb-hint">
           {inboxTotal} 篇还没归位
           {needle === '' ? '' : `（本页筛出 ${inboxShown.length} 篇）`}
@@ -2512,48 +2571,11 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
             </span>
           </span>
           <div className="ks-kb-grow" />
-          {/* 第 6 步：**在此范围内提问**（业主口径：目录树是提问范围的唯一载体）。
-              · 有勾选 ⇒ 勾选的那些（多选目录 = **并集**）；
-              · 没勾选但在某个目录里 ⇒ 当前这一级（它 + 全部下级）；
-              · 最外层 /「待分类」没勾选 ⇒ **禁用**并把原因写在 title= 里（绝不悄悄变成全库提问）。 */}
-          <Button
-            variant="outline"
-            size="sm"
-            className="ks-ask-open"
-            aria-expanded={askOpen}
-            disabled={askHereScope === null}
-            title={askHereScope !== null
-              ? `在${askHereScope.label}里提问（只在这个范围里检索；多选=并集）`
-              : askHereWhy}
-            onClick={() => { void openAsk(askHereKeys) }}
-          >
-            <IconSearchOutline16 />
-            在此范围内提问
-          </Button>
-          {/* 范围 chip（业主："发起前/发起后都要能看出当前范围是什么"）：目录名 + 篇数 + 可清掉。
-              ⚠ 篇数**只认引擎的数**：读中就说"正在数…"，读不到就把**原话**显示出来（含 404）。 */}
-          {askScope === null ? null : (
-            <span className="ks-ask-chip" data-ks-ask-chip="on" title={askWhereText(askScope)}>
-              <span className="ks-ask-chip-tag">范围</span>
-              <span className="ks-ask-chip-name">{askScope.label}</span>
-              <span className="ks-ask-chip-n">
-                {askCountErr !== ''
-                  ? `数不出来：${askCountErr}`
-                  : (askCounts === null
-                    ? '正在数…'
-                    : `${String(askCounts.folder_count)} 个目录 · ${String(askCounts.doc_count)} 篇`)}
-              </span>
-              <button
-                type="button"
-                className="ks-ask-chip-x"
-                aria-label="清掉范围"
-                title="清掉范围（连提问面板一起收起；清掉之后这一页不会做「不限定范围」的提问）"
-                onClick={clearAsk}
-              >
-                <IconCloseOutline16 />
-              </button>
-            </span>
-          )}
+          {/* ⚠ **业主 2026-09-22 定的位置**：「在此范围内提问」+ 范围 chip **不在这一行**了 ——
+              它们搬到了**当前文件夹名那一行**（`.ks-list-cap`，搜索框上面，见下面的 `askEntry`）。
+              业主原话："按钮改到搜索栏上面显示文件夹名称的 bar 上，这样就很清楚是在这个文件夹内进行搜索"。
+              ⚠ 判据也跟着搬：`ui-render-shot` 的 `#ask` 量点会**报出这个按钮在哪一行**，
+                不是那一行就红（不许"挪回去也能过"）。 */}
           {/* 第 5 步：**建目录**的入口（建在**当前这一级**下面；最外层就是顶层目录）。
               「待分类」层不建目录（它不是库里的目录；那里是处置文件的地方）。 */}
           {layer === 'folder' ? (
@@ -2851,6 +2873,9 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
               <span className="ks-lhead-name ks-kb-grow" title={['知识库', ...crumb.map((f) => f.name)].join(' / ')}>
                 {levelName}
               </span>
+              {/* 业主 2026-09-22：提问入口搬到**当前文件夹名这一行**（搜索框上面那条 bar）——
+                  这样一眼就知道"是在这个文件夹里搜"。 */}
+              {askEntry}
               <span className="ks-kb-hint">
                 {subs.length} 个子目录 · {filesTotal} 篇文件
                 {needle === '' ? '' : `（本页筛出 ${dirsShown.length} 个目录 / ${filesShown.length} 篇）`}
@@ -3067,9 +3092,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                       case 'name':
                         return (
                           <>
-                            <span className="ks-fileico" title={docGlyphLabel(doc.standard_no)}>
-                              {docGlyph(doc.standard_no)}
-                            </span>
+                            {/* ⚠⚠ **业主 2026-09-22**：文件行前面那个图标**删掉**（目录行的文件夹图标保留）。 */}
                             <span className="ks-item-name" title={doc.standard_name ?? doc.doc_id}>
                               {doc.standard_name ?? doc.doc_id}
                             </span>

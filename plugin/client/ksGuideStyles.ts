@@ -627,7 +627,15 @@ export const KS_STYLES = `
 .ks-ask-evtitle{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary)}
 .ks-ask-evtext,.ks-ask-note{min-width:0;overflow-wrap:anywhere;
   font-size:var(--ks-fs-sm);line-height:1.5;color:var(--dsw-alias-label-tertiary)}
-.ks-list-cap{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}.ks-lhead .ks-cell{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}
+/* ⚠⚠ **业主 2026-09-22**：「在此范围内提问」+ 范围 chip 搬进**这一行**（当前文件夹名那一条 bar，
+   搜索框上面）—— 原话："按钮改到搜索栏上面显示文件夹名称的 bar 上，这样就很清楚是在这个文件夹内
+   进行搜索"。这一行因此多两个成员 ⇒ **允许折行**（窄档不许把 chip 挤没、也不许压成竖排 ——
+   第 6 步在工具栏上就踩过一次"按钮被压成竖排 + 与面包屑叠字"，见 .ks-kb-row 那段留痕），
+   ⚠ 本段在模板字符串里，**不许出现反引号**（本仓已踩 20 次）。
+   按钮里的字**不许断行**。 */
+.ks-list-cap{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0;flex-wrap:wrap}
+.ks-list-cap>button{white-space:nowrap}
+.ks-lhead .ks-cell{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}
 .ks-lhead-name{font-size:var(--ks-fs-base);font-weight:600;color:var(--dsw-alias-label-primary);
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ks-lhead-col{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

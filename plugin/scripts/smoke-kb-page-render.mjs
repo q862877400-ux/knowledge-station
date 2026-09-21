@@ -39,8 +39,10 @@
  *       ⑤ 搜索框 placeholder 口径 → **F1b**；
  *       ⑥ 每行行内**可见控件 ≤ 3**（P1-1 口径）→ `ui-render-shot.mjs` 的 `rowCtrlsCheck`（真浏览器，
  *          原来只在真 Chrome 里**量** `ctrls` 却 Node 侧零断言 ⇒ 量了不判）；
- *       ⑦ 每行有行内文件图标（`.ks-fileico` 里真 svg + 非空 title）→ **E6**
- *          （⚠ 图标**尺寸** 14/16/20 三档混用是**本批之前就有**的形态，见方案文档 §十六的登记，不在本条判）；
+ *       ⑦ ~~每行有行内文件图标（`.ks-fileico` 里真 svg + 非空 title）~~ → **E6 已于 2026-09-22 就地翻面**：
+ *          **文件行不许有**那个图标（业主："文件前面那个莫名其妙的图标可以删除"），
+ *          **目录行必须有**文件夹图标（业主："文件夹前面一个小文件夹图标做得好"）→ **B10**
+ *          （⚠ 图标**尺寸** 14/16/20 三档混用那条残余**随本次删除消失**，见方案文档 §十六的标注）；
  *       ⑧ 列头行与数据行是同一个容器的直接子元素 → **B9** / **E8**；
  *       ⑨ 每行菜单点开再点一次都收起 → **I6**；
  *       ⑩ 每行都有 ⋮ 触发器（一行一个）→ **E7**；
@@ -887,6 +889,16 @@ export function mount(container, props) {
     && q('.ks-list-dirs .ks-lhead')[0].parentElement === dirRows()[0].parentElement,
     `表头父级=${String(q('.ks-list-dirs .ks-lhead')[0]?.parentElement?.className)} / `
       + `行父级=${String(dirRows()[0]?.parentElement?.className)}`)
+  /* ⚠ **2026-09-22（业主界面要求）新增**：文件行的图标删掉之后，**目录行的文件夹图标必须还在**
+     —— 业主原话「文件夹前面一个小文件夹图标做得好」（删的是**文件**前面那个）。
+     两个方向都要判：只判"文件行没有"会把"顺手把目录行的也删了"放过去。 */
+  check('B10 目录行前面的**文件夹图标还在**（业主说它做得好；删除只针对文件行那个）',
+    dirRows().length === 4 && dirRows().every((r) => {
+      const ico = r.querySelector('.ks-dir-open .ks-fileico')
+      return ico !== null && ico.querySelector('svg') !== null
+        && (ico.getAttribute('title') ?? '').trim() === '目录'
+    }),
+    `目录行图标：${dirRows().map((r) => (r.querySelector('.ks-dir-open .ks-fileico')?.getAttribute('title') ?? '(没有)')).join('/')}`)
 
   /* ══════════ C. 卡片带与"只改内存"的假动作**真的没了** ══════════
      ⚠⚠ **2026-09-21（第 4 步）就地改判据（原文保留在下面，别删）**：
@@ -984,13 +996,15 @@ export function mount(container, props) {
   check('E5 文件层列头文案就是「文件名 / 效力 / 生效日期 / 处理状态」（勾选列与行尾操作列无列头）',
     fileHeadTexts().join('|') === '|文件名|效力|生效日期|处理状态|',
     `列头=${JSON.stringify(fileHeadTexts())}`)
-  check('E6 每一行都有**行内文件图标**（`.ks-fileico` 里真 svg + 非空 title），4 行 4 个',
-    fileRows().length === 4 && fileRows().every((r) => {
-      const ico = r.querySelector('.ks-fileico')
-      return ico !== null && ico.querySelector('svg') !== null
-        && (ico.getAttribute('title') ?? '').trim() !== ''
-    }),
-    fileRows().map((r) => (r.querySelector('.ks-fileico')?.getAttribute('title') ?? '(没有)')).join(' / '))
+  /* ⚠⚠ **2026-09-22（业主界面要求）：这条判据就地翻过来（原文留在下面，别删）**
+     原文：`check('E6 每一行都有**行内文件图标**（.ks-fileico 里真 svg + 非空 title），4 行 4 个', …)`
+     —— 它当时判的是"**每一行**都有那个图标"。业主看完真机图说：
+     「文件夹前面一个小文件夹图标做得好，但是**文件前面那个莫名其妙的图标可以删除**」
+     ⇒ 本条现在判**文件行不许有** `.ks-fileico`（把图标加回去 ⇒ 当场红，变异①）。
+     目录行那一半（**文件夹图标仍在**）判在**目录层**那一跑（B10，这一级没有下级目录 ⇒ 这里没有对象）。 */
+  check('E6 文件行**不再有**行内图标（业主 2026-09-22：文件前面那个图标删掉）',
+    fileRows().length === 4 && fileRows().every((r) => r.querySelector('.ks-fileico') === null),
+    `文件行里的 .ks-fileico：${fileRows().map((r) => (r.querySelector('.ks-fileico') === null ? '(无)' : '有')).join('/')}`)
   check('E7 每一行都有**行尾 ⋮ 触发器**（一行一个 = 4 个，不是只有某一行有）',
     fileRows().length === 4 && q('.ks-item-more button').length === 4,
     `⋮ 按钮 ${String(q('.ks-item-more button').length)} 个 / 文件行 ${String(fileRows().length)} 行`)
@@ -1753,6 +1767,29 @@ export function mount(container, props) {
   check('R5 面板抬头写的是「在「标准」及其全部下级里提问」（发起前就知道范围）',
     (aq('.ks-ask-where')[0]?.textContent ?? '').includes('及其全部下级里提问'),
     `抬头：${(aq('.ks-ask-where')[0]?.textContent ?? '(没有)').trim()}`)
+
+  /* ⚠⚠ **2026-09-22（业主界面要求）：提问入口**在哪一行**是判据的一部分。**
+     业主原话："按钮改到搜索栏上面显示文件夹名称的 bar 上，这样就很清楚是在这个文件夹内进行搜索"
+     ⇒ 它必须是**当前文件夹名那一行**（`.ks-list-cap`）的孩子，且**不许**再待在工具栏
+       （`.ks-kb-row`）里。判据钉住"在哪一行"，所以"挪回旧的工具栏"这种改动**当场红**（变异②）。
+     ⚠ 位置用 `closest()` 从**元素**上取，不靠"DOM 第几个"—— 顺序变了不该假红。 */
+  const askBtnEl = aAskBtn()
+  const inCap = askBtnEl !== undefined && askBtnEl.closest('.ks-list-cap') !== null
+  const inToolbar = askBtnEl !== undefined && askBtnEl.closest('.ks-kb-row') !== null
+  check('R5b 「在此范围内提问」在**当前文件夹名那一行**（.ks-list-cap，搜索框上面），'
+    + '**不在**工具栏（.ks-kb-row）里 —— 业主 2026-09-22 亲定的位置',
+    inCap && !inToolbar,
+    `在 .ks-list-cap=${String(inCap)} / 在 .ks-kb-row=${String(inToolbar)}`)
+  /* ⚠ 同一个位置要求也管 chip（业主："这一行挤不下就让它折行，别把 chip 挤没"）：
+     收起提问面板之后 chip 必须**仍然看得见**（否则用户不知道自己在限定范围里）。 */
+  await click(aq('.ks-ask-close')[0]); await flush(); await flush()
+  check('R5c 收起提问面板之后，范围 chip **仍然在**（而且还在同一行里）—— '
+    + '"发起前/发起后都看得见当前范围"这条在按钮搬家之后仍成立',
+    aChip() !== undefined && aq('.ks-ask').length === 0
+    && aChip().closest('.ks-list-cap') !== null,
+    `chip ${String(aChip() !== undefined)} 个 / 面板 ${String(aq('.ks-ask').length)} 个 / `
+      + `chip 在 .ks-list-cap=${String(aChip()?.closest('.ks-list-cap') !== null)}`)
+  await openAskAndSettle(aAskBtn())   // 重新打开面板，后面的用例还要用
 
   // R6/R7：问一次 —— 范围必须随请求发出去；答案区回显引擎给的实际范围
   const beforeAnswer = callsOf('/api/v1/ks/answer').length
