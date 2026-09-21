@@ -1777,7 +1777,7 @@ if (ksp === undefined) {
      （container-type），面板一打开就有 2 个 —— 那会把整条 ksPad 检查 skip 掉（于是"面板看不看得见"
      根本没人判）。判据强度没降：页面根没被包住、或第一个 `.ks-page` 不是它的父级 ⇒ 仍然红。 */
   ksPadSkipReason = `.ks-page 容器实测 ${String(ksp.pageN)} 个、这一跑的页面根被第一个它包住=`
-    + `${String(ksp.pageWrapped === 1)} —— 页面根没被包住（或 `.ks-page` 不是它的父级），这一跑不判`
+    + `${String(ksp.pageWrapped === 1)} —— 页面根没被包住（或 .ks-page 不是它的父级），这一跑不判`
 } else if ((ksp.items ?? []).length === 0) {
   ksPadSkipReason = '这一跑一个"不得贴边"的元素都没量到 —— 量不到不算验过'
 } else {
