@@ -7,8 +7,17 @@
 #
 # 用法：
 #   pwsh -File scripts/run-gates.ps1 -Quick      # 改动面：tsc / mypy / verify:commands / smoke
-#   pwsh -File scripts/run-gates.ps1 -Full       # 全量：再加 pytest / 引擎门禁
+#   pwsh -File scripts/run-gates.ps1 -Full       # 全量：再加 pytest / 引擎门禁 / 真宿主 e2e
 #   pwsh -File scripts/run-gates.ps1 -Quick -UpdateBaseline   # 绿了之后把新基线写回
+#
+# ⚠ **环境前提（-Full 从此需要 DSH 检出）**：`-Full` 的最后两步是**真 DSH** 的门禁
+#   （`plugin/scripts/verify-tools-real.mjs` 用检出里真 `@deepseek-ai/dsh-tools` 的
+#   `ToolRuntime`；`plugin/scripts/e2e-install-compose.mjs` 用真 CLI 起一次真宿主 + 临时
+#   `$DSH_HOME`）。检出路径 = `$env:KS_DSH_CHECKOUT`，缺省 `D:\AI\DSH\deepseek-harness`；
+#   **找不到就是红、不是跳过**（与 :154-168 "命令不存在"那条同一立论）。这条前提与
+#   "`-Full`/冒烟需要本机有 Edge"同级 —— 复核在提取树里跑 -Full 前先确认检出在。
+#   两步都是**临时目录**作业（`$DSH_HOME` 只设给子进程），代码树零运行产物；e2e 会从子环境里
+#   剥掉所有 `*_API_KEY`（只留 KS_FAKE_KEY=fake）并把模型路由指向 127.0.0.1 的假网关。
 #
 # 三条纪律（都在 AGENTS.md 里，这里实现它们）：
 #   1. **一次只跑一个**：并发跑会制造假红（`smoke-chatmode` 实测两次 172/173 都发生在与全量
@@ -139,6 +148,11 @@ Add-Step 'smoke（全链）'           'npm' @('run', 'smoke') $plugin
 if ($Full) {
   Add-Step 'pytest（引擎用例）'     $py  @('-m', 'pytest', '-q', '-rs', "--junitxml=$junitPath") $repo
   Add-Step '引擎门禁（uvicorn）'     $py  @('scripts/verify-engine-uvicorn.py') $repo
+  # 真 DSH 的两条（放最后：最慢、最可能因环境红）。都需要检出 —— 见文件头的"环境前提"。
+  # ⚠ 走 `node`（不是 npm script）：这两条**只**属于 -Full，不进 plugin/scripts/smoke-all.mjs
+  #   （冒烟链要保持零外部依赖）。
+  Add-Step 'verify-tools-real（真 ToolRuntime）' 'node' @('plugin/scripts/verify-tools-real.mjs') $repo
+  Add-Step '真宿主 e2e（临时 profile）' 'node' @('plugin/scripts/e2e-install-compose.mjs') $repo
 }
 }
 
