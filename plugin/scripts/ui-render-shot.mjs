@@ -1416,11 +1416,23 @@ const html = `<!doctype html>
                         padT: Math.round(ppt), padB: Math.round(ppb), h: Math.round(pR.height), n: 1 });
       }
       var pageBox = document.querySelector('.ks-page');
+      /* ⚠⚠ 2026-09-21 第 5 步复核 R3：原来只报 .ks-page 的**个数**，Node 侧要求"恰好 1 个" ——
+         而「逐篇看」复活的 KsIngestPanel **自带一层 .ks-page**（它只做 container-type，见其文件头）
+         ⇒ 面板一打开页面里就有 2 个 .ks-page ⇒ 整条 ksPad 检查 **skip**（本批实测：CSS 变异
+         display:none 时 ksPad 报"这一跑不判"、exit 0 ⇒ R3 的真浏览器那一半**根本验不到**）。
+         ⇒ 改成报两件事：① 个数（信息用）；② **这一跑的页面根（.ks-kb/.ks-ing/.ks-mat）是不是被
+         **第一个** .ks-page 直接包着**（pageWrapped）—— 那才是这条守卫真正要守的不变式
+         （"页面根没被包住"），嵌套的面板外壳不该把它一票否决。判据强度没降：页面根没被包住、
+         或第一个 .ks-page 不是它的父级 ⇒ 仍然 skip + 红。
+         ⚠ 本段在**注入脚本**里（外层是模板字符串）：注释里绝对不能出现反引号 —— 第 19 次了。 */
+      var rootSel = document.querySelector('.ks-kb, .ks-ing, .ks-mat');
+      var rootWrapped = !!(pageBox && rootSel && rootSel.parentElement === pageBox);
       out['#kspad'] = { n: padItems.length, x: Math.round(cLeft), y: Math.round(cRight),
                         w: Math.round(shR.width), h: Math.round(shR.height), fs: '', lh: '',
                         pad: String(Math.round(shPl)) + '/' + String(Math.round(shPr)), gap: '',
                         radius: '', pageW: pageBox ? Math.round(pageBox.getBoundingClientRect().width) : 0,
-                        pageN: document.querySelectorAll('.ks-page').length, items: padItems };
+                        pageN: document.querySelectorAll('.ks-page').length,
+                        pageWrapped: rootWrapped ? 1 : 0, items: padItems };
     }
     document.title = 'h=' + document.documentElement.scrollHeight + '|m=' + JSON.stringify(out);
   } catch (e) {
@@ -1759,8 +1771,13 @@ const ksPadProblems = ksPadTokenProblems.slice()
 let ksPadSkipReason = null
 if (ksp === undefined) {
   ksPadSkipReason = `这一跑没量到 #kspad（page=${page}）—— 量不到不算验过`
-} else if (ksp.pageN !== 1) {
-  ksPadSkipReason = `.ks-page 容器实测 ${String(ksp.pageN)} 个（期望恰好 1 个）—— 页面根没被包住，这一跑不判`
+} else if (ksp.pageWrapped !== 1) {
+  /* ⚠ 原来的写法是 `ksp.pageN !== 1`（"恰好 1 个 .ks-page"）。第 5 步复核 R3 之后改成
+     "**页面根必须被第一个 `.ks-page` 直接包着**"：复活的入库预览面板自带一层 `.ks-page`
+     （container-type），面板一打开就有 2 个 —— 那会把整条 ksPad 检查 skip 掉（于是"面板看不看得见"
+     根本没人判）。判据强度没降：页面根没被包住、或第一个 `.ks-page` 不是它的父级 ⇒ 仍然红。 */
+  ksPadSkipReason = `.ks-page 容器实测 ${String(ksp.pageN)} 个、这一跑的页面根被第一个它包住=`
+    + `${String(ksp.pageWrapped === 1)} —— 页面根没被包住（或 `.ks-page` 不是它的父级），这一跑不判`
 } else if ((ksp.items ?? []).length === 0) {
   ksPadSkipReason = '这一跑一个"不得贴边"的元素都没量到 —— 量不到不算验过'
 } else {
