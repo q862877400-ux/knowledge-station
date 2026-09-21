@@ -175,7 +175,7 @@ Add-Step 'mypy（引擎类型）'        $py  @('-m', 'mypy') $repo
 Add-Step 'verify:commands'        'npm' @('run', 'verify:commands') $plugin
 Add-Step 'smoke（全链）'           'npm' @('run', 'smoke') $plugin
 if ($Full) {
-  Add-Step 'pytest（引擎用例）'     $py  @('-m', 'pytest', '-q', '-rs', "--junitxml=$junitPath") $repo
+  Add-Step 'pytest（引擎用例）'     $py  @('-m', 'pytest', '-q', '-rs', '--durations=10', "--junitxml=$junitPath") $repo
   Add-Step '引擎门禁（uvicorn）'     $py  @('scripts/verify-engine-uvicorn.py') $repo
   # 真 DSH 的两条（放最后：最慢、最可能因环境红）。都需要检出 —— 见文件头的"环境前提"。
   # ⚠ 走 `node`（不是 npm script）：这两条**只**属于 -Full，不进 plugin/scripts/smoke-all.mjs
@@ -219,10 +219,23 @@ try {
       Push-Location $s.workdir
       try {
         $global:LASTEXITCODE = $null
+        $stepSw = [Diagnostics.Stopwatch]::StartNew()
         $out = & $exePath @($s.argv) 2>&1
+        $stepSw.Stop()
         $code = $LASTEXITCODE
       } finally { Pop-Location }
       if ($null -eq $code) { $code = 126 }   # 没设退出码 ⇒ 也判失败
+      # ⚠ **耗时异常必须当场喊出来**（2026-09-21 实测踩到）：那次 `pytest` 跑了 **4871 秒**，
+      #   其中 **4762 秒**全在 `tests/test_golden_gate.py::test_golden_gate_baseline_present`
+      #   （同一个文件**单跑只要 8.1 秒** ⇒ 顺序/状态依赖的性能病，机制未查明）。
+      #   当时**没有任何提示**：只看到门禁"跑了很久"。⇒ 任何一步超过阈值就打印告警，
+      #   并提醒去看 `--durations`（pytest 那步已带上 `--durations=10`）。
+      $stepSeconds = [math]::Round($stepSw.Elapsed.TotalSeconds, 1)
+      $slowBudget = if ($s.name -like 'pytest*') { 600 } else { 240 }
+      if ($stepSeconds -gt $slowBudget) {
+        Write-Host ("   ⚠ 这一步耗时 {0}s（超过本步预算 {1}s）⇒ 性能异常，不是「正常的慢」；" -f $stepSeconds, $slowBudget) -ForegroundColor Yellow
+        Write-Host "     查该步完整输出里的 --durations 段（pytest 那步带 --durations=10），并留意环境（模型缓存/代理）。" -ForegroundColor Yellow
+      }
     }
     $text = ($out | Out-String)
 
