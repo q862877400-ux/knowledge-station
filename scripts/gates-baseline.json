@@ -1,4 +1,13 @@
 {
+  "pytest_passed": 2250,
+  "runLive": false,
+  "updatedAt": "2026-09-21T22:45:28",
+  "pytest_total": 2253,
+  "skip_nodeids": [
+    "tests.test_golden_set::test_qa_retrieval_hits_golden",
+    "tests.test_reranker::test_rerank_real_model_reorders",
+    "tests.test_update_channels::test_live_openstd_homepage_default_transport_200"
+  ],
   "environmental_skip_nodeids": [
     "tests.test_golden_set::test_qa_retrieval_hits_golden",
     "tests.test_pipeline::test_real_middle_json_integration",
@@ -6,14 +15,5 @@
     "tests.test_retrieval::test_vec_channel",
     "tests.test_update_channels::test_live_openstd_homepage_default_transport_200"
   ],
-  "runLive": false,
-  "updatedAt": "2026-09-21T22:17:12",
-  "pytest_total": 2249,
-  "pytest_passed": 2246,
-  "pytest_skipped": 3,
-  "skip_nodeids": [
-    "tests.test_golden_set::test_qa_retrieval_hits_golden",
-    "tests.test_reranker::test_rerank_real_model_reorders",
-    "tests.test_update_channels::test_live_openstd_homepage_default_transport_200"
-  ]
+  "pytest_skipped": 3
 }
