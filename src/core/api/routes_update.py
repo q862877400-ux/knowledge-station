@@ -488,7 +488,13 @@ def register(app, json_error):
 
     @app.get("/api/v1/ingest/bulk/{batch_id}")
     def bulk_ingest_status(batch_id: str):
-        """批量导入进度：快扫 checked/total + 解析队列统计 + 隔离/重复错误数。"""
+        """批量导入进度：快扫 checked/total + 解析队列统计 + 隔离/重复错误数。
+
+        ⚠ `filing_state_missing`（2026-09-21 第 5 步挂账 ③a）：这一批里**状态行没写进库**
+        的文件数（附前 5 个文件名）—— 它们照样会出现在「待分类」里（那里按"没有状态行 =
+        排队中"算），但**界面上必须能看出"这批里有文件的状态没写进去"**，所以随终态一起报。
+        `reingest` 也一并报出来（界面据此说明这一批是不是"覆盖重导"）。
+        """
         from src.core.ingestion import bulk as bulk_ingest
         b = bulk_ingest.load_batch(batch_id)
         if b is None:
@@ -497,6 +503,7 @@ def register(app, json_error):
         queue = ckpt.get("queue", [])
         errors = ckpt.get("errors", [])
         parsed = sum(1 for q in queue if q.get("status") == "parsed")
+        missing = [str(p) for p in (ckpt.get("filing_state_missing") or [])]
         return {"code": 200, "status": "success",
                 "data": {
                     "batch_id": batch_id, "status": b.get("status"),
@@ -506,6 +513,9 @@ def register(app, json_error):
                     "pending": sum(1 for q in queue if q.get("status") != "parsed"),
                     "errors": len(errors),
                     "pause_reason": ckpt.get("pause_reason"),
+                    "filing_state_missing": len(missing),
+                    "filing_state_missing_sample": [Path(p).name for p in missing[:5]],
+                    "reingest": bool(ckpt.get("reingest")),
                 }}
 
     @app.post("/api/v1/ingest/bulk/{batch_id}/resume")

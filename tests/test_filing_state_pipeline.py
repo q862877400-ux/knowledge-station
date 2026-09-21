@@ -39,6 +39,7 @@ import pytest
 from _kb_folder_api_fixtures import std_tree, tops  # noqa: F401
 
 from src.core.ingestion import bulk
+from src.core.ingestion import parser_worker
 from src.core.ingestion import pipeline as pipeline_mod
 from src.core.knowledge import folder_store as fs
 
@@ -90,6 +91,11 @@ REAL_BLOCKS = [
 ]
 #: 一页"一个字都没提出来"的正文（盗版站水印那种；§十七 实测那 2 篇就是这样）。
 WATERMARK_BLOCKS = ["学兔兔 www.bzfxw.com", "学兔兔 www.bzfxw.com"]
+#: 解析器**一个 block 都没返回**（无文本层的空页）。
+#: ⚠ 与 `WATERMARK_BLOCKS` 不是一回事（本批实测）：水印页会切出**一条水印条款**
+#: （`n_normal == 0` ⇒ 入库状态 `failed`），但 `models` 非空 ⇒ 识别率**算得出**一个数
+#: （实测 0.85，取自水印那行字自己）。真正"算不出来"（两侧都是空集合）只有这一种。
+EMPTY_BLOCKS: list[str] = []
 
 
 def _write_pdf(path: Path, first_line: str = "GB/T 39999-2020") -> Path:
@@ -104,7 +110,13 @@ def _write_pdf(path: Path, first_line: str = "GB/T 39999-2020") -> Path:
 
 @pytest.fixture()
 def synthetic_parser(monkeypatch):
-    """把 `run_parser_isolated` 换成**给定 blocks 的合成结果**（真链路，只有解析这一步是假的）。"""
+    """把 `run_parser_isolated` 换成**给定 blocks 的合成结果**（真链路，只有解析这一步是假的）。
+
+    ⚠ 替身要打在**两处**（`tests/test_dry_run_concurrency.py` 记过同一个坑）：
+    `pipeline` 在模块顶层 `from ... import run_parser_isolated`（绑在**自己的模块属性**上），
+    而 `dry_run` 是在**函数体内** `from src.core.ingestion.parser_worker import ...`
+    ⇒ 只打 `pipeline_mod` 时预览那条路会去跑**真解析器**（几分钟起，本批实测会把用例拖死）。
+    """
     def _install(blocks: list[str]) -> None:
         def _fake(pdf_path, output_dir, timeout=900, force_deep=False, deep_fallback=True):
             return {
@@ -115,6 +127,7 @@ def synthetic_parser(monkeypatch):
                 "is_ocr": False,
             }
         monkeypatch.setattr(pipeline_mod, "run_parser_isolated", _fake)
+        monkeypatch.setattr(parser_worker, "run_parser_isolated", _fake)
     return _install
 
 
@@ -377,6 +390,142 @@ def test_bulk_import_batch_flag_is_declared_and_default_false(db, tmp_path):
     b2 = bulk.create_bulk_batch(str(src), reingest=True)
     assert b2["checkpoint"]["reingest"] is True
     bulk.abort_batch(b2["batch_id"])
+
+
+# ═════════════════════ 4b. 挂账 ③a：状态没写进去要进**批次终态** ═════════════════════
+
+def test_bulk_terminal_state_carries_files_whose_state_was_not_written(
+        db, tmp_path, synthetic_parser, monkeypatch, client):
+    """把"写状态"这个出口打断 ⇒ **批次终态**里要带出"哪几篇的状态没写进去"。
+
+    ⚠ 这条钉的是父代理 2026-09-21 登记的挂账：原来只往 `checkpoint.errors` 里塞一条
+    （那是排障杂项）⇒ 批次 `done`/`failed` 与 `GET /ingest/bulk/{id}` 都**看不出来**，
+    界面没法如实说"这批里有文件的状态没写进去"。
+    判据 = ① checkpoint 里那份清单真的有这一个文件；② 接口把它报成数字 + 文件名样本。
+    """
+    from _kb_folder_api_fixtures import api, data_of
+    synthetic_parser(REAL_BLOCKS)
+    # 打断"写状态"的唯一出口（同本文件里那条反向哨兵的手法）：入库照旧成功，状态写不进去。
+    monkeypatch.setattr(pipeline_mod, "_write_filing_state", lambda *a, **kw: False)
+    src = tmp_path / "src_missing"
+    src.mkdir()
+    _write_pdf(src / "missing.pdf", "GB/T 90201-2020")
+    batch = bulk.create_bulk_batch(str(src), batch_size=10)
+    bulk.fast_scan(batch["batch_id"], batch_size=10)
+    out = bulk.resume_batch(batch["batch_id"], daily_budget=5)
+    assert out["status"] == "done", out
+    assert out["checkpoint"]["parsed"] == 1
+    missing = out["checkpoint"].get("filing_state_missing")
+    assert isinstance(missing, list) and len(missing) == 1, missing
+    assert missing[0].endswith("missing.pdf"), missing
+
+    # 接口侧：批次终态里看得见（数字 + 前 5 个文件名）
+    c, token = client
+    st = data_of(api(c, token, "get", f"/api/v1/ingest/bulk/{batch['batch_id']}"))
+    assert st["status"] == "done" and st["filing_state_missing"] == 1, st
+    assert st["filing_state_missing_sample"] == ["missing.pdf"], st
+
+
+def test_bulk_terminal_state_is_empty_when_states_were_written(
+        db, tmp_path, synthetic_parser, client):
+    """**反向**：状态正常写进去时，那一份清单必须是**空的**、接口报 0（不许恒报"有文件没写"）。"""
+    from _kb_folder_api_fixtures import api, data_of
+    synthetic_parser(REAL_BLOCKS)
+    src = tmp_path / "src_ok"
+    src.mkdir()
+    _write_pdf(src / "ok.pdf", "GB/T 90202-2020")
+    batch = bulk.create_bulk_batch(str(src), batch_size=10)
+    bulk.fast_scan(batch["batch_id"], batch_size=10)
+    out = bulk.resume_batch(batch["batch_id"], daily_budget=5)
+    assert out["status"] == "done" and out["checkpoint"]["parsed"] == 1, out
+    assert out["checkpoint"].get("filing_state_missing") == [], out["checkpoint"]
+    c, token = client
+    st = data_of(api(c, token, "get", f"/api/v1/ingest/bulk/{batch['batch_id']}"))
+    assert st["filing_state_missing"] == 0 and st["filing_state_missing_sample"] == [], st
+
+
+# ═════════════════════ 4c. 挂账 ③b：识别率"算不出来"两边的口径必须一致 ═════════════════════
+
+def test_confidence_none_means_uncomputable_on_both_sides(db, tmp_path, synthetic_parser,
+                                                          monkeypatch):
+    """识别率**算不出来**时：入库侧写 NULL、预览侧给 `None` —— **都不是 0.0**。
+
+    ⚠ 父代理 2026-09-21 登记："同一件事两种表现"（入库 None / 预览 0.0）。
+    现在统一成 `None` = 算不出来；`0.0` 只允许是**真算出来的 0 分**（本仓目前算不出这种情形）。
+    反向（同一条用例内）：切得出条款时两边都必须是**数字**，不许退化成 None。
+
+    ⚠⚠ 两侧"算不出来"的**入口不同**（本批实测，不许想当然）：
+      · 预览侧 = **一条条款都没切出来**（`clauses` 空 ⇒ 中位数无从谈起）；
+      · 入库侧 = **算识别率那一步抛了**（`_filing_confidence` 的 confs 空分支走不到：
+        `EMPTY_BLOCKS` 那种"一个 block 都没返回"的页在入库侧**更早**就如实报错
+        —— `解析不可用：深度解析失败且无文本层`，根本到不了写状态那一句，下面第一条断言钉住它）。
+      · 本批第一版拿 `WATERMARK_BLOCKS` 当"算不出来"，**实测红**：水印页会切出**一条水印条款**
+        ⇒ 两侧都算得出 0.85（同一个数、口径一致，不是本挂账说的那个毛病）。
+        "水印页也显示 85% 识别率"是另一件事，**已登记、本步不改**（见 `docs/KB-FOLDER-PLAN.md` §五）。
+    """
+    from src.core.ingestion import dry_run
+
+    # ── 入口 ①（预览侧）：一个 block 都没返回 ⇒ 预览照旧出报告，但识别率是 None ──────
+    synthetic_parser(EMPTY_BLOCKS)
+    pdf = _write_pdf(tmp_path / "empty_conf.pdf", "GB/T 90203-2020")
+    rep = dry_run.analyze_preview_report(pdf)
+    assert rep["status"] == "ok", rep
+    assert rep["total_clauses"] == 0, rep["total_clauses"]
+    assert rep["doc_confidence"] is None, rep.get("doc_confidence")
+    # 分级理由也要如实（不许打印"识别置信度 0.0000"）
+    assert rep["grade"] == "C"
+    assert any("算不出识别置信度" in str(r) for r in rep["grade_reasons"]), rep["grade_reasons"]
+    # 同一份文件在**入库侧走不到**写状态那一步（如实报错，不是"静默写个 0.0"）
+    out_err = pipeline_mod.run_full_ingest(pdf, "GB/T 90203-2020", "空页（无文本层）")
+    assert out_err["status"] == "error", out_err
+    assert "无文本层" in str(out_err.get("message")), out_err
+
+    # ── 入口 ②（入库侧）：算识别率那一步炸了 ⇒ 状态仍写、confidence 写 NULL ────────
+    from src.core.quality import recognition as recognition_mod
+
+    def _boom(*a, **kw):
+        raise RuntimeError("识别率算不出来（本用例故意打断这一步）")
+
+    synthetic_parser(REAL_BLOCKS)
+    pdf2 = _write_pdf(tmp_path / "cant_conf.pdf", "GB/T 90204-2020")
+    # ⚠ 用 `monkeypatch.context()`（不是 `monkeypatch.undo()`）：undo 会把**夹具**打的补丁
+    #   （合成解析器 + 强制离线向量引擎）一起撤掉 ⇒ 反向那一步会去真下模型（本文件头写过的坑）。
+    with monkeypatch.context() as m:
+        m.setattr(recognition_mod, "clause_ocr_confidence", _boom)
+        out = pipeline_mod.run_full_ingest(pdf2, "GB/T 90204-2020", "识别率算不出来的正常文档")
+        assert out["status"] == "ok", out
+        assert out["filing_confidence"] is None, out
+        row = fs.get_filing_state(out["doc_id"])
+        # ⚠ 文档本身是好的（提出真条款）⇒ 状态是 `confirming`、**识别率那一格空着**：
+        #   这正是界面上"识别率算不出来"的真实形态（差别在 NULL，不在 0.0）。
+        assert row is not None and row["stage"] == "confirming", row
+        assert row["confidence"] is None, row
+
+    # ── 反向：算得出的时候两边都是**数字**，而且**同一个数**（不许统一成 None 把正常情形也弄没）
+    synthetic_parser(REAL_BLOCKS)
+    pdf3 = _write_pdf(tmp_path / "ok_conf.pdf", "GB/T 90205-2020")
+    out2 = pipeline_mod.run_full_ingest(pdf3, "GB/T 90205-2020", "正常页（算得出识别率）")
+    assert isinstance(out2["filing_confidence"], float), out2
+    assert 0.0 < out2["filing_confidence"] <= 1.0, out2
+    row2 = fs.get_filing_state(out2["doc_id"])
+    assert row2 is not None and row2["confidence"] == out2["filing_confidence"], row2
+    rep2 = dry_run.analyze_preview_report(pdf3)
+    assert isinstance(rep2["doc_confidence"], float), rep2.get("doc_confidence")
+    assert rep2["doc_confidence"] == out2["filing_confidence"], (
+        rep2["doc_confidence"], out2["filing_confidence"])
+
+
+def test_grading_tells_the_truth_when_confidence_is_uncomputable():
+    """`grade_document(None)`：档位仍是 C（结果不变），但**理由**必须说"算不出来"。"""
+    from src.core.quality.grading import grade_document
+    grade, reasons = grade_document("warn", None)
+    assert grade == "C"
+    assert any("算不出识别置信度" in r for r in reasons), reasons
+    assert not any("0.0000" in r for r in reasons), reasons
+    # 有数时照旧按阈值（这条钉住"别为了统一口径把正常的阈值判定弄丢"）
+    assert grade_document("warn", 0.99)[0] == "A"
+    assert grade_document("warn", 0.0)[0] == "C"
+    assert "0.0000" in grade_document("warn", 0.0)[1][0]
 
 
 def test_bulk_endpoint_passes_force_and_reingest(client, db, tmp_path, monkeypatch):

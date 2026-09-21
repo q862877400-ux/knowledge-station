@@ -169,12 +169,21 @@ def verdict_document(report: dict[str, Any]) -> tuple[str, list[dict[str, str]]]
     return "ok", [_why("OK", "未发现已知损坏证据")]
 
 
-def grade_document(verdict: str, doc_confidence: float) -> tuple[str, list[str]]:
-    """质量分级。`block → D`（仅预览语义，**不写 doc_meta**）；否则按 R13 阈值定 A/B/C。"""
+def grade_document(verdict: str, doc_confidence: float | None) -> tuple[str, list[str]]:
+    """质量分级。`block → D`（仅预览语义，**不写 doc_meta**）；否则按 R13 阈值定 A/B/C。
+
+    ⚠ `doc_confidence=None` = **算不出来**（一条条款都没切出来）—— 2026-09-21 第 5 步统一
+    的口径（入库侧 `doc_filing_state.confidence` 同样是 NULL）。那种情况下：
+    ① 仍给 `C`（没有任何证据支持更高档，与"低置信度"的结论**结果相同**）；
+    ② 但**理由如实写"算不出来"**，不许打印"识别置信度 0.0000 < 0.6"——那是拿 0.0 冒充
+       一个算出来的数（父代理 2026-09-21 登记第 5 步统一的那条正是这个毛病）。
+    """
     T = THRESHOLDS
     if verdict == "block":
         return "D", ["存在损坏证据（D 仅用于预览拦截，不入库）"]
-    conf = float(doc_confidence or 0.0)
+    if doc_confidence is None:
+        return "C", ["算不出识别置信度（这份文档一条条款都没切出来）——未按阈值判定"]
+    conf = float(doc_confidence)
     if conf >= T["grade_a_min"]:
         return "A", [f"识别置信度 {conf:.4f} ≥ {T['grade_a_min']}"]
     if conf >= T["grade_b_min"]:

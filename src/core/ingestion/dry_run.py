@@ -179,7 +179,11 @@ def analyze_preview_report(pdf_path: Path | str, *, doc_type: str = "standard",
         "status": "ok",
         "source": {"path": str(path), "file_name": path.name, "file_size": 0, "file_hash": None},
         "pages": 0, "total_clauses": 0, "clauses_dropped_tiny": 0,
-        "grade": "C", "grade_reasons": [], "doc_confidence": 0.0,
+        # ⚠ `doc_confidence` 的**算不出来**用 `None`（不是 0.0）—— 2026-09-21 第 5 步挂账 ③b
+        #   统一了口径：入库侧 `doc_filing_state.confidence` 算不出来时写 NULL，
+        #   预览这边原来给 `0.0`（"同一件事两种表现"，而且 0.0 看起来像"算出 0 分"）。
+        #   ⇒ 两边一律 `None` = "算不出来"。
+        "grade": "C", "grade_reasons": [], "doc_confidence": None,
         "verdict": "warn", "verdict_reasons": [],
         "head_samples": [], "tail_samples": [], "sample": [],
         "ocr_suspects": [], "ocr_suspects_truncated": False,
@@ -388,7 +392,10 @@ def analyze_preview_report(pdf_path: Path | str, *, doc_type: str = "standard",
     report["collected_signals"]["table_anomaly_clauses"] = table_anomalies[:50]
 
     confs = [c["ocr_confidence"] for c in clauses]
-    report["doc_confidence"] = (sorted(confs)[len(confs) // 2] if confs else 0.0)
+    # ⚠ 一条条款都没切出来 ⇒ 识别率**算不出来** ⇒ `None`（不是 0.0）。
+    #   口径与入库侧一致（`pipeline._filing_confidence` 同样是 confs 空 ⇒ None）；
+    #   `grade_document` 对 None 有自己的说法（"算不出识别置信度"），不再拿 0.0 冒充。
+    report["doc_confidence"] = (sorted(confs)[len(confs) // 2] if confs else None)
 
     # verdict_document 返回 (str, list[dict])，与上方 clause 级 reasons（list[str]）同名不同物
     verdict, doc_reasons = verdict_document(report)
@@ -484,7 +491,8 @@ def preview_batch(paths: Iterable[Path | str], *, sample: int = BATCH_DEFAULT_SA
             "path": str(p), "file_name": p.name,
             "verdict": rep.get("verdict"), "grade": rep.get("grade"),
             "pages": rep.get("pages", 0), "total_clauses": rep.get("total_clauses", 0),
-            "doc_confidence": rep.get("doc_confidence", 0.0),
+            # ⚠ 缺省同样用 None（"算不出来"），别用 0.0 冒充一个算出来的数（第 5 步 ③b）。
+            "doc_confidence": rep.get("doc_confidence"),
             "one_line": rep.get("one_line") or one_line_summary(rep),
             "reasons": [r.get("code") for r in (rep.get("verdict_reasons") or [])][:4],
             "error": rep.get("error_message"),

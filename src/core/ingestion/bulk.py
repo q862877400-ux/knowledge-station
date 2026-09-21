@@ -74,7 +74,9 @@ def create_bulk_batch(src_dir: str, batch_size: int = DEFAULT_BATCH_SIZE,
     batch_id = f"bul_{ULID()}"
     ckpt: dict[str, Any] = {"queue": [], "errors": [], "pause_reason": None,
                             "parsed": 0, "scanned": 0, "src_dir": str(src),
-                            "reingest": bool(reingest)}
+                            "reingest": bool(reingest),
+                            #: 状态行没写进去的文件（随终态持久化；见 parse_loop 里的说明）
+                            "filing_state_missing": []}
     with write_transaction() as txn:
         txn.execute(
             "INSERT INTO bulk_import_batch (batch_id, batch_kind, trigger_type,"
@@ -378,6 +380,11 @@ def parse_loop(batch_id: str, daily_budget: int = DEFAULT_PARSE_DAILY_BUDGET) ->
     queue = ckpt.get("queue", [])
     errors: list[dict] = ckpt.get("errors", [])
     parsed = ckpt.get("parsed", 0)
+    #: 「状态行没写进去」的文件清单（2026-09-21 第 5 步挂账 ③a）。
+    #: ⚠ 原来只往 `errors` 里塞一条 —— 而 `errors` 是**排障用的杂项**，批次终态
+    #: （`done` / `failed`）与 `GET /ingest/bulk/{id}` 都**看不出来**有文件的状态没落库
+    #: ⇒ 界面没法如实告诉业主"这批里有文件的状态没写进去"。现在单独记一份、随终态持久化。
+    state_missing: list[str] = list(ckpt.get("filing_state_missing") or [])
     #: 批次级的「重来一次」开关（create_bulk_batch 写进 checkpoint；缺省 False = 不覆盖）。
     batch_reingest = bool(ckpt.get("reingest"))
     budget_left = daily_budget
@@ -401,6 +408,10 @@ def parse_loop(batch_id: str, daily_budget: int = DEFAULT_PARSE_DAILY_BUDGET) ->
                 if out.get("status") == "ok" and not out.get("filing_state_written", True):
                     errors.append({"path": item["path"],
                                    "reason": "filing_state_not_written"})
+                    # 进**终态**（见上面 state_missing 的注释）：界面据此如实说明
+                    # "这一批里有 N 篇的状态没写进库"。
+                    if item["path"] not in state_missing:
+                        state_missing.append(item["path"])
             else:
                 item["status"] = "failed"
                 reason = str(out.get("status", "error"))
@@ -415,6 +426,7 @@ def parse_loop(batch_id: str, daily_budget: int = DEFAULT_PARSE_DAILY_BUDGET) ->
             _write_item_state(item.get("doc_id"), "failed",
                               failure_kind=f"解析中断（{type(exc).__name__}）")
         ckpt["parsed"] = parsed
+        ckpt["filing_state_missing"] = state_missing
         if parsed % SNAPSHOT_EVERY_BATCHES == 0:
             try:
                 create_snapshot(snapshot_type="auto")
