@@ -9607,6 +9607,47 @@ must match exactly one oneOf branch (matched 0)`，`name`/`code` 在 **`error.in
   `ok:true / httpStatus:200 / reused:true`；stdout 出现 `e2e-done`；headless exit 0。
 - **钱的自证**：子进程环境里零个 `*_API_KEY`、`DEEPSEEK_API_KEY=undefined`（防止假 provider 没接住时拿真 key 打真 API）。
 
+#### ⚠⚠ 复核打回本节的四处（2026-09-21，`var/tmp/verify-e2e-real-report.md`；**错话保留 + 就地更正**）
+
+**(1)「假引擎只探 HTTP 200…所以**绝不会去起真 python**」——这句是过分宣称，更正如下。**
+站得住的只有：**`/health` 返 200 时**插件复用假引擎、不起 python（那一次是真绿）。**非 200 时它会
+按陈旧会话 `spawn` 真 python 引擎**（`plugin/src/engine.js:558 spawnEngine`；复核实测把假引擎 health
+改成 500 后，tool result 里是 `port=14226 pid=36776 reused=false`，而假引擎是 **14215**）⇒ 原句里
+"绝不会"这三个字没有证据。**直接后果**：那一版 e2e 的 `ks_ping` 断言（只看 `ok:true`+`httpStatus:200`）
+在假引擎坏掉时**照样 14/14 PASS / exit 0**——**一条假绿**（AGENTS.md：假绿判 failed）。
+**修法**（`0969447`）：断言改成 `engine.port === 假引擎端口 && engine.reused === true`
+（`reused:!spawnedByUs` 的语义 = 那个实例是外部的、不是我们起的），失败诊断打出**期望端口 vs 实测端口**
+与 `reused`。**实测**：假引擎 health 改 500 ⇒ e2e **exit 1**、红在那条上
+（复跑原文：`期望假引擎端口=1387 ｜ 实测 tool result engine.port=1393（❌ 不符）｜ reused=false（期望 true）
+｜ ok=true httpStatus=200`）；还原 ⇒ **14/14 PASS / exit 0**。
+
+**(2) 脚本把 API key 的**值**打了出来（与 `tests/test_credentials_namespace.py` 的注释相反）。**
+那版 `e2e-install-compose.mjs:290` 是 `` DEEPSEEK_API_KEY=${String(headlessEnv.DEEPSEEK_API_KEY)} ``，
+复核实测父环境设 `SHOULD-NOT-LEAK` 时**真值进了输出**，而失败步输出会被 `run-gates.ps1` 落盘 ⇒ 真 key 会写进门禁日志。
+`tests/test_credentials_namespace.py:49` 那句"它**不读值、不写值、不打印值**"因此是**假的**（该文件里已就地更正 + 写明
+"为什么允许它提及旧名"）。**修法**（`0969447`）：只打**存在性**（`DEEPSEEK_API_KEY 存在=否`），值一律不进输出，
+另加输出口 `redact()` 兜底。**实测**：把 `childEnv()` 的剥键关掉 + 父环境设 `SHOULD-NOT-LEAK` ⇒ 那条**红**
+（`泄漏键=DEEPSEEK_API_KEY … DEEPSEEK_API_KEY 存在=是`，exit 1），而整份输出里 `SHOULD-NOT-LEAK` **命中 0 处**。
+
+**(3) `verify-tools-real` 的 A3 **不覆盖 `apply()` 的真注册表**。**
+复核实测：删 `plugin/src/index.js:1518` 的 `register(makePingTool(manager))` ⇒ **e2e 红（5/6）**，而
+`verify-tools-real` 仍 **9/9 PASS**（它自建 6 个定义）。⇒ A3 的宣称已收紧成"验的是**用插件真工厂造出的这 6 个定义**
+在真 `ToolRuntime` 上的契约"，**真注册路径由 e2e 的 offer 断言兜**（`f0ed0ca`）。同一次复核还钉住：
+该脚本解析的是检出 **`lib/index.js`（构建产物）**，而宿主经 tsx + `tsconfig.base.json` paths 加载的是
+**`src/index.ts`（源码）** ⇒ **不是同一份文件**（陈旧构建风险；复核只抽样对照过一致性，**抽样 ≠ 全部**）。
+**修法**：A1 现在把**两条入口 + 各自 mtime** 都打出来，源码更新时另打陈旧构建警告。
+
+**(4) 清理失败被吞（与 `verify-tools-real` 口径不一致）。**
+复核实测：探针让删除失败时 `verify-tools-real` **exit 1**，而 e2e 只打 `（清理告警：…）`**仍 exit 0**。
+**修法**（`0969447`）：清理失败登记成一条失败断言、**计入退出码**（告警文案保留）。
+**实测**：清理成功时**仍是 14/14 PASS / exit 0**（不新增空转断言）；清理失败时**多一条**
+（`FAIL 清理临时目录/服务（1 处失败 ⇒ 计入退出码）`、`14/15`、**exit 1**）。
+
+另修一处**红得不可诊断**（复核变异 5：overlay 去掉 webserver 行 ⇒ e2e 红，但全程无 `pending`/`webServer` 字样、
+dump 两条仍绿）：现在"工具没被 offer"时会把宿主给的**插件待命原因**捞进失败信息。**实测原文**：
+`∵ 插件没把工具注册上来，宿主给的待命原因：2 行线索 ｜ dsh: warning: 1 entry did not activate ；
+ks-engine (ks-dsh-plugin): pending (waiting for service: webServer)`。
+
 **它报的、值得记的残余**：① 真宿主一共 offer **30** 个工具（"正好 6"只在 `verify-tools-real` 里断言，e2e 是**包含**断言）；
 ② 假网关只测了 **SSE 流式**（pi-ai 恒 `stream:true`）；③ **headless 档没有 webserver 行** ⇒ 只装我们的插件时
 实测原文 `ks-engine (ks-dsh-plugin): pending (waiting for service: webServer)`、**6 个工具一个都不注册**，
