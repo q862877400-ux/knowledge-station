@@ -18,7 +18,9 @@
  *   上一版运行时是 **98/98**（源文件 `check(` 字面量 95 处，其中 1 处在块注释里 ⇒ 94 处真调用；
  *   其中"模板名"那条在按库循环里复用了 4 次）；本版 **79/79**（静态 79 = 运行时 79，无死分支；
  *   ⚠ **这个数字会随改动漂，别抄它**：以脚本结尾打印的「== kb-page-render smoke PASS (N/N) ==」为准。
- *   ⚠ 第 5 步收尾时是 **130/130**、第 6 步加入 R1~R18 后是 **148/148**（每轮**实跑**出来的数）。
+ *   ⚠ 第 5 步收尾时是 **130/130**、第 6 步加入 R1~R18 后是 **148/148**（每轮**实跑**出来的数）；
+ *     2026-09-22 业主两条界面改动（删文件行图标 + 提问入口搬家）再加 B10/R5b/R5c，
+ *     复核 MEDIUM-2 的运行时复现再加 R19a/R19b ⇒ 现在是 **153/153**（以脚本结尾打印的为准）。
  *   2026-09-21 第二轮复核就是靠这条抓到头部三处旧数字没改干净 —— 写数字就要**当轮**改干净）
  *   ⇒ **少 30 条**，不是本文件上一版注释里写的"少 4 条"。
  *   **那句"72/72 / 少 4 条 / 每条都有替代"是错的，就地留痕更正**：72 是 `docs/UI-BASELINE.md`
@@ -82,7 +84,9 @@
  * 业主口径：「每一级都能"在此范围内提问"，包括它下面所有层；多选几个目录 = 取并集」。
  * · **改的三处**（都是"菜单多了「在此范围内提问」"这一个原因的连带，**不是放宽**）：
  *     I5（目录里那篇文件的 ⋮ 菜单 4 → 5 样）、P25（最外层文件的 ⋮ 菜单 2 → 3 样）、
- *     P5（目录行的 ⋮ 菜单 5 → 6 样）、N6（兜底桶那一篇 3 → 4 样）。每一处都在原地留了原文。
+ *     P5（目录行的 ⋮ 菜单 5 → 6 样）、N6（兜底桶那一篇 3 → 4 样）。
+ *     ⚠ **就地更正（2026-09-21，复核 LOW-6 打回）**：这一行原来写"**每一处都在原地留了原文**"
+ *     —— 复核实测**只有 I5 真留了** `原文：…` 那一行。现在 P5/P25/N6 也各自补上了原文（四条齐）。
  * · **R1~R18 判的是四件真事**：① 请求里**真的带上范围**（`params.kb_folder_ids`/`kb_doc_ids`）；
  *   ② 最外层/「待分类」没勾选时按钮**禁用**且 title 说清为什么（不许悄悄变成全库提问）；
  *   ③ 范围的篇数来自引擎（`/kb/scope/resolve`），空范围如实说「范围内没有 + 一次检索都没做」；
@@ -1326,7 +1330,8 @@ export function mount(container, props) {
   await click(badRow.querySelector('.ks-item-more button'))
   const badMenu = q('[role=menuitem]').map((el) => (el.textContent ?? '').trim())
   await click(badRow.querySelector('.ks-item-more button'))
-  /* ⚠ 第 6 步：待分类行的菜单也多了「在此范围内提问」（走 `kb_doc_ids`）⇒ 3 样变 4 样（就地改）。 */
+  /* ⚠ 第 6 步：待分类行的菜单也多了「在此范围内提问」（走 `kb_doc_ids`）⇒ 3 样变 4 样（就地改）。
+     原文（复核 LOW-6 要求留痕）：`badMenu.length === 3 && …` —— 五样里没有这一条。 */
   check('N6 兜底桶（没有建议）那一篇的 ⋮ 菜单里**没有**「按建议归位 / 在建议位置新建」（死按钮不许渲染）'
     + '，且有「在此范围内提问」',
     badMenu.length === 4 && !badMenu.some((t) => t.includes('按建议归位'))
@@ -1461,7 +1466,8 @@ export function mount(container, props) {
   /* ── 改名（只改库里的名字）── */
   await click(dirMoreBtn('标准'))
   const renameItem = q('[role=menuitem]').find((el) => (el.textContent ?? '').includes('改名'))
-  /* ⚠ 第 6 步给目录行加了「在此范围内提问」（在这一棵目录里问）⇒ 五样变六样（就地改，不是放宽）。 */
+  /* ⚠ 第 6 步给目录行加了「在此范围内提问」（在这一棵目录里问）⇒ 五样变六样（就地改，不是放宽）。
+     原文（复核 LOW-6 要求留痕）：`q('[role=menuitem]').length === 5 && renameItem !== undefined`。 */
   const dirAskItem = q('[role=menuitem]').find((el) => (el.textContent ?? '').trim() === '在此范围内提问')
   check('P5 目录行的 ⋮ 菜单里有「改名…/新建…/挪到…/复制到…/在此范围内提问/删掉…」六样（目录操作接上了）',
     q('[role=menuitem]').length === 6 && renameItem !== undefined && dirAskItem !== undefined,
@@ -1618,7 +1624,8 @@ export function mount(container, props) {
     `文件行 ${String(fileRows().length)}：${fileRows().map(fileNameOf).join(' / ')}`)
   await click(fileRows()[0].querySelector('.ks-item-more button'))
   const topMenu = q('[role=menuitem]').map((el) => (el.textContent ?? '').trim())
-  /* ⚠ 第 6 步：最外层那些"还没进任何目录"的文件也有「在此范围内提问」（走 `kb_doc_ids`）。 */
+  /* ⚠ 第 6 步：最外层那些"还没进任何目录"的文件也有「在此范围内提问」（走 `kb_doc_ids`）。
+     原文（复核 LOW-6 要求留痕）：`topMenu.join('|') === '详情|加进某个目录…'`。 */
   check('P25 最外层文件的 ⋮ 菜单 = 详情 + 在此范围内提问 + 「加进某个目录…」'
     + '（**没有**"挪到"，它没有来源目录 —— 不给死按钮）',
     topMenu.join('|') === '详情|在此范围内提问|加进某个目录…',

@@ -424,3 +424,29 @@ def test_api_returns_404_for_unknown_kb_folder(client, kb_folders):
     st2, code2 = error_code(api(c, token, "post", "/api/v1/ks/answer", json={
         "query": "5.2.3", "params": {"kb_folder_ids": []}}))
     assert (st2, code2) == (422, "bad_request"), (st2, code2)
+
+
+def test_two_endpoints_agree_on_too_many_folders(client, kb_folders):
+    """**同一条件两个端点必须给同一个状态码**（复核 LOW-3 打回）。
+
+    `folder_scope` 对"超过 200 个根"抛的是 `invalid_scope`，而它**不是"没找到"**：
+      · `/api/v1/kb/scope/resolve` 对它回 **422 `invalid_scope`**（既有行为，未改）；
+      · `/api/v1/ks/answer` 以前把**所有** KnowledgeStationError 都包成 `KbScopeNotFound` ⇒ **404**
+        （复核实测 201 个目录时一边 422、一边 404）。
+    ⇒ 现在按错误码分流：只有 `folder_not_found` 才是 404，其余（含 invalid_scope）走 ValueError ⇒ 422。
+    """
+    from _kb_folder_api_fixtures import api, error_code
+    c, token = client
+    many = [f"fld_x{i}" for i in range(201)]
+    st_resolve, code_resolve = error_code(api(c, token, "post", "/api/v1/kb/scope/resolve", json={
+        "folder_ids": many}))
+    st_answer, code_answer = error_code(api(c, token, "post", "/api/v1/ks/answer", json={
+        "query": "5.2.3", "params": {"kb_folder_ids": many}}))
+    assert (st_resolve, code_resolve) == (422, "invalid_scope"), (st_resolve, code_resolve)
+    assert (st_answer, code_answer) == (422, "bad_request"), (
+        "「目录太多」不是「没找到」⇒ 端点必须 422（与 /kb/scope/resolve 同一档），"
+        f"实测 {(st_answer, code_answer)}")
+    # 反向：不存在的目录仍然是 404（别把这一条修成"全都 422"）
+    st_unknown, code_unknown = error_code(api(c, token, "post", "/api/v1/ks/answer", json={
+        "query": "5.2.3", "params": {"kb_folder_ids": ["fld_nope_scope"]}}))
+    assert (st_unknown, code_unknown) == (404, "kb_scope_not_found"), (st_unknown, code_unknown)

@@ -226,16 +226,36 @@ function sanitizeParams(raw) {
   /* 第 6 步（2026-09-21）：**知识库目录范围**（与引擎同名同义）。
    * ⚠ 必须在这里被白名单接住，否则它就是"schema 向模型承诺了、宿主却静默丢掉"的输入端版本
    *   （与 `material_project_id` 那次一模一样的坑，见上面那段注释）。
-   * 形态：字符串数组；逐项去空白、去重、丢掉不合法的项；一项都不合法就不带这个键
-   *   （**空数组要如实传**：引擎把"显式空范围"当"范围内一篇都没有"、与"没给范围"严格区分
-   *    —— 那正是"绝不退化成全库"这条红线，宿主不许替它改写）。 */
+   *
+   * 形态（**复核 LOW-1/LOW-2/LOW-5 之后改准**）：
+   *   · 字符串 ⇒ 按引擎口径**规范化成单项数组**（引擎的 `_as_list` 就接受字符串：
+   *     `items = [value] if isinstance(value, str) else value`）—— 宿主**不许比引擎更严**，
+   *     更不许"整键丢掉"（那就成了"调用方以为限定了范围、引擎收到的是全库"）；
+   *   · 其它非数组（数字/布尔/对象）⇒ **显式报错**（不再是静默丢键）；
+   *   · 数组 ⇒ 逐项去空白/去重/丢非法项；**用户给的空数组如实传**（引擎据此判"范围内一篇都没有"，
+   *     与"没给范围"严格区分 —— 那正是"绝不退化成全库"这条红线，宿主不许替它改写）；
+   *   · 全是不合法项 ⇒ 传空数组（同上，让引擎按"空范围"处理，**不静默当没给**）；
+   *   · **超上限不再静默截断**（复核 LOW-2 实测 600 个 id 被悄悄砍成 500）⇒
+   *     `kb_folder_ids` 超过引擎自己的 200 个根上限、`kb_doc_ids` 超过 2000 ⇒ **显式报错**。
+   *     （引擎侧 `folder_scope` 对 >200 个根会抛 `invalid_scope`；宿主先报错能把话说清楚。） */
+  const KB_SCOPE_LIMITS = { kb_folder_ids: 200, kb_doc_ids: 2000 }
   for (const key of ['kb_folder_ids', 'kb_doc_ids']) {
     const v = raw[key]
-    if (!Array.isArray(v)) continue
-    const ids = [...new Set(v
+    if (v === undefined || v === null) continue
+    const list = typeof v === 'string' ? [v] : v
+    if (!Array.isArray(list)) {
+      throw new Error(`ks_answer: "params.${key}" must be an array of strings `
+        + `(or a single string); got ${typeof v}. Refusing to silently drop the scope — `
+        + 'dropping it would turn a scoped ask into a whole-library ask.')
+    }
+    const ids = [...new Set(list
       .map((x) => (typeof x === 'string' ? x.trim() : ''))
       .filter((x) => x.length > 0 && x.length <= 64 && !/[\s\u0000-\u001f]/.test(x)))]
-      .slice(0, 500)
+    if (ids.length > KB_SCOPE_LIMITS[key]) {
+      throw new Error(`ks_answer: "params.${key}" has ${String(ids.length)} ids, `
+        + `over the limit of ${String(KB_SCOPE_LIMITS[key])}. Refusing to truncate silently — `
+        + 'a truncated scope would answer a DIFFERENT question than the one asked.')
+    }
     out[key] = ids
   }
   return Object.keys(out).length > 0 ? out : null
@@ -481,8 +501,11 @@ const ANSWER_SCOPE = {
  *   · `scope`（**引擎侧给**）= 真值：这次到底在多少目录 / 多少篇里检索；`null` = **没限定范围**
  *     （全库），`empty: true` = 范围内一篇都没有 ⇒ 引擎**一次检索都没做**。
  * 形状逐字抄引擎 `ks_answer.answer()` 的 `scope`（`src/core/llm/ks_answer.py`）：
- *   `{kind, folder_ids, folder_count, doc_count, empty}`；`folder_ids` 是**展开后**的目录全集
- *   （含所有下级；多个根 = 并集）。
+ *   `{kind, folder_ids, folder_count, doc_count, empty}`，**给目录范围时多一个 `roots`**
+ *   （= 这次点名的那些根目录，展开后的全集在 `folder_ids` 里）。
+ *   ⚠⚠ **2026-09-21（复核 LOW-4）**：`roots` 原来**没进 schema** —— 运行时形状比声明多一个键
+ *   （`additionalProperties` 没写 false ⇒ 不报错，但"形状与真值一致"就只是 ⊂ 不是 =）。
+ *   现在把它**列进 properties**（只给文档范围时它不出现 ⇒ 不进 `required`）。
  * ⚠ 白名单纪律（与 `material_usage` 同一条）：引擎算出来的这个键若没进 `properties`，
  *   工具返回就会被 schema 判 isError；若没进 `trimAnswer`，它就会**静默消失** ——
  *   两种症状都由 `smoke-trim` / `smoke-tool-contract` 守着。
@@ -499,6 +522,8 @@ const ANSWER_KB_SCOPE = {
         folder_count: { type: 'number' },
         doc_count: { type: 'number' },
         empty: { type: 'boolean' },
+        // 只给 `kb_folder_ids` 时才有（"这次点名的根目录"）；只给文档范围时没有它。
+        roots: { type: 'array', items: { type: 'string' } },
       },
       required: ['kind', 'folder_ids', 'folder_count', 'doc_count', 'empty'],
     },

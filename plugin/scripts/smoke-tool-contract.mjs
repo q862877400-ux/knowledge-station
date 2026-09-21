@@ -488,6 +488,43 @@ async function main() {
     JSON.stringify(sentDirty?.params ?? null))
   check('ks_answer [full-answer] — 引擎没给 scope 时工具给 **null**（不是编一个"全库"）',
     answerFull?.scope === null, JSON.stringify(answerFull?.scope ?? null))
+  /* ⚠⚠ **2026-09-21（复核 LOW-1/LOW-2/LOW-4/LOW-5 打回后补的几条）**：输入侧的"静默放宽/静默截断"
+     与输出侧的"形状比 schema 多一个键"，都是**同一个失败模式**（看着没事、其实换了个问题）。
+       ① 字符串形态 ⇒ 按**引擎口径**规范化成单项数组（引擎 `_as_list` 就接受字符串；宿主不许更严、
+          更不许整键丢掉 —— 那会让"以为限定了范围"变成全库检索）；
+       ② 非数组（数字/对象）⇒ **显式报错**（不许静默丢键）；
+       ③ 超上限 ⇒ **显式报错**（复核实测 600 个 id 被悄悄砍到 500；"截断后的范围"答的是另一个问题）；
+       ④ 运行时 `scope` 多一个 `roots`（给目录范围时）⇒ 它必须在 **schema 的 properties** 里。 */
+  await group('ks_answer', 'kb-scope-string-normalized',
+    { query: 'x', params: { kb_folder_ids: 'kbf_single' } }, captureAnswer(ANSWER_BARE))
+  const sentStr = answerBodies[answerBodies.length - 1] ?? {}
+  check('ks_answer [kb-scope-string-normalized] — 字符串形态按引擎口径**规范化成单项数组**'
+    + '（不许整键丢掉 = 悄悄变成全库）',
+    JSON.stringify(sentStr?.params?.kb_folder_ids) === JSON.stringify(['kbf_single']),
+    JSON.stringify(sentStr?.params ?? null))
+  /** "必须抛错"的小助手（静默路径的反面：宁可让调用方看见错，也不要换个问题答）。 */
+  const expectThrow = async (label, args, want) => {
+    const tool = tools.get('ks_answer')
+    try {
+      await tool.execute(args, execFor('smoke-contract'))
+      check(`ks_answer [${label}] — 必须**显式报错**（不许静默丢弃/截断）`, false,
+        'execute() 居然成功返回了')
+    } catch (error) {
+      const msg = String(error?.message ?? error)
+      check(`ks_answer [${label}] — 必须**显式报错**（不许静默丢弃/截断）`, msg.includes(want),
+        msg.slice(0, 200))
+    }
+  }
+  await expectThrow('kb-scope-non-array-rejected',
+    { query: 'x', params: { kb_folder_ids: 42 } }, 'must be an array of strings')
+  await expectThrow('kb-scope-over-limit-rejected',
+    { query: 'x', params: { kb_folder_ids: Array.from({ length: 201 }, (_, i) => `kbf_${String(i)}`) } },
+    'over the limit')
+  const scopeSchemaProps = tools.get('ks_answer').output.schema.properties.scope.oneOf[0].properties
+  check('ks_answer [schema] — 运行时 `scope` 的每个键都在 schema 里（含只给目录范围时多出来的 roots）',
+    ['kind', 'folder_ids', 'folder_count', 'doc_count', 'empty', 'roots']
+      .every((k) => k in scopeSchemaProps),
+    Object.keys(scopeSchemaProps).join(','))
 
   /* -------------------------------- ks_materials -------------------------------- */
   const projects = await group('ks_materials', 'projects', {},

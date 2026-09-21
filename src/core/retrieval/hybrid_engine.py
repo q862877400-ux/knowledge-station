@@ -79,10 +79,15 @@ def perform_hybrid_search(
       * 非空 ⇒ **六条召回通道每一条**都在 SQL 里带上范围约束（不是取回 top_k 之后再筛：
         那样 top_k 会被范围外的命中吃掉，出现"范围内明明有却答不出"）。
       ⚠ 范围用 `json_each(?)` 一次传进 SQL（本机 SQLite 3.53.1 带 JSON1；避免 IN 列表的变量数上限）。
-      ⚠ 向量通道（通道 C）的实测口径（`var/tmp/probe-vec-scope.py`，sqlite-vec v0.1.9）：
-        **子查询形式** `clause_revision_id IN (SELECT … json_each(?))` 是"带约束地找 k 个"
-        （全局最近的两条都在范围外时，它仍返回范围内最近的那条）；而**字面量列表**
-        `IN ('a','b')` 会走"先 KNN 再筛"（实测返回空）⇒ 这里**只许用子查询形式**。
+      ⚠ 向量通道（通道 C）的实测口径（`var/tmp/probe-vec-scope.py`，sqlite-vec v0.1.9 /
+        SQLite 3.53.1）—— **两句分开写**（2026-09-21 复核 INFO-2 指出上一版把两种形态混成一句
+        "先 KNN 再筛"，会让人推出错误的容量结论）：
+          ① **子查询**形式 `clause_revision_id IN (SELECT … json_each(?))` 是**带约束的 KNN**
+             （全局最近的两条都在范围外时，它仍返回范围内最近的那条）；
+          ② **双元素字面量列表** `IN ('a','b')` 比"先 KNN 再筛"**更糟**：它**连全局 top-k 里
+             本来有的那条也返回 0 行**（复核在"只有一行"的表上也是 0 行）；
+             真正"先 KNN 再筛"的是**单字面量/等值**（`clause_revision_id = ?`）。
+        ⇒ 结论不变（**只许用子查询形式**），但别再照"先 KNN 再筛"推理容量。
     """
     conn = _conn()
     if channels is None:

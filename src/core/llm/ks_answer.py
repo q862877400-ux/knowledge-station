@@ -568,8 +568,15 @@ def _resolve_kb_scope(params: Dict[str, Any]) -> tuple[Optional[List[str]], Opti
         try:
             scope = fs.folder_scope(folders)
         except KnowledgeStationError as exc:
-            # 目录不存在 / 范围为空 / 超过 200 个 ⇒ 如实报错（端点回 404），**不**降级成全库
-            raise KbScopeNotFound(f"知识库目录范围解析失败：{exc}") from exc
+            # ⚠ **2026-09-21（复核 LOW-3 打回后改准）**：这里原来把**所有** KnowledgeStationError
+            # 都包成 `KbScopeNotFound` ⇒ 端点一律 404。但"目录太多（>200 个根）"与"范围为空"
+            # **不是"没找到"** —— `/kb/scope/resolve` 对它们回的是 **422 `invalid_scope`**，
+            # 两个端点对同一条件给了不同状态码（复核实测 201 个目录时一边 422、一边 404）。
+            # ⇒ 现在按**错误码**分流：只有 `folder_not_found` 是 404（KbScopeNotFound），
+            #   其余（invalid_scope 等）走 `ValueError` ⇒ 端点 422，与 `/kb/scope/resolve` 一致。
+            if getattr(exc, "code", "") == "folder_not_found":
+                raise KbScopeNotFound(f"知识库目录不存在：{exc}") from exc
+            raise ValueError(f"知识库目录范围不合法：{exc}") from exc
         doc_ids |= {str(d) for d in scope["doc_ids"]}
         info["folder_ids"] = sorted(str(f) for f in scope["folder_ids"])
         info["folder_count"] = len(info["folder_ids"])
