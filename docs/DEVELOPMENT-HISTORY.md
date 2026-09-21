@@ -9563,3 +9563,109 @@ must match exactly one oneOf branch (matched 0)`，`name`/`code` 在 **`error.in
 将来重构时按注释改它；② 任何"仓内冻结副本"都可能被**协调改动**绕过（本轮已把三处副本互相绑成棘轮，
 再往上就是"清单由仓外保管"，超出本仓结构）；③ 真键盘 Tab/Enter 注入与 CDP 真鼠标链路**仍未做**
 （复核这轮把**深色读图**做掉了：目录层在 dark 下文字清晰可辨）。
+
+### 目录层护栏的**收尾**复核（`verify-freeze-dirlist-guards3` = `2650da1`，**2 个提交**，判 **可收/PASS**）
+
+**结论：可收**。上一轮刨的三个窄口它**原样重做、全部真红**（我把三处都改成了冻结常数/冻结清单 + 棘轮）：
+① 按库泄漏 ⇒ 红 93/94（诊断打出 `目录层[库「标准」下钻一级] … "P15/19 工程抗震…P 土木、建筑/P15/19 …"`）；
+② 改 token 本身（`64→200`）⇒ **真 Chrome 红 exit 1 + 两条诊断**（上一轮它**两边全绿**）；③ 声明表 + 探针同改 ⇒ 红。
+覆盖面防空转它也打了两发：selector 副本改错 ⇒ 两条覆盖面都红（88/90）；保留 selector、把循环体改 `if (false)`
+⇒ `查到 5 张` 仍 PASS、**`实判 0 次` 红**（89/90）⇒ 判定"够"（两种空转各有一条，且是**计数**不是自报值）。
+
+**它这一轮新刨、我登记为残余（不再加判据）**：④ 泄漏按**库+深度**加回（`标准 && path.length===2`）⇒ **94/94 PASS**
+（按库循环每库只下钻一级 ⇒ "访问状态有限"类）；⑤ **镜像残余**：把冻结清单**自己**改小 + 探针同时弄坏 ⇒ exit 0
+（仓内副本可被协调改动，到此为止）；⑥ 520/900/1300/dark 四跑全绿（`344/708/1108/708px 64px 16px`，
+容器 440/804/1204/804，tracks=3）⇒ 无假红；⑦ `@container` 那条残余**我的登记准确**（jsdom 红、真 Chrome 1300 绿）。
+
+#### ⚠ 我提的"冷却窗"机制**被复核证伪**（错话保留）
+我在给复核的任务书里判断：那次 pytest 红是 `embedder.py:36` 的 `RETRY_COOLDOWN_S=60` 挡着模型加载。
+**复核用重放证伪了它**：`tests/conftest.py:7-15` 是 **session 级 autouse**，把 `KS_DATA_DIR` 换成全新的
+`%TEMP%\ks_test_*` ⇒ embedder 的 `cache_dir` 在**那里**；而它当时设了 `HF_HUB_OFFLINE=1` 又把手塞的模型放进
+`ks-gates-data-*`（**放错了地方**）⇒ 会话目录里连 `models` 都没有 ⇒ 秒失败 ⇒ 向量通道不可用。
+"不是冷却窗"的直接证据：`ks-gates-data-17236` **0 文件**（从没下成），`1624`/`29480` 各 12 文件/181.62MB。
+⇒ **近因是复核自己的垫片 + conftest 的数据目录替换**，与被验区间无关（区间 `git diff --stat -- src tests` 为空）。
+
+## §10.148 业主点的下一步：**真宿主 e2e**（`1e39186` + `1a65a1a` + `ee3dd46`）
+
+**业主原话**：「真宿主 e2e（临时 profile 起一次宿主，看插件挂得上、6 个工具真的被 offer）」。
+
+**为什么不是"再写一个 mock 冒烟"**：既有 34 套冒烟全在**进程内**加载插件模块；缺的正是业主点的那一环 ——
+真 CLI 起一次宿主，看 bundle 层装配、看工具注册能不能过**宿主自己**的校验、看模型请求里到底收了哪些工具。
+
+**两个脚本（都挂在 `-Full` 最后，不进 `smoke-all`）**
+- `plugin/scripts/verify-tools-real.mjs`（**9/9 PASS**）：真 `@deepseek-ai/dsh-tools`（**0.1.6-alpha.2**，
+  入口 = 检出 `packages/core/tools/lib/index.js`，**不是**本仓 peer 副本）⇒ 6/6 过 `register()`（含
+  `assertSupportedJsonSchema`）；`schemas()` 投影**正好 6 个名字**、键只有 `name/description/parameters`
+  （无 `output/execute/timeoutMs/isConcurrencySafe`）；`executionMode`：前 5 个 `parallel`、`ks_collect` `exclusive`；
+  真 `execute(ks_ping)` `isError=false`、**violations=0**；**反向对照** violations=**1**（多一个键）/ **8**（根类型错）
+  ⇒ 证明 A6 不是空转。
+- `plugin/scripts/e2e-install-compose.mjs`（**14/14 PASS**，~3s）：临时 `$DSH_HOME` + `--from-default-profile headless`
+  + `dsh plugin --profile <tmp> add <repo>/plugin` ⇒ `--dump-config` **366 行**里命中 `# == ks-dsh-plugin` 与
+  `- id: ks-engine`（building 前那次 dump 为 **0 处**）；假引擎（`engine.session.json` + `/api/v1/health` ⇒
+  `plugin/src/engine.js:524-540` 只探 HTTP 200、**不看 pid 死活**，所以**绝不会去起真 python**）+ 假网关（OpenAI 兼容 SSE）
+  ⇒ 宿主真发请求，**第 1 个请求 `tools` 共 30 个、我们的 6 个全在**；模型调一次 `ks_ping`，回灌的 tool result 里
+  `ok:true / httpStatus:200 / reused:true`；stdout 出现 `e2e-done`；headless exit 0。
+- **钱的自证**：子进程环境里零个 `*_API_KEY`、`DEEPSEEK_API_KEY=undefined`（防止假 provider 没接住时拿真 key 打真 API）。
+
+**它报的、值得记的残余**：① 真宿主一共 offer **30** 个工具（"正好 6"只在 `verify-tools-real` 里断言，e2e 是**包含**断言）；
+② 假网关只测了 **SSE 流式**（pi-ai 恒 `stream:true`）；③ **headless 档没有 webserver 行** ⇒ 只装我们的插件时
+实测原文 `ks-engine (ks-dsh-plugin): pending (waiting for service: webServer)`、**6 个工具一个都不注册**，
+e2e 靠 overlay 补 `@deepseek-ai/dsh-host-webserver` 才通 ⇒ **我们的插件对 webServer 是硬依赖**（要不要改成可选，另议）；
+④ `settings.yaml` 那条路**未查明**（但它**撤回了**上一轮"settings 路走不通"的结论 —— 自认探针坏了）；
+⑤ 一轮里 3 个 gateway 请求的次序**未查明**；⑥ 子环境额外剥了代理变量（本机 `NODE_USE_ENV_PROXY=1` + 半死代理时
+子进程对 loopback 连 TCP 都不建）。
+
+**越界登记（实施子代理自报）**：它清理临时目录时用了过宽的 `ks-probe*` 通配，**误删了几十个不是本轮的旧
+`%TEMP%\ks-probe*` 探针目录**。那些是我们历次随手探针的临时数据、不在仓库里、无引用 ⇒ 实际影响可忽略，
+但这是**超出授权的不可逆删除** ⇒ `AGENTS.md` 已加机械规矩（清理只许用本脚本自己的前缀）。
+
+## §10.149 一次**环境假红**的定性与修法：模型缓存可重定向 + 棘轮把 failed 计入总账（`d608b6c`）
+
+**症状**：复核在它自己的树里跑全量，pytest 红：`2 failed, 2139 passed, 5 skipped` —— 失败的恰好是
+`tests/test_compliance.py::test_behavior_review_face_collection`（期望 `red`）与
+`tests/test_phase4.py::test_obligation_list_and_checklist`（期望 `count>=2`），两条都**依赖检索**。
+
+**定性（复核自己做的，二选一里选了"环境假红，有证据"）**：① 被验区间 `git diff --stat 2946d5b 2650da1 -- src tests`
+= **空**；② 在基线提交上重放那 3 条 ⇒ `3 passed`（218.87s，模型下载成功）；③ 近因是它自己的 `HF_HUB_OFFLINE=1`
+垫片 + `conftest` 换 `KS_DATA_DIR`（见上一节的更正）。
+
+**根因（我这一侧量的）**：`tests/conftest.py` 是 session 级 autouse ⇒ 每个 pytest 会话换一个全新数据目录 ⇒
+`models_dir`（`config.py:161-162`，默认 `<data_dir>/models`）**每次都是空的** ⇒ **每次全量重下 91MB** BGE；
+本机 `ALL_PROXY=http://127.0.0.1:7897`（端口能连、不响应）⇒ 下载**挂死**。
+
+**处置**：`Settings.models_dir` 支持 `KS_MODELS_DIR` 覆盖（`d608b6c`，4 条新测试钉住"只改模型缓存、不动 data_dir/db_path"）；
+`run-gates.ps1` 指到常驻 `%TEMP%\ks-gates-models`（本机无缓存时从真实缓存 seed 一次，**不联网**）。
+**实测**：那三条用例 **0.96s 全过**（原 218.87s 下载 / 代理挂死）。
+
+**棘轮那条是假诊断**（复核确认，已修）：`run-gates.ps1` 只抓 `N passed`/`N skipped` ⇒
+`2 failed + 2139 passed + 5 skipped = 2146 = 基线` 被读成"总账 2144 < 2146"，把**失败**误报成**少收集**。
+现在 failed/errors 计入总账，并进 note / 汇总行 / `ks-gates-last.txt`。
+
+## §10.150 登记：`-Full` 里一次 **79 分钟静默**（`tests/test_golden_gate` 在**全量上下文**里慢 580 倍）
+
+**事实（junit 逐条 `time` 读出来的，不是我估的）**：2026-09-21 15:36 那次全量 pytest 共 **4871.45s**，其中
+**4762.7s（79.4 分钟）** 全在 `tests/test_golden_gate.py::test_golden_gate_baseline_present`（模块级 fixture
+在跑 `eval/run_benchmark`，耗时算在第一个用它的人头上）；**其余最慢 6.0s**，超过 60s 的只有这 **1** 条。
+
+**对照（同一份代码、同一个 `KS_MODELS_DIR`）**：
+- 单跑 `tests/test_golden_gate.py` ⇒ **8.1s**，3 passed（fixture setup 7.50s）；
+- 跑 golden 之前的 **48 个文件**（a..golden_gate，664 passed）⇒ **63s**，其中该 fixture **7.01s**；
+- 13:36 那次全量（模型**不可用**，复核的离线垫片）⇒ pytest 共 **113.83s**；
+- **紧接着的 15:44 全量（同样的树、同样的模型缓存）⇒ 117.60s（2147 passed / 3 skipped），
+  该 fixture 7.02s**。
+
+⇒ **一次性的环境事件，复现不了**（三次对照里两次全量都正常）；**机制未查明**。
+已排除的假设：① "向量通道回退成重算全库"（`hybrid_engine.py:137-149` 只 `embed_query` 单条查询，
+**没有**整库重算路径）；② xdist 并行抢 CPU（`pyproject.toml` 无 `addopts`、无 xdist，28 核）；③ 前置测试污染
+（48 文件前缀 ⇒ 63s，复现不出）；④ 事后旁证：那两个 `eval/golden/knowledge-snapshot.db-shm/-wal` 的 mtime
+停在 **15:37:53**（= 我自己的探测），**再跑一次全量（含 golden 测试）mtime 不变** ⇒ 与 golden 测试无关；
+⑤"模型缓存目录首次被扫"（181MB 刚 seed）**未被验证**，只是剩下的候选之一。
+**待查方向**：门禁在 pytest **之前**先跑 34 套冒烟（复现时没跑）留下的残留进程/句柄；fastembed 在
+"socket 半死代理"下的加载期联网检查（`RETRY_COOLDOWN_S=60` 会让失败态在窗口内静默）。
+
+**已做的处置（只加可见性，不改判定）**：`run-gates.ps1` 给每步计时，超过预算（pytest 600s / 其余 240s）
+当场打黄色告警并指向 `--durations`；pytest 那步加 `--durations=10`（`13af632`）。**没有**给 pytest 加全局 timeout
+（那会把门禁直接判红 —— 是否这么做等业主拍板）。
+⚠ **更正**：本节初稿写"在查清之前，`-Full` 在本机可能耗时 ~85 分钟"—— 15:44 的复测是 **117.6s**，
+所以那 79 分钟是**偶发**，不是"查清前一直慢"。要防的是它**再犯时仍无声**，所以加了上面那条告警。
+
