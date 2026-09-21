@@ -76,6 +76,18 @@
 现行顺序：**第 4 步 =「待分类」界面 + 本地重导开关**（业主的积压在这儿：381 篇待分类 / 379 篇给不出建议）、
 **第 5 步 = 目录与文件的建改挪复制删 + 多选批量**、**第 6 步 = 范围提问接线**。
 
+⚠ **第 5 步的待办清单里现在还挂着这 4 条**（前三条来自第 4 步复核的残余与裁定，第四条第 4 步已交付）：
+1. **目录/文件的建改挪复制删界面 + 多选批量**（§四第 2、3 条那批接口早已做完，界面还是空的）。
+2. **`KsIngestPanel.tsx` 必须二选一**：接回上传流程（复活，用于"上传到任意一级"），
+   或**连它的矩阵与基线条目一起删**（`smoke-kb-pad-pixels` 的 MATRIX/EXPECTED_RUNS、
+   `UI-BASELINE` 的适用面）。**不许就那么悬着**（父代理 2026-09-21 裁定，见 §十九·补）。
+3. **两处"同一件事两种表现"要统一**（父代理 2026-09-21 登记，见 §十九·补 残余 4/5）：
+   `bulk` 的 `filing_state_written=false` 只进 `checkpoint.errors`（批次终态不体现）；
+   识别率算不出时 `doc_filing_state.confidence = None` 而 `/ingest/preview` 给 `0.0`
+   ⇒ 统一口径，**不许**用 `0.0` 假装"算出来了"。
+4. 「上传到任意一级」要把"导入即入库"真正跑通（第 4 步已修掉批量导入的空转缺陷，
+   但**真库上的端到端从没跑过**，见 §十九·未验清单）。
+
 ## 六、必须守住的既有约束
 
 - 台账 [NOT-DOING](NOT-DOING.md) **第 13 条**：知识库页的**搜索框保留、每层常驻**（目录层过滤目录名）；
@@ -744,6 +756,86 @@ bind 被系统拒绝，而 Spring Boot 把它报成了"已被占用"。
 **待确认（橙色）+ 识别率 93% + 建议路径 + `＋ 新建「P16 工程防火（新）」`** /
 **识别失败（红色）+ `（解析失败（正文条…` + 识别率 40% + `不在目录里`**；每行左勾选、行尾 ⋯。
 ⇒ 业主那句"每篇显示状态，好发现哪些要人工修"**在界面上兑现了**（数据来源是本步刚接上的管线写入）。
+
+
+## 十九·补·实施代理对三条小修的处置（2026-09-21，提交 `ea31479`）
+
+### ①【门槛变更·必验】`test_compliance::test_behavior_review_face_collection` 加了环境门槛
+
+- 改法照 `tests/test_retrieval.py::test_vec_channel` 的**既有先例**（in-test 判，不是模块级
+  `pytest.mark.skipif` —— 后者会在**收集期**调 `is_available()`，那时就去加载模型，太早）：
+  `pytest.importorskip("fastembed")` + `if not embedder.is_available(): pytest.skip(原因)`。
+  **判据一个字没改**、**没有**改成恒真、**没有**强制离线（离线会恒红 —— 那是把门槛藏起来）。
+- `scripts/gates-baseline.json`：`pytest_skipped` **3 → 4**，`pytest_total` 不变（2273），
+  `environmental_skip_nodeids` 加入该 nodeid（环境白名单 ⇒ 模型不可用时的跳过不算"新跳过"）。
+  ⚠ 口径说明（免得下一个读基线的人误会）：这份基线里 `pytest_passed` 是**本机（模型可用）**
+  那个数，`pytest_skipped` 记的是**允许的环境跳过条数上限** —— 两者不是同一次运行的快照；
+  棘轮只读 `passed+skipped+failed+errors ≥ pytest_total`，两种环境都成立
+  （模型可用：2270+3；不可用：2269+4 —— 都是 2273）。
+- **三档证据（都实跑）**：
+  1. **模型可用 ⇒ 它仍然真的跑**：`pytest -q -rs tests/test_compliance.py::test_behavior_review_face_collection`
+     ⇒ `1 passed in 13.38s`（真下载/加载 BGE 后执行）。
+  2. **强制离线 ⇒ 走跳过、不红**：用一个临时 pytest 插件（`%TEMP%` 里，不进仓）把
+     `embedder.is_available` 打成 `lambda: False`，`pytest -q -rs -p <插件>` ⇒
+     `1 skipped` 并打出原因：「向量引擎不可用（BGE 未加载成功）⇒ 六路召回退化为 FTS ⇒
+     这条判决必然落到 yellow；按 R30 降级路径如实跳过，不改判据」。
+  3. **全量 pytest 0 failed**：见本节末尾。
+
+### ② `smoke-settings.mjs` 的覆盖判据补成**有牙**（复核点名的"多一个未声明类目也会红不成立"）
+
+- **类目集合改成三份互比**（原来只点名 5 个，实际 7 组 ⇒ 漏判「参考资料」「渠道台账」）：
+  ① 冻结清单 `EXPECTED_CATEGORIES`（7 组，脚本里）；
+  ② **源码机械抽出** = `<KsCategory … title="X">` 的 title ∪ 源码里**字面**锚点 `data-ks-cat="Y"`；
+  ③ **SSR 真渲染** = `data-ks-cat` 的实际值。②③① 必须逐字相等。
+  为什么要②用两个来源：只数 `<KsCategory` 会漏掉"不走 KsCategory 的那一组"（= API配置），
+  只数字面锚点会漏掉新加的 `KsCategory`（它的锚点是 `{title}` 表达式）—— 两边一起收才两个方向都堵上。
+- 为让"组"机械可抽，给 `KsSettingsSection.tsx` 的两处 `<details>` 加了 `data-ks-cat`
+  锚点（`KsCategory` 上是 `{title}`；API配置 那组不走 KsCategory，写成字面量）——
+  同 `data-on` / `data-current` / `data-depth` 的既有做法。
+- **"入库预览入口不许回来"不再依赖固定字符串**：原文是
+  `if (html.includes('入库前只读体检'))`（复核："按提示把入口加回去才红"，改一个字就绕过）。
+  现在判**结构性事实** —— 设置**代码**里不许出现 `KsIngestPanel`（面板 `visible=false` 时
+  SSR 什么都不渲染，所以只能判源码）。⚠ 判前**剥注释**：本批第一版没剥，被我自己那段
+  "撤掉入口"的**留痕注释**假红（同 `smoke-client-entry` 的"判据要判代码、不判散文"）。
+- **删掉一条判据并说明为什么**（本仓规矩：删了要留痕）：原来还有"`<details>` 个数 == 类目数"，
+  实测渲染 **9** 个 details 而类目 **7** 组（设置里有嵌套 details）⇒ 它比的是两件不同的事，
+  留着只会假红或假绿。它要防的"某组没带锚点"由上面的三份集合相等兜住（少一个锚点 = 渲染侧少一组 = 红）。
+- **变异实测（都是合法代码）**：
+  · **M-A** 新增一个**未声明**的类目（无锚点）⇒ `smoke-settings` **exit 1**，
+    诊断正中根因：「冻结清单 7 组 / 源码抽出 **8** 组 / SSR 渲染 **8** 组 …
+    **多出来=[变异类目]**」；还原 ⇒ exit 0。
+  · **M-B** 把 `KsIngestPanel` 挂回**已有**类目里（类目集合不变，专门验第二条判据）⇒
+    **exit 1**：「设置里没有挂回那组'只读体检'面板（**代码**里 3 处 KsIngestPanel；
+    原文 5 处，差额 2 处在注释里=留痕文字，不算）」；还原 ⇒ exit 0。
+    ⚠ 第一次做 M-B 时我只加了 JSX 忘了 import ⇒ `SSR_FAIL: KsIngestPanel is not defined`：
+    **那不算判据红了**（变异本身不合法），当场补上 import 重做（记一次）。
+
+### ③ `smoke-settings` 不再弄脏工作树（工具产物）
+
+- 根因（复核实测 171KB 未跟踪 `.smoke-settings-bundle.mjs`）：`entry` 里的每个失败分支都是
+  `process.exit(1)` ⇒ 进程**直接走人**，脚本末尾那句 `await rm(outPath)` **根本不会执行**
+  （只有全绿那一趟才清）。
+- 修法：清理挂到 `process.on('exit')`（**同步** `rmSync`；`process.exit()` 也会走到它），
+  并在**开跑前先清一次**（上一跑被强杀留下的，这一跑自带自愈）。末尾那句 `rm` 保留（幂等）。
+- **为什么不用 `.gitignore`**（两条路选一条）：那会让"真留下了垃圾"变成 `git status` **看不见** ——
+  本仓的纪律是"别把问题藏进配置里、让它在现场可见"。强杀（SIGKILL/超时）时 exit 钩子来不及跑，
+  那时文件**留在工作树里被看见**，那是诚实的结果。
+- **证据**：跑完 `node plugin/scripts/smoke-settings.mjs` 后 `git status --short` 里
+  **只有我本批改的那几个文件、没有任何未跟踪产物**；且在 M-A / M-B 两次**判红**的运行、
+  以及那次 `SSR_FAIL` 的运行之后，`Get-ChildItem plugin -Filter '.smoke-settings*'` 都是空的。
+
+### ④ 两条【登记，本批不做】—— 已在 §五「第 5 步的待办清单」里挂上
+
+父代理登记的这两条（`bulk` 的 `filing_state_written=false` 不进终态；识别率算不出时
+`confidence=None` 而预览给 `0.0`）本批**没有动代码**，只把它们记进 §五的第 5 步清单
+（连同 `KsIngestPanel` 的二选一与"上传即入库的真库端到端"），免得下一批任务书漏掉。
+
+### 本轮实测（提交 `ea31479` 之后又跑了这三条）
+
+- `pnpm typecheck` ⇒ **0 错**；`pnpm -C plugin run build:client` ⇒ 成功（`plugin/client.js`
+  含新加的 `data-ks-cat` 锚点，已随提交重建）。
+- `smoke-client-entry` ⇒ **139/139**（它有一条"交付产物 ↔ 从源码现构建整份一致"）。
+- `smoke-settings` ⇒ **exit 0**（四条判据全 PASS），跑完工作树无未跟踪产物。
 
 
 
