@@ -32626,9 +32626,14 @@ var KS_STYLES = `
      \u7A84\u4FA7\u680F\u91CC\u8FD8\u4F1A\u628A 4 \u884C\u6324\u51FA\u4E00\u5C4F\uFF08weknora-ui-vs-ours \xA77.3/\xA77.4 \u5DF2\u88C1\u5B9A\uFF09\u3002
    \u26A0 \u6B63\u9762\u7EA6\u675F**\u4E00\u6761\u90FD\u6CA1\u64A4**\uFF085b \u4FEE\u300C\u8BE6\u60C5\u300D\u7AD6\u6392\u6298\u884C\u7684\u90A3\u7EC4\uFF09\uFF1Abox-sizing:border-box +
      min-width:0 \u4ECD\u5728\uFF1B\u884C\u5C3E\u89E6\u53D1\u5668\u6709 .ks-item-more{flex:none;white-space:nowrap}\u3002
-   \u26A0 **"\u6574\u884C\u53EF\u70B9"\u6CA1\u6709\u505A**\uFF08\u6E05\u5355 P1-1 \u91CC\u90A3\u6761\u5EFA\u8BAE\uFF0C\u89C1 KsKnowledgePage.tsx \u7684\u540C\u4E00\u6BB5\u6CE8\u91CA\uFF09\u3002 */
+   \u26A0 **"\u6574\u884C\u53EF\u70B9"\u505A\u4E86\uFF08\u4E1A\u4E3B 2026-09-21 \u5B9A\uFF1A\u52FE\u9009\u6846\u53EA\u7BA1\u52FE\u9009\uFF1B\u70B9\u540D\u5B57\u6216\u884C\u5185\u4EFB\u610F\u5904 \u2192 \u6253\u5F00\u8BE6\u60C5\uFF09**\u3002
+     \u5206\u6D41\u89C4\u5219\u4E0E\u952E\u76D8\u8DEF\u5F84\u7684\u552F\u4E00\u6240\u6709\u8005\u5728 KsKnowledgePage.tsx \u7684 openRowDetail\uFF1B
+     hover \u53CD\u9988\u6CBF\u7528\u4E0B\u9762\u65E2\u6709\u90A3\u6761 .ks-item:hover\uFF08\u5BBF\u4E3B interactive-bg-hover token\uFF0C**\u4E0D\u65B0\u9020\u989C\u8272**\uFF09\u3002
+     **\u7559\u75D5\uFF08\u4E0D\u8BB8\u5220\uFF09**\uFF1A\u8FD9\u91CC\u66FE\u5199\u300C**"\u6574\u884C\u53EF\u70B9"\u6CA1\u6709\u505A**\u300D\uFF08\u6E05\u5355 P1-1 \u91CC\u90A3\u6761\u5EFA\u8BAE\uFF09\uFF0C
+     2026-09-20 \u590D\u6838\u6253\u56DE\u66F4\u6B63\u6210\u300C\u672A\u505A\uFF08\u4E0D\u662F\u505A\u4E0D\u4E86\uFF09\u300D+ \u4E09\u6761\u5019\u9009 \u2014\u2014 \u672C\u8F6E\u843D\u4E86\u5019\u9009 \u2460
+     \uFF08\u884C onClick + closest \u5206\u6D41\uFF09\uFF1B\u5019\u9009 \u2462 \u5728\u6838\u8FC7\u5BBF\u4E3B\u6E90\u7801\u540E**\u786E\u8BA4\u505A\u4E0D\u4E86**\uFF08label \u5FC5\u53EF\u89C1\uFF09\u3002 */
 .ks-item{padding:var(--ks-space-1) var(--ks-space-3);
-  min-width:0;min-height:var(--ks-row-h-list)}
+  min-width:0;min-height:var(--ks-row-h-list);cursor:pointer}
 /* \u884C\u95F4 1px \u5206\u9694\u7EBF\uFF08\u53C2\u7167\u662F"\u53EA\u5728\u884C\u95F4\u3001\u6CA1\u6709\u7AD6\u5206\u9694\u7EBF"\uFF09\u3002
    \u26A0 \u7528 \u300C+\u300D \u76F8\u90BB\u5144\u5F1F\uFF1A\u7B2C\u4E00\u884C\u4E0D\u8BE5\u6709\u4E0A\u5206\u9694\u7EBF\uFF08\u8868\u5934\u81EA\u5DF1\u7684 border-bottom \u5C31\u662F\u90A3\u6761\u7EBF\uFF09\u3002 */
 .ks-item + .ks-item{border-top:var(--ks-stroke) solid var(--dsw-alias-border-l1)}
@@ -32661,12 +32666,14 @@ var KS_STYLES = `
      \u21D2 \u6587\u4EF6\u540D\u5C31\u4EA4\u7ED9\u5B83\u6E32\u67D3\uFF08\u5B83\u5929\u7136\u5E26\u7701\u7565\u53F7\u80FD\u529B\uFF09\u3002\u4F46**\u6587\u5B57\u90A3\u5C42 span \u662F\u5BBF\u4E3B\u7684**\uFF0C\u6837\u5F0F\u6539\u4E0D\u52A8
      \uFF08CSS Module \u54C8\u5E0C\u7C7B\uFF0C\u53EA\u58F0\u660E\u4E0D\u4E86\uFF09\uFF0C\u6240\u4EE5\u6587\u4EF6\u540D\u5148\u7528\u6211\u4EEC\u81EA\u5DF1\u7684\u4E00\u5C42\u5305\u7740\uFF1A
      .ks-check > span\uFF08\u5BBF\u4E3B\u7684\u53EF\u89C1\u6587\u5B57\u5C42\uFF09\u91CC\u518D\u653E\u6211\u4EEC\u7684\u5B57\u53F7/\u989C\u8272\u3002
-   \u26A0 **\u6574\u884C\u53EF\u70B9\uFF1A\u672A\u505A\uFF08\u4E0D\u662F\u505A\u4E0D\u4E86\uFF09** \u2014\u2014 2026-09-20 \u590D\u6838\u6253\u56DE\u66F4\u6B63\uFF08B6\uFF09\uFF1A\u53EF\u89C1 label \u53EA\u5426\u6389\u4E86
-     "\u6574\u884C\u65E0\u5DEE\u522B\u518D\u5403\u4E00\u6B21 click"\u8FD9\u4E00\u79CD\u5199\u6CD5\uFF08\u4F1A\u4E0E\u70B9\u52FE\u9009\u6846\u6253\u67B6\uFF09\uFF1B\u6B63\u5F53\u505A\u6CD5\u81F3\u5C11\u4E09\u6761\uFF1A
-     \u2460 \u884C onClick + event.target.closest('label,input,button') \u6392\u9664\uFF1B\u2461 onClick \u53EA\u7ED1\u6587\u4EF6\u540D\u90A3\u4E00\u5217\uFF1B
-     \u2462 Checkbox \u4F20 sr-only label + \u72EC\u7ACB\u7684\u6587\u4EF6\u540D\u5143\u7D20\uFF08\u2462 \u5BBF\u4E3B\u662F\u5426\u652F\u6301 sr-only label **\u672A\u6838**\uFF09\u3002
-     \u672C\u8F6E\u672A\u505A\u3001\u7406\u7531\u4E0E\u4EE3\u4EF7\u89C1 docs/UI-BASELINE.md 5f \u4E09\u5904\u7559\u75D5\u7B2C 1 \u6761\uFF1B\u5DF2\u767B\u8BB0 P2
-     \uFF08docs/research/weknora-ui-vs-ours.md \xA78.1 \u7684 P2-2\uFF09\u3002 */
+   \u26A0 **\u6574\u884C\u53EF\u70B9\uFF1A\u505A\u4E86\uFF08\u4E1A\u4E3B 2026-09-21 \u5B9A\uFF09** \u2014\u2014 \u5206\u5DE5\uFF1A**\u52FE\u9009\u6846\u53EA\u7BA1\u52FE\u9009**\uFF0C\u70B9\u540D\u5B57\uFF08= \u8FD9\u4E00\u5C42
+     label\uFF09/ \u884C\u5185\u4EFB\u610F\u5904 **\u6253\u5F00\u8BE6\u60C5**\u3002**\u7559\u75D5\uFF08\u4E0D\u8BB8\u5220\uFF09**\uFF1A\u8FD9\u91CC 2026-09-20 \u590D\u6838\u6253\u56DE\u66F4\u6B63\uFF08B6\uFF09\u65F6
+     \u5199\u7684\u662F\u300C\u672A\u505A\uFF08\u4E0D\u662F\u505A\u4E0D\u4E86\uFF09\u300D+ \u4E09\u6761\u5019\u9009\uFF1A\u2460 \u884C onClick + event.target.closest('label,input,button')
+     \u6392\u9664\uFF08**\u672C\u8F6E\u843D\u7684\u5C31\u662F\u5B83**\uFF0C\u5206\u6D41\u8868\u5728 KsKnowledgePage.tsx \u7684 openRowDetail\uFF09\uFF1B\u2461 onClick \u53EA\u7ED1
+     \u6587\u4EF6\u540D\u90A3\u4E00\u5217\uFF1B\u2462 Checkbox \u4F20 sr-only label + \u72EC\u7ACB\u7684\u6587\u4EF6\u540D\u5143\u7D20 \u2014\u2014 **\u672C\u8F6E\u6838\u8FC7\u5BBF\u4E3B\u6E90\u7801\uFF0C
+     \u2462 \u505A\u4E0D\u4E86**\uFF1ACheckbox.tsx \u5168\u6587 30 \u884C\u3001props \u53EA\u6709 {checked,onChange,label,disabled,title,className}
+     \u21D2 \u6CA1\u6709 aria-label \u900F\u4F20\u3001\u6CA1\u6709 sr-only \u53E3\u5B50\uFF0Clabel \u6C38\u8FDC\u6E32\u67D3\u6210**\u53EF\u89C1** <span>\u3002
+     \u8BE6\u7EC6\u767B\u8BB0\u89C1 docs/UI-BASELINE.md 5f \u4E09\u5904\u7559\u75D5\u7B2C 1 \u6761\u4E0E weknora-ui-vs-ours \xA78.1 \u7684 P2-2\u3002 */
 .ks-item .ks-check{grid-area:1/2;min-width:0}
 .ks-item .ks-check>span{display:block;flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   color:var(--dsw-alias-label-primary);font-size:var(--ks-fs-md);line-height:1.4}
@@ -33763,6 +33770,14 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
       return set;
     });
   };
+  const openRowDetail = (doc, e) => {
+    const target = e.target;
+    if (target === null || typeof target.closest !== "function") return;
+    if (target.closest("input[type=checkbox]") !== null) return;
+    if (target.closest("button,a,[role=menuitem],[role=menu]") !== null) return;
+    if (target.closest("label") !== null) e.preventDefault();
+    setOpenDoc((prev) => prev === doc.id ? null : doc.id);
+  };
   const tagSelected = () => {
     setDocs((prev) => prev.map((d) => selected.has(d.id) && !d.tags.includes("\u5F85\u5F52\u7C7B") ? { ...d, tags: [...d.tags, "\u5F85\u5F52\u7C7B"] } : d));
   };
@@ -34200,7 +34215,23 @@ function KsKnowledgePage({ useTabInfo, dataSource }) {
                       );
                   }
                 };
-                return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: openDoc === doc.id ? "ks-item ks-item-on" : "ks-item", children: COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: `ks-cell ${col.cls}`, children: cellFor(col.key) }, col.key)) }, doc.id);
+                return (
+                  /* 整行可点（业主 2026-09-21）：分流规则在 `openRowDetail` 里，唯一所有者。
+                     ⚠ 它是 **div**（不是 button）：行内已经有勾选框/⋮ 两个真控件，把行做成按钮会
+                       嵌套交互元素（HTML 非法 + 读屏器读成两个控件）⇒ 保持 div + onClick，
+                       键盘路径仍走「⋮ → 详情」。 */
+                  /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+                    "div",
+                    {
+                      className: openDoc === doc.id ? "ks-item ks-item-on" : "ks-item",
+                      onClick: (e) => {
+                        openRowDetail(doc, e);
+                      },
+                      children: COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: `ks-cell ${col.cls}`, children: cellFor(col.key) }, col.key))
+                    },
+                    doc.id
+                  )
+                );
               })
             ] }),
             listed.length === 0 && /* 空态卡（P0-5）：64px 圆图标 + 标题 + 描述 + 主按钮（照 WeKnora EmptyState）。

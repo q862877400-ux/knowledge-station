@@ -115,7 +115,7 @@
  * - 树里的文档集合是手写的样例，不是真实索引。
  */
 
-import { Fragment, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
+import { Fragment, useEffect, useMemo, useRef, useState, type MouseEvent as ReactMouseEvent, type ReactNode } from 'react'
 import { Button, Checkbox, IconArchiveOutline20, IconChecklistOutline14, IconChevronDownOutline14, IconChevronLeftOutline14, IconChevronRightOutline14, IconEllipsisOutline16, IconFolderOpenOutline16, IconInfoOutline14, IconInspectOutline12, IconListPenOutline16, IconPlusOutline16, IconSearchOutline16, IconShieldOutline16, IconTrashOutline16, Input, Menu, Pill } from '@deepseek-ai/dsh-client-ui-primitives'
 
 import { ensureKsStyles } from './ksGuideStyles'
@@ -829,6 +829,39 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
     })
   }
 
+  /**
+   * **整行可点 ⇒ 打开详情**（**业主 2026-09-21 亲口定**：「**勾选框只管勾选；点名字或行内任意处 →
+   * 打开详情**」）。旧行为（改造前）：点名字 = **顺带勾选**（因为文件名就是宿主 Checkbox 的
+   * `label`，点 label 会被浏览器转发成"点勾选框"）—— 那正是业主这次点名要改掉的。
+   *
+   * 为什么只能"按点击目标分流"（宿主原语把路逼窄了，复核已核）：
+   *   `Checkbox.tsx` 全文 30 行，props 只有 `{checked,onChange,label,disabled,title,className}`
+   *   ⇒ **没有 `aria-label` 透传、没有 sr-only 口子**，`label` 永远渲染成**可见** `<span>`；
+   *   文件名与勾选框因此是**同一个 `<label>`**（DOM：`<label class="ks-check"><input><span>名字</span></label>`）。
+   *   ⇒ 候选③（sr-only label + 另起一份名字元素）**做不了**；**也不许**再渲染第二份名字
+   *   （会撞"同名重复"护栏）⇒ 只剩这一条路。
+   *
+   * 分流规则（唯一所有者；`smoke-kb-page-render.mjs` 的四条断言逐条钉住）：
+   *   ① `input[type=checkbox]`（小方框本身）⇒ **不处理**：勾选照旧，且**不**切换详情；
+   *   ② `button` / `a` / 菜单（含行尾「⋮」与它 portal 出去的 `[role=menuitem]`）⇒ **不处理**；
+   *   ③ `label`（= 名字那一串）⇒ 先 `preventDefault()` **掐断 label → 勾选框的转发**（不掐断
+   *      就等于旧行为"点名字顺带勾选"），再打开详情；
+   *   ④ 其余任意处（图标 / 标准号 / 日期 / 标签区 / 空白）⇒ 打开详情。
+   * 再点同一行 = 收起（与「⋮ → 详情」的 toggle 语义一致）。
+   *
+   * 键盘（**没有**因为整行可点而堵死任何一条无障碍路径）：勾选框仍是 Tab + 空格可勾；
+   * "打开详情"的键盘路径是「⋮ → 详情」（`aria-haspopup=menu` 的真 button，Tab 可达、Enter 激活）。
+   * 行内**可见控件数不变**（勾选框 + 状态徽章 + ⋮ = 3；本函数不新增任何控件）。
+   */
+  const openRowDetail = (doc: MockDoc, e: ReactMouseEvent<HTMLDivElement>): void => {
+    const target = e.target as (HTMLElement | null)
+    if (target === null || typeof target.closest !== 'function') return
+    if (target.closest('input[type=checkbox]') !== null) return
+    if (target.closest('button,a,[role=menuitem],[role=menu]') !== null) return
+    if (target.closest('label') !== null) e.preventDefault()
+    setOpenDoc((prev) => (prev === doc.id ? null : doc.id))
+  }
+
   // 批量动作都作用在**本地状态**上（后端未接）。这样业主能真看到结果，而不是点了没反应。
   const tagSelected = (): void => {
     setDocs((prev) => prev.map((d) => (selected.has(d.id) && !d.tags.includes('待归类')
@@ -1271,13 +1304,13 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                               我们是 [图标][勾选+名字] —— 这是宿主原语给的形状，不是没做。 */}
                         <span className="ks-fileico" title={docGlyphLabel(doc.no)}>{docGlyph(doc.no)}</span>
                         {/* 文件名**就是** Checkbox 的 label（可访问名 = 文件名，且只渲染一次）。
-                            ⚠ **整行可点：未做（不是做不了）** —— 2026-09-20 复核打回更正（B6）：
-                              可见 label 只否掉了"整行无差别再吃一次 click"这一种写法（会与
-                              "点勾选框 = 勾选"打架）；正当做法至少三条：① 行 onClick +
-                              event.target.closest('label,input,button') 排除；② onClick 只绑文件名列；
-                              ③ Checkbox 传 sr-only label + 独立的文件名元素（③ 未核宿主是否支持）。
-                              代价见 docs/UI-BASELINE.md 5f 三处留痕第 1 条；登记在
-                              docs/research/weknora-ui-vs-ours.md §8.1 的 P2-2。 */}
+                            ⚠ **整行可点：做了（业主 2026-09-21 定）** —— 见组件里 `openRowDetail` 的
+                              长注释（宿主 Checkbox 无 sr-only/aria-label 口子 ⇒ 候选③做不了；
+                              分流规则与键盘路径都写在那一处，唯一所有者）。**留痕（不许删）**：
+                              2026-09-20 复核打回更正（B6）曾把这里写成「**整行可点：未做（不是做不了）**」，
+                              并列了三条候选与代价；其中 ① （行 onClick + closest 排除）就是本轮落地的写法，
+                              ③ 在核过宿主源码后**确认做不了**（label 必可见）。旧行为「点名字 = 勾选」
+                              已按业主决定改掉，改造前的那句留痕见 docs/UI-BASELINE.md 5f 三处留痕第 1 条。 */}
                         <Checkbox
                           className="ks-check"
                           checked={selected.has(doc.id)}
@@ -1356,7 +1389,15 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                 }
               }
               return (
-                <div className={openDoc === doc.id ? 'ks-item ks-item-on' : 'ks-item'} key={doc.id}>
+                /* 整行可点（业主 2026-09-21）：分流规则在 `openRowDetail` 里，唯一所有者。
+                   ⚠ 它是 **div**（不是 button）：行内已经有勾选框/⋮ 两个真控件，把行做成按钮会
+                     嵌套交互元素（HTML 非法 + 读屏器读成两个控件）⇒ 保持 div + onClick，
+                     键盘路径仍走「⋮ → 详情」。 */
+                <div
+                  className={openDoc === doc.id ? 'ks-item ks-item-on' : 'ks-item'}
+                  key={doc.id}
+                  onClick={(e) => { openRowDetail(doc, e) }}
+                >
                   {COLUMNS.map((col) => (
                     <div className={`ks-cell ${col.cls}`} key={col.key}>{cellFor(col.key)}</div>
                   ))}

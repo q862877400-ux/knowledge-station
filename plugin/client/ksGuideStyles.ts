@@ -459,9 +459,14 @@ export const KS_STYLES = `
      窄侧栏里还会把 4 行挤出一屏（weknora-ui-vs-ours §7.3/§7.4 已裁定）。
    ⚠ 正面约束**一条都没撤**（5b 修「详情」竖排折行的那组）：box-sizing:border-box +
      min-width:0 仍在；行尾触发器有 .ks-item-more{flex:none;white-space:nowrap}。
-   ⚠ **"整行可点"没有做**（清单 P1-1 里那条建议，见 KsKnowledgePage.tsx 的同一段注释）。 */
+   ⚠ **"整行可点"做了（业主 2026-09-21 定：勾选框只管勾选；点名字或行内任意处 → 打开详情）**。
+     分流规则与键盘路径的唯一所有者在 KsKnowledgePage.tsx 的 openRowDetail；
+     hover 反馈沿用下面既有那条 .ks-item:hover（宿主 interactive-bg-hover token，**不新造颜色**）。
+     **留痕（不许删）**：这里曾写「**"整行可点"没有做**」（清单 P1-1 里那条建议），
+     2026-09-20 复核打回更正成「未做（不是做不了）」+ 三条候选 —— 本轮落了候选 ①
+     （行 onClick + closest 分流）；候选 ③ 在核过宿主源码后**确认做不了**（label 必可见）。 */
 .ks-item{padding:var(--ks-space-1) var(--ks-space-3);
-  min-width:0;min-height:var(--ks-row-h-list)}
+  min-width:0;min-height:var(--ks-row-h-list);cursor:pointer}
 /* 行间 1px 分隔线（参照是"只在行间、没有竖分隔线"）。
    ⚠ 用 「+」 相邻兄弟：第一行不该有上分隔线（表头自己的 border-bottom 就是那条线）。 */
 .ks-item + .ks-item{border-top:var(--ks-stroke) solid var(--dsw-alias-border-l1)}
@@ -494,12 +499,14 @@ export const KS_STYLES = `
      ⇒ 文件名就交给它渲染（它天然带省略号能力）。但**文字那层 span 是宿主的**，样式改不动
      （CSS Module 哈希类，只声明不了），所以文件名先用我们自己的一层包着：
      .ks-check > span（宿主的可见文字层）里再放我们的字号/颜色。
-   ⚠ **整行可点：未做（不是做不了）** —— 2026-09-20 复核打回更正（B6）：可见 label 只否掉了
-     "整行无差别再吃一次 click"这一种写法（会与点勾选框打架）；正当做法至少三条：
-     ① 行 onClick + event.target.closest('label,input,button') 排除；② onClick 只绑文件名那一列；
-     ③ Checkbox 传 sr-only label + 独立的文件名元素（③ 宿主是否支持 sr-only label **未核**）。
-     本轮未做、理由与代价见 docs/UI-BASELINE.md 5f 三处留痕第 1 条；已登记 P2
-     （docs/research/weknora-ui-vs-ours.md §8.1 的 P2-2）。 */
+   ⚠ **整行可点：做了（业主 2026-09-21 定）** —— 分工：**勾选框只管勾选**，点名字（= 这一层
+     label）/ 行内任意处 **打开详情**。**留痕（不许删）**：这里 2026-09-20 复核打回更正（B6）时
+     写的是「未做（不是做不了）」+ 三条候选：① 行 onClick + event.target.closest('label,input,button')
+     排除（**本轮落的就是它**，分流表在 KsKnowledgePage.tsx 的 openRowDetail）；② onClick 只绑
+     文件名那一列；③ Checkbox 传 sr-only label + 独立的文件名元素 —— **本轮核过宿主源码，
+     ③ 做不了**：Checkbox.tsx 全文 30 行、props 只有 {checked,onChange,label,disabled,title,className}
+     ⇒ 没有 aria-label 透传、没有 sr-only 口子，label 永远渲染成**可见** <span>。
+     详细登记见 docs/UI-BASELINE.md 5f 三处留痕第 1 条与 weknora-ui-vs-ours §8.1 的 P2-2。 */
 .ks-item .ks-check{grid-area:1/2;min-width:0}
 .ks-item .ks-check>span{display:block;flex:1 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   color:var(--dsw-alias-label-primary);font-size:var(--ks-fs-md);line-height:1.4}

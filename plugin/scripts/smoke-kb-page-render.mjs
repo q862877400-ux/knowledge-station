@@ -141,8 +141,17 @@ export function mount(container, props) {
 
   const q = (sel) => [...container.querySelectorAll(sel)]
   const byText = (sel, text) => q(sel).find((el) => (el.textContent ?? '').includes(text))
+  /* ⚠⚠ **`cancelable: true` 是必须的**（2026-09-21，「整行可点」落地时当场暴露）：
+   *   真浏览器里用户点击（以及 `el.click()`）产生的 click 是**可取消**的；而
+   *   `new MouseEvent('click', { bubbles: true })` 的 `cancelable` 默认 **false**
+   *   ⇒ 事件里任何 `preventDefault()` 都成了**空操作**（DOM 规范：不可取消的事件上
+   *   preventDefault 不置 canceled 标志）⇒ jsdom 照旧跑 `<label>` 的 activation behavior。
+   *   症状：`openRowDetail` 里的 preventDefault 掐不断 label → 勾选框的转发，7c 红而
+   *   **真浏览器里其实是好的** —— 那是**桩与真浏览器不同形**，不是产品缺陷。
+   *   ⇒ 修的是桩（这里），不是产品代码；这条也不放宽任何判据（preventDefault 只在
+   *     行级 onClick 里出现过一处）。 */
   const click = async (el) => {
-    el.dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }))
+    el.dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true, cancelable: true }))
     await flush()
   }
   const setInput = async (el, value) => {
@@ -1084,6 +1093,55 @@ export function mount(container, props) {
   check('详情里的日期是**真值**（不是占位破折号）',
     /\d{4}-\d{2}-\d{2}/.test(detailText),
     (detailText.match(/\d{4}-\d{2}-\d{2}/g) ?? []).slice(0, 3).join(' '))
+
+  /* ══════════ 断言 7b–7e：**整行可点 ⇒ 打开详情**（业主 2026-09-21 定） ══════════
+   * 业主原话：「**勾选框只管勾选；点名字或行内任意处 → 打开详情**」。
+   * ⚠⚠ **这一组改掉了旧行为，7c 就是专门钉那个翻转的**：改造前点**名字**会**顺带勾选**
+   *   （文件名就是宿主 Checkbox 的可见 `label`；点 label 会被浏览器转发成"点勾选框"）。
+   *   **旧断言有没有？逐条查过：没有。** 本文件里对 `.ks-check`/label 的 click 一处都没有
+   *   （对勾选框的 click 只有 1035/1048 两处，点的都是 `input[type=checkbox]` 本身）——
+   *   ⇒ 旧行为是**浏览器默认行为**，从来没有被写成断言，所以这里是"新加"而不是"改判据"；
+   *   7c 之后它被钉死了：谁把 `preventDefault()` 去掉，这条立刻红。
+   * ⚠ **覆盖边界（先说清）**：行为级只有**本文件这一处**（jsdom 的真事件）。
+   *   `--interact kb-detail`（真 Chrome）走的仍是「⋮ → 详情」—— 真浏览器那条链里，
+   *   整行可点只体现为行级 `cursor:pointer`（`ui-render-shot.mjs` 量不到"点一下会怎样"）。
+   * 分流规则的唯一所有者 = `KsKnowledgePage.tsx` 的 `openRowDetail`：
+   *   `input[type=checkbox]` / `button,a,菜单` ⇒ 不动；`label`（名字）⇒ preventDefault + 打开详情；
+   *   其余任意处 ⇒ 打开详情。 */
+  const detailName = () => (container.querySelector('.ks-detail .ks-kb-ct')?.textContent ?? '').trim()
+  const rowNameOf = (row) => (row.querySelector('.ks-check span')?.textContent ?? '').trim()
+  const rowChecked = (row) => row.querySelector('input[type=checkbox]')?.checked === true
+  // ── 7b：点**非交互处**（生效日期格）⇒ 详情出现，且内容是**那一篇**的元数据 ──
+  const dateCell = rows[2].querySelector('.ks-col-date')
+  await click(dateCell)
+  check('整行可点：点行内**非交互处**（生效日期格）⇒ 打开**那一篇**的详情（不是别人的元数据）',
+    detailName() !== '' && detailName() === rowNameOf(rows[2]),
+    `点第 3 行日期格 ⇒ 详情标题「${detailName()}」／该行文件名「${rowNameOf(rows[2])}」`)
+  // ── 7c：点**名字** ⇒ 详情出现，且**勾选状态不变**（= 业主这次点名要改掉的旧行为） ──
+  await click(rows[0].querySelector('input[type=checkbox]'))   // 造一个"已勾上"的已知状态
+  const before7c = { checked: rowChecked(rows[0]), detail: detailName() }
+  await click(rows[0].querySelector('.ks-check span'))         // 点名字那一串（label 里的可见文字）
+  const after7c = { checked: rowChecked(rows[0]), detail: detailName() }
+  check('整行可点：点**名字** ⇒ 详情切到那一篇，且**勾选状态不变**（旧行为"点名字 = 勾选"已按业主 2026-09-21 的决定改掉）',
+    before7c.checked === true && after7c.checked === true
+    && after7c.detail === rowNameOf(rows[0]) && before7c.detail !== after7c.detail,
+    `点名字前 勾选=${String(before7c.checked)} 详情「${before7c.detail}」 ⇒ 点后 勾选=${String(after7c.checked)} `
+      + `详情「${after7c.detail}」（若 label 的转发没被 preventDefault 掐断，这里会变成 勾选=false 或详情不变）`)
+  // ── 7d：点**勾选框本身** ⇒ 勾选翻转，且**不**因此切换详情 ──
+  const before7d = { checked: rowChecked(rows[0]), detail: detailName() }
+  await click(rows[0].querySelector('input[type=checkbox]'))
+  const after7d = { checked: rowChecked(rows[0]), detail: detailName() }
+  check('整行可点：点**勾选框本身** ⇒ 勾选翻转，且**不**因此切换详情（分流①：小方框只管勾选）',
+    after7d.checked === !before7d.checked && after7d.detail === before7d.detail,
+    `勾选 ${String(before7d.checked)} → ${String(after7d.checked)}；详情「${before7d.detail}」→「${after7d.detail}」`)
+  // ── 7e：**行尾「⋮」没被吃掉** —— 菜单开、菜单里的「详情」仍能切（键盘用户的路径） ──
+  await click(rows[1].querySelector('.ks-item-more button'))
+  const menuItems7e = [...document.querySelectorAll('[role=menuitem]')].map((el) => (el.textContent ?? ''))
+  const detailItem7e = [...document.querySelectorAll('[role=menuitem]')].find((el) => (el.textContent ?? '') === '详情')
+  await click(detailItem7e)
+  check('整行可点：**行尾「⋮」仍是打开详情的键盘路径**（点它菜单真的开，菜单里点「详情」仍能切 —— 本轮没堵死它）',
+    menuItems7e.includes('详情') && detailName() === rowNameOf(rows[1]),
+    `⋮ 菜单项=[${menuItems7e.join('|')}]；点「详情」后详情标题「${detailName()}」／该行文件名「${rowNameOf(rows[1])}」`)
 
   // ── 断言 8：标签视图（取代收藏）+ 检索语法当场回显 ──
   const tagsPill = q('button').find((b) => (b.textContent ?? '').trim() === '标签')
