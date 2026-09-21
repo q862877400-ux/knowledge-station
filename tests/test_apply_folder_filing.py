@@ -344,6 +344,139 @@ def test_backup_failure_aborts_before_writing(fdb, tmp_path):
     assert _one(fdb, "SELECT COUNT(*) AS n FROM doc_filing_state")["n"] == 0
 
 
+# ─────────────── 对账：库被事先动过 ⇒ 中止不写（第 2 步修准的第 0 条）───────────────
+#
+# 背景（2026-09-21 独立复核在 verify-freeze-kb-filed 上实测）：原先那句
+# "既有表/列指纹一个都没变"只比"本次建表前后"，而三条建表语句全是 IF NOT EXISTS
+# ⇒ 分支永不响。实测：删掉一个既有索引、或给既有表加一列，再 --apply ⇒
+# **exit 0 照写**（还照做备份、照覆盖 6417 条状态行）。
+# 下面两条就是那次实测的复现，修准后必须**退出非 0 且零写入**。
+
+def _state(db: Path) -> dict:
+    return applymod.db_state(db)
+
+
+def test_apply_aborts_when_an_existing_index_is_missing(fdb, tmp_path, capsys):
+    """① 先删掉一个既有索引 ⇒ ``--apply`` 必须非 0 且**零写入**。"""
+    conn = sqlite3.connect(str(fdb))
+    conn.execute("DROP INDEX IF EXISTS idx_alias_lookup")
+    conn.commit()
+    conn.close()
+    before = _state(fdb)
+
+    rc = _run(fdb, tmp_path, "--apply")
+
+    assert rc == 2
+    after = _state(fdb)
+    assert applymod._db_state_diff(before, after) == {}       # .db/-wal/行数/对象 全同
+    assert _one(fdb, "SELECT COUNT(*) AS n FROM folder")["n"] == 0
+    assert _one(fdb, "SELECT COUNT(*) AS n FROM doc_filing_state")["n"] == 0
+    assert not (tmp_path / "backups").exists()                # 连备份都没建
+    out = capsys.readouterr()
+    assert "idx_alias_lookup" in out.err and "中止" in out.err
+
+
+def test_apply_aborts_when_an_existing_table_gained_a_column(fdb, tmp_path, capsys):
+    """② 给既有表**加**一列 ⇒ **不中止**（只登记）。
+
+    为什么加列不算"库被人动过"：生产的 ``create_app`` 每次启动都调
+    ``clause_repo.ensure_additive_columns()`` —— **合法地**给既有表加列
+    （``catalog_hidden`` 就是这么来的）。拿它当中止条件会把正常库判死。
+    ⇒ 加列只在 ``extra_columns`` 里登记一行，"库被删过东西"（下表那条缺列用例）
+    才中止。
+    """
+    conn = sqlite3.connect(str(fdb))
+    conn.execute("ALTER TABLE doc_meta ADD COLUMN zz_probe INTEGER")
+    conn.commit()
+    conn.close()
+    drift = applymod.schema_drift(fdb)
+    assert drift["ok"] is True
+    assert "doc_meta.zz_probe" in drift["extra_columns"]
+    before = _state(fdb)
+    assert _run(fdb, tmp_path, "--apply") == 0                 # 照常写
+    assert _state(fdb)["rows"]["folder"] > before["rows"]["folder"]
+    assert "只登记、不中止" in capsys.readouterr().out
+
+
+def test_apply_aborts_when_a_declared_column_is_missing(fdb, tmp_path, capsys):
+    """② 库里少了 ``schema.sql`` 声明的列 ⇒ **中止**。
+
+    ⚠ 为什么不用 ``ALTER TABLE … DROP COLUMN`` 造：本机 SQLite 不支持（用例会 skip，
+    于是这条保护**根本没被试过**）。改成给 ``schema.sql`` **加一条声明**
+    （``doc_meta.zz_missing``）—— 对账拿的就是"声明 ⇄ 实际"，多一条声明与少一列
+    是同一个缺口的两面，而且与 SQLite 版本无关。
+    """
+    schema = tmp_path / "schema-probe.sql"
+    src = applymod.DEFAULT_SCHEMA.read_text(encoding="utf-8")
+    assert "CREATE TABLE IF NOT EXISTS doc_meta (" in src
+    schema.write_text(src.replace(
+        "CREATE TABLE IF NOT EXISTS doc_meta (",
+        "CREATE TABLE IF NOT EXISTS doc_meta (\n    zz_missing TEXT,"), encoding="utf-8")
+
+    drift = applymod.schema_drift(fdb, schema)
+    assert drift["ok"] is False and "doc_meta.zz_missing" in drift["missing_columns"]
+
+    before = _state(fdb)
+    import pytest as _pytest
+    with _pytest.raises(applymod.Abort) as ei:
+        applymod.ensure_target_tables(fdb, schema)
+    assert "对不上" in str(ei.value)
+    assert applymod._db_state_diff(before, _state(fdb)) == {}   # 零写入
+    assert not (tmp_path / "backups").exists()
+
+
+def test_dry_run_prints_zero_write_proof_and_three_size_numbers(fdb, tmp_path, capsys):
+    """预演要**打印三个数**（.db / -wal / 合计）与"零写入证据"（第 2 步的措辞修）。"""
+    assert _run(fdb, tmp_path) == 0
+    out = capsys.readouterr().out
+    assert "零写入证据" in out and "连一行都没写" in out
+    assert "既有表行数" in out and "schema 对象" in out
+    assert "对账（库 vs schema.sql）" in out
+
+
+def test_schema_drift_reports_extras_but_does_not_fail_on_them(fdb):
+    """``schema_drift`` 的四个清单各就各位：多列只登记；缺索引/缺表/缺列才 ok=False。"""
+    drift = applymod.schema_drift(fdb)
+    assert drift["ok"] is True
+    assert drift["missing_tables"] == [] and drift["missing_indexes"] == []
+    assert drift["missing_columns"] == []
+    assert isinstance(drift["extra_columns"], list)
+    # 本步那三张表**不参与缺表检查**（它们本来就可能还不存在，是要动手建的东西）
+    assert not (set(drift["missing_tables"]) & set(applymod.TARGET_TABLES))
+    # 删一个索引 ⇒ 只有那一项报
+    conn = sqlite3.connect(str(fdb))
+    conn.execute("DROP INDEX IF EXISTS idx_alias_lookup")
+    conn.commit()
+    conn.close()
+    bad = applymod.schema_drift(fdb)
+    assert bad["ok"] is False and bad["missing_indexes"] == ["idx_alias_lookup"]
+    assert bad["missing_tables"] == [] and bad["missing_columns"] == []
+
+
+def test_declared_objects_splits_sql_despite_comments_and_semicolons():
+    """``declared_objects`` 必须真的解析出列。
+
+    2026-09-21 实测踩到两个坑（都在 ``_strip_sql_comments`` 的 docstring 里）：
+    ① 行尾 ``--`` 注释会把 ``page_breaks TEXT,  -- …PDF页…`` 读成一个叫 ``PDF页`` 的列；
+    ② 字符串字面量里的 ``;``（FTS 的 ``tokenize``）会把 ``CREATE TABLE`` 切成碎片，
+       于是脚本报"找不到这三张表的建表语句"。
+    ⇒ 这条用例把两件事都钉住。
+    """
+    d = applymod.declared_objects()
+    assert "folder" in d["tables"] and "doc_meta" in d["tables"]
+    assert "idx_folder_root_name" in d["indexes"]
+    for t, cols in d["tables"].items():
+        assert cols, t
+        for col in cols:
+            assert col.isascii() and col.replace("_", "").isalnum(), (t, col)
+    assert "page_breaks" in d["tables"]["clause_revision"]
+    assert len(d["tables"]) >= 30 and len(d["indexes"]) >= 30
+    # 三张表的建表语句必须能现取出来（②那个坑一旦复发这里当场红）
+    stmts = applymod.target_ddl()
+    for t in applymod.TARGET_TABLES:
+        assert any(s.startswith(f"CREATE TABLE IF NOT EXISTS {t}") for s in stmts)
+
+
 def test_refuses_when_the_unskipped_tree_is_already_there(_isolate_data_dir, tmp_path):
     """顶层已经有「国家标准·行业标准·团体标准」⇒ 拒绝，免得建出两棵并存的树。"""
     db = _make_db(tmp_path / "knowledge.db", extra_root=applymod.PLAN_STD_LEVEL1)

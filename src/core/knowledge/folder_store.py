@@ -122,7 +122,10 @@ def pinyin_of(name: str) -> str:
         return hit
     try:
         from pypinyin import Style, lazy_pinyin
-        val = "".join(lazy_pinyin(key, style=Style.NORMAL, errors=lambda ch: ""))
+        # ⚠ ``errors='default'``（**不是** callable 那个把非汉字抹成空串的写法）：
+        # 抹掉字母会让 ``A 综合`` 的键退化成 ``zonghe``，排到 ``安全/行政`` 后面
+        # —— 而真库里成片的分类名就叫 ``A 综合`` / ``B 农业林业``，那一层会全乱。
+        val = "".join(lazy_pinyin(key, style=Style.NORMAL, errors="default"))
     except Exception:                      # noqa: BLE001 — 缺依赖不许让读路径崩
         val = key
     _pinyin_cache[key] = val
@@ -506,9 +509,18 @@ def copy_folder(folder_id: str, new_parent_id: str | None = None,
     成员是**同一份**：新目录的成员行指向**同一个** ``item_id``（下级目录也是同一个
     目录，不各拷一份）。原目录后来加了东西，复制出来的那份**不会跟着变**。
     ``new_name`` 省略时自动取一个不冲突的名字（``原名`` → ``原名 (副本)`` → …）。
+
+    **拒绝成环**（2026-09-21 第 2 步补）：``new_parent_id`` 不能是 ``folder_id`` 自己、
+    也不能是它的任何下级 —— 否则会造出环（成员边成环；读路径有 ``seen`` 兜着不死，
+    但那是坏数据）。
     """
     with write_transaction(db_path) as conn:
         src = _folder_row(conn, folder_id)
+        # ⚠ 环检测：复制的动作本身**不更新** ``parent_id``，所以原先挂在 move 上的那套
+        #   检查管不到它。
+        if new_parent_id is not None:
+            _folder_row(conn, new_parent_id)
+            _assert_folder_attach_ok(conn, container_id=new_parent_id, child_id=folder_id)
         name = (_unique_name(conn, new_parent_id, src["name"]) if new_name is None
                 else _clean_name(new_name))
         created = _create_folder_in_tx(conn, name, new_parent_id, src["sort"] or 0)

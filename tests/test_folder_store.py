@@ -158,6 +158,50 @@ def test_copy_folder_into_own_subtree_rejected(db):
     expect_code("folder_cycle", fs.copy_member, "folder", a["folder_id"], b["folder_id"])
 
 
+def test_copy_folder_rejects_its_own_subtree(db):
+    """第 2 步补：``copy_folder`` 自己也要拒环。
+
+    复制**不更新** ``parent_id`` ⇒ 原先挂在 ``move`` 上的那套环检测管不到它，
+    但成员边已经成环（读路径有 ``seen`` 兜着不死，然而那是坏数据）。
+    """
+    a = fs.create_folder(nm("复制目录环A"))
+    b = fs.create_folder(nm("复制目录环B"), a["folder_id"])
+    expect_code("folder_cycle", fs.copy_folder, a["folder_id"], b["folder_id"])
+    expect_code("folder_cycle", fs.copy_folder, a["folder_id"], a["folder_id"])
+    # 复制到同一个父下的兄弟位置是合法的
+    ok = fs.copy_folder(a["folder_id"], None)
+    assert ok["folder_id"] != a["folder_id"]
+
+
+# ─────────────── 排序：sort 优先、同级按拼音（第 2 步落地）───────────────
+
+def test_top_level_order_is_sort_then_pinyin(db):
+    """四个顶层（标准 10 / 法律法规 20 / 公司制度 30 / 待分类 90）必须按 **sort** 排。
+
+    ⚠ 这条钉的是**实际顺序**，不是"``sort`` 的值写对没有"：修准前读取一律
+    ``ORDER BY name`` ⇒ 顶层实际顺序是「公司制度 / 待分类 / 标准 / 法律法规」
+    （Unicode 码位），四个顶层的 ``sort`` 白写。
+    ⚠ 名字带上本用例独有的后缀，免得与其他用例新建的顶层目录撞（库是 session 级的）。
+    """
+    tags = nm("排序钉")
+    names = [("标准", 10), ("法律法规", 20), ("公司制度", 30), ("待分类", 90)]
+    made = {n: fs.create_folder(f"{n}·{tags}", None, sort=s)["folder_id"]
+            for n, s in names}
+    rows = fs.list_folder(None)["subfolders"]
+    order = [r["folder_id"] for r in rows if r["folder_id"] in made.values()]
+    assert order == [made[n] for n, _ in names]
+    # 同级按拼音（不是码位）：A 综合(a) < 安全(an) < 行政(xing)
+    p = fs.create_folder(nm("拼音父"))
+    for name in ("行政", "A 综合", "安全"):
+        fs.create_folder(name, p["folder_id"], sort=0)
+    got = [s["name"] for s in fs.list_folder(p["folder_id"])["subfolders"]]
+    assert got == ["A 综合", "安全", "行政"]
+    # sort 压过拼音：sort=1 的排在所有 sort=0 的后面
+    fs.create_folder("安 排", p["folder_id"], sort=1)
+    assert [s["name"] for s in fs.list_folder(p["folder_id"])["subfolders"]] \
+        == ["A 综合", "安全", "行政", "安 排"]
+
+
 # ─────────────────────────── 挪目录：拒绝成环 ───────────────────────────
 
 def test_move_folder_rejects_cycle(db):
@@ -176,6 +220,79 @@ def test_move_folder_rejects_cycle(db):
     assert c["folder_id"] in [s["folder_id"] for s in fs.list_folder(None)["subfolders"]]
     # 挪出去以后 A 进 C 不再成环（这才是"挪动真的改了树"的证据）
     assert fs.move_folder(a["folder_id"], c["folder_id"])["parent_id"] == c["folder_id"]
+
+
+# ─────────────── 挪：按"从哪一处 → 到哪一处"（2026-09-21 第 2 步修准）───────────────
+#
+# 修之前：`move_folder` 只收"挪到哪"，把 `folder.parent_id` 与成员边**一起**改
+# ⇒ 一个"复制出来的、同时挂在两处"的目录，挪一处会把**另一处也带走**。
+# 方案 §九把这条登记成待第 2 步修的缺陷。下面四条把这处语义钉住。
+
+def _kids(fid):
+    return [s["folder_id"] for s in fs.list_folder(fid)["subfolders"]]
+
+
+def test_move_folder_by_from_to_updates_main_position_when_from_is_main(db):
+    home = fs.create_folder(nm("主位"))
+    other = fs.create_folder(nm("别处"))
+    target = fs.create_folder(nm("目标"))
+    sub = fs.create_folder(nm("被挪"), home["folder_id"])
+    # 复制出一处：同一个目录同时挂在 other 下（成员边，不新建目录）
+    assert fs.copy_member("folder", sub["folder_id"], other["folder_id"])["added"] is True
+
+    got = fs.move_folder(sub["folder_id"], target["folder_id"],
+                         from_parent_id=home["folder_id"])
+    assert got["updated_main_position"] is True
+    assert got["parent_id"] == target["folder_id"]
+    assert _kids(target["folder_id"]) == [sub["folder_id"]]
+    assert _kids(home["folder_id"]) == []
+    # ⚠ **另一处不许被动**（修准前这里会变成 [sub] 被移走）
+    assert _kids(other["folder_id"]) == [sub["folder_id"]]
+
+
+def test_move_folder_defaults_to_the_main_position(db):
+    """省略 ``from_parent_id`` = 挪"这个目录本身"（旧调用的行为一字不变）。"""
+    a = fs.create_folder(nm("默认源"))
+    b = fs.create_folder(nm("默认目标"))
+    sub = fs.create_folder(nm("默认子"), a["folder_id"])
+    got = fs.move_folder(sub["folder_id"], b["folder_id"])
+    assert got["from_parent_id"] == a["folder_id"]
+    assert got["updated_main_position"] is True
+    assert got["parent_id"] == b["folder_id"]
+    assert fs._folder_row(fs.get_db_connection(), sub["folder_id"])["parent_id"] \
+        == b["folder_id"]
+
+
+def test_move_folder_from_a_copy_takes_only_that_edge_away(db):
+    """从**复制出来的那一处**挪走：只删那条边，目录本体（``parent_id``）不动。"""
+    home = fs.create_folder(nm("本体"))
+    other = fs.create_folder(nm("复制处"))
+    sub = fs.create_folder(nm("本体的子"), home["folder_id"])
+    fs.copy_member("folder", sub["folder_id"], other["folder_id"])
+
+    got = fs.move_folder(sub["folder_id"], None, from_parent_id=other["folder_id"])
+    assert got["updated_main_position"] is False
+    assert got["parent_id"] == home["folder_id"]              # 本体没动
+    assert _kids(other["folder_id"]) == []                # 那条边没了
+    assert _kids(home["folder_id"]) == [sub["folder_id"]]  # 主位置还在
+
+
+def test_move_folder_from_a_place_that_does_not_hold_it(db):
+    a = fs.create_folder(nm("没有它"))
+    sub = fs.create_folder(nm("不在那儿"))
+    err = expect_code("folder_not_in_parent", fs.move_folder, sub["folder_id"], None,
+                      from_parent_id=a["folder_id"])
+    assert "不在" in str(err)
+    # 什么都没动
+    assert fs._folder_row(fs.get_db_connection(), sub["folder_id"])["parent_id"] is None
+
+
+def test_move_folder_to_the_same_place_is_a_noop(db):
+    a = fs.create_folder(nm("原地"))
+    sub = fs.create_folder(nm("原地子"), a["folder_id"])
+    got = fs.move_folder(sub["folder_id"], a["folder_id"])
+    assert got["moved"] is False and got["updated_main_position"] is False
+    assert _kids(a["folder_id"]) == [sub["folder_id"]]
 
 
 def test_move_folder_name_conflict_at_target(db):

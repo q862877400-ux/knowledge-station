@@ -245,3 +245,109 @@ schema.sql 追加第 31 号表 `bulk_import_batch`（本批只建巡检侧需要
 - 实现落点：`src/core/knowledge/folder_store.py`（读写函数）、`scripts/preview-folder-filing.py`（只对真库副本的归位预览）。界面与 HTTP 接口**不在本增量**（方案 §五第 2/3 步）。
 - 回滚：`DROP TABLE IF EXISTS doc_filing_state; DROP TABLE IF EXISTS folder_member; DROP TABLE IF EXISTS folder;`（三表互无外键、无方向依赖）；索引随表消失。不动 `doc_meta` 的任何行，也不动磁盘文件。
 - 测试基线只涨不跌（test_contract +6）。
+
+---
+
+# 契约增量 · 知识库多级目录 · 第 2 步 HTTP 接口（`/api/v1/kb/*`，共 15 条）
+
+> 2026-09-21 ｜ 依据：**docs/KB-FOLDER-PLAN.md**（唯一方案真源）§四「要做的能力」/§五第 2 步 ｜ 红线流程：本文档 → 用例 → 实现
+
+## 新增端点（**全是新增**：不改任何既有端点的既有字段、不改任何既有表）
+
+| 方法 | 路径 | 作用 | 关键入参 |
+|---|---|---|---|
+| GET | `/api/v1/kb/folders` | 列**某一级**的下级目录（带"含更深层的文件数"） | `parent_id`（省略/空=顶层）、`limit`（默认 200，上限 500）、`offset` |
+| GET | `/api/v1/kb/folders/{id}/items` | 该级**直接**放的文件 | `limit`（默认 **50**，上限 200）、`offset`；`id` 可为 `root` |
+| POST | `/api/v1/kb/folders` | 建目录 | `{parent_id?, name, sort?}` |
+| PUT | `/api/v1/kb/folders/{id}` | 改名（**只改库里的名字**，不动磁盘文件） | `{name}` |
+| POST | `/api/v1/kb/folders/{id}/move` | 挪目录 | `{from_parent_id?, to_parent_id}` |
+| POST | `/api/v1/kb/folders/{id}/copy` | 复制目录（新目录**共享成员**，不拷文件） | `{to_parent_id?, name?}` |
+| GET | `/api/v1/kb/folders/{id}/delete-preview` | 删前"先问一句"的数字（只读） | — |
+| DELETE | `/api/v1/kb/folders/{id}` | 删目录 | `?mode=reparent\|purge` |
+| POST | `/api/v1/kb/members` | 批量加成员 | `{folder_id, items:[{kind,id}]}` |
+| POST | `/api/v1/kb/members/remove` | 从**这一处**拿掉（不删文件） | `{folder_id, items}` |
+| POST | `/api/v1/kb/members/move` | 批量挪 | `{items, from_folder_id, to_folder_id}` |
+| POST | `/api/v1/kb/members/copy` | 批量复制 | `{items, to_folder_id}` |
+| GET | `/api/v1/kb/inbox` | 「待分类」列表（带状态与建议） | `limit`（默认 50）、`offset` |
+| POST | `/api/v1/kb/inbox/confirm` | 批量确认归位 | `{decisions:[{doc_id, action, …}]}` |
+| POST | `/api/v1/kb/scope/resolve` | 范围集合（含所有下级 + 并集） | `{folder_ids:[]}` |
+
+`item_kind`（= 请求体里的 `kind`）二枚举 **`folder` / `file`**；`action` 三枚举
+**`accept` / `existing` / `new`**。
+
+## 出参形状
+
+统一外壳 `{"code":200,"status":"success","data":{…}}`（错误见下表）。
+
+- **GET /folders** → `data`: `{folder, breadcrumb, subfolders[], total, offset, limit, has_more}`。
+  `folder` 顶层为 `null`；`breadcrumb` 从顶层到本级（顶层为 `[]`）。
+  每个 `subfolders[i]` = `{folder_id, parent_id, name, sort, created_at, file_count_direct, file_count_deep, folder_count_deep}`
+  （`*_deep` 含所有下级，去重：一个文件挂多处只算一次）。**空目录 ⇒ `subfolders: []`、`total: 0`**。
+- **GET /folders/{id}/items** → `{folder, breadcrumb, items[], total, offset, limit, has_more}`。
+  `items[i]` = `doc_meta` 的既有列 + `stage` / `confidence` / `failure_kind` / `suggested_folder_id`。
+  顶层（`root`）给的是"还没进任何目录"的文件。**空目录 ⇒ `items: []`、`total: 0`（不是 404）**。
+- **POST /folders** → 建出来的那一行：`{folder_id, parent_id, name, sort}`。
+- **PUT /folders/{id}** → `{folder_id, name, parent_id}`。
+- **POST /folders/{id}/move** → `{folder_id, parent_id, name, from_parent_id, to_parent_id, updated_main_position, moved}`。
+  `updated_main_position=false` ⇔ 这次只删了一条"复制出来的那一处"的边，目录本体（`parent_id`）没动；
+  `moved=false` ⇔ 已经在那一处（幂等空操作）。
+- **POST /folders/{id}/copy** → `{folder_id, parent_id, name, sort, copied_members, copied_from}`。
+- **GET /folders/{id}/delete-preview** → `{folder, is_empty, direct_subfolder_count, direct_file_count,
+  subtree_folder_count, subtree_file_count, reparent_available, files_kept_elsewhere, files_would_be_deleted}`。
+  `reparent_available=false` ⇔ 一级目录（没有上一层）。`files_would_be_deleted` = purge 后**在任何目录里都不再出现**的文件数。
+- **DELETE /folders/{id}** → `{folder_id, mode, removed, reparented_subfolders, reparented_files,
+  purged_folders, unfiled_docs[, deleted_docs, new_parent_id]}`；`mode` 取 `empty` / `reparent` / `purge`
+  （空目录走 `empty`，此时 `mode` 参数被忽略、`deleted_docs` 不出现）。
+- **POST /members** → `{folder_id, added, skipped, total}`（**已在该目录里 ⇒ `skipped`，幂等不报错**）。
+- **POST /members/remove** → `{folder_id, removed, total}`（`removed` 是真正删掉的归属行数）。
+- **POST /members/move** → `{from_folder_id, to_folder_id, moved, total}`。
+- **POST /members/copy** → `{to_folder_id, added, skipped, total}`。
+- **GET /inbox** → `{items[], total, offset, limit, has_more}`；`items[i]` =
+  `{doc_id, standard_no, standard_name, stage, confidence, failure_kind,
+  suggested_folder_id, suggested_path, suggest_new_path}`。
+  `stage` 五枚举 `queued/recognizing/confirming/filed/failed`；
+  `suggested_folder_id` **现算**（库里存着的建议优先，否则按现有分类口径在**已有目录**里退到最近一层）
+  —— **只匹配现有目录，绝不自行新建**；`suggest_new_path` 恒为 `null`（第 4 步给）。
+- **POST /inbox/confirm** → `{confirmed, targets[{doc_id, folder_id, action}], created[], removed_from_pending}`。
+  **一个事务，整批全成或全败**；确认后 `stage='filed'` **并自动从「待分类」那一处拿掉**归属。
+- **POST /scope/resolve** → `{folder_ids[], doc_ids[], folder_count, doc_count, roots[]}`
+  （两个 id 数组**已排序**、去重：一个文件挂多处只算一次）。
+
+## 错误码（`{"code":<status>,"status":"error","error":"<码>","message":"<中文>"}`）
+
+| 码 | HTTP | 何时 |
+|---|---|---|
+| `folder_not_found` / `doc_not_found` | 404 | 目录 / 文档 id 不存在 |
+| `folder_name_conflict` | 409 | 同名同层（**含根层**） |
+| `folder_not_in_parent` | 409 | `from_parent_id` 那一处其实没有这个目录 |
+| `folder_delete_mode_required` | 409 | 删非空目录但没给 `mode`（**不替调用方选**） |
+| `folder_top_level_no_parent` | 409 | 一级目录做 `reparent`（**不静默降级成 purge**） |
+| `folder_cycle` | 422 | 挪/复制进它自己或它的任何下级 |
+| `folder_depth_exceeded` / `invalid_folder_name` | 422 | 超层数/路径/名字非法 |
+| `invalid_delete_mode` / `invalid_item_kind` / `invalid_pagination` / `invalid_stage` /
+  `invalid_state_field` / `invalid_scope` / `invalid_decision` / `no_suggestion` | 422 | 入参不合法 |
+| `unauthorized` | 401 | 缺 token（与全站一致） |
+
+## 分页与空态口径（写死，界面照这个做）
+
+- 参数名一律 **`limit` / `offset`**（**不叫** `page_size` / `page`）；`limit<=0` 或超上限 ⇒
+  `invalid_pagination`（422），`offset<0` 同。目录列表默认 200/上限 500，文件与「待分类」默认 **50**/上限 200。
+- `has_more` = `offset + 本页条数 < total`。
+- **空目录不是错误**：`subfolders: []` / `items: []`，HTTP 200。
+- **未知 id 一律 404**，绝不静默返回空（空范围会让"在此范围内提问"悄悄变成全库提问）。
+- 「待分类」列表按 `catalog_hidden=0` 过滤 ⇒ 被隐藏的那几篇只在目录里看得见（方案 §十，第 4 步修）。
+
+## 影响面与回滚
+
+- 改动文件：`src/core/api/routes_kb_folders.py`（新）、`src/core/api/server.py`（**只加一处 register**）、
+  `src/core/knowledge/folder_store.py`（加 `PREBUILT_TOP_NAMES` / `folder_tree_index` /
+  `suggest_folder_for_doc` / `confirm_inbox_decisions`，并修准挪动语义与排序）、
+  `scripts/apply-folder-filing.py`（加 schema 对账）、`tests/test_kb_folder_api.py`（新）、
+  `tests/_kb_folder_api_fixtures.py`（新）、`tests/test_folder_store.py` / `tests/test_apply_folder_filing.py`、本文档。
+- **与收藏夹 `/api/v1/bookmark-folders` 无关**：那是单层收藏夹（`folder_id` 前缀 `bmf_`，
+  `user_bookmark_folder` 表），本族是无限层级知识库目录（前缀 `fld_`）；两张表的 `folder_id`
+  同形但各自表内引用，**任何查询不得跨表 join**。
+- 存量零侵入：新端点只读写 33~35 号表；不改 `doc_meta` 一个字段；删目录走既有 `doc_delete`（含审计与级联）。
+- 回滚：删 `routes_kb_folders.py` + `server.py` 里那 3 行 register 即回到本增量前（数据层不动、界面未接）。
+- 测试基线只涨不跌（本步 +52：`test_kb_folder_api.py` **31**（新）+ `tests/_kb_folder_api_fixtures.py`（夹具，无用例）
+  + `test_folder_store.py` **31**（第 1 步 24 → +7）+ `test_apply_folder_filing.py` **21**（第 1 步 15 → +6））。

@@ -169,23 +169,16 @@ def register(app, json_error) -> None:
     def kb_create_folder(payload: dict | None = None):
         """建目录 ``{parent_id, name}``（``parent_id`` 省略/null = 顶层）。
 
-        ⚠ **顶层名字限定**（与本模块/脚本的顶层预建一致）：新增顶层只接受
-        「标准 / 法律法规 / 公司制度 / 待分类」；别的名字在 **下级**里随便建
-        （「标准」下面再来一个「标准」是合法的）。这条限制的作用是：
-        ``scripts/apply-folder-filing.py`` 要能按名字认出自己预建的四个顶层
-        （它拿顶层名字当"归位前是否已归位"的判据），乱建的顶层会让那条判定失准。
+        同名同层拒绝（含根层）⇒ 409；空名/超长 ⇒ 422；上级不存在 ⇒ 404。
+        ⚠ **不限制顶层名字**：四个预建顶层（标准/法律法规/公司制度/待分类）只是
+        ``scripts/apply-folder-filing.py`` 初次归位时建的，用户之后再加顶层目录是
+        合法操作（那个脚本判"是否已归位"看的是**它自己那棵树**，不看根层有几个）。
         """
-        from src.core.knowledge.folder_store import PREBUILT_TOP_NAMES
         try:
             body = _body(payload)
             parent_id = body.get("parent_id")
             parent_id = None if parent_id in (None, "", "root") else str(parent_id)
             name = str(body.get("name") or "").strip()
-            if parent_id is None and name not in PREBUILT_TOP_NAMES:
-                raise KnowledgeStationError(
-                    f"顶层只允许这四类：{' / '.join(PREBUILT_TOP_NAMES)}；"
-                    "要建别的目录请指定它属于哪一类（parent_id）",
-                    code="invalid_folder_name")
             data = fs.create_folder(name, parent_id, sort=int(body.get("sort") or 0))
         except KnowledgeStationError as e:
             return _fail(e)
