@@ -1957,6 +1957,59 @@ def _cached_parse_result(parse_dir: Path, pdf_path: Path) -> dict[str, Any] | No
     return None
 
 
+def _filing_confidence(models: list[Any], pdf_path: Path) -> float | None:
+    """入库时算**识别率**（= ``doc_filing_state.confidence``）。
+
+    ⚠ 口径的唯一所有者是**入库预览**（``dry_run``）：``doc_confidence`` =
+    各条款 ``clause_ocr_confidence()`` 的**中位数**。这里调**同一个函数**、同一组入参
+    （``page_skew_deg`` 取自 ``measure_skew``，与预览的 ``skew_pages=40`` 默认一致），
+    ⇒ 「预览里看到的识别率」与「入库后记下来的识别率」是同一个数，不是两套算法。
+
+    算不出来（依赖缺失/条款为空/量倾斜炸了）⇒ ``None``（**不编一个数**）。
+    """
+    try:
+        from src.core.quality.recognition import clause_ocr_confidence, measure_skew
+        skew: float | None = None
+        try:
+            skew = measure_skew(pdf_path).skew_deg
+        except Exception:                                   # noqa: BLE001
+            logger.warning("量文档倾斜失败，识别率按 page_skew_deg=None 计算", exc_info=True)
+        confs: list[float] = []
+        for m in models:
+            content = m.content_text or ""
+            conf, _reasons = clause_ocr_confidence(
+                content, page_skew_deg=skew, is_tiny=len(content.strip()) < 10)
+            confs.append(float(conf))
+        if not confs:
+            return None
+        return round(sorted(confs)[len(confs) // 2], 4)
+    except Exception:                                       # noqa: BLE001 — 识别率算不出不许让入库失败
+        logger.warning("算识别率失败（不阻塞入库）", exc_info=True)
+        return None
+
+
+def _write_filing_state(doc_id: str, stage: str | None = None, **fields: Any) -> bool:
+    """把处理状态写进 ``doc_filing_state``（**入库侧的唯一出口**）。
+
+    为什么单独一个函数（不是直接调 ``folder_store.set_filing_state``）：
+      ① **文档不存在时不许炸**：直接入库路径（docx / 法规 / CLI）在解析失败时**还没建
+         ``doc_meta`` 行**，而 ``set_filing_state`` 遇到不存在的 doc 会抛
+         ``doc_not_found`` —— 写状态失败把一次正常的"解析失败"变成异常，是拿护栏制造故障。
+         这里如实返回 ``False``（没写）。
+      ② 状态写失败**不许**让一次成功的入库变成"失败"（文档已经在库里了，报失败会招来
+         重复入库）⇒ 记日志 + 把结果报回调用方，由它放进返回值里可观测。
+
+    返回 ``True`` 表示真的写进去了。
+    """
+    try:
+        from src.core.knowledge import folder_store as _fs
+        _fs.set_filing_state(doc_id, stage, **fields)
+        return True
+    except Exception as e:                                  # noqa: BLE001
+        logger.warning("写处理状态失败（doc=%s stage=%s）：%s", doc_id, stage, e)
+        return False
+
+
 def run_full_ingest(pdf_path: Path, standard_no: str, standard_name: str,
                     short_code: str | None = None, doc_type: str = "standard",
                     domain_tags: list[str] | None = None,
@@ -2199,10 +2252,34 @@ def run_full_ingest(pdf_path: Path, standard_no: str, standard_name: str,
                 len(unresolved_refs),
                 [f"{u['src']}->{u['dst']}" for u in unresolved_refs[:5]])
         # 目录卫生（2026-08-28 用户口径）：标准正文条款为零 = 坍缩/乱码吞没，
-        # 不进目录。修复重导入产生真实条款 → 新行 DEFAULT 0 自动回归目录。
+        # 不进目录。
+        # ⚠ **2026-09-21（KB-FOLDER-PLAN 第 4 步）显式写成 if/else 两半**（护栏类改动）：
+        #   原来只有"零条款 ⇒ 1"那一半，靠"新行 DEFAULT 0"兜另一半。那在**今天**成立，
+        #   但只要哪天改成"复用同一个 doc_meta 行"（例如把批量导入的快扫骨架行原地升级成
+        #   真文档），`DEFAULT 0` 就**静默失效** —— 一篇被隐藏过的文件重导成功后**仍然看不见**，
+        #   而且没有任何东西会响。⇒ 现在"提出正文条款 ⇒ 可见"是一条**真语句**。
         if doc_type == "standard" and n_normal == 0:
             txn.execute(
                 "UPDATE doc_meta SET catalog_hidden=1 WHERE doc_id=?", (doc_id,))
+        else:
+            txn.execute(
+                "UPDATE doc_meta SET catalog_hidden=0 WHERE doc_id=?", (doc_id,))
+
+    # ── 处理状态：**成功**写在这里（KB-FOLDER-PLAN §16.补2.1 的硬前置）────────────
+    # 口径（写在代码里，免得下一个人猜）：
+    #   · 一条正文条款都没提出来（``n_normal == 0``）⇒ ``failed`` + ``failure_kind``：
+    #     这不是"成功"，界面上的"已归位/待确认"会**盖住**"这篇根本不能用"这件事实
+    #     （方案 §十七：正文为零的文件必须能在「待分类」里看到，否则看不到就修不了）。
+    #   · 其余 ⇒ ``confirming``（待确认 = 识别完成，等业主确认归位）。
+    #   · ``confidence`` = 识别率（与入库预览同一个数，见 ``_filing_confidence``）。
+    no_content = bool(n_normal == 0)
+    # 文字的所有者是 folder_store（一处，别在入库侧再写一份中文）。
+    from src.core.knowledge.folder_store import FAILURE_KIND_ZERO_CLAUSES
+    failure_kind = FAILURE_KIND_ZERO_CLAUSES if no_content else None
+    confidence = _filing_confidence(models, pdf_path)
+    filing_state_written = _write_filing_state(
+        doc_id, "failed" if no_content else "confirming",
+        confidence=confidence, failure_kind=failure_kind)
 
     # R8 运维日志：入库成功写 operation_log
     with write_transaction() as txn:
@@ -2256,7 +2333,14 @@ def run_full_ingest(pdf_path: Path, standard_no: str, standard_name: str,
             "unresolved_refs": len(unresolved_refs),
             "pages_parsed": len(result["geometries"]),
             "knowledge_type_distribution": type_dist,
-            "span_warning": span_warning}
+            "span_warning": span_warning,
+            # 处理状态（KB-FOLDER-PLAN 第 4 步）：入库侧写完状态后把结论**如实**带回去，
+            # 调用方（批量导入的进度、重导端点）据此报告"这一篇到底能不能用"。
+            "filing_stage": "failed" if no_content else "confirming",
+            "filing_confidence": confidence,
+            "filing_failure_kind": failure_kind,
+            "filing_state_written": filing_state_written,
+            "catalog_hidden": bool(no_content and doc_type == "standard")}
 
 
 def main(argv: list[str] | None = None) -> int:

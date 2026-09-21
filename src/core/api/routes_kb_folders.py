@@ -136,6 +136,30 @@ def register(app, json_error) -> None:
             "total": len(subs), "offset": offset, "limit": limit,
             "has_more": offset + limit < len(subs)}}
 
+    @app.get("/api/v1/kb/folders/flat")
+    def kb_flat_folders(request: Request):
+        """**整棵目录树的扁平清单**（每行带显示路径）—— 「放进哪个目录」的选择器用。
+
+        ``?q=``（名字/路径大小写不敏感包含）、``limit``（默认 0 = 不限）、``offset``。
+        返回 ``data.{items:[{folder_id,parent_id,name,path,depth}],total,sep}``。
+        ⚠ 真库 **1127 个目录**时整棵树约 **80KB** —— 与方案 §七那条"不许一次把整库
+        **文件**元数据（~9.7MB）发给页面"的红线不同量级：那条管的是文件列表。
+        选择器要的是"按名字找"，一层层点四层在 1127 个目录上不可用。
+        """
+        qp = request.query_params
+        try:
+            limit = _int(qp.get("limit"), 0)
+            offset = _int(qp.get("offset"), 0)
+            if limit < 0 or limit > MAX_FOLDER_PAGE * 20:
+                raise KnowledgeStationError(f"limit 必须在 0~{MAX_FOLDER_PAGE * 20}"
+                                            "（0 = 不限）", code="invalid_pagination")
+            if offset < 0:
+                raise KnowledgeStationError("offset 不能为负", code="invalid_pagination")
+            data = fs.list_all_folders(q=str(qp.get("q") or ""), limit=limit, offset=offset)
+        except KnowledgeStationError as e:
+            return _fail(e)
+        return {"code": 200, "status": "success", "data": data}
+
     @app.get("/api/v1/kb/folders/{folder_id}/items")
     def kb_folder_items(folder_id: str, request: Request):
         """这一级**直接**放的文件（**不含**下级目录里的），分页（默认 50）。
@@ -354,12 +378,17 @@ def register(app, json_error) -> None:
     def kb_inbox(request: Request):
         """「待分类」列表：**还没归位**的文件，每篇带
         ``stage`` / ``confidence`` / ``failure_kind`` / ``suggested_folder_id`` /
-        ``suggest_new_path``。
+        ``suggested_path`` / ``suggest_new_parent_id`` / ``suggest_new_name`` /
+        ``catalog_hidden``。
 
         ``suggested_folder_id`` 是**现算的**（库里存的建议优先，否则按现有分类口径
         在**已有目录**里找最近的一层）——**只匹配现有目录，绝不自行新建**。
-        ``suggest_new_path`` 仍为 null：那句"将在 XXX 下新建 XXX"是**第 4 步**识别人工
-        环节的事，本步**不猜**。
+        ``suggest_new_parent_id`` / ``suggest_new_name``（第 4 步补）是"该新建什么目录"的
+        那两个真值：分类口径算出来的落点**比命中的现有目录更深**时，缺的那一段就是新目录名。
+        两个都是 null 时，界面上**不许**渲染「接受建议 / 在建议位置新建」这类按钮
+        （兜底桶那 379 篇就是这样：按下去会 422 ``no_suggestion``）。
+        ``catalog_hidden`` 表示这篇**不在目录里**（正文条款为零 ⇒ pipeline 的目录卫生）
+        —— 它照样出现在这里（识别失败的那一批必须能被看到，否则修不了）。
         """
         qp = request.query_params
         try:
@@ -382,16 +411,71 @@ def register(app, json_error) -> None:
                 "standard_no": row.get("standard_no"),
                 "standard_name": row.get("standard_name"),
                 "stage": row.get("stage"),
+                "stage_label": fs.STAGE_LABELS.get(str(row.get("stage") or ""), ""),
                 "confidence": row.get("confidence"),
                 "failure_kind": row.get("failure_kind"),
                 "suggested_folder_id": (sug or {}).get("folder_id"),
                 "suggested_path": (sug or {}).get("path"),
+                "suggest_new_parent_id": (sug or {}).get("suggest_new_parent_id"),
+                "suggest_new_name": (sug or {}).get("suggest_new_name"),
                 "suggest_new_path": row.get("suggest_new_path"),
+                "catalog_hidden": row.get("catalog_hidden"),
             })
         return {"code": 200, "status": "success", "data": {
             "items": items, "total": page["total"], "offset": page["offset"],
             "limit": page["limit"],
             "has_more": page["offset"] + len(items) < page["total"]}}
+
+    @app.get("/api/v1/kb/stage-labels")
+    def kb_stage_labels():
+        """处理状态五枚举的**中文标签**（``folder_store.STAGE_LABELS`` 是唯一所有者）。
+
+        ⚠ 为什么要这个端点（2026-09-21 第 4 步）：以前界面里**抄了一份**镜像
+        （``KsKnowledgePage.tsx`` 的 ``STAGE_LABELS``）⇒ 后端改了档位文字、界面不跟着变，
+        而且没有任何东西会响。现在标签**由接口下发**，界面只兜底。
+        """
+        return {"code": 200, "status": "success", "data": {
+            "labels": dict(fs.STAGE_LABELS), "stages": list(fs.STAGES),
+            "unfiled": list(fs.UNFILED_STAGES)}}
+
+    @app.post("/api/v1/kb/inbox/reingest")
+    def kb_inbox_reingest(payload: dict | None = None):
+        """**重来一次**：把这几篇**已经在库里**的文件重新解析（``{doc_ids:[…]}``）。
+
+        沿用既有的 ``run_full_ingest(..., reingest=True)``（不另写一套解析）；真解析
+        要几十秒到几十分钟 ⇒ 起后台线程、**立刻**返回
+        ``{queued, started:[…], skipped:[{doc_id,reason}]}``。进度看每一篇的
+        ``doc_filing_state.stage``（``recognizing`` → ``confirming`` / ``failed``），
+        ``GET /kb/inbox/reingest/status`` 给最近一批的逐篇结果。
+        同一时刻只跑一批 ⇒ 已有批次在跑回 **409 ``reingest_busy``**。
+        """
+        from src.core.ingestion import reingest as reingest_mod
+        try:
+            body = _body(payload)
+            raw = body.get("doc_ids")
+            if isinstance(raw, str):
+                raw = [raw]
+            if not isinstance(raw, list) or not raw:
+                raise KnowledgeStationError("doc_ids 必须是非空数组",
+                                            code="invalid_decision")
+            ids = [str(x) for x in raw if str(x).strip()]
+            data = reingest_mod.start_reingest(ids)
+        except KnowledgeStationError as e:
+            return _fail(e)
+        except ValueError as e:
+            return json_error(422, "invalid_decision", str(e))
+        except RuntimeError as e:
+            if "reingest_busy" in str(e):
+                return json_error(409, "reingest_busy",
+                                  "已经有一批「重来一次」在跑；等它跑完再点（不许排队等）")
+            raise
+        return {"code": 200, "status": "success", "data": data}
+
+    @app.get("/api/v1/kb/inbox/reingest/status")
+    def kb_inbox_reingest_status():
+        """最近一批「重来一次」的进度（**如实**：running/total/done + 逐篇结果）。"""
+        from src.core.ingestion import reingest as reingest_mod
+        return {"code": 200, "status": "success", "data": reingest_mod.reingest_status()}
 
     @app.post("/api/v1/kb/inbox/confirm")
     def kb_inbox_confirm(payload: dict | None = None):

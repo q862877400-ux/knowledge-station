@@ -100,6 +100,17 @@ _STATE_FIELDS: tuple[str, ...] = (
     "placed_folder_id", "placed_by", "placed_at", "last_error",
 )
 
+#: **失败类型的说法**（`doc_filing_state.failure_kind`，自由文本、不设 CHECK）。
+#: 这一组是**入库侧**（``pipeline``）会写的两种；文字与 ``scripts/apply-folder-filing.py``
+#: 里那两条**逐字一致**（有测试钉住，两边不许各写一份不同的中文）。
+FAILURE_KIND_ZERO_CLAUSES = "解析失败（正文条款为零）"
+FAILURE_KIND_PARSE_ERROR = "解析失败（解析器没跑出内容）"
+
+#: 「哪一篇能在（目录里）看到」与「哪一篇能进「待分类」」是**两件事** —— 见 ``list_pending_filing``。
+#: 正文条款为零的标准会被 ``catalog_hidden=1`` **挡在目录之外**（pipeline 的目录卫生规矩），
+#: 但那种文件正是最需要人来修的那一批 ⇒ **识别失败的那一批必须能在「待分类」里看到**，
+#: 否则就是"看不到就修不了"（KB-FOLDER-PLAN §十七）。
+
 _BAD_NAME_CHARS: tuple[str, ...] = ("\\", "\x00")
 # ⚠ 名字里**允许斜杠**（2026-09-21 预览实测）：CCS 区间名本身就带 `/`
 #   （`P15/19 工程抗震、工程防火、人防工程`、`A00/09 标准化管理与一般规定`…），
@@ -1051,6 +1062,40 @@ def folder_tree_index(db_path: Path | None = None) -> dict:
             "name_index": name_index, "roots": roots}
 
 
+def list_all_folders(q: str | None = None, limit: int = 0, offset: int = 0,
+                     db_path: Path | None = None) -> dict:
+    """**整棵目录树的扁平清单**（每行带显示路径）—— 「放进哪个目录」的选择器用。
+
+    为什么要有它（而不是让界面一层层点）：真库 **1127 个目录**，业主在"这一篇放哪儿"这一刻
+    需要的是**按名字找**（输入"工程防火"就能跳过去），而不是从顶层点四层。整棵树按路径拼出来
+    是 **~80KB**，比"整库文档元数据 ~9.7MB"（方案 §七的性能红线）小两个量级；那条红线管的是
+    **文件**列表，不是目录清册。
+
+    形状：``{"items": [{"folder_id","parent_id","name","path","depth"}], "total"}``。
+    ``q`` 只在**名字或路径**里做大小写不敏感的包含匹配；``path`` 用 `` › `` 连接（与
+    ``folder_filing_plan.PATH_SEP`` 同一个所有者）。``limit<=0`` = 不限（默认）。
+    ``depth`` = 路径段数（顶层 = 1），界面按它缩进。
+    """
+    from src.core.knowledge.folder_filing_plan import PATH_SEP
+    index = folder_tree_index(db_path)
+    needle = str(q or "").strip().lower()
+    items: list[dict] = []
+    for fid, row in index["by_id"].items():
+        path = _path_of_id(index, fid)
+        if needle and needle not in path.lower() and needle not in str(row["name"]).lower():
+            continue
+        items.append({"folder_id": fid, "parent_id": row["parent_id"],
+                      "name": str(row["name"]), "path": path,
+                      "depth": path.count(PATH_SEP) + 1 if path else 0})
+    items.sort(key=lambda d: (d["path"], d["folder_id"]))
+    total = len(items)
+    if limit and int(limit) > 0:
+        off = max(0, int(offset))
+        items = items[off:off + int(limit)]
+    return {"items": items, "total": total, "offset": max(0, int(offset)),
+            "limit": int(limit), "sep": PATH_SEP}
+
+
 def suggest_folder_for_doc(doc: dict, index: dict | None = None,
                            db_path: Path | None = None) -> dict | None:
     """给一篇**还没归位**的文档算"建议放进哪个**现有**目录"（方案 §一「待分类」）。
@@ -1073,7 +1118,13 @@ def suggest_folder_for_doc(doc: dict, index: dict | None = None,
     2. 退级只退到第 2 级（L4→L3→L2），**不退到真顶层**（如「标准」）：顶层是"哪一支"的
        归类，不是一篇文件的落点（真树里 6036 篇已归位文件没有一篇直接挂在顶层）。
 
-    返回 ``{"matched": "stored"|"path", "folder_id", "path", "folder_name"}``。
+    返回 ``{"matched": "stored"|"path", "folder_id", "path", "folder_name",
+    "suggest_new_parent_id", "suggest_new_name"}``。
+
+    ⚠ ``suggest_new_*``（第 4 步补）：当**分类口径算出来的落点比命中的现有目录更深**时，
+    业主面前那句「将在 XXX 下新建 XXX」需要两个真值 —— 父目录（= 命中的目录）与
+    新目录名（= 分类路径里**还缺的那一段**）。只在这两种情况下**不**给：① 命中就是最深一层
+    （没什么可新建）；② 兜底桶（连建议都没有，谈不上新建）。
     """
     index = folder_tree_index(db_path) if index is None else index
     doc_id = str(doc.get("doc_id") or "")
@@ -1081,7 +1132,8 @@ def suggest_folder_for_doc(doc: dict, index: dict | None = None,
     if stored and str(stored) in index["by_id"]:
         row = index["by_id"][str(stored)]
         return {"matched": "stored", "folder_id": str(stored),
-                "path": _path_of_id(index, str(stored)), "folder_name": row["name"]}
+                "path": _path_of_id(index, str(stored)), "folder_name": row["name"],
+                "suggest_new_parent_id": None, "suggest_new_name": None}
     from src.core.knowledge import folder_filing_plan as plan_mod
     if not doc_id:
         return None
@@ -1105,8 +1157,13 @@ def suggest_folder_for_doc(doc: dict, index: dict | None = None,
         key = plan_mod.show_path(path[:depth])
         fid = index["by_path"].get(key)
         if fid is not None:
+            # 命中这一层；分类口径里**更深**的那一段就是"该新建的目录名"（第 4 步的
+            # 「将在 XXX 下新建 XXX」）。depth == len(path) ⇒ 全中，没有可新建的。
+            missing = str(path[depth]) if depth < len(path) else None
             return {"matched": "path", "folder_id": fid, "path": key,
-                    "folder_name": index["by_id"][fid]["name"]}
+                    "folder_name": index["by_id"][fid]["name"],
+                    "suggest_new_parent_id": (fid if missing else None),
+                    "suggest_new_name": missing}
     return None
 
 
@@ -1276,7 +1333,19 @@ def mark_filed(doc_id: str, folder_id: str, placed_by: str = "system",
 
 def list_pending_filing(offset: int = 0, limit: int = 100,
                         db_path: Path | None = None) -> dict:
-    """「待分类」列表：**还没归位**的文件（含从未处理过的：无状态行按 ``queued`` 算）。"""
+    """「待分类」列表：**还没归位**的文件（含从未处理过的：无状态行按 ``queued`` 算）。
+
+    ⚠ **两件事别混**（2026-09-21 第 4 步，有真库实测支撑）：
+
+    * 「在**目录**里看不看得见」= ``catalog_hidden = 0``（pipeline 的目录卫生：正文条款为
+      零的标准不进目录）；
+    * 「在**待分类**里等不等归位」= ``COALESCE(stage,'queued') IN UNFILED_STAGES``。
+
+    ⇒ 本列表的口径是 ``可见 OR stage='failed'``：一篇**识别失败**的文件就算被挡在目录之外，
+    也**必须**能在这里看到 —— 那正是"要人来修"的那一批（KB-FOLDER-PLAN §十七；真库实测
+    那 2 篇 ``catalog_hidden=1`` 的 ``GB/T 12668.8-2017`` / ``GB 9706.222-2022`` 就是
+    ``stage='failed'``，加这条口径后真库待分类从 **379 → 381**，与方案 §一记的 381 一致）。
+    """
     offset = max(0, int(offset))
     limit = int(limit)
     if limit <= 0:
@@ -1284,15 +1353,20 @@ def list_pending_filing(offset: int = 0, limit: int = 100,
     conn = get_db_connection(db_path)
     dcols = ", ".join(f"d.{c}" for c in _doc_columns(conn))
     ph = ",".join("?" * len(UNFILED_STAGES))
+    #: 失败的那一批**不论可见与否**都进列表（见 docstring）。
+    failed_also = "COALESCE(s.stage,'queued') = 'failed'"
+    hidden_col = ("COALESCE(d.catalog_hidden, 0) = 1"
+                  if "catalog_hidden" in _doc_columns(conn) else "0 = 1")
     base = ("FROM doc_meta d LEFT JOIN doc_filing_state s ON s.doc_id = d.doc_id"
-            f" WHERE {_visible_clause(conn)}"
+            f" WHERE ({_visible_clause(conn)} OR {failed_also})"
             f"   AND COALESCE(s.stage, 'queued') IN ({ph})")
     args: list[Any] = list(UNFILED_STAGES)
     total = conn.execute(f"SELECT COUNT(*) {base}", args).fetchone()[0]
     rows = conn.execute(
         f"SELECT {dcols}, COALESCE(s.stage,'queued') AS stage, s.confidence AS confidence,"
         " s.failure_kind AS failure_kind, s.suggested_folder_id AS suggested_folder_id,"
-        " s.suggest_new_path AS suggest_new_path, s.placed_folder_id AS placed_folder_id"
+        " s.suggest_new_path AS suggest_new_path, s.placed_folder_id AS placed_folder_id,"
+        f" {hidden_col} AS catalog_hidden"
         f" {base} ORDER BY d.standard_no LIMIT ? OFFSET ?",
         args + [limit, offset]).fetchall()
     return {"items": [dict(r) for r in rows], "total": int(total),

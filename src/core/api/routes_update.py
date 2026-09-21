@@ -448,16 +448,27 @@ def register(app, json_error):
 
     @app.post("/api/v1/ingest/bulk")
     def bulk_ingest_start(body: dict | None = None):
-        """启动批量导入：``{src_dir, batch_size?=200}`` → 后台线程快扫建目录，返回 {batch_id}。"""
+        """启动批量导入：``{src_dir, batch_size?=200, reingest?=false, force?=false}``
+        → 后台线程快扫建目录，返回 {batch_id}。
+
+        ``reingest`` / ``force``（**同义词**，2026-09-21 KB-FOLDER-PLAN 第 4 步）：
+        「明知库里已有同号/同文件的登记也覆盖重导」。透传给既有的
+        ``run_full_ingest(reingest=True)``（见 ``bulk.create_bulk_batch``），
+        **默认 false = 不覆盖**（原行为）。本地 PDF 这条路以前**没有**这个开关，
+        ⇒ 那两篇正文条款为零、被挡在目录外的文件没有回头路（方案 §十七）。
+        """
         from src.core.exceptions import KnowledgeStationError
         from src.core.ingestion import bulk as bulk_ingest
         body = body or {}
         src_dir = str(body.get("src_dir") or "").strip()
         if not src_dir:
             return json_error(422, "missing_src_dir", "缺少 src_dir")
+        # 两个名字都收（`force` 是 `reingest` 的同义词；两侧任一为真即真）。
+        reingest = bool(body.get("reingest") or body.get("force"))
         try:
             batch = bulk_ingest.create_bulk_batch(
-                src_dir, int(body.get("batch_size") or bulk_ingest.DEFAULT_BATCH_SIZE))
+                src_dir, int(body.get("batch_size") or bulk_ingest.DEFAULT_BATCH_SIZE),
+                reingest=reingest)
         except KnowledgeStationError as e:
             return _upd_error(e, json_error)
         bid = batch["batch_id"]

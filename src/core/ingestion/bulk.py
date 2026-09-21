@@ -48,8 +48,16 @@ _lock = threading.Lock()
 
 
 # ---------------------------------------------------------------- 批次控制面
-def create_bulk_batch(src_dir: str, batch_size: int = DEFAULT_BATCH_SIZE) -> dict:
-    """新建 bulk_ingest 批次（running 中批次存在则 409/UPD-2001）。"""
+def create_bulk_batch(src_dir: str, batch_size: int = DEFAULT_BATCH_SIZE,
+                      reingest: bool = False) -> dict:
+    """新建 bulk_ingest 批次（running 中批次存在则 409/UPD-2001）。
+
+    ``reingest``（2026-09-21，KB-FOLDER-PLAN 第 4 步的「重来一次」开关）落在 checkpoint 里，
+    由 ``parse_loop`` 逐件透传给 **既有** 的 ``run_full_ingest(..., reingest=True)`` 路径
+    （不另写一套解析）。语义 = "明知库里已有同号/同文件的登记，也**覆盖重导**"
+    —— 那正是那两篇被隐藏文档（正文条款为零 ⇒ ``catalog_hidden=1``）唯一走得通的回头路。
+    默认 ``False``（**不覆盖**），保持原行为。
+    """
     from src.core.update.channels.base import (
         UpdateError, UPD_BATCH_ALREADY_RUNNING, UPD_BAD_PAYLOAD)
 
@@ -65,7 +73,8 @@ def create_bulk_batch(src_dir: str, batch_size: int = DEFAULT_BATCH_SIZE) -> dic
                           code=UPD_BATCH_ALREADY_RUNNING)
     batch_id = f"bul_{ULID()}"
     ckpt: dict[str, Any] = {"queue": [], "errors": [], "pause_reason": None,
-                            "parsed": 0, "scanned": 0, "src_dir": str(src)}
+                            "parsed": 0, "scanned": 0, "src_dir": str(src),
+                            "reingest": bool(reingest)}
     with write_transaction() as txn:
         txn.execute(
             "INSERT INTO bulk_import_batch (batch_id, batch_kind, trigger_type,"
@@ -76,8 +85,8 @@ def create_bulk_batch(src_dir: str, batch_size: int = DEFAULT_BATCH_SIZE) -> dic
             "INSERT INTO event_log (event_id, event_type, actor, target_type,"
             " target_id, after_state) VALUES (?,?,?,?,?,?)",
             (str(ULID()), "bulk/batch_created", "user", "bulk_import_batch", batch_id,
-             json.dumps({"src_dir": str(src), "batch_size": batch_size},
-                        ensure_ascii=False)))
+             json.dumps({"src_dir": str(src), "batch_size": batch_size,
+                         "reingest": bool(reingest)}, ensure_ascii=False)))
     return _reload(batch_id)
 
 
@@ -315,8 +324,50 @@ def fast_scan(batch_id: str, batch_size: int = DEFAULT_BATCH_SIZE,
 
 
 # ---------------------------------------------------------------- 解析循环（阶段二）
+def _write_item_state(doc_id: Any, stage: str | None = None, **fields: Any) -> bool:
+    """写队列项的处理状态（走入库侧那一个出口，见 ``pipeline._write_filing_state``）。
+
+    返回 ``False`` = 没写成（那行已经不存在 —— 例如 ``reingest`` 把占位行替换掉了，
+    或者状态表写不进去）。**不许**因为写状态失败就让整批解析失败。
+    """
+    if not doc_id:
+        return False
+    from src.core.ingestion.pipeline import _write_filing_state
+    return _write_filing_state(str(doc_id), stage, **fields)
+
+
+def _placeholder_still_there(item: dict[str, Any]) -> bool:
+    """这一项对应的**快扫占位行**还在吗（= 这一项是本次导入自己的占位）？
+
+    判据与 ``_process_pdf`` 写进去的形状一致：doc_id 命中 **且** ``file_hash`` 等于
+    这一次要解析的那个文件的哈希。
+
+    ⚠ 为什么需要它（2026-09-21 实测的真缺陷，第 4 步顺路修）：快扫会**先建一行占位**
+    ``doc_meta``（``quality_grade='C'`` + ``normative_refs=pending_parse``）并把它的
+    ``file_hash`` 写成这个文件的哈希；而 ``run_full_ingest`` 第一步就按 ``file_hash``
+    查重 ⇒ 它撞上**自己这行占位**、返回 ``duplicate``、**一条条款都不解析**，进度却报
+    ``parsed``。实测（副本库）：``resume`` 跑完 ``status=done / parsed=1 / clause_revision=0``、
+    库里只剩那行占位。占位行是**本次导入自己**的东西（不是用户资产）⇒ 真解析必须带
+    ``reingest=True`` 把它替换掉（那条路径本来就在 ``run_full_ingest`` 里，没有另写一套）。
+    """
+    doc_id = str(item.get("doc_id") or "")
+    if not doc_id:
+        return False
+    conn = get_db_connection()
+    row = conn.execute("SELECT file_hash FROM doc_meta WHERE doc_id=?", (doc_id,)).fetchone()
+    if row is None:
+        return False
+    return bool(item.get("hash")) and row["file_hash"] == item.get("hash")
+
+
 def parse_loop(batch_id: str, daily_budget: int = DEFAULT_PARSE_DAILY_BUDGET) -> dict:
-    """逐件调 run_full_ingest；日预算截断；每 5 件快照；终态 done/failed 诚实裁决。"""
+    """逐件调 run_full_ingest；日预算截断；每 5 件快照；终态 done/failed 诚实裁决。
+
+    ⚠ **处理状态在这里写"开始识别"与"失败"**（KB-FOLDER-PLAN §16.补2.1 的硬前置）：
+    队列项的 doc_meta 行是快扫时先建好的 ⇒ 这里是**唯一**能在"解析开始之前"就把
+    ``stage='recognizing'`` 写下来的地方（"成功"由 ``run_full_ingest`` 自己写在**它建的
+    那一行**上；那条路径也是 docx / 法规 / CLI 共用的）。
+    """
     from src.core.ingestion.pipeline import run_full_ingest
     from src.core.storage.backup import create_snapshot
 
@@ -327,6 +378,8 @@ def parse_loop(batch_id: str, daily_budget: int = DEFAULT_PARSE_DAILY_BUDGET) ->
     queue = ckpt.get("queue", [])
     errors: list[dict] = ckpt.get("errors", [])
     parsed = ckpt.get("parsed", 0)
+    #: 批次级的「重来一次」开关（create_bulk_batch 写进 checkpoint；缺省 False = 不覆盖）。
+    batch_reingest = bool(ckpt.get("reingest"))
     budget_left = daily_budget
     for item in queue:
         if budget_left <= 0:
@@ -336,17 +389,31 @@ def parse_loop(batch_id: str, daily_budget: int = DEFAULT_PARSE_DAILY_BUDGET) ->
         if item.get("status") in ("parsed", "failed"):
             continue
         budget_left -= 1
+        # ── 「开始识别」：解析开始**之前**，如实把这一篇标成识别中 ──
+        _write_item_state(item.get("doc_id"), "recognizing")
+        item_reingest = batch_reingest or _placeholder_still_there(item)
         try:
-            out = run_full_ingest(Path(item["path"]), item["standard_no"], item["name"])
+            out = run_full_ingest(Path(item["path"]), item["standard_no"], item["name"],
+                                  reingest=item_reingest)
             if out.get("status") in ("ok", "duplicate", "standard_exists"):
                 item["status"] = "parsed"
                 parsed += 1
+                if out.get("status") == "ok" and not out.get("filing_state_written", True):
+                    errors.append({"path": item["path"],
+                                   "reason": "filing_state_not_written"})
             else:
                 item["status"] = "failed"
-                errors.append({"path": item["path"], "reason": out.get("status", "error")})
+                reason = str(out.get("status", "error"))
+                errors.append({"path": item["path"], "reason": reason})
+                # 解析没成 ⇒ 占位行还在（reingest 的删除只发生在解析成功之后）⇒
+                # 把"识别失败 + 为什么"写在这一行上，别让它永远停在「识别中」。
+                _write_item_state(item.get("doc_id"), "failed",
+                                  failure_kind=str(out.get("message") or reason))
         except Exception as exc:  # noqa: BLE001
             item["status"] = "failed"
             errors.append({"path": item["path"], "reason": f"{type(exc).__name__}: {exc}"})
+            _write_item_state(item.get("doc_id"), "failed",
+                              failure_kind=f"解析中断（{type(exc).__name__}）")
         ckpt["parsed"] = parsed
         if parsed % SNAPSHOT_EVERY_BATCHES == 0:
             try:

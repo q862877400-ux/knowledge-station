@@ -103,7 +103,11 @@ def test_pause_resume_and_budget_pause(db, tmp_path, monkeypatch):
     src = make_src_dir(tmp_path, 4)
     calls: list[str] = []
 
-    def fake_ingest(pdf_path, standard_no, name):
+    def fake_ingest(pdf_path, standard_no, name, **kw):
+        # ⚠ `**kw`（2026-09-21，KB-FOLDER-PLAN 第 4 步）：`parse_loop` 现在会传
+        #   `reingest=`（占位行必须被真解析替换，否则 run_full_ingest 判 duplicate、
+        #   一条条款都不解析 —— 见 `bulk._placeholder_still_there`）。桩只记调用，
+        #   判据本身（parsed 计数 / 幂等）一个字没改。
         calls.append(standard_no)
         return {"status": "ok", "doc_id": "doc_x"}
 
@@ -259,7 +263,7 @@ def test_fast_scan_midway_pause_then_resume_finishes(db, tmp_path, monkeypatch):
 
     # resume：扫描中断断点 → 先续跑 fast_scan 至 scan_complete，再进解析
     monkeypatch.setattr("src.core.ingestion.pipeline.run_full_ingest",
-                        lambda pdf_path, no, name: {"status": "ok", "doc_id": "doc_x"})
+                        lambda pdf_path, no, name, **kw: {"status": "ok", "doc_id": "doc_x"})
     monkeypatch.setattr("src.core.storage.backup.create_snapshot",
                         lambda snapshot_type="auto": None)
     out2 = bulk.resume_batch(b["batch_id"])

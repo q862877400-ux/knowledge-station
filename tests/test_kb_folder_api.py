@@ -640,8 +640,14 @@ def test_scope_resolve_unknown_is_404_not_empty(client):
 
 def test_all_kb_endpoints_require_token(client):
     c, _ = client
+    # ⚠ 第 4 步新增的三条也在这里（`.ks-` 认不出 token 就 401 是这一族的统一纪律；
+    #   漏加一条 = 那条端点变成"没 token 也能读整棵目录树/待分类列表"）。
     for method, path in (("get", "/api/v1/kb/folders"),
+                         ("get", "/api/v1/kb/folders/flat"),
+                         ("get", "/api/v1/kb/stage-labels"),
                          ("get", "/api/v1/kb/inbox"),
+                         ("get", "/api/v1/kb/inbox/reingest/status"),
+                         ("post", "/api/v1/kb/inbox/reingest"),
                          ("get", "/api/v1/kb/folders/fld_x/items"),
                          ("delete", "/api/v1/kb/folders/fld_x")):
         assert getattr(c, method)(path).status_code == 401
