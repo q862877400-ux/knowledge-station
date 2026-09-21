@@ -39,6 +39,7 @@
 from __future__ import annotations
 
 import sqlite3
+from datetime import datetime
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -77,7 +78,12 @@ _STATE_FIELDS: tuple[str, ...] = (
     "placed_folder_id", "placed_by", "placed_at", "last_error",
 )
 
-_BAD_NAME_CHARS: tuple[str, ...] = ("/", "\\", "\x00")
+_BAD_NAME_CHARS: tuple[str, ...] = ("\\", "\x00")
+# ⚠ 名字里**允许斜杠**（2026-09-21 预览实测）：CCS 区间名本身就带 `/`
+#   （`P15/19 工程抗震、工程防火、人防工程`、`A00/09 标准化管理与一般规定`…），
+#   而它们是**真实存在的** L3 目录名 —— 禁掉斜杠等于禁掉现有分类树。
+#   安全前提：目录一律靠 folder_id 引用，**从不按路径解析**，所以名字里的斜杠
+#   没有解析歧义；"显示出来的路径"用 ` › ` 连接（见 folder_filing_plan）。
 
 
 def _err(msg: str, code: str) -> KnowledgeStationError:
@@ -116,7 +122,7 @@ def _clean_name(raw: Any) -> str:
         raise _err("目录名不能是 . 或 ..", "invalid_folder_name")
     for ch in _BAD_NAME_CHARS:
         if ch in name:
-            raise _err("目录名不能含 / 或 \\ 或空字符", "invalid_folder_name")
+            raise _err("目录名不能含 \\ 或空字符", "invalid_folder_name")
     if any(ord(c) < 32 for c in name):
         raise _err("目录名不能含换行等控制字符", "invalid_folder_name")
     return name
@@ -644,6 +650,83 @@ def move_member(item_kind: str, item_id: str, from_folder_id: str, to_folder_id:
             (from_folder_id, item_kind, item_id))
         return {"from_folder_id": from_folder_id, "to_folder_id": to_folder_id,
                 "item_kind": item_kind, "item_id": item_id}
+
+
+# ─────────────────────────── 批量入口（一次性归位用） ───────────────────────────
+
+def build_folder_tree(nodes: list[dict], memberships: list[dict] | None = None,
+                      states: list[dict] | None = None,
+                      db_path: Path | None = None) -> dict:
+    """**一个事务**里把"目录树 + 归属 + 状态"建起来（全成或全败）。
+
+    这是给"现有数据一次性归位"用的批量入口。为什么不能拿 ``create_folder`` /
+    ``add_member`` 各调几千次：① 在 2.2 GB 真库上几千次单条事务又慢又占写锁；
+    ② 方案 §七要求保留"归属表整表清掉重来"的整体回退 —— 那需要**整批原子**。
+
+    * ``nodes``: ``[{"key","name","parent_key"|None,"sort"?}]``，**父必须排在子之前**。
+    * ``memberships``: ``[{"folder_key","item_kind","item_id"}]``（``folder_key`` 指向 nodes 的 key）。
+    * ``states``: ``[{"doc_id","stage","placed_folder_key"?,"confidence"?,"placed_by"?}]``。
+
+    校验一条都没省：名字/层数/路径/同名同层/成环/引用存在性全走同一套内部函数。
+    返回 ``{"folders_created","members_added","members_skipped","states_set","key_to_id"}``。
+    """
+    key_to_id: dict[str, str] = {}
+    added = skipped = states_set = 0
+    with write_transaction(db_path) as conn:
+        for node in nodes:
+            key = str(node["key"])
+            if key in key_to_id:
+                raise _err(f"目录 key 重复: {key}", "invalid_folder_key")
+            pkey = node.get("parent_key")
+            if pkey is None:
+                parent_id: str | None = None
+            else:
+                if pkey not in key_to_id:
+                    raise _err(f"上级目录还没建（nodes 必须父先子后）: {pkey}",
+                               "invalid_folder_key")
+                parent_id = key_to_id[str(pkey)]
+            created = _create_folder_in_tx(conn, node["name"], parent_id,
+                                           int(node.get("sort") or 0))
+            key_to_id[key] = created["folder_id"]
+        for m in (memberships or []):
+            fkey = str(m["folder_key"])
+            if fkey not in key_to_id:
+                raise _err(f"成员指向不存在的目录 key: {fkey}", "invalid_folder_key")
+            if _add_member_in_tx(conn, key_to_id[fkey], m["item_kind"], str(m["item_id"])):
+                added += 1
+            else:
+                skipped += 1
+        for s in (states or []):
+            doc_id = str(s["doc_id"])
+            stage = s.get("stage")
+            if stage is not None and stage not in STAGES:
+                raise _err(f"stage 只能是 {STAGES}，收到 {stage!r}", "invalid_stage")
+            if conn.execute("SELECT 1 FROM doc_meta WHERE doc_id=?", (doc_id,)).fetchone() is None:
+                raise _err(f"文档不存在: {doc_id}", "doc_not_found")
+            placed_key = s.get("placed_folder_key")
+            placed_id = None
+            if placed_key is not None:
+                if str(placed_key) not in key_to_id:
+                    raise _err(f"归位指向不存在的目录 key: {placed_key}", "invalid_folder_key")
+                placed_id = key_to_id[str(placed_key)]
+            placed_at = None
+            if placed_id is not None:
+                placed_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            conn.execute(
+                "INSERT INTO doc_filing_state(doc_id, stage, confidence, placed_folder_id,"
+                " placed_by, placed_at) VALUES (?,?,?,?,?,?)"
+                " ON CONFLICT(doc_id) DO UPDATE SET"
+                "   stage=excluded.stage,"
+                "   confidence=COALESCE(excluded.confidence, confidence),"
+                "   placed_folder_id=COALESCE(excluded.placed_folder_id, placed_folder_id),"
+                "   placed_by=COALESCE(excluded.placed_by, placed_by),"
+                "   placed_at=COALESCE(excluded.placed_at, placed_at),"
+                "   updated_at=datetime('now')",
+                (doc_id, stage or "queued", s.get("confidence"), placed_id,
+                 s.get("placed_by"), placed_at))
+            states_set += 1
+    return {"folders_created": len(key_to_id), "members_added": added,
+            "members_skipped": skipped, "states_set": states_set, "key_to_id": key_to_id}
 
 
 # ─────────────────────────── 列某一级的内容（文件分页） ───────────────────────────
