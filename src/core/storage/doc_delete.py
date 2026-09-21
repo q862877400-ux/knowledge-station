@@ -17,6 +17,7 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 
 from src.core.storage.sqlite_db import (
     get_db_connection,
@@ -27,10 +28,15 @@ from src.core.storage.sqlite_db import (
 MAX_BATCH = 500  # 防误传全库；UI 批删场景远用不到
 
 
-def delete_documents(doc_ids: list[str], actor: str = "local-user") -> dict:
+def delete_documents(doc_ids: list[str], actor: str = "local-user",
+                     db_path: Path | None = None) -> dict:
     """删除指定文档及全部级联数据。返回 {deleted_docs, deleted_clauses, missing}。
 
     doc_ids 去重；不存在的 id 进 missing 不报错；单事务（BEGIN IMMEDIATE）全成全败。
+
+    ``db_path``（2026-09-21 增量，默认 None = 配置中心那个库，**既有调用方语义一字未变**）：
+    目录模块的 ``purge`` 会真删文件，而它可能跑在**真库副本**上（归位预览/用例）——
+    没有这个参数时 ``get_db_connection()`` 会落到默认库，那就是"在副本上操作、删的是真库"。
     """
     ids = sorted({str(d).strip() for d in doc_ids if str(d or "").strip()})
     if not ids:
@@ -38,7 +44,7 @@ def delete_documents(doc_ids: list[str], actor: str = "local-user") -> dict:
     if len(ids) > MAX_BATCH:
         raise ValueError(f"单次最多删除 {MAX_BATCH} 个文档（防误传全库），当前 {len(ids)}")
 
-    conn = get_db_connection()
+    conn = get_db_connection(db_path)
     # vec0 虚表 DELETE 需要扩展；get_db_connection 默认不加载（R30 降级设计），
     # 此处显式加载（幂等，与 init_schema / s_mass_delete 同模式）
     load_vec_extension(conn)
@@ -53,7 +59,7 @@ def delete_documents(doc_ids: list[str], actor: str = "local-user") -> dict:
     tph = ",".join("?" * len(targets))
     cl_sub = ("SELECT clause_revision_id FROM clause_revision "
               f"WHERE doc_id IN ({tph})")
-    with write_transaction() as txn:
+    with write_transaction(db_path) as txn:
         deleted_clauses = txn.execute(
             f"SELECT COUNT(*) FROM clause_revision WHERE doc_id IN ({tph})", targets
         ).fetchone()[0]
