@@ -9910,4 +9910,45 @@ cols 三档 / pad 矩阵 **22 组** / ui-render-shot 的 kb-ask）+ `client-entr
 **都当场红**、还原后 `git status --short` 空；真机**三张终版图**（浅色窄档 / 浅色宽档 / 深色）都读过，
 另有**修复前那张**当反例（工具栏挤成竖排、与面包屑叠字）。
 **未做/未验**：host 侧工具层没加目录范围参数、真库规模的范围耗时没测、并发切范围只有推理没有实机
-（逐条登记在 KB-FOLDER-PLAN §21.7）。
+（逐条登记在 KB-FOLDER-PLAN §21.7）—— ⚠ 其中**前两条已在下一节（§10.155）里做完**。
+
+## §10.155 第 6 步被打回一轮：`smoke-trim` 抓到 `scope` 没被宿主转发（2026-09-21）
+
+**父代理的全量门禁结果**：`7/8` 步通过，红在 **smoke 全链** ⇒ 具体是
+`scripts/smoke-trim.mjs`：`FAIL 引擎答案字段全部被转发（含 material_usage） — DROPPED: scope`
+（`1/34 FAILED`，exit=1）。
+
+**根因（两件一起，父代理裁定）**：
+1. 引擎新加的 `scope` 字段**没被宿主转发层（`plugin/src/index.js` 的 `trimAnswer`）透传** ——
+   那条冒烟就是专门守"引擎字段一个都不许静默丢"的（存在理由写在它文件头：`unsupported_context`
+   曾经算出来却被白名单静默丢弃）。后果是**聊天里的模型看不到"这次是在什么范围里检索的"**。
+2. 裁定：host 侧工具层要加知识库目录范围参数。理由 —— 业主那句「每一级都能在此范围内提问」
+   是**在聊天里**问的，不是只在知识库页里；引擎入口与页面支持了、但模型给不出范围，
+   **功能对业主等于没上**。
+
+**做了什么（提交 `58a8d25`）**：`plugin/src/index.js` 的 `params` 加 `kb_folder_ids` /
+`kb_doc_ids`（与引擎同名同义；`sanitizeParams` 白名单接住，**空数组如实透传** —— 吃掉它就等于把
+"范围内提问"悄悄变成全库）、`trimAnswer` 与 `execute` 透传引擎回显的 `scope`、
+`output.schema` 新增可空的 `scope`（并写明它与 `answer_scope` 的区别）；
+`smoke-tool-contract` +3 组 / +6 条（104/104,19 组 → **122/122,22 组**）、
+`smoke-materials-tool` 探针表 +2 键 +1 条（**35/35**）、`smoke-trim` 现在覆盖 `scope`（**34/34**）。
+
+**⚠ 我上一轮为什么没发现（本批最该记住的一条）**：我只跑了"KB 那几条"冒烟，
+**没跑全链** ⇒ 漏掉 `smoke-trim`；把它修好之后再跑全链，又发现 `smoke-materials-tool`
+的通用棘轮（"schema 承诺的每个 params 键都必须真到引擎"）同样红。
+**教训：凡新增/修改"引擎返回字段"或"工具参数"，`smoke-trim` + `smoke-tool-contract` +
+`smoke-materials-tool` 是必跑项；"跑了自己挑的那几条"永远不算数 —— 跑全链
+（`node plugin/scripts/smoke-all.mjs`，本批实测 **34 套**）或把链里每一条都跑一遍。**
+
+**证据**：全链 **34 套 exit=0**；`smoke-trim` 34/34、`smoke-tool-contract` 122/122（22 组）、
+`smoke-materials-tool` 35/35、`smoke-sanitize` 13/13、`smoke-lifecycle` 7/7、`smoke-chatmode` 174/174，
+全 exit=0；全量 `pytest -q` **2288 passed / 3 skipped / 0 failed**；
+变异 A（删 `trimAnswer` 的 `scope` 透传）⇒ `DROPPED: scope` / 1/34 FAILED；
+变异 B（schema 留着、白名单不透传）⇒ `DROPPED: kb_folder_ids,kb_doc_ids`（2/35）+ tool-contract 4 条红。
+
+**真库只读量测（父代理点名）**：`mode=ro` + `PRAGMA query_only=1`（真库文件 mtime 与字节数一字未变）。
+真库 2229.1 MB / **1127 目录** / **6417 篇** / 520 504 条款；
+**`/kb/scope/resolve` 5.7–6.9 ms**（与范围大小无关）；整库口径的 doc_ids JSON 213 KB。
+**新登记的代价**：带范围的 **FTS 通道** 整库口径 ~365 ms（不带范围 ~2 ms）、中等口径（483 篇）~27 ms
+—— 原因是 `IN (SELECT … json_each(?))` 要为每个命中做成员判定。**本批不优化**（答案本身要跑 LLM；
+整库口径界面到不了；优化会动六条通道的 SQL，属跨轮次）。**向量那一路仍未实测。**

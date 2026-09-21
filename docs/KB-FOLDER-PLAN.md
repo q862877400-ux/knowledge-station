@@ -1228,20 +1228,110 @@ chip 右缘**溢出 −112px**（窄档，页面根右内边距 16px）/ **−28
 
 ### 21.7 本步**未做 / 未验 / 存疑**（如实登记）
 
-1. **未做：host 侧工具层（`plugin/src/index.js` 的 `ks_answer` 工具）没有加"知识库目录范围"参数。**
-   引擎入口（`ks_answer.answer(params=…)`）与 HTTP 端点**都接受并回显**范围（§21.1），
-   知识库页直连引擎、能力完整；但**聊天里的模型**今天仍只能给"收藏夹范围"（`folder_id`），
-   给不了"目录范围"。理由：那是**宿主平面**（会动到本会话自己挂的插件产物），
-   且要连带改 `smoke-tool-contract` / `smoke-trim` 两套契约冒烟 —— 不在本批范围，**留给父代理裁定**。
+1. ~~**未做：host 侧工具层没有加"知识库目录范围"参数**~~ ⇒ **父代理裁定要加，已在
+   §二十一·补 里做完**（`58a8d25`）。留痕：下面这一段是**打回前**的原文。
+   > 引擎入口（`ks_answer.answer(params=…)`）与 HTTP 端点**都接受并回显**范围（§21.1），
+   > 知识库页直连引擎、能力完整；但**聊天里的模型**今天仍只能给"收藏夹范围"（`folder_id`），
+   > 给不了"目录范围"。理由：那是**宿主平面**（会动到本会话自己挂的插件产物），
+   > 且要连带改 `smoke-tool-contract` / `smoke-trim` 两套契约冒烟 —— 不在本批范围，**留给父代理裁定**。
 2. **未验：并发提两个范围提问**（同一页快速切范围）只做了"请求序号守卫"（旧的响应作废），
    没有真机并发用例 —— 这是**推理**，不是实测。
-3. **未验：真库上的范围规模**。所有数字都来自隔离的临时数据目录；真库（1127 个目录 / 3 万篇）
-   上"某一级的 `doc_count` 有多大、`/kb/scope/resolve` 要多久"**没测过**
-   （`folder_scope` 是既有函数，本步没改它的算法）。
+3. ~~**未验：真库上的范围规模**~~ ⇒ **已在 §二十一·补 里用只读连接量过**：
+   `/kb/scope/resolve` 5.7–6.9 ms；整库口径 1127 目录 / 6417 篇（doc_ids 的 JSON 213 KB）；
+   中等口径 57 目录 / 483 篇。**仍未验**的是向量通道在真库规模下的耗时（见 §补 末尾）。
 4. **存疑（代价，已写进代码注释）**：向量通道现在走的是**子查询约束的暴力扫描** ⇒
-   范围提问的向量那一路会比原来慢；正确性优先，但真库规模下的耗时**没有实测**。
+   范围提问的向量那一路会比原来慢；**向量那一路仍未实测**（§补 里量到的是**词法/FTS**那一路的代价）。
 5. **未改**：收藏夹范围（`params.folder_id`）的行为一字未动（仍是证据层）；两者同时给 = 交集
    —— 这条**有单测**，但**没有**在界面上同时提供两种范围（界面上只有知识库目录范围）。
+
+## 二十一·补、**打回一轮**：全量门禁 7/8，红在 `smoke-trim`（2026-09-21，父代理裁定）
+
+### 打回的事实（父代理自己跑的 `pwsh -File scripts/run-gates.ps1 -Full`）
+
+```
+── scripts/smoke-trim.mjs ──
+FAIL  引擎答案字段全部被转发（含 material_usage） — DROPPED: scope
+smoke-trim: 1/34 FAILED
+⛔ smoke 全链失败于 scripts/smoke-trim.mjs（exit=1）
+门禁汇总（全量 档）：7/8 步通过 · ✅ 棘轮（通过 2288 / 跳过 3 / 失败 0）
+```
+
+### ⚠ 我**上一轮为什么没发现**（根因，必须写清）
+
+**我只跑了"KB 那几条"冒烟**（`smoke-kb-page-render` / `smoke-kb-cols` / `smoke-kb-pad-pixels` /
+`ui-render-shot` + `client-entry` + `settings` + `ui-scale` + `build-purity`），**没有跑全链**，
+于是漏掉了两条**链里本来就有、而且正是为这一类改动准备的**判据：
+
+1. `smoke-trim.mjs` —— 它有一条判据是"**引擎 `answer()` 的每个顶层字段都必须被宿主转发**"
+   （从引擎源码解析真实字段集、逐键探测）。我给引擎加了 `scope`、**没给宿主转发层加**，
+   它当场红（`DROPPED: scope`）。**这条冒烟的文件头第一句就写着它存在的理由**：
+   "`unsupported_context` 算出来了却在白名单里被静默丢弃 ⇒ 失败模式是**静默**的，不能靠记得加"。
+2. `smoke-materials-tool.mjs` —— 修完 trim 之后全链才走到它，它还有一条更狠的通用棘轮：
+   "**schema 向模型承诺的每个 `params` 键都必须真能到引擎**" ⇒ 我给 schema 加了两个参数、
+   却没补它的探针表 ⇒ `DROPPED: kb_folder_ids,kb_doc_ids` + `UNTESTED` 两条红。
+
+**教训（按父代理要求写进报告）**：
+**凡新增/修改"引擎返回字段"或"工具参数"，`smoke-trim` + `smoke-tool-contract` +
+`smoke-materials-tool` 是必跑项；"跑了自己挑的那几条"永远不算数 —— 要么跑全链
+（`node plugin/scripts/smoke-all.mjs`），要么把链里的每一条都跑一遍。**
+
+### 补的东西（提交 `58a8d25`，改动小、每条都有判据）
+
+* `plugin/src/index.js`（**宿主平面**）：
+  * `sanitizeParams` 白名单接住 `kb_folder_ids` / `kb_doc_ids`（与引擎同名同义；逐项去空白、
+    去重、丢非法、最多 500 项）；**空数组如实透传**（引擎把"显式空范围"与"没给范围"严格区分
+    —— 宿主若把空数组"优化"掉，就是"范围内提问悄悄变成全库"，正是红线）；
+  * `trimAnswer` 透传引擎回显的 `scope`，`execute` 的 `return` 里也带上（白名单纪律：
+    算出来不转发 = 静默丢弃）；
+  * `output.schema` 新增 `scope`（可空、外层开放 object）；`params` 两个新键写进 schema，
+    并写明"与 `folder_id`（收藏夹/证据层）不是一回事、两者同时给 = 交集"。
+* 判据补齐：`smoke-tool-contract` **+3 组场景 / +6 条**（`104/104, 19 组` → **`122/122, 22 组`**）；
+  `smoke-materials-tool` 探针表 +2 键 / +1 条"值也逐字到"（`34` → **`35/35`**）；
+  `smoke-trim` 的字段转发棘轮现在覆盖 `scope`（`33/34` → **`34/34`**）。
+
+### 这一轮的证据（机械数字 + 退出码）
+
+| 项 | 结果 |
+|---|---|
+| **全链** `node plugin/scripts/smoke-all.mjs` | **34 套全过，exit=0**（第一遍停在 `smoke-trim`、第二遍停在 `smoke-materials-tool`，第三遍全绿） |
+| `smoke-trim` | `34/34 PASS` exit=0 |
+| `smoke-tool-contract` | `122/122 PASS（22 组场景）` exit=0 |
+| `smoke-materials-tool` | `35/35 PASS` exit=0 |
+| `smoke-sanitize` / `smoke-lifecycle` / `smoke-chatmode` | `13/13` / `7/7` / `174/174`，exit=0 |
+| 全量 `pytest -q` | **2288 passed / 3 skipped / 0 failed** |
+| 变异 A（删掉 `trimAnswer` 里 `scope` 的透传） | `smoke-trim`：`FAIL … DROPPED: scope` ⇒ **1/34 FAILED，exit=1**（与父代理门禁看到的原话一字不差） |
+| 变异 B（schema 留着、`sanitizeParams` 不透传） | `smoke-materials-tool`：`DROPPED: kb_folder_ids,kb_doc_ids` + `verbatim — {}`（**2/35 FAILED**）；`smoke-tool-contract`：4 条红（`118/122`）—— 两条链都抓住 |
+
+### 真库只读量测（父代理点名；**绝不写真库**）
+
+做法：`sqlite3.connect("file:…knowledge.db?mode=ro", uri=True)` + `PRAGMA query_only=1`，
+把 `folder_store.get_db_connection` 换成这个只读连接 ⇒ 跑的是**真函数**的真代码、**零写能力**。
+探针 `var/tmp/probe-real-scope.py`（只读、不落盘）。
+
+**真库规模**：`knowledge.db` **2229.1 MB**；`folder` **1127** 行 / `folder_member` 7540 /
+`doc_meta` **6417** / `clause_revision` **520 504**；顶层目录 4 个（最大子树 1124 个目录）。
+
+| 范围 | folder_count | doc_count | doc_ids 的 JSON | 范围过滤子查询 | FTS 通道（词「防火」LIMIT 20）带范围 / 不带 |
+|---|---|---|---|---|---|
+| 全部顶层目录（= 整库） | 1127 | 6417 | 213.1 KB | 34.6 ms | **365.5 ms / 2.3 ms** |
+| 最大的顶层子树 | 1124 | 6036 | 200.4 KB | 33.2 ms | 340.9 ms / 2.8 ms |
+| **中等规模一级目录（H 冶金，最常见那档）** | 57 | **483** | 16.0 KB | 3.0 ms | **26.7 ms / 2.0 ms** |
+| 一个叶子目录（0 篇） | 1 | 0 | 0.0 KB | 0.0 ms | 6.3 ms / 1.9 ms |
+
+* **`/kb/scope/resolve` 本身：5.7 – 6.9 ms**（`folder_scope` 5.2–6.9 ms + 端点排序 0–0.9 ms），
+  与范围大小基本无关 ⇒ **这条接口不是瓶颈**。
+* ⚠ **新登记的一条实测代价（本批不改）**：范围约束写成
+  `clause_revision_id IN (SELECT … WHERE doc_id IN (SELECT value FROM json_each(?)))` 时，
+  **FTS 通道**的耗时随范围变大而涨（整库口径 ~365 ms vs 不带范围 ~2 ms；中等口径 ~27 ms vs ~2 ms）。
+  原因是那个 `IN` 子查询要为每个命中做一次 6417 项的 `json_each` 成员判定。
+  **为什么不本批优化**：① 答案本身要跑一次云端 LLM（以十秒计），这个量级在交互里可忽略；
+  ② 整库口径**界面到不了**（最外层按钮就是禁用的，这正是本批的设计），聊天侧只有显式给
+  "全部顶层目录"才会碰到；③ 优化（把 id 集合落成带索引的临时表再 JOIN）会动到六条通道的 SQL，
+  属跨轮次改动，按纪律**只登记不顺手做**。
+* 真库**没有被写**：`knowledge.db` 的 mtime（`2026/9/21 21:40:41`）与字节数在量测前后**一字未变**；
+  变动的只有 `knowledge.db-shm`（WAL 的共享内存映射 —— 读一个 WAL 库本来就要碰它，**不是数据**）。
+* **仍未验**：向量通道在真库规模下的耗时（它要真 embedder + sqlite-vec，且 `MATCH` 需要真查询向量
+  —— 本探针不造这个假；如实留白）。
 
 
 
