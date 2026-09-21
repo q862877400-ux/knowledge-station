@@ -342,3 +342,97 @@ def test_announce_ulid_pk_style(db):
     col = {r["name"]: r for r in
            db.execute("PRAGMA table_info(announcement_observed)").fetchall()}["observed_id"]
     assert col["pk"] == 1 and col["type"] == "TEXT"
+
+
+# ===== 知识库多级目录数据契约（33~35 号表；契约增量见 pipeline/03-contract-delta.md 末节） =====
+
+def test_folder_tables_exist(db):
+    """folder / folder_member / doc_filing_state 三张表存在（方案 §3 定死的形状）。"""
+    from src.core.storage.sqlite_db import list_tables
+    tables = set(list_tables())
+    for t in ("folder", "folder_member", "doc_filing_state"):
+        assert t in tables, f"缺少 {t} 契约表"
+
+
+def test_folder_columns(db):
+    cols = {r["name"] for r in db.execute("PRAGMA table_info(folder)").fetchall()}
+    assert {"folder_id", "parent_id", "name", "sort", "created_at"} <= cols, cols
+
+
+def test_folder_ulid_pk_style(db):
+    """folder_id 须为 TEXT 主键且 DDL 带 fld_ 前缀注释（与 30/32 号表同款契约）。"""
+    ddl = db.execute("SELECT sql FROM sqlite_master"
+                     " WHERE type='table' AND name='folder'").fetchone()[0]
+    assert "-- ULID 前缀 fld_" in ddl, "folder 主键缺 ULID 前缀注释"
+    col = {r["name"]: r for r in
+           db.execute("PRAGMA table_info(folder)").fetchall()}["folder_id"]
+    assert col["pk"] == 1 and col["type"] == "TEXT"
+
+
+def test_folder_member_columns_and_pk(db):
+    info = db.execute("PRAGMA table_info(folder_member)").fetchall()
+    cols = {r["name"] for r in info}
+    assert {"folder_id", "item_kind", "item_id", "added_at"} <= cols, cols
+    pk = {r["name"] for r in info if r["pk"]}
+    assert pk == {"folder_id", "item_kind", "item_id"}, f"主键应为三列: {pk}"
+
+
+def test_doc_filing_state_columns_and_stage_enum(db):
+    cols = {r["name"] for r in db.execute("PRAGMA table_info(doc_filing_state)").fetchall()}
+    required = {"doc_id", "stage", "confidence", "failure_kind", "suggested_folder_id",
+                "suggest_new_path", "placed_folder_id", "placed_by", "placed_at",
+                "last_error", "updated_at"}
+    assert required <= cols, f"doc_filing_state 缺列: {required - cols}"
+    # stage 五枚举（排队/识别中/待确认/已归位/识别失败）
+    import sqlite3
+    db.execute("INSERT INTO doc_filing_state(doc_id, stage) VALUES ('ct_fs_1','queued')")
+    with pytest.raises(sqlite3.IntegrityError):
+        db.execute("INSERT INTO doc_filing_state(doc_id, stage) VALUES ('ct_fs_2','bogus')")
+    db.rollback()
+
+
+def test_folder_member_kind_enum_and_pk_rejects_dup(db):
+    """item_kind 只有 folder/file；同一 (folder,kind,item) 只能有一行（三列主键）。"""
+    import sqlite3
+    db.execute("INSERT INTO folder_member(folder_id, item_kind, item_id)"
+               " VALUES ('ct_f1','file','ct_d1')")
+    with pytest.raises(sqlite3.IntegrityError):
+        db.execute("INSERT INTO folder_member(folder_id, item_kind, item_id)"
+                   " VALUES ('ct_f1','file','ct_d1')")
+    with pytest.raises(sqlite3.IntegrityError):
+        db.execute("INSERT INTO folder_member(folder_id, item_kind, item_id)"
+                   " VALUES ('ct_f1','bogus','ct_d1')")
+    db.rollback()
+
+
+def test_folder_same_name_same_level_rejected_by_indexes(db):
+    """同名同层拒绝**必须**含根层：`parent_id IS NULL` 时表级 UNIQUE 无效（NULL 互不相等），
+    靠部分唯一索引 idx_folder_root_name 兜住（方案 §二第 3 条 + §三「同名同层要拒」）。"""
+    import sqlite3
+    # 根层：第二条同名被拒
+    db.execute("INSERT INTO folder(folder_id, parent_id, name)"
+               " VALUES ('ct_root_a',NULL,'契约国标')")
+    with pytest.raises(sqlite3.IntegrityError):
+        db.execute("INSERT INTO folder(folder_id, parent_id, name)"
+                   " VALUES ('ct_root_b',NULL,'契约国标')")
+    db.rollback()
+    # 异层同名**必须**允许
+    db.execute("INSERT INTO folder(folder_id, parent_id, name)"
+               " VALUES ('ct_root_a',NULL,'契约国标')")
+    db.execute("INSERT INTO folder(folder_id, parent_id, name)"
+               " VALUES ('ct_p2',NULL,'契约父2')")
+    db.execute("INSERT INTO folder(folder_id, parent_id, name)"
+               " VALUES ('ct_c3','ct_p2','契约国标')")
+    db.commit()
+    assert db.execute(
+        "SELECT COUNT(*) FROM folder WHERE name='契约国标'").fetchone()[0] == 2
+    # 同层（parent_id 非空）同名拒绝
+    db.execute("INSERT INTO folder(folder_id, parent_id, name)"
+               " VALUES ('ct_p1',NULL,'契约父')")
+    db.execute("INSERT INTO folder(folder_id, parent_id, name)"
+               " VALUES ('ct_c1','ct_p1','契约子')")
+    db.commit()
+    with pytest.raises(sqlite3.IntegrityError):
+        db.execute("INSERT INTO folder(folder_id, parent_id, name)"
+                   " VALUES ('ct_c2','ct_p1','契约子')")
+    db.rollback()

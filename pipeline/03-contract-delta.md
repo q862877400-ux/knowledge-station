@@ -214,3 +214,34 @@ schema.sql 追加第 31 号表 `bulk_import_batch`（本批只建巡检侧需要
 `tests/test_unsupported_context.py`（新）。
 
 **回滚**：删该字段的三处透传即可（无 DDL、无状态、无迁移）。
+
+---
+
+# 契约增量 · 知识库多级目录 · folder / folder_member / doc_filing_state（33~35 号表）
+
+> 2026-09-21 ｜ 依据：**docs/KB-FOLDER-PLAN.md**（业主定案，本文件是该功能的唯一方案真源）§3「数据形状（决定一切，先定死）」｜ 红线流程：本文档 → test_contract.py → schema.sql（三件套同步落地）
+
+## 变更内容
+
+三张**新表**（不改 `doc_meta` 一个字段：它是取证链承重墙，方案 §七也只允许"归属表整表清掉重来"）。
+
+| 表 | 主键 | 关键约束 |
+|---|---|---|
+| `folder` 知识库目录 | `folder_id TEXT PRIMARY KEY`（DDL 注释声明 ULID 前缀 `fld_`，与 30/32 号表同款风格） | `parent_id` 可空（NULL ⇒ 在顶层出现）；`name NOT NULL`；`sort INTEGER DEFAULT 0`；`created_at` 默认 `datetime('now')` |
+| `folder_member` 归属（**多对多**） | `PRIMARY KEY (folder_id, item_kind, item_id)` 三列 | `item_kind` CHECK 二枚举 `folder`/`file`；**无外键**（`item_id` 多态） |
+| `doc_filing_state` 处理状态 | `doc_id TEXT PRIMARY KEY` | `stage` 缺省 `queued`，CHECK 五枚举 `queued`/`recognizing`/`confirming`/`filed`/`failed`（= 排队/识别中/待确认/已归位/识别失败）；`confidence`/`failure_kind`/`suggested_folder_id`/`suggest_new_path`/`placed_folder_id`/`placed_by`/`placed_at`/`last_error` 均可空 |
+
+**索引**：`idx_folder_root_name`（`UNIQUE(name) WHERE parent_id IS NULL`）+ `idx_folder_child_name`（`UNIQUE(parent_id,name) WHERE parent_id IS NOT NULL`）—— 同名同层拒绝必须**含根层**：`UNIQUE(parent_id,name)` 对 NULL 无效（NULL 互不相等），只靠表级 UNIQUE 拦不住一级重名；`idx_folder_parent`；`idx_folder_member_item(item_kind,item_id)`；`idx_filing_stage(stage,updated_at)` + `idx_filing_placed_folder(placed_folder_id)`。
+
+**两级父子关系的语义分工**（方案 §3 同时给了 `parent_id` 与 `item_kind='folder'`，两者都照写）：
+`folder.parent_id` = **主位置**（唯一，决定 `parent_id IS NULL` 的顶层归属）；`folder_member(item_kind='folder')` = **全部**父子边（可多条 ⇒ 复制出来的子目录是"同一份挂两处"）。不变式：`F.parent_id=P` ⇒ 必有成员行 `(P,'folder',F)`。环的禁止由 `folder_store` 在写事务内判定，**不只靠**这个不变式。
+
+**与 9c `user_bookmark_folder` 的关系**：**无关**。那张表是单层收藏夹（`UNIQUE(folder_name)` 全库同名拒绝、无 parent_id、夹内只装收藏），装不下无限层级；两张表的 `folder_id` 同形但各自表内引用，**任何查询不得跨表 join**。
+
+## 影响面与回滚
+
+- 改动文件（数据层这一步）：`src/core/storage/schema.sql`（33~35 号表 + 6 索引）、`tests/test_contract.py`（7 用例：三表存在/列集/ULID 前缀注释/三列主键/item_kind 枚举/根层同名拒绝且异层同名放行/stage 五枚举）、本文档。**`sqlite_db.py` 未改**——`init_schema` 走 `executescript` 全量执行，新表即新库与老库都自动落地；本次**不需要** `_ensure_*_columns` 那类补列迁移（那是给**既有表加列**用的）。
+- 存量零侵入：全部 `IF NOT EXISTS` 幂等；不动既有 1~32 号表、FTS/VEC 虚拟表、SSE 事件与 API 契约。
+- 实现落点：`src/core/knowledge/folder_store.py`（读写函数）、`scripts/preview-folder-filing.py`（只对真库副本的归位预览）。界面与 HTTP 接口**不在本增量**（方案 §五第 2/3 步）。
+- 回滚：`DROP TABLE IF EXISTS doc_filing_state; DROP TABLE IF EXISTS folder_member; DROP TABLE IF EXISTS folder;`（三表互无外键、无方向依赖）；索引随表消失。不动 `doc_meta` 的任何行，也不动磁盘文件。
+- 测试基线只涨不跌（test_contract +6）。

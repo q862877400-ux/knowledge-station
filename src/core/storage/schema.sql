@@ -653,3 +653,69 @@ CREATE TABLE IF NOT EXISTS update_channel (
 CREATE INDEX IF NOT EXISTS idx_channel_cat ON update_channel(category, state);
 CREATE INDEX IF NOT EXISTS idx_channel_wiring ON update_channel(wiring, enabled);
 
+-- ============================================================================
+-- 知识库多级目录（33~35 号表；2026-09-21，方案真源 docs/KB-FOLDER-PLAN.md §3）
+-- ============================================================================
+-- 为什么**另立**而不复用 user_bookmark_folder（9c）：那张表是**单层**收藏夹
+-- （`UNIQUE(folder_name)` 全库同名拒绝、无 parent_id、夹内只装收藏），装不下
+-- "无限层级 + 同名可异层 + 一个目录里既有子目录也有文件"。两张表的 `folder_id`
+-- 同形但**互不相干**（各自表内引用），任何查询**不得**跨表 join 它们。
+--
+-- ⚠ 归属是**多对多**（业主定案："复制 = 多一处位置"，见方案 §一/§二）：
+--   `folder_member` 一行 = "某个东西出现在某个目录里一次"。
+--     · 复制目录 = 新目录 + **复制那批成员行**（同一个 item_id，不各拷一份）；
+--     · 从一处拿掉 = 删一行（**不是**删文件；所有行都没了才轮到真删文件，属第 2 步）；
+--     · 一个文件可同时属于多个目录；一个子目录也可以同时挂在多个上级下。
+-- ⚠ 两级父子关系（方案 §3 把两者都定死了，本表**照写**，语义分工写在 folder_store 模块头）：
+--     · `folder.parent_id` = **主位置**（唯一），`parent_id IS NULL` ⇒ 在**顶层**出现；
+--     · `folder_member(item_kind='folder')` = **全部**父子边（可多条）。
+--   不变式：`F.parent_id = P` ⇒ 必有成员行 `(P,'folder',F)`（folder_store 维护）。
+-- ⚠ 同名同层拒绝用**两条部分唯一索引**表达：`UNIQUE(parent_id,name)` 对一级目录**无效**
+--   （parent_id 是 NULL，而 SQLite 里 NULL 互不相等）⇒ 只靠表级 UNIQUE 拦不住根层重名。
+-- ⚠ `folder_member.item_id` 是**多态**（item_kind 区分 folder/file）⇒ **无表级 FK**；
+--   引用完整性由 `folder_store` 在同一个写事务里校验（与 `user_bookmark.folder_id` 同一取舍）。
+CREATE TABLE IF NOT EXISTS folder (
+    folder_id TEXT PRIMARY KEY,          -- ULID 前缀 fld_
+    parent_id TEXT,
+    name TEXT NOT NULL,
+    sort INTEGER DEFAULT 0,
+    created_at TEXT DEFAULT (datetime('now'))
+);
+CREATE UNIQUE INDEX IF NOT EXISTS idx_folder_root_name ON folder(name) WHERE parent_id IS NULL;
+CREATE UNIQUE INDEX IF NOT EXISTS idx_folder_child_name ON folder(parent_id, name) WHERE parent_id IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_folder_parent ON folder(parent_id, sort);
+
+CREATE TABLE IF NOT EXISTS folder_member (
+    folder_id TEXT NOT NULL,
+    item_kind TEXT NOT NULL CHECK(item_kind IN ('folder','file')),
+    item_id TEXT NOT NULL,
+    added_at TEXT DEFAULT (datetime('now')),
+    PRIMARY KEY (folder_id, item_kind, item_id)
+);
+CREATE INDEX IF NOT EXISTS idx_folder_member_item ON folder_member(item_kind, item_id);
+
+-- 文件处理状态（方案 §3 第三行「处理状态」+ 第四行「归位记录」）。
+-- **不改 doc_meta**（那是取证链承重墙，方案 §七也只允许整表清掉本表重来）：
+--   · stage  排队/识别中/待确认/已归位/识别失败 ⇒ queued/recognizing/confirming/filed/failed
+--   · confidence 识别率（0~1，NULL = 未知，**不假装 1.0**）
+--   · failure_kind 失败类型（overall/table/…，自由文本，不设 CHECK——枚举还会长）
+--   · suggested_folder_id 建议去向（现有目录）· suggest_new_path 建议新建路径
+--   · placed_* 归位记录：谁在什么时候把它放进了哪个目录（「待分类」确认环节回看用）
+-- 两类读取需求都靠它：① 「待分类」列表（stage<>'filed' 或从未归位）；② **所有文件**的状态展示。
+CREATE TABLE IF NOT EXISTS doc_filing_state (
+    doc_id TEXT PRIMARY KEY,
+    stage TEXT NOT NULL DEFAULT 'queued'
+        CHECK(stage IN ('queued','recognizing','confirming','filed','failed')),
+    confidence REAL,
+    failure_kind TEXT,
+    suggested_folder_id TEXT,
+    suggest_new_path TEXT,
+    placed_folder_id TEXT,
+    placed_by TEXT,
+    placed_at TEXT,
+    last_error TEXT,
+    updated_at TEXT DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_filing_stage ON doc_filing_state(stage, updated_at);
+CREATE INDEX IF NOT EXISTS idx_filing_placed_folder ON doc_filing_state(placed_folder_id);
+
