@@ -517,15 +517,68 @@ export function mount(container, props) {
   const dirGap = csOf(dirHeadEl, 'column-gap')
   const dirRowGap = csOf(dirRowEl, 'column-gap')
   /* ⚠ 与文件层**必须不同**：目录层的 --ks-cols 是 3 列（文件层是 3 或 5 列）。
-   * 这一条同时钉住"目录层有自己的列模板"—— 若有人把目录层直接接到文件层那条
-   * --ks-cols 上（5 列），这里会红（列数与文件名列都在）。 */
-  check('目录层：表头行与目录行的 computed grid-template-columns / column-gap **逐字相同**，且列模板**不是**文件层那一条',
+   * ⚠⚠ **2026-09-21 就地更正（复核 verify-freeze-dirlist 的变异 M5 打回）：下面这条原来那句
+   *   `dirTpl !== 文件层表头模板` 是「注释声称有牙、实测没牙」的恒真死子句** ——
+   *   jsdom **不解析 `var()`**（两侧 computed 都拿不到解析后的轨道），而且**目录层这一刻根本没有文件层**
+   *   ⇒ 右边恒为 null、式子恒真。复核实测：把目录层的 `--ks-cols` 换成文件层那 5 列（首列 344→88px、
+   *   168px 死白），本文件 **84/84 全绿**、真 Chrome 的 `#cols` 自检也过。
+   * ⇒ 真判据换成**读样式表里那两份 `--ks-cols` 声明**（列宽的唯一所有者就是它们）：目录层那份必须
+   *   **正好 3 轨**，且**不许引用**文件层那套列变量（status/date/tags/more）。几何真相另由
+   *   `ui-render-shot.mjs` 在真 Chrome 里量（轨道数 + 轨道和 + gap == 容器内容宽，见那边的 `#dircols`）。 */
+  const tplTracks = (tpl) => {
+    const out = []
+    let depth = 0
+    let cur = ''
+    for (const ch of String(tpl ?? '')) {
+      if (ch === '(') depth += 1
+      if (ch === ')') depth -= 1
+      if (/\s/.test(ch) && depth === 0) { if (cur !== '') { out.push(cur); cur = '' } continue }
+      cur += ch
+    }
+    if (cur !== '') out.push(cur)
+    return out
+  }
+  const cssRuleBody = (sel) => {
+    const m = new RegExp(`${sel.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*\\{([^}]*)\\}`).exec(sheetText)
+    return m === null ? null : m[1]
+  }
+  const cssColsOf = (sel) => {
+    const body = cssRuleBody(sel)
+    const m = body === null ? null : /--ks-cols\s*:\s*([^;}]+)/.exec(body)
+    return m === null ? null : m[1].trim()
+  }
+  const dirColsDecl = cssColsOf('.ks-list-dirs')
+  const fileColsDecl = cssColsOf('.ks-list')
+  const dirTracks = tplTracks(dirColsDecl)
+  const fileTracks = tplTracks(fileColsDecl)
+  check('目录层：样式表里那份 --ks-cols 是**自己的 3 轨**（不引用文件层的 status/date/tags/more 列）',
+    dirColsDecl !== null && dirTracks.length === 3
+    && !/--ks-col-(status|date|tags|more)\b/.test(dirColsDecl)
+    && dirColsDecl !== fileColsDecl,
+    `目录层 --ks-cols=${JSON.stringify(dirColsDecl)}（${String(dirTracks.length)} 轨）；`
+    + `文件层（窄档那条）--ks-cols=${JSON.stringify(fileColsDecl)}（${String(fileTracks.length)} 轨）；`
+    + '⚠ 轨数**不是**判据：文件层窄档也是 3 轨（宽档才 5 轨）⇒ 判据是"目录层不引用文件层那套列变量"')
+  check('目录层：表头行与目录行的 computed grid-template-columns / column-gap **逐字相同**',
     Boolean(dirTpl) && Boolean(dirRowTpl) && Boolean(dirGap) && Boolean(dirRowGap)
-    && dirTpl === dirRowTpl && dirGap === dirRowGap
-    && dirTpl !== csOf(container.querySelector('.ks-list:not(.ks-list-dirs) .ks-lhead'), 'grid-template-columns'),
+    && dirTpl === dirRowTpl && dirGap === dirRowGap,
     `目录 表头 ${JSON.stringify(dirTpl)} / 行 ${JSON.stringify(dirRowTpl)}；`
-    + `gap 表头 ${JSON.stringify(dirGap)} / 行 ${JSON.stringify(dirRowGap)}；`
-    + `文件层表头 ${JSON.stringify(csOf(container.querySelector('.ks-list:not(.ks-list-dirs) .ks-lhead'), 'grid-template-columns'))}`)
+    + `gap 表头 ${JSON.stringify(dirGap)} / 行 ${JSON.stringify(dirRowGap)}`)
+  /* ⚠⚠ **2026-09-21 新增（复核 verify-freeze-dirlist 的变异 M4 打回）**：目录行的**内容**原来一条断言都没有
+   *   —— 把 `{child.key}` 那第二行加回去（内部键/内部路径直接印在名字下面）**整套 84 条全绿**。
+   *   判据（"目录行只有名字"这件事必须可判）：① 名字格只有 **2 个**子元素（图标 + 名字）；
+   *   ② 名字格的 textContent **逐字等于**名字元素的 textContent（多一个"路径行"就不等）。 */
+  const dirNameCellOk = (row) => {
+    const cell = row.querySelector('.ks-col-dname')
+    const nameEl = cell?.querySelector('.ks-dir-name') ?? null
+    return cell !== null && nameEl !== null && cell.children.length === 2
+      && cell.textContent.trim() === nameEl.textContent.trim()
+  }
+  check('目录层：目录行**只有名字**（2 个子元素；不许夹内部 key/路径的第二行、不许名字重复）',
+    dirEls().length > 0 && dirEls().every(dirNameCellOk),
+    dirEls().map((row) => {
+      const cell = row.querySelector('.ks-col-dname')
+      return `${String(cell?.children.length)} 个子元素／文本 ${JSON.stringify((cell?.textContent ?? '').trim())}`
+    }).join(' | '))
   /* ⚠⚠ 行高的**声明串**要在这里先量下来（此刻在目录层）：等会儿下钻到文件层再量文件行，
    *   两边比对 —— 不能在目录层就断言（那里没有文件行，写成"没有文件行就算过"= 恒真假绿）。 */
   const dirRowMinH = csOf(dirEls()[0] ?? null, 'min-height')
@@ -565,7 +618,7 @@ export function mount(container, props) {
   const crumbBtns = () => q('.ks-crumb-go')
   const crumbHere = () => q('.ks-crumb-here')
   const crumbItems = () => q('.ks-crumb-path .ks-crumb-item')
-  const crumbText = (el) => (el.textContent ?? '').trim()
+  const crumbText = (el) => (el?.textContent ?? '').trim()
   check('面包屑（库根态）：1 个条目 = 库名「法律法规」，且它是**当前级 = 不可点**（0 个可点条目，没有上一级可回）',
     crumbItems().length === 1 && crumbText(crumbHere()[0]) === '法律法规'
     && crumbHere()[0].getAttribute('aria-current') === 'page' && crumbHere()[0].tagName !== 'BUTTON'

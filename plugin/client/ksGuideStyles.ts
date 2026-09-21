@@ -381,8 +381,12 @@ export const KS_STYLES = `
    ⚠ 要打回"一行列表项"的样子：原生 button 的 font/text-align/color 都得清零，
      底色/描边清零（默认按钮外观一律不许冒出来）。
    ⚠ 行高与文件行**同一个 token**（--ks-row-h-list，52px）—— "和文件列表一样的视图"最硬的一条：
-     两层行高逐像素一致（第一列也是**两行**：目录名 + 整条路径，手法同文件层的名字 + 标准号：
-     都用 .ks-item-sub + grid-area:2/2）。
+     两层行高逐像素一致（真 Chrome 实测：目录行 52 = 文件行 52）。
+   ⚠⚠ **2026-09-21 就地更正**（本段原写"第一列也是**两行**：目录名 + 整条路径，手法同文件层的
+     名字 + 标准号：都用 .ks-item-sub + grid-area:2/2"）：那个第二行**已删** —— 它印的是内部 key
+     （根目录那级 key 等于 name ⇒ 图上名字重复两遍；往里一级变成内部路径「法律/宪法与行政法」）。
+     目录行现在是**单行**（图标 + 名称）；嵌套 grid 那一列还在，但只用于"图标列 + 名字"这一行。
+     判据同 KsKnowledgePage.tsx 的 DIR_COLUMNS 注释（"目录行只有名字"那一条）。
    ⚠ 这里**不写** border / padding（padding 由共享的 .ks-item 给，两条同权重、靠源码顺序叠加）。
    ⚠⚠ **width:100% 是必须的，不是保险**（本批真 Chrome 实测到的坑，正是列对齐自检抓出来的）：
      .ks-item 是 div 时（文件行）作为块级盒**自动铺满**容器宽；换成 button（目录行）之后它是
@@ -399,15 +403,16 @@ export const KS_STYLES = `
 /* 焦点环用 **inset** box-shadow（不是 outline）：容器是 overflow:hidden，外扩的环会被裁掉。 */
 .ks-list-dirs .ks-item:focus-visible{outline:none;
   box-shadow:inset 0 0 0 var(--ks-stroke) var(--dsw-alias-border-l4)}
-/* 目录名那一列（**只在行里**）：**嵌套 grid 两行**（第 1 行图标 + 名字，第 2 行整条路径）——
-   与文件层的 .ks-item .ks-col-name 同一种手法（那里是 16px 图标列 + 名字 / 标准号两行）。
-   ⚠⚠ 选择器**必须限定在 .ks-item 行内**：表头那一格的类名也是 .ks-col-dname，两行嵌套 grid
+/* 目录名那一列（**只在行里**）：嵌套 grid（16px 图标列 + 名字）—— 与文件层的
+   .ks-item .ks-col-name 同一种手法（那里是 16px 图标列 + 名字 / 标准号两行）。
+   ⚠⚠ 选择器**必须限定在 .ks-item 行内**：表头那一格的类名也是 .ks-col-dname，把嵌套 grid
      用到表头上会把 16px 当成第一列 ⇒ 表头的「目录」被挤进 16px、**只剩「目」**
      （本批真 Chrome 实测：spClientW=16 / spScrollW=24，图上只显示一个字；文件层那条规则
-      写的是 .ks-item .ks-col-name，天生没这个问题）。
-   ⚠ 为什么第 2 行给路径：目录名在**同名的兄弟层**里认不出来（两个「宪法与行政法」分属
-     法律 / 行政法规两支）⇒ 整条 key 是唯一的消歧锚（与文件层第 2 行给标准号同一个理由：
-     那一行放的都是"这一行的真身份"，不是编出来的描述）。 */
+      写的是 .ks-item .ks-col-name，天生没这个问题。**修法就是本行的 .ks-item 限定**）。
+   ⚠⚠ **2026-09-21 就地更正**（本段原写"嵌套 grid **两行**（第 1 行图标 + 名字，第 2 行整条路径）"
+     + "整条 key 是唯一的消歧锚"）：**第 2 行已删** —— 理由与判据见上面 .ks-list-dirs .ks-item
+     那一段（它印出来的是内部 key/内部路径，业主的验收词不含"把内部标识当内容"）。
+     ⇒ 这一条现在只负责"图标列 + 名字"这一行；row-gap:0 与 align-items:center 保持不变。 */
 .ks-list-dirs .ks-item .ks-cell.ks-col-dname{display:grid;grid-template-columns:16px minmax(0,1fr);
   column-gap:var(--ks-space-2);row-gap:0;align-items:center}
 /* 目录名（名字那一格，**只在行里**）：font-weight:600 —— 原来卡片上的名字就是这个字重（搬家不换样式）。

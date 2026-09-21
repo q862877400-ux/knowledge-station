@@ -1063,6 +1063,30 @@ ${bandScrollStmt}
                        lh: lcs.gridTemplateColumns, pad: rcs ? rcs.gridTemplateColumns : '(没有数据行)',
                        gap: lcs.columnGap || lcs.gap, radius: rcs ? (rcs.columnGap || rcs.gap) : '(没有数据行)' };
     }
+    // **目录层的列几何**（2026-09-21，复核 verify-freeze-dirlist 的变异 M5 打回）：
+    // 复核把目录层的 --ks-cols 换成**文件层那 5 列** ⇒ 本脚本的 #cols 自检**照样通过**
+    // （它只比"表头 == 行"，两边当然一起变），而真机上是**首列 344→88px + 168px 死白**。
+    // ⇒ 这里单独量**目录层容器**：轨道数 + 轨道和 + gap 必须**铺满**它的内容宽（clientWidth）。
+    //   借字段名（同 #cards / #cols 的先例）：x=行内 cell 数 y=容器内容宽 w=1（量到了）h=0、
+    //   fs=''、lh=轨道串（解析后）、pad=gap、gap=''、radius=''。
+    //   ⚠ 本段在**注入脚本**里（外层是模板字符串）：注释里**绝对不能出现反引号** ——
+    //     2026-09-21 我在这里踩了第 16 次（三个反引号把模板截断，报错指向一行不相干的代码）。
+    var dl2 = document.querySelector('.ks-list-dirs');
+    if (dl2) {
+      // ⚠ 模板要从**网格元素**上取（容器 .ks-list-dirs 自己是 display:block ⇒ 它的
+      //   grid-template-columns 解析成 none，拿它比对等于没量）。
+      // ⚠⚠ 宽度必须是**网格元素的内容盒**宽，不是容器的 clientWidth —— 表头/行自己带
+      //   左右内边距（实测 12px×2），拿容器宽比会**差 24px 假红**（2026-09-21 我自己踩到）。
+      var dGrid = dl2.querySelector('.ks-lhead') || dl2.querySelector('.ks-item');
+      var dcs = dGrid ? getComputedStyle(dGrid) : null;
+      var dPadL = dcs ? (parseFloat(dcs.paddingLeft) || 0) : 0;
+      var dPadR = dcs ? (parseFloat(dcs.paddingRight) || 0) : 0;
+      out['#dircols'] = { n: 1, x: dl2.children[0] ? dl2.children[0].children.length : 0,
+                          y: dGrid ? Math.round(dGrid.clientWidth - dPadL - dPadR) : 0, w: 1, h: 0, fs: '',
+                          lh: dcs ? dcs.gridTemplateColumns : '(没有网格元素)',
+                          pad: String(dcs ? (parseFloat(dcs.columnGap) || 0) : 0),
+                          gap: '', radius: String(Math.round(dl2.clientWidth)) };
+    }
     // 状态徽章的**逐个颜色 + 几何**（P2 复核打回 A，2026-09-20）：用来在 PNG 上按 rect 裁剪、
     // 数"等于文字色的像素数"，从而机械判"深色下「已废止」的文字读不读得出来"。
     // ⚠ 这段只**报告**（不在浏览器里判红）：像素计数在 Node 侧做（plugin/scripts/ui-badge-pixels.mjs）。
@@ -1224,6 +1248,63 @@ const colsCheck = {
   row: cols?.pad ?? null,
   gapHeader: cols?.gap ?? null,
   gapRow: cols?.radius ?? null,
+}
+
+/* ══════════ `#dircols` 的**真断言**（2026-09-21；复核 `verify-freeze-dirlist` 的变异 M5） ══════════
+ * 打回的是什么：复核把目录层的 `--ks-cols` 换成**文件层那 5 列** ⇒ 本脚本的 `#cols` 自检**照样通过**
+ * （它只比"表头 == 行"，两边一起变自然相等），而真机上是**首列 344→88px + 168px 死白** ——
+ * "目录层是独立的一套列"这件事在真 Chrome 里**没有任何判据**。
+ * ⇒ 这条量**目录层**自己在真浏览器里解析出来的轨道：① 轨道数必须 = 3（目录 / 篇数 / 进入提示，
+ *   与 `DIR_COLUMNS` 同数）；② **轨道和 + gap×(n−1) 必须铺满容器内容宽**（±1px）—— 死白就红。
+ * ⚠ 只判"能不能铺满"不够：把三轨写成 `1fr 1fr 1fr` 也铺满但不是我们的模板 ⇒ 与①合判。
+ * ⚠ 适用面：只有"这一刻有 `.ks-list-dirs`"的跑才判；没有就**明说没判**（不静默通过）。 */
+const DIR_COLS_EXPECTED = 3
+const dirCols = measured['#dircols']
+const dirColsProblems = []
+let dirColsSkipReason = null
+const dircTracks = (tpl) => {
+  const out = []
+  let depth = 0
+  let cur = ''
+  for (const ch of String(tpl ?? '')) {
+    if (ch === '(') depth += 1
+    if (ch === ')') depth -= 1
+    if (/\s/.test(ch) && depth === 0) { if (cur !== '') { out.push(cur); cur = '' } continue }
+    cur += ch
+  }
+  if (cur !== '') out.push(cur)
+  return out
+}
+if (dirCols === undefined) {
+  dirColsSkipReason = `这一跑没有 .ks-list-dirs（page=${page}，当前不在目录层）—— 目录层列几何不适用`
+} else if (!String(dirCols.lh ?? '').trim() || dirCols.lh === '(没有网格元素)') {
+  dirColsProblems.push(`取不到目录层的 grid-template-columns（拿到 ${JSON.stringify(dirCols.lh)}）—— 取不到就不算验过`)
+} else {
+  const tracks = dircTracks(dirCols.lh)
+  const px = tracks.map((t) => (/^([\d.]+)px$/.exec(t) === null ? null : Number(/^([\d.]+)px$/.exec(t)[1])))
+  const gap = Number(dirCols.pad)
+  if (tracks.length !== DIR_COLS_EXPECTED) {
+    dirColsProblems.push(`目录层列数 = ${String(tracks.length)}，期望 ${String(DIR_COLS_EXPECTED)}`
+      + `（目录 / 篇数 / 进入提示 —— 与 DIR_COLUMNS 同数）：${JSON.stringify(dirCols.lh)}`
+      + ' —— 有人把目录层接到文件层那条 --ks-cols 上了？')
+  }
+  if (px.some((v) => v === null)) {
+    dirColsProblems.push(`目录层轨道里有**非 px** 值（解析后应为纯像素）：${JSON.stringify(tracks)}`
+      + ' —— 只有全部解析成像素，"铺满"才可判')
+  } else if (Math.abs(px.reduce((a, b) => a + b, 0) + gap * (tracks.length - 1) - Number(dirCols.y)) > 1) {
+    dirColsProblems.push(`目录层轨道**没铺满**容器：轨道和 ${String(px.reduce((a, b) => a + b, 0))}px`
+      + ` + gap ${String(gap)}px × ${String(tracks.length - 1)} = ${String(px.reduce((a, b) => a + b, 0) + gap * (tracks.length - 1))}px，`
+      + `而容器内容宽 ${String(dirCols.y)}px（差 >1px ⇒ 右侧死白或溢出）：${JSON.stringify(dirCols.lh)}`)
+  }
+}
+const dirColsCheck = {
+  checked: dirColsProblems.length === 0 && dirColsSkipReason === null,
+  skipReason: dirColsSkipReason,
+  problems: dirColsProblems,
+  template: dirCols?.lh ?? null,
+  tracks: dirCols === undefined ? null : dircTracks(dirCols.lh).length,
+  containerWidth: dirCols?.y ?? null,
+  gap: dirCols?.pad ?? null,
 }
 
 /* ══════════ `#kbcards` 的**真断言**（5i 2026-09-20 收尾批；卡片尺寸统一） ══════════
@@ -1562,6 +1643,7 @@ console.log(JSON.stringify({
   cssHeight,
   measured,
   colsCheck,
+  dirColsCheck,
   cardsCheck,
   ksPadCheck,
   renderedChars: rendered.length,
@@ -1600,6 +1682,27 @@ if (cardsSkipReason !== null) {
   console.error('   ⇒ 卡宽的唯一声明是 ksGuideStyles.ts 的 `.ks-kbband .ks-kb-card{flex:0 0 var(--ks-band-card-w)}`，')
   console.error('      同排等高靠容器 `.ks-kbband .ks-kb-cards{align-items:stretch}` + `>*{min-height:var(--ks-card-h)}`。')
   console.error('      给**单张卡**另钉宽度/高度（例如 :nth-child(2){flex:0 0 60px}）就是这条断言要抓的回归。')
+  process.exit(1)
+}
+
+/* `#dircols` 的自检结论同样走 **stderr**（理由同上：stdout 必须是完整可 JSON.parse 的一份产物）。
+   ⚠ 这一条的来历见上面 `#dircols` 那段注释：复核 `verify-freeze-dirlist` 的变异 M5 证明
+   "目录层有没有自己的列模板"在真 Chrome 里**没有任何判据**（把文件层那 5 列接上去照样全绿）。
+   现在它是一条**会红**的判据：轨道数必须 3、轨道和 + gap 必须铺满容器（差 >1px 即红）。 */
+if (dirColsSkipReason !== null) {
+  console.error(`· #dircols 自检：**这一跑不判**（${dirColsSkipReason}）`)
+} else if (dirColsProblems.length === 0) {
+  console.error(`· #dircols 自检通过：目录层 ${String(dirColsCheck.tracks)} 轨 `
+    + `${JSON.stringify(dirColsCheck.template)}，铺满容器 ${String(dirColsCheck.containerWidth)}px`
+    + `（gap ${String(dirColsCheck.gap)}px；page=${page} width=${width} theme=${themeName}）`)
+} else {
+  console.error('')
+  console.error(`❌ 目录层列几何自检失败（page=${page} width=${width} theme=${themeName}）：`)
+  for (const p of dirColsProblems) console.error(`   - ${p}`)
+  console.error('   ⇒ 目录层**只用自己那一条** --ks-cols（3 轨：目录 / 篇数 / 进入提示）：')
+  console.error('      ksGuideStyles.ts 的 `.ks-list-dirs{--ks-col-dcount:64px;--ks-col-dgo:16px;')
+  console.error('      --ks-cols:minmax(0,1fr) var(--ks-col-dcount) var(--ks-col-dgo)}`。')
+  console.error('      接到文件层那条（status/date/tags/more）或写成固定宽，就是这条断言要抓的回归。')
   process.exit(1)
 }
 
