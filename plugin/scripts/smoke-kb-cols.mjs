@@ -82,6 +82,7 @@ for (const width of widths) {
   try { payload = JSON.parse(r.stdout) } catch { payload = null }
   const cc = payload?.colsCheck ?? null
   const lc = payload?.levelCheck ?? null
+  const sc = payload?.stageColCheck ?? null
   const row = {
     width,
     exit: r.status,
@@ -98,12 +99,20 @@ for (const width of widths) {
     rowHeightJudged: lc?.rowHeightJudged === true,
     treeRight: lc?.treeRight ?? null,
     mainLeft: lc?.mainLeft ?? null,
+    stageChecked: sc?.checked ?? false,
+    stageSkipReason: sc?.skipReason ?? null,
+    stageProblems: sc?.problems ?? [],
+    stageHead: sc?.head ?? null,
+    stageDisplay: sc?.stageDisplay ?? null,
+    dateDisplay: sc?.dateDisplay ?? null,
+    stageMainWidth: sc?.mainWidth ?? null,
+    stageMin: sc?.frozenMin ?? null,
   }
   rows.push(row)
   if (r.status !== 0) {
     failures.push(`width=${width}：ui-render-shot exit=${String(r.status)} —— `
-      + ([...row.problems, ...row.levelProblems].length > 0
-        ? [...row.problems, ...row.levelProblems].join('；')
+      + ([...row.problems, ...row.levelProblems, ...row.stageProblems].length > 0
+        ? [...row.problems, ...row.levelProblems, ...row.stageProblems].join('；')
         : (r.stderr ?? '').trim().split('\n').slice(-3).join(' / ')))
   } else {
     if (!row.checked) {
@@ -117,6 +126,15 @@ for (const width of widths) {
         + `（${row.levelSkipReason ?? 'levelCheck 缺失'}）—— "没跑"不能算通过`)
     }
     for (const p of row.levelProblems) failures.push(`width=${width}：${p}`)
+    /* ⚠⚠ 2026-09-21（第 3 步，**本批自己先证伪出来的洞**）：这一档跑的是 `--interact kb-files`
+       ⇒ **一定有文件行** ⇒ `stageColCheck` 必须**判到且通过**。它判的是业主那句
+       「所有文件都要显示处理状态」在两档宽度下到底兑没兑现（窄档故意藏、宽档必须看得见）。 */
+    if (!row.stageChecked) {
+      failures.push(`width=${width}：处理状态列可见性**没判到或判红**`
+        + `（${row.stageSkipReason ?? 'stageColCheck 缺失'}${
+          row.stageProblems.length > 0 ? '；' + row.stageProblems.join('；') : ''}）—— "没跑"不能算通过`)
+    }
+    for (const p of row.stageProblems) failures.push(`width=${width}：${p}`)
   }
 }
 
@@ -135,6 +153,15 @@ for (const r of rows) {
     + `（并排判过=${String(r.levelChecked)}；两层行高这一跑判到=${String(r.rowHeightJudged)}`
     + `${r.rowHeightJudged ? '' : ' —— 这一级没有下级目录，行高那一半归 kb-level 场景'}）`)
   for (const p of r.levelProblems) console.log(`         └─ ${p}`)
+}
+console.log('  「处理状态」列可见性（业主：所有文件都要显示处理状态；窄档故意藏 / 宽档必须看得见）：')
+for (const r of rows) {
+  const wide = Number(r.stageMainWidth) >= Number(r.stageMin)
+  console.log(`  ${String(r.width).padEnd(6)} 主栏 ${String(r.stageMainWidth)}px `
+    + `${wide ? '≥' : '<'} 阈值 ${String(r.stageMin)}px（${wide ? '宽档' : '窄档'}）`
+    + ` ⇒ 期望「${wide ? '看得见' : '藏起来'}」，实测「${r.stageHead}」列 display=${JSON.stringify(r.stageDisplay)}`
+    + ` / 生效日期 display=${JSON.stringify(r.dateDisplay)}（判过=${String(r.stageChecked)}）`)
+  for (const p of r.stageProblems) console.log(`         └─ ${p}`)
 }
 console.log('')
 

@@ -1028,6 +1028,33 @@ const html = `<!doctype html>
                        lh: lcs.gridTemplateColumns, pad: rcs ? rcs.gridTemplateColumns : '(没有数据行)',
                        gap: lcs.columnGap || lcs.gap, radius: rcs ? (rcs.columnGap || rcs.gap) : '(没有数据行)' };
     }
+    // **「处理状态」列到底看不看得见**（2026-09-21 第 3 步）。
+    // 业主明说"所有文件都要显示处理状态"（好发现哪些文件要人工修）；而这一列在窄档是
+    // **故意**藏起来的（ksGuideStyles.ts 里的 .ks-list .ks-cell.ks-col-stage{display:none}，
+    // 宽档由 @container (min-width:660px) 恢复）=> "到底看没看见"必须在**真浏览器**里量：
+    // jsdom 那条判的是 textContent，而 display:none 的元素照样取得到文字（**它不构成证据**）。
+    // ⚠ 本段在**注入脚本**里（外层是模板字符串）：注释里绝对不能出现反引号与美元加大括号
+    //    —— 2026-09-21 我自己在这里踩了第 17 次（反引号把模板截断，报错指向一行不相干的代码）。
+    // 借字段名（同 #cards / #cols 的先例）：n=文件行数 x=状态列列头在不在 y=主栏内容宽
+    // w=1 表示状态列可见 h=1 表示生效日期列可见 fs=状态列列头文案
+    // lh=状态列 computed display pad=生效日期列 computed display。
+    var fileListEl = document.querySelector('.ks-list:not(.ks-list-dirs)');
+    var fRows = fileListEl ? fileListEl.querySelectorAll('.ks-item') : [];
+    var stageCell0 = fileListEl ? fileListEl.querySelector('.ks-item .ks-col-stage') : null;
+    var dateCell0 = fileListEl ? fileListEl.querySelector('.ks-item .ks-col-date') : null;
+    var stageHeadEl = fileListEl ? fileListEl.querySelector('.ks-lhead .ks-col-stage') : null;
+    var mainEl = document.querySelector('.ks-main');
+    out['#stagecol'] = {
+      n: fRows.length,
+      x: stageHeadEl ? 1 : 0,
+      y: mainEl ? Math.round(mainEl.clientWidth) : 0,
+      w: stageCell0 && getComputedStyle(stageCell0).display !== 'none' ? 1 : 0,
+      h: dateCell0 && getComputedStyle(dateCell0).display !== 'none' ? 1 : 0,
+      fs: stageHeadEl ? (stageHeadEl.textContent || '').trim() : '',
+      lh: stageCell0 ? getComputedStyle(stageCell0).display : '(没有状态列单元格)',
+      pad: dateCell0 ? getComputedStyle(dateCell0).display : '(没有日期列单元格)',
+      gap: '', radius: '',
+    };
     // **目录层的列几何**（2026-09-21，复核 verify-freeze-dirlist 的变异 M5 打回）：
     // 复核把目录层的 --ks-cols 换成**文件层那 5 列** ⇒ 本脚本的 #cols 自检**照样通过**
     // （它只比"表头 == 行"，两边当然一起变），而真机上是**首列 344→88px + 168px 死白**。
@@ -1693,6 +1720,89 @@ const dirColsCheck = {
   tokenDgo: dirTokenDgo,
 }
 
+/* ══════════ `#stagecol` 的**真断言**（2026-09-21 第 3 步；业主："所有文件都要显示处理状态"） ══════════
+ * **为什么要加它（自己先证伪过的洞）**：把 ksGuideStyles.ts 那条 `@container (min-width:660px)`
+ * 的门槛改成 `99999px` ⇒ 宽档永不生效、**处理状态列在任何宽度都 `display:none`** ——
+ * 而这一批的四条 KB 冒烟**全绿**：
+ *   · `smoke-kb-page-render`（jsdom）判的是 `textContent`：隐藏元素的文字照样取得到；
+ *   · `#cols` 只判"表头 == 行"（两层一起藏，模板仍然逐字相等）；
+ *   · `#dircols` 判的是**目录层**的轨道，与文件层这一列无关。
+ * ⇒ 业主那句话在**真浏览器**里原本**没有任何判据**。这一条把它变成可量形态，两个方向都钉住：
+ *   ① `ksGuideStyles.ts` 里 `@container` 的 min-width 必须等于**冻结常数** `STAGE_COL_MIN_MAIN_PX`；
+ *   ② 真 Chrome 量到的主栏内容宽 ≥ 阈值 ⇒ 处理状态列（与生效日期列）**必须** `display != none`；
+ *   ③ 窄于阈值 ⇒ **必须**是 `none`（那是**有意**的响应式规则，不是"忘了恢复"）；
+ *   ④ 列头文案必须还是 `处理状态`（改名字要显式改这里）。
+ * ⚠ 适用面：只有这一跑真的渲染了**文件层且有文件行**时才判；最外层/空目录**明说没判**（skipReason），
+ *   不静默通过。 */
+const STAGE_COL_MIN_MAIN_PX = 660
+const STAGE_COL_HEAD_EXPECTED = '处理状态'
+let stageContainerMin = null
+try {
+  const cssSrc2 = await readFile(stylesSrcPath, 'utf8')
+  const m2 = /@container\s*\(\s*min-width\s*:\s*(\d+)px\s*\)/.exec(cssSrc2)
+  stageContainerMin = m2 === null ? null : Number(m2[1])
+} catch { /* 读不到 ⇒ 下面报红 */ }
+const stageCol = measured['#stagecol']
+const stageColProblems = []
+let stageColSkipReason = null
+if (stageContainerMin === null) {
+  stageColProblems.push('读不到 ksGuideStyles.ts 里 `@container (min-width:…)` 的阈值'
+    + ' —— 读不到就不算验过（那一条就是"宽档恢复这两列"的开关）')
+} else if (stageContainerMin !== STAGE_COL_MIN_MAIN_PX) {
+  stageColProblems.push(`ksGuideStyles.ts 的 @container 阈值 = ${String(stageContainerMin)}px，`
+    + `而本脚本冻结的规范值是 ${String(STAGE_COL_MIN_MAIN_PX)}px —— 改这个阈值就要同步改这里与注释`
+    + '（它决定"多宽才看得见处理状态列"）')
+}
+if (stageCol === undefined) {
+  if (page === 'kb') {
+    stageColProblems.push('这一跑是 kb 页而 `#stagecol` **一点都没产出** —— 量不到就不算验过（探针坏了？）')
+  } else {
+    stageColSkipReason = `本页不是知识库页（page=${page}），处理状态列不适用`
+  }
+} else if (!stageCol.n) {
+  stageColSkipReason = '这一跑这一层没有文件行（最外层/空目录），处理状态列没有对象'
+} else {
+  const mainW = Number(stageCol.y) || 0
+  const stageShown = stageCol.w === 1
+  const dateShown = stageCol.h === 1
+  const wide = mainW >= STAGE_COL_MIN_MAIN_PX
+  if (stageCol.fs !== STAGE_COL_HEAD_EXPECTED) {
+    stageColProblems.push(`文件表的第 4 列列头是 ${JSON.stringify(stageCol.fs)}，`
+      + `期望 ${JSON.stringify(STAGE_COL_HEAD_EXPECTED)} —— 列头文案（或列顺序）被改了`)
+  }
+  if (!String(stageCol.lh ?? '').startsWith('(没有') && !stageCol.lh) {
+    stageColProblems.push(`取不到处理状态列的 computed display（拿到 ${JSON.stringify(stageCol.lh)}）`
+      + ' —— 取不到就不算验过')
+  }
+  if (wide && !stageShown) {
+    stageColProblems.push(`主栏内容宽 ${String(mainW)}px ≥ 阈值 ${String(STAGE_COL_MIN_MAIN_PX)}px（宽档），`
+      + `而**处理状态列是隐藏的**（computed display = ${JSON.stringify(stageCol.lh)}）—— `
+      + '业主「所有文件都要显示处理状态」这条承诺在这一档**没有兑现**'
+      + '（典型成因：@container 阈值被调大、那条 display:flex 被删、或列模板里少了这一轨）')
+  }
+  if (wide && !dateShown) {
+    stageColProblems.push(`宽档下**生效日期列**也是隐藏的（computed display = ${JSON.stringify(stageCol.pad)}）——`
+      + '宽档应当是 5 列（名称 | 效力 | 生效日期 | 处理状态 | ⋮）')
+  }
+  if (!wide && (stageShown || dateShown)) {
+    stageColProblems.push(`主栏内容宽 ${String(mainW)}px < 阈值 ${String(STAGE_COL_MIN_MAIN_PX)}px（窄档），`
+      + `而处理状态列 display=${JSON.stringify(stageCol.lh)} / 生效日期列 display=${JSON.stringify(stageCol.pad)}`
+      + ' —— 窄档**故意**藏这两列（与三轨模板配套）；要改成"永远显示"就必须同时改这里与 ksGuideStyles.ts')
+  }
+}
+const stageColCheck = {
+  checked: stageColProblems.length === 0 && stageColSkipReason === null,
+  skipReason: stageColSkipReason,
+  problems: stageColProblems,
+  rows: stageCol?.n ?? null,
+  mainWidth: stageCol?.y ?? null,
+  stageDisplay: stageCol?.lh ?? null,
+  dateDisplay: stageCol?.pad ?? null,
+  head: stageCol?.fs ?? null,
+  containerMin: stageContainerMin,
+  frozenMin: STAGE_COL_MIN_MAIN_PX,
+}
+
 // --viewport 给定时**按视口高截**（这才看得出 position:sticky；全页截图看不出来）
 const shotHeight = fixedHeight ?? Math.max(320, Math.min(cssHeight, 6000))
 
@@ -1723,6 +1833,7 @@ console.log(JSON.stringify({
   measured,
   colsCheck,
   dirColsCheck,
+  stageColCheck,
   levelCheck,
   capCardsCheck,
   ksPadCheck,
@@ -1809,6 +1920,26 @@ if (dirColsSkipReason !== null) {
   console.error('      ksGuideStyles.ts 的 `.ks-list-dirs{--ks-col-dcount:64px;--ks-col-dgo:16px;')
   console.error('      --ks-cols:minmax(0,1fr) var(--ks-col-dcount) var(--ks-col-dgo)}`。')
   console.error('      接到文件层那条（status/date/tags/more）或写成固定宽，就是这条断言要抓的回归。')
+  process.exit(1)
+}
+
+/* `#stagecol` 的自检结论同样走 **stderr**（理由同上：stdout 必须是完整可 JSON.parse 的一份产物）。
+   ⚠ 这一条的来历见上面 `#stagecol` 那段注释：把 `@container` 阈值改成 99999px ⇒ 处理状态列
+   在任何宽度都藏着，而四条 KB 冒烟**全绿** —— 业主"所有文件都要显示处理状态"原本没有判据。 */
+if (stageColSkipReason !== null) {
+  console.error(`· #stagecol 自检：**这一跑不判**（${stageColSkipReason}）`)
+} else if (stageColProblems.length === 0) {
+  console.error(`· #stagecol 自检通过：主栏 ${String(stageColCheck.mainWidth)}px`
+    + `（阈值 ${String(stageColCheck.frozenMin)}px）下「${String(stageColCheck.head)}」列 `
+    + `display=${JSON.stringify(stageColCheck.stageDisplay)} / 生效日期 ${JSON.stringify(stageColCheck.dateDisplay)}`
+    + `（${String(stageColCheck.rows)} 行；page=${page} width=${width} theme=${themeName}）`)
+} else {
+  console.error('')
+  console.error(`❌ 处理状态列可见性自检失败（page=${page} width=${width} theme=${themeName}）：`)
+  for (const p of stageColProblems) console.error(`   - ${p}`)
+  console.error('   ⇒ 口径：ksGuideStyles.ts 的 `.ks-list{--ks-cols:…3 轨…}`（窄档）与')
+  console.error('      `@container (min-width:660px){…5 轨 + 这两列 display:flex}`（宽档）；')
+  console.error('      窄档两条 `display:none` 必须写在 @container **之前**（同权重靠顺序覆盖）。')
   process.exit(1)
 }
 
