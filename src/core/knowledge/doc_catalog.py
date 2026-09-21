@@ -18,6 +18,13 @@ from __future__ import annotations
 import re
 import unicodedata
 
+#: 标准树分类口径的**第一层名字**（唯一所有者：下面 ``classify_document`` 的三个返回点
+#: 都用它，别再写字面量）。⚠ 真树里**没有这一层** —— 归位时它被跳过（它的下级直接挂
+#: 真顶层「标准」），那条"分类口径 ↔ 真树"的映射规则唯一定义在
+#: ``folder_filing_plan.tree_path_of``（``SKIPPED_PLAN_TOP``）。两处分开是为了让
+#: "分类怎么算"与"树长什么样"各只有一个所有者，而不是互相复述同一个字面量。
+STD_LEVEL1_NAME = "国家标准·行业标准·团体标准"
+
 # CCS 24 大类（权威）
 CCS_MAJORS: dict[str, str] = {
     "A": "综合", "B": "农业、林业", "C": "医药、卫生、劳动保护",
@@ -288,7 +295,7 @@ def classify_document(doc) -> dict:
             rng = ccs_range_of(code)
             lv3 = f"{rng[0]} {rng[1]}" if rng else "（未细分区间）"
             lv4 = f"{code}" + (f" {sub}" if sub else "")
-            return {"top": "std", "top_name": "国家标准·行业标准·团体标准",
+            return {"top": "std", "top_name": STD_LEVEL1_NAME,
                     "level2": major, "level3": lv3, "level4": lv4, "order": 2}
     # 无 CCS 标签：本地映射表兜底（含被误标 doc_type 的标准）
     from src.core.knowledge.ccs_fetcher import LOCAL_CCS
@@ -296,8 +303,8 @@ def classify_document(doc) -> dict:
         letter, sub_full = LOCAL_CCS[std]
         rng = ccs_range_of(letter)
         lv3 = f"{rng[0]} {rng[1]}" if rng else "（未细分区间）"
-        return {"top": "std", "top_name": "国家标准·行业标准·团体标准",
+        return {"top": "std", "top_name": STD_LEVEL1_NAME,
                 "level2": f"{letter} {CCS_MAJORS.get(letter, '')}",
                 "level3": lv3, "level4": sub_full, "order": 2}
-    return {"top": "std", "top_name": "国家标准·行业标准·团体标准",
+    return {"top": "std", "top_name": STD_LEVEL1_NAME,
             "level2": "其他标准", "level3": "（未细分）", "level4": std, "order": 99}

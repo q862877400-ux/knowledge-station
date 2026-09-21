@@ -21,7 +21,8 @@ from __future__ import annotations
 
 import itertools
 
-from _kb_folder_api_fixtures import api, data_of, error_code, mkdoc_full, tops, uniq
+from _kb_folder_api_fixtures import (STD_TREE_P16, api, data_of, error_code, mkdoc_full,
+                                    std_tree, tops, uniq)  # noqa: F401 — 夹具按名字注入
 
 _seq = itertools.count()
 
@@ -228,6 +229,39 @@ def test_move_a_two_places_folder_leaves_the_other_place_alone(client):
     assert kids(home) == []
     # ⚠ "复制出来的那一处"**不动**（旧实现会把它一起改掉）
     assert kids(other) == [sub["folder_id"]]
+
+
+def test_move_from_a_copy_to_the_top_really_lands_at_the_top(client, db):
+    """④ ``to_parent_id=null`` ⇒ **真的挪到顶层**（复核 2026-09-21 打回的假成功）。
+
+    修准前：从"复制出来的那一处"挪到顶层只会删那条边 —— 顶层**不出现**它、它还在主位，
+    返回却是 ``moved=true``；界面接上后会看到"拖到顶层，它不在顶层却还在主位"。
+    现在逐条钉住：① 它在顶层目录列表里；② 旧父目录（源边那处 + 旧主位置）里没有它；
+    ③ 返回值如实（``parent_id=null``、``updated_main_position=true``）。
+    """
+    from src.core.knowledge import folder_store as fs
+    c, token = client
+    home = _new(c, token)
+    other = _new(c, token)
+    sub = _new(c, token, uniq("上顶层"), home["folder_id"])
+    assert fs.copy_member("folder", sub["folder_id"], other["folder_id"])["added"] is True
+
+    got = data_of(api(c, token, "post", f"/api/v1/kb/folders/{sub['folder_id']}/move",
+                      json={"from_parent_id": other["folder_id"], "to_parent_id": None}))
+    assert got["moved"] is True
+    assert got["updated_main_position"] is True
+    assert got["parent_id"] is None
+
+    def kids(folder: dict) -> list[str]:
+        return [s["folder_id"] for s in data_of(
+            api(c, token, "get", "/api/v1/kb/folders",
+                params={"parent_id": folder["folder_id"]}))["subfolders"]]
+
+    top_ids = [s["folder_id"] for s in data_of(
+        api(c, token, "get", "/api/v1/kb/folders"))["subfolders"]]
+    assert sub["folder_id"] in top_ids            # ① 在顶层
+    assert sub["folder_id"] not in kids(home)     # ② 旧主位置里没有它
+    assert sub["folder_id"] not in kids(other)    # ② 源边那处也没有它
 
 
 def test_move_from_a_place_that_does_not_hold_it_is_409(client):
@@ -462,8 +496,15 @@ def test_members_remove_move_copy(client, db):
 
 # ─────────────────────────── 待分类 ───────────────────────────
 
-def test_inbox_lists_unfiled_with_suggestion_only_from_existing(client, db, tops):
-    """**只匹配现有目录，绝不自行新建**：路径命中了就给，没命中就 null。"""
+def test_inbox_lists_unfiled_with_suggestion_only_from_existing(client, db, tops, std_tree):
+    """**只匹配现有目录，绝不自行新建**：真形状的树里命中 ⇒ 给**正确的那个**目录；没命中 ⇒ null。
+
+    ⚠ 这条用例以前写成 ``if rows[d_known]["suggested_folder_id"]:`` ⇒ **建议恒为 None 时
+    也全绿**（2026-09-21 复核在真库上实测 379 篇的建议全是 null，而用例照样过）。
+    现在：① 先把**真形状**的树建出来（顶层「标准」、**没有**被跳过的那一段）；
+    ② **显式断言**建议非空、且正好指向 P16 那个目录、路径是那四级。
+    """
+    from src.core.knowledge import folder_filing_plan as plan_mod
     c, token = client
     d_known = mkdoc_full(db, f"in_{next(_seq)}", standard_no=f"GB/T 91{next(_seq):03d}-2020",
                          tags=["CCS:P16 工程防火"])
@@ -474,9 +515,27 @@ def test_inbox_lists_unfiled_with_suggestion_only_from_existing(client, db, tops
     assert d_unknown in rows and rows[d_unknown]["stage"] == "queued"
     assert rows[d_unknown]["suggested_folder_id"] is None      # 认不出 ⇒ 不猜、不建
     assert "suggest_new_path" in rows[d_unknown]
-    # 已知分类这篇：只有在「标准」下面**真的存在**那层目录时才会给建议
-    if rows[d_known]["suggested_folder_id"]:
-        assert rows[d_known]["suggested_path"]
+    # 树的形状真的是"真形状"：顶层「标准」的直接下级里**没有**被跳过的那一段
+    kids = [s["name"] for s in data_of(
+        api(c, token, "get", "/api/v1/kb/folders",
+            params={"parent_id": tops["标准"]}))["subfolders"]]
+    assert plan_mod.SKIPPED_PLAN_TOP not in kids
+    assert "P 土木、建筑" in kids
+    # 已知分类这篇：**必须**给出建议，且正好指向真树里 P16 那个目录
+    assert rows[d_known]["suggested_folder_id"] == std_tree["P16 工程防火"]
+    assert rows[d_known]["suggested_path"] == " › ".join(STD_TREE_P16)
+
+
+def test_inbox_suggestion_is_null_when_the_tree_has_no_such_folder(client, db, tops, std_tree):
+    """反向用例：树里**没有**对应的目录 ⇒ **必须** None，不许瞎指一个（哪怕「标准」在）。"""
+    c, token = client
+    # CCS:H25 → 大类「H 冶金」；真形状的树里只有 P 那一支 ⇒ 四级都命中不了
+    d = mkdoc_full(db, f"nr_{next(_seq)}", standard_no=f"GB/T 93{next(_seq):03d}-2020",
+                   tags=["CCS:H25 金属理化性能试验方法"])
+    rows = {r["doc_id"]: r for r in data_of(
+        api(c, token, "get", "/api/v1/kb/inbox", params={"limit": 200}))["items"]}
+    assert rows[d]["suggested_folder_id"] is None
+    assert rows[d]["suggested_path"] is None
 
 
 def test_inbox_confirm_accept_existing_new(client, db, tops):

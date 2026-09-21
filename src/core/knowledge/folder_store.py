@@ -31,9 +31,12 @@
    ``from_parent_id``，只动**这一次出现**的那条边；**只有 ``from_parent_id`` 正是
    主位置（``folder.parent_id``）时才更新 ``parent_id``**。省略 ``from_parent_id``
    ⇒ 取当前主位置（= "挪这个目录本身"，调用方最常要的那件事）。
-   ⚠ 残余取舍（诚实登记）：从**复制出来的那一处**挪走时（``from_parent_id`` 不是主位置）
-   只删那条边、**不补**新边 —— 目录本体没动，"另一处该留在哪儿"没有答案。见
-   ``move_folder`` docstring。
+   ⚠ **改口径（2026-09-21 复核打回，业主裁定"以代码行为为准"）**：原先这里写"从复制出来的
+   那一处挪走时只删那条边、**不补新边**" —— 那是**错话**，代码一直补新边（挪到第三处
+   ⇒ 第三处真的出现它），而且补边**不动 ``parent_id``**，不会把"主位置"悄悄改掉。
+   现在如实登记：从复制处挪到**第三处** ⇒ 删源边 + **补新边**、``parent_id`` 原样；
+   从复制处挪到**顶层** ⇒ ``parent_id`` 置 NULL（顶层没有上级目录可挂边，"在顶层"唯一的
+   表达就是 ``parent_id IS NULL``），并删掉旧主位置那条边。见 ``move_folder`` docstring。
 2. 排序按 **(sort, 拼音名, 名)**（``lazy_pinyin``）。``sort`` 是**手定顺序**（顶层
    10/20/30/90），拼音只在同级里兜底。⚠ 拼音**不是唯一键**（同音异体字），所以第三段
    必须留原名。
@@ -66,11 +69,18 @@ ITEM_KINDS: tuple[str, ...] = ("folder", "file")
 #: 删非空目录的两种模式（方案 §二第 2 条）；空目录不需要模式
 DELETE_MODES: tuple[str, ...] = ("reparent", "purge")
 
+#: 「待分类」这个顶层目录名（业主口径：认不出就留在这儿）。归位脚本与确认归位都用它。
+PENDING_TOP_NAME: str = "待分类"
+
 #: 归位脚本预建的四个顶层目录名（业主 2026-09-21 定：标准 / 法律法规 / 公司制度 / 待分类）。
 #: ⚠ 这里是**唯一所有者**：``scripts/apply-folder-filing.py`` 与新的
 #: ``/api/v1/kb/folders`` 都从这里取 —— 两处各写一份迟早漂移，而脚本拿顶层名字当
 #: "归位前是否已归位"的判据，漂移了那条判定就会失准。
-PREBUILT_TOP_NAMES: tuple[str, ...] = ("标准", "法律法规", "公司制度", "待分类")
+#: 「分类口径 ↔ 真树」的映射规则（**标准树跳过哪一段**）唯一所有者是
+#: ``folder_filing_plan.tree_path_of`` / ``SKIPPED_PLAN_TOP``；本元组只回答"真顶层叫什么"。
+STANDARD_TOP_NAME: str = "标准"
+PREBUILT_TOP_NAMES: tuple[str, ...] = (STANDARD_TOP_NAME, "法律法规", "公司制度",
+                                       PENDING_TOP_NAME)
 
 #: 处理状态五枚举 —— 与 schema.sql 的 CHECK 一字不差
 STAGES: tuple[str, ...] = ("queued", "recognizing", "confirming", "filed", "failed")
@@ -435,12 +445,21 @@ def move_folder(folder_id: str, to_parent_id: str | None,
 
     * ``from_parent_id`` 省略（``None``）⇒ **取当前主位置**（``folder.parent_id``），
       也就是调用方最常要的那件事："把这个目录挪到别处"。``to_parent_id=None`` = 挪到顶层。
-    * **只动这一次出现的那条边**：删 ``(from_parent, folder)``、加 ``(to_parent, folder)``。
-      ⇒ 一个"复制出来的、同时挂在两处"的目录不会因为挪一处而把另一处也带走。
-    * **只有 ``from_parent_id`` 正是主位置时才更新 ``folder.parent_id``**；否则目录本体
-      不动（``parent_id`` 原样保留）—— 那一次挪动只删掉这条边，**不补新边**：
-      从"复制出来的一处"把目录挪走时，新位置就是它原来的主位置，那条边已经在了。
-      返回值的 ``updated_main_position`` 如实说明走的是哪条路。
+    * **只动这一次出现的那条边**：删 ``(from_parent, folder)``；目标**不是顶层**时
+      再加 ``(to_parent, folder)``（``INSERT OR IGNORE``）。⇒ 一个"复制出来的、同时挂在
+      两处"的目录挪一处，不会把另一处也带走。
+      ⚠ **更正（2026-09-21 复核打回）**：这里原写"只删那条边、**不补新边**" —— 与代码
+      不符（代码一直补边）。业主裁定**以代码行为为准**：用户说"从这儿挪到那儿"，
+      它就**该出现在那儿**；补边不动 ``parent_id``，不会把"主位置"悄悄改掉。
+    * **改不改 ``parent_id``（主位置）**，看两条：
+      1. ``from_parent_id`` 正是主位置 ⇒ 改（这就是"挪这个目录本身"）；
+      2. ``to_parent_id`` 是顶层（``None``）⇒ 也改：顶层没有上级目录可以挂边，
+         库里"在顶层"的判定口径就是 ``folder.parent_id IS NULL``（见模块开头）。
+         不置 NULL 的话，"挪到顶层"只会把源边删掉 —— 它既不进顶层、又还在旧父目录里，
+         而调用方拿到的是 ``moved=true``（那正是复核实测的假成功）。此时旧主位置那条边
+         **一并删掉**（否则它同时出现在顶层与旧父目录两处）。
+      其余情形（从复制处挪到某个**目录**）⇒ ``parent_id`` 原样保留。
+      返回值的 ``updated_main_position`` 如实说明 ``parent_id`` 这次有没有真的变。
 
     拒绝：``from_parent_id`` 那一处其实没有这个目录（``folder_not_in_parent``）、
     挪进它自己或它的任何下级（``folder_cycle``）、同名冲突、层数或路径超限。
@@ -449,6 +468,7 @@ def move_folder(folder_id: str, to_parent_id: str | None,
         row = _folder_row(conn, folder_id)
         main_parent = row["parent_id"]
         src = main_parent if from_parent_id is None else from_parent_id
+        to_top = to_parent_id is None
         if src == to_parent_id:
             return {"folder_id": folder_id, "parent_id": main_parent, "name": row["name"],
                     "from_parent_id": src, "to_parent_id": to_parent_id,
@@ -464,6 +484,8 @@ def move_folder(folder_id: str, to_parent_id: str | None,
                     f"目录 {folder_id} 并不在 {src} 那一处（这条边不存在）",
                     "folder_not_in_parent")
 
+        # 这次挪动要不要改"主位置"（见 docstring 的两条）
+        moves_main = (src == main_parent) or (to_parent_id is None)
         edges = _folder_edges(conn)
         if to_parent_id is not None:
             _folder_row(conn, to_parent_id)
@@ -472,14 +494,13 @@ def move_folder(folder_id: str, to_parent_id: str | None,
         else:
             base_depth = 0
         height = _subtree_height(conn, folder_id, edges)
-        # 层数只在**真的把这棵子树搬到新位置**时才可能变。只删一条边（源不是主位置）
+        # 层数只在**真的把这棵子树搬到新位置**时才可能变。只补一条边（源不是主位置）
         # 时树没动 ⇒ 不拿新位置去卡它（否则"从复制处挪走"会被一条无关的上限拒掉）。
-        moves_tree = (src == main_parent)
-        if moves_tree and base_depth + height > MAX_DEPTH:
+        if moves_main and base_depth + height > MAX_DEPTH:
             raise _err(
                 f"挪过去会到第 {base_depth + height} 层，超过上限 {MAX_DEPTH} 层",
                 "folder_depth_exceeded")
-        if moves_tree:
+        if moves_main:
             _assert_name_free(conn, to_parent_id, row["name"], exclude_id=folder_id)
             names = {r["folder_id"]: r["name"] for r in
                      conn.execute("SELECT folder_id, name FROM folder")}
@@ -489,7 +510,12 @@ def move_folder(folder_id: str, to_parent_id: str | None,
             conn.execute(
                 "DELETE FROM folder_member WHERE folder_id=? AND item_kind='folder'"
                 " AND item_id=?", (src, folder_id))
-        if moves_tree:
+        if to_top and main_parent is not None and main_parent != src:
+            # 主位置搬到顶层 ⇒ 旧主位置那条边也得删（不删就同时挂在顶层与旧父目录两处）
+            conn.execute(
+                "DELETE FROM folder_member WHERE folder_id=? AND item_kind='folder'"
+                " AND item_id=?", (main_parent, folder_id))
+        if moves_main:
             conn.execute("UPDATE folder SET parent_id=? WHERE folder_id=?",
                          (to_parent_id, folder_id))
         if to_parent_id is not None:
@@ -499,7 +525,8 @@ def move_folder(folder_id: str, to_parent_id: str | None,
         main_now = _folder_row(conn, folder_id)["parent_id"]
         return {"folder_id": folder_id, "parent_id": main_now, "name": row["name"],
                 "from_parent_id": src, "to_parent_id": to_parent_id,
-                "updated_main_position": moves_tree, "moved": True}
+                "updated_main_position": moves_main and main_now != main_parent,
+                "moved": True}
 
 
 def copy_folder(folder_id: str, new_parent_id: str | None = None,
@@ -1032,10 +1059,19 @@ def suggest_folder_for_doc(doc: dict, index: dict | None = None,
 
     * 现成建议优先：``doc_filing_state.suggested_folder_id`` 指向真实存在的目录 ⇒ 用它。
     * 否则按**现有分类口径**（``doc_filing_plan`` → ``classify_document``，与
-      ``/documents/categories`` 同一份判断）算出"它该在哪"，再在目录树里**找到**这条路径：
-      ``by_path`` 命中 ⇒ 建议它。
+      ``/documents/categories`` 同一份判断）算出"它该在哪"，**再映射成真树路径**
+      （``folder_filing_plan.tree_path_of``：真树**跳过了**标准树那层重复的 L1），
+      然后在目录树里**找到**这条路径：``by_path`` 命中 ⇒ 建议它。
     * 都找不到 ⇒ 返回 ``None``。「该新建什么目录」那一步（``suggest_new_path``）**留给
       第 4 步的识别人工环节**，本函数**不猜、不建**（写了就等于替业主做决定）。
+
+    ⚠ **两处刻意的"不给建议"**（复核 2026-09-21 打回后写清，都不是忘了）：
+
+    1. 分类落在两个**兜底桶**（``其他标准`` / ``未定级``）的 ⇒ 一律 ``None``：按归位纪律
+       它们本来就进「待分类」等识别，**不属于**任何标准/法规分支 —— 就算哪天有人手工在树里
+       建出一个叫「其他标准」的目录，也不该把"库不认识它"的文件塞进去。
+    2. 退级只退到第 2 级（L4→L3→L2），**不退到真顶层**（如「标准」）：顶层是"哪一支"的
+       归类，不是一篇文件的落点（真树里 6036 篇已归位文件没有一篇直接挂在顶层）。
 
     返回 ``{"matched": "stored"|"path", "folder_id", "path", "folder_name"}``。
     """
@@ -1055,7 +1091,12 @@ def suggest_folder_for_doc(doc: dict, index: dict | None = None,
         cls = plan_mod.classify_document(d)          # type: ignore[attr-defined]
     except Exception:                                # noqa: BLE001 — 分类炸了不许让列表崩
         return None
-    path = plan_mod.path_of(cls)
+    if str(cls.get("level2") or "") in (plan_mod.NO_CLASS_LEVEL2,
+                                        plan_mod.UNDEFINED_LEVEL2):
+        return None                                  # 兜底桶：该等识别，不给现成目录
+    # ⚠ 分类口径路径 → **真树**路径（唯一所有者 plan_mod.tree_path_of）：
+    #   真树跳过了标准树那层重复的 L1，拿分类口径的原名去匹配**永远不中**（复核实测 0/6036）。
+    path = plan_mod.tree_path_of(plan_mod.path_of(cls))
     if any(not seg.strip() for seg in path):
         return None
     # 先按完整路径找；找不到就**逐级退**（L4 没有就退到 L3，再退到 L2）——
@@ -1086,8 +1127,8 @@ def _path_of_id(index: dict, folder_id: str) -> str:
     return PATH_SEP.join(names)
 
 
-#: 待分类确认环节里"就在这一层新建"的父目录名（业主口径：认不出就留在这儿）
-PENDING_TOP_NAME = "待分类"
+#: 待分类确认环节里"就在这一层新建"的父目录名 —— **唯一所有者**在模块头上那个
+#: ``PENDING_TOP_NAME``（这里只是把那个名字用在承诺里，不再写第二份字面量）。
 
 
 def confirm_inbox_decisions(decisions: list[dict],

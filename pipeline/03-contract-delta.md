@@ -289,7 +289,11 @@ schema.sql 追加第 31 号表 `bulk_import_batch`（本批只建巡检侧需要
 - **POST /folders** → 建出来的那一行：`{folder_id, parent_id, name, sort}`。
 - **PUT /folders/{id}** → `{folder_id, name, parent_id}`。
 - **POST /folders/{id}/move** → `{folder_id, parent_id, name, from_parent_id, to_parent_id, updated_main_position, moved}`。
-  `updated_main_position=false` ⇔ 这次只删了一条"复制出来的那一处"的边，目录本体（`parent_id`）没动；
+  `updated_main_position=false` ⇔ 这一次**没有**动目录本体（`parent_id`）：从"复制出来的那一处"
+  挪到另一个**目录**时，只删源边 **+ 补新边**（`to_parent_id` 是目录 ⇒ 它在那儿出现），
+  `parent_id` 原样（补边不改"主位置"）；`true` ⇔ `parent_id` 真的变了 —— 从主位置挪走，
+  或**挪到顶层**（`to_parent_id=null` ⇒ `parent_id` 置 NULL，库里"在顶层"的判定口径就是它；
+  同时删掉源边与旧主位置那条边 ⇒ 它进顶层、旧父目录里不再有它）。
   `moved=false` ⇔ 已经在那一处（幂等空操作）。
 - **POST /folders/{id}/copy** → `{folder_id, parent_id, name, sort, copied_members, copied_from}`。
 - **GET /folders/{id}/delete-preview** → `{folder, is_empty, direct_subfolder_count, direct_file_count,
@@ -349,5 +353,7 @@ schema.sql 追加第 31 号表 `bulk_import_batch`（本批只建巡检侧需要
   同形但各自表内引用，**任何查询不得跨表 join**。
 - 存量零侵入：新端点只读写 33~35 号表；不改 `doc_meta` 一个字段；删目录走既有 `doc_delete`（含审计与级联）。
 - 回滚：删 `routes_kb_folders.py` + `server.py` 里那 3 行 register 即回到本增量前（数据层不动、界面未接）。
-- 测试基线只涨不跌（本步 +52：`test_kb_folder_api.py` **31**（新）+ `tests/_kb_folder_api_fixtures.py`（夹具，无用例）
-  + `test_folder_store.py` **31**（第 1 步 24 → +7）+ `test_apply_folder_filing.py` **21**（第 1 步 15 → +6））。
+- 测试基线只涨不跌（本步 **+44**：`test_kb_folder_api.py` **31**（新）+ `test_folder_store.py`
+  **+7**（第 1 步 24 → 31）+ `test_apply_folder_filing.py` **+6**（第 1 步 15 → 21）；
+  `tests/_kb_folder_api_fixtures.py` 是夹具，**不算用例**）。
+  ⚠ 原写 "+52" 与本行自列的 31+7+6 不符（2026-09-21 复核机械数过：批次内 `+def test_` 共 **44** 条）。

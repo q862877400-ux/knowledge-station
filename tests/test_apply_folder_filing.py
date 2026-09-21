@@ -489,6 +489,25 @@ def test_refuses_when_the_unskipped_tree_is_already_there(_isolate_data_dir, tmp
 
 # ─────────────────────────── 读回自证 / 报告 ───────────────────────────
 
+def test_skipped_level_and_top_names_come_from_one_owner():
+    """「跳过哪一段 / 真顶层叫什么」只有**一个**所有者（复核 2026-09-21 的①）。
+
+    以前脚本自己写 ``PLAN_STD_LEVEL1`` / ``STANDARD_TOP`` 两个字面量，接口侧（建议去向）
+    另有一份猜法 ⇒ 两边口径一旦漂移，``suggest_folder_for_doc`` 就对真树永远命中不了
+    （复核实测：真库 6036 篇已归位文件精确命中 0）。这条钉住：脚本取的就是所有者那份值，
+    而且那条规则（分类口径 L1 → 真顶层名）本身也在所有者里。
+    """
+    from src.core.knowledge import folder_filing_plan as fp
+    assert applymod.PLAN_STD_LEVEL1 == fp.SKIPPED_PLAN_TOP
+    assert applymod.STANDARD_TOP == fp.STANDARD_TOP_NAME
+    assert applymod.STANDARD_TOP == fp.folder_store.STANDARD_TOP_NAME
+    # 规则本体：被跳过的那一段换成真顶层名（段数因此少一级），其余原样
+    assert fp.tree_path_of((fp.SKIPPED_PLAN_TOP, "A 综合")) == (fp.STANDARD_TOP_NAME, "A 综合")
+    assert fp.tree_path_of(("法律法规", "行政法规")) == ("法律法规", "行政法规")
+    # 脚本的顶层名字清单也不许自己抄一份
+    assert tuple(n for n, _ in applymod.PREBUILT_TOPS) == applymod.fs.PREBUILT_TOP_NAMES
+
+
 def test_read_back_matches_the_database(fdb, tmp_path):
     """读回自证的数字必须与**直接查库**的结果一致（不是自说自话）。"""
     from src.core.knowledge import folder_filing_plan as fp

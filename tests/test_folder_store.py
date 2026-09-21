@@ -226,7 +226,8 @@ def test_move_folder_rejects_cycle(db):
 #
 # 修之前：`move_folder` 只收"挪到哪"，把 `folder.parent_id` 与成员边**一起**改
 # ⇒ 一个"复制出来的、同时挂在两处"的目录，挪一处会把**另一处也带走**。
-# 方案 §九把这条登记成待第 2 步修的缺陷。下面四条把这处语义钉住。
+# 方案 §九把这条登记成待第 2 步修的缺陷。下面六条把这处语义钉住
+# （2026-09-21 复核又补了③"挪到第三处补新边"与④"挪到顶层真的到顶层"两条）。
 
 def _kids(fid):
     return [s["folder_id"] for s in fs.list_folder(fid)["subfolders"]]
@@ -263,18 +264,54 @@ def test_move_folder_defaults_to_the_main_position(db):
         == b["folder_id"]
 
 
-def test_move_folder_from_a_copy_takes_only_that_edge_away(db):
-    """从**复制出来的那一处**挪走：只删那条边，目录本体（``parent_id``）不动。"""
-    home = fs.create_folder(nm("本体"))
-    other = fs.create_folder(nm("复制处"))
-    sub = fs.create_folder(nm("本体的子"), home["folder_id"])
+def test_move_folder_from_a_copy_to_a_third_place_adds_the_new_edge(db):
+    """③ 从**复制出来的那一处**挪到**第三处** ⇒ 删源边 **+ 补新边**（业主裁定以代码为准）。
+
+    2026-09-21 复核打回：``folder_store.py`` 与两份文档原写"只删那条边、**不补新边**"，
+    而代码一直补边。裁定：补边是对的（用户说"从这儿挪到那儿"，就该出现在那儿），
+    而且补边**不动** ``parent_id``（不会把"主位置"悄悄改掉）。这条把三者钉在一起。
+    """
+    home = fs.create_folder(nm("三处主位"))
+    other = fs.create_folder(nm("三处复制"))
+    third = fs.create_folder(nm("三处目标"))
+    sub = fs.create_folder(nm("三处子"), home["folder_id"])
+    fs.copy_member("folder", sub["folder_id"], other["folder_id"])
+
+    got = fs.move_folder(sub["folder_id"], third["folder_id"],
+                         from_parent_id=other["folder_id"])
+    assert got["moved"] is True
+    assert got["updated_main_position"] is False                # 主位置没被改
+    assert got["parent_id"] == home["folder_id"]
+    assert _kids(third["folder_id"]) == [sub["folder_id"]]   # **新边在**
+    assert _kids(other["folder_id"]) == []                   # 源边没了
+    assert _kids(home["folder_id"]) == [sub["folder_id"]]    # 主位置原样
+    # 底层证据：那条新边真的写进了 folder_member（不是读路径的并集凑出来的）
+    n = fs.get_db_connection().execute(
+        "SELECT COUNT(*) FROM folder_member WHERE folder_id=? AND item_kind='folder'"
+        " AND item_id=?", (third["folder_id"], sub["folder_id"])).fetchone()[0]
+    assert n == 1
+
+
+def test_move_folder_from_a_copy_to_the_top_really_lands_at_the_top(db):
+    """④ ``to_parent_id=None``（挪到顶层）⇒ **真的到顶层**，不是"删条边 + 回 moved=true"。
+
+    顶层没有上级目录可挂边 ⇒ 库里"在顶层"唯一的表达就是 ``parent_id IS NULL``
+    （与 ``list_folder(None)`` 的判定口径一致）。修准前这里：``parent_id`` 仍是主位、
+    顶层也不出现它，而返回值是 ``moved=true``（复核实测的假成功）。
+    """
+    home = fs.create_folder(nm("顶层主位"))
+    other = fs.create_folder(nm("顶层复制"))
+    sub = fs.create_folder(nm("顶层子"), home["folder_id"])
     fs.copy_member("folder", sub["folder_id"], other["folder_id"])
 
     got = fs.move_folder(sub["folder_id"], None, from_parent_id=other["folder_id"])
-    assert got["updated_main_position"] is False
-    assert got["parent_id"] == home["folder_id"]              # 本体没动
-    assert _kids(other["folder_id"]) == []                # 那条边没了
-    assert _kids(home["folder_id"]) == [sub["folder_id"]]  # 主位置还在
+    assert got["moved"] is True
+    assert got["updated_main_position"] is True      # parent_id 真的变了
+    assert got["parent_id"] is None
+    assert fs._folder_row(fs.get_db_connection(), sub["folder_id"])["parent_id"] is None
+    assert sub["folder_id"] in [s["folder_id"] for s in fs.list_folder(None)["subfolders"]]
+    assert _kids(other["folder_id"]) == []
+    assert _kids(home["folder_id"]) == []            # 旧父目录里没有它
 
 
 def test_move_folder_from_a_place_that_does_not_hold_it(db):

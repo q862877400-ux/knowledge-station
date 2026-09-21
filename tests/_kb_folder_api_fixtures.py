@@ -63,6 +63,31 @@ def tops(db):
     return out
 
 
+#: **真形状**的标准树路径（顶层「标准」→ CCS 大类 → 区间 → 具体类目）。
+#: 口径来源 = ``classify_document(CCS:P16 工程防火)``；⚠ **故意没有**「国家标准·行业标准·
+#: 团体标准」那一段 —— 真树跳过了它（唯一所有者 `folder_filing_plan.tree_path_of`）。
+#: 用这条路径才能证明"建议去向"与真树对齐（复核 2026-09-21：拿分类口径原名匹配 ⇒ 0 命中）。
+STD_TREE_P16: tuple[str, ...] = (
+    "标准", "P 土木、建筑", "P15/19 工程抗震、工程防火、人防工程", "P16 工程防火")
+
+
+def ensure_folder_path(parts: tuple[str, ...]) -> dict[str, str]:
+    """按名字路径**复用或新建**一串目录，返回 ``{名字: folder_id}``（幂等）。"""
+    out: dict[str, str] = {}
+    parent: str | None = None
+    for name in parts:
+        found = fs._find_child_by_name(fs.get_db_connection(), parent, name)
+        parent = found if found else fs.create_folder(name, parent)["folder_id"]
+        out[name] = parent
+    return out
+
+
+@pytest.fixture()
+def std_tree(db, tops):
+    """真形状的标准树（CCS P16 那一支）——共用，用例间幂等复用。"""
+    return ensure_folder_path(STD_TREE_P16)
+
+
 def api(c, token, method: str, path: str, **kw):
     """带 token 的请求（``json`` / ``params`` 透传）。"""
     fn = getattr(c, method)

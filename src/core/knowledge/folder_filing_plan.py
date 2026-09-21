@@ -24,6 +24,11 @@
 "按当前显示的分类"）。每一级前缀都是一个目录，所以 L1/L2/L3 都靠"它下面的篇数
 （含更深层）"才有意义 —— 计数因此分 ``docs_direct``（直接放在这一级）与
 ``docs_deep``（这一级及其所有下级，去重）。
+
+⚠ 上面那条是**分类口径**的路径；**真树**还少一级（标准树被跳过的那层）—— 两者的映射
+是 ``tree_path_of``，唯一所有者（见该函数与 ``SKIPPED_PLAN_TOP`` 的注释）。落库脚本
+（``apply-folder-filing.py``）与接口的建议匹配（``folder_store.suggest_folder_for_doc``）
+都从这一处取，不许各写一份。
 """
 
 from __future__ import annotations
@@ -33,11 +38,29 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from src.core.knowledge import folder_store
-from src.core.knowledge.doc_catalog import classify_document
+from src.core.knowledge.doc_catalog import STD_LEVEL1_NAME, classify_document
 
 #: 「无分类」的两个兜底桶 → 进「待分类」，不建目录
 NO_CLASS_LEVEL2: str = "其他标准"
 UNDEFINED_LEVEL2: str = "未定级"
+
+#: ─────────── 分类口径 ↔ **真树** 的唯一所有者（2026-09-21 复核打回后收成一处）───────────
+#
+# 为什么需要这层映射：分类口径（``classify_document``）算出来的是**文档分类体系**的路径，
+# 真树（``scripts/apply-folder-filing.py`` 落库的那棵，也是 ``/api/v1/kb/folders`` 读的
+# 那一棵）**故意跳过了标准树的第一层**——业主 2026-09-21 定：「国家标准·行业标准·团体标准」
+# 挂在真顶层「标准」下面就是**重复的一层**，所以它的下级（``A 综合``…）直接挂「标准」。
+# ⇒ 拿分类口径的 L1 名字去真树里匹配**永远不中**（复核实测：6036 篇已归位文件精确命中 0，
+#   把第一段换成真顶层「标准」后 6036/6036）。这条规则以前散在脚本里（``PLAN_STD_LEVEL1`` /
+#   ``STANDARD_TOP``），接口侧完全不知道 ⇒ 本模块把它收成**唯一所有者**：
+#   · 顶层叫什么 —— ``folder_store.PREBUILT_TOP_NAMES``（脚本与接口都从那儿取）；
+#   · 跳过哪一段 —— ``SKIPPED_PLAN_TOP``（= ``doc_catalog.STD_LEVEL1_NAME``，那段的名字
+#     归分类口径所有，这里只说"真树跳过它"）；
+#   · 怎么映射 —— ``tree_path_of``（**唯一实现**：脚本的跳层逻辑与接口的建议匹配都得与它一致）。
+# ⚠ 改这里 = 改真树的形状；``tests/test_apply_folder_filing.py`` 有一条断言钉住
+#   「标准树不许出现被跳过的那一层」。
+STANDARD_TOP_NAME: str = folder_store.STANDARD_TOP_NAME
+SKIPPED_PLAN_TOP: str = STD_LEVEL1_NAME
 
 #: 路径的**显示**分隔符。目录名里可以带 `/`（CCS 区间名 `P15/19` 自带的），
 #: 所以显示路径不能用 `/` 连 —— 那会看不出这条路径有几级。
@@ -57,9 +80,25 @@ def tags_of(doc: Any) -> list[str]:
 
 
 def path_of(cls: dict) -> tuple[str, str, str, str]:
-    """分类结果 → 四级目录路径（L1..L4）。"""
+    """分类结果 → 四级目录路径（L1..L4，**分类口径**；真树路径要再过 ``tree_path_of``）。"""
     return (str(cls.get("top_name") or ""), str(cls.get("level2") or ""),
             str(cls.get("level3") or ""), str(cls.get("level4") or ""))
+
+
+def tree_path_of(path: Iterable[str]) -> tuple[str, ...]:
+    """**分类口径路径 → 真树路径**（唯一所有者，理由见上面的常量区注释）。
+
+    规则只有一条：第一段若是 ``SKIPPED_PLAN_TOP``（标准树那段被跳过的重复层），
+    就换成真顶层名 ``STANDARD_TOP_NAME``（段数因此少一级）；其余原样。
+
+    真树路径一定不会出现被跳过的那一段 —— 这正是 ``suggest_folder_for_doc``
+    拿"分类算出来的路径"去真树里找时必须先走这一步的原因。
+    """
+    segs = tuple(str(s) for s in path)
+    if not segs:
+        return ()
+    head = STANDARD_TOP_NAME if segs[0] == SKIPPED_PLAN_TOP else segs[0]
+    return (head, *segs[1:])
 
 
 def show_path(path: Iterable[str]) -> str:

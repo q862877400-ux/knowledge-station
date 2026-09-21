@@ -90,6 +90,7 @@ if str(_REPO) not in sys.path:
     sys.path.insert(0, str(_REPO))
 
 from src.core.knowledge import folder_filing_plan as plan_mod  # noqa: E402
+from src.core.knowledge import folder_store as fs  # noqa: E402
 
 #: 真库默认位置（Windows 数据区）
 DEFAULT_SOURCE = Path(os.path.expandvars(
@@ -106,14 +107,17 @@ TARGET_TABLES: tuple[str, ...] = ("folder", "folder_member", "doc_filing_state")
 
 #: 顶层预建（业主 2026-09-21 定）：名字 → 手定顺序（写进 folder.sort）。
 #: ⚠ 名字清单的**唯一所有者**是 ``folder_store.PREBUILT_TOP_NAMES``（接口侧也读它，
-#: 免得两处各写一份）。本脚本只额外挂上自己手定的 ``sort``。
-PREBUILT_TOPS: tuple[tuple[str, int], ...] = (
-    ("标准", 10), ("法律法规", 20), ("公司制度", 30), ("待分类", 90),
-)
-STANDARD_TOP = "标准"
-PENDING_TOP = "待分类"
-#: 计划里推导出来的第一层。它挂在「标准」下面就是**重复的一层** ⇒ 跳过（方案 §九业主已定）
-PLAN_STD_LEVEL1 = "国家标准·行业标准·团体标准"
+#: 免得两处各写一份）。本脚本**只**挂上自己手定的 ``sort``（业务顺序），名字从所有者取。
+_TOP_SORTS: tuple[int, ...] = (10, 20, 30, 90)
+PREBUILT_TOPS: tuple[tuple[str, int], ...] = tuple(zip(fs.PREBUILT_TOP_NAMES, _TOP_SORTS))
+assert tuple(n for n, _ in PREBUILT_TOPS) == fs.PREBUILT_TOP_NAMES   # 名字不许在这里抄
+STANDARD_TOP = fs.STANDARD_TOP_NAME
+PENDING_TOP = fs.PENDING_TOP_NAME
+#: 计划里推导出来的第一层。它挂在「标准」下面就是**重复的一层** ⇒ 跳过（方案 §九业主已定）。
+#: ⚠ "跳过哪一段 / 真顶层叫什么"这两件事的**唯一所有者**是 ``folder_filing_plan``
+#: （``SKIPPED_PLAN_TOP`` / ``tree_path_of``）；这里只是取它的值，不许另写字面量 ——
+#: 接口侧的"建议去向"也走同一条规则（复核实测：两处口径不一致时建议恒为 null）。
+PLAN_STD_LEVEL1 = plan_mod.SKIPPED_PLAN_TOP
 
 #: 第 1 步实测的真库数字（2026-09-21，提交 43d1fa5/44a6cfb/7991e8c/2d60bf6）。
 #: 只用来在预演时**提示**"和记录不一样"，**不作为闸门**（真库会变，闸门会变成假红）。
@@ -673,9 +677,15 @@ def build_payload(plan: dict, existing: dict[tuple[str | None, str], str],
     for n in plan["nodes"]:
         depth = int(n["depth"])
         if depth == 1:
-            if n["name"] == PLAN_STD_LEVEL1:
-                # 这一层挂在「标准」下面就是重复 ⇒ 跳掉它，它的下级直接挂「标准」
-                key_map[n["key"]] = top_key[STANDARD_TOP]
+            # ⚠ 判定"这一段是不是被真树跳过的重复层"**走唯一所有者那条规则**
+            #   （``plan_mod.tree_path_of``：分类口径 L1 → 真树顶层名），不是拿字面量比名字。
+            mapped_top = plan_mod.tree_path_of(n["path"])[0]
+            if mapped_top != n["name"]:
+                # 这一段被跳过/改名了 ⇒ 它的下级**直接**挂到映射后的真顶层下
+                if mapped_top not in top_key:
+                    raise Abort(f"被跳过的层「{n['name']}」映射到「{mapped_top}」，"
+                                f"而它不是预建顶层之一 {list(top_key)}")
+                key_map[n["key"]] = top_key[mapped_top]
                 skipped_level1.append(n["name"])
                 continue
             if n["name"] in top_key:
