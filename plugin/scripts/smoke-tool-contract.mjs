@@ -211,6 +211,32 @@ const ANSWER_BARE = {
   code: 200, status: 'success', data: { tier: 'reference', notes: [] },
 }
 /**
+ * 第 6 步（2026-09-21）：**引擎回显的检索范围**（`data.scope`）那一支。
+ *
+ * ⚠ 这条桩的形状逐字照引擎 `ks_answer.answer()`（`src/core/llm/ks_answer.py`）：
+ *   `{kind, folder_ids, folder_count, doc_count, empty}`。而 `ANSWER_FULL` / `ANSWER_BARE`
+ *   都**没有** `scope` ⇒ 那里工具应当给 `scope: null`（"没限定范围"），两个方向都在这份冒烟里。
+ * ⚠ 为什么值得单开：`scope` 是**引擎算的真值**，与宿主侧的 `answer_scope`（"host 是否强制传参"）
+ *   是两个东西；少转发它，聊天里的模型就说不出"这次是在什么范围里检索的"（本批就是被
+ *   `smoke-trim` 的"引擎字段一个都不许静默丢"抓到的）。
+ */
+const ANSWER_KB_SCOPE = {
+  code: 200,
+  status: 'success',
+  data: {
+    tier: 'direct',
+    evidence: [{ doc_id: 'doc_in1', clause_revision_id: 'rev_in1', standard_no: 'GB 55037-2022',
+      clause_number: '5.2.3', title: '建筑防火通用规范', legal_status: 'effective',
+      legal_hierarchy: '国家标准', page_start: 12, snippet: '范围内的一条……' }],
+    derivation: '按范围内条款推导',
+    conclusion: '范围内答得出',
+    verification: null,
+    notes: ['【知识库目录范围】检索已在范围内限定。'],
+    scope: { kind: 'kb', folder_ids: ['kbf_a', 'kbf_a_child'], folder_count: 2, doc_count: 7, empty: false },
+    _meta: { evidence_total: 1, retrieval: { result_count: 1 } },
+  },
+}
+/**
  * ⚠⚠ 2026-09-20（复核 `verify-freeze-step6-1` 打回 A 的**回归位**）：引擎**材料装配失败**那一支
  * （`src/core/llm/ks_answer.py:698-701`）给的是 `{project_id, counts: null, notes: [], usable_indices: [],
  * error}` —— `counts` **是 null**。我第一版 schema 把它写成必填的 `object`（自己的注释里都写着 null），
@@ -411,6 +437,57 @@ async function main() {
     answerMatExtra?.material_usage?.future_engine_field === '引擎演化时新增的字段'
       && answerMatExtra?.material_usage?.counts?.total === 1,
     JSON.stringify(answerMatExtra?.material_usage))
+
+  /* ══════════ 第 6 步（2026-09-21）：**知识库目录范围**（`kb_folder_ids` / `kb_doc_ids`）══════════
+   * 父代理裁定：这是业主那句「每一级都能在此范围内提问」在**聊天**那条路上的落点 ——
+   * 引擎入口与 HTTP 端点支持了、知识库页直连引擎能用，但**模型给不出范围**，功能对业主等于没上。
+   *
+   * 判据分四层（少一层就有一条静默失效的通道）：
+   *   ① 参数进得了白名单（`sanitizeParams`）⇒ **请求体里真的看得见**；
+   *   ② **空数组也照样发**（引擎把"显式空范围"与"没给范围"严格区分：前者一次检索都不做、
+   *      后者是全库 —— 宿主若把空数组"优化"掉，就是"范围内提问悄悄变成全库"，正是红线）；
+   *   ③ 引擎回显的 `scope` 必须出现在**工具返回值**里（否则模型说不出"这次在什么范围里检索的"）；
+   *   ④ 没给范围时必须是 `null`（"没限定"与"限定了但范围内没有"要能区分）。
+   * ⚠ 反向变异（本批实测过）：把请求体里的 kb_folder_ids 删掉 ⇒ ①红；把返回值里的 scope 删掉 ⇒ ③红。 */
+  const answerBodies = []
+  const captureAnswer = (body) => (path, init) => {
+    if (path.includes('/api/v1/ks/answer')) {
+      try { answerBodies.push(JSON.parse(init?.body ?? '{}')) } catch { answerBodies.push(null) }
+      return { body }
+    }
+    return benign(path)
+  }
+  const scoped = await group('ks_answer', 'kb-scope-forwarded',
+    { query: '动火作业怎么分级',
+      params: { kb_folder_ids: ['kbf_a', 'kbf_a_child'], kb_doc_ids: ['doc_in1'] } },
+    captureAnswer(ANSWER_KB_SCOPE))
+  const sent = answerBodies[answerBodies.length - 1] ?? {}
+  check('ks_answer [kb-scope-forwarded] — 目录范围**真的到引擎**（请求体 params.kb_folder_ids 逐字）',
+    JSON.stringify(sent?.params?.kb_folder_ids) === JSON.stringify(['kbf_a', 'kbf_a_child']),
+    JSON.stringify(sent?.params ?? null))
+  check('ks_answer [kb-scope-forwarded] — 显式文件范围也到了（请求体 params.kb_doc_ids）',
+    JSON.stringify(sent?.params?.kb_doc_ids) === JSON.stringify(['doc_in1']),
+    JSON.stringify(sent?.params ?? null))
+  check('ks_answer [kb-scope-forwarded] — 引擎回显的 scope 出现在**工具返回值**里（模型能说出范围）',
+    scoped?.scope?.doc_count === 7 && scoped?.scope?.folder_count === 2
+    && scoped?.scope?.empty === false && Array.isArray(scoped?.scope?.folder_ids),
+    JSON.stringify(scoped?.scope ?? null))
+  await group('ks_answer', 'kb-scope-empty-array-forwarded',
+    { query: 'x', params: { kb_folder_ids: [] } }, captureAnswer(ANSWER_BARE))
+  const sentEmpty = answerBodies[answerBodies.length - 1] ?? {}
+  check('ks_answer [kb-scope-empty-array-forwarded] — **空数组也发给引擎**'
+    + '（被宿主吃掉就成"没给范围"= 全库检索，正是红线）',
+    Array.isArray(sentEmpty?.params?.kb_folder_ids) && sentEmpty.params.kb_folder_ids.length === 0,
+    JSON.stringify(sentEmpty?.params ?? null))
+  await group('ks_answer', 'kb-scope-hygiene',
+    { query: 'x', params: { kb_folder_ids: ['kbf_ok', '   ', 'x'.repeat(80), 42, 'kbf_ok'] } },
+    captureAnswer(ANSWER_BARE))
+  const sentDirty = answerBodies[answerBodies.length - 1] ?? {}
+  check('ks_answer [kb-scope-hygiene] — 空白/超长/非字符串被丢掉、重复去掉、合法项留下',
+    JSON.stringify(sentDirty?.params?.kb_folder_ids) === JSON.stringify(['kbf_ok']),
+    JSON.stringify(sentDirty?.params ?? null))
+  check('ks_answer [full-answer] — 引擎没给 scope 时工具给 **null**（不是编一个"全库"）',
+    answerFull?.scope === null, JSON.stringify(answerFull?.scope ?? null))
 
   /* -------------------------------- ks_materials -------------------------------- */
   const projects = await group('ks_materials', 'projects', {},

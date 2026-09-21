@@ -223,6 +223,21 @@ function sanitizeParams(raw) {
     const m = Number(raw.max_evidence)
     if (Number.isFinite(m) && m > 0) out.max_evidence = Math.min(Math.floor(m), EVIDENCE_CAP)
   }
+  /* 第 6 步（2026-09-21）：**知识库目录范围**（与引擎同名同义）。
+   * ⚠ 必须在这里被白名单接住，否则它就是"schema 向模型承诺了、宿主却静默丢掉"的输入端版本
+   *   （与 `material_project_id` 那次一模一样的坑，见上面那段注释）。
+   * 形态：字符串数组；逐项去空白、去重、丢掉不合法的项；一项都不合法就不带这个键
+   *   （**空数组要如实传**：引擎把"显式空范围"当"范围内一篇都没有"、与"没给范围"严格区分
+   *    —— 那正是"绝不退化成全库"这条红线，宿主不许替它改写）。 */
+  for (const key of ['kb_folder_ids', 'kb_doc_ids']) {
+    const v = raw[key]
+    if (!Array.isArray(v)) continue
+    const ids = [...new Set(v
+      .map((x) => (typeof x === 'string' ? x.trim() : ''))
+      .filter((x) => x.length > 0 && x.length <= 64 && !/[\s\u0000-\u001f]/.test(x)))]
+      .slice(0, 500)
+    out[key] = ids
+  }
   return Object.keys(out).length > 0 ? out : null
 }
 
@@ -296,6 +311,12 @@ export function trimAnswer(data) {
     // "本次用了哪个项目的哪几条参考资料、哪些只算线索"，否则又是一个"算出来没人看得见"。
     // 没给项目范围时引擎给 null —— "没用材料"与"用了但没命中"必须能区分。
     material_usage: data.material_usage ?? null,
+    // 第 6 步（2026-09-21）：**引擎回显的检索范围**。**必须转发** —— 少这一行，
+    // 聊天里的模型就看不到"这次是在什么范围里检索的"（"回答里如实体现范围"那条承诺断在路上），
+    // 而且 `smoke-trim` 的"引擎字段一个都不许静默丢"会当场红（本批就是这么被抓到的）。
+    // ⚠ 与 `answer_scope`（宿主侧的"host 是否强制传参"回显）不是一回事，别混。
+    // 没限定范围时引擎给 `null` —— "没限定"与"限定了但范围内没有"必须能区分。
+    scope: data.scope ?? null,
     meta_summary: metaSummary(data._meta),
   }
 }
@@ -449,6 +470,40 @@ const ANSWER_SCOPE = {
   },
   required: ['forensic', 'bookmarks_only', 'folder', 'folder_id', 'folder_name',
     'material', 'material_project_id', 'material_project_name', 'source'],
+}
+
+/**
+ * `ks_answer` 的 **`scope`** 块（第 6 步，2026-09-21）——**引擎回显**的"这次实际在什么范围里检索"。
+ *
+ * ⚠⚠ **与上面的 `ANSWER_SCOPE`（`answer_scope`）不是一回事**，名字相近但含义相反：
+ *   · `answer_scope`（宿主侧算）= "**host 是否强制传参**"（收藏夹/仅收藏/项目）——它**不能**
+ *     证明引擎侧过滤一定生效（那正是它的 docstring 反复强调的那句）；
+ *   · `scope`（**引擎侧给**）= 真值：这次到底在多少目录 / 多少篇里检索；`null` = **没限定范围**
+ *     （全库），`empty: true` = 范围内一篇都没有 ⇒ 引擎**一次检索都没做**。
+ * 形状逐字抄引擎 `ks_answer.answer()` 的 `scope`（`src/core/llm/ks_answer.py`）：
+ *   `{kind, folder_ids, folder_count, doc_count, empty}`；`folder_ids` 是**展开后**的目录全集
+ *   （含所有下级；多个根 = 并集）。
+ * ⚠ 白名单纪律（与 `material_usage` 同一条）：引擎算出来的这个键若没进 `properties`，
+ *   工具返回就会被 schema 判 isError；若没进 `trimAnswer`，它就会**静默消失** ——
+ *   两种症状都由 `smoke-trim` / `smoke-tool-contract` 守着。
+ */
+const ANSWER_KB_SCOPE = {
+  oneOf: [
+    {
+      type: 'object',
+      // ⚠ 引擎自有的结构 ⇒ **不写** `additionalProperties:false`（引擎将来加键不该打穿我们，
+      //   与 `material_usage` 那条同一个理由）。
+      properties: {
+        kind: { type: 'string' },
+        folder_ids: { type: 'array', items: { type: 'string' } },
+        folder_count: { type: 'number' },
+        doc_count: { type: 'number' },
+        empty: { type: 'boolean' },
+      },
+      required: ['kind', 'folder_ids', 'folder_count', 'doc_count', 'empty'],
+    },
+    { type: 'null' },
+  ],
 }
 
 /**
@@ -1040,6 +1095,29 @@ export function makeAnswerTool(manager, chatModeOf) {
                 'conclusion). Unapproved material is never included. The result carries ' +
                 'material_usage so you can report what was actually used.',
             },
+            /* 第 6 步（2026-09-21）：**知识库目录范围** —— 与引擎同名同义（`params.kb_folder_ids`）
+               的直通参数：引擎在**检索层**把六条召回通道全部限定在"这些目录**及其所有下级**"的
+               文档里；多个目录 = **并集**。⚠ 与上面 `folder_id`（**收藏夹**）**不是一回事**：
+               那个只对**证据**后置过滤/打标、不动检索；两者同时给 = **交集**（先按目录收窄检索、
+               再按收藏夹筛证据）。⚠ 目录不存在 ⇒ 引擎 404（不会静默降级成全库）。 */
+            kb_folder_ids: {
+              type: 'array',
+              items: { type: 'string' },
+              description:
+                'Restrict RETRIEVAL to the knowledge-base folder tree (kbf_… ids): each id means ' +
+                '"this folder AND every folder below it"; several ids = the union. NOT the same ' +
+                'thing as folder_id (bookmark folder, which only filters evidence). An unknown ' +
+                'folder id makes the engine answer 404 rather than silently widening to the whole ' +
+                'library. Omitted = no folder restriction.',
+            },
+            kb_doc_ids: {
+              type: 'array',
+              items: { type: 'string' },
+              description:
+                'Restrict RETRIEVAL to an explicit list of documents (doc ids) — use this for files ' +
+                'that are not in any folder yet (the 待分类 layer). Combined with kb_folder_ids it ' +
+                'is the union of both. Omitted = no document restriction.',
+            },
           },
           additionalProperties: false,
           description: 'Optional retrieval knobs passed to the engine.',
@@ -1084,6 +1162,14 @@ export function makeAnswerTool(manager, chatModeOf) {
           // 2026-09-20：`params.material_project_id.description` 承诺 "The result carries
           // material_usage" —— 这个键只正常路径有（422 路径没有）⇒ 列进 properties、**不 required**。
           material_usage: ANSWER_MATERIAL_USAGE,
+          // 第 6 步（2026-09-21，父代理裁定追加）：**引擎回显的"这次实际在什么范围里检索"**。
+          // ⚠ 与 `answer_scope`（上面那个）**不是一回事**：`answer_scope` 回显的是
+          //   "**host 是否强制传参**"（收藏夹/仅收藏/参考资料项目），**不能**证明引擎侧过滤生效；
+          //   而这个 `scope` 是**引擎算完给的真值**（folder_count / doc_count / empty）。
+          //   `scope: null` = 这次**没有**限定范围（全库检索）；`empty: true` = 范围内一篇都没有
+          //   ⇒ 引擎**一次检索都没做**（那不是"库里没有"）。
+          // 只正常路径有（422 路径没有）⇒ 列进 properties、**不 required**。
+          scope: ANSWER_KB_SCOPE,
         },
         required: ['ok', 'httpStatus', 'tier', 'found', 'query', 'query_mode', 'evidence',
           'derivation', 'conclusion', 'verification', 'notes', 'meta_summary'],
@@ -1235,6 +1321,9 @@ export function makeAnswerTool(manager, chatModeOf) {
         // 模型永远看不到"本次到底用了哪个项目的哪几条材料、哪些只算线索"（白名单纪律的反面例子）。
         // 没给项目范围时引擎给 `null`（"没用材料"与"用了但没命中"必须可区分）。
         material_usage: trimmed ? trimmed.material_usage : null,
+        // 第 6 步（2026-09-21）：**引擎回显的检索范围**（`null` = 没限定范围）。
+        // ⚠ 与上面 `answer_scope` 不是一回事：那个是"host 是否强制传参"，这个是引擎算的真值。
+        scope: trimmed ? trimmed.scope : null,
       }
     },
   }

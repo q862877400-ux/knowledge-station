@@ -307,6 +307,12 @@ const call = (args) => tool.execute(args, { signal: new AbortController().signal
     const probes = {
       top_k: 3, bookmarks_only: true, folder_id: 'bmf_x', max_evidence: 2,
       material_project_id: 'prj_x',
+      /* ⚠⚠ **2026-09-21（第 6 步）就地补两个探针**：`ks_answer` 的 schema 新增了
+         **知识库目录范围**（`kb_folder_ids` / `kb_doc_ids`，与引擎同名同义）。
+         这一条棘轮的意义正是"schema 向模型承诺的每个参数都必须真能到引擎" ——
+         不补探针它就会以 `DROPPED: kb_folder_ids,kb_doc_ids` + `UNTESTED` **两条红**报出来
+         （实测：本批第一次跑全链时它就是这么红的；那是**判据在干活**，不是误报）。 */
+      kb_folder_ids: ['kbf_a', 'kbf_b'], kb_doc_ids: ['doc_a'],
     }
     const forwarded = (await answerWith(baseMode, probes))?.params ?? {}
     const notForwarded = advertised.filter((k) => !(k in forwarded))
@@ -317,6 +323,11 @@ const call = (args) => tool.execute(args, { signal: new AbortController().signal
     const untested = advertised.filter((k) => !(k in probes))
     check('the probe set covers every advertised params key (no blind spot)',
       untested.length === 0, untested.length === 0 ? 'ok' : `UNTESTED: ${untested.join(',')}`)
+    /* 光"键在"不够：**值**也要逐字到（键在而值被改写 = 范围被悄悄换掉，比丢键更坏）。 */
+    check('the knowledge-base scope values arrive verbatim (keys present is not enough)',
+      JSON.stringify(forwarded.kb_folder_ids) === JSON.stringify(['kbf_a', 'kbf_b'])
+      && JSON.stringify(forwarded.kb_doc_ids) === JSON.stringify(['doc_a']),
+      JSON.stringify({ kb_folder_ids: forwarded.kb_folder_ids, kb_doc_ids: forwarded.kb_doc_ids }))
   }
 }
 
