@@ -111,6 +111,35 @@ $env:KS_GATES_LOCK_TOKEN = $lockToken
 #   真产品下次启动会去接管它）⇒ 在这里设一次，比"写进复核约定"可靠得多。
 $prevDataDir = $env:KS_DATA_DIR
 $env:KS_DATA_DIR = Join-Path ([System.IO.Path]::GetTempPath()) ("ks-gates-data-" + $PID)
+# ── 模型缓存目录（2026-09-21 修的那条**环境假红**）──────────────────────────────
+# 为什么必须有：`tests/conftest.py` 是 **session 级 autouse**，它把 `KS_DATA_DIR` 换成全新的
+#   `%TEMP%\ks_test_*` ⇒ `models_dir`（默认 `<data_dir>/models`）**每次都是空的** ⇒ 每一次
+#   全量 pytest 都要重新下载 BGE（~91MB；实测某次会话目录被填到 748MB）。本机
+#   `ALL_PROXY=http://127.0.0.1:7897` 那个代理半死不活（端口能连、不响应）⇒ 下载**挂死**；
+#   即使下载能成，也可能赶不上 `test_retrieval.py::test_vec_channel` 那一刻（该用例在基线的
+#   `environmental_skip_nodeids` 里）⇒ 向量通道不可用 ⇒ **依赖检索**的两条
+#   （`test_compliance.py::test_behavior_review_face_collection`、
+#   `test_phase4.py::test_obligation_list_and_checklist`）降级失败。
+#   复核 2026-09-21 定性：与被验区间无关的环境假红（区间 `git diff --stat -- src tests` 为空）。
+# 处置：`KS_MODELS_DIR`（`src/core/config.py` 的 models_dir 覆盖）指到一个**常驻**目录 ⇒ 模型只落地
+#   一次。实测：那三条用例 **0.96s 全过**（原先是 218.87s 下载 / 代理挂死）。
+#   seed 只从**本机已缓存的模型**拷一次（读真实缓存 → 写门禁自己的目录，**不联网**）；
+#   本机没缓存过就留空，首次仍会联网下载（与今天之前的行为一致）。
+$prevModelsDir = $env:KS_MODELS_DIR
+$modelsDir = Join-Path ([System.IO.Path]::GetTempPath()) 'ks-gates-models'
+$modelsNote = '已有'
+if (-not (Test-Path $modelsDir)) {
+  $realModels = if ($env:APPDATA) { Join-Path (Join-Path $env:APPDATA 'KnowledgeStation') 'models' } else { '' }
+  $cachedBge = if ($realModels) { Join-Path $realModels 'models--Qdrant--bge-small-zh-v1.5' } else { '' }
+  if ($cachedBge -and (Test-Path $cachedBge)) {
+    New-Item -ItemType Directory -Force -Path $modelsDir | Out-Null
+    Copy-Item $cachedBge $modelsDir -Recurse -Force
+    $modelsNote = '刚从本机缓存 seed（未联网）'
+  } else {
+    $modelsNote = '空 ⇒ 首次要联网下载（代理不通时会挂）'
+  }
+}
+$env:KS_MODELS_DIR = $modelsDir
 # ⚠ **输出编码必须钉死**（复核 2026-09-19 抓到棘轮"忽绿忽红"的根因）：Windows 控制台默认 936(GBK)，
 #   而 pwsh 用 `[Console]::OutputEncoding` 解码**子进程**的 stdout ⇒ python 的 UTF-8 中文
 #   （pytest 的 skip 理由）会变成 U+FFFD 乱码。乱码本身不影响计数，但**它曾经被写进基线**，
@@ -159,6 +188,11 @@ if ($Full) {
 $results = @()
 $pytestPassed = $null
 $pytestSkipped = $null
+# ⚠ 失败/错误也必须数（2026-09-21 复核抓到）：原先只抓 `passed`/`skipped`，于是
+#   `2 failed + 2139 passed + 5 skipped = 2146 = 基线` 会被读成"总账 2144 < 2146"，
+#   把"2 条失败"**误报成**"少收集了 2 条" —— 判据方向反了（失败 ≠ 少跑）。
+$pytestFailed = $null
+$pytestErrors = $null
 $hardError = $null
 
 try {
@@ -220,6 +254,11 @@ try {
       if ($m.Success) { $pytestPassed = [int]$m.Groups[1].Value }
       $m2 = [regex]::Match($text, '(\d+) skipped')
       if ($m2.Success) { $pytestSkipped = [int]$m2.Groups[1].Value }
+      # 失败/错误：**必须数**，否则"有失败"会被棘轮读成"少跑了"（见上面声明处的说明）。
+      $m3 = [regex]::Match($text, '(\d+) failed')
+      if ($m3.Success) { $pytestFailed = [int]$m3.Groups[1].Value }
+      $m4 = [regex]::Match($text, '(\d+) error')
+      if ($m4.Success) { $pytestErrors = [int]$m4.Groups[1].Value }
       $pytestText = $text
       # ⚠ **判据的键 = pytest 的 nodeid**（`tests.test_x::test_y`），**不是** `文件:行号`（复核 v2 打回）：
       #   行号会随"在文件顶部加一行注释"位移 ⇒ 零回归也判红（复核实测：加一行注释，站点从 :72 变 :73，
@@ -251,7 +290,7 @@ try {
     $ok = ($code -eq 0)
     $results += [pscustomobject]@{ name = $s.name; ok = $ok; code = $code
       skipReasons = $(if ($s.name -like 'pytest*') { $skipReasonsOfStep } else { @() })
-      note = $(if ($s.name -like 'pytest*' -and $null -ne $pytestPassed) { "passed=$pytestPassed skipped=$pytestSkipped" } else { "exit=$code" }) }
+      note = $(if ($s.name -like 'pytest*' -and $null -ne $pytestPassed) { "passed=$pytestPassed skipped=$pytestSkipped failed=$([int]$pytestFailed) errors=$([int]$pytestErrors)" } else { "exit=$code" }) }
     Write-Host ("   ⇒ {0}" -f $(if ($ok) { '✅ 通过' } else { "⛔ 失败（exit=$code）" })) -ForegroundColor $(if ($ok) { 'Green' } else { 'Red' })
   }
 } catch {
@@ -274,15 +313,20 @@ try {
   $skipNodeIds = @($results | Where-Object { $_.name -like 'pytest*' } |
     ForEach-Object { $_.skipReasons } | Where-Object { $_ } | Sort-Object -Unique)
   $totalRan = $null
-  if ($null -ne $pytestPassed) { $totalRan = $pytestPassed + ([int]$pytestSkipped) }
+  # ⚠ 总账必须把 **failed / errors 算进去**（2026-09-21 复核打回）：原先只加 passed+skipped，
+  #   于是"2 failed + 2139 passed + 5 skipped = 2146=基线"被读成"总账 2144 < 2146" ⇒
+  #   **把失败误报成少收集**（判据方向反了）。数字自洽后，失败由该步退出码兜住，原因也说得清。
+  if ($null -ne $pytestPassed) {
+    $totalRan = $pytestPassed + ([int]$pytestSkipped) + ([int]$pytestFailed) + ([int]$pytestErrors)
+  }
   if ($null -ne $pytestPassed) {
     if (Test-Path $baselinePath) {
       $base = Get-Content $baselinePath -Raw | ConvertFrom-Json
       $baseTotal = [int]$base.pytest_total
       if ($baseTotal -le 0) { $baseTotal = [int]$base.pytest_passed + [int]$base.pytest_skipped }
       if ($totalRan -lt $baseTotal) {
-        $why += ("总账 {0} < 基线 {1}（passed {2} + skipped {3}）" -f $totalRan, $baseTotal,
-          $pytestPassed, $pytestSkipped)
+        $why += ("总账 {0} < 基线 {1}（passed {2} + skipped {3} + failed {4} + errors {5}）" -f $totalRan, $baseTotal,
+          $pytestPassed, $pytestSkipped, [int]$pytestFailed, [int]$pytestErrors)
       }
       # 环境类 skip 白名单（基线里声明）：它们**随环境出现/消失是正常的**，不当回归。
       # 白名单**外**的**新** nodeid ⇒ 红（有人新加了一条跳过，或某个依赖坏了让用例开始 skip）。
@@ -298,7 +342,7 @@ try {
         Write-Host ("⛔ **只涨不跌被破**：" + ($why -join '；')) -ForegroundColor Red
         $baselineDrop = $true
       } else {
-        $msg = "   pytest 总账 $totalRan ≥ 基线 $baseTotal（passed $pytestPassed / skipped $pytestSkipped），"
+        $msg = "   pytest 总账 $totalRan ≥ 基线 $baseTotal（passed $pytestPassed / skipped $pytestSkipped / failed $([int]$pytestFailed) / errors $([int]$pytestErrors)），"
         $msg += "skip nodeid 全在基线或环境白名单内"
         Write-Host $msg -ForegroundColor Green
         if ($totalRan -gt $baseTotal) {
@@ -363,8 +407,10 @@ try {
     Write-Host ("   {0} {1,-26} {2}" -f $(if ($ratchetBad) { '⛔' } else { '✅' }), '棘轮（pytest 只涨不跌）',
       $(if ($null -eq $pytestPassed) { "没跑出 passed 数字 ⇒ 判红：$($why -join '；')" }
         elseif ($baselineDrop) { "被破：$($why -join '；')" }
-        else { "passed=$pytestPassed skipped=$pytestSkipped ≥ 基线" }))
+        else { "passed=$pytestPassed skipped=$pytestSkipped failed=$([int]$pytestFailed) errors=$([int]$pytestErrors) ≥ 基线" }))
     Write-Host ("      环境：RUN_LIVE=[{0}]（=1 时多跑 1 条联网用例 ⇒ 基线按**默认环境**记）" -f $env:RUN_LIVE)
+    # 模型缓存也进记录：它是"同一份代码、不同结果"的一个真实来源（2026-09-21 那次假红就出在这里）。
+    Write-Host ("      模型缓存：KS_MODELS_DIR=[{0}]（{1}）" -f $env:KS_MODELS_DIR, $modelsNote)
   }
   Write-Host "==============================================================="
   # ⚠ **绿灯也要留证据**（复核 2026-09-20 打回）：上面这些日志文件**只在失败时**才落
@@ -376,13 +422,14 @@ try {
   $lastLines += ("{0} 门禁（{1} 档）· {2}/{3} 步通过 · exit={4}" -f (Get-Date).ToString('s'),
     $(if ($Full) { '全量' } else { '快档' }), ($results.Count - $failed.Count), $results.Count,
     $(if ($failed.Count -gt 0 -or $ratchetBad) { 1 } else { 0 }))
-  $lastLines += ("  运行环境：RUN_LIVE=[{0}] · KS_DATA_DIR=[{1}] · cwd={2}" -f $env:RUN_LIVE, $env:KS_DATA_DIR, $repo)
+  $lastLines += ("  运行环境：RUN_LIVE=[{0}] · KS_DATA_DIR=[{1}] · KS_MODELS_DIR=[{2}]（{3}）· cwd={4}" -f `
+    $env:RUN_LIVE, $env:KS_DATA_DIR, $env:KS_MODELS_DIR, $modelsNote, $repo)
   foreach ($r in $results) { $lastLines += ("  {0} {1,-26} {2}" -f $(if ($r.ok) { 'PASS' } else { 'FAIL' }), $r.name, $r.note) }
   if ($Full) {
     $lastLines += ("  {0} 棘轮：{1}" -f $(if ($ratchetBad) { 'FAIL' } else { 'PASS' }),
       $(if ($null -eq $pytestPassed) { "没跑出 passed 数字（$($why -join '；')）" }
         elseif ($baselineDrop) { "被破：$($why -join '；')" }
-        else { "passed=$pytestPassed skipped=$pytestSkipped" }))
+        else { "passed=$pytestPassed skipped=$pytestSkipped failed=$([int]$pytestFailed) errors=$([int]$pytestErrors)" }))
   }
   if ($null -ne $hardError) { $lastLines += ("  ⛔ 执行中断：" + $hardError.Exception.Message) }
   $lastLines | Set-Content -Path $lastPath -Encoding utf8
@@ -403,6 +450,9 @@ try {
   else { Remove-Item Env:\KS_GATES_LOCK_TOKEN -ErrorAction SilentlyContinue }
   if ($null -ne $prevDataDir) { $env:KS_DATA_DIR = $prevDataDir }
   else { Remove-Item Env:\KS_DATA_DIR -ErrorAction SilentlyContinue }
+  # 模型缓存目录同样**恢复**（它是我们为这一次跑布的，不该泄漏给调用方）。
+  if ($null -ne $prevModelsDir) { $env:KS_MODELS_DIR = $prevModelsDir }
+  else { Remove-Item Env:\KS_MODELS_DIR -ErrorAction SilentlyContinue }
   if ($null -ne $prevPyIo) { $env:PYTHONIOENCODING = $prevPyIo }
   else { Remove-Item Env:\PYTHONIOENCODING -ErrorAction SilentlyContinue }
   if ($null -ne $prevConsoleEnc) { try { [Console]::OutputEncoding = $prevConsoleEnc } catch { } }

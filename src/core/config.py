@@ -159,7 +159,21 @@ class Settings:
 
     @property
     def models_dir(self) -> Path:
-        return self.data_dir / "models"
+        """模型权重缓存目录（默认 `<data_dir>/models`）；`KS_MODELS_DIR` 可重定向。
+
+        加这个开关的**实测**理由（2026-09-21）：`tests/conftest.py:7-15` 是 **session 级
+        autouse**，它把 `KS_DATA_DIR` 换成全新的 `%TEMP%\\ks_test_*` ⇒ 模型目录每次都是空的
+        ⇒ **每一次全量 pytest 都要重新下载** BGE（~91MB，实测会话目录被填到 748MB）。本机
+        `ALL_PROXY=http://127.0.0.1:7897` 那个代理半死不活 ⇒ 下载**挂死**，于是 `test_vec_channel`
+        走跳过、"依赖检索"的两条（`test_compliance.py::test_behavior_review_face_collection`、
+        `test_phase4.py::test_obligation_list_and_checklist`）降级失败 —— 一次**与环境有关的假红**。
+        指向一个**常驻**缓存后：模型只落地一次，之后零下载、零联网依赖。
+
+        与 `KS_DATA_DIR` 同一套约定（进程环境变量覆盖）；覆盖只改模型缓存，**不动**
+        `data_dir`/`db_path`（有测试钉住这一点）。
+        """
+        override = os.environ.get("KS_MODELS_DIR")
+        return Path(override) if override else self.data_dir / "models"
 
     def ensure_dirs(self) -> None:
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
