@@ -147,5 +147,7 @@ if (failures.length > 0) {
   console.error('      两层行高都吃 `.ks-item{min-height:var(--ks-row-h-list)}`。')
   process.exit(1)
 }
-console.log(`✅ 列对齐 + 知识库几何巡查通过：${widths.join(' / ')} 三档的表头与第一行逐字相同（gap 也相同），`
-  + `且左列目录与右栏并排、目录行与文件行行高一致。`)
+console.log(`✅ 列对齐 + 知识库几何巡查通过：${widths.join(' / ')} 三档的表头与第一行逐字相同（gap 也相同）、`
+  + `左列目录与右栏**并排**（${widths.join('/')} 三档都判到）。`
+  + `⚠ 这一跑停在文件层（那一级没有下级目录）⇒ "目录行与文件行行高一致"这一条**不在本脚本判**，`
+  + `取证场景是 \`--interact kb-level\`，归 smoke-kb-pad-pixels.mjs 的矩阵（它有一条覆盖面判据）。`)
