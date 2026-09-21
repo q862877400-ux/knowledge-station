@@ -128,6 +128,11 @@ function KsCategory({ title, hint, open, onToggle, children }: {
   return (
     <details
       open={open}
+      /* ⚠ `data-ks-cat`（2026-09-21，第 4 步复核打回后加）：让"设置里有哪几个类目"
+         成为**机械可抽**的事实（`smoke-settings.mjs` 按它比对**类目集合**，
+         而不是去点名几个固定字符串 —— 复核实测"多一个未声明类目也会红"在那之前**不成立**：
+         实际 7 组而只点名 5 个）。同 `data-on` / `data-current` / `data-depth` 的既有做法。 */
+      data-ks-cat={title}
       onToggle={(e) => onToggle((e.currentTarget as HTMLDetailsElement).open)}
       style={{ borderTop: '1px solid var(--dsw-alias-border-l1, #eee)', marginTop: 4, paddingTop: 6 }}
     >
@@ -1232,6 +1237,12 @@ function KsApiConfigSection(props: { open: boolean; onOpenChange: (next: boolean
   return (
     <details
       open={open}
+      /* ⚠ `data-ks-cat`（2026-09-21，第 4 步复核打回后加）：让"设置里有哪几个类目"成为
+         **机械可抽**的事实。这一组（API配置）**不走 KsCategory**（它有自己的一对
+         open/onOpenChange），所以它必须自己带上这个锚点 —— 否则
+         `smoke-settings.mjs` 的类目集合判据会把它算成"少了一组"（这正是它该有的行为：
+         没锚点 = 判不出来 = 红）。 */
+      data-ks-cat="API配置"
       onToggle={(e) => onOpenChange((e.currentTarget as HTMLDetailsElement).open)}
       style={{ borderTop: '1px solid var(--dsw-alias-border-l1, #eee)', marginTop: 4, paddingTop: 6 }}
     >

@@ -93,6 +93,23 @@ def test_full_review_flow(law_db):
 
 
 def test_behavior_review_face_collection(law_db):
+    """未取得单独同意的人脸收集 ⇒ 判决必须是 red。
+
+    ⚠⚠ **2026-09-21（KB-FOLDER-PLAN 第 4 步复核）加的环境门槛**（门槛变更 ⇒ 必验）。
+    这条**不是 flake**：它对"BGE 向量模型能不能加载"是**确定性依赖** ——
+    模型可用 ⇒ 混合检索六路齐活 ⇒ 命中「处理敏感个人信息应当取得个人的单独同意」⇒ red；
+    `embedder.is_available()` 为假（本机半死代理下下载 BGE 实测 2 分 25 秒后失败）⇒
+    向量通道整条缺失 ⇒ 判决退化成 **yellow** 且**没有任何跳过** ⇒ 这一条**必红**。
+    ⇒ 照 `tests/test_retrieval.py::test_vec_channel` 的**既有先例**如实跳过（R30 降级路径），
+    **不改判据、不改成恒真、不强制离线**（强制离线会让它恒红，那是把门槛藏起来）。
+    ⚠ 这条 nodeid 已登记进 `scripts/gates-baseline.json` 的 `environmental_skip_nodeids`
+    （环境类 skip 白名单，代价 1 条），所以"模型不可用 ⇒ 跳过"不会被棘轮当成新跳过。
+    """
+    pytest.importorskip("fastembed")
+    from src.core.retrieval import embedder
+    if not embedder.is_available():
+        pytest.skip("向量引擎不可用（BGE 未加载成功）⇒ 六路召回退化为 FTS ⇒ "
+                    "这条判决必然落到 yellow；按 R30 降级路径如实跳过，不改判据")
     from src.core.compliance.engine import create_review_task, execute_review
     out = create_review_task("behavior", "人脸考勤",
                              "在公司 App 收集用户人脸信息用于考勤，未取得单独同意")

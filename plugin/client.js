@@ -37386,6 +37386,7 @@ function KsCategory({ title, hint, open, onToggle, children }) {
     "details",
     {
       open,
+      "data-ks-cat": title,
       onToggle: (e) => onToggle(e.currentTarget.open),
       style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 },
       children: [
@@ -38323,6 +38324,7 @@ function KsApiConfigSection(props) {
     "details",
     {
       open,
+      "data-ks-cat": "API\u914D\u7F6E",
       onToggle: (e) => onOpenChange(e.currentTarget.open),
       style: { borderTop: "1px solid var(--dsw-alias-border-l1, #eee)", marginTop: 4, paddingTop: 6 },
       children: [
