@@ -310,8 +310,12 @@ schema.sql 追加第 31 号表 `bulk_import_batch`（本批只建巡检侧需要
   `{doc_id, standard_no, standard_name, stage, confidence, failure_kind,
   suggested_folder_id, suggested_path, suggest_new_path}`。
   `stage` 五枚举 `queued/recognizing/confirming/filed/failed`；
-  `suggested_folder_id` **现算**（库里存着的建议优先，否则按现有分类口径在**已有目录**里退到最近一层）
-  —— **只匹配现有目录，绝不自行新建**；`suggest_new_path` 恒为 `null`（第 4 步给）。
+  `suggested_folder_id` **现算**（库里存着的建议优先；否则按现有分类口径算出路径、**再映射成
+  真树路径**（真树跳过了标准树那层重复的 L1，见 `folder_filing_plan.tree_path_of`），在**已有目录**
+  里逐级退到最近一层（L4→L3→L2，**不退到顶层**））
+  —— **只匹配现有目录，绝不自行新建**；两个**兜底桶**（`其他标准` / `未定级`）**一律不给建议**
+  （`null`：它们要的是识别或人工选，不该被塞进某个分支；真库那 379 篇全是这一类）。
+  `suggest_new_path` 恒为 `null`（第 4 步给）。
 - **POST /inbox/confirm** → `{confirmed, targets[{doc_id, folder_id, action}], created[], removed_from_pending}`。
   **一个事务，整批全成或全败**；确认后 `stage='filed'` **并自动从「待分类」那一处拿掉**归属。
 - **POST /scope/resolve** → `{folder_ids[], doc_ids[], folder_count, doc_count, roots[]}`
@@ -346,8 +350,12 @@ schema.sql 追加第 31 号表 `bulk_import_batch`（本批只建巡检侧需要
 - 改动文件：`src/core/api/routes_kb_folders.py`（新）、`src/core/api/server.py`（**只加一处 register**）、
   `src/core/knowledge/folder_store.py`（加 `PREBUILT_TOP_NAMES` / `folder_tree_index` /
   `suggest_folder_for_doc` / `confirm_inbox_decisions`，并修准挪动语义与排序）、
-  `scripts/apply-folder-filing.py`（加 schema 对账）、`tests/test_kb_folder_api.py`（新）、
-  `tests/_kb_folder_api_fixtures.py`（新）、`tests/test_folder_store.py` / `tests/test_apply_folder_filing.py`、本文档。
+  `src/core/knowledge/folder_filing_plan.py`（**加「分类口径 ↔ 真树」的唯一所有者**：
+  `tree_path_of` / `SKIPPED_PLAN_TOP` / `STANDARD_TOP_NAME`；建议去向与落库脚本都走它）、
+  `src/core/knowledge/doc_catalog.py`（L1 名字收成 `STD_LEVEL1_NAME` 一个常量）、
+  `scripts/apply-folder-filing.py`（加 schema 对账；顶层名与"跳过哪一段"改从上面那个所有者取）、
+  `tests/test_kb_folder_api.py`（新）、`tests/_kb_folder_api_fixtures.py`（新）、
+  `tests/test_folder_store.py` / `tests/test_apply_folder_filing.py`、本文档。
 - **与收藏夹 `/api/v1/bookmark-folders` 无关**：那是单层收藏夹（`folder_id` 前缀 `bmf_`，
   `user_bookmark_folder` 表），本族是无限层级知识库目录（前缀 `fld_`）；两张表的 `folder_id`
   同形但各自表内引用，**任何查询不得跨表 join**。
