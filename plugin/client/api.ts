@@ -3889,6 +3889,37 @@ export async function askKsAnswer(
   }
 }
 
+/** `POST /api/v1/kb/scope/resolve` 的返回：这些目录**及其所有下级**的集合。 */
+export interface KsKbScope {
+  folder_ids: string[]
+  doc_ids: string[]
+  folder_count: number
+  doc_count: number
+  roots: string[]
+}
+
+/**
+ * 把"选中的几个目录"展开成"它们**及其所有下级**里到底有哪些文档"。
+ *
+ * ⚠ 这是**发问之前**把范围 chip 上的篇数写成**权威数字**用的；任一个目录不存在 ⇒
+ * 引擎 **404**（原话抛出，绝不静默返回空范围 —— 空范围会让"在此范围内提问"悄悄变成全库提问）。
+ */
+export async function resolveKbScope(
+  port: number, token: string, folderIds: readonly string[], signal?: AbortSignal,
+): Promise<KsKbScope> {
+  const d = await kbWrite(`${String(port)}/api/v1/kb/scope/resolve`, 'POST', token,
+    { folder_ids: [...folderIds] }, signal)
+  const ids = (v: unknown): string[] => Array.isArray(v)
+    ? v.filter((x): x is string => typeof x === 'string') : []
+  return {
+    folder_ids: ids(d.folder_ids),
+    doc_ids: ids(d.doc_ids),
+    folder_count: intOf(d.folder_count, ids(d.folder_ids).length),
+    doc_count: intOf(d.doc_count, ids(d.doc_ids).length),
+    roots: ids(d.roots),
+  }
+}
+
 /*
  * ── 上传用的**真导入**通路（引擎侧，不是 host 代理的那套「预览」）──
  *

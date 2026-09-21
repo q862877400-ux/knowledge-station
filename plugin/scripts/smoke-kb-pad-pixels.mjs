@@ -80,6 +80,12 @@ const MATRIX = [
   /* ⚠ **2026-09-21（第 3 步）就地改写**：这一组原来是 `kb-crumb`（面包屑逐级可点），
      判据没变、只是面包屑现在是**后端给的**真路径；场景名保留。 */
   { page: 'kb', width: 520, interact: 'kb-crumb', note: '面包屑逐级可点 + 目录层列表（窄档）' },
+  /* ⚠ **2026-09-21（第 6 步）新增三组**：按目录范围提问的新界面（入口按钮 / 范围 chip /
+     提问面板）必须在真浏览器里量到（`askCheck`：高度 > 0 + chip 不溢出右缘），
+     且浅色窄档 / 浅色宽档 / 深色各一跑 —— 与第 4/5 步同一纪律（"深浅两套都要看得见"）。 */
+  { page: 'kb', width: 520, interact: 'kb-ask', note: '按目录范围提问（窄档：chip + 面板看得见且不溢出）' },
+  { page: 'kb', width: 1300, interact: 'kb-ask', note: '按目录范围提问（宽档）' },
+  { page: 'kb', width: 520, interact: 'kb-ask', theme: 'dark', note: '深色：按目录范围提问（chip + 面板）' },
   /* ⚠ 深色那一组原来落在 `kb-select`（批量条折行）；批量条已删 ⇒ 换成 `kb-level`
      （深色下**目录层**的留边与两类行的几何）。 */
   { page: 'kb', width: 520, interact: 'kb-level', theme: 'dark', note: '深色：留边 + 目录层几何（业主看的深浅两套）' },
@@ -174,6 +180,20 @@ for (const c of MATRIX) {
     if (ib.checked !== true) problems.push('inboxCheck.checked !== true（列对齐/状态列可见/勾选与 ⋮）')
     for (const p of ib.problems ?? []) problems.push(p)
   }
+  /* ⚠⚠ **第 6 步另有第四条断言**（2026-09-21）：`askCheck` = 按目录范围提问的三个界面
+   *   （入口按钮 / 范围 chip / 提问面板）在**真浏览器里高度都 > 0**，且 chip **不溢出页面右缘**。
+   *   它只对跑了 `kb-ask` 场景的组适用（靠 `comboKey` 判断）；没跑到那一层的组明说没判。
+   *   ⚠ 判据强度与上面几条一样：**"存在"不算证据，"量得到"才算**。 */
+  const ak = j.askCheck ?? {}
+  let askChecked = null
+  if (typeof pad.comboKey === 'string' && pad.comboKey === 'kb|kb-ask') {
+    askChecked = ak.checked === true && (ak.skipReason ?? null) === null
+    if ((ak.skipReason ?? null) !== null) {
+      problems.push(`askCheck.skipReason 非空（这一组就是 kb-ask，不许"这一跑不判"）：${String(ak.skipReason)}`)
+    }
+    if (ak.checked !== true) problems.push('askCheck.checked !== true（入口/chip/面板的可见性）')
+    for (const p of ak.problems ?? []) problems.push(p)
+  }
   /* ⚠⚠ **能力页另有第二条断言**（2026-09-21 新增）：`capCardsCheck` = **等宽 + 同排等高 + 防空转**
    *   （口径是父代理裁定：**不判"尺寸统一"**，只判这两条站得住的）。
    *   它**只对能力页适用** ⇒ 其余页面 `skipReason` 非空是**正常**的（`.ks-cap-card` 是能力页专有形态），
@@ -200,6 +220,9 @@ for (const c of MATRIX) {
     levelChecked, rowHeightJudged,
     capChecked, capCount: capc.count ?? null, capRowCount: capc.rowCount ?? null, capMaxRow,
     inboxChecked,
+    askChecked,
+    askButtonH: ak.buttonH ?? null, askChipH: ak.chipH ?? null,
+    askPanelH: ak.panelH ?? null, askOverflowPx: ak.chipOverflowPx ?? null,
     problems,
   })
   for (const p of problems) failures.push(`${label}：${p}`)
@@ -218,6 +241,12 @@ for (const r of rows) {
     console.log(`         └─ 能力卡 capCardsCheck：${r.capChecked === true ? 'PASS' : 'FAIL'}`
       + `（n=${String(r.capCount ?? '-')} 张 / ${String(r.capRowCount ?? '-')} 排 /`
       + ` 最多一排 ${String(r.capMaxRow ?? '-')} 张）`)
+  }
+  if (r.comboKey === 'kb|kb-ask') {
+    /* 第 6 步那一侧的报告：入口按钮 / chip / 面板的**实测高度**与 chip 右缘溢出量。 */
+    console.log(`         └─ 范围提问 askCheck：${r.askChecked === true ? 'PASS' : 'FAIL'}`
+      + `（按钮 ${String(r.askButtonH ?? '-')}px / chip ${String(r.askChipH ?? '-')}px /`
+      + ` 面板 ${String(r.askPanelH ?? '-')}px / chip 右缘溢出 ${String(r.askOverflowPx ?? '-')}px）`)
   }
 }
 const tiers = new Set(rows.filter((r) => r.problems.length === 0).map((r) => r.tier))
@@ -267,6 +296,8 @@ const EXPECTED_RUNS = ['kb|@520', 'kb|@1300', 'kb|kb-level@520', 'kb|kb-page@520
   'kb|kb-inbox@520', 'kb|kb-inbox@1300', 'kb|kb-inbox-picked@520',
   /* 第 5 步：目录管理（勾选 + 删目录确认面板）浅色与深色各一跑。 */
   'kb|kb-dir-manage@520', 'kb|kb-dir-manage@520#dark',
+  /* 第 6 步：按目录范围提问（窄 / 宽 / 深色各一跑）。 */
+  'kb|kb-ask@520', 'kb|kb-ask@1300', 'kb|kb-ask@520#dark',
   'capabilities|@520', 'capabilities|@900',
   'ingest|ingest-batch@520', 'materials|@1300']
 /** 从**成功的实测 JSON** 里取声明集合（任一组报到即可 —— 它们来自同一个 `ui-render-shot` 进程）。 */
@@ -390,6 +421,18 @@ if (!inboxRunRows.some((r) => r.comboKey === 'kb|kb-inbox' && r.width === 520 &&
 }
 if (!rows.some((r) => r.comboKey === 'kb|kb-inbox-picked' && r.inboxChecked === true)) {
   failures.push('**批量条没被任何一跑盖住**（第 4 步把 .ks-batch 放回留边适用面 ⇒ 必须有勾选后那一组）')
+}
+/* ── **按目录范围提问（askCheck，2026-09-21 第 6 步新增的第四个主体）的覆盖面** ──
+   两条（同一种纪律：**声明了不等于跑过**）：
+     ① 至少要有一组 kb-ask **真的判过** `askCheck`（否则"入口/chip/面板看得见"在门禁里是空的）；
+     ② 浅色与深色**各至少一组** —— 业主看的是"深浅两套"，只跑浅色等于深色那一套没人判。 */
+const askRunRows = rows.filter((r) => r.comboKey === 'kb|kb-ask')
+if (!askRunRows.some((r) => r.askChecked === true)) {
+  failures.push('**按目录范围提问的 `askCheck` 一组都没判过**（入口按钮 / 范围 chip / 提问面板的'
+    + '可见性与溢出全是空的）⇒ 把 kb-ask 留在 MATRIX 里（改矩阵要同步改 EXPECTED_RUNS）')
+}
+if (!askRunRows.some((r) => r.askChecked === true && r.theme === 'dark')) {
+  failures.push('**按目录范围提问的深色一组都没判过** —— 业主看的"深浅两套"里深色那一套没有断言')
 }
 if (sawNoBrowser) {
   failures.push(`**这一跑起不来无头浏览器**（${String(MATRIX.length)} 组都没拿到 JSON）—— 门禁链从 5j-补 起需要本机有`

@@ -1112,6 +1112,79 @@ B 段只有 2 个样本、多对多只最简形态、深色 `kb-dir-manage` 单�
 **残余（登记，不再深挖）**：R-new-2（jsdom 看不见 CSS ⇒"看得见"只由真浏览器那半守）、
 R-new-3（K3b 的 oracle 是桩 ⇒ 抓不了协调改桩）。**同一病根到此两轮收口。**
 
+## 二十一、第 6 步实测结果：按目录范围提问（2026-09-21，实施子代理交付）
+
+业主口径（原话，不许改）：「**每一级都能"在此范围内提问"，包括它下面所有层**；**多选几个目录 = 取并集**」、
+「不要单独的"收藏夹/集合"——就用目录 + 多选批量打标」。
+交付面 = **后端检索层过滤** + **`ks_answer` 的范围契约** + **界面每一级的入口与范围 chip**。
+
+### 21.1 后端：范围**在检索层**生效（不是取回 top_k 之后再筛）
+
+* `src/core/retrieval/hybrid_engine.py`：`perform_hybrid_search(..., doc_ids=None)`。
+  * **六条召回通道全部**在 SQL 里限定文档集合：词法精确、FTS、向量（sqlite-vec）、模态、
+    法律要素、义务范围；`search_with_details` 的**证据链扩展**（`expand_evidence_chain`）同样按白名单过滤
+    —— 少堵一条就是"范围内明明有却答不出"或"范围外的东西漏进来"。
+  * **空集合 ⇒ 直接 `return []`**（早返回，**绝不**退化成全库）；`debug["doc_scope"]` 回显
+    `{active, doc_count, empty}` 供审计。
+  * ⚠ **向量通道只能写成子查询**：`clause_revision_id IN (SELECT clause_revision_id FROM clause_revision
+    WHERE doc_id IN (SELECT value FROM json_each(?)))`。**实测**（探针 `var/tmp/probe-vec-scope.py`）：
+    写成**字面量列表** `IN ('a','b')` 时 sqlite-vec 会退化成"先全局 KNN 再筛"⇒ **返回空**
+    （范围内明明有）；子查询形式才是**受约束的 KNN**。代价：这是暴力扫描，**正确性优先于速度**。
+* `src/core/llm/ks_answer.py`：新增 `params.kb_folder_ids` / `params.kb_doc_ids`。
+  * 目录 id 交给 `folder_store.folder_scope()` 展开成"它**及其所有下级**"；
+    **两种 id 都给 ⇒ 并集**；任一个目录不存在 ⇒ `KbScopeNotFound`（**不静默当空范围**）。
+  * **空范围 ⇒ `answer()` 一次检索都不做**，直接给空证据 + notes 写明"没有做任何检索"。
+  * 返回体新增 `scope`（**引擎回显**：`folder_ids/folder_count/doc_count/empty`；没给范围时 `null`）
+    与 `_meta.kb_scope`；notes 里也写一行【知识库目录范围】。
+* `src/core/api/server.py`：`POST /api/v1/ks/answer` 把 `KbScopeNotFound` 映射成
+  **404 `kb_scope_not_found`**（与 `/kb/scope/resolve` 同一立论）；参数不合法仍是 422。
+
+### 21.2 语义裁定：**知识库目录范围** 与 **收藏夹范围** 是两件事
+
+**裁定（本批定的，写进 [INTERACTION-DESIGN](INTERACTION-DESIGN.md) §11.1）**：
+
+| | 知识库目录范围（本步新增） | 收藏夹范围（既有） |
+|---|---|---|
+| 参数 | `kb_folder_ids` / `kb_doc_ids` | `folder_id` |
+| 生效位置 | **检索层**（六条通道） | **证据层**（打标/过滤证据，不动检索） |
+| 两者同时给出 | **交集**（先按目录收窄检索，再按收藏夹筛证据） | 同左 |
+
+**理由**：把目录塞进 `folder_id` 会让两个概念在契约层混成一个，而它们的生效位置不同
+（一个动检索、一个动证据）⇒ 会造出"以为范围收窄了、其实只是证据被筛掉"这种看不出来的失真。
+用例 `tests/test_kb_scope_retrieval.py::test_bookmark_folder_and_kb_scope_are_two_different_things`
+把这条**当行为**钉住（收藏夹单独给 ⇒ 证据是范围外的那些、`scope is None`；两个都给 ⇒ 证据为空、`scope.doc_count=1`）。
+
+### 21.3 界面：每一级都能发起 + 范围 chip
+
+见 [INTERACTION-DESIGN](INTERACTION-DESIGN.md) §11.2–§11.4（入口、chip、答案区的完整口径）。要点：
+
+* 工具栏「在此范围内提问」按**勾选优先、否则当前这一级**给范围；最外层/「待分类」没勾选时**禁用**
+  并把原因写在 title 里（**不给**"悄悄变成全库提问"的路）。
+* 行尾 ⋮ 菜单：目录行 = 那一棵目录；文件行（含「待分类」的每一篇）= **那一篇**（`kb_doc_ids`）。
+* chip 的**篇数只认引擎的数**（`POST /kb/scope/resolve`）：读中「正在数…」、读不到显示**原话**。
+* **清掉范围 = 连面板一起收起**：这一页不提供"不限定范围的提问"。
+* 答案区最上面一行永远是**引擎回显的实际范围**；引擎说"没限定范围"而这次带了范围 ⇒ **当众标红**。
+* 换层清勾选（`goto`/`gotoInbox`）：否则会出现"在看「法律法规」、提问却问了「标准」"。
+
+### 21.4 判据变更对账（**没有**删/注释/放宽任何一条）
+
+| 判据 | 原判什么 | 现在判什么（为什么变） |
+|---|---|---|
+| `smoke-kb-page-render` I5 | 文件行 ⋮ 菜单 = 详情 + 挪/复制/拿掉（4 样） | 多一样「在此范围内提问」（**5 样**）—— 菜单真的多了它；原文留在原地 |
+| 同 P25 | 最外层文件菜单 = 详情 + 加进目录…（2 样） | **3 样**（多「在此范围内提问」） |
+| 同 P5 | 目录行菜单 5 样 | **6 样**（多「在此范围内提问」） |
+| 同 N6 | 兜底桶那一篇菜单 3 样 | **4 样**（多「在此范围内提问」） |
+| `smoke-kb-pad-pixels` `MATRIX`/`EXPECTED_RUNS` | 19 组 | **22 组**（新增 `kb-ask` 的 窄/宽/深色 三跑；两份同源清单同步改） |
+| `ui-render-shot` `SCENARIOS` | 16 个场景名 | **17 个**（加 `kb-ask`）；新增 `askCheck` 主体与 `#ask` 量点 |
+| `smoke-client-entry` 在场字面量 | 157 条 | **170 条**（+13 条第 6 步的字面量） |
+| `plugin/client/ksGuideStyles.ts` `.ks-kb-row` | `display:flex`（不换行） | **加 `flex-wrap:wrap` + 按钮 `nowrap`**（见 §21.6：读图发现的真缺陷） |
+
+**新增用例**（`tests/test_kb_scope_retrieval.py`，**私有临时数据目录**，11 条）：
+范围内答得出 / 范围外答不出 / **过滤在检索层**（`in_exact` 出现在结果里）/ 六条通道逐条受限 /
+向量通道（25 篇范围外近似向量 ⇒ 若退化成 KNN-then-filter 就返回空）/ 空范围不退化成全库 /
+`scope` 回显且真的限制了检索 / 未知目录 ⇒ `KbScopeNotFound` 而不是降级 / 空范围**不调用检索** /
+收藏夹与目录范围是两件事 / 端点 404 与 422。
+
 
 
 

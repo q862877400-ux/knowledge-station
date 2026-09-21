@@ -18,6 +18,7 @@
  *   上一版运行时是 **98/98**（源文件 `check(` 字面量 95 处，其中 1 处在块注释里 ⇒ 94 处真调用；
  *   其中"模板名"那条在按库循环里复用了 4 次）；本版 **79/79**（静态 79 = 运行时 79，无死分支；
  *   ⚠ **这个数字会随改动漂，别抄它**：以脚本结尾打印的「== kb-page-render smoke PASS (N/N) ==」为准。
+ *   ⚠ 第 5 步收尾时是 **130/130**、第 6 步加入 R1~R18 后是 **148/148**（每轮**实跑**出来的数）。
  *   2026-09-21 第二轮复核就是靠这条抓到头部三处旧数字没改干净 —— 写数字就要**当轮**改干净）
  *   ⇒ **少 30 条**，不是本文件上一版注释里写的"少 4 条"。
  *   **那句"72/72 / 少 4 条 / 每条都有替代"是错的，就地留痕更正**：72 是 `docs/UI-BASELINE.md`
@@ -74,6 +75,18 @@
  *      不是 host 那套只读体检），完成后真的 `POST /api/v1/kb/inbox/confirm`
  *      且 `target_folder_id` = 当前目录（= 上传进这一级 + 标成已归位 = 不进自动识别）。
  * 这五条任何一条在"还是样板"的页面上都**必然红**（样板不发请求、也没有这些元素）。
+ *
+ * ## 2026-09-21（第 6 步）按**目录范围**提问：本文件又改了三处、新增 R1~R18
+ * 业主口径：「每一级都能"在此范围内提问"，包括它下面所有层；多选几个目录 = 取并集」。
+ * · **改的三处**（都是"菜单多了「在此范围内提问」"这一个原因的连带，**不是放宽**）：
+ *     I5（目录里那篇文件的 ⋮ 菜单 4 → 5 样）、P25（最外层文件的 ⋮ 菜单 2 → 3 样）、
+ *     P5（目录行的 ⋮ 菜单 5 → 6 样）、N6（兜底桶那一篇 3 → 4 样）。每一处都在原地留了原文。
+ * · **R1~R18 判的是四件真事**：① 请求里**真的带上范围**（`params.kb_folder_ids`/`kb_doc_ids`）；
+ *   ② 最外层/「待分类」没勾选时按钮**禁用**且 title 说清为什么（不许悄悄变成全库提问）；
+ *   ③ 范围的篇数来自引擎（`/kb/scope/resolve`），空范围如实说「范围内没有 + 一次检索都没做」；
+ *   ④ 引擎回显说"没限定范围"而这次明明带了范围 ⇒ **当众标红**。
+ *   ⚠ 桩新增两条路由（`/kb/scope/resolve`、`/ks/answer`），且**共用同一份范围算法** ——
+ *     于是"chip 上的篇数 == 答案回显的篇数"是必然的，不等就是界面自己编的。
  *
  * ## 诚实的边界（别把它读成"像素已验证"）
  * - 宿主的 `ui-primitives` 是**按源码形状生成的桩**（成员名单从源码派生，见
@@ -332,6 +345,28 @@ export function mount(container, props) {
   const hiddenDocs = []
   /** 让 `/kb/folders` 返回 500（错误态那一条用）。 */
   let failFolders = false
+  /* ── 第 6 步：按**知识库目录范围**提问 ──
+     `askAnswerMode` 是"引擎这次怎么答"的开关：`in`（范围内有依据）/ `noscope`
+     （**装作没收到范围** —— 界面必须当众标红，不许静默当成范围内检索）。 */
+  let askAnswerMode = 'in'
+  /**
+   * 一个范围的**权威规模**：这些目录**及其所有下级**里的目录集合 + 文件集合。
+   * ⚠ `/kb/scope/resolve` 与 `/ks/answer` 的桩**共用这一份算法** ⇒ 界面 chip 上的篇数
+   *   与答案里回显的篇数**必然相等**；不等就说明界面自己编了个数。
+   */
+  const scopeOf = (rootIds) => {
+    const folderIds = new Set()
+    const docIds = new Set()
+    const walk = (fid) => {
+      if (folderIds.has(fid)) return
+      folderIds.add(fid)
+      for (const d of (ITEMS[fid] ?? [])) docIds.add(d.doc_id)
+      for (const kid of (SUBFOLDERS[fid] ?? [])) walk(kid.folder_id)
+    }
+    for (const r of rootIds) walk(r)
+    return { folder_ids: [...folderIds].sort(), doc_ids: [...docIds].sort() }
+  }
+  const knownFolder = (fid) => Object.values(F).some((f) => f.folder_id === fid) || fid === 'root'
 
   const levelOf = (rawParent) => {
     const id = rawParent === null || rawParent === '' ? 'root' : rawParent
@@ -555,6 +590,51 @@ export function mount(container, props) {
       }
       return json({ code: 200, status: 'success', data: {
         ...common, status: 'done', total: 2, scanned: 2, parsed: 2, pending: 0, errors: 0 } })
+    }
+    /* ── 第 6 步：范围解析（`POST /kb/scope/resolve`；形状照 routes_kb_folders.py 的
+          kb_scope_resolve：folder_ids 含所有下级、doc_ids 去重排序、任一目录不存在 ⇒ 404）── */
+    if (p === '/api/v1/kb/scope/resolve' && method === 'POST') {
+      const roots = JSON.parse(body ?? '{}').folder_ids ?? []
+      const bad = roots.filter((r) => !knownFolder(r))
+      if (bad.length > 0) {
+        return json({ code: 404, status: 'error', error: {
+          code: 'folder_not_found', message: `目录不存在: ${bad[0]}` } }, 404)
+      }
+      const sc = scopeOf(roots)
+      return json({ code: 200, status: 'success', data: {
+        folder_ids: sc.folder_ids, doc_ids: sc.doc_ids,
+        folder_count: sc.folder_ids.length, doc_count: sc.doc_ids.length, roots } })
+    }
+    /* ── 第 6 步：取证答案（`POST /ks/answer`；形状照 server.ks_answer_endpoint 的 `{code,status,data}`）── */
+    if (p === '/api/v1/ks/answer' && method === 'POST') {
+      const pr = JSON.parse(body ?? '{}').params ?? {}
+      const roots = Array.isArray(pr.kb_folder_ids) ? pr.kb_folder_ids : []
+      const docs = Array.isArray(pr.kb_doc_ids) ? pr.kb_doc_ids : []
+      const sc = scopeOf(roots)
+      /* 篇数 = 目录子树里的 ∪ 显式文件（一篇挂多处只算一次 —— 与引擎同一口径）。 */
+      const docCount = new Set([...sc.doc_ids, ...docs]).size
+      const echo = { kind: 'kb', folder_ids: roots, folder_count: sc.folder_ids.length,
+        doc_count: docCount, empty: docCount === 0 }
+      if (askAnswerMode === 'noscope') {
+        return json({ code: 200, status: 'success', data: {
+          tier: 'reference', evidence: [], derivation: '', conclusion: '',
+          notes: ['桩：引擎装作没收到范围'], scope: null } })
+      }
+      if (docCount === 0) {
+        /* 空范围：**一次检索都不做**（引擎侧就是这么写的），如实说"范围内没有"。 */
+        return json({ code: 200, status: 'success', data: {
+          tier: 'reference', evidence: [], derivation: '', conclusion: '',
+          notes: ['【知识库目录范围】范围内没有文件，没有做任何检索。'], scope: echo } })
+      }
+      return json({ code: 200, status: 'success', data: {
+        tier: 'standard',
+        evidence: [{ clause_revision_id: `cr_${roots[0] ?? 'x'}`, doc_id: sc.doc_ids[0] ?? docs[0],
+          standard_no: 'GB 55037-2022', clause_number: '5.2.3', title: '建筑防火通用规范',
+          legal_status: 'effective', legal_hierarchy: 'GB', page_start: 12,
+          snippet: '桩：这一条来自范围内那批文档。', effective_from: '2023-06-01' }],
+        derivation: '桩推导：范围内的依据支持这个结论。',
+        conclusion: '桩结论：范围内答得出。',
+        notes: ['【知识库目录范围】检索已在范围内限定。'], scope: echo } })
     }
     return json({ ok: false, error: { code: 'STUB_MISS', message: `未预料的请求：${url}` } }, 404)
   }
@@ -1056,8 +1136,13 @@ export function mount(container, props) {
      判据改成**新的真行为**（不是删掉、也不是放宽）：这一篇在**某个目录里**（P16 工程防火）
      ⇒ 菜单必须恰好是这四样、第一项仍是「详情」；而"只改内存"的假动作（＋标签）仍然一处不留。
      原文：`menuItems.length === 1 && menuItems[0] === '详情'` */
-  check('I5 行尾「⋮」菜单 = 详情 + 挪到…/复制到…/从这一层拿掉（在目录里那一套；＋标签那种假动作仍然没有）',
-    menuItems.join('|') === '详情|挪到某个目录…|复制到某个目录…|从这一层拿掉',
+  /* ⚠⚠ **2026-09-21（第 6 步）就地改判据（原文见下，别删）**：第 6 步给**每一篇文件**加了
+     「在此范围内提问」（`params.kb_doc_ids` = 只在这一篇里问）⇒ 菜单多一样。
+     判据改成新的真行为（不是删掉、不是放宽）：这一篇在某个目录里 ⇒ 恰好这五样。
+     原文：`menuItems.join('|') === '详情|挪到某个目录…|复制到某个目录…|从这一层拿掉'` */
+  check('I5 行尾「⋮」菜单 = 详情 + 在此范围内提问 + 挪到…/复制到…/从这一层拿掉'
+    + '（在目录里那一套；＋标签那种假动作仍然没有）',
+    menuItems.join('|') === '详情|在此范围内提问|挪到某个目录…|复制到某个目录…|从这一层拿掉',
     `菜单项：${JSON.stringify(menuItems)}`)
   await click(moreBtn)
   /* ⚠ **2026-09-21 复核 `verify-freeze-kb-ui3` 打回 §④-C**：旧版第 61 条判"点开再点一次都收起"——
@@ -1212,10 +1297,13 @@ export function mount(container, props) {
   await click(badRow.querySelector('.ks-item-more button'))
   const badMenu = q('[role=menuitem]').map((el) => (el.textContent ?? '').trim())
   await click(badRow.querySelector('.ks-item-more button'))
-  check('N6 兜底桶（没有建议）那一篇的 ⋮ 菜单里**没有**「按建议归位 / 在建议位置新建」（死按钮不许渲染）',
-    badMenu.length === 3 && !badMenu.some((t) => t.includes('按建议归位'))
+  /* ⚠ 第 6 步：待分类行的菜单也多了「在此范围内提问」（走 `kb_doc_ids`）⇒ 3 样变 4 样（就地改）。 */
+  check('N6 兜底桶（没有建议）那一篇的 ⋮ 菜单里**没有**「按建议归位 / 在建议位置新建」（死按钮不许渲染）'
+    + '，且有「在此范围内提问」',
+    badMenu.length === 4 && !badMenu.some((t) => t.includes('按建议归位'))
     && !badMenu.some((t) => t.includes('在建议位置新建'))
     && badMenu.some((t) => t.includes('放进某个目录')) && badMenu.some((t) => t.includes('重来一次'))
+    && badMenu.some((t) => t.includes('在此范围内提问'))
     && badMenu.some((t) => t.includes('删掉')),
     `菜单项：${JSON.stringify(badMenu)}`)
   const okRow = inboxRows().find((r) => (r.querySelector('.ks-item-name')?.textContent ?? '').includes('待确认的一篇'))
@@ -1344,8 +1432,10 @@ export function mount(container, props) {
   /* ── 改名（只改库里的名字）── */
   await click(dirMoreBtn('标准'))
   const renameItem = q('[role=menuitem]').find((el) => (el.textContent ?? '').includes('改名'))
-  check('P5 目录行的 ⋮ 菜单里有「改名…/新建…/挪到…/复制到…/删掉…」五样（目录操作接上了）',
-    q('[role=menuitem]').length === 5 && renameItem !== undefined,
+  /* ⚠ 第 6 步给目录行加了「在此范围内提问」（在这一棵目录里问）⇒ 五样变六样（就地改，不是放宽）。 */
+  const dirAskItem = q('[role=menuitem]').find((el) => (el.textContent ?? '').trim() === '在此范围内提问')
+  check('P5 目录行的 ⋮ 菜单里有「改名…/新建…/挪到…/复制到…/在此范围内提问/删掉…」六样（目录操作接上了）',
+    q('[role=menuitem]').length === 6 && renameItem !== undefined && dirAskItem !== undefined,
     `菜单项：${JSON.stringify(q('[role=menuitem]').map((el) => (el.textContent ?? '').trim()))}`)
   await click(renameItem)
   check('P6 改名面板**预填了当前名字**（改名前先看见它现在叫什么）',
@@ -1499,8 +1589,10 @@ export function mount(container, props) {
     `文件行 ${String(fileRows().length)}：${fileRows().map(fileNameOf).join(' / ')}`)
   await click(fileRows()[0].querySelector('.ks-item-more button'))
   const topMenu = q('[role=menuitem]').map((el) => (el.textContent ?? '').trim())
-  check('P25 最外层文件的 ⋮ 菜单 = 详情 + 「加进某个目录…」（**没有**"挪到"，它没有来源目录 —— 不给死按钮）',
-    topMenu.join('|') === '详情|加进某个目录…',
+  /* ⚠ 第 6 步：最外层那些"还没进任何目录"的文件也有「在此范围内提问」（走 `kb_doc_ids`）。 */
+  check('P25 最外层文件的 ⋮ 菜单 = 详情 + 在此范围内提问 + 「加进某个目录…」'
+    + '（**没有**"挪到"，它没有来源目录 —— 不给死按钮）',
+    topMenu.join('|') === '详情|在此范围内提问|加进某个目录…',
     `菜单项：${JSON.stringify(topMenu)}`)
   await click(q('[role=menuitem]').find((el) => (el.textContent ?? '').includes('加进某个目录')))
   await flush()
@@ -1592,6 +1684,187 @@ export function mount(container, props) {
     && [...errContainer.querySelectorAll('.ks-tree-label')].some((el) => (el.textContent ?? '').includes('标准')),
     `错误条还在=${String(errContainer.querySelector('.ks-kb-err') !== null)}`)
   errRoot.unmount()
+  await flush()
+
+  /* ══════════════════ R. 第 6 步：按**目录范围**提问（业主口径：每一级都能问、多选取并集） ══════════════════
+   * 这一节判的是**四件真事**（不是"界面上有个按钮"）：
+   *   ① 请求里**真的带上了范围**（`params.kb_folder_ids` / `kb_doc_ids`）—— 界面只改内存不发请求必红；
+   *   ② 最外层/「待分类」没勾选时**不许**发起"不限定范围"的提问（按钮禁用 + 原话说清为什么）；
+   *   ③ 范围里的篇数来自引擎（`/kb/scope/resolve`），空范围时如实说"范围内没有、一次检索都没做"；
+   *   ④ 答案里的范围回显与**前端选的范围**两回事时必须当众标红（引擎说"没限定范围"那一条）。
+   * ⚠ 用**新容器新挂一次**：这一节要在"最外层/某个目录/待分类"之间来回走，与上面那棵树的
+   *   状态（改过名、删过目录的桩记录）互不干扰 —— 桩里的目录表本身没变（删除只是记了一笔）。 */
+  const askContainer = document.createElement('div')
+  document.body.appendChild(askContainer)
+  const askRoot = mount(askContainer, { useTabInfo, dataSource: 'render-smoke' })
+  await flush(); await flush(); await flush()
+  const aq = (sel) => [...askContainer.querySelectorAll(sel)]
+  const aDirRows = () => aq('.ks-dir-row')
+  const aDirNamed = (text) => aDirRows().find((r) =>
+    (r.querySelector('.ks-col-dname .ks-dir-name')?.textContent ?? '').includes(text))
+  const aFileRows = () => aq('.ks-item.ks-file-row')
+  const aAskBtn = () => aq('.ks-ask-open')[0]
+  const aChip = () => aq('.ks-ask-chip')[0]
+  const aAskInput = () => aq('.ks-ask-q input')[0]
+  const aGo = () => aq('.ks-ask-go')[0]
+  const aEvRows = () => aq('.ks-ask-evrow')
+  const aText = () => (askContainer.textContent ?? '').replace(/\s+/g, ' ')
+  const aAnswer = () => JSON.parse(lastCallOf('/api/v1/ks/answer')?.body ?? '{}')
+  const aParams = () => aAnswer().params ?? {}
+  const aSorted = (arr) => (Array.isArray(arr) ? [...arr].sort().join(',') : String(arr))
+  /* ⚠ 范围规模与答案各是一次**异步**取数（`/kb/scope/resolve` → 状态 → 渲染）⇒ 这里必须
+     真等一小会儿再断言；`flush` 只推进一个 0ms 宏任务，抓不到第二跳。 */
+  const openAskAndSettle = async (el) => { await click(el); await waitMs(20); await flush() }
+  const askOnce = async (text) => {
+    await setInput(aAskInput(), text)
+    await click(aGo())
+    await waitMs(20); await flush(); await flush()
+  }
+
+  // R1：最外层（= 整个知识库）**不给**范围提问
+  check('R1 最外层（本来就是整个知识库）⇒「在此范围内提问」按钮在但**禁用**，title 写清为什么'
+    + '（绝不悄悄变成全库提问）',
+    aAskBtn() !== undefined && aAskBtn().disabled === true
+    && (aAskBtn().getAttribute('title') ?? '').includes('最外层就是整个知识库'),
+    `按钮 ${String(aAskBtn() !== undefined)} / disabled=${String(aAskBtn()?.disabled)} / `
+      + `title=${aAskBtn()?.getAttribute('title') ?? '(没有)'}`)
+
+  // R2/R3/R4/R5：进到「标准」这一级 ⇒ 范围 = 它 + 全部下级（引擎给篇数）
+  await click(aDirNamed('标准'))
+  check('R2 进到「标准」这一级 ⇒ 按钮可用，且点**之前** title 就写清会在哪个范围里问'
+    + '（当前这一级 = 它 + 全部下级）',
+    aAskBtn().disabled === false
+    && (aAskBtn().getAttribute('title') ?? '').includes('及其全部下级里提问'),
+    `disabled=${String(aAskBtn()?.disabled)} / title=${aAskBtn()?.getAttribute('title') ?? '(没有)'}`)
+  const beforeResolve = callsOf('/kb/scope/resolve').length
+  await openAskAndSettle(aAskBtn())
+  const resolveCall = lastCallOf('/kb/scope/resolve')
+  check('R3 点它 ⇒ **真的**去问引擎"这个范围里有哪些文件"（`POST /kb/scope/resolve`，'
+    + 'folder_ids=[当前这一级]）—— 篇数不是界面自己数的',
+    callsOf('/kb/scope/resolve').length === beforeResolve + 1
+    && aSorted(JSON.parse(resolveCall?.body ?? '{}').folder_ids) === 'fld_std',
+    `请求体 ${resolveCall?.body ?? '(没发)'}`)
+  check('R4 范围 chip 出现且信息是**引擎给的**：目录名 + 「2 个目录 · 4 篇」'
+    + '（fld_std 子树 = 它自己 + P16 两级、4 篇文件），提问面板同时开着',
+    aChip() !== undefined && (aChip().textContent ?? '').includes('标准')
+    && (aChip().textContent ?? '').includes('2 个目录 · 4 篇')
+    && aq('.ks-ask').length === 1,
+    `chip=「${(aChip()?.textContent ?? '(没有)').trim()}」/ 面板 ${String(aq('.ks-ask').length)} 个`)
+  check('R5 面板抬头写的是「在「标准」及其全部下级里提问」（发起前就知道范围）',
+    (aq('.ks-ask-where')[0]?.textContent ?? '').includes('及其全部下级里提问'),
+    `抬头：${(aq('.ks-ask-where')[0]?.textContent ?? '(没有)').trim()}`)
+
+  // R6/R7：问一次 —— 范围必须随请求发出去；答案区回显引擎给的实际范围
+  const beforeAnswer = callsOf('/api/v1/ks/answer').length
+  await askOnce('动火作业怎么分级')
+  const p6 = aParams()
+  check('R6 点「问一问」⇒ 请求里**真的带上了范围**（params.kb_folder_ids=[当前这一级]），'
+    + '并且**没有**混进 kb_doc_ids / 收藏夹的 folder_id（两种"夹"不许混）',
+    callsOf('/api/v1/ks/answer').length === beforeAnswer + 1
+    && aSorted(p6.kb_folder_ids) === 'fld_std' && p6.kb_doc_ids === undefined
+    && p6.folder_id === undefined,
+    `params=${JSON.stringify(p6)}`)
+  check('R7 答案区如实写"这次实际范围"（引擎回显 2 个目录 / 4 篇）+ 结论与依据都出来了'
+    + '（范围内答得出这一半）',
+    aText().includes('这次实际范围') && aText().includes('4 篇')
+    && aText().includes('桩结论：范围内答得出') && aEvRows().length === 1,
+    `回显/结论/依据行：${String(aText().includes('这次实际范围'))} / `
+      + `${String(aText().includes('桩结论：范围内答得出'))} / ${String(aEvRows().length)}`)
+
+  // R8：**空范围**不许退化成全库（换成"空目录"那一级再问）
+  await click(aq('.ks-ask-clear')[0]); await flush()
+  await click(aq('.ks-crumb-go')[0]); await flush()
+  await click(aDirNamed('空目录'))
+  await openAskAndSettle(aAskBtn())
+  check('R8 范围里一篇都没有（空目录）⇒ chip 如实写「0 篇」（不是"正在数…"、也不是编一个数）',
+    (aChip()?.textContent ?? '').includes('0 篇'),
+    `chip=「${(aChip()?.textContent ?? '(没有)').trim()}」`)
+  await askOnce('这里面有什么')
+  check('R9 空范围提问 ⇒ 界面说「范围内没有」+「一次检索都没做」，且**一条依据都不显示**'
+    + '（绝不静默放宽成全库）',
+    aText().includes('范围内没有') && aText().includes('一次检索都没做') && aEvRows().length === 0,
+    `含"范围内没有"=${String(aText().includes('范围内没有'))} / `
+      + `含"一次检索都没做"=${String(aText().includes('一次检索都没做'))} / `
+      + `依据行 ${String(aEvRows().length)}`)
+
+  // R10：引擎回显说"没限定范围" ⇒ 当众标红（前端不许替它圆场）
+  askAnswerMode = 'noscope'
+  await askOnce('再问一次')
+  check('R10 这次带了范围、可引擎回显说**没有限定范围** ⇒ 界面当众标红'
+    + '（这份答案可能来自整个知识库，不许当成范围内检索的结果）',
+    aq('.ks-ask-msg-bad').length >= 1
+    && (aq('.ks-ask-msg-bad')[0].textContent ?? '').includes('没有限定范围'),
+    `标红条：${(aq('.ks-ask-msg-bad')[0]?.textContent ?? '(没有)').trim().slice(0, 90)}`)
+  askAnswerMode = 'in'
+
+  // R11：多选几个目录 = **取并集**（业主原话）
+  await click(aq('.ks-ask-clear')[0]); await flush()
+  await click(aq('.ks-crumb-go')[0]); await flush()
+  const aDirBoxes = () => aq('.ks-list-dirs .ks-col-dpick input[type=checkbox]')
+  await click(aDirBoxes()[0])
+  await click(aDirBoxes()[1])
+  check('R11 勾两个目录 ⇒ 按钮 title 就写着会在**这两个目录的并集**里问（点之前就知道）',
+    (aAskBtn().getAttribute('title') ?? '').includes('2 个目录的并集'),
+    `title=${aAskBtn()?.getAttribute('title') ?? '(没有)'}`)
+  await openAskAndSettle(aAskBtn())
+  const unionResolve = JSON.parse(lastCallOf('/kb/scope/resolve')?.body ?? '{}')
+  check('R12 多选两个目录 ⇒ 去引擎问范围时**两个目录都在**（并集不是只取第一个），'
+    + 'chip 写「4 个目录 · 6 篇」（= 两棵子树合起来的真实规模）',
+    aSorted(unionResolve.folder_ids) === 'fld_law,fld_std'
+    && (aChip()?.textContent ?? '').includes('2 个目录的并集')
+    && (aChip()?.textContent ?? '').includes('4 个目录 · 6 篇'),
+    `请求 folder_ids=${JSON.stringify(unionResolve.folder_ids ?? null)} / `
+      + `chip=「${(aChip()?.textContent ?? '(没有)').trim()}」`)
+  await askOnce('并集里有没有依据')
+  check('R13 并集里提问：范围也随请求发出去（两个目录 id 都在 params.kb_folder_ids 里）',
+    aSorted(aParams().kb_folder_ids) === 'fld_law,fld_std',
+    `params=${JSON.stringify(aParams())}`)
+  /* 清掉勾选：**不清**的话下一段（待分类）会拿这两个目录当范围，R15 就判不到"没勾选就禁用"。 */
+  await click([...aq('.ks-batch button')].find((b) => (b.textContent ?? '').includes('取消选择')))
+  await flush()
+
+  // R14：**文件层**（一篇文件的范围，走 kb_doc_ids）
+  await click(aDirNamed('标准')); await flush()
+  await click(aDirNamed('P16 工程防火')); await flush()
+  const fileRow0 = aFileRows()[0]
+  const isFileRow = fileRow0 !== undefined
+  await click(fileRow0?.querySelector('.ks-item-more button'))
+  const aMenu = aq('[role=menuitem]').map((el) => (el.textContent ?? '').trim())
+  check('R14 文件行的 ⋮ 菜单里有「在此范围内提问」（一篇文件也是一个范围）',
+    aMenu.includes('在此范围内提问'), `菜单项：${JSON.stringify(aMenu)}`)
+  await click(aq('[role=menuitem]').find((el) => (el.textContent ?? '').trim() === '在此范围内提问'))
+  await waitMs(20); await flush()
+  check('R15 一篇文件的范围 ⇒ chip 写「1 篇文件」、抬头写「在这 1 篇文件里提问」'
+    + '（与"某一级及其下级"是两种范围，界面上分得清）',
+    (aChip()?.textContent ?? '').includes('1 篇文件')
+    && (aq('.ks-ask-where')[0]?.textContent ?? '').includes('在这 1 篇文件里提问'),
+    `chip=「${(aChip()?.textContent ?? '(没有)').trim()}」/ `
+      + `抬头=${(aq('.ks-ask-where')[0]?.textContent ?? '(没有)').trim()}`)
+  await askOnce('这一篇讲了什么')
+  check('R16 一篇文件的范围随请求发出去 ⇒ `params.kb_doc_ids` 就是那一篇的 doc_id，'
+    + '且**没有** kb_folder_ids（两种范围不混发）',
+    isFileRow && aSorted(aParams().kb_doc_ids) === 'doc_fire_50016'
+    && aParams().kb_folder_ids === undefined,
+    `params=${JSON.stringify(aParams())}`)
+
+  // R17/R18：**待分类层**（那一层的文件还没进任何目录 ⇒ 只能按勾选的文件给范围）
+  await click(aq('.ks-tree-name-inbox')[0]); await flush(); await flush()
+  check('R17 「待分类」层没勾选任何一篇 ⇒ 按钮**禁用**，title 说清"待分类不是目录、先勾几篇"'
+    + '（不在这一层凭空造一个范围）',
+    aAskBtn().disabled === true
+    && (aAskBtn().getAttribute('title') ?? '').includes('待分类'),
+    `disabled=${String(aAskBtn()?.disabled)} / title=${aAskBtn()?.getAttribute('title') ?? '(没有)'}`)
+  const inboxBoxes = aq('.ks-inbox-row .ks-col-pick input[type=checkbox]')
+  const isInboxRow = inboxBoxes.length > 0
+  await click(inboxBoxes[0]); await flush()
+  await openAskAndSettle(aAskBtn())
+  await askOnce('这一篇是谁')
+  check('R18 「待分类」里勾一篇 ⇒ 范围就是**那一篇**（`params.kb_doc_ids`），'
+    + 'chip 上有篇数（引擎算的 1 篇）',
+    isInboxRow && aSorted(aParams().kb_doc_ids) === 'doc_in_q'
+    && (aChip()?.textContent ?? '').includes('0 个目录 · 1 篇'),
+    `params=${JSON.stringify(aParams())} / chip=「${(aChip()?.textContent ?? '(没有)').trim()}」`)
+  askRoot.unmount()
   await flush()
 
   /* ══════════════════ M. 「不要两个页面」：原来的「文件导入」入口落到待分类层 ══════════════════ */

@@ -134,7 +134,14 @@ export const KS_STYLES = `
 .ks-page-sub{font-size:var(--ks-fs-sm);line-height:1.5;color:var(--dsw-alias-label-tertiary)}
 .ks-page-rule{height:0;flex:none;border-top:var(--ks-sep) solid var(--dsw-alias-border-l2)}
 
-.ks-kb-row{display:flex;align-items:center;gap:var(--ks-space-2)}
+/* ⚠⚠ **2026-09-21（第 6 步）真机读图发现并修**：窄档（.ks-page 496px）里这一行本来就挤
+   —— 5k 的截图里「新建下级目录」「上传到这一层」已经被压成**两行**、面包屑被截成「你…」；
+   本批又加了「在此范围内提问」+ 范围 chip 两个成员 ⇒ 实测**按钮被压成竖排**（一个一个字上下堆）、
+   并且和面包屑**叠在一起**（读图看到的，不是猜的；ksPadCheck 判不出来 —— 它只看左右留边）。
+   ⇒ 这一行**允许换行**（flex-wrap）+ 里面的按钮**不许断行**（nowrap）：内容是真的多，
+      换行是**如实**的代价；压扁/叠字只会让字读不出来。 ⚠ 本段在模板字符串里，**不许出现反引号**。 */
+.ks-kb-row{display:flex;align-items:center;gap:var(--ks-space-2);flex-wrap:wrap}
+.ks-kb-row>button{white-space:nowrap}
 .ks-kb-grow{flex:1;min-width:0}
 .ks-kb-hint{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
 /* ---------- 卡片标题档（P0-2，2026-09-20） ----------
@@ -567,6 +574,59 @@ export const KS_STYLES = `
 .ks-upload-check{flex:none}
 .ks-upload-hint{flex:1;min-width:0;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary);
   overflow:hidden;text-overflow:ellipsis}
+/* ═══════════════════ 第 6 步：按目录范围提问（范围 chip + 面板 + 答案） ═══════════════════
+   业主口径：「每一级都能在此范围内提问，包括它下面所有层；多选几个目录 = 取并集」。
+   范围 chip **常驻工具栏**（选中范围之后就一直看得见，不管面板开没开）：
+   名字 + 引擎给的篇数 + 一个能清掉的 ✕。
+   ⚠ 名字那一格**必须能收缩**（min-width:0 + 省略号）：窄档（.ks-main 只有 288px）里
+     两个长目录名会把这一行顶出右缘，而页面留边判据（ui-render-shot 的 ksPadCheck）当场就红。 */
+.ks-ask-open{flex:none;white-space:nowrap}
+.ks-ask-chip{display:flex;align-items:center;gap:var(--ks-space-1);min-width:0;
+  padding:0 var(--ks-space-2);height:var(--ks-btn-h-sm);box-sizing:border-box;
+  border:var(--ks-sep) solid var(--dsw-alias-border-l2);border-radius:var(--ks-r-pill);
+  background:var(--dsw-alias-bg-layer-3);font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary)}
+.ks-ask-chip-tag{flex:none;color:var(--dsw-alias-label-tertiary)}
+.ks-ask-chip-name{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ks-ask-chip-n{flex:none;white-space:nowrap;color:var(--dsw-alias-label-tertiary)}
+.ks-ask-chip-x{flex:none;display:flex;align-items:center;justify-content:center;
+  width:20px;height:20px;padding:0;border:0;border-radius:var(--ks-r-sm);
+  background:transparent;color:inherit;cursor:pointer}
+.ks-ask-chip-x:hover{background:var(--dsw-alias-interactive-bg-hover)}
+/* 提问面板：问题一行（标签 + 输入 + 问一问），下面如实说边界；答案区在下面。 */
+.ks-ask{display:flex;flex-direction:column;gap:var(--ks-space-2);
+  padding:var(--ks-space-3);border:var(--ks-sep) solid var(--dsw-alias-border-l2);
+  border-radius:var(--ks-r-card);background:var(--dsw-alias-bg-base)}
+.ks-ask-head{display:flex;align-items:center;gap:var(--ks-space-2);flex-wrap:wrap;min-width:0}
+.ks-ask-where{min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  font-size:var(--ks-fs-base);font-weight:600;color:var(--dsw-alias-label-primary)}
+.ks-ask-count{flex:none;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
+.ks-ask-close,.ks-ask-clear{flex:none;white-space:nowrap}
+.ks-ask-row{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0;flex-wrap:wrap}
+.ks-ask-label{flex:none;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
+.ks-ask-q{flex:1;min-width:0}
+.ks-ask-go{flex:none;white-space:nowrap}
+.ks-ask-hint{font-size:var(--ks-fs-sm);line-height:1.5;color:var(--dsw-alias-label-tertiary)}
+.ks-ask-msg{font-size:var(--ks-fs-sm);line-height:1.5;color:var(--dsw-alias-label-secondary)}
+.ks-ask-msg-bad{color:var(--dsw-alias-state-error-primary)}
+/* 答案区：**引擎回显的范围**在最上面（发起后也能看出这次到底在哪儿检索的）。 */
+.ks-ask-res{display:flex;flex-direction:column;gap:var(--ks-space-2);min-width:0;
+  padding-top:var(--ks-space-2);border-top:var(--ks-sep) solid var(--dsw-alias-border-l2)}
+.ks-ask-echo{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary)}
+.ks-ask-tier{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
+.ks-ask-h{display:block;font-size:var(--ks-fs-sm);font-weight:600;color:var(--dsw-alias-label-tertiary)}
+.ks-ask-conc,.ks-ask-der{font-size:var(--ks-fs-base);line-height:1.6;color:var(--dsw-alias-label-primary)}
+.ks-ask-empty{display:flex;flex-direction:column;gap:var(--ks-space-1);
+  padding:var(--ks-space-2) var(--ks-space-3);border-radius:var(--ks-r-md);
+  background:var(--dsw-alias-bg-layer-3);
+  font-size:var(--ks-fs-sm);line-height:1.5;color:var(--dsw-alias-label-secondary)}
+.ks-ask-ev,.ks-ask-notes{display:flex;flex-direction:column;gap:var(--ks-space-1);min-width:0}
+.ks-ask-evrow{display:flex;flex-direction:column;gap:var(--ks-space-1);min-width:0;
+  padding:var(--ks-space-2) var(--ks-space-3);border-radius:var(--ks-r-md);
+  background:var(--dsw-alias-bg-layer-3)}
+.ks-ask-evno{font-size:var(--ks-fs-sm);font-weight:600;color:var(--dsw-alias-label-primary)}
+.ks-ask-evtitle{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary)}
+.ks-ask-evtext,.ks-ask-note{min-width:0;overflow-wrap:anywhere;
+  font-size:var(--ks-fs-sm);line-height:1.5;color:var(--dsw-alias-label-tertiary)}
 .ks-list-cap{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}.ks-lhead .ks-cell{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}
 .ks-lhead-name{font-size:var(--ks-fs-base);font-weight:600;color:var(--dsw-alias-label-primary);
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

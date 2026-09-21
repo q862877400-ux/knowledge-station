@@ -158,7 +158,7 @@ const interacts = arg('interact', PAGES[page].interact.join(',')) .split(',').ma
 const SCENARIOS = [
   'kb-files', 'kb-level', 'kb-crumb', 'kb-back', 'kb-detail', 'kb-search',
   'kb-search-dirs', 'kb-search-dirs-empty', 'kb-empty', 'kb-page', 'kb-upload',
-  'kb-inbox', 'kb-inbox-picked', 'kb-dir-manage', 'ingest-batch', 'cap-dialog',
+  'kb-inbox', 'kb-inbox-picked', 'kb-dir-manage', 'kb-ask', 'ingest-batch', 'cap-dialog',
 ]
 const unknownScenarios = interacts.filter((name) => !SCENARIOS.includes(name))
 if (unknownScenarios.length > 0) {
@@ -396,6 +396,23 @@ const KB_STAGE_LABELS = { queued: '排队中', recognizing: '识别中', confirm
                           filed: '已归位', failed: '识别失败' }
 let kbReingestRunning = false
 const kbReingestSeen = []
+/** 第 6 步：按目录范围提问时，`/kb/scope/resolve` 收到的 `folder_ids`（逐次记，供场景断言）。 */
+const kbScopeSeen = []
+/** 第 6 步：`/ks/answer` 收到的整个 `params`（判"范围真的随请求发出去了"）。 */
+const kbAnswerSeen = []
+/** 一个范围的权威规模（目录子树 ∪ 显式文件）—— 与 `/ks/answer` 的桩共用，两处必然一致。 */
+const kbScopeOf = (rootIds) => {
+  const folderIds = new Set()
+  const docIds = new Set()
+  const walk = (fid) => {
+    if (folderIds.has(fid)) return
+    folderIds.add(fid)
+    for (const d of (KB_ITEMS[fid] ?? [])) docIds.add(d.doc_id)
+    for (const kid of (KB_SUBS[fid] ?? [])) walk(kid.folder_id)
+  }
+  for (const r of rootIds) walk(r)
+  return { folder_ids: [...folderIds].sort(), doc_ids: [...docIds].sort() }
+}
 let kbDocsInLib = [kbDoc('doc_existing', 'GB 1-2000', '库里原有的一篇')]
 let kbBulkSeq = 0
 const kbLevel = (rawParent) => {
@@ -511,6 +528,40 @@ globalThis.fetch = async (input, init = {}) => {
       return reply({ code: 200, status: 'success', data: { deleted: 0 } })
     }
     if (p === '/api/v1/documents') return reply({ code: 200, status: 'success', data: kbDocsInLib })
+    /* ── 第 6 步：范围解析 + 取证答案（形状照 routes_kb_folders.py / server.ks_answer_endpoint）──
+       ⚠ 两条路由共用 `kbScopeOf` ⇒ 界面上 chip 的篇数与答案回显的篇数**必然相等**。 */
+    if (p === '/api/v1/kb/scope/resolve' && method === 'POST') {
+      const roots = JSON.parse(init?.body ?? '{}').folder_ids ?? []
+      kbScopeSeen.push(roots)
+      const sc = kbScopeOf(roots)
+      return reply({ code: 200, status: 'success', data: {
+        folder_ids: sc.folder_ids, doc_ids: sc.doc_ids,
+        folder_count: sc.folder_ids.length, doc_count: sc.doc_ids.length, roots } })
+    }
+    if (p === '/api/v1/ks/answer' && method === 'POST') {
+      const pr = JSON.parse(init?.body ?? '{}').params ?? {}
+      kbAnswerSeen.push(pr)
+      const roots = Array.isArray(pr.kb_folder_ids) ? pr.kb_folder_ids : []
+      const docs = Array.isArray(pr.kb_doc_ids) ? pr.kb_doc_ids : []
+      const sc = kbScopeOf(roots)
+      const docCount = new Set([...sc.doc_ids, ...docs]).size
+      const echo = { kind: 'kb', folder_ids: roots, folder_count: sc.folder_ids.length,
+        doc_count: docCount, empty: docCount === 0 }
+      if (docCount === 0) {
+        return reply({ code: 200, status: 'success', data: {
+          tier: 'reference', evidence: [], derivation: '', conclusion: '',
+          notes: ['【知识库目录范围】范围内没有文件，没有做任何检索。'], scope: echo } })
+      }
+      return reply({ code: 200, status: 'success', data: {
+        tier: 'standard',
+        evidence: [{ clause_revision_id: `cr_${roots[0] ?? 'x'}`, doc_id: sc.doc_ids[0] ?? docs[0],
+          standard_no: 'GB 55037-2022', clause_number: '5.2.3', title: '建筑防火通用规范',
+          legal_status: 'effective', legal_hierarchy: 'GB', page_start: 12,
+          snippet: '桩：这一条来自范围内那批文档。', effective_from: '2023-06-01' }],
+        derivation: '桩推导：范围内的依据支持这个结论。',
+        conclusion: '桩结论：范围内答得出。',
+        notes: ['【知识库目录范围】检索已在范围内限定。'], scope: echo } })
+    }
     if (p === '/api/v1/ingest/bulk' && method === 'POST') {
       kbBulkSeq += 1
       const batchId = `bulk_${String(kbBulkSeq)}`
@@ -640,6 +691,48 @@ for (const how of interacts) {
     notes.push(`kb-files: 走到「标准 / P16 工程防火」 → 文件行 ${String(rows)}、`
       + `文件表头 ${String(q('.ks-list .ks-lhead').length)}、目录层 ${String(q('.ks-list-dirs').length)}`
       + `，面包屑「${crumbText()}」`)
+  } else if (how === 'kb-ask') {
+    /* 第 6 步：**按目录范围提问**（业主：每一级都能"在此范围内提问"）。
+       走「标准 / P16 工程防火」（4 篇文件）⇒ 点「在此范围内提问」⇒ 范围 chip 与提问面板
+       必须真的挂出来。这一跑是 `askCheck`（真 Chrome 里量 chip/按钮/面板的**高度与右缘**）
+       的取证场景 —— "存在不等于看得见"那条纪律同样适用于本批的新界面。 */
+    const rows = await gotoStdLeaf()
+    const askBtn = byText('.ks-ask-open', '在此范围内提问')
+    const clicked = await click(askBtn)
+    /* ⚠ 范围规模是**异步**取回来的（`/kb/scope/resolve` → state → 渲染）⇒ 多等几拍再断言。 */
+    for (let i = 0; i < 4; i += 1) await flush()
+    const chipText = (q('.ks-ask-chip')[0]?.textContent ?? '').trim()
+    const whereText = (q('.ks-ask-where')[0]?.textContent ?? '').trim()
+    const seen = kbScopeSeen[kbScopeSeen.length - 1] ?? null
+    mustLand(rows === 4, `kb-ask 没走到 4 篇文件那一级（文件行 ${String(rows)}）`)
+    mustLand(clicked, 'kb-ask 没找到「在此范围内提问」按钮（入口不存在 = 这一批的核心能力没了）')
+    mustLand(q('.ks-ask-chip').length === 1 && chipText.includes('4 篇'),
+      `kb-ask 的范围 chip 没写出引擎给的篇数（chip=「${chipText}」）—— 篇数必须来自 /kb/scope/resolve`)
+    mustLand(q('.ks-ask').length === 1 && whereText.includes('及其全部下级里提问'),
+      `kb-ask 的提问面板/抬头不对：面板 ${String(q('.ks-ask').length)} 个、抬头「${whereText}」`)
+    mustLand(Array.isArray(seen) && seen.includes('fld_p16'),
+      `kb-ask 没按当前这一级去解析范围（最后一条 folder_ids=${JSON.stringify(seen)}）`)
+    notes.push(`kb-ask: 走到「标准 / P16 工程防火」 → 文件行 ${String(rows)}、`
+      + `chip=「${chipText}」、抬头「${whereText}」、解析范围=${JSON.stringify(seen)}；`
+      + '真 Chrome 侧由 #ask 量 chip / 按钮 / 面板的**高度与右缘溢出**')
+    /* 再**真问一次**（把答案区也带进这一跑）：① 范围必须随请求发出去（`params.kb_folder_ids`）；
+       ② 答案区必须回显**引擎给的**实际范围、并列出范围内的依据 —— 业主口径第 4 条
+       （"答案里如实体现范围"）要有真浏览器里看得见的形态，不能只有 jsdom 的 textContent。 */
+    const qInput = q('.ks-ask-q input')[0]
+    const goBtn = byText('.ks-ask-go', '问一问')
+    if (qInput !== undefined) await setSearchInput(qInput, '动火作业怎么分级')
+    const asked = await click(goBtn)
+    for (let i = 0; i < 3; i += 1) await flush()
+    const echoText = (q('.ks-ask-echo')[0]?.textContent ?? '').replace(/\s+/g, ' ').trim()
+    const evRows = q('.ks-ask-evrow').length
+    const sentParams = kbAnswerSeen[kbAnswerSeen.length - 1] ?? null
+    mustLand(asked && Array.isArray(sentParams?.kb_folder_ids)
+      && sentParams.kb_folder_ids.includes('fld_p16'),
+      `kb-ask 没把范围随请求发出去（最后一条 params=${JSON.stringify(sentParams)}）`)
+    mustLand(echoText.includes('这次实际范围') && echoText.includes('4 篇') && evRows >= 1,
+      `kb-ask 的答案区没回显实际范围 / 没有依据：echo=「${echoText}」、依据 ${String(evRows)} 条`)
+    notes.push(`kb-ask: 又真问了一次 ⇒ 请求 params=${JSON.stringify(sentParams)}、`
+      + `答案区回显「${echoText}」、依据 ${String(evRows)} 条（这张截图里能看到整条答案）`)
   } else if (how === 'kb-level') {
     /* 进**法律法规**那一级：它有 **1 个下级目录 + 1 篇文件**（两种行同时在 DOM 里）。
        这一跑同时是 `levelCheck`（左列与右栏并排 + 两类行高逐字相同）的取证场景。 */
@@ -1308,6 +1401,40 @@ const html = `<!doctype html>
           rows: inboxList.querySelectorAll('.ks-item .ks-col-imore button').length }),
       };
     }
+    // **第 6 步：按目录范围提问的界面（「在此范围内提问」按钮 + 范围 chip + 提问面板）**。
+    // 为什么必须**真浏览器里量**：jsdom 侧只能判"元素在不在、文字对不对"，而业主看的是
+    //   "看不看得见、有没有被挤出框" —— display:none / 空盒子 / 溢出右缘在 jsdom 里都量不到。
+    // 判据在 Node 侧 askCheck 逐条下（这里只量，不判）。
+    // 借字段名（同 #cards / #cols 的先例）：n=按钮个数 x=chip 个数 y=面板个数
+    // w=按钮高 h=chip 高 pad=面板高 fs=按钮文字 lh=chip 文字
+    // gap=chip **右缘溢出量**（chip 右缘 - 页面根内容盒右缘；<=0 = 没溢出）
+    // radius=页面根的右内边距（这一档的留边，供诊断）。
+    // ⚠ 本段在**注入脚本**里（外层是模板字符串）：注释里不许出现反引号与美元加大括号。
+    var askBtnEl = document.querySelector('.ks-ask-open');
+    var askChipEl = document.querySelector('.ks-ask-chip');
+    var askPanelEl = document.querySelector('.ks-ask');
+    if (askBtnEl || askChipEl || askPanelEl) {
+      var pageRootEl = document.querySelector('.ks-page > .ks-kb, .ks-kb');
+      var rootCs = pageRootEl ? getComputedStyle(pageRootEl) : null;
+      var rootRect = pageRootEl ? pageRootEl.getBoundingClientRect() : null;
+      var chipRect = askChipEl ? askChipEl.getBoundingClientRect() : null;
+      var contentRight = null;
+      if (rootRect && rootCs) {
+        contentRight = rootRect.right - (parseFloat(rootCs.paddingRight) || 0);
+      }
+      out['#ask'] = {
+        n: askBtnEl ? 1 : 0,
+        x: askChipEl ? 1 : 0,
+        y: askPanelEl ? 1 : 0,
+        w: askBtnEl ? Math.round(askBtnEl.getBoundingClientRect().height) : 0,
+        h: chipRect ? Math.round(chipRect.height) : 0,
+        fs: askBtnEl ? (askBtnEl.textContent || '').trim() : '',
+        lh: askChipEl ? (askChipEl.textContent || '').trim() : '',
+        pad: askPanelEl ? Math.round(askPanelEl.getBoundingClientRect().height) : 0,
+        gap: (chipRect && contentRight !== null) ? Math.round(chipRect.right - contentRight) : '',
+        radius: rootCs ? (parseFloat(rootCs.paddingRight) || 0) : '',
+      };
+    }
     // **目录层的列几何**（2026-09-21，复核 verify-freeze-dirlist 的变异 M5 打回）：
     // 复核把目录层的 --ks-cols 换成**文件层那 5 列** ⇒ 本脚本的 #cols 自检**照样通过**
     // （它只比"表头 == 行"，两边当然一起变），而真机上是**首列 344→88px + 168px 死白**。
@@ -1673,6 +1800,11 @@ const PAD_REQUIRED = {
   /* 「待分类」层（第 4 步）：导入面板入口 + 待分类列表；**没勾选时没有批量条** ⇒ 不声明 .ks-batch
      （声明了就必须量到，而这一跑确实没有它）。 */
   'kb|kb-inbox': ['.ks-kb', '.ks-kb-tree', '.ks-page-head', '.ks-kb-row'],
+  /* 第 6 步：这一跑点了「在此范围内提问」⇒ 范围 chip 与提问面板必须真的渲染（高度 > 0）。
+     ⚠ 只声明**规范适用面里已有的**选择器（`.ks-ask*` 由 `askCheck` 在真 Chrome 里单独量高度与
+       右缘溢出）—— 往 PAD_REQUIRED 里加新选择器会连带要求改规范第二节的适用面清单
+       （四处棘轮），而这一批不需要把它算作"留边适用面"。 */
+  'kb|kb-ask': ['.ks-kb', '.ks-kb-tree', '.ks-list', '.ks-page-head', '.ks-kb-row'],
   /* 勾了两篇 ⇒ 悬浮批量条在场，**必须不贴边**（它是第 4 步做回来的真批量条）。 */
   'kb|kb-inbox-picked': ['.ks-kb', '.ks-kb-tree', '.ks-page-head', '.ks-kb-row', '.ks-batch'],
   /* 第 5 步：目录层勾两个 + 删目录确认面板（.ks-act-del）在场。批量条与目录层同屏 ⇒ 两个都得判。 */
@@ -2267,7 +2399,73 @@ const inboxCheck = {
   batchN: (() => { try { return JSON.parse(String(inbox?.radius ?? '{}')).batchN ?? null } catch { return null } })(),
 }
 
-/* ══════════ 复核 `verify-freeze-kb-ui3` 打回 §④-C 补回来的两条（2026-09-21） ══════════
+/* ══════════ `#ask` 的**真断言**（2026-09-21 第 6 步：按目录范围提问） ══════════
+ * 为什么必须真浏览器里量：jsdom 那几条只能证明"元素在 DOM 里、文字对"，而这一批的新界面是
+ *   **给业主看**的（入口按钮 / 范围 chip / 提问面板）⇒ 必须有"真 Chrome 里量得到"的那一半：
+ *   ① 按钮 / chip / 面板 **高度都 > 0**（display:none、没挂载、空盒子都是 0 —— 存在不等于看得见）；
+ *   ② chip **不许溢出页面右缘**（窄档里两个长目录名最容易把它顶出去，而那是"贴边"的一种）；
+ *   ③ 量不到 / 取不到值 ⇒ **红**（"没验到"不能渲染成"通过"）。
+ * 适用面：只有这一跑**就是"按目录范围提问"那个场景**（`comboKey === 'kb|kb-ask'`）时才判；
+ *   ⚠ 不能拿"`#ask` 量点在不在"当门槛 —— 入口按钮 `.ks-ask-open` 在**每一跑**都在 DOM 里
+ *     （只是没点开时 chip/面板不存在）⇒ 拿它当门槛会让**别的场景假红**（本批实测踩到：
+ *     14 组 kb 全红，只有 kb-ask 自己绿）。其余场景**明说没判**。 */
+const ask = measured['#ask']
+const askProblems = []
+let askSkipReason = null
+if (padComboKey !== 'kb|kb-ask') {
+  askSkipReason = `这一跑不是"按目录范围提问"场景（comboKey=${padComboKey}）—— 范围提问界面这一跑不判`
+} else if (ask === undefined) {
+  askSkipReason = '这一跑点了「在此范围内提问」却没量到 #ask 量点 —— 量不到就不算验过'
+} else {
+  if (ask.n !== 1) {
+    askProblems.push(`「在此范围内提问」按钮实测 ${String(ask.n)} 个（期望 1 个，文字应为「在此范围内提问」，`
+      + `实测文字=「${String(ask.fs)}」）`)
+  } else if (!String(ask.fs).includes('在此范围内提问')) {
+    askProblems.push(`入口按钮的文字是「${String(ask.fs)}」，里面没有「在此范围内提问」`)
+  }
+  if (!Number.isFinite(ask.w) || ask.w <= 0) {
+    askProblems.push(`「在此范围内提问」按钮在真 Chrome 里高度 = ${JSON.stringify(ask.w)}px`
+      + ' —— 存在不等于看得见（display:none / 空盒子都是 0）')
+  }
+  if (ask.x !== 1) {
+    askProblems.push(`范围 chip 实测 ${String(ask.x)} 个（期望 1 个）—— 范围必须看得见，`
+      + '否则"这次在什么范围里问"用户无从判断')
+  }
+  if (!Number.isFinite(ask.h) || ask.h <= 0) {
+    askProblems.push(`范围 chip 在真 Chrome 里高度 = ${JSON.stringify(ask.h)}px`
+      + `（chip 文字=「${String(ask.lh)}」）—— 存在不等于看得见`)
+  }
+  if (ask.y !== 1) {
+    askProblems.push(`提问面板实测 ${String(ask.y)} 个（期望 1 个）`)
+  }
+  if (!Number.isFinite(ask.pad) || ask.pad <= 0) {
+    askProblems.push(`提问面板在真 Chrome 里高度 = ${JSON.stringify(ask.pad)}px —— 存在不等于看得见`)
+  }
+  /* ② chip 右缘不许越过页面根的内容盒右缘（越过 = 贴边/溢出，窄档最容易发生）。 */
+  if (!Number.isFinite(ask.gap)) {
+    askProblems.push(`量不到 chip 的右缘溢出量（gap=${JSON.stringify(ask.gap)}）—— 取不到值就不算验过`)
+  } else if (ask.gap > 0) {
+    askProblems.push(`范围 chip **溢出页面右缘** ${String(ask.gap)}px`
+      + `（页面根右内边距 ${String(ask.radius)}px）—— 窄档里长目录名会把这一行顶破，`
+      + 'chip 里的名字那一格必须能收缩（min-width:0 + 省略号）')
+  }
+}
+const askCheck = {
+  checked: askProblems.length === 0 && askSkipReason === null,
+  skipReason: askSkipReason,
+  problems: askProblems,
+  buttonN: ask?.n ?? null,
+  buttonText: ask?.fs ?? null,
+  buttonH: ask?.w ?? null,
+  chipN: ask?.x ?? null,
+  chipText: ask?.lh ?? null,
+  chipH: ask?.h ?? null,
+  panelN: ask?.y ?? null,
+  panelH: ask?.pad ?? null,
+  chipOverflowPx: ask?.gap ?? null,
+  pagePadRight: ask?.radius ?? null,
+}
+/* ══════════ 复核 `verify-freeze-kb-ui3` 打回 §④-C 补回来的两条（2026-09-21）
  * 那两条旧判据在本批重写时**掉了**（主体仍在、判据没了）：
  *   ① 旧第 59 条「每行行内**可见控件 ≤ 3**」（P1-1 的验收口径）—— 本脚本一直在
  *      `'.ks-item#rows'` 里逐行**量** `ctrls`，但 Node 侧**零断言**（量了不判 ⇒ 加一个行内按钮
@@ -2436,6 +2634,7 @@ console.log(JSON.stringify({
   dirColsCheck,
   stageColCheck,
   inboxCheck,
+  askCheck,
   rowCtrlsCheck,
   dirHeadCheck,
   levelCheck,
@@ -2572,6 +2771,25 @@ if (inboxSkipReason !== null) {
   console.error('      窄档 `.ks-list .ks-cell.ks-col-idest{display:none}`，宽档 @container 660 恢复）。')
   console.error('   ⇒ **状态列永远可见**是业主的硬要求（"所有文件都要显示处理状态"）；')
   console.error('      窄档能藏的只有「建议去向」。改这一列就是这条断言要抓的回归。')
+  process.exit(1)
+}
+
+/* `#ask` 的自检结论同样走 **stderr**（第 6 步：范围提问的入口 / chip / 面板**看不看得见**）。 */
+if (askSkipReason !== null) {
+  console.error(`· #ask 自检：**这一跑不判**（${askSkipReason}）`)
+} else if (askProblems.length === 0) {
+  console.error(`· #ask 自检通过：入口按钮高 ${String(askCheck.buttonH)}px、`
+    + `chip ${String(askCheck.chipH)}px（文字「${String(askCheck.chipText)}」）、`
+    + `面板 ${String(askCheck.panelH)}px；chip 右缘溢出 ${String(askCheck.chipOverflowPx)}px`
+    + `（页面根右内边距 ${String(askCheck.pagePadRight)}px；page=${page} width=${width} theme=${themeName}）`)
+} else {
+  console.error('')
+  console.error(`❌ 范围提问界面自检失败（第 6 步：业主「每一级都能在此范围内提问」；`
+    + `page=${page} width=${width} theme=${themeName}）：`)
+  for (const p of askProblems) console.error(`   - ${p}`)
+  console.error('   ⇒ 入口 / chip / 面板都必须真的渲染出高度；chip 的名字那一格必须能收缩')
+  console.error('      （ksGuideStyles.ts 的 .ks-ask-chip-name{min-width:0;text-overflow:ellipsis}），')
+  console.error('      否则窄档里长目录名会把工具栏顶出右缘。')
   process.exit(1)
 }
 

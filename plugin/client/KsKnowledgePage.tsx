@@ -78,6 +78,7 @@ import { Button, Checkbox, IconArchiveOutline20, IconChecklistOutline14, IconChe
 
 import {
   addKbMembers,
+  askKsAnswer,
   batchDeleteDocs,
   confirmKbInbox,
   copyKbFolder,
@@ -103,8 +104,10 @@ import {
   reingestKbDocs,
   removeKbMembers,
   renameKbFolder,
+  resolveKbScope,
   resumeBulkIngest,
   startBulkIngest,
+  type KsAnswerResult,
   type KsKbDeletePreview,
   type KsKbFile,
   type KsKbFlatFolder,
@@ -329,6 +332,59 @@ function outcomeText(verb: string, out: OpOutcome): string {
   return `${verb} ${String(out.done)} 件；**有 ${String(out.failed.length)} 件没成**：${bad}`
 }
 
+/**
+ * 第 6 步：**提问的范围** —— 业主口径是「目录树就是提问范围的唯一载体」（不要单独的收藏夹/集合）。
+ *
+ * ⚠⚠ 与**收藏夹**（书签夹，`params.folder_id`）**不是一回事**，名字刻意不同防歧义：
+ *   · 收藏夹范围在引擎里**只对证据后置打标/过滤**，**不动检索**；
+ *   · 这里的范围是**在检索层**生效的（六条召回通道全部限定）—— 范围内没有**就是没有**，
+ *     绝不会拿范围外的命中来凑。两者同时给出时，引擎侧的有效证据语义是**交集**。
+ */
+interface AskScope {
+  /** 知识库目录 id：引擎展开成"它们**及其所有下级**"；多个 = **并集**（业主口径）。 */
+  readonly folderIds: readonly string[]
+  /** 显式文件 id：**「待分类」**那一层那些还没进任何目录的文件只能这样限定。 */
+  readonly docIds: readonly string[]
+  /** 范围的**人话名字**（只说"选了什么"；**篇数一律以引擎回显为准**，不自己编）。 */
+  readonly label: string
+}
+
+/**
+ * 勾选的 key（`f:`/`d:`）→ 提问范围。
+ *
+ * ⚠ 一件都没勾 ⇒ `null`（**不许**退化成"空范围"或"全库"：两者会被引擎当成不同的东西，
+ *   前者一次检索都不做、后者是全库检索）。
+ */
+function askScopeOf(keys: readonly string[], rows: readonly KsKbFlatFolder[]): AskScope | null {
+  const folderIds = folderIdsOf(keys)
+  const docIds = docIdsOf(keys)
+  if (folderIds.length === 0 && docIds.length === 0) return null
+  const names = folderIds.map((id) => `「${pathOfFolder(rows, id)}」`)
+  let label: string
+  if (folderIds.length > 0 && docIds.length > 0) {
+    label = `${String(folderIds.length)} 个目录 + ${String(docIds.length)} 篇文件的并集`
+  } else if (folderIds.length > 1) {
+    label = `${String(folderIds.length)} 个目录的并集（${names.join('、')}）`
+  } else if (folderIds.length === 1) {
+    label = `${names[0]}及其全部下级`
+  } else {
+    label = `${String(docIds.length)} 篇文件`
+  }
+  return { folderIds, docIds, label }
+}
+
+/** 范围 chip / 面板抬头上的那句"在**哪儿**提问"（业主口径里"多选取并集"的那句话就在这儿）。 */
+function askWhereText(scope: AskScope): string {
+  const nf = scope.folderIds.length
+  const nd = scope.docIds.length
+  if (nf > 0 && nd > 0) {
+    return `在这 ${String(nf)} 个目录 + ${String(nd)} 篇文件的并集里提问`
+  }
+  if (nf > 1) return `在这 ${String(nf)} 个目录的并集里提问`
+  if (nf === 1) return `在${scope.label}里提问`
+  return `在这 ${String(nd)} 篇文件里提问`
+}
+
 /** 加载相位（只有"整个页面/某一级"的加载走它；翻页另有自己的忙标记）。 */
 type LoadPhase = 'loading' | 'ready' | 'error'
 
@@ -440,6 +496,22 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
   /** 「重来一次」是否在跑（跑的时候轮询状态，跑完自动重读这一层）。 */
   const [reingesting, setReingesting] = useState(false)
 
+  /* ── 第 6 步：按目录范围提问（范围 chip + 提问面板 + 答案区）──
+     ⚠ `askScope === null` = **还没选范围**（这时提问入口是禁用的，不许悄悄变成全库提问）。 */
+  const [askScope, setAskScope] = useState<AskScope | null>(null)
+  const [askOpen, setAskOpen] = useState(false)
+  const [askQ, setAskQ] = useState('')
+  const [askPhase, setAskPhase] = useState<'idle' | 'running' | 'done' | 'error'>('idle')
+  const [askMsg, setAskMsg] = useState('')
+  const [askRes, setAskRes] = useState<KsAnswerResult | null>(null)
+  /**
+   * 范围的**权威规模**（`POST /kb/scope/resolve`；篇数 = 目录子树里的 ∪ 显式文件）。
+   * `null` = 还没读到（不许拿本地已知的数字冒充）。
+   */
+  const [askCounts, setAskCounts] = useState<{ folder_count: number; doc_count: number } | null>(null)
+  /** 数不出来时的**原话**（例如目录不存在 ⇒ 引擎 404 的原话；点出来就能看见）。 */
+  const [askCountErr, setAskCountErr] = useState('')
+
   /** 上传面板。 */
   const [upOpen, setUpOpen] = useState(false)
   const [upDir, setUpDir] = useState('')
@@ -454,6 +526,8 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
   const [upReingest, setUpReingest] = useState(false)
 
   const abortRef = useRef<AbortController | null>(null)
+  /** 第 6 步：范围规模的**请求序号**（换了范围 ⇒ 旧请求的结果作废，不许挂在新的范围上）。 */
+  const askSeqRef = useRef(0)
 
   /**
    * 拿一次会话（`fetchSession` 同源 `/ks/session`）跑 `fn`；**401 自愈一次**
@@ -563,6 +637,10 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
     setOpenDoc(null)
     setMenuFor(null)
     setAction(null)
+    /* ⚠ 换层就**清掉勾选**（第 6 步补）：勾选是"对这一层那几条东西"的选择，
+       带着它跨层会把两个层的语义混起来 —— 尤其第 6 步的「在此范围内提问」会拿勾选当范围
+       （在「法律法规」这一级里点提问，却问了上一层的「标准」—— 那不是惊喜，是 bug）。 */
+    setPicked(new Set())
     /* ⚠ 搜索串**不清**（沿用 5i 的既有口径：搜索是**页面级**的一个过滤条件，换层后继续生效 ——
        目录层按目录名、文件层按标准号/名称）。框里始终看得见那个词，不会变成"幽灵过滤"；
        真被筛空时给的是**搜索空态**（含「清除搜索」），不会假装"这一层本来就没东西"。 */
@@ -644,6 +722,8 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
     setMenuFor(null)
     setAction(null)
     setActMsg('')
+    /* 同 `goto`：换层清勾选（否则"在待分类里勾了一篇"会带着上一层的目录勾选一起进范围）。 */
+    setPicked(new Set())
     void loadInbox(0)
   }, [loadInbox])
 
@@ -676,6 +756,136 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
       setActMsg(`读不到目录清单：${errorText(error)}`)
     }
   }, [flatFolders.length, withSession])
+
+  /* ══════════════════ 第 6 步：按目录范围提问 ══════════════════
+   * 三件事各自有**唯一所有者**：
+   *   ① `loadAskCounts` —— 范围的**权威规模**（引擎 `/kb/scope/resolve`，不自己猜篇数）；
+   *   ② `openAsk` / `askHere` / `clearAsk` —— 范围从哪来（勾选 / 当前这一级 / 清掉）；
+   *   ③ `runAsk` —— 真发一次问（`POST /ks/answer`，**带上范围**），把答案/原话落进 state。
+   */
+
+  /**
+   * 读一次范围的规模（**发问之前**就把 chip 上的篇数写成引擎给的权威数字）。
+   * ⚠ 篇数 = 目录子树里的文件 ∪ 显式文件（去重后计数 —— 一篇挂多处只算一次，
+   *   与 `/kb/scope/resolve` 的口径一致）。⚠ 任一目录不存在 ⇒ 引擎 404，**原话**显示出来。
+   */
+  const loadAskCounts = useCallback(async (scope: AskScope): Promise<void> => {
+    askSeqRef.current += 1
+    const seq = askSeqRef.current
+    setAskCounts(null)
+    setAskCountErr('')
+    try {
+      const r = scope.folderIds.length > 0
+        ? await withSession((port, token) => resolveKbScope(port, token, scope.folderIds))
+        : { doc_ids: [] as string[], folder_count: 0 }
+      /* ⚠ 期间又换了范围 ⇒ 这次的结果**作废**（否则 chip 会把 A 的篇数挂在 B 上）。 */
+      if (askSeqRef.current !== seq) return
+      const docs = new Set<string>([...r.doc_ids, ...scope.docIds])
+      setAskCounts({ folder_count: r.folder_count, doc_count: docs.size })
+    } catch (error) {
+      if (askSeqRef.current !== seq) return
+      setAskCountErr(errorText(error))
+    }
+  }, [withSession])
+
+  /**
+   * 范围 chip / 面板抬头要写**目录名** —— 名字从"这一页**已经读到的**那些"取：
+   * 面包屑（祖先链）+ 这一级的子目录（路径照面包屑拼）。
+   *
+   * ⚠ 为什么不顺手再拉一份全库扁平清单（`/kb/folders/flat`，真库 ~1127 个目录 / ~80KB）：
+   *   勾选与"当前这一级"能指到的目录**只可能**来自这两处（换层会清勾选），为几个名字
+   *   拉整棵树是白花的流量；两处都找不到时才退回 **id**（`pathOfFolder` 的既有兜底 ——
+   *   **不许**编一个假名字）。
+   */
+  const folderRowsForAsk = useMemo((): readonly KsKbFlatFolder[] => {
+    const rows: KsKbFlatFolder[] = []
+    const seen = new Set<string>()
+    const push = (id: string, name: string, parentId: string | null, path: string): void => {
+      if (seen.has(id)) return
+      seen.add(id)
+      rows.push({ folder_id: id, parent_id: parentId, name, path, depth: 1 })
+    }
+    crumb.forEach((node, i) => {
+      push(node.folder_id, node.name, node.parent_id, crumb.slice(0, i + 1).map((n) => n.name).join(' › '))
+    })
+    const base = crumb.map((n) => n.name).join(' › ')
+    for (const kid of subs) {
+      push(kid.folder_id, kid.name, levelId, base === '' ? kid.name : `${base} › ${kid.name}`)
+    }
+    return rows
+  }, [crumb, levelId, subs])
+
+  /** 打开提问面板并把范围设成 `keys`（勾选的那些；一件都没有 ⇒ 什么也不做）。 */
+  const openAsk = useCallback((keys: readonly string[]): void => {
+    const scope = askScopeOf(keys, folderRowsForAsk)
+    if (scope === null) return
+    setAskScope(scope)
+    setAskOpen(true)
+    setAskRes(null)
+    setAskMsg('')
+    setAskPhase('idle')
+    void loadAskCounts(scope)
+  }, [folderRowsForAsk, loadAskCounts])
+
+  /** 清掉范围（**同时收起提问面板**）—— 清掉之后**没有**"不限定范围的提问"这条路：
+   *  这一页的提问入口永远是"在某个范围里问"，全库提问是别处的事（不许在这里悄悄发生）。 */
+  const clearAsk = useCallback((): void => {
+    askSeqRef.current += 1
+    setAskScope(null)
+    setAskOpen(false)
+    setAskRes(null)
+    setAskMsg('')
+    setAskPhase('idle')
+    setAskCounts(null)
+    setAskCountErr('')
+  }, [])
+
+  /**
+   * 「在此范围内提问」按下去时的范围：**勾选的并集优先**（业主：多选几个目录 = 取并集），
+   * 没有勾选时用**当前这一级**（它 + 全部下级）；最外层/「待分类」又没勾选 ⇒ 没有范围。
+   *
+   * ⚠ 为什么"勾选优先"：勾选是用户**显式**做的选择，批量条上就写着「已选 N 个目录」；
+   *   忽略它反而会让"我选了三个目录，点提问却只在一个目录里问"变成一个说不清的惊喜。
+   *   最终到底在什么范围里问，**按钮的 title 与范围 chip 都会写出来**（不是靠猜）。
+   */
+  const askHereKeys = useMemo((): readonly string[] => {
+    if (picked.size > 0) return [...picked]
+    if (layer === 'folder' && levelId !== null) return [pickDirKey(levelId)]
+    return []
+  }, [layer, levelId, picked])
+
+  /** 上面那批 key 展开成的范围（按钮 title 上写的**就是这个**，点之前就说清会问到哪儿）。 */
+  const askHereScope = useMemo(() => askScopeOf(askHereKeys, folderRowsForAsk),
+    [askHereKeys, folderRowsForAsk])
+
+  /** 这一级**为什么**没有可问的范围（禁用的原话；有范围时是空串）。 */
+  const askHereWhy = askHereScope !== null ? ''
+    : (layer === 'inbox'
+      ? '「待分类」不是目录：先勾选要问的那几篇（可多选），再点这里'
+      : '你在最外层 —— 最外层就是整个知识库，没有范围可言：进到某个目录里再问，或先勾选几个目录（多选=并集）')
+
+  /**
+   * 真问一次。⚠ 范围**一定**随请求发出去（`params.kb_folder_ids` / `kb_doc_ids`），
+   * 回参里的 `scope` 是引擎的权威回显 —— 答案区照它显示"这次到底在什么范围里检索的"。
+   */
+  const runAsk = useCallback(async (): Promise<void> => {
+    const text = askQ.trim()
+    if (text === '' || askScope === null) return
+    setAskPhase('running')
+    setAskMsg('')
+    try {
+      const out = await withSession((port, token) => askKsAnswer(port, token, text, {
+        kbFolderIds: askScope.folderIds,
+        kbDocIds: askScope.docIds,
+      }))
+      setAskRes(out)
+      setAskPhase('done')
+    } catch (error) {
+      setAskRes(null)
+      setAskPhase('error')
+      setAskMsg(errorText(error))
+    }
+  }, [askQ, askScope, withSession])
 
   /** 勾/取消一条（批量选择）。`key` 是 `f:`/`d:` key（见 `pickFileKey`）。 */
   const togglePick = useCallback((key: string, next: boolean): void => {
@@ -1560,6 +1770,8 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
         ? [{ id: 'accept', label: `按建议归位（${sugLabel}）` }] : []),
       ...(doc.suggest_new_parent_id !== null && doc.suggest_new_name !== null
         ? [{ id: 'new', label: `在建议位置新建「${doc.suggest_new_name}」` }] : []),
+      /* 第 6 步：这一篇**还没进任何目录** ⇒ 只能用**显式文件范围**（`kb_doc_ids`）问。 */
+      { id: 'ask', label: '在此范围内提问' },
       { id: 'retry', label: '重来一次（重新解析）' },
       { id: 'delete', label: '删掉…' },
     ]
@@ -1648,6 +1860,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                   if (id === 'place') openAction('place', [key])
                   else if (id === 'accept') void acceptSuggestions([doc.doc_id])
                   else if (id === 'new') openAction('new', [key])
+                  else if (id === 'ask') void openAsk([key])
                   else if (id === 'retry') void runReingest([doc.doc_id])
                   else if (id === 'delete') openAction('del', [key])
                 }}
@@ -2299,6 +2512,48 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
             </span>
           </span>
           <div className="ks-kb-grow" />
+          {/* 第 6 步：**在此范围内提问**（业主口径：目录树是提问范围的唯一载体）。
+              · 有勾选 ⇒ 勾选的那些（多选目录 = **并集**）；
+              · 没勾选但在某个目录里 ⇒ 当前这一级（它 + 全部下级）；
+              · 最外层 /「待分类」没勾选 ⇒ **禁用**并把原因写在 title= 里（绝不悄悄变成全库提问）。 */}
+          <Button
+            variant="outline"
+            size="sm"
+            className="ks-ask-open"
+            aria-expanded={askOpen}
+            disabled={askHereScope === null}
+            title={askHereScope !== null
+              ? `在${askHereScope.label}里提问（只在这个范围里检索；多选=并集）`
+              : askHereWhy}
+            onClick={() => { void openAsk(askHereKeys) }}
+          >
+            <IconSearchOutline16 />
+            在此范围内提问
+          </Button>
+          {/* 范围 chip（业主："发起前/发起后都要能看出当前范围是什么"）：目录名 + 篇数 + 可清掉。
+              ⚠ 篇数**只认引擎的数**：读中就说"正在数…"，读不到就把**原话**显示出来（含 404）。 */}
+          {askScope === null ? null : (
+            <span className="ks-ask-chip" data-ks-ask-chip="on" title={askWhereText(askScope)}>
+              <span className="ks-ask-chip-tag">范围</span>
+              <span className="ks-ask-chip-name">{askScope.label}</span>
+              <span className="ks-ask-chip-n">
+                {askCountErr !== ''
+                  ? `数不出来：${askCountErr}`
+                  : (askCounts === null
+                    ? '正在数…'
+                    : `${String(askCounts.folder_count)} 个目录 · ${String(askCounts.doc_count)} 篇`)}
+              </span>
+              <button
+                type="button"
+                className="ks-ask-chip-x"
+                aria-label="清掉范围"
+                title="清掉范围（连提问面板一起收起；清掉之后这一页不会做「不限定范围」的提问）"
+                onClick={clearAsk}
+              >
+                <IconCloseOutline16 />
+              </button>
+            </span>
+          )}
           {/* 第 5 步：**建目录**的入口（建在**当前这一级**下面；最外层就是顶层目录）。
               「待分类」层不建目录（它不是库里的目录；那里是处置文件的地方）。 */}
           {layer === 'folder' ? (
@@ -2442,6 +2697,119 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
           </div>
         ) : null}
 
+        {/* 第 6 步：**按范围提问**的面板（范围在 chip 上、提问与答案在这里）。
+            诚实边界（写在明面上）：
+              · 范围**一定**随请求发出去，引擎**在检索层**限定六条召回通道 ⇒ 范围内没有就是没有；
+              · 答案区显示引擎回显的**实际范围**；若回显说"没限定范围"而这次明明带了范围，
+                会**当众标红**（不许静默当没发生）；
+              · 这一页**不提供**"不限定范围的提问"（清掉范围就收起面板）。 */}
+        {askOpen && askScope !== null ? (
+          <div className="ks-ask" data-ks-ask="open">
+            <div className="ks-ask-head">
+              <span className="ks-ask-where">{askWhereText(askScope)}</span>
+              <span className="ks-ask-count">
+                {askCountErr !== ''
+                  ? `数不出来：${askCountErr}`
+                  : (askCounts === null
+                    ? '正在数这个范围里有多少篇…'
+                    : `${String(askCounts.folder_count)} 个目录 · ${String(askCounts.doc_count)} 篇`)}
+              </span>
+              <div className="ks-kb-grow" />
+              <Button variant="ghost" size="sm" className="ks-ask-close" title="收起提问面板（范围留着）"
+                onClick={() => { setAskOpen(false) }}>
+                <IconChevronDownOutline14 />
+                收起
+              </Button>
+              <Button variant="ghost" size="sm" className="ks-ask-clear" title="清掉范围并收起面板" onClick={clearAsk}>
+                <IconCloseOutline16 />
+                清掉范围
+              </Button>
+            </div>
+            <div className="ks-ask-row">
+              <span className="ks-ask-label">问题</span>
+              <Input
+                className="ks-ask-q"
+                value={askQ}
+                placeholder="要在这个范围里问什么？（例：动火作业怎么分级）"
+                aria-label="要在选定的知识库目录范围里问的问题"
+                onChange={(event) => { setAskQ(event.target.value) }}
+              />
+              <Button
+                variant="primary"
+                size="sm"
+                className="ks-ask-go"
+                disabled={askPhase === 'running' || askQ.trim() === ''}
+                title={`只在这个范围里检索：${askScope.label}`}
+                onClick={() => { void runAsk() }}
+              >
+                {askPhase === 'running' ? '在问…' : '问一问'}
+              </Button>
+            </div>
+            <div className="ks-ask-hint">
+              只在你选定的这个范围里检索；范围内没有就直说 —— 不会拿范围外的内容冒充。
+            </div>
+            {askMsg === '' ? null : (
+              <div className="ks-ask-msg ks-ask-msg-bad" role="alert">{askMsg}</div>
+            )}
+            {askRes === null ? null : (
+              <div className="ks-ask-res" data-ks-ask-res="on">
+                {/* 发起**之后**如实说这次到底在什么范围里检索的（引擎回显，不是前端自己写的）。 */}
+                {askRes.scope === null ? (
+                  <div className="ks-ask-msg ks-ask-msg-bad">
+                    注意：这次带了范围（{askScope.label}），可引擎回显说**没有限定范围** ——
+                    这份答案可能来自整个知识库，**不要**当成范围内检索的结果。
+                  </div>
+                ) : (
+                  <div className="ks-ask-echo">
+                    引擎回显：这次实际范围 = {String(askRes.scope.folder_count)} 个目录 ·
+                    {' '}{String(askRes.scope.doc_count)} 篇
+                    {askRes.scope.empty ? '（范围内一篇都没有 ⇒ 引擎一次检索都没做）' : ''}
+                  </div>
+                )}
+                <div className="ks-ask-tier">档次：{askRes.tier}</div>
+                {askRes.scope !== null && askRes.scope.empty ? (
+                  <div className="ks-ask-empty">
+                    <strong>范围内没有</strong>
+                    <span>你选的范围里一篇文件都没有，所以没有任何依据可引用 —— 这不是"库里没有"。</span>
+                  </div>
+                ) : null}
+                {askRes.conclusion === '' ? null : (
+                  <div className="ks-ask-conc"><span className="ks-ask-h">结论</span>{askRes.conclusion}</div>
+                )}
+                {askRes.derivation === '' ? null : (
+                  <div className="ks-ask-der"><span className="ks-ask-h">推导</span>{askRes.derivation}</div>
+                )}
+                {/* 依据区：逐条列出**这次真的用到的**条款（范围外的条款不可能出现在这里）。 */}
+                <div className="ks-ask-ev">
+                  <span className="ks-ask-h">依据（{String(askRes.evidence.length)} 条）</span>
+                  {askRes.evidence.length === 0 ? (
+                    <div className="ks-ask-empty">
+                      <strong>范围内没有</strong>
+                      <span>这个范围里没有找到可引用的现行条款；换几个目录，或把范围放大一点再问。</span>
+                    </div>
+                  ) : askRes.evidence.map((ev, i) => (
+                    <div className="ks-ask-evrow" key={String(ev.clause_revision_id ?? i)}>
+                      <span className="ks-ask-evno">
+                        {String(ev.standard_no ?? '—')} {String(ev.clause_number ?? '')}
+                      </span>
+                      <span className="ks-ask-evtitle">{String(ev.title ?? '')}</span>
+                      <span className="ks-ask-evtext">{String(ev.snippet ?? '')}</span>
+                    </div>
+                  ))}
+                </div>
+                {askRes.notes.length === 0 ? null : (
+                  <div className="ks-ask-notes">
+                    <span className="ks-ask-h">说明</span>
+                    {askRes.notes.map((nt, i) => (
+                      <div className="ks-ask-note" key={`n${String(i)}`}>{nt}</div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+        ) : null}
+
         {phase === 'error' ? (
           <div className="ks-kb-err" role="alert">
             <strong>读不到知识库</strong>
@@ -2520,6 +2888,8 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                     { id: 'mkdir', label: '在这个目录下新建…' },
                     { id: 'move', label: '挪到某个目录…' },
                     { id: 'copy', label: '复制到某个目录…' },
+                    /* 第 6 步：在**这一个目录**（它 + 全部下级）里提问。 */
+                    { id: 'ask', label: '在此范围内提问' },
                     { id: 'delete', label: '删掉这个目录…' },
                   ]
                   const dirCell = (key: DirColKey): ReactNode => {
@@ -2572,6 +2942,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                                 else if (id === 'mkdir') openAction('mkdir', [])
                                 else if (id === 'move') openAction('move', [key])
                                 else if (id === 'copy') openAction('copy', [key])
+                                else if (id === 'ask') void openAsk([key])
                                 else if (id === 'delete') openAction('folder-del', [key])
                               }}
                               anchor={(
@@ -2671,6 +3042,8 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                    */
                   const fileMenu: { id: string; label: string }[] = [
                     { id: 'detail', label: '详情' },
+                    /* 第 6 步：**这一篇**的范围（`kb_doc_ids`）—— 与"这一级"的范围是两回事。 */
+                    { id: 'ask', label: '在此范围内提问' },
                     ...(levelId === null
                       ? [{ id: 'add', label: '加进某个目录…' }]
                       : [{ id: 'move', label: '挪到某个目录…' },
@@ -2732,6 +3105,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                               onSelect={(id) => {
                                 setMenuFor(null)
                                 if (id === 'detail') setOpenDoc(openDoc === doc.doc_id ? null : doc.doc_id)
+                                else if (id === 'ask') void openAsk([fileKey])
                                 else if (id === 'add') openAction('add', [fileKey])
                                 else if (id === 'move') openAction('move', [fileKey])
                                 else if (id === 'copy') openAction('copy', [fileKey])
