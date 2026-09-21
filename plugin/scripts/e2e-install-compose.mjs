@@ -17,8 +17,22 @@
  *   6. 起假网关（OpenAI 兼容 **SSE 流式**）：记下第一个 chat/completions 的
  *      `tools[].function.name` 全集；第一轮回 `tool_calls`(ks_ping)，第二轮回纯文本 `e2e-done`
  *   7. `dsh <tmp> --patch <overlay> --json <task>` 跑 headless
- *   8. 断言 exit 0 / 6 个 ks_ 工具全在 / ks_ping 的 tool result 里 ok:true + httpStatus:200 /
+ *   8. 断言 exit 0 / 6 个 ks_ 工具全在 / ks_ping 的 tool result 里 ok:true + httpStatus:200
+ *      **且 `engine.port` 恰是我们这台假引擎、`engine.reused === true`** /
  *      stdout 里有 `e2e-done`
+ *
+ * ## ⚠ 复核打回的三处（2026-09-21，`verify-e2e-real-report.md`；错话保留 + 就地更正）
+ *   · **假绿（本文件最要紧的一处）**：旧第 8 条断言原文是
+ *     "ks_ping 的 tool result 里 ok:true 且 httpStatus:200（**真执行到我们的假引擎**）"。
+ *     **"真执行到我们的假引擎"这句当时没有证据**：复核实测把假引擎 `/api/v1/health` 改成 500，
+ *     e2e 仍 **14/14 PASS / exit 0** —— 插件按陈旧会话 `spawn` 了**真 python 引擎**顶包
+ *     （`plugin/src/engine.js:558`；实测 `port=14226 pid=36776 reused=false`，假引擎是 **14215**）。
+ *     ⇒ 现在把 tool result 的 `engine.port`/`engine.reused` 与**假引擎端口**绑死（见第 8 条）。
+ *   · **A2 打印了 API key 的值**：旧 `:290` 是 `` DEEPSEEK_API_KEY=${String(...)} `` ⇒ 父进程
+ *     设真 key 时**真值进了输出**，而失败步输出会被 `run-gates.ps1` 落盘。⇒ 只打**存在性**，
+ *     外加全输出 `redact()` 兜底（见顶部）。
+ *   · **C 变异 5 红得不可诊断**：overlay 去掉 webserver 行时，报的是 `unknown tool "ks_ping"`，
+ *     全程没有 `pending`/`webServer` 字样 ⇒ 现在把宿主给的**插件待命原因**捞进失败信息。
  *
  * ## 两条装配细节（**第一条实测钉死；第二条见下面的更正，别照抄旧的结论**）
  *   · **headless profile 没有 `webserver` 行**（只有 `web-app` bundle 挂它，
@@ -61,6 +75,9 @@
  * 所有产物落 `%TEMP%\ks-e2e-<pid>-*`，`finally` 里**同步/await 删干净**；代码树零运行产物。
  * **实测**：`%TEMP%\ks-e2e-*` 在连跑 3 次 + 再跑 2 次前后都是 **0 个**（本脚本自己清干净）。
  * （同批的 `verify-tools-real.mjs` 当时每跑泄漏 2 个目录 —— 已在那边修掉并在注释里留痕。）
+ * ⚠ **补（2026-09-21 复核打回）**：上面"清干净"说的是**删成功**那条路。**删失败**时旧版只打
+ * `（清理告警：…）` 仍 `exit 0`（与 `verify-tools-real.mjs` 的 exit 1 口径不一致）⇒ 现在
+ * 清理失败**登记为一条失败断言、计入退出码**（告警文案保留）。
  *
  * 跑法：`node plugin/scripts/e2e-install-compose.mjs`（退出码 0 = 全通过）
  */
@@ -84,10 +101,82 @@ const ADD_TIMEOUT_MS = 180_000
 const KS_TOOLS = ['ks_ping', 'ks_resolve_clause', 'ks_answer', 'ks_effect_report',
   'ks_materials', 'ks_collect']
 
+/**
+ * ★ 值一律不进输出（**A2，2026-09-21 复核打回**）。
+ *
+ * 旧版 `:290` 打的是 `` DEEPSEEK_API_KEY=${String(headlessEnv.DEEPSEEK_API_KEY)} ``：父进程
+ * 一旦设了真 key，失败步的完整输出会被 `run-gates.ps1` 落盘 ⇒ **真 key 写进门禁日志**。
+ * 复核实测：父环境设 `SHOULD-NOT-LEAK` 时它**照打不误**。
+ * ⇒ 现在只打**存在性**（`存在=是/否`），并加一道**全输出兜底**：本脚本从父环境收下的
+ * 每一个 key 值都登记进 `LEAK_VALUES`，`console.log` 出口统一做替换。兜底覆盖
+ * "子进程 stdout/stderr 又把它带回来"（例如宿主把配置回显在报错里）这种非本地拼接。
+ *
+ * **口径**：`redact()` 只对**我们知道的那些值**做替换（不是通用脱敏器）——
+ * 它守的是"本脚本不会把自己收到/生出的凭据打出去"，不宣称能脱敏任意第三方文本。
+ */
+const LEAK_VALUES = new Set()
+function registerLeakValue(value) {
+  if (typeof value === 'string' && value.length >= 4) LEAK_VALUES.add(value)
+}
+;(function seedParentLeakValues() {
+  for (const [key, value] of Object.entries(process.env)) {
+    if (key.endsWith('_API_KEY') && key !== 'KS_FAKE_KEY') registerLeakValue(value)
+  }
+})()
+const API_KEY_PATTERN = /(("?)([A-Za-z0-9_]*_API_KEY)\2\s*[:=]\s*)("([^"]*)"|'([^']*)'|[^\s,;]+)/g
+function redact(text) {
+  let out = String(text)
+  let masked = 0
+  for (const value of LEAK_VALUES) {
+    if (out.includes(value)) { out = out.split(value).join('<redacted>'); masked += 1 }
+  }
+  out = out.replace(API_KEY_PATTERN, (_all, prefix, _q, name) => {
+    masked += 1
+    return `${prefix}<redacted:${name}>`
+  })
+  return { text: out, masked }
+}
+const rawLog = console.log.bind(console)
+console.log = (...args) => rawLog(...args.map((arg) =>
+  (typeof arg === 'string' ? redact(arg).text : arg)))
+
 const results = []
 function check(name, ok, detail) {
   results.push({ name, ok })
   console.log(`${ok ? 'PASS' : 'FAIL'}  ${name}${detail === undefined ? '' : ` — ${detail}`}`)
+}
+
+/**
+ * ★ C（2026-09-21 复核打回）：**"工具没被 offer"的红必须能看出原因。**
+ *
+ * 复核实测**变异 5**（overlay 去掉 webserver 行）⇒ e2e 红（0/6、`unknown tool "ks_ping"`），
+ * 但**全程没有 `pending`/`webServer` 字样**、dump 两条仍绿 ⇒ 读报告的人看不出"是缺 webserver"。
+ * 宿主其实**打了**这条（`app-boot` 的 `activationDiagnostic` → `stderr`：
+ * `dsh: warning: 1 entry did not activate` + `ks-engine (ks-dsh-plugin): pending
+ * (waiting for service: webServer)`，原文见 DSH 检出
+ * `packages/boot/app-boot/src/index.ts:820-828`），只是**没有任何断言把它捞出来**。
+ * ⇒ 这里在 stdout/stderr 里搜插件待命原因，**原样带出**到失败信息里。
+ */
+const PLUGIN_PENDING_PATTERNS = [
+  /did not activate/i,
+  /pending \(waiting for service/i,
+  /Plugins waiting for services/i,
+  /ks-dsh-plugin|ks-engine/,
+]
+function pluginStandbyReason(...texts) {
+  const lines = texts.join('\n').split(/\r?\n/)
+  const hits = lines
+    .map((line, index) => ({ line: line.trim(), index }))
+    .filter(({ line }) => line !== '' && PLUGIN_PENDING_PATTERNS.some((re) => re.test(line)))
+  if (hits.length === 0) return '(宿主输出里没有插件待命线索：搜 did not activate / pending (waiting for service / ks-dsh-plugin 命中 0 行)'
+  // 待命原因常与它的标题行相邻（`...: pending (…)` 紧跟在 `dsh: warning: …` 后面），
+  // 所以命中行 + 它**前面一行**一起带出（如 `dsh: warning: 1 entry did not activate`）。
+  const shown = []
+  for (const { index } of hits.slice(0, 3)) {
+    const context = lines.slice(Math.max(0, index - 1), index + 1).map((l) => l.trim()).filter(Boolean)
+    shown.push(context.join(' ⏎ '))
+  }
+  return `${hits.length} 行线索 ｜ ${shown.join(' ； ')}`
 }
 function tail(text, lines = 25) {
   return (text ?? '').split(/\r?\n/).filter((l) => l.trim() !== '').slice(-lines).join('\n')
@@ -124,6 +213,24 @@ async function main() {
   console.log(`      临时 KS_DATA_DIR = ${KS_DATA_DIR}`)
   console.log(`      临时 profile 名 = ${PROFILE}\n`)
 
+  /* ------------------- 钱的自证（**必须在起宿主之前**） -------------------
+   * `childEnv()` 是**同一份**环境：所有 `dsh` 子进程都收这一份，所以断言看的就是
+   * 宿主真正拿到的那份环境。⚠ 旧版把它放在第 7 步，用的是**又新建的**一份
+   * `childEnv(…)`——内容碰巧相同，但"断言的那份 ≠ 交出去的那份"是个坏形状，
+   * 一并收紧。诊断**只打存在性，值一律不打**（见文件顶部 `redact()` 的说明）。
+   * ------------------------------------------------------------------------- */
+  const headlessEnv = childEnv(DSH_HOME, KS_DATA_DIR)
+  // 自证：子环境里**没有**真 key（"万一模型选择没被假 provider 接住"是本条唯一能真花钱的口子）。
+  const keyLeaks = Object.keys(headlessEnv).filter((k) => k.endsWith('_API_KEY') && k !== 'KS_FAKE_KEY')
+  const keyPresent = (key) => headlessEnv[key] === undefined ? '否' : '是'
+  check('钱：起宿主的子环境里没有任何 *_API_KEY（只剩 KS_FAKE_KEY）',
+    keyLeaks.length === 0 && headlessEnv.KS_FAKE_KEY === 'fake'
+      && headlessEnv.DEEPSEEK_API_KEY === undefined && headlessEnv.KS_PYTHON === undefined,
+    `泄漏键=${keyLeaks.join(',') || '(无)'}`
+      + ` KS_FAKE_KEY 存在=${keyPresent('KS_FAKE_KEY')}`
+      + ` DEEPSEEK_API_KEY 存在=${keyPresent('DEEPSEEK_API_KEY')}`
+      + ` KS_PYTHON 存在=${keyPresent('KS_PYTHON')}`)
+
   /* --------------- 2. 建 profile（必须在 `plugin add` **之前** ---------------
    * ⚠ 实测：`dsh plugin --profile <name> add` 在 profile 不存在时会**自己初始化一个空的**
    * （只跟 `plugin` 命令行有关，拿不到 `--from-default-profile`）⇒ 之后再
@@ -132,7 +239,7 @@ async function main() {
    * 不会被 headless app 的"要一个 task"拦下），再 `plugin add`。
    * ------------------------------------------------------------------------- */
   const initResult = await runCli([PROFILE, '--from-default-profile', 'headless', '--dump-config'],
-    { DSH_HOME, KS_DATA_DIR }, BOOT_TIMEOUT_MS)
+    headlessEnv, BOOT_TIMEOUT_MS)
   const initLines = (initResult.stdout ?? '').split(/\r?\n/)
   const initPluginRow = initLines.filter((l) => l.includes('name: ks-dsh-plugin'))
   check('2. `dsh <tmp> --from-default-profile headless --dump-config` 建出 profile 且 exit 0',
@@ -144,7 +251,7 @@ async function main() {
 
   /* ------------------- 3. 装插件（真 CLI → 真 pnpm） ------------------- */
   const addResult = await runCli(['plugin', '--profile', PROFILE, 'add', PLUGIN_DIR],
-    { DSH_HOME, KS_DATA_DIR }, ADD_TIMEOUT_MS)
+    headlessEnv, ADD_TIMEOUT_MS)
   check('3. `dsh plugin --profile <tmp> add <repo>/plugin` 成功（exit 0）',
     addResult.code === 0,
     addResult.code === 0
@@ -153,7 +260,7 @@ async function main() {
         + `\n--- stdout 尾部 ---\n${tail(addResult.stdout)}\n--- stderr 尾部 ---\n${tail(addResult.stderr)}`)
 
   /* --------------------------- 4. --dump-config --------------------------- */
-  const dumpResult = await runCli([PROFILE, '--dump-config'], { DSH_HOME, KS_DATA_DIR }, BOOT_TIMEOUT_MS)
+  const dumpResult = await runCli([PROFILE, '--dump-config'], headlessEnv, BOOT_TIMEOUT_MS)
   const dumpLines = (dumpResult.stdout ?? '').split(/\r?\n/)
   const bundleHeaderHits = dumpLines.filter((l) => l.includes('# == ks-dsh-plugin'))
   const engineRowHits = dumpLines.filter((l) => l.includes('- id: ks-engine'))
@@ -280,17 +387,8 @@ async function main() {
 `)
 
   /* ------------------------------ 7. 跑 headless ------------------------------ */
-  const headlessEnv = childEnv(DSH_HOME, KS_DATA_DIR)
-  // 自证：子环境里**没有**真 key（"万一模型选择没被假 provider 接住"是本条唯一能真花钱的口子）。
-  const keyLeaks = Object.keys(headlessEnv).filter((k) => k.endsWith('_API_KEY') && k !== 'KS_FAKE_KEY')
-  check('钱：起宿主的子环境里没有任何 *_API_KEY（只剩 KS_FAKE_KEY=fake）',
-    keyLeaks.length === 0 && headlessEnv.KS_FAKE_KEY === 'fake'
-      && headlessEnv.DEEPSEEK_API_KEY === undefined && headlessEnv.KS_PYTHON === undefined,
-    `泄漏键=${keyLeaks.join(',') || '(无)'} KS_FAKE_KEY=${headlessEnv.KS_FAKE_KEY}`
-      + ` DEEPSEEK_API_KEY=${String(headlessEnv.DEEPSEEK_API_KEY)} KS_PYTHON=${String(headlessEnv.KS_PYTHON)}`)
-
   const run = await runCli([PROFILE, '--patch', overlayPath, '--json', 'ping 一次然后说 e2e-done'],
-    { DSH_HOME, KS_DATA_DIR }, BOOT_TIMEOUT_MS)
+    headlessEnv, BOOT_TIMEOUT_MS)
   check('8. headless 真跑一轮 exit 0（含宿主起步 ≤120s）',
     run.code === 0 && run.timedOut === false,
     run.timedOut
@@ -322,17 +420,49 @@ async function main() {
     missingKs.length === 0,
     `命中 ${offeredKs.length}/6：${offeredKs.join(',') || '(none)'}`
       + `${missingKs.length ? ` ｜缺：${missingKs.join(',')}` : ''}`
-      + ` ｜承载它们的那个请求 offer 总数=${carrier?.toolCount ?? '(n/a)'}`)
+      + ` ｜承载它们的那个请求 offer 总数=${carrier?.toolCount ?? '(n/a)'}`
+      + `${missingKs.length ? `\n            ∵ 插件没把工具注册上来，宿主给的待命原因：`
+        + `${pluginStandbyReason(run.stdout ?? '', run.stderr ?? '')}` : ''}`)
   console.log(`      宿主 offer 的完整工具清单（取并集，去重后 ${[...new Set(allOffered)].length} 个）：`
     + `${[...new Set(allOffered)].join(', ')}`)
 
-  const pingOk = toolResultText !== null && /"ok"\s*:\s*true/.test(toolResultText)
-    && /"httpStatus"\s*:\s*200/.test(toolResultText)
-  check('8. ks_ping 的 tool result 里 ok:true 且 httpStatus:200（真执行到我们的假引擎）',
-    pingOk,
-    toolResultText === null
-      ? '⛔ 没收到 tool result（模型可能没调 ks_ping）'
-      : `tool result 片段：${toolResultText.replace(/\s+/g, ' ').slice(0, 240)}`)
+  /* ------------------- ★ A：tool result 必须绑在**我们的假引擎**上 -------------------
+   * **这就是复核打回的那条假绿**（2026-09-21）：旧断言只看 `ok:true` + `httpStatus:200`，
+   * 而插件在假引擎返非 200 时会**按陈旧会话 spawn 真 python 引擎**顶包
+   * （`plugin/src/engine.js:558 spawnEngine`；复核实测 `port=14226 pid=36776 reused=false`
+   * 而假引擎是 14215）⇒ 假引擎坏掉，e2e **照样 14/14 PASS / exit 0**。
+   *
+   * 现在把 tool result 里的 `engine` 与**我们起的那台假引擎**绑死：
+   *   · `engine.port === enginePort`（我们这一跑实际 listen 的端口）；
+   *   · `engine.reused === true`（会话文件里那个实例是**外部的**、不是插件自己起的
+   *     —— `plugin/src/index.js:792` 的 `reused: !session.spawnedByUs`）。
+   * 任一不成立 ⇒ **红**，并且诊断打出**期望端口 vs 实测端口**与 `reused`。
+   * 真 python 顶包时 `engine.port` ≠ 假引擎端口（且 reused=false），所以这条有牙。
+   * ------------------------------------------------------------------------- */
+  const parsedToolResult = (() => {
+    if (toolResultText === null) return null
+    try { return JSON.parse(toolResultText) } catch { return null }
+  })()
+  const resultEngine = parsedToolResult?.engine ?? null
+  const engineResultPort = resultEngine?.port ?? null
+  const engineResultReused = resultEngine?.reused ?? null
+  const realEnginePorts = [...new Set(
+    [...`${run.stdout ?? ''}\n${run.stderr ?? ''}`.matchAll(/KNOWLEDGE_STATION_PORT=(\d+)/g)].map((m) => Number(m[1])))]
+  const pingBoundToFakeEngine = engineResultPort === enginePort && engineResultReused === true
+  const pingDiag = toolResultText === null
+    ? '⛔ 没收到 tool result（模型可能没调 ks_ping）'
+    : `期望假引擎端口=${enginePort} ｜ 实测 tool result engine.port=${String(engineResultPort)}`
+      + `（${engineResultPort === enginePort ? '相符' : '❌ 不符'}）`
+      + ` ｜ reused=${String(engineResultReused)}（期望 true）`
+      + ` ｜ ok=${String(parsedToolResult?.ok)} httpStatus=${String(parsedToolResult?.httpStatus)}`
+      + ` ｜ 宿主输出里的真引擎端口=${realEnginePorts.join(',') || '(无)'}`
+      + `${engineResultPort !== enginePort ? ' ⇒ 工具执行打到了**别的**引擎上（真 python 顶包？）' : ''}`
+      + `\n            tool result 片段：${toolResultText.replace(/\s+/g, ' ').slice(0, 240)}`
+  check('8. ks_ping 的 tool result **绑在假引擎上**：ok:true + httpStatus:200 + '
+    + 'engine.port === 假引擎端口 + engine.reused === true',
+  toolResultText !== null && parsedToolResult !== null && parsedToolResult.ok === true
+    && parsedToolResult.httpStatus === 200 && pingBoundToFakeEngine,
+  pingDiag)
   check('5. 假引擎真的被探活过（/api/v1/health 命中）',
     engineHits.some((p) => p === '/api/v1/health'),
     `假引擎收到的路径=${engineHits.join(',') || '(none)'}`)
@@ -347,6 +477,8 @@ async function main() {
     carrierRequestNumber: carrier?.n ?? null,
     carrierToolCount: carrier?.toolCount ?? null,
     offeredKsTools: offeredKs,
+    fakeEnginePort: enginePort,
+    toolResultEngine: resultEngine,
     toolResultSnippet: toolResultText === null ? null : toolResultText.replace(/\s+/g, ' ').slice(0, 400),
     dumpHits: { bundleHeader: bundleHeaderHits[0] ?? null, engineRow: engineRowHits[0] ?? null },
     headlessExit: run.code,
@@ -361,7 +493,12 @@ async function main() {
 function childEnv(dshHome, ksDataDir) {
   const env = { ...process.env }
   for (const key of Object.keys(env)) {
-    if (key.endsWith('_API_KEY') && key !== 'KS_FAKE_KEY') delete env[key]
+    if (key.endsWith('_API_KEY') && key !== 'KS_FAKE_KEY') {
+      // 剥之前先把**父环境里那个值**登记进兜底脱敏名单：即使它经别的通道（宿主回显
+      // 配置、报错文本）又出现在输出里，出口处也会被替换成 `<redacted>`。
+      registerLeakValue(env[key])
+      delete env[key]
+    }
     if (/^(http_proxy|https_proxy|all_proxy|no_proxy|node_use_env_proxy)$/i.test(key)) delete env[key]
   }
   delete env.KS_PYTHON
@@ -375,9 +512,11 @@ function childEnv(dshHome, ksDataDir) {
 /**
  * 在**检出根**跑一次 `dsh`（`node --import tsx/esm apps/cli/src/bin.ts <args>`）。
  * 自带超时；超时按红处理并把**完整命令行**与 stdout/stderr 留给调用方。
+ *
+ * `env` 由调用方传入（`childEnv()` 的产物）——**不要在这里再调一次 `childEnv(envs…)`**：
+ * 那样每次都会重建一份对象，而"自证钱没泄漏"的断言必须看**真正交给宿主的那一份**。
  */
-function runCli(args, envs, timeoutMs) {
-  const env = childEnv(envs.DSH_HOME, envs.KS_DATA_DIR)
+function runCli(args, env, timeoutMs) {
   const commandLine = `cwd=${CHECKOUT} :: "${process.execPath}" ${[...CLI, ...args].map((a) => JSON.stringify(a)).join(' ')}`
   const started = Date.now()
   return new Promise((resolveRun) => {
@@ -415,8 +554,21 @@ async function finish(earlyFatal, summary) {
   finished = true
   if (earlyFatal) check('可运行前提', false, earlyFatal)
   // 清理：反序（先关两个 server，再删临时目录）
+  // ⚠ **B（2026-09-21 复核打回）：清理失败必须计入退出码**（与 `verify-tools-real.mjs:56-65`
+  // 同口径 —— 那边是 `results.push({ok:false})` + exit 1）。旧版这里只打
+  // `（清理告警：…）` 然后照样 exit 0 ⇒ **临时目录泄漏被判绿**（复核实测：探针让删除失败，
+  // verify-tools-real exit 1，而 e2e exit 0）。现在：告警文案保留，另外**登记成一条失败断言**。
+  const cleanupFailures = []
   for (const step of [...cleanup].reverse()) {
-    try { await step() } catch (error) { console.log(`      （清理告警：${error?.message ?? error}）`) }
+    try { await step() } catch (error) {
+      const reason = error?.message ?? error
+      console.log(`      （清理告警：${reason}）`)
+      cleanupFailures.push(String(reason))
+    }
+  }
+  if (cleanupFailures.length > 0) {
+    check(`清理临时目录/服务（${cleanupFailures.length} 处失败 ⇒ 计入退出码）`, false,
+      `${cleanupFailures.join(' ｜ ')}（删不掉，请手工清）`)
   }
   const failed = results.filter((r) => !r.ok)
   console.log(`\n== e2e-install-compose ${failed.length === 0 ? 'PASS' : 'FAIL'} `

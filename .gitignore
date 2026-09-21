@@ -46,3 +46,6 @@ _rescue/
 # 记忆入库的续跑状态（机器态，可由 scripts/ingest-dsh-docs-into-memory.mjs 重跑重建；
 # 人对账请看 docs/research/dsh-official/INGEST-LEDGER.md）
 docs/research/dsh-official/ingest-state*.json
+
+# 临时变异副本（本机测试用；只为让 git status --short 干净，不进提交）
+plugin/scripts/e2e-mut*.mjs
