@@ -1020,6 +1020,49 @@ bind 被系统拒绝，而 Spring Boot 把它报成了"已被占用"。
   而快扫完成时写的是 `scan_complete`）—— UI 现在靠"先等 `scan_complete`"绕开了，但
   这个字段同时承担"用户暂停"与"扫描完成"两种含义，**建议后端正名**（登记，不改）。
 
+## 二十·补、第 5 步的独立复核结论 + 父代理的裁定（2026-09-21，冻结 `verify-freeze-kb-step5` = `e73a00c`）
+
+复核报告：`var/tmp/verify-kb-step5-report.md`。**结论：判据没有被放宽，不可逆动作的安全实测全对，
+但它抓到 3 条真残余（其中 2 条是"判据没接线"），并纠正了我转述的一个定论。**
+
+**它证实了的（我这边不必再重复验）**：
+- 判据改动逐条**没有放宽**：B3/B7/E2/E5 仍是"逐字相等"；`I5` 从"只有详情"变成"**恰好这 4 项且顺序对**"（更严）。
+  棘轮五组都还在响（CSS token / 页面 `DIR_COLUMNS` / 删清单条 / 页边 token / 清空清单，全部 exit=1）。
+- **副本库实测**：取消 = **零写入**（五张表逐行相等）；非空无 mode ⇒ 409；**一级目录 reparent ⇒ 409 且目录未动**；
+  reparent 后子目录没了、归属上移、**一份文件没删**；**多对多那一篇 purge 后仍活**（`deleted_docs=0`）、
+  独占时才 `deleted_docs=1`；界面那句"删目录不是删文档…只在所有目录里都不再出现才真删"与后端**逐字一致**。
+- `KsIngestPanel` **今天真可达**（工具栏 → 上传面板 → 逐篇看 → 挂载，`visible` 恒 true）；`smoke-settings` 仍 0 处；
+  `MATRIX` 19 ↔ `EXPECTED_RUNS` 19（机械抽出）；`check(` **130 处 = 128 真调用**（差额在块注释与函数定义，
+  到此把我那 130 vs 128 的疑问钉死）。
+- 后端半**没弄坏调用方**：`doc_confidence` 没有算术消费，`None` 的 grade 结果与旧 `0.0` **相同**（都是 `C`），
+  只改了理由文案。
+
+### ⚠ 一处**纠正我更正的定论**（留痕，不许悄悄改）
+
+我在 §二十 转述的"**上传根本不会解析**"**过强**。复核实测：旧语义在**两个独立新库**上跑，**一次复现**
+（`parsed=0 / queue=0 / errors=[duplicate_file] / clause_revision=0`）、**一次没复现**（`parsed=1 / queue=1 /
+clause_revision=1`）⇒ 机制成立（两次 `fast_scan` 抢写 checkpoint），但它是**竞态**、不是"必然不解析"。
+⇒ §二十.4 与判据 `K3b` 的文案**一律降级为"竞态（有时会）"**；**不许**再写"根本不解析"。
+
+### 它抓到的残余与我排的修法（**本批排期修，然后做第 2 轮定向复核**）
+
+| # | 严重度 | 事实（它是怎么实测的） | 修法 |
+|---|---|---|---|
+| R1 | 中 | `ui-render-shot.mjs` 里 `dirColsProblems = [...dirColsProblemsShared]` 在 push **之前**快照 ⇒ 三条共享守卫**永不进** `dirColsCheck`（JSON 里 `problems:[]` 却 `checked:true`），只经 `#dirhead` 存活，而后者以 skipReason 为前置。变异 A2 + `--interact kb-page` ⇒ **exit 0**（两行都"这一跑不判"） | 把共享守卫在 push **之后**再合并进 `dirColsCheck`（接线顺序），并**用核实的变异证明**：`kb-page` 那一跑也要响 |
+| R2 | 中 | `K3b` 只数"bulk 与 resume 之间 poll 过 ≥1 次"，**不判是否等到 `scan_complete`**。变异 V7（poll 一次就走 = 旧语义）⇒ **128/128 exit 0 且 K3b PASS** | 桩要记**响应**，判据改成"**必须看到过 `scan_complete`**"；V7 必须红 |
+| R3 | 中低 | 「复活」**零判据**：变异 V6（`{upPreview ? (` → `{false ? (` 并重建 `client.js`）⇒ render 128/128、`ui-render-shot` exit 0、`client-entry` 157/157（含整份一致）**全绿**；四张清单只钉 bundle 里有"逐篇看"这个字符串 | 加一条真判据：走到「逐篇看」时**面板真的出现在 DOM 里**（真浏览器或渲染冒烟，判 `display != none` + 面板自己的元素） |
+| R4 | 低 | `preview_jobs.py:128` 仍是 `rep.get("doc_confidence", 0.0)` ⇒ **异步全量预览**里崩掉那篇报 `0.0`，同步同一篇报 `None`（恰在本批复活的"全量异步预览"里可见） | 一并改成 `None`（与本批 ③b 的同一条口径） |
+| R5 | 低 | `ui-render-shot.mjs:2466-2467` 的失败提示仍写**旧三轨**与**已删的** `--ks-col-dgo` | 文案同步 |
+| R6 | 低 | `C2` 的**文件层**那一半默认跑是 `0/0` **恒真**（文件层由 `P18` 的 50/50 判） | 要么改成非空才判、要么在注释里写明"恒真是设计，真判在 P18" |
+
+**纪律事故（复核自己记的，就地留痕）**：它第一次变异用**相对路径**，而 PowerShell 的 `Set-Location`
+**不更新** `[Environment]::CurrentDirectory` ⇒ **误写主仓** `KsKnowledgePage.tsx`，当场 `git checkout --` 还原，
+主仓首尾 HEAD/status 均干净。⇒ 已写进 `AGENTS.md` 的环境段：**变异一律用绝对路径**。
+
+**未验（复核列的）**：`run-gates.ps1` 全链（按纪律没跑）、`pytest`（没跑）、真浏览器里点"取消"、
+B 段只有 2 个样本、多对多只最简形态、深色 `kb-dir-manage` 单独没跑、`/kb/inbox` 只读代码核。
+
+
 
 
 
