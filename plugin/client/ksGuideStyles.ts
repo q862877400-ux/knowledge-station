@@ -449,11 +449,14 @@ export const KS_STYLES = `
    业主点名的四样：**文件名 / 状态 / 建议去向 / ⋮**（勾选列是控件、无列头）。
 
    ⚠ 窄档藏的是**建议去向**，**不是状态**：业主"每篇状态如实显示"是硬要求
-     （见 ui-render-shot.mjs 的 inboxStageCheck：真浏览器里量 display，两个方向都钉住）；
+     （见 ui-render-shot.mjs 的 inboxCheck：真浏览器里量 display，两个方向都钉住）；
      建议去向在窄栏里塞不下时可以从 ⋮ 菜单里拿到同一件事（"按建议归位（路径）"）。
    窄/宽两档的切换点与文件层**同一个数**（660，容器是 .ks-main）。
+   ⚠ 状态列取 **108px**（不是 132）：窄档主栏只有 288px、去掉行内边距只剩 264px，
+     132px 会把「文件名」挤到 ~50px（真机实测：名字只剩「排队中的…」）。状态在窄档必须
+     看得见 ⇒ 从两边省：状态列收 24px，失效原因/识别率允许换行（.ks-stage 是 flex-wrap:wrap）。
    ⚠ 这段注释里**一个反引号都没有**（整段在模板字符串里，反引号会截断它）。 */
-.ks-list-inbox{--ks-col-pick:22px;--ks-col-istage:132px;--ks-col-imore:36px;
+.ks-list-inbox{--ks-col-pick:22px;--ks-col-istage:108px;--ks-col-imore:36px;
   --ks-cols:var(--ks-col-pick) minmax(0,1fr) var(--ks-col-istage) var(--ks-col-imore)}
 .ks-list .ks-cell.ks-col-idest{display:none}
 @container (min-width:660px){

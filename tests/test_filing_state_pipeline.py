@@ -304,19 +304,27 @@ def test_bulk_import_really_parses_and_writes_states(db, tmp_path, synthetic_par
     _write_pdf(src / "a.pdf", "GB/T 90107-2020")
     batch = bulk.create_bulk_batch(str(src), batch_size=10)
     scan = bulk.fast_scan(batch["batch_id"], batch_size=10)
-    placeholder = scan["checkpoint"]["queue"][0]["doc_id"]
+    item = scan["checkpoint"]["queue"][0]
+    placeholder = item["doc_id"]
     assert db.execute("SELECT COUNT(*) FROM doc_meta WHERE doc_id=?",
                       (placeholder,)).fetchone()[0] == 1
 
     out = bulk.resume_batch(batch["batch_id"], daily_budget=5)
     assert out["status"] == "done", out
     assert out["checkpoint"]["parsed"] == 1
-    n = db.execute("SELECT COUNT(*) FROM clause_revision").fetchone()[0]
-    assert n > 0, "批量导入报 parsed 却一条条款都没入库（占位行撞了自己的 file_hash）"
     # 占位行被真文档**替换**掉了（reingest 语义：新开 doc_id、删旧行）
     assert db.execute("SELECT COUNT(*) FROM doc_meta WHERE doc_id=?",
                       (placeholder,)).fetchone()[0] == 0
-    new_doc = db.execute("SELECT doc_id FROM doc_meta").fetchone()[0]
+    # ⚠ 认"新文档"必须靠**这一个标准号**，不能 `SELECT doc_id FROM doc_meta` 取第一行 ——
+    #   这是**会话级**临时库，别的用例文件早就插了别的文档（本批实测：单跑绿，
+    #   与 `test_kb_folder_api` 一起跑就红在"取到别人的行 ⇒ 状态为 None"）。
+    row = db.execute("SELECT doc_id FROM doc_meta WHERE standard_no=?",
+                     (item["standard_no"],)).fetchone()
+    assert row is not None, f"重导后库里没有 {item['standard_no']} 这一行"
+    new_doc = row[0]
+    n = db.execute("SELECT COUNT(*) FROM clause_revision WHERE doc_id=?",
+                   (new_doc,)).fetchone()[0]
+    assert n > 0, "批量导入报 parsed 却一条条款都没入库（占位行撞了自己的 file_hash）"
     st = fs.get_filing_state(new_doc)
     assert st is not None and st["stage"] == "confirming", st
 
