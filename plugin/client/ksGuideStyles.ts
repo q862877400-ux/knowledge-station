@@ -535,7 +535,13 @@ export const KS_STYLES = `
 .ks-act-del{border-color:var(--dsw-alias-state-error-primary)}
 .ks-act-head{display:flex;align-items:center;gap:var(--ks-space-2);font-size:var(--ks-fs-base)}
 .ks-act-hint{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
-.ks-act-row{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}
+.ks-act-row{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0;flex-wrap:wrap}
+/* ⚠ 第 5 步（2026-09-21）真机实测补的两条：
+   ① 动作面板在**窄档**（.ks-main 只有 264px）放三个按钮时，光有 flex 会把它们**挤扁** ——
+      实测「取消」被压成竖排的「取 / 消」、「连里面的文件一起删」挤成三行还顶到面板右缘。
+      ⇒ 允许换行（上一条的 flex-wrap）+ 按钮里的字**不许断行**（下面这条），
+      按钮就按整块换行，不再被压扁。 */
+.ks-act-row button{white-space:nowrap}
 .ks-act-label{flex:0 0 auto;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
 .ks-act-name,.ks-act-search{flex:1;min-width:0}
 .ks-act-list{max-height:220px;overflow:auto;display:flex;flex-direction:column;

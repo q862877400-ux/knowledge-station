@@ -318,6 +318,17 @@ export function mount(container, props) {
   /** 导入前的"库快照"（`GET /api/v1/documents`）—— 每起一个 bulk 批次就往里加两篇（模拟真导入）。 */
   let docsInLib = [doc('doc_existing', 'GB 1-2000', '库里原有的一篇')]
   let bulkSeq = 0
+  /* ⚠⚠ **2026-09-21（第 5 步）就地改成"两段式"桩**：真接口的 `resume` docstring 明写
+     「**快扫完成后调用**」，而旧 UI 是 start 完**紧跟**着 resume（实测会把快扫打断、
+     把已排好的队列覆盖成空 ⇒ 批次报 `parsed=0`，界面还说"没有新增文件"）。
+     桩现在按真相位走：`resume` 之前先报 `running`（快扫中）、再报 `paused/scan_complete`
+     （等 resume），`resume` 之后才报 `done` + 解析数字 —— 这样"顺序错"会**当场红**。
+     `bulkAddsHidden` = 这一批进来的文档**不出现在 `/api/v1/documents`** 里
+     （`catalog_hidden=1` 那类：正文条款为零、被挡在目录外，只在「待分类」里可见）。 */
+  let bulkResumed = false
+  let bulkStatusPolls = 0
+  let bulkAddsHidden = false
+  const hiddenDocs = []
   /** 让 `/kb/folders` 返回 500（错误态那一条用）。 */
   let failFolders = false
 
@@ -505,23 +516,39 @@ export function mount(container, props) {
     }
     if (p === '/api/v1/ingest/bulk' && method === 'POST') {
       bulkSeq += 1
+      bulkResumed = false
+      bulkStatusPolls = 0
       const batchId = `bulk_${String(bulkSeq)}`
-      docsInLib = [...docsInLib, doc(`${batchId}_a`, 'GB 70000-2026', `新导入的一篇 A（${batchId}）`),
+      const made = [doc(`${batchId}_a`, 'GB 70000-2026', `新导入的一篇 A（${batchId}）`),
         doc(`${batchId}_b`, 'GB 70001-2026', `新导入的一篇 B（${batchId}）`)]
+      if (bulkAddsHidden) hiddenDocs.push(...made)      // 只在库里，不在 /documents 里
+      else docsInLib = [...docsInLib, ...made]
       return json({ code: 200, status: 'success', data: { batch_id: batchId, total: 2 } })
     }
     if (/^\/api\/v1\/ingest\/bulk\/[^/]+\/resume$/.test(p)) {
+      bulkResumed = true
       return json({ code: 200, status: 'success', data: { batch_id: p.split('/')[5] } })
     }
     if (/^\/api\/v1\/ingest\/bulk\/[^/]+$/.test(p)) {
-      return json({ code: 200, status: 'success', data: {
-        batch_id: p.split('/')[5], status: 'done', total: 2, scanned: 2, parsed: 2,
-        pending: 0, errors: 0, pause_reason: null,
+      const common = {
+        batch_id: p.split('/')[5], pause_reason: null,
         /* ③a（第 5 步）：终态里必须能看出"这批里有没有文件的状态没写进库"。 */
         filing_state_missing: bulkStateMissing,
         filing_state_missing_sample: bulkStateMissing > 0 ? ['missing.pdf'] : [],
         reingest: false,
-      } })
+      }
+      if (!bulkResumed) {
+        bulkStatusPolls += 1
+        if (bulkStatusPolls < 2) {
+          return json({ code: 200, status: 'success', data: {
+            ...common, status: 'running', scanned: 0, total: 0, parsed: 0, pending: 0, errors: 0 } })
+        }
+        return json({ code: 200, status: 'success', data: {
+          ...common, status: 'paused', pause_reason: 'scan_complete',
+          scanned: 2, total: 2, parsed: 0, pending: 0, errors: 0 } })
+      }
+      return json({ code: 200, status: 'success', data: {
+        ...common, status: 'done', total: 2, scanned: 2, parsed: 2, pending: 0, errors: 0 } })
     }
     return json({ ok: false, error: { code: 'STUB_MISS', message: `未预料的请求：${url}` } }, 404)
   }
@@ -529,6 +556,10 @@ export function mount(container, props) {
   const { mount, KB_PAGE_SEARCH } = await import(pathToFileURL(out).href)
   // ⚠ **刻意不用 `act`**（React 18.3 的 act 会把第二份 react/react-dom 引进来）。每次交互后 flush。
   const flush = async () => { await new Promise((r) => { setTimeout(r, 0) }) }
+  /* ⚠ 第 5 步（2026-09-21）：导入那条路里页面**真的会等**（快扫握手 1s 一轮、解析 2s 一轮），
+     而 `flush` 只推进一个 0ms 的宏任务 ⇒ 断言会跑在"正在快扫…"那一句上（本批实测：
+     K3/K4/K6/K7/P30/P31 一起假红）。这里给一个"真等一会儿"的助手：只在导入那几跳用它。 */
+  const waitMs = async (ms) => { await new Promise((r) => { setTimeout(r, ms) }) }
 
   const container = document.getElementById('root')
   /** 页面要的两个 prop：`useTabInfo`（框架给的运行时）与注入面 `dataSource`。 */
@@ -1048,13 +1079,23 @@ export function mount(container, props) {
     (q('.ks-upload-note')[0]?.textContent ?? '').trim().slice(0, 80))
   const beforeTopUpload = calls.length
   await click(q('.ks-upload-go')[0])
-  await flush(); await flush(); await flush()
+  await waitMs(2500); await flush(); await flush()
   const topUploadCalls = calls.slice(beforeTopUpload)
   check('K3 点「导入到这一层」⇒ 真的调**引擎的真导入**接口（POST /api/v1/ingest/bulk + resume），'
     + '而不是 host 那套只读的 /ks/ingest/preview',
     topUploadCalls.some((c) => c.method === 'POST' && c.url === `${API}/api/v1/ingest/bulk`)
     && topUploadCalls.some((c) => c.method === 'POST' && c.url.includes('/ingest/bulk/bulk_1/resume'))
     && !topUploadCalls.some((c) => c.url.includes('/ks/ingest/preview')),
+    `这一跳：${topUploadCalls.map((c) => `${c.method} ${c.url.replace(API, '')}`).join(' , ')}`)
+  check('K3b **两段式握手**：先等快扫报 `scan_complete` 再 resume（真接口的 resume docstring 就是这条；'
+    + '旧 UI 紧跟 start 就 resume ⇒ 实测把快扫打断、队列被覆盖成空、界面还说"没有新增文件"）',
+    (() => {
+      const iBulk = topUploadCalls.findIndex((c) => c.method === 'POST' && c.url === `${API}/api/v1/ingest/bulk`)
+      const iResume = topUploadCalls.findIndex((c) => c.url.includes('/resume'))
+      const polls = topUploadCalls.slice(iBulk + 1, iResume)
+        .filter((c) => c.url.includes('/api/v1/ingest/bulk/'))
+      return iBulk >= 0 && iResume > iBulk && polls.length >= 1
+    })(),
     `这一跳：${topUploadCalls.map((c) => `${c.method} ${c.url.replace(API, '')}`).join(' , ')}`)
   check('K4 最外层导入**不调**落位接口（没有可挂的目录 —— 顶层在库里不是一行记录），并如实报"留在最外层"',
     !topUploadCalls.some((c) => c.url.includes('/kb/inbox/confirm'))
@@ -1073,7 +1114,7 @@ export function mount(container, props) {
     (q('.ks-upload-note')[0]?.textContent ?? '(面板不在)').trim().slice(0, 80))
   const beforeDirUpload = calls.length
   await click(q('.ks-upload-go')[0])
-  await flush(); await flush(); await flush()
+  await waitMs(2500); await flush(); await flush()
   const dirUploadCalls = calls.slice(beforeDirUpload)
   const confirmCall = dirUploadCalls.find((c) => c.url === `${API}/api/v1/kb/inbox/confirm`)
   const confirmBody = confirmCall === undefined ? null : JSON.parse(confirmCall.body ?? '{}')
@@ -1469,12 +1510,28 @@ export function mount(container, props) {
   if (q('.ks-upload').length === 0) { await click(q('.ks-upload-open')[0]); await flush() }
   bulkStateMissing = 1
   await click(q('.ks-upload-go')[0])
-  await flush(); await flush(); await flush()
+  await waitMs(2500); await flush(); await flush()
   check('P30 批次终态报"有文件的状态没写进库"⇒ 导入面板**照实说出来**（带文件名样本），不粉饰',
     (q('.ks-upload-msg')[0]?.textContent ?? '').includes('处理状态没写进库')
     && (q('.ks-upload-msg')[0]?.textContent ?? '').includes('missing.pdf'),
     `消息：${(q('.ks-upload-msg')[0]?.textContent ?? '(没有)').trim().slice(0, 140)}`)
   bulkStateMissing = 0
+  /* ── 第二处实测缺陷：`catalog_hidden=1` 的文档**不在** `/api/v1/documents` 里 ──
+     旧代码拿"导入前后文档列表的差集"当"这一批进来了哪些"，于是正文条款为零的那一类
+     （被 pipeline 挡在目录外、只在「待分类」里可见）会被算成"没有新增"⇒ 对业主说假话。
+     桩这里把这一批放进 `hiddenDocs`（只在库里、不在 /documents）⇒ 界面必须照实说。 */
+  bulkAddsHidden = true
+  const beforeHidden = calls.length
+  await click(q('.ks-upload-go')[0])
+  await waitMs(2500); await flush(); await flush()
+  const hiddenMsgs = q('.ks-upload-msg')[0]?.textContent ?? ''
+  check('P31 这一批进来的文档**不在 /documents 里**（正文条款为零那类）时，界面**不许**说"没有新增文件"'
+    + '—— 必须如实说"解析报成功 N 篇、但没出现在目录清单里，去「待分类」看得到"',
+    hiddenMsgs.includes('没出现在目录清单里') && hiddenMsgs.includes('待分类')
+    && !hiddenMsgs.includes('没有解析出任何文档')
+    && !calls.slice(beforeHidden).some((c) => c.url.includes('/kb/inbox/confirm')),
+    `消息：${hiddenMsgs.trim().slice(0, 140)}`)
+  bulkAddsHidden = false
   if (q('.ks-upload').length > 0) { await click(q('.ks-upload-open')[0]); await flush() }
 
   root.unmount()

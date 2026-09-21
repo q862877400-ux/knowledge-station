@@ -158,7 +158,7 @@ const interacts = arg('interact', PAGES[page].interact.join(',')) .split(',').ma
 const SCENARIOS = [
   'kb-files', 'kb-level', 'kb-crumb', 'kb-back', 'kb-detail', 'kb-search',
   'kb-search-dirs', 'kb-search-dirs-empty', 'kb-empty', 'kb-page', 'kb-upload',
-  'kb-inbox', 'kb-inbox-picked', 'ingest-batch', 'cap-dialog',
+  'kb-inbox', 'kb-inbox-picked', 'kb-dir-manage', 'ingest-batch', 'cap-dialog',
 ]
 const unknownScenarios = interacts.filter((name) => !SCENARIOS.includes(name))
 if (unknownScenarios.length > 0) {
@@ -434,7 +434,7 @@ globalThis.fetch = async (input, init = {}) => {
   if (url.startsWith(KB_API)) {
     const u = new URL(url)
     const p = u.pathname
-    if (p === '/api/v1/kb/folders') return reply(kbLevel(u.searchParams.get('parent_id')))
+    if (p === '/api/v1/kb/folders' && method === 'GET') return reply(kbLevel(u.searchParams.get('parent_id')))
     const mItems = /^\/api\/v1\/kb\/folders\/([^/]+)\/items$/.exec(p)
     if (mItems !== null) {
       return reply(kbItems(decodeURIComponent(mItems[1]),
@@ -442,6 +442,35 @@ globalThis.fetch = async (input, init = {}) => {
     }
     if (p === '/api/v1/kb/inbox/confirm' || p === '/api/v1/kb/members') {
       return reply({ code: 200, status: 'success', data: { confirmed: 0, added: 0, skipped: 0, removed_from_pending: 0 } })
+    }
+    /* ── 第 5 步：目录/文件 CRUD 的四条（形状照 routes_kb_folders.py；本场景只用到
+       `delete-preview` 一条，其余是"点下去别撞 STUB_MISS"的兜底）── */
+    const mDelPreview = /^\/api\/v1\/kb\/folders\/([^/]+)\/delete-preview$/.exec(p)
+    if (mDelPreview !== null) {
+      const fid = decodeURIComponent(mDelPreview[1])
+      const row = Object.values(KB_F).find((f) => f.folder_id === fid) ?? null
+      /* 「法律法规」在桩里是**一级目录**（没有上一层）⇒ 场景图上「移到上一层」是**禁用**的
+         —— 这正是要拍给业主看的两件事之一（另一个是非空目录的两个选择都在）。 */
+      const isTop = row === null || row.parent_id === null
+      return reply({ code: 200, status: 'success', data: {
+        folder: row ?? { folder_id: fid, parent_id: null, name: '标准', sort: 0, created_at: null },
+        is_empty: false, direct_subfolder_count: 1, direct_file_count: 2,
+        subtree_folder_count: 3, subtree_file_count: 9,
+        reparent_available: !isTop, files_kept_elsewhere: 2, files_would_be_deleted: 7 } })
+    }
+    if (/^\/api\/v1\/kb\/folders\/[^/]+\/(move|copy)$/.test(p)
+        || /^\/api\/v1\/kb\/members\/(remove|move|copy)$/.test(p)) {
+      return reply({ code: 200, status: 'success', data: {
+        folder_id: '', to_folder_id: '', from_folder_id: '',
+        added: 0, skipped: 0, removed: 0, moved: 0, total: 0 } })
+    }
+    if (p === '/api/v1/kb/folders' && method === 'POST') {
+      return reply({ code: 200, status: 'success', data: {
+        folder_id: 'fld_new', name: '新目录', parent_id: null, sort: 0, created_at: null } })
+    }
+    if (/^\/api\/v1\/kb\/folders\/[^/]+$/.test(p) && method === 'PUT') {
+      return reply({ code: 200, status: 'success', data: {
+        folder_id: p.split('/')[4], name: '新名字', parent_id: null } })
     }
     /* ── 第 4 步：「待分类」层的四条（形状逐字照 routes_kb_folders.py / reingest.py）── */
     if (p === '/api/v1/kb/inbox') {
@@ -789,6 +818,48 @@ for (const how of interacts) {
       + `点下一页 ${String(clicked)} 后 ${String(second)} 行（期望 50）、分页条「${pager2}」（期望含「第 2 / 3 页」）`)
     notes.push(`kb-page: 「大批量」第一页 ${String(first)} 行、分页条「${pager.trim()}」`
       + ` → 点「下一页」 → ${String(second)} 行、分页条「${pager2.trim()}」`)
+  } else if (how === 'kb-dir-manage') {
+    /* **第 5 步的目录管理**（2026-09-21）：停在"勾了两个目录 + 删目录确认面板已打开"的样子。
+       这一跑同时是两件事在**真 Chrome** 里看得见的证据：
+         ① 目录层与文件层的勾选列 + 一套批量条（`.ks-batch`）；
+         ② 删目录的**「先问一句」面板**（`.ks-act-del`）：几个下级目录 / 几篇文件 /
+            几篇在别处也有（只丢归属）/ 几篇会真删 —— 数字全部来自 `delete-preview`（桩给的是
+            真接口的形状）；勾中的两个目录里「法律法规」是一级目录 ⇒ 「移到上一层」必须**禁用**。
+       ⚠ 判据用 `mustLand`（没落地就 exit 1）—— 这是"真浏览器里量得到"的那一半；
+         请求体逐个核实在 jsdom 冒烟（`smoke-kb-page-render` 的 P1–P30）。 */
+    await gotoRoot()
+    const boxes = q('.ks-list-dirs .ks-col-dpick input[type=checkbox]')
+    if (boxes.length < 2) {
+      mustLand(false, `kb-dir-manage 目录层勾选框只有 ${String(boxes.length)} 个（期望 ≥ 2）`)
+      notes.push(`kb-dir-manage: 目录层勾选框 ${String(boxes.length)} 个`)
+    } else {
+      await click(boxes[0])
+      await click(boxes[1])
+      const batchTexts = q('.ks-batch button').map((el) => (el.textContent ?? '').trim())
+      const label = q('.ks-batch-n')[0]?.textContent ?? ''
+      const delBtn = q('.ks-batch button').find((el) => (el.textContent ?? '').includes('删掉目录'))
+      if (delBtn === undefined) {
+        mustLand(false, `kb-dir-manage 批量条里没有「删掉目录…」（拿到 ${JSON.stringify(batchTexts)}）`)
+        notes.push(`kb-dir-manage: 批量条 ${JSON.stringify(batchTexts)}`)
+      } else {
+        await click(delBtn)
+        const panel = q('.ks-act-del')[0]
+        const text = (panel?.textContent ?? '').replace(/\s+/g, ' ')
+        const reparent = q('.ks-act-del button').find((el) => (el.textContent ?? '').includes('移到上一层'))
+        const purge = q('.ks-act-del button').find((el) => (el.textContent ?? '').includes('连里面的文件一起删'))
+        mustLand(panel !== undefined && text.includes('整棵子树') && text.includes('只丢这里的归属')
+          && reparent !== undefined && reparent.disabled === true
+          && purge !== undefined && purge.disabled === false,
+          `kb-dir-manage 删目录面板不成立：面板 ${String(q('.ks-act-del').length)} 个、`
+          + `含「整棵子树」=${String(text.includes('整棵子树'))}、含「只丢这里的归属」=${String(text.includes('只丢这里的归属'))}、`
+          + `「移到上一层」disabled=${String(reparent?.disabled)}（期望 true，一级目录）、`
+          + `「连里面的文件一起删」disabled=${String(purge?.disabled)}（期望 false）`)
+        notes.push(`kb-dir-manage: 勾 2 个目录 ⇒ 批量条「${label}」+ ${JSON.stringify(batchTexts)}`
+          + ` → 点「删掉目录…」→ 确认面板 ${String(q('.ks-act-del').length)} 个；`
+          + `面板原话「${text.slice(0, 80)}…」；「移到上一层」disabled=${String(reparent?.disabled)}`
+          + `、「连里面的文件一起删」disabled=${String(purge?.disabled)}`)
+      }
+    }
   } else if (how === 'kb-upload') {
     /* **每级上传**的入口（本批新增）：点开面板 ⇒ 来源目录默认填 host 的「待入库」目录，
        并且**如实写着这一层导入会落在哪儿**（最外层 = 留在最外层 / 目录里 = 直接放进这一级）。
@@ -1576,6 +1647,9 @@ const PAD_REQUIRED = {
   'kb|kb-inbox': ['.ks-kb', '.ks-kb-tree', '.ks-page-head', '.ks-kb-row'],
   /* 勾了两篇 ⇒ 悬浮批量条在场，**必须不贴边**（它是第 4 步做回来的真批量条）。 */
   'kb|kb-inbox-picked': ['.ks-kb', '.ks-kb-tree', '.ks-page-head', '.ks-kb-row', '.ks-batch'],
+  /* 第 5 步：目录层勾两个 + 删目录确认面板（.ks-act-del）在场。批量条与目录层同屏 ⇒ 两个都得判。 */
+  'kb|kb-dir-manage': ['.ks-kb', '.ks-kb-tree', '.ks-dirs', '.ks-batch',
+                       '.ks-page-head', '.ks-kb-row'],
   'capabilities|': ['.ks-kb', '.ks-page-head', '.ks-kb-row'],
   'ingest|ingest-batch': ['.ks-ing'],
   'materials|': ['.ks-mat'],
@@ -1808,7 +1882,7 @@ const DIR_HEAD_CELLS_EXPECTED = DIR_COLS_EXPECTED
  *    ② 清单里的每个组合都必须在 `PAD_REQUIRED` 里声明 `.ks-dirs`（下详）；
  *    ③ **反向**：凡是在 `PAD_REQUIRED` 里声明了 `.ks-dirs` 的 kb 组合，都必须在这份清单里
  *    （否则"新加一个目录层组合但不入清单"就是这么绕过去的）。 */
-const DIR_LAYER_COMBOS = ['kb|', 'kb|kb-crumb', 'kb|kb-level', 'kb|kb-upload']
+const DIR_LAYER_COMBOS = ['kb|', 'kb|kb-crumb', 'kb|kb-level', 'kb|kb-upload', 'kb|kb-dir-manage']
 const dirColsPresenceRequired = DIR_LAYER_COMBOS.includes(padComboKey)
 /* ── 目录层的**页码源声明**（第 5 步 §5 的守卫）：从页面源码抠 `DIR_COLUMNS` 的条数 ──
    ⚠ 抠的是**声明本体**（`DIR_COLUMNS = [ … ] as const` 里的 `key: '…'` 条数），不是"文本里出现过

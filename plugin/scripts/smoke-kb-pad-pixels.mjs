@@ -72,6 +72,11 @@ const MATRIX = [
   { page: 'kb', width: 520, interact: 'kb-inbox', note: '待分类层（窄档：状态列必须看得见、建议去向藏）' },
   { page: 'kb', width: 1300, interact: 'kb-inbox', note: '待分类层（宽档：5 列全在）' },
   { page: 'kb', width: 520, interact: 'kb-inbox-picked', note: '待分类层勾选后：悬浮批量条（真批量）' },
+  /* ⚠ **2026-09-21（第 5 步）新增两组**：目录管理（勾两个目录 + 删目录"先问一句"确认面板）
+     与它的深色那一跑 —— 第 5 步的新界面（勾选列 / 一套批量条 / 影响数字面板）必须在
+     **真浏览器**里量得到，且深浅两套都跑（业主："深色浅色两套配色"）。 */
+  { page: 'kb', width: 520, interact: 'kb-dir-manage', note: '目录层勾选 + 删目录确认面板（影响数字来自 delete-preview）' },
+  { page: 'kb', width: 520, interact: 'kb-dir-manage', theme: 'dark', note: '深色：目录管理（勾选列 / 批量条 / 删目录面板）' },
   /* ⚠ **2026-09-21（第 3 步）就地改写**：这一组原来是 `kb-crumb`（面包屑逐级可点），
      判据没变、只是面包屑现在是**后端给的**真路径；场景名保留。 */
   { page: 'kb', width: 520, interact: 'kb-crumb', note: '面包屑逐级可点 + 目录层列表（窄档）' },
@@ -260,6 +265,8 @@ const EXPECTED_RUNS = ['kb|@520', 'kb|@1300', 'kb|kb-level@520', 'kb|kb-page@520
   'kb|kb-crumb@520', 'kb|kb-level@520#dark',
   /* 第 4 步：待分类层窄/宽两档 + 勾选后的批量条那一跑。 */
   'kb|kb-inbox@520', 'kb|kb-inbox@1300', 'kb|kb-inbox-picked@520',
+  /* 第 5 步：目录管理（勾选 + 删目录确认面板）浅色与深色各一跑。 */
+  'kb|kb-dir-manage@520', 'kb|kb-dir-manage@520#dark',
   'capabilities|@520', 'capabilities|@900',
   'ingest|ingest-batch@520', 'materials|@1300']
 /** 从**成功的实测 JSON** 里取声明集合（任一组报到即可 —— 它们来自同一个 `ui-render-shot` 进程）。 */

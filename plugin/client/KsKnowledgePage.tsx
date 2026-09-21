@@ -1198,10 +1198,40 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
       const beforeIds = new Set(before.map((d) => d.doc_id))
       const started = await withSession((port, token) =>
         startBulkIngest(port, token, dir, { reingest: upReingest }))
-      await withSession((port, token) => resumeBulkIngest(port, token, started.batch_id))
-      setUpMsg(`批次 ${started.batch_id} 已开始（共 ${started.total} 个文件）`
-        + `${upReingest ? '，**覆盖重导**（同号旧文档会被替换）' : ''}，等待解析…`)
+      /* ⚠⚠ **两段式握手（2026-09-21 第 5 步，副本库端到端实测出来的真缺陷）**：
+         `POST /ingest/bulk` 只是**起一个后台快扫**（建占位行 + 排队），
+         `POST .../resume` 的 docstring 明写「**快扫完成后调用**」——
+         而旧代码**紧跟着就调 resume**。实测后果（真 PDF，副本库）：
+           ① resume 路由进来先调一次幂等的 `pause_batch` ⇒ 正在跑的**快扫被暂停**；
+           ② `resume_batch` 见"还有没扫完的"⇒ 又跑一遍快扫；这一遍把上一遍**自己建的占位行**
+              当成 `duplicate_file`（`_known_files` 按"文件大小+哈希"认重）⇒ 新队列是空的；
+           ③ 于是解析循环拿到**空队列**、直接落 `done`：批次报 `parsed=0`，界面（旧代码还会
+              当场跳出轮询）对业主说"这一批没有新增文件" —— 而文件其实一份条款都没进去。
+         ⇒ 现在按接口自己的契约走：**先等快扫完成（`pause_reason='scan_complete'`）再 resume**。
+         ⚠ 后端那条"续扫会覆盖队列"的行为**不在本批改**（跨轮次发现只登记）——
+            见 `docs/KB-FOLDER-PLAN.md` §五待办里的那条挂账。 */
+      setUpMsg(`批次 ${started.batch_id} 已建，正在快扫来源目录（建清单，还没开始解析）…`)
       let last = started.total
+      let scanDone = false
+      for (let i = 0; i < 300; i += 1) {
+        const st = await withSession((port, token) => fetchBulkIngest(port, token, started.batch_id))
+        last = st.total
+        setUpMsg(`正在快扫：已看 ${st.scanned} / ${st.total} 个文件`
+          + `${st.errors > 0 ? `（其中 ${st.errors} 个进了隔离/重复）` : ''}…`)
+        if (st.status === 'done' || st.status === 'failed') { scanDone = true; break }
+        if (st.pause_reason === 'scan_complete') { scanDone = true; break }
+        await sleep(1000)
+      }
+      if (!scanDone) {
+        setUpPhase('done')
+        setUpMsg(`快扫这一步等了 5 分钟还没结束（已看 ${String(last)} 个文件）——`
+          + '不接着往下点「开始解析」了（那样会打断快扫，实测会把已排好的清单丢掉）。'
+          + '可以稍后再点一次「导入到这一层」。')
+        return
+      }
+      await withSession((port, token) => resumeBulkIngest(port, token, started.batch_id))
+      setUpMsg(`快扫完成，开始逐件解析`
+        + `${upReingest ? '（**覆盖重导**：同号旧文档会被替换）' : ''}…`)
       let parsed = 0
       /* ⚠ ③a（2026-09-21 第 5 步）：`filing_state_missing` = 这批里**处理状态没写进库**的文件数。
          原来它只进 `checkpoint.errors`（排障杂项）⇒ 界面上完全看不出"这批里有文件的状态没库"。
@@ -1209,17 +1239,43 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
          所以必须点名（后端给了前 5 个文件名样本）。 */
       let stateMissing = 0
       let stateMissingSample: readonly string[] = []
+      /* ⚠⚠ **2026-09-21 第 5 步实测修掉的一个真缺陷**（副本库端到端跑出来的）：
+         `POST .../resume` 进来先调一次幂等的 `pause_batch` ⇒ **刚 resume 完那一瞬批次是
+         `paused`**（过渡态）。旧代码 `if (st.status !== 'running' && st.status !== 'pending') break`
+         会**当场跳出**，紧接着去比对导入前后的文档列表 ⇒ 新文件还没解析 ⇒ 界面报
+         "这一批没有新增文件" —— 那是对业主说的**假话**（文件其实马上就会进去，实测：
+         跳出时 parsed=0/pending=1，几十秒后条款就进库了）。
+         现在：**只有 `done`/`failed` 是终态**；`paused` 只在真的停下时才算
+         （`daily_budget_reached` / `aborted_by_user`）；跑满上限要如实说"还在跑"，不许假装完成。 */
+      let settled: 'done' | 'failed' | 'stopped' | 'timeout' = 'timeout'
       for (let i = 0; i < 300; i += 1) {
         const st = await withSession((port, token) => fetchBulkIngest(port, token, started.batch_id))
         last = st.total
         parsed = st.parsed
         stateMissing = st.filing_state_missing
         stateMissingSample = st.filing_state_missing_sample
-        setUpMsg(`已解析 ${parsed} / ${last} 篇${st.errors > 0 ? `（失败 ${st.errors}）` : ''}` +
-          `${stateMissing > 0 ? `；**其中 ${String(stateMissing)} 篇的处理状态没写进库**` : ''}…`)
-        if (st.status !== 'running' && st.status !== 'pending') break
-        if (st.pending === 0 && st.scanned >= st.total && st.total > 0) break
+        const pausedReal = st.status === 'paused'
+          && (st.pause_reason === 'daily_budget_reached' || st.pause_reason === 'aborted_by_user')
+        setUpMsg(`已解析 ${parsed} / ${last} 篇${st.errors > 0 ? `（失败 ${st.errors}）` : ''}`
+          + `${st.status === 'paused' && !pausedReal ? '（引擎刚接过这一批，正在起解析）' : ''}`
+          + `${stateMissing > 0 ? `；**其中 ${String(stateMissing)} 篇的处理状态没写进库**` : ''}…`)
+        if (st.status === 'done' || st.status === 'failed') { settled = st.status as 'done' | 'failed'; break }
+        if (pausedReal) { settled = 'stopped'; break }
         await sleep(2000)
+      }
+      if (settled === 'timeout') {
+        setUpPhase('done')
+        setUpMsg(`**还在跑**：已解析 ${parsed} / ${last} 篇（等了 10 分钟没等到结束）`
+          + '——引擎那边还在干活，数字以它为准；可以点右上角刷新重读这一层，稍后再看。')
+        return
+      }
+      if (settled === 'stopped') {
+        setUpPhase('done')
+        setUpMsg(`这一批**停住了**（已解析 ${parsed} / ${last} 篇）：`
+          + '引擎说达到了当天的解析预算上限（或这批被终止）——剩下的文件不会自己继续，'
+          + '可以到「待分类」层对着那几篇点「重来一次」。')
+        await loadLevel(levelId, 0, { silent: true })
+        return
       }
       const missingNote = stateMissing === 0 ? '' :
         `；⚠ **这批里有 ${String(stateMissing)} 篇的处理状态没写进库**`
@@ -1227,28 +1283,47 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
         + '—— 它们在「待分类」里会显示成"排队中"，点「重来一次」可再试一次'
       const after = await withSession((port, token) => fetchDocsFlat(port, token))
       const fresh = after.filter((d) => !beforeIds.has(d.doc_id)).map((d) => d.doc_id)
+      /* ⚠⚠ **2026-09-21 第 5 步副本库端到端实测出来的第二处真缺陷**：
+         `GET /api/v1/documents`（`fetchDocsFlat` 用的那条）**看不到 `catalog_hidden=1` 的文档**
+         —— 而"正文条款为零"的那一类正好被 pipeline 标成 hidden（目录卫生）。实测：批次
+         `parsed=1`、`clause_revision` 真进库 1 条，而 `fresh` 是**空的** ⇒ 旧代码会对业主说
+         "这一批没有新增文件"，**那是假话**（文件真的进来了，只是不在目录里）。
+         ⇒ 现在按**批次自己的数字**说话：`parsed` 是引擎报的，`fresh` 只是"能挂进这一层的那些"；
+         两者对不上时如实说明它们去哪了（「待分类」里看得到，可以点「重来一次」）。 */
       if (fresh.length === 0) {
         setUpPhase('done')
-        setUpMsg(`这一批没有新增文件（共看了 ${last} 个，已解析 ${parsed} 个；库里已有的不会重复进）。`
-          + missingNote)
+        if (parsed > 0) {
+          setUpMsg(`这一批解析报成功 ${parsed} 篇，但它们**没出现在目录清单里**`
+            + '（正文条款为零的那一类会被挡在目录外）——去「待分类」层就能看到它们，'
+            + '在那儿可以对它们点「重来一次」。' + missingNote)
+        } else {
+          setUpMsg(`这一批没有解析出任何文档（共看了 ${last} 个，成功 0 个`
+            + `${last > 0 ? `，失败 ${String(last - parsed)} 个` : ''}；库里已有的不会重复进）。`
+            + missingNote)
+        }
         return
       }
+      const placeNote = parsed > fresh.length
+        ? `；另有 ${String(parsed - fresh.length)} 篇解析报成功但不在目录清单里`
+          + '（正文条款为零的那一类被挡在目录外，去「待分类」层看得到）'
+        : ''
       if (layer === 'folder' && levelId !== null) {
         const res = await withSession((port, token) =>
           fileDocsIntoFolder(port, token, levelId, fresh))
-        setUpMsg(`导入完成：新入库 ${fresh.length} 篇，已放进「${levelName}」${res.confirmed} 篇`
-          + `（从「待分类」拿掉 ${res.removed_from_pending} 篇）。` + missingNote)
+        setUpMsg(`导入完成：这一批解析 ${parsed} 篇，其中能挂的 ${fresh.length} 篇已放进「${levelName}」`
+          + `${res.confirmed} 篇（从「待分类」拿掉 ${res.removed_from_pending} 篇）`
+          + `${placeNote}。` + missingNote)
         setUpPhase('done')
         await loadLevel(levelId, 0, { silent: true })
         return
       }
       if (layer === 'inbox') {
-        setUpMsg(`导入完成：新入库 ${fresh.length} 篇，就排在下面这个列表里（状态如实显示）`
-          + '—— 在这儿直接处置。' + missingNote)
+        setUpMsg(`导入完成：这一批解析 ${parsed} 篇，其中能挂的 ${fresh.length} 篇就排在下面这个列表里`
+          + `（状态如实显示）——在这儿直接处置${placeNote}。` + missingNote)
       } else {
-        setUpMsg(`导入完成：新入库 ${fresh.length} 篇。你现在停在**最外层** ⇒ 它们留在最外层`
-          + `（还没归位，会出现在「待分类」里；进一个目录再上传才会直接落进那个目录）。`
-          + missingNote)
+        setUpMsg(`导入完成：这一批解析 ${parsed} 篇，其中能挂的 ${fresh.length} 篇。`
+          + '你现在停在**最外层** ⇒ 它们留在最外层（还没归位，会出现在「待分类」里；'
+          + `进一个目录再上传才会直接落进那个目录）${placeNote}。` + missingNote)
       }
       setUpPhase('done')
       await loadLevel(levelId, 0, { silent: true })
@@ -1773,8 +1848,12 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
           </span>
           <div className="ks-act-row">
             <Button variant="outline" size="sm" onClick={() => { setAction(null) }}>取消</Button>
+            {/* ⚠ 不可逆动作的按钮**不用 primary 底色**（2026-09-21 真机实测）：light 主题下
+                primary 的底色/字色压过 `.ks-danger` 的红字 ⇒ 一个「确认删除」看起来跟普通主按钮
+                一模一样。改成 `outline` + `ks-danger`（与批量条里的「删除」同一种呈现：
+                红字红描边），一眼看得出是危险动作。 */}
             <Button
-              variant="primary"
+              variant="outline"
               size="sm"
               className="ks-act-go ks-danger"
               onClick={() => { void removeDocs(docIdsOf(action.targets)) }}
@@ -1832,8 +1911,9 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
               <div className="ks-act-row">
                 <Button variant="outline" size="sm" onClick={() => { setAction(null) }}>取消</Button>
                 {delPreview.length > 0 && delPreview.every((p) => p.is_empty) ? (
+                  /* 空目录也是不可逆动作 ⇒ 同样 outline + ks-danger（理由见上面「确认删除」那条注释）。 */
                   <Button
-                    variant="primary"
+                    variant="outline"
                     size="sm"
                     className="ks-act-go ks-danger"
                     onClick={() => { void runFolderDelete(null) }}
@@ -1856,7 +1936,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                       只删目录，里面的东西移到上一层
                     </Button>
                     <Button
-                      variant="primary"
+                      variant="outline"
                       size="sm"
                       className="ks-act-go ks-danger"
                       title="连里面的下级目录一起删；文件只从这些目录里拿掉，不会再出现在任何目录里的才真删"
