@@ -330,19 +330,21 @@ export const KS_STYLES = `
         grid-template-columns:var(--ks-cols)，谁也不许再写一套列宽。
         渲染级证据在 ui-render-shot.mjs 的 #cols（真 Chrome 里量 header 与 row 的
         computed grid-template-columns，两者必须逐字相同）。
-     列宽都落在 4px 网格上（72 / 80 / 96 / 36），未引入任何非网格值。
-     窄档（宿主侧栏 520 ⇒ .ks-main 更窄）：名称(2 行) | 效力 | ⋮ 三列。
-     宽档（≥660px）：再加**生效日期**与**处理状态**两列。
+     列宽都落在 4px 网格上（32 / 72 / 80 / 96 / 36），未引入任何非网格值。
+     窄档（宿主侧栏 520 ⇒ .ks-main 更窄）：勾选 | 名称(2 行) | 效力 | ⋮ 四列。
+     宽档（≥660px）：再加**生效日期**与**处理状态**两列（六列）。
      ⚠ 窄档是"隐藏两列"，不是"删 DOM"：DOM 结构两个档**完全一样** ⇒ 渲染级冒烟
-       （jsdom 不做布局、也不认 @container）量到的 cell 结构恒为 5 列，与真机一致。
+       （jsdom 不做布局、也不认 @container）量到的 cell 结构恒为 6 列，与真机一致。
+     ⚠ **第 5 步加了勾选列**（--ks-col-fpick，两个档位都在）：批量挪/复制/从这一层拿掉
+       是业主点名的能力，窄档也不许把它藏起来（藏了就没法批量）。
      ⚠ 为什么窄档舍掉的是这两列：窄列里塞 5 列会把**名称**挤到 200px 以内，而行里最需要
        宽度的就是名称；效力是 20px 的徽章、信息密度最高，留下。
      ⚠ **2026-09-21（第 3 步）第 4 列从「标签」换成「处理状态」**：标签在本批**没有落库的接口**
        （doc_meta.domain_tags 是原始 JSON 串，而 /kb/.../items 不下发解析后的列表）⇒ 留着那一列
        只能是空壳或假数据；而"所有文件都要显示处理状态"是方案 §一里业主明说的 ⇒ 第 4 列改成
        --ks-col-stage（值来自后端 stage，本批如实显示，第 4 步做完整）。 */
-.ks-list{--ks-col-status:72px;--ks-col-date:80px;--ks-col-stage:96px;--ks-col-more:36px;
-  --ks-cols:minmax(0,1fr) var(--ks-col-status) var(--ks-col-more);
+.ks-list{--ks-col-fpick:32px;--ks-col-status:72px;--ks-col-date:80px;--ks-col-stage:96px;--ks-col-more:36px;
+  --ks-cols:var(--ks-col-fpick) minmax(0,1fr) var(--ks-col-status) var(--ks-col-more);
   border:0;border-radius:var(--ks-r-card);overflow:hidden;
   --dsw-elevation-stroke-color:var(--dsw-alias-border-l2);
   background:var(--dsw-alias-bg-base);box-shadow:var(--dsw-elevation-soft)}
@@ -352,10 +354,12 @@ export const KS_STYLES = `
      而它自己又要被**后面**那条 @container 覆盖 —— 所以它必须写在 @container **之前**
      （同权重时后者胜；第一版把顺序写反，实测宽档下两列仍然是 display:none）。 */
 .ks-list .ks-cell.ks-col-date,.ks-list .ks-cell.ks-col-stage{display:none}
-/* 宽档：5 列（名称 | 效力 | 生效日期 | 处理状态 | ⋮）。容器查询挂在 .ks-main 上（见上）。
-   ⚠ 必须放在上面那条 display:none **之后**（同权重、靠源码顺序覆盖）。 */
+/* 宽档：6 列（勾选 | 名称 | 效力 | 生效日期 | 处理状态 | ⋮）。容器查询挂在 .ks-main 上（见上）。
+   ⚠ 必须放在上面那条 display:none **之后**（同权重、靠源码顺序覆盖）。
+   ⚠ 第 5 步给文件层加了**勾选列**（--ks-col-fpick，两个档位都在：批量处置是这一批的头等事，
+     窄档也不许丢掉它）⇒ 窄档 4 列 / 宽档 6 列，两档都用同一条 --ks-cols 变量。 */
 @container (min-width:660px){
-  .ks-list{--ks-cols:minmax(0,1fr) var(--ks-col-status) var(--ks-col-date) var(--ks-col-stage) var(--ks-col-more)}
+  .ks-list{--ks-cols:var(--ks-col-fpick) minmax(0,1fr) var(--ks-col-status) var(--ks-col-date) var(--ks-col-stage) var(--ks-col-more)}
   .ks-list .ks-cell.ks-col-date,.ks-list .ks-cell.ks-col-stage{display:flex}
 }
 /* 表格的两种行（列头行 / 数据行）**只共用这一条列模板**（全表唯一的一处
@@ -372,19 +376,23 @@ export const KS_STYLES = `
    ⚠ 列**宽度**的所有者仍然只有一处：**这条** --ks-cols。.ks-lhead / .ks-item 上照旧只写
      grid-template-columns:var(--ks-cols)（上面那一条），谁也不许再写一套列宽 ——
      与文件层同一条纪律（P2 头条的验收口径）。
-   ⚠ 为什么要有 --ks-col-dcount / --ks-col-dgo 这两个中间变量：与文件层 --ks-col-more
-     等**同一种写法**（列宽进变量、模板只引用变量）。值都在 4px 网格上（64/16）。
+   ⚠ 为什么要有 --ks-col-dcount / --ks-col-dmore 这两个中间变量：与文件层 --ks-col-more
+     等**同一种写法**（列宽进变量、模板只引用变量）。值都在 4px 网格上（64/28/32）。
+   ⚠ **第 5 步的两处改动**：① 加勾选列（--ks-col-dpick，两个档位都在）；
+     ② 末列从"一个只展示的进入箭头"（16px 的 --ks-col-dgo）换成**行尾 ⋮ 菜单**
+     （28px 的 --ks-col-dmore：改名 / 新建下级 / 挪 / 复制 / 删）—— 目录行因此**不再是 button**
+     （行内要有勾选框与 ⋮ 两个真控件；button 里嵌 input 是非法 HTML），
+     "进入这一级"改成名字那一格里的 .ks-dir-open 真 button（键盘可达、整行也仍可点）。
    ⚠ **别把 .ks-list-dirs 写成 .ks-dirs**：.ks-dirs 只是容器的旧名字（三处外部锚点按名引用它，
      见上面那一段注释），**几何归 .ks-list-dirs**。两者在 JSX 里同时挂在同一个 div 上。
    ⚠ 本段注释里**一个反引号都没有**（整段 CSS 在模板字符串里；反引号会截断它 ——
      本批实测踩到过一次：被截断后 .ks-list-dirs 的规则整段没进产物，列对齐自检当场红）。 */
-.ks-list-dirs{--ks-col-dcount:64px;--ks-col-dgo:16px;
-  --ks-cols:minmax(0,1fr) var(--ks-col-dcount) var(--ks-col-dgo);
+.ks-list-dirs{--ks-col-dpick:32px;--ks-col-dcount:64px;--ks-col-dmore:28px;
+  --ks-cols:var(--ks-col-dpick) minmax(0,1fr) var(--ks-col-dcount) var(--ks-col-dmore);
   display:block;background:transparent;box-shadow:none;
   --dsw-elevation-stroke-color:transparent}
-/* 目录行本身是个 **button**（整行可点 + 键盘可达：Tab 聚焦、Enter/Space 激活）。
-   ⚠ 要打回"一行列表项"的样子：原生 button 的 font/text-align/color 都得清零，
-     底色/描边清零（默认按钮外观一律不许冒出来）。
+/* 目录行（第 5 步起是 **div**：行内要有勾选框与 ⋮ 两个真控件）。
+   ⚠ 要打回"一行列表项"的样子：底色/描边清零（默认外观一律不许冒出来）。
    ⚠ 行高与文件行**同一个 token**（--ks-row-h-list，52px）—— "和文件列表一样的视图"最硬的一条：
      两层行高逐像素一致（真 Chrome 实测：目录行 52 = 文件行 52）。
    ⚠⚠ **2026-09-21 就地更正**（本段原写"第一列也是**两行**：目录名 + 整条路径，手法同文件层的
@@ -393,43 +401,38 @@ export const KS_STYLES = `
      目录行现在是**单行**（图标 + 名称）；嵌套 grid 那一列还在，但只用于"图标列 + 名字"这一行。
      判据同 KsKnowledgePage.tsx 的 DIR_COLUMNS 注释（"目录行只有名字"那一条）。
    ⚠ 这里**不写** border / padding（padding 由共享的 .ks-item 给，两条同权重、靠源码顺序叠加）。
-   ⚠⚠ **width:100% 是必须的，不是保险**（本批真 Chrome 实测到的坑，正是列对齐自检抓出来的）：
-     .ks-item 是 div 时（文件行）作为块级盒**自动铺满**容器宽；换成 button（目录行）之后它是
-     **shrink-to-fit**（宽度 = 内容 max-content 之和）⇒ 实测**行宽只有 346px**（容器 1276px），
-     而 minmax(0,1fr) 那一列跟着塌到 206.328px ⇒ 同一层里出现**表头 1152px / 行 206.328px**
-     这种"同一条模板解出两个值"的假象（ui-render-shot 的 #cols 报的正是它）。
-     ⇒ 整行可点改成 button 之后，**必须显式给满宽**。
-     ⚠ 用 width:100% 而不是 align-self:stretch：这一层容器是 .ks-list-dirs{display:block}
-       （原卡片网格的 grid 已删）⇒ button 是**块级**子盒，100% = 容器内容宽，
-       与文件层的 div 行同宽（两层的行对齐口径因此完全一致）。 */
+   ⚠⚠ **width:100% 仍然必须**（第 3 步真 Chrome 实测到的坑）：div 行作为块级盒自动铺满容器宽；
+     当年换成 button 之后它是 shrink-to-fit（行宽只有 346px、minmax(0,1fr) 那一列跟着塌到
+     206.328px ⇒ 表头 1152px / 行 206.328px）。现在虽然回到 div，但**这条留着**：
+     它同时兜住"哪天有人再把它改成别的 display"这一类回归（文件层 div 行没有这条也照样满宽）。 */
 .ks-list-dirs .ks-item{width:100%;font:inherit;text-align:left;color:var(--dsw-alias-label-primary);
   background:transparent;border:0;cursor:pointer;text-decoration:none}
 .ks-list-dirs .ks-item:hover{background:var(--dsw-alias-interactive-bg-hover)}
-/* 焦点环用 **inset** box-shadow（不是 outline）：容器是 overflow:hidden，外扩的环会被裁掉。 */
-.ks-list-dirs .ks-item:focus-visible{outline:none;
+/* 焦点环用 **inset** box-shadow（不是 outline）：容器是 overflow:hidden，外扩的环会被裁掉。
+   ⚠ 第 5 步起焦点环挂在**行内那个真 button**（.ks-dir-open）上（行本身是 div，不可聚焦）。 */
+.ks-list-dirs .ks-item:focus-within{outline:none;
   box-shadow:inset 0 0 0 var(--ks-stroke) var(--dsw-alias-border-l4)}
-/* 目录名那一列（**只在行里**）：嵌套 grid（16px 图标列 + 名字）—— 与文件层的
-   .ks-item .ks-col-name 同一种手法（那里是 16px 图标列 + 名字 / 标准号两行）。
-   ⚠⚠ 选择器**必须限定在 .ks-item 行内**：表头那一格的类名也是 .ks-col-dname，把嵌套 grid
-     用到表头上会把 16px 当成第一列 ⇒ 表头的「目录」被挤进 16px、**只剩「目」**
-     （本批真 Chrome 实测：spClientW=16 / spScrollW=24，图上只显示一个字；文件层那条规则
-      写的是 .ks-item .ks-col-name，天生没这个问题。**修法就是本行的 .ks-item 限定**）。
-   ⚠⚠ **2026-09-21 就地更正**（本段原写"嵌套 grid **两行**（第 1 行图标 + 名字，第 2 行整条路径）"
-     + "整条 key 是唯一的消歧锚"）：**第 2 行已删** —— 理由与判据见上面 .ks-list-dirs .ks-item
-     那一段（它印出来的是内部 key/内部路径，业主的验收词不含"把内部标识当内容"）。
-     ⇒ 这一条现在只负责"图标列 + 名字"这一行；row-gap:0 与 align-items:center 保持不变。 */
-.ks-list-dirs .ks-item .ks-cell.ks-col-dname{display:grid;grid-template-columns:16px minmax(0,1fr);
-  column-gap:var(--ks-space-2);row-gap:0;align-items:center}
+/* 目录名那一格（**只在行里**）：里面是"进入这一级"的真 button（.ks-dir-open），
+   它自己才是嵌套 grid（16px 图标列 + 名字 + 16px 进入箭头）。
+    ⚠⚠ 选择器**必须限定在 .ks-item 行内**：表头那一格的类名也是 .ks-col-dname，把嵌套 grid
+      用到表头上会把 16px 当成第一列 ⇒ 表头的「目录」被挤进 16px、**只剩「目」**
+      （本批真 Chrome 实测：spClientW=16 / spScrollW=24，图上只显示一个字；文件层那条规则
+       写的是 .ks-item .ks-col-name，天生没这个问题。**修法就是本行的 .ks-item 限定**）。 */
+.ks-list-dirs .ks-item .ks-cell.ks-col-dname{display:flex;align-items:center;min-width:0}
+.ks-list-dirs .ks-item .ks-dir-open{display:grid;grid-template-columns:16px minmax(0,1fr) 16px;
+  column-gap:var(--ks-space-2);align-items:center;width:100%;min-width:0;
+  font:inherit;text-align:left;color:inherit;background:transparent;border:0;cursor:pointer;padding:0}
 /* 目录名（名字那一格，**只在行里**）：font-weight:600 —— 原来卡片上的名字就是这个字重（搬家不换样式）。
    ⚠ 这里把旧规则里的 flex:1 **去掉了**：新容器是 grid 单元格，flex 在它上面是死声明
      （留着会让人以为宽度归它管，而宽度归 --ks-cols）。 */
 .ks-list-dirs .ks-item .ks-dir-name{grid-area:1/2;min-width:0;overflow:hidden;text-overflow:ellipsis;
   white-space:nowrap;font-size:var(--ks-fs-base);font-weight:600}
-/* 篇数列 + 进入提示列：与文件层的 .ks-col-status / .ks-col-more 同一档（居中 / 靠右）。
+/* 篇数列 + 行尾菜单列：与文件层的 .ks-col-status / .ks-col-more 同一档（居中 / 靠右）。
    ⚠ .ks-kb-badge 是 flex:none 的胶囊（卡片上原来是它），放进 grid 单元格里没问题。 */
 .ks-list-dirs .ks-cell.ks-col-dcount{display:flex;align-items:center;gap:var(--ks-space-2);min-width:0}
-.ks-list-dirs .ks-cell.ks-col-dgo{display:flex;align-items:center;justify-content:flex-end}
-.ks-dir-go{display:inline-flex;align-items:center;color:var(--dsw-alias-label-tertiary)}
+.ks-list-dirs .ks-cell.ks-col-dmore{display:flex;align-items:center;justify-content:flex-end}
+.ks-dir-go{grid-area:1/3;display:inline-flex;align-items:center;justify-content:flex-end;
+  color:var(--dsw-alias-label-tertiary)}
 .ks-list-dirs .ks-item:hover .ks-dir-go{color:var(--dsw-alias-label-secondary)}
 /* 列头行：全选 + 列名。⚠ P1-8（2026-09-20）消费了 --ks-head-h:40px（改前实测只有 33px，
    与 --ks-card-h 同类暗账）；少了 box-sizing 的话 min-height 只约束**内容盒**。
@@ -467,6 +470,10 @@ export const KS_STYLES = `
   border-top:0.5px solid var(--dsw-alias-border-l2)}
 .ks-list-inbox .ks-item:first-of-type{border-top:0}
 .ks-item .ks-col-pick{display:flex;align-items:center;justify-content:center}
+/* 第 5 步：目录层与文件层的勾选列（与「待分类」层的 .ks-col-pick 同一套内边距/居中口径；
+   类名各自独立 —— 三层各有一条自己的 --ks-cols，行都挂在 .ks-item 上，重用类名会串味）。 */
+.ks-item .ks-col-fpick,.ks-item .ks-col-dpick{display:flex;align-items:center;justify-content:center}
+.ks-lhead .ks-cell.ks-col-fpick,.ks-lhead .ks-cell.ks-col-dpick{display:flex;justify-content:center}
 .ks-item .ks-col-istage{display:flex;align-items:center;overflow:hidden}
 .ks-item .ks-col-idest{align-items:center;overflow:hidden;min-width:0}
 /* 勾选框：宿主的 Checkbox 把 label 渲染成可见 span ⇒ 这里把它做成 **sr-only**
@@ -541,6 +548,16 @@ export const KS_STYLES = `
 .ks-act-item-path{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   font-size:var(--ks-fs-xs);color:var(--dsw-alias-label-tertiary)}
 .ks-act .ks-danger{color:var(--dsw-alias-state-error-primary)}
+/* 删目录的**影响清单**（第 5 步）：每个目录一段，数字全部来自 delete-preview（只读）。 */
+.ks-act-list-del{max-height:260px}
+.ks-act-delrow{display:flex;flex-direction:column;gap:var(--ks-space-1);
+  padding:var(--ks-space-2) var(--ks-space-3);border-top:var(--ks-stroke) solid var(--dsw-alias-border-l1)}
+.ks-act-delrow:first-child{border-top:0}
+/* 「逐篇看」（复活的 KsIngestPanel，第 5 步 §4①）挂在上传面板里的那一格：
+   它自带 .ks-page 外壳（container-type），这里只负责**别让它溢出上传面板**。 */
+.ks-upload-preview{display:block;min-width:0;margin-top:var(--ks-space-2);
+  border-top:var(--ks-stroke) solid var(--dsw-alias-border-l2)}
+.ks-upload-preview-open{flex:none}
 .ks-upload-check{flex:none}
 .ks-upload-hint{flex:1;min-width:0;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary);
   overflow:hidden;text-overflow:ellipsis}

@@ -56,9 +56,27 @@ import {
 } from './api'
 
 /** 面板 props：宿主是 KsSettingsSection 的折叠类目。visible 由 <details
- *  onToggle> 驱动——收起 = 挂载但零请求（懒加载门）。 */
+ *  onToggle> 驱动——收起 = 挂载但零请求（懒加载门）。
+ *
+ * ⚠ **2026-09-21（第 5 步 §4①）**：它从设置栏目**撤出**之后一直只活在
+ *   `ui-render-shot.mjs` 的 `PAGES.ingest` 里（产品里无入口）—— 那是"只照着测试脚本活着的
+ *   组件"，冻结清单（pad 矩阵 / UI-BASELINE 适用面 / smoke-client-entry 的在场表）会因此
+ *   显得比产品宽。父代理裁定二选一：**接回上传流程（复活）**或连清单一起删。
+ *   这里选**复活**：挂在知识库页上传面板的「逐篇看」下（`KsKnowledgePage` 里那一段），
+ *   并加两个可选 props —— `initialDir` 让它的目录跟着上传面板的「来源目录」走、
+ *   `onDirChange` 把面板里改的目录**同步回去**（一个来源目录、一处可改，不许两个各说各话）。
+ *   选复活而不是删的理由（逐条）：① 它提供的是**逐篇**分级/裁决/样例/识别与版面指标 +
+ *   全量异步预览（可中断），页面里那个「先体检」只报三个总账数字 —— 删了是真丢能力；
+ *   ② 删它要同时改 4 张**互相钉住**的冻结清单（pad 矩阵的 MATRIX/EXPECTED_RUNS/SPEC_SUBJECTS、
+ *   PAGES.ingest、UI-BASELINE 适用面、smoke-client-entry 的在场表），静默收窄覆盖面的风险更高；
+ *   ③ 复活之后那些清单里的条目**真的**对应产品里挂着的组件（不再有"测试专用组件"）。
+ */
 export interface KsIngestPanelProps {
   visible: boolean
+  /** 初始/上级给的「待入库目录」（省略 ⇒ 面板自己问 host 要多库目录）。 */
+  initialDir?: string
+  /** 面板里目录变了（读到 / 用户改了并刷新）⇒ 通知上级同步。 */
+  onDirChange?: (dir: string) => void
 }
 
 type LoadState =
@@ -131,7 +149,7 @@ function ReportDetail(props: { report: KsIngestReport }): JSX.Element {
       <div className="ks-ing-note">
         页数 {r.pages} · 条款 {r.total_clauses}
         {r.clauses_dropped_tiny > 0 ? `（丢弃碎片 ${r.clauses_dropped_tiny}）` : ''}
-        {' · '}识别置信度 {r.doc_confidence}
+        {' · '}识别置信度 {r.doc_confidence === null ? '算不出来（一条条款都没切出来）' : r.doc_confidence}
         {' · '}文本层 {rec.text_layer_state || '-'}
         {rec.skew_measured ? ` · 倾斜 ${rec.skew_deg}°` : ' · 倾斜未测'}
         {' · '}每页 {lay.chars_per_page} 字
@@ -199,7 +217,7 @@ function ReportDetail(props: { report: KsIngestReport }): JSX.Element {
 
 export function KsIngestPanel(props: KsIngestPanelProps): JSX.Element {
   ensureKsStyles()
-  const { visible } = props
+  const { visible, initialDir, onDirChange } = props
   const abortRef = useRef<AbortController | null>(null)
   const [dir, setDir] = useState<string>('')
   const [dirInput, setDirInput] = useState<string>('')
@@ -230,7 +248,10 @@ export function KsIngestPanel(props: KsIngestPanelProps): JSX.Element {
     const c = newController()
     setListState({ status: 'loading' })
     try {
-      const target = override ?? dir ?? ''
+      /* ⚠ 上级给了目录（`initialDir`）就用它，**不问 host 要默认值** —— 上传面板那一个
+         「来源目录」是同一个值，两处各读一次会出现"面板说 A、框里写 B"。 */
+      const seed = (override ?? initialDir ?? '').trim()
+      const target = seed !== '' ? seed : (dir ?? '')
       const inbox = target
         ? await fetchIngestInbox(target, c.signal)
         : await (async () => {
@@ -243,11 +264,13 @@ export function KsIngestPanel(props: KsIngestPanelProps): JSX.Element {
       setFiles(inbox.files ?? [])
       setDegraded(inbox.degraded ?? null)
       setListState({ status: 'ready' })
+      /* 同步回上级（它在页面上是"来源目录"那个框的唯一值）。 */
+      onDirChange?.(inbox.dir)
     } catch (e) {
       if ((e as { name?: string }).name === 'AbortError') return
       setListState({ status: 'error', message: e instanceof Error ? e.message : String(e) })
     }
-  }, [dir, newController])
+  }, [dir, initialDir, newController, onDirChange])
 
   // 首次可见时加载（tab 未挂载前不发请求）
   useEffect(() => {

@@ -264,6 +264,30 @@ export function mount(container, props) {
   let reingestRunning = false
   const reingestSeen = []
   const deletedDocs = []
+  /* ── 第 5 步：目录/文件 CRUD 的**请求记录**（判"真的发没发、发的什么"就靠它们）── */
+  const madeFolders = []
+  const renamedFolders = []
+  const movedFolders = []
+  const copiedFolders = []
+  const deletedFolders = []
+  const memberOps = []
+  /** `GET /kb/folders/{id}/delete-preview` 的桩：三个形态各一（空 / 一级 / 非空两层）。 */
+  const DELETE_PREVIEW = {
+    fld_std: { is_empty: false, direct_subfolder_count: 1, direct_file_count: 0,
+      subtree_folder_count: 2, subtree_file_count: 4, reparent_available: true,
+      files_kept_elsewhere: 1, files_would_be_deleted: 3 },
+    fld_law: { is_empty: false, direct_subfolder_count: 1, direct_file_count: 0,
+      subtree_folder_count: 2, subtree_file_count: 2, reparent_available: false,
+      files_kept_elsewhere: 0, files_would_be_deleted: 2 },
+    fld_empty: { is_empty: true, direct_subfolder_count: 0, direct_file_count: 0,
+      subtree_folder_count: 1, subtree_file_count: 0, reparent_available: true,
+      files_kept_elsewhere: 0, files_would_be_deleted: 0 },
+    fld_p16: { is_empty: false, direct_subfolder_count: 0, direct_file_count: 4,
+      subtree_folder_count: 1, subtree_file_count: 4, reparent_available: true,
+      files_kept_elsewhere: 0, files_would_be_deleted: 4 },
+  }
+  /** 批量导入**终态**里那两个新字段（③a）：默认 0；某条判据会把它改成 1 再看界面说没说。 */
+  let bulkStateMissing = 0
   const doc = (id, no, name, extra = {}) => ({
     doc_id: id, standard_no: no, standard_name: name,
     legal_status: 'effective', legal_hierarchy: 'GB', doc_type: 'standard',
@@ -340,9 +364,76 @@ export function mount(container, props) {
     if (!url.startsWith(API)) return json({ ok: false, error: { code: 'STUB_MISS', message: `未预料的请求：${url}` } }, 404)
     const u = new URL(url)
     const p = u.pathname
-    if (p === '/api/v1/kb/folders') {
+    if (p === '/api/v1/kb/folders' && method === 'GET') {
       if (failFolders) return json({ code: 500, status: 'error', error: { code: 'boom', message: '桩：引擎装作读不了目录' } }, 500)
       return json(levelOf(u.searchParams.get('parent_id')))
+    }
+    /* ── 第 5 步：建目录（`POST /kb/folders`，形状照路由的 docstring）── */
+    if (p === '/api/v1/kb/folders' && method === 'POST') {
+      const b = JSON.parse(body ?? '{}')
+      madeFolders.push({ parent_id: b.parent_id ?? null, name: b.name })
+      return json({ code: 200, status: 'success', data: {
+        folder_id: `fld_made_${String(madeFolders.length)}`, name: b.name,
+        parent_id: b.parent_id ?? null, sort: 0, created_at: '2026-09-21 10:00:00' } })
+    }
+    /* ── 第 5 步：挪 / 复制 / 删前预览（三个子路径，先于「改名」那条通用匹配）── */
+    const mFoldOp = /^\/api\/v1\/kb\/folders\/([^/]+)\/(move|copy|delete-preview)$/.exec(p)
+    if (mFoldOp !== null) {
+      const fid = decodeURIComponent(mFoldOp[1])
+      const op = mFoldOp[2]
+      if (op === 'delete-preview') {
+        const prev = DELETE_PREVIEW[fid] ?? {
+          is_empty: true, direct_subfolder_count: 0, direct_file_count: 0,
+          subtree_folder_count: 1, subtree_file_count: 0, reparent_available: true,
+          files_kept_elsewhere: 0, files_would_be_deleted: 0 }
+        const row = Object.values(F).find((f) => f.folder_id === fid)
+        return json({ code: 200, status: 'success', data: {
+          folder: row ?? { folder_id: fid, parent_id: null, name: fid, sort: 0, created_at: null },
+          ...prev } })
+      }
+      const b = JSON.parse(body ?? '{}')
+      if (op === 'move') {
+        movedFolders.push({ folder_id: fid, from_parent_id: b.from_parent_id ?? null,
+          to_parent_id: b.to_parent_id ?? null })
+        return json({ code: 200, status: 'success', data: {
+          folder_id: fid, name: '桩', parent_id: b.to_parent_id ?? null,
+          from_parent_id: b.from_parent_id ?? null, to_parent_id: b.to_parent_id ?? null,
+          updated_main_position: true, moved: true } })
+      }
+      copiedFolders.push({ folder_id: fid, to_parent_id: b.to_parent_id ?? null, name: b.name ?? null })
+      return json({ code: 200, status: 'success', data: {
+        folder_id: 'fld_copy_1', name: `${String(b.name ?? '副本')} (副本)`,
+        parent_id: b.to_parent_id ?? null, sort: 0, copied_members: 1, copied_from: fid } })
+    }
+    /* ── 第 5 步：改名（PUT）/ 删（DELETE ?mode=）── */
+    const mFolderId = /^\/api\/v1\/kb\/folders\/([^/]+)$/.exec(p)
+    if (mFolderId !== null && method === 'PUT') {
+      const fid = decodeURIComponent(mFolderId[1])
+      const b = JSON.parse(body ?? '{}')
+      renamedFolders.push({ folder_id: fid, name: b.name })
+      return json({ code: 200, status: 'success', data: {
+        folder_id: fid, name: b.name, parent_id: null } })
+    }
+    if (mFolderId !== null && method === 'DELETE') {
+      const fid = decodeURIComponent(mFolderId[1])
+      const mode = u.searchParams.get('mode')
+      deletedFolders.push({ folder_id: fid, mode })
+      return json({ code: 200, status: 'success', data: {
+        folder_id: fid, mode: mode ?? 'empty', removed: true,
+        reparented_subfolders: 0, reparented_files: 0, purged_folders: 1,
+        unfiled_docs: 0, deleted_docs: 0 } })
+    }
+    /* ── 第 5 步：成员拿掉 / 挪 / 复制（`members/remove|move|copy`）── */
+    const mMemberOp = /^\/api\/v1\/kb\/members\/(remove|move|copy)$/.exec(p)
+    if (mMemberOp !== null && method === 'POST') {
+      const b = JSON.parse(body ?? '{}')
+      const op = mMemberOp[1]
+      memberOps.push({ op, body: b })
+      return json({ code: 200, status: 'success', data: {
+        folder_id: b.folder_id ?? '', from_folder_id: b.from_folder_id ?? '',
+        to_folder_id: b.to_folder_id ?? '', added: op === 'copy' ? (b.items ?? []).length : 0,
+        skipped: 0, removed: op === 'remove' ? (b.items ?? []).length : 0,
+        moved: op === 'move' ? (b.items ?? []).length : 0, total: (b.items ?? []).length } })
     }
     const mItems = /^\/api\/v1\/kb\/folders\/([^/]+)\/items$/.exec(p)
     if (mItems !== null) {
@@ -426,6 +517,10 @@ export function mount(container, props) {
       return json({ code: 200, status: 'success', data: {
         batch_id: p.split('/')[5], status: 'done', total: 2, scanned: 2, parsed: 2,
         pending: 0, errors: 0, pause_reason: null,
+        /* ③a（第 5 步）：终态里必须能看出"这批里有没有文件的状态没写进库"。 */
+        filing_state_missing: bulkStateMissing,
+        filing_state_missing_sample: bulkStateMissing > 0 ? ['missing.pdf'] : [],
+        reingest: false,
       } })
     }
     return json({ ok: false, error: { code: 'STUB_MISS', message: `未预料的请求：${url}` } }, 404)
@@ -620,15 +715,24 @@ export function mount(container, props) {
     && q('.ks-list-dirs.ks-dirs').length === 1 && q('.ks-list-dirs .ks-lhead').length === 1,
     `目录行 ${String(dirRows().length)} / 文件行 ${String(fileRows().length)} / `
       + `.ks-list-dirs ${String(q('.ks-list-dirs').length)}`)
-  check('B3 目录层：表头与每一行的 cell 类名序列**逐字相同**（两侧都按同一份 DIR_COLUMNS 渲染，列数 3）',
+  /* ⚠⚠ **2026-09-21（第 5 步）就地改判据**：目录层加了**勾选列**（`dpick`）——
+     批量挪/复制/删目录要用它。列数因此 3 → 4（`DIR_COLUMNS` 里一条新声明）。
+     判据本身（"表头与每一行的 cell 类名序列逐字相同"+"列数 = DIR_COLUMNS 的条数"）**一个字没放宽**，
+     只是那个数跟着声明变了；谁单方面改声明（少写一列 / 多写一列）仍然红。 */
+  check('B3 目录层：表头与每一行的 cell 类名序列**逐字相同**（两侧都按同一份 DIR_COLUMNS 渲染，列数 4）',
     q('.ks-list-dirs .ks-lhead').length === 1 && dirRows().length > 0
     && cellClasses(q('.ks-list-dirs .ks-lhead')[0]).join('|') === cellClasses(dirRows()[0]).join('|')
-    && cellClasses(dirRows()[0]).length === 3,
+    && cellClasses(dirRows()[0]).length === 4,
     `表头 ${cellClasses(q('.ks-list-dirs .ks-lhead')[0]).join('|')} / 行 ${cellClasses(dirRows()[0]).join('|')}`)
-  check('B4 目录行显示"共多少篇"（来自后端 file_count_deep），且只有名字那一行（不印内部 key/路径）',
+  /* ⚠⚠ **2026-09-21（第 5 步）就地改判据**：目录行从 button 变成 div（行内要有勾选框 + ⋮ 两个
+     真控件），"图标 + 名字"因此从 `.ks-col-dname` 的直接子元素变成**里面那个 `.ks-dir-open` 按钮**
+     的子元素 ⇒ 旧断言 `children.length === 2` 不再成立。判的**意思没变**：名字那一格只有
+     "图标 + 名字 + 进入箭头"三样，**不许印内部 key / 内部路径**（那个第二行早就删了）。 */
+  check('B4 目录行显示"共多少篇"（来自后端 file_count_deep），且名字那一格只有图标+名字+进入箭头（不印内部 key/路径）',
     dirNamed('标准') !== undefined
     && (dirNamed('标准').textContent ?? '').includes('14 篇')
-    && (dirNamed('标准').querySelector('.ks-col-dname')?.children.length ?? 0) === 2,
+    && (dirNamed('标准').querySelector('.ks-col-dname .ks-dir-open')?.children.length ?? 0) === 3
+    && (dirNamed('标准').querySelector('.ks-dir-name')?.textContent ?? '').trim() === '标准',
     `「标准」那一行的文本：${(dirNamed('标准')?.textContent ?? '').trim()}`)
   check('B5 顶层**如实**说"你在最外层"，返回按钮 disabled（没有上一级可回）',
     (container.textContent ?? '').includes('你在最外层')
@@ -645,8 +749,11 @@ export function mount(container, props) {
      判的是**当前页面上真的渲染出来的东西**（文案 / title / 同一个父元素），不是源码字面量。 */
   const dirHeadTexts = () => q('.ks-list-dirs .ks-lhead .ks-cell')
     .map((el) => (el.textContent ?? '').trim())
-  check('B7 目录层列头文案就是「目录 / 篇数」（＋进入提示列无列头）—— 复核 M4：清空列头曾能全绿',
-    dirHeadTexts().join('|') === '目录|篇数|',
+  /* ⚠⚠ **2026-09-21（第 5 步）就地改判据**：列头多了一个**无列头的勾选列**（在最前）⇒
+     期望串从 `目录|篇数|` 变成 `|目录|篇数|`（末列仍是无列头的 ⋮ 操作列）。
+     判的仍是"列头文案**逐字**就是这两样"—— 清空/改字仍然红（复核 M4 那一课不重演）。 */
+  check('B7 目录层列头文案就是「目录 / 篇数」（勾选列与行尾操作列无列头）—— 复核 M4：清空列头曾能全绿',
+    dirHeadTexts().join('|') === '|目录|篇数|',
     `列头=${JSON.stringify(dirHeadTexts())}`)
   check('B8 目录行：名字文本 == 它自己的 title（悬停提示与显示的名是同一个，不是各写一份）',
     dirRows().length === 4 && dirRows().every((r) => {
@@ -679,15 +786,25 @@ export function mount(container, props) {
     && q('.ks-batch').length === 0,
     `kbband=${String(q('.ks-kbband').length)} / clip=${String(q('.ks-kbband-clip').length)} / `
       + `nav=${String(q('.ks-kbband-nav').length)} / batch=${String(q('.ks-batch').length)}`)
-  check('C2 "只改内存不落库"的那几样仍然一处不留（标签视图/筛选胶囊/占位视图）；勾选列**只在待分类层**',
+  check('C2 "只改内存不落库"的那几样仍然一处不留（标签视图/筛选胶囊/占位视图）；三层勾选列**每行一个**（第 5 步）',
     q('.ks-subtabs').length === 0 && q('.ks-tagrow').length === 0 && q('.ks-parse').length === 0
     && q('.ks-chip').length === 0
-    && q('.ks-dirs input[type=checkbox]').length === 0
-    && q('.ks-list:not(.ks-list-dirs):not(.ks-list-inbox) input[type=checkbox]').length === 0,
+    /* ⚠⚠ **2026-09-21（第 5 步）就地改判据（原文见下，别删）**：这一条原来判的是
+       「目录层与文件层**不许**有勾选框」—— 那是第 4 步的边界（批量只做在「待分类」层）。
+       第 5 步业主明说"文件操作要能批量做" ⇒ 目录层/文件层**各有一条勾选列**，
+       那两句不再成立；判据改成**新的真行为**（不是删掉、也不是放宽）：
+         · 目录层勾选框数 == 目录行数（每行一个，多一个少一个都红）；
+         · 文件层勾选框数 == 文件行数（这一跑在最外层 ⇒ 0 行 / 0 个）；
+         · 「待分类」层的勾选在 N8 单独判（那一层这一跑不在屏上）。
+       原文：`q('.ks-dirs input[type=checkbox]').length === 0
+       && q('.ks-list:not(.ks-list-dirs):not(.ks-list-inbox) input[type=checkbox]').length === 0` */
+    && q('.ks-list-dirs .ks-col-dpick input[type=checkbox]').length === dirRows().length
+    && q('.ks-list:not(.ks-list-dirs):not(.ks-list-inbox) .ks-col-fpick input[type=checkbox]').length
+      === fileRows().length,
     `subtabs=${String(q('.ks-subtabs').length)} tagrow=${String(q('.ks-tagrow').length)} `
       + `parse=${String(q('.ks-parse').length)} chip=${String(q('.ks-chip').length)} `
-      + `目录层勾选=${String(q('.ks-dirs input[type=checkbox]').length)} `
-      + `文件层勾选=${String(q('.ks-list:not(.ks-list-dirs):not(.ks-list-inbox) input[type=checkbox]').length)}`)
+      + `目录层勾选=${String(q('.ks-list-dirs .ks-col-dpick input[type=checkbox]').length)}/${String(dirRows().length)} 行 `
+      + `文件层勾选=${String(q('.ks-list:not(.ks-list-dirs):not(.ks-list-inbox) .ks-col-fpick input[type=checkbox]').length)}/${String(fileRows().length)} 行`)
   check('C3 页面文本里没有"占位"字样的假动作（新建文件夹占位 / 移动到某目录）',
     !(container.textContent ?? '').includes('新建文件夹')
     && !(container.textContent ?? '').includes('移动到')
@@ -722,9 +839,11 @@ export function mount(container, props) {
     fileRows().length === 4 && q('.ks-list .ks-lhead').length === 1 && q('.ks-list-dirs').length === 0,
     `文件行 ${String(fileRows().length)} / 表头 ${String(q('.ks-list .ks-lhead').length)} / `
       + `.ks-list-dirs ${String(q('.ks-list-dirs').length)}`)
-  check('E2 文件层：表头与每一行的 cell 类名序列**逐字相同**（同一份 COLUMNS，列数 5）',
+  /* ⚠⚠ **2026-09-21（第 5 步）就地改判据**：文件层加了勾选列 ⇒ 5 列变 6 列
+     （`COLUMNS` 里一条新声明）。判据本身没放宽，只是那个数跟着声明变。 */
+  check('E2 文件层：表头与每一行的 cell 类名序列**逐字相同**（同一份 COLUMNS，列数 6）',
     cellClasses(q('.ks-list .ks-lhead')[0]).join('|') === cellClasses(fileRows()[0]).join('|')
-    && cellClasses(fileRows()[0]).length === 5,
+    && cellClasses(fileRows()[0]).length === 6,
     `表头 ${cellClasses(q('.ks-list .ks-lhead')[0]).join('|')}`)
   check('E3 文件行显示**后端字段**：名字 + 标准号 + 效力徽章 + 生效日期 + 处理状态',
     fileRows()[0] !== undefined
@@ -741,8 +860,9 @@ export function mount(container, props) {
      （列头文案 / 行内文件图标 / 逐行 ⋮ 触发器 / 表头与同一个父元素）。旧版第 64/67/58/65 条判的
      就是这些。判据一律判**当前页面真的渲染出来的东西**。 */
   const fileHeadTexts = () => q('.ks-list .ks-lhead .ks-cell').map((el) => (el.textContent ?? '').trim())
-  check('E5 文件层列头文案就是「文件名 / 效力 / 生效日期 / 处理状态」（＋行尾操作列无列头）',
-    fileHeadTexts().join('|') === '文件名|效力|生效日期|处理状态|',
+  /* ⚠⚠ **2026-09-21（第 5 步）就地改判据**：勾选列无列头（在最前）⇒ 期望串多一个前导 `|`。 */
+  check('E5 文件层列头文案就是「文件名 / 效力 / 生效日期 / 处理状态」（勾选列与行尾操作列无列头）',
+    fileHeadTexts().join('|') === '|文件名|效力|生效日期|处理状态|',
     `列头=${JSON.stringify(fileHeadTexts())}`)
   check('E6 每一行都有**行内文件图标**（`.ks-fileico` 里真 svg + 非空 title），4 行 4 个',
     fileRows().length === 4 && fileRows().every((r) => {
@@ -890,8 +1010,14 @@ export function mount(container, props) {
   const moreBtn = row3.querySelector('.ks-item-more button')
   await click(moreBtn)
   const menuItems = q('[role=menuitem]').map((el) => (el.textContent ?? '').trim())
-  check('I5 行尾「⋮」菜单只有「详情」（＋标签那个"只改内存"的假动作**已拆**）',
-    menuItems.length === 1 && menuItems[0] === '详情',
+  /* ⚠⚠ **2026-09-21（第 5 步）就地改判据（原文见下，别删）**：这一条原来判「菜单**只有**「详情」」
+     —— 那是第 3/4 步的边界（文件层的操作还没接）。第 5 步把**真的**文件操作接上了
+     （挪到…/复制到…/从这一层拿掉，全部对应真接口），所以菜单项集合跟着变。
+     判据改成**新的真行为**（不是删掉、也不是放宽）：这一篇在**某个目录里**（P16 工程防火）
+     ⇒ 菜单必须恰好是这四样、第一项仍是「详情」；而"只改内存"的假动作（＋标签）仍然一处不留。
+     原文：`menuItems.length === 1 && menuItems[0] === '详情'` */
+  check('I5 行尾「⋮」菜单 = 详情 + 挪到…/复制到…/从这一层拿掉（在目录里那一套；＋标签那种假动作仍然没有）',
+    menuItems.join('|') === '详情|挪到某个目录…|复制到某个目录…|从这一层拿掉',
     `菜单项：${JSON.stringify(menuItems)}`)
   await click(moreBtn)
   /* ⚠ **2026-09-21 复核 `verify-freeze-kb-ui3` 打回 §④-C**：旧版第 61 条判"点开再点一次都收起"——
@@ -1096,6 +1222,260 @@ export function mount(container, props) {
   check('N15 删除面板如实写明"不可撤销"与"收藏/批注不删"（不是一句含糊的"确定吗"）',
     confirmText.includes('不可撤销') && confirmText.includes('收藏') && confirmText.includes('批注'),
     `确认面板原话：${confirmText.slice(0, 90)}`)
+
+  /* ══════════ P. 第 5 步：目录/文件的「建 / 改名 / 挪 / 复制 / 删」+ 批量（2026-09-21）══════════
+     这一节判的全是**真行为**：每个动作都必须打到**真接口**（桩把每次请求都记下来），
+     并且做完之后**当前这一层被重读**（"看起来成功了但列表没变"是明文禁止的假动作）。
+     ⚠ 真浏览器里"看得见吗"的判据不在这里（jsdom 不做布局）：列宽/勾选框可见性那几条在
+       `ui-render-shot.mjs`（`dirColsCheck` / `dirHeadCheck` / `rowCtrlsCheck` + 截图）。 */
+  await gotoInboxLayer()                       // 先离开「待分类」（上一条把删除确认面板留在那层）
+  await click(q('.ks-crumb-go')[0])            // 回到最外层
+  await flush()
+  const mkdirBtn = () => q('.ks-mkdir-open')[0]
+  const actGo = () => q('.ks-act-go')[0]
+  const actInput = () => q('.ks-act-name input')[0] ?? q('input.ks-act-name')[0]
+  const dirMoreBtn = (text) => dirNamed(text).querySelector('.ks-item-more button')
+  check('P1 「新建下级目录」入口在（目录层工具栏上），点了就开出建目录面板（不是假的）',
+    mkdirBtn() !== undefined && (mkdirBtn().textContent ?? '').includes('新建下级目录'),
+    `入口 ${String(q('.ks-mkdir-open').length)} 个`)
+  await click(mkdirBtn())
+  check('P2 建目录面板：真开了（.ks-act）+ 有名字输入框，且写明"建在「知识库」下面"',
+    q('.ks-act').length === 1 && actInput() !== undefined
+    && (q('.ks-act')[0].textContent ?? '').includes('知识库'),
+    `面板 ${String(q('.ks-act').length)} 个 / 输入框 ${String(q('.ks-act-name').length)} 个`)
+  await setInput(actInput(), '2026 新目录')
+  const beforeMkdir = calls.length
+  await click(actGo())
+  await flush(); await flush()
+  check('P3 点「建这个目录」⇒ **真的发** `POST /kb/folders`（parent_id=null = 顶层、name=填的那个），并重读这一层',
+    madeFolders.length === 1 && madeFolders[0].name === '2026 新目录'
+    && madeFolders[0].parent_id === null
+    && calls.slice(beforeMkdir).filter((c) => c.url.includes('/api/v1/kb/folders')).length >= 2
+    && (q('.ks-ib-msg')[0]?.textContent ?? '').includes('已建目录'),
+    `请求体 ${JSON.stringify(madeFolders)} / 消息：${(q('.ks-ib-msg')[0]?.textContent ?? '(没有)').trim().slice(0, 60)}`)
+  /* 在**目录里**建 ⇒ parent_id 必须是**当前这一级**（不是顶层）。 */
+  await click(dirNamed('标准'))
+  await click(mkdirBtn())
+  await setInput(actInput(), 'P16 下级')
+  await click(actGo())
+  await flush(); await flush()
+  check('P4 在「标准」里建目录 ⇒ `parent_id` 就是**当前这一级**（fld_std），不是顶层',
+    madeFolders.length === 2 && madeFolders[1].parent_id === 'fld_std',
+    `第二次请求体 ${JSON.stringify(madeFolders[1] ?? null)}`)
+  await click(q('.ks-crumb-go')[0])            // 回到最外层
+  /* ── 改名（只改库里的名字）── */
+  await click(dirMoreBtn('标准'))
+  const renameItem = q('[role=menuitem]').find((el) => (el.textContent ?? '').includes('改名'))
+  check('P5 目录行的 ⋮ 菜单里有「改名…/新建…/挪到…/复制到…/删掉…」五样（目录操作接上了）',
+    q('[role=menuitem]').length === 5 && renameItem !== undefined,
+    `菜单项：${JSON.stringify(q('[role=menuitem]').map((el) => (el.textContent ?? '').trim()))}`)
+  await click(renameItem)
+  check('P6 改名面板**预填了当前名字**（改名前先看见它现在叫什么）',
+    actInput() !== undefined && actInput().value === '标准',
+    `输入框里「${actInput()?.value ?? ''}」`)
+  await setInput(actInput(), '标准（改名）')
+  await click(actGo())
+  await flush(); await flush()
+  check('P7 点「改名字」⇒ **真的发** `PUT /kb/folders/fld_std`（name = 新名）—— 只改库里的名字，不动磁盘文件',
+    renamedFolders.length === 1 && renamedFolders[0].folder_id === 'fld_std'
+    && renamedFolders[0].name === '标准（改名）',
+    `请求：${JSON.stringify(renamedFolders)}`)
+  /* ── 挪目录：选择器要**排除自己与自己的下级** ── */
+  await click(dirMoreBtn('标准'))
+  await click(q('[role=menuitem]').find((el) => (el.textContent ?? '').includes('挪到某个目录')))
+  await flush()
+  const moveChoices = q('.ks-act-item').map((el) => (el.textContent ?? '').trim())
+  check('P8 「挪到某个目录…」的选择器**排除了自己与自己的下级**（只剩「法律法规」—— 点不到必然失败的去处）',
+    q('.ks-act').length === 1 && q('.ks-act-item').length === 1
+    && moveChoices[0].includes('法律法规'),
+    `可选 ${String(q('.ks-act-item').length)} 个：${JSON.stringify(moveChoices)}`)
+  await click(q('.ks-act-item')[0])
+  await click(actGo())
+  await flush(); await flush()
+  check('P9 点确认 ⇒ **真的发** `POST /kb/folders/fld_std/move`（from_parent_id=null = 当前主位置，to=fld_law）',
+    movedFolders.length === 1 && movedFolders[0].folder_id === 'fld_std'
+    && movedFolders[0].to_parent_id === 'fld_law',
+    `请求：${JSON.stringify(movedFolders)}`)
+  /* ── 复制目录：共享成员（多一处位置） ── */
+  await click(dirMoreBtn('法律法规'))
+  await click(q('[role=menuitem]').find((el) => (el.textContent ?? '').includes('复制到某个目录')))
+  await flush()
+  await click(q('.ks-act-item')[0])
+  await click(actGo())
+  await flush(); await flush()
+  check('P10 目录「复制到…」⇒ **真的发** `POST /kb/folders/{id}/copy`（面板上写明"只是多了一处位置"）',
+    copiedFolders.length === 1 && copiedFolders[0].folder_id === 'fld_law'
+    && (q('.ks-ib-msg')[0]?.textContent ?? '').includes('只是多了一处位置'),
+    `请求：${JSON.stringify(copiedFolders)} / 消息：${(q('.ks-ib-msg')[0]?.textContent ?? '').trim().slice(0, 70)}`)
+  /* ── 删目录：三种情形各有各的问法 ── */
+  await click(dirMoreBtn('空目录'))
+  await click(q('[role=menuitem]').find((el) => (el.textContent ?? '').includes('删掉这个目录')))
+  await flush(); await flush()
+  check('P11 删目录**先读影响**（真的调 `GET /kb/folders/fld_empty/delete-preview`），空目录只说一句"空目录"'
+    + '且**不给**「移到上一层/连文件一起删」那两条（空目录没有那些选择）',
+    callsOf('/delete-preview').length >= 1
+    && (q('.ks-act-del')[0]?.textContent ?? '').includes('空目录')
+    && q('.ks-act-del button').some((b) => (b.textContent ?? '').includes('删除这些空目录'))
+    && !q('.ks-act-del button').some((b) => (b.textContent ?? '').includes('移到上一层'))
+    && !q('.ks-act-del button').some((b) => (b.textContent ?? '').includes('连里面的文件一起删')),
+    `delete-preview 调用 ${String(callsOf('/delete-preview').length)} 次 / `
+      + `面板按钮 ${JSON.stringify(q('.ks-act-del button').map((b) => (b.textContent ?? '').trim()))}`)
+  await click(q('.ks-act-del button').find((b) => (b.textContent ?? '').includes('删除这些空目录')))
+  await flush(); await flush()
+  check('P12 空目录：**直接删**（DELETE 不带 mode —— 后端对空目录忽略 mode），并重读这一层',
+    deletedFolders.length === 1 && deletedFolders[0].folder_id === 'fld_empty'
+    && deletedFolders[0].mode === null,
+    `请求：${JSON.stringify(deletedFolders)}`)
+  /* 一级目录（法律法规）：没有上一层 ⇒ 「移到上一层」必须**禁用**（不是点下去报错）。 */
+  await click(dirMoreBtn('法律法规'))
+  await click(q('[role=menuitem]').find((el) => (el.textContent ?? '').includes('删掉这个目录')))
+  await flush(); await flush()
+  const reparentBtn = () => q('.ks-act-del button')
+    .find((b) => (b.textContent ?? '').includes('移到上一层'))
+  const purgeBtn = () => q('.ks-act-del button')
+    .find((b) => (b.textContent ?? '').includes('连里面的文件一起删'))
+  check('P13 一级目录（没有上一层）⇒「移到上一层」**禁用**且 title 说明原因；「连里面的文件一起删」仍可用',
+    reparentBtn() !== undefined && reparentBtn().disabled === true
+    && (reparentBtn().getAttribute('title') ?? '').includes('一级目录')
+    && purgeBtn() !== undefined && purgeBtn().disabled === false,
+    `移到上一层 disabled=${String(reparentBtn()?.disabled)} / title=${(reparentBtn()?.getAttribute('title') ?? '').slice(0, 50)}`)
+  check('P14 影响数字**来自 delete-preview**（几个下级目录 / 几篇文件 / 几篇在别处也有 —— 不是前端猜的）',
+    (q('.ks-act-del')[0]?.textContent ?? '').includes('整棵子树')
+    && (q('.ks-act-del')[0]?.textContent ?? '').includes('只丢这里的归属'),
+    (q('.ks-act-del')[0]?.textContent ?? '').replace(/\s+/g, ' ').slice(0, 120))
+  await click(purgeBtn())
+  await flush(); await flush()
+  check('P15 点「连里面的文件一起删」⇒ **真的发** `DELETE /kb/folders/fld_law?mode=purge`',
+    deletedFolders.length === 2 && deletedFolders[1].folder_id === 'fld_law'
+    && deletedFolders[1].mode === 'purge',
+    `请求：${JSON.stringify(deletedFolders)}`)
+  /* 非空两级目录：两个选择都要在，选「移到上一层」⇒ mode=reparent。 */
+  await click(dirMoreBtn('标准'))
+  await click(q('[role=menuitem]').find((el) => (el.textContent ?? '').includes('删掉这个目录')))
+  await flush(); await flush()
+  const reparentBtn2 = () => q('.ks-act-del button')
+    .find((b) => (b.textContent ?? '').includes('移到上一层'))
+  check('P16 非空两级目录：两个选择都在（「移到上一层」可用 + 「连里面的文件一起删」），且取消也在',
+    reparentBtn2() !== undefined && reparentBtn2().disabled === false
+    && q('.ks-act-del button').some((b) => (b.textContent ?? '').includes('取消')),
+    `按钮：${JSON.stringify(q('.ks-act-del button').map((b) => (b.textContent ?? '').trim()))}`)
+  await click(reparentBtn2())
+  await flush(); await flush()
+  check('P17 点「只删目录，里面的东西移到上一层」⇒ **真的发** `DELETE /kb/folders/fld_std?mode=reparent`',
+    deletedFolders.length === 3 && deletedFolders[2].folder_id === 'fld_std'
+    && deletedFolders[2].mode === 'reparent',
+    `请求：${JSON.stringify(deletedFolders)}`)
+  /* ── 文件层：勾选 + 批量（挪 / 复制 / 从这一层拿掉）── */
+  await click(dirNamed('大批量'))                 // 120 篇那一级，勾前两行
+  const fileBoxes = () => q('.ks-col-fpick input[type=checkbox]')
+  check('P18 文件层**每行一个勾选框**（50 行 50 个），没勾选时没有批量条',
+    fileBoxes().length === fileRows().length && fileRows().length === 50
+    && q('.ks-batch').length === 0,
+    `勾选框 ${String(fileBoxes().length)} 个 / 文件行 ${String(fileRows().length)} 行 / 批量条 ${String(q('.ks-batch').length)} 条`)
+  await click(fileBoxes()[0])
+  await click(fileBoxes()[1])
+  const batchTexts = () => [...q('.ks-batch button')].map((b) => (b.textContent ?? '').trim())
+  check('P19 勾两篇 ⇒ 批量条出现：**已选 2 篇** + 挪到… / 复制到… / 从这一层拿掉 / 取消选择',
+    (q('.ks-batch-n')[0]?.textContent ?? '').includes('已选 2 篇')
+    && ['挪到…', '复制到…', '从这一层拿掉'].every((t) => batchTexts().some((b) => b.includes(t))),
+    `批量条：${JSON.stringify(batchTexts())}`)
+  await click([...q('.ks-batch button')].find((b) => (b.textContent ?? '').includes('挪到…')))
+  await flush()
+  await click(q('.ks-act-item').find((el) => (el.textContent ?? '').includes('法律法规')))
+  await click(actGo())
+  await flush(); await flush()
+  const moveOp = memberOps.find((o) => o.op === 'move')
+  check('P20 批量「挪到…」⇒ **真的发** `POST /kb/members/move`（from=当前层 fld_big、to=选中目录、items=勾的那两条）',
+    moveOp !== undefined && moveOp.body.from_folder_id === 'fld_big'
+    && moveOp.body.to_folder_id === 'fld_law'
+    && moveOp.body.items?.length === 2
+    && moveOp.body.items.every((it) => it.kind === 'file'),
+    `请求：${JSON.stringify(moveOp?.body ?? null)}`)
+  check('P21 批量动作做完 ⇒ 勾选**清空**（批量条消失）—— 不许"看起来成功了但选中的还挂着"',
+    q('.ks-batch').length === 0,
+    `批量条 ${String(q('.ks-batch').length)} 条`)
+  await click(fileBoxes()[0])
+  await click([...q('.ks-batch button')].find((b) => (b.textContent ?? '').includes('复制到…')))
+  await flush()
+  await click(q('.ks-act-item').find((el) => (el.textContent ?? '').includes('标准')))
+  await click(actGo())
+  await flush(); await flush()
+  const copyOp = memberOps.find((o) => o.op === 'copy')
+  check('P22 批量「复制到…」⇒ **真的发** `POST /kb/members/copy`（只要 to_folder_id —— 复制=多一处位置，不需要来源）',
+    copyOp !== undefined && copyOp.body.to_folder_id === 'fld_std'
+    && copyOp.body.from_folder_id === undefined && copyOp.body.items?.length === 1,
+    `请求：${JSON.stringify(copyOp?.body ?? null)}`)
+  await click(fileBoxes()[0])
+  await click([...q('.ks-batch button')].find((b) => (b.textContent ?? '').includes('从这一层拿掉')))
+  await flush(); await flush()
+  const rmOp = memberOps.find((o) => o.op === 'remove')
+  check('P23 「从这一层拿掉」⇒ **真的发** `POST /kb/members/remove`（folder_id = 当前层、items = 勾的那条）—— 只删归属行，不删文件',
+    rmOp !== undefined && rmOp.body.folder_id === 'fld_big' && rmOp.body.items?.length === 1,
+    `请求：${JSON.stringify(rmOp?.body ?? null)}`)
+  /* ── 最外层那些"还没进任何目录"的文件：只有「加进目录」，不给"挪"（没有来源目录）── */
+  ITEMS.root = [doc('doc_unfiled_1', 'GB 80001-2026', '还没进任何目录的一篇')]
+  await click(q('.ks-crumb-go')[0])
+  await flush()
+  check('P24 最外层真的有"还没进任何目录"的文件行（桩里放了一篇）',
+    fileRows().length === 1 && fileNameOf(fileRows()[0]).includes('还没进任何目录'),
+    `文件行 ${String(fileRows().length)}：${fileRows().map(fileNameOf).join(' / ')}`)
+  await click(fileRows()[0].querySelector('.ks-item-more button'))
+  const topMenu = q('[role=menuitem]').map((el) => (el.textContent ?? '').trim())
+  check('P25 最外层文件的 ⋮ 菜单 = 详情 + 「加进某个目录…」（**没有**"挪到"，它没有来源目录 —— 不给死按钮）',
+    topMenu.join('|') === '详情|加进某个目录…',
+    `菜单项：${JSON.stringify(topMenu)}`)
+  await click(q('[role=menuitem]').find((el) => (el.textContent ?? '').includes('加进某个目录')))
+  await flush()
+  await click(q('.ks-act-item').find((el) => (el.textContent ?? '').includes('标准')))
+  const beforeAdd = calls.length
+  await click(actGo())
+  await flush(); await flush()
+  const addCall = calls.slice(beforeAdd).find((c) => c.url === `${API}/api/v1/kb/members`)
+  check('P26 点确认 ⇒ **真的发** `POST /kb/members`（folder_id=选中目录、items=这一篇 file）',
+    addCall !== undefined
+    && JSON.parse(addCall.body ?? '{}').folder_id === 'fld_std'
+    && JSON.parse(addCall.body ?? '{}').items?.[0]?.kind === 'file',
+    addCall === undefined ? '(没调 members)' : (addCall.body ?? '').slice(0, 140))
+  /* ── 目录层批量：勾两个目录 ⇒ 批量条给的是"目录那一套"（挪/复制/删目录），**没有**"从这一层拿掉" ── */
+  const dirBoxes = () => q('.ks-list-dirs .ks-col-dpick input[type=checkbox]')
+  await click(dirBoxes()[0])
+  await click(dirBoxes()[1])
+  const dirBatch = () => [...q('.ks-batch button')].map((b) => (b.textContent ?? '').trim())
+  check('P27 目录层勾两个 ⇒ 批量条按**目录那一套**给动作（挪到… / 复制到… / 删掉目录…），'
+    + '标签是「已选 2 个目录」，且**没有**「从这一层拿掉 / 删除文档」那种文件动作',
+    (q('.ks-batch-n')[0]?.textContent ?? '').includes('已选 2 个目录')
+    && ['挪到…', '复制到…', '删掉目录…'].every((t) => dirBatch().some((b) => b.includes(t)))
+    && !dirBatch().some((b) => b.includes('从这一层拿掉') || b.includes('删除文档')),
+    `批量条：${JSON.stringify(dirBatch())}`)
+  const previewBefore = callsOf('/delete-preview').length
+  await click([...q('.ks-batch button')].find((b) => (b.textContent ?? '').includes('删掉目录…')))
+  await flush(); await flush()
+  check('P28 批量删目录：**逐个**读影响（delete-preview 调用数 +2），面板里这两个目录都点名了',
+    callsOf('/delete-preview').length === previewBefore + 2
+    && (q('.ks-act-del')[0]?.textContent ?? '').includes('标准')
+    && (q('.ks-act-del')[0]?.textContent ?? '').includes('法律法规'),
+    `delete-preview 增 ${String(callsOf('/delete-preview').length - previewBefore)} 次 / `
+      + `面板：${(q('.ks-act-del')[0]?.textContent ?? '').replace(/\s+/g, ' ').slice(0, 100)}`)
+  await click(q('.ks-act-del button').find((b) => (b.textContent ?? '').includes('取消')))
+  await flush()
+  check('P29 点「取消」⇒ 面板关掉、**一条删除请求都没发**（取消是真取消，不是"先删了再说"）',
+    q('.ks-act').length === 0 && deletedFolders.length === 3,
+    `面板 ${String(q('.ks-act').length)} 个 / 已删目录 ${String(deletedFolders.length)} 个`)
+  /* ── ③a：批次终态里"有文件的状态没写进库"必须能在界面上看出来 ── */
+  const cancelPick = [...q('.ks-batch button')].find((b) => (b.textContent ?? '').includes('取消选择'))
+  if (cancelPick !== undefined) { await click(cancelPick) }
+  /* ⚠ 上传面板从 K 段起一直开着（`upOpen` 是页面级状态，换层不会关它）⇒ 先确认它真的在，
+     再点导入（`.ks-upload-open` 是 **toggle**：多按一次就是把它关掉 —— 本批实测踩到过）。 */
+  if (q('.ks-upload').length === 0) { await click(q('.ks-upload-open')[0]); await flush() }
+  bulkStateMissing = 1
+  await click(q('.ks-upload-go')[0])
+  await flush(); await flush(); await flush()
+  check('P30 批次终态报"有文件的状态没写进库"⇒ 导入面板**照实说出来**（带文件名样本），不粉饰',
+    (q('.ks-upload-msg')[0]?.textContent ?? '').includes('处理状态没写进库')
+    && (q('.ks-upload-msg')[0]?.textContent ?? '').includes('missing.pdf'),
+    `消息：${(q('.ks-upload-msg')[0]?.textContent ?? '(没有)').trim().slice(0, 140)}`)
+  bulkStateMissing = 0
+  if (q('.ks-upload').length > 0) { await click(q('.ks-upload-open')[0]); await flush() }
 
   root.unmount()
   await flush()

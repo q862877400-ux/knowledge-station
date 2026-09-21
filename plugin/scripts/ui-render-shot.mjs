@@ -1782,35 +1782,76 @@ const ksPadCheck = {
  *   ⚠ 第二轮复核（C④c）证伪过上一版：只按 `PAD_REQUIRED` 判"要不要量到" ⇒ **同时改小声明表 +
  *   让探针不产出**就能回到静默 skip + exit 0（并集棘轮不响）。所以"哪些组合必须有目录层"必须是
  *   **本文件的冻结清单**，不是被声明的那张表。 */
-const DIR_COLS_EXPECTED = 3
-/* ⚠⚠ **2026-09-21 第三轮：两条固定轨的期望值必须是**冻结常数**，不能从被测物反推。**
- * 第二轮复核（C④a）证伪过我上一版：期望值"从 `ksGuideStyles.ts` 抠 `--ks-col-dcount`" ⇒
- * **改 token 本身**（64px→200px）两边一起变、**全绿** —— 这正是 `#kspad` 那段注释警告过的
- * "从被测物反推期望值 ⇒ 断言恒真"。现在的规矩同 `PAGE_PAD_*`：
- *   ① 下面两个常数是**规范锚**（冻结）；
- *   ② 同时从 `ksGuideStyles.ts` 抠出 token 声明，**两者必须一致**（谁单方面改就红）；
- *   ③ 真 Chrome 量到的轨道必须等于这两个常数。 */
+const DIR_COLS_EXPECTED = 4
+/* ⚠⚠ **2026-09-21（第 5 步）就地更新这四个冻结常数 + 新增第五条判据**：
+ *   目录层加了**勾选列**（`dpick`），末列从"只展示的进入箭头"（16px `dgo`）换成
+ *   **行尾 ⋮ 菜单**（28px `dmore`：改名/新建下级/挪/复制/删）⇒ 轨道 3 → 4、固定轨多一条。
+ *   ⚠ **这四个数不许从被测物反推**（第二轮复核 C④a 证伪过"从 ksGuideStyles 抠 token"那种写法：
+ *     改 token 本身两边一起变、全绿）。现在的规矩（同 `PAGE_PAD_*`）：
+ *       ① 下面是**规范锚**（冻结）；
+ *       ② 同时从 `ksGuideStyles.ts` 抠出 token 声明、从 `KsKnowledgePage.tsx` 抠出 `DIR_COLUMNS`
+ *          的条数，**三方必须一致**（谁单方面改就红）；
+ *       ③ 真 Chrome 量到的轨道/表头格数必须等于这些常数。
+ *   ⚠ 顺序也钉住（px[0]=勾选 / px[2]=篇数 / px[3]=⋮）—— 顺序换了说明模板被人重排了。 */
+const DIR_COL_DPICK_EXPECTED = 32
 const DIR_COL_DCOUNT_EXPECTED = 64
-const DIR_COL_DGO_EXPECTED = 16
+const DIR_COL_DMORE_EXPECTED = 28
+/* 目录层表头格数：与轨道数**同源**（都来自页面那份 `DIR_COLUMNS`）⇒ 用同一个冻结常数。
+   ⚠ 这两个数曾经是**各写一份**的（3 / 3），2026-09-21 第 5 步合并成一处 —— 那次改动正是因为
+     复核 §5 指出 `dirHeadCheck` **没有**"冻结常数 ↔ 源码声明"的交叉校验（删掉清单里一条就能
+     静默收窄覆盖面）。现在两条都读同一个 `dirColsFromPage`。 */
+const DIR_HEAD_CELLS_EXPECTED = DIR_COLS_EXPECTED
 /** **冻结**：哪些组合必须看得到目录层（+ 它们的 `PAD_REQUIRED` 必须声明 `.ks-dirs`）。
  *  ⚠ 这份清单**只列矩阵（`smoke-kb-pad-pixels.mjs` 的 MATRIX）真的会跑的组合** ——
- *    列了没人跑的组合会让 `dirColsPresenceRequired` 在手动跑那些场景时红（且没有意义）。 */
+ *    列了没人跑的组合会让 `dirColsPresenceRequired` 在手动跑那些场景时红（且没有意义）。
+ *  ⚠ 第 5 步补了三条守卫（复核 §5 点名）：① **非空**（清空这份清单 = 所有目录层判据静默跳过）；
+ *    ② 清单里的每个组合都必须在 `PAD_REQUIRED` 里声明 `.ks-dirs`（下详）；
+ *    ③ **反向**：凡是在 `PAD_REQUIRED` 里声明了 `.ks-dirs` 的 kb 组合，都必须在这份清单里
+ *    （否则"新加一个目录层组合但不入清单"就是这么绕过去的）。 */
 const DIR_LAYER_COMBOS = ['kb|', 'kb|kb-crumb', 'kb|kb-level', 'kb|kb-upload']
 const dirColsPresenceRequired = DIR_LAYER_COMBOS.includes(padComboKey)
-let dirTokenDcount = null
-let dirTokenDgo = null
+/* ── 目录层的**页码源声明**（第 5 步 §5 的守卫）：从页面源码抠 `DIR_COLUMNS` 的条数 ──
+   ⚠ 抠的是**声明本体**（`DIR_COLUMNS = [ … ] as const` 里的 `key: '…'` 条数），不是"文本里出现过
+     几次 DIR_COLUMNS" —— 注释里也写着这个名字，朴素 grep 会把散文判成声明。 */
+const pageSrcPath = join(pluginRoot, 'client', 'KsKnowledgePage.tsx')
+let dirColsFromPage = null
 try {
-  const cssSrc = await readFile(stylesSrcPath, 'utf8')
-  const tok = (name) => {
-    const m = new RegExp(`--${name}\\s*:\\s*(\\d+)px`).exec(cssSrc)
-    return m === null ? null : Number(m[1])
-  }
-  dirTokenDcount = tok('ks-col-dcount')
-  dirTokenDgo = tok('ks-col-dgo')
-} catch { /* 读不到 ⇒ 下面的判据报红（见 dirColsProblems） */ }
-const dirCols = measured['#dircols']
-const dirColsProblems = []
+  const pageSrc = await readFile(pageSrcPath, 'utf8')
+  const m = /const DIR_COLUMNS = \[([\s\S]*?)\] as const/.exec(pageSrc)
+  dirColsFromPage = m === null ? null : (m[1].match(/key: '/g) ?? []).length
+} catch { /* 读不到 ⇒ 下面的判据报红（读不到就不算验过） */ }
+const dirColsProblemsShared = []
+const dirColsProblems = [...dirColsProblemsShared]
 let dirColsSkipReason = null
+if (DIR_LAYER_COMBOS.length === 0) {
+  dirColsProblemsShared.push('**冻结清单 DIR_LAYER_COMBOS 是空的** —— 目录层的列几何/表头判据'
+    + '会**全部静默跳过**（这一跑照样 exit 0）。清单可以改，但不许清空')
+}
+{
+  const declaredDirs = Object.entries(PAD_REQUIRED)
+    .filter(([k, v]) => k.startsWith('kb|') && Array.isArray(v) && v.includes('.ks-dirs'))
+    .map(([k]) => k)
+  const missingFromFrozen = declaredDirs.filter((k) => !DIR_LAYER_COMBOS.includes(k))
+  const missingFromDeclared = DIR_LAYER_COMBOS.filter((k) => !declaredDirs.includes(k))
+  if (missingFromFrozen.length > 0) {
+    dirColsProblemsShared.push(`这些组合的 PAD_REQUIRED 声明了 .ks-dirs（= 有目录层），`
+      + `却不在冻结清单 DIR_LAYER_COMBOS 里：[${missingFromFrozen.join(' ')}] —— `
+      + '两处必须一致；新加一个目录层组合就要同时进清单（否则它不会被判列几何）')
+  }
+  if (missingFromDeclared.length > 0) {
+    dirColsProblemsShared.push(`冻结清单里的这些组合在 PAD_REQUIRED 里**没有**声明 .ks-dirs：`
+      + `[${missingFromDeclared.join(' ')}] —— 同一条棘轮的反方向`)
+  }
+  if (dirColsFromPage === null) {
+    dirColsProblemsShared.push(`读不到 ${pageSrcPath} 里的 DIR_COLUMNS 声明 —— 读不到就不算验过`
+      + '（它是"冻结常数 ↔ 源码声明"这条双向校验的另一半）')
+  } else if (dirColsFromPage !== DIR_COLS_EXPECTED) {
+    dirColsProblemsShared.push(`页面的 DIR_COLUMNS 有 ${String(dirColsFromPage)} 条，`
+      + `而本脚本冻结的规范值是 ${String(DIR_COLS_EXPECTED)}（轨道数与表头格数都按它判）—— `
+      + '改列就要同步这里的常数与注释')
+  }
+}
+const dirCols = measured['#dircols']
 const dircTracks = (tpl) => {
   const out = []
   let depth = 0
@@ -1824,9 +1865,24 @@ const dircTracks = (tpl) => {
   if (cur !== '') out.push(cur)
   return out
 }
-if (dirTokenDcount === null || dirTokenDgo === null) {
-  dirColsProblems.push(`读不到 ksGuideStyles.ts 里的 --ks-col-dcount（${JSON.stringify(dirTokenDcount)}）/`
-    + ` --ks-col-dgo（${JSON.stringify(dirTokenDgo)}）—— 读不到就不算验过（这两条固定轨是判据的锚）`)
+/* ── token 侧的一半：从 `ksGuideStyles.ts` 抠出三条固定轨的声明值 ── */
+let dirTokenDpick = null
+let dirTokenDcount = null
+let dirTokenDmore = null
+try {
+  const cssSrc = await readFile(stylesSrcPath, 'utf8')
+  const tok = (name) => {
+    const m = new RegExp(`--${name}\\s*:\\s*(\\d+)px`).exec(cssSrc)
+    return m === null ? null : Number(m[1])
+  }
+  dirTokenDpick = tok('ks-col-dpick')
+  dirTokenDcount = tok('ks-col-dcount')
+  dirTokenDmore = tok('ks-col-dmore')
+} catch { /* 读不到 ⇒ 下面的判据报红（见 dirColsProblems） */ }
+if (dirTokenDpick === null || dirTokenDcount === null || dirTokenDmore === null) {
+  dirColsProblems.push(`读不到 ksGuideStyles.ts 里的 --ks-col-dpick（${JSON.stringify(dirTokenDpick)}）/`
+    + ` --ks-col-dcount（${JSON.stringify(dirTokenDcount)}）/ --ks-col-dmore（${JSON.stringify(dirTokenDmore)}）`
+    + ' —— 读不到就不算验过（这三条固定轨是判据的锚）')
 }
 if (dirCols === undefined) {
   /* ⚠⚠ **"量不到"不许静默跳过**：判据的锚是**冻结清单** `DIR_LAYER_COMBOS`（不是被声明的
@@ -1846,18 +1902,22 @@ if (dirCols === undefined) {
   const gap = Number(dirCols.pad)
   if (tracks.length !== DIR_COLS_EXPECTED) {
     dirColsProblems.push(`目录层列数 = ${String(tracks.length)}，期望 ${String(DIR_COLS_EXPECTED)}`
-      + `（目录 / 篇数 / 进入提示 —— 与 DIR_COLUMNS 同数）：${JSON.stringify(dirCols.lh)}`
+      + `（勾选 / 目录 / 篇数 / ⋮ —— 与 DIR_COLUMNS 同数）：${JSON.stringify(dirCols.lh)}`
       + ' —— 有人把目录层接到文件层那条 --ks-cols 上了？')
   }
   if (px.some((v) => v === null)) {
     dirColsProblems.push(`目录层轨道里有**非 px** 值（解析后应为纯像素）：${JSON.stringify(tracks)}`
       + ' —— 只有全部解析成像素，"铺满"与"固定轨对不对"才可判')
   } else {
-    /* 固定轨**对冻结常数**（不是对从被测文件抠出来的 token —— 那会恒真；复核 C④a 证伪）。 */
-    if (px.length >= 3 && (px[1] !== DIR_COL_DCOUNT_EXPECTED || px[2] !== DIR_COL_DGO_EXPECTED)) {
-      dirColsProblems.push(`目录层的两条固定轨与冻结规范值不符：实测第 2 轨 ${String(px[1])}px / 第 3 轨 ${String(px[2])}px，`
-        + `而冻结值是 ${String(DIR_COL_DCOUNT_EXPECTED)}px / ${String(DIR_COL_DGO_EXPECTED)}px`
-        + `：${JSON.stringify(dirCols.lh)} —— 把篇数/进入提示列改成别的宽度（或写成 1fr）就是这条要抓的回归`)
+    /* 固定轨**对冻结常数**（不是对从被测文件抠出来的 token —— 那会恒真；复核 C④a 证伪）。
+       ⚠ 索引与 `DIR_COLUMNS` 的顺序绑死：0=勾选 / 2=篇数 / 3=⋮（1 是 1fr 的名字列）。 */
+    if (px.length >= 4
+        && (px[0] !== DIR_COL_DPICK_EXPECTED || px[2] !== DIR_COL_DCOUNT_EXPECTED
+          || px[3] !== DIR_COL_DMORE_EXPECTED)) {
+      dirColsProblems.push(`目录层的三条固定轨与冻结规范值不符：实测 `
+        + `第 1 轨 ${String(px[0])}px / 第 3 轨 ${String(px[2])}px / 第 4 轨 ${String(px[3])}px，`
+        + `而冻结值是 ${String(DIR_COL_DPICK_EXPECTED)} / ${String(DIR_COL_DCOUNT_EXPECTED)} / ${String(DIR_COL_DMORE_EXPECTED)}px`
+        + `：${JSON.stringify(dirCols.lh)} —— 把勾选/篇数/⋮ 列改成别的宽度（或写成 1fr）就是这条要抓的回归`)
     }
     if (Math.abs(px.reduce((a, b) => a + b, 0) + gap * (tracks.length - 1) - Number(dirCols.y)) > 1) {
       dirColsProblems.push(`目录层轨道**没铺满**容器：轨道和 ${String(px.reduce((a, b) => a + b, 0))}px`
@@ -1866,15 +1926,19 @@ if (dirCols === undefined) {
     }
   }
 }
-/* **规范 ↔ 实现**的棘轮（同 `PAGE_PAD_*` 那一套）：`ksGuideStyles.ts` 里两条 token 的声明必须等于冻结常数，
+/* **规范 ↔ 实现**的棘轮（同 `PAGE_PAD_*` 那一套）：`ksGuideStyles.ts` 里三条 token 的声明必须等于冻结常数，
    谁单方面改（改 token 或改常数）都在这里红 —— 这条才是"改了 token 而没改这里就红"的**真**判据。 */
+if (dirTokenDpick !== null && dirTokenDpick !== DIR_COL_DPICK_EXPECTED) {
+  dirColsProblems.push(`ksGuideStyles.ts 的 --ks-col-dpick = ${String(dirTokenDpick)}px，`
+    + `而本脚本冻结的规范值是 ${String(DIR_COL_DPICK_EXPECTED)}px（改 token 就要同步这里的常数与注释）`)
+}
 if (dirTokenDcount !== null && dirTokenDcount !== DIR_COL_DCOUNT_EXPECTED) {
   dirColsProblems.push(`ksGuideStyles.ts 的 --ks-col-dcount = ${String(dirTokenDcount)}px，`
     + `而本脚本冻结的规范值是 ${String(DIR_COL_DCOUNT_EXPECTED)}px（改 token 就要同步这里的常数与注释）`)
 }
-if (dirTokenDgo !== null && dirTokenDgo !== DIR_COL_DGO_EXPECTED) {
-  dirColsProblems.push(`ksGuideStyles.ts 的 --ks-col-dgo = ${String(dirTokenDgo)}px，`
-    + `而本脚本冻结的规范值是 ${String(DIR_COL_DGO_EXPECTED)}px（同上）`)
+if (dirTokenDmore !== null && dirTokenDmore !== DIR_COL_DMORE_EXPECTED) {
+  dirColsProblems.push(`ksGuideStyles.ts 的 --ks-col-dmore = ${String(dirTokenDmore)}px，`
+    + `而本脚本冻结的规范值是 ${String(DIR_COL_DMORE_EXPECTED)}px（同上）`)
 }
 /* **冻结清单 ↔ 声明表**的棘轮：清单里的组合必须真的在 `PAD_REQUIRED` 里声明 `.ks-dirs`
    （否则"声明表被同改小 + 探针不产出"那条路又会打开）。 */
@@ -1892,8 +1956,11 @@ const dirColsCheck = {
   containerWidth: dirCols?.y ?? null,
   gap: dirCols?.pad ?? null,
   presenceRequired: dirColsPresenceRequired,
+  tokenDpick: dirTokenDpick,
   tokenDcount: dirTokenDcount,
-  tokenDgo: dirTokenDgo,
+  tokenDmore: dirTokenDmore,
+  combos: DIR_LAYER_COMBOS,
+  colsFromPage: dirColsFromPage,
 }
 
 /* ══════════ `#stagecol` 的**真断言**（2026-09-21 第 3 步；业主："所有文件都要显示处理状态"） ══════════
@@ -2082,38 +2149,62 @@ const ROW_CTRLS_MAX = 3
    `.ks-status` 徽章。`ROW_CTRLS_MAX = 3` 是 P1-1 的历史上限（仍然判）；下面这条**等于 2** 才是
    真正有牙的那条：行内再加**任何一样**能点的东西（不管挂什么类名）都会让它红，
    逼着改的人**显式**改这个常数并在注释里说明为什么。
+   ⚠ **第 5 步改成 3**（显式改，理由在此）：文件行加了**勾选列**（批量挪/复制/从这一层拿掉用），
+   行内因此是「勾选框 + 效力徽章 + ⋮」= 3。上限 `ROW_CTRLS_MAX` 仍是 3（与它相等，不再有余量）——
+   再加第四样就会撞上限，两条判据一起响。
    ⚠ 只在 `page === 'kb'` 上判"等于"（其它页面的行构成不同，只吃上面那个上限）。 */
-const ROW_CTRLS_EXPECTED = 2
+const ROW_CTRLS_EXPECTED = 3
 /* **「待分类」行的冻结构成**（第 4 步）：勾选框（真 input） + 行尾「⋮」= 2。
    ⚠ 状态那一列是 `.ks-stage-tag` 之类的**只展示 span**，不是 `.ks-status` 徽章
      （ctrls 口径只把 `.ks-status` 算进来）⇒ 待分类行也是 2；再加任何能点的东西都会红。 */
 const ROW_CTRLS_INBOX_EXPECTED = 2
+/* **「目录」行的冻结构成**（第 5 步新增这条判据）：勾选框 + 名字那一格里的「进入」真 button
+   + 行尾「⋮」= 3。目录行从 button 变成 div 之后**行内没有** `.ks-status` 徽章（篇数是个
+   `.ks-kb-badge` span）⇒ 这个数只由这三样决定；加第四样就红。
+   ⚠ 同时它把"目录行必须整行可点"那条承诺的**可见形态**钉住了：进入必须是一个真控件
+     （键盘可达），不是"靠一行 div 的 onClick 撑着"。 */
+const ROW_CTRLS_DIR_EXPECTED = 3
 const rowCtrls = measured['.ks-item#rows']
 const rowCtrlsProblems = []
 let rowCtrlsSkipReason = null
 /* ⚠ 逐行数据的字段名是 `rows`（不是 `items`）—— 见量点那里 `{ …, rows: [...] }` 的定义。
    写错的话这里会安静地走"没有文件行"的 skip 分支（我第一版就写错成 `items`，实测到了）。 */
 const rowCtrlsRows = Array.isArray(rowCtrls?.rows) ? rowCtrls.rows : []
-/* ⚠ 只判**文件行**：`.ks-item` 同时命中目录行（行内 0 个控件）—— 不分层就会把目录行当成
-   "少了一样东西"而假红（第一版实测：默认态 4 行目录 ⇒ 实测 [0,0,0,0] ⇒ red）。 */
+/* ⚠ 只判**文件行**：`.ks-item` 同时命中目录行（第 3 步时行内 0 个控件；第 5 步起 3 个）——
+   不分层就会把目录行当成"少了一样东西"而假红（第一版实测：默认态 4 行目录 ⇒ 实测 [0,0,0,0] ⇒ red）。 */
 const rowCtrlsFileRows = rowCtrlsRows.filter((it) => it.kind === 'file')
 /* 「待分类」行（第 4 步）—— 与文件行**分开判**（它的构成就是不一样：一个勾选框 + 一个 ⋮）。 */
 const rowCtrlsInboxRows = rowCtrlsRows.filter((it) => it.kind === 'inbox')
-if (rowCtrls === undefined || (rowCtrlsFileRows.length === 0 && rowCtrlsInboxRows.length === 0)) {
-  rowCtrlsSkipReason = '这一跑没有文件行也没有待分类行（最外层/空目录/只有目录行），行内控件数没有对象'
+/* 「目录」行（第 5 步起也判）—— 勾选框 + 「进入」button + ⋮ = 3（见 ROW_CTRLS_DIR_EXPECTED）。 */
+const rowCtrlsDirRows = rowCtrlsRows.filter((it) => it.kind === 'dir')
+if (rowCtrls === undefined
+    || (rowCtrlsFileRows.length === 0 && rowCtrlsInboxRows.length === 0 && rowCtrlsDirRows.length === 0)) {
+  rowCtrlsSkipReason = '这一跑没有文件行/待分类行/目录行（空页面），行内控件数没有对象'
 } else {
   const counts = rowCtrlsFileRows.map((it) => Number(it.ctrls))
   const inboxCounts = rowCtrlsInboxRows.map((it) => Number(it.ctrls))
+  const dirCounts = rowCtrlsDirRows.map((it) => Number(it.ctrls))
   if (page === 'kb' && rowCtrlsFileRows.length > 0) {
     const odd = counts.filter((c) => c !== ROW_CTRLS_EXPECTED)
     if (odd.length > 0) {
       rowCtrlsProblems.push(`知识库页的文件行行内可见控件数应当是**冻结的 ${String(ROW_CTRLS_EXPECTED)}**`
-        + `（行尾「⋮」+ 只展示的 .ks-status 徽章），实测 ${JSON.stringify(counts)}`
+        + `（勾选框 + 行尾「⋮」+ 只展示的 .ks-status 徽章），实测 ${JSON.stringify(counts)}`
         + ' —— 行内加了/少了能点的东西？加了就**显式**改 ROW_CTRLS_EXPECTED 并说明为什么')
     }
     if (new Set(counts).size > 1) {
       rowCtrlsProblems.push(`文件行之间行内控件数**不一致**（${JSON.stringify(counts)}）——`
         + '同一层的行应当长得一样；不一致说明某一行多/少了控件')
+    }
+  }
+  if (page === 'kb' && rowCtrlsDirRows.length > 0) {
+    const odd = dirCounts.filter((c) => c !== ROW_CTRLS_DIR_EXPECTED)
+    if (odd.length > 0) {
+      rowCtrlsProblems.push(`知识库页的目录行行内可见控件数应当是**冻结的 ${String(ROW_CTRLS_DIR_EXPECTED)}**`
+        + `（勾选框 + 名字那一格里的「进入」真 button + 行尾「⋮」），实测 ${JSON.stringify(dirCounts)}`
+        + ' —— 行内加了/少了能点的东西？加了就**显式**改 ROW_CTRLS_DIR_EXPECTED 并说明为什么')
+    }
+    if (new Set(dirCounts).size > 1) {
+      rowCtrlsProblems.push(`目录行之间行内控件数**不一致**（${JSON.stringify(dirCounts)}）`)
     }
   }
   if (page === 'kb' && rowCtrlsInboxRows.length > 0) {
@@ -2127,10 +2218,10 @@ if (rowCtrls === undefined || (rowCtrlsFileRows.length === 0 && rowCtrlsInboxRow
       rowCtrlsProblems.push(`待分类行之间行内控件数**不一致**（${JSON.stringify(inboxCounts)}）`)
     }
   }
-  const over = [...counts, ...inboxCounts].filter((c) => !Number.isFinite(c) || c > ROW_CTRLS_MAX)
+  const over = [...counts, ...inboxCounts, ...dirCounts].filter((c) => !Number.isFinite(c) || c > ROW_CTRLS_MAX)
   if (over.length > 0) {
     rowCtrlsProblems.push(`有 ${String(over.length)} 行的行内可见控件数 > ${String(ROW_CTRLS_MAX)}`
-      + `（实测 ${JSON.stringify([...counts, ...inboxCounts])}）—— 行内又塞了能点的东西`
+      + `（实测 ${JSON.stringify([...counts, ...inboxCounts, ...dirCounts])}）—— 行内又塞了能点的东西`
       + '（不管挂什么类名，这个数都会 +1）；P1-1 的验收口径就是"行内就一个 ⋮"，其余收进溢出菜单')
   }
 }
@@ -2140,12 +2231,19 @@ const rowCtrlsCheck = {
   problems: rowCtrlsProblems,
   counts: rowCtrlsFileRows.map((it) => it.ctrls),
   inboxCounts: rowCtrlsInboxRows.map((it) => it.ctrls),
+  dirCounts: rowCtrlsDirRows.map((it) => it.ctrls),
   max: ROW_CTRLS_MAX,
 }
 
-const DIR_HEAD_CELLS_EXPECTED = 3
+/* ⚠⚠ **2026-09-21（第 5 步 §5）就地补齐这条判据**（复核点名）：`dirColsCheck` 有"冻结常数 ↔
+ * 源码声明"的双向校验，`dirHeadCheck` 原来**只有**"表头格数 == 冻结常数"这一半 ——
+ * 把 `DIR_HEAD_CELLS_EXPECTED` 改小、或把清单里一条删掉，就能**静默收窄覆盖面**。
+ * 现在它多了两条锚：① 页面 `DIR_COLUMNS` 的条数（`dirColsFromPage`）必须等于这个常数；
+ * ② `DIR_LAYER_COMBOS` 那三条守卫（非空 / 双向一致）也一并算进这一跑的问题清单。
+ * ⚠ `DIR_HEAD_CELLS_EXPECTED` 的**声明**已经上移到 `DIR_COLS_EXPECTED` 旁边（同源同值），
+ *   这里不再重复声明（两处各写一份正是"哪一处都不算数"的老毛病）。 */
 const dirHead = measured['#dirhead']
-const dirHeadProblems = []
+const dirHeadProblems = [...dirColsProblemsShared]
 let dirHeadSkipReason = null
 const dirHeadPresenceRequired = DIR_LAYER_COMBOS.includes(padComboKey)
 if (dirHead === undefined || !String(dirHead.lh ?? '').trim()) {
@@ -2159,7 +2257,7 @@ if (dirHead === undefined || !String(dirHead.lh ?? '').trim()) {
   const shows = String(dirHead.lh).split(',')
   if (shows.length !== DIR_HEAD_CELLS_EXPECTED) {
     dirHeadProblems.push(`目录层表头格数 = ${String(shows.length)}，期望 ${String(DIR_HEAD_CELLS_EXPECTED)}`
-      + `（目录 / 篇数 / 进入提示）：${JSON.stringify(shows)}`)
+      + `（勾选 / 目录 / 篇数 / ⋮）：${JSON.stringify(shows)}`)
   }
   if (shows.some((d) => d !== 'flex')) {
     dirHeadProblems.push(`目录层表头有格子的 computed display 不是 flex：${JSON.stringify(shows)}`
@@ -2341,7 +2439,9 @@ if (inboxSkipReason !== null) {
 if (rowCtrlsSkipReason !== null) {
   console.error(`· #rows 行内控件自检：**这一跑不判**（${rowCtrlsSkipReason}）`)
 } else if (rowCtrlsProblems.length === 0) {
-  console.error(`· #rows 行内控件自检通过：每行可见控件 ${JSON.stringify(rowCtrlsCheck.counts)}`
+  console.error(`· #rows 行内控件自检通过：文件行 ${JSON.stringify(rowCtrlsCheck.counts)}`
+    + ` / 待分类行 ${JSON.stringify(rowCtrlsCheck.inboxCounts)}`
+    + ` / 目录行 ${JSON.stringify(rowCtrlsCheck.dirCounts)}`
     + `（上限 ${String(ROW_CTRLS_MAX)}，真控件选择器口径；page=${page} width=${width} theme=${themeName}）`)
 } else {
   console.error('')

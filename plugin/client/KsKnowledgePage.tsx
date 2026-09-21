@@ -77,13 +77,19 @@ import { Fragment, useCallback, useEffect, useMemo, useRef, useState, type Mouse
 import { Button, Checkbox, IconArchiveOutline20, IconChecklistOutline14, IconChevronDownOutline14, IconChevronLeftOutline14, IconChevronRightOutline14, IconCloseOutline16, IconEllipsisOutline16, IconFolderOpenOutline16, IconInfoOutline14, IconListPenOutline16, IconPlusOutline16, IconRefreshOutline16, IconSearchOutline16, IconShieldOutline16, IconTrashOutline16, IconWarningOutline16, Input, Menu } from '@deepseek-ai/dsh-client-ui-primitives'
 
 import {
+  addKbMembers,
   batchDeleteDocs,
   confirmKbInbox,
+  copyKbFolder,
+  copyKbMembers,
+  createKbFolder,
+  deleteKbFolder,
   EngineAuthError,
   fetchBulkIngest,
   fetchDocsFlat,
   fetchIngestBatch,
   fetchIngestInboxDefault,
+  fetchKbFolderDeletePreview,
   fetchKbFolderItems,
   fetchKbFolders,
   fetchKbFoldersFlat,
@@ -92,16 +98,23 @@ import {
   fetchKbStageLabels,
   fetchSession,
   fileDocsIntoFolder,
+  moveKbFolder,
+  moveKbMembers,
   reingestKbDocs,
+  removeKbMembers,
+  renameKbFolder,
   resumeBulkIngest,
   startBulkIngest,
+  type KsKbDeletePreview,
   type KsKbFile,
   type KsKbFlatFolder,
   type KsKbFolder,
   type KsKbInboxItem,
+  type KsKbMemberItem,
 } from './api'
 import { ensureKsStyles } from './ksGuideStyles'
 import { KsCapabilityPage } from './KsCapabilityPage'
+import { KsIngestPanel } from './KsIngestPanel'
 import type { KsPaneBodyProps, KsKbInjected } from './ksSidebar'
 
 /**
@@ -192,8 +205,14 @@ type InboxColKey = (typeof INBOX_COLUMNS)[number]['key']
 /** 每页几篇待分类（后端 `MAX_FILE_PAGE=200`；50 与小列表一致就好翻）。 */
 const INBOX_PAGE_SIZE = 50
 
-/** **文件层**的列定义（表头与每一行共用这一份 ⇒ 列身份只有一个所有者）。 */
+/** **文件层**的列定义（表头与每一行共用这一份 ⇒ 列身份只有一个所有者）。
+ *
+ * ⚠ 第 5 步加了**勾选列**（`fpick`，无列头 —— 与待分类层同一种待遇：勾选是控件不是字段）。
+ *   类名与目录层的 `ks-col-dpick` **不共用**（两层都可能同屏：目录行在前、文件行在后）。
+ *   ⚠ 它一加，行内可见控件数从 2 变 3（勾选框 + ⋮ + 只展示的效力徽章）——
+ *   `ui-render-shot.mjs` 的 `ROW_CTRLS_EXPECTED` 必须同步改（那里有显式说明）。 */
 const COLUMNS = [
+  { key: 'fpick', cls: 'ks-col-fpick', head: '' },
   { key: 'name', cls: 'ks-col-name', head: '文件名' },
   { key: 'status', cls: 'ks-col-status', head: '效力' },
   { key: 'date', cls: 'ks-col-date', head: '生效日期' },
@@ -208,13 +227,21 @@ type ColKey = (typeof COLUMNS)[number]['key']
  * **目录层**的列定义 —— 与文件层同一种写法、同一种用法，但**列数按目录真有的字段给**：
  * 目录只有「名字」与「这一棵下的篇数」（后端 `file_count_deep`，见 `KS-KB-FOLDER` 契约），
  * **没有**更新时间/来源/大小 ⇒ 不许为凑成 5 列去编。
- * ⚠ 列类名与文件层**不重用**（`ks-col-dname/dcount/dgo`）：两层的行都挂在 `.ks-item` 上，
+ * ⚠ 列类名与文件层**不重用**（`ks-col-dname/dcount/dmore`）：两层的行都挂在 `.ks-item` 上，
  *   重用类名会让"列身份"在两层之间串味。
+ * ⚠ 第 5 步的两处改动（都是**加**，不是换语义）：
+ *   · 加勾选列 `dpick`（批量挪/复制/删目录要用；无列头）；
+ *   · 末列 `dgo`（一个只展示的进入箭头）换成 `dmore`（行尾「⋮」菜单：改名/新建下级/挪/复制/删）
+ *     —— 目录行因此**不再是 button**（行内要有勾选框与菜单两个真控件；button 里嵌 input 是非法
+ *     HTML），"进入这一级"改成名字那一格里的真 button（键盘可达）。
+ *   ⇒ `ui-render-shot.mjs` 的 `DIR_COLS_EXPECTED` / `DIR_HEAD_CELLS_EXPECTED` /
+ *     两条固定轨的冻结值必须同步（那里逐条写了为什么）。
  */
 const DIR_COLUMNS = [
+  { key: 'dpick', cls: 'ks-col-dpick', head: '' },
   { key: 'dname', cls: 'ks-col-dname', head: '目录' },
   { key: 'dcount', cls: 'ks-col-dcount', head: '篇数' },
-  { key: 'dgo', cls: 'ks-col-dgo', head: '' },
+  { key: 'dmore', cls: 'ks-col-dmore', head: '' },
 ] as const
 
 type DirColKey = (typeof DIR_COLUMNS)[number]['key']
@@ -259,6 +286,48 @@ function errorText(error: unknown): string {
 }
 
 const sleep = async (ms: number): Promise<void> => new Promise((resolve) => { setTimeout(resolve, ms) })
+
+/* ══════════════ 第 5 步：目录/文件的「建 / 改名 / 挪 / 复制 / 删」 ══════════════ */
+
+/**
+ * 勾选用的 **key**：`f:<doc_id>` / `d:<folder_id>`。
+ *
+ * ⚠ 为什么带前缀：**同一层里目录与文件都会进勾选集合**（批量条要能同时处置"选中的 2 个目录
+ *   + 3 篇文件"）⇒ 裸 id 撞车时分不清是哪一层的东西。「待分类」层只有文件，但也用**同一套**
+ *   key（不许为它单开一套 —— 那正是"复制出第二套"）。
+ */
+const PICK_FILE = 'f:'
+const PICK_DIR = 'd:'
+const pickFileKey = (docId: string): string => PICK_FILE + docId
+const pickDirKey = (folderId: string): string => PICK_DIR + folderId
+const idsOfKind = (keys: Iterable<string>, prefix: string): string[] =>
+  [...keys].filter((k) => k.startsWith(prefix)).map((k) => k.slice(prefix.length))
+/** 勾选集合里的**文件** id（顺序照 Set 的插入序）。 */
+const docIdsOf = (keys: Iterable<string>): string[] => idsOfKind(keys, PICK_FILE)
+/** 勾选集合里的**目录** id。 */
+const folderIdsOf = (keys: Iterable<string>): string[] => idsOfKind(keys, PICK_DIR)
+/** 勾选集合 → 接口要的 `{kind,id}` 条目（`members/*` 那一族共用这一份）。 */
+const memberItemsOf = (keys: Iterable<string>): KsKbMemberItem[] => [
+  ...docIdsOf(keys).map((id) => ({ kind: 'file' as const, id })),
+  ...folderIdsOf(keys).map((id) => ({ kind: 'folder' as const, id })),
+]
+/** 扁平清单里的路径（找不到就退回 id —— **不许**编一个假路径）。 */
+const pathOfFolder = (rows: readonly KsKbFlatFolder[], folderId: string): string =>
+  rows.find((f) => f.folder_id === folderId)?.path ?? folderId
+
+/**
+ * 一个批量动作的结果：**逐件跑、逐件记**。
+ * ⚠ 为什么不是 `try` 包一整个循环：目录操作是**逐条真落库**的（后端没有批事务），
+ *   第 2 件失败时第 1 件**已经生效**了 —— 谎报"全都失败"或"全都成功"都是假话。
+ */
+interface OpOutcome { readonly done: number; readonly failed: ReadonlyArray<{ label: string; message: string }> }
+
+/** 把 `OpOutcome` 说成人话（成功几件 / 失败几件 + 每一件的原话）。 */
+function outcomeText(verb: string, out: OpOutcome): string {
+  const bad = out.failed.map((f) => `${f.label}：${f.message}`).join('；')
+  if (out.failed.length === 0) return `${verb} ${String(out.done)} 件。`
+  return `${verb} ${String(out.done)} 件；**有 ${String(out.failed.length)} 件没成**：${bad}`
+}
 
 /** 加载相位（只有"整个页面/某一级"的加载走它；翻页另有自己的忙标记）。 */
 type LoadPhase = 'loading' | 'ready' | 'error'
@@ -337,13 +406,26 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
   /** 勾选的 doc_id（批量动作的对象；翻页/换层都**不清**，但离开这一层时会清）。 */
   const [picked, setPicked] = useState<ReadonlySet<string>>(() => new Set<string>())
   /**
-   * 行尾 ⋮ 菜单的**动作相位**（第 4 步）：
-   *   `null` = 没开面板；`'place'` = 目录选择器（给一篇或一批选去处）；
-   *   `'new'` = 在建议位置新建；`'del'` = 删除的**二次确认**。
-   * `targets` 是这一动作作用的 doc_id 列表（逐篇 = 一篇；批量 = 勾选的那些）。
+   * 行尾 ⋮ 菜单 / 工具栏打开的那个动作面板（第 5 步把它扩成"**一套**面板、多种动作"）：
+   *   · `place`     —— 「待分类」层：把这批文件放进某个**现有**目录（confirm `action='existing'`）
+   *   · `new`       —— 「待分类」层：在建议位置**新建**一个目录再放进去（confirm `action='new'`）
+   *   · `del`       —— 「待分类」层：真删文档（**不可逆**；二次确认）
+   *   · `mkdir`     —— 在当前这一级**新建下级目录**
+   *   · `rename`    —— 目录**改名**（只改库里的名字，**绝不动磁盘文件**）
+   *   · `move`      —— 把选中的目录/文件**挪到**某个目录（`folders/{id}/move` + `members/move`）
+   *   · `copy`      —— 把选中的目录/文件**复制到**某个目录（多一处位置，**不是**多一份文件）
+   *   · `add`       —— 把**最外层**那批文件挂进某个目录（`members`；顶层文件没有来源目录）
+   *   · `remove`    —— 把选中的文件**从这一层拿掉**（只删归属行，**不删文件**）
+   *   · `folder-del` —— 删目录（**先**拉 `delete-preview` 把影响如实列出来，再二选一）
+   * `targets` 是勾选 key（`f:`/`d:`）—— 逐条 = 一个 key；批量 = 勾选的那些。
    */
   const [action, setAction] = useState<
-    { kind: 'place' | 'new' | 'del'; targets: readonly string[] } | null>(null)
+    { kind: 'place' | 'new' | 'del' | 'mkdir' | 'rename' | 'move' | 'copy' | 'add'
+      | 'remove' | 'folder-del'; targets: readonly string[] } | null>(null)
+  /** 删目录的**真实影响**（逐个 `delete-preview` 拉回来的；`null` = 还在读）。 */
+  const [delPreview, setDelPreview] = useState<readonly KsKbDeletePreview[] | null>(null)
+  /** 上传面板里那份**逐篇只读预览**是否展开（复活的 `KsIngestPanel`，见 §4① 的裁定）。 */
+  const [upPreview, setUpPreview] = useState(false)
   /** 选择器里挑中的目录（`'place'` 与 `'new'` 的父目录）。 */
   const [pickFolder, setPickFolder] = useState<string>('')
   const [pickQuery, setPickQuery] = useState('')
@@ -595,37 +677,72 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
     }
   }, [flatFolders.length, withSession])
 
-  /** 勾/取消一篇（批量选择）。 */
-  const togglePick = useCallback((docId: string, next: boolean): void => {
+  /** 勾/取消一条（批量选择）。`key` 是 `f:`/`d:` key（见 `pickFileKey`）。 */
+  const togglePick = useCallback((key: string, next: boolean): void => {
     setActMsg('')
     setPicked((prev) => {
       const out = new Set(prev)
-      if (next) out.add(docId)
-      else out.delete(docId)
+      if (next) out.add(key)
+      else out.delete(key)
       return out
     })
   }, [])
 
-  /** 打开某个动作的面板（逐篇 = 一篇；批量 = 勾选的那些）。 */
-  const openAction = useCallback((kind: 'place' | 'new' | 'del', targets: readonly string[]): void => {
-    if (targets.length === 0) return
+  /**
+   * 打开某个动作的面板（逐条 = 一个 key；批量 = 勾选的那些）。
+   *
+   * ⚠ 第 5 步：删目录（`folder-del`）要**先拉影响数字**再问 —— 面板打开时就去读
+   *   `GET /kb/folders/{id}/delete-preview`（每个选中的目录一条，逐个如实列出来），
+   *   **不许**前端自己猜"大概有 N 篇"（任务书 §3 第 2 条）。
+   */
+  const openAction = useCallback((
+    kind: 'place' | 'new' | 'del' | 'mkdir' | 'rename' | 'move' | 'copy' | 'add'
+      | 'remove' | 'folder-del',
+    targets: readonly string[],
+  ): void => {
+    if (kind !== 'mkdir' && targets.length === 0) return
     setActMsg('')
     setAction({ kind, targets })
     setPickQuery('')
-    if (kind === 'place') {
+    setDelPreview(null)
+    if (kind === 'place' || kind === 'new' || kind === 'move' || kind === 'copy'
+        || kind === 'add') {
       setPickFolder('')
       void ensureFlatFolders()
     }
     if (kind === 'new') {
       /* 默认父目录 = 后端给的"建议新建的父目录"（那一篇/那一批里**第一个有建议的**）。 */
-      const withSug = inbox.filter((r) => targets.includes(r.doc_id)
+      const withSug = inbox.filter((r) => targets.includes(pickFileKey(r.doc_id))
         && r.suggest_new_parent_id !== null && r.suggest_new_name !== null)
       const first = withSug[0]
       setPickFolder(first?.suggest_new_parent_id ?? '')
       setNewName(first?.suggest_new_name ?? '')
-      void ensureFlatFolders()
     }
-  }, [ensureFlatFolders, inbox])
+    if (kind === 'rename') {
+      /* 改名：预填当前名字（从当前这一级的目录行里取；取不到就空着，让用户自己填）。 */
+      const fid = folderIdsOf(targets)[0] ?? ''
+      setNewName(subs.find((f) => f.folder_id === fid)?.name ?? '')
+    }
+    if (kind === 'mkdir') setNewName('')
+    if (kind === 'folder-del') {
+      setDelPreview(null)
+      void (async () => {
+        const ids = folderIdsOf(targets)
+        const out: KsKbDeletePreview[] = []
+        const bad: string[] = []
+        for (const fid of ids) {
+          try {
+            out.push(await withSession((port, token) =>
+              fetchKbFolderDeletePreview(port, token, fid)))
+          } catch (error) {
+            bad.push(`${fid}：${errorText(error)}`)
+          }
+        }
+        setDelPreview(out)
+        if (bad.length > 0) setActMsg(`有目录的影响读不到：${bad.join('；')}`)
+      })()
+    }
+  }, [ensureFlatFolders, inbox, subs, withSession])
 
   /** 把一批文件放进某个目录（`POST /kb/inbox/confirm` 的 `action='existing'`）。 */
   const placeInto = useCallback(async (targets: readonly string[], folderId: string): Promise<void> => {
@@ -744,6 +861,239 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
     }
   }, [inboxOffset, loadInbox, withSession])
 
+  /* ══════════ 第 5 步：目录/文件的「建 / 改名 / 挪 / 复制 / 删」的真出口 ══════════
+   * 全部是**真接口**（`routes_kb_folders.py` 第 2 步就做完了的那 10 个）；没有任何一处只改内存。 */
+
+  /** 逐件跑、逐件记（见 `OpOutcome` 的注释：后端没有批事务，第 2 件失败时第 1 件已经生效）。 */
+  const runOps = useCallback(async (
+    jobs: ReadonlyArray<{ label: string; run: () => Promise<number> }>,
+  ): Promise<OpOutcome> => {
+    const failed: { label: string; message: string }[] = []
+    let done = 0
+    for (const job of jobs) {
+      try {
+        done += await job.run()
+      } catch (error) {
+        failed.push({ label: job.label, message: errorText(error) })
+      }
+    }
+    return { done, failed }
+  }, [])
+
+  /**
+   * 一个批量动作做完后的**统一收尾**：清空勾选 + 关掉面板 + **重读当前这一层**。
+   * ⚠ 任务书 §3 第 3 条：不许"看起来成功了但列表没变"。
+   */
+  const afterAction = useCallback(async (): Promise<void> => {
+    setAction(null)
+    setDelPreview(null)
+    setPicked(new Set())
+    if (layer === 'inbox') await loadInbox(inboxOffset, { silent: true })
+    else await loadLevel(levelId, fileOffset, { silent: true })
+  }, [fileOffset, inboxOffset, layer, levelId, loadInbox, loadLevel])
+
+  /** **建目录**：建在**当前这一级**下面（最外层 = 顶层目录；后端同名同层会拒成 409）。 */
+  const runMkdir = useCallback(async (name: string): Promise<void> => {
+    const clean = name.trim()
+    if (clean === '') { setActMsg('先给新目录起个名字'); return }
+    setBusy(true)
+    try {
+      const made = await withSession((port, token) =>
+        createKbFolder(port, token, levelId, clean))
+      setActMsg(`已建目录「${made.name}」`
+        + (levelId === null ? '（顶层目录）' : `（建在「${levelName}」下面）`)
+        + '——这一层已经重读，它就在列表里。')
+      await afterAction()
+    } catch (error) {
+      setActMsg(`没建成：${errorText(error)}`)
+    } finally {
+      setBusy(false)
+    }
+  }, [afterAction, levelId, levelName, withSession])
+
+  /** **目录改名**：只改库里的名字（后端 `PUT /kb/folders/{id}` 的语义就是这条）。 */
+  const runRename = useCallback(async (folderId: string, name: string): Promise<void> => {
+    const clean = name.trim()
+    if (folderId === '' || clean === '') { setActMsg('目录名不能空'); return }
+    setBusy(true)
+    try {
+      const got = await withSession((port, token) =>
+        renameKbFolder(port, token, folderId, clean))
+      setActMsg(`已把目录改名为「${got.name}」（**只改库里的名字**，磁盘上的文件一个字都没动）。`)
+      await afterAction()
+    } catch (error) {
+      setActMsg(`没改成：${errorText(error)}`)
+    } finally {
+      setBusy(false)
+    }
+  }, [afterAction, withSession])
+
+  /**
+   * **挪到**某个目录（目录走 `folders/{id}/move`、文件走 `members/move`）。
+   * ⚠ **最外层的文件挪不了**：`members/move` 要 `from_folder_id`，而顶层在库里**不是一行目录记录**
+   *   （顶层那些文件本来就是"还没进任何目录"的）⇒ 那一层给的是「加进目录」，不是「挪」。
+   */
+  const runMove = useCallback(async (targets: readonly string[],
+                                    destId: string): Promise<void> => {
+    if (destId === '') { setActMsg('先选一个去处'); return }
+    const folderIds = folderIdsOf(targets)
+    const docIds = levelId === null ? [] : docIdsOf(targets)
+    const destPath = pathOfFolder(flatFolders, destId)
+    setBusy(true)
+    try {
+      const out = await runOps([
+        ...folderIds.map((fid) => ({
+          label: `目录 ${subs.find((f) => f.folder_id === fid)?.name ?? fid}`,
+          run: async (): Promise<number> => {
+            const r = await withSession((port, token) => moveKbFolder(port, token, fid, destId))
+            return r.moved ? 1 : 0
+          },
+        })),
+        ...(docIds.length === 0 ? [] : [{
+          label: `${String(docIds.length)} 篇文件`,
+          run: async (): Promise<number> => {
+            const r = await withSession((port, token) => moveKbMembers(port, token,
+              docIds.map((id) => ({ kind: 'file' as const, id })), levelId ?? '', destId))
+            return r.moved
+          },
+        }]),
+      ])
+      setActMsg(`${outcomeText('已挪动', out)}到「${destPath}」`
+        + '（挪动只改"挂在哪"，文件本身与磁盘文件都没动；一个文件可以同时属于多个目录）。')
+      await afterAction()
+    } catch (error) {
+      setActMsg(`没挪成：${errorText(error)}`)
+    } finally {
+      setBusy(false)
+    }
+  }, [afterAction, flatFolders, levelId, runOps, subs, withSession])
+
+  /**
+   * **复制到**某个目录（目录走 `folders/{id}/copy`、文件走 `members/copy`）。
+   * ⚠ 复制的语义是**多一处位置**：文件只有一份、不拷副本；复制出来的目录**共享成员**
+   *   （不是一棵独立的副本树）—— 界面上必须照实说，别让业主以为库里多了一份。
+   */
+  const runCopy = useCallback(async (targets: readonly string[],
+                                    destId: string): Promise<void> => {
+    if (destId === '') { setActMsg('先选一个去处'); return }
+    const folderIds = folderIdsOf(targets)
+    const docIds = docIdsOf(targets)
+    const destPath = pathOfFolder(flatFolders, destId)
+    setBusy(true)
+    try {
+      const out = await runOps([
+        ...folderIds.map((fid) => ({
+          label: `目录 ${subs.find((f) => f.folder_id === fid)?.name ?? fid}`,
+          run: async (): Promise<number> => {
+            await withSession((port, token) => copyKbFolder(port, token, fid, destId))
+            return 1
+          },
+        })),
+        ...(docIds.length === 0 ? [] : [{
+          label: `${String(docIds.length)} 篇文件`,
+          run: async (): Promise<number> => {
+            const r = await withSession((port, token) => copyKbMembers(port, token,
+              docIds.map((id) => ({ kind: 'file' as const, id })), destId))
+            return r.added
+          },
+        }]),
+      ])
+      setActMsg(`${outcomeText('已复制', out)}到「${destPath}」`
+        + '（**只是多了一处位置**：文件还是那一份、磁盘上没多出文件；复制出来的目录与原目录共享同一批内容，'
+        + '原位后来加的东西不会跟着变）。')
+      await afterAction()
+    } catch (error) {
+      setActMsg(`没复制成：${errorText(error)}`)
+    } finally {
+      setBusy(false)
+    }
+  }, [afterAction, flatFolders, runOps, subs, withSession])
+
+  /**
+   * **加进目录**（最外层那批"还没进任何目录"的文件用这一条）。
+   * ⚠ 走 `POST /kb/members`（`_add_member_in_tx`）：已经在该目录里的**幂等跳过**（如实报 skipped）。
+   *   这里**不**改 `doc_filing_state` —— 它只是"挂进目录"，不是"归位确认"（归位走「待分类」层）。
+   */
+  const runAdd = useCallback(async (targets: readonly string[],
+                                    destId: string): Promise<void> => {
+    if (destId === '') { setActMsg('先选一个去处'); return }
+    const docIds = docIdsOf(targets)
+    const destPath = pathOfFolder(flatFolders, destId)
+    setBusy(true)
+    try {
+      const r = await withSession((port, token) => addKbMembers(port, token, destId,
+        [...docIds.map((id) => ({ kind: 'file' as const, id })),
+          ...folderIdsOf(targets).map((id) => ({ kind: 'folder' as const, id }))]))
+      setActMsg(`已挂进「${destPath}」：新增 ${String(r.added)} 件`
+        + (r.skipped > 0 ? `，${String(r.skipped)} 件本来就在那儿（跳过，没加重复行）` : '')
+        + '。最外层的文件挂进目录后就不在最外层了（文件只有一份；别处还挂着的照旧）。')
+      await afterAction()
+    } catch (error) {
+      setActMsg(`没挂进去：${errorText(error)}`)
+    } finally {
+      setBusy(false)
+    }
+  }, [afterAction, flatFolders, withSession])
+
+  /** **从这一层拿掉**（只删归属行，**不删文件**；别处还挂着的照旧）。 */
+  const runRemove = useCallback(async (targets: readonly string[]): Promise<void> => {
+    if (levelId === null) {
+      setActMsg('最外层的文件不属于任何目录，"从这一层拿掉"在这里没有对象。')
+      return
+    }
+    const docIds = docIdsOf(targets)
+    if (docIds.length === 0) { setActMsg('选中的里面没有文件'); return }
+    setBusy(true)
+    try {
+      const r = await withSession((port, token) => removeKbMembers(port, token, levelId,
+        docIds.map((id) => ({ kind: 'file' as const, id }))))
+      setActMsg(`已从「${levelName}」拿掉 ${String(r.removed)} 篇`
+        + '（**只去掉这一处的归属，文件没有删**；还挂在别的目录里的照旧在那里）。')
+      await afterAction()
+    } catch (error) {
+      setActMsg(`没拿掉：${errorText(error)}`)
+    } finally {
+      setBusy(false)
+    }
+  }, [afterAction, levelId, levelName, withSession])
+
+  /**
+   * **删目录**（不可逆）。`mode` 由**面板**按 `delete-preview` 的真数字给：
+   *   `'reparent'` = 只删这个目录、里面的东西移到上一层；`'purge'` = 连里面的目录/文件一起删；
+   *   `null` = 空目录直接删（后端对空目录忽略 mode）。
+   * ⚠ 逐条跑、逐条记：第 2 个目录失败时第 1 个**已经真删了**（后端没有批事务）——
+   *   消息里如实报"成了几件、哪件没成、原话"。
+   */
+  const runFolderDelete = useCallback(async (
+    mode: 'reparent' | 'purge' | null,
+  ): Promise<void> => {
+    const ids = folderIdsOf(action?.targets ?? [])
+    const preview = delPreview ?? []
+    if (ids.length === 0) { setActMsg('没有要删的目录'); return }
+    setBusy(true)
+    try {
+      const out = await runOps(ids.map((fid) => {
+        const row = preview.find((p) => p.folder?.folder_id === fid)
+        return {
+          label: `目录 ${row?.folder?.name ?? fid}`,
+          run: async (): Promise<number> => {
+            const r = await withSession((port, token) => deleteKbFolder(port, token, fid,
+              row?.is_empty === true ? null : mode))
+            return r.removed ? 1 : 0
+          },
+        }
+      }))
+      setActMsg(`${outcomeText('已删目录', out)}`
+        + '（"连里面的文件一起删"也只真删**在所有目录里都不再出现**的那些；'
+        + '还挂在别处的只丢这里的归属。）')
+      await afterAction()
+    } catch (error) {
+      setActMsg(`没删成：${errorText(error)}`)
+    } finally {
+      setBusy(false)
+    }
+  }, [action, afterAction, delPreview, runOps, withSession])
+
   /** 「重来一次」跑的时候轮询状态，跑完**自动重读**这一层（不编进度条，只报真实的 done/total）。 */
   useEffect(() => {
     if (!reingesting) return undefined
@@ -853,37 +1203,52 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
         + `${upReingest ? '，**覆盖重导**（同号旧文档会被替换）' : ''}，等待解析…`)
       let last = started.total
       let parsed = 0
+      /* ⚠ ③a（2026-09-21 第 5 步）：`filing_state_missing` = 这批里**处理状态没写进库**的文件数。
+         原来它只进 `checkpoint.errors`（排障杂项）⇒ 界面上完全看不出"这批里有文件的状态没库"。
+         现在随批次终态一起报，这里就**如实说**：它们会在「待分类」里显示成"排队中"（那是谎），
+         所以必须点名（后端给了前 5 个文件名样本）。 */
+      let stateMissing = 0
+      let stateMissingSample: readonly string[] = []
       for (let i = 0; i < 300; i += 1) {
         const st = await withSession((port, token) => fetchBulkIngest(port, token, started.batch_id))
         last = st.total
         parsed = st.parsed
-        setUpMsg(`已解析 ${parsed} / ${last} 篇${st.errors > 0 ? `（失败 ${st.errors}）` : ''}…`)
+        stateMissing = st.filing_state_missing
+        stateMissingSample = st.filing_state_missing_sample
+        setUpMsg(`已解析 ${parsed} / ${last} 篇${st.errors > 0 ? `（失败 ${st.errors}）` : ''}` +
+          `${stateMissing > 0 ? `；**其中 ${String(stateMissing)} 篇的处理状态没写进库**` : ''}…`)
         if (st.status !== 'running' && st.status !== 'pending') break
         if (st.pending === 0 && st.scanned >= st.total && st.total > 0) break
         await sleep(2000)
       }
+      const missingNote = stateMissing === 0 ? '' :
+        `；⚠ **这批里有 ${String(stateMissing)} 篇的处理状态没写进库**`
+        + `（样例：${stateMissingSample.join('、')}${stateMissing > stateMissingSample.length ? ' 等' : ''}）`
+        + '—— 它们在「待分类」里会显示成"排队中"，点「重来一次」可再试一次'
       const after = await withSession((port, token) => fetchDocsFlat(port, token))
       const fresh = after.filter((d) => !beforeIds.has(d.doc_id)).map((d) => d.doc_id)
       if (fresh.length === 0) {
         setUpPhase('done')
-        setUpMsg(`这一批没有新增文件（共看了 ${last} 个，已解析 ${parsed} 个；库里已有的不会重复进）。`)
+        setUpMsg(`这一批没有新增文件（共看了 ${last} 个，已解析 ${parsed} 个；库里已有的不会重复进）。`
+          + missingNote)
         return
       }
       if (layer === 'folder' && levelId !== null) {
         const res = await withSession((port, token) =>
           fileDocsIntoFolder(port, token, levelId, fresh))
         setUpMsg(`导入完成：新入库 ${fresh.length} 篇，已放进「${levelName}」${res.confirmed} 篇`
-          + `（从「待分类」拿掉 ${res.removed_from_pending} 篇）。`)
+          + `（从「待分类」拿掉 ${res.removed_from_pending} 篇）。` + missingNote)
         setUpPhase('done')
         await loadLevel(levelId, 0, { silent: true })
         return
       }
       if (layer === 'inbox') {
         setUpMsg(`导入完成：新入库 ${fresh.length} 篇，就排在下面这个列表里（状态如实显示）`
-          + '—— 在这儿直接处置。')
+          + '—— 在这儿直接处置。' + missingNote)
       } else {
         setUpMsg(`导入完成：新入库 ${fresh.length} 篇。你现在停在**最外层** ⇒ 它们留在最外层`
-          + `（还没归位，会出现在「待分类」里；进一个目录再上传才会直接落进那个目录）。`)
+          + `（还没归位，会出现在「待分类」里；进一个目录再上传才会直接落进那个目录）。`
+          + missingNote)
       }
       setUpPhase('done')
       await loadLevel(levelId, 0, { silent: true })
@@ -1063,16 +1428,44 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
       || (r.suggested_path ?? '').toLowerCase().includes(needle))
   }, [inbox, needle])
 
-  const pickedRows = inbox.filter((r) => picked.has(r.doc_id))
+  const pickedRows = inbox.filter((r) => picked.has(pickFileKey(r.doc_id)))
   /** 选中的里面**真有建议**的篇数（「接受建议」只对它们发；0 篇时那个按钮禁用 + 说清原因）。 */
   const pickedWithSuggestion = pickedRows.filter((r) => r.suggested_folder_id !== null).length
-  const pickPathOf = flatFolders.find((f) => f.folder_id === pickFolder)?.path ?? ''
+  /* ── 第 5 步：勾选集合里的两层东西（批量条按它决定给哪些动作） ── */
+  /** 选中的**文件**篇数（key `f:`）。 */
+  const pickedDocIds = docIdsOf(picked)
+  /** 选中的**目录**个数（key `d:`）。 */
+  const pickedFolderIds = folderIdsOf(picked)
+  /** 批量条上那句"已选 N…"：只有文件（含「待分类」层）就说**篇**，混着就两层都报清楚。 */
+  const batchLabel = pickedFolderIds.length === 0
+    ? `已选 ${String(pickedDocIds.length)} 篇`
+    : (pickedDocIds.length === 0
+      ? `已选 ${String(pickedFolderIds.length)} 个目录`
+      : `已选 ${String(pickedDocIds.length + pickedFolderIds.length)} 项`
+        + `（${String(pickedDocIds.length)} 篇文件 / ${String(pickedFolderIds.length)} 个目录）`)
+  const pickPathOf = pathOfFolder(flatFolders, pickFolder)
   /** 选择器里显示的那一截（1127 个目录不一次铺满 DOM：超过 60 行就截断并**如实说**）。 */
   const PICK_ROWS_MAX = 60
   const pickNeedle = pickQuery.trim().toLowerCase()
+  /**
+   * 选择器的**可选去处**：把"挪/复制自己或自己的下级"排除掉。
+   * ⚠ 后端会拒（`folder_cycle`/`folder_attach_cycle`），但那是个**必然失败**的选项 ⇒
+   *   不让它出现在列表里（不是替调用方兜底，是去掉一个点下去只会报错的死选项）。
+   */
+  const pickBase = useMemo(() => {
+    const banned = new Set<string>()
+    for (const fid of folderIdsOf(action?.targets ?? [])) {
+      const self = flatFolders.find((f) => f.folder_id === fid)
+      if (self === undefined) continue
+      for (const other of flatFolders) {
+        if (other.folder_id === fid || other.path.startsWith(`${self.path} › `)) banned.add(other.folder_id)
+      }
+    }
+    return flatFolders.filter((f) => !banned.has(f.folder_id))
+  }, [action, flatFolders])
   const pickMatched = pickNeedle === ''
-    ? flatFolders
-    : flatFolders.filter((f) => f.path.toLowerCase().includes(pickNeedle))
+    ? pickBase
+    : pickBase.filter((f) => f.path.toLowerCase().includes(pickNeedle))
   const flatShown = pickMatched.slice(0, PICK_ROWS_MAX)
   const flatHidden = pickMatched.length - flatShown.length
 
@@ -1098,8 +1491,8 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
             <span className="ks-pick">
               <Checkbox
                 className="ks-pick-cb"
-                checked={picked.has(doc.doc_id)}
-                onChange={(next) => { togglePick(doc.doc_id, next) }}
+                checked={picked.has(pickFileKey(doc.doc_id))}
+                onChange={(next) => { togglePick(pickFileKey(doc.doc_id), next) }}
                 /* ⚠ `label` 是**可访问名**（宿主 Checkbox 把它渲染成 `<span>`）：
                    这里传文件名，样式上把它做成 sr-only（视觉上不重复显示第二遍名字）。 */
                 label={doc.standard_name ?? doc.doc_id}
@@ -1172,11 +1565,12 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                 onClose={() => { setMenuFor(null) }}
                 onSelect={(id) => {
                   setMenuFor(null)
-                  if (id === 'place') openAction('place', [doc.doc_id])
+                  const key = pickFileKey(doc.doc_id)
+                  if (id === 'place') openAction('place', [key])
                   else if (id === 'accept') void acceptSuggestions([doc.doc_id])
-                  else if (id === 'new') openAction('new', [doc.doc_id])
+                  else if (id === 'new') openAction('new', [key])
                   else if (id === 'retry') void runReingest([doc.doc_id])
-                  else if (id === 'delete') openAction('del', [doc.doc_id])
+                  else if (id === 'delete') openAction('del', [key])
                 }}
                 anchor={(
                   <Button
@@ -1205,50 +1599,125 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
     )
   }
 
-  /** 批量条（**真的**：每条都对应真接口 —— 第 3 步拆掉的那套在这里做回来了）。 */
+  /**
+   * 批量条（**真的**：每条都对应真接口）。
+   *
+   * ⚠ 第 5 步：**一套**批量条、按**层**给动作（`layer === 'inbox'` 一套；目录/文件层另一套）——
+   *   不许为目录层复制出第二个批量条组件（任务书 §1 明写"别复制出第二套"）。
+   *   目录层与文件层的动作本身也不同（目录走 `folders/{id}/*`、文件走 `members/*`），
+   *   所以按钮的**出现条件**按"选中的里面有没有这一层的东西"判（`pickedDocIds`/`pickedFolderIds`）。
+   *
+   * ⚠ **删除**：目录层**不许**顺手删文档（不可逆；任务书 §2 第 6 条）⇒ 这里的「删掉目录…」
+   *   删的是**目录**（先拉 `delete-preview` 把影响列出来）；真删**文档**的入口只有「待分类」层
+   *   那一个（`action.kind === 'del'`，走 `/documents/batch-delete` + 二次确认）。
+   */
   const batchBar = picked.size === 0 ? null : (
-    <div className="ks-batch" role="toolbar" aria-label="批量处置选中的文件">
-      <span className="ks-batch-n">已选 {picked.size} 篇</span>
-      <Button
-        variant="outline"
-        size="sm"
-        className="ks-batch-btn"
-        disabled={pickedWithSuggestion === 0}
-        title={pickedWithSuggestion === 0
-          ? '选中的这些系统都没给出建议（认不出该放哪）——请用「放进同一目录」自己指定'
-          : `只对其中 ${String(pickedWithSuggestion)} 篇有建议的归位；没建议的不会被动`}
-        onClick={() => { void acceptSuggestions([...picked]) }}
-      >
-        接受建议{pickedWithSuggestion === 0 ? '' : `（${String(pickedWithSuggestion)}）`}
-      </Button>
-      <Button
-        variant="outline"
-        size="sm"
-        className="ks-batch-btn"
-        onClick={() => { openAction('place', [...picked]) }}
-      >
-        放进同一目录
-      </Button>
-      <Button
-        variant="outline"
-        size="sm"
-        className="ks-batch-btn"
-        title="让引擎把这批重新解析一遍（后台跑，状态列会跟着变）"
-        onClick={() => { void runReingest([...picked]) }}
-      >
-        <IconRefreshOutline16 />
-        重来一次
-      </Button>
-      <Button
-        variant="outline"
-        size="sm"
-        className="ks-batch-btn ks-danger"
-        title="删除是不可撤销的（条款/向量/证据一并删；收藏与批注不删）"
-        onClick={() => { openAction('del', [...picked]) }}
-      >
-        <IconTrashOutline16 />
-        删除
-      </Button>
+    <div className="ks-batch" role="toolbar" aria-label="批量处置选中的条目">
+      <span className="ks-batch-n">{batchLabel}</span>
+      {layer === 'inbox' ? (
+        <>
+          <Button
+            variant="outline"
+            size="sm"
+            className="ks-batch-btn"
+            disabled={pickedWithSuggestion === 0}
+            title={pickedWithSuggestion === 0
+              ? '选中的这些系统都没给出建议（认不出该放哪）——请用「放进同一目录」自己指定'
+              : `只对其中 ${String(pickedWithSuggestion)} 篇有建议的归位；没建议的不会被动`}
+            onClick={() => { void acceptSuggestions(pickedDocIds) }}
+          >
+            接受建议{pickedWithSuggestion === 0 ? '' : `（${String(pickedWithSuggestion)}）`}
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            className="ks-batch-btn"
+            onClick={() => { openAction('place', [...picked]) }}
+          >
+            放进同一目录
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            className="ks-batch-btn"
+            title="让引擎把这批重新解析一遍（后台跑，状态列会跟着变）"
+            onClick={() => { void runReingest(pickedDocIds) }}
+          >
+            <IconRefreshOutline16 />
+            重来一次
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            className="ks-batch-btn ks-danger"
+            title="删除是不可撤销的（条款/向量/证据一并删；收藏与批注不删）"
+            onClick={() => { openAction('del', [...picked]) }}
+          >
+            <IconTrashOutline16 />
+            删除
+          </Button>
+        </>
+      ) : (
+        <>
+          {/* 最外层那些文件"还没进任何目录" ⇒ 这里给的是「加进目录」（不是挪：它们没有来源目录）。 */}
+          {levelId === null && pickedDocIds.length > 0 ? (
+            <Button
+              variant="outline"
+              size="sm"
+              className="ks-batch-btn"
+              title="把选中的文件挂进某个目录（挂进去之后它们就不在最外层了；文件只有一份）"
+              onClick={() => { openAction('add', [...picked]) }}
+            >
+              加进目录…
+            </Button>
+          ) : null}
+          {pickedFolderIds.length + (levelId === null ? 0 : pickedDocIds.length) > 0 ? (
+            <Button
+              variant="outline"
+              size="sm"
+              className="ks-batch-btn"
+              title="挪到某个目录（只改挂在哪：目录走 folders/{id}/move、文件走 members/move；磁盘文件不动）"
+              onClick={() => { openAction('move', [...picked]) }}
+            >
+              挪到…
+            </Button>
+          ) : null}
+          {pickedFolderIds.length + pickedDocIds.length > 0 ? (
+            <Button
+              variant="outline"
+              size="sm"
+              className="ks-batch-btn"
+              title="复制到某个目录（多一处位置：文件还是那一份；复制出来的目录与原目录共享同一批内容）"
+              onClick={() => { openAction('copy', [...picked]) }}
+            >
+              复制到…
+            </Button>
+          ) : null}
+          {levelId !== null && pickedDocIds.length > 0 ? (
+            <Button
+              variant="outline"
+              size="sm"
+              className="ks-batch-btn"
+              title="只去掉这些文件在「当前这一层」的归属 —— 文件不删，别处还挂着的照旧"
+              onClick={() => { void runRemove([...picked]) }}
+            >
+              从这一层拿掉
+            </Button>
+          ) : null}
+          {pickedFolderIds.length > 0 ? (
+            <Button
+              variant="outline"
+              size="sm"
+              className="ks-batch-btn ks-danger"
+              title="删目录（不是删文档）：先读这几个目录的真实影响，再让你二选一"
+              onClick={() => { openAction('folder-del', [...picked]) }}
+            >
+              <IconTrashOutline16 />
+              删掉目录…
+            </Button>
+          ) : null}
+        </>
+      )}
       <Button variant="ghost" size="sm" className="ks-batch-btn" onClick={() => { setPicked(new Set()) }}>
         取消选择
       </Button>
@@ -1260,9 +1729,39 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
    * ⚠ 删除的确认**不是** `window.confirm`（那在 jsdom/无头里点不到、也没法断言）——
    *   是页面上的一个真面板，`确认删除` 是第二个按钮。
    */
+  /**
+   * 动作面板（**一套**，按 `action.kind` 换主体）。
+   *
+   * 三种形态：
+   *   ① 文档删除的**二次确认**（`del`）—— 不是 `window.confirm`（那在 jsdom/无头里点不到、
+   *      也没法断言）；`确认删除` 是第二个按钮。
+   *   ② **目标目录选择器**（`place`/`new`/`move`/`copy`/`add` 共用同一份扁平清单 + 搜索框）。
+   *   ③ 建目录（`mkdir`）/ 目录改名（`rename`）：一个名字输入框。
+   *   ④ 删目录（`folder-del`）：**先**把 `delete-preview` 的真数字列出来，再二选一。
+   */
+  const actWhat = pickedFolderIds.length > 0 && pickedDocIds.length > 0
+    ? `${String(pickedFolderIds.length)} 个目录 + ${String(pickedDocIds.length)} 篇文件`
+    : (pickedFolderIds.length > 0
+      ? `${String(pickedFolderIds.length)} 个目录`
+      : `${String(pickedDocIds.length)} 篇文件`)
+  /** 选择器那一段的动词（面板标题与"将…到"都用它，一处定义别处不重写）。 */
+  const pickVerb: Record<string, string> = {
+    place: '放进', new: '放进', move: '挪到', copy: '复制到', add: '挂进',
+  }
+  /** 选择器里为空时的原因（分得清"还没读到"与"被排除了"，不是一句"没有匹配"）。 */
+  const pickEmptyHint = flatFolders.length === 0
+    ? '正在读目录清单…'
+    : (pickBase.length === 0
+      ? '没有可选的目的地：唯一的那几个目录就是你正在挪/复制的目录自己（不能挪进自己的下级）'
+      : '没有匹配的目录')
   const actionPanel = action === null ? null : (
-    <div className={action.kind === 'del' ? 'ks-act ks-act-del' : 'ks-act'} role="group"
-      aria-label={action.kind === 'del' ? '删除确认' : '选择目标目录'}>
+    <div
+      className={action.kind === 'del' || action.kind === 'folder-del'
+        ? 'ks-act ks-act-del' : 'ks-act'}
+      role="group"
+      aria-label={action.kind === 'del' || action.kind === 'folder-del'
+        ? '删除确认' : '选择目标目录'}
+    >
       {action.kind === 'del' ? (
         <>
           <span className="ks-act-head">
@@ -1278,10 +1777,141 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
               variant="primary"
               size="sm"
               className="ks-act-go ks-danger"
-              onClick={() => { void removeDocs(action.targets) }}
+              onClick={() => { void removeDocs(docIdsOf(action.targets)) }}
             >
               <IconTrashOutline16 />
               确认删除
+            </Button>
+          </div>
+        </>
+      ) : action.kind === 'folder-del' ? (
+        <>
+          <span className="ks-act-head">
+            <IconWarningOutline16 />
+            <strong>删掉这 {folderIdsOf(action.targets).length} 个目录？</strong>
+            <Button variant="ghost" size="sm" title="关掉这个面板" onClick={() => { setAction(null) }}>
+              <IconCloseOutline16 />
+            </Button>
+          </span>
+          {delPreview === null ? (
+            <span className="ks-act-hint">正在读这几个目录的真实影响（只读，还没动任何东西）…</span>
+          ) : (
+            <>
+              {/* 影响数字**全部来自 `delete-preview`**（任务书 §3 第 2 条：不许前端猜）。 */}
+              <div className="ks-act-list ks-act-list-del">
+                {delPreview.map((p) => (
+                  <div className="ks-act-delrow" key={p.folder?.folder_id ?? 'unknown'}>
+                    <span className="ks-act-item-name">{p.folder?.name ?? p.folder?.folder_id ?? '(读不到)'}</span>
+                    <span className="ks-act-item-path">
+                      {p.is_empty
+                        ? '空目录（里面没有下级目录，也没有文件）'
+                        : `${String(p.direct_subfolder_count)} 个下级目录 · ${String(p.direct_file_count)} 篇直接放在这里`}
+                    </span>
+                    {p.is_empty ? null : (
+                      <span className="ks-act-item-path">
+                        整棵子树：{String(p.subtree_folder_count)} 个目录 / {String(p.subtree_file_count)} 篇文件；
+                        连文件一起删时，其中 {String(p.files_would_be_deleted)} 篇会**真的删掉**，
+                        {String(p.files_kept_elsewhere)} 篇还挂在别处（只丢这里的归属）；
+                        {p.reparent_available
+                          ? '移到上一层：里面的东西原样上去。'
+                          : '⚠ 这是一级目录，**没有上一层**（只能连文件一起删，或取消）。'}
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div>
+              {delPreview.length < folderIdsOf(action.targets).length ? (
+                <span className="ks-act-hint">
+                  有 {folderIdsOf(action.targets).length - delPreview.length} 个目录的影响没读到
+                  （上面那条消息里写了原话）—— 它们不会被删。
+                </span>
+              ) : null}
+              <span className="ks-act-hint">
+                删目录**不是**删文档：只有"在所有目录里都不再出现"的文件才会被真删。
+              </span>
+              <div className="ks-act-row">
+                <Button variant="outline" size="sm" onClick={() => { setAction(null) }}>取消</Button>
+                {delPreview.length > 0 && delPreview.every((p) => p.is_empty) ? (
+                  <Button
+                    variant="primary"
+                    size="sm"
+                    className="ks-act-go ks-danger"
+                    onClick={() => { void runFolderDelete(null) }}
+                  >
+                    <IconTrashOutline16 />
+                    删除这些空目录
+                  </Button>
+                ) : (
+                  <>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="ks-act-go"
+                      disabled={delPreview.every((p) => !p.reparent_available)}
+                      title={delPreview.every((p) => !p.reparent_available)
+                        ? '选中的目录里有**一级目录** —— 它没有上一层，移不上去（只能"连里面的文件一起删"或取消）'
+                        : '只删这些目录，里面的下级目录与文件移到**上一层**（文件本身一份都不删）'}
+                      onClick={() => { void runFolderDelete('reparent') }}
+                    >
+                      只删目录，里面的东西移到上一层
+                    </Button>
+                    <Button
+                      variant="primary"
+                      size="sm"
+                      className="ks-act-go ks-danger"
+                      title="连里面的下级目录一起删；文件只从这些目录里拿掉，不会再出现在任何目录里的才真删"
+                      onClick={() => { void runFolderDelete('purge') }}
+                    >
+                      <IconTrashOutline16 />
+                      连里面的文件一起删
+                    </Button>
+                  </>
+                )}
+              </div>
+            </>
+          )}
+        </>
+      ) : action.kind === 'mkdir' || action.kind === 'rename' ? (
+        <>
+          <span className="ks-act-head">
+            <strong>
+              {action.kind === 'mkdir'
+                ? `在「${levelName}」下面新建一个目录`
+                : `把目录「${subs.find((f) => f.folder_id === folderIdsOf(action.targets)[0])?.name ?? ''}」改成什么名字？`}
+            </strong>
+            <Button variant="ghost" size="sm" title="关掉这个面板" onClick={() => { setAction(null) }}>
+              <IconCloseOutline16 />
+            </Button>
+          </span>
+          <div className="ks-act-row">
+            <span className="ks-act-label">{action.kind === 'mkdir' ? '新目录名' : '新名字'}</span>
+            <Input
+              className="ks-act-name"
+              value={newName}
+              placeholder={action.kind === 'mkdir' ? '新目录的名字' : '新的目录名'}
+              aria-label={action.kind === 'mkdir' ? '新建目录的名字' : '目录的新名字'}
+              onChange={(event) => { setNewName(event.target.value) }}
+            />
+          </div>
+          <span className="ks-act-hint">
+            {action.kind === 'mkdir'
+              ? '建在**当前这一级**下面；同级同名会被拒（后端 409，原话会显示在这里）。'
+              : '改名**只改库里的名字**，磁盘上的文件一个字都不会动（方案 §二第 1 条）。'}
+          </span>
+          <div className="ks-act-row">
+            <Button variant="outline" size="sm" onClick={() => { setAction(null) }}>取消</Button>
+            <Button
+              variant="primary"
+              size="sm"
+              className="ks-act-go"
+              disabled={newName.trim() === ''}
+              onClick={() => {
+                void (action.kind === 'mkdir'
+                  ? runMkdir(newName)
+                  : runRename(folderIdsOf(action.targets)[0] ?? '', newName))
+              }}
+            >
+              {action.kind === 'mkdir' ? '建这个目录' : '改名字'}
             </Button>
           </div>
         </>
@@ -1290,8 +1920,8 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
           <span className="ks-act-head">
             <strong>
               {action.kind === 'new'
-                ? `在选中的目录下新建「${newName.trim() === '' ? '…' : newName.trim()}」再放 ${action.targets.length} 篇`
-                : `把 ${action.targets.length} 篇放进哪个目录？`}
+                ? `在选中的目录下新建「${newName.trim() === '' ? '…' : newName.trim()}」再放 ${String(pickedDocIds.length)} 篇`
+                : `把 ${actWhat}${pickVerb[action.kind] ?? '放进'}哪个目录？`}
             </strong>
             <Button variant="ghost" size="sm" title="关掉这个面板" onClick={() => { setAction(null) }}>
               <IconCloseOutline16 />
@@ -1336,9 +1966,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
               </button>
             ))}
             {flatShown.length === 0 ? (
-              <span className="ks-act-hint">
-                {flatFolders.length === 0 ? '正在读目录清单…' : '没有匹配的目录'}
-              </span>
+              <span className="ks-act-hint">{pickEmptyHint}</span>
             ) : null}
             {flatHidden > 0 ? (
               <span className="ks-act-hint">
@@ -1348,7 +1976,8 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
           </div>
           <div className="ks-act-row">
             <span className="ks-act-hint">
-              将放进：{pickPathOf === '' ? '（还没选）' : pickPathOf}
+              将{pickVerb[action.kind] ?? '放进'}：
+              {pickPathOf === '' ? '（还没选）' : pickPathOf}
             </span>
             <Button
               variant="primary"
@@ -1356,12 +1985,16 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
               className="ks-act-go"
               disabled={pickFolder === '' || (action.kind === 'new' && newName.trim() === '')}
               onClick={() => {
-                void (action.kind === 'new'
-                  ? placeIntoNew(action.targets, pickFolder, newName)
-                  : placeInto(action.targets, pickFolder))
+                if (action.kind === 'move') void runMove(action.targets, pickFolder)
+                else if (action.kind === 'copy') void runCopy(action.targets, pickFolder)
+                else if (action.kind === 'add') void runAdd(action.targets, pickFolder)
+                else if (action.kind === 'new') void placeIntoNew(docIdsOf(action.targets), pickFolder, newName)
+                else void placeInto(docIdsOf(action.targets), pickFolder)
               }}
             >
-              {action.kind === 'new' ? '新建并放进去' : `放进「${pickPathOf.split(' › ').slice(-1)[0]}」`}
+              {action.kind === 'new'
+                ? '新建并放进去'
+                : `${pickVerb[action.kind] ?? '放进'}「${pickPathOf.split(' › ').slice(-1)[0]}」`}
             </Button>
           </div>
         </>
@@ -1582,6 +2215,22 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
             </span>
           </span>
           <div className="ks-kb-grow" />
+          {/* 第 5 步：**建目录**的入口（建在**当前这一级**下面；最外层就是顶层目录）。
+              「待分类」层不建目录（它不是库里的目录；那里是处置文件的地方）。 */}
+          {layer === 'folder' ? (
+            <Button
+              variant="outline"
+              size="sm"
+              className="ks-mkdir-open"
+              title={levelId === null
+                ? '在**最外层**建一个顶层目录（同名同层会被后端拒，原话显示在面板里）'
+                : `在「${levelName}」下面建一个下级目录`}
+              onClick={() => { openAction('mkdir', []) }}
+            >
+              <IconPlusOutline16 />
+              新建下级目录
+            </Button>
+          ) : null}
           <Button
             variant="outline"
             size="sm"
@@ -1655,7 +2304,34 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
               <span className="ks-upload-hint">
                 {upCheck === '' ? '体检只是看一眼，库里一篇都不会多。' : upCheck}
               </span>
+              {/* 第 5 步 §4① 的裁定：`KsIngestPanel`（**逐篇**只读预览 + 全量异步预览）**复活**
+                  到这里 —— 上面那个按钮只报三个总账数字，要看**每一篇**的分级/裁决/前后样例/
+                  识别与版面指标就得有这一个面板。也正因为产品里真挂得上它，`ui-render-shot.mjs`
+                  的 `PAGES.ingest` 与 `smoke-kb-pad-pixels.mjs` 的 `.ks-ing` 那些条目才不是
+                  "只照着测试脚本活着的组件"（选它而不是删它的理由写在文件头 §4①）。 */}
+              <Button
+                variant="ghost"
+                size="sm"
+                className="ks-upload-preview-open"
+                aria-expanded={upPreview}
+                title="逐篇只读预览（分级/裁决/样例/识别与版面指标；不写库、默认不外发）"
+                onClick={() => { setUpPreview(!upPreview) }}
+              >
+                <IconChevronDownOutline14 />
+                逐篇看
+              </Button>
             </div>
+            {upPreview ? (
+              <div className="ks-upload-preview">
+                {/* ⚠ `initialDir` 用上面那个「来源目录」框的值；面板里换了目录会**同步回来**
+                    （一个来源目录、一处可改 —— 不许出现两个各说各话的目录框）。 */}
+                <KsIngestPanel
+                  visible={upPreview}
+                  initialDir={upDir}
+                  onDirChange={setUpDir}
+                />
+              </div>
+            ) : null}
             {/* 覆盖重导（引擎的 `reingest`）：会**删掉同标准号的旧文档**再建新的 ⇒ 必须人显式开。 */}
             <div className="ks-upload-row">
               <span className="ks-upload-label">覆盖</span>
@@ -1731,6 +2407,14 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
 
             {searchBox}
 
+            {/* 第 5 步：目录/文件层与「待分类」层**共用同一个批量条与同一个动作面板**
+                （`batchBar` / `actionPanel` 各只有一处定义，按层给动作 —— 不许复制出第二套）。 */}
+            {batchBar}
+            {actionPanel}
+            {actMsg === '' ? null : (
+              <div className="ks-ib-msg" role="status">{actMsg}</div>
+            )}
+
             {/* 目录层：**与文件列表同构**的列表（同一套 .ks-list/.ks-lhead/.ks-item 机制，
                 只换一份列定义 DIR_COLUMNS 与一条自己的 --ks-cols）。 */}
             {subs.length > 0 || dirsShown.length > 0 ? (
@@ -1743,35 +2427,105 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                   ))}
                 </div>
                 {dirsShown.map((child) => {
+                  const isOpen = menuFor === pickDirKey(child.folder_id)
+                  /* 目录行的 ⋮ 菜单（第 5 步）：改名 / 新建下级 / 挪 / 复制 / 删。
+                     ⚠ 「删掉…」删的是**目录**（先拉 delete-preview 把影响列出来），
+                       不是删文档 —— 文档删除的入口只有「待分类」层那一个。 */
+                  const dirMenu: { id: string; label: string }[] = [
+                    { id: 'rename', label: '改名…' },
+                    { id: 'mkdir', label: '在这个目录下新建…' },
+                    { id: 'move', label: '挪到某个目录…' },
+                    { id: 'copy', label: '复制到某个目录…' },
+                    { id: 'delete', label: '删掉这个目录…' },
+                  ]
                   const dirCell = (key: DirColKey): ReactNode => {
                     switch (key) {
-                      case 'dname':
+                      case 'dpick':
                         return (
-                          <>
+                          <span className="ks-pick">
+                            <Checkbox
+                              className="ks-pick-cb"
+                              checked={picked.has(pickDirKey(child.folder_id))}
+                              onChange={(next) => { togglePick(pickDirKey(child.folder_id), next) }}
+                              label={child.name}
+                              title={`选中目录「${child.name}」（选中后下面会出现批量条：挪到… / 复制到… / 删掉目录…）`}
+                            />
+                          </span>
+                        )
+                      case 'dname':
+                        /* ⚠ 「进入这一级」是**这一格里的真 button**（行本身是 div：行内要有
+                           勾选框与 ⋮ 两个真控件，button 里嵌 input 是非法 HTML）。 */
+                        return (
+                          <button
+                            type="button"
+                            className="ks-dir-open"
+                            title={`进入「${child.name}」（这一棵目录下共 ${child.file_count_deep} 篇）`}
+                            aria-label={`进入目录「${child.name}」，这一棵目录下共 ${child.file_count_deep} 篇`}
+                            onClick={() => { goto(child.folder_id) }}
+                          >
                             <span className="ks-fileico" title="目录"><IconFolderOpenOutline16 /></span>
                             <span className="ks-dir-name" title={child.name}>{child.name}</span>
-                          </>
+                            <span className="ks-dir-go"><IconChevronRightOutline14 /></span>
+                          </button>
                         )
                       case 'dcount':
                         // ⚠ 「篇数」= 这一**棵**下的篇数（后端 `file_count_deep`，含更深层）
                         return <span className="ks-kb-badge">{child.file_count_deep} 篇</span>
-                      case 'dgo':
-                        return <span className="ks-dir-go"><IconChevronRightOutline14 /></span>
+                      case 'dmore':
+                        return (
+                          <span className="ks-item-more">
+                            <Menu
+                              open={isOpen}
+                              portal
+                              autoFocus
+                              align="end"
+                              items={dirMenu}
+                              onClose={() => { setMenuFor(null) }}
+                              onSelect={(id) => {
+                                setMenuFor(null)
+                                const key = pickDirKey(child.folder_id)
+                                if (id === 'rename') openAction('rename', [key])
+                                else if (id === 'mkdir') openAction('mkdir', [])
+                                else if (id === 'move') openAction('move', [key])
+                                else if (id === 'copy') openAction('copy', [key])
+                                else if (id === 'delete') openAction('folder-del', [key])
+                              }}
+                              anchor={(
+                                <Button
+                                  variant="ghost"
+                                  size="sm"
+                                  aria-haspopup="menu"
+                                  aria-expanded={isOpen}
+                                  aria-label={`目录「${child.name}」的操作`}
+                                  title="处置这个目录（改名 / 新建下级 / 挪 / 复制 / 删）"
+                                  onClick={() => { setMenuFor(isOpen ? null : pickDirKey(child.folder_id)) }}
+                                >
+                                  <IconEllipsisOutline16 />
+                                </Button>
+                              )}
+                            />
+                          </span>
+                        )
                     }
                   }
                   return (
-                    <button
+                    /* ⚠ 第 5 步：**div**（原来是 button）—— 行内现在有勾选框与 ⋮ 两个真控件。
+                       整行可点 = 进入这一级（与文件行"整行可点 = 打开详情"同一种做法）。 */
+                    <div
                       key={child.folder_id}
-                      type="button"
                       className="ks-item ks-dir-row"
-                      title={`进入「${child.name}」（这一棵目录下共 ${child.file_count_deep} 篇）`}
-                      aria-label={`进入目录「${child.name}」，这一棵目录下共 ${child.file_count_deep} 篇`}
-                      onClick={() => { goto(child.folder_id) }}
+                      data-dir-id={child.folder_id}
+                      onClick={(e) => {
+                        const t = e.target as (HTMLElement | null)
+                        if (t === null || typeof t.closest !== 'function') return
+                        if (t.closest('button,input,a,[role=menuitem],[role=menu]') !== null) return
+                        goto(child.folder_id)
+                      }}
                     >
                       {DIR_COLUMNS.map((col) => (
                         <div className={`ks-cell ${col.cls}`} key={col.key}>{dirCell(col.key)}</div>
                       ))}
-                    </button>
+                    </div>
                   )
                 })}
               </div>
@@ -1822,8 +2576,37 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                 {filesShown.map((doc) => {
                   const st = STATUS[statusOf(doc.legal_status)]
                   const isOpen = menuFor === doc.doc_id
+                  const fileKey = pickFileKey(doc.doc_id)
+                  /**
+                   * 文件行的 ⋮ 菜单（第 5 步）—— **按"这一篇现在挂在哪"给动作**：
+                   *   · 最外层那些文件**还没进任何目录**（后端 `list_folder(None)` 的语义）⇒
+                   *     给的是「加进某个目录…」（`members`）；"挪"在这里没有来源目录，不给死按钮。
+                   *   · 在某个目录里 ⇒ 「挪到…」（`members/move`，来源 = 当前这一级）、
+                   *     「复制到…」（多一处位置）、「从这一层拿掉」（只删归属行，**不删文件**）。
+                   *   · **删文档**（不可逆）**不在这里** —— 只有「待分类」层那一个入口。
+                   */
+                  const fileMenu: { id: string; label: string }[] = [
+                    { id: 'detail', label: '详情' },
+                    ...(levelId === null
+                      ? [{ id: 'add', label: '加进某个目录…' }]
+                      : [{ id: 'move', label: '挪到某个目录…' },
+                        { id: 'copy', label: '复制到某个目录…' },
+                        { id: 'remove', label: '从这一层拿掉' }]),
+                  ]
                   const cellFor = (key: ColKey): ReactNode => {
                     switch (key) {
+                      case 'fpick':
+                        return (
+                          <span className="ks-pick">
+                            <Checkbox
+                              className="ks-pick-cb"
+                              checked={picked.has(fileKey)}
+                              onChange={(next) => { togglePick(fileKey, next) }}
+                              label={doc.standard_name ?? doc.doc_id}
+                              title={`选中「${doc.standard_name ?? doc.doc_id}」（选中后下面会出现批量条）`}
+                            />
+                          </span>
+                        )
                       case 'name':
                         return (
                           <>
@@ -1860,11 +2643,15 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                               portal
                               autoFocus
                               align="end"
-                              items={[{ id: 'detail', label: '详情' }]}
+                              items={fileMenu}
                               onClose={() => { setMenuFor(null) }}
                               onSelect={(id) => {
                                 setMenuFor(null)
                                 if (id === 'detail') setOpenDoc(openDoc === doc.doc_id ? null : doc.doc_id)
+                                else if (id === 'add') openAction('add', [fileKey])
+                                else if (id === 'move') openAction('move', [fileKey])
+                                else if (id === 'copy') openAction('copy', [fileKey])
+                                else if (id === 'remove') void runRemove([fileKey])
                               }}
                               anchor={(
                                 <Button
@@ -1873,7 +2660,7 @@ export function KsKnowledgePage({ useTabInfo, dataSource }: KsPaneBodyProps & Ks
                                   aria-haspopup="menu"
                                   aria-expanded={isOpen}
                                   aria-label={`${doc.standard_name ?? doc.doc_id} 的更多操作`}
-                                  title="更多操作（详情）"
+                                  title="更多操作（详情 / 挪 / 复制 / 从这一层拿掉）"
                                   onClick={() => { setMenuFor(isOpen ? null : doc.doc_id) }}
                                 >
                                   <IconEllipsisOutline16 />

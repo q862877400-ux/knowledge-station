@@ -1599,7 +1599,10 @@ export interface KsIngestReport {
   clauses_dropped_tiny: number
   grade: 'A' | 'B' | 'C' | 'D'
   grade_reasons: string[]
-  doc_confidence: number
+  /** 识别率（各条款 OCR 置信度的中位数）。⚠ **算不出来时是 `null`**（一条条款都没切出来），
+   *  不是 `0.0` —— 2026-09-21 第 5 步统一的口径（入库侧 `doc_filing_state.confidence` 同样是 NULL）。
+   *  界面必须把 `null` 显示成"算不出来"，**不许**显示成 0%。 */
+  doc_confidence: number | null
   verdict: 'ok' | 'warn' | 'block'
   verdict_reasons: Array<{ code: string; reason: string }>
   head_samples: KsIngestClauseSample[]
@@ -1653,7 +1656,8 @@ export interface KsIngestBatchRow {
   grade: string
   pages: number
   total_clauses: number
-  doc_confidence: number
+  /** 同 `KsIngestReport.doc_confidence`：**算不出来是 `null`**（不是 0.0）。 */
+  doc_confidence: number | null
   one_line: string
   reasons: string[]
   error: string | null
@@ -3148,6 +3152,304 @@ export async function addKbMembers(
 }
 
 /*
+ * ── 目录/文件的「建 / 改名 / 挪 / 复制 / 删」（KB-FOLDER-PLAN 第 5 步）──────────
+ *
+ * ⚠ 形状全部照 `src/core/api/routes_kb_folders.py` 的代码读出来（**不是**印象）：
+ *   · `POST /kb/folders` 的 `parent_id` 省略/`null`/`'root'` **都当顶层**；同名同层 ⇒ 409，
+ *     空名/超长 ⇒ 422，上级不存在 ⇒ 404。
+ *   · `PUT /kb/folders/{id}` **只改库里的名字**（绝不动磁盘文件，方案 §二第 1 条）。
+ *   · `POST /kb/folders/{id}/move` 的 `from_parent_id` 省略 = 取当前主位置（"把这个目录挪走"）；
+ *     `to_parent_id: null` = **真的挪到顶层**（改 `parent_id`）。挪进自己/自己的下级 ⇒ 409/422 报错。
+ *   · `POST /kb/folders/{id}/copy` **共享成员**（同一批 item_id），**不拷文件、不拷下级目录副本**；
+ *     `name` 省略时后端自动取"原名 (副本)"；`to_parent_id: null` = 复制到顶层。
+ *   · `GET /kb/folders/{id}/delete-preview` 是**只读**的"先问一句"数字；
+ *     `reparent_available=false` ⇔ 一级目录（没有上一层 ⇒ 只给 purge 与取消）。
+ *   · `DELETE /kb/folders/{id}?mode=reparent|purge`：空目录**直接删**（返回 `mode='empty'`）；
+ *     非空不给 `mode` ⇒ 409 `folder_delete_mode_required`（后端**不替调用方选**）；
+ *     一级目录 + `reparent` ⇒ 409 `folder_top_level_no_parent`（不静默降级）；
+ *     `purge` 只真删"在所有目录里都不再出现"的文件，还挂在别处的**只丢归属**。
+ *   · `POST /kb/members/{remove,move,copy}` 的文件操作：**只动归属行，不删文件**
+ *     （`remove` 只从这一处拿掉；`move` 需要 `from_folder_id` + `to_folder_id`；
+ *     `copy` 只是"多一处位置"，不需要来源）。
+ */
+
+/** `POST /kb/folders` 的出参（建目录）。 */
+export interface KsKbCreatedFolder {
+  folder_id: string
+  name: string
+  parent_id: string | null
+}
+
+/** `PUT /kb/folders/{id}` 的出参（改名）。 */
+export interface KsKbRenamedFolder {
+  folder_id: string
+  name: string
+  parent_id: string | null
+}
+
+/** `POST /kb/folders/{id}/move` 的出参。 */
+export interface KsKbMovedFolder {
+  folder_id: string
+  name: string
+  parent_id: string | null
+  from_parent_id: string | null
+  to_parent_id: string | null
+  /** `parent_id`（主位置）这次有没有真的变 —— 后端如实报，不是"挪了就一定变"。 */
+  updated_main_position: boolean
+  moved: boolean
+  reason?: string
+}
+
+/** 复制目录的出参（= 新目录那一行 + `copied_members`）。 */
+export interface KsKbCopiedFolder extends KsKbCreatedFolder {
+  sort: number
+  copied_members: number
+  copied_from: string
+}
+
+/** `GET /kb/folders/{id}/delete-preview` —— 删目录**前**要的数字（只读）。 */
+export interface KsKbDeletePreview {
+  folder: KsKbFolder | null
+  is_empty: boolean
+  direct_subfolder_count: number
+  direct_file_count: number
+  subtree_folder_count: number
+  subtree_file_count: number
+  /** `false` ⇔ 一级目录（没有上一层 ⇒ 只给"连里面的文件一起删"与取消）。 */
+  reparent_available: boolean
+  /** purge 之后**只丢归属**的篇数（它们还挂在别的目录里）。 */
+  files_kept_elsewhere: number
+  /** purge 之后**真的会被删掉**的篇数。 */
+  files_would_be_deleted: number
+}
+
+/** `DELETE /kb/folders/{id}` 的出参（`mode='empty'` = 空目录直接删）。 */
+export interface KsKbFolderDeleteResult {
+  folder_id: string
+  mode: 'empty' | 'reparent' | 'purge'
+  removed: boolean
+  new_parent_id?: string | null
+  reparented_subfolders: number
+  reparented_files: number
+  purged_folders: number
+  unfiled_docs: number
+  deleted_docs?: number
+}
+
+/** `POST /kb/members/remove|move|copy` 的出参（只动归属行）。 */
+export interface KsKbMemberResult {
+  folder_id: string
+  to_folder_id: string
+  from_folder_id: string
+  added: number
+  skipped: number
+  removed: number
+  moved: number
+  total: number
+}
+
+/** 成员操作的条目（`{kind, id}` —— 与 `POST /kb/members` 同一形状）。 */
+export interface KsKbMemberItem {
+  kind: 'file' | 'folder'
+  id: string
+}
+
+/** 所有 KB 写操作的公共外形（401 自愈口径与其余 KB 函数逐字一致）。 */
+async function kbWrite(
+  url: string, method: string, token: string, body: unknown, signal?: AbortSignal,
+): Promise<Record<string, unknown>> {
+  const res = await fetch(`http://127.0.0.1:${url}`, {
+    method,
+    headers: {
+      Authorization: `Bearer ${token}`, 'Content-Type': 'application/json',
+      accept: 'application/json',
+    },
+    body: body === undefined ? undefined : JSON.stringify(body),
+    signal,
+  })
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `引擎返回 HTTP ${res.status}`))
+  let parsed: unknown = null
+  try { parsed = await res.json() } catch { /* non-JSON body */ }
+  return dataOf(parsed)
+}
+
+/** 建目录（`parentId: null` = 顶层；建完**当前这一级刷新**就能看见它）。 */
+export async function createKbFolder(
+  port: number, token: string, parentId: string | null, name: string,
+  signal?: AbortSignal,
+): Promise<KsKbCreatedFolder> {
+  const d = await kbWrite(`${String(port)}/api/v1/kb/folders`, 'POST', token,
+    { parent_id: parentId, name }, signal)
+  return {
+    folder_id: str(d.folder_id) ?? '',
+    name: str(d.name) ?? name,
+    parent_id: str(d.parent_id),
+  }
+}
+
+/** 目录改名（**只改库里的名字**，不动磁盘上的文件）。 */
+export async function renameKbFolder(
+  port: number, token: string, folderId: string, name: string, signal?: AbortSignal,
+): Promise<KsKbRenamedFolder> {
+  const d = await kbWrite(
+    `${String(port)}/api/v1/kb/folders/${encodeURIComponent(folderId)}`, 'PUT', token,
+    { name }, signal)
+  return {
+    folder_id: str(d.folder_id) ?? folderId,
+    name: str(d.name) ?? name,
+    parent_id: str(d.parent_id),
+  }
+}
+
+/** 挪目录（`toParentId: null` = 挪到**顶层**；`fromParentId` 省略 = 取当前主位置）。 */
+export async function moveKbFolder(
+  port: number, token: string, folderId: string, toParentId: string | null,
+  opts: { fromParentId?: string | null; signal?: AbortSignal } = {},
+): Promise<KsKbMovedFolder> {
+  const d = await kbWrite(
+    `${String(port)}/api/v1/kb/folders/${encodeURIComponent(folderId)}/move`, 'POST', token,
+    { from_parent_id: opts.fromParentId ?? null, to_parent_id: toParentId }, opts.signal)
+  return {
+    folder_id: str(d.folder_id) ?? folderId,
+    name: str(d.name) ?? '',
+    parent_id: str(d.parent_id),
+    from_parent_id: str(d.from_parent_id),
+    to_parent_id: str(d.to_parent_id),
+    updated_main_position: d.updated_main_position === true,
+    moved: d.moved === true,
+    reason: str(d.reason) ?? undefined,
+  }
+}
+
+/** 复制目录到某处（**共享成员**：不拷文件、不拷下级目录的副本）。 */
+export async function copyKbFolder(
+  port: number, token: string, folderId: string, toParentId: string | null,
+  opts: { name?: string; signal?: AbortSignal } = {},
+): Promise<KsKbCopiedFolder> {
+  const d = await kbWrite(
+    `${String(port)}/api/v1/kb/folders/${encodeURIComponent(folderId)}/copy`, 'POST', token,
+    { to_parent_id: toParentId, name: opts.name ?? null }, opts.signal)
+  return {
+    folder_id: str(d.folder_id) ?? '',
+    name: str(d.name) ?? '',
+    parent_id: str(d.parent_id),
+    sort: intOf(d.sort, 0),
+    copied_members: intOf(d.copied_members, 0),
+    copied_from: str(d.copied_from) ?? folderId,
+  }
+}
+
+/** 删目录**前**的影响数字（只读；界面照这些数字问业主，**不许自己猜**）。 */
+export async function fetchKbFolderDeletePreview(
+  port: number, token: string, folderId: string, signal?: AbortSignal,
+): Promise<KsKbDeletePreview> {
+  const res = await fetch(
+    `http://127.0.0.1:${port}/api/v1/kb/folders/${encodeURIComponent(folderId)}/delete-preview`,
+    {
+      method: 'GET',
+      headers: { Authorization: `Bearer ${token}`, accept: 'application/json' },
+      signal,
+    },
+  )
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `引擎返回 HTTP ${res.status}`))
+  let body: unknown = null
+  try { body = await res.json() } catch { /* non-JSON body */ }
+  const d = dataOf(body)
+  return {
+    folder: normalizeKbFolder(d.folder),
+    is_empty: d.is_empty === true,
+    direct_subfolder_count: intOf(d.direct_subfolder_count, 0),
+    direct_file_count: intOf(d.direct_file_count, 0),
+    subtree_folder_count: intOf(d.subtree_folder_count, 0),
+    subtree_file_count: intOf(d.subtree_file_count, 0),
+    reparent_available: d.reparent_available === true,
+    files_kept_elsewhere: intOf(d.files_kept_elsewhere, 0),
+    files_would_be_deleted: intOf(d.files_would_be_deleted, 0),
+  }
+}
+
+/**
+ * 删目录。`mode`：
+ *   `null` = 空目录直接删（非空会被后端拒成 409）；`'reparent'` = 只删这个目录、
+ *   里面的东西移到**上一层**；`'purge'` = 连里面的目录/文件一起删。
+ * ⚠ 一级目录 + `'reparent'` 后端**明确报错**（不静默降级）⇒ 界面必须先看 `reparent_available`。
+ */
+export async function deleteKbFolder(
+  port: number, token: string, folderId: string,
+  mode: 'reparent' | 'purge' | null, signal?: AbortSignal,
+): Promise<KsKbFolderDeleteResult> {
+  const qs = mode === null ? '' : `?mode=${mode}`
+  const d = await kbWrite(
+    `${String(port)}/api/v1/kb/folders/${encodeURIComponent(folderId)}${qs}`, 'DELETE',
+    token, undefined, signal)
+  return {
+    folder_id: str(d.folder_id) ?? folderId,
+    mode: (str(d.mode) ?? 'empty') as KsKbFolderDeleteResult['mode'],
+    removed: d.removed === true,
+    new_parent_id: str(d.new_parent_id),
+    reparented_subfolders: intOf(d.reparented_subfolders, 0),
+    reparented_files: intOf(d.reparented_files, 0),
+    purged_folders: intOf(d.purged_folders, 0),
+    unfiled_docs: intOf(d.unfiled_docs, 0),
+    deleted_docs: intOf(d.deleted_docs, 0),
+  }
+}
+
+/** 批量成员操作的三条出口（`remove` / `move` / `copy`）—— 只动归属行，**不删文件**。 */
+export async function removeKbMembers(
+  port: number, token: string, folderId: string,
+  items: readonly KsKbMemberItem[], signal?: AbortSignal,
+): Promise<KsKbMemberResult> {
+  const d = await kbWrite(`${String(port)}/api/v1/kb/members/remove`, 'POST', token,
+    { folder_id: folderId, items: items.map((it) => ({ kind: it.kind, id: it.id })) }, signal)
+  return memberResult(d, folderId, '', '')
+}
+
+export async function moveKbMembers(
+  port: number, token: string, items: readonly KsKbMemberItem[],
+  fromFolderId: string, toFolderId: string, signal?: AbortSignal,
+): Promise<KsKbMemberResult> {
+  const d = await kbWrite(`${String(port)}/api/v1/kb/members/move`, 'POST', token,
+    {
+      from_folder_id: fromFolderId, to_folder_id: toFolderId,
+      items: items.map((it) => ({ kind: it.kind, id: it.id })),
+    }, signal)
+  return memberResult(d, fromFolderId, toFolderId, fromFolderId)
+}
+
+export async function copyKbMembers(
+  port: number, token: string, items: readonly KsKbMemberItem[],
+  toFolderId: string, signal?: AbortSignal,
+): Promise<KsKbMemberResult> {
+  const d = await kbWrite(`${String(port)}/api/v1/kb/members/copy`, 'POST', token,
+    { to_folder_id: toFolderId, items: items.map((it) => ({ kind: it.kind, id: it.id })) }, signal)
+  return memberResult(d, '', toFolderId, '')
+}
+
+function memberResult(
+  d: Record<string, unknown>, folderId: string, toFolderId: string, fromFolderId: string,
+): KsKbMemberResult {
+  return {
+    folder_id: str(d.folder_id) ?? folderId,
+    to_folder_id: str(d.to_folder_id) ?? toFolderId,
+    from_folder_id: str(d.from_folder_id) ?? fromFolderId,
+    added: intOf(d.added, 0),
+    skipped: intOf(d.skipped, 0),
+    removed: intOf(d.removed, 0),
+    moved: intOf(d.moved, 0),
+    total: intOf(d.total, 0),
+  }
+}
+
+/*
  * ── 「待分类」那一层（KB-FOLDER-PLAN 第 4 步）────────────────────────────────
  *
  * ⚠ 三条事实（照 `src/core/api/routes_kb_folders.py` 的代码读出来，不是印象）：
@@ -3510,6 +3812,14 @@ export interface KsBulkIngestStatus {
   pending: number
   errors: number
   pause_reason: string | null
+  /** 这一批里**处理状态没写进库**的文件数（2026-09-21 第 5 步挂账 ③a）。
+   *  ⚠ 它们照样出现在「待分类」里（那里"没有状态行 = 排队中"），但界面必须**能看出**
+   *  这批里有文件的状态没落库 —— 否则业主看到的"排队中"是假的。 */
+  filing_state_missing: number
+  /** 上面那批文件的前 5 个**文件名**（样本，用来如实指名道姓）。 */
+  filing_state_missing_sample: string[]
+  /** 这一批是不是「覆盖重导」（同号旧文档会被替换）。 */
+  reingest: boolean
 }
 
 /** `POST /api/v1/ingest/bulk` —— 启动批量导入，立即返回 `batch_id`（后台快扫）。
@@ -3580,6 +3890,9 @@ export async function fetchBulkIngest(
   let body: unknown = null
   try { body = await res.json() } catch { /* non-JSON body */ }
   const data = dataOf(body)
+  const sample = Array.isArray(data.filing_state_missing_sample)
+    ? data.filing_state_missing_sample.filter((s): s is string => typeof s === 'string')
+    : []
   return {
     batch_id: str(data.batch_id) ?? batchId,
     status: str(data.status) ?? 'unknown',
@@ -3589,5 +3902,8 @@ export async function fetchBulkIngest(
     pending: intOf(data.pending, 0),
     errors: intOf(data.errors, 0),
     pause_reason: str(data.pause_reason),
+    filing_state_missing: intOf(data.filing_state_missing, 0),
+    filing_state_missing_sample: sample,
+    reingest: data.reingest === true,
   }
 }
