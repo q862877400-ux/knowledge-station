@@ -257,3 +257,30 @@
    第 4 步若做"重来一次"按钮，后端要调的就是它。
 3. **一处未判定（复核也标了）**：一个目录挂在**三处以上**、只把其中一处挪到顶层时，**第三处那条边保留** ——
    现行实现不处理这种形态，未加用例、未逐条判定。第 3/4 步接界面时若用户做得出这个动作，要先补用例再放开。
+
+## 十四、第 2 步收尾：两处就地更正 + 一条我判复核误读（2026-09-21，提交 `22a0e03`）
+
+1. **自指断言（复核打回，属实）**：`scripts/apply-folder-filing.py` 里那句
+   `assert fs.PREBUILT_TOP_NAMES == FROZEN_TOP_NAMES` 曾经写成**自己跟自己比**
+   （`fs.PREBUILT_TOP_NAMES == fs.PREBUILT_TOP_NAMES`）—— **恒真、没有牙**，正是复核必验清单
+   第 ③ 项"结论由作者自己的检查得出"的典型形态。现在换成与**手写冻结字面量**
+   `FROZEN_TOP_NAMES = ("标准","法律法规","公司制度","待分类")` 比对，失败消息直接点出
+   "确认无误后同步改 `FROZEN_TOP_NAMES` 与方案文档"。
+   **有牙的实测（当场做的，不是推理）**：把 `folder_store.PREBUILT_TOP_NAMES` 里"待分类"改成"待归"
+   ⇒ 脚本 **exit 1**，报 `AssertionError: 顶层名字变了……`；`Copy-Item` 还原 ⇒ `git status --short` **空**。
+2. **一句不实的注释（复核打回，属实）**：原注释称"接口侧的『建议去向』也读 `PREBUILT_TOP_NAMES`"。
+   接口侧实际走 `folder_filing_plan.SKIPPED_PLAN_TOP` / `tree_path_of`。**错话保留 + 就地更正**
+   （`scripts/apply-folder-filing.py`、`src/core/knowledge/folder_filing_plan.py` 两处）。
+   本批只动两条注释与那一条断言，行为零变化：相关 4 个文件 **96 passed**、`mypy` 144 文件 0 错。
+3. **一条我判复核误读（如实登记争议，不悄悄丢掉复核的话）**：复核报告称"基线自相矛盾"。
+   实测**不成立**，逐条对得上：`scripts/gates-baseline.json` 是
+   `pytest_total 2253` / `pytest_passed 2250` / `pytest_skipped 3`，另有两栏**不同用途**的名单
+   —— `skip_nodeids`（3 条：golden_set 检索、reranker 真模型、openstd 联网）与
+   `environmental_skip_nodeids`（5 条，是这 3 条 + 另 2 条"环境不在就跳"的）。复核的**提取树**里
+   额外跳 1 条是**合法的**：`tests/test_pipeline.py::test_real_middle_json_integration` 的判据是
+   `var/mineru_cli_out/GB30871-2022识别版/auto/GB30871-2022识别版_middle.json` 存在与否，
+   而 `.gitignore:9` 的 `var/*` 让这份真实产物**根本不进提取树** ⇒ 它跳 4 条、通过 2249：
+   **总账仍是 2253，没有矛盾**。**判据**：拿父提交在**同一提取树**上跑同一条命令，差值同样存在
+   ⇒ 是提取树环境差，不是被验批次的罪（与 `AGENTS.md` 里"要真拷贝两份 `node_modules`"同族假红）。
+   ⚠ 后续派复核时，任务书要写明：提取树里 `var/` 下的真实夹具不存在 ⇒ 按基线比对时
+   **允许比主树多跳这一条**，别把它当被验批次的红。
