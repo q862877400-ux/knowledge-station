@@ -1250,62 +1250,6 @@ const colsCheck = {
   gapRow: cols?.radius ?? null,
 }
 
-/* ══════════ `#dircols` 的**真断言**（2026-09-21；复核 `verify-freeze-dirlist` 的变异 M5） ══════════
- * 打回的是什么：复核把目录层的 `--ks-cols` 换成**文件层那 5 列** ⇒ 本脚本的 `#cols` 自检**照样通过**
- * （它只比"表头 == 行"，两边一起变自然相等），而真机上是**首列 344→88px + 168px 死白** ——
- * "目录层是独立的一套列"这件事在真 Chrome 里**没有任何判据**。
- * ⇒ 这条量**目录层**自己在真浏览器里解析出来的轨道：① 轨道数必须 = 3（目录 / 篇数 / 进入提示，
- *   与 `DIR_COLUMNS` 同数）；② **轨道和 + gap×(n−1) 必须铺满容器内容宽**（±1px）—— 死白就红。
- * ⚠ 只判"能不能铺满"不够：把三轨写成 `1fr 1fr 1fr` 也铺满但不是我们的模板 ⇒ 与①合判。
- * ⚠ 适用面：只有"这一刻有 `.ks-list-dirs`"的跑才判；没有就**明说没判**（不静默通过）。 */
-const DIR_COLS_EXPECTED = 3
-const dirCols = measured['#dircols']
-const dirColsProblems = []
-let dirColsSkipReason = null
-const dircTracks = (tpl) => {
-  const out = []
-  let depth = 0
-  let cur = ''
-  for (const ch of String(tpl ?? '')) {
-    if (ch === '(') depth += 1
-    if (ch === ')') depth -= 1
-    if (/\s/.test(ch) && depth === 0) { if (cur !== '') { out.push(cur); cur = '' } continue }
-    cur += ch
-  }
-  if (cur !== '') out.push(cur)
-  return out
-}
-if (dirCols === undefined) {
-  dirColsSkipReason = `这一跑没有 .ks-list-dirs（page=${page}，当前不在目录层）—— 目录层列几何不适用`
-} else if (!String(dirCols.lh ?? '').trim() || dirCols.lh === '(没有网格元素)') {
-  dirColsProblems.push(`取不到目录层的 grid-template-columns（拿到 ${JSON.stringify(dirCols.lh)}）—— 取不到就不算验过`)
-} else {
-  const tracks = dircTracks(dirCols.lh)
-  const px = tracks.map((t) => (/^([\d.]+)px$/.exec(t) === null ? null : Number(/^([\d.]+)px$/.exec(t)[1])))
-  const gap = Number(dirCols.pad)
-  if (tracks.length !== DIR_COLS_EXPECTED) {
-    dirColsProblems.push(`目录层列数 = ${String(tracks.length)}，期望 ${String(DIR_COLS_EXPECTED)}`
-      + `（目录 / 篇数 / 进入提示 —— 与 DIR_COLUMNS 同数）：${JSON.stringify(dirCols.lh)}`
-      + ' —— 有人把目录层接到文件层那条 --ks-cols 上了？')
-  }
-  if (px.some((v) => v === null)) {
-    dirColsProblems.push(`目录层轨道里有**非 px** 值（解析后应为纯像素）：${JSON.stringify(tracks)}`
-      + ' —— 只有全部解析成像素，"铺满"才可判')
-  } else if (Math.abs(px.reduce((a, b) => a + b, 0) + gap * (tracks.length - 1) - Number(dirCols.y)) > 1) {
-    dirColsProblems.push(`目录层轨道**没铺满**容器：轨道和 ${String(px.reduce((a, b) => a + b, 0))}px`
-      + ` + gap ${String(gap)}px × ${String(tracks.length - 1)} = ${String(px.reduce((a, b) => a + b, 0) + gap * (tracks.length - 1))}px，`
-      + `而容器内容宽 ${String(dirCols.y)}px（差 >1px ⇒ 右侧死白或溢出）：${JSON.stringify(dirCols.lh)}`)
-  }
-}
-const dirColsCheck = {
-  checked: dirColsProblems.length === 0 && dirColsSkipReason === null,
-  skipReason: dirColsSkipReason,
-  problems: dirColsProblems,
-  template: dirCols?.lh ?? null,
-  tracks: dirCols === undefined ? null : dircTracks(dirCols.lh).length,
-  containerWidth: dirCols?.y ?? null,
-  gap: dirCols?.pad ?? null,
-}
 
 /* ══════════ `#kbcards` 的**真断言**（5i 2026-09-20 收尾批；卡片尺寸统一） ══════════
  * 复核 `verify-freeze-5h` 的变异：把卡片带里 `.ks-kb-cards` 的列模板改成 `60px 120px 200px`
@@ -1612,6 +1556,105 @@ const ksPadCheck = {
   declaredCombos: Object.keys(PAD_REQUIRED),
   missingSubjects: (ksp?.items ?? []).filter((it) => it.missing === true).map((it) => it.sel),
   items: ksp?.items ?? null,
+}
+
+/* ══════════ `#dircols` 的**真断言**（2026-09-21；复核 `verify-freeze-dirlist` 的变异 M5） ══════════
+ * 打回的是什么：复核把目录层的 `--ks-cols` 换成**文件层那 5 列** ⇒ 本脚本的 `#cols` 自检**照样通过**
+ * （它只比"表头 == 行"，两边一起变自然相等），而真机上是**首列 344→88px + 168px 死白** ——
+ * "目录层是独立的一套列"这件事在真 Chrome 里**没有任何判据**。
+ * ⇒ 这条量**目录层**自己在真浏览器里解析出来的轨道：① 轨道数必须 = 3（目录 / 篇数 / 进入提示，
+ *   与 `DIR_COLUMNS` 同数）；② **轨道和 + gap×(n−1) 必须铺满容器内容宽**（±1px）—— 死白就红。
+ * ⚠ 只判"能不能铺满"不够：把三轨写成 `1fr 1fr 1fr` 也铺满 —— 而它**不是**我们的模板
+ *   （下面那条固定轨判据才拦得住它；这句原写"与①合判"，是**假话**，复核 B③ 已证伪）。
+ * ⚠ 适用面：`PAD_REQUIRED` 声明了"这一跑必须量到 `.ks-dirs`"时，`#dircols` **必须量到**；
+ *   没声明才**明说没判**（不静默通过 —— 这一条也是复核第二轮 F 的洞）。 */
+const DIR_COLS_EXPECTED = 3
+/* ⚠⚠ **2026-09-21 第二轮（复核 verify-freeze-dirlist-guards 的 B③ 打回）**：只判"轨道数=3 + 铺满"**不够** ——
+ * 复核实测 `--ks-cols:1fr 1fr 1fr`（396px 396px 396px，铺满 1204px）与 `minmax(0,1fr) 200px 16px`
+ * **都全绿**，而它们都不是我们的模板（篇数列从 64px 变 200px）。⇒ 这里再钉**两条固定轨的真实像素**：
+ * 轨道 2 = 声明里的 `--ks-col-dcount`、轨道 3 = `--ks-col-dgo`（从 `ksGuideStyles.ts` 抠出来，
+ * 与"冻结值"同一套路：改了 token 而没改这里就红）。 */
+const dirColsPresenceRequired = Array.isArray(padRequired) && padRequired.includes('.ks-dirs')
+let dirTokenDcount = null
+let dirTokenDgo = null
+try {
+  const cssSrc = await readFile(stylesSrcPath, 'utf8')
+  const tok = (name) => {
+    const m = new RegExp(`--${name}\\s*:\\s*(\\d+)px`).exec(cssSrc)
+    return m === null ? null : Number(m[1])
+  }
+  dirTokenDcount = tok('ks-col-dcount')
+  dirTokenDgo = tok('ks-col-dgo')
+} catch { /* 读不到 ⇒ 下面的判据报红（见 dirColsProblems） */ }
+const dirCols = measured['#dircols']
+const dirColsProblems = []
+let dirColsSkipReason = null
+const dircTracks = (tpl) => {
+  const out = []
+  let depth = 0
+  let cur = ''
+  for (const ch of String(tpl ?? '')) {
+    if (ch === '(') depth += 1
+    if (ch === ')') depth -= 1
+    if (/\s/.test(ch) && depth === 0) { if (cur !== '') { out.push(cur); cur = '' } continue }
+    cur += ch
+  }
+  if (cur !== '') out.push(cur)
+  return out
+}
+if (dirTokenDcount === null || dirTokenDgo === null) {
+  dirColsProblems.push(`读不到 ksGuideStyles.ts 里的 --ks-col-dcount（${JSON.stringify(dirTokenDcount)}）/`
+    + ` --ks-col-dgo（${JSON.stringify(dirTokenDgo)}）—— 读不到就不算验过（这两条固定轨是判据的锚）`)
+}
+if (dirCols === undefined) {
+  /* ⚠⚠ **"量不到"不许静默跳过**（复核第二轮 F 的洞）：原来无条件 skip + exit 0 ⇒ 探测器不产出也能过，
+     而 skip 文案还错说"当前不在目录层"。现在按 `PAD_REQUIRED` 的**声明**判：
+     这一跑声明了必须量到 `.ks-dirs` ⇒ 目录层就在页面上 ⇒ `#dircols` **必须**量到，否则红。 */
+  if (dirColsPresenceRequired) {
+    dirColsProblems.push(`这一跑的组合（${padComboKey}）在 PAD_REQUIRED 里声明了必须量到 .ks-dirs，`
+      + '而 #dircols **一点都没产出** —— 量不到就不算验过（目录层在页面上却量不到，是探针坏了，不是"不适用"）')
+  } else {
+    dirColsSkipReason = `这一跑没有声明目录层（${padComboKey} 的 PAD_REQUIRED 不含 .ks-dirs）—— 目录层列几何不适用`
+  }
+} else if (!String(dirCols.lh ?? '').trim() || dirCols.lh === '(没有网格元素)') {
+  dirColsProblems.push(`取不到目录层的 grid-template-columns（拿到 ${JSON.stringify(dirCols.lh)}）—— 取不到就不算验过`)
+} else {
+  const tracks = dircTracks(dirCols.lh)
+  const px = tracks.map((t) => (/^([\d.]+)px$/.exec(t) === null ? null : Number(/^([\d.]+)px$/.exec(t)[1])))
+  const gap = Number(dirCols.pad)
+  if (tracks.length !== DIR_COLS_EXPECTED) {
+    dirColsProblems.push(`目录层列数 = ${String(tracks.length)}，期望 ${String(DIR_COLS_EXPECTED)}`
+      + `（目录 / 篇数 / 进入提示 —— 与 DIR_COLUMNS 同数）：${JSON.stringify(dirCols.lh)}`
+      + ' —— 有人把目录层接到文件层那条 --ks-cols 上了？')
+  }
+  if (px.some((v) => v === null)) {
+    dirColsProblems.push(`目录层轨道里有**非 px** 值（解析后应为纯像素）：${JSON.stringify(tracks)}`
+      + ' —— 只有全部解析成像素，"铺满"与"固定轨对不对"才可判')
+  } else {
+    /* 固定轨逐条对 token（复核 B③：`1fr 1fr 1fr` 与 `… 200px 16px` 都曾全绿）。 */
+    if (px.length >= 3 && (px[1] !== dirTokenDcount || px[2] !== dirTokenDgo)) {
+      dirColsProblems.push(`目录层的两条固定轨与 token 不符：实测第 2 轨 ${String(px[1])}px / 第 3 轨 ${String(px[2])}px，`
+        + `而 --ks-col-dcount = ${String(dirTokenDcount)}px / --ks-col-dgo = ${String(dirTokenDgo)}px`
+        + `：${JSON.stringify(dirCols.lh)} —— 把篇数/进入提示列改成别的宽度（或写成 1fr）就是这条要抓的回归`)
+    }
+    if (Math.abs(px.reduce((a, b) => a + b, 0) + gap * (tracks.length - 1) - Number(dirCols.y)) > 1) {
+      dirColsProblems.push(`目录层轨道**没铺满**容器：轨道和 ${String(px.reduce((a, b) => a + b, 0))}px`
+        + ` + gap ${String(gap)}px × ${String(tracks.length - 1)} = ${String(px.reduce((a, b) => a + b, 0) + gap * (tracks.length - 1))}px，`
+        + `而容器内容宽 ${String(dirCols.y)}px（差 >1px ⇒ 右侧死白或溢出）：${JSON.stringify(dirCols.lh)}`)
+    }
+  }
+}
+const dirColsCheck = {
+  checked: dirColsProblems.length === 0 && dirColsSkipReason === null,
+  skipReason: dirColsSkipReason,
+  problems: dirColsProblems,
+  template: dirCols?.lh ?? null,
+  tracks: dirCols === undefined ? null : dircTracks(dirCols.lh).length,
+  containerWidth: dirCols?.y ?? null,
+  gap: dirCols?.pad ?? null,
+  presenceRequired: dirColsPresenceRequired,
+  tokenDcount: dirTokenDcount,
+  tokenDgo: dirTokenDgo,
 }
 
 // --viewport 给定时**按视口高截**（这才看得出 position:sticky；全页截图看不出来）

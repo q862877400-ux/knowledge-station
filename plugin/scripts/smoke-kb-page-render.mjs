@@ -565,20 +565,34 @@ export function mount(container, props) {
     + `gap 表头 ${JSON.stringify(dirGap)} / 行 ${JSON.stringify(dirRowGap)}`)
   /* ⚠⚠ **2026-09-21 新增（复核 verify-freeze-dirlist 的变异 M4 打回）**：目录行的**内容**原来一条断言都没有
    *   —— 把 `{child.key}` 那第二行加回去（内部键/内部路径直接印在名字下面）**整套 84 条全绿**。
-   *   判据（"目录行只有名字"这件事必须可判）：① 名字格只有 **2 个**子元素（图标 + 名字）；
-   *   ② 名字格的 textContent **逐字等于**名字元素的 textContent（多一个"路径行"就不等）。 */
+   *   判据（"目录行只有名字"这件事必须可判），**两条都要**（复核第二轮各绕过一个）：
+   *   ① 名字格只有 **2 个**子元素（图标 + 名字）；
+   *   ② 名字格的 textContent **逐字等于**名字元素的 textContent；
+   *   ③ **名字元素自己的文本必须等于它自己的 `title`**（title 就是显示名）—— 这条专治
+   *      "把内部键**嵌进** `.ks-dir-name` 里面"那种换形状绕过（②对它无效：嵌进去之后两侧一起变）。
+   *   ⚠⚠ **必须在每一层都判**（复核第二轮：只在 `path.length>0` 时加回第二行 ⇒ 本文件当时只查库根那 3 行
+   *      ⇒ 整套 86/86 全绿，而真机页面上印着 `宪法与行政法法律/宪法与行政法`）⇒ 这个 helper 在
+   *      **库根 / 一级 / 二级**三处 dir 层状态各调一次（见下面 `dirRowContentCheck` 的三次调用）。 */
   const dirNameCellOk = (row) => {
     const cell = row.querySelector('.ks-col-dname')
     const nameEl = cell?.querySelector('.ks-dir-name') ?? null
+    const nameText = (nameEl?.textContent ?? '').trim()
+    const nameTitle = (nameEl?.getAttribute('title') ?? '').trim()
     return cell !== null && nameEl !== null && cell.children.length === 2
-      && cell.textContent.trim() === nameEl.textContent.trim()
+      && cell.textContent.trim() === nameText
+      && nameText !== '' && nameText === nameTitle
   }
-  check('目录层：目录行**只有名字**（2 个子元素；不许夹内部 key/路径的第二行、不许名字重复）',
-    dirEls().length > 0 && dirEls().every(dirNameCellOk),
-    dirEls().map((row) => {
-      const cell = row.querySelector('.ks-col-dname')
-      return `${String(cell?.children.length)} 个子元素／文本 ${JSON.stringify((cell?.textContent ?? '').trim())}`
-    }).join(' | '))
+  const dirRowContentCheck = (where) => {
+    check(`目录层[${where}]：目录行**只有名字**（2 个子元素；名字文本 == 它自己的 title；不夹内部 key/路径）`,
+      dirEls().length > 0 && dirEls().every(dirNameCellOk),
+      dirEls().map((row) => {
+        const cell = row.querySelector('.ks-col-dname')
+        const nameEl = cell?.querySelector('.ks-dir-name') ?? null
+        return `${String(cell?.children.length)} 个子元素／文本 ${JSON.stringify((cell?.textContent ?? '').trim())}`
+          + `／title ${JSON.stringify(nameEl?.getAttribute('title') ?? null)}`
+      }).join(' | '))
+  }
+  dirRowContentCheck('库根')
   /* ⚠⚠ 行高的**声明串**要在这里先量下来（此刻在目录层）：等会儿下钻到文件层再量文件行，
    *   两边比对 —— 不能在目录层就断言（那里没有文件行，写成"没有文件行就算过"= 恒真假绿）。 */
   const dirRowMinH = csOf(dirEls()[0] ?? null, 'min-height')
@@ -647,6 +661,9 @@ export function mount(container, props) {
     `目录行 ${String(dirEls().length)}（${dirEls().map(dirNameOf).join('/')}）／`
     + `可点条目 ${String(q('.ks-crumb-go').length)} 个／当前级「${crumbHere().map(crumbText).join('/')}」`)
   await click(dirEls().find((el) => dirNameOf(el) === '法律'))
+  /* ⚠ 又一处 dir 层状态（一级目录）：**内容判据必须在这里再判一次** —— 复核第二轮正是用
+     "只在 path.length>0 时加回第二行"绕过了"只查库根那 3 行"的版本（真机上印出内部路径）。 */
+  dirRowContentCheck('一级目录')
   await click(dirEls()[0])
   check('二级目录「宪法与行政法」里还有**第三级目录**（安全生产）—— 法律这一支的占位数据就是三级',
     dirEls().length === 1 && dirNameOf(dirEls()[0]) === '安全生产' && fileRows().length === 0
@@ -654,6 +671,7 @@ export function mount(container, props) {
     `目录行 ${String(dirEls().length)} 行（${dirEls().map(dirNameOf).join('/')}）/ 文件行 ${String(fileRows().length)}；`
     + `面包屑条目 ${String(crumbItems().length)} 个；`
     + `面包屑「${container.querySelector('.ks-crumb-path')?.textContent ?? '(没有)'}」`)
+  dirRowContentCheck('二级目录')   // 第三层级（安全生产）：再判一次内容
   await click(dirEls()[0])   // 再下一级：安全生产（文件层）
   check('面包屑（文件层）：4 个条目（库名 + 3 级目录），**前 3 条都是真 button**，只有末条「安全生产」不可点',
     crumbItems().length === 4 && crumbBtns().length === 3 && crumbHere().length === 1
