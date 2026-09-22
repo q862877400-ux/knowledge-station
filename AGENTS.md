@@ -68,6 +68,8 @@
   那是**设计如此**、由下一次冒烟开跑前自清 —— **别把它读成"有人还在写这棵树"**。
 - 派复核时给它的任务书**冻结区间**：先 `git tag verify-freeze-<批次>`，再用
   `git rev-list --count <base>..<frozen>` **数出**提交条数写进任务书（不凭印象）。
+- **评审七条清单（含必验合并版 + 文档预算）** → [docs/CODE-REVIEW-CHECKLIST.md](docs/CODE-REVIEW-CHECKLIST.md)；
+  **flake 清单（已知竞态型，非回归勿背锅）** → [docs/TEST-FLAKES.md](docs/TEST-FLAKES.md)。自查与复核都照七条走。
 - verifier **必须在冻结提交的提取树上验**（`git worktree add`/`git archive`），并在报告首尾各记一次
   `git rev-parse HEAD` + `git status --short`。**"边改边验"是双向污染。**
   ⚠ **派 verifier 之前要机械地确认"没人还在写这棵树"**（2026-09-21 实测踩到）：我拿到实施代理的报告就派了复核，
