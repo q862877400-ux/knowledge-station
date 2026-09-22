@@ -124,6 +124,8 @@ import {
 import { ensureKsStyles } from './ksGuideStyles'
 import { KsCapabilityPage } from './KsCapabilityPage'
 import { KsIngestPanel } from './KsIngestPanel'
+import { KsMaterialsPanel } from './KsMaterialsPanel'
+import { KsReportPanel } from './KsReportPanel'
 import type { KsPaneBodyProps, KsKbInjected } from './ksSidebar'
 
 /**
@@ -1754,11 +1756,49 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
     return <KsCapabilityPage />
   }
 
+  // ── S4/S5（2026-09-22 搬家批，业主批准）：效力总览 / 备料 **补真**（占位只留给巡检族） ──
+  if (page === 'report') {
+    /* S4：效力报告从设置搬出 ⇒「效力总览」（看家底归知识库门下——两选一由我定案，理由入账）。
+       openEvidence 走**全局证据锚点拦截器**（临时 a.click()；单例证据 tab 跳页 + 红箭头），
+       URL 由面板自己经 evidenceUrlOf 构造——这里不自拼。 */
+    return (
+      <div className="ks-page">
+        <div className="ks-kb">
+          <header className="ks-page-head">
+            <div className="ks-page-title">效力总览</div>
+            <div className="ks-page-sub">库内标准/法规的四色效力现状（现行 / 废止 / 即将实施 / 未知），可导出。</div>
+          </header>
+          <div className="ks-page-rule" />
+          <KsReportPanel visible openEvidence={(url) => {
+            const a = document.createElement('a')
+            a.href = url
+            a.click()
+          }} />
+        </div>
+      </div>
+    )
+  }
+  if (page === 'materials') {
+    /* S5：备料（原设置「参考资料」）迁此 —— 业主动词表里的一级动作「备料」。 */
+    return (
+      <div className="ks-page">
+        <div className="ks-kb">
+          <header className="ks-page-head">
+            <div className="ks-page-title">备料</div>
+            <div className="ks-page-sub">上传的财报/制度/文章逐份就位；人工上传免评审，自采的要人批。</div>
+          </header>
+          <div className="ks-page-rule" />
+          <KsMaterialsPanel visible />
+        </div>
+      </div>
+    )
+  }
+
   // ── 其余非「知识库管理」页：诚实的占位（真入口，空内容） ──
   // ⚠ **`ingest` 不在这里了**（第 4 步）：那一条以前落到"这一页尚未实现"，而业主说
   //   "不要两个页面" ⇒ 现在它**直接落到「待分类」那一层**（看上面 `layer` 的初值与挂载副作用）。
   if (page !== 'manage' && page !== 'ingest') {
-    const LABELS: Record<string, string> = { report: '效力报告', channels: '渠道台账' }
+    const LABELS: Record<string, string> = { channels: '渠道台账' }
     return (
       // ⚠ 外面这一层 `.ks-page` **只做 container-type**（页面留边的宽/窄两档靠它切；
       //    CSS 里容器不能用自己的宽度查自己，所以留边必须落在它的后代 `.ks-kb` 上）。

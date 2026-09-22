@@ -668,10 +668,16 @@ check('inject declares only official services (no third-party hard gate)',
   // ①由下面的源码断言覆盖；②由"产物里同时有挂载点与面板标记"间接覆盖
   // （少任何一半都说明两者不同步）。
   const settings = await readFile(join(pluginRoot, 'client', 'KsSettingsSection.tsx'), 'utf8')
-  check('设置栏目源码里**挂载**了参考资料面板（不是只有产物里有）',
-    settings.includes("import { KsMaterialsPanel }") && settings.includes('<KsMaterialsPanel'))
-  check('设置栏目源码里有「参考资料」类目（用户在设置里找得到入口）',
-    settings.includes('title="参考资料"'))
+  /* ⚠ S5 对账（2026-09-22 搬家批）：面板新家 = 知识库 ▾「备料」/「效力总览」页
+     （KsKnowledgePage）——防孤儿牙口**保留**、目标换家，并加一条负向（挡塞回设置）。
+     旧口径原文留痕：原断言「设置栏目源码里挂载了参考资料面板 / 有『参考资料』类目」。 */
+  const kbSrc = await readFile(join(pluginRoot, 'client', 'KsKnowledgePage.tsx'), 'utf8')
+  check('「备料」页源码里**挂载**了参考资料面板（搬家后新家在——不是只有产物里有）',
+    kbSrc.includes("import { KsMaterialsPanel }") && kbSrc.includes('<KsMaterialsPanel'))
+  check('「效力总览」页源码里**挂载**了效力报告面板（S4 同批搬家的新家）',
+    kbSrc.includes("import { KsReportPanel }") && kbSrc.includes('<KsReportPanel'))
+  check('设置里**不再**挂载这两个面板（S5 设置只留全局项——挡它被塞回来）',
+    !settings.includes('<KsMaterialsPanel') && !settings.includes('<KsReportPanel'))
   check('产物里同时含面板标记与设置侧文案（源码↔产物同步的间接证据）',
     bundle.includes('评审是硬门') && bundle.includes('/materials use '))
   // ⚠ 产出侧同理：源码里那个 handler 必须真的接在按钮上（否则按钮点了没反应，

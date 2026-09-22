@@ -61,8 +61,6 @@ import {
   updateAnnounceSource,
   updateInspectionSettings,
 } from './api'
-import { KsReportPanel } from './KsReportPanel'
-import { KsMaterialsPanel } from './KsMaterialsPanel'
 import { KsChannelsPanel } from './KsChannelsPanel'
 import {
   KS_PREFS_DEFAULT,
@@ -165,8 +163,6 @@ export function KsSettingsSection(props: KsSettingsSectionInjected): JSX.Element
   // 六个类目各自的展开态（全默认收起）。展开过的数据留在组件 state 里，
   // 收起只是不再渲染/不再请求，不丢已拉到的快照。
   const [arrowOpen, setArrowOpen] = useState(false)
-  const [reportOpen, setReportOpen] = useState(false)
-  const [materialsOpen, setMaterialsOpen] = useState(false)
   const [channelsOpen, setChannelsOpen] = useState(false)
   const [inspectionOpen, setInspectionOpen] = useState(false)
   const [inspectionOpenedOnce, setInspectionOpenedOnce] = useState(false)
@@ -218,25 +214,9 @@ export function KsSettingsSection(props: KsSettingsSectionInjected): JSX.Element
         )}
       </KsCategory>
 
-      <KsCategory
-        title="效力报告"
-        open={reportOpen}
-        onToggle={setReportOpen}
-        hint="四色分组总览（🟢现行/🔴废止/🟡即将实施/⚪未知），可导出 Excel"
-      >
-        <KsReportPanel visible={reportOpen} openEvidence={openEvidence} />
-      </KsCategory>
-
-      {/* 材料平面（2026-09-17）：评审闸门的用户界面。放在「效力报告」旁边是刻意的——
-          两者都是"库内东西的管理台"；评审与选项目同处一地，硬门才不会被分到两处而形同虚设。 */}
-      <KsCategory
-        title="参考资料"
-        open={materialsOpen}
-        onToggle={setMaterialsOpen}
-        hint="上传的财报/制度/文章在这里逐份评审——只有「已批准」的材料会进入作答与产出物"
-      >
-        <KsMaterialsPanel visible={materialsOpen} />
-      </KsCategory>
+      {/* ⚠ S4/S5 搬家留痕（2026-09-22）：「效力报告」→ 知识库 ▾「效力总览」页；
+          「参考资料」→ 知识库 ▾「备料」页。设置只留**全局项**（业主批准的搬家批，
+          搬家不改面板内部、数据口径零变化）。 */}
 
       {/* 渠道台账（§11.0 R4b）：巡检"渠道"的可见面——链接 / 接线 / 有效性 / 上次成功查询。
           放在「参考资料」下面：两者都是"库里的东西要人工维护"的管理台（评审门 / 渠道门）。 */}

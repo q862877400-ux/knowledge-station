@@ -471,6 +471,19 @@ export function mount(container, props) {
     /* S2-b1：合规审查两段式（建任务抽点 → SSE 逐条执行）。SSE 桩 = 真 ReadableStream，
        帧格式照引擎 `_sse`（event: 名 / data: json / 空行）。 */
     /* S2-b2：义务清单/检查表 + 制度差距分析（形状逐字段抄 obligation.py / gap_analysis.py）。 */
+    /* S4/S5 搬家批：效力总览（/ks/report/effect）与备料（/ks/materials/*）的取数桩。 */
+    if (p === '/ks/report/effect') {
+      return json({ ok: true, data: { buckets: [], total: 0 } })
+    }
+    if (p === '/ks/materials/projects') {
+      return json({ ok: true, data: [] })
+    }
+    if (p === '/ks/materials/tiers') {
+      return json({ ok: true, data: [] })
+    }
+    if (p === '/ks/materials/list') {
+      return json({ ok: true, data: [] })
+    }
     /* S2-c：纠错修订（条款补丁三口；466 防乱确认流 = 引擎设计：无 force 首交给警告，
        带 force=true 再交落库）。DELETE = 回退。 */
     if (p === '/api/v1/clauses/patches' && method === 'GET') {
@@ -2540,6 +2553,32 @@ export function mount(container, props) {
 
   capRoot.unmount()
   await flush()
+
+  /* ── S4/S5 搬家批：效力总览 / 备料 两页**补真**（设置里的类目已移除，见 smoke-settings）── */
+  {
+    const mvContainer = document.createElement('div')
+    document.body.appendChild(mvContainer)
+    const mvRoot = mount(mvContainer, { useTabInfo: () => ({ tab: { navigation: { params: { page: 'report' } } } }), dataSource: 'render-smoke' })
+    await flush(); await flush()
+    check('S4：效力总览页补真（标题在 + 真发 /ks/report/effect + 占位横幅不在）',
+      (mvContainer.textContent ?? '').includes('效力总览')
+      && calls.some((c) => c.url.includes('/ks/report/effect'))
+      && !(mvContainer.textContent ?? '').includes('这一页尚未实现'),
+      (mvContainer.textContent ?? '').slice(0, 50))
+    mvRoot.unmount()
+    await flush()
+    const mtContainer = document.createElement('div')
+    document.body.appendChild(mtContainer)
+    const mtRoot = mount(mtContainer, { useTabInfo: () => ({ tab: { navigation: { params: { page: 'materials' } } } }), dataSource: 'render-smoke' })
+    await flush(); await flush()
+    check('S5：备料页真挂载（KsMaterialsPanel 空态文案在 + 真发 /ks/materials/projects）',
+      (mtContainer.textContent ?? '').includes('备料')
+      && (mtContainer.textContent ?? '').includes('先选一个项目')
+      && calls.some((c) => c.url.includes('/ks/materials/projects')),
+      (mtContainer.textContent ?? '').slice(0, 50))
+    mtRoot.unmount()
+    await flush()
+  }
 
   /* ══════════ 主题 token 存在性：引用不存在的 token 会静默落到硬编码兜底色 ══════════ */
   const themeDir = join(harness, 'packages', 'client', 'ui-theme', 'src', 'styles')

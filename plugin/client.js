@@ -34509,7 +34509,7 @@ function KsKnowledgeGuide({ title, description, kind, useTabInfo }) {
 }
 
 // client/KsKnowledgePage.tsx
-var import_react8 = require("react");
+var import_react10 = require("react");
 var import_dsh_client_ui_primitives4 = require("@deepseek-ai/dsh-client-ui-primitives");
 
 // client/KsCapabilityPage.tsx
@@ -35730,8 +35730,1411 @@ function KsIngestPanel(props) {
   );
 }
 
-// client/KsKnowledgePage.tsx
+// client/KsMaterialsPanel.tsx
+var import_react8 = require("react");
 var import_jsx_runtime11 = require("react/jsx-runtime");
+var GREEN = "var(--dsw-alias-state-success-primary)";
+var RED = "var(--dsw-alias-state-error-primary)";
+var GRAY = "var(--dsw-alias-label-tertiary)";
+var REVIEW_LABEL = {
+  approved: { text: "\u53EF\u4F5C\u4F9D\u636E", color: GREEN },
+  pending: { text: "\u5F85\u8BC4\u5BA1\uFF08\u4E0D\u4F1A\u8FDB\u5165\u4F5C\u7B54\uFF09", color: "var(--dsw-alias-state-warn-primary)" },
+  rejected: { text: "\u4E0D\u53EF\u7528\uFF08\u4E0D\u4F1A\u8FDB\u5165\u4F5C\u7B54\uFF09", color: RED }
+};
+function reviewLabel(status) {
+  return REVIEW_LABEL[status ?? ""] ?? { text: `\u672A\u77E5\u72B6\u6001\uFF08${status ?? "null"}\uFF09`, color: GRAY };
+}
+function btnStyle(disabled = false) {
+  return {
+    padding: "3px 10px",
+    fontSize: 12,
+    borderRadius: 4,
+    border: "1px solid var(--dsw-alias-border-l2)",
+    background: "transparent",
+    color: "inherit",
+    cursor: disabled ? "not-allowed" : "pointer",
+    opacity: disabled ? 0.5 : 1
+  };
+}
+function assertNever(status) {
+  throw new Error(`\u672A\u5904\u7406\u7684\u951A\u70B9\u72B6\u6001\uFF08\u65B0\u589E\u53D6\u503C\u5FC5\u987B\u540C\u65F6\u52A0\u5206\u652F\uFF09: ${String(status)}`);
+}
+function AnchorMark(props) {
+  const why = props.why || "\uFF08\u540E\u7AEF\u672A\u7ED9\u539F\u56E0\uFF09";
+  switch (props.status) {
+    // 没问题 / 没有区间可失效 ⇒ 不加噪声
+    case void 0:
+    case "ok":
+    case "no_locators":
+      return null;
+    case "stale":
+      return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: "var(--dsw-alias-state-warn-primary)" }, children: [
+        "\u26A0 ",
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u5F15\u7528\u951A\u70B9\u9700\u590D\u7B97" }),
+        "\uFF1A",
+        why,
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("br", {}),
+        "\uFF08\u9700\u590D\u7B97**\u4E0D\u4EE3\u8868\u5DF2\u7ECF\u574F\u4E86**\u3002\uFF09\u70B9\u300C\u590D\u7B97\u951A\u70B9\u300D\u7528\u5F53\u524D\u89E3\u6790\u5668\u91CD\u7B97\u6BD4\u5BF9\u3002"
+      ] });
+    case "unknown":
+      return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: GRAY }, children: [
+        "\u26A0 ",
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u5F15\u7528\u951A\u70B9\u672A\u9A8C\u8BC1" }),
+        "\uFF1A",
+        why,
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("br", {}),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u4E0D\u7B49\u4E8E" }),
+        "\u6709\u95EE\u9898\uFF0C\u4F46\u5F15\u7528\u4F4D\u7F6E",
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u672A\u7ECF\u786E\u8BA4" }),
+        "\u3002"
+      ] });
+    // ⚠ `health_error` **不是**健康状态，是"后端判据跑挂了"：不加这一支那种材料在界面上
+    // **一个标记都没有**，读起来像"全都健康"。颜色用红：这不是材料的问题，是我们的问题。
+    case "health_error":
+      return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { role: "alert", style: { margin: "4px 0 0", fontSize: 12, color: RED }, children: [
+        "\u26A0 ",
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u951A\u70B9\u5065\u5EB7\u5EA6\u7B97\u4E0D\u51FA\u6765" }),
+        "\uFF1A",
+        why,
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("br", {}),
+        "\u8FD9\u662F",
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u5DE5\u5177\u7F3A\u9677" }),
+        "\uFF0C",
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u4E0D\u4EE3\u8868" }),
+        "\u6750\u6599\u6709\u95EE\u9898\u2014\u2014\u4F46\u5B83\u7684\u5F15\u7528\u4F4D\u7F6E \u76EE\u524D",
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u672A\u77E5" }),
+        "\u3002"
+      ] });
+    default:
+      return assertNever(props.status);
+  }
+}
+function statusDisablesReverify(status) {
+  switch (status) {
+    case void 0:
+    case "ok":
+    case "stale":
+    case "unknown":
+    case "health_error":
+      return false;
+    case "no_locators":
+      return true;
+    default:
+      return assertNever(status);
+  }
+}
+function canApplyDraft(draft) {
+  if (draft === null || draft.llm_called === false) return false;
+  return (draft.draft_md ?? "").trim() !== "";
+}
+var emptyDraftFlow = { draft: null, conclusionMd: "", pendingOverwrite: false };
+function draftArrived(prev, out) {
+  return { draft: out, conclusionMd: prev.conclusionMd, pendingOverwrite: false };
+}
+function requestApplyDraft(prev) {
+  if (!canApplyDraft(prev.draft)) return prev;
+  if (prev.conclusionMd.trim() !== "") {
+    return { draft: prev.draft, conclusionMd: prev.conclusionMd, pendingOverwrite: true };
+  }
+  return { draft: prev.draft, conclusionMd: prev.draft?.draft_md ?? "", pendingOverwrite: false };
+}
+function confirmApplyDraft(prev) {
+  if (!canApplyDraft(prev.draft)) return prev;
+  return { draft: prev.draft, conclusionMd: prev.draft?.draft_md ?? "", pendingOverwrite: false };
+}
+function cancelApplyDraft(prev) {
+  return { draft: prev.draft, conclusionMd: prev.conclusionMd, pendingOverwrite: false };
+}
+function userTypedConclusion(prev, text) {
+  return { draft: prev.draft, conclusionMd: text, pendingOverwrite: false };
+}
+function draftReducer(prev, action) {
+  switch (action.type) {
+    case "arrived":
+      return draftArrived(prev, action.out);
+    case "requestApply":
+      return requestApplyDraft(prev);
+    case "confirmApply":
+      return confirmApplyDraft(prev);
+    case "cancelApply":
+      return cancelApplyDraft(prev);
+    case "typed":
+      return userTypedConclusion(prev, action.text);
+    default:
+      return assertNever(action);
+  }
+}
+function AnchorNoteLine(props) {
+  const note = props.note || "";
+  if (note === "") return null;
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { margin: "0 0 8px", fontSize: 12, color: GRAY }, children: note });
+}
+function KsMaterialsPanel(props) {
+  const { visible, onUseProject } = props;
+  const [projects, setProjects] = (0, import_react8.useState)([]);
+  const [projectId, setProjectId] = (0, import_react8.useState)("");
+  const [materials, setMaterials] = (0, import_react8.useState)([]);
+  const [tiers, setTiers] = (0, import_react8.useState)([]);
+  const [tierListFailed, setTierListFailed] = (0, import_react8.useState)(false);
+  const [inbox, setInbox] = (0, import_react8.useState)(
+    { dir: "", files: [] }
+  );
+  const [loading, setLoading] = (0, import_react8.useState)(false);
+  const [busy, setBusy] = (0, import_react8.useState)("");
+  const [error, setError] = (0, import_react8.useState)("");
+  const [notice, setNotice] = (0, import_react8.useState)("");
+  const [warn2, setWarn] = (0, import_react8.useState)("");
+  const [newName, setNewName] = (0, import_react8.useState)("");
+  const [collectUrl, setCollectUrl] = (0, import_react8.useState)("");
+  const [collectNote, setCollectNote] = (0, import_react8.useState)("");
+  const [researchQuery, setResearchQuery] = (0, import_react8.useState)("");
+  const [flow, dispatch] = (0, import_react8.useReducer)(draftReducer, emptyDraftFlow);
+  const conclusionMd = flow.conclusionMd;
+  const draft = flow.draft;
+  const [report, setReport] = (0, import_react8.useState)(null);
+  const [showReport, setShowReport] = (0, import_react8.useState)(false);
+  const [anchors, setAnchors] = (0, import_react8.useState)({});
+  const [anchorNote, setAnchorNote] = (0, import_react8.useState)("");
+  const [openChunks, setOpenChunks] = (0, import_react8.useState)({});
+  const reloadProjects = (0, import_react8.useCallback)(async (signal) => {
+    const list = await fetchMaterialProjects(signal);
+    setProjects(list);
+    return list;
+  }, []);
+  const reloadMaterials = (0, import_react8.useCallback)(async (pid, signal) => {
+    const list = await fetchMaterials(pid, void 0, signal);
+    setMaterials(list);
+  }, []);
+  const reloadInbox = (0, import_react8.useCallback)(async (pid, signal) => {
+    try {
+      setInbox(await fetchMaterialInbox(pid, signal));
+    } catch (err) {
+      if (err instanceof Error && err.name === "AbortError") return;
+      setInbox({ dir: "", files: [] });
+      setError(`\u6536\u4EF6\u7BB1\u8BFB\u53D6\u5931\u8D25\uFF1A${err instanceof Error ? err.message : String(err)}\uFF08\u4E0B\u9762\u7684"\u672A\u767B\u8BB0"\u8BA1\u6570\u4E0D\u53EF\u4FE1\u2014\u2014\u4E0D\u662F"\u6CA1\u6709\u6587\u4EF6"\uFF0C\u662F**\u6CA1\u8BFB\u5230**\uFF09`);
+    }
+  }, []);
+  (0, import_react8.useEffect)(() => {
+    if (!visible) return void 0;
+    const ctl = new AbortController();
+    let alive = true;
+    setLoading(true);
+    setError("");
+    void (async () => {
+      void fetchMaterialTiers(ctl.signal).then((defs) => {
+        if (alive) {
+          setTiers(defs);
+          setTierListFailed(false);
+        }
+      }).catch(() => {
+        if (alive) {
+          setTiers([]);
+          setTierListFailed(true);
+        }
+      });
+      try {
+        const list = await reloadProjects(ctl.signal);
+        if (!alive) return;
+        const first = list.length > 0 ? list[0].project_id : "";
+        setProjectId((cur) => cur !== "" && list.some((p) => p.project_id === cur) ? cur : first);
+      } catch (err) {
+        if (alive) setError(err instanceof Error ? err.message : String(err));
+      } finally {
+        if (alive) setLoading(false);
+      }
+    })();
+    return () => {
+      alive = false;
+      ctl.abort();
+    };
+  }, [visible, reloadProjects]);
+  (0, import_react8.useEffect)(() => {
+    if (!visible || projectId === "") {
+      setMaterials([]);
+      setInbox({ dir: "", files: [] });
+      setAnchors({});
+      setAnchorNote("");
+      return void 0;
+    }
+    const ctl = new AbortController();
+    let alive = true;
+    setLoading(true);
+    setError("");
+    void (async () => {
+      try {
+        await Promise.all([
+          reloadMaterials(projectId, ctl.signal),
+          reloadInbox(projectId, ctl.signal),
+          // 锚点健康度：**一次请求拿全项目**（便宜判据，不重解析）
+          fetchProjectLocators(projectId, ctl.signal).then((s) => {
+            if (!alive) return;
+            const why = {};
+            for (const a of s.attention) why[a.material_id] = a.why;
+            const map = {};
+            for (const [mid, status] of Object.entries(s.statuses)) {
+              map[mid] = { material_id: mid, status, why: why[mid] ?? "" };
+            }
+            setAnchors(map);
+            setAnchorNote(s.note);
+          }).catch(() => {
+          })
+        ]);
+      } catch (err) {
+        if (alive) setError(err instanceof Error ? err.message : String(err));
+      } finally {
+        if (alive) setLoading(false);
+      }
+    })();
+    return () => {
+      alive = false;
+      ctl.abort();
+    };
+  }, [visible, projectId, reloadMaterials, reloadInbox]);
+  const run = (0, import_react8.useCallback)(async (label, fn, refreshFor = null) => {
+    setBusy(label);
+    setError("");
+    setNotice("");
+    setWarn("");
+    try {
+      setNotice(await fn());
+      if (refreshFor !== null) await reloadMaterials(refreshFor);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : String(err));
+    } finally {
+      setBusy("");
+    }
+  }, [reloadMaterials]);
+  const onCreate = (0, import_react8.useCallback)(() => {
+    const name = newName.trim();
+    if (name === "") {
+      setError("\u8BF7\u5148\u586B\u9879\u76EE\u540D");
+      return;
+    }
+    void run("create", async () => {
+      const proj = await createMaterialProject(name);
+      setNewName("");
+      await reloadProjects();
+      setProjectId(proj.project_id);
+      return `\u5DF2\u5EFA\u9879\u76EE\u300C${proj.name}\u300D\u3002\u628A\u6750\u6599\u6587\u4EF6\u653E\u8FDB\u5B83\u7684\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u540E\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\u3002`;
+    }, null);
+  }, [newName, reloadProjects, run]);
+  const onScan = (0, import_react8.useCallback)(() => {
+    if (projectId === "") return;
+    void run("scan", async () => {
+      const r = await scanMaterialProject(projectId);
+      await reloadInbox(projectId);
+      return `\u626B\u63CF\u5B8C\u6210\uFF1A\u767B\u8BB0 ${r.registered} / \u5171 ${r.scanned} \u4E2A\u6587\u4EF6\u3002**\u65B0\u767B\u8BB0\u7684\u6750\u6599\u662F\u5F85\u8BC4\u5BA1\u72B6\u6001**\uFF0C\u9700\u4F60\u5728\u4E0B\u65B9\u9010\u4EFD\u6279\u51C6\u540E\u624D\u4F1A\u8FDB\u5165\u4F5C\u7B54\u3002`;
+    }, projectId);
+  }, [projectId, reloadInbox, run]);
+  const onCollect = (0, import_react8.useCallback)(() => {
+    if (projectId === "") return;
+    const url = collectUrl.trim();
+    if (url === "") {
+      setError("\u8BF7\u5148\u586B\u7F51\u5740\uFF08\u8981**\u539F\u59CB\u51FA\u5904**\u7684\u7F51\u9875\u5730\u5740\uFF09");
+      return;
+    }
+    void run("collect", async () => {
+      const out = await collectMaterialUrl(projectId, {
+        url,
+        note: collectNote.trim() === "" ? void 0 : collectNote.trim()
+      });
+      if (!out.collected) {
+        setWarn(`\u6CA1\u6709\u91C7\u5230\uFF1A${out.reason ?? "\u539F\u56E0\u672A\u7ED9"}` + (out.status !== void 0 ? `\uFF08HTTP ${out.status}\uFF09` : "") + "\u3002\u8FD9\u6761**\u6CA1\u6709**\u767B\u8BB0\u6210\u6750\u6599\u2014\u2014\u53EF\u4EE5\u6362\u4E2A**\u539F\u59CB\u51FA\u5904**\u7684\u7F51\u5740\u518D\u8BD5\uFF0C\u6216\u628A\u6B63\u6587\u7C98\u8D34/\u4FDD\u5B58\u6210\u6587\u4EF6\u653E\u8FDB\u4E0A\u9762\u7684\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u3002");
+        return "";
+      }
+      setCollectUrl("");
+      const title = out.material?.title ?? "\uFF08\u6807\u9898\u53D6\u81EA\u9875\u9762\uFF09";
+      const chunks = out.material?.chunk_count ?? 0;
+      return `\u5DF2\u767B\u8BB0\u300C${title}\u300D\uFF08${chunks} \u4E2A\u5207\u7247\uFF0C\u6765\u6E90\u5C42\u7EA7 **T3=\u4EC5\u7EBF\u7D22**\uFF09` + (out.duplicate === true ? "\u2014\u2014\u26A0 \u8FD9\u4E2A\u7F51\u5740\u7684\u5185\u5BB9**\u4E0E\u9879\u76EE\u91CC\u5DF2\u6709\u7684\u4E00\u4EFD\u76F8\u540C**\uFF0C\u5F15\u64CE**\u6CA1\u6709**\u91CD\u590D\u767B\u8BB0\u3002" : "\u3002") + (out.truncated === true ? "\u26A0 \u6B63\u6587\u88AB\u622A\u65AD\u5230\u957F\u5EA6\u4E0A\u9650\uFF08\u4E0D\u662F\u5168\u6587\uFF09\u3002" : "") + "\u5B83\u73B0\u5728\u662F**\u5F85\u8BC4\u5BA1**\u3001**\u4E0D\u4F1A**\u8FDB\u5165\u4EFB\u4F55\u7ED3\u8BBA\uFF0C\u9700\u4F60\u5728\u4E0B\u65B9\u6279\u51C6\uFF08\u672C\u9762\u677F\u4E0D\u80FD\u4EE3\u6279\uFF09\u3002";
+    }, projectId);
+  }, [collectNote, collectUrl, projectId, run]);
+  const onExportReport = (0, import_react8.useCallback)(() => {
+    if (projectId === "") return;
+    void run("report", async () => {
+      const out = await exportResearchReport(projectId, {
+        query: researchQuery.trim() === "" ? void 0 : researchQuery.trim(),
+        conclusionMd: conclusionMd.trim() === "" ? void 0 : conclusionMd
+      });
+      setReport(out);
+      setShowReport(false);
+      const bad = (out.warnings ?? []).length;
+      return `\u7814\u7A76\u62A5\u544A\u5DF2\u751F\u6210\uFF08\u5DF2\u6279\u51C6 ${out.counts?.approved ?? 0} / \u5F85\u8BC4\u5BA1 ${out.counts?.pending ?? 0}\uFF09` + (bad > 0 ? `\u2014\u2014\u26A0 \u6709 ${bad} \u6761\u5F15\u7528\u8B66\u544A\uFF0C\u89C1\u4E0B\u65B9\uFF08\u62A5\u544A\u91CC**\u539F\u6837\u4FDD\u7559**\u4E86\u90A3\u4E9B\u5F15\u7528\uFF09` : "");
+    }, null);
+  }, [conclusionMd, projectId, researchQuery, run]);
+  const onDraftConclusion = (0, import_react8.useCallback)(() => {
+    if (projectId === "") return;
+    const q = researchQuery.trim();
+    if (q === "") {
+      setNotice("\u8D77\u8349\u7ED3\u8BBA\u8981\u5148\u586B\u300C\u7814\u7A76\u95EE\u9898\u300D\u2014\u2014\u8349\u7A3F\u5FC5\u987B\u77E5\u9053\u8981\u56DE\u7B54\u4EC0\u4E48\u3002");
+      return;
+    }
+    void run("draft", async () => {
+      const out = await exportResearchDraft(projectId, { query: q });
+      dispatch({ type: "arrived", out });
+      if (out.llm_called === false) {
+        return "\u6CA1\u6709\u53EF\u627F\u91CD\u7684\u5DF2\u6279\u51C6\u6750\u6599\u2014\u2014\u5F15\u64CE**\u6CA1\u6709\u8D77\u8349**\uFF08\u4E00\u6B21\u6A21\u578B\u90FD\u6CA1\u8C03\uFF09";
+      }
+      const n = (out.warnings ?? []).length;
+      return "\u8349\u7A3F\u5DF2\u751F\u6210\uFF08**\u672A\u7ECF\u6279\u51C6**\uFF0C\u4E0D\u5F97\u4F5C\u4E3A\u4F9D\u636E\uFF09" + (n > 0 ? `\u2014\u2014\u26A0 ${n} \u6761\u63D0\u793A\uFF0C\u89C1\u4E0B\u65B9` : "");
+    }, null);
+  }, [projectId, researchQuery, run]);
+  const onReview = (0, import_react8.useCallback)((m, decision) => {
+    void run(`${decision}:${m.material_id}`, async () => {
+      const out = await reviewMaterial(m.material_id, decision);
+      const label = reviewLabel(out.review_status).text;
+      const tl = out.track_l ?? null;
+      const tlText = tl === null ? "" : tl.action === "import" ? "\uFF1B\u5DF2\u81EA\u52A8\u5165\u5E93\u4E3A\u6CD5\u6761\uFF08Track L\uFF09" : tl.action === "link" ? "\uFF1B\u5E93\u5185\u5DF2\u6709\uFF0C\u5DF2\u56DE\u6307\u8BE5\u6CD5\u6761" : tl.action === "skip" ? "\uFF1B\u672A\u8BC6\u522B\u4E3A\u6CD5\u89C4/\u6807\u51C6\uFF0C\u672A\u52A8\u6CD5\u6761\u5E93" : `\uFF1B\u26A0 Track L \u672A\u5B8C\u6210\uFF08${tl.action ?? "\u672A\u77E5"}\uFF09\uFF1A${tl.why ?? "\u539F\u56E0\u672A\u7ED9"}`;
+      return `\u300C${m.title}\u300D\u2192 ${label}${tlText}`;
+    }, projectId);
+  }, [projectId, run]);
+  const onTier = (0, import_react8.useCallback)((m, tier) => {
+    void run(`tier:${m.material_id}`, async () => {
+      const out = await setMaterialTier(
+        m.material_id,
+        tier,
+        `\u7528\u6237\u6539\u7EA7\uFF1A${m.source_tier ?? "\u672A\u5224\u7EA7"} \u2192 ${tier}`
+      );
+      return `\u300C${m.title}\u300D\u6765\u6E90\u5C42\u7EA7 \u2192 ${out.tier_label ?? out.source_tier}\uFF08\u5DF2\u8BB0\u4E3A**\u7528\u6237\u6539\u7684**\uFF09`;
+    }, projectId);
+  }, [projectId, run]);
+  const [picked, setPicked] = (0, import_react8.useState)(/* @__PURE__ */ new Set());
+  const onRole = (0, import_react8.useCallback)((m, role) => {
+    void run(`role:${m.material_id}`, async () => {
+      await setMaterialRole(m.material_id, role === "" ? null : role);
+      return `\u300C${m.title}\u300D\u4EFB\u52A1\u5185\u6548\u529B\u5DF2\u66F4\u65B0`;
+    }, projectId);
+  }, [projectId, run]);
+  const onReverify = (0, import_react8.useCallback)((m) => {
+    void run(`reverify:${m.material_id}`, async () => {
+      const out = await reverifyMaterialLocators(m.material_id);
+      if (out.status === "match") return `\u300C${m.title}\u300D\u951A\u70B9\u590D\u7B97\uFF1A**\u9010\u5B57\u8282\u4E00\u81F4**\uFF08\u533A\u95F4\u4ECD\u6709\u6548\uFF09`;
+      if (out.status === "mismatch") {
+        return `\u300C${m.title}\u300D\u951A\u70B9\u590D\u7B97\uFF1A\u26A0 **\u5DF2\u5B58\u533A\u95F4\u5DF2\u5931\u6548**\uFF08\u5F15\u7528\u4F4D\u7F6E\u4F1A\u6307\u9519\uFF09\u2014\u2014\u9700\u8981\u91CD\u5EFA\u8FD9\u4EFD\u6750\u6599\uFF08\u91CD\u65B0\u89E3\u6790\u5E76\u91CD\u5EFA\u5207\u7247\uFF09\uFF0C\u6216\u628A\u5B83\u5F03\u7528`;
+      }
+      return `\u300C${m.title}\u300D\u951A\u70B9\u590D\u7B97\uFF1A**\u9A8C\u4E0D\u4E86**\uFF08${out.why}\uFF09`;
+    }, null);
+  }, [run]);
+  const onToggleChunks = (0, import_react8.useCallback)((m) => {
+    const cur = openChunks[m.material_id];
+    if (cur !== void 0) {
+      setOpenChunks((prev) => {
+        const next = { ...prev };
+        delete next[m.material_id];
+        return next;
+      });
+      return;
+    }
+    setOpenChunks((prev) => ({ ...prev, [m.material_id]: "loading" }));
+    void (async () => {
+      try {
+        const page = await fetchMaterialChunks(m.material_id, 0, 20);
+        setOpenChunks((prev) => ({ ...prev, [m.material_id]: page.chunks }));
+      } catch (err) {
+        setError(err instanceof Error ? err.message : String(err));
+        setOpenChunks((prev) => {
+          const next = { ...prev };
+          delete next[m.material_id];
+          return next;
+        });
+      }
+    })();
+  }, [openChunks]);
+  if (!visible) {
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { fontSize: 12, color: GRAY, margin: 0 }, children: "\u5C55\u5F00\u540E\u52A0\u8F7D\u53C2\u8003\u8D44\u6599\uFF08\u6536\u8D77\u65F6\u4E0D\u53D1\u4EFB\u4F55\u8BF7\u6C42\uFF09\u3002" });
+  }
+  const current = projects.find((p) => p.project_id === projectId);
+  return (
+    // ⚠ 5j（2026-09-20）：`.ks-page` 只做 container-type（页面留边的宽/窄两档靠它切；
+    //    CSS 里容器不能用自己的宽度查自己 ⇒ 留边落在后代的 `.ks-mat` 上）。
+    //    零内边距零外边距 ⇒ 不是"盒子套盒子"。里面的 JSX 缩进保持原样（本批不重排）。
+    //    ⚠ 本组件**同时**被设置窗的 KsCategory 包着渲染 ⇒ 那处会多出这层留边（16px）：
+    //      这是有意的（弹窗内容同样不该贴边），但它**不在**本轮的验收面上（见 UI-BASELINE 5j 边界）。
+    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-mat", style: { fontSize: 13 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "0 0 10px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u8BC4\u5BA1\u662F\u786C\u95E8" }),
+        "\uFF1A\u53EA\u6709",
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u5DF2\u6279\u51C6" }),
+        "\u7684\u6750\u6599\u4F1A\u8FDB\u5165\u4F5C\u7B54\u4E0E\u4EA7\u51FA\u7269\u3002 \u672A\u6279\u51C6\u7684\u6750\u6599\u4E0D\u4F1A\u88AB\u68C0\u7D22\u3001\u4E0D\u4F1A\u88AB\u5F15\u7528\u3002\u6240\u6709\u51B3\u5B9A\u90FD\u7531",
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u4F60" }),
+        '\u505A\u51FA\uFF08\u672C\u9762\u677F\u6CA1\u6709"\u5168\u90E8\u901A\u8FC7"\uFF09\u3002'
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { marginBottom: 12 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("label", { style: { display: "flex", gap: 6, alignItems: "center" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { children: "\u53C2\u8003\u8D44\u6599\u9879\u76EE" }),
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+              "select",
+              {
+                "aria-label": "\u53C2\u8003\u8D44\u6599\u9879\u76EE",
+                value: projectId,
+                onChange: (e) => setProjectId(e.currentTarget.value),
+                style: { padding: "3px 6px", fontSize: 12, maxWidth: 320 },
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("option", { value: "", children: "\uFF08\u672A\u9009\u62E9\uFF09" }),
+                  projects.map((p) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("option", { value: p.project_id, children: [
+                    p.name,
+                    "\uFF08",
+                    p.project_id,
+                    "\uFF09"
+                  ] }, p.project_id))
+                ]
+              }
+            )
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            "input",
+            {
+              "aria-label": "\u65B0\u5EFA\u9879\u76EE\u540D",
+              placeholder: "\u65B0\u5EFA\u9879\u76EE\u540D",
+              value: newName,
+              onChange: (e) => setNewName(e.currentTarget.value),
+              style: { padding: "3px 6px", fontSize: 12, width: 160 }
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("button", { type: "button", style: btnStyle(busy !== ""), disabled: busy !== "", onClick: onCreate, children: "\u65B0\u5EFA\u9879\u76EE" }),
+          current !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            "button",
+            {
+              type: "button",
+              style: btnStyle(false),
+              title: "\u628A\u8FD9\u4E2A id \u4EA4\u7ED9\u4F1A\u8BDD\u7EA7\u7ED1\u5B9A\uFF08\u7B49\u6548\u4E8E\u8F93\u5165 /materials use <id>\uFF09",
+              onClick: () => onUseProject?.(current.project_id, current.name),
+              children: "\u5728\u4F1A\u8BDD\u4E2D\u4F7F\u7528"
+            }
+          )
+        ] }),
+        current !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+          "\u4F1A\u8BDD\u91CC\u95EE\u95EE\u9898\u65F6\u60F3\u7528\u672C\u9879\u76EE\u7684\u6750\u6599\uFF0C\u8F93\u5165 ",
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("code", { children: [
+            "/materials use ",
+            current.project_id,
+            " ",
+            current.name
+          ] }),
+          "\uFF08\u672A\u7ED1\u5B9A\u65F6\u6750\u6599",
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u5B8C\u5168\u4E0D\u53C2\u4E0E" }),
+          "\u4F5C\u7B54\uFF09\u3002"
+        ] })
+      ] }),
+      projectId !== "" && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { marginBottom: 12, padding: "8px 10px", border: "1px solid var(--dsw-alias-border-l2)", borderRadius: 6 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939" }),
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { style: { fontSize: 12, color: GRAY }, children: [
+            "\u672A\u767B\u8BB0 ",
+            inbox.files.length,
+            " \u4E2A\u6587\u4EF6"
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("button", { type: "button", style: btnStyle(busy !== ""), disabled: busy !== "", onClick: onScan, children: "\u626B\u63CF\u6536\u4EF6" })
+        ] }),
+        inbox.dir !== "" && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
+          "\u628A PDF / DOCX / TXT / MD \u653E\u8FDB ",
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("code", { children: inbox.dir }),
+          " \u518D\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\u3002"
+        ] }),
+        inbox.files.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("ul", { style: { margin: "6px 0 0", paddingLeft: 18, fontSize: 12, color: GRAY }, children: [
+          inbox.files.slice(0, 10).map((f) => /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("li", { children: f.file_name }, f.file_name)),
+          inbox.files.length > 10 && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("li", { children: [
+            "\u2026 \u53E6\u6709 ",
+            inbox.files.length - 10,
+            " \u4E2A"
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: {
+          marginTop: 10,
+          paddingTop: 8,
+          borderTop: "1px dashed var(--dsw-alias-border-l2)"
+        }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u81EA\u91C7\u4E00\u4EFD" }),
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+              "input",
+              {
+                "aria-label": "\u81EA\u91C7\u7F51\u5740",
+                placeholder: "https://\u2026\uFF08\u8981\u300C\u539F\u59CB\u51FA\u5904\u300D\u7684\u7F51\u9875\u6B63\u6587\uFF09",
+                value: collectUrl,
+                onChange: (e) => setCollectUrl(e.currentTarget.value),
+                style: { padding: "3px 6px", fontSize: 12, width: 320 }
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+              "input",
+              {
+                "aria-label": "\u81EA\u91C7\u5907\u6CE8",
+                placeholder: "\u5907\u6CE8\uFF08\u53EF\u9009\uFF0C\u8BC4\u5BA1\u4EBA\u4F1A\u770B\u5230\u8FD9\u6761\u662F\u600E\u4E48\u6765\u7684\uFF09",
+                value: collectNote,
+                onChange: (e) => setCollectNote(e.currentTarget.value),
+                style: { padding: "3px 6px", fontSize: 12, width: 220 }
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+              "button",
+              {
+                type: "button",
+                style: btnStyle(busy !== "" || collectUrl.trim() === ""),
+                disabled: busy !== "" || collectUrl.trim() === "",
+                onClick: onCollect,
+                children: "\u81EA\u91C7\u4E00\u6761"
+              }
+            )
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
+            "\u91C7\u56DE\u6765\u7684\u662F ",
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u5F85\u8BC4\u5BA1" }),
+            "\u6750\u6599\uFF0C\u6765\u6E90\u5C42\u7EA7\u7531\u7CFB\u7EDF\u5224\u4E3A ",
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "T3=\u4EC5\u7EBF\u7D22" }),
+            "\uFF08",
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u4E0D\u5F97\u5355\u72EC\u652F\u6491\u7ED3\u8BBA" }),
+            "\u3001\u4E0D\u80FD\u4E0E\u5176\u5B83\u7F51\u9875\u4E92\u8BC1\uFF09\uFF1B\u6279\u51C6\u524D",
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u4E0D\u4F1A" }),
+            "\u8FDB\u5165\u4F5C\u7B54\u6216\u4EA7\u51FA\u3002",
+            " ",
+            "\u53EA\u6536",
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u4E00\u6761" }),
+            "\uFF08\u9884\u7B97\u672A\u5B9A\uFF0C\u6CA1\u6709\u6279\u91CF\uFF09\uFF0C\u4E14\u53EA\u6536",
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u7F51\u9875\u6B63\u6587" }),
+            "\uFF1A PDF / \u56FE\u7247 / \u538B\u7F29\u5305\u8BF7\u4E0B\u8F7D\u540E\u653E\u8FDB\u4E0A\u9762\u7684\u6587\u4EF6\u5939\u3002"
+          ] })
+        ] })
+      ] }),
+      error !== "" && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { role: "alert", style: { margin: "0 0 8px", color: RED, fontSize: 12 }, children: [
+        "\u64CD\u4F5C\u5931\u8D25\uFF1A",
+        error
+      ] }),
+      warn2 !== "" && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { role: "status", style: { margin: "0 0 8px", color: "var(--dsw-alias-state-warn-primary)", fontSize: 12 }, children: [
+        "\u26A0 ",
+        warn2
+      ] }),
+      notice !== "" && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { margin: "0 0 8px", color: "var(--dsw-alias-label-secondary, #666)", fontSize: 12 }, children: notice }),
+      loading && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { margin: "0 0 8px", fontSize: 12, color: GRAY }, children: "\u52A0\u8F7D\u4E2D\u2026" }),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(AnchorNoteLine, { note: anchorNote }),
+      tierListFailed && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { role: "status", style: { margin: "0 0 8px", color: "var(--dsw-alias-state-warn-primary)", fontSize: 12 }, children: [
+        "\u26A0 \u6765\u6E90\u5C42\u7EA7\u6E05\u5355\uFF08T0\u2013T4\uFF09**\u6CA1\u8BFB\u5230**\uFF1A\u6750\u6599\u8868\u91CC\u6BCF\u4EFD\u6750\u6599\u7684\u300C\u8F74 A \u6765\u6E90\u53EF\u4FE1\u5EA6\u300D\u4E0B\u62C9\u4F1A\u53EA\u5269\u5F53\u524D\u503C\u3001",
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u6539\u4E0D\u4E86\u7EA7" }),
+        "\u3002\u8FD9**\u4E0D\u4EE3\u8868**\u6750\u6599\u6CA1\u6709\u5C42\u7EA7\uFF0C\u662F\u8FD9\u4EFD\u6E05\u5355\u6CA1\u53D6\u5230\u2014\u2014 \u91CD\u5F00\u9762\u677F\u6216\u91CD\u542F\u5F15\u64CE\u540E\u518D\u8BD5\u3002"
+      ] }),
+      projectId === "" && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { fontSize: 12, color: GRAY }, children: "\u5148\u9009\u4E00\u4E2A\u9879\u76EE\uFF08\u6216\u5728\u4E0A\u9762\u65B0\u5EFA\uFF09\u3002" }),
+      projectId !== "" && !loading && materials.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { fontSize: 12, color: GRAY }, children: "\u8FD9\u4E2A\u9879\u76EE\u91CC\u8FD8\u6CA1\u6709\u5DF2\u767B\u8BB0\u7684\u6750\u6599\uFF1A\u628A\u6587\u4EF6\u653E\u8FDB\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u540E\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\uFF08\u4EBA\u5DE5\u4E0A\u4F20\u514D\u8BC4\u5BA1\uFF0C\u5C31\u4F4D\u5373\u53EF\u7528\uFF09\uFF0C \u6216\u7528\u4E0A\u9762\u7684\u300C\u81EA\u91C7\u4E00\u6761\u300D\u6309\u7F51\u5740\u6293\u4E00\u4EFD\u7F51\u9875\u6B63\u6587\uFF08\u81EA\u91C7\u7684\u8981\u4F60\u6279\u51C6\u540E\u624D\u7B97\u6570\uFF09\u3002" }),
+      picked.size > 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-batch", "data-ks-batch": "on", style: { position: "sticky", bottom: 0, display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap", padding: "8px 10px", marginBottom: 8, border: "0.5px solid var(--dsw-alias-border-l1)", borderRadius: 6, background: "var(--dsw-alias-bg-layer-2)" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { style: { fontSize: 12 }, children: [
+          "\u5DF2\u9009 ",
+          String(picked.size),
+          " \u9879"
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("button", { type: "button", style: btnStyle(busy !== ""), disabled: busy !== "", onClick: () => {
+          materials.filter((mm) => picked.has(mm.material_id)).forEach((mm) => onRole(mm, "criterion"));
+          setPicked(/* @__PURE__ */ new Set());
+        }, children: "\u6279\u91CF\u8BBE\u4E3A\u5FC5\u987B\u9075\u5B88" }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("button", { type: "button", style: btnStyle(busy !== ""), disabled: busy !== "", onClick: () => {
+          materials.filter((mm) => picked.has(mm.material_id)).forEach((mm) => onRole(mm, "reference"));
+          setPicked(/* @__PURE__ */ new Set());
+        }, children: "\u6279\u91CF\u8BBE\u4E3A\u4EC5\u4F9B\u53C2\u8003" }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("button", { type: "button", style: btnStyle(false), onClick: () => {
+          setPicked(/* @__PURE__ */ new Set());
+        }, children: "\u53D6\u6D88\u9009\u62E9" })
+      ] }),
+      materials.map((m) => {
+        const rev = reviewLabel(m.review_status);
+        const isUpload = (m.origin ?? "user") === "user";
+        const chunks = openChunks[m.material_id];
+        return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+          "div",
+          {
+            className: "ks-mat-row",
+            style: {
+              border: "1px solid var(--dsw-alias-border-l2)",
+              borderRadius: 6,
+              padding: "8px 10px",
+              marginBottom: 8
+            },
+            children: [
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "baseline", flexWrap: "wrap" }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                  "input",
+                  {
+                    type: "checkbox",
+                    "aria-label": `\u52FE\u9009 ${m.title}`,
+                    checked: picked.has(m.material_id),
+                    onChange: () => {
+                      const next = new Set(picked);
+                      if (next.has(m.material_id)) next.delete(m.material_id);
+                      else next.add(m.material_id);
+                      setPicked(next);
+                    }
+                  }
+                ),
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: m.title }),
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { style: { fontSize: 12, color: rev.color }, children: rev.text }),
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { style: { fontSize: 12, color: GRAY }, children: [
+                  m.chunk_count ?? 0,
+                  " \u4E2A\u5207\u7247 \xB7 ",
+                  m.origin ?? "user",
+                  " / ",
+                  m.kind ?? "other"
+                ] })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap", marginTop: 6 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("label", { style: { display: "flex", gap: 4, alignItems: "center", fontSize: 12 }, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { children: "\u6765\u6E90\u5C42\u7EA7" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+                    "select",
+                    {
+                      "aria-label": `\u6765\u6E90\u5C42\u7EA7 ${m.title}`,
+                      value: m.source_tier ?? "",
+                      onChange: (e) => onTier(m, e.currentTarget.value),
+                      disabled: busy !== "" || tiers.length === 0,
+                      title: tiers.length === 0 ? "\u6765\u6E90\u5C42\u7EA7\u6E05\u5355\u6CA1\u8BFB\u5230\uFF0C\u6682\u65F6\u6539\u4E0D\u4E86\u7EA7" : void 0,
+                      style: { fontSize: 12, maxWidth: 260 },
+                      children: [
+                        tiers.length === 0 && m.source_tier != null && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("option", { value: m.source_tier, children: m.tier_label ?? m.source_tier }),
+                        tiers.map((t) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("option", { value: t.tier, children: [
+                          t.tier,
+                          " ",
+                          t.label
+                        ] }, t.tier))
+                      ]
+                    }
+                  ),
+                  m.tier_source === "user" && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { style: { color: GRAY }, children: "\uFF08\u4F60\u6539\u7684\uFF09" })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                  "button",
+                  {
+                    type: "button",
+                    "aria-label": `\u5730\u4F4D ${m.title}`,
+                    disabled: busy !== "",
+                    onClick: () => {
+                      onRole(m, m.task_role === "criterion" ? "reference" : "criterion");
+                    },
+                    title: m.task_role === "criterion" ? "\u5FC5\u987B\u9075\u5B88\uFF08\u4EE5\u6B64\u4E3A\u51C6\uFF09\u2014\u2014\u70B9\u4E00\u4E0B\u6539\u4E3A\u4EC5\u4F9B\u53C2\u8003" : "\u4EC5\u4F9B\u53C2\u8003\u2014\u2014\u70B9\u4E00\u4E0B\u6539\u4E3A\u5FC5\u987B\u9075\u5B88",
+                    style: {
+                      ...btnStyle(busy !== ""),
+                      borderRadius: 999,
+                      color: m.task_role === "criterion" ? "var(--dsw-alias-state-business-primary)" : "var(--dsw-alias-label-secondary)",
+                      border: `1px solid ${m.task_role === "criterion" ? "var(--dsw-alias-state-business-primary)" : "var(--dsw-alias-label-tertiary)"}`
+                    },
+                    children: m.task_role === "criterion" ? "\u5FC5\u987B\u9075\u5B88" : m.task_role === "reference" ? "\u4EC5\u4F9B\u53C2\u8003" : "\u672A\u58F0\u660E"
+                  }
+                )
+              ] }),
+              m.tier_reason != null && m.tier_reason !== "" && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: GRAY }, children: [
+                "\u5224\u7EA7\u8BF4\u660E\uFF1A",
+                m.tier_reason
+              ] }),
+              m.source_tier === "T4" && m.task_role === "criterion" && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: RED }, children: [
+                "\u26A0 \u4F60\u628A\u6765\u6E90\u4E0D\u53EF\u56DE\u6EAF\uFF08T4\uFF09\u7684\u6750\u6599\u58F0\u660E\u4E3A\u51C6\u7EF3\u2014\u2014\u6309\u7EAA\u5F8B\u5B83",
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u4E0D\u4F1A\u6309\u51C6\u5219\u627F\u91CD" }),
+                "\uFF0C \u53EA\u5217\u5728\u300C\u5DF2\u77E5\u4E0D\u53EF\u7528\u300D\u91CC\u3002\u8981\u8BA9\u5B83\u627F\u91CD\uFF0C\u8BF7\u5148\u628A\u5B83\u6539\u6210\u53EF\u56DE\u6EAF\u7684\u6765\u6E90\u5C42\u7EA7\u3002"
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(AnchorMark, { status: anchors[m.material_id]?.status, why: anchors[m.material_id]?.why }),
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { display: "flex", gap: 6, marginTop: 8, flexWrap: "wrap" }, children: [
+                !isUpload && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                    "button",
+                    {
+                      type: "button",
+                      style: btnStyle(busy !== "" || m.review_status === "approved"),
+                      disabled: busy !== "" || m.review_status === "approved",
+                      onClick: () => onReview(m, "approved"),
+                      children: "\u6279\u51C6\uFF08\u53EF\u8FDB\u5165\u4F5C\u7B54\uFF09"
+                    }
+                  ),
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                    "button",
+                    {
+                      type: "button",
+                      style: btnStyle(busy !== "" || m.review_status === "rejected"),
+                      disabled: busy !== "" || m.review_status === "rejected",
+                      onClick: () => onReview(m, "rejected"),
+                      children: "\u62D2\u7EDD"
+                    }
+                  )
+                ] }),
+                isUpload && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { style: { fontSize: 12, color: GRAY }, children: "\u4EBA\u5DE5\u4E0A\u4F20\uFF1A\u514D\u8BC4\u5BA1\uFF0C\u5DF2\u5C31\u4F4D\u5373\u53EF\u7528" }),
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("button", { type: "button", style: btnStyle(false), onClick: () => onToggleChunks(m), children: chunks === void 0 ? "\u8BFB\u6B63\u6587\uFF08\u8BC4\u5BA1\u524D\u5FC5\u770B\uFF09" : "\u6536\u8D77\u6B63\u6587" }),
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                  "button",
+                  {
+                    type: "button",
+                    style: btnStyle(busy !== "" || statusDisablesReverify(anchors[m.material_id]?.status)),
+                    disabled: busy !== "" || statusDisablesReverify(anchors[m.material_id]?.status),
+                    title: "\u7528\u5F53\u524D\u89E3\u6790\u5668\u91CD\u65B0\u89E3\u6790\u6E90\u6587\u4EF6\u5E76\u6BD4\u5BF9\u6D3E\u751F\u5168\u6587\uFF08PDF \u662F\u5B50\u8FDB\u7A0B\uFF0C\u53EF\u80FD\u8981\u51E0\u5341\u79D2\uFF09",
+                    onClick: () => onReverify(m),
+                    children: "\u590D\u7B97\u951A\u70B9"
+                  }
+                )
+              ] }),
+              chunks === "loading" && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: "\u8BFB\u53D6\u5207\u7247\u2026" }),
+              Array.isArray(chunks) && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { marginTop: 6, maxHeight: 240, overflow: "auto", fontSize: 12 }, children: [
+                chunks.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: 0, color: GRAY }, children: [
+                  "\u6CA1\u6709\u5207\u7247\u2014\u2014\u8BE5\u6587\u4EF6\u53EF\u80FD\u6CA1\u89E3\u6790\u51FA\u6587\u672C\uFF08\u626B\u63CF\u4EF6\uFF1F\uFF09\u3002",
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u6CA1\u6709\u6B63\u6587\u5C31\u65E0\u6CD5\u8BC4\u5BA1" }),
+                  "\u3002"
+                ] }),
+                chunks.map((c, i) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "0 0 4px" }, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { style: { color: GRAY }, children: [
+                    "[",
+                    i,
+                    "] ",
+                    c.page != null ? `\u7B2C${c.page}\u9875 ` : "",
+                    c.char_start,
+                    "-",
+                    c.char_end
+                  ] }),
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("br", {}),
+                  c.text
+                ] }, `${c.char_start}-${i}`))
+              ] })
+            ]
+          },
+          m.material_id
+        );
+      }),
+      projectId !== "" && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: {
+        marginTop: 12,
+        padding: "8px 10px",
+        border: "1px solid var(--dsw-alias-border-l2)",
+        borderRadius: 6
+      }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u4EA7\u51FA" }),
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { style: { fontSize: 12, color: GRAY }, children: [
+            "\uFF08\u53EA\u5403",
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u5DF2\u6279\u51C6" }),
+            "\u6750\u6599\uFF1B\u672A\u6279\u51C6\u7684\u5728\u62A5\u544A\u91CC\u5355\u5217\u4E00\u8282\uFF09"
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { style: { display: "flex", gap: 8, marginTop: 6, flexWrap: "wrap" }, children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+          "input",
+          {
+            "aria-label": "\u7814\u7A76\u95EE\u9898",
+            placeholder: "\u7814\u7A76\u95EE\u9898\uFF08\u53EF\u9009\uFF1B\u7ED9\u4E86\u5C31\u6309\u5B83\u68C0\u7D22\u5DF2\u6279\u51C6\u6750\u6599\u5E76\u5206\u7EC4\uFF09",
+            value: researchQuery,
+            onChange: (e) => setResearchQuery(e.currentTarget.value),
+            style: { padding: "3px 6px", fontSize: 12, width: 340 }
+          }
+        ) }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { style: { marginTop: 6 }, children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+          "textarea",
+          {
+            "aria-label": "\u7ED3\u8BBA\u6B63\u6587",
+            placeholder: "\u7ED3\u8BBA\uFF08\u53EF\u9009\uFF0CMarkdown\uFF09\u3002\u91CC\u9762\u53EF\u4EE5\u7528 [[m:\u7F16\u53F7]] \u5F15\u7528\u4F9D\u636E\uFF1B\u7F16\u53F7\u5BF9\u4E0D\u4E0A\u5F15\u64CE\u4F1A\u8B66\u544A\u3002",
+            value: conclusionMd,
+            onChange: (e) => dispatch({ type: "typed", text: e.currentTarget.value }),
+            rows: 3,
+            style: { padding: "3px 6px", fontSize: 12, width: "100%", boxSizing: "border-box" }
+          }
+        ) }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { display: "flex", gap: 6, marginTop: 6, flexWrap: "wrap" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            "button",
+            {
+              type: "button",
+              style: btnStyle(busy !== ""),
+              disabled: busy !== "",
+              onClick: onDraftConclusion,
+              children: "\u8D77\u8349\u7ED3\u8BBA\uFF08\u8349\u7A3F\uFF09"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            "button",
+            {
+              type: "button",
+              style: btnStyle(busy !== ""),
+              disabled: busy !== "",
+              onClick: onExportReport,
+              children: "\u751F\u6210\u7814\u7A76\u62A5\u544A\uFF08Markdown/HTML\uFF09"
+            }
+          ),
+          report?.markdown !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            "button",
+            {
+              type: "button",
+              style: btnStyle(false),
+              onClick: () => setShowReport((v) => !v),
+              children: showReport ? "\u6536\u8D77 Markdown" : "\u770B Markdown"
+            }
+          )
+        ] }),
+        draft !== null && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+          "div",
+          {
+            role: "status",
+            style: {
+              marginTop: 6,
+              padding: "6px 8px",
+              borderRadius: 4,
+              border: "1px dashed var(--dsw-alias-state-warn-primary)",
+              background: "var(--dsw-alias-bg-layer-2)"
+            },
+            children: [
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: 0, fontSize: 12, color: "var(--dsw-alias-state-warn-primary)" }, children: [
+                "\u26A0 ",
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u672A\u6279\u51C6\u8349\u7A3F" }),
+                "\u2014\u2014\u7531\u7CFB\u7EDF\u57FA\u4E8E",
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u5DF2\u6279\u51C6\u6750\u6599" }),
+                "\u8D77\u8349\uFF0C",
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u4E0D\u5F97\u4F5C\u4E3A\u4F9D\u636E" }),
+                "\uFF1B \u8BF7\u5148\u6539/\u6838\uFF0C\u518D\u70B9\u300C\u7528\u8FD9\u6BB5\u586B\u8FDB\u7ED3\u8BBA\u6846\u300D\u3002"
+              ] }),
+              draft.llm_called === false ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: GRAY }, children: [
+                "\u6CA1\u6709\u53EF\u627F\u91CD\u7684\u5DF2\u6279\u51C6\u6750\u6599\uFF0C\u5F15\u64CE",
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u6CA1\u6709\u8D77\u8349" }),
+                "\uFF08\u4E00\u6B21\u6A21\u578B\u90FD\u6CA1\u8C03\uFF09\u3002"
+              ] }) : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("pre", { style: {
+                  marginTop: 4,
+                  maxHeight: 200,
+                  overflow: "auto",
+                  fontSize: 11,
+                  whiteSpace: "pre-wrap",
+                  background: "var(--dsw-alias-bg-base)",
+                  padding: 6,
+                  borderRadius: 4
+                }, children: canApplyDraft(draft) ? draft.draft_md : "\uFF08\u6A21\u578B\u6CA1\u6709\u4EA7\u51FA\u7ED3\u8BBA\u6BB5\u2014\u2014\u89C1\u4E0B\u65B9\u63D0\u793A\uFF0C\u53EF\u770B derivation_md\uFF09" }),
+                (draft.warnings ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: {
+                  margin: "4px 0 0",
+                  fontSize: 12,
+                  color: "var(--dsw-alias-state-warn-primary)"
+                }, children: [
+                  "\u26A0 \u8D77\u8349\u63D0\u793A\uFF08\u5F15\u7528\u4E0D\u6210\u7ACB / \u6750\u6599\u4E0D\u8DB3 / \u6A21\u578B\u8F93\u51FA\u95EE\u9898\uFF0C**\u539F\u6837\u5217\u51FA\u3001\u4E0D\u9759\u9ED8\u6539\u8349\u7A3F**\uFF09\uFF1A",
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("br", {}),
+                  (draft.warnings ?? []).join("\uFF1B")
+                ] }),
+                flow.pendingOverwrite ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { marginTop: 4 }, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: {
+                    margin: "0 0 4px",
+                    fontSize: 12,
+                    color: "var(--dsw-alias-state-warn-primary)"
+                  }, children: "\u26A0 \u7ED3\u8BBA\u6846\u91CC\u5DF2\u6709\u5185\u5BB9\uFF08\u53EF\u80FD\u662F\u4F60\u81EA\u5DF1\u5199\u7684\uFF09\u2014\u2014\u586B\u8349\u7A3F\u4F1A**\u8986\u76D6**\u5B83\uFF0C\u4E14**\u4E0D\u80FD\u64A4\u9500**\u3002 \u786E\u8BA4\u8981\u8986\u76D6\u5417\uFF1F" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                    "button",
+                    {
+                      type: "button",
+                      style: { ...btnStyle(false), marginRight: 6 },
+                      onClick: () => dispatch({ type: "confirmApply" }),
+                      children: "\u786E\u8BA4\u8986\u76D6"
+                    }
+                  ),
+                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                    "button",
+                    {
+                      type: "button",
+                      style: btnStyle(false),
+                      onClick: () => dispatch({ type: "cancelApply" }),
+                      children: "\u53D6\u6D88\uFF08\u4FDD\u7559\u6211\u5199\u7684\uFF09"
+                    }
+                  )
+                ] }) : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                  "button",
+                  {
+                    type: "button",
+                    style: { ...btnStyle(!canApplyDraft(draft)), marginTop: 4 },
+                    disabled: !canApplyDraft(draft),
+                    onClick: () => dispatch({ type: "requestApply" }),
+                    children: flow.conclusionMd.trim() === "" ? "\u7528\u8FD9\u6BB5\u586B\u8FDB\u7ED3\u8BBA\u6846" : "\u7528\u8FD9\u6BB5\u586B\u8FDB\u7ED3\u8BBA\u6846\uFF08\u5C06\u8986\u76D6\u73B0\u6709\u5185\u5BB9\uFF09"
+                  }
+                )
+              ] })
+            ]
+          }
+        ),
+        report !== null && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
+          "\u5DF2\u6279\u51C6 ",
+          report.counts?.approved ?? 0,
+          " / \u5F85\u8BC4\u5BA1 ",
+          report.counts?.pending ?? 0,
+          " / \u5DF2\u62D2\u7EDD ",
+          report.counts?.rejected ?? 0,
+          "\uFF1B \u5F15\u7528\u6838\u9A8C\uFF1A\u6750\u6599\u5F15\u7528 ",
+          report.citations?.checked_material_refs ?? 0,
+          " \u6761",
+          report.citations?.unchecked_law_refs ? ` \xB7 \u6CD5\u89C4\u5F15\u7528 ${report.citations.unchecked_law_refs} \u6761**\u672C\u6B21\u65E0\u6CD5\u6838\u9A8C**` : "",
+          (report.citations?.unknown ?? 0) > 0 ? ` \xB7 ${report.citations?.unknown} \u6761**\u65E0\u6CD5\u5224\u5B9A**` : "",
+          report.names !== void 0 && report.names.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Deliverables, { names: report.names, paths: report.files ?? [] })
+        ] }),
+        report !== null && (report.warnings ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { role: "status", style: { margin: "6px 0 0", color: "var(--dsw-alias-state-warn-primary)", fontSize: 12 }, children: [
+          "\u26A0 \u5F15\u7528\u8B66\u544A\uFF08\u8FD9\u4E9B\u5F15\u7528**\u4E0D\u6210\u7ACB**\u6216\u65E0\u6CD5\u6838\u9A8C\uFF0C\u62A5\u544A\u91CC\u4E5F\u7167\u539F\u6837\u5217\u51FA\u4E86\uFF09\uFF1A",
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("br", {}),
+          (report.warnings ?? []).join("\uFF1B")
+        ] }),
+        showReport && report?.markdown !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("pre", { style: {
+          marginTop: 6,
+          maxHeight: 320,
+          overflow: "auto",
+          fontSize: 11,
+          whiteSpace: "pre-wrap",
+          background: "var(--dsw-alias-bg-layer-2)",
+          padding: 8,
+          borderRadius: 4
+        }, children: report.markdown }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
+          "\u62A5\u544A\u53EA\u6709",
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u4E00\u79CD\u5185\u5BB9" }),
+          "\u3001\u4E24\u79CD\u843D\u76D8\u5F62\u6001\uFF08Markdown \u662F\u4EA4\u4ED8\u7269\u672C\u4F53\uFF0C HTML \u662F\u540C\u4E00\u4EFD\u5185\u5BB9\u7684\u754C\u9762\u9884\u89C8\u5F62\u6001\uFF09\uFF0C",
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u672C\u673A" }),
+          "\u751F\u6210\u4E0E\u4FDD\u5B58\u3001",
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u4E0D\u5916\u53D1" }),
+          "\u3002"
+        ] })
+      ] })
+    ] }) })
+  );
+}
+function deliverableKind(name) {
+  return /\.(html?|md|txt)$/i.test(name) ? "page" : "binary";
+}
+function folderOf(path) {
+  return path.replace(/[\\/][^\\/]*$/, "");
+}
+function downloadBlob(url, name) {
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = name;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+function Deliverables(props) {
+  const { names, paths } = props;
+  const [busy, setBusy] = (0, import_react8.useState)("");
+  const [error, setError] = (0, import_react8.useState)("");
+  const [copied, setCopied] = (0, import_react8.useState)(false);
+  const folder = paths.length > 0 ? folderOf(paths[0]) : "";
+  const open = (0, import_react8.useCallback)((name) => {
+    if (busy !== "") return;
+    setBusy(name);
+    setError("");
+    const isPage = deliverableKind(name) === "page";
+    const win = isPage ? window.open("about:blank", "_blank") : null;
+    void (async () => {
+      try {
+        const blob = await fetchExportBlob(name);
+        const url = URL.createObjectURL(blob);
+        if (!isPage) {
+          downloadBlob(url, name);
+          window.setTimeout(() => URL.revokeObjectURL(url), 3e4);
+        } else if (win !== null) {
+          win.location.replace(url);
+          window.setTimeout(() => URL.revokeObjectURL(url), 12e4);
+        } else {
+          downloadBlob(url, name);
+          window.setTimeout(() => URL.revokeObjectURL(url), 3e4);
+          setError("\u6D4F\u89C8\u5668\u62E6\u622A\u4E86\u65B0\u7A97\u53E3\uFF08\u5F39\u51FA\u7A97\u53E3\u8BBE\u7F6E\uFF09\u3002\u5DF2\u6539\u4E3A\u4E0B\u8F7D\u4E00\u4EFD\u2014\u2014\u6587\u4EF6\u5C31\u5728\u4E0B\u9762\u7684\u4FDD\u5B58\u76EE\u5F55\u91CC\uFF0C\u53CC\u51FB\u5373\u53EF\u770B\u3002");
+        }
+      } catch (e) {
+        if (win !== null) win.close();
+        setError(`${name}\uFF1A${e instanceof Error ? e.message : String(e)}`);
+      } finally {
+        setBusy("");
+      }
+    })();
+  }, [busy]);
+  const copyFolder = (0, import_react8.useCallback)(() => {
+    if (folder === "") return;
+    void navigator.clipboard.writeText(folder).then(
+      () => {
+        setCopied(true);
+        setError("");
+      },
+      (e) => setError(`\u590D\u5236\u5931\u8D25\uFF0C\u8BF7\u624B\u52A8\u9009\u4E2D\u4E0B\u9762\u7684\u8DEF\u5F84\uFF1A${e instanceof Error ? e.message : String(e)}`)
+    );
+  }, [folder]);
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { margin: "6px 0 0", fontSize: 12 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { style: { color: GRAY }, children: "\u4EA7\u7269\uFF1A" }),
+      names.map((n) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+        "button",
+        {
+          type: "button",
+          disabled: busy !== "",
+          onClick: () => open(n),
+          title: deliverableKind(n) === "page" ? `${n}\uFF1A\u5728\u65B0\u6807\u7B7E\u91CC\u76F4\u63A5\u6253\u5F00\uFF08\u6D4F\u89C8\u5668\u6E32\u67D3\uFF09` : `${n}\uFF1A\u6D4F\u89C8\u5668\u6E32\u67D3\u4E0D\u4E86\u8FD9\u79CD\u4EA7\u7269\uFF08\u5982 xlsx\uFF09\uFF0C\u8FD9\u91CC\u4E0B\u8F7D\u4E00\u4EFD\uFF1B\u672C\u673A\u539F\u4EF6\u5728\u4E0B\u9762\u90A3\u4E2A\u76EE\u5F55\u91CC`,
+          style: {
+            border: "1px solid var(--dsw-alias-border-l2, #ccc)",
+            background: "var(--dsw-alias-bg-layer-2, #fff)",
+            color: "var(--dsw-alias-label-primary, #111)",
+            borderRadius: 4,
+            padding: "2px 8px",
+            fontSize: 11.5,
+            cursor: busy !== "" ? "default" : "pointer"
+          },
+          children: [
+            deliverableKind(n) === "page" ? "\u{1F441} \u6253\u5F00" : "\u2B07 \u4E0B\u8F7D",
+            " ",
+            n,
+            busy === n ? " \u2026" : ""
+          ]
+        },
+        n
+      ))
+    ] }),
+    folder !== "" && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { marginTop: 4, color: GRAY }, children: [
+      "\u4FDD\u5B58\u76EE\u5F55\uFF1A",
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("code", { style: { wordBreak: "break-all" }, children: folder }),
+      " ",
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+        "button",
+        {
+          type: "button",
+          onClick: copyFolder,
+          title: "\u590D\u5236\u76EE\u5F55\u8DEF\u5F84\uFF08\u7C98\u5230\u8D44\u6E90\u7BA1\u7406\u5668/Win+R \u5373\u53EF\u6253\u5F00\u672C\u673A\u539F\u4EF6\uFF09",
+          style: {
+            border: "1px solid var(--dsw-alias-border-l2, #ccc)",
+            background: "var(--dsw-alias-bg-layer-2, #fff)",
+            color: "var(--dsw-alias-label-primary, #111)",
+            borderRadius: 4,
+            padding: "1px 6px",
+            fontSize: 11,
+            cursor: "pointer"
+          },
+          children: copied ? "\u2713 \u5DF2\u590D\u5236" : "\u{1F4CB} \u590D\u5236\u76EE\u5F55"
+        }
+      )
+    ] }),
+    error !== "" && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { role: "alert", style: { margin: "4px 0 0", color: RED, fontSize: 11.5 }, children: [
+      "\u6253\u5F00\u5931\u8D25\uFF1A",
+      error
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { margin: "4px 0 0", color: GRAY, fontSize: 11 }, children: "\u975E\u7F51\u9875\u5F62\u6001\u7684\u4EA7\u7269\uFF08\u5982 xlsx\uFF09\u6D4F\u89C8\u5668\u6E32\u67D3\u4E0D\u4E86\uFF1A\u4E0A\u9762\u7ED9\u7684\u662F**\u4E0B\u8F7D\u4E00\u4EFD**\uFF08\u672C\u673A\u539F\u4EF6\u4ECD\u5728\u4FDD\u5B58\u76EE\u5F55\u91CC\uFF09\u3002 \u300C\u7528\u7CFB\u7EDF\u9ED8\u8BA4\u7A0B\u5E8F\u4E00\u952E\u6253\u5F00\u300D\u9700\u8981\u5728\u5BBF\u4E3B\u4FA7\u52A0\u8DEF\u7531\uFF08\u8981\u91CD\u542F\u5BBF\u4E3B\uFF09\uFF0C\u672C\u8F6E\u672A\u505A\u3002" })
+  ] });
+}
+
+// client/KsReportPanel.tsx
+var import_react9 = require("react");
+var import_jsx_runtime12 = require("react/jsx-runtime");
+var WINDOWS = [
+  { key: "all", label: "\u5168\u90E8" },
+  { key: "upcoming90", label: "\u5373\u5C06\u5B9E\u65BD 90 \u5929" },
+  { key: "recent90", label: "\u6700\u8FD1\u5B9E\u65BD 90 \u5929" },
+  { key: "retired90", label: "\u8FD1\u671F\u5E9F\u6B62 90 \u5929" }
+];
+var COLOR_DOT = {
+  red: "#c0392b",
+  yellow: "#b8860b",
+  green: "#2e7d32",
+  gray: "#888"
+};
+var STATUS_BADGE = {
+  effective: "\u73B0\u884C",
+  upcoming: "\u5373\u5C06\u5B9E\u65BD",
+  superseded: "\u88AB\u4EE3\u66FF",
+  withdrawn: "\u5DF2\u5E9F\u6B62"
+};
+function nodeKey(path, name) {
+  return [...path, name].join("");
+}
+function ColorDots({ colors, size = 11 }) {
+  const items = [
+    ["red", colors.red],
+    ["yellow", colors.yellow],
+    ["green", colors.green],
+    ["gray", colors.gray]
+  ];
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { display: "inline-flex", gap: 8, alignItems: "center" }, children: items.map(([c, n]) => n > 0 ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { style: { display: "inline-flex", alignItems: "center", gap: 3, color: COLOR_DOT[c], fontSize: size }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { width: size - 3, height: size - 3, borderRadius: "50%", background: COLOR_DOT[c], display: "inline-block" } }),
+    n
+  ] }, c) : null) });
+}
+function DocRow({ doc, onOpenDoc }) {
+  const color = COLOR_DOT[doc.color] ?? "#888";
+  const badge = STATUS_BADGE[doc.status ?? ""] ?? "\u72B6\u6001\u672A\u77E5";
+  const clickable = doc.doc_id !== null && doc.doc_id !== "";
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+    "div",
+    {
+      onClick: () => {
+        if (clickable && doc.doc_id) onOpenDoc(doc.doc_id);
+      },
+      style: {
+        display: "flex",
+        alignItems: "baseline",
+        gap: 8,
+        padding: "3px 0 3px 18px",
+        fontSize: 12,
+        cursor: clickable ? "pointer" : "default",
+        flexWrap: "wrap"
+      },
+      title: clickable ? "\u70B9\u51FB\u5728 PDF \u67E5\u770B\u5668\u6253\u5F00\u539F\u6587" : void 0,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { width: 9, height: 9, borderRadius: "50%", background: color, display: "inline-block", flexShrink: 0 } }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { color: "var(--dsw-alias-label-primary, #111)", fontFamily: "monospace" }, children: doc.standard_no ?? "?" }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { color: "var(--dsw-alias-label-primary, #111)" }, children: doc.standard_name }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: {
+          fontSize: 11,
+          color,
+          border: `1px solid ${color}55`,
+          borderRadius: 4,
+          padding: "0 6px",
+          lineHeight: "17px",
+          flexShrink: 0
+        }, children: badge }),
+        doc.status === "upcoming" && doc.effective_from ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+          "\u5B9E\u65BD ",
+          doc.effective_from,
+          "\uFF08\u5F53\u524D\u4E0D\u53EF\u5F15\u7528\uFF09"
+        ] }) : null,
+        doc.status !== "upcoming" && doc.effective_from ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #888)" }, children: [
+          "\u5B9E\u65BD ",
+          doc.effective_from
+        ] }) : null,
+        doc.published_at ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #888)" }, children: [
+          "\u53D1\u5E03 ",
+          doc.published_at
+        ] }) : null,
+        doc.superseded_by ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+          "\u88AB\u4EE3\u66FF\u4E3A ",
+          doc.superseded_by
+        ] }) : null,
+        doc.withdrawn_date ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+          "\u5E9F\u6B62 ",
+          doc.withdrawn_date
+        ] }) : null
+      ]
+    }
+  );
+}
+function KsReportPanel(props) {
+  const { visible, openEvidence } = props;
+  const abortRef = (0, import_react9.useRef)(null);
+  const [win, setWin] = (0, import_react9.useState)("all");
+  const [colorFilter, setColorFilter] = (0, import_react9.useState)("");
+  const [report, setReport] = (0, import_react9.useState)(null);
+  const [loadState, setLoadState] = (0, import_react9.useState)({ status: "loading" });
+  const [expanded, setExpanded] = (0, import_react9.useState)({});
+  const [docsCache, setDocsCache] = (0, import_react9.useState)({});
+  const [exporting, setExporting] = (0, import_react9.useState)(false);
+  const [exportError, setExportError] = (0, import_react9.useState)(null);
+  const load = (0, import_react9.useCallback)(async (w, color) => {
+    abortRef.current?.abort();
+    const ac = new AbortController();
+    abortRef.current = ac;
+    setLoadState({ status: "loading" });
+    try {
+      const rep = await fetchEffectReport(w, ac.signal, color || void 0);
+      if (ac.signal.aborted) return;
+      setReport(rep);
+      setDocsCache({});
+      setLoadState({ status: "ready" });
+    } catch (err) {
+      if (ac.signal.aborted) return;
+      setLoadState({ status: "error", message: err instanceof Error ? err.message : String(err) });
+    }
+  }, []);
+  (0, import_react9.useEffect)(() => {
+    if (!visible) return;
+    void load(win, colorFilter);
+    return () => {
+      abortRef.current?.abort();
+    };
+  }, [visible, win, colorFilter, load]);
+  const onOpenDoc = (0, import_react9.useCallback)((docId) => {
+    if (openEvidence === void 0) return;
+    const url = `http://127.0.0.1:1/__ks_evidence__?doc=${encodeURIComponent(docId)}`;
+    try {
+      openEvidence(url);
+    } catch {
+    }
+  }, [openEvidence]);
+  const toggle = (key) => {
+    setExpanded((prev) => {
+      const next = { ...prev, [key]: !(prev[key] === true) };
+      if (next[key] === false) {
+        const prefix = `${key}`;
+        for (const k of Object.keys(next)) {
+          if (k.startsWith(prefix)) delete next[k];
+        }
+      }
+      return next;
+    });
+  };
+  const onExport = async () => {
+    if (exporting) return;
+    setExporting(true);
+    setExportError(null);
+    try {
+      await exportEffectReport(win, void 0, colorFilter || void 0);
+    } catch (err) {
+      setExportError(err instanceof Error ? err.message : String(err));
+    } finally {
+      setExporting(false);
+    }
+  };
+  const useL4Docs = (params, cacheKey) => {
+    const [docs, setDocs] = (0, import_react9.useState)(void 0);
+    (0, import_react9.useEffect)(() => {
+      if (expanded[cacheKey] !== true || docsCache[cacheKey] !== void 0) return;
+      let alive = true;
+      void fetchEffectDocs({ top: params.topKey, l2: params.l2, l3: params.l3, l4: params.l4, window: win, color: colorFilter || void 0 }).then((d) => {
+        if (!alive) return;
+        setDocs(d.docs);
+        setDocsCache((prev) => ({ ...prev, [cacheKey]: d.docs }));
+      }).catch(() => {
+        if (alive) setDocs([]);
+      });
+      return () => {
+        alive = false;
+      };
+    }, [cacheKey, expanded[cacheKey], docsCache[cacheKey]]);
+    return docsCache[cacheKey] ?? docs;
+  };
+  const renderNode = (node, path, depth, topKey) => {
+    const key = nodeKey(path, node.name);
+    const isOpen = expanded[key] ?? depth === 0;
+    const isLeaf = node.count !== void 0;
+    const children = node.items ?? [];
+    const rootKey = topKey || node.top || "";
+    return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { paddingLeft: depth === 0 ? 0 : 12 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+        "div",
+        {
+          onClick: () => toggle(key),
+          style: {
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            padding: "4px 0",
+            cursor: "pointer",
+            userSelect: "none",
+            flexWrap: "wrap"
+          },
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { fontSize: 10, color: "var(--dsw-alias-label-secondary, #666)", width: 10 }, children: isOpen ? "\u25BE" : "\u25B8" }),
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: {
+              fontWeight: depth <= 1 ? 600 : 500,
+              color: "var(--dsw-alias-label-primary, #111)",
+              fontSize: depth <= 1 ? 13 : 12
+            }, children: node.name }),
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(ColorDots, { colors: node.colors })
+          ]
+        }
+      ),
+      isOpen && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { children: [
+        children.map((child) => renderNode(child, [...path, node.name], depth + 1, rootKey)),
+        isLeaf && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(L4Docs, { params: {
+          topKey: rootKey,
+          l2: path[1] ?? "",
+          l3: path[2] ?? "",
+          l4: node.name
+        }, cacheKey: key, useL4Docs, onOpenDoc })
+      ] })
+    ] }, key);
+  };
+  function L4Docs({ params, cacheKey, useL4Docs: useDocs, onOpenDoc: open }) {
+    const docs = useDocs(params, cacheKey);
+    if (docs === void 0) {
+      return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { style: { padding: "2px 0 2px 30px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #888)" }, children: "\u52A0\u8F7D\u4E2D\u2026" });
+    }
+    if (docs.length === 0) {
+      return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { style: { padding: "2px 0 2px 30px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #888)" }, children: "\uFF08\u65E0\u6587\u6863\uFF09" });
+    }
+    return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { children: docs.map((d) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(DocRow, { doc: d, onOpenDoc: open }, d.doc_id ?? d.standard_no ?? Math.random())) });
+  }
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { padding: "4px 0 2px" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }, children: [
+      report !== null && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
+        "\u5171 ",
+        report.total,
+        " \u90E8\uFF08\u6807\u51C6 ",
+        report.std.total,
+        " \xB7 \u6CD5\u89C4 ",
+        report.law.total,
+        "\uFF09\xB7 ",
+        fmtGenerated(report.generated_at)
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { flex: 1 } }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("button", { type: "button", onClick: () => void load(win, colorFilter), style: btnStyle2(false), children: "\u27F3 \u5237\u65B0" })
+    ] }),
+    report !== null && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { style: { display: "flex", alignItems: "center", gap: 12, margin: "8px 0", flexWrap: "wrap" }, children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(ColorDots, { colors: report.colors, size: 12 }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 6, margin: "4px 0 10px", flexWrap: "wrap" }, children: [
+      WINDOWS.map((w) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+        "button",
+        {
+          type: "button",
+          onClick: () => setWin(w.key),
+          style: {
+            padding: "2px 10px",
+            borderRadius: 12,
+            fontSize: 12,
+            cursor: "pointer",
+            border: `1px solid ${win === w.key ? "#4a6da7" : "#c4c4c4"}`,
+            background: win === w.key ? "#4a6da7" : "#ffffff",
+            color: win === w.key ? "#ffffff" : "#333333"
+          },
+          children: w.label
+        },
+        w.key
+      )),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { flex: 1 } }),
+      [
+        ["red", "\u{1F534} \u7EA2"],
+        ["yellow", "\u{1F7E1} \u9EC4"],
+        ["green", "\u{1F7E2} \u7EFF"],
+        ["gray", "\u26AA \u767D"]
+      ].map(([c, label]) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+        "button",
+        {
+          type: "button",
+          onClick: () => setColorFilter(colorFilter === c ? "" : c),
+          title: colorFilter === c ? "\u53D6\u6D88\u8272\u8FC7\u6EE4" : `\u53EA\u770B${label.replace(/^\S+\s*/, "")}\u6E05\u5355`,
+          style: {
+            padding: "2px 10px",
+            borderRadius: 12,
+            fontSize: 12,
+            cursor: "pointer",
+            border: `1px solid ${colorFilter === c ? COLOR_DOT[c] : "#c4c4c4"}`,
+            background: colorFilter === c ? COLOR_DOT[c] : "#ffffff",
+            color: colorFilter === c ? "#ffffff" : "#333333"
+          },
+          children: label
+        },
+        c
+      )),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+        "button",
+        {
+          type: "button",
+          onClick: () => void onExport(),
+          disabled: exporting || loadState.status !== "ready",
+          style: btnStyle2(exporting || loadState.status !== "ready"),
+          children: exporting ? "\u5BFC\u51FA\u4E2D\u2026" : "\u2B07 \u5BFC\u51FA Excel"
+        }
+      )
+    ] }),
+    exportError !== null && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 8px" }, children: exportError }),
+    loadState.status === "loading" && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { style: { color: "var(--dsw-alias-label-secondary, #666)", fontSize: 13 }, children: "\u6B63\u5728\u805A\u5408\u5E93\u5185\u6548\u529B\u72B6\u6001\u2026\uFF08\u9996\u6B21\u53EF\u80FD\u9700\u8981\u62C9\u8D77\u5F15\u64CE\uFF09" }),
+    loadState.status === "error" && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 13 }, children: loadState.message }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("button", { type: "button", onClick: () => void load(win, colorFilter), style: btnStyle2(false), children: "\u91CD\u8BD5" })
+    ] }),
+    loadState.status === "ready" && report !== null && report.total === 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { style: { color: "var(--dsw-alias-label-secondary, #666)", fontSize: 13 }, children: win === "all" ? "\u5E93\u5185\u6682\u65E0\u6587\u6863" : "\u8BE5\u65F6\u95F4\u7A97\u5185\u65E0\u6587\u6863\uFF08\u5BFC\u51FA Excel \u53EF\u67E5\u770B\u5168\u91CF\uFF09" }),
+    loadState.status === "ready" && report !== null && report.total > 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { children: [
+      report.tree.map((t) => renderNode(t, [], 0, t.top ?? "")),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { style: { margin: "10px 0 0", fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: "\u53E3\u5F84\u6CE8\u811A\uFF1A\u72B6\u6001\u4EE5\u8BFB\u53D6\u65F6\u60F0\u6027\u7FFB\u8F6C\uFF08resolve_status\uFF09\u4E3A\u51C6\uFF1B\u26AA = \u5E93\u5185\u672A\u767B\u8BB0\u6548\u529B\u72B6\u6001 \uFF08\u4E0E\u5DE1\u68C0\u300C\u5B98\u65B9\u67E5\u65E0\u6B64\u53F7\u300D\u8BED\u4E49\u4E0D\u540C\uFF09\u3002\u9EC4\u884C\u5728\u5B9E\u65BD\u65E5\u524D\u4E0D\u53EF\u5F15\u7528\u3002" })
+    ] })
+  ] });
+}
+function btnStyle2(disabled) {
+  return {
+    padding: "3px 12px",
+    borderRadius: 6,
+    fontSize: 12,
+    border: `1px solid ${disabled ? "#c4c4c4" : "#7f7f7f"}`,
+    background: disabled ? "#e9e9e9" : "#ffffff",
+    color: disabled ? "#5a5a5a" : "#111111",
+    cursor: disabled ? "default" : "pointer"
+  };
+}
+function fmtGenerated(v) {
+  const norm = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/.test(v) ? `${v.replace(" ", "T")}Z` : v;
+  const d = new Date(norm);
+  if (Number.isNaN(d.getTime())) return v;
+  const hh = String(d.getHours()).padStart(2, "0");
+  const mi = String(d.getMinutes()).padStart(2, "0");
+  return `\u751F\u6210\u4E8E ${hh}:${mi}`;
+}
+
+// client/KsKnowledgePage.tsx
+var import_jsx_runtime13 = require("react/jsx-runtime");
 var KB_PAGE_SEARCH = true;
 var FILE_PAGE_SIZE = 50;
 var STATUS = {
@@ -35788,9 +37191,9 @@ var DIR_COLUMNS = [
   { key: "dmore", cls: "ks-col-dmore", head: "" }
 ];
 function Field({ label, value, mono = false }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-field", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-field-k", children: label }),
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: mono ? "ks-field-v ks-field-v-mono" : "ks-field-v", children: value === "" ? "\u2014" : value })
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-field", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-field-k", children: label }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: mono ? "ks-field-v ks-field-v-mono" : "ks-field-v", children: value === "" ? "\u2014" : value })
   ] });
 }
 function errorText(error) {
@@ -35843,63 +37246,63 @@ function KsKnowledgePage({ useTabInfo }) {
   ensureKsStyles();
   const { tab } = useTabInfo();
   const page = tab.navigation.params?.page ?? "manage";
-  const [levelId, setLevelId] = (0, import_react8.useState)(null);
-  const [subs, setSubs] = (0, import_react8.useState)([]);
-  const [files, setFiles] = (0, import_react8.useState)([]);
-  const [filesTotal, setFilesTotal] = (0, import_react8.useState)(0);
-  const [fileOffset, setFileOffset] = (0, import_react8.useState)(0);
-  const [filesMore, setFilesMore] = (0, import_react8.useState)(false);
-  const [crumb, setCrumb] = (0, import_react8.useState)([]);
-  const [phase, setPhase] = (0, import_react8.useState)("loading");
-  const [errMsg, setErrMsg] = (0, import_react8.useState)("");
-  const [busy, setBusy] = (0, import_react8.useState)(false);
-  const [tree, setTree] = (0, import_react8.useState)({});
-  const treeRef = (0, import_react8.useRef)({});
-  const putTree = (0, import_react8.useCallback)((next) => {
+  const [levelId, setLevelId] = (0, import_react10.useState)(null);
+  const [subs, setSubs] = (0, import_react10.useState)([]);
+  const [files, setFiles] = (0, import_react10.useState)([]);
+  const [filesTotal, setFilesTotal] = (0, import_react10.useState)(0);
+  const [fileOffset, setFileOffset] = (0, import_react10.useState)(0);
+  const [filesMore, setFilesMore] = (0, import_react10.useState)(false);
+  const [crumb, setCrumb] = (0, import_react10.useState)([]);
+  const [phase, setPhase] = (0, import_react10.useState)("loading");
+  const [errMsg, setErrMsg] = (0, import_react10.useState)("");
+  const [busy, setBusy] = (0, import_react10.useState)(false);
+  const [tree, setTree] = (0, import_react10.useState)({});
+  const treeRef = (0, import_react10.useRef)({});
+  const putTree = (0, import_react10.useCallback)((next) => {
     treeRef.current = next;
     setTree(next);
   }, []);
-  const [treeOpen, setTreeOpen] = (0, import_react8.useState)(() => /* @__PURE__ */ new Set(["root"]));
-  const [search, setSearch] = (0, import_react8.useState)("");
-  const [openDoc, setOpenDoc] = (0, import_react8.useState)(null);
-  const [menuFor, setMenuFor] = (0, import_react8.useState)(null);
-  const [layer, setLayer] = (0, import_react8.useState)(page === "ingest" ? "inbox" : "folder");
-  const [inbox, setInbox] = (0, import_react8.useState)([]);
-  const [inboxTotal, setInboxTotal] = (0, import_react8.useState)(0);
-  const [inboxKnown, setInboxKnown] = (0, import_react8.useState)(false);
-  const [inboxOffset, setInboxOffset] = (0, import_react8.useState)(0);
-  const [inboxMore, setInboxMore] = (0, import_react8.useState)(false);
-  const [picked, setPicked] = (0, import_react8.useState)(() => /* @__PURE__ */ new Set());
-  const [action, setAction] = (0, import_react8.useState)(null);
-  const [delPreview, setDelPreview] = (0, import_react8.useState)(null);
-  const [upPreview, setUpPreview] = (0, import_react8.useState)(false);
-  const [pickFolder, setPickFolder] = (0, import_react8.useState)("");
-  const [pickQuery, setPickQuery] = (0, import_react8.useState)("");
-  const [newName, setNewName] = (0, import_react8.useState)("");
-  const [actMsg, setActMsg] = (0, import_react8.useState)("");
-  const [flatFolders, setFlatFolders] = (0, import_react8.useState)([]);
-  const [stageLabels, setStageLabels] = (0, import_react8.useState)(STAGE_LABELS);
-  const [reingesting, setReingesting] = (0, import_react8.useState)(false);
-  const [ccsMissing, setCcsMissing] = (0, import_react8.useState)(null);
-  const [ccsStatus, setCcsStatus] = (0, import_react8.useState)(null);
-  const [ccsRunning, setCcsRunning] = (0, import_react8.useState)(false);
-  const [askScope, setAskScope] = (0, import_react8.useState)(null);
-  const [askOpen, setAskOpen] = (0, import_react8.useState)(false);
-  const [askQ, setAskQ] = (0, import_react8.useState)("");
-  const [askPhase, setAskPhase] = (0, import_react8.useState)("idle");
-  const [askMsg, setAskMsg] = (0, import_react8.useState)("");
-  const [askRes, setAskRes] = (0, import_react8.useState)(null);
-  const [askCounts, setAskCounts] = (0, import_react8.useState)(null);
-  const [askCountErr, setAskCountErr] = (0, import_react8.useState)("");
-  const [upOpen, setUpOpen] = (0, import_react8.useState)(false);
-  const [upDir, setUpDir] = (0, import_react8.useState)("");
-  const [upPhase, setUpPhase] = (0, import_react8.useState)("idle");
-  const [upMsg, setUpMsg] = (0, import_react8.useState)("");
-  const [upCheck, setUpCheck] = (0, import_react8.useState)("");
-  const [upReingest, setUpReingest] = (0, import_react8.useState)(false);
-  const abortRef = (0, import_react8.useRef)(null);
-  const askSeqRef = (0, import_react8.useRef)(0);
-  const withSession = (0, import_react8.useCallback)(async (fn, signal) => {
+  const [treeOpen, setTreeOpen] = (0, import_react10.useState)(() => /* @__PURE__ */ new Set(["root"]));
+  const [search, setSearch] = (0, import_react10.useState)("");
+  const [openDoc, setOpenDoc] = (0, import_react10.useState)(null);
+  const [menuFor, setMenuFor] = (0, import_react10.useState)(null);
+  const [layer, setLayer] = (0, import_react10.useState)(page === "ingest" ? "inbox" : "folder");
+  const [inbox, setInbox] = (0, import_react10.useState)([]);
+  const [inboxTotal, setInboxTotal] = (0, import_react10.useState)(0);
+  const [inboxKnown, setInboxKnown] = (0, import_react10.useState)(false);
+  const [inboxOffset, setInboxOffset] = (0, import_react10.useState)(0);
+  const [inboxMore, setInboxMore] = (0, import_react10.useState)(false);
+  const [picked, setPicked] = (0, import_react10.useState)(() => /* @__PURE__ */ new Set());
+  const [action, setAction] = (0, import_react10.useState)(null);
+  const [delPreview, setDelPreview] = (0, import_react10.useState)(null);
+  const [upPreview, setUpPreview] = (0, import_react10.useState)(false);
+  const [pickFolder, setPickFolder] = (0, import_react10.useState)("");
+  const [pickQuery, setPickQuery] = (0, import_react10.useState)("");
+  const [newName, setNewName] = (0, import_react10.useState)("");
+  const [actMsg, setActMsg] = (0, import_react10.useState)("");
+  const [flatFolders, setFlatFolders] = (0, import_react10.useState)([]);
+  const [stageLabels, setStageLabels] = (0, import_react10.useState)(STAGE_LABELS);
+  const [reingesting, setReingesting] = (0, import_react10.useState)(false);
+  const [ccsMissing, setCcsMissing] = (0, import_react10.useState)(null);
+  const [ccsStatus, setCcsStatus] = (0, import_react10.useState)(null);
+  const [ccsRunning, setCcsRunning] = (0, import_react10.useState)(false);
+  const [askScope, setAskScope] = (0, import_react10.useState)(null);
+  const [askOpen, setAskOpen] = (0, import_react10.useState)(false);
+  const [askQ, setAskQ] = (0, import_react10.useState)("");
+  const [askPhase, setAskPhase] = (0, import_react10.useState)("idle");
+  const [askMsg, setAskMsg] = (0, import_react10.useState)("");
+  const [askRes, setAskRes] = (0, import_react10.useState)(null);
+  const [askCounts, setAskCounts] = (0, import_react10.useState)(null);
+  const [askCountErr, setAskCountErr] = (0, import_react10.useState)("");
+  const [upOpen, setUpOpen] = (0, import_react10.useState)(false);
+  const [upDir, setUpDir] = (0, import_react10.useState)("");
+  const [upPhase, setUpPhase] = (0, import_react10.useState)("idle");
+  const [upMsg, setUpMsg] = (0, import_react10.useState)("");
+  const [upCheck, setUpCheck] = (0, import_react10.useState)("");
+  const [upReingest, setUpReingest] = (0, import_react10.useState)(false);
+  const abortRef = (0, import_react10.useRef)(null);
+  const askSeqRef = (0, import_react10.useRef)(0);
+  const withSession = (0, import_react10.useCallback)(async (fn, signal) => {
     let session = await fetchSession(signal);
     try {
       return await fn(session.engine.port, session.token);
@@ -35911,7 +37314,7 @@ function KsKnowledgePage({ useTabInfo }) {
       throw error;
     }
   }, []);
-  const loadLevel = (0, import_react8.useCallback)(async (id, offset, opts = {}) => {
+  const loadLevel = (0, import_react10.useCallback)(async (id, offset, opts = {}) => {
     abortRef.current?.abort();
     const ctrl = new AbortController();
     abortRef.current = ctrl;
@@ -35959,7 +37362,7 @@ function KsKnowledgePage({ useTabInfo }) {
   }, [withSession]);
   const currentFolder = levelId === null ? null : crumb.find((f) => f.folder_id === levelId) ?? null;
   const levelName = currentFolder?.name ?? "\u77E5\u8BC6\u5E93";
-  const toggleTree = (0, import_react8.useCallback)(async (key) => {
+  const toggleTree = (0, import_react10.useCallback)(async (key) => {
     if (treeOpen.has(key)) {
       setTreeOpen((prev) => {
         const next = new Set(prev);
@@ -35979,7 +37382,7 @@ function KsKnowledgePage({ useTabInfo }) {
       putTree({ ...treeRef.current, [key]: { loading: false, error: errorText(error) } });
     }
   }, [putTree, treeOpen, withSession]);
-  const goto = (0, import_react8.useCallback)((id) => {
+  const goto = (0, import_react10.useCallback)((id) => {
     setLayer("folder");
     setLevelId(id);
     setOpenDoc(null);
@@ -35988,7 +37391,7 @@ function KsKnowledgePage({ useTabInfo }) {
     setPicked(/* @__PURE__ */ new Set());
     void loadLevel(id, 0);
   }, [loadLevel]);
-  const goUp = (0, import_react8.useCallback)(() => {
+  const goUp = (0, import_react10.useCallback)(() => {
     if (layer === "inbox") {
       goto(null);
       return;
@@ -35997,11 +37400,11 @@ function KsKnowledgePage({ useTabInfo }) {
     const parent = crumb.length >= 2 ? crumb[crumb.length - 2] : null;
     goto(parent === null ? null : parent.folder_id);
   }, [crumb, goto, layer, levelId]);
-  const goPage = (0, import_react8.useCallback)((offset) => {
+  const goPage = (0, import_react10.useCallback)((offset) => {
     if (offset < 0) return;
     void loadLevel(levelId, offset, { silent: true });
   }, [levelId, loadLevel]);
-  const loadInbox = (0, import_react8.useCallback)(async (offset, opts = {}) => {
+  const loadInbox = (0, import_react10.useCallback)(async (offset, opts = {}) => {
     abortRef.current?.abort();
     const ctrl = new AbortController();
     abortRef.current = ctrl;
@@ -36041,7 +37444,7 @@ function KsKnowledgePage({ useTabInfo }) {
       if (!ctrl.signal.aborted) setBusy(false);
     }
   }, [withSession]);
-  const refreshInboxBadge = (0, import_react8.useCallback)(async () => {
+  const refreshInboxBadge = (0, import_react10.useCallback)(async () => {
     try {
       const page2 = await withSession((port, token) => fetchKbInbox(port, token, { limit: 1 }));
       setInboxTotal(page2.total);
@@ -36049,7 +37452,7 @@ function KsKnowledgePage({ useTabInfo }) {
     } catch {
     }
   }, [withSession]);
-  const gotoInbox = (0, import_react8.useCallback)(() => {
+  const gotoInbox = (0, import_react10.useCallback)(() => {
     setLayer("inbox");
     setOpenDoc(null);
     setMenuFor(null);
@@ -36058,7 +37461,7 @@ function KsKnowledgePage({ useTabInfo }) {
     setPicked(/* @__PURE__ */ new Set());
     void loadInbox(0);
   }, [loadInbox]);
-  (0, import_react8.useEffect)(() => {
+  (0, import_react10.useEffect)(() => {
     if (page === "ingest") {
       void loadInbox(0);
       return () => {
@@ -36071,7 +37474,7 @@ function KsKnowledgePage({ useTabInfo }) {
       abortRef.current?.abort();
     };
   }, [loadInbox, loadLevel, page, refreshInboxBadge]);
-  const ensureFlatFolders = (0, import_react8.useCallback)(async () => {
+  const ensureFlatFolders = (0, import_react10.useCallback)(async () => {
     if (flatFolders.length > 0) return;
     try {
       const rows = await withSession((port, token) => fetchKbFoldersFlat(port, token));
@@ -36080,7 +37483,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setActMsg(`\u8BFB\u4E0D\u5230\u76EE\u5F55\u6E05\u5355\uFF1A${errorText(error)}`);
     }
   }, [flatFolders.length, withSession]);
-  const loadAskCounts = (0, import_react8.useCallback)(async (scope) => {
+  const loadAskCounts = (0, import_react10.useCallback)(async (scope) => {
     askSeqRef.current += 1;
     const seq = askSeqRef.current;
     setAskCounts(null);
@@ -36095,7 +37498,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setAskCountErr(errorText(error));
     }
   }, [withSession]);
-  const folderRowsForAsk = (0, import_react8.useMemo)(() => {
+  const folderRowsForAsk = (0, import_react10.useMemo)(() => {
     const rows = [];
     const seen = /* @__PURE__ */ new Set();
     const push = (id, name, parentId, path) => {
@@ -36112,7 +37515,7 @@ function KsKnowledgePage({ useTabInfo }) {
     }
     return rows;
   }, [crumb, levelId, subs]);
-  const openAsk = (0, import_react8.useCallback)((keys) => {
+  const openAsk = (0, import_react10.useCallback)((keys) => {
     const scope = askScopeOf(keys, folderRowsForAsk);
     if (scope === null) return;
     askSeqRef.current += 1;
@@ -36123,7 +37526,7 @@ function KsKnowledgePage({ useTabInfo }) {
     setAskPhase("idle");
     void loadAskCounts(scope);
   }, [folderRowsForAsk, loadAskCounts]);
-  const clearAsk = (0, import_react8.useCallback)(() => {
+  const clearAsk = (0, import_react10.useCallback)(() => {
     askSeqRef.current += 1;
     setAskScope(null);
     setAskOpen(false);
@@ -36133,17 +37536,17 @@ function KsKnowledgePage({ useTabInfo }) {
     setAskCounts(null);
     setAskCountErr("");
   }, []);
-  const askHereKeys = (0, import_react8.useMemo)(() => {
+  const askHereKeys = (0, import_react10.useMemo)(() => {
     if (picked.size > 0) return [...picked];
     if (layer === "folder" && levelId !== null) return [pickDirKey(levelId)];
     return [];
   }, [layer, levelId, picked]);
-  const askHereScope = (0, import_react8.useMemo)(
+  const askHereScope = (0, import_react10.useMemo)(
     () => askScopeOf(askHereKeys, folderRowsForAsk),
     [askHereKeys, folderRowsForAsk]
   );
   const askHereWhy = askHereScope !== null ? "" : layer === "inbox" ? "\u300C\u5F85\u5206\u7C7B\u300D\u4E0D\u662F\u76EE\u5F55\uFF1A\u5148\u52FE\u9009\u8981\u95EE\u7684\u90A3\u51E0\u7BC7\uFF08\u53EF\u591A\u9009\uFF09\uFF0C\u518D\u70B9\u8FD9\u91CC" : "\u4F60\u5728\u6700\u5916\u5C42 \u2014\u2014 \u6700\u5916\u5C42\u5C31\u662F\u6574\u4E2A\u77E5\u8BC6\u5E93\uFF0C\u6CA1\u6709\u8303\u56F4\u53EF\u8A00\uFF1A\u8FDB\u5230\u67D0\u4E2A\u76EE\u5F55\u91CC\u518D\u95EE\uFF0C\u6216\u5148\u52FE\u9009\u51E0\u4E2A\u76EE\u5F55\uFF08\u591A\u9009=\u5E76\u96C6\uFF09";
-  const runAsk = (0, import_react8.useCallback)(async () => {
+  const runAsk = (0, import_react10.useCallback)(async () => {
     const text = askQ.trim();
     if (text === "" || askScope === null) return;
     askSeqRef.current += 1;
@@ -36165,8 +37568,8 @@ function KsKnowledgePage({ useTabInfo }) {
       setAskMsg(errorText(error));
     }
   }, [askQ, askScope, withSession]);
-  const askEntry = /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+  const askEntry = /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
       import_dsh_client_ui_primitives4.Button,
       {
         variant: "outline",
@@ -36179,16 +37582,16 @@ function KsKnowledgePage({ useTabInfo }) {
           void openAsk(askHereKeys);
         },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconQuestionOutline14, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconQuestionOutline14, {}),
           "\u5728\u6B64\u8303\u56F4\u5185\u63D0\u95EE"
         ]
       }
     ),
-    askScope === null ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-ask-chip", "data-ks-ask-chip": "on", title: askWhereText(askScope), children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-ask-chip-tag", children: "\u8303\u56F4" }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-ask-chip-name", children: askScope.label }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-ask-chip-n", children: askCountErr !== "" ? `\u6570\u4E0D\u51FA\u6765\uFF1A${askCountErr}` : askCounts === null ? "\u6B63\u5728\u6570\u2026" : `${String(askCounts.folder_count)} \u4E2A\u76EE\u5F55 \xB7 ${String(askCounts.doc_count)} \u7BC7` }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+    askScope === null ? null : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-ask-chip", "data-ks-ask-chip": "on", title: askWhereText(askScope), children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ask-chip-tag", children: "\u8303\u56F4" }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ask-chip-name", children: askScope.label }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ask-chip-n", children: askCountErr !== "" ? `\u6570\u4E0D\u51FA\u6765\uFF1A${askCountErr}` : askCounts === null ? "\u6B63\u5728\u6570\u2026" : `${String(askCounts.folder_count)} \u4E2A\u76EE\u5F55 \xB7 ${String(askCounts.doc_count)} \u7BC7` }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         "button",
         {
           type: "button",
@@ -36196,12 +37599,12 @@ function KsKnowledgePage({ useTabInfo }) {
           "aria-label": "\u6E05\u6389\u8303\u56F4",
           title: "\u6E05\u6389\u8303\u56F4\uFF08\u8FDE\u63D0\u95EE\u9762\u677F\u4E00\u8D77\u6536\u8D77\uFF1B\u6E05\u6389\u4E4B\u540E\u8FD9\u4E00\u9875\u4E0D\u4F1A\u505A\u300C\u4E0D\u9650\u5B9A\u8303\u56F4\u300D\u7684\u63D0\u95EE\uFF09",
           onClick: clearAsk,
-          children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconCloseOutline16, {})
+          children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconCloseOutline16, {})
         }
       )
     ] })
   ] });
-  const togglePick = (0, import_react8.useCallback)((key, next) => {
+  const togglePick = (0, import_react10.useCallback)((key, next) => {
     setActMsg("");
     setPicked((prev) => {
       const out = new Set(prev);
@@ -36210,7 +37613,7 @@ function KsKnowledgePage({ useTabInfo }) {
       return out;
     });
   }, []);
-  const openAction = (0, import_react8.useCallback)((kind, targets) => {
+  const openAction = (0, import_react10.useCallback)((kind, targets) => {
     if (kind !== "mkdir" && targets.length === 0) return;
     setActMsg("");
     setAction({ kind, targets });
@@ -36249,7 +37652,7 @@ function KsKnowledgePage({ useTabInfo }) {
       })();
     }
   }, [ensureFlatFolders, inbox, subs, withSession]);
-  const placeInto = (0, import_react8.useCallback)(async (targets, folderId) => {
+  const placeInto = (0, import_react10.useCallback)(async (targets, folderId) => {
     if (folderId === "") {
       setActMsg("\u5148\u9009\u4E00\u4E2A\u76EE\u5F55");
       return;
@@ -36276,7 +37679,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [flatFolders, inboxOffset, loadInbox, withSession]);
-  const placeIntoNew = (0, import_react8.useCallback)(async (targets, parentId, name) => {
+  const placeIntoNew = (0, import_react10.useCallback)(async (targets, parentId, name) => {
     const clean = name.trim();
     if (parentId === "" || clean === "") {
       setActMsg("\u7236\u76EE\u5F55\u4E0E\u65B0\u76EE\u5F55\u540D\u90FD\u8981\u586B");
@@ -36306,7 +37709,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [flatFolders, inboxOffset, loadInbox, withSession]);
-  const acceptSuggestions = (0, import_react8.useCallback)(async (targets) => {
+  const acceptSuggestions = (0, import_react10.useCallback)(async (targets) => {
     const ok = targets.filter((docId) => (inbox.find((r) => r.doc_id === docId)?.suggested_folder_id ?? null) !== null);
     const skipped = targets.length - ok.length;
     if (ok.length === 0) {
@@ -36330,7 +37733,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [inbox, inboxOffset, loadInbox, withSession]);
-  const runReingest = (0, import_react8.useCallback)(async (targets) => {
+  const runReingest = (0, import_react10.useCallback)(async (targets) => {
     setBusy(true);
     try {
       const res = await withSession((port, token) => reingestKbDocs(port, token, targets));
@@ -36345,7 +37748,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [inboxOffset, loadInbox, withSession]);
-  const removeDocs = (0, import_react8.useCallback)(async (targets) => {
+  const removeDocs = (0, import_react10.useCallback)(async (targets) => {
     setBusy(true);
     try {
       await withSession((port, token) => batchDeleteDocs(port, [...targets], token));
@@ -36359,7 +37762,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [inboxOffset, loadInbox, withSession]);
-  const runOps = (0, import_react8.useCallback)(async (jobs) => {
+  const runOps = (0, import_react10.useCallback)(async (jobs) => {
     const failed = [];
     let done = 0;
     for (const job of jobs) {
@@ -36371,14 +37774,14 @@ function KsKnowledgePage({ useTabInfo }) {
     }
     return { done, failed };
   }, []);
-  const afterAction = (0, import_react8.useCallback)(async () => {
+  const afterAction = (0, import_react10.useCallback)(async () => {
     setAction(null);
     setDelPreview(null);
     setPicked(/* @__PURE__ */ new Set());
     if (layer === "inbox") await loadInbox(inboxOffset, { silent: true });
     else await loadLevel(levelId, fileOffset, { silent: true });
   }, [fileOffset, inboxOffset, layer, levelId, loadInbox, loadLevel]);
-  const runMkdir = (0, import_react8.useCallback)(async (name) => {
+  const runMkdir = (0, import_react10.useCallback)(async (name) => {
     const clean = name.trim();
     if (clean === "") {
       setActMsg("\u5148\u7ED9\u65B0\u76EE\u5F55\u8D77\u4E2A\u540D\u5B57");
@@ -36395,7 +37798,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [afterAction, levelId, levelName, withSession]);
-  const runRename = (0, import_react8.useCallback)(async (folderId, name) => {
+  const runRename = (0, import_react10.useCallback)(async (folderId, name) => {
     const clean = name.trim();
     if (folderId === "" || clean === "") {
       setActMsg("\u76EE\u5F55\u540D\u4E0D\u80FD\u7A7A");
@@ -36412,7 +37815,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [afterAction, withSession]);
-  const runMove = (0, import_react8.useCallback)(async (targets, destId) => {
+  const runMove = (0, import_react10.useCallback)(async (targets, destId) => {
     if (destId === "") {
       setActMsg("\u5148\u9009\u4E00\u4E2A\u53BB\u5904");
       return;
@@ -36452,7 +37855,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [afterAction, flatFolders, levelId, runOps, subs, withSession]);
-  const runCopy = (0, import_react8.useCallback)(async (targets, destId) => {
+  const runCopy = (0, import_react10.useCallback)(async (targets, destId) => {
     if (destId === "") {
       setActMsg("\u5148\u9009\u4E00\u4E2A\u53BB\u5904");
       return;
@@ -36491,7 +37894,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [afterAction, flatFolders, runOps, subs, withSession]);
-  const runAdd = (0, import_react8.useCallback)(async (targets, destId) => {
+  const runAdd = (0, import_react10.useCallback)(async (targets, destId) => {
     if (destId === "") {
       setActMsg("\u5148\u9009\u4E00\u4E2A\u53BB\u5904");
       return;
@@ -36517,7 +37920,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [afterAction, flatFolders, withSession]);
-  const runRemove = (0, import_react8.useCallback)(async (targets) => {
+  const runRemove = (0, import_react10.useCallback)(async (targets) => {
     if (levelId === null) {
       setActMsg("\u6700\u5916\u5C42\u7684\u6587\u4EF6\u4E0D\u5C5E\u4E8E\u4EFB\u4F55\u76EE\u5F55\uFF0C\u300C\u79FB\u51FA\u300D\u5728\u8FD9\u91CC\u6CA1\u6709\u5BF9\u8C61\u3002");
       return;
@@ -36543,7 +37946,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [afterAction, levelId, levelName, withSession]);
-  const runFolderDelete = (0, import_react8.useCallback)(async (mode) => {
+  const runFolderDelete = (0, import_react10.useCallback)(async (mode) => {
     const ids = folderIdsOf(action?.targets ?? []);
     const preview = delPreview ?? [];
     if (ids.length === 0) {
@@ -36575,7 +37978,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [action, afterAction, delPreview, runOps, withSession]);
-  (0, import_react8.useEffect)(() => {
+  (0, import_react10.useEffect)(() => {
     if (!reingesting) return void 0;
     let stopped = false;
     const timer = setInterval(() => {
@@ -36604,7 +38007,7 @@ function KsKnowledgePage({ useTabInfo }) {
       clearInterval(timer);
     };
   }, [inboxOffset, loadInbox, reingesting, withSession]);
-  const loadCcsSummary = (0, import_react8.useCallback)(async () => {
+  const loadCcsSummary = (0, import_react10.useCallback)(async () => {
     try {
       const s = await withSession((port, token) => fetchKbCcsSummary(port, token));
       setCcsMissing(s.missing);
@@ -36613,7 +38016,7 @@ function KsKnowledgePage({ useTabInfo }) {
     } catch {
     }
   }, [withSession]);
-  const runCcsBackfill = (0, import_react8.useCallback)(async () => {
+  const runCcsBackfill = (0, import_react10.useCallback)(async () => {
     setBusy(true);
     try {
       const res = await withSession((port, token) => startKbCcsBackfill(port, token, {}));
@@ -36630,7 +38033,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [loadCcsSummary, withSession]);
-  const stopCcsBackfill = (0, import_react8.useCallback)(async () => {
+  const stopCcsBackfill = (0, import_react10.useCallback)(async () => {
     try {
       const r = await withSession((port, token) => cancelKbCcsBackfill(port, token));
       setActMsg(r.running ? `\u5DF2\u8BF7\u6C42\u505C\u6B62\uFF1A\u8DD1\u5B8C\u5F53\u524D\u8FD9\u4E00\u7BC7\u5C31\u505C\uFF08\u5DF2\u5B8C\u6210 ${String(r.done)} / ${String(r.total)} \u7BC7\uFF09\u3002` : "\u8FD9\u4E00\u6279\u5DF2\u7ECF\u8DD1\u5B8C\u4E86\uFF0C\u6CA1\u4EC0\u4E48\u53EF\u505C\u7684\u3002");
@@ -36638,7 +38041,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setActMsg(`\u6CA1\u80FD\u8BF7\u6C42\u505C\u6B62\uFF1A${errorText(error)}`);
     }
   }, [withSession]);
-  (0, import_react8.useEffect)(() => {
+  (0, import_react10.useEffect)(() => {
     if (!ccsRunning) return void 0;
     let stopped = false;
     const timer = setInterval(() => {
@@ -36670,17 +38073,17 @@ function KsKnowledgePage({ useTabInfo }) {
       clearInterval(timer);
     };
   }, [ccsRunning, inboxOffset, loadCcsSummary, loadInbox, withSession]);
-  (0, import_react8.useEffect)(() => {
+  (0, import_react10.useEffect)(() => {
     void (async () => {
       await loadCcsSummary();
     })();
   }, [loadCcsSummary]);
   const needle = search.trim().toLowerCase();
-  const dirsShown = (0, import_react8.useMemo)(
+  const dirsShown = (0, import_react10.useMemo)(
     () => needle === "" ? subs : subs.filter((f) => f.name.toLowerCase().includes(needle)),
     [subs, needle]
   );
-  const filesShown = (0, import_react8.useMemo)(() => {
+  const filesShown = (0, import_react10.useMemo)(() => {
     if (needle === "") return files;
     return files.filter((f) => (f.standard_no ?? "").toLowerCase().includes(needle) || (f.standard_name ?? "").toLowerCase().includes(needle));
   }, [files, needle]);
@@ -36695,7 +38098,7 @@ function KsKnowledgePage({ useTabInfo }) {
     if (target.closest("button,a,[role=menuitem],[role=menu]") !== null) return;
     setOpenDoc((prev) => prev === doc.doc_id ? null : doc.doc_id);
   };
-  const openUpload = (0, import_react8.useCallback)(async () => {
+  const openUpload = (0, import_react10.useCallback)(async () => {
     const next = !upOpen;
     setUpOpen(next);
     if (!next || upDir !== "") return;
@@ -36706,7 +38109,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setUpMsg(`\u53D6\u4E0D\u5230\u9ED8\u8BA4\u7684\u300C\u5F85\u5165\u5E93\u300D\u76EE\u5F55\uFF1A${errorText(error)}\uFF08\u53EF\u4EE5\u624B\u586B\u4E00\u4E2A\u7EDD\u5BF9\u8DEF\u5F84\uFF09`);
     }
   }, [upDir, upOpen]);
-  const runUpload = (0, import_react8.useCallback)(async () => {
+  const runUpload = (0, import_react10.useCallback)(async () => {
     const dir = upDir.trim();
     if (dir === "" || upPhase === "running") return;
     setUpPhase("running");
@@ -36804,7 +38207,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setUpMsg(`\u5BFC\u5165\u5931\u8D25\uFF1A${errorText(error)}`);
     }
   }, [layer, levelId, levelName, loadLevel, upDir, upPhase, upReingest, withSession]);
-  const runCheck = (0, import_react8.useCallback)(async () => {
+  const runCheck = (0, import_react10.useCallback)(async () => {
     const dir = upDir.trim();
     if (dir === "") {
       setUpCheck("\u5148\u586B\u4E00\u4E2A\u6765\u6E90\u76EE\u5F55");
@@ -36820,37 +38223,61 @@ function KsKnowledgePage({ useTabInfo }) {
     }
   }, [upDir]);
   if (page === "capabilities") {
-    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(KsCapabilityPage, {});
+    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KsCapabilityPage, {});
+  }
+  if (page === "report") {
+    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-kb", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("header", { className: "ks-page-head", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-page-title", children: "\u6548\u529B\u603B\u89C8" }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-page-sub", children: "\u5E93\u5185\u6807\u51C6/\u6CD5\u89C4\u7684\u56DB\u8272\u6548\u529B\u73B0\u72B6\uFF08\u73B0\u884C / \u5E9F\u6B62 / \u5373\u5C06\u5B9E\u65BD / \u672A\u77E5\uFF09\uFF0C\u53EF\u5BFC\u51FA\u3002" })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-page-rule" }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KsReportPanel, { visible: true, openEvidence: (url) => {
+        const a = document.createElement("a");
+        a.href = url;
+        a.click();
+      } })
+    ] }) });
+  }
+  if (page === "materials") {
+    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-kb", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("header", { className: "ks-page-head", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-page-title", children: "\u5907\u6599" }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-page-sub", children: "\u4E0A\u4F20\u7684\u8D22\u62A5/\u5236\u5EA6/\u6587\u7AE0\u9010\u4EFD\u5C31\u4F4D\uFF1B\u4EBA\u5DE5\u4E0A\u4F20\u514D\u8BC4\u5BA1\uFF0C\u81EA\u91C7\u7684\u8981\u4EBA\u6279\u3002" })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-page-rule" }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(KsMaterialsPanel, { visible: true })
+    ] }) });
   }
   if (page !== "manage" && page !== "ingest") {
-    const LABELS = { report: "\u6548\u529B\u62A5\u544A", channels: "\u6E20\u9053\u53F0\u8D26" };
+    const LABELS = { channels: "\u6E20\u9053\u53F0\u8D26" };
     return (
       // ⚠ 外面这一层 `.ks-page` **只做 container-type**（页面留边的宽/窄两档靠它切；
       //    CSS 里容器不能用自己的宽度查自己，所以留边必须落在它的后代 `.ks-kb` 上）。
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-kb", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-kb-banner", title: "\u672C\u9875\u53EA\u843D\u4E86\u5165\u53E3\u4E0E\u5916\u58F3\uFF0C\u5185\u5BB9\u8FD8\u6CA1\u6709\u3002", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconInfoOutline14, {}),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u8FD9\u4E00\u9875\u5C1A\u672A\u5B9E\u73B0" })
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-kb", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-kb-banner", title: "\u672C\u9875\u53EA\u843D\u4E86\u5165\u53E3\u4E0E\u5916\u58F3\uFF0C\u5185\u5BB9\u8FD8\u6CA1\u6709\u3002", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconInfoOutline14, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("strong", { children: "\u8FD9\u4E00\u9875\u5C1A\u672A\u5B9E\u73B0" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-kb-card", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { className: "ks-kb-ct", children: LABELS[page] ?? page }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-kb-hint", style: { marginTop: 6 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-kb-card", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("strong", { className: "ks-kb-ct", children: LABELS[page] ?? page }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-kb-hint", style: { marginTop: 6 }, children: [
             "\u8FD9\u4E00\u9875\u5C1A\u672A\u5B9E\u73B0\u3002\u5B83\u4F1A\u843D\u5728\u540C\u4E00\u4E2A tab \u7C7B\u578B\u91CC\uFF08\u6309 ",
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("code", { children: "params.page" }),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("code", { children: "params.page" }),
             " \u5206\u53D1\uFF09\uFF0C \u6240\u4EE5\u5165\u53E3\u73B0\u5728\u662F",
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u771F\u7684" }),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("strong", { children: "\u771F\u7684" }),
             "\u3001\u5185\u5BB9\u662F",
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u7A7A\u7684" }),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("strong", { children: "\u7A7A\u7684" }),
             "\u2014\u2014\u800C\u4E0D\u662F\u4E00\u4E2A\u5047\u6309\u94AE\u3002"
           ] })
         ] })
       ] }) })
     );
   }
-  const searchBox = KB_PAGE_SEARCH ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-search", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+  const searchBox = KB_PAGE_SEARCH ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-search", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
     import_dsh_client_ui_primitives4.Input,
     {
-      icon: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconSearchOutline16, {}),
+      icon: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconSearchOutline16, {}),
       value: search,
       placeholder: "\u641C\u7D22\u76EE\u5F55\u540D\u6216\u6807\u51C6\u53F7/\u540D\u79F0\u2026",
       "aria-label": "\u5728\u5F53\u524D\u8FD9\u4E00\u5C42\u6309\u76EE\u5F55\u540D\u6216\u6587\u4EF6\u6807\u51C6\u53F7/\u540D\u79F0\u8FC7\u6EE4\uFF08\u672C\u5730\u8FC7\u6EE4\uFF0C\u4E0D\u68C0\u7D22\u8BED\u6599\uFF09",
@@ -36864,8 +38291,8 @@ function KsKnowledgePage({ useTabInfo }) {
     const node = tree[key];
     const expanded = treeOpen.has(key);
     const hasKids = (node?.kids?.length ?? 0) > 0 || node?.kids === void 0;
-    return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-tree-node", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-tree-node", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
         "div",
         {
           className: "ks-tree-row",
@@ -36873,7 +38300,7 @@ function KsKnowledgePage({ useTabInfo }) {
           "data-depth": depth,
           "aria-current": isCurrent ? "true" : void 0,
           children: [
-            hasKids ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            hasKids ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
               "button",
               {
                 type: "button",
@@ -36884,10 +38311,10 @@ function KsKnowledgePage({ useTabInfo }) {
                 onClick: () => {
                   void toggleTree(key);
                 },
-                children: expanded ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconChevronDownOutline14, {}) : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconChevronRightOutline14, {})
+                children: expanded ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconChevronDownOutline14, {}) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconChevronRightOutline14, {})
               }
-            ) : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-tree-caret ks-tree-caret-leaf", "aria-hidden": "true" }),
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+            ) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-tree-caret ks-tree-caret-leaf", "aria-hidden": "true" }),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
               "button",
               {
                 type: "button",
@@ -36897,18 +38324,18 @@ function KsKnowledgePage({ useTabInfo }) {
                   goto(key === "root" ? null : key);
                 },
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconFolderOpenOutline16, {}),
-                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-tree-label", children: name })
+                  /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconFolderOpenOutline16, {}),
+                  /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-tree-label", children: name })
                 ]
               }
             ),
-            count === null ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-tree-count", children: count })
+            count === null ? null : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-tree-count", children: count })
           ]
         }
       ),
       before,
-      node?.loading === true ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-tree-hint", children: "\u6B63\u5728\u8BFB\u53D6\u8FD9\u4E00\u5C42\u2026" }) : null,
-      node?.error !== void 0 ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-tree-hint ks-tree-err", children: [
+      node?.loading === true ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-tree-hint", children: "\u6B63\u5728\u8BFB\u53D6\u8FD9\u4E00\u5C42\u2026" }) : null,
+      node?.error !== void 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-tree-hint ks-tree-err", children: [
         "\u8BFB\u4E0D\u5230\u4E0B\u4E00\u5C42\uFF1A",
         node.error
       ] }) : null,
@@ -36921,7 +38348,7 @@ function KsKnowledgePage({ useTabInfo }) {
       )) : null
     ] }, key);
   };
-  const inboxTreeRow = /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-tree-node ks-tree-inbox", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+  const inboxTreeRow = /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-tree-node ks-tree-inbox", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
     "div",
     {
       className: "ks-tree-row",
@@ -36929,8 +38356,8 @@ function KsKnowledgePage({ useTabInfo }) {
       "data-depth": 1,
       "aria-current": layer === "inbox" ? "true" : void 0,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-tree-caret ks-tree-caret-leaf", "aria-hidden": "true" }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-tree-caret ks-tree-caret-leaf", "aria-hidden": "true" }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
           "button",
           {
             type: "button",
@@ -36938,16 +38365,16 @@ function KsKnowledgePage({ useTabInfo }) {
             title: inboxKnown ? `\u5F85\u5206\u7C7B\uFF1A\u8FD8\u6CA1\u5F52\u4F4D\u7684\u6587\u4EF6 ${String(inboxTotal)} \u7BC7\uFF08\u542B\u8BC6\u522B\u5931\u8D25\u7684\u90A3\u4E00\u6279\uFF09` : "\u5F85\u5206\u7C7B\uFF1A\u8FD8\u6CA1\u5F52\u4F4D\u7684\u6587\u4EF6",
             onClick: gotoInbox,
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconChecklistOutline14, {}),
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-tree-label", children: "\u5F85\u5206\u7C7B" })
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconChecklistOutline14, {}),
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-tree-label", children: "\u5F85\u5206\u7C7B" })
             ]
           }
         ),
-        inboxKnown ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-tree-count ks-tree-count-inbox", children: inboxTotal }) : null
+        inboxKnown ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-tree-count ks-tree-count-inbox", children: inboxTotal }) : null
       ]
     }
   ) }, "__inbox");
-  const inboxShown = (0, import_react8.useMemo)(() => {
+  const inboxShown = (0, import_react10.useMemo)(() => {
     if (needle === "") return inbox;
     return inbox.filter((r) => (r.standard_no ?? "").toLowerCase().includes(needle) || (r.standard_name ?? "").toLowerCase().includes(needle) || (r.suggested_path ?? "").toLowerCase().includes(needle));
   }, [inbox, needle]);
@@ -36959,7 +38386,7 @@ function KsKnowledgePage({ useTabInfo }) {
   const pickPathOf = pathOfFolder(flatFolders, pickFolder);
   const PICK_ROWS_MAX = 60;
   const pickNeedle = pickQuery.trim().toLowerCase();
-  const pickBase = (0, import_react8.useMemo)(() => {
+  const pickBase = (0, import_react10.useMemo)(() => {
     const banned = /* @__PURE__ */ new Set();
     for (const fid of folderIdsOf(action?.targets ?? [])) {
       const self = flatFolders.find((f) => f.folder_id === fid);
@@ -37013,7 +38440,7 @@ function KsKnowledgePage({ useTabInfo }) {
     const cell = (key) => {
       switch (key) {
         case "pick":
-          return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-pick", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+          return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-pick", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
             import_dsh_client_ui_primitives4.Checkbox,
             {
               className: "ks-pick-cb",
@@ -37026,23 +38453,23 @@ function KsKnowledgePage({ useTabInfo }) {
             }
           ) });
         case "iname":
-          return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-item-name", title: doc.standard_name ?? doc.doc_id, children: doc.standard_name ?? doc.doc_id }),
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-item-sub", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-item-meta", children: doc.standard_no === null || doc.standard_no === "" ? "\u2014" : doc.standard_no }) })
+          return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-item-name", title: doc.standard_name ?? doc.doc_id, children: doc.standard_name ?? doc.doc_id }),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-item-sub", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-item-meta", children: doc.standard_no === null || doc.standard_no === "" ? "\u2014" : doc.standard_no }) })
           ] });
         case "istage":
-          return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-stage", "data-stage": doc.stage, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: `ks-stage-tag ks-stage-${doc.stage}`, children: doc.stage_label !== "" ? doc.stage_label : stageText(doc.stage, stageLabels) }),
-            doc.failure_kind === null || doc.failure_kind === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-stage-why", title: doc.failure_kind, children: [
+          return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-stage", "data-stage": doc.stage, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: `ks-stage-tag ks-stage-${doc.stage}`, children: doc.stage_label !== "" ? doc.stage_label : stageText(doc.stage, stageLabels) }),
+            doc.failure_kind === null || doc.failure_kind === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-stage-why", title: doc.failure_kind, children: [
               "\uFF08",
               doc.failure_kind,
               "\uFF09"
             ] }),
-            confidenceText(doc.confidence) === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-stage-conf", title: "\u8BC6\u522B\u7387\uFF08\u4E0E\u5165\u5E93\u9884\u89C8\u540C\u4E00\u4E2A\u6570\uFF09", children: [
+            confidenceText(doc.confidence) === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-stage-conf", title: "\u8BC6\u522B\u7387\uFF08\u4E0E\u5165\u5E93\u9884\u89C8\u540C\u4E00\u4E2A\u6570\uFF09", children: [
               "\u8BC6\u522B\u7387 ",
               confidenceText(doc.confidence)
             ] }),
-            doc.catalog_hidden === 1 ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            doc.catalog_hidden === 1 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
               "span",
               {
                 className: "ks-stage-hidden",
@@ -37052,16 +38479,16 @@ function KsKnowledgePage({ useTabInfo }) {
             ) : null
           ] });
         case "idest":
-          return sugLabel === "" ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-kb-hint", title: noSuggestText(doc).why, children: noSuggestText(doc).short }) : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-dest", title: `\u7CFB\u7EDF\u5EFA\u8BAE\u653E\u8FDB\uFF1A${sugLabel}`, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-dest-path", children: sugLabel }),
-            doc.suggest_new_name === null ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-dest-new", children: [
+          return sugLabel === "" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-kb-hint", title: noSuggestText(doc).why, children: noSuggestText(doc).short }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-dest", title: `\u7CFB\u7EDF\u5EFA\u8BAE\u653E\u8FDB\uFF1A${sugLabel}`, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-dest-path", children: sugLabel }),
+            doc.suggest_new_name === null ? null : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-dest-new", children: [
               "\uFF0B\u65B0\u5EFA\u300C",
               doc.suggest_new_name,
               "\u300D"
             ] })
           ] });
         case "imore":
-          return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-item-more", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+          return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-item-more", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
             import_dsh_client_ui_primitives4.Menu,
             {
               open: isOpen,
@@ -37082,7 +38509,7 @@ function KsKnowledgePage({ useTabInfo }) {
                 else if (id === "retry") void runReingest([doc.doc_id]);
                 else if (id === "delete") openAction("del", [key2]);
               },
-              anchor: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+              anchor: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
                 import_dsh_client_ui_primitives4.Button,
                 {
                   variant: "ghost",
@@ -37094,19 +38521,19 @@ function KsKnowledgePage({ useTabInfo }) {
                   onClick: () => {
                     setMenuFor(isOpen ? null : doc.doc_id);
                   },
-                  children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconEllipsisOutline16, {})
+                  children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconEllipsisOutline16, {})
                 }
               )
             }
           ) });
       }
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-item ks-inbox-row", "data-doc-id": doc.doc_id, children: INBOX_COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: `ks-cell ${col.cls}`, children: cell(col.key) }, col.key)) }, doc.doc_id);
+    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-item ks-inbox-row", "data-doc-id": doc.doc_id, children: INBOX_COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: `ks-cell ${col.cls}`, children: cell(col.key) }, col.key)) }, doc.doc_id);
   };
-  const batchBar = picked.size === 0 ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-batch", role: "toolbar", "aria-label": "\u6279\u91CF\u5904\u7F6E\u9009\u4E2D\u7684\u6761\u76EE", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-batch-n", children: batchLabel }),
-    layer === "inbox" ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+  const batchBar = picked.size === 0 ? null : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-batch", role: "toolbar", "aria-label": "\u6279\u91CF\u5904\u7F6E\u9009\u4E2D\u7684\u6761\u76EE", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-batch-n", children: batchLabel }),
+    layer === "inbox" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
         import_dsh_client_ui_primitives4.Button,
         {
           variant: "outline",
@@ -37123,7 +38550,7 @@ function KsKnowledgePage({ useTabInfo }) {
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         import_dsh_client_ui_primitives4.Button,
         {
           variant: "outline",
@@ -37135,7 +38562,7 @@ function KsKnowledgePage({ useTabInfo }) {
           children: "\u653E\u8FDB\u540C\u4E00\u76EE\u5F55"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
         import_dsh_client_ui_primitives4.Button,
         {
           variant: "outline",
@@ -37146,12 +38573,12 @@ function KsKnowledgePage({ useTabInfo }) {
             void runReingest(pickedDocIds);
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconRefreshOutline16, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconRefreshOutline16, {}),
             "\u91CD\u6765\u4E00\u6B21"
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
         import_dsh_client_ui_primitives4.Button,
         {
           variant: "outline",
@@ -37162,13 +38589,13 @@ function KsKnowledgePage({ useTabInfo }) {
             openAction("del", [...picked]);
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconTrashOutline16, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconTrashOutline16, {}),
             "\u5220\u9664"
           ]
         }
       )
-    ] }) : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
-      levelId === null && pickedDocIds.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+    ] }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
+      levelId === null && pickedDocIds.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         import_dsh_client_ui_primitives4.Button,
         {
           variant: "outline",
@@ -37181,7 +38608,7 @@ function KsKnowledgePage({ useTabInfo }) {
           children: "\u653E\u8FDB\u76EE\u5F55\u2026"
         }
       ) : null,
-      pickedFolderIds.length + (levelId === null ? 0 : pickedDocIds.length) > 0 ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+      pickedFolderIds.length + (levelId === null ? 0 : pickedDocIds.length) > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         import_dsh_client_ui_primitives4.Button,
         {
           variant: "outline",
@@ -37194,7 +38621,7 @@ function KsKnowledgePage({ useTabInfo }) {
           children: "\u79FB\u52A8\u5230\u2026"
         }
       ) : null,
-      pickedFolderIds.length + pickedDocIds.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+      pickedFolderIds.length + pickedDocIds.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         import_dsh_client_ui_primitives4.Button,
         {
           variant: "outline",
@@ -37207,7 +38634,7 @@ function KsKnowledgePage({ useTabInfo }) {
           children: "\u590D\u5236\u5230\u2026"
         }
       ) : null,
-      levelId !== null && pickedDocIds.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+      levelId !== null && pickedDocIds.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         import_dsh_client_ui_primitives4.Button,
         {
           variant: "outline",
@@ -37220,7 +38647,7 @@ function KsKnowledgePage({ useTabInfo }) {
           children: "\u79FB\u51FA"
         }
       ) : null,
-      pickedFolderIds.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+      pickedFolderIds.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
         import_dsh_client_ui_primitives4.Button,
         {
           variant: "outline",
@@ -37231,13 +38658,13 @@ function KsKnowledgePage({ useTabInfo }) {
             openAction("folder-del", [...picked]);
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconTrashOutline16, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconTrashOutline16, {}),
             "\u5220\u6389\u76EE\u5F55\u2026"
           ]
         }
       ) : null
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.Button, { variant: "ghost", size: "sm", className: "ks-batch-btn", onClick: () => {
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.Button, { variant: "ghost", size: "sm", className: "ks-batch-btn", onClick: () => {
       setPicked(/* @__PURE__ */ new Set());
     }, children: "\u53D6\u6D88\u9009\u62E9" })
   ] });
@@ -37250,27 +38677,27 @@ function KsKnowledgePage({ useTabInfo }) {
     add: "\u653E\u8FDB"
   };
   const pickEmptyHint = flatFolders.length === 0 ? "\u6B63\u5728\u8BFB\u76EE\u5F55\u6E05\u5355\u2026" : pickBase.length === 0 ? "\u6CA1\u6709\u53EF\u9009\u7684\u76EE\u7684\u5730\uFF1A\u552F\u4E00\u7684\u90A3\u51E0\u4E2A\u76EE\u5F55\u5C31\u662F\u4F60\u6B63\u5728\u79FB\u52A8/\u590D\u5236\u7684\u76EE\u5F55\u81EA\u5DF1\uFF08\u4E0D\u80FD\u79FB\u8FDB\u81EA\u5DF1\u7684\u4E0B\u7EA7\uFF09" : "\u6CA1\u6709\u5339\u914D\u7684\u76EE\u5F55";
-  const actionPanel = action === null ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+  const actionPanel = action === null ? null : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
     "div",
     {
       className: action.kind === "del" || action.kind === "folder-del" ? "ks-act ks-act-del" : "ks-act",
       role: "group",
       "aria-label": action.kind === "del" || action.kind === "folder-del" ? "\u5220\u9664\u786E\u8BA4" : "\u9009\u62E9\u76EE\u6807\u76EE\u5F55",
-      children: action.kind === "del" ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-act-head", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconWarningOutline16, {}),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("strong", { children: [
+      children: action.kind === "del" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-act-head", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconWarningOutline16, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("strong", { children: [
             "\u786E\u8BA4\u5220\u9664 ",
             action.targets.length,
             " \u7BC7\uFF1F"
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-act-hint", children: "\u5220\u9664\u4E0D\u53EF\u64A4\u9500\uFF1A\u6761\u6B3E\u3001\u5411\u91CF\u3001\u8BC1\u636E\u4E00\u8D77\u5220\uFF08\u6536\u85CF\u4E0E\u6279\u6CE8\u662F\u7528\u6237\u8D44\u4EA7\uFF0C\u4E0D\u5220\uFF09\u3002" }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-act-row", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.Button, { variant: "outline", size: "sm", onClick: () => {
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-act-hint", children: "\u5220\u9664\u4E0D\u53EF\u64A4\u9500\uFF1A\u6761\u6B3E\u3001\u5411\u91CF\u3001\u8BC1\u636E\u4E00\u8D77\u5220\uFF08\u6536\u85CF\u4E0E\u6279\u6CE8\u662F\u7528\u6237\u8D44\u4EA7\uFF0C\u4E0D\u5220\uFF09\u3002" }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-act-row", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.Button, { variant: "outline", size: "sm", onClick: () => {
             setAction(null);
           }, children: "\u53D6\u6D88" }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
             import_dsh_client_ui_primitives4.Button,
             {
               variant: "outline",
@@ -37280,29 +38707,29 @@ function KsKnowledgePage({ useTabInfo }) {
                 void removeDocs(docIdsOf(action.targets));
               },
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconTrashOutline16, {}),
+                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconTrashOutline16, {}),
                 "\u786E\u8BA4\u5220\u9664"
               ]
             }
           )
         ] })
-      ] }) : action.kind === "folder-del" ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-act-head", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconWarningOutline16, {}),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("strong", { children: [
+      ] }) : action.kind === "folder-del" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-act-head", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconWarningOutline16, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("strong", { children: [
             "\u5220\u6389\u8FD9 ",
             folderIdsOf(action.targets).length,
             " \u4E2A\u76EE\u5F55\uFF1F"
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.Button, { variant: "ghost", size: "sm", title: "\u5173\u6389\u8FD9\u4E2A\u9762\u677F", onClick: () => {
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.Button, { variant: "ghost", size: "sm", title: "\u5173\u6389\u8FD9\u4E2A\u9762\u677F", onClick: () => {
             setAction(null);
-          }, children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconCloseOutline16, {}) })
+          }, children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconCloseOutline16, {}) })
         ] }),
-        delPreview === null ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-act-hint", children: "\u6B63\u5728\u8BFB\u8FD9\u51E0\u4E2A\u76EE\u5F55\u7684\u771F\u5B9E\u5F71\u54CD\uFF08\u53EA\u8BFB\uFF0C\u8FD8\u6CA1\u52A8\u4EFB\u4F55\u4E1C\u897F\uFF09\u2026" }) : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-act-list ks-act-list-del", children: delPreview.map((p) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-act-delrow", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-act-item-name", children: p.folder?.name ?? p.folder?.folder_id ?? "(\u8BFB\u4E0D\u5230)" }),
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-act-item-path", children: p.is_empty ? "\u7A7A\u76EE\u5F55\uFF08\u91CC\u9762\u6CA1\u6709\u4E0B\u7EA7\u76EE\u5F55\uFF0C\u4E5F\u6CA1\u6709\u6587\u4EF6\uFF09" : `${String(p.direct_subfolder_count)} \u4E2A\u4E0B\u7EA7\u76EE\u5F55 \xB7 ${String(p.direct_file_count)} \u7BC7\u76F4\u63A5\u653E\u5728\u8FD9\u91CC` }),
-            p.is_empty ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-act-item-path", children: [
+        delPreview === null ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-act-hint", children: "\u6B63\u5728\u8BFB\u8FD9\u51E0\u4E2A\u76EE\u5F55\u7684\u771F\u5B9E\u5F71\u54CD\uFF08\u53EA\u8BFB\uFF0C\u8FD8\u6CA1\u52A8\u4EFB\u4F55\u4E1C\u897F\uFF09\u2026" }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-act-list ks-act-list-del", children: delPreview.map((p) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-act-delrow", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-act-item-name", children: p.folder?.name ?? p.folder?.folder_id ?? "(\u8BFB\u4E0D\u5230)" }),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-act-item-path", children: p.is_empty ? "\u7A7A\u76EE\u5F55\uFF08\u91CC\u9762\u6CA1\u6709\u4E0B\u7EA7\u76EE\u5F55\uFF0C\u4E5F\u6CA1\u6709\u6587\u4EF6\uFF09" : `${String(p.direct_subfolder_count)} \u4E2A\u4E0B\u7EA7\u76EE\u5F55 \xB7 ${String(p.direct_file_count)} \u7BC7\u76F4\u63A5\u653E\u5728\u8FD9\u91CC` }),
+            p.is_empty ? null : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-act-item-path", children: [
               "\u6574\u68F5\u5B50\u6811\uFF1A",
               String(p.subtree_folder_count),
               " \u4E2A\u76EE\u5F55 / ",
@@ -37315,19 +38742,19 @@ function KsKnowledgePage({ useTabInfo }) {
               p.reparent_available ? "\u79FB\u5230\u4E0A\u4E00\u5C42\uFF1A\u91CC\u9762\u7684\u4E1C\u897F\u539F\u6837\u4E0A\u53BB\u3002" : "\u26A0 \u8FD9\u662F\u4E00\u7EA7\u76EE\u5F55\uFF0C\u6CA1\u6709\u4E0A\u4E00\u5C42\uFF08\u53EA\u80FD\u8FDE\u6587\u4EF6\u4E00\u8D77\u5220\uFF0C\u6216\u53D6\u6D88\uFF09\u3002"
             ] })
           ] }, p.folder?.folder_id ?? "unknown")) }),
-          delPreview.length < folderIdsOf(action.targets).length ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-act-hint", children: [
+          delPreview.length < folderIdsOf(action.targets).length ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-act-hint", children: [
             "\u6709 ",
             folderIdsOf(action.targets).length - delPreview.length,
             " \u4E2A\u76EE\u5F55\u7684\u5F71\u54CD\u6CA1\u8BFB\u5230 \uFF08\u4E0A\u9762\u90A3\u6761\u6D88\u606F\u91CC\u5199\u4E86\u539F\u8BDD\uFF09\u2014\u2014 \u5B83\u4EEC\u4E0D\u4F1A\u88AB\u5220\u3002"
           ] }) : null,
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-act-hint", children: '\u5220\u76EE\u5F55**\u4E0D\u662F**\u5220\u6587\u6863\uFF1A\u53EA\u6709"\u5728\u6240\u6709\u76EE\u5F55\u91CC\u90FD\u4E0D\u518D\u51FA\u73B0"\u7684\u6587\u4EF6\u624D\u4F1A\u88AB\u771F\u5220\u3002' }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-act-row", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.Button, { variant: "outline", size: "sm", onClick: () => {
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-act-hint", children: '\u5220\u76EE\u5F55**\u4E0D\u662F**\u5220\u6587\u6863\uFF1A\u53EA\u6709"\u5728\u6240\u6709\u76EE\u5F55\u91CC\u90FD\u4E0D\u518D\u51FA\u73B0"\u7684\u6587\u4EF6\u624D\u4F1A\u88AB\u771F\u5220\u3002' }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-act-row", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.Button, { variant: "outline", size: "sm", onClick: () => {
               setAction(null);
             }, children: "\u53D6\u6D88" }),
             delPreview.length > 0 && delPreview.every((p) => p.is_empty) ? (
               /* 空目录也是不可逆动作 ⇒ 同样 outline + ks-danger（理由见上面「确认删除」那条注释）。 */
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
                 import_dsh_client_ui_primitives4.Button,
                 {
                   variant: "outline",
@@ -37337,13 +38764,13 @@ function KsKnowledgePage({ useTabInfo }) {
                     void runFolderDelete(null);
                   },
                   children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconTrashOutline16, {}),
+                    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconTrashOutline16, {}),
                     "\u5220\u9664\u8FD9\u4E9B\u7A7A\u76EE\u5F55"
                   ]
                 }
               )
-            ) : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            ) : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
                 import_dsh_client_ui_primitives4.Button,
                 {
                   variant: "outline",
@@ -37357,7 +38784,7 @@ function KsKnowledgePage({ useTabInfo }) {
                   children: "\u53EA\u5220\u76EE\u5F55\uFF0C\u91CC\u9762\u7684\u4E1C\u897F\u79FB\u5230\u4E0A\u4E00\u5C42"
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
                 import_dsh_client_ui_primitives4.Button,
                 {
                   variant: "outline",
@@ -37368,7 +38795,7 @@ function KsKnowledgePage({ useTabInfo }) {
                     void runFolderDelete("purge");
                   },
                   children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconTrashOutline16, {}),
+                    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconTrashOutline16, {}),
                     "\u8FDE\u91CC\u9762\u7684\u6587\u4EF6\u4E00\u8D77\u5220"
                   ]
                 }
@@ -37376,16 +38803,16 @@ function KsKnowledgePage({ useTabInfo }) {
             ] })
           ] })
         ] })
-      ] }) : action.kind === "mkdir" || action.kind === "rename" ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-act-head", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: action.kind === "mkdir" ? `\u5728\u300C${levelName}\u300D\u4E0B\u9762\u65B0\u5EFA\u4E00\u4E2A\u76EE\u5F55` : `\u628A\u76EE\u5F55\u300C${subs.find((f) => f.folder_id === folderIdsOf(action.targets)[0])?.name ?? ""}\u300D\u6539\u6210\u4EC0\u4E48\u540D\u5B57\uFF1F` }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.Button, { variant: "ghost", size: "sm", title: "\u5173\u6389\u8FD9\u4E2A\u9762\u677F", onClick: () => {
+      ] }) : action.kind === "mkdir" || action.kind === "rename" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-act-head", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("strong", { children: action.kind === "mkdir" ? `\u5728\u300C${levelName}\u300D\u4E0B\u9762\u65B0\u5EFA\u4E00\u4E2A\u76EE\u5F55` : `\u628A\u76EE\u5F55\u300C${subs.find((f) => f.folder_id === folderIdsOf(action.targets)[0])?.name ?? ""}\u300D\u6539\u6210\u4EC0\u4E48\u540D\u5B57\uFF1F` }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.Button, { variant: "ghost", size: "sm", title: "\u5173\u6389\u8FD9\u4E2A\u9762\u677F", onClick: () => {
             setAction(null);
-          }, children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconCloseOutline16, {}) })
+          }, children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconCloseOutline16, {}) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-act-row", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-act-label", children: action.kind === "mkdir" ? "\u65B0\u76EE\u5F55\u540D" : "\u65B0\u540D\u5B57" }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-act-row", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-act-label", children: action.kind === "mkdir" ? "\u65B0\u76EE\u5F55\u540D" : "\u65B0\u540D\u5B57" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
             import_dsh_client_ui_primitives4.Input,
             {
               className: "ks-act-name",
@@ -37398,12 +38825,12 @@ function KsKnowledgePage({ useTabInfo }) {
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-act-hint", children: action.kind === "mkdir" ? "\u5EFA\u5728\u5F53\u524D\u8FD9\u4E00\u7EA7\u4E0B\u9762\uFF1B\u540C\u7EA7\u540C\u540D\u4F1A\u88AB\u62D2\uFF08\u540E\u7AEF 409\uFF0C\u539F\u8BDD\u4F1A\u663E\u793A\u5728\u8FD9\u91CC\uFF09\u3002" : "\u6539\u540D\u53EA\u6539\u5E93\u91CC\u7684\u540D\u5B57\uFF0C\u78C1\u76D8\u4E0A\u7684\u6587\u4EF6\u4E00\u4E2A\u5B57\u90FD\u4E0D\u4F1A\u52A8\u3002" }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-act-row", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.Button, { variant: "outline", size: "sm", onClick: () => {
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-act-hint", children: action.kind === "mkdir" ? "\u5EFA\u5728\u5F53\u524D\u8FD9\u4E00\u7EA7\u4E0B\u9762\uFF1B\u540C\u7EA7\u540C\u540D\u4F1A\u88AB\u62D2\uFF08\u540E\u7AEF 409\uFF0C\u539F\u8BDD\u4F1A\u663E\u793A\u5728\u8FD9\u91CC\uFF09\u3002" : "\u6539\u540D\u53EA\u6539\u5E93\u91CC\u7684\u540D\u5B57\uFF0C\u78C1\u76D8\u4E0A\u7684\u6587\u4EF6\u4E00\u4E2A\u5B57\u90FD\u4E0D\u4F1A\u52A8\u3002" }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-act-row", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.Button, { variant: "outline", size: "sm", onClick: () => {
             setAction(null);
           }, children: "\u53D6\u6D88" }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
             import_dsh_client_ui_primitives4.Button,
             {
               variant: "primary",
@@ -37417,16 +38844,16 @@ function KsKnowledgePage({ useTabInfo }) {
             }
           )
         ] })
-      ] }) : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-act-head", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: action.kind === "new" ? `\u5728\u9009\u4E2D\u7684\u76EE\u5F55\u4E0B\u65B0\u5EFA\u300C${newName.trim() === "" ? "\u2026" : newName.trim()}\u300D\u518D\u653E ${String(pickedDocIds.length)} \u7BC7` : `\u628A ${actWhat}${pickVerb[action.kind] ?? "\u653E\u8FDB"}\u54EA\u4E2A\u76EE\u5F55\uFF1F` }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.Button, { variant: "ghost", size: "sm", title: "\u5173\u6389\u8FD9\u4E2A\u9762\u677F", onClick: () => {
+      ] }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-act-head", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("strong", { children: action.kind === "new" ? `\u5728\u9009\u4E2D\u7684\u76EE\u5F55\u4E0B\u65B0\u5EFA\u300C${newName.trim() === "" ? "\u2026" : newName.trim()}\u300D\u518D\u653E ${String(pickedDocIds.length)} \u7BC7` : `\u628A ${actWhat}${pickVerb[action.kind] ?? "\u653E\u8FDB"}\u54EA\u4E2A\u76EE\u5F55\uFF1F` }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.Button, { variant: "ghost", size: "sm", title: "\u5173\u6389\u8FD9\u4E2A\u9762\u677F", onClick: () => {
             setAction(null);
-          }, children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconCloseOutline16, {}) })
+          }, children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconCloseOutline16, {}) })
         ] }),
-        action.kind === "new" ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-act-row", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-act-label", children: "\u65B0\u76EE\u5F55\u540D" }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+        action.kind === "new" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-act-row", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-act-label", children: "\u65B0\u76EE\u5F55\u540D" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
             import_dsh_client_ui_primitives4.Input,
             {
               className: "ks-act-name",
@@ -37439,9 +38866,9 @@ function KsKnowledgePage({ useTabInfo }) {
             }
           )
         ] }) : null,
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-act-row", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-act-label", children: "\u627E\u76EE\u5F55" }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-act-row", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-act-label", children: "\u627E\u76EE\u5F55" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
             import_dsh_client_ui_primitives4.Input,
             {
               className: "ks-act-search",
@@ -37454,8 +38881,8 @@ function KsKnowledgePage({ useTabInfo }) {
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-act-list", children: [
-          flatShown.map((f) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-act-list", children: [
+          flatShown.map((f) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
             "button",
             {
               type: "button",
@@ -37467,15 +38894,15 @@ function KsKnowledgePage({ useTabInfo }) {
                 setPickFolder(f.folder_id);
               },
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconFolderOpenOutline16, {}),
-                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-act-item-name", children: f.name }),
-                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-act-item-path", children: f.path })
+                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconFolderOpenOutline16, {}),
+                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-act-item-name", children: f.name }),
+                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-act-item-path", children: f.path })
               ]
             },
             f.folder_id
           )),
-          flatShown.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-act-hint", children: pickEmptyHint }) : null,
-          flatHidden > 0 ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-act-hint", children: [
+          flatShown.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-act-hint", children: pickEmptyHint }) : null,
+          flatHidden > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-act-hint", children: [
             "\u8FD8\u6709 ",
             flatHidden,
             " \u4E2A\u6CA1\u5217\u51FA\u6765\uFF08\u4E00\u5171 ",
@@ -37483,14 +38910,14 @@ function KsKnowledgePage({ useTabInfo }) {
             " \u4E2A\u76EE\u5F55\uFF09\u2014\u2014 \u7528\u4E0A\u9762\u7684\u641C\u7D22\u7F29\u5C0F\u8303\u56F4\u3002"
           ] }) : null
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-act-row", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-act-hint", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-act-row", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-act-hint", children: [
             "\u5373\u5C06",
             pickVerb[action.kind] ?? "\u653E\u8FDB",
             "\uFF1A",
             pickPathOf === "" ? "\uFF08\u8FD8\u6CA1\u9009\uFF09" : pickPathOf
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
             import_dsh_client_ui_primitives4.Button,
             {
               variant: "primary",
@@ -37511,11 +38938,11 @@ function KsKnowledgePage({ useTabInfo }) {
       ] })
     }
   );
-  const inboxMain = /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-list-cap", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-lhead-name ks-kb-grow", title: "\u77E5\u8BC6\u5E93 / \u5F85\u5206\u7C7B", children: "\u5F85\u5206\u7C7B" }),
+  const inboxMain = /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-list-cap", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-lhead-name ks-kb-grow", title: "\u77E5\u8BC6\u5E93 / \u5F85\u5206\u7C7B", children: "\u5F85\u5206\u7C7B" }),
       askEntry,
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
         import_dsh_client_ui_primitives4.Button,
         {
           variant: "outline",
@@ -37532,14 +38959,14 @@ function KsKnowledgePage({ useTabInfo }) {
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-kb-hint", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-kb-hint", children: [
         inboxTotal,
         " \u7BC7\u8FD8\u6CA1\u5F52\u4F4D",
         needle === "" ? "" : `\uFF08\u672C\u9875\u7B5B\u51FA ${inboxShown.length} \u7BC7\uFF09`
       ] })
     ] }),
-    ccsStatus === null || ccsStatus.total === 0 && ccsStatus.done === 0 ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-ccs-bar", role: "status", "data-ccs-running": ccsRunning ? "1" : "0", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-ccs-line", children: [
+    ccsStatus === null || ccsStatus.total === 0 && ccsStatus.done === 0 ? null : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ccs-bar", role: "status", "data-ccs-running": ccsRunning ? "1" : "0", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-ccs-line", children: [
         "\u8865\u5168\u5206\u7C7B\u53F7\uFF1A\u5DF2\u8DD1 ",
         ccsStatus.done,
         " / ",
@@ -37560,48 +38987,48 @@ function KsKnowledgePage({ useTabInfo }) {
         ccsStatus.skipped > 0 ? ` \xB7 \u8DF3\u8FC7 ${ccsStatus.skipped} \u7BC7` : "",
         ccsStatus.cancelled ? " \xB7 \u8FD9\u4E00\u6279\u662F\u624B\u52A8\u505C\u7684" : ""
       ] }),
-      ccsStatus.failures.length === 0 ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("details", { className: "ks-ccs-fails", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("summary", { children: [
+      ccsStatus.failures.length === 0 ? null : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("details", { className: "ks-ccs-fails", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("summary", { children: [
           "\u6CA1\u8865\u5230\u7684 ",
           ccsStatus.failures.length,
           " \u7BC7\uFF08\u9010\u7BC7\u539F\u56E0\uFF09"
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("ul", { className: "ks-ccs-fail-list", children: ccsStatus.failures.slice(0, 50).map((f) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("li", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-ccs-fail-no", children: f.standard_no === "" ? f.doc_id : f.standard_no }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-ccs-fail-why", children: f.reason !== void 0 && f.reason !== "" ? f.reason : f.outcome })
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("ul", { className: "ks-ccs-fail-list", children: ccsStatus.failures.slice(0, 50).map((f) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("li", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ccs-fail-no", children: f.standard_no === "" ? f.doc_id : f.standard_no }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ccs-fail-why", children: f.reason !== void 0 && f.reason !== "" ? f.reason : f.outcome })
         ] }, f.doc_id)) }),
-        ccsStatus.failures.length > 50 ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-kb-hint", children: "\uFF08\u8FD9\u91CC\u53EA\u5217\u524D 50 \u7BC7\uFF1B\u63A5\u53E3\u91CC\u662F\u5B8C\u6574\u7684\u3002\uFF09" }) : null
+        ccsStatus.failures.length > 50 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-kb-hint", children: "\uFF08\u8FD9\u91CC\u53EA\u5217\u524D 50 \u7BC7\uFF1B\u63A5\u53E3\u91CC\u662F\u5B8C\u6574\u7684\u3002\uFF09" }) : null
       ] })
     ] }),
     searchBox,
     batchBar,
     actionPanel,
-    actMsg === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-ib-msg", role: "status", children: actMsg }),
-    inbox.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-list ks-list-inbox ks-inbox", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-lhead", children: INBOX_COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: `ks-cell ${col.cls}`, children: col.head === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-lhead-col", children: col.head }) }, col.key)) }),
+    actMsg === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-ib-msg", role: "status", children: actMsg }),
+    inbox.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-list ks-list-inbox ks-inbox", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-lhead", children: INBOX_COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: `ks-cell ${col.cls}`, children: col.head === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-lhead-col", children: col.head }) }, col.key)) }),
       inboxShown.map(renderInboxRow)
     ] }) : null,
-    inbox.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-empty-card", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconChecklistOutline14, { size: 28 }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-empty-t", children: "\u6CA1\u6709\u6392\u961F\u7B49\u5F52\u4F4D\u7684\u6587\u4EF6" }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-empty-d", children: "\u5E93\u91CC\u6BCF\u4E00\u7BC7\u90FD\u5DF2\u7ECF\u5F52\u4F4D\u4E86\u3002\u7528\u4E0A\u9762\u7684\u300C\u4E0A\u4F20\u5230\u8FD9\u4E00\u5C42\u300D\u628A\u65B0\u6587\u4EF6\u5BFC\u8FDB\u6765\uFF0C \u5B83\u4EEC\u4F1A\u5148\u6392\u961F\u7B49\u5728\u8FD9\u91CC\u3002" })
+    inbox.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-empty-card", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconChecklistOutline14, { size: 28 }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-empty-t", children: "\u6CA1\u6709\u6392\u961F\u7B49\u5F52\u4F4D\u7684\u6587\u4EF6" }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-empty-d", children: "\u5E93\u91CC\u6BCF\u4E00\u7BC7\u90FD\u5DF2\u7ECF\u5F52\u4F4D\u4E86\u3002\u7528\u4E0A\u9762\u7684\u300C\u4E0A\u4F20\u5230\u8FD9\u4E00\u5C42\u300D\u628A\u65B0\u6587\u4EF6\u5BFC\u8FDB\u6765\uFF0C \u5B83\u4EEC\u4F1A\u5148\u6392\u961F\u7B49\u5728\u8FD9\u91CC\u3002" })
     ] }) : null,
-    inbox.length > 0 && inboxShown.length === 0 && needle !== "" ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-empty-card", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconSearchOutline16, { size: 28 }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-empty-t", children: "\u8FD9\u4E00\u5C42\u6CA1\u6709\u7B26\u5408\u641C\u7D22\u7684\u6761\u76EE" }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-empty-d", children: [
+    inbox.length > 0 && inboxShown.length === 0 && needle !== "" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-empty-card", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconSearchOutline16, { size: 28 }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-empty-t", children: "\u8FD9\u4E00\u5C42\u6CA1\u6709\u7B26\u5408\u641C\u7D22\u7684\u6761\u76EE" }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-empty-d", children: [
         "\u672C\u9875 ",
         inbox.length,
         " \u7BC7\u91CC\u6CA1\u6709\u6807\u51C6\u53F7/\u540D\u79F0\u542B\u300C",
         search.trim(),
         "\u300D\u7684\u3002 \uFF08\u53EA\u7B5B\u5DF2\u7ECF\u8BFB\u51FA\u6765\u7684\u8FD9\u4E00\u9875\uFF1B\u7FFB\u9875\u540E\u53EF\u80FD\u8FD8\u6709\u3002\uFF09"
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.Button, { variant: "outline", size: "sm", title: "\u6E05\u7A7A\u641C\u7D22\u4E32", onClick: () => {
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.Button, { variant: "outline", size: "sm", title: "\u6E05\u7A7A\u641C\u7D22\u4E32", onClick: () => {
         setSearch("");
       }, children: "\u6E05\u9664\u641C\u7D22" })
     ] }) : null,
-    inboxTotal > INBOX_PAGE_SIZE ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-pager", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+    inboxTotal > INBOX_PAGE_SIZE ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-pager", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         import_dsh_client_ui_primitives4.Button,
         {
           variant: "outline",
@@ -37612,10 +39039,10 @@ function KsKnowledgePage({ useTabInfo }) {
           onClick: () => {
             void loadInbox(Math.max(0, inboxOffset - INBOX_PAGE_SIZE), { silent: true });
           },
-          children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconChevronLeftOutline14, {})
+          children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconChevronLeftOutline14, {})
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-pager-n", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-pager-n", children: [
         "\u7B2C ",
         Math.floor(inboxOffset / INBOX_PAGE_SIZE) + 1,
         " / ",
@@ -37624,7 +39051,7 @@ function KsKnowledgePage({ useTabInfo }) {
         inboxTotal,
         " \u7BC7"
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         import_dsh_client_ui_primitives4.Button,
         {
           variant: "outline",
@@ -37635,16 +39062,16 @@ function KsKnowledgePage({ useTabInfo }) {
           onClick: () => {
             void loadInbox(inboxOffset + INBOX_PAGE_SIZE, { silent: true });
           },
-          children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconChevronRightOutline14, {})
+          children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconChevronRightOutline14, {})
         }
       )
     ] }) : null
   ] });
-  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-kb", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("header", { className: "ks-page-head", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-page-title", children: "\u77E5\u8BC6\u5E93" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-page-rule" }),
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-kb-row", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-kb", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("header", { className: "ks-page-head", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-page-title", children: "\u77E5\u8BC6\u5E93" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-page-rule" }),
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-kb-row", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
         import_dsh_client_ui_primitives4.Button,
         {
           variant: "outline",
@@ -37654,19 +39081,19 @@ function KsKnowledgePage({ useTabInfo }) {
           title: layer === "inbox" ? "\u56DE\u5230\u6700\u5916\u5C42\uFF08\u79BB\u5F00\u300C\u5F85\u5206\u7C7B\u300D\uFF09" : levelId === null ? "\u4F60\u5DF2\u7ECF\u662F\u6700\u5916\u5C42\uFF0C\u6CA1\u6709\u4E0A\u4E00\u7EA7\u53EF\u56DE" : `\u56DE\u5230\u4E0A\u4E00\u5C42\uFF08\u73B0\u5728\u5728\uFF1A${["\u77E5\u8BC6\u5E93", ...crumb.map((f) => f.name)].join(" / ")}\uFF09`,
           onClick: goUp,
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconChevronLeftOutline14, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconChevronLeftOutline14, {}),
             "\u8FD4\u56DE\u4E0A\u4E00\u5C42"
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
         "span",
         {
           className: "ks-crumb",
           title: `\u5F53\u524D\u8DEF\u5F84\uFF1A${layer === "inbox" ? "\u77E5\u8BC6\u5E93 / \u5F85\u5206\u7C7B" : ["\u77E5\u8BC6\u5E93", ...crumb.map((f) => f.name)].join(" / ")}`,
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-crumb-path", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-crumb-item", children: layer === "folder" && levelId === null ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-crumb-path", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-crumb-item", children: layer === "folder" && levelId === null ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
                 "span",
                 {
                   className: "ks-crumb-here",
@@ -37675,7 +39102,7 @@ function KsKnowledgePage({ useTabInfo }) {
                   title: "\u4F60\u73B0\u5728\u5728\u8FD9\u4E00\u7EA7\uFF08\u4E0D\u53EF\u70B9\uFF09",
                   children: "\u77E5\u8BC6\u5E93"
                 }
-              ) : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+              ) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
                 "button",
                 {
                   type: "button",
@@ -37688,9 +39115,9 @@ function KsKnowledgePage({ useTabInfo }) {
                   children: "\u77E5\u8BC6\u5E93"
                 }
               ) }),
-              layer === "inbox" ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_react8.Fragment, { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-crumb-sep", "aria-hidden": "true", children: "/" }),
-                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-crumb-item", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+              layer === "inbox" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_react10.Fragment, { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-crumb-sep", "aria-hidden": "true", children: "/" }),
+                /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-crumb-item", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
                   "span",
                   {
                     className: "ks-crumb-here",
@@ -37703,9 +39130,9 @@ function KsKnowledgePage({ useTabInfo }) {
               ] }, "__inbox") : null,
               layer === "inbox" ? null : crumb.map((node, i) => {
                 const here = i === crumb.length - 1;
-                return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_react8.Fragment, { children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-crumb-sep", "aria-hidden": "true", children: "/" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-crumb-item", children: here ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_react10.Fragment, { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-crumb-sep", "aria-hidden": "true", children: "/" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-crumb-item", children: here ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
                     "span",
                     {
                       className: "ks-crumb-here",
@@ -37714,7 +39141,7 @@ function KsKnowledgePage({ useTabInfo }) {
                       title: "\u4F60\u73B0\u5728\u5728\u8FD9\u4E00\u7EA7\uFF08\u4E0D\u53EF\u70B9\uFF09",
                       children: node.name
                     }
-                  ) : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                  ) : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
                     "button",
                     {
                       type: "button",
@@ -37730,12 +39157,12 @@ function KsKnowledgePage({ useTabInfo }) {
                 ] }, node.folder_id);
               })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-crumb-n", children: layer === "inbox" ? `\u8FD8\u6CA1\u5F52\u4F4D ${String(inboxTotal)} \u7BC7` : levelId === null ? "\u4F60\u5728\u6700\u5916\u5C42" : `${subs.length} \u4E2A\u5B50\u76EE\u5F55 \xB7 ${filesTotal} \u7BC7\u6587\u4EF6` })
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-crumb-n", children: layer === "inbox" ? `\u8FD8\u6CA1\u5F52\u4F4D ${String(inboxTotal)} \u7BC7` : levelId === null ? "\u4F60\u5728\u6700\u5916\u5C42" : `${subs.length} \u4E2A\u5B50\u76EE\u5F55 \xB7 ${filesTotal} \u7BC7\u6587\u4EF6` })
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-kb-grow" }),
-      layer === "folder" ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-kb-grow" }),
+      layer === "folder" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
         import_dsh_client_ui_primitives4.Button,
         {
           variant: "outline",
@@ -37746,12 +39173,12 @@ function KsKnowledgePage({ useTabInfo }) {
             openAction("mkdir", []);
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconPlusOutline16, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconPlusOutline16, {}),
             "\u65B0\u5EFA\u4E0B\u7EA7\u76EE\u5F55"
           ]
         }
       ) : null,
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
         import_dsh_client_ui_primitives4.Button,
         {
           variant: "outline",
@@ -37763,12 +39190,12 @@ function KsKnowledgePage({ useTabInfo }) {
             void openUpload();
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconPlusOutline16, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconPlusOutline16, {}),
             "\u4E0A\u4F20\u5230\u8FD9\u4E00\u5C42"
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         import_dsh_client_ui_primitives4.Button,
         {
           variant: "ghost",
@@ -37779,14 +39206,14 @@ function KsKnowledgePage({ useTabInfo }) {
             if (layer === "inbox") void loadInbox(inboxOffset, { silent: true });
             else void loadLevel(levelId, fileOffset, { silent: true });
           },
-          children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconRefreshOutline16, {})
+          children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconRefreshOutline16, {})
         }
       )
     ] }),
-    upOpen ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-upload", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-upload-row", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-upload-label", children: "\u6765\u6E90\u76EE\u5F55" }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+    upOpen ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-upload", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-upload-row", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-upload-label", children: "\u6765\u6E90\u76EE\u5F55" }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           import_dsh_client_ui_primitives4.Input,
           {
             className: "ks-upload-dir",
@@ -37798,7 +39225,7 @@ function KsKnowledgePage({ useTabInfo }) {
             }
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           import_dsh_client_ui_primitives4.Button,
           {
             variant: "primary",
@@ -37813,9 +39240,9 @@ function KsKnowledgePage({ useTabInfo }) {
           }
         )
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-upload-row", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-upload-label", children: "\u5148\u770B\u4E00\u773C" }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-upload-row", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-upload-label", children: "\u5148\u770B\u4E00\u773C" }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
           import_dsh_client_ui_primitives4.Button,
           {
             variant: "outline",
@@ -37827,13 +39254,13 @@ function KsKnowledgePage({ useTabInfo }) {
               void runCheck();
             },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconChecklistOutline14, {}),
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconChecklistOutline14, {}),
               "\u5148\u4F53\u68C0\uFF08\u53EA\u8BFB\uFF09"
             ]
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-upload-hint", children: upCheck === "" ? "\u4F53\u68C0\u53EA\u662F\u770B\u4E00\u773C\uFF0C\u5E93\u91CC\u4E00\u7BC7\u90FD\u4E0D\u4F1A\u591A\u3002" : upCheck }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-upload-hint", children: upCheck === "" ? "\u4F53\u68C0\u53EA\u662F\u770B\u4E00\u773C\uFF0C\u5E93\u91CC\u4E00\u7BC7\u90FD\u4E0D\u4F1A\u591A\u3002" : upCheck }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
           import_dsh_client_ui_primitives4.Button,
           {
             variant: "ghost",
@@ -37845,13 +39272,13 @@ function KsKnowledgePage({ useTabInfo }) {
               setUpPreview(!upPreview);
             },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconChevronDownOutline14, {}),
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconChevronDownOutline14, {}),
               "\u9010\u7BC7\u770B"
             ]
           }
         )
       ] }),
-      upPreview ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-upload-preview", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+      upPreview ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-upload-preview", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         KsIngestPanel,
         {
           visible: upPreview,
@@ -37859,9 +39286,9 @@ function KsKnowledgePage({ useTabInfo }) {
           onDirChange: setUpDir
         }
       ) }) : null,
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-upload-row", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-upload-label", children: "\u8986\u76D6" }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-upload-row", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-upload-label", children: "\u8986\u76D6" }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           import_dsh_client_ui_primitives4.Checkbox,
           {
             checked: upReingest,
@@ -37873,19 +39300,19 @@ function KsKnowledgePage({ useTabInfo }) {
           }
         )
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-upload-note", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-upload-note", children: [
         layer === "inbox" ? "\u4F60\u5728\u300C\u5F85\u5206\u7C7B\u300D\uFF1A\u5BFC\u5165\u7684\u6587\u4EF6\u5C31\u6392\u5728\u4E0B\u9762\u8FD9\u4E2A\u5217\u8868\u91CC\uFF08\u8FD8\u6CA1\u5F52\u4F4D\uFF09\uFF0C\u5F53\u573A\u5C31\u80FD\u5904\u7F6E\u3002" : levelId === null ? "\u4F60\u5728\u6700\u5916\u5C42\uFF1A\u5BFC\u5165\u7684\u6587\u4EF6\u4F1A\u7559\u5728\u6700\u5916\u5C42\uFF08\u8FD8\u6CA1\u5F52\u4F4D\uFF0C\u4F1A\u51FA\u73B0\u5728\u300C\u5F85\u5206\u7C7B\u300D\u91CC\uFF09\u3002" : `\u5BFC\u5165\u5B8C\u6210\u540E\uFF0C\u65B0\u6587\u4EF6\u4F1A\u76F4\u63A5\u653E\u8FDB\u300C${levelName}\u300D\uFF0C\u4E0D\u4F1A\u8FDB\u81EA\u52A8\u8BC6\u522B\u3002`,
         " ",
         "\u626B\u63CF\u4EF6/\u5927\u6587\u4EF6\u89E3\u6790\u8981\u7B49\u4E00\u4F1A\u513F\uFF0C\u4E0B\u9762\u7684\u8FDB\u5EA6\u8BF4\u7684\u662F\u5E93\u91CC\u771F\u7684\u89E3\u6790\u4E86\u591A\u5C11\u7BC7\u3002"
       ] }),
-      upMsg === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: upPhase === "error" ? "ks-upload-msg ks-upload-msg-bad" : "ks-upload-msg", children: upMsg })
+      upMsg === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: upPhase === "error" ? "ks-upload-msg ks-upload-msg-bad" : "ks-upload-msg", children: upMsg })
     ] }) : null,
-    askOpen && askScope !== null ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-ask", "data-ks-ask": "open", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-ask-head", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-ask-where", children: askWhereText(askScope) }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-ask-count", children: askCountErr !== "" ? `\u6570\u4E0D\u51FA\u6765\uFF1A${askCountErr}` : askCounts === null ? "\u6B63\u5728\u6570\u8FD9\u4E2A\u8303\u56F4\u91CC\u6709\u591A\u5C11\u7BC7\u2026" : `${String(askCounts.folder_count)} \u4E2A\u76EE\u5F55 \xB7 ${String(askCounts.doc_count)} \u7BC7` }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-kb-grow" }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+    askOpen && askScope !== null ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ask", "data-ks-ask": "open", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ask-head", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ask-where", children: askWhereText(askScope) }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ask-count", children: askCountErr !== "" ? `\u6570\u4E0D\u51FA\u6765\uFF1A${askCountErr}` : askCounts === null ? "\u6B63\u5728\u6570\u8FD9\u4E2A\u8303\u56F4\u91CC\u6709\u591A\u5C11\u7BC7\u2026" : `${String(askCounts.folder_count)} \u4E2A\u76EE\u5F55 \xB7 ${String(askCounts.doc_count)} \u7BC7` }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-kb-grow" }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
           import_dsh_client_ui_primitives4.Button,
           {
             variant: "ghost",
@@ -37896,19 +39323,19 @@ function KsKnowledgePage({ useTabInfo }) {
               setAskOpen(false);
             },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconChevronDownOutline14, {}),
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconChevronDownOutline14, {}),
               "\u6536\u8D77"
             ]
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_dsh_client_ui_primitives4.Button, { variant: "ghost", size: "sm", className: "ks-ask-clear", title: "\u6E05\u6389\u8303\u56F4\u5E76\u6536\u8D77\u9762\u677F", onClick: clearAsk, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconCloseOutline16, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_dsh_client_ui_primitives4.Button, { variant: "ghost", size: "sm", className: "ks-ask-clear", title: "\u6E05\u6389\u8303\u56F4\u5E76\u6536\u8D77\u9762\u677F", onClick: clearAsk, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconCloseOutline16, {}),
           "\u6E05\u6389\u8303\u56F4"
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-ask-row", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-ask-label", children: "\u95EE\u9898" }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ask-row", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ask-label", children: "\u95EE\u9898" }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           import_dsh_client_ui_primitives4.Input,
           {
             className: "ks-ask-q",
@@ -37920,7 +39347,7 @@ function KsKnowledgePage({ useTabInfo }) {
             }
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
           import_dsh_client_ui_primitives4.Button,
           {
             variant: "primary",
@@ -37935,14 +39362,14 @@ function KsKnowledgePage({ useTabInfo }) {
           }
         )
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-ask-hint", children: "\u53EA\u5728\u4F60\u9009\u5B9A\u7684\u8FD9\u4E2A\u8303\u56F4\u91CC\u68C0\u7D22\uFF1B\u8303\u56F4\u5185\u6CA1\u6709\u5C31\u76F4\u8BF4 \u2014\u2014 \u4E0D\u4F1A\u62FF\u8303\u56F4\u5916\u7684\u5185\u5BB9\u5192\u5145\u3002" }),
-      askMsg === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-ask-msg ks-ask-msg-bad", role: "alert", children: askMsg }),
-      askRes === null ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-ask-res", "data-ks-ask-res": "on", children: [
-        askRes.scope === null ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-ask-msg ks-ask-msg-bad", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-ask-hint", children: "\u53EA\u5728\u4F60\u9009\u5B9A\u7684\u8FD9\u4E2A\u8303\u56F4\u91CC\u68C0\u7D22\uFF1B\u8303\u56F4\u5185\u6CA1\u6709\u5C31\u76F4\u8BF4 \u2014\u2014 \u4E0D\u4F1A\u62FF\u8303\u56F4\u5916\u7684\u5185\u5BB9\u5192\u5145\u3002" }),
+      askMsg === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-ask-msg ks-ask-msg-bad", role: "alert", children: askMsg }),
+      askRes === null ? null : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ask-res", "data-ks-ask-res": "on", children: [
+        askRes.scope === null ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ask-msg ks-ask-msg-bad", children: [
           "\u6CE8\u610F\uFF1A\u8FD9\u6B21\u5E26\u4E86\u8303\u56F4\uFF08",
           askScope.label,
           "\uFF09\uFF0C\u53EF\u5F15\u64CE\u56DE\u663E\u8BF4**\u6CA1\u6709\u9650\u5B9A\u8303\u56F4** \u2014\u2014 \u8FD9\u4EFD\u7B54\u6848\u53EF\u80FD\u6765\u81EA\u6574\u4E2A\u77E5\u8BC6\u5E93\uFF0C**\u4E0D\u8981**\u5F53\u6210\u8303\u56F4\u5185\u68C0\u7D22\u7684\u7ED3\u679C\u3002"
-        ] }) : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-ask-echo", children: [
+        ] }) : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ask-echo", children: [
           "\u5F15\u64CE\u56DE\u663E\uFF1A\u8FD9\u6B21\u5B9E\u9645\u8303\u56F4 = ",
           String(askRes.scope.folder_count),
           " \u4E2A\u76EE\u5F55 \xB7",
@@ -37951,51 +39378,51 @@ function KsKnowledgePage({ useTabInfo }) {
           " \u7BC7",
           askRes.scope.empty ? "\uFF08\u8303\u56F4\u5185\u4E00\u7BC7\u90FD\u6CA1\u6709 \u21D2 \u5F15\u64CE\u4E00\u6B21\u68C0\u7D22\u90FD\u6CA1\u505A\uFF09" : ""
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-ask-tier", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ask-tier", children: [
           "\u6863\u6B21\uFF1A",
           askRes.tier
         ] }),
-        askRes.scope !== null && askRes.scope.empty ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-ask-empty", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u8303\u56F4\u5185\u6CA1\u6709" }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { children: '\u4F60\u9009\u7684\u8303\u56F4\u91CC\u4E00\u7BC7\u6587\u4EF6\u90FD\u6CA1\u6709\uFF0C\u6240\u4EE5\u6CA1\u6709\u4EFB\u4F55\u4F9D\u636E\u53EF\u5F15\u7528 \u2014\u2014 \u8FD9\u4E0D\u662F"\u5E93\u91CC\u6CA1\u6709"\u3002' })
+        askRes.scope !== null && askRes.scope.empty ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ask-empty", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("strong", { children: "\u8303\u56F4\u5185\u6CA1\u6709" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { children: '\u4F60\u9009\u7684\u8303\u56F4\u91CC\u4E00\u7BC7\u6587\u4EF6\u90FD\u6CA1\u6709\uFF0C\u6240\u4EE5\u6CA1\u6709\u4EFB\u4F55\u4F9D\u636E\u53EF\u5F15\u7528 \u2014\u2014 \u8FD9\u4E0D\u662F"\u5E93\u91CC\u6CA1\u6709"\u3002' })
         ] }) : null,
-        askRes.conclusion === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-ask-conc", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-ask-h", children: "\u7ED3\u8BBA" }),
+        askRes.conclusion === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ask-conc", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ask-h", children: "\u7ED3\u8BBA" }),
           askRes.conclusion
         ] }),
-        askRes.derivation === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-ask-der", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-ask-h", children: "\u63A8\u5BFC" }),
+        askRes.derivation === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ask-der", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ask-h", children: "\u63A8\u5BFC" }),
           askRes.derivation
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-ask-ev", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-ask-h", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ask-ev", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-ask-h", children: [
             "\u4F9D\u636E\uFF08",
             String(askRes.evidence.length),
             " \u6761\uFF09"
           ] }),
-          askRes.evidence.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-ask-empty", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u8303\u56F4\u5185\u6CA1\u6709" }),
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { children: "\u8FD9\u4E2A\u8303\u56F4\u91CC\u6CA1\u6709\u627E\u5230\u53EF\u5F15\u7528\u7684\u73B0\u884C\u6761\u6B3E\uFF1B\u6362\u51E0\u4E2A\u76EE\u5F55\uFF0C\u6216\u628A\u8303\u56F4\u653E\u5927\u4E00\u70B9\u518D\u95EE\u3002" })
-          ] }) : askRes.evidence.map((ev, i) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-ask-evrow", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-ask-evno", children: [
+          askRes.evidence.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ask-empty", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("strong", { children: "\u8303\u56F4\u5185\u6CA1\u6709" }),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { children: "\u8FD9\u4E2A\u8303\u56F4\u91CC\u6CA1\u6709\u627E\u5230\u53EF\u5F15\u7528\u7684\u73B0\u884C\u6761\u6B3E\uFF1B\u6362\u51E0\u4E2A\u76EE\u5F55\uFF0C\u6216\u628A\u8303\u56F4\u653E\u5927\u4E00\u70B9\u518D\u95EE\u3002" })
+          ] }) : askRes.evidence.map((ev, i) => /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ask-evrow", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-ask-evno", children: [
               String(ev.standard_no ?? "\u2014"),
               " ",
               String(ev.clause_number ?? "")
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-ask-evtitle", children: String(ev.title ?? "") }),
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-ask-evtext", children: String(ev.snippet ?? "") })
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ask-evtitle", children: String(ev.title ?? "") }),
+            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ask-evtext", children: String(ev.snippet ?? "") })
           ] }, String(ev.clause_revision_id ?? i)))
         ] }),
-        askRes.notes.length === 0 ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-ask-notes", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-ask-h", children: "\u8BF4\u660E" }),
-          askRes.notes.map((nt, i) => /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-ask-note", children: nt }, `n${String(i)}`))
+        askRes.notes.length === 0 ? null : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-ask-notes", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-ask-h", children: "\u8BF4\u660E" }),
+          askRes.notes.map((nt, i) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-ask-note", children: nt }, `n${String(i)}`))
         ] })
       ] })
     ] }) : null,
-    phase === "error" ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-kb-err", role: "alert", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { children: "\u8BFB\u4E0D\u5230\u77E5\u8BC6\u5E93" }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-kb-hint", children: errMsg }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+    phase === "error" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-kb-err", role: "alert", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("strong", { children: "\u8BFB\u4E0D\u5230\u77E5\u8BC6\u5E93" }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-kb-hint", children: errMsg }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
         import_dsh_client_ui_primitives4.Button,
         {
           variant: "outline",
@@ -38008,10 +39435,10 @@ function KsKnowledgePage({ useTabInfo }) {
         }
       )
     ] }) : null,
-    /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-split", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-kb-tree", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-tree-head", children: "\u76EE\u5F55" }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-tree-body", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-split", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-kb-tree", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-tree-head", children: "\u76EE\u5F55" }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-tree-body", children: [
           renderTreeRow(
             "root",
             "\u6700\u5916\u5C42",
@@ -38020,14 +39447,14 @@ function KsKnowledgePage({ useTabInfo }) {
             layer === "folder" && levelId === null,
             inboxTreeRow
           ),
-          tree.root?.loading === true ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-tree-hint", children: "\u6B63\u5728\u8BFB\u53D6\u2026" }) : null
+          tree.root?.loading === true ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-tree-hint", children: "\u6B63\u5728\u8BFB\u53D6\u2026" }) : null
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-main", children: layer === "inbox" ? inboxMain : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-list-cap", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-lhead-name ks-kb-grow", title: ["\u77E5\u8BC6\u5E93", ...crumb.map((f) => f.name)].join(" / "), children: levelName }),
+      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-main", children: layer === "inbox" ? inboxMain : /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-list-cap", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-lhead-name ks-kb-grow", title: ["\u77E5\u8BC6\u5E93", ...crumb.map((f) => f.name)].join(" / "), children: levelName }),
           askEntry,
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-kb-hint", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-kb-hint", children: [
             subs.length,
             " \u4E2A\u5B50\u76EE\u5F55 \xB7 ",
             filesTotal,
@@ -38038,9 +39465,9 @@ function KsKnowledgePage({ useTabInfo }) {
         searchBox,
         batchBar,
         actionPanel,
-        actMsg === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-ib-msg", role: "status", children: actMsg }),
-        subs.length > 0 || dirsShown.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-list ks-list-dirs ks-dirs", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-lhead", children: DIR_COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: `ks-cell ${col.cls}`, children: col.head === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-lhead-col", children: col.head }) }, col.key)) }),
+        actMsg === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-ib-msg", role: "status", children: actMsg }),
+        subs.length > 0 || dirsShown.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-list ks-list-dirs ks-dirs", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-lhead", children: DIR_COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: `ks-cell ${col.cls}`, children: col.head === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-lhead-col", children: col.head }) }, col.key)) }),
           dirsShown.map((child) => {
             const isOpen = menuFor === pickDirKey(child.folder_id);
             const dirMenu = [
@@ -38055,7 +39482,7 @@ function KsKnowledgePage({ useTabInfo }) {
             const dirCell = (key) => {
               switch (key) {
                 case "dpick":
-                  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-pick", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-pick", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
                     import_dsh_client_ui_primitives4.Checkbox,
                     {
                       className: "ks-pick-cb",
@@ -38068,7 +39495,7 @@ function KsKnowledgePage({ useTabInfo }) {
                     }
                   ) });
                 case "dname":
-                  return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+                  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
                     "button",
                     {
                       type: "button",
@@ -38079,19 +39506,19 @@ function KsKnowledgePage({ useTabInfo }) {
                         goto(child.folder_id);
                       },
                       children: [
-                        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-fileico", title: "\u76EE\u5F55", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconFolderOpenOutline16, {}) }),
-                        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-dir-name", title: child.name, children: child.name }),
-                        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-dir-go", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconChevronRightOutline14, {}) })
+                        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-fileico", title: "\u76EE\u5F55", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconFolderOpenOutline16, {}) }),
+                        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-dir-name", title: child.name, children: child.name }),
+                        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-dir-go", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconChevronRightOutline14, {}) })
                       ]
                     }
                   );
                 case "dcount":
-                  return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-kb-badge", children: [
+                  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-kb-badge", children: [
                     child.file_count_deep,
                     " \u7BC7"
                   ] });
                 case "dmore":
-                  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-item-more", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-item-more", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
                     import_dsh_client_ui_primitives4.Menu,
                     {
                       open: isOpen,
@@ -38112,7 +39539,7 @@ function KsKnowledgePage({ useTabInfo }) {
                         else if (id === "ask") void openAsk([key2]);
                         else if (id === "delete") openAction("folder-del", [key2]);
                       },
-                      anchor: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                      anchor: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
                         import_dsh_client_ui_primitives4.Button,
                         {
                           variant: "ghost",
@@ -38124,7 +39551,7 @@ function KsKnowledgePage({ useTabInfo }) {
                           onClick: () => {
                             setMenuFor(isOpen ? null : pickDirKey(child.folder_id));
                           },
-                          children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconEllipsisOutline16, {})
+                          children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconEllipsisOutline16, {})
                         }
                       )
                     }
@@ -38134,7 +39561,7 @@ function KsKnowledgePage({ useTabInfo }) {
             return (
               /* ⚠ 第 5 步：**div**（原来是 button）—— 行内现在有勾选框与 ⋮ 两个真控件。
                  整行可点 = 进入这一级（与文件行"整行可点 = 打开详情"同一种做法）。 */
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
                 "div",
                 {
                   className: "ks-item ks-dir-row",
@@ -38145,25 +39572,25 @@ function KsKnowledgePage({ useTabInfo }) {
                     if (t.closest("button,input,a,[role=menuitem],[role=menu]") !== null) return;
                     goto(child.folder_id);
                   },
-                  children: DIR_COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: `ks-cell ${col.cls}`, children: dirCell(col.key) }, col.key))
+                  children: DIR_COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: `ks-cell ${col.cls}`, children: dirCell(col.key) }, col.key))
                 },
                 child.folder_id
               )
             );
           })
         ] }) : null,
-        levelEmpty ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-empty-card", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconFolderOpenOutline16, { size: 28 }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-empty-t", children: "\u8FD9\u4E00\u5C42\u8FD8\u6CA1\u6709\u4E1C\u897F" }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-empty-d", children: [
+        levelEmpty ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-empty-card", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconFolderOpenOutline16, { size: 28 }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-empty-t", children: "\u8FD9\u4E00\u5C42\u8FD8\u6CA1\u6709\u4E1C\u897F" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-empty-d", children: [
             "\u8FD9\u4E00\u5C42\u91CC\u65E2\u6CA1\u6709\u4E0B\u7EA7\u76EE\u5F55\uFF0C\u4E5F\u6CA1\u6709\u76F4\u63A5\u653E\u5728\u8FD9\u91CC\u7684\u6587\u4EF6\u3002",
             levelId === null ? "\u7528\u4E0A\u9762\u7684\u300C\u4E0A\u4F20\u5230\u8FD9\u4E00\u5C42\u300D\u628A\u6587\u4EF6\u5BFC\u8FDB\u6765\u3002" : "\u7528\u4E0A\u9762\u7684\u300C\u4E0A\u4F20\u5230\u8FD9\u4E00\u5C42\u300D\u628A\u6587\u4EF6\u5BFC\u8FDB\u8FD9\u4E2A\u76EE\u5F55\u3002"
           ] })
         ] }) : null,
-        !levelEmpty && nothingShown && needle !== "" ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-empty-card", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconSearchOutline16, { size: 28 }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-empty-t", children: "\u8FD9\u4E00\u5C42\u6CA1\u6709\u7B26\u5408\u641C\u7D22\u7684\u6761\u76EE" }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-empty-d", children: [
+        !levelEmpty && nothingShown && needle !== "" ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-empty-card", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconSearchOutline16, { size: 28 }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-empty-t", children: "\u8FD9\u4E00\u5C42\u6CA1\u6709\u7B26\u5408\u641C\u7D22\u7684\u6761\u76EE" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-empty-d", children: [
             "\u672C\u9875 ",
             subs.length,
             " \u4E2A\u76EE\u5F55 / ",
@@ -38172,7 +39599,7 @@ function KsKnowledgePage({ useTabInfo }) {
             search.trim(),
             "\u300D\u7684\u3002 \uFF08\u53EA\u7B5B\u5DF2\u7ECF\u8BFB\u51FA\u6765\u7684\u8FD9\u4E00\u9875\uFF1B\u7FFB\u9875\u540E\u53EF\u80FD\u8FD8\u6709\u3002\uFF09"
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
             import_dsh_client_ui_primitives4.Button,
             {
               variant: "outline",
@@ -38185,8 +39612,8 @@ function KsKnowledgePage({ useTabInfo }) {
             }
           )
         ] }) : null,
-        files.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-list", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-lhead", children: COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: `ks-cell ${col.cls}`, children: col.head === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-lhead-col", children: col.head }) }, col.key)) }),
+        files.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-list", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-lhead", children: COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: `ks-cell ${col.cls}`, children: col.head === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-lhead-col", children: col.head }) }, col.key)) }),
           filesShown.map((doc) => {
             const st = STATUS[statusOf(doc.legal_status)];
             const isOpen = menuFor === doc.doc_id;
@@ -38205,7 +39632,7 @@ function KsKnowledgePage({ useTabInfo }) {
             const cellFor = (key) => {
               switch (key) {
                 case "fpick":
-                  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-pick", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-pick", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
                     import_dsh_client_ui_primitives4.Checkbox,
                     {
                       className: "ks-pick-cb",
@@ -38218,16 +39645,16 @@ function KsKnowledgePage({ useTabInfo }) {
                     }
                   ) });
                 case "name":
-                  return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-item-name", title: doc.standard_name ?? doc.doc_id, children: doc.standard_name ?? doc.doc_id }),
-                    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-item-sub", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-item-meta", children: doc.standard_no === null || doc.standard_no === "" ? "\u2014" : doc.standard_no }) })
+                  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(import_jsx_runtime13.Fragment, { children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-item-name", title: doc.standard_name ?? doc.doc_id, children: doc.standard_name ?? doc.doc_id }),
+                    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-item-sub", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-item-meta", children: doc.standard_no === null || doc.standard_no === "" ? "\u2014" : doc.standard_no }) })
                   ] });
                 case "status":
-                  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: st.cls, children: st.text });
+                  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: st.cls, children: st.text });
                 case "date":
-                  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-kb-hint", children: doc.effective_from === null || doc.effective_from === "" ? "\u2014" : doc.effective_from });
+                  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-kb-hint", children: doc.effective_from === null || doc.effective_from === "" ? "\u2014" : doc.effective_from });
                 case "stage":
-                  return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+                  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
                     "span",
                     {
                       className: "ks-kb-hint",
@@ -38239,7 +39666,7 @@ function KsKnowledgePage({ useTabInfo }) {
                     }
                   );
                 case "more":
-                  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-item-more", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: "ks-item-more", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
                     import_dsh_client_ui_primitives4.Menu,
                     {
                       open: isOpen,
@@ -38259,7 +39686,7 @@ function KsKnowledgePage({ useTabInfo }) {
                         else if (id === "copy") openAction("copy", [fileKey]);
                         else if (id === "remove") void runRemove([fileKey]);
                       },
-                      anchor: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                      anchor: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
                         import_dsh_client_ui_primitives4.Button,
                         {
                           variant: "ghost",
@@ -38271,7 +39698,7 @@ function KsKnowledgePage({ useTabInfo }) {
                           onClick: () => {
                             setMenuFor(isOpen ? null : doc.doc_id);
                           },
-                          children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconEllipsisOutline16, {})
+                          children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconEllipsisOutline16, {})
                         }
                       )
                     }
@@ -38282,22 +39709,22 @@ function KsKnowledgePage({ useTabInfo }) {
               /* 整行可点（业主 2026-09-21）：分流规则在 `openRowDetail` 里，唯一所有者。
                  ⚠ 它是 **div**（不是 button）：行内已经有「⋮」这个真控件，
                    把行做成按钮会嵌套交互元素（HTML 非法 + 读屏器读成两个控件）。 */
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
                 "div",
                 {
                   className: openDoc === doc.doc_id ? "ks-item ks-file-row ks-item-on" : "ks-item ks-file-row",
                   onClick: (e) => {
                     openRowDetail(doc, e);
                   },
-                  children: COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: `ks-cell ${col.cls}`, children: cellFor(col.key) }, col.key))
+                  children: COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: `ks-cell ${col.cls}`, children: cellFor(col.key) }, col.key))
                 },
                 doc.doc_id
               )
             );
           })
         ] }) : null,
-        filesTotal > FILE_PAGE_SIZE ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-pager", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+        filesTotal > FILE_PAGE_SIZE ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-pager", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
             import_dsh_client_ui_primitives4.Button,
             {
               variant: "outline",
@@ -38308,10 +39735,10 @@ function KsKnowledgePage({ useTabInfo }) {
               onClick: () => {
                 goPage(Math.max(0, fileOffset - FILE_PAGE_SIZE));
               },
-              children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconChevronLeftOutline14, {})
+              children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconChevronLeftOutline14, {})
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-pager-n", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { className: "ks-pager-n", children: [
             "\u7B2C ",
             pageNo,
             " / ",
@@ -38320,7 +39747,7 @@ function KsKnowledgePage({ useTabInfo }) {
             filesTotal,
             " \u7BC7"
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
             import_dsh_client_ui_primitives4.Button,
             {
               variant: "outline",
@@ -38331,25 +39758,25 @@ function KsKnowledgePage({ useTabInfo }) {
               onClick: () => {
                 goPage(fileOffset + FILE_PAGE_SIZE);
               },
-              children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconChevronRightOutline14, {})
+              children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_dsh_client_ui_primitives4.IconChevronRightOutline14, {})
             }
           )
         ] }) : null
       ] }) }),
-      layer === "folder" && current !== null ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", { className: "ks-detail", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-kb-card", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-kb-row", style: { marginBottom: 6 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("strong", { className: "ks-kb-grow ks-kb-ct", title: current.standard_name ?? current.doc_id, children: current.standard_name ?? current.doc_id }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: STATUS[statusOf(current.legal_status)].cls, children: STATUS[statusOf(current.legal_status)].text })
+      layer === "folder" && current !== null ? /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "ks-detail", children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-kb-card", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-kb-row", style: { marginBottom: 6 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("strong", { className: "ks-kb-grow ks-kb-ct", title: current.standard_name ?? current.doc_id, children: current.standard_name ?? current.doc_id }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { className: STATUS[statusOf(current.legal_status)].cls, children: STATUS[statusOf(current.legal_status)].text })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-fields", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Field, { label: "\u6807\u51C6\u53F7", value: current.standard_no ?? "", mono: true }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Field, { label: "\u53D1\u5E03\u65E5\u671F", value: current.published_at ?? "" }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Field, { label: "\u751F\u6548\u65E5\u671F", value: current.effective_from ?? "" }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Field, { label: "\u5E9F\u6B62\u65E5\u671F", value: current.withdrawn_date ?? "" }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Field, { label: "\u88AB\u66FF\u4EE3\u4E3A", value: current.superseded_by ?? "", mono: true }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Field, { label: "\u6240\u5C5E\u76EE\u5F55", value: levelName }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Field, { label: "\u5904\u7406\u72B6\u6001", value: stageText(current.stage, stageLabels) }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "ks-fields", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Field, { label: "\u6807\u51C6\u53F7", value: current.standard_no ?? "", mono: true }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Field, { label: "\u53D1\u5E03\u65E5\u671F", value: current.published_at ?? "" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Field, { label: "\u751F\u6548\u65E5\u671F", value: current.effective_from ?? "" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Field, { label: "\u5E9F\u6B62\u65E5\u671F", value: current.withdrawn_date ?? "" }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Field, { label: "\u88AB\u66FF\u4EE3\u4E3A", value: current.superseded_by ?? "", mono: true }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Field, { label: "\u6240\u5C5E\u76EE\u5F55", value: levelName }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Field, { label: "\u5904\u7406\u72B6\u6001", value: stageText(current.stage, stageLabels) }),
+          /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
             Field,
             {
               label: "\u8BC6\u522B\u7387",
@@ -38363,14 +39790,14 @@ function KsKnowledgePage({ useTabInfo }) {
 }
 
 // client/KsScopeChip.tsx
-var import_react9 = require("react");
-var import_jsx_runtime12 = require("react/jsx-runtime");
+var import_react11 = require("react");
+var import_jsx_runtime14 = require("react/jsx-runtime");
 function KsScopeChip(props) {
   const { sessionId } = props;
-  const [folderName, setFolderName] = (0, import_react9.useState)(null);
-  const [busy, setBusy] = (0, import_react9.useState)(false);
-  const abortRef = (0, import_react9.useRef)(null);
-  (0, import_react9.useEffect)(() => {
+  const [folderName, setFolderName] = (0, import_react11.useState)(null);
+  const [busy, setBusy] = (0, import_react11.useState)(false);
+  const abortRef = (0, import_react11.useRef)(null);
+  (0, import_react11.useEffect)(() => {
     abortRef.current?.abort();
     const controller = new AbortController();
     abortRef.current = controller;
@@ -38389,7 +39816,7 @@ function KsScopeChip(props) {
     })();
     return () => controller.abort();
   }, [sessionId]);
-  const close = (0, import_react9.useCallback)(async () => {
+  const close = (0, import_react11.useCallback)(async () => {
     if (sessionId === void 0 || busy) return;
     setBusy(true);
     try {
@@ -38401,7 +39828,7 @@ function KsScopeChip(props) {
     }
   }, [sessionId, busy]);
   if (folderName === null) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
     "div",
     {
       "data-ks-scope-chip": "",
@@ -38421,10 +39848,10 @@ function KsScopeChip(props) {
       },
       title: `\u672C\u4F1A\u8BDD\u6BCF\u4E00\u8F6E\u68C0\u7D22\u90FD\u9650\u5B9A\u5728\u6536\u85CF\u5939\u300C${folderName}\u300D\u7684\u5185\u5BB9\u5185\uFF08\u6807\u51C6\u7EA7\u6536\u85CF\u6309\u6574\u672C\u8BA1\uFF09\u3002\u70B9 \u2715 \u6062\u590D\u5168\u5E93\u3002`,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { "aria-hidden": true, children: "\u{1F516}" }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { fontWeight: 600 }, children: folderName }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { color: "#9c6b1f" }, children: "\xB7 \u4EC5\u5728\u672C\u6536\u85CF\u5939\u5185\u63D0\u95EE" }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { "aria-hidden": true, children: "\u{1F516}" }),
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { fontWeight: 600 }, children: folderName }),
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { color: "#9c6b1f" }, children: "\xB7 \u4EC5\u5728\u672C\u6536\u85CF\u5939\u5185\u63D0\u95EE" }),
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
           "button",
           {
             type: "button",
@@ -38453,1408 +39880,6 @@ function KsScopeChip(props) {
 
 // client/KsSettingsSection.tsx
 var import_react13 = require("react");
-
-// client/KsReportPanel.tsx
-var import_react10 = require("react");
-var import_jsx_runtime13 = require("react/jsx-runtime");
-var WINDOWS = [
-  { key: "all", label: "\u5168\u90E8" },
-  { key: "upcoming90", label: "\u5373\u5C06\u5B9E\u65BD 90 \u5929" },
-  { key: "recent90", label: "\u6700\u8FD1\u5B9E\u65BD 90 \u5929" },
-  { key: "retired90", label: "\u8FD1\u671F\u5E9F\u6B62 90 \u5929" }
-];
-var COLOR_DOT = {
-  red: "#c0392b",
-  yellow: "#b8860b",
-  green: "#2e7d32",
-  gray: "#888"
-};
-var STATUS_BADGE = {
-  effective: "\u73B0\u884C",
-  upcoming: "\u5373\u5C06\u5B9E\u65BD",
-  superseded: "\u88AB\u4EE3\u66FF",
-  withdrawn: "\u5DF2\u5E9F\u6B62"
-};
-function nodeKey(path, name) {
-  return [...path, name].join("");
-}
-function ColorDots({ colors, size = 11 }) {
-  const items = [
-    ["red", colors.red],
-    ["yellow", colors.yellow],
-    ["green", colors.green],
-    ["gray", colors.gray]
-  ];
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { display: "inline-flex", gap: 8, alignItems: "center" }, children: items.map(([c, n]) => n > 0 ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { display: "inline-flex", alignItems: "center", gap: 3, color: COLOR_DOT[c], fontSize: size }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { width: size - 3, height: size - 3, borderRadius: "50%", background: COLOR_DOT[c], display: "inline-block" } }),
-    n
-  ] }, c) : null) });
-}
-function DocRow({ doc, onOpenDoc }) {
-  const color = COLOR_DOT[doc.color] ?? "#888";
-  const badge = STATUS_BADGE[doc.status ?? ""] ?? "\u72B6\u6001\u672A\u77E5";
-  const clickable = doc.doc_id !== null && doc.doc_id !== "";
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
-    "div",
-    {
-      onClick: () => {
-        if (clickable && doc.doc_id) onOpenDoc(doc.doc_id);
-      },
-      style: {
-        display: "flex",
-        alignItems: "baseline",
-        gap: 8,
-        padding: "3px 0 3px 18px",
-        fontSize: 12,
-        cursor: clickable ? "pointer" : "default",
-        flexWrap: "wrap"
-      },
-      title: clickable ? "\u70B9\u51FB\u5728 PDF \u67E5\u770B\u5668\u6253\u5F00\u539F\u6587" : void 0,
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { width: 9, height: 9, borderRadius: "50%", background: color, display: "inline-block", flexShrink: 0 } }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { color: "var(--dsw-alias-label-primary, #111)", fontFamily: "monospace" }, children: doc.standard_no ?? "?" }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { color: "var(--dsw-alias-label-primary, #111)" }, children: doc.standard_name }),
-        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: {
-          fontSize: 11,
-          color,
-          border: `1px solid ${color}55`,
-          borderRadius: 4,
-          padding: "0 6px",
-          lineHeight: "17px",
-          flexShrink: 0
-        }, children: badge }),
-        doc.status === "upcoming" && doc.effective_from ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
-          "\u5B9E\u65BD ",
-          doc.effective_from,
-          "\uFF08\u5F53\u524D\u4E0D\u53EF\u5F15\u7528\uFF09"
-        ] }) : null,
-        doc.status !== "upcoming" && doc.effective_from ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #888)" }, children: [
-          "\u5B9E\u65BD ",
-          doc.effective_from
-        ] }) : null,
-        doc.published_at ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #888)" }, children: [
-          "\u53D1\u5E03 ",
-          doc.published_at
-        ] }) : null,
-        doc.superseded_by ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
-          "\u88AB\u4EE3\u66FF\u4E3A ",
-          doc.superseded_by
-        ] }) : null,
-        doc.withdrawn_date ? /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
-          "\u5E9F\u6B62 ",
-          doc.withdrawn_date
-        ] }) : null
-      ]
-    }
-  );
-}
-function KsReportPanel(props) {
-  const { visible, openEvidence } = props;
-  const abortRef = (0, import_react10.useRef)(null);
-  const [win, setWin] = (0, import_react10.useState)("all");
-  const [colorFilter, setColorFilter] = (0, import_react10.useState)("");
-  const [report, setReport] = (0, import_react10.useState)(null);
-  const [loadState, setLoadState] = (0, import_react10.useState)({ status: "loading" });
-  const [expanded, setExpanded] = (0, import_react10.useState)({});
-  const [docsCache, setDocsCache] = (0, import_react10.useState)({});
-  const [exporting, setExporting] = (0, import_react10.useState)(false);
-  const [exportError, setExportError] = (0, import_react10.useState)(null);
-  const load = (0, import_react10.useCallback)(async (w, color) => {
-    abortRef.current?.abort();
-    const ac = new AbortController();
-    abortRef.current = ac;
-    setLoadState({ status: "loading" });
-    try {
-      const rep = await fetchEffectReport(w, ac.signal, color || void 0);
-      if (ac.signal.aborted) return;
-      setReport(rep);
-      setDocsCache({});
-      setLoadState({ status: "ready" });
-    } catch (err) {
-      if (ac.signal.aborted) return;
-      setLoadState({ status: "error", message: err instanceof Error ? err.message : String(err) });
-    }
-  }, []);
-  (0, import_react10.useEffect)(() => {
-    if (!visible) return;
-    void load(win, colorFilter);
-    return () => {
-      abortRef.current?.abort();
-    };
-  }, [visible, win, colorFilter, load]);
-  const onOpenDoc = (0, import_react10.useCallback)((docId) => {
-    if (openEvidence === void 0) return;
-    const url = `http://127.0.0.1:1/__ks_evidence__?doc=${encodeURIComponent(docId)}`;
-    try {
-      openEvidence(url);
-    } catch {
-    }
-  }, [openEvidence]);
-  const toggle = (key) => {
-    setExpanded((prev) => {
-      const next = { ...prev, [key]: !(prev[key] === true) };
-      if (next[key] === false) {
-        const prefix = `${key}`;
-        for (const k of Object.keys(next)) {
-          if (k.startsWith(prefix)) delete next[k];
-        }
-      }
-      return next;
-    });
-  };
-  const onExport = async () => {
-    if (exporting) return;
-    setExporting(true);
-    setExportError(null);
-    try {
-      await exportEffectReport(win, void 0, colorFilter || void 0);
-    } catch (err) {
-      setExportError(err instanceof Error ? err.message : String(err));
-    } finally {
-      setExporting(false);
-    }
-  };
-  const useL4Docs = (params, cacheKey) => {
-    const [docs, setDocs] = (0, import_react10.useState)(void 0);
-    (0, import_react10.useEffect)(() => {
-      if (expanded[cacheKey] !== true || docsCache[cacheKey] !== void 0) return;
-      let alive = true;
-      void fetchEffectDocs({ top: params.topKey, l2: params.l2, l3: params.l3, l4: params.l4, window: win, color: colorFilter || void 0 }).then((d) => {
-        if (!alive) return;
-        setDocs(d.docs);
-        setDocsCache((prev) => ({ ...prev, [cacheKey]: d.docs }));
-      }).catch(() => {
-        if (alive) setDocs([]);
-      });
-      return () => {
-        alive = false;
-      };
-    }, [cacheKey, expanded[cacheKey], docsCache[cacheKey]]);
-    return docsCache[cacheKey] ?? docs;
-  };
-  const renderNode = (node, path, depth, topKey) => {
-    const key = nodeKey(path, node.name);
-    const isOpen = expanded[key] ?? depth === 0;
-    const isLeaf = node.count !== void 0;
-    const children = node.items ?? [];
-    const rootKey = topKey || node.top || "";
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { paddingLeft: depth === 0 ? 0 : 12 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(
-        "div",
-        {
-          onClick: () => toggle(key),
-          style: {
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-            padding: "4px 0",
-            cursor: "pointer",
-            userSelect: "none",
-            flexWrap: "wrap"
-          },
-          children: [
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { fontSize: 10, color: "var(--dsw-alias-label-secondary, #666)", width: 10 }, children: isOpen ? "\u25BE" : "\u25B8" }),
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: {
-              fontWeight: depth <= 1 ? 600 : 500,
-              color: "var(--dsw-alias-label-primary, #111)",
-              fontSize: depth <= 1 ? 13 : 12
-            }, children: node.name }),
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(ColorDots, { colors: node.colors })
-          ]
-        }
-      ),
-      isOpen && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
-        children.map((child) => renderNode(child, [...path, node.name], depth + 1, rootKey)),
-        isLeaf && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(L4Docs, { params: {
-          topKey: rootKey,
-          l2: path[1] ?? "",
-          l3: path[2] ?? "",
-          l4: node.name
-        }, cacheKey: key, useL4Docs, onOpenDoc })
-      ] })
-    ] }, key);
-  };
-  function L4Docs({ params, cacheKey, useL4Docs: useDocs, onOpenDoc: open }) {
-    const docs = useDocs(params, cacheKey);
-    if (docs === void 0) {
-      return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { style: { padding: "2px 0 2px 30px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #888)" }, children: "\u52A0\u8F7D\u4E2D\u2026" });
-    }
-    if (docs.length === 0) {
-      return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { style: { padding: "2px 0 2px 30px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #888)" }, children: "\uFF08\u65E0\u6587\u6863\uFF09" });
-    }
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { children: docs.map((d) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(DocRow, { doc: d, onOpenDoc: open }, d.doc_id ?? d.standard_no ?? Math.random())) });
-  }
-  return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { padding: "4px 0 2px" }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }, children: [
-      report !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("span", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
-        "\u5171 ",
-        report.total,
-        " \u90E8\uFF08\u6807\u51C6 ",
-        report.std.total,
-        " \xB7 \u6CD5\u89C4 ",
-        report.law.total,
-        "\uFF09\xB7 ",
-        fmtGenerated(report.generated_at)
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { flex: 1 } }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("button", { type: "button", onClick: () => void load(win, colorFilter), style: btnStyle(false), children: "\u27F3 \u5237\u65B0" })
-    ] }),
-    report !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { style: { display: "flex", alignItems: "center", gap: 12, margin: "8px 0", flexWrap: "wrap" }, children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(ColorDots, { colors: report.colors, size: 12 }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 6, margin: "4px 0 10px", flexWrap: "wrap" }, children: [
-      WINDOWS.map((w) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-        "button",
-        {
-          type: "button",
-          onClick: () => setWin(w.key),
-          style: {
-            padding: "2px 10px",
-            borderRadius: 12,
-            fontSize: 12,
-            cursor: "pointer",
-            border: `1px solid ${win === w.key ? "#4a6da7" : "#c4c4c4"}`,
-            background: win === w.key ? "#4a6da7" : "#ffffff",
-            color: win === w.key ? "#ffffff" : "#333333"
-          },
-          children: w.label
-        },
-        w.key
-      )),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", { style: { flex: 1 } }),
-      [
-        ["red", "\u{1F534} \u7EA2"],
-        ["yellow", "\u{1F7E1} \u9EC4"],
-        ["green", "\u{1F7E2} \u7EFF"],
-        ["gray", "\u26AA \u767D"]
-      ].map(([c, label]) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-        "button",
-        {
-          type: "button",
-          onClick: () => setColorFilter(colorFilter === c ? "" : c),
-          title: colorFilter === c ? "\u53D6\u6D88\u8272\u8FC7\u6EE4" : `\u53EA\u770B${label.replace(/^\S+\s*/, "")}\u6E05\u5355`,
-          style: {
-            padding: "2px 10px",
-            borderRadius: 12,
-            fontSize: 12,
-            cursor: "pointer",
-            border: `1px solid ${colorFilter === c ? COLOR_DOT[c] : "#c4c4c4"}`,
-            background: colorFilter === c ? COLOR_DOT[c] : "#ffffff",
-            color: colorFilter === c ? "#ffffff" : "#333333"
-          },
-          children: label
-        },
-        c
-      )),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
-        "button",
-        {
-          type: "button",
-          onClick: () => void onExport(),
-          disabled: exporting || loadState.status !== "ready",
-          style: btnStyle(exporting || loadState.status !== "ready"),
-          children: exporting ? "\u5BFC\u51FA\u4E2D\u2026" : "\u2B07 \u5BFC\u51FA Excel"
-        }
-      )
-    ] }),
-    exportError !== null && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 8px" }, children: exportError }),
-    loadState.status === "loading" && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { style: { color: "var(--dsw-alias-label-secondary, #666)", fontSize: 13 }, children: "\u6B63\u5728\u805A\u5408\u5E93\u5185\u6548\u529B\u72B6\u6001\u2026\uFF08\u9996\u6B21\u53EF\u80FD\u9700\u8981\u62C9\u8D77\u5F15\u64CE\uFF09" }),
-    loadState.status === "error" && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 13 }, children: loadState.message }),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("button", { type: "button", onClick: () => void load(win, colorFilter), style: btnStyle(false), children: "\u91CD\u8BD5" })
-    ] }),
-    loadState.status === "ready" && report !== null && report.total === 0 && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { style: { color: "var(--dsw-alias-label-secondary, #666)", fontSize: 13 }, children: win === "all" ? "\u5E93\u5185\u6682\u65E0\u6587\u6863" : "\u8BE5\u65F6\u95F4\u7A97\u5185\u65E0\u6587\u6863\uFF08\u5BFC\u51FA Excel \u53EF\u67E5\u770B\u5168\u91CF\uFF09" }),
-    loadState.status === "ready" && report !== null && report.total > 0 && /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { children: [
-      report.tree.map((t) => renderNode(t, [], 0, t.top ?? "")),
-      /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("p", { style: { margin: "10px 0 0", fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: "\u53E3\u5F84\u6CE8\u811A\uFF1A\u72B6\u6001\u4EE5\u8BFB\u53D6\u65F6\u60F0\u6027\u7FFB\u8F6C\uFF08resolve_status\uFF09\u4E3A\u51C6\uFF1B\u26AA = \u5E93\u5185\u672A\u767B\u8BB0\u6548\u529B\u72B6\u6001 \uFF08\u4E0E\u5DE1\u68C0\u300C\u5B98\u65B9\u67E5\u65E0\u6B64\u53F7\u300D\u8BED\u4E49\u4E0D\u540C\uFF09\u3002\u9EC4\u884C\u5728\u5B9E\u65BD\u65E5\u524D\u4E0D\u53EF\u5F15\u7528\u3002" })
-    ] })
-  ] });
-}
-function btnStyle(disabled) {
-  return {
-    padding: "3px 12px",
-    borderRadius: 6,
-    fontSize: 12,
-    border: `1px solid ${disabled ? "#c4c4c4" : "#7f7f7f"}`,
-    background: disabled ? "#e9e9e9" : "#ffffff",
-    color: disabled ? "#5a5a5a" : "#111111",
-    cursor: disabled ? "default" : "pointer"
-  };
-}
-function fmtGenerated(v) {
-  const norm = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/.test(v) ? `${v.replace(" ", "T")}Z` : v;
-  const d = new Date(norm);
-  if (Number.isNaN(d.getTime())) return v;
-  const hh = String(d.getHours()).padStart(2, "0");
-  const mi = String(d.getMinutes()).padStart(2, "0");
-  return `\u751F\u6210\u4E8E ${hh}:${mi}`;
-}
-
-// client/KsMaterialsPanel.tsx
-var import_react11 = require("react");
-var import_jsx_runtime14 = require("react/jsx-runtime");
-var GREEN = "var(--dsw-alias-state-success-primary)";
-var RED = "var(--dsw-alias-state-error-primary)";
-var GRAY = "var(--dsw-alias-label-tertiary)";
-var REVIEW_LABEL = {
-  approved: { text: "\u53EF\u4F5C\u4F9D\u636E", color: GREEN },
-  pending: { text: "\u5F85\u8BC4\u5BA1\uFF08\u4E0D\u4F1A\u8FDB\u5165\u4F5C\u7B54\uFF09", color: "var(--dsw-alias-state-warn-primary)" },
-  rejected: { text: "\u4E0D\u53EF\u7528\uFF08\u4E0D\u4F1A\u8FDB\u5165\u4F5C\u7B54\uFF09", color: RED }
-};
-function reviewLabel(status) {
-  return REVIEW_LABEL[status ?? ""] ?? { text: `\u672A\u77E5\u72B6\u6001\uFF08${status ?? "null"}\uFF09`, color: GRAY };
-}
-function btnStyle2(disabled = false) {
-  return {
-    padding: "3px 10px",
-    fontSize: 12,
-    borderRadius: 4,
-    border: "1px solid var(--dsw-alias-border-l2)",
-    background: "transparent",
-    color: "inherit",
-    cursor: disabled ? "not-allowed" : "pointer",
-    opacity: disabled ? 0.5 : 1
-  };
-}
-function assertNever(status) {
-  throw new Error(`\u672A\u5904\u7406\u7684\u951A\u70B9\u72B6\u6001\uFF08\u65B0\u589E\u53D6\u503C\u5FC5\u987B\u540C\u65F6\u52A0\u5206\u652F\uFF09: ${String(status)}`);
-}
-function AnchorMark(props) {
-  const why = props.why || "\uFF08\u540E\u7AEF\u672A\u7ED9\u539F\u56E0\uFF09";
-  switch (props.status) {
-    // 没问题 / 没有区间可失效 ⇒ 不加噪声
-    case void 0:
-    case "ok":
-    case "no_locators":
-      return null;
-    case "stale":
-      return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: "var(--dsw-alias-state-warn-primary)" }, children: [
-        "\u26A0 ",
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u5F15\u7528\u951A\u70B9\u9700\u590D\u7B97" }),
-        "\uFF1A",
-        why,
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("br", {}),
-        "\uFF08\u9700\u590D\u7B97**\u4E0D\u4EE3\u8868\u5DF2\u7ECF\u574F\u4E86**\u3002\uFF09\u70B9\u300C\u590D\u7B97\u951A\u70B9\u300D\u7528\u5F53\u524D\u89E3\u6790\u5668\u91CD\u7B97\u6BD4\u5BF9\u3002"
-      ] });
-    case "unknown":
-      return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: GRAY }, children: [
-        "\u26A0 ",
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u5F15\u7528\u951A\u70B9\u672A\u9A8C\u8BC1" }),
-        "\uFF1A",
-        why,
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("br", {}),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u4E0D\u7B49\u4E8E" }),
-        "\u6709\u95EE\u9898\uFF0C\u4F46\u5F15\u7528\u4F4D\u7F6E",
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u672A\u7ECF\u786E\u8BA4" }),
-        "\u3002"
-      ] });
-    // ⚠ `health_error` **不是**健康状态，是"后端判据跑挂了"：不加这一支那种材料在界面上
-    // **一个标记都没有**，读起来像"全都健康"。颜色用红：这不是材料的问题，是我们的问题。
-    case "health_error":
-      return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { role: "alert", style: { margin: "4px 0 0", fontSize: 12, color: RED }, children: [
-        "\u26A0 ",
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u951A\u70B9\u5065\u5EB7\u5EA6\u7B97\u4E0D\u51FA\u6765" }),
-        "\uFF1A",
-        why,
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("br", {}),
-        "\u8FD9\u662F",
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u5DE5\u5177\u7F3A\u9677" }),
-        "\uFF0C",
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u4E0D\u4EE3\u8868" }),
-        "\u6750\u6599\u6709\u95EE\u9898\u2014\u2014\u4F46\u5B83\u7684\u5F15\u7528\u4F4D\u7F6E \u76EE\u524D",
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u672A\u77E5" }),
-        "\u3002"
-      ] });
-    default:
-      return assertNever(props.status);
-  }
-}
-function statusDisablesReverify(status) {
-  switch (status) {
-    case void 0:
-    case "ok":
-    case "stale":
-    case "unknown":
-    case "health_error":
-      return false;
-    case "no_locators":
-      return true;
-    default:
-      return assertNever(status);
-  }
-}
-function canApplyDraft(draft) {
-  if (draft === null || draft.llm_called === false) return false;
-  return (draft.draft_md ?? "").trim() !== "";
-}
-var emptyDraftFlow = { draft: null, conclusionMd: "", pendingOverwrite: false };
-function draftArrived(prev, out) {
-  return { draft: out, conclusionMd: prev.conclusionMd, pendingOverwrite: false };
-}
-function requestApplyDraft(prev) {
-  if (!canApplyDraft(prev.draft)) return prev;
-  if (prev.conclusionMd.trim() !== "") {
-    return { draft: prev.draft, conclusionMd: prev.conclusionMd, pendingOverwrite: true };
-  }
-  return { draft: prev.draft, conclusionMd: prev.draft?.draft_md ?? "", pendingOverwrite: false };
-}
-function confirmApplyDraft(prev) {
-  if (!canApplyDraft(prev.draft)) return prev;
-  return { draft: prev.draft, conclusionMd: prev.draft?.draft_md ?? "", pendingOverwrite: false };
-}
-function cancelApplyDraft(prev) {
-  return { draft: prev.draft, conclusionMd: prev.conclusionMd, pendingOverwrite: false };
-}
-function userTypedConclusion(prev, text) {
-  return { draft: prev.draft, conclusionMd: text, pendingOverwrite: false };
-}
-function draftReducer(prev, action) {
-  switch (action.type) {
-    case "arrived":
-      return draftArrived(prev, action.out);
-    case "requestApply":
-      return requestApplyDraft(prev);
-    case "confirmApply":
-      return confirmApplyDraft(prev);
-    case "cancelApply":
-      return cancelApplyDraft(prev);
-    case "typed":
-      return userTypedConclusion(prev, action.text);
-    default:
-      return assertNever(action);
-  }
-}
-function AnchorNoteLine(props) {
-  const note = props.note || "";
-  if (note === "") return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { margin: "0 0 8px", fontSize: 12, color: GRAY }, children: note });
-}
-function KsMaterialsPanel(props) {
-  const { visible, onUseProject } = props;
-  const [projects, setProjects] = (0, import_react11.useState)([]);
-  const [projectId, setProjectId] = (0, import_react11.useState)("");
-  const [materials, setMaterials] = (0, import_react11.useState)([]);
-  const [tiers, setTiers] = (0, import_react11.useState)([]);
-  const [tierListFailed, setTierListFailed] = (0, import_react11.useState)(false);
-  const [inbox, setInbox] = (0, import_react11.useState)(
-    { dir: "", files: [] }
-  );
-  const [loading, setLoading] = (0, import_react11.useState)(false);
-  const [busy, setBusy] = (0, import_react11.useState)("");
-  const [error, setError] = (0, import_react11.useState)("");
-  const [notice, setNotice] = (0, import_react11.useState)("");
-  const [warn2, setWarn] = (0, import_react11.useState)("");
-  const [newName, setNewName] = (0, import_react11.useState)("");
-  const [collectUrl, setCollectUrl] = (0, import_react11.useState)("");
-  const [collectNote, setCollectNote] = (0, import_react11.useState)("");
-  const [researchQuery, setResearchQuery] = (0, import_react11.useState)("");
-  const [flow, dispatch] = (0, import_react11.useReducer)(draftReducer, emptyDraftFlow);
-  const conclusionMd = flow.conclusionMd;
-  const draft = flow.draft;
-  const [report, setReport] = (0, import_react11.useState)(null);
-  const [showReport, setShowReport] = (0, import_react11.useState)(false);
-  const [anchors, setAnchors] = (0, import_react11.useState)({});
-  const [anchorNote, setAnchorNote] = (0, import_react11.useState)("");
-  const [openChunks, setOpenChunks] = (0, import_react11.useState)({});
-  const reloadProjects = (0, import_react11.useCallback)(async (signal) => {
-    const list = await fetchMaterialProjects(signal);
-    setProjects(list);
-    return list;
-  }, []);
-  const reloadMaterials = (0, import_react11.useCallback)(async (pid, signal) => {
-    const list = await fetchMaterials(pid, void 0, signal);
-    setMaterials(list);
-  }, []);
-  const reloadInbox = (0, import_react11.useCallback)(async (pid, signal) => {
-    try {
-      setInbox(await fetchMaterialInbox(pid, signal));
-    } catch (err) {
-      if (err instanceof Error && err.name === "AbortError") return;
-      setInbox({ dir: "", files: [] });
-      setError(`\u6536\u4EF6\u7BB1\u8BFB\u53D6\u5931\u8D25\uFF1A${err instanceof Error ? err.message : String(err)}\uFF08\u4E0B\u9762\u7684"\u672A\u767B\u8BB0"\u8BA1\u6570\u4E0D\u53EF\u4FE1\u2014\u2014\u4E0D\u662F"\u6CA1\u6709\u6587\u4EF6"\uFF0C\u662F**\u6CA1\u8BFB\u5230**\uFF09`);
-    }
-  }, []);
-  (0, import_react11.useEffect)(() => {
-    if (!visible) return void 0;
-    const ctl = new AbortController();
-    let alive = true;
-    setLoading(true);
-    setError("");
-    void (async () => {
-      void fetchMaterialTiers(ctl.signal).then((defs) => {
-        if (alive) {
-          setTiers(defs);
-          setTierListFailed(false);
-        }
-      }).catch(() => {
-        if (alive) {
-          setTiers([]);
-          setTierListFailed(true);
-        }
-      });
-      try {
-        const list = await reloadProjects(ctl.signal);
-        if (!alive) return;
-        const first = list.length > 0 ? list[0].project_id : "";
-        setProjectId((cur) => cur !== "" && list.some((p) => p.project_id === cur) ? cur : first);
-      } catch (err) {
-        if (alive) setError(err instanceof Error ? err.message : String(err));
-      } finally {
-        if (alive) setLoading(false);
-      }
-    })();
-    return () => {
-      alive = false;
-      ctl.abort();
-    };
-  }, [visible, reloadProjects]);
-  (0, import_react11.useEffect)(() => {
-    if (!visible || projectId === "") {
-      setMaterials([]);
-      setInbox({ dir: "", files: [] });
-      setAnchors({});
-      setAnchorNote("");
-      return void 0;
-    }
-    const ctl = new AbortController();
-    let alive = true;
-    setLoading(true);
-    setError("");
-    void (async () => {
-      try {
-        await Promise.all([
-          reloadMaterials(projectId, ctl.signal),
-          reloadInbox(projectId, ctl.signal),
-          // 锚点健康度：**一次请求拿全项目**（便宜判据，不重解析）
-          fetchProjectLocators(projectId, ctl.signal).then((s) => {
-            if (!alive) return;
-            const why = {};
-            for (const a of s.attention) why[a.material_id] = a.why;
-            const map = {};
-            for (const [mid, status] of Object.entries(s.statuses)) {
-              map[mid] = { material_id: mid, status, why: why[mid] ?? "" };
-            }
-            setAnchors(map);
-            setAnchorNote(s.note);
-          }).catch(() => {
-          })
-        ]);
-      } catch (err) {
-        if (alive) setError(err instanceof Error ? err.message : String(err));
-      } finally {
-        if (alive) setLoading(false);
-      }
-    })();
-    return () => {
-      alive = false;
-      ctl.abort();
-    };
-  }, [visible, projectId, reloadMaterials, reloadInbox]);
-  const run = (0, import_react11.useCallback)(async (label, fn, refreshFor = null) => {
-    setBusy(label);
-    setError("");
-    setNotice("");
-    setWarn("");
-    try {
-      setNotice(await fn());
-      if (refreshFor !== null) await reloadMaterials(refreshFor);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : String(err));
-    } finally {
-      setBusy("");
-    }
-  }, [reloadMaterials]);
-  const onCreate = (0, import_react11.useCallback)(() => {
-    const name = newName.trim();
-    if (name === "") {
-      setError("\u8BF7\u5148\u586B\u9879\u76EE\u540D");
-      return;
-    }
-    void run("create", async () => {
-      const proj = await createMaterialProject(name);
-      setNewName("");
-      await reloadProjects();
-      setProjectId(proj.project_id);
-      return `\u5DF2\u5EFA\u9879\u76EE\u300C${proj.name}\u300D\u3002\u628A\u6750\u6599\u6587\u4EF6\u653E\u8FDB\u5B83\u7684\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u540E\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\u3002`;
-    }, null);
-  }, [newName, reloadProjects, run]);
-  const onScan = (0, import_react11.useCallback)(() => {
-    if (projectId === "") return;
-    void run("scan", async () => {
-      const r = await scanMaterialProject(projectId);
-      await reloadInbox(projectId);
-      return `\u626B\u63CF\u5B8C\u6210\uFF1A\u767B\u8BB0 ${r.registered} / \u5171 ${r.scanned} \u4E2A\u6587\u4EF6\u3002**\u65B0\u767B\u8BB0\u7684\u6750\u6599\u662F\u5F85\u8BC4\u5BA1\u72B6\u6001**\uFF0C\u9700\u4F60\u5728\u4E0B\u65B9\u9010\u4EFD\u6279\u51C6\u540E\u624D\u4F1A\u8FDB\u5165\u4F5C\u7B54\u3002`;
-    }, projectId);
-  }, [projectId, reloadInbox, run]);
-  const onCollect = (0, import_react11.useCallback)(() => {
-    if (projectId === "") return;
-    const url = collectUrl.trim();
-    if (url === "") {
-      setError("\u8BF7\u5148\u586B\u7F51\u5740\uFF08\u8981**\u539F\u59CB\u51FA\u5904**\u7684\u7F51\u9875\u5730\u5740\uFF09");
-      return;
-    }
-    void run("collect", async () => {
-      const out = await collectMaterialUrl(projectId, {
-        url,
-        note: collectNote.trim() === "" ? void 0 : collectNote.trim()
-      });
-      if (!out.collected) {
-        setWarn(`\u6CA1\u6709\u91C7\u5230\uFF1A${out.reason ?? "\u539F\u56E0\u672A\u7ED9"}` + (out.status !== void 0 ? `\uFF08HTTP ${out.status}\uFF09` : "") + "\u3002\u8FD9\u6761**\u6CA1\u6709**\u767B\u8BB0\u6210\u6750\u6599\u2014\u2014\u53EF\u4EE5\u6362\u4E2A**\u539F\u59CB\u51FA\u5904**\u7684\u7F51\u5740\u518D\u8BD5\uFF0C\u6216\u628A\u6B63\u6587\u7C98\u8D34/\u4FDD\u5B58\u6210\u6587\u4EF6\u653E\u8FDB\u4E0A\u9762\u7684\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u3002");
-        return "";
-      }
-      setCollectUrl("");
-      const title = out.material?.title ?? "\uFF08\u6807\u9898\u53D6\u81EA\u9875\u9762\uFF09";
-      const chunks = out.material?.chunk_count ?? 0;
-      return `\u5DF2\u767B\u8BB0\u300C${title}\u300D\uFF08${chunks} \u4E2A\u5207\u7247\uFF0C\u6765\u6E90\u5C42\u7EA7 **T3=\u4EC5\u7EBF\u7D22**\uFF09` + (out.duplicate === true ? "\u2014\u2014\u26A0 \u8FD9\u4E2A\u7F51\u5740\u7684\u5185\u5BB9**\u4E0E\u9879\u76EE\u91CC\u5DF2\u6709\u7684\u4E00\u4EFD\u76F8\u540C**\uFF0C\u5F15\u64CE**\u6CA1\u6709**\u91CD\u590D\u767B\u8BB0\u3002" : "\u3002") + (out.truncated === true ? "\u26A0 \u6B63\u6587\u88AB\u622A\u65AD\u5230\u957F\u5EA6\u4E0A\u9650\uFF08\u4E0D\u662F\u5168\u6587\uFF09\u3002" : "") + "\u5B83\u73B0\u5728\u662F**\u5F85\u8BC4\u5BA1**\u3001**\u4E0D\u4F1A**\u8FDB\u5165\u4EFB\u4F55\u7ED3\u8BBA\uFF0C\u9700\u4F60\u5728\u4E0B\u65B9\u6279\u51C6\uFF08\u672C\u9762\u677F\u4E0D\u80FD\u4EE3\u6279\uFF09\u3002";
-    }, projectId);
-  }, [collectNote, collectUrl, projectId, run]);
-  const onExportReport = (0, import_react11.useCallback)(() => {
-    if (projectId === "") return;
-    void run("report", async () => {
-      const out = await exportResearchReport(projectId, {
-        query: researchQuery.trim() === "" ? void 0 : researchQuery.trim(),
-        conclusionMd: conclusionMd.trim() === "" ? void 0 : conclusionMd
-      });
-      setReport(out);
-      setShowReport(false);
-      const bad = (out.warnings ?? []).length;
-      return `\u7814\u7A76\u62A5\u544A\u5DF2\u751F\u6210\uFF08\u5DF2\u6279\u51C6 ${out.counts?.approved ?? 0} / \u5F85\u8BC4\u5BA1 ${out.counts?.pending ?? 0}\uFF09` + (bad > 0 ? `\u2014\u2014\u26A0 \u6709 ${bad} \u6761\u5F15\u7528\u8B66\u544A\uFF0C\u89C1\u4E0B\u65B9\uFF08\u62A5\u544A\u91CC**\u539F\u6837\u4FDD\u7559**\u4E86\u90A3\u4E9B\u5F15\u7528\uFF09` : "");
-    }, null);
-  }, [conclusionMd, projectId, researchQuery, run]);
-  const onDraftConclusion = (0, import_react11.useCallback)(() => {
-    if (projectId === "") return;
-    const q = researchQuery.trim();
-    if (q === "") {
-      setNotice("\u8D77\u8349\u7ED3\u8BBA\u8981\u5148\u586B\u300C\u7814\u7A76\u95EE\u9898\u300D\u2014\u2014\u8349\u7A3F\u5FC5\u987B\u77E5\u9053\u8981\u56DE\u7B54\u4EC0\u4E48\u3002");
-      return;
-    }
-    void run("draft", async () => {
-      const out = await exportResearchDraft(projectId, { query: q });
-      dispatch({ type: "arrived", out });
-      if (out.llm_called === false) {
-        return "\u6CA1\u6709\u53EF\u627F\u91CD\u7684\u5DF2\u6279\u51C6\u6750\u6599\u2014\u2014\u5F15\u64CE**\u6CA1\u6709\u8D77\u8349**\uFF08\u4E00\u6B21\u6A21\u578B\u90FD\u6CA1\u8C03\uFF09";
-      }
-      const n = (out.warnings ?? []).length;
-      return "\u8349\u7A3F\u5DF2\u751F\u6210\uFF08**\u672A\u7ECF\u6279\u51C6**\uFF0C\u4E0D\u5F97\u4F5C\u4E3A\u4F9D\u636E\uFF09" + (n > 0 ? `\u2014\u2014\u26A0 ${n} \u6761\u63D0\u793A\uFF0C\u89C1\u4E0B\u65B9` : "");
-    }, null);
-  }, [projectId, researchQuery, run]);
-  const onReview = (0, import_react11.useCallback)((m, decision) => {
-    void run(`${decision}:${m.material_id}`, async () => {
-      const out = await reviewMaterial(m.material_id, decision);
-      const label = reviewLabel(out.review_status).text;
-      const tl = out.track_l ?? null;
-      const tlText = tl === null ? "" : tl.action === "import" ? "\uFF1B\u5DF2\u81EA\u52A8\u5165\u5E93\u4E3A\u6CD5\u6761\uFF08Track L\uFF09" : tl.action === "link" ? "\uFF1B\u5E93\u5185\u5DF2\u6709\uFF0C\u5DF2\u56DE\u6307\u8BE5\u6CD5\u6761" : tl.action === "skip" ? "\uFF1B\u672A\u8BC6\u522B\u4E3A\u6CD5\u89C4/\u6807\u51C6\uFF0C\u672A\u52A8\u6CD5\u6761\u5E93" : `\uFF1B\u26A0 Track L \u672A\u5B8C\u6210\uFF08${tl.action ?? "\u672A\u77E5"}\uFF09\uFF1A${tl.why ?? "\u539F\u56E0\u672A\u7ED9"}`;
-      return `\u300C${m.title}\u300D\u2192 ${label}${tlText}`;
-    }, projectId);
-  }, [projectId, run]);
-  const onTier = (0, import_react11.useCallback)((m, tier) => {
-    void run(`tier:${m.material_id}`, async () => {
-      const out = await setMaterialTier(
-        m.material_id,
-        tier,
-        `\u7528\u6237\u6539\u7EA7\uFF1A${m.source_tier ?? "\u672A\u5224\u7EA7"} \u2192 ${tier}`
-      );
-      return `\u300C${m.title}\u300D\u6765\u6E90\u5C42\u7EA7 \u2192 ${out.tier_label ?? out.source_tier}\uFF08\u5DF2\u8BB0\u4E3A**\u7528\u6237\u6539\u7684**\uFF09`;
-    }, projectId);
-  }, [projectId, run]);
-  const [picked, setPicked] = (0, import_react11.useState)(/* @__PURE__ */ new Set());
-  const onRole = (0, import_react11.useCallback)((m, role) => {
-    void run(`role:${m.material_id}`, async () => {
-      await setMaterialRole(m.material_id, role === "" ? null : role);
-      return `\u300C${m.title}\u300D\u4EFB\u52A1\u5185\u6548\u529B\u5DF2\u66F4\u65B0`;
-    }, projectId);
-  }, [projectId, run]);
-  const onReverify = (0, import_react11.useCallback)((m) => {
-    void run(`reverify:${m.material_id}`, async () => {
-      const out = await reverifyMaterialLocators(m.material_id);
-      if (out.status === "match") return `\u300C${m.title}\u300D\u951A\u70B9\u590D\u7B97\uFF1A**\u9010\u5B57\u8282\u4E00\u81F4**\uFF08\u533A\u95F4\u4ECD\u6709\u6548\uFF09`;
-      if (out.status === "mismatch") {
-        return `\u300C${m.title}\u300D\u951A\u70B9\u590D\u7B97\uFF1A\u26A0 **\u5DF2\u5B58\u533A\u95F4\u5DF2\u5931\u6548**\uFF08\u5F15\u7528\u4F4D\u7F6E\u4F1A\u6307\u9519\uFF09\u2014\u2014\u9700\u8981\u91CD\u5EFA\u8FD9\u4EFD\u6750\u6599\uFF08\u91CD\u65B0\u89E3\u6790\u5E76\u91CD\u5EFA\u5207\u7247\uFF09\uFF0C\u6216\u628A\u5B83\u5F03\u7528`;
-      }
-      return `\u300C${m.title}\u300D\u951A\u70B9\u590D\u7B97\uFF1A**\u9A8C\u4E0D\u4E86**\uFF08${out.why}\uFF09`;
-    }, null);
-  }, [run]);
-  const onToggleChunks = (0, import_react11.useCallback)((m) => {
-    const cur = openChunks[m.material_id];
-    if (cur !== void 0) {
-      setOpenChunks((prev) => {
-        const next = { ...prev };
-        delete next[m.material_id];
-        return next;
-      });
-      return;
-    }
-    setOpenChunks((prev) => ({ ...prev, [m.material_id]: "loading" }));
-    void (async () => {
-      try {
-        const page = await fetchMaterialChunks(m.material_id, 0, 20);
-        setOpenChunks((prev) => ({ ...prev, [m.material_id]: page.chunks }));
-      } catch (err) {
-        setError(err instanceof Error ? err.message : String(err));
-        setOpenChunks((prev) => {
-          const next = { ...prev };
-          delete next[m.material_id];
-          return next;
-        });
-      }
-    })();
-  }, [openChunks]);
-  if (!visible) {
-    return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { fontSize: 12, color: GRAY, margin: 0 }, children: "\u5C55\u5F00\u540E\u52A0\u8F7D\u53C2\u8003\u8D44\u6599\uFF08\u6536\u8D77\u65F6\u4E0D\u53D1\u4EFB\u4F55\u8BF7\u6C42\uFF09\u3002" });
-  }
-  const current = projects.find((p) => p.project_id === projectId);
-  return (
-    // ⚠ 5j（2026-09-20）：`.ks-page` 只做 container-type（页面留边的宽/窄两档靠它切；
-    //    CSS 里容器不能用自己的宽度查自己 ⇒ 留边落在后代的 `.ks-mat` 上）。
-    //    零内边距零外边距 ⇒ 不是"盒子套盒子"。里面的 JSX 缩进保持原样（本批不重排）。
-    //    ⚠ 本组件**同时**被设置窗的 KsCategory 包着渲染 ⇒ 那处会多出这层留边（16px）：
-    //      这是有意的（弹窗内容同样不该贴边），但它**不在**本轮的验收面上（见 UI-BASELINE 5j 边界）。
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "ks-mat", style: { fontSize: 13 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: { margin: "0 0 10px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u8BC4\u5BA1\u662F\u786C\u95E8" }),
-        "\uFF1A\u53EA\u6709",
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u5DF2\u6279\u51C6" }),
-        "\u7684\u6750\u6599\u4F1A\u8FDB\u5165\u4F5C\u7B54\u4E0E\u4EA7\u51FA\u7269\u3002 \u672A\u6279\u51C6\u7684\u6750\u6599\u4E0D\u4F1A\u88AB\u68C0\u7D22\u3001\u4E0D\u4F1A\u88AB\u5F15\u7528\u3002\u6240\u6709\u51B3\u5B9A\u90FD\u7531",
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u4F60" }),
-        '\u505A\u51FA\uFF08\u672C\u9762\u677F\u6CA1\u6709"\u5168\u90E8\u901A\u8FC7"\uFF09\u3002'
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { marginBottom: 12 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("label", { style: { display: "flex", gap: 6, alignItems: "center" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { children: "\u53C2\u8003\u8D44\u6599\u9879\u76EE" }),
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
-              "select",
-              {
-                "aria-label": "\u53C2\u8003\u8D44\u6599\u9879\u76EE",
-                value: projectId,
-                onChange: (e) => setProjectId(e.currentTarget.value),
-                style: { padding: "3px 6px", fontSize: 12, maxWidth: 320 },
-                children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("option", { value: "", children: "\uFF08\u672A\u9009\u62E9\uFF09" }),
-                  projects.map((p) => /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("option", { value: p.project_id, children: [
-                    p.name,
-                    "\uFF08",
-                    p.project_id,
-                    "\uFF09"
-                  ] }, p.project_id))
-                ]
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-            "input",
-            {
-              "aria-label": "\u65B0\u5EFA\u9879\u76EE\u540D",
-              placeholder: "\u65B0\u5EFA\u9879\u76EE\u540D",
-              value: newName,
-              onChange: (e) => setNewName(e.currentTarget.value),
-              style: { padding: "3px 6px", fontSize: 12, width: 160 }
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("button", { type: "button", style: btnStyle2(busy !== ""), disabled: busy !== "", onClick: onCreate, children: "\u65B0\u5EFA\u9879\u76EE" }),
-          current !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-            "button",
-            {
-              type: "button",
-              style: btnStyle2(false),
-              title: "\u628A\u8FD9\u4E2A id \u4EA4\u7ED9\u4F1A\u8BDD\u7EA7\u7ED1\u5B9A\uFF08\u7B49\u6548\u4E8E\u8F93\u5165 /materials use <id>\uFF09",
-              onClick: () => onUseProject?.(current.project_id, current.name),
-              children: "\u5728\u4F1A\u8BDD\u4E2D\u4F7F\u7528"
-            }
-          )
-        ] }),
-        current !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
-          "\u4F1A\u8BDD\u91CC\u95EE\u95EE\u9898\u65F6\u60F3\u7528\u672C\u9879\u76EE\u7684\u6750\u6599\uFF0C\u8F93\u5165 ",
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("code", { children: [
-            "/materials use ",
-            current.project_id,
-            " ",
-            current.name
-          ] }),
-          "\uFF08\u672A\u7ED1\u5B9A\u65F6\u6750\u6599",
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u5B8C\u5168\u4E0D\u53C2\u4E0E" }),
-          "\u4F5C\u7B54\uFF09\u3002"
-        ] })
-      ] }),
-      projectId !== "" && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { marginBottom: 12, padding: "8px 10px", border: "1px solid var(--dsw-alias-border-l2)", borderRadius: 6 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939" }),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { fontSize: 12, color: GRAY }, children: [
-            "\u672A\u767B\u8BB0 ",
-            inbox.files.length,
-            " \u4E2A\u6587\u4EF6"
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("button", { type: "button", style: btnStyle2(busy !== ""), disabled: busy !== "", onClick: onScan, children: "\u626B\u63CF\u6536\u4EF6" })
-        ] }),
-        inbox.dir !== "" && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
-          "\u628A PDF / DOCX / TXT / MD \u653E\u8FDB ",
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("code", { children: inbox.dir }),
-          " \u518D\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\u3002"
-        ] }),
-        inbox.files.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("ul", { style: { margin: "6px 0 0", paddingLeft: 18, fontSize: 12, color: GRAY }, children: [
-          inbox.files.slice(0, 10).map((f) => /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("li", { children: f.file_name }, f.file_name)),
-          inbox.files.length > 10 && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("li", { children: [
-            "\u2026 \u53E6\u6709 ",
-            inbox.files.length - 10,
-            " \u4E2A"
-          ] })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: {
-          marginTop: 10,
-          paddingTop: 8,
-          borderTop: "1px dashed var(--dsw-alias-border-l2)"
-        }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u81EA\u91C7\u4E00\u4EFD" }),
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-              "input",
-              {
-                "aria-label": "\u81EA\u91C7\u7F51\u5740",
-                placeholder: "https://\u2026\uFF08\u8981\u300C\u539F\u59CB\u51FA\u5904\u300D\u7684\u7F51\u9875\u6B63\u6587\uFF09",
-                value: collectUrl,
-                onChange: (e) => setCollectUrl(e.currentTarget.value),
-                style: { padding: "3px 6px", fontSize: 12, width: 320 }
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-              "input",
-              {
-                "aria-label": "\u81EA\u91C7\u5907\u6CE8",
-                placeholder: "\u5907\u6CE8\uFF08\u53EF\u9009\uFF0C\u8BC4\u5BA1\u4EBA\u4F1A\u770B\u5230\u8FD9\u6761\u662F\u600E\u4E48\u6765\u7684\uFF09",
-                value: collectNote,
-                onChange: (e) => setCollectNote(e.currentTarget.value),
-                style: { padding: "3px 6px", fontSize: 12, width: 220 }
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-              "button",
-              {
-                type: "button",
-                style: btnStyle2(busy !== "" || collectUrl.trim() === ""),
-                disabled: busy !== "" || collectUrl.trim() === "",
-                onClick: onCollect,
-                children: "\u81EA\u91C7\u4E00\u6761"
-              }
-            )
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
-            "\u91C7\u56DE\u6765\u7684\u662F ",
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u5F85\u8BC4\u5BA1" }),
-            "\u6750\u6599\uFF0C\u6765\u6E90\u5C42\u7EA7\u7531\u7CFB\u7EDF\u5224\u4E3A ",
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "T3=\u4EC5\u7EBF\u7D22" }),
-            "\uFF08",
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u4E0D\u5F97\u5355\u72EC\u652F\u6491\u7ED3\u8BBA" }),
-            "\u3001\u4E0D\u80FD\u4E0E\u5176\u5B83\u7F51\u9875\u4E92\u8BC1\uFF09\uFF1B\u6279\u51C6\u524D",
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u4E0D\u4F1A" }),
-            "\u8FDB\u5165\u4F5C\u7B54\u6216\u4EA7\u51FA\u3002",
-            " ",
-            "\u53EA\u6536",
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u4E00\u6761" }),
-            "\uFF08\u9884\u7B97\u672A\u5B9A\uFF0C\u6CA1\u6709\u6279\u91CF\uFF09\uFF0C\u4E14\u53EA\u6536",
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u7F51\u9875\u6B63\u6587" }),
-            "\uFF1A PDF / \u56FE\u7247 / \u538B\u7F29\u5305\u8BF7\u4E0B\u8F7D\u540E\u653E\u8FDB\u4E0A\u9762\u7684\u6587\u4EF6\u5939\u3002"
-          ] })
-        ] })
-      ] }),
-      error !== "" && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { role: "alert", style: { margin: "0 0 8px", color: RED, fontSize: 12 }, children: [
-        "\u64CD\u4F5C\u5931\u8D25\uFF1A",
-        error
-      ] }),
-      warn2 !== "" && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { role: "status", style: { margin: "0 0 8px", color: "var(--dsw-alias-state-warn-primary)", fontSize: 12 }, children: [
-        "\u26A0 ",
-        warn2
-      ] }),
-      notice !== "" && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { margin: "0 0 8px", color: "var(--dsw-alias-label-secondary, #666)", fontSize: 12 }, children: notice }),
-      loading && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { margin: "0 0 8px", fontSize: 12, color: GRAY }, children: "\u52A0\u8F7D\u4E2D\u2026" }),
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(AnchorNoteLine, { note: anchorNote }),
-      tierListFailed && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { role: "status", style: { margin: "0 0 8px", color: "var(--dsw-alias-state-warn-primary)", fontSize: 12 }, children: [
-        "\u26A0 \u6765\u6E90\u5C42\u7EA7\u6E05\u5355\uFF08T0\u2013T4\uFF09**\u6CA1\u8BFB\u5230**\uFF1A\u6750\u6599\u8868\u91CC\u6BCF\u4EFD\u6750\u6599\u7684\u300C\u8F74 A \u6765\u6E90\u53EF\u4FE1\u5EA6\u300D\u4E0B\u62C9\u4F1A\u53EA\u5269\u5F53\u524D\u503C\u3001",
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u6539\u4E0D\u4E86\u7EA7" }),
-        "\u3002\u8FD9**\u4E0D\u4EE3\u8868**\u6750\u6599\u6CA1\u6709\u5C42\u7EA7\uFF0C\u662F\u8FD9\u4EFD\u6E05\u5355\u6CA1\u53D6\u5230\u2014\u2014 \u91CD\u5F00\u9762\u677F\u6216\u91CD\u542F\u5F15\u64CE\u540E\u518D\u8BD5\u3002"
-      ] }),
-      projectId === "" && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { fontSize: 12, color: GRAY }, children: "\u5148\u9009\u4E00\u4E2A\u9879\u76EE\uFF08\u6216\u5728\u4E0A\u9762\u65B0\u5EFA\uFF09\u3002" }),
-      projectId !== "" && !loading && materials.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { fontSize: 12, color: GRAY }, children: "\u8FD9\u4E2A\u9879\u76EE\u91CC\u8FD8\u6CA1\u6709\u5DF2\u767B\u8BB0\u7684\u6750\u6599\uFF1A\u628A\u6587\u4EF6\u653E\u8FDB\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u540E\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\uFF08\u4EBA\u5DE5\u4E0A\u4F20\u514D\u8BC4\u5BA1\uFF0C\u5C31\u4F4D\u5373\u53EF\u7528\uFF09\uFF0C \u6216\u7528\u4E0A\u9762\u7684\u300C\u81EA\u91C7\u4E00\u6761\u300D\u6309\u7F51\u5740\u6293\u4E00\u4EFD\u7F51\u9875\u6B63\u6587\uFF08\u81EA\u91C7\u7684\u8981\u4F60\u6279\u51C6\u540E\u624D\u7B97\u6570\uFF09\u3002" }),
-      picked.size > 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "ks-batch", "data-ks-batch": "on", style: { position: "sticky", bottom: 0, display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap", padding: "8px 10px", marginBottom: 8, border: "0.5px solid var(--dsw-alias-border-l1)", borderRadius: 6, background: "var(--dsw-alias-bg-layer-2)" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { fontSize: 12 }, children: [
-          "\u5DF2\u9009 ",
-          String(picked.size),
-          " \u9879"
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("button", { type: "button", style: btnStyle2(busy !== ""), disabled: busy !== "", onClick: () => {
-          materials.filter((mm) => picked.has(mm.material_id)).forEach((mm) => onRole(mm, "criterion"));
-          setPicked(/* @__PURE__ */ new Set());
-        }, children: "\u6279\u91CF\u8BBE\u4E3A\u5FC5\u987B\u9075\u5B88" }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("button", { type: "button", style: btnStyle2(busy !== ""), disabled: busy !== "", onClick: () => {
-          materials.filter((mm) => picked.has(mm.material_id)).forEach((mm) => onRole(mm, "reference"));
-          setPicked(/* @__PURE__ */ new Set());
-        }, children: "\u6279\u91CF\u8BBE\u4E3A\u4EC5\u4F9B\u53C2\u8003" }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("button", { type: "button", style: btnStyle2(false), onClick: () => {
-          setPicked(/* @__PURE__ */ new Set());
-        }, children: "\u53D6\u6D88\u9009\u62E9" })
-      ] }),
-      materials.map((m) => {
-        const rev = reviewLabel(m.review_status);
-        const isUpload = (m.origin ?? "user") === "user";
-        const chunks = openChunks[m.material_id];
-        return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
-          "div",
-          {
-            style: {
-              border: "1px solid var(--dsw-alias-border-l2)",
-              borderRadius: 6,
-              padding: "8px 10px",
-              marginBottom: 8
-            },
-            children: [
-              /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "baseline", flexWrap: "wrap" }, children: [
-                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-                  "input",
-                  {
-                    type: "checkbox",
-                    "aria-label": `\u52FE\u9009 ${m.title}`,
-                    checked: picked.has(m.material_id),
-                    onChange: () => {
-                      const next = new Set(picked);
-                      if (next.has(m.material_id)) next.delete(m.material_id);
-                      else next.add(m.material_id);
-                      setPicked(next);
-                    }
-                  }
-                ),
-                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: m.title }),
-                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { fontSize: 12, color: rev.color }, children: rev.text }),
-                /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { fontSize: 12, color: GRAY }, children: [
-                  m.chunk_count ?? 0,
-                  " \u4E2A\u5207\u7247 \xB7 ",
-                  m.origin ?? "user",
-                  " / ",
-                  m.kind ?? "other"
-                ] })
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap", marginTop: 6 }, children: [
-                /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("label", { style: { display: "flex", gap: 4, alignItems: "center", fontSize: 12 }, children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { children: "\u6765\u6E90\u5C42\u7EA7" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
-                    "select",
-                    {
-                      "aria-label": `\u6765\u6E90\u5C42\u7EA7 ${m.title}`,
-                      value: m.source_tier ?? "",
-                      onChange: (e) => onTier(m, e.currentTarget.value),
-                      disabled: busy !== "" || tiers.length === 0,
-                      title: tiers.length === 0 ? "\u6765\u6E90\u5C42\u7EA7\u6E05\u5355\u6CA1\u8BFB\u5230\uFF0C\u6682\u65F6\u6539\u4E0D\u4E86\u7EA7" : void 0,
-                      style: { fontSize: 12, maxWidth: 260 },
-                      children: [
-                        tiers.length === 0 && m.source_tier != null && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("option", { value: m.source_tier, children: m.tier_label ?? m.source_tier }),
-                        tiers.map((t) => /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("option", { value: t.tier, children: [
-                          t.tier,
-                          " ",
-                          t.label
-                        ] }, t.tier))
-                      ]
-                    }
-                  ),
-                  m.tier_source === "user" && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { color: GRAY }, children: "\uFF08\u4F60\u6539\u7684\uFF09" })
-                ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-                  "button",
-                  {
-                    type: "button",
-                    "aria-label": `\u5730\u4F4D ${m.title}`,
-                    disabled: busy !== "",
-                    onClick: () => {
-                      onRole(m, m.task_role === "criterion" ? "reference" : "criterion");
-                    },
-                    title: m.task_role === "criterion" ? "\u5FC5\u987B\u9075\u5B88\uFF08\u4EE5\u6B64\u4E3A\u51C6\uFF09\u2014\u2014\u70B9\u4E00\u4E0B\u6539\u4E3A\u4EC5\u4F9B\u53C2\u8003" : "\u4EC5\u4F9B\u53C2\u8003\u2014\u2014\u70B9\u4E00\u4E0B\u6539\u4E3A\u5FC5\u987B\u9075\u5B88",
-                    style: {
-                      ...btnStyle2(busy !== ""),
-                      borderRadius: 999,
-                      color: m.task_role === "criterion" ? "var(--dsw-alias-state-business-primary)" : "var(--dsw-alias-label-secondary)",
-                      border: `1px solid ${m.task_role === "criterion" ? "var(--dsw-alias-state-business-primary)" : "var(--dsw-alias-label-tertiary)"}`
-                    },
-                    children: m.task_role === "criterion" ? "\u5FC5\u987B\u9075\u5B88" : m.task_role === "reference" ? "\u4EC5\u4F9B\u53C2\u8003" : "\u672A\u58F0\u660E"
-                  }
-                )
-              ] }),
-              m.tier_reason != null && m.tier_reason !== "" && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: GRAY }, children: [
-                "\u5224\u7EA7\u8BF4\u660E\uFF1A",
-                m.tier_reason
-              ] }),
-              m.source_tier === "T4" && m.task_role === "criterion" && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: RED }, children: [
-                "\u26A0 \u4F60\u628A\u6765\u6E90\u4E0D\u53EF\u56DE\u6EAF\uFF08T4\uFF09\u7684\u6750\u6599\u58F0\u660E\u4E3A\u51C6\u7EF3\u2014\u2014\u6309\u7EAA\u5F8B\u5B83",
-                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u4E0D\u4F1A\u6309\u51C6\u5219\u627F\u91CD" }),
-                "\uFF0C \u53EA\u5217\u5728\u300C\u5DF2\u77E5\u4E0D\u53EF\u7528\u300D\u91CC\u3002\u8981\u8BA9\u5B83\u627F\u91CD\uFF0C\u8BF7\u5148\u628A\u5B83\u6539\u6210\u53EF\u56DE\u6EAF\u7684\u6765\u6E90\u5C42\u7EA7\u3002"
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(AnchorMark, { status: anchors[m.material_id]?.status, why: anchors[m.material_id]?.why }),
-              /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { display: "flex", gap: 6, marginTop: 8, flexWrap: "wrap" }, children: [
-                !isUpload && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(import_jsx_runtime14.Fragment, { children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-                    "button",
-                    {
-                      type: "button",
-                      style: btnStyle2(busy !== "" || m.review_status === "approved"),
-                      disabled: busy !== "" || m.review_status === "approved",
-                      onClick: () => onReview(m, "approved"),
-                      children: "\u6279\u51C6\uFF08\u53EF\u8FDB\u5165\u4F5C\u7B54\uFF09"
-                    }
-                  ),
-                  /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-                    "button",
-                    {
-                      type: "button",
-                      style: btnStyle2(busy !== "" || m.review_status === "rejected"),
-                      disabled: busy !== "" || m.review_status === "rejected",
-                      onClick: () => onReview(m, "rejected"),
-                      children: "\u62D2\u7EDD"
-                    }
-                  )
-                ] }),
-                isUpload && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { fontSize: 12, color: GRAY }, children: "\u4EBA\u5DE5\u4E0A\u4F20\uFF1A\u514D\u8BC4\u5BA1\uFF0C\u5DF2\u5C31\u4F4D\u5373\u53EF\u7528" }),
-                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("button", { type: "button", style: btnStyle2(false), onClick: () => onToggleChunks(m), children: chunks === void 0 ? "\u8BFB\u6B63\u6587\uFF08\u8BC4\u5BA1\u524D\u5FC5\u770B\uFF09" : "\u6536\u8D77\u6B63\u6587" }),
-                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-                  "button",
-                  {
-                    type: "button",
-                    style: btnStyle2(busy !== "" || statusDisablesReverify(anchors[m.material_id]?.status)),
-                    disabled: busy !== "" || statusDisablesReverify(anchors[m.material_id]?.status),
-                    title: "\u7528\u5F53\u524D\u89E3\u6790\u5668\u91CD\u65B0\u89E3\u6790\u6E90\u6587\u4EF6\u5E76\u6BD4\u5BF9\u6D3E\u751F\u5168\u6587\uFF08PDF \u662F\u5B50\u8FDB\u7A0B\uFF0C\u53EF\u80FD\u8981\u51E0\u5341\u79D2\uFF09",
-                    onClick: () => onReverify(m),
-                    children: "\u590D\u7B97\u951A\u70B9"
-                  }
-                )
-              ] }),
-              chunks === "loading" && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: "\u8BFB\u53D6\u5207\u7247\u2026" }),
-              Array.isArray(chunks) && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { marginTop: 6, maxHeight: 240, overflow: "auto", fontSize: 12 }, children: [
-                chunks.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: { margin: 0, color: GRAY }, children: [
-                  "\u6CA1\u6709\u5207\u7247\u2014\u2014\u8BE5\u6587\u4EF6\u53EF\u80FD\u6CA1\u89E3\u6790\u51FA\u6587\u672C\uFF08\u626B\u63CF\u4EF6\uFF1F\uFF09\u3002",
-                  /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u6CA1\u6709\u6B63\u6587\u5C31\u65E0\u6CD5\u8BC4\u5BA1" }),
-                  "\u3002"
-                ] }),
-                chunks.map((c, i) => /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: { margin: "0 0 4px" }, children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { color: GRAY }, children: [
-                    "[",
-                    i,
-                    "] ",
-                    c.page != null ? `\u7B2C${c.page}\u9875 ` : "",
-                    c.char_start,
-                    "-",
-                    c.char_end
-                  ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("br", {}),
-                  c.text
-                ] }, `${c.char_start}-${i}`))
-              ] })
-            ]
-          },
-          m.material_id
-        );
-      }),
-      projectId !== "" && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: {
-        marginTop: 12,
-        padding: "8px 10px",
-        border: "1px solid var(--dsw-alias-border-l2)",
-        borderRadius: 6
-      }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u4EA7\u51FA" }),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { fontSize: 12, color: GRAY }, children: [
-            "\uFF08\u53EA\u5403",
-            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u5DF2\u6279\u51C6" }),
-            "\u6750\u6599\uFF1B\u672A\u6279\u51C6\u7684\u5728\u62A5\u544A\u91CC\u5355\u5217\u4E00\u8282\uFF09"
-          ] })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { style: { display: "flex", gap: 8, marginTop: 6, flexWrap: "wrap" }, children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-          "input",
-          {
-            "aria-label": "\u7814\u7A76\u95EE\u9898",
-            placeholder: "\u7814\u7A76\u95EE\u9898\uFF08\u53EF\u9009\uFF1B\u7ED9\u4E86\u5C31\u6309\u5B83\u68C0\u7D22\u5DF2\u6279\u51C6\u6750\u6599\u5E76\u5206\u7EC4\uFF09",
-            value: researchQuery,
-            onChange: (e) => setResearchQuery(e.currentTarget.value),
-            style: { padding: "3px 6px", fontSize: 12, width: 340 }
-          }
-        ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { style: { marginTop: 6 }, children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-          "textarea",
-          {
-            "aria-label": "\u7ED3\u8BBA\u6B63\u6587",
-            placeholder: "\u7ED3\u8BBA\uFF08\u53EF\u9009\uFF0CMarkdown\uFF09\u3002\u91CC\u9762\u53EF\u4EE5\u7528 [[m:\u7F16\u53F7]] \u5F15\u7528\u4F9D\u636E\uFF1B\u7F16\u53F7\u5BF9\u4E0D\u4E0A\u5F15\u64CE\u4F1A\u8B66\u544A\u3002",
-            value: conclusionMd,
-            onChange: (e) => dispatch({ type: "typed", text: e.currentTarget.value }),
-            rows: 3,
-            style: { padding: "3px 6px", fontSize: 12, width: "100%", boxSizing: "border-box" }
-          }
-        ) }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { display: "flex", gap: 6, marginTop: 6, flexWrap: "wrap" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-            "button",
-            {
-              type: "button",
-              style: btnStyle2(busy !== ""),
-              disabled: busy !== "",
-              onClick: onDraftConclusion,
-              children: "\u8D77\u8349\u7ED3\u8BBA\uFF08\u8349\u7A3F\uFF09"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-            "button",
-            {
-              type: "button",
-              style: btnStyle2(busy !== ""),
-              disabled: busy !== "",
-              onClick: onExportReport,
-              children: "\u751F\u6210\u7814\u7A76\u62A5\u544A\uFF08Markdown/HTML\uFF09"
-            }
-          ),
-          report?.markdown !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-            "button",
-            {
-              type: "button",
-              style: btnStyle2(false),
-              onClick: () => setShowReport((v) => !v),
-              children: showReport ? "\u6536\u8D77 Markdown" : "\u770B Markdown"
-            }
-          )
-        ] }),
-        draft !== null && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
-          "div",
-          {
-            role: "status",
-            style: {
-              marginTop: 6,
-              padding: "6px 8px",
-              borderRadius: 4,
-              border: "1px dashed var(--dsw-alias-state-warn-primary)",
-              background: "var(--dsw-alias-bg-layer-2)"
-            },
-            children: [
-              /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: { margin: 0, fontSize: 12, color: "var(--dsw-alias-state-warn-primary)" }, children: [
-                "\u26A0 ",
-                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u672A\u6279\u51C6\u8349\u7A3F" }),
-                "\u2014\u2014\u7531\u7CFB\u7EDF\u57FA\u4E8E",
-                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u5DF2\u6279\u51C6\u6750\u6599" }),
-                "\u8D77\u8349\uFF0C",
-                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u4E0D\u5F97\u4F5C\u4E3A\u4F9D\u636E" }),
-                "\uFF1B \u8BF7\u5148\u6539/\u6838\uFF0C\u518D\u70B9\u300C\u7528\u8FD9\u6BB5\u586B\u8FDB\u7ED3\u8BBA\u6846\u300D\u3002"
-              ] }),
-              draft.llm_called === false ? /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: GRAY }, children: [
-                "\u6CA1\u6709\u53EF\u627F\u91CD\u7684\u5DF2\u6279\u51C6\u6750\u6599\uFF0C\u5F15\u64CE",
-                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u6CA1\u6709\u8D77\u8349" }),
-                "\uFF08\u4E00\u6B21\u6A21\u578B\u90FD\u6CA1\u8C03\uFF09\u3002"
-              ] }) : /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(import_jsx_runtime14.Fragment, { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("pre", { style: {
-                  marginTop: 4,
-                  maxHeight: 200,
-                  overflow: "auto",
-                  fontSize: 11,
-                  whiteSpace: "pre-wrap",
-                  background: "var(--dsw-alias-bg-base)",
-                  padding: 6,
-                  borderRadius: 4
-                }, children: canApplyDraft(draft) ? draft.draft_md : "\uFF08\u6A21\u578B\u6CA1\u6709\u4EA7\u51FA\u7ED3\u8BBA\u6BB5\u2014\u2014\u89C1\u4E0B\u65B9\u63D0\u793A\uFF0C\u53EF\u770B derivation_md\uFF09" }),
-                (draft.warnings ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: {
-                  margin: "4px 0 0",
-                  fontSize: 12,
-                  color: "var(--dsw-alias-state-warn-primary)"
-                }, children: [
-                  "\u26A0 \u8D77\u8349\u63D0\u793A\uFF08\u5F15\u7528\u4E0D\u6210\u7ACB / \u6750\u6599\u4E0D\u8DB3 / \u6A21\u578B\u8F93\u51FA\u95EE\u9898\uFF0C**\u539F\u6837\u5217\u51FA\u3001\u4E0D\u9759\u9ED8\u6539\u8349\u7A3F**\uFF09\uFF1A",
-                  /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("br", {}),
-                  (draft.warnings ?? []).join("\uFF1B")
-                ] }),
-                flow.pendingOverwrite ? /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { marginTop: 4 }, children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: {
-                    margin: "0 0 4px",
-                    fontSize: 12,
-                    color: "var(--dsw-alias-state-warn-primary)"
-                  }, children: "\u26A0 \u7ED3\u8BBA\u6846\u91CC\u5DF2\u6709\u5185\u5BB9\uFF08\u53EF\u80FD\u662F\u4F60\u81EA\u5DF1\u5199\u7684\uFF09\u2014\u2014\u586B\u8349\u7A3F\u4F1A**\u8986\u76D6**\u5B83\uFF0C\u4E14**\u4E0D\u80FD\u64A4\u9500**\u3002 \u786E\u8BA4\u8981\u8986\u76D6\u5417\uFF1F" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-                    "button",
-                    {
-                      type: "button",
-                      style: { ...btnStyle2(false), marginRight: 6 },
-                      onClick: () => dispatch({ type: "confirmApply" }),
-                      children: "\u786E\u8BA4\u8986\u76D6"
-                    }
-                  ),
-                  /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-                    "button",
-                    {
-                      type: "button",
-                      style: btnStyle2(false),
-                      onClick: () => dispatch({ type: "cancelApply" }),
-                      children: "\u53D6\u6D88\uFF08\u4FDD\u7559\u6211\u5199\u7684\uFF09"
-                    }
-                  )
-                ] }) : /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-                  "button",
-                  {
-                    type: "button",
-                    style: { ...btnStyle2(!canApplyDraft(draft)), marginTop: 4 },
-                    disabled: !canApplyDraft(draft),
-                    onClick: () => dispatch({ type: "requestApply" }),
-                    children: flow.conclusionMd.trim() === "" ? "\u7528\u8FD9\u6BB5\u586B\u8FDB\u7ED3\u8BBA\u6846" : "\u7528\u8FD9\u6BB5\u586B\u8FDB\u7ED3\u8BBA\u6846\uFF08\u5C06\u8986\u76D6\u73B0\u6709\u5185\u5BB9\uFF09"
-                  }
-                )
-              ] })
-            ]
-          }
-        ),
-        report !== null && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
-          "\u5DF2\u6279\u51C6 ",
-          report.counts?.approved ?? 0,
-          " / \u5F85\u8BC4\u5BA1 ",
-          report.counts?.pending ?? 0,
-          " / \u5DF2\u62D2\u7EDD ",
-          report.counts?.rejected ?? 0,
-          "\uFF1B \u5F15\u7528\u6838\u9A8C\uFF1A\u6750\u6599\u5F15\u7528 ",
-          report.citations?.checked_material_refs ?? 0,
-          " \u6761",
-          report.citations?.unchecked_law_refs ? ` \xB7 \u6CD5\u89C4\u5F15\u7528 ${report.citations.unchecked_law_refs} \u6761**\u672C\u6B21\u65E0\u6CD5\u6838\u9A8C**` : "",
-          (report.citations?.unknown ?? 0) > 0 ? ` \xB7 ${report.citations?.unknown} \u6761**\u65E0\u6CD5\u5224\u5B9A**` : "",
-          report.names !== void 0 && report.names.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Deliverables, { names: report.names, paths: report.files ?? [] })
-        ] }),
-        report !== null && (report.warnings ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { role: "status", style: { margin: "6px 0 0", color: "var(--dsw-alias-state-warn-primary)", fontSize: 12 }, children: [
-          "\u26A0 \u5F15\u7528\u8B66\u544A\uFF08\u8FD9\u4E9B\u5F15\u7528**\u4E0D\u6210\u7ACB**\u6216\u65E0\u6CD5\u6838\u9A8C\uFF0C\u62A5\u544A\u91CC\u4E5F\u7167\u539F\u6837\u5217\u51FA\u4E86\uFF09\uFF1A",
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("br", {}),
-          (report.warnings ?? []).join("\uFF1B")
-        ] }),
-        showReport && report?.markdown !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("pre", { style: {
-          marginTop: 6,
-          maxHeight: 320,
-          overflow: "auto",
-          fontSize: 11,
-          whiteSpace: "pre-wrap",
-          background: "var(--dsw-alias-bg-layer-2)",
-          padding: 8,
-          borderRadius: 4
-        }, children: report.markdown }),
-        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY }, children: [
-          "\u62A5\u544A\u53EA\u6709",
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u4E00\u79CD\u5185\u5BB9" }),
-          "\u3001\u4E24\u79CD\u843D\u76D8\u5F62\u6001\uFF08Markdown \u662F\u4EA4\u4ED8\u7269\u672C\u4F53\uFF0C HTML \u662F\u540C\u4E00\u4EFD\u5185\u5BB9\u7684\u754C\u9762\u9884\u89C8\u5F62\u6001\uFF09\uFF0C",
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u672C\u673A" }),
-          "\u751F\u6210\u4E0E\u4FDD\u5B58\u3001",
-          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u4E0D\u5916\u53D1" }),
-          "\u3002"
-        ] })
-      ] })
-    ] }) })
-  );
-}
-function deliverableKind(name) {
-  return /\.(html?|md|txt)$/i.test(name) ? "page" : "binary";
-}
-function folderOf(path) {
-  return path.replace(/[\\/][^\\/]*$/, "");
-}
-function downloadBlob(url, name) {
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = name;
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
-}
-function Deliverables(props) {
-  const { names, paths } = props;
-  const [busy, setBusy] = (0, import_react11.useState)("");
-  const [error, setError] = (0, import_react11.useState)("");
-  const [copied, setCopied] = (0, import_react11.useState)(false);
-  const folder = paths.length > 0 ? folderOf(paths[0]) : "";
-  const open = (0, import_react11.useCallback)((name) => {
-    if (busy !== "") return;
-    setBusy(name);
-    setError("");
-    const isPage = deliverableKind(name) === "page";
-    const win = isPage ? window.open("about:blank", "_blank") : null;
-    void (async () => {
-      try {
-        const blob = await fetchExportBlob(name);
-        const url = URL.createObjectURL(blob);
-        if (!isPage) {
-          downloadBlob(url, name);
-          window.setTimeout(() => URL.revokeObjectURL(url), 3e4);
-        } else if (win !== null) {
-          win.location.replace(url);
-          window.setTimeout(() => URL.revokeObjectURL(url), 12e4);
-        } else {
-          downloadBlob(url, name);
-          window.setTimeout(() => URL.revokeObjectURL(url), 3e4);
-          setError("\u6D4F\u89C8\u5668\u62E6\u622A\u4E86\u65B0\u7A97\u53E3\uFF08\u5F39\u51FA\u7A97\u53E3\u8BBE\u7F6E\uFF09\u3002\u5DF2\u6539\u4E3A\u4E0B\u8F7D\u4E00\u4EFD\u2014\u2014\u6587\u4EF6\u5C31\u5728\u4E0B\u9762\u7684\u4FDD\u5B58\u76EE\u5F55\u91CC\uFF0C\u53CC\u51FB\u5373\u53EF\u770B\u3002");
-        }
-      } catch (e) {
-        if (win !== null) win.close();
-        setError(`${name}\uFF1A${e instanceof Error ? e.message : String(e)}`);
-      } finally {
-        setBusy("");
-      }
-    })();
-  }, [busy]);
-  const copyFolder = (0, import_react11.useCallback)(() => {
-    if (folder === "") return;
-    void navigator.clipboard.writeText(folder).then(
-      () => {
-        setCopied(true);
-        setError("");
-      },
-      (e) => setError(`\u590D\u5236\u5931\u8D25\uFF0C\u8BF7\u624B\u52A8\u9009\u4E2D\u4E0B\u9762\u7684\u8DEF\u5F84\uFF1A${e instanceof Error ? e.message : String(e)}`)
-    );
-  }, [folder]);
-  return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { margin: "6px 0 0", fontSize: 12 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { color: GRAY }, children: "\u4EA7\u7269\uFF1A" }),
-      names.map((n) => /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
-        "button",
-        {
-          type: "button",
-          disabled: busy !== "",
-          onClick: () => open(n),
-          title: deliverableKind(n) === "page" ? `${n}\uFF1A\u5728\u65B0\u6807\u7B7E\u91CC\u76F4\u63A5\u6253\u5F00\uFF08\u6D4F\u89C8\u5668\u6E32\u67D3\uFF09` : `${n}\uFF1A\u6D4F\u89C8\u5668\u6E32\u67D3\u4E0D\u4E86\u8FD9\u79CD\u4EA7\u7269\uFF08\u5982 xlsx\uFF09\uFF0C\u8FD9\u91CC\u4E0B\u8F7D\u4E00\u4EFD\uFF1B\u672C\u673A\u539F\u4EF6\u5728\u4E0B\u9762\u90A3\u4E2A\u76EE\u5F55\u91CC`,
-          style: {
-            border: "1px solid var(--dsw-alias-border-l2, #ccc)",
-            background: "var(--dsw-alias-bg-layer-2, #fff)",
-            color: "var(--dsw-alias-label-primary, #111)",
-            borderRadius: 4,
-            padding: "2px 8px",
-            fontSize: 11.5,
-            cursor: busy !== "" ? "default" : "pointer"
-          },
-          children: [
-            deliverableKind(n) === "page" ? "\u{1F441} \u6253\u5F00" : "\u2B07 \u4E0B\u8F7D",
-            " ",
-            n,
-            busy === n ? " \u2026" : ""
-          ]
-        },
-        n
-      ))
-    ] }),
-    folder !== "" && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { marginTop: 4, color: GRAY }, children: [
-      "\u4FDD\u5B58\u76EE\u5F55\uFF1A",
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("code", { style: { wordBreak: "break-all" }, children: folder }),
-      " ",
-      /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-        "button",
-        {
-          type: "button",
-          onClick: copyFolder,
-          title: "\u590D\u5236\u76EE\u5F55\u8DEF\u5F84\uFF08\u7C98\u5230\u8D44\u6E90\u7BA1\u7406\u5668/Win+R \u5373\u53EF\u6253\u5F00\u672C\u673A\u539F\u4EF6\uFF09",
-          style: {
-            border: "1px solid var(--dsw-alias-border-l2, #ccc)",
-            background: "var(--dsw-alias-bg-layer-2, #fff)",
-            color: "var(--dsw-alias-label-primary, #111)",
-            borderRadius: 4,
-            padding: "1px 6px",
-            fontSize: 11,
-            cursor: "pointer"
-          },
-          children: copied ? "\u2713 \u5DF2\u590D\u5236" : "\u{1F4CB} \u590D\u5236\u76EE\u5F55"
-        }
-      )
-    ] }),
-    error !== "" && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { role: "alert", style: { margin: "4px 0 0", color: RED, fontSize: 11.5 }, children: [
-      "\u6253\u5F00\u5931\u8D25\uFF1A",
-      error
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { margin: "4px 0 0", color: GRAY, fontSize: 11 }, children: "\u975E\u7F51\u9875\u5F62\u6001\u7684\u4EA7\u7269\uFF08\u5982 xlsx\uFF09\u6D4F\u89C8\u5668\u6E32\u67D3\u4E0D\u4E86\uFF1A\u4E0A\u9762\u7ED9\u7684\u662F**\u4E0B\u8F7D\u4E00\u4EFD**\uFF08\u672C\u673A\u539F\u4EF6\u4ECD\u5728\u4FDD\u5B58\u76EE\u5F55\u91CC\uFF09\u3002 \u300C\u7528\u7CFB\u7EDF\u9ED8\u8BA4\u7A0B\u5E8F\u4E00\u952E\u6253\u5F00\u300D\u9700\u8981\u5728\u5BBF\u4E3B\u4FA7\u52A0\u8DEF\u7531\uFF08\u8981\u91CD\u542F\u5BBF\u4E3B\uFF09\uFF0C\u672C\u8F6E\u672A\u505A\u3002" })
-  ] });
-}
 
 // client/KsChannelsPanel.tsx
 var import_react12 = require("react");
@@ -40374,8 +40399,6 @@ function KsSettingsSection(props) {
   const [error, setError] = (0, import_react13.useState)(null);
   const shown = stored;
   const [arrowOpen, setArrowOpen] = (0, import_react13.useState)(false);
-  const [reportOpen, setReportOpen] = (0, import_react13.useState)(false);
-  const [materialsOpen, setMaterialsOpen] = (0, import_react13.useState)(false);
   const [channelsOpen, setChannelsOpen] = (0, import_react13.useState)(false);
   const [inspectionOpen, setInspectionOpen] = (0, import_react13.useState)(false);
   const [inspectionOpenedOnce, setInspectionOpenedOnce] = (0, import_react13.useState)(false);
@@ -40417,26 +40440,6 @@ function KsSettingsSection(props) {
         error
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
-      KsCategory,
-      {
-        title: "\u6548\u529B\u62A5\u544A",
-        open: reportOpen,
-        onToggle: setReportOpen,
-        hint: "\u56DB\u8272\u5206\u7EC4\u603B\u89C8\uFF08\u{1F7E2}\u73B0\u884C/\u{1F534}\u5E9F\u6B62/\u{1F7E1}\u5373\u5C06\u5B9E\u65BD/\u26AA\u672A\u77E5\uFF09\uFF0C\u53EF\u5BFC\u51FA Excel",
-        children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(KsReportPanel, { visible: reportOpen, openEvidence })
-      }
-    ),
-    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
-      KsCategory,
-      {
-        title: "\u53C2\u8003\u8D44\u6599",
-        open: materialsOpen,
-        onToggle: setMaterialsOpen,
-        hint: "\u4E0A\u4F20\u7684\u8D22\u62A5/\u5236\u5EA6/\u6587\u7AE0\u5728\u8FD9\u91CC\u9010\u4EFD\u8BC4\u5BA1\u2014\u2014\u53EA\u6709\u300C\u5DF2\u6279\u51C6\u300D\u7684\u6750\u6599\u4F1A\u8FDB\u5165\u4F5C\u7B54\u4E0E\u4EA7\u51FA\u7269",
-        children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(KsMaterialsPanel, { visible: materialsOpen })
-      }
-    ),
     /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
       KsCategory,
       {
