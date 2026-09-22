@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>原型（假数据）：备料流水线（S3 提案 v1）—— 侧栏真实宽度</title>
+<style>
+  /* S3 备料流水线（业主批准方向：入库+待分类+资料评审合成一处）。侧栏窄列（≈520px）主档：
+     丢文件区在顶；两条泳道（进知识库 / 进参考资料）上下排，行组件共用、行行等高；
+     状态词按《全站界面语言规范》四级；材料多一步"评审放行"。假数据，不接后端。 */
+  :root { --lbl1:#111; --lbl2:#666; --lbl3:#9a9a9a; --bd:#e5e5e5; --bg1:#fafafa; --bg2:#fff;
+          --blue:#0969da; --green:#1a7f37; --amber:#9a6700; --red:#cf222e; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font:13px/1.6 "Segoe UI",system-ui,sans-serif; color:var(--lbl1); background:var(--bg1);
+         padding:24px; width:568px; }
+  h1 { font-size:18px; margin-bottom:4px; }
+  .sub { color:var(--lbl2); font-size:12px; margin-bottom:14px; }
+  .panel { width:520px; background:var(--bg2); border:0.5px solid var(--bd); border-radius:10px;
+           overflow:hidden; margin-bottom:8px; }
+  .phead { padding:12px 14px 8px; border-bottom:0.5px solid var(--bd); }
+  .phead b { font-size:15px; }
+  .phead .one { color:var(--lbl2); font-size:12px; }
+  .cap { color:var(--lbl2); font-size:12px; margin:0 0 18px 2px; }
+
+  .drop { margin:12px 14px; border:0.5px dashed var(--bd); border-radius:8px; height:72px;
+          display:flex; align-items:center; justify-content:center; gap:10px; color:var(--lbl2); font-size:12px; }
+  .alt { color:var(--blue); font-size:12px; }
+  .prog { margin:0 14px 10px; font-size:12px; color:var(--lbl2); }
+
+  .lane { border-top:0.5px solid var(--bd); }
+  .lanehead { padding:8px 14px 4px; font-size:12px; color:var(--lbl2); }
+  .item { display:flex; align-items:center; gap:10px; height:58px; padding:0 14px;
+          border-top:0.5px solid var(--bd); }
+  .ico { width:26px; height:26px; border-radius:7px; background:var(--bg1); border:0.5px solid var(--bd);
+         display:flex; align-items:center; justify-content:center; font-size:13px; flex:none; }
+  .tx { flex:1; min-width:0; }
+  .nm { font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .hint { color:var(--lbl2); font-size:12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .st { font-size:11px; border-radius:999px; padding:1px 8px; border:0.5px solid var(--bd); color:var(--lbl2); flex:none; }
+  .st.run { color:var(--blue); border-color:var(--blue); }
+  .st.done { color:var(--green); border-color:var(--green); }
+  .st.bad { color:var(--red); border-color:var(--red); }
+  .st.human { color:var(--amber); border-color:var(--amber); }
+
+  /* 第二屏：评审就地做（点材料行展开/进入后的样子） */
+  .back { color:var(--blue); font-size:12px; padding:10px 14px 0; }
+  .pbody { padding:10px 14px 18px; display:flex; flex-direction:column; gap:12px; }
+  .pbody h2 { font-size:15px; }
+  .meta { color:var(--lbl2); font-size:12px; }
+  .acts { display:flex; gap:8px; }
+  .ok { background:var(--blue); color:#fff; border:0.5px solid var(--blue); border-radius:6px; padding:7px 18px; font-size:12.5px; }
+  .no { background:var(--bg2); color:var(--red); border:0.5px solid var(--red); border-radius:6px; padding:7px 18px; font-size:12.5px; }
+  .fed { font-size:12px; color:var(--green); border:0.5px solid var(--green); border-radius:6px; padding:6px 10px; }
+  .one { color:var(--lbl2); font-size:12px; }
+</style>
+</head>
+<body>
+<h1>S3（假数据）：备料流水线 —— 侧栏真实宽度</h1>
+<div class="sub">丢文件 → 体检 → 归位 / 评审放行，一条流水线 · 2026-09-22</div>
+
+<!-- 第一屏：备料主屏 -->
+<div class="panel">
+  <div class="phead"><b>备料</b><div class="one">丢文件进来，一路看到「能用了」。</div></div>
+  <div class="drop">📄 把文件拖进来，或<span class="alt">点击选择</span> ｜ <span class="alt">按网址自采</span></div>
+  <div class="prog">正在解析 2 / 5 …（结束后这里给结论）</div>
+
+  <div class="lane">
+    <div class="lanehead">进知识库（法规 / 标准）</div>
+    <div class="item"><div class="ico">📄</div><div class="tx"><div class="nm">GB 30871-2022.pdf</div><div class="hint">已归位：标准 › 消防</div></div><span class="st done">已完成</span></div>
+    <div class="item"><div class="ico">📄</div><div class="tx"><div class="nm">GB 50016-2014.pdf</div><div class="hint">正在解析（62%）</div></div><span class="st run">进行中</span></div>
+    <div class="item"><div class="ico">📄</div><div class="tx"><div class="nm">扫描件_2025.pdf</div><div class="hint">没解析出文字（扫描件），请人工看</div></div><span class="st human">需人工看</span></div>
+  </div>
+
+  <div class="lane">
+    <div class="lanehead">进参考资料（材料 · 批准后才能当依据）</div>
+    <div class="item"><div class="ico">📎</div><div class="tx"><div class="nm">公司安全制度.docx</div><div class="hint">解析完成 · 待你批准</div></div><span class="st human">待评审</span></div>
+    <div class="item"><div class="ico">🔗</div><div class="tx"><div class="nm">某网页正文（自采）</div><div class="hint">仅线索 · 待你批准</div></div><span class="st human">待评审</span></div>
+  </div>
+</div>
+<div class="cap">第一屏：备料。顶上丢文件；两条泳道共用同一种行（名称在上、状态一句话在下），状态词全站一套。</div>
+
+<!-- 第二屏：评审就地做 -->
+<div class="panel">
+  <div class="back">‹ 返回备料</div>
+  <div class="pbody">
+    <h2>公司安全制度.docx</h2>
+    <div class="meta">来源可信度：用户原件 ｜ 本任务效力：还没定 ｜ 解析完成（48 段）</div>
+    <div class="one">→ 读全文（评审前建议先看）</div>
+    <div class="acts"><button class="ok">批准（可进入作答）</button><button class="no">拒绝</button></div>
+    <div class="fed">✓ 已批准 · 从现在起作答可以引用它（引用可点回原文位置）</div>
+  </div>
+</div>
+<div class="cap">第二屏：点一条材料进来评审 —— 批准/拒绝就地给结果，结果就显示在这一屏（不弹远处的横幅）。</div>
+</body>
+</html>
