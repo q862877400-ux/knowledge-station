@@ -411,13 +411,15 @@ const lastEngine = () => seen[seen.length - 1]
   await invoke('/ks/materials/role', {
     method: 'POST', search: '?material_id=mat_1', body: { role: 'criterion' },
   })
-  check('轴 B（role）独立于轴 A 单独设置',
+  check('地位（role）独立于来源层级单独设置',
     lastEngine().path === '/api/v1/materials/mat_1/role'
     && lastEngine().sent.role === 'criterion', JSON.stringify(lastEngine().sent))
 
-  // ⚠ **`role: null` 必须放行**（独立复核 2026-09-17 报的 MEDIUM）：面板上「未声明效力」
-  // 这个选项发的就是 `null`（撤销声明），而引擎/仓库本来就支持 None。
+  // ⚠ **`role: null` 必须放行**（独立复核 2026-09-17 报的 MEDIUM）：撤销声明发的就是 `null`，
+  // 而引擎/仓库本来就支持 None。
   // 原实现要求"非空字符串" ⇒ 那个选项**每次都被 400 打回**，装了却用不了。
+  // ⚠ S3-a（2026-09-22）留痕：面板的「未声明效力」下拉随 v3 **地位两态胶囊**收起
+  //   （必须遵守/仅供参考直选）——null 口**在路由与引擎侧原样保留**（撤销声明仍有 API 面）。
   seen.length = 0
   responder = () => ({ body: { code: 200, data: { task_role: null } } })
   const cleared = await invoke('/ks/materials/role', {

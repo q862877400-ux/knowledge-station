@@ -60,21 +60,23 @@ export interface KsMaterialsPanelProps {
   onUseProject?: (projectId: string, projectName: string) => void
 }
 
-const GREEN = '#2e7d32'
-const RED = '#c0392b'
-const GRAY = '#888'
+/* ⚠ 2026-09-22 S3-a：写死色值换**宿主真 token**（F0 教训 + ui-audit 点名过本文件 ×6）——
+   一个名字一处声明，值只许 var(...)，不许字面兜底。 */
+const GREEN = 'var(--dsw-alias-state-success-primary)'
+const RED = 'var(--dsw-alias-state-error-primary)'
+const GRAY = 'var(--dsw-alias-label-tertiary)'
 
-/** 评审状态的显示口径（**唯一一份**，别在别处再写一遍）。 */
+/** 评审状态的显示口径（**唯一一份**，别在别处再写一遍）。词照 v3 定稿：可作依据/待评审/不可用。 */
 const REVIEW_LABEL: Record<string, { text: string; color: string }> = {
-  approved: { text: '✅ 已批准（可进入作答）', color: GREEN },
-  pending: { text: '⏳ 待评审（不会进入作答）', color: '#b8860b' },
-  rejected: { text: '❌ 已拒绝（不会进入作答）', color: RED },
+  approved: { text: '可作依据', color: GREEN },
+  pending: { text: '待评审（不会进入作答）', color: 'var(--dsw-alias-state-warn-primary)' },
+  rejected: { text: '不可用（不会进入作答）', color: RED },
 }
 
 const ROLE_OPTIONS: { value: string; label: string }[] = [
-  { value: '', label: '未声明效力' },
-  { value: 'criterion', label: '本任务准则（轴 B：以它为准绳）' },
-  { value: 'reference', label: '参考（不作准绳）' },
+  { value: '', label: '未声明' },
+  { value: 'criterion', label: '必须遵守（以此为准）' },
+  { value: 'reference', label: '仅供参考' },
 ]
 
 function reviewLabel(status: string | null | undefined): { text: string; color: string } {
@@ -640,6 +642,8 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
     }, projectId)
   }, [projectId, run])
 
+  /** 勾选态（S3-a v3：多选批量设置地位）。 */
+  const [picked, setPicked] = useState<Set<string>>(new Set())
   const onRole = useCallback((m: KsMaterial, role: string) => {
     void run(`role:${m.material_id}`, async () => {
       await setMaterialRole(m.material_id, role === '' ? null : (role as 'criterion' | 'reference'))
@@ -870,6 +874,21 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
         </p>
       )}
 
+      {/* S3-a 批量条（勾中浮现；与知识库页批量条同手感）。逐项真调 role 口（引擎无批量口）。 */}
+      {picked.size > 0 && (
+        <div className="ks-batch" data-ks-batch="on" style={{ position: 'sticky', bottom: 0, display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap', padding: '8px 10px', marginBottom: 8, border: '0.5px solid var(--dsw-alias-border-l1)', borderRadius: 6, background: 'var(--dsw-alias-bg-layer-2)' }}>
+          <span style={{ fontSize: 12 }}>已选 {String(picked.size)} 项</span>
+          <button type="button" style={btnStyle(busy !== '')} disabled={busy !== ''} onClick={() => { materials.filter((mm) => picked.has(mm.material_id)).forEach((mm) => onRole(mm, 'criterion')); setPicked(new Set()) }}>
+            批量设为必须遵守
+          </button>
+          <button type="button" style={btnStyle(busy !== '')} disabled={busy !== ''} onClick={() => { materials.filter((mm) => picked.has(mm.material_id)).forEach((mm) => onRole(mm, 'reference')); setPicked(new Set()) }}>
+            批量设为仅供参考
+          </button>
+          <button type="button" style={btnStyle(false)} onClick={() => { setPicked(new Set()) }}>
+            取消选择
+          </button>
+        </div>
+      )}
       {materials.map((m) => {
         const rev = reviewLabel(m.review_status)
         const chunks = openChunks[m.material_id]
@@ -882,6 +901,17 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
             }}
           >
             <div style={{ display: 'flex', gap: 8, alignItems: 'baseline', flexWrap: 'wrap' }}>
+              <input
+                type="checkbox"
+                aria-label={`勾选 ${m.title}`}
+                checked={picked.has(m.material_id)}
+                onChange={() => {
+                  const next = new Set(picked)
+                  if (next.has(m.material_id)) next.delete(m.material_id)
+                  else next.add(m.material_id)
+                  setPicked(next)
+                }}
+              />
               <strong>{m.title}</strong>
               <span style={{ fontSize: 12, color: rev.color }}>{rev.text}</span>
               <span style={{ fontSize: 12, color: GRAY }}>
@@ -892,7 +922,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
             {/* 两个轴**分开**摆：合成一个"可信度"就必然错一个（公司制度例） */}
             <div style={{ display: 'flex', gap: 12, alignItems: 'center', flexWrap: 'wrap', marginTop: 6 }}>
               <label style={{ display: 'flex', gap: 4, alignItems: 'center', fontSize: 12 }}>
-                <span>轴 A 来源可信度</span>
+                <span>来源层级</span>
                 <select
                   aria-label={`来源层级 ${m.title}`}
                   value={m.source_tier ?? ''}
@@ -912,20 +942,24 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
                 </select>
                 {m.tier_source === 'user' && <span style={{ color: GRAY }}>（你改的）</span>}
               </label>
-              <label style={{ display: 'flex', gap: 4, alignItems: 'center', fontSize: 12 }}>
-                <span>轴 B 任务内效力</span>
-                <select
-                  aria-label={`任务内效力 ${m.title}`}
-                  value={m.task_role ?? ''}
-                  onChange={(e) => onRole(m, e.currentTarget.value)}
-                  disabled={busy !== ''}
-                  style={{ fontSize: 12, maxWidth: 260 }}
-                >
-                  {ROLE_OPTIONS.map((o) => (
-                    <option key={o.value} value={o.value}>{o.label}</option>
-                  ))}
-                </select>
-              </label>
+              {/* S3-a v3：地位**行上直选**（业主："不弄第二屏，直接在行后加按钮"）——
+                  胶囊点一下在「必须遵守」/「仅供参考」间切换（未声明首次点 → 必须遵守，
+                  与"人工上传默认必须遵守"同一口径）。词换、语义不换（criterion/reference）。 */}
+              <button
+                type="button"
+                aria-label={`地位 ${m.title}`}
+                disabled={busy !== ''}
+                onClick={() => { onRole(m, m.task_role === 'criterion' ? 'reference' : 'criterion') }}
+                title={m.task_role === 'criterion' ? '必须遵守（以此为准）——点一下改为仅供参考' : '仅供参考——点一下改为必须遵守'}
+                style={{
+                  ...btnStyle(busy !== ''),
+                  borderRadius: 999,
+                  color: m.task_role === 'criterion' ? 'var(--dsw-alias-state-business-primary)' : 'var(--dsw-alias-label-secondary)',
+                  border: `1px solid ${m.task_role === 'criterion' ? 'var(--dsw-alias-state-business-primary)' : 'var(--dsw-alias-label-tertiary)'}`,
+                }}
+              >
+                {m.task_role === 'criterion' ? '必须遵守' : m.task_role === 'reference' ? '仅供参考' : '未声明'}
+              </button>
             </div>
 
             {m.tier_reason != null && m.tier_reason !== '' && (
@@ -1327,7 +1361,7 @@ function Deliverables(props: { names: string[]; paths: string[] }): JSX.Element 
         </div>
       )}
       {error !== '' && (
-        <p role="alert" style={{ margin: '4px 0 0', color: '#c0392b', fontSize: 11.5 }}>
+        <p role="alert" style={{ margin: '4px 0 0', color: RED, fontSize: 11.5 }}>
           打开失败：{error}
         </p>
       )}

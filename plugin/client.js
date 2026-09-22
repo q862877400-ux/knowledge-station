@@ -38791,19 +38791,14 @@ function fmtGenerated(v) {
 // client/KsMaterialsPanel.tsx
 var import_react11 = require("react");
 var import_jsx_runtime14 = require("react/jsx-runtime");
-var GREEN = "#2e7d32";
-var RED = "#c0392b";
-var GRAY = "#888";
+var GREEN = "var(--dsw-alias-state-success-primary)";
+var RED = "var(--dsw-alias-state-error-primary)";
+var GRAY = "var(--dsw-alias-label-tertiary)";
 var REVIEW_LABEL = {
-  approved: { text: "\u2705 \u5DF2\u6279\u51C6\uFF08\u53EF\u8FDB\u5165\u4F5C\u7B54\uFF09", color: GREEN },
-  pending: { text: "\u23F3 \u5F85\u8BC4\u5BA1\uFF08\u4E0D\u4F1A\u8FDB\u5165\u4F5C\u7B54\uFF09", color: "#b8860b" },
-  rejected: { text: "\u274C \u5DF2\u62D2\u7EDD\uFF08\u4E0D\u4F1A\u8FDB\u5165\u4F5C\u7B54\uFF09", color: RED }
+  approved: { text: "\u53EF\u4F5C\u4F9D\u636E", color: GREEN },
+  pending: { text: "\u5F85\u8BC4\u5BA1\uFF08\u4E0D\u4F1A\u8FDB\u5165\u4F5C\u7B54\uFF09", color: "var(--dsw-alias-state-warn-primary)" },
+  rejected: { text: "\u4E0D\u53EF\u7528\uFF08\u4E0D\u4F1A\u8FDB\u5165\u4F5C\u7B54\uFF09", color: RED }
 };
-var ROLE_OPTIONS = [
-  { value: "", label: "\u672A\u58F0\u660E\u6548\u529B" },
-  { value: "criterion", label: "\u672C\u4EFB\u52A1\u51C6\u5219\uFF08\u8F74 B\uFF1A\u4EE5\u5B83\u4E3A\u51C6\u7EF3\uFF09" },
-  { value: "reference", label: "\u53C2\u8003\uFF08\u4E0D\u4F5C\u51C6\u7EF3\uFF09" }
-];
 function reviewLabel(status) {
   return REVIEW_LABEL[status ?? ""] ?? { text: `\u672A\u77E5\u72B6\u6001\uFF08${status ?? "null"}\uFF09`, color: GRAY };
 }
@@ -39160,6 +39155,7 @@ function KsMaterialsPanel(props) {
       return `\u300C${m.title}\u300D\u6765\u6E90\u5C42\u7EA7 \u2192 ${out.tier_label ?? out.source_tier}\uFF08\u5DF2\u8BB0\u4E3A**\u7528\u6237\u6539\u7684**\uFF09`;
     }, projectId);
   }, [projectId, run]);
+  const [picked, setPicked] = (0, import_react11.useState)(/* @__PURE__ */ new Set());
   const onRole = (0, import_react11.useCallback)((m, role) => {
     void run(`role:${m.material_id}`, async () => {
       await setMaterialRole(m.material_id, role === "" ? null : role);
@@ -39376,6 +39372,24 @@ function KsMaterialsPanel(props) {
       ] }),
       projectId === "" && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { fontSize: 12, color: GRAY }, children: "\u5148\u9009\u4E00\u4E2A\u9879\u76EE\uFF08\u6216\u5728\u4E0A\u9762\u65B0\u5EFA\uFF09\u3002" }),
       projectId !== "" && !loading && materials.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { fontSize: 12, color: GRAY }, children: "\u8FD9\u4E2A\u9879\u76EE\u91CC\u8FD8\u6CA1\u6709\u5DF2\u767B\u8BB0\u7684\u6750\u6599\uFF1A\u628A\u6587\u4EF6\u653E\u8FDB\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u540E\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\uFF0C \u6216\u7528\u4E0A\u9762\u7684\u300C\u81EA\u91C7\u4E00\u6761\u300D\u6309\u7F51\u5740\u6293\u4E00\u4EFD\u7F51\u9875\u6B63\u6587\uFF08\u540C\u6837\u8981**\u4F60**\u6279\u51C6\u540E\u624D\u7B97\u6570\uFF09\u3002" }),
+      picked.size > 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "ks-batch", "data-ks-batch": "on", style: { position: "sticky", bottom: 0, display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap", padding: "8px 10px", marginBottom: 8, border: "0.5px solid var(--dsw-alias-border-l1)", borderRadius: 6, background: "var(--dsw-alias-bg-layer-2)" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { fontSize: 12 }, children: [
+          "\u5DF2\u9009 ",
+          String(picked.size),
+          " \u9879"
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("button", { type: "button", style: btnStyle2(busy !== ""), disabled: busy !== "", onClick: () => {
+          materials.filter((mm) => picked.has(mm.material_id)).forEach((mm) => onRole(mm, "criterion"));
+          setPicked(/* @__PURE__ */ new Set());
+        }, children: "\u6279\u91CF\u8BBE\u4E3A\u5FC5\u987B\u9075\u5B88" }),
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("button", { type: "button", style: btnStyle2(busy !== ""), disabled: busy !== "", onClick: () => {
+          materials.filter((mm) => picked.has(mm.material_id)).forEach((mm) => onRole(mm, "reference"));
+          setPicked(/* @__PURE__ */ new Set());
+        }, children: "\u6279\u91CF\u8BBE\u4E3A\u4EC5\u4F9B\u53C2\u8003" }),
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("button", { type: "button", style: btnStyle2(false), onClick: () => {
+          setPicked(/* @__PURE__ */ new Set());
+        }, children: "\u53D6\u6D88\u9009\u62E9" })
+      ] }),
       materials.map((m) => {
         const rev = reviewLabel(m.review_status);
         const chunks = openChunks[m.material_id];
@@ -39390,6 +39404,20 @@ function KsMaterialsPanel(props) {
             },
             children: [
               /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "baseline", flexWrap: "wrap" }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+                  "input",
+                  {
+                    type: "checkbox",
+                    "aria-label": `\u52FE\u9009 ${m.title}`,
+                    checked: picked.has(m.material_id),
+                    onChange: () => {
+                      const next = new Set(picked);
+                      if (next.has(m.material_id)) next.delete(m.material_id);
+                      else next.add(m.material_id);
+                      setPicked(next);
+                    }
+                  }
+                ),
                 /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: m.title }),
                 /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { fontSize: 12, color: rev.color }, children: rev.text }),
                 /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { fontSize: 12, color: GRAY }, children: [
@@ -39402,7 +39430,7 @@ function KsMaterialsPanel(props) {
               ] }),
               /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap", marginTop: 6 }, children: [
                 /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("label", { style: { display: "flex", gap: 4, alignItems: "center", fontSize: 12 }, children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { children: "\u8F74 A \u6765\u6E90\u53EF\u4FE1\u5EA6" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { children: "\u6765\u6E90\u5C42\u7EA7" }),
                   /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
                     "select",
                     {
@@ -39424,20 +39452,25 @@ function KsMaterialsPanel(props) {
                   ),
                   m.tier_source === "user" && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { color: GRAY }, children: "\uFF08\u4F60\u6539\u7684\uFF09" })
                 ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("label", { style: { display: "flex", gap: 4, alignItems: "center", fontSize: 12 }, children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { children: "\u8F74 B \u4EFB\u52A1\u5185\u6548\u529B" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-                    "select",
-                    {
-                      "aria-label": `\u4EFB\u52A1\u5185\u6548\u529B ${m.title}`,
-                      value: m.task_role ?? "",
-                      onChange: (e) => onRole(m, e.currentTarget.value),
-                      disabled: busy !== "",
-                      style: { fontSize: 12, maxWidth: 260 },
-                      children: ROLE_OPTIONS.map((o) => /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("option", { value: o.value, children: o.label }, o.value))
-                    }
-                  )
-                ] })
+                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+                  "button",
+                  {
+                    type: "button",
+                    "aria-label": `\u5730\u4F4D ${m.title}`,
+                    disabled: busy !== "",
+                    onClick: () => {
+                      onRole(m, m.task_role === "criterion" ? "reference" : "criterion");
+                    },
+                    title: m.task_role === "criterion" ? "\u5FC5\u987B\u9075\u5B88\uFF08\u4EE5\u6B64\u4E3A\u51C6\uFF09\u2014\u2014\u70B9\u4E00\u4E0B\u6539\u4E3A\u4EC5\u4F9B\u53C2\u8003" : "\u4EC5\u4F9B\u53C2\u8003\u2014\u2014\u70B9\u4E00\u4E0B\u6539\u4E3A\u5FC5\u987B\u9075\u5B88",
+                    style: {
+                      ...btnStyle2(busy !== ""),
+                      borderRadius: 999,
+                      color: m.task_role === "criterion" ? "var(--dsw-alias-state-business-primary)" : "var(--dsw-alias-label-secondary)",
+                      border: `1px solid ${m.task_role === "criterion" ? "var(--dsw-alias-state-business-primary)" : "var(--dsw-alias-label-tertiary)"}`
+                    },
+                    children: m.task_role === "criterion" ? "\u5FC5\u987B\u9075\u5B88" : m.task_role === "reference" ? "\u4EC5\u4F9B\u53C2\u8003" : "\u672A\u58F0\u660E"
+                  }
+                )
               ] }),
               m.tier_reason != null && m.tier_reason !== "" && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: { margin: "4px 0 0", fontSize: 12, color: GRAY }, children: [
                 "\u5224\u7EA7\u8BF4\u660E\uFF1A",
@@ -39811,7 +39844,7 @@ function Deliverables(props) {
         }
       )
     ] }),
-    error !== "" && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { role: "alert", style: { margin: "4px 0 0", color: "#c0392b", fontSize: 11.5 }, children: [
+    error !== "" && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { role: "alert", style: { margin: "4px 0 0", color: RED, fontSize: 11.5 }, children: [
       "\u6253\u5F00\u5931\u8D25\uFF1A",
       error
     ] }),
