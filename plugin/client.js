@@ -35862,10 +35862,10 @@ function KsKnowledgePage({ useTabInfo }) {
           ...folderIdsOf(targets).map((id) => ({ kind: "folder", id }))
         ]
       ));
-      setActMsg(`\u5DF2\u6302\u8FDB\u300C${destPath}\u300D\uFF1A\u65B0\u589E ${String(r.added)} \u4EF6` + (r.skipped > 0 ? `\uFF0C${String(r.skipped)} \u4EF6\u672C\u6765\u5C31\u5728\u90A3\u513F\uFF08\u8DF3\u8FC7\uFF0C\u6CA1\u52A0\u91CD\u590D\u884C\uFF09` : "") + "\u3002\u6700\u5916\u5C42\u7684\u6587\u4EF6\u6302\u8FDB\u76EE\u5F55\u540E\u5C31\u4E0D\u5728\u6700\u5916\u5C42\u4E86\uFF08\u6587\u4EF6\u53EA\u6709\u4E00\u4EFD\uFF1B\u522B\u5904\u8FD8\u6302\u7740\u7684\u7167\u65E7\uFF09\u3002");
+      setActMsg(`\u5DF2\u653E\u8FDB\u300C${destPath}\u300D\uFF1A\u65B0\u589E ${String(r.added)} \u4EF6` + (r.skipped > 0 ? `\uFF0C${String(r.skipped)} \u4EF6\u672C\u6765\u5C31\u5728\u90A3\u513F\uFF08\u8DF3\u8FC7\uFF0C\u6CA1\u52A0\u91CD\u590D\u884C\uFF09` : "") + "\u3002\u6700\u5916\u5C42\u7684\u6587\u4EF6\u653E\u8FDB\u76EE\u5F55\u540E\u5C31\u4E0D\u5728\u6700\u5916\u5C42\u4E86\uFF08\u6587\u4EF6\u53EA\u6709\u4E00\u4EFD\uFF1B\u522B\u5904\u8FD8\u6302\u7740\u7684\u7167\u65E7\uFF09\u3002");
       await afterAction();
     } catch (error) {
-      setActMsg(`\u6CA1\u6302\u8FDB\u53BB\uFF1A${errorText(error)}`);
+      setActMsg(`\u6CA1\u653E\u8FDB\u53BB\uFF1A${errorText(error)}`);
     } finally {
       setBusy(false);
     }
@@ -36527,11 +36527,11 @@ function KsKnowledgePage({ useTabInfo }) {
           variant: "outline",
           size: "sm",
           className: "ks-batch-btn",
-          title: "\u628A\u9009\u4E2D\u7684\u6587\u4EF6\u6302\u8FDB\u67D0\u4E2A\u76EE\u5F55\uFF08\u6302\u8FDB\u53BB\u4E4B\u540E\u5B83\u4EEC\u5C31\u4E0D\u5728\u6700\u5916\u5C42\u4E86\uFF1B\u6587\u4EF6\u53EA\u6709\u4E00\u4EFD\uFF09",
+          title: "\u628A\u9009\u4E2D\u7684\u6587\u4EF6\u653E\u8FDB\u67D0\u4E2A\u76EE\u5F55\uFF08\u653E\u8FDB\u53BB\u4E4B\u540E\u5B83\u4EEC\u5C31\u4E0D\u5728\u6700\u5916\u5C42\u4E86\uFF1B\u6587\u4EF6\u53EA\u6709\u4E00\u4EFD\uFF09",
           onClick: () => {
             openAction("add", [...picked]);
           },
-          children: "\u52A0\u8FDB\u76EE\u5F55\u2026"
+          children: "\u653E\u8FDB\u76EE\u5F55\u2026"
         }
       ) : null,
       pickedFolderIds.length + (levelId === null ? 0 : pickedDocIds.length) > 0 ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
@@ -36600,7 +36600,7 @@ function KsKnowledgePage({ useTabInfo }) {
     new: "\u653E\u8FDB",
     move: "\u79FB\u52A8\u5230",
     copy: "\u590D\u5236\u5230",
-    add: "\u6302\u8FDB"
+    add: "\u653E\u8FDB"
   };
   const pickEmptyHint = flatFolders.length === 0 ? "\u6B63\u5728\u8BFB\u76EE\u5F55\u6E05\u5355\u2026" : pickBase.length === 0 ? "\u6CA1\u6709\u53EF\u9009\u7684\u76EE\u7684\u5730\uFF1A\u552F\u4E00\u7684\u90A3\u51E0\u4E2A\u76EE\u5F55\u5C31\u662F\u4F60\u6B63\u5728\u79FB\u52A8/\u590D\u5236\u7684\u76EE\u5F55\u81EA\u5DF1\uFF08\u4E0D\u80FD\u79FB\u8FDB\u81EA\u5DF1\u7684\u4E0B\u7EA7\uFF09" : "\u6CA1\u6709\u5339\u914D\u7684\u76EE\u5F55";
   const actionPanel = action === null ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
@@ -37549,7 +37549,7 @@ function KsKnowledgePage({ useTabInfo }) {
               /* 第 6 步：**这一篇**的范围（`kb_doc_ids`）—— 与"这一级"的范围是两回事。
                  ⚠ 2026-09-22 业主：**单个文件**上点开三个点 ⇒ 文案是「在此文件中提问」。 */
               { id: "ask", label: "\u5728\u6B64\u6587\u4EF6\u4E2D\u63D0\u95EE" },
-              ...levelId === null ? [{ id: "add", label: "\u52A0\u8FDB\u67D0\u4E2A\u76EE\u5F55\u2026" }] : [
+              ...levelId === null ? [{ id: "add", label: "\u653E\u8FDB\u67D0\u4E2A\u76EE\u5F55\u2026" }] : [
                 { id: "move", label: "\u79FB\u52A8\u5230" },
                 { id: "copy", label: "\u590D\u5236\u5230" },
                 { id: "remove", label: "\u79FB\u51FA" }

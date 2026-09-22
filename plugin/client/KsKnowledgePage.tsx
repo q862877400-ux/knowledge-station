@@ -1312,12 +1312,12 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
       const r = await withSession((port, token) => addKbMembers(port, token, destId,
         [...docIds.map((id) => ({ kind: 'file' as const, id })),
           ...folderIdsOf(targets).map((id) => ({ kind: 'folder' as const, id }))]))
-      setActMsg(`已挂进「${destPath}」：新增 ${String(r.added)} 件`
+      setActMsg(`已放进「${destPath}」：新增 ${String(r.added)} 件`
         + (r.skipped > 0 ? `，${String(r.skipped)} 件本来就在那儿（跳过，没加重复行）` : '')
-        + '。最外层的文件挂进目录后就不在最外层了（文件只有一份；别处还挂着的照旧）。')
+        + '。最外层的文件放进目录后就不在最外层了（文件只有一份；别处还挂着的照旧）。')
       await afterAction()
     } catch (error) {
-      setActMsg(`没挂进去：${errorText(error)}`)
+      setActMsg(`没放进去：${errorText(error)}`)
     } finally {
       setBusy(false)
     }
@@ -2187,10 +2187,10 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
               variant="outline"
               size="sm"
               className="ks-batch-btn"
-              title="把选中的文件挂进某个目录（挂进去之后它们就不在最外层了；文件只有一份）"
+              title="把选中的文件放进某个目录（放进去之后它们就不在最外层了；文件只有一份）"
               onClick={() => { openAction('add', [...picked]) }}
             >
-              加进目录…
+              放进目录…
             </Button>
           ) : null}
           {pickedFolderIds.length + (levelId === null ? 0 : pickedDocIds.length) > 0 ? (
@@ -2270,7 +2270,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
    *  ⚠ **2026-09-22 业主改的文案**：`move` 由「挪到」改成「**移动到**」
    *  （原话："挪到某个目录直接写**移动到**"）。`copy` 本来就是「复制到」✓。 */
   const pickVerb: Record<string, string> = {
-    place: '放进', new: '放进', move: '移动到', copy: '复制到', add: '挂进',
+    place: '放进', new: '放进', move: '移动到', copy: '复制到', add: '放进',
   }
   /** 选择器里为空时的原因（分得清"还没读到"与"被排除了"，不是一句"没有匹配"）。 */
   const pickEmptyHint = flatFolders.length === 0
@@ -3309,7 +3309,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                        ⚠ 2026-09-22 业主：**单个文件**上点开三个点 ⇒ 文案是「在此文件中提问」。 */
                     { id: 'ask', label: '在此文件中提问' },
                     ...(levelId === null
-                      ? [{ id: 'add', label: '加进某个目录…' }]
+                      ? [{ id: 'add', label: '放进某个目录…' }]
                       : [{ id: 'move', label: '移动到' },
                         { id: 'copy', label: '复制到' },
                         { id: 'remove', label: '移出' }]),

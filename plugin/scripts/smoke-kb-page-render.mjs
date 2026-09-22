@@ -1802,7 +1802,8 @@ export function mount(container, props) {
     rmMsg.includes('移出') && rmMsg.includes('文件没有删')
     && !rmMsg.includes('已删除') && !rmMsg.includes('删掉'),
     `消息：${rmMsg}`)
-  /* ── 最外层那些"还没进任何目录"的文件：只有「加进目录」，不给"挪"（没有来源目录）── */
+  /* ── 最外层那些"还没进任何目录"的文件：只有「放进某个目录…」，不给"挪"（没有来源目录）。
+        （2026-09-22 动词族统一：原名「加进某个目录…」——下面 1815 的历史留痕保留旧字面。）── */
   ITEMS.root = [doc('doc_unfiled_1', 'GB 80001-2026', '还没进任何目录的一篇')]
   await click(q('.ks-crumb-go')[0])
   await flush()
@@ -1815,11 +1816,11 @@ export function mount(container, props) {
      原文（复核 LOW-6 要求留痕）：`topMenu.join('|') === '详情|加进某个目录…'`。
      ⚠ **2026-09-22（业主改文案）**：**单篇文件**上一律写「在此文件中提问」（"在单个文件上点开
      三个点，那就应该展示在此文件中提问"）⇒ 最外层这三样跟着变。 */
-  check('P25 最外层文件的 ⋮ 菜单 = 详情 + 在此文件中提问 + 「加进某个目录…」'
+  check('P25 最外层文件的 ⋮ 菜单 = 详情 + 在此文件中提问 + 「放进某个目录…」'
     + '（**没有**"移动"，它没有来源目录 —— 不给死按钮）',
-    topMenu.join('|') === '详情|在此文件中提问|加进某个目录…',
+    topMenu.join('|') === '详情|在此文件中提问|放进某个目录…',
     `菜单项：${JSON.stringify(topMenu)}`)
-  await click(q('[role=menuitem]').find((el) => (el.textContent ?? '').includes('加进某个目录')))
+  await click(q('[role=menuitem]').find((el) => (el.textContent ?? '').includes('放进某个目录')))
   await flush()
   await click(q('.ks-act-item').find((el) => (el.textContent ?? '').includes('标准')))
   const beforeAdd = calls.length
