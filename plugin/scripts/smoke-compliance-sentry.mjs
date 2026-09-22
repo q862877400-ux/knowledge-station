@@ -188,6 +188,42 @@ check('② 标准号模式命中（GB/T 3608 / GB30871 / DB11/T 1234 / AQ 3009 �
     `${String(step.length)} 字`)
 }
 
+/* ⑩ 批3-c：工具说明瘦身两件——① 四件说明书**字数上限**（防回涨：ks_answer ≤1000、其余 ≤600，
+   原文 2156/596/516/360 = 成绩单"前"字）；② 首用回执**每会话每工具恰一次** + UserMessage
+   必填形状（id 唯一 + source 合约——F3 教训内建）。 */
+{
+  const idx = await import('../src/index.js')
+  const stub = {}
+  const sizes = {
+    ks_answer: idx.makeAnswerTool(stub, () => ({})).description.length,
+    ks_resolve_clause: idx.makeResolveTool(stub, () => ({})).description.length,
+    ks_ping: idx.makePingTool(stub).description.length,
+    ks_effect_report: idx.makeEffectReportTool(stub, () => ({})).description.length,
+  }
+  check('⑩ 说明书字数上限（防回涨）：ks_answer ≤1000、其余 ≤600',
+    sizes.ks_answer <= 1000 && sizes.ks_resolve_clause <= 600 && sizes.ks_ping <= 600
+    && sizes.ks_effect_report <= 600,
+    JSON.stringify(sizes))
+  const { firstUseReceipt, KS_ANSWER_DETAIL } = await import('../src/tool-details.js')
+  const got = []
+  const exec = {
+    agent: { session: { id: 'sess-r' } },
+    deferContext: (m) => { got.push(m) },
+  }
+  firstUseReceipt(exec, 'ks_answer')
+  firstUseReceipt(exec, 'ks_answer')
+  firstUseReceipt({ ...exec, agent: { session: { id: 'sess-r2' } }, deferContext: (m) => { got.push(m) } }, 'ks_answer')
+  check('⑩ 首用回执：每会话每工具**恰一次**（同会话二调不重发、异会话各发）',
+    got.length === 2 && got[0].content[0].text === KS_ANSWER_DETAIL,
+    `发出 ${String(got.length)} 份`)
+  check('⑩ 回执消息必填形状（id 唯一 + source 合约——F3 内建防重演）',
+    got.every((m) => typeof m.id === 'string' && m.id.startsWith('ks-detail-')
+      && m.source?.kind === 'plugin' && m.source?.plugin === 'ks-dsh-plugin'),
+    JSON.stringify(got.map((m) => m.id)))
+  firstUseReceipt({ agent: { session: { id: 'sess-r3' } } }, 'ks_answer')
+  check('⑩ deferContext 缺席 ⇒ 探针降级不炸（可缺省面纪律）', true)
+}
+
 const failed = results.filter((r) => !r.ok)
 console.log(`\n== compliance-sentry smoke ${failed.length === 0 ? 'PASS' : 'FAIL'} (${results.filter((r) => r.ok).length}/${results.length}) ==`)
 process.exit(failed.length === 0 ? 0 : 1)

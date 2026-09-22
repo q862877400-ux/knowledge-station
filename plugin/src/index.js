@@ -50,6 +50,7 @@ import {
 import { registerKsReportRoutes } from './report.js'
 import { registerKsChannelsRoutes } from './channels.js'
 import { registerKsMaterialsRoutes } from './materials_routes.js'
+import { firstUseReceipt } from './tool-details.js'
 import { buildComplianceSection, complianceNextStepMessage, isComplianceTriggered, registerComplianceAskGate, registerKsComplianceRoutes } from './compliance-sentry.js'
 import { recordKsTurn, registerKsTurnRoutes } from './turn.js'
 import { registerKsSettingsRoutes } from './settings.js'
@@ -602,14 +603,12 @@ export function makeEffectReportTool(manager) {
   return {
     name: 'ks_effect_report',
     description:
-      '库内标准/法规的效力现状总览（效力报告）：四色统计（🔴在用已废止/被替代 · 🟡即将实施 · ' +
-      '🟢现行有效 · ⚪状态未知）、标准树与法规树分计、各树主要分类，以及红色/黄色清单（各 top 10，' +
-      '每行含 standard_no/名称/实施日期/被代替为/废止日期/doc_id/evidence_url）。当用户问' +
-      '"库里标准还有效吗/有没有已废止的/哪些标准即将实施/效力报告"时调用。' +
-      '若返回里出现非空 attention_error，表示红/黄清单这次没取到（统计数字仍然有效），' +
-      '别把它当成"库里没有废止文件"。' +
-      '若要在回答里列出某条已废止标准，请把它的 evidence_url 写成 Markdown 链接，用户点开即看原 PDF。' +
-      '完整分类清单与 Excel 导出在「📋 效力报告」标签页。只读，零 LLM。',
+      // 批3-c 瘦身（纯精简；顺手把 S4 改名后的「效力总览」页名写正）。
+      '库内标准/法规的效力现状总览（效力报告）：四色统计（🔴在用已废止/被替代 · 🟡即将实施 · '
+      + '🟢现行有效 · ⚪状态未知）+ 标准树/法规树分计 + 红/黄清单（各 top 10）。用户问'
+      + '"库里标准还有效吗/有没有已废止的/哪些即将实施/效力报告"时调用。attention_error 非空 = '
+      + '红/黄清单没取到（统计仍有效，别当成"没有废止文件"）。列已废止标准时把 evidence_url 写成 '
+      + 'Markdown 链接。只读零 LLM；完整清单在「效力总览」页。',
     parameters: {
       type: 'object',
       properties: {
@@ -810,12 +809,12 @@ export function makePingTool(manager) {
   return {
     name: 'ks_ping',
     description:
-      'Probe the local KnowledgeStation engine. Returns the live engine session ' +
-      '(port, pid, reused) and the /api/v1/health payload (status, uptime, db_status, vector_engine, parser_worker). ' +
-      'vector_engine is CHEAP tri-state and is NOT a load test: "ok" = this process really loaded the ' +
-      'vector model at least once, "offline" = the last load attempt failed, "unknown" = never attempted ' +
-      '(the engine deliberately does NOT load the model just to answer a health check). ' +
-      'Use it to confirm the engine is up before querying clauses.',
+      // 批3-c 瘦身（纯精简、无细节外移；原文 var/tmp/desc-before-ping.txt）。
+      'Probe the local KnowledgeStation engine; returns the live session (port/pid/reused) and the '
+      + '/api/v1/health payload (status/uptime/db_status/vector_engine/parser_worker). '
+      + 'vector_engine is a CHEAP tri-state, not a load test: "ok" = model loaded at least once, '
+      + '"offline" = last load attempt failed, "unknown" = never attempted (the engine does NOT load '
+      + 'the model just for a health check). Use before querying clauses.',
     parameters: {
       type: 'object',
       properties: {},
@@ -898,14 +897,12 @@ export function makeResolveTool(manager, chatModeOf) {
   return {
     name: 'ks_resolve_clause',
     description:
-      'Resolve a "standard_no + clause_number" citation against the local KnowledgeStation ' +
-      'library. Returns the machine evidence the engine found (matched clause ids, titles, ' +
-      'text) or an explicit not-found marker. Args are URL-encoded by the tool. ' +
-      'The hit carries legal_status, an evidence_url (clickable PDF anchor) and bookmarked; ' +
-      'when 查法规模式 is on, a hit outside the user\'s bookmark collection reports ' +
-      'bookmarks_scope:"outside" and must only be used for locating, never as a 依据. ' +
-      'When 在本收藏夹内提问 is active, a hit outside the folder likewise reports ' +
-      'folder_scope:"outside" with the same locating-only ban.',
+      // 批3-c 瘦身（纯精简；两个 scope 探针的"只定位不作依据"禁令**留在行内**——它是硬约束）。
+      'Resolve a "standard_no + clause_number" citation against the local KnowledgeStation library; '
+      + 'returns matched clause ids/titles/text or an explicit not-found marker (args URL-encoded by the tool). '
+      + 'Hits carry legal_status, evidence_url (clickable PDF anchor) and bookmarked. 查法规模式 on ⇒ '
+      + 'a hit outside the bookmarks reports bookmarks_scope:"outside" (locating-only, never a 依据). '
+      + '在本收藏夹内提问 active ⇒ likewise folder_scope:"outside" with the same locating-only ban.',
     parameters: {
       type: 'object',
       properties: {
@@ -1067,34 +1064,20 @@ export function makeAnswerTool(manager, chatModeOf) {
   return {
     name: 'ks_answer',
     description:
-      'Run a forensic (取证) compliance question against the local KnowledgeStation engine and ' +
-      'return a trimmed three-part answer: 依据区 evidence -> 推导区 derivation -> 结论区 conclusion, ' +
-      'plus tier, verification confidence and notes. The engine runs its OWN DeepSeek inference ' +
-      'behind this call, so it can take tens of seconds — the caller timeout is set high (>=120s). ' +
-      'Prefer a cheap ks_resolve_clause first when a fast citation lookup is enough; use ks_answer ' +
-      'only for a real forensic answer. Only current-effective clauses are cited; upcoming revisions ' +
-      'are surfaced in notes. A "reference" tier or empty evidence means the engine found no direct ' +
-      'current provision (returned as a structured empty result, not a hard error). ' +
-      'When citing an evidence item in your answer, render its evidence_url as a clickable ' +
-      'Markdown link, e.g. [依据：<standard_no> <clause_number>](<evidence_url>) — the GUI ' +
-      'opens the original PDF at that page when the user clicks it. ' +
-      // ⚠ 复核 2026-09-22：`null`（没给范围 ⇒ 全库）与 `[]`（⇒ 422，一次检索都不做）语义不同，
-      //   必须写在模型看得见的地方，别让它靠猜。参数级描述见下面 `kb_folder_ids` / `kb_doc_ids`。
-      'Scope: params.kb_folder_ids (folder ids: each means that folder AND all its children) and ' +
-      'params.kb_doc_ids (explicit doc ids, for files not filed in any folder yet) restrict ' +
-      'RETRIEVAL itself; several ids = the union, and the two knobs together are also a union. ' +
-      'OMIT them for the whole library. An EMPTY array is NOT "no scope" and is not an acceptable ' +
-      'scope input: the engine answers HTTP 422 and does no retrieval at all — it never falls back ' +
-      'to the whole library. (Different case: a folder that exists but whose subtree is empty ⇒ ' +
-      'HTTP 200, no retrieval, and an honest "nothing inside the scope".) ' +
-      'IMPORTANT — verification.unsupported_context: if it lists a clause number you cited, ' +
-      'that citation is NOT supported and you MUST disclose it in your own words rather than ' +
-      'silently dropping it: name the standard, then say which case it is — ' +
-      'same_standard_not_retrieved means the clause belongs to a standard that IS in the ' +
-      'evidence but the clause itself was not retrieved (a retrieval gap, not a fabrication); ' +
-      'outside_evidence_standard means it points at a standard outside the retrieved evidence ' +
-      '(out of scope, or possibly invented). Never present such a citation as support, and ' +
-      'never omit the fact that it was raised.',
+      // 批3-c（2026-09-22，省 token 硬约束）：说明书压到 ≤10 行——它**每轮**随工具表进上下文
+      // （原文 2156 字/轮）；完整用法规则搬 `tool-details.js` 的**首次调用回执**（deferContext）。
+      'Forensic (取证) compliance Q&A against the local KnowledgeStation engine; returns '
+      + 'three-part 依据/推导/结论 + tier + verification + notes. Own inference ⇒ tens of seconds '
+      + '(timeout >=120s); cheap lookup ⇒ ks_resolve_clause first. Only current-effective clauses '
+      + 'cited; "reference"/empty evidence = no direct current provision (structured empty, not an error). '
+      + 'Cite evidence_url as [依据：<standard_no> <clause_number>](<evidence_url>). '
+      + 'Scope: params.kb_folder_ids / params.kb_doc_ids restrict RETRIEVAL (incl. children; ids and '
+      + 'knobs = union). OMIT = whole library. An EMPTY array is NOT "no scope": engine answers '
+      + '422, no retrieval — never falls back whole-library. '
+      + 'verification.unsupported_context listing your cited clause ⇒ that citation is NOT supported: '
+      + 'MUST disclose it (standard + case: same_standard_not_retrieved = retrieval gap; '
+      + 'outside_evidence_standard = outside evidence/possibly invented); never as support, '
+      + 'never omit it was raised. Full usage rules arrive once in the first-call receipt.',
     parameters: {
       type: 'object',
       properties: {
@@ -1363,6 +1346,8 @@ export function makeAnswerTool(manager, chatModeOf) {
       const trimmed = trimAnswer(data)
       // S1-b：把本轮结果按会话暂存一份给「本轮」tab 读（工具返回是给模型的**裁剪版**；
       // 面板要的是引擎**原始公开字段**——design-S1-turn-data-mapping §二）。
+      // 批3-c：首次调用给一次完整用法规则（deferContext；每会话每工具一次——省 token 硬约束）。
+      firstUseReceipt(exec, 'ks_answer')
       recordKsTurn(exec?.agent?.session?.id ?? '', {
         query,
         // S1-c：**这一轮的口径**（冻结快照——胶囊显示用；改口径仍走输入框那颗活胶囊）。
