@@ -1076,8 +1076,9 @@ export function makeAnswerTool(manager, chatModeOf) {
       + '422, no retrieval — never falls back whole-library. '
       + 'verification.unsupported_context listing your cited clause ⇒ that citation is NOT supported: '
       + 'MUST disclose it (standard + case: same_standard_not_retrieved = retrieval gap; '
-      + 'outside_evidence_standard = outside evidence/possibly invented); never as support, '
-      + 'never omit it was raised. Full usage rules arrive once in the first-call receipt.',
+      + 'outside_evidence_standard = outside evidence/possibly invented). '
+      + 'Never present such a citation as support, never omit it was raised. '
+      + 'Full usage rules arrive once in the first-call receipt.',
     parameters: {
       type: 'object',
       properties: {
