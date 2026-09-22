@@ -64,6 +64,7 @@ import {
 import { KsFilesView } from './KsFilesTab'
 import { KsBookmarksView, type KsBookmarkJump } from './KsBookmarksTab'
 import { KsDocTextView } from './KsDocTextView'
+import { KsAnchorWarn } from './KsAnchorWarn'
 import {
   evidenceUrlOf,
   parseEvidence,
@@ -280,6 +281,8 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
   const [curDocId, setCurDocId] = useState<string | null>(null)
   // 当前条款的 clause_key（取消收藏 toggle 需要）
   const [curClauseKey, setCurClauseKey] = useState<string | null>(null)
+  // 引文坐标（bbox）缺失/取失败的**可见**提示（诊断 A1/A8）：null=正常；字符串=给用户的一句人话。
+  const [anchorWarn, setAnchorWarn] = useState<string | null>(null)
   // 箭头锚行几何（条款收藏小按钮据此贴在行首左缘外侧；null=无箭头隐藏）
   const [arrowPos, setArrowPos] = useState<{
     rowLeft: number
@@ -639,6 +642,7 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
       return
     }
 
+    setAnchorWarn(null) // 新一次载入先清上一条的引文坐标提示（诊断 A1/A8）
     let session
     try {
       // Every load re-fetches the session: port/token rotate per engine start.
@@ -680,11 +684,17 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
           // 把 doc 变 optional → TS2322）：targetPage 语义 = 跳页后的当前页，
           // 箭头绘制读的正是 evidence.current.page（见 renderPage 的 onPage）。
           evidence.current = { ...ev, bbox: row, page: targetPage }
+        } else {
+          // 诊断 A1/A8（2026-09-22）：取不到坐标**必须可见**——只跳页不画箭头，
+          // 原来这里静默吞掉，用户以为标注坏了。措辞说清"跳页仍然有效"。
+          setAnchorWarn('引文位置没取到：这次只跳页、不画箭头（原文仍可读）。')
         }
       } catch (error) {
-        // 静默降级：bbox 取回失败 → 保持无箭头，仅跳页；留痕便于排查。
+        // 诊断 A1/A8（2026-09-22）：静默降级改为**可见**降级（仍不阻塞 PDF 渲染）。
         console.warn('[ks:pdf] fetchBbox failed', error)
         if (controller.signal.aborted) return
+        const msg = error instanceof Error ? error.message : String(error)
+        setAnchorWarn(`引文位置没取到：这次只跳页、不画箭头（${msg}）`)
       }
     }
 
@@ -727,6 +737,11 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
       if (controller.signal.aborted) return
       setPage(target)
       setPageInput(String(target))
+      // 诊断 A1（2026-09-22）：**跳到被引页**。单页模式由 setPage 生效；连续模式
+      // 所有页都挂着、视口在顶部 ⇒ 交给现成的滚动交接机制（pendingScrollPageRef →
+      // 目标页 canvas 挂载后滚进视野；原先只有"切模式"才用它，开引用时没人用它）。
+      // 无条件置入：加载途中切了模式，也由那条 effect 按当时模式裁决。
+      pendingScrollPageRef.current = target
       // 增强③-B: 成功载入后记入历史（ev 以实际渲染页为准）。
       pushHistory(pathHrefRef.current, { ...ev, page: target })
       // 标题目录（B）：记下当前文档 id，供目录列 effect 拉 /tree。
@@ -1993,6 +2008,9 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
               列头左上角的 ◀ 随时收起它。
             </div>
           </div>
+        )}
+        {anchorWarn !== null && viewMode === 'pdf' && (
+          <KsAnchorWarn message={anchorWarn} />
         )}
         {load.status === 'loading' && viewMode === 'pdf' && (
           <div style={$center}>

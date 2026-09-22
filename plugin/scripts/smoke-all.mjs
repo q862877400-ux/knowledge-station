@@ -63,6 +63,9 @@ const SUITES = [
   // 查看器（KsEvidenceHost→KsEvidenceTab 的 prefs 透传；桩回显 props 的行为判据，
   // 宿主写死 showArrow:true 当场红）。纯离线静态渲染，秒级。
   'scripts/smoke-evidence-prefs.mjs',
+  // UI 批0-a A1/A8（2026-09-22）：引文坐标缺失/失败的**可见**提示行（渲染级，
+  // 纯组件零依赖）。它红了说明"失败又静默了"。
+  'scripts/smoke-evidence-warn.mjs',
   'scripts/smoke-class-summary.mjs',
   'scripts/smoke-kb-page-render.mjs',
   'scripts/smoke-ui-scale.mjs',
