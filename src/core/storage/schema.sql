@@ -728,17 +728,20 @@ CREATE INDEX IF NOT EXISTS idx_filing_placed_folder ON doc_filing_state(placed_f
 --   CCS 标签的唯一所有者是 `doc_meta.domain_tags` 里的 `CCS:…` 条目（分类树读的就是它）。
 --   同一件事有两个家迟早打架，所以本表**只记"这次查了什么、从哪一层查到的、为什么没查到"**，
 --   真正的分类号仍只落 domain_tags 一处。
---   · outcome  查询结论四枚举（ccs_fetcher.OUTCOMES）——**"发不出去"与"官方查无"必须分开**：
---              found / not_found / network_failed / parse_failed
+--   · outcome  查询结论五枚举（ccs_fetcher.OUTCOMES）——**"发不出去"与"官方查无"必须分开**：
+--              found / not_found / network_failed / parse_failed /
+--              not_applicable（**这一篇的号不像标准号**，如被标成 standard 的法规 ——
+--              实测真库那 380 篇里混着 7 篇法规，分类号对它们**永远不适用**）
 --   · source   命中的是哪一层（official_api|web_scrape|local_table|seed_file）
---   · keyword_form 命中的是哪种关键词形式（full|compact|core|bare）
+--   · keyword_form 命中的是哪种关键词形式（full|clean|compact|core|bare）
 --   · matched_no   站点返回的标准号（可能与库里写法不同，如 GB→GB/T）
 --   · reason   给界面看的一句人话；attempts_json 是逐层逐形式的审计流水
---   · applied_at 标签真的写进 domain_tags 的时刻（NULL = 没写进去）
+--   · applied_at 标签被确认在 domain_tags 里的时刻（NULL = 从没成功写进去）
 CREATE TABLE IF NOT EXISTS doc_ccs_state (
     doc_id TEXT PRIMARY KEY,
     outcome TEXT NOT NULL
-        CHECK(outcome IN ('found','not_found','network_failed','parse_failed')),
+        CHECK(outcome IN ('found','not_found','network_failed','parse_failed',
+                          'not_applicable')),
     source TEXT,
     keyword_form TEXT,
     matched_no TEXT,

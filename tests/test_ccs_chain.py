@@ -206,6 +206,59 @@ def test_keyword_forms_ordered_full_to_bare():
         ["full", "compact", "core"]
 
 
+def test_keyword_forms_strip_trailing_junk():
+    """**尾部杂字**要能抠掉（真机 380 篇实测：真库标准号字段混着中文）。
+
+    `GB 5009.12-2023食品安全国家标准` 这种写法拿整串去搜当然搜不到；
+    抠成 `GB 5009.12-2023` 就搜得到。号本身干净时 `clean` 与 `full` 同形、被去重。
+    """
+    forms = dict(cf.keyword_forms("GB 5009.12-2023食品安全国家标准"))
+    assert forms["full"] == "GB 5009.12-2023食品安全国家标准"
+    assert forms["clean"] == "GB 5009.12-2023"
+    forms2 = dict(cf.keyword_forms("GB/T 27668-2023显微镜光学显微术术语(1)"))
+    assert forms2["clean"] == "GB/T 27668-2023"
+    # 老写法（两位年代）也要能抠出数字主体
+    assert "core" in dict(cf.keyword_forms("GB 228-87"))
+
+
+def test_not_a_standard_no_is_not_applicable():
+    """**不像标准号的字段 ⇒ `not_applicable`，而且一次网络都不打。**
+
+    真机 380 篇实测：里面混着 **7 篇法规**（`中华人民共和国民法典`、`安全生产法(2021修正)`、
+    `消防法(2021修正全本)`…）被标成了 `doc_type='standard'`。分类号是标准体系的东西，
+    对法规**永远没有** —— 拿它们去搜是白打网络，结论写"官方查无"也不对（那不是"没有这个号"）。
+    """
+    tr = FakeTransport(official=_api_rows(), scrape=_html())
+    got = cf.resolve_ccs("中华人民共和国民法典", transport=tr)
+    assert got["outcome"] == "not_applicable", got
+    assert tr.official_calls == [] and tr.scrape_calls == [], \
+        "不像标准号的字段不该打网络（永远不会有结果）"
+    assert "不适用" in got["reason"]
+    assert cf.looks_like_standard_no("GB 5009.12-2023食品安全国家标准") is True
+    assert cf.looks_like_standard_no("消防法(2021修正全本)") is False
+
+
+def test_other_edition_match_is_rejected_not_used():
+    """**年份不同的他版不许当命中**（真机实测抓到的真缺陷，会打错标签）。
+
+    实测现场：``GBZ 337-2025``（职业性腕管综合征诊断标准）的数字主体 ``337``
+    在站点上撞到 ``GB 337-1984``（无机酸、碱）—— 差 41 年、毫无关系。
+    照旧接受的话，这一篇会被打上"无机酸碱"的分类号。
+    """
+    tr = FakeTransport(official=lambda kw: _api_rows(
+        _row("GB 337-1984", "G11", "无机酸、碱")))
+    got = cf.resolve_ccs("GBZ 337-2025", transport=tr)
+    assert got["outcome"] == "not_found", got
+    assert got["code"] is None, f"取了年份不同的他版的分类号：{got}"
+    assert any(a["result"] == "other_edition" for a in got["attempts"]), got["attempts"]
+    # 反例（同年份、跨前缀）：这一档**必须**留着 —— 强制转推荐后库里只剩 GB/T 版
+    tr2 = FakeTransport(official=lambda kw: _api_rows(
+        _row("GB/T 1094.2-2013", "K41", "变压器")))
+    ok = cf.resolve_ccs("GB 1094.2-2013", transport=tr2)
+    assert ok["outcome"] == "found" and ok["code"] == "K41"
+    assert ok["matched_no"] == "GB/T 1094.2-2013"
+
+
 # ═══════════════════════════ 2. 链的顺序 + 来源 ═══════════════════════════
 
 def test_official_api_hit_reports_source_and_form():
@@ -253,8 +306,8 @@ def test_official_empty_falls_back_to_web_scrape():
     assert got["code"] == "Z12" and got["sub"] == "环境监测"
     assert got["keyword_form"] == "full"
     assert tr.scrape_calls, "官方查无之后必须去抓网页（备选路线不能是死的）"
-    # 官方那几次尝试照样留痕（"前面几层为什么没中"）—— 这一批号没有分部号，
-    # `core` 与 `bare` 同形被去重 ⇒ 三种形式各留一条 no_match。
+    # 官方那几次尝试照样留痕（"前面几层为什么没中"）—— 这一批号没有分部号、
+    # 也没有尾部杂字 ⇒ full/compact/core 三种形式各留一条 no_match（bare 被去重）。
     off = [a for a in got["attempts"] if a["layer"] == "official_api"]
     assert [a["keyword_form"] for a in off] == ["full", "compact", "core"]
     assert all(a["result"] == "no_match" for a in off), off
@@ -368,11 +421,32 @@ def test_answered_but_no_such_number_is_not_found():
 
 
 def test_broken_html_structure_is_parse_failed():
-    """页面结构变了（锚点一条都没有）⇒ `parse_failed`，如实说"读不出条目"。"""
-    tr = FakeTransport(official=_api_rows(), scrape="<html><body>改版了</body></html>")
+    """**两层都答了、却一层都读不出** ⇒ `parse_failed`，如实说"读不出条目"。
+
+    ⚠ 注意口径：只要**有一层**答得清清楚楚（官方回了条目列表、里面没有这个号），
+    结论就是 `not_found`（那条另有用例钉住）—— 读不出的细节留在 attempts 里。
+    本用例造的是**两层都读不出**：官方回的 JSON 形状不对 + 网页锚点一条都没有。
+    """
+    tr = FakeTransport(official="<html>不是 JSON</html>",
+                       scrape="<html><body>改版了</body></html>")
     got = cf.resolve_ccs("GB/T 1094.3-2017", transport=tr)
     assert got["outcome"] == "parse_failed", got
     assert "读不出" in got["reason"] or "结构" in got["reason"], got["reason"]
+
+
+def test_official_answers_clearly_so_not_found_even_if_scrape_broken():
+    """官方答得清清楚楚（条目列表里没有这个号）⇒ `not_found`，**不因网页那层读不出而改口**。
+
+    这条钉的是"结论看**有没有一层答清楚**，不要求每一层都答上"：
+    把次要的解析问题拿来盖住主要结论（"官方明说了没有这个号"）是另一种不诚实。
+    读不出的细节照样留在 `attempts` 里（下面那条断言）。
+    """
+    tr = FakeTransport(official=_api_rows(_row("GB/T 34136-2017", "J07", "电子计算机应用")),
+                       scrape="<html><body>改版了</body></html>")
+    got = cf.resolve_ccs("GB/T 99999-1999", transport=tr)
+    assert got["outcome"] == "not_found", got
+    assert any(a["layer"] == "web_scrape" and a["result"] == "unparsable"
+               for a in got["attempts"]), got["attempts"]
 
 
 def test_matched_number_without_ccs_says_so():
@@ -410,6 +484,7 @@ def test_record_and_apply_tag_are_idempotent(db):
     assert second["applied"] is False
     assert _tags_of(db, "doc_ccs_a").count("CCS:K41 变压器") == 1
     row = ccs_store.get_ccs_state("doc_ccs_a")
+    assert row is not None
     assert row["outcome"] == "found" and row["source"] == "official_api"
     assert row["applied_at"] is not None
     assert json.loads(row["attempts_json"])[0]["layer"] == "official_api"
@@ -423,6 +498,7 @@ def test_record_failure_keeps_reason_and_leaves_tags_alone(db):
         "attempts": [{"layer": "official_api", "result": "network_error",
                       "detail": "InvalidURL"}]})
     row = ccs_store.get_ccs_state("doc_ccs_b")
+    assert row is not None
     assert row["outcome"] == "network_failed"
     assert "没答上" in row["reason"]
     assert row["applied_at"] is None
@@ -484,7 +560,8 @@ def test_backfill_writes_through_to_db(db, monkeypatch):
     assert _tags_of(db, "doc_ccs_w1") == ["CCS:K41 变压器"]
     assert _tags_of(db, "doc_ccs_w2") == []
     # ② 来源**真的记下来了**
-    assert ccs_store.get_ccs_state("doc_ccs_w1")["source"] == "official_api"
+    w1_state = ccs_store.get_ccs_state("doc_ccs_w1")
+    assert w1_state is not None and w1_state["source"] == "official_api"
     # ③ 没补到的进失败清单（逐篇带原因，不许静默）
     assert [f["doc_id"] for f in st["failures"]] == ["doc_ccs_w2"]
     assert st["failures"][0]["reason"] == "查无"
@@ -554,7 +631,7 @@ def test_backfill_cancel_is_honest(db, monkeypatch):
 def test_backfill_busy_is_refused_not_queued(db, monkeypatch, ):
     """**同一时刻只跑一批**：已有批次在跑 ⇒ `RuntimeError('ccs_backfill_busy')`（**不排队**）。"""
     _seed_doc("doc_ccs_busy", "GB/T 90170-2020", [])
-    release = []
+    release: list[int] = []
 
     def hang(no, name="", **kw):                        # noqa: ANN001, ANN003
         for _ in range(200):
@@ -588,7 +665,8 @@ def test_api_ccs_summary_and_plan(client, db):
     _seed_doc("doc_ccs_api1", "GB/T 90180-2020", [])
     s = data_of(_api(c, token, "get", "/api/v1/kb/ccs/summary"))
     assert s["missing"] >= 1
-    assert set(s["by_outcome"]) == {"found", "not_found", "network_failed", "parse_failed"}
+    assert set(s["by_outcome"]) == {"found", "not_found", "network_failed", "parse_failed",
+                                    "not_applicable"}
     assert s["outcome_labels"]["not_found"] and s["source_labels"]["web_scrape"]
     assert s["max_batch"] > 0 and s["sources"][0] == "official_api"
     assert "backfill" in s and s["backfill"]["total"] >= 0

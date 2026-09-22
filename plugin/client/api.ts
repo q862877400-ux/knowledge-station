@@ -3743,7 +3743,7 @@ export interface KsKbCcsResultRow {
   doc_id: string
   standard_no: string
   standard_name?: string
-  /** found / not_found / network_failed / parse_failed / skipped。 */
+  /** found / not_found / network_failed / parse_failed / not_applicable / skipped。 */
   outcome: string
   code?: string
   sub?: string
@@ -3764,6 +3764,8 @@ export interface KsKbCcsBackfillStatus {
   not_found: number
   network_failed: number
   parse_failed: number
+  /** 这一篇的号不像标准号（如被标成 standard 的法规）⇒ 分类号对它不适用。 */
+  not_applicable: number
   applied: number
   skipped: number
   cancel_requested: boolean
@@ -3808,6 +3810,7 @@ function normalizeCcsBackfillStatus(data: Record<string, unknown>): KsKbCcsBackf
     not_found: intOf(data.not_found, 0),
     network_failed: intOf(data.network_failed, 0),
     parse_failed: intOf(data.parse_failed, 0),
+    not_applicable: intOf(data.not_applicable, 0),
     applied: intOf(data.applied, 0),
     skipped: intOf(data.skipped, 0),
     cancel_requested: data.cancel_requested === true,

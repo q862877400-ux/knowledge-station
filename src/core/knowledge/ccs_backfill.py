@@ -49,6 +49,7 @@ _CANCEL = threading.Event()
 _PROGRESS: dict[str, Any] = {
     "running": False, "total": 0, "done": 0,
     "found": 0, "not_found": 0, "network_failed": 0, "parse_failed": 0,
+    "not_applicable": 0,
     "applied": 0, "skipped": 0,
     "cancel_requested": False, "cancelled": False,
     "started_at": None, "finished_at": None, "last_error": None,
@@ -212,7 +213,8 @@ def _run(items: list[dict], pause_s: float | None) -> None:
 
 def _update_counts(rec: dict) -> None:
     key = str(rec.get("outcome") or "")
-    if key in ("found", "not_found", "network_failed", "parse_failed"):
+    if key in ("found", "not_found", "network_failed", "parse_failed",
+               "not_applicable"):
         _PROGRESS[key] += 1
 
 
@@ -242,6 +244,7 @@ def start_ccs_backfill(doc_ids: list[str] | None = None, limit: int = DEFAULT_BA
         _PROGRESS.update({
             "running": bool(items), "total": len(items), "done": 0,
             "found": 0, "not_found": 0, "network_failed": 0, "parse_failed": 0,
+            "not_applicable": 0,
             "applied": 0, "skipped": 0, "cancel_requested": False, "cancelled": False,
             "started_at": _now(), "finished_at": None, "last_error": None,
             "results": [], "failures": [], "skipped_list": []})

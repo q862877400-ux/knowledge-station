@@ -255,21 +255,34 @@ export function mount(container, props) {
     { doc_id: 'doc_in_q', standard_no: 'GB/T 90001-2020', standard_name: '排队中的一篇',
       stage: 'queued', stage_label: '排队中', confidence: null, failure_kind: null,
       suggested_folder_id: F.p16.folder_id, suggested_path: '标准 › P 土木、建筑 › P16 工程防火',
-      suggest_new_parent_id: null, suggest_new_name: null, catalog_hidden: 0 },
+      suggest_new_parent_id: null, suggest_new_name: null, catalog_hidden: 0,
+      ccs_tag: 'CCS:P16 工程防火', ccs_outcome: 'found', ccs_outcome_label: '已补全',
+      ccs_reason: null, ccs_source: 'official_api', ccs_checked_at: '2026-09-22 09:00:00' },
     { doc_id: 'doc_in_rec', standard_no: 'GB/T 90002-2020', standard_name: '识别中的一篇',
       stage: 'recognizing', stage_label: '识别中', confidence: null, failure_kind: null,
       suggested_folder_id: null, suggested_path: null,
-      suggest_new_parent_id: null, suggest_new_name: null, catalog_hidden: 0 },
+      suggest_new_parent_id: null, suggest_new_name: null, catalog_hidden: 0,
+      /* 查过了、没查到 ⇒ 界面上要写清**为什么**没有建议（业主口径）。 */
+      ccs_tag: null, ccs_outcome: 'not_found',
+      ccs_outcome_label: '查无（答话的站点里都没有这个号）',
+      ccs_reason: '查无：答话的站点里都没有这个标准号', ccs_source: null,
+      ccs_checked_at: '2026-09-22 09:00:00' },
     { doc_id: 'doc_in_ok', standard_no: 'GB/T 90003-2020', standard_name: '待确认的一篇',
       stage: 'confirming', stage_label: '待确认', confidence: 0.93, failure_kind: null,
       suggested_folder_id: F.p16.folder_id, suggested_path: '标准 › P 土木、建筑 › P16 工程防火',
       suggest_new_parent_id: F.p16.folder_id, suggest_new_name: 'P16 工程防火（新）',
-      catalog_hidden: 0 },
+      catalog_hidden: 0,
+      ccs_tag: 'CCS:P16 工程防火', ccs_outcome: 'found', ccs_outcome_label: '已补全',
+      ccs_reason: null, ccs_source: 'web_scrape', ccs_checked_at: '2026-09-22 09:00:00' },
     { doc_id: 'doc_in_bad', standard_no: 'GB/T 90004-2020', standard_name: '识别失败的一篇',
       stage: 'failed', stage_label: '识别失败', confidence: 0.4,
       failure_kind: '解析失败（正文条款为零）',
       suggested_folder_id: null, suggested_path: null,
-      suggest_new_parent_id: null, suggest_new_name: null, catalog_hidden: 1 },
+      suggest_new_parent_id: null, suggest_new_name: null, catalog_hidden: 1,
+      /* ⚠ **还没查过**（`ccs_outcome: null`）⇒ 界面那句"为什么没有建议"必须是第三种说法
+         （"还没查过分类号"），**不许**把 null 编成"查无"或"查询失败"。 */
+      ccs_tag: null, ccs_outcome: null, ccs_outcome_label: null, ccs_reason: null,
+      ccs_source: null, ccs_checked_at: null },
   ]
   /** 整棵目录树的扁平清单（选择器用）：真形状那四级 + 顶层。 */
   const FLAT_FOLDERS = [
@@ -285,6 +298,35 @@ export function mount(container, props) {
   /** 「重来一次」的状态（桩：起手 running，读一次之后 done）。 */
   let reingestRunning = false
   const reingestSeen = []
+  /* ── 「补全分类号」（2026-09-22 自愈机制）的桩：形状逐字照 `ccs_backfill.ccs_backfill_status` ── */
+  let ccsRunning = false
+  let ccsSeen = []
+  let ccsPolls = 0
+  const CCS_LABELS = {
+    found: '已补全',
+    not_found: '查无（答话的站点里都没有这个号）',
+    network_failed: '查询失败（网络不通/被拦，一个站点都没答上）',
+    parse_failed: '读不出来（站点答了，但没有分类号或读不出条目）',
+    not_applicable: '不适用（这一篇的标准号不像标准号，分类号对它不适用）',
+  }
+  /** 补全状态的有效载荷（形状 = `ccs_backfill.ccs_backfill_status()`）。 */
+  const ccsStatusPayload = () => ({
+    running: ccsRunning, total: ccsSeen.length, done: ccsRunning ? 1 : ccsSeen.length,
+    found: 1, not_found: ccsRunning ? 0 : 1, network_failed: 0, parse_failed: 0,
+    not_applicable: 0,
+    applied: 1, skipped: 0, cancel_requested: false, cancelled: false,
+    started_at: '2026-09-22 09:00:00',
+    finished_at: ccsRunning ? null : '2026-09-22 09:00:05',
+    missing: ccsRunning ? 2 : 1,
+    results: ccsSeen.map((id) => ({ doc_id: id, standard_no: 'GB/T 90002-2020',
+                                    outcome: id === 'doc_in_bad' ? 'not_found' : 'found',
+                                    source: 'official_api', keyword_form: 'full',
+                                    reason: id === 'doc_in_bad' ? '查无：答话的站点里都没有这个标准号' : undefined })),
+    failures: ccsRunning ? [] : ccsSeen.filter((id) => id === 'doc_in_bad')
+      .map((id) => ({ doc_id: id, standard_no: 'GB/T 90002-2020', outcome: 'not_found',
+                      reason: '查无：答话的站点里都没有这个标准号' })),
+    skipped_list: [],
+  })
   const deletedDocs = []
   /* ── 第 5 步：目录/文件 CRUD 的**请求记录**（判"真的发没发、发的什么"就靠它们）── */
   const madeFolders = []
@@ -551,6 +593,49 @@ export function mount(container, props) {
         results: wasRunning ? [] : reingestSeen.map((id) => ({ doc_id: id, status: 'ok' })),
         started_at: '2026-09-21 10:00:00', finished_at: wasRunning ? null : '2026-09-21 10:00:05',
       } })
+    }
+    /* ── 「补全分类号」（2026-09-22 自愈机制）四条桩：
+          形状逐字照 `routes_kb_folders.py` 的 kb_ccs_* 与 `ccs_backfill.ccs_backfill_status` ── */
+    if (p === '/api/v1/kb/ccs/summary') {
+      return json({ code: 200, status: 'success', data: {
+        missing: ccsRunning ? 2 : 3,
+        by_outcome: { found: 1, not_found: 1, network_failed: 0, parse_failed: 0,
+                      not_applicable: 0 },
+        max_batch: 200, default_batch: 50,
+        outcome_labels: CCS_LABELS,
+        source_labels: { official_api: '官方接口', web_scrape: '网页抓取',
+                         local_table: '本地对照表', seed_file: '本地种子文件' },
+        sources: ['official_api', 'web_scrape', 'local_table', 'seed_file'],
+        backfill: ccsStatusPayload(),
+      } })
+    }
+    if (p === '/api/v1/kb/ccs/plan') {
+      return json({ code: 200, status: 'success', data: {
+        candidates: [{ doc_id: 'doc_in_rec', standard_no: 'GB/T 90002-2020',
+                       standard_name: '识别中的一篇' }],
+        total: 3, already_have: 6037, limit: 0, truncated: false,
+      } })
+    }
+    if (p === '/api/v1/kb/ccs/backfill' && method === 'POST') {
+      ccsSeen = ['doc_in_rec', 'doc_in_bad']
+      ccsRunning = true
+      ccsPolls = 0
+      return json({ code: 200, status: 'success', data: {
+        queued: ccsSeen.length,
+        started: ccsSeen.map((id) => ({ doc_id: id, standard_no: 'GB/T 90002-2020' })),
+        skipped: [], plan: { candidates: [], total: 3, already_have: 6037, limit: 50, truncated: true },
+      } })
+    }
+    if (p === '/api/v1/kb/ccs/backfill/status') {
+      /* 桩：第一次 running，第二次 done + 失败清单（界面据此从"进行中"走到"结束 + 清单"）。 */
+      ccsPolls += 1
+      if (ccsPolls >= 2) ccsRunning = false
+      return json({ code: 200, status: 'success', data: ccsStatusPayload() })
+    }
+    if (p === '/api/v1/kb/ccs/backfill/cancel' && method === 'POST') {
+      ccsRunning = false
+      return json({ code: 200, status: 'success', data: {
+        cancel_requested: true, running: false, done: 1, total: 2 } })
     }
     if (p === '/api/v1/documents/batch-delete' && method === 'POST') {
       const ids = JSON.parse(body ?? '{}').doc_ids ?? []
@@ -1457,6 +1542,49 @@ export function mount(container, props) {
   check('N15 删除面板如实写明"不可撤销"与"收藏/批注不删"（不是一句含糊的"确定吗"）',
     confirmText.includes('不可撤销') && confirmText.includes('收藏') && confirmText.includes('批注'),
     `确认面板原话：${confirmText.slice(0, 90)}`)
+
+  /* ══════ N16–N20. 「补全分类号」（2026-09-22 自愈机制）+「没有建议」把原因说清 ══════
+     业主口径：「这 380 篇**不要手动去补**……要修的是**机制**，让插件**自己能靠自己的机制
+     完成工作**」；「待分类里没有建议要**写明为什么**」。
+     这一组判的全是**真行为**：按钮必须打到**真接口**（`/kb/ccs/backfill`），进度与失败清单
+     必须来自**后端给的那些数**（桩里那两条：found 1 / not_found 1），失败清单必须逐篇带原因。 */
+  const ccsBtn = () => [...q('.ks-list-cap button')].find((b) => (b.textContent ?? '').includes('补全分类号'))
+  check('N16 「补全分类号」入口在「待分类」那一行（.ks-list-cap），按钮上写的是**后端现算的**还缺几篇',
+    ccsBtn() !== undefined && (ccsBtn().textContent ?? '').includes('还缺 3 篇'),
+    `入口 ${String(q('.ks-ccs-btn').length)} 个 / 文字=${(ccsBtn()?.textContent ?? '(没有)').trim()}`)
+  const beforeCcs = calls.length
+  await click(ccsBtn())
+  await flush(); await flush()
+  const ccsCall = calls.slice(beforeCcs).find((c) => c.url === `${API}/api/v1/kb/ccs/backfill`)
+  check('N17 点它 ⇒ **真的发** `POST /kb/ccs/backfill`（后台跑，不是界面自己编进度）',
+    ccsCall !== undefined && ccsCall.method === 'POST',
+    ccsCall === undefined ? '(没调 backfill)' : `${ccsCall.method} ${ccsCall.url.replace(API, '')}`)
+  /* 轮询到完成：界面每 3 秒问一次状态（桩是"第一次 running、第二次 done"）⇒ 等两轮。 */
+  await waitMs(6500); await flush()
+  const ccsBar = q('.ks-ccs-bar')[0]
+  const ccsText = (ccsBar?.textContent ?? '').replace(/\s+/g, ' ')
+  check('N18 补全的状态行如实分列：已跑 done/total + **补到 / 查无 / 查询失败 / 读不出来 / 不适用**各一个数',
+    ccsBar !== undefined && ccsText.includes('已跑 2 / 2')
+    && ccsText.includes('补到 1 篇') && ccsText.includes('查无 1 篇')
+    && ccsText.includes('查询失败 0 篇') && ccsText.includes('读不出来 0 篇')
+    && ccsText.includes('不适用 0 篇'),
+    `状态行：${ccsText.slice(0, 160)}`)
+  check('N19 失败清单逐篇带原因（"还剩哪些、为什么"看得见，不是一句"部分失败"）',
+    q('.ks-ccs-fails').length === 1
+    && (q('.ks-ccs-fails')[0].textContent ?? '').includes('没补到的 1 篇')
+    && (q('.ks-ccs-fails')[0].textContent ?? '').includes('查无：答话的站点里都没有这个标准号'),
+    `清单：${(q('.ks-ccs-fails')[0]?.textContent ?? '(没有)').replace(/\s+/g, ' ').slice(0, 140)}`)
+  /* 「没有建议」三种原因各写各的（依据全来自后端那几个字段）：
+     · doc_in_rec 查过了没查到 ⇒ 照念后端的 outcome_label；
+     · doc_in_bad **还没查过** ⇒ 说"还没查过分类号"（**不许**把 null 编成"查无"）。 */
+  const destOf = (id) => (inboxRows().find((r) => r.dataset.docId === id)
+    ?.querySelector('.ks-col-idest')?.textContent ?? '').trim()
+  check('N20 「没有建议」把原因说清（业主口径）：查过没查到 ⇒ 照念后端说法；'
+    + '**还没查过** ⇒ 说"还没查过分类号"（不把 null 编成查无）',
+    destOf('doc_in_rec').includes('没有分类号')
+    && destOf('doc_in_rec').includes('查无')
+    && destOf('doc_in_bad').includes('还没查过分类号'),
+    `doc_in_rec=${destOf('doc_in_rec')} / doc_in_bad=${destOf('doc_in_bad')}`)
 
   /* ══════════ P. 第 5 步：目录/文件的「建 / 改名 / 挪 / 复制 / 删」+ 批量（2026-09-21）══════════
      这一节判的全是**真行为**：每个动作都必须打到**真接口**（桩把每次请求都记下来），

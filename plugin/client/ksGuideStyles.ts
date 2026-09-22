@@ -525,7 +525,7 @@ export const KS_STYLES = `
   padding:var(--ks-space-2) var(--ks-space-3);border-radius:var(--ks-r-md);
   border:0.5px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-base);
   font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);min-width:0}
-.ks-ccs-bar[data-ccs-running="1"]{border-color:var(--dsw-alias-state-primary)}
+.ks-ccs-bar[data-ccs-running="1"]{border-color:var(--dsw-alias-brand-primary)}
 .ks-ccs-line{overflow-wrap:anywhere}
 .ks-ccs-fails{font-size:var(--ks-fs-sm)}
 .ks-ccs-fails>summary{cursor:pointer;color:var(--dsw-alias-label-secondary)}

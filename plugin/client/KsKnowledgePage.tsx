@@ -1482,11 +1482,12 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
           setCcsMissing(st.missing)
           if (st.running) {
             setActMsg(`补全分类号进行中：${String(st.done)} / ${String(st.total)} 篇跑完`
-              + `（已补到 ${String(st.found)} 篇，没补到 ${String(st.not_found + st.network_failed + st.parse_failed)} 篇）…`)
+              + `（已补到 ${String(st.found)} 篇，没补到 `
+              + `${String(st.not_found + st.network_failed + st.parse_failed + st.not_applicable)} 篇）…`)
             return
           }
           setCcsRunning(false)
-          const bad = st.not_found + st.network_failed + st.parse_failed
+          const bad = st.not_found + st.network_failed + st.parse_failed + st.not_applicable
           setActMsg(`补全分类号结束：${String(st.done)} 篇跑完，补到 ${String(st.found)} 篇`
             + (bad > 0
               ? `，${String(bad)} 篇没补到（逐篇原因见下面那张清单；不是失败就是查无）`
@@ -2568,6 +2569,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
             · 查无 {ccsStatus.not_found} 篇
             · 查询失败 {ccsStatus.network_failed} 篇
             · 读不出来 {ccsStatus.parse_failed} 篇
+            · 不适用 {ccsStatus.not_applicable} 篇
             {ccsStatus.skipped > 0 ? ` · 跳过 ${ccsStatus.skipped} 篇` : ''}
             {ccsStatus.cancelled ? ' · **这一批是手动停的**' : ''}
           </span>

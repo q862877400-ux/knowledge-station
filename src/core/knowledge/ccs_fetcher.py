@@ -70,27 +70,42 @@ SOURCE_LABELS: dict[str, str] = {
     SOURCE_SEED_FILE: "本地种子文件",
 }
 
-#: 查询结论（四枚举，**不设"未知"** —— 每种失败都有自己的名字）
+#: 查询结论（**不设"未知"** —— 每种失败都有自己的名字）
 OUTCOME_FOUND = "found"
 OUTCOME_NOT_FOUND = "not_found"
 OUTCOME_NETWORK_FAILED = "network_failed"
 OUTCOME_PARSE_FAILED = "parse_failed"
+#: **不适用**：这一篇的标准号字段压根不像标准号（真库实测：7 篇法规被标成了
+#: ``doc_type='standard'``，如 ``中华人民共和国民法典`` / ``消防法(2021修正全本)``）。
+#: CCS 是标准体系的东西，对法规**永远没有**分类号 —— 拿它去搜是白打网络，
+#: 结论写成"官方查无"也不对（那不是"没有这个号"，是"这件事对它不成立"）。
+OUTCOME_NOT_APPLICABLE = "not_applicable"
 OUTCOMES: tuple[str, ...] = (OUTCOME_FOUND, OUTCOME_NOT_FOUND,
-                             OUTCOME_NETWORK_FAILED, OUTCOME_PARSE_FAILED)
+                             OUTCOME_NETWORK_FAILED, OUTCOME_PARSE_FAILED,
+                             OUTCOME_NOT_APPLICABLE)
 OUTCOME_LABELS: dict[str, str] = {
     OUTCOME_FOUND: "已补全",
     OUTCOME_NOT_FOUND: "查无（答话的站点里都没有这个号）",
     OUTCOME_NETWORK_FAILED: "查询失败（网络不通/被拦，一个站点都没答上）",
     OUTCOME_PARSE_FAILED: "读不出来（站点答了，但没有分类号或读不出条目）",
+    OUTCOME_NOT_APPLICABLE: "不适用（这一篇的标准号不像标准号，分类号对它不适用）",
 }
 
 #: 关键词形式的说法（记录"哪一种形式命中"，界面/审计可查）
 FORM_LABELS: dict[str, str] = {
     "full": "完整标准号",
+    "clean": "去掉尾部杂字的标准号",
     "compact": "去空格变体",
     "core": "数字主体（含分部号）",
     "bare": "数字首段",
 }
+
+#: 挑选匹配行时**只接受**这两种方式（见 :func:`_pick_row` 的理由）。
+#: ``cross_prefix_latest``（数字主体相同、**年份不同**的他版）**不算命中** ——
+#: 2026-09-22 真机 380 篇实测抓到的真缺陷：``GBZ 337-2025``（职业性腕管综合征诊断标准）
+#: 的数字主体 ``337`` 撞上了 ``GB 337-1984``（无机酸、碱），差 41 年、毫无关系；
+#: 照旧接受的话会**给一篇毒理学诊断标准打上"无机酸碱"的分类号**。
+_ACCEPTED_PICK_MODES: tuple[str, ...] = ("exact", "cross_prefix_same_year")
 
 
 class _LayerFacts:
@@ -111,33 +126,35 @@ class _LayerFacts:
         self.saw_parseable = False
         self.no_ccs_seen = False
 
-    def verdict(self) -> str:
-        """本层结论（四枚举之一；命中不在这里表达 —— 命中会直接 return）。"""
-        if self.no_ccs_seen:
-            return OUTCOME_PARSE_FAILED       # 号找到了，站点却没给分类号
-        if self.saw_parseable:
-            return OUTCOME_NOT_FOUND          # 站点答了、解得出条目，就是没有这个号
-        if self.saw_response:
-            return OUTCOME_PARSE_FAILED       # 答了，但一种形式都解不出条目
-        return OUTCOME_NETWORK_FAILED         # 一种形式都没答上（传输层）
+    def merge_into(self, other: "_LayerFacts") -> None:
+        """把本层的事实并进一个**跨层**的累计器（结论在累计器上算一次）。"""
+        other.saw_response = other.saw_response or self.saw_response
+        other.saw_parseable = other.saw_parseable or self.saw_parseable
+        other.no_ccs_seen = other.no_ccs_seen or self.no_ccs_seen
 
 
-def _combine_verdicts(verdicts: list[str]) -> str:
-    """两层网络查询的结论合成**一个**如实的总结论。
+def _combine_verdict(facts: _LayerFacts) -> str:
+    """两层网络查询的**全部事实**合成**一个**如实的总结论。
 
-    规则（三条互斥、覆盖全部情形）：
+    四条互斥、覆盖全部情形（顺序 = 由具体到笼统）：
 
-    1. **一个站点都没答上** ⇒ ``network_failed``（"发不出去"永远不许被说成"查无"）；
-    2. 有站点答上了，但其中任何一层**答而读不出**（结构变了 / 有这个号但不给分类号）
-       ⇒ ``parse_failed`` —— 宁可说"读不出"，也不把一件读不出的情况压成"查无"；
-    3. 其余（答上的层都解出了条目、且里面确实没有这个号）⇒ ``not_found``。
+    1. 站点上有这个号、却没给分类号 ⇒ ``parse_failed``（最具体的一种，不能压成"查无"）；
+    2. **至少一层答得清清楚楚**、里面确实没有这个号 ⇒ ``not_found``；
+    3. 答了，但一种形式都解不出条目 ⇒ ``parse_failed``（页面结构变了那类）；
+    4. **一个站点都没答上** ⇒ ``network_failed``
+       ——"发不出去"永远不许被说成"查无"。
+
+    ⚠ 第 2 条**只看有没有一层答清楚**，不要求每一层都答上：官方接口明明白白回了
+    "没有这个号"、而网页那层正好读不出条目时，如实说"查无"才对；把那种情况报成
+    "读不出来"是拿次要的解析问题盖住了主要结论。读不出的细节在 ``attempts`` 里逐条留着。
     """
-    answered = [v for v in verdicts if v != OUTCOME_NETWORK_FAILED]
-    if not answered:
-        return OUTCOME_NETWORK_FAILED
-    if any(v != OUTCOME_NOT_FOUND for v in answered):
+    if facts.no_ccs_seen:
         return OUTCOME_PARSE_FAILED
-    return OUTCOME_NOT_FOUND
+    if facts.saw_parseable:
+        return OUTCOME_NOT_FOUND
+    if facts.saw_response:
+        return OUTCOME_PARSE_FAILED
+    return OUTCOME_NETWORK_FAILED
 
 # ─────────────────────────────── 站点地址 ───────────────────────────────
 
@@ -215,9 +232,52 @@ LOCAL_CCS: dict[str, tuple[str, str]] = {
 
 # ─────────────────────────── 关键词形式 ───────────────────────────
 
-#: 标准号拆解：可选的字母前缀 + 数字主体（可带分部号）+ 可选年代
+#: 标准号拆解：可选的字母前缀 + 数字主体（可带分部号）+ 可选年代。
+#: ⚠ 年代收 **2~4 位**：真库有 ``GB 228-87`` 这种老写法（2026-09-22 真机 380 篇实测里
+#: 就有一条），只认 4 位会让它连"数字主体"这一形式都试不出来（`$` 锚定失败 ⇒ 返回 []）。
 _NO_RE = re.compile(r"^\s*([A-Za-z]{1,6})?\s*[/／]?\s*([A-Za-z]{0,4})?\s*(\d+(?:\.\d+)*)"
-                    r"\s*[-－—–‐]?\s*(\d{4})?\s*$")
+                    r"\s*[-－—–‐]?\s*(\d{2,4})?\s*$")
+
+#: 从**开头**抠出"标准号那一段"（允许后面跟着杂字）。
+#: ⚠ 为什么需要它（2026-09-22 真机 380 篇实测）：真库的标准号字段混进了尾部杂字 ——
+#: ``GB 5009.12-2023食品安全国家标准``、``GB/T 27668-2023显微镜光学显微术术语(1)``
+#: （各 1~3 篇）。拿**整串**（含中文）去搜当然搜不到，而拿抠出来的号一搜就中。
+_CLEAN_RE = re.compile(r"^\s*([A-Za-z]{1,6})\s*[/／]?\s*([A-Za-z]{0,4})\s*(\d+(?:\.\d+)*)"
+                       r"(?:\s*[-－—–‐]\s*(\d{2,4}))?")
+
+
+def clean_standard_no(standard_no: str) -> str:
+    """从字段开头抠出**标准号那一段**（去掉尾部杂字）；抠不出返回空串。
+
+    例：``"GB 5009.12-2023食品安全国家标准"`` → ``"GB 5009.12-2023"``；
+    ``"中华人民共和国民法典"`` → ``""``（开头不是字母前缀 ⇒ **这压根不是标准号**，
+    见 :func:`looks_like_standard_no`）。
+    """
+    from src.core.update.channels.base import query_no
+
+    m = _CLEAN_RE.match(query_no(standard_no or ""))
+    if not m:
+        return ""
+    head = m.group(1) or ""
+    tail = m.group(2) or ""
+    num = m.group(3) or ""
+    year = m.group(4) or ""
+    if not head or not num:
+        return ""
+    prefix = (head + ("/" + tail if tail else "")).upper()
+    return f"{prefix} {num}" + (f"-{year}" if year else "")
+
+
+def looks_like_standard_no(standard_no: str) -> bool:
+    """这个字段**像不像一个标准号**？
+
+    判据：开头是 1~6 个字母（GB/GBZ/GB/T/AQ/HJ…）+ 数字主体。
+    真库那 380 篇里混着 **7 篇法规**（``中华人民共和国民法典``、``安全生产法(2021修正)``、
+    ``消防法(2021修正全本)``…）被标成了 ``doc_type='standard'``：它们**永远不会有**
+    CCS（分类号是标准体系的东西），拿它们去搜是白打 4 次网络，而且结论写成"官方查无"
+    也不对 —— 那是"**不适用**"。所以这里先判形状，形状不对的直接给 `not_applicable`。
+    """
+    return clean_standard_no(standard_no) != ""
 
 
 def keyword_forms(standard_no: str) -> list[tuple[str, str]]:
@@ -228,10 +288,12 @@ def keyword_forms(standard_no: str) -> list[tuple[str, str]]:
 
     1. ``full``    —— 半角斜杠、**保留空格**的完整号（``GB/T 5405-2002``）。
        ⚠ 空格必须留：cssn 实测"带空格完整号"才排第一（``norm_no`` 会把空格吃掉）。
-    2. ``compact`` —— 去空格/去斜杠/大写（``GBT5405-2002``，真库 92% 的号写全角斜杠，
+    2. ``clean``   —— 抠掉尾部杂字后的标准号（``GB 5009.12-2023食品安全国家标准``
+       → ``GB 5009.12-2023``）。号是干净的时它与 ``full`` 同形、被去重。
+    3. ``compact`` —— 去空格/去斜杠/大写（``GBT5405-2002``，真库 92% 的号写全角斜杠，
        这一形式专治"站点按半角认、库里写全角"）。
-    3. ``core``    —— 数字主体**含分部号**、去年代（``5405`` / ``1094.3``）。
-    4. ``bare``    —— 数字**首段**（``1094``）。最宽也最吵（``1094`` 会捞出 HJ/JJF/DB），
+    4. ``core``    —— 数字主体**含分部号**、去年代（``5405`` / ``1094.3``）。
+    5. ``bare``    —— 数字**首段**（``1094``）。最宽也最吵（``1094`` 会捞出 HJ/JJF/DB），
        只在前面全落空时用，且**仍按归一化标准号精确挑选**。
     """
     from src.core.update.channels.base import norm_no, query_no
@@ -247,6 +309,7 @@ def keyword_forms(standard_no: str) -> list[tuple[str, str]]:
             out.append((form, kw))
 
     _add("full", query_no(raw))
+    _add("clean", clean_standard_no(raw))
     _add("compact", norm_no(raw))
     m = _NO_RE.match(query_no(raw))
     if m:
@@ -311,22 +374,36 @@ def empty_lookup(outcome: str, attempts: list[dict], reason: str = "") -> dict[s
 
 
 def _pick_row(rows: list[Any], standard_no: str) -> tuple[dict | None, str | None]:
-    """按**归一化标准号**精确挑选匹配行（跨前缀同主体是兜底，且把 mode 如实上报）。
+    """按**归一化标准号**精确挑选匹配行；年份不同的他版**不算命中**。
 
     这里**刻意复用** ``CssnAdapter._pick`` 的判断（那是 CSSN 搜索语义的唯一所有者：
     它知道 GB→GB/T 强制转推荐后库里只剩推荐版，也知道同年份优先）。复制一份到这里
     迟早跟那边漂移，所以直接调它。
+
+    ⚠ **但有一处刻意的收紧**（2026-09-22 真机 380 篇实测抓到的真缺陷）：那边最后一档是
+    ``cross_prefix_latest``（数字主体相同、年份不同的最大年份版），那是给**探测效力状态**
+    用的参考值；用在**分类号**上会**打错标签** —— 实测 ``GBZ 337-2025`` 的数字主体 ``337``
+    撞上了 ``GB 337-1984``（无机酸、碱），于是"职业性腕管综合征诊断标准"会被打上
+    "无机酸碱"的 CCS。⇒ 这一档在这里被**拒收**（见 ``_ACCEPTED_PICK_MODES``），
+    交回调用方如实记流水（"命中了 X，但年份不同、不当同一版"）。
+
+    返回 ``(row, mode)``；``row`` 为 None 而 ``mode`` 非空 ⇒ **挑到过、但被拒收**。
     """
     from src.core.update.channels.cssn import CssnAdapter
-    return CssnAdapter._pick(rows, standard_no)
+    row, mode = CssnAdapter._pick(rows, standard_no)
+    if row is not None and mode not in _ACCEPTED_PICK_MODES:
+        return None, mode
+    return row, mode
 
 
 def _layer_official_api(standard_no: str, transport: Any,
                         attempts: list[dict], pause_s: float | None = None
-                        ) -> tuple[dict | None, str]:
+                        ) -> tuple[dict | None, _LayerFacts]:
     """① 官方 JSON 接口：多形式依次试，每形式按归一号精确挑。
 
-    返回 ``(结果|None, 本层结论)``；本层结论 ∈ found|not_found|network_failed|parse_failed。
+    返回 ``(结果|None, 本层事实)``；**结论由调用方在跨层事实合并后算一次**
+    （见 ``_combine_verdict``）—— 单层自己下结论会让"官方答清楚、网页读不出"
+    这种组合被误报成"读不出来"。
     """
     facts = _LayerFacts()
     for form, kw in keyword_forms(standard_no):
@@ -355,9 +432,16 @@ def _layer_official_api(standard_no: str, transport: Any,
         facts.saw_parseable = True
         row, mode = _pick_row(rows, standard_no)
         if row is None:
-            attempts.append({"layer": SOURCE_OFFICIAL_API, "keyword_form": form,
-                             "keyword": kw, "result": "no_match",
-                             "detail": f"应答 {len(rows)} 条，无归一号相等的行"})
+            if mode is not None:
+                # 挑到过，但是**年份不同的他版** —— 拒收（见 `_pick_row` 的真缺陷取证）
+                attempts.append({"layer": SOURCE_OFFICIAL_API, "keyword_form": form,
+                                 "keyword": kw, "result": "other_edition",
+                                 "detail": f"只挑到年份不同的他版（{mode}）"
+                                           f"—— 不当同一版，不取它的分类号"})
+            else:
+                attempts.append({"layer": SOURCE_OFFICIAL_API, "keyword_form": form,
+                                 "keyword": kw, "result": "no_match",
+                                 "detail": f"应答 {len(rows)} 条，无归一号相等的行"})
             continue
         ccs_code = str(row.get("a825") or "").strip()
         ccs_name = str(row.get("a825name") or "").strip()
@@ -372,8 +456,8 @@ def _layer_official_api(standard_no: str, transport: Any,
         attempts.append({"layer": SOURCE_OFFICIAL_API, "keyword_form": form,
                          "keyword": kw, "result": "hit", "detail": f"{matched} ({mode})"})
         return _lookup_dict(ccs_code, ccs_name, source=SOURCE_OFFICIAL_API,
-                            keyword_form=form, matched_no=matched), OUTCOME_FOUND
-    return None, facts.verdict()
+                            keyword_form=form, matched_no=matched), facts
+    return None, facts
 
 
 def _rows_of(body: Any) -> list[Any] | None:
@@ -448,8 +532,8 @@ def _parse_html_items(html: str) -> list[dict[str, str]]:
 
 def _layer_web_scrape(standard_no: str, transport: Any,
                       attempts: list[dict], pause_s: float | None = None
-                      ) -> tuple[dict | None, str]:
-    """② 网页抓取：同样多形式依次试，按**归一号精确挑选**条目。"""
+                      ) -> tuple[dict | None, _LayerFacts]:
+    """② 网页抓取：同样多形式依次试，按**归一号精确挑选**条目（事实交回调用方合并）。"""
     facts = _LayerFacts()
     for form, kw in keyword_forms(standard_no):
         try:
@@ -479,9 +563,15 @@ def _layer_web_scrape(standard_no: str, transport: Any,
         facts.saw_parseable = True
         row, mode = _pick_row(items, standard_no)
         if row is None:
-            attempts.append({"layer": SOURCE_WEB_SCRAPE, "keyword_form": form,
-                             "keyword": kw, "result": "no_match",
-                             "detail": f"页面 {len(items)} 条，无归一号相等的条目"})
+            if mode is not None:
+                attempts.append({"layer": SOURCE_WEB_SCRAPE, "keyword_form": form,
+                                 "keyword": kw, "result": "other_edition",
+                                 "detail": f"只挑到年份不同的他版（{mode}）"
+                                           f"—— 不当同一版，不取它的分类号"})
+            else:
+                attempts.append({"layer": SOURCE_WEB_SCRAPE, "keyword_form": form,
+                                 "keyword": kw, "result": "no_match",
+                                 "detail": f"页面 {len(items)} 条，无归一号相等的条目"})
             continue
         matched = str(row.get("a100") or "").strip()
         raw_ccs = str(row.get("ccs") or "").strip()
@@ -495,8 +585,8 @@ def _layer_web_scrape(standard_no: str, transport: Any,
         attempts.append({"layer": SOURCE_WEB_SCRAPE, "keyword_form": form,
                          "keyword": kw, "result": "hit", "detail": f"{matched} ({mode})"})
         return _lookup_dict(code, sub, source=SOURCE_WEB_SCRAPE,
-                            keyword_form=form, matched_no=matched), OUTCOME_FOUND
-    return None, facts.verdict()
+                            keyword_form=form, matched_no=matched), facts
+    return None, facts
 
 
 # ─────────────────────────── ③ 本地兜底 ───────────────────────────
@@ -574,18 +664,28 @@ def resolve_ccs(standard_no: str, standard_name: str = "", *,
         # 没有号就无从查：这不是"网络失败"，也不是"官方查无"，如实说"没有号"
         return empty_lookup(OUTCOME_NOT_FOUND, attempts,
                             reason="没有标准号，无从查询分类号")
-    # ① 官方接口 → ② 网页抓取（各层给一个结论，最后合成一个如实的总结论）
-    verdicts: list[str] = []
+    if not looks_like_standard_no(standard_no):
+        # **不适用**：这个字段压根不像标准号（真库那 380 篇里混着 7 篇法规）。
+        # 不打网络（永远不会有结果），也不说"官方查无"（那不是"没有这个号"）。
+        attempts.append({"layer": "shape_check", "keyword_form": None,
+                         "keyword": str(standard_no)[:80], "result": "not_a_standard_no",
+                         "detail": "开头不是字母前缀+数字（像法规/文件标题）"})
+        return empty_lookup(
+            OUTCOME_NOT_APPLICABLE, attempts,
+            reason=f"不适用：标准号字段「{str(standard_no)[:40]}」不像标准号"
+                   "（没有分类号这回事）")
+    # ① 官方接口 → ② 网页抓取（各层把**事实**交回来，最后合成一个如实的总结论）
+    facts = _LayerFacts()
     if use_network:
         tr = transport if transport is not None else _default_transport()
         for layer in (_layer_official_api, _layer_web_scrape):
-            got, verdict = layer(standard_no, tr, attempts, pause_s)
+            got, layer_facts = layer(standard_no, tr, attempts, pause_s)
+            layer_facts.merge_into(facts)
             if got is not None:
                 got["attempts"] = attempts
                 got["found"] = True
                 return got
-            verdicts.append(verdict)
-    worst = _combine_verdicts(verdicts) if verdicts else OUTCOME_NOT_FOUND
+    worst = _combine_verdict(facts) if use_network else OUTCOME_NOT_FOUND
     # ③ 本地兜底：**永远试**（哪怕网络全炸，本地能命中就是命中）
     got = _layer_local_table(standard_no, attempts)
     if got is None:

@@ -34,8 +34,9 @@ _COLUMNS: tuple[str, ...] = (
     "ccs_name", "reason", "attempts_json", "checked_at", "applied_at",
 )
 
-#: 台账里"还没补到"的三种结论（界面「待分类」用它讲"为什么没有建议"）
-UNRESOLVED_OUTCOMES: tuple[str, ...] = ("not_found", "network_failed", "parse_failed")
+#: 台账里"还没补到"的四种结论（界面「待分类」用它讲"为什么没有建议"）
+UNRESOLVED_OUTCOMES: tuple[str, ...] = ("not_found", "network_failed", "parse_failed",
+                                        "not_applicable")
 
 
 def _err(msg: str, code: str) -> KnowledgeStationError:
@@ -72,7 +73,8 @@ def record_ccs_lookup(doc_id: str, result: dict,
     都行 —— 未命中的 ``outcome`` / ``reason`` / ``attempts`` 正是要留痕的东西）。
     """
     outcome = str(result.get("outcome") or "")
-    if outcome not in ("found", "not_found", "network_failed", "parse_failed"):
+    if outcome not in ("found", "not_found", "network_failed", "parse_failed",
+                       "not_applicable"):
         raise _err(f"不认识的 outcome: {outcome!r}", "invalid_ccs_outcome")
     attempts = result.get("attempts") or []
     with write_transaction(db_path) as conn:
@@ -173,7 +175,8 @@ def ccs_states_for(doc_ids: list[str], db_path: Any = None) -> dict[str, dict]:
 def counts_by_outcome(db_path: Any = None) -> dict[str, int]:
     """台账按结论计数（界面「补全分类号」的结果概览用）。"""
     conn = get_db_connection(db_path)
-    out = {k: 0 for k in ("found", "not_found", "network_failed", "parse_failed")}
+    out = {k: 0 for k in ("found", "not_found", "network_failed", "parse_failed",
+                          "not_applicable")}
     for r in conn.execute("SELECT outcome, COUNT(*) AS n FROM doc_ccs_state"
                           " GROUP BY outcome"):
         out[str(r["outcome"])] = int(r["n"])
