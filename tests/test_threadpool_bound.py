@@ -97,7 +97,6 @@ class TestHeavyGate:
                   "/api/v1/materials/projects/prj_x/scan",
                   "/api/v1/report/research",
                   "/api/v1/ks/answer",
-                  "/api/v1/compliance/review/t1/execute",
                   # §10.93：这 5 条从 `async def + asyncio.to_thread` 改回 `def`（回到这口有界池）
                   # ⇒ 也必须吃重活令牌：分钟级全量爬取 / 下载+转 PDF+入库 / 逐次网络请求。
                   "/api/v1/laws/catalog/refresh",

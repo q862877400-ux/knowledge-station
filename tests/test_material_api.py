@@ -583,14 +583,12 @@ class TestSlowEndpointsAreDeclaredSync:
         # 读完 body 之后全是同步重活（LLM 调用 / 抽别名 / 快照落盘 / 网络探测…）。
         # 判据形状与 §10.71/§10.76 同款：body 走签名，坏 body 由 FastAPI 直接 422。
         ("/api/v1/clauses/patches", "POST"),
-        ("/api/v1/compliance/obligations", "POST"),
         ("/api/v1/compliance/gap-analysis", "POST"),
         ("/api/v1/aliases/extract", "POST"),
         ("/api/v1/ks/answer", "POST"),
         ("/api/v1/documents/{old_doc_id}/migrate-patches", "POST"),
         ("/api/v1/clauses/{clause_revision_id}/office-edit", "POST"),
         ("/api/v1/clauses/office-edit/commit", "POST"),
-        ("/api/v1/batch/qa", "POST"),
         ("/api/v1/vision/locate", "POST"),
         ("/api/v1/snapshots", "POST"),
         ("/api/v1/update/announce-sources", "GET"),
@@ -617,7 +615,8 @@ class TestSlowEndpointsAreDeclaredSync:
         # 内层 `async def event_stream()` 里没有一个 `await` ⇒ 一次逐点 LLM 评审把引擎冻住。
         # 它现在同时在**通则之一**（只读 body 的 async）与**通则之二**（无 await 的异步生成器）的
         # 判据之外——**两条通则都不再需要白名单**。
-        ("/api/v1/compliance/review/{task_id}/execute", "POST"),
+        # ⚠ 删单留痕（NOT-DOING #16，2026-09-22）：该 SSE 路由 `/compliance/review/{task_id}/execute`
+        # 已随合同审查删除；白名单恒空的状态由上面两条通则的判据自己守着。
         # ---- §10.93：`/laws/*` 那 5 条（网络 / 长跑）从 `async def + asyncio.to_thread` 改回 `def`。
         # 它们原先**自称**"已经让出事件循环"，但 `asyncio.to_thread` 走的是 asyncio 默认执行器
         # （`min(32, cpu+4)` 个 worker）——**不是**被 `THREADPOOL_TOKENS = 16` 收窄的那口池，

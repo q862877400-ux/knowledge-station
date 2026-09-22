@@ -2279,6 +2279,15 @@ export function mount(container, props) {
     && (officeRows[1].textContent ?? '').includes('纠错修订') && (officeRows[1].textContent ?? '').includes('标记识别错的条款，可回退')
     && (officeRows[2].textContent ?? '').includes('外发审计') && (officeRows[2].textContent ?? '').includes('每次外发记录，可查可导出'),
     JSON.stringify(officeRows.map((el) => el.textContent)))
+  {
+    /* 菜单改名对账（C2 欠的账 C3 补）：业主截图指出「能力/效力报告」旧名残留 ⇒ 源码级钉死。 */
+    const { readFileSync } = await import('node:fs')
+    const guideSrc = readFileSync('D:/AI/work space/zcode/plugin/client/KsKnowledgeGuide.tsx', 'utf8')
+    check('菜单注册面：六条菜单文案改名对账（「能力」→「办事台」、「效力报告」→「效力总览」；旧名回来=红）',
+      guideSrc.includes("label: '办事台'") && guideSrc.includes("label: '效力总览'")
+      && !guideSrc.includes("label: '能力'") && !guideSrc.includes("label: '效力报告'"),
+      'KsKnowledgeGuide 菜单文案')
+  }
   await cClick(officeRows[0])
   check('办事台：点「制度差距分析」⇒ 进专门页面（页面文字 + ‹ 返回办事台 + 动作位；标题类名不定死，页面专属文案为证）',
     (capContainer.textContent ?? '').includes('上传内部制度，自动对比法定要求')

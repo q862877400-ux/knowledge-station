@@ -101,7 +101,6 @@ HEAVY_PREFIXES: tuple[str, ...] = (
     "/api/v1/snapshots",                      # 造/恢复快照（打整包 + sha256）
     "/api/v1/ks/answer",                      # 取证答案（引擎侧推理，120s 契约）
     "/api/v1/batch/qa",                       # 批量问答
-    "/api/v1/compliance/review",              # 逐点评审（SSE，逐点调 LLM）
     "/api/v1/vision/locate",                  # 视觉定位（模型 + 渲染）
     "/api/v1/aliases/extract",                # 术语抽取（全库拼接）
     "/api/v1/data/package/",                  # 数据包导出/导入
@@ -830,50 +829,6 @@ def create_app(token: str) -> FastAPI:
                 "X-Frac-H": f"{rect.height / ph:.6f}",
             })
 
-    @app.post("/api/v1/compliance/review")
-    def create_review(body: dict | None = None):
-        body = body or {}
-        from src.core.compliance.engine import create_review_task
-        out = create_review_task(
-            body.get("review_type", "contract"), body.get("object_name", ""),
-            body.get("object_content", ""), body.get("project_id"))
-        return {"code": 200, "status": "success", "data": out}
-
-    @app.post("/api/v1/compliance/review/{task_id}/execute")
-    def execute_review(task_id: str, body: dict | None = None):
-        """逐点评审 + SSE 推流。
-
-        ⚠ **两个"必须是同步"的点**（§10.80）：
-
-        1. 外层 `def` + body 走签名（§10.71/§10.76/§10.79 同口径）；
-        2. **生成器也是同步的**（`def event_stream()`）——这一条最要紧：它原先写成
-           `async def event_stream()` 却**整个函数体里一个 `await` 都没有**，于是
-           **每产出一条事件都在事件循环里跑**；而 `run_review(...)` 是**逐点调 LLM** 的同步生成器
-           ⇒ 一次评审（可能几十秒到几分钟）会把**整个引擎**冻住。
-           `StreamingResponse` 对**非异步**可迭代对象会用 `iterate_in_threadpool(...)`
-           （starlette 1.6 的 `__init__` 里就这一句判定）⇒ 同步生成器 = 逐条在**线程池**里产出，
-           事件循环全程空闲，且 SSE 语义（事件顺序/分帧）逐字不变。
-        """
-        body = body or {}
-        confirmed = body.get("confirmed_point_ids")
-        from src.core.compliance.engine import execute_review as run_review
-
-        def event_stream():
-            for item in run_review(task_id, confirmed):
-                yield _sse("point_verdict", item)
-            conn = get_db_connection()
-            row = conn.execute(
-                "SELECT red_count, yellow_count, green_count, report_path FROM review_task"
-                " WHERE task_id=?", (task_id,)).fetchone()
-            yield _sse("report_ready", {
-                "red_count": row["red_count"], "yellow_count": row["yellow_count"],
-                "green_count": row["green_count"], "report_path": row["report_path"]})
-            yield _sse("done", {})
-
-        return StreamingResponse(event_stream(), media_type="text/event-stream")
-
-    # ===== 阶段4 "能用"档：用户资产 / 导出 / 义务清单 / 目录树 =====
-
     @app.get("/api/v1/documents")
     def doc_list():
         """知识库文档列表（对比选择器/知识库浏览用）。"""
@@ -1524,42 +1479,6 @@ def create_app(token: str) -> FastAPI:
             return _json_error(404, e.code, str(e))
         return {"code": 200, "data": out}
 
-    @app.post("/api/v1/compliance/obligations")
-    def gen_obligations(body: dict | None = None):
-        body = body or {}
-        from src.core.compliance.obligation import generate_obligation_list
-        return {"code": 200, "data": generate_obligation_list(body["business_description"])}
-
-    @app.get("/api/v1/compliance/obligations/{list_id}")
-    def get_obligations(list_id: str):
-        from src.core.storage import user_data
-        data = user_data.get_obligation_list(list_id)
-        if data is None:
-            return _json_error(404, "list_not_found", f"清单不存在: {list_id}")
-        return {"code": 200, "data": data}
-
-    @app.post("/api/v1/compliance/obligations/{list_id}/checklist")
-    def to_checklist(list_id: str):
-        from src.core.compliance.obligation import to_checklist
-        from src.core.exceptions import KnowledgeStationError
-        try:
-            return {"code": 200, "data": to_checklist(list_id)}
-        except KnowledgeStationError as e:
-            return _json_error(404, e.code, str(e))
-
-    @app.post("/api/v1/compliance/obligations/{list_id}/check")
-    def toggle_check(list_id: str, body: dict | None = None):
-        body = body or {}
-        from src.core.compliance.obligation import toggle_check
-        ok = toggle_check(list_id, body["clause_revision_id"], body["checked"])
-        if not ok:
-            return _json_error(404, "list_not_found", "清单不存在或条目不存在")
-        return {"code": 200, "data": {"updated": True}}
-
-    # ===== Phase 6：知识管理与时效治理（R29/R42/R16/R8/R11/R48）=====
-
-    # ===== Phase 7：合规审查纵深（R-L11~14）=====
-
     @app.post("/api/v1/compliance/policies")
     def import_policy(body: dict | None = None):
         body = body or {}
@@ -1584,11 +1503,6 @@ def create_app(token: str) -> FastAPI:
             return {"code": 200, "data": run_gap_analysis(body["policy_id"])}
         except KnowledgeStationError as e:
             return _json_error(404, e.code, str(e))
-
-    @app.post("/api/v1/compliance/obligations/build")
-    def build_obligations():
-        from src.core.compliance.gap_analysis import build_obligations
-        return {"code": 200, "data": {"obligations": build_obligations()}}
 
     @app.get("/api/v1/documents/{doc_id}/versions")
     def doc_versions(doc_id: str):
@@ -2466,20 +2380,6 @@ def create_app(token: str) -> FastAPI:
         }}
 
     # ===== Task 12.3 批量问答 =====
-
-    @app.post("/api/v1/batch/qa")
-    def batch_qa(body: dict | None = None):
-        body = body or {}
-        questions = body.get("questions") or []
-        from src.core.compliance.batch_qa import run_batch_qa
-        from src.core.exceptions import KnowledgeStationError
-        try:
-            data = run_batch_qa(questions, body.get("budget", 20000))
-        except KnowledgeStationError as e:
-            return _json_error(422, e.code, str(e))
-        return {"code": 200, "data": data}
-
-    # ===== Task 11.4 本地视觉反查（截图 OCR → 检索，零云端） =====
 
     @app.post("/api/v1/vision/locate")
     def vision_locate(body: dict | None = None):

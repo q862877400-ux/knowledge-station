@@ -97,17 +97,6 @@ def test_backlinks(db):
     assert len(data["backlinks"]["obligations"]) == 1
 
 
-def test_batch_qa_budget_and_verification(db):
-    """12.3：批量问答护栏（>50 截断）+ 核验标记（无 Key 走占位，零云端消耗）。"""
-    from src.core.compliance.batch_qa import run_batch_qa
-    _seed_clause(db, doc_id="p12q")
-    questions = [f"防火间距问题{i}" for i in range(55)]
-    out = run_batch_qa(questions, budget=1000)
-    assert out["summary"]["total"] == 50, "超 50 问必须截断"
-    assert all("question" in r for r in out["results"])
-    assert out["batch_id"].startswith("batch_")
-
-
 def test_phase12_api(client, db, monkeypatch):
     from src.core.exports import office_roundtrip as rt
     monkeypatch.setattr(rt, "_launch_office", lambda p, rect=None: None)
@@ -117,10 +106,7 @@ def test_phase12_api(client, db, monkeypatch):
     # backlinks API
     r = c.get(f"/api/v1/clauses/{cid}/backlinks", headers=headers)
     assert r.status_code == 200
-    # batch QA API
-    r = c.post("/api/v1/batch/qa", headers=headers,
-               json={"questions": ["防火间距", "监护要求"]})
-    assert r.status_code == 200 and r.json()["data"]["summary"]["total"] == 2
+    # ⚠ 删单留痕（NOT-DOING #16）：原「batch QA API」四行随 /api/v1/batch/qa 删除。
     # office-edit start
     r = c.post(f"/api/v1/clauses/{cid}/office-edit", headers=headers)
     assert r.status_code == 200

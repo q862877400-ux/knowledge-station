@@ -87,25 +87,6 @@ def test_project_crud(rich_db):
     assert len(user_data.list_projects()) == 1
 
 
-def test_obligation_list_and_checklist(rich_db):
-    from src.core.compliance.obligation import (
-        generate_obligation_list, to_checklist, toggle_check)
-    from src.core.storage import user_data
-    out = generate_obligation_list("消防管理", top_k=10)
-    assert out["count"] >= 2, "应召回多条应当型条款"
-    assert all("应当" in it["obligation_text"] or "应" in it["obligation_text"]
-               for g in out["groups"] for it in g["items"])
-    cl = to_checklist(out["list_id"])
-    assert cl["mode"] == "checklist"
-    assert any("是否已落实" in it["question"] for g in cl["groups"] for it in g["items"])
-    first = cl["groups"][0]["items"][0]
-    assert toggle_check(out["list_id"], first["clause_revision_id"], True) is True
-    data = user_data.get_obligation_list(out["list_id"])
-    item = next(it for it in data["items"]
-                if it["clause_revision_id"] == first["clause_revision_id"])
-    assert item["checked"] is True
-
-
 def test_document_tree(rich_db):
     from src.core.api.server import create_app
     from fastapi.testclient import TestClient
