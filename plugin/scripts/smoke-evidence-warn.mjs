@@ -11,7 +11,7 @@
  *
  * 用法：node scripts/smoke-evidence-warn.mjs   （cwd = plugin 根；退出码 0 = 全通过）
  */
-import { mkdtemp, rm } from 'node:fs/promises'
+import { mkdtemp, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
@@ -39,8 +39,15 @@ try {
 
 // 产物落 plugin/ 内（react 是 external，Node 按产物位置向上找 node_modules —— smoke-anchor-mark 的教训）
 const outfile = join(pluginRoot, '.evidence-warn.smoke.mjs')
+// 入口 = 两个纯组件的再导出（同一模块图一次打包；单文件入口拿不到两份导出）。
+const tmp = await mkdtemp(join(tmpdir(), 'ks-evwarn-'))
+const entryFile = join(tmp, 'entry.ts')
+await writeFile(entryFile, [
+  `export { KsAnchorWarn } from ${JSON.stringify(join(pluginRoot, 'client', 'KsAnchorWarn.tsx'))}`,
+  `export * from ${JSON.stringify(join(pluginRoot, 'client', 'KsArrowOverlay.tsx'))}`,
+].join('\n'), 'utf8')
 await build({
-  entryPoints: [join(pluginRoot, 'client', 'KsAnchorWarn.tsx')],
+  entryPoints: [entryFile],
   bundle: true, platform: 'node', format: 'esm', outfile,
   absWorkingDir: pluginRoot, loader: { '.tsx': 'tsx', '.ts': 'ts' },
   external: ['react', 'react-dom', 'react/jsx-runtime'],
@@ -48,6 +55,7 @@ await build({
 })
 const mod = await import(pathToFileURL(outfile).href)
 await rm(outfile, { force: true })
+await rm(tmp, { recursive: true, force: true })
 
 const KsAnchorWarn = mod.KsAnchorWarn
 check('KsAnchorWarn 导出为函数（渲染级冒烟的入口）', typeof KsAnchorWarn === 'function')
@@ -62,6 +70,21 @@ if (typeof KsAnchorWarn === 'function') {
     html)
   check('空消息不渲染成空壳（至少有 ⚠ 与 alert）',
     (() => { const h = renderToStaticMarkup(React.createElement(KsAnchorWarn, { message: '' })); return h.includes('role="alert"') && h.includes('⚠') })())
+
+  // ---- A1b：红箭头覆盖层（单页/连续共用的视觉本体）----
+  // ⚠ forwardRef 组件的 typeof 是 **object** 不是 function（我第一版门槛写错 ⇒ 渲染断言整段没跑）。
+  const ArrowOverlay = mod.KsArrowOverlay
+  const arrowRenderable = ArrowOverlay !== undefined && ArrowOverlay !== null
+  check('KsArrowOverlay 导出为可渲染元素（单页/连续两处共用的箭头覆盖层）', arrowRenderable,
+    `typeof=${typeof ArrowOverlay}`)
+  if (arrowRenderable) {
+    const arrowHtml = renderToStaticMarkup(React.createElement(ArrowOverlay, { ref: { current: null } }))
+    check('红箭头图形在场（data-URI SVG + 红色本体，不许悄悄消失/换样）',
+      arrowHtml.includes('data:image/svg+xml') && String(mod.KS_ARROW_SVG ?? '').includes('e02020'),
+      arrowHtml)
+    check('覆盖层默认隐藏 + 装饰语义（display:none + aria-hidden）',
+      arrowHtml.includes('display:none') && arrowHtml.includes('aria-hidden="true"'), arrowHtml)
+  }
 }
 
 const failed = results.filter((r) => !r.ok)

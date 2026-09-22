@@ -65,6 +65,7 @@ import { KsFilesView } from './KsFilesTab'
 import { KsBookmarksView, type KsBookmarkJump } from './KsBookmarksTab'
 import { KsDocTextView } from './KsDocTextView'
 import { KsAnchorWarn } from './KsAnchorWarn'
+import { KsArrowOverlay } from './KsArrowOverlay'
 import {
   evidenceUrlOf,
   parseEvidence,
@@ -509,8 +510,12 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
     if (box !== null) {
       const anchor = evidence.current?.bbox
       const onPage = evidence.current?.page === undefined || evidence.current.page === clamped
+      // 诊断 A1b（2026-09-22）：**非目标页的重绘不许碰箭头覆盖层**——原来它会走到
+      // else 把箭头藏掉/清状态，这正是"多页共享箭头互相覆盖"的根子（旧注释把这当
+      // 固有限制、于是在连续模式干脆不画）。只让目标页的绘制碰覆盖层，限制即消失。
+      if (!onPage) return
       // 设置项「显示红色定位箭头」关闭 → 不画箭头也不出收藏按钮（仅跳页）。
-      if (anchor !== undefined && onPage && showArrowRef.current) {
+      if (anchor !== undefined && showArrowRef.current) {
         const [bx0, by0, bx1, by1] = anchor
         // FIX(verifier 定案 2026-09-05)：convertToViewPoint 是 pdfjs 上不存在
         // 的方法名 → 运行时 TypeError 被 render effect 的 .catch 吞掉 → 箭头
@@ -534,8 +539,14 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
         // left 2..16px strip free for the bookmark label.
         const left = Math.max(18, rowLeft - arrowW - 2)
         const top = rowTop + (rowH - arrowH) / 2
+        // 诊断 A1b：连续模式的覆盖层挂在**内容容器**上（position:relative）⇒ 坐标要加
+        // 目标页画布的纵向偏移（逐页堆叠 + 8px 间距）；单页模式容器即画布盒，偏移 0。
+        // ⚠ 已知边界：上方页面从占位撑开成真实尺寸后目标页会移位，到它下次重绘即自校正。
+        const pageTop = pagingMode === 'continuous'
+          ? (pageCanvasRefs.current.get(clamped)?.offsetTop ?? 0)
+          : 0
         box.style.left = `${left}px`
-        box.style.top = `${top}px`
+        box.style.top = `${top + pageTop}px`
         box.style.width = `${arrowW}px`
         box.style.height = `${arrowH}px`
         box.style.display = 'block'
@@ -2041,21 +2052,7 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
                 translateZ(0) 把 canvas 提升为独立合成层：面板宽度过渡（父级
                 contain:layout 重排）就不会再触发这块大位图的重光栅化/黑闪。 */}
             <canvas ref={canvasRef} style={{ display: 'block', transform: 'translateZ(0)' }} />
-            <div
-              ref={bboxRef}
-              aria-hidden="true"
-              style={{
-                position: 'absolute',
-                display: 'none',
-                pointerEvents: 'none',
-                // 红色实心右箭头（data-URI SVG，2:1），指向条款行左缘。
-                backgroundImage: `url("data:image/svg+xml;charset=UTF-8,${encodeURIComponent(
-                  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 10"><path d="M0 4h11V1l9 4-9 4V6H0z" fill="#e02020"/></svg>',
-                )}")`,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: '100% 100%',
-              }}
-            />
+            <KsArrowOverlay ref={bboxRef} />
             {/* 增强③-A: 条款收藏按钮——竖版文字「收藏本条款」，固定在页面左边注带
                 （2..18px），垂直居中条款行；与红箭头左右分离互不遮挡。
                 悬停 title 补充说明。 */}
@@ -2087,11 +2084,14 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
           乱跳（这正是 PDF 瀑布流最经典的抖动来源）。
           只绘制"接近可视区"的那几页（IntersectionObserver，见上方的绘制管线），
           所以几百页的国标也只占几张位图的显存。
-          红箭头/条款收藏按钮仍只在**单页**模式显示：多页共享一个 arrowPos 状态会
-          相互覆盖（本页的箭头会被隔壁页的重绘清掉）。
+          ⚠ **更正（诊断 A1b，2026-09-22）**：原文写"红箭头/条款收藏按钮仍只在**单页**模式
+          显示：多页共享一个 arrowPos 状态会相互覆盖"——**覆盖的根子已修**（非目标页的
+          重绘不再碰覆盖层，见 renderPage 的 onPage 早退），红箭头现在**连续模式也画**
+          （条款收藏按钮仍只在单页——登记未做，不在本刀）。
         */}
         {load.status === 'ready' && viewMode === 'pdf' && pagingMode === 'continuous' && (
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 8 }}>
+          <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 8 }}>
+            <KsArrowOverlay ref={bboxRef} />
             {Array.from({ length: total }, (_, i) => i + 1).map((p) => (
               <canvas
                 key={p}
