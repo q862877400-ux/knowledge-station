@@ -47,11 +47,17 @@ const docListeners = []
 /** 真的记账的 document 桩：add/remove 都按 (type, fn) 记账，才能测"监听器有没有泄漏"。 */
 const docHandlers = new Map()
 const listenerCount = (type) => (docHandlers.get(type) ?? new Set()).size
-/** 驱动当前登记的 click 监听（entry 用 document 级 capture 接管证据锚点）。 */
-function dispatchClick(event) {
-  for (const fn of docHandlers.get('click') ?? []) {
-    fn({ preventDefault() {}, button: 0, metaKey: false, ctrlKey: false, shiftKey: false, altKey: false, ...event })
+/** 驱动当前登记的 click/auxclick 监听（entry 用 document 级 capture 接管证据锚点）。
+ *  2026-09-22（诊断 A3 判据）：返回**事件本体**——断言要看 `prevented`（默认导航拦没拦下）；
+ *  `type` 支持 'auxclick'（中键在现代浏览器走这条通道）。 */
+function dispatchClick(event, type = 'click') {
+  let last = null
+  for (const fn of docHandlers.get(type) ?? []) {
+    const ev = { preventDefault() { ev.prevented = true }, button: 0, metaKey: false, ctrlKey: false, shiftKey: false, altKey: false, ...event }
+    fn(ev)
+    last = ev
   }
+  return last ?? { prevented: false }
 }
 globalThis.document = {
   visibilityState: 'visible',
@@ -64,7 +70,22 @@ globalThis.document = {
    */
   querySelector() { return null },
   getElementById() { return null },
-  createElement() { return { set textContent(v) {}, dataset: {} } },
+  // 2026-09-22（诊断 A3 判据）：可见提示要 create 元素 + 挂 body ⇒ 桩得能**记账**
+  // （text/属性/挂载），否则"失败可见"这条断言无从谈起。style 是可赋值对象（cssText）。
+  createElement() {
+    return {
+      set textContent(v) { this._text = v },
+      get textContent() { return this._text },
+      dataset: {}, style: {},
+      setAttribute(k, v) { (this._attrs ??= {})[k] = v },
+      remove() { this._removed = true },
+    }
+  },
+  body: {
+    children: [],
+    appendChild(n) { this.children.push(n); return n },
+    removeChild(n) { const i = this.children.indexOf(n); if (i >= 0) this.children.splice(i, 1); return n },
+  },
   head: { appendChild() {} },
   addEventListener(type, fn) {
     if (!docHandlers.has(type)) docHandlers.set(type, new Set())
@@ -447,6 +468,62 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
   check('the evidence URL travels in params (keeps the address constant → singleton tab)',
     right.opened[0]?.options?.params?.url === url,
     JSON.stringify(right.opened[0]?.options?.params))
+}
+
+/* ------------ 3c. 诊断 A3：修饰键/中键不许落死页 + 侧栏缺席必须可见提示 ------------ */
+{
+  // 隔离：清掉此前各块 apply() 累积的监听账本——否则"拦下默认导航"会被旧实例的处理器
+  // 搭便车，断言失去归因（变异也就红不了）。
+  docHandlers.clear()
+  docHandlers.set('click', new Set())
+  {
+    const built = buildFacade({ withBetterSidebar: true })
+    entry.apply(built.facade)
+    const right = built.rightRef.current
+    const url = 'http://127.0.0.1:1/__ks_evidence__?doc=doc_A3&page=3'
+    const anchor = { href: url, closest: () => ({ href: url }) }
+
+    const evCtrl = dispatchClick({ button: 0, ctrlKey: true, target: anchor })
+    check('A3：Ctrl+点击证据链接 → 拦下默认导航（不死页）且照常进侧栏',
+      evCtrl.prevented === true && right.opened.length === 1,
+      `prevented=${evCtrl.prevented} opened=${right.opened.length}`)
+
+    const evMid = dispatchClick({ button: 1, target: anchor }, 'auxclick')
+    check('A3：中键（auxclick 通道）→ 同样拦下并进侧栏',
+      evMid.prevented === true && right.opened.length === 2,
+      `prevented=${evMid.prevented} opened=${right.opened.length}`)
+
+    const other = { href: 'https://example.com/x', closest: () => ({ href: 'https://example.com/x' }) }
+    const evOther = dispatchClick({ button: 0, ctrlKey: true, target: other })
+    check('A3：非证据链接的修饰键点击**不拦**（默认行为保留）',
+      evOther.prevented !== true && right.opened.length === 2,
+      `prevented=${String(evOther.prevented)} opened=${right.opened.length}`)
+
+    check('A3：auxclick 监听已装（中键的通道）', docListeners.includes('auxclick'))
+    for (const fn of built.effects) if (typeof fn === 'function') fn()
+    docHandlers.clear()
+  }
+  {
+    // 侧栏缺席（不 provide）：正式接管者不在场 ⇒ 兜底必须拦下 + 给可见提示。
+    const built = buildFacade({})
+    entry.apply(built.facade)
+    const url = 'http://127.0.0.1:1/__ks_evidence__?doc=doc_A3b&page=1'
+    const anchor = { href: url, closest: () => ({ href: url }) }
+    const bodyChildren = globalThis.document.body.children
+    const toastBefore = bodyChildren.length
+    const evMiss = dispatchClick({ button: 0, target: anchor })
+    const toastDelta = bodyChildren.length - toastBefore
+    const toastText = toastDelta > 0 ? String(bodyChildren[bodyChildren.length - 1]._text ?? '') : ''
+    check('A3：侧栏缺席 → 拦下默认导航 + **可见**提示（不再只写 console）',
+      evMiss.prevented === true && toastDelta >= 1 && toastText.includes('查看器'),
+      `prevented=${evMiss.prevented} toastDelta=${toastDelta} text=${toastText.slice(0, 40)}`)
+    check('A3：非证据链接在侧栏缺席时也不拦不提示',
+      (dispatchClick({ button: 0, target: { href: 'https://example.com/y', closest: () => ({ href: 'https://example.com/y' }) } }).prevented !== true)
+      && bodyChildren.length - toastBefore === toastDelta,
+      `toastDelta2=${bodyChildren.length - toastBefore - toastDelta}`)
+    for (const fn of built.effects) if (typeof fn === 'function') fn()
+    docHandlers.clear()
+  }
 }
 
 /* ---------------------------- 4. 官方右侧栏迟到：事件驱动重注册 */

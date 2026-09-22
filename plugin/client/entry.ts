@@ -42,6 +42,39 @@ import {
 } from './ksSidebar'
 import { isKsEvidenceUrl, parseEvidence } from './ksEvidence'
 
+/** 从事件里取证据锚点的 href（无锚点 / 非证据地址 → null）。点击拦截的两个通道共用它。 */
+function evidenceHrefOf(event: MouseEvent): string | null {
+  const target = event.target
+  if (target === null || typeof (target as Element).closest !== 'function') return null
+  const anchor = (target as Element).closest('a[href]') as HTMLAnchorElement | null
+  if (anchor === null) return null
+  try {
+    if (!isKsEvidenceUrl(new URL(anchor.href))) return null
+  } catch { return null }
+  return anchor.href
+}
+
+/**
+ * 证据链接打不开时的**可见**提示（诊断 A3：原来只写 console —— 用户点了没反应是最坏的反馈）。
+ * 宿主 Toast 是 React 件、这里在 React 外 ⇒ 先用最小 token 样式的临时条；
+ * 批3 若有更合适的官方非 React 提示件再换（登记在 ui-audit-D 清单里）。
+ */
+function notifyEvidenceUnavailable(): void {
+  try {
+    const el = document.createElement('div')
+    el.setAttribute('role', 'alert')
+    el.textContent = '证据原文暂时打不开：PDF 查看器（右侧栏）没挂上。请稍后重试；'
+      + '若一直如此，请检查 DSH 的侧栏插件是否启用。'
+    el.style.cssText = 'position:fixed;right:16px;bottom:16px;z-index:9999;max-width:320px;padding:8px 12px;'
+      + 'border-radius:6px;font-size:12px;line-height:1.6;'
+      + 'background:var(--dsw-alias-surface-raised,#fff);'
+      + 'color:var(--dsw-alias-state-warn-primary,#a15c00);'
+      + 'border:0.5px solid var(--dsw-alias-border-default,#ddd);'
+    ;(document.body ?? document.documentElement).appendChild(el)
+    setTimeout(() => { el.remove() }, 8000)
+  } catch { /* 提示本身失败不该再抛 */ }
+}
+
 /** 官方右侧栏导航面（`ctx.sidebarRight`）——由 `dsh-client-ui-sidebar-right` 提供。 */
 type SidebarRightService = KsSidebarRight
 
@@ -174,6 +207,24 @@ export function apply(ctx: Ctx): void {
   } catch (error) {
     console.error('[ks-dsh-plugin] 注册设置栏目失败（不影响其他表面）', error)
   }
+
+  // 证据锚点**兜底**接管（诊断 A3，2026-09-22）：正式拦截器随右侧栏注册——
+  // 侧栏缺席/被撤销时证据链接**没人拦**，默认导航落到不可达伪源（127.0.0.1:1）死页。
+  // 这里常驻一个兜底：右侧栏在场（rightRef 非空）就让路给正式接管者；不在场则
+  // 拦下默认导航 + 给**可见**提示（不许只写 console）。
+  const onEvidenceFallback = (event: MouseEvent): void => {
+    if (rightRef.current !== null) return
+    const href = evidenceHrefOf(event)
+    if (href === null) return
+    event.preventDefault()
+    notifyEvidenceUnavailable()
+  }
+  document.addEventListener('click', onEvidenceFallback, true)
+  document.addEventListener('auxclick', onEvidenceFallback, true)
+  ctx.effect(() => () => {
+    document.removeEventListener('click', onEvidenceFallback, true)
+    document.removeEventListener('auxclick', onEvidenceFallback, true)
+  }, 'ks-dsh-plugin: 证据锚点兜底')
 
   // ── 右侧栏：官方两段式注册（2026-09-16 迁移）──────────────────────────────
   //
@@ -354,23 +405,21 @@ function registerSidebarSurfaces(
       // 命中证据锚点 → 转成官方 `openResource`。不再需要"覆写单例 path"的收尾
       // （导航 revision 已保证重载），因此比旧实现短且无竞态假设。
       const onClick = (event: MouseEvent): void => {
-        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
-        const target = event.target
-        if (target === null || typeof (target as Element).closest !== 'function') return
-        const anchor = (target as Element).closest('a[href]') as HTMLAnchorElement | null
-        if (anchor === null) return
-        const href = anchor.href
-        try {
-          if (!isKsEvidenceUrl(new URL(href))) return
-        } catch { return }
+        // 诊断 A3（2026-09-22）：**任何**点击形态（Ctrl/Shift/Alt/中键）都拦 ——
+        // 修饰键的"新标签打开"对我们没有意义：伪源地址不可达，落给浏览器就是死页。
+        // 一律转进侧栏；中键在现代浏览器走 auxclick，两个通道都接。
+        const href = evidenceHrefOf(event)
+        if (href === null) return
         // 合法证据锚点：拦掉默认导航（伪源 host 不可达），交给右侧栏打开。
         event.preventDefault()
         openEvidence(href)
       }
       document.addEventListener('click', onClick, true)
+      document.addEventListener('auxclick', onClick, true)
 
       return () => {
         document.removeEventListener('click', onClick, true)
+        document.removeEventListener('auxclick', onClick, true)
         // 撤销"打开证据"能力：设置栏目仍在（它不随右侧栏撤销），故必须清掉引用，
         // 否则它会调到一个已失效的 right（旧实现同类问题的教训）。
         rightRef.current = null

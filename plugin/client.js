@@ -40594,6 +40594,31 @@ function KsApiConfigSection(props) {
 }
 
 // client/entry.ts
+function evidenceHrefOf(event) {
+  const target = event.target;
+  if (target === null || typeof target.closest !== "function") return null;
+  const anchor = target.closest("a[href]");
+  if (anchor === null) return null;
+  try {
+    if (!isKsEvidenceUrl(new URL(anchor.href))) return null;
+  } catch {
+    return null;
+  }
+  return anchor.href;
+}
+function notifyEvidenceUnavailable() {
+  try {
+    const el = document.createElement("div");
+    el.setAttribute("role", "alert");
+    el.textContent = "\u8BC1\u636E\u539F\u6587\u6682\u65F6\u6253\u4E0D\u5F00\uFF1APDF \u67E5\u770B\u5668\uFF08\u53F3\u4FA7\u680F\uFF09\u6CA1\u6302\u4E0A\u3002\u8BF7\u7A0D\u540E\u91CD\u8BD5\uFF1B\u82E5\u4E00\u76F4\u5982\u6B64\uFF0C\u8BF7\u68C0\u67E5 DSH \u7684\u4FA7\u680F\u63D2\u4EF6\u662F\u5426\u542F\u7528\u3002";
+    el.style.cssText = "position:fixed;right:16px;bottom:16px;z-index:9999;max-width:320px;padding:8px 12px;border-radius:6px;font-size:12px;line-height:1.6;background:var(--dsw-alias-surface-raised,#fff);color:var(--dsw-alias-state-warn-primary,#a15c00);border:0.5px solid var(--dsw-alias-border-default,#ddd);";
+    (document.body ?? document.documentElement).appendChild(el);
+    setTimeout(() => {
+      el.remove();
+    }, 8e3);
+  } catch {
+  }
+}
 var inject = ["slots"];
 var KS_SETTINGS_TAB_ID = "ks:settings";
 function registerKsSettingsSection(ctx, openEvidence) {
@@ -40642,6 +40667,19 @@ function apply(ctx) {
   } catch (error) {
     console.error("[ks-dsh-plugin] \u6CE8\u518C\u8BBE\u7F6E\u680F\u76EE\u5931\u8D25\uFF08\u4E0D\u5F71\u54CD\u5176\u4ED6\u8868\u9762\uFF09", error);
   }
+  const onEvidenceFallback = (event) => {
+    if (rightRef.current !== null) return;
+    const href = evidenceHrefOf(event);
+    if (href === null) return;
+    event.preventDefault();
+    notifyEvidenceUnavailable();
+  };
+  document.addEventListener("click", onEvidenceFallback, true);
+  document.addEventListener("auxclick", onEvidenceFallback, true);
+  ctx.effect(() => () => {
+    document.removeEventListener("click", onEvidenceFallback, true);
+    document.removeEventListener("auxclick", onEvidenceFallback, true);
+  }, "ks-dsh-plugin: \u8BC1\u636E\u951A\u70B9\u515C\u5E95");
   let registered = false;
   let disposed = false;
   let retryTimer;
@@ -40744,23 +40782,16 @@ function registerSidebarSurfaces(ctx, tabs, right, rightRef) {
         console.error("[ks-dsh-plugin] slots \u4E0D\u53EF\u7528\uFF1APDF \u8BC1\u636E tab body \u672A\u6CE8\u518C\uFF08tab \u7C7B\u578B\u5DF2\u6CE8\u518C\u4F46\u65E0\u5185\u5BB9\uFF09");
       }
       const onClick = (event) => {
-        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-        const target = event.target;
-        if (target === null || typeof target.closest !== "function") return;
-        const anchor = target.closest("a[href]");
-        if (anchor === null) return;
-        const href = anchor.href;
-        try {
-          if (!isKsEvidenceUrl(new URL(href))) return;
-        } catch {
-          return;
-        }
+        const href = evidenceHrefOf(event);
+        if (href === null) return;
         event.preventDefault();
         openEvidence(href);
       };
       document.addEventListener("click", onClick, true);
+      document.addEventListener("auxclick", onClick, true);
       return () => {
         document.removeEventListener("click", onClick, true);
+        document.removeEventListener("auxclick", onClick, true);
         rightRef.current = null;
         disposeGuideCard?.();
         disposeKbBody?.();
