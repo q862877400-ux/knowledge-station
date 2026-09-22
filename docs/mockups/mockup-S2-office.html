@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>原型（假数据）：办事台（能力页改造 = S2 提案 v1）</title>
+<style>
+  /* DSH 风格近似：0.5px 分隔、4px 网格、宿主字阶。假数据，不接任何后端。
+     用词遵循《全站界面语言规范》：黑话清零（旋钮→设置项）、状态一套词、按钮写动作。 */
+  :root { --lbl1:#111; --lbl2:#666; --lbl3:#999; --bd:#e5e5e5; --bg1:#fafafa; --bg2:#fff;
+          --green:#1a7f37; --amber:#9a6700; --blue:#0969da; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font:13px/1.6 "Segoe UI",system-ui,sans-serif; color:var(--lbl1); background:var(--bg1); padding:24px; }
+  h1 { font-size:20px; margin-bottom:4px; }
+  .sub { color:var(--lbl2); font-size:12px; margin-bottom:16px; }
+  .grid { display:grid; grid-template-columns:566px 566px; gap:16px; }
+  .card { background:var(--bg2); border:0.5px solid var(--bd); border-radius:8px; padding:14px 16px;
+          display:flex; flex-direction:column; gap:8px; }
+  .card h2 { font-size:15px; display:flex; align-items:center; gap:8px; }
+  .badge { font-size:11px; border-radius:999px; padding:1px 8px; border:0.5px solid var(--bd); color:var(--lbl2); font-weight:400; }
+  .badge.ok { color:var(--green); border-color:var(--green); }
+  .badge.todo { color:var(--amber); border-color:var(--amber); }
+  .desc { color:var(--lbl2); font-size:12px; }
+  .row { display:flex; gap:8px; align-items:center; }
+  .start { background:var(--blue); color:#fff; border:0.5px solid var(--blue); border-radius:6px;
+           padding:5px 14px; font-size:12.5px; cursor:pointer; }
+  .start[disabled] { background:var(--bg1); color:var(--lbl3); border:0.5px solid var(--bd); cursor:not-allowed; }
+  .gear { background:var(--bg2); color:var(--lbl2); border:0.5px solid var(--bd); border-radius:6px;
+          padding:5px 14px; font-size:12.5px; cursor:pointer; }
+  .settings { border-top:0.5px dashed var(--bd); padding-top:8px; font-size:12px; color:var(--lbl2);
+              display:flex; flex-direction:column; gap:6px; }
+  .srow { display:flex; align-items:center; gap:8px; }
+  .srow .k { width:88px; color:var(--lbl1); }
+  .pill { border:0.5px solid var(--bd); border-radius:999px; padding:1px 10px; font-size:11.5px; }
+  .pill.on { border-color:var(--blue); color:var(--blue); }
+  .cap { color:var(--lbl2); font-size:12px; margin:14px 0 0; }
+  .note { color:var(--lbl3); font-size:11.5px; }
+</style>
+</head>
+<body>
+<h1>办事台（能力页改造 = S2 提案 v1 · 假数据）</h1>
+<div class="sub">一个功能一张卡、一个真入口（点「开始」直接进流程）；设置收进卡内；黑话清零、状态词统一 —— 2026-09-22</div>
+<div class="grid">
+
+  <div class="card">
+    <h2>合同审查 <span class="badge ok">可用</span></h2>
+    <div class="desc">上传合同，逐条比对法规要求，出三色结论（合规 / 风险 / 缺失），每条能点开原文。</div>
+    <div class="row"><button class="start">开始：上传合同比对</button><button class="gear">设置…</button></div>
+  </div>
+
+  <div class="card">
+    <h2>义务清单 → 检查表 <span class="badge ok">可用</span></h2>
+    <div class="desc">选定范围，把「应当 / 必须 / 禁止」抽成清单，一键转成可勾选的检查表，导出 Markdown。</div>
+    <div class="row"><button class="start">开始：生成检查表</button><button class="gear">设置…</button></div>
+    <div class="settings">
+      <div class="srow"><span class="k">范围</span><span class="pill on">当前目录及其下级</span><span class="pill">多选取并集</span></div>
+      <div class="srow"><span class="k">输出格式</span><span class="pill on">清单</span><span class="pill">检查表</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>制度差距分析 <span class="badge ok">可用</span></h2>
+    <div class="desc">上传内部制度，自动对比法定要求，逐条列出「缺什么 / 哪里更松」，出差距报告。</div>
+    <div class="row"><button class="start">开始：上传制度比对</button><button class="gear">设置…</button></div>
+  </div>
+
+  <div class="card">
+    <h2>批量问答 <span class="badge ok">可用</span></h2>
+    <div class="desc">一批条款一次提问，逐条给答案；哪条失败单独重试，不用整批重跑。</div>
+    <div class="row"><button class="start">开始：批量提问</button><button class="gear">设置…</button></div>
+  </div>
+
+  <div class="card">
+    <h2>条款释义 <span class="badge todo">还没有</span></h2>
+    <div class="desc">对单条条款给白话解释——这个功能还没有做完，做完后这里会出现「开始」按钮。</div>
+    <div class="row"><button class="start" disabled title="功能还没有做完">开始：解释这一条</button><button class="gear">设置…</button></div>
+    <div class="note">不给假入口：没做完的按钮就是灰的，点不动、写明原因。</div>
+  </div>
+
+  <div class="card">
+    <h2>纠错修订 <span class="badge ok">可用</span></h2>
+    <div class="desc">发现条款识别错了，在原文页标记并提交修改；每笔修改留痕、可回退。</div>
+    <div class="row"><button class="start">开始：打开原文页标记</button><button class="gear">设置…</button></div>
+    <div class="note">也可以直接在 PDF 阅读器的条款行「⋮」里点「这条识别错了」。</div>
+  </div>
+
+  <div class="card">
+    <h2>外发审计 <span class="badge ok">可用</span></h2>
+    <div class="desc">每次调用云端的完整记录，可查可导出——数据出了本机一定留痕。</div>
+    <div class="row"><button class="start">开始：查看外发记录</button><button class="gear">设置…</button></div>
+  </div>
+
+  <div class="card">
+    <h2>取证问答 <span class="badge ok">可用</span></h2>
+    <div class="desc">在对话里直接提问：三段式作答、只引现行版、每句结论点得开原文。</div>
+    <div class="row"><button class="start">开始：去对话里提问</button><button class="gear">设置…</button></div>
+    <div class="note">入口在对话输入框（/取证 与自动护航），这里只是指路。</div>
+  </div>
+
+</div>
+<p class="cap">对比现状：原来 8 张卡里 7 个只有「设置…」、功能本体点不到；改后每张卡一个「开始：<动作>」真入口，
+没做完的功能灰按钮写明「还没有」——绿勾只配真正做完的事。</p>
+</body>
+</html>
