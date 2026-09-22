@@ -60,6 +60,9 @@ const SUITES = [
   'scripts/smoke-channels-routes.mjs',
   // UI S1-b（2026-09-22）：「本轮」只读口的暂存/会话隔离/最近一次语义 + 无尾斜杠防呆。
   'scripts/smoke-turn-routes.mjs',
+  // UI S1-b（2026-09-22）：「本轮」依据行/空态的渲染级判据（定稿文案逐字 + URL 契约 +
+  // 无星号无字面色）。
+  'scripts/smoke-turn-tab.mjs',
   'scripts/smoke-anchor-mark.mjs',
   // UI 批0-a（2026-09-22）：诊断 A2 死开关的判据——设置「显示红色定位箭头」必须**真的**传到
   // 查看器（KsEvidenceHost→KsEvidenceTab 的 prefs 透传；桩回显 props 的行为判据，

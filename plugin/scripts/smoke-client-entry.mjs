@@ -347,8 +347,11 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     built.registered.map((r) => String(r.options?.id)).join(','))
   // S1-a：「本轮」body 座位必须真的注册（缺了它 tab 是空壳）；注入面现在只有诊断标签。
   const turnBody = built.registered.find((r) => r.options?.key === 'ks-dsh-plugin/turn')
-  check('S1-a：「本轮」body 座位注册且注入面 = dataSource（取数走只读口，S1-b 接）',
-    turnBody !== undefined && turnBody.options.inject('sess-X').dataSource === 'host-stash',
+  check('S1-b：「本轮」body 注入面 = sessionId + dataSource + openEvidence（取数键 / 诊断标签 / 看原文链路）',
+    turnBody !== undefined
+    && turnBody.options.inject('sess-X').sessionId === 'sess-X'
+    && turnBody.options.inject('sess-X').dataSource === 'host-stash'
+    && typeof turnBody.options.inject('sess-X').openEvidence === 'function',
     built.registered.map((r) => String(r.options?.key ?? r.options?.id)).join(','))
 
   // ── 官方两段式：① 类型注册 ② body 座位注册 ──

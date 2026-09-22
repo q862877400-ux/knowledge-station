@@ -386,11 +386,14 @@ function registerSidebarSurfaces(
           inject: (): KsKbInjected => ({ dataSource: 'engine' }),
         }, KsKnowledgePage))
 
-        // ②c 「本轮」pane body（S1-a）：定稿空态起步，数据通路在 S1-b。
+        // ②c 「本轮」pane body（S1-a 注册；S1-b 取数+依据行）。
+        //     sessionId 供取数（GET /ks/turn/last?session=…）；openEvidence = 既有跳页链路。
         disposeTurnBody = ctx.slots.inject('sidebar.right.pane.tab', () => ctx.slots!.register({
           name: 'sidebar.right.pane.tab',
           key: KS_TURN_IMPL_ID,
-          inject: (): KsTurnInjected => ({ dataSource: 'host-stash' }),
+          inject: (sessionId: string): KsTurnInjected => ({
+            sessionId, dataSource: 'host-stash', openEvidence,
+          }),
         }, KsTurnTab))
 
         // ②c 开始页那张卡（「知识库」+ ▾ 二级目录）。

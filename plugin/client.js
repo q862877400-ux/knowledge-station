@@ -373,8 +373,8 @@ function updateUrlHash(url, hash, allowRel = false) {
   }
   return "";
 }
-function stripPath(str2) {
-  return str2.substring(str2.lastIndexOf("/") + 1);
+function stripPath(str3) {
+  return str3.substring(str3.lastIndexOf("/") + 1);
 }
 function shadow(obj, prop, value, nonSerializable = false) {
   Object.defineProperty(obj, prop, {
@@ -445,14 +445,14 @@ function bytesToString(bytes) {
   }
   return strBuf.join("");
 }
-function stringToBytes(str2) {
-  if (typeof str2 !== "string") {
+function stringToBytes(str3) {
+  if (typeof str3 !== "string") {
     unreachable("Invalid argument for stringToBytes");
   }
-  const length = str2.length;
+  const length = str3.length;
   const bytes = new Uint8Array(length);
   for (let i = 0; i < length; ++i) {
-    bytes[i] = str2.charCodeAt(i) & 255;
+    bytes[i] = str3.charCodeAt(i) & 255;
   }
   return bytes;
 }
@@ -728,17 +728,17 @@ getExtremum_fn = function(x0, x1, x2, x3, y0, y1, y2, y3, a, b, c, minMax) {
   __privateMethod(this, _Util_static, getExtremumOnCurve_fn).call(this, x0, x1, x2, x3, y0, y1, y2, y3, (-b - sqrtDelta) / a2, minMax);
 };
 __privateAdd(Util, _Util_static);
-function stringToUTF8String(str2) {
-  return decodeURIComponent(escape(str2));
+function stringToUTF8String(str3) {
+  return decodeURIComponent(escape(str3));
 }
 var NormalizeRegex = null;
 var NormalizationMap = null;
-function normalizeUnicode(str2) {
+function normalizeUnicode(str3) {
   if (!NormalizeRegex) {
     NormalizeRegex = /([\u00a0\u00b5\u037e\u0eb3\u2000-\u200a\u202f\u2126\ufb00-\ufb04\ufb06\ufb20-\ufb36\ufb38-\ufb3c\ufb3e\ufb40-\ufb41\ufb43-\ufb44\ufb46-\ufba1\ufba4-\ufba9\ufbae-\ufbb1\ufbd3-\ufbdc\ufbde-\ufbe7\ufbea-\ufbf8\ufbfc-\ufbfd\ufc00-\ufc5d\ufc64-\ufcf1\ufcf5-\ufd3d\ufd88\ufdf4\ufdfa-\ufdfb\ufe71\ufe77\ufe79\ufe7b\ufe7d]+)|(\ufb05+)/gu;
     NormalizationMap = /* @__PURE__ */ new Map([["\uFB05", "\u017Ft"]]);
   }
-  return str2.replaceAll(NormalizeRegex, (_, p1, p2) => p1 ? p1.normalize("NFKC") : NormalizationMap.get(p2));
+  return str3.replaceAll(NormalizeRegex, (_, p1, p2) => p1 ? p1.normalize("NFKC") : NormalizationMap.get(p2));
 }
 function getUuid() {
   if (typeof crypto.randomUUID === "function") {
@@ -813,20 +813,20 @@ var XfaText = class _XfaText {
       if (!node) {
         return;
       }
-      let str2 = null;
+      let str3 = null;
       const name = node.name;
       if (name === "#text") {
-        str2 = node.value;
+        str3 = node.value;
       } else if (!_XfaText.shouldBuildText(name)) {
         return;
       } else if (node?.attributes?.textContent) {
-        str2 = node.attributes.textContent;
+        str3 = node.attributes.textContent;
       } else if (node.value) {
-        str2 = node.value;
+        str3 = node.value;
       }
-      if (str2 !== null) {
+      if (str3 !== null) {
         items.push({
-          str: str2
+          str: str3
         });
       }
       if (!node.children) {
@@ -2483,9 +2483,9 @@ serialize_fn = function(event) {
     this.buffer.push("shift");
   }
   this.buffer.push(event.key);
-  const str2 = this.buffer.join("+");
+  const str3 = this.buffer.join("+");
   this.buffer.length = 0;
-  return str2;
+  return str3;
 };
 var _ColorManager = class _ColorManager {
   get _colors() {
@@ -5808,7 +5808,7 @@ var _AnnotationEditor = class _AnnotationEditor {
   getData() {
     const {
       comment: {
-        text: str2,
+        text: str3,
         color,
         date,
         opacity,
@@ -5826,7 +5826,7 @@ var _AnnotationEditor = class _AnnotationEditor {
       rect: this.getPDFRect(),
       richText,
       contentsObj: {
-        str: str2
+        str: str3
       },
       creationDate,
       modificationDate: date || modificationDate,
@@ -40667,8 +40667,32 @@ function KsApiConfigSection(props) {
 }
 
 // client/KsTurnTab.tsx
+var React3 = __toESM(require("react"), 1);
 var import_jsx_runtime17 = require("react/jsx-runtime");
-function KsTurnTab(_props) {
+var str2 = (v) => typeof v === "string" ? v : v === void 0 || v === null ? "" : String(v);
+function turnEvidenceHref(ev) {
+  const doc = str2(ev.doc_id);
+  if (doc.length === 0) return null;
+  const pageRaw = ev.page_start;
+  const target = {
+    doc,
+    page: typeof pageRaw === "number" && pageRaw >= 1 ? Math.floor(pageRaw) : void 0,
+    rev: str2(ev.clause_revision_id).length > 0 ? str2(ev.clause_revision_id) : void 0
+  };
+  return evidenceUrlOf(target);
+}
+function statusBadge(ev) {
+  const s = str2(ev.legal_status);
+  if (s === "effective") return { text: "\u73B0\u884C\u6709\u6548", color: "var(--dsw-alias-state-success-primary)" };
+  if (s === "upcoming") {
+    const from = str2(ev.effective_from);
+    return { text: from.length > 0 ? `${from} \u8D77\u5B9E\u65BD` : "\u5373\u5C06\u5B9E\u65BD", color: "var(--dsw-alias-state-warn-primary)" };
+  }
+  if (s === "superseded") return { text: "\u5DF2\u88AB\u66FF\u4EE3", color: "var(--dsw-alias-state-error-primary)" };
+  if (s === "withdrawn") return { text: "\u5DF2\u5E9F\u6B62", color: "var(--dsw-alias-state-error-primary)" };
+  return { text: "\u72B6\u6001\u672A\u77E5", color: "var(--dsw-alias-label-tertiary)" };
+}
+function KsTurnEmptyState() {
   return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
     "div",
     {
@@ -40688,6 +40712,147 @@ function KsTurnTab(_props) {
       ]
     }
   );
+}
+function KsTurnEvidenceRow(props) {
+  const { ev, onLook } = props;
+  const badge = statusBadge(ev);
+  const href = turnEvidenceHref(ev);
+  return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
+    "div",
+    {
+      style: {
+        border: "0.5px solid var(--dsw-alias-border-l1)",
+        borderRadius: 8,
+        padding: "8px 10px",
+        display: "flex",
+        flexDirection: "column",
+        gap: 4
+      },
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("span", { style: { fontWeight: 600 }, children: [
+            str2(ev.standard_no),
+            " ",
+            str2(ev.clause_number)
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+            "span",
+            {
+              style: {
+                fontSize: 11,
+                borderRadius: 999,
+                padding: "1px 8px",
+                border: `0.5px solid ${badge.color}`,
+                color: badge.color
+              },
+              children: badge.text
+            }
+          ),
+          str2(ev.legal_hierarchy).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", { style: { fontSize: 11, color: "var(--dsw-alias-label-tertiary)" }, children: str2(ev.legal_hierarchy) })
+        ] }),
+        str2(ev.snippet).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+          "div",
+          {
+            style: {
+              color: "var(--dsw-alias-label-secondary)",
+              fontSize: 12,
+              lineHeight: 1.6,
+              display: "-webkit-box",
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
+              overflow: "hidden"
+            },
+            children: str2(ev.snippet)
+          }
+        ),
+        href !== null && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+          "button",
+          {
+            type: "button",
+            onClick: () => {
+              if (onLook !== void 0) onLook();
+            },
+            style: {
+              alignSelf: "flex-start",
+              background: "none",
+              border: "none",
+              padding: 0,
+              cursor: "pointer",
+              color: "var(--dsw-alias-state-business-primary)",
+              fontSize: 12
+            },
+            children: "\u2192 \u770B\u539F\u6587\uFF08\u8DF3\u5230\u90A3\u4E00\u9875\uFF0C\u7EA2\u7BAD\u5934\u6307\u7740\uFF09"
+          }
+        )
+      ]
+    }
+  );
+}
+function KsTurnTab(props) {
+  const info2 = props.useTabInfo();
+  const revision = info2.tab.navigation?.revision ?? 0;
+  const { sessionId, openEvidence } = props;
+  const [record, setRecord] = React3.useState(null);
+  const [loading, setLoading] = React3.useState(true);
+  React3.useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    const url = `/ks/turn/last?session=${encodeURIComponent(sessionId)}&r=${String(revision)}`;
+    fetch(url).then((res) => res.ok ? res.json() : null).then((body) => {
+      if (cancelled) return;
+      const data = body?.data ?? null;
+      setRecord(data === null ? null : data.turn ?? null);
+    }).catch(() => {
+      if (!cancelled) setRecord(null);
+    }).finally(() => {
+      if (!cancelled) setLoading(false);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [sessionId, revision]);
+  if (record === null) {
+    return loading ? /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { style: { padding: "24px 16px", textAlign: "center", color: "var(--dsw-alias-label-tertiary)", fontSize: 12 }, children: "\u6B63\u5728\u8BFB\u53D6\u672C\u8F6E\u2026" }) : /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(KsTurnEmptyState, {});
+  }
+  const evidence = Array.isArray(record.evidence) ? record.evidence : [];
+  const verification = record.verification;
+  const reasons = [
+    ...Array.isArray(verification?.confidence_reasons) ? verification.confidence_reasons : [],
+    ...Array.isArray(verification?.cite_warnings) ? verification.cite_warnings : []
+  ].map((x) => str2(x)).filter((x) => x.length > 0);
+  const notes = Array.isArray(record.notes) ? record.notes.map((x) => str2(x)).filter((x) => x.length > 0) : [];
+  return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { style: { padding: "12px 14px", display: "flex", flexDirection: "column", gap: 8 }, children: [
+    verification !== null && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
+      "div",
+      {
+        role: verification.is_valid === true ? void 0 : "alert",
+        style: {
+          fontSize: 12,
+          lineHeight: 1.6,
+          borderRadius: 6,
+          padding: "4px 10px",
+          border: `0.5px solid ${verification.is_valid === true ? "var(--dsw-alias-state-success-primary)" : "var(--dsw-alias-state-warn-primary)"}`,
+          color: verification.is_valid === true ? "var(--dsw-alias-state-success-primary)" : "var(--dsw-alias-state-warn-primary)"
+        },
+        children: [
+          verification.is_valid === true ? "\u2705 \u6838\u5BF9\u901A\u8FC7" : "\u26A0 \u6838\u5BF9\u63D0\u793A",
+          reasons.length > 0 ? `\uFF1A${reasons.join(" \xB7 ")}` : ""
+        ]
+      }
+    ),
+    evidence.map((ev, i) => /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+      KsTurnEvidenceRow,
+      {
+        ev,
+        onLook: () => {
+          const href = turnEvidenceHref(ev);
+          if (href !== null) openEvidence(href);
+        }
+      },
+      `${str2(ev.doc_id)}-${str2(ev.clause_revision_id)}-${String(i)}`
+    )),
+    notes.map((n, i) => /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary)", fontSize: 12, lineHeight: 1.6 }, children: n }, `note-${String(i)}`))
+  ] });
 }
 
 // client/entry.ts
@@ -40876,7 +41041,11 @@ function registerSidebarSurfaces(ctx, tabs, right, rightRef) {
         disposeTurnBody = ctx.slots.inject("sidebar.right.pane.tab", () => ctx.slots.register({
           name: "sidebar.right.pane.tab",
           key: KS_TURN_IMPL_ID,
-          inject: () => ({ dataSource: "host-stash" })
+          inject: (sessionId) => ({
+            sessionId,
+            dataSource: "host-stash",
+            openEvidence
+          })
         }, KsTurnTab));
         disposeGuideCard = ctx.slots.inject("sidebar.right.tab.guide.entry", () => ctx.slots.register({
           name: "sidebar.right.tab.guide.entry",
