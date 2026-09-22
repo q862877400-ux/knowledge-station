@@ -69,6 +69,8 @@ const SUITES = [
   // 合规护航 C1（2026-09-22）：哨句唯一出处 / 预判据三组 / 段文两态零增量 / 技能字节同步 /
   // L1 单一出处 / 标准号前缀表跨语言同步。
   'scripts/smoke-compliance-sentry.mjs',
+  // 尾件 1/4（批3）：生成式工具目录防漂移（目录=真定义生成物，手改/漏更皆红）。
+  'scripts/smoke-tool-catalog.mjs',
   'scripts/smoke-anchor-mark.mjs',
   // UI 批0-a（2026-09-22）：诊断 A2 死开关的判据——设置「显示红色定位箭头」必须**真的**传到
   // 查看器（KsEvidenceHost→KsEvidenceTab 的 prefs 透传；桩回显 props 的行为判据，
