@@ -898,6 +898,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
         return (
           <div
             key={m.material_id}
+            className="ks-mat-row"
             style={{
               border: '1px solid var(--dsw-alias-border-l2)',
               borderRadius: 6, padding: '8px 10px', marginBottom: 8,

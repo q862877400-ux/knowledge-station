@@ -63,6 +63,9 @@ const SUITES = [
   // UI S1-b（2026-09-22）：「本轮」依据行/空态的渲染级判据（定稿文案逐字 + URL 契约 +
   // 无星号无字面色）。
   'scripts/smoke-turn-tab.mjs',
+  // S3-b2（2026-09-22）：备料行级行为判据（免评审行无批准钮 / 地位胶囊真发 role /
+  // 批量条逐字 + 逐项真调）。
+  'scripts/smoke-materials-rows.mjs',
   'scripts/smoke-anchor-mark.mjs',
   // UI 批0-a（2026-09-22）：诊断 A2 死开关的判据——设置「显示红色定位箭头」必须**真的**传到
   // 查看器（KsEvidenceHost→KsEvidenceTab 的 prefs 透传；桩回显 props 的行为判据，
