@@ -21,7 +21,10 @@ import {
   STD_NO_PREFIXES,
   buildComplianceSection,
   extractL1,
+  isComplianceTriggered,
+  markComplianceTriggered,
   matchComplianceSentry,
+  registerKsComplianceRoutes,
 } from '../src/compliance-sentry.js'
 
 const here = dirname(fileURLToPath(import.meta.url))
@@ -105,6 +108,30 @@ check('② 标准号模式命中（GB/T 3608 / GB30871 / DB11/T 1234 / AQ 3009 �
   check('⑥ 标准号前缀表与引擎 doc_catalog.py `_STD_NO_PREFIX` **逐词同步**',
     pyPrefixes.length === STD_NO_PREFIXES.length && pyPrefixes.every((p, i) => p === STD_NO_PREFIXES[i]),
     `引擎 ${JSON.stringify(pyPrefixes)} / 插件 ${JSON.stringify(STD_NO_PREFIXES)}`)
+}
+
+/* ⑦ C2-a 触发标记：命中⇒标记开（L1 跟进）/ 清除⇒关 / TTL 过期⇒关 / 路由 405 守卫。 */
+{
+  markComplianceTriggered('s9', true, Date.now())
+  check('⑦ 命中 ⇒ 会话标记开 ⇒ 提示段带 L1（三件套串起来）',
+    isComplianceTriggered('s9', Date.now()) === true
+    && buildComplianceSection({ isTriggered: isComplianceTriggered })
+      .text({ agent: { session: { id: 's9' } } })
+      .includes('作答铁律'),
+    'mark → isTriggered → section')
+  markComplianceTriggered('s9', true, 1000) // 自己的时间线（上一条用真钟打过标——用例间时钟隔离）
+  check('⑦ TTL 过期 ⇒ 自动关（120s 后不再带 L1——按需才付成本）',
+    isComplianceTriggered('s9', 1000 + 120_001) === false)
+  markComplianceTriggered('s9', false, 2000)
+  check('⑦ 清除（草稿不再命中）⇒ 立即关', isComplianceTriggered('s9', 2000) === false)
+  let routeShape = null
+  registerKsComplianceRoutes({ webServer: { register: (d) => { routeShape = d; return () => {} } } })
+  const out = { status: null, body: null }
+  const res = { writeHead(s) { out.status = s }, end(t) { try { out.body = JSON.parse(t) } catch { out.body = t } } }
+  await routeShape.handler({ method: 'GET', url: '/ks/compliance/ping' }, res)
+  check('⑦ ping 路由 exact/无尾斜杠 + 非 POST → 405（只判不写）',
+    routeShape.kind === 'exact' && routeShape.path === '/ks/compliance/ping' && out.status === 405,
+    `${routeShape.kind} ${routeShape.path} → ${String(out.status)}`)
 }
 
 const failed = results.filter((r) => !r.ok)

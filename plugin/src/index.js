@@ -50,7 +50,7 @@ import {
 import { registerKsReportRoutes } from './report.js'
 import { registerKsChannelsRoutes } from './channels.js'
 import { registerKsMaterialsRoutes } from './materials_routes.js'
-import { buildComplianceSection } from './compliance-sentry.js'
+import { buildComplianceSection, isComplianceTriggered, registerKsComplianceRoutes } from './compliance-sentry.js'
 import { recordKsTurn, registerKsTurnRoutes } from './turn.js'
 import { registerKsSettingsRoutes } from './settings.js'
 import { registerKsDocImageRoutes } from './docimage.js'
@@ -1714,7 +1714,7 @@ export function apply(ctx, config = {}) {
     'ks-dsh-plugin: 查法规模式提示段')
   // 合规护航（C1，2026-09-22）：L0 哨句常驻（≈30 字/轮）+ L1 按需段（预判据命中才带，
   // 触发源接线归 C2）——省 token 硬约束；旧段（ks:forensic-mode）一个字不动。
-  ctx.effect(() => ctx.systemPrompt.section(buildComplianceSection()),
+  ctx.effect(() => ctx.systemPrompt.section(buildComplianceSection({ isTriggered: isComplianceTriggered })),
     'ks-dsh-plugin: 合规护航哨句段')
 
   // 「/forensic」「/bookmarks」两条**斜杠命令**（用户 2026-09-10：输入框上方的按钮太丑，
@@ -1795,6 +1795,8 @@ export function apply(ctx, config = {}) {
       // 「本轮」依据只读口（S1-b）：纯 host 内存暂存，ks_answer 返回前写入；
       // 与 chatmode 同族（host 状态、不碰引擎）。栅栏由 webCtx 统一施加。
       const disposeTurn = registerKsTurnRoutes(webCtx)
+      // 合规哨兵触发口（C2-a）：输入坞芯片把草稿发来宿主判（词表唯一在宿主）。
+      const disposeCompliance = registerKsComplianceRoutes(webCtx)
       // R27 入库预览 / 批量分桶（2026-09-11）：纯代理零缓存——引擎做解析与体检，
       // host 只列目录 + 转发（含默认「待入库」目录的按需创建）。**只读**：不移动/不改写文件。
       // 异步全量预览（2026-09-12 L239）：状态文件 ks-ingest.json + adopt/poll——
@@ -1817,6 +1819,7 @@ export function apply(ctx, config = {}) {
         disposeApiSettings()
         disposeChatMode()
         disposeTurn()
+        disposeCompliance()
         disposeIngest()
       }
     })

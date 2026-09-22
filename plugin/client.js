@@ -41250,6 +41250,26 @@ function KsScopeChip(props) {
   const [folderName, setFolderName] = (0, import_react13.useState)(null);
   const [busy, setBusy] = (0, import_react13.useState)(false);
   const abortRef = (0, import_react13.useRef)(null);
+  const [sentry, setSentry] = (0, import_react13.useState)(false);
+  const draft = props.input?.draft ?? "";
+  (0, import_react13.useEffect)(() => {
+    if (sessionId === void 0 || sessionId.length === 0) return;
+    if (draft.trim().length === 0) {
+      setSentry(false);
+      return;
+    }
+    const timer = setTimeout(() => {
+      void fetch("/ks/compliance/ping", {
+        method: "POST",
+        headers: { "content-type": "application/json", accept: "application/json" },
+        body: JSON.stringify({ session: sessionId, text: draft })
+      }).then((r) => r.ok ? r.json() : null).then((b) => {
+        setSentry(b?.data?.triggered === true);
+      }).catch(() => {
+      });
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [sessionId, draft]);
   (0, import_react13.useEffect)(() => {
     abortRef.current?.abort();
     const controller = new AbortController();
@@ -41280,55 +41300,76 @@ function KsScopeChip(props) {
       setBusy(false);
     }
   }, [sessionId, busy]);
-  if (folderName === null) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
-    "div",
-    {
-      "data-ks-scope-chip": "",
-      style: {
-        display: "flex",
-        alignItems: "center",
-        gap: 6,
-        padding: "3px 10px",
-        margin: "0 2px 4px",
-        width: "fit-content",
-        borderRadius: 999,
-        border: "1px solid #d99000",
-        background: "#fff8e6",
-        color: "#7a4a00",
-        fontSize: 11.5,
-        lineHeight: 1.4
-      },
-      title: `\u672C\u4F1A\u8BDD\u6BCF\u4E00\u8F6E\u68C0\u7D22\u90FD\u9650\u5B9A\u5728\u6536\u85CF\u5939\u300C${folderName}\u300D\u7684\u5185\u5BB9\u5185\uFF08\u6807\u51C6\u7EA7\u6536\u85CF\u6309\u6574\u672C\u8BA1\uFF09\u3002\u70B9 \u2715 \u6062\u590D\u5168\u5E93\u3002`,
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { "aria-hidden": true, children: "\u{1F516}" }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { style: { fontWeight: 600 }, children: folderName }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { style: { color: "#9c6b1f" }, children: "\xB7 \u4EC5\u5728\u672C\u6536\u85CF\u5939\u5185\u63D0\u95EE" }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
-          "button",
-          {
-            type: "button",
-            onClick: () => void close(),
-            disabled: busy,
-            "aria-label": "\u5173\u95ED\u6536\u85CF\u5939\u8303\u56F4\u63D0\u95EE\uFF08\u6062\u590D\u5168\u5E93\uFF09",
-            title: "\u5173\u95ED\uFF1A\u6062\u590D\u5168\u5E93\u68C0\u7D22",
-            style: {
-              border: "none",
-              background: "transparent",
-              color: "#7a4a00",
-              cursor: busy ? "default" : "pointer",
-              fontSize: 13,
-              lineHeight: 1,
-              padding: "0 2px",
-              fontWeight: 700,
-              marginLeft: 2
-            },
-            children: "\u2715"
-          }
-        )
-      ]
-    }
-  );
+  if (folderName === null && !sentry) return null;
+  return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { style: { display: "flex", gap: 6, alignItems: "center" }, children: [
+    sentry && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+      "span",
+      {
+        "data-ks-compliance-marker": "",
+        title: "\u8FD9\u8F6E\u6D89\u53CA\u5408\u89C4\u4E8B\u9879\uFF1A\u4F5C\u7B54\u5C06\u4EE5\u5E93\u5185\u539F\u6587\u4E3A\u4F9D\u636E\uFF08\u8BE6\u89C1\u5408\u89C4\u95EE\u7B54\u6280\u80FD\uFF09",
+        style: {
+          display: "flex",
+          alignItems: "center",
+          gap: 6,
+          padding: "3px 10px",
+          margin: "0 2px 4px",
+          borderRadius: 999,
+          fontSize: 12,
+          color: "var(--dsw-alias-state-warn-primary)",
+          border: "0.5px solid var(--dsw-alias-state-warn-primary)"
+        },
+        children: "\u2696 \u5408\u89C4\u62A4\u822A\uFF1A\u5F85\u547D"
+      }
+    ),
+    folderName !== null && /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+      "div",
+      {
+        "data-ks-scope-chip": "",
+        style: {
+          display: "flex",
+          alignItems: "center",
+          gap: 6,
+          padding: "3px 10px",
+          margin: "0 2px 4px",
+          width: "fit-content",
+          borderRadius: 999,
+          border: "1px solid #d99000",
+          background: "#fff8e6",
+          color: "#7a4a00",
+          fontSize: 11.5,
+          lineHeight: 1.4
+        },
+        title: `\u672C\u4F1A\u8BDD\u6BCF\u4E00\u8F6E\u68C0\u7D22\u90FD\u9650\u5B9A\u5728\u6536\u85CF\u5939\u300C${folderName}\u300D\u7684\u5185\u5BB9\u5185\uFF08\u6807\u51C6\u7EA7\u6536\u85CF\u6309\u6574\u672C\u8BA1\uFF09\u3002\u70B9 \u2715 \u6062\u590D\u5168\u5E93\u3002`,
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { "aria-hidden": true, children: "\u{1F516}" }),
+          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { style: { fontWeight: 600 }, children: folderName }),
+          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { style: { color: "#9c6b1f" }, children: "\xB7 \u4EC5\u5728\u672C\u6536\u85CF\u5939\u5185\u63D0\u95EE" }),
+          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+            "button",
+            {
+              type: "button",
+              onClick: () => void close(),
+              disabled: busy,
+              "aria-label": "\u5173\u95ED\u6536\u85CF\u5939\u8303\u56F4\u63D0\u95EE\uFF08\u6062\u590D\u5168\u5E93\uFF09",
+              title: "\u5173\u95ED\uFF1A\u6062\u590D\u5168\u5E93\u68C0\u7D22",
+              style: {
+                border: "none",
+                background: "transparent",
+                color: "#7a4a00",
+                cursor: busy ? "default" : "pointer",
+                fontSize: 13,
+                lineHeight: 1,
+                padding: "0 2px",
+                fontWeight: 700,
+                marginLeft: 2
+              },
+              children: "\u2715"
+            }
+          )
+        ]
+      }
+    )
+  ] });
 }
 
 // client/KsTurnTab.tsx

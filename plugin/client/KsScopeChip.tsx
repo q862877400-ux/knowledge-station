@@ -23,6 +23,8 @@ import { fetchChatMode, patchChatMode } from './api'
 export interface KsScopeChipProps {
   /** 当前会话 id（slot 框架注入；undefined 时胶囊隐藏）。 */
   sessionId?: string
+  /** 输入坞 owner props 的输入状态（InputZone.input；草稿文本供合规哨兵预判据）。 */
+  input?: { draft?: string; draftRev?: number }
 }
 
 /** dock 组件主体（不激活 = null）。 */
@@ -31,6 +33,30 @@ export function KsScopeChip(props: KsScopeChipProps): JSX.Element | null {
   const [folderName, setFolderName] = useState<string | null>(null)
   const [busy, setBusy] = useState(false)
   const abortRef = useRef<AbortController | null>(null)
+
+  /* S2/C2-a 合规哨兵（2026-09-22）：草稿发**宿主**判（词表唯一在宿主，客户端零复制），
+     命中 ⇒ 短标记「⚖ 合规护航：待命」+ 宿主会话标记（提示段按需带 L1）。防抖 300ms；
+     判据失效/未命中 = 零显示零开销，漏触发由哨句兜底（任务单 §二口径）。 */
+  const [sentry, setSentry] = useState(false)
+  const draft = props.input?.draft ?? ''
+  useEffect(() => {
+    if (sessionId === undefined || sessionId.length === 0) return
+    if (draft.trim().length === 0) {
+      setSentry(false)
+      return
+    }
+    const timer = setTimeout(() => {
+      void fetch('/ks/compliance/ping', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', accept: 'application/json' },
+        body: JSON.stringify({ session: sessionId, text: draft }),
+      })
+        .then((r) => (r.ok ? r.json() : null))
+        .then((b) => { setSentry((b)?.data?.triggered === true) })
+        .catch(() => { /* 判据口不可用：静默（哨句兜底），不打扰输入 */ })
+    }, 300)
+    return () => clearTimeout(timer)
+  }, [sessionId, draft])
 
   // 拉当前开关：有 session 就读一次（+ sessionId 变化重读）。
   useEffect(() => {
@@ -68,8 +94,24 @@ export function KsScopeChip(props: KsScopeChipProps): JSX.Element | null {
     }
   }, [sessionId, busy])
 
-  if (folderName === null) return null
+  if (folderName === null && !sentry) return null
   return (
+    <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
+    {sentry && (
+      <span
+        data-ks-compliance-marker=""
+        title="这轮涉及合规事项：作答将以库内原文为依据（详见合规问答技能）"
+        style={{
+          display: 'flex', alignItems: 'center', gap: 6, padding: '3px 10px', margin: '0 2px 4px',
+          borderRadius: 999, fontSize: 12,
+          color: 'var(--dsw-alias-state-warn-primary)',
+          border: '0.5px solid var(--dsw-alias-state-warn-primary)',
+        }}
+      >
+        ⚖ 合规护航：待命
+      </span>
+    )}
+    {folderName !== null && (
     <div
       data-ks-scope-chip=""
       style={{
@@ -111,6 +153,8 @@ export function KsScopeChip(props: KsScopeChipProps): JSX.Element | null {
       >
         ✕
       </button>
+    </div>
+    )}
     </div>
   )
 }

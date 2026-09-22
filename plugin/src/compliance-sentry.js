@@ -14,6 +14,8 @@
  *   复制漂移在结构上不可能。
  */
 
+import { errorBody, jsonResponse, readJsonBody } from './route_util.js'
+
 /** L0 哨句（唯一所有者；全库判据钉"字面只此一处"）。 */
 export const KS_COMPLIANCE_SENTRY =
   '涉及法规/国标/行标/公司制度的结论，必须先用 ks 工具核验（先查库拿原文）。'
@@ -100,8 +102,8 @@ export function extractL1(body = COMPLIANCE_SKILL_BODY) {
 
 /**
  * systemPrompt.section 的构造（照 makeChatModeSection 的形状：同步 text provider）。
- * opts.isTriggered(sessionId)：本回合预判据是否命中（触发源接线归 C2：KsScopeChip 载体）；
- * 缺省 = 只带 L0 哨句（每轮 ≈30 字——省 token 硬约束的底线）。
+ * opts.isTriggered(sessionId)：本回合预判据是否命中（C2-a 接线：输入坞芯片把草稿发
+ * `/ks/compliance/ping` 宿主判，命中打会话标记——词表只有一份在宿主，客户端零复制）。
  */
 export function buildComplianceSection(opts = {}) {
   return {
@@ -112,4 +114,48 @@ export function buildComplianceSection(opts = {}) {
       return triggered ? `${KS_COMPLIANCE_SENTRY}\n\n${extractL1()}` : KS_COMPLIANCE_SENTRY
     },
   }
+}
+
+/* ============================================================================
+   触发标记（C2-a，2026-09-22）：会话级、带 TTL 的"当回合"粗粒度实现——
+   打字命中后 COMPLIANCE_TTL_MS 内的组装带 L1；漏触发由哨句兜底（任务单 §二口径）。
+   ============================================================================ */
+
+export const COMPLIANCE_TTL_MS = 120_000
+
+const triggeredUntil = new Map() // session -> epoch ms（(none) = 会话未知）
+
+const keyOf = (sessionId) => (typeof sessionId === 'string' && sessionId.length > 0 ? sessionId : '(none)')
+
+/** 打/清触发标记（hit=false = 草稿不再命中 ⇒ 立即清）。 */
+export function markComplianceTriggered(sessionId, hit, now = Date.now()) {
+  const key = keyOf(sessionId)
+  if (hit === true) triggeredUntil.set(key, now + COMPLIANCE_TTL_MS)
+  else triggeredUntil.delete(key)
+}
+
+/** 提示段 provider 问的那句："这一轮带不带 L1？" */
+export function isComplianceTriggered(sessionId, now = Date.now()) {
+  const until = triggeredUntil.get(keyOf(sessionId))
+  return typeof until === 'number' && now < until
+}
+
+/** 只读判定口（POST 草稿 → 回 {triggered}；exact 路由、无尾斜杠）。 */
+export function registerKsComplianceRoutes(ctx) {
+  return ctx.webServer.register({
+    kind: 'exact',
+    path: '/ks/compliance/ping',
+    handler: async (req, res) => {
+      if (req.method !== 'POST') {
+        jsonResponse(res, 405, errorBody('method_not_allowed', 'POST only'))
+        return
+      }
+      const body = await readJsonBody(req)
+      const text = typeof body.text === 'string' ? body.text : ''
+      const sessionId = typeof body.session === 'string' ? body.session : ''
+      const hit = matchComplianceSentry(text)
+      markComplianceTriggered(sessionId, hit)
+      jsonResponse(res, 200, { ok: true, data: { triggered: hit } })
+    },
+  })
 }
