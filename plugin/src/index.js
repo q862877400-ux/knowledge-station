@@ -50,6 +50,7 @@ import {
 import { registerKsReportRoutes } from './report.js'
 import { registerKsChannelsRoutes } from './channels.js'
 import { registerKsMaterialsRoutes } from './materials_routes.js'
+import { recordKsTurn, registerKsTurnRoutes } from './turn.js'
 import { registerKsSettingsRoutes } from './settings.js'
 import { registerKsDocImageRoutes } from './docimage.js'
 import { registerKsIngestRoutes, ingestJobStartupCheck } from './ingest.js'
@@ -1359,6 +1360,19 @@ export function makeAnswerTool(manager, chatModeOf) {
         )
       }
       const trimmed = trimAnswer(data)
+      // S1-b：把本轮结果按会话暂存一份给「本轮」tab 读（工具返回是给模型的**裁剪版**；
+      // 面板要的是引擎**原始公开字段**——design-S1-turn-data-mapping §二）。
+      recordKsTurn(exec?.agent?.session?.id ?? '', {
+        query,
+        tier: data.tier ?? null,
+        verification: data.verification ?? null,
+        notes: Array.isArray(data.notes) ? data.notes : [],
+        scope: data.scope ?? null,
+        material_usage: data.material_usage ?? null,
+        evidence: Array.isArray(data.evidence) ? data.evidence : [],
+        derivation: typeof data.derivation === 'string' ? data.derivation : '',
+        conclusion: typeof data.conclusion === 'string' ? data.conclusion : '',
+      })
       const found = trimmed ? trimmed.evidence.length > 0 : false
 
       return {
@@ -1762,6 +1776,9 @@ export function apply(ctx, config = {}) {
       // 查法规模式开关（决策 14/16）：纯 host 状态（不碰引擎），落盘 ks-chatmode.json；
       // 上面的 systemPrompt 段读同一份状态。栅栏由 webCtx 统一施加。
       const disposeChatMode = registerKsChatModeRoutes(webCtx)
+      // 「本轮」依据只读口（S1-b）：纯 host 内存暂存，ks_answer 返回前写入；
+      // 与 chatmode 同族（host 状态、不碰引擎）。栅栏由 webCtx 统一施加。
+      const disposeTurn = registerKsTurnRoutes(webCtx)
       // R27 入库预览 / 批量分桶（2026-09-11）：纯代理零缓存——引擎做解析与体检，
       // host 只列目录 + 转发（含默认「待入库」目录的按需创建）。**只读**：不移动/不改写文件。
       // 异步全量预览（2026-09-12 L239）：状态文件 ks-ingest.json + adopt/poll——
@@ -1783,6 +1800,7 @@ export function apply(ctx, config = {}) {
         disposeDocImage()
         disposeApiSettings()
         disposeChatMode()
+        disposeTurn()
         disposeIngest()
       }
     })
