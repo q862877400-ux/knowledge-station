@@ -35532,7 +35532,7 @@ function KsKnowledgePage({ useTabInfo }) {
           void openAsk(askHereKeys);
         },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconSearchOutline16, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.IconQuestionOutline14, {}),
           "\u5728\u6B64\u8303\u56F4\u5185\u63D0\u95EE"
         ]
       }

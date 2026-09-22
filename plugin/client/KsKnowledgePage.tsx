@@ -74,7 +74,7 @@
  */
 
 import { Fragment, useCallback, useEffect, useMemo, useRef, useState, type MouseEvent as ReactMouseEvent, type ReactNode } from 'react'
-import { Button, Checkbox, IconChecklistOutline14, IconChevronDownOutline14, IconChevronLeftOutline14, IconChevronRightOutline14, IconCloseOutline16, IconEllipsisOutline16, IconFolderOpenOutline16, IconInfoOutline14, IconPlusOutline16, IconRefreshOutline16, IconSearchOutline16, IconTrashOutline16, IconWarningOutline16, Input, Menu } from '@deepseek-ai/dsh-client-ui-primitives'
+import { Button, Checkbox, IconChecklistOutline14, IconChevronDownOutline14, IconChevronLeftOutline14, IconChevronRightOutline14, IconCloseOutline16, IconEllipsisOutline16, IconFolderOpenOutline16, IconInfoOutline14, IconPlusOutline16, IconQuestionOutline14, IconRefreshOutline16, IconSearchOutline16, IconTrashOutline16, IconWarningOutline16, Input, Menu } from '@deepseek-ai/dsh-client-ui-primitives'
 
 import {
   addKbMembers,
@@ -932,7 +932,10 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
           : askHereWhy}
         onClick={() => { void openAsk(askHereKeys) }}
       >
-        <IconSearchOutline16 />
+        {/* 图标语义（诊断 J1，2026-09-22）：这里原来是**放大镜**——那是"搜索"的字面义，
+            挂在"提问"按钮上会把用户带偏（第一眼都当搜索框）。换成问号 = 提问的字面义。
+            宿主图标全集核过（ui-primitives/lib/types/icons/*.d.ts）：无对话气泡类，问号最贴。 */}
+        <IconQuestionOutline14 />
         在此范围内提问
       </Button>
       {/* 范围 chip（业主："发起前/发起后都要能看出当前范围是什么"）：目录名 + 篇数 + 可清掉。

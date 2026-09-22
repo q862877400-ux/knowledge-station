@@ -97,6 +97,9 @@ declare module '@deepseek-ai/dsh-client-ui-primitives' {
   export const IconListPenOutline16: ComponentType<DshIconProps>
   export const IconArchiveOutline20: ComponentType<DshIconProps>
   export const IconSearchOutline16: ComponentType<DshIconProps>
+  /** 「在此范围内提问」按钮的问号（诊断 J1 换图标；名字逐字核过宿主 icons/*.d.ts 全集，
+   *  宿主无对话气泡类图标 ⇒ 问号=提问最贴）。同边界：写错名字不构建失败、真机变 undefined。 */
+  export const IconQuestionOutline14: ComponentType<DshIconProps>
   /**
    * 5h（2026-09-20）卡片带**左右翻页**用的两个箭头。
    * 名字逐字核过宿主检出 `packages/client/ui-primitives/lib/index.js`
