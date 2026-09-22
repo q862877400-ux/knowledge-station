@@ -30,8 +30,15 @@ import { errorBody, jsonResponse, pickQuery, readJsonBody, mapProbe } from './ro
 /** 「渠道台账」路由（与 `plugin/client/api.ts` 里的常量**逐字一致**）。 */
 export const KS_CHANNELS_PATH = '/ks/channels'
 export const KS_CHANNELS_PROBE_PATH = '/ks/channels/probe'
-/** `PATCH/DELETE /ks/channels/{id}` 与 `POST /ks/channels/{id}/enabled` 走这条前缀。 */
-export const KS_CHANNELS_ITEM_PREFIX = '/ks/channels/'
+/** `PATCH/DELETE /ks/channels/{id}` 与 `POST /ks/channels/{id}/enabled` 走这条前缀。
+ *
+ *  ⚠⚠ **前缀不许带尾斜杠**（2026-09-22 修，UI 批0）：真派发器的前缀判据是
+ *  `pathname === prefix || pathname.startsWith(prefix + '/')`（webserver `match()`），
+ *  带尾斜杠时只有 `/ks/channels//…` 能命中 ⇒ 界面发的 `/ks/channels/{id}` 系列
+ *  **全部落到兜底**（写方法显示 HTTP 405）——「人工维护」整排按钮就这么死过一回
+ *  （冒烟的桩判据比真派发器宽，20+ 条断言全绿替它作证）。精确表先于前缀表 ⇒
+ *  无尾斜杠**不会**误吞集合路径 `/ks/channels`（那是 exact 路由的地盘）。 */
+export const KS_CHANNELS_ITEM_PREFIX = '/ks/channels'
 
 const ENGINE_CHANNELS_PATH = '/api/v1/channels'
 const ENGINE_PROBE_PATH = '/api/v1/channels/probe'

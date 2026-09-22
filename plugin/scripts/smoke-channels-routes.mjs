@@ -44,9 +44,21 @@ const server = createServer((req, res) => {
 await new Promise((r) => server.listen(0, '127.0.0.1', r))
 const PORT = server.address().port
 
-/* --------------------------- 捕获注册的路由 --------------------------- */
-const routes = new Map()
-const ctx = { webServer: { register(def) { routes.set(def.path, def); return () => {} } } }
+/* --------------------------- 捕获注册的路由 ---------------------------
+ * ⚠⚠ 与真派发器**同构**的两张表（webserver 是 exact 表 + prefix 表，`match()`
+ * 先查 exact、再在 prefix 表取最长匹配）——曾经只有一张按路径作键的表，
+ * 前缀一旦与某条 exact 同路径就把对方**覆盖**掉，桩就开始说假话（2026-09-22 实测踩到）。 */
+const exactRoutes = new Map()
+const prefixRoutes = new Map()
+const allRoutes = () => [...exactRoutes.values(), ...prefixRoutes.values()]
+const ctx = {
+  webServer: {
+    register(def) {
+      (def.kind === 'prefix' ? prefixRoutes : exactRoutes).set(def.path, def)
+      return () => {}
+    },
+  },
+}
 const manager = { ensureLive: async () => ({ port: PORT, token: 'tok_stub' }) }
 const disposers = registerKsChannelsRoutes(ctx, manager)
 
@@ -63,12 +75,16 @@ function makeRes() {
  *  ⚠ 这个桩原先只认 exact（`routes.get(path)`），于是 `/ks/channels/{id}` 这类
  *  prefix 路由**根本发不进来**——那会让"前缀路由写错了"这种 bug 在冒烟里静默通过。 */
 function resolveRoute(path) {
-  const exact = routes.get(path)
+  const exact = exactRoutes.get(path)
   if (exact !== undefined) return exact
   let best = null
-  for (const [p, def] of routes) {
-    if (def.kind !== 'prefix') continue
-    if (!path.startsWith(p)) continue
+  for (const [p, def] of prefixRoutes) {
+    // ⚠⚠ **与真派发器逐字同判据**（webserver `match()`）：
+    //   `pathname === prefix || pathname.startsWith(prefix + '/')`。
+    //   这里曾经是宽松的 `path.startsWith(p)` —— 比真的宽，`/ks/channels/x` 能配上带尾斜杠的坏前缀，
+    //   于是「人工维护整排死按钮」在冒烟里 20+ 条断言全绿。**判据必须与真派发器同源，
+    //   否则冒烟会替 bug 作证。**
+    if (p !== path && !path.startsWith(`${p}/`)) continue
     if (best === null || p.length > best.path.length) best = { path: p, def }
   }
   return best === null ? undefined : best.def
@@ -95,16 +111,29 @@ const lastEngine = () => seen[seen.length - 1]
 
 /* --------------------------- 1. 注册面 --------------------------- */
 check('注册了 3 条渠道路由（列表+新增 / 单条维护前缀 / 探针）',
-  routes.size === 3 && routes.has(KS_CHANNELS_PATH)
-    && routes.has(KS_CHANNELS_ITEM_PREFIX) && routes.has(KS_CHANNELS_PROBE_PATH),
-  [...routes.keys()].join(','))
-check('列表与单条是 exact、单条维护是 prefix（前缀匹配是 /{id} 能路由的前提）',
-  routes.get(KS_CHANNELS_PATH).kind === 'exact'
-    && routes.get(KS_CHANNELS_ITEM_PREFIX).kind === 'prefix'
-    && routes.get(KS_CHANNELS_PROBE_PATH).kind === 'exact')
+  exactRoutes.size + prefixRoutes.size === 3 && exactRoutes.has(KS_CHANNELS_PATH)
+    && prefixRoutes.has(KS_CHANNELS_ITEM_PREFIX) && exactRoutes.has(KS_CHANNELS_PROBE_PATH),
+  allRoutes().map((d) => `${d.kind} ${d.path}`).join(','))
+check('列表与探针在 exact 表、单条维护在 prefix 表（与真派发器同构；同键不许互相覆盖）',
+  exactRoutes.get(KS_CHANNELS_PATH)?.kind === 'exact'
+    && prefixRoutes.get(KS_CHANNELS_ITEM_PREFIX)?.kind === 'prefix'
+    && exactRoutes.get(KS_CHANNELS_PROBE_PATH)?.kind === 'exact'
+    && !prefixRoutes.has(KS_CHANNELS_PROBE_PATH))
 check('返回 3 个 disposer（随 fiber 撤销）', disposers.length === 3)
-check('路径常量就是界面用的那两个（防两侧漂开）',
-  KS_CHANNELS_PATH === '/ks/channels' && KS_CHANNELS_PROBE_PATH === '/ks/channels/probe')
+check('路径常量就是界面用的那三个（防两侧漂开）',
+  KS_CHANNELS_PATH === '/ks/channels' && KS_CHANNELS_PROBE_PATH === '/ks/channels/probe'
+    && KS_CHANNELS_ITEM_PREFIX === '/ks/channels')
+check('单条维护前缀不许带尾斜杠（带了 ⇒ 真派发器下 /{id} 系列全部落兜底，维护按钮整排死）',
+  !KS_CHANNELS_ITEM_PREFIX.endsWith('/'))
+{
+  // 与真派发器同判据的两条防呆（见 resolveRoute 注释）：正例解析到 prefix、形近路径不得误吞。
+  // 「形近不误吞」正是宽松 startsWith 会放过的那种漂移。
+  const item = resolveRoute(`${KS_CHANNELS_ITEM_PREFIX}/ch:a`)
+  const lookalike = resolveRoute(`${KS_CHANNELS_ITEM_PREFIX}X`)
+  check('单条维护路径解析到 prefix 路由；形近路径（/ks/channelsX）不误吞',
+    item !== undefined && item.kind === 'prefix' && lookalike === undefined,
+    `item=${item === undefined ? 'undefined' : item.kind} lookalike=${lookalike === undefined ? 'undefined' : 'HIT'}`)
+}
 
 /* --------------------------- 2. 方法守卫生效 --------------------------- */
 {
@@ -115,7 +144,7 @@ check('路径常量就是界面用的那两个（防两侧漂开）',
   check('列表/新增：PUT 打过来 → 405', r.status === 405, JSON.stringify(r.body))
   const r2 = await invoke(KS_CHANNELS_PROBE_PATH, { method: 'GET' })
   check('POST 探针：GET 打过来 → 405', r2.status === 405, JSON.stringify(r2.body))
-  const r3 = await invoke(`${KS_CHANNELS_ITEM_PREFIX}ch:a`, { method: 'GET' })
+  const r3 = await invoke(`${KS_CHANNELS_ITEM_PREFIX}/ch:a`, { method: 'GET' })
   check('单条维护：GET 打过来 → 405（这个路径没有读口）',
     r3.status === 405, JSON.stringify(r3.body))
 }
@@ -150,7 +179,7 @@ check('路径常量就是界面用的那两个（防两侧漂开）',
   // 单条 PATCH：只有白名单字段过去；404 原样透传
   seen.length = 0
   responder = () => ({ body: { code: 200, data: { channel_id: 'ch:a', note: '改过' } } })
-  const patched = await invoke(`${KS_CHANNELS_ITEM_PREFIX}ch:a`, {
+  const patched = await invoke(`${KS_CHANNELS_ITEM_PREFIX}/ch:a`, {
     method: 'PATCH', body: { note: '改过', junk: true },
   })
   const e2 = lastEngine()
@@ -165,7 +194,7 @@ check('路径常量就是界面用的那两个（防两侧漂开）',
 
   seen.length = 0
   responder = () => ({ http: 404, body: { error: 'channel_not_found', message: '渠道不存在' } })
-  const gone = await invoke(`${KS_CHANNELS_ITEM_PREFIX}ch:nope`, { method: 'DELETE' })
+  const gone = await invoke(`${KS_CHANNELS_ITEM_PREFIX}/ch:nope`, { method: 'DELETE' })
   check('删除：404 原样透传（不翻成 502 归因错误）',
     gone.status === 404 && gone.body.error.code === 'channel_not_found'
     && lastEngine().method === 'DELETE', JSON.stringify(gone.body))
@@ -173,7 +202,7 @@ check('路径常量就是界面用的那两个（防两侧漂开）',
   // 启停：**宿主不判布尔**（判据归引擎）——它只把值转过去
   seen.length = 0
   responder = () => ({ http: 422, body: { error: 'illegal_enabled', message: 'body 需要 {"enabled": true|false}' } })
-  const strEnabled = await invoke(`${KS_CHANNELS_ITEM_PREFIX}ch:a/enabled`, {
+  const strEnabled = await invoke(`${KS_CHANNELS_ITEM_PREFIX}/ch:a/enabled`, {
     method: 'POST', body: { enabled: 'no' },
   })
   check('启停：非布尔**照转**给引擎，引擎 422 原样回来（宿主不自己判一遍）',
@@ -182,7 +211,7 @@ check('路径常量就是界面用的那两个（防两侧漂开）',
     JSON.stringify(strEnabled.body))
   seen.length = 0
   responder = () => ({ body: { code: 200, data: { channel_id: 'ch:a', enabled: 0 } } })
-  const off = await invoke(`${KS_CHANNELS_ITEM_PREFIX}ch:a/enabled`, {
+  const off = await invoke(`${KS_CHANNELS_ITEM_PREFIX}/ch:a/enabled`, {
     method: 'POST', body: { enabled: false },
   })
   check('启停：转发 POST …/ch:a/enabled 且 body 只有 enabled',
@@ -244,9 +273,10 @@ check('路径常量就是界面用的那两个（防两侧漂开）',
 }
 {
   const dead = { ensureLive: async () => { throw new Error('engine down') } }
+  // 只留 exact 表（这张用例打的是集合路径的 GET；同样两表分开，不让 prefix 覆盖它）
   const r2routes = new Map()
   registerKsChannelsRoutes(
-    { webServer: { register(d) { r2routes.set(d.path, d); return () => {} } } }, dead)
+    { webServer: { register(d) { if (d.kind === 'exact') r2routes.set(d.path, d); return () => {} } } }, dead)
   const { EventEmitter } = await import('node:events')
   const req = new EventEmitter()
   req.method = 'GET'

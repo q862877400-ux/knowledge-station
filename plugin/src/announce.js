@@ -556,7 +556,10 @@ function registerSourcesRoutes(ctx, manager) {
     }),
     ctx.webServer.register({
       kind: 'prefix',
-      path: `${KS_ANNOUNCE_SOURCES_PATH}/`,
+      // ⚠⚠ **不许带尾斜杠**（2026-09-22 修，UI 批0，与 channels.js 同病同修）：
+      // 真派发器判据是 `pathname === prefix || pathname.startsWith(prefix + '/')`，
+      // 带尾斜杠 ⇒ `/ks/announce/sources/{id}` 一条都配不上 ⇒ 源的启停/删除整排死按钮。
+      path: KS_ANNOUNCE_SOURCES_PATH,
       handler: async (req, res) => {
         // /ks/announce/sources/{id}：PUT/DELETE 透传到引擎同构路径
         const rest = (req.url || '').split('?')[0]
