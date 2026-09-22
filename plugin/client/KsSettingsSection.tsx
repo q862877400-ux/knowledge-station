@@ -61,7 +61,9 @@ import {
   updateAnnounceSource,
   updateInspectionSettings,
 } from './api'
-import { KsChannelsPanel } from './KsChannelsPanel'
+/* ⚠ S5-b：KsInspectionPanel / KsAnnounceSourcesSection **从这里导出**（定义原地不动、
+   零面板内部改动——搬家批口径）；新家 = 知识库 ▾「渠道台账」页位。
+   KsChannelsPanel 的 import 已随之移除（本文件不再挂载它——死导入不留）。 */
 import {
   KS_PREFS_DEFAULT,
   getPrefsSnapshot,
@@ -163,11 +165,6 @@ export function KsSettingsSection(props: KsSettingsSectionInjected): JSX.Element
   // 六个类目各自的展开态（全默认收起）。展开过的数据留在组件 state 里，
   // 收起只是不再渲染/不再请求，不丢已拉到的快照。
   const [arrowOpen, setArrowOpen] = useState(false)
-  const [channelsOpen, setChannelsOpen] = useState(false)
-  const [inspectionOpen, setInspectionOpen] = useState(false)
-  const [inspectionOpenedOnce, setInspectionOpenedOnce] = useState(false)
-  const [announceOpen, setAnnounceOpen] = useState(false)
-  const [announceOpenedOnce, setAnnounceOpenedOnce] = useState(false)
   const [apiOpen, setApiOpen] = useState(false)
 
   // 写偏好：本地存储写入是同步的，不再有"乐观覆盖 + 失败回退"的需要
@@ -218,16 +215,9 @@ export function KsSettingsSection(props: KsSettingsSectionInjected): JSX.Element
           「参考资料」→ 知识库 ▾「备料」页。设置只留**全局项**（业主批准的搬家批，
           搬家不改面板内部、数据口径零变化）。 */}
 
-      {/* 渠道台账（§11.0 R4b）：巡检"渠道"的可见面——链接 / 接线 / 有效性 / 上次成功查询。
-          放在「参考资料」下面：两者都是"库里的东西要人工维护"的管理台（评审门 / 渠道门）。 */}
-      <KsCategory
-        title="渠道台账"
-        open={channelsOpen}
-        onToggle={setChannelsOpen}
-        hint="巡检用到的每条渠道：链接、接线状态、有效性实测、上次成功查询——方便人工维护"
-      >
-        <KsChannelsPanel visible={channelsOpen} />
-      </KsCategory>
+      {/* ⚠ S5-b 搬家留痕（2026-09-22）：渠道台账 / 每日巡检 / 公告发现（巡检族）三件
+          聚进知识库 ▾「渠道台账」页位（页内三节，功能零增删）；「入库预览」撤组的原文
+          留痕仍在下方（别删）。设置至此只留**全局项**：证据查看器 + API 配置。 */}
 
       {/* ⚠⚠ **2026-09-21（第 4 步）就地撤掉「入库预览」这一组**（原文保留在下面，别删）：
           它原来把 `KsIngestPanel`（只读体检 ✅/⚠️/❌ 分桶）挂在这里。
@@ -240,14 +230,6 @@ export function KsSettingsSection(props: KsSettingsSectionInjected): JSX.Element
           `plugin/scripts/smoke-ingest.mjs` / `ui-render-shot.mjs` 的 `--page ingest` 上跑着）
           —— 属于"产品里已无入口、代码与判据暂留"的状态，登记在报告里；
           第 5 步若确认不再需要，连它的冒烟一起删。 */}
-      <KsCategory title="每日巡检" open={inspectionOpen} onToggle={(next) => { setInspectionOpen(next); setInspectionOpenedOnce(true) }} hint="关注标准对照官网公告">
-        <KsInspectionPanel openedOnce={inspectionOpenedOnce} />
-      </KsCategory>
-
-      <KsCategory title="公告发现" open={announceOpen} onToggle={(next) => { setAnnounceOpen(next); setAnnounceOpenedOnce(true) }} hint="自定义公告源扫描">
-        <KsAnnounceSourcesSection openedOnce={announceOpenedOnce} />
-      </KsCategory>
-
       <KsApiConfigSection open={apiOpen} onOpenChange={setApiOpen} />
     </section>
   )
@@ -331,7 +313,7 @@ function statusText(s: KsInspectionSummary): { text: string; tone: string } {
   }
 }
 
-function KsInspectionPanel(props: { openedOnce: boolean }): JSX.Element {
+export function KsInspectionPanel(props: { openedOnce: boolean }): JSX.Element {
   const { openedOnce } = props
   const [summary, setSummary] = useState<KsInspectionSummary | null>(null)
   const [busy, setBusy] = useState(false)
@@ -681,7 +663,7 @@ function sourceStatusText(p: KsAnnouncePerSource | undefined): string {
   return `⏸ ${p.reason ?? p.status}`
 }
 
-function KsAnnounceSourcesSection(props: { openedOnce: boolean }): JSX.Element {
+export function KsAnnounceSourcesSection(props: { openedOnce: boolean }): JSX.Element {
   const { openedOnce } = props
   const [summary, setSummary] = useState<KsAnnounceSummary | null>(null)
   const [scanning, setScanning] = useState(false)

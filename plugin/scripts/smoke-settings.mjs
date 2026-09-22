@@ -163,9 +163,9 @@ cleanupArtifacts()                       // 上一跑被强杀留下的，先清
  * ⚠ "识别不了就点名"：`<KsCategory` 出现次数与抽出到的 title 数不一致 ⇒ 直接红，
  *   不静默少读（同 `ks-primitives-stub.mjs` 对无法静态枚举的写法直接抛错那条纪律）。 */
 const EXPECTED_CATEGORIES = [
-  /* ⚠ S4/S5 对账（2026-09-22）：「效力报告」→知识库▾「效力总览」、「参考资料」→▾「备料」
-     ⇒ 冻结清单 7→5（搬家批改清单 = 预期变更；三方互比棘轮照旧严）。巡检族三件仍在（S5-b 再聚）。 */
-  '证据查看器', '渠道台账', '每日巡检', '公告发现', 'API配置',
+  /* ⚠ S4/S5 对账（2026-09-22）：效力报告/参考资料/巡检族三件全部搬去知识库二级页
+     ⇒ 冻结清单 7→2（搬家批改清单 = 预期变更；三方互比棘轮照旧严）。设置只留全局项。 */
+  '证据查看器', 'API配置',
 ]
 const settingsSrcPath = join(pluginRoot, 'client', 'KsSettingsSection.tsx')
 const settingsSrc = await readFile(settingsSrcPath, 'utf8')

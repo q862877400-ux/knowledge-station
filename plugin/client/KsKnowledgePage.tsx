@@ -123,9 +123,11 @@ import {
 } from './api'
 import { ensureKsStyles } from './ksGuideStyles'
 import { KsCapabilityPage } from './KsCapabilityPage'
+import { KsChannelsPanel } from './KsChannelsPanel'
 import { KsIngestPanel } from './KsIngestPanel'
 import { KsMaterialsPanel } from './KsMaterialsPanel'
 import { KsReportPanel } from './KsReportPanel'
+import { KsAnnounceSourcesSection, KsInspectionPanel } from './KsSettingsSection'
 import type { KsPaneBodyProps, KsKbInjected } from './ksSidebar'
 
 /**
@@ -1789,6 +1791,35 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
           </header>
           <div className="ks-page-rule" />
           <KsMaterialsPanel visible />
+        </div>
+      </div>
+    )
+  }
+
+  // ── S5-b（2026-09-22）：巡检族三件聚「渠道台账」页位（功能零增删，页内三节） ──
+  if (page === 'channels') {
+    return (
+      <div className="ks-page">
+        <div className="ks-kb">
+          <header className="ks-page-head">
+            <div className="ks-page-title">渠道台账</div>
+            <div className="ks-page-sub">巡检族聚此：渠道台账 / 每日巡检 / 公告发现（搬家不改功能）。</div>
+          </header>
+          <div className="ks-page-rule" />
+          <div style={{ padding: '8px 14px 18px', display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <div>
+              <div style={{ fontWeight: 600, fontSize: 13, marginBottom: 4 }}>渠道台账</div>
+              <KsChannelsPanel visible />
+            </div>
+            <div>
+              <div style={{ fontWeight: 600, fontSize: 13, marginBottom: 4 }}>每日巡检</div>
+              <KsInspectionPanel openedOnce />
+            </div>
+            <div>
+              <div style={{ fontWeight: 600, fontSize: 13, marginBottom: 4 }}>公告发现</div>
+              <KsAnnounceSourcesSection openedOnce />
+            </div>
+          </div>
         </div>
       </div>
     )

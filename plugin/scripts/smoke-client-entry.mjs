@@ -676,8 +676,12 @@ check('inject declares only official services (no third-party hard gate)',
     kbSrc.includes("import { KsMaterialsPanel }") && kbSrc.includes('<KsMaterialsPanel'))
   check('「效力总览」页源码里**挂载**了效力报告面板（S4 同批搬家的新家）',
     kbSrc.includes("import { KsReportPanel }") && kbSrc.includes('<KsReportPanel'))
-  check('设置里**不再**挂载这两个面板（S5 设置只留全局项——挡它被塞回来）',
-    !settings.includes('<KsMaterialsPanel') && !settings.includes('<KsReportPanel'))
+  check('「渠道台账」页源码里**挂载**了巡检族三件（S5-b 聚家）',
+    kbSrc.includes('<KsChannelsPanel') && kbSrc.includes('<KsInspectionPanel') && kbSrc.includes('<KsAnnounceSourcesSection'))
+  check('设置里**不再**挂载这些面板（S5 设置只留全局项——挡它被塞回来）',
+    !settings.includes('<KsMaterialsPanel') && !settings.includes('<KsReportPanel')
+    && !settings.includes('<KsChannelsPanel') && !settings.includes('<KsInspectionPanel')
+    && !settings.includes('<KsAnnounceSourcesSection'))
   check('产物里同时含面板标记与设置侧文案（源码↔产物同步的间接证据）',
     bundle.includes('评审是硬门') && bundle.includes('/materials use '))
   // ⚠ 产出侧同理：源码里那个 handler 必须真的接在按钮上（否则按钮点了没反应，
