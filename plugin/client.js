@@ -35163,7 +35163,7 @@ var pathOfFolder = (rows, folderId) => rows.find((f) => f.folder_id === folderId
 function outcomeText(verb, out) {
   const bad = out.failed.map((f) => `${f.label}\uFF1A${f.message}`).join("\uFF1B");
   if (out.failed.length === 0) return `${verb} ${String(out.done)} \u4EF6\u3002`;
-  return `${verb} ${String(out.done)} \u4EF6\uFF1B**\u6709 ${String(out.failed.length)} \u4EF6\u6CA1\u6210**\uFF1A${bad}`;
+  return `${verb} ${String(out.done)} \u4EF6\uFF1B\u6709 ${String(out.failed.length)} \u4EF6\u6CA1\u6210\uFF1A${bad}`;
 }
 function askScopeOf(keys, rows) {
   const folderIds = folderIdsOf(keys);
@@ -35673,7 +35673,7 @@ function KsKnowledgePage({ useTabInfo }) {
         token,
         ok.map((docId) => ({ doc_id: docId, action: "accept", placed_by: "kb-inbox-accept" }))
       ));
-      setActMsg(`\u6309\u5EFA\u8BAE\u5F52\u4F4D ${String(res.confirmed)} \u7BC7` + (skipped > 0 ? `\uFF1B**${String(skipped)} \u7BC7\u7CFB\u7EDF\u6CA1\u7ED9\u5EFA\u8BAE\uFF0C\u6CA1\u6709\u52A8\u5B83\u4EEC**\uFF08\u5B83\u4EEC\u53EA\u80FD\u624B\u52A8\u6307\u5B9A\u53BB\u5904\uFF09` : "") + `\uFF08\u4ECE\u300C\u5F85\u5206\u7C7B\u300D\u62FF\u6389 ${String(res.removed_from_pending)} \u7BC7\uFF09\u3002`);
+      setActMsg(`\u6309\u5EFA\u8BAE\u5F52\u4F4D ${String(res.confirmed)} \u7BC7` + (skipped > 0 ? `\uFF1B${String(skipped)} \u7BC7\u7CFB\u7EDF\u6CA1\u7ED9\u5EFA\u8BAE\uFF0C\u6CA1\u6709\u52A8\u5B83\u4EEC\uFF08\u5B83\u4EEC\u53EA\u80FD\u624B\u52A8\u6307\u5B9A\u53BB\u5904\uFF09` : "") + `\uFF08\u4ECE\u300C\u5F85\u5206\u7C7B\u300D\u62FF\u6389 ${String(res.removed_from_pending)} \u7BC7\uFF09\u3002`);
       setAction(null);
       setPicked(/* @__PURE__ */ new Set());
       await loadInbox(inboxOffset, { silent: true });
@@ -35688,7 +35688,7 @@ function KsKnowledgePage({ useTabInfo }) {
     try {
       const res = await withSession((port, token) => reingestKbDocs(port, token, targets));
       const skipped = res.skipped.map((s) => `${s.doc_id}\uFF1A${s.reason}`).join("\uFF1B");
-      setActMsg(`\u5DF2\u5F00\u59CB\u91CD\u6765\u4E00\u6B21\uFF1A${String(res.queued)} \u7BC7\u6392\u961F\u91CD\u65B0\u89E3\u6790\uFF08\u72B6\u6001\u5217\u4F1A\u4ECE\u300C\u8BC6\u522B\u4E2D\u300D\u53D8\u6210\u300C\u5F85\u786E\u8BA4\u300D\u6216\u300C\u8BC6\u522B\u5931\u8D25\u300D\uFF0C\u8DD1\u5B8C\u81EA\u52A8\u5237\u65B0\uFF09\u3002` + (skipped === "" ? "" : ` \u2014\u2014 **\u8FD9\u4E9B\u6CA1\u91CD\u6765**\uFF1A${skipped}`));
+      setActMsg(`\u5DF2\u5F00\u59CB\u91CD\u6765\u4E00\u6B21\uFF1A${String(res.queued)} \u7BC7\u6392\u961F\u91CD\u65B0\u89E3\u6790\uFF08\u72B6\u6001\u5217\u4F1A\u4ECE\u300C\u8BC6\u522B\u4E2D\u300D\u53D8\u6210\u300C\u5F85\u786E\u8BA4\u300D\u6216\u300C\u8BC6\u522B\u5931\u8D25\u300D\uFF0C\u8DD1\u5B8C\u81EA\u52A8\u5237\u65B0\uFF09\u3002` + (skipped === "" ? "" : ` \u2014\u2014 \u8FD9\u4E9B\u6CA1\u91CD\u6765\uFF1A${skipped}`));
       setAction(null);
       setReingesting(res.queued > 0);
       await loadInbox(inboxOffset, { silent: true });
@@ -35757,7 +35757,7 @@ function KsKnowledgePage({ useTabInfo }) {
     setBusy(true);
     try {
       const got = await withSession((port, token) => renameKbFolder(port, token, folderId, clean));
-      setActMsg(`\u5DF2\u628A\u76EE\u5F55\u6539\u540D\u4E3A\u300C${got.name}\u300D\uFF08**\u53EA\u6539\u5E93\u91CC\u7684\u540D\u5B57**\uFF0C\u78C1\u76D8\u4E0A\u7684\u6587\u4EF6\u4E00\u4E2A\u5B57\u90FD\u6CA1\u52A8\uFF09\u3002`);
+      setActMsg(`\u5DF2\u628A\u76EE\u5F55\u6539\u540D\u4E3A\u300C${got.name}\u300D\uFF08\u53EA\u6539\u5E93\u91CC\u7684\u540D\u5B57\uFF0C\u78C1\u76D8\u4E0A\u7684\u6587\u4EF6\u4E00\u4E2A\u5B57\u90FD\u6CA1\u52A8\uFF09\u3002`);
       await afterAction();
     } catch (error) {
       setActMsg(`\u6CA1\u6539\u6210\uFF1A${errorText(error)}`);
@@ -35836,7 +35836,7 @@ function KsKnowledgePage({ useTabInfo }) {
           }
         }]
       ]);
-      setActMsg(`${outcomeText("\u5DF2\u590D\u5236", out)}\u5230\u300C${destPath}\u300D\uFF08**\u53EA\u662F\u591A\u4E86\u4E00\u5904\u4F4D\u7F6E**\uFF1A\u6587\u4EF6\u8FD8\u662F\u90A3\u4E00\u4EFD\u3001\u78C1\u76D8\u4E0A\u6CA1\u591A\u51FA\u6587\u4EF6\uFF1B\u590D\u5236\u51FA\u6765\u7684\u76EE\u5F55\u4E0E\u539F\u76EE\u5F55\u5171\u4EAB\u540C\u4E00\u6279\u5185\u5BB9\uFF0C\u539F\u4F4D\u540E\u6765\u52A0\u7684\u4E1C\u897F\u4E0D\u4F1A\u8DDF\u7740\u53D8\uFF09\u3002`);
+      setActMsg(`${outcomeText("\u5DF2\u590D\u5236", out)}\u5230\u300C${destPath}\u300D\uFF08\u53EA\u662F\u591A\u4E86\u4E00\u5904\u4F4D\u7F6E\uFF1A\u6587\u4EF6\u8FD8\u662F\u90A3\u4E00\u4EFD\u3001\u78C1\u76D8\u4E0A\u6CA1\u591A\u51FA\u6587\u4EF6\uFF1B\u590D\u5236\u51FA\u6765\u7684\u76EE\u5F55\u4E0E\u539F\u76EE\u5F55\u5171\u4EAB\u540C\u4E00\u6279\u5185\u5BB9\uFF0C\u539F\u4F4D\u540E\u6765\u52A0\u7684\u4E1C\u897F\u4E0D\u4F1A\u8DDF\u7740\u53D8\uFF09\u3002`);
       await afterAction();
     } catch (error) {
       setActMsg(`\u6CA1\u590D\u5236\u6210\uFF1A${errorText(error)}`);
@@ -35888,7 +35888,7 @@ function KsKnowledgePage({ useTabInfo }) {
         levelId,
         docIds.map((id) => ({ kind: "file", id }))
       ));
-      setActMsg(`\u5DF2\u4ECE\u300C${levelName}\u300D\u79FB\u51FA ${String(r.removed)} \u7BC7\uFF08\u53EA\u53BB\u6389\u8FD9\u4E00\u5904\u7684\u5F52\u5C5E\uFF0C**\u6587\u4EF6\u6CA1\u6709\u5220**\uFF1B\u8FD8\u6302\u5728\u522B\u7684\u76EE\u5F55\u91CC\u7684\u7167\u65E7\u5728\u90A3\u91CC\uFF09\u3002`);
+      setActMsg(`\u5DF2\u4ECE\u300C${levelName}\u300D\u79FB\u51FA ${String(r.removed)} \u7BC7\uFF08\u53EA\u53BB\u6389\u8FD9\u4E00\u5904\u7684\u5F52\u5C5E\uFF0C\u6587\u4EF6\u6CA1\u6709\u5220\uFF1B\u8FD8\u6302\u5728\u522B\u7684\u76EE\u5F55\u91CC\u7684\u7167\u65E7\u5728\u90A3\u91CC\uFF09\u3002`);
       await afterAction();
     } catch (error) {
       setActMsg(`\u6CA1\u79FB\u51FA\uFF1A${errorText(error)}`);
@@ -35920,7 +35920,7 @@ function KsKnowledgePage({ useTabInfo }) {
           }
         };
       }));
-      setActMsg(`${outcomeText("\u5DF2\u5220\u76EE\u5F55", out)}\uFF08"\u8FDE\u91CC\u9762\u7684\u6587\u4EF6\u4E00\u8D77\u5220"\u4E5F\u53EA\u771F\u5220**\u5728\u6240\u6709\u76EE\u5F55\u91CC\u90FD\u4E0D\u518D\u51FA\u73B0**\u7684\u90A3\u4E9B\uFF1B\u8FD8\u6302\u5728\u522B\u5904\u7684\u53EA\u4E22\u8FD9\u91CC\u7684\u5F52\u5C5E\u3002\uFF09`);
+      setActMsg(`${outcomeText("\u5DF2\u5220\u76EE\u5F55", out)}\uFF08"\u8FDE\u91CC\u9762\u7684\u6587\u4EF6\u4E00\u8D77\u5220"\u4E5F\u53EA\u771F\u5220\u5728\u6240\u6709\u76EE\u5F55\u91CC\u90FD\u4E0D\u518D\u51FA\u73B0\u7684\u90A3\u4E9B\uFF1B\u8FD8\u6302\u5728\u522B\u5904\u7684\u53EA\u4E22\u8FD9\u91CC\u7684\u5F52\u5C5E\u3002\uFF09`);
       await afterAction();
     } catch (error) {
       setActMsg(`\u6CA1\u5220\u6210\uFF1A${errorText(error)}`);
@@ -36007,7 +36007,7 @@ function KsKnowledgePage({ useTabInfo }) {
           }
           setCcsRunning(false);
           const bad = st.not_found + st.network_failed + st.parse_failed + st.not_applicable;
-          setActMsg(`\u8865\u5168\u5206\u7C7B\u53F7\u7ED3\u675F\uFF1A${String(st.done)} \u7BC7\u8DD1\u5B8C\uFF0C\u8865\u5230 ${String(st.found)} \u7BC7` + (bad > 0 ? `\uFF0C${String(bad)} \u7BC7\u6CA1\u8865\u5230\uFF08\u9010\u7BC7\u539F\u56E0\u89C1\u4E0B\u9762\u90A3\u5F20\u6E05\u5355\uFF1B\u4E0D\u662F\u5931\u8D25\u5C31\u662F\u67E5\u65E0\uFF09` : "") + (st.cancelled ? "\u3002**\u8FD9\u4E00\u6279\u662F\u4F60\u6309\u505C\u7684**\uFF0C\u5269\u4E0B\u7684\u8FD8\u6CA1\u8DD1\u3002" : "\u3002") + " \u4E0B\u9762\u8FD9\u4E00\u5C42\u5DF2\u6309\u6700\u65B0\u72B6\u6001\u91CD\u8BFB\u3002");
+          setActMsg(`\u8865\u5168\u5206\u7C7B\u53F7\u7ED3\u675F\uFF1A${String(st.done)} \u7BC7\u8DD1\u5B8C\uFF0C\u8865\u5230 ${String(st.found)} \u7BC7` + (bad > 0 ? `\uFF0C${String(bad)} \u7BC7\u6CA1\u8865\u5230\uFF08\u9010\u7BC7\u539F\u56E0\u89C1\u4E0B\u9762\u90A3\u5F20\u6E05\u5355\uFF1B\u4E0D\u662F\u5931\u8D25\u5C31\u662F\u67E5\u65E0\uFF09` : "") + (st.cancelled ? "\u3002\u8FD9\u4E00\u6279\u662F\u4F60\u6309\u505C\u7684\uFF0C\u5269\u4E0B\u7684\u8FD8\u6CA1\u8DD1\u3002" : "\u3002") + " \u4E0B\u9762\u8FD9\u4E00\u5C42\u5DF2\u6309\u6700\u65B0\u72B6\u6001\u91CD\u8BFB\u3002");
           await loadInbox(inboxOffset, { silent: true });
           await loadCcsSummary();
         } catch (error) {
@@ -36091,7 +36091,7 @@ function KsKnowledgePage({ useTabInfo }) {
         return;
       }
       await withSession((port, token) => resumeBulkIngest(port, token, started.batch_id));
-      setUpMsg(`\u5FEB\u626B\u5B8C\u6210\uFF0C\u5F00\u59CB\u9010\u4EF6\u89E3\u6790${upReingest ? "\uFF08**\u8986\u76D6\u91CD\u5BFC**\uFF1A\u540C\u53F7\u65E7\u6587\u6863\u4F1A\u88AB\u66FF\u6362\uFF09" : ""}\u2026`);
+      setUpMsg(`\u5FEB\u626B\u5B8C\u6210\uFF0C\u5F00\u59CB\u9010\u4EF6\u89E3\u6790${upReingest ? "\uFF08\u8986\u76D6\u91CD\u5BFC\uFF1A\u540C\u53F7\u65E7\u6587\u6863\u4F1A\u88AB\u66FF\u6362\uFF09" : ""}\u2026`);
       let parsed = 0;
       let stateMissing = 0;
       let stateMissingSample = [];
@@ -36103,7 +36103,7 @@ function KsKnowledgePage({ useTabInfo }) {
         stateMissing = st.filing_state_missing;
         stateMissingSample = st.filing_state_missing_sample;
         const pausedReal = st.status === "paused" && (st.pause_reason === "daily_budget_reached" || st.pause_reason === "aborted_by_user");
-        setUpMsg(`\u5DF2\u89E3\u6790 ${parsed} / ${last} \u7BC7${st.errors > 0 ? `\uFF08\u5931\u8D25 ${st.errors}\uFF09` : ""}${st.status === "paused" && !pausedReal ? "\uFF08\u5F15\u64CE\u521A\u63A5\u8FC7\u8FD9\u4E00\u6279\uFF0C\u6B63\u5728\u8D77\u89E3\u6790\uFF09" : ""}${stateMissing > 0 ? `\uFF1B**\u5176\u4E2D ${String(stateMissing)} \u7BC7\u7684\u5904\u7406\u72B6\u6001\u6CA1\u5199\u8FDB\u5E93**` : ""}\u2026`);
+        setUpMsg(`\u5DF2\u89E3\u6790 ${parsed} / ${last} \u7BC7${st.errors > 0 ? `\uFF08\u5931\u8D25 ${st.errors}\uFF09` : ""}${st.status === "paused" && !pausedReal ? "\uFF08\u5F15\u64CE\u521A\u63A5\u8FC7\u8FD9\u4E00\u6279\uFF0C\u6B63\u5728\u8D77\u89E3\u6790\uFF09" : ""}${stateMissing > 0 ? `\uFF1B\u5176\u4E2D ${String(stateMissing)} \u7BC7\u7684\u5904\u7406\u72B6\u6001\u6CA1\u5199\u8FDB\u5E93` : ""}\u2026`);
         if (st.status === "done" || st.status === "failed") {
           settled = st.status;
           break;
@@ -36116,22 +36116,22 @@ function KsKnowledgePage({ useTabInfo }) {
       }
       if (settled === "timeout") {
         setUpPhase("done");
-        setUpMsg(`**\u8FD8\u5728\u8DD1**\uFF1A\u5DF2\u89E3\u6790 ${parsed} / ${last} \u7BC7\uFF08\u7B49\u4E86 10 \u5206\u949F\u6CA1\u7B49\u5230\u7ED3\u675F\uFF09\u2014\u2014\u5F15\u64CE\u90A3\u8FB9\u8FD8\u5728\u5E72\u6D3B\uFF0C\u6570\u5B57\u4EE5\u5B83\u4E3A\u51C6\uFF1B\u53EF\u4EE5\u70B9\u53F3\u4E0A\u89D2\u5237\u65B0\u91CD\u8BFB\u8FD9\u4E00\u5C42\uFF0C\u7A0D\u540E\u518D\u770B\u3002`);
+        setUpMsg(`\u8FD8\u5728\u8DD1\uFF1A\u5DF2\u89E3\u6790 ${parsed} / ${last} \u7BC7\uFF08\u7B49\u4E86 10 \u5206\u949F\u6CA1\u7B49\u5230\u7ED3\u675F\uFF09\u2014\u2014\u5F15\u64CE\u90A3\u8FB9\u8FD8\u5728\u5E72\u6D3B\uFF0C\u6570\u5B57\u4EE5\u5B83\u4E3A\u51C6\uFF1B\u53EF\u4EE5\u70B9\u53F3\u4E0A\u89D2\u5237\u65B0\u91CD\u8BFB\u8FD9\u4E00\u5C42\uFF0C\u7A0D\u540E\u518D\u770B\u3002`);
         return;
       }
       if (settled === "stopped") {
         setUpPhase("done");
-        setUpMsg(`\u8FD9\u4E00\u6279**\u505C\u4F4F\u4E86**\uFF08\u5DF2\u89E3\u6790 ${parsed} / ${last} \u7BC7\uFF09\uFF1A\u5F15\u64CE\u8BF4\u8FBE\u5230\u4E86\u5F53\u5929\u7684\u89E3\u6790\u9884\u7B97\u4E0A\u9650\uFF08\u6216\u8FD9\u6279\u88AB\u7EC8\u6B62\uFF09\u2014\u2014\u5269\u4E0B\u7684\u6587\u4EF6\u4E0D\u4F1A\u81EA\u5DF1\u7EE7\u7EED\uFF0C\u53EF\u4EE5\u5230\u300C\u5F85\u5206\u7C7B\u300D\u5C42\u5BF9\u7740\u90A3\u51E0\u7BC7\u70B9\u300C\u91CD\u6765\u4E00\u6B21\u300D\u3002`);
+        setUpMsg(`\u8FD9\u4E00\u6279\u505C\u4F4F\u4E86\uFF08\u5DF2\u89E3\u6790 ${parsed} / ${last} \u7BC7\uFF09\uFF1A\u5F15\u64CE\u8BF4\u8FBE\u5230\u4E86\u5F53\u5929\u7684\u89E3\u6790\u9884\u7B97\u4E0A\u9650\uFF08\u6216\u8FD9\u6279\u88AB\u7EC8\u6B62\uFF09\u2014\u2014\u5269\u4E0B\u7684\u6587\u4EF6\u4E0D\u4F1A\u81EA\u5DF1\u7EE7\u7EED\uFF0C\u53EF\u4EE5\u5230\u300C\u5F85\u5206\u7C7B\u300D\u5C42\u5BF9\u7740\u90A3\u51E0\u7BC7\u70B9\u300C\u91CD\u6765\u4E00\u6B21\u300D\u3002`);
         await loadLevel(levelId, 0, { silent: true });
         return;
       }
-      const missingNote = stateMissing === 0 ? "" : `\uFF1B\u26A0 **\u8FD9\u6279\u91CC\u6709 ${String(stateMissing)} \u7BC7\u7684\u5904\u7406\u72B6\u6001\u6CA1\u5199\u8FDB\u5E93**\uFF08\u6837\u4F8B\uFF1A${stateMissingSample.join("\u3001")}${stateMissing > stateMissingSample.length ? " \u7B49" : ""}\uFF09\u2014\u2014 \u5B83\u4EEC\u5728\u300C\u5F85\u5206\u7C7B\u300D\u91CC\u4F1A\u663E\u793A\u6210"\u6392\u961F\u4E2D"\uFF0C\u70B9\u300C\u91CD\u6765\u4E00\u6B21\u300D\u53EF\u518D\u8BD5\u4E00\u6B21`;
+      const missingNote = stateMissing === 0 ? "" : `\uFF1B\u26A0 \u8FD9\u6279\u91CC\u6709 ${String(stateMissing)} \u7BC7\u7684\u5904\u7406\u72B6\u6001\u6CA1\u5199\u8FDB\u5E93\uFF08\u6837\u4F8B\uFF1A${stateMissingSample.join("\u3001")}${stateMissing > stateMissingSample.length ? " \u7B49" : ""}\uFF09\u2014\u2014 \u5B83\u4EEC\u5728\u300C\u5F85\u5206\u7C7B\u300D\u91CC\u4F1A\u663E\u793A\u6210"\u6392\u961F\u4E2D"\uFF0C\u70B9\u300C\u91CD\u6765\u4E00\u6B21\u300D\u53EF\u518D\u8BD5\u4E00\u6B21`;
       const after = await withSession((port, token) => fetchDocsFlat(port, token));
       const fresh = after.filter((d) => !beforeIds.has(d.doc_id)).map((d) => d.doc_id);
       if (fresh.length === 0) {
         setUpPhase("done");
         if (parsed > 0) {
-          setUpMsg(`\u8FD9\u4E00\u6279\u89E3\u6790\u62A5\u6210\u529F ${parsed} \u7BC7\uFF0C\u4F46\u5B83\u4EEC**\u6CA1\u51FA\u73B0\u5728\u76EE\u5F55\u6E05\u5355\u91CC**\uFF08\u6B63\u6587\u6761\u6B3E\u4E3A\u96F6\u7684\u90A3\u4E00\u7C7B\u4F1A\u88AB\u6321\u5728\u76EE\u5F55\u5916\uFF09\u2014\u2014\u53BB\u300C\u5F85\u5206\u7C7B\u300D\u5C42\u5C31\u80FD\u770B\u5230\u5B83\u4EEC\uFF0C\u5728\u90A3\u513F\u53EF\u4EE5\u5BF9\u5B83\u4EEC\u70B9\u300C\u91CD\u6765\u4E00\u6B21\u300D\u3002` + missingNote);
+          setUpMsg(`\u8FD9\u4E00\u6279\u89E3\u6790\u62A5\u6210\u529F ${parsed} \u7BC7\uFF0C\u4F46\u5B83\u4EEC\u6CA1\u51FA\u73B0\u5728\u76EE\u5F55\u6E05\u5355\u91CC\uFF08\u6B63\u6587\u6761\u6B3E\u4E3A\u96F6\u7684\u90A3\u4E00\u7C7B\u4F1A\u88AB\u6321\u5728\u76EE\u5F55\u5916\uFF09\u2014\u2014\u53BB\u300C\u5F85\u5206\u7C7B\u300D\u5C42\u5C31\u80FD\u770B\u5230\u5B83\u4EEC\uFF0C\u5728\u90A3\u513F\u53EF\u4EE5\u5BF9\u5B83\u4EEC\u70B9\u300C\u91CD\u6765\u4E00\u6B21\u300D\u3002` + missingNote);
         } else {
           setUpMsg(`\u8FD9\u4E00\u6279\u6CA1\u6709\u89E3\u6790\u51FA\u4EFB\u4F55\u6587\u6863\uFF08\u5171\u770B\u4E86 ${last} \u4E2A\uFF0C\u6210\u529F 0 \u4E2A${last > 0 ? `\uFF0C\u5931\u8D25 ${String(last - parsed)} \u4E2A` : ""}\uFF1B\u5E93\u91CC\u5DF2\u6709\u7684\u4E0D\u4F1A\u91CD\u590D\u8FDB\uFF09\u3002` + missingNote);
         }
@@ -36148,7 +36148,7 @@ function KsKnowledgePage({ useTabInfo }) {
       if (layer === "inbox") {
         setUpMsg(`\u5BFC\u5165\u5B8C\u6210\uFF1A\u8FD9\u4E00\u6279\u89E3\u6790 ${parsed} \u7BC7\uFF0C\u5176\u4E2D\u80FD\u6302\u7684 ${fresh.length} \u7BC7\u5C31\u6392\u5728\u4E0B\u9762\u8FD9\u4E2A\u5217\u8868\u91CC\uFF08\u72B6\u6001\u5982\u5B9E\u663E\u793A\uFF09\u2014\u2014\u5728\u8FD9\u513F\u76F4\u63A5\u5904\u7F6E${placeNote}\u3002` + missingNote);
       } else {
-        setUpMsg(`\u5BFC\u5165\u5B8C\u6210\uFF1A\u8FD9\u4E00\u6279\u89E3\u6790 ${parsed} \u7BC7\uFF0C\u5176\u4E2D\u80FD\u6302\u7684 ${fresh.length} \u7BC7\u3002\u4F60\u73B0\u5728\u505C\u5728**\u6700\u5916\u5C42** \u21D2 \u5B83\u4EEC\u7559\u5728\u6700\u5916\u5C42\uFF08\u8FD8\u6CA1\u5F52\u4F4D\uFF0C\u4F1A\u51FA\u73B0\u5728\u300C\u5F85\u5206\u7C7B\u300D\u91CC\uFF1B\u8FDB\u4E00\u4E2A\u76EE\u5F55\u518D\u4E0A\u4F20\u624D\u4F1A\u76F4\u63A5\u843D\u8FDB\u90A3\u4E2A\u76EE\u5F55\uFF09${placeNote}\u3002` + missingNote);
+        setUpMsg(`\u5BFC\u5165\u5B8C\u6210\uFF1A\u8FD9\u4E00\u6279\u89E3\u6790 ${parsed} \u7BC7\uFF0C\u5176\u4E2D\u80FD\u6302\u7684 ${fresh.length} \u7BC7\u3002\u4F60\u73B0\u5728\u505C\u5728\u6700\u5916\u5C42 \u21D2 \u5B83\u4EEC\u7559\u5728\u6700\u5916\u5C42\uFF08\u8FD8\u6CA1\u5F52\u4F4D\uFF0C\u4F1A\u51FA\u73B0\u5728\u300C\u5F85\u5206\u7C7B\u300D\u91CC\uFF1B\u8FDB\u4E00\u4E2A\u76EE\u5F55\u518D\u4E0A\u4F20\u624D\u4F1A\u76F4\u63A5\u843D\u8FDB\u90A3\u4E2A\u76EE\u5F55\uFF09${placeNote}\u3002` + missingNote);
       }
       setUpPhase("done");
       await loadLevel(levelId, 0, { silent: true });
@@ -36566,7 +36566,7 @@ function KsKnowledgePage({ useTabInfo }) {
           variant: "outline",
           size: "sm",
           className: "ks-batch-btn",
-          title: "\u79FB\u51FA\uFF1A\u53EA\u53BB\u6389\u8FD9\u4E9B\u6587\u4EF6\u5728\u300C\u5F53\u524D\u8FD9\u4E00\u5C42\u300D\u7684\u5F52\u5C5E \u2014\u2014 **\u6587\u4EF6\u4E0D\u4F1A\u5220\u9664**\uFF08\u8FD8\u5728\u5E93\u91CC\uFF09\uFF0C\u522B\u5904\u8FD8\u6302\u7740\u7684\u7167\u65E7",
+          title: "\u79FB\u51FA\uFF1A\u53EA\u53BB\u6389\u8FD9\u4E9B\u6587\u4EF6\u5728\u300C\u5F53\u524D\u8FD9\u4E00\u5C42\u300D\u7684\u5F52\u5C5E \u2014\u2014 \u6587\u4EF6\u4E0D\u4F1A\u5220\u9664\uFF08\u8FD8\u5728\u5E93\u91CC\uFF09\uFF0C\u522B\u5904\u8FD8\u6302\u7740\u7684\u7167\u65E7",
           onClick: () => {
             void runRemove([...picked]);
           },
@@ -36665,7 +36665,7 @@ function KsKnowledgePage({ useTabInfo }) {
               " \u7BC7\u4F1A**\u771F\u7684\u5220\u6389**\uFF0C",
               String(p.files_kept_elsewhere),
               " \u7BC7\u8FD8\u6302\u5728\u522B\u5904\uFF08\u53EA\u4E22\u8FD9\u91CC\u7684\u5F52\u5C5E\uFF09\uFF1B",
-              p.reparent_available ? "\u79FB\u5230\u4E0A\u4E00\u5C42\uFF1A\u91CC\u9762\u7684\u4E1C\u897F\u539F\u6837\u4E0A\u53BB\u3002" : "\u26A0 \u8FD9\u662F\u4E00\u7EA7\u76EE\u5F55\uFF0C**\u6CA1\u6709\u4E0A\u4E00\u5C42**\uFF08\u53EA\u80FD\u8FDE\u6587\u4EF6\u4E00\u8D77\u5220\uFF0C\u6216\u53D6\u6D88\uFF09\u3002"
+              p.reparent_available ? "\u79FB\u5230\u4E0A\u4E00\u5C42\uFF1A\u91CC\u9762\u7684\u4E1C\u897F\u539F\u6837\u4E0A\u53BB\u3002" : "\u26A0 \u8FD9\u662F\u4E00\u7EA7\u76EE\u5F55\uFF0C\u6CA1\u6709\u4E0A\u4E00\u5C42\uFF08\u53EA\u80FD\u8FDE\u6587\u4EF6\u4E00\u8D77\u5220\uFF0C\u6216\u53D6\u6D88\uFF09\u3002"
             ] })
           ] }, p.folder?.folder_id ?? "unknown")) }),
           delPreview.length < folderIdsOf(action.targets).length ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-act-hint", children: [
@@ -36703,7 +36703,7 @@ function KsKnowledgePage({ useTabInfo }) {
                   size: "sm",
                   className: "ks-act-go",
                   disabled: delPreview.every((p) => !p.reparent_available),
-                  title: delPreview.every((p) => !p.reparent_available) ? '\u9009\u4E2D\u7684\u76EE\u5F55\u91CC\u6709**\u4E00\u7EA7\u76EE\u5F55** \u2014\u2014 \u5B83\u6CA1\u6709\u4E0A\u4E00\u5C42\uFF0C\u79FB\u4E0D\u4E0A\u53BB\uFF08\u53EA\u80FD"\u8FDE\u91CC\u9762\u7684\u6587\u4EF6\u4E00\u8D77\u5220"\u6216\u53D6\u6D88\uFF09' : "\u53EA\u5220\u8FD9\u4E9B\u76EE\u5F55\uFF0C\u91CC\u9762\u7684\u4E0B\u7EA7\u76EE\u5F55\u4E0E\u6587\u4EF6\u79FB\u5230**\u4E0A\u4E00\u5C42**\uFF08\u6587\u4EF6\u672C\u8EAB\u4E00\u4EFD\u90FD\u4E0D\u5220\uFF09",
+                  title: delPreview.every((p) => !p.reparent_available) ? '\u9009\u4E2D\u7684\u76EE\u5F55\u91CC\u6709\u4E00\u7EA7\u76EE\u5F55 \u2014\u2014 \u5B83\u6CA1\u6709\u4E0A\u4E00\u5C42\uFF0C\u79FB\u4E0D\u4E0A\u53BB\uFF08\u53EA\u80FD"\u8FDE\u91CC\u9762\u7684\u6587\u4EF6\u4E00\u8D77\u5220"\u6216\u53D6\u6D88\uFF09' : "\u53EA\u5220\u8FD9\u4E9B\u76EE\u5F55\uFF0C\u91CC\u9762\u7684\u4E0B\u7EA7\u76EE\u5F55\u4E0E\u6587\u4EF6\u79FB\u5230\u4E0A\u4E00\u5C42\uFF08\u6587\u4EF6\u672C\u8EAB\u4E00\u4EFD\u90FD\u4E0D\u5220\uFF09",
                   onClick: () => {
                     void runFolderDelete("reparent");
                   },
@@ -36751,7 +36751,7 @@ function KsKnowledgePage({ useTabInfo }) {
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-act-hint", children: action.kind === "mkdir" ? "\u5EFA\u5728**\u5F53\u524D\u8FD9\u4E00\u7EA7**\u4E0B\u9762\uFF1B\u540C\u7EA7\u540C\u540D\u4F1A\u88AB\u62D2\uFF08\u540E\u7AEF 409\uFF0C\u539F\u8BDD\u4F1A\u663E\u793A\u5728\u8FD9\u91CC\uFF09\u3002" : "\u6539\u540D**\u53EA\u6539\u5E93\u91CC\u7684\u540D\u5B57**\uFF0C\u78C1\u76D8\u4E0A\u7684\u6587\u4EF6\u4E00\u4E2A\u5B57\u90FD\u4E0D\u4F1A\u52A8\uFF08\u65B9\u6848 \xA7\u4E8C\u7B2C 1 \u6761\uFF09\u3002" }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-act-hint", children: action.kind === "mkdir" ? "\u5EFA\u5728\u5F53\u524D\u8FD9\u4E00\u7EA7\u4E0B\u9762\uFF1B\u540C\u7EA7\u540C\u540D\u4F1A\u88AB\u62D2\uFF08\u540E\u7AEF 409\uFF0C\u539F\u8BDD\u4F1A\u663E\u793A\u5728\u8FD9\u91CC\uFF09\u3002" : "\u6539\u540D\u53EA\u6539\u5E93\u91CC\u7684\u540D\u5B57\uFF0C\u78C1\u76D8\u4E0A\u7684\u6587\u4EF6\u4E00\u4E2A\u5B57\u90FD\u4E0D\u4F1A\u52A8\u3002" }),
         /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-act-row", children: [
           /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_dsh_client_ui_primitives4.Button, { variant: "outline", size: "sm", onClick: () => {
             setAction(null);
@@ -36911,7 +36911,7 @@ function KsKnowledgePage({ useTabInfo }) {
         ccsStatus.not_applicable,
         " \u7BC7",
         ccsStatus.skipped > 0 ? ` \xB7 \u8DF3\u8FC7 ${ccsStatus.skipped} \u7BC7` : "",
-        ccsStatus.cancelled ? " \xB7 **\u8FD9\u4E00\u6279\u662F\u624B\u52A8\u505C\u7684**" : ""
+        ccsStatus.cancelled ? " \xB7 \u8FD9\u4E00\u6279\u662F\u624B\u52A8\u505C\u7684" : ""
       ] }),
       ccsStatus.failures.length === 0 ? null : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("details", { className: "ks-ccs-fails", children: [
         /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("summary", { children: [
@@ -37094,7 +37094,7 @@ function KsKnowledgePage({ useTabInfo }) {
           variant: "outline",
           size: "sm",
           className: "ks-mkdir-open",
-          title: levelId === null ? "\u5728**\u6700\u5916\u5C42**\u5EFA\u4E00\u4E2A\u9876\u5C42\u76EE\u5F55\uFF08\u540C\u540D\u540C\u5C42\u4F1A\u88AB\u540E\u7AEF\u62D2\uFF0C\u539F\u8BDD\u663E\u793A\u5728\u9762\u677F\u91CC\uFF09" : `\u5728\u300C${levelName}\u300D\u4E0B\u9762\u5EFA\u4E00\u4E2A\u4E0B\u7EA7\u76EE\u5F55`,
+          title: levelId === null ? "\u5728\u6700\u5916\u5C42\u5EFA\u4E00\u4E2A\u9876\u5C42\u76EE\u5F55\uFF08\u540C\u540D\u540C\u5C42\u4F1A\u88AB\u540E\u7AEF\u62D2\uFF0C\u539F\u8BDD\u663E\u793A\u5728\u9762\u677F\u91CC\uFF09" : `\u5728\u300C${levelName}\u300D\u4E0B\u9762\u5EFA\u4E00\u4E2A\u4E0B\u7EA7\u76EE\u5F55`,
           onClick: () => {
             openAction("mkdir", []);
           },

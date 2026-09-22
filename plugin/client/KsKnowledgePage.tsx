@@ -325,7 +325,7 @@ interface OpOutcome { readonly done: number; readonly failed: ReadonlyArray<{ la
 function outcomeText(verb: string, out: OpOutcome): string {
   const bad = out.failed.map((f) => `${f.label}：${f.message}`).join('；')
   if (out.failed.length === 0) return `${verb} ${String(out.done)} 件。`
-  return `${verb} ${String(out.done)} 件；**有 ${String(out.failed.length)} 件没成**：${bad}`
+  return `${verb} ${String(out.done)} 件；有 ${String(out.failed.length)} 件没成：${bad}`
 }
 
 /**
@@ -1098,7 +1098,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
       const res = await withSession((port, token) => confirmKbInbox(port, token,
         ok.map((docId) => ({ doc_id: docId, action: 'accept' as const, placed_by: 'kb-inbox-accept' }))))
       setActMsg(`按建议归位 ${String(res.confirmed)} 篇`
-        + (skipped > 0 ? `；**${String(skipped)} 篇系统没给建议，没有动它们**（它们只能手动指定去处）` : '')
+        + (skipped > 0 ? `；${String(skipped)} 篇系统没给建议，没有动它们（它们只能手动指定去处）` : '')
         + `（从「待分类」拿掉 ${String(res.removed_from_pending)} 篇）。`)
       setAction(null)
       setPicked(new Set())
@@ -1118,7 +1118,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
       const skipped = res.skipped.map((s) => `${s.doc_id}：${s.reason}`).join('；')
       setActMsg(`已开始重来一次：${String(res.queued)} 篇排队重新解析`
         + '（状态列会从「识别中」变成「待确认」或「识别失败」，跑完自动刷新）。'
-        + (skipped === '' ? '' : ` —— **这些没重来**：${skipped}`))
+        + (skipped === '' ? '' : ` —— 这些没重来：${skipped}`))
       setAction(null)
       setReingesting(res.queued > 0)
       await loadInbox(inboxOffset, { silent: true })
@@ -1207,7 +1207,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
     try {
       const got = await withSession((port, token) =>
         renameKbFolder(port, token, folderId, clean))
-      setActMsg(`已把目录改名为「${got.name}」（**只改库里的名字**，磁盘上的文件一个字都没动）。`)
+      setActMsg(`已把目录改名为「${got.name}」（只改库里的名字，磁盘上的文件一个字都没动）。`)
       await afterAction()
     } catch (error) {
       setActMsg(`没改成：${errorText(error)}`)
@@ -1287,7 +1287,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
         }]),
       ])
       setActMsg(`${outcomeText('已复制', out)}到「${destPath}」`
-        + '（**只是多了一处位置**：文件还是那一份、磁盘上没多出文件；复制出来的目录与原目录共享同一批内容，'
+        + '（只是多了一处位置：文件还是那一份、磁盘上没多出文件；复制出来的目录与原目录共享同一批内容，'
         + '原位后来加的东西不会跟着变）。')
       await afterAction()
     } catch (error) {
@@ -1338,7 +1338,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
       /* ⚠ 动作完成后**再如实说一遍**"文件没有删"（业主：这个动作的真相必须留在一处；
          菜单项文字被压成两个字之后，这里是唯一每次都看得见的地方）。 */
       setActMsg(`已从「${levelName}」移出 ${String(r.removed)} 篇`
-        + '（只去掉这一处的归属，**文件没有删**；还挂在别的目录里的照旧在那里）。')
+        + '（只去掉这一处的归属，文件没有删；还挂在别的目录里的照旧在那里）。')
       await afterAction()
     } catch (error) {
       setActMsg(`没移出：${errorText(error)}`)
@@ -1374,7 +1374,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
         }
       }))
       setActMsg(`${outcomeText('已删目录', out)}`
-        + '（"连里面的文件一起删"也只真删**在所有目录里都不再出现**的那些；'
+        + '（"连里面的文件一起删"也只真删在所有目录里都不再出现的那些；'
         + '还挂在别处的只丢这里的归属。）')
       await afterAction()
     } catch (error) {
@@ -1495,7 +1495,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
             + (bad > 0
               ? `，${String(bad)} 篇没补到（逐篇原因见下面那张清单；不是失败就是查无）`
               : '')
-            + (st.cancelled ? '。**这一批是你按停的**，剩下的还没跑。' : '。')
+            + (st.cancelled ? '。这一批是你按停的，剩下的还没跑。' : '。')
             + ' 下面这一层已按最新状态重读。')
           await loadInbox(inboxOffset, { silent: true })
           await loadCcsSummary()
@@ -1626,7 +1626,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
       }
       await withSession((port, token) => resumeBulkIngest(port, token, started.batch_id))
       setUpMsg(`快扫完成，开始逐件解析`
-        + `${upReingest ? '（**覆盖重导**：同号旧文档会被替换）' : ''}…`)
+        + `${upReingest ? '（覆盖重导：同号旧文档会被替换）' : ''}…`)
       let parsed = 0
       /* ⚠ ③a（2026-09-21 第 5 步）：`filing_state_missing` = 这批里**处理状态没写进库**的文件数。
          原来它只进 `checkpoint.errors`（排障杂项）⇒ 界面上完全看不出"这批里有文件的状态没库"。
@@ -1653,27 +1653,27 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
           && (st.pause_reason === 'daily_budget_reached' || st.pause_reason === 'aborted_by_user')
         setUpMsg(`已解析 ${parsed} / ${last} 篇${st.errors > 0 ? `（失败 ${st.errors}）` : ''}`
           + `${st.status === 'paused' && !pausedReal ? '（引擎刚接过这一批，正在起解析）' : ''}`
-          + `${stateMissing > 0 ? `；**其中 ${String(stateMissing)} 篇的处理状态没写进库**` : ''}…`)
+          + `${stateMissing > 0 ? `；其中 ${String(stateMissing)} 篇的处理状态没写进库` : ''}…`)
         if (st.status === 'done' || st.status === 'failed') { settled = st.status as 'done' | 'failed'; break }
         if (pausedReal) { settled = 'stopped'; break }
         await sleep(2000)
       }
       if (settled === 'timeout') {
         setUpPhase('done')
-        setUpMsg(`**还在跑**：已解析 ${parsed} / ${last} 篇（等了 10 分钟没等到结束）`
+        setUpMsg(`还在跑：已解析 ${parsed} / ${last} 篇（等了 10 分钟没等到结束）`
           + '——引擎那边还在干活，数字以它为准；可以点右上角刷新重读这一层，稍后再看。')
         return
       }
       if (settled === 'stopped') {
         setUpPhase('done')
-        setUpMsg(`这一批**停住了**（已解析 ${parsed} / ${last} 篇）：`
+        setUpMsg(`这一批停住了（已解析 ${parsed} / ${last} 篇）：`
           + '引擎说达到了当天的解析预算上限（或这批被终止）——剩下的文件不会自己继续，'
           + '可以到「待分类」层对着那几篇点「重来一次」。')
         await loadLevel(levelId, 0, { silent: true })
         return
       }
       const missingNote = stateMissing === 0 ? '' :
-        `；⚠ **这批里有 ${String(stateMissing)} 篇的处理状态没写进库**`
+        `；⚠ 这批里有 ${String(stateMissing)} 篇的处理状态没写进库`
         + `（样例：${stateMissingSample.join('、')}${stateMissing > stateMissingSample.length ? ' 等' : ''}）`
         + '—— 它们在「待分类」里会显示成"排队中"，点「重来一次」可再试一次'
       const after = await withSession((port, token) => fetchDocsFlat(port, token))
@@ -1688,7 +1688,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
       if (fresh.length === 0) {
         setUpPhase('done')
         if (parsed > 0) {
-          setUpMsg(`这一批解析报成功 ${parsed} 篇，但它们**没出现在目录清单里**`
+          setUpMsg(`这一批解析报成功 ${parsed} 篇，但它们没出现在目录清单里`
             + '（正文条款为零的那一类会被挡在目录外）——去「待分类」层就能看到它们，'
             + '在那儿可以对它们点「重来一次」。' + missingNote)
         } else {
@@ -1717,7 +1717,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
           + `（状态如实显示）——在这儿直接处置${placeNote}。` + missingNote)
       } else {
         setUpMsg(`导入完成：这一批解析 ${parsed} 篇，其中能挂的 ${fresh.length} 篇。`
-          + '你现在停在**最外层** ⇒ 它们留在最外层（还没归位，会出现在「待分类」里；'
+          + '你现在停在最外层 ⇒ 它们留在最外层（还没归位，会出现在「待分类」里；'
           + `进一个目录再上传才会直接落进那个目录）${placeNote}。` + missingNote)
       }
       setUpPhase('done')
@@ -2220,7 +2220,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
               variant="outline"
               size="sm"
               className="ks-batch-btn"
-              title="移出：只去掉这些文件在「当前这一层」的归属 —— **文件不会删除**（还在库里），别处还挂着的照旧"
+              title="移出：只去掉这些文件在「当前这一层」的归属 —— 文件不会删除（还在库里），别处还挂着的照旧"
               onClick={() => { void runRemove([...picked]) }}
             >
               移出
@@ -2342,7 +2342,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                         {String(p.files_kept_elsewhere)} 篇还挂在别处（只丢这里的归属）；
                         {p.reparent_available
                           ? '移到上一层：里面的东西原样上去。'
-                          : '⚠ 这是一级目录，**没有上一层**（只能连文件一起删，或取消）。'}
+                          : '⚠ 这是一级目录，没有上一层（只能连文件一起删，或取消）。'}
                       </span>
                     )}
                   </div>
@@ -2378,8 +2378,8 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                       className="ks-act-go"
                       disabled={delPreview.every((p) => !p.reparent_available)}
                       title={delPreview.every((p) => !p.reparent_available)
-                        ? '选中的目录里有**一级目录** —— 它没有上一层，移不上去（只能"连里面的文件一起删"或取消）'
-                        : '只删这些目录，里面的下级目录与文件移到**上一层**（文件本身一份都不删）'}
+                        ? '选中的目录里有一级目录 —— 它没有上一层，移不上去（只能"连里面的文件一起删"或取消）'
+                        : '只删这些目录，里面的下级目录与文件移到上一层（文件本身一份都不删）'}
                       onClick={() => { void runFolderDelete('reparent') }}
                     >
                       只删目录，里面的东西移到上一层
@@ -2424,8 +2424,8 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
           </div>
           <span className="ks-act-hint">
             {action.kind === 'mkdir'
-              ? '建在**当前这一级**下面；同级同名会被拒（后端 409，原话会显示在这里）。'
-              : '改名**只改库里的名字**，磁盘上的文件一个字都不会动（方案 §二第 1 条）。'}
+              ? '建在当前这一级下面；同级同名会被拒（后端 409，原话会显示在这里）。'
+              : '改名只改库里的名字，磁盘上的文件一个字都不会动。'}
           </span>
           <div className="ks-act-row">
             <Button variant="outline" size="sm" onClick={() => { setAction(null) }}>取消</Button>
@@ -2574,7 +2574,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
             · 读不出来 {ccsStatus.parse_failed} 篇
             · 不适用 {ccsStatus.not_applicable} 篇
             {ccsStatus.skipped > 0 ? ` · 跳过 ${ccsStatus.skipped} 篇` : ''}
-            {ccsStatus.cancelled ? ' · **这一批是手动停的**' : ''}
+            {ccsStatus.cancelled ? ' · 这一批是手动停的' : ''}
           </span>
           {ccsStatus.failures.length === 0 ? null : (
             <details className="ks-ccs-fails">
@@ -2802,7 +2802,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
               业主原话："按钮改到搜索栏上面显示文件夹名称的 bar 上，这样就很清楚是在这个文件夹内进行搜索"。
               ⚠ 判据也跟着搬：`ui-render-shot` 的 `#ask` 量点会**报出这个按钮在哪一行**，
                 不是那一行就红（不许"挪回去也能过"）。 */}
-          {/* 第 5 步：**建目录**的入口（建在**当前这一级**下面；最外层就是顶层目录）。
+          {/* 第 5 步：**建目录**的入口（建在当前这一级下面；最外层就是顶层目录）。
               「待分类」层不建目录（它不是库里的目录；那里是处置文件的地方）。 */}
           {layer === 'folder' ? (
             <Button
@@ -2810,7 +2810,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
               size="sm"
               className="ks-mkdir-open"
               title={levelId === null
-                ? '在**最外层**建一个顶层目录（同名同层会被后端拒，原话显示在面板里）'
+                ? '在最外层建一个顶层目录（同名同层会被后端拒，原话显示在面板里）'
                 : `在「${levelName}」下面建一个下级目录`}
               onClick={() => { openAction('mkdir', []) }}
             >
