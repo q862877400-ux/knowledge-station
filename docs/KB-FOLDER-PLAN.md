@@ -1436,6 +1436,17 @@ smoke-trim: 1/34 FAILED
 > 将来那条**网页抓取**的入口/地址/开关要能在设置界面里手动配置。
 > ⚠ 关联更正（同日）：网页抓取这套**保留**、不删 —— 业主："网页抓取还是要**留着作为备选**，
 > 有时候**官方接口可能不返回一些老标准的数据**"。
+>
+> **实施子代理 2026-09-22（同日的「修机制」那一批）补一句定位，仍**零代码改动**：**
+> 链已按业主口径重做成**三层有序 + 逐篇记来源**（`ccs_fetcher.resolve_ccs`，
+> 层名常量 `SOURCE_OFFICIAL_API` / `SOURCE_WEB_SCRAPE` / `SOURCE_LOCAL_TABLE` /
+> `SOURCE_SEED_FILE`）。将来要在设置界面配置的**就是这一层**：
+> 抓取入口 = `ccs_fetcher._CSSN_LIST`（现在写死 `https://www.cssn.net.cn/api/cssn/list`），
+> 解析器 = 同模块 `_parse_html_items`（**块边界锚在 `class="ph_list_title"` 的标准号上**，
+> 别锚标题 —— 旧实现锚标题，真机实测 20 条一条都挑不中）。
+> 「留着作为备选」这件事**已经有判据**：`tests/test_ccs_chain.py::
+> test_official_empty_falls_back_to_web_scrape`（官方接口答了但一条都没有 ⇒ 必须回退到抓取，
+> 且 `source=web_scrape`）—— 谁把网页这一层删掉，这条会红。
 
 
 

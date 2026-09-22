@@ -3483,6 +3483,28 @@ export interface KsKbInboxItem {
   suggest_new_name: string | null
   /** 1 = 这篇**不在目录里**（正文条款为零，pipeline 的目录卫生）。 */
   catalog_hidden: number | null
+  /*
+   * ── 分类号（CCS）这条线的底细（2026-09-22「补全分类号」）────────────────────
+   *
+   * ⚠ **为什么「没有建议」要带这几个字段**（业主 2026-09-22 口径「**界面把原因说清**」）：
+   *   "没有建议"至少有**三种完全不同的原因**，界面上不能都写成同一句"没有建议"——
+   *   ① 已经有分类号、但现有目录里没有对应那一层（树的问题，不是分类号的问题）；
+   *   ② 还没有查过分类号（`ccs_outcome === null`，点「补全分类号」查一次就知道）；
+   *   ③ 查过了、没查到（`ccs_outcome` 是 not_found / network_failed / parse_failed）。
+   *   这三句的**依据**全在后端（`doc_ccs_state` 台账，`ccs_store` 是唯一所有者），
+   *   界面只负责照念，**不自己推断**。
+   */
+  /** 已有的分类号标签（`CCS:P16 工程防火`）；null = 这一篇没有分类号。 */
+  ccs_tag: string | null
+  /** found / not_found / network_failed / parse_failed；null = **还没查过**。 */
+  ccs_outcome: string | null
+  /** 后端下发的中文说法（`ccs_fetcher.OUTCOME_LABELS` 是唯一所有者）。 */
+  ccs_outcome_label: string | null
+  /** 一句人话（为什么没有 / 是哪一层命中的），后端给。 */
+  ccs_reason: string | null
+  /** 命中的是哪一层（official_api / web_scrape / local_table / seed_file）。 */
+  ccs_source: string | null
+  ccs_checked_at: string | null
 }
 
 export interface KsKbInbox extends KsKbPageInfo {
@@ -3506,6 +3528,12 @@ function normalizeKbInboxItem(value: unknown): KsKbInboxItem | null {
     suggest_new_parent_id: str(o.suggest_new_parent_id),
     suggest_new_name: str(o.suggest_new_name),
     catalog_hidden: num(o.catalog_hidden),
+    ccs_tag: str(o.ccs_tag),
+    ccs_outcome: str(o.ccs_outcome),
+    ccs_outcome_label: str(o.ccs_outcome_label),
+    ccs_reason: str(o.ccs_reason),
+    ccs_source: str(o.ccs_source),
+    ccs_checked_at: str(o.ccs_checked_at),
   }
 }
 
@@ -3664,6 +3692,309 @@ export async function fetchKbReingestStatus(
     }),
     started_at: str(data.started_at),
     finished_at: str(data.finished_at),
+  }
+}
+
+/*
+ * ── 「补全分类号」（CCS 自愈机制，2026-09-22）────────────────────────────────
+ *
+ * 业主原话：「这 380 篇**不要手动去补**……你要找的是**修机制**，然后让插件
+ * **自己能靠自己的机制完成工作**。」⇒ 这一族就是那个机制的服务端外形：
+ *   · `GET  /kb/ccs/summary`           还缺几篇 + 台账各结论各几篇（只读）
+ *   · `GET  /kb/ccs/plan`              **只读预览**：这一批会补哪些篇（不联网）
+ *   · `POST /kb/ccs/backfill`          起一批（后台线程，**立刻返回**）
+ *   · `GET  /kb/ccs/backfill/status`   进度 + 失败清单（**如实**）
+ *   · `POST /kb/ccs/backfill/cancel`   按停（跑完当前这一篇就停）
+ * ⚠ 与「重来一次」**不共用**那把锁：查分类号（几秒一篇）与重新解析（几十分钟一篇）
+ *   该能各自跑。已有批次在跑 ⇒ 409 `ccs_backfill_busy`（**不排队**）。
+ */
+
+/** `GET /kb/ccs/summary` —— 分类号这件事的现状（只读，零网络）。 */
+export interface KsKbCcsSummary {
+  /** 全库还有几篇标准没有分类号（**现算的**，不是计数器）。 */
+  missing: number
+  /** 台账按结论计数（found / not_found / network_failed / parse_failed）。 */
+  by_outcome: Record<string, number>
+  max_batch: number
+  default_batch: number
+  outcome_labels: Record<string, string>
+  source_labels: Record<string, string>
+  sources: readonly string[]
+  backfill: KsKbCcsBackfillStatus
+}
+
+/** 一行候选（`GET /kb/ccs/plan` 的 `candidates[i]`）。 */
+export interface KsKbCcsPlanRow {
+  doc_id: string
+  standard_no: string
+  standard_name: string
+}
+
+export interface KsKbCcsPlan {
+  candidates: readonly KsKbCcsPlanRow[]
+  total: number
+  already_have: number
+  limit: number
+  truncated: boolean
+}
+
+/** 一篇的补全结果（`status.results[i]` / `status.failures[i]`）。 */
+export interface KsKbCcsResultRow {
+  doc_id: string
+  standard_no: string
+  standard_name?: string
+  /** found / not_found / network_failed / parse_failed / skipped。 */
+  outcome: string
+  code?: string
+  sub?: string
+  source?: string
+  keyword_form?: string
+  matched_no?: string
+  reason?: string
+  tag?: string
+  applied?: boolean
+}
+
+/** `GET /kb/ccs/backfill/status` —— 最近一批的进度（如实）。 */
+export interface KsKbCcsBackfillStatus {
+  running: boolean
+  total: number
+  done: number
+  found: number
+  not_found: number
+  network_failed: number
+  parse_failed: number
+  applied: number
+  skipped: number
+  cancel_requested: boolean
+  cancelled: boolean
+  started_at: string | null
+  finished_at: string | null
+  /** **现算的**"全库还缺几篇"（补完自己会降，不靠计数器对齐）。 */
+  missing: number | null
+  results: readonly KsKbCcsResultRow[]
+  /** 没补到的那一批（每篇带 outcome 与 reason）—— 业主/审计靠它看"还剩哪些、为什么"。 */
+  failures: readonly KsKbCcsResultRow[]
+  skipped_list: readonly KsKbCcsResultRow[]
+}
+
+function normalizeCcsResultRows(value: unknown): KsKbCcsResultRow[] {
+  const rows = Array.isArray(value) ? value : []
+  return rows.map((r) => {
+    const o = objOf(r) ?? {}
+    return {
+      doc_id: str(o.doc_id) ?? '',
+      standard_no: str(o.standard_no) ?? '',
+      standard_name: str(o.standard_name) ?? undefined,
+      outcome: str(o.outcome) ?? '',
+      code: str(o.code) ?? undefined,
+      sub: str(o.sub) ?? undefined,
+      source: str(o.source) ?? undefined,
+      keyword_form: str(o.keyword_form) ?? undefined,
+      matched_no: str(o.matched_no) ?? undefined,
+      reason: str(o.reason) ?? undefined,
+      tag: str(o.tag) ?? undefined,
+      applied: o.applied === true,
+    }
+  })
+}
+
+function normalizeCcsBackfillStatus(data: Record<string, unknown>): KsKbCcsBackfillStatus {
+  return {
+    running: data.running === true,
+    total: intOf(data.total, 0),
+    done: intOf(data.done, 0),
+    found: intOf(data.found, 0),
+    not_found: intOf(data.not_found, 0),
+    network_failed: intOf(data.network_failed, 0),
+    parse_failed: intOf(data.parse_failed, 0),
+    applied: intOf(data.applied, 0),
+    skipped: intOf(data.skipped, 0),
+    cancel_requested: data.cancel_requested === true,
+    cancelled: data.cancelled === true,
+    started_at: str(data.started_at),
+    finished_at: str(data.finished_at),
+    missing: num(data.missing),
+    results: normalizeCcsResultRows(data.results),
+    failures: normalizeCcsResultRows(data.failures),
+    skipped_list: normalizeCcsResultRows(data.skipped_list),
+  }
+}
+
+/** `GET /kb/ccs/summary` —— 还缺几篇 + 台账计数 + 最近一批进度（**只读，零网络**）。 */
+export async function fetchKbCcsSummary(
+  port: number, token: string, signal?: AbortSignal,
+): Promise<KsKbCcsSummary> {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/ccs/summary`, {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${token}`, accept: 'application/json' },
+    signal,
+  })
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `引擎返回 HTTP ${res.status}`))
+  let body: unknown = null
+  try { body = await res.json() } catch { /* non-JSON body */ }
+  const data = dataOf(body)
+  const byOutcome = objOf(data.by_outcome) ?? {}
+  const by: Record<string, number> = {}
+  for (const [k, v] of Object.entries(byOutcome)) by[k] = intOf(v, 0)
+  const labels = objOf(data.outcome_labels) ?? {}
+  const srcLabels = objOf(data.source_labels) ?? {}
+  const outLabels: Record<string, string> = {}
+  for (const [k, v] of Object.entries(labels)) { const s = str(v); if (s !== null) outLabels[k] = s }
+  const outSrc: Record<string, string> = {}
+  for (const [k, v] of Object.entries(srcLabels)) { const s = str(v); if (s !== null) outSrc[k] = s }
+  const srcArr = Array.isArray(data.sources) ? data.sources : []
+  return {
+    missing: intOf(data.missing, 0),
+    by_outcome: by,
+    max_batch: intOf(data.max_batch, 0),
+    default_batch: intOf(data.default_batch, 0),
+    outcome_labels: outLabels,
+    source_labels: outSrc,
+    sources: srcArr.map((s) => str(s) ?? '').filter((s) => s !== ''),
+    backfill: normalizeCcsBackfillStatus(objOf(data.backfill) ?? {}),
+  }
+}
+
+/** `GET /kb/ccs/plan` —— **只读预览**：这一批会补哪些篇（不写库、不联网、不起线程）。 */
+export async function fetchKbCcsPlan(
+  port: number, token: string,
+  opts: { limit?: number; force?: boolean; signal?: AbortSignal } = {},
+): Promise<KsKbCcsPlan> {
+  const qs = new URLSearchParams()
+  qs.set('limit', String(opts.limit ?? 0))
+  if (opts.force === true) qs.set('force', 'true')
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/ccs/plan?${qs.toString()}`, {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${token}`, accept: 'application/json' },
+    signal: opts.signal,
+  })
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `引擎返回 HTTP ${res.status}`))
+  let body: unknown = null
+  try { body = await res.json() } catch { /* non-JSON body */ }
+  const data = dataOf(body)
+  const rows = Array.isArray(data.candidates) ? data.candidates : []
+  return {
+    candidates: rows.map((r) => {
+      const o = objOf(r) ?? {}
+      return { doc_id: str(o.doc_id) ?? '', standard_no: str(o.standard_no) ?? '',
+               standard_name: str(o.standard_name) ?? '' }
+    }).filter((r) => r.doc_id !== ''),
+    total: intOf(data.total, rows.length),
+    already_have: intOf(data.already_have, 0),
+    limit: intOf(data.limit, 0),
+    truncated: data.truncated === true,
+  }
+}
+
+/** `POST /kb/ccs/backfill` 的出参（后台线程，**立刻返回**）。 */
+export interface KsKbCcsBackfillStart {
+  queued: number
+  started: readonly { doc_id: string; standard_no: string }[]
+  skipped: readonly { doc_id: string; reason: string }[]
+  plan: KsKbCcsPlan
+}
+
+export async function startKbCcsBackfill(
+  port: number, token: string,
+  opts: { docIds?: readonly string[]; limit?: number; force?: boolean; signal?: AbortSignal } = {},
+): Promise<KsKbCcsBackfillStart> {
+  const payload: Record<string, unknown> = {}
+  if (opts.docIds !== undefined) payload.doc_ids = [...opts.docIds]
+  if (opts.limit !== undefined) payload.limit = opts.limit
+  if (opts.force === true) payload.force = true
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/ccs/backfill`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify(payload),
+    signal: opts.signal,
+  })
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  // 409 = 已经有一批在跑（**不是失败**）：把引擎的原话交给调用方如实显示。
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `引擎返回 HTTP ${res.status}`))
+  let body: unknown = null
+  try { body = await res.json() } catch { /* non-JSON body */ }
+  const data = dataOf(body)
+  const started = Array.isArray(data.started) ? data.started : []
+  const skipped = Array.isArray(data.skipped) ? data.skipped : []
+  const planRaw = objOf(data.plan) ?? {}
+  const planRows = Array.isArray(planRaw.candidates) ? planRaw.candidates : []
+  return {
+    queued: intOf(data.queued, 0),
+    started: started.map((s) => {
+      const o = objOf(s) ?? {}
+      return { doc_id: str(o.doc_id) ?? '', standard_no: str(o.standard_no) ?? '' }
+    }).filter((s) => s.doc_id !== ''),
+    skipped: skipped.map((s) => {
+      const o = objOf(s) ?? {}
+      return { doc_id: str(o.doc_id) ?? '', reason: str(o.reason) ?? '' }
+    }),
+    plan: {
+      candidates: planRows.map((r) => {
+        const o = objOf(r) ?? {}
+        return { doc_id: str(o.doc_id) ?? '', standard_no: str(o.standard_no) ?? '',
+                 standard_name: str(o.standard_name) ?? '' }
+      }).filter((r) => r.doc_id !== ''),
+      total: intOf(planRaw.total, planRows.length),
+      already_have: intOf(planRaw.already_have, 0),
+      limit: intOf(planRaw.limit, 0),
+      truncated: planRaw.truncated === true,
+    },
+  }
+}
+
+/** `GET /kb/ccs/backfill/status` —— 最近一批的进度（如实：进度 + 失败清单）。 */
+export async function fetchKbCcsBackfillStatus(
+  port: number, token: string, signal?: AbortSignal,
+): Promise<KsKbCcsBackfillStatus> {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/ccs/backfill/status`, {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${token}`, accept: 'application/json' },
+    signal,
+  })
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `引擎返回 HTTP ${res.status}`))
+  let body: unknown = null
+  try { body = await res.json() } catch { /* non-JSON body */ }
+  return normalizeCcsBackfillStatus(dataOf(body))
+}
+
+/** `POST /kb/ccs/backfill/cancel` —— 按停（**跑完当前这一篇**才停；别谎报"已停止"）。 */
+export async function cancelKbCcsBackfill(
+  port: number, token: string, signal?: AbortSignal,
+): Promise<{ cancel_requested: boolean; running: boolean; done: number; total: number }> {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/ccs/backfill/cancel`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, accept: 'application/json' },
+    signal,
+  })
+  if (res.status === 401) {
+    clearSession()
+    throw new EngineAuthError('引擎校验失败(401)，会话已轮换，请重试')
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `引擎返回 HTTP ${res.status}`))
+  let body: unknown = null
+  try { body = await res.json() } catch { /* non-JSON body */ }
+  const data = dataOf(body)
+  return {
+    cancel_requested: data.cancel_requested === true,
+    running: data.running === true,
+    done: intOf(data.done, 0),
+    total: intOf(data.total, 0),
   }
 }
 

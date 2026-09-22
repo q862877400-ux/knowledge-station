@@ -2186,17 +2186,24 @@ def run_full_ingest(pdf_path: Path, standard_no: str, standard_name: str,
     appendix = [m for m in models if m.clause_number.startswith("附录")]
     normal = [m for m in models
               if not m.clause_number.startswith(("前置", "附录"))]
-    # 入库自动查 CCS（官方渠道 cssn；失败静默降级本地表/无，不阻塞入库）
+    # 入库自动查 CCS（**三层有序链**：官方接口 → 网页抓取 → 本地兜底）。
+    # ⚠ **2026-09-22 重做（业主口径「修机制不是补数据」）**：旧代码是
+    #   ``try: … except Exception: pass  # 网络/解析失败：无 CCS 标签`` —— 一句
+    #   **静默降级**。而那条链在本机**请求根本没发出去**（httpx 构造时解析
+    #   ``NO_PROXY`` 里的 ``[::1]`` 抛 ``InvalidURL``，0.1 秒返回 None）⇒
+    #   真库 **380 篇标准静默地**没有分类号，现场看上去像"官方就是没有这个号"。
+    # 现在：命中记**来源**（哪一层 + 哪种关键词形式），未命中记 **outcome**
+    #   （查无 / 网络失败 / 读不出）与逐层尝试流水，事务提交后落 ``doc_ccs_state``
+    #   —— 降级照旧（不阻塞入库），但**必须留痕**，且界面上看得见为什么。
     tags = list(domain_tags or [])
+    ccs_lookup: dict[str, Any] | None = None
+    ccs_tag: str | None = None
     if doc_type == "standard":
-        try:
-            from src.core.knowledge.ccs_fetcher import fetch_ccs, ccs_to_tag
-            ccs = fetch_ccs(standard_no, standard_name)
-            tag = ccs_to_tag(ccs, standard_no)
-            if tag and tag not in tags:
-                tags.append(tag)
-        except Exception:
-            pass  # 网络/解析失败：无 CCS 标签，分类面板走兜底
+        from src.core.knowledge.ccs_fetcher import ccs_to_tag, resolve_ccs
+        ccs_lookup = resolve_ccs(standard_no, standard_name)
+        ccs_tag = ccs_to_tag(ccs_lookup, standard_no)
+        if ccs_tag and ccs_tag not in tags:
+            tags.append(ccs_tag)
     # 2026-08-29 封面日期提取（通用）：扫描前两页块文本（封面页），发布/实施
     # 日期归一化 YYYY-MM-DD → doc_meta.published_at / effective_from。离线权威
     # 来源（封面即官方日期），无网络依赖；找不到诚实留空。
@@ -2264,6 +2271,22 @@ def run_full_ingest(pdf_path: Path, standard_no: str, standard_name: str,
         else:
             txn.execute(
                 "UPDATE doc_meta SET catalog_hidden=0 WHERE doc_id=?", (doc_id,))
+
+    # ── CCS 查询台账：入库事务**提交之后**写（2026-09-22）──────────────────────
+    # 为什么放这儿而不是塞进入库事务：标签已经随 `insert_document` 落进 domain_tags
+    # （**原子**，不会出现"文档在库里、标签丢了"），台账只是**审计流水** ——
+    # 它写不进去不该把一次成功的入库变成失败（那会招来重复入库）。
+    if ccs_lookup is not None:
+        try:
+            from src.core.knowledge import ccs_store
+            if ccs_tag:
+                # 幂等：标签已在事务里写过，这里只补台账（applied_at = 确认在位的时刻）
+                ccs_store.apply_ccs_tag(doc_id, ccs_tag, result=ccs_lookup)
+            else:
+                ccs_store.record_ccs_lookup(doc_id, ccs_lookup)
+        except Exception:                                   # noqa: BLE001
+            logger.warning("写分类号查询台账失败（不阻塞入库）doc=%s", doc_id,
+                           exc_info=True)
 
     # ── 处理状态：**成功**写在这里（KB-FOLDER-PLAN §16.补2.1 的硬前置）────────────
     # 口径（写在代码里，免得下一个人猜）：

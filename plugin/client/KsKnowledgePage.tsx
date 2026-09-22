@@ -107,7 +107,13 @@ import {
   resolveKbScope,
   resumeBulkIngest,
   startBulkIngest,
+  /* 「补全分类号」（2026-09-22）：插件自己把没有 CCS 的标准补齐（业主口径"修机制"）。 */
+  cancelKbCcsBackfill,
+  fetchKbCcsBackfillStatus,
+  fetchKbCcsSummary,
+  startKbCcsBackfill,
   type KsAnswerResult,
+  type KsKbCcsBackfillStatus,
   type KsKbDeletePreview,
   type KsKbFile,
   type KsKbFlatFolder,
@@ -485,6 +491,18 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
   const [stageLabels, setStageLabels] = useState<Record<string, string>>(STAGE_LABELS)
   /** 「重来一次」是否在跑（跑的时候轮询状态，跑完自动重读这一层）。 */
   const [reingesting, setReingesting] = useState(false)
+
+  /* ── 「补全分类号」（2026-09-22 自愈机制）──
+     业主口径：「这 380 篇**不要手动去补**……要修的是**机制**，让插件**自己能靠自己的机制
+     完成工作**。」⇒ 这一层就是那个机制的入口：按一下，后台逐篇查、逐篇补，进度与
+     **失败清单**都如实显示。
+     ⚠ `ccsMissing === null` = **还没读到**（不许拿本地已知的数字冒充 —— 与 `inboxSeen`
+       同一条纪律）。 */
+  const [ccsMissing, setCcsMissing] = useState<number | null>(null)
+  /** 最近一批的进度（null = 还没问过）。 */
+  const [ccsStatus, setCcsStatus] = useState<KsKbCcsBackfillStatus | null>(null)
+  /** 这一批是否在跑（跑的时候轮询，跑完自动重读这一层）。 */
+  const [ccsRunning, setCcsRunning] = useState(false)
 
   /* ── 第 6 步：按目录范围提问（范围 chip + 提问面板 + 答案区）──
      ⚠ `askScope === null` = **还没选范围**（这时提问入口是禁用的，不许悄悄变成全库提问）。 */
@@ -1390,6 +1408,106 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
     return () => { stopped = true; clearInterval(timer) }
   }, [inboxOffset, loadInbox, reingesting, withSession])
 
+  /* ══════════════════ 「补全分类号」（自愈机制，2026-09-22）══════════════════
+   *
+   * 业主原话：「这 380 篇**不要手动去补**……你要找的是**修机制**，然后让插件**自己能靠
+   * 自己的机制完成工作**。」「网页抓取要留着作为**备选**（有时候官方接口可能不返回一些
+   * 老标准的数据）。」
+   *
+   * 界面这一层只做**三件事**，判据全在后端：
+   *   ① 说清现在**还缺几篇**（`GET /kb/ccs/summary` 的 `missing`，**现算的**；
+   *      读不到就显示"—"，不拿本地数字冒充）；
+   *   ② 给一个**按一下就能补**的入口（`POST /kb/ccs/backfill`，后台跑、立刻返回）；
+   *   ③ 进度与**失败清单**如实显示（`GET /kb/ccs/backfill/status` 的
+   *      done/total 与 `failures`，失败逐篇带原因 —— 不合并成一句"部分失败"）。
+   *
+   * ⚠ **不编进度条**：只报后端给的 done/total；`running` 还是 true 就**不许**说"已完成"。
+   */
+
+  /** 读一次「还缺几篇 + 台账计数 + 最近一批进度」（只读、零网络）。 */
+  const loadCcsSummary = useCallback(async (): Promise<void> => {
+    try {
+      const s = await withSession((port, token) => fetchKbCcsSummary(port, token))
+      setCcsMissing(s.missing)
+      setCcsStatus(s.backfill)
+      setCcsRunning(s.backfill.running)
+    } catch {
+      /* 读不到就保持"—"：状态行不该因为一次读失败变成一句谎话（0 篇 ≠ 读不到）。 */
+    }
+  }, [withSession])
+
+  /** **补全分类号**：让插件自己按三层链逐篇补（后台线程，立刻返回）。 */
+  const runCcsBackfill = useCallback(async (): Promise<void> => {
+    setBusy(true)
+    try {
+      const res = await withSession((port, token) => startKbCcsBackfill(port, token, {}))
+      if (res.queued === 0) {
+        setActMsg('没有要补的：库里每一篇标准都已经有分类号了。')
+        await loadCcsSummary()
+        return
+      }
+      setActMsg(`已开始补全分类号：${String(res.queued)} 篇排队`
+        + `（共 ${String(res.plan.total)} 篇待补${res.plan.truncated ? '，这一批先补一部分' : ''}；`
+        + '一篇一到几秒，跑完自动刷新）。')
+      setCcsRunning(true)
+    } catch (error) {
+      setActMsg(`没能开始补全分类号：${errorText(error)}`)
+    } finally {
+      setBusy(false)
+    }
+  }, [loadCcsSummary, withSession])
+
+  /** 按「停」：**跑完当前这一篇**才停；这一刻**不谎报**"已停止"。 */
+  const stopCcsBackfill = useCallback(async (): Promise<void> => {
+    try {
+      const r = await withSession((port, token) => cancelKbCcsBackfill(port, token))
+      setActMsg(r.running
+        ? `已请求停止：跑完当前这一篇就停（已完成 ${String(r.done)} / ${String(r.total)} 篇）。`
+        : '这一批已经跑完了，没什么可停的。')
+    } catch (error) {
+      setActMsg(`没能请求停止：${errorText(error)}`)
+    }
+  }, [withSession])
+
+  /** 补全在跑的时候轮询；跑完**自动重读**这一层（状态列/建议会跟着变）。 */
+  useEffect(() => {
+    if (!ccsRunning) return undefined
+    let stopped = false
+    const timer = setInterval(() => {
+      void (async () => {
+        try {
+          const st = await withSession((port, token) => fetchKbCcsBackfillStatus(port, token))
+          if (stopped) return
+          setCcsStatus(st)
+          setCcsMissing(st.missing)
+          if (st.running) {
+            setActMsg(`补全分类号进行中：${String(st.done)} / ${String(st.total)} 篇跑完`
+              + `（已补到 ${String(st.found)} 篇，没补到 ${String(st.not_found + st.network_failed + st.parse_failed)} 篇）…`)
+            return
+          }
+          setCcsRunning(false)
+          const bad = st.not_found + st.network_failed + st.parse_failed
+          setActMsg(`补全分类号结束：${String(st.done)} 篇跑完，补到 ${String(st.found)} 篇`
+            + (bad > 0
+              ? `，${String(bad)} 篇没补到（逐篇原因见下面那张清单；不是失败就是查无）`
+              : '')
+            + (st.cancelled ? '。**这一批是你按停的**，剩下的还没跑。' : '。')
+            + ' 下面这一层已按最新状态重读。')
+          await loadInbox(inboxOffset, { silent: true })
+          await loadCcsSummary()
+        } catch (error) {
+          if (!stopped) { setCcsRunning(false); setActMsg(`查补全进度失败：${errorText(error)}`) }
+        }
+      })()
+    }, 3000)
+    return () => { stopped = true; clearInterval(timer) }
+  }, [ccsRunning, inboxOffset, loadCcsSummary, loadInbox, withSession])
+
+  /* 进这一页就读一次"还缺几篇"（只读、零网络；失败就留"—"）。 */
+  useEffect(() => {
+    void (async () => { await loadCcsSummary() })()
+  }, [loadCcsSummary])
+
   /** 搜索词（大小写不敏感）。目录按**名字**、文件按**标准号/名称**命中 —— 同一个词。 */
   const needle = search.trim().toLowerCase()
   const dirsShown = useMemo(
@@ -1817,6 +1935,45 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
   const flatShown = pickMatched.slice(0, PICK_ROWS_MAX)
   const flatHidden = pickMatched.length - flatShown.length
 
+  /**
+   * 「没有建议」那一格**怎么写**（业主 2026-09-22：「没有建议要写明**为什么**」）。
+   *
+   * ⚠ 三条分支的依据**全部来自后端**（`doc_ccs_state` 台账；`ccs_store` / `ccs_fetcher`
+   * 是中文说法的唯一所有者），界面**不自己推断**：
+   *
+   * 1. **已经有分类号**却仍没有建议 ⇒ 这不是分类号的问题（分类树里没有对应那一层，
+   *    或落进了兜底桶）—— 明说"已经有分类号"，免得业主去补一个已经有的东西。
+   * 2. **还没查过**（`ccs_outcome` 为 null）⇒ 说"还没查过"，并指向「补全分类号」。
+   * 3. **查过了没查到** ⇒ 照念后端那句 `ccs_outcome_label`（查无 / 查询失败 / 读不出来），
+   *    `title` 里放 `ccs_reason`（一句人话，含"两个站点一个都没答上"这类细节）。
+   *
+   * ⚠ 文案里**必须**留着「没有建议」四个字：`smoke-kb-page-render.mjs` 的 N5 断言
+   *   「没有建议的那两篇显示「没有建议」」数的是这个串。
+   */
+  const noSuggestText = (doc: KsKbInboxItem): { short: string; why: string } => {
+    if (doc.ccs_tag !== null && doc.ccs_tag !== '') {
+      return {
+        short: '没有建议（有分类号，但树里没有对应的那一层）',
+        why: `这一篇已经有分类号（${doc.ccs_tag}），问题在于现有目录里没有对应的那一层`
+          + ' —— 只能手动指定去处。',
+      }
+    }
+    if (doc.ccs_outcome === null || doc.ccs_outcome === '') {
+      return {
+        short: '没有建议（还没查过分类号）',
+        why: '这一篇还没有查过分类号（CCS）。点上面的「补全分类号」查一次，'
+          + '查到了就会按分类号给出去向。',
+      }
+    }
+    const label = doc.ccs_outcome_label ?? doc.ccs_outcome
+    return {
+      short: `没有建议：这一篇没有分类号（${label}）`,
+      why: doc.ccs_reason !== null && doc.ccs_reason !== ''
+        ? doc.ccs_reason
+        : label,
+    }
+  }
+
   /** 一篇「待分类」行（勾选 / 文件名 / 状态 / 建议去向 / ⋮）。 */
   const renderInboxRow = (doc: KsKbInboxItem): ReactNode => {
     const isOpen = menuFor === doc.doc_id
@@ -1897,9 +2054,13 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
             </span>
           )
         case 'idest':
+          /* ⚠ **业主 2026-09-22 口径**：「待分类里**没有建议**要写明**为什么**」
+             （原文：「这一篇没有分类号：查询失败 / 官方查无」）。
+             依据**全在后端**（`doc_ccs_state` 台账，`ccs_store` 是唯一所有者），
+             界面只照念 —— 见 `noSuggestText` 的三条分支，**不自己推断**。 */
           return sugLabel === '' ? (
-            <span className="ks-kb-hint" title="系统认不出它该进哪个现有目录（兜底桶）——只能手动指定去处">
-              没有建议
+            <span className="ks-kb-hint" title={noSuggestText(doc).why}>
+              {noSuggestText(doc).short}
             </span>
           ) : (
             <span className="ks-dest" title={`系统建议放进：${sugLabel}`}>
@@ -2373,11 +2534,65 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
         <span className="ks-lhead-name ks-kb-grow" title="知识库 / 待分类">待分类</span>
         {/* 业主 2026-09-22：提问入口就在**这一行**（文件名那一条 bar 上） */}
         {askEntry}
+        {/* ══ 「补全分类号」（自愈机制，2026-09-22）═══════════════════════════════
+            这是**插件自己的入口**（业主口径：机制必须在产品里，不许靠人手动改库）。
+            按钮上的数字是后端**现算的**"全库还缺几篇标准没有分类号"；读不到就显示"—"
+            （**不许**拿本地已知数字冒充 —— 那会把"读不到"说成"0 篇"）。
+            跑的时候按钮变「停止」；下面显示真实的 done/total 与失败清单。 */}
+        <Button
+          variant="outline"
+          size="sm"
+          className="ks-ccs-btn"
+          disabled={busy}
+          title={ccsMissing === null
+            ? '读不到还缺几篇（接口没答上来）——点一下仍然可以试着补'
+            : `插件自己按「官方接口 → 网页抓取 → 本地对照表」逐篇查缺的分类号`
+              + `（全库还缺 ${String(ccsMissing)} 篇；一篇一到几秒，后台跑）`}
+          onClick={() => { void (ccsRunning ? stopCcsBackfill() : runCcsBackfill()) }}
+        >
+          {ccsRunning ? '停止补全分类号' : '补全分类号'}
+          {ccsMissing === null ? '（—）' : `（还缺 ${String(ccsMissing)} 篇）`}
+        </Button>
         <span className="ks-kb-hint">
           {inboxTotal} 篇还没归位
           {needle === '' ? '' : `（本页筛出 ${inboxShown.length} 篇）`}
         </span>
       </div>
+      {/* 补全的**进度与失败清单**（只在真跑过之后出现；没跑过不占地方）。
+          ⚠ 数字**逐类分开**：补到 / 查无 / 查询失败 / 读不出来 —— 不许合并成"部分失败"。 */}
+      {ccsStatus === null || (ccsStatus.total === 0 && ccsStatus.done === 0) ? null : (
+        <div className="ks-ccs-bar" role="status" data-ccs-running={ccsRunning ? '1' : '0'}>
+          <span className="ks-ccs-line">
+            补全分类号：已跑 {ccsStatus.done} / {ccsStatus.total} 篇
+            · 补到 {ccsStatus.found} 篇（其中新写标签 {ccsStatus.applied} 篇）
+            · 查无 {ccsStatus.not_found} 篇
+            · 查询失败 {ccsStatus.network_failed} 篇
+            · 读不出来 {ccsStatus.parse_failed} 篇
+            {ccsStatus.skipped > 0 ? ` · 跳过 ${ccsStatus.skipped} 篇` : ''}
+            {ccsStatus.cancelled ? ' · **这一批是手动停的**' : ''}
+          </span>
+          {ccsStatus.failures.length === 0 ? null : (
+            <details className="ks-ccs-fails">
+              <summary>
+                没补到的 {ccsStatus.failures.length} 篇（逐篇原因）
+              </summary>
+              <ul className="ks-ccs-fail-list">
+                {ccsStatus.failures.slice(0, 50).map((f) => (
+                  <li key={f.doc_id}>
+                    <span className="ks-ccs-fail-no">{f.standard_no === '' ? f.doc_id : f.standard_no}</span>
+                    <span className="ks-ccs-fail-why">
+                      {f.reason !== undefined && f.reason !== '' ? f.reason : f.outcome}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              {ccsStatus.failures.length > 50 ? (
+                <span className="ks-kb-hint">（这里只列前 50 篇；接口里是完整的。）</span>
+              ) : null}
+            </details>
+          )}
+        </div>
+      )}
       {searchBox}
       {batchBar}
       {actionPanel}

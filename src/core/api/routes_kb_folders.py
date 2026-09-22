@@ -65,6 +65,10 @@ _STATUS = {
     "no_suggestion": 422,
     "folder_depth_exceeded": 422,
     "invalid_folder_key": 422,
+    # 「补全分类号」（2026-09-22）：批次在跑 ⇒ 409（**不排队**，与 reingest 同口径）
+    "ccs_backfill_busy": 409,
+    "invalid_ccs_outcome": 422,
+    "invalid_ccs_tag": 422,
 }
 
 
@@ -389,6 +393,14 @@ def register(app, json_error) -> None:
         （兜底桶那 379 篇就是这样：按下去会 422 ``no_suggestion``）。
         ``catalog_hidden`` 表示这篇**不在目录里**（正文条款为零 ⇒ pipeline 的目录卫生）
         —— 它照样出现在这里（识别失败的那一批必须能被看到，否则修不了）。
+
+        ⚠ **2026-09-22 补**：每篇再带分类号查询的底细，因为"没有建议"有两种完全不同的
+        原因，界面必须能说清是哪一种（业主口径「**界面把原因说清**」）：
+        ``ccs_tag``（已经有了的分类号，null = 没有）/ ``ccs_outcome``（
+        found|not_found|network_failed|parse_failed，null = **还没查过**）/
+        ``ccs_outcome_label`` / ``ccs_reason``（一句人话）/ ``ccs_source``
+        （命中的是哪一层）/ ``ccs_checked_at``。这几个字段来自
+        ``doc_ccs_state``（``ccs_store``），**不是**在这里现编的。
         """
         qp = request.query_params
         try:
@@ -402,10 +414,15 @@ def register(app, json_error) -> None:
             page = fs.list_pending_filing(offset=offset, limit=limit)
         except KnowledgeStationError as e:
             return _fail(e)
+        from src.core.knowledge import ccs_store
+        from src.core.knowledge.ccs_fetcher import OUTCOME_LABELS
         index = fs.folder_tree_index()
+        states = ccs_store.ccs_states_for([r["doc_id"] for r in page["items"]])
         items = []
         for row in page["items"]:
             sug = fs.suggest_folder_for_doc(row, index=index)
+            tag = ccs_store.ccs_tag_of(row.get("domain_tags"))
+            st = states.get(row["doc_id"]) or {}
             items.append({
                 "doc_id": row["doc_id"],
                 "standard_no": row.get("standard_no"),
@@ -420,6 +437,13 @@ def register(app, json_error) -> None:
                 "suggest_new_name": (sug or {}).get("suggest_new_name"),
                 "suggest_new_path": row.get("suggest_new_path"),
                 "catalog_hidden": row.get("catalog_hidden"),
+                # ── 分类号这条线的底细（见 docstring）──
+                "ccs_tag": tag,
+                "ccs_outcome": st.get("outcome"),
+                "ccs_outcome_label": OUTCOME_LABELS.get(str(st.get("outcome") or ""), None),
+                "ccs_reason": st.get("reason"),
+                "ccs_source": st.get("source"),
+                "ccs_checked_at": st.get("checked_at"),
             })
         return {"code": 200, "status": "success", "data": {
             "items": items, "total": page["total"], "offset": page["offset"],
@@ -476,6 +500,114 @@ def register(app, json_error) -> None:
         """最近一批「重来一次」的进度（**如实**：running/total/done + 逐篇结果）。"""
         from src.core.ingestion import reingest as reingest_mod
         return {"code": 200, "status": "success", "data": reingest_mod.reingest_status()}
+
+    # ═════════════════════════ 「补全分类号」（自愈机制） ═════════════════════════
+    #
+    # 业主 2026-09-22 口径：「这 380 篇**不要手动去补**……你要找的是**修机制**，然后让插件
+    # **自己能靠自己的机制完成工作**。」⇒ 这一族端点就是那个"机制"，界面上的按钮调它。
+    # 形状与「重来一次」同款（起后台线程、立刻返回、进度另查、同一时刻只跑一批），
+    # 但**不共用**那把锁：查分类号（几秒一篇）与重新解析（几十分钟一篇）该能各自跑。
+
+    @app.get("/api/v1/kb/ccs/summary")
+    def kb_ccs_summary():
+        """分类号这件事的**现状**：还缺几篇 + 台账里各结论各几篇（只读，零网络）。
+
+        返回 ``data``：``missing``（全库 ``doc_type='standard'`` 且 ``domain_tags`` 里
+        没有 ``CCS:`` 的篇数——**现算的**，不是计数器）、``by_outcome``（台账按结论计数）、
+        ``backfill``（最近一批进度，见 ``/kb/ccs/backfill/status``）、
+        ``outcome_labels`` / ``source_labels``（中文说法，由后端下发，界面只兜底）。
+        """
+        from src.core.knowledge import ccs_backfill as bf
+        from src.core.knowledge import ccs_store
+        from src.core.knowledge.ccs_fetcher import (OUTCOME_LABELS, SOURCE_LABELS,
+                                                    SOURCES)
+        return {"code": 200, "status": "success", "data": {
+            "missing": bf.missing_ccs_count(),
+            "by_outcome": ccs_store.counts_by_outcome(),
+            "max_batch": bf.MAX_BACKFILL_DOCS,
+            "default_batch": bf.DEFAULT_BACKFILL_DOCS,
+            "outcome_labels": dict(OUTCOME_LABELS),
+            "source_labels": dict(SOURCE_LABELS),
+            "sources": list(SOURCES),
+            "backfill": bf.ccs_backfill_status()}}
+
+    @app.get("/api/v1/kb/ccs/plan")
+    def kb_ccs_plan(request: Request):
+        """**只读预览**：这一批会补哪些篇（不写库、不联网、不起线程）。
+
+        ``?limit=``（0 = 不限，默认 0）、``?force=``（true = 连已经有分类号的也重查）。
+        返回 ``data.{candidates:[{doc_id,standard_no,standard_name}], total, already_have,
+        limit, truncated}`` —— 「补全分类号」按下去之前先看这个。
+        """
+        from src.core.knowledge import ccs_backfill as bf
+        qp = request.query_params
+        try:
+            limit = _int(qp.get("limit"), 0)
+            force = str(qp.get("force") or "").lower() in ("1", "true", "yes")
+            data = bf.plan_ccs_backfill(limit=limit, force=force)
+        except ValueError as e:
+            return json_error(422, "invalid_pagination", str(e))
+        return {"code": 200, "status": "success", "data": data}
+
+    @app.post("/api/v1/kb/ccs/backfill")
+    def kb_ccs_backfill(payload: dict | None = None):
+        """**补全分类号**：扫出没有分类号的标准，用三层链逐篇补（后台跑，立刻返回）。
+
+        body（都可省）：``{doc_ids?: [...], limit?: 50, force?: false}``。
+        返回 ``data.{queued, started:[…], skipped:[…], plan:{…}}``；进度看
+        ``/kb/ccs/backfill/status``。同一时刻只跑一批 ⇒ 已有批次在跑回 **409
+        ``ccs_backfill_busy``**（**不排队**）。
+        """
+        from src.core.knowledge import ccs_backfill as bf
+        try:
+            body = payload if isinstance(payload, dict) else {}
+            raw = body.get("doc_ids")
+            ids = None
+            if raw is not None:
+                if isinstance(raw, str):
+                    raw = [raw]
+                if not isinstance(raw, list):
+                    raise KnowledgeStationError("doc_ids 必须是数组", code="invalid_decision")
+                ids = [str(x) for x in raw if str(x).strip()]
+                if not ids:
+                    raise KnowledgeStationError("doc_ids 不能是空数组",
+                                                code="invalid_decision")
+            limit = _int(body.get("limit"), bf.DEFAULT_BACKFILL_DOCS)
+            if limit <= 0 or limit > bf.MAX_BACKFILL_DOCS:
+                raise KnowledgeStationError(
+                    f"limit 必须在 1~{bf.MAX_BACKFILL_DOCS}", code="invalid_pagination")
+            force = bool(body.get("force"))
+            data = bf.start_ccs_backfill(doc_ids=ids, limit=limit, force=force)
+        except KnowledgeStationError as e:
+            return _fail(e)
+        except ValueError as e:
+            return json_error(422, "invalid_decision", str(e))
+        except RuntimeError as e:
+            if "ccs_backfill_busy" in str(e):
+                return json_error(409, "ccs_backfill_busy",
+                                  "已经有一批「补全分类号」在跑；等它跑完再点（不许排队等）")
+            raise
+        return {"code": 200, "status": "success", "data": data}
+
+    @app.get("/api/v1/kb/ccs/backfill/status")
+    def kb_ccs_backfill_status():
+        """最近一批「补全分类号」的进度（**如实**：running/done/total + 逐篇结果 + 失败清单）。
+
+        ``failures`` 是**没补到的那一批**（每篇带 ``outcome`` 与 ``reason``）——
+        业主/审计靠它看"还剩哪些、为什么"；``missing`` 是现算的"全库还缺几篇"。
+        """
+        from src.core.knowledge import ccs_backfill as bf
+        return {"code": 200, "status": "success", "data": bf.ccs_backfill_status()}
+
+    @app.post("/api/v1/kb/ccs/backfill/cancel")
+    def kb_ccs_backfill_cancel():
+        """按「停」：本批**跑完当前这一篇就停**，已补好的不丢。
+
+        返回 ``{cancel_requested, running, done, total}`` —— 还没真停时 ``running`` 仍是
+        true，界面**不许**在这一刻显示"已停止"。
+        """
+        from src.core.knowledge import ccs_backfill as bf
+        return {"code": 200, "status": "success", "data": bf.cancel_ccs_backfill()}
 
     @app.post("/api/v1/kb/inbox/confirm")
     def kb_inbox_confirm(payload: dict | None = None):

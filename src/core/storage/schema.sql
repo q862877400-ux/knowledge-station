@@ -719,3 +719,35 @@ CREATE TABLE IF NOT EXISTS doc_filing_state (
 CREATE INDEX IF NOT EXISTS idx_filing_stage ON doc_filing_state(stage, updated_at);
 CREATE INDEX IF NOT EXISTS idx_filing_placed_folder ON doc_filing_state(placed_folder_id);
 
+-- CCS（中国标准分类号）查询台账（2026-09-22「补全分类号」自愈机制）。
+-- **为什么不写进 doc_filing_state**：那张表的 stage/failure_kind 是**解析**状态的口径
+--   （见 pipeline._write_filing_state 与 folder_store.FAILURE_KIND_*），把"分类号查没查到"
+--   塞进 failure_kind 会**覆盖**解析失败的原因、并可能把 stage 改成 failed ⇒ 拿一个功能
+--   去毁另一个功能的记录。分类号查询是**另一件事**，所以有**另一张表**。
+-- **为什么不写 doc_meta.ccs_code/ccs_name**：那两列是既有的追加列、**全库为空**且没人写；
+--   CCS 标签的唯一所有者是 `doc_meta.domain_tags` 里的 `CCS:…` 条目（分类树读的就是它）。
+--   同一件事有两个家迟早打架，所以本表**只记"这次查了什么、从哪一层查到的、为什么没查到"**，
+--   真正的分类号仍只落 domain_tags 一处。
+--   · outcome  查询结论四枚举（ccs_fetcher.OUTCOMES）——**"发不出去"与"官方查无"必须分开**：
+--              found / not_found / network_failed / parse_failed
+--   · source   命中的是哪一层（official_api|web_scrape|local_table|seed_file）
+--   · keyword_form 命中的是哪种关键词形式（full|compact|core|bare）
+--   · matched_no   站点返回的标准号（可能与库里写法不同，如 GB→GB/T）
+--   · reason   给界面看的一句人话；attempts_json 是逐层逐形式的审计流水
+--   · applied_at 标签真的写进 domain_tags 的时刻（NULL = 没写进去）
+CREATE TABLE IF NOT EXISTS doc_ccs_state (
+    doc_id TEXT PRIMARY KEY,
+    outcome TEXT NOT NULL
+        CHECK(outcome IN ('found','not_found','network_failed','parse_failed')),
+    source TEXT,
+    keyword_form TEXT,
+    matched_no TEXT,
+    ccs_code TEXT,
+    ccs_name TEXT,
+    reason TEXT,
+    attempts_json TEXT,
+    checked_at TEXT DEFAULT (datetime('now')),
+    applied_at TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_ccs_state_outcome ON doc_ccs_state(outcome, checked_at);
+

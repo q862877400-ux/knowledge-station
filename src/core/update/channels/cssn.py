@@ -132,7 +132,8 @@ class CssnAdapter(ChannelAdapter):
         year = int(m.group(2)) if m.group(2) else None
         return m.group(1), year
 
-    def _pick(self, rows: list[Any], standard_no: str) -> tuple[dict | None, str | None]:
+    @staticmethod
+    def _pick(rows: list[Any], standard_no: str) -> tuple[dict | None, str | None]:
         """跨前缀同主体挑选（GB/GB/T/GB/Z 视为同一标准的不同属性/版本）。
 
         强制 GB 转推荐后库内为 GB/T 版（如 GB 14048.1-2012 → GB/T 14048.1-2012），
@@ -140,18 +141,24 @@ class CssnAdapter(ChannelAdapter):
         数字主体（14048.1）**优先取同年份版**（[被代替] 才是 2012 版的真实状态），
         同年份缺失才退回年代最大者。返回 (row, mode)：exact|cross_prefix_same_year
         |cross_prefix_latest|None。
+
+        ⚠ **2026-09-22 改成 staticmethod**（只是去掉那个没被用到的 ``self``，语义一字未动）：
+        CCS 补全链（``knowledge/ccs_fetcher``）要拿**同一份**挑选逻辑去挑
+        ``/api/cssn/list`` 的 HTML 条目 —— 那边不该为了调一个函数去 new 一个适配器
+        实例（会顺带 new 一个 HTTP 会话）。CSSN 的"怎么算挑中了"只有这一份所有者，
+        复制一份到 ccs_fetcher 迟早跟这里漂移。
         """
         target = norm_no(standard_no)
         for r in rows:
             if norm_no(str(r.get("a100") or "")) == target:
                 return r, "exact"
-        tcore, tyear = self._split(target)
+        tcore, tyear = CssnAdapter._split(target)
         if not tcore:
             return None, None
         cands: list[tuple[int, dict]] = []
         for r in rows:
             n = norm_no(str(r.get("a100") or ""))
-            core, year = self._split(n)
+            core, year = CssnAdapter._split(n)
             if core == tcore and year is not None:
                 cands.append((year, r))
         if not cands:

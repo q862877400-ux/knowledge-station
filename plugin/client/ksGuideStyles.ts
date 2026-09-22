@@ -516,6 +516,23 @@ export const KS_STYLES = `
 /* 一次动作的结果/失败**原话**（成功与失败都显示在这里，不美化） */
 .ks-ib-msg{padding:var(--ks-space-2) var(--ks-space-3);border-radius:var(--ks-r-md);
   background:var(--dsw-alias-bg-layer-3);font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary)}
+/* ── 「补全分类号」（2026-09-22 自愈机制）────────────────────────────────────
+   进度条 + **失败清单**。纪律：数字**逐类分开**（补到 / 查无 / 查询失败 / 读不出来），
+   不许合并成一句"部分失败"—— 业主口径是"界面把原因说清"。
+   ⚠ 可以折行（窄档 .ks-main 只有 288px）：信息是真的多，压扁它只会让字读不出来。 */
+.ks-ccs-btn{white-space:nowrap}
+.ks-ccs-bar{display:flex;flex-direction:column;gap:var(--ks-space-1);
+  padding:var(--ks-space-2) var(--ks-space-3);border-radius:var(--ks-r-md);
+  border:0.5px solid var(--dsw-alias-border-l2);background:var(--dsw-alias-bg-base);
+  font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);min-width:0}
+.ks-ccs-bar[data-ccs-running="1"]{border-color:var(--dsw-alias-state-primary)}
+.ks-ccs-line{overflow-wrap:anywhere}
+.ks-ccs-fails{font-size:var(--ks-fs-sm)}
+.ks-ccs-fails>summary{cursor:pointer;color:var(--dsw-alias-label-secondary)}
+.ks-ccs-fail-list{margin:var(--ks-space-1) 0 0;padding-left:1.2em;max-height:14em;overflow:auto}
+.ks-ccs-fail-list>li{min-width:0;overflow-wrap:anywhere}
+.ks-ccs-fail-no{font-family:var(--ks-font-mono,monospace);margin-right:var(--ks-space-2)}
+.ks-ccs-fail-why{color:var(--dsw-alias-label-tertiary)}
 /* 批量条（第 4 步**做回真的**：每条都对应真接口）。悬浮在列表上方、居中限宽。
    ⚠ 它是页面留边的适用面之一（docs/UI-BASELINE.md 第二节）⇒ 不许贴边。
    ⚠⚠ **必须允许折行**（flex-wrap:wrap）：窄档（520 ⇒ .ks-main 只有 288px）里
