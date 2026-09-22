@@ -27,14 +27,17 @@ import { KsKnowledgeGuide } from './KsKnowledgeGuide'
 import { KsKnowledgePage } from './KsKnowledgePage'
 import { KsScopeChip } from './KsScopeChip'
 import { KsSettingsSection } from './KsSettingsSection'
+import { KsTurnTab, type KsTurnInjected } from './KsTurnTab'
 
 import {
   KS_EVIDENCE_ADDRESS,
   KS_EVIDENCE_IMPL_ID,
   KS_EVIDENCE_KIND,
   KS_KB_IMPL_ID,
+  KS_TURN_IMPL_ID,
   ksEvidenceDefinition,
   ksKbDefinition,
+  ksTurnDefinition,
   toNavParams,
   type KsKbInjected,
   type KsSidebarRight,
@@ -350,6 +353,8 @@ function registerSidebarSurfaces(
       // ①b 「知识库」类型（2026-09-19）：开始页那张卡的落点，按 params.page 分发四个二级页。
       //     与证据类型**分开注册**的理由见 ksSidebar.ts 的 KS_KB_* 段注释。
       const disposeKbType = tabs.register(ksKbDefinition())
+      // ①c 「本轮」类型（S1-a，2026-09-22）：右栏拆「本轮证据」+「知识库」（业主批准）。
+      const disposeTurnType = tabs.register(ksTurnDefinition())
 
       // ② body 座位。**两个面必须分清**（2026-09-17 修空白 pane 的根因）：
       //    - `hookContext: TabHookContext`（座位契约）⇒ 框架把 `useTabInfo` **作为
@@ -361,6 +366,7 @@ function registerSidebarSurfaces(
       //    自设守卫于是挂载即抛 → 官方 `slot entry crashed` → **点进来全白**（真机实测）。
       let disposeBody: (() => void) | undefined
       let disposeKbBody: (() => void) | undefined
+      let disposeTurnBody: (() => void) | undefined
       let disposeGuideCard: (() => void) | undefined
       if (ctx.slots !== undefined) {
         disposeBody = ctx.slots.inject('sidebar.right.pane.tab', () => ctx.slots!.register({
@@ -379,6 +385,13 @@ function registerSidebarSurfaces(
           key: KS_KB_IMPL_ID,
           inject: (): KsKbInjected => ({ dataSource: 'engine' }),
         }, KsKnowledgePage))
+
+        // ②c 「本轮」pane body（S1-a）：定稿空态起步，数据通路在 S1-b。
+        disposeTurnBody = ctx.slots.inject('sidebar.right.pane.tab', () => ctx.slots!.register({
+          name: 'sidebar.right.pane.tab',
+          key: KS_TURN_IMPL_ID,
+          inject: (): KsTurnInjected => ({ dataSource: 'host-stash' }),
+        }, KsTurnTab))
 
         // ②c 开始页那张卡（「知识库」+ ▾ 二级目录）。
         //     官方 README：'开始页按当前生效的**定义 id** 渲染 sidebar.right.tab.guide.entry…
@@ -425,8 +438,10 @@ function registerSidebarSurfaces(
         // 否则它会调到一个已失效的 right（旧实现同类问题的教训）。
         rightRef.current = null
         disposeGuideCard?.()
+        disposeTurnBody?.()
         disposeKbBody?.()
         disposeBody?.()
+        disposeTurnType()
         disposeKbType()
         disposeType()
       }

@@ -34225,6 +34225,26 @@ function ksKbDefinition() {
     // 否则同一个入口会在开始页出现两次。
   };
 }
+var KS_TURN_IMPL_ID = "ks-dsh-plugin/turn";
+var KS_TURN_KIND = "ks-turn";
+var KS_TURN_RESOURCE_PREFIX = "dsh-resource://ks-turn";
+var KS_TURN_ADDRESS = KS_TURN_RESOURCE_PREFIX;
+function ksTurnTabTitle(_address) {
+  return "\u672C\u8F6E";
+}
+function isKsTurnResource(address) {
+  return address === KS_TURN_ADDRESS || address.startsWith(`${KS_TURN_ADDRESS}?`) || address.startsWith(`${KS_TURN_ADDRESS}/`);
+}
+function ksTurnDefinition() {
+  return {
+    id: KS_TURN_IMPL_ID,
+    kind: KS_TURN_KIND,
+    patterns: [KS_TURN_ADDRESS],
+    priority: "extension",
+    canOpen: isKsTurnResource,
+    title: ksTurnTabTitle
+  };
+}
 
 // client/KsKnowledgeGuide.tsx
 var import_jsx_runtime8 = require("react/jsx-runtime");
@@ -40646,6 +40666,30 @@ function KsApiConfigSection(props) {
   );
 }
 
+// client/KsTurnTab.tsx
+var import_jsx_runtime17 = require("react/jsx-runtime");
+function KsTurnTab(_props) {
+  return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
+    "div",
+    {
+      style: {
+        padding: "24px 16px",
+        display: "flex",
+        flexDirection: "column",
+        gap: 4,
+        alignItems: "center",
+        justifyContent: "center",
+        minHeight: 160,
+        textAlign: "center"
+      },
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary)", fontSize: 13 }, children: "\u8FD9\u4E00\u8F6E\u8FD8\u6CA1\u7528\u5230\u4F9D\u636E\u3002" }),
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary)", fontSize: 12, lineHeight: 1.6 }, children: "\u5728\u5BF9\u8BDD\u91CC\u63D0\u95EE\u540E\uFF0C\u8FD9\u91CC\u4F1A\u5217\u51FA\u8FD9\u6B21\u7B54\u6848\u7528\u5230\u7684\u6761\u6B3E\u4E0E\u6838\u5BF9\u7ED3\u679C\u3002" })
+      ]
+    }
+  );
+}
+
 // client/entry.ts
 function evidenceHrefOf(event) {
   const target = event.target;
@@ -40812,8 +40856,10 @@ function registerSidebarSurfaces(ctx, tabs, right, rightRef) {
     () => {
       const disposeType = tabs.register(ksEvidenceDefinition());
       const disposeKbType = tabs.register(ksKbDefinition());
+      const disposeTurnType = tabs.register(ksTurnDefinition());
       let disposeBody;
       let disposeKbBody;
+      let disposeTurnBody;
       let disposeGuideCard;
       if (ctx.slots !== void 0) {
         disposeBody = ctx.slots.inject("sidebar.right.pane.tab", () => ctx.slots.register({
@@ -40827,6 +40873,11 @@ function registerSidebarSurfaces(ctx, tabs, right, rightRef) {
           key: KS_KB_IMPL_ID,
           inject: () => ({ dataSource: "engine" })
         }, KsKnowledgePage));
+        disposeTurnBody = ctx.slots.inject("sidebar.right.pane.tab", () => ctx.slots.register({
+          name: "sidebar.right.pane.tab",
+          key: KS_TURN_IMPL_ID,
+          inject: () => ({ dataSource: "host-stash" })
+        }, KsTurnTab));
         disposeGuideCard = ctx.slots.inject("sidebar.right.tab.guide.entry", () => ctx.slots.register({
           name: "sidebar.right.tab.guide.entry",
           key: KS_EVIDENCE_IMPL_ID
@@ -40847,8 +40898,10 @@ function registerSidebarSurfaces(ctx, tabs, right, rightRef) {
         document.removeEventListener("auxclick", onClick, true);
         rightRef.current = null;
         disposeGuideCard?.();
+        disposeTurnBody?.();
         disposeKbBody?.();
         disposeBody?.();
+        disposeTurnType();
         disposeKbType();
         disposeType();
       };

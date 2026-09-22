@@ -328,6 +328,49 @@ export function ksKbDefinition(): KsTabDefinition {
   }
 }
 
+/* ============================================================================
+   「本轮」类型（S1-a，2026-09-22 业主批准：右栏拆「本轮证据」+「知识库」）。
+   - `ks-turn`（新增）：跟着当前回答走的**本轮依据**（用了哪几条、核对结果、看原文）；
+   - 与另两个类型分开的理由同 KB 段：语义不同、地址不同、重载语义互不干扰。
+   地址恒定（单例，理由同 KS_EVIDENCE_ADDRESS 段）；数据本体走宿主暂存 + 只读口
+   （`design-S1-turn-data-mapping.md` §二），**不进地址**。
+   ============================================================================ */
+
+/** 「本轮」tab 的实现身份与类型判别符。 */
+export const KS_TURN_IMPL_ID = 'ks-dsh-plugin/turn'
+export const KS_TURN_KIND = 'ks-turn'
+
+/** 「本轮」tab 的地址（恒定；单例理由同证据地址段）。 */
+export const KS_TURN_RESOURCE_PREFIX = 'dsh-resource://ks-turn'
+export const KS_TURN_ADDRESS = KS_TURN_RESOURCE_PREFIX
+
+/** 「本轮」tab 的标题（恒定：本轮数据随回答更新，不改标题）。 */
+export function ksTurnTabTitle(_address: string): string {
+  return '本轮'
+}
+
+/** 「本轮」地址判据（只认我们自己的地址，避免接管外来链接）。 */
+export function isKsTurnResource(address: string): boolean {
+  return address === KS_TURN_ADDRESS
+    || address.startsWith(`${KS_TURN_ADDRESS}?`)
+    || address.startsWith(`${KS_TURN_ADDRESS}/`)
+}
+
+/**
+ * 构造「本轮」tab 类型的官方声明。
+ * 单例（地址恒定）；不进开始页（S1-c 起回答完成后自动切达；开始页不加第三张卡）。
+ */
+export function ksTurnDefinition(): KsTabDefinition {
+  return {
+    id: KS_TURN_IMPL_ID,
+    kind: KS_TURN_KIND,
+    patterns: [KS_TURN_ADDRESS],
+    priority: 'extension',
+    canOpen: isKsTurnResource,
+    title: ksTurnTabTitle,
+  }
+}
+
 /**
  * 框架转发给**开始页卡片**组件的运行时 props（官方 `sidebar.right.tab.guide.entry` 座位）。
  *

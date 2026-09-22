@@ -345,16 +345,23 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
   check('the scope chip passes the sessionId through its props inject',
     chip !== undefined && chip.options.inject('sess-X').sessionId === 'sess-X',
     built.registered.map((r) => String(r.options?.id)).join(','))
+  // S1-a：「本轮」body 座位必须真的注册（缺了它 tab 是空壳）；注入面现在只有诊断标签。
+  const turnBody = built.registered.find((r) => r.options?.key === 'ks-dsh-plugin/turn')
+  check('S1-a：「本轮」body 座位注册且注入面 = dataSource（取数走只读口，S1-b 接）',
+    turnBody !== undefined && turnBody.options.inject('sess-X').dataSource === 'host-stash',
+    built.registered.map((r) => String(r.options?.key ?? r.options?.id)).join(','))
 
   // ── 官方两段式：① 类型注册 ② body 座位注册 ──
-  // ⚠ 2026-09-19 起本插件注册**两个**类型（原来只断言 1 个）：
+  // ⚠ 2026-09-19 起注册两个类型；**2026-09-22（S1-a）起三个**：
   //   ① ks-evidence —— PDF 证据阅读器（单例、由证据链接驱动）；
-  //   ② ks-knowledge —— 知识库页（开始页那张卡片的落点，按 params.page 分发二级页）。
-  //   断言**有序的完整集合**而不是"长度=1"：既允许新增，又让"悄悄多/少一个类型"照样红。
-  check('stage 1: exactly the two expected tab TYPES registered (ks-evidence, ks-knowledge)',
-    tabs.registered.length === 2
+  //   ② ks-knowledge —— 知识库页（开始页那张卡片的落点，按 params.page 分发二级页）；
+  //   ③ ks-turn —— 「本轮」依据（S1：右栏拆「本轮证据」+「知识库」，业主批准）。
+  //   断言**有序的完整集合**而不是"长度=1"：既允许新增（对账后加一行），又让"悄悄多/少一个类型"照样红。
+  check('stage 1: exactly the three expected tab TYPES registered (ks-evidence, ks-knowledge, ks-turn)',
+    tabs.registered.length === 3
     && tabs.registered[0]?.kind === 'ks-evidence'
-    && tabs.registered[1]?.kind === 'ks-knowledge',
+    && tabs.registered[1]?.kind === 'ks-knowledge'
+    && tabs.registered[2]?.kind === 'ks-turn',
     tabs.registered.map((d) => String(d.kind)).join(',') || '(none)')
   check('stage 1: the type claims only our own constant resource address',
     Array.isArray(tabs.registered[0]?.patterns)
@@ -538,7 +545,7 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     built.listeners.map(([e]) => String(e)).join(','))
   const late = built.provideBetterSidebar() // 服务此刻才提供 → 触发 internal/service
   check('late sidebar: the tab type registers the moment the services appear',
-    late.tabs.registered.length === 2 && built.injected.includes('settings.section'),
+    late.tabs.registered.length === 3 && built.injected.includes('settings.section'),
     `types=${late.tabs.registered.length} injected=${built.injected.join(',')}`)
   check('late sidebar: the settings column is registered exactly once',
     built.registered.filter((r) => r.options?.id === 'ks-dsh-plugin').length === 1,
@@ -553,7 +560,7 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     `before=${clicksBefore} after=${listenerCount('click')}`)
   const again = built.provideBetterSidebar()
   check('service re-provide: the tab type comes back after an unprovide/re-provide cycle',
-    again.tabs.registered.length === 2, `types=${again.tabs.registered.length}`)
+    again.tabs.registered.length === 3, `types=${again.tabs.registered.length}`)
   check('service re-provide: exactly one click listener again (no accumulation)',
     listenerCount('click') === clicksBefore, `clicks=${listenerCount('click')}`)
 }
