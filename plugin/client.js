@@ -28298,6 +28298,44 @@ async function fetchEffectReport(window2 = "all", signal, color) {
   if (body === null || body.ok !== true || body.data === void 0) throw new Error("\u6548\u529B\u62A5\u544A\u54CD\u5E94\u5F02\u5E38");
   return body.data;
 }
+async function fetchEgressAudit(params = {}, signal) {
+  const { token, engine: { port } } = await fetchSession(signal);
+  const qs = new URLSearchParams();
+  if (params.limit !== void 0) qs.set("limit", String(params.limit));
+  if (params.offset !== void 0) qs.set("offset", String(params.offset));
+  const suffix = qs.toString();
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/egress/audit${suffix ? `?${suffix}` : ""}`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal
+  });
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5916\u53D1\u5BA1\u8BA1\u8BFB\u53D6\u5931\u8D25\uFF08HTTP ${res.status}\uFF09`));
+  const body = await res.json().catch(() => null);
+  const data = body?.data;
+  if (data === null || data === void 0 || typeof data !== "object" || !Array.isArray(data.items)) {
+    throw new Error('\u5916\u53D1\u5BA1\u8BA1\u54CD\u5E94\u5F02\u5E38\uFF08\u671F\u671B {code:200,data:{total,items}}\uFF09\u2014\u2014\u4E0D\u8981\u628A\u672C\u6B21\u5F53\u4F5C"\u6CA1\u6709\u5916\u53D1\u8BB0\u5F55"');
+  }
+  return { total: Number(data.total ?? data.items.length), items: data.items };
+}
+function buildEgressMarkdown(total, items) {
+  const str3 = (v) => typeof v === "string" ? v : v === null || v === void 0 ? "" : String(v);
+  const lines = [];
+  lines.push("# \u5916\u53D1\u5BA1\u8BA1\u8BB0\u5F55");
+  lines.push("");
+  lines.push(`\u5171 ${String(total)} \u6761\u5916\u53D1\uFF08\u6BCF\u6B21\u8C03\u7528\u4E91\u7AEF\u7684\u5B8C\u6574\u7559\u75D5\uFF1B\u672C\u8868\u4E3A\u8131\u654F\u6458\u8981\uFF09\u3002`);
+  lines.push("");
+  items.forEach((it, i) => {
+    lines.push(`## ${String(i + 1)}. ${str3(it.created_at)} \xB7 ${str3(it.service)}`);
+    lines.push("");
+    lines.push(`- \u7AEF\u70B9\uFF1A${str3(it.endpoint) || "\u2014"}`);
+    lines.push(`- \u8BF7\u6C42\uFF1A${str3(it.query) || "\u2014"}`);
+    lines.push(`- \u5916\u53D1\u5B57\u8282\uFF1A${str3(it.payload_bytes) || "\u2014"}`);
+    lines.push(`- \u5185\u5BB9\u6458\u8981\uFF1A${str3(it.prompt_preview) || "\u2014"}`);
+    lines.push(`- \u7559\u75D5\u7F16\u53F7\uFF1A${str3(it.dump_id) || "\u2014"}`);
+    lines.push("");
+  });
+  return lines.join("\n");
+}
 async function fetchEffectDocs(params, signal) {
   const res = await fetch(`/ks/report/effect/docs${qsOf(params)}`, {
     method: "GET",
@@ -34411,6 +34449,87 @@ function OfficePage({ item, onBack }) {
     /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary)", fontSize: 11.5, lineHeight: 1.6 }, children: "\u8FD9\u4E00\u5C4F\u7684\u6D41\u7A0B\u6B63\u5728\u63A5\u7EBF\uFF08\u4E0B\u4E00\u6279\u7FFB\u771F\uFF09\uFF1B\u63A5\u597D\u540E\u6309\u94AE\u4EAE\u8D77\u3001\u70B9\u4E0B\u53BB\u76F4\u63A5\u8FDB\u6D41\u7A0B\u3002\u4E0D\u7ED9\u5047\u5165\u53E3\u3002" })
   ] });
 }
+function KsEgressPage({ item, onBack }) {
+  const [total, setTotal] = (0, import_react6.useState)(null);
+  const [items, setItems] = (0, import_react6.useState)([]);
+  const [phase, setPhase] = (0, import_react6.useState)("load");
+  const [errText, setErrText] = (0, import_react6.useState)("");
+  (0, import_react6.useEffect)(() => {
+    let cancelled = false;
+    setPhase("load");
+    fetchEgressAudit({ limit: 50 }).then((out) => {
+      if (cancelled) return;
+      setTotal(out.total);
+      setItems(out.items);
+      setPhase("ready");
+    }).catch((error) => {
+      if (cancelled) return;
+      setErrText(error instanceof Error ? error.message : String(error));
+      setPhase("error");
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+  const exportMd = () => {
+    const md = buildEgressMarkdown(total ?? items.length, items);
+    const blob = new Blob([md], { type: "text/markdown;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `\u5916\u53D1\u5BA1\u8BA1-${(/* @__PURE__ */ new Date()).toISOString().slice(0, 10)}.md`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+  const str3 = (v) => typeof v === "string" ? v : v === null || v === void 0 ? "" : String(v);
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: 12, padding: "12px 14px 18px" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+      "button",
+      {
+        type: "button",
+        onClick: onBack,
+        style: { alignSelf: "flex-start", background: "none", border: "none", padding: 0, cursor: "pointer", color: "var(--dsw-alias-state-business-primary)", fontSize: 12 },
+        children: "\u2039 \u8FD4\u56DE\u529E\u4E8B\u53F0"
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { fontSize: 15, fontWeight: 600 }, children: item.name }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary)", fontSize: 12, lineHeight: 1.6 }, children: item.pageDesc }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-kb-row", style: { display: "flex", alignItems: "center", gap: 8 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives2.Button, { variant: "outline", size: "sm", disabled: phase !== "ready" || items.length === 0, onClick: exportMd, children: "\u5BFC\u51FA Markdown" }),
+      total !== null && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { className: "ks-kb-hint", children: [
+        "\u5171 ",
+        String(total),
+        " \u6761",
+        total > items.length ? `\uFF08\u672C\u9875\u663E\u793A ${String(items.length)} \u6761\uFF09` : ""
+      ] })
+    ] }),
+    phase === "load" && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary)", fontSize: 12 }, children: "\u6B63\u5728\u8BFB\u53D6\u5916\u53D1\u8BB0\u5F55\u2026" }),
+    phase === "error" && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { role: "alert", style: { color: "var(--dsw-alias-state-error-primary)", fontSize: 12, lineHeight: 1.6 }, children: [
+      "\u8BFB\u53D6\u5931\u8D25\uFF1A",
+      errText
+    ] }),
+    phase === "ready" && items.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary)", fontSize: 12 }, children: "\u8FD8\u6CA1\u6709\u5916\u53D1\u8BB0\u5F55\uFF08\u6BCF\u6B21\u8C03\u7528\u4E91\u7AEF\u90FD\u4F1A\u5728\u8FD9\u91CC\u7559\u75D5\uFF09\u3002" }),
+    phase === "ready" && items.map((it, i) => /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
+      "div",
+      {
+        className: "ks-off-egress-row",
+        style: { border: "0.5px solid var(--dsw-alias-border-l1)", borderRadius: 8, padding: "8px 10px", display: "flex", flexDirection: "column", gap: 2 },
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { display: "flex", gap: 8, fontSize: 12, fontWeight: 600 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { children: str3(it.created_at) || "\u2014" }),
+            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { color: "var(--dsw-alias-label-secondary)" }, children: str3(it.service) || "\u2014" }),
+            /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { marginLeft: "auto", color: "var(--dsw-alias-label-tertiary)", fontWeight: 400 }, children: [
+              str3(it.payload_bytes) || "\u2014",
+              " \u5B57\u8282"
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary)", fontSize: 12, lineHeight: 1.6 }, children: str3(it.query) || str3(it.prompt_preview) || "\u2014" })
+        ]
+      },
+      `${str3(it.dump_id)}-${String(i)}`
+    ))
+  ] });
+}
 function KsCapabilityPage() {
   ensureKsStyles();
   const [activeId, setActiveId] = (0, import_react6.useState)(null);
@@ -34421,7 +34540,9 @@ function KsCapabilityPage() {
       /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-page-sub", children: "\u70B9\u4E00\u9879\uFF0C\u5F00\u59CB\u4E00\u4EF6\u6D3B\u3002" })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-page-rule" }),
-    active !== null ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(OfficePage, { item: active, onBack: () => {
+    active !== null ? active.id === "egress" ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KsEgressPage, { item: active, onBack: () => {
+      setActiveId(null);
+    } }) : /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(OfficePage, { item: active, onBack: () => {
       setActiveId(null);
     } }) : /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { role: "menu", "aria-label": "\u529E\u4E8B\u53F0", children: OFFICE_ITEMS.map((item) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KsOfficeRow, { item, onOpen: (id) => {
       setActiveId(id);

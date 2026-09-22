@@ -2226,6 +2226,77 @@ export async function fetchEffectReport(
   return body.data
 }
 
+/** 外发审计一条记录（脱敏摘要；形状逐字段抄引擎 `_row_to_audit`，防御式读取）。 */
+export interface KsEgressAuditRecord {
+  dump_id?: unknown
+  created_at?: unknown
+  service?: unknown
+  endpoint?: unknown
+  query?: unknown
+  payload_bytes?: unknown
+  prompt_preview?: unknown
+  [k: string]: unknown
+}
+
+export interface KsEgressAudit {
+  total: number
+  items: KsEgressAuditRecord[]
+}
+
+/**
+ * S2-a2（2026-09-22）：外发审计**只读**列表（GET /api/v1/egress/audit）。
+ * 引擎直连 + Bearer（fetchDocClauses 同一信任模型）；这是外发审计读口**第一次**接到界面
+ * （诊断 E：「客户端零调用」——引擎 2026-09-08 就有，界面一直够不着）。
+ * 分页：limit/offset（引擎还支持 keyset cursor，界面首版翻页到 50 条够用、如实报 total）。
+ */
+export async function fetchEgressAudit(
+  params: { limit?: number; offset?: number } = {},
+  signal?: AbortSignal,
+): Promise<KsEgressAudit> {
+  const { token, engine: { port } } = await fetchSession(signal)
+  const qs = new URLSearchParams()
+  if (params.limit !== undefined) qs.set('limit', String(params.limit))
+  if (params.offset !== undefined) qs.set('offset', String(params.offset))
+  const suffix = qs.toString()
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/egress/audit${suffix ? `?${suffix}` : ''}`, {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${token}`, accept: 'application/json' },
+    signal,
+  })
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `外发审计读取失败（HTTP ${res.status}）`))
+  const body = (await res.json().catch(() => null)) as { code?: number; data?: KsEgressAudit } | null
+  const data = body?.data
+  if (data === null || data === undefined || typeof data !== 'object' || !Array.isArray(data.items)) {
+    throw new Error('外发审计响应异常（期望 {code:200,data:{total,items}}）——不要把本次当作"没有外发记录"')
+  }
+  return { total: Number(data.total ?? data.items.length), items: data.items }
+}
+
+/**
+ * 导出**Markdown**（红线：产出物只出 Markdown）。纯函数：审计行 → MD 文本；
+ * 下载动作在界面层。引擎自带的 JSON 导出**保持原样不动**（数据归档用途不同，不冲突）。
+ * ⚠ 文本里不许出现字面 `**`（语言规范 §二.6）。
+ */
+export function buildEgressMarkdown(total: number, items: KsEgressAuditRecord[]): string {
+  const str = (v: unknown): string => (typeof v === 'string' ? v : v === null || v === undefined ? '' : String(v))
+  const lines: string[] = []
+  lines.push('# 外发审计记录')
+  lines.push('')
+  lines.push(`共 ${String(total)} 条外发（每次调用云端的完整留痕；本表为脱敏摘要）。`)
+  lines.push('')
+  items.forEach((it, i) => {
+    lines.push(`## ${String(i + 1)}. ${str(it.created_at)} · ${str(it.service)}`)
+    lines.push('')
+    lines.push(`- 端点：${str(it.endpoint) || '—'}`)
+    lines.push(`- 请求：${str(it.query) || '—'}`)
+    lines.push(`- 外发字节：${str(it.payload_bytes) || '—'}`)
+    lines.push(`- 内容摘要：${str(it.prompt_preview) || '—'}`)
+    lines.push(`- 留痕编号：${str(it.dump_id) || '—'}`)
+    lines.push('')
+  })
+  return lines.join('\n')
+}
+
 /** GET /ks/report/effect/docs — 节点明细（瘦身行；未知名路径 → 200 空集）。 */
 export async function fetchEffectDocs(
   params: { top: string; l2: string; l3?: string; l4?: string; window: KsEffectWindow; color?: string },

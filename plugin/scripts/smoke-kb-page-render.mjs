@@ -467,6 +467,19 @@ export function mount(container, props) {
     if (!url.startsWith(API)) return json({ ok: false, error: { code: 'STUB_MISS', message: `未预料的请求：${url}` } }, 404)
     const u = new URL(url)
     const p = u.pathname
+    /* S2-a2：外发审计只读列表（第一个翻真的专门页）。脱敏摘要行照引擎 _row_to_audit 的字段。 */
+    if (p === '/api/v1/egress/audit' && method === 'GET') {
+      return json({
+        code: 200,
+        data: {
+          total: 2,
+          items: [
+            { dump_id: 'dump_1', created_at: '2026-09-22 15:00', service: 'deepseek-chat', endpoint: '/v1/chat/completions', query: '高处作业怎么分级', payload_bytes: 512, prompt_preview: '把这一段发出去了' },
+            { dump_id: 'dump_2', created_at: '2026-09-22 15:06', service: 'deepseek-chat', endpoint: '/v1/chat/completions', query: '动火作业分级', payload_bytes: 480, prompt_preview: '又发了一段' },
+          ],
+        },
+      })
+    }
     if (p === '/api/v1/kb/folders' && method === 'GET') {
       if (failFolders) return json({ code: 500, status: 'error', error: { code: 'boom', message: '桩：引擎装作读不了目录' } }, 500)
       return json(levelOf(u.searchParams.get('parent_id')))
@@ -2245,6 +2258,37 @@ export function mount(container, props) {
   await cClick(officeBackBtn)
   check('办事台：点「‹ 返回办事台」⇒ 菜单回来（8 行）',
     cq('.ks-off-row').length === 8, `实际 ${String(cq('.ks-off-row').length)} 行`)
+
+  /* ── S2-a2：外发审计翻真（第一个亮起的真入口）—— 列表真取数 + 导出 Markdown 真出文件 ── */
+  const egressBefore = calls.length
+  await cClick(cq('.ks-off-row')[5])
+  await flush(); await flush()
+  check('办事台·外发审计：点行进页 ⇒ 真发起 GET /api/v1/egress/audit（不是画上去的假页面）',
+    calls.slice(egressBefore).some((c) => c.url.includes('/api/v1/egress/audit')),
+    calls.slice(egressBefore).map((c) => c.url).join(' | ').slice(0, 80))
+  const egressRows = cq('.ks-off-egress-row')
+  check('办事台·外发审计：两条记录真渲染（时间/服务/字节/摘要在）',
+    egressRows.length === 2
+    && (capContainer.textContent ?? '').includes('2026-09-22 15:00')
+    && (capContainer.textContent ?? '').includes('512'),
+    `行 ${String(egressRows.length)}`)
+  const exportBtn = cq('button').find((b) => (b.textContent ?? '').includes('导出 Markdown'))
+  check('办事台·外发审计：「导出 Markdown」真按钮亮着（S2-a1 的灰态在此页已翻真）',
+    exportBtn !== undefined && exportBtn.disabled === false,
+    exportBtn === undefined ? '没找到导出钮' : `disabled=${String(exportBtn.disabled)}`)
+  let capturedBlob = null
+  const savedCreate = URL.createObjectURL
+  const savedRevoke = URL.revokeObjectURL
+  URL.createObjectURL = (b) => { capturedBlob = b; return 'blob:smoke' }
+  URL.revokeObjectURL = () => {}
+  await cClick(exportBtn)
+  URL.createObjectURL = savedCreate
+  URL.revokeObjectURL = savedRevoke
+  const mdText = capturedBlob === null ? '' : await capturedBlob.text()
+  check('办事台·外发审计：点导出 ⇒ 真生成 Markdown（共 2 条 + 逐条留痕编号；无字面星号）',
+    mdText.includes('共 2 条外发') && mdText.includes('dump_1') && mdText.includes('# 外发审计记录')
+    && !mdText.includes('**'),
+    mdText.slice(0, 80))
 
   capRoot.unmount()
   await flush()

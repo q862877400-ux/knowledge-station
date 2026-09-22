@@ -15,7 +15,7 @@
  *     真入口亮起即"开始：<动词>"。条款释义连引擎实现都没有 ⇒ 菜单行灰 + 「还没有」。
  */
 
-import { useState, type ComponentType, type ReactNode } from 'react'
+import { useEffect, useState, type ComponentType, type ReactNode } from 'react'
 
 import {
   Button,
@@ -30,6 +30,7 @@ import {
   Tag,
 } from '@deepseek-ai/dsh-client-ui-primitives'
 
+import { buildEgressMarkdown, fetchEgressAudit, type KsEgressAuditRecord } from './api'
 import { ensureKsStyles } from './ksGuideStyles'
 
 /** 办事台的一件活（= 一行菜单 + 一个专门页面）。 */
@@ -135,6 +136,101 @@ function OfficePage({ item, onBack }: { readonly item: OfficeItem; readonly onBa
   )
 }
 
+/** 外发审计页（S2-a2：**第一个翻真**的专门页——只读列表 + 导出 Markdown）。 */
+export function KsEgressPage({ item, onBack }: { readonly item: OfficeItem; readonly onBack: () => void }): ReactNode {
+  const [total, setTotal] = useState<number | null>(null)
+  const [items, setItems] = useState<KsEgressAuditRecord[]>([])
+  const [phase, setPhase] = useState<'load' | 'ready' | 'error'>('load')
+  const [errText, setErrText] = useState('')
+
+  useEffect(() => {
+    let cancelled = false
+    setPhase('load')
+    fetchEgressAudit({ limit: 50 })
+      .then((out) => {
+        if (cancelled) return
+        setTotal(out.total)
+        setItems(out.items)
+        setPhase('ready')
+      })
+      .catch((error: unknown) => {
+        if (cancelled) return
+        setErrText(error instanceof Error ? error.message : String(error))
+        setPhase('error')
+      })
+    return () => { cancelled = true }
+  }, [])
+
+  const exportMd = (): void => {
+    const md = buildEgressMarkdown(total ?? items.length, items)
+    const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `外发审计-${new Date().toISOString().slice(0, 10)}.md`
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+
+  const str = (v: unknown): string => (typeof v === 'string' ? v : v === null || v === undefined ? '' : String(v))
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 12, padding: '12px 14px 18px' }}>
+      <button
+        type="button"
+        onClick={onBack}
+        style={{ alignSelf: 'flex-start', background: 'none', border: 'none', padding: 0, cursor: 'pointer', color: 'var(--dsw-alias-state-business-primary)', fontSize: 12 }}
+      >
+        ‹ 返回办事台
+      </button>
+      <div style={{ fontSize: 15, fontWeight: 600 }}>{item.name}</div>
+      <div style={{ color: 'var(--dsw-alias-label-secondary)', fontSize: 12, lineHeight: 1.6 }}>{item.pageDesc}</div>
+
+      {/* 动作行 = 真实「页内按钮行」构件（.ks-kb-row：留边适用面之一）。 */}
+      <div className="ks-kb-row" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <Button variant="outline" size="sm" disabled={phase !== 'ready' || items.length === 0} onClick={exportMd}>
+          导出 Markdown
+        </Button>
+        {total !== null && (
+          <span className="ks-kb-hint">共 {String(total)} 条{total > items.length ? `（本页显示 ${String(items.length)} 条）` : ''}</span>
+        )}
+      </div>
+
+      {phase === 'load' && (
+        <div style={{ color: 'var(--dsw-alias-label-tertiary)', fontSize: 12 }}>正在读取外发记录…</div>
+      )}
+      {phase === 'error' && (
+        <div role="alert" style={{ color: 'var(--dsw-alias-state-error-primary)', fontSize: 12, lineHeight: 1.6 }}>
+          读取失败：{errText}
+        </div>
+      )}
+      {phase === 'ready' && items.length === 0 && (
+        <div style={{ color: 'var(--dsw-alias-label-tertiary)', fontSize: 12 }}>
+          还没有外发记录（每次调用云端都会在这里留痕）。
+        </div>
+      )}
+      {phase === 'ready' && items.map((it, i) => (
+        <div
+          key={`${str(it.dump_id)}-${String(i)}`}
+          className="ks-off-egress-row"
+          style={{ border: '0.5px solid var(--dsw-alias-border-l1)', borderRadius: 8, padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 2 }}
+        >
+          <div style={{ display: 'flex', gap: 8, fontSize: 12, fontWeight: 600 }}>
+            <span>{str(it.created_at) || '—'}</span>
+            <span style={{ color: 'var(--dsw-alias-label-secondary)' }}>{str(it.service) || '—'}</span>
+            <span style={{ marginLeft: 'auto', color: 'var(--dsw-alias-label-tertiary)', fontWeight: 400 }}>
+              {str(it.payload_bytes) || '—'} 字节
+            </span>
+          </div>
+          <div style={{ color: 'var(--dsw-alias-label-secondary)', fontSize: 12, lineHeight: 1.6 }}>
+            {str(it.query) || str(it.prompt_preview) || '—'}
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 /**
  * 办事台页（原「能力」页；导出名保留 `KsCapabilityPage` = 挂载点零改动）。
  */
@@ -152,7 +248,9 @@ export function KsCapabilityPage(): ReactNode {
         </header>
         <div className="ks-page-rule" />
         {active !== null ? (
-          <OfficePage item={active} onBack={() => { setActiveId(null) }} />
+          active.id === 'egress'
+            ? <KsEgressPage item={active} onBack={() => { setActiveId(null) }} />
+            : <OfficePage item={active} onBack={() => { setActiveId(null) }} />
         ) : (
           <div role="menu" aria-label="办事台">
             {OFFICE_ITEMS.map((item) => (
