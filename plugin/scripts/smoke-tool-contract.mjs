@@ -402,6 +402,30 @@ async function main() {
     answerFull?.material_usage?.project_id === 'prj_x'
       && Array.isArray(answerFull?.material_usage?.usable_indices),
     JSON.stringify(answerFull?.material_usage))
+  /* ⚠⚠ 复核 S1（M4 打回补）：**生产端链路判据** —— makeAnswerTool → recordKsTurn 这一环
+     原先无判据（删掉 mode 快照全绿）。这里在**真工具调用之后**查只读口，钉住"暂存真的发生
+     且 mode 五键在位"。只钉形状不钉取值：取值随 setMode 组变，而**继承边界**已由生产端
+     改用执行同作用域 chatMode 统一（复核第 5 条），本判据不把任何一种取值钉成正确。 */
+  {
+    const { KS_TURN_LAST_PATH, registerKsTurnRoutes } = await import('../src/turn.js')
+    const exactRoutes = new Map()
+    registerKsTurnRoutes({ webServer: { register(d) { exactRoutes.set(d.path, d); return () => {} } } })
+    const out = { status: null, body: null }
+    const res = {
+      out,
+      writeHead(status) { out.status = status },
+      end(text) { try { out.body = JSON.parse(text) } catch { out.body = text } },
+    }
+    await exactRoutes.get(KS_TURN_LAST_PATH).handler({ method: 'GET', url: KS_TURN_LAST_PATH }, res)
+    const turn = out.body?.data?.turn
+    check('ks_answer [full-answer] — 生产端真暂存（/ks/turn/last 取回这一轮，query 同源）',
+      turn?.query === '高处作业怎么分级', JSON.stringify(turn?.query))
+    check('ks_answer [full-answer] — mode 快照**五键在位**（生产端断链 = 复核 M4 打回点）',
+      turn?.mode !== null && typeof turn?.mode === 'object'
+      && ['forensic', 'bookmarksOnly', 'folderId', 'folderName', 'materialProjectName']
+        .every((k) => k in turn.mode),
+      JSON.stringify(turn?.mode))
+  }
   await group('ks_answer', '422-validation-error', { query: 'x' },
     onlyPath('/api/v1/ks/answer', { code: 422, error: 'bad_request', message: 'query 太短' }, 422))
   await group('ks_answer', 'bare-envelope', { query: 'x' },

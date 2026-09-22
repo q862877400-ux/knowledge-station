@@ -75,10 +75,20 @@ check('返回 disposer（随 fiber 撤销）', typeof disposer === 'function')
     empty.status === 200 && empty.body.ok === true && empty.body.data === null,
     JSON.stringify(empty.body))
 
-  recordKsTurn('s1', { query: 'Q1', evidence: [{ standard_no: 'GB 1', clause_number: '4.2' }] })
+  recordKsTurn('s1', {
+    query: 'Q1',
+    evidence: [{ standard_no: 'GB 1', clause_number: '4.2' }],
+    notes: ['N1'],
+    verification: { is_valid: true },
+    mode: { forensic: true, bookmarksOnly: false, folderId: null, folderName: null, materialProjectName: null },
+  })
   const got = await invoke(`${KS_TURN_LAST_PATH}?session=s1`)
-  check('暂存后按会话取回（原始公开字段整包透传）',
-    got.body.data?.turn?.query === 'Q1' && got.body.data.turn.evidence[0].standard_no === 'GB 1',
+  // ⚠ 复核 M7：断言名曾写"整包透传"却只钉 2 字段（冒领）——现钉 **5 字段**并按实命名。
+  check('暂存后按会话取回（query/evidence/notes/verification/mode 五字段原样透传）',
+    got.body.data?.turn?.query === 'Q1' && got.body.data.turn.evidence[0].standard_no === 'GB 1'
+    && got.body.data?.turn?.notes?.[0] === 'N1'
+    && got.body.data?.turn?.verification?.is_valid === true
+    && got.body.data?.turn?.mode?.forensic === true,
     JSON.stringify(got.body).slice(0, 80))
   check('回执带 seq（S1-c 自动切达轮询的判据字段，缺了它客户端只能瞎猜）',
     typeof got.body.data?.seq === 'number' && got.body.data.seq > 0,

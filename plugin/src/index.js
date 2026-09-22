@@ -1364,17 +1364,17 @@ export function makeAnswerTool(manager, chatModeOf) {
       // 面板要的是引擎**原始公开字段**——design-S1-turn-data-mapping §二）。
       recordKsTurn(exec?.agent?.session?.id ?? '', {
         query,
-        // S1-c：**这一轮的口径**（冻结快照——芯片显示用；改口径仍走输入框那颗活胶囊）。
-        mode: (() => {
-          const m = effectiveChatMode(exec?.agent?.session?.id ?? '')
-          return {
-            forensic: m.forensic === true,
-            bookmarksOnly: m.bookmarksOnly === true,
-            folderId: m.folderId ?? null,
-            folderName: m.folderName ?? null,
-            materialProjectName: m.materialProjectName ?? null,
-          }
-        })(),
+        // S1-c：**这一轮的口径**（冻结快照——胶囊显示用；改口径仍走输入框那颗活胶囊）。
+        // ⚠ 复核 S1 第 5 条：快照必须用**执行同作用域**的 `chatMode`（含子会话继承）——
+        // 原来自建 effectiveChatMode(无 opts) 另取一份 ⇒ 子会话继承口径时
+        // "胶囊显示没开口径、实际按继承口径执行了"（显示层打脸组合）。一处一源，钉死失真。
+        mode: {
+          forensic: chatMode.forensic === true,
+          bookmarksOnly: chatMode.bookmarksOnly === true,
+          folderId: chatMode.folderId ?? null,
+          folderName: chatMode.folderName ?? null,
+          materialProjectName: chatMode.materialProjectName ?? null,
+        },
         tier: data.tier ?? null,
         verification: data.verification ?? null,
         notes: Array.isArray(data.notes) ? data.notes : [],

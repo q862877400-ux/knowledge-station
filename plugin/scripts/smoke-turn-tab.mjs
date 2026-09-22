@@ -54,7 +54,7 @@ await build({
 const mod = await import(pathToFileURL(outfile).href)
 await rm(outfile, { force: true })
 
-const { KsTurnEvidenceRow, KsTurnEmptyState, KsTurnModeChip, turnEvidenceHref } = mod
+const { KsTurnEvidenceRow, KsTurnEmptyState, KsTurnModeChip, KsTurnTab, turnEvidenceHref } = mod
 check('导出齐：KsTurnEvidenceRow / KsTurnEmptyState / KsTurnModeChip / turnEvidenceHref',
   typeof KsTurnEvidenceRow === 'function' && typeof KsTurnEmptyState === 'function'
   && typeof KsTurnModeChip === 'function' && typeof turnEvidenceHref === 'function')
@@ -103,6 +103,67 @@ if (typeof KsTurnEvidenceRow === 'function' && typeof KsTurnEmptyState === 'func
   check('渲染结果无字面 **（语言规范 §二.6）', !row.includes('**') && !empty.includes('**'))
   check('渲染结果无字面色兜底（F0 教训：var(...,#hex) 也是写死）',
     !row.includes('#') && !empty.includes('#'))
+}
+
+/* ---- 复核 S1（M6 打回补）：**点击行为判据** —— 挂载 KsTurnTab 全链（fetch 桩→依据行→点击→
+        openEvidence）；原来 onLook 里删掉 openEvidence(href) 调用**全绿**（无行为判据且未登记，
+        打回直接理由）。⚠ 更正留痕：我原写"jsdom 在根 node_modules"——**想当然**，本仓从没装过
+        jsdom（仓内多处注释明写）；照 smoke-kb-page-render 的惯用法从 **DSH 检出**引。 ---- */
+{
+  const harness = process.env.KS_HARNESS_DIR ?? 'D:\\AI\\DSH\\deepseek-harness'
+  const jsdomDir = join(harness, 'node_modules', 'jsdom')
+  const { JSDOM } = await import(pathToFileURL(join(jsdomDir, 'lib', 'api.js')).href)
+  const dom = new JSDOM('<!doctype html><html><body><div id="root"></div></body></html>')
+  const saved = {
+    document: globalThis.document, window: globalThis.window, fetch: globalThis.fetch,
+  }
+  globalThis.document = dom.window.document
+  globalThis.window = dom.window
+  globalThis.fetch = async () => ({
+    ok: true,
+    json: async () => ({
+      ok: true,
+      data: {
+        seq: 1, session: 's', turn: {
+          query: 'Q', verification: null, notes: [], scope: null, mode: null,
+          evidence: [{
+            doc_id: 'doc_Y', clause_revision_id: 'rev_2', standard_no: 'GB 2',
+            clause_number: '第1条', legal_status: 'effective',
+          }],
+        },
+      },
+    }),
+  })
+  try {
+    const { createRoot } = await import('react-dom/client')
+    const opened = []
+    const root = createRoot(dom.window.document.getElementById('root'))
+    root.render(React.createElement(KsTurnTab, {
+      useTabInfo: () => ({
+        tab: { id: 't1', kind: 'ks-turn', title: '本轮', navigation: { revision: 0 }, visible: true },
+      }),
+      sessionId: 's', dataSource: 'host-stash',
+      openEvidence: (u) => { opened.push(u) },
+    }))
+    await new Promise((r) => setTimeout(r, 20))
+    const btn = [...dom.window.document.querySelectorAll('button')]
+      .find((b) => (b.textContent ?? '').includes('看原文'))
+    check('M6 前置：fetch→依据行真渲染（行在才有得点）', btn !== undefined)
+    if (btn !== undefined) {
+      btn.dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true }))
+      check('M6：点「看原文」⇒ openEvidence 收到 evidenceUrlOf 的地址（点击→跳页最后一跳）',
+        opened.length === 1 && String(opened[0]).includes('doc=doc_Y'),
+        JSON.stringify(opened))
+    } else {
+      check('M6：点「看原文」⇒ openEvidence 收到 evidenceUrlOf 的地址（点击→跳页最后一跳）',
+        false, '按钮没渲染出来')
+    }
+    root.unmount()
+  } finally {
+    globalThis.document = saved.document
+    globalThis.window = saved.window
+    globalThis.fetch = saved.fetch
+  }
 }
 
 await rm(tmp, { recursive: true, force: true })
