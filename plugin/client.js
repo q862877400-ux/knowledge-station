@@ -39371,7 +39371,7 @@ function KsMaterialsPanel(props) {
         "\u3002\u8FD9**\u4E0D\u4EE3\u8868**\u6750\u6599\u6CA1\u6709\u5C42\u7EA7\uFF0C\u662F\u8FD9\u4EFD\u6E05\u5355\u6CA1\u53D6\u5230\u2014\u2014 \u91CD\u5F00\u9762\u677F\u6216\u91CD\u542F\u5F15\u64CE\u540E\u518D\u8BD5\u3002"
       ] }),
       projectId === "" && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { fontSize: 12, color: GRAY }, children: "\u5148\u9009\u4E00\u4E2A\u9879\u76EE\uFF08\u6216\u5728\u4E0A\u9762\u65B0\u5EFA\uFF09\u3002" }),
-      projectId !== "" && !loading && materials.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { fontSize: 12, color: GRAY }, children: "\u8FD9\u4E2A\u9879\u76EE\u91CC\u8FD8\u6CA1\u6709\u5DF2\u767B\u8BB0\u7684\u6750\u6599\uFF1A\u628A\u6587\u4EF6\u653E\u8FDB\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u540E\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\uFF0C \u6216\u7528\u4E0A\u9762\u7684\u300C\u81EA\u91C7\u4E00\u6761\u300D\u6309\u7F51\u5740\u6293\u4E00\u4EFD\u7F51\u9875\u6B63\u6587\uFF08\u540C\u6837\u8981**\u4F60**\u6279\u51C6\u540E\u624D\u7B97\u6570\uFF09\u3002" }),
+      projectId !== "" && !loading && materials.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { fontSize: 12, color: GRAY }, children: "\u8FD9\u4E2A\u9879\u76EE\u91CC\u8FD8\u6CA1\u6709\u5DF2\u767B\u8BB0\u7684\u6750\u6599\uFF1A\u628A\u6587\u4EF6\u653E\u8FDB\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u540E\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\uFF08\u4EBA\u5DE5\u4E0A\u4F20\u514D\u8BC4\u5BA1\uFF0C\u5C31\u4F4D\u5373\u53EF\u7528\uFF09\uFF0C \u6216\u7528\u4E0A\u9762\u7684\u300C\u81EA\u91C7\u4E00\u6761\u300D\u6309\u7F51\u5740\u6293\u4E00\u4EFD\u7F51\u9875\u6B63\u6587\uFF08\u81EA\u91C7\u7684\u8981\u4F60\u6279\u51C6\u540E\u624D\u7B97\u6570\uFF09\u3002" }),
       picked.size > 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "ks-batch", "data-ks-batch": "on", style: { position: "sticky", bottom: 0, display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap", padding: "8px 10px", marginBottom: 8, border: "0.5px solid var(--dsw-alias-border-l1)", borderRadius: 6, background: "var(--dsw-alias-bg-layer-2)" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", { style: { fontSize: 12 }, children: [
           "\u5DF2\u9009 ",
@@ -39392,6 +39392,7 @@ function KsMaterialsPanel(props) {
       ] }),
       materials.map((m) => {
         const rev = reviewLabel(m.review_status);
+        const isUpload = (m.origin ?? "user") === "user";
         const chunks = openChunks[m.material_id];
         return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
           "div",
@@ -39483,26 +39484,29 @@ function KsMaterialsPanel(props) {
               ] }),
               /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(AnchorMark, { status: anchors[m.material_id]?.status, why: anchors[m.material_id]?.why }),
               /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { display: "flex", gap: 6, marginTop: 8, flexWrap: "wrap" }, children: [
-                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-                  "button",
-                  {
-                    type: "button",
-                    style: btnStyle2(busy !== "" || m.review_status === "approved"),
-                    disabled: busy !== "" || m.review_status === "approved",
-                    onClick: () => onReview(m, "approved"),
-                    children: "\u6279\u51C6\uFF08\u53EF\u8FDB\u5165\u4F5C\u7B54\uFF09"
-                  }
-                ),
-                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
-                  "button",
-                  {
-                    type: "button",
-                    style: btnStyle2(busy !== "" || m.review_status === "rejected"),
-                    disabled: busy !== "" || m.review_status === "rejected",
-                    onClick: () => onReview(m, "rejected"),
-                    children: "\u62D2\u7EDD"
-                  }
-                ),
+                !isUpload && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(import_jsx_runtime14.Fragment, { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+                    "button",
+                    {
+                      type: "button",
+                      style: btnStyle2(busy !== "" || m.review_status === "approved"),
+                      disabled: busy !== "" || m.review_status === "approved",
+                      onClick: () => onReview(m, "approved"),
+                      children: "\u6279\u51C6\uFF08\u53EF\u8FDB\u5165\u4F5C\u7B54\uFF09"
+                    }
+                  ),
+                  /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+                    "button",
+                    {
+                      type: "button",
+                      style: btnStyle2(busy !== "" || m.review_status === "rejected"),
+                      disabled: busy !== "" || m.review_status === "rejected",
+                      onClick: () => onReview(m, "rejected"),
+                      children: "\u62D2\u7EDD"
+                    }
+                  )
+                ] }),
+                isUpload && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { style: { fontSize: 12, color: GRAY }, children: "\u4EBA\u5DE5\u4E0A\u4F20\uFF1A\u514D\u8BC4\u5BA1\uFF0C\u5DF2\u5C31\u4F4D\u5373\u53EF\u7528" }),
                 /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("button", { type: "button", style: btnStyle2(false), onClick: () => onToggleChunks(m), children: chunks === void 0 ? "\u8BFB\u6B63\u6587\uFF08\u8BC4\u5BA1\u524D\u5FC5\u770B\uFF09" : "\u6536\u8D77\u6B63\u6587" }),
                 /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
                   "button",

@@ -869,8 +869,8 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
       )}
       {projectId !== '' && !loading && materials.length === 0 && (
         <p style={{ fontSize: 12, color: GRAY }}>
-          这个项目里还没有已登记的材料：把文件放进参考资料文件夹后点「扫描收件」，
-          或用上面的「自采一条」按网址抓一份网页正文（同样要**你**批准后才算数）。
+          这个项目里还没有已登记的材料：把文件放进参考资料文件夹后点「扫描收件」（人工上传免评审，就位即可用），
+          或用上面的「自采一条」按网址抓一份网页正文（自采的要你批准后才算数）。
         </p>
       )}
 
@@ -891,6 +891,9 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
       )}
       {materials.map((m) => {
         const rev = reviewLabel(m.review_status)
+        /* S3-b（业主裁定 NOT-DOING #15）：人工上传（origin=user）**免评审** —— 生而可作依据，
+           没有批准步骤；自采/网页来源（origin=collected）照旧逐个批（硬门只管自采）。 */
+        const isUpload = (m.origin ?? 'user') === 'user'
         const chunks = openChunks[m.material_id]
         return (
           <div
@@ -979,22 +982,30 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
             <AnchorMark status={anchors[m.material_id]?.status} why={anchors[m.material_id]?.why} />
 
             <div style={{ display: 'flex', gap: 6, marginTop: 8, flexWrap: 'wrap' }}>
-              <button
-                type="button"
-                style={btnStyle(busy !== '' || m.review_status === 'approved')}
-                disabled={busy !== '' || m.review_status === 'approved'}
-                onClick={() => onReview(m, 'approved')}
-              >
-                批准（可进入作答）
-              </button>
-              <button
-                type="button"
-                style={btnStyle(busy !== '' || m.review_status === 'rejected')}
-                disabled={busy !== '' || m.review_status === 'rejected'}
-                onClick={() => onReview(m, 'rejected')}
-              >
-                拒绝
-              </button>
+              {/* S3-b：人工上传免评审 ⇒ 不给批准/拒绝钮（没有步骤就没有按钮，不装样子）。 */}
+              {!isUpload && (
+                <>
+                  <button
+                    type="button"
+                    style={btnStyle(busy !== '' || m.review_status === 'approved')}
+                    disabled={busy !== '' || m.review_status === 'approved'}
+                    onClick={() => onReview(m, 'approved')}
+                  >
+                    批准（可进入作答）
+                  </button>
+                  <button
+                    type="button"
+                    style={btnStyle(busy !== '' || m.review_status === 'rejected')}
+                    disabled={busy !== '' || m.review_status === 'rejected'}
+                    onClick={() => onReview(m, 'rejected')}
+                  >
+                    拒绝
+                  </button>
+                </>
+              )}
+              {isUpload && (
+                <span style={{ fontSize: 12, color: GRAY }}>人工上传：免评审，已就位即可用</span>
+              )}
               <button type="button" style={btnStyle(false)} onClick={() => onToggleChunks(m)}>
                 {chunks === undefined ? '读正文（评审前必看）' : '收起正文'}
               </button>

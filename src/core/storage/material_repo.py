@@ -140,7 +140,14 @@ def add_material(project_id: str, title: str, *, origin: str = "user",
                  material_id: str | None = None,
                  derived_text_hash: str | None = None,
                  parser_fingerprint: str | None = None) -> dict[str, Any]:
-    """登记一份材料。**默认 `review_status='pending'`** —— 未经评审不得使用（硬门）。
+    """登记一份材料。出生评审状态**按来源定**（S3-b，2026-09-22 业主裁定 NOT-DOING #15）：
+
+    - `origin='user'`（人工上传：放进参考资料文件夹）⇒ **免评审**，`review_status='approved'`
+      （用户亲手放的、他知道是什么——"我既然人工上传，那肯定我知道我上传的是什么"）；
+    - `origin='collected'`（自采/网页抓取）⇒ 照旧 `review_status='pending'`，逐份人批
+      （**评审硬门只管自采**，硬门 SQL 一个字不动）。
+    ⚠ 旧口径"默认 pending"保留在史（本 docstring 原文：「默认 review_status='pending' ——
+    未经评审不得使用（硬门）」）；变更只动**出生值**，批准/撤销口与硬门查询零改动。
 
     层级默认：用户自有原件 T1；自采（collected）由调用方按判据给（不给则 T3 起，
     因为"网上找来的"在没证据前不该默认可信）。**默认不可信、靠证据升级。**
@@ -154,17 +161,19 @@ def add_material(project_id: str, title: str, *, origin: str = "user",
         raise ValueError(f"kind 只能是 legal/other，收到 {kind!r}")
     tier = source_tier or ("T1" if origin == "user" else "T3")
     if tier not in TIERS:
-        raise ValueError(f"source_tier 只能是 {TIERS}，收到 {tier!r}")
+        raise ValueError(f"source_tier 只能是 {TIERS}，收到 {source_tier!r}")
     mid = material_id or f"mat_{ULID()}"
+    # 出生评审状态：人工上传免评审（approved）/ 自采待评审（pending）。
+    born_review = "approved" if origin == "user" else "pending"
     with write_transaction() as conn:
         conn.execute(
             "INSERT INTO material(material_id, project_id, origin, kind, title, url, domain,"
             " content_hash, raw_path, mime, source_tier, tier_evidence, tier_reason,"
-            " published_at, derived_text_hash, parser_fingerprint)"
-            " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+            " published_at, derived_text_hash, parser_fingerprint, review_status)"
+            " VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
             (mid, project_id, origin, kind, title, url, domain, content_hash, raw_path,
              mime, tier, json.dumps(tier_evidence, ensure_ascii=False) if tier_evidence else None,
-             tier_reason, published_at, derived_text_hash, parser_fingerprint))
+             tier_reason, published_at, derived_text_hash, parser_fingerprint, born_review))
     return get_material(mid) or {}
 
 

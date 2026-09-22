@@ -43,12 +43,18 @@ class TestProject:
 
 # ------------------------------------------------------------------ 材料默认值
 class TestMaterialDefaults:
-    def test_new_material_is_pending_not_usable(self, project):
-        """新材料默认 **pending** —— 未经评审不得使用（这是硬门的前提）。"""
-        m = mr.add_material(project["project_id"], "某财报.pdf")
-        assert m["review_status"] == "pending"
-        assert m["lifecycle"] == "ephemeral"          # 默认仅本次任务参考
-        assert m["doc_id"] is None
+    def test_new_material_born_status_by_origin(self, project):
+        """S3-b（2026-09-22 业主裁定 NOT-DOING #15）：出生评审状态**按来源**——
+        人工上传免评审（approved，生而可作依据）；自采照旧 pending（硬门只管自采）。
+        对账留痕：本测原名 test_new_material_is_pending_not_usable、原文
+        「新材料默认 **pending** —— 未经评审不得使用（这是硬门的前提）。」——
+        旧口径对 user 来源已按裁定作废，安全核移到 collected 侧（不放宽）。"""
+        up = mr.add_material(project["project_id"], "用户上传的制度.pdf", origin="user")
+        assert up["review_status"] == "approved", "人工上传免评审（出生即 approved）"
+        col = mr.add_material(project["project_id"], "抓来的网页正文", origin="collected")
+        assert col["review_status"] == "pending", "自采必须仍待人批（硬门只管自采）"
+        assert col["lifecycle"] == "ephemeral"        # 默认仅本次任务参考
+        assert col["doc_id"] is None
 
     def test_user_material_defaults_to_t1_system(self, project):
         """用户自有原件默认 T1（对其自身内容是初级证据），由 system 判。"""
@@ -79,21 +85,30 @@ class TestMaterialDefaults:
 # ------------------------------------------------------------------ 硬门
 class TestReviewGate:
     def test_approved_materials_is_the_hard_gate(self, project):
+        """硬门核原样：自采未经批准不得进作答；人工上传免评审（裁定 #15）出生即在门内。
+        对账留痕：原文断言 usable == {ok}（三个 add_material 均为默认 user 来源）——
+        现按来源分两侧断言，安全面只紧不松（pending/rejected 依旧被挡）。"""
         pid = project["project_id"]
-        ok = mr.add_material(pid, "已批准")
-        pend = mr.add_material(pid, "待评审")
-        no = mr.add_material(pid, "被拒绝")
-        mr.set_review(ok["material_id"], "approved")
+        upload = mr.add_material(pid, "人工上传（免评审）", origin="user")
+        pend = mr.add_material(pid, "自采待评审", origin="collected")
+        no = mr.add_material(pid, "自采被拒绝", origin="collected")
         mr.set_review(no["material_id"], "rejected")
 
         usable = {m["material_id"] for m in mr.approved_materials(pid)}
-        assert usable == {ok["material_id"]}, usable
+        assert usable == {upload["material_id"]}, usable
         # 管理/评审界面仍应看得见 pending 与 rejected（否则没法批）
         assert len(mr.list_materials(pid)) == 3
         assert {m["material_id"] for m in mr.list_materials(pid, review_status="pending")} == {pend["material_id"]}
+        # 批准后自采放行（硬门对已批自采照旧开）
+        mr.set_review(pend["material_id"], "approved")
+        assert pend["material_id"] in {m["material_id"] for m in mr.approved_materials(pid)}
+        assert no["material_id"] not in {m["material_id"] for m in mr.approved_materials(pid)}
 
-    def test_default_pending_is_not_in_gate(self, project):
-        mr.add_material(project["project_id"], "还没人看过")
+    def test_collected_pending_is_not_in_gate(self, project):
+        """自采出生 pending ⇒ 不在门内（硬门前提原样）。
+        对账留痕：原名 test_default_pending_is_not_in_gate（原文「还没人看过」走默认 user）——
+        人工上传侧已按裁定 #15 免评审（见上一测），前提测试移到 collected 侧。"""
+        mr.add_material(project["project_id"], "还没人看过的自采", origin="collected")
         assert mr.approved_materials(project["project_id"]) == []
 
     def test_review_note_and_timestamp_recorded(self, project):

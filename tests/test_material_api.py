@@ -73,7 +73,10 @@ class TestAuthAndValidation:
 
 class TestEndToEnd:
     def test_scan_review_read_then_searchable(self, client, project):
-        """建项目 → 丢文件 → scan → 读切片 → 批准 → 搜到（用户侧完整闭环）。"""
+        """建项目 → 丢文件 → scan → 读切片 → 搜到；撤销则搜不到、再批又搜到。
+        S3-b 对账（业主裁定 NOT-DOING #15）：人工上传**免评审** ⇒ scan 出生即 approved、
+        直接可搜；安全面移到"撤销/拒绝后搜不到 + 再批恢复"（只紧不松）。
+        原文留痕：本测原为「scan → 列表 pending → 搜不到 → 批准 → 搜到」。"""
         c, _ = client
         pid = project["project_id"]
         d = mr.materials_dir(pid)
@@ -85,27 +88,34 @@ class TestEndToEnd:
         assert r.json()["data"]["registered"] == 1
         mid = r.json()["data"]["rows"][0]["material_id"]
 
-        # 列表里看得见，且是 pending
+        # 列表里看得见；人工上传**出生即可作依据**（免评审，裁定 #15）
         rows = c.get(f"/api/v1/materials/projects/{pid}/materials", headers=HDR).json()["data"]
         assert [x["material_id"] for x in rows] == [mid]
-        assert rows[0]["review_status"] == "pending"
+        assert rows[0]["review_status"] == "approved", "人工上传免评审（出生即 approved）"
         assert rows[0]["tier_label"] == mr.TIER_LABELS["T1"]
 
-        # **未批准 → 搜不到**（HTTP 层的硬门）
-        assert c.get(f"/api/v1/materials/projects/{pid}/search?q=营业收入",
-                     headers=HDR).json()["data"]["count"] == 0
-
-        # 评审前要能读到内容（否则是盲签）
+        # 就位后先能读到内容（盲签防线照旧）
         ck = c.get(f"/api/v1/materials/{mid}/chunks", headers=HDR).json()["data"]
         assert ck["total"] >= 1 and "营业收入" in ck["chunks"][0]["text"]
         assert ck["chunks"][0]["char_start"] == 0
 
-        # 批准
+        # 出生即搜得到（免评审）
+        hits = c.get(f"/api/v1/materials/projects/{pid}/search?q=营业收入",
+                     headers=HDR).json()["data"]["hits"]
+        assert len(hits) == 1
+
+        # 撤销（判为不可用）⇒ 硬门**照样关得上**（安全面只紧不松）
+        rv = c.post(f"/api/v1/materials/{mid}/review",
+                    json={"status": "rejected", "note": "核对后发现不可用"}, headers=HDR)
+        assert rv.status_code == 200 and rv.json()["data"]["review_status"] == "rejected"
+        assert c.get(f"/api/v1/materials/projects/{pid}/search?q=营业收入",
+                     headers=HDR).json()["data"]["count"] == 0
+
+        # 再批 ⇒ 搜得到，且引用字段齐备
         rv = c.post(f"/api/v1/materials/{mid}/review",
                     json={"status": "approved", "note": "核对过"}, headers=HDR)
         assert rv.status_code == 200 and rv.json()["data"]["review_status"] == "approved"
 
-        # 批准后 → 搜得到，且引用字段齐备
         hits = c.get(f"/api/v1/materials/projects/{pid}/search?q=营业收入",
                      headers=HDR).json()["data"]["hits"]
         assert len(hits) == 1
