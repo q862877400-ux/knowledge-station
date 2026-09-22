@@ -32,7 +32,7 @@ import {
   Tag,
 } from '@deepseek-ai/dsh-client-ui-primitives'
 
-import { buildEgressMarkdown, createComplianceReview, executeComplianceReview, fetchEgressAudit, type KsEgressAuditRecord, type KsReviewPoint, type KsReviewVerdict } from './api'
+import { buildEgressMarkdown, createComplianceReview, executeComplianceReview, fetchEgressAudit, generateObligationList, importInternalPolicy, runGapAnalysis, toObligationChecklist, toggleObligationCheck, type KsEgressAuditRecord, type KsGapResult, type KsObligationList, type KsReviewPoint, type KsReviewVerdict } from './api'
 import { ensureKsStyles } from './ksGuideStyles'
 import { evidenceUrlOf as evidenceHrefOf } from './ksEvidence'
 
@@ -414,6 +414,194 @@ export function KsContractPage({ item, onBack }: { readonly item: OfficeItem; re
   )
 }
 
+/** 义务清单→检查表页（S2-b2：业务描述 → 抽义务 → 勾选自查 → 转检查表 → 导出 MD）。 */
+export function KsDutyPage({ item, onBack }: { readonly item: OfficeItem; readonly onBack: () => void }): ReactNode {
+  const [desc, setDesc] = useState('')
+  const [phase, setPhase] = useState<'input' | 'list' | 'checklist' | 'error'>('input')
+  const [list, setList] = useState<KsObligationList | null>(null)
+  const [errText, setErrText] = useState('')
+
+  const gen = (): void => {
+    setPhase('list')
+    setErrText('')
+    generateObligationList(desc.trim())
+      .then(setList)
+      .catch((error: unknown) => {
+        setErrText(error instanceof Error ? error.message : String(error))
+        setPhase('error')
+      })
+  }
+
+  const toChecklist = (): void => {
+    if (list === null) return
+    toObligationChecklist(list.list_id)
+      .then((next) => { setList(next); setPhase('checklist') })
+      .catch((error: unknown) => {
+        setErrText(error instanceof Error ? error.message : String(error))
+        setPhase('error')
+      })
+  }
+
+  const exportMd = (): void => {
+    if (list === null) return
+    const lines: string[] = ['# 义务检查表', '', `业务：${list.business_description ?? desc}`, '']
+    for (const g of list.groups) {
+      lines.push(`## ${g.group}`, '')
+      for (const it of g.items) {
+        const mark = it.checked ? 'x' : ' '
+        lines.push(`- [${mark}] ${it.standard_no} ${it.clause_number}：${it.question ?? it.obligation_text}`)
+      }
+      lines.push('')
+    }
+    const blob = new Blob([lines.join('\n')], { type: 'text/markdown;charset=utf-8' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = '义务检查表.md'
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+
+  const str = (v: unknown): string => (typeof v === 'string' ? v : v === null || v === undefined ? '' : String(v))
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 12, padding: '12px 14px 18px' }}>
+      <button type="button" onClick={onBack} style={{ alignSelf: 'flex-start', background: 'none', border: 'none', padding: 0, cursor: 'pointer', color: 'var(--dsw-alias-state-business-primary)', fontSize: 12 }}>
+        ‹ 返回办事台
+      </button>
+      <div style={{ fontSize: 15, fontWeight: 600 }}>{item.name}</div>
+      <div style={{ color: 'var(--dsw-alias-label-secondary)', fontSize: 12, lineHeight: 1.6 }}>{item.pageDesc}</div>
+
+      {phase === 'input' && (
+        <>
+          <label className="ks-kb-hint" htmlFor="ks-duty-desc">干什么活（业务描述，用来找相关义务）</label>
+          <textarea
+            id="ks-duty-desc"
+            value={desc}
+            onChange={(e) => { setDesc(e.target.value) }}
+            rows={4}
+            style={{ width: '100%', boxSizing: 'border-box', font: 'inherit', fontSize: 12, padding: 8, border: '0.5px solid var(--dsw-alias-border-l1)', borderRadius: 6, background: 'var(--dsw-alias-bg-layer-1)', color: 'var(--dsw-alias-label-primary)' }}
+          />
+          <div className="ks-kb-row" style={{ display: 'flex', gap: 8 }}>
+            <Button variant="primary" size="sm" disabled={desc.trim().length === 0} onClick={gen}>开始：生成义务清单</Button>
+          </div>
+        </>
+      )}
+
+      {(phase === 'list' || phase === 'checklist') && list !== null && (
+        <>
+          <div style={{ fontSize: 12, color: 'var(--dsw-alias-label-secondary)' }}>
+            抽出 {String(list.count)} 条义务{phase === 'checklist' ? '（已是检查表：勾=已落实）' : '——勾选表示已落实，或直接转成检查表'}。
+          </div>
+          {list.groups.map((g) => (
+            <div key={g.group} style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+              <div style={{ fontSize: 12, fontWeight: 600 }}>{g.group}</div>
+              {g.items.map((it) => (
+                <Checkbox
+                  key={it.clause_revision_id}
+                  label={`${it.standard_no} ${it.clause_number}｜${it.question ?? it.obligation_text}`}
+                  checked={it.checked}
+                  onChange={() => {
+                    const next = !it.checked
+                    toggleObligationCheck(list.list_id, it.clause_revision_id, next).catch(() => {})
+                    setList({
+                      ...list,
+                      groups: list.groups.map((gg) => gg.group === g.group
+                        ? { ...gg, items: gg.items.map((x) => x.clause_revision_id === it.clause_revision_id ? { ...x, checked: next } : x) }
+                        : gg),
+                    })
+                  }}
+                />
+              ))}
+            </div>
+          ))}
+          <div className="ks-kb-row" style={{ display: 'flex', gap: 8 }}>
+            {phase === 'list' && <Button variant="primary" size="sm" onClick={toChecklist}>转成检查表</Button>}
+            <Button variant="outline" size="sm" onClick={exportMd}>导出 Markdown</Button>
+          </div>
+        </>
+      )}
+
+      {phase === 'error' && (
+        <div role="alert" style={{ color: 'var(--dsw-alias-state-error-primary)', fontSize: 12, lineHeight: 1.6 }}>出问题了：{errText}</div>
+      )}
+    </div>
+  )
+}
+
+/** 制度差距分析页（S2-b2：登记制度 → 对比法定义务 → 缺什么/补什么）。 */
+export function KsGapPage({ item, onBack }: { readonly item: OfficeItem; readonly onBack: () => void }): ReactNode {
+  const [name, setName] = useState('')
+  const [text, setText] = useState('')
+  const [phase, setPhase] = useState<'input' | 'run' | 'done' | 'error'>('input')
+  const [result, setResult] = useState<KsGapResult | null>(null)
+  const [errText, setErrText] = useState('')
+  const str = (v: unknown): string => (typeof v === 'string' ? v : v === null || v === undefined ? '' : String(v))
+
+  const run = (): void => {
+    setPhase('run')
+    setErrText('')
+    importInternalPolicy(name.trim() || '未命名制度', text.trim())
+      .then((pol) => runGapAnalysis(pol.policy_id))
+      .then((r) => { setResult(r); setPhase('done') })
+      .catch((error: unknown) => {
+        setErrText(error instanceof Error ? error.message : String(error))
+        setPhase('error')
+      })
+  }
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 12, padding: '12px 14px 18px' }}>
+      <button type="button" onClick={onBack} style={{ alignSelf: 'flex-start', background: 'none', border: 'none', padding: 0, cursor: 'pointer', color: 'var(--dsw-alias-state-business-primary)', fontSize: 12 }}>
+        ‹ 返回办事台
+      </button>
+      <div style={{ fontSize: 15, fontWeight: 600 }}>{item.name}</div>
+      <div style={{ color: 'var(--dsw-alias-label-secondary)', fontSize: 12, lineHeight: 1.6 }}>{item.pageDesc}</div>
+
+      {phase === 'input' && (
+        <>
+          <label className="ks-kb-hint" htmlFor="ks-gap-name">制度名称</label>
+          <Input id="ks-gap-name" value={name} placeholder="例如：安全生产责任制" aria-label="制度名称" onChange={(e) => { setName(e.target.value) }} />
+          <label className="ks-kb-hint" htmlFor="ks-gap-text">制度正文（粘贴或 .txt/.md 文件）</label>
+          <textarea
+            id="ks-gap-text"
+            value={text}
+            onChange={(e) => { setText(e.target.value) }}
+            rows={6}
+            style={{ width: '100%', boxSizing: 'border-box', font: 'inherit', fontSize: 12, padding: 8, border: '0.5px solid var(--dsw-alias-border-l1)', borderRadius: 6, background: 'var(--dsw-alias-bg-layer-1)', color: 'var(--dsw-alias-label-primary)' }}
+          />
+          <div className="ks-kb-row" style={{ display: 'flex', gap: 8 }}>
+            <Button variant="primary" size="sm" disabled={text.trim().length === 0} onClick={run}>开始：上传制度比对</Button>
+          </div>
+        </>
+      )}
+
+      {phase === 'run' && <div style={{ color: 'var(--dsw-alias-label-tertiary)', fontSize: 12 }}>正在逐条比对法定义务…</div>}
+      {phase === 'error' && <div role="alert" style={{ color: 'var(--dsw-alias-state-error-primary)', fontSize: 12, lineHeight: 1.6 }}>出问题了：{errText}</div>}
+
+      {phase === 'done' && result !== null && (
+        <>
+          <div style={{ fontSize: 12, color: 'var(--dsw-alias-label-secondary)' }}>
+            结论：{String(result.counts.red)} 风险 · {String(result.counts.yellow)} 需复核 · {String(result.counts.green)} 合规（制度：{result.policy_name}）
+          </div>
+          {result.results.map((r, i) => {
+            const w = VERDICT_WORD[str(r.verdict)] ?? { text: '需复核', color: 'var(--dsw-alias-state-warn-primary)' }
+            return (
+              <div key={`gap-${String(i)}`} style={{ border: '0.5px solid var(--dsw-alias-border-l1)', borderRadius: 8, padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 4 }}>
+                <div style={{ display: 'flex', gap: 8, alignItems: 'center', fontSize: 12 }}>
+                  <span style={{ color: w.color, fontWeight: 600 }}>{w.text}</span>
+                  <span style={{ color: 'var(--dsw-alias-label-secondary)' }}>{str(r.obligation).slice(0, 60)}</span>
+                </div>
+                <div style={{ color: 'var(--dsw-alias-label-tertiary)', fontSize: 12, lineHeight: 1.6 }}>{str(r.suggestion)}</div>
+              </div>
+            )
+          })}
+        </>
+      )}
+    </div>
+  )
+}
+
 /**
  * 办事台页（原「能力」页；导出名保留 `KsCapabilityPage` = 挂载点零改动）。
  */
@@ -435,7 +623,11 @@ export function KsCapabilityPage(): ReactNode {
             ? <KsEgressPage item={active} onBack={() => { setActiveId(null) }} />
             : active.id === 'contract'
               ? <KsContractPage item={active} onBack={() => { setActiveId(null) }} />
-              : <OfficePage item={active} onBack={() => { setActiveId(null) }} />
+              : active.id === 'duty'
+                ? <KsDutyPage item={active} onBack={() => { setActiveId(null) }} />
+                : active.id === 'gap'
+                  ? <KsGapPage item={active} onBack={() => { setActiveId(null) }} />
+                  : <OfficePage item={active} onBack={() => { setActiveId(null) }} />
         ) : (
           <div role="menu" aria-label="办事台">
             {OFFICE_ITEMS.map((item) => (

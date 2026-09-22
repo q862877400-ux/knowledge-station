@@ -470,6 +470,37 @@ export function mount(container, props) {
     /* S2-a2：外发审计只读列表（第一个翻真的专门页）。脱敏摘要行照引擎 _row_to_audit 的字段。 */
     /* S2-b1：合规审查两段式（建任务抽点 → SSE 逐条执行）。SSE 桩 = 真 ReadableStream，
        帧格式照引擎 `_sse`（event: 名 / data: json / 空行）。 */
+    /* S2-b2：义务清单/检查表 + 制度差距分析（形状逐字段抄 obligation.py / gap_analysis.py）。 */
+    if (p === '/api/v1/compliance/obligations' && method === 'POST') {
+      return json({ code: 200, data: { list_id: 'lst_1', business_description: '高处作业', count: 2, groups: [
+        { group: 'GB 30871', items: [
+          { clause_revision_id: 'rev_a', standard_no: 'GB 30871-2022', clause_number: '第4.1.1条', obligation_text: '高处作业应办理作业票', group: 'GB 30871', checked: false },
+          { clause_revision_id: 'rev_b', standard_no: 'GB 30871-2022', clause_number: '第5.2.2条', obligation_text: '脚手架应验收后使用', group: 'GB 30871', checked: false },
+        ] },
+      ] } })
+    }
+    if (p === '/api/v1/compliance/obligations/lst_1/checklist' && method === 'POST') {
+      return json({ code: 200, data: { list_id: 'lst_1', count: 2, mode: 'checklist', groups: [
+        { group: 'GB 30871', items: [
+          { clause_revision_id: 'rev_a', standard_no: 'GB 30871-2022', clause_number: '第4.1.1条', obligation_text: '高处作业应办理作业票', group: 'GB 30871', checked: true, question: '是否已落实：高处作业应办理作业票？' },
+          { clause_revision_id: 'rev_b', standard_no: 'GB 30871-2022', clause_number: '第5.2.2条', obligation_text: '脚手架应验收后使用', group: 'GB 30871', checked: false, question: '是否已落实：脚手架应验收后使用？' },
+        ] },
+      ] } })
+    }
+    if (p === '/api/v1/compliance/obligations/lst_1/check' && method === 'POST') {
+      return json({ code: 200, data: { updated: true } })
+    }
+    if (p === '/api/v1/compliance/policies' && method === 'POST') {
+      return json({ code: 200, data: { policy_id: 'pol_1', sections: ['总则'] } })
+    }
+    if (p === '/api/v1/compliance/gap-analysis' && method === 'POST') {
+      return json({ code: 200, data: { task_id: 'task_g', policy_name: '安全生产责任制',
+        counts: { red: 1, yellow: 1, green: 0 },
+        results: [
+          { obligation: '高处作业应办理作业票', verdict: 'red', hit: ['作业票'], ratio: 0.8, suggestion: '建议在制度中新增对应条款，明确落实：高处作业应办理作业票。', domain: '安全' },
+          { obligation: '脚手架应验收后使用', verdict: 'yellow', hit: [], ratio: 0.1, suggestion: '建议完善相关章节（总则），补：脚手架应验收后使用。', domain: '安全' },
+        ] } })
+    }
     if (p === '/api/v1/compliance/review' && method === 'POST') {
       return json({ code: 200, data: { task_id: 'task_X', status: 'pending', extracted_points: [
         { point_id: 'pt_1', point_type: '安全条款', point_content: '高处作业应办理作业票' },
@@ -2267,11 +2298,11 @@ export function mount(container, props) {
     officeExplain.disabled === true && (officeExplain.textContent ?? '').includes('还没有'),
     `disabled=${String(officeExplain.disabled)}`)
 
-  await cClick(officeRows[1])
+  await cClick(officeRows[3])
   const officePageText = capContainer.textContent ?? ''
-  check('办事台：点「义务清单 → 检查表」⇒ 进专门页面（标题 + ‹ 返回办事台 + 动作位）',
-    officePageText.includes('义务清单') && officePageText.includes('‹ 返回办事台')
-    && officePageText.includes('开始：生成检查表'),
+  check('办事台：点「批量问答」⇒ 进专门页面（标题 + ‹ 返回办事台 + 动作位；仍未翻真=灰态样板）',
+    officePageText.includes('批量问答') && officePageText.includes('‹ 返回办事台')
+    && officePageText.includes('开始：批量提问'),
     officePageText.slice(0, 60))
   const officeStartBtn = cq('button').find((b) => (b.textContent ?? '').includes('开始：'))
   check('办事台：S2-a1 动作钮**灰 +「还没接上」**（不给假入口；S2-a2 起逐个翻真）',
@@ -2351,6 +2382,66 @@ export function mount(container, props) {
       return href.includes('/__ks_evidence__') && href.includes('doc=doc_1') && href.includes('rev=rev_1') && href.includes('page=7')
     }),
     [...capContainer.querySelectorAll('a')].map((a) => a.getAttribute('href')).join(' | ').slice(0, 80))
+
+  /* ── S2-b2：义务清单→检查表（真取数/真勾选/真转换/真导出）── */
+  await cClick(cq('button').find((b) => (b.textContent ?? '').includes('返回办事台')))
+  await cClick(cq('.ks-off-row')[1])
+  const dutyArea = capContainer.querySelector('#ks-duty-desc')
+  check('办事台·义务清单：输入屏在（业务描述框 + 生成钮空时灰）',
+    dutyArea !== null
+    && cq('button').find((b) => (b.textContent ?? '').includes('开始：生成义务清单')).disabled === true)
+  areaSetter.call(dutyArea, '高处作业')
+  dutyArea.dispatchEvent(new dom.window.Event('input', { bubbles: true }))
+  await flush(); await flush()
+  await cClick(cq('button').find((b) => (b.textContent ?? '').includes('开始：生成义务清单')))
+  await flush(); await flush()
+  check('办事台·义务清单：真取数（POST /obligations）+ 2 条义务渲染（条款号+义务句）',
+    calls.some((c) => c.url.includes('/api/v1/compliance/obligations'))
+    && (capContainer.textContent ?? '').includes('抽出 2 条义务')
+    && (capContainer.textContent ?? '').includes('高处作业应办理作业票'),
+    (capContainer.textContent ?? '').slice(0, 60))
+  const dutyBoxes = cq('input[type=checkbox]')
+  await cClick(dutyBoxes[0])
+  check('办事台·义务清单：勾选自查**真落库**（POST …/check）',
+    calls.some((c) => c.url.includes('/api/v1/compliance/obligations/lst_1/check')),
+    calls.slice(-3).map((c) => c.url.split('/').slice(-1)[0]).join(' | '))
+  await cClick(cq('button').find((b) => (b.textContent ?? '').includes('转成检查表')))
+  await flush(); await flush()
+  check('办事台·义务清单：转检查表真出自查问句（是否已落实：…？）',
+    (capContainer.textContent ?? '').includes('是否已落实：高处作业应办理作业票？'),
+    (capContainer.textContent ?? '').slice(0, 60))
+  let dutyBlob = null
+  URL.createObjectURL = (b) => { dutyBlob = b; return 'blob:smoke2' }
+  URL.revokeObjectURL = () => {}
+  await cClick(cq('button').find((b) => (b.textContent ?? '').includes('导出 Markdown')))
+  const dutyMd = dutyBlob === null ? '' : await dutyBlob.text()
+  check('办事台·义务清单：导出 Markdown 真出文件（# 义务检查表 + 勾选态；无字面星号）',
+    dutyMd.includes('# 义务检查表') && dutyMd.includes('- [x]') && !dutyMd.includes('**'),
+    dutyMd.slice(0, 60))
+
+  /* ── S2-b2：制度差距分析（登记 → 比对 → 缺什么/补什么）── */
+  await cClick(cq('button').find((b) => (b.textContent ?? '').includes('返回办事台')))
+  await cClick(cq('.ks-off-row')[2])
+  const gapName = capContainer.querySelector('#ks-gap-name')
+  const gapArea = capContainer.querySelector('#ks-gap-text')
+  check('办事台·差距分析：输入屏在（制度名 + 正文框 + 开始钮空时灰）',
+    gapName !== null && gapArea !== null
+    && cq('button').find((b) => (b.textContent ?? '').includes('开始：上传制度比对')).disabled === true)
+  setInput(gapName, '安全生产责任制')
+  areaSetter.call(gapArea, '本制度规定安全生产责任。')
+  gapArea.dispatchEvent(new dom.window.Event('input', { bubbles: true }))
+  await flush(); await flush()
+  await cClick(cq('button').find((b) => (b.textContent ?? '').includes('开始：上传制度比对')))
+  await flush(); await flush()
+  check('办事台·差距分析：真登记 + 真比对（POST /policies + /gap-analysis 都发出）',
+    calls.some((c) => c.url.includes('/api/v1/compliance/policies'))
+    && calls.some((c) => c.url.includes('/api/v1/compliance/gap-analysis')),
+    calls.slice(-4).map((c) => c.url.split('/').slice(-1)[0]).join(' | '))
+  check('办事台·差距分析：结论行 + 建议逐条渲染（新增/完善两类建议都在）',
+    (capContainer.textContent ?? '').includes('结论：1 风险 · 1 需复核 · 0 合规（制度：安全生产责任制）')
+    && (capContainer.textContent ?? '').includes('建议在制度中新增对应条款')
+    && (capContainer.textContent ?? '').includes('建议完善相关章节'),
+    (capContainer.textContent ?? '').slice(-80))
 
   capRoot.unmount()
   await flush()

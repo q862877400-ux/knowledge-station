@@ -2424,6 +2424,93 @@ export async function executeComplianceReview(
   return summary
 }
 
+/* ============================================================================
+   义务清单 / 差距分析（S2-b2，2026-09-22）。契约逐字抄 compliance/obligation.py 与
+   gap_analysis.py 的返回：
+     POST /api/v1/compliance/obligations {business_description}
+       → {list_id, business_description, groups:[{group, items}], count}
+       item = {clause_revision_id, standard_no, clause_number, obligation_text, group, checked}
+     POST /api/v1/compliance/obligations/{id}/checklist → 同上 + item.question + mode:'checklist'
+     POST /api/v1/compliance/obligations/{id}/check {clause_revision_id, checked} → {updated:true}
+     POST /api/v1/compliance/policies {policy_name, policy_text} → {policy_id, sections}
+     POST /api/v1/compliance/gap-analysis {policy_id}
+       → {task_id, counts:{red,yellow,green}, policy_name,
+          results:[{obligation, verdict, hit, ratio, suggestion, domain}]}
+   ============================================================================ */
+
+export interface KsObligationItem {
+  clause_revision_id: string
+  standard_no: string
+  clause_number: string
+  obligation_text: string
+  group: string
+  checked: boolean
+  question?: string
+}
+
+export interface KsObligationList {
+  list_id: string
+  business_description?: string
+  groups: { group: string; items: KsObligationItem[] }[]
+  count: number
+  mode?: string
+}
+
+export interface KsGapResult {
+  task_id: string
+  counts: { red: number; yellow: number; green: number }
+  results: { obligation?: unknown; verdict?: unknown; hit?: unknown; ratio?: unknown; suggestion?: unknown; domain?: unknown }[]
+  policy_name: string
+}
+
+async function compliancePost<T>(path: string, body: Record<string, unknown>, what: string, signal?: AbortSignal): Promise<T> {
+  const { token, engine: { port } } = await fetchSession(signal)
+  const res = await fetch(`http://127.0.0.1:${port}${path}`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify(body),
+    signal,
+  })
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `${what}失败（HTTP ${res.status}）`))
+  const out = (await res.json().catch(() => null)) as { code?: number; data?: T } | null
+  if (out?.data === null || out?.data === undefined) throw new Error(`${what}响应异常`)
+  return out.data
+}
+
+/** 抽义务（按业务描述检索义务条款，落库成清单）。 */
+export function generateObligationList(businessDescription: string, signal?: AbortSignal): Promise<KsObligationList> {
+  return compliancePost<KsObligationList>('/api/v1/compliance/obligations',
+    { business_description: businessDescription }, '生成义务清单', signal)
+}
+
+/** 清单 → 检查表（每条义务变成"是否已落实：…"自查问句）。 */
+export function toObligationChecklist(listId: string, signal?: AbortSignal): Promise<KsObligationList> {
+  return compliancePost<KsObligationList>(
+    `/api/v1/compliance/obligations/${encodeURIComponent(listId)}/checklist`, {}, '转成检查表', signal)
+}
+
+/** 勾选自查状态（真落库）。 */
+export function toggleObligationCheck(
+  listId: string, clauseRevisionId: string, checked: boolean, signal?: AbortSignal,
+): Promise<{ updated: boolean }> {
+  return compliancePost<{ updated: boolean }>(
+    `/api/v1/compliance/obligations/${encodeURIComponent(listId)}/check`,
+    { clause_revision_id: clauseRevisionId, checked }, '勾选自查', signal)
+}
+
+/** 登记内部制度（差距分析的输入）。 */
+export function importInternalPolicy(
+  policyName: string, policyText: string, signal?: AbortSignal,
+): Promise<{ policy_id: string; sections: string[] }> {
+  return compliancePost<{ policy_id: string; sections: string[] }>(
+    '/api/v1/compliance/policies', { policy_name: policyName, policy_text: policyText }, '登记制度', signal)
+}
+
+/** 差距分析（制度逐条对比法定义务，缺什么/补什么）。 */
+export function runGapAnalysis(policyId: string, signal?: AbortSignal): Promise<KsGapResult> {
+  return compliancePost<KsGapResult>('/api/v1/compliance/gap-analysis', { policy_id: policyId }, '差距分析', signal)
+}
+
 /** GET /ks/report/effect/docs — 节点明细（瘦身行；未知名路径 → 200 空集）。 */
 export async function fetchEffectDocs(
   params: { top: string; l2: string; l3?: string; l4?: string; window: KsEffectWindow; color?: string },

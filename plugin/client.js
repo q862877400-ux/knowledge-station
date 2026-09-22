@@ -28407,6 +28407,54 @@ async function executeComplianceReview(taskId, confirmedPointIds, onVerdict, sig
   if (summary === null) throw new Error('\u6267\u884C\u8BC4\u5BA1\u6D41\u91CC\u6CA1\u6709\u6C47\u603B\uFF08report_ready \u7F3A\u5E2D\uFF09\u2014\u2014\u4E0D\u8BB8\u5F53\u4F5C"\u6267\u884C\u5B8C\u4E86"');
   return summary;
 }
+async function compliancePost(path, body, what, signal) {
+  const { token, engine: { port } } = await fetchSession(signal);
+  const res = await fetch(`http://127.0.0.1:${port}${path}`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
+    body: JSON.stringify(body),
+    signal
+  });
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `${what}\u5931\u8D25\uFF08HTTP ${res.status}\uFF09`));
+  const out = await res.json().catch(() => null);
+  if (out?.data === null || out?.data === void 0) throw new Error(`${what}\u54CD\u5E94\u5F02\u5E38`);
+  return out.data;
+}
+function generateObligationList(businessDescription, signal) {
+  return compliancePost(
+    "/api/v1/compliance/obligations",
+    { business_description: businessDescription },
+    "\u751F\u6210\u4E49\u52A1\u6E05\u5355",
+    signal
+  );
+}
+function toObligationChecklist(listId, signal) {
+  return compliancePost(
+    `/api/v1/compliance/obligations/${encodeURIComponent(listId)}/checklist`,
+    {},
+    "\u8F6C\u6210\u68C0\u67E5\u8868",
+    signal
+  );
+}
+function toggleObligationCheck(listId, clauseRevisionId, checked, signal) {
+  return compliancePost(
+    `/api/v1/compliance/obligations/${encodeURIComponent(listId)}/check`,
+    { clause_revision_id: clauseRevisionId, checked },
+    "\u52FE\u9009\u81EA\u67E5",
+    signal
+  );
+}
+function importInternalPolicy(policyName, policyText, signal) {
+  return compliancePost(
+    "/api/v1/compliance/policies",
+    { policy_name: policyName, policy_text: policyText },
+    "\u767B\u8BB0\u5236\u5EA6",
+    signal
+  );
+}
+function runGapAnalysis(policyId, signal) {
+  return compliancePost("/api/v1/compliance/gap-analysis", { policy_id: policyId }, "\u5DEE\u8DDD\u5206\u6790", signal);
+}
 async function fetchEffectDocs(params, signal) {
   const res = await fetch(`/ks/report/effect/docs${qsOf(params)}`, {
     method: "GET",
@@ -34769,6 +34817,180 @@ function KsContractPage({ item, onBack }) {
     ] })
   ] });
 }
+function KsDutyPage({ item, onBack }) {
+  const [desc, setDesc] = (0, import_react6.useState)("");
+  const [phase, setPhase] = (0, import_react6.useState)("input");
+  const [list, setList] = (0, import_react6.useState)(null);
+  const [errText, setErrText] = (0, import_react6.useState)("");
+  const gen = () => {
+    setPhase("list");
+    setErrText("");
+    generateObligationList(desc.trim()).then(setList).catch((error) => {
+      setErrText(error instanceof Error ? error.message : String(error));
+      setPhase("error");
+    });
+  };
+  const toChecklist = () => {
+    if (list === null) return;
+    toObligationChecklist(list.list_id).then((next) => {
+      setList(next);
+      setPhase("checklist");
+    }).catch((error) => {
+      setErrText(error instanceof Error ? error.message : String(error));
+      setPhase("error");
+    });
+  };
+  const exportMd = () => {
+    if (list === null) return;
+    const lines = ["# \u4E49\u52A1\u68C0\u67E5\u8868", "", `\u4E1A\u52A1\uFF1A${list.business_description ?? desc}`, ""];
+    for (const g of list.groups) {
+      lines.push(`## ${g.group}`, "");
+      for (const it of g.items) {
+        const mark = it.checked ? "x" : " ";
+        lines.push(`- [${mark}] ${it.standard_no} ${it.clause_number}\uFF1A${it.question ?? it.obligation_text}`);
+      }
+      lines.push("");
+    }
+    const blob = new Blob([lines.join("\n")], { type: "text/markdown;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "\u4E49\u52A1\u68C0\u67E5\u8868.md";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+  const str3 = (v) => typeof v === "string" ? v : v === null || v === void 0 ? "" : String(v);
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: 12, padding: "12px 14px 18px" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("button", { type: "button", onClick: onBack, style: { alignSelf: "flex-start", background: "none", border: "none", padding: 0, cursor: "pointer", color: "var(--dsw-alias-state-business-primary)", fontSize: 12 }, children: "\u2039 \u8FD4\u56DE\u529E\u4E8B\u53F0" }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { fontSize: 15, fontWeight: 600 }, children: item.name }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary)", fontSize: 12, lineHeight: 1.6 }, children: item.pageDesc }),
+    phase === "input" && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("label", { className: "ks-kb-hint", htmlFor: "ks-duty-desc", children: "\u5E72\u4EC0\u4E48\u6D3B\uFF08\u4E1A\u52A1\u63CF\u8FF0\uFF0C\u7528\u6765\u627E\u76F8\u5173\u4E49\u52A1\uFF09" }),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+        "textarea",
+        {
+          id: "ks-duty-desc",
+          value: desc,
+          onChange: (e) => {
+            setDesc(e.target.value);
+          },
+          rows: 4,
+          style: { width: "100%", boxSizing: "border-box", font: "inherit", fontSize: 12, padding: 8, border: "0.5px solid var(--dsw-alias-border-l1)", borderRadius: 6, background: "var(--dsw-alias-bg-layer-1)", color: "var(--dsw-alias-label-primary)" }
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-kb-row", style: { display: "flex", gap: 8 }, children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives2.Button, { variant: "primary", size: "sm", disabled: desc.trim().length === 0, onClick: gen, children: "\u5F00\u59CB\uFF1A\u751F\u6210\u4E49\u52A1\u6E05\u5355" }) })
+    ] }),
+    (phase === "list" || phase === "checklist") && list !== null && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary)" }, children: [
+        "\u62BD\u51FA ",
+        String(list.count),
+        " \u6761\u4E49\u52A1",
+        phase === "checklist" ? "\uFF08\u5DF2\u662F\u68C0\u67E5\u8868\uFF1A\u52FE=\u5DF2\u843D\u5B9E\uFF09" : "\u2014\u2014\u52FE\u9009\u8868\u793A\u5DF2\u843D\u5B9E\uFF0C\u6216\u76F4\u63A5\u8F6C\u6210\u68C0\u67E5\u8868",
+        "\u3002"
+      ] }),
+      list.groups.map((g) => /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: 6 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { fontSize: 12, fontWeight: 600 }, children: g.group }),
+        g.items.map((it) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+          import_dsh_client_ui_primitives2.Checkbox,
+          {
+            label: `${it.standard_no} ${it.clause_number}\uFF5C${it.question ?? it.obligation_text}`,
+            checked: it.checked,
+            onChange: () => {
+              const next = !it.checked;
+              toggleObligationCheck(list.list_id, it.clause_revision_id, next).catch(() => {
+              });
+              setList({
+                ...list,
+                groups: list.groups.map((gg) => gg.group === g.group ? { ...gg, items: gg.items.map((x) => x.clause_revision_id === it.clause_revision_id ? { ...x, checked: next } : x) } : gg)
+              });
+            }
+          },
+          it.clause_revision_id
+        ))
+      ] }, g.group)),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-kb-row", style: { display: "flex", gap: 8 }, children: [
+        phase === "list" && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives2.Button, { variant: "primary", size: "sm", onClick: toChecklist, children: "\u8F6C\u6210\u68C0\u67E5\u8868" }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives2.Button, { variant: "outline", size: "sm", onClick: exportMd, children: "\u5BFC\u51FA Markdown" })
+      ] })
+    ] }),
+    phase === "error" && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { role: "alert", style: { color: "var(--dsw-alias-state-error-primary)", fontSize: 12, lineHeight: 1.6 }, children: [
+      "\u51FA\u95EE\u9898\u4E86\uFF1A",
+      errText
+    ] })
+  ] });
+}
+function KsGapPage({ item, onBack }) {
+  const [name, setName] = (0, import_react6.useState)("");
+  const [text, setText] = (0, import_react6.useState)("");
+  const [phase, setPhase] = (0, import_react6.useState)("input");
+  const [result, setResult] = (0, import_react6.useState)(null);
+  const [errText, setErrText] = (0, import_react6.useState)("");
+  const str3 = (v) => typeof v === "string" ? v : v === null || v === void 0 ? "" : String(v);
+  const run = () => {
+    setPhase("run");
+    setErrText("");
+    importInternalPolicy(name.trim() || "\u672A\u547D\u540D\u5236\u5EA6", text.trim()).then((pol) => runGapAnalysis(pol.policy_id)).then((r) => {
+      setResult(r);
+      setPhase("done");
+    }).catch((error) => {
+      setErrText(error instanceof Error ? error.message : String(error));
+      setPhase("error");
+    });
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: 12, padding: "12px 14px 18px" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("button", { type: "button", onClick: onBack, style: { alignSelf: "flex-start", background: "none", border: "none", padding: 0, cursor: "pointer", color: "var(--dsw-alias-state-business-primary)", fontSize: 12 }, children: "\u2039 \u8FD4\u56DE\u529E\u4E8B\u53F0" }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { fontSize: 15, fontWeight: 600 }, children: item.name }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary)", fontSize: 12, lineHeight: 1.6 }, children: item.pageDesc }),
+    phase === "input" && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("label", { className: "ks-kb-hint", htmlFor: "ks-gap-name", children: "\u5236\u5EA6\u540D\u79F0" }),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives2.Input, { id: "ks-gap-name", value: name, placeholder: "\u4F8B\u5982\uFF1A\u5B89\u5168\u751F\u4EA7\u8D23\u4EFB\u5236", "aria-label": "\u5236\u5EA6\u540D\u79F0", onChange: (e) => {
+        setName(e.target.value);
+      } }),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("label", { className: "ks-kb-hint", htmlFor: "ks-gap-text", children: "\u5236\u5EA6\u6B63\u6587\uFF08\u7C98\u8D34\u6216 .txt/.md \u6587\u4EF6\uFF09" }),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+        "textarea",
+        {
+          id: "ks-gap-text",
+          value: text,
+          onChange: (e) => {
+            setText(e.target.value);
+          },
+          rows: 6,
+          style: { width: "100%", boxSizing: "border-box", font: "inherit", fontSize: 12, padding: 8, border: "0.5px solid var(--dsw-alias-border-l1)", borderRadius: 6, background: "var(--dsw-alias-bg-layer-1)", color: "var(--dsw-alias-label-primary)" }
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-kb-row", style: { display: "flex", gap: 8 }, children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives2.Button, { variant: "primary", size: "sm", disabled: text.trim().length === 0, onClick: run, children: "\u5F00\u59CB\uFF1A\u4E0A\u4F20\u5236\u5EA6\u6BD4\u5BF9" }) })
+    ] }),
+    phase === "run" && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary)", fontSize: 12 }, children: "\u6B63\u5728\u9010\u6761\u6BD4\u5BF9\u6CD5\u5B9A\u4E49\u52A1\u2026" }),
+    phase === "error" && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { role: "alert", style: { color: "var(--dsw-alias-state-error-primary)", fontSize: 12, lineHeight: 1.6 }, children: [
+      "\u51FA\u95EE\u9898\u4E86\uFF1A",
+      errText
+    ] }),
+    phase === "done" && result !== null && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary)" }, children: [
+        "\u7ED3\u8BBA\uFF1A",
+        String(result.counts.red),
+        " \u98CE\u9669 \xB7 ",
+        String(result.counts.yellow),
+        " \u9700\u590D\u6838 \xB7 ",
+        String(result.counts.green),
+        " \u5408\u89C4\uFF08\u5236\u5EA6\uFF1A",
+        result.policy_name,
+        "\uFF09"
+      ] }),
+      result.results.map((r, i) => {
+        const w = VERDICT_WORD[str3(r.verdict)] ?? { text: "\u9700\u590D\u6838", color: "var(--dsw-alias-state-warn-primary)" };
+        return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { border: "0.5px solid var(--dsw-alias-border-l1)", borderRadius: 8, padding: "8px 10px", display: "flex", flexDirection: "column", gap: 4 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", fontSize: 12 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { color: w.color, fontWeight: 600 }, children: w.text }),
+            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { color: "var(--dsw-alias-label-secondary)" }, children: str3(r.obligation).slice(0, 60) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary)", fontSize: 12, lineHeight: 1.6 }, children: str3(r.suggestion) })
+        ] }, `gap-${String(i)}`);
+      })
+    ] })
+  ] });
+}
 function KsCapabilityPage() {
   ensureKsStyles();
   const [activeId, setActiveId] = (0, import_react6.useState)(null);
@@ -34782,6 +35004,10 @@ function KsCapabilityPage() {
     active !== null ? active.id === "egress" ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KsEgressPage, { item: active, onBack: () => {
       setActiveId(null);
     } }) : active.id === "contract" ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KsContractPage, { item: active, onBack: () => {
+      setActiveId(null);
+    } }) : active.id === "duty" ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KsDutyPage, { item: active, onBack: () => {
+      setActiveId(null);
+    } }) : active.id === "gap" ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KsGapPage, { item: active, onBack: () => {
       setActiveId(null);
     } }) : /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(OfficePage, { item: active, onBack: () => {
       setActiveId(null);
