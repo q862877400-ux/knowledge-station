@@ -264,7 +264,7 @@ export function ksGuideEntryTitle(): string {
  * 开始页入口卡片的说明（官方只在条目 ≤4 个时才显示说明，多了只留标题）。
  */
 export function ksGuideEntryDescription(): string {
-  return '法规标准与自有资料：目录、标签、导入、效力报告'
+  return '法规标准与自有资料：目录、标签、导入、效力总览'
 }
 
 /**

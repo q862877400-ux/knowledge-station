@@ -2298,133 +2298,6 @@ export function buildEgressMarkdown(total: number, items: KsEgressAuditRecord[])
 }
 
 /* ============================================================================
-   合规审查（S2-b1，2026-09-22）：合同审查的真流程。
-   引擎契约（逐字抄 `src/core/compliance/engine.py` 的返回/事件形状）：
-     POST /api/v1/compliance/review {review_type, object_name, object_content, project_id?}
-       → {task_id, status, extracted_points: [{point_id, point_type, point_content}]}
-     POST /api/v1/compliance/review/{task_id}/execute {confirmed_point_ids}
-       → SSE：point_verdict 逐条 {point_id, point_type, point_content, verdict, reason,
-         matched_clauses:[{clause_revision_id, standard_no, clause_number, modality, page_start}]}
-         → report_ready {red_count, yellow_count, green_count, report_path} → done
-   ============================================================================ */
-
-export interface KsReviewPoint {
-  point_id: string
-  point_type: string
-  point_content: string
-}
-
-export interface KsReviewTask {
-  task_id: string
-  status: string
-  extracted_points: KsReviewPoint[]
-}
-
-export interface KsReviewVerdict {
-  point_id?: unknown
-  point_type?: unknown
-  point_content?: unknown
-  verdict?: unknown
-  reason?: unknown
-  matched_clauses?: unknown
-}
-
-export interface KsReviewSummary {
-  red_count: number
-  yellow_count: number
-  green_count: number
-  report_path: string
-}
-
-/** 建审查任务 + 抽审查点（待确认后执行——引擎 R-L4 的两段式）。 */
-export async function createComplianceReview(
-  body: { review_type?: string; object_name: string; object_content: string; project_id?: string },
-  signal?: AbortSignal,
-): Promise<KsReviewTask> {
-  const { token, engine: { port } } = await fetchSession(signal)
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/compliance/review`, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', accept: 'application/json' },
-    body: JSON.stringify({
-      review_type: body.review_type ?? 'contract',
-      object_name: body.object_name,
-      object_content: body.object_content,
-      ...(body.project_id === undefined ? {} : { project_id: body.project_id }),
-    }),
-    signal,
-  })
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `建审查任务失败（HTTP ${res.status}）`))
-  const out = (await res.json().catch(() => null)) as { code?: number; data?: KsReviewTask } | null
-  const data = out?.data
-  if (data === null || data === undefined || typeof data.task_id !== 'string'
-    || !Array.isArray(data.extracted_points)) {
-    throw new Error('建审查任务响应异常（期望 {code:200,data:{task_id,extracted_points}}）')
-  }
-  return data
-}
-
-/**
- * 逐条执行（SSE 消费）。onVerdict 每来一条判词回调一次（界面流式渲染）。
- * 返回汇总（report_ready）；流断/汇总缺席 ⇒ 抛错（不静默当"执行完了"）。
- */
-export async function executeComplianceReview(
-  taskId: string,
-  confirmedPointIds: string[],
-  onVerdict: (v: KsReviewVerdict) => void,
-  signal?: AbortSignal,
-): Promise<KsReviewSummary> {
-  const { token, engine: { port } } = await fetchSession(signal)
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/compliance/review/${encodeURIComponent(taskId)}/execute`, {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', accept: 'text/event-stream' },
-    body: JSON.stringify({ confirmed_point_ids: confirmedPointIds }),
-    signal,
-  })
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `执行评审失败（HTTP ${res.status}）`))
-  const bodyStream = res.body
-  if (bodyStream === null) throw new Error('执行评审响应没有流（期望 text/event-stream）')
-  const reader = bodyStream.getReader()
-  const decoder = new TextDecoder('utf-8')
-  let buffer = ''
-  let summary: KsReviewSummary | null = null
-  for (;;) {
-    const { done, value } = await reader.read()
-    if (done) break
-    buffer += decoder.decode(value, { stream: true })
-    /* SSE 帧：`event: <名>\ndata: <json>\n\n`（_sse 的口径；也兜只有 data 行的形态）。 */
-    let sep = buffer.indexOf('\n\n')
-    while (sep >= 0) {
-      const frame = buffer.slice(0, sep)
-      buffer = buffer.slice(sep + 2)
-      sep = buffer.indexOf('\n\n')
-      const nameLine = frame.split('\n').find((l) => l.startsWith('event:'))
-      const dataLine = frame.split('\n').find((l) => l.startsWith('data:'))
-      if (dataLine === undefined) continue
-      let payload: unknown = null
-      try {
-        payload = JSON.parse(dataLine.slice(5).trim())
-      } catch {
-        continue
-      }
-      const name = nameLine === undefined ? '' : nameLine.slice(6).trim()
-      if (name === 'point_verdict') {
-        onVerdict(payload as KsReviewVerdict)
-      } else if (name === 'report_ready') {
-        const r = payload as KsReviewSummary
-        summary = {
-          red_count: Number(r.red_count ?? 0),
-          yellow_count: Number(r.yellow_count ?? 0),
-          green_count: Number(r.green_count ?? 0),
-          report_path: typeof r.report_path === 'string' ? r.report_path : '',
-        }
-      }
-    }
-  }
-  if (summary === null) throw new Error('执行评审流里没有汇总（report_ready 缺席）——不许当作"执行完了"')
-  return summary
-}
-
-/* ============================================================================
    义务清单 / 差距分析（S2-b2，2026-09-22）。契约逐字抄 compliance/obligation.py 与
    gap_analysis.py 的返回：
      POST /api/v1/compliance/obligations {business_description}
@@ -2437,24 +2310,6 @@ export async function executeComplianceReview(
        → {task_id, counts:{red,yellow,green}, policy_name,
           results:[{obligation, verdict, hit, ratio, suggestion, domain}]}
    ============================================================================ */
-
-export interface KsObligationItem {
-  clause_revision_id: string
-  standard_no: string
-  clause_number: string
-  obligation_text: string
-  group: string
-  checked: boolean
-  question?: string
-}
-
-export interface KsObligationList {
-  list_id: string
-  business_description?: string
-  groups: { group: string; items: KsObligationItem[] }[]
-  count: number
-  mode?: string
-}
 
 export interface KsGapResult {
   task_id: string
@@ -2475,27 +2330,6 @@ async function compliancePost<T>(path: string, body: Record<string, unknown>, wh
   const out = (await res.json().catch(() => null)) as { code?: number; data?: T } | null
   if (out?.data === null || out?.data === undefined) throw new Error(`${what}响应异常`)
   return out.data
-}
-
-/** 抽义务（按业务描述检索义务条款，落库成清单）。 */
-export function generateObligationList(businessDescription: string, signal?: AbortSignal): Promise<KsObligationList> {
-  return compliancePost<KsObligationList>('/api/v1/compliance/obligations',
-    { business_description: businessDescription }, '生成义务清单', signal)
-}
-
-/** 清单 → 检查表（每条义务变成"是否已落实：…"自查问句）。 */
-export function toObligationChecklist(listId: string, signal?: AbortSignal): Promise<KsObligationList> {
-  return compliancePost<KsObligationList>(
-    `/api/v1/compliance/obligations/${encodeURIComponent(listId)}/checklist`, {}, '转成检查表', signal)
-}
-
-/** 勾选自查状态（真落库）。 */
-export function toggleObligationCheck(
-  listId: string, clauseRevisionId: string, checked: boolean, signal?: AbortSignal,
-): Promise<{ updated: boolean }> {
-  return compliancePost<{ updated: boolean }>(
-    `/api/v1/compliance/obligations/${encodeURIComponent(listId)}/check`,
-    { clause_revision_id: clauseRevisionId, checked }, '勾选自查', signal)
 }
 
 /** 登记内部制度（差距分析的输入）。 */
