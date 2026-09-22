@@ -199,10 +199,13 @@ check('② 标准号模式命中（GB/T 3608 / GB30871 / DB11/T 1234 / AQ 3009 �
     ks_resolve_clause: idx.makeResolveTool(stub, () => ({})).description.length,
     ks_ping: idx.makePingTool(stub).description.length,
     ks_effect_report: idx.makeEffectReportTool(stub, () => ({})).description.length,
+    ks_collect: (await import('../src/collect.js')).makeCollectTool(stub, () => ({})).description.length,
+    ks_materials: (await import('../src/materials.js')).makeMaterialsTool(stub).description.length,
   }
   check('⑩ 说明书字数上限（防回涨）：ks_answer ≤1000、其余 ≤600',
-    sizes.ks_answer <= 1000 && sizes.ks_resolve_clause <= 600 && sizes.ks_ping <= 600
-    && sizes.ks_effect_report <= 600,
+    sizes.ks_answer <= 1000
+    && ['ks_resolve_clause', 'ks_ping', 'ks_effect_report', 'ks_collect', 'ks_materials']
+      .every((k) => sizes[k] <= 600),
     JSON.stringify(sizes))
   const { firstUseReceipt, KS_ANSWER_DETAIL } = await import('../src/tool-details.js')
   const got = []

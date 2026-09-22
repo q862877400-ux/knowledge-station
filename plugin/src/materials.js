@@ -84,17 +84,13 @@ export function makeMaterialsTool(manager) {
   return {
     name: 'ks_materials',
     description:
-      '列出**参考资料项目**（材料平面）与其中的材料——只读。用途：用户说"用我上传的财报/' +
-      '公司制度分析…"时，先用本工具按名字找到 project_id，再把它作为 ks_answer 的 ' +
-      'params.material_project_id 传下去；材料**只有**那样才会进入作答。' +
-      'action="projects"（默认）：列出全部项目（project_id/name/authority_policy）。' +
-      'action="materials"：列某项目的材料，含 review_status（pending/approved/rejected）、' +
-      '轴 A 来源层级（T0~T4 + 中文说明）、轴 B 任务效力（criterion=本任务准则 / reference）、' +
-      '切片数；并给出 approved/pending/rejected 计数。' +
-      'action="inbox"：列该项目**参考资料文件夹**里尚未登记的文件（用户丢了文件但还没扫描）。' +
-      '⚠ 本工具**只读**：它不会、也不能批准或拒绝材料——评审是**用户**的判断（硬门）。' +
-      '若某项目有 pending 材料，请如实告诉用户"它们尚未批准、不会进入结论"，由用户决定；' +
-      '不要自己把它当成可用依据。**只有 approved 的材料会进 ks_answer 的提示词**。',
+      // 批3-c 瘦身（2026-09-22）：≤10 行；硬门语义全留（原文 var/tmp/desc-before-materials.txt）。
+      '列出参考资料项目与材料——只读。用户说"用我上传的财报/公司制度分析…"时，先按名字找 '
+      + 'project_id，再作为 ks_answer 的 params.material_project_id 传下去（材料只有那样才进作答）。'
+      + 'action：projects（默认，列项目）/ materials（列材料：review_status 三态、来源层级 T0~T4、'
+      + '任务效力 criterion=本任务准则/reference、切片数 + 三态计数）/ inbox（参考资料文件夹里'
+      + '尚未登记的文件）。只读：不能批/拒——评审是用户的判断（硬门）；有 pending 材料就如实'
+      + '告知"未批准、不进结论"。只有 approved 的材料会进 ks_answer 提示词。',
     parameters: {
       type: 'object',
       properties: {
