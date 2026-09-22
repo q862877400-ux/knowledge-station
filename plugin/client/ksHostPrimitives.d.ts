@@ -100,6 +100,14 @@ declare module '@deepseek-ai/dsh-client-ui-primitives' {
   /** 「在此范围内提问」按钮的问号（诊断 J1 换图标；名字逐字核过宿主 icons/*.d.ts 全集，
    *  宿主无对话气泡类图标 ⇒ 问号=提问最贴）。同边界：写错名字不构建失败、真机变 undefined。 */
   export const IconQuestionOutline14: ComponentType<DshIconProps>
+  /** S2 办事台菜单行新增的 4 枚图标（2026-09-22；名字逐字核过宿主 icons/*.d.ts 全集）。
+   *  另 3 枚（IconShieldOutline16/IconChecklistOutline14/IconListPenOutline16）**上面已有声明**
+   *  ——我第一版补声明时撞了重复（一个名字两处声明），已去重。
+   *  同边界：写错名字不构建失败、真机变 undefined ⇒ 用前先核全集。 */
+  export const IconPlanOutline14: ComponentType<DshIconProps>
+  export const IconQueueOutline14: ComponentType<DshIconProps>
+  export const IconClockOutline16: ComponentType<DshIconProps>
+  export const IconNewChatOutline16: ComponentType<DshIconProps>
   /**
    * 5h（2026-09-20）卡片带**左右翻页**用的两个箭头。
    * 名字逐字核过宿主检出 `packages/client/ui-primitives/lib/index.js`

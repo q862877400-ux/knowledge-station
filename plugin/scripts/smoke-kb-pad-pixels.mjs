@@ -395,9 +395,12 @@ if (!capRunRows.some((r) => r.capChecked === true)) {
   failures.push('**能力页的 `capCardsCheck` 一组都没判过**（.ks-cap-card 的等宽 / 同排等高 / 防空转全是空的）'
     + ' ⇒ 把 capabilities 留在 MATRIX 里（改矩阵要同步改 EXPECTED_RUNS）')
 }
-if (!capRunRows.some((r) => (r.capMaxRow ?? 0) >= 2)) {
-  failures.push('**能力卡的"同排等高"没有任何一组是在多卡排上判的**（跑过的能力页每一排都只有 1 张卡）'
-    + ' ⇒ 单卡排上它恒真 = 没判到 align-items:stretch；至少保留一组宽档（3 列）的能力页组合')
+if (!capRunRows.some((r) => (r.capCount ?? 0) >= 2)) {
+  /* ⚠ 2026-09-22 v3 形态更正：原规则是"'同排等高'要在**多卡排**上判（一排 ≥2 张卡）"——
+     卡片式作废、菜单是单列 ⇒ "排"概念消亡；防恒真的等价规则改为"**全部行等高**要在
+     ≥2 行上判"（capCount >= 2；行少于 2 时"等高"恒真 = 没判）。 */
+  failures.push('**"全部行等高"没有任何一组是在 ≥2 行上判的**（跑过的办事台只量到 0/1 行）'
+    + ' ⇒ 行等高判据恒真 = 没判；capabilities 组合至少保留一组（改矩阵要同步改 EXPECTED_RUNS）')
 }
 /* ── **知识库页几何（levelCheck）的覆盖面**（2026-09-21 第 3 步新增） ──
    判据②（目录行与文件行行高一致）只在"两种行同时在"的层级**有对象** ⇒ 光要求

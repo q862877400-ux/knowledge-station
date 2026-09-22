@@ -43,7 +43,7 @@
  *   --interact <a,b> 可选：kb-files / kb-level / kb-crumb / kb-back / kb-detail /
  *                    kb-search / kb-search-dirs / kb-search-dirs-empty / kb-empty /
  *                    kb-page / kb-upload / kb-inbox / kb-inbox-picked / kb-dir-manage /
- *                    kb-ask / kb-filemenu / kb-dirmenu / ingest-batch / cap-dialog
+ *                    kb-ask / kb-filemenu / kb-dirmenu / ingest-batch / office-page
  *                    ⚠ `kb-filemenu` / `kb-dirmenu`（2026-09-22）：把**文件行 / 目录行**的 ⋮ 菜单
  *                      打开，逐条判渲染出来的文案（业主定的「移动到 / 复制到 / 在此文件中提问 /
  *                      移出」那一套）+ 「移出」不是删除的 title。取证截图也用这两个场景。
@@ -163,7 +163,7 @@ const SCENARIOS = [
   'kb-files', 'kb-level', 'kb-crumb', 'kb-back', 'kb-detail', 'kb-search',
   'kb-search-dirs', 'kb-search-dirs-empty', 'kb-empty', 'kb-page', 'kb-upload',
   'kb-inbox', 'kb-inbox-picked', 'kb-dir-manage', 'kb-ask', 'kb-filemenu', 'kb-dirmenu',
-  'ingest-batch', 'cap-dialog',
+  'ingest-batch', 'office-page',
 ]
 const unknownScenarios = interacts.filter((name) => !SCENARIOS.includes(name))
 if (unknownScenarios.length > 0) {
@@ -1098,13 +1098,16 @@ for (const how of interacts) {
       + ` → 批量行 ${batchRows} 条`
       + `，总账 ${container.textContent.includes('共评估') ? '有' : '无'}`
       + `，失败 ${container.textContent.includes('预览失败') ? container.textContent.split('预览失败')[1]?.slice(0, 60) : '无'}`)
-  } else if (how === 'cap-dialog') {
-    const card = q('.ks-cap-card').find((c) => q('.ks-cap-card').length > 0 && [...c.querySelectorAll('button')].some((b) => (b.textContent ?? '').includes('设置')))
-    const ok = await click(card?.querySelector('button'))
-    mustLand(ok && document.querySelectorAll('[role=dialog]').length > 0,
-      `cap-dialog ${ok ? '点了「设置…」' : '没找到带「设置…」的卡'} 但对话框 ${document.querySelectorAll('[role=dialog]').length} 个`)
-    notes.push(`cap-dialog: ${ok ? '开了第一张带「设置…」的窗' : '没找到'}`
-      + `（宿主 Modal 是 portal 到 body 的，所以这里查的是 document）`)
+  } else if (how === 'office-page') {
+    /* S2-a1（2026-09-22）：原 cap-dialog（点卡片「设置…」开窗）随**卡片式作废**换新 ——
+       现在点菜单第一行进专门页面，判「返回办事台」钮在（导航真的通）。 */
+    const row = q('.ks-off-row')[0]
+    const ok = await click(row)
+    const back = [...document.querySelectorAll('button')].find((b) => (b.textContent ?? '').includes('返回办事台'))
+    mustLand(ok && back !== undefined,
+      `office-page ${ok ? '点了第一行' : '没找到菜单行'} 但「返回办事台」钮 ${back === undefined ? '不在' : '在'}`)
+    notes.push(`office-page: ${ok ? '点了第一行进专门页面' : '没找到行'}`
+      + `；返回钮 ${back === undefined ? 0 : 1} 个`)
   } else {
     /* ⚠ **兜底分支**（5i-补 2026-09-20）：名字在 `SCENARIOS` 表里、但这条 if/else 链**没有**任何
      * 分支接住它 ⇒ 当场报红（走下面 `landing` 那条路 = **exit 1**，并打出这个名字）。
@@ -1340,17 +1343,11 @@ const html = `<!doctype html>
       var ws = [].map.call(cardEls, function (el) { return Math.round(el.getBoundingClientRect().width); });
       out['#cards'] = { n: hs.length, y: 0, w: 0, h: 0, fs: '', lh: hs.join(','), pad: ws.join(','), gap: '', radius: '' };
     }
-    // **能力页每一张 .ks-cap-card 的逐个宽/高 + 逐排分组**（2026-09-21；父代理裁定的断言口径）。
-    // 为什么另开一个键：#cards 是 .ks-kb-cards>*,.ks-cap-card **混在一起**的报告值（无断言引用），
-    //   #kbcards（卡片带那一份）已随卡片带删除 ⇒ 能力页这份是唯一直判"卡"的量点。
-    // 口径（父代理 2026-09-21 裁定，见 docs/UI-BASELINE.md 那节）：
-    //   **不判"尺寸统一"**（实测宽全等、高三档，页面级等高不是意图）——只断两条站得住的：
-    //   ① 本页所有 .ks-cap-card **等宽**；② **同一排**的高度全等（grid align-items:stretch 的不变式）。
-    //   => 这里必须把"排"报出去（按 getBoundingClientRect().top 分组，Node 侧判组内等高）。
-    // 借字段名（同 #cards / #cols 的先例）：x=最小宽 y=最大宽 w=最小高 h=最大高，
-    //   lh=逐张宽 pad=逐张高，items=逐张明细 {name,w,h,top}。
+    // **办事台每一行 .ks-off-row 的逐个宽/高**（2026-09-22 v3 形态更正留痕：原为能力页
+    //   .ks-cap-card 的"等宽 + 同排等高"；卡片式已作废 ⇒ 判据翻成**菜单行全部等高**，
+    //   "排"概念随单列菜单消亡）。借字段名不变（#capcards 键名为历史遗留）。
     // ⚠ 本段是模板字符串里的一段 JS：注释里**不许出现反引号**（见 UI-BASELINE 5h-补）。
-    var capEls = document.querySelectorAll('.ks-cap-card');
+    var capEls = document.querySelectorAll('.ks-off-row');
     if (capEls.length > 0) {
       var cw = [].map.call(capEls, function (el) { return Math.round(el.getBoundingClientRect().width); });
       var chh = [].map.call(capEls, function (el) { return Math.round(el.getBoundingClientRect().height); });
@@ -1361,8 +1358,7 @@ const html = `<!doctype html>
         w: Math.min.apply(null, chh), h: Math.max.apply(null, chh),
         fs: '', lh: cw.join(','), pad: chh.join(','), gap: '', radius: '',
         items: [].map.call(capEls, function (el, i) {
-          var t = el.querySelector('.ks-kb-ct');
-          return { name: t ? (t.textContent || '').trim() : '', w: cw[i], h: chh[i], top: ctop[i] };
+          return { name: (el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 14), w: cw[i], h: chh[i], top: ctop[i] };
         }),
       };
     }
@@ -1921,7 +1917,11 @@ const PAD_REQUIRED = {
   /* 第 5 步：目录层勾两个 + 删目录确认面板（.ks-act-del）在场。批量条与目录层同屏 ⇒ 两个都得判。 */
   'kb|kb-dir-manage': ['.ks-kb', '.ks-kb-tree', '.ks-dirs', '.ks-batch',
                        '.ks-page-head', '.ks-kb-row'],
-  'capabilities|': ['.ks-kb', '.ks-page-head', '.ks-kb-row'],
+  /* ⚠ 2026-09-22（办事台 v3）：`.ks-kb-row`（页内按钮行）**从这一跑的声明里去掉** ——
+     卡片式作废后，菜单态**没有**"页内按钮行"这个构件（动作在专门页面里，那里已挂真 .ks-kb-row
+     class，将来跑 office-page 组合时可声明它）。判据给的合法出路即此：
+     "改回类名，或按设计把它从适用面里去掉"——.ks-kb-row 的**留边保护不丢**（kb 各组合照旧声明）。 */
+  'capabilities|': ['.ks-kb', '.ks-page-head'],
   'ingest|ingest-batch': ['.ks-ing'],
   'materials|': ['.ks-mat'],
 }
@@ -2830,17 +2830,16 @@ if (levelSkipReason !== null) {
 if (capCardsSkipReason !== null) {
   console.error(`· #capcards 自检：**这一跑不判**（${capCardsSkipReason}）`)
 } else if (capCardsProblems.length === 0) {
-  console.error(`· #capcards 自检通过：${String(capCardsCheck.count)} 张能力卡**等宽** ${JSON.stringify(capCardsCheck.widths)}、`
-    + `${String(capCardsCheck.rowCount)} 排各自**同排等高** ${JSON.stringify((capCardsCheck.rows ?? []).map((r) => r.heights))}`
+  console.error(`· #capcards 自检通过：${String(capCardsCheck.count)} 行菜单**等高** ${JSON.stringify(capCardsCheck.heights)}、`
     + `（page=${page} width=${width} theme=${themeName}）`)
 } else {
   console.error('')
-  console.error(`❌ 能力卡几何自检失败（等宽 + 同排等高；page=${page} width=${width} theme=${themeName}）：`)
+  console.error(`❌ 办事台菜单行几何自检失败（全部行等高；page=${page} width=${width} theme=${themeName}）：`)
   for (const p of capCardsProblems) console.error(`   - ${p}`)
-  console.error('   ⇒ 口径：能力页**不判"尺寸统一"**（实测宽全等、高三档，页面级等高不是意图）——')
-  console.error('      只判 ① 所有 .ks-cap-card 等宽 ② 同一排高度全等 ③ 量到 0 张即红 ④ 排数 >= 2。')
-  console.error('      卡宽的唯一所有者是 `.ks-kb-cards` 的 grid 列（能力页 repeat(auto-fill,minmax(230px,1fr))）；')
-  console.error('      同排等高是 `align-items:stretch`。改这两处（或给单张卡另钉宽/高）就是这条要抓的回归。')
+  console.error('   ⇒ 口径（2026-09-22 v3）：菜单行**全部等高**（v3 核心不变式）——')
+  console.error('      只判 ① 所有 .ks-off-row 等高 ② 至少 2 行（防退化恒真） ③ 量到 0 行即红。')
+  console.error('      行宽铺满容器（100%）；行高的唯一所有者是 KsOfficeRow 的固定行高。')
+  console.error('      改成参差行高（或探针认错 selector）就是这条要抓的回归。')
   process.exit(1)
 }
 

@@ -2189,7 +2189,11 @@ export function mount(container, props) {
   ingRoot.unmount()
   await flush()
 
-  /* ══════════════════ 能力页（业主指定：一功能一卡一窗） ══════════════════ */
+  /* ══════════════════ 办事台（S2-a1，2026-09-22）：等高菜单行 → 专门页面 ══════════════════
+     ⚠ 形态更正留痕：本段原判"卡片 + 三组分组 + 一卡一窗旋钮"（2026-09-19 业主当时指定）；
+     2026-09-22 业主裁定**废弃卡片式**（"有的空有的满、密密麻麻不知道干什么"）⇒ 定稿
+     **等高菜单行（两行制）+ 点行进专门页面**。旧 7 条卡片断言**整段作废换新**（对账：
+     删 7 增 8，形态变了判据跟着变，不放宽——新形态的牙口逐条见下）。 */
   const capContainer = document.createElement('div')
   document.body.appendChild(capContainer)
   const capRoot = mount(capContainer, { useTabInfo: () => ({ tab: { navigation: { params: { page: 'capabilities' } } } }), dataSource: 'render-smoke' })
@@ -2201,50 +2205,46 @@ export function mount(container, props) {
     await flush()
   }
 
-  check('能力页：三个分组都在（自带 / 我启用的 / 实验性）',
-    ['自带（', '我启用的（', '实验性（'].every((t) => (capContainer.textContent ?? '').includes(t)),
-    (capContainer.textContent ?? '').slice(0, 60))
+  check('办事台：页头两句逐字（标题 +「点一项，开始一件活。」）',
+    (capContainer.textContent ?? '').includes('办事台')
+    && (capContainer.textContent ?? '').includes('点一项，开始一件活。'),
+    (capContainer.textContent ?? '').slice(0, 40))
 
-  check('能力页：八项能力都渲染成卡',
-    cq('.ks-cap-card').length === 8, `实际 ${cq('.ks-cap-card').length} 张`)
+  const officeRows = cq('.ks-off-row')
+  check('办事台：8 行等高菜单行（一个功能一行）', officeRows.length === 8, `实际 ${String(officeRows.length)} 行`)
 
-  // 业主边界 2：旋钮少于 3 个的能力**不配窗**，旋钮直接内联在卡上。
-  const cards = cq('.ks-cap-card')
-  const withButton = cards.filter((c) => [...c.querySelectorAll('button')].some((b) => (b.textContent ?? '').includes('设置')))
-  const withInline = cards.filter((c) => (c.textContent ?? '').includes('不单独开窗'))
-  check('能力页：每张卡恰好是一种形态（有「设置…」按钮 XOR 内联旋钮）',
-    withButton.length + withInline.length === cards.length
-    && withButton.every((c) => !(c.textContent ?? '').includes('不单独开窗')),
-    `8 张卡 ⇒ 有窗按钮 ${withButton.length} / 内联 ${withInline.length}`)
-  check('能力页：内联的正是"旋钮 < 3 个"那几项（业主边界 2）',
-    withInline.length === 2
-    && ['条款释义', '材料评审'].every((n) => withInline.some((c) => (c.textContent ?? '').includes(n))),
-    withInline.map((c) => (c.textContent ?? '').slice(0, 12)).join(' | '))
+  const officeTexts = officeRows.map((r) => (r.textContent ?? '').replace(/\s+/g, '').replace(/[›·]/g, ''))
+  check('办事台：行文案逐字照 v3 定稿（名称+短语 8 对）',
+    ['合同审查逐条比对法规，给三色结论',
+      '义务清单→检查表抽出「应当/必须」，转检查表',
+      '制度差距分析内部制度比法规缺什么',
+      '批量问答一批条款，一次提问',
+      '纠错修订标记识别错的条款，可回退',
+      '外发审计每次外发记录，可查可导出',
+      '取证问答去对话里提问',
+      '条款释义还没有做完后这里可以点'].every((t, i) => officeTexts[i] === t),
+    officeTexts.map((t) => t.slice(0, 14)).join(' | '))
 
-  const dutyCard = cq('.ks-cap-card').find((c) => (c.textContent ?? '').includes('义务清单'))
-  await cClick(dutyCard.querySelector('button'))
-  const dialog = capContainer.querySelector('[role=dialog]')
-  check('能力页：点「设置…」⇒ 打开它自己的设置窗，标题带能力名',
-    dialog !== null && (dialog.getAttribute('aria-label') ?? '').includes('义务清单'),
-    dialog === null ? '没开窗' : (dialog.getAttribute('aria-label') ?? ''))
+  const officeExplain = officeRows[7]
+  check('办事台：条款释义灰行（disabled + 「还没有」小牌），不给假入口',
+    officeExplain.disabled === true && (officeExplain.textContent ?? '').includes('还没有'),
+    `disabled=${String(officeExplain.disabled)}`)
 
-  const dialogText = dialog?.textContent ?? ''
-  check('能力页：窗里有该项能力自己的旋钮（类型/范围/模板/出处）',
-    ['义务类型', '范围', '输出模板', '带出处链接'].every((t) => dialogText.includes(t)),
-    dialogText.slice(0, 80))
+  await cClick(officeRows[0])
+  const officePageText = capContainer.textContent ?? ''
+  check('办事台：点「合同审查」⇒ 进专门页面（标题 + ‹ 返回办事台 + 动作位）',
+    officePageText.includes('合同审查') && officePageText.includes('‹ 返回办事台')
+    && officePageText.includes('开始：上传合同比对'),
+    officePageText.slice(0, 60))
+  const officeStartBtn = cq('button').find((b) => (b.textContent ?? '').includes('开始：'))
+  check('办事台：S2-a1 动作钮**灰 +「还没接上」**（不给假入口；S2-a2 起逐个翻真）',
+    officeStartBtn !== undefined && officeStartBtn.disabled === true && officePageText.includes('还没接上'),
+    officeStartBtn === undefined ? '没找到动作钮' : `disabled=${String(officeStartBtn.disabled)}`)
 
-  const pillInDialog = dialog.querySelector('button[data-active]')
-  const beforePill = pillInDialog?.getAttribute('data-active')
-  await cClick(pillInDialog)
-  const afterPill = dialog.querySelector('button[data-active="true"]')?.getAttribute('data-active')
-  check('能力页：窗里的枚举旋钮**可点且状态真的变**（不是画上去的）',
-    beforePill !== undefined && afterPill === 'true',
-    `点了之后有 data-active=true 的胶囊：${String(afterPill)}`)
-
-  await cClick(dialog.querySelector('button[aria-label=关闭]') ?? dialog.querySelector('button'))
-  check('能力页：关掉窗 ⇒ 窗消失',
-    capContainer.querySelector('[role=dialog]') === null,
-    capContainer.querySelector('[role=dialog]') === null ? '已关' : '还在')
+  const officeBackBtn = cq('button').find((b) => (b.textContent ?? '').includes('返回办事台'))
+  await cClick(officeBackBtn)
+  check('办事台：点「‹ 返回办事台」⇒ 菜单回来（8 行）',
+    cq('.ks-off-row').length === 8, `实际 ${String(cq('.ks-off-row').length)} 行`)
 
   capRoot.unmount()
   await flush()

@@ -1,404 +1,166 @@
 /**
  * ks-dsh-plugin — client/KsCapabilityPage.tsx
  *
- * 「能力」页（业主 2026-09-19 **亲定**的结构）：
- * > `/platform/agents` 这一页的结构思路也可以抄——不是我们也要搞 agents，而是说我们的
- * > 制度修订、自动生成检查清单、合同审计这些功能，都可以在这样一个页面里**对每一个单独功能
- * > 留一个设置窗口**，点一下就能设置各种东西，**而不是全部塞进设置按钮里**。
+ * 「办事台」（S2，2026-09-22 业主批准 v3 形态 —— `docs/mockups/mockup-S2-office-v3.html`）。
  *
- * ## 抄的是两条**结构**（不是抄它那 17 组）
- * 1. **「自带」本身是一个分组**；
- * 2. **每张卡点开就是"它自己的全部旋钮"**。
+ * ⚠ 形态更正留痕（不删旧口径）：本文件 2026-09-19 版是**卡片 + 旋钮**（当时业主指定
+ * 「一个功能一张卡、点开就是它自己的设置窗」）；2026-09-22 业主看图后裁定**废弃卡片式**：
+ * 「有的卡片很空有的很满、密密麻麻的字不知道应该干什么」⇒ 定稿为**一列等高菜单行
+ * （两行制）+ 点行进专门页面**，设置与说明全部搬进各自页面。
  *
- * ## 业主给的两条边界（本文件照做，不许违反）
- * 1. **别抄它那 17 组**：248 KB 的设置窗正是"什么都往里塞"的下场。
- *    我们每个能力的窗**只放它自己的旋钮，3–6 组为上限**；超过就说明该拆。
- * 2. **旋钮少于 3 个的能力不配独立窗口**，直接在**卡片上内联**（否则点开一个空窗更烦）。
- *    ⇒ 代码里由 `knobs.length < 3` 决定是"开窗"还是"内联"，**不是靠人记着**。
- *
- * ## 本轮性质（同知识库页）
- * **只有 UI**：卡、分组、旋钮全是本文件里的占位常量，**一个引擎接口都没调**；
- * 页首黄条写在界面上。但**交互是真的**（开关能拨、下拉能选、窗能开能关），可以点着体验。
- *
- * ## 为什么用宿主原语而不是自己画
- * 官方规定「Reuse the control before restyling one」⇒ 开关用 `Switch`、多选用 `Checkbox`、
- * 文本用 `Input`、枚举用 `Pill`、窗用 `Modal`（**这四个都是宿主已发货的**，
- * props 逐个读过源码，见 `ksHostPrimitives.d.ts`）。自己不画窗、不画开关。
+ * 分批落地（小步走）：
+ *   S2-a1（本批）= 菜单壳 + 8 行 v3 逐字文案 + 页面骨架；**未接线**功能的按钮灰 +
+ *     「还没接上」小牌 —— **不给假入口**（业主 2026-09-22："没做完的不装样子"）。
+ *   S2-a2+ = 每批翻一个真功能（外发审计 → 合同审查 → 检查表/差距分析/批量问答），
+ *     真入口亮起即"开始：<动词>"。条款释义连引擎实现都没有 ⇒ 菜单行灰 + 「还没有」。
  */
 
-import { useState, type ReactNode } from 'react'
-import { Button, Checkbox, IconInfoOutline14, IconPlusOutline16, Input, Modal, Pill, Switch, Tag } from '@deepseek-ai/dsh-client-ui-primitives'
+import { useState, type ComponentType, type ReactNode } from 'react'
+
+import {
+  Button,
+  IconChecklistOutline14,
+  IconClockOutline16,
+  IconListPenOutline16,
+  IconNewChatOutline16,
+  IconPlanOutline14,
+  IconQuestionOutline14,
+  IconQueueOutline14,
+  IconShieldOutline16,
+  Tag,
+} from '@deepseek-ai/dsh-client-ui-primitives'
 
 import { ensureKsStyles } from './ksGuideStyles'
 
-/** 一个旋钮（占位）。`kind` 决定用哪个宿主原语渲染。 */
-interface Knob {
-  readonly id: string
-  readonly label: string
-  readonly kind: 'bool' | 'text' | 'enum' | 'multi'
-  /** enum/multi 的候选值。 */
-  readonly options?: readonly string[]
-  /** 占位默认值（bool 用；text 用 string）。 */
-  readonly initial?: string | boolean | readonly string[]
-  /** 这个旋钮是干什么的（hover 提示）。 */
-  readonly hint?: string
-}
-
-/** 一项能力（= 一张卡）。 */
-interface Capability {
+/** 办事台的一件活（= 一行菜单 + 一个专门页面）。 */
+export interface OfficeItem {
   readonly id: string
   readonly name: string
-  readonly desc: string
-  /** `builtin` 自带且不可删；`mine` 我启用的；`experimental` 实验性。 */
-  readonly group: 'builtin' | 'mine' | 'experimental'
-  /** 引擎侧现状（诚实标注：有的引擎有但界面没接）。 */
-  readonly engine: string
-  readonly knobs: readonly Knob[]
+  /** 行上的一句短语（≤12 字，v3 原型逐字）。 */
+  readonly hint: string
+  readonly icon: ComponentType<{ size?: number }>
+  /** `not-yet` = 功能还没做完（灰行 +「还没有」，不可点）；其余可点进页面。 */
+  readonly status: 'ready' | 'not-yet'
+  /** 页面上的动作词（「开始：<verb>」——亮起时用；S2-a1 全部灰）。 */
+  readonly verb: string
+  /** 页面上的一句说明（一屏一件事的那句）。 */
+  readonly pageDesc: string
 }
 
-/** 三个分组（业主点名：「自带」本身是一个分组）。 */
-const GROUPS: readonly { readonly id: Capability['group']; readonly name: string; readonly note: string }[] = [
-  { id: 'builtin', name: '自带', note: '法规/标准相关的基础能力，不可删' },
-  { id: 'mine', name: '我启用的', note: '按需开启的能力；关掉就不出现在工作流里' },
-  { id: 'experimental', name: '实验性', note: '还在验证，口径可能变；默认关' },
+/** 八行文案**逐字**照 v3 定稿原型（冒烟钉死；改文案 = 改判据 + 业主过目）。 */
+export const OFFICE_ITEMS: readonly OfficeItem[] = [
+  { id: 'contract', name: '合同审查', hint: '逐条比对法规，给三色结论', icon: IconShieldOutline16, status: 'ready', verb: '上传合同比对', pageDesc: '上传合同，逐条比对法规要求，出三色结论（合规 / 风险 / 缺失），每条可点开原文。' },
+  { id: 'duty', name: '义务清单 → 检查表', hint: '抽出「应当/必须」，转检查表', icon: IconChecklistOutline14, status: 'ready', verb: '生成检查表', pageDesc: '选定范围，把「应当 / 必须 / 禁止」抽成清单，转成可勾选的检查表，导出 Markdown。' },
+  { id: 'gap', name: '制度差距分析', hint: '内部制度比法规缺什么', icon: IconPlanOutline14, status: 'ready', verb: '上传制度比对', pageDesc: '上传内部制度，自动对比法定要求，逐条列出缺什么，出差距报告。' },
+  { id: 'batch', name: '批量问答', hint: '一批条款，一次提问', icon: IconQueueOutline14, status: 'ready', verb: '批量提问', pageDesc: '一批条款一次提问，逐条给答案；哪条失败单独重试。' },
+  { id: 'fix', name: '纠错修订', hint: '标记识别错的条款，可回退', icon: IconListPenOutline16, status: 'ready', verb: '打开原文页标记', pageDesc: '发现条款识别错了，在原文页标记并提交修改；每笔修改留痕、可回退。也可以在 PDF 阅读器的条款行「⋮」里点「这条识别错了」。' },
+  { id: 'egress', name: '外发审计', hint: '每次外发记录，可查可导出', icon: IconClockOutline16, status: 'ready', verb: '查看外发记录', pageDesc: '每次调用云端的完整记录，可查可导出——数据出了本机一定留痕。' },
+  { id: 'ask', name: '取证问答', hint: '去对话里提问', icon: IconNewChatOutline16, status: 'ready', verb: '去对话里提问', pageDesc: '在对话里直接提问：三段式作答、只引现行版、每句结论点得开原文。' },
+  { id: 'explain', name: '条款释义', hint: '做完后这里可以点', icon: IconQuestionOutline14, status: 'not-yet', verb: '解释这一条', pageDesc: '对单条条款给白话解释。' },
 ]
 
-/**
- * 八项能力（来自 `INTERACTION-DESIGN.md` §6.2 的表，**含引擎现状的诚实标注**）。
- *
- * 旋钮数刻意照业主的边界设计：**< 3 个的不给窗**（例如"条款释义"只有输出格式一个开关）。
- */
-const CAPABILITIES: readonly Capability[] = [
-  {
-    id: 'ask',
-    name: '取证问答',
-    desc: '按三段式作答，只引现行版，证据可点回原文',
-    group: 'builtin',
-    engine: '✅ 引擎已有',
-    knobs: [
-      { id: 'mode', label: '默认口径', kind: 'enum', options: ['轻量', '取证'], initial: '取证', hint: '取证口径会强制走三段式并给证据链接' },
-      { id: 'conflict', label: '冲突处理', kind: 'enum', options: ['全量列出', '取一'], initial: '全量列出' },
-      { id: 'rankRedline', label: '排序红线开关', kind: 'bool', initial: true, hint: '低于红线的候选不进答案' },
-    ],
-  },
-  {
-    id: 'duty',
-    name: '义务清单 → 检查表',
-    desc: '从条款里抽义务，生成可执行的检查表',
-    group: 'builtin',
-    engine: '✅ 引擎有、界面没接',
-    knobs: [
-      { id: 'types', label: '义务类型', kind: 'multi', options: ['应当', '必须', '禁止'], initial: ['应当', '必须'] },
-      { id: 'scope', label: '范围', kind: 'text', initial: '公司制度、C65/74 劳动安全技术', hint: '哪些文件夹参与抽取' },
-      { id: 'template', label: '输出模板', kind: 'enum', options: ['表格', '逐条'], initial: '表格' },
-      { id: 'cite', label: '带出处链接', kind: 'bool', initial: true },
-    ],
-  },
-  {
-    id: 'contract',
-    name: '合同审计',
-    desc: '对着标准/法规审合同条款，三色判定',
-    group: 'mine',
-    engine: '✅ 引擎有、界面没接',
-    knobs: [
-      { id: 'reviewType', label: '审查类型', kind: 'enum', options: ['安全条款', '环保条款', '全部'], initial: '安全条款' },
-      { id: 'judge', label: '判定口径', kind: 'enum', options: ['严格', '常规'], initial: '常规' },
-      { id: 'range', label: '依据范围', kind: 'text', initial: '法律、行政法规、国家标准' },
-      { id: 'llm', label: 'LLM 精判', kind: 'bool', initial: false, hint: '开了更准但更慢、更费 token' },
-    ],
-  },
-  {
-    id: 'gap',
-    name: '制度差距分析',
-    desc: '内部制度 vs 外部要求，列出缺什么',
-    group: 'mine',
-    engine: '✅ 引擎有、界面没接',
-    knobs: [
-      { id: 'inner', label: '内部制度文件', kind: 'text', initial: '公司制度' },
-      { id: 'against', label: '对照范围', kind: 'text', initial: '安全生产法、GB 30871-2022' },
-      { id: 'rule', label: '判定规则', kind: 'enum', options: ['缺项', '缺项+弱项'], initial: '缺项' },
-    ],
-  },
-  {
-    id: 'explain',
-    name: '条款释义 / 批量问答',
-    desc: '单条释义，或对一批条款批量提问',
-    group: 'mine',
-    engine: '✅ 引擎有、界面没接',
-    // ⚠ 只有 1 个旋钮 ⇒ 按业主的边界**不配独立窗口**，直接在卡上内联
-    knobs: [{ id: 'format', label: '输出格式', kind: 'enum', options: ['一句话', '分点'], initial: '分点' }],
-  },
-  {
-    id: 'inspection',
-    name: '每日巡检',
-    desc: '定时扫官方渠道，发现发布/修订/废止',
-    group: 'builtin',
-    engine: '✅ 已有',
-    knobs: [
-      { id: 'time', label: '时刻', kind: 'text', initial: '06:30' },
-      { id: 'channels', label: '渠道范围', kind: 'multi', options: ['国家标准全文公开系统', '应急管理部', '生态环境部', '地方标准信息平台'], initial: ['国家标准全文公开系统'] },
-      { id: 'retry', label: '失败重试', kind: 'bool', initial: true },
-      { id: 'notify', label: '通知方式', kind: 'enum', options: ['仅站内', '站内+邮件'], initial: '仅站内' },
-    ],
-  },
-  {
-    id: 'materials',
-    name: '材料评审',
-    desc: '上传资料分级评审（批准只能由人做）',
-    group: 'experimental',
-    engine: '🟡 未真机跑过',
-    knobs: [
-      { id: 'axisA', label: '轴 A 来源层级默认值', kind: 'enum', options: ['T0 原始出处', 'T3 仅线索'], initial: 'T3 仅线索' },
-      { id: 'keep', label: '保留策略', kind: 'enum', options: ['不保留', '保留 30 天'], initial: '不保留' },
-    ],
-  },
-  {
-    id: 'ingest',
-    name: '文件导入',
-    desc: '把本地法规/制度文件灌进知识库',
-    group: 'builtin',
-    engine: '✅ 已有',
-    knobs: [
-      { id: 'folder', label: '默认落到哪个文件夹', kind: 'text', initial: '公司制度' },
-      { id: 'dryRun', label: '默认 Dry-Run', kind: 'bool', initial: true, hint: '先只看会写什么，不真写' },
-      { id: 'bucket', label: '分桶阈值', kind: 'text', initial: '0.75' },
-    ],
-  },
-]
-
-/** 一个旋钮的控件（**按 kind 选宿主原语**，不自己画）。 */
-function KnobControl({ knob, value, onChange }: {
-  readonly knob: Knob
-  readonly value: string | boolean | readonly string[] | undefined
-  readonly onChange: (next: string | boolean | readonly string[]) => void
+/** 等高菜单行（纯组件；两行制：名称在上、短语在下。冒烟钉结构与文案）。 */
+export function KsOfficeRow(props: {
+  item: OfficeItem
+  onOpen?: (id: string) => void
 }): ReactNode {
-  if (knob.kind === 'bool') {
-    return (
-      <Switch
-        checked={value === true}
-        onChange={(next) => { onChange(next) }}
-        label={knob.label}
-        title={knob.hint}
-      />
-    )
-  }
-  if (knob.kind === 'enum') {
-    return (
-      <div className="ks-knob-row">
-        <span className="ks-knob-label">{knob.label}</span>
-        <span className="ks-knob-ctl">
-          {(knob.options ?? []).map((opt) => (
-            <Pill
-              key={opt}
-              active={value === opt}
-              onClick={() => { onChange(opt) }}
-            >
-              {opt}
-            </Pill>
-          ))}
-        </span>
-      </div>
-    )
-  }
-  if (knob.kind === 'multi') {
-    const picked = Array.isArray(value) ? value : []
-    return (
-      <div className="ks-knob-row">
-        <span className="ks-knob-label">{knob.label}</span>
-        <span className="ks-knob-ctl">
-          {(knob.options ?? []).map((opt) => (
-            <Checkbox
-              key={opt}
-              checked={picked.includes(opt)}
-              onChange={(next) => {
-                const set = new Set(picked)
-                if (next) set.add(opt)
-                else set.delete(opt)
-                onChange([...set])
-              }}
-              label={opt}
-            />
-          ))}
-        </span>
-      </div>
-    )
-  }
+  const { item, onOpen } = props
+  const grey = item.status === 'not-yet'
+  const Icon = item.icon
   return (
-    <div className="ks-knob-row">
-      <span className="ks-knob-label">{knob.label}</span>
-      <span className="ks-knob-ctl">
-        <Input
-          value={typeof value === 'string' ? value : ''}
-          title={knob.hint}
-          aria-label={knob.label}
-          onChange={(event) => { onChange(event.target.value) }}
-        />
+    <button
+      type="button"
+      disabled={grey}
+      onClick={() => { if (!grey && onOpen !== undefined) onOpen(item.id) }}
+      title={grey ? '这个功能还没有做完，做完后这里可以点' : item.pageDesc}
+      className="ks-off-row"
+      style={{
+        display: 'flex', alignItems: 'center', gap: 10, height: 62, padding: '0 14px',
+        width: '100%', background: 'none', border: 'none', cursor: grey ? 'not-allowed' : 'pointer',
+        borderBottom: '0.5px solid var(--dsw-alias-border-l1)', textAlign: 'left',
+        color: grey ? 'var(--dsw-alias-label-tertiary)' : 'var(--dsw-alias-label-primary)',
+      }}
+    >
+      <span
+        style={{
+          width: 28, height: 28, borderRadius: 8, flex: 'none', display: 'flex',
+          alignItems: 'center', justifyContent: 'center', opacity: grey ? 0.6 : 1,
+          background: 'var(--dsw-alias-bg-layer-1)', border: '0.5px solid var(--dsw-alias-border-l1)',
+        }}
+      >
+        <Icon size={14} />
       </span>
-    </div>
+      <span style={{ flex: 1, minWidth: 0 }}>
+        <span style={{ display: 'flex', alignItems: 'center', gap: 8, fontWeight: 600 }}>
+          {item.name}
+          {grey && <Tag tone="warning">还没有</Tag>}
+        </span>
+        <span style={{ display: 'block', color: 'var(--dsw-alias-label-secondary)', fontSize: 12, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+          {item.hint}
+        </span>
+      </span>
+      <span style={{ color: 'var(--dsw-alias-label-tertiary)', flex: 'none' }}>{grey ? '·' : '›'}</span>
+    </button>
   )
 }
 
-/** 一张能力卡。`knobs.length < 3` ⇒ **内联**它的旋钮（业主边界 2）；否则点开它自己的窗。 */
-function CapabilityCard({ cap, onOpen, open, setKnobValue, values }: {
-  readonly cap: Capability
-  readonly onOpen: (id: string) => void
-  readonly open: boolean
-  readonly setKnobValue: (knobId: string, next: string | boolean | readonly string[]) => void
-  readonly values: Readonly<Record<string, string | boolean | readonly string[]>>
-}): ReactNode {
-  const inline = cap.knobs.length < 3
+/**
+ * 专门页面（S2-a1 = 骨架：返回 + 标题 + 一句说明 + 动作位）。
+ * ⚠ 动作按钮**灰 +「还没接上」**——S2-a2 起逐个翻真；不给假入口。
+ */
+function OfficePage({ item, onBack }: { readonly item: OfficeItem; readonly onBack: () => void }): ReactNode {
   return (
-    <div className="ks-cap-card">
-      <div className="ks-kb-row">
-        <strong className="ks-kb-grow ks-kb-ct" title={cap.name}>{cap.name}</strong>
-        <Tag tone={cap.group === 'experimental' ? 'warning' : 'neutral'}>{cap.knobs.length} 个旋钮</Tag>
-      </div>
-      <div className="ks-kb-cd">{cap.desc}</div>
-      <div className="ks-cap-engine">{cap.engine}</div>
-      {inline ? (
-        <>
-          {/* 旋钮少于 3 个 ⇒ 直接内联在卡上（业主：点开一个空窗比塞在设置里更烦） */}
-          <div className="ks-cap-inline">
-            {cap.knobs.map((k) => (
-              <KnobControl key={k.id} knob={k} value={values[k.id]} onChange={(next) => { setKnobValue(k.id, next) }} />
-            ))}
-          </div>
-          {/* 5c：原为字面 **不单独开窗**（Markdown 粗体标记被当纯文本画出来）⇒ 改 <strong>，
-              强调语义保留。同页另三处同理（页首黄条里的两处 + 卡上的这一处）。 */}
-          <div className="ks-kb-hint">（旋钮少于 3 个：按约定<strong>不单独开窗</strong>，就地设置）</div>
-        </>
-      ) : (
-        <Button variant="outline" size="sm" onClick={() => { onOpen(cap.id) }} aria-expanded={open}>
-          设置…
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 12, padding: '12px 14px 18px' }}>
+      <button
+        type="button"
+        onClick={onBack}
+        style={{ alignSelf: 'flex-start', background: 'none', border: 'none', padding: 0, cursor: 'pointer', color: 'var(--dsw-alias-state-business-primary)', fontSize: 12 }}
+      >
+        ‹ 返回办事台
+      </button>
+      <div style={{ fontSize: 15, fontWeight: 600 }}>{item.name}</div>
+      <div style={{ color: 'var(--dsw-alias-label-secondary)', fontSize: 12, lineHeight: 1.6 }}>{item.pageDesc}</div>
+      {/* 动作行 = 真实「页内按钮行」构件（.ks-kb-row：留边适用面之一；菜单态没有它，
+          判据已在 PAD_REQUIRED 按设计声明——见 ui-render-shot 那行注释）。 */}
+      <div className="ks-kb-row" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <Button variant="outline" size="sm" disabled>
+          开始：{item.verb}
         </Button>
-      )}
+        <Tag tone="warning">还没接上</Tag>
+      </div>
+      <div style={{ color: 'var(--dsw-alias-label-tertiary)', fontSize: 11.5, lineHeight: 1.6 }}>
+        这一屏的流程正在接线（下一批翻真）；接好后按钮亮起、点下去直接进流程。不给假入口。
+      </div>
     </div>
   )
 }
 
 /**
- * 能力页。
- *
- * @returns 三个分组的能力卡网格 + 点开的设置窗；纯 UI（旋钮全是占位）。
+ * 办事台页（原「能力」页；导出名保留 `KsCapabilityPage` = 挂载点零改动）。
  */
 export function KsCapabilityPage(): ReactNode {
   ensureKsStyles()
-  const [openId, setOpenId] = useState<string | null>(null)
-  /** 所有旋钮的当前值（占位状态，刷新即还原）。 */
-  const [values, setValues] = useState<Record<string, string | boolean | readonly string[]>>(() => {
-    const init: Record<string, string | boolean | readonly string[]> = {}
-    for (const cap of CAPABILITIES) {
-      for (const k of cap.knobs) if (k.initial !== undefined) init[`${cap.id}.${k.id}`] = k.initial
-    }
-    return init
-  })
-
-  const opened = CAPABILITIES.find((c) => c.id === openId) ?? null
-  const setKnobValue = (capId: string) => (knobId: string, next: string | boolean | readonly string[]): void => {
-    setValues((prev) => ({ ...prev, [`${capId}.${knobId}`]: next }))
-  }
-  /** 把某一项能力的旋钮值取出来给控件用。 */
-  const valuesFor = (capId: string): Record<string, string | boolean | readonly string[]> => {
-    const out: Record<string, string | boolean | readonly string[]> = {}
-    for (const [key, v] of Object.entries(values)) {
-      if (key.startsWith(`${capId}.`)) out[key.slice(capId.length + 1)] = v
-    }
-    return out
-  }
+  const [activeId, setActiveId] = useState<string | null>(null)
+  const active = OFFICE_ITEMS.find((i) => i.id === activeId) ?? null
 
   return (
-    // ⚠ 5j（2026-09-20）：`.ks-page` 只做 container-type（页面留边的宽/窄两档靠它切；
-    //    CSS 里容器不能用自己的宽度查自己 ⇒ 留边落在后代的 `.ks-kb` 上）。
-    //    零内边距零外边距 ⇒ 不是"盒子套盒子"。里面的 JSX 缩进保持原样（本批不重排）。
     <div className="ks-page">
-    <div className="ks-kb">
-      {/* 页面骨架：**与知识库页同一套**（.ks-page-head/.ks-page-title/.ks-page-sub/.ks-page-rule）。
-          5c 之前这里是「inline 14px 粗体」的一行 ⇒ 两个页面的页头**不同级**：知识库页 20px、
-          能力页 14px，用户在 tab 间切时会觉得"小的那个是页里的一块"而不是一页。
-          ⚠ 副标题是 5c **新写**的一句（原来没有）：骨架要求"标题 + 一行副标题 + 分隔线"，
-          少了副标题那一格，分隔线就贴在标题底下、层级又没了。文案只描述这一页是什么。 */}
-      <header className="ks-page-head">
-        <div className="ks-page-title">能力</div>
-        <div className="ks-page-sub">
-          一项能力一张卡：旋钮少于 3 个的就地内联，够 3 个的点开它自己的设置窗
-        </div>
-      </header>
-      <div className="ks-page-rule" />
-
-      {/* 诚实告知条（降级版，同知识库页 P0-1）：内容没删，细则进 title=，一行灰字即可 */}
-      <div
-        className="ks-kb-banner"
-        title={'这一页的结构是业主指定的：一个功能一张卡，点开就是它自己的全部旋钮，而不是全部塞进设置里。'
-          + '交互是真的（开关能拨、选项能选、窗能开），可以直接点着体验。'}
-      >
-        <IconInfoOutline14 />
-        <strong>UI 先行：旋钮是占位，后端未接</strong>
-      </div>
-
-      <div className="ks-kb-row">
-        <span className="ks-kb-hint">{CAPABILITIES.length} 项</span>
-      </div>
-
-      {GROUPS.map((group) => {
-        const items = CAPABILITIES.filter((c) => c.group === group.id)
-        return (
-          <div key={group.id}>
-            <div className="ks-kb-sec">{group.name}（{items.length}）— {group.note}</div>
-            <div className="ks-kb-cards" style={{ gridTemplateColumns: 'repeat(auto-fill,minmax(230px,1fr))' }}>
-              {items.map((cap) => (
-                <CapabilityCard
-                  key={cap.id}
-                  cap={cap}
-                  open={openId === cap.id}
-                  onOpen={(id) => { setOpenId(id) }}
-                  setKnobValue={setKnobValue(cap.id)}
-                  values={valuesFor(cap.id)}
-                />
-              ))}
-              {/* 末行补位（P0-5）：一组一张虚线「＋ 添加能力」卡（照 WeKnora skill-catalog 第 4 格）。
-                  ⚠ **列数是 CSS 自己算的，不由 JS 猜**：.ks-cap-card-add 的 grid-column-end 用 -1
-                    （= 显式网格的最后一条列线）⇒ 它从"下一个空位"一直铺到本行末尾，
-                    于是无论 auto-fill 算出 2 列、3 列还是 5 列，这一行都被**铺满**、不再留孤位。
-                    它不可点（后端未接，做成假按钮更糟）⇒ aria-hidden + title 说明。 */}
-              <div className="ks-cap-card-add" aria-hidden="true" title="占位：将来在这里添加一项自己的功能">
-                <IconPlusOutline16 size={20} />
-                添加能力
-              </div>
-            </div>
-          </div>
-        )
-      })}
-
-      {/* 它自己的设置窗（宿主 Modal；关掉就把它自己的旋钮收起来） */}
-      {opened !== null && (
-        <Modal
-          open
-          onClose={() => { setOpenId(null) }}
-          title={`${opened.name} · 设置`}
-          closeLabel="关闭"
-          description={opened.desc}
-          footer={(
-            <>
-              <span className="ks-kb-hint" style={{ marginRight: 'auto' }}>
-                {opened.knobs.length} 个旋钮（约定上限 6 组；超了说明这项能力该拆）
-              </span>
-              <Button variant="ghost" size="sm" onClick={() => { setOpenId(null) }}>关闭</Button>
-            </>
-          )}
-        >
-          <div className="ks-knobs">
-            {opened.knobs.map((k) => (
-              <KnobControl
-                key={k.id}
-                knob={k}
-                value={valuesFor(opened.id)[k.id]}
-                onChange={(next) => { setKnobValue(opened.id)(k.id, next) }}
-              />
+      <div className="ks-kb">
+        <header className="ks-page-head">
+          <div className="ks-page-title">办事台</div>
+          <div className="ks-page-sub">点一项，开始一件活。</div>
+        </header>
+        <div className="ks-page-rule" />
+        {active !== null ? (
+          <OfficePage item={active} onBack={() => { setActiveId(null) }} />
+        ) : (
+          <div role="menu" aria-label="办事台">
+            {OFFICE_ITEMS.map((item) => (
+              <KsOfficeRow key={item.id} item={item} onOpen={(id) => { setActiveId(id) }} />
             ))}
           </div>
-        </Modal>
-      )}
-    </div>
+        )}
+      </div>
     </div>
   )
 }

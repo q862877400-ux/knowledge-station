@@ -34319,310 +34319,114 @@ var import_dsh_client_ui_primitives4 = require("@deepseek-ai/dsh-client-ui-primi
 var import_react6 = require("react");
 var import_dsh_client_ui_primitives2 = require("@deepseek-ai/dsh-client-ui-primitives");
 var import_jsx_runtime9 = require("react/jsx-runtime");
-var GROUPS = [
-  { id: "builtin", name: "\u81EA\u5E26", note: "\u6CD5\u89C4/\u6807\u51C6\u76F8\u5173\u7684\u57FA\u7840\u80FD\u529B\uFF0C\u4E0D\u53EF\u5220" },
-  { id: "mine", name: "\u6211\u542F\u7528\u7684", note: "\u6309\u9700\u5F00\u542F\u7684\u80FD\u529B\uFF1B\u5173\u6389\u5C31\u4E0D\u51FA\u73B0\u5728\u5DE5\u4F5C\u6D41\u91CC" },
-  { id: "experimental", name: "\u5B9E\u9A8C\u6027", note: "\u8FD8\u5728\u9A8C\u8BC1\uFF0C\u53E3\u5F84\u53EF\u80FD\u53D8\uFF1B\u9ED8\u8BA4\u5173" }
+var OFFICE_ITEMS = [
+  { id: "contract", name: "\u5408\u540C\u5BA1\u67E5", hint: "\u9010\u6761\u6BD4\u5BF9\u6CD5\u89C4\uFF0C\u7ED9\u4E09\u8272\u7ED3\u8BBA", icon: import_dsh_client_ui_primitives2.IconShieldOutline16, status: "ready", verb: "\u4E0A\u4F20\u5408\u540C\u6BD4\u5BF9", pageDesc: "\u4E0A\u4F20\u5408\u540C\uFF0C\u9010\u6761\u6BD4\u5BF9\u6CD5\u89C4\u8981\u6C42\uFF0C\u51FA\u4E09\u8272\u7ED3\u8BBA\uFF08\u5408\u89C4 / \u98CE\u9669 / \u7F3A\u5931\uFF09\uFF0C\u6BCF\u6761\u53EF\u70B9\u5F00\u539F\u6587\u3002" },
+  { id: "duty", name: "\u4E49\u52A1\u6E05\u5355 \u2192 \u68C0\u67E5\u8868", hint: "\u62BD\u51FA\u300C\u5E94\u5F53/\u5FC5\u987B\u300D\uFF0C\u8F6C\u68C0\u67E5\u8868", icon: import_dsh_client_ui_primitives2.IconChecklistOutline14, status: "ready", verb: "\u751F\u6210\u68C0\u67E5\u8868", pageDesc: "\u9009\u5B9A\u8303\u56F4\uFF0C\u628A\u300C\u5E94\u5F53 / \u5FC5\u987B / \u7981\u6B62\u300D\u62BD\u6210\u6E05\u5355\uFF0C\u8F6C\u6210\u53EF\u52FE\u9009\u7684\u68C0\u67E5\u8868\uFF0C\u5BFC\u51FA Markdown\u3002" },
+  { id: "gap", name: "\u5236\u5EA6\u5DEE\u8DDD\u5206\u6790", hint: "\u5185\u90E8\u5236\u5EA6\u6BD4\u6CD5\u89C4\u7F3A\u4EC0\u4E48", icon: import_dsh_client_ui_primitives2.IconPlanOutline14, status: "ready", verb: "\u4E0A\u4F20\u5236\u5EA6\u6BD4\u5BF9", pageDesc: "\u4E0A\u4F20\u5185\u90E8\u5236\u5EA6\uFF0C\u81EA\u52A8\u5BF9\u6BD4\u6CD5\u5B9A\u8981\u6C42\uFF0C\u9010\u6761\u5217\u51FA\u7F3A\u4EC0\u4E48\uFF0C\u51FA\u5DEE\u8DDD\u62A5\u544A\u3002" },
+  { id: "batch", name: "\u6279\u91CF\u95EE\u7B54", hint: "\u4E00\u6279\u6761\u6B3E\uFF0C\u4E00\u6B21\u63D0\u95EE", icon: import_dsh_client_ui_primitives2.IconQueueOutline14, status: "ready", verb: "\u6279\u91CF\u63D0\u95EE", pageDesc: "\u4E00\u6279\u6761\u6B3E\u4E00\u6B21\u63D0\u95EE\uFF0C\u9010\u6761\u7ED9\u7B54\u6848\uFF1B\u54EA\u6761\u5931\u8D25\u5355\u72EC\u91CD\u8BD5\u3002" },
+  { id: "fix", name: "\u7EA0\u9519\u4FEE\u8BA2", hint: "\u6807\u8BB0\u8BC6\u522B\u9519\u7684\u6761\u6B3E\uFF0C\u53EF\u56DE\u9000", icon: import_dsh_client_ui_primitives2.IconListPenOutline16, status: "ready", verb: "\u6253\u5F00\u539F\u6587\u9875\u6807\u8BB0", pageDesc: "\u53D1\u73B0\u6761\u6B3E\u8BC6\u522B\u9519\u4E86\uFF0C\u5728\u539F\u6587\u9875\u6807\u8BB0\u5E76\u63D0\u4EA4\u4FEE\u6539\uFF1B\u6BCF\u7B14\u4FEE\u6539\u7559\u75D5\u3001\u53EF\u56DE\u9000\u3002\u4E5F\u53EF\u4EE5\u5728 PDF \u9605\u8BFB\u5668\u7684\u6761\u6B3E\u884C\u300C\u22EE\u300D\u91CC\u70B9\u300C\u8FD9\u6761\u8BC6\u522B\u9519\u4E86\u300D\u3002" },
+  { id: "egress", name: "\u5916\u53D1\u5BA1\u8BA1", hint: "\u6BCF\u6B21\u5916\u53D1\u8BB0\u5F55\uFF0C\u53EF\u67E5\u53EF\u5BFC\u51FA", icon: import_dsh_client_ui_primitives2.IconClockOutline16, status: "ready", verb: "\u67E5\u770B\u5916\u53D1\u8BB0\u5F55", pageDesc: "\u6BCF\u6B21\u8C03\u7528\u4E91\u7AEF\u7684\u5B8C\u6574\u8BB0\u5F55\uFF0C\u53EF\u67E5\u53EF\u5BFC\u51FA\u2014\u2014\u6570\u636E\u51FA\u4E86\u672C\u673A\u4E00\u5B9A\u7559\u75D5\u3002" },
+  { id: "ask", name: "\u53D6\u8BC1\u95EE\u7B54", hint: "\u53BB\u5BF9\u8BDD\u91CC\u63D0\u95EE", icon: import_dsh_client_ui_primitives2.IconNewChatOutline16, status: "ready", verb: "\u53BB\u5BF9\u8BDD\u91CC\u63D0\u95EE", pageDesc: "\u5728\u5BF9\u8BDD\u91CC\u76F4\u63A5\u63D0\u95EE\uFF1A\u4E09\u6BB5\u5F0F\u4F5C\u7B54\u3001\u53EA\u5F15\u73B0\u884C\u7248\u3001\u6BCF\u53E5\u7ED3\u8BBA\u70B9\u5F97\u5F00\u539F\u6587\u3002" },
+  { id: "explain", name: "\u6761\u6B3E\u91CA\u4E49", hint: "\u505A\u5B8C\u540E\u8FD9\u91CC\u53EF\u4EE5\u70B9", icon: import_dsh_client_ui_primitives2.IconQuestionOutline14, status: "not-yet", verb: "\u89E3\u91CA\u8FD9\u4E00\u6761", pageDesc: "\u5BF9\u5355\u6761\u6761\u6B3E\u7ED9\u767D\u8BDD\u89E3\u91CA\u3002" }
 ];
-var CAPABILITIES = [
-  {
-    id: "ask",
-    name: "\u53D6\u8BC1\u95EE\u7B54",
-    desc: "\u6309\u4E09\u6BB5\u5F0F\u4F5C\u7B54\uFF0C\u53EA\u5F15\u73B0\u884C\u7248\uFF0C\u8BC1\u636E\u53EF\u70B9\u56DE\u539F\u6587",
-    group: "builtin",
-    engine: "\u2705 \u5F15\u64CE\u5DF2\u6709",
-    knobs: [
-      { id: "mode", label: "\u9ED8\u8BA4\u53E3\u5F84", kind: "enum", options: ["\u8F7B\u91CF", "\u53D6\u8BC1"], initial: "\u53D6\u8BC1", hint: "\u53D6\u8BC1\u53E3\u5F84\u4F1A\u5F3A\u5236\u8D70\u4E09\u6BB5\u5F0F\u5E76\u7ED9\u8BC1\u636E\u94FE\u63A5" },
-      { id: "conflict", label: "\u51B2\u7A81\u5904\u7406", kind: "enum", options: ["\u5168\u91CF\u5217\u51FA", "\u53D6\u4E00"], initial: "\u5168\u91CF\u5217\u51FA" },
-      { id: "rankRedline", label: "\u6392\u5E8F\u7EA2\u7EBF\u5F00\u5173", kind: "bool", initial: true, hint: "\u4F4E\u4E8E\u7EA2\u7EBF\u7684\u5019\u9009\u4E0D\u8FDB\u7B54\u6848" }
-    ]
-  },
-  {
-    id: "duty",
-    name: "\u4E49\u52A1\u6E05\u5355 \u2192 \u68C0\u67E5\u8868",
-    desc: "\u4ECE\u6761\u6B3E\u91CC\u62BD\u4E49\u52A1\uFF0C\u751F\u6210\u53EF\u6267\u884C\u7684\u68C0\u67E5\u8868",
-    group: "builtin",
-    engine: "\u2705 \u5F15\u64CE\u6709\u3001\u754C\u9762\u6CA1\u63A5",
-    knobs: [
-      { id: "types", label: "\u4E49\u52A1\u7C7B\u578B", kind: "multi", options: ["\u5E94\u5F53", "\u5FC5\u987B", "\u7981\u6B62"], initial: ["\u5E94\u5F53", "\u5FC5\u987B"] },
-      { id: "scope", label: "\u8303\u56F4", kind: "text", initial: "\u516C\u53F8\u5236\u5EA6\u3001C65/74 \u52B3\u52A8\u5B89\u5168\u6280\u672F", hint: "\u54EA\u4E9B\u6587\u4EF6\u5939\u53C2\u4E0E\u62BD\u53D6" },
-      { id: "template", label: "\u8F93\u51FA\u6A21\u677F", kind: "enum", options: ["\u8868\u683C", "\u9010\u6761"], initial: "\u8868\u683C" },
-      { id: "cite", label: "\u5E26\u51FA\u5904\u94FE\u63A5", kind: "bool", initial: true }
-    ]
-  },
-  {
-    id: "contract",
-    name: "\u5408\u540C\u5BA1\u8BA1",
-    desc: "\u5BF9\u7740\u6807\u51C6/\u6CD5\u89C4\u5BA1\u5408\u540C\u6761\u6B3E\uFF0C\u4E09\u8272\u5224\u5B9A",
-    group: "mine",
-    engine: "\u2705 \u5F15\u64CE\u6709\u3001\u754C\u9762\u6CA1\u63A5",
-    knobs: [
-      { id: "reviewType", label: "\u5BA1\u67E5\u7C7B\u578B", kind: "enum", options: ["\u5B89\u5168\u6761\u6B3E", "\u73AF\u4FDD\u6761\u6B3E", "\u5168\u90E8"], initial: "\u5B89\u5168\u6761\u6B3E" },
-      { id: "judge", label: "\u5224\u5B9A\u53E3\u5F84", kind: "enum", options: ["\u4E25\u683C", "\u5E38\u89C4"], initial: "\u5E38\u89C4" },
-      { id: "range", label: "\u4F9D\u636E\u8303\u56F4", kind: "text", initial: "\u6CD5\u5F8B\u3001\u884C\u653F\u6CD5\u89C4\u3001\u56FD\u5BB6\u6807\u51C6" },
-      { id: "llm", label: "LLM \u7CBE\u5224", kind: "bool", initial: false, hint: "\u5F00\u4E86\u66F4\u51C6\u4F46\u66F4\u6162\u3001\u66F4\u8D39 token" }
-    ]
-  },
-  {
-    id: "gap",
-    name: "\u5236\u5EA6\u5DEE\u8DDD\u5206\u6790",
-    desc: "\u5185\u90E8\u5236\u5EA6 vs \u5916\u90E8\u8981\u6C42\uFF0C\u5217\u51FA\u7F3A\u4EC0\u4E48",
-    group: "mine",
-    engine: "\u2705 \u5F15\u64CE\u6709\u3001\u754C\u9762\u6CA1\u63A5",
-    knobs: [
-      { id: "inner", label: "\u5185\u90E8\u5236\u5EA6\u6587\u4EF6", kind: "text", initial: "\u516C\u53F8\u5236\u5EA6" },
-      { id: "against", label: "\u5BF9\u7167\u8303\u56F4", kind: "text", initial: "\u5B89\u5168\u751F\u4EA7\u6CD5\u3001GB 30871-2022" },
-      { id: "rule", label: "\u5224\u5B9A\u89C4\u5219", kind: "enum", options: ["\u7F3A\u9879", "\u7F3A\u9879+\u5F31\u9879"], initial: "\u7F3A\u9879" }
-    ]
-  },
-  {
-    id: "explain",
-    name: "\u6761\u6B3E\u91CA\u4E49 / \u6279\u91CF\u95EE\u7B54",
-    desc: "\u5355\u6761\u91CA\u4E49\uFF0C\u6216\u5BF9\u4E00\u6279\u6761\u6B3E\u6279\u91CF\u63D0\u95EE",
-    group: "mine",
-    engine: "\u2705 \u5F15\u64CE\u6709\u3001\u754C\u9762\u6CA1\u63A5",
-    // ⚠ 只有 1 个旋钮 ⇒ 按业主的边界**不配独立窗口**，直接在卡上内联
-    knobs: [{ id: "format", label: "\u8F93\u51FA\u683C\u5F0F", kind: "enum", options: ["\u4E00\u53E5\u8BDD", "\u5206\u70B9"], initial: "\u5206\u70B9" }]
-  },
-  {
-    id: "inspection",
-    name: "\u6BCF\u65E5\u5DE1\u68C0",
-    desc: "\u5B9A\u65F6\u626B\u5B98\u65B9\u6E20\u9053\uFF0C\u53D1\u73B0\u53D1\u5E03/\u4FEE\u8BA2/\u5E9F\u6B62",
-    group: "builtin",
-    engine: "\u2705 \u5DF2\u6709",
-    knobs: [
-      { id: "time", label: "\u65F6\u523B", kind: "text", initial: "06:30" },
-      { id: "channels", label: "\u6E20\u9053\u8303\u56F4", kind: "multi", options: ["\u56FD\u5BB6\u6807\u51C6\u5168\u6587\u516C\u5F00\u7CFB\u7EDF", "\u5E94\u6025\u7BA1\u7406\u90E8", "\u751F\u6001\u73AF\u5883\u90E8", "\u5730\u65B9\u6807\u51C6\u4FE1\u606F\u5E73\u53F0"], initial: ["\u56FD\u5BB6\u6807\u51C6\u5168\u6587\u516C\u5F00\u7CFB\u7EDF"] },
-      { id: "retry", label: "\u5931\u8D25\u91CD\u8BD5", kind: "bool", initial: true },
-      { id: "notify", label: "\u901A\u77E5\u65B9\u5F0F", kind: "enum", options: ["\u4EC5\u7AD9\u5185", "\u7AD9\u5185+\u90AE\u4EF6"], initial: "\u4EC5\u7AD9\u5185" }
-    ]
-  },
-  {
-    id: "materials",
-    name: "\u6750\u6599\u8BC4\u5BA1",
-    desc: "\u4E0A\u4F20\u8D44\u6599\u5206\u7EA7\u8BC4\u5BA1\uFF08\u6279\u51C6\u53EA\u80FD\u7531\u4EBA\u505A\uFF09",
-    group: "experimental",
-    engine: "\u{1F7E1} \u672A\u771F\u673A\u8DD1\u8FC7",
-    knobs: [
-      { id: "axisA", label: "\u8F74 A \u6765\u6E90\u5C42\u7EA7\u9ED8\u8BA4\u503C", kind: "enum", options: ["T0 \u539F\u59CB\u51FA\u5904", "T3 \u4EC5\u7EBF\u7D22"], initial: "T3 \u4EC5\u7EBF\u7D22" },
-      { id: "keep", label: "\u4FDD\u7559\u7B56\u7565", kind: "enum", options: ["\u4E0D\u4FDD\u7559", "\u4FDD\u7559 30 \u5929"], initial: "\u4E0D\u4FDD\u7559" }
-    ]
-  },
-  {
-    id: "ingest",
-    name: "\u6587\u4EF6\u5BFC\u5165",
-    desc: "\u628A\u672C\u5730\u6CD5\u89C4/\u5236\u5EA6\u6587\u4EF6\u704C\u8FDB\u77E5\u8BC6\u5E93",
-    group: "builtin",
-    engine: "\u2705 \u5DF2\u6709",
-    knobs: [
-      { id: "folder", label: "\u9ED8\u8BA4\u843D\u5230\u54EA\u4E2A\u6587\u4EF6\u5939", kind: "text", initial: "\u516C\u53F8\u5236\u5EA6" },
-      { id: "dryRun", label: "\u9ED8\u8BA4 Dry-Run", kind: "bool", initial: true, hint: "\u5148\u53EA\u770B\u4F1A\u5199\u4EC0\u4E48\uFF0C\u4E0D\u771F\u5199" },
-      { id: "bucket", label: "\u5206\u6876\u9608\u503C", kind: "text", initial: "0.75" }
-    ]
-  }
-];
-function KnobControl({ knob, value, onChange }) {
-  if (knob.kind === "bool") {
-    return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-      import_dsh_client_ui_primitives2.Switch,
-      {
-        checked: value === true,
-        onChange: (next) => {
-          onChange(next);
-        },
-        label: knob.label,
-        title: knob.hint
-      }
-    );
-  }
-  if (knob.kind === "enum") {
-    return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-knob-row", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-knob-label", children: knob.label }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-knob-ctl", children: (knob.options ?? []).map((opt) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-        import_dsh_client_ui_primitives2.Pill,
-        {
-          active: value === opt,
-          onClick: () => {
-            onChange(opt);
-          },
-          children: opt
-        },
-        opt
-      )) })
-    ] });
-  }
-  if (knob.kind === "multi") {
-    const picked = Array.isArray(value) ? value : [];
-    return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-knob-row", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-knob-label", children: knob.label }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-knob-ctl", children: (knob.options ?? []).map((opt) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-        import_dsh_client_ui_primitives2.Checkbox,
-        {
-          checked: picked.includes(opt),
-          onChange: (next) => {
-            const set = new Set(picked);
-            if (next) set.add(opt);
-            else set.delete(opt);
-            onChange([...set]);
-          },
-          label: opt
-        },
-        opt
-      )) })
-    ] });
-  }
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-knob-row", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-knob-label", children: knob.label }),
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { className: "ks-knob-ctl", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-      import_dsh_client_ui_primitives2.Input,
-      {
-        value: typeof value === "string" ? value : "",
-        title: knob.hint,
-        "aria-label": knob.label,
-        onChange: (event) => {
-          onChange(event.target.value);
-        }
-      }
-    ) })
-  ] });
+function KsOfficeRow(props) {
+  const { item, onOpen } = props;
+  const grey = item.status === "not-yet";
+  const Icon = item.icon;
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
+    "button",
+    {
+      type: "button",
+      disabled: grey,
+      onClick: () => {
+        if (!grey && onOpen !== void 0) onOpen(item.id);
+      },
+      title: grey ? "\u8FD9\u4E2A\u529F\u80FD\u8FD8\u6CA1\u6709\u505A\u5B8C\uFF0C\u505A\u5B8C\u540E\u8FD9\u91CC\u53EF\u4EE5\u70B9" : item.pageDesc,
+      className: "ks-off-row",
+      style: {
+        display: "flex",
+        alignItems: "center",
+        gap: 10,
+        height: 62,
+        padding: "0 14px",
+        width: "100%",
+        background: "none",
+        border: "none",
+        cursor: grey ? "not-allowed" : "pointer",
+        borderBottom: "0.5px solid var(--dsw-alias-border-l1)",
+        textAlign: "left",
+        color: grey ? "var(--dsw-alias-label-tertiary)" : "var(--dsw-alias-label-primary)"
+      },
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+          "span",
+          {
+            style: {
+              width: 28,
+              height: 28,
+              borderRadius: 8,
+              flex: "none",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              opacity: grey ? 0.6 : 1,
+              background: "var(--dsw-alias-bg-layer-1)",
+              border: "0.5px solid var(--dsw-alias-border-l1)"
+            },
+            children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Icon, { size: 14 })
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { flex: 1, minWidth: 0 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { style: { display: "flex", alignItems: "center", gap: 8, fontWeight: 600 }, children: [
+            item.name,
+            grey && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives2.Tag, { tone: "warning", children: "\u8FD8\u6CA1\u6709" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { display: "block", color: "var(--dsw-alias-label-secondary)", fontSize: 12, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }, children: item.hint })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { color: "var(--dsw-alias-label-tertiary)", flex: "none" }, children: grey ? "\xB7" : "\u203A" })
+      ]
+    }
+  );
 }
-function CapabilityCard({ cap, onOpen, open, setKnobValue, values }) {
-  const inline = cap.knobs.length < 3;
-  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-cap-card", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-kb-row", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("strong", { className: "ks-kb-grow ks-kb-ct", title: cap.name, children: cap.name }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_dsh_client_ui_primitives2.Tag, { tone: cap.group === "experimental" ? "warning" : "neutral", children: [
-        cap.knobs.length,
-        " \u4E2A\u65CB\u94AE"
-      ] })
+function OfficePage({ item, onBack }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: 12, padding: "12px 14px 18px" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+      "button",
+      {
+        type: "button",
+        onClick: onBack,
+        style: { alignSelf: "flex-start", background: "none", border: "none", padding: 0, cursor: "pointer", color: "var(--dsw-alias-state-business-primary)", fontSize: 12 },
+        children: "\u2039 \u8FD4\u56DE\u529E\u4E8B\u53F0"
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { fontSize: 15, fontWeight: 600 }, children: item.name }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary)", fontSize: 12, lineHeight: 1.6 }, children: item.pageDesc }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-kb-row", style: { display: "flex", alignItems: "center", gap: 8 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_dsh_client_ui_primitives2.Button, { variant: "outline", size: "sm", disabled: true, children: [
+        "\u5F00\u59CB\uFF1A",
+        item.verb
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives2.Tag, { tone: "warning", children: "\u8FD8\u6CA1\u63A5\u4E0A" })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-kb-cd", children: cap.desc }),
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-cap-engine", children: cap.engine }),
-    inline ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-cap-inline", children: cap.knobs.map((k) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KnobControl, { knob: k, value: values[k.id], onChange: (next) => {
-        setKnobValue(k.id, next);
-      } }, k.id)) }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-kb-hint", children: [
-        "\uFF08\u65CB\u94AE\u5C11\u4E8E 3 \u4E2A\uFF1A\u6309\u7EA6\u5B9A",
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("strong", { children: "\u4E0D\u5355\u72EC\u5F00\u7A97" }),
-        "\uFF0C\u5C31\u5730\u8BBE\u7F6E\uFF09"
-      ] })
-    ] }) : /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives2.Button, { variant: "outline", size: "sm", onClick: () => {
-      onOpen(cap.id);
-    }, "aria-expanded": open, children: "\u8BBE\u7F6E\u2026" })
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary)", fontSize: 11.5, lineHeight: 1.6 }, children: "\u8FD9\u4E00\u5C4F\u7684\u6D41\u7A0B\u6B63\u5728\u63A5\u7EBF\uFF08\u4E0B\u4E00\u6279\u7FFB\u771F\uFF09\uFF1B\u63A5\u597D\u540E\u6309\u94AE\u4EAE\u8D77\u3001\u70B9\u4E0B\u53BB\u76F4\u63A5\u8FDB\u6D41\u7A0B\u3002\u4E0D\u7ED9\u5047\u5165\u53E3\u3002" })
   ] });
 }
 function KsCapabilityPage() {
   ensureKsStyles();
-  const [openId, setOpenId] = (0, import_react6.useState)(null);
-  const [values, setValues] = (0, import_react6.useState)(() => {
-    const init = {};
-    for (const cap of CAPABILITIES) {
-      for (const k of cap.knobs) if (k.initial !== void 0) init[`${cap.id}.${k.id}`] = k.initial;
-    }
-    return init;
-  });
-  const opened = CAPABILITIES.find((c) => c.id === openId) ?? null;
-  const setKnobValue = (capId) => (knobId, next) => {
-    setValues((prev) => ({ ...prev, [`${capId}.${knobId}`]: next }));
-  };
-  const valuesFor = (capId) => {
-    const out = {};
-    for (const [key, v] of Object.entries(values)) {
-      if (key.startsWith(`${capId}.`)) out[key.slice(capId.length + 1)] = v;
-    }
-    return out;
-  };
-  return (
-    // ⚠ 5j（2026-09-20）：`.ks-page` 只做 container-type（页面留边的宽/窄两档靠它切；
-    //    CSS 里容器不能用自己的宽度查自己 ⇒ 留边落在后代的 `.ks-kb` 上）。
-    //    零内边距零外边距 ⇒ 不是"盒子套盒子"。里面的 JSX 缩进保持原样（本批不重排）。
-    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-kb", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("header", { className: "ks-page-head", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-page-title", children: "\u80FD\u529B" }),
-        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-page-sub", children: "\u4E00\u9879\u80FD\u529B\u4E00\u5F20\u5361\uFF1A\u65CB\u94AE\u5C11\u4E8E 3 \u4E2A\u7684\u5C31\u5730\u5185\u8054\uFF0C\u591F 3 \u4E2A\u7684\u70B9\u5F00\u5B83\u81EA\u5DF1\u7684\u8BBE\u7F6E\u7A97" })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-page-rule" }),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
-        "div",
-        {
-          className: "ks-kb-banner",
-          title: "\u8FD9\u4E00\u9875\u7684\u7ED3\u6784\u662F\u4E1A\u4E3B\u6307\u5B9A\u7684\uFF1A\u4E00\u4E2A\u529F\u80FD\u4E00\u5F20\u5361\uFF0C\u70B9\u5F00\u5C31\u662F\u5B83\u81EA\u5DF1\u7684\u5168\u90E8\u65CB\u94AE\uFF0C\u800C\u4E0D\u662F\u5168\u90E8\u585E\u8FDB\u8BBE\u7F6E\u91CC\u3002\u4EA4\u4E92\u662F\u771F\u7684\uFF08\u5F00\u5173\u80FD\u62E8\u3001\u9009\u9879\u80FD\u9009\u3001\u7A97\u80FD\u5F00\uFF09\uFF0C\u53EF\u4EE5\u76F4\u63A5\u70B9\u7740\u4F53\u9A8C\u3002",
-          children: [
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives2.IconInfoOutline14, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("strong", { children: "UI \u5148\u884C\uFF1A\u65CB\u94AE\u662F\u5360\u4F4D\uFF0C\u540E\u7AEF\u672A\u63A5" })
-          ]
-        }
-      ),
-      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-kb-row", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { className: "ks-kb-hint", children: [
-        CAPABILITIES.length,
-        " \u9879"
-      ] }) }),
-      GROUPS.map((group) => {
-        const items = CAPABILITIES.filter((c) => c.group === group.id);
-        return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-kb-sec", children: [
-            group.name,
-            "\uFF08",
-            items.length,
-            "\uFF09\u2014 ",
-            group.note
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-kb-cards", style: { gridTemplateColumns: "repeat(auto-fill,minmax(230px,1fr))" }, children: [
-            items.map((cap) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-              CapabilityCard,
-              {
-                cap,
-                open: openId === cap.id,
-                onOpen: (id) => {
-                  setOpenId(id);
-                },
-                setKnobValue: setKnobValue(cap.id),
-                values: valuesFor(cap.id)
-              },
-              cap.id
-            )),
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-cap-card-add", "aria-hidden": "true", title: "\u5360\u4F4D\uFF1A\u5C06\u6765\u5728\u8FD9\u91CC\u6DFB\u52A0\u4E00\u9879\u81EA\u5DF1\u7684\u529F\u80FD", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives2.IconPlusOutline16, { size: 20 }),
-              "\u6DFB\u52A0\u80FD\u529B"
-            ] })
-          ] })
-        ] }, group.id);
-      }),
-      opened !== null && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-        import_dsh_client_ui_primitives2.Modal,
-        {
-          open: true,
-          onClose: () => {
-            setOpenId(null);
-          },
-          title: `${opened.name} \xB7 \u8BBE\u7F6E`,
-          closeLabel: "\u5173\u95ED",
-          description: opened.desc,
-          footer: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", { className: "ks-kb-hint", style: { marginRight: "auto" }, children: [
-              opened.knobs.length,
-              " \u4E2A\u65CB\u94AE\uFF08\u7EA6\u5B9A\u4E0A\u9650 6 \u7EC4\uFF1B\u8D85\u4E86\u8BF4\u660E\u8FD9\u9879\u80FD\u529B\u8BE5\u62C6\uFF09"
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives2.Button, { variant: "ghost", size: "sm", onClick: () => {
-              setOpenId(null);
-            }, children: "\u5173\u95ED" })
-          ] }),
-          children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-knobs", children: opened.knobs.map((k) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
-            KnobControl,
-            {
-              knob: k,
-              value: valuesFor(opened.id)[k.id],
-              onChange: (next) => {
-                setKnobValue(opened.id)(k.id, next);
-              }
-            },
-            k.id
-          )) })
-        }
-      )
-    ] }) })
-  );
+  const [activeId, setActiveId] = (0, import_react6.useState)(null);
+  const active = OFFICE_ITEMS.find((i) => i.id === activeId) ?? null;
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-kb", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("header", { className: "ks-page-head", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-page-title", children: "\u529E\u4E8B\u53F0" }),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-page-sub", children: "\u70B9\u4E00\u9879\uFF0C\u5F00\u59CB\u4E00\u4EF6\u6D3B\u3002" })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-page-rule" }),
+    active !== null ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(OfficePage, { item: active, onBack: () => {
+      setActiveId(null);
+    } }) : /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { role: "menu", "aria-label": "\u529E\u4E8B\u53F0", children: OFFICE_ITEMS.map((item) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KsOfficeRow, { item, onOpen: (id) => {
+      setActiveId(id);
+    } }, item.id)) })
+  ] }) });
 }
 
 // client/KsIngestPanel.tsx
