@@ -66,6 +66,9 @@ const SUITES = [
   // S3-b2（2026-09-22）：备料行级行为判据（免评审行无批准钮 / 地位胶囊真发 role /
   // 批量条逐字 + 逐项真调）。
   'scripts/smoke-materials-rows.mjs',
+  // 合规护航 C1（2026-09-22）：哨句唯一出处 / 预判据三组 / 段文两态零增量 / 技能字节同步 /
+  // L1 单一出处 / 标准号前缀表跨语言同步。
+  'scripts/smoke-compliance-sentry.mjs',
   'scripts/smoke-anchor-mark.mjs',
   // UI 批0-a（2026-09-22）：诊断 A2 死开关的判据——设置「显示红色定位箭头」必须**真的**传到
   // 查看器（KsEvidenceHost→KsEvidenceTab 的 prefs 透传；桩回显 props 的行为判据，
