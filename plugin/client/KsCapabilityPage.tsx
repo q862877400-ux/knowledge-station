@@ -19,6 +19,7 @@ import { useEffect, useState, type ComponentType, type ReactNode } from 'react'
 
 import {
   Button,
+  Checkbox,
   IconChecklistOutline14,
   IconClockOutline16,
   IconListPenOutline16,
@@ -27,11 +28,13 @@ import {
   IconQuestionOutline14,
   IconQueueOutline14,
   IconShieldOutline16,
+  Input,
   Tag,
 } from '@deepseek-ai/dsh-client-ui-primitives'
 
-import { buildEgressMarkdown, fetchEgressAudit, type KsEgressAuditRecord } from './api'
+import { buildEgressMarkdown, createComplianceReview, executeComplianceReview, fetchEgressAudit, type KsEgressAuditRecord, type KsReviewPoint, type KsReviewVerdict } from './api'
 import { ensureKsStyles } from './ksGuideStyles'
+import { evidenceUrlOf as evidenceHrefOf } from './ksEvidence'
 
 /** 办事台的一件活（= 一行菜单 + 一个专门页面）。 */
 export interface OfficeItem {
@@ -50,7 +53,7 @@ export interface OfficeItem {
 
 /** 八行文案**逐字**照 v3 定稿原型（冒烟钉死；改文案 = 改判据 + 业主过目）。 */
 export const OFFICE_ITEMS: readonly OfficeItem[] = [
-  { id: 'contract', name: '合同审查', hint: '逐条比对法规，给三色结论', icon: IconShieldOutline16, status: 'ready', verb: '上传合同比对', pageDesc: '上传合同，逐条比对法规要求，出三色结论（合规 / 风险 / 缺失），每条可点开原文。' },
+  { id: 'contract', name: '合同审查', hint: '逐条比对法规，给三色结论', icon: IconShieldOutline16, status: 'ready', verb: '上传合同比对', pageDesc: '上传合同，逐条比对法规要求，出三色结论（合规 / 风险 / 需复核），每条可点开原文。' },
   { id: 'duty', name: '义务清单 → 检查表', hint: '抽出「应当/必须」，转检查表', icon: IconChecklistOutline14, status: 'ready', verb: '生成检查表', pageDesc: '选定范围，把「应当 / 必须 / 禁止」抽成清单，转成可勾选的检查表，导出 Markdown。' },
   { id: 'gap', name: '制度差距分析', hint: '内部制度比法规缺什么', icon: IconPlanOutline14, status: 'ready', verb: '上传制度比对', pageDesc: '上传内部制度，自动对比法定要求，逐条列出缺什么，出差距报告。' },
   { id: 'batch', name: '批量问答', hint: '一批条款，一次提问', icon: IconQueueOutline14, status: 'ready', verb: '批量提问', pageDesc: '一批条款一次提问，逐条给答案；哪条失败单独重试。' },
@@ -231,6 +234,186 @@ export function KsEgressPage({ item, onBack }: { readonly item: OfficeItem; read
   )
 }
 
+/** 三色词（引擎 verdict → 界面词与色；语言规范：状态词统一、颜色只用宿主真 token）。 */
+const VERDICT_WORD: Record<string, { text: string; color: string }> = {
+  red: { text: '风险', color: 'var(--dsw-alias-state-error-primary)' },
+  yellow: { text: '需复核', color: 'var(--dsw-alias-state-warn-primary)' },
+  green: { text: '合规', color: 'var(--dsw-alias-state-success-primary)' },
+}
+
+/** 合同审查页（S2-b1：粘贴/文本文件 → 抽审查点 → 逐条执行（SSE）→ 三色结论 + 看原文）。 */
+export function KsContractPage({ item, onBack }: { readonly item: OfficeItem; readonly onBack: () => void }): ReactNode {
+  const [objName, setObjName] = useState('')
+  const [content, setContent] = useState('')
+  const [phase, setPhase] = useState<'input' | 'points' | 'running' | 'done' | 'error'>('input')
+  const [taskId, setTaskId] = useState('')
+  const [points, setPoints] = useState<KsReviewPoint[]>([])
+  const [picked, setPicked] = useState<Set<string>>(new Set())
+  const [verdicts, setVerdicts] = useState<KsReviewVerdict[]>([])
+  const [summary, setSummary] = useState<{ red: number; yellow: number; green: number; path: string } | null>(null)
+  const [errText, setErrText] = useState('')
+  const str = (v: unknown): string => (typeof v === 'string' ? v : v === null || v === undefined ? '' : String(v))
+
+  const startCompare = (): void => {
+    setPhase('running')
+    setErrText('')
+    createComplianceReview({ object_name: objName.trim() || '未命名合同', object_content: content })
+      .then((task) => {
+        setTaskId(task.task_id)
+        setPoints(task.extracted_points)
+        setPicked(new Set(task.extracted_points.map((p) => p.point_id)))
+        setPhase('points')
+      })
+      .catch((error: unknown) => {
+        setErrText(error instanceof Error ? error.message : String(error))
+        setPhase('error')
+      })
+  }
+
+  const runReview = (): void => {
+    setPhase('running')
+    setVerdicts([])
+    setSummary(null)
+    executeComplianceReview(taskId, [...picked], (v) => { setVerdicts((prev) => [...prev, v]) })
+      .then((s) => {
+        setSummary({ red: s.red_count, yellow: s.yellow_count, green: s.green_count, path: s.report_path })
+        setPhase('done')
+      })
+      .catch((error: unknown) => {
+        setErrText(error instanceof Error ? error.message : String(error))
+        setPhase('error')
+      })
+  }
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 12, padding: '12px 14px 18px' }}>
+      <button
+        type="button"
+        onClick={onBack}
+        style={{ alignSelf: 'flex-start', background: 'none', border: 'none', padding: 0, cursor: 'pointer', color: 'var(--dsw-alias-state-business-primary)', fontSize: 12 }}
+      >
+        ‹ 返回办事台
+      </button>
+      <div style={{ fontSize: 15, fontWeight: 600 }}>{item.name}</div>
+      <div style={{ color: 'var(--dsw-alias-label-secondary)', fontSize: 12, lineHeight: 1.6 }}>{item.pageDesc}</div>
+
+      {phase === 'input' && (
+        <>
+          <label className="ks-kb-hint" htmlFor="ks-contract-name">这份合同叫什么</label>
+          <Input
+            id="ks-contract-name"
+            value={objName}
+            placeholder="例如：XX 项目施工合同"
+            aria-label="合同名称"
+            onChange={(e) => { setObjName(e.target.value) }}
+          />
+          <label className="ks-kb-hint" htmlFor="ks-contract-text">合同正文（首版支持文本粘贴或 .txt/.md 文件；PDF/Word 下一批）</label>
+          <textarea
+            id="ks-contract-text"
+            value={content}
+            onChange={(e) => { setContent(e.target.value) }}
+            rows={6}
+            style={{ width: '100%', boxSizing: 'border-box', font: 'inherit', fontSize: 12, padding: 8, border: '0.5px solid var(--dsw-alias-border-l1)', borderRadius: 6, background: 'var(--dsw-alias-bg-layer-1)', color: 'var(--dsw-alias-label-primary)' }}
+          />
+          <input
+            type="file"
+            accept=".txt,.md,text/plain,text/markdown"
+            aria-label="选择文本文件"
+            onChange={(e) => {
+              const f = e.target.files?.[0]
+              if (f === undefined) return
+              void f.text().then((t) => { setContent(t) })
+            }}
+          />
+          <div className="ks-kb-row" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <Button variant="primary" size="sm" disabled={content.trim().length === 0 || (phase as string) === 'running'} onClick={startCompare}>
+              开始：上传合同比对
+            </Button>
+          </div>
+        </>
+      )}
+
+      {phase === 'points' && (
+        <>
+          <div style={{ fontSize: 12, color: 'var(--dsw-alias-label-secondary)' }}>
+            抽出 {String(points.length)} 个审查点——勾掉你不想查的，然后逐条执行。
+          </div>
+          {points.map((p) => (
+            <Checkbox
+              key={p.point_id}
+              label={`${str(p.point_type)}｜${str(p.point_content)}`}
+              checked={picked.has(p.point_id)}
+              onChange={() => {
+                const next = new Set(picked)
+                if (next.has(p.point_id)) next.delete(p.point_id)
+                else next.add(p.point_id)
+                setPicked(next)
+              }}
+            />
+          ))}
+          <div className="ks-kb-row" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+            <Button variant="primary" size="sm" disabled={picked.size === 0 || (phase as string) === 'running'} onClick={runReview}>
+              开始：逐条执行（{String(picked.size)} 条）
+            </Button>
+          </div>
+        </>
+      )}
+
+      {phase === 'running' && (
+        <div style={{ color: 'var(--dsw-alias-label-tertiary)', fontSize: 12 }}>
+          {taskId === '' ? '正在抽取审查点…' : `正在逐条比对（已出 ${String(verdicts.length)} 条）…`}
+        </div>
+      )}
+
+      {phase === 'error' && (
+        <div role="alert" style={{ color: 'var(--dsw-alias-state-error-primary)', fontSize: 12, lineHeight: 1.6 }}>
+          出问题了：{errText}
+        </div>
+      )}
+
+      {(phase === 'running' || phase === 'done') && verdicts.map((v, i) => {
+        const w = VERDICT_WORD[str(v.verdict)] ?? { text: '需复核', color: 'var(--dsw-alias-state-warn-primary)' }
+        const clauses = Array.isArray(v.matched_clauses) ? (v.matched_clauses as Record<string, unknown>[]) : []
+        return (
+          <div key={`${str(v.point_id)}-${String(i)}`} style={{ border: '0.5px solid var(--dsw-alias-border-l1)', borderRadius: 8, padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 4 }}>
+            <div style={{ display: 'flex', gap: 8, alignItems: 'center', fontSize: 12 }}>
+              <span style={{ color: w.color, fontWeight: 600 }}>{w.text}</span>
+              <span style={{ color: 'var(--dsw-alias-label-secondary)' }}>{str(v.point_content).slice(0, 60)}</span>
+            </div>
+            <div style={{ color: 'var(--dsw-alias-label-tertiary)', fontSize: 12, lineHeight: 1.6 }}>{str(v.reason)}</div>
+            {clauses.map((c, j) => {
+              /* 看原文：证据锚点（全局拦截器认领 → 单例证据 tab：跳页 + 红箭头）。
+                 ⚠ doc **只认 doc_id**（引擎 S2-b1 补的字段）——拿 rev 当 doc 兜底是假链接
+                 （真机点开找不到 PDF），没 doc_id 就**不出链接**（不给假入口）。 */
+              const href = evidenceHrefOf({
+                doc: str(c.doc_id ?? ''),
+                page: typeof c.page_start === 'number' ? c.page_start : undefined,
+                rev: str(c.clause_revision_id) || undefined,
+              })
+              return (
+                <div key={`c-${String(j)}`} style={{ fontSize: 12 }}>
+                  {href === null ? null : (
+                    <a href={href} style={{ color: 'var(--dsw-alias-state-business-primary)' }}>
+                      {str(c.standard_no)} {str(c.clause_number)}（{str(c.modality) || '—'}）→ 看原文
+                    </a>
+                  )}
+                </div>
+              )
+            })}
+          </div>
+        )
+      })}
+
+      {phase === 'done' && summary !== null && (
+        <div className="ks-kb-row" style={{ display: 'flex', gap: 8, fontSize: 12, color: 'var(--dsw-alias-label-secondary)' }}>
+          结论：{String(summary.red)} 风险 · {String(summary.yellow)} 需复核 · {String(summary.green)} 合规
+          {summary.path.length > 0 ? `（报告：${summary.path}）` : ''}
+        </div>
+      )}
+    </div>
+  )
+}
+
 /**
  * 办事台页（原「能力」页；导出名保留 `KsCapabilityPage` = 挂载点零改动）。
  */
@@ -250,7 +433,9 @@ export function KsCapabilityPage(): ReactNode {
         {active !== null ? (
           active.id === 'egress'
             ? <KsEgressPage item={active} onBack={() => { setActiveId(null) }} />
-            : <OfficePage item={active} onBack={() => { setActiveId(null) }} />
+            : active.id === 'contract'
+              ? <KsContractPage item={active} onBack={() => { setActiveId(null) }} />
+              : <OfficePage item={active} onBack={() => { setActiveId(null) }} />
         ) : (
           <div role="menu" aria-label="办事台">
             {OFFICE_ITEMS.map((item) => (

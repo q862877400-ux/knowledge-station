@@ -28336,6 +28336,77 @@ function buildEgressMarkdown(total, items) {
   });
   return lines.join("\n");
 }
+async function createComplianceReview(body, signal) {
+  const { token, engine: { port } } = await fetchSession(signal);
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/compliance/review`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
+    body: JSON.stringify({
+      review_type: body.review_type ?? "contract",
+      object_name: body.object_name,
+      object_content: body.object_content,
+      ...body.project_id === void 0 ? {} : { project_id: body.project_id }
+    }),
+    signal
+  });
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5EFA\u5BA1\u67E5\u4EFB\u52A1\u5931\u8D25\uFF08HTTP ${res.status}\uFF09`));
+  const out = await res.json().catch(() => null);
+  const data = out?.data;
+  if (data === null || data === void 0 || typeof data.task_id !== "string" || !Array.isArray(data.extracted_points)) {
+    throw new Error("\u5EFA\u5BA1\u67E5\u4EFB\u52A1\u54CD\u5E94\u5F02\u5E38\uFF08\u671F\u671B {code:200,data:{task_id,extracted_points}}\uFF09");
+  }
+  return data;
+}
+async function executeComplianceReview(taskId, confirmedPointIds, onVerdict, signal) {
+  const { token, engine: { port } } = await fetchSession(signal);
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/compliance/review/${encodeURIComponent(taskId)}/execute`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "text/event-stream" },
+    body: JSON.stringify({ confirmed_point_ids: confirmedPointIds }),
+    signal
+  });
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u6267\u884C\u8BC4\u5BA1\u5931\u8D25\uFF08HTTP ${res.status}\uFF09`));
+  const bodyStream = res.body;
+  if (bodyStream === null) throw new Error("\u6267\u884C\u8BC4\u5BA1\u54CD\u5E94\u6CA1\u6709\u6D41\uFF08\u671F\u671B text/event-stream\uFF09");
+  const reader = bodyStream.getReader();
+  const decoder = new TextDecoder("utf-8");
+  let buffer = "";
+  let summary = null;
+  for (; ; ) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    let sep = buffer.indexOf("\n\n");
+    while (sep >= 0) {
+      const frame = buffer.slice(0, sep);
+      buffer = buffer.slice(sep + 2);
+      sep = buffer.indexOf("\n\n");
+      const nameLine = frame.split("\n").find((l) => l.startsWith("event:"));
+      const dataLine = frame.split("\n").find((l) => l.startsWith("data:"));
+      if (dataLine === void 0) continue;
+      let payload = null;
+      try {
+        payload = JSON.parse(dataLine.slice(5).trim());
+      } catch {
+        continue;
+      }
+      const name = nameLine === void 0 ? "" : nameLine.slice(6).trim();
+      if (name === "point_verdict") {
+        onVerdict(payload);
+      } else if (name === "report_ready") {
+        const r = payload;
+        summary = {
+          red_count: Number(r.red_count ?? 0),
+          yellow_count: Number(r.yellow_count ?? 0),
+          green_count: Number(r.green_count ?? 0),
+          report_path: typeof r.report_path === "string" ? r.report_path : ""
+        };
+      }
+    }
+  }
+  if (summary === null) throw new Error('\u6267\u884C\u8BC4\u5BA1\u6D41\u91CC\u6CA1\u6709\u6C47\u603B\uFF08report_ready \u7F3A\u5E2D\uFF09\u2014\u2014\u4E0D\u8BB8\u5F53\u4F5C"\u6267\u884C\u5B8C\u4E86"');
+  return summary;
+}
 async function fetchEffectDocs(params, signal) {
   const res = await fetch(`/ks/report/effect/docs${qsOf(params)}`, {
     method: "GET",
@@ -34358,7 +34429,7 @@ var import_react6 = require("react");
 var import_dsh_client_ui_primitives2 = require("@deepseek-ai/dsh-client-ui-primitives");
 var import_jsx_runtime9 = require("react/jsx-runtime");
 var OFFICE_ITEMS = [
-  { id: "contract", name: "\u5408\u540C\u5BA1\u67E5", hint: "\u9010\u6761\u6BD4\u5BF9\u6CD5\u89C4\uFF0C\u7ED9\u4E09\u8272\u7ED3\u8BBA", icon: import_dsh_client_ui_primitives2.IconShieldOutline16, status: "ready", verb: "\u4E0A\u4F20\u5408\u540C\u6BD4\u5BF9", pageDesc: "\u4E0A\u4F20\u5408\u540C\uFF0C\u9010\u6761\u6BD4\u5BF9\u6CD5\u89C4\u8981\u6C42\uFF0C\u51FA\u4E09\u8272\u7ED3\u8BBA\uFF08\u5408\u89C4 / \u98CE\u9669 / \u7F3A\u5931\uFF09\uFF0C\u6BCF\u6761\u53EF\u70B9\u5F00\u539F\u6587\u3002" },
+  { id: "contract", name: "\u5408\u540C\u5BA1\u67E5", hint: "\u9010\u6761\u6BD4\u5BF9\u6CD5\u89C4\uFF0C\u7ED9\u4E09\u8272\u7ED3\u8BBA", icon: import_dsh_client_ui_primitives2.IconShieldOutline16, status: "ready", verb: "\u4E0A\u4F20\u5408\u540C\u6BD4\u5BF9", pageDesc: "\u4E0A\u4F20\u5408\u540C\uFF0C\u9010\u6761\u6BD4\u5BF9\u6CD5\u89C4\u8981\u6C42\uFF0C\u51FA\u4E09\u8272\u7ED3\u8BBA\uFF08\u5408\u89C4 / \u98CE\u9669 / \u9700\u590D\u6838\uFF09\uFF0C\u6BCF\u6761\u53EF\u70B9\u5F00\u539F\u6587\u3002" },
   { id: "duty", name: "\u4E49\u52A1\u6E05\u5355 \u2192 \u68C0\u67E5\u8868", hint: "\u62BD\u51FA\u300C\u5E94\u5F53/\u5FC5\u987B\u300D\uFF0C\u8F6C\u68C0\u67E5\u8868", icon: import_dsh_client_ui_primitives2.IconChecklistOutline14, status: "ready", verb: "\u751F\u6210\u68C0\u67E5\u8868", pageDesc: "\u9009\u5B9A\u8303\u56F4\uFF0C\u628A\u300C\u5E94\u5F53 / \u5FC5\u987B / \u7981\u6B62\u300D\u62BD\u6210\u6E05\u5355\uFF0C\u8F6C\u6210\u53EF\u52FE\u9009\u7684\u68C0\u67E5\u8868\uFF0C\u5BFC\u51FA Markdown\u3002" },
   { id: "gap", name: "\u5236\u5EA6\u5DEE\u8DDD\u5206\u6790", hint: "\u5185\u90E8\u5236\u5EA6\u6BD4\u6CD5\u89C4\u7F3A\u4EC0\u4E48", icon: import_dsh_client_ui_primitives2.IconPlanOutline14, status: "ready", verb: "\u4E0A\u4F20\u5236\u5EA6\u6BD4\u5BF9", pageDesc: "\u4E0A\u4F20\u5185\u90E8\u5236\u5EA6\uFF0C\u81EA\u52A8\u5BF9\u6BD4\u6CD5\u5B9A\u8981\u6C42\uFF0C\u9010\u6761\u5217\u51FA\u7F3A\u4EC0\u4E48\uFF0C\u51FA\u5DEE\u8DDD\u62A5\u544A\u3002" },
   { id: "batch", name: "\u6279\u91CF\u95EE\u7B54", hint: "\u4E00\u6279\u6761\u6B3E\uFF0C\u4E00\u6B21\u63D0\u95EE", icon: import_dsh_client_ui_primitives2.IconQueueOutline14, status: "ready", verb: "\u6279\u91CF\u63D0\u95EE", pageDesc: "\u4E00\u6279\u6761\u6B3E\u4E00\u6B21\u63D0\u95EE\uFF0C\u9010\u6761\u7ED9\u7B54\u6848\uFF1B\u54EA\u6761\u5931\u8D25\u5355\u72EC\u91CD\u8BD5\u3002" },
@@ -34530,6 +34601,174 @@ function KsEgressPage({ item, onBack }) {
     ))
   ] });
 }
+var VERDICT_WORD = {
+  red: { text: "\u98CE\u9669", color: "var(--dsw-alias-state-error-primary)" },
+  yellow: { text: "\u9700\u590D\u6838", color: "var(--dsw-alias-state-warn-primary)" },
+  green: { text: "\u5408\u89C4", color: "var(--dsw-alias-state-success-primary)" }
+};
+function KsContractPage({ item, onBack }) {
+  const [objName, setObjName] = (0, import_react6.useState)("");
+  const [content, setContent] = (0, import_react6.useState)("");
+  const [phase, setPhase] = (0, import_react6.useState)("input");
+  const [taskId, setTaskId] = (0, import_react6.useState)("");
+  const [points, setPoints] = (0, import_react6.useState)([]);
+  const [picked, setPicked] = (0, import_react6.useState)(/* @__PURE__ */ new Set());
+  const [verdicts, setVerdicts] = (0, import_react6.useState)([]);
+  const [summary, setSummary] = (0, import_react6.useState)(null);
+  const [errText, setErrText] = (0, import_react6.useState)("");
+  const str3 = (v) => typeof v === "string" ? v : v === null || v === void 0 ? "" : String(v);
+  const startCompare = () => {
+    setPhase("running");
+    setErrText("");
+    createComplianceReview({ object_name: objName.trim() || "\u672A\u547D\u540D\u5408\u540C", object_content: content }).then((task) => {
+      setTaskId(task.task_id);
+      setPoints(task.extracted_points);
+      setPicked(new Set(task.extracted_points.map((p) => p.point_id)));
+      setPhase("points");
+    }).catch((error) => {
+      setErrText(error instanceof Error ? error.message : String(error));
+      setPhase("error");
+    });
+  };
+  const runReview = () => {
+    setPhase("running");
+    setVerdicts([]);
+    setSummary(null);
+    executeComplianceReview(taskId, [...picked], (v) => {
+      setVerdicts((prev) => [...prev, v]);
+    }).then((s) => {
+      setSummary({ red: s.red_count, yellow: s.yellow_count, green: s.green_count, path: s.report_path });
+      setPhase("done");
+    }).catch((error) => {
+      setErrText(error instanceof Error ? error.message : String(error));
+      setPhase("error");
+    });
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: 12, padding: "12px 14px 18px" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+      "button",
+      {
+        type: "button",
+        onClick: onBack,
+        style: { alignSelf: "flex-start", background: "none", border: "none", padding: 0, cursor: "pointer", color: "var(--dsw-alias-state-business-primary)", fontSize: 12 },
+        children: "\u2039 \u8FD4\u56DE\u529E\u4E8B\u53F0"
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { fontSize: 15, fontWeight: 600 }, children: item.name }),
+    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary)", fontSize: 12, lineHeight: 1.6 }, children: item.pageDesc }),
+    phase === "input" && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("label", { className: "ks-kb-hint", htmlFor: "ks-contract-name", children: "\u8FD9\u4EFD\u5408\u540C\u53EB\u4EC0\u4E48" }),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+        import_dsh_client_ui_primitives2.Input,
+        {
+          id: "ks-contract-name",
+          value: objName,
+          placeholder: "\u4F8B\u5982\uFF1AXX \u9879\u76EE\u65BD\u5DE5\u5408\u540C",
+          "aria-label": "\u5408\u540C\u540D\u79F0",
+          onChange: (e) => {
+            setObjName(e.target.value);
+          }
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("label", { className: "ks-kb-hint", htmlFor: "ks-contract-text", children: "\u5408\u540C\u6B63\u6587\uFF08\u9996\u7248\u652F\u6301\u6587\u672C\u7C98\u8D34\u6216 .txt/.md \u6587\u4EF6\uFF1BPDF/Word \u4E0B\u4E00\u6279\uFF09" }),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+        "textarea",
+        {
+          id: "ks-contract-text",
+          value: content,
+          onChange: (e) => {
+            setContent(e.target.value);
+          },
+          rows: 6,
+          style: { width: "100%", boxSizing: "border-box", font: "inherit", fontSize: 12, padding: 8, border: "0.5px solid var(--dsw-alias-border-l1)", borderRadius: 6, background: "var(--dsw-alias-bg-layer-1)", color: "var(--dsw-alias-label-primary)" }
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+        "input",
+        {
+          type: "file",
+          accept: ".txt,.md,text/plain,text/markdown",
+          "aria-label": "\u9009\u62E9\u6587\u672C\u6587\u4EF6",
+          onChange: (e) => {
+            const f = e.target.files?.[0];
+            if (f === void 0) return;
+            void f.text().then((t) => {
+              setContent(t);
+            });
+          }
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-kb-row", style: { display: "flex", alignItems: "center", gap: 8 }, children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_dsh_client_ui_primitives2.Button, { variant: "primary", size: "sm", disabled: content.trim().length === 0 || phase === "running", onClick: startCompare, children: "\u5F00\u59CB\uFF1A\u4E0A\u4F20\u5408\u540C\u6BD4\u5BF9" }) })
+    ] }),
+    phase === "points" && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_jsx_runtime9.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary)" }, children: [
+        "\u62BD\u51FA ",
+        String(points.length),
+        " \u4E2A\u5BA1\u67E5\u70B9\u2014\u2014\u52FE\u6389\u4F60\u4E0D\u60F3\u67E5\u7684\uFF0C\u7136\u540E\u9010\u6761\u6267\u884C\u3002"
+      ] }),
+      points.map((p) => /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+        import_dsh_client_ui_primitives2.Checkbox,
+        {
+          label: `${str3(p.point_type)}\uFF5C${str3(p.point_content)}`,
+          checked: picked.has(p.point_id),
+          onChange: () => {
+            const next = new Set(picked);
+            if (next.has(p.point_id)) next.delete(p.point_id);
+            else next.add(p.point_id);
+            setPicked(next);
+          }
+        },
+        p.point_id
+      )),
+      /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-kb-row", style: { display: "flex", alignItems: "center", gap: 8 }, children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_dsh_client_ui_primitives2.Button, { variant: "primary", size: "sm", disabled: picked.size === 0 || phase === "running", onClick: runReview, children: [
+        "\u5F00\u59CB\uFF1A\u9010\u6761\u6267\u884C\uFF08",
+        String(picked.size),
+        " \u6761\uFF09"
+      ] }) })
+    ] }),
+    phase === "running" && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary)", fontSize: 12 }, children: taskId === "" ? "\u6B63\u5728\u62BD\u53D6\u5BA1\u67E5\u70B9\u2026" : `\u6B63\u5728\u9010\u6761\u6BD4\u5BF9\uFF08\u5DF2\u51FA ${String(verdicts.length)} \u6761\uFF09\u2026` }),
+    phase === "error" && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { role: "alert", style: { color: "var(--dsw-alias-state-error-primary)", fontSize: 12, lineHeight: 1.6 }, children: [
+      "\u51FA\u95EE\u9898\u4E86\uFF1A",
+      errText
+    ] }),
+    (phase === "running" || phase === "done") && verdicts.map((v, i) => {
+      const w = VERDICT_WORD[str3(v.verdict)] ?? { text: "\u9700\u590D\u6838", color: "var(--dsw-alias-state-warn-primary)" };
+      const clauses = Array.isArray(v.matched_clauses) ? v.matched_clauses : [];
+      return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { border: "0.5px solid var(--dsw-alias-border-l1)", borderRadius: 8, padding: "8px 10px", display: "flex", flexDirection: "column", gap: 4 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", fontSize: 12 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { color: w.color, fontWeight: 600 }, children: w.text }),
+          /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { color: "var(--dsw-alias-label-secondary)" }, children: str3(v.point_content).slice(0, 60) })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary)", fontSize: 12, lineHeight: 1.6 }, children: str3(v.reason) }),
+        clauses.map((c, j) => {
+          const href = evidenceUrlOf({
+            doc: str3(c.doc_id ?? ""),
+            page: typeof c.page_start === "number" ? c.page_start : void 0,
+            rev: str3(c.clause_revision_id) || void 0
+          });
+          return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { style: { fontSize: 12 }, children: href === null ? null : /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("a", { href, style: { color: "var(--dsw-alias-state-business-primary)" }, children: [
+            str3(c.standard_no),
+            " ",
+            str3(c.clause_number),
+            "\uFF08",
+            str3(c.modality) || "\u2014",
+            "\uFF09\u2192 \u770B\u539F\u6587"
+          ] }) }, `c-${String(j)}`);
+        })
+      ] }, `${str3(v.point_id)}-${String(i)}`);
+    }),
+    phase === "done" && summary !== null && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-kb-row", style: { display: "flex", gap: 8, fontSize: 12, color: "var(--dsw-alias-label-secondary)" }, children: [
+      "\u7ED3\u8BBA\uFF1A",
+      String(summary.red),
+      " \u98CE\u9669 \xB7 ",
+      String(summary.yellow),
+      " \u9700\u590D\u6838 \xB7 ",
+      String(summary.green),
+      " \u5408\u89C4",
+      summary.path.length > 0 ? `\uFF08\u62A5\u544A\uFF1A${summary.path}\uFF09` : ""
+    ] })
+  ] });
+}
 function KsCapabilityPage() {
   ensureKsStyles();
   const [activeId, setActiveId] = (0, import_react6.useState)(null);
@@ -34541,6 +34780,8 @@ function KsCapabilityPage() {
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-page-rule" }),
     active !== null ? active.id === "egress" ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KsEgressPage, { item: active, onBack: () => {
+      setActiveId(null);
+    } }) : active.id === "contract" ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(KsContractPage, { item: active, onBack: () => {
       setActiveId(null);
     } }) : /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(OfficePage, { item: active, onBack: () => {
       setActiveId(null);

@@ -265,7 +265,11 @@ def execute_review(task_id: str, confirmed_point_ids: list[str] | None = None):
             "matched_clauses": [
                 {"clause_revision_id": c.clause_revision_id, "standard_no": c.standard_no,
                  "clause_number": c.clause_number, "modality": c.modality,
-                 "page_start": c.page_start} for c in matched[:3]],
+                 "page_start": c.page_start,
+                 # S2-b1（2026-09-22，**只加不改**）：补 doc_id —— 界面「看原文」要拿它拼证据锚点
+                 # （跳 PDF 那一页 + 红箭头）；没有它时客户端拿 rev 当 doc 兜底 = 假链接
+                 # （真机点开找不到文件）。getattr 兜底 None ⇒ 旧形状语义不变。
+                 "doc_id": getattr(c, "doc_id", None)} for c in matched[:3]],
         }
         results.append(item)
         yield item

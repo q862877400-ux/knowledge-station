@@ -468,6 +468,30 @@ export function mount(container, props) {
     const u = new URL(url)
     const p = u.pathname
     /* S2-a2：外发审计只读列表（第一个翻真的专门页）。脱敏摘要行照引擎 _row_to_audit 的字段。 */
+    /* S2-b1：合规审查两段式（建任务抽点 → SSE 逐条执行）。SSE 桩 = 真 ReadableStream，
+       帧格式照引擎 `_sse`（event: 名 / data: json / 空行）。 */
+    if (p === '/api/v1/compliance/review' && method === 'POST') {
+      return json({ code: 200, data: { task_id: 'task_X', status: 'pending', extracted_points: [
+        { point_id: 'pt_1', point_type: '安全条款', point_content: '高处作业应办理作业票' },
+        { point_id: 'pt_2', point_type: '环保条款', point_content: '废弃物应分类存放' },
+      ] } })
+    }
+    if (p === '/api/v1/compliance/review/task_X/execute' && method === 'POST') {
+      const sseFrame = (name, obj) => `event: ${name}\ndata: ${JSON.stringify(obj)}\n\n`
+      const sse = [
+        sseFrame('point_verdict', { point_id: 'pt_1', point_type: '安全条款', point_content: '高处作业应办理作业票', verdict: 'red', reason: '未见作业票要求。', matched_clauses: [{ clause_revision_id: 'rev_1', doc_id: 'doc_1', standard_no: 'GB 30871-2022', clause_number: '第4.1.1条', modality: '应', page_start: 7 }] }),
+        sseFrame('point_verdict', { point_id: 'pt_2', point_type: '环保条款', point_content: '废弃物应分类存放', verdict: 'yellow', reason: '未命中明确法条，需人工复核。', matched_clauses: [] }),
+        sseFrame('report_ready', { red_count: 1, yellow_count: 1, green_count: 0, report_path: 'exports/review_x.md' }),
+        sseFrame('done', {}),
+      ].join('')
+      return {
+        ok: true,
+        status: 200,
+        body: new ReadableStream({ start(c) { c.enqueue(new TextEncoder().encode(sse)); c.close() } }),
+        json: async () => ({}),
+        text: async () => sse,
+      }
+    }
     if (p === '/api/v1/egress/audit' && method === 'GET') {
       return json({
         code: 200,
@@ -2243,11 +2267,11 @@ export function mount(container, props) {
     officeExplain.disabled === true && (officeExplain.textContent ?? '').includes('还没有'),
     `disabled=${String(officeExplain.disabled)}`)
 
-  await cClick(officeRows[0])
+  await cClick(officeRows[1])
   const officePageText = capContainer.textContent ?? ''
-  check('办事台：点「合同审查」⇒ 进专门页面（标题 + ‹ 返回办事台 + 动作位）',
-    officePageText.includes('合同审查') && officePageText.includes('‹ 返回办事台')
-    && officePageText.includes('开始：上传合同比对'),
+  check('办事台：点「义务清单 → 检查表」⇒ 进专门页面（标题 + ‹ 返回办事台 + 动作位）',
+    officePageText.includes('义务清单') && officePageText.includes('‹ 返回办事台')
+    && officePageText.includes('开始：生成检查表'),
     officePageText.slice(0, 60))
   const officeStartBtn = cq('button').find((b) => (b.textContent ?? '').includes('开始：'))
   check('办事台：S2-a1 动作钮**灰 +「还没接上」**（不给假入口；S2-a2 起逐个翻真）',
@@ -2289,6 +2313,44 @@ export function mount(container, props) {
     mdText.includes('共 2 条外发') && mdText.includes('dump_1') && mdText.includes('# 外发审计记录')
     && !mdText.includes('**'),
     mdText.slice(0, 80))
+
+  /* ── S2-b1：合同审查真流程（粘贴 → 抽审查点 → 逐条执行 SSE → 三色 + 看原文锚点）── */
+  await cClick(cq('button').find((b) => (b.textContent ?? '').includes('返回办事台')))
+  await cClick(cq('.ks-off-row')[0])
+  const contractArea = capContainer.querySelector('#ks-contract-text')
+  const contractStart = () => cq('button').find((b) => (b.textContent ?? '').includes('开始：上传合同比对'))
+  check('办事台·合同审查：输入屏在（名称框 + 正文框 + 开始比对钮），空正文时钮**灰**',
+    contractArea !== null && contractStart() !== undefined && contractStart().disabled === true,
+    `正文框 ${contractArea === null ? 0 : 1} / 钮 ${contractStart() === undefined ? 0 : 1}`)
+  const areaSetter = Object.getOwnPropertyDescriptor(dom.window.HTMLTextAreaElement.prototype, 'value').set
+  areaSetter.call(contractArea, '高处作业应办理作业票。废弃物应分类存放。')
+  contractArea.dispatchEvent(new dom.window.Event('input', { bubbles: true }))
+  await flush(); await flush()
+  check('办事台·合同审查：有正文后开始钮亮（不是死按钮）', contractStart().disabled === false,
+    `disabled=${String(contractStart().disabled)}`)
+  await cClick(contractStart())
+  await flush(); await flush()
+  check('办事台·合同审查：真建任务（POST /api/v1/compliance/review）并渲染 2 个审查点',
+    calls.some((c) => c.url.includes('/api/v1/compliance/review'))
+    && (capContainer.textContent ?? '').includes('抽出 2 个审查点')
+    && (capContainer.textContent ?? '').includes('高处作业应办理作业票'),
+    (capContainer.textContent ?? '').slice(0, 60))
+  const execBtn2 = cq('button').find((b) => (b.textContent ?? '').includes('逐条执行'))
+  check('办事台·合同审查：执行钮带条数（2 条）', execBtn2 !== undefined && (execBtn2.textContent ?? '').includes('（2 条）'),
+    execBtn2 === undefined ? '没找到执行钮' : (execBtn2.textContent ?? ''))
+  await cClick(execBtn2)
+  await flush(); await flush()
+  check('办事台·合同审查：SSE 逐条三色真渲染（风险 + 需复核 两色词 + 汇总行逐字）',
+    (capContainer.textContent ?? '').includes('风险')
+    && (capContainer.textContent ?? '').includes('需复核')
+    && (capContainer.textContent ?? '').includes('结论：1 风险 · 1 需复核 · 0 合规'),
+    (capContainer.textContent ?? '').slice(-80))
+  check('办事台·合同审查：「看原文」锚点真生成（evidenceUrlOf 契约：doc=doc_id + page + rev）',
+    [...capContainer.querySelectorAll('a')].some((a) => {
+      const href = a.getAttribute('href') ?? ''
+      return href.includes('/__ks_evidence__') && href.includes('doc=doc_1') && href.includes('rev=rev_1') && href.includes('page=7')
+    }),
+    [...capContainer.querySelectorAll('a')].map((a) => a.getAttribute('href')).join(' | ').slice(0, 80))
 
   capRoot.unmount()
   await flush()
