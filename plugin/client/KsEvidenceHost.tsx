@@ -18,7 +18,7 @@
  * | `tab.id` | `useTabInfo().tab.id` |
  * | `visible` | `useTabInfo().tab.visible`（缺省 true —— 面板未展开时官方不给该字段） |
  * | `scope.sessionId` | 注入工厂的 `sessionId` |
- * | `prefs.showArrow` | 宿主固定默认（官方无共享 prefs 存储） |
+ * | `prefs.showArrow` | **ksPrefs 本地偏好**（订阅式；设置区开关即时生效）——2026-09-22 修诊断 A2：曾写"宿主固定默认"并硬编码 `true`，设置里的开关因此是死的 |
  * | `panel`（宽度能力） | **不给** —— 官方右侧栏无宽度面，见 `ks-evidence-props.ts` |
  * | `onOpenEvidence` | `ctx.sidebarRight.openResource`（同一地址再导航 → revision +1 → 组件重载） |
  *
@@ -46,6 +46,7 @@ import * as React from 'react'
 import { KsEvidenceTab } from './KsEvidenceTab'
 import type { KsEvidenceProps } from './ks-evidence-props'
 import type { KsEvidenceNavParams, UseKsTabInfo } from './ksSidebar'
+import { getPrefsSnapshot, subscribePrefs } from './ksPrefs'
 
 /**
  * 官方座位**运行时**交给 body 的成员（框架给，不经 inject）。
@@ -102,6 +103,17 @@ function KsEvidenceBody(props: KsEvidenceHostProps): React.ReactElement {
   const info = useTabInfo()
   const t = info.tab
 
+  // 设置区「显示红色定位箭头」的偏好：订阅 ksPrefs（诊断 A2：这里曾硬编码 `showArrow: true`
+  // ⇒ 设置里的开关是死的、查看器恒显箭头。偏好存储本来就是订阅式的，缺的只是这根线）。
+  // ⚠ 两个读值回调**同源**（都读内存快照）：本插件纯客户端、没有 SSR，第三参数只会被
+  // `renderToStaticMarkup` 类渲染使用（我们的冒烟）——若给它另一套"服务端默认值"，
+  // 判据就只能看见默认值、看不见开关的真实效果（2026-09-22 实测踩过：断言恒真）。
+  const showArrow = React.useSyncExternalStore(
+    subscribePrefs,
+    () => getPrefsSnapshot().showArrow,
+    () => getPrefsSnapshot().showArrow,
+  )
+
   /** 证据 URL：单例地址不带查询段，真实证据在 `navigation.params` 里。 */
   const params = t.navigation?.params as KsEvidenceNavParams | undefined
   const evidenceUrl = typeof params?.url === 'string' ? params.url : undefined
@@ -123,9 +135,9 @@ function KsEvidenceBody(props: KsEvidenceHostProps): React.ReactElement {
     // 官方只在面板展开且是本 tab 时给 `visible: true`；字段缺席按"可见"处理，
     // 否则首次挂载会因 undefined 而整片不绘制。
     visible: t.visible !== false,
-    prefs: { showArrow: true },
+    prefs: { showArrow },
     onOpenEvidence: (url: string) => openEvidence(url),
-  }), [t.id, t.kind, t.title, evidenceUrl, t.navigation?.revision, t.visible, openEvidence])
+  }), [t.id, t.kind, t.title, evidenceUrl, t.navigation?.revision, t.visible, openEvidence, showArrow])
 
   return React.createElement(KsEvidenceTab, evidenceProps)
 }

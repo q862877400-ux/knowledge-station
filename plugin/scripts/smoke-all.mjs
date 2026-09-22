@@ -59,6 +59,10 @@ const SUITES = [
   'scripts/smoke-catalog-ui.mjs',
   'scripts/smoke-channels-routes.mjs',
   'scripts/smoke-anchor-mark.mjs',
+  // UI 批0-a（2026-09-22）：诊断 A2 死开关的判据——设置「显示红色定位箭头」必须**真的**传到
+  // 查看器（KsEvidenceHost→KsEvidenceTab 的 prefs 透传；桩回显 props 的行为判据，
+  // 宿主写死 showArrow:true 当场红）。纯离线静态渲染，秒级。
+  'scripts/smoke-evidence-prefs.mjs',
   'scripts/smoke-class-summary.mjs',
   'scripts/smoke-kb-page-render.mjs',
   'scripts/smoke-ui-scale.mjs',

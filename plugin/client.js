@@ -33037,6 +33037,60 @@ var $dirSearchClear = {
   fontWeight: 600
 };
 
+// client/ksPrefs.ts
+var KS_SHOW_ARROW_KEY = "showArrow";
+var LS_KEY = "ks-dsh-plugin.prefs.v1";
+var KS_PREFS_DEFAULT = { showArrow: true };
+var listeners = /* @__PURE__ */ new Set();
+function readRaw() {
+  try {
+    const s = globalThis.localStorage?.getItem(LS_KEY);
+    if (s === null || s === void 0) return { ...KS_PREFS_DEFAULT };
+    const o = JSON.parse(s);
+    return {
+      // 只有**显式 false** 才算关（`undefined`/缺失 = 开），与旧实现同口径。
+      showArrow: o?.[KS_SHOW_ARROW_KEY] !== false
+    };
+  } catch {
+    return { ...KS_PREFS_DEFAULT };
+  }
+}
+var snapshot = readRaw();
+function emit() {
+  for (const fn of listeners) {
+    try {
+      fn();
+    } catch {
+    }
+  }
+}
+function subscribePrefs(listener) {
+  listeners.add(listener);
+  return () => {
+    listeners.delete(listener);
+  };
+}
+function getPrefsSnapshot() {
+  return snapshot;
+}
+function updatePrefs(patch) {
+  const next = { ...snapshot, ...patch };
+  snapshot = next;
+  try {
+    globalThis.localStorage?.setItem(LS_KEY, JSON.stringify(next));
+  } catch {
+  }
+  emit();
+}
+try {
+  globalThis.addEventListener?.("storage", (e) => {
+    if (e.key !== null && e.key !== LS_KEY) return;
+    snapshot = readRaw();
+    emit();
+  });
+} catch {
+}
+
 // client/KsEvidenceHost.tsx
 function KsEvidenceHost(props) {
   const { useTabInfo, openEvidence } = props;
@@ -33053,6 +33107,11 @@ function KsEvidenceBody(props) {
   const { useTabInfo, openEvidence } = props;
   const info2 = useTabInfo();
   const t = info2.tab;
+  const showArrow = React.useSyncExternalStore(
+    subscribePrefs,
+    () => getPrefsSnapshot().showArrow,
+    () => getPrefsSnapshot().showArrow
+  );
   const params = t.navigation?.params;
   const evidenceUrl = typeof params?.url === "string" ? params.url : void 0;
   const evidenceProps = React.useMemo(() => ({
@@ -33072,9 +33131,9 @@ function KsEvidenceBody(props) {
     // 官方只在面板展开且是本 tab 时给 `visible: true`；字段缺席按"可见"处理，
     // 否则首次挂载会因 undefined 而整片不绘制。
     visible: t.visible !== false,
-    prefs: { showArrow: true },
+    prefs: { showArrow },
     onOpenEvidence: (url) => openEvidence(url)
-  }), [t.id, t.kind, t.title, evidenceUrl, t.navigation?.revision, t.visible, openEvidence]);
+  }), [t.id, t.kind, t.title, evidenceUrl, t.navigation?.revision, t.visible, openEvidence, showArrow]);
   return React.createElement(KsEvidenceTab, evidenceProps);
 }
 
@@ -39540,60 +39599,6 @@ var $td = {
 var $trWarn = {
   background: "var(--dsw-alias-bg-layer-1, #fff8f8)"
 };
-
-// client/ksPrefs.ts
-var KS_SHOW_ARROW_KEY = "showArrow";
-var LS_KEY = "ks-dsh-plugin.prefs.v1";
-var KS_PREFS_DEFAULT = { showArrow: true };
-var listeners = /* @__PURE__ */ new Set();
-function readRaw() {
-  try {
-    const s = globalThis.localStorage?.getItem(LS_KEY);
-    if (s === null || s === void 0) return { ...KS_PREFS_DEFAULT };
-    const o = JSON.parse(s);
-    return {
-      // 只有**显式 false** 才算关（`undefined`/缺失 = 开），与旧实现同口径。
-      showArrow: o?.[KS_SHOW_ARROW_KEY] !== false
-    };
-  } catch {
-    return { ...KS_PREFS_DEFAULT };
-  }
-}
-var snapshot = readRaw();
-function emit() {
-  for (const fn of listeners) {
-    try {
-      fn();
-    } catch {
-    }
-  }
-}
-function subscribePrefs(listener) {
-  listeners.add(listener);
-  return () => {
-    listeners.delete(listener);
-  };
-}
-function getPrefsSnapshot() {
-  return snapshot;
-}
-function updatePrefs(patch) {
-  const next = { ...snapshot, ...patch };
-  snapshot = next;
-  try {
-    globalThis.localStorage?.setItem(LS_KEY, JSON.stringify(next));
-  } catch {
-  }
-  emit();
-}
-try {
-  globalThis.addEventListener?.("storage", (e) => {
-    if (e.key !== null && e.key !== LS_KEY) return;
-    snapshot = readRaw();
-    emit();
-  });
-} catch {
-}
 
 // client/KsSettingsSection.tsx
 var import_jsx_runtime14 = require("react/jsx-runtime");
