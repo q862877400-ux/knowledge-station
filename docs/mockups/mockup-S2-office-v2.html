@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>原型 v2（假数据）：办事台 = 规整菜单 + 专门页面（S2 提案 v2）</title>
+<style>
+  /* 业主 2026-09-22 反馈后重画：① 不用内容量不齐的卡片 ⇒ 等高菜单行；
+     ② 字压到最少，一眼知道干什么；③ 点一行 → 进该功能的专门页面（设置/说明都在页面里）。
+     DSH 风格近似：0.5px 分隔、4px 网格。假数据，不接后端。 */
+  :root { --lbl1:#111; --lbl2:#666; --lbl3:#9a9a9a; --bd:#e5e5e5; --bg1:#fafafa; --bg2:#fff;
+          --blue:#0969da; --amber:#9a6700; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font:13px/1.6 "Segoe UI",system-ui,sans-serif; color:var(--lbl1); background:var(--bg1); padding:24px; }
+  h1 { font-size:20px; margin-bottom:4px; }
+  .sub { color:var(--lbl2); font-size:12px; margin-bottom:16px; }
+  .row2 { display:flex; gap:24px; align-items:flex-start; }
+
+  .panel { width:520px; background:var(--bg2); border:0.5px solid var(--bd); border-radius:10px; overflow:hidden; }
+  .phead { padding:14px 16px 10px; border-bottom:0.5px solid var(--bd); }
+  .phead b { font-size:15px; }
+  .phead .one { color:var(--lbl2); font-size:12px; }
+
+  /* 菜单：每行完全等高同构 —— 图标格 + 名称 + 一行短语 + 箭头 */
+  .menu { display:flex; flex-direction:column; }
+  .item { display:flex; align-items:center; gap:12px; height:56px; padding:0 16px;
+          border-bottom:0.5px solid var(--bd); }
+  .item:last-child { border-bottom:0; }
+  .ico { width:30px; height:30px; border-radius:8px; background:var(--bg1); border:0.5px solid var(--bd);
+         display:flex; align-items:center; justify-content:center; font-size:15px; flex:none; }
+  .tx { flex:1; min-width:0; display:flex; align-items:baseline; gap:10px; }
+  .nm { font-weight:600; white-space:nowrap; }
+  .hint { color:var(--lbl2); font-size:12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .go { color:var(--lbl3); font-size:14px; flex:none; }
+  .item.off .nm, .item.off .hint, .item.off .go { color:var(--lbl3); }
+  .tag { font-size:11px; color:var(--amber); border:0.5px solid var(--amber); border-radius:999px; padding:0 8px; flex:none; }
+
+  /* 示例目的页（点「合同审查」进去长这样）：一屏一事、大按钮、说明只一行 */
+  .back { color:var(--blue); font-size:12px; padding:12px 16px 0; cursor:pointer; }
+  .pbody { padding:12px 16px 20px; display:flex; flex-direction:column; gap:14px; }
+  .pbody h2 { font-size:16px; }
+  .drop { border:0.5px dashed var(--bd); border-radius:8px; height:150px; display:flex;
+          flex-direction:column; align-items:center; justify-content:center; gap:6px; color:var(--lbl3); }
+  .cta { align-self:flex-start; background:var(--blue); color:#fff; border-radius:6px;
+         padding:8px 22px; font-size:13px; border:0.5px solid var(--blue); }
+  .one { color:var(--lbl2); font-size:12px; }
+  .cap { width:1080px; color:var(--lbl2); font-size:12px; margin-top:10px; }
+</style>
+</head>
+<body>
+<h1>S2 v2（假数据）：办事台 = 规整菜单 → 点击进专门页面</h1>
+<div class="sub">业主 2026-09-22 反馈后重画：等高菜单行、一屏一眼知道干什么、设置与说明全部搬进各自页面 · 2026-09-22</div>
+<div class="row2">
+
+  <!-- 左：菜单（一屏一决定：选一件活） -->
+  <div class="panel">
+    <div class="phead"><b>办事台</b><div class="one">点一项，开始一件活。</div></div>
+    <div class="menu">
+      <div class="item"><div class="ico">📄</div><div class="tx"><span class="nm">合同审查</span><span class="hint">逐条比对法规，给三色结论</span></div><span class="go">›</span></div>
+      <div class="item"><div class="ico">✅</div><div class="tx"><span class="nm">义务清单 → 检查表</span><span class="hint">抽出「应当/必须」，转检查表</span></div><span class="go">›</span></div>
+      <div class="item"><div class="ico">📊</div><div class="tx"><span class="nm">制度差距分析</span><span class="hint">内部制度比法规缺什么</span></div><span class="go">›</span></div>
+      <div class="item"><div class="ico">❓</div><div class="tx"><span class="nm">批量问答</span><span class="hint">一批条款，一次提问</span></div><span class="go">›</span></div>
+      <div class="item"><div class="ico">🖊</div><div class="tx"><span class="nm">纠错修订</span><span class="hint">标记识别错的条款，可回退</span></div><span class="go">›</span></div>
+      <div class="item"><div class="ico">🧾</div><div class="tx"><span class="nm">外发审计</span><span class="hint">每次外发记录，可查可导出</span></div><span class="go">›</span></div>
+      <div class="item"><div class="ico">💬</div><div class="tx"><span class="nm">取证问答</span><span class="hint">去对话里提问</span></div><span class="go">›</span></div>
+      <div class="item off"><div class="ico">📖</div><div class="tx"><span class="nm">条款释义</span><span class="hint">做完后这里可以点</span></div><span class="tag">还没有</span><span class="go">·</span></div>
+    </div>
+  </div>
+
+  <!-- 右：示例目的页（点「合同审查」进来长这样） -->
+  <div class="panel">
+    <div class="back">‹ 返回办事台</div>
+    <div class="pbody">
+      <h2>合同审查</h2>
+      <div class="drop"><div style="font-size:22px">📄</div><div>把合同拖进来，或点击选择文件</div><div class="one">支持 PDF / Word</div></div>
+      <button class="cta">开始比对</button>
+      <div class="one">结果逐条给出：合规 / 风险 / 缺失，每条可点开原文。</div>
+    </div>
+  </div>
+
+</div>
+<p class="cap">对比 v1：八张高矮不一的卡片 + 密集文字 → 一列等高菜单（每行一个名称一个短语），一眼扫完、一眼知道干什么；
+点一行进它的专门页面，把"该怎么办"留给页面本身。没做完的功能灰行 + 「还没有」小牌，不给假入口。</p>
+</body>
+</html>
