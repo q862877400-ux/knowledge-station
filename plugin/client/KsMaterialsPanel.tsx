@@ -513,7 +513,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
     void run('scan', async () => {
       const r = await scanMaterialProject(projectId)
       await reloadInbox(projectId)
-      return `扫描完成：登记 ${r.registered} / 共 ${r.scanned} 个文件。**新登记的材料是待评审状态**，`
+      return `扫描完成：登记 ${r.registered} / 共 ${r.scanned} 个文件。新登记的材料是待评审状态，`
         + '需你在下方逐份批准后才会进入作答。'
     }, projectId)
   }, [projectId, reloadInbox, run])
@@ -531,7 +531,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
   const onCollect = useCallback(() => {
     if (projectId === '') return
     const url = collectUrl.trim()
-    if (url === '') { setError('请先填网址（要**原始出处**的网页地址）'); return }
+    if (url === '') { setError('请先填网址（要原始出处的网页地址）'); return }
     void run('collect', async () => {
       const out = await collectMaterialUrl(projectId, {
         url, note: collectNote.trim() === '' ? undefined : collectNote.trim(),
@@ -540,19 +540,19 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
         // 请求成功、结果不是成功 ⇒ 如实说，并明确"这次没有登记任何东西"
         setWarn(`没有采到：${out.reason ?? '原因未给'}`
           + (out.status !== undefined ? `（HTTP ${out.status}）` : '')
-          + '。这条**没有**登记成材料——可以换个**原始出处**的网址再试，'
+          + '。这条没有登记成材料——可以换个原始出处的网址再试，'
           + '或把正文粘贴/保存成文件放进上面的参考资料文件夹。')
         return ''
       }
       setCollectUrl('')
       const title = out.material?.title ?? '（标题取自页面）'
       const chunks = out.material?.chunk_count ?? 0
-      return `已登记「${title}」（${chunks} 个切片，来源层级 **T3=仅线索**）`
+      return `已登记「${title}」（${chunks} 个切片，来源层级 T3=仅线索）`
         + (out.duplicate === true
-          ? '——⚠ 这个网址的内容**与项目里已有的一份相同**，引擎**没有**重复登记。'
+          ? '——⚠ 这个网址的内容与项目里已有的一份相同，引擎没有重复登记。'
           : '。')
         + (out.truncated === true ? '⚠ 正文被截断到长度上限（不是全文）。' : '')
-        + '它现在是**待评审**、**不会**进入任何结论，需你在下方批准（本面板不能代批）。'
+        + '它现在是待评审、不会进入任何结论，需你在下方批准（本面板不能代批）。'
     }, projectId)
   }, [collectNote, collectUrl, projectId, run])
 
@@ -581,7 +581,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
       setShowReport(false)
       const bad = (out.warnings ?? []).length
       return `研究报告已生成（已批准 ${out.counts?.approved ?? 0} / 待评审 ${out.counts?.pending ?? 0}）`
-        + (bad > 0 ? `——⚠ 有 ${bad} 条引用警告，见下方（报告里**原样保留**了那些引用）` : '')
+        + (bad > 0 ? `——⚠ 有 ${bad} 条引用警告，见下方（报告里原样保留了那些引用）` : '')
     }, null)
   }, [conclusionMd, projectId, researchQuery, run])
 
@@ -607,10 +607,10 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
       const out = await exportResearchDraft(projectId, { query: q })
       dispatch({ type: 'arrived', out })
       if (out.llm_called === false) {
-        return '没有可承重的已批准材料——引擎**没有起草**（一次模型都没调）'
+        return '没有可承重的已批准材料——引擎没有起草（一次模型都没调）'
       }
       const n = (out.warnings ?? []).length
-      return '草稿已生成（**未经批准**，不得作为依据）'
+      return '草稿已生成（未经批准，不得作为依据）'
         + (n > 0 ? `——⚠ ${n} 条提示，见下方` : '')
     }, null)
   }, [projectId, researchQuery, run])
@@ -638,7 +638,7 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
       // （独立复核 2026-09-17 实测的数据丢失）。带上"从哪改到哪"，审计链才不断。
       const out = await setMaterialTier(
         m.material_id, tier, `用户改级：${m.source_tier ?? '未判级'} → ${tier}`)
-      return `「${m.title}」来源层级 → ${out.tier_label ?? out.source_tier}（已记为**用户改的**）`
+      return `「${m.title}」来源层级 → ${out.tier_label ?? out.source_tier}（已记为用户改的）`
     }, projectId)
   }, [projectId, run])
 
@@ -661,12 +661,12 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
   const onReverify = useCallback((m: KsMaterial) => {
     void run(`reverify:${m.material_id}`, async () => {
       const out = await reverifyMaterialLocators(m.material_id)
-      if (out.status === 'match') return `「${m.title}」锚点复算：**逐字节一致**（区间仍有效）`
+      if (out.status === 'match') return `「${m.title}」锚点复算：逐字节一致（区间仍有效）`
       if (out.status === 'mismatch') {
-        return `「${m.title}」锚点复算：⚠ **已存区间已失效**（引用位置会指错）——`
+        return `「${m.title}」锚点复算：⚠ 已存区间已失效（引用位置会指错）——`
           + '需要重建这份材料（重新解析并重建切片），或把它弃用'
       }
-      return `「${m.title}」锚点复算：**验不了**（${out.why}）`
+      return `「${m.title}」锚点复算：验不了（${out.why}）`
     }, null)
   }, [run])
 
@@ -1188,9 +1188,9 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
               已拒绝 {report.counts?.rejected ?? 0}；
               引用核验：材料引用 {report.citations?.checked_material_refs ?? 0} 条
               {report.citations?.unchecked_law_refs
-                ? ` · 法规引用 ${report.citations.unchecked_law_refs} 条**本次无法核验**` : ''}
+                ? ` · 法规引用 ${report.citations.unchecked_law_refs} 条本次无法核验` : ''}
               {(report.citations?.unknown ?? 0) > 0
-                ? ` · ${report.citations?.unknown} 条**无法判定**` : ''}
+                ? ` · ${report.citations?.unknown} 条无法判定` : ''}
               {report.names !== undefined && report.names.length > 0 && (
                 <Deliverables names={report.names} paths={report.files ?? []} />
               )}

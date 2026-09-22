@@ -21,6 +21,7 @@
 import * as React from 'react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 
+import { evidenceUrlOf } from './ksEvidence'
 import {
   exportEffectReport,
   fetchEffectDocs,
@@ -179,7 +180,10 @@ export function KsReportPanel(props: KsReportPanelProps): JSX.Element {
     // 官方 `openResource` 对恒定地址天然幂等，故旧模型"openTab + updateTab 覆写 path"
     // 的两步法不再需要（每次导航由 navigation.revision 驱动组件重载）。
     if (openEvidence === undefined) return
-    const url = `http://127.0.0.1:1/__ks_evidence__?doc=${encodeURIComponent(docId)}`
+    // 批3-a（2026-09-22）：自拼 URL 收口 `evidenceUrlOf`（仓内唯一自拼点，两轮复核登记）——
+    // 单一构造出处纪律（S2-b1 起全库只剩这一处，现清零）。
+    const url = evidenceUrlOf({ doc: docId })
+    if (url === null) return
     try {
       openEvidence(url)
     } catch { /* 导航失败：行仍可读，只是不跳 */ }

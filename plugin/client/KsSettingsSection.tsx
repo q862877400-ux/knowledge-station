@@ -508,7 +508,7 @@ export function KsInspectionPanel(props: { openedOnce: boolean }): JSX.Element {
         && last.by_class !== undefined && (
         <div style={{ fontSize: 12, color: 'var(--dsw-alias-label-secondary, #666)',
                       padding: '0 0 4px', lineHeight: '18px' }}
-             title={'分母只算**记了五类结论**的事件数；没记的如实单列'
+             title={'分母只算记了五类结论的事件数；没记的如实单列'
                + `（本次 ${last.by_class.unreadable} 条没记）`}>
           {(() => {
             const bc = last.by_class

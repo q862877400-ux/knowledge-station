@@ -616,6 +616,11 @@ check('inject declares only official services (no third-party hard gate)',
     ['批量条词（批量设为必须遵守/仅供参考）', '批量设为必须遵守'],
     // C2-a（2026-09-22）：合规哨兵短标记（输入坞；判据口 = 宿主 /ks/compliance/ping）。
     ['合规哨兵短标记', '⚖ 合规护航：待命'],
+    // 批3-a 防回潮（2026-09-22）：用户可见字符串**不许伪粗体星号**（语言规范 §二.6）——
+    // 三个代表性旧病形**必须消失**（负向钉；注释里的星号不在此列）。
+    ['旧伪粗体形（新登记）不许回来', '!**新登记的材料是待评审状态'],
+    ['旧伪粗体形（用户改的）不许回来', '!（已记为**用户改的**）'],
+    ['旧伪粗体形（T3 仅线索）不许回来', '!层级 **T3=仅线索**'],
     ['逐份评审的动作（没有"全部通过"）', '读正文（评审前必看）'],
     ['会话绑定提示', '/materials use '],
     ['材料路由前缀', 'ks/materials/list'],
@@ -660,7 +665,8 @@ check('inject declares only official services (no third-party hard gate)',
     // ⚠ check 名里明写"交付产物"：这些**只**读 `client.js`（交付件），**不**能证明它新鲜
     //   ——新鲜度由本节最后那条"整份一致"断言负责（§10.99，复核 b26 的 F2）。
     check(`交付产物 client.js 含${what}（新鲜度见本节末尾的"整份一致"）`,
-      bundle.includes(marker), marker)
+      // 批3-a：'!' 前缀 = **负向钉**（该字面必须消失；防伪粗体星号回潮）。
+      marker.startsWith('!') ? !bundle.includes(marker.slice(1)) : bundle.includes(marker), marker)
   }
 
   // ⚠ **源码侧的接线断言**（独立复核 2026-09-17 报的覆盖缺口）：上面那组只证明

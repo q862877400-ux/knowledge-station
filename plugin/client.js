@@ -36504,14 +36504,14 @@ function KsMaterialsPanel(props) {
     void run("scan", async () => {
       const r = await scanMaterialProject(projectId);
       await reloadInbox(projectId);
-      return `\u626B\u63CF\u5B8C\u6210\uFF1A\u767B\u8BB0 ${r.registered} / \u5171 ${r.scanned} \u4E2A\u6587\u4EF6\u3002**\u65B0\u767B\u8BB0\u7684\u6750\u6599\u662F\u5F85\u8BC4\u5BA1\u72B6\u6001**\uFF0C\u9700\u4F60\u5728\u4E0B\u65B9\u9010\u4EFD\u6279\u51C6\u540E\u624D\u4F1A\u8FDB\u5165\u4F5C\u7B54\u3002`;
+      return `\u626B\u63CF\u5B8C\u6210\uFF1A\u767B\u8BB0 ${r.registered} / \u5171 ${r.scanned} \u4E2A\u6587\u4EF6\u3002\u65B0\u767B\u8BB0\u7684\u6750\u6599\u662F\u5F85\u8BC4\u5BA1\u72B6\u6001\uFF0C\u9700\u4F60\u5728\u4E0B\u65B9\u9010\u4EFD\u6279\u51C6\u540E\u624D\u4F1A\u8FDB\u5165\u4F5C\u7B54\u3002`;
     }, projectId);
   }, [projectId, reloadInbox, run]);
   const onCollect = (0, import_react9.useCallback)(() => {
     if (projectId === "") return;
     const url = collectUrl.trim();
     if (url === "") {
-      setError("\u8BF7\u5148\u586B\u7F51\u5740\uFF08\u8981**\u539F\u59CB\u51FA\u5904**\u7684\u7F51\u9875\u5730\u5740\uFF09");
+      setError("\u8BF7\u5148\u586B\u7F51\u5740\uFF08\u8981\u539F\u59CB\u51FA\u5904\u7684\u7F51\u9875\u5730\u5740\uFF09");
       return;
     }
     void run("collect", async () => {
@@ -36520,13 +36520,13 @@ function KsMaterialsPanel(props) {
         note: collectNote.trim() === "" ? void 0 : collectNote.trim()
       });
       if (!out.collected) {
-        setWarn(`\u6CA1\u6709\u91C7\u5230\uFF1A${out.reason ?? "\u539F\u56E0\u672A\u7ED9"}` + (out.status !== void 0 ? `\uFF08HTTP ${out.status}\uFF09` : "") + "\u3002\u8FD9\u6761**\u6CA1\u6709**\u767B\u8BB0\u6210\u6750\u6599\u2014\u2014\u53EF\u4EE5\u6362\u4E2A**\u539F\u59CB\u51FA\u5904**\u7684\u7F51\u5740\u518D\u8BD5\uFF0C\u6216\u628A\u6B63\u6587\u7C98\u8D34/\u4FDD\u5B58\u6210\u6587\u4EF6\u653E\u8FDB\u4E0A\u9762\u7684\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u3002");
+        setWarn(`\u6CA1\u6709\u91C7\u5230\uFF1A${out.reason ?? "\u539F\u56E0\u672A\u7ED9"}` + (out.status !== void 0 ? `\uFF08HTTP ${out.status}\uFF09` : "") + "\u3002\u8FD9\u6761\u6CA1\u6709\u767B\u8BB0\u6210\u6750\u6599\u2014\u2014\u53EF\u4EE5\u6362\u4E2A\u539F\u59CB\u51FA\u5904\u7684\u7F51\u5740\u518D\u8BD5\uFF0C\u6216\u628A\u6B63\u6587\u7C98\u8D34/\u4FDD\u5B58\u6210\u6587\u4EF6\u653E\u8FDB\u4E0A\u9762\u7684\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u3002");
         return "";
       }
       setCollectUrl("");
       const title = out.material?.title ?? "\uFF08\u6807\u9898\u53D6\u81EA\u9875\u9762\uFF09";
       const chunks = out.material?.chunk_count ?? 0;
-      return `\u5DF2\u767B\u8BB0\u300C${title}\u300D\uFF08${chunks} \u4E2A\u5207\u7247\uFF0C\u6765\u6E90\u5C42\u7EA7 **T3=\u4EC5\u7EBF\u7D22**\uFF09` + (out.duplicate === true ? "\u2014\u2014\u26A0 \u8FD9\u4E2A\u7F51\u5740\u7684\u5185\u5BB9**\u4E0E\u9879\u76EE\u91CC\u5DF2\u6709\u7684\u4E00\u4EFD\u76F8\u540C**\uFF0C\u5F15\u64CE**\u6CA1\u6709**\u91CD\u590D\u767B\u8BB0\u3002" : "\u3002") + (out.truncated === true ? "\u26A0 \u6B63\u6587\u88AB\u622A\u65AD\u5230\u957F\u5EA6\u4E0A\u9650\uFF08\u4E0D\u662F\u5168\u6587\uFF09\u3002" : "") + "\u5B83\u73B0\u5728\u662F**\u5F85\u8BC4\u5BA1**\u3001**\u4E0D\u4F1A**\u8FDB\u5165\u4EFB\u4F55\u7ED3\u8BBA\uFF0C\u9700\u4F60\u5728\u4E0B\u65B9\u6279\u51C6\uFF08\u672C\u9762\u677F\u4E0D\u80FD\u4EE3\u6279\uFF09\u3002";
+      return `\u5DF2\u767B\u8BB0\u300C${title}\u300D\uFF08${chunks} \u4E2A\u5207\u7247\uFF0C\u6765\u6E90\u5C42\u7EA7 T3=\u4EC5\u7EBF\u7D22\uFF09` + (out.duplicate === true ? "\u2014\u2014\u26A0 \u8FD9\u4E2A\u7F51\u5740\u7684\u5185\u5BB9\u4E0E\u9879\u76EE\u91CC\u5DF2\u6709\u7684\u4E00\u4EFD\u76F8\u540C\uFF0C\u5F15\u64CE\u6CA1\u6709\u91CD\u590D\u767B\u8BB0\u3002" : "\u3002") + (out.truncated === true ? "\u26A0 \u6B63\u6587\u88AB\u622A\u65AD\u5230\u957F\u5EA6\u4E0A\u9650\uFF08\u4E0D\u662F\u5168\u6587\uFF09\u3002" : "") + "\u5B83\u73B0\u5728\u662F\u5F85\u8BC4\u5BA1\u3001\u4E0D\u4F1A\u8FDB\u5165\u4EFB\u4F55\u7ED3\u8BBA\uFF0C\u9700\u4F60\u5728\u4E0B\u65B9\u6279\u51C6\uFF08\u672C\u9762\u677F\u4E0D\u80FD\u4EE3\u6279\uFF09\u3002";
     }, projectId);
   }, [collectNote, collectUrl, projectId, run]);
   const onExportReport = (0, import_react9.useCallback)(() => {
@@ -36539,7 +36539,7 @@ function KsMaterialsPanel(props) {
       setReport(out);
       setShowReport(false);
       const bad = (out.warnings ?? []).length;
-      return `\u7814\u7A76\u62A5\u544A\u5DF2\u751F\u6210\uFF08\u5DF2\u6279\u51C6 ${out.counts?.approved ?? 0} / \u5F85\u8BC4\u5BA1 ${out.counts?.pending ?? 0}\uFF09` + (bad > 0 ? `\u2014\u2014\u26A0 \u6709 ${bad} \u6761\u5F15\u7528\u8B66\u544A\uFF0C\u89C1\u4E0B\u65B9\uFF08\u62A5\u544A\u91CC**\u539F\u6837\u4FDD\u7559**\u4E86\u90A3\u4E9B\u5F15\u7528\uFF09` : "");
+      return `\u7814\u7A76\u62A5\u544A\u5DF2\u751F\u6210\uFF08\u5DF2\u6279\u51C6 ${out.counts?.approved ?? 0} / \u5F85\u8BC4\u5BA1 ${out.counts?.pending ?? 0}\uFF09` + (bad > 0 ? `\u2014\u2014\u26A0 \u6709 ${bad} \u6761\u5F15\u7528\u8B66\u544A\uFF0C\u89C1\u4E0B\u65B9\uFF08\u62A5\u544A\u91CC\u539F\u6837\u4FDD\u7559\u4E86\u90A3\u4E9B\u5F15\u7528\uFF09` : "");
     }, null);
   }, [conclusionMd, projectId, researchQuery, run]);
   const onDraftConclusion = (0, import_react9.useCallback)(() => {
@@ -36553,10 +36553,10 @@ function KsMaterialsPanel(props) {
       const out = await exportResearchDraft(projectId, { query: q });
       dispatch({ type: "arrived", out });
       if (out.llm_called === false) {
-        return "\u6CA1\u6709\u53EF\u627F\u91CD\u7684\u5DF2\u6279\u51C6\u6750\u6599\u2014\u2014\u5F15\u64CE**\u6CA1\u6709\u8D77\u8349**\uFF08\u4E00\u6B21\u6A21\u578B\u90FD\u6CA1\u8C03\uFF09";
+        return "\u6CA1\u6709\u53EF\u627F\u91CD\u7684\u5DF2\u6279\u51C6\u6750\u6599\u2014\u2014\u5F15\u64CE\u6CA1\u6709\u8D77\u8349\uFF08\u4E00\u6B21\u6A21\u578B\u90FD\u6CA1\u8C03\uFF09";
       }
       const n = (out.warnings ?? []).length;
-      return "\u8349\u7A3F\u5DF2\u751F\u6210\uFF08**\u672A\u7ECF\u6279\u51C6**\uFF0C\u4E0D\u5F97\u4F5C\u4E3A\u4F9D\u636E\uFF09" + (n > 0 ? `\u2014\u2014\u26A0 ${n} \u6761\u63D0\u793A\uFF0C\u89C1\u4E0B\u65B9` : "");
+      return "\u8349\u7A3F\u5DF2\u751F\u6210\uFF08\u672A\u7ECF\u6279\u51C6\uFF0C\u4E0D\u5F97\u4F5C\u4E3A\u4F9D\u636E\uFF09" + (n > 0 ? `\u2014\u2014\u26A0 ${n} \u6761\u63D0\u793A\uFF0C\u89C1\u4E0B\u65B9` : "");
     }, null);
   }, [projectId, researchQuery, run]);
   const onReview = (0, import_react9.useCallback)((m, decision) => {
@@ -36575,7 +36575,7 @@ function KsMaterialsPanel(props) {
         tier,
         `\u7528\u6237\u6539\u7EA7\uFF1A${m.source_tier ?? "\u672A\u5224\u7EA7"} \u2192 ${tier}`
       );
-      return `\u300C${m.title}\u300D\u6765\u6E90\u5C42\u7EA7 \u2192 ${out.tier_label ?? out.source_tier}\uFF08\u5DF2\u8BB0\u4E3A**\u7528\u6237\u6539\u7684**\uFF09`;
+      return `\u300C${m.title}\u300D\u6765\u6E90\u5C42\u7EA7 \u2192 ${out.tier_label ?? out.source_tier}\uFF08\u5DF2\u8BB0\u4E3A\u7528\u6237\u6539\u7684\uFF09`;
     }, projectId);
   }, [projectId, run]);
   const [picked, setPicked] = (0, import_react9.useState)(/* @__PURE__ */ new Set());
@@ -36588,11 +36588,11 @@ function KsMaterialsPanel(props) {
   const onReverify = (0, import_react9.useCallback)((m) => {
     void run(`reverify:${m.material_id}`, async () => {
       const out = await reverifyMaterialLocators(m.material_id);
-      if (out.status === "match") return `\u300C${m.title}\u300D\u951A\u70B9\u590D\u7B97\uFF1A**\u9010\u5B57\u8282\u4E00\u81F4**\uFF08\u533A\u95F4\u4ECD\u6709\u6548\uFF09`;
+      if (out.status === "match") return `\u300C${m.title}\u300D\u951A\u70B9\u590D\u7B97\uFF1A\u9010\u5B57\u8282\u4E00\u81F4\uFF08\u533A\u95F4\u4ECD\u6709\u6548\uFF09`;
       if (out.status === "mismatch") {
-        return `\u300C${m.title}\u300D\u951A\u70B9\u590D\u7B97\uFF1A\u26A0 **\u5DF2\u5B58\u533A\u95F4\u5DF2\u5931\u6548**\uFF08\u5F15\u7528\u4F4D\u7F6E\u4F1A\u6307\u9519\uFF09\u2014\u2014\u9700\u8981\u91CD\u5EFA\u8FD9\u4EFD\u6750\u6599\uFF08\u91CD\u65B0\u89E3\u6790\u5E76\u91CD\u5EFA\u5207\u7247\uFF09\uFF0C\u6216\u628A\u5B83\u5F03\u7528`;
+        return `\u300C${m.title}\u300D\u951A\u70B9\u590D\u7B97\uFF1A\u26A0 \u5DF2\u5B58\u533A\u95F4\u5DF2\u5931\u6548\uFF08\u5F15\u7528\u4F4D\u7F6E\u4F1A\u6307\u9519\uFF09\u2014\u2014\u9700\u8981\u91CD\u5EFA\u8FD9\u4EFD\u6750\u6599\uFF08\u91CD\u65B0\u89E3\u6790\u5E76\u91CD\u5EFA\u5207\u7247\uFF09\uFF0C\u6216\u628A\u5B83\u5F03\u7528`;
       }
-      return `\u300C${m.title}\u300D\u951A\u70B9\u590D\u7B97\uFF1A**\u9A8C\u4E0D\u4E86**\uFF08${out.why}\uFF09`;
+      return `\u300C${m.title}\u300D\u951A\u70B9\u590D\u7B97\uFF1A\u9A8C\u4E0D\u4E86\uFF08${out.why}\uFF09`;
     }, null);
   }, [run]);
   const onToggleChunks = (0, import_react9.useCallback)((m) => {
@@ -37129,8 +37129,8 @@ function KsMaterialsPanel(props) {
           "\uFF1B \u5F15\u7528\u6838\u9A8C\uFF1A\u6750\u6599\u5F15\u7528 ",
           report.citations?.checked_material_refs ?? 0,
           " \u6761",
-          report.citations?.unchecked_law_refs ? ` \xB7 \u6CD5\u89C4\u5F15\u7528 ${report.citations.unchecked_law_refs} \u6761**\u672C\u6B21\u65E0\u6CD5\u6838\u9A8C**` : "",
-          (report.citations?.unknown ?? 0) > 0 ? ` \xB7 ${report.citations?.unknown} \u6761**\u65E0\u6CD5\u5224\u5B9A**` : "",
+          report.citations?.unchecked_law_refs ? ` \xB7 \u6CD5\u89C4\u5F15\u7528 ${report.citations.unchecked_law_refs} \u6761\u672C\u6B21\u65E0\u6CD5\u6838\u9A8C` : "",
+          (report.citations?.unknown ?? 0) > 0 ? ` \xB7 ${report.citations?.unknown} \u6761\u65E0\u6CD5\u5224\u5B9A` : "",
           report.names !== void 0 && report.names.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Deliverables, { names: report.names, paths: report.files ?? [] })
         ] }),
         report !== null && (report.warnings ?? []).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("p", { role: "status", style: { margin: "6px 0 0", color: "var(--dsw-alias-state-warn-primary)", fontSize: 12 }, children: [
@@ -37410,7 +37410,8 @@ function KsReportPanel(props) {
   }, [visible, win, colorFilter, load]);
   const onOpenDoc = (0, import_react10.useCallback)((docId) => {
     if (openEvidence === void 0) return;
-    const url = `http://127.0.0.1:1/__ks_evidence__?doc=${encodeURIComponent(docId)}`;
+    const url = evidenceUrlOf({ doc: docId });
+    if (url === null) return;
     try {
       openEvidence(url);
     } catch {
@@ -37892,7 +37893,7 @@ function KsInspectionPanel(props) {
           padding: "0 0 4px",
           lineHeight: "18px"
         },
-        title: `\u5206\u6BCD\u53EA\u7B97**\u8BB0\u4E86\u4E94\u7C7B\u7ED3\u8BBA**\u7684\u4E8B\u4EF6\u6570\uFF1B\u6CA1\u8BB0\u7684\u5982\u5B9E\u5355\u5217\uFF08\u672C\u6B21 ${last.by_class.unreadable} \u6761\u6CA1\u8BB0\uFF09`,
+        title: `\u5206\u6BCD\u53EA\u7B97\u8BB0\u4E86\u4E94\u7C7B\u7ED3\u8BBA\u7684\u4E8B\u4EF6\u6570\uFF1B\u6CA1\u8BB0\u7684\u5982\u5B9E\u5355\u5217\uFF08\u672C\u6B21 ${last.by_class.unreadable} \u6761\u6CA1\u8BB0\uFF09`,
         children: (() => {
           const bc = last.by_class;
           if (bc.total === 0) {
