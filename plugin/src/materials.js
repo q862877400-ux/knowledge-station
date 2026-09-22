@@ -89,7 +89,7 @@ export function makeMaterialsTool(manager) {
       + 'project_id，再作为 ks_answer 的 params.material_project_id 传下去（材料只有那样才进作答）。'
       + 'action：projects（默认，列项目）/ materials（列材料：review_status 三态、来源层级 T0~T4、'
       + '任务效力 criterion=本任务准则/reference、切片数 + 三态计数）/ inbox（参考资料文件夹里'
-      + '尚未登记的文件）。只读：不能批/拒——评审是用户的判断（硬门）；有 pending 材料就如实'
+      + '尚未登记的文件）。只读：不能批/拒——评审是**用户**的判断（硬门）；有 pending 材料就如实'
       + '告知"未批准、不进结论"。只有 approved 的材料会进 ks_answer 提示词。',
     parameters: {
       type: 'object',
