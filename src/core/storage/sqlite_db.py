@@ -182,6 +182,62 @@ def _forget(conn: sqlite3.Connection) -> None:
         _registry[:] = [e for e in _registry if e[0] is not conn]
 
 
+def _conn_db_path(conn: sqlite3.Connection) -> Path | None:
+    """连接指向的**主库文件**（拿不到返回 None：连接已关/查询失败）。"""
+    try:
+        rows = conn.execute("PRAGMA database_list").fetchall()
+    except sqlite3.Error:
+        return None
+    for r in rows:
+        try:
+            name, path = str(r[1]), str(r[2] or "")
+        except (IndexError, TypeError):
+            continue
+        if name == "main" and path:
+            return Path(path)
+    return None
+
+
+def close_connections_under(root: Path) -> int:
+    """关掉**主库文件落在 ``root`` 之下**的那些连接（**只**关自己那一份库，不碰别人的）。
+
+    ## 为什么需要它（2026-09-22 实施子代理实测暴露的一条边界）
+
+    `close_all_connections()` 是**全局**动作：它连**别的模块/别的线程**正握着的连接一起关。
+    会话级 fixture 在**整场结束**时调它是安全的（后面没别的事了）；但**模块级** fixture
+    在会话**中途**调它，就变成了"我收我的尾，顺手把别人正在用的连接关了" ——
+    那些线程（例如批量导入的后台线程、AnyIO worker）会拿到
+    `Cannot operate on a closed database`，症状出现在**别的**用例上，离原因很远。
+
+    ⇒ 中途清自己的库，用这个**按目录**的版本；`close_all_connections()` 留给整场收尾。
+
+    用途：模块级私有临时库的用例（``tests/test_ccs_chain.py``）收尾时，
+    只关**指向自己那个临时目录**的连接（其中包括 AnyIO worker 线程那一份 ——
+    它们比用例活得长，正是 Windows 上 `PermissionError: [WinError 32]` 的成因）。
+    """
+    root_abs = Path(root).resolve()
+    targets: list[tuple[sqlite3.Connection, dict[str, object], str]] = []
+    with _registry_lock:
+        keep: list[tuple[sqlite3.Connection, dict[str, object], str]] = []
+        for entry in _registry:
+            p = _conn_db_path(entry[0])
+            if p is not None and p.resolve().is_relative_to(root_abs):
+                targets.append(entry)
+            else:
+                keep.append(entry)
+        _registry[:] = keep
+    closed = 0
+    for conn, owner, key in targets:
+        if owner.get(key) is conn:
+            owner.pop(key, None)          # 先摘键再关（同 close_all_connections 的理由）
+        try:
+            conn.close()
+            closed += 1
+        except sqlite3.Error:
+            continue
+    return closed
+
+
 def close_all_connections() -> int:
     """把**所有线程**上登记的库连接都关掉，返回关掉的个数。
 

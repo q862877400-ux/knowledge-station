@@ -65,15 +65,19 @@ def _own_data_dir():
     os.environ["KS_DATA_DIR"] = str(td)
     from src.core import config
     config.reset_settings()
-    from src.core.storage.sqlite_db import (close_all_connections,
-                                           close_thread_connection)
+    from src.core.storage.sqlite_db import close_connections_under, close_thread_connection
     close_thread_connection()
     try:
         yield td
     finally:
         config.reset_settings()
         close_thread_connection()
-        close_all_connections()
+        # ⚠ **只关指向自己那个临时目录的连接**（`close_connections_under`）——
+        #   这里**不能**用 `close_all_connections()`：那是**全局**动作，会把**别的模块**
+        #   正握着的连接一起关掉，而它们（批量导入的后台线程 / AnyIO worker）会拿到
+        #   `Cannot operate on a closed database`，症状出现在**别人**的用例上。
+        #   整场收尾那次全局关闭由 `tests/conftest.py` 的会话级 fixture 负责。
+        close_connections_under(td)
         import gc
         gc.collect()
         if old is None:
@@ -84,9 +88,8 @@ def _own_data_dir():
         for delay in (0.0, 0.2, 0.5, 1.0, 2.0, 3.0):
             if delay:
                 time.sleep(delay)
-            # 每一轮都再关一次 + 收一次垃圾：持有句柄的可能是"还没被回收的连接对象"
-            # （`gc.collect()` 与 conftest 的会话级 fixture 同一手法）。
-            close_all_connections()
+            # 每一轮再收一次（持有句柄的可能是"还没被回收的连接对象"）。
+            close_connections_under(td)
             gc.collect()
             try:
                 shutil.rmtree(td)
@@ -502,6 +505,29 @@ def test_empty_standard_no_is_not_a_network_failure():
     got = cf.resolve_ccs("", transport=FakeTransport())
     assert got["outcome"] == "not_found"
     assert "没有标准号" in got["reason"]
+
+
+def test_lowercase_site_code_becomes_readable_uppercase_tag(db):
+    """站点给**小写** ``a825`` 时，写出来的标签必须是**读得出来**的大写码。
+
+    真机 380 篇实测抓到的（5 篇：``k73`` / ``w31`` / ``y54`` / ``c73`` / ``k24``）。
+    读侧 ``doc_catalog`` 的解析正则是 ``^([A-Z])(\\d{2})`` —— 小写标签写进去，
+    分类树**读不出来**，那篇照样落进"其他标准"兜底桶，等于白补。
+    ⇒ 这条从**链路**一直钉到**分类树**（两端一起钉，防哪一端单独放松）。
+    """
+    tr = FakeTransport(official=lambda kw: _api_rows(_row("GB/T 32486-2016", "k73", "特殊灯具")))
+    got = cf.resolve_ccs("GB/T 32486-2016", transport=tr)
+    assert got["outcome"] == "found" and got["code"] == "K73", got
+    assert got["major"] == "K"
+    tag = cf.ccs_to_tag(got, "GB/T 32486-2016")
+    assert tag == "CCS:K73 特殊灯具", tag
+    # 读侧真的认得（不是"写进去了但树里读不出"）
+    from src.core.knowledge.doc_catalog import classify_document
+    cl = classify_document({
+        "standard_no": "GB/T 32486-2016", "standard_name": "特殊灯具",
+        "doc_type": "standard", "legal_hierarchy": "GB", "domain_tags": [tag]})
+    assert cl["level2"].startswith("K "), cl
+    assert cl["level4"].startswith("K73"), cl
 
 
 # ═══════════════════════════ 6. 台账（ccs_store） ═══════════════════════════

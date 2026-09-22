@@ -355,12 +355,15 @@ def _major_from_code(code: str) -> str:
 
 
 def _split_ccs(raw: str) -> tuple[str, str]:
-    """``"K41变压器"`` → ``("K41", "变压器")``；拆不开就原样当代码、类名留空。"""
+    """``"K41变压器"`` → ``("K41", "变压器")``；拆不开就原样当代码、类名留空。
+
+    ⚠ 代码一律**折成大写**（见 :func:`_lookup_dict` 的理由）。
+    """
     text = (raw or "").strip()
-    m = re.match(r"^([A-Z]\d{2})\s*(.*)$", text)
+    m = re.match(r"^([A-Za-z]\d{2})\s*(.*)$", text)
     if not m:
-        return text, ""
-    return m.group(1), m.group(2).strip()
+        return text.upper(), ""
+    return m.group(1).upper(), m.group(2).strip()
 
 
 def _lookup_dict(code: str, sub: str, *, source: str, keyword_form: str | None = None,
@@ -371,7 +374,15 @@ def _lookup_dict(code: str, sub: str, *, source: str, keyword_form: str | None =
     旧字段 ``code`` / ``major`` / ``sub`` 原样保留（``ccs_to_tag`` 与既有调用方靠它们活）；
     新增 ``source`` / ``source_label`` / ``keyword_form`` / ``matched_no`` / ``attempts`` /
     ``outcome`` —— 这就是"每篇都能说出是哪一层命中的"那部分。
+
+    ⚠ **代码码位在这里统一折成大写**（2026-09-22 真机 380 篇实测抓到的一处）：
+    站点 ``a825`` 有 **5 篇返回小写**（``k73`` / ``w31`` / ``y54`` / ``c73`` / ``k24``），
+    而**读侧只认大写** —— ``doc_catalog`` 的解析正则是 ``^([A-Z])(\\d{2})``。
+    小写标签写进 ``domain_tags`` 的后果是：分类树**读不出来**，这篇照样落进
+    "其他标准"兜底桶 —— 等于补了个用不上的东西（而这正是业主要修的那个症状）。
+    ⇒ 折大写的**唯一所有者**就是这里（所有层的出口）。
     """
+    code = str(code or "").strip().upper()
     return {
         "code": code, "major": _major_from_code(code), "sub": sub,
         "source": source, "source_label": SOURCE_LABELS.get(source, source),
