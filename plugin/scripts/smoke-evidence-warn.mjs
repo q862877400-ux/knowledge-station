@@ -79,8 +79,10 @@ if (typeof KsAnchorWarn === 'function') {
     `typeof=${typeof ArrowOverlay}`)
   if (arrowRenderable) {
     const arrowHtml = renderToStaticMarkup(React.createElement(ArrowOverlay, { ref: { current: null } }))
-    check('红箭头图形在场（data-URI SVG + 红色本体，不许悄悄消失/换样）',
-      arrowHtml.includes('data:image/svg+xml') && String(mod.KS_ARROW_SVG ?? '').includes('e02020'),
+    check('红箭头图形本体**冻结**（data-URI SVG + 精确路径 + 红色；掏掉路径当场红）',
+      arrowHtml.includes('data:image/svg+xml')
+      && String(mod.KS_ARROW_SVG ?? '').includes('d="M0 4h11V1l9 4-9 4V6H0z"')
+      && String(mod.KS_ARROW_SVG ?? '').includes('e02020'),
       arrowHtml)
     check('覆盖层默认隐藏 + 装饰语义（display:none + aria-hidden）',
       arrowHtml.includes('display:none') && arrowHtml.includes('aria-hidden="true"'), arrowHtml)
