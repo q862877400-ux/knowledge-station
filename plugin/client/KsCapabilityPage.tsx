@@ -32,7 +32,7 @@ import {
   Tag,
 } from '@deepseek-ai/dsh-client-ui-primitives'
 
-import { buildEgressMarkdown, createComplianceReview, executeComplianceReview, fetchEgressAudit, generateObligationList, importInternalPolicy, runGapAnalysis, toObligationChecklist, toggleObligationCheck, type KsEgressAuditRecord, type KsGapResult, type KsObligationList, type KsReviewPoint, type KsReviewVerdict } from './api'
+import { askKsAnswer, buildEgressMarkdown, createClausePatch, createComplianceReview, deleteClausePatch, executeComplianceReview, fetchEgressAudit, fetchSession, generateObligationList, importInternalPolicy, listClausePatches, runGapAnalysis, toObligationChecklist, toggleObligationCheck, type KsClausePatch, type KsEgressAuditRecord, type KsGapResult, type KsObligationList, type KsReviewPoint, type KsReviewVerdict } from './api'
 import { ensureKsStyles } from './ksGuideStyles'
 import { evidenceUrlOf as evidenceHrefOf } from './ksEvidence'
 
@@ -602,6 +602,215 @@ export function KsGapPage({ item, onBack }: { readonly item: OfficeItem; readonl
   )
 }
 
+/** 纠错修订页（S2-c：手动提交修订（466 防乱确认流）+ 修订台账 + 回退）。 */
+export function KsFixPage({ item, onBack }: { readonly item: OfficeItem; readonly onBack: () => void }): ReactNode {
+  const [rev, setRev] = useState('')
+  const [fixed, setFixed] = useState('')
+  const [patches, setPatches] = useState<KsClausePatch[]>([])
+  const [warnText, setWarnText] = useState('')
+  const [msg, setMsg] = useState('')
+  const [errText, setErrText] = useState('')
+  const str = (v: unknown): string => (typeof v === 'string' ? v : v === null || v === undefined ? '' : String(v))
+
+  const reload = (): void => {
+    listClausePatches({ limit: 50 })
+      .then(setPatches)
+      .catch((error: unknown) => { setErrText(error instanceof Error ? error.message : String(error)) })
+  }
+  useEffect(() => { reload() }, [])
+
+  const submit = (force: boolean): void => {
+    setErrText('')
+    setMsg('')
+    createClausePatch({ clause_revision_id: rev.trim(), field_name: 'content_text', patched_value: fixed, force })
+      .then((out) => {
+        if ('warned' in out) {
+          setWarnText(out.warned)
+          return
+        }
+        setWarnText('')
+        setRev('')
+        setFixed('')
+        setMsg('修订已提交（原文仍在，随时可回退）。')
+        reload()
+      })
+      .catch((error: unknown) => { setErrText(error instanceof Error ? error.message : String(error)) })
+  }
+
+  const revert = (patchId: string): void => {
+    if (!window.confirm('回退这条修订？（滚回原始值；原文从不改动，这只是撤销更正）')) return
+    setErrText('')
+    deleteClausePatch(patchId)
+      .then(() => { setMsg('已回退。'); reload() })
+      .catch((error: unknown) => { setErrText(error instanceof Error ? error.message : String(error)) })
+  }
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 12, padding: '12px 14px 18px' }}>
+      <button type="button" onClick={onBack} style={{ alignSelf: 'flex-start', background: 'none', border: 'none', padding: 0, cursor: 'pointer', color: 'var(--dsw-alias-state-business-primary)', fontSize: 12 }}>
+        ‹ 返回办事台
+      </button>
+      <div style={{ fontSize: 15, fontWeight: 600 }}>{item.name}</div>
+      <div style={{ color: 'var(--dsw-alias-label-secondary)', fontSize: 12, lineHeight: 1.6 }}>{item.pageDesc}</div>
+
+      <label className="ks-kb-hint" htmlFor="ks-fix-rev">哪一条（条款版本号，可从原文页/本轮依据里复制）</label>
+      <Input id="ks-fix-rev" value={rev} placeholder="rev_…" aria-label="条款版本号" onChange={(e) => { setRev(e.target.value) }} />
+      <label className="ks-kb-hint" htmlFor="ks-fix-text">识别错了的正文，正确的应该是</label>
+      <textarea
+        id="ks-fix-text"
+        value={fixed}
+        onChange={(e) => { setFixed(e.target.value) }}
+        rows={4}
+        style={{ width: '100%', boxSizing: 'border-box', font: 'inherit', fontSize: 12, padding: 8, border: '0.5px solid var(--dsw-alias-border-l1)', borderRadius: 6, background: 'var(--dsw-alias-bg-layer-1)', color: 'var(--dsw-alias-label-primary)' }}
+      />
+      <div className="ks-kb-row" style={{ display: 'flex', gap: 8 }}>
+        <Button variant="primary" size="sm" disabled={rev.trim().length === 0 || fixed.trim().length === 0} onClick={() => { submit(false) }}>
+          提交修订
+        </Button>
+      </div>
+      {warnText !== '' && (
+        <div role="alert" style={{ border: '0.5px solid var(--dsw-alias-state-warn-primary)', color: 'var(--dsw-alias-state-warn-primary)', borderRadius: 6, padding: '6px 10px', fontSize: 12, lineHeight: 1.6 }}>
+          {warnText}
+          <div className="ks-kb-row" style={{ display: 'flex', gap: 8, marginTop: 6 }}>
+            <Button variant="outline" size="sm" onClick={() => { submit(true) }}>看过了，确认提交</Button>
+          </div>
+        </div>
+      )}
+      {msg !== '' && <div style={{ color: 'var(--dsw-alias-state-success-primary)', fontSize: 12 }}>{msg}</div>}
+      {errText !== '' && <div role="alert" style={{ color: 'var(--dsw-alias-state-error-primary)', fontSize: 12, lineHeight: 1.6 }}>出问题了：{errText}</div>}
+
+      <div style={{ fontSize: 12, fontWeight: 600, marginTop: 4 }}>修订台账（{String(patches.length)} 条，可回退）</div>
+      {patches.length === 0 && (
+        <div style={{ color: 'var(--dsw-alias-label-tertiary)', fontSize: 12 }}>还没有修订记录。</div>
+      )}
+      {patches.map((p, i) => (
+        <div key={`${str(p.patch_id)}-${String(i)}`} className="ks-off-fix-row" style={{ border: '0.5px solid var(--dsw-alias-border-l1)', borderRadius: 8, padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 4 }}>
+          <div style={{ display: 'flex', gap: 8, fontSize: 12 }}>
+            <span style={{ fontWeight: 600 }}>{str(p.clause_revision_id) || '—'}</span>
+            <span style={{ color: 'var(--dsw-alias-label-tertiary)' }}>{str(p.field_name) || '—'} · {str(p.created_at) || '—'}</span>
+          </div>
+          <div style={{ color: 'var(--dsw-alias-label-secondary)', fontSize: 12, lineHeight: 1.6 }}>{str(p.patched_value).slice(0, 120)}</div>
+          <div>
+            <Button variant="ghost" size="sm" onClick={() => { revert(str(p.patch_id)) }}>回退</Button>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+/** 批量问答页（S2-c：一批条款一个提问，逐条真答；哪条失败单独重试）。 */
+export function KsBatchPage({ item, onBack }: { readonly item: OfficeItem; readonly onBack: () => void }): ReactNode {
+  const [lines, setLines] = useState('')
+  const [question, setQuestion] = useState('')
+  const [phase, setPhase] = useState<'input' | 'run' | 'done'>('input')
+  const [rows, setRows] = useState<{ line: string; state: 'pending' | 'ok' | 'fail'; text: string }[]>([])
+
+  const askOne = async (line: string): Promise<{ state: 'ok' | 'fail'; text: string }> => {
+    try {
+      const { token, engine: { port } } = await fetchSession()
+      const out = await askKsAnswer(port, token, `${question.trim()}\n本条：${line}`)
+      return { state: 'ok', text: out.conclusion || out.derivation || '（引擎没给结论文本）' }
+    } catch (error: unknown) {
+      return { state: 'fail', text: error instanceof Error ? error.message : String(error) }
+    }
+  }
+
+  const run = async (items: string[]): Promise<void> => {
+    setPhase('run')
+    /* 串行逐条（引擎一次一条才不排队打架；失败单独重试，不整批重来）。 */
+    for (let i = 0; i < items.length; i += 1) {
+      const r = await askOne(items[i])
+      setRows((prev) => prev.map((row, j) => (j === i ? { ...row, state: r.state, text: r.text } : row)))
+    }
+    setPhase('done')
+  }
+
+  const start = (): void => {
+    const items = lines.split('\n').map((s) => s.trim()).filter((s) => s.length > 0)
+    setRows(items.map((line) => ({ line, state: 'pending', text: '' })))
+    void run(items)
+  }
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 12, padding: '12px 14px 18px' }}>
+      <button type="button" onClick={onBack} style={{ alignSelf: 'flex-start', background: 'none', border: 'none', padding: 0, cursor: 'pointer', color: 'var(--dsw-alias-state-business-primary)', fontSize: 12 }}>
+        ‹ 返回办事台
+      </button>
+      <div style={{ fontSize: 15, fontWeight: 600 }}>{item.name}</div>
+      <div style={{ color: 'var(--dsw-alias-label-secondary)', fontSize: 12, lineHeight: 1.6 }}>{item.pageDesc}</div>
+
+      {phase === 'input' && (
+        <>
+          <label className="ks-kb-hint" htmlFor="ks-batch-q">问一句（同一条问题问遍每一条）</label>
+          <Input id="ks-batch-q" value={question} placeholder="例如：这条的强制性要求是什么？" aria-label="问题" onChange={(e) => { setQuestion(e.target.value) }} />
+          <label className="ks-kb-hint" htmlFor="ks-batch-lines">条款们（每行一条）</label>
+          <textarea
+            id="ks-batch-lines"
+            value={lines}
+            onChange={(e) => { setLines(e.target.value) }}
+            rows={6}
+            style={{ width: '100%', boxSizing: 'border-box', font: 'inherit', fontSize: 12, padding: 8, border: '0.5px solid var(--dsw-alias-border-l1)', borderRadius: 6, background: 'var(--dsw-alias-bg-layer-1)', color: 'var(--dsw-alias-label-primary)' }}
+          />
+          <div className="ks-kb-row" style={{ display: 'flex', gap: 8 }}>
+            <Button variant="primary" size="sm" disabled={lines.trim().length === 0 || question.trim().length === 0} onClick={start}>
+              开始：批量提问
+            </Button>
+          </div>
+        </>
+      )}
+
+      {phase !== 'input' && rows.map((r, i) => (
+        <div key={`b-${String(i)}`} className="ks-off-batch-row" style={{ border: '0.5px solid var(--dsw-alias-border-l1)', borderRadius: 8, padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 4 }}>
+          <div style={{ display: 'flex', gap: 8, fontSize: 12 }}>
+            <span style={{ fontWeight: 600 }}>{r.state === 'pending' ? '进行中' : r.state === 'ok' ? '已完成' : '出问题'}</span>
+            <span style={{ color: 'var(--dsw-alias-label-secondary)' }}>{r.line.slice(0, 40)}</span>
+          </div>
+          <div style={{ color: r.state === 'fail' ? 'var(--dsw-alias-state-error-primary)' : 'var(--dsw-alias-label-tertiary)', fontSize: 12, lineHeight: 1.6 }}>
+            {r.text}
+          </div>
+          {r.state === 'fail' && (
+            <div>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => {
+                  setRows((prev) => prev.map((row, j) => (j === i ? { ...row, state: 'pending', text: '' } : row)))
+                  void askOne(r.line).then((nr) => {
+                    setRows((prev) => prev.map((row, j) => (j === i ? { ...row, state: nr.state, text: nr.text } : row)))
+                  })
+                }}
+              >
+                单独重试这一条
+              </Button>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  )
+}
+
+/** 取证问答指引页（S2-c：说清去哪问、能拿到什么——**不给假按钮**）。 */
+export function KsAskPage({ item, onBack }: { readonly item: OfficeItem; readonly onBack: () => void }): ReactNode {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 12, padding: '12px 14px 18px' }}>
+      <button type="button" onClick={onBack} style={{ alignSelf: 'flex-start', background: 'none', border: 'none', padding: 0, cursor: 'pointer', color: 'var(--dsw-alias-state-business-primary)', fontSize: 12 }}>
+        ‹ 返回办事台
+      </button>
+      <div style={{ fontSize: 15, fontWeight: 600 }}>{item.name}</div>
+      <div style={{ color: 'var(--dsw-alias-label-secondary)', fontSize: 12, lineHeight: 1.6 }}>{item.pageDesc}</div>
+      <ul style={{ margin: 0, paddingLeft: 18, color: 'var(--dsw-alias-label-secondary)', fontSize: 12, lineHeight: 1.8 }}>
+        <li>回对话框直接提问（上面的对话就是为这个准备的）。</li>
+        <li>三段式作答：引用的依据 / 推导 / 结论，只引现行有效版。</li>
+        <li>每句结论都点得开原文（跳到 PDF 那一页，红箭头指着）。</li>
+        <li>想限定范围：在对话输入框那里挑「仅在某夹内提问」或勾目录再问。</li>
+        <li>问完右栏会自动切到「本轮」，这一轮用了哪几条都在那里。</li>
+      </ul>
+    </div>
+  )
+}
+
 /**
  * 办事台页（原「能力」页；导出名保留 `KsCapabilityPage` = 挂载点零改动）。
  */
@@ -627,7 +836,13 @@ export function KsCapabilityPage(): ReactNode {
                 ? <KsDutyPage item={active} onBack={() => { setActiveId(null) }} />
                 : active.id === 'gap'
                   ? <KsGapPage item={active} onBack={() => { setActiveId(null) }} />
-                  : <OfficePage item={active} onBack={() => { setActiveId(null) }} />
+                  : active.id === 'fix'
+                    ? <KsFixPage item={active} onBack={() => { setActiveId(null) }} />
+                    : active.id === 'batch'
+                      ? <KsBatchPage item={active} onBack={() => { setActiveId(null) }} />
+                      : active.id === 'ask'
+                        ? <KsAskPage item={active} onBack={() => { setActiveId(null) }} />
+                        : <OfficePage item={active} onBack={() => { setActiveId(null) }} />
         ) : (
           <div role="menu" aria-label="办事台">
             {OFFICE_ITEMS.map((item) => (

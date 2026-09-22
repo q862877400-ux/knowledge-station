@@ -471,6 +471,22 @@ export function mount(container, props) {
     /* S2-b1：合规审查两段式（建任务抽点 → SSE 逐条执行）。SSE 桩 = 真 ReadableStream，
        帧格式照引擎 `_sse`（event: 名 / data: json / 空行）。 */
     /* S2-b2：义务清单/检查表 + 制度差距分析（形状逐字段抄 obligation.py / gap_analysis.py）。 */
+    /* S2-c：纠错修订（条款补丁三口；466 防乱确认流 = 引擎设计：无 force 首交给警告，
+       带 force=true 再交落库）。DELETE = 回退。 */
+    if (p === '/api/v1/clauses/patches' && method === 'GET') {
+      return json({ code: 200, status: 'success', data: [
+        { patch_id: 'pch_1', clause_revision_id: 'rev_1', field_name: 'content_text', patched_value: '正确正文', created_at: '2026-09-22 16:00' },
+      ] })
+    }
+    if (p === '/api/v1/clauses/patches' && method === 'POST') {
+      const raw = String((init && init.body) || '')
+      return raw.includes('"force":true')
+        ? json({ code: 200, status: 'success', data: { patch_id: 'pch_2', clause_revision_id: 'rev_9', field_name: 'content_text', patched_value: '更正后的正文', created_at: '2026-09-22 16:10' } })
+        : json({ code: 466, error: { code: 'patch_suspicious', message: '改动幅度大/语言突变，请人工确认后再交。' } }, 466)
+    }
+    if (p === '/api/v1/clauses/patches/pch_1' && method === 'DELETE') {
+      return json({ code: 200, status: 'success', data: { deleted: true } })
+    }
     if (p === '/api/v1/compliance/obligations' && method === 'POST') {
       return json({ code: 200, data: { list_id: 'lst_1', business_description: '高处作业', count: 2, groups: [
         { group: 'GB 30871', items: [
@@ -2304,10 +2320,12 @@ export function mount(container, props) {
     officePageText.includes('批量问答') && officePageText.includes('‹ 返回办事台')
     && officePageText.includes('开始：批量提问'),
     officePageText.slice(0, 60))
-  const officeStartBtn = cq('button').find((b) => (b.textContent ?? '').includes('开始：'))
-  check('办事台：S2-a1 动作钮**灰 +「还没接上」**（不给假入口；S2-a2 起逐个翻真）',
-    officeStartBtn !== undefined && officeStartBtn.disabled === true && officePageText.includes('还没接上'),
-    officeStartBtn === undefined ? '没找到动作钮' : `disabled=${String(officeStartBtn.disabled)}`)
+  /* ⚠ 原 S2-a1「动作钮灰 + 还没接上」样板断言**转正为完工断言**（2026-09-22 S2-c）：
+     七件活全部翻真后"灰态样板"没有对象了（灰态只剩条款释义那一行，另一断言钉着）——
+     从"钉住未完成的诚实态"升级成"钉住不再回退成占位"。对账：改 1、加强非放宽。 */
+  check('办事台·完工断言（S2-c）：全台**不再有「还没接上」占位**（七件活全真；只剩条款释义"还没有"灰行）',
+    !officePageText.includes('还没接上'),
+    officePageText.includes('还没接上') ? '还有占位' : '全真')
 
   const officeBackBtn = cq('button').find((b) => (b.textContent ?? '').includes('返回办事台'))
   await cClick(officeBackBtn)
@@ -2442,6 +2460,69 @@ export function mount(container, props) {
     && (capContainer.textContent ?? '').includes('建议在制度中新增对应条款')
     && (capContainer.textContent ?? '').includes('建议完善相关章节'),
     (capContainer.textContent ?? '').slice(-80))
+
+  /* ── S2-c：纠错修订（台账 + 466 防乱确认流 + 回退）── */
+  await cClick(cq('button').find((b) => (b.textContent ?? '').includes('返回办事台')))
+  await cClick(cq('.ks-off-row')[4])
+  await flush(); await flush()
+  check('办事台·纠错修订：进页真列台账（GET /patches → 1 条 + 回退钮）',
+    calls.some((c) => c.url.includes('/api/v1/clauses/patches'))
+    && (capContainer.textContent ?? '').includes('修订台账（1 条，可回退）')
+    && (capContainer.textContent ?? '').includes('正确正文'),
+    (capContainer.textContent ?? '').slice(0, 60))
+  const fixRev = capContainer.querySelector('#ks-fix-rev')
+  const fixArea = capContainer.querySelector('#ks-fix-text')
+  setInput(fixRev, 'rev_9')
+  areaSetter.call(fixArea, '更正后的正文')
+  fixArea.dispatchEvent(new dom.window.Event('input', { bubbles: true }))
+  await flush(); await flush()
+  await cClick(cq('button').find((b) => (b.textContent ?? '').trim() === '提交修订'))
+  await flush(); await flush()
+  check('办事台·纠错修订：首交 466 防乱警告**如实显示** + 给「看过了，确认提交」二段钮（不静默落库）',
+    (capContainer.textContent ?? '').includes('请人工确认后再交')
+    && cq('button').some((b) => (b.textContent ?? '').includes('看过了，确认提交')),
+    (capContainer.textContent ?? '').slice(-60))
+  await cClick(cq('button').find((b) => (b.textContent ?? '').includes('看过了，确认提交')))
+  await flush(); await flush()
+  check('办事台·纠错修订：确认后带 force 重交真落库（POST body 含 "force":true + 成功回执）',
+    calls.some((c) => c.url.includes('/api/v1/clauses/patches') && String(c.body ?? '').includes('"force":true'))
+    && (capContainer.textContent ?? '').includes('修订已提交（原文仍在，随时可回退）。'),
+    (capContainer.textContent ?? '').slice(-60))
+  dom.window.confirm = () => true
+  await cClick(cq('button').find((b) => (b.textContent ?? '').trim() === '回退'))
+  await flush(); await flush()
+  check('办事台·纠错修订：回退真发 DELETE（确认后滚回原始值 + 回执）',
+    calls.some((c) => c.method === 'DELETE' && c.url.includes('/api/v1/clauses/patches/pch_1'))
+    && (capContainer.textContent ?? '').includes('已回退。'),
+    calls.slice(-3).map((c) => `${c.method ?? 'GET'} ${c.url.split('/').slice(-1)[0]}`).join(' | '))
+
+  /* ── S2-c：批量问答（逐条真问；⚠ "失败单独重试"按钮在但本桩全成 ⇒ 重试行未演练，如实登记）── */
+  await cClick(cq('button').find((b) => (b.textContent ?? '').includes('返回办事台')))
+  await cClick(cq('.ks-off-row')[3])
+  const batchQ = capContainer.querySelector('#ks-batch-q')
+  const batchArea = capContainer.querySelector('#ks-batch-lines')
+  setInput(batchQ, '这条的强制性要求是什么？')
+  areaSetter.call(batchArea, '条款甲\n条款乙')
+  batchArea.dispatchEvent(new dom.window.Event('input', { bubbles: true }))
+  await flush(); await flush()
+  const batchBefore = calls.length
+  await cClick(cq('button').find((b) => (b.textContent ?? '').includes('开始：批量提问')))
+  await flush(); await flush(); await flush(); await flush()
+  check('办事台·批量问答：逐条真问（/ks/answer 这一段恰好 2 次）+ 两行状态词渲染',
+    calls.slice(batchBefore).filter((c) => c.url.endsWith('/api/v1/ks/answer')).length === 2
+    && cq('.ks-off-batch-row').length === 2
+    && (capContainer.textContent ?? '').includes('条款甲'),
+    `answers=${String(calls.slice(batchBefore).filter((c) => c.url.endsWith('/api/v1/ks/answer')).length)} 行=${String(cq('.ks-off-batch-row').length)}`)
+
+  /* ── S2-c：取证问答指引（纯说明，无假按钮）── */
+  await cClick(cq('button').find((b) => (b.textContent ?? '').includes('返回办事台')))
+  await cClick(cq('.ks-off-row')[6])
+  check('办事台·取证问答：指引页五句都在（三段式/原文/范围/本轮）且**没有假按钮**',
+    (capContainer.textContent ?? '').includes('三段式作答')
+    && (capContainer.textContent ?? '').includes('红箭头指着')
+    && (capContainer.textContent ?? '').includes('自动切到「本轮」')
+    && cq('button').filter((b) => (b.textContent ?? '').includes('开始：')).length === 0,
+    (capContainer.textContent ?? '').slice(0, 60))
 
   capRoot.unmount()
   await flush()

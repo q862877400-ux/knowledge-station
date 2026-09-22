@@ -2511,6 +2511,79 @@ export function runGapAnalysis(policyId: string, signal?: AbortSignal): Promise<
   return compliancePost<KsGapResult>('/api/v1/compliance/gap-analysis', { policy_id: policyId }, '差距分析', signal)
 }
 
+/* ============================================================================
+   纠错修订（S2-c，2026-09-22）：条款补丁三口（Task 10.3 的真数据）。
+     POST /api/v1/clauses/patches {clause_revision_id, field_name, patched_value, force?}
+       → 200 落库；**466** = 防乱警告（前端二次确认后带 force=true 再交）；422 = 拒绝。
+     GET /api/v1/clauses/patches?clause_revision_id=&limit= → {data: [patch…]}
+     DELETE /api/v1/clauses/patches/{patch_id} = 回退（滚回不可变原始值；content_text
+       会重算索引，秒级——引擎 §10.79 口径）。
+   ============================================================================ */
+
+export interface KsClausePatch {
+  patch_id?: unknown
+  clause_revision_id?: unknown
+  field_name?: unknown
+  patched_value?: unknown
+  created_at?: unknown
+  [k: string]: unknown
+}
+
+/** 列修订（不传 rev = 全部，最近在前）。 */
+export async function listClausePatches(
+  params: { clauseRevisionId?: string; limit?: number } = {},
+  signal?: AbortSignal,
+): Promise<KsClausePatch[]> {
+  const { token, engine: { port } } = await fetchSession(signal)
+  const qs = new URLSearchParams()
+  if (params.clauseRevisionId !== undefined) qs.set('clause_revision_id', params.clauseRevisionId)
+  if (params.limit !== undefined) qs.set('limit', String(params.limit))
+  const suffix = qs.toString()
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/clauses/patches${suffix ? `?${suffix}` : ''}`, {
+    method: 'GET',
+    headers: { Authorization: `Bearer ${token}`, accept: 'application/json' },
+    signal,
+  })
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `列修订失败（HTTP ${res.status}）`))
+  const out = (await res.json().catch(() => null)) as { code?: number; data?: unknown } | null
+  if (!Array.isArray(out?.data)) throw new Error('列修订响应异常（期望 {code:200,data:[…]}）')
+  return out.data as KsClausePatch[]
+}
+
+/**
+ * 提交修订（防乱检测的 466 确认流是**引擎设计**：首交 466 带警告 ⇒ 人工确认后带 force 再交）。
+ * 返回 `{warned}`（待确认）或 `{patch}`（已落库）——**不静默落库**。
+ */
+export async function createClausePatch(
+  body: { clause_revision_id: string; field_name: string; patched_value: string; force?: boolean },
+  signal?: AbortSignal,
+): Promise<{ warned: string } | { patch: unknown }> {
+  const { token, engine: { port } } = await fetchSession(signal)
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/clauses/patches`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify(body),
+    signal,
+  })
+  const out = (await res.json().catch(() => null)) as { code?: number; data?: unknown; error?: { message?: string } } | null
+  if (res.status === 466 || out?.code === 466) {
+    return { warned: out?.error?.message ?? '引擎提示这条修订可疑，请人工确认后再交（带确认重交）。' }
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `提交修订失败（HTTP ${res.status}）`))
+  return { patch: out?.data ?? null }
+}
+
+/** 回退一条修订（删补丁 = 滚回原始值；引擎重算索引可能要几秒）。 */
+export async function deleteClausePatch(patchId: string, signal?: AbortSignal): Promise<void> {
+  const { token, engine: { port } } = await fetchSession(signal)
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/clauses/patches/${encodeURIComponent(patchId)}`, {
+    method: 'DELETE',
+    headers: { Authorization: `Bearer ${token}`, accept: 'application/json' },
+    signal,
+  })
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `回退修订失败（HTTP ${res.status}）`))
+}
+
 /** GET /ks/report/effect/docs — 节点明细（瘦身行；未知名路径 → 200 空集）。 */
 export async function fetchEffectDocs(
   params: { top: string; l2: string; l3?: string; l4?: string; window: KsEffectWindow; color?: string },
