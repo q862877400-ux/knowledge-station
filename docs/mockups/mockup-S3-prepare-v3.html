@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>原型 v3（假数据）：备料 —— 地位行上直选 + 多选批量（S3 提案 v3）</title>
+<style>
+  /* 业主 2026-09-22 反馈后改版：① 「必须遵守/仅供参考」不进第二屏——**行上直接放按钮**；
+     ② 支持勾选**多选批量设置**（与知识库页悬浮批量条同手感）。侧栏窄列（≈520px）主档。假数据。 */
+  :root { --lbl1:#111; --lbl2:#666; --lbl3:#9a9a9a; --bd:#e5e5e5; --bg1:#fafafa; --bg2:#fff;
+          --blue:#0969da; --green:#1a7f37; --amber:#9a6700; --red:#cf222e; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font:13px/1.6 "Segoe UI",system-ui,sans-serif; color:var(--lbl1); background:var(--bg1);
+         padding:24px; width:568px; }
+  h1 { font-size:18px; margin-bottom:4px; }
+  .sub { color:var(--lbl2); font-size:12px; margin-bottom:14px; }
+  .panel { width:520px; background:var(--bg2); border:0.5px solid var(--bd); border-radius:10px;
+           overflow:hidden; margin-bottom:8px; position:relative; }
+  .phead { padding:12px 14px 8px; border-bottom:0.5px solid var(--bd); }
+  .phead b { font-size:15px; }
+  .phead .one { color:var(--lbl2); font-size:12px; }
+  .cap { color:var(--lbl2); font-size:12px; margin:0 0 18px 2px; }
+  .drop { margin:12px 14px; border:0.5px dashed var(--bd); border-radius:8px; height:64px;
+          display:flex; align-items:center; justify-content:center; gap:10px; color:var(--lbl2); font-size:12px; }
+  .alt { color:var(--blue); font-size:12px; }
+  .lane { border-top:0.5px solid var(--bd); }
+  .lanehead { padding:8px 14px 4px; font-size:12px; color:var(--lbl2); }
+
+  /* 行：勾选框 + 图标 + 名称/短语 + 行上按钮（地位切换）+ 状态小牌 */
+  .item { display:flex; align-items:center; gap:9px; height:58px; padding:0 14px;
+          border-top:0.5px solid var(--bd); }
+  .cb { width:15px; height:15px; border:0.5px solid var(--lbl3); border-radius:4px; flex:none;
+        display:flex; align-items:center; justify-content:center; font-size:11px; color:#fff; }
+  .cb.on { background:var(--blue); border-color:var(--blue); }
+  .ico { width:26px; height:26px; border-radius:7px; background:var(--bg1); border:0.5px solid var(--bd);
+         display:flex; align-items:center; justify-content:center; font-size:13px; flex:none; }
+  .tx { flex:1; min-width:0; }
+  .nm { font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .hint { color:var(--lbl2); font-size:12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  /* 行上地位按钮：显示当前值，点一下切另一个 */
+  .role { flex:none; border-radius:999px; padding:2px 10px; font-size:11.5px; cursor:pointer;
+          border:0.5px solid var(--bd); color:var(--lbl2); background:var(--bg2); white-space:nowrap; }
+  .role.must { border-color:var(--blue); color:var(--blue); }
+  .st { font-size:11px; border-radius:999px; padding:1px 8px; border:0.5px solid var(--bd); color:var(--lbl2); flex:none; }
+  .st.done { color:var(--green); border-color:var(--green); }
+  .st.human { color:var(--amber); border-color:var(--amber); }
+
+  /* 悬浮批量条（勾了才出现；与知识库页同手感） */
+  .batch { position:absolute; left:14px; right:14px; bottom:12px; background:var(--bg2);
+           border:0.5px solid var(--bd); border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,.10);
+           padding:8px 12px; display:flex; align-items:center; gap:8px; flex-wrap:wrap; font-size:12px; }
+  .bbtn { border:0.5px solid var(--bd); border-radius:6px; padding:4px 12px; font-size:12px; color:var(--lbl1); background:var(--bg2); }
+  .bbtn.pri { border-color:var(--blue); color:var(--blue); }
+  .bcancel { color:var(--blue); font-size:12px; margin-left:auto; }
+  .pad { height:64px; }
+</style>
+</head>
+<body>
+<h1>S3 v3（假数据）：地位行上直选 + 多选批量 —— 侧栏宽度</h1>
+<div class="sub">业主反馈后改版：地位不进第二屏（名称后面就是按钮）；勾选后浮出批量条，一键批量设「必须遵守 / 仅供参考」 · 2026-09-22</div>
+
+<!-- 第一屏：平时（行上按钮） -->
+<div class="panel">
+  <div class="phead"><b>备料</b><div class="one">丢文件进来；材料的地位行上直接选，可勾选批量改。</div></div>
+  <div class="drop">📄 把文件拖进来，或<span class="alt">点击选择</span> ｜ <span class="alt">按网址自采</span></div>
+  <div class="lane">
+    <div class="lanehead">进参考资料（材料）</div>
+    <div class="item"><div class="cb"></div><div class="ico">📎</div><div class="tx"><div class="nm">公司安全制度.docx</div><div class="hint">已就位 · 48 段</div></div><span class="role must">必须遵守</span><span class="st done">可作依据</span></div>
+    <div class="item"><div class="cb"></div><div class="ico">📎</div><div class="tx"><div class="nm">开发文档-接口规范.pdf</div><div class="hint">已就位 · 121 段</div></div><span class="role">仅供参考</span><span class="st done">可作依据</span></div>
+    <div class="item"><div class="cb"></div><div class="ico">📎</div><div class="tx"><div class="nm">操作手册-上料规程.pdf</div><div class="hint">已就位 · 33 段</div></div><span class="role must">必须遵守</span><span class="st done">可作依据</span></div>
+    <div class="item"><div class="cb"></div><div class="ico">🔗</div><div class="tx"><div class="nm">某网页正文（自采）</div><div class="hint">来路是别人的 · 待你评审能不能引用</div></div><span class="st human">待评审</span></div>
+  </div>
+</div>
+<div class="cap">第一屏：名称后面那颗**胶囊按钮就是地位**（蓝圈=必须遵守，灰圈=仅供参考），点一下切换——不用进任何页面。</div>
+
+<!-- 第二屏：勾了两项（批量条出现） -->
+<div class="panel">
+  <div class="phead"><b>备料</b><div class="one">丢文件进来；材料的地位行上直接选，可勾选批量改。</div></div>
+  <div class="lane">
+    <div class="lanehead">进参考资料（材料）</div>
+    <div class="item"><div class="cb on">✓</div><div class="ico">📎</div><div class="tx"><div class="nm">开发文档-接口规范.pdf</div><div class="hint">已就位 · 121 段</div></div><span class="role">仅供参考</span><span class="st done">可作依据</span></div>
+    <div class="item"><div class="cb on">✓</div><div class="ico">📎</div><div class="tx"><div class="nm">操作手册-上料规程.pdf</div><div class="hint">已就位 · 33 段</div></div><span class="role must">必须遵守</span><span class="st done">可作依据</span></div>
+    <div class="item"><div class="cb"></div><div class="ico">📎</div><div class="tx"><div class="nm">公司安全制度.docx</div><div class="hint">已就位 · 48 段</div></div><span class="role must">必须遵守</span><span class="st done">可作依据</span></div>
+    <div class="pad"></div>
+    <div class="batch">
+      <span>已选 2 项</span>
+      <span class="bbtn pri">批量设为必须遵守</span>
+      <span class="bbtn">批量设为仅供参考</span>
+      <span class="bcancel">取消选择</span>
+    </div>
+  </div>
+</div>
+<div class="cap">第二屏：勾选后底部浮出批量条——一键把勾中的全部设为「必须遵守」或「仅供参考」（和知识库页的多选批量条同一种手感）。</div>
+</body>
+</html>
