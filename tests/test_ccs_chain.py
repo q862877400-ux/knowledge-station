@@ -194,16 +194,39 @@ def _html(*items: tuple[str, str, str]) -> str:
 def test_keyword_forms_ordered_full_to_bare():
     """形式由**精确到宽泛**、且去重（业主：「完整标准号容易搜不到」⇒ 不许只赌一种）。"""
     forms = cf.keyword_forms("GB/T 1094.3-2017")
-    assert [f for f, _ in forms] == ["full", "compact", "core", "bare"], forms
-    assert dict(forms)["full"] == "GB/T 1094.3-2017"      # 空格必须留着
-    assert dict(forms)["compact"] == "GBT1094.3-2017"
-    assert dict(forms)["core"] == "1094.3"                # 含分部号
-    assert dict(forms)["bare"] == "1094"                  # 最宽（也最吵）
+    assert [f for f, _k, _t in forms] == ["full", "compact", "core", "bare"], forms
+    assert dict((f, k) for f, k, _t in forms)["full"] == "GB/T 1094.3-2017"   # 空格留着
+    assert dict((f, k) for f, k, _t in forms)["compact"] == "GBT1094.3-2017"
+    assert dict((f, k) for f, k, _t in forms)["core"] == "1094.3"             # 含分部号
+    assert dict((f, k) for f, k, _t in forms)["bare"] == "1094"               # 最宽（最吵）
     # 全角斜杠要折成半角（真库 92% 的号写全角）
-    assert dict(cf.keyword_forms("GB／T 50493-2019"))["full"] == "GB/T 50493-2019"
+    assert dict((f, k) for f, k, _t in
+                cf.keyword_forms("GB／T 50493-2019"))["full"] == "GB/T 50493-2019"
     # 没有分部号时 core 与 bare 相同 ⇒ 去重（省一次请求）
-    assert [f for f, _ in cf.keyword_forms("GB 30871-2022")] == \
+    assert [f for f, _k, _t in cf.keyword_forms("GB 30871-2022")] == \
         ["full", "compact", "core"]
+
+
+def test_keyword_form_target_is_also_cleaned():
+    """**关键词与匹配目标必须一起抠干净**（真机实测抓到的我自己的缺陷，回归哨兵）。
+
+    第一版只把关键词抠干净、匹配目标还留着原串：站点明明回了 `GB 5009.12-2023`
+    （`a825=X09`）排第一，而归一号是 `GB5009.12-2023食品安全国家标准` ⇒ **永不相等**，
+    报成"查无"。⇒ 这条钉住"每个形式的目标都是抠干净的那个号"。
+    """
+    for form, _kw, target in cf.keyword_forms("GB 5009.12-2023食品安全国家标准"):
+        assert target == "GB 5009.12-2023", (form, target)
+    # 抠干净之后**同一份应答**必须能挑中（这才是"扣了关键词也要能挑中"）。
+    # ⚠ 假传输按**真机行为**只在 `clean` 那个关键词上给行：真站点拿带中文的整串
+    #   搜不出它（这就是当初为什么抠关键词），拿 `GB 5009.12-2023` 搜它排第一。
+    tr = FakeTransport(official=lambda kw: (
+        _api_rows(_row("GB 5009.12-2023", "X09", "卫生、安全、劳动保护"))
+        if kw == "GB 5009.12-2023" else {}))
+    got = cf.resolve_ccs("GB 5009.12-2023食品安全国家标准", transport=tr)
+    assert got["outcome"] == "found", got
+    assert got["code"] == "X09"
+    assert got["keyword_form"] == "clean"
+    assert got["matched_no"] == "GB 5009.12-2023"
 
 
 def test_keyword_forms_strip_trailing_junk():
@@ -212,13 +235,28 @@ def test_keyword_forms_strip_trailing_junk():
     `GB 5009.12-2023食品安全国家标准` 这种写法拿整串去搜当然搜不到；
     抠成 `GB 5009.12-2023` 就搜得到。号本身干净时 `clean` 与 `full` 同形、被去重。
     """
-    forms = dict(cf.keyword_forms("GB 5009.12-2023食品安全国家标准"))
+    forms = dict((f, k) for f, k, _t in cf.keyword_forms("GB 5009.12-2023食品安全国家标准"))
     assert forms["full"] == "GB 5009.12-2023食品安全国家标准"
     assert forms["clean"] == "GB 5009.12-2023"
-    forms2 = dict(cf.keyword_forms("GB/T 27668-2023显微镜光学显微术术语(1)"))
+    forms2 = dict((f, k) for f, k, _t in
+                  cf.keyword_forms("GB/T 27668-2023显微镜光学显微术术语(1)"))
     assert forms2["clean"] == "GB/T 27668-2023"
-    # 老写法（两位年代）也要能抠出数字主体
-    assert "core" in dict(cf.keyword_forms("GB 228-87"))
+    # 只加空格也是有效的一档（真机实测：`GB/T1.1-2020` 靠 clean 那档才中）
+    assert dict((f, k) for f, k, _t in cf.keyword_forms("GB/T1.1-2020"))["clean"] \
+        == "GB/T 1.1-2020"
+    # 老写法（两位年代）要能抠出数字主体，并多试一次"补成四位"
+    f3 = dict((f, k) for f, k, _t in cf.keyword_forms("GB 228-87"))
+    assert "core" in f3 and f3["core"] == "228"
+    assert f3["year4"] == "GB 228-1987"
+
+
+def test_two_digit_year_year4_form_matches():
+    """两位年代（`GB 228-87` = 1987 版）靠 `year4` 那档命中，且目标也是四位号。"""
+    tr = FakeTransport(official=lambda kw: _api_rows(
+        _row("GB 228-1987", "H22", "金属材料") if kw == "GB 228-1987" else {}))
+    got = cf.resolve_ccs("GB 228-87", transport=tr)
+    assert got["outcome"] == "found", got
+    assert got["keyword_form"] == "year4" and got["matched_no"] == "GB 228-1987"
 
 
 def test_not_a_standard_no_is_not_applicable():
@@ -311,7 +349,6 @@ def test_official_empty_falls_back_to_web_scrape():
     off = [a for a in got["attempts"] if a["layer"] == "official_api"]
     assert [a["keyword_form"] for a in off] == ["full", "compact", "core"]
     assert all(a["result"] == "no_match" for a in off), off
-
 
 def test_keyword_form_escalates_when_full_form_misses():
     """完整号搜不到时**继续试**别的形式，并把**真正中的那种**记下来。

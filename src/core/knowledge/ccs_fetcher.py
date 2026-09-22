@@ -94,10 +94,11 @@ OUTCOME_LABELS: dict[str, str] = {
 #: 关键词形式的说法（记录"哪一种形式命中"，界面/审计可查）
 FORM_LABELS: dict[str, str] = {
     "full": "完整标准号",
-    "clean": "去掉尾部杂字的标准号",
+    "clean": "抠掉尾部杂字的标准号",
     "compact": "去空格变体",
     "core": "数字主体（含分部号）",
     "bare": "数字首段",
+    "year4": "两位年代补成四位",
 }
 
 #: 挑选匹配行时**只接受**这两种方式（见 :func:`_pick_row` 的理由）。
@@ -280,45 +281,68 @@ def looks_like_standard_no(standard_no: str) -> bool:
     return clean_standard_no(standard_no) != ""
 
 
-def keyword_forms(standard_no: str) -> list[tuple[str, str]]:
-    """标准号 → **有序**的 ``[(形式名, 关键词)]``（去重且去掉空串）。
+def keyword_forms(standard_no: str) -> list[tuple[str, str, str]]:
+    """标准号 → **有序**的 ``[(形式名, 关键词, 匹配目标)]``（去重且去掉空串）。
 
     业主定的口径：「搜索改用完整标准号容易搜不到」⇒ 别只赌一种形式。
     顺序 = 由**精确到宽泛**，前一种命中了就不试后一种（省请求也省得引入噪声）：
 
     1. ``full``    —— 半角斜杠、**保留空格**的完整号（``GB/T 5405-2002``）。
        ⚠ 空格必须留：cssn 实测"带空格完整号"才排第一（``norm_no`` 会把空格吃掉）。
-    2. ``clean``   —— 抠掉尾部杂字后的标准号（``GB 5009.12-2023食品安全国家标准``
-       → ``GB 5009.12-2023``）。号是干净的时它与 ``full`` 同形、被去重。
+    2. ``clean``   —— 抠掉尾部杂字、并补上该有的空格后的标准号
+       （``GB 5009.12-2023食品安全国家标准`` → ``GB 5009.12-2023``、
+       ``GB/T1.1-2020`` → ``GB/T 1.1-2020``）。
     3. ``compact`` —— 去空格/去斜杠/大写（``GBT5405-2002``，真库 92% 的号写全角斜杠，
        这一形式专治"站点按半角认、库里写全角"）。
     4. ``core``    —— 数字主体**含分部号**、去年代（``5405`` / ``1094.3``）。
     5. ``bare``    —— 数字**首段**（``1094``）。最宽也最吵（``1094`` 会捞出 HJ/JJF/DB），
        只在前面全落空时用，且**仍按归一化标准号精确挑选**。
+    6. ``year4``   —— 只有两位年代时（真库有 ``GB 228-87`` 这种老写法）再试一次
+       **补成四位**的号（``GB 228-1987``）。
+
+    ## 为什么每一项要带**匹配目标**（2026-09-22 真机实测抓到的**我自己的缺陷**）
+    「关键词」与「拿什么去比」必须**同一个来源**。第一版只把关键词抠干净了、
+    匹配目标还留着**原串**：站点明明回了 ``GB 5009.12-2023``（``a825=X09``）排第一，
+    而归一号是 ``GB5009.12-2023食品安全国家标准`` ⇒ **永不相等**，报成"查无"。
+    那种"抠了关键词却拿脏串比"的不对称就是本条返回三元组的原因：**关键词与目标一起走**。
     """
     from src.core.update.channels.base import norm_no, query_no
 
     raw = (standard_no or "").strip()
     if not raw:
         return []
-    out: list[tuple[str, str]] = []
+    clean = clean_standard_no(raw) or query_no(raw)
+    #: 匹配目标：一律用**抠干净的那个号**（见 docstring 里那个不对称缺陷）。
+    target = clean
+    out: list[tuple[str, str, str]] = []
 
-    def _add(form: str, kw: str) -> None:
+    def _add(form: str, kw: str, tgt: str) -> None:
         kw = (kw or "").strip()
-        if kw and all(kw != k for _, k in out):
-            out.append((form, kw))
+        tgt = (tgt or "").strip()
+        if kw and tgt and all(kw != k for _, k, _ in out):
+            out.append((form, kw, tgt))
 
-    _add("full", query_no(raw))
-    _add("clean", clean_standard_no(raw))
-    _add("compact", norm_no(raw))
-    m = _NO_RE.match(query_no(raw))
+    _add("full", query_no(raw), target)
+    _add("clean", clean, target)
+    _add("compact", norm_no(clean), target)
+    m = _NO_RE.match(clean)
     if m:
         core = m.group(3) or ""
-        _add("core", core)
-        if "." in core:
-            _add("bare", core.split(".", 1)[0])
-        else:
-            _add("bare", core)
+        year = m.group(4) or ""
+        _add("core", core, target)
+        first = core.split(".", 1)[0] if "." in core else core
+        # ⚠ `bare` 只在首段**够长**时给：`GB/T 1.1-2020` 的首段是 `1`，
+        #   拿 `1` 去搜会捞回一大堆无关标准（这个形式本来就是最后的兜底，
+        #   宁可少试一次，也不要把噪声灌进挑选环节）。
+        if len(first) >= 3:
+            _add("bare", first, target)
+        if len(year) == 2:
+            # 两位年代：标准号里的 `-87` 就是 1987（GB 的两位年代写法都在 1900s）。
+            # ⚠ 这是**一次有据的补全**，不是猜：`year4` 这个形式名会进流水，
+            #   而且目标也一起换成四位号 —— 站点上真没有那个四位号时它照样不命中。
+            y4 = 1900 + int(year) if int(year) >= 30 else 2000 + int(year)
+            expanded = f"{clean[:len(clean) - 2]}{y4}"
+            _add("year4", expanded, expanded)
     return out
 
 
@@ -406,7 +430,7 @@ def _layer_official_api(standard_no: str, transport: Any,
     这种组合被误报成"读不出来"。
     """
     facts = _LayerFacts()
-    for form, kw in keyword_forms(standard_no):
+    for form, kw, target in keyword_forms(standard_no):
         try:
             status, body = transport.fetch(_CSSN_API, params={"keyword": kw},
                                            headers=_HEADERS, timeout=25)
@@ -430,7 +454,7 @@ def _layer_official_api(standard_no: str, transport: Any,
                              "detail": f"应答不是预期的 JSON 形状（http={status}）"})
             continue
         facts.saw_parseable = True
-        row, mode = _pick_row(rows, standard_no)
+        row, mode = _pick_row(rows, target)
         if row is None:
             if mode is not None:
                 # 挑到过，但是**年份不同的他版** —— 拒收（见 `_pick_row` 的真缺陷取证）
@@ -535,7 +559,7 @@ def _layer_web_scrape(standard_no: str, transport: Any,
                       ) -> tuple[dict | None, _LayerFacts]:
     """② 网页抓取：同样多形式依次试，按**归一号精确挑选**条目（事实交回调用方合并）。"""
     facts = _LayerFacts()
-    for form, kw in keyword_forms(standard_no):
+    for form, kw, target in keyword_forms(standard_no):
         try:
             status, body = transport.fetch(_CSSN_LIST, params={"keyword": kw},
                                            headers={"User-Agent": _UA}, timeout=25)
@@ -561,7 +585,7 @@ def _layer_web_scrape(standard_no: str, transport: Any,
                                        f"HTML 结构可能变了）"})
             continue
         facts.saw_parseable = True
-        row, mode = _pick_row(items, standard_no)
+        row, mode = _pick_row(items, target)
         if row is None:
             if mode is not None:
                 attempts.append({"layer": SOURCE_WEB_SCRAPE, "keyword_form": form,
