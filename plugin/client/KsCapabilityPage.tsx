@@ -375,7 +375,7 @@ export function KsContractPage({ item, onBack }: { readonly item: OfficeItem; re
         const w = VERDICT_WORD[str(v.verdict)] ?? { text: '需复核', color: 'var(--dsw-alias-state-warn-primary)' }
         const clauses = Array.isArray(v.matched_clauses) ? (v.matched_clauses as Record<string, unknown>[]) : []
         return (
-          <div key={`${str(v.point_id)}-${String(i)}`} style={{ border: '0.5px solid var(--dsw-alias-border-l1)', borderRadius: 8, padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 4 }}>
+          <div key={`${str(v.point_id)}-${String(i)}`} className="ks-off-verdict-row" style={{ border: '0.5px solid var(--dsw-alias-border-l1)', borderRadius: 8, padding: '8px 10px', display: 'flex', flexDirection: 'column', gap: 4 }}>
             <div style={{ display: 'flex', gap: 8, alignItems: 'center', fontSize: 12 }}>
               <span style={{ color: w.color, fontWeight: 600 }}>{w.text}</span>
               <span style={{ color: 'var(--dsw-alias-label-secondary)' }}>{str(v.point_content).slice(0, 60)}</span>

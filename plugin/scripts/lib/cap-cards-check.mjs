@@ -23,6 +23,10 @@
  */
 export const CAPCARDS_PAGE = 'capabilities'
 
+/** 办事台菜单行的**行高定稿值**（v3 设计常数，KsOfficeRow 的固定行高；**单处声明**，
+ *  组件与判据互核——复核 M2：只判"等高"不判值 ⇒ 37px 矮行也能过，值必须冻结互核）。 */
+export const OFFICE_ROW_H = 62
+
 /** 同排分组的 top 容差（保留导出兼容；行口径已不用分组，但变异跑可能引用）。 */
 export const CAPCARDS_ROW_TOL = 1
 
@@ -56,7 +60,8 @@ export function checkCapCards(measured, page) {
         + JSON.stringify(badItems.map((it) => `${it.name}=${String(it.w)}x${String(it.h)}@${String(it.top)}`)))
     } else {
       const perRow = items.map((it) => ({ name: it.name, w: it.w, h: it.h }))
-      /* ① 全部行等高（v3 核心不变式）—— 值由 KsOfficeRow 的固定行高给，谁改成参差立刻红。 */
+      /* ① 全部行等高（v3 核心不变式）+ **值冻结互核**（复核 M2 补）：每行高度必须等于
+         OFFICE_ROW_H±1（下界同时兜住"矮成一条缝"）；谁改成 auto/参差/改常数不互核立刻红。 */
       const hs = items.map((it) => it.h)
       const hMin = Math.min(...hs)
       const hMax = Math.max(...hs)
@@ -64,6 +69,13 @@ export function checkCapCards(measured, page) {
         problems.push(`菜单行**高度不全等**：最矮 ${String(hMin)}px / 最高 ${String(hMax)}px（差 ${String(hMax - hMin)}px）；`
           + `逐行 ${JSON.stringify(perRow)}`
           + ' ⇒ 行高的声明应只有一处（KsOfficeRow 的固定行高）；改成 auto/参差就不再是"等高菜单行"。')
+      }
+      const offValue = items.filter((it) => Math.abs(it.h - OFFICE_ROW_H) > 1)
+      if (offValue.length > 0) {
+        problems.push(`菜单行**行高不等于定稿值 ${String(OFFICE_ROW_H)}px**（±1 容差）：`
+          + JSON.stringify(offValue.map((it) => `${it.name}=${String(it.h)}px`))
+          + ` ⇒ 行高定稿值唯一声明在 cap-cards-check 的 OFFICE_ROW_H（组件固定行高与它互核）；`
+          + '只判"等高"不判值的教训见复核 M2（37px 全等照过）。')
       }
       rowsOut = items.map((it) => ({ top: it.top, items: [it] }))
     }

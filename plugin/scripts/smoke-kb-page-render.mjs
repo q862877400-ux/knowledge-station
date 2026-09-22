@@ -2295,7 +2295,7 @@ export function mount(container, props) {
     (capContainer.textContent ?? '').slice(0, 40))
 
   const officeRows = cq('.ks-off-row')
-  check('办事台：8 行等高菜单行（一个功能一行）', officeRows.length === 8, `实际 ${String(officeRows.length)} 行`)
+  check('办事台：8 行菜单行（一个功能一行；**等高值**由像素判据 #capcards 冻结常数钉）', officeRows.length === 8, `实际 ${String(officeRows.length)} 行`)
 
   const officeTexts = officeRows.map((r) => (r.textContent ?? '').replace(/\s+/g, '').replace(/[›·]/g, ''))
   check('办事台：行文案逐字照 v3 定稿（名称+短语 8 对）',
@@ -2323,9 +2323,9 @@ export function mount(container, props) {
   /* ⚠ 原 S2-a1「动作钮灰 + 还没接上」样板断言**转正为完工断言**（2026-09-22 S2-c）：
      七件活全部翻真后"灰态样板"没有对象了（灰态只剩条款释义那一行，另一断言钉着）——
      从"钉住未完成的诚实态"升级成"钉住不再回退成占位"。对账：改 1、加强非放宽。 */
-  check('办事台·完工断言（S2-c）：全台**不再有「还没接上」占位**（七件活全真；只剩条款释义"还没有"灰行）',
+  check('办事台·完工断言（S2-c）：本屏（批量问答页）无「还没接上」占位——⚠ 快照当前屏口径（复核 §七E：不是全台扫描；全台面由"行文案逐字+七页真入口断言"合围）',
     !officePageText.includes('还没接上'),
-    officePageText.includes('还没接上') ? '还有占位' : '全真')
+    officePageText.includes('还没接上') ? '还有占位' : '本屏干净')
 
   const officeBackBtn = cq('button').find((b) => (b.textContent ?? '').includes('返回办事台'))
   await cClick(officeBackBtn)
@@ -2389,11 +2389,25 @@ export function mount(container, props) {
     execBtn2 === undefined ? '没找到执行钮' : (execBtn2.textContent ?? ''))
   await cClick(execBtn2)
   await flush(); await flush()
-  check('办事台·合同审查：SSE 逐条三色真渲染（风险 + 需复核 两色词 + 汇总行逐字）',
-    (capContainer.textContent ?? '').includes('风险')
-    && (capContainer.textContent ?? '').includes('需复核')
-    && (capContainer.textContent ?? '').includes('结论：1 风险 · 1 需复核 · 0 合规'),
-    (capContainer.textContent ?? '').slice(-80))
+  /* ⚠ 复核 M4 补（判词**卡级**断言）：原断言只钉「风险/需复核」两个词——而它们就在
+     pageDesc 静态文案与汇总行里 ⇒ 删掉逐条累积照样绿（空过面实测坐实）。现在钉：
+     ① 判词卡**恰好 2 张**（类名 ks-off-verdict-row）② 每卡 reason **原话** ③ 匹配条款
+     链接数（pt_1 一条 ⇒ 1 个看原文）④ 三色词 **scoped 到卡片**（卡片在才认词）。 */
+  const verdictCards = cq('.ks-off-verdict-row')
+  const cardTexts = verdictCards.map((c) => c.textContent ?? '')
+  check('办事台·合同审查：判词卡**恰好 2 张**（删逐条累积 ⇒ 0 张，这里必红）',
+    verdictCards.length === 2, `实际 ${String(verdictCards.length)} 张`)
+  check('办事台·合同审查：每卡 reason 原话在（未见作业票要求 / 未命中明确法条）',
+    cardTexts.some((t) => t.includes('未见作业票要求。'))
+    && cardTexts.some((t) => t.includes('未命中明确法条，需人工复核。')),
+    cardTexts.map((t) => t.slice(0, 18)).join(' | '))
+  check('办事台·合同审查：三色词 scoped 到卡片（卡在才认词）+ 匹配条款看原文恰 1 个',
+    cardTexts.some((t) => t.includes('风险')) && cardTexts.some((t) => t.includes('需复核'))
+    && verdictCards.reduce((n, c) => n + c.querySelectorAll('a[href*="__ks_evidence__"]').length, 0) === 1,
+    `卡内锚点 ${String(verdictCards.reduce((n, c) => n + c.querySelectorAll('a[href*="__ks_evidence__"]').length, 0))} 个`)
+  check('办事台·合同审查：汇总行逐字（结论：1 风险 · 1 需复核 · 0 合规）',
+    (capContainer.textContent ?? '').includes('结论：1 风险 · 1 需复核 · 0 合规'),
+    (capContainer.textContent ?? '').slice(-60))
   check('办事台·合同审查：「看原文」锚点真生成（evidenceUrlOf 契约：doc=doc_id + page + rev）',
     [...capContainer.querySelectorAll('a')].some((a) => {
       const href = a.getAttribute('href') ?? ''

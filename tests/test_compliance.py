@@ -84,6 +84,12 @@ def test_full_review_flow(law_db):
     verdicts = list(execute_review(out["task_id"]))
     assert all(v["verdict"] in ("red", "yellow", "green") for v in verdicts)
     assert any(v["verdict"] == "red" for v in verdicts), "最终解释权条款应判 red"
+    # S2 复核修复批（2026-09-22，**只加不改**）：matched_clauses 必须带 doc_id ——
+    # 界面「看原文」靠它拼证据锚点（复核 verify-ui-s2fix 指出该字段无断言 = 真缺口）。
+    assert all(
+        "doc_id" in c
+        for v in verdicts for c in (v.get("matched_clauses") or [])
+    ), "matched_clauses 条目必须带 doc_id（界面看原文锚点的 doc 来源）"
     row = law_db.execute(
         "SELECT status, red_count, yellow_count, green_count, report_data FROM review_task"
         " WHERE task_id=?", (out["task_id"],)).fetchone()

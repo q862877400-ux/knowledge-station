@@ -34822,7 +34822,7 @@ function KsContractPage({ item, onBack }) {
     (phase === "running" || phase === "done") && verdicts.map((v, i) => {
       const w = VERDICT_WORD[str3(v.verdict)] ?? { text: "\u9700\u590D\u6838", color: "var(--dsw-alias-state-warn-primary)" };
       const clauses = Array.isArray(v.matched_clauses) ? v.matched_clauses : [];
-      return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { border: "0.5px solid var(--dsw-alias-border-l1)", borderRadius: 8, padding: "8px 10px", display: "flex", flexDirection: "column", gap: 4 }, children: [
+      return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-off-verdict-row", style: { border: "0.5px solid var(--dsw-alias-border-l1)", borderRadius: 8, padding: "8px 10px", display: "flex", flexDirection: "column", gap: 4 }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { style: { display: "flex", gap: 8, alignItems: "center", fontSize: 12 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { color: w.color, fontWeight: 600 }, children: w.text }),
           /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", { style: { color: "var(--dsw-alias-label-secondary)" }, children: str3(v.point_content).slice(0, 60) })
