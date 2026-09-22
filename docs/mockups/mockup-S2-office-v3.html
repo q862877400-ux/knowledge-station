@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>原型 v3（假数据）：办事台 —— 侧栏真实宽度（S2 提案 v3）</title>
+<style>
+  /* 业主 2026-09-22 反馈后重画（第三稿）：产品活在 DSH **侧栏**（≈520px 窄列）不是整页！
+     ① 单列、不横向拉伸；② 菜单行两行制（名称在上、短语在下）——窄列里天然饱满均衡；
+     ③ 菜单与"点进去的页面"上下叠放 = 侧栏里的真实序列。假数据，不接后端。 */
+  :root { --lbl1:#111; --lbl2:#666; --lbl3:#9a9a9a; --bd:#e5e5e5; --bg1:#fafafa; --bg2:#fff;
+          --blue:#0969da; --amber:#9a6700; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font:13px/1.6 "Segoe UI",system-ui,sans-serif; color:var(--lbl1); background:var(--bg1);
+         padding:24px; width:568px; }
+  h1 { font-size:18px; margin-bottom:4px; }
+  .sub { color:var(--lbl2); font-size:12px; margin-bottom:14px; }
+
+  .panel { width:520px; background:var(--bg2); border:0.5px solid var(--bd); border-radius:10px;
+           overflow:hidden; margin-bottom:8px; }
+  .phead { padding:12px 14px 8px; border-bottom:0.5px solid var(--bd); }
+  .phead b { font-size:15px; }
+  .phead .one { color:var(--lbl2); font-size:12px; }
+  .cap { color:var(--lbl2); font-size:12px; margin:0 0 18px 2px; }
+
+  /* 菜单行：两行制、等高 62px —— 窄列里名称/短语各占一行，不横向拉伸 */
+  .item { display:flex; align-items:center; gap:10px; height:62px; padding:0 14px;
+          border-bottom:0.5px solid var(--bd); }
+  .item:last-child { border-bottom:0; }
+  .ico { width:28px; height:28px; border-radius:8px; background:var(--bg1); border:0.5px solid var(--bd);
+         display:flex; align-items:center; justify-content:center; font-size:14px; flex:none; }
+  .tx { flex:1; min-width:0; }
+  .nm { font-weight:600; display:flex; align-items:center; gap:8px; }
+  .hint { color:var(--lbl2); font-size:12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .go { color:var(--lbl3); font-size:14px; flex:none; }
+  .tag { font-size:11px; color:var(--amber); border:0.5px solid var(--amber); border-radius:999px; padding:0 8px; font-weight:400; }
+  .item.off .nm, .item.off .hint, .item.off .go, .item.off .ico { color:var(--lbl3); }
+  .item.off .ico { opacity:.6; }
+
+  /* 目的页（侧栏里的下一屏） */
+  .back { color:var(--blue); font-size:12px; padding:10px 14px 0; }
+  .pbody { padding:10px 14px 18px; display:flex; flex-direction:column; gap:12px; }
+  .pbody h2 { font-size:15px; }
+  .drop { border:0.5px dashed var(--bd); border-radius:8px; height:120px; display:flex;
+          flex-direction:column; align-items:center; justify-content:center; gap:4px; color:var(--lbl3); }
+  .cta { background:var(--blue); color:#fff; border-radius:6px; padding:7px 20px; font-size:12.5px;
+         border:0.5px solid var(--blue); align-self:stretch; text-align:center; }
+  .one { color:var(--lbl2); font-size:12px; }
+</style>
+</head>
+<body>
+<h1>S2 v3（假数据）：办事台 —— 侧栏真实宽度</h1>
+<div class="sub">窄列（≈520px）里的真实样子：上下两屏 = 先菜单、点一项进它的页面 · 2026-09-22</div>
+
+<!-- 第一屏：菜单 -->
+<div class="panel">
+  <div class="phead"><b>办事台</b><div class="one">点一项，开始一件活。</div></div>
+  <div class="item"><div class="ico">📄</div><div class="tx"><div class="nm">合同审查</div><div class="hint">逐条比对法规，给三色结论</div></div><span class="go">›</span></div>
+  <div class="item"><div class="ico">✅</div><div class="tx"><div class="nm">义务清单 → 检查表</div><div class="hint">抽出「应当/必须」，转检查表</div></div><span class="go">›</span></div>
+  <div class="item"><div class="ico">📊</div><div class="tx"><div class="nm">制度差距分析</div><div class="hint">内部制度比法规缺什么</div></div><span class="go">›</span></div>
+  <div class="item"><div class="ico">❓</div><div class="tx"><div class="nm">批量问答</div><div class="hint">一批条款，一次提问</div></div><span class="go">›</span></div>
+  <div class="item"><div class="ico">🖊</div><div class="tx"><div class="nm">纠错修订</div><div class="hint">标记识别错的条款，可回退</div></div><span class="go">›</span></div>
+  <div class="item"><div class="ico">🧾</div><div class="tx"><div class="nm">外发审计</div><div class="hint">每次外发记录，可查可导出</div></div><span class="go">›</span></div>
+  <div class="item"><div class="ico">💬</div><div class="tx"><div class="nm">取证问答</div><div class="hint">去对话里提问</div></div><span class="go">›</span></div>
+  <div class="item off"><div class="ico">📖</div><div class="tx"><div class="nm">条款释义 <span class="tag">还没有</span></div><div class="hint">做完后这里可以点</div></div><span class="go">·</span></div>
+</div>
+<div class="cap">第一屏：办事台菜单（侧栏窄列，行行等高同构）。</div>
+
+<!-- 第二屏：点「合同审查」进去 -->
+<div class="panel">
+  <div class="back">‹ 返回办事台</div>
+  <div class="pbody">
+    <h2>合同审查</h2>
+    <div class="drop"><div style="font-size:20px">📄</div><div>把合同拖进来，或点击选文件</div><div class="one">支持 PDF / Word</div></div>
+    <div class="cta">开始比对</div>
+    <div class="one">结果逐条给出：合规 / 风险 / 缺失，每条可点开原文。</div>
+  </div>
+</div>
+<div class="cap">第二屏：点「合同审查」后的专门页面 —— 一屏一件事，大按钮干一件事。</div>
+</body>
+</html>
