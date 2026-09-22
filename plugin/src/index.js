@@ -1078,7 +1078,7 @@ export function makeAnswerTool(manager, chatModeOf) {
       + 'MUST disclose it (standard + case: same_standard_not_retrieved = retrieval gap; '
       + 'outside_evidence_standard = outside evidence/possibly invented). '
       + 'Never present such a citation as support, never omit it was raised. '
-      + 'Full usage rules arrive once in the first-call receipt.',
+      + 'Usage rules arrive once on first call.',
     parameters: {
       type: 'object',
       properties: {

@@ -2,9 +2,9 @@
 
 > 六件模型工具的说明书与参数表，**从真工具定义生成**（防漂移门禁 = 本目录与定义逐字比对）。
 
-## ks_answer（说明书 991 字）
+## ks_answer（说明书 998 字）
 
-Forensic (取证) compliance Q&A against the local KnowledgeStation engine; returns three-part 依据/推导/结论 + tier + verification + notes. Own inference ⇒ tens of seconds (timeout >=120s); cheap lookup ⇒ ks_resolve_clause first. Only current-effective clauses cited; "reference"/empty evidence = no direct current provision (structured empty, not an error). Cite evidence_url as [依据：<standard_no> <clause_number>](<evidence_url>). Scope: params.kb_folder_ids / params.kb_doc_ids restrict RETRIEVAL (incl. children; ids and knobs = union). OMIT = whole library. An EMPTY array is NOT "no scope": engine answers 422, no retrieval — never falls back whole-library. verification.unsupported_context listing your cited clause ⇒ that citation is NOT supported: MUST disclose it (standard + case: same_standard_not_retrieved = retrieval gap; outside_evidence_standard = outside evidence/possibly invented); never as support, never omit it was raised. Full usage rules arrive once in the first-call receipt.
+Forensic (取证) compliance Q&A against the local KnowledgeStation engine; returns three-part 依据/推导/结论 + tier + verification + notes. Own inference ⇒ tens of seconds (timeout >=120s); cheap lookup ⇒ ks_resolve_clause first. Only current-effective clauses cited; "reference"/empty evidence = no direct current provision (structured empty, not an error). Cite evidence_url as [依据：<standard_no> <clause_number>](<evidence_url>). Scope: params.kb_folder_ids / params.kb_doc_ids restrict RETRIEVAL (incl. children; ids and knobs = union). OMIT = whole library. An EMPTY array is NOT "no scope": engine answers 422, no retrieval — never falls back whole-library. verification.unsupported_context listing your cited clause ⇒ that citation is NOT supported: MUST disclose it (standard + case: same_standard_not_retrieved = retrieval gap; outside_evidence_standard = outside evidence/possibly invented). Never present such a citation as support, never omit it was raised. Usage rules arrive once on first call.
 
 | 参数 | 类型 | 说明 |
 |---|---|---|
@@ -32,9 +32,9 @@ Forensic (取证) compliance Q&A against the local KnowledgeStation engine; retu
 | `include_attention` | boolean | 是否附红/黄清单（默认 true）。只想要统计数字时传 false。 |
 | `limit` | integer | 红/黄清单每色条数（默认 10，上限 20）。 |
 
-## ks_materials（说明书 331 字）
+## ks_materials（说明书 335 字）
 
-列出参考资料项目与材料——只读。用户说"用我上传的财报/公司制度分析…"时，先按名字找 project_id，再作为 ks_answer 的 params.material_project_id 传下去（材料只有那样才进作答）。action：projects（默认，列项目）/ materials（列材料：review_status 三态、来源层级 T0~T4、任务效力 criterion=本任务准则/reference、切片数 + 三态计数）/ inbox（参考资料文件夹里尚未登记的文件）。只读：不能批/拒——评审是用户的判断（硬门）；有 pending 材料就如实告知"未批准、不进结论"。只有 approved 的材料会进 ks_answer 提示词。
+列出参考资料项目与材料——只读。用户说"用我上传的财报/公司制度分析…"时，先按名字找 project_id，再作为 ks_answer 的 params.material_project_id 传下去（材料只有那样才进作答）。action：projects（默认，列项目）/ materials（列材料：review_status 三态、来源层级 T0~T4、任务效力 criterion=本任务准则/reference、切片数 + 三态计数）/ inbox（参考资料文件夹里尚未登记的文件）。只读：不能批/拒——评审是**用户**的判断（硬门）；有 pending 材料就如实告知"未批准、不进结论"。只有 approved 的材料会进 ks_answer 提示词。
 
 | 参数 | 类型 | 说明 |
 |---|---|---|
