@@ -11,7 +11,7 @@
  *
  * 用法：node scripts/smoke-evidence-warn.mjs   （cwd = plugin 根；退出码 0 = 全通过）
  */
-import { mkdtemp, rm, writeFile } from 'node:fs/promises'
+import { mkdtemp, rm, writeFile, readFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
@@ -43,7 +43,7 @@ const outfile = join(pluginRoot, '.evidence-warn.smoke.mjs')
 const tmp = await mkdtemp(join(tmpdir(), 'ks-evwarn-'))
 const entryFile = join(tmp, 'entry.ts')
 await writeFile(entryFile, [
-  `export { KsAnchorWarn } from ${JSON.stringify(join(pluginRoot, 'client', 'KsAnchorWarn.tsx'))}`,
+  `export * from ${JSON.stringify(join(pluginRoot, 'client', 'KsAnchorWarn.tsx'))}`,
   `export * from ${JSON.stringify(join(pluginRoot, 'client', 'KsArrowOverlay.tsx'))}`,
 ].join('\n'), 'utf8')
 await build({
@@ -70,6 +70,19 @@ if (typeof KsAnchorWarn === 'function') {
     html)
   check('空消息不渲染成空壳（至少有 ⚠ 与 alert）',
     (() => { const h = renderToStaticMarkup(React.createElement(KsAnchorWarn, { message: '' })); return h.includes('role="alert"') && h.includes('⚠') })())
+
+  // ---- 复核 F0 打回后的补钉：警示样式必须走**主题真 token**、无字面兜底、且单一出处 ----
+  const cssText = typeof mod.ksWarnCssText === 'function' ? mod.ksWarnCssText() : ''
+  check('警示样式走主题真 token（bg-layer-2 / border-l1 / state-warn-primary），**无字面兜底**',
+    cssText.includes('--dsw-alias-bg-layer-2') && cssText.includes('--dsw-alias-border-l1')
+    && cssText.includes('--dsw-alias-state-warn-primary') && !cssText.includes('#'),
+    cssText)
+  {
+    const entrySrc = await readFile(join(pluginRoot, 'client', 'entry.ts'), 'utf8')
+    check('entry.ts 提示条用同一出处 ksWarnCssText（钉不到它曾是 F0 漏网的原因）',
+      entrySrc.includes('ksWarnCssText()') && !entrySrc.includes('#a15c00') && !entrySrc.includes('#ddd'),
+      entrySrc.includes('ksWarnCssText()') ? '同源' : '未用共用样式')
+  }
 
   // ---- A1b：红箭头覆盖层（单页/连续共用的视觉本体）----
   // ⚠ forwardRef 组件的 typeof 是 **object** 不是 function（我第一版门槛写错 ⇒ 渲染断言整段没跑）。

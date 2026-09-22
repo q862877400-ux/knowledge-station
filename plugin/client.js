@@ -31029,6 +31029,14 @@ function KsDocTextView(props) {
 
 // client/KsAnchorWarn.tsx
 var import_jsx_runtime4 = require("react/jsx-runtime");
+var KS_WARN_STYLE = {
+  color: "var(--dsw-alias-state-warn-primary)",
+  background: "var(--dsw-alias-bg-layer-2)",
+  border: "0.5px solid var(--dsw-alias-border-l1)"
+};
+function ksWarnCssText() {
+  return `color:${KS_WARN_STYLE.color};background:${KS_WARN_STYLE.background};border:${KS_WARN_STYLE.border};`;
+}
 function KsAnchorWarn(props) {
   return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
     "div",
@@ -31039,10 +31047,9 @@ function KsAnchorWarn(props) {
         fontSize: 11.5,
         lineHeight: 1.6,
         borderRadius: 4,
-        // 颜色只走 token、**不带字面兜底**（ui-audit-D P2 点名的正是 `var(...,#hex)` 兜底：
-        // 同一 token 的各家兜底互相矛盾、且深浅主题下静默回退）。缺 token 就该裸奔暴露。
-        color: "var(--dsw-alias-state-warn-primary)",
-        background: "var(--dsw-alias-surface-raised)"
+        color: KS_WARN_STYLE.color,
+        background: KS_WARN_STYLE.background,
+        border: KS_WARN_STYLE.border
       },
       children: [
         "\u26A0 ",
@@ -40657,7 +40664,7 @@ function notifyEvidenceUnavailable() {
     const el = document.createElement("div");
     el.setAttribute("role", "alert");
     el.textContent = "\u8BC1\u636E\u539F\u6587\u6682\u65F6\u6253\u4E0D\u5F00\uFF1APDF \u67E5\u770B\u5668\uFF08\u53F3\u4FA7\u680F\uFF09\u6CA1\u6302\u4E0A\u3002\u8BF7\u7A0D\u540E\u91CD\u8BD5\uFF1B\u82E5\u4E00\u76F4\u5982\u6B64\uFF0C\u8BF7\u68C0\u67E5 DSH \u7684\u4FA7\u680F\u63D2\u4EF6\u662F\u5426\u542F\u7528\u3002";
-    el.style.cssText = "position:fixed;right:16px;bottom:16px;z-index:9999;max-width:320px;padding:8px 12px;border-radius:6px;font-size:12px;line-height:1.6;background:var(--dsw-alias-surface-raised,#fff);color:var(--dsw-alias-state-warn-primary,#a15c00);border:0.5px solid var(--dsw-alias-border-default,#ddd);";
+    el.style.cssText = "position:fixed;right:16px;bottom:16px;z-index:9999;max-width:320px;padding:8px 12px;border-radius:6px;font-size:12px;line-height:1.6;" + ksWarnCssText();
     (document.body ?? document.documentElement).appendChild(el);
     setTimeout(() => {
       el.remove();

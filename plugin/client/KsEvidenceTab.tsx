@@ -504,7 +504,9 @@ export function KsEvidenceTab(props: KsEvidenceProps): JSX.Element {
     // space, aligned with the canvas box). The arrow points right INTO the
     // cited row and is about one text line tall. Shown only when the rendered
     // page is the evidence's target page.
-    // 连续模式下多页共享同一个 arrowPos 状态会互相覆盖 → 只有单页模式画箭头。
+    // ⚠ 更正（复核 F2，2026-09-22 留痕）：原写"连续模式下多页共享同一个 arrowPos 状态会
+    // 互相覆盖 → 只有单页模式画箭头"——**覆盖根子已修**（下方 onPage 早退，非目标页重绘
+    // 不再碰覆盖层），箭头现在单页/连续都画（与连续分支注释的更正同口径）。
     if (opts?.bbox === false) return
     const box = bboxRef.current
     if (box !== null) {

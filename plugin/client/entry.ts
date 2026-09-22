@@ -41,6 +41,7 @@ import {
   type KsTabRegistry,
 } from './ksSidebar'
 import { isKsEvidenceUrl, parseEvidence } from './ksEvidence'
+import { ksWarnCssText } from './KsAnchorWarn'
 
 /** 从事件里取证据锚点的 href（无锚点 / 非证据地址 → null）。点击拦截的两个通道共用它。 */
 function evidenceHrefOf(event: MouseEvent): string | null {
@@ -65,11 +66,11 @@ function notifyEvidenceUnavailable(): void {
     el.setAttribute('role', 'alert')
     el.textContent = '证据原文暂时打不开：PDF 查看器（右侧栏）没挂上。请稍后重试；'
       + '若一直如此，请检查 DSH 的侧栏插件是否启用。'
+    // 样式 token 与 KsAnchorWarn **同一出处**（ksWarnCssText —— 复核 F0 打回后立的规矩：
+    // 自带第二份样式曾引用两个不存在的主题变量、静默落字面兜底，正是 P2 禁的写法）。
     el.style.cssText = 'position:fixed;right:16px;bottom:16px;z-index:9999;max-width:320px;padding:8px 12px;'
       + 'border-radius:6px;font-size:12px;line-height:1.6;'
-      + 'background:var(--dsw-alias-surface-raised,#fff);'
-      + 'color:var(--dsw-alias-state-warn-primary,#a15c00);'
-      + 'border:0.5px solid var(--dsw-alias-border-default,#ddd);'
+      + ksWarnCssText()
     ;(document.body ?? document.documentElement).appendChild(el)
     setTimeout(() => { el.remove() }, 8000)
   } catch { /* 提示本身失败不该再抛 */ }
