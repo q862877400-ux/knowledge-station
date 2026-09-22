@@ -50,7 +50,7 @@ import {
 import { registerKsReportRoutes } from './report.js'
 import { registerKsChannelsRoutes } from './channels.js'
 import { registerKsMaterialsRoutes } from './materials_routes.js'
-import { buildComplianceSection, isComplianceTriggered, registerKsComplianceRoutes } from './compliance-sentry.js'
+import { buildComplianceSection, complianceNextStepMessage, isComplianceTriggered, registerComplianceAskGate, registerKsComplianceRoutes } from './compliance-sentry.js'
 import { recordKsTurn, registerKsTurnRoutes } from './turn.js'
 import { registerKsSettingsRoutes } from './settings.js'
 import { registerKsDocImageRoutes } from './docimage.js'
@@ -1387,6 +1387,10 @@ export function makeAnswerTool(manager, chatModeOf) {
       })
       const found = trimmed ? trimmed.evidence.length > 0 : false
 
+      // C2-b：触发后按**步**给流程（官方 deferContext——下一轮才付这 ~60 字；未触发零注入）。
+      if (isComplianceTriggered(exec?.agent?.session?.id ?? '')) {
+        exec.deferContext(complianceNextStepMessage())
+      }
       return {
         ok: probe.status === 200,
         httpStatus: probe.status,
@@ -1797,6 +1801,8 @@ export function apply(ctx, config = {}) {
       const disposeTurn = registerKsTurnRoutes(webCtx)
       // 合规哨兵触发口（C2-a）：输入坞芯片把草稿发来宿主判（词表唯一在宿主）。
       const disposeCompliance = registerKsComplianceRoutes(webCtx)
+      // 采集审批门（C2-b）：ks_collect 每次抓取前 {kind:'ask'} 问人——**每次都先问**（业主硬规矩）。
+      const disposeAskGate = registerComplianceAskGate(ctx)
       // R27 入库预览 / 批量分桶（2026-09-11）：纯代理零缓存——引擎做解析与体检，
       // host 只列目录 + 转发（含默认「待入库」目录的按需创建）。**只读**：不移动/不改写文件。
       // 异步全量预览（2026-09-12 L239）：状态文件 ks-ingest.json + adopt/poll——
@@ -1820,6 +1826,7 @@ export function apply(ctx, config = {}) {
         disposeChatMode()
         disposeTurn()
         disposeCompliance()
+        disposeAskGate()
         disposeIngest()
       }
     })

@@ -19,11 +19,14 @@ import {
   COMPLIANCE_SKILL_BODY,
   KS_COMPLIANCE_SENTRY,
   STD_NO_PREFIXES,
+  buildComplianceNextStep,
   buildComplianceSection,
+  complianceNextStepMessage,
   extractL1,
   isComplianceTriggered,
   markComplianceTriggered,
   matchComplianceSentry,
+  registerComplianceAskGate,
   registerKsComplianceRoutes,
 } from '../src/compliance-sentry.js'
 
@@ -132,6 +135,32 @@ check('② 标准号模式命中（GB/T 3608 / GB30871 / DB11/T 1234 / AQ 3009 �
   check('⑦ ping 路由 exact/无尾斜杠 + 非 POST → 405（只判不写）',
     routeShape.kind === 'exact' && routeShape.path === '/ks/compliance/ping' && out.status === 405,
     `${routeShape.kind} ${routeShape.path} → ${String(out.status)}`)
+}
+
+/* ⑧ C2-b 采集审批门：ks_collect **每次**都 ask（人话问句逐字）；其余工具原样放行。 */
+{
+  const listeners = []
+  registerComplianceAskGate({ on: (name, fn) => { listeners.push({ name, fn }); return () => {} } })
+  check('⑧ 审批门注册在 tools/pre-execute', listeners.length === 1 && listeners[0].name === 'tools/pre-execute')
+  const asked = []
+  const next = async () => ({ kind: 'allow' })
+  for (const call of [1, 2]) {
+    const d = await listeners[0].fn({ name: 'ks_collect', arguments: { title: '某法规汇编', url: 'https://example.gov/x' } }, next)
+    asked.push(d)
+  }
+  check('⑧ ks_collect **每次**都 {kind:ask}（两次两问——"每次都先问"，无白名单旁路）',
+    asked.every((d) => d.kind === 'ask') && asked.length === 2, JSON.stringify(asked.map((d) => d.kind)))
+  check('⑧ 问句人话逐字（要把《X》（来源：…）下载进知识库吗？）',
+    String(asked[0].reason).includes('要把《某法规汇编》')
+    && String(asked[0].reason).includes('来源：https://example.gov/x')
+    && String(asked[0].reason).includes('下载进知识库吗？'),
+    String(asked[0].reason))
+  const other = await listeners[0].fn({ name: 'ks_answer', arguments: {} }, next)
+  check('⑧ 其余工具原样放行（不动别人一个字）', other.kind === 'allow')
+  const step = buildComplianceNextStep()
+  check('⑧ 按步指引短（≤120 字）且核心纪律词「先征求同意」在场',
+    step.length <= 120 && step.includes('先征求同意') && complianceNextStepMessage().content[0].text === step,
+    `${String(step.length)} 字`)
 }
 
 const failed = results.filter((r) => !r.ok)

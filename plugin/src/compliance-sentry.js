@@ -159,3 +159,47 @@ export function registerKsComplianceRoutes(ctx) {
     },
   })
 }
+
+/* ============================================================================
+   采集审批门（C2-b，2026-09-22；任务单 §四）：ks_collect **每次**抓取前
+   走 `tools/pre-execute` → {kind:'ask'}（官方审批通道，ui-approval 接管输入框问人）。
+   业主硬规矩：**每次都先问**——自动白名单是用户可选动作、不是默认（本门不设白名单旁路）。
+   ============================================================================ */
+
+/** 人话问句（唯一所有者；判据钉字面——任务单 §七：问句措辞给业主过目）。 */
+export function collectAskReason(args = {}) {
+  const title = typeof args.title === 'string' && args.title.length > 0 ? args.title : '这份材料'
+  const url = typeof args.url === 'string' && args.url.length > 0 ? `（来源：${args.url}）` : ''
+  return `要把《${title}》${url}下载进知识库吗？（同意后抓取入库；拒绝则不采）`
+}
+
+/** 注册审批门（ks_collect 恒 ask；其余工具原样放行——不动别人一个字）。
+ *  `ctx.on` 是**可缺省**面（测试桩/裁剪宿主可能没有）⇒ 探针降级、不炸插件（agents 服务同款纪律）。 */
+export function registerComplianceAskGate(ctx) {
+  if (typeof ctx?.on !== 'function') {
+    ctx?.logger?.warn?.('ks-dsh-plugin: ctx.on 不可用——采集审批门未挂（ks_collect 将无人拦截）')
+    return () => {}
+  }
+  return ctx.on('tools/pre-execute', async (exec, next) => {
+    if (exec?.name === 'ks_collect') {
+      return { kind: 'ask', reason: collectAskReason(exec.arguments) }
+    }
+    return next()
+  })
+}
+
+/* ============================================================================
+   工具回执的按步流程（C2-b；任务单 §三.3）：触发后 ks_answer 用官方
+   `exec.deferContext(UserMessage)` 追加**下一步**指引——模型每步只付当前步。
+   ============================================================================ */
+
+/** 下一步指引（微文案自住；核心纪律词判据钉"先征求同意"在场）。 */
+export function buildComplianceNextStep() {
+  return '合规流程·下一步：把每条依据的原文链接（evidence_url）放进结论引用；'
+    + '库内缺的条目——先征求同意再入库，入库后以原文核验。'
+}
+
+/** deferContext 的消息构造（UserMessage 最小形状：role + content 文本块）。 */
+export function complianceNextStepMessage() {
+  return { role: 'user', content: [{ type: 'text', text: buildComplianceNextStep() }] }
+}
