@@ -54,10 +54,22 @@ await build({
 const mod = await import(pathToFileURL(outfile).href)
 await rm(outfile, { force: true })
 
-const { KsTurnEvidenceRow, KsTurnEmptyState, turnEvidenceHref } = mod
-check('导出齐：KsTurnEvidenceRow / KsTurnEmptyState / turnEvidenceHref',
+const { KsTurnEvidenceRow, KsTurnEmptyState, KsTurnModeChip, turnEvidenceHref } = mod
+check('导出齐：KsTurnEvidenceRow / KsTurnEmptyState / KsTurnModeChip / turnEvidenceHref',
   typeof KsTurnEvidenceRow === 'function' && typeof KsTurnEmptyState === 'function'
-  && typeof turnEvidenceHref === 'function')
+  && typeof KsTurnModeChip === 'function' && typeof turnEvidenceHref === 'function')
+
+if (typeof KsTurnModeChip === 'function') {
+  const chip = renderToStaticMarkup(React.createElement(KsTurnModeChip, {
+    mode: { forensic: true, bookmarksOnly: true, folderName: '夹名一', materialProjectName: null },
+    scope: { folder_count: 3, doc_count: 12 },
+  }))
+  check('口径胶囊：夹内提问/查法规/范围 三味都出词（只读快照的口径行）',
+    chip.includes('仅在『夹名一』内提问') && chip.includes('查法规模式')
+    && chip.includes('范围：3 个目录 · 12 篇'), chip.slice(0, 80))
+  const none = renderToStaticMarkup(React.createElement(KsTurnModeChip, { mode: {}, scope: null }))
+  check('口径胶囊：无口径 ⇒ 不渲染（不占一行空白）', none === '', none)
+}
 
 if (typeof KsTurnEvidenceRow === 'function' && typeof KsTurnEmptyState === 'function') {
   const EV = {

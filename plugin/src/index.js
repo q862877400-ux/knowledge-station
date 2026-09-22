@@ -1364,6 +1364,17 @@ export function makeAnswerTool(manager, chatModeOf) {
       // 面板要的是引擎**原始公开字段**——design-S1-turn-data-mapping §二）。
       recordKsTurn(exec?.agent?.session?.id ?? '', {
         query,
+        // S1-c：**这一轮的口径**（冻结快照——芯片显示用；改口径仍走输入框那颗活胶囊）。
+        mode: (() => {
+          const m = effectiveChatMode(exec?.agent?.session?.id ?? '')
+          return {
+            forensic: m.forensic === true,
+            bookmarksOnly: m.bookmarksOnly === true,
+            folderId: m.folderId ?? null,
+            folderName: m.folderName ?? null,
+            materialProjectName: m.materialProjectName ?? null,
+          }
+        })(),
         tier: data.tier ?? null,
         verification: data.verification ?? null,
         notes: Array.isArray(data.notes) ? data.notes : [],

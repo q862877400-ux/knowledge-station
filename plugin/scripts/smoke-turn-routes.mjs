@@ -80,6 +80,9 @@ check('返回 disposer（随 fiber 撤销）', typeof disposer === 'function')
   check('暂存后按会话取回（原始公开字段整包透传）',
     got.body.data?.turn?.query === 'Q1' && got.body.data.turn.evidence[0].standard_no === 'GB 1',
     JSON.stringify(got.body).slice(0, 80))
+  check('回执带 seq（S1-c 自动切达轮询的判据字段，缺了它客户端只能瞎猜）',
+    typeof got.body.data?.seq === 'number' && got.body.data.seq > 0,
+    JSON.stringify(got.body.data?.seq))
 
   const other = await invoke(`${KS_TURN_LAST_PATH}?session=s2`)
   check('会话隔离：别家的会话取不到（不串会话）',

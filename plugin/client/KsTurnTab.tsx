@@ -64,6 +64,7 @@ export interface KsTurnRecord {
   verification?: unknown
   notes?: unknown
   scope?: unknown
+  mode?: unknown
   evidence?: unknown
 }
 
@@ -93,6 +94,43 @@ function statusBadge(ev: KsTurnEvidenceItem): { text: string; color: string } {
   if (s === 'superseded') return { text: '已被替代', color: 'var(--dsw-alias-state-error-primary)' }
   if (s === 'withdrawn') return { text: '已废止', color: 'var(--dsw-alias-state-error-primary)' }
   return { text: '状态未知', color: 'var(--dsw-alias-label-tertiary)' }
+}
+
+/** 「这一轮的口径」胶囊行（S1-c，**只读**——冻结快照；改口径仍走输入框那颗活胶囊）。 */
+export function KsTurnModeChip(props: { mode: unknown; scope: unknown }): React.ReactElement | null {
+  const m = (props.mode ?? {}) as {
+    forensic?: unknown; bookmarksOnly?: unknown; folderName?: unknown; materialProjectName?: unknown
+  }
+  const scope = (props.scope ?? null) as { folder_count?: unknown; doc_count?: unknown } | null
+  const pills: string[] = []
+  // ⚠ 全部激活口径**都出词**（语言规范 §A4：不是互斥单选——夹内提问会连带开查法规，
+  // 两颗胶囊都要在，用户才看得清自己开着什么）。2026-09-22 首版写成 else-if 被判据红出。
+  if (m.forensic === true) pills.push('查法规模式')
+  if (m.bookmarksOnly === true) {
+    const name = str(m.folderName)
+    pills.push(name.length > 0 ? `仅在『${name}』内提问` : '仅在收藏内提问')
+  }
+  const mat = str(m.materialProjectName)
+  if (mat.length > 0) pills.push(`材料：${mat}`)
+  if (scope !== null && (typeof scope.folder_count === 'number' || typeof scope.doc_count === 'number')) {
+    pills.push(`范围：${str(scope.folder_count ?? 0)} 个目录 · ${str(scope.doc_count ?? 0)} 篇`)
+  }
+  if (pills.length === 0) return null
+  return (
+    <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
+      {pills.map((p) => (
+        <span
+          key={p}
+          style={{
+            fontSize: 11, borderRadius: 999, padding: '2px 10px', color: 'var(--dsw-alias-label-secondary)',
+            border: '0.5px solid var(--dsw-alias-border-l1)',
+          }}
+        >
+          {p}
+        </span>
+      ))}
+    </div>
+  )
 }
 
 /** 定稿空态（原型"状态二"两句原话——冒烟钉死字面，不许再改成散文）。 */
@@ -223,6 +261,8 @@ export function KsTurnTab(props: KsTurnTabProps): React.ReactElement {
 
   return (
     <div style={{ padding: '12px 14px', display: 'flex', flexDirection: 'column', gap: 8 }}>
+      {/* 这一轮的口径（冻结快照，只读胶囊） */}
+      <KsTurnModeChip mode={record.mode} scope={record.scope} />
       {/* 核对结果行（语言规范：失败写在脸上；这里按 is_valid 分成败两个色） */}
       {verification !== null && (
         <div

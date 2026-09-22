@@ -40692,6 +40692,36 @@ function statusBadge(ev) {
   if (s === "withdrawn") return { text: "\u5DF2\u5E9F\u6B62", color: "var(--dsw-alias-state-error-primary)" };
   return { text: "\u72B6\u6001\u672A\u77E5", color: "var(--dsw-alias-label-tertiary)" };
 }
+function KsTurnModeChip(props) {
+  const m = props.mode ?? {};
+  const scope = props.scope ?? null;
+  const pills = [];
+  if (m.forensic === true) pills.push("\u67E5\u6CD5\u89C4\u6A21\u5F0F");
+  if (m.bookmarksOnly === true) {
+    const name = str2(m.folderName);
+    pills.push(name.length > 0 ? `\u4EC5\u5728\u300E${name}\u300F\u5185\u63D0\u95EE` : "\u4EC5\u5728\u6536\u85CF\u5185\u63D0\u95EE");
+  }
+  const mat = str2(m.materialProjectName);
+  if (mat.length > 0) pills.push(`\u6750\u6599\uFF1A${mat}`);
+  if (scope !== null && (typeof scope.folder_count === "number" || typeof scope.doc_count === "number")) {
+    pills.push(`\u8303\u56F4\uFF1A${str2(scope.folder_count ?? 0)} \u4E2A\u76EE\u5F55 \xB7 ${str2(scope.doc_count ?? 0)} \u7BC7`);
+  }
+  if (pills.length === 0) return null;
+  return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { style: { display: "flex", gap: 6, flexWrap: "wrap" }, children: pills.map((p) => /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+    "span",
+    {
+      style: {
+        fontSize: 11,
+        borderRadius: 999,
+        padding: "2px 10px",
+        color: "var(--dsw-alias-label-secondary)",
+        border: "0.5px solid var(--dsw-alias-border-l1)"
+      },
+      children: p
+    },
+    p
+  )) });
+}
 function KsTurnEmptyState() {
   return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
     "div",
@@ -40822,6 +40852,7 @@ function KsTurnTab(props) {
   ].map((x) => str2(x)).filter((x) => x.length > 0);
   const notes = Array.isArray(record.notes) ? record.notes.map((x) => str2(x)).filter((x) => x.length > 0) : [];
   return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { style: { padding: "12px 14px", display: "flex", flexDirection: "column", gap: 8 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(KsTurnModeChip, { mode: record.mode, scope: record.scope }),
     verification !== null && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
       "div",
       {
@@ -41054,6 +41085,23 @@ function registerSidebarSurfaces(ctx, tabs, right, rightRef) {
       } else {
         console.error("[ks-dsh-plugin] slots \u4E0D\u53EF\u7528\uFF1APDF \u8BC1\u636E tab body \u672A\u6CE8\u518C\uFF08tab \u7C7B\u578B\u5DF2\u6CE8\u518C\u4F46\u65E0\u5185\u5BB9\uFF09");
       }
+      let lastTurnSeq = 0;
+      const turnWatchTimer = setInterval(() => {
+        void fetch("/ks/turn/last").then((res) => res.ok ? res.json() : null).then((body) => {
+          const data = body?.data ?? null;
+          const seq = typeof data?.seq === "number" ? data.seq : 0;
+          if (seq === 0 || seq === lastTurnSeq) return;
+          const prev = lastTurnSeq;
+          lastTurnSeq = seq;
+          if (prev === 0) return;
+          try {
+            right.openResource(KS_TURN_ADDRESS, { kind: KS_TURN_KIND });
+          } catch (error) {
+            console.warn("[ks-dsh-plugin] \u300C\u672C\u8F6E\u300D\u81EA\u52A8\u5207\u8FBE\u5931\u8D25\uFF08\u4F1A\u8BDD\u9762\u672A\u6302\u8F7D\uFF1F\uFF09", error);
+          }
+        }).catch(() => {
+        });
+      }, 3e3);
       const onClick = (event) => {
         const href = evidenceHrefOf(event);
         if (href === null) return;
@@ -41063,6 +41111,7 @@ function registerSidebarSurfaces(ctx, tabs, right, rightRef) {
       document.addEventListener("click", onClick, true);
       document.addEventListener("auxclick", onClick, true);
       return () => {
+        clearInterval(turnWatchTimer);
         document.removeEventListener("click", onClick, true);
         document.removeEventListener("auxclick", onClick, true);
         rightRef.current = null;

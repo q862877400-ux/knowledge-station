@@ -34,7 +34,9 @@ import {
   KS_EVIDENCE_IMPL_ID,
   KS_EVIDENCE_KIND,
   KS_KB_IMPL_ID,
+  KS_TURN_ADDRESS,
   KS_TURN_IMPL_ID,
+  KS_TURN_KIND,
   ksEvidenceDefinition,
   ksKbDefinition,
   ksTurnDefinition,
@@ -421,6 +423,30 @@ function registerSidebarSurfaces(
       // 故仍用 document 级 capture 监听——但它现在只做**一件事**：
       // 命中证据锚点 → 转成官方 `openResource`。不再需要"覆写单例 path"的收尾
       // （导航 revision 已保证重载），因此比旧实现短且无竞态假设。
+      // S1-c：**回答完成自动切达「本轮」**。客户端收不到"工具返回"事件 ⇒ 轮询只读口的
+      // `seq`（本地路由、3s 一次、零出网）；seq 变化即 openResource（同地址再导航 =
+      // revision+1 ⇒ 已开则刷新、未开则打开=自动切达，业主批准的原型行为）。
+      // 首次响应只立基线（开局不抢焦点）；会话面未挂载时 openResource 会抛 ⇒ 吞掉留痕。
+      let lastTurnSeq = 0
+      const turnWatchTimer = setInterval(() => {
+        void fetch('/ks/turn/last')
+          .then((res) => (res.ok ? res.json() : null))
+          .then((body: unknown) => {
+            const data = (body as { data?: { seq?: number } | null } | null)?.data ?? null
+            const seq = typeof data?.seq === 'number' ? data.seq : 0
+            if (seq === 0 || seq === lastTurnSeq) return
+            const prev = lastTurnSeq
+            lastTurnSeq = seq
+            if (prev === 0) return // 基线：本轮已有的那条不触发（不抢焦点）
+            try {
+              right.openResource(KS_TURN_ADDRESS, { kind: KS_TURN_KIND })
+            } catch (error) {
+              console.warn('[ks-dsh-plugin] 「本轮」自动切达失败（会话面未挂载？）', error)
+            }
+          })
+          .catch(() => { /* 本地路由抖动：静默等下一轮 */ })
+      }, 3000)
+
       const onClick = (event: MouseEvent): void => {
         // 诊断 A3（2026-09-22）：**任何**点击形态（Ctrl/Shift/Alt/中键）都拦 ——
         // 修饰键的"新标签打开"对我们没有意义：伪源地址不可达，落给浏览器就是死页。
@@ -435,6 +461,7 @@ function registerSidebarSurfaces(
       document.addEventListener('auxclick', onClick, true)
 
       return () => {
+        clearInterval(turnWatchTimer)
         document.removeEventListener('click', onClick, true)
         document.removeEventListener('auxclick', onClick, true)
         // 撤销"打开证据"能力：设置栏目仍在（它不随右侧栏撤销），故必须清掉引用，
