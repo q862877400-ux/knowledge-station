@@ -240,9 +240,13 @@ const panelMod = await loadModule('client/KsMaterialsPanel.tsx')
     src.includes('WIRING_LABEL') && src.includes('STATE_LABEL'))
   check('时间列显式标注 UTC', src.includes('last_ok_at') && /UTC/.test(src))
   const settingsSrc = await readFile(join(pluginRoot, 'client', 'KsSettingsSection.tsx'), 'utf8')
-  check('设置区挂了「渠道台账」类目（懒加载门由 details 驱动）',
-    /title="渠道台账"/.test(settingsSrc)
-    && /<KsChannelsPanel visible=\{channelsOpen\}/.test(settingsSrc))
+  /* ⚠ S5 对账（2026-09-22 复核 P0-3）：「渠道台账」随巡检族搬去知识库 ▾「渠道台账」页位
+     ⇒ 本条改钉**新家真挂载**（KsKnowledgePage 源码 <KsChannelsPanel）+ 负向（设置里不再挂）。
+     旧口径留痕：原断言「设置区挂了『渠道台账』类目（懒加载门由 details 驱动）」。 */
+  const kbSrc = await readFile(join(pluginRoot, 'client', 'KsKnowledgePage.tsx'), 'utf8')
+  check('「渠道台账」页源码挂载渠道面板（S5 新家；设置侧已移除）',
+    /<KsChannelsPanel/.test(kbSrc) && !/<KsChannelsPanel/.test(settingsSrc),
+    'kb 源码有 / 设置源码无')
 
   // D5 R6：「⚪ 未探」不是一个处境，是**两个**——"按设计没有探针"（代码仓库/我方代码通路）
   //    与"配了还没探过"。混成一个灰，业主就看不出哪一行值得动手。

@@ -43,6 +43,14 @@ export function matchComplianceSentry(text) {
 /** 按需段名（照 FORENSIC_SECTION_NAME 的机制加；旧段一个字不动）。 */
 export const COMPLIANCE_SECTION_NAME = 'ks:compliance-sentry'
 
+/**
+ * 段装配序（**P0-1 修复**，2026-09-22 复核 e2e 坐实）：缺 `order` ⇒ 真宿主
+ * `core/system-prompt` 拒绝整段（order must be a finite number）⇒ **整插件不激活**
+ * （6 工具全灭）。先例 = 同仓 makeChatModeSection 的 {name, order, text}（FORENSIC 199）；
+ * 198 = 哨句先于查法规段装配（先立总规矩再给模式说明）。
+ */
+export const COMPLIANCE_SECTION_ORDER = 198
+
 /** 规范全文（**唯一出处**）。SKILL.md 由它生成；L1 由它抽取。 */
 export const COMPLIANCE_SKILL_BODY = `## 一、什么时候用本技能
 
@@ -108,6 +116,7 @@ export function extractL1(body = COMPLIANCE_SKILL_BODY) {
 export function buildComplianceSection(opts = {}) {
   return {
     name: COMPLIANCE_SECTION_NAME,
+    order: COMPLIANCE_SECTION_ORDER,
     text: (context) => {
       const sessionId = context?.agent?.session?.id
       const triggered = typeof opts.isTriggered === 'function' ? opts.isTriggered(sessionId) === true : false
@@ -199,7 +208,17 @@ export function buildComplianceNextStep() {
     + '库内缺的条目——先征求同意再入库，入库后以原文核验。'
 }
 
-/** deferContext 的消息构造（UserMessage 最小形状：role + content 文本块）。 */
+let nextStepSeq = 0
+
+/** deferContext 的消息构造（**F3 修复**，复核坐实：宿主 UserMessage **必填 id+source**——
+ *  message.ts:131-145；inbox 按 id 去重（inbox.ts:47/223），无 id 会撞 undefined。
+ *  id 带唯一流水；source 形状先例 = 宿主 ptc.ts:634-637。 */
 export function complianceNextStepMessage() {
-  return { role: 'user', content: [{ type: 'text', text: buildComplianceNextStep() }] }
+  nextStepSeq += 1
+  return {
+    id: `ks-compliance-${Date.now().toString(36)}-${String(nextStepSeq)}`,
+    source: { kind: 'plugin', plugin: 'ks-dsh-plugin' },
+    role: 'user',
+    content: [{ type: 'text', text: buildComplianceNextStep() }],
+  }
 }

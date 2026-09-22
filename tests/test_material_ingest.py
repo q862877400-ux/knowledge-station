@@ -137,10 +137,14 @@ class TestExtract:
 
 # ------------------------------------------------------------------ 收件入库
 class TestIngest:
-    def test_txt_becomes_pending_material_with_offsets(self, project, tmp_path):
+    def test_txt_becomes_approved_by_birth_with_offsets(self, project, tmp_path):
+        """S3-b1 对账（业主裁定 NOT-DOING #15）：人工上传**免评审**，出生即 approved。
+        对账留痕：原名 test_txt_becomes_pending_material_with_offsets、原文
+        「assert review_status == "pending"  # 硬门前提」——user 来源侧已按裁定作废，
+        硬门前提测试在 collected 侧（见 material_repo/API 侧同款对账）。"""
         p = _make_txt(tmp_path / "财报摘要.txt", "营业收入 100 亿元\n净利润 10 亿元")
         m = mi.ingest_material_file(project["project_id"], p)
-        assert m["review_status"] == "pending"          # 硬门前提
+        assert m["review_status"] == "approved"        # 免评审（裁定 #15）
         assert m["origin"] == "user"
         assert m["source_tier"] == "T1"                 # 用户自有原件
         assert m["chunk_count"] >= 1
@@ -218,14 +222,19 @@ class TestIngest:
         names = [p.name for p in mi.scan_project_dir(project["project_id"])]
         assert names == ["a.txt", "b.txt"]
 
-    def test_ingested_material_is_not_usable_until_approved(self, project, tmp_path):
-        """端到端串一遍硬门：收件 → 仍是 pending → 批准后才进 approved_materials。"""
+    def test_ingested_material_gate_closes_and_reopens(self, project, tmp_path):
+        """端到端串一遍硬门（免评审口径，裁定 #15）：收件 ⇒ 出生即可用 ⇒
+        撤销（rejected）⇒ 不可用 ⇒ 再批 ⇒ 可用（安全面只紧不松）。
+        对账留痕：原名 test_ingested_material_is_not_usable_until_approved、原文
+        「收件 → 仍是 pending → 批准后才进 approved_materials」——user 侧出生态已按裁定改。"""
         d = mr.materials_dir(project["project_id"])
         _make_txt(d / "m.txt", "内容")
         mi.ingest_project_dir(project["project_id"])
         pid = project["project_id"]
-        assert mr.approved_materials(pid) == []          # 未经评审不得使用
         m = mr.list_materials(pid)[0]
+        assert [x["material_id"] for x in mr.approved_materials(pid)] == [m["material_id"]]
+        mr.set_review(m["material_id"], "rejected", note="核对后判不可用")
+        assert mr.approved_materials(pid) == []
         mr.set_review(m["material_id"], "approved", note="看过")
         assert [x["material_id"] for x in mr.approved_materials(pid)] == [m["material_id"]]
 
@@ -252,15 +261,19 @@ class TestPhaseAAcceptance:
         d = mr.materials_dir(pid)
         _make_pdf(d / "年度报告.pdf", ["营业收入为一百亿元", "净利润为十亿元"])
 
-        # ① 收件：进材料平面，默认 pending
+        # ① 收件：进材料平面（S3-b1 裁定 #15：人工上传**免评审**，出生即可用）
         ingested = mi.ingest_project_dir(pid)
         # 成功项不带 "status" 键（只有失败项才有 status="error"）——故用 .get
         assert len(ingested) == 1 and ingested[0].get("status") != "error"
         mid = ingested[0]["material_id"]
-        assert mr.approved_materials(pid) == []
+        assert mr.approved_materials(pid) != []          # 免评审：出生即可用（裁定 #15）
 
-        # ② 未批准时**搜不到**（硬门）
+        # ② 硬门**关得上**：撤销（rejected）⇒ 搜不到（安全面只紧不松）
+        mr.set_review(mid, "rejected", note="核对后判不可用")
+        assert mr.approved_materials(pid) == []
         assert mr.search_materials(pid, "营业收入") == []
+        # ③ 再批 ⇒ 恢复可搜（下面逐字验证"点回原文"）
+        mr.set_review(mid, "approved", note="复核后可用")
 
         # ③ 评审通过
         assert mr.set_review(mid, "approved", note="核对过原件")

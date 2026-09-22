@@ -83,15 +83,18 @@ check('② 标准号模式命中（GB/T 3608 / GB30871 / DB11/T 1234 / AQ 3009 �
     `长度 ${String(on.length)}`)
 }
 
-/* ④ SKILL.md 字节同步（生成物 vs 常量）。 */
+/* ④ SKILL.md 字节同步（生成物 vs 常量）。⚠ F1 修复：**换行归一**后比——
+   autocrlf 检出（提取树/任何 CRLF checkout）不许把判据弄成恒红（复核 A/B 实证）。 */
 {
+  const norm = (s) => s.replace(/\r\n/g, '\n').trim()
   const file = await readFile(join(repoRoot, '.dsh', 'skills', 'compliance-qa', 'SKILL.md'), 'utf8')
   const body = file.split('---\n').slice(2).join('---\n')
-  check('④ SKILL.md 正文 == COMPLIANCE_SKILL_BODY（防两边漂移）',
-    body.trim() === COMPLIANCE_SKILL_BODY.trim(), `文件 ${String(body.trim().length)} 字 / 常量 ${String(COMPLIANCE_SKILL_BODY.trim().length)} 字`)
+  check('④ SKILL.md 正文 == COMPLIANCE_SKILL_BODY（CRLF 归一后比——防两边漂移）',
+    norm(body) === norm(COMPLIANCE_SKILL_BODY), `文件 ${String(norm(body).length)} 字 / 常量 ${String(norm(COMPLIANCE_SKILL_BODY).length)} 字`)
 }
 
-/* ⑤ L1 每行 ⊆ SKILL_BODY（单一出处结构断言；仅允许**两行包装语**——头指路 + 尾指路）。 */
+/* ⑤ L1 每行 ⊆ SKILL_BODY + **覆盖方向**（F2 修复：单向 ⊆ 会被"少抄铁律"钻过——M6c 实证）：
+   铁律 1~8 **一条不少** + 段文与独立重算抽取件**逐字节相等**。 */
 {
   const l1 = extractL1()
   const bodyLines = COMPLIANCE_SKILL_BODY.split('\n').map((s) => s.trim()).filter((s) => s.length > 0)
@@ -101,6 +104,28 @@ check('② 标准号模式命中（GB/T 3608 / GB30871 / DB11/T 1234 / AQ 3009 �
   check('⑤ L1 段文每行都出自 SKILL_BODY（L1=抽取件；包装语仅两行且白名单点名）',
     orphans.length === 0,
     `游离行 ${JSON.stringify(orphans)}`)
+  const ruleLines = l1.split('\n').map((s) => s.trim()).filter((s) => /^\d+\./.test(s))
+  check('⑤ 覆盖方向：L1 里铁律**恰好 8 条**（少抄即红——M6c 的补法）',
+    ruleLines.length === 8, `实到 ${String(ruleLines.length)} 条`)
+  const assembled = buildComplianceSection({ isTriggered: () => true }).text({ agent: { session: { id: 'sx' } } })
+  check('⑤ 组装文 == 哨句 + 独立重算抽取件（**逐字节**——手写漂移双向堵死）',
+    assembled === `${KS_COMPLIANCE_SENTRY}\n\n${extractL1()}`, `组装 ${String(assembled.length)} 字`)
+}
+
+/* ⑨ P0-1/F3 形状判据（假桩比真件宽松 = 漏检根因——本块按真宿主必填面钉）：
+   ① 段声明的 order 必须是**有限数**（缺 = 真宿主拒整段 ⇒ 整插件不激活）；
+   ② deferContext 消息必填 id（唯一）+ source={kind:'plugin',…}。 */
+{
+  const section = buildComplianceSection()
+  check('⑨ 段声明含**有限数 order**（缺 order ⇒ 真宿主拒整段 ⇒ 整插件不激活——P0-1 回归牙）',
+    typeof section.order === 'number' && Number.isFinite(section.order),
+    `order=${String(section.order)}`)
+  const m1 = complianceNextStepMessage()
+  const m2 = complianceNextStepMessage()
+  check('⑨ deferContext 消息必填 id（唯一不撞）+ source 合约形状（F3 回归牙）',
+    typeof m1.id === 'string' && m1.id.startsWith('ks-compliance-') && m1.id !== m2.id
+    && m1.source?.kind === 'plugin' && m1.source?.plugin === 'ks-dsh-plugin',
+    JSON.stringify({ id: m1.id, source: m1.source }))
 }
 
 /* ⑥ 前缀表与引擎 _STD_NO_PREFIX 逐词同步。 */
