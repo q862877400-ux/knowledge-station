@@ -100,6 +100,15 @@ declare module '@deepseek-ai/dsh-client-ui-primitives' {
   /** 「在此范围内提问」按钮的问号（诊断 J1 换图标；名字逐字核过宿主 icons/*.d.ts 全集，
    *  宿主无对话气泡类图标 ⇒ 问号=提问最贴）。同边界：写错名字不构建失败、真机变 undefined。 */
   export const IconQuestionOutline14: ComponentType<DshIconProps>
+  /** 官方 Toast（批3-b 换装 A3 自绘临时条用）：{text, icon?, anchor?, holdMs?, onDone?}——
+   *  瞬时提示件、到时自消。名字/形状核过宿主 `ui-primitives/src/Toast.tsx`（2026-09-22）。 */
+  export const Toast: ComponentType<{
+    text: string
+    icon?: unknown
+    anchor?: unknown
+    holdMs?: number
+    onDone?: () => void
+  }>
   /** S2 办事台菜单行新增的 4 枚图标（2026-09-22；名字逐字核过宿主 icons/*.d.ts 全集）。
    *  另 3 枚（IconShieldOutline16/IconChecklistOutline14/IconListPenOutline16）**上面已有声明**
    *  ——我第一版补声明时撞了重复（一个名字两处声明），已去重。

@@ -524,8 +524,13 @@ function buildFacade({ withBetterSidebar = false, withTimer = false } = {}) {
     const evMiss = dispatchClick({ button: 0, target: anchor })
     const toastDelta = bodyChildren.length - toastBefore
     const toastText = toastDelta > 0 ? String(bodyChildren[bodyChildren.length - 1]._text ?? '') : ''
-    check('A3：侧栏缺席 → 拦下默认导航 + **可见**提示（不再只写 console）',
-      evMiss.prevented === true && toastDelta >= 1 && toastText.includes('查看器'),
+    /* ⚠ 批3-b 对账（2026-09-22）：提示条已换**官方 Toast**（React 件）——假 DOM 里
+       createRoot 渲染不出文字（抛错被提示函数吞掉 = 设计内降级），**可见性真渲染归真机走查**
+       （验收单 §七）。本条改判机制半：拦截 + 提示容器挂出；消息文随 Toast 传入由
+       smoke-evidence-warn 的 Toast 检查钉。旧口径留痕：原断言要求 toastText 含「查看器」
+       （自绘时代 textContent 直书可读）。 */
+    check('A3：侧栏缺席 → 拦下默认导航 + 提示容器挂出（消息随官方 Toast 传入；真渲染归真机）',
+      evMiss.prevented === true && toastDelta >= 1,
       `prevented=${evMiss.prevented} toastDelta=${toastDelta} text=${toastText.slice(0, 40)}`)
     check('A3：非证据链接在侧栏缺席时也不拦不提示',
       (dispatchClick({ button: 0, target: { href: 'https://example.com/y', closest: () => ({ href: 'https://example.com/y' }) } }).prevented !== true)

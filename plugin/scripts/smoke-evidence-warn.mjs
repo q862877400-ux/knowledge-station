@@ -79,9 +79,18 @@ if (typeof KsAnchorWarn === 'function') {
     cssText)
   {
     const entrySrc = await readFile(join(pluginRoot, 'client', 'entry.ts'), 'utf8')
-    check('entry.ts 提示条用同一出处 ksWarnCssText（钉不到它曾是 F0 漏网的原因）',
-      entrySrc.includes('ksWarnCssText()') && !entrySrc.includes('#a15c00') && !entrySrc.includes('#ddd'),
-      entrySrc.includes('ksWarnCssText()') ? '同源' : '未用共用样式')
+    /* ⚠ 批3-b 对账（2026-09-22）：entry 的 A3 提示条已换**官方 Toast** ⇒ 旧断言
+       （entry 用 ksWarnCssText 同源样式）随之转正为两条：① entry 用官方 Toast；
+       ② 负向——提示函数里不许再自拼样式 cssText（F0/P2 禁的写法不许回来）。
+       旧口径留痕：原断言「entry.ts 提示条用同一出处 ksWarnCssText（钉不到它曾是 F0 漏网的原因）」。 */
+    check('entry.ts 提示用官方 Toast（批3-b 换装；宿主件不再自绘）+ 消息文随 Toast 传入',
+      entrySrc.includes('createElement(Toast') && entrySrc.includes("from 'react-dom/client'")
+      && entrySrc.includes('证据原文暂时打不开'),
+      entrySrc.includes('createElement(Toast') ? '官方件' : '仍是自绘')
+    check('entry.ts 提示函数不自拼样式 cssText（F0/P2 写法不许回来）+ 无字面色兜底',
+      !entrySrc.includes("el.style.cssText = 'position:fixed") && !entrySrc.includes('#a15c00')
+      && !entrySrc.includes('#ddd'),
+      entrySrc.includes("el.style.cssText = 'position:fixed") ? '自拼样式回来了' : '干净')
   }
 
   // ---- A1b：红箭头覆盖层（单页/连续共用的视觉本体）----

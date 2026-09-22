@@ -57,6 +57,9 @@ __export(entry_exports, {
   inject: () => inject
 });
 module.exports = __toCommonJS(entry_exports);
+var import_react14 = require("react");
+var import_client = require("react-dom/client");
+var import_dsh_client_ui_primitives5 = require("@deepseek-ai/dsh-client-ui-primitives");
 
 // client/KsEvidenceHost.tsx
 var React2 = __toESM(require("react"), 1);
@@ -31231,9 +31234,6 @@ var KS_WARN_STYLE = {
   background: "var(--dsw-alias-bg-layer-2)",
   border: "0.5px solid var(--dsw-alias-border-l1)"
 };
-function ksWarnCssText() {
-  return `color:${KS_WARN_STYLE.color};background:${KS_WARN_STYLE.background};border:${KS_WARN_STYLE.border};`;
-}
 function KsAnchorWarn(props) {
   return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
     "div",
@@ -41608,14 +41608,21 @@ function evidenceHrefOf(event) {
 }
 function notifyEvidenceUnavailable() {
   try {
-    const el = document.createElement("div");
-    el.setAttribute("role", "alert");
-    el.textContent = "\u8BC1\u636E\u539F\u6587\u6682\u65F6\u6253\u4E0D\u5F00\uFF1APDF \u67E5\u770B\u5668\uFF08\u53F3\u4FA7\u680F\uFF09\u6CA1\u6302\u4E0A\u3002\u8BF7\u7A0D\u540E\u91CD\u8BD5\uFF1B\u82E5\u4E00\u76F4\u5982\u6B64\uFF0C\u8BF7\u68C0\u67E5 DSH \u7684\u4FA7\u680F\u63D2\u4EF6\u662F\u5426\u542F\u7528\u3002";
-    el.style.cssText = "position:fixed;right:16px;bottom:16px;z-index:9999;max-width:320px;padding:8px 12px;border-radius:6px;font-size:12px;line-height:1.6;" + ksWarnCssText();
-    (document.body ?? document.documentElement).appendChild(el);
-    setTimeout(() => {
-      el.remove();
-    }, 8e3);
+    const host = document.createElement("div");
+    (document.body ?? document.documentElement).appendChild(host);
+    const root = (0, import_client.createRoot)(host);
+    root.render((0, import_react14.createElement)(import_dsh_client_ui_primitives5.Toast, {
+      text: "\u8BC1\u636E\u539F\u6587\u6682\u65F6\u6253\u4E0D\u5F00\uFF1APDF \u67E5\u770B\u5668\uFF08\u53F3\u4FA7\u680F\uFF09\u6CA1\u6302\u4E0A\u3002\u8BF7\u7A0D\u540E\u91CD\u8BD5\uFF1B\u82E5\u4E00\u76F4\u5982\u6B64\uFF0C\u8BF7\u68C0\u67E5 DSH \u7684\u4FA7\u680F\u63D2\u4EF6\u662F\u5426\u542F\u7528\u3002",
+      anchor: document.body ?? document.documentElement,
+      holdMs: 8e3,
+      onDone: () => {
+        try {
+          root.unmount();
+        } catch {
+        }
+        host.remove();
+      }
+    }));
   } catch {
   }
 }
