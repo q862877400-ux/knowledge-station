@@ -2010,12 +2010,158 @@ const html = `<!doctype html>
                       gap: Math.round((prow[qg + 1].x - prow[qg].r) * 10) / 10 });
         }
       }
+      /* ⚠⚠ **2026-09-24（B2，独立复核 R1/R2 实测两种叠法都 PASS）**：上面那张 overlaps 表
+         **看不见两种叠字**，这里各补一张表（判据只增不减，原来那两张照旧）：
+           （R1）**绝对定位的控件压在别人的文字上**：overlaps 只在 members 里两两算，而
+                 members 故意剔除了"装得下别的控件/文字"的容器（innerControl/innerTexted
+                 ⇒ 那个 span 根本不进表），**纯文字节点又从不进 members** ⇒ "控件压在自己
+                 容器里那段文字上"两边都不在表里 ⇒ 一条不报（实测 PASS）。
+           （R2）**控件被 overflow:hidden 裁到行外**：cvis 只看 display/visibility/opacity
+                 与盒子尺寸，而 getBoundingClientRect **不认裁剪** ⇒ 一个"画不出来"的
+                 控件照样算可见、照样算成员（实测 PASS）。
+         口径（业主 2026-09-24 裁定：**修判据、不限制界面写法**）：
+           R1 = 可见控件 × 可见文字，矩形两两不得相交（绝对定位也算）；两件东西只要
+                有祖先/后代关系就跳过（那是"自己的内容"，例如按钮里那个 span）。
+           R2 = 控件必须落在**它所在行的可见区**内：从控件的父级往上，把每一层会裁剪的
+                祖先（overflow 不是 visible）的内容盒逐个相交，最后把**行自己**（capEl）
+                也交进去（行设了 overflow:hidden 时，超出行的部分就是画不出来的）。
+        判红口径：相交 >0.5px（与既有 overlaps 同一把尺）；裁剪 >0.5px 或可见面积为零。
+        实测值（ctrlHits / ctrlClips）一律进 stdout 的 JSON，供调用方与报告取证。 */
+      var rectOf = function (el) {
+        var r = el.getBoundingClientRect();
+        return { x: Math.round(r.left * 10) / 10, y: Math.round(r.top * 10) / 10,
+                 r: Math.round(r.right * 10) / 10, b: Math.round(r.bottom * 10) / 10 };
+      };
+      var rectHit = function (A, B) {
+        var ox = Math.min(A.r, B.r) - Math.max(A.x, B.x);
+        var oy = Math.min(A.b, B.b) - Math.max(A.y, B.y);
+        if (ox > 0.5 && oy > 0.5) {
+          return { ox: Math.round(ox * 10) / 10, oy: Math.round(oy * 10) / 10 };
+        }
+        return null;
+      };
+      var pieceLabel = function (tag, cls, txt) { return tag + '.' + cls + '[' + txt + ']'; };
+      /* R1 的一半（父代理 2026-09-24 指定：overlaps 也要在**摊平后的可见件**上算）：
+         用的就是 gaps 那一份列表（叶元素 + 纯文字节点 Range 盒子，已按可裁剪祖先夹过，
+         且剔除了"完全被更大件包住"的重复项）—— 这一半抓得到**部分相交**
+         （控件只压住文字的一半、或两件可见件互相压边）。
+         ⚠ 它与下面 ctrlHits 那张表**不是一回事、两张都要**（本批实测：
+           一个**完全盖住**文字的绝对定位控件，在摊平时已经被"被更大盒子包住"那条剔掉了
+           ⇒ 这张表看不见它；ctrlHits 按"控件 × 文字 + 祖先/后代排除"算，才抓得到）。
+         反面：这也说明"把 overlaps 全改成摊平列表"**不足以**修洞① —— 变异实测留在报告里。 */
+      var pieceOverlaps = [];
+      for (var po = 0; po < kept.length; po++) {
+        for (var pp = po + 1; pp < kept.length; pp++) {
+          var PA = kept[po], PB = kept[pp];
+          var pox = Math.min(PA.r, PB.r) - Math.max(PA.x, PB.x);
+          var poy = Math.min(PA.b, PB.b) - Math.max(PA.y, PB.y);
+          if (pox > 0.5 && poy > 0.5) {
+            pieceOverlaps.push({ a: pieceLabel(PA.tag, PA.cls, PA.txt),
+                                 b: pieceLabel(PB.tag, PB.cls, PB.txt),
+                                 ox: Math.round(pox * 10) / 10, oy: Math.round(poy * 10) / 10 });
+          }
+        }
+      }
+      /* 控件自己的**可见区**（见 R2 那段；没有可裁剪的祖先 ⇒ null = 没被裁）。 */
+      var rowClipOf = function (el) {
+        var cur = el.parentElement, box = null, guard = 0;
+        while (cur && guard++ < 64) {
+          var cs = getComputedStyle(cur);
+          if (cs.overflow !== 'visible' || cs.overflowX !== 'visible' || cs.overflowY !== 'visible') {
+            var cr = cur.getBoundingClientRect();
+            var pl = parseFloat(cs.paddingLeft); if (!isFinite(pl)) pl = 0;
+            var prr = parseFloat(cs.paddingRight); if (!isFinite(prr)) prr = 0;
+            var pt = parseFloat(cs.paddingTop); if (!isFinite(pt)) pt = 0;
+            var pb = parseFloat(cs.paddingBottom); if (!isFinite(pb)) pb = 0;
+            var b3 = { l: cr.left + pl, r: cr.right - prr, t: cr.top + pt, b: cr.bottom - pb };
+            box = box ? { l: Math.max(box.l, b3.l), r: Math.min(box.r, b3.r),
+                          t: Math.max(box.t, b3.t), b: Math.min(box.b, b3.b) } : b3;
+          }
+          if (cur === capEl) break;
+          cur = cur.parentElement;
+        }
+        return box;
+      };
+      var capNodes2 = [].slice.call(capEl.querySelectorAll('*'));
+      var visCtrls = [];
+      for (var vi = 0; vi < capNodes2.length; vi++) {
+        var ve = capNodes2[vi];
+        if (!isControl(ve) || !cvis(ve)) continue;
+        var vr = rectOf(ve);
+        if (vr.r - vr.x <= 1 || vr.b - vr.y <= 1) continue;
+        visCtrls.push({ el: ve, tag: ve.tagName.toLowerCase(),
+                        cls: String(ve.className || '').split(' ')[0],
+                        txt: (ve.textContent || '').trim().slice(0, 18), rect: vr });
+      }
+      /* 这一行里所有"看得见的文字"：纯文字节点的 Range 盒子，夹到最近的可裁剪祖先
+         （与 pieces 那份同一手法：不夹就会把"被省略号裁掉的那一段"算进来）。 */
+      var textBoxes = [];
+      var txtHosts = capNodes2.slice();
+      txtHosts.unshift(capEl);
+      for (var hi = 0; hi < txtHosts.length; hi++) {
+        var tns2 = [].slice.call(txtHosts[hi].childNodes);
+        for (var hj = 0; hj < tns2.length; hj++) {
+          if (tns2[hj].nodeType !== 3 || (tns2[hj].textContent || '').trim() === '') continue;
+          var rg2 = document.createRange();
+          rg2.selectNodeContents(tns2[hj]);
+          var tr2 = rg2.getBoundingClientRect();
+          if (tr2.width <= 1 || tr2.height <= 1) continue;
+          var cl2 = clipRectOf(tns2[hj]);
+          var bx = { x: tr2.left, y: tr2.top, r: tr2.right, b: tr2.bottom };
+          if (cl2) {
+            bx.x = Math.max(bx.x, cl2.l); bx.r = Math.min(bx.r, cl2.r);
+            bx.y = Math.max(bx.y, cl2.t); bx.b = Math.min(bx.b, cl2.b);
+          }
+          if (bx.r - bx.x <= 1 || bx.b - bx.y <= 1) continue;
+          textBoxes.push({ node: tns2[hj], txt: (tns2[hj].textContent || '').trim().slice(0, 18),
+                           rect: { x: Math.round(bx.x * 10) / 10, y: Math.round(bx.y * 10) / 10,
+                                   r: Math.round(bx.r * 10) / 10, b: Math.round(bx.b * 10) / 10 } });
+        }
+      }
+      var ctrlHits = [];
+      for (var ci2 = 0; ci2 < visCtrls.length; ci2++) {
+        for (var ti3 = 0; ti3 < textBoxes.length; ti3++) {
+          var C = visCtrls[ci2], T = textBoxes[ti3];
+          if (C.el.contains(T.node)) continue;          /* 自己的内容（例如按钮里那个 span） */
+          var hh = rectHit(C.rect, T.rect);
+          if (hh) {
+            ctrlHits.push({ ctrl: pieceLabel(C.tag, C.cls, C.txt), text: T.txt,
+                            ox: hh.ox, oy: hh.oy });
+          }
+        }
+      }
+      var ctrlClips = [];
+      for (var qi2 = 0; qi2 < visCtrls.length; qi2++) {
+        var Q = visCtrls[qi2];
+        var cb = rowClipOf(Q.el);
+        if (!cb) continue;                              /* 这一行没有裁剪 ⇒ 画得出来 */
+        var vw = Math.min(Q.rect.r, cb.r) - Math.max(Q.rect.x, cb.l);
+        var vh = Math.min(Q.rect.b, cb.b) - Math.max(Q.rect.y, cb.t);
+        var cutMax = Math.max(Math.max(0, cb.l - Q.rect.x), Math.max(0, Q.rect.r - cb.r),
+                              Math.max(0, cb.t - Q.rect.y), Math.max(0, Q.rect.b - cb.b));
+        if (cutMax > 0.5 || vw <= 0.5 || vh <= 0.5) {
+          ctrlClips.push({ ctrl: pieceLabel(Q.tag, Q.cls, Q.txt),
+                           boxPx: Math.round((Q.rect.r - Q.rect.x) * 10) / 10 + 'x'
+                             + (Math.round((Q.rect.b - Q.rect.y) * 10) / 10),
+                           visiblePx: Math.round(Math.max(0, vw) * 10) / 10 + 'x'
+                             + (Math.round(Math.max(0, vh) * 10) / 10),
+                           cutPx: Math.round(cutMax * 10) / 10,
+                           rowRight: Math.round(cb.r * 10) / 10 });
+        }
+      }
       out['#listcap'] = { n: members.length, x: Math.round(capEl.getBoundingClientRect().left),
                           y: Math.round(capEl.getBoundingClientRect().top),
                           w: Math.round(capEl.getBoundingClientRect().width),
                           h: Math.round(capEl.getBoundingClientRect().height),
                           fs: '', lh: '', pad: '', gap: '', radius: '',
                           overlaps: overlaps, gaps: gaps,
+                          ctrlHits: ctrlHits, ctrlClips: ctrlClips,
+                          pieceOverlaps: pieceOverlaps,
+                          /* ⚠ 扫了多少东西（防"表恒空"）：两张新表空的时候，必须能看出
+                             是"真的没有压/没有裁"，还是"压根一个控件/文字都没扫到"
+                             —— 下面 Node 侧要求这两个数 > 0（扫不到就是红）。 */
+                          ctrlCount: visCtrls.length, textCount: textBoxes.length,
+                          pieceCount: kept.length,
                           members: members.map(function (m) {
                             return m.tag + '.' + m.cls + '[' + m.txt + ']@' + String(m.x) + '-' + String(m.r); }) };
     }
@@ -3355,9 +3501,25 @@ const faceNavCheck = {
  * 判据（**真重叠**才算压字；同时把"贴在一起"的间隙也报出来）：
  *   ① 这一行里可见成员两两的**边框盒**不许相交（ox>0.5 且 oy>0.5 ⇒ 红）；
  *   ② 相邻成员的**水平间隙**必须 ≥ LISTCAP_MIN_GAP（改前实测：`导出效力总览` 与 `知识库`
- *      之间 **0px** —— 两个东西贴成一个词，用户读不出这是两件事）。
+ *      之间 **0px** —— 两个东西贴成一个词，用户读不出这是两件事）；
+ *   ③ **2026-09-24（B2，父代理指定）**：**摊平后的可见件**（叶元素 + 纯文字节点 Range 盒子）
+ *      两两矩形不得相交 —— 这一半抓"部分相交"（控件只压住半行字、或两件东西互相压边）。
+ *      它是 ④ 的补充而不是替代：一个**完全盖住**文字的绝对定位控件在摊平时会被
+ *      "被更大盒子包住"那条剔掉（那是为了让"计数 span 在自己的盒子里"不误报）⇒ 单靠这一半
+ *      修不了洞①（变异实测的原话在报告里）。
+ *   ④ **2026-09-24（B2，独立复核 R1）**：可见**控件**压在可见**文字**上（**绝对定位也算**）
+ *      ⇒ 红。为什么必须单列一条：`overlaps` 只在 `members` 里两两算，而 `members` 故意
+ *      剔除了"装得下别的控件/文字"的容器、纯文字节点又从不进 `members` ⇒
+ *      "绝对定位的按钮压在它容器里那段文字上"**两边都不在表里**（复核实测两档都 PASS）；
+ *      这一条按"控件 × 文字 + 祖先/后代排除"算 ⇒ 完全盖住也抓得到。
+ *   ⑤ **2026-09-24（B2，独立复核 R2）**：**控件必须落在所在行的可见区内** ——
+ *      被任何一层 `overflow` 裁掉（>0.5px，或可见面积为 0）⇒ 红。为什么必须单列一条：
+ *      `getBoundingClientRect` **不认裁剪**，`cvis` 只看 display/visibility/opacity 与尺寸
+ *      ⇒ 一个"根本画不出来"的控件照样算成员（复核实测 PASS）。
  * ⚠ 适用面：**只有** `.ks-list-cap` 真的在 DOM 里时才判（它是 manage 面目录层那一行）；
- *   没有它 ⇒ 明说没判（skipReason），不静默通过。 */
+ *   没有它 ⇒ 明说没判（skipReason），不静默通过。
+ * ⚠ 三张新表（`pieceOverlaps` / `ctrlHits` / `ctrlClips`）**量不到就是红**
+ *   （"没验到"不许渲染成"通过"）。 */
 const LISTCAP_MIN_GAP = 4
 const listCapProblems = []
 let listCapSkipReason = null
@@ -3379,6 +3541,40 @@ if (lc === undefined) {
         + `${g.left} 与 ${g.right} —— 两个东西贴成一个词，用户读不出这是两件事`)
     }
   }
+  /* ⚠⚠ **2026-09-24（B2，独立复核 R1/R2 实测两种叠法都 PASS）新增两条**（判据只增不减，
+     上面两条照旧）：① 可见控件压在可见文字上（**绝对定位也算**）；② 控件被裁到行外。
+     实测值由探针的 `#listcap.ctrlHits` / `ctrlClips` 报上来（量不到就红，见下）。 */
+  if (lc !== undefined && !Array.isArray(lc.pieceOverlaps)) {
+    listCapProblems.push('这一跑没量到「摊平可见件两两相交」表（pieceOverlaps 缺失）—— 量不到就不算验过')
+  }
+  for (const o of (Array.isArray(lc.pieceOverlaps) ? lc.pieceOverlaps : [])) {
+    listCapProblems.push(`**两件可见东西压在一起**：${String(o.a)} 与 ${String(o.b)} 的矩形真相交`
+      + `（水平 ${String(o.ox)}px × 垂直 ${String(o.oy)}px）`)
+  }
+  if (lc !== undefined && !Array.isArray(lc.ctrlHits)) {
+    listCapProblems.push('这一跑没量到「控件 × 文字」相交表（ctrlHits 缺失）—— 量不到就不算验过')
+  }
+  /* ⚠ "表是空的"必须与"压根没扫到东西"分得开（防恒真）：扫到的控件数 / 文字数 / 摊平件数
+     任一为 0 ⇒ 这一行什么都没验，算红。实测值同时进 stdout 的 JSON 供报告取证。 */
+  for (const [k, v] of [['ctrlCount', lc?.ctrlCount], ['textCount', lc?.textCount],
+    ['pieceCount', lc?.pieceCount]]) {
+    if (!(Number(v) > 0)) {
+      listCapProblems.push(`这一行量到的 ${String(k)}=${String(v)} —— 一个都没扫到，`
+        + '两张新表恒空不能当通过（"没验到"不等于"没问题"）')
+    }
+  }
+  for (const h of (Array.isArray(lc.ctrlHits) ? lc.ctrlHits : [])) {
+    listCapProblems.push(`**控件压在文字上**：${String(h.ctrl)} 与文字「${String(h.text)}」的矩形真相交`
+      + `（水平 ${String(h.ox)}px × 垂直 ${String(h.oy)}px）—— 绝对定位叠上去也算压字`)
+  }
+  if (lc !== undefined && !Array.isArray(lc.ctrlClips)) {
+    listCapProblems.push('这一跑没量到「控件被裁剪」表（ctrlClips 缺失）—— 量不到就不算验过')
+  }
+  for (const c of (Array.isArray(lc.ctrlClips) ? lc.ctrlClips : [])) {
+    listCapProblems.push(`**控件被裁到行外**：${String(c.ctrl)} 的盒子 ${String(c.boxPx)}px，`
+      + `落在这一行可见区里的只有 ${String(c.visiblePx)}px（被裁掉 ${String(c.cutPx)}px）`
+      + ' —— 控件必须落在所在行的可见区内，看不清/看不见等于这个功能没了')
+  }
 }
 const listCapCheck = {
   checked: listCapProblems.length === 0 && listCapSkipReason === null,
@@ -3388,6 +3584,12 @@ const listCapCheck = {
   members: lc?.members ?? null,
   gaps: lc?.gaps ?? null,
   overlaps: lc?.overlaps ?? null,
+  ctrlHits: lc?.ctrlHits ?? null,
+  ctrlClips: lc?.ctrlClips ?? null,
+  pieceOverlaps: lc?.pieceOverlaps ?? null,
+  ctrlCount: lc?.ctrlCount ?? null,
+  textCount: lc?.textCount ?? null,
+  pieceCount: lc?.pieceCount ?? null,
 }
 
 // --viewport 给定时**按视口高截**（这才看得出 position:sticky；全页截图看不出来）
@@ -3657,7 +3859,11 @@ if (listCapSkipReason !== null) {
   const minGap = (listCapCheck.gaps ?? []).reduce((a, g) => Math.min(a, Number(g.gap)), Infinity)
   console.error(`· #listcap 自检通过：这一行 ${String(listCapCheck.members.length)} 个可见成员、`
     + `两两无重叠，相邻最小水平间隙 ${String(Number.isFinite(minGap) ? minGap : '(只有一个成员)')}px`
-    + `（下限 ${String(LISTCAP_MIN_GAP)}px）；成员 ${JSON.stringify(listCapCheck.members)}`
+    + `（下限 ${String(LISTCAP_MIN_GAP)}px）；控件×文字相交 ${String(listCapCheck.ctrlHits.length)} 条、`
+    + `被裁到行外的控件 ${String(listCapCheck.ctrlClips.length)} 条、`
+    + `摊平可见件两两相交 ${String(listCapCheck.pieceOverlaps.length)} 条`
+    + `（扫到控件 ${String(listCapCheck.ctrlCount)} 个 / 文字 ${String(listCapCheck.textCount)} 处 /`
+    + ` 摊平件 ${String(listCapCheck.pieceCount)} 件）；成员 ${JSON.stringify(listCapCheck.members)}`
     + `（page=${page} width=${width} theme=${themeName}）`)
 } else {
   console.error('')
@@ -3665,7 +3871,8 @@ if (listCapSkipReason !== null) {
     + `page=${page} width=${width} theme=${themeName}）：`)
   for (const p of listCapProblems) console.error(`   - ${p}`)
   console.error('   ⇒ 这一行（.ks-list-cap）里的成员（文件夹名 / 导出效力总览 / 在此范围内提问 / 计数）'
-    + '必须各自成件：既不许边框盒真重叠，也不许贴成 0px（两个东西贴成一个词）。')
+    + '必须各自成件：既不许边框盒真重叠，也不许贴成 0px（两个东西贴成一个词）；'
+    + '控件压在文字上（绝对定位也算）与被 overflow 裁到行外，同样是这条要抓的回归。')
   process.exit(1)
 }
 
