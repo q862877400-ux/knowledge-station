@@ -38,8 +38,11 @@ import {
   fetchAnnounceSummary,
   fetchChannels,
   fetchInspectionSummary,
+  getChannelTestCase,
   runChannelProbe,
+  runChannelTest,
   setChannelEnabled,
+  setChannelTestCase,
   updateChannel,
   type KsChannelList,
   type KsChannelRecord,
@@ -424,6 +427,7 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
   }, [runMutation])
 
   const editOrgKind = useCallback(async (r: KsChannelRecord): Promise<void> => {
+
     const kinds = Object.entries(ORG_KIND_LABEL)
     const next = window.prompt(
       '改分类（单位性质）——输入序号：\n' + kinds.map(([k, v], i) => `${i + 1}. ${v}`).join('\n'),
@@ -432,6 +436,24 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
     const idx = Number(next) - 1
     const kind = kinds[idx] ? kinds[idx][0] : null
     await runMutation('改分类', () => updateChannel(r.channel_id, { org_kind: kind === '' ? null : kind }))
+  }, [runMutation])
+
+  /** 批C：「试一试」——未配样本先引导配（样本链接+期望标准号），配完直接跑；已配直接跑。
+   *  结果回执进 notice（ok/fail 人话）；留痕在引擎（last_result/last_detail）。 */
+  const tryChannel = useCallback(async (r: KsChannelRecord): Promise<void> => {
+    await runMutation(`试一试（${r.name}）`, async () => {
+      let tc = await getChannelTestCase(r.channel_id)
+      if (tc === null) {
+        const u = window.prompt(
+          `给「${r.name}」配一个**已知文件**——样本链接\n（一个你确信能从这条渠道拿到的文件/页面地址）：`)
+        if (u === null || u.trim() === '') throw new Error('没配样本（已取消）')
+        const n = window.prompt('期望的标准号（从那个文件里抄一个，例：GB/T 10561-2005）：')
+        if (n === null || n.trim() === '') throw new Error('没配期望标准号（已取消）')
+        tc = await setChannelTestCase(r.channel_id, u.trim(), n.trim())
+      }
+      const out = await runChannelTest(r.channel_id)
+      throw new Error(`${out.result === 'ok' ? '✅ 成功' : '❌ 未通过'}：${out.detail}`)
+    })
   }, [runMutation])
 
   const remove = useCallback(async (r: KsChannelRecord): Promise<void> => {
@@ -638,8 +660,12 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
                       {r.enabled === 0 ? '启用' : '停用'}
                     </button>
                     <button type="button" disabled={mutating} style={$mini}
-                      onClick={() => void editOrgKind(r)}>改分类</button>                    <button type="button" disabled={mutating} style={$mini}
                       onClick={() => void editOrgKind(r)}>改分类</button>
+                    <button type="button" disabled={mutating} style={$mini}
+                      onClick={() => void tryChannel(r)}
+                      title="试一试：拉这条渠道的「已知文件」（样本链接+期望标准号）——真下载/识别出来=渠道算数。首次点击会先配样本">
+                      试一试
+                    </button>
                     <button type="button" disabled={mutating} style={{ ...$mini, color: '#c0392b' }}
                       onClick={() => void remove(r)}>删除</button>
                   </span>

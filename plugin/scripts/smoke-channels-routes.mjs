@@ -218,6 +218,27 @@ check('单条维护前缀不许带尾斜杠（带了 ⇒ 真派发器下 /{id} �
     decodeURIComponent(lastEngine().path) === '/api/v1/channels/ch:a/enabled'
     && lastEngine().sent.enabled === false && off.status === 200,
     `${lastEngine().path} ${JSON.stringify(lastEngine().sent)}`)
+
+  /* ── 批C（2026-09-22）：「已知文件测试」三口——配样本 POST / 读样本 GET / 跑测试 POST ── */
+  responder = () => ({ body: { code: 200, data: { test_case: { channel_id: 'ch:a', sample_url: 'https://x/a.pdf', expect_no: 'GB/T 1-2020' } } } })
+  const tcSet = await invoke(`${KS_CHANNELS_ITEM_PREFIX}/ch:a/test-case`, {
+    method: 'POST', body: { sample_url: 'https://x/a.pdf', expect_no: 'GB/T 1-2020' } })
+  check('批C 配样本：转发 POST …/ch:a/test-case（body 原样转给引擎判）',
+    decodeURIComponent(lastEngine().path) === '/api/v1/channels/ch:a/test-case'
+    && lastEngine().method === 'POST' && lastEngine().sent.expect_no === 'GB/T 1-2020'
+    && tcSet.status === 200,
+    `${lastEngine().path} ${JSON.stringify(lastEngine().sent)}`)
+  const tcGet = await invoke(`${KS_CHANNELS_ITEM_PREFIX}/ch:a/test-case`, { method: 'GET' })
+  check('批C 读样本：转发 GET …/ch:a/test-case（样本+最近留痕）',
+    decodeURIComponent(lastEngine().path) === '/api/v1/channels/ch:a/test-case'
+    && lastEngine().method === 'GET' && tcGet.status === 200,
+    `${lastEngine().method} ${lastEngine().path}`)
+  responder = () => ({ body: { code: 200, data: { result: 'ok', detail: '拿到并认出了已知文件：GB/T 1-2020' } } })
+  const tcRun = await invoke(`${KS_CHANNELS_ITEM_PREFIX}/ch:a/test`, { method: 'POST', body: {} })
+  check('批C 跑测试：转发 POST …/ch:a/test（引擎真拉真测真留痕）',
+    decodeURIComponent(lastEngine().path) === '/api/v1/channels/ch:a/test'
+    && lastEngine().method === 'POST' && tcRun.body.data.result === 'ok',
+    `${lastEngine().path} ${JSON.stringify(tcRun.body)}`)
 }
 
 /* --------------------------- 3. query 白名单 --------------------------- */

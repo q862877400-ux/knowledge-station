@@ -288,6 +288,22 @@ function registerChannelsWriteRoutes(ctx, manager) {
           await proxyWrite(res, manager, 'DELETE', engineId)
           return
         }
+        // 批C（2026-09-22）：「已知文件测试」三口——配样本（POST）/ 读样本+留痕（GET）/
+        // 跑测试（POST）。`{id}/test` 与 `{id}/test-case` 都是两段路径，走同一 prefix。
+        if (parts.length === 2 && parts[1] === 'test-case' && req.method === 'POST') {
+          const raw = await readBodyOr400(req, res)
+          if (raw === undefined) return
+          await proxyWrite(res, manager, 'POST', `${engineId}/test-case`, raw)
+          return
+        }
+        if (parts.length === 2 && parts[1] === 'test-case' && req.method === 'GET') {
+          await proxyWrite(res, manager, 'GET', `${engineId}/test-case`)
+          return
+        }
+        if (parts.length === 2 && parts[1] === 'test' && req.method === 'POST') {
+          await proxyWrite(res, manager, 'POST', `${engineId}/test`, {})
+          return
+        }
         if (parts.length === 2 && parts[1] === 'enabled' && req.method === 'POST') {
           const raw = await readBodyOr400(req, res)
           if (raw === null) return

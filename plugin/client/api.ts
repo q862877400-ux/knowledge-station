@@ -312,6 +312,51 @@ export async function deleteChannel(
   return ksJson<{ deleted: boolean; channel_id: string }>(res, '删除渠道')
 }
 
+/** 批C（2026-09-22）：渠道「已知文件测试」——样本 + 最近一次留痕。 */
+export interface KsChannelTestCase {
+  channel_id: string
+  sample_url: string
+  expect_no: string
+  note?: string | null
+  last_result?: string | null
+  last_detail?: string | null
+  last_run_at?: string | null
+}
+
+export async function getChannelTestCase(channelId: string, signal?: AbortSignal): Promise<KsChannelTestCase | null> {
+  const res = await fetch(`/ks/channels/${encodeURIComponent(channelId)}/test-case`, {
+    method: 'GET', cache: 'no-store', ...(signal ? { signal } : {}),
+  })
+  const body = await ksJson<{ test_case?: KsChannelTestCase | null }>(res, '读渠道测试样本')
+  return body.test_case ?? null
+}
+
+export async function setChannelTestCase(
+  channelId: string, sampleUrl: string, expectNo: string, note?: string,
+  signal?: AbortSignal,
+): Promise<KsChannelTestCase> {
+  const res = await fetch(`/ks/channels/${encodeURIComponent(channelId)}/test-case`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ sample_url: sampleUrl, expect_no: expectNo, ...(note ? { note } : {}) }),
+    ...(signal ? { signal } : {}),
+  })
+  const body = await ksJson<{ test_case?: KsChannelTestCase }>(res, '配渠道测试样本')
+  return body.test_case as KsChannelTestCase
+}
+
+export async function runChannelTest(
+  channelId: string, signal?: AbortSignal,
+): Promise<{ result: string; detail: string; got?: string }> {
+  const res = await fetch(`/ks/channels/${encodeURIComponent(channelId)}/test`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({}),
+    ...(signal ? { signal } : {}),
+  })
+  return ksJson<{ result: string; detail: string; got?: string }>(res, '渠道已知文件测试')
+}
+
 export interface KsChannelProbeResult {
   probed: number
   results: Array<{

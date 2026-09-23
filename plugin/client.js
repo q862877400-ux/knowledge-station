@@ -133,6 +133,7 @@ __export(api_exports, {
   fetchProjectLocators: () => fetchProjectLocators,
   fetchSession: () => fetchSession,
   fileDocsIntoFolder: () => fileDocsIntoFolder,
+  getChannelTestCase: () => getChannelTestCase,
   importInternalPolicy: () => importInternalPolicy,
   listClausePatches: () => listClausePatches,
   moveClauseBookmark: () => moveClauseBookmark,
@@ -152,12 +153,14 @@ __export(api_exports, {
   reverifyMaterialLocators: () => reverifyMaterialLocators,
   reviewMaterial: () => reviewMaterial,
   runChannelProbe: () => runChannelProbe,
+  runChannelTest: () => runChannelTest,
   runGapAnalysis: () => runGapAnalysis,
   runInspection: () => runInspection,
   saveApiConfig: () => saveApiConfig,
   scanAnnounceSources: () => scanAnnounceSources,
   scanMaterialProject: () => scanMaterialProject,
   setChannelEnabled: () => setChannelEnabled,
+  setChannelTestCase: () => setChannelTestCase,
   setMaterialRole: () => setMaterialRole,
   setMaterialTier: () => setMaterialTier,
   startBulkIngest: () => startBulkIngest,
@@ -300,6 +303,34 @@ async function deleteChannel(channelId, signal) {
     signal
   });
   return ksJson(res, "\u5220\u9664\u6E20\u9053");
+}
+async function getChannelTestCase(channelId, signal) {
+  const res = await fetch(`/ks/channels/${encodeURIComponent(channelId)}/test-case`, {
+    method: "GET",
+    cache: "no-store",
+    ...signal ? { signal } : {}
+  });
+  const body = await ksJson(res, "\u8BFB\u6E20\u9053\u6D4B\u8BD5\u6837\u672C");
+  return body.test_case ?? null;
+}
+async function setChannelTestCase(channelId, sampleUrl, expectNo, note, signal) {
+  const res = await fetch(`/ks/channels/${encodeURIComponent(channelId)}/test-case`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ sample_url: sampleUrl, expect_no: expectNo, ...note ? { note } : {} }),
+    ...signal ? { signal } : {}
+  });
+  const body = await ksJson(res, "\u914D\u6E20\u9053\u6D4B\u8BD5\u6837\u672C");
+  return body.test_case;
+}
+async function runChannelTest(channelId, signal) {
+  const res = await fetch(`/ks/channels/${encodeURIComponent(channelId)}/test`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({}),
+    ...signal ? { signal } : {}
+  });
+  return ksJson(res, "\u6E20\u9053\u5DF2\u77E5\u6587\u4EF6\u6D4B\u8BD5");
 }
 async function runChannelProbe(ids, signal) {
   const res = await fetch("/ks/channels/probe", {
@@ -36341,6 +36372,23 @@ function KsChannelsPanel(props) {
     const kind = kinds[idx] ? kinds[idx][0] : null;
     await runMutation("\u6539\u5206\u7C7B", () => updateChannel(r.channel_id, { org_kind: kind === "" ? null : kind }));
   }, [runMutation]);
+  const tryChannel = (0, import_react8.useCallback)(async (r) => {
+    await runMutation(`\u8BD5\u4E00\u8BD5\uFF08${r.name}\uFF09`, async () => {
+      let tc = await getChannelTestCase(r.channel_id);
+      if (tc === null) {
+        const u = window.prompt(
+          `\u7ED9\u300C${r.name}\u300D\u914D\u4E00\u4E2A**\u5DF2\u77E5\u6587\u4EF6**\u2014\u2014\u6837\u672C\u94FE\u63A5
+\uFF08\u4E00\u4E2A\u4F60\u786E\u4FE1\u80FD\u4ECE\u8FD9\u6761\u6E20\u9053\u62FF\u5230\u7684\u6587\u4EF6/\u9875\u9762\u5730\u5740\uFF09\uFF1A`
+        );
+        if (u === null || u.trim() === "") throw new Error("\u6CA1\u914D\u6837\u672C\uFF08\u5DF2\u53D6\u6D88\uFF09");
+        const n = window.prompt("\u671F\u671B\u7684\u6807\u51C6\u53F7\uFF08\u4ECE\u90A3\u4E2A\u6587\u4EF6\u91CC\u6284\u4E00\u4E2A\uFF0C\u4F8B\uFF1AGB/T 10561-2005\uFF09\uFF1A");
+        if (n === null || n.trim() === "") throw new Error("\u6CA1\u914D\u671F\u671B\u6807\u51C6\u53F7\uFF08\u5DF2\u53D6\u6D88\uFF09");
+        tc = await setChannelTestCase(r.channel_id, u.trim(), n.trim());
+      }
+      const out = await runChannelTest(r.channel_id);
+      throw new Error(`${out.result === "ok" ? "\u2705 \u6210\u529F" : "\u274C \u672A\u901A\u8FC7"}\uFF1A${out.detail}`);
+    });
+  }, [runMutation]);
   const remove = (0, import_react8.useCallback)(async (r) => {
     const ok = window.confirm(
       `\u786E\u5B9A\u5220\u9664\u300C${r.name}\u300D\uFF1F
@@ -36629,15 +36677,15 @@ function KsChannelsPanel(props) {
                 children: "\u6539\u5206\u7C7B"
               }
             ),
-            "                    ",
             /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
               "button",
               {
                 type: "button",
                 disabled: mutating,
                 style: $mini,
-                onClick: () => void editOrgKind(r),
-                children: "\u6539\u5206\u7C7B"
+                onClick: () => void tryChannel(r),
+                title: "\u8BD5\u4E00\u8BD5\uFF1A\u62C9\u8FD9\u6761\u6E20\u9053\u7684\u300C\u5DF2\u77E5\u6587\u4EF6\u300D\uFF08\u6837\u672C\u94FE\u63A5+\u671F\u671B\u6807\u51C6\u53F7\uFF09\u2014\u2014\u771F\u4E0B\u8F7D/\u8BC6\u522B\u51FA\u6765=\u6E20\u9053\u7B97\u6570\u3002\u9996\u6B21\u70B9\u51FB\u4F1A\u5148\u914D\u6837\u672C",
+                children: "\u8BD5\u4E00\u8BD5"
               }
             ),
             /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(

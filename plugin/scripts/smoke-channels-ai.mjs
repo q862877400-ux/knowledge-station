@@ -205,6 +205,15 @@ try {
   const ok2 = await mod.copyTextToClipboard('回退样本文本')
   check('复制回退：clipboard 缺席时 textarea+execCommand 仍成', ok2 === true)
 
+  /* ── 批C（2026-09-22）：行上「试一试」——进入分类后行上给它；顺带钉「改分类」
+     **只一份**（标签删除时它曾重复两份——本条就是它的回归钉）。 ── */
+  const dirBtn = [...host.querySelectorAll('.ks-dir-row')][0]
+  await act(async () => { dirBtn.dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true })) })
+  await act(async () => { await new Promise((r) => setTimeout(r, 10)) })
+  check('试一试按钮在（批C）+ 改分类只一份（重复回潮=红）',
+    html().includes('试一试') && (html().match(/改分类/g) ?? []).length === 1,
+    `试一试=${String(html().includes('试一试'))} 改分类份数=${String((html().match(/改分类/g) ?? []).length)}`)
+
   console.log(`\n== channels-ai smoke ${failed === 0 ? 'PASS' : 'FAIL'} (${passed}/${passed + failed}) ==`)
 } finally {
   await rm(tmp, { recursive: true, force: true })
