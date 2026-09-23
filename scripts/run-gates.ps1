@@ -111,6 +111,15 @@ $env:KS_GATES_LOCK_TOKEN = $lockToken
 #   真产品下次启动会去接管它）⇒ 在这里设一次，比"写进复核约定"可靠得多。
 $prevDataDir = $env:KS_DATA_DIR
 $env:KS_DATA_DIR = Join-Path ([System.IO.Path]::GetTempPath()) ("ks-gates-data-" + $PID)
+# ⚠ **自己布的数据目录，跑完要自己收**（2026-09-24 顺手实测）：上面那行只设了**环境变量**，
+#   从来没人删**目录** ⇒ 实测 `%TEMP%` 里积了 **166 个** `ks-gates-data-*`（合计 554 MB）——
+#   与 `tests/conftest.py` 那 1833 个 `ks_test_*` 是**同一类泄漏**（那边已修，这边漏了）。
+#   三条边界：① 只在**这一跑成功**时收；② 失败/被中断时**留着并打印路径**（那里面可能有失败现场
+#   的状态文件，删了就没法排查）；③ 只收"跑之前**不存在**的那一份"（万一 pid 复用撞上别人的
+#   目录，一个字都不许碰）。
+$ownDataDir = $env:KS_DATA_DIR
+$ownDataDirExisted = Test-Path $ownDataDir
+$ownDataDirRemovable = $false
 # ── 模型缓存目录（2026-09-21 修的那条**环境假红**）──────────────────────────────
 # 为什么必须有：`tests/conftest.py` 是 **session 级 autouse**，它把 `KS_DATA_DIR` 换成全新的
 #   `%TEMP%\ks_test_*` ⇒ `models_dir`（默认 `<data_dir>/models`）**每次都是空的** ⇒ 每一次
@@ -522,6 +531,10 @@ try {
     if ($null -ne $hardError) { Write-Host " ⛔ 执行中断（见上方日志）" -ForegroundColor Red }
     exit 1
   }
+  # ⚠ 只有**走到这里**（没失败、棘轮也没被破）才算"这一跑成功" ⇒ 才允许收数据目录。
+  #   用显式标志而不是"看 $failed 是否为空"：中断/异常逃出去时那些变量可能是 $null，
+  #   而 `-not $null` 为真 ⇒ 会把失败现场当成功删掉。显式标志不会被误判成真。
+  $ownDataDirRemovable = $true
   exit 0
 } finally {
   Remove-Item $lockPath -Force -ErrorAction SilentlyContinue
@@ -533,6 +546,14 @@ try {
   else { Remove-Item Env:\KS_GATES_LOCK_TOKEN -ErrorAction SilentlyContinue }
   if ($null -ne $prevDataDir) { $env:KS_DATA_DIR = $prevDataDir }
   else { Remove-Item Env:\KS_DATA_DIR -ErrorAction SilentlyContinue }
+  # 自己布的数据目录自己收（见上面 `$ownDataDir` 那段的三条边界）。
+  if (-not $ownDataDirExisted -and $ownDataDir) {
+    if ($ownDataDirRemovable) {
+      Remove-Item $ownDataDir -Recurse -Force -ErrorAction SilentlyContinue
+    } elseif (Test-Path $ownDataDir) {
+      Write-Host (" （这一跑没成功 ⇒ 本次的数据目录留着供排查：{0}）" -f $ownDataDir) -ForegroundColor DarkGray
+    }
+  }
   # 模型缓存目录同样**恢复**（它是我们为这一次跑布的，不该泄漏给调用方）。
   if ($null -ne $prevModelsDir) { $env:KS_MODELS_DIR = $prevModelsDir }
   else { Remove-Item Env:\KS_MODELS_DIR -ErrorAction SilentlyContinue }
