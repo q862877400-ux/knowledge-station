@@ -22,8 +22,11 @@
  *     2026-09-22 业主两条界面改动（删文件行图标 + 提问入口搬家）再加 B10/R5b/R5c，
  *     复核 MEDIUM-2 的运行时复现再加 R19a/R19b ⇒ 是 **153/153**；
  *     2026-09-22 业主改菜单文案那一轮（移动到 / 复制到 / 在此文件中提问 / 移出）**改判据不改条数**，
- *     外加新增 I5b（「⋮」按钮 title 里那句"文件不会删除"）+ P23b（移出后的消息）⇒ 现在是 **156/156**
- *     （以脚本结尾打印的为准）。
+ *     外加新增 I5b（「⋮」按钮 title 里那句"文件不会删除"）+ P23b（移出后的消息）⇒ 是 **156/156**；
+ *     B3b（补全分类号界面半边）加 N21–N32 ⇒ **185/185**；父代理堵 B2 两个假绿洞再加 1 条 ⇒ **186/186**；
+ *     2026-09-24 B3b 独立复核报的 MED-1（起批返回 `hard_capped` / `pages` 两支零覆盖）
+ *     ⇒ 补 N33（真分支）+ N34（反向）⇒ 现在是 **188/188**
+ *     （⚠ 上面这条只记到**写它的时候**；**永远**以脚本结尾打印的为准）
  *     2026-09-21 第二轮复核就是靠这条抓到头部三处旧数字没改干净 —— 写数字就要**当轮**改干净）
  *   ⇒ **少 30 条**，不是本文件上一版注释里写的"少 4 条"。
  *   **那句"72/72 / 少 4 条 / 每条都有替代"是错的，就地留痕更正**：72 是 `docs/UI-BASELINE.md`
@@ -370,6 +373,17 @@ export function mount(container, props) {
   let ccsStubMaxBatch = 200
   let ccsStubDefaultBatch = 50
   let ccsStubMaxAll = 2000
+  /**
+   * ⚠⚠ **B3b 独立复核的 MED-1 / LOW（2026-09-24，补判据）**：起批返回里的 `hard_capped` / `pages`
+   *   两个字段原先在桩里**写死** `false` / `1` ⇒ 界面 `KsKnowledgePage.tsx` 里那两支
+   *   （「（到一次最多能补的那条线就停，剩下的下次再点）」与「，分 N 页串行跑」）
+   *   **永远渲染不到、也没有任何判据看着** —— 复核报：撞硬上限时"界面对起批返回那一支怎么说"
+   *   本批零覆盖（它只能证明 `status` 路径那一支，见 N27）。
+   *   ⇒ 改成旋钮：**默认仍是 `false` / `1`（＝原样，别的用例一点都不受影响）**，
+   *   N33 把它们调成 `true` / `3` 把真分支打一次，N34 再调回来证明"没撞上限就一个字都不许说"。
+   */
+  let ccsStubHardCapped = false
+  let ccsStubPages = 1
   /** 补前的回退记录路径（`null` = 后端没给 ⇒ 界面必须如实说"读不到"）。 */
   let ccsUndoJournal = CCS_UNDO
   /**
@@ -773,7 +787,7 @@ export function mount(container, props) {
         queued: ccsSeen.length,
         started: ccsSeen.map((id) => ({ doc_id: id, standard_no: 'GB/T 90002-2020' })),
         skipped: [], plan: { candidates: [], total: 3, already_have: 6037, limit: 50, truncated: true },
-        undo_journal: ccsUndoJournal, pages: 1, hard_capped: false,
+        undo_journal: ccsUndoJournal, pages: ccsStubPages, hard_capped: ccsStubHardCapped,
       } })
     }
     if (p === '/api/v1/kb/ccs/backfill/status') {
@@ -1759,7 +1773,9 @@ export function mount(container, props) {
     && destOf('doc_in_bad').includes('还没查过分类号'),
     `doc_in_rec=${destOf('doc_in_rec')} / doc_in_bad=${destOf('doc_in_bad')}`)
 
-  /* ══════ N21–N30. B3b（2026-09-24）：界面上那六条（引擎半边 = B3a 提交 180397f）══════════
+  /* ══════ N21–N34. B3b（2026-09-24）：界面上那六条（引擎半边 = B3a 提交 `180397f`；
+     同一笔在**主仓**里是 `94a85c3` —— 批次分支是 rebase 上来的，"重放前/后"两套 id 的对照见
+     `docs/DEVELOPMENT-HISTORY.md` §10.186，**引用提交 id 前先核它是不是 master 的祖先**）══════════
      业主点名第①②③条 + 复核点名 LOW-1/LOW-2/LOW-3，全在这里逐条钉住。
      ⚠ 这一组的判据**全部是"后端说了什么、界面就得说什么"**：桩里那几个数是**故意的**
        （五桶各不相同的 17/11/7/4/3、批大小 200/50、硬上限 2000），界面若自己写死一份，
@@ -1883,7 +1899,11 @@ export function mount(container, props) {
     check('N30 后端没给回退记录路径时**如实说读不到**（不是编一句"已自动备份"）',
       (c2q('.ks-ccs-undo')[0]?.textContent ?? '').includes('已存回退记录：读不到'),
       `「${c2line('.ks-ccs-undo')}」`)
-    /* ⑤ 「全部补完」真的打 `POST /kb/ccs/backfill` 且带 `all:true`（不是只换个界面文案）。 */
+    /* ⑤ 「全部补完」真的打 `POST /kb/ccs/backfill` 且带 `all:true`（不是只换个界面文案）。
+       ⚠⚠ **先**把起批返回的两个字段调成"撞了硬上限 + 三页"（复核 MED-1：这两支原先零覆盖）——
+       N31/N32 用的都是**子串**判定，多出这两句不影响它们。 */
+    ccsStubHardCapped = true
+    ccsStubPages = 3
     const beforeAll = calls.length
     await c2click(c2q('.ks-ccs-all-btn')[0])
     await flush(); await flush()
@@ -1897,9 +1917,60 @@ export function mount(container, props) {
       (c2q('.ks-ib-msg')[0]?.textContent ?? '').includes('已开始「全部补完」')
       && (c2q('.ks-ib-msg')[0]?.textContent ?? '').includes(`这次要补 ${String(ccsSeen.length)} 篇`),
       `消息「${(c2q('.ks-ib-msg')[0]?.textContent ?? '(没有)').replace(/\s+/g, ' ').trim()}」`)
+    /* ⚠⚠ **B3b 独立复核 MED-1（2026-09-24 补）**：上面 N32 只匹配到前半句。起批返回里
+       `hard_capped` / `pages` 这两支**原先一条判据都没有**（桩写死 false/1 ⇒ 永远渲染不到）。
+       这里把桩调成 `hard_capped=true` + `pages=3`，要求界面把**两句话都如实说出来**——
+       而且页数用 `ccsStubPages` 拼（写死 1 或写死"分 3 页"都会红）。 */
+    const msg33 = (c2q('.ks-ib-msg')[0]?.textContent ?? '').replace(/\s+/g, ' ').trim()
+    check('N33 起批返回说"撞了硬上限 + 分 3 页"时，界面两句话都如实说出来（半句都不许省）'
+      + '—— 撞上限那一支原先没有任何判据（复核 MED-1）',
+      msg33.startsWith(`已开始「全部补完」：这次要补 ${String(ccsSeen.length)} 篇`)
+      && msg33.includes('（到一次最多能补的那条线就停，剩下的下次再点）')
+      && msg33.includes(`，分 ${String(ccsStubPages)} 页串行跑`)
+      && msg33.includes('；一篇一到几秒，跑完自动刷新。'),
+      `消息「${msg33}」（桩给的是 hard_capped=${String(ccsStubHardCapped)} / pages=${String(ccsStubPages)}）`)
     c2root.unmount()
     await flush()
     c2.remove()
+  }
+  /* ⚠ **反向（N34）**：把旋钮调回默认（后端**没**说撞上限、只有一页）再点一次 —— 那两句
+     **一个字都不许出现**（否则就是"不管后端说什么都念同一句"）。为了不让这一条变成"空闸门"，
+     同时断言**这一跑真的点到了按钮**（请求发出 + 消息换成了新的一次起批 —— 按钮被禁用而点不动时，
+     这一条会红，而不是悄悄通过）。
+     `ccsRunning=false / ccsPolls=2` 是必须的：上一跑的 POST 把 running 置真、按钮**禁用**，
+     不放开就点不动（复核报告 §5 记过同一处状态：`ccsSeen` 在两次挂载之间不清空）。 */
+  ccsStubHardCapped = false
+  ccsStubPages = 1
+  ccsRunning = false
+  ccsPolls = 2
+  {
+    const c3 = document.createElement('div')
+    document.body.appendChild(c3)
+    const c3root = mount(c3, { useTabInfo, dataSource: 'render-smoke-ccs3' })
+    await flush(); await flush(); await flush()
+    const c3q = (sel) => [...c3.querySelectorAll(sel)]
+    const c3click = async (el) => {
+      el.dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true, cancelable: true }))
+      await flush(); await flush()
+    }
+    await c3click(c3q('.ks-tree-name-inbox')[0])
+    await flush()
+    const msg34 = () => (c3q('.ks-ib-msg')[0]?.textContent ?? '').replace(/\s+/g, ' ').trim()
+    const beforeAll3 = calls.length
+    await c3click(c3q('.ks-ccs-all-btn')[0])
+    await flush(); await flush()
+    const allCall3 = calls.slice(beforeAll3).find((c) => c.url === `${API}/api/v1/kb/ccs/backfill`)
+    check('N34 **反向**：后端没说撞上限、也没说多页时，那两句**一个都不许出现**'
+      + '（且这一跑真的点到了「全部补完」—— 防"按钮点不动"把本条变成空闸门）',
+      allCall3 !== undefined
+      && msg34().startsWith(`已开始「全部补完」：这次要补 ${String(ccsSeen.length)} 篇；一篇一到几秒，跑完自动刷新。`)
+      && !msg34().includes('到一次最多能补的那条线就停')
+      && !msg34().includes('页串行跑'),
+      `请求=${allCall3 === undefined ? '(没发)' : `${String(allCall3.method)} body=${String(allCall3.body)}`}`
+        + ` / 消息「${msg34()}」`)
+    c3root.unmount()
+    await flush()
+    c3.remove()
   }
   /* 换桩只对**第二跑**有意义 ⇒ 换回来，免得后面的用例（P 段用同一个桩）跟着变。 */
   ccsStopReason = 'limit'
@@ -1907,6 +1978,8 @@ export function mount(container, props) {
   ccsStubMaxBatch = 200
   ccsStubDefaultBatch = 50
   ccsStubMaxAll = 2000
+  ccsStubHardCapped = false
+  ccsStubPages = 1
   ccsStubMissing = null
 
   /* ══════════ P. 第 5 步：目录/文件的「建 / 改名 / 挪 / 复制 / 删」+ 批量（2026-09-21）══════════
