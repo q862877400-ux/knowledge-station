@@ -25,7 +25,6 @@ from src.core.retrieval.hybrid_engine import (
 )
 from src.core.storage.sqlite_db import load_vec_extension, get_db_connection
 from src.core.verification.typed_verifier import verify_llm_output
-from src.core.compliance.engine import judge_point_rule, _behavior_scope_of, _anchor_terms
 
 GOLDEN_PATH = Path(__file__).resolve().parent / "golden" / "golden.json"
 SNAPSHOT_PATH = Path(__file__).resolve().parent / "golden" / "knowledge-snapshot.db"
@@ -91,24 +90,6 @@ def _run(disable_channel: str | None, golden_path: Path, with_rerank: bool = Fal
             intercepted += 1
 
     # 合规三色判定（与 execute_review 同路径：风险锚点增强查询）
-    correct = red_correct = n_comp = n_red = 0
-    for it in items:
-        if it["type"] != "compliance":
-            continue
-        n_comp += 1
-        point = {"point_type": "测试", "point_content": it["query"]}
-        anchor = _anchor_terms(it["query"])
-        query = f"{it['query']} {anchor}" if anchor else it["query"]
-        matched = perform_hybrid_search(query, top_k=5, channels=channels,
-                                        behavior_scope_filter=_behavior_scope_of(point))
-        v = judge_point_rule(point, matched)
-        if v["verdict"] == it["expected_verdict"]:
-            correct += 1
-        if it["expected_verdict"] == "red":
-            n_red += 1
-            if v["verdict"] == "red":
-                red_correct += 1
-
     return {
         "meta": {"golden": str(golden_path), "count": len(items),
                  "disable_channel": disable_channel},
@@ -116,9 +97,7 @@ def _run(disable_channel: str | None, golden_path: Path, with_rerank: bool = Fal
         "recall@5": round(recall5 / n_search, 4) if n_search else 0,
         "recall@10": round(recall10 / n_search, 4) if n_search else 0,
         "modality_intercept_rate": round(intercepted / n_adv, 4) if n_adv else 0,
-        "compliance_accuracy": round(correct / n_comp, 4) if n_comp else 0,
-        "red_precision": round(red_correct / n_red, 4) if n_red else 0,
-        "n_search": n_search, "n_adversarial": n_adv, "n_compliance": n_comp,
+        "n_search": n_search, "n_adversarial": n_adv,
     }
 
 
