@@ -127,7 +127,7 @@ import { KsChannelsPanel } from './KsChannelsPanel'
 import { KsIngestPanel } from './KsIngestPanel'
 import { KsMaterialsPanel } from './KsMaterialsPanel'
 
-import type { KsPaneBodyProps, KsKbInjected } from './ksSidebar'
+import type { KsPaneBodyProps, KsKbInjected, KsKbPage } from './ksSidebar'
 
 /**
  * **本页有没有那个搜索框**（"搜索框在 / 不在"的**唯一声明**）。

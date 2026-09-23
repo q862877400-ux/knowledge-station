@@ -39,7 +39,6 @@ export function KsKnowledgeGuide({ title, description, kind, useTabInfo }: KsGui
   const { tab } = useTabInfo()
 
   const go = (page: KsKbPage | 'pdf'): void => {
-    setOpen(false)
     if (page === 'pdf') {
       // 保留的 PDF 阅读器：仍走它自己的 tab 类型（单例地址）。
       tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true })

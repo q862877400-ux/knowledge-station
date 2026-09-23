@@ -30893,10 +30893,10 @@ function GroupList(props) {
 }
 function GroupRow(props) {
   const { group, onJump } = props;
-  const [open, setOpen2] = (0, import_react2.useState)(false);
+  const [open, setOpen] = (0, import_react2.useState)(false);
   const total = group.docs.length + group.groups.reduce((s, g) => s + g.docs.length, 0);
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...$row2, fontSize: 11.5, fontWeight: 600, color: "var(--dsw-alias-label-secondary, #666)" }, onClick: () => setOpen2((s) => !s), children: [
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...$row2, fontSize: 11.5, fontWeight: 600, color: "var(--dsw-alias-label-secondary, #666)" }, onClick: () => setOpen((s) => !s), children: [
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: $caret2, children: total > 0 ? open ? "\u25BE" : "\u25B8" : "\xB7" }),
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { children: group.name }),
       /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { fontWeight: 400, color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 10 }, children: [
@@ -30914,7 +30914,7 @@ function GroupRow(props) {
 }
 function DocLeaf(props) {
   const { doc, onJump } = props;
-  const [open, setOpen2] = (0, import_react2.useState)(false);
+  const [open, setOpen] = (0, import_react2.useState)(false);
   const label = doc.standard_no ?? doc.standard_name ?? doc.doc_id;
   const struck = doc.legal_status !== null && doc.legal_status !== "effective";
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { children: [
@@ -30937,7 +30937,7 @@ function DocLeaf(props) {
         "span",
         {
           style: { marginLeft: 8, cursor: "pointer", color: "var(--dsw-alias-link, #1565c0)", fontSize: 10.5 },
-          onClick: () => setOpen2((s) => !s),
+          onClick: () => setOpen((s) => !s),
           title: "\u5C55\u5F00\u6761\u6B3E\u6536\u85CF",
           children: [
             open ? "\u25BE" : "\u25B8",
@@ -34638,7 +34638,6 @@ function KsKnowledgeGuide({ title, description, kind, useTabInfo }) {
   ensureKsStyles();
   const { tab } = useTabInfo();
   const go = (page) => {
-    setOpen(false);
     if (page === "pdf") {
       tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true });
       return;
