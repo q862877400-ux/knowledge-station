@@ -2283,10 +2283,8 @@ export function mount(container, props) {
     /* 菜单改名对账（C2 欠的账 C3 补）：业主截图指出「能力/效力报告」旧名残留 ⇒ 源码级钉死。 */
     const { readFileSync } = await import('node:fs')
     const guideSrc = readFileSync('D:/AI/work space/zcode/plugin/client/KsKnowledgeGuide.tsx', 'utf8')
-    check('菜单注册面：改名对账 +「效力总览」撤项（批D2 融进知识库管理；旧名/旧项回来=红）',
-      guideSrc.includes("label: '办事台'")
-      && !guideSrc.includes("label: '能力'") && !guideSrc.includes("label: '效力报告'")
-      && !guideSrc.includes("label: '效力总览'"),
+    check('菜单注册面：▾ 已撤（批E4b）——不许有任何菜单项字面与 MENU_ITEMS（回潮=红）',
+      !guideSrc.includes('MENU_ITEMS') && !/label: '/.test(guideSrc),
       'KsKnowledgeGuide 菜单文案')
   }
   await cClick(officeRows[0])

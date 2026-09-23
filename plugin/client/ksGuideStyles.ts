@@ -499,7 +499,7 @@ export const KS_STYLES = `
   min-height:30px;transition:transform .12s ease}
 .ks-tabfolder:hover{color:var(--dsw-alias-label-primary);transform:translateY(-1px)}
 .ks-tabfolder-on{color:var(--dsw-alias-label-primary);font-weight:600;transform:translateY(-2px);
-  background:linear-gradient(180deg,var(--dsw-alias-bg-primary),var(--dsw-alias-bg-secondary));
+  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
   box-shadow:0 -2px 6px rgba(0,0,0,.18);margin-bottom:-1px;padding-bottom:6px;min-height:32px}
 .ks-list-chans .ks-item{width:100%;box-sizing:border-box}
 .ks-item .ks-col-chan{display:grid;grid-template-columns:minmax(0,1fr);min-width:0}
