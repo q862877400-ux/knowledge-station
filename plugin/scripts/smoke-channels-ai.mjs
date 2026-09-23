@@ -98,6 +98,16 @@ try {
   check('分类：未分类组名就叫「未分类」（不编不存在的字段）',
     groups[3].label === '未分类', groups[3].label)
 
+  /* ── ①c 常驻栏 + 巡检合一（业主 2026-09-22：顶部常驻栏一句话 / 留一个按钮） ── */
+  check('人话模板：有公告+有变更 = 您那句语气（日期+标题+同步标记）',
+    mod.generateNewsLine({
+      announce: { date: '2026-08-15', title: '某部门关于废止一批标准的公告' },
+      changes: { retired: 12, totalChecked: 6031 },
+    }).includes('已在库里同步标记'))
+  check('人话模板：无变化说无变化、啥都没有说没有（不夸大不编）',
+    mod.generateNewsLine({ changes: { totalChecked: 6031 } }).includes('全部无变化')
+    && mod.generateNewsLine({}) === '📢 最近没有新动态。')
+
   /* ── ①b 搜索筛选（业主 2026-09-22：搜网站名字/域名都行；标签已删 NOT-DOING #17） ── */
   const srows = [
     rec('s1', 'central', 'ok', { name: '住房和城乡建设部标准公告', url: 'https://www.mohurd.gov.cn/gg' }),
@@ -168,6 +178,10 @@ try {
   })
   await act(async () => { await new Promise((r) => setTimeout(r, 10)) })
   const html = () => host.innerHTML
+  check('常驻栏在（最新动态 + 详情折叠）+ 主面只留一个巡检钮（旧文案回潮=红）',
+    html().includes('新动态')
+    && html().includes('巡检与公告详情')
+    && html().includes('立即巡检') && !html().includes('立即探测'))
   check('搜索框在（搜网站名字/域名）+ 标签不上界面（负向）',
     html().includes('搜网站名字') && !html().includes('改标签') && !html().includes('ks-tag-chip'))
   check('正装：目录层=知识库同款机制（.ks-list-dirs 容器 + .ks-dir-open/.ks-dir-go 行件）',

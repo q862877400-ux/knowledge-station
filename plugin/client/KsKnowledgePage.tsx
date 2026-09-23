@@ -1796,30 +1796,18 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
     )
   }
 
-  // ── S5-b（2026-09-22）：巡检族三件聚「渠道台账」页位（功能零增删，页内三节） ──
+  // ── S5-c（2026-09-22 业主重定）：渠道台账 = 渠道管理 + 顶部常驻「最新动态」栏；
+  //    巡检/公告并入它的折叠详情（"每日巡检就是立即探测，留一个按钮"）；旧三节布局撤。 ──
   if (page === 'channels') {
     return (
       <div className="ks-page">
         <div className="ks-kb">
           <header className="ks-page-head">
             <div className="ks-page-title">渠道台账</div>
-            <div className="ks-page-sub">巡检族聚此：渠道台账 / 每日巡检 / 公告发现（搬家不改功能）。</div>
+            <div className="ks-page-sub">知识来源渠道的管理库：分类、体检、维护。顶部常驻最新动态。</div>
           </header>
           <div className="ks-page-rule" />
-          <div style={{ padding: '8px 14px 18px', display: 'flex', flexDirection: 'column', gap: 16 }}>
-            <div>
-              <div style={{ fontWeight: 600, fontSize: 13, marginBottom: 4 }}>渠道台账</div>
-              <KsChannelsPanel visible />
-            </div>
-            <div>
-              <div style={{ fontWeight: 600, fontSize: 13, marginBottom: 4 }}>每日巡检</div>
-              <KsInspectionPanel openedOnce />
-            </div>
-            <div>
-              <div style={{ fontWeight: 600, fontSize: 13, marginBottom: 4 }}>公告发现</div>
-              <KsAnnounceSourcesSection openedOnce />
-            </div>
-          </div>
+          <KsChannelsPanel visible />
         </div>
       </div>
     )

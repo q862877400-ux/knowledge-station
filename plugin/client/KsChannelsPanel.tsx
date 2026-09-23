@@ -35,13 +35,16 @@ import { IconChevronRightOutline14, IconFolderOpenOutline16 } from '@deepseek-ai
 import {
   createChannel,
   deleteChannel,
+  fetchAnnounceSummary,
   fetchChannels,
+  fetchInspectionSummary,
   runChannelProbe,
   setChannelEnabled,
   updateChannel,
   type KsChannelList,
   type KsChannelRecord,
 } from './api'
+import { KsAnnounceSourcesSection, KsInspectionPanel } from './KsSettingsSection'
 
 /** 虚线分隔色（新增表单的框）——与面板其它地方一致地走主题 token。 */
 const LINE = 'var(--dsw-alias-border-l2, #ccc)'
@@ -133,6 +136,34 @@ export function filterChannels(rows: readonly KsChannelRecord[], q: string): KsC
     } catch { /* 坏链接当无主机 */ }
     return name.includes(needle) || url.includes(needle) || (host !== '' && host.includes(needle))
   })
+}
+
+/** 顶部常驻栏「最新动态」人话生成（业主 2026-09-22 给的语气模板："最新的标准和法规是
+ *  上个月几号某部门发文废除了一批标准，已在我们的库里同步标记"）。纯函数：有公告用公告、
+ *  有巡检变更给同步标记句、都没有就说没有——**不夸大、不编**。 */
+export function generateNewsLine(input: {
+  announce?: { date?: string | null; title?: string | null } | null
+  changes?: { newVersion?: number; retired?: number; replaced?: number; totalChecked?: number } | null
+  now?: Date
+}): string {
+  const parts: string[] = []
+  const a = input.announce
+  if (a && (a.title ?? '') !== '') {
+    parts.push(`最新：${a.date ? String(a.date) + ' ' : ''}「${String(a.title).slice(0, 40)}」`)
+  }
+  const c = input.changes
+  if (c) {
+    const bits: string[] = []
+    if (c.newVersion) bits.push(`新版 ${String(c.newVersion)}`)
+    if (c.retired) bits.push(`废止 ${String(c.retired)}`)
+    if (c.replaced) bits.push(`替代 ${String(c.replaced)}`)
+    if (bits.length > 0) {
+      parts.push(`巡检发现 ${bits.join('、')}——已在库里同步标记`)
+    } else if (c.totalChecked) {
+      parts.push(`上次巡检共查 ${String(c.totalChecked)} 项，全部无变化`)
+    }
+  }
+  return parts.length > 0 ? `📢 ${parts.join('；')}。` : '📢 最近没有新动态。'
 }
 
 /** 目录层列（与知识库目录层同款 4 轨：占位/名称/条数/›——模板就是 .ks-list-dirs 那条）。 */
@@ -260,6 +291,8 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
   const [mutating, setMutating] = useState<boolean>(false)
   const [orgSel, setOrgSel] = useState<string | null>(null)
   const [q, setQ] = useState<string>('')
+  const [news, setNews] = useState<string>('')
+  const [showDetail, setShowDetail] = useState<boolean>(false)
 
   const load = useCallback(async (signal?: AbortSignal): Promise<void> => {
     setBusy(true)
@@ -280,6 +313,30 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
     if (!visible) return undefined
     const controller = new AbortController()
     void load(controller.signal)
+    // 顶部常驻栏「最新动态」：公告最近一条 + 巡检变更计数 → 一句人话（快照口，零引擎拉起）。
+    void (async () => {
+      try {
+        const [ann, insp] = await Promise.all([
+          fetchAnnounceSummary(controller.signal).catch(() => null),
+          fetchInspectionSummary(controller.signal).catch(() => null),
+        ])
+        if (controller.signal.aborted) return
+        const recent = ann?.last?.recent?.[0]
+        const last = insp?.last
+        setNews(generateNewsLine({
+          announce: recent ? {
+            date: (recent as { published_at?: string | null }).published_at ?? null,
+            title: recent.title,
+          } : null,
+          changes: last ? {
+            newVersion: last.by_type?.new_version ?? 0,
+            retired: last.by_type?.withdrawn ?? 0,
+            replaced: last.by_type?.superseded ?? 0,
+            totalChecked: last.total ?? 0,
+          } : null,
+        }))
+      } catch { /* 动态栏拿不到就说没有（generateNewsLine 兜底），不打断主面 */ }
+    })()
     return () => controller.abort()
   }, [visible, load])
 
@@ -390,6 +447,30 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: 12 }}>
+      {/* 顶部常驻栏（业主 2026-09-22：「就在渠道台账顶部做一个常驻栏，就展示最新情况」）：
+          一句人话动态 + 小字链收详情（巡检/公告/导出都进折叠，默认合上——主面零字墙）。 */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8,
+        border: `0.5px solid ${LINE}`, borderRadius: 6, padding: '6px 10px' }}>
+        <span style={{ flex: 1, minWidth: 0 }}>{news === '' ? '📢 读取最新动态…' : news}</span>
+        <button type="button" style={$mini} onClick={() => setShowDetail((v) => !v)}>
+          {showDetail ? '收起详情' : '巡检与公告详情'}
+        </button>
+      </div>
+      {showDetail && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          {/* 巡检与公告合一（业主："每日巡检不就是立即探测吗…留一个按钮"）：
+              主面工具行的「立即巡检」=唯一动作钮；这两块是它的**详情面**（自动巡检开关、
+              关注标准三色明细、公告源管理、导出），默认收起不占地方。 */}
+          <details open={false}>
+            <summary style={{ cursor: 'pointer' }}>巡检详情（自动巡检开关 · 关注标准三色 · 导出）</summary>
+            <KsInspectionPanel openedOnce={showDetail} />
+          </details>
+          <details open={false}>
+            <summary style={{ cursor: 'pointer' }}>公告详情（公告源管理 · 最近公告 · 导出）</summary>
+            <KsAnnounceSourcesSection openedOnce={showDetail} />
+          </details>
+        </div>
+      )}
       {/* 摘要：**两个数都显示**（台账条数 ≠ 能力条数）*/}
       {s && (
         <div style={{ color: GRAY, lineHeight: 1.7 }}>
@@ -418,8 +499,8 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
           {busy ? '读取中…' : '⟳ 刷新'}
         </button>
         <button type="button" onClick={probe} disabled={probeBusy} style={$btn}
-          title="对配了探针目标的渠道各发一次请求，实测它们今天能不能抓（约 10–30 秒）">
-          {probeBusy ? '探测中…（约 10–30 秒）' : '🩺 立即探测'}
+          title="立即巡检：对配了检查口径的渠道各探一遍，实测今天能不能抓（约 10–30 秒）。与每日自动巡检是同一件事——这是立刻跑一次">
+          {probeBusy ? '巡检中…（约 10–30 秒）' : '🩺 立即巡检'}
         </button>
         <button type="button" onClick={() => setAdding((v) => !v)} style={$btn}
           title="人工加一条渠道：引擎侧已落（R6d），界面侧这一步是 R6f">
@@ -569,15 +650,17 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
         </div>
       )}
 
-      <p style={{ margin: 0, color: FAINT, lineHeight: 1.6 }}>
-        时间列是 UTC（库内 `datetime('now')` 的既有口径），旁边按"多久之前"显示。
-        「立即探测」只探配了探针目标的渠道（锚点必须实测看到过，不许凭想象写）；
-        没配的显示 ⚪ 未探 —— 那是"还没测过"，不是"测过了没问题"；
-        标了「（无探针）」的是按设计就没有探针目标（代码仓库、我方代码通路等），
-        与"还没轮到它"不是一回事；
-        还有一种 ⚪ 是能连通、但我们没给它配语义期望（失败原因列写 `no_anchor_configured`）
-        —— 它同样不算「可抓」，但也不是欠账。
-      </p>
+      {/* 字墙拆了（业主 2026-09-22："字还很多根本搞不懂"）：语义解释收进默认合上的
+          「这些标记是什么意思？」，全换人话；主面零解释文字。 */}
+      <details style={{ color: FAINT }}>
+        <summary style={{ cursor: 'pointer' }}>这些标记是什么意思？</summary>
+        <ul style={{ margin: '4px 0 0', paddingLeft: 18, lineHeight: 1.7 }}>
+          <li>🟢 能抓 / 🟡 不太行 / 🔴 不能用 / ⚪ 没试过：这是**今天实测**的结果，不是永久标签。</li>
+          <li>「没试过」= 还没测过，不等于没问题；想测就点「立即巡检」。</li>
+          <li>「（没配测试）」= 这条渠道按设计就不用测（比如代码仓库类）。</li>
+          <li>「上次好用」列是北京时间；鼠标放上去看准确时刻。</li>
+        </ul>
+      </details>
     </div>
   )
 }
