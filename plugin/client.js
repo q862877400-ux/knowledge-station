@@ -2244,6 +2244,18 @@ function normalizeCcsResultRows(value) {
     };
   });
 }
+function normalizeCcsMissingSplit(value) {
+  const o = objOf(value);
+  if (o === null) return null;
+  return {
+    total: intOf(o.total, 0),
+    never_checked: intOf(o.never_checked, 0),
+    checked_not_found: intOf(o.checked_not_found, 0),
+    checked_failed: intOf(o.checked_failed, 0),
+    not_applicable: intOf(o.not_applicable, 0),
+    found_but_untagged: intOf(o.found_but_untagged, 0)
+  };
+}
 function normalizeCcsBackfillStatus(data) {
   return {
     running: data.running === true,
@@ -2261,6 +2273,21 @@ function normalizeCcsBackfillStatus(data) {
     started_at: str(data.started_at),
     finished_at: str(data.finished_at),
     missing: num(data.missing),
+    missing_split: normalizeCcsMissingSplit(data.missing_split),
+    missing_error: str(data.missing_error) ?? void 0,
+    stop_reason: str(data.stop_reason),
+    stop_reason_label: str(data.stop_reason_label),
+    undo_journal: str(data.undo_journal),
+    scope: str(data.scope),
+    force: data.force === true,
+    truncated: data.truncated === true,
+    hard_capped: data.hard_capped === true,
+    plan_total: intOf(data.plan_total, 0),
+    pages: intOf(data.pages, 0),
+    page: intOf(data.page, 0),
+    max_batch: intOf(data.max_batch, 0),
+    default_batch: intOf(data.default_batch, 0),
+    max_all: intOf(data.max_all, 0),
     results: normalizeCcsResultRows(data.results),
     failures: normalizeCcsResultRows(data.failures),
     skipped_list: normalizeCcsResultRows(data.skipped_list)
@@ -2298,15 +2325,24 @@ async function fetchKbCcsSummary(port, token, signal) {
     const s = str(v);
     if (s !== null) outSrc[k] = s;
   }
+  const stopLabels = objOf(data.stop_reason_labels) ?? {};
+  const outStop = {};
+  for (const [k, v] of Object.entries(stopLabels)) {
+    const s = str(v);
+    if (s !== null) outStop[k] = s;
+  }
   const srcArr = Array.isArray(data.sources) ? data.sources : [];
   return {
     missing: intOf(data.missing, 0),
+    missing_split: normalizeCcsMissingSplit(data.missing_split),
     by_outcome: by,
     max_batch: intOf(data.max_batch, 0),
     default_batch: intOf(data.default_batch, 0),
+    max_all: intOf(data.max_all, 0),
     outcome_labels: outLabels,
     source_labels: outSrc,
     sources: srcArr.map((s) => str(s) ?? "").filter((s) => s !== ""),
+    stop_reason_labels: outStop,
     backfill: normalizeCcsBackfillStatus(objOf(data.backfill) ?? {})
   };
 }
@@ -2351,6 +2387,7 @@ async function startKbCcsBackfill(port, token, opts = {}) {
   if (opts.docIds !== void 0) payload.doc_ids = [...opts.docIds];
   if (opts.limit !== void 0) payload.limit = opts.limit;
   if (opts.force === true) payload.force = true;
+  if (opts.all === true) payload.all = true;
   const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/ccs/backfill`, {
     method: "POST",
     headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
@@ -2395,7 +2432,10 @@ async function startKbCcsBackfill(port, token, opts = {}) {
       already_have: intOf(planRaw.already_have, 0),
       limit: intOf(planRaw.limit, 0),
       truncated: planRaw.truncated === true
-    }
+    },
+    undo_journal: str(data.undo_journal),
+    pages: intOf(data.pages, 0),
+    hard_capped: data.hard_capped === true
   };
 }
 async function fetchKbCcsBackfillStatus(port, token, signal) {
@@ -34155,6 +34195,15 @@ var KS_STYLES = `
 .ks-ccs-fail-list>li{min-width:0;overflow-wrap:anywhere}
 .ks-ccs-fail-no{font-family:var(--ks-font-mono,monospace);margin-right:var(--ks-space-2)}
 .ks-ccs-fail-why{color:var(--dsw-alias-label-tertiary)}
+/* \u300C\u5168\u90E8\u8865\u5B8C\u300D\u5165\u53E3\uFF08B3b 2026-09-24\uFF09\uFF1A\u4E0E\u300C\u8865\u5168\u5206\u7C7B\u53F7\u300D\u5E76\u6392\u5728\u6587\u4EF6\u540D\u90A3\u4E00\u6761 bar \u4E0A\u3002
+   \u26A0 white-space:nowrap \u4E0E\u90A3\u4E00\u4E2A\u540C\u7406\uFF1A\u300C\u5168\u90E8\u8865\u5B8C\u300D\u538B\u6210\u7AD6\u6392\u5C31\u8BFB\u4E0D\u51FA\u6765\u4E86\u3002
+   \u26A0 \u8FD9\u6BB5\u6CE8\u91CA\u5728**\u6A21\u677F\u4E32\u5185\u90E8** \u21D2 \u4E00\u4E2A\u53CD\u5F15\u53F7\u90FD\u4E0D\u80FD\u51FA\u73B0\uFF08\u51FA\u73B0\u5373\u622A\u65AD\u6574\u4E2A\u6837\u5F0F\u8868\uFF09\u3002 */
+.ks-ccs-all-btn{white-space:nowrap}
+/* \u300C\u4E3A\u4EC0\u4E48\u505C\u300D\u90A3\u4E00\u884C\uFF1A\u5B83\u662F**\u540E\u7AEF\u7ED9\u7684\u8BF4\u6CD5**\uFF0C\u6BD4\u65C1\u8FB9\u90A3\u4E9B\u8BA1\u6570\u91CD\u8981 \u21D2 \u7528\u6B63\u6587\u8272\u3001\u4E0D\u7070\u3002
+   \u26A0 \u53EA\u8D70\u4E3B\u9898 token\uFF0C\u4E0D\u5199\u6B7B\u989C\u8272\uFF08smoke-client-entry \u7684\u4E3B\u9898\u503A\u52A1\u68D8\u8F6E\u76EF\u7740\u8FD9\u4E00\u6761\uFF09\u3002 */
+.ks-ccs-stop{color:var(--dsw-alias-label-primary)}
+/* \u300C\u5DF2\u5B58\u56DE\u9000\u8BB0\u5F55\uFF1A<\u8DEF\u5F84>\u300D\u2014\u2014 \u8DEF\u5F84\u53EF\u80FD\u5F88\u957F\uFF0C\u5FC5\u987B\u80FD\u65AD\u884C\uFF08\u7A84\u6863\u53EA\u6709 288px\uFF09\u3002 */
+.ks-ccs-undo{font-size:var(--ks-fs-xs);color:var(--dsw-alias-label-tertiary);overflow-wrap:anywhere}
 /* \u6279\u91CF\u6761\uFF08\u7B2C 4 \u6B65**\u505A\u56DE\u771F\u7684**\uFF1A\u6BCF\u6761\u90FD\u5BF9\u5E94\u771F\u63A5\u53E3\uFF09\u3002\u60AC\u6D6E\u5728\u5217\u8868\u4E0A\u65B9\u3001\u5C45\u4E2D\u9650\u5BBD\u3002
    \u26A0 \u5B83\u662F\u9875\u9762\u7559\u8FB9\u7684\u9002\u7528\u9762\u4E4B\u4E00\uFF08docs/UI-BASELINE.md \u7B2C\u4E8C\u8282\uFF09\u21D2 \u4E0D\u8BB8\u8D34\u8FB9\u3002
    \u26A0\u26A0 **\u5FC5\u987B\u5141\u8BB8\u6298\u884C**\uFF08flex-wrap:wrap\uFF09\uFF1A\u7A84\u6863\uFF08520 \u21D2 .ks-main \u53EA\u6709 288px\uFF09\u91CC
@@ -38594,6 +38643,7 @@ function KsKnowledgePage({ useTabInfo }) {
   const [stageLabels, setStageLabels] = (0, import_react10.useState)(STAGE_LABELS);
   const [reingesting, setReingesting] = (0, import_react10.useState)(false);
   const [ccsMissing, setCcsMissing] = (0, import_react10.useState)(null);
+  const [ccsSummary, setCcsSummary] = (0, import_react10.useState)(null);
   const [ccsStatus, setCcsStatus] = (0, import_react10.useState)(null);
   const [ccsRunning, setCcsRunning] = (0, import_react10.useState)(false);
   const [askScope, setAskScope] = (0, import_react10.useState)(null);
@@ -39320,12 +39370,64 @@ function KsKnowledgePage({ useTabInfo }) {
   const loadCcsSummary = (0, import_react10.useCallback)(async () => {
     try {
       const s = await withSession((port, token) => fetchKbCcsSummary(port, token));
+      setCcsSummary(s);
       setCcsMissing(s.missing);
       setCcsStatus(s.backfill);
       setCcsRunning(s.backfill.running);
     } catch {
     }
   }, [withSession]);
+  const ccsStopText = (st) => {
+    const reason = st?.stop_reason ?? null;
+    if (reason === null) return null;
+    const fromTable = ccsSummary?.stop_reason_labels[reason];
+    if (fromTable !== void 0 && fromTable !== "") return fromTable;
+    const direct = st?.stop_reason_label ?? null;
+    if (direct !== null && direct !== "") return direct;
+    return null;
+  };
+  const ccsStopSentence = (st) => {
+    const reason = st?.stop_reason ?? null;
+    if (reason === null) return "\u540E\u7AEF\u6CA1\u7ED9\uFF08\u8FD9\u4E00\u6279\u6CA1\u8BB0\u539F\u56E0\uFF09";
+    return ccsStopText(st) ?? `\u540E\u7AEF\u6CA1\u7ED9\u8FD9\u4E2A\u539F\u56E0\u7684\u8BF4\u6CD5\uFF08\u539F\u56E0\u4EE3\u7801 ${reason}\uFF09`;
+  };
+  const ccsAllWillDo = () => {
+    const n = ccsSummary?.missing ?? ccsMissing;
+    if (n === null || n === void 0) return null;
+    const cap = ccsSummary?.max_all ?? 0;
+    return cap > 0 ? Math.min(n, cap) : n;
+  };
+  const ccsWaitText = (seconds) => {
+    if (seconds < 60) return `${String(Math.max(1, Math.round(seconds)))} \u79D2`;
+    const minutes = Math.round(seconds / 60);
+    if (minutes < 60) return `${String(minutes)} \u5206\u949F`;
+    const h = Math.floor(minutes / 60);
+    const m = minutes % 60;
+    return m === 0 ? `${String(h)} \u5C0F\u65F6` : `${String(h)} \u5C0F\u65F6 ${String(m)} \u5206\u949F`;
+  };
+  const ccsAllCostText = () => {
+    const n = ccsSummary?.missing ?? ccsMissing;
+    if (n === null || n === void 0) return "\u300C\u5168\u90E8\u8865\u5B8C\u300D\u8FD9\u6B21\u4F1A\u8865\u591A\u5C11\u7BC7\uFF1A\u63A5\u53E3\u6CA1\u7B54\u4E0A\u6765\uFF0C\u8BFB\u4E0D\u5230\u3002";
+    if (n === 0) return "\u300C\u5168\u90E8\u8865\u5B8C\u300D\uFF1A\u5E93\u91CC\u6BCF\u4E00\u7BC7\u6807\u51C6\u90FD\u5DF2\u7ECF\u6709\u5206\u7C7B\u53F7\u4E86\uFF0C\u6CA1\u4EC0\u4E48\u53EF\u8865\u3002";
+    const cap = ccsSummary?.max_all ?? 0;
+    const willDo = ccsAllWillDo() ?? n;
+    const low = ccsWaitText(willDo);
+    const high = ccsWaitText(willDo * 5);
+    return `\u300C\u5168\u90E8\u8865\u5B8C\u300D\u8FD9\u6B21\u4F1A\u8865 ${String(willDo)} \u7BC7\uFF08\u4E00\u7BC7\u4E00\u5230\u51E0\u79D2\uFF0C\u5927\u7EA6\u8981\u7B49 ${low}~${high}\uFF09` + (cap > 0 && n > cap ? `\uFF1B\u4E00\u6B21\u6700\u591A\u8865 ${String(cap)} \u7BC7\uFF0C\u5230\u4E0A\u9650\u5C31\u505C\u3001\u5269\u4E0B\u7684\u4E0B\u6B21\u518D\u70B9\u3002` : "\u3002");
+  };
+  const ccsBatchText = () => {
+    const maxB = ccsSummary?.max_batch ?? 0;
+    const defB = ccsSummary?.default_batch ?? 0;
+    if (maxB <= 0 || defB <= 0) return "\u518D\u6309\u4E00\u6B21\u8FD8\u80FD\u63A5\u7740\u8865\uFF1B\u4E00\u6B21\u6700\u591A\u8865\u51E0\u7BC7\uFF1A\u63A5\u53E3\u6CA1\u7B54\u4E0A\u6765\uFF0C\u8BFB\u4E0D\u5230\u3002";
+    return `\u518D\u6309\u4E00\u6B21\u63A5\u7740\u8865\uFF1A\u4E00\u6B21\u9ED8\u8BA4\u8865 ${String(defB)} \u7BC7\u3001\u6700\u591A ${String(maxB)} \u7BC7\u3002`;
+  };
+  const ccsChainText = () => {
+    const keys = ccsSummary?.sources ?? [];
+    const labels = ccsSummary?.source_labels ?? {};
+    const names = keys.map((k) => labels[k]).filter((v) => typeof v === "string" && v !== "");
+    if (names.length === 0) return "\u63D2\u4EF6\u81EA\u5DF1\u9010\u7BC7\u67E5\u7F3A\u7684\u5206\u7C7B\u53F7";
+    return `\u63D2\u4EF6\u81EA\u5DF1\u6309\u300C${names.join(" \u2192 ")}\u300D\u9010\u7BC7\u67E5\u7F3A\u7684\u5206\u7C7B\u53F7`;
+  };
   const runCcsBackfill = (0, import_react10.useCallback)(async () => {
     setBusy(true);
     try {
@@ -39335,10 +39437,28 @@ function KsKnowledgePage({ useTabInfo }) {
         await loadCcsSummary();
         return;
       }
-      setActMsg(`\u5DF2\u5F00\u59CB\u8865\u5168\u5206\u7C7B\u53F7\uFF1A${String(res.queued)} \u7BC7\u6392\u961F\uFF08\u5171 ${String(res.plan.total)} \u7BC7\u5F85\u8865${res.plan.truncated ? "\uFF0C\u8FD9\u4E00\u6279\u5148\u8865\u4E00\u90E8\u5206" : ""}\uFF1B\u4E00\u7BC7\u4E00\u5230\u51E0\u79D2\uFF0C\u8DD1\u5B8C\u81EA\u52A8\u5237\u65B0\uFF09\u3002`);
+      const maxB = ccsSummary?.max_batch ?? 0;
+      setActMsg(`\u5DF2\u5F00\u59CB\u8865\u5168\u5206\u7C7B\u53F7\uFF1A${String(res.queued)} \u7BC7\u6392\u961F\uFF08\u5171 ${String(res.plan.total)} \u7BC7\u5F85\u8865${res.plan.truncated ? "\uFF0C\u8FD9\u4E00\u6279\u5148\u8865\u4E00\u90E8\u5206" : ""}${res.plan.truncated && maxB > 0 ? `\uFF1B\u4E00\u6279\u6700\u591A ${String(maxB)} \u7BC7\uFF0C\u5269\u4E0B\u7684\u518D\u6309\u4E00\u6B21` : ""}\uFF1B\u4E00\u7BC7\u4E00\u5230\u51E0\u79D2\uFF0C\u8DD1\u5B8C\u81EA\u52A8\u5237\u65B0\uFF09\u3002`);
       setCcsRunning(true);
     } catch (error) {
       setActMsg(`\u6CA1\u80FD\u5F00\u59CB\u8865\u5168\u5206\u7C7B\u53F7\uFF1A${errorText(error)}`);
+    } finally {
+      setBusy(false);
+    }
+  }, [ccsSummary, loadCcsSummary, withSession]);
+  const runCcsBackfillAll = (0, import_react10.useCallback)(async () => {
+    setBusy(true);
+    try {
+      const res = await withSession((port, token) => startKbCcsBackfill(port, token, { all: true }));
+      if (res.queued === 0) {
+        setActMsg("\u6CA1\u6709\u8981\u8865\u7684\uFF1A\u5E93\u91CC\u6BCF\u4E00\u7BC7\u6807\u51C6\u90FD\u5DF2\u7ECF\u6709\u5206\u7C7B\u53F7\u4E86\u3002");
+        await loadCcsSummary();
+        return;
+      }
+      setActMsg(`\u5DF2\u5F00\u59CB\u300C\u5168\u90E8\u8865\u5B8C\u300D\uFF1A\u8FD9\u6B21\u8981\u8865 ${String(res.queued)} \u7BC7${res.hard_capped ? "\uFF08\u5230\u4E00\u6B21\u6700\u591A\u80FD\u8865\u7684\u90A3\u6761\u7EBF\u5C31\u505C\uFF0C\u5269\u4E0B\u7684\u4E0B\u6B21\u518D\u70B9\uFF09" : ""}${res.pages > 1 ? `\uFF0C\u5206 ${String(res.pages)} \u9875\u4E32\u884C\u8DD1` : ""}\uFF1B\u4E00\u7BC7\u4E00\u5230\u51E0\u79D2\uFF0C\u8DD1\u5B8C\u81EA\u52A8\u5237\u65B0\u3002`);
+      setCcsRunning(true);
+    } catch (error) {
+      setActMsg(`\u6CA1\u80FD\u5F00\u59CB\u300C\u5168\u90E8\u8865\u5B8C\u300D\uFF1A${errorText(error)}`);
     } finally {
       setBusy(false);
     }
@@ -39367,7 +39487,7 @@ function KsKnowledgePage({ useTabInfo }) {
           }
           setCcsRunning(false);
           const bad = st.not_found + st.network_failed + st.parse_failed + st.not_applicable;
-          setActMsg(`\u8865\u5168\u5206\u7C7B\u53F7\u7ED3\u675F\uFF1A${String(st.done)} \u7BC7\u8DD1\u5B8C\uFF0C\u8865\u5230 ${String(st.found)} \u7BC7` + (bad > 0 ? `\uFF0C${String(bad)} \u7BC7\u6CA1\u8865\u5230\uFF08\u9010\u7BC7\u539F\u56E0\u89C1\u4E0B\u9762\u90A3\u5F20\u6E05\u5355\uFF1B\u4E0D\u662F\u5931\u8D25\u5C31\u662F\u67E5\u65E0\uFF09` : "") + (st.cancelled ? "\u3002\u8FD9\u4E00\u6279\u662F\u4F60\u6309\u505C\u7684\uFF0C\u5269\u4E0B\u7684\u8FD8\u6CA1\u8DD1\u3002" : "\u3002") + " \u4E0B\u9762\u8FD9\u4E00\u5C42\u5DF2\u6309\u6700\u65B0\u72B6\u6001\u91CD\u8BFB\u3002");
+          setActMsg(`\u8865\u5168\u5206\u7C7B\u53F7\u7ED3\u675F\uFF1A${String(st.done)} \u7BC7\u8DD1\u5B8C\uFF0C\u8865\u5230 ${String(st.found)} \u7BC7` + (bad > 0 ? `\uFF0C${String(bad)} \u7BC7\u6CA1\u8865\u5230\uFF08\u9010\u7BC7\u539F\u56E0\u89C1\u4E0B\u9762\u90A3\u5F20\u6E05\u5355\uFF1B\u4E0D\u662F\u5931\u8D25\u5C31\u662F\u67E5\u65E0\uFF09` : "") + `\u3002\u4E3A\u4EC0\u4E48\u505C\uFF1A${ccsStopSentence(st)}` + (st.missing !== null ? ` \u73B0\u5728\u5E93\u91CC\u8FD8\u7F3A ${String(st.missing)} \u7BC7\u3002` : " \u8FD8\u5269\u591A\u5C11\uFF1A\u8BFB\u4E0D\u5230\uFF08\u63A5\u53E3\u6CA1\u7ED9\u8FD9\u4E2A\u6570\uFF09\u3002") + " \u4E0B\u9762\u8FD9\u4E00\u5C42\u5DF2\u6309\u6700\u65B0\u72B6\u6001\u91CD\u8BFB\u3002");
           await loadInbox(inboxOffset, { silent: true });
           await loadCcsSummary();
         } catch (error) {
@@ -39388,6 +39508,26 @@ function KsKnowledgePage({ useTabInfo }) {
       await loadCcsSummary();
     })();
   }, [loadCcsSummary]);
+  const ccsSplit = ccsStatus?.missing_split ?? ccsSummary?.missing_split ?? null;
+  const ccsRan = ccsStatus !== null && (ccsStatus.total > 0 || ccsStatus.done > 0);
+  const ccsBarShown = ccsRan || ccsSplit !== null && ccsSplit.total > 0;
+  const ccsStopLine = ccsStatus === null || ccsStatus.stop_reason === null ? null : `\u4E3A\u4EC0\u4E48\u505C\uFF1A${ccsStopSentence(ccsStatus)}`;
+  const ccsUndoLine = (() => {
+    if (!ccsRan || ccsStatus === null) return null;
+    const p = ccsStatus.undo_journal;
+    if (p !== null && p !== "") return `\u5DF2\u5B58\u56DE\u9000\u8BB0\u5F55\uFF1A${p}`;
+    return "\u5DF2\u5B58\u56DE\u9000\u8BB0\u5F55\uFF1A\u8BFB\u4E0D\u5230\uFF08\u63A5\u53E3\u6CA1\u7ED9\u8DEF\u5F84\uFF09";
+  })();
+  const ccsSplitLine = (() => {
+    const sp = ccsSplit;
+    if (sp === null) return "\u8FD8\u5269\u591A\u5C11\uFF1A\u8BFB\u4E0D\u5230\uFF08\u63A5\u53E3\u6CA1\u7B54\u4E0A\u6765\uFF09\u3002";
+    return `\u8FD8\u5269 ${String(sp.total)} \u7BC7\u6CA1\u8865\uFF1A\u4ECE\u6CA1\u67E5\u8FC7 ${String(sp.never_checked)} \u7BC7 \xB7 \u67E5\u8FC7\u6CA1\u67E5\u5230 ${String(sp.checked_not_found)} \u7BC7 \xB7 \u67E5\u8FC7\u5931\u8D25 ${String(sp.checked_failed)} \u7BC7 \xB7 \u4E0D\u9002\u7528 ${String(sp.not_applicable)} \u7BC7 \xB7 \u53F0\u8D26\u8BF4\u8865\u5230\u4E86\u5374\u6CA1\u6807\u7B7E ${String(sp.found_but_untagged)} \u7BC7`;
+  })();
+  const ccsBtnTitle = (() => {
+    if (ccsMissing === null) return "\u8BFB\u4E0D\u5230\u8FD8\u7F3A\u51E0\u7BC7\uFF08\u63A5\u53E3\u6CA1\u7B54\u4E0A\u6765\uFF09\u2014\u2014\u70B9\u4E00\u4E0B\u4ECD\u7136\u53EF\u4EE5\u8BD5\u7740\u8865";
+    const maxB = ccsSummary?.max_batch ?? 0;
+    return `${ccsChainText()}\uFF08\u5168\u5E93\u8FD8\u7F3A ${String(ccsMissing)} \u7BC7\uFF1B` + (maxB > 0 ? `\u4E00\u6B21\u6700\u591A\u8865 ${String(maxB)} \u7BC7\uFF1B` : "\u4E00\u6B21\u6700\u591A\u8865\u51E0\u7BC7\uFF1A\u8BFB\u4E0D\u5230\uFF1B") + "\u4E00\u7BC7\u4E00\u5230\u51E0\u79D2\uFF0C\u540E\u53F0\u8DD1\uFF09";
+  })();
   const needle = search.trim().toLowerCase();
   const dirsShown = (0, import_react10.useMemo)(
     () => needle === "" ? subs : subs.filter((f) => f.name.toLowerCase().includes(needle)),
@@ -39731,8 +39871,8 @@ function KsKnowledgePage({ useTabInfo }) {
   const noSuggestText = (doc) => {
     if (doc.ccs_tag !== null && doc.ccs_tag !== "") {
       return {
-        short: "\u6CA1\u6709\u5EFA\u8BAE\uFF08\u6709\u5206\u7C7B\u53F7\uFF0C\u4F46\u6811\u91CC\u6CA1\u6709\u5BF9\u5E94\u7684\u90A3\u4E00\u5C42\uFF09",
-        why: `\u8FD9\u4E00\u7BC7\u5DF2\u7ECF\u6709\u5206\u7C7B\u53F7\uFF08${doc.ccs_tag}\uFF09\uFF0C\u95EE\u9898\u5728\u4E8E\u73B0\u6709\u76EE\u5F55\u91CC\u6CA1\u6709\u5BF9\u5E94\u7684\u90A3\u4E00\u5C42 \u2014\u2014 \u53EA\u80FD\u624B\u52A8\u6307\u5B9A\u53BB\u5904\u3002`
+        short: "\u6CA1\u6709\u5EFA\u8BAE\uFF08\u6709\u5206\u7C7B\u53F7\uFF0C\u4F46\u7CFB\u7EDF\u6CA1\u7ED9\u51FA\u5EFA\u8BAE\u7684\u53BB\u5411\uFF09",
+        why: `\u8FD9\u4E00\u7BC7\u5DF2\u7ECF\u6709\u5206\u7C7B\u53F7\uFF08${doc.ccs_tag}\uFF09\uFF0C\u4F46\u7CFB\u7EDF\u6CA1\u6709\u7ED9\u51FA\u5EFA\u8BAE\u7684\u53BB\u5411 \u2014\u2014 \u53EA\u80FD\u624B\u52A8\u6307\u5B9A\u53BB\u5904\u3002\u4E3A\u4EC0\u4E48\u6CA1\u7ED9\uFF0C\u540E\u7AEF\u6CA1\u6709\u4E0B\u53D1\u539F\u56E0\u3002`
       };
     }
     if (doc.ccs_outcome === null || doc.ccs_outcome === "") {
@@ -40277,7 +40417,7 @@ function KsKnowledgePage({ useTabInfo }) {
           size: "sm",
           className: "ks-ccs-btn",
           disabled: busy,
-          title: ccsMissing === null ? "\u8BFB\u4E0D\u5230\u8FD8\u7F3A\u51E0\u7BC7\uFF08\u63A5\u53E3\u6CA1\u7B54\u4E0A\u6765\uFF09\u2014\u2014\u70B9\u4E00\u4E0B\u4ECD\u7136\u53EF\u4EE5\u8BD5\u7740\u8865" : `\u63D2\u4EF6\u81EA\u5DF1\u6309\u300C\u5B98\u65B9\u63A5\u53E3 \u2192 \u7F51\u9875\u6293\u53D6 \u2192 \u672C\u5730\u5BF9\u7167\u8868\u300D\u9010\u7BC7\u67E5\u7F3A\u7684\u5206\u7C7B\u53F7\uFF08\u5168\u5E93\u8FD8\u7F3A ${String(ccsMissing)} \u7BC7\uFF1B\u4E00\u7BC7\u4E00\u5230\u51E0\u79D2\uFF0C\u540E\u53F0\u8DD1\uFF09`,
+          title: ccsBtnTitle,
           onClick: () => {
             void (ccsRunning ? stopCcsBackfill() : runCcsBackfill());
           },
@@ -40287,14 +40427,28 @@ function KsKnowledgePage({ useTabInfo }) {
           ]
         }
       ),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+        import_dsh_client_ui_primitives5.Button,
+        {
+          variant: "outline",
+          size: "sm",
+          className: "ks-ccs-all-btn",
+          disabled: busy || ccsRunning || ccsMissing !== null && ccsMissing === 0,
+          title: ccsAllCostText(),
+          onClick: () => {
+            void runCcsBackfillAll();
+          },
+          children: "\u5168\u90E8\u8865\u5B8C"
+        }
+      ),
       /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-kb-hint", children: [
         inboxTotal,
         " \u7BC7\u8FD8\u6CA1\u5F52\u4F4D",
         needle === "" ? "" : `\uFF08\u672C\u9875\u7B5B\u51FA ${inboxShown.length} \u7BC7\uFF09`
       ] })
     ] }),
-    ccsStatus === null || ccsStatus.total === 0 && ccsStatus.done === 0 ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-ccs-bar", role: "status", "data-ccs-running": ccsRunning ? "1" : "0", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-ccs-line", children: [
+    ccsStatus === null || !ccsBarShown ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-ccs-bar", role: "status", "data-ccs-running": ccsRunning ? "1" : "0", children: [
+      !ccsRan ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-ccs-line", children: [
         "\u8865\u5168\u5206\u7C7B\u53F7\uFF1A\u5DF2\u8DD1 ",
         ccsStatus.done,
         " / ",
@@ -40315,6 +40469,11 @@ function KsKnowledgePage({ useTabInfo }) {
         ccsStatus.skipped > 0 ? ` \xB7 \u8DF3\u8FC7 ${ccsStatus.skipped} \u7BC7` : "",
         ccsStatus.cancelled ? " \xB7 \u8FD9\u4E00\u6279\u662F\u624B\u52A8\u505C\u7684" : ""
       ] }),
+      ccsStopLine === null ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-ccs-line ks-ccs-stop", children: ccsStopLine }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-ccs-line ks-ccs-split", children: ccsSplitLine }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-ccs-line", children: ccsBatchText() }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-ccs-line ks-ccs-allcost", children: ccsAllCostText() }),
+      ccsUndoLine === null ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-ccs-line ks-ccs-undo", children: ccsUndoLine }),
       ccsStatus.failures.length === 0 ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("details", { className: "ks-ccs-fails", children: [
         /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("summary", { children: [
           "\u6CA1\u8865\u5230\u7684 ",

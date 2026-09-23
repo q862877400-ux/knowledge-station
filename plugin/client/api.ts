@@ -3959,17 +3959,44 @@ export async function fetchKbReingestStatus(
  *   该能各自跑。已有批次在跑 ⇒ 409 `ccs_backfill_busy`（**不排队**）。
  */
 
+/**
+ * 「还剩几篇」**拆开**（`ccs_backfill.missing_ccs_split`）—— 业主点名第②条：
+ * 不许把"还剩 N 篇"合并成一句"部分失败"，每一桶各是各的数。
+ *
+ * ⚠ 五个桶之和 == `total`（引擎侧有用例钉这个恒等式）；界面**逐桶显示**，不合并。
+ */
+export interface KsKbCcsMissingSplit {
+  /** 缺分类号的总篇数（== `missing`）。 */
+  total: number
+  /** 台账里没有这一行：**从来没查过**。 */
+  never_checked: number
+  /** `outcome='not_found'`：查过，站点答了但都没有这个号。 */
+  checked_not_found: number
+  /** `outcome in (network_failed, parse_failed)`：查过但**失败**。 */
+  checked_failed: number
+  /** `outcome='not_applicable'`：号不像标准号 ⇒ 分类号对它**永远不适用**（不是失败）。 */
+  not_applicable: number
+  /** 台账说 `found`、`domain_tags` 里却没有标签（人工删过标签 / 历史事务痕迹）。 */
+  found_but_untagged: number
+}
+
 /** `GET /kb/ccs/summary` —— 分类号这件事的现状（只读，零网络）。 */
 export interface KsKbCcsSummary {
   /** 全库还有几篇标准没有分类号（**现算的**，不是计数器）。 */
   missing: number
+  /** `missing` 按台账现状**拆开**的那五桶。 */
+  missing_split: KsKbCcsMissingSplit | null
   /** 台账按结论计数（found / not_found / network_failed / parse_failed）。 */
   by_outcome: Record<string, number>
   max_batch: number
   default_batch: number
+  /** 「全部补完」一次的**硬上限**（到这儿就停，剩下的下次再点）。 */
+  max_all: number
   outcome_labels: Record<string, string>
   source_labels: Record<string, string>
   sources: readonly string[]
+  /** 「为什么停」的中文说法（值 → 话），**后端下发**，界面只查表、不自己编。 */
+  stop_reason_labels: Record<string, string>
   backfill: KsKbCcsBackfillStatus
 }
 
@@ -4024,6 +4051,36 @@ export interface KsKbCcsBackfillStatus {
   finished_at: string | null
   /** **现算的**"全库还缺几篇"（补完自己会降，不靠计数器对齐）。 */
   missing: number | null
+  /** `missing` **拆开**的那五桶（读不到就是 null ⇒ 界面说"读不到"，不许编）。 */
+  missing_split: KsKbCcsMissingSplit | null
+  /** 读 `missing` 失败时的原话（有它 ⇒ 界面必须如实说读不到）。 */
+  missing_error?: string
+  /**
+   * **为什么停**（`ccs_backfill` 的七个互斥值：no_candidates / exhausted / limit /
+   * hard_cap / selected_done / cancelled / error）。没跑过就是 null。
+   */
+  stop_reason: string | null
+  /** `stop_reason` 的**中文说法**（后端下发）；后端没给就是 null ⇒ 界面说"后端没给"。 */
+  stop_reason_label: string | null
+  /** 补前那份**精确回退记录的路径**（`ccs_undo` 写的；没做过 / 读不到就是 null）。 */
+  undo_journal: string | null
+  /** 这一批的范围：`library` / `all` / `selected`。 */
+  scope: string | null
+  /** `true` = 这一批把已有分类号的也重查了（刷新）。 */
+  force: boolean
+  /** `true` = 这一批被"一批最多几篇"截断过（⇒ 为什么停是 `limit`）。 */
+  truncated: boolean
+  /** `true` = 「全部补完」撞了硬上限（⇒ **不是**补完了）。 */
+  hard_capped: boolean
+  /** 计划里一共有几篇候选（这一批可能只跑了一部分）。 */
+  plan_total: number
+  /** 「全部补完」分了几页 / 跑到第几页（后端按一页 200 篇串行）。 */
+  pages: number
+  page: number
+  /** 一次最多几篇 / 默认几篇 / 「全部补完」的硬上限（后端下发，界面不许自己写死）。 */
+  max_batch: number
+  default_batch: number
+  max_all: number
   results: readonly KsKbCcsResultRow[]
   /** 没补到的那一批（每篇带 outcome 与 reason）—— 业主/审计靠它看"还剩哪些、为什么"。 */
   failures: readonly KsKbCcsResultRow[]
@@ -4051,6 +4108,20 @@ function normalizeCcsResultRows(value: unknown): KsKbCcsResultRow[] {
   })
 }
 
+/** `missing_split` 的五桶（形状 = `ccs_backfill.missing_ccs_split()`）。读不到 ⇒ null。 */
+function normalizeCcsMissingSplit(value: unknown): KsKbCcsMissingSplit | null {
+  const o = objOf(value)
+  if (o === null) return null
+  return {
+    total: intOf(o.total, 0),
+    never_checked: intOf(o.never_checked, 0),
+    checked_not_found: intOf(o.checked_not_found, 0),
+    checked_failed: intOf(o.checked_failed, 0),
+    not_applicable: intOf(o.not_applicable, 0),
+    found_but_untagged: intOf(o.found_but_untagged, 0),
+  }
+}
+
 function normalizeCcsBackfillStatus(data: Record<string, unknown>): KsKbCcsBackfillStatus {
   return {
     running: data.running === true,
@@ -4068,6 +4139,21 @@ function normalizeCcsBackfillStatus(data: Record<string, unknown>): KsKbCcsBackf
     started_at: str(data.started_at),
     finished_at: str(data.finished_at),
     missing: num(data.missing),
+    missing_split: normalizeCcsMissingSplit(data.missing_split),
+    missing_error: str(data.missing_error) ?? undefined,
+    stop_reason: str(data.stop_reason),
+    stop_reason_label: str(data.stop_reason_label),
+    undo_journal: str(data.undo_journal),
+    scope: str(data.scope),
+    force: data.force === true,
+    truncated: data.truncated === true,
+    hard_capped: data.hard_capped === true,
+    plan_total: intOf(data.plan_total, 0),
+    pages: intOf(data.pages, 0),
+    page: intOf(data.page, 0),
+    max_batch: intOf(data.max_batch, 0),
+    default_batch: intOf(data.default_batch, 0),
+    max_all: intOf(data.max_all, 0),
     results: normalizeCcsResultRows(data.results),
     failures: normalizeCcsResultRows(data.failures),
     skipped_list: normalizeCcsResultRows(data.skipped_list),
@@ -4100,15 +4186,21 @@ export async function fetchKbCcsSummary(
   for (const [k, v] of Object.entries(labels)) { const s = str(v); if (s !== null) outLabels[k] = s }
   const outSrc: Record<string, string> = {}
   for (const [k, v] of Object.entries(srcLabels)) { const s = str(v); if (s !== null) outSrc[k] = s }
+  const stopLabels = objOf(data.stop_reason_labels) ?? {}
+  const outStop: Record<string, string> = {}
+  for (const [k, v] of Object.entries(stopLabels)) { const s = str(v); if (s !== null) outStop[k] = s }
   const srcArr = Array.isArray(data.sources) ? data.sources : []
   return {
     missing: intOf(data.missing, 0),
+    missing_split: normalizeCcsMissingSplit(data.missing_split),
     by_outcome: by,
     max_batch: intOf(data.max_batch, 0),
     default_batch: intOf(data.default_batch, 0),
+    max_all: intOf(data.max_all, 0),
     outcome_labels: outLabels,
     source_labels: outSrc,
     sources: srcArr.map((s) => str(s) ?? '').filter((s) => s !== ''),
+    stop_reason_labels: outStop,
     backfill: normalizeCcsBackfillStatus(objOf(data.backfill) ?? {}),
   }
 }
@@ -4154,16 +4246,30 @@ export interface KsKbCcsBackfillStart {
   started: readonly { doc_id: string; standard_no: string }[]
   skipped: readonly { doc_id: string; reason: string }[]
   plan: KsKbCcsPlan
+  /** 补前那份**精确回退记录的路径**（`ccs_undo` 写的；没候选 / 读不到就是 null）。 */
+  undo_journal: string | null
+  /** 「全部补完」分了几页（后端按一页 `max_batch` 篇串行）。 */
+  pages: number
+  /** `true` = 这次撞了「全部补完」的硬上限（**不是**补完了）。 */
+  hard_capped: boolean
 }
 
 export async function startKbCcsBackfill(
   port: number, token: string,
-  opts: { docIds?: readonly string[]; limit?: number; force?: boolean; signal?: AbortSignal } = {},
+  opts: {
+    docIds?: readonly string[]
+    limit?: number
+    force?: boolean
+    /** `true` = **「全部补完」**（内部按 200 一页串行，到硬上限就停）。与 `docIds` 不能同时用。 */
+    all?: boolean
+    signal?: AbortSignal
+  } = {},
 ): Promise<KsKbCcsBackfillStart> {
   const payload: Record<string, unknown> = {}
   if (opts.docIds !== undefined) payload.doc_ids = [...opts.docIds]
   if (opts.limit !== undefined) payload.limit = opts.limit
   if (opts.force === true) payload.force = true
+  if (opts.all === true) payload.all = true
   const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/ccs/backfill`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', accept: 'application/json' },
@@ -4204,6 +4310,9 @@ export async function startKbCcsBackfill(
       limit: intOf(planRaw.limit, 0),
       truncated: planRaw.truncated === true,
     },
+    undo_journal: str(data.undo_journal),
+    pages: intOf(data.pages, 0),
+    hard_capped: data.hard_capped === true,
   }
 }
 

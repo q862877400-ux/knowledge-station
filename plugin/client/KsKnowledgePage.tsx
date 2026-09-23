@@ -114,6 +114,8 @@ import {
   startKbCcsBackfill,
   type KsAnswerResult,
   type KsKbCcsBackfillStatus,
+  type KsKbCcsMissingSplit,
+  type KsKbCcsSummary,
   type KsKbDeletePreview,
   type KsKbFile,
   type KsKbFlatFolder,
@@ -542,6 +544,13 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
      ⚠ `ccsMissing === null` = **还没读到**（不许拿本地已知的数字冒充 —— 与 `inboxSeen`
        同一条纪律）。 */
   const [ccsMissing, setCcsMissing] = useState<number | null>(null)
+  /**
+   * 「补全分类号」这份**现状**（`GET /kb/ccs/summary` 的整个 `data`）—— 2026-09-24（B3b）加：
+   * 界面要说清的五件事（还剩多少**拆开** / 一批最多几篇 / 「全部补完」的代价 / 三层链有哪几层 /
+   * 「为什么停」的中文说法）**全部**要从这里取，界面**不自己写死**任何一个数字或说法。
+   * `null` = **还没读到**（这时不许编，只许说读不到）。
+   */
+  const [ccsSummary, setCcsSummary] = useState<KsKbCcsSummary | null>(null)
   /** 最近一批的进度（null = 还没问过）。 */
   const [ccsStatus, setCcsStatus] = useState<KsKbCcsBackfillStatus | null>(null)
   /** 这一批是否在跑（跑的时候轮询，跑完自动重读这一层）。 */
@@ -1468,12 +1477,30 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
    *      done/total 与 `failures`，失败逐篇带原因 —— 不合并成一句"部分失败"）。
    *
    * ⚠ **不编进度条**：只报后端给的 done/total；`running` 还是 true 就**不许**说"已完成"。
+   *
+   * ══════ 2026-09-24（B3b）在这一层上补的六条（**全部**按后端下发的字段渲染）══════
+   * 引擎半边（B3a，提交 180397f）已经把这些字段都下发出来了，界面这边以前一个都没用：
+   *   ① **补之前那份回退记录的路径**（`undo_journal`）—— 读不到就如实说读不到，
+   *      **不许**编一句"已自动备份"糊过去；
+   *   ② **还剩多少拆开**（`missing_split` 五桶：从没查过 / 查过没查到 / 查过失败 /
+   *      不适用 / 台账说补到了却没标签）逐桶显示，**不许**合并成一句"部分失败"；
+   *   ③ **为什么停**（`stop_reason` + 后端下发的 `stop_reason_labels`）—— 界面**不推断原因**；
+   *      后端没给这个原因的说法就如实说"后端没给"（原因代码照抄，那也是后端给的）；
+   *   ④ **「再按一次」写清一次最多几篇**（`max_batch` / `default_batch`）——
+   *      业主按一下就停、看不出为什么停，正是这条要修的；
+   *   ⑤ **「全部补完」入口**（`all=true`）＋ 按下**之前**就把代价写在那一行上
+   *      （这次补 N 篇 / 一篇一到几秒 / 大概等多久）；撞硬上限（`max_all`）时后端回
+   *      `hard_capped` + `stop_reason='hard_cap'`，界面照念"停在上限、还剩多少"，
+   *      **绝不**说"补完了"；
+   *   ⑥ 按钮提示里的"哪几层"直接用后端下发的 `sources` + `source_labels` 拼
+   *      （以前界面写死三层，而后端 `SOURCES` 是**四项**；以后加一层界面不用改）。
    */
 
   /** 读一次「还缺几篇 + 台账计数 + 最近一批进度」（只读、零网络）。 */
   const loadCcsSummary = useCallback(async (): Promise<void> => {
     try {
       const s = await withSession((port, token) => fetchKbCcsSummary(port, token))
+      setCcsSummary(s)
       setCcsMissing(s.missing)
       setCcsStatus(s.backfill)
       setCcsRunning(s.backfill.running)
@@ -1482,7 +1509,94 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
     }
   }, [withSession])
 
-  /** **补全分类号**：让插件自己按三层链逐篇补（后台线程，立刻返回）。 */
+  /**
+   * 「为什么停」那句中文 —— **只查后端下发的说法**，界面一个字都不推断。
+   *
+   * 顺序：① `summary.stop_reason_labels[stop_reason]`（后端下发的整张表，按当前原因查）；
+   *      ② `status.stop_reason_label`（后端在状态里直接给的那句）；
+   *      ③ 两个都没有 ⇒ 返回 `null`，调用方如实说"后端没给这个原因的说法"。
+   * ⚠ 这一层**不许**出现"树里没有对应的那一层"那种界面自己编的原因（复核 LOW-1）。
+   */
+  const ccsStopText = (st: KsKbCcsBackfillStatus | null): string | null => {
+    const reason = st?.stop_reason ?? null
+    if (reason === null) return null
+    const fromTable = ccsSummary?.stop_reason_labels[reason]
+    if (fromTable !== undefined && fromTable !== '') return fromTable
+    const direct = st?.stop_reason_label ?? null
+    if (direct !== null && direct !== '') return direct
+    return null
+  }
+
+  /** 「为什么停：…」整句（含"后端没给"的兜底）。 */
+  const ccsStopSentence = (st: KsKbCcsBackfillStatus | null): string => {
+    const reason = st?.stop_reason ?? null
+    if (reason === null) return '后端没给（这一批没记原因）'
+    return ccsStopText(st) ?? `后端没给这个原因的说法（原因代码 ${reason}）`
+  }
+
+  /**
+   * 「全部补完」这次会补多少篇（后端现算的 `missing`）—— 读不到就如实说读不到。
+   * ⚠ 只看 `ccsSummary` / `ccsMissing` 这两个后端值，界面**不估**篇数。
+   */
+  const ccsAllWillDo = (): number | null => {
+    const n = ccsSummary?.missing ?? ccsMissing
+    if (n === null || n === undefined) return null
+    const cap = ccsSummary?.max_all ?? 0
+    return cap > 0 ? Math.min(n, cap) : n
+  }
+
+  /** 秒数 → 人话（"40 秒" / "3 分钟" / "1 小时 20 分钟"）。只为让"要等多久"有个数，不求精确。 */
+  const ccsWaitText = (seconds: number): string => {
+    if (seconds < 60) return `${String(Math.max(1, Math.round(seconds)))} 秒`
+    const minutes = Math.round(seconds / 60)
+    if (minutes < 60) return `${String(minutes)} 分钟`
+    const h = Math.floor(minutes / 60)
+    const m = minutes % 60
+    return m === 0 ? `${String(h)} 小时` : `${String(h)} 小时 ${String(m)} 分钟`
+  }
+
+  /**
+   * ⑤ 「全部补完」按下**之前**要说清的代价：这次补 N 篇 / 一篇一到几秒 / 大概等多久。
+   * ⚠ 篇数来自后端（`missing`，读不到就说读不到）；"一篇一到几秒"是**产品口径**
+   *   （含每篇之间 1 秒的间隔），所以给的是**区间**，不是承诺一个精确时间。
+   */
+  const ccsAllCostText = (): string => {
+    const n = ccsSummary?.missing ?? ccsMissing
+    if (n === null || n === undefined) return '「全部补完」这次会补多少篇：接口没答上来，读不到。'
+    if (n === 0) return '「全部补完」：库里每一篇标准都已经有分类号了，没什么可补。'
+    const cap = ccsSummary?.max_all ?? 0
+    const willDo = ccsAllWillDo() ?? n
+    const low = ccsWaitText(willDo)
+    const high = ccsWaitText(willDo * 5)
+    return `「全部补完」这次会补 ${String(willDo)} 篇（一篇一到几秒，大约要等 ${low}~${high}）`
+      + (cap > 0 && n > cap
+        ? `；一次最多补 ${String(cap)} 篇，到上限就停、剩下的下次再点。`
+        : '。')
+  }
+
+  /** ④ 「再按一次」的批大小口径（数字全部来自后端；读不到就说读不到）。 */
+  const ccsBatchText = (): string => {
+    const maxB = ccsSummary?.max_batch ?? 0
+    const defB = ccsSummary?.default_batch ?? 0
+    if (maxB <= 0 || defB <= 0) return '再按一次还能接着补；一次最多补几篇：接口没答上来，读不到。'
+    return `再按一次接着补：一次默认补 ${String(defB)} 篇、最多 ${String(maxB)} 篇。`
+  }
+
+  /**
+   * ⑥ 「哪几层」—— 直接用后端下发的 `sources` + `source_labels` 拼（界面不写死层数）。
+   * 读不到（接口没答上来）就只说"逐篇查"，**不编**一个层数出来。
+   */
+  const ccsChainText = (): string => {
+    const keys = ccsSummary?.sources ?? []
+    const labels = ccsSummary?.source_labels ?? {}
+    const names = keys
+      .map((k) => labels[k])
+      .filter((v): v is string => typeof v === 'string' && v !== '')
+    if (names.length === 0) return '插件自己逐篇查缺的分类号'
+    return `插件自己按「${names.join(' → ')}」逐篇查缺的分类号`
+  }
+
+  /** **补全分类号**（按一批）：让插件自己按后端那几层链逐篇补（后台线程，立刻返回）。 */
   const runCcsBackfill = useCallback(async (): Promise<void> => {
     setBusy(true)
     try {
@@ -1492,12 +1606,41 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
         await loadCcsSummary()
         return
       }
+      const maxB = ccsSummary?.max_batch ?? 0
       setActMsg(`已开始补全分类号：${String(res.queued)} 篇排队`
-        + `（共 ${String(res.plan.total)} 篇待补${res.plan.truncated ? '，这一批先补一部分' : ''}；`
+        + `（共 ${String(res.plan.total)} 篇待补${res.plan.truncated ? '，这一批先补一部分' : ''}`
+        + `${res.plan.truncated && maxB > 0 ? `；一批最多 ${String(maxB)} 篇，剩下的再按一次` : ''}；`
         + '一篇一到几秒，跑完自动刷新）。')
       setCcsRunning(true)
     } catch (error) {
       setActMsg(`没能开始补全分类号：${errorText(error)}`)
+    } finally {
+      setBusy(false)
+    }
+  }, [ccsSummary, loadCcsSummary, withSession])
+
+  /**
+   * ⑤ **「全部补完」**（业主点名第③条）：`all=true` —— 后端按一批 200 篇一页页串行，
+   * 一直跑到没有候选或撞上硬上限。代价**在按之前就写在那一行上**（`ccsAllCostText`）。
+   * 撞上限时后端回 `hard_capped=true` + `stop_reason='hard_cap'` ⇒ 界面照念，
+   * **不假装补完了**（剩下的篇数由 `missing` 现算，跑完自动重读）。
+   */
+  const runCcsBackfillAll = useCallback(async (): Promise<void> => {
+    setBusy(true)
+    try {
+      const res = await withSession((port, token) => startKbCcsBackfill(port, token, { all: true }))
+      if (res.queued === 0) {
+        setActMsg('没有要补的：库里每一篇标准都已经有分类号了。')
+        await loadCcsSummary()
+        return
+      }
+      setActMsg(`已开始「全部补完」：这次要补 ${String(res.queued)} 篇`
+        + `${res.hard_capped ? '（到一次最多能补的那条线就停，剩下的下次再点）' : ''}`
+        + `${res.pages > 1 ? `，分 ${String(res.pages)} 页串行跑` : ''}`
+        + '；一篇一到几秒，跑完自动刷新。')
+      setCcsRunning(true)
+    } catch (error) {
+      setActMsg(`没能开始「全部补完」：${errorText(error)}`)
     } finally {
       setBusy(false)
     }
@@ -1538,7 +1681,12 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
             + (bad > 0
               ? `，${String(bad)} 篇没补到（逐篇原因见下面那张清单；不是失败就是查无）`
               : '')
-            + (st.cancelled ? '。这一批是你按停的，剩下的还没跑。' : '。')
+            /* ③ **为什么停**：照念后端那句（后端没给就如实说"后端没给"，界面不推断原因）。 */
+            + `。为什么停：${ccsStopSentence(st)}`
+            /* ⑤ 撞硬上限时**不假装补完了**：后端现算的"还剩多少"直接念出来。 */
+            + (st.missing !== null
+              ? ` 现在库里还缺 ${String(st.missing)} 篇。`
+              : ' 还剩多少：读不到（接口没给这个数）。')
             + ' 下面这一层已按最新状态重读。')
           await loadInbox(inboxOffset, { silent: true })
           await loadCcsSummary()
@@ -1554,6 +1702,62 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
   useEffect(() => {
     void (async () => { await loadCcsSummary() })()
   }, [loadCcsSummary])
+
+  /* ── 下面这几条是**渲染用**的派生值（每次渲染现算，全部只读后端下发的字段）── */
+
+  /**
+   * ② 「还剩多少」**拆开**（业主点名第②条）—— 最近一批的优先（它更新鲜），其次现状。
+   * `null` = 两个都没读到 ⇒ 界面说"读不到"，**不编**数字。
+   */
+  const ccsSplit: KsKbCcsMissingSplit | null =
+    ccsStatus?.missing_split ?? ccsSummary?.missing_split ?? null
+
+  /** 这一批**真跑过**（有篇数）⇒ 「已跑 done/total」那一行才有意义。 */
+  const ccsRan = ccsStatus !== null && (ccsStatus.total > 0 || ccsStatus.done > 0)
+
+  /**
+   * 这一块**什么时候露出来**：跑过一批，或者后端说**还有缺的**（这时"还剩多少 / 一批多少 /
+   * 全部补完的代价"都是按之前就该看见的 —— 正是"按一下就停、看不出为什么停"要修的地方）。
+   */
+  const ccsBarShown = ccsRan || (ccsSplit !== null && ccsSplit.total > 0)
+
+  /** ③ 「为什么停」那一行（后端说法优先；后端没给就如实说后端没给）。 */
+  const ccsStopLine: string | null =
+    ccsStatus === null || ccsStatus.stop_reason === null
+      ? null
+      : `为什么停：${ccsStopSentence(ccsStatus)}`
+
+  /**
+   * ① 补之前那份**精确回退记录**的路径（业主点名第①条）。
+   * ⚠ 只在**真跑过一批**（有篇数）时才说这一句 —— 没跑过就没写过记录，不该凭空冒一行；
+   *    跑过却读不到路径 ⇒ **如实说读不到**（不许编一句"已自动备份"糊过去）。
+   */
+  const ccsUndoLine: string | null = (() => {
+    if (!ccsRan || ccsStatus === null) return null
+    const p = ccsStatus.undo_journal
+    if (p !== null && p !== '') return `已存回退记录：${p}`
+    return '已存回退记录：读不到（接口没给路径）'
+  })()
+
+  /** ② 「还剩多少」那一行：五桶**逐桶**说，一个都不省（省掉哪一桶就是在合并）。 */
+  const ccsSplitLine: string = (() => {
+    const sp = ccsSplit
+    if (sp === null) return '还剩多少：读不到（接口没答上来）。'
+    return `还剩 ${String(sp.total)} 篇没补：从没查过 ${String(sp.never_checked)} 篇`
+      + ` · 查过没查到 ${String(sp.checked_not_found)} 篇`
+      + ` · 查过失败 ${String(sp.checked_failed)} 篇`
+      + ` · 不适用 ${String(sp.not_applicable)} 篇`
+      + ` · 台账说补到了却没标签 ${String(sp.found_but_untagged)} 篇`
+  })()
+
+  /** ⑥ 按钮提示：**哪几层**（后端下发的 `sources`）+ 还缺几篇 + 一次最多几篇。 */
+  const ccsBtnTitle: string = (() => {
+    if (ccsMissing === null) return '读不到还缺几篇（接口没答上来）——点一下仍然可以试着补'
+    const maxB = ccsSummary?.max_batch ?? 0
+    return `${ccsChainText()}（全库还缺 ${String(ccsMissing)} 篇；`
+      + (maxB > 0 ? `一次最多补 ${String(maxB)} 篇；` : '一次最多补几篇：读不到；')
+      + '一篇一到几秒，后台跑）'
+  })()
 
   /** 搜索词（大小写不敏感）。目录按**名字**、文件按**标准号/名称**命中 —— 同一个词。 */
   const needle = search.trim().toLowerCase()
@@ -2061,8 +2265,13 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
    * ⚠ 三条分支的依据**全部来自后端**（`doc_ccs_state` 台账；`ccs_store` / `ccs_fetcher`
    * 是中文说法的唯一所有者），界面**不自己推断**：
    *
-   * 1. **已经有分类号**却仍没有建议 ⇒ 这不是分类号的问题（分类树里没有对应那一层，
-   *    或落进了兜底桶）—— 明说"已经有分类号"，免得业主去补一个已经有的东西。
+   * 1. **已经有分类号**却仍没有建议 ⇒ 这不是分类号的问题。⚠ **2026-09-24（B3b）就地更正
+   *    （复核 LOW-1）**：这里原来写死「问题在于现有目录里没有对应的那一层」，而同一段注释
+   *    自己就承认还有第二种可能（落进了兜底桶）—— **界面在替后端编原因**。后端在"有分类号
+   *    但没有建议"这件事上**没有下发任何原因**，所以界面只许说**事实**（有分类号 + 没给建议）
+   *    和**后果**（只能手动指定去处），**不许**说是因为什么。原文（留痕，别删）：
+   *    `short: '没有建议（有分类号，但树里没有对应的那一层）'` /
+   *    `why: '这一篇已经有分类号（…），问题在于现有目录里没有对应的那一层 —— 只能手动指定去处。'`
    * 2. **还没查过**（`ccs_outcome` 为 null）⇒ 说"还没查过"，并指向「补全分类号」。
    * 3. **查过了没查到** ⇒ 照念后端那句 `ccs_outcome_label`（查无 / 查询失败 / 读不出来），
    *    `title` 里放 `ccs_reason`（一句人话，含"两个站点一个都没答上"这类细节）。
@@ -2073,9 +2282,9 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
   const noSuggestText = (doc: KsKbInboxItem): { short: string; why: string } => {
     if (doc.ccs_tag !== null && doc.ccs_tag !== '') {
       return {
-        short: '没有建议（有分类号，但树里没有对应的那一层）',
-        why: `这一篇已经有分类号（${doc.ccs_tag}），问题在于现有目录里没有对应的那一层`
-          + ' —— 只能手动指定去处。',
+        short: '没有建议（有分类号，但系统没给出建议的去向）',
+        why: `这一篇已经有分类号（${doc.ccs_tag}），但系统没有给出建议的去向`
+          + ' —— 只能手动指定去处。为什么没给，后端没有下发原因。',
       }
     }
     if (doc.ccs_outcome === null || doc.ccs_outcome === '') {
@@ -2658,40 +2867,71 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
             这是**插件自己的入口**（业主口径：机制必须在产品里，不许靠人手动改库）。
             按钮上的数字是后端**现算的**"全库还缺几篇标准没有分类号"；读不到就显示"—"
             （**不许**拿本地已知数字冒充 —— 那会把"读不到"说成"0 篇"）。
-            跑的时候按钮变「停止」；下面显示真实的 done/total 与失败清单。 */}
+            跑的时候按钮变「停止」；下面显示真实的 done/total 与失败清单。
+            提示里"哪几层"直接用后端下发的 `sources` + `source_labels`（界面不写死层数）。 */}
         <Button
           variant="outline"
           size="sm"
           className="ks-ccs-btn"
           disabled={busy}
-          title={ccsMissing === null
-            ? '读不到还缺几篇（接口没答上来）——点一下仍然可以试着补'
-            : `插件自己按「官方接口 → 网页抓取 → 本地对照表」逐篇查缺的分类号`
-              + `（全库还缺 ${String(ccsMissing)} 篇；一篇一到几秒，后台跑）`}
+          title={ccsBtnTitle}
           onClick={() => { void (ccsRunning ? stopCcsBackfill() : runCcsBackfill()) }}
         >
           {ccsRunning ? '停止补全分类号' : '补全分类号'}
           {ccsMissing === null ? '（—）' : `（还缺 ${String(ccsMissing)} 篇）`}
+        </Button>
+        {/* ══ ⑤ 「全部补完」入口（走 `all=true`）══════════════════════════════════
+            与上面那个按钮是**两件事**：上面是"补一批"（一次默认几十篇，按一下补一批），
+            这个是"一次把库里还缺的都补上"（后端按一批 200 篇串行跑到没有候选或撞硬上限）。
+            代价**在按之前**就写在下面那一行上（这次补 N 篇 / 一篇一到几秒 / 大概等多久），
+            所以按钮自己不需要再弹一个"确定吗"。
+            ⚠ 缺的篇数为 0 或读不到时为**禁用**：没有可补的，这个钮按下去什么都不会发生。 */}
+        <Button
+          variant="outline"
+          size="sm"
+          className="ks-ccs-all-btn"
+          disabled={busy || ccsRunning || (ccsMissing !== null && ccsMissing === 0)}
+          title={ccsAllCostText()}
+          onClick={() => { void runCcsBackfillAll() }}
+        >
+          全部补完
         </Button>
         <span className="ks-kb-hint">
           {inboxTotal} 篇还没归位
           {needle === '' ? '' : `（本页筛出 ${inboxShown.length} 篇）`}
         </span>
       </div>
-      {/* 补全的**进度与失败清单**（只在真跑过之后出现；没跑过不占地方）。
-          ⚠ 数字**逐类分开**：补到 / 查无 / 查询失败 / 读不出来 —— 不许合并成"部分失败"。 */}
-      {ccsStatus === null || (ccsStatus.total === 0 && ccsStatus.done === 0) ? null : (
+      {/* 「补全分类号」的**现状**：跑过一批，或者后端说**还有缺的** ⇒ 露出来。
+          ⚠ 数字**逐类分开**（不许合并成"部分失败"）；「为什么停」「回退记录在哪」
+            「一批最多几篇」「全部补完的代价」全部照念后端下发的东西。 */}
+      {ccsStatus === null || !ccsBarShown ? null : (
         <div className="ks-ccs-bar" role="status" data-ccs-running={ccsRunning ? '1' : '0'}>
-          <span className="ks-ccs-line">
-            补全分类号：已跑 {ccsStatus.done} / {ccsStatus.total} 篇
-            · 补到 {ccsStatus.found} 篇（其中新写标签 {ccsStatus.applied} 篇）
-            · 查无 {ccsStatus.not_found} 篇
-            · 查询失败 {ccsStatus.network_failed} 篇
-            · 读不出来 {ccsStatus.parse_failed} 篇
-            · 不适用 {ccsStatus.not_applicable} 篇
-            {ccsStatus.skipped > 0 ? ` · 跳过 ${ccsStatus.skipped} 篇` : ''}
-            {ccsStatus.cancelled ? ' · 这一批是手动停的' : ''}
-          </span>
+          {!ccsRan ? null : (
+            <span className="ks-ccs-line">
+              补全分类号：已跑 {ccsStatus.done} / {ccsStatus.total} 篇
+              · 补到 {ccsStatus.found} 篇（其中新写标签 {ccsStatus.applied} 篇）
+              · 查无 {ccsStatus.not_found} 篇
+              · 查询失败 {ccsStatus.network_failed} 篇
+              · 读不出来 {ccsStatus.parse_failed} 篇
+              · 不适用 {ccsStatus.not_applicable} 篇
+              {ccsStatus.skipped > 0 ? ` · 跳过 ${ccsStatus.skipped} 篇` : ''}
+              {ccsStatus.cancelled ? ' · 这一批是手动停的' : ''}
+            </span>
+          )}
+          {/* ③ 为什么停（后端说法；后端没给就说后端没给） */}
+          {ccsStopLine === null ? null : (
+            <span className="ks-ccs-line ks-ccs-stop">{ccsStopLine}</span>
+          )}
+          {/* ② 还剩多少：五桶逐桶说（一个都不省） */}
+          <span className="ks-ccs-line ks-ccs-split">{ccsSplitLine}</span>
+          {/* ④ 再按一次还能接着补：一次默认几篇 / 最多几篇（后端下发） */}
+          <span className="ks-ccs-line">{ccsBatchText()}</span>
+          {/* ⑤ 「全部补完」的代价（按下之前就写在这里） */}
+          <span className="ks-ccs-line ks-ccs-allcost">{ccsAllCostText()}</span>
+          {/* ① 补之前那份回退记录的路径（读不到就如实说读不到） */}
+          {ccsUndoLine === null ? null : (
+            <span className="ks-ccs-line ks-ccs-undo">{ccsUndoLine}</span>
+          )}
           {ccsStatus.failures.length === 0 ? null : (
             <details className="ks-ccs-fails">
               <summary>

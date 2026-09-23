@@ -626,6 +626,15 @@ export const KS_STYLES = `
 .ks-ccs-fail-list>li{min-width:0;overflow-wrap:anywhere}
 .ks-ccs-fail-no{font-family:var(--ks-font-mono,monospace);margin-right:var(--ks-space-2)}
 .ks-ccs-fail-why{color:var(--dsw-alias-label-tertiary)}
+/* 「全部补完」入口（B3b 2026-09-24）：与「补全分类号」并排在文件名那一条 bar 上。
+   ⚠ white-space:nowrap 与那一个同理：「全部补完」压成竖排就读不出来了。
+   ⚠ 这段注释在**模板串内部** ⇒ 一个反引号都不能出现（出现即截断整个样式表）。 */
+.ks-ccs-all-btn{white-space:nowrap}
+/* 「为什么停」那一行：它是**后端给的说法**，比旁边那些计数重要 ⇒ 用正文色、不灰。
+   ⚠ 只走主题 token，不写死颜色（smoke-client-entry 的主题债务棘轮盯着这一条）。 */
+.ks-ccs-stop{color:var(--dsw-alias-label-primary)}
+/* 「已存回退记录：<路径>」—— 路径可能很长，必须能断行（窄档只有 288px）。 */
+.ks-ccs-undo{font-size:var(--ks-fs-xs);color:var(--dsw-alias-label-tertiary);overflow-wrap:anywhere}
 /* 批量条（第 4 步**做回真的**：每条都对应真接口）。悬浮在列表上方、居中限宽。
    ⚠ 它是页面留边的适用面之一（docs/UI-BASELINE.md 第二节）⇒ 不许贴边。
    ⚠⚠ **必须允许折行**（flex-wrap:wrap）：窄档（520 ⇒ .ks-main 只有 288px）里
