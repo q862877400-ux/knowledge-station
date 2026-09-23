@@ -44,6 +44,41 @@
 第 6 步 A 批加 `smoke-cancel`/`smoke-tool-concurrency` ⇒ 26 → 29）。**教训**：这类"当前值"要么现量、
 要么写明**测量时点 + 出处**；抄上一次的数一定会烂（这条今天已踩第四次）。
 
+⚠⚠ **再更正（第四轮，2026-09-24，B7 文档批；前三轮的原文与错话全部保留在上面，不许悄悄删）**：
+上面 §一 那一整段的"当前值"**又旧了**。以本树实测为准（**测量时点 2026-09-24**，
+树 `D:\AI\work space\zcode-b7-docs`，起点 `4ed4b0d`）：
+
+| 项 | 上面写的（陈旧） | **本树实测现值** | 出处（命令 / 字段） |
+|---|---|---|---|
+| `pytest` | 2143 passed / 3 skipped（总账 2146） | **2330 passed / 3 skipped（总账 2333）** | `Get-Content scripts/gates-baseline.json` ⇒ `pytest_passed: 2330` / `pytest_skipped: 3` / `pytest_total: 2333`，`updatedAt: "2026-09-23T19:14:26"`；该文件**最后一笔**改动是 `4252385`（`git log --oneline -4 -- scripts/gates-baseline.json`） |
+| `smoke` 全链 | 29 套 | **42 套** | `plugin/scripts/smoke-all.mjs:32` 的 `SUITES` 数组**逐条实数**（L33–L113）；我**手数一遍**并另用正则数 `'…\.mjs'` 字面量，两边都是 **42**；脚本自己在 `:127`/`:146` 就是打印 `SUITES.length` |
+| `-Quick` / `-Full` 步数 | 4/4、6/6 | **未核实**（B7 不跑门禁——任务书明令不跑 `run-gates.ps1`） | —— |
+
+**34 → 42 之间发生了什么**（**逐笔算出来的，不是我推的**：对每个提交取 `plugin/scripts/smoke-all.mjs`
+的 `SUITES` 列表再取差集）：
+
+| 时点 | 提交 | 套数 | 新增的套 |
+|---|---|---|---|
+| 09-22 07:35 | `5d2c512` | **34** | ——（§10.159 记的"34/34"就是这一跑） |
+| 09-22 12:44 | `c190932` | 35 | `smoke-evidence-prefs` |
+| 09-22 15:12 | `2af5b77` | 37 | `smoke-turn-routes`、`smoke-evidence-warn` |
+| 09-22 18:39 | `26b6228` | 39 | `smoke-turn-tab`、`smoke-materials-rows` |
+| 09-22 18:49 | `f17f62c` | 40 | `smoke-compliance-sentry` |
+| 09-22 19:57 | `2835dc3` | 41 | `smoke-tool-catalog` |
+| **09-23 13:52** | **`a96c73c`** | **42** | **`smoke-channels-ai`**（⚠ **09-23 全新入链的只有这一套**） |
+
+⚠ **我自己第一版把这段写错了，就地更正（留痕）**：我原先写"09-23 又陆续入链了 `smoke-channels-routes`、
+`smoke-turn-routes`、`smoke-turn-tab`、`smoke-materials-rows`、`smoke-compliance-sentry`、`smoke-tool-catalog`、
+`smoke-evidence-prefs`、`smoke-evidence-warn`、`smoke-class-summary` 等 ⇒ 34 → 42" ——
+**那是想当然**：除 `smoke-channels-ai` 外，其余**全部是 09-22 入的链**（上表逐笔可查）；
+`smoke-channels-routes` 与 `smoke-class-summary` 更是在 `5d2c512` 那 34 套里**本来就有**。
+⇒ 教训与本节一致：**"中间发生了什么"必须逐笔取差集，不许凭印象串因果。**
+
+**更正记录（第 1 次 → 第 4 次，留痕）**：第 1 次 `2177/3`→`2141/3`（撤 Word/PPT 通路删了约 20 条用例）；
+第 2 次"全链 15 套"→`26`；第 3 次 `2143/3`（总账 2146）+ `29 套`；**第 4 次（本轮）`2330/3`（总账 2333）+ `42 套`**。
+⇒ 这条"当前值"历史上已被打回四次；**每次都必须现量 + 写明测量时点 + 出处命令**，
+本轮起"当前值"一律带可复算的命令，不再写裸数。
+
 ---
 
 ## 二、积压（按性价比排序；#4 已于第二轮修掉，见 §三；#7/#8 业主已否决，见下）

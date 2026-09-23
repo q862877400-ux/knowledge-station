@@ -216,6 +216,36 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
 
 **未做（本方案只是方案）**：**一行代码都没写**；schema 只到草图级；未做前端 UI 方案（材料评审界面放官方侧栏座位还是 conversation dock，**未定**）；~~PPT 依赖未立项~~（**PPT 已否决**，不再立项）；未估准人日。
 
+> ⚠ **就地更正（B7，2026-09-24；上面那句原文保留，不许悄悄删）**：这句是**方案 v1 时点的自述**，
+> 主要分句**已被实施取代**（本文件 §12「施工进度」自己就是反证 —— 那里已记到 B-11 / D-3a / D-3b）。
+> 逐分句核（测量时点 2026-09-24，树 `D:\AI\work space\zcode-b7-docs`，HEAD `4ed4b0d`）：
+>
+> 1. **"一行代码都没写" —— 已被取代**。四件都在树里，逐件给出处（`Measure-Object -Line` +
+>    `git log --diff-filter=A`）：`src/core/ingestion/material_ingest.py`（**354 行**，首见 `bcb63d0`）、
+>    `src/core/storage/material_repo.py`（**410 行**，首见 `b0f39dd`）、
+>    `src/core/api/routes_materials.py`（**387 行**，首见 `6dbde82`）、
+>    `plugin/client/KsMaterialsPanel.tsx`（**1405 行**，首见 `a6e91c2`）。
+> 2. **"schema 只到草图级" —— 已被取代**。`src/core/storage/schema.sql` 有真 DDL：
+>    `CREATE TABLE IF NOT EXISTS material_project`（**:513**）/ `material`（**:523**）/ `material_chunk`（**:570**）
+>    （出处 `Select-String -Path src/core/storage/schema.sql -Pattern 'CREATE TABLE IF NOT EXISTS material'`；
+>    首见提交 `b0f39dd`，`git log -S'CREATE TABLE IF NOT EXISTS material_chunk' -- src/core/storage/schema.sql`）。
+> 3. **"未做前端 UI 方案（…座位…未定）" —— 已被取代**（UI 建了，座位问题被**第三个选项**解掉）。
+>    `KsMaterialsPanel` 在树里只有**一处挂载**：`plugin/client/KsKnowledgePage.tsx` 的 `'materials'` 二级页
+>    （import 在 **:128**、挂载在 **:1873** `<KsMaterialsPanel visible embedded />`；类型
+>    `KsKbPage` 含 `'materials'`，见 `plugin/client/ksSidebar.ts:81`）—— **既不是官方侧栏座位、
+>    也不是 conversation dock**，而是"我们自己知识库页里的**备料**面"。
+>    出处：`Get-ChildItem plugin/client -File | Select-String -Pattern 'KsMaterialsPanel'`（只命中
+>    `KsKnowledgePage.tsx` 与组件自身）。座位是**绕开**解的，不是"查清侧栏够不够"解的。
+>    ⚠ **顺带更正本文件 §12 的 B-11 那句**（同一件事，一并留痕）：§12 写"`KsMaterialsPanel` 进**设置**
+>    「参考资料」折叠类目" —— **与当前源码不符**：它由 `72cd569`（**2026-09-22**，
+>    `feat(S4+S5-a): 效力报告→知识库「效力总览」、参考资料→「备料」；设置瘦身（只留全局项）`）
+>    从设置搬到了知识库页的「备料」面；现在 `KsSettingsSection.tsx:215` 与
+>    `KsKnowledgePage.tsx:1859` 两处注释都记着这次搬家（"设置只留**全局项**"）。
+> 4. **"已知不确定"第 2 条（§11 下文"官方侧栏是否够放材料评审 UI，**未查**"）同样过期** ——
+>    同第 3 条：座位绕开解了，那句**不要再当待办读**。
+> 5. **"PPT 依赖未立项 / PPT 已否决" —— 仍然有效**，不在本更正范围（`docs/NOT-DOING.md` 第 1 条照旧）。
+> 6. **"未估准人日" —— 未核实**：这是"没估"这件事本身，无法用源码/提交证伪，我也不替它填数。
+
 **已知不确定**：
 1. 材料检索与法条六通道是**并存两套**还是共用 RRF——我倾向**并存但分池、结果分区呈现**（不污染法条纯度），**待批准**。
 2. 官方侧栏是否够放材料评审 UI，**未查**（要读 DSH 检出确认座位契约，像上次迁移那样）。
