@@ -2227,6 +2227,22 @@ const PAGE_PAD_X_NARROW = 16
 const PAGE_PAD_X_WIDE = 24
 const PAGE_PAD_BREAKPOINT = 660
 /**
+ * **页头的"冻结高度"**（2026-09-23 接手批新增）—— 业主：「四个面行为一致……页头观感一致」。
+ *
+ * 为什么必须有这条**跨跑**的冻结值：`faceNavCheck` 一次只挂**一个**面 ⇒ 它量不到"四个面之间
+ * 齐不齐"。而本批的实测形态是：窄档四句话长度不同（两句折 2 行 36px、两句 1 行 18px）
+ * ⇒ 分隔线 y=**119 vs 109**。**变异实测**：把窄档那条 `min-height:36px` 撤掉，
+ * 四跑 `ui-render-shot` **全绿**（每跑自己一致）⇒ 这正是"跨面不齐"的盲区。
+ * ⇒ 按**档位**冻一个高度：页面根宽 < 660 = 窄档 **44**；≥ 660 = 宽档 **26**
+ *   （两档都 = `.ks-page-sub` 的 min-height 36/18 + 页头上下各 4px padding）。
+ * ⚠ 判据强度：量不到 `.ks-page-head` ⇒ 明说没判（不静默通过）；量到了但高度不等于本档冻结值 ⇒ 红。
+ * ⚠ 它**不是**"凭印象写的数"：36/18 与 `ksGuideStyles.ts` 里那两条 `min-height` 是同一对数，
+ *   改那边就要改这边（下面 `#face` 那段会打印实测值，对不上时一眼看得出是哪一边）。
+ * ⚠ 只在**四标签外壳**（`--page kb`）上判：`--page capabilities|ingest|materials` 挂的是组件自己，
+ *   页头形态（有没有页头、页头里几句）不归本批管。
+ */
+const FACE_HEAD_H = { narrow: 44, wide: 26 }
+/**
  * > ⚠⚠ **5j-补（2026-09-20）：复核 `verify-freeze-5j` 打回 E① —— "元素整个消失也不红"。**
  * > 复核的变异 **M6**：把 `.ks-dirs`（规范第二节明文点名的适用面之一）的类名改掉让它从 DOM 消失
  * > ⇒ `ui-render-shot` **exit 0 自检通过**（items 里直接少一项）、`smoke-kb-page-render` **72/72 PASS**。
@@ -3296,6 +3312,22 @@ if (page !== 'kb') {
         ? '（这一面业主给了稿，要求**逐字照抄**、不许改写）'
         : '（⚠ 这一面业主**没给稿**，此处登记的是沿用的旧句 —— 见报告里点名要问的那一条）'))
   }
+  /* ⚠⚠ **跨面"齐不齐"的兜底**（2026-09-23）：一次只挂一个面 ⇒ 量不到"四个面之间齐不齐"。
+     按**档位**冻一个页头高度（见 FACE_HEAD_H 那段）：窄档四句里两句折行、两句不折
+     ⇒ 撤掉那条 min-height 就会"每跑自洽、跨面不齐"（变异 G 实测四跑全绿）。
+     ⚠ 档位按**页面根宽**判，与 `.ks-page` 的容器查询同一口径（不是视口宽）。 */
+  const headM = measured['#kspad']
+  const tierNow = headM && Number.isFinite(Number(headM.pageW)) && Number(headM.pageW) >= PAGE_PAD_BREAKPOINT
+    ? 'wide' : 'narrow'
+  const headHNow = faceM.head && Number.isFinite(Number(faceM.head.h)) ? Number(faceM.head.h) : null
+  if (headHNow === null) {
+    faceNavProblems.push('这一跑量不到页头高度（`.ks-page-head` 的盒子为 null）—— 量不到就不算验过')
+  } else if (headHNow !== FACE_HEAD_H[tierNow]) {
+    faceNavProblems.push(`页头高度 ${String(headHNow)}px 与本档冻结值不符`
+      + `（${tierNow} 档应为 ${String(FACE_HEAD_H[tierNow])}px，页面根宽 ${String(headM?.pageW)}px）`
+      + ' —— 四句话在窄档有的折两行、有的只一行，页头不等高 ⇒ 四个面之间那条分隔线**不齐**'
+      + '（正是本批实测出来、又被撤掉 min-height 复现的那个形态）')
+  }
 }
 const faceNavCheck = {
   checked: faceNavProblems.length === 0 && faceNavSkipReason === null,
@@ -3313,6 +3345,8 @@ const faceNavCheck = {
   subText: faceM?.subText ?? null,
   subWanted: page === 'kb' ? (FACE_SUB_TEXT[navPage] ?? null) : null,
   subFromOwner: page === 'kb' ? (FACE_SUB_TEXT_FROM_OWNER[navPage] ?? null) : null,
+  headHeight: faceM?.head?.h ?? null,
+  headHeightExpected: FACE_HEAD_H,
   ownerSubUnplaced: OWNER_SUB_UNPLACED,
 }
 
