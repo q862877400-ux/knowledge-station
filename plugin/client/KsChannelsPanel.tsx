@@ -27,7 +27,7 @@
  * 面板显式标注 UTC，并在前端换算成"几分钟前"，避免"04:47"被读成凌晨自动跑过。
  */
 import * as React from 'react'
-import { useCallback, useEffect, useState } from 'react'
+import { Fragment, useCallback, useEffect, useState } from 'react'
 
 import {
   createChannel,
@@ -113,6 +113,92 @@ export function parseSegments(raw: string | null | undefined): string[] {
     return Array.isArray(v) ? v.filter((s): s is string => typeof s === 'string' && s !== '') : []
   } catch {
     return []
+  }
+}
+
+/** 按类别分组（分类批，2026-09-22）：组序 = CATEGORY_LABEL 声明序，未知类别收尾。
+ *  组内保持传入顺序（= sortChannels 的注意力序）。纯函数，判据直接钉。 */
+export function groupRowsByCategory(
+  rows: readonly KsChannelRecord[],
+): Array<{ key: string; label: string; rows: KsChannelRecord[] }> {
+  const order = Object.keys(CATEGORY_LABEL)
+  const groups = new Map<string, KsChannelRecord[]>()
+  for (const r of rows) {
+    const arr = groups.get(r.category) ?? []
+    arr.push(r)
+    groups.set(r.category, arr)
+  }
+  const keys = [...groups.keys()].sort((a, b) => {
+    const ia = order.indexOf(a)
+    const ib = order.indexOf(b)
+    return (ia < 0 ? order.length : ia) - (ib < 0 ? order.length : ib) || a.localeCompare(b)
+  })
+  return keys.map((k) => ({ key: k, label: CATEGORY_LABEL[k] ?? k, rows: groups.get(k) ?? [] }))
+}
+
+/** 「AI 一键解决」提示词生成（业主 2026-09-22）：点按钮复制一段提示词，用户粘到对话框，
+ *  AI 自己去诊断所有渠道为什么失败、怎么修、怎么长期有效、要人帮什么、用什么工具。
+ *  纯函数：喂台账真数据、出自足提示词（agent 看不到本会话，一切要写进词里）。 */
+export function buildChannelFixPrompt(
+  rows: readonly KsChannelRecord[],
+  s?: { total: number; by_state: Record<string, number>; by_wiring: Record<string, number> },
+): string {
+  const bad = rows.filter((r) => r.state !== 'ok' || r.wiring === 'broken' || r.consecutive_failures > 0)
+  const line = (r: KsChannelRecord): string =>
+    `- 【${r.name}】类别=${CATEGORY_LABEL[r.category] ?? r.category}；接线=${r.wiring}；`
+    + `有效性=${STATE_LABEL[r.state] ?? r.state}${r.enabled === 0 ? '（已停用）' : ''}；`
+    + `链接=${r.url ?? '（无）'}；号段=${parseSegments(r.segments_json).join('/') || '（无）'}；`
+    + `上次错误=${r.last_error_code ?? '—'} ${r.last_error ?? ''}`.trimEnd()
+    + `；连续失败=${r.consecutive_failures}；备注=${r.note ?? '—'}`
+  return [
+    '请接手「法规/标准巡检渠道台账」的失效渠道修复。台账是渠道能不能抓到法规/标准更新的账本；',
+    '下面先给台账现状与问题清单，然后是你的任务。',
+    '',
+    '## 台账现状',
+    s ? `共 ${s.total} 条（有效 ${s.by_state.ok ?? 0} / 可疑 ${s.by_state.suspicious ?? 0} / 失效 ${s.by_state.down ?? 0} / 未探 ${s.by_state.unknown ?? 0}；`
+      + `接线 ${s.by_wiring.wired ?? 0}、已知失效 ${s.by_wiring.broken ?? 0}）` : `共 ${rows.length} 条`,
+    '',
+    `## 问题渠道（${bad.length} 条）`,
+    ...(bad.length > 0 ? bad.map(line) : ['（当前没有状态异常的渠道——请核对"可疑/失效/未探"里有没有漏网）']),
+    '',
+    '## 你的任务（对每条问题渠道逐条做，别只给泛泛而谈）',
+    '1. **诊断为什么失败**：用 web_fetch 实测链接现状（HTTP 码/落地页/是否改版/是否要登录或验证码）；',
+    '   再读我们的适配器代码判断是"站点变了"还是"我们的解析器坏了"（两者修法完全不同）。',
+    '2. **怎么修才行**：给具体方案——换端点/改解析/改请求头/换适配策略，说明改动会落在哪个文件。',
+    '3. **怎么长期有效**：修完怎么防止再坏（语义探针期望、回归用例、探测告警口径、负缓存）。',
+    '4. **需要用户怎么协助**：如实列出只有人能做的事（人工验证/注册账号/过验证码/授权/确认口径）——不要自己替用户决定。',
+    '5. **修复时用什么工具**：web_search/web_fetch（实测）、引擎探测端点 `POST /api/v1/channels/probe`（语义探针）、',
+    '   测试 `tests/test_channel_repo.py` / `tests/test_ledger_chain.py`、门禁 `pwsh -File scripts/run-gates.ps1 -Quick`。',
+    '',
+    '## 边界与纪律',
+    '- 先读 `docs/CHANNEL-COVERAGE-PLAN.md`（渠道覆盖方案与轮次台账）再动手；适配器在 `src/core/laws/`（按渠道分文件）。',
+    '- 修不动/证据不足的**如实说修不动**，登记原因，不要硬编一个"应该能用"的方案。',
+    '- 每步小提交，消息写清"改了什么/为什么/边界"；产出物只出 Markdown。',
+    '- 有不确定的先问用户，不要默默替他做决定。',
+  ].join('\n')
+}
+
+/** 复制文本到剪贴板（剪贴板 API 不可用时回退 textarea+execCommand）。 */
+export async function copyTextToClipboard(text: string): Promise<boolean> {
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text)
+      return true
+    }
+  } catch { /* 落到回退路 */ }
+  try {
+    const ta = document.createElement('textarea')
+    ta.value = text
+    ta.setAttribute('readonly', '')
+    ta.style.position = 'fixed'
+    ta.style.opacity = '0'
+    document.body.appendChild(ta)
+    ta.select()
+    const ok = document.execCommand('copy')
+    ta.remove()
+    return ok
+  } catch {
+    return false
   }
 }
 
@@ -287,6 +373,17 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
           title="人工加一条渠道：引擎侧已落（R6d），界面侧这一步是 R6f">
           {adding ? '× 取消新增' : '＋ 新增渠道'}
         </button>
+        <button type="button" data-ks-channels-ai-fix onClick={() => {
+          const prompt = buildChannelFixPrompt(data?.items ?? rows, data?.summary)
+          void copyTextToClipboard(prompt).then((ok) => {
+            setNotice(ok
+              ? '提示词已复制——粘到对话框发出去，AI 会逐条诊断失效原因、给修法、说清要你帮什么。'
+              : '复制失败：浏览器拒绝了剪贴板权限。请手动全选下方提示词复制。')
+          })
+        }} style={{ ...$btn, borderColor: 'var(--dsw-alias-state-business-primary, #1565c0)' }}
+          title="生成一段诊断提示词并复制：粘到对话框发出去，AI 会诊断每条失效渠道为什么坏、怎么修、怎么长期有效、要你帮什么、用什么工具修">
+          🤖 AI 一键解决
+        </button>
       </div>
 
       {/* 人工新增：只收「人能知道」的三样（名称/链接/备注）。
@@ -347,7 +444,16 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
               </tr>
             </thead>
             <tbody>
-              {rows.map((r) => (
+              {/* 分类（2026-09-22）：按类别分组展示——组序=类别声明序、组内=注意力序。 */}
+              {groupRowsByCategory(rows).map((g) => (
+                <Fragment key={g.key}>
+                  <tr>
+                    <td colSpan={9} style={{ ...$td, fontWeight: 600,
+                      background: 'var(--dsw-alias-bg-layer-2, #f5f5f5)' }}>
+                      {g.label}（{g.rows.length} 条）
+                    </td>
+                  </tr>
+                  {g.rows.map((r) => (
                 <tr key={r.channel_id} style={needsAttention(r) ? $trWarn : undefined}>
                   <td style={$td} title={r.note ?? undefined}>
                     {r.name}
@@ -419,7 +525,9 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
                       删除
                     </button>
                   </td>
-                </tr>
+                  </tr>
+                  ))}
+                </Fragment>
               ))}
             </tbody>
           </table>

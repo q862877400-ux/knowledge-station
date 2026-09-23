@@ -34855,6 +34855,73 @@ function parseSegments(raw) {
     return [];
   }
 }
+function groupRowsByCategory(rows) {
+  const order = Object.keys(CATEGORY_LABEL);
+  const groups = /* @__PURE__ */ new Map();
+  for (const r of rows) {
+    const arr = groups.get(r.category) ?? [];
+    arr.push(r);
+    groups.set(r.category, arr);
+  }
+  const keys = [...groups.keys()].sort((a, b) => {
+    const ia = order.indexOf(a);
+    const ib = order.indexOf(b);
+    return (ia < 0 ? order.length : ia) - (ib < 0 ? order.length : ib) || a.localeCompare(b);
+  });
+  return keys.map((k) => ({ key: k, label: CATEGORY_LABEL[k] ?? k, rows: groups.get(k) ?? [] }));
+}
+function buildChannelFixPrompt(rows, s) {
+  const bad = rows.filter((r) => r.state !== "ok" || r.wiring === "broken" || r.consecutive_failures > 0);
+  const line = (r) => `- \u3010${r.name}\u3011\u7C7B\u522B=${CATEGORY_LABEL[r.category] ?? r.category}\uFF1B\u63A5\u7EBF=${r.wiring}\uFF1B\u6709\u6548\u6027=${STATE_LABEL[r.state] ?? r.state}${r.enabled === 0 ? "\uFF08\u5DF2\u505C\u7528\uFF09" : ""}\uFF1B\u94FE\u63A5=${r.url ?? "\uFF08\u65E0\uFF09"}\uFF1B\u53F7\u6BB5=${parseSegments(r.segments_json).join("/") || "\uFF08\u65E0\uFF09"}\uFF1B` + `\u4E0A\u6B21\u9519\u8BEF=${r.last_error_code ?? "\u2014"} ${r.last_error ?? ""}`.trimEnd() + `\uFF1B\u8FDE\u7EED\u5931\u8D25=${r.consecutive_failures}\uFF1B\u5907\u6CE8=${r.note ?? "\u2014"}`;
+  return [
+    "\u8BF7\u63A5\u624B\u300C\u6CD5\u89C4/\u6807\u51C6\u5DE1\u68C0\u6E20\u9053\u53F0\u8D26\u300D\u7684\u5931\u6548\u6E20\u9053\u4FEE\u590D\u3002\u53F0\u8D26\u662F\u6E20\u9053\u80FD\u4E0D\u80FD\u6293\u5230\u6CD5\u89C4/\u6807\u51C6\u66F4\u65B0\u7684\u8D26\u672C\uFF1B",
+    "\u4E0B\u9762\u5148\u7ED9\u53F0\u8D26\u73B0\u72B6\u4E0E\u95EE\u9898\u6E05\u5355\uFF0C\u7136\u540E\u662F\u4F60\u7684\u4EFB\u52A1\u3002",
+    "",
+    "## \u53F0\u8D26\u73B0\u72B6",
+    s ? `\u5171 ${s.total} \u6761\uFF08\u6709\u6548 ${s.by_state.ok ?? 0} / \u53EF\u7591 ${s.by_state.suspicious ?? 0} / \u5931\u6548 ${s.by_state.down ?? 0} / \u672A\u63A2 ${s.by_state.unknown ?? 0}\uFF1B\u63A5\u7EBF ${s.by_wiring.wired ?? 0}\u3001\u5DF2\u77E5\u5931\u6548 ${s.by_wiring.broken ?? 0}\uFF09` : `\u5171 ${rows.length} \u6761`,
+    "",
+    `## \u95EE\u9898\u6E20\u9053\uFF08${bad.length} \u6761\uFF09`,
+    ...bad.length > 0 ? bad.map(line) : ['\uFF08\u5F53\u524D\u6CA1\u6709\u72B6\u6001\u5F02\u5E38\u7684\u6E20\u9053\u2014\u2014\u8BF7\u6838\u5BF9"\u53EF\u7591/\u5931\u6548/\u672A\u63A2"\u91CC\u6709\u6CA1\u6709\u6F0F\u7F51\uFF09'],
+    "",
+    "## \u4F60\u7684\u4EFB\u52A1\uFF08\u5BF9\u6BCF\u6761\u95EE\u9898\u6E20\u9053\u9010\u6761\u505A\uFF0C\u522B\u53EA\u7ED9\u6CDB\u6CDB\u800C\u8C08\uFF09",
+    "1. **\u8BCA\u65AD\u4E3A\u4EC0\u4E48\u5931\u8D25**\uFF1A\u7528 web_fetch \u5B9E\u6D4B\u94FE\u63A5\u73B0\u72B6\uFF08HTTP \u7801/\u843D\u5730\u9875/\u662F\u5426\u6539\u7248/\u662F\u5426\u8981\u767B\u5F55\u6216\u9A8C\u8BC1\u7801\uFF09\uFF1B",
+    '   \u518D\u8BFB\u6211\u4EEC\u7684\u9002\u914D\u5668\u4EE3\u7801\u5224\u65AD\u662F"\u7AD9\u70B9\u53D8\u4E86"\u8FD8\u662F"\u6211\u4EEC\u7684\u89E3\u6790\u5668\u574F\u4E86"\uFF08\u4E24\u8005\u4FEE\u6CD5\u5B8C\u5168\u4E0D\u540C\uFF09\u3002',
+    "2. **\u600E\u4E48\u4FEE\u624D\u884C**\uFF1A\u7ED9\u5177\u4F53\u65B9\u6848\u2014\u2014\u6362\u7AEF\u70B9/\u6539\u89E3\u6790/\u6539\u8BF7\u6C42\u5934/\u6362\u9002\u914D\u7B56\u7565\uFF0C\u8BF4\u660E\u6539\u52A8\u4F1A\u843D\u5728\u54EA\u4E2A\u6587\u4EF6\u3002",
+    "3. **\u600E\u4E48\u957F\u671F\u6709\u6548**\uFF1A\u4FEE\u5B8C\u600E\u4E48\u9632\u6B62\u518D\u574F\uFF08\u8BED\u4E49\u63A2\u9488\u671F\u671B\u3001\u56DE\u5F52\u7528\u4F8B\u3001\u63A2\u6D4B\u544A\u8B66\u53E3\u5F84\u3001\u8D1F\u7F13\u5B58\uFF09\u3002",
+    "4. **\u9700\u8981\u7528\u6237\u600E\u4E48\u534F\u52A9**\uFF1A\u5982\u5B9E\u5217\u51FA\u53EA\u6709\u4EBA\u80FD\u505A\u7684\u4E8B\uFF08\u4EBA\u5DE5\u9A8C\u8BC1/\u6CE8\u518C\u8D26\u53F7/\u8FC7\u9A8C\u8BC1\u7801/\u6388\u6743/\u786E\u8BA4\u53E3\u5F84\uFF09\u2014\u2014\u4E0D\u8981\u81EA\u5DF1\u66FF\u7528\u6237\u51B3\u5B9A\u3002",
+    "5. **\u4FEE\u590D\u65F6\u7528\u4EC0\u4E48\u5DE5\u5177**\uFF1Aweb_search/web_fetch\uFF08\u5B9E\u6D4B\uFF09\u3001\u5F15\u64CE\u63A2\u6D4B\u7AEF\u70B9 `POST /api/v1/channels/probe`\uFF08\u8BED\u4E49\u63A2\u9488\uFF09\u3001",
+    "   \u6D4B\u8BD5 `tests/test_channel_repo.py` / `tests/test_ledger_chain.py`\u3001\u95E8\u7981 `pwsh -File scripts/run-gates.ps1 -Quick`\u3002",
+    "",
+    "## \u8FB9\u754C\u4E0E\u7EAA\u5F8B",
+    "- \u5148\u8BFB `docs/CHANNEL-COVERAGE-PLAN.md`\uFF08\u6E20\u9053\u8986\u76D6\u65B9\u6848\u4E0E\u8F6E\u6B21\u53F0\u8D26\uFF09\u518D\u52A8\u624B\uFF1B\u9002\u914D\u5668\u5728 `src/core/laws/`\uFF08\u6309\u6E20\u9053\u5206\u6587\u4EF6\uFF09\u3002",
+    '- \u4FEE\u4E0D\u52A8/\u8BC1\u636E\u4E0D\u8DB3\u7684**\u5982\u5B9E\u8BF4\u4FEE\u4E0D\u52A8**\uFF0C\u767B\u8BB0\u539F\u56E0\uFF0C\u4E0D\u8981\u786C\u7F16\u4E00\u4E2A"\u5E94\u8BE5\u80FD\u7528"\u7684\u65B9\u6848\u3002',
+    '- \u6BCF\u6B65\u5C0F\u63D0\u4EA4\uFF0C\u6D88\u606F\u5199\u6E05"\u6539\u4E86\u4EC0\u4E48/\u4E3A\u4EC0\u4E48/\u8FB9\u754C"\uFF1B\u4EA7\u51FA\u7269\u53EA\u51FA Markdown\u3002',
+    "- \u6709\u4E0D\u786E\u5B9A\u7684\u5148\u95EE\u7528\u6237\uFF0C\u4E0D\u8981\u9ED8\u9ED8\u66FF\u4ED6\u505A\u51B3\u5B9A\u3002"
+  ].join("\n");
+}
+async function copyTextToClipboard(text) {
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+  } catch {
+  }
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    const ok = document.execCommand("copy");
+    ta.remove();
+    return ok;
+  } catch {
+    return false;
+  }
+}
 function KsChannelsPanel(props) {
   const { visible } = props;
   const [data, setData] = (0, import_react7.useState)(null);
@@ -35048,6 +35115,22 @@ function KsChannelsPanel(props) {
           title: "\u4EBA\u5DE5\u52A0\u4E00\u6761\u6E20\u9053\uFF1A\u5F15\u64CE\u4FA7\u5DF2\u843D\uFF08R6d\uFF09\uFF0C\u754C\u9762\u4FA7\u8FD9\u4E00\u6B65\u662F R6f",
           children: adding ? "\xD7 \u53D6\u6D88\u65B0\u589E" : "\uFF0B \u65B0\u589E\u6E20\u9053"
         }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+        "button",
+        {
+          type: "button",
+          "data-ks-channels-ai-fix": true,
+          onClick: () => {
+            const prompt = buildChannelFixPrompt(data?.items ?? rows, data?.summary);
+            void copyTextToClipboard(prompt).then((ok) => {
+              setNotice(ok ? "\u63D0\u793A\u8BCD\u5DF2\u590D\u5236\u2014\u2014\u7C98\u5230\u5BF9\u8BDD\u6846\u53D1\u51FA\u53BB\uFF0CAI \u4F1A\u9010\u6761\u8BCA\u65AD\u5931\u6548\u539F\u56E0\u3001\u7ED9\u4FEE\u6CD5\u3001\u8BF4\u6E05\u8981\u4F60\u5E2E\u4EC0\u4E48\u3002" : "\u590D\u5236\u5931\u8D25\uFF1A\u6D4F\u89C8\u5668\u62D2\u7EDD\u4E86\u526A\u8D34\u677F\u6743\u9650\u3002\u8BF7\u624B\u52A8\u5168\u9009\u4E0B\u65B9\u63D0\u793A\u8BCD\u590D\u5236\u3002");
+            });
+          },
+          style: { ...$btn2, borderColor: "var(--dsw-alias-state-business-primary, #1565c0)" },
+          title: "\u751F\u6210\u4E00\u6BB5\u8BCA\u65AD\u63D0\u793A\u8BCD\u5E76\u590D\u5236\uFF1A\u7C98\u5230\u5BF9\u8BDD\u6846\u53D1\u51FA\u53BB\uFF0CAI \u4F1A\u8BCA\u65AD\u6BCF\u6761\u5931\u6548\u6E20\u9053\u4E3A\u4EC0\u4E48\u574F\u3001\u600E\u4E48\u4FEE\u3001\u600E\u4E48\u957F\u671F\u6709\u6548\u3001\u8981\u4F60\u5E2E\u4EC0\u4E48\u3001\u7528\u4EC0\u4E48\u5DE5\u5177\u4FEE",
+          children: "\u{1F916} AI \u4E00\u952E\u89E3\u51B3"
+        }
       )
     ] }),
     adding && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: {
@@ -35121,110 +35204,122 @@ function KsChannelsPanel(props) {
         /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("th", { style: $th, children: "\u94FE\u63A5" }),
         /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("th", { style: $th, children: "\u7EF4\u62A4" })
       ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("tbody", { children: rows.map((r) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("tr", { style: needsAttention(r) ? $trWarn : void 0, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: $td, title: r.note ?? void 0, children: [
-          r.name,
-          r.enabled === 0 ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: FAINT }, children: "\uFF08\u5DF2\u505C\u7528\uFF09" }) : null
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: $td, children: [
-          CATEGORY_LABEL[r.category] ?? r.category,
-          r.category_raw && r.category_raw !== r.category ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: FAINT }, title: `\u8C03\u7814\u539F\u6587\uFF1A${r.category_raw}`, children: "*" }) : null
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("td", { style: $td, title: r.wiring === "broken" ? r.note ?? "" : void 0, children: WIRING_LABEL[r.wiring] ?? r.wiring }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-          "td",
-          {
-            style: { ...$td, maxWidth: 150 },
-            title: "\u94FE\u6309\u53F7\u6BB5\u505A\u52A0\u6CD5\uFF08\u53EA\u52A0\u5C3E\u5DF4\u3001\u4E0D\u6539\u987A\u5E8F\uFF09\uFF1A\u8FD9\u4E9B\u524D\u7F00\u547D\u4E2D\u7684\u6807\u51C6\u53F7\u4F1A\u591A\u95EE\u8FD9\u6761\u6E20\u9053\u4E00\u6839\u3002\u7559\u7A7A = \u4E0D\u9760\u53F7\u6BB5\u8FDB\u94FE\u3002",
-            children: parseSegments(r.segments_json).length > 0 ? parseSegments(r.segments_json).map((s2) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("code", { style: { marginRight: 4 }, children: s2 }, s2)) : /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: FAINT }, children: "\u2014" })
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: $td, children: [
-          STATE_LABEL[r.state] ?? r.state,
-          r.state === "unknown" && r.has_probe_target === false ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: FAINT }, title: "\u8BE5\u6E20\u9053\u6CA1\u6709\u63A2\u9488\u76EE\u6807\uFF08\u4EE3\u7801\u4ED3\u5E93/\u6211\u65B9\u4EE3\u7801\u901A\u8DEF\u7B49\uFF09\uFF0C\u4E0D\u662F'\u8FD8\u6CA1\u8F6E\u5230\u5B83'", children: "\uFF08\u65E0\u63A2\u9488\uFF09" }) : null,
-          r.latency_ms != null ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { color: FAINT }, children: [
-            " ",
-            r.latency_ms,
-            "ms"
-          ] }) : null
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: $td, title: r.last_ok_at ?? "", children: [
-          describeWhen(r.last_ok_at),
-          r.last_try_at && r.last_try_at !== r.last_ok_at ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { color: FAINT }, children: [
-            "\uFF08\u8BD5\u8FC7 ",
-            describeWhen(r.last_try_at),
-            "\uFF09"
-          ] }) : null
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: { ...$td, color: r.last_error ? "#c0392b" : FAINT, maxWidth: 220 }, children: [
-          r.last_error_code ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("code", { children: r.last_error_code }) : "\u2014",
-          r.last_error ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { children: [
-            " ",
-            r.last_error.slice(0, 60)
-          ] }) : null,
-          r.consecutive_failures > 1 ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { color: FAINT }, children: [
-            "\uFF08\u8FDE\u7EED ",
-            r.consecutive_failures,
-            " \u6B21\uFF09"
-          ] }) : null
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("td", { style: $td, children: r.url ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-          "a",
-          {
-            href: r.url.split(/[（\s]/)[0],
-            target: "_blank",
-            rel: "noreferrer noopener",
-            style: { color: "var(--dsw-alias-link, #1565c0)" },
-            children: "\u6253\u5F00"
-          }
-        ) : "\u2014" }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: { ...$td, whiteSpace: "nowrap" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("tbody", { children: groupRowsByCategory(rows).map((g) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_react7.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("tr", { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { colSpan: 9, style: {
+          ...$td,
+          fontWeight: 600,
+          background: "var(--dsw-alias-bg-layer-2, #f5f5f5)"
+        }, children: [
+          g.label,
+          "\uFF08",
+          g.rows.length,
+          " \u6761\uFF09"
+        ] }) }),
+        g.rows.map((r) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("tr", { style: needsAttention(r) ? $trWarn : void 0, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: $td, title: r.note ?? void 0, children: [
+            r.name,
+            r.enabled === 0 ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: FAINT }, children: "\uFF08\u5DF2\u505C\u7528\uFF09" }) : null
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: $td, children: [
+            CATEGORY_LABEL[r.category] ?? r.category,
+            r.category_raw && r.category_raw !== r.category ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: FAINT }, title: `\u8C03\u7814\u539F\u6587\uFF1A${r.category_raw}`, children: "*" }) : null
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("td", { style: $td, title: r.wiring === "broken" ? r.note ?? "" : void 0, children: WIRING_LABEL[r.wiring] ?? r.wiring }),
           /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-            "button",
+            "td",
             {
-              type: "button",
-              disabled: mutating,
-              style: $mini,
-              onClick: () => void toggleEnabled(r),
-              title: r.enabled === 0 ? "\u91CD\u65B0\u542F\u7528\u8FD9\u6761\u6E20\u9053" : "\u505C\u7528\uFF08\u4FDD\u7559\u5386\u53F2\u5065\u5EB7\u5EA6\uFF0C\u4E0D\u5220\u6761\u76EE\uFF09",
-              children: r.enabled === 0 ? "\u542F\u7528" : "\u505C\u7528"
+              style: { ...$td, maxWidth: 150 },
+              title: "\u94FE\u6309\u53F7\u6BB5\u505A\u52A0\u6CD5\uFF08\u53EA\u52A0\u5C3E\u5DF4\u3001\u4E0D\u6539\u987A\u5E8F\uFF09\uFF1A\u8FD9\u4E9B\u524D\u7F00\u547D\u4E2D\u7684\u6807\u51C6\u53F7\u4F1A\u591A\u95EE\u8FD9\u6761\u6E20\u9053\u4E00\u6839\u3002\u7559\u7A7A = \u4E0D\u9760\u53F7\u6BB5\u8FDB\u94FE\u3002",
+              children: parseSegments(r.segments_json).length > 0 ? parseSegments(r.segments_json).map((s2) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("code", { style: { marginRight: 4 }, children: s2 }, s2)) : /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: FAINT }, children: "\u2014" })
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-            "button",
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: $td, children: [
+            STATE_LABEL[r.state] ?? r.state,
+            r.state === "unknown" && r.has_probe_target === false ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: FAINT }, title: "\u8BE5\u6E20\u9053\u6CA1\u6709\u63A2\u9488\u76EE\u6807\uFF08\u4EE3\u7801\u4ED3\u5E93/\u6211\u65B9\u4EE3\u7801\u901A\u8DEF\u7B49\uFF09\uFF0C\u4E0D\u662F'\u8FD8\u6CA1\u8F6E\u5230\u5B83'", children: "\uFF08\u65E0\u63A2\u9488\uFF09" }) : null,
+            r.latency_ms != null ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { color: FAINT }, children: [
+              " ",
+              r.latency_ms,
+              "ms"
+            ] }) : null
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: $td, title: r.last_ok_at ?? "", children: [
+            describeWhen(r.last_ok_at),
+            r.last_try_at && r.last_try_at !== r.last_ok_at ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { color: FAINT }, children: [
+              "\uFF08\u8BD5\u8FC7 ",
+              describeWhen(r.last_try_at),
+              "\uFF09"
+            ] }) : null
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: { ...$td, color: r.last_error ? "#c0392b" : FAINT, maxWidth: 220 }, children: [
+            r.last_error_code ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("code", { children: r.last_error_code }) : "\u2014",
+            r.last_error ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { children: [
+              " ",
+              r.last_error.slice(0, 60)
+            ] }) : null,
+            r.consecutive_failures > 1 ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { color: FAINT }, children: [
+              "\uFF08\u8FDE\u7EED ",
+              r.consecutive_failures,
+              " \u6B21\uFF09"
+            ] }) : null
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("td", { style: $td, children: r.url ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+            "a",
             {
-              type: "button",
-              disabled: mutating,
-              style: $mini,
-              onClick: () => void editNote(r),
-              title: "\u6539\u5907\u6CE8\uFF08\u4F1A\u5199\u5BA1\u8BA1\u75D5\u8FF9\uFF09",
-              children: "\u6539\u5907\u6CE8"
+              href: r.url.split(/[（\s]/)[0],
+              target: "_blank",
+              rel: "noreferrer noopener",
+              style: { color: "var(--dsw-alias-link, #1565c0)" },
+              children: "\u6253\u5F00"
             }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-            "button",
-            {
-              type: "button",
-              disabled: mutating,
-              style: $mini,
-              onClick: () => void editSegments(r),
-              title: "\u6539\u53F7\u6BB5\uFF1A\u8FD9\u6761\u6E20\u9053\u7BA1\u54EA\u4E9B\u6807\u51C6\u53F7\u524D\u7F00\uFF08\u9017\u53F7\u5206\u5F00\uFF1B\u4F1A\u5199\u5BA1\u8BA1\u75D5\u8FF9\uFF09",
-              children: "\u6539\u53F7\u6BB5"
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-            "button",
-            {
-              type: "button",
-              disabled: mutating,
-              style: { ...$mini, color: "#c0392b" },
-              onClick: () => void remove(r),
-              title: "\u5220\u9664\u6761\u76EE\uFF08\u5F15\u64CE\u7684\u5BA1\u8BA1\u75D5\u8FF9\u91CC\u4FDD\u7559\u5220\u9664\u524D\u6574\u884C\uFF1B\u4E00\u822C\u5EFA\u8BAE\u7528\u300C\u505C\u7528\u300D\uFF09",
-              children: "\u5220\u9664"
-            }
-          )
-        ] })
-      ] }, r.channel_id)) })
+          ) : "\u2014" }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: { ...$td, whiteSpace: "nowrap" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+              "button",
+              {
+                type: "button",
+                disabled: mutating,
+                style: $mini,
+                onClick: () => void toggleEnabled(r),
+                title: r.enabled === 0 ? "\u91CD\u65B0\u542F\u7528\u8FD9\u6761\u6E20\u9053" : "\u505C\u7528\uFF08\u4FDD\u7559\u5386\u53F2\u5065\u5EB7\u5EA6\uFF0C\u4E0D\u5220\u6761\u76EE\uFF09",
+                children: r.enabled === 0 ? "\u542F\u7528" : "\u505C\u7528"
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+              "button",
+              {
+                type: "button",
+                disabled: mutating,
+                style: $mini,
+                onClick: () => void editNote(r),
+                title: "\u6539\u5907\u6CE8\uFF08\u4F1A\u5199\u5BA1\u8BA1\u75D5\u8FF9\uFF09",
+                children: "\u6539\u5907\u6CE8"
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+              "button",
+              {
+                type: "button",
+                disabled: mutating,
+                style: $mini,
+                onClick: () => void editSegments(r),
+                title: "\u6539\u53F7\u6BB5\uFF1A\u8FD9\u6761\u6E20\u9053\u7BA1\u54EA\u4E9B\u6807\u51C6\u53F7\u524D\u7F00\uFF08\u9017\u53F7\u5206\u5F00\uFF1B\u4F1A\u5199\u5BA1\u8BA1\u75D5\u8FF9\uFF09",
+                children: "\u6539\u53F7\u6BB5"
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+              "button",
+              {
+                type: "button",
+                disabled: mutating,
+                style: { ...$mini, color: "#c0392b" },
+                onClick: () => void remove(r),
+                title: "\u5220\u9664\u6761\u76EE\uFF08\u5F15\u64CE\u7684\u5BA1\u8BA1\u75D5\u8FF9\u91CC\u4FDD\u7559\u5220\u9664\u524D\u6574\u884C\uFF1B\u4E00\u822C\u5EFA\u8BAE\u7528\u300C\u505C\u7528\u300D\uFF09",
+                children: "\u5220\u9664"
+              }
+            )
+          ] })
+        ] }, r.channel_id))
+      ] }, g.key)) })
     ] }) }),
     /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { style: { margin: 0, color: FAINT, lineHeight: 1.6 }, children: '\u65F6\u95F4\u5217\u662F UTC\uFF08\u5E93\u5185 `datetime(\'now\')` \u7684\u65E2\u6709\u53E3\u5F84\uFF09\uFF0C\u65C1\u8FB9\u6309"\u591A\u4E45\u4E4B\u524D"\u663E\u793A\u3002 \u300C\u7ACB\u5373\u63A2\u6D4B\u300D\u53EA\u63A2\u914D\u4E86\u63A2\u9488\u76EE\u6807\u7684\u6E20\u9053\uFF08\u951A\u70B9\u5FC5\u987B\u5B9E\u6D4B\u770B\u5230\u8FC7\uFF0C\u4E0D\u8BB8\u51ED\u60F3\u8C61\u5199\uFF09\uFF1B \u6CA1\u914D\u7684\u663E\u793A \u26AA \u672A\u63A2 \u2014\u2014 \u90A3\u662F"\u8FD8\u6CA1\u6D4B\u8FC7"\uFF0C\u4E0D\u662F"\u6D4B\u8FC7\u4E86\u6CA1\u95EE\u9898"\uFF1B \u6807\u4E86\u300C\uFF08\u65E0\u63A2\u9488\uFF09\u300D\u7684\u662F\u6309\u8BBE\u8BA1\u5C31\u6CA1\u6709\u63A2\u9488\u76EE\u6807\uFF08\u4EE3\u7801\u4ED3\u5E93\u3001\u6211\u65B9\u4EE3\u7801\u901A\u8DEF\u7B49\uFF09\uFF0C \u4E0E"\u8FD8\u6CA1\u8F6E\u5230\u5B83"\u4E0D\u662F\u4E00\u56DE\u4E8B\uFF1B \u8FD8\u6709\u4E00\u79CD \u26AA \u662F\u80FD\u8FDE\u901A\u3001\u4F46\u6211\u4EEC\u6CA1\u7ED9\u5B83\u914D\u8BED\u4E49\u671F\u671B\uFF08\u5931\u8D25\u539F\u56E0\u5217\u5199 `no_anchor_configured`\uFF09 \u2014\u2014 \u5B83\u540C\u6837\u4E0D\u7B97\u300C\u53EF\u6293\u300D\uFF0C\u4F46\u4E5F\u4E0D\u662F\u6B20\u8D26\u3002' })
   ] });
