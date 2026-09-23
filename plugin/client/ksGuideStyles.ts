@@ -491,7 +491,7 @@ export const KS_STYLES = `
 .ks-list-chans{--ks-cols:minmax(0,1.6fr) 84px 96px minmax(0,1fr) 200px}
 /* 批E4（业主 2026-09-23）：页面顶条「文件夹凸出标签」四入口。选中那张=被抽出来的舌：
    上浮 2px、渐变底、投影、下缘与内容区连通；其余标签压在条上（审美案按业主授权自定）。 */
-.ks-tabfolder-strip{display:flex;gap:8px;align-items:flex-end;padding:4px var(--ks-page-pad-x) 0;
+.ks-tabfolder-strip{display:flex;gap:8px;align-items:flex-end;margin-top:-8px;padding:4px var(--ks-page-pad-x) 0;
   border-bottom:var(--ks-stroke) solid var(--dsw-alias-border-l2)}
 .ks-tabfolder{border:var(--ks-stroke) solid var(--dsw-alias-border-l2);border-bottom:none;
   border-radius:var(--ks-radius) var(--ks-radius) 0 0;padding:8px 20px;min-width:96px;text-align:center;cursor:pointer;
@@ -499,7 +499,11 @@ export const KS_STYLES = `
   min-height:32px;transition:transform .12s ease}
 .ks-tabfolder:hover{color:var(--dsw-alias-label-primary);transform:translateY(-1px)}
 .ks-tabfolder-on{color:var(--dsw-alias-label-primary);font-weight:600;transform:translateY(-2px);
-  background:var(--dsw-alias-border-l2);margin-bottom:-1px;padding-bottom:8px;min-height:32px}
+  background:var(--dsw-alias-border-l2);margin-bottom:-1px;padding-bottom:8px;
+/* 批·页头瘦身（2026-09-23 业主：横幅删掉、大标题删掉、只留一句介绍）+ 标签条贴顶统一。 */
+.ks-page-head{background:none;border:none;padding:4px 0 0;margin:0}
+.ks-page-head :is(h1,h2,.ks-page-title){display:none}
+min-height:32px}
 /* 批②（2026-09-23）：渠道库左树的行样式（容器复用 .ks-kb-tree/.ks-kb-row）。 */
 .ks-tree-item{display:block;width:100%;text-align:left;cursor:pointer;padding:4px 8px;
   min-height:28px;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);
