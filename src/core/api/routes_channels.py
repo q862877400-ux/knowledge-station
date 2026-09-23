@@ -199,6 +199,40 @@ def register(app, json_error):
         return {"code": 200, "status": "success", "data": {"deleted": bool(ok),
                                                            "channel_id": channel_id}}
 
+    @app.post("/api/v1/channels/{channel_id}/test-case")
+    def set_channel_test_case(channel_id: str, body: dict | None = None):
+        """配/改这条渠道的「已知文件」（批C，2026-09-22 业主定）：样本链接 + 期望标准号。
+
+        验收口径（业主原话）："成功把某个你知道的文件从新渠道下载或者识别下来了，
+        那就说明这个渠道是成功的"。形状校验出声拒绝（缺参/空值 ⇒ 422）。"""
+        body = body or {}
+        url = str(body.get("sample_url") or "").strip()
+        expect = str(body.get("expect_no") or "").strip()
+        if url == "" or expect == "":
+            return json_error(422, "test_case_needs_url_and_expect",
+                              "sample_url（样本链接）与 expect_no（期望标准号）都要填")
+        from src.core.update import channel_test as ct
+        out = ct.set_test_case(channel_id, url, expect, body.get("note"))
+        if out is None:
+            return json_error(404, "channel_not_found", f"渠道不存在: {channel_id}")
+        return {"code": 200, "status": "success", "data": {"test_case": out}}
+
+    @app.get("/api/v1/channels/{channel_id}/test-case")
+    def get_channel_test_case(channel_id: str):
+        """读这条渠道的「已知文件」+ 最近一次测试留痕（没配 = data.test_case 为 null）。"""
+        from src.core.update import channel_test as ct
+        return {"code": 200, "status": "success",
+                "data": {"test_case": ct.get_test_case(channel_id)}}
+
+    @app.post("/api/v1/channels/{channel_id}/test")
+    def run_channel_test(channel_id: str, body: dict | None = None):
+        """跑「已知文件测试」：真拉样本 → 识别标准号 → 比对期望 → **结果留痕**。
+
+        返回 {"result": "ok"|"fail"|"no_case", "detail": 人话}；失败也落库（没留痕=没测过）。
+        真网络 GET（10s 超时）——这是验收动作，不是探针；错误如实返回，不粉饰。"""
+        from src.core.update import channel_test as ct
+        return {"code": 200, "status": "success", "data": ct.run_channel_test(channel_id)}
+
     @app.post("/api/v1/channels/probe")
     def probe_channels(body: dict | None = None):
         """**立刻探一遍**（面板上的人工动作：怀疑某个渠道坏了，点一下看真相）。

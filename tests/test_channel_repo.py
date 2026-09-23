@@ -497,3 +497,69 @@ class Test单位性质:
         cr.upsert_channel("ch:idem", {"name": "某省住建厅", "category": "other"})
         assert cr.backfill_org_kind() >= 1
         assert cr.backfill_org_kind() == 0
+
+class Test渠道已知文件测试:
+    """批C 判据（2026-09-22）：「试一试」= 拉已知文件 → 识别标准号 → 比对 → **留痕**。
+
+    业主验收口径："成功把某个你知道的文件从新渠道下载或者识别下来了，那就说明这个渠道是
+    成功的"。网络一律假 fetcher（零真网络）；真实路径与测试路径**同一段比对代码**。"""
+
+    def _mk(self, db, cid="ch:t1"):
+        from src.core.storage import channel_repo as cr
+        return cr.upsert_channel(cid, {"name": "测试渠道", "category": "other"})
+
+    def test_配样本与读回(self, db):
+        from src.core.update import channel_test as ct
+        self._mk(db)
+        out = ct.set_test_case("ch:t1", "https://x.example/a.pdf", "GB/T 1-2020", "样例")
+        assert out["sample_url"] == "https://x.example/a.pdf"
+        assert out["expect_no"] == "GB/T 1-2020"
+        assert ct.get_test_case("ch:t1")["note"] == "样例"
+
+    def test_没配样本直接说没配(self, db):
+        from src.core.update import channel_test as ct
+        self._mk(db, "ch:t2")
+        out = ct.run_channel_test("ch:t2")
+        assert out["result"] == "no_case" and "已知文件" in out["detail"]
+
+    def test_拉到并认出_比对通过_留痕_ok(self, db):
+        from src.core.update import channel_test as ct
+        self._mk(db)
+        ct.set_test_case("ch:t1", "https://x.example/a.pdf", "GB/T 1-2020")
+        out = ct.run_channel_test("ch:t1",
+                                  fetcher=lambda u: (200, b"asdlk GB/T 1-2020 asd"))
+        assert out["result"] == "ok" and out["got"] == "GB/T 1-2020"
+        assert ct.get_test_case("ch:t1")["last_result"] == "ok"
+
+    def test_认出但对不上_留痕_fail(self, db):
+        from src.core.update import channel_test as ct
+        self._mk(db)
+        ct.set_test_case("ch:t1", "https://x.example/a.pdf", "GB/T 1-2020")
+        out = ct.run_channel_test("ch:t1",
+                                  fetcher=lambda u: (200, b"asdlk GB/T 9-2020 asd"))
+        assert out["result"] == "fail" and "对不上" in out["detail"]
+        assert ct.get_test_case("ch:t1")["last_result"] == "fail"
+
+    def test_拉取失败与没认出_都留痕_fail(self, db):
+        from src.core.update import channel_test as ct
+        self._mk(db)
+        ct.set_test_case("ch:t1", "https://x.example/a.pdf", "GB/T 1-2020")
+
+        def boom(u):
+            raise OSError("connection refused")
+        out = ct.run_channel_test("ch:t1", fetcher=boom)
+        assert out["result"] == "fail" and "拉取失败" in out["detail"]
+        out2 = ct.run_channel_test("ch:t1", fetcher=lambda u: (200, b"no number here"))
+        assert out2["result"] == "fail" and "没认出" in out2["detail"]
+        # 两次失败都留痕（最后一次覆盖 detail，但 last_result 恒在）
+        assert ct.get_test_case("ch:t1")["last_result"] == "fail"
+
+    def test_识别口径_常见号都能认_大小写横竖线比对归一(self, db):
+        from src.core.update.channel_test import identify_standard_no, _norm_no
+        assert identify_standard_no("见 GB/T 10561-2005 钢中非金属夹杂物") == "GB/T 10561-2005"
+        assert identify_standard_no("HJ 2540 环境标志") == "HJ 2540"
+        assert identify_standard_no("DB11/T 344-2019 京城地标") == "DB11/T 344-2019"
+        assert identify_standard_no("T/CECS 10085-2020 团体标准") == "T/CECS 10085-2020"
+        assert identify_standard_no("这里没有标准号") is None
+        # 比对归一：大小写/空白/横竖线不该决定成败
+        assert _norm_no("gb/t 1—2020") == _norm_no("GB/T1-2020")
