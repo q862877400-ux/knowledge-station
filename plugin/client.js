@@ -38492,7 +38492,8 @@ function askWhereText(scope) {
 function KsKnowledgePage({ useTabInfo }) {
   ensureKsStyles();
   const { tab } = useTabInfo();
-  const page = tab.navigation.params?.page ?? "manage";
+  const [pageOverride, setPageOverride] = (0, import_react10.useState)(null);
+  const page = pageOverride ?? tab.navigation.params?.page ?? "manage";
   const [levelId, setLevelId] = (0, import_react10.useState)(null);
   const [subs, setSubs] = (0, import_react10.useState)([]);
   const [files, setFiles] = (0, import_react10.useState)([]);
@@ -39475,7 +39476,7 @@ function KsKnowledgePage({ useTabInfo }) {
   if (page === "materials") {
     return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb", children: [
       /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsTopTabs, { page, onGo: (pp) => {
-        tab.actions.openTab(KS_KB_KIND, { replaceTab: true, params: { page: pp } });
+        setPageOverride(pp);
       }, onPdf: () => {
         tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true });
       } }),
@@ -39490,7 +39491,7 @@ function KsKnowledgePage({ useTabInfo }) {
   if (page === "channels") {
     return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb", children: [
       /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsTopTabs, { page, onGo: (pp) => {
-        tab.actions.openTab(KS_KB_KIND, { replaceTab: true, params: { page: pp } });
+        setPageOverride(pp);
       }, onPdf: () => {
         tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true });
       } }),
@@ -40322,7 +40323,7 @@ function KsKnowledgePage({ useTabInfo }) {
   ] });
   return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb", children: [
     /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsTopTabs, { page, onGo: (pp) => {
-      tab.actions.openTab(KS_KB_KIND, { replaceTab: true, params: { page: pp } });
+      setPageOverride(pp);
     }, onPdf: () => {
       tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true });
     } }),

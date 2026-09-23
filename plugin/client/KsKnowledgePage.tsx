@@ -442,7 +442,11 @@ interface TreeNode {
 export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected): ReactNode {
   ensureKsStyles()
   const { tab } = useTabInfo()
-  const page = (tab.navigation.params as { page?: string } | undefined)?.page ?? 'manage'
+  /* 批·P0（2026-09-23）：换页走**页内状态**（业主报障「点到别的就黑屏」——根因：
+     tab.actions.openTab(replaceTab) 在自己页签里拆自己；navigation 只读、无原地换参
+     接口（ksSidebar 真签名核实）。页内切换零宿主交互=绝不自拆）。 */
+  const [pageOverride, setPageOverride] = useState<string | null>(null)
+  const page = pageOverride ?? (tab.navigation.params as { page?: string } | undefined)?.page ?? 'manage'
 
   /** 当前这一级：`id === null` = **最外层**（库里 `parent_id IS NULL` 的那些目录 + 还没归位的文件）。 */
   const [levelId, setLevelId] = useState<string | null>(null)
@@ -1798,7 +1802,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
     return (
       <div className="ks-page">
         <div className="ks-kb">
-          <KsTopTabs page={page} onGo={(pp) => { tab.actions.openTab(KS_KB_KIND, { replaceTab: true, params: { page: pp } }) }} onPdf={() => { tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true }) }} />
+          <KsTopTabs page={page} onGo={(pp) => { setPageOverride(pp) }} onPdf={() => { tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true }) }} />
           <header className="ks-page-head">
             <div className="ks-page-title">备料</div>
             <div className="ks-page-sub">上传的财报/制度/文章逐份就位；人工上传免评审，自采的要人批。</div>
@@ -1816,7 +1820,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
     return (
       <div className="ks-page">
         <div className="ks-kb">
-          <KsTopTabs page={page} onGo={(pp) => { tab.actions.openTab(KS_KB_KIND, { replaceTab: true, params: { page: pp } }) }} onPdf={() => { tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true }) }} />
+          <KsTopTabs page={page} onGo={(pp) => { setPageOverride(pp) }} onPdf={() => { tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true }) }} />
           <header className="ks-page-head">
             <div className="ks-page-title">渠道库</div>
             <div className="ks-page-sub">知识来源渠道的管理库：分类、体检、维护。顶部常驻最新动态。</div>
@@ -2741,7 +2745,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
   return (
     <div className="ks-page">
       <div className="ks-kb">
-        <KsTopTabs page={page} onGo={(pp) => { tab.actions.openTab(KS_KB_KIND, { replaceTab: true, params: { page: pp } }) }} onPdf={() => { tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true }) }} />
+        <KsTopTabs page={page} onGo={(pp) => { setPageOverride(pp) }} onPdf={() => { tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true }) }} />
         <header className="ks-page-head">
           <div className="ks-page-title">知识库</div>
         </header>
