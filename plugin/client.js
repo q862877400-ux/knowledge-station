@@ -34020,18 +34020,18 @@ var KS_STYLES = `
 .ks-list-chans{--ks-cols:minmax(0,1.6fr) 84px 96px minmax(0,1fr) 200px}
 /* \u6279E4\uFF08\u4E1A\u4E3B 2026-09-23\uFF09\uFF1A\u9875\u9762\u9876\u6761\u300C\u6587\u4EF6\u5939\u51F8\u51FA\u6807\u7B7E\u300D\u56DB\u5165\u53E3\u3002\u9009\u4E2D\u90A3\u5F20=\u88AB\u62BD\u51FA\u6765\u7684\u820C\uFF1A
    \u4E0A\u6D6E 2px\u3001\u6E10\u53D8\u5E95\u3001\u6295\u5F71\u3001\u4E0B\u7F18\u4E0E\u5185\u5BB9\u533A\u8FDE\u901A\uFF1B\u5176\u4F59\u6807\u7B7E\u538B\u5728\u6761\u4E0A\uFF08\u5BA1\u7F8E\u6848\u6309\u4E1A\u4E3B\u6388\u6743\u81EA\u5B9A\uFF09\u3002 */
-.ks-tabfolder-strip{display:flex;gap:4px;align-items:flex-end;padding:6px var(--ks-page-pad-x) 0;
+.ks-tabfolder-strip{display:flex;gap:4px;align-items:flex-end;padding:8px var(--ks-page-pad-x) 0;
   border-bottom:var(--ks-stroke) solid var(--dsw-alias-border-l2)}
 .ks-tabfolder{border:var(--ks-stroke) solid var(--dsw-alias-border-l2);border-bottom:none;
   border-radius:var(--ks-radius) var(--ks-radius) 0 0;padding:4px 16px;cursor:pointer;
   font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);background:transparent;
-  min-height:30px;transition:transform .12s ease}
+  min-height:32px;transition:transform .12s ease}
 .ks-tabfolder:hover{color:var(--dsw-alias-label-primary);transform:translateY(-1px)}
 .ks-tabfolder-on{color:var(--dsw-alias-label-primary);font-weight:600;transform:translateY(-2px);
-  background:var(--dsw-alias-border-l2);margin-bottom:-1px;padding-bottom:6px;min-height:32px}
+  background:var(--dsw-alias-border-l2);margin-bottom:-1px;padding-bottom:8px;min-height:32px}
 /* \u6279\u2461\uFF082026-09-23\uFF09\uFF1A\u6E20\u9053\u5E93\u5DE6\u6811\u7684\u884C\u6837\u5F0F\uFF08\u5BB9\u5668\u590D\u7528 .ks-kb-tree/.ks-kb-row\uFF09\u3002 */
 .ks-tree-item{display:block;width:100%;text-align:left;cursor:pointer;padding:4px 8px;
-  min-height:26px;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);
+  min-height:28px;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);
   background:transparent;border:none;border-radius:var(--ks-radius)}
 .ks-tree-item:hover{color:var(--dsw-alias-label-primary)}
 .ks-tree-on{color:var(--dsw-alias-label-primary);font-weight:600;
