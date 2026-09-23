@@ -1793,6 +1793,40 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
   }, [upDir])
 
   // ── 「能力」页有自己的组件（业主指定的"一功能一卡一窗"） ──
+  /* ── 修 React #300（2026-09-23）：以下两个 useMemo 原在早退分支**之后**，切页早退时
+     挂钩数比上次少 ⇒ slot 崩 ⇒ 黑屏。上移到所有早退之前=挂钩顺序恒定。 ── */
+
+
+
+
+
+
+  /** 「待分类」层的搜索（同一个词、同一个框：按标准号/名称/建议路径过滤）。 */
+  const inboxShown = useMemo(() => {
+    if (needle === '') return inbox
+    return inbox.filter((r) =>
+      (r.standard_no ?? '').toLowerCase().includes(needle)
+      || (r.standard_name ?? '').toLowerCase().includes(needle)
+      || (r.suggested_path ?? '').toLowerCase().includes(needle))
+  }, [inbox, needle])
+
+  /**
+   * 选择器的**可选去处**：把"挪/复制自己或自己的下级"排除掉。
+   * ⚠ 后端会拒（`folder_cycle`/`folder_attach_cycle`），但那是个**必然失败**的选项 ⇒
+   *   不让它出现在列表里（不是替调用方兜底，是去掉一个点下去只会报错的死选项）。
+   */
+  const pickBase = useMemo(() => {
+    const banned = new Set<string>()
+    for (const fid of folderIdsOf(action?.targets ?? [])) {
+      const self = flatFolders.find((f) => f.folder_id === fid)
+      if (self === undefined) continue
+      for (const other of flatFolders) {
+        if (other.folder_id === fid || other.path.startsWith(`${self.path} › `)) banned.add(other.folder_id)
+      }
+    }
+    return flatFolders.filter((f) => !banned.has(f.folder_id))
+  }, [action, flatFolders])
+
   if (page === 'capabilities') {
     return <KsCapabilityPage />
   }
@@ -1967,14 +2001,6 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
     </div>
   )
 
-  /** 「待分类」层的搜索（同一个词、同一个框：按标准号/名称/建议路径过滤）。 */
-  const inboxShown = useMemo(() => {
-    if (needle === '') return inbox
-    return inbox.filter((r) =>
-      (r.standard_no ?? '').toLowerCase().includes(needle)
-      || (r.standard_name ?? '').toLowerCase().includes(needle)
-      || (r.suggested_path ?? '').toLowerCase().includes(needle))
-  }, [inbox, needle])
 
   const pickedRows = inbox.filter((r) => picked.has(pickFileKey(r.doc_id)))
   /** 选中的里面**真有建议**的篇数（「接受建议」只对它们发；0 篇时那个按钮禁用 + 说清原因）。 */
@@ -1995,22 +2021,6 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
   /** 选择器里显示的那一截（1127 个目录不一次铺满 DOM：超过 60 行就截断并**如实说**）。 */
   const PICK_ROWS_MAX = 60
   const pickNeedle = pickQuery.trim().toLowerCase()
-  /**
-   * 选择器的**可选去处**：把"挪/复制自己或自己的下级"排除掉。
-   * ⚠ 后端会拒（`folder_cycle`/`folder_attach_cycle`），但那是个**必然失败**的选项 ⇒
-   *   不让它出现在列表里（不是替调用方兜底，是去掉一个点下去只会报错的死选项）。
-   */
-  const pickBase = useMemo(() => {
-    const banned = new Set<string>()
-    for (const fid of folderIdsOf(action?.targets ?? [])) {
-      const self = flatFolders.find((f) => f.folder_id === fid)
-      if (self === undefined) continue
-      for (const other of flatFolders) {
-        if (other.folder_id === fid || other.path.startsWith(`${self.path} › `)) banned.add(other.folder_id)
-      }
-    }
-    return flatFolders.filter((f) => !banned.has(f.folder_id))
-  }, [action, flatFolders])
   const pickMatched = pickNeedle === ''
     ? pickBase
     : pickBase.filter((f) => f.path.toLowerCase().includes(pickNeedle))

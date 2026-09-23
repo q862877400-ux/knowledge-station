@@ -39478,6 +39478,21 @@ function KsKnowledgePage({ useTabInfo }) {
       setUpCheck(`\u4F53\u68C0\u5931\u8D25\uFF1A${errorText(error)}`);
     }
   }, [upDir]);
+  const inboxShown = (0, import_react10.useMemo)(() => {
+    if (needle === "") return inbox;
+    return inbox.filter((r) => (r.standard_no ?? "").toLowerCase().includes(needle) || (r.standard_name ?? "").toLowerCase().includes(needle) || (r.suggested_path ?? "").toLowerCase().includes(needle));
+  }, [inbox, needle]);
+  const pickBase = (0, import_react10.useMemo)(() => {
+    const banned = /* @__PURE__ */ new Set();
+    for (const fid of folderIdsOf(action?.targets ?? [])) {
+      const self = flatFolders.find((f) => f.folder_id === fid);
+      if (self === void 0) continue;
+      for (const other of flatFolders) {
+        if (other.folder_id === fid || other.path.startsWith(`${self.path} \u203A `)) banned.add(other.folder_id);
+      }
+    }
+    return flatFolders.filter((f) => !banned.has(f.folder_id));
+  }, [action, flatFolders]);
   if (page === "capabilities") {
     return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsCapabilityPage, {});
   }
@@ -39636,10 +39651,6 @@ function KsKnowledgePage({ useTabInfo }) {
       ]
     }
   ) }, "__inbox");
-  const inboxShown = (0, import_react10.useMemo)(() => {
-    if (needle === "") return inbox;
-    return inbox.filter((r) => (r.standard_no ?? "").toLowerCase().includes(needle) || (r.standard_name ?? "").toLowerCase().includes(needle) || (r.suggested_path ?? "").toLowerCase().includes(needle));
-  }, [inbox, needle]);
   const pickedRows = inbox.filter((r) => picked.has(pickFileKey(r.doc_id)));
   const pickedWithSuggestion = pickedRows.filter((r) => r.suggested_folder_id !== null).length;
   const pickedDocIds = docIdsOf(picked);
@@ -39648,17 +39659,6 @@ function KsKnowledgePage({ useTabInfo }) {
   const pickPathOf = pathOfFolder(flatFolders, pickFolder);
   const PICK_ROWS_MAX = 60;
   const pickNeedle = pickQuery.trim().toLowerCase();
-  const pickBase = (0, import_react10.useMemo)(() => {
-    const banned = /* @__PURE__ */ new Set();
-    for (const fid of folderIdsOf(action?.targets ?? [])) {
-      const self = flatFolders.find((f) => f.folder_id === fid);
-      if (self === void 0) continue;
-      for (const other of flatFolders) {
-        if (other.folder_id === fid || other.path.startsWith(`${self.path} \u203A `)) banned.add(other.folder_id);
-      }
-    }
-    return flatFolders.filter((f) => !banned.has(f.folder_id));
-  }, [action, flatFolders]);
   const pickMatched = pickNeedle === "" ? pickBase : pickBase.filter((f) => f.path.toLowerCase().includes(pickNeedle));
   const flatShown = pickMatched.slice(0, PICK_ROWS_MAX);
   const flatHidden = pickMatched.length - flatShown.length;
