@@ -37,3 +37,25 @@
   **exit 1**（棘轮红）——那次是"棘轮与环境耦合"的假绿，已修；此后棘轮结论直接印在汇总行上。
   复核若见到红，先看**棘轮那一行**（`passed+skipped` 总账与 `skip_reasons` 有没有新理由），
   再看是不是任务书要求的等锁。
+
+## 已入库的复核材料（2026-09-24 补录）
+
+⚠ **上面那条病根又犯了一次**：任务书与结论仍写在 `var/tmp/`，而它被整体忽略 ⇒ 2026-09-24 收工时
+才发现 `var/tmp/verify-reports/` 里 **7 份复核报告 + 3 份任务书都不在版本控制里**（清一次树就全没）。
+现按**字节级复制**（`Copy-Item`，不手抄）搬进本目录，`var/tmp/` 那一份**保留不动**：
+
+| 批次 | 任务书 | 复核结论 |
+|---|---|---|
+| B1+B2（重新解析丢归属 / 叠字假绿） | `b1b2-brief.md` | `b1b2-report.md` |
+| B3a（分类号引擎自愈） | —（任务书未留盘） | `b3a-engine-report.md` |
+| B3b（分类号界面半边） | `b3b-ccs-ui-brief.md` | `b3b-ccs-ui-report.md` |
+| B5（门禁白名单只增不减） | `b5-gate-brief.md` | `b5-gate-report.md` |
+| B6（黑屏修复 + 棘轮基线） | — | `b6-p0-report.md` |
+| B4（分类号 5 提交） | — | `ccs-chain-report.md` |
+| 判据补硬（`d508773`） | — | `d508773-report.md` |
+
+- **两边内容不同时以本目录为准**，并当场把差异登记到 [开发史](../DEVELOPMENT-HISTORY.md)。
+- ⚠ **还只在 `var/tmp/` 的**：`verify-reports/B7-REPORT.md`（B7 那批的**实施**报告，与上面这批
+  "复核结论"不同类；根目录已有 `B3A-REPORT.md`/`B3B-REPORT.md` 的先例，搬不搬**待定**）
+  ＋ 三份 `verify-*-residuals.md` 笔记（残余清单，内容已进史书）。
+
