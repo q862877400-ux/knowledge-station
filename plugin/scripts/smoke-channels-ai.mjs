@@ -99,11 +99,18 @@ try {
     groups[3].label === '未分类', groups[3].label)
 
   /* ── ①c 常驻栏 + 巡检合一（业主 2026-09-22：顶部常驻栏一句话 / 留一个按钮） ── */
-  check('人话模板：有公告+有变更 = 您那句语气（日期+标题+同步标记）',
-    mod.generateNewsLine({
+  {
+    const newsLine = mod.generateNewsLine({
       announce: { date: '2026-08-15', title: '某部门关于废止一批标准的公告' },
       changes: { retired: 12, totalChecked: 6031 },
-    }).includes('已在库里同步标记'))
+    })
+    /* ③ 补硬（复核点名）：原钉只断言「已在库里同步标记」——日期/标题是**输入**不是输出断言
+       （MUT6 删掉输出里的日期+标题仍 23/23=假绿）。现在输出里日期、标题、标记**逐样都要**。 */
+    check('人话模板：有公告+有变更 = 您那句语气（输出里日期+标题+同步标记逐样都在）',
+      newsLine.includes('2026-08-15') && newsLine.includes('某部门关于废止一批标准的公告')
+      && newsLine.includes('已在库里同步标记'),
+      newsLine.slice(0, 80))
+  }
   check('人话模板：无变化说无变化、啥都没有说没有（不夸大不编）',
     mod.generateNewsLine({ changes: { totalChecked: 6031 } }).includes('全部无变化')
     && mod.generateNewsLine({}) === '📢 最近没有新动态。')

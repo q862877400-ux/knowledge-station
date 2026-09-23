@@ -236,6 +236,7 @@ const panelMod = await loadModule('client/KsMaterialsPanel.tsx')
     /if \(!visible\) return undefined/.test(src))
   check('摘要=用户语言四态（能用/不太行/不能用/没试过 + 总数）——旧接线话术回潮=红',
     src.includes('能用 <b>{s.by_state.ok') && src.includes('没试过 <b>{s.by_state.unknown')
+    && src.includes('不太行 <b>{s.by_state.suspicious') && src.includes('不能用 <b>{s.by_state.down')
     && src.includes('s.total') && !src.includes('能干活（已接线）'))
   check('「接线」不上用户面（NOT-DOING #16 同批：技术列全撤）——有效性话术在',
     !src.includes('WIRING_LABEL[') && src.includes('STATE_LABEL['))

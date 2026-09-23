@@ -235,7 +235,7 @@ check('单条维护前缀不许带尾斜杠（带了 ⇒ 真派发器下 /{id} �
     `${lastEngine().method} ${lastEngine().path}`)
   responder = () => ({ body: { code: 200, data: { result: 'ok', detail: '拿到并认出了已知文件：GB/T 1-2020' } } })
   const tcRun = await invoke(`${KS_CHANNELS_ITEM_PREFIX}/ch:a/test`, { method: 'POST', body: {} })
-  check('批C 跑测试：转发 POST …/ch:a/test（引擎真拉真测真留痕）',
+  check('批C 跑测试：转发 POST …/ch:a/test（此钉只证**转发**；"真拉真测真留痕"归引擎侧测试）',
     decodeURIComponent(lastEngine().path) === '/api/v1/channels/ch:a/test'
     && lastEngine().method === 'POST' && tcRun.body.data.result === 'ok',
     `${lastEngine().path} ${JSON.stringify(tcRun.body)}`)
