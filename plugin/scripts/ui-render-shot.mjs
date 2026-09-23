@@ -1753,12 +1753,41 @@ const html = `<!doctype html>
       strip.pad = tabLabels.join('|');      // 借 pad：四枚标签的**渲染文字**
       strip.gap = onLabels.join('|');       // 借 gap：**被选中**的那一枚（恰好一枚才合格）
     }
+    /* ⚠⚠ **"这一跑到底是几个 .ks-page"这件事本身不能当判据**（2026-09-23 接手批实测踩到两次）：
+       ① 一、.ks-page 只承担 container-type，**面板自己**也会带一层（KsIngestPanel 自带 —— 见
+          #kspad 那段既有的同名留痕；kb-upload 场景一打开就有 2 个）⇒ 上一版写的
+          ".ks-page 恰好 1 个"在 kb-upload@520 上**假红**；
+       ② 二、四标签外壳的形态是 .ks-page > .ks-kb > nav.ks-tabfolder-strip ⇒ 拿
+          "document.querySelector('.ks-page')"（**文档里第一个**）去比，比到的是**别的**
+          .ks-page，于是四个面全假红（本跑的 .ks-page 个数明明是 1）。
+       ⇒ 真正要守的不变式只有一条：**标签条与页头共处于同一个 .ks-page 之下**
+        （改前办事台面是"标签条在**外层** .ks-page、页头与页面内容被**第二层** .ks-page 包着"
+        ⇒ 两者**不在**同一个 .ks-page 下，这一条照样抓得住；而面板自带的外壳与它俩无关）。 */
+    var ancestorsIn = function (el, sel) {
+      var hits = [];
+      var cur = el ? el.parentElement : null;
+      while (cur) { if (cur.matches && cur.matches(sel)) hits.push(cur); cur = cur.parentElement; }
+      return hits;
+    };
+    var pageEls = [].slice.call(document.querySelectorAll('.ks-page'));
+    var stripEl = document.querySelector('.ks-tabfolder-strip');
+    var headEl = document.querySelector('.ks-page-head');
+    var stripAnc = ancestorsIn(stripEl, '.ks-page');
+    var headAnc = ancestorsIn(headEl, '.ks-page');
+    var sharedPage = null;
+    for (var sai = 0; sai < stripAnc.length; sai++) {
+      if (headAnc.indexOf(stripAnc[sai]) >= 0) { sharedPage = stripAnc[sai]; break; }
+    }
     out['#face'] = { n: document.querySelectorAll('.ks-tabfolder-strip').length,
-                     x: document.querySelectorAll('.ks-page').length,     // x = .ks-page 个数
+                     x: pageEls.length,                                   // x = .ks-page 个数（信息用）
                      y: document.querySelectorAll('.ks-kb').length,       // y = .ks-kb 个数
                      w: document.querySelectorAll('.ks-page-head').length,// w = 页头个数
                      h: strip ? strip.h : 0,
-                     fs: '', lh: '', pad: '', gap: '', radius: '',
+                     /* fs = 标签条与页头**共处同一个 .ks-page** 吗（1/0）；lh 借来报那个 .ks-page
+                        的个数上限信息（=1 表示两者只在同一层、没有第二层夹在中间）。 */
+                     fs: (sharedPage && stripAnc.length === 1) ? '1' : '0',
+                     lh: sharedPage ? String(headAnc.length) : '0',
+                     pad: '', gap: '', radius: '',
                      strip: strip, head: oneBox('.ks-page-head'),
                      /* 页头里**真的看得见**的成员（display:none 的不算）——"只留一句介绍"的可量形态。 */
                      headKids: [].slice.call(document.querySelectorAll('.ks-page-head > *')).map(function (e) {
@@ -1778,20 +1807,41 @@ const html = `<!doctype html>
         var r = el.getBoundingClientRect();
         return r.width > 0.5 && r.height > 0.5;
       };
-      /* 成员 = 这一行里"可读的叶子"：按钮 / 纯文字节点 / 计数 span。内层 svg/path 不单算。 */
+      /* 成员 = 这一行里**可读的叶子控件**。三条判据都要：
+         ① 可见；② 装着字（按钮 / 自己带文字节点 / 计数 span）；③ **自己不再装别的控件、
+            也不再装别的有字的元素** —— 否则同一个控件会被数两遍（内层 button 与它自己各算一次
+            ⇒ 报出"负间隙"这种假阳性；本批实测踩到过：ks-export-effect 被列了两次）。 */
+      var hasOwnText = function (el) {
+        var kn = [].slice.call(el.childNodes);
+        for (var ki = 0; ki < kn.length; ki++) {
+          if (kn[ki].nodeType === 3 && (kn[ki].textContent || '').trim() !== '') return true;
+        }
+        return false;
+      };
+      var isControl = function (el) { return /^(BUTTON|A|INPUT|SELECT)$/.test(el.tagName); };
+      var innerControl = function (el) { return !!el.querySelector('button,a,input,select'); };
+      var innerTexted = function (el) {
+        var d = [].slice.call(el.querySelectorAll('*'));
+        for (var di = 0; di < d.length; di++) {
+          if (isControl(d[di])) return true;
+          if (d[di].tagName === 'SPAN' && (d[di].textContent || '').trim() !== '') return true;
+        }
+        return false;
+      };
       var members = [];
       var capNodes = [].slice.call(capEl.querySelectorAll('*'));
       for (var ci = 0; ci < capNodes.length; ci++) {
         var e = capNodes[ci];
         if (!cvis(e)) continue;
-        if (e.querySelector('button,span,a,svg,input,select')) continue;
         var r = e.getBoundingClientRect();
+        if (r.width <= 4 || r.height <= 4) continue;
         var t = (e.textContent || '').trim();
-        if (e.tagName === 'BUTTON' || (t !== '' && r.width > 4)) {
-          members.push({ tag: e.tagName.toLowerCase(), cls: String(e.className || '').split(' ')[0],
-                         txt: t.slice(0, 18), x: Math.round(r.left * 10) / 10, y: Math.round(r.top * 10) / 10,
-                         r: Math.round(r.right * 10) / 10, b: Math.round(r.bottom * 10) / 10 });
-        }
+        if (!(isControl(e) || hasOwnText(e))) continue;
+        if (t === '' && !isControl(e)) continue;
+        if (innerControl(e) || innerTexted(e)) continue;
+        members.push({ tag: e.tagName.toLowerCase(), cls: String(e.className || '').split(' ')[0],
+                       txt: t.slice(0, 18), x: Math.round(r.left * 10) / 10, y: Math.round(r.top * 10) / 10,
+                       r: Math.round(r.right * 10) / 10, b: Math.round(r.bottom * 10) / 10 });
       }
       var overlaps = [];
       for (var mi = 0; mi < members.length; mi++) {
@@ -1806,13 +1856,32 @@ const html = `<!doctype html>
           }
         }
       }
-      /* 相邻成员（按左缘排序）之间的水平间隙：负数 = 真的叠在一起。 */
-      var sorted = members.slice().sort(function (p, qq) { return p.x - qq.x; });
+      /* 相邻成员的**水平间隙** —— ⚠ 只在**同一行**的两个成员之间量。
+         这一行是 flex-wrap 的：窄档下成员会折到下一行，此时"按左缘排序后相邻"的两件东西
+         根本不是同一行的邻居，量出来的负数是**折行**而不是压字
+         （本批实测：520 档一跳出来几十条假阳性 —— 上一版就是这么假红的）。
+         同一行的判据 = 垂直方向重叠 > 两者较小高度的 50%。 */
+      var sameRow = function (p, q2) {
+        var ov = Math.min(p.b, q2.b) - Math.max(p.y, q2.y);
+        var minH = Math.min(p.b - p.y, q2.b - q2.y);
+        return minH > 0 && ov > minH * 0.5;
+      };
+      var rowsMap = [];
+      for (var ri = 0; ri < members.length; ri++) {
+        var placed = false;
+        for (var rj = 0; rj < rowsMap.length; rj++) {
+          if (sameRow(rowsMap[rj][0], members[ri])) { rowsMap[rj].push(members[ri]); placed = true; break; }
+        }
+        if (!placed) rowsMap.push([members[ri]]);
+      }
       var gaps = [];
-      for (var gi = 0; gi + 1 < sorted.length; gi++) {
-        gaps.push({ left: sorted[gi].tag + '.' + sorted[gi].cls + '[' + sorted[gi].txt + ']',
-                    right: sorted[gi + 1].tag + '.' + sorted[gi + 1].cls + '[' + sorted[gi + 1].txt + ']',
-                    gap: Math.round((sorted[gi + 1].x - sorted[gi].r) * 10) / 10 });
+      for (var rk = 0; rk < rowsMap.length; rk++) {
+        var row = rowsMap[rk].slice().sort(function (p, q3) { return p.x - q3.x; });
+        for (var gi = 0; gi + 1 < row.length; gi++) {
+          gaps.push({ left: row[gi].tag + '.' + row[gi].cls + '[' + row[gi].txt + ']',
+                      right: row[gi + 1].tag + '.' + row[gi + 1].cls + '[' + row[gi + 1].txt + ']',
+                      gap: Math.round((row[gi + 1].x - row[gi].r) * 10) / 10 });
+        }
       }
       out['#listcap'] = { n: members.length, x: Math.round(capEl.getBoundingClientRect().left),
                           y: Math.round(capEl.getBoundingClientRect().top),
@@ -2990,12 +3059,28 @@ if (page !== 'kb') {
   faceNavProblems.push(`本脚本的 FACE_TAB_LABEL 没有 ${JSON.stringify(navPage)} 这一面 —— `
     + '加了 --nav-page 的取值却忘了在这里登记"它该选中哪枚标签"（按设计不占标签的面要显式登记成 null）')
 } else {
-  if (faceM.x !== 1) {
-    faceNavProblems.push(`这一跑有 ${String(faceM.x)} 个 .ks-page（必须恰好 1 个）`
-      + ' —— 多出来的那一层是"盒子套盒子"：页面根被两层外壳包着，观感与另外三个面就不一样了')
+  /* ⚠ `.ks-page` **个数**不是判据（面板自己会带一层，且外壳的形态是
+     `.ks-page > .ks-kb > nav`）—— 这里只把个数当信息报出来；
+     真正判的是"**标签条与页头共处同一个 `.ks-page`**"（`fs`），以及两者各自到那一层
+     之间**没有被第二层 `.ks-page` 夹住**（`lh` = 页头的 `.ks-page` 祖先个数，必须 1）。
+     改前办事台面：标签条在**外层** `.ks-page`、页头与内容被**第二层**包着 ⇒ `fs='0'` ⇒ 红。 */
+  if (faceM.x < 1) {
+    faceNavProblems.push('这一跑一个 .ks-page 都没有（标签条/页头该挂在它里面）—— 量不到就不算验过')
+  } else {
+    if (faceM.fs !== '1') {
+      faceNavProblems.push('**标签条与页头不在同一个 `.ks-page` 之下**（或标签条上面夹了不止一层）'
+        + `（本跑 .ks-page 个数 ${String(faceM.x)}）—— 这正是改前办事台面的病：`
+        + '标签条在**外层**、页头与页面内容被**第二层** `.ks-page` 包住，'
+        + '实测页头/内容左缘因此比另外三个面多缩进 24px')
+    }
+    if (String(faceM.lh) !== '1') {
+      faceNavProblems.push('**页头上面夹了不止一层 `.ks-page`**（页头的 `.ks-page` 祖先个数 = '
+        + `${String(faceM.lh)}，必须恰好 1）—— 又成了盒子套盒子`)
+    }
   }
   if (faceM.y !== 1) {
-    faceNavProblems.push(`这一跑有 ${String(faceM.y)} 个 .ks-kb（必须恰好 1 个）`)
+    faceNavProblems.push(`这一跑有 ${String(faceM.y)} 个 .ks-kb（必须恰好 1 个）`
+      + ' —— 页面根（左列 + 右栏那一层）只许有一层')
   }
   if (faceM.w !== 1) {
     faceNavProblems.push(`这一跑有 ${String(faceM.w)} 个 .ks-page-head（必须恰好 1 个）`)
@@ -3034,6 +3119,8 @@ const faceNavCheck = {
   skipReason: faceNavSkipReason,
   problems: faceNavProblems,
   pages: faceM?.x ?? null,
+  stripHeadSharedPage: faceM?.fs ?? null,
+  headPageAncestors: faceM?.lh ?? null,
   kbRoots: faceM?.y ?? null,
   heads: faceM?.w ?? null,
   labels: faceM?.strip?.pad ?? null,

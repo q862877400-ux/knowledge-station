@@ -104,6 +104,16 @@ const MATRIX = [
   { page: 'capabilities', width: 900, interact: '', note: '能力页（宽档 3 列：同排等高才有内容）' },
   { page: 'ingest', width: 520, interact: '', note: '入库面板' },
   { page: 'materials', width: 1300, interact: '', note: '资料面板' },
+  /* ⚠⚠ **2026-09-23（接手批）新增三组 —— 知识库页的另外三个面**（渠道库 / 办事台 / 备料）。
+     为什么必须有：`--page kb` 这一路以前**只能**截到 `params.page='manage'` 那一个面
+     ⇒ 另外三个面**从来没进过真浏览器**，"四个面一致"这件事此前**一次都没被量过**
+     （上一模型的 `office-page` 场景因此"没落地"）。业主这次的报障（"把办事台唯一一个还能看的
+     改更糟糕"）正落在这个盲区里。
+     ⚠ 这三组同时是 `faceNavCheck`（骨架/标签/页头）与 `ksPadCheck`（三面的留边）的取证场景；
+       它们进了 `PAD_REQUIRED`（`kb|nav-*` 三条）⇒ 本脚本的棘轮"声明了就必须有人跑"。 */
+  { page: 'kb', navPage: 'channels', width: 1300, interact: '', note: '面·渠道库（宽档：四标签 + 页头 + 面板）' },
+  { page: 'kb', navPage: 'capabilities', width: 1300, interact: '', note: '面·办事台（宽档：标签条贴顶 + 不再两层 .ks-page）' },
+  { page: 'kb', navPage: 'materials', width: 1300, interact: '', note: '面·备料（宽档：标签条贴顶 + 不再两层 .ks-page）' },
 ]
 
 const outDir = join(repoRoot, 'var', 'tmp', 'ui-shots')
@@ -115,12 +125,18 @@ const failures = []
 let sawNoBrowser = false
 for (const c of MATRIX) {
   const theme = c.theme ?? 'light'
+  /* ⚠⚠ **2026-09-23（接手批）**：`c.navPage` = `ui-render-shot.mjs` 的 `--nav-page`（四标签的"面"）。
+     只有把它透下去，`padComboKey` 才会算出**带面**的键（`kb|nav-channels|` 这种）——
+     不透下去的话，四个面会共用 `kb|` 这一个键，而 manage 面的元素集（含 `.ks-dirs`）
+     对另外三个面是假红。`comboKey` 由 `ui-render-shot` 自报，本脚本不再自己拼。 */
+  const navPage = c.navPage ?? ''
   const args = [shotScript, '--page', c.page, '--width', String(c.width),
-    '--out', join(outDir, `padpixels-${c.page}-${String(c.width)}${c.interact === '' ? '' : `-${c.interact}`}${theme === 'light' ? '' : `-${theme}`}.png`)]
+    '--out', join(outDir, `padpixels-${c.page}-${String(c.width)}${navPage === '' ? '' : `-nav-${navPage}`}${c.interact === '' ? '' : `-${c.interact}`}${theme === 'light' ? '' : `-${theme}`}.png`)]
+  if (navPage !== '') args.push('--nav-page', navPage)
   if (c.interact !== '') args.push('--interact', c.interact)
   if (theme !== 'light') args.push('--theme', theme)
   const r = spawnSync(process.execPath, args, { cwd: repoRoot, encoding: 'utf8', timeout: 240_000 })
-  const label = `${c.page}|${c.interact === '' ? '(默认场景)' : c.interact}@${String(c.width)}`
+  const label = `${c.page}|${navPage === '' ? '' : `nav-${navPage}|`}${c.interact === '' ? '(默认场景)' : c.interact}@${String(c.width)}`
     + (theme === 'light' ? '' : `[${theme}]`)
   let j = null
   let parseErr = null
@@ -163,14 +179,42 @@ for (const c of MATRIX) {
   const lc = j.levelCheck ?? {}
   let levelChecked = null
   let rowHeightJudged = null
-  if (c.page === 'kb') {
+  /* ⚠⚠ **2026-09-23（接手批）适用面收窄到"管理面"**：左列目录树 + 两层行高只存在于
+     `params.page='manage'` 那一个面；渠道库/办事台/备料三个面**结构上没有** `.ks-kb-tree`/
+     `.ks-main` ⇒ 对它们要求"必须判到"就是**假红**（不是回归）。判据强度没降：
+     管理面（`navPage === ''`，即本矩阵里全部既有行）照旧"skipReason 非空就红"。 */
+  if (c.page === 'kb' && navPage === '') {
     levelChecked = lc.checked === true && (lc.skipReason ?? null) === null
     rowHeightJudged = lc.rowHeightJudged === true
     if ((lc.skipReason ?? null) !== null) {
-      problems.push(`levelCheck.skipReason 非空（kb 页不许"这一跑不判"）：${String(lc.skipReason)}`)
+      problems.push(`levelCheck.skipReason 非空（kb 管理面不许"这一跑不判"）：${String(lc.skipReason)}`)
     }
     if (lc.checked !== true) problems.push('levelCheck.checked !== true（左列并排 / 两层行高一致）')
     for (const p of lc.problems ?? []) problems.push(p)
+  }
+  /* ⚠⚠ **2026-09-23（接手批）新增两条：四个面一致 + 那一行不压字** —— 它们就是业主这次报障的
+     那两件事（"四个面行为一致、页头观感一致、不重叠不压字"）。适用范围由 `ui-render-shot` 的
+     `faceNavCheck` / `listCapCheck` 自己声明（`skipReason` 非空 = 那一跑不适用），
+     这里只负责"**该判的那几跑必须判到**"：`--nav-page` 那三跑是这条判据的取证场景。 */
+  const fn = j.faceNavCheck ?? {}
+  if (navPage !== '') {
+    if ((fn.skipReason ?? null) !== null) {
+      problems.push(`faceNavCheck.skipReason 非空（--nav-page ${navPage} 这一跑不许"这一跑不判"）：`
+        + String(fn.skipReason))
+    }
+    if (fn.checked !== true) problems.push(`faceNavCheck.checked !== true（面 ${navPage}：四个面骨架/标签/页头）`)
+    for (const p of fn.problems ?? []) problems.push(p)
+  }
+  /* 压字那一条只在**有 `.ks-list-cap`** 的那一跑适用（管理面目录层）；其余面 `skipReason` 非空是正常的。 */
+  const lcap = j.listCapCheck ?? {}
+  if (c.page === 'kb' && navPage === '' && (lcap.skipReason ?? null) === null) {
+    if (lcap.checked !== true) problems.push('listCapCheck.checked !== true（当前文件夹名那一行压字）')
+    for (const p of lcap.problems ?? []) problems.push(p)
+  }
+  /* ⚠ **反向守卫**：判据自称"适用"，这一跑又真的是管理面目录层，就不许悄悄 skip。 */
+  if (c.page === 'kb' && navPage === '' && c.interact === '' && (lcap.skipReason ?? null) !== null) {
+    problems.push(`listCapCheck.skipReason 非空（管理面默认态有 .ks-list-cap，不许"这一跑不判"）：`
+      + String(lcap.skipReason))
   }
   /* ⚠⚠ **「待分类」层另有第三条断言**（2026-09-21 第 4 步）：`inboxCheck` = 列对齐（5 轨）+
    *   **状态列在两个档位都必须看得见**（业主"每篇状态如实显示"的真浏览器形态）+
@@ -309,7 +353,13 @@ const EXPECTED_RUNS = ['kb|@520', 'kb|@1300', 'kb|kb-level@520', 'kb|kb-page@520
   /* 2026-09-22：行尾 ⋮ 菜单文案（文件行 / 目录行各一跑，也是业主文案的取证截图）。 */
   'kb|kb-filemenu@520', 'kb|kb-dirmenu@520',
   'capabilities|@520', 'capabilities|@900',
-  'ingest|ingest-batch@520', 'materials|@1300']
+  'ingest|ingest-batch@520', 'materials|@1300',
+  /* ⚠⚠ **2026-09-23（接手批）新增三条** —— 知识库页的另外三个面（`--nav-page`）。
+     ⚠ 键**必须与 `ui-render-shot` 自报的 `comboKey` 逐字一致**：给了 `--nav-page` 时
+       键的形状是 `page|nav-<面>|interacts@width`（见 `ui-render-shot.mjs` 的 `faceComboKey`）——
+       所以这里写成 `kb|nav-channels|@1300`（中间那个 `|` 前面是空 interact）。
+     它们同时进 MATRIX（下面）—— 两份同源，少一处就红。 */
+  'kb|nav-channels|@1300', 'kb|nav-capabilities|@1300', 'kb|nav-materials|@1300']
 /** 从**成功的实测 JSON** 里取声明集合（任一组报到即可 —— 它们来自同一个 `ui-render-shot` 进程）。 */
 const declaredSubjects = rows.map((r) => r.allSubjects).find((v) => Array.isArray(v)) ?? null
 const declaredCombos = rows.map((r) => r.declaredCombos).find((v) => Array.isArray(v)) ?? null
