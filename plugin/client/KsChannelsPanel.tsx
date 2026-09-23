@@ -27,6 +27,7 @@
  * 面板显式标注 UTC，并在前端换算成"几分钟前"，避免"04:47"被读成凌晨自动跑过。
  */
 import * as React from 'react'
+import { ensureKsStyles } from './ksGuideStyles'
 import { Fragment, useCallback, useEffect, useState } from 'react'
 
 import {
@@ -116,24 +117,32 @@ export function parseSegments(raw: string | null | undefined): string[] {
   }
 }
 
-/** 按类别分组（分类批，2026-09-22）：组序 = CATEGORY_LABEL 声明序，未知类别收尾。
- *  组内保持传入顺序（= sortChannels 的注意力序）。纯函数，判据直接钉。 */
-export function groupRowsByCategory(
+/** 单位性质的用户叫法（树的组名；与引擎 ORG_KIND 同序）。 */
+export const ORG_KIND_LABEL: Record<string, string> = {
+  central: '国家部委/总局', local_congress: '地方人大', local_dept: '地方厅局',
+  industry: '行业机构', intl: '国际组织', commercial: '商业/聚合',
+  tool: '工具/代码', other: '其他', '': '未分类',
+}
+
+/** 按**单位性质**分组（业主 2026-09-22 定案：分类=主办单位性质，文件夹树）。
+ *  组序 = ORG_KIND_LABEL 声明序，未分类收尾；组内保持传入顺序（注意力序）。 */
+export function groupRowsByOrgKind(
   rows: readonly KsChannelRecord[],
 ): Array<{ key: string; label: string; rows: KsChannelRecord[] }> {
-  const order = Object.keys(CATEGORY_LABEL)
+  const order = Object.keys(ORG_KIND_LABEL)
   const groups = new Map<string, KsChannelRecord[]>()
   for (const r of rows) {
-    const arr = groups.get(r.category) ?? []
+    const k = r.org_kind ?? ''
+    const arr = groups.get(k) ?? []
     arr.push(r)
-    groups.set(r.category, arr)
+    groups.set(k, arr)
   }
   const keys = [...groups.keys()].sort((a, b) => {
     const ia = order.indexOf(a)
     const ib = order.indexOf(b)
     return (ia < 0 ? order.length : ia) - (ib < 0 ? order.length : ib) || a.localeCompare(b)
   })
-  return keys.map((k) => ({ key: k, label: CATEGORY_LABEL[k] ?? k, rows: groups.get(k) ?? [] }))
+  return keys.map((k) => ({ key: k, label: ORG_KIND_LABEL[k] ?? k, rows: groups.get(k) ?? [] }))
 }
 
 /** 「AI 一键解决」提示词生成（业主 2026-09-22）：点按钮复制一段提示词，用户粘到对话框，
@@ -174,6 +183,7 @@ export function buildChannelFixPrompt(
     '- 先读 `docs/CHANNEL-COVERAGE-PLAN.md`（渠道覆盖方案与轮次台账）再动手；适配器在 `src/core/laws/`（按渠道分文件）。',
     '- 修不动/证据不足的**如实说修不动**，登记原因，不要硬编一个"应该能用"的方案。',
     '- 每步小提交，消息写清"改了什么/为什么/边界"；产出物只出 Markdown。',
+    '- 顺带把「未分类」的渠道标注**单位性质**（org_kind：central/local_congress/local_dept/industry/intl/commercial/tool/other），给出建议值表让我确认。',
     '- 有不确定的先问用户，不要默默替他做决定。',
   ].join('\n')
 }
@@ -204,6 +214,7 @@ export async function copyTextToClipboard(text: string): Promise<boolean> {
 
 export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
   const { visible } = props
+  ensureKsStyles()
   const [data, setData] = useState<KsChannelList | null>(null)
   const [error, setError] = useState<string>('')
   const [busy, setBusy] = useState<boolean>(false)
@@ -217,6 +228,7 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
   const [newUrl, setNewUrl] = useState<string>('')
   const [newNote, setNewNote] = useState<string>('')
   const [mutating, setMutating] = useState<boolean>(false)
+  const [orgSel, setOrgSel] = useState<string | null>(null)
 
   const load = useCallback(async (signal?: AbortSignal): Promise<void> => {
     setBusy(true)
@@ -322,6 +334,17 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
       () => updateChannel(r.channel_id, { segments_json: parts }))
   }, [runMutation])
 
+  const editOrgKind = useCallback(async (r: KsChannelRecord): Promise<void> => {
+    const kinds = Object.entries(ORG_KIND_LABEL)
+    const next = window.prompt(
+      '改分类（单位性质）——输入序号：\n' + kinds.map(([k, v], i) => `${i + 1}. ${v}`).join('\n'),
+      String(kinds.findIndex(([k]) => k === (r.org_kind ?? '')) + 1))
+    if (next === null) return
+    const idx = Number(next) - 1
+    const kind = kinds[idx] ? kinds[idx][0] : null
+    await runMutation('改分类', () => updateChannel(r.channel_id, { org_kind: kind === '' ? null : kind }))
+  }, [runMutation])
+
   const remove = useCallback(async (r: KsChannelRecord): Promise<void> => {
     // 删除是高风险动作：先说清代价，再让人确认（默认建议用「停用」——它保留历史健康度）
     const ok = window.confirm(
@@ -338,14 +361,11 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
       {/* 摘要：**两个数都显示**（台账条数 ≠ 能力条数）*/}
       {s && (
         <div style={{ color: GRAY, lineHeight: 1.7 }}>
-          台账 <b>{s.total}</b> 条 · 能干活（已接线）<b>{s.by_wiring.wired ?? 0}</b> 条 ·
-          已知失效 <b>{s.by_wiring.broken ?? 0}</b> 条 · 仅登记 <b>{s.by_wiring.seed_only ?? 0}</b> 条
-          <br />
-          已实测有效性：🟢 {s.by_state.ok ?? 0} · 🟡 {s.by_state.suspicious ?? 0} · 🔴 {s.by_state.down ?? 0} · ⚪ 未探 {s.by_state.unknown ?? 0}
+          台账 <b>{s.total}</b> 条 · 能用 <b>{s.by_state.ok ?? 0}</b> · 不太行 <b>{s.by_state.suspicious ?? 0}</b> ·
+          不能用 <b>{s.by_state.down ?? 0}</b> · 没试过 <b>{s.by_state.unknown ?? 0}</b>
           <br />
           <span style={{ color: FAINT }}>
-            ⚠「接线」是我们的代码接没接上（巡检会不会调用它）；「有效性」是渠道本身今天能不能抓。
-            两者是两根轴：站点活着而我们的解析器坏了（或反之）都会发生，所以分列显示。
+            左边按「单位性质」分类（国家部委/总局、地方人大、地方厅局…）；点一类看它的渠道。
           </span>
         </div>
       )}
@@ -427,111 +447,103 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
 
       {data && rows.length === 0 && <p style={{ color: GRAY, margin: 0 }}>没有符合条件的渠道。</p>}
 
+      {/* 批B1（2026-09-22）：「文件夹树」两级视图——照抄知识库文件目录的交互
+          （目录层同构行 + 面包屑逐级可点 + 整行进入）。分类轴 = 单位性质（业主定案）。 */}
       {rows.length > 0 && (
-        <div style={{ overflowX: 'auto' }}>
-          <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: 11.5 }}>
-            <thead>
-              <tr style={{ color: FAINT, textAlign: 'left' }}>
-                <th style={$th}>渠道</th>
-                <th style={$th}>类别</th>
-                <th style={$th}>接线</th>
-                <th style={$th}>号段</th>
-                <th style={$th}>有效性</th>
-                <th style={$th}>上次成功(UTC)</th>
-                <th style={$th}>失败原因</th>
-                <th style={$th}>链接</th>
-                <th style={$th}>维护</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* 分类（2026-09-22）：按类别分组展示——组序=类别声明序、组内=注意力序。 */}
-              {groupRowsByCategory(rows).map((g) => (
-                <Fragment key={g.key}>
-                  <tr>
-                    <td colSpan={9} style={{ ...$td, fontWeight: 600,
-                      background: 'var(--dsw-alias-bg-layer-2, #f5f5f5)' }}>
-                      {g.label}（{g.rows.length} 条）
-                    </td>
-                  </tr>
-                  {g.rows.map((r) => (
-                <tr key={r.channel_id} style={needsAttention(r) ? $trWarn : undefined}>
-                  <td style={$td} title={r.note ?? undefined}>
-                    {r.name}
-                    {r.enabled === 0 ? <span style={{ color: FAINT }}>（已停用）</span> : null}
-                  </td>
-                  <td style={$td}>{CATEGORY_LABEL[r.category] ?? r.category}
-                    {r.category_raw && r.category_raw !== r.category
-                      ? <span style={{ color: FAINT }} title={`调研原文：${r.category_raw}`}>*</span>
-                      : null}
-                  </td>
-                  <td style={$td} title={r.wiring === 'broken' ? (r.note ?? '') : undefined}>
-                    {WIRING_LABEL[r.wiring] ?? r.wiring}
-                  </td>
-                  <td style={{ ...$td, maxWidth: 150 }}
-                    title={'链按号段做加法（只加尾巴、不改顺序）：这些前缀命中的标准号会多问这条渠道一根。'
-                      + '留空 = 不靠号段进链。'}>
-                    {parseSegments(r.segments_json).length > 0
-                      ? parseSegments(r.segments_json).map((s) => (
-                        <code key={s} style={{ marginRight: 4 }}>{s}</code>
-                      ))
-                      : <span style={{ color: FAINT }}>—</span>}
-                  </td>
-                  <td style={$td}>{STATE_LABEL[r.state] ?? r.state}
-                    {r.state === 'unknown' && r.has_probe_target === false
-                      ? <span style={{ color: FAINT }} title="该渠道没有探针目标（代码仓库/我方代码通路等），不是'还没轮到它'">
-                          （无探针）
-                        </span>
-                      : null}
-                    {r.latency_ms != null ? <span style={{ color: FAINT }}> {r.latency_ms}ms</span> : null}
-                  </td>
-                  <td style={$td} title={r.last_ok_at ?? ''}>
-                    {describeWhen(r.last_ok_at)}
-                    {r.last_try_at && r.last_try_at !== r.last_ok_at
-                      ? <span style={{ color: FAINT }}>（试过 {describeWhen(r.last_try_at)}）</span>
-                      : null}
-                  </td>
-                  <td style={{ ...$td, color: r.last_error ? '#c0392b' : FAINT, maxWidth: 220 }}>
-                    {r.last_error_code ? <code>{r.last_error_code}</code> : '—'}
-                    {r.last_error ? <span> {r.last_error.slice(0, 60)}</span> : null}
-                    {r.consecutive_failures > 1
-                      ? <span style={{ color: FAINT }}>（连续 {r.consecutive_failures} 次）</span>
-                      : null}
-                  </td>
-                  <td style={$td}>
-                    {r.url
-                      ? <a href={r.url.split(/[（\s]/)[0]} target="_blank" rel="noreferrer noopener"
-                          style={{ color: 'var(--dsw-alias-link, #1565c0)' }}>打开</a>
-                      : '—'}
-                  </td>
-                  <td style={{ ...$td, whiteSpace: 'nowrap' }}>
-                    {/* 人工维护四件事：启停（停用不删）/ 改备注 / 删除（高风险，先确认） */}
-                    <button type="button" disabled={mutating} style={$mini}
-                      onClick={() => void toggleEnabled(r)}
-                      title={r.enabled === 0 ? '重新启用这条渠道' : '停用（保留历史健康度，不删条目）'}>
-                      {r.enabled === 0 ? '启用' : '停用'}
-                    </button>
-                    <button type="button" disabled={mutating} style={$mini}
-                      onClick={() => void editNote(r)} title="改备注（会写审计痕迹）">
-                      改备注
-                    </button>
-                    <button type="button" disabled={mutating} style={$mini}
-                      onClick={() => void editSegments(r)}
-                      title="改号段：这条渠道管哪些标准号前缀（逗号分开；会写审计痕迹）">
-                      改号段
-                    </button>
-                    <button type="button" disabled={mutating} style={{ ...$mini, color: '#c0392b' }}
-                      onClick={() => void remove(r)}
-                      title="删除条目（引擎的审计痕迹里保留删除前整行；一般建议用「停用」）">
-                      删除
-                    </button>
-                  </td>
-                  </tr>
-                  ))}
-                </Fragment>
+        <div>
+          <div style={{ display: 'flex', gap: 4, alignItems: 'center', marginBottom: 6, fontSize: 12 }}>
+            <button type="button" onClick={() => setOrgSel(null)} style={{ ...$mini, fontWeight: orgSel === null ? 600 : 400 }}>
+              渠道台账
+            </button>
+            {orgSel !== null && (
+              <>
+                <span style={{ color: FAINT }}>/</span>
+                <span style={{ fontWeight: 600 }}>{ORG_KIND_LABEL[orgSel] ?? orgSel}</span>
+              </>
+            )}
+          </div>
+          {orgSel === null ? (
+            /* 目录层：单位性质文件夹（同构行 = 名称 + 条数 + ›） */
+            <div className="ks-dirs">
+              {groupRowsByOrgKind(rows).map((g) => (
+                <button key={g.key} type="button" className="ks-item ks-dir-row"
+                  onClick={() => setOrgSel(g.key)}>
+                  <span>{g.label}</span>
+                  <span style={{ color: FAINT }}>{g.rows.length} 条</span>
+                  <span style={{ color: FAINT }}>›</span>
+                </button>
               ))}
-            </tbody>
-          </table>
+            </div>
+          ) : (
+            /* 文件层：该性质下的渠道（用户语言六列） */
+            <div style={{ overflowX: 'auto' }}>
+              <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: 11.5 }}>
+                <thead>
+                  <tr style={{ color: FAINT, textAlign: 'left' }}>
+                    <th style={$th}>渠道</th>
+                    <th style={$th}>标签</th>
+                    <th style={$th}>能不能用</th>
+                    <th style={$th}>上次好用</th>
+                    <th style={$th}>问题</th>
+                    <th style={$th}>操作</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {(groupRowsByOrgKind(rows).find((g) => g.key === orgSel)?.rows ?? []).map((r) => (
+                    <tr key={r.channel_id} style={needsAttention(r) ? $trWarn : undefined}>
+                      <td style={$td} title={r.note ?? undefined}>
+                        {r.name}
+                        {r.enabled === 0 ? <span style={{ color: FAINT }}>（已停用）</span> : null}
+                        {r.url
+                          ? <a href={r.url.split(/[（\s]/)[0]} target="_blank" rel="noreferrer noopener"
+                              style={{ marginLeft: 6, color: 'var(--dsw-alias-link, #1565c0)' }}>打开</a>
+                          : null}
+                      </td>
+                      <td style={{ ...$td, maxWidth: 200 }}>
+                        {(r.note ?? '').split(/[、，,]/).map((s) => s.trim()).filter((s) => s !== '')
+                          .map((s) => (
+                            <span key={s} style={{ display: 'inline-block', marginRight: 4, padding: '0 6px',
+                              border: '0.5px solid ' + LINE, borderRadius: 8, fontSize: 10.5 }}>{s}</span>
+                          ))}
+                        {(r.note ?? '').trim() === '' ? <span style={{ color: FAINT }}>—</span> : null}
+                      </td>
+                      <td style={$td}>{STATE_LABEL[r.state] ?? r.state}
+                        {r.state === 'unknown' && r.has_probe_target === false
+                          ? <span style={{ color: FAINT }}>（没配测试）</span>
+                          : null}
+                      </td>
+                      <td style={$td} title={r.last_ok_at ?? ''}>{describeWhen(r.last_ok_at)}</td>
+                      <td style={{ ...$td, color: r.last_error ? '#c0392b' : FAINT, maxWidth: 220 }}>
+                        {r.last_error ? <span>{r.last_error.slice(0, 40)}</span> : '—'}
+                      </td>
+                      <td style={{ ...$td, whiteSpace: 'nowrap' }}>
+                        <button type="button" disabled={mutating} style={$mini}
+                          onClick={() => void toggleEnabled(r)}
+                          title={r.enabled === 0 ? '重新启用这条渠道' : '停用（保留历史记录，不删）'}>
+                          {r.enabled === 0 ? '启用' : '停用'}
+                        </button>
+                        <button type="button" disabled={mutating} style={$mini}
+                          onClick={() => void editNote(r)} title="改标签（逗号分开；会留痕）">
+                          改标签
+                        </button>
+                        <button type="button" disabled={mutating} style={$mini}
+                          onClick={() => void editOrgKind(r)} title="改分类（单位性质）">
+                          改分类
+                        </button>
+                        <button type="button" disabled={mutating} style={{ ...$mini, color: '#c0392b' }}
+                          onClick={() => void remove(r)}
+                          title="删除条目（痕迹里保留删除前整行；一般建议用「停用」）">
+                          删除
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
+
       )}
 
       <p style={{ margin: 0, color: FAINT, lineHeight: 1.6 }}>

@@ -34806,13 +34806,6 @@ var CATEGORY_LABEL = {
   internal: "\u6211\u65B9\u901A\u8DEF",
   other: "\u5176\u4ED6"
 };
-var WIRING_LABEL = {
-  wired: "\u2705 \u5DF2\u63A5\u7EBF",
-  unwired: "\u26AA \u672A\u63A5\u7EBF",
-  broken: "\u274C \u5DF2\u77E5\u5931\u6548",
-  user: "\u{1F464} \u7528\u6237\u81EA\u52A0",
-  seed_only: "\u{1F4CB} \u4EC5\u767B\u8BB0"
-};
 var STATE_LABEL = {
   ok: "\u{1F7E2} \u53EF\u6293",
   suspicious: "\u{1F7E1} \u53EF\u7591",
@@ -34855,20 +34848,32 @@ function parseSegments(raw) {
     return [];
   }
 }
-function groupRowsByCategory(rows) {
-  const order = Object.keys(CATEGORY_LABEL);
+var ORG_KIND_LABEL = {
+  central: "\u56FD\u5BB6\u90E8\u59D4/\u603B\u5C40",
+  local_congress: "\u5730\u65B9\u4EBA\u5927",
+  local_dept: "\u5730\u65B9\u5385\u5C40",
+  industry: "\u884C\u4E1A\u673A\u6784",
+  intl: "\u56FD\u9645\u7EC4\u7EC7",
+  commercial: "\u5546\u4E1A/\u805A\u5408",
+  tool: "\u5DE5\u5177/\u4EE3\u7801",
+  other: "\u5176\u4ED6",
+  "": "\u672A\u5206\u7C7B"
+};
+function groupRowsByOrgKind(rows) {
+  const order = Object.keys(ORG_KIND_LABEL);
   const groups = /* @__PURE__ */ new Map();
   for (const r of rows) {
-    const arr = groups.get(r.category) ?? [];
+    const k = r.org_kind ?? "";
+    const arr = groups.get(k) ?? [];
     arr.push(r);
-    groups.set(r.category, arr);
+    groups.set(k, arr);
   }
   const keys = [...groups.keys()].sort((a, b) => {
     const ia = order.indexOf(a);
     const ib = order.indexOf(b);
     return (ia < 0 ? order.length : ia) - (ib < 0 ? order.length : ib) || a.localeCompare(b);
   });
-  return keys.map((k) => ({ key: k, label: CATEGORY_LABEL[k] ?? k, rows: groups.get(k) ?? [] }));
+  return keys.map((k) => ({ key: k, label: ORG_KIND_LABEL[k] ?? k, rows: groups.get(k) ?? [] }));
 }
 function buildChannelFixPrompt(rows, s) {
   const bad = rows.filter((r) => r.state !== "ok" || r.wiring === "broken" || r.consecutive_failures > 0);
@@ -34896,6 +34901,7 @@ function buildChannelFixPrompt(rows, s) {
     "- \u5148\u8BFB `docs/CHANNEL-COVERAGE-PLAN.md`\uFF08\u6E20\u9053\u8986\u76D6\u65B9\u6848\u4E0E\u8F6E\u6B21\u53F0\u8D26\uFF09\u518D\u52A8\u624B\uFF1B\u9002\u914D\u5668\u5728 `src/core/laws/`\uFF08\u6309\u6E20\u9053\u5206\u6587\u4EF6\uFF09\u3002",
     '- \u4FEE\u4E0D\u52A8/\u8BC1\u636E\u4E0D\u8DB3\u7684**\u5982\u5B9E\u8BF4\u4FEE\u4E0D\u52A8**\uFF0C\u767B\u8BB0\u539F\u56E0\uFF0C\u4E0D\u8981\u786C\u7F16\u4E00\u4E2A"\u5E94\u8BE5\u80FD\u7528"\u7684\u65B9\u6848\u3002',
     '- \u6BCF\u6B65\u5C0F\u63D0\u4EA4\uFF0C\u6D88\u606F\u5199\u6E05"\u6539\u4E86\u4EC0\u4E48/\u4E3A\u4EC0\u4E48/\u8FB9\u754C"\uFF1B\u4EA7\u51FA\u7269\u53EA\u51FA Markdown\u3002',
+    "- \u987A\u5E26\u628A\u300C\u672A\u5206\u7C7B\u300D\u7684\u6E20\u9053\u6807\u6CE8**\u5355\u4F4D\u6027\u8D28**\uFF08org_kind\uFF1Acentral/local_congress/local_dept/industry/intl/commercial/tool/other\uFF09\uFF0C\u7ED9\u51FA\u5EFA\u8BAE\u503C\u8868\u8BA9\u6211\u786E\u8BA4\u3002",
     "- \u6709\u4E0D\u786E\u5B9A\u7684\u5148\u95EE\u7528\u6237\uFF0C\u4E0D\u8981\u9ED8\u9ED8\u66FF\u4ED6\u505A\u51B3\u5B9A\u3002"
   ].join("\n");
 }
@@ -34924,6 +34930,7 @@ async function copyTextToClipboard(text) {
 }
 function KsChannelsPanel(props) {
   const { visible } = props;
+  ensureKsStyles();
   const [data, setData] = (0, import_react7.useState)(null);
   const [error, setError] = (0, import_react7.useState)("");
   const [busy, setBusy] = (0, import_react7.useState)(false);
@@ -34936,6 +34943,7 @@ function KsChannelsPanel(props) {
   const [newUrl, setNewUrl] = (0, import_react7.useState)("");
   const [newNote, setNewNote] = (0, import_react7.useState)("");
   const [mutating, setMutating] = (0, import_react7.useState)(false);
+  const [orgSel, setOrgSel] = (0, import_react7.useState)(null);
   const load = (0, import_react7.useCallback)(async (signal) => {
     setBusy(true);
     setError("");
@@ -35032,6 +35040,17 @@ function KsChannelsPanel(props) {
       () => updateChannel(r.channel_id, { segments_json: parts })
     );
   }, [runMutation]);
+  const editOrgKind = (0, import_react7.useCallback)(async (r) => {
+    const kinds = Object.entries(ORG_KIND_LABEL);
+    const next = window.prompt(
+      "\u6539\u5206\u7C7B\uFF08\u5355\u4F4D\u6027\u8D28\uFF09\u2014\u2014\u8F93\u5165\u5E8F\u53F7\uFF1A\n" + kinds.map(([k, v], i) => `${i + 1}. ${v}`).join("\n"),
+      String(kinds.findIndex(([k]) => k === (r.org_kind ?? "")) + 1)
+    );
+    if (next === null) return;
+    const idx = Number(next) - 1;
+    const kind = kinds[idx] ? kinds[idx][0] : null;
+    await runMutation("\u6539\u5206\u7C7B", () => updateChannel(r.channel_id, { org_kind: kind === "" ? null : kind }));
+  }, [runMutation]);
   const remove = (0, import_react7.useCallback)(async (r) => {
     const ok = window.confirm(
       `\u786E\u5B9A\u5220\u9664\u300C${r.name}\u300D\uFF1F
@@ -35048,24 +35067,16 @@ function KsChannelsPanel(props) {
     s && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { color: GRAY, lineHeight: 1.7 }, children: [
       "\u53F0\u8D26 ",
       /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("b", { children: s.total }),
-      " \u6761 \xB7 \u80FD\u5E72\u6D3B\uFF08\u5DF2\u63A5\u7EBF\uFF09",
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("b", { children: s.by_wiring.wired ?? 0 }),
-      " \u6761 \xB7 \u5DF2\u77E5\u5931\u6548 ",
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("b", { children: s.by_wiring.broken ?? 0 }),
-      " \u6761 \xB7 \u4EC5\u767B\u8BB0 ",
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("b", { children: s.by_wiring.seed_only ?? 0 }),
-      " \u6761",
+      " \u6761 \xB7 \u80FD\u7528 ",
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("b", { children: s.by_state.ok ?? 0 }),
+      " \xB7 \u4E0D\u592A\u884C ",
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("b", { children: s.by_state.suspicious ?? 0 }),
+      " \xB7 \u4E0D\u80FD\u7528 ",
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("b", { children: s.by_state.down ?? 0 }),
+      " \xB7 \u6CA1\u8BD5\u8FC7 ",
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("b", { children: s.by_state.unknown ?? 0 }),
       /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("br", {}),
-      "\u5DF2\u5B9E\u6D4B\u6709\u6548\u6027\uFF1A\u{1F7E2} ",
-      s.by_state.ok ?? 0,
-      " \xB7 \u{1F7E1} ",
-      s.by_state.suspicious ?? 0,
-      " \xB7 \u{1F534} ",
-      s.by_state.down ?? 0,
-      " \xB7 \u26AA \u672A\u63A2 ",
-      s.by_state.unknown ?? 0,
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("br", {}),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: FAINT }, children: "\u26A0\u300C\u63A5\u7EBF\u300D\u662F\u6211\u4EEC\u7684\u4EE3\u7801\u63A5\u6CA1\u63A5\u4E0A\uFF08\u5DE1\u68C0\u4F1A\u4E0D\u4F1A\u8C03\u7528\u5B83\uFF09\uFF1B\u300C\u6709\u6548\u6027\u300D\u662F\u6E20\u9053\u672C\u8EAB\u4ECA\u5929\u80FD\u4E0D\u80FD\u6293\u3002 \u4E24\u8005\u662F\u4E24\u6839\u8F74\uFF1A\u7AD9\u70B9\u6D3B\u7740\u800C\u6211\u4EEC\u7684\u89E3\u6790\u5668\u574F\u4E86\uFF08\u6216\u53CD\u4E4B\uFF09\u90FD\u4F1A\u53D1\u751F\uFF0C\u6240\u4EE5\u5206\u5217\u663E\u793A\u3002" })
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: FAINT }, children: "\u5DE6\u8FB9\u6309\u300C\u5355\u4F4D\u6027\u8D28\u300D\u5206\u7C7B\uFF08\u56FD\u5BB6\u90E8\u59D4/\u603B\u5C40\u3001\u5730\u65B9\u4EBA\u5927\u3001\u5730\u65B9\u5385\u5C40\u2026\uFF09\uFF1B\u70B9\u4E00\u7C7B\u770B\u5B83\u7684\u6E20\u9053\u3002" })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
@@ -35192,135 +35203,126 @@ function KsChannelsPanel(props) {
       /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: FAINT }, children: "\uFF08\u6E20\u9053\u53F0\u8D26\u7AEF\u70B9\u8981\u5BBF\u4E3B/\u5F15\u64CE\u91CD\u542F\u540E\u624D\u5728\u7EBF\uFF1B\u82E5\u521A\u66F4\u65B0\u8FC7\u800C\u6CA1\u91CD\u542F\uFF0C\u8FD9\u91CC\u5C31\u4F1A\u62A5\u9519\u3002\uFF09" })
     ] }),
     data && rows.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { style: { color: GRAY, margin: 0 }, children: "\u6CA1\u6709\u7B26\u5408\u6761\u4EF6\u7684\u6E20\u9053\u3002" }),
-    rows.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { style: { overflowX: "auto" }, children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("table", { style: { borderCollapse: "collapse", width: "100%", fontSize: 11.5 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("tr", { style: { color: FAINT, textAlign: "left" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("th", { style: $th, children: "\u6E20\u9053" }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("th", { style: $th, children: "\u7C7B\u522B" }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("th", { style: $th, children: "\u63A5\u7EBF" }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("th", { style: $th, children: "\u53F7\u6BB5" }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("th", { style: $th, children: "\u6709\u6548\u6027" }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("th", { style: $th, children: "\u4E0A\u6B21\u6210\u529F(UTC)" }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("th", { style: $th, children: "\u5931\u8D25\u539F\u56E0" }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("th", { style: $th, children: "\u94FE\u63A5" }),
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("th", { style: $th, children: "\u7EF4\u62A4" })
-      ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("tbody", { children: groupRowsByCategory(rows).map((g) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_react7.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("tr", { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { colSpan: 9, style: {
-          ...$td,
-          fontWeight: 600,
-          background: "var(--dsw-alias-bg-layer-2, #f5f5f5)"
-        }, children: [
-          g.label,
-          "\uFF08",
-          g.rows.length,
-          " \u6761\uFF09"
-        ] }) }),
-        g.rows.map((r) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("tr", { style: needsAttention(r) ? $trWarn : void 0, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: $td, title: r.note ?? void 0, children: [
-            r.name,
-            r.enabled === 0 ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: FAINT }, children: "\uFF08\u5DF2\u505C\u7528\uFF09" }) : null
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: $td, children: [
-            CATEGORY_LABEL[r.category] ?? r.category,
-            r.category_raw && r.category_raw !== r.category ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: FAINT }, title: `\u8C03\u7814\u539F\u6587\uFF1A${r.category_raw}`, children: "*" }) : null
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("td", { style: $td, title: r.wiring === "broken" ? r.note ?? "" : void 0, children: WIRING_LABEL[r.wiring] ?? r.wiring }),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-            "td",
-            {
-              style: { ...$td, maxWidth: 150 },
-              title: "\u94FE\u6309\u53F7\u6BB5\u505A\u52A0\u6CD5\uFF08\u53EA\u52A0\u5C3E\u5DF4\u3001\u4E0D\u6539\u987A\u5E8F\uFF09\uFF1A\u8FD9\u4E9B\u524D\u7F00\u547D\u4E2D\u7684\u6807\u51C6\u53F7\u4F1A\u591A\u95EE\u8FD9\u6761\u6E20\u9053\u4E00\u6839\u3002\u7559\u7A7A = \u4E0D\u9760\u53F7\u6BB5\u8FDB\u94FE\u3002",
-              children: parseSegments(r.segments_json).length > 0 ? parseSegments(r.segments_json).map((s2) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("code", { style: { marginRight: 4 }, children: s2 }, s2)) : /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: FAINT }, children: "\u2014" })
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: $td, children: [
-            STATE_LABEL[r.state] ?? r.state,
-            r.state === "unknown" && r.has_probe_target === false ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: FAINT }, title: "\u8BE5\u6E20\u9053\u6CA1\u6709\u63A2\u9488\u76EE\u6807\uFF08\u4EE3\u7801\u4ED3\u5E93/\u6211\u65B9\u4EE3\u7801\u901A\u8DEF\u7B49\uFF09\uFF0C\u4E0D\u662F'\u8FD8\u6CA1\u8F6E\u5230\u5B83'", children: "\uFF08\u65E0\u63A2\u9488\uFF09" }) : null,
-            r.latency_ms != null ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { color: FAINT }, children: [
-              " ",
-              r.latency_ms,
-              "ms"
-            ] }) : null
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: $td, title: r.last_ok_at ?? "", children: [
-            describeWhen(r.last_ok_at),
-            r.last_try_at && r.last_try_at !== r.last_ok_at ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { color: FAINT }, children: [
-              "\uFF08\u8BD5\u8FC7 ",
-              describeWhen(r.last_try_at),
-              "\uFF09"
-            ] }) : null
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: { ...$td, color: r.last_error ? "#c0392b" : FAINT, maxWidth: 220 }, children: [
-            r.last_error_code ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("code", { children: r.last_error_code }) : "\u2014",
-            r.last_error ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { children: [
-              " ",
-              r.last_error.slice(0, 60)
-            ] }) : null,
-            r.consecutive_failures > 1 ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { color: FAINT }, children: [
-              "\uFF08\u8FDE\u7EED ",
-              r.consecutive_failures,
-              " \u6B21\uFF09"
-            ] }) : null
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("td", { style: $td, children: r.url ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-            "a",
-            {
-              href: r.url.split(/[（\s]/)[0],
-              target: "_blank",
-              rel: "noreferrer noopener",
-              style: { color: "var(--dsw-alias-link, #1565c0)" },
-              children: "\u6253\u5F00"
-            }
-          ) : "\u2014" }),
-          /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: { ...$td, whiteSpace: "nowrap" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-              "button",
-              {
-                type: "button",
-                disabled: mutating,
-                style: $mini,
-                onClick: () => void toggleEnabled(r),
-                title: r.enabled === 0 ? "\u91CD\u65B0\u542F\u7528\u8FD9\u6761\u6E20\u9053" : "\u505C\u7528\uFF08\u4FDD\u7559\u5386\u53F2\u5065\u5EB7\u5EA6\uFF0C\u4E0D\u5220\u6761\u76EE\uFF09",
-                children: r.enabled === 0 ? "\u542F\u7528" : "\u505C\u7528"
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-              "button",
-              {
-                type: "button",
-                disabled: mutating,
-                style: $mini,
-                onClick: () => void editNote(r),
-                title: "\u6539\u5907\u6CE8\uFF08\u4F1A\u5199\u5BA1\u8BA1\u75D5\u8FF9\uFF09",
-                children: "\u6539\u5907\u6CE8"
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-              "button",
-              {
-                type: "button",
-                disabled: mutating,
-                style: $mini,
-                onClick: () => void editSegments(r),
-                title: "\u6539\u53F7\u6BB5\uFF1A\u8FD9\u6761\u6E20\u9053\u7BA1\u54EA\u4E9B\u6807\u51C6\u53F7\u524D\u7F00\uFF08\u9017\u53F7\u5206\u5F00\uFF1B\u4F1A\u5199\u5BA1\u8BA1\u75D5\u8FF9\uFF09",
-                children: "\u6539\u53F7\u6BB5"
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-              "button",
-              {
-                type: "button",
-                disabled: mutating,
-                style: { ...$mini, color: "#c0392b" },
-                onClick: () => void remove(r),
-                title: "\u5220\u9664\u6761\u76EE\uFF08\u5F15\u64CE\u7684\u5BA1\u8BA1\u75D5\u8FF9\u91CC\u4FDD\u7559\u5220\u9664\u524D\u6574\u884C\uFF1B\u4E00\u822C\u5EFA\u8BAE\u7528\u300C\u505C\u7528\u300D\uFF09",
-                children: "\u5220\u9664"
-              }
-            )
-          ] })
-        ] }, r.channel_id))
-      ] }, g.key)) })
-    ] }) }),
+    rows.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", gap: 4, alignItems: "center", marginBottom: 6, fontSize: 12 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("button", { type: "button", onClick: () => setOrgSel(null), style: { ...$mini, fontWeight: orgSel === null ? 600 : 400 }, children: "\u6E20\u9053\u53F0\u8D26" }),
+        orgSel !== null && /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_jsx_runtime10.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: FAINT }, children: "/" }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { fontWeight: 600 }, children: ORG_KIND_LABEL[orgSel] ?? orgSel })
+        ] })
+      ] }),
+      orgSel === null ? (
+        /* 目录层：单位性质文件夹（同构行 = 名称 + 条数 + ›） */
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "ks-dirs", children: groupRowsByOrgKind(rows).map((g) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
+          "button",
+          {
+            type: "button",
+            className: "ks-item ks-dir-row",
+            onClick: () => setOrgSel(g.key),
+            children: [
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { children: g.label }),
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("span", { style: { color: FAINT }, children: [
+                g.rows.length,
+                " \u6761"
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: FAINT }, children: "\u203A" })
+            ]
+          },
+          g.key
+        )) })
+      ) : (
+        /* 文件层：该性质下的渠道（用户语言六列） */
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { style: { overflowX: "auto" }, children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("table", { style: { borderCollapse: "collapse", width: "100%", fontSize: 11.5 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("thead", { children: /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("tr", { style: { color: FAINT, textAlign: "left" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("th", { style: $th, children: "\u6E20\u9053" }),
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("th", { style: $th, children: "\u6807\u7B7E" }),
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("th", { style: $th, children: "\u80FD\u4E0D\u80FD\u7528" }),
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("th", { style: $th, children: "\u4E0A\u6B21\u597D\u7528" }),
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("th", { style: $th, children: "\u95EE\u9898" }),
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("th", { style: $th, children: "\u64CD\u4F5C" })
+          ] }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("tbody", { children: (groupRowsByOrgKind(rows).find((g) => g.key === orgSel)?.rows ?? []).map((r) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("tr", { style: needsAttention(r) ? $trWarn : void 0, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: $td, title: r.note ?? void 0, children: [
+              r.name,
+              r.enabled === 0 ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: FAINT }, children: "\uFF08\u5DF2\u505C\u7528\uFF09" }) : null,
+              r.url ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+                "a",
+                {
+                  href: r.url.split(/[（\s]/)[0],
+                  target: "_blank",
+                  rel: "noreferrer noopener",
+                  style: { marginLeft: 6, color: "var(--dsw-alias-link, #1565c0)" },
+                  children: "\u6253\u5F00"
+                }
+              ) : null
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: { ...$td, maxWidth: 200 }, children: [
+              (r.note ?? "").split(/[、，,]/).map((s2) => s2.trim()).filter((s2) => s2 !== "").map((s2) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: {
+                display: "inline-block",
+                marginRight: 4,
+                padding: "0 6px",
+                border: "0.5px solid " + LINE,
+                borderRadius: 8,
+                fontSize: 10.5
+              }, children: s2 }, s2)),
+              (r.note ?? "").trim() === "" ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: FAINT }, children: "\u2014" }) : null
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: $td, children: [
+              STATE_LABEL[r.state] ?? r.state,
+              r.state === "unknown" && r.has_probe_target === false ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { style: { color: FAINT }, children: "\uFF08\u6CA1\u914D\u6D4B\u8BD5\uFF09" }) : null
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("td", { style: $td, title: r.last_ok_at ?? "", children: describeWhen(r.last_ok_at) }),
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("td", { style: { ...$td, color: r.last_error ? "#c0392b" : FAINT, maxWidth: 220 }, children: r.last_error ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { children: r.last_error.slice(0, 40) }) : "\u2014" }),
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("td", { style: { ...$td, whiteSpace: "nowrap" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+                "button",
+                {
+                  type: "button",
+                  disabled: mutating,
+                  style: $mini,
+                  onClick: () => void toggleEnabled(r),
+                  title: r.enabled === 0 ? "\u91CD\u65B0\u542F\u7528\u8FD9\u6761\u6E20\u9053" : "\u505C\u7528\uFF08\u4FDD\u7559\u5386\u53F2\u8BB0\u5F55\uFF0C\u4E0D\u5220\uFF09",
+                  children: r.enabled === 0 ? "\u542F\u7528" : "\u505C\u7528"
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+                "button",
+                {
+                  type: "button",
+                  disabled: mutating,
+                  style: $mini,
+                  onClick: () => void editNote(r),
+                  title: "\u6539\u6807\u7B7E\uFF08\u9017\u53F7\u5206\u5F00\uFF1B\u4F1A\u7559\u75D5\uFF09",
+                  children: "\u6539\u6807\u7B7E"
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+                "button",
+                {
+                  type: "button",
+                  disabled: mutating,
+                  style: $mini,
+                  onClick: () => void editOrgKind(r),
+                  title: "\u6539\u5206\u7C7B\uFF08\u5355\u4F4D\u6027\u8D28\uFF09",
+                  children: "\u6539\u5206\u7C7B"
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+                "button",
+                {
+                  type: "button",
+                  disabled: mutating,
+                  style: { ...$mini, color: "#c0392b" },
+                  onClick: () => void remove(r),
+                  title: "\u5220\u9664\u6761\u76EE\uFF08\u75D5\u8FF9\u91CC\u4FDD\u7559\u5220\u9664\u524D\u6574\u884C\uFF1B\u4E00\u822C\u5EFA\u8BAE\u7528\u300C\u505C\u7528\u300D\uFF09",
+                  children: "\u5220\u9664"
+                }
+              )
+            ] })
+          ] }, r.channel_id)) })
+        ] }) })
+      )
+    ] }),
     /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("p", { style: { margin: 0, color: FAINT, lineHeight: 1.6 }, children: '\u65F6\u95F4\u5217\u662F UTC\uFF08\u5E93\u5185 `datetime(\'now\')` \u7684\u65E2\u6709\u53E3\u5F84\uFF09\uFF0C\u65C1\u8FB9\u6309"\u591A\u4E45\u4E4B\u524D"\u663E\u793A\u3002 \u300C\u7ACB\u5373\u63A2\u6D4B\u300D\u53EA\u63A2\u914D\u4E86\u63A2\u9488\u76EE\u6807\u7684\u6E20\u9053\uFF08\u951A\u70B9\u5FC5\u987B\u5B9E\u6D4B\u770B\u5230\u8FC7\uFF0C\u4E0D\u8BB8\u51ED\u60F3\u8C61\u5199\uFF09\uFF1B \u6CA1\u914D\u7684\u663E\u793A \u26AA \u672A\u63A2 \u2014\u2014 \u90A3\u662F"\u8FD8\u6CA1\u6D4B\u8FC7"\uFF0C\u4E0D\u662F"\u6D4B\u8FC7\u4E86\u6CA1\u95EE\u9898"\uFF1B \u6807\u4E86\u300C\uFF08\u65E0\u63A2\u9488\uFF09\u300D\u7684\u662F\u6309\u8BBE\u8BA1\u5C31\u6CA1\u6709\u63A2\u9488\u76EE\u6807\uFF08\u4EE3\u7801\u4ED3\u5E93\u3001\u6211\u65B9\u4EE3\u7801\u901A\u8DEF\u7B49\uFF09\uFF0C \u4E0E"\u8FD8\u6CA1\u8F6E\u5230\u5B83"\u4E0D\u662F\u4E00\u56DE\u4E8B\uFF1B \u8FD8\u6709\u4E00\u79CD \u26AA \u662F\u80FD\u8FDE\u901A\u3001\u4F46\u6211\u4EEC\u6CA1\u7ED9\u5B83\u914D\u8BED\u4E49\u671F\u671B\uFF08\u5931\u8D25\u539F\u56E0\u5217\u5199 `no_anchor_configured`\uFF09 \u2014\u2014 \u5B83\u540C\u6837\u4E0D\u7B97\u300C\u53EF\u6293\u300D\uFF0C\u4F46\u4E5F\u4E0D\u662F\u6B20\u8D26\u3002' })
   ] });
 }

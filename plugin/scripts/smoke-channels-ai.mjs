@@ -74,30 +74,30 @@ try {
   })
   const mod = await import(pathToFileURL(out).href)
 
-  /* ── ① 分类：groupRowsByCategory ─────────────────────────── */
-  const rec = (id, category, state = 'ok', extra = {}) => ({
-    channel_id: id, name: id, category, wiring: 'wired', verification: 'verified',
-    state, enabled: 1, consecutive_failures: 0, ...extra,
+  /* ── ① 分类：groupRowsByOrgKind（业主定案：分类=主办单位性质，文件夹树） ── */
+  const rec = (id, org_kind, state = 'ok', extra = {}) => ({
+    channel_id: id, name: id, category: 'other', org_kind, wiring: 'wired',
+    verification: 'verified', state, enabled: 1, consecutive_failures: 0, ...extra,
   })
-  const groups = mod.groupRowsByCategory([
-    rec('g2-row1', 'std_hb'), rec('law1', 'law'), rec('g2-row2', 'std_hb'),
-    rec('odd1', 'zz_unknown'), rec('gb1', 'std_gb'),
+  const groups = mod.groupRowsByOrgKind([
+    rec('g2-row1', 'local_dept'), rec('law1', 'central'), rec('g2-row2', 'local_dept'),
+    rec('odd1', null), rec('gb1', 'local_congress'),
   ])
-  check('分类：组序 = 类别声明序（law → std_gb → std_hb），未知收尾',
-    groups.map((g) => g.key).join(',') === 'law,std_gb,std_hb,zz_unknown',
+  check('分类：组序 = 单位性质声明序（国家部委→地方人大→地方厅局），未分类收尾',
+    groups.map((g) => g.key).join(',') === 'central,local_congress,local_dept,',
     groups.map((g) => g.key).join(','))
   check('分类：组内保持传入序 + 计数对',
     groups[2].rows.map((r) => r.channel_id).join(',') === 'g2-row1,g2-row2' && groups[2].rows.length === 2,
     JSON.stringify(groups.map((g) => `${g.label}:${g.rows.length}`)))
-  check('分类：未知类别用原名当组名（不编不存在的字段）',
-    groups[3].label === 'zz_unknown', groups[3].label)
+  check('分类：未分类组名就叫「未分类」（不编不存在的字段）',
+    groups[3].label === '未分类', groups[3].label)
 
   /* ── ② 提示词：buildChannelFixPrompt ──────────────────────── */
   const rows = [
-    rec('ok-clean', 'std_gb', 'ok'),
-    rec('坏渠道甲', 'law', 'down', { url: 'https://a.example/坏', last_error: 'HTTP 404',
+    rec('ok-clean', 'central', 'ok'),
+    rec('坏渠道甲', 'local_dept', 'down', { url: 'https://a.example/坏', last_error: 'HTTP 404',
       last_error_code: 'http_404', consecutive_failures: 5, note: '改版了' }),
-    rec('可疑乙', 'std_hb', 'suspicious', { consecutive_failures: 2 }),
+    rec('可疑乙', 'industry', 'suspicious', { consecutive_failures: 2 }),
     rec('未探丙', 'tool', 'unknown', { has_probe_target: true }),
   ]
   const prompt = mod.buildChannelFixPrompt(rows, {
@@ -145,9 +145,9 @@ try {
   })
   await act(async () => { await new Promise((r) => setTimeout(r, 10)) })
   const html = () => host.innerHTML
-  check('面板：分组标题行渲染（类别 + 计数）',
-    html().includes('法律法规') || html().includes('（1 条）'),
-    `组标题数=${String((html().match(/（\d+ 条）/g) ?? []).length)}`)
+  check('面板：目录层按单位性质分行（名称 + 条数）',
+    html().includes('国家部委/总局') && html().includes('地方厅局') && /\d+ 条/.test(html()),
+    `组行数=${String((html().match(/ks-dir-row/g) ?? []).length)}`)
   const btn = [...host.querySelectorAll('button')]
     .find((b) => (b.textContent ?? '').includes('AI 一键解决'))
   check('面板：「AI 一键解决」按钮在', btn !== undefined, btn?.textContent?.trim() ?? '缺')
