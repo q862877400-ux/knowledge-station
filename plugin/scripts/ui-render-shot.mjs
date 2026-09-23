@@ -2289,6 +2289,21 @@ let measured = {}
 const mJson = /\|m=(\{.*?\})<\/title>/s.exec(probe.stdout ?? '')
 if (mJson !== null) { try { measured = JSON.parse(mJson[1].replace(/&quot;/g, '"')) } catch { measured = { parse_error: true } } }
 
+/* ⚠⚠ **2026-09-24（B1+B2 独立复核 MED）：量测脚本自己没跑成时，必须当场判红，不许说成"这一跑不适用"。**
+ *   两种形态：① 注入的量测脚本抛异常 ⇒ 上面那句外层 catch 把 title 置成 `m={"error":"…"}`
+ *   （`ui-render-shot.mjs` 的 `document.title = …|m={"error":…}`）；② 那串 JSON 解析不了 ⇒ `parse_error`。
+ *   两种情况下**这一跑什么都没量到**，而原来的各条判据只看"我要的键在不在"、键不在就报"这一跑不适用"
+ *   ⇒ **把"没量到"渲染成了"不适用"**（复核实测：注入探针异常时整跑虽仍非 0 退出，但红的是**别的**几何判据，
+ *   归因是错的）。⇒ 这里一次判死，并把原始错误原文打出来。 */
+if (measured !== null && typeof measured === 'object'
+    && (Object.prototype.hasOwnProperty.call(measured, 'error') || measured.parse_error === true)) {
+  console.error('')
+  console.error(`❌ 量测脚本本身没跑成（page=${page} navPage=${navPage} width=${width} theme=${themeName}）：`
+    + '这一跑**什么都没量到** ⇒ 判红（"没量到" ≠ "不适用"）。')
+  console.error(`   原始：${JSON.stringify(measured).slice(0, 500)}`)
+  process.exit(1)
+}
+
 /* ══════════════ #cols 的**真断言**（P2 复核打回 B，2026-09-20；变异 M4 现在会红） ══════════════
  * 复核的变异 M4：把表头与行的 grid-template-columns 改成**不一致**（header 416px 100px …
  * vs row 444px 72px …）⇒ 当时本脚本 exit 0、smoke 33/33 绿 —— 因为 #cols 只是报告值。

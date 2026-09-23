@@ -145,6 +145,23 @@ if (missing.length > 0) {
   process.exit(1)
 }
 
+/* ⚠ **2026-09-24（B1+B2 独立复核 MED）**：`.ks-list-cap` 那一行的**类名**是像素判据
+   （不压字 / 控件压在文字上 / 控件被裁到行外，都在 `ui-render-shot.mjs` 里）**唯一的抓手**，
+   而那一行**不在** `PAD_REQUIRED` 的必量清单里 ⇒ 有人把类名改掉时，那条判据只会说
+   "这一跑不适用"、**静默通过**（复核在只有 B1+B2 的冻结树上实测：改名后 `ui-render-shot` **exit 0**）。
+   正式把它收编进 `PAD_REQUIRED` 要**同时改四处**（规范第二节 / `PAD_SUBJECTS_ALL` /
+   `PAD_REQUIRED` / `smoke-kb-pad-pixels` 的 `SPEC_SUBJECTS`，四处互相绑着棘轮），成本远大于收益；
+   这里改用**源码文本**把"抓手仍在"钉住 —— 而且**放在最前面**：后面 N16 那一块在类名消失时会
+   因为 `q(…)[0].textContent` 取到 undefined 而**抛异常**（不是干净地报一条 FAIL），
+   那样一来本条就永远轮不到。 ⇒ 放在这里，改名会**第一条就报出名字**。 */
+{
+  const { readFileSync } = await import('node:fs')
+  const srcKbTop = readFileSync(join(pluginRoot, 'client', 'KsKnowledgePage.tsx'), 'utf8')
+  check('B2·抓手仍在：知识库页里那一行的类名 `ks-list-cap` 必须还在（像素判据靠它找行；改名 ⇒ 本条红）',
+    srcKbTop.includes('className="ks-list-cap'),
+    '源码里找不到 className="ks-list-cap ⇒ 那一行的压字/裁剪判据会退化成「这一跑不适用」而静默通过')
+}
+
 const stubDir = await mkdtemp(join(tmpdir(), 'ks-render-'))
 try {
   /* ── 1. 宿主 ui-primitives 的桩：**从源码派生**，单一所有者在 scripts/lib/ks-primitives-stub.mjs ── */
