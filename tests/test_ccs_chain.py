@@ -873,6 +873,578 @@ def test_ingest_records_failure_not_silence(db, tmp_path, synthetic_parser, monk
     assert out["total_clauses"] > 0
 
 
+# ═══════════ 10. 补前备份 / 精确回退（业主 2026-09-24 点名第①条） ═══════════
+#
+# 判据分两层：① **先备份、后写库**（第一次网络查询发生时，回退记录已经在盘上、
+# 库里一个标签都还没写）；② **回退真能退**（domain_tags 与台账**逐字**回到改前），
+# 并且**反向**：没被这一批选中的篇、别的标签，一行都不许动。
+
+def _journals() -> list[Path]:
+    """备份目录里现有的 ``ccs-undo-*.json``（按名字排序）。"""
+    from src.core.knowledge import ccs_undo
+    return sorted(ccs_undo.journal_dir().glob("ccs-undo-*.json"))
+
+
+def test_undo_journal_is_written_before_the_first_write(db, monkeypatch):
+    """**先备份、后写库**：第一次网络查询发生时，回退记录**已经在盘上**、
+    且库里**一个 CCS 标签都还没写**。
+
+    反向哨兵：把"写盘前先备份"那一步短路（或挪到起线程之后）⇒ 本用例必红。
+    """
+    _seed_doc("doc_ccs_u1", "GB/T 90300-2020", ["消防"])
+    _seed_doc("doc_ccs_u2", "GB/T 90301-2020", [])
+    pre = {"doc_ccs_u1": _raw_tags(db, "doc_ccs_u1"),
+           "doc_ccs_u2": _raw_tags(db, "doc_ccs_u2")}
+    before = {p.name for p in _journals()}
+    seen: list[dict] = []
+
+    def watch(no, name="", **kw):                       # noqa: ANN001, ANN003
+        new = [p for p in _journals() if p.name not in before]
+        seen.append({"no": no, "journals": [p.name for p in new],
+                     "raw_u1": _raw_tags(db, "doc_ccs_u1"),
+                     "raw_u2": _raw_tags(db, "doc_ccs_u2")})
+        return {"outcome": "found", "code": "K41", "sub": "变压器",
+                "source": "official_api", "keyword_form": "full",
+                "matched_no": no, "attempts": []}
+
+    monkeypatch.setattr(cf, "resolve_ccs", watch)
+    out = bf.start_ccs_backfill(doc_ids=["doc_ccs_u1", "doc_ccs_u2"], pause_s=0.0)
+    assert out["undo_journal"], out
+    _wait_done()
+    assert len(seen) == 2, seen
+    assert all(s["journals"] for s in seen), \
+        f"第一次查询发生时回退记录还不在盘上：{seen}"
+    # **第一次查询发生时，整批的备份已在盘上、两篇都还是改前的样子**（一个字都没写）
+    assert seen[0]["raw_u1"] == pre["doc_ccs_u1"], f"备份前就写了：{seen[0]}"
+    assert seen[0]["raw_u2"] == pre["doc_ccs_u2"], f"备份前就写了：{seen[0]}"
+    # 轮到自己那一篇时，它自己也还是改前的样子
+    assert seen[1]["raw_u2"] == pre["doc_ccs_u2"], f"自己的备份还没写就动手了：{seen[1]}"
+    # 第一篇的查询时刻：**整批两篇都还没有 CCS 标签**（备份在前、写库在后）
+    assert "CCS:" not in seen[0]["raw_u1"] and "CCS:" not in seen[0]["raw_u2"]
+    raw_before = pre["doc_ccs_u1"]
+    payload = json.loads(Path(out["undo_journal"]).read_text(encoding="utf-8"))
+    assert [r["doc_id"] for r in payload["records"]] == ["doc_ccs_u1", "doc_ccs_u2"]
+    assert payload["records"][0]["domain_tags"] == raw_before, payload["records"][0]
+    assert payload["records"][0]["ccs_state"] is None
+    assert payload["records"][1]["domain_tags"] == "[]"
+    assert payload["batch"]["doc_count"] == 2 and payload["pid"] > 0
+    assert payload["created_at"] and payload["kind"] == "ccs-backfill-undo"
+    # **状态接口如实下发路径**（业主点名：留回退说明要看得见）
+    assert bf.ccs_backfill_status()["undo_journal"] == out["undo_journal"]
+    assert _tags_of(db, "doc_ccs_u1") == ["消防", "CCS:K41 变压器"]
+
+
+def test_undo_journal_honours_ks_backup_dir(db, monkeypatch, tmp_path):
+    """回退记录落在**既有快照那个备份目录**，并**尊重 ``KS_BACKUP_DIR`` 覆盖**
+    （自己拼 ``data_dir/backups`` 会让"备份在另一块盘"的部署把回退记录丢在数据盘上）。"""
+    from src.core import config
+    from src.core.knowledge import ccs_undo
+    ext = tmp_path / "ext-backups"
+    monkeypatch.setenv("KS_BACKUP_DIR", str(ext))
+    _seed_doc("doc_ccs_u3", "GB/T 90302-2020", [])
+    monkeypatch.setattr(cf, "resolve_ccs", lambda no, name="", **kw: {
+        "outcome": "found", "code": "K41", "sub": "变压器",
+        "source": "official_api", "keyword_form": "full",
+        "matched_no": no, "attempts": []})
+    out = bf.start_ccs_backfill(doc_ids=["doc_ccs_u3"], pause_s=0.0)
+    _wait_done()
+    p = Path(out["undo_journal"])
+    assert p.parent == ext, f"没尊重 KS_BACKUP_DIR：{p}"
+    assert ccs_undo.journal_dir() == ext
+    assert p.exists() and p.name.startswith("ccs-undo-")
+    assert config.get_settings().data_dir / "backups" != ext
+
+
+def test_backfill_refuses_to_start_when_journal_write_fails(db, monkeypatch):
+    """**回退记录写不成 ⇒ 一篇都不写、当场报错**（"备份失败但照写"是明令禁止的）。"""
+    from src.core.exceptions import KnowledgeStationError
+    _seed_doc("doc_ccs_u4", "GB/T 90303-2020", [])
+    monkeypatch.setattr(cf, "resolve_ccs", lambda no, name="", **kw: {
+        "outcome": "found", "code": "K41", "sub": "变压器", "source": "official_api",
+        "keyword_form": "full", "matched_no": no, "attempts": []})
+    from src.core.knowledge import ccs_undo as _undo
+    real_write = _undo.write_undo_journal
+    refuse = {"on": True}
+
+    def flaky_write(*a, **kw):                          # noqa: ANN002, ANN003
+        if refuse["on"]:
+            raise KnowledgeStationError("磁盘满了（用例造的）", code="ccs_undo_failed")
+        return real_write(*a, **kw)
+
+    monkeypatch.setattr(_undo, "write_undo_journal", flaky_write)
+    with pytest.raises(KnowledgeStationError) as ei:
+        bf.start_ccs_backfill(doc_ids=["doc_ccs_u4"], pause_s=0.0)
+    assert ei.value.code == "ccs_undo_failed"
+    # 库**一个字节都没改**：没标签、没台账行
+    assert _tags_of(db, "doc_ccs_u4") == []
+    assert ccs_store.get_ccs_state("doc_ccs_u4") is None
+    # 而且锁放掉了（不许因为"备份失败"把「补全分类号」永久锁死）
+    assert bf._LOCK.locked() is False
+    assert bf.ccs_backfill_status()["running"] is False
+    # 备份恢复得了之后立刻还能起一批（证明锁真放掉了）
+    refuse["on"] = False
+    out = bf.start_ccs_backfill(doc_ids=["doc_ccs_u4"], pause_s=0.0)
+    assert out["queued"] == 1
+    _wait_done()
+    assert _tags_of(db, "doc_ccs_u4") == ["CCS:K41 变压器"]
+
+
+def test_revert_restores_tags_and_ledger_verbatim(db, monkeypatch):
+    """**回退真能退**：``domain_tags`` 与 ``doc_ccs_state`` **逐字**回到改前。
+
+    两篇各代表一种改前样子：一篇**改前没有任何台账行**（回退要把它删掉）、
+    一篇**改前就有台账行**（回退要整行写回原值，连 ``checked_at``/``reason`` 都不许变）。
+    """
+    from src.core.knowledge import ccs_undo
+    _seed_doc("doc_ccs_rv1", "GB/T 90310-2020", ["消防"])
+    _seed_doc("doc_ccs_rv2", "GB/T 90311-2020", ["通用"])
+    ccs_store.record_ccs_lookup("doc_ccs_rv2", {
+        "outcome": "not_found", "reason": "改前就查过：查无",
+        "attempts": [{"layer": "official_api", "result": "no_match"}]})
+    raw_before = {d: _raw_tags(db, d) for d in ("doc_ccs_rv1", "doc_ccs_rv2")}
+    state_before = {d: ccs_store.get_ccs_state(d)
+                    for d in ("doc_ccs_rv1", "doc_ccs_rv2")}
+    assert state_before["doc_ccs_rv1"] is None and state_before["doc_ccs_rv2"]
+
+    monkeypatch.setattr(cf, "resolve_ccs", lambda no, name="", **kw: (
+        {"outcome": "found", "code": "K41", "sub": "变压器",
+         "source": "official_api", "keyword_form": "full",
+         "matched_no": no, "attempts": []}
+        if no == "GB/T 90310-2020" else
+        {"outcome": "not_found", "code": None, "source": None,
+         "reason": "补的时候查无", "attempts": []}))
+    out = bf.start_ccs_backfill(doc_ids=["doc_ccs_rv1", "doc_ccs_rv2"], pause_s=0.0)
+    _wait_done()
+    # 改完了：一篇多了标签与台账行，另一篇台账被改写
+    assert _tags_of(db, "doc_ccs_rv1") == ["消防", "CCS:K41 变压器"]
+    assert ccs_store.get_ccs_state("doc_ccs_rv1") is not None
+    assert ccs_store.get_ccs_state("doc_ccs_rv2")["reason"] == "补的时候查无"
+
+    res = ccs_undo.revert_ccs_backfill_journal(out["undo_journal"])
+    assert res["restored"] == 2 and res["skipped"] == 0, res
+    for d in ("doc_ccs_rv1", "doc_ccs_rv2"):
+        assert _raw_tags(db, d) == raw_before[d], f"{d} 的 domain_tags 没逐字回到改前"
+        assert ccs_store.get_ccs_state(d) == state_before[d], \
+            f"{d} 的台账没逐字回到改前"
+
+
+def test_revert_twice_is_safe(db, monkeypatch):
+    """**回退两次是安全的**（幂等）：第二次一篇都不动，如实记"已经是改前的样子"。"""
+    from src.core.knowledge import ccs_undo
+    _seed_doc("doc_ccs_rv3", "GB/T 90312-2020", ["消防"])
+    monkeypatch.setattr(cf, "resolve_ccs", lambda no, name="", **kw: {
+        "outcome": "found", "code": "Z12", "sub": "环境监测",
+        "source": "local_table", "keyword_form": None,
+        "matched_no": no, "attempts": []})
+    out = bf.start_ccs_backfill(doc_ids=["doc_ccs_rv3"], pause_s=0.0)
+    _wait_done()
+    first = ccs_undo.revert_ccs_backfill_journal(out["undo_journal"])
+    assert first["restored"] == 1 and first["skipped"] == 0, first
+    snapshot = (_raw_tags(db, "doc_ccs_rv3"), ccs_store.get_ccs_state("doc_ccs_rv3"))
+    second = ccs_undo.revert_ccs_backfill_journal(out["undo_journal"])
+    assert second["restored"] == 0 and second["skipped"] == 1, second
+    assert "已经是改前的样子" in second["skipped_docs"][0]["reason"]
+    assert (_raw_tags(db, "doc_ccs_rv3"), ccs_store.get_ccs_state("doc_ccs_rv3")) \
+        == snapshot
+    # 默认路径（不传参）取的是**最近那一份**记录 —— 也是刚写的这一份
+    assert Path(ccs_undo.latest_journal_path()).name == Path(out["undo_journal"]).name
+
+
+def test_revert_does_not_touch_docs_outside_the_batch(db, monkeypatch):
+    """**反向判据**：回退只动这一批记录里的篇 —— 没被选中的篇（含"也是缺号"的那些）
+    的 ``domain_tags`` 与台账**一行都不许变**。
+
+    这三篇是"同库里、同一种缺号状态"的对照：只有 ``rb1`` 进了这一批。
+    """
+    from src.core.knowledge import ccs_undo
+    _seed_doc("doc_ccs_rb1", "GB/T 90320-2020", [])
+    _seed_doc("doc_ccs_rb2", "GB/T 90321-2020", [])              # 同样缺号，没被选中
+    _seed_doc("doc_ccs_rb3", "GB/T 90322-2020", ["CCS:K41 变压器"])  # 已经有号，没被选中
+    others = ("doc_ccs_rb2", "doc_ccs_rb3")
+    raw_before = {d: _raw_tags(db, d) for d in others}
+    state_before = {d: ccs_store.get_ccs_state(d) for d in others}
+
+    monkeypatch.setattr(cf, "resolve_ccs", lambda no, name="", **kw: {
+        "outcome": "found", "code": "C65", "sub": "劳动安全技术综合",
+        "source": "official_api", "keyword_form": "full",
+        "matched_no": no, "attempts": []})
+    out = bf.start_ccs_backfill(doc_ids=["doc_ccs_rb1"], pause_s=0.0)
+    _wait_done()
+    assert _tags_of(db, "doc_ccs_rb1") == ["CCS:C65 劳动安全技术综合"]
+    ccs_undo.revert_ccs_backfill_journal(out["undo_journal"])
+    assert _tags_of(db, "doc_ccs_rb1") == []
+    assert ccs_store.get_ccs_state("doc_ccs_rb1") is None
+    for d in others:
+        assert _raw_tags(db, d) == raw_before[d], f"{d} 不在这一批里，却被回退动了"
+        assert ccs_store.get_ccs_state(d) == state_before[d], f"{d} 的台账被回退动了"
+
+
+# ═══════ 11. 「为什么停」+「还剩多少」拆开说（业主 2026-09-24 点名第②条） ═══════
+
+def test_missing_split_partitions_and_tracks_each_bucket(db):
+    """``missing_split`` **五桶之和 == total**，且每一桶按台账 ``outcome`` 如实归类。
+
+    用**增量**判（会话级临时库里还有别的用例的篇）：新造的 5 篇各进一桶，各 +1。
+    """
+    bf.missing_ccs_split()                        # 预热（顺便证明没行时也不炸）
+    before = bf.missing_ccs_split()
+    _seed_doc("doc_ccs_sp1", "GB/T 90330-2020", [])          # 从来没查过
+    _seed_doc("doc_ccs_sp2", "GB/T 90331-2020", [])
+    ccs_store.record_ccs_lookup("doc_ccs_sp2", {
+        "outcome": "not_found", "reason": "查无", "attempts": []})
+    _seed_doc("doc_ccs_sp3", "GB/T 90332-2020", [])
+    ccs_store.record_ccs_lookup("doc_ccs_sp3", {
+        "outcome": "network_failed", "reason": "一个站点都没答上", "attempts": []})
+    _seed_doc("doc_ccs_sp4", "GB/T 90333-2020", [])
+    ccs_store.record_ccs_lookup("doc_ccs_sp4", {
+        "outcome": "not_applicable", "reason": "号不像标准号", "attempts": []})
+    _seed_doc("doc_ccs_sp5", "GB/T 90334-2020", [])
+    ccs_store.record_ccs_lookup("doc_ccs_sp5", {
+        "outcome": "found", "code": "K41", "sub": "变压器",
+        "source": "official_api", "attempts": []})           # 台账说 found、标签却不在
+    after = bf.missing_ccs_split()
+    assert after["never_checked"] - before["never_checked"] == 1, (before, after)
+    assert after["checked_not_found"] - before["checked_not_found"] == 1
+    assert after["checked_failed"] - before["checked_failed"] == 1
+    assert after["not_applicable"] - before["not_applicable"] == 1
+    assert after["found_but_untagged"] - before["found_but_untagged"] == 1
+    assert after["total"] - before["total"] == 5, (before, after)
+    # 五桶必须把 total 解释干净（少一篇就是"谁都说不清去哪了"）
+    assert (after["never_checked"] + after["checked_not_found"]
+            + after["checked_failed"] + after["not_applicable"]
+            + after["found_but_untagged"]) == after["total"], after
+    assert after["total"] == bf.missing_ccs_count(), \
+        "拆开的数字和 '还缺几篇' 对不上（现算的两次读数不一致）"
+
+
+def test_stop_reason_limit_selected_done_and_no_candidates(db, monkeypatch):
+    """**为什么停：各是各的值**（业主要求"不许合并成一个结束"）。
+
+    * 到量（``limit``）；* 勾选的跑完（``selected_done``）；* 一开始就没候选
+      （``no_candidates``，**不**说成"跑完了"）。
+    """
+    monkeypatch.setattr(cf, "resolve_ccs", lambda no, name="", **kw: {
+        "outcome": "not_found", "code": None, "source": None,
+        "reason": "查无", "attempts": []})
+    _seed_doc("doc_ccs_sr1", "GB/T 90340-2020", [])
+    _seed_doc("doc_ccs_sr2", "GB/T 90341-2020", [])
+    out = bf.start_ccs_backfill(limit=1, pause_s=0.0)
+    assert out["queued"] == 1 and out["plan"]["truncated"] is True, out
+    _wait_done()
+    st = bf.ccs_backfill_status()
+    assert st["stop_reason"] == bf.STOP_LIMIT, st
+    assert st["stop_reason_label"] == bf.STOP_REASON_LABELS[bf.STOP_LIMIT]
+    assert st["truncated"] is True and st["plan_total"] > 1
+
+    _seed_doc("doc_ccs_sr3", "GB/T 90342-2020", [])
+    _seed_doc("doc_ccs_sr4", "GB/T 90343-2020", [])
+    out2 = bf.start_ccs_backfill(doc_ids=["doc_ccs_sr3", "doc_ccs_sr4"], pause_s=0.0)
+    assert out2["queued"] == 2
+    _wait_done()
+    st2 = bf.ccs_backfill_status()
+    assert st2["stop_reason"] == bf.STOP_SELECTED_DONE, st2
+    assert st2["stop_reason_label"] and st2["stop_reason"] != bf.STOP_EXHAUSTED
+
+    # 一开始就没候选：给一篇已经有分类号的（``force=False`` ⇒ 它不是候选）
+    _seed_doc("doc_ccs_sr5", "GB/T 90344-2020", ["CCS:K41 变压器"])
+    out3 = bf.start_ccs_backfill(doc_ids=["doc_ccs_sr5"], pause_s=0.0)
+    assert out3["queued"] == 0 and out3["undo_journal"] is None, out3
+    st3 = bf.ccs_backfill_status()
+    assert st3["stop_reason"] == bf.STOP_NO_CANDIDATES, st3
+    assert st3["stop_reason_label"] and st3["running"] is False
+
+
+def test_decide_stop_reason_truth_table(monkeypatch):
+    """**七个值互斥且各是各的**：决策函数按优先级取一个（不许有"两个都对"的糊账）。
+
+    这一条是上一条的**真值表**：``exhausted`` / ``hard_cap`` / ``cancelled`` 在
+    会话级临时库里造不出稳定现场，所以直接钉决策函数（纯函数，没有 IO）。
+    """
+    monkeypatch.setitem(bf._PROGRESS, "cancelled", False)
+    monkeypatch.setitem(bf._PROGRESS, "hard_capped", False)
+    monkeypatch.setitem(bf._PROGRESS, "scope", "library")
+    monkeypatch.setitem(bf._PROGRESS, "truncated", False)
+    assert bf._decide_stop_reason() == bf.STOP_EXHAUSTED
+    monkeypatch.setitem(bf._PROGRESS, "truncated", True)
+    assert bf._decide_stop_reason() == bf.STOP_LIMIT
+    monkeypatch.setitem(bf._PROGRESS, "scope", "selected")
+    assert bf._decide_stop_reason() == bf.STOP_SELECTED_DONE
+    monkeypatch.setitem(bf._PROGRESS, "scope", "all")
+    monkeypatch.setitem(bf._PROGRESS, "hard_capped", True)
+    assert bf._decide_stop_reason() == bf.STOP_HARD_CAP
+    monkeypatch.setitem(bf._PROGRESS, "cancelled", True)
+    assert bf._decide_stop_reason() == bf.STOP_CANCELLED
+    # 七个值两两不同，且每个都有中文说法（界面靠后端下发，不自己编）
+    values = {bf.STOP_NO_CANDIDATES, bf.STOP_EXHAUSTED, bf.STOP_LIMIT,
+              bf.STOP_HARD_CAP, bf.STOP_SELECTED_DONE, bf.STOP_CANCELLED,
+              bf.STOP_ERROR}
+    assert len(values) == 7
+    assert values <= set(bf.STOP_REASON_LABELS)
+    assert len(set(bf.STOP_REASON_LABELS.values())) == 7, "七种「为什么停」的说法不许重样"
+
+
+def test_stop_reason_exhausted_when_plan_had_no_remainder(db, monkeypatch):
+    """``exhausted`` = **候选扫完了**（计划里没有剩余候选），不是"全库都补上了"。
+
+    ⚠ 造现场：注入一个"只有 1 篇候选、且没有截断"的计划 —— 会话级临时库里
+    永远还有别的用例留下的缺号篇，真实的"全库零候选"造不出来。
+    """
+    _seed_doc("doc_ccs_ex1", "GB/T 90345-2020", [])
+    monkeypatch.setattr(bf, "plan_ccs_backfill", lambda **kw: {
+        "candidates": [{"doc_id": "doc_ccs_ex1", "standard_no": "GB/T 90345-2020",
+                        "standard_name": "测试 GB/T 90345-2020"}],
+        "total": 1, "already_have": 0, "limit": kw.get("limit") or 0,
+        "truncated": False})
+    monkeypatch.setattr(cf, "resolve_ccs", lambda no, name="", **kw: {
+        "outcome": "not_found", "code": None, "source": None,
+        "reason": "查无", "attempts": []})
+    out = bf.start_ccs_backfill(limit=50, pause_s=0.0)
+    assert out["queued"] == 1
+    _wait_done()
+    st = bf.ccs_backfill_status()
+    assert st["stop_reason"] == bf.STOP_EXHAUSTED, st
+    # 如实：还剩多少照样现算下发（"候选扫完"不等于"全库补完"）
+    assert st["missing"] and st["missing_split"]["total"] == st["missing"]
+
+
+def test_all_mode_pages_serially_and_stops_at_hard_cap(db, monkeypatch):
+    """**「全部补完」**：按 ``MAX_BACKFILL_DOCS`` 一页一页串行，撞硬上限就停，**如实说**。
+
+    反向判据（三条）：① 同一篇**不许被查两次**（候选名单只取一次，重查失败篇
+    会让"全部"变成死循环）；② 到上限后**没被选中的篇一篇都不许动**（标签净增 == 上限）；
+    ③ 停的是 ``hard_cap``，**不是** ``exhausted``（不许假装补完）。
+    """
+    monkeypatch.setattr(bf, "MAX_BACKFILL_DOCS", 1)       # 一页一篇 ⇒ 分页真的在走
+    monkeypatch.setattr(bf, "MAX_BACKFILL_ALL", 2)        # 硬上限 2 篇
+    _seed_doc("doc_ccs_al1", "GB/T 90350-2020", [])
+    _seed_doc("doc_ccs_al2", "GB/T 90351-2020", [])
+    _seed_doc("doc_ccs_al3", "GB/T 90352-2020", [])
+    seen: list[str] = []
+
+    def spy(no, name="", **kw):                          # noqa: ANN001, ANN003
+        seen.append(no)
+        return {"outcome": "found", "code": "K41", "sub": "变压器",
+                "source": "official_api", "keyword_form": "full",
+                "matched_no": no, "attempts": []}
+
+    monkeypatch.setattr(cf, "resolve_ccs", spy)
+    missing_before = bf.missing_ccs_count()
+    out = bf.start_ccs_backfill(all_docs=True, pause_s=0.0)
+    assert out["queued"] == 2, out
+    assert out["pages"] == 2 and out["hard_capped"] is True, out
+    assert out["plan"]["total"] > 2, out                    # 候选比上限多 ⇒ 确实有"还剩"
+    _wait_done()
+    st = bf.ccs_backfill_status()
+    assert st["stop_reason"] == bf.STOP_HARD_CAP, st
+    assert st["stop_reason_label"] == bf.STOP_REASON_LABELS[bf.STOP_HARD_CAP]
+    assert st["page"] == 2 and st["pages"] == 2
+    assert len(seen) == 2 and len(set(seen)) == 2, f"有篇被查了不止一次：{seen}"
+    # 反向：只有这 2 篇真的补上了（第 3 篇及别的都没被动）
+    assert bf.missing_ccs_count() == missing_before - 2, "到上限之后还在改库"
+    assert st["missing"] == bf.missing_ccs_count()
+    mine = {"GB/T 90350-2020": "doc_ccs_al1",
+            "GB/T 90351-2020": "doc_ccs_al2",
+            "GB/T 90352-2020": "doc_ccs_al3"}
+    for no, doc in mine.items():
+        if no in seen:
+            assert _tags_of(db, doc) == ["CCS:K41 变压器"], doc
+        else:
+            assert _tags_of(db, doc) == [], f"{doc} 没被这一批选中，却被写上了标签"
+            assert ccs_store.get_ccs_state(doc) is None, f"{doc} 没被选中却落了台账"
+    assert len([no for no in mine if no in seen]) <= 2
+
+
+def test_all_mode_refuses_doc_ids_and_allows_zero_limit(db, monkeypatch):
+    """``all`` 与勾选篇目**不能同时用**（两件事）；``all`` 时 ``limit`` 不再是必填 1~200。"""
+    _seed_doc("doc_ccs_al4", "GB/T 90353-2020", [])
+    with pytest.raises(ValueError, match="不能同时用"):
+        bf.start_ccs_backfill(doc_ids=["doc_ccs_al4"], all_docs=True, pause_s=0.0)
+    monkeypatch.setattr(bf, "MAX_BACKFILL_ALL", 1)
+    monkeypatch.setattr(cf, "resolve_ccs", lambda no, name="", **kw: {
+        "outcome": "not_found", "code": None, "source": None,
+        "reason": "查无", "attempts": []})
+    out = bf.start_ccs_backfill(all_docs=True, limit=0, pause_s=0.0)
+    assert out["queued"] == 1 and out["hard_capped"] is True, out
+    _wait_done()
+    assert bf.ccs_backfill_status()["stop_reason"] == bf.STOP_HARD_CAP
+
+
+# ═══════ 12. 复核抓到的真缺陷：HIGH-1 / MED-1 / MED-2 / MED-5 / LOW-4 / LOW-5 ═══════
+
+def test_apply_ccs_tag_replaces_instead_of_appending(db):
+    """**HIGH-1**：同一篇**只许有一条** ``CCS:`` 标签 —— 换号是**替换**（就地），不是追加。
+
+    旧实现 append 第二条，而读侧只取第一条 ⇒ 刷新静默无效、台账与树打架。
+    """
+    _seed_doc("doc_ccs_rep1", "GB/T 90360-2020", ["消防", "CCS:K41 变压器"])
+    first = ccs_store.apply_ccs_tag("doc_ccs_rep1", "CCS:C65 劳动安全技术综合")
+    assert first["applied"] is True, first
+    assert first["replaced"] == "CCS:K41 变压器", first
+    tags = _tags_of(db, "doc_ccs_rep1")
+    assert tags == ["消防", "CCS:C65 劳动安全技术综合"], tags
+    assert sum(1 for t in tags if t.startswith("CCS:")) == 1, tags
+    assert "消防" in tags, "别的标签被动了（红线）"
+    # 同一个号再来一次：一个字都不改（幂等）
+    second = ccs_store.apply_ccs_tag("doc_ccs_rep1", "CCS:C65 劳动安全技术综合")
+    assert second["applied"] is False
+    assert _tags_of(db, "doc_ccs_rep1").count("CCS:C65 劳动安全技术综合") == 1
+    # 历史遗留的多条也收成一条（修既有错数据）
+    _seed_doc("doc_ccs_rep2", "GB/T 90361-2020", ["CCS:K41 变压器", "消防", "CCS:Z12 环境监测"])
+    third = ccs_store.apply_ccs_tag("doc_ccs_rep2", "CCS:C65 劳动安全技术综合")
+    tags2 = _tags_of(db, "doc_ccs_rep2")
+    assert third["applied"] is True
+    assert [t for t in tags2 if t.startswith("CCS:")] == ["CCS:C65 劳动安全技术综合"], tags2
+    assert "消防" in tags2, tags2
+
+
+def test_force_refresh_tag_and_tree_read_the_same_code(db, monkeypatch):
+    """**HIGH-1 的端到端判据**：``force=True``（刷新）之后，**台账与分类树读到同一个码**。
+
+    ⚠ 旧实现下这条必红：刷新 append 出第二条 ``CCS:C65``，而 ``doc_catalog``
+    读第一条（还是 ``K41``）⇒ 台账说 C65、树挂在 K41。
+    """
+    from src.core.knowledge.doc_catalog import classify_document
+    _seed_doc("doc_ccs_rep3", "GB/T 90362-2020", ["消防", "CCS:K41 变压器"])
+    ccs_store.record_ccs_lookup("doc_ccs_rep3", {
+        "outcome": "found", "source": "official_api", "keyword_form": "full",
+        "matched_no": "GB/T 90362-2020", "code": "K41", "sub": "变压器",
+        "reason": "", "attempts": []})
+    monkeypatch.setattr(cf, "resolve_ccs", lambda no, name="", **kw: {
+        "outcome": "found", "code": "C65", "sub": "劳动安全技术综合",
+        "source": "official_api", "keyword_form": "full",
+        "matched_no": no, "attempts": []})
+    out = bf.start_ccs_backfill(doc_ids=["doc_ccs_rep3"], force=True, pause_s=0.0)
+    assert out["queued"] == 1, out
+    _wait_done()
+    tags = _tags_of(db, "doc_ccs_rep3")
+    assert tags == ["消防", "CCS:C65 劳动安全技术综合"], tags
+    row = ccs_store.get_ccs_state("doc_ccs_rep3")
+    assert row["ccs_code"] == "C65", row
+    cl = classify_document({"standard_no": "GB/T 90362-2020", "standard_name": "测试",
+                            "doc_type": "standard", "legal_hierarchy": "GB",
+                            "domain_tags": tags})
+    assert cl["level4"].startswith("C65"), cl
+    # 台账的码 == 树的码（同一件事一个来源）
+    assert cl["level4"].split()[0] == row["ccs_code"]
+
+
+def test_backfill_classifies_exceptions_by_type_not_all_network(db, monkeypatch):
+    """**MED-1 + MED-2**：异常**按类型如实归类并落台账** —— 代码缺陷**不许**冒充网络问题。
+
+    旧实现是 ``except Exception`` 一律记 ``network_failed``（复核实测：``RuntimeError``
+    ⇒ ``outcome=network_failed``），把"我们自己的 bug"说成"网络不通"。
+    """
+    _seed_doc("doc_ccs_ec1", "GB/T 90370-2020", [])
+    _seed_doc("doc_ccs_ec2", "GB/T 90371-2020", [])
+
+    def broken(no, name="", **kw):                      # noqa: ANN001, ANN003
+        if no == "GB/T 90370-2020":
+            raise ConnectionError("网络断了（用例造的）")
+        raise RuntimeError("boom（用例造的代码缺陷）")
+
+    monkeypatch.setattr(cf, "resolve_ccs", broken)
+    bf.start_ccs_backfill(doc_ids=["doc_ccs_ec1", "doc_ccs_ec2"], pause_s=0.0)
+    _wait_done()
+    net = ccs_store.get_ccs_state("doc_ccs_ec1")
+    inner = ccs_store.get_ccs_state("doc_ccs_ec2")
+    assert net is not None and inner is not None, "异常路径**必须落台账**（否则就是静默）"
+    assert net["outcome"] == "network_failed", net
+    assert "网络层出错" in net["reason"]
+    assert inner["outcome"] == "parse_failed", inner
+    assert "内部出错" in inner["reason"] and "RuntimeError" in inner["reason"]
+    assert "网络层出错" not in inner["reason"]
+    # 流水里**逐字**看得出是内部错误（审计与界面能分开看）
+    att = json.loads(inner["attempts_json"])
+    assert att[0]["layer"] == "internal" and att[0]["result"] == "internal_error", att
+    assert "boom" in att[0]["detail"]
+    net_att = json.loads(net["attempts_json"])
+    assert net_att[0]["result"] == "network_error", net_att
+    # 状态里的失败清单也如实（两种结论各是各的），且 last_error 不再是恒 None 的死字段
+    st = bf.ccs_backfill_status()
+    outcomes = {f["doc_id"]: f["outcome"] for f in st["failures"]}
+    assert outcomes["doc_ccs_ec1"] == "network_failed"
+    assert outcomes["doc_ccs_ec2"] == "parse_failed"
+    assert st["last_error"], "last_error 是个恒为 None 的死字段（LOW-5）"
+
+
+def test_run_loop_error_does_not_wedge_running_and_lock(db, monkeypatch):
+    """**MED-5**：循环体外的异常**不许**把 ``running`` 与锁永久卡死。
+
+    旧实现没有 try/finally ⇒ 异常一出，``running`` 永远是 True、锁永不释放，
+    用户只能重启进程。反向哨兵：把 ``try/finally`` 去掉 ⇒ 本用例必红（跑不回来）。
+    """
+    _seed_doc("doc_ccs_lk1", "GB/T 90380-2020", [])
+    _seed_doc("doc_ccs_lk2", "GB/T 90381-2020", [])
+    monkeypatch.setattr(cf, "resolve_ccs", lambda no, name="", **kw: {
+        "outcome": "not_found", "code": None, "source": None,
+        "reason": "查无", "attempts": []})
+    orig = bf._update_counts
+    boom = {"on": True}
+
+    def flaky(rec):                                     # noqa: ANN001
+        if boom["on"]:
+            raise RuntimeError("boom（用例造的：循环体外出错）")
+        return orig(rec)
+
+    monkeypatch.setattr(bf, "_update_counts", flaky)
+    out = bf.start_ccs_backfill(doc_ids=["doc_ccs_lk1", "doc_ccs_lk2"], pause_s=0.0)
+    assert out["queued"] == 2
+    _wait_flag(lambda: not bf.ccs_backfill_status()["running"], timeout_s=5.0)
+    st = bf.ccs_backfill_status()
+    assert st["stop_reason"] == bf.STOP_ERROR, st
+    assert "boom" in (st["last_error"] or ""), st
+    assert bf._LOCK.locked() is False, "循环体外出错之后锁没放掉（永久卡死）"
+    # 恢复之后还能立刻再起一批（这才是"没卡死"）
+    boom["on"] = False
+    out2 = bf.start_ccs_backfill(doc_ids=["doc_ccs_lk1"], pause_s=0.0)
+    assert out2["queued"] == 1
+    _wait_done()
+    assert ccs_store.get_ccs_state("doc_ccs_lk1") is not None
+    assert bf.ccs_backfill_status()["stop_reason"] == bf.STOP_SELECTED_DONE
+
+
+# ═══════════════════════════ 13. 接口外形（本批新增字段） ═══════════════════════════
+
+def test_api_ccs_summary_reports_stop_reasons_and_split(client, db):
+    """``/kb/ccs/summary`` 把"还剩多少（拆开）"与"为什么停"的说法**由后端下发**。"""
+    from _kb_folder_api_fixtures import data_of
+    c, token = client
+    _seed_doc("doc_ccs_api5", "GB/T 90390-2020", [])
+    s = data_of(_api(c, token, "get", "/api/v1/kb/ccs/summary"))
+    assert s["max_all"] > 0 and s["max_batch"] > 0 and s["default_batch"] > 0
+    assert set(s["stop_reason_labels"]) == {
+        "no_candidates", "exhausted", "limit", "hard_cap", "selected_done",
+        "cancelled", "error"}
+    assert s["missing_split"]["total"] == s["missing"] >= 1
+    assert (s["missing_split"]["never_checked"] + s["missing_split"]["checked_not_found"]
+            + s["missing_split"]["checked_failed"] + s["missing_split"]["not_applicable"]
+            + s["missing_split"]["found_but_untagged"]) == s["missing_split"]["total"]
+    assert "undo_journal" in s["backfill"]
+
+
+def test_api_ccs_backfill_all_flag(client, db, monkeypatch):
+    """``POST /kb/ccs/backfill {"all": true}``：分页跑到硬上限并**如实**说停在硬上限；
+    与勾选篇目同时用 ⇒ 422（不静默取一个）。"""
+    from _kb_folder_api_fixtures import data_of
+    c, token = client
+    monkeypatch.setattr(bf, "MAX_BACKFILL_DOCS", 1)
+    monkeypatch.setattr(bf, "MAX_BACKFILL_ALL", 1)
+    _seed_doc("doc_ccs_api6", "GB/T 90391-2020", [])
+    monkeypatch.setattr(cf, "resolve_ccs", lambda no, name="", **kw: {
+        "outcome": "not_found", "code": None, "source": None,
+        "reason": "查无", "attempts": []})
+    out = data_of(_api(c, token, "post", "/api/v1/kb/ccs/backfill",
+                       json={"all": True, "limit": 0}))
+    assert out["queued"] == 1 and out["hard_capped"] is True, out
+    assert out["undo_journal"], "「全部补完」也必须先写回退记录"
+    _wait_done()
+    st = data_of(_api(c, token, "get", "/api/v1/kb/ccs/backfill/status"))
+    assert st["stop_reason"] == "hard_cap" and st["stop_reason_label"], st
+    r = _api(c, token, "post", "/api/v1/kb/ccs/backfill",
+             json={"all": True, "doc_ids": ["doc_ccs_api6"]})
+    assert r.status_code == 422, r.text
+
+
 # ═══════════════════════════ 工具 ═══════════════════════════
 
 def _seed_doc(doc_id: str, standard_no: str, tags: list[str],
@@ -896,6 +1468,24 @@ def _tags_of(db, doc_id: str) -> list[str]:            # noqa: ANN001
                      (doc_id,)).fetchone()
     assert row is not None, f"库里没有这一篇：{doc_id}"
     return list(json.loads(row[0] or "[]"))
+
+
+def _raw_tags(db, doc_id: str) -> str | None:          # noqa: ANN001
+    """``domain_tags`` 的**原文**（不解析）—— "逐字回到改前"要按字节比。"""
+    row = db.execute("SELECT domain_tags FROM doc_meta WHERE doc_id=?",
+                     (doc_id,)).fetchone()
+    assert row is not None, f"库里没有这一篇：{doc_id}"
+    return row[0]
+
+
+def _wait_flag(pred, timeout_s: float = 20.0) -> None:  # noqa: ANN001
+    """等一个条件成真（超时抛 —— **不许**用 sleep 假装它成真了）。"""
+    deadline = time.time() + timeout_s
+    while time.time() < deadline:
+        if pred():
+            return
+        time.sleep(0.05)
+    raise AssertionError(f"条件在 {timeout_s}s 内没成真（用例不该挂在这里）")
 
 
 def _wait_done(timeout_s: float = 20.0) -> None:
