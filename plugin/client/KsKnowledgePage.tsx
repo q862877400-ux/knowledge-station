@@ -1781,7 +1781,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
       <div className="ks-page">
         <div className="ks-kb">
           <header className="ks-page-head">
-            <div className="ks-page-title">渠道台账</div>
+            <div className="ks-page-title">渠道库</div>
             <div className="ks-page-sub">知识来源渠道的管理库：分类、体检、维护。顶部常驻最新动态。</div>
           </header>
           <div className="ks-page-rule" />
@@ -1795,7 +1795,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
   // ⚠ **`ingest` 不在这里了**（第 4 步）：那一条以前落到"这一页尚未实现"，而业主说
   //   "不要两个页面" ⇒ 现在它**直接落到「待分类」那一层**（看上面 `layer` 的初值与挂载副作用）。
   if (page !== 'manage' && page !== 'ingest') {
-    const LABELS: Record<string, string> = { channels: '渠道台账' }
+    const LABELS: Record<string, string> = { channels: '渠道库' }
     return (
       // ⚠ 外面这一层 `.ks-page` **只做 container-type**（页面留边的宽/窄两档靠它切；
       //    CSS 里容器不能用自己的宽度查自己，所以留边必须落在它的后代 `.ks-kb` 上）。

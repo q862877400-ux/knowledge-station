@@ -253,7 +253,7 @@ export async function fetchChannels(
   const res = await fetch(`/ks/channels${suffix ? `?${suffix}` : ''}`, {
     method: 'GET', headers: { accept: 'application/json' }, signal,
   })
-  return ksJson<KsChannelList>(res, '渠道台账')
+  return ksJson<KsChannelList>(res, '渠道库')
 }
 
 /**

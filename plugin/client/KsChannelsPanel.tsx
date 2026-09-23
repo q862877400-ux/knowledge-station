@@ -567,7 +567,7 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
           读取失败：{error}
           <br />
           <span style={{ color: FAINT }}>
-            （渠道台账端点要宿主/引擎重启后才在线；若刚更新过而没重启，这里就会报错。）
+            （渠道库端点要宿主/引擎重启后才在线；若刚更新过而没重启，这里就会报错。）
           </span>
         </p>
       )}
@@ -581,10 +581,10 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
         <div>
           <KsCrumb
             items={q.trim() !== ''
-              ? [{ name: '渠道台账' }, { name: `搜索「${q.trim()}」` }]
+              ? [{ name: '渠道库' }, { name: `搜索「${q.trim()}」` }]
               : orgSel === null
-                ? [{ name: '渠道台账' }]
-                : [{ name: '渠道台账', onGo: () => setOrgSel(null) },
+                ? [{ name: '渠道库' }]
+                : [{ name: '渠道库', onGo: () => setOrgSel(null) },
                    { name: ORG_KIND_LABEL[orgSel] ?? orgSel }]}
             n={crumbN} />
           {orgSel === null && q.trim() === '' ? (

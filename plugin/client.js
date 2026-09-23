@@ -267,7 +267,7 @@ async function fetchChannels(params = {}, signal) {
     headers: { accept: "application/json" },
     signal
   });
-  return ksJson(res, "\u6E20\u9053\u53F0\u8D26");
+  return ksJson(res, "\u6E20\u9053\u5E93");
 }
 async function createChannel(body, signal) {
   const res = await fetch("/ks/channels", {
@@ -34629,7 +34629,7 @@ var MENU_ITEMS = [
   { id: "ingest", label: "\u6587\u4EF6\u5BFC\u5165" },
   // 「效力总览」菜单项撤（批D2，2026-09-22 业主定）：效力四色已融进知识库管理的目录行
   // （文件夹行=一夹红绿灯）；导出入口在目录层顶部小按钮。不许再单立一页。
-  { id: "channels", label: "\u6E20\u9053\u53F0\u8D26" },
+  { id: "channels", label: "\u6E20\u9053\u5E93" },
   { id: "pdf", label: "\u6253\u5F00 PDF \u67E5\u770B\u5668" }
 ];
 function KsKnowledgeGuide({ title, description, kind, useTabInfo }) {
@@ -36554,15 +36554,15 @@ function KsChannelsPanel(props) {
       "\u8BFB\u53D6\u5931\u8D25\uFF1A",
       error,
       /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("br", {}),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { color: FAINT }, children: "\uFF08\u6E20\u9053\u53F0\u8D26\u7AEF\u70B9\u8981\u5BBF\u4E3B/\u5F15\u64CE\u91CD\u542F\u540E\u624D\u5728\u7EBF\uFF1B\u82E5\u521A\u66F4\u65B0\u8FC7\u800C\u6CA1\u91CD\u542F\uFF0C\u8FD9\u91CC\u5C31\u4F1A\u62A5\u9519\u3002\uFF09" })
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { color: FAINT }, children: "\uFF08\u6E20\u9053\u5E93\u7AEF\u70B9\u8981\u5BBF\u4E3B/\u5F15\u64CE\u91CD\u542F\u540E\u624D\u5728\u7EBF\uFF1B\u82E5\u521A\u66F4\u65B0\u8FC7\u800C\u6CA1\u91CD\u542F\uFF0C\u8FD9\u91CC\u5C31\u4F1A\u62A5\u9519\u3002\uFF09" })
     ] }),
     data && rows.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { style: { color: GRAY, margin: 0 }, children: "\u6CA1\u6709\u7B26\u5408\u6761\u4EF6\u7684\u6E20\u9053\u3002" }),
     rows.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { children: [
       /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
         KsCrumb,
         {
-          items: q.trim() !== "" ? [{ name: "\u6E20\u9053\u53F0\u8D26" }, { name: `\u641C\u7D22\u300C${q.trim()}\u300D` }] : orgSel === null ? [{ name: "\u6E20\u9053\u53F0\u8D26" }] : [
-            { name: "\u6E20\u9053\u53F0\u8D26", onGo: () => setOrgSel(null) },
+          items: q.trim() !== "" ? [{ name: "\u6E20\u9053\u5E93" }, { name: `\u641C\u7D22\u300C${q.trim()}\u300D` }] : orgSel === null ? [{ name: "\u6E20\u9053\u5E93" }] : [
+            { name: "\u6E20\u9053\u5E93", onGo: () => setOrgSel(null) },
             { name: ORG_KIND_LABEL[orgSel] ?? orgSel }
           ],
           n: crumbN
@@ -39382,7 +39382,7 @@ function KsKnowledgePage({ useTabInfo }) {
   if (page === "channels") {
     return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb", children: [
       /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("header", { className: "ks-page-head", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-title", children: "\u6E20\u9053\u53F0\u8D26" }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-title", children: "\u6E20\u9053\u5E93" }),
         /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-sub", children: "\u77E5\u8BC6\u6765\u6E90\u6E20\u9053\u7684\u7BA1\u7406\u5E93\uFF1A\u5206\u7C7B\u3001\u4F53\u68C0\u3001\u7EF4\u62A4\u3002\u9876\u90E8\u5E38\u9A7B\u6700\u65B0\u52A8\u6001\u3002" })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-rule" }),
@@ -39390,7 +39390,7 @@ function KsKnowledgePage({ useTabInfo }) {
     ] }) });
   }
   if (page !== "manage" && page !== "ingest") {
-    const LABELS = { channels: "\u6E20\u9053\u53F0\u8D26" };
+    const LABELS = { channels: "\u6E20\u9053\u5E93" };
     return (
       // ⚠ 外面这一层 `.ks-page` **只做 container-type**（页面留边的宽/窄两档靠它切；
       //    CSS 里容器不能用自己的宽度查自己，所以留边必须落在它的后代 `.ks-kb` 上）。
