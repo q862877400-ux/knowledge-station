@@ -165,6 +165,31 @@ $prevPyIo = $env:PYTHONIOENCODING
 $prevConsoleEnc = [Console]::OutputEncoding
 $env:PYTHONIOENCODING = 'utf-8'
 try { [Console]::OutputEncoding = [System.Text.Encoding]::UTF8 } catch { }
+# ⚠⚠ **`PYTEST_ADDOPTS` 也必须钉死/清掉**（2026-09-24 独立复核在我这批里实测出来的 HIGH）：
+#   本脚本的棘轮与"白名单幽灵"判据，全都建立在"`-Full` 这一跑**收集到了整套用例**"之上。
+#   而 `PYTEST_ADDOPTS` 能从**环境**里缩掉收集面（`-k` / `--deselect` / `--ignore` / `-m` /
+#   改收集的 `-p`）。复核的真实反例（用本脚本同一套 argv，只加这一个环境变量）：
+#     `$env:PYTEST_ADDOPTS='-k test_gate_baseline_whitelist'`
+#     ⇒ pytest 输出 `1 failed, 1 passed, 2339 deselected`、junit 只剩 2 条
+#     ⇒ `(\d+) error` 不匹配 ⇒ `[int]$null -eq 0` ⇒ **剔除门为真**
+#     ⇒ `-UpdateBaseline` 把 6 条环境白名单**全剔掉，其中 5 条是合法的**（golden_set / pipeline /
+#        reranker / retrieval / update_channels 被当幽灵删了）—— 而写基线那段**不受
+#       `$baselineDrop` 约束**，所以**红的跑也会改写基线**，只剩一行黄字提示。
+#   ⇒ 处置：像 `PYTHONIOENCODING`/`KS_DATA_DIR` 一样，**这一跑由脚本自己拥有**它 ——
+#     设过就**响亮告警**并**清掉**，结束时恢复调用方原来的值（绝不静默）。
+#   为什么不用"剔除前要求 `$totalRan -ge $baseTotal`"当护栏：**真删了用例**时总账本来就会掉，
+#   而"用例被删 ⇒ 该剔"正是这条修法要处理的场景 ⇒ 那个条件下会把该剔的也拦住。
+$prevAddopts = $env:PYTEST_ADDOPTS
+if (-not [string]::IsNullOrWhiteSpace($prevAddopts)) {
+  Write-Host ("⚠ 检测到 PYTEST_ADDOPTS=[{0}] ⇒ 本跑**清掉**它（它能把收集面缩掉，会让棘轮与白名单判据失准；" -f $prevAddopts) -ForegroundColor Yellow
+  Write-Host "   复核 2026-09-24 实测：只加这个环境变量就能让 -UpdateBaseline 把合法白名单条目当幽灵剔掉。跑完恢复原值。）" -ForegroundColor Yellow
+}
+Remove-Item Env:\PYTEST_ADDOPTS -ErrorAction SilentlyContinue
+$prevPyPlugins = $env:PYTEST_PLUGINS
+if (-not [string]::IsNullOrWhiteSpace($prevPyPlugins)) {
+  Write-Host ("⚠ 检测到 PYTEST_PLUGINS=[{0}] ⇒ 本跑**清掉**它（插件能改收集/改写结果，同样让判据失准；跑完恢复）" -f $prevPyPlugins) -ForegroundColor Yellow
+}
+Remove-Item Env:\PYTEST_PLUGINS -ErrorAction SilentlyContinue
 
 $steps = @()
 function Add-Step([string]$name, [string]$exe, [string[]]$argv, [string]$workdir) {
@@ -331,6 +356,11 @@ try {
       # ⚠ v4（2026-09-24 审计 B5）：白名单节点的"还在不在"判据（棘轮与 -UpdateBaseline 共用）。
       #   两种都算"在"：① 这一跑收集到了它；② **收集期跳过**的模块也在名单里时，junit 的键是
       #   `::<模块>`（`classname=""`）⇒ 按模块名兜住，否则一条**合法**的收集期跳过会被误判成幽灵。
+      #   ⚠ **就地更正（2026-09-24 独立复核实测）**：上面这条注释原文只说了"收集期跳过"会产出
+      #   `::<模块>` —— **收集错误（import 崩）同样产出 `classname=""`**。两者都要靠"按模块兜住"
+      #   才不至于误伤；而副作用是：**这个模块里的任何名字都会被判"在"** ⇒ 该模块内真出现幽灵时
+      #   剔不掉（复核判 MED；它对"防误伤"是必要的，且今天不可达 —— 唯一一处模块级 importorskip
+      #   在 `test_retrieval.py:307` 的函数体内）。**登记为残余**，不在这条分支上继续加码。
       $collectedModules = @($allNodeIds | Where-Object { $_ -like '::*' } |
         ForEach-Object { $_.Substring(2) } | Sort-Object -Unique)
       $envIdAlive = {
@@ -441,6 +471,18 @@ try {
       #   "它被收集到了"这个事实，而且幽灵条目本身会让 `test_gate_baseline_whitelist.py`
       #   失败 ⇒ 用 failed 当门槛会变成"幽灵让剔除永远不触发"的死循环，等于没修。
       #   收集错误（import 崩了）才会让一批用例集体"看起来消失"，那种情况必须不剔。
+      #   ⚠⚠ **就地更正（2026-09-24 独立复核实测）—— 我上面这句归因是错的**：
+      #     · "收集错误 ⇒ 不剔"这个**结论**对，但**承重墙不是** `errors==0`，而是
+      #       `$pytestPassed -eq $null`（pytest 收集错误会**中断会话**、输出里没有 `N passed`
+      #       ⇒ 这个 `if ($UpdateBaseline)` 所在的整块棘轮**根本不执行**）。
+      #     · `errors==0` 真正承重的只有"**运行期** error 且 passed>0"（fixture 崩那种；
+      #       复核实测 `1 failed, 2 passed, 1 error` ⇒ 门=假 ⇒ 不剔）。
+      #     · 而**缩掉收集面**这种事，`errors` 是 0、passed 也有 ⇒ 门为真 —— 复核用它真跑出
+      #       一条 HIGH：`PYTEST_ADDOPTS='-k …'` ⇒ junit 只剩 2 条 ⇒ 6 条白名单**全被剔掉**
+      #       （5 条合法）。⇒ 真正的护栏是脚本开头**把 `PYTEST_ADDOPTS`/`PYTEST_PLUGINS` 清掉**
+      #       （见文件上半部那段），不是这个 `errors==0`。
+      #     · 另：这道门**不看 `$junitError`** —— junit 解析成功但 skip 计数与汇总不符时
+      #       （上面已判"判据不可信"）剔除照样会跑。**登记为残余**（未造现场）。
       $envKept = @()
       if ($null -ne $base -and $base.environmental_skip_nodeids) {
         $envKept = @($base.environmental_skip_nodeids)
@@ -559,5 +601,10 @@ try {
   else { Remove-Item Env:\KS_MODELS_DIR -ErrorAction SilentlyContinue }
   if ($null -ne $prevPyIo) { $env:PYTHONIOENCODING = $prevPyIo }
   else { Remove-Item Env:\PYTHONIOENCODING -ErrorAction SilentlyContinue }
+  # `PYTEST_ADDOPTS` / `PYTEST_PLUGINS` 同样**恢复**（我们这一跑清掉了它们）。
+  if ($null -ne $prevAddopts) { $env:PYTEST_ADDOPTS = $prevAddopts }
+  else { Remove-Item Env:\PYTEST_ADDOPTS -ErrorAction SilentlyContinue }
+  if ($null -ne $prevPyPlugins) { $env:PYTEST_PLUGINS = $prevPyPlugins }
+  else { Remove-Item Env:\PYTEST_PLUGINS -ErrorAction SilentlyContinue }
   if ($null -ne $prevConsoleEnc) { try { [Console]::OutputEncoding = $prevConsoleEnc } catch { } }
 }
