@@ -2,6 +2,9 @@
 
 - 工作树（唯一）：`D:\AI\work space\zcode-b3a-ccs`，分支 `b3a-ccs-engine`，基点 `4ed4b0d`
 - 提交（第一轮）：**`0f05026`**（引擎 + 接口）· **`180397f`**（18 条新用例）· **`72082a0`**（本报告）
+  - ⚠ **补注（2026-09-24 父代理，不删上面的原话）**：这三个 id 是**重放（rebase）到 master 之前**的版本，
+    **不在 master 历史里**；主仓里对应的三笔是 `aa139db` / `94a85c3` / `425c4fe`（逐字节相同，`git patch-id` 逐对相等）。
+    对照表与原因见 `docs/DEVELOPMENT-HISTORY.md` **§10.186**；`180397f` 另由 tag `verify-freeze-b3a-engine` 保住。
 - 提交（第二轮复核 F1–F4）：**`ffcb65e`**（引擎修复）· **`359ffac`**（4 条新用例 + 真值表改正）·
   本报告更新随第三笔提交 —— 见 **§9**
 - 提交前/后 `git status --short` 均**空**；`plugin/` **零改动**（`git diff --stat 4ed4b0d..HEAD` 只列
