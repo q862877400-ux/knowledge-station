@@ -662,7 +662,9 @@ def test_folder_effect_deep_counts(client, db):
     parent = _new(c, token)
     child = _new(c, token, uniq("效力灯"), parent["folder_id"])
     ids = []
-    for i2, st in enumerate(("effective", "withdrawn", None)):
+    # 复核修单②（2026-09-23）：fixture 改**非对称**（2绿+1红+1黄+1灰）——原 1绿1红对称
+    # ⇒ red/green 互换计数不变（复核实测 MUT1 不红）；非对称后任何互换都必红。
+    for i2, st in enumerate(("effective", "effective", "withdrawn", "upcoming", None)):
         d = mkdoc_full(db, f"efflamp_{next(_seq)}")
         if st is not None:
             db.execute("UPDATE doc_meta SET legal_status=? WHERE doc_id=?", (st, d))
@@ -676,4 +678,4 @@ def test_folder_effect_deep_counts(client, db):
         api(c, token, "get", "/api/v1/kb/folders",
             params={"parent_id": parent["folder_id"]}))["subfolders"]}
     e = subs[child["folder_id"]]["effect_deep"]
-    assert e == {"green": 1, "red": 1, "yellow": 0, "gray": 1}, e
+    assert e == {"green": 2, "red": 1, "yellow": 1, "gray": 1}, e

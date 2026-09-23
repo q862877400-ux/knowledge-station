@@ -220,6 +220,7 @@ export function mount(container, props) {
   const shapeFolder = (id, name, parentId, direct, deep, foldersDeep) => ({
     folder_id: id, parent_id: parentId, name, sort: 0, created_at: '2026-09-21 10:00:00',
     file_count_direct: direct, file_count_deep: deep, folder_count_deep: foldersDeep,
+    effect_deep: { green: 7, red: 2, yellow: 1, gray: 3 },
   })
   const F = {
     std: shapeFolder('fld_std', '标准', null, 0, 14, 3),
@@ -1020,6 +1021,11 @@ export function mount(container, props) {
      批量挪/复制/删目录要用它。列数因此 3 → 4（`DIR_COLUMNS` 里一条新声明）。
      判据本身（"表头与每一行的 cell 类名序列逐字相同"+"列数 = DIR_COLUMNS 的条数"）**一个字没放宽**，
      只是那个数跟着声明变了；谁单方面改声明（少写一列 / 多写一列）仍然红。 */
+  check('批D2 运行态：目录行**真渲染出四色灯文本**（fixture 7绿/2红/1黄/3灰 非对称；灯删光=红）',
+    (dirRows()[0]?.textContent ?? '').includes('🔴2')
+    && (dirRows()[0]?.textContent ?? '').includes('🟡1')
+    && (dirRows()[0]?.textContent ?? '').includes('🟢7'),
+    `行文本=${(dirRows()[0]?.textContent ?? '').slice(0, 60)}`)
   check('B3 目录层：表头与每一行的 cell 类名序列**逐字相同**（两侧都按同一份 DIR_COLUMNS 渲染，列数 4）',
     q('.ks-list-dirs .ks-lhead').length === 1 && dirRows().length > 0
     && cellClasses(q('.ks-list-dirs .ks-lhead')[0]).join('|') === cellClasses(dirRows()[0]).join('|')
