@@ -1828,7 +1828,12 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
   }, [action, flatFolders])
 
   if (page === 'capabilities') {
-    return <KsCapabilityPage />
+    return (
+      <div className="ks-page">
+        <KsTopTabs page={page} onGo={(pp) => { setPageOverride(pp) }} onPdf={() => { tab.actions.openTab(KS_EVIDENCE_KIND) }} />
+        <KsCapabilityPage />
+      </div>
+    )
   }
 
   if (page === 'materials') {
@@ -1836,7 +1841,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
     return (
       <div className="ks-page">
         <div className="ks-kb">
-          <KsTopTabs page={page} onGo={(pp) => { setPageOverride(pp) }} onPdf={() => { tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true }) }} />
+          <KsTopTabs page={page} onGo={(pp) => { setPageOverride(pp) }} onPdf={() => { tab.actions.openTab(KS_EVIDENCE_KIND) }} />
           <header className="ks-page-head">
             <div className="ks-page-title">备料</div>
             <div className="ks-page-sub">上传的财报/制度/文章逐份就位；人工上传免评审，自采的要人批。</div>
@@ -1854,7 +1859,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
     return (
       <div className="ks-page">
         <div className="ks-kb">
-          <KsTopTabs page={page} onGo={(pp) => { setPageOverride(pp) }} onPdf={() => { tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true }) }} />
+          <KsTopTabs page={page} onGo={(pp) => { setPageOverride(pp) }} onPdf={() => { tab.actions.openTab(KS_EVIDENCE_KIND) }} />
           <header className="ks-page-head">
             <div className="ks-page-title">渠道库</div>
             <div className="ks-page-sub">知识来源渠道的管理库：分类、体检、维护。顶部常驻最新动态。</div>
@@ -2755,7 +2760,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
   return (
     <div className="ks-page">
       <div className="ks-kb">
-        <KsTopTabs page={page} onGo={(pp) => { setPageOverride(pp) }} onPdf={() => { tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true }) }} />
+        <KsTopTabs page={page} onGo={(pp) => { setPageOverride(pp) }} onPdf={() => { tab.actions.openTab(KS_EVIDENCE_KIND) }} />
         <header className="ks-page-head">
           <div className="ks-page-title">知识库</div>
         </header>

@@ -491,10 +491,10 @@ export const KS_STYLES = `
 .ks-list-chans{--ks-cols:minmax(0,1.6fr) 84px 96px minmax(0,1fr) 200px}
 /* 批E4（业主 2026-09-23）：页面顶条「文件夹凸出标签」四入口。选中那张=被抽出来的舌：
    上浮 2px、渐变底、投影、下缘与内容区连通；其余标签压在条上（审美案按业主授权自定）。 */
-.ks-tabfolder-strip{display:flex;gap:4px;align-items:flex-end;padding:8px var(--ks-page-pad-x) 0;
+.ks-tabfolder-strip{display:flex;gap:8px;align-items:flex-end;padding:4px var(--ks-page-pad-x) 0;
   border-bottom:var(--ks-stroke) solid var(--dsw-alias-border-l2)}
 .ks-tabfolder{border:var(--ks-stroke) solid var(--dsw-alias-border-l2);border-bottom:none;
-  border-radius:var(--ks-radius) var(--ks-radius) 0 0;padding:4px 16px;cursor:pointer;
+  border-radius:var(--ks-radius) var(--ks-radius) 0 0;padding:8px 20px;min-width:96px;text-align:center;cursor:pointer;
   font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);background:transparent;
   min-height:32px;transition:transform .12s ease}
 .ks-tabfolder:hover{color:var(--dsw-alias-label-primary);transform:translateY(-1px)}

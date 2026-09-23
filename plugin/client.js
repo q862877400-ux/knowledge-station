@@ -34020,10 +34020,10 @@ var KS_STYLES = `
 .ks-list-chans{--ks-cols:minmax(0,1.6fr) 84px 96px minmax(0,1fr) 200px}
 /* \u6279E4\uFF08\u4E1A\u4E3B 2026-09-23\uFF09\uFF1A\u9875\u9762\u9876\u6761\u300C\u6587\u4EF6\u5939\u51F8\u51FA\u6807\u7B7E\u300D\u56DB\u5165\u53E3\u3002\u9009\u4E2D\u90A3\u5F20=\u88AB\u62BD\u51FA\u6765\u7684\u820C\uFF1A
    \u4E0A\u6D6E 2px\u3001\u6E10\u53D8\u5E95\u3001\u6295\u5F71\u3001\u4E0B\u7F18\u4E0E\u5185\u5BB9\u533A\u8FDE\u901A\uFF1B\u5176\u4F59\u6807\u7B7E\u538B\u5728\u6761\u4E0A\uFF08\u5BA1\u7F8E\u6848\u6309\u4E1A\u4E3B\u6388\u6743\u81EA\u5B9A\uFF09\u3002 */
-.ks-tabfolder-strip{display:flex;gap:4px;align-items:flex-end;padding:8px var(--ks-page-pad-x) 0;
+.ks-tabfolder-strip{display:flex;gap:8px;align-items:flex-end;padding:4px var(--ks-page-pad-x) 0;
   border-bottom:var(--ks-stroke) solid var(--dsw-alias-border-l2)}
 .ks-tabfolder{border:var(--ks-stroke) solid var(--dsw-alias-border-l2);border-bottom:none;
-  border-radius:var(--ks-radius) var(--ks-radius) 0 0;padding:4px 16px;cursor:pointer;
+  border-radius:var(--ks-radius) var(--ks-radius) 0 0;padding:8px 20px;min-width:96px;text-align:center;cursor:pointer;
   font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);background:transparent;
   min-height:32px;transition:transform .12s ease}
 .ks-tabfolder:hover{color:var(--dsw-alias-label-primary);transform:translateY(-1px)}
@@ -39494,14 +39494,21 @@ function KsKnowledgePage({ useTabInfo }) {
     return flatFolders.filter((f) => !banned.has(f.folder_id));
   }, [action, flatFolders]);
   if (page === "capabilities") {
-    return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsCapabilityPage, {});
+    return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-page", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsTopTabs, { page, onGo: (pp) => {
+        setPageOverride(pp);
+      }, onPdf: () => {
+        tab.actions.openTab(KS_EVIDENCE_KIND);
+      } }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsCapabilityPage, {})
+    ] });
   }
   if (page === "materials") {
     return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb", children: [
       /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsTopTabs, { page, onGo: (pp) => {
         setPageOverride(pp);
       }, onPdf: () => {
-        tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true });
+        tab.actions.openTab(KS_EVIDENCE_KIND);
       } }),
       /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("header", { className: "ks-page-head", children: [
         /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-title", children: "\u5907\u6599" }),
@@ -39516,7 +39523,7 @@ function KsKnowledgePage({ useTabInfo }) {
       /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsTopTabs, { page, onGo: (pp) => {
         setPageOverride(pp);
       }, onPdf: () => {
-        tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true });
+        tab.actions.openTab(KS_EVIDENCE_KIND);
       } }),
       /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("header", { className: "ks-page-head", children: [
         /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-title", children: "\u6E20\u9053\u5E93" }),
@@ -40333,7 +40340,7 @@ function KsKnowledgePage({ useTabInfo }) {
     /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsTopTabs, { page, onGo: (pp) => {
       setPageOverride(pp);
     }, onPdf: () => {
-      tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true });
+      tab.actions.openTab(KS_EVIDENCE_KIND);
     } }),
     /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("header", { className: "ks-page-head", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-title", children: "\u77E5\u8BC6\u5E93" }) }),
     /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-rule" }),
