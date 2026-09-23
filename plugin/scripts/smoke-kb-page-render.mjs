@@ -2397,19 +2397,15 @@ export function mount(container, props) {
     && (capContainer.textContent ?? '').includes('已回退。'),
     calls.slice(-3).map((c) => `${c.method ?? 'GET'} ${c.url.split('/').slice(-1)[0]}`).join(' | '))
 
-  /* ── S4/S5 搬家批：效力总览 / 备料 两页**补真**（设置里的类目已移除，见 smoke-settings）── */
+  /* ── 批D2 对账（2026-09-22）：效力总览**融进知识库管理**——原「S4：效力总览页补真」块
+     随 report 页删除换防回潮钉；备料页挂载由 smoke-client-entry 的源码钉覆盖。 ── */
   {
-    const mvContainer = document.createElement('div')
-    document.body.appendChild(mvContainer)
-    const mvRoot = mount(mvContainer, { useTabInfo: () => ({ tab: { navigation: { params: { page: 'report' } } } }), dataSource: 'render-smoke' })
-    await flush(); await flush()
-    check('S4：效力总览页补真（标题在 + 真发 /ks/report/effect + 占位横幅不在）',
-      (mvContainer.textContent ?? '').includes('效力总览')
-      && calls.some((c) => c.url.includes('/ks/report/effect'))
-      && !(mvContainer.textContent ?? '').includes('这一页尚未实现'),
-      (mvContainer.textContent ?? '').slice(0, 50))
-    mvRoot.unmount()
-    await flush()
+    const { readFileSync } = await import('node:fs')
+    const srcKb = readFileSync(join(pluginRoot, 'client', 'KsKnowledgePage.tsx'), 'utf8')
+    check('批D2：效力总览融合（report 页/面板不复存在 + 目录行四色灯 + 顶行导出入口）',
+      !srcKb.includes('KsReportPanel') && !srcKb.includes("page === 'report'")
+      && srcKb.includes('这一棵里：🟢 现行') && srcKb.includes('导出效力总览'),
+      '源码级防回潮（运行态由主流程目录行用例覆盖）')
     const mtContainer = document.createElement('div')
     document.body.appendChild(mtContainer)
     const mtRoot = mount(mtContainer, { useTabInfo: () => ({ tab: { navigation: { params: { page: 'materials' } } } }), dataSource: 'render-smoke' })

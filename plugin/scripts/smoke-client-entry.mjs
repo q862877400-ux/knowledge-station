@@ -687,10 +687,14 @@ check('inject declares only official services (no third-party hard gate)',
   const kbSrc = await readFile(join(pluginRoot, 'client', 'KsKnowledgePage.tsx'), 'utf8')
   check('「备料」页源码里**挂载**了参考资料面板（搬家后新家在——不是只有产物里有）',
     kbSrc.includes("import { KsMaterialsPanel }") && kbSrc.includes('<KsMaterialsPanel'))
-  check('「效力总览」页源码里**挂载**了效力报告面板（S4 同批搬家的新家）',
-    kbSrc.includes("import { KsReportPanel }") && kbSrc.includes('<KsReportPanel'))
-  check('「渠道台账」页源码里**挂载**了巡检族三件（S5-b 聚家）',
-    kbSrc.includes('<KsChannelsPanel') && kbSrc.includes('<KsInspectionPanel') && kbSrc.includes('<KsAnnounceSourcesSection'))
+  /* ⚠ 批D2 对账（2026-09-22）：效力总览**融进知识库管理**（业主定）——report 页/面板已删、
+     导出入口归目录层顶行、目录行四色灯。旧口径留痕：原断言「效力总览页源码里挂载了效力报告
+     面板」；另补批D1 漏账：原断言「渠道台账页挂巡检族三件」——巡检/公告已住进渠道面板折叠详情。 */
+  check('效力总览已融进知识库管理（report 页/面板不许回来：导出入口 + 目录灯在）',
+    !kbSrc.includes('KsReportPanel') && kbSrc.includes('导出效力总览') && kbSrc.includes('这一棵里：🟢 现行'))
+  check('巡检/公告住进渠道面板折叠详情（S5-c）——知识库页不再直挂两块',
+    kbSrc.includes('<KsChannelsPanel')
+    && !kbSrc.includes('<KsInspectionPanel') && !kbSrc.includes('<KsAnnounceSourcesSection'))
   check('设置里**不再**挂载这些面板（S5 设置只留全局项——挡它被塞回来）',
     !settings.includes('<KsMaterialsPanel') && !settings.includes('<KsReportPanel')
     && !settings.includes('<KsChannelsPanel') && !settings.includes('<KsInspectionPanel')
@@ -1097,7 +1101,6 @@ const THEME_DEBT_BASELINE = {
   'KsFilesTab.tsx': 1,
   'KsIngestPanel.tsx': 0,
   'KsMaterialsPanel.tsx': 5,
-  'KsReportPanel.tsx': 16,
   'KsScopeChip.tsx': 5,
   'KsSettingsSection.tsx': 48,
 }

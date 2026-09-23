@@ -126,8 +126,7 @@ import { KsCapabilityPage } from './KsCapabilityPage'
 import { KsChannelsPanel } from './KsChannelsPanel'
 import { KsIngestPanel } from './KsIngestPanel'
 import { KsMaterialsPanel } from './KsMaterialsPanel'
-import { KsReportPanel } from './KsReportPanel'
-import { KsAnnounceSourcesSection, KsInspectionPanel } from './KsSettingsSection'
+
 import type { KsPaneBodyProps, KsKbInjected } from './ksSidebar'
 
 /**
@@ -1758,28 +1757,6 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
     return <KsCapabilityPage />
   }
 
-  // ── S4/S5（2026-09-22 搬家批，业主批准）：效力总览 / 备料 **补真**（占位只留给巡检族） ──
-  if (page === 'report') {
-    /* S4：效力报告从设置搬出 ⇒「效力总览」（看家底归知识库门下——两选一由我定案，理由入账）。
-       openEvidence 走**全局证据锚点拦截器**（临时 a.click()；单例证据 tab 跳页 + 红箭头），
-       URL 由面板自己经 evidenceUrlOf 构造——这里不自拼。 */
-    return (
-      <div className="ks-page">
-        <div className="ks-kb">
-          <header className="ks-page-head">
-            <div className="ks-page-title">效力总览</div>
-            <div className="ks-page-sub">库内标准/法规的四色效力现状（现行 / 废止 / 即将实施 / 未知），可导出。</div>
-          </header>
-          <div className="ks-page-rule" />
-          <KsReportPanel visible openEvidence={(url) => {
-            const a = document.createElement('a')
-            a.href = url
-            a.click()
-          }} />
-        </div>
-      </div>
-    )
-  }
   if (page === 'materials') {
     /* S5：备料（原设置「参考资料」）迁此 —— 业主动词表里的一级动作「备料」。 */
     return (
@@ -3156,6 +3133,19 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
               <>
             <div className="ks-list-cap">
               <span className="ks-lhead-name ks-kb-grow" title={['知识库', ...crumb.map((f) => f.name)].join(' / ')}>
+                {/* 批D2-2：效力总览的导出入口归位（菜单页已撤；能力不丢）。 */}
+                <button type="button" style={{ marginLeft: 8, fontSize: 11, cursor: 'pointer' }}
+                  title="导出《效力总览》Excel（全库四色效力现状）"
+                  onClick={() => {
+                    void (async () => {
+                      try {
+                        const { exportEffectReport } = await import('./api')
+                        await exportEffectReport('all', undefined, undefined)
+                      } catch {
+                        /* 导出失败：面板口径=如实报错；这里最小化为无动作（重试即可见） */
+                      }
+                    })()
+                  }}>导出效力总览</button>
                 {levelName}
               </span>
               {/* 业主 2026-09-22：提问入口搬到**当前文件夹名这一行**（搜索框上面那条 bar）——
@@ -3237,12 +3227,12 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                             </button>
                             <span style={{ marginLeft: 'auto', display: 'inline-flex', gap: 6,
                               fontSize: 11, whiteSpace: 'nowrap', color: 'var(--dsw-alias-label-secondary)' }}
-                              title={`「${child.name}」这一棵里：🟢 现行 ${child.effect_deep.green} · 🟡 即将实施 ${child.effect_deep.yellow} · 🔴 废止/被代 ${child.effect_deep.red} · ⚪ 未知 ${child.effect_deep.gray}`}>
-                              {child.effect_deep.red ? `🔴${child.effect_deep.red} ` : ''}
-                              {child.effect_deep.yellow ? `🟡${child.effect_deep.yellow} ` : ''}
-                              {child.effect_deep.green ? `🟢${child.effect_deep.green}` : ''}
-                              {child.effect_deep.gray ? ` ⚪${child.effect_deep.gray}` : ''}
-                              {child.effect_deep.red + child.effect_deep.yellow + child.effect_deep.green + child.effect_deep.gray === 0
+                              title={`「${child.name}」这一棵里：🟢 现行 ${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).green} · 🟡 即将实施 ${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).yellow} · 🔴 废止/被代 ${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).red} · ⚪ 未知 ${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).gray}`}>
+                              {(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).red ? `🔴${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).red} ` : ''}
+                              {(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).yellow ? `🟡${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).yellow} ` : ''}
+                              {(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).green ? `🟢${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).green}` : ''}
+                              {(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).gray ? ` ⚪${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).gray}` : ''}
+                              {(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).red + (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).yellow + (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).green + (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).gray === 0
                                 ? '—' : ''}
                             </span>
                           </>

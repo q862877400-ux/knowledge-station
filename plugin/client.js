@@ -13,6 +13,9 @@ var __typeError = (msg) => {
   throw TypeError(msg);
 };
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __esm = (fn, res) => function __init() {
+  return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
+};
 var __export = (target, all) => {
   for (var name in all)
     __defProp(target, name, { get: all[name], enumerable: true });
@@ -49,6 +52,2627 @@ var __privateWrapper = (obj, member, setter, getter) => ({
   }
 });
 
+// client/api.ts
+var api_exports = {};
+__export(api_exports, {
+  DOC_IMAGE_NOT_FOUND: () => DOC_IMAGE_NOT_FOUND,
+  EngineAuthError: () => EngineAuthError,
+  InspectionHttpError: () => InspectionHttpError,
+  abortIngestJob: () => abortIngestJob,
+  addAnnounceSource: () => addAnnounceSource,
+  addBookmark: () => addBookmark,
+  addDocBookmark: () => addDocBookmark,
+  addKbMembers: () => addKbMembers,
+  askKsAnswer: () => askKsAnswer,
+  batchDeleteDocs: () => batchDeleteDocs,
+  buildEgressMarkdown: () => buildEgressMarkdown,
+  cancelKbCcsBackfill: () => cancelKbCcsBackfill,
+  clearSession: () => clearSession,
+  collectMaterialUrl: () => collectMaterialUrl,
+  confirmKbInbox: () => confirmKbInbox,
+  copyKbFolder: () => copyKbFolder,
+  copyKbMembers: () => copyKbMembers,
+  createBookmarkFolder: () => createBookmarkFolder,
+  createChannel: () => createChannel,
+  createClausePatch: () => createClausePatch,
+  createKbFolder: () => createKbFolder,
+  createMaterialProject: () => createMaterialProject,
+  deleteBookmark: () => deleteBookmark,
+  deleteBookmarkFolder: () => deleteBookmarkFolder,
+  deleteChannel: () => deleteChannel,
+  deleteClausePatch: () => deleteClausePatch,
+  deleteKbFolder: () => deleteKbFolder,
+  exportAnnounceDiscovery: () => exportAnnounceDiscovery,
+  exportEffectReport: () => exportEffectReport,
+  exportInspectionResult: () => exportInspectionResult,
+  exportResearchDraft: () => exportResearchDraft,
+  exportResearchReport: () => exportResearchReport,
+  fetchAnnounceSources: () => fetchAnnounceSources,
+  fetchAnnounceSummary: () => fetchAnnounceSummary,
+  fetchApiConfig: () => fetchApiConfig,
+  fetchBbox: () => fetchBbox,
+  fetchBookmarkFolderTree: () => fetchBookmarkFolderTree,
+  fetchBookmarkFolders: () => fetchBookmarkFolders,
+  fetchBookmarks: () => fetchBookmarks,
+  fetchBulkIngest: () => fetchBulkIngest,
+  fetchCategories: () => fetchCategories,
+  fetchChannels: () => fetchChannels,
+  fetchChatMode: () => fetchChatMode,
+  fetchClauseMeta: () => fetchClauseMeta,
+  fetchDocClauses: () => fetchDocClauses,
+  fetchDocImage: () => fetchDocImage,
+  fetchDocTree: () => fetchDocTree,
+  fetchDocsFlat: () => fetchDocsFlat,
+  fetchEffectDocs: () => fetchEffectDocs,
+  fetchEffectReport: () => fetchEffectReport,
+  fetchEgressAudit: () => fetchEgressAudit,
+  fetchExportBlob: () => fetchExportBlob,
+  fetchIngestBatch: () => fetchIngestBatch,
+  fetchIngestInbox: () => fetchIngestInbox,
+  fetchIngestInboxDefault: () => fetchIngestInboxDefault,
+  fetchIngestJob: () => fetchIngestJob,
+  fetchIngestPreview: () => fetchIngestPreview,
+  fetchInspectionSummary: () => fetchInspectionSummary,
+  fetchKbCcsBackfillStatus: () => fetchKbCcsBackfillStatus,
+  fetchKbCcsPlan: () => fetchKbCcsPlan,
+  fetchKbCcsSummary: () => fetchKbCcsSummary,
+  fetchKbFolderDeletePreview: () => fetchKbFolderDeletePreview,
+  fetchKbFolderItems: () => fetchKbFolderItems,
+  fetchKbFolders: () => fetchKbFolders,
+  fetchKbFoldersFlat: () => fetchKbFoldersFlat,
+  fetchKbInbox: () => fetchKbInbox,
+  fetchKbReingestStatus: () => fetchKbReingestStatus,
+  fetchKbStageLabels: () => fetchKbStageLabels,
+  fetchMaterialChunks: () => fetchMaterialChunks,
+  fetchMaterialInbox: () => fetchMaterialInbox,
+  fetchMaterialLocators: () => fetchMaterialLocators,
+  fetchMaterialProjects: () => fetchMaterialProjects,
+  fetchMaterialTiers: () => fetchMaterialTiers,
+  fetchMaterials: () => fetchMaterials,
+  fetchPdf: () => fetchPdf,
+  fetchProjectLocators: () => fetchProjectLocators,
+  fetchSession: () => fetchSession,
+  fileDocsIntoFolder: () => fileDocsIntoFolder,
+  importInternalPolicy: () => importInternalPolicy,
+  listClausePatches: () => listClausePatches,
+  moveClauseBookmark: () => moveClauseBookmark,
+  moveDocBookmark: () => moveDocBookmark,
+  moveKbFolder: () => moveKbFolder,
+  moveKbMembers: () => moveKbMembers,
+  patchChatMode: () => patchChatMode,
+  reingestKbDocs: () => reingestKbDocs,
+  removeAnnounceSource: () => removeAnnounceSource,
+  removeBookmarkByClauseKey: () => removeBookmarkByClauseKey,
+  removeDocBookmarkByDoc: () => removeDocBookmarkByDoc,
+  removeKbMembers: () => removeKbMembers,
+  renameBookmarkFolder: () => renameBookmarkFolder,
+  renameKbFolder: () => renameKbFolder,
+  resolveKbScope: () => resolveKbScope,
+  resumeBulkIngest: () => resumeBulkIngest,
+  reverifyMaterialLocators: () => reverifyMaterialLocators,
+  reviewMaterial: () => reviewMaterial,
+  runChannelProbe: () => runChannelProbe,
+  runGapAnalysis: () => runGapAnalysis,
+  runInspection: () => runInspection,
+  saveApiConfig: () => saveApiConfig,
+  scanAnnounceSources: () => scanAnnounceSources,
+  scanMaterialProject: () => scanMaterialProject,
+  setChannelEnabled: () => setChannelEnabled,
+  setMaterialRole: () => setMaterialRole,
+  setMaterialTier: () => setMaterialTier,
+  startBulkIngest: () => startBulkIngest,
+  startIngestJob: () => startIngestJob,
+  startKbCcsBackfill: () => startKbCcsBackfill,
+  testApiChannel: () => testApiChannel,
+  updateAnnounceSource: () => updateAnnounceSource,
+  updateChannel: () => updateChannel,
+  updateInspectionSettings: () => updateInspectionSettings
+});
+function clearSession() {
+  memory.token = null;
+  memory.port = null;
+}
+async function fetchSession(signal) {
+  const res = await fetch("/ks/session", {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const parsed = body && typeof body === "object" ? body : null;
+  if (res.status === 200 && parsed && parsed.ok === true) {
+    const engine = parsed.engine;
+    const token = typeof parsed.token === "string" ? parsed.token : "";
+    const port = typeof engine?.port === "number" ? engine.port : NaN;
+    if (token.length === 0 || Number.isNaN(port)) {
+      throw new Error("\u5F15\u64CE\u4F1A\u8BDD\u4E0D\u5B8C\u6574\uFF1A/ks/session \u7F3A\u5C11 token \u6216 port");
+    }
+    memory.token = token;
+    memory.port = port;
+    return {
+      ok: true,
+      engine: {
+        port,
+        pid: typeof engine?.pid === "number" ? engine.pid : 0,
+        reused: engine?.reused === true
+      },
+      token
+    };
+  }
+  const err = parsed?.error;
+  throw new Error(
+    `\u5F15\u64CE\u672A\u5C31\u7EEA(${res.status}): ${typeof err?.message === "string" ? err.message : res.statusText}`
+  );
+}
+async function fetchPdf(port, docId, token, signal) {
+  const url = `http://127.0.0.1:${port}/api/v1/documents/${encodeURIComponent(docId)}/file`;
+  const res = await fetch(url, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/pdf" },
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new Error("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (res.status === 404) {
+    throw new Error(`\u6587\u6863\u4E0D\u5B58\u5728\u6216 PDF \u539F\u4EF6\u4E0D\u53EF\u7528(404): ${docId}`);
+  }
+  if (!res.ok) {
+    throw new Error(`\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`);
+  }
+  const ct = res.headers.get("content-type") ?? "";
+  if (!ct.includes("pdf")) {
+    throw new Error(`\u5F15\u64CE\u8FD4\u56DE\u4E86\u975E PDF \u5185\u5BB9 (content-type: ${ct || "unknown"})`);
+  }
+  return res.arrayBuffer();
+}
+async function fetchExportBlob(name, signal) {
+  const url = (port) => `http://127.0.0.1:${port}/api/v1/export/download?name=${encodeURIComponent(name)}`;
+  const once = async () => {
+    const session = await fetchSession(signal);
+    return fetch(url(session.engine.port), {
+      method: "GET",
+      headers: { Authorization: `Bearer ${session.token}` },
+      signal
+    });
+  };
+  let res = await once();
+  if (res.status === 401) {
+    clearSession();
+    res = await once();
+  }
+  if (res.status === 403) throw new Error("\u5F15\u64CE\u62D2\u7EDD\u4E86\u8FD9\u4E2A\u6587\u4EF6\u540D\uFF08\u53EA\u5141\u8BB8 exports \u76EE\u5F55\u5185\u7684\u4EA7\u7269\uFF09");
+  if (res.status === 404) throw new Error(`\u4EA7\u7269\u6587\u4EF6\u4E0D\u5B58\u5728\uFF08\u53EF\u80FD\u5DF2\u88AB\u6E05\u7406\uFF09\uFF1A${name}`);
+  if (!res.ok) throw new Error(`\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`);
+  return res.blob();
+}
+async function fetchChannels(params = {}, signal) {
+  const qs = new URLSearchParams();
+  if (params.category) qs.set("category", params.category);
+  if (params.wiring) qs.set("wiring", params.wiring);
+  if (params.state) qs.set("state", params.state);
+  if (params.enabledOnly) qs.set("enabled_only", "true");
+  if (params.limit !== void 0) qs.set("limit", String(params.limit));
+  const suffix = qs.toString();
+  const res = await fetch(`/ks/channels${suffix ? `?${suffix}` : ""}`, {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  return ksJson(res, "\u6E20\u9053\u53F0\u8D26");
+}
+async function createChannel(body, signal) {
+  const res = await fetch("/ks/channels", {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify(body),
+    signal
+  });
+  return ksJson(res, "\u65B0\u589E\u6E20\u9053");
+}
+async function updateChannel(channelId, patch, signal) {
+  const res = await fetch(`/ks/channels/${encodeURIComponent(channelId)}`, {
+    method: "PATCH",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify(patch),
+    signal
+  });
+  return ksJson(res, "\u4FEE\u6539\u6E20\u9053");
+}
+async function setChannelEnabled(channelId, enabled, signal) {
+  const res = await fetch(`/ks/channels/${encodeURIComponent(channelId)}/enabled`, {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ enabled }),
+    signal
+  });
+  return ksJson(res, "\u542F\u505C\u6E20\u9053");
+}
+async function deleteChannel(channelId, signal) {
+  const res = await fetch(`/ks/channels/${encodeURIComponent(channelId)}`, {
+    method: "DELETE",
+    headers: { accept: "application/json" },
+    signal
+  });
+  return ksJson(res, "\u5220\u9664\u6E20\u9053");
+}
+async function runChannelProbe(ids, signal) {
+  const res = await fetch("/ks/channels/probe", {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify(ids && ids.length > 0 ? { ids, persist: true } : { persist: true }),
+    signal
+  });
+  return ksJson(res, "\u6E20\u9053\u63A2\u6D4B");
+}
+async function fetchBbox(rev, signal) {
+  const res = await fetch("/ks/bbox?rev=" + encodeURIComponent(rev), {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const parsed = body && typeof body === "object" ? body : null;
+  if (res.status === 200 && parsed && parsed.ok === true) {
+    const spansRaw = parsed.spans;
+    const spans = Array.isArray(spansRaw) ? spansRaw.filter(
+      (s) => {
+        if (s === null || typeof s !== "object") return false;
+        const o = s;
+        const box = o.bbox;
+        return typeof o.page_number === "number" && Array.isArray(box) && box.length === 4;
+      }
+    ) : [];
+    return { found: parsed.found === true && spans.length > 0, spans };
+  }
+  const err = parsed?.error;
+  throw new Error(
+    `bbox \u83B7\u53D6\u5931\u8D25(${res.status}): ${typeof err?.message === "string" ? err.message : res.statusText}`
+  );
+}
+function normalizeDocClause(value) {
+  if (value === null || typeof value !== "object") return null;
+  const o = value;
+  const id = str(o.clause_revision_id);
+  if (id === null) return null;
+  return {
+    clause_revision_id: id,
+    clause_number: str(o.clause_number),
+    title: str(o.title),
+    content_text: str(o.content_text),
+    content_html: str(o.content_html),
+    page_start: num(o.page_start),
+    page_end: num(o.page_end)
+  };
+}
+async function fetchDocClauses(port, docId, token, signal) {
+  const res = await fetch(
+    `http://127.0.0.1:${port}/api/v1/documents/${encodeURIComponent(docId)}/clauses`,
+    {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+      signal
+    }
+  );
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (res.status === 404) return [];
+  if (!res.ok) throw new Error(`\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`);
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const envelope = body !== null && typeof body === "object" ? body : null;
+  const raw = envelope?.data;
+  const list = raw !== null && typeof raw === "object" && Array.isArray(raw.clauses) ? raw.clauses : Array.isArray(raw) ? raw : [];
+  return list.map(normalizeDocClause).filter((c) => c !== null);
+}
+async function fetchDocImage(kind, parts, dpi, signal) {
+  const enc = encodeURIComponent;
+  let path;
+  if (kind === "figure") {
+    path = `/ks/doc-image/${enc(parts.docId)}/figure/${enc(parts.no ?? "")}`;
+  } else if (kind === "formula") {
+    path = `/ks/doc-image/${enc(parts.docId)}/formula/${enc(parts.no ?? "")}?clause=${enc(parts.clause ?? "")}`;
+  } else {
+    path = `/ks/doc-image/${enc(parts.docId)}/table-image/${parts.page ?? 0}/${parts.tbl ?? 0}`;
+  }
+  const url = path + (typeof dpi === "number" ? `&dpi=${Math.round(dpi)}` : "").replace(/^([^?]+)&/, "$1?");
+  const res = await fetch(url, { method: "GET", signal });
+  if (res.status === 404) return DOC_IMAGE_NOT_FOUND;
+  if (!res.ok) throw new Error(`\u56FE\u7247\u4EE3\u7406\u8FD4\u56DE HTTP ${res.status}`);
+  const blob = await res.blob();
+  const ct = res.headers.get("content-type") ?? "";
+  if (!ct.startsWith("image/")) {
+    throw new Error(`\u56FE\u7247\u4EE3\u7406\u8FD4\u56DE\u4E86\u975E\u56FE\u7247\u5185\u5BB9 (content-type: ${ct || "unknown"})`);
+  }
+  const fnum = (v) => {
+    const n = typeof v === "string" ? Number.parseFloat(v) : NaN;
+    return Number.isFinite(n) ? n : null;
+  };
+  return {
+    url: URL.createObjectURL(blob),
+    frac: {
+      x0: fnum(res.headers.get("x-frac-x0")),
+      w: fnum(res.headers.get("x-frac-w")),
+      h: fnum(res.headers.get("x-frac-h"))
+    }
+  };
+}
+function str(v) {
+  return typeof v === "string" && v.length > 0 ? v : null;
+}
+function num(v) {
+  return typeof v === "number" && Number.isFinite(v) ? v : null;
+}
+function unwrapList(body) {
+  if (Array.isArray(body)) return body;
+  if (body !== null && typeof body === "object") {
+    const o = body;
+    for (const key of ["data", "bookmarks", "items"]) {
+      const v = o[key];
+      if (Array.isArray(v)) return v;
+    }
+  }
+  return [];
+}
+function normalizeBookmark(value) {
+  if (value === null || typeof value !== "object") return null;
+  const o = value;
+  const id = str(o.bookmark_id) ?? (typeof o.bookmark_id === "number" ? String(o.bookmark_id) : null);
+  if (id === null) return null;
+  return {
+    bookmark_id: id,
+    clause_key: str(o.clause_key),
+    remark: str(o.remark),
+    created_at: typeof o.created_at === "string" ? o.created_at : null,
+    clause_revision_id: str(o.clause_revision_id),
+    clause_number: str(o.clause_number),
+    title: str(o.title),
+    content_text: typeof o.content_text === "string" ? o.content_text : null,
+    doc_id: str(o.doc_id),
+    page_start: num(o.page_start),
+    standard_no: str(o.standard_no),
+    legal_status: str(o.legal_status)
+  };
+}
+async function fetchBookmarks(port, token, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmarks`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) {
+    throw new Error(`\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`);
+  }
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  return unwrapList(body).map(normalizeBookmark).filter((b) => b !== null);
+}
+async function deleteBookmark(port, bookmarkId, token, signal) {
+  const res = await fetch(
+    `http://127.0.0.1:${port}/api/v1/bookmarks/${encodeURIComponent(bookmarkId)}`,
+    {
+      method: "DELETE",
+      headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+      signal
+    }
+  );
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) {
+    throw new Error(`DELETE \u6536\u85CF\u5931\u8D25(HTTP ${res.status})`);
+  }
+}
+async function fetchClauseMeta(port, rev, token, signal) {
+  const res = await fetch(
+    `http://127.0.0.1:${port}/api/v1/clauses/${encodeURIComponent(rev)}/meta`,
+    {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+      signal
+    }
+  );
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (res.status === 404) {
+    throw new Error(`\u6761\u6B3E\u4E0D\u5B58\u5728\u6216\u4E0D\u53EF\u6536\u85CF(404): ${rev}`);
+  }
+  if (!res.ok) {
+    throw new Error(`\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`);
+  }
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = body !== null && typeof body === "object" ? body.data : null;
+  if (data === null || typeof data !== "object") {
+    throw new Error(`\u6761\u6B3E\u5143\u6570\u636E\u54CD\u5E94\u5F02\u5E38`);
+  }
+  const d = data;
+  const clause_key = typeof d.clause_key === "string" ? d.clause_key : "";
+  if (clause_key.length === 0) {
+    throw new Error(`\u6761\u6B3E\u7F3A\u5C11 clause_key\uFF0C\u65E0\u6CD5\u6536\u85CF`);
+  }
+  return {
+    clause_revision_id: rev,
+    clause_key,
+    doc_id: typeof d.doc_id === "string" ? d.doc_id : "",
+    page_start: typeof d.page_start === "number" ? d.page_start : null,
+    clause_number: typeof d.clause_number === "string" ? d.clause_number : null,
+    title: typeof d.title === "string" ? d.title : null,
+    standard_no: typeof d.standard_no === "string" ? d.standard_no : null,
+    doc_bookmarked: d.doc_bookmarked === true,
+    clause_bookmarked: d.clause_bookmarked === true,
+    clause_bookmark_id: typeof d.clause_bookmark_id === "string" ? d.clause_bookmark_id : null
+  };
+}
+async function addBookmark(port, clauseKey, token, signal, folderId) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmarks`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ clause_key: clauseKey, ...folderId != null ? { folder_id: folderId } : {} }),
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) {
+    throw new Error(`\u6536\u85CF\u5931\u8D25(HTTP ${res.status})`);
+  }
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = body !== null && typeof body === "object" ? body.data : null;
+  return { existed: !!(data && typeof data === "object" && data.existed === true) };
+}
+async function addDocBookmark(port, docId, token, signal, folderId) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/doc-bookmarks`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ doc_id: docId, ...folderId != null ? { folder_id: folderId } : {} }),
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (res.status === 404) {
+    throw new Error(`\u6587\u6863\u4E0D\u5B58\u5728\uFF0C\u65E0\u6CD5\u6536\u85CF(404): ${docId}`);
+  }
+  if (!res.ok) {
+    throw new Error(`\u6807\u51C6\u6536\u85CF\u5931\u8D25(HTTP ${res.status})`);
+  }
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = body !== null && typeof body === "object" ? body.data : null;
+  return { existed: !!(data && typeof data === "object" && data.existed === true) };
+}
+async function removeDocBookmarkByDoc(port, docId, token, signal) {
+  const res = await fetch(
+    `http://127.0.0.1:${port}/api/v1/doc-bookmarks/by-doc/${encodeURIComponent(docId)}`,
+    {
+      method: "DELETE",
+      headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+      signal
+    }
+  );
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) {
+    throw new Error(`\u53D6\u6D88\u6807\u51C6\u6536\u85CF\u5931\u8D25(HTTP ${res.status})`);
+  }
+}
+async function removeBookmarkByClauseKey(port, clauseKey, token, signal) {
+  const res = await fetch(
+    `http://127.0.0.1:${port}/api/v1/bookmarks/by-clause/${encodeURIComponent(clauseKey)}`,
+    {
+      method: "DELETE",
+      headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+      signal
+    }
+  );
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) {
+    throw new Error(`\u53D6\u6D88\u6761\u6B3E\u6536\u85CF\u5931\u8D25(HTTP ${res.status})`);
+  }
+}
+function normalizeFolder(value) {
+  if (value === null || typeof value !== "object") return null;
+  const o = value;
+  const id = str(o.folder_id);
+  const name = str(o.folder_name);
+  if (id === null || name === null) return null;
+  return {
+    folder_id: id,
+    folder_name: name,
+    created_at: typeof o.created_at === "string" ? o.created_at : null,
+    doc_count: num(o.doc_count) ?? 0,
+    clause_count: num(o.clause_count) ?? 0
+  };
+}
+function normalizeFolderTreeFolder(value) {
+  if (value === null || typeof value !== "object") return null;
+  const o = value;
+  const name = str(o.folder_name);
+  if (name === null) return null;
+  const rawDocs = Array.isArray(o.docs) ? o.docs : [];
+  const docs = [];
+  for (const d of rawDocs) {
+    if (d === null || typeof d !== "object") continue;
+    const dd = d;
+    const docId = str(dd.doc_id);
+    if (docId === null) continue;
+    const rawPath = dd.path !== null && typeof dd.path === "object" ? dd.path : null;
+    const rawClauseBms = Array.isArray(dd.clause_bookmarks) ? dd.clause_bookmarks : [];
+    docs.push({
+      doc_id: docId,
+      doc_bookmark_id: str(dd.doc_bookmark_id),
+      standard_no: str(dd.standard_no),
+      standard_name: str(dd.standard_name),
+      legal_status: str(dd.legal_status),
+      doc_bookmarked: dd.doc_bookmarked === true,
+      clause_bookmarks: rawClauseBms.flatMap((cb) => {
+        if (cb === null || typeof cb !== "object") return [];
+        const c = cb;
+        const bmId = str(c.bookmark_id);
+        const clauseKey = str(c.clause_key);
+        if (bmId === null || clauseKey === null) return [];
+        return [{
+          bookmark_id: bmId,
+          clause_key: clauseKey,
+          clause_number: str(c.clause_number),
+          title: str(c.title),
+          page_start: num(c.page_start)
+        }];
+      }),
+      path: rawPath === null ? null : {
+        l1: str(rawPath.l1),
+        l2: str(rawPath.l2),
+        l3: str(rawPath.l3),
+        l4: str(rawPath.l4)
+      }
+    });
+  }
+  return {
+    folder_id: str(o.folder_id),
+    // null = 未分类
+    folder_name: name,
+    created_at: typeof o.created_at === "string" ? o.created_at : null,
+    doc_count: num(o.doc_count) ?? docs.length,
+    clause_count: num(o.clause_count) ?? docs.reduce((s, d) => s + d.clause_bookmarks.length, 0),
+    docs
+  };
+}
+async function fetchBookmarkFolders(port, token, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmark-folders`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(`\u6536\u85CF\u5939\u5217\u8868\u83B7\u53D6\u5931\u8D25(HTTP ${res.status})`);
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  return unwrapList(body).map(normalizeFolder).filter((f) => f !== null);
+}
+async function fetchBookmarkFolderTree(port, token, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmark-folders/tree`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(`\u6536\u85CF\u76EE\u5F55\u83B7\u53D6\u5931\u8D25(HTTP ${res.status})`);
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  return unwrapList(body).map(normalizeFolderTreeFolder).filter((f) => f !== null);
+}
+async function createBookmarkFolder(port, folderName, token, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmark-folders`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ folder_name: folderName }),
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (res.status === 409) {
+    throw new Error(`\u6536\u85CF\u5939\u300C${folderName}\u300D\u5DF2\u5B58\u5728`);
+  }
+  if (!res.ok) throw new Error(`\u65B0\u5EFA\u6536\u85CF\u5939\u5931\u8D25(HTTP ${res.status})`);
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = body !== null && typeof body === "object" ? body.data : null;
+  const folder = normalizeFolder(data);
+  if (folder === null) throw new Error("\u65B0\u5EFA\u6536\u85CF\u5939\u8FD4\u56DE\u6570\u636E\u5F02\u5E38");
+  return folder;
+}
+async function renameBookmarkFolder(port, folderId, folderName, token, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmark-folders/${encodeURIComponent(folderId)}`, {
+    method: "PUT",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ folder_name: folderName }),
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (res.status === 409) throw new Error(`\u6536\u85CF\u5939\u300C${folderName}\u300D\u5DF2\u5B58\u5728`);
+  if (!res.ok) throw new Error(`\u91CD\u547D\u540D\u6536\u85CF\u5939\u5931\u8D25(HTTP ${res.status})`);
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = body !== null && typeof body === "object" ? body.data : null;
+  const folder = normalizeFolder(data);
+  if (folder === null) throw new Error("\u91CD\u547D\u540D\u6536\u85CF\u5939\u8FD4\u56DE\u6570\u636E\u5F02\u5E38");
+  return folder;
+}
+async function deleteBookmarkFolder(port, folderId, token, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmark-folders/${encodeURIComponent(folderId)}`, {
+    method: "DELETE",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(`\u5220\u9664\u6536\u85CF\u5939\u5931\u8D25(HTTP ${res.status})`);
+}
+async function moveClauseBookmark(port, clauseKey, folderId, token, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmark-folders/move-clause`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ clause_key: clauseKey, folder_id: folderId }),
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(`\u79FB\u52A8\u6761\u6B3E\u6536\u85CF\u5931\u8D25(HTTP ${res.status})`);
+}
+async function moveDocBookmark(port, docId, folderId, token, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmark-folders/move-doc`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ doc_id: docId, folder_id: folderId }),
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(`\u79FB\u52A8\u6807\u51C6\u6536\u85CF\u5931\u8D25(HTTP ${res.status})`);
+}
+async function fetchChatMode(sessionId, signal) {
+  const res = await fetch(`/ks/chat-mode?session=${encodeURIComponent(sessionId)}`, {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  if (!res.ok) throw new Error(`\u4F1A\u8BDD\u5F00\u5173\u8BFB\u53D6\u5931\u8D25(HTTP ${res.status})`);
+  const body = await res.json();
+  const m = body.mode ?? {};
+  return {
+    forensic: m.forensic === true,
+    bookmarksOnly: m.bookmarksOnly === true,
+    folderId: typeof m.folderId === "string" && m.folderId.length > 0 ? m.folderId : null,
+    folderName: typeof m.folderName === "string" && m.folderName.length > 0 ? m.folderName : null
+  };
+}
+async function patchChatMode(sessionId, patch, signal) {
+  const res = await fetch("/ks/chat-mode", {
+    method: "PUT",
+    headers: { "Content-Type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ session: sessionId, ...patch }),
+    signal
+  });
+  if (!res.ok) {
+    let message = `HTTP ${res.status}`;
+    try {
+      const body2 = await res.json();
+      if (body2?.error?.message) message = body2.error.message;
+    } catch {
+    }
+    throw new Error(`\u4F1A\u8BDD\u5F00\u5173\u66F4\u65B0\u5931\u8D25: ${message}`);
+  }
+  const body = await res.json();
+  const m = body.mode ?? {};
+  return {
+    mode: {
+      forensic: m.forensic === true,
+      bookmarksOnly: m.bookmarksOnly === true,
+      folderId: typeof m.folderId === "string" && m.folderId.length > 0 ? m.folderId : null,
+      folderName: typeof m.folderName === "string" && m.folderName.length > 0 ? m.folderName : null
+    },
+    persisted: body.persisted === true,
+    persistError: typeof body.persist_error === "string" ? body.persist_error : null
+  };
+}
+function normalizeDoc(value) {
+  if (value === null || typeof value !== "object") return null;
+  const o = value;
+  const id = str(o.doc_id) ?? (typeof o.doc_id === "number" ? String(o.doc_id) : null);
+  if (id === null) return null;
+  return {
+    doc_id: id,
+    standard_no: str(o.standard_no),
+    standard_name: str(o.standard_name),
+    legal_status: str(o.legal_status),
+    legal_hierarchy: str(o.legal_hierarchy),
+    ccs_code: str(o.ccs_code),
+    ccs_name: str(o.ccs_name),
+    published_at: str(o.published_at),
+    effective_from: str(o.effective_from),
+    withdrawn_date: str(o.withdrawn_date),
+    superseded_by: str(o.superseded_by),
+    doc_type: str(o.doc_type),
+    domain_tags: str(o.domain_tags)
+  };
+}
+function normalizeCategory(value) {
+  if (value === null || typeof value !== "object") return null;
+  const o = value;
+  const name = str(o.name);
+  if (name === null) return null;
+  const items = Array.isArray(o.items) ? o.items : [];
+  const docs = Array.isArray(o.docs) ? o.docs : [];
+  return {
+    name,
+    items: items.map(normalizeCategory).filter((n) => n !== null),
+    docs: docs.map(normalizeDoc).filter((d) => d !== null)
+  };
+}
+function normalizeClause(value) {
+  if (value === null || typeof value !== "object") return null;
+  const o = value;
+  return {
+    clause_number: str(o.clause_number),
+    title: str(o.title),
+    page_start: num(o.page_start),
+    level: num(o.level),
+    source: str(o.source)
+  };
+}
+async function fetchCategories(port, token, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/documents/categories`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) {
+    throw new Error(`\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`);
+  }
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  return unwrapList(body).map(normalizeCategory).filter((n) => n !== null);
+}
+async function fetchDocTree(port, docId, token, signal) {
+  const res = await fetch(
+    `http://127.0.0.1:${port}/api/v1/documents/${encodeURIComponent(docId)}/tree`,
+    {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+      signal
+    }
+  );
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) {
+    throw new Error(`\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`);
+  }
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  return unwrapList(body).map(normalizeClause).filter((c) => c !== null);
+}
+async function batchDeleteDocs(port, docIds, token, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/documents/batch-delete`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ doc_ids: docIds, confirm: true }),
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) {
+    let msg = `\u6279\u91CF\u5220\u9664\u5931\u8D25(HTTP ${res.status})`;
+    try {
+      const b = await res.json();
+      const e = b !== null && typeof b === "object" ? b.error : null;
+      if (e !== null && typeof e === "object" && typeof e.message === "string") {
+        msg = e.message;
+      }
+    } catch {
+    }
+    throw new Error(msg);
+  }
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const wrapped = body !== null && typeof body === "object" ? body : null;
+  const data = wrapped !== null && wrapped.data !== null && typeof wrapped.data === "object" ? wrapped.data : wrapped ?? {};
+  return {
+    deleted_docs: typeof data.deleted_docs === "number" ? data.deleted_docs : 0,
+    deleted_clauses: typeof data.deleted_clauses === "number" ? data.deleted_clauses : 0,
+    missing: Array.isArray(data.missing) ? data.missing.map(String) : []
+  };
+}
+async function fetchDocsFlat(port, token, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/documents`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) {
+    throw new Error(`\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`);
+  }
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  return unwrapList(body).map(normalizeDoc).filter((d) => d !== null);
+}
+async function parseIngestError(res) {
+  let code = null;
+  let message = `HTTP ${res.status}`;
+  try {
+    const body = await res.json();
+    if (body && typeof body.error === "object" && body.error !== null) {
+      if (typeof body.error.code === "string") code = body.error.code;
+      if (typeof body.error.message === "string" && body.error.message) message = body.error.message;
+    }
+  } catch {
+  }
+  return new KsIngestHttpError(res.status, code, message);
+}
+async function fetchIngestInboxDefault(signal) {
+  const res = await fetch("/ks/ingest/inbox-default", {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  if (!res.ok) throw await parseIngestError(res);
+  const body = await res.json().catch(() => null);
+  const dir = body?.data?.dir;
+  if (body?.ok !== true || typeof dir !== "string" || dir === "") {
+    throw new Error("\u5F85\u5165\u5E93\u76EE\u5F55\u54CD\u5E94\u5F02\u5E38");
+  }
+  return dir;
+}
+async function fetchIngestInbox(dir, signal) {
+  const qs = new URLSearchParams({ dir }).toString();
+  const res = await fetch(`/ks/ingest/inbox?${qs}`, {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  if (!res.ok) throw await parseIngestError(res);
+  const body = await res.json().catch(() => null);
+  if (body?.ok !== true) throw new Error("\u5F85\u5165\u5E93\u76EE\u5F55\u5217\u8868\u54CD\u5E94\u5F02\u5E38");
+  return {
+    dir: body.data?.dir ?? dir,
+    count: typeof body.data?.count === "number" ? body.data.count : 0,
+    files: Array.isArray(body.data?.files) ? body.data.files : [],
+    degraded: body.degraded
+  };
+}
+async function fetchIngestPreview(path, opts = {}) {
+  const payload = {
+    path,
+    doc_type: opts.docType ?? "standard"
+  };
+  if (opts.allowDeep === true) payload.allow_deep = true;
+  const res = await fetch("/ks/ingest/preview", {
+    method: "POST",
+    headers: { accept: "application/json", "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+    signal: opts.signal
+  });
+  if (!res.ok) throw await parseIngestError(res);
+  const body = await res.json().catch(() => null);
+  if (body?.ok !== true || body.data === void 0) throw new Error("\u5165\u5E93\u9884\u89C8\u54CD\u5E94\u5F02\u5E38");
+  return body.data;
+}
+async function fetchIngestBatch(req, signal) {
+  const payload = { dir: req.dir };
+  if (req.sample !== void 0) payload.sample = req.sample;
+  if (req.limitFiles !== void 0) payload.limit_files = req.limitFiles;
+  if (req.docType !== void 0) payload.doc_type = req.docType;
+  if (req.allowDeep === true) payload.allow_deep = true;
+  const res = await fetch("/ks/ingest/preview/batch", {
+    method: "POST",
+    headers: { accept: "application/json", "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+    signal
+  });
+  if (!res.ok) throw await parseIngestError(res);
+  const body = await res.json().catch(() => null);
+  if (body?.ok !== true || body.data === void 0) throw new Error("\u6279\u91CF\u9884\u89C8\u54CD\u5E94\u5F02\u5E38");
+  return body.data;
+}
+async function startIngestJob(req, signal) {
+  const payload = { dir: req.dir };
+  if (req.recursive === true) payload.recursive = true;
+  if (req.batchSize !== void 0 && req.batchSize > 0) payload.batch_size = req.batchSize;
+  if (req.docType !== void 0) payload.doc_type = req.docType;
+  if (req.allowDeep === true) payload.allow_deep = true;
+  const res = await fetch("/ks/ingest/preview/jobs", {
+    method: "POST",
+    headers: { accept: "application/json", "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+    signal
+  });
+  if (!res.ok) throw await parseIngestError(res);
+  const body = await res.json().catch(() => null);
+  if (body?.ok !== true || body.data === void 0) throw new Error("\u5168\u91CF\u9884\u89C8\u542F\u52A8\u54CD\u5E94\u5F02\u5E38");
+  return body.data;
+}
+async function fetchIngestJob(jobId, opts = {}) {
+  const qs = new URLSearchParams({
+    rows_offset: String(opts.rowsOffset ?? 0),
+    rows_limit: String(opts.rowsLimit ?? 200)
+  });
+  const res = await fetch(`/ks/ingest/preview/jobs/${encodeURIComponent(jobId)}?${qs}`, {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal: opts.signal
+  });
+  if (!res.ok) throw await parseIngestError(res);
+  const body = await res.json().catch(() => null);
+  if (body?.ok !== true || body.data === void 0) throw new Error("\u5168\u91CF\u9884\u89C8\u8FDB\u5EA6\u54CD\u5E94\u5F02\u5E38");
+  return body.data;
+}
+async function abortIngestJob(jobId, signal) {
+  const res = await fetch(`/ks/ingest/preview/jobs/${encodeURIComponent(jobId)}/abort`, {
+    method: "POST",
+    headers: { accept: "application/json", "Content-Type": "application/json" },
+    body: "{}",
+    signal
+  });
+  if (!res.ok) throw await parseIngestError(res);
+  const body = await res.json().catch(() => null);
+  if (body?.ok !== true || body.data === void 0) throw new Error("\u5168\u91CF\u9884\u89C8\u4E2D\u65AD\u54CD\u5E94\u5F02\u5E38");
+  return body.data;
+}
+async function parseInspectionError(res) {
+  let code = null;
+  let message = `HTTP ${res.status}`;
+  try {
+    const b = await res.json();
+    if (b?.error) {
+      if (typeof b.error.code === "string") code = b.error.code;
+      if (typeof b.error.message === "string" && b.error.message.length > 0) message = b.error.message;
+    }
+  } catch {
+  }
+  return new InspectionHttpError(res.status, code, message);
+}
+async function fetchInspectionSummary(signal) {
+  const res = await fetch("/ks/inspection/summary", {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+  const body = await res.json().catch(() => null);
+  if (body === null || body.ok !== true) throw new Error("\u5DE1\u68C0\u72B6\u6001\u54CD\u5E94\u5F02\u5E38");
+  return {
+    ok: true,
+    settings: body.settings ?? { autoEnabled: false, time: "08:30", sundayTier1: false },
+    last: body.last ?? null,
+    overdue_days: typeof body.overdue_days === "number" ? body.overdue_days : 0,
+    stale_run: body.stale_run === true
+  };
+}
+async function runInspection(signal) {
+  const res = await fetch("/ks/inspection/run", {
+    method: "POST",
+    headers: { accept: "application/json" },
+    signal
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+  const body = await res.json().catch(() => null);
+  if (body === null || body.ok !== true || typeof body.batch_id !== "string") {
+    throw new Error("\u5DE1\u68C0\u542F\u52A8\u54CD\u5E94\u5F02\u5E38");
+  }
+  return { batch_id: body.batch_id, status: typeof body.status === "string" ? body.status : "running" };
+}
+async function updateInspectionSettings(patch, signal) {
+  const res = await fetch("/ks/inspection/settings", {
+    method: "PUT",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify(patch),
+    signal
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+  const body = await res.json().catch(() => null);
+  if (body === null || body.ok !== true || body.settings === void 0) {
+    throw new Error("\u8BBE\u7F6E\u4FDD\u5B58\u54CD\u5E94\u5F02\u5E38");
+  }
+  return body.settings;
+}
+function filenameFromDisposition(value) {
+  if (!value) return null;
+  const star = /filename\*=UTF-8''([^;]+)/i.exec(value);
+  if (star?.[1]) {
+    try {
+      return decodeURIComponent(star[1]);
+    } catch {
+    }
+  }
+  const plain = /filename="?([^";]+)"?/i.exec(value);
+  return plain?.[1] ? plain[1] : null;
+}
+async function exportInspectionResult(signal) {
+  const res = await fetch("/ks/inspection/export", {
+    method: "POST",
+    headers: { accept: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" },
+    signal
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+  const blob = await res.blob();
+  const name = filenameFromDisposition(res.headers.get("content-disposition")) ?? "\u66F4\u65B0\u68C0\u67E5\u7ED3\u679C.xlsx";
+  const url = URL.createObjectURL(blob);
+  try {
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = name;
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+  } finally {
+    setTimeout(() => URL.revokeObjectURL(url), 6e4);
+  }
+}
+async function fetchAnnounceSummary(signal) {
+  const res = await fetch("/ks/announce/summary", {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+  const body = await res.json().catch(() => null);
+  if (body === null || body.ok !== true) throw new Error("\u516C\u544A\u53D1\u73B0\u72B6\u6001\u54CD\u5E94\u5F02\u5E38");
+  return { ok: true, last: body.last ?? null, stale_run: body.stale_run === true };
+}
+async function scanAnnounceSources(signal) {
+  const res = await fetch("/ks/announce/scan", {
+    method: "POST",
+    headers: { accept: "application/json" },
+    signal
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+  const body = await res.json().catch(() => null);
+  if (body === null || body.ok !== true) throw new Error("\u516C\u544A\u626B\u63CF\u542F\u52A8\u54CD\u5E94\u5F02\u5E38");
+  const data = body.data;
+  if (data && typeof data === "object" && "last" in data) return data.last ?? null;
+  return data ?? null;
+}
+async function fetchAnnounceSources(signal) {
+  const res = await fetch("/ks/announce/sources", {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+  const body = await res.json().catch(() => null);
+  if (body === null || body.ok !== true || body.data === void 0) throw new Error("\u516C\u544A\u6E90\u6E05\u5355\u54CD\u5E94\u5F02\u5E38");
+  return {
+    sources: body.data.sources ?? [],
+    total: body.data.total ?? 0,
+    enabled_count: body.data.enabled_count ?? 0
+  };
+}
+async function addAnnounceSource(name, url, note = "", signal) {
+  const res = await fetch("/ks/announce/sources", {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ name, url, note }),
+    signal
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+  const body = await res.json().catch(() => null);
+  if (body === null || body.ok !== true || body.data?.source === void 0) throw new Error("\u516C\u544A\u6E90\u6DFB\u52A0\u54CD\u5E94\u5F02\u5E38");
+  return body.data.source;
+}
+async function updateAnnounceSource(id, patch, signal) {
+  const res = await fetch(`/ks/announce/sources/${encodeURIComponent(id)}`, {
+    method: "PUT",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify(patch),
+    signal
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+  const body = await res.json().catch(() => null);
+  if (body === null || body.ok !== true || body.data?.source === void 0) throw new Error("\u516C\u544A\u6E90\u66F4\u65B0\u54CD\u5E94\u5F02\u5E38");
+  return body.data.source;
+}
+async function exportAnnounceDiscovery(signal) {
+  const res = await fetch("/ks/announce/export", {
+    method: "POST",
+    headers: { accept: "application/json" },
+    signal
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+  const blob = await res.blob();
+  const name = filenameFromDisposition(res.headers.get("content-disposition")) ?? "\u516C\u544A\u53D1\u73B0.xlsx";
+  const url = URL.createObjectURL(blob);
+  try {
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = name;
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+  } finally {
+    setTimeout(() => URL.revokeObjectURL(url), 6e4);
+  }
+}
+async function removeAnnounceSource(id, signal) {
+  const res = await fetch(`/ks/announce/sources/${encodeURIComponent(id)}`, {
+    method: "DELETE",
+    headers: { accept: "application/json" },
+    signal
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+}
+function qsOf(params) {
+  const sp = new URLSearchParams();
+  for (const [k, v] of Object.entries(params)) {
+    if (v !== void 0 && v !== "") sp.set(k, String(v));
+  }
+  const s = sp.toString();
+  return s ? `?${s}` : "";
+}
+async function fetchEffectReport(window2 = "all", signal, color) {
+  const res = await fetch(`/ks/report/effect${qsOf({ window: window2, color })}`, {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+  const body = await res.json().catch(() => null);
+  if (body === null || body.ok !== true || body.data === void 0) throw new Error("\u6548\u529B\u62A5\u544A\u54CD\u5E94\u5F02\u5E38");
+  return body.data;
+}
+async function fetchEgressAudit(params = {}, signal) {
+  const { token, engine: { port } } = await fetchSession(signal);
+  const qs = new URLSearchParams();
+  if (params.limit !== void 0) qs.set("limit", String(params.limit));
+  if (params.offset !== void 0) qs.set("offset", String(params.offset));
+  const suffix = qs.toString();
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/egress/audit${suffix ? `?${suffix}` : ""}`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal
+  });
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5916\u53D1\u5BA1\u8BA1\u8BFB\u53D6\u5931\u8D25\uFF08HTTP ${res.status}\uFF09`));
+  const body = await res.json().catch(() => null);
+  const data = body?.data;
+  if (data === null || data === void 0 || typeof data !== "object" || !Array.isArray(data.items)) {
+    throw new Error('\u5916\u53D1\u5BA1\u8BA1\u54CD\u5E94\u5F02\u5E38\uFF08\u671F\u671B {code:200,data:{total,items}}\uFF09\u2014\u2014\u4E0D\u8981\u628A\u672C\u6B21\u5F53\u4F5C"\u6CA1\u6709\u5916\u53D1\u8BB0\u5F55"');
+  }
+  return { total: Number(data.total ?? data.items.length), items: data.items };
+}
+function buildEgressMarkdown(total, items) {
+  const str3 = (v) => typeof v === "string" ? v : v === null || v === void 0 ? "" : String(v);
+  const lines = [];
+  lines.push("# \u5916\u53D1\u5BA1\u8BA1\u8BB0\u5F55");
+  lines.push("");
+  lines.push(`\u5171 ${String(total)} \u6761\u5916\u53D1\uFF08\u6BCF\u6B21\u8C03\u7528\u4E91\u7AEF\u7684\u5B8C\u6574\u7559\u75D5\uFF1B\u672C\u8868\u4E3A\u8131\u654F\u6458\u8981\uFF09\u3002`);
+  lines.push("");
+  items.forEach((it, i) => {
+    lines.push(`## ${String(i + 1)}. ${str3(it.created_at)} \xB7 ${str3(it.service)}`);
+    lines.push("");
+    lines.push(`- \u7AEF\u70B9\uFF1A${str3(it.endpoint) || "\u2014"}`);
+    lines.push(`- \u8BF7\u6C42\uFF1A${str3(it.query) || "\u2014"}`);
+    lines.push(`- \u5916\u53D1\u5B57\u8282\uFF1A${str3(it.payload_bytes) || "\u2014"}`);
+    lines.push(`- \u5185\u5BB9\u6458\u8981\uFF1A${str3(it.prompt_preview) || "\u2014"}`);
+    lines.push(`- \u7559\u75D5\u7F16\u53F7\uFF1A${str3(it.dump_id) || "\u2014"}`);
+    lines.push("");
+  });
+  return lines.join("\n");
+}
+async function compliancePost(path, body, what, signal) {
+  const { token, engine: { port } } = await fetchSession(signal);
+  const res = await fetch(`http://127.0.0.1:${port}${path}`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
+    body: JSON.stringify(body),
+    signal
+  });
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `${what}\u5931\u8D25\uFF08HTTP ${res.status}\uFF09`));
+  const out = await res.json().catch(() => null);
+  if (out?.data === null || out?.data === void 0) throw new Error(`${what}\u54CD\u5E94\u5F02\u5E38`);
+  return out.data;
+}
+function importInternalPolicy(policyName, policyText, signal) {
+  return compliancePost(
+    "/api/v1/compliance/policies",
+    { policy_name: policyName, policy_text: policyText },
+    "\u767B\u8BB0\u5236\u5EA6",
+    signal
+  );
+}
+function runGapAnalysis(policyId, signal) {
+  return compliancePost("/api/v1/compliance/gap-analysis", { policy_id: policyId }, "\u5DEE\u8DDD\u5206\u6790", signal);
+}
+async function listClausePatches(params = {}, signal) {
+  const { token, engine: { port } } = await fetchSession(signal);
+  const qs = new URLSearchParams();
+  if (params.clauseRevisionId !== void 0) qs.set("clause_revision_id", params.clauseRevisionId);
+  if (params.limit !== void 0) qs.set("limit", String(params.limit));
+  const suffix = qs.toString();
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/clauses/patches${suffix ? `?${suffix}` : ""}`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal
+  });
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5217\u4FEE\u8BA2\u5931\u8D25\uFF08HTTP ${res.status}\uFF09`));
+  const out = await res.json().catch(() => null);
+  if (!Array.isArray(out?.data)) throw new Error("\u5217\u4FEE\u8BA2\u54CD\u5E94\u5F02\u5E38\uFF08\u671F\u671B {code:200,data:[\u2026]}\uFF09");
+  return out.data;
+}
+async function createClausePatch(body, signal) {
+  const { token, engine: { port } } = await fetchSession(signal);
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/clauses/patches`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
+    body: JSON.stringify(body),
+    signal
+  });
+  const out = await res.json().catch(() => null);
+  if (res.status === 466 || out?.code === 466) {
+    return { warned: out?.error?.message ?? "\u5F15\u64CE\u63D0\u793A\u8FD9\u6761\u4FEE\u8BA2\u53EF\u7591\uFF0C\u8BF7\u4EBA\u5DE5\u786E\u8BA4\u540E\u518D\u4EA4\uFF08\u5E26\u786E\u8BA4\u91CD\u4EA4\uFF09\u3002" };
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u63D0\u4EA4\u4FEE\u8BA2\u5931\u8D25\uFF08HTTP ${res.status}\uFF09`));
+  return { patch: out?.data ?? null };
+}
+async function deleteClausePatch(patchId, signal) {
+  const { token, engine: { port } } = await fetchSession(signal);
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/clauses/patches/${encodeURIComponent(patchId)}`, {
+    method: "DELETE",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal
+  });
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u56DE\u9000\u4FEE\u8BA2\u5931\u8D25\uFF08HTTP ${res.status}\uFF09`));
+}
+async function fetchEffectDocs(params, signal) {
+  const res = await fetch(`/ks/report/effect/docs${qsOf(params)}`, {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+  const body = await res.json().catch(() => null);
+  if (body === null || body.ok !== true || body.data === void 0) throw new Error("\u6548\u529B\u62A5\u544A\u660E\u7EC6\u54CD\u5E94\u5F02\u5E38");
+  return body.data;
+}
+async function exportEffectReport(window2 = "all", signal, color) {
+  const res = await fetch("/ks/report/export", {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify(color ? { window: window2, color } : { window: window2 }),
+    signal
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+  const blob = await res.blob();
+  const name = filenameFromDisposition(res.headers.get("content-disposition")) ?? "\u6548\u529B\u62A5\u544A.xlsx";
+  const url = URL.createObjectURL(blob);
+  try {
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = name;
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+  } finally {
+    setTimeout(() => URL.revokeObjectURL(url), 6e4);
+  }
+}
+async function fetchApiConfig(signal) {
+  const res = await fetch("/ks/settings/api-config", {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+  const body = await res.json().catch(() => null);
+  if (body === null || body.ok !== true) throw new Error("API \u914D\u7F6E\u72B6\u6001\u54CD\u5E94\u5F02\u5E38");
+  return {
+    mineru_cloud: body.mineru_cloud ?? { configured: false, base_url: "" },
+    llm: body.llm ?? { configured: false, base_url: "" }
+  };
+}
+async function saveApiConfig(payload, signal) {
+  const res = await fetch("/ks/settings/api-config", {
+    method: "PUT",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify(payload),
+    signal
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+  const body = await res.json().catch(() => null);
+  if (body === null || body.ok !== true) throw new Error("API \u914D\u7F6E\u4FDD\u5B58\u54CD\u5E94\u5F02\u5E38");
+  return {
+    mineru_cloud: body.mineru_cloud ?? { configured: false, base_url: "" },
+    llm: body.llm ?? { configured: false, base_url: "" }
+  };
+}
+async function testApiChannel(channel, signal) {
+  const res = await fetch("/ks/settings/api-config/test", {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ channel }),
+    signal
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+  const body = await res.json().catch(() => null);
+  if (body === null || body.ok !== true) throw new Error("\u8FDE\u901A\u6027\u6D4B\u8BD5\u54CD\u5E94\u5F02\u5E38");
+  return {
+    ok: body.result?.ok === true,
+    detail: typeof body.result?.detail === "string" ? body.result.detail : ""
+  };
+}
+async function ksJson(res, what) {
+  if (!res.ok) throw await parseInspectionError(res);
+  const body = await res.json().catch(() => null);
+  if (body === null || body.ok !== true || body.data === void 0) {
+    throw new Error(`${what}\u54CD\u5E94\u5F02\u5E38`);
+  }
+  return body.data;
+}
+async function fetchMaterialProjects(signal) {
+  const res = await fetch("/ks/materials/projects", {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  const data = await ksJson(res, "\u53C2\u8003\u8D44\u6599\u9879\u76EE");
+  return Array.isArray(data) ? data : [];
+}
+async function createMaterialProject(name, opts = {}, signal) {
+  const res = await fetch("/ks/materials/projects", {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify({
+      name,
+      note: opts.note ?? null,
+      authority_policy: opts.authorityPolicy ?? null
+    }),
+    signal
+  });
+  return ksJson(res, "\u65B0\u5EFA\u9879\u76EE");
+}
+async function fetchMaterials(projectId, status, signal) {
+  const q = new URLSearchParams({ project_id: projectId });
+  if (status !== void 0) q.set("status", status);
+  const res = await fetch(`/ks/materials/list?${q.toString()}`, {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  const data = await ksJson(res, "\u6750\u6599\u5217\u8868");
+  return Array.isArray(data) ? data : [];
+}
+async function fetchMaterialInbox(projectId, signal) {
+  const q = new URLSearchParams({ project_id: projectId });
+  const res = await fetch(`/ks/materials/inbox?${q.toString()}`, {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  const data = await ksJson(
+    res,
+    "\u6536\u4EF6\u7BB1"
+  );
+  return { dir: typeof data.dir === "string" ? data.dir : "", files: data.files ?? [] };
+}
+async function scanMaterialProject(projectId, signal) {
+  const q = new URLSearchParams({ project_id: projectId });
+  const res = await fetch(`/ks/materials/scan?${q.toString()}`, {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ origin: "user" }),
+    signal
+  });
+  const data = await ksJson(res, "\u626B\u63CF\u6536\u4EF6");
+  return { scanned: data.scanned ?? 0, registered: data.registered ?? 0 };
+}
+async function collectMaterialUrl(projectId, input, signal) {
+  const q = new URLSearchParams({ project_id: projectId });
+  const body = { url: input.url };
+  if (input.title !== void 0 && input.title !== "") body.title = input.title;
+  if (input.note !== void 0 && input.note !== "") body.note = input.note;
+  const res = await fetch(`/ks/materials/collect?${q.toString()}`, {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify(body),
+    signal
+  });
+  const data = await ksJson(res, "\u81EA\u91C7");
+  if (typeof data?.collected !== "boolean") {
+    throw new Error('\u81EA\u91C7\u54CD\u5E94\u5F02\u5E38\uFF1A\u7F3A\u5C11 collected \u5B57\u6BB5\uFF08\u4E0D\u8981\u628A\u8FD9\u6B21\u7ED3\u679C\u5F53\u6210"\u5DF2\u7ECF\u91C7\u5230\u4E86"\uFF09');
+  }
+  return data;
+}
+async function reviewMaterial(materialId, decision, note, signal) {
+  const q = new URLSearchParams({ material_id: materialId });
+  const res = await fetch(`/ks/materials/review?${q.toString()}`, {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ decision, note: note ?? null }),
+    signal
+  });
+  return ksJson(res, "\u8BC4\u5BA1");
+}
+async function setMaterialTier(materialId, tier, reason, signal) {
+  const q = new URLSearchParams({ material_id: materialId });
+  const res = await fetch(`/ks/materials/tier?${q.toString()}`, {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ tier, source: "user", reason: reason ?? null }),
+    signal
+  });
+  return ksJson(res, "\u8BBE\u7F6E\u6765\u6E90\u5C42\u7EA7");
+}
+async function setMaterialRole(materialId, role, signal) {
+  const q = new URLSearchParams({ material_id: materialId });
+  const res = await fetch(`/ks/materials/role?${q.toString()}`, {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ role }),
+    signal
+  });
+  return ksJson(res, "\u8BBE\u7F6E\u4EFB\u52A1\u5185\u6548\u529B");
+}
+async function fetchMaterialChunks(materialId, offset = 0, limit = 20, signal) {
+  const q = new URLSearchParams({
+    material_id: materialId,
+    offset: String(offset),
+    limit: String(limit)
+  });
+  const res = await fetch(`/ks/materials/chunks?${q.toString()}`, {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  const data = await ksJson(res, "\u6750\u6599\u5207\u7247");
+  return { total: data.total ?? 0, offset: data.offset ?? 0, chunks: data.chunks ?? [] };
+}
+async function fetchMaterialTiers(signal) {
+  const res = await fetch("/ks/materials/tiers", {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  const data = await ksJson(res, "\u5C42\u5B9A\u4E49");
+  return Array.isArray(data) ? data : [];
+}
+async function fetchMaterialLocators(materialId, signal) {
+  const q = new URLSearchParams({ material_id: materialId });
+  const res = await fetch(`/ks/materials/locators?${q.toString()}`, {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  return ksJson(res, "\u951A\u70B9\u5065\u5EB7\u5EA6");
+}
+async function fetchProjectLocators(projectId, signal) {
+  const q = new URLSearchParams({ project_id: projectId });
+  const res = await fetch(`/ks/materials/locators?${q.toString()}`, {
+    method: "GET",
+    headers: { accept: "application/json" },
+    signal
+  });
+  const data = await ksJson(res, "\u951A\u70B9\u603B\u89C8");
+  return {
+    project_id: data.project_id ?? projectId,
+    counts: data.counts ?? {},
+    statuses: data.statuses ?? {},
+    attention: data.attention ?? [],
+    note: data.note ?? ""
+  };
+}
+async function reverifyMaterialLocators(materialId, signal) {
+  const q = new URLSearchParams({ material_id: materialId });
+  const res = await fetch(`/ks/materials/reverify?${q.toString()}`, {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify({}),
+    signal
+  });
+  return ksJson(res, "\u91CD\u89E3\u6790\u6BD4\u5BF9");
+}
+function reportBody(projectId, input) {
+  const body = { project_id: projectId };
+  if (input.title !== void 0 && input.title !== "") body.title = input.title;
+  if (input.query !== void 0 && input.query !== "") body.query = input.query;
+  if (input.conclusionMd !== void 0 && input.conclusionMd !== "")
+    body.conclusion_md = input.conclusionMd;
+  if (input.limit !== void 0) body.limit = input.limit;
+  if (input.dryRun !== void 0) body.dry_run = input.dryRun;
+  return body;
+}
+async function postReport(path, projectId, input, what, signal) {
+  const res = await fetch(path, {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify(reportBody(projectId, input)),
+    signal
+  });
+  return ksJson(res, what);
+}
+async function exportResearchReport(projectId, input = {}, signal) {
+  return postReport(
+    "/ks/report/research",
+    projectId,
+    input,
+    "\u7814\u7A76\u62A5\u544A",
+    signal
+  );
+}
+async function exportResearchDraft(projectId, input, signal) {
+  return postReport(
+    "/ks/report/research/draft",
+    projectId,
+    input,
+    "\u7ED3\u8BBA\u8349\u7A3F",
+    signal
+  );
+}
+function objOf(value) {
+  return value !== null && typeof value === "object" ? value : null;
+}
+function dataOf(body) {
+  const wrapped = objOf(body);
+  return objOf(wrapped?.data) ?? wrapped ?? {};
+}
+function intOf(value, fallback) {
+  return typeof value === "number" && Number.isFinite(value) ? value : fallback;
+}
+function normalizeKbFolder(value) {
+  const o = objOf(value);
+  const id = str(o?.folder_id);
+  if (o === null || id === null) return null;
+  return {
+    folder_id: id,
+    parent_id: str(o.parent_id),
+    name: str(o.name) ?? id,
+    sort: intOf(o.sort, 0),
+    created_at: str(o.created_at),
+    file_count_direct: intOf(o.file_count_direct, 0),
+    file_count_deep: intOf(o.file_count_deep, 0),
+    folder_count_deep: intOf(o.folder_count_deep, 0),
+    effect_deep: (() => {
+      const ef = o.effect_deep ?? {};
+      return {
+        green: intOf(ef.green, 0),
+        red: intOf(ef.red, 0),
+        yellow: intOf(ef.yellow, 0),
+        gray: intOf(ef.gray, 0)
+      };
+    })()
+  };
+}
+function normalizeKbFile(value) {
+  const o = objOf(value);
+  const id = str(o?.doc_id);
+  if (o === null || id === null) return null;
+  return {
+    doc_id: id,
+    standard_no: str(o.standard_no),
+    standard_name: str(o.standard_name),
+    legal_status: str(o.legal_status),
+    legal_hierarchy: str(o.legal_hierarchy),
+    doc_type: str(o.doc_type),
+    ccs_code: str(o.ccs_code),
+    ccs_name: str(o.ccs_name),
+    published_at: str(o.published_at),
+    effective_from: str(o.effective_from),
+    withdrawn_date: str(o.withdrawn_date),
+    superseded_by: str(o.superseded_by),
+    stage: str(o.stage),
+    confidence: num(o.confidence),
+    failure_kind: str(o.failure_kind),
+    suggested_folder_id: str(o.suggested_folder_id)
+  };
+}
+async function engineErrorMessage(res, fallback) {
+  try {
+    const b = await res.json();
+    const e = objOf(objOf(b)?.error);
+    const m = e?.message;
+    if (typeof m === "string" && m !== "") return m;
+  } catch {
+  }
+  return fallback;
+}
+async function fetchKbFolders(port, token, parentId, opts = {}) {
+  const qs = new URLSearchParams();
+  if (parentId !== null) qs.set("parent_id", parentId);
+  if (opts.limit !== void 0) qs.set("limit", String(opts.limit));
+  if (opts.offset !== void 0) qs.set("offset", String(opts.offset));
+  const suffix = qs.toString() === "" ? "" : `?${qs.toString()}`;
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/folders${suffix}`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal: opts.signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  const subs = Array.isArray(data.subfolders) ? data.subfolders : [];
+  const crumb = Array.isArray(data.breadcrumb) ? data.breadcrumb : [];
+  return {
+    folder: normalizeKbFolder(data.folder),
+    breadcrumb: crumb.map(normalizeKbFolder).filter((f) => f !== null),
+    subfolders: subs.map(normalizeKbFolder).filter((f) => f !== null),
+    total: intOf(data.total, subs.length),
+    offset: intOf(data.offset, opts.offset ?? 0),
+    limit: intOf(data.limit, opts.limit ?? 200),
+    has_more: data.has_more === true
+  };
+}
+async function fetchKbFolderItems(port, token, folderId, opts = {}) {
+  const qs = new URLSearchParams();
+  qs.set("limit", String(opts.limit ?? 50));
+  qs.set("offset", String(opts.offset ?? 0));
+  const res = await fetch(
+    `http://127.0.0.1:${port}/api/v1/kb/folders/${encodeURIComponent(folderId)}/items?${qs.toString()}`,
+    {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+      signal: opts.signal
+    }
+  );
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  const rows = Array.isArray(data.items) ? data.items : [];
+  const crumb = Array.isArray(data.breadcrumb) ? data.breadcrumb : [];
+  return {
+    folder: normalizeKbFolder(data.folder),
+    breadcrumb: crumb.map(normalizeKbFolder).filter((f) => f !== null),
+    items: rows.map(normalizeKbFile).filter((f) => f !== null),
+    total: intOf(data.total, rows.length),
+    offset: intOf(data.offset, opts.offset ?? 0),
+    limit: intOf(data.limit, opts.limit ?? 50),
+    has_more: data.has_more === true
+  };
+}
+async function addKbMembers(port, token, folderId, items, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/members`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ folder_id: folderId, items: items.map((it) => ({ kind: it.kind, id: it.id })) }),
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  return {
+    folder_id: str(data.folder_id) ?? folderId,
+    added: intOf(data.added, 0),
+    skipped: intOf(data.skipped, 0),
+    total: intOf(data.total, items.length)
+  };
+}
+async function kbWrite(url, method, token, body, signal) {
+  const res = await fetch(`http://127.0.0.1:${url}`, {
+    method,
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+      accept: "application/json"
+    },
+    body: body === void 0 ? void 0 : JSON.stringify(body),
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let parsed = null;
+  try {
+    parsed = await res.json();
+  } catch {
+  }
+  return dataOf(parsed);
+}
+async function createKbFolder(port, token, parentId, name, signal) {
+  const d = await kbWrite(
+    `${String(port)}/api/v1/kb/folders`,
+    "POST",
+    token,
+    { parent_id: parentId, name },
+    signal
+  );
+  return {
+    folder_id: str(d.folder_id) ?? "",
+    name: str(d.name) ?? name,
+    parent_id: str(d.parent_id)
+  };
+}
+async function renameKbFolder(port, token, folderId, name, signal) {
+  const d = await kbWrite(
+    `${String(port)}/api/v1/kb/folders/${encodeURIComponent(folderId)}`,
+    "PUT",
+    token,
+    { name },
+    signal
+  );
+  return {
+    folder_id: str(d.folder_id) ?? folderId,
+    name: str(d.name) ?? name,
+    parent_id: str(d.parent_id)
+  };
+}
+async function moveKbFolder(port, token, folderId, toParentId, opts = {}) {
+  const d = await kbWrite(
+    `${String(port)}/api/v1/kb/folders/${encodeURIComponent(folderId)}/move`,
+    "POST",
+    token,
+    { from_parent_id: opts.fromParentId ?? null, to_parent_id: toParentId },
+    opts.signal
+  );
+  return {
+    folder_id: str(d.folder_id) ?? folderId,
+    name: str(d.name) ?? "",
+    parent_id: str(d.parent_id),
+    from_parent_id: str(d.from_parent_id),
+    to_parent_id: str(d.to_parent_id),
+    updated_main_position: d.updated_main_position === true,
+    moved: d.moved === true,
+    reason: str(d.reason) ?? void 0
+  };
+}
+async function copyKbFolder(port, token, folderId, toParentId, opts = {}) {
+  const d = await kbWrite(
+    `${String(port)}/api/v1/kb/folders/${encodeURIComponent(folderId)}/copy`,
+    "POST",
+    token,
+    { to_parent_id: toParentId, name: opts.name ?? null },
+    opts.signal
+  );
+  return {
+    folder_id: str(d.folder_id) ?? "",
+    name: str(d.name) ?? "",
+    parent_id: str(d.parent_id),
+    sort: intOf(d.sort, 0),
+    copied_members: intOf(d.copied_members, 0),
+    copied_from: str(d.copied_from) ?? folderId
+  };
+}
+async function fetchKbFolderDeletePreview(port, token, folderId, signal) {
+  const res = await fetch(
+    `http://127.0.0.1:${port}/api/v1/kb/folders/${encodeURIComponent(folderId)}/delete-preview`,
+    {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+      signal
+    }
+  );
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const d = dataOf(body);
+  return {
+    folder: normalizeKbFolder(d.folder),
+    is_empty: d.is_empty === true,
+    direct_subfolder_count: intOf(d.direct_subfolder_count, 0),
+    direct_file_count: intOf(d.direct_file_count, 0),
+    subtree_folder_count: intOf(d.subtree_folder_count, 0),
+    subtree_file_count: intOf(d.subtree_file_count, 0),
+    reparent_available: d.reparent_available === true,
+    files_kept_elsewhere: intOf(d.files_kept_elsewhere, 0),
+    files_would_be_deleted: intOf(d.files_would_be_deleted, 0)
+  };
+}
+async function deleteKbFolder(port, token, folderId, mode, signal) {
+  const qs = mode === null ? "" : `?mode=${mode}`;
+  const d = await kbWrite(
+    `${String(port)}/api/v1/kb/folders/${encodeURIComponent(folderId)}${qs}`,
+    "DELETE",
+    token,
+    void 0,
+    signal
+  );
+  return {
+    folder_id: str(d.folder_id) ?? folderId,
+    mode: str(d.mode) ?? "empty",
+    removed: d.removed === true,
+    new_parent_id: str(d.new_parent_id),
+    reparented_subfolders: intOf(d.reparented_subfolders, 0),
+    reparented_files: intOf(d.reparented_files, 0),
+    purged_folders: intOf(d.purged_folders, 0),
+    unfiled_docs: intOf(d.unfiled_docs, 0),
+    deleted_docs: intOf(d.deleted_docs, 0)
+  };
+}
+async function removeKbMembers(port, token, folderId, items, signal) {
+  const d = await kbWrite(
+    `${String(port)}/api/v1/kb/members/remove`,
+    "POST",
+    token,
+    { folder_id: folderId, items: items.map((it) => ({ kind: it.kind, id: it.id })) },
+    signal
+  );
+  return memberResult(d, folderId, "", "");
+}
+async function moveKbMembers(port, token, items, fromFolderId, toFolderId, signal) {
+  const d = await kbWrite(
+    `${String(port)}/api/v1/kb/members/move`,
+    "POST",
+    token,
+    {
+      from_folder_id: fromFolderId,
+      to_folder_id: toFolderId,
+      items: items.map((it) => ({ kind: it.kind, id: it.id }))
+    },
+    signal
+  );
+  return memberResult(d, fromFolderId, toFolderId, fromFolderId);
+}
+async function copyKbMembers(port, token, items, toFolderId, signal) {
+  const d = await kbWrite(
+    `${String(port)}/api/v1/kb/members/copy`,
+    "POST",
+    token,
+    { to_folder_id: toFolderId, items: items.map((it) => ({ kind: it.kind, id: it.id })) },
+    signal
+  );
+  return memberResult(d, "", toFolderId, "");
+}
+function memberResult(d, folderId, toFolderId, fromFolderId) {
+  return {
+    folder_id: str(d.folder_id) ?? folderId,
+    to_folder_id: str(d.to_folder_id) ?? toFolderId,
+    from_folder_id: str(d.from_folder_id) ?? fromFolderId,
+    added: intOf(d.added, 0),
+    skipped: intOf(d.skipped, 0),
+    removed: intOf(d.removed, 0),
+    moved: intOf(d.moved, 0),
+    total: intOf(d.total, 0)
+  };
+}
+function normalizeKbInboxItem(value) {
+  const o = objOf(value);
+  const id = str(o?.doc_id);
+  if (o === null || id === null) return null;
+  return {
+    doc_id: id,
+    standard_no: str(o.standard_no),
+    standard_name: str(o.standard_name),
+    stage: str(o.stage) ?? "queued",
+    stage_label: str(o.stage_label) ?? "",
+    confidence: num(o.confidence),
+    failure_kind: str(o.failure_kind),
+    suggested_folder_id: str(o.suggested_folder_id),
+    suggested_path: str(o.suggested_path),
+    suggest_new_parent_id: str(o.suggest_new_parent_id),
+    suggest_new_name: str(o.suggest_new_name),
+    catalog_hidden: num(o.catalog_hidden),
+    ccs_tag: str(o.ccs_tag),
+    ccs_outcome: str(o.ccs_outcome),
+    ccs_outcome_label: str(o.ccs_outcome_label),
+    ccs_reason: str(o.ccs_reason),
+    ccs_source: str(o.ccs_source),
+    ccs_checked_at: str(o.ccs_checked_at)
+  };
+}
+async function fetchKbInbox(port, token, opts = {}) {
+  const qs = new URLSearchParams();
+  qs.set("limit", String(opts.limit ?? 50));
+  qs.set("offset", String(opts.offset ?? 0));
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/inbox?${qs.toString()}`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal: opts.signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  const rows = Array.isArray(data.items) ? data.items : [];
+  return {
+    items: rows.map(normalizeKbInboxItem).filter((r) => r !== null),
+    total: intOf(data.total, rows.length),
+    offset: intOf(data.offset, opts.offset ?? 0),
+    limit: intOf(data.limit, opts.limit ?? 50),
+    has_more: data.has_more === true
+  };
+}
+async function confirmKbInbox(port, token, decisions, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/inbox/confirm`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ decisions }),
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  const created = Array.isArray(data.created) ? data.created.length : 0;
+  return {
+    confirmed: intOf(data.confirmed, 0),
+    removed_from_pending: intOf(data.removed_from_pending, 0),
+    created
+  };
+}
+async function reingestKbDocs(port, token, docIds, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/inbox/reingest`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ doc_ids: docIds }),
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  const started = Array.isArray(data.started) ? data.started : [];
+  const skipped = Array.isArray(data.skipped) ? data.skipped : [];
+  return {
+    queued: intOf(data.queued, 0),
+    started: started.map((s) => {
+      const o = objOf(s) ?? {};
+      return { doc_id: str(o.doc_id) ?? "", path: str(o.path) ?? "", standard_no: str(o.standard_no) ?? "" };
+    }).filter((s) => s.doc_id !== ""),
+    skipped: skipped.map((s) => {
+      const o = objOf(s) ?? {};
+      return { doc_id: str(o.doc_id) ?? "", reason: str(o.reason) ?? "" };
+    })
+  };
+}
+async function fetchKbReingestStatus(port, token, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/inbox/reingest/status`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  const results = Array.isArray(data.results) ? data.results : [];
+  return {
+    running: data.running === true,
+    total: intOf(data.total, 0),
+    done: intOf(data.done, 0),
+    results: results.map((r) => {
+      const o = objOf(r) ?? {};
+      return {
+        doc_id: str(o.doc_id) ?? "",
+        status: str(o.status) ?? void 0,
+        total_clauses: num(o.total_clauses) ?? void 0,
+        filing_stage: str(o.filing_stage) ?? void 0,
+        error: str(o.error) ?? void 0
+      };
+    }),
+    started_at: str(data.started_at),
+    finished_at: str(data.finished_at)
+  };
+}
+function normalizeCcsResultRows(value) {
+  const rows = Array.isArray(value) ? value : [];
+  return rows.map((r) => {
+    const o = objOf(r) ?? {};
+    return {
+      doc_id: str(o.doc_id) ?? "",
+      standard_no: str(o.standard_no) ?? "",
+      standard_name: str(o.standard_name) ?? void 0,
+      outcome: str(o.outcome) ?? "",
+      code: str(o.code) ?? void 0,
+      sub: str(o.sub) ?? void 0,
+      source: str(o.source) ?? void 0,
+      keyword_form: str(o.keyword_form) ?? void 0,
+      matched_no: str(o.matched_no) ?? void 0,
+      reason: str(o.reason) ?? void 0,
+      tag: str(o.tag) ?? void 0,
+      applied: o.applied === true
+    };
+  });
+}
+function normalizeCcsBackfillStatus(data) {
+  return {
+    running: data.running === true,
+    total: intOf(data.total, 0),
+    done: intOf(data.done, 0),
+    found: intOf(data.found, 0),
+    not_found: intOf(data.not_found, 0),
+    network_failed: intOf(data.network_failed, 0),
+    parse_failed: intOf(data.parse_failed, 0),
+    not_applicable: intOf(data.not_applicable, 0),
+    applied: intOf(data.applied, 0),
+    skipped: intOf(data.skipped, 0),
+    cancel_requested: data.cancel_requested === true,
+    cancelled: data.cancelled === true,
+    started_at: str(data.started_at),
+    finished_at: str(data.finished_at),
+    missing: num(data.missing),
+    results: normalizeCcsResultRows(data.results),
+    failures: normalizeCcsResultRows(data.failures),
+    skipped_list: normalizeCcsResultRows(data.skipped_list)
+  };
+}
+async function fetchKbCcsSummary(port, token, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/ccs/summary`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  const byOutcome = objOf(data.by_outcome) ?? {};
+  const by = {};
+  for (const [k, v] of Object.entries(byOutcome)) by[k] = intOf(v, 0);
+  const labels = objOf(data.outcome_labels) ?? {};
+  const srcLabels = objOf(data.source_labels) ?? {};
+  const outLabels = {};
+  for (const [k, v] of Object.entries(labels)) {
+    const s = str(v);
+    if (s !== null) outLabels[k] = s;
+  }
+  const outSrc = {};
+  for (const [k, v] of Object.entries(srcLabels)) {
+    const s = str(v);
+    if (s !== null) outSrc[k] = s;
+  }
+  const srcArr = Array.isArray(data.sources) ? data.sources : [];
+  return {
+    missing: intOf(data.missing, 0),
+    by_outcome: by,
+    max_batch: intOf(data.max_batch, 0),
+    default_batch: intOf(data.default_batch, 0),
+    outcome_labels: outLabels,
+    source_labels: outSrc,
+    sources: srcArr.map((s) => str(s) ?? "").filter((s) => s !== ""),
+    backfill: normalizeCcsBackfillStatus(objOf(data.backfill) ?? {})
+  };
+}
+async function fetchKbCcsPlan(port, token, opts = {}) {
+  const qs = new URLSearchParams();
+  qs.set("limit", String(opts.limit ?? 0));
+  if (opts.force === true) qs.set("force", "true");
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/ccs/plan?${qs.toString()}`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal: opts.signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  const rows = Array.isArray(data.candidates) ? data.candidates : [];
+  return {
+    candidates: rows.map((r) => {
+      const o = objOf(r) ?? {};
+      return {
+        doc_id: str(o.doc_id) ?? "",
+        standard_no: str(o.standard_no) ?? "",
+        standard_name: str(o.standard_name) ?? ""
+      };
+    }).filter((r) => r.doc_id !== ""),
+    total: intOf(data.total, rows.length),
+    already_have: intOf(data.already_have, 0),
+    limit: intOf(data.limit, 0),
+    truncated: data.truncated === true
+  };
+}
+async function startKbCcsBackfill(port, token, opts = {}) {
+  const payload = {};
+  if (opts.docIds !== void 0) payload.doc_ids = [...opts.docIds];
+  if (opts.limit !== void 0) payload.limit = opts.limit;
+  if (opts.force === true) payload.force = true;
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/ccs/backfill`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
+    body: JSON.stringify(payload),
+    signal: opts.signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  const started = Array.isArray(data.started) ? data.started : [];
+  const skipped = Array.isArray(data.skipped) ? data.skipped : [];
+  const planRaw = objOf(data.plan) ?? {};
+  const planRows = Array.isArray(planRaw.candidates) ? planRaw.candidates : [];
+  return {
+    queued: intOf(data.queued, 0),
+    started: started.map((s) => {
+      const o = objOf(s) ?? {};
+      return { doc_id: str(o.doc_id) ?? "", standard_no: str(o.standard_no) ?? "" };
+    }).filter((s) => s.doc_id !== ""),
+    skipped: skipped.map((s) => {
+      const o = objOf(s) ?? {};
+      return { doc_id: str(o.doc_id) ?? "", reason: str(o.reason) ?? "" };
+    }),
+    plan: {
+      candidates: planRows.map((r) => {
+        const o = objOf(r) ?? {};
+        return {
+          doc_id: str(o.doc_id) ?? "",
+          standard_no: str(o.standard_no) ?? "",
+          standard_name: str(o.standard_name) ?? ""
+        };
+      }).filter((r) => r.doc_id !== ""),
+      total: intOf(planRaw.total, planRows.length),
+      already_have: intOf(planRaw.already_have, 0),
+      limit: intOf(planRaw.limit, 0),
+      truncated: planRaw.truncated === true
+    }
+  };
+}
+async function fetchKbCcsBackfillStatus(port, token, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/ccs/backfill/status`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  return normalizeCcsBackfillStatus(dataOf(body));
+}
+async function cancelKbCcsBackfill(port, token, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/ccs/backfill/cancel`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  return {
+    cancel_requested: data.cancel_requested === true,
+    running: data.running === true,
+    done: intOf(data.done, 0),
+    total: intOf(data.total, 0)
+  };
+}
+async function fetchKbFoldersFlat(port, token, opts = {}) {
+  const qs = new URLSearchParams();
+  if (opts.q !== void 0 && opts.q !== "") qs.set("q", opts.q);
+  const suffix = qs.toString() === "" ? "" : `?${qs.toString()}`;
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/folders/flat${suffix}`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal: opts.signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  const rows = Array.isArray(data.items) ? data.items : [];
+  return rows.map((r) => {
+    const o = objOf(r) ?? {};
+    return {
+      folder_id: str(o.folder_id) ?? "",
+      parent_id: str(o.parent_id),
+      name: str(o.name) ?? "",
+      path: str(o.path) ?? "",
+      depth: intOf(o.depth, 1)
+    };
+  }).filter((f) => f.folder_id !== "");
+}
+async function fetchKbStageLabels(port, token, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/stage-labels`, {
+    method: "GET",
+    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  const raw = objOf(data.labels) ?? {};
+  const labels = {};
+  for (const [k, v] of Object.entries(raw)) if (typeof v === "string") labels[k] = v;
+  const stages = Array.isArray(data.stages) ? data.stages.filter((s) => typeof s === "string") : [];
+  return { labels, stages };
+}
+async function fileDocsIntoFolder(port, token, folderId, docIds, signal) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/inbox/confirm`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
+    body: JSON.stringify({
+      decisions: docIds.map((docId) => ({
+        doc_id: docId,
+        action: "existing",
+        target_folder_id: folderId,
+        placed_by: "kb-upload"
+      }))
+    }),
+    signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  return {
+    confirmed: intOf(data.confirmed, 0),
+    removed_from_pending: intOf(data.removed_from_pending, 0)
+  };
+}
+function normalizeAnswerScope(value) {
+  const o = objOf(value);
+  if (o === null) return null;
+  return {
+    kind: str(o.kind) ?? "kb",
+    folder_ids: Array.isArray(o.folder_ids) ? o.folder_ids.filter((x) => typeof x === "string") : [],
+    folder_count: intOf(o.folder_count, 0),
+    doc_count: intOf(o.doc_count, 0),
+    empty: o.empty === true
+  };
+}
+async function askKsAnswer(port, token, query, opts = {}) {
+  const params = {};
+  if (opts.kbFolderIds !== void 0 && opts.kbFolderIds.length > 0) {
+    params.kb_folder_ids = [...opts.kbFolderIds];
+  }
+  if (opts.kbDocIds !== void 0 && opts.kbDocIds.length > 0) {
+    params.kb_doc_ids = [...opts.kbDocIds];
+  }
+  if (opts.topK !== void 0) params.top_k = opts.topK;
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/ks/answer`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+      accept: "application/json"
+    },
+    body: JSON.stringify({ query, params }),
+    signal: opts.signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) {
+    throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  }
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const d = dataOf(body);
+  return {
+    ...d,
+    tier: str(d.tier) ?? "reference",
+    evidence: Array.isArray(d.evidence) ? d.evidence.filter((x) => objOf(x) !== null) : [],
+    derivation: str(d.derivation) ?? "",
+    conclusion: str(d.conclusion) ?? "",
+    notes: Array.isArray(d.notes) ? d.notes.filter((x) => typeof x === "string") : [],
+    scope: normalizeAnswerScope(d.scope)
+  };
+}
+async function resolveKbScope(port, token, folderIds, signal) {
+  const d = await kbWrite(
+    `${String(port)}/api/v1/kb/scope/resolve`,
+    "POST",
+    token,
+    { folder_ids: [...folderIds] },
+    signal
+  );
+  const ids = (v) => Array.isArray(v) ? v.filter((x) => typeof x === "string") : [];
+  return {
+    folder_ids: ids(d.folder_ids),
+    doc_ids: ids(d.doc_ids),
+    folder_count: intOf(d.folder_count, ids(d.folder_ids).length),
+    doc_count: intOf(d.doc_count, ids(d.doc_ids).length),
+    roots: ids(d.roots)
+  };
+}
+async function startBulkIngest(port, token, srcDir, opts = {}) {
+  const res = await fetch(`http://127.0.0.1:${port}/api/v1/ingest/bulk`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ src_dir: srcDir, reingest: opts.reingest === true }),
+    signal: opts.signal
+  });
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  const batchId = str(data.batch_id);
+  if (batchId === null) throw new Error("\u6279\u91CF\u5BFC\u5165\u54CD\u5E94\u91CC\u6CA1\u6709 batch_id");
+  return { batch_id: batchId, total: intOf(data.total, 0) };
+}
+async function resumeBulkIngest(port, token, batchId, signal) {
+  const res = await fetch(
+    `http://127.0.0.1:${port}/api/v1/ingest/bulk/${encodeURIComponent(batchId)}/resume`,
+    {
+      method: "POST",
+      headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
+      body: "{}",
+      signal
+    }
+  );
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+}
+async function fetchBulkIngest(port, token, batchId, signal) {
+  const res = await fetch(
+    `http://127.0.0.1:${port}/api/v1/ingest/bulk/${encodeURIComponent(batchId)}`,
+    {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
+      signal
+    }
+  );
+  if (res.status === 401) {
+    clearSession();
+    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
+  }
+  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+  }
+  const data = dataOf(body);
+  const sample = Array.isArray(data.filing_state_missing_sample) ? data.filing_state_missing_sample.filter((s) => typeof s === "string") : [];
+  return {
+    batch_id: str(data.batch_id) ?? batchId,
+    status: str(data.status) ?? "unknown",
+    total: intOf(data.total, 0),
+    scanned: intOf(data.scanned, 0),
+    parsed: intOf(data.parsed, 0),
+    pending: intOf(data.pending, 0),
+    errors: intOf(data.errors, 0),
+    pause_reason: str(data.pause_reason),
+    filing_state_missing: intOf(data.filing_state_missing, 0),
+    filing_state_missing_sample: sample,
+    reingest: data.reingest === true
+  };
+}
+var memory, EngineAuthError, DOC_IMAGE_NOT_FOUND, KsIngestHttpError, InspectionHttpError;
+var init_api = __esm({
+  "client/api.ts"() {
+    "use strict";
+    memory = {
+      /** Bearer token minted by the current engine session (or null). */
+      token: null,
+      /** Last engine port we saw (for a clearer stale-port error). */
+      port: null
+    };
+    EngineAuthError = class extends Error {
+      constructor(message) {
+        super(message);
+        this.name = "EngineAuthError";
+      }
+    };
+    DOC_IMAGE_NOT_FOUND = Symbol("ks-doc-image-not-found");
+    KsIngestHttpError = class extends Error {
+      constructor(httpStatus, code, message) {
+        super(message);
+        this.name = "KsIngestHttpError";
+        this.httpStatus = httpStatus;
+        this.code = code;
+      }
+    };
+    InspectionHttpError = class extends Error {
+      constructor(httpStatus, code, message) {
+        super(message);
+        this.httpStatus = httpStatus;
+        this.code = code;
+        this.name = "InspectionHttpError";
+      }
+    };
+  }
+});
+
 // client/entry.ts
 var entry_exports = {};
 __export(entry_exports, {
@@ -57,7 +2681,7 @@ __export(entry_exports, {
   inject: () => inject
 });
 module.exports = __toCommonJS(entry_exports);
-var import_react14 = require("react");
+var import_react13 = require("react");
 var import_client = require("react-dom/client");
 var import_dsh_client_ui_primitives6 = require("@deepseek-ai/dsh-client-ui-primitives");
 
@@ -27168,2418 +29792,7 @@ globalThis.pdfjsLib = {
 
 // client/KsEvidenceTab.tsx
 var import_react_dom = require("react-dom");
-
-// client/api.ts
-var memory = {
-  /** Bearer token minted by the current engine session (or null). */
-  token: null,
-  /** Last engine port we saw (for a clearer stale-port error). */
-  port: null
-};
-function clearSession() {
-  memory.token = null;
-  memory.port = null;
-}
-async function fetchSession(signal) {
-  const res = await fetch("/ks/session", {
-    method: "GET",
-    headers: { accept: "application/json" },
-    signal
-  });
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const parsed = body && typeof body === "object" ? body : null;
-  if (res.status === 200 && parsed && parsed.ok === true) {
-    const engine = parsed.engine;
-    const token = typeof parsed.token === "string" ? parsed.token : "";
-    const port = typeof engine?.port === "number" ? engine.port : NaN;
-    if (token.length === 0 || Number.isNaN(port)) {
-      throw new Error("\u5F15\u64CE\u4F1A\u8BDD\u4E0D\u5B8C\u6574\uFF1A/ks/session \u7F3A\u5C11 token \u6216 port");
-    }
-    memory.token = token;
-    memory.port = port;
-    return {
-      ok: true,
-      engine: {
-        port,
-        pid: typeof engine?.pid === "number" ? engine.pid : 0,
-        reused: engine?.reused === true
-      },
-      token
-    };
-  }
-  const err = parsed?.error;
-  throw new Error(
-    `\u5F15\u64CE\u672A\u5C31\u7EEA(${res.status}): ${typeof err?.message === "string" ? err.message : res.statusText}`
-  );
-}
-async function fetchPdf(port, docId, token, signal) {
-  const url = `http://127.0.0.1:${port}/api/v1/documents/${encodeURIComponent(docId)}/file`;
-  const res = await fetch(url, {
-    method: "GET",
-    headers: { Authorization: `Bearer ${token}`, accept: "application/pdf" },
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new Error("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (res.status === 404) {
-    throw new Error(`\u6587\u6863\u4E0D\u5B58\u5728\u6216 PDF \u539F\u4EF6\u4E0D\u53EF\u7528(404): ${docId}`);
-  }
-  if (!res.ok) {
-    throw new Error(`\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`);
-  }
-  const ct = res.headers.get("content-type") ?? "";
-  if (!ct.includes("pdf")) {
-    throw new Error(`\u5F15\u64CE\u8FD4\u56DE\u4E86\u975E PDF \u5185\u5BB9 (content-type: ${ct || "unknown"})`);
-  }
-  return res.arrayBuffer();
-}
-async function fetchExportBlob(name, signal) {
-  const url = (port) => `http://127.0.0.1:${port}/api/v1/export/download?name=${encodeURIComponent(name)}`;
-  const once = async () => {
-    const session = await fetchSession(signal);
-    return fetch(url(session.engine.port), {
-      method: "GET",
-      headers: { Authorization: `Bearer ${session.token}` },
-      signal
-    });
-  };
-  let res = await once();
-  if (res.status === 401) {
-    clearSession();
-    res = await once();
-  }
-  if (res.status === 403) throw new Error("\u5F15\u64CE\u62D2\u7EDD\u4E86\u8FD9\u4E2A\u6587\u4EF6\u540D\uFF08\u53EA\u5141\u8BB8 exports \u76EE\u5F55\u5185\u7684\u4EA7\u7269\uFF09");
-  if (res.status === 404) throw new Error(`\u4EA7\u7269\u6587\u4EF6\u4E0D\u5B58\u5728\uFF08\u53EF\u80FD\u5DF2\u88AB\u6E05\u7406\uFF09\uFF1A${name}`);
-  if (!res.ok) throw new Error(`\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`);
-  return res.blob();
-}
-async function fetchChannels(params = {}, signal) {
-  const qs = new URLSearchParams();
-  if (params.category) qs.set("category", params.category);
-  if (params.wiring) qs.set("wiring", params.wiring);
-  if (params.state) qs.set("state", params.state);
-  if (params.enabledOnly) qs.set("enabled_only", "true");
-  if (params.limit !== void 0) qs.set("limit", String(params.limit));
-  const suffix = qs.toString();
-  const res = await fetch(`/ks/channels${suffix ? `?${suffix}` : ""}`, {
-    method: "GET",
-    headers: { accept: "application/json" },
-    signal
-  });
-  return ksJson(res, "\u6E20\u9053\u53F0\u8D26");
-}
-async function createChannel(body, signal) {
-  const res = await fetch("/ks/channels", {
-    method: "POST",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify(body),
-    signal
-  });
-  return ksJson(res, "\u65B0\u589E\u6E20\u9053");
-}
-async function updateChannel(channelId, patch, signal) {
-  const res = await fetch(`/ks/channels/${encodeURIComponent(channelId)}`, {
-    method: "PATCH",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify(patch),
-    signal
-  });
-  return ksJson(res, "\u4FEE\u6539\u6E20\u9053");
-}
-async function setChannelEnabled(channelId, enabled, signal) {
-  const res = await fetch(`/ks/channels/${encodeURIComponent(channelId)}/enabled`, {
-    method: "POST",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify({ enabled }),
-    signal
-  });
-  return ksJson(res, "\u542F\u505C\u6E20\u9053");
-}
-async function deleteChannel(channelId, signal) {
-  const res = await fetch(`/ks/channels/${encodeURIComponent(channelId)}`, {
-    method: "DELETE",
-    headers: { accept: "application/json" },
-    signal
-  });
-  return ksJson(res, "\u5220\u9664\u6E20\u9053");
-}
-async function runChannelProbe(ids, signal) {
-  const res = await fetch("/ks/channels/probe", {
-    method: "POST",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify(ids && ids.length > 0 ? { ids, persist: true } : { persist: true }),
-    signal
-  });
-  return ksJson(res, "\u6E20\u9053\u63A2\u6D4B");
-}
-async function fetchBbox(rev, signal) {
-  const res = await fetch("/ks/bbox?rev=" + encodeURIComponent(rev), {
-    method: "GET",
-    headers: { accept: "application/json" },
-    signal
-  });
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const parsed = body && typeof body === "object" ? body : null;
-  if (res.status === 200 && parsed && parsed.ok === true) {
-    const spansRaw = parsed.spans;
-    const spans = Array.isArray(spansRaw) ? spansRaw.filter(
-      (s) => {
-        if (s === null || typeof s !== "object") return false;
-        const o = s;
-        const box = o.bbox;
-        return typeof o.page_number === "number" && Array.isArray(box) && box.length === 4;
-      }
-    ) : [];
-    return { found: parsed.found === true && spans.length > 0, spans };
-  }
-  const err = parsed?.error;
-  throw new Error(
-    `bbox \u83B7\u53D6\u5931\u8D25(${res.status}): ${typeof err?.message === "string" ? err.message : res.statusText}`
-  );
-}
-var EngineAuthError = class extends Error {
-  constructor(message) {
-    super(message);
-    this.name = "EngineAuthError";
-  }
-};
-function normalizeDocClause(value) {
-  if (value === null || typeof value !== "object") return null;
-  const o = value;
-  const id = str(o.clause_revision_id);
-  if (id === null) return null;
-  return {
-    clause_revision_id: id,
-    clause_number: str(o.clause_number),
-    title: str(o.title),
-    content_text: str(o.content_text),
-    content_html: str(o.content_html),
-    page_start: num(o.page_start),
-    page_end: num(o.page_end)
-  };
-}
-async function fetchDocClauses(port, docId, token, signal) {
-  const res = await fetch(
-    `http://127.0.0.1:${port}/api/v1/documents/${encodeURIComponent(docId)}/clauses`,
-    {
-      method: "GET",
-      headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-      signal
-    }
-  );
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (res.status === 404) return [];
-  if (!res.ok) throw new Error(`\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`);
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const envelope = body !== null && typeof body === "object" ? body : null;
-  const raw = envelope?.data;
-  const list = raw !== null && typeof raw === "object" && Array.isArray(raw.clauses) ? raw.clauses : Array.isArray(raw) ? raw : [];
-  return list.map(normalizeDocClause).filter((c) => c !== null);
-}
-var DOC_IMAGE_NOT_FOUND = Symbol("ks-doc-image-not-found");
-async function fetchDocImage(kind, parts, dpi, signal) {
-  const enc = encodeURIComponent;
-  let path;
-  if (kind === "figure") {
-    path = `/ks/doc-image/${enc(parts.docId)}/figure/${enc(parts.no ?? "")}`;
-  } else if (kind === "formula") {
-    path = `/ks/doc-image/${enc(parts.docId)}/formula/${enc(parts.no ?? "")}?clause=${enc(parts.clause ?? "")}`;
-  } else {
-    path = `/ks/doc-image/${enc(parts.docId)}/table-image/${parts.page ?? 0}/${parts.tbl ?? 0}`;
-  }
-  const url = path + (typeof dpi === "number" ? `&dpi=${Math.round(dpi)}` : "").replace(/^([^?]+)&/, "$1?");
-  const res = await fetch(url, { method: "GET", signal });
-  if (res.status === 404) return DOC_IMAGE_NOT_FOUND;
-  if (!res.ok) throw new Error(`\u56FE\u7247\u4EE3\u7406\u8FD4\u56DE HTTP ${res.status}`);
-  const blob = await res.blob();
-  const ct = res.headers.get("content-type") ?? "";
-  if (!ct.startsWith("image/")) {
-    throw new Error(`\u56FE\u7247\u4EE3\u7406\u8FD4\u56DE\u4E86\u975E\u56FE\u7247\u5185\u5BB9 (content-type: ${ct || "unknown"})`);
-  }
-  const fnum = (v) => {
-    const n = typeof v === "string" ? Number.parseFloat(v) : NaN;
-    return Number.isFinite(n) ? n : null;
-  };
-  return {
-    url: URL.createObjectURL(blob),
-    frac: {
-      x0: fnum(res.headers.get("x-frac-x0")),
-      w: fnum(res.headers.get("x-frac-w")),
-      h: fnum(res.headers.get("x-frac-h"))
-    }
-  };
-}
-function str(v) {
-  return typeof v === "string" && v.length > 0 ? v : null;
-}
-function num(v) {
-  return typeof v === "number" && Number.isFinite(v) ? v : null;
-}
-function unwrapList(body) {
-  if (Array.isArray(body)) return body;
-  if (body !== null && typeof body === "object") {
-    const o = body;
-    for (const key of ["data", "bookmarks", "items"]) {
-      const v = o[key];
-      if (Array.isArray(v)) return v;
-    }
-  }
-  return [];
-}
-function normalizeBookmark(value) {
-  if (value === null || typeof value !== "object") return null;
-  const o = value;
-  const id = str(o.bookmark_id) ?? (typeof o.bookmark_id === "number" ? String(o.bookmark_id) : null);
-  if (id === null) return null;
-  return {
-    bookmark_id: id,
-    clause_key: str(o.clause_key),
-    remark: str(o.remark),
-    created_at: typeof o.created_at === "string" ? o.created_at : null,
-    clause_revision_id: str(o.clause_revision_id),
-    clause_number: str(o.clause_number),
-    title: str(o.title),
-    content_text: typeof o.content_text === "string" ? o.content_text : null,
-    doc_id: str(o.doc_id),
-    page_start: num(o.page_start),
-    standard_no: str(o.standard_no),
-    legal_status: str(o.legal_status)
-  };
-}
-async function fetchBookmarks(port, token, signal) {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmarks`, {
-    method: "GET",
-    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) {
-    throw new Error(`\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`);
-  }
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  return unwrapList(body).map(normalizeBookmark).filter((b) => b !== null);
-}
-async function fetchClauseMeta(port, rev, token, signal) {
-  const res = await fetch(
-    `http://127.0.0.1:${port}/api/v1/clauses/${encodeURIComponent(rev)}/meta`,
-    {
-      method: "GET",
-      headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-      signal
-    }
-  );
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (res.status === 404) {
-    throw new Error(`\u6761\u6B3E\u4E0D\u5B58\u5728\u6216\u4E0D\u53EF\u6536\u85CF(404): ${rev}`);
-  }
-  if (!res.ok) {
-    throw new Error(`\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`);
-  }
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const data = body !== null && typeof body === "object" ? body.data : null;
-  if (data === null || typeof data !== "object") {
-    throw new Error(`\u6761\u6B3E\u5143\u6570\u636E\u54CD\u5E94\u5F02\u5E38`);
-  }
-  const d = data;
-  const clause_key = typeof d.clause_key === "string" ? d.clause_key : "";
-  if (clause_key.length === 0) {
-    throw new Error(`\u6761\u6B3E\u7F3A\u5C11 clause_key\uFF0C\u65E0\u6CD5\u6536\u85CF`);
-  }
-  return {
-    clause_revision_id: rev,
-    clause_key,
-    doc_id: typeof d.doc_id === "string" ? d.doc_id : "",
-    page_start: typeof d.page_start === "number" ? d.page_start : null,
-    clause_number: typeof d.clause_number === "string" ? d.clause_number : null,
-    title: typeof d.title === "string" ? d.title : null,
-    standard_no: typeof d.standard_no === "string" ? d.standard_no : null,
-    doc_bookmarked: d.doc_bookmarked === true,
-    clause_bookmarked: d.clause_bookmarked === true,
-    clause_bookmark_id: typeof d.clause_bookmark_id === "string" ? d.clause_bookmark_id : null
-  };
-}
-async function addBookmark(port, clauseKey, token, signal, folderId) {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmarks`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
-    body: JSON.stringify({ clause_key: clauseKey, ...folderId != null ? { folder_id: folderId } : {} }),
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) {
-    throw new Error(`\u6536\u85CF\u5931\u8D25(HTTP ${res.status})`);
-  }
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const data = body !== null && typeof body === "object" ? body.data : null;
-  return { existed: !!(data && typeof data === "object" && data.existed === true) };
-}
-async function addDocBookmark(port, docId, token, signal, folderId) {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/doc-bookmarks`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
-    body: JSON.stringify({ doc_id: docId, ...folderId != null ? { folder_id: folderId } : {} }),
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (res.status === 404) {
-    throw new Error(`\u6587\u6863\u4E0D\u5B58\u5728\uFF0C\u65E0\u6CD5\u6536\u85CF(404): ${docId}`);
-  }
-  if (!res.ok) {
-    throw new Error(`\u6807\u51C6\u6536\u85CF\u5931\u8D25(HTTP ${res.status})`);
-  }
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const data = body !== null && typeof body === "object" ? body.data : null;
-  return { existed: !!(data && typeof data === "object" && data.existed === true) };
-}
-async function removeDocBookmarkByDoc(port, docId, token, signal) {
-  const res = await fetch(
-    `http://127.0.0.1:${port}/api/v1/doc-bookmarks/by-doc/${encodeURIComponent(docId)}`,
-    {
-      method: "DELETE",
-      headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-      signal
-    }
-  );
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) {
-    throw new Error(`\u53D6\u6D88\u6807\u51C6\u6536\u85CF\u5931\u8D25(HTTP ${res.status})`);
-  }
-}
-async function removeBookmarkByClauseKey(port, clauseKey, token, signal) {
-  const res = await fetch(
-    `http://127.0.0.1:${port}/api/v1/bookmarks/by-clause/${encodeURIComponent(clauseKey)}`,
-    {
-      method: "DELETE",
-      headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-      signal
-    }
-  );
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) {
-    throw new Error(`\u53D6\u6D88\u6761\u6B3E\u6536\u85CF\u5931\u8D25(HTTP ${res.status})`);
-  }
-}
-function normalizeFolder(value) {
-  if (value === null || typeof value !== "object") return null;
-  const o = value;
-  const id = str(o.folder_id);
-  const name = str(o.folder_name);
-  if (id === null || name === null) return null;
-  return {
-    folder_id: id,
-    folder_name: name,
-    created_at: typeof o.created_at === "string" ? o.created_at : null,
-    doc_count: num(o.doc_count) ?? 0,
-    clause_count: num(o.clause_count) ?? 0
-  };
-}
-function normalizeFolderTreeFolder(value) {
-  if (value === null || typeof value !== "object") return null;
-  const o = value;
-  const name = str(o.folder_name);
-  if (name === null) return null;
-  const rawDocs = Array.isArray(o.docs) ? o.docs : [];
-  const docs = [];
-  for (const d of rawDocs) {
-    if (d === null || typeof d !== "object") continue;
-    const dd = d;
-    const docId = str(dd.doc_id);
-    if (docId === null) continue;
-    const rawPath = dd.path !== null && typeof dd.path === "object" ? dd.path : null;
-    const rawClauseBms = Array.isArray(dd.clause_bookmarks) ? dd.clause_bookmarks : [];
-    docs.push({
-      doc_id: docId,
-      doc_bookmark_id: str(dd.doc_bookmark_id),
-      standard_no: str(dd.standard_no),
-      standard_name: str(dd.standard_name),
-      legal_status: str(dd.legal_status),
-      doc_bookmarked: dd.doc_bookmarked === true,
-      clause_bookmarks: rawClauseBms.flatMap((cb) => {
-        if (cb === null || typeof cb !== "object") return [];
-        const c = cb;
-        const bmId = str(c.bookmark_id);
-        const clauseKey = str(c.clause_key);
-        if (bmId === null || clauseKey === null) return [];
-        return [{
-          bookmark_id: bmId,
-          clause_key: clauseKey,
-          clause_number: str(c.clause_number),
-          title: str(c.title),
-          page_start: num(c.page_start)
-        }];
-      }),
-      path: rawPath === null ? null : {
-        l1: str(rawPath.l1),
-        l2: str(rawPath.l2),
-        l3: str(rawPath.l3),
-        l4: str(rawPath.l4)
-      }
-    });
-  }
-  return {
-    folder_id: str(o.folder_id),
-    // null = 未分类
-    folder_name: name,
-    created_at: typeof o.created_at === "string" ? o.created_at : null,
-    doc_count: num(o.doc_count) ?? docs.length,
-    clause_count: num(o.clause_count) ?? docs.reduce((s, d) => s + d.clause_bookmarks.length, 0),
-    docs
-  };
-}
-async function fetchBookmarkFolders(port, token, signal) {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmark-folders`, {
-    method: "GET",
-    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(`\u6536\u85CF\u5939\u5217\u8868\u83B7\u53D6\u5931\u8D25(HTTP ${res.status})`);
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  return unwrapList(body).map(normalizeFolder).filter((f) => f !== null);
-}
-async function fetchBookmarkFolderTree(port, token, signal) {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmark-folders/tree`, {
-    method: "GET",
-    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(`\u6536\u85CF\u76EE\u5F55\u83B7\u53D6\u5931\u8D25(HTTP ${res.status})`);
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  return unwrapList(body).map(normalizeFolderTreeFolder).filter((f) => f !== null);
-}
-async function createBookmarkFolder(port, folderName, token, signal) {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmark-folders`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
-    body: JSON.stringify({ folder_name: folderName }),
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (res.status === 409) {
-    throw new Error(`\u6536\u85CF\u5939\u300C${folderName}\u300D\u5DF2\u5B58\u5728`);
-  }
-  if (!res.ok) throw new Error(`\u65B0\u5EFA\u6536\u85CF\u5939\u5931\u8D25(HTTP ${res.status})`);
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const data = body !== null && typeof body === "object" ? body.data : null;
-  const folder = normalizeFolder(data);
-  if (folder === null) throw new Error("\u65B0\u5EFA\u6536\u85CF\u5939\u8FD4\u56DE\u6570\u636E\u5F02\u5E38");
-  return folder;
-}
-async function renameBookmarkFolder(port, folderId, folderName, token, signal) {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmark-folders/${encodeURIComponent(folderId)}`, {
-    method: "PUT",
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
-    body: JSON.stringify({ folder_name: folderName }),
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (res.status === 409) throw new Error(`\u6536\u85CF\u5939\u300C${folderName}\u300D\u5DF2\u5B58\u5728`);
-  if (!res.ok) throw new Error(`\u91CD\u547D\u540D\u6536\u85CF\u5939\u5931\u8D25(HTTP ${res.status})`);
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const data = body !== null && typeof body === "object" ? body.data : null;
-  const folder = normalizeFolder(data);
-  if (folder === null) throw new Error("\u91CD\u547D\u540D\u6536\u85CF\u5939\u8FD4\u56DE\u6570\u636E\u5F02\u5E38");
-  return folder;
-}
-async function deleteBookmarkFolder(port, folderId, token, signal) {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/bookmark-folders/${encodeURIComponent(folderId)}`, {
-    method: "DELETE",
-    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(`\u5220\u9664\u6536\u85CF\u5939\u5931\u8D25(HTTP ${res.status})`);
-}
-async function fetchChatMode(sessionId, signal) {
-  const res = await fetch(`/ks/chat-mode?session=${encodeURIComponent(sessionId)}`, {
-    method: "GET",
-    headers: { accept: "application/json" },
-    signal
-  });
-  if (!res.ok) throw new Error(`\u4F1A\u8BDD\u5F00\u5173\u8BFB\u53D6\u5931\u8D25(HTTP ${res.status})`);
-  const body = await res.json();
-  const m = body.mode ?? {};
-  return {
-    forensic: m.forensic === true,
-    bookmarksOnly: m.bookmarksOnly === true,
-    folderId: typeof m.folderId === "string" && m.folderId.length > 0 ? m.folderId : null,
-    folderName: typeof m.folderName === "string" && m.folderName.length > 0 ? m.folderName : null
-  };
-}
-async function patchChatMode(sessionId, patch, signal) {
-  const res = await fetch("/ks/chat-mode", {
-    method: "PUT",
-    headers: { "Content-Type": "application/json", accept: "application/json" },
-    body: JSON.stringify({ session: sessionId, ...patch }),
-    signal
-  });
-  if (!res.ok) {
-    let message = `HTTP ${res.status}`;
-    try {
-      const body2 = await res.json();
-      if (body2?.error?.message) message = body2.error.message;
-    } catch {
-    }
-    throw new Error(`\u4F1A\u8BDD\u5F00\u5173\u66F4\u65B0\u5931\u8D25: ${message}`);
-  }
-  const body = await res.json();
-  const m = body.mode ?? {};
-  return {
-    mode: {
-      forensic: m.forensic === true,
-      bookmarksOnly: m.bookmarksOnly === true,
-      folderId: typeof m.folderId === "string" && m.folderId.length > 0 ? m.folderId : null,
-      folderName: typeof m.folderName === "string" && m.folderName.length > 0 ? m.folderName : null
-    },
-    persisted: body.persisted === true,
-    persistError: typeof body.persist_error === "string" ? body.persist_error : null
-  };
-}
-function normalizeDoc(value) {
-  if (value === null || typeof value !== "object") return null;
-  const o = value;
-  const id = str(o.doc_id) ?? (typeof o.doc_id === "number" ? String(o.doc_id) : null);
-  if (id === null) return null;
-  return {
-    doc_id: id,
-    standard_no: str(o.standard_no),
-    standard_name: str(o.standard_name),
-    legal_status: str(o.legal_status),
-    legal_hierarchy: str(o.legal_hierarchy),
-    ccs_code: str(o.ccs_code),
-    ccs_name: str(o.ccs_name),
-    published_at: str(o.published_at),
-    effective_from: str(o.effective_from),
-    withdrawn_date: str(o.withdrawn_date),
-    superseded_by: str(o.superseded_by),
-    doc_type: str(o.doc_type),
-    domain_tags: str(o.domain_tags)
-  };
-}
-function normalizeCategory(value) {
-  if (value === null || typeof value !== "object") return null;
-  const o = value;
-  const name = str(o.name);
-  if (name === null) return null;
-  const items = Array.isArray(o.items) ? o.items : [];
-  const docs = Array.isArray(o.docs) ? o.docs : [];
-  return {
-    name,
-    items: items.map(normalizeCategory).filter((n) => n !== null),
-    docs: docs.map(normalizeDoc).filter((d) => d !== null)
-  };
-}
-function normalizeClause(value) {
-  if (value === null || typeof value !== "object") return null;
-  const o = value;
-  return {
-    clause_number: str(o.clause_number),
-    title: str(o.title),
-    page_start: num(o.page_start),
-    level: num(o.level),
-    source: str(o.source)
-  };
-}
-async function fetchCategories(port, token, signal) {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/documents/categories`, {
-    method: "GET",
-    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) {
-    throw new Error(`\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`);
-  }
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  return unwrapList(body).map(normalizeCategory).filter((n) => n !== null);
-}
-async function fetchDocTree(port, docId, token, signal) {
-  const res = await fetch(
-    `http://127.0.0.1:${port}/api/v1/documents/${encodeURIComponent(docId)}/tree`,
-    {
-      method: "GET",
-      headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-      signal
-    }
-  );
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) {
-    throw new Error(`\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`);
-  }
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  return unwrapList(body).map(normalizeClause).filter((c) => c !== null);
-}
-async function batchDeleteDocs(port, docIds, token, signal) {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/documents/batch-delete`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
-    body: JSON.stringify({ doc_ids: docIds, confirm: true }),
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) {
-    let msg = `\u6279\u91CF\u5220\u9664\u5931\u8D25(HTTP ${res.status})`;
-    try {
-      const b = await res.json();
-      const e = b !== null && typeof b === "object" ? b.error : null;
-      if (e !== null && typeof e === "object" && typeof e.message === "string") {
-        msg = e.message;
-      }
-    } catch {
-    }
-    throw new Error(msg);
-  }
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const wrapped = body !== null && typeof body === "object" ? body : null;
-  const data = wrapped !== null && wrapped.data !== null && typeof wrapped.data === "object" ? wrapped.data : wrapped ?? {};
-  return {
-    deleted_docs: typeof data.deleted_docs === "number" ? data.deleted_docs : 0,
-    deleted_clauses: typeof data.deleted_clauses === "number" ? data.deleted_clauses : 0,
-    missing: Array.isArray(data.missing) ? data.missing.map(String) : []
-  };
-}
-async function fetchDocsFlat(port, token, signal) {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/documents`, {
-    method: "GET",
-    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) {
-    throw new Error(`\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`);
-  }
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  return unwrapList(body).map(normalizeDoc).filter((d) => d !== null);
-}
-var KsIngestHttpError = class extends Error {
-  constructor(httpStatus, code, message) {
-    super(message);
-    this.name = "KsIngestHttpError";
-    this.httpStatus = httpStatus;
-    this.code = code;
-  }
-};
-async function parseIngestError(res) {
-  let code = null;
-  let message = `HTTP ${res.status}`;
-  try {
-    const body = await res.json();
-    if (body && typeof body.error === "object" && body.error !== null) {
-      if (typeof body.error.code === "string") code = body.error.code;
-      if (typeof body.error.message === "string" && body.error.message) message = body.error.message;
-    }
-  } catch {
-  }
-  return new KsIngestHttpError(res.status, code, message);
-}
-async function fetchIngestInboxDefault(signal) {
-  const res = await fetch("/ks/ingest/inbox-default", {
-    method: "GET",
-    headers: { accept: "application/json" },
-    signal
-  });
-  if (!res.ok) throw await parseIngestError(res);
-  const body = await res.json().catch(() => null);
-  const dir = body?.data?.dir;
-  if (body?.ok !== true || typeof dir !== "string" || dir === "") {
-    throw new Error("\u5F85\u5165\u5E93\u76EE\u5F55\u54CD\u5E94\u5F02\u5E38");
-  }
-  return dir;
-}
-async function fetchIngestInbox(dir, signal) {
-  const qs = new URLSearchParams({ dir }).toString();
-  const res = await fetch(`/ks/ingest/inbox?${qs}`, {
-    method: "GET",
-    headers: { accept: "application/json" },
-    signal
-  });
-  if (!res.ok) throw await parseIngestError(res);
-  const body = await res.json().catch(() => null);
-  if (body?.ok !== true) throw new Error("\u5F85\u5165\u5E93\u76EE\u5F55\u5217\u8868\u54CD\u5E94\u5F02\u5E38");
-  return {
-    dir: body.data?.dir ?? dir,
-    count: typeof body.data?.count === "number" ? body.data.count : 0,
-    files: Array.isArray(body.data?.files) ? body.data.files : [],
-    degraded: body.degraded
-  };
-}
-async function fetchIngestPreview(path, opts = {}) {
-  const payload = {
-    path,
-    doc_type: opts.docType ?? "standard"
-  };
-  if (opts.allowDeep === true) payload.allow_deep = true;
-  const res = await fetch("/ks/ingest/preview", {
-    method: "POST",
-    headers: { accept: "application/json", "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-    signal: opts.signal
-  });
-  if (!res.ok) throw await parseIngestError(res);
-  const body = await res.json().catch(() => null);
-  if (body?.ok !== true || body.data === void 0) throw new Error("\u5165\u5E93\u9884\u89C8\u54CD\u5E94\u5F02\u5E38");
-  return body.data;
-}
-async function fetchIngestBatch(req, signal) {
-  const payload = { dir: req.dir };
-  if (req.sample !== void 0) payload.sample = req.sample;
-  if (req.limitFiles !== void 0) payload.limit_files = req.limitFiles;
-  if (req.docType !== void 0) payload.doc_type = req.docType;
-  if (req.allowDeep === true) payload.allow_deep = true;
-  const res = await fetch("/ks/ingest/preview/batch", {
-    method: "POST",
-    headers: { accept: "application/json", "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-    signal
-  });
-  if (!res.ok) throw await parseIngestError(res);
-  const body = await res.json().catch(() => null);
-  if (body?.ok !== true || body.data === void 0) throw new Error("\u6279\u91CF\u9884\u89C8\u54CD\u5E94\u5F02\u5E38");
-  return body.data;
-}
-async function startIngestJob(req, signal) {
-  const payload = { dir: req.dir };
-  if (req.recursive === true) payload.recursive = true;
-  if (req.batchSize !== void 0 && req.batchSize > 0) payload.batch_size = req.batchSize;
-  if (req.docType !== void 0) payload.doc_type = req.docType;
-  if (req.allowDeep === true) payload.allow_deep = true;
-  const res = await fetch("/ks/ingest/preview/jobs", {
-    method: "POST",
-    headers: { accept: "application/json", "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-    signal
-  });
-  if (!res.ok) throw await parseIngestError(res);
-  const body = await res.json().catch(() => null);
-  if (body?.ok !== true || body.data === void 0) throw new Error("\u5168\u91CF\u9884\u89C8\u542F\u52A8\u54CD\u5E94\u5F02\u5E38");
-  return body.data;
-}
-async function fetchIngestJob(jobId, opts = {}) {
-  const qs = new URLSearchParams({
-    rows_offset: String(opts.rowsOffset ?? 0),
-    rows_limit: String(opts.rowsLimit ?? 200)
-  });
-  const res = await fetch(`/ks/ingest/preview/jobs/${encodeURIComponent(jobId)}?${qs}`, {
-    method: "GET",
-    headers: { accept: "application/json" },
-    signal: opts.signal
-  });
-  if (!res.ok) throw await parseIngestError(res);
-  const body = await res.json().catch(() => null);
-  if (body?.ok !== true || body.data === void 0) throw new Error("\u5168\u91CF\u9884\u89C8\u8FDB\u5EA6\u54CD\u5E94\u5F02\u5E38");
-  return body.data;
-}
-async function abortIngestJob(jobId, signal) {
-  const res = await fetch(`/ks/ingest/preview/jobs/${encodeURIComponent(jobId)}/abort`, {
-    method: "POST",
-    headers: { accept: "application/json", "Content-Type": "application/json" },
-    body: "{}",
-    signal
-  });
-  if (!res.ok) throw await parseIngestError(res);
-  const body = await res.json().catch(() => null);
-  if (body?.ok !== true || body.data === void 0) throw new Error("\u5168\u91CF\u9884\u89C8\u4E2D\u65AD\u54CD\u5E94\u5F02\u5E38");
-  return body.data;
-}
-var InspectionHttpError = class extends Error {
-  constructor(httpStatus, code, message) {
-    super(message);
-    this.httpStatus = httpStatus;
-    this.code = code;
-    this.name = "InspectionHttpError";
-  }
-};
-async function parseInspectionError(res) {
-  let code = null;
-  let message = `HTTP ${res.status}`;
-  try {
-    const b = await res.json();
-    if (b?.error) {
-      if (typeof b.error.code === "string") code = b.error.code;
-      if (typeof b.error.message === "string" && b.error.message.length > 0) message = b.error.message;
-    }
-  } catch {
-  }
-  return new InspectionHttpError(res.status, code, message);
-}
-async function fetchInspectionSummary(signal) {
-  const res = await fetch("/ks/inspection/summary", {
-    method: "GET",
-    headers: { accept: "application/json" },
-    signal
-  });
-  if (!res.ok) throw await parseInspectionError(res);
-  const body = await res.json().catch(() => null);
-  if (body === null || body.ok !== true) throw new Error("\u5DE1\u68C0\u72B6\u6001\u54CD\u5E94\u5F02\u5E38");
-  return {
-    ok: true,
-    settings: body.settings ?? { autoEnabled: false, time: "08:30", sundayTier1: false },
-    last: body.last ?? null,
-    overdue_days: typeof body.overdue_days === "number" ? body.overdue_days : 0,
-    stale_run: body.stale_run === true
-  };
-}
-async function runInspection(signal) {
-  const res = await fetch("/ks/inspection/run", {
-    method: "POST",
-    headers: { accept: "application/json" },
-    signal
-  });
-  if (!res.ok) throw await parseInspectionError(res);
-  const body = await res.json().catch(() => null);
-  if (body === null || body.ok !== true || typeof body.batch_id !== "string") {
-    throw new Error("\u5DE1\u68C0\u542F\u52A8\u54CD\u5E94\u5F02\u5E38");
-  }
-  return { batch_id: body.batch_id, status: typeof body.status === "string" ? body.status : "running" };
-}
-async function updateInspectionSettings(patch, signal) {
-  const res = await fetch("/ks/inspection/settings", {
-    method: "PUT",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify(patch),
-    signal
-  });
-  if (!res.ok) throw await parseInspectionError(res);
-  const body = await res.json().catch(() => null);
-  if (body === null || body.ok !== true || body.settings === void 0) {
-    throw new Error("\u8BBE\u7F6E\u4FDD\u5B58\u54CD\u5E94\u5F02\u5E38");
-  }
-  return body.settings;
-}
-function filenameFromDisposition(value) {
-  if (!value) return null;
-  const star = /filename\*=UTF-8''([^;]+)/i.exec(value);
-  if (star?.[1]) {
-    try {
-      return decodeURIComponent(star[1]);
-    } catch {
-    }
-  }
-  const plain = /filename="?([^";]+)"?/i.exec(value);
-  return plain?.[1] ? plain[1] : null;
-}
-async function exportInspectionResult(signal) {
-  const res = await fetch("/ks/inspection/export", {
-    method: "POST",
-    headers: { accept: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" },
-    signal
-  });
-  if (!res.ok) throw await parseInspectionError(res);
-  const blob = await res.blob();
-  const name = filenameFromDisposition(res.headers.get("content-disposition")) ?? "\u66F4\u65B0\u68C0\u67E5\u7ED3\u679C.xlsx";
-  const url = URL.createObjectURL(blob);
-  try {
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = name;
-    document.body.appendChild(anchor);
-    anchor.click();
-    anchor.remove();
-  } finally {
-    setTimeout(() => URL.revokeObjectURL(url), 6e4);
-  }
-}
-async function fetchAnnounceSummary(signal) {
-  const res = await fetch("/ks/announce/summary", {
-    method: "GET",
-    headers: { accept: "application/json" },
-    signal
-  });
-  if (!res.ok) throw await parseInspectionError(res);
-  const body = await res.json().catch(() => null);
-  if (body === null || body.ok !== true) throw new Error("\u516C\u544A\u53D1\u73B0\u72B6\u6001\u54CD\u5E94\u5F02\u5E38");
-  return { ok: true, last: body.last ?? null, stale_run: body.stale_run === true };
-}
-async function scanAnnounceSources(signal) {
-  const res = await fetch("/ks/announce/scan", {
-    method: "POST",
-    headers: { accept: "application/json" },
-    signal
-  });
-  if (!res.ok) throw await parseInspectionError(res);
-  const body = await res.json().catch(() => null);
-  if (body === null || body.ok !== true) throw new Error("\u516C\u544A\u626B\u63CF\u542F\u52A8\u54CD\u5E94\u5F02\u5E38");
-  const data = body.data;
-  if (data && typeof data === "object" && "last" in data) return data.last ?? null;
-  return data ?? null;
-}
-async function fetchAnnounceSources(signal) {
-  const res = await fetch("/ks/announce/sources", {
-    method: "GET",
-    headers: { accept: "application/json" },
-    signal
-  });
-  if (!res.ok) throw await parseInspectionError(res);
-  const body = await res.json().catch(() => null);
-  if (body === null || body.ok !== true || body.data === void 0) throw new Error("\u516C\u544A\u6E90\u6E05\u5355\u54CD\u5E94\u5F02\u5E38");
-  return {
-    sources: body.data.sources ?? [],
-    total: body.data.total ?? 0,
-    enabled_count: body.data.enabled_count ?? 0
-  };
-}
-async function addAnnounceSource(name, url, note = "", signal) {
-  const res = await fetch("/ks/announce/sources", {
-    method: "POST",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify({ name, url, note }),
-    signal
-  });
-  if (!res.ok) throw await parseInspectionError(res);
-  const body = await res.json().catch(() => null);
-  if (body === null || body.ok !== true || body.data?.source === void 0) throw new Error("\u516C\u544A\u6E90\u6DFB\u52A0\u54CD\u5E94\u5F02\u5E38");
-  return body.data.source;
-}
-async function updateAnnounceSource(id, patch, signal) {
-  const res = await fetch(`/ks/announce/sources/${encodeURIComponent(id)}`, {
-    method: "PUT",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify(patch),
-    signal
-  });
-  if (!res.ok) throw await parseInspectionError(res);
-  const body = await res.json().catch(() => null);
-  if (body === null || body.ok !== true || body.data?.source === void 0) throw new Error("\u516C\u544A\u6E90\u66F4\u65B0\u54CD\u5E94\u5F02\u5E38");
-  return body.data.source;
-}
-async function exportAnnounceDiscovery(signal) {
-  const res = await fetch("/ks/announce/export", {
-    method: "POST",
-    headers: { accept: "application/json" },
-    signal
-  });
-  if (!res.ok) throw await parseInspectionError(res);
-  const blob = await res.blob();
-  const name = filenameFromDisposition(res.headers.get("content-disposition")) ?? "\u516C\u544A\u53D1\u73B0.xlsx";
-  const url = URL.createObjectURL(blob);
-  try {
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = name;
-    document.body.appendChild(anchor);
-    anchor.click();
-    anchor.remove();
-  } finally {
-    setTimeout(() => URL.revokeObjectURL(url), 6e4);
-  }
-}
-async function removeAnnounceSource(id, signal) {
-  const res = await fetch(`/ks/announce/sources/${encodeURIComponent(id)}`, {
-    method: "DELETE",
-    headers: { accept: "application/json" },
-    signal
-  });
-  if (!res.ok) throw await parseInspectionError(res);
-}
-function qsOf(params) {
-  const sp = new URLSearchParams();
-  for (const [k, v] of Object.entries(params)) {
-    if (v !== void 0 && v !== "") sp.set(k, String(v));
-  }
-  const s = sp.toString();
-  return s ? `?${s}` : "";
-}
-async function fetchEffectReport(window2 = "all", signal, color) {
-  const res = await fetch(`/ks/report/effect${qsOf({ window: window2, color })}`, {
-    method: "GET",
-    headers: { accept: "application/json" },
-    signal
-  });
-  if (!res.ok) throw await parseInspectionError(res);
-  const body = await res.json().catch(() => null);
-  if (body === null || body.ok !== true || body.data === void 0) throw new Error("\u6548\u529B\u62A5\u544A\u54CD\u5E94\u5F02\u5E38");
-  return body.data;
-}
-async function fetchEgressAudit(params = {}, signal) {
-  const { token, engine: { port } } = await fetchSession(signal);
-  const qs = new URLSearchParams();
-  if (params.limit !== void 0) qs.set("limit", String(params.limit));
-  if (params.offset !== void 0) qs.set("offset", String(params.offset));
-  const suffix = qs.toString();
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/egress/audit${suffix ? `?${suffix}` : ""}`, {
-    method: "GET",
-    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-    signal
-  });
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5916\u53D1\u5BA1\u8BA1\u8BFB\u53D6\u5931\u8D25\uFF08HTTP ${res.status}\uFF09`));
-  const body = await res.json().catch(() => null);
-  const data = body?.data;
-  if (data === null || data === void 0 || typeof data !== "object" || !Array.isArray(data.items)) {
-    throw new Error('\u5916\u53D1\u5BA1\u8BA1\u54CD\u5E94\u5F02\u5E38\uFF08\u671F\u671B {code:200,data:{total,items}}\uFF09\u2014\u2014\u4E0D\u8981\u628A\u672C\u6B21\u5F53\u4F5C"\u6CA1\u6709\u5916\u53D1\u8BB0\u5F55"');
-  }
-  return { total: Number(data.total ?? data.items.length), items: data.items };
-}
-function buildEgressMarkdown(total, items) {
-  const str3 = (v) => typeof v === "string" ? v : v === null || v === void 0 ? "" : String(v);
-  const lines = [];
-  lines.push("# \u5916\u53D1\u5BA1\u8BA1\u8BB0\u5F55");
-  lines.push("");
-  lines.push(`\u5171 ${String(total)} \u6761\u5916\u53D1\uFF08\u6BCF\u6B21\u8C03\u7528\u4E91\u7AEF\u7684\u5B8C\u6574\u7559\u75D5\uFF1B\u672C\u8868\u4E3A\u8131\u654F\u6458\u8981\uFF09\u3002`);
-  lines.push("");
-  items.forEach((it, i) => {
-    lines.push(`## ${String(i + 1)}. ${str3(it.created_at)} \xB7 ${str3(it.service)}`);
-    lines.push("");
-    lines.push(`- \u7AEF\u70B9\uFF1A${str3(it.endpoint) || "\u2014"}`);
-    lines.push(`- \u8BF7\u6C42\uFF1A${str3(it.query) || "\u2014"}`);
-    lines.push(`- \u5916\u53D1\u5B57\u8282\uFF1A${str3(it.payload_bytes) || "\u2014"}`);
-    lines.push(`- \u5185\u5BB9\u6458\u8981\uFF1A${str3(it.prompt_preview) || "\u2014"}`);
-    lines.push(`- \u7559\u75D5\u7F16\u53F7\uFF1A${str3(it.dump_id) || "\u2014"}`);
-    lines.push("");
-  });
-  return lines.join("\n");
-}
-async function compliancePost(path, body, what, signal) {
-  const { token, engine: { port } } = await fetchSession(signal);
-  const res = await fetch(`http://127.0.0.1:${port}${path}`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
-    body: JSON.stringify(body),
-    signal
-  });
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `${what}\u5931\u8D25\uFF08HTTP ${res.status}\uFF09`));
-  const out = await res.json().catch(() => null);
-  if (out?.data === null || out?.data === void 0) throw new Error(`${what}\u54CD\u5E94\u5F02\u5E38`);
-  return out.data;
-}
-function importInternalPolicy(policyName, policyText, signal) {
-  return compliancePost(
-    "/api/v1/compliance/policies",
-    { policy_name: policyName, policy_text: policyText },
-    "\u767B\u8BB0\u5236\u5EA6",
-    signal
-  );
-}
-function runGapAnalysis(policyId, signal) {
-  return compliancePost("/api/v1/compliance/gap-analysis", { policy_id: policyId }, "\u5DEE\u8DDD\u5206\u6790", signal);
-}
-async function listClausePatches(params = {}, signal) {
-  const { token, engine: { port } } = await fetchSession(signal);
-  const qs = new URLSearchParams();
-  if (params.clauseRevisionId !== void 0) qs.set("clause_revision_id", params.clauseRevisionId);
-  if (params.limit !== void 0) qs.set("limit", String(params.limit));
-  const suffix = qs.toString();
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/clauses/patches${suffix ? `?${suffix}` : ""}`, {
-    method: "GET",
-    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-    signal
-  });
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5217\u4FEE\u8BA2\u5931\u8D25\uFF08HTTP ${res.status}\uFF09`));
-  const out = await res.json().catch(() => null);
-  if (!Array.isArray(out?.data)) throw new Error("\u5217\u4FEE\u8BA2\u54CD\u5E94\u5F02\u5E38\uFF08\u671F\u671B {code:200,data:[\u2026]}\uFF09");
-  return out.data;
-}
-async function createClausePatch(body, signal) {
-  const { token, engine: { port } } = await fetchSession(signal);
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/clauses/patches`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
-    body: JSON.stringify(body),
-    signal
-  });
-  const out = await res.json().catch(() => null);
-  if (res.status === 466 || out?.code === 466) {
-    return { warned: out?.error?.message ?? "\u5F15\u64CE\u63D0\u793A\u8FD9\u6761\u4FEE\u8BA2\u53EF\u7591\uFF0C\u8BF7\u4EBA\u5DE5\u786E\u8BA4\u540E\u518D\u4EA4\uFF08\u5E26\u786E\u8BA4\u91CD\u4EA4\uFF09\u3002" };
-  }
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u63D0\u4EA4\u4FEE\u8BA2\u5931\u8D25\uFF08HTTP ${res.status}\uFF09`));
-  return { patch: out?.data ?? null };
-}
-async function deleteClausePatch(patchId, signal) {
-  const { token, engine: { port } } = await fetchSession(signal);
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/clauses/patches/${encodeURIComponent(patchId)}`, {
-    method: "DELETE",
-    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-    signal
-  });
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u56DE\u9000\u4FEE\u8BA2\u5931\u8D25\uFF08HTTP ${res.status}\uFF09`));
-}
-async function fetchEffectDocs(params, signal) {
-  const res = await fetch(`/ks/report/effect/docs${qsOf(params)}`, {
-    method: "GET",
-    headers: { accept: "application/json" },
-    signal
-  });
-  if (!res.ok) throw await parseInspectionError(res);
-  const body = await res.json().catch(() => null);
-  if (body === null || body.ok !== true || body.data === void 0) throw new Error("\u6548\u529B\u62A5\u544A\u660E\u7EC6\u54CD\u5E94\u5F02\u5E38");
-  return body.data;
-}
-async function exportEffectReport(window2 = "all", signal, color) {
-  const res = await fetch("/ks/report/export", {
-    method: "POST",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify(color ? { window: window2, color } : { window: window2 }),
-    signal
-  });
-  if (!res.ok) throw await parseInspectionError(res);
-  const blob = await res.blob();
-  const name = filenameFromDisposition(res.headers.get("content-disposition")) ?? "\u6548\u529B\u62A5\u544A.xlsx";
-  const url = URL.createObjectURL(blob);
-  try {
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = name;
-    document.body.appendChild(anchor);
-    anchor.click();
-    anchor.remove();
-  } finally {
-    setTimeout(() => URL.revokeObjectURL(url), 6e4);
-  }
-}
-async function fetchApiConfig(signal) {
-  const res = await fetch("/ks/settings/api-config", {
-    method: "GET",
-    headers: { accept: "application/json" },
-    signal
-  });
-  if (!res.ok) throw await parseInspectionError(res);
-  const body = await res.json().catch(() => null);
-  if (body === null || body.ok !== true) throw new Error("API \u914D\u7F6E\u72B6\u6001\u54CD\u5E94\u5F02\u5E38");
-  return {
-    mineru_cloud: body.mineru_cloud ?? { configured: false, base_url: "" },
-    llm: body.llm ?? { configured: false, base_url: "" }
-  };
-}
-async function saveApiConfig(payload, signal) {
-  const res = await fetch("/ks/settings/api-config", {
-    method: "PUT",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify(payload),
-    signal
-  });
-  if (!res.ok) throw await parseInspectionError(res);
-  const body = await res.json().catch(() => null);
-  if (body === null || body.ok !== true) throw new Error("API \u914D\u7F6E\u4FDD\u5B58\u54CD\u5E94\u5F02\u5E38");
-  return {
-    mineru_cloud: body.mineru_cloud ?? { configured: false, base_url: "" },
-    llm: body.llm ?? { configured: false, base_url: "" }
-  };
-}
-async function testApiChannel(channel, signal) {
-  const res = await fetch("/ks/settings/api-config/test", {
-    method: "POST",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify({ channel }),
-    signal
-  });
-  if (!res.ok) throw await parseInspectionError(res);
-  const body = await res.json().catch(() => null);
-  if (body === null || body.ok !== true) throw new Error("\u8FDE\u901A\u6027\u6D4B\u8BD5\u54CD\u5E94\u5F02\u5E38");
-  return {
-    ok: body.result?.ok === true,
-    detail: typeof body.result?.detail === "string" ? body.result.detail : ""
-  };
-}
-async function ksJson(res, what) {
-  if (!res.ok) throw await parseInspectionError(res);
-  const body = await res.json().catch(() => null);
-  if (body === null || body.ok !== true || body.data === void 0) {
-    throw new Error(`${what}\u54CD\u5E94\u5F02\u5E38`);
-  }
-  return body.data;
-}
-async function fetchMaterialProjects(signal) {
-  const res = await fetch("/ks/materials/projects", {
-    method: "GET",
-    headers: { accept: "application/json" },
-    signal
-  });
-  const data = await ksJson(res, "\u53C2\u8003\u8D44\u6599\u9879\u76EE");
-  return Array.isArray(data) ? data : [];
-}
-async function createMaterialProject(name, opts = {}, signal) {
-  const res = await fetch("/ks/materials/projects", {
-    method: "POST",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify({
-      name,
-      note: opts.note ?? null,
-      authority_policy: opts.authorityPolicy ?? null
-    }),
-    signal
-  });
-  return ksJson(res, "\u65B0\u5EFA\u9879\u76EE");
-}
-async function fetchMaterials(projectId, status, signal) {
-  const q = new URLSearchParams({ project_id: projectId });
-  if (status !== void 0) q.set("status", status);
-  const res = await fetch(`/ks/materials/list?${q.toString()}`, {
-    method: "GET",
-    headers: { accept: "application/json" },
-    signal
-  });
-  const data = await ksJson(res, "\u6750\u6599\u5217\u8868");
-  return Array.isArray(data) ? data : [];
-}
-async function fetchMaterialInbox(projectId, signal) {
-  const q = new URLSearchParams({ project_id: projectId });
-  const res = await fetch(`/ks/materials/inbox?${q.toString()}`, {
-    method: "GET",
-    headers: { accept: "application/json" },
-    signal
-  });
-  const data = await ksJson(
-    res,
-    "\u6536\u4EF6\u7BB1"
-  );
-  return { dir: typeof data.dir === "string" ? data.dir : "", files: data.files ?? [] };
-}
-async function scanMaterialProject(projectId, signal) {
-  const q = new URLSearchParams({ project_id: projectId });
-  const res = await fetch(`/ks/materials/scan?${q.toString()}`, {
-    method: "POST",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify({ origin: "user" }),
-    signal
-  });
-  const data = await ksJson(res, "\u626B\u63CF\u6536\u4EF6");
-  return { scanned: data.scanned ?? 0, registered: data.registered ?? 0 };
-}
-async function collectMaterialUrl(projectId, input, signal) {
-  const q = new URLSearchParams({ project_id: projectId });
-  const body = { url: input.url };
-  if (input.title !== void 0 && input.title !== "") body.title = input.title;
-  if (input.note !== void 0 && input.note !== "") body.note = input.note;
-  const res = await fetch(`/ks/materials/collect?${q.toString()}`, {
-    method: "POST",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify(body),
-    signal
-  });
-  const data = await ksJson(res, "\u81EA\u91C7");
-  if (typeof data?.collected !== "boolean") {
-    throw new Error('\u81EA\u91C7\u54CD\u5E94\u5F02\u5E38\uFF1A\u7F3A\u5C11 collected \u5B57\u6BB5\uFF08\u4E0D\u8981\u628A\u8FD9\u6B21\u7ED3\u679C\u5F53\u6210"\u5DF2\u7ECF\u91C7\u5230\u4E86"\uFF09');
-  }
-  return data;
-}
-async function reviewMaterial(materialId, decision, note, signal) {
-  const q = new URLSearchParams({ material_id: materialId });
-  const res = await fetch(`/ks/materials/review?${q.toString()}`, {
-    method: "POST",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify({ decision, note: note ?? null }),
-    signal
-  });
-  return ksJson(res, "\u8BC4\u5BA1");
-}
-async function setMaterialTier(materialId, tier, reason, signal) {
-  const q = new URLSearchParams({ material_id: materialId });
-  const res = await fetch(`/ks/materials/tier?${q.toString()}`, {
-    method: "POST",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify({ tier, source: "user", reason: reason ?? null }),
-    signal
-  });
-  return ksJson(res, "\u8BBE\u7F6E\u6765\u6E90\u5C42\u7EA7");
-}
-async function setMaterialRole(materialId, role, signal) {
-  const q = new URLSearchParams({ material_id: materialId });
-  const res = await fetch(`/ks/materials/role?${q.toString()}`, {
-    method: "POST",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify({ role }),
-    signal
-  });
-  return ksJson(res, "\u8BBE\u7F6E\u4EFB\u52A1\u5185\u6548\u529B");
-}
-async function fetchMaterialChunks(materialId, offset = 0, limit = 20, signal) {
-  const q = new URLSearchParams({
-    material_id: materialId,
-    offset: String(offset),
-    limit: String(limit)
-  });
-  const res = await fetch(`/ks/materials/chunks?${q.toString()}`, {
-    method: "GET",
-    headers: { accept: "application/json" },
-    signal
-  });
-  const data = await ksJson(res, "\u6750\u6599\u5207\u7247");
-  return { total: data.total ?? 0, offset: data.offset ?? 0, chunks: data.chunks ?? [] };
-}
-async function fetchMaterialTiers(signal) {
-  const res = await fetch("/ks/materials/tiers", {
-    method: "GET",
-    headers: { accept: "application/json" },
-    signal
-  });
-  const data = await ksJson(res, "\u5C42\u5B9A\u4E49");
-  return Array.isArray(data) ? data : [];
-}
-async function fetchProjectLocators(projectId, signal) {
-  const q = new URLSearchParams({ project_id: projectId });
-  const res = await fetch(`/ks/materials/locators?${q.toString()}`, {
-    method: "GET",
-    headers: { accept: "application/json" },
-    signal
-  });
-  const data = await ksJson(res, "\u951A\u70B9\u603B\u89C8");
-  return {
-    project_id: data.project_id ?? projectId,
-    counts: data.counts ?? {},
-    statuses: data.statuses ?? {},
-    attention: data.attention ?? [],
-    note: data.note ?? ""
-  };
-}
-async function reverifyMaterialLocators(materialId, signal) {
-  const q = new URLSearchParams({ material_id: materialId });
-  const res = await fetch(`/ks/materials/reverify?${q.toString()}`, {
-    method: "POST",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify({}),
-    signal
-  });
-  return ksJson(res, "\u91CD\u89E3\u6790\u6BD4\u5BF9");
-}
-function reportBody(projectId, input) {
-  const body = { project_id: projectId };
-  if (input.title !== void 0 && input.title !== "") body.title = input.title;
-  if (input.query !== void 0 && input.query !== "") body.query = input.query;
-  if (input.conclusionMd !== void 0 && input.conclusionMd !== "")
-    body.conclusion_md = input.conclusionMd;
-  if (input.limit !== void 0) body.limit = input.limit;
-  if (input.dryRun !== void 0) body.dry_run = input.dryRun;
-  return body;
-}
-async function postReport(path, projectId, input, what, signal) {
-  const res = await fetch(path, {
-    method: "POST",
-    headers: { "content-type": "application/json", accept: "application/json" },
-    body: JSON.stringify(reportBody(projectId, input)),
-    signal
-  });
-  return ksJson(res, what);
-}
-async function exportResearchReport(projectId, input = {}, signal) {
-  return postReport(
-    "/ks/report/research",
-    projectId,
-    input,
-    "\u7814\u7A76\u62A5\u544A",
-    signal
-  );
-}
-async function exportResearchDraft(projectId, input, signal) {
-  return postReport(
-    "/ks/report/research/draft",
-    projectId,
-    input,
-    "\u7ED3\u8BBA\u8349\u7A3F",
-    signal
-  );
-}
-function objOf(value) {
-  return value !== null && typeof value === "object" ? value : null;
-}
-function dataOf(body) {
-  const wrapped = objOf(body);
-  return objOf(wrapped?.data) ?? wrapped ?? {};
-}
-function intOf(value, fallback) {
-  return typeof value === "number" && Number.isFinite(value) ? value : fallback;
-}
-function normalizeKbFolder(value) {
-  const o = objOf(value);
-  const id = str(o?.folder_id);
-  if (o === null || id === null) return null;
-  return {
-    folder_id: id,
-    parent_id: str(o.parent_id),
-    name: str(o.name) ?? id,
-    sort: intOf(o.sort, 0),
-    created_at: str(o.created_at),
-    file_count_direct: intOf(o.file_count_direct, 0),
-    file_count_deep: intOf(o.file_count_deep, 0),
-    folder_count_deep: intOf(o.folder_count_deep, 0),
-    effect_deep: (() => {
-      const ef = o.effect_deep ?? {};
-      return {
-        green: intOf(ef.green, 0),
-        red: intOf(ef.red, 0),
-        yellow: intOf(ef.yellow, 0),
-        gray: intOf(ef.gray, 0)
-      };
-    })()
-  };
-}
-function normalizeKbFile(value) {
-  const o = objOf(value);
-  const id = str(o?.doc_id);
-  if (o === null || id === null) return null;
-  return {
-    doc_id: id,
-    standard_no: str(o.standard_no),
-    standard_name: str(o.standard_name),
-    legal_status: str(o.legal_status),
-    legal_hierarchy: str(o.legal_hierarchy),
-    doc_type: str(o.doc_type),
-    ccs_code: str(o.ccs_code),
-    ccs_name: str(o.ccs_name),
-    published_at: str(o.published_at),
-    effective_from: str(o.effective_from),
-    withdrawn_date: str(o.withdrawn_date),
-    superseded_by: str(o.superseded_by),
-    stage: str(o.stage),
-    confidence: num(o.confidence),
-    failure_kind: str(o.failure_kind),
-    suggested_folder_id: str(o.suggested_folder_id)
-  };
-}
-async function engineErrorMessage(res, fallback) {
-  try {
-    const b = await res.json();
-    const e = objOf(objOf(b)?.error);
-    const m = e?.message;
-    if (typeof m === "string" && m !== "") return m;
-  } catch {
-  }
-  return fallback;
-}
-async function fetchKbFolders(port, token, parentId, opts = {}) {
-  const qs = new URLSearchParams();
-  if (parentId !== null) qs.set("parent_id", parentId);
-  if (opts.limit !== void 0) qs.set("limit", String(opts.limit));
-  if (opts.offset !== void 0) qs.set("offset", String(opts.offset));
-  const suffix = qs.toString() === "" ? "" : `?${qs.toString()}`;
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/folders${suffix}`, {
-    method: "GET",
-    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-    signal: opts.signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const data = dataOf(body);
-  const subs = Array.isArray(data.subfolders) ? data.subfolders : [];
-  const crumb = Array.isArray(data.breadcrumb) ? data.breadcrumb : [];
-  return {
-    folder: normalizeKbFolder(data.folder),
-    breadcrumb: crumb.map(normalizeKbFolder).filter((f) => f !== null),
-    subfolders: subs.map(normalizeKbFolder).filter((f) => f !== null),
-    total: intOf(data.total, subs.length),
-    offset: intOf(data.offset, opts.offset ?? 0),
-    limit: intOf(data.limit, opts.limit ?? 200),
-    has_more: data.has_more === true
-  };
-}
-async function fetchKbFolderItems(port, token, folderId, opts = {}) {
-  const qs = new URLSearchParams();
-  qs.set("limit", String(opts.limit ?? 50));
-  qs.set("offset", String(opts.offset ?? 0));
-  const res = await fetch(
-    `http://127.0.0.1:${port}/api/v1/kb/folders/${encodeURIComponent(folderId)}/items?${qs.toString()}`,
-    {
-      method: "GET",
-      headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-      signal: opts.signal
-    }
-  );
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const data = dataOf(body);
-  const rows = Array.isArray(data.items) ? data.items : [];
-  const crumb = Array.isArray(data.breadcrumb) ? data.breadcrumb : [];
-  return {
-    folder: normalizeKbFolder(data.folder),
-    breadcrumb: crumb.map(normalizeKbFolder).filter((f) => f !== null),
-    items: rows.map(normalizeKbFile).filter((f) => f !== null),
-    total: intOf(data.total, rows.length),
-    offset: intOf(data.offset, opts.offset ?? 0),
-    limit: intOf(data.limit, opts.limit ?? 50),
-    has_more: data.has_more === true
-  };
-}
-async function addKbMembers(port, token, folderId, items, signal) {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/members`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
-    body: JSON.stringify({ folder_id: folderId, items: items.map((it) => ({ kind: it.kind, id: it.id })) }),
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const data = dataOf(body);
-  return {
-    folder_id: str(data.folder_id) ?? folderId,
-    added: intOf(data.added, 0),
-    skipped: intOf(data.skipped, 0),
-    total: intOf(data.total, items.length)
-  };
-}
-async function kbWrite(url, method, token, body, signal) {
-  const res = await fetch(`http://127.0.0.1:${url}`, {
-    method,
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-      accept: "application/json"
-    },
-    body: body === void 0 ? void 0 : JSON.stringify(body),
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
-  let parsed = null;
-  try {
-    parsed = await res.json();
-  } catch {
-  }
-  return dataOf(parsed);
-}
-async function createKbFolder(port, token, parentId, name, signal) {
-  const d = await kbWrite(
-    `${String(port)}/api/v1/kb/folders`,
-    "POST",
-    token,
-    { parent_id: parentId, name },
-    signal
-  );
-  return {
-    folder_id: str(d.folder_id) ?? "",
-    name: str(d.name) ?? name,
-    parent_id: str(d.parent_id)
-  };
-}
-async function renameKbFolder(port, token, folderId, name, signal) {
-  const d = await kbWrite(
-    `${String(port)}/api/v1/kb/folders/${encodeURIComponent(folderId)}`,
-    "PUT",
-    token,
-    { name },
-    signal
-  );
-  return {
-    folder_id: str(d.folder_id) ?? folderId,
-    name: str(d.name) ?? name,
-    parent_id: str(d.parent_id)
-  };
-}
-async function moveKbFolder(port, token, folderId, toParentId, opts = {}) {
-  const d = await kbWrite(
-    `${String(port)}/api/v1/kb/folders/${encodeURIComponent(folderId)}/move`,
-    "POST",
-    token,
-    { from_parent_id: opts.fromParentId ?? null, to_parent_id: toParentId },
-    opts.signal
-  );
-  return {
-    folder_id: str(d.folder_id) ?? folderId,
-    name: str(d.name) ?? "",
-    parent_id: str(d.parent_id),
-    from_parent_id: str(d.from_parent_id),
-    to_parent_id: str(d.to_parent_id),
-    updated_main_position: d.updated_main_position === true,
-    moved: d.moved === true,
-    reason: str(d.reason) ?? void 0
-  };
-}
-async function copyKbFolder(port, token, folderId, toParentId, opts = {}) {
-  const d = await kbWrite(
-    `${String(port)}/api/v1/kb/folders/${encodeURIComponent(folderId)}/copy`,
-    "POST",
-    token,
-    { to_parent_id: toParentId, name: opts.name ?? null },
-    opts.signal
-  );
-  return {
-    folder_id: str(d.folder_id) ?? "",
-    name: str(d.name) ?? "",
-    parent_id: str(d.parent_id),
-    sort: intOf(d.sort, 0),
-    copied_members: intOf(d.copied_members, 0),
-    copied_from: str(d.copied_from) ?? folderId
-  };
-}
-async function fetchKbFolderDeletePreview(port, token, folderId, signal) {
-  const res = await fetch(
-    `http://127.0.0.1:${port}/api/v1/kb/folders/${encodeURIComponent(folderId)}/delete-preview`,
-    {
-      method: "GET",
-      headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-      signal
-    }
-  );
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const d = dataOf(body);
-  return {
-    folder: normalizeKbFolder(d.folder),
-    is_empty: d.is_empty === true,
-    direct_subfolder_count: intOf(d.direct_subfolder_count, 0),
-    direct_file_count: intOf(d.direct_file_count, 0),
-    subtree_folder_count: intOf(d.subtree_folder_count, 0),
-    subtree_file_count: intOf(d.subtree_file_count, 0),
-    reparent_available: d.reparent_available === true,
-    files_kept_elsewhere: intOf(d.files_kept_elsewhere, 0),
-    files_would_be_deleted: intOf(d.files_would_be_deleted, 0)
-  };
-}
-async function deleteKbFolder(port, token, folderId, mode, signal) {
-  const qs = mode === null ? "" : `?mode=${mode}`;
-  const d = await kbWrite(
-    `${String(port)}/api/v1/kb/folders/${encodeURIComponent(folderId)}${qs}`,
-    "DELETE",
-    token,
-    void 0,
-    signal
-  );
-  return {
-    folder_id: str(d.folder_id) ?? folderId,
-    mode: str(d.mode) ?? "empty",
-    removed: d.removed === true,
-    new_parent_id: str(d.new_parent_id),
-    reparented_subfolders: intOf(d.reparented_subfolders, 0),
-    reparented_files: intOf(d.reparented_files, 0),
-    purged_folders: intOf(d.purged_folders, 0),
-    unfiled_docs: intOf(d.unfiled_docs, 0),
-    deleted_docs: intOf(d.deleted_docs, 0)
-  };
-}
-async function removeKbMembers(port, token, folderId, items, signal) {
-  const d = await kbWrite(
-    `${String(port)}/api/v1/kb/members/remove`,
-    "POST",
-    token,
-    { folder_id: folderId, items: items.map((it) => ({ kind: it.kind, id: it.id })) },
-    signal
-  );
-  return memberResult(d, folderId, "", "");
-}
-async function moveKbMembers(port, token, items, fromFolderId, toFolderId, signal) {
-  const d = await kbWrite(
-    `${String(port)}/api/v1/kb/members/move`,
-    "POST",
-    token,
-    {
-      from_folder_id: fromFolderId,
-      to_folder_id: toFolderId,
-      items: items.map((it) => ({ kind: it.kind, id: it.id }))
-    },
-    signal
-  );
-  return memberResult(d, fromFolderId, toFolderId, fromFolderId);
-}
-async function copyKbMembers(port, token, items, toFolderId, signal) {
-  const d = await kbWrite(
-    `${String(port)}/api/v1/kb/members/copy`,
-    "POST",
-    token,
-    { to_folder_id: toFolderId, items: items.map((it) => ({ kind: it.kind, id: it.id })) },
-    signal
-  );
-  return memberResult(d, "", toFolderId, "");
-}
-function memberResult(d, folderId, toFolderId, fromFolderId) {
-  return {
-    folder_id: str(d.folder_id) ?? folderId,
-    to_folder_id: str(d.to_folder_id) ?? toFolderId,
-    from_folder_id: str(d.from_folder_id) ?? fromFolderId,
-    added: intOf(d.added, 0),
-    skipped: intOf(d.skipped, 0),
-    removed: intOf(d.removed, 0),
-    moved: intOf(d.moved, 0),
-    total: intOf(d.total, 0)
-  };
-}
-function normalizeKbInboxItem(value) {
-  const o = objOf(value);
-  const id = str(o?.doc_id);
-  if (o === null || id === null) return null;
-  return {
-    doc_id: id,
-    standard_no: str(o.standard_no),
-    standard_name: str(o.standard_name),
-    stage: str(o.stage) ?? "queued",
-    stage_label: str(o.stage_label) ?? "",
-    confidence: num(o.confidence),
-    failure_kind: str(o.failure_kind),
-    suggested_folder_id: str(o.suggested_folder_id),
-    suggested_path: str(o.suggested_path),
-    suggest_new_parent_id: str(o.suggest_new_parent_id),
-    suggest_new_name: str(o.suggest_new_name),
-    catalog_hidden: num(o.catalog_hidden),
-    ccs_tag: str(o.ccs_tag),
-    ccs_outcome: str(o.ccs_outcome),
-    ccs_outcome_label: str(o.ccs_outcome_label),
-    ccs_reason: str(o.ccs_reason),
-    ccs_source: str(o.ccs_source),
-    ccs_checked_at: str(o.ccs_checked_at)
-  };
-}
-async function fetchKbInbox(port, token, opts = {}) {
-  const qs = new URLSearchParams();
-  qs.set("limit", String(opts.limit ?? 50));
-  qs.set("offset", String(opts.offset ?? 0));
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/inbox?${qs.toString()}`, {
-    method: "GET",
-    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-    signal: opts.signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const data = dataOf(body);
-  const rows = Array.isArray(data.items) ? data.items : [];
-  return {
-    items: rows.map(normalizeKbInboxItem).filter((r) => r !== null),
-    total: intOf(data.total, rows.length),
-    offset: intOf(data.offset, opts.offset ?? 0),
-    limit: intOf(data.limit, opts.limit ?? 50),
-    has_more: data.has_more === true
-  };
-}
-async function confirmKbInbox(port, token, decisions, signal) {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/inbox/confirm`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
-    body: JSON.stringify({ decisions }),
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const data = dataOf(body);
-  const created = Array.isArray(data.created) ? data.created.length : 0;
-  return {
-    confirmed: intOf(data.confirmed, 0),
-    removed_from_pending: intOf(data.removed_from_pending, 0),
-    created
-  };
-}
-async function reingestKbDocs(port, token, docIds, signal) {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/inbox/reingest`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
-    body: JSON.stringify({ doc_ids: docIds }),
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const data = dataOf(body);
-  const started = Array.isArray(data.started) ? data.started : [];
-  const skipped = Array.isArray(data.skipped) ? data.skipped : [];
-  return {
-    queued: intOf(data.queued, 0),
-    started: started.map((s) => {
-      const o = objOf(s) ?? {};
-      return { doc_id: str(o.doc_id) ?? "", path: str(o.path) ?? "", standard_no: str(o.standard_no) ?? "" };
-    }).filter((s) => s.doc_id !== ""),
-    skipped: skipped.map((s) => {
-      const o = objOf(s) ?? {};
-      return { doc_id: str(o.doc_id) ?? "", reason: str(o.reason) ?? "" };
-    })
-  };
-}
-async function fetchKbReingestStatus(port, token, signal) {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/inbox/reingest/status`, {
-    method: "GET",
-    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const data = dataOf(body);
-  const results = Array.isArray(data.results) ? data.results : [];
-  return {
-    running: data.running === true,
-    total: intOf(data.total, 0),
-    done: intOf(data.done, 0),
-    results: results.map((r) => {
-      const o = objOf(r) ?? {};
-      return {
-        doc_id: str(o.doc_id) ?? "",
-        status: str(o.status) ?? void 0,
-        total_clauses: num(o.total_clauses) ?? void 0,
-        filing_stage: str(o.filing_stage) ?? void 0,
-        error: str(o.error) ?? void 0
-      };
-    }),
-    started_at: str(data.started_at),
-    finished_at: str(data.finished_at)
-  };
-}
-function normalizeCcsResultRows(value) {
-  const rows = Array.isArray(value) ? value : [];
-  return rows.map((r) => {
-    const o = objOf(r) ?? {};
-    return {
-      doc_id: str(o.doc_id) ?? "",
-      standard_no: str(o.standard_no) ?? "",
-      standard_name: str(o.standard_name) ?? void 0,
-      outcome: str(o.outcome) ?? "",
-      code: str(o.code) ?? void 0,
-      sub: str(o.sub) ?? void 0,
-      source: str(o.source) ?? void 0,
-      keyword_form: str(o.keyword_form) ?? void 0,
-      matched_no: str(o.matched_no) ?? void 0,
-      reason: str(o.reason) ?? void 0,
-      tag: str(o.tag) ?? void 0,
-      applied: o.applied === true
-    };
-  });
-}
-function normalizeCcsBackfillStatus(data) {
-  return {
-    running: data.running === true,
-    total: intOf(data.total, 0),
-    done: intOf(data.done, 0),
-    found: intOf(data.found, 0),
-    not_found: intOf(data.not_found, 0),
-    network_failed: intOf(data.network_failed, 0),
-    parse_failed: intOf(data.parse_failed, 0),
-    not_applicable: intOf(data.not_applicable, 0),
-    applied: intOf(data.applied, 0),
-    skipped: intOf(data.skipped, 0),
-    cancel_requested: data.cancel_requested === true,
-    cancelled: data.cancelled === true,
-    started_at: str(data.started_at),
-    finished_at: str(data.finished_at),
-    missing: num(data.missing),
-    results: normalizeCcsResultRows(data.results),
-    failures: normalizeCcsResultRows(data.failures),
-    skipped_list: normalizeCcsResultRows(data.skipped_list)
-  };
-}
-async function fetchKbCcsSummary(port, token, signal) {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/ccs/summary`, {
-    method: "GET",
-    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const data = dataOf(body);
-  const byOutcome = objOf(data.by_outcome) ?? {};
-  const by = {};
-  for (const [k, v] of Object.entries(byOutcome)) by[k] = intOf(v, 0);
-  const labels = objOf(data.outcome_labels) ?? {};
-  const srcLabels = objOf(data.source_labels) ?? {};
-  const outLabels = {};
-  for (const [k, v] of Object.entries(labels)) {
-    const s = str(v);
-    if (s !== null) outLabels[k] = s;
-  }
-  const outSrc = {};
-  for (const [k, v] of Object.entries(srcLabels)) {
-    const s = str(v);
-    if (s !== null) outSrc[k] = s;
-  }
-  const srcArr = Array.isArray(data.sources) ? data.sources : [];
-  return {
-    missing: intOf(data.missing, 0),
-    by_outcome: by,
-    max_batch: intOf(data.max_batch, 0),
-    default_batch: intOf(data.default_batch, 0),
-    outcome_labels: outLabels,
-    source_labels: outSrc,
-    sources: srcArr.map((s) => str(s) ?? "").filter((s) => s !== ""),
-    backfill: normalizeCcsBackfillStatus(objOf(data.backfill) ?? {})
-  };
-}
-async function startKbCcsBackfill(port, token, opts = {}) {
-  const payload = {};
-  if (opts.docIds !== void 0) payload.doc_ids = [...opts.docIds];
-  if (opts.limit !== void 0) payload.limit = opts.limit;
-  if (opts.force === true) payload.force = true;
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/ccs/backfill`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
-    body: JSON.stringify(payload),
-    signal: opts.signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const data = dataOf(body);
-  const started = Array.isArray(data.started) ? data.started : [];
-  const skipped = Array.isArray(data.skipped) ? data.skipped : [];
-  const planRaw = objOf(data.plan) ?? {};
-  const planRows = Array.isArray(planRaw.candidates) ? planRaw.candidates : [];
-  return {
-    queued: intOf(data.queued, 0),
-    started: started.map((s) => {
-      const o = objOf(s) ?? {};
-      return { doc_id: str(o.doc_id) ?? "", standard_no: str(o.standard_no) ?? "" };
-    }).filter((s) => s.doc_id !== ""),
-    skipped: skipped.map((s) => {
-      const o = objOf(s) ?? {};
-      return { doc_id: str(o.doc_id) ?? "", reason: str(o.reason) ?? "" };
-    }),
-    plan: {
-      candidates: planRows.map((r) => {
-        const o = objOf(r) ?? {};
-        return {
-          doc_id: str(o.doc_id) ?? "",
-          standard_no: str(o.standard_no) ?? "",
-          standard_name: str(o.standard_name) ?? ""
-        };
-      }).filter((r) => r.doc_id !== ""),
-      total: intOf(planRaw.total, planRows.length),
-      already_have: intOf(planRaw.already_have, 0),
-      limit: intOf(planRaw.limit, 0),
-      truncated: planRaw.truncated === true
-    }
-  };
-}
-async function fetchKbCcsBackfillStatus(port, token, signal) {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/ccs/backfill/status`, {
-    method: "GET",
-    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  return normalizeCcsBackfillStatus(dataOf(body));
-}
-async function cancelKbCcsBackfill(port, token, signal) {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/ccs/backfill/cancel`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const data = dataOf(body);
-  return {
-    cancel_requested: data.cancel_requested === true,
-    running: data.running === true,
-    done: intOf(data.done, 0),
-    total: intOf(data.total, 0)
-  };
-}
-async function fetchKbFoldersFlat(port, token, opts = {}) {
-  const qs = new URLSearchParams();
-  if (opts.q !== void 0 && opts.q !== "") qs.set("q", opts.q);
-  const suffix = qs.toString() === "" ? "" : `?${qs.toString()}`;
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/folders/flat${suffix}`, {
-    method: "GET",
-    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-    signal: opts.signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const data = dataOf(body);
-  const rows = Array.isArray(data.items) ? data.items : [];
-  return rows.map((r) => {
-    const o = objOf(r) ?? {};
-    return {
-      folder_id: str(o.folder_id) ?? "",
-      parent_id: str(o.parent_id),
-      name: str(o.name) ?? "",
-      path: str(o.path) ?? "",
-      depth: intOf(o.depth, 1)
-    };
-  }).filter((f) => f.folder_id !== "");
-}
-async function fetchKbStageLabels(port, token, signal) {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/stage-labels`, {
-    method: "GET",
-    headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const data = dataOf(body);
-  const raw = objOf(data.labels) ?? {};
-  const labels = {};
-  for (const [k, v] of Object.entries(raw)) if (typeof v === "string") labels[k] = v;
-  const stages = Array.isArray(data.stages) ? data.stages.filter((s) => typeof s === "string") : [];
-  return { labels, stages };
-}
-async function fileDocsIntoFolder(port, token, folderId, docIds, signal) {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/kb/inbox/confirm`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
-    body: JSON.stringify({
-      decisions: docIds.map((docId) => ({
-        doc_id: docId,
-        action: "existing",
-        target_folder_id: folderId,
-        placed_by: "kb-upload"
-      }))
-    }),
-    signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const data = dataOf(body);
-  return {
-    confirmed: intOf(data.confirmed, 0),
-    removed_from_pending: intOf(data.removed_from_pending, 0)
-  };
-}
-function normalizeAnswerScope(value) {
-  const o = objOf(value);
-  if (o === null) return null;
-  return {
-    kind: str(o.kind) ?? "kb",
-    folder_ids: Array.isArray(o.folder_ids) ? o.folder_ids.filter((x) => typeof x === "string") : [],
-    folder_count: intOf(o.folder_count, 0),
-    doc_count: intOf(o.doc_count, 0),
-    empty: o.empty === true
-  };
-}
-async function askKsAnswer(port, token, query, opts = {}) {
-  const params = {};
-  if (opts.kbFolderIds !== void 0 && opts.kbFolderIds.length > 0) {
-    params.kb_folder_ids = [...opts.kbFolderIds];
-  }
-  if (opts.kbDocIds !== void 0 && opts.kbDocIds.length > 0) {
-    params.kb_doc_ids = [...opts.kbDocIds];
-  }
-  if (opts.topK !== void 0) params.top_k = opts.topK;
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/ks/answer`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-      accept: "application/json"
-    },
-    body: JSON.stringify({ query, params }),
-    signal: opts.signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) {
-    throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
-  }
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const d = dataOf(body);
-  return {
-    ...d,
-    tier: str(d.tier) ?? "reference",
-    evidence: Array.isArray(d.evidence) ? d.evidence.filter((x) => objOf(x) !== null) : [],
-    derivation: str(d.derivation) ?? "",
-    conclusion: str(d.conclusion) ?? "",
-    notes: Array.isArray(d.notes) ? d.notes.filter((x) => typeof x === "string") : [],
-    scope: normalizeAnswerScope(d.scope)
-  };
-}
-async function resolveKbScope(port, token, folderIds, signal) {
-  const d = await kbWrite(
-    `${String(port)}/api/v1/kb/scope/resolve`,
-    "POST",
-    token,
-    { folder_ids: [...folderIds] },
-    signal
-  );
-  const ids = (v) => Array.isArray(v) ? v.filter((x) => typeof x === "string") : [];
-  return {
-    folder_ids: ids(d.folder_ids),
-    doc_ids: ids(d.doc_ids),
-    folder_count: intOf(d.folder_count, ids(d.folder_ids).length),
-    doc_count: intOf(d.doc_count, ids(d.doc_ids).length),
-    roots: ids(d.roots)
-  };
-}
-async function startBulkIngest(port, token, srcDir, opts = {}) {
-  const res = await fetch(`http://127.0.0.1:${port}/api/v1/ingest/bulk`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
-    body: JSON.stringify({ src_dir: srcDir, reingest: opts.reingest === true }),
-    signal: opts.signal
-  });
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const data = dataOf(body);
-  const batchId = str(data.batch_id);
-  if (batchId === null) throw new Error("\u6279\u91CF\u5BFC\u5165\u54CD\u5E94\u91CC\u6CA1\u6709 batch_id");
-  return { batch_id: batchId, total: intOf(data.total, 0) };
-}
-async function resumeBulkIngest(port, token, batchId, signal) {
-  const res = await fetch(
-    `http://127.0.0.1:${port}/api/v1/ingest/bulk/${encodeURIComponent(batchId)}/resume`,
-    {
-      method: "POST",
-      headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json", accept: "application/json" },
-      body: "{}",
-      signal
-    }
-  );
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
-}
-async function fetchBulkIngest(port, token, batchId, signal) {
-  const res = await fetch(
-    `http://127.0.0.1:${port}/api/v1/ingest/bulk/${encodeURIComponent(batchId)}`,
-    {
-      method: "GET",
-      headers: { Authorization: `Bearer ${token}`, accept: "application/json" },
-      signal
-    }
-  );
-  if (res.status === 401) {
-    clearSession();
-    throw new EngineAuthError("\u5F15\u64CE\u6821\u9A8C\u5931\u8D25(401)\uFF0C\u4F1A\u8BDD\u5DF2\u8F6E\u6362\uFF0C\u8BF7\u91CD\u8BD5");
-  }
-  if (!res.ok) throw new Error(await engineErrorMessage(res, `\u5F15\u64CE\u8FD4\u56DE HTTP ${res.status}`));
-  let body = null;
-  try {
-    body = await res.json();
-  } catch {
-  }
-  const data = dataOf(body);
-  const sample = Array.isArray(data.filing_state_missing_sample) ? data.filing_state_missing_sample.filter((s) => typeof s === "string") : [];
-  return {
-    batch_id: str(data.batch_id) ?? batchId,
-    status: str(data.status) ?? "unknown",
-    total: intOf(data.total, 0),
-    scanned: intOf(data.scanned, 0),
-    parsed: intOf(data.parsed, 0),
-    pending: intOf(data.pending, 0),
-    errors: intOf(data.errors, 0),
-    pause_reason: str(data.pause_reason),
-    filing_state_missing: intOf(data.filing_state_missing, 0),
-    filing_state_missing_sample: sample,
-    reingest: data.reingest === true
-  };
-}
+init_api();
 
 // client/pdf-configure.ts
 var PDF_WORKER_PATH = "/ks/assets/pdf.worker.min.mjs";
@@ -29715,6 +29928,7 @@ var tocRestore = /* @__PURE__ */ new Map();
 
 // client/KsFilesTab.tsx
 var import_react = require("react");
+init_api();
 var import_jsx_runtime = require("react/jsx-runtime");
 function countDocs(node) {
   let n = node.docs.length;
@@ -30322,6 +30536,7 @@ var $docCheckOn = {
 
 // client/KsBookmarksTab.tsx
 var import_react2 = require("react");
+init_api();
 var import_jsx_runtime2 = require("react/jsx-runtime");
 function KsBookmarksView(props) {
   const { active, sessionId, onOpenEvidence } = props;
@@ -30838,6 +31053,7 @@ var $leaf2 = {
 
 // client/KsDocTextView.tsx
 var import_react3 = require("react");
+init_api();
 var import_jsx_runtime3 = require("react/jsx-runtime");
 var ALLOWED_TAGS = /* @__PURE__ */ new Set([
   "p",
@@ -34317,7 +34533,7 @@ function ksGuideEntryTitle() {
   return "\u77E5\u8BC6\u5E93";
 }
 function ksGuideEntryDescription() {
-  return "\u6CD5\u89C4\u6807\u51C6\u4E0E\u81EA\u6709\u8D44\u6599\uFF1A\u76EE\u5F55\u3001\u6807\u7B7E\u3001\u5BFC\u5165\u3001\u6548\u529B\u603B\u89C8";
+  return "\u6CD5\u89C4\u6807\u51C6\u4E0E\u81EA\u6709\u8D44\u6599\uFF1A\u76EE\u5F55\u3001\u6807\u7B7E\u3001\u5BFC\u5165\u3001\u6548\u529B";
 }
 function ksEvidenceDefinition() {
   return {
@@ -34442,12 +34658,14 @@ function KsKnowledgeGuide({ title, description, kind, useTabInfo }) {
 }
 
 // client/KsKnowledgePage.tsx
-var import_react12 = require("react");
+var import_react11 = require("react");
 var import_dsh_client_ui_primitives5 = require("@deepseek-ai/dsh-client-ui-primitives");
+init_api();
 
 // client/KsCapabilityPage.tsx
 var import_react6 = require("react");
 var import_dsh_client_ui_primitives2 = require("@deepseek-ai/dsh-client-ui-primitives");
+init_api();
 var import_jsx_runtime9 = require("react/jsx-runtime");
 var OFFICE_ITEMS = [
   { id: "gap", name: "\u5236\u5EA6\u5DEE\u8DDD\u5206\u6790", hint: "\u5185\u90E8\u5236\u5EA6\u6BD4\u6CD5\u89C4\u7F3A\u4EC0\u4E48", icon: import_dsh_client_ui_primitives2.IconPlanOutline14, status: "ready", verb: "\u4E0A\u4F20\u5236\u5EA6\u6BD4\u5BF9", pageDesc: "\u4E0A\u4F20\u5185\u90E8\u5236\u5EA6\uFF0C\u81EA\u52A8\u5BF9\u6BD4\u6CD5\u5B9A\u8981\u6C42\uFF0C\u9010\u6761\u5217\u51FA\u7F3A\u4EC0\u4E48\uFF0C\u51FA\u5DEE\u8DDD\u62A5\u544A\u3002" },
@@ -34841,9 +35059,11 @@ function KsListHead(props) {
 // client/KsChannelsPanel.tsx
 var import_react8 = require("react");
 var import_dsh_client_ui_primitives3 = require("@deepseek-ai/dsh-client-ui-primitives");
+init_api();
 
 // client/KsSettingsSection.tsx
 var import_react7 = require("react");
+init_api();
 var import_jsx_runtime11 = require("react/jsx-runtime");
 var SUMMARY_HINT = {
   marginLeft: 8,
@@ -36476,6 +36696,7 @@ var $btn2 = {
 // client/KsIngestPanel.tsx
 var import_react9 = require("react");
 var import_dsh_client_ui_primitives4 = require("@deepseek-ai/dsh-client-ui-primitives");
+init_api();
 var import_jsx_runtime13 = require("react/jsx-runtime");
 var VERDICT_META = {
   ok: { icon: "\u2705", label: "\u53EF\u5165\u5E93", tone: "ok" },
@@ -36953,6 +37174,7 @@ function KsIngestPanel(props) {
 
 // client/KsMaterialsPanel.tsx
 var import_react10 = require("react");
+init_api();
 var import_jsx_runtime14 = require("react/jsx-runtime");
 var GREEN = "var(--dsw-alias-state-success-primary)";
 var RED = "var(--dsw-alias-state-error-primary)";
@@ -38020,343 +38242,8 @@ function Deliverables(props) {
   ] });
 }
 
-// client/KsReportPanel.tsx
-var import_react11 = require("react");
-var import_jsx_runtime15 = require("react/jsx-runtime");
-var WINDOWS = [
-  { key: "all", label: "\u5168\u90E8" },
-  { key: "upcoming90", label: "\u5373\u5C06\u5B9E\u65BD 90 \u5929" },
-  { key: "recent90", label: "\u6700\u8FD1\u5B9E\u65BD 90 \u5929" },
-  { key: "retired90", label: "\u8FD1\u671F\u5E9F\u6B62 90 \u5929" }
-];
-var COLOR_DOT = {
-  red: "#c0392b",
-  yellow: "#b8860b",
-  green: "#2e7d32",
-  gray: "#888"
-};
-var STATUS_BADGE = {
-  effective: "\u73B0\u884C",
-  upcoming: "\u5373\u5C06\u5B9E\u65BD",
-  superseded: "\u88AB\u4EE3\u66FF",
-  withdrawn: "\u5DF2\u5E9F\u6B62"
-};
-function nodeKey(path, name) {
-  return [...path, name].join("");
-}
-function ColorDots({ colors, size = 11 }) {
-  const items = [
-    ["red", colors.red],
-    ["yellow", colors.yellow],
-    ["green", colors.green],
-    ["gray", colors.gray]
-  ];
-  return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { style: { display: "inline-flex", gap: 8, alignItems: "center" }, children: items.map(([c, n]) => n > 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { style: { display: "inline-flex", alignItems: "center", gap: 3, color: COLOR_DOT[c], fontSize: size }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { style: { width: size - 3, height: size - 3, borderRadius: "50%", background: COLOR_DOT[c], display: "inline-block" } }),
-    n
-  ] }, c) : null) });
-}
-function DocRow({ doc, onOpenDoc }) {
-  const color = COLOR_DOT[doc.color] ?? "#888";
-  const badge = STATUS_BADGE[doc.status ?? ""] ?? "\u72B6\u6001\u672A\u77E5";
-  const clickable = doc.doc_id !== null && doc.doc_id !== "";
-  return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
-    "div",
-    {
-      onClick: () => {
-        if (clickable && doc.doc_id) onOpenDoc(doc.doc_id);
-      },
-      style: {
-        display: "flex",
-        alignItems: "baseline",
-        gap: 8,
-        padding: "3px 0 3px 18px",
-        fontSize: 12,
-        cursor: clickable ? "pointer" : "default",
-        flexWrap: "wrap"
-      },
-      title: clickable ? "\u70B9\u51FB\u5728 PDF \u67E5\u770B\u5668\u6253\u5F00\u539F\u6587" : void 0,
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { style: { width: 9, height: 9, borderRadius: "50%", background: color, display: "inline-block", flexShrink: 0 } }),
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { style: { color: "var(--dsw-alias-label-primary, #111)", fontFamily: "monospace" }, children: doc.standard_no ?? "?" }),
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { style: { color: "var(--dsw-alias-label-primary, #111)" }, children: doc.standard_name }),
-        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { style: {
-          fontSize: 11,
-          color,
-          border: `1px solid ${color}55`,
-          borderRadius: 4,
-          padding: "0 6px",
-          lineHeight: "17px",
-          flexShrink: 0
-        }, children: badge }),
-        doc.status === "upcoming" && doc.effective_from ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
-          "\u5B9E\u65BD ",
-          doc.effective_from,
-          "\uFF08\u5F53\u524D\u4E0D\u53EF\u5F15\u7528\uFF09"
-        ] }) : null,
-        doc.status !== "upcoming" && doc.effective_from ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #888)" }, children: [
-          "\u5B9E\u65BD ",
-          doc.effective_from
-        ] }) : null,
-        doc.published_at ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #888)" }, children: [
-          "\u53D1\u5E03 ",
-          doc.published_at
-        ] }) : null,
-        doc.superseded_by ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
-          "\u88AB\u4EE3\u66FF\u4E3A ",
-          doc.superseded_by
-        ] }) : null,
-        doc.withdrawn_date ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { style: { color: "var(--dsw-alias-label-secondary, #666)" }, children: [
-          "\u5E9F\u6B62 ",
-          doc.withdrawn_date
-        ] }) : null
-      ]
-    }
-  );
-}
-function KsReportPanel(props) {
-  const { visible, openEvidence } = props;
-  const abortRef = (0, import_react11.useRef)(null);
-  const [win, setWin] = (0, import_react11.useState)("all");
-  const [colorFilter, setColorFilter] = (0, import_react11.useState)("");
-  const [report, setReport] = (0, import_react11.useState)(null);
-  const [loadState, setLoadState] = (0, import_react11.useState)({ status: "loading" });
-  const [expanded, setExpanded] = (0, import_react11.useState)({});
-  const [docsCache, setDocsCache] = (0, import_react11.useState)({});
-  const [exporting, setExporting] = (0, import_react11.useState)(false);
-  const [exportError, setExportError] = (0, import_react11.useState)(null);
-  const load = (0, import_react11.useCallback)(async (w, color) => {
-    abortRef.current?.abort();
-    const ac = new AbortController();
-    abortRef.current = ac;
-    setLoadState({ status: "loading" });
-    try {
-      const rep = await fetchEffectReport(w, ac.signal, color || void 0);
-      if (ac.signal.aborted) return;
-      setReport(rep);
-      setDocsCache({});
-      setLoadState({ status: "ready" });
-    } catch (err) {
-      if (ac.signal.aborted) return;
-      setLoadState({ status: "error", message: err instanceof Error ? err.message : String(err) });
-    }
-  }, []);
-  (0, import_react11.useEffect)(() => {
-    if (!visible) return;
-    void load(win, colorFilter);
-    return () => {
-      abortRef.current?.abort();
-    };
-  }, [visible, win, colorFilter, load]);
-  const onOpenDoc = (0, import_react11.useCallback)((docId) => {
-    if (openEvidence === void 0) return;
-    const url = evidenceUrlOf({ doc: docId });
-    if (url === null) return;
-    try {
-      openEvidence(url);
-    } catch {
-    }
-  }, [openEvidence]);
-  const toggle = (key) => {
-    setExpanded((prev) => {
-      const next = { ...prev, [key]: !(prev[key] === true) };
-      if (next[key] === false) {
-        const prefix = `${key}`;
-        for (const k of Object.keys(next)) {
-          if (k.startsWith(prefix)) delete next[k];
-        }
-      }
-      return next;
-    });
-  };
-  const onExport = async () => {
-    if (exporting) return;
-    setExporting(true);
-    setExportError(null);
-    try {
-      await exportEffectReport(win, void 0, colorFilter || void 0);
-    } catch (err) {
-      setExportError(err instanceof Error ? err.message : String(err));
-    } finally {
-      setExporting(false);
-    }
-  };
-  const useL4Docs = (params, cacheKey) => {
-    const [docs, setDocs] = (0, import_react11.useState)(void 0);
-    (0, import_react11.useEffect)(() => {
-      if (expanded[cacheKey] !== true || docsCache[cacheKey] !== void 0) return;
-      let alive = true;
-      void fetchEffectDocs({ top: params.topKey, l2: params.l2, l3: params.l3, l4: params.l4, window: win, color: colorFilter || void 0 }).then((d) => {
-        if (!alive) return;
-        setDocs(d.docs);
-        setDocsCache((prev) => ({ ...prev, [cacheKey]: d.docs }));
-      }).catch(() => {
-        if (alive) setDocs([]);
-      });
-      return () => {
-        alive = false;
-      };
-    }, [cacheKey, expanded[cacheKey], docsCache[cacheKey]]);
-    return docsCache[cacheKey] ?? docs;
-  };
-  const renderNode = (node, path, depth, topKey) => {
-    const key = nodeKey(path, node.name);
-    const isOpen = expanded[key] ?? depth === 0;
-    const isLeaf = node.count !== void 0;
-    const children = node.items ?? [];
-    const rootKey = topKey || node.top || "";
-    return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { style: { paddingLeft: depth === 0 ? 0 : 12 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
-        "div",
-        {
-          onClick: () => toggle(key),
-          style: {
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-            padding: "4px 0",
-            cursor: "pointer",
-            userSelect: "none",
-            flexWrap: "wrap"
-          },
-          children: [
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { style: { fontSize: 10, color: "var(--dsw-alias-label-secondary, #666)", width: 10 }, children: isOpen ? "\u25BE" : "\u25B8" }),
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { style: {
-              fontWeight: depth <= 1 ? 600 : 500,
-              color: "var(--dsw-alias-label-primary, #111)",
-              fontSize: depth <= 1 ? 13 : 12
-            }, children: node.name }),
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(ColorDots, { colors: node.colors })
-          ]
-        }
-      ),
-      isOpen && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { children: [
-        children.map((child) => renderNode(child, [...path, node.name], depth + 1, rootKey)),
-        isLeaf && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(L4Docs, { params: {
-          topKey: rootKey,
-          l2: path[1] ?? "",
-          l3: path[2] ?? "",
-          l4: node.name
-        }, cacheKey: key, useL4Docs, onOpenDoc })
-      ] })
-    ] }, key);
-  };
-  function L4Docs({ params, cacheKey, useL4Docs: useDocs, onOpenDoc: open }) {
-    const docs = useDocs(params, cacheKey);
-    if (docs === void 0) {
-      return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { style: { padding: "2px 0 2px 30px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #888)" }, children: "\u52A0\u8F7D\u4E2D\u2026" });
-    }
-    if (docs.length === 0) {
-      return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { style: { padding: "2px 0 2px 30px", fontSize: 12, color: "var(--dsw-alias-label-secondary, #888)" }, children: "\uFF08\u65E0\u6587\u6863\uFF09" });
-    }
-    return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { children: docs.map((d) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(DocRow, { doc: d, onOpenDoc: open }, d.doc_id ?? d.standard_no ?? Math.random())) });
-  }
-  return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { style: { padding: "4px 0 2px" }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }, children: [
-      report !== null && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { style: { fontSize: 12, color: "var(--dsw-alias-label-secondary, #666)" }, children: [
-        "\u5171 ",
-        report.total,
-        " \u90E8\uFF08\u6807\u51C6 ",
-        report.std.total,
-        " \xB7 \u6CD5\u89C4 ",
-        report.law.total,
-        "\uFF09\xB7 ",
-        fmtGenerated(report.generated_at)
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { style: { flex: 1 } }),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("button", { type: "button", onClick: () => void load(win, colorFilter), style: btnStyle3(false), children: "\u27F3 \u5237\u65B0" })
-    ] }),
-    report !== null && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { style: { display: "flex", alignItems: "center", gap: 12, margin: "8px 0", flexWrap: "wrap" }, children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(ColorDots, { colors: report.colors, size: 12 }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 6, margin: "4px 0 10px", flexWrap: "wrap" }, children: [
-      WINDOWS.map((w) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
-        "button",
-        {
-          type: "button",
-          onClick: () => setWin(w.key),
-          style: {
-            padding: "2px 10px",
-            borderRadius: 12,
-            fontSize: 12,
-            cursor: "pointer",
-            border: `1px solid ${win === w.key ? "#4a6da7" : "#c4c4c4"}`,
-            background: win === w.key ? "#4a6da7" : "#ffffff",
-            color: win === w.key ? "#ffffff" : "#333333"
-          },
-          children: w.label
-        },
-        w.key
-      )),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { style: { flex: 1 } }),
-      [
-        ["red", "\u{1F534} \u7EA2"],
-        ["yellow", "\u{1F7E1} \u9EC4"],
-        ["green", "\u{1F7E2} \u7EFF"],
-        ["gray", "\u26AA \u767D"]
-      ].map(([c, label]) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
-        "button",
-        {
-          type: "button",
-          onClick: () => setColorFilter(colorFilter === c ? "" : c),
-          title: colorFilter === c ? "\u53D6\u6D88\u8272\u8FC7\u6EE4" : `\u53EA\u770B${label.replace(/^\S+\s*/, "")}\u6E05\u5355`,
-          style: {
-            padding: "2px 10px",
-            borderRadius: 12,
-            fontSize: 12,
-            cursor: "pointer",
-            border: `1px solid ${colorFilter === c ? COLOR_DOT[c] : "#c4c4c4"}`,
-            background: colorFilter === c ? COLOR_DOT[c] : "#ffffff",
-            color: colorFilter === c ? "#ffffff" : "#333333"
-          },
-          children: label
-        },
-        c
-      )),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
-        "button",
-        {
-          type: "button",
-          onClick: () => void onExport(),
-          disabled: exporting || loadState.status !== "ready",
-          style: btnStyle3(exporting || loadState.status !== "ready"),
-          children: exporting ? "\u5BFC\u51FA\u4E2D\u2026" : "\u2B07 \u5BFC\u51FA Excel"
-        }
-      )
-    ] }),
-    exportError !== null && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 12, margin: "0 0 8px" }, children: exportError }),
-    loadState.status === "loading" && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { style: { color: "var(--dsw-alias-label-secondary, #666)", fontSize: 13 }, children: "\u6B63\u5728\u805A\u5408\u5E93\u5185\u6548\u529B\u72B6\u6001\u2026\uFF08\u9996\u6B21\u53EF\u80FD\u9700\u8981\u62C9\u8D77\u5F15\u64CE\uFF09" }),
-    loadState.status === "error" && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { role: "alert", style: { color: "#c0392b", fontSize: 13 }, children: loadState.message }),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("button", { type: "button", onClick: () => void load(win, colorFilter), style: btnStyle3(false), children: "\u91CD\u8BD5" })
-    ] }),
-    loadState.status === "ready" && report !== null && report.total === 0 && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { style: { color: "var(--dsw-alias-label-secondary, #666)", fontSize: 13 }, children: win === "all" ? "\u5E93\u5185\u6682\u65E0\u6587\u6863" : "\u8BE5\u65F6\u95F4\u7A97\u5185\u65E0\u6587\u6863\uFF08\u5BFC\u51FA Excel \u53EF\u67E5\u770B\u5168\u91CF\uFF09" }),
-    loadState.status === "ready" && report !== null && report.total > 0 && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { children: [
-      report.tree.map((t) => renderNode(t, [], 0, t.top ?? "")),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { style: { margin: "10px 0 0", fontSize: 11, color: "var(--dsw-alias-label-secondary, #888)" }, children: "\u53E3\u5F84\u6CE8\u811A\uFF1A\u72B6\u6001\u4EE5\u8BFB\u53D6\u65F6\u60F0\u6027\u7FFB\u8F6C\uFF08resolve_status\uFF09\u4E3A\u51C6\uFF1B\u26AA = \u5E93\u5185\u672A\u767B\u8BB0\u6548\u529B\u72B6\u6001 \uFF08\u4E0E\u5DE1\u68C0\u300C\u5B98\u65B9\u67E5\u65E0\u6B64\u53F7\u300D\u8BED\u4E49\u4E0D\u540C\uFF09\u3002\u9EC4\u884C\u5728\u5B9E\u65BD\u65E5\u524D\u4E0D\u53EF\u5F15\u7528\u3002" })
-    ] })
-  ] });
-}
-function btnStyle3(disabled) {
-  return {
-    padding: "3px 12px",
-    borderRadius: 6,
-    fontSize: 12,
-    border: `1px solid ${disabled ? "#c4c4c4" : "#7f7f7f"}`,
-    background: disabled ? "#e9e9e9" : "#ffffff",
-    color: disabled ? "#5a5a5a" : "#111111",
-    cursor: disabled ? "default" : "pointer"
-  };
-}
-function fmtGenerated(v) {
-  const norm = /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}$/.test(v) ? `${v.replace(" ", "T")}Z` : v;
-  const d = new Date(norm);
-  if (Number.isNaN(d.getTime())) return v;
-  const hh = String(d.getHours()).padStart(2, "0");
-  const mi = String(d.getMinutes()).padStart(2, "0");
-  return `\u751F\u6210\u4E8E ${hh}:${mi}`;
-}
-
 // client/KsKnowledgePage.tsx
-var import_jsx_runtime16 = require("react/jsx-runtime");
+var import_jsx_runtime15 = require("react/jsx-runtime");
 var KB_PAGE_SEARCH = true;
 var FILE_PAGE_SIZE = 50;
 var STATUS = {
@@ -38413,9 +38300,9 @@ var DIR_COLUMNS = [
   { key: "dmore", cls: "ks-col-dmore", head: "" }
 ];
 function Field({ label, value, mono = false }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-field", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-field-k", children: label }),
-    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: mono ? "ks-field-v ks-field-v-mono" : "ks-field-v", children: value === "" ? "\u2014" : value })
+  return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-field", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-field-k", children: label }),
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: mono ? "ks-field-v ks-field-v-mono" : "ks-field-v", children: value === "" ? "\u2014" : value })
   ] });
 }
 function errorText(error) {
@@ -38468,63 +38355,63 @@ function KsKnowledgePage({ useTabInfo }) {
   ensureKsStyles();
   const { tab } = useTabInfo();
   const page = tab.navigation.params?.page ?? "manage";
-  const [levelId, setLevelId] = (0, import_react12.useState)(null);
-  const [subs, setSubs] = (0, import_react12.useState)([]);
-  const [files, setFiles] = (0, import_react12.useState)([]);
-  const [filesTotal, setFilesTotal] = (0, import_react12.useState)(0);
-  const [fileOffset, setFileOffset] = (0, import_react12.useState)(0);
-  const [filesMore, setFilesMore] = (0, import_react12.useState)(false);
-  const [crumb, setCrumb] = (0, import_react12.useState)([]);
-  const [phase, setPhase] = (0, import_react12.useState)("loading");
-  const [errMsg, setErrMsg] = (0, import_react12.useState)("");
-  const [busy, setBusy] = (0, import_react12.useState)(false);
-  const [tree, setTree] = (0, import_react12.useState)({});
-  const treeRef = (0, import_react12.useRef)({});
-  const putTree = (0, import_react12.useCallback)((next) => {
+  const [levelId, setLevelId] = (0, import_react11.useState)(null);
+  const [subs, setSubs] = (0, import_react11.useState)([]);
+  const [files, setFiles] = (0, import_react11.useState)([]);
+  const [filesTotal, setFilesTotal] = (0, import_react11.useState)(0);
+  const [fileOffset, setFileOffset] = (0, import_react11.useState)(0);
+  const [filesMore, setFilesMore] = (0, import_react11.useState)(false);
+  const [crumb, setCrumb] = (0, import_react11.useState)([]);
+  const [phase, setPhase] = (0, import_react11.useState)("loading");
+  const [errMsg, setErrMsg] = (0, import_react11.useState)("");
+  const [busy, setBusy] = (0, import_react11.useState)(false);
+  const [tree, setTree] = (0, import_react11.useState)({});
+  const treeRef = (0, import_react11.useRef)({});
+  const putTree = (0, import_react11.useCallback)((next) => {
     treeRef.current = next;
     setTree(next);
   }, []);
-  const [treeOpen, setTreeOpen] = (0, import_react12.useState)(() => /* @__PURE__ */ new Set(["root"]));
-  const [search, setSearch] = (0, import_react12.useState)("");
-  const [openDoc, setOpenDoc] = (0, import_react12.useState)(null);
-  const [menuFor, setMenuFor] = (0, import_react12.useState)(null);
-  const [layer, setLayer] = (0, import_react12.useState)(page === "ingest" ? "inbox" : "folder");
-  const [inbox, setInbox] = (0, import_react12.useState)([]);
-  const [inboxTotal, setInboxTotal] = (0, import_react12.useState)(0);
-  const [inboxKnown, setInboxKnown] = (0, import_react12.useState)(false);
-  const [inboxOffset, setInboxOffset] = (0, import_react12.useState)(0);
-  const [inboxMore, setInboxMore] = (0, import_react12.useState)(false);
-  const [picked, setPicked] = (0, import_react12.useState)(() => /* @__PURE__ */ new Set());
-  const [action, setAction] = (0, import_react12.useState)(null);
-  const [delPreview, setDelPreview] = (0, import_react12.useState)(null);
-  const [upPreview, setUpPreview] = (0, import_react12.useState)(false);
-  const [pickFolder, setPickFolder] = (0, import_react12.useState)("");
-  const [pickQuery, setPickQuery] = (0, import_react12.useState)("");
-  const [newName, setNewName] = (0, import_react12.useState)("");
-  const [actMsg, setActMsg] = (0, import_react12.useState)("");
-  const [flatFolders, setFlatFolders] = (0, import_react12.useState)([]);
-  const [stageLabels, setStageLabels] = (0, import_react12.useState)(STAGE_LABELS);
-  const [reingesting, setReingesting] = (0, import_react12.useState)(false);
-  const [ccsMissing, setCcsMissing] = (0, import_react12.useState)(null);
-  const [ccsStatus, setCcsStatus] = (0, import_react12.useState)(null);
-  const [ccsRunning, setCcsRunning] = (0, import_react12.useState)(false);
-  const [askScope, setAskScope] = (0, import_react12.useState)(null);
-  const [askOpen, setAskOpen] = (0, import_react12.useState)(false);
-  const [askQ, setAskQ] = (0, import_react12.useState)("");
-  const [askPhase, setAskPhase] = (0, import_react12.useState)("idle");
-  const [askMsg, setAskMsg] = (0, import_react12.useState)("");
-  const [askRes, setAskRes] = (0, import_react12.useState)(null);
-  const [askCounts, setAskCounts] = (0, import_react12.useState)(null);
-  const [askCountErr, setAskCountErr] = (0, import_react12.useState)("");
-  const [upOpen, setUpOpen] = (0, import_react12.useState)(false);
-  const [upDir, setUpDir] = (0, import_react12.useState)("");
-  const [upPhase, setUpPhase] = (0, import_react12.useState)("idle");
-  const [upMsg, setUpMsg] = (0, import_react12.useState)("");
-  const [upCheck, setUpCheck] = (0, import_react12.useState)("");
-  const [upReingest, setUpReingest] = (0, import_react12.useState)(false);
-  const abortRef = (0, import_react12.useRef)(null);
-  const askSeqRef = (0, import_react12.useRef)(0);
-  const withSession = (0, import_react12.useCallback)(async (fn, signal) => {
+  const [treeOpen, setTreeOpen] = (0, import_react11.useState)(() => /* @__PURE__ */ new Set(["root"]));
+  const [search, setSearch] = (0, import_react11.useState)("");
+  const [openDoc, setOpenDoc] = (0, import_react11.useState)(null);
+  const [menuFor, setMenuFor] = (0, import_react11.useState)(null);
+  const [layer, setLayer] = (0, import_react11.useState)(page === "ingest" ? "inbox" : "folder");
+  const [inbox, setInbox] = (0, import_react11.useState)([]);
+  const [inboxTotal, setInboxTotal] = (0, import_react11.useState)(0);
+  const [inboxKnown, setInboxKnown] = (0, import_react11.useState)(false);
+  const [inboxOffset, setInboxOffset] = (0, import_react11.useState)(0);
+  const [inboxMore, setInboxMore] = (0, import_react11.useState)(false);
+  const [picked, setPicked] = (0, import_react11.useState)(() => /* @__PURE__ */ new Set());
+  const [action, setAction] = (0, import_react11.useState)(null);
+  const [delPreview, setDelPreview] = (0, import_react11.useState)(null);
+  const [upPreview, setUpPreview] = (0, import_react11.useState)(false);
+  const [pickFolder, setPickFolder] = (0, import_react11.useState)("");
+  const [pickQuery, setPickQuery] = (0, import_react11.useState)("");
+  const [newName, setNewName] = (0, import_react11.useState)("");
+  const [actMsg, setActMsg] = (0, import_react11.useState)("");
+  const [flatFolders, setFlatFolders] = (0, import_react11.useState)([]);
+  const [stageLabels, setStageLabels] = (0, import_react11.useState)(STAGE_LABELS);
+  const [reingesting, setReingesting] = (0, import_react11.useState)(false);
+  const [ccsMissing, setCcsMissing] = (0, import_react11.useState)(null);
+  const [ccsStatus, setCcsStatus] = (0, import_react11.useState)(null);
+  const [ccsRunning, setCcsRunning] = (0, import_react11.useState)(false);
+  const [askScope, setAskScope] = (0, import_react11.useState)(null);
+  const [askOpen, setAskOpen] = (0, import_react11.useState)(false);
+  const [askQ, setAskQ] = (0, import_react11.useState)("");
+  const [askPhase, setAskPhase] = (0, import_react11.useState)("idle");
+  const [askMsg, setAskMsg] = (0, import_react11.useState)("");
+  const [askRes, setAskRes] = (0, import_react11.useState)(null);
+  const [askCounts, setAskCounts] = (0, import_react11.useState)(null);
+  const [askCountErr, setAskCountErr] = (0, import_react11.useState)("");
+  const [upOpen, setUpOpen] = (0, import_react11.useState)(false);
+  const [upDir, setUpDir] = (0, import_react11.useState)("");
+  const [upPhase, setUpPhase] = (0, import_react11.useState)("idle");
+  const [upMsg, setUpMsg] = (0, import_react11.useState)("");
+  const [upCheck, setUpCheck] = (0, import_react11.useState)("");
+  const [upReingest, setUpReingest] = (0, import_react11.useState)(false);
+  const abortRef = (0, import_react11.useRef)(null);
+  const askSeqRef = (0, import_react11.useRef)(0);
+  const withSession = (0, import_react11.useCallback)(async (fn, signal) => {
     let session = await fetchSession(signal);
     try {
       return await fn(session.engine.port, session.token);
@@ -38536,7 +38423,7 @@ function KsKnowledgePage({ useTabInfo }) {
       throw error;
     }
   }, []);
-  const loadLevel = (0, import_react12.useCallback)(async (id, offset, opts = {}) => {
+  const loadLevel = (0, import_react11.useCallback)(async (id, offset, opts = {}) => {
     abortRef.current?.abort();
     const ctrl = new AbortController();
     abortRef.current = ctrl;
@@ -38584,7 +38471,7 @@ function KsKnowledgePage({ useTabInfo }) {
   }, [withSession]);
   const currentFolder = levelId === null ? null : crumb.find((f) => f.folder_id === levelId) ?? null;
   const levelName = currentFolder?.name ?? "\u77E5\u8BC6\u5E93";
-  const toggleTree = (0, import_react12.useCallback)(async (key) => {
+  const toggleTree = (0, import_react11.useCallback)(async (key) => {
     if (treeOpen.has(key)) {
       setTreeOpen((prev) => {
         const next = new Set(prev);
@@ -38604,7 +38491,7 @@ function KsKnowledgePage({ useTabInfo }) {
       putTree({ ...treeRef.current, [key]: { loading: false, error: errorText(error) } });
     }
   }, [putTree, treeOpen, withSession]);
-  const goto = (0, import_react12.useCallback)((id) => {
+  const goto = (0, import_react11.useCallback)((id) => {
     setLayer("folder");
     setLevelId(id);
     setOpenDoc(null);
@@ -38613,7 +38500,7 @@ function KsKnowledgePage({ useTabInfo }) {
     setPicked(/* @__PURE__ */ new Set());
     void loadLevel(id, 0);
   }, [loadLevel]);
-  const goUp = (0, import_react12.useCallback)(() => {
+  const goUp = (0, import_react11.useCallback)(() => {
     if (layer === "inbox") {
       goto(null);
       return;
@@ -38622,11 +38509,11 @@ function KsKnowledgePage({ useTabInfo }) {
     const parent = crumb.length >= 2 ? crumb[crumb.length - 2] : null;
     goto(parent === null ? null : parent.folder_id);
   }, [crumb, goto, layer, levelId]);
-  const goPage = (0, import_react12.useCallback)((offset) => {
+  const goPage = (0, import_react11.useCallback)((offset) => {
     if (offset < 0) return;
     void loadLevel(levelId, offset, { silent: true });
   }, [levelId, loadLevel]);
-  const loadInbox = (0, import_react12.useCallback)(async (offset, opts = {}) => {
+  const loadInbox = (0, import_react11.useCallback)(async (offset, opts = {}) => {
     abortRef.current?.abort();
     const ctrl = new AbortController();
     abortRef.current = ctrl;
@@ -38666,7 +38553,7 @@ function KsKnowledgePage({ useTabInfo }) {
       if (!ctrl.signal.aborted) setBusy(false);
     }
   }, [withSession]);
-  const refreshInboxBadge = (0, import_react12.useCallback)(async () => {
+  const refreshInboxBadge = (0, import_react11.useCallback)(async () => {
     try {
       const page2 = await withSession((port, token) => fetchKbInbox(port, token, { limit: 1 }));
       setInboxTotal(page2.total);
@@ -38674,7 +38561,7 @@ function KsKnowledgePage({ useTabInfo }) {
     } catch {
     }
   }, [withSession]);
-  const gotoInbox = (0, import_react12.useCallback)(() => {
+  const gotoInbox = (0, import_react11.useCallback)(() => {
     setLayer("inbox");
     setOpenDoc(null);
     setMenuFor(null);
@@ -38683,7 +38570,7 @@ function KsKnowledgePage({ useTabInfo }) {
     setPicked(/* @__PURE__ */ new Set());
     void loadInbox(0);
   }, [loadInbox]);
-  (0, import_react12.useEffect)(() => {
+  (0, import_react11.useEffect)(() => {
     if (page === "ingest") {
       void loadInbox(0);
       return () => {
@@ -38696,7 +38583,7 @@ function KsKnowledgePage({ useTabInfo }) {
       abortRef.current?.abort();
     };
   }, [loadInbox, loadLevel, page, refreshInboxBadge]);
-  const ensureFlatFolders = (0, import_react12.useCallback)(async () => {
+  const ensureFlatFolders = (0, import_react11.useCallback)(async () => {
     if (flatFolders.length > 0) return;
     try {
       const rows = await withSession((port, token) => fetchKbFoldersFlat(port, token));
@@ -38705,7 +38592,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setActMsg(`\u8BFB\u4E0D\u5230\u76EE\u5F55\u6E05\u5355\uFF1A${errorText(error)}`);
     }
   }, [flatFolders.length, withSession]);
-  const loadAskCounts = (0, import_react12.useCallback)(async (scope) => {
+  const loadAskCounts = (0, import_react11.useCallback)(async (scope) => {
     askSeqRef.current += 1;
     const seq = askSeqRef.current;
     setAskCounts(null);
@@ -38720,7 +38607,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setAskCountErr(errorText(error));
     }
   }, [withSession]);
-  const folderRowsForAsk = (0, import_react12.useMemo)(() => {
+  const folderRowsForAsk = (0, import_react11.useMemo)(() => {
     const rows = [];
     const seen = /* @__PURE__ */ new Set();
     const push = (id, name, parentId, path) => {
@@ -38737,7 +38624,7 @@ function KsKnowledgePage({ useTabInfo }) {
     }
     return rows;
   }, [crumb, levelId, subs]);
-  const openAsk = (0, import_react12.useCallback)((keys) => {
+  const openAsk = (0, import_react11.useCallback)((keys) => {
     const scope = askScopeOf(keys, folderRowsForAsk);
     if (scope === null) return;
     askSeqRef.current += 1;
@@ -38748,7 +38635,7 @@ function KsKnowledgePage({ useTabInfo }) {
     setAskPhase("idle");
     void loadAskCounts(scope);
   }, [folderRowsForAsk, loadAskCounts]);
-  const clearAsk = (0, import_react12.useCallback)(() => {
+  const clearAsk = (0, import_react11.useCallback)(() => {
     askSeqRef.current += 1;
     setAskScope(null);
     setAskOpen(false);
@@ -38758,17 +38645,17 @@ function KsKnowledgePage({ useTabInfo }) {
     setAskCounts(null);
     setAskCountErr("");
   }, []);
-  const askHereKeys = (0, import_react12.useMemo)(() => {
+  const askHereKeys = (0, import_react11.useMemo)(() => {
     if (picked.size > 0) return [...picked];
     if (layer === "folder" && levelId !== null) return [pickDirKey(levelId)];
     return [];
   }, [layer, levelId, picked]);
-  const askHereScope = (0, import_react12.useMemo)(
+  const askHereScope = (0, import_react11.useMemo)(
     () => askScopeOf(askHereKeys, folderRowsForAsk),
     [askHereKeys, folderRowsForAsk]
   );
   const askHereWhy = askHereScope !== null ? "" : layer === "inbox" ? "\u300C\u5F85\u5206\u7C7B\u300D\u4E0D\u662F\u76EE\u5F55\uFF1A\u5148\u52FE\u9009\u8981\u95EE\u7684\u90A3\u51E0\u7BC7\uFF08\u53EF\u591A\u9009\uFF09\uFF0C\u518D\u70B9\u8FD9\u91CC" : "\u4F60\u5728\u6700\u5916\u5C42 \u2014\u2014 \u6700\u5916\u5C42\u5C31\u662F\u6574\u4E2A\u77E5\u8BC6\u5E93\uFF0C\u6CA1\u6709\u8303\u56F4\u53EF\u8A00\uFF1A\u8FDB\u5230\u67D0\u4E2A\u76EE\u5F55\u91CC\u518D\u95EE\uFF0C\u6216\u5148\u52FE\u9009\u51E0\u4E2A\u76EE\u5F55\uFF08\u591A\u9009=\u5E76\u96C6\uFF09";
-  const runAsk = (0, import_react12.useCallback)(async () => {
+  const runAsk = (0, import_react11.useCallback)(async () => {
     const text = askQ.trim();
     if (text === "" || askScope === null) return;
     askSeqRef.current += 1;
@@ -38790,8 +38677,8 @@ function KsKnowledgePage({ useTabInfo }) {
       setAskMsg(errorText(error));
     }
   }, [askQ, askScope, withSession]);
-  const askEntry = /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(import_jsx_runtime16.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+  const askEntry = /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
       import_dsh_client_ui_primitives5.Button,
       {
         variant: "outline",
@@ -38804,16 +38691,16 @@ function KsKnowledgePage({ useTabInfo }) {
           void openAsk(askHereKeys);
         },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconQuestionOutline14, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconQuestionOutline14, {}),
           "\u5728\u6B64\u8303\u56F4\u5185\u63D0\u95EE"
         ]
       }
     ),
-    askScope === null ? null : /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-ask-chip", "data-ks-ask-chip": "on", title: askWhereText(askScope), children: [
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-ask-chip-tag", children: "\u8303\u56F4" }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-ask-chip-name", children: askScope.label }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-ask-chip-n", children: askCountErr !== "" ? `\u6570\u4E0D\u51FA\u6765\uFF1A${askCountErr}` : askCounts === null ? "\u6B63\u5728\u6570\u2026" : `${String(askCounts.folder_count)} \u4E2A\u76EE\u5F55 \xB7 ${String(askCounts.doc_count)} \u7BC7` }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+    askScope === null ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-ask-chip", "data-ks-ask-chip": "on", title: askWhereText(askScope), children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-ask-chip-tag", children: "\u8303\u56F4" }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-ask-chip-name", children: askScope.label }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-ask-chip-n", children: askCountErr !== "" ? `\u6570\u4E0D\u51FA\u6765\uFF1A${askCountErr}` : askCounts === null ? "\u6B63\u5728\u6570\u2026" : `${String(askCounts.folder_count)} \u4E2A\u76EE\u5F55 \xB7 ${String(askCounts.doc_count)} \u7BC7` }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
         "button",
         {
           type: "button",
@@ -38821,12 +38708,12 @@ function KsKnowledgePage({ useTabInfo }) {
           "aria-label": "\u6E05\u6389\u8303\u56F4",
           title: "\u6E05\u6389\u8303\u56F4\uFF08\u8FDE\u63D0\u95EE\u9762\u677F\u4E00\u8D77\u6536\u8D77\uFF1B\u6E05\u6389\u4E4B\u540E\u8FD9\u4E00\u9875\u4E0D\u4F1A\u505A\u300C\u4E0D\u9650\u5B9A\u8303\u56F4\u300D\u7684\u63D0\u95EE\uFF09",
           onClick: clearAsk,
-          children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconCloseOutline16, {})
+          children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconCloseOutline16, {})
         }
       )
     ] })
   ] });
-  const togglePick = (0, import_react12.useCallback)((key, next) => {
+  const togglePick = (0, import_react11.useCallback)((key, next) => {
     setActMsg("");
     setPicked((prev) => {
       const out = new Set(prev);
@@ -38835,7 +38722,7 @@ function KsKnowledgePage({ useTabInfo }) {
       return out;
     });
   }, []);
-  const openAction = (0, import_react12.useCallback)((kind, targets) => {
+  const openAction = (0, import_react11.useCallback)((kind, targets) => {
     if (kind !== "mkdir" && targets.length === 0) return;
     setActMsg("");
     setAction({ kind, targets });
@@ -38874,7 +38761,7 @@ function KsKnowledgePage({ useTabInfo }) {
       })();
     }
   }, [ensureFlatFolders, inbox, subs, withSession]);
-  const placeInto = (0, import_react12.useCallback)(async (targets, folderId) => {
+  const placeInto = (0, import_react11.useCallback)(async (targets, folderId) => {
     if (folderId === "") {
       setActMsg("\u5148\u9009\u4E00\u4E2A\u76EE\u5F55");
       return;
@@ -38901,7 +38788,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [flatFolders, inboxOffset, loadInbox, withSession]);
-  const placeIntoNew = (0, import_react12.useCallback)(async (targets, parentId, name) => {
+  const placeIntoNew = (0, import_react11.useCallback)(async (targets, parentId, name) => {
     const clean = name.trim();
     if (parentId === "" || clean === "") {
       setActMsg("\u7236\u76EE\u5F55\u4E0E\u65B0\u76EE\u5F55\u540D\u90FD\u8981\u586B");
@@ -38931,7 +38818,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [flatFolders, inboxOffset, loadInbox, withSession]);
-  const acceptSuggestions = (0, import_react12.useCallback)(async (targets) => {
+  const acceptSuggestions = (0, import_react11.useCallback)(async (targets) => {
     const ok = targets.filter((docId) => (inbox.find((r) => r.doc_id === docId)?.suggested_folder_id ?? null) !== null);
     const skipped = targets.length - ok.length;
     if (ok.length === 0) {
@@ -38955,7 +38842,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [inbox, inboxOffset, loadInbox, withSession]);
-  const runReingest = (0, import_react12.useCallback)(async (targets) => {
+  const runReingest = (0, import_react11.useCallback)(async (targets) => {
     setBusy(true);
     try {
       const res = await withSession((port, token) => reingestKbDocs(port, token, targets));
@@ -38970,7 +38857,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [inboxOffset, loadInbox, withSession]);
-  const removeDocs = (0, import_react12.useCallback)(async (targets) => {
+  const removeDocs = (0, import_react11.useCallback)(async (targets) => {
     setBusy(true);
     try {
       await withSession((port, token) => batchDeleteDocs(port, [...targets], token));
@@ -38984,7 +38871,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [inboxOffset, loadInbox, withSession]);
-  const runOps = (0, import_react12.useCallback)(async (jobs) => {
+  const runOps = (0, import_react11.useCallback)(async (jobs) => {
     const failed = [];
     let done = 0;
     for (const job of jobs) {
@@ -38996,14 +38883,14 @@ function KsKnowledgePage({ useTabInfo }) {
     }
     return { done, failed };
   }, []);
-  const afterAction = (0, import_react12.useCallback)(async () => {
+  const afterAction = (0, import_react11.useCallback)(async () => {
     setAction(null);
     setDelPreview(null);
     setPicked(/* @__PURE__ */ new Set());
     if (layer === "inbox") await loadInbox(inboxOffset, { silent: true });
     else await loadLevel(levelId, fileOffset, { silent: true });
   }, [fileOffset, inboxOffset, layer, levelId, loadInbox, loadLevel]);
-  const runMkdir = (0, import_react12.useCallback)(async (name) => {
+  const runMkdir = (0, import_react11.useCallback)(async (name) => {
     const clean = name.trim();
     if (clean === "") {
       setActMsg("\u5148\u7ED9\u65B0\u76EE\u5F55\u8D77\u4E2A\u540D\u5B57");
@@ -39020,7 +38907,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [afterAction, levelId, levelName, withSession]);
-  const runRename = (0, import_react12.useCallback)(async (folderId, name) => {
+  const runRename = (0, import_react11.useCallback)(async (folderId, name) => {
     const clean = name.trim();
     if (folderId === "" || clean === "") {
       setActMsg("\u76EE\u5F55\u540D\u4E0D\u80FD\u7A7A");
@@ -39037,7 +38924,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [afterAction, withSession]);
-  const runMove = (0, import_react12.useCallback)(async (targets, destId) => {
+  const runMove = (0, import_react11.useCallback)(async (targets, destId) => {
     if (destId === "") {
       setActMsg("\u5148\u9009\u4E00\u4E2A\u53BB\u5904");
       return;
@@ -39077,7 +38964,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [afterAction, flatFolders, levelId, runOps, subs, withSession]);
-  const runCopy = (0, import_react12.useCallback)(async (targets, destId) => {
+  const runCopy = (0, import_react11.useCallback)(async (targets, destId) => {
     if (destId === "") {
       setActMsg("\u5148\u9009\u4E00\u4E2A\u53BB\u5904");
       return;
@@ -39116,7 +39003,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [afterAction, flatFolders, runOps, subs, withSession]);
-  const runAdd = (0, import_react12.useCallback)(async (targets, destId) => {
+  const runAdd = (0, import_react11.useCallback)(async (targets, destId) => {
     if (destId === "") {
       setActMsg("\u5148\u9009\u4E00\u4E2A\u53BB\u5904");
       return;
@@ -39142,7 +39029,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [afterAction, flatFolders, withSession]);
-  const runRemove = (0, import_react12.useCallback)(async (targets) => {
+  const runRemove = (0, import_react11.useCallback)(async (targets) => {
     if (levelId === null) {
       setActMsg("\u6700\u5916\u5C42\u7684\u6587\u4EF6\u4E0D\u5C5E\u4E8E\u4EFB\u4F55\u76EE\u5F55\uFF0C\u300C\u79FB\u51FA\u300D\u5728\u8FD9\u91CC\u6CA1\u6709\u5BF9\u8C61\u3002");
       return;
@@ -39168,7 +39055,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [afterAction, levelId, levelName, withSession]);
-  const runFolderDelete = (0, import_react12.useCallback)(async (mode) => {
+  const runFolderDelete = (0, import_react11.useCallback)(async (mode) => {
     const ids = folderIdsOf(action?.targets ?? []);
     const preview = delPreview ?? [];
     if (ids.length === 0) {
@@ -39200,7 +39087,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [action, afterAction, delPreview, runOps, withSession]);
-  (0, import_react12.useEffect)(() => {
+  (0, import_react11.useEffect)(() => {
     if (!reingesting) return void 0;
     let stopped = false;
     const timer = setInterval(() => {
@@ -39229,7 +39116,7 @@ function KsKnowledgePage({ useTabInfo }) {
       clearInterval(timer);
     };
   }, [inboxOffset, loadInbox, reingesting, withSession]);
-  const loadCcsSummary = (0, import_react12.useCallback)(async () => {
+  const loadCcsSummary = (0, import_react11.useCallback)(async () => {
     try {
       const s = await withSession((port, token) => fetchKbCcsSummary(port, token));
       setCcsMissing(s.missing);
@@ -39238,7 +39125,7 @@ function KsKnowledgePage({ useTabInfo }) {
     } catch {
     }
   }, [withSession]);
-  const runCcsBackfill = (0, import_react12.useCallback)(async () => {
+  const runCcsBackfill = (0, import_react11.useCallback)(async () => {
     setBusy(true);
     try {
       const res = await withSession((port, token) => startKbCcsBackfill(port, token, {}));
@@ -39255,7 +39142,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [loadCcsSummary, withSession]);
-  const stopCcsBackfill = (0, import_react12.useCallback)(async () => {
+  const stopCcsBackfill = (0, import_react11.useCallback)(async () => {
     try {
       const r = await withSession((port, token) => cancelKbCcsBackfill(port, token));
       setActMsg(r.running ? `\u5DF2\u8BF7\u6C42\u505C\u6B62\uFF1A\u8DD1\u5B8C\u5F53\u524D\u8FD9\u4E00\u7BC7\u5C31\u505C\uFF08\u5DF2\u5B8C\u6210 ${String(r.done)} / ${String(r.total)} \u7BC7\uFF09\u3002` : "\u8FD9\u4E00\u6279\u5DF2\u7ECF\u8DD1\u5B8C\u4E86\uFF0C\u6CA1\u4EC0\u4E48\u53EF\u505C\u7684\u3002");
@@ -39263,7 +39150,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setActMsg(`\u6CA1\u80FD\u8BF7\u6C42\u505C\u6B62\uFF1A${errorText(error)}`);
     }
   }, [withSession]);
-  (0, import_react12.useEffect)(() => {
+  (0, import_react11.useEffect)(() => {
     if (!ccsRunning) return void 0;
     let stopped = false;
     const timer = setInterval(() => {
@@ -39295,17 +39182,17 @@ function KsKnowledgePage({ useTabInfo }) {
       clearInterval(timer);
     };
   }, [ccsRunning, inboxOffset, loadCcsSummary, loadInbox, withSession]);
-  (0, import_react12.useEffect)(() => {
+  (0, import_react11.useEffect)(() => {
     void (async () => {
       await loadCcsSummary();
     })();
   }, [loadCcsSummary]);
   const needle = search.trim().toLowerCase();
-  const dirsShown = (0, import_react12.useMemo)(
+  const dirsShown = (0, import_react11.useMemo)(
     () => needle === "" ? subs : subs.filter((f) => f.name.toLowerCase().includes(needle)),
     [subs, needle]
   );
-  const filesShown = (0, import_react12.useMemo)(() => {
+  const filesShown = (0, import_react11.useMemo)(() => {
     if (needle === "") return files;
     return files.filter((f) => (f.standard_no ?? "").toLowerCase().includes(needle) || (f.standard_name ?? "").toLowerCase().includes(needle));
   }, [files, needle]);
@@ -39320,7 +39207,7 @@ function KsKnowledgePage({ useTabInfo }) {
     if (target.closest("button,a,[role=menuitem],[role=menu]") !== null) return;
     setOpenDoc((prev) => prev === doc.doc_id ? null : doc.doc_id);
   };
-  const openUpload = (0, import_react12.useCallback)(async () => {
+  const openUpload = (0, import_react11.useCallback)(async () => {
     const next = !upOpen;
     setUpOpen(next);
     if (!next || upDir !== "") return;
@@ -39331,7 +39218,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setUpMsg(`\u53D6\u4E0D\u5230\u9ED8\u8BA4\u7684\u300C\u5F85\u5165\u5E93\u300D\u76EE\u5F55\uFF1A${errorText(error)}\uFF08\u53EF\u4EE5\u624B\u586B\u4E00\u4E2A\u7EDD\u5BF9\u8DEF\u5F84\uFF09`);
     }
   }, [upDir, upOpen]);
-  const runUpload = (0, import_react12.useCallback)(async () => {
+  const runUpload = (0, import_react11.useCallback)(async () => {
     const dir = upDir.trim();
     if (dir === "" || upPhase === "running") return;
     setUpPhase("running");
@@ -39429,7 +39316,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setUpMsg(`\u5BFC\u5165\u5931\u8D25\uFF1A${errorText(error)}`);
     }
   }, [layer, levelId, levelName, loadLevel, upDir, upPhase, upReingest, withSession]);
-  const runCheck = (0, import_react12.useCallback)(async () => {
+  const runCheck = (0, import_react11.useCallback)(async () => {
     const dir = upDir.trim();
     if (dir === "") {
       setUpCheck("\u5148\u586B\u4E00\u4E2A\u6765\u6E90\u76EE\u5F55");
@@ -39445,40 +39332,26 @@ function KsKnowledgePage({ useTabInfo }) {
     }
   }, [upDir]);
   if (page === "capabilities") {
-    return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(KsCapabilityPage, {});
-  }
-  if (page === "report") {
-    return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-kb", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("header", { className: "ks-page-head", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-page-title", children: "\u6548\u529B\u603B\u89C8" }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-page-sub", children: "\u5E93\u5185\u6807\u51C6/\u6CD5\u89C4\u7684\u56DB\u8272\u6548\u529B\u73B0\u72B6\uFF08\u73B0\u884C / \u5E9F\u6B62 / \u5373\u5C06\u5B9E\u65BD / \u672A\u77E5\uFF09\uFF0C\u53EF\u5BFC\u51FA\u3002" })
-      ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-page-rule" }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(KsReportPanel, { visible: true, openEvidence: (url) => {
-        const a = document.createElement("a");
-        a.href = url;
-        a.click();
-      } })
-    ] }) });
+    return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsCapabilityPage, {});
   }
   if (page === "materials") {
-    return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-kb", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("header", { className: "ks-page-head", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-page-title", children: "\u5907\u6599" }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-page-sub", children: "\u4E0A\u4F20\u7684\u8D22\u62A5/\u5236\u5EA6/\u6587\u7AE0\u9010\u4EFD\u5C31\u4F4D\uFF1B\u4EBA\u5DE5\u4E0A\u4F20\u514D\u8BC4\u5BA1\uFF0C\u81EA\u91C7\u7684\u8981\u4EBA\u6279\u3002" })
+    return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("header", { className: "ks-page-head", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-title", children: "\u5907\u6599" }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-sub", children: "\u4E0A\u4F20\u7684\u8D22\u62A5/\u5236\u5EA6/\u6587\u7AE0\u9010\u4EFD\u5C31\u4F4D\uFF1B\u4EBA\u5DE5\u4E0A\u4F20\u514D\u8BC4\u5BA1\uFF0C\u81EA\u91C7\u7684\u8981\u4EBA\u6279\u3002" })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-page-rule" }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(KsMaterialsPanel, { visible: true })
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-rule" }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsMaterialsPanel, { visible: true })
     ] }) });
   }
   if (page === "channels") {
-    return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-kb", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("header", { className: "ks-page-head", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-page-title", children: "\u6E20\u9053\u53F0\u8D26" }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-page-sub", children: "\u77E5\u8BC6\u6765\u6E90\u6E20\u9053\u7684\u7BA1\u7406\u5E93\uFF1A\u5206\u7C7B\u3001\u4F53\u68C0\u3001\u7EF4\u62A4\u3002\u9876\u90E8\u5E38\u9A7B\u6700\u65B0\u52A8\u6001\u3002" })
+    return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("header", { className: "ks-page-head", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-title", children: "\u6E20\u9053\u53F0\u8D26" }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-sub", children: "\u77E5\u8BC6\u6765\u6E90\u6E20\u9053\u7684\u7BA1\u7406\u5E93\uFF1A\u5206\u7C7B\u3001\u4F53\u68C0\u3001\u7EF4\u62A4\u3002\u9876\u90E8\u5E38\u9A7B\u6700\u65B0\u52A8\u6001\u3002" })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-page-rule" }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(KsChannelsPanel, { visible: true })
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-rule" }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsChannelsPanel, { visible: true })
     ] }) });
   }
   if (page !== "manage" && page !== "ingest") {
@@ -39486,30 +39359,30 @@ function KsKnowledgePage({ useTabInfo }) {
     return (
       // ⚠ 外面这一层 `.ks-page` **只做 container-type**（页面留边的宽/窄两档靠它切；
       //    CSS 里容器不能用自己的宽度查自己，所以留边必须落在它的后代 `.ks-kb` 上）。
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-kb", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-kb-banner", title: "\u672C\u9875\u53EA\u843D\u4E86\u5165\u53E3\u4E0E\u5916\u58F3\uFF0C\u5185\u5BB9\u8FD8\u6CA1\u6709\u3002", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconInfoOutline14, {}),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("strong", { children: "\u8FD9\u4E00\u9875\u5C1A\u672A\u5B9E\u73B0" })
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb-banner", title: "\u672C\u9875\u53EA\u843D\u4E86\u5165\u53E3\u4E0E\u5916\u58F3\uFF0C\u5185\u5BB9\u8FD8\u6CA1\u6709\u3002", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconInfoOutline14, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { children: "\u8FD9\u4E00\u9875\u5C1A\u672A\u5B9E\u73B0" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-kb-card", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("strong", { className: "ks-kb-ct", children: LABELS[page] ?? page }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-kb-hint", style: { marginTop: 6 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb-card", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { className: "ks-kb-ct", children: LABELS[page] ?? page }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb-hint", style: { marginTop: 6 }, children: [
             "\u8FD9\u4E00\u9875\u5C1A\u672A\u5B9E\u73B0\u3002\u5B83\u4F1A\u843D\u5728\u540C\u4E00\u4E2A tab \u7C7B\u578B\u91CC\uFF08\u6309 ",
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("code", { children: "params.page" }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("code", { children: "params.page" }),
             " \u5206\u53D1\uFF09\uFF0C \u6240\u4EE5\u5165\u53E3\u73B0\u5728\u662F",
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("strong", { children: "\u771F\u7684" }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { children: "\u771F\u7684" }),
             "\u3001\u5185\u5BB9\u662F",
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("strong", { children: "\u7A7A\u7684" }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { children: "\u7A7A\u7684" }),
             "\u2014\u2014\u800C\u4E0D\u662F\u4E00\u4E2A\u5047\u6309\u94AE\u3002"
           ] })
         ] })
       ] }) })
     );
   }
-  const searchBox = KB_PAGE_SEARCH ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-search", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+  const searchBox = KB_PAGE_SEARCH ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-search", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
     import_dsh_client_ui_primitives5.Input,
     {
-      icon: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconSearchOutline16, {}),
+      icon: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconSearchOutline16, {}),
       value: search,
       placeholder: "\u641C\u7D22\u76EE\u5F55\u540D\u6216\u6807\u51C6\u53F7/\u540D\u79F0\u2026",
       "aria-label": "\u5728\u5F53\u524D\u8FD9\u4E00\u5C42\u6309\u76EE\u5F55\u540D\u6216\u6587\u4EF6\u6807\u51C6\u53F7/\u540D\u79F0\u8FC7\u6EE4\uFF08\u672C\u5730\u8FC7\u6EE4\uFF0C\u4E0D\u68C0\u7D22\u8BED\u6599\uFF09",
@@ -39523,8 +39396,8 @@ function KsKnowledgePage({ useTabInfo }) {
     const node = tree[key];
     const expanded = treeOpen.has(key);
     const hasKids = (node?.kids?.length ?? 0) > 0 || node?.kids === void 0;
-    return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-tree-node", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-tree-node", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
         "div",
         {
           className: "ks-tree-row",
@@ -39532,7 +39405,7 @@ function KsKnowledgePage({ useTabInfo }) {
           "data-depth": depth,
           "aria-current": isCurrent ? "true" : void 0,
           children: [
-            hasKids ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+            hasKids ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
               "button",
               {
                 type: "button",
@@ -39543,10 +39416,10 @@ function KsKnowledgePage({ useTabInfo }) {
                 onClick: () => {
                   void toggleTree(key);
                 },
-                children: expanded ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconChevronDownOutline14, {}) : /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconChevronRightOutline14, {})
+                children: expanded ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronDownOutline14, {}) : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronRightOutline14, {})
               }
-            ) : /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-tree-caret ks-tree-caret-leaf", "aria-hidden": "true" }),
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+            ) : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-tree-caret ks-tree-caret-leaf", "aria-hidden": "true" }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
               "button",
               {
                 type: "button",
@@ -39556,18 +39429,18 @@ function KsKnowledgePage({ useTabInfo }) {
                   goto(key === "root" ? null : key);
                 },
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconFolderOpenOutline16, {}),
-                  /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-tree-label", children: name })
+                  /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconFolderOpenOutline16, {}),
+                  /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-tree-label", children: name })
                 ]
               }
             ),
-            count === null ? null : /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-tree-count", children: count })
+            count === null ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-tree-count", children: count })
           ]
         }
       ),
       before,
-      node?.loading === true ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-tree-hint", children: "\u6B63\u5728\u8BFB\u53D6\u8FD9\u4E00\u5C42\u2026" }) : null,
-      node?.error !== void 0 ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-tree-hint ks-tree-err", children: [
+      node?.loading === true ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-tree-hint", children: "\u6B63\u5728\u8BFB\u53D6\u8FD9\u4E00\u5C42\u2026" }) : null,
+      node?.error !== void 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-tree-hint ks-tree-err", children: [
         "\u8BFB\u4E0D\u5230\u4E0B\u4E00\u5C42\uFF1A",
         node.error
       ] }) : null,
@@ -39580,7 +39453,7 @@ function KsKnowledgePage({ useTabInfo }) {
       )) : null
     ] }, key);
   };
-  const inboxTreeRow = /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-tree-node ks-tree-inbox", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+  const inboxTreeRow = /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-tree-node ks-tree-inbox", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
     "div",
     {
       className: "ks-tree-row",
@@ -39588,8 +39461,8 @@ function KsKnowledgePage({ useTabInfo }) {
       "data-depth": 1,
       "aria-current": layer === "inbox" ? "true" : void 0,
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-tree-caret ks-tree-caret-leaf", "aria-hidden": "true" }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-tree-caret ks-tree-caret-leaf", "aria-hidden": "true" }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
           "button",
           {
             type: "button",
@@ -39597,16 +39470,16 @@ function KsKnowledgePage({ useTabInfo }) {
             title: inboxKnown ? `\u5F85\u5206\u7C7B\uFF1A\u8FD8\u6CA1\u5F52\u4F4D\u7684\u6587\u4EF6 ${String(inboxTotal)} \u7BC7\uFF08\u542B\u8BC6\u522B\u5931\u8D25\u7684\u90A3\u4E00\u6279\uFF09` : "\u5F85\u5206\u7C7B\uFF1A\u8FD8\u6CA1\u5F52\u4F4D\u7684\u6587\u4EF6",
             onClick: gotoInbox,
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconChecklistOutline14, {}),
-              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-tree-label", children: "\u5F85\u5206\u7C7B" })
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChecklistOutline14, {}),
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-tree-label", children: "\u5F85\u5206\u7C7B" })
             ]
           }
         ),
-        inboxKnown ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-tree-count ks-tree-count-inbox", children: inboxTotal }) : null
+        inboxKnown ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-tree-count ks-tree-count-inbox", children: inboxTotal }) : null
       ]
     }
   ) }, "__inbox");
-  const inboxShown = (0, import_react12.useMemo)(() => {
+  const inboxShown = (0, import_react11.useMemo)(() => {
     if (needle === "") return inbox;
     return inbox.filter((r) => (r.standard_no ?? "").toLowerCase().includes(needle) || (r.standard_name ?? "").toLowerCase().includes(needle) || (r.suggested_path ?? "").toLowerCase().includes(needle));
   }, [inbox, needle]);
@@ -39618,7 +39491,7 @@ function KsKnowledgePage({ useTabInfo }) {
   const pickPathOf = pathOfFolder(flatFolders, pickFolder);
   const PICK_ROWS_MAX = 60;
   const pickNeedle = pickQuery.trim().toLowerCase();
-  const pickBase = (0, import_react12.useMemo)(() => {
+  const pickBase = (0, import_react11.useMemo)(() => {
     const banned = /* @__PURE__ */ new Set();
     for (const fid of folderIdsOf(action?.targets ?? [])) {
       const self = flatFolders.find((f) => f.folder_id === fid);
@@ -39672,7 +39545,7 @@ function KsKnowledgePage({ useTabInfo }) {
     const cell = (key) => {
       switch (key) {
         case "pick":
-          return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-pick", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+          return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-pick", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
             import_dsh_client_ui_primitives5.Checkbox,
             {
               className: "ks-pick-cb",
@@ -39685,23 +39558,23 @@ function KsKnowledgePage({ useTabInfo }) {
             }
           ) });
         case "iname":
-          return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(import_jsx_runtime16.Fragment, { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-item-name", title: doc.standard_name ?? doc.doc_id, children: doc.standard_name ?? doc.doc_id }),
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-item-sub", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-item-meta", children: doc.standard_no === null || doc.standard_no === "" ? "\u2014" : doc.standard_no }) })
+          return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-item-name", title: doc.standard_name ?? doc.doc_id, children: doc.standard_name ?? doc.doc_id }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-item-sub", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-item-meta", children: doc.standard_no === null || doc.standard_no === "" ? "\u2014" : doc.standard_no }) })
           ] });
         case "istage":
-          return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-stage", "data-stage": doc.stage, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: `ks-stage-tag ks-stage-${doc.stage}`, children: doc.stage_label !== "" ? doc.stage_label : stageText(doc.stage, stageLabels) }),
-            doc.failure_kind === null || doc.failure_kind === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-stage-why", title: doc.failure_kind, children: [
+          return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-stage", "data-stage": doc.stage, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: `ks-stage-tag ks-stage-${doc.stage}`, children: doc.stage_label !== "" ? doc.stage_label : stageText(doc.stage, stageLabels) }),
+            doc.failure_kind === null || doc.failure_kind === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-stage-why", title: doc.failure_kind, children: [
               "\uFF08",
               doc.failure_kind,
               "\uFF09"
             ] }),
-            confidenceText(doc.confidence) === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-stage-conf", title: "\u8BC6\u522B\u7387\uFF08\u4E0E\u5165\u5E93\u9884\u89C8\u540C\u4E00\u4E2A\u6570\uFF09", children: [
+            confidenceText(doc.confidence) === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-stage-conf", title: "\u8BC6\u522B\u7387\uFF08\u4E0E\u5165\u5E93\u9884\u89C8\u540C\u4E00\u4E2A\u6570\uFF09", children: [
               "\u8BC6\u522B\u7387 ",
               confidenceText(doc.confidence)
             ] }),
-            doc.catalog_hidden === 1 ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+            doc.catalog_hidden === 1 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
               "span",
               {
                 className: "ks-stage-hidden",
@@ -39711,16 +39584,16 @@ function KsKnowledgePage({ useTabInfo }) {
             ) : null
           ] });
         case "idest":
-          return sugLabel === "" ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-kb-hint", title: noSuggestText(doc).why, children: noSuggestText(doc).short }) : /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-dest", title: `\u7CFB\u7EDF\u5EFA\u8BAE\u653E\u8FDB\uFF1A${sugLabel}`, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-dest-path", children: sugLabel }),
-            doc.suggest_new_name === null ? null : /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-dest-new", children: [
+          return sugLabel === "" ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-kb-hint", title: noSuggestText(doc).why, children: noSuggestText(doc).short }) : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-dest", title: `\u7CFB\u7EDF\u5EFA\u8BAE\u653E\u8FDB\uFF1A${sugLabel}`, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-dest-path", children: sugLabel }),
+            doc.suggest_new_name === null ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-dest-new", children: [
               "\uFF0B\u65B0\u5EFA\u300C",
               doc.suggest_new_name,
               "\u300D"
             ] })
           ] });
         case "imore":
-          return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-item-more", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+          return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-item-more", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
             import_dsh_client_ui_primitives5.Menu,
             {
               open: isOpen,
@@ -39741,7 +39614,7 @@ function KsKnowledgePage({ useTabInfo }) {
                 else if (id === "retry") void runReingest([doc.doc_id]);
                 else if (id === "delete") openAction("del", [key2]);
               },
-              anchor: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+              anchor: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
                 import_dsh_client_ui_primitives5.Button,
                 {
                   variant: "ghost",
@@ -39753,19 +39626,19 @@ function KsKnowledgePage({ useTabInfo }) {
                   onClick: () => {
                     setMenuFor(isOpen ? null : doc.doc_id);
                   },
-                  children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconEllipsisOutline16, {})
+                  children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconEllipsisOutline16, {})
                 }
               )
             }
           ) });
       }
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-item ks-inbox-row", "data-doc-id": doc.doc_id, children: INBOX_COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: `ks-cell ${col.cls}`, children: cell(col.key) }, col.key)) }, doc.doc_id);
+    return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-item ks-inbox-row", "data-doc-id": doc.doc_id, children: INBOX_COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: `ks-cell ${col.cls}`, children: cell(col.key) }, col.key)) }, doc.doc_id);
   };
-  const batchBar = picked.size === 0 ? null : /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-batch", role: "toolbar", "aria-label": "\u6279\u91CF\u5904\u7F6E\u9009\u4E2D\u7684\u6761\u76EE", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-batch-n", children: batchLabel }),
-    layer === "inbox" ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(import_jsx_runtime16.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+  const batchBar = picked.size === 0 ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-batch", role: "toolbar", "aria-label": "\u6279\u91CF\u5904\u7F6E\u9009\u4E2D\u7684\u6761\u76EE", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-batch-n", children: batchLabel }),
+    layer === "inbox" ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
         import_dsh_client_ui_primitives5.Button,
         {
           variant: "outline",
@@ -39782,7 +39655,7 @@ function KsKnowledgePage({ useTabInfo }) {
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
         import_dsh_client_ui_primitives5.Button,
         {
           variant: "outline",
@@ -39794,7 +39667,7 @@ function KsKnowledgePage({ useTabInfo }) {
           children: "\u653E\u8FDB\u540C\u4E00\u76EE\u5F55"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
         import_dsh_client_ui_primitives5.Button,
         {
           variant: "outline",
@@ -39805,12 +39678,12 @@ function KsKnowledgePage({ useTabInfo }) {
             void runReingest(pickedDocIds);
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconRefreshOutline16, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconRefreshOutline16, {}),
             "\u91CD\u6765\u4E00\u6B21"
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
         import_dsh_client_ui_primitives5.Button,
         {
           variant: "outline",
@@ -39821,13 +39694,13 @@ function KsKnowledgePage({ useTabInfo }) {
             openAction("del", [...picked]);
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconTrashOutline16, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconTrashOutline16, {}),
             "\u5220\u9664"
           ]
         }
       )
-    ] }) : /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(import_jsx_runtime16.Fragment, { children: [
-      levelId === null && pickedDocIds.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+    ] }) : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
+      levelId === null && pickedDocIds.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
         import_dsh_client_ui_primitives5.Button,
         {
           variant: "outline",
@@ -39840,7 +39713,7 @@ function KsKnowledgePage({ useTabInfo }) {
           children: "\u653E\u8FDB\u76EE\u5F55\u2026"
         }
       ) : null,
-      pickedFolderIds.length + (levelId === null ? 0 : pickedDocIds.length) > 0 ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+      pickedFolderIds.length + (levelId === null ? 0 : pickedDocIds.length) > 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
         import_dsh_client_ui_primitives5.Button,
         {
           variant: "outline",
@@ -39853,7 +39726,7 @@ function KsKnowledgePage({ useTabInfo }) {
           children: "\u79FB\u52A8\u5230\u2026"
         }
       ) : null,
-      pickedFolderIds.length + pickedDocIds.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+      pickedFolderIds.length + pickedDocIds.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
         import_dsh_client_ui_primitives5.Button,
         {
           variant: "outline",
@@ -39866,7 +39739,7 @@ function KsKnowledgePage({ useTabInfo }) {
           children: "\u590D\u5236\u5230\u2026"
         }
       ) : null,
-      levelId !== null && pickedDocIds.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+      levelId !== null && pickedDocIds.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
         import_dsh_client_ui_primitives5.Button,
         {
           variant: "outline",
@@ -39879,7 +39752,7 @@ function KsKnowledgePage({ useTabInfo }) {
           children: "\u79FB\u51FA"
         }
       ) : null,
-      pickedFolderIds.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+      pickedFolderIds.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
         import_dsh_client_ui_primitives5.Button,
         {
           variant: "outline",
@@ -39890,13 +39763,13 @@ function KsKnowledgePage({ useTabInfo }) {
             openAction("folder-del", [...picked]);
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconTrashOutline16, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconTrashOutline16, {}),
             "\u5220\u6389\u76EE\u5F55\u2026"
           ]
         }
       ) : null
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.Button, { variant: "ghost", size: "sm", className: "ks-batch-btn", onClick: () => {
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.Button, { variant: "ghost", size: "sm", className: "ks-batch-btn", onClick: () => {
       setPicked(/* @__PURE__ */ new Set());
     }, children: "\u53D6\u6D88\u9009\u62E9" })
   ] });
@@ -39909,27 +39782,27 @@ function KsKnowledgePage({ useTabInfo }) {
     add: "\u653E\u8FDB"
   };
   const pickEmptyHint = flatFolders.length === 0 ? "\u6B63\u5728\u8BFB\u76EE\u5F55\u6E05\u5355\u2026" : pickBase.length === 0 ? "\u6CA1\u6709\u53EF\u9009\u7684\u76EE\u7684\u5730\uFF1A\u552F\u4E00\u7684\u90A3\u51E0\u4E2A\u76EE\u5F55\u5C31\u662F\u4F60\u6B63\u5728\u79FB\u52A8/\u590D\u5236\u7684\u76EE\u5F55\u81EA\u5DF1\uFF08\u4E0D\u80FD\u79FB\u8FDB\u81EA\u5DF1\u7684\u4E0B\u7EA7\uFF09" : "\u6CA1\u6709\u5339\u914D\u7684\u76EE\u5F55";
-  const actionPanel = action === null ? null : /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+  const actionPanel = action === null ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
     "div",
     {
       className: action.kind === "del" || action.kind === "folder-del" ? "ks-act ks-act-del" : "ks-act",
       role: "group",
       "aria-label": action.kind === "del" || action.kind === "folder-del" ? "\u5220\u9664\u786E\u8BA4" : "\u9009\u62E9\u76EE\u6807\u76EE\u5F55",
-      children: action.kind === "del" ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(import_jsx_runtime16.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-act-head", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconWarningOutline16, {}),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("strong", { children: [
+      children: action.kind === "del" ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-act-head", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconWarningOutline16, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("strong", { children: [
             "\u786E\u8BA4\u5220\u9664 ",
             action.targets.length,
             " \u7BC7\uFF1F"
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-act-hint", children: "\u5220\u9664\u4E0D\u53EF\u64A4\u9500\uFF1A\u6761\u6B3E\u3001\u5411\u91CF\u3001\u8BC1\u636E\u4E00\u8D77\u5220\uFF08\u6536\u85CF\u4E0E\u6279\u6CE8\u662F\u7528\u6237\u8D44\u4EA7\uFF0C\u4E0D\u5220\uFF09\u3002" }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-act-row", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.Button, { variant: "outline", size: "sm", onClick: () => {
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-act-hint", children: "\u5220\u9664\u4E0D\u53EF\u64A4\u9500\uFF1A\u6761\u6B3E\u3001\u5411\u91CF\u3001\u8BC1\u636E\u4E00\u8D77\u5220\uFF08\u6536\u85CF\u4E0E\u6279\u6CE8\u662F\u7528\u6237\u8D44\u4EA7\uFF0C\u4E0D\u5220\uFF09\u3002" }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-act-row", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.Button, { variant: "outline", size: "sm", onClick: () => {
             setAction(null);
           }, children: "\u53D6\u6D88" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
             import_dsh_client_ui_primitives5.Button,
             {
               variant: "outline",
@@ -39939,29 +39812,29 @@ function KsKnowledgePage({ useTabInfo }) {
                 void removeDocs(docIdsOf(action.targets));
               },
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconTrashOutline16, {}),
+                /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconTrashOutline16, {}),
                 "\u786E\u8BA4\u5220\u9664"
               ]
             }
           )
         ] })
-      ] }) : action.kind === "folder-del" ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(import_jsx_runtime16.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-act-head", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconWarningOutline16, {}),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("strong", { children: [
+      ] }) : action.kind === "folder-del" ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-act-head", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconWarningOutline16, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("strong", { children: [
             "\u5220\u6389\u8FD9 ",
             folderIdsOf(action.targets).length,
             " \u4E2A\u76EE\u5F55\uFF1F"
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.Button, { variant: "ghost", size: "sm", title: "\u5173\u6389\u8FD9\u4E2A\u9762\u677F", onClick: () => {
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.Button, { variant: "ghost", size: "sm", title: "\u5173\u6389\u8FD9\u4E2A\u9762\u677F", onClick: () => {
             setAction(null);
-          }, children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconCloseOutline16, {}) })
+          }, children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconCloseOutline16, {}) })
         ] }),
-        delPreview === null ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-act-hint", children: "\u6B63\u5728\u8BFB\u8FD9\u51E0\u4E2A\u76EE\u5F55\u7684\u771F\u5B9E\u5F71\u54CD\uFF08\u53EA\u8BFB\uFF0C\u8FD8\u6CA1\u52A8\u4EFB\u4F55\u4E1C\u897F\uFF09\u2026" }) : /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(import_jsx_runtime16.Fragment, { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-act-list ks-act-list-del", children: delPreview.map((p) => /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-act-delrow", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-act-item-name", children: p.folder?.name ?? p.folder?.folder_id ?? "(\u8BFB\u4E0D\u5230)" }),
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-act-item-path", children: p.is_empty ? "\u7A7A\u76EE\u5F55\uFF08\u91CC\u9762\u6CA1\u6709\u4E0B\u7EA7\u76EE\u5F55\uFF0C\u4E5F\u6CA1\u6709\u6587\u4EF6\uFF09" : `${String(p.direct_subfolder_count)} \u4E2A\u4E0B\u7EA7\u76EE\u5F55 \xB7 ${String(p.direct_file_count)} \u7BC7\u76F4\u63A5\u653E\u5728\u8FD9\u91CC` }),
-            p.is_empty ? null : /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-act-item-path", children: [
+        delPreview === null ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-act-hint", children: "\u6B63\u5728\u8BFB\u8FD9\u51E0\u4E2A\u76EE\u5F55\u7684\u771F\u5B9E\u5F71\u54CD\uFF08\u53EA\u8BFB\uFF0C\u8FD8\u6CA1\u52A8\u4EFB\u4F55\u4E1C\u897F\uFF09\u2026" }) : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-act-list ks-act-list-del", children: delPreview.map((p) => /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-act-delrow", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-act-item-name", children: p.folder?.name ?? p.folder?.folder_id ?? "(\u8BFB\u4E0D\u5230)" }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-act-item-path", children: p.is_empty ? "\u7A7A\u76EE\u5F55\uFF08\u91CC\u9762\u6CA1\u6709\u4E0B\u7EA7\u76EE\u5F55\uFF0C\u4E5F\u6CA1\u6709\u6587\u4EF6\uFF09" : `${String(p.direct_subfolder_count)} \u4E2A\u4E0B\u7EA7\u76EE\u5F55 \xB7 ${String(p.direct_file_count)} \u7BC7\u76F4\u63A5\u653E\u5728\u8FD9\u91CC` }),
+            p.is_empty ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-act-item-path", children: [
               "\u6574\u68F5\u5B50\u6811\uFF1A",
               String(p.subtree_folder_count),
               " \u4E2A\u76EE\u5F55 / ",
@@ -39974,19 +39847,19 @@ function KsKnowledgePage({ useTabInfo }) {
               p.reparent_available ? "\u79FB\u5230\u4E0A\u4E00\u5C42\uFF1A\u91CC\u9762\u7684\u4E1C\u897F\u539F\u6837\u4E0A\u53BB\u3002" : "\u26A0 \u8FD9\u662F\u4E00\u7EA7\u76EE\u5F55\uFF0C\u6CA1\u6709\u4E0A\u4E00\u5C42\uFF08\u53EA\u80FD\u8FDE\u6587\u4EF6\u4E00\u8D77\u5220\uFF0C\u6216\u53D6\u6D88\uFF09\u3002"
             ] })
           ] }, p.folder?.folder_id ?? "unknown")) }),
-          delPreview.length < folderIdsOf(action.targets).length ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-act-hint", children: [
+          delPreview.length < folderIdsOf(action.targets).length ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-act-hint", children: [
             "\u6709 ",
             folderIdsOf(action.targets).length - delPreview.length,
             " \u4E2A\u76EE\u5F55\u7684\u5F71\u54CD\u6CA1\u8BFB\u5230 \uFF08\u4E0A\u9762\u90A3\u6761\u6D88\u606F\u91CC\u5199\u4E86\u539F\u8BDD\uFF09\u2014\u2014 \u5B83\u4EEC\u4E0D\u4F1A\u88AB\u5220\u3002"
           ] }) : null,
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-act-hint", children: '\u5220\u76EE\u5F55**\u4E0D\u662F**\u5220\u6587\u6863\uFF1A\u53EA\u6709"\u5728\u6240\u6709\u76EE\u5F55\u91CC\u90FD\u4E0D\u518D\u51FA\u73B0"\u7684\u6587\u4EF6\u624D\u4F1A\u88AB\u771F\u5220\u3002' }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-act-row", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.Button, { variant: "outline", size: "sm", onClick: () => {
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-act-hint", children: '\u5220\u76EE\u5F55**\u4E0D\u662F**\u5220\u6587\u6863\uFF1A\u53EA\u6709"\u5728\u6240\u6709\u76EE\u5F55\u91CC\u90FD\u4E0D\u518D\u51FA\u73B0"\u7684\u6587\u4EF6\u624D\u4F1A\u88AB\u771F\u5220\u3002' }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-act-row", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.Button, { variant: "outline", size: "sm", onClick: () => {
               setAction(null);
             }, children: "\u53D6\u6D88" }),
             delPreview.length > 0 && delPreview.every((p) => p.is_empty) ? (
               /* 空目录也是不可逆动作 ⇒ 同样 outline + ks-danger（理由见上面「确认删除」那条注释）。 */
-              /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
                 import_dsh_client_ui_primitives5.Button,
                 {
                   variant: "outline",
@@ -39996,13 +39869,13 @@ function KsKnowledgePage({ useTabInfo }) {
                     void runFolderDelete(null);
                   },
                   children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconTrashOutline16, {}),
+                    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconTrashOutline16, {}),
                     "\u5220\u9664\u8FD9\u4E9B\u7A7A\u76EE\u5F55"
                   ]
                 }
               )
-            ) : /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(import_jsx_runtime16.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+            ) : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
                 import_dsh_client_ui_primitives5.Button,
                 {
                   variant: "outline",
@@ -40016,7 +39889,7 @@ function KsKnowledgePage({ useTabInfo }) {
                   children: "\u53EA\u5220\u76EE\u5F55\uFF0C\u91CC\u9762\u7684\u4E1C\u897F\u79FB\u5230\u4E0A\u4E00\u5C42"
                 }
               ),
-              /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
                 import_dsh_client_ui_primitives5.Button,
                 {
                   variant: "outline",
@@ -40027,7 +39900,7 @@ function KsKnowledgePage({ useTabInfo }) {
                     void runFolderDelete("purge");
                   },
                   children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconTrashOutline16, {}),
+                    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconTrashOutline16, {}),
                     "\u8FDE\u91CC\u9762\u7684\u6587\u4EF6\u4E00\u8D77\u5220"
                   ]
                 }
@@ -40035,16 +39908,16 @@ function KsKnowledgePage({ useTabInfo }) {
             ] })
           ] })
         ] })
-      ] }) : action.kind === "mkdir" || action.kind === "rename" ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(import_jsx_runtime16.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-act-head", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("strong", { children: action.kind === "mkdir" ? `\u5728\u300C${levelName}\u300D\u4E0B\u9762\u65B0\u5EFA\u4E00\u4E2A\u76EE\u5F55` : `\u628A\u76EE\u5F55\u300C${subs.find((f) => f.folder_id === folderIdsOf(action.targets)[0])?.name ?? ""}\u300D\u6539\u6210\u4EC0\u4E48\u540D\u5B57\uFF1F` }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.Button, { variant: "ghost", size: "sm", title: "\u5173\u6389\u8FD9\u4E2A\u9762\u677F", onClick: () => {
+      ] }) : action.kind === "mkdir" || action.kind === "rename" ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-act-head", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { children: action.kind === "mkdir" ? `\u5728\u300C${levelName}\u300D\u4E0B\u9762\u65B0\u5EFA\u4E00\u4E2A\u76EE\u5F55` : `\u628A\u76EE\u5F55\u300C${subs.find((f) => f.folder_id === folderIdsOf(action.targets)[0])?.name ?? ""}\u300D\u6539\u6210\u4EC0\u4E48\u540D\u5B57\uFF1F` }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.Button, { variant: "ghost", size: "sm", title: "\u5173\u6389\u8FD9\u4E2A\u9762\u677F", onClick: () => {
             setAction(null);
-          }, children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconCloseOutline16, {}) })
+          }, children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconCloseOutline16, {}) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-act-row", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-act-label", children: action.kind === "mkdir" ? "\u65B0\u76EE\u5F55\u540D" : "\u65B0\u540D\u5B57" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-act-row", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-act-label", children: action.kind === "mkdir" ? "\u65B0\u76EE\u5F55\u540D" : "\u65B0\u540D\u5B57" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
             import_dsh_client_ui_primitives5.Input,
             {
               className: "ks-act-name",
@@ -40057,12 +39930,12 @@ function KsKnowledgePage({ useTabInfo }) {
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-act-hint", children: action.kind === "mkdir" ? "\u5EFA\u5728\u5F53\u524D\u8FD9\u4E00\u7EA7\u4E0B\u9762\uFF1B\u540C\u7EA7\u540C\u540D\u4F1A\u88AB\u62D2\uFF08\u540E\u7AEF 409\uFF0C\u539F\u8BDD\u4F1A\u663E\u793A\u5728\u8FD9\u91CC\uFF09\u3002" : "\u6539\u540D\u53EA\u6539\u5E93\u91CC\u7684\u540D\u5B57\uFF0C\u78C1\u76D8\u4E0A\u7684\u6587\u4EF6\u4E00\u4E2A\u5B57\u90FD\u4E0D\u4F1A\u52A8\u3002" }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-act-row", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.Button, { variant: "outline", size: "sm", onClick: () => {
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-act-hint", children: action.kind === "mkdir" ? "\u5EFA\u5728\u5F53\u524D\u8FD9\u4E00\u7EA7\u4E0B\u9762\uFF1B\u540C\u7EA7\u540C\u540D\u4F1A\u88AB\u62D2\uFF08\u540E\u7AEF 409\uFF0C\u539F\u8BDD\u4F1A\u663E\u793A\u5728\u8FD9\u91CC\uFF09\u3002" : "\u6539\u540D\u53EA\u6539\u5E93\u91CC\u7684\u540D\u5B57\uFF0C\u78C1\u76D8\u4E0A\u7684\u6587\u4EF6\u4E00\u4E2A\u5B57\u90FD\u4E0D\u4F1A\u52A8\u3002" }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-act-row", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.Button, { variant: "outline", size: "sm", onClick: () => {
             setAction(null);
           }, children: "\u53D6\u6D88" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
             import_dsh_client_ui_primitives5.Button,
             {
               variant: "primary",
@@ -40076,16 +39949,16 @@ function KsKnowledgePage({ useTabInfo }) {
             }
           )
         ] })
-      ] }) : /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(import_jsx_runtime16.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-act-head", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("strong", { children: action.kind === "new" ? `\u5728\u9009\u4E2D\u7684\u76EE\u5F55\u4E0B\u65B0\u5EFA\u300C${newName.trim() === "" ? "\u2026" : newName.trim()}\u300D\u518D\u653E ${String(pickedDocIds.length)} \u7BC7` : `\u628A ${actWhat}${pickVerb[action.kind] ?? "\u653E\u8FDB"}\u54EA\u4E2A\u76EE\u5F55\uFF1F` }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.Button, { variant: "ghost", size: "sm", title: "\u5173\u6389\u8FD9\u4E2A\u9762\u677F", onClick: () => {
+      ] }) : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-act-head", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { children: action.kind === "new" ? `\u5728\u9009\u4E2D\u7684\u76EE\u5F55\u4E0B\u65B0\u5EFA\u300C${newName.trim() === "" ? "\u2026" : newName.trim()}\u300D\u518D\u653E ${String(pickedDocIds.length)} \u7BC7` : `\u628A ${actWhat}${pickVerb[action.kind] ?? "\u653E\u8FDB"}\u54EA\u4E2A\u76EE\u5F55\uFF1F` }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.Button, { variant: "ghost", size: "sm", title: "\u5173\u6389\u8FD9\u4E2A\u9762\u677F", onClick: () => {
             setAction(null);
-          }, children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconCloseOutline16, {}) })
+          }, children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconCloseOutline16, {}) })
         ] }),
-        action.kind === "new" ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-act-row", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-act-label", children: "\u65B0\u76EE\u5F55\u540D" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+        action.kind === "new" ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-act-row", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-act-label", children: "\u65B0\u76EE\u5F55\u540D" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
             import_dsh_client_ui_primitives5.Input,
             {
               className: "ks-act-name",
@@ -40098,9 +39971,9 @@ function KsKnowledgePage({ useTabInfo }) {
             }
           )
         ] }) : null,
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-act-row", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-act-label", children: "\u627E\u76EE\u5F55" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-act-row", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-act-label", children: "\u627E\u76EE\u5F55" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
             import_dsh_client_ui_primitives5.Input,
             {
               className: "ks-act-search",
@@ -40113,8 +39986,8 @@ function KsKnowledgePage({ useTabInfo }) {
             }
           )
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-act-list", children: [
-          flatShown.map((f) => /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-act-list", children: [
+          flatShown.map((f) => /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
             "button",
             {
               type: "button",
@@ -40126,15 +39999,15 @@ function KsKnowledgePage({ useTabInfo }) {
                 setPickFolder(f.folder_id);
               },
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconFolderOpenOutline16, {}),
-                /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-act-item-name", children: f.name }),
-                /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-act-item-path", children: f.path })
+                /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconFolderOpenOutline16, {}),
+                /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-act-item-name", children: f.name }),
+                /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-act-item-path", children: f.path })
               ]
             },
             f.folder_id
           )),
-          flatShown.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-act-hint", children: pickEmptyHint }) : null,
-          flatHidden > 0 ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-act-hint", children: [
+          flatShown.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-act-hint", children: pickEmptyHint }) : null,
+          flatHidden > 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-act-hint", children: [
             "\u8FD8\u6709 ",
             flatHidden,
             " \u4E2A\u6CA1\u5217\u51FA\u6765\uFF08\u4E00\u5171 ",
@@ -40142,14 +40015,14 @@ function KsKnowledgePage({ useTabInfo }) {
             " \u4E2A\u76EE\u5F55\uFF09\u2014\u2014 \u7528\u4E0A\u9762\u7684\u641C\u7D22\u7F29\u5C0F\u8303\u56F4\u3002"
           ] }) : null
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-act-row", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-act-hint", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-act-row", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-act-hint", children: [
             "\u5373\u5C06",
             pickVerb[action.kind] ?? "\u653E\u8FDB",
             "\uFF1A",
             pickPathOf === "" ? "\uFF08\u8FD8\u6CA1\u9009\uFF09" : pickPathOf
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
             import_dsh_client_ui_primitives5.Button,
             {
               variant: "primary",
@@ -40170,11 +40043,11 @@ function KsKnowledgePage({ useTabInfo }) {
       ] })
     }
   );
-  const inboxMain = /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(import_jsx_runtime16.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-list-cap", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-lhead-name ks-kb-grow", title: "\u77E5\u8BC6\u5E93 / \u5F85\u5206\u7C7B", children: "\u5F85\u5206\u7C7B" }),
+  const inboxMain = /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-list-cap", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-lhead-name ks-kb-grow", title: "\u77E5\u8BC6\u5E93 / \u5F85\u5206\u7C7B", children: "\u5F85\u5206\u7C7B" }),
       askEntry,
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
         import_dsh_client_ui_primitives5.Button,
         {
           variant: "outline",
@@ -40191,14 +40064,14 @@ function KsKnowledgePage({ useTabInfo }) {
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-kb-hint", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-kb-hint", children: [
         inboxTotal,
         " \u7BC7\u8FD8\u6CA1\u5F52\u4F4D",
         needle === "" ? "" : `\uFF08\u672C\u9875\u7B5B\u51FA ${inboxShown.length} \u7BC7\uFF09`
       ] })
     ] }),
-    ccsStatus === null || ccsStatus.total === 0 && ccsStatus.done === 0 ? null : /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-ccs-bar", role: "status", "data-ccs-running": ccsRunning ? "1" : "0", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-ccs-line", children: [
+    ccsStatus === null || ccsStatus.total === 0 && ccsStatus.done === 0 ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-ccs-bar", role: "status", "data-ccs-running": ccsRunning ? "1" : "0", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-ccs-line", children: [
         "\u8865\u5168\u5206\u7C7B\u53F7\uFF1A\u5DF2\u8DD1 ",
         ccsStatus.done,
         " / ",
@@ -40219,48 +40092,48 @@ function KsKnowledgePage({ useTabInfo }) {
         ccsStatus.skipped > 0 ? ` \xB7 \u8DF3\u8FC7 ${ccsStatus.skipped} \u7BC7` : "",
         ccsStatus.cancelled ? " \xB7 \u8FD9\u4E00\u6279\u662F\u624B\u52A8\u505C\u7684" : ""
       ] }),
-      ccsStatus.failures.length === 0 ? null : /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("details", { className: "ks-ccs-fails", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("summary", { children: [
+      ccsStatus.failures.length === 0 ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("details", { className: "ks-ccs-fails", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("summary", { children: [
           "\u6CA1\u8865\u5230\u7684 ",
           ccsStatus.failures.length,
           " \u7BC7\uFF08\u9010\u7BC7\u539F\u56E0\uFF09"
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("ul", { className: "ks-ccs-fail-list", children: ccsStatus.failures.slice(0, 50).map((f) => /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("li", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-ccs-fail-no", children: f.standard_no === "" ? f.doc_id : f.standard_no }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-ccs-fail-why", children: f.reason !== void 0 && f.reason !== "" ? f.reason : f.outcome })
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("ul", { className: "ks-ccs-fail-list", children: ccsStatus.failures.slice(0, 50).map((f) => /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("li", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-ccs-fail-no", children: f.standard_no === "" ? f.doc_id : f.standard_no }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-ccs-fail-why", children: f.reason !== void 0 && f.reason !== "" ? f.reason : f.outcome })
         ] }, f.doc_id)) }),
-        ccsStatus.failures.length > 50 ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-kb-hint", children: "\uFF08\u8FD9\u91CC\u53EA\u5217\u524D 50 \u7BC7\uFF1B\u63A5\u53E3\u91CC\u662F\u5B8C\u6574\u7684\u3002\uFF09" }) : null
+        ccsStatus.failures.length > 50 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-kb-hint", children: "\uFF08\u8FD9\u91CC\u53EA\u5217\u524D 50 \u7BC7\uFF1B\u63A5\u53E3\u91CC\u662F\u5B8C\u6574\u7684\u3002\uFF09" }) : null
       ] })
     ] }),
     searchBox,
     batchBar,
     actionPanel,
-    actMsg === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-ib-msg", role: "status", children: actMsg }),
-    inbox.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-list ks-list-inbox ks-inbox", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-lhead", children: INBOX_COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: `ks-cell ${col.cls}`, children: col.head === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-lhead-col", children: col.head }) }, col.key)) }),
+    actMsg === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-ib-msg", role: "status", children: actMsg }),
+    inbox.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-list ks-list-inbox ks-inbox", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-lhead", children: INBOX_COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: `ks-cell ${col.cls}`, children: col.head === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-lhead-col", children: col.head }) }, col.key)) }),
       inboxShown.map(renderInboxRow)
     ] }) : null,
-    inbox.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-empty-card", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconChecklistOutline14, { size: 28 }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-empty-t", children: "\u6CA1\u6709\u6392\u961F\u7B49\u5F52\u4F4D\u7684\u6587\u4EF6" }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-empty-d", children: "\u5E93\u91CC\u6BCF\u4E00\u7BC7\u90FD\u5DF2\u7ECF\u5F52\u4F4D\u4E86\u3002\u7528\u4E0A\u9762\u7684\u300C\u4E0A\u4F20\u5230\u8FD9\u4E00\u5C42\u300D\u628A\u65B0\u6587\u4EF6\u5BFC\u8FDB\u6765\uFF0C \u5B83\u4EEC\u4F1A\u5148\u6392\u961F\u7B49\u5728\u8FD9\u91CC\u3002" })
+    inbox.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-empty-card", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChecklistOutline14, { size: 28 }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-t", children: "\u6CA1\u6709\u6392\u961F\u7B49\u5F52\u4F4D\u7684\u6587\u4EF6" }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-d", children: "\u5E93\u91CC\u6BCF\u4E00\u7BC7\u90FD\u5DF2\u7ECF\u5F52\u4F4D\u4E86\u3002\u7528\u4E0A\u9762\u7684\u300C\u4E0A\u4F20\u5230\u8FD9\u4E00\u5C42\u300D\u628A\u65B0\u6587\u4EF6\u5BFC\u8FDB\u6765\uFF0C \u5B83\u4EEC\u4F1A\u5148\u6392\u961F\u7B49\u5728\u8FD9\u91CC\u3002" })
     ] }) : null,
-    inbox.length > 0 && inboxShown.length === 0 && needle !== "" ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-empty-card", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconSearchOutline16, { size: 28 }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-empty-t", children: "\u8FD9\u4E00\u5C42\u6CA1\u6709\u7B26\u5408\u641C\u7D22\u7684\u6761\u76EE" }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-empty-d", children: [
+    inbox.length > 0 && inboxShown.length === 0 && needle !== "" ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-empty-card", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconSearchOutline16, { size: 28 }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-t", children: "\u8FD9\u4E00\u5C42\u6CA1\u6709\u7B26\u5408\u641C\u7D22\u7684\u6761\u76EE" }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-empty-d", children: [
         "\u672C\u9875 ",
         inbox.length,
         " \u7BC7\u91CC\u6CA1\u6709\u6807\u51C6\u53F7/\u540D\u79F0\u542B\u300C",
         search.trim(),
         "\u300D\u7684\u3002 \uFF08\u53EA\u7B5B\u5DF2\u7ECF\u8BFB\u51FA\u6765\u7684\u8FD9\u4E00\u9875\uFF1B\u7FFB\u9875\u540E\u53EF\u80FD\u8FD8\u6709\u3002\uFF09"
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.Button, { variant: "outline", size: "sm", title: "\u6E05\u7A7A\u641C\u7D22\u4E32", onClick: () => {
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.Button, { variant: "outline", size: "sm", title: "\u6E05\u7A7A\u641C\u7D22\u4E32", onClick: () => {
         setSearch("");
       }, children: "\u6E05\u9664\u641C\u7D22" })
     ] }) : null,
-    inboxTotal > INBOX_PAGE_SIZE ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-pager", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+    inboxTotal > INBOX_PAGE_SIZE ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-pager", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
         import_dsh_client_ui_primitives5.Button,
         {
           variant: "outline",
@@ -40271,10 +40144,10 @@ function KsKnowledgePage({ useTabInfo }) {
           onClick: () => {
             void loadInbox(Math.max(0, inboxOffset - INBOX_PAGE_SIZE), { silent: true });
           },
-          children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconChevronLeftOutline14, {})
+          children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronLeftOutline14, {})
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-pager-n", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-pager-n", children: [
         "\u7B2C ",
         Math.floor(inboxOffset / INBOX_PAGE_SIZE) + 1,
         " / ",
@@ -40283,7 +40156,7 @@ function KsKnowledgePage({ useTabInfo }) {
         inboxTotal,
         " \u7BC7"
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
         import_dsh_client_ui_primitives5.Button,
         {
           variant: "outline",
@@ -40294,16 +40167,16 @@ function KsKnowledgePage({ useTabInfo }) {
           onClick: () => {
             void loadInbox(inboxOffset + INBOX_PAGE_SIZE, { silent: true });
           },
-          children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconChevronRightOutline14, {})
+          children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronRightOutline14, {})
         }
       )
     ] }) : null
   ] });
-  return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-kb", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("header", { className: "ks-page-head", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-page-title", children: "\u77E5\u8BC6\u5E93" }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-page-rule" }),
-    /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-kb-row", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("header", { className: "ks-page-head", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-title", children: "\u77E5\u8BC6\u5E93" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-rule" }),
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb-row", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
         import_dsh_client_ui_primitives5.Button,
         {
           variant: "outline",
@@ -40313,19 +40186,19 @@ function KsKnowledgePage({ useTabInfo }) {
           title: layer === "inbox" ? "\u56DE\u5230\u6700\u5916\u5C42\uFF08\u79BB\u5F00\u300C\u5F85\u5206\u7C7B\u300D\uFF09" : levelId === null ? "\u4F60\u5DF2\u7ECF\u662F\u6700\u5916\u5C42\uFF0C\u6CA1\u6709\u4E0A\u4E00\u7EA7\u53EF\u56DE" : `\u56DE\u5230\u4E0A\u4E00\u5C42\uFF08\u73B0\u5728\u5728\uFF1A${["\u77E5\u8BC6\u5E93", ...crumb.map((f) => f.name)].join(" / ")}\uFF09`,
           onClick: goUp,
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconChevronLeftOutline14, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronLeftOutline14, {}),
             "\u8FD4\u56DE\u4E0A\u4E00\u5C42"
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
         "span",
         {
           className: "ks-crumb",
           title: `\u5F53\u524D\u8DEF\u5F84\uFF1A${layer === "inbox" ? "\u77E5\u8BC6\u5E93 / \u5F85\u5206\u7C7B" : ["\u77E5\u8BC6\u5E93", ...crumb.map((f) => f.name)].join(" / ")}`,
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-crumb-path", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-crumb-item", children: layer === "folder" && levelId === null ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-crumb-path", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-crumb-item", children: layer === "folder" && levelId === null ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
                 "span",
                 {
                   className: "ks-crumb-here",
@@ -40334,7 +40207,7 @@ function KsKnowledgePage({ useTabInfo }) {
                   title: "\u4F60\u73B0\u5728\u5728\u8FD9\u4E00\u7EA7\uFF08\u4E0D\u53EF\u70B9\uFF09",
                   children: "\u77E5\u8BC6\u5E93"
                 }
-              ) : /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+              ) : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
                 "button",
                 {
                   type: "button",
@@ -40347,9 +40220,9 @@ function KsKnowledgePage({ useTabInfo }) {
                   children: "\u77E5\u8BC6\u5E93"
                 }
               ) }),
-              layer === "inbox" ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(import_react12.Fragment, { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-crumb-sep", "aria-hidden": "true", children: "/" }),
-                /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-crumb-item", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+              layer === "inbox" ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_react11.Fragment, { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-crumb-sep", "aria-hidden": "true", children: "/" }),
+                /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-crumb-item", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
                   "span",
                   {
                     className: "ks-crumb-here",
@@ -40362,9 +40235,9 @@ function KsKnowledgePage({ useTabInfo }) {
               ] }, "__inbox") : null,
               layer === "inbox" ? null : crumb.map((node, i) => {
                 const here = i === crumb.length - 1;
-                return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(import_react12.Fragment, { children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-crumb-sep", "aria-hidden": "true", children: "/" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-crumb-item", children: here ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+                return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_react11.Fragment, { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-crumb-sep", "aria-hidden": "true", children: "/" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-crumb-item", children: here ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
                     "span",
                     {
                       className: "ks-crumb-here",
@@ -40373,7 +40246,7 @@ function KsKnowledgePage({ useTabInfo }) {
                       title: "\u4F60\u73B0\u5728\u5728\u8FD9\u4E00\u7EA7\uFF08\u4E0D\u53EF\u70B9\uFF09",
                       children: node.name
                     }
-                  ) : /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+                  ) : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
                     "button",
                     {
                       type: "button",
@@ -40389,12 +40262,12 @@ function KsKnowledgePage({ useTabInfo }) {
                 ] }, node.folder_id);
               })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-crumb-n", children: layer === "inbox" ? `\u8FD8\u6CA1\u5F52\u4F4D ${String(inboxTotal)} \u7BC7` : levelId === null ? "\u4F60\u5728\u6700\u5916\u5C42" : `${subs.length} \u4E2A\u5B50\u76EE\u5F55 \xB7 ${filesTotal} \u7BC7\u6587\u4EF6` })
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-crumb-n", children: layer === "inbox" ? `\u8FD8\u6CA1\u5F52\u4F4D ${String(inboxTotal)} \u7BC7` : levelId === null ? "\u4F60\u5728\u6700\u5916\u5C42" : `${subs.length} \u4E2A\u5B50\u76EE\u5F55 \xB7 ${filesTotal} \u7BC7\u6587\u4EF6` })
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-kb-grow" }),
-      layer === "folder" ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-kb-grow" }),
+      layer === "folder" ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
         import_dsh_client_ui_primitives5.Button,
         {
           variant: "outline",
@@ -40405,12 +40278,12 @@ function KsKnowledgePage({ useTabInfo }) {
             openAction("mkdir", []);
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconPlusOutline16, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconPlusOutline16, {}),
             "\u65B0\u5EFA\u4E0B\u7EA7\u76EE\u5F55"
           ]
         }
       ) : null,
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
         import_dsh_client_ui_primitives5.Button,
         {
           variant: "outline",
@@ -40422,12 +40295,12 @@ function KsKnowledgePage({ useTabInfo }) {
             void openUpload();
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconPlusOutline16, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconPlusOutline16, {}),
             "\u4E0A\u4F20\u5230\u8FD9\u4E00\u5C42"
           ]
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
         import_dsh_client_ui_primitives5.Button,
         {
           variant: "ghost",
@@ -40438,14 +40311,14 @@ function KsKnowledgePage({ useTabInfo }) {
             if (layer === "inbox") void loadInbox(inboxOffset, { silent: true });
             else void loadLevel(levelId, fileOffset, { silent: true });
           },
-          children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconRefreshOutline16, {})
+          children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconRefreshOutline16, {})
         }
       )
     ] }),
-    upOpen ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-upload", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-upload-row", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-upload-label", children: "\u6765\u6E90\u76EE\u5F55" }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+    upOpen ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-upload", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-upload-row", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-upload-label", children: "\u6765\u6E90\u76EE\u5F55" }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
           import_dsh_client_ui_primitives5.Input,
           {
             className: "ks-upload-dir",
@@ -40457,7 +40330,7 @@ function KsKnowledgePage({ useTabInfo }) {
             }
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
           import_dsh_client_ui_primitives5.Button,
           {
             variant: "primary",
@@ -40472,9 +40345,9 @@ function KsKnowledgePage({ useTabInfo }) {
           }
         )
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-upload-row", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-upload-label", children: "\u5148\u770B\u4E00\u773C" }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-upload-row", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-upload-label", children: "\u5148\u770B\u4E00\u773C" }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
           import_dsh_client_ui_primitives5.Button,
           {
             variant: "outline",
@@ -40486,13 +40359,13 @@ function KsKnowledgePage({ useTabInfo }) {
               void runCheck();
             },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconChecklistOutline14, {}),
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChecklistOutline14, {}),
               "\u5148\u4F53\u68C0\uFF08\u53EA\u8BFB\uFF09"
             ]
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-upload-hint", children: upCheck === "" ? "\u4F53\u68C0\u53EA\u662F\u770B\u4E00\u773C\uFF0C\u5E93\u91CC\u4E00\u7BC7\u90FD\u4E0D\u4F1A\u591A\u3002" : upCheck }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-upload-hint", children: upCheck === "" ? "\u4F53\u68C0\u53EA\u662F\u770B\u4E00\u773C\uFF0C\u5E93\u91CC\u4E00\u7BC7\u90FD\u4E0D\u4F1A\u591A\u3002" : upCheck }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
           import_dsh_client_ui_primitives5.Button,
           {
             variant: "ghost",
@@ -40504,13 +40377,13 @@ function KsKnowledgePage({ useTabInfo }) {
               setUpPreview(!upPreview);
             },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconChevronDownOutline14, {}),
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronDownOutline14, {}),
               "\u9010\u7BC7\u770B"
             ]
           }
         )
       ] }),
-      upPreview ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-upload-preview", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+      upPreview ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-upload-preview", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
         KsIngestPanel,
         {
           visible: upPreview,
@@ -40518,9 +40391,9 @@ function KsKnowledgePage({ useTabInfo }) {
           onDirChange: setUpDir
         }
       ) }) : null,
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-upload-row", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-upload-label", children: "\u8986\u76D6" }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-upload-row", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-upload-label", children: "\u8986\u76D6" }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
           import_dsh_client_ui_primitives5.Checkbox,
           {
             checked: upReingest,
@@ -40532,19 +40405,19 @@ function KsKnowledgePage({ useTabInfo }) {
           }
         )
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-upload-note", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-upload-note", children: [
         layer === "inbox" ? "\u4F60\u5728\u300C\u5F85\u5206\u7C7B\u300D\uFF1A\u5BFC\u5165\u7684\u6587\u4EF6\u5C31\u6392\u5728\u4E0B\u9762\u8FD9\u4E2A\u5217\u8868\u91CC\uFF08\u8FD8\u6CA1\u5F52\u4F4D\uFF09\uFF0C\u5F53\u573A\u5C31\u80FD\u5904\u7F6E\u3002" : levelId === null ? "\u4F60\u5728\u6700\u5916\u5C42\uFF1A\u5BFC\u5165\u7684\u6587\u4EF6\u4F1A\u7559\u5728\u6700\u5916\u5C42\uFF08\u8FD8\u6CA1\u5F52\u4F4D\uFF0C\u4F1A\u51FA\u73B0\u5728\u300C\u5F85\u5206\u7C7B\u300D\u91CC\uFF09\u3002" : `\u5BFC\u5165\u5B8C\u6210\u540E\uFF0C\u65B0\u6587\u4EF6\u4F1A\u76F4\u63A5\u653E\u8FDB\u300C${levelName}\u300D\uFF0C\u4E0D\u4F1A\u8FDB\u81EA\u52A8\u8BC6\u522B\u3002`,
         " ",
         "\u626B\u63CF\u4EF6/\u5927\u6587\u4EF6\u89E3\u6790\u8981\u7B49\u4E00\u4F1A\u513F\uFF0C\u4E0B\u9762\u7684\u8FDB\u5EA6\u8BF4\u7684\u662F\u5E93\u91CC\u771F\u7684\u89E3\u6790\u4E86\u591A\u5C11\u7BC7\u3002"
       ] }),
-      upMsg === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: upPhase === "error" ? "ks-upload-msg ks-upload-msg-bad" : "ks-upload-msg", children: upMsg })
+      upMsg === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: upPhase === "error" ? "ks-upload-msg ks-upload-msg-bad" : "ks-upload-msg", children: upMsg })
     ] }) : null,
-    askOpen && askScope !== null ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-ask", "data-ks-ask": "open", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-ask-head", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-ask-where", children: askWhereText(askScope) }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-ask-count", children: askCountErr !== "" ? `\u6570\u4E0D\u51FA\u6765\uFF1A${askCountErr}` : askCounts === null ? "\u6B63\u5728\u6570\u8FD9\u4E2A\u8303\u56F4\u91CC\u6709\u591A\u5C11\u7BC7\u2026" : `${String(askCounts.folder_count)} \u4E2A\u76EE\u5F55 \xB7 ${String(askCounts.doc_count)} \u7BC7` }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-kb-grow" }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+    askOpen && askScope !== null ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-ask", "data-ks-ask": "open", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-ask-head", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-ask-where", children: askWhereText(askScope) }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-ask-count", children: askCountErr !== "" ? `\u6570\u4E0D\u51FA\u6765\uFF1A${askCountErr}` : askCounts === null ? "\u6B63\u5728\u6570\u8FD9\u4E2A\u8303\u56F4\u91CC\u6709\u591A\u5C11\u7BC7\u2026" : `${String(askCounts.folder_count)} \u4E2A\u76EE\u5F55 \xB7 ${String(askCounts.doc_count)} \u7BC7` }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-kb-grow" }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
           import_dsh_client_ui_primitives5.Button,
           {
             variant: "ghost",
@@ -40555,19 +40428,19 @@ function KsKnowledgePage({ useTabInfo }) {
               setAskOpen(false);
             },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconChevronDownOutline14, {}),
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronDownOutline14, {}),
               "\u6536\u8D77"
             ]
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(import_dsh_client_ui_primitives5.Button, { variant: "ghost", size: "sm", className: "ks-ask-clear", title: "\u6E05\u6389\u8303\u56F4\u5E76\u6536\u8D77\u9762\u677F", onClick: clearAsk, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconCloseOutline16, {}),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_dsh_client_ui_primitives5.Button, { variant: "ghost", size: "sm", className: "ks-ask-clear", title: "\u6E05\u6389\u8303\u56F4\u5E76\u6536\u8D77\u9762\u677F", onClick: clearAsk, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconCloseOutline16, {}),
           "\u6E05\u6389\u8303\u56F4"
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-ask-row", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-ask-label", children: "\u95EE\u9898" }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-ask-row", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-ask-label", children: "\u95EE\u9898" }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
           import_dsh_client_ui_primitives5.Input,
           {
             className: "ks-ask-q",
@@ -40579,7 +40452,7 @@ function KsKnowledgePage({ useTabInfo }) {
             }
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
           import_dsh_client_ui_primitives5.Button,
           {
             variant: "primary",
@@ -40594,14 +40467,14 @@ function KsKnowledgePage({ useTabInfo }) {
           }
         )
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-ask-hint", children: "\u53EA\u5728\u4F60\u9009\u5B9A\u7684\u8FD9\u4E2A\u8303\u56F4\u91CC\u68C0\u7D22\uFF1B\u8303\u56F4\u5185\u6CA1\u6709\u5C31\u76F4\u8BF4 \u2014\u2014 \u4E0D\u4F1A\u62FF\u8303\u56F4\u5916\u7684\u5185\u5BB9\u5192\u5145\u3002" }),
-      askMsg === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-ask-msg ks-ask-msg-bad", role: "alert", children: askMsg }),
-      askRes === null ? null : /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-ask-res", "data-ks-ask-res": "on", children: [
-        askRes.scope === null ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-ask-msg ks-ask-msg-bad", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-ask-hint", children: "\u53EA\u5728\u4F60\u9009\u5B9A\u7684\u8FD9\u4E2A\u8303\u56F4\u91CC\u68C0\u7D22\uFF1B\u8303\u56F4\u5185\u6CA1\u6709\u5C31\u76F4\u8BF4 \u2014\u2014 \u4E0D\u4F1A\u62FF\u8303\u56F4\u5916\u7684\u5185\u5BB9\u5192\u5145\u3002" }),
+      askMsg === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-ask-msg ks-ask-msg-bad", role: "alert", children: askMsg }),
+      askRes === null ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-ask-res", "data-ks-ask-res": "on", children: [
+        askRes.scope === null ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-ask-msg ks-ask-msg-bad", children: [
           "\u6CE8\u610F\uFF1A\u8FD9\u6B21\u5E26\u4E86\u8303\u56F4\uFF08",
           askScope.label,
           "\uFF09\uFF0C\u53EF\u5F15\u64CE\u56DE\u663E\u8BF4**\u6CA1\u6709\u9650\u5B9A\u8303\u56F4** \u2014\u2014 \u8FD9\u4EFD\u7B54\u6848\u53EF\u80FD\u6765\u81EA\u6574\u4E2A\u77E5\u8BC6\u5E93\uFF0C**\u4E0D\u8981**\u5F53\u6210\u8303\u56F4\u5185\u68C0\u7D22\u7684\u7ED3\u679C\u3002"
-        ] }) : /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-ask-echo", children: [
+        ] }) : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-ask-echo", children: [
           "\u5F15\u64CE\u56DE\u663E\uFF1A\u8FD9\u6B21\u5B9E\u9645\u8303\u56F4 = ",
           String(askRes.scope.folder_count),
           " \u4E2A\u76EE\u5F55 \xB7",
@@ -40610,51 +40483,51 @@ function KsKnowledgePage({ useTabInfo }) {
           " \u7BC7",
           askRes.scope.empty ? "\uFF08\u8303\u56F4\u5185\u4E00\u7BC7\u90FD\u6CA1\u6709 \u21D2 \u5F15\u64CE\u4E00\u6B21\u68C0\u7D22\u90FD\u6CA1\u505A\uFF09" : ""
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-ask-tier", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-ask-tier", children: [
           "\u6863\u6B21\uFF1A",
           askRes.tier
         ] }),
-        askRes.scope !== null && askRes.scope.empty ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-ask-empty", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("strong", { children: "\u8303\u56F4\u5185\u6CA1\u6709" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { children: '\u4F60\u9009\u7684\u8303\u56F4\u91CC\u4E00\u7BC7\u6587\u4EF6\u90FD\u6CA1\u6709\uFF0C\u6240\u4EE5\u6CA1\u6709\u4EFB\u4F55\u4F9D\u636E\u53EF\u5F15\u7528 \u2014\u2014 \u8FD9\u4E0D\u662F"\u5E93\u91CC\u6CA1\u6709"\u3002' })
+        askRes.scope !== null && askRes.scope.empty ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-ask-empty", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { children: "\u8303\u56F4\u5185\u6CA1\u6709" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { children: '\u4F60\u9009\u7684\u8303\u56F4\u91CC\u4E00\u7BC7\u6587\u4EF6\u90FD\u6CA1\u6709\uFF0C\u6240\u4EE5\u6CA1\u6709\u4EFB\u4F55\u4F9D\u636E\u53EF\u5F15\u7528 \u2014\u2014 \u8FD9\u4E0D\u662F"\u5E93\u91CC\u6CA1\u6709"\u3002' })
         ] }) : null,
-        askRes.conclusion === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-ask-conc", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-ask-h", children: "\u7ED3\u8BBA" }),
+        askRes.conclusion === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-ask-conc", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-ask-h", children: "\u7ED3\u8BBA" }),
           askRes.conclusion
         ] }),
-        askRes.derivation === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-ask-der", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-ask-h", children: "\u63A8\u5BFC" }),
+        askRes.derivation === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-ask-der", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-ask-h", children: "\u63A8\u5BFC" }),
           askRes.derivation
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-ask-ev", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-ask-h", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-ask-ev", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-ask-h", children: [
             "\u4F9D\u636E\uFF08",
             String(askRes.evidence.length),
             " \u6761\uFF09"
           ] }),
-          askRes.evidence.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-ask-empty", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("strong", { children: "\u8303\u56F4\u5185\u6CA1\u6709" }),
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { children: "\u8FD9\u4E2A\u8303\u56F4\u91CC\u6CA1\u6709\u627E\u5230\u53EF\u5F15\u7528\u7684\u73B0\u884C\u6761\u6B3E\uFF1B\u6362\u51E0\u4E2A\u76EE\u5F55\uFF0C\u6216\u628A\u8303\u56F4\u653E\u5927\u4E00\u70B9\u518D\u95EE\u3002" })
-          ] }) : askRes.evidence.map((ev, i) => /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-ask-evrow", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-ask-evno", children: [
+          askRes.evidence.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-ask-empty", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { children: "\u8303\u56F4\u5185\u6CA1\u6709" }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { children: "\u8FD9\u4E2A\u8303\u56F4\u91CC\u6CA1\u6709\u627E\u5230\u53EF\u5F15\u7528\u7684\u73B0\u884C\u6761\u6B3E\uFF1B\u6362\u51E0\u4E2A\u76EE\u5F55\uFF0C\u6216\u628A\u8303\u56F4\u653E\u5927\u4E00\u70B9\u518D\u95EE\u3002" })
+          ] }) : askRes.evidence.map((ev, i) => /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-ask-evrow", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-ask-evno", children: [
               String(ev.standard_no ?? "\u2014"),
               " ",
               String(ev.clause_number ?? "")
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-ask-evtitle", children: String(ev.title ?? "") }),
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-ask-evtext", children: String(ev.snippet ?? "") })
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-ask-evtitle", children: String(ev.title ?? "") }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-ask-evtext", children: String(ev.snippet ?? "") })
           ] }, String(ev.clause_revision_id ?? i)))
         ] }),
-        askRes.notes.length === 0 ? null : /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-ask-notes", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-ask-h", children: "\u8BF4\u660E" }),
-          askRes.notes.map((nt, i) => /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-ask-note", children: nt }, `n${String(i)}`))
+        askRes.notes.length === 0 ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-ask-notes", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-ask-h", children: "\u8BF4\u660E" }),
+          askRes.notes.map((nt, i) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-ask-note", children: nt }, `n${String(i)}`))
         ] })
       ] })
     ] }) : null,
-    phase === "error" ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-kb-err", role: "alert", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("strong", { children: "\u8BFB\u4E0D\u5230\u77E5\u8BC6\u5E93" }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-kb-hint", children: errMsg }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+    phase === "error" ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb-err", role: "alert", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { children: "\u8BFB\u4E0D\u5230\u77E5\u8BC6\u5E93" }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-kb-hint", children: errMsg }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
         import_dsh_client_ui_primitives5.Button,
         {
           variant: "outline",
@@ -40667,10 +40540,10 @@ function KsKnowledgePage({ useTabInfo }) {
         }
       )
     ] }) : null,
-    /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-split", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-kb-tree", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-tree-head", children: "\u76EE\u5F55" }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-tree-body", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-split", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb-tree", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-tree-head", children: "\u76EE\u5F55" }),
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-tree-body", children: [
           renderTreeRow(
             "root",
             "\u6700\u5916\u5C42",
@@ -40679,14 +40552,34 @@ function KsKnowledgePage({ useTabInfo }) {
             layer === "folder" && levelId === null,
             inboxTreeRow
           ),
-          tree.root?.loading === true ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-tree-hint", children: "\u6B63\u5728\u8BFB\u53D6\u2026" }) : null
+          tree.root?.loading === true ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-tree-hint", children: "\u6B63\u5728\u8BFB\u53D6\u2026" }) : null
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-main", children: layer === "inbox" ? inboxMain : /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(import_jsx_runtime16.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-list-cap", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-lhead-name ks-kb-grow", title: ["\u77E5\u8BC6\u5E93", ...crumb.map((f) => f.name)].join(" / "), children: levelName }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-main", children: layer === "inbox" ? inboxMain : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-list-cap", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-lhead-name ks-kb-grow", title: ["\u77E5\u8BC6\u5E93", ...crumb.map((f) => f.name)].join(" / "), children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+              "button",
+              {
+                type: "button",
+                style: { marginLeft: 8, fontSize: 11, cursor: "pointer" },
+                title: "\u5BFC\u51FA\u300A\u6548\u529B\u603B\u89C8\u300BExcel\uFF08\u5168\u5E93\u56DB\u8272\u6548\u529B\u73B0\u72B6\uFF09",
+                onClick: () => {
+                  void (async () => {
+                    try {
+                      const { exportEffectReport: exportEffectReport2 } = await Promise.resolve().then(() => (init_api(), api_exports));
+                      await exportEffectReport2("all", void 0, void 0);
+                    } catch {
+                    }
+                  })();
+                },
+                children: "\u5BFC\u51FA\u6548\u529B\u603B\u89C8"
+              }
+            ),
+            levelName
+          ] }),
           askEntry,
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-kb-hint", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-kb-hint", children: [
             subs.length,
             " \u4E2A\u5B50\u76EE\u5F55 \xB7 ",
             filesTotal,
@@ -40697,9 +40590,9 @@ function KsKnowledgePage({ useTabInfo }) {
         searchBox,
         batchBar,
         actionPanel,
-        actMsg === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-ib-msg", role: "status", children: actMsg }),
-        subs.length > 0 || dirsShown.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-list ks-list-dirs ks-dirs", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-lhead", children: DIR_COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: `ks-cell ${col.cls}`, children: col.head === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-lhead-col", children: col.head }) }, col.key)) }),
+        actMsg === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-ib-msg", role: "status", children: actMsg }),
+        subs.length > 0 || dirsShown.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-list ks-list-dirs ks-dirs", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-lhead", children: DIR_COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: `ks-cell ${col.cls}`, children: col.head === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-lhead-col", children: col.head }) }, col.key)) }),
           dirsShown.map((child) => {
             const isOpen = menuFor === pickDirKey(child.folder_id);
             const dirMenu = [
@@ -40714,7 +40607,7 @@ function KsKnowledgePage({ useTabInfo }) {
             const dirCell = (key) => {
               switch (key) {
                 case "dpick":
-                  return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-pick", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+                  return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-pick", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
                     import_dsh_client_ui_primitives5.Checkbox,
                     {
                       className: "ks-pick-cb",
@@ -40727,8 +40620,8 @@ function KsKnowledgePage({ useTabInfo }) {
                     }
                   ) });
                 case "dname":
-                  return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(import_jsx_runtime16.Fragment, { children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+                  return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
                       "button",
                       {
                         type: "button",
@@ -40739,13 +40632,13 @@ function KsKnowledgePage({ useTabInfo }) {
                           goto(child.folder_id);
                         },
                         children: [
-                          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-fileico", title: "\u76EE\u5F55", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconFolderOpenOutline16, {}) }),
-                          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-dir-name", title: child.name, children: child.name }),
-                          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-dir-go", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconChevronRightOutline14, {}) })
+                          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-fileico", title: "\u76EE\u5F55", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconFolderOpenOutline16, {}) }),
+                          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-dir-name", title: child.name, children: child.name }),
+                          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-dir-go", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronRightOutline14, {}) })
                         ]
                       }
                     ),
-                    /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+                    /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
                       "span",
                       {
                         style: {
@@ -40756,24 +40649,24 @@ function KsKnowledgePage({ useTabInfo }) {
                           whiteSpace: "nowrap",
                           color: "var(--dsw-alias-label-secondary)"
                         },
-                        title: `\u300C${child.name}\u300D\u8FD9\u4E00\u68F5\u91CC\uFF1A\u{1F7E2} \u73B0\u884C ${child.effect_deep.green} \xB7 \u{1F7E1} \u5373\u5C06\u5B9E\u65BD ${child.effect_deep.yellow} \xB7 \u{1F534} \u5E9F\u6B62/\u88AB\u4EE3 ${child.effect_deep.red} \xB7 \u26AA \u672A\u77E5 ${child.effect_deep.gray}`,
+                        title: `\u300C${child.name}\u300D\u8FD9\u4E00\u68F5\u91CC\uFF1A\u{1F7E2} \u73B0\u884C ${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).green} \xB7 \u{1F7E1} \u5373\u5C06\u5B9E\u65BD ${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).yellow} \xB7 \u{1F534} \u5E9F\u6B62/\u88AB\u4EE3 ${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).red} \xB7 \u26AA \u672A\u77E5 ${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).gray}`,
                         children: [
-                          child.effect_deep.red ? `\u{1F534}${child.effect_deep.red} ` : "",
-                          child.effect_deep.yellow ? `\u{1F7E1}${child.effect_deep.yellow} ` : "",
-                          child.effect_deep.green ? `\u{1F7E2}${child.effect_deep.green}` : "",
-                          child.effect_deep.gray ? ` \u26AA${child.effect_deep.gray}` : "",
-                          child.effect_deep.red + child.effect_deep.yellow + child.effect_deep.green + child.effect_deep.gray === 0 ? "\u2014" : ""
+                          (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).red ? `\u{1F534}${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).red} ` : "",
+                          (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).yellow ? `\u{1F7E1}${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).yellow} ` : "",
+                          (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).green ? `\u{1F7E2}${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).green}` : "",
+                          (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).gray ? ` \u26AA${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).gray}` : "",
+                          (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).red + (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).yellow + (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).green + (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).gray === 0 ? "\u2014" : ""
                         ]
                       }
                     )
                   ] });
                 case "dcount":
-                  return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-kb-badge", children: [
+                  return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-kb-badge", children: [
                     child.file_count_deep,
                     " \u7BC7"
                   ] });
                 case "dmore":
-                  return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-item-more", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+                  return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-item-more", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
                     import_dsh_client_ui_primitives5.Menu,
                     {
                       open: isOpen,
@@ -40794,7 +40687,7 @@ function KsKnowledgePage({ useTabInfo }) {
                         else if (id === "ask") void openAsk([key2]);
                         else if (id === "delete") openAction("folder-del", [key2]);
                       },
-                      anchor: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+                      anchor: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
                         import_dsh_client_ui_primitives5.Button,
                         {
                           variant: "ghost",
@@ -40806,7 +40699,7 @@ function KsKnowledgePage({ useTabInfo }) {
                           onClick: () => {
                             setMenuFor(isOpen ? null : pickDirKey(child.folder_id));
                           },
-                          children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconEllipsisOutline16, {})
+                          children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconEllipsisOutline16, {})
                         }
                       )
                     }
@@ -40816,7 +40709,7 @@ function KsKnowledgePage({ useTabInfo }) {
             return (
               /* ⚠ 第 5 步：**div**（原来是 button）—— 行内现在有勾选框与 ⋮ 两个真控件。
                  整行可点 = 进入这一级（与文件行"整行可点 = 打开详情"同一种做法）。 */
-              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
                 "div",
                 {
                   className: "ks-item ks-dir-row",
@@ -40827,25 +40720,25 @@ function KsKnowledgePage({ useTabInfo }) {
                     if (t.closest("button,input,a,[role=menuitem],[role=menu]") !== null) return;
                     goto(child.folder_id);
                   },
-                  children: DIR_COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: `ks-cell ${col.cls}`, children: dirCell(col.key) }, col.key))
+                  children: DIR_COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: `ks-cell ${col.cls}`, children: dirCell(col.key) }, col.key))
                 },
                 child.folder_id
               )
             );
           })
         ] }) : null,
-        levelEmpty ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-empty-card", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconFolderOpenOutline16, { size: 28 }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-empty-t", children: "\u8FD9\u4E00\u5C42\u8FD8\u6CA1\u6709\u4E1C\u897F" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-empty-d", children: [
+        levelEmpty ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-empty-card", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconFolderOpenOutline16, { size: 28 }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-t", children: "\u8FD9\u4E00\u5C42\u8FD8\u6CA1\u6709\u4E1C\u897F" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-empty-d", children: [
             "\u8FD9\u4E00\u5C42\u91CC\u65E2\u6CA1\u6709\u4E0B\u7EA7\u76EE\u5F55\uFF0C\u4E5F\u6CA1\u6709\u76F4\u63A5\u653E\u5728\u8FD9\u91CC\u7684\u6587\u4EF6\u3002",
             levelId === null ? "\u7528\u4E0A\u9762\u7684\u300C\u4E0A\u4F20\u5230\u8FD9\u4E00\u5C42\u300D\u628A\u6587\u4EF6\u5BFC\u8FDB\u6765\u3002" : "\u7528\u4E0A\u9762\u7684\u300C\u4E0A\u4F20\u5230\u8FD9\u4E00\u5C42\u300D\u628A\u6587\u4EF6\u5BFC\u8FDB\u8FD9\u4E2A\u76EE\u5F55\u3002"
           ] })
         ] }) : null,
-        !levelEmpty && nothingShown && needle !== "" ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-empty-card", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconSearchOutline16, { size: 28 }) }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-empty-t", children: "\u8FD9\u4E00\u5C42\u6CA1\u6709\u7B26\u5408\u641C\u7D22\u7684\u6761\u76EE" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-empty-d", children: [
+        !levelEmpty && nothingShown && needle !== "" ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-empty-card", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconSearchOutline16, { size: 28 }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-t", children: "\u8FD9\u4E00\u5C42\u6CA1\u6709\u7B26\u5408\u641C\u7D22\u7684\u6761\u76EE" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-empty-d", children: [
             "\u672C\u9875 ",
             subs.length,
             " \u4E2A\u76EE\u5F55 / ",
@@ -40854,7 +40747,7 @@ function KsKnowledgePage({ useTabInfo }) {
             search.trim(),
             "\u300D\u7684\u3002 \uFF08\u53EA\u7B5B\u5DF2\u7ECF\u8BFB\u51FA\u6765\u7684\u8FD9\u4E00\u9875\uFF1B\u7FFB\u9875\u540E\u53EF\u80FD\u8FD8\u6709\u3002\uFF09"
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
             import_dsh_client_ui_primitives5.Button,
             {
               variant: "outline",
@@ -40867,8 +40760,8 @@ function KsKnowledgePage({ useTabInfo }) {
             }
           )
         ] }) : null,
-        files.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-list", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-lhead", children: COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: `ks-cell ${col.cls}`, children: col.head === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-lhead-col", children: col.head }) }, col.key)) }),
+        files.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-list", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-lhead", children: COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: `ks-cell ${col.cls}`, children: col.head === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-lhead-col", children: col.head }) }, col.key)) }),
           filesShown.map((doc) => {
             const st = STATUS[statusOf(doc.legal_status)];
             const isOpen = menuFor === doc.doc_id;
@@ -40887,7 +40780,7 @@ function KsKnowledgePage({ useTabInfo }) {
             const cellFor = (key) => {
               switch (key) {
                 case "fpick":
-                  return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-pick", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+                  return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-pick", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
                     import_dsh_client_ui_primitives5.Checkbox,
                     {
                       className: "ks-pick-cb",
@@ -40900,16 +40793,16 @@ function KsKnowledgePage({ useTabInfo }) {
                     }
                   ) });
                 case "name":
-                  return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(import_jsx_runtime16.Fragment, { children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-item-name", title: doc.standard_name ?? doc.doc_id, children: doc.standard_name ?? doc.doc_id }),
-                    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-item-sub", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-item-meta", children: doc.standard_no === null || doc.standard_no === "" ? "\u2014" : doc.standard_no }) })
+                  return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-item-name", title: doc.standard_name ?? doc.doc_id, children: doc.standard_name ?? doc.doc_id }),
+                    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-item-sub", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-item-meta", children: doc.standard_no === null || doc.standard_no === "" ? "\u2014" : doc.standard_no }) })
                   ] });
                 case "status":
-                  return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: st.cls, children: st.text });
+                  return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: st.cls, children: st.text });
                 case "date":
-                  return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-kb-hint", children: doc.effective_from === null || doc.effective_from === "" ? "\u2014" : doc.effective_from });
+                  return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-kb-hint", children: doc.effective_from === null || doc.effective_from === "" ? "\u2014" : doc.effective_from });
                 case "stage":
-                  return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+                  return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
                     "span",
                     {
                       className: "ks-kb-hint",
@@ -40921,7 +40814,7 @@ function KsKnowledgePage({ useTabInfo }) {
                     }
                   );
                 case "more":
-                  return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-item-more", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+                  return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-item-more", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
                     import_dsh_client_ui_primitives5.Menu,
                     {
                       open: isOpen,
@@ -40941,7 +40834,7 @@ function KsKnowledgePage({ useTabInfo }) {
                         else if (id === "copy") openAction("copy", [fileKey]);
                         else if (id === "remove") void runRemove([fileKey]);
                       },
-                      anchor: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+                      anchor: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
                         import_dsh_client_ui_primitives5.Button,
                         {
                           variant: "ghost",
@@ -40953,7 +40846,7 @@ function KsKnowledgePage({ useTabInfo }) {
                           onClick: () => {
                             setMenuFor(isOpen ? null : doc.doc_id);
                           },
-                          children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconEllipsisOutline16, {})
+                          children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconEllipsisOutline16, {})
                         }
                       )
                     }
@@ -40964,22 +40857,22 @@ function KsKnowledgePage({ useTabInfo }) {
               /* 整行可点（业主 2026-09-21）：分流规则在 `openRowDetail` 里，唯一所有者。
                  ⚠ 它是 **div**（不是 button）：行内已经有「⋮」这个真控件，
                    把行做成按钮会嵌套交互元素（HTML 非法 + 读屏器读成两个控件）。 */
-              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
                 "div",
                 {
                   className: openDoc === doc.doc_id ? "ks-item ks-file-row ks-item-on" : "ks-item ks-file-row",
                   onClick: (e) => {
                     openRowDetail(doc, e);
                   },
-                  children: COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: `ks-cell ${col.cls}`, children: cellFor(col.key) }, col.key))
+                  children: COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: `ks-cell ${col.cls}`, children: cellFor(col.key) }, col.key))
                 },
                 doc.doc_id
               )
             );
           })
         ] }) : null,
-        filesTotal > FILE_PAGE_SIZE ? /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-pager", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+        filesTotal > FILE_PAGE_SIZE ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-pager", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
             import_dsh_client_ui_primitives5.Button,
             {
               variant: "outline",
@@ -40990,10 +40883,10 @@ function KsKnowledgePage({ useTabInfo }) {
               onClick: () => {
                 goPage(Math.max(0, fileOffset - FILE_PAGE_SIZE));
               },
-              children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconChevronLeftOutline14, {})
+              children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronLeftOutline14, {})
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-pager-n", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-pager-n", children: [
             "\u7B2C ",
             pageNo,
             " / ",
@@ -41002,7 +40895,7 @@ function KsKnowledgePage({ useTabInfo }) {
             filesTotal,
             " \u7BC7"
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
             import_dsh_client_ui_primitives5.Button,
             {
               variant: "outline",
@@ -41013,25 +40906,25 @@ function KsKnowledgePage({ useTabInfo }) {
               onClick: () => {
                 goPage(fileOffset + FILE_PAGE_SIZE);
               },
-              children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconChevronRightOutline14, {})
+              children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronRightOutline14, {})
             }
           )
         ] }) : null
       ] }) }),
-      layer === "folder" && current !== null ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "ks-detail", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-kb-card", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-kb-row", style: { marginBottom: 6 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("strong", { className: "ks-kb-grow ks-kb-ct", title: current.standard_name ?? current.doc_id, children: current.standard_name ?? current.doc_id }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: STATUS[statusOf(current.legal_status)].cls, children: STATUS[statusOf(current.legal_status)].text })
+      layer === "folder" && current !== null ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-detail", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb-card", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb-row", style: { marginBottom: 6 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { className: "ks-kb-grow ks-kb-ct", title: current.standard_name ?? current.doc_id, children: current.standard_name ?? current.doc_id }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: STATUS[statusOf(current.legal_status)].cls, children: STATUS[statusOf(current.legal_status)].text })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { className: "ks-fields", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Field, { label: "\u6807\u51C6\u53F7", value: current.standard_no ?? "", mono: true }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Field, { label: "\u53D1\u5E03\u65E5\u671F", value: current.published_at ?? "" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Field, { label: "\u751F\u6548\u65E5\u671F", value: current.effective_from ?? "" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Field, { label: "\u5E9F\u6B62\u65E5\u671F", value: current.withdrawn_date ?? "" }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Field, { label: "\u88AB\u66FF\u4EE3\u4E3A", value: current.superseded_by ?? "", mono: true }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Field, { label: "\u6240\u5C5E\u76EE\u5F55", value: levelName }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Field, { label: "\u5904\u7406\u72B6\u6001", value: stageText(current.stage, stageLabels) }),
-          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-fields", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Field, { label: "\u6807\u51C6\u53F7", value: current.standard_no ?? "", mono: true }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Field, { label: "\u53D1\u5E03\u65E5\u671F", value: current.published_at ?? "" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Field, { label: "\u751F\u6548\u65E5\u671F", value: current.effective_from ?? "" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Field, { label: "\u5E9F\u6B62\u65E5\u671F", value: current.withdrawn_date ?? "" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Field, { label: "\u88AB\u66FF\u4EE3\u4E3A", value: current.superseded_by ?? "", mono: true }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Field, { label: "\u6240\u5C5E\u76EE\u5F55", value: levelName }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Field, { label: "\u5904\u7406\u72B6\u6001", value: stageText(current.stage, stageLabels) }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
             Field,
             {
               label: "\u8BC6\u522B\u7387",
@@ -41045,16 +40938,17 @@ function KsKnowledgePage({ useTabInfo }) {
 }
 
 // client/KsScopeChip.tsx
-var import_react13 = require("react");
-var import_jsx_runtime17 = require("react/jsx-runtime");
+var import_react12 = require("react");
+init_api();
+var import_jsx_runtime16 = require("react/jsx-runtime");
 function KsScopeChip(props) {
   const { sessionId } = props;
-  const [folderName, setFolderName] = (0, import_react13.useState)(null);
-  const [busy, setBusy] = (0, import_react13.useState)(false);
-  const abortRef = (0, import_react13.useRef)(null);
-  const [sentry, setSentry] = (0, import_react13.useState)(false);
+  const [folderName, setFolderName] = (0, import_react12.useState)(null);
+  const [busy, setBusy] = (0, import_react12.useState)(false);
+  const abortRef = (0, import_react12.useRef)(null);
+  const [sentry, setSentry] = (0, import_react12.useState)(false);
   const draft = props.input?.draft ?? "";
-  (0, import_react13.useEffect)(() => {
+  (0, import_react12.useEffect)(() => {
     if (sessionId === void 0 || sessionId.length === 0) return;
     if (draft.trim().length === 0) {
       setSentry(false);
@@ -41072,7 +40966,7 @@ function KsScopeChip(props) {
     }, 300);
     return () => clearTimeout(timer);
   }, [sessionId, draft]);
-  (0, import_react13.useEffect)(() => {
+  (0, import_react12.useEffect)(() => {
     abortRef.current?.abort();
     const controller = new AbortController();
     abortRef.current = controller;
@@ -41091,7 +40985,7 @@ function KsScopeChip(props) {
     })();
     return () => controller.abort();
   }, [sessionId]);
-  const close = (0, import_react13.useCallback)(async () => {
+  const close = (0, import_react12.useCallback)(async () => {
     if (sessionId === void 0 || busy) return;
     setBusy(true);
     try {
@@ -41103,8 +40997,8 @@ function KsScopeChip(props) {
     }
   }, [sessionId, busy]);
   if (folderName === null && !sentry) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { style: { display: "flex", gap: 6, alignItems: "center" }, children: [
-    sentry && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { style: { display: "flex", gap: 6, alignItems: "center" }, children: [
+    sentry && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
       "span",
       {
         "data-ks-compliance-marker": "",
@@ -41123,7 +41017,7 @@ function KsScopeChip(props) {
         children: "\u2696 \u5408\u89C4\u62A4\u822A\uFF1A\u5F85\u547D"
       }
     ),
-    folderName !== null && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
+    folderName !== null && /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
       "div",
       {
         "data-ks-scope-chip": "",
@@ -41143,10 +41037,10 @@ function KsScopeChip(props) {
         },
         title: `\u672C\u4F1A\u8BDD\u6BCF\u4E00\u8F6E\u68C0\u7D22\u90FD\u9650\u5B9A\u5728\u6536\u85CF\u5939\u300C${folderName}\u300D\u7684\u5185\u5BB9\u5185\uFF08\u6807\u51C6\u7EA7\u6536\u85CF\u6309\u6574\u672C\u8BA1\uFF09\u3002\u70B9 \u2715 \u6062\u590D\u5168\u5E93\u3002`,
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", { "aria-hidden": true, children: "\u{1F516}" }),
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", { style: { fontWeight: 600 }, children: folderName }),
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", { style: { color: "#9c6b1f" }, children: "\xB7 \u4EC5\u5728\u672C\u6536\u85CF\u5939\u5185\u63D0\u95EE" }),
-          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { "aria-hidden": true, children: "\u{1F516}" }),
+          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { style: { fontWeight: 600 }, children: folderName }),
+          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { style: { color: "#9c6b1f" }, children: "\xB7 \u4EC5\u5728\u672C\u6536\u85CF\u5939\u5185\u63D0\u95EE" }),
+          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
             "button",
             {
               type: "button",
@@ -41176,7 +41070,7 @@ function KsScopeChip(props) {
 
 // client/KsTurnTab.tsx
 var React4 = __toESM(require("react"), 1);
-var import_jsx_runtime18 = require("react/jsx-runtime");
+var import_jsx_runtime17 = require("react/jsx-runtime");
 var str2 = (v) => typeof v === "string" ? v : v === void 0 || v === null ? "" : String(v);
 function turnEvidenceHref(ev) {
   const doc = str2(ev.doc_id);
@@ -41215,7 +41109,7 @@ function KsTurnModeChip(props) {
     pills.push(`\u8303\u56F4\uFF1A${str2(scope.folder_count ?? 0)} \u4E2A\u76EE\u5F55 \xB7 ${str2(scope.doc_count ?? 0)} \u7BC7`);
   }
   if (pills.length === 0) return null;
-  return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { style: { display: "flex", gap: 6, flexWrap: "wrap" }, children: pills.map((p) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { style: { display: "flex", gap: 6, flexWrap: "wrap" }, children: pills.map((p) => /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
     "span",
     {
       style: {
@@ -41231,7 +41125,7 @@ function KsTurnModeChip(props) {
   )) });
 }
 function KsTurnEmptyState() {
-  return /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
     "div",
     {
       style: {
@@ -41245,8 +41139,8 @@ function KsTurnEmptyState() {
         textAlign: "center"
       },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary)", fontSize: 13 }, children: "\u8FD9\u4E00\u8F6E\u8FD8\u6CA1\u7528\u5230\u4F9D\u636E\u3002" }),
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary)", fontSize: 12, lineHeight: 1.6 }, children: "\u5728\u5BF9\u8BDD\u91CC\u63D0\u95EE\u540E\uFF0C\u8FD9\u91CC\u4F1A\u5217\u51FA\u8FD9\u6B21\u7B54\u6848\u7528\u5230\u7684\u6761\u6B3E\u4E0E\u6838\u5BF9\u7ED3\u679C\u3002" })
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { style: { color: "var(--dsw-alias-label-secondary)", fontSize: 13 }, children: "\u8FD9\u4E00\u8F6E\u8FD8\u6CA1\u7528\u5230\u4F9D\u636E\u3002" }),
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary)", fontSize: 12, lineHeight: 1.6 }, children: "\u5728\u5BF9\u8BDD\u91CC\u63D0\u95EE\u540E\uFF0C\u8FD9\u91CC\u4F1A\u5217\u51FA\u8FD9\u6B21\u7B54\u6848\u7528\u5230\u7684\u6761\u6B3E\u4E0E\u6838\u5BF9\u7ED3\u679C\u3002" })
       ]
     }
   );
@@ -41255,7 +41149,7 @@ function KsTurnEvidenceRow(props) {
   const { ev, onLook } = props;
   const badge = statusBadge(ev);
   const href = turnEvidenceHref(ev);
-  return /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
     "div",
     {
       style: {
@@ -41267,13 +41161,13 @@ function KsTurnEvidenceRow(props) {
         gap: 4
       },
       children: [
-        /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("span", { style: { fontWeight: 600 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("span", { style: { fontWeight: 600 }, children: [
             str2(ev.standard_no),
             " ",
             str2(ev.clause_number)
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
             "span",
             {
               style: {
@@ -41286,9 +41180,9 @@ function KsTurnEvidenceRow(props) {
               children: badge.text
             }
           ),
-          str2(ev.legal_hierarchy).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("span", { style: { fontSize: 11, color: "var(--dsw-alias-label-tertiary)" }, children: str2(ev.legal_hierarchy) })
+          str2(ev.legal_hierarchy).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", { style: { fontSize: 11, color: "var(--dsw-alias-label-tertiary)" }, children: str2(ev.legal_hierarchy) })
         ] }),
-        str2(ev.snippet).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+        str2(ev.snippet).length > 0 && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
           "div",
           {
             style: {
@@ -41303,7 +41197,7 @@ function KsTurnEvidenceRow(props) {
             children: str2(ev.snippet)
           }
         ),
-        href !== null && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+        href !== null && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
           "button",
           {
             type: "button",
@@ -41350,7 +41244,7 @@ function KsTurnTab(props) {
     };
   }, [sessionId, revision]);
   if (record === null) {
-    return loading ? /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { style: { padding: "24px 16px", textAlign: "center", color: "var(--dsw-alias-label-tertiary)", fontSize: 12 }, children: "\u6B63\u5728\u8BFB\u53D6\u672C\u8F6E\u2026" }) : /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(KsTurnEmptyState, {});
+    return loading ? /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { style: { padding: "24px 16px", textAlign: "center", color: "var(--dsw-alias-label-tertiary)", fontSize: 12 }, children: "\u6B63\u5728\u8BFB\u53D6\u672C\u8F6E\u2026" }) : /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(KsTurnEmptyState, {});
   }
   const evidence = Array.isArray(record.evidence) ? record.evidence : [];
   const verification = record.verification;
@@ -41359,9 +41253,9 @@ function KsTurnTab(props) {
     ...Array.isArray(verification?.cite_warnings) ? verification.cite_warnings : []
   ].map((x) => str2(x)).filter((x) => x.length > 0);
   const notes = Array.isArray(record.notes) ? record.notes.map((x) => str2(x)).filter((x) => x.length > 0) : [];
-  return /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { style: { padding: "12px 14px", display: "flex", flexDirection: "column", gap: 8 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(KsTurnModeChip, { mode: record.mode, scope: record.scope }),
-    verification !== null && /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(
+  return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { style: { padding: "12px 14px", display: "flex", flexDirection: "column", gap: 8 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(KsTurnModeChip, { mode: record.mode, scope: record.scope }),
+    verification !== null && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
       "div",
       {
         role: verification.is_valid === true ? void 0 : "alert",
@@ -41379,7 +41273,7 @@ function KsTurnTab(props) {
         ]
       }
     ),
-    evidence.map((ev, i) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+    evidence.map((ev, i) => /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
       KsTurnEvidenceRow,
       {
         ev,
@@ -41390,7 +41284,7 @@ function KsTurnTab(props) {
       },
       `${str2(ev.doc_id)}-${str2(ev.clause_revision_id)}-${String(i)}`
     )),
-    notes.map((n, i) => /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary)", fontSize: 12, lineHeight: 1.6 }, children: n }, `note-${String(i)}`))
+    notes.map((n, i) => /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { style: { color: "var(--dsw-alias-label-tertiary)", fontSize: 12, lineHeight: 1.6 }, children: n }, `note-${String(i)}`))
   ] });
 }
 
@@ -41412,7 +41306,7 @@ function notifyEvidenceUnavailable() {
     const host = document.createElement("div");
     (document.body ?? document.documentElement).appendChild(host);
     const root = (0, import_client.createRoot)(host);
-    root.render((0, import_react14.createElement)(import_dsh_client_ui_primitives6.Toast, {
+    root.render((0, import_react13.createElement)(import_dsh_client_ui_primitives6.Toast, {
       text: "\u8BC1\u636E\u539F\u6587\u6682\u65F6\u6253\u4E0D\u5F00\uFF1APDF \u67E5\u770B\u5668\uFF08\u53F3\u4FA7\u680F\uFF09\u6CA1\u6302\u4E0A\u3002\u8BF7\u7A0D\u540E\u91CD\u8BD5\uFF1B\u82E5\u4E00\u76F4\u5982\u6B64\uFF0C\u8BF7\u68C0\u67E5 DSH \u7684\u4FA7\u680F\u63D2\u4EF6\u662F\u5426\u542F\u7528\u3002",
       anchor: document.body ?? document.documentElement,
       holdMs: 8e3,

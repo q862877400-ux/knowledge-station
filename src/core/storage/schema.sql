@@ -658,6 +658,20 @@ CREATE TABLE IF NOT EXISTS update_channel (
 CREATE INDEX IF NOT EXISTS idx_channel_cat ON update_channel(category, state);
 CREATE INDEX IF NOT EXISTS idx_channel_wiring ON update_channel(wiring, enabled);
 
+-- 渠道「已知文件测试」（批C，2026-09-22 业主定案）：每条渠道一个已知文件（样本链接 +
+-- 期望标准号）；测试=拉下来/认出来 ⇒ 渠道算数。结果**永远留痕**（ok/fail + 详情 + 时间）。
+CREATE TABLE IF NOT EXISTS channel_test_case (
+    channel_id   TEXT PRIMARY KEY,
+    sample_url   TEXT NOT NULL,
+    expect_no    TEXT NOT NULL,                    -- 期望标准号（比对口径见 channel_test._norm_no）
+    note         TEXT,
+    last_result  TEXT,                             -- ok | fail（没跑过=NULL）
+    last_detail  TEXT,
+    last_run_at  TEXT,
+    created_at   TEXT NOT NULL DEFAULT (datetime('now')),
+    updated_at   TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
 -- ============================================================================
 -- 知识库多级目录（33~35 号表；2026-09-21，方案真源 docs/KB-FOLDER-PLAN.md §3）
 -- ============================================================================

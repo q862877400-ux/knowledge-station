@@ -78,7 +78,7 @@ export const KS_EVIDENCE_ADDRESS = KS_EVIDENCE_RESOURCE_PREFIX
    ============================================================================ */
 
 /** 知识库页的二级页（对应 ▾ 菜单里除 PDF 之外的项；S5 起含「备料」）。 */
-export type KsKbPage = 'manage' | 'capabilities' | 'ingest' | 'report' | 'materials' | 'channels'
+export type KsKbPage = 'manage' | 'capabilities' | 'ingest' | 'materials' | 'channels'
 
 /** 知识库 tab 的实现身份与类型判别符。 */
 export const KS_KB_IMPL_ID = 'ks-dsh-plugin/knowledge'
@@ -252,7 +252,7 @@ export const KS_GUIDE_ORDER_PDF = 25
  *
  * ⚠ **2026-09-19 起不再与 tab 标题同源**（原来两处都走 `evidenceTabTitle`）。
  * 业主把开始页那张卡从「PDF 查看器」改成「**知识库**」——因为它现在是一个**入口**
- * （下挂知识库管理/文件导入/效力报告/渠道台账 + PDF 查看器），不再是 PDF 阅读器本身。
+ * （下挂知识库管理/文件导入/渠道台账 + PDF 查看器），不再是 PDF 阅读器本身。
  * PDF 阅读器的 tab 标题**仍是**「PDF 查看器」（`evidenceTabTitle`），两者刻意分开：
  * 卡片管"进哪个门"，tab 标题管"我正看着什么"，混用会让用户以为卡片刻的就是 PDF。
  */
@@ -264,7 +264,7 @@ export function ksGuideEntryTitle(): string {
  * 开始页入口卡片的说明（官方只在条目 ≤4 个时才显示说明，多了只留标题）。
  */
 export function ksGuideEntryDescription(): string {
-  return '法规标准与自有资料：目录、标签、导入、效力总览'
+  return '法规标准与自有资料：目录、标签、导入、效力'
 }
 
 /**
