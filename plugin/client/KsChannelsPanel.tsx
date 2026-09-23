@@ -28,6 +28,7 @@
  */
 import * as React from 'react'
 import { ensureKsStyles } from './ksGuideStyles'
+import { KsCrumb, KsListHead, type KbListCol } from './kbListUi'
 import { Fragment, useCallback, useEffect, useState } from 'react'
 
 import {
@@ -116,6 +117,18 @@ export function parseSegments(raw: string | null | undefined): string[] {
     return []
   }
 }
+
+/** 目录层列（与知识库目录层同款 4 轨：占位/名称/条数/›——模板就是 .ks-list-dirs 那条）。 */
+const DIR_COLS: readonly KbListCol[] = [
+  { key: 'dpick', head: '' }, { key: 'dname', head: '名称' },
+  { key: 'dcount', head: '条数' }, { key: 'dmore', head: '' },
+]
+/** 渠道文件层列（.ks-list-chans 自己那条 --ks-cols 的 6 轨）。 */
+const CH_COLS: readonly KbListCol[] = [
+  { key: 'chan', head: '渠道' }, { key: 'tags', head: '标签' },
+  { key: 'cstate', head: '能不能用' }, { key: 'cdate', head: '上次好用' },
+  { key: 'cissue', head: '问题' }, { key: 'cact', head: '操作' },
+]
 
 /** 单位性质的用户叫法（树的组名；与引擎 ORG_KIND 同序）。 */
 export const ORG_KIND_LABEL: Record<string, string> = {
@@ -447,103 +460,80 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
 
       {data && rows.length === 0 && <p style={{ color: GRAY, margin: 0 }}>没有符合条件的渠道。</p>}
 
-      {/* 批B1（2026-09-22）：「文件夹树」两级视图——照抄知识库文件目录的交互
-          （目录层同构行 + 面包屑逐级可点 + 整行进入）。分类轴 = 单位性质（业主定案）。 */}
+      {/* 正装（2026-09-22 业主打回手搓后改）：**与知识库管理同一套机制**——
+          目录层直接用 .ks-list-dirs（同列同格同款行按钮），文件层=第四层 .ks-list-chans
+          （复用 .ks-list/.ks-lhead/.ks-item，只给一条自己的 --ks-cols），面包屑=kbListUi 共用件。 */}
       {rows.length > 0 && (
         <div>
-          <div style={{ display: 'flex', gap: 4, alignItems: 'center', marginBottom: 6, fontSize: 12 }}>
-            <button type="button" onClick={() => setOrgSel(null)} style={{ ...$mini, fontWeight: orgSel === null ? 600 : 400 }}>
-              渠道台账
-            </button>
-            {orgSel !== null && (
-              <>
-                <span style={{ color: FAINT }}>/</span>
-                <span style={{ fontWeight: 600 }}>{ORG_KIND_LABEL[orgSel] ?? orgSel}</span>
-              </>
-            )}
-          </div>
+          <KsCrumb
+            items={orgSel === null
+              ? [{ name: '渠道台账' }]
+              : [{ name: '渠道台账', onGo: () => setOrgSel(null) },
+                 { name: ORG_KIND_LABEL[orgSel] ?? orgSel }]}
+            n={(groupRowsByOrgKind(rows).find((g) => g.key === orgSel)?.rows ?? rows).length} />
           {orgSel === null ? (
-            /* 目录层：单位性质文件夹（同构行 = 名称 + 条数 + ›） */
-            <div className="ks-dirs">
+            <div className="ks-list ks-list-dirs ks-dirs">
+              <KsListHead cols={DIR_COLS} />
               {groupRowsByOrgKind(rows).map((g) => (
                 <button key={g.key} type="button" className="ks-item ks-dir-row"
                   onClick={() => setOrgSel(g.key)}>
-                  <span>{g.label}</span>
-                  <span style={{ color: FAINT }}>{g.rows.length} 条</span>
-                  <span style={{ color: FAINT }}>›</span>
+                  <span className="ks-cell ks-col-dpick" />
+                  <span className="ks-cell ks-col-dname">
+                    <span className="ks-dir-open">
+                      <span aria-hidden="true" />
+                      <span className="ks-dir-name">{g.label}</span>
+                      <span className="ks-dir-go" aria-hidden="true">›</span>
+                    </span>
+                  </span>
+                  <span className="ks-cell ks-col-dcount">{g.rows.length} 条</span>
+                  <span className="ks-cell ks-col-dmore" />
                 </button>
               ))}
             </div>
           ) : (
-            /* 文件层：该性质下的渠道（用户语言六列） */
-            <div style={{ overflowX: 'auto' }}>
-              <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: 11.5 }}>
-                <thead>
-                  <tr style={{ color: FAINT, textAlign: 'left' }}>
-                    <th style={$th}>渠道</th>
-                    <th style={$th}>标签</th>
-                    <th style={$th}>能不能用</th>
-                    <th style={$th}>上次好用</th>
-                    <th style={$th}>问题</th>
-                    <th style={$th}>操作</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {(groupRowsByOrgKind(rows).find((g) => g.key === orgSel)?.rows ?? []).map((r) => (
-                    <tr key={r.channel_id} style={needsAttention(r) ? $trWarn : undefined}>
-                      <td style={$td} title={r.note ?? undefined}>
-                        {r.name}
-                        {r.enabled === 0 ? <span style={{ color: FAINT }}>（已停用）</span> : null}
-                        {r.url
-                          ? <a href={r.url.split(/[（\s]/)[0]} target="_blank" rel="noreferrer noopener"
-                              style={{ marginLeft: 6, color: 'var(--dsw-alias-link, #1565c0)' }}>打开</a>
-                          : null}
-                      </td>
-                      <td style={{ ...$td, maxWidth: 200 }}>
-                        {(r.note ?? '').split(/[、，,]/).map((s) => s.trim()).filter((s) => s !== '')
-                          .map((s) => (
-                            <span key={s} style={{ display: 'inline-block', marginRight: 4, padding: '0 6px',
-                              border: '0.5px solid ' + LINE, borderRadius: 8, fontSize: 10.5 }}>{s}</span>
-                          ))}
-                        {(r.note ?? '').trim() === '' ? <span style={{ color: FAINT }}>—</span> : null}
-                      </td>
-                      <td style={$td}>{STATE_LABEL[r.state] ?? r.state}
-                        {r.state === 'unknown' && r.has_probe_target === false
-                          ? <span style={{ color: FAINT }}>（没配测试）</span>
-                          : null}
-                      </td>
-                      <td style={$td} title={r.last_ok_at ?? ''}>{describeWhen(r.last_ok_at)}</td>
-                      <td style={{ ...$td, color: r.last_error ? '#c0392b' : FAINT, maxWidth: 220 }}>
-                        {r.last_error ? <span>{r.last_error.slice(0, 40)}</span> : '—'}
-                      </td>
-                      <td style={{ ...$td, whiteSpace: 'nowrap' }}>
-                        <button type="button" disabled={mutating} style={$mini}
-                          onClick={() => void toggleEnabled(r)}
-                          title={r.enabled === 0 ? '重新启用这条渠道' : '停用（保留历史记录，不删）'}>
-                          {r.enabled === 0 ? '启用' : '停用'}
-                        </button>
-                        <button type="button" disabled={mutating} style={$mini}
-                          onClick={() => void editNote(r)} title="改标签（逗号分开；会留痕）">
-                          改标签
-                        </button>
-                        <button type="button" disabled={mutating} style={$mini}
-                          onClick={() => void editOrgKind(r)} title="改分类（单位性质）">
-                          改分类
-                        </button>
-                        <button type="button" disabled={mutating} style={{ ...$mini, color: '#c0392b' }}
-                          onClick={() => void remove(r)}
-                          title="删除条目（痕迹里保留删除前整行；一般建议用「停用」）">
-                          删除
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="ks-list ks-list-chans">
+              <KsListHead cols={CH_COLS} />
+              {(groupRowsByOrgKind(rows).find((g) => g.key === orgSel)?.rows ?? []).map((r) => (
+                <div key={r.channel_id} className="ks-item">
+                  <span className="ks-cell ks-col-chan">
+                    <span className="ks-chan-name" title={r.note ?? undefined}>
+                      {r.name}{r.enabled === 0 ? '（已停用）' : ''}
+                    </span>
+                    {r.url
+                      ? <a className="ks-chan-open" href={r.url.split(/[（\s]/)[0]} target="_blank"
+                          rel="noreferrer noopener">打开</a>
+                      : null}
+                  </span>
+                  <span className="ks-cell ks-col-tags">
+                    {(r.note ?? '').split(/[、，,]/).map((s) => s.trim()).filter((s) => s !== '')
+                      .map((s) => <span key={s} className="ks-tag-chip">{s}</span>)}
+                    {(r.note ?? '').trim() === '' ? <span style={{ color: FAINT }}>—</span> : null}
+                  </span>
+                  <span className="ks-cell ks-col-cstate">{STATE_LABEL[r.state] ?? r.state}</span>
+                  <span className="ks-cell ks-col-cdate" title={r.last_ok_at ?? ''}>
+                    {describeWhen(r.last_ok_at)}
+                  </span>
+                  <span className="ks-cell ks-col-cissue"
+                    style={{ color: r.last_error ? '#c0392b' : FAINT }}>
+                    {r.last_error ? r.last_error.slice(0, 40) : '—'}
+                  </span>
+                  <span className="ks-cell ks-col-cact">
+                    <button type="button" disabled={mutating} style={$mini}
+                      onClick={() => void toggleEnabled(r)}>
+                      {r.enabled === 0 ? '启用' : '停用'}
+                    </button>
+                    <button type="button" disabled={mutating} style={$mini}
+                      onClick={() => void editNote(r)}>改标签</button>
+                    <button type="button" disabled={mutating} style={$mini}
+                      onClick={() => void editOrgKind(r)}>改分类</button>
+                    <button type="button" disabled={mutating} style={{ ...$mini, color: '#c0392b' }}
+                      onClick={() => void remove(r)}>删除</button>
+                  </span>
+                </div>
+              ))}
             </div>
           )}
         </div>
-
       )}
 
       <p style={{ margin: 0, color: FAINT, lineHeight: 1.6 }}>

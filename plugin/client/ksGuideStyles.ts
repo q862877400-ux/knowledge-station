@@ -483,6 +483,24 @@ export const KS_STYLES = `
 .ks-lhead .ks-cell.ks-col-fpick,.ks-lhead .ks-cell.ks-col-dpick{display:flex;justify-content:center}
 .ks-item .ks-col-istage{display:flex;align-items:center;overflow:hidden}
 .ks-item .ks-col-idest{align-items:center;overflow:hidden;min-width:0}
+
+/* 渠道层（2026-09-22，业主定案「和知识库管理用一套 UI」）：**复用 .ks-list/.ks-lhead/
+   .ks-item 机制**（目录层甚至直接用 .ks-list-dirs——列同为 名称/条数/›），这里只做
+   渠道文件层自己的一件事：一条**自己的** --ks-cols（渠道 / 标签 / 能不能用 / 上次好用 /
+   问题 / 操作 = 6 轨）。列宽唯一所有者仍是 --ks-cols，谁也不许再写第二套。 */
+.ks-list-chans{--ks-cols:minmax(0,1.4fr) minmax(0,1fr) 84px 96px minmax(0,1fr) 200px}
+.ks-list-chans .ks-item{width:100%;box-sizing:border-box}
+.ks-item .ks-col-chan{display:grid;grid-template-columns:minmax(0,1fr);min-width:0}
+.ks-item .ks-chan-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ks-item .ks-chan-open{flex:none;margin-left:var(--ks-space-2)}
+.ks-item .ks-col-tags{display:flex;flex-wrap:wrap;gap:4px;align-items:center;min-width:0;overflow:hidden}
+.ks-tag-chip{display:inline-block;padding:0 6px;border:var(--ks-stroke) solid var(--dsw-alias-border-l2);
+  border-radius:8px;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary)}
+.ks-item .ks-col-cstate,.ks-item .ks-col-cdate{display:flex;align-items:center;min-width:0}
+.ks-item .ks-col-cdate{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary)}
+.ks-item .ks-col-cissue{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ks-item .ks-col-cact{display:flex;align-items:center;justify-content:flex-end;gap:4px;
+  flex-wrap:wrap;white-space:nowrap}
 /* 勾选框：宿主的 Checkbox 把 label 渲染成可见 span ⇒ 这里把它做成 **sr-only**
    （视觉上不重复显示第二遍文件名，但可访问名还在 —— 直接 display:none 会把它从
    无障碍树里摘掉，那是另一种偷懒）。 */

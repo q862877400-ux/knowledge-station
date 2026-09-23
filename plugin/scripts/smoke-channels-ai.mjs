@@ -145,6 +145,9 @@ try {
   })
   await act(async () => { await new Promise((r) => setTimeout(r, 10)) })
   const html = () => host.innerHTML
+  check('正装：目录层=知识库同款机制（.ks-list-dirs 容器 + .ks-dir-open/.ks-dir-go 行件）',
+    html().includes('ks-list-dirs') && html().includes('ks-dir-open') && html().includes('ks-dir-go'),
+    '手搓回潮 ⇒ 本条红')
   check('面板：目录层按单位性质分行（名称 + 条数）',
     html().includes('国家部委/总局') && html().includes('地方厅局') && /\d+ 条/.test(html()),
     `组行数=${String((html().match(/ks-dir-row/g) ?? []).length)}`)
