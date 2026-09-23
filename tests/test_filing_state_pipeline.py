@@ -586,6 +586,9 @@ def test_abort_is_sticky_against_worker_resurrection(client, db, tmp_path):
     bulk._save_ckpt(bid, bulk.load_batch(bid)["checkpoint"], "done",
                     only_if_status_in=("running", "paused", "pending"))
     assert (bulk.load_batch(bid) or {}).get("status") == "failed", "中止终态被收尾写顶成 done"
+    # ③ 复核 verify-freeze-yi #2：显式 resume 也不许复活**用户中止**的批次（死态）。
+    bulk.resume_batch(bid)
+    assert (bulk.load_batch(bid) or {}).get("status") == "failed", "中止批次被 resume 复活"
 
 
 def test_filed_doc_failure_writeback_flips_and_shows_in_inbox(db):

@@ -28,6 +28,9 @@
 不必验：纯文档编号措辞／同病根第 3 轮起／上轮已逐条重做验证过的同批变异。
 派发协议：冻结 tag + `rev-list --count` 数提交、提取树上验（真拷贝 node_modules×2 + .venv）、
 变异单侧纪律（fixture 与判据同词 replace = 自我印证无效）、还原用 `git status --short` 判。
+⚠ **测试必须以提取树为 CWD 跑**（复核 verify-freeze-yi 补，2026-09-22）：venv 无 editable
+安装，`src.*` 靠 `sys.path[0]=CWD` 解析——CWD 落主仓 ⇒ 变异根本不进被测代码（该轮实测
+假绿 1 passed，当场识破才拿到真红）。
 
 ## 文档预算（第 7 条的量化口径）
 

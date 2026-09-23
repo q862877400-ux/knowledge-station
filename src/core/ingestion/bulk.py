@@ -503,18 +503,25 @@ def _unscanned_remaining(batch: dict) -> bool:
 
 def resume_batch(batch_id: str, daily_budget: int = DEFAULT_PARSE_DAILY_BUDGET) -> dict:
     """恢复批次（R-A 语义）：还有未扫文件（paused=扫描中断）→ 先续跑 fast_scan
-    直到 scan_complete，再进入 parse_loop；快扫已完成的 paused 直接进解析。"""
+    直到 scan_complete，再进入 parse_loop；快扫已完成的 paused 直接进解析。
+
+    ⚠ 复核 verify-freeze-yi #2（2026-09-22 补）：**用户中止的批次不许 resume 复活**
+    （aborted_by_user 是死态）；'running' 迁入同走条件写（failed 里只放行**非中止**的
+    失败批——解析失败可续跑，人中止的不行）。"""
     batch = load_batch(batch_id)
     if batch is None:
         raise ValueError(f"批次不存在: {batch_id}")
     if batch["status"] == "done":
+        return batch
+    if (batch.get("checkpoint") or {}).get("pause_reason") == "aborted_by_user":
         return batch
     if _unscanned_remaining(batch):
         out = fast_scan(batch_id)
         if (out.get("checkpoint") or {}).get("pause_reason") != "scan_complete":
             return out  # 中途又被外部暂停/其他状态：原样返回，不强行进解析
         batch = out
-    _save_ckpt(batch_id, batch["checkpoint"], "running")
+    _save_ckpt(batch_id, batch["checkpoint"], "running",
+               only_if_status_in=("paused", "pending", "failed"))
     return parse_loop(batch_id, daily_budget)
 
 
