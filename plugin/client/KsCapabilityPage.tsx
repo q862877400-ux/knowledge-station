@@ -443,7 +443,12 @@ export function KsCapabilityPage(props: { embedded?: boolean } = {}): ReactNode 
       <div className="ks-kb">
         <header className="ks-page-head">
           <div className="ks-page-title">办事台</div>
-          <div className="ks-page-sub">点一项，开始一件活。</div>
+          {/* ⚠⚠ **2026-09-23（接手批·业主解法）**：这一句是**业主亲写**的"引新用户"文案，逐字照抄。
+              四标签各自顶上放一句"这一页能干什么" ⇒ 页头都有内容、分隔线自然齐、也不留空白。
+              ⚠ 写作纪律：不许实现细节（颜色/主题/接口/"宿主"）、不许讲版式、不许自夸。
+              ⚠ 单独挂载这一页时（宿主插槽里）也走这一句 —— 与四标签外壳里那一支**同一句**，
+                两处必须同步（改一处就要改另一处；`faceNavCheck` 判"每个面恰好一句描述"）。 */}
+          <div className="ks-page-sub">日常要办的三件事：查制度差在哪、改错的地方、外发留个记录 —— 点一项就开始。</div>
         </header>
         <div className="ks-page-rule" />
         {body}

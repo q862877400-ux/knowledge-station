@@ -1789,6 +1789,16 @@ const html = `<!doctype html>
                      lh: sharedPage ? String(headAnc.length) : '0',
                      pad: '', gap: '', radius: '',
                      strip: strip, head: oneBox('.ks-page-head'),
+                     /* ⚠⚠ **2026-09-23（接手批·业主解法）**：页头里那句"引新用户"的描述必须**恰好一句**
+                        （业主：「把知识库顶上那个空白里面也写上描述的话呀……且**其他页顶上的画也是
+                        类似的逻辑**」）⇒ 空页头从此是**红的**（改前管理面页头就是空的）。
+                        这里报**渲染出来的文字**（textContent 只取文字、不含 title 属性），
+                        由 Node 侧与业主给的稿逐字比。 */
+                     subCount: document.querySelectorAll('.ks-page-head .ks-page-sub').length,
+                     subText: (function () {
+                       var se = document.querySelector('.ks-page-head .ks-page-sub');
+                       return se ? (se.textContent || '').trim() : null;
+                     })(),
                      /* 页头里**真的看得见**的成员（display:none 的不算）——"只留一句介绍"的可量形态。 */
                      headKids: [].slice.call(document.querySelectorAll('.ks-page-head > *')).map(function (e) {
                        var c = getComputedStyle(e);
@@ -2333,13 +2343,21 @@ try {
   }
   const mBp = /@container\s*\(min-width:\s*(\d+)px\)\s*\{([^}]*)\}/g
   let bp = null
-  // ⚠ 只认**页面留边那一条** @container（body 里出现 .ks-page）—— 本表里还有一条给
-  //   `.ks-list` 切列档的 `@container (min-width:660px)`，取"第一个 @container"会认错对象。
+  /* ⚠⚠ **2026-09-23（接手批）就地收窄这半条判据**（原来只要求"body 里出现 `.ks-page`"）：
+     本批为"窄档四面的描述句统一两行"新增了一条 `@container (min-width:660px){ .ks-page .ks-page-sub{…} }`
+     ⇒ `.ks-page` 这个名字在**两条** @container 里都出现了，而原写法 `break`（取**第一个**）
+       就认到了**新那条**上。这一次恰好两条阈值都是 660 ⇒ 数值没错、照样绿；
+       但只要有人把新那条的阈值改成别的数，这条棘轮就会**指着错误的那一条**报"页面留边阈值不对"
+       （诊断指向不存在的问题 —— 本仓最恨的那一类）。
+     ⇒ 按**内容**认对象：页面留边那条的 body 里给 `--ks-page-pad-x` 赋宽档值；
+       同时不再 `break` 取第一个，而是**取最后一条**匹配的（宽档留边那条在文件靠后、是唯一的）。
+     ⚠ 判据强度不变：找不到任何一条 / 阈值不是 660 ⇒ 照样红。 */
   for (const m of stylesSrc.matchAll(mBp)) {
-    if (m[2].includes('.ks-page')) { bp = Number(m[1]); break }
+    if (m[2].includes('.ks-page') && m[2].includes('--ks-page-pad-x')) bp = Number(m[1])
   }
   if (bp !== PAGE_PAD_BREAKPOINT) {
-    ksPadTokenProblems.push(`ksGuideStyles.ts 里页面留边的 @container 阈值 = ${JSON.stringify(bp)}，`
+    ksPadTokenProblems.push(`ksGuideStyles.ts 里**页面留边那条** @container 的阈值（按 body 里有 `
+      + `--ks-page-pad-x 认对象）= ${JSON.stringify(bp)}，`
       + `而本脚本冻结的是 ${String(PAGE_PAD_BREAKPOINT)}（宽/窄两档的切换点只许有一个数）`)
   }
   /* 「规范 ↔ 脚本」的**主体表棘轮**（5j-补）：从 UI-BASELINE 第二节的**适用面**那一段里抠出所有
@@ -3165,6 +3183,33 @@ const dirHeadCheck = {
  *    —— 那不是"没登记"，而是**登记过的期望**（登记在下面这个 `null` 上；
  *      `undefined` 才是"忘了登记"）。 */
 const FACE_TAB_LABEL = { manage: '知识库', channels: '渠道库', capabilities: '办事台', materials: null }
+/**
+ * **每一面页头那一句"引新用户"的文案**（唯一所有者；业主 2026-09-23 **亲写**、要求逐字照抄）。
+ *
+ * 来历（业主原话）：「把知识库顶上那个空白里面也写上描述的话呀，比如说描述这个知识库怎么用，
+ *   或者是它这一页的目的是什么……作为一个新用户来讲，他看到这一页可能会有点发懵，那么你这句话
+ *   就要引他，告诉他这一页是干嘛的，且**其他页顶上的画也是类似的逻辑**。」
+ * ⇒ 四个面各一句 ⇒ 页头都有内容 ⇒ 分隔线自然齐、也不留空白（取代"压到 0 高 vs 留空白"那个二选一）。
+ *
+ * ⚠ 判据两条一起（缺一不可）：① 页头里 `.ks-page-sub` **恰好 1 个**（0 个 = 空页头 = 红，
+ *   这正是改前管理面的形态）；② 它渲染出来的文字**逐字等于**这里的稿（换词/少字都红）。
+ * ⚠ 这张表是**文案的唯一所有者**：改文案就改这里 + 对应组件的 JSX，两处不同步立刻红。
+ * ⚠ 写作纪律（业主嫌过"AI 味"才让删的）：不许实现细节（颜色/主题/接口/"宿主"）、不许讲版式、
+ *   不许自夸 —— 只讲"这一页能干什么"。 */
+const FACE_SUB_TEXT = {
+  manage: '你的法规和标准都在这儿：左边是目录，点哪一层看哪一层；要问问题，可以限定在某个目录范围内问。',
+  channels: '这里管"新法规、新标准从哪来"：一个来源一行，可以试它好不好用、看它最近抓到什么。',
+  capabilities: '日常要办的三件事：查制度差在哪、改错的地方、外发留个记录 —— 点一项就开始。',
+  /* ⚠ **备料面业主没给稿**（他给的第四句是**预览器**「看文件原件的地方：…」，而预览器在
+     `KsTopTabs` 里是**打开 PDF 的动作**、不是这一层的面 ⇒ 它当前**没有页头**挂那句话）。
+     备料这一面暂时沿用旧句（它本来就是"引新用户"性质的，不是被删过的那种实现细节），
+     **不自己改写、不自己补**。这一条要在报告里点名问业主 —— 见脚本末尾的 note。 */
+  materials: '上传的财报/制度/文章逐份就位；人工上传免评审，自采的要人批。',
+}
+/** ⚠ 业主没给稿的那一面（备料）—— 报出来当 note，别让它冒充"业主定的稿"。 */
+const FACE_SUB_TEXT_FROM_OWNER = { manage: true, channels: true, capabilities: true, materials: false }
+/** 业主给了稿、但**当前没有页头能挂**的那一句（预览器）。单独留档，供报告点名。 */
+const OWNER_SUB_UNPLACED = { tab: '预览器', text: '看文件原件的地方：左边挑一篇，右边看原文，可以对着条款看。' }
 const faceNavProblems = []
 let faceNavSkipReason = null
 const faceM = measured['#face']
@@ -3175,6 +3220,9 @@ if (page !== 'kb') {
 } else if (!(navPage in FACE_TAB_LABEL)) {
   faceNavProblems.push(`本脚本的 FACE_TAB_LABEL 没有 ${JSON.stringify(navPage)} 这一面 —— `
     + '加了 --nav-page 的取值却忘了在这里登记"它该选中哪枚标签"（按设计不占标签的面要显式登记成 null）')
+} else if (!(navPage in FACE_SUB_TEXT)) {
+  faceNavProblems.push(`本脚本的 FACE_SUB_TEXT 没有 ${JSON.stringify(navPage)} 这一面 —— `
+    + '加了 --nav-page 的取值就必须同时登记"这一面页头该写哪一句"（哪怕暂时没有稿）')
 } else {
   /* ⚠ `.ks-page` **个数**不是判据（面板自己会带一层，且外壳的形态是
      `.ks-page > .ks-kb > nav`）—— 这里只把个数当信息报出来；
@@ -3230,6 +3278,24 @@ if (page !== 'kb') {
       + `${JSON.stringify(shownNotSub.map((k) => k.cls))} —— 业主口径是"横幅删掉、大标题删掉、只留一句介绍"`
       + '（.ks-page-sub）')
   }
+  /* ⚠⚠ **2026-09-23（接手批·业主解法）新增两条** —— 业主：「把知识库顶上那个空白里面也写上
+     描述的话呀……且其他页顶上的画也是类似的逻辑」。⇒ ① 页头里必须有**恰好一句**描述
+     （0 个 = 空页头 = 红：改前管理面就是空的）；② 那句话渲染出来的文字**逐字等于**业主给的稿。 */
+  const subWant = FACE_SUB_TEXT[navPage]
+  const subGot = faceM.subText === null || faceM.subText === undefined ? null : String(faceM.subText)
+  if (Number(faceM.subCount) !== 1) {
+    faceNavProblems.push(`页头里的描述句（.ks-page-sub）有 ${String(faceM.subCount)} 个，必须**恰好 1 个**`
+      + ' —— 0 个就是"空页头"（业主明确要每页顶上都有引新用户的一句）；'
+      + '多于 1 个则是页头里塞了不止一句')
+  }
+  if (subGot !== subWant) {
+    faceNavProblems.push(`页头那句描述**不是业主定的稿**：`
+      + `\n       实测=${JSON.stringify(subGot)}`
+      + `\n       业主稿=${JSON.stringify(subWant)}`
+      + (FACE_SUB_TEXT_FROM_OWNER[navPage] === true
+        ? '（这一面业主给了稿，要求**逐字照抄**、不许改写）'
+        : '（⚠ 这一面业主**没给稿**，此处登记的是沿用的旧句 —— 见报告里点名要问的那一条）'))
+  }
 }
 const faceNavCheck = {
   checked: faceNavProblems.length === 0 && faceNavSkipReason === null,
@@ -3243,6 +3309,11 @@ const faceNavCheck = {
   labels: faceM?.strip?.pad ?? null,
   on: faceM?.strip?.gap ?? null,
   headKids: faceM?.headKids ?? null,
+  subCount: faceM?.subCount ?? null,
+  subText: faceM?.subText ?? null,
+  subWanted: page === 'kb' ? (FACE_SUB_TEXT[navPage] ?? null) : null,
+  subFromOwner: page === 'kb' ? (FACE_SUB_TEXT_FROM_OWNER[navPage] ?? null) : null,
+  ownerSubUnplaced: OWNER_SUB_UNPLACED,
 }
 
 /* ══════════ 新判据②（2026-09-23 接手批）：`.ks-list-cap` 那一行**不压字** ══════════

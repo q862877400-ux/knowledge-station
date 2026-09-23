@@ -992,14 +992,32 @@ export function mount(container, props) {
      ⇒ 顶部那两处**连同容器**都已删：标题下那行副标题（`.ks-page-sub`）与那条 ⓘ 说明条
      （`.ks-kb-banner`）。**判"容器真的没了"比判字符串更硬**：换个说法把说明条放回来也红。
      ⚠ 这两个类**没从样式里删**（能力页 `KsCapabilityPage` 与本页"尚未实现"的占位条仍在用）
-     ⇒ 本条只判**这个页头里**没挂着它们；**标题本身必须还在**（别顺手把整块页头删了）。 */
+     ⇒ 本条只判**这个页头里**没挂着它们；**标题本身必须还在**（别顺手把整块页头删了）。
+     ⚠⚠⚠ **2026-09-23（接手批）就地翻案并留痕 —— 业主后来**亲口要**一句描述，本条随之改写：**
+       业主原话：「把知识库顶上那个空白里面也写上描述的话呀，比如说描述这个知识库怎么用，
+       或者是它这一页的目的是什么……作为一个新用户来讲，他看到这一页可能会有点发懵，那么你这句话
+       就要引他，告诉他这一页是干嘛的，且**其他页顶上的画也是类似的逻辑**。」
+       ⇒ 这一页的 `.ks-page-sub` **必须有、且逐字等于业主给的稿**。这不是把 2026-09-22 删掉的那句
+         装回来：那次删的是「法规/标准的落点：知识库 → 目录 → 条款；颜色一律走宿主主题 token…」
+         （**实现细节 + 设计说明**，业主嫌"AI 味重"）；现在这句是**功能引导**，业主亲写。
+       ⚠ **判据只增不减**（逐字对账比"数量为 0"更强）：
+         旧：`.ks-page-sub` 个数 === 0
+         新：`.ks-page-sub` 个数 === 1 **且文字 === 业主稿**；`.ks-kb-banner` 仍 === 0；
+             `.ks-page-title` 仍恰好 1 个且文字仍是「知识库」（标题元素没被顺手删掉）。
+       ⚠ 逐字稿的**唯一所有者**是 `ui-render-shot.mjs` 的 `FACE_SUB_TEXT.manage`；
+         这里**刻意再抄一份**（两边不同步就当场红 —— 与 `SPEC_SUBJECTS` 那套棘轮同一口径）。 */
   const headTitle = (q('.ks-page-title')[0]?.textContent ?? '').trim()
-  check('A4 页头里**不再有**那两处"AI 味"文案的容器（`.ks-page-sub` 副标题 / `.ks-kb-banner` ⓘ 说明条）'
-    + '，而页面标题仍在 —— 业主 2026-09-22 点名删',
+  const KB_SUB_WANT = '你的法规和标准都在这儿：左边是目录，点哪一层看哪一层；要问问题，可以限定在某个目录范围内问。'
+  const headSub = (q('.ks-page-sub')[0]?.textContent ?? '').trim()
+  check('A4 页头的描述句**逐字等于业主稿**（`.ks-page-sub` 恰好 1 个），'
+    + '而 ⓘ 说明条（`.ks-kb-banner`）仍**不在**、标题仍在 —— 业主 2026-09-23 亲写这一句',
     q('.ks-page-title').length === 1 && headTitle === '知识库'
-    && q('.ks-page-sub').length === 0 && q('.ks-kb-banner').length === 0,
+    && q('.ks-page-sub').length === 1 && headSub === KB_SUB_WANT
+    && q('.ks-kb-banner').length === 0,
     `标题 ${String(q('.ks-page-title').length)} 个（文字=「${headTitle}」）`
-      + ` / .ks-page-sub ${String(q('.ks-page-sub').length)} 个 / .ks-kb-banner ${String(q('.ks-kb-banner').length)} 个`)
+      + ` / .ks-page-sub ${String(q('.ks-page-sub').length)} 个（文字=「${headSub}」）`
+      + ` / .ks-kb-banner ${String(q('.ks-kb-banner').length)} 个`
+      + (headSub === KB_SUB_WANT ? '' : `\n      业主稿=「${KB_SUB_WANT}」`))
 
   /* ══════════ B. 左列目录 + 右侧只显示当前这一级 ══════════ */
   /* ⚠⚠ **2026-09-21（第 4 步）就地改判据（原文见下）**：这一条原来钉的树形状是
@@ -2272,9 +2290,15 @@ export function mount(container, props) {
     await flush()
   }
 
-  check('办事台：页头两句逐字（标题 +「点一项，开始一件活。」）',
+  /* ⚠⚠ **2026-09-23（接手批·业主解法）就地改文案并留痕**：
+     原文（留痕）：`点一项，开始一件活。`
+     新文（业主亲写）：`日常要办的三件事：查制度差在哪、改错的地方、外发留个记录 —— 点一项就开始。`
+     来历：业主「把知识库顶上那个空白里面也写上描述的话呀……且**其他页顶上的画也是类似的逻辑**」。
+     ⚠ 判据强度不变（仍是"逐字对账"），只是把对账的对象换成业主的新稿；
+       两处必须同步（`KsCapabilityPage.tsx` 单独挂载那一支 + `KsKnowledgePage.tsx` 四标签外壳那一支）。 */
+  check('办事台：页头两句逐字（标题 +「日常要办的三件事：查制度差在哪、改错的地方、外发留个记录 —— 点一项就开始。」）',
     (capContainer.textContent ?? '').includes('办事台')
-    && (capContainer.textContent ?? '').includes('点一项，开始一件活。'),
+    && (capContainer.textContent ?? '').includes('日常要办的三件事：查制度差在哪、改错的地方、外发留个记录 —— 点一项就开始。'),
     (capContainer.textContent ?? '').slice(0, 40))
 
   const officeRows = cq('.ks-off-row')

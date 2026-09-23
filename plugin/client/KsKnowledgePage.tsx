@@ -1846,7 +1846,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
           <KsTopTabs page={page} onGo={(pp) => { setPageOverride(pp) }} onPdf={() => { tab.actions.openTab(KS_EVIDENCE_KIND) }} />
           <header className="ks-page-head">
             <div className="ks-page-title">办事台</div>
-            <div className="ks-page-sub">点一项，开始一件活。</div>
+            <div className="ks-page-sub">日常要办的三件事：查制度差在哪、改错的地方、外发留个记录 —— 点一项就开始。</div>
           </header>
           <div className="ks-page-rule" />
           <KsCapabilityPage embedded />
@@ -1885,7 +1885,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
           <KsTopTabs page={page} onGo={(pp) => { setPageOverride(pp) }} onPdf={() => { tab.actions.openTab(KS_EVIDENCE_KIND) }} />
           <header className="ks-page-head">
             <div className="ks-page-title">渠道库</div>
-            <div className="ks-page-sub">知识来源渠道的管理库：分类、体检、维护。顶部常驻最新动态。</div>
+            <div className="ks-page-sub">这里管"新法规、新标准从哪来"：一个来源一行，可以试它好不好用、看它最近抓到什么。</div>
           </header>
           <div className="ks-page-rule" />
           <KsChannelsPanel visible />
@@ -2786,6 +2786,20 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
         <KsTopTabs page={page} onGo={(pp) => { setPageOverride(pp) }} onPdf={() => { tab.actions.openTab(KS_EVIDENCE_KIND) }} />
         <header className="ks-page-head">
           <div className="ks-page-title">知识库</div>
+          {/* ⚠⚠ **2026-09-23（接手批·业主解法）**：这一句是**业主亲写**的"引新用户"文案。
+              来历：我先问"管理面页头空着要不要压到 0 高"（省空白 vs 分隔线齐），业主给了第三条路 ——
+              「把知识库顶上那个空白里面也写上描述的话呀，比如说描述这个知识库怎么用，或者是它这一页的
+              目的是什么……作为一个新用户来讲，他看到这一页可能会有点发懵，那么你这句话就要引他，
+              告诉他这一页是干嘛的，且**其他页顶上的画也是类似的逻辑**。」
+              ⇒ 四个面各放一句 ⇒ 页头都有内容 ⇒ 分隔线自然齐、也不留空白。
+              ⚠ 这一句**逐字照抄业主给的稿**（他授权可改，但明确要求"照抄，别自己改写、别加戏"）。
+              ⚠ 写作纪律（业主以前嫌"AI 味"才让删的）：不许实现细节（颜色/主题/接口/"宿主"这类词）、
+                不许讲版式、不许自夸 —— 只讲"这一页能干什么"。
+              ⚠ 与上面 2026-09-22 那次"删副标题"的关系（不许当成翻案）：那次删掉的那句是
+                「法规/标准的落点：知识库 → 目录 → 条款；颜色一律走宿主主题 token…」——
+                那是**实现细节+设计说明**，业主嫌"AI 味重"；这一句是**功能引导**，业主亲写。
+                两件事的标准不同，不是同一句话回来了。 */}
+          <div className="ks-page-sub">你的法规和标准都在这儿：左边是目录，点哪一层看哪一层；要问问题，可以限定在某个目录范围内问。</div>
         </header>
         <div className="ks-page-rule" />
 
