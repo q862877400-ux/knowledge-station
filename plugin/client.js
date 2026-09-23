@@ -39484,7 +39484,7 @@ function KsKnowledgePage({ useTabInfo }) {
   if (page === "materials") {
     return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb", children: [
       /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsTopTabs, { page, onGo: (pp) => {
-        setPageOverride(pp);
+        tab.actions.openTab(KS_KB_KIND, { params: { page: pp } });
       }, onPdf: () => {
         tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true });
       } }),
@@ -39499,7 +39499,7 @@ function KsKnowledgePage({ useTabInfo }) {
   if (page === "channels") {
     return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb", children: [
       /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsTopTabs, { page, onGo: (pp) => {
-        setPageOverride(pp);
+        tab.actions.openTab(KS_KB_KIND, { params: { page: pp } });
       }, onPdf: () => {
         tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true });
       } }),
@@ -40331,7 +40331,7 @@ function KsKnowledgePage({ useTabInfo }) {
   ] });
   return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb", children: [
     /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsTopTabs, { page, onGo: (pp) => {
-      setPageOverride(pp);
+      tab.actions.openTab(KS_KB_KIND, { params: { page: pp } });
     }, onPdf: () => {
       tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true });
     } }),
