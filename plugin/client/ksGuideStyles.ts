@@ -503,6 +503,7 @@ export const KS_STYLES = `
 /* 批·页头瘦身（2026-09-23 业主：横幅删掉、大标题删掉、只留一句介绍）+ 标签条贴顶统一。 */
 .ks-page-head{background:none;border:none;padding:4px 0 0;margin:0}
 .ks-page-head :is(h1,h2,.ks-page-title){display:none}
+.ks-page-head > :not(.ks-page-sub){display:none}
 min-height:32px}
 /* 批②（2026-09-23）：渠道库左树的行样式（容器复用 .ks-kb-tree/.ks-kb-row）。 */
 .ks-tree-item{display:block;width:100%;text-align:left;cursor:pointer;padding:4px 8px;

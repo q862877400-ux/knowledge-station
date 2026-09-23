@@ -34032,6 +34032,7 @@ var KS_STYLES = `
 /* \u6279\xB7\u9875\u5934\u7626\u8EAB\uFF082026-09-23 \u4E1A\u4E3B\uFF1A\u6A2A\u5E45\u5220\u6389\u3001\u5927\u6807\u9898\u5220\u6389\u3001\u53EA\u7559\u4E00\u53E5\u4ECB\u7ECD\uFF09+ \u6807\u7B7E\u6761\u8D34\u9876\u7EDF\u4E00\u3002 */
 .ks-page-head{background:none;border:none;padding:4px 0 0;margin:0}
 .ks-page-head :is(h1,h2,.ks-page-title){display:none}
+.ks-page-head > :not(.ks-page-sub){display:none}
 min-height:32px}
 /* \u6279\u2461\uFF082026-09-23\uFF09\uFF1A\u6E20\u9053\u5E93\u5DE6\u6811\u7684\u884C\u6837\u5F0F\uFF08\u5BB9\u5668\u590D\u7528 .ks-kb-tree/.ks-kb-row\uFF09\u3002 */
 .ks-tree-item{display:block;width:100%;text-align:left;cursor:pointer;padding:4px 8px;
