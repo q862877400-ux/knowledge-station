@@ -10910,6 +10910,11 @@ B5 的静态判据、B3b 的两套冒烟），master 上的全量是**合并态�
 **结论：PASS-with-gaps —— 17 PASS / 0 FAIL / 3 UNVERIFIED；HIGH 0 / MED 2 / LOW 3；没找到假绿。**
 报告 30,196 B，两处落点逐字节相同（sha256 `565D6DD0…`）：树内 `VERIFY-REPORT-b3b.md` 与
 `var/tmp/verify-reports/VERIFY-REPORT-b3b.md`。
+⚠ **入库（同日补，见 `docs/verify-briefs/README.md` 末节）**：`var/tmp/` 被 .gitignore 整体挡着
+⇒ 这次把 **7 份复核报告 + 3 份任务书**（含本报告与 B1+B2 那份）**字节级复制**进
+`docs/verify-briefs/`（`b3b-ccs-ui-report.md` / `b3b-ccs-ui-brief.md` / `b1b2-report.md` …），
+`var/tmp` 那份**保留不动**。§10.184 那节的标题就是"**不指向 var/tmp**"，而这份报告的落点写的正是
+`var/tmp` —— **这个毛病当天又犯了一次**，如实记在这里。
 
 **它自己跑出来的（不是转述我的）**：
 - **逐条变异 12 次**（要求 ≥6）：N21–N32 **十二条逐条当场红**，红的原文抄在报告 §4；含点名的
