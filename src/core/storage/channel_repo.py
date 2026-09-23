@@ -188,21 +188,33 @@ def classify_org_kind(name: str, category: str | None = None) -> str | None:
     （先特指后泛指：人大/国际/工具先于"厅/局/委"这类泛词）。2026-09-22 业主定的口径：
     分类 = **网页所属单位的性质**（国家总局 / 地方人大 / …），不是标准类型（那是 category）。"""
     n = name or ""
+    nl = n.lower()
     if any(k in n for k in ("ISO", "IEC", "ITU", "国际")):
         return "intl"
     if any(k in n for k in ("人大", "人民代表大会", "代表大会")):
         return "local_congress"
-    if any(k in n for k in ("工具", "代码", "GitHub", "github")):
+    if ("标准化技术委员会" in n) or any(k in n for k in ("协会", "学会", "联合会", "标委会",
+                      "标准化协会", "标准化研究院", "研究院", "信息中心")):
+        return "industry"
+    if any(k in nl for k in ("crawler", "spider", "downloader", "monitor", "watch",
+                             "mcp", "skill", "radar", "ping", "detection", "regwatch",
+                             "database", "search", "check", "github")) or any(
+            k in n for k in ("工具", "代码", "检索", "存档", "补漏", "抓取", "用户自定义")):
         return "tool"
     if any(k in n for k in ("国务院", "部委", "总局", "市场监管", "应急管理", "发展改革",
-                            "工业和信息化", "交通运输", "水利部", "生态环境部", "住房城乡建设部",
-                            "国家标准化", "国家局")):
+                            "工业和信息化", "交通运输", "水利部", "生态环境部",
+                            "住房和城乡建设部", "住房城乡建设部", "住建部", "司法部",
+                            "国家标准化", "国家局", "委员会", "最高人民法院", "最高人民检察院",
+                            "卫生健康", "人力资源", "社会保障", "能源局", "中国政府网",
+                            "司法解释", "国家标准", "标准委", "批准发布公告", "标准公告",
+                            "法律法规数据库", "国家食品安全")):
         return "central"
-    if any(k in n for k in ("省", "市", "自治区", "厅", "人民政府", "住建厅", "建设厅")):
+    if any(k in n for k in ("省", "市", "自治区", "厅", "人民政府", "住建厅", "建设厅",
+                            "首都之窗")):
         return "local_dept"
-    if any(k in n for k in ("协会", "学会", "联合会", "标委会", "标准化协会", "研究院", "信息中心")):
+    if any(k in n for k in ("标准化", "生产力促进", "风险评估中心", "标准网", "信息网")):
         return "industry"
-    if any(k in n for k in ("聚合", "商业", "平台", "网（", "入口")):
+    if any(k in n for k in ("聚合", "商业", "平台", "网（", "入口", "服务网", "在线服务")):
         return "commercial"
     return None
 

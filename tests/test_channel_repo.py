@@ -563,3 +563,34 @@ class Test渠道已知文件测试:
         assert identify_standard_no("这里没有标准号") is None
         # 比对归一：大小写/空白/横竖线不该决定成败
         assert _norm_no("gb/t 1—2020") == _norm_no("GB/T1-2020")
+
+def test_classify_org_kind_second_pass_on_real_names():
+    """分类补准判据（2026-09-22 第二轮）：60 条首版未命中真名的代表例逐条归位。
+
+    口径：粗分类只是回填起点（人工可改、永不覆盖）；无字面特征的**如实未分类**。"""
+    from src.core.knowledge.channel_repo import classify_org_kind as f
+    assert f("住房和城乡建设部-政策发布") == "central"
+    assert f("国家卫生健康委员会") == "central"
+    assert f("人力资源和社会保障部") == "central"
+    assert f("国家能源局公告") == "central"
+    assert f("最高人民法院-司法解释") == "central"
+    assert f("最高人民检察院-法律法规规范性文件") == "central"
+    assert f("中国政府网-国家规章库") == "central"
+    assert f("国家标准批准发布公告") == "central"
+    assert f("国家法律法规数据库（flk.npc.gov.cn）") == "central"
+    assert f("首都之窗-政府规章(现行有效)") == "local_dept"
+    assert f("Law-Crawler-RPA-RAG-MCP") == "tool"
+    assert f("OpenSTD_Spider") == "tool"
+    assert f("gb-downloader") == "tool"
+    assert f("changedetection.io") == "tool"
+    assert f("National Standard Monitor Skill") == "tool"
+    assert f("standards-version-check") == "tool"
+    assert f("legal-database") == "tool"
+    assert f("gov.cn 公告检索 + PDF 存档") == "tool"
+    assert f("标准网(中机生产力促进中心)") == "industry"
+    assert f("工程建设标准化信息网") == "industry"
+    assert f("国家食品安全风险评估中心") == "central"
+    assert f("金融标准化技术委员会") == "industry"
+    assert f("中国标准在线服务网") == "commercial"
+    # 无字面特征 ⇒ 如实未分类（不硬猜）
+    assert f("gbqw") is None
