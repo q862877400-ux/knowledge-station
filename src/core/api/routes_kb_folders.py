@@ -69,6 +69,9 @@ _STATUS = {
     "ccs_backfill_busy": 409,
     "invalid_ccs_outcome": 422,
     "invalid_ccs_tag": 422,
+    # 补前那份**精确回退记录**写不成 ⇒ 500：这一批**一篇都不会写**（"没有备份就不补"），
+    # 得让调用方看见这是服务端的错、且没有半途改库。
+    "ccs_undo_failed": 500,
 }
 
 
@@ -513,9 +516,13 @@ def register(app, json_error) -> None:
         """分类号这件事的**现状**：还缺几篇 + 台账里各结论各几篇（只读，零网络）。
 
         返回 ``data``：``missing``（全库 ``doc_type='standard'`` 且 ``domain_tags`` 里
-        没有 ``CCS:`` 的篇数——**现算的**，不是计数器）、``by_outcome``（台账按结论计数）、
-        ``backfill``（最近一批进度，见 ``/kb/ccs/backfill/status``）、
-        ``outcome_labels`` / ``source_labels``（中文说法，由后端下发，界面只兜底）。
+        没有 ``CCS:`` 的篇数——**现算的**，不是计数器）、``missing_split``（那几篇按台账
+        现状拆开：没查过/查过没查到/查过失败/不适用/台账说补到了却没标签）、
+        ``by_outcome``（台账按结论计数）、``max_batch`` / ``default_batch`` /
+        ``max_all``（一次最多几篇 / 默认几篇 / 「全部补完」的硬上限）、
+        ``backfill``（最近一批进度，含 ``stop_reason`` —— **为什么停**，
+        见 ``/kb/ccs/backfill/status``）、``stop_reason_labels`` / ``outcome_labels`` /
+        ``source_labels``（中文说法，由后端下发，界面只兜底）。
         """
         from src.core.knowledge import ccs_backfill as bf
         from src.core.knowledge import ccs_store
@@ -523,11 +530,14 @@ def register(app, json_error) -> None:
                                                     SOURCES)
         return {"code": 200, "status": "success", "data": {
             "missing": bf.missing_ccs_count(),
+            "missing_split": bf.missing_ccs_split(),
             "by_outcome": ccs_store.counts_by_outcome(),
             "max_batch": bf.MAX_BACKFILL_DOCS,
             "default_batch": bf.DEFAULT_BACKFILL_DOCS,
+            "max_all": bf.MAX_BACKFILL_ALL,
             "outcome_labels": dict(OUTCOME_LABELS),
             "source_labels": dict(SOURCE_LABELS),
+            "stop_reason_labels": dict(bf.STOP_REASON_LABELS),
             "sources": list(SOURCES),
             "backfill": bf.ccs_backfill_status()}}
 
@@ -553,10 +563,18 @@ def register(app, json_error) -> None:
     def kb_ccs_backfill(payload: dict | None = None):
         """**补全分类号**：扫出没有分类号的标准，用三层链逐篇补（后台跑，立刻返回）。
 
-        body（都可省）：``{doc_ids?: [...], limit?: 50, force?: false}``。
-        返回 ``data.{queued, started:[…], skipped:[…], plan:{…}}``；进度看
-        ``/kb/ccs/backfill/status``。同一时刻只跑一批 ⇒ 已有批次在跑回 **409
-        ``ccs_backfill_busy``**（**不排队**）。
+        body（都可省）：``{doc_ids?: [...], limit?: 50, force?: false, all?: false}``。
+        ``limit`` 默认 50、最多 ``MAX_BACKFILL_DOCS``（200）；``all=true`` 是**「全部补完」**
+        （内部按 200 一页串行，硬上限 ``MAX_BACKFILL_ALL``，到上限如实说还剩多少；
+        与 ``doc_ids`` 不能同时用）。``force=true`` 是**刷新**（已有分类号的也重查；
+        **标签是替换不是追加** —— 一篇只留一条 ``CCS:`` 标签）。
+
+        ⚠ 起跑前先写一份**精确回退记录**（补前备份，写不成 ⇒ 500 ``ccs_undo_failed``
+        且一篇都不写）；它的路径在返回值的 ``undo_journal`` 与 ``status`` 里。
+
+        返回 ``data.{queued, started:[…], skipped:[…], plan:{…}, undo_journal, pages,
+        hard_capped}``；进度看 ``/kb/ccs/backfill/status``（含 ``stop_reason`` = 为什么停）。
+        同一时刻只跑一批 ⇒ 已有批次在跑回 **409 ``ccs_backfill_busy``**（**不排队**）。
         """
         from src.core.knowledge import ccs_backfill as bf
         try:
@@ -572,12 +590,18 @@ def register(app, json_error) -> None:
                 if not ids:
                     raise KnowledgeStationError("doc_ids 不能是空数组",
                                                 code="invalid_decision")
+            all_docs = bool(body.get("all"))
             limit = _int(body.get("limit"), bf.DEFAULT_BACKFILL_DOCS)
-            if limit <= 0 or limit > bf.MAX_BACKFILL_DOCS:
+            if all_docs and ids:
+                raise KnowledgeStationError(
+                    "「全部补完」与「只补勾选的这几篇」不能同时用",
+                    code="invalid_decision")
+            if not all_docs and (limit <= 0 or limit > bf.MAX_BACKFILL_DOCS):
                 raise KnowledgeStationError(
                     f"limit 必须在 1~{bf.MAX_BACKFILL_DOCS}", code="invalid_pagination")
             force = bool(body.get("force"))
-            data = bf.start_ccs_backfill(doc_ids=ids, limit=limit, force=force)
+            data = bf.start_ccs_backfill(doc_ids=ids, limit=limit, force=force,
+                                         all_docs=all_docs)
         except KnowledgeStationError as e:
             return _fail(e)
         except ValueError as e:
@@ -594,7 +618,11 @@ def register(app, json_error) -> None:
         """最近一批「补全分类号」的进度（**如实**：running/done/total + 逐篇结果 + 失败清单）。
 
         ``failures`` 是**没补到的那一批**（每篇带 ``outcome`` 与 ``reason``）——
-        业主/审计靠它看"还剩哪些、为什么"；``missing`` 是现算的"全库还缺几篇"。
+        业主/审计靠它看"还剩哪些、为什么"；``missing`` 是现算的"全库还缺几篇"，
+        ``missing_split`` 把它按台账现状**拆开**（从来没查过 / 查过没查到 / 查过失败 /
+        不适用 / 台账说补到了却没标签）；``stop_reason`` + ``stop_reason_label`` 说明
+        **这一批为什么停**（到量 / 候选扫完 / 到硬上限 / 被按停 / 一开始就没候选 /
+        勾选的跑完 / 出错，各是各的值）；``undo_journal`` 是**补前那份回退记录的路径**。
         """
         from src.core.knowledge import ccs_backfill as bf
         return {"code": 200, "status": "success", "data": bf.ccs_backfill_status()}

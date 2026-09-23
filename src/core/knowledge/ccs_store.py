@@ -8,14 +8,21 @@
   ``doc_filing_state``、也不写 ``doc_meta.ccs_code``"）。
 * **不管**：**CCS 标签本身**。标签的唯一所有者是 ``doc_meta.domain_tags`` 里的
   ``CCS:…`` 条目（分类树 ``doc_catalog`` 读的就是它）—— 本模块**只**通过
-  :func:`apply_ccs_tag` 往那里**追加**，绝不另存一份"权威分类号"。
+  :func:`apply_ccs_tag` 往那里写那**一条**（没有就追加、有了就替换），绝不另存一份
+  "权威分类号"。
 
 ════════ 三条纪律 ════════
 
-1. **写标签是追加 + 幂等**：同一篇重复补同一个号不会产生重复标签（先查再写，
-   同一个事务内）。
-2. **绝不改写别的标签**：``domain_tags`` 里已有的 消防/通用/CCS 旧值全部原样保留；
-   本模块只可能**多**一条 ``CCS:…``。
+1. **一篇只保留一条 ``CCS:`` 标签 + 幂等**（⚠ 2026-09-24 就地更正，留痕）：
+   原文写的是「写标签是**追加** + 幂等……本模块只可能**多**一条 ``CCS:…``」。
+   "幂等"那半句对（同一个号重复补不写第二条），**"追加"那半句是错的**：
+   ``force=True``（刷新）会给同一篇**追加第二条** ``CCS:`` 标签，而读侧
+   （``ccs_tag_of`` / ``doc_catalog``）只取**第一条** ⇒ 刷新**静默无效**、
+   台账（``doc_ccs_state.ccs_code``）与分类树各说各话（复核 HIGH-1）。
+   现在：没有 CCS 标签就追加，**有了就就地替换**（新号与旧号相同则一个字不改），
+   历史遗留的多条也顺手收成一条。
+2. **绝不改写别的标签**：``domain_tags`` 里已有的 消防/通用/… 全部原样保留、
+   **位置也不动**；本模块只可能多第一条 ``CCS:…`` 或换掉那一条。
 3. **只在补到的时候才写标签**：``outcome != 'found'`` 一律不动 ``domain_tags``
    （那正是"待分类里那些没有建议的"为什么会没有建议 —— 原因记在本表里，不靠猜）。
 """
@@ -101,10 +108,22 @@ def record_ccs_lookup(doc_id: str, result: dict,
 
 def apply_ccs_tag(doc_id: str, tag: str, result: dict | None = None,
                   db_path: Any = None) -> dict:
-    """把 ``CCS:…`` 标签**追加**进 ``doc_meta.domain_tags`` 并记台账（**一个事务**）。
+    """把 ``CCS:…`` 标签写进 ``doc_meta.domain_tags`` 并记台账（**一个事务**）。
 
-    幂等：标签已存在 ⇒ 只更新台账（``applied_at`` 保留第一次的时间），不重复追加。
-    返回 ``{"applied": bool, "tag": str, "tags": [...], "state": {...}}``。
+    ⚠⚠ **一篇只能有一条 ``CCS:`` 标签 —— "刷新"是替换，不是追加**（复核 HIGH-1，
+    2026-09-24 就地更正）：读侧的 ``ccs_tag_of`` / ``doc_catalog`` 取的都是
+    **第一条**，所以旧实现那种"append 第二条"会让 ``force=True`` 的刷新**静默无效**
+    （读的还是旧码），台账（``doc_ccs_state.ccs_code``）与分类树各说各话。
+
+    规则（按库里的现状算，不靠调用方声明）：
+
+    * 还没有 CCS 标签 ⇒ **追加**（别的位置的标签一个不动）；
+    * 已有 CCS 标签、且与新标签**不同** ⇒ **就地替换**（``replaced`` 如实给旧值）；
+    * 已有 CCS 标签、与新标签**相同** ⇒ 一个字都不改（幂等，``applied=False``）；
+    * 历史遗留的**多余** CCS 条目 ⇒ 顺手收成一条（修既有错数据，不是新写一条）。
+
+    返回 ``{"applied", "tag", "replaced", "tags", "state"}`` —— ``applied`` 的含义是
+    "``domain_tags`` 真的变了"；``replaced`` 是换掉的那条旧标签（没换就是 None）。
     """
     text = str(tag or "").strip()
     if not text.startswith("CCS:"):
@@ -116,9 +135,22 @@ def apply_ccs_tag(doc_id: str, tag: str, result: dict | None = None,
         if row is None:
             raise _err(f"文档不存在: {doc_id}", "doc_not_found")
         tags = _as_list(row["domain_tags"])
-        already = text in tags
-        if not already:
-            tags.append(text)
+        replaced: str | None = None
+        positions = [i for i, t in enumerate(tags)
+                     if isinstance(t, str) and t.startswith("CCS:")]
+        if not positions:
+            tags = tags + [text]
+            applied = True
+        else:
+            first = positions[0]
+            replaced = tags[first]
+            # 就地换掉第一条 + 收掉历史遗留的多余条目（`first` 之前的索引不变，
+            # 因为被删的都是它之后的）
+            new_tags = [t for i, t in enumerate(tags) if i not in positions[1:]]
+            new_tags[first] = text
+            applied = (new_tags != tags)
+            tags = new_tags
+        if applied:
             conn.execute(
                 "UPDATE doc_meta SET domain_tags=?, updated_at=datetime('now')"
                 " WHERE doc_id=?",
@@ -150,7 +182,7 @@ def apply_ccs_tag(doc_id: str, tag: str, result: dict | None = None,
                 (doc_id,))
         state = conn.execute("SELECT * FROM doc_ccs_state WHERE doc_id=?",
                              (doc_id,)).fetchone()
-    return {"applied": not already, "tag": text, "tags": tags,
+    return {"applied": applied, "tag": text, "replaced": replaced, "tags": tags,
             "state": dict(state) if state is not None else None}
 
 
