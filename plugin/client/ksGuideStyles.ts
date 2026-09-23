@@ -489,6 +489,18 @@ export const KS_STYLES = `
    渠道文件层自己的一件事：一条**自己的** --ks-cols（渠道 / 标签 / 能不能用 / 上次好用 /
    问题 / 操作 = 6 轨）。列宽唯一所有者仍是 --ks-cols，谁也不许再写第二套。 */
 .ks-list-chans{--ks-cols:minmax(0,1.6fr) 84px 96px minmax(0,1fr) 200px}
+/* 批E4（业主 2026-09-23）：页面顶条「文件夹凸出标签」四入口。选中那张=被抽出来的舌：
+   上浮 2px、渐变底、投影、下缘与内容区连通；其余标签压在条上（审美案按业主授权自定）。 */
+.ks-tabfolder-strip{display:flex;gap:4px;align-items:flex-end;padding:6px var(--ks-page-pad-x) 0;
+  border-bottom:var(--ks-stroke) solid var(--dsw-alias-border-l2)}
+.ks-tabfolder{border:var(--ks-stroke) solid var(--dsw-alias-border-l2);border-bottom:none;
+  border-radius:var(--ks-radius) var(--ks-radius) 0 0;padding:4px 16px;cursor:pointer;
+  font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);background:transparent;
+  min-height:30px;transition:transform .12s ease}
+.ks-tabfolder:hover{color:var(--dsw-alias-label-primary);transform:translateY(-1px)}
+.ks-tabfolder-on{color:var(--dsw-alias-label-primary);font-weight:600;transform:translateY(-2px);
+  background:linear-gradient(180deg,var(--dsw-alias-bg-primary),var(--dsw-alias-bg-secondary));
+  box-shadow:0 -2px 6px rgba(0,0,0,.18);margin-bottom:-1px;padding-bottom:6px;min-height:32px}
 .ks-list-chans .ks-item{width:100%;box-sizing:border-box}
 .ks-item .ks-col-chan{display:grid;grid-template-columns:minmax(0,1fr);min-width:0}
 .ks-item .ks-chan-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

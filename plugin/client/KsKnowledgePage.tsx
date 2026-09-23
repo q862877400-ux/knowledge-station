@@ -204,6 +204,40 @@ function confidenceText(value: number | null): string {
  * ⚠ 这一层**自己一条 --ks-cols**（`ksGuideStyles.ts` 的 `.ks-list-inbox`）：不复用文件层那五轨
  *   —— 那五轨（效力/生效日期/处理状态）在这一层没有对应的值，硬套就是拿别的层的列冒充。
  */
+
+/** 批E4（业主 2026-09-23）：页面顶条四入口 = 真实文件夹的凸出标签样式（拍板留痕：
+ *  文件夹标签=页面切换视觉样式，与已删除的「标签」功能无关）。预览器=打开 PDF（动作）。
+ *  次级页（文件导入/备料）不占标签——收在开始页卡的▾里，本条恒显示四枚。 */
+function KsTopTabs(props: {
+  page: string
+  onGo: (p: KsKbPage) => void
+  onPdf: () => void
+}): React.ReactElement {
+  const tabs: Array<{ id: string; label: string; go: () => void }> = [
+    { id: 'manage', label: '知识库', go: () => props.onGo('manage') },
+    { id: 'channels', label: '渠道库', go: () => props.onGo('channels') },
+    { id: 'capabilities', label: '办事台', go: () => props.onGo('capabilities') },
+    { id: 'pdf', label: '预览器', go: props.onPdf },
+  ]
+  return (
+    <nav className="ks-tabfolder-strip" aria-label="页面">
+      {tabs.map((tb) => (
+        <button
+          key={tb.id}
+          className={'ks-tabfolder' + (props.page === tb.id ? ' ks-tabfolder-on' : '')}
+          type="button"
+          aria-current={props.page === tb.id ? 'page' : undefined}
+          onClick={tb.go}
+        >
+          {tb.label}
+        </button>
+      ))}
+    </nav>
+  )
+}
+
+
+
 const INBOX_COLUMNS = [
   { key: 'pick', cls: 'ks-col-pick', head: '' },
   { key: 'iname', cls: 'ks-col-iname', head: '文件名' },
@@ -1763,6 +1797,9 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
     return (
       <div className="ks-page">
         <div className="ks-kb">
+          <KsTopTabs page={page} onGo={goto} onPdf={() => {
+            window.alert('预览器=打开 PDF 查看器；请从开始页的「知识库」卡 ▾ 里选「打开 PDF 查看器」。')
+          }} />
           <header className="ks-page-head">
             <div className="ks-page-title">备料</div>
             <div className="ks-page-sub">上传的财报/制度/文章逐份就位；人工上传免评审，自采的要人批。</div>
@@ -1780,6 +1817,9 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
     return (
       <div className="ks-page">
         <div className="ks-kb">
+          <KsTopTabs page={page} onGo={goto} onPdf={() => {
+            window.alert('预览器=打开 PDF 查看器；请从开始页的「知识库」卡 ▾ 里选「打开 PDF 查看器」。')
+          }} />
           <header className="ks-page-head">
             <div className="ks-page-title">渠道库</div>
             <div className="ks-page-sub">知识来源渠道的管理库：分类、体检、维护。顶部常驻最新动态。</div>
@@ -2704,6 +2744,9 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
   return (
     <div className="ks-page">
       <div className="ks-kb">
+        <KsTopTabs page={page} onGo={goto} onPdf={() => {
+          window.alert('预览器=打开 PDF 查看器；请从开始页的「知识库」卡 ▾ 里选「打开 PDF 查看器」。')
+        }} />
         <header className="ks-page-head">
           <div className="ks-page-title">知识库</div>
         </header>
