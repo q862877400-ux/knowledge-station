@@ -153,6 +153,48 @@ try {
   check('提示词：纪律句在（修不动如实说 / 不替用户决定）',
     prompt.includes('如实说修不动') && prompt.includes('不要默默替他做决定'))
 
+  /* ── 批E1（2026-09-23 业主点单）：「网站」一级分组——同站多页=网站文件夹、单页站=行 ── */
+  {
+    const siteRec = (id, name, url) => ({ channel_id: id, name, category: 'other', org_kind: 'central',
+      wiring: 'wired', verification: 'verified', state: 'ok', enabled: 1, consecutive_failures: 0, url })
+    const rows2 = [
+      siteRec('a1', '国家法律法规数据库-检索列表', 'https://flk.npc.gov.cn/api/list'),
+      siteRec('a2', '国家法律法规数据库-详情', 'https://flk.npc.gov.cn/api/detail'),
+      siteRec('a3', '国家法律法规数据库-枚举字典', 'https://flk.npc.gov.cn/api/xf'),
+      siteRec('b1', '单页站甲', 'https://solo-a.example/gg'),
+    ]
+    const g = mod.groupRowsBySite(rows2)
+    check('批E1 网站分组：同域名 3 行归一个网站文件夹（flk.npc.gov.gov.cn），单页站出列成行',
+      g.sites.length === 1 && g.sites[0].host === 'flk.npc.gov.cn' && g.sites[0].rows.length === 3
+      && g.solos.length === 1 && g.solos[0].channel_id === 'b1',
+      JSON.stringify({ sites: g.sites.map((s) => s.host), solos: g.solos.map((r) => r.channel_id) }))
+    check('批E1 www. 前缀归一（www.x 与 x 是同一网站）',
+      mod.groupRowsBySite([siteRec('c1', '甲', 'https://www.x.example/1'), siteRec('c2', '乙', 'https://x.example/2')])
+        .sites.length === 1,
+      'www 归一')
+  }
+
+  /* ── 批E1（2026-09-23 业主点单）：「网站」一级分组——同站多页=网站文件夹、单页站=行 ── */
+  {
+    const siteRec = (id, name, url) => ({ channel_id: id, name, category: 'other', org_kind: 'central',
+      wiring: 'wired', verification: 'verified', state: 'ok', enabled: 1, consecutive_failures: 0, url })
+    const rows2 = [
+      siteRec('a1', '国家法律法规数据库-检索列表', 'https://flk.npc.gov.cn/api/list'),
+      siteRec('a2', '国家法律法规数据库-详情', 'https://flk.npc.gov.cn/api/detail'),
+      siteRec('a3', '国家法律法规数据库-枚举字典', 'https://flk.npc.gov.cn/api/xf'),
+      siteRec('b1', '单页站甲', 'https://solo-a.example/gg'),
+    ]
+    const g = mod.groupRowsBySite(rows2)
+    check('批E1 网站分组：同域名 3 行归一个网站文件夹（flk.npc.gov.cn），单页站出列成行',
+      g.sites.length === 1 && g.sites[0].host === 'flk.npc.gov.cn' && g.sites[0].rows.length === 3
+      && g.solos.length === 1 && g.solos[0].channel_id === 'b1',
+      JSON.stringify({ sites: g.sites.map((s) => s.host), solos: g.solos.map((r) => r.channel_id) }))
+    check('批E1 www. 前缀归一（www.x 与 x 是同一网站）',
+      mod.groupRowsBySite([siteRec('c1', '甲', 'https://www.x.example/1'), siteRec('c2', '乙', 'https://x.example/2')])
+        .sites.length === 1,
+      'www 归一')
+  }
+
   /* ── ③ 面板真点击（jsdom 挂载 + stub 数据 + 剪贴板） ───────── */
   const { createRoot } = await import('react-dom/client')
   const { act } = await import('react')

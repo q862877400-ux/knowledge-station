@@ -181,6 +181,34 @@ const CH_COLS: readonly KbListCol[] = [
   { key: 'cissue', head: '问题' }, { key: 'cact', head: '操作' },
 ]
 
+/** 「网站」一级分组（业主 2026-09-23：同站多页归一个网站文件夹、单页站直接当行——
+ *  与知识库"文件夹和文件共存"同一逻辑）。纯函数，判据直接钉：同 host 多行 ⇒ 一个
+ *  site 组（=文件夹）；单行 host ⇒ solo 行。host 取 url 的域名（去 www. 前缀）。 */
+export function groupRowsBySite(rows: readonly KsChannelRecord[]): {
+  sites: Array<{ host: string; label: string; rows: KsChannelRecord[] }>
+  solos: KsChannelRecord[]
+} {
+  const byHost = new Map<string, KsChannelRecord[]>()
+  for (const r of rows) {
+    let host = ''
+    try {
+      host = (r.url ?? '') !== '' ? new URL(String(r.url).split(/[（\s]/)[0]).hostname.toLowerCase().replace(/^www\./, '') : ''
+    } catch { host = '' }
+    const key = host !== '' ? host : `（无链接）${r.name}`
+    const arr = byHost.get(key)
+    if (arr !== undefined) arr.push(r)
+    else byHost.set(key, [r])
+  }
+  const sites: Array<{ host: string; label: string; rows: KsChannelRecord[] }> = []
+  const solos: KsChannelRecord[] = []
+  for (const [host, grp] of byHost) {
+    if (grp.length > 1) sites.push({ host, label: host, rows: grp })
+    else solos.push(grp[0])
+  }
+  sites.sort((a, b) => a.host.localeCompare(b.host))
+  return { sites, solos }
+}
+
 /** 单位性质的用户叫法（树的组名；与引擎 ORG_KIND 同序）。 */
 export const ORG_KIND_LABEL: Record<string, string> = {
   central: '国家部委/总局', local_congress: '地方人大', local_dept: '地方厅局',
