@@ -34029,6 +34029,14 @@ var KS_STYLES = `
 .ks-tabfolder:hover{color:var(--dsw-alias-label-primary);transform:translateY(-1px)}
 .ks-tabfolder-on{color:var(--dsw-alias-label-primary);font-weight:600;transform:translateY(-2px);
   background:var(--dsw-alias-border-l2);margin-bottom:-1px;padding-bottom:6px;min-height:32px}
+/* \u6279\u2461\uFF082026-09-23\uFF09\uFF1A\u6E20\u9053\u5E93\u5DE6\u6811\u7684\u884C\u6837\u5F0F\uFF08\u5BB9\u5668\u590D\u7528 .ks-kb-tree/.ks-kb-row\uFF09\u3002 */
+.ks-tree-item{display:block;width:100%;text-align:left;cursor:pointer;padding:4px 8px;
+  min-height:26px;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);
+  background:transparent;border:none;border-radius:var(--ks-radius)}
+.ks-tree-item:hover{color:var(--dsw-alias-label-primary)}
+.ks-tree-on{color:var(--dsw-alias-label-primary);font-weight:600;
+  background:var(--dsw-alias-border-l2)}
+.ks-tree-sub{padding-left:20px;font-size:var(--ks-fs-2xs)}
 .ks-list-chans .ks-item{width:100%;box-sizing:border-box}
 .ks-item .ks-col-chan{display:grid;grid-template-columns:minmax(0,1fr);min-width:0}
 .ks-item .ks-chan-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

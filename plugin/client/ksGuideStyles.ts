@@ -500,6 +500,14 @@ export const KS_STYLES = `
 .ks-tabfolder:hover{color:var(--dsw-alias-label-primary);transform:translateY(-1px)}
 .ks-tabfolder-on{color:var(--dsw-alias-label-primary);font-weight:600;transform:translateY(-2px);
   background:var(--dsw-alias-border-l2);margin-bottom:-1px;padding-bottom:6px;min-height:32px}
+/* 批②（2026-09-23）：渠道库左树的行样式（容器复用 .ks-kb-tree/.ks-kb-row）。 */
+.ks-tree-item{display:block;width:100%;text-align:left;cursor:pointer;padding:4px 8px;
+  min-height:26px;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);
+  background:transparent;border:none;border-radius:var(--ks-radius)}
+.ks-tree-item:hover{color:var(--dsw-alias-label-primary)}
+.ks-tree-on{color:var(--dsw-alias-label-primary);font-weight:600;
+  background:var(--dsw-alias-border-l2)}
+.ks-tree-sub{padding-left:20px;font-size:var(--ks-fs-2xs)}
 .ks-list-chans .ks-item{width:100%;box-sizing:border-box}
 .ks-item .ks-col-chan{display:grid;grid-template-columns:minmax(0,1fr);min-width:0}
 .ks-item .ks-chan-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
