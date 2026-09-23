@@ -34028,8 +34028,7 @@ var KS_STYLES = `
   min-height:30px;transition:transform .12s ease}
 .ks-tabfolder:hover{color:var(--dsw-alias-label-primary);transform:translateY(-1px)}
 .ks-tabfolder-on{color:var(--dsw-alias-label-primary);font-weight:600;transform:translateY(-2px);
-  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
-  box-shadow:0 -2px 6px rgba(0,0,0,.18);margin-bottom:-1px;padding-bottom:6px;min-height:32px}
+  background:var(--dsw-alias-border-l2);margin-bottom:-1px;padding-bottom:6px;min-height:32px}
 .ks-list-chans .ks-item{width:100%;box-sizing:border-box}
 .ks-item .ks-col-chan{display:grid;grid-template-columns:minmax(0,1fr);min-width:0}
 .ks-item .ks-chan-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -39475,8 +39474,10 @@ function KsKnowledgePage({ useTabInfo }) {
   }
   if (page === "materials") {
     return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsTopTabs, { page, onGo: goto, onPdf: () => {
-        window.alert("\u9884\u89C8\u5668=\u6253\u5F00 PDF \u67E5\u770B\u5668\uFF1B\u8BF7\u4ECE\u5F00\u59CB\u9875\u7684\u300C\u77E5\u8BC6\u5E93\u300D\u5361 \u25BE \u91CC\u9009\u300C\u6253\u5F00 PDF \u67E5\u770B\u5668\u300D\u3002");
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsTopTabs, { page, onGo: (pp) => {
+        tab.actions.openTab(KS_KB_KIND, { replaceTab: true, params: { page: pp } });
+      }, onPdf: () => {
+        tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true });
       } }),
       /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("header", { className: "ks-page-head", children: [
         /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-title", children: "\u5907\u6599" }),
@@ -39488,8 +39489,10 @@ function KsKnowledgePage({ useTabInfo }) {
   }
   if (page === "channels") {
     return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsTopTabs, { page, onGo: goto, onPdf: () => {
-        window.alert("\u9884\u89C8\u5668=\u6253\u5F00 PDF \u67E5\u770B\u5668\uFF1B\u8BF7\u4ECE\u5F00\u59CB\u9875\u7684\u300C\u77E5\u8BC6\u5E93\u300D\u5361 \u25BE \u91CC\u9009\u300C\u6253\u5F00 PDF \u67E5\u770B\u5668\u300D\u3002");
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsTopTabs, { page, onGo: (pp) => {
+        tab.actions.openTab(KS_KB_KIND, { replaceTab: true, params: { page: pp } });
+      }, onPdf: () => {
+        tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true });
       } }),
       /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("header", { className: "ks-page-head", children: [
         /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-title", children: "\u6E20\u9053\u5E93" }),
@@ -40318,8 +40321,10 @@ function KsKnowledgePage({ useTabInfo }) {
     ] }) : null
   ] });
   return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsTopTabs, { page, onGo: goto, onPdf: () => {
-      window.alert("\u9884\u89C8\u5668=\u6253\u5F00 PDF \u67E5\u770B\u5668\uFF1B\u8BF7\u4ECE\u5F00\u59CB\u9875\u7684\u300C\u77E5\u8BC6\u5E93\u300D\u5361 \u25BE \u91CC\u9009\u300C\u6253\u5F00 PDF \u67E5\u770B\u5668\u300D\u3002");
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsTopTabs, { page, onGo: (pp) => {
+      tab.actions.openTab(KS_KB_KIND, { replaceTab: true, params: { page: pp } });
+    }, onPdf: () => {
+      tab.actions.openTab(KS_EVIDENCE_KIND, { replaceTab: true });
     } }),
     /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("header", { className: "ks-page-head", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-title", children: "\u77E5\u8BC6\u5E93" }) }),
     /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-rule" }),
