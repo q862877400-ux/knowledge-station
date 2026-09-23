@@ -260,8 +260,12 @@ const panelMod = await loadModule('client/KsMaterialsPanel.tsx')
 
   // D7 号段（NOT-DOING #17 同族，业主 2026-09-22：号段=后台维护事）：**不上用户面**——
   //   负向钉（列/入口回潮=红）；parseSegments 工具函数仍留（AI 词与后台维护要用）。
+  //   ⚠ 针只扫**去注释后的代码**（留痕注释里提「改号段」是合法的——本钉首版就踩了自己注释）。
+  const srcNoCommentsForSeg = src
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .split('\n').filter((l) => !l.trim().startsWith('//')).join('\n')
   check('号段：不上用户面（列头/「改号段」入口回潮=红）——后台维护事（AI 词里带号段是合法的）',
-    !src.includes('改号段') && !src.includes('号段</th>'))
+    !srcNoCommentsForSeg.includes('改号段') && !srcNoCommentsForSeg.includes('号段</th>'))
   check('KsChannelRecord 暴露 segments_json（字符串，不是数组）',
     /segments_json\?: string \| null/.test(apiSrc))
 
