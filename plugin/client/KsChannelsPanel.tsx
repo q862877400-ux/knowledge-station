@@ -321,6 +321,7 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
   const [newNote, setNewNote] = useState<string>('')
   const [mutating, setMutating] = useState<boolean>(false)
   const [orgSel, setOrgSel] = useState<string | null>(null)
+  const [siteSel, setSiteSel] = useState<string | null>(null)
   const [q, setQ] = useState<string>('')
   const [news, setNews] = useState<string>('')
   const [showDetail, setShowDetail] = useState<boolean>(false)
@@ -612,9 +613,45 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
               ? [{ name: '渠道库' }, { name: `搜索「${q.trim()}」` }]
               : orgSel === null
                 ? [{ name: '渠道库' }]
-                : [{ name: '渠道库', onGo: () => setOrgSel(null) },
-                   { name: ORG_KIND_LABEL[orgSel] ?? orgSel }]}
+                : siteSel === null
+                  ? [{ name: '渠道库', onGo: () => setOrgSel(null) },
+                     { name: ORG_KIND_LABEL[orgSel] ?? orgSel }]
+                  : [{ name: '渠道库', onGo: () => { setOrgSel(null); setSiteSel(null) } },
+                     { name: ORG_KIND_LABEL[orgSel] ?? orgSel, onGo: () => { setSiteSel(null) } },
+                     { name: siteSel }]}
             n={crumbN} />
+          {/* 批E1-2（2026-09-23）：「网站」一层——同站多页=网站文件夹（点开看站内页面行），
+              单页站=下方普通行（文件夹与行共存，同知识库逻辑）。 */}
+          {orgSel !== null && siteSel === null && q.trim() === '' && (
+            <div className="ks-list ks-list-dirs ks-dirs">
+              <KsListHead cols={DIR_COLS} />
+              {groupRowsBySite(viewRows).sites.map((s) => (
+                <div key={s.host} className="ks-item ks-dir-row"
+                  onClick={(e) => {
+                    const t = e.target as (HTMLElement | null)
+                    if (t === null || typeof t.closest !== 'function') return
+                    if (t.closest('button,input,a,[role=menuitem],[role=menu]') !== null) return
+                    setSiteSel(s.host)
+                  }}>
+                  <div className="ks-cell ks-col-dpick" />
+                  <div className="ks-cell ks-col-dname">
+                    <button type="button" className="ks-dir-open"
+                      title={`进入网站「${s.label}」（这个网站有 ${String(s.rows.length)} 个页面）`}
+                      aria-label={`进入网站「${s.label}」，共 ${String(s.rows.length)} 个页面`}
+                      onClick={() => setSiteSel(s.host)}>
+                      <span className="ks-fileico" title="网站"><IconFolderOpenOutline16 /></span>
+                      <span className="ks-dir-name" title={s.label}>{s.label}</span>
+                      <span className="ks-dir-go"><IconChevronRightOutline14 /></span>
+                    </button>
+                  </div>
+                  <div className="ks-cell ks-col-dcount">
+                    <span className="ks-kb-badge">{s.rows.length} 页</span>
+                  </div>
+                  <div className="ks-cell ks-col-dmore" />
+                </div>
+              ))}
+            </div>
+          )}
           {orgSel === null && q.trim() === '' ? (
             <div className="ks-list ks-list-dirs ks-dirs">
               <KsListHead cols={DIR_COLS} />
@@ -650,7 +687,10 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
           ) : (
             <div className="ks-list ks-list-chans">
               <KsListHead cols={CH_COLS} />
-              {viewRows.map((r) => (
+              {(siteSel !== null
+                ? (groupRowsBySite(viewRows).sites.find((s) => s.host === siteSel)?.rows ?? [])
+                : (orgSel !== null && q.trim() === '' ? groupRowsBySite(viewRows).solos : viewRows)
+              ).map((r) => (
                 <div key={r.channel_id} className="ks-item">
                   <span className="ks-cell ks-col-chan">
                     <span className="ks-chan-name" title={r.note ?? undefined}>

@@ -36113,6 +36113,29 @@ var CH_COLS = [
   { key: "cissue", head: "\u95EE\u9898" },
   { key: "cact", head: "\u64CD\u4F5C" }
 ];
+function groupRowsBySite(rows) {
+  const byHost = /* @__PURE__ */ new Map();
+  for (const r of rows) {
+    let host = "";
+    try {
+      host = (r.url ?? "") !== "" ? new URL(String(r.url).split(/[（\s]/)[0]).hostname.toLowerCase().replace(/^www\./, "") : "";
+    } catch {
+      host = "";
+    }
+    const key = host !== "" ? host : `\uFF08\u65E0\u94FE\u63A5\uFF09${r.name}`;
+    const arr = byHost.get(key);
+    if (arr !== void 0) arr.push(r);
+    else byHost.set(key, [r]);
+  }
+  const sites = [];
+  const solos = [];
+  for (const [host, grp] of byHost) {
+    if (grp.length > 1) sites.push({ host, label: host, rows: grp });
+    else solos.push(grp[0]);
+  }
+  sites.sort((a, b) => a.host.localeCompare(b.host));
+  return { sites, solos };
+}
 var ORG_KIND_LABEL = {
   central: "\u56FD\u5BB6\u90E8\u59D4/\u603B\u5C40",
   local_congress: "\u5730\u65B9\u4EBA\u5927",
@@ -36209,6 +36232,7 @@ function KsChannelsPanel(props) {
   const [newNote, setNewNote] = (0, import_react7.useState)("");
   const [mutating, setMutating] = (0, import_react7.useState)(false);
   const [orgSel, setOrgSel] = (0, import_react7.useState)(null);
+  const [siteSel, setSiteSel] = (0, import_react7.useState)(null);
   const [q, setQ] = (0, import_react7.useState)("");
   const [news, setNews] = (0, import_react7.useState)("");
   const [showDetail, setShowDetail] = (0, import_react7.useState)(false);
@@ -36529,13 +36553,61 @@ function KsChannelsPanel(props) {
       /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
         KsCrumb,
         {
-          items: q.trim() !== "" ? [{ name: "\u6E20\u9053\u5E93" }, { name: `\u641C\u7D22\u300C${q.trim()}\u300D` }] : orgSel === null ? [{ name: "\u6E20\u9053\u5E93" }] : [
+          items: q.trim() !== "" ? [{ name: "\u6E20\u9053\u5E93" }, { name: `\u641C\u7D22\u300C${q.trim()}\u300D` }] : orgSel === null ? [{ name: "\u6E20\u9053\u5E93" }] : siteSel === null ? [
             { name: "\u6E20\u9053\u5E93", onGo: () => setOrgSel(null) },
             { name: ORG_KIND_LABEL[orgSel] ?? orgSel }
+          ] : [
+            { name: "\u6E20\u9053\u5E93", onGo: () => {
+              setOrgSel(null);
+              setSiteSel(null);
+            } },
+            { name: ORG_KIND_LABEL[orgSel] ?? orgSel, onGo: () => {
+              setSiteSel(null);
+            } },
+            { name: siteSel }
           ],
           n: crumbN
         }
       ),
+      orgSel !== null && siteSel === null && q.trim() === "" && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-list ks-list-dirs ks-dirs", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(KsListHead, { cols: DIR_COLS }),
+        groupRowsBySite(viewRows).sites.map((s2) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+          "div",
+          {
+            className: "ks-item ks-dir-row",
+            onClick: (e) => {
+              const t = e.target;
+              if (t === null || typeof t.closest !== "function") return;
+              if (t.closest("button,input,a,[role=menuitem],[role=menu]") !== null) return;
+              setSiteSel(s2.host);
+            },
+            children: [
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "ks-cell ks-col-dpick" }),
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "ks-cell ks-col-dname", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+                "button",
+                {
+                  type: "button",
+                  className: "ks-dir-open",
+                  title: `\u8FDB\u5165\u7F51\u7AD9\u300C${s2.label}\u300D\uFF08\u8FD9\u4E2A\u7F51\u7AD9\u6709 ${String(s2.rows.length)} \u4E2A\u9875\u9762\uFF09`,
+                  "aria-label": `\u8FDB\u5165\u7F51\u7AD9\u300C${s2.label}\u300D\uFF0C\u5171 ${String(s2.rows.length)} \u4E2A\u9875\u9762`,
+                  onClick: () => setSiteSel(s2.host),
+                  children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-fileico", title: "\u7F51\u7AD9", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutline16, {}) }),
+                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-dir-name", title: s2.label, children: s2.label }),
+                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-dir-go", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconChevronRightOutline14, {}) })
+                  ]
+                }
+              ) }),
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "ks-cell ks-col-dcount", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "ks-kb-badge", children: [
+                s2.rows.length,
+                " \u9875"
+              ] }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "ks-cell ks-col-dmore" })
+            ]
+          },
+          s2.host
+        ))
+      ] }),
       orgSel === null && q.trim() === "" ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-list ks-list-dirs ks-dirs", children: [
         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(KsListHead, { cols: DIR_COLS }),
         groupRowsByOrgKind(rows).map((g) => (
@@ -36581,7 +36653,7 @@ function KsChannelsPanel(props) {
         ))
       ] }) : /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-list ks-list-chans", children: [
         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(KsListHead, { cols: CH_COLS }),
-        viewRows.map((r) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-item", children: [
+        (siteSel !== null ? groupRowsBySite(viewRows).sites.find((s2) => s2.host === siteSel)?.rows ?? [] : orgSel !== null && q.trim() === "" ? groupRowsBySite(viewRows).solos : viewRows).map((r) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-item", children: [
           /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "ks-cell ks-col-chan", children: [
             /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "ks-chan-name", title: r.note ?? void 0, children: [
               r.name,
