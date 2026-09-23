@@ -187,6 +187,9 @@ export interface KsChannelRecord {
   category: string
   /** 研究文档里的原始写法（证据，可能与 canonical 不同） */
   category_raw?: string | null
+  /** 单位性质（2026-09-22）：central/local_congress/local_dept/industry/intl/commercial/tool/other；
+   *  null=未分类。台账「文件夹树」分类的那根轴（与 category=标准类型是两回事）。 */
+  org_kind?: string | null
   url?: string | null
   fetch_kind?: string | null
   /** 接线状态：wired（在巡检链上）/unwired/broken/user/seed_only */

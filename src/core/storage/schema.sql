@@ -618,6 +618,11 @@ CREATE TABLE IF NOT EXISTS update_channel (
     name            TEXT NOT NULL,
     category        TEXT NOT NULL,                    -- canonical（channel_repo.CATEGORIES）
     category_raw    TEXT,                             -- 调研文档里的原始写法（证据，不丢）
+    -- org_kind  单位性质（2026-09-22 业主定）：**主办单位性质**——国家总局/地方人大/地方厅局…
+    --   台账按它做「文件夹树」式分类（与知识库文件目录同交互）。枚举在 channel_repo.ORG_KIND；
+    --   NULL=未分类。粗分类由 channel_repo.backfill_org_kind 按名称关键词回填，人工可改
+    --   （改过的不再被回填覆盖）。老库由 sqlite_db._ensure_channel_columns 补列。
+    org_kind        TEXT,
     url             TEXT,
     fetch_kind      TEXT,                             -- json|html|pdf|rss|js_shell|search|unknown
     list_endpoint   TEXT,

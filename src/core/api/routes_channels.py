@@ -30,6 +30,8 @@ _WRITABLE = (
     "name", "category", "category_raw", "url", "fetch_kind", "list_endpoint",
     "params_json", "answers_json", "covers", "gaps", "wiring", "verification",
     "probe_url", "probe_expect", "source_file", "note", "segments_json",
+    # 单位性质（2026-09-22）：用户面「分类」的那根轴（树=单位性质分组）。
+    "org_kind",
 )
 
 
@@ -58,6 +60,11 @@ def _reject_health_and_unknown(body: dict) -> str | None:
 
 
 def register(app, json_error):
+    # 单位性质粗分类回填（2026-09-22）：只填 NULL、幂等、人工标的不覆盖。
+    try:
+        cr.backfill_org_kind()
+    except Exception:  # noqa: BLE001 —— 回填失败不挡路由注册（面板照常开，未分类可人工标）
+        pass
     @app.get("/api/v1/channels")
     def list_channels(category: str | None = None, wiring: str | None = None,
                       state: str | None = None, verification: str | None = None,

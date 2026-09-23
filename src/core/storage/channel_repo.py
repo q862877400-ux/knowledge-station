@@ -65,11 +65,21 @@ WIRING: tuple[str, ...] = ("wired", "unwired", "broken", "user", "seed_only")
 VERIFICATION: tuple[str, ...] = ("verified", "unverified", "broken")
 STATE: tuple[str, ...] = ("unknown", "ok", "suspicious", "down")
 
+#: 单位性质（2026-09-22 业主定）：台账按**主办单位性质**做「文件夹树」式分类
+#: （国家总局一组、地方人大一组…，与知识库文件目录同交互）。用户面叫「单位性质」；
+#: NULL = 未分类（树里挂「未分类」组）。粗分类见 `classify_org_kind`（关键词、可人工改）。
+ORG_KIND: tuple[str, ...] = (
+    "central", "local_congress", "local_dept", "industry", "intl",
+    "commercial", "tool", "other",
+)
+
 #: 种子可写的**描述性**字段；运行期健康度字段**不在其中**（导入不覆盖实测结果）
 _DESCRIPTIVE = (
     "name", "category", "category_raw", "url", "fetch_kind", "list_endpoint",
     "params_json", "answers_json", "covers", "gaps", "wiring", "verification",
     "probe_url", "probe_expect", "source_file", "note",
+    # 单位性质（2026-09-22）：用户面「分类」的那根轴（描述性字段——人工可写、探针不动）。
+    "org_kind",
     # §11.0 R7（2026-09-19）：**号段**——"这条渠道管哪些标准号"，JSON 数组。
     # 为什么要它：R6g 量出"有适配器的 13 条里只有 3 条在链上"，根因是**号段→渠道**这件事
     # 此前只硬编码在 `routing._PREFIX_ROUTE` 里（代码），台账无从表达 ⇒ 业主无法人工维护
@@ -171,6 +181,52 @@ def parse_segments(row: dict[str, Any]) -> tuple[str, ...]:
     return tuple(str(i).strip() for i in items if isinstance(i, str) and str(i).strip())
 
 
+def classify_org_kind(name: str, category: str | None = None) -> str | None:
+    """按名称关键词给**单位性质**粗分类（NULL = 分不出、挂「未分类」）。
+
+    只是回填起点：人工改过（org_kind 非 NULL）的行**永不**被回填覆盖。规则序即优先序
+    （先特指后泛指：人大/国际/工具先于"厅/局/委"这类泛词）。2026-09-22 业主定的口径：
+    分类 = **网页所属单位的性质**（国家总局 / 地方人大 / …），不是标准类型（那是 category）。"""
+    n = name or ""
+    if any(k in n for k in ("ISO", "IEC", "ITU", "国际")):
+        return "intl"
+    if any(k in n for k in ("人大", "人民代表大会", "代表大会")):
+        return "local_congress"
+    if any(k in n for k in ("工具", "代码", "GitHub", "github")):
+        return "tool"
+    if any(k in n for k in ("国务院", "部委", "总局", "市场监管", "应急管理", "发展改革",
+                            "工业和信息化", "交通运输", "水利部", "生态环境部", "住房城乡建设部",
+                            "国家标准化", "国家局")):
+        return "central"
+    if any(k in n for k in ("省", "市", "自治区", "厅", "人民政府", "住建厅", "建设厅")):
+        return "local_dept"
+    if any(k in n for k in ("协会", "学会", "联合会", "标委会", "标准化协会", "研究院", "信息中心")):
+        return "industry"
+    if any(k in n for k in ("聚合", "商业", "平台", "网（", "入口")):
+        return "commercial"
+    return None
+
+
+def backfill_org_kind() -> int:
+    """给**未分类**（org_kind IS NULL）的行回填单位性质（关键词粗分类）；返回回填条数。
+
+    只填 NULL —— 人工标过的**永不**覆盖（人工 > 机器）。幂等：第二次跑返回 0。"""
+    conn = get_db_connection()
+    rows = conn.execute(
+        "SELECT channel_id, name, category, org_kind FROM update_channel"
+        " WHERE org_kind IS NULL").fetchall()
+    filled = 0
+    with write_transaction() as txn:
+        for r in rows:
+            kind = classify_org_kind(r["name"], r["category"])
+            if kind is None:
+                continue
+            txn.execute("UPDATE update_channel SET org_kind=?, updated_at=datetime('now')"
+                        " WHERE channel_id=? AND org_kind IS NULL", (kind, r["channel_id"]))
+            filled += 1
+    return filled
+
+
 def upsert_channel(channel_id: str, payload: dict[str, Any], *,
                    overwrite_health: bool = False,
                    actor: str | None = None) -> dict[str, Any]:
@@ -207,6 +263,8 @@ def upsert_channel(channel_id: str, payload: dict[str, Any], *,
         data["segments_json"] = _json_or_none(check_segments(data["segments_json"]))
     if "category" in data and data["category"] not in CATEGORIES:
         raise ValueError(f"illegal_channel_category: {data['category']}")
+    if "org_kind" in data and data["org_kind"] is not None and data["org_kind"] not in ORG_KIND:
+        raise ValueError(f"illegal_org_kind: {data['org_kind']}（可选：{ORG_KIND} 或 null=未分类）")
     if cat_raw is not None and "category" not in data:
         data["category"] = normalize_category(str(cat_raw))
     # 新增行**必须**给出 category（列是 NOT NULL）：人工在面板上加一条渠道时往往说不出

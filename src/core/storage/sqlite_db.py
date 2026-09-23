@@ -148,6 +148,7 @@ def _ensure_bookmark_folder_columns(conn) -> None:
 #: schema.sql 的新库直接带列；老库 CREATE IF NOT EXISTS 不会改表 → PRAGMA 补列。
 _CHANNEL_EXTRA_COLS: list[tuple[str, str]] = [
     ("segments_json", "TEXT"),
+    ("org_kind", "TEXT"),
 ]
 
 

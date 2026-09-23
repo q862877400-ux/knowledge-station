@@ -438,3 +438,62 @@ class TestShippedSeed:
                     dead.append((r["channel_id"], seg))
         assert dead == [], (
             f"这些号段在真库真实形状的号表上**一个号都不命中**（写法错 ⇒ 渠道永不进链）：{dead}")
+
+class Test单位性质:
+    """单位性质（org_kind，2026-09-22 业主定）：台账「文件夹树」分类的那根轴。
+
+    四件事必须都真：列真在（新库+老库两条路）/ 枚举出声拒绝 / 关键词粗分类回填 /
+    **人工标的永不被回填覆盖**（人工 > 机器）+ 幂等。"""
+
+    def test_表里真的有单位性质列(self, db):
+        cols = {r[1] for r in db.execute("PRAGMA table_info(update_channel)").fetchall()}
+        assert "org_kind" in cols
+
+    def test_补列清单必须包含单位性质列(self):
+        from src.core.storage.sqlite_db import _CHANNEL_EXTRA_COLS
+        assert "org_kind" in {c for c, _ in _CHANNEL_EXTRA_COLS}
+
+    def test_枚举校验_坏值出声拒绝(self, db):
+        with pytest.raises(ValueError, match="illegal_org_kind"):
+            cr.upsert_channel("ch:ok_bad", {"name": "甲", "category": "other",
+                                            "org_kind": "不存在的性质"})
+        # 合法值 + null 都放行
+        row = cr.upsert_channel("ch:ok_good", {"name": "乙", "category": "other",
+                                               "org_kind": "central"})
+        assert row["org_kind"] == "central"
+        row2 = cr.upsert_channel("ch:ok_null", {"name": "丙", "category": "other",
+                                                "org_kind": None})
+        assert row2["org_kind"] is None
+
+    def test_关键词粗分类回填(self, db):
+        for cid, name, want in (
+            ("ch:k1", "国家市场监督管理总局", "central"),
+            ("ch:k2", "北京市人民代表大会", "local_congress"),
+            ("ch:k3", "江苏省住房和城乡建设厅", "local_dept"),
+            ("ch:k4", "中国工程建设标准化协会", "industry"),
+            ("ch:k5", "ISO 标准门户", "intl"),
+            ("ch:k6", "标准聚合入口", "commercial"),
+        ):
+            cr.upsert_channel(cid, {"name": name, "category": "other"})
+        n = cr.backfill_org_kind()
+        assert n >= 6
+        for cid, name, want in (
+            ("ch:k1", "国家市场监督管理总局", "central"),
+            ("ch:k2", "北京市人民代表大会", "local_congress"),
+            ("ch:k3", "江苏省住房和城乡建设厅", "local_dept"),
+            ("ch:k4", "中国工程建设标准化协会", "industry"),
+            ("ch:k5", "ISO 标准门户", "intl"),
+            ("ch:k6", "标准聚合入口", "commercial"),
+        ):
+            assert (cr.get_channel(cid) or {})["org_kind"] == want, f"{name} 分错了"
+
+    def test_人工标的永不被回填覆盖(self, db):
+        cr.upsert_channel("ch:manual", {"name": "国家市场监督管理总局（人工改过）",
+                                        "category": "other", "org_kind": "industry"})
+        cr.backfill_org_kind()
+        assert (cr.get_channel("ch:manual") or {})["org_kind"] == "industry"
+
+    def test_回填幂等(self, db):
+        cr.upsert_channel("ch:idem", {"name": "某省住建厅", "category": "other"})
+        assert cr.backfill_org_kind() >= 1
+        assert cr.backfill_org_kind() == 0
