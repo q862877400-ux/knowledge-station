@@ -2177,7 +2177,17 @@ def run_full_ingest(pdf_path: Path, standard_no: str, standard_name: str,
     # reingest：入库前先删同 standard_no 的旧文档（否则唯一约束冲突）。
     # 收藏/批注绑 clause_key（= sha256(doc_id+no)，doc_id 变则 key 变——
     # 但旧文档删除时用户资产按 clause_key 留存，重解析后条款号一致即可在检索中重新关联）
+    #
+    # ⚠⚠ **2026-09-24（审计 A1「重新解析把已归位文件从目录里弄丢」）**：删旧文档之前
+    #   必须先把"这一篇在哪些目录里 + 它的归位记录"拍成快照 —— 旧文档一删，那两处
+    #   （``folder_member`` / ``doc_filing_state``，**都没有表级 FK 兜底**）就没了主人：
+    #   归属留在旧 doc_id 上、新 doc_id 一个目录都不在。快照在入库**成功之后**
+    #   由 ``restore_filing_assets`` 落到新 doc_id 上（见 ``_write_filing_state`` 之后那段）。
+    #   拍快照是**只读**的，所以放在删除之前是安全的。
+    _carried_assets: dict | None = None
     if reingest and same_no and same_no["doc_id"] != doc_id:
+        from src.core.knowledge import folder_store as _fs_carry
+        _carried_assets = _fs_carry.snapshot_filing_assets(same_no["doc_id"])
         from src.core.storage import clause_repo as _cr
         _cr.delete_document(same_no["doc_id"])
 
@@ -2304,6 +2314,27 @@ def run_full_ingest(pdf_path: Path, standard_no: str, standard_name: str,
         doc_id, "failed" if no_content else "confirming",
         confidence=confidence, failure_kind=failure_kind)
 
+    # ── 重导：把旧文档的归属与归位记录搬到新 doc_id（审计 A1 的修法，2026-09-24）────
+    # 顺序是三段：① 删旧文档**之前**拍快照（上面 reingest 块）；② 入库事务**提交之后**
+    # 落到新 doc_id（这里）；③ 旧文档的挂靠与状态行由删除那一侧清掉（见 clause_repo）。
+    # 为什么必须等到这里（而不是拍快照时顺手写）：新 doc_id 的 ``doc_meta`` 行是在
+    # **入库事务**里插的，事务提交前写归属就会留下一批指向"还不存在的文档"的挂靠行。
+    # ⚠ 失败只记日志、不把一次成功的入库变成失败（归属搬不过去是**可观测**的：
+    #   ``filing_assets_carried`` 在返回值里）。
+    filing_assets_carried = None
+    if _carried_assets is not None and _carried_assets.get("doc_id") != doc_id:
+        try:
+            from src.core.knowledge import folder_store as _fs_carry2
+            filing_assets_carried = _fs_carry2.restore_filing_assets(
+                _carried_assets, doc_id, stage="failed" if no_content else "confirming",
+                confidence=confidence, failure_kind=failure_kind)
+            logger.info("重导搬运归属：doc=%s ← %s（目录 %d 条、归位记录 %s）",
+                        doc_id, _carried_assets.get("doc_id"),
+                        filing_assets_carried["moved_members"],
+                        filing_assets_carried["carried_fields"])
+        except Exception:                                   # noqa: BLE001
+            logger.warning("重导搬运归属失败（不阻塞入库）doc=%s", doc_id, exc_info=True)
+
     # R8 运维日志：入库成功写 operation_log
     with write_transaction() as txn:
         txn.execute(
@@ -2363,6 +2394,10 @@ def run_full_ingest(pdf_path: Path, standard_no: str, standard_name: str,
             "filing_confidence": confidence,
             "filing_failure_kind": failure_kind,
             "filing_state_written": filing_state_written,
+            # 重导搬运的**如实**结果（审计 A1）：None = 这一跑不是"替换旧文档"，
+            # 所以没有东西要搬；否则是 restore_filing_assets 的返回值（搬了几条目录
+            # 归属、最终 stage、搬了哪几个归位字段）。搬失败时也是 None —— 日志留痕。
+            "filing_assets_carried": filing_assets_carried,
             "catalog_hidden": bool(no_content and doc_type == "standard")}
 
 

@@ -83,3 +83,4 @@
 | D3 | B3 | **不自动**替业主补完 330 篇；只把"还剩多少/为什么停/再按一次"说清 + 补前备份 | 真库写入属于业主的手（他只授权我做机制，不是替他点按钮） |
 | D4 | B5 | 白名单"消失节点 ⇒ 剔除 + 打印 + 判据" | 门禁只许更严，不许被历史白名单永久放水 |
 | D5 | B6 | 只对**命中必验清单**的提交补复核，其余登记 | 全量补复核性价比断崖（AGENTS.md 轮次上限精神） |
+| D6 | B1 | 计划原话是"把 `doc_filing_state`（stage/confidence/placed_*）**原样搬到新 doc_id**"；实际做法**分两半**：**每一条目录归属**与**用户的归位记录**（`placed_folder_id`/`placed_by`/`placed_at`/`suggested_folder_id`/`suggest_new_path`）**原样搬**；`stage`/`confidence`/`failure_kind` 用**这一次解析**的结论，另加一条：**归属搬过来了、这一次解析没失败 ⇒ `stage='filed'`**。四条分支：①有归属+解析成功⇒`filed`；②无归属+解析成功⇒`confirming`；③有归属+解析失败⇒`failed`（归属照旧搬，不许假装成功）；④无归属+解析失败⇒`failed`。 | **逐字照搬 stage 会造假话**，两种形态都是实测可推的：重导前 `start_reingest` 已经把旧行标成 `recognizing` ⇒ 照搬会让新文档**永久停在「识别中」**；旧行是 `failed` 而这一次解析**成功** ⇒ 照搬会把一次成功的重解析盖回「识别失败」。⇒ stage 必须说这一次的实话、归位记录必须逐字保真。四条分支各有测试钉住（`tests/test_reingest_keeps_filing.py`）。 |

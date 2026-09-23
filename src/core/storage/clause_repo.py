@@ -338,6 +338,14 @@ def delete_document(doc_id: str) -> int:
     UNINDEXED 列，逐行 DELETE = 每行全表扫描 24 万行 FTS 索引，覆盖式重入库
     单文档卡 15 分钟。clause_fts 用单条子查询批量删除（单次扫描）；
     clause_vec 主键列删除走 executemany 批处理。
+
+    **2026-09-24（审计 A1）补**：这张表还要顺手清掉**目录归属**与**处理状态行** ——
+    ``folder_member(folder_id,item_kind,item_id)`` 与 ``doc_filing_state(doc_id)``
+    都**没有表级 FK**（``folder_member.item_id`` 是多态列，见 schema.sql 那段），
+    所以"删文档"不会级联它们，从前会留下**指向不存在文档**的悬空行
+    （重新解析那条路就是这么把一篇的归属弄丢的：旧 doc_id 的归属行留着、
+    新 doc_id 一个目录都不在）。清掉它们之后，重导那条路才能"先拍快照、
+    删旧文档、再把快照落到新 doc_id"而不撞上旧行。
     """
     conn = get_db_connection()
     vec_ok = load_vec_extension(conn)
@@ -358,6 +366,11 @@ def delete_document(doc_id: str) -> int:
                 "(SELECT clause_revision_id FROM clause_revision WHERE doc_id=?)",
                 (doc_id,))
         txn.execute("DELETE FROM doc_meta WHERE doc_id=?", (doc_id,))
+        # 目录归属（多对多，全部）与处理状态行：**只删这一篇的**（item_kind='file'
+        # 是同一张表里"文件"那一半；目录那一半 item_kind='folder' 一个字都不动）。
+        txn.execute("DELETE FROM folder_member WHERE item_kind='file' AND item_id=?",
+                    (doc_id,))
+        txn.execute("DELETE FROM doc_filing_state WHERE doc_id=?", (doc_id,))
     if not vec_ok:
         import logging
         logging.getLogger(__name__).warning("sqlite-vec 不可用，clause_vec 未清理（将有孤儿行）")

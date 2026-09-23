@@ -6,7 +6,10 @@
   source_span / clause_patch / legal_obligation（s_mass_delete 漏、此处补全）/
   evidence_edge（source+target 双向）/ clause_fts（FTS5 无 FK，按 rowid 删——契约红线）/
   clause_vec（vec0 无 FK；连接由 get_db_connection 统一加载 sqlite_vec）/ clause_revision
-- doc 级：doc_page_geometry / update_change_event（doc_id 可空、FK 只绑 batch）/ watch_list / doc_meta
+- doc 级：doc_page_geometry / update_change_event（doc_id 可空、FK 只绑 batch）/ watch_list /
+  doc_meta / **folder_member(item_kind='file') / doc_filing_state**（2026-09-24 审计 A1 补：
+  这两张**没有表级 FK** —— folder_member.item_id 是多态列，见 schema.sql 那段 ——
+  不显式删就留下指向不存在文档的悬空挂靠与状态行；同时把重导那条路搅乱，见 reingest.py）
 - 用户资产不动：user_bookmark / user_annotation（clause_key 锚定，重入库仍有效）/
   project_list / feedback_log（悬空引用无害——R79 同源：不自动改写用户数据）
 - 别名不删：alias_store.source_doc_id 只是溯源标记，同义词是知识资产
@@ -82,6 +85,14 @@ def delete_documents(doc_ids: list[str], actor: str = "local-user",
         # user_doc_bookmark（标准收藏）随文档删除清理：doc_id 锚定、无稳定跨版 key，
         # 不删会留永久孤儿（user_bookmark 用 clause_key 不在此列——跨版平移仍有效）。
         txn.execute(f"DELETE FROM user_doc_bookmark WHERE doc_id IN ({tph})", targets)
+        # ---- 目录归属与处理状态（2026-09-24 审计 A1 补进级联清单）----
+        # 这两张表**没有表级 FK**（folder_member.item_id 是多态列，见 schema.sql 那段），
+        # 不显式删就留一排**指向不存在文档**的悬空行："目录里篇数"读的是 folder_member
+        # （JOIN doc_meta 后其实看不见，但行本身留在库里、且会把重导那条路搅乱）。
+        # ⚠ 只删 item_kind='file' 那一半（目录与目录之间的边 item_kind='folder' 一个字不动）。
+        txn.execute(
+            f"DELETE FROM folder_member WHERE item_kind='file' AND item_id IN ({tph})", targets)
+        txn.execute(f"DELETE FROM doc_filing_state WHERE doc_id IN ({tph})", targets)
         txn.execute(f"DELETE FROM doc_meta WHERE doc_id IN ({tph})", targets)
         # ---- 审计（只增；明细进 metadata，target_id 不塞长列表）----
         txn.execute(

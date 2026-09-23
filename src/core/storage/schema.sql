@@ -693,6 +693,11 @@ CREATE TABLE IF NOT EXISTS channel_test_case (
 --   （parent_id 是 NULL，而 SQLite 里 NULL 互不相等）⇒ 只靠表级 UNIQUE 拦不住根层重名。
 -- ⚠ `folder_member.item_id` 是**多态**（item_kind 区分 folder/file）⇒ **无表级 FK**；
 --   引用完整性由 `folder_store` 在同一个写事务里校验（与 `user_bookmark.folder_id` 同一取舍）。
+--   ⚠ **删除侧没有兜底**（2026-09-24 审计 A1）：删文档的两条路
+--   （`doc_delete.delete_documents` / `clause_repo.delete_document`）必须**显式**清掉
+--   该文档的 `folder_member(item_kind='file')` 与 `doc_filing_state` 行；重导
+--   （`run_full_ingest(reingest=True)`）另有一半：删旧文档**前**拍快照、
+--   入库成功后把归属与归位记录落到新 doc_id（`folder_store.snapshot/restore_filing_assets`）。
 CREATE TABLE IF NOT EXISTS folder (
     folder_id TEXT PRIMARY KEY,          -- ULID 前缀 fld_
     parent_id TEXT,

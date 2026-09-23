@@ -1321,6 +1321,98 @@ def get_filing_state(doc_id: str, db_path: Path | None = None) -> dict | None:
     return dict(row) if row is not None else None
 
 
+# ───────── 重导（「重来一次」）要把用户资产从旧 doc_id 搬到新 doc_id ─────────
+#
+# 为什么这一对函数存在（2026-09-24，审计 A1「点一下会丢数据」）：
+#   重导走的是**既有**那条路 —— ``run_full_ingest(..., reingest=True)`` 会**新开一个
+#   ``doc_id``、删掉旧文档**。而"这一篇在哪些目录里"（``folder_member``，多对多）
+#   和它的处理状态行（``doc_filing_state``）**没有表级 FK 兜底**（``folder_member.item_id``
+#   是多态列，见 schema.sql 那段），旧文档被删时也不清它们 ⇒ 归属与归位记录留在
+#   **旧 doc_id** 上、新 doc_id 一个目录都不在：用户的整理成果被一次"重新解析"抹掉。
+#   ⇒ 重导的唯一所有者（``pipeline`` 的那个 reingest 块）必须**先拍快照、再删旧文档、
+#     入库成功之后把快照落到新 doc_id 上**。
+
+#: 快照里**原样搬**的那些字段 —— 它们是"人对这一篇的处置记录"，与这一次解析无关：
+#:   · ``placed_folder_id`` / ``placed_by`` / ``placed_at``：谁在什么时候把它放进了哪个目录
+#:   · ``suggested_folder_id`` / ``suggest_new_path``：系统给的建议去向（用户还没处理）
+#: ⚠ **故意不在**这份名单里的四个（``stage`` / ``confidence`` / ``failure_kind`` /
+#:   ``last_error``）：它们描述的是**这一次解析的结果**，逐字照搬会造假话 —— 两种实测形态：
+#:     ① 重导前 ``start_reingest`` 会先把旧行标成 ``recognizing``（见 reingest.py），
+#:        照搬 ⇒ 新文档**永远停在「识别中」**；
+#:     ② 旧行是 ``failed``、这一次解析**成功**了，照搬 ⇒ 一次成功的重解析被盖回「识别失败」。
+#:   ⇒ 这三个由**这一次**的解析结论决定（``stage`` 另有一条：归属还在 ⇒ 它确实是「已归位」）。
+CARRY_STATE_FIELDS: tuple[str, ...] = (
+    "suggested_folder_id", "suggest_new_path",
+    "placed_folder_id", "placed_by", "placed_at",
+)
+
+
+def snapshot_filing_assets(doc_id: str, db_path: Path | None = None) -> dict:
+    """**只读**：把一篇的"用户资产"拍成快照 —— 它在哪些目录里 + 它的状态行。
+
+    ``{"doc_id", "members": [folder_id, …], "state": {…}|None}``。
+    只读（不开写事务）⇒ 可以在删旧文档**之前**放心调用。
+    """
+    conn = get_db_connection(db_path)
+    members = [r["folder_id"] for r in conn.execute(
+        "SELECT folder_id FROM folder_member WHERE item_kind='file' AND item_id=?"
+        " ORDER BY folder_id", (doc_id,))]
+    row = conn.execute("SELECT * FROM doc_filing_state WHERE doc_id=?", (doc_id,)).fetchone()
+    return {"doc_id": doc_id, "members": members,
+            "state": dict(row) if row is not None else None}
+
+
+def restore_filing_assets(snapshot: dict, new_doc_id: str, *,
+                          stage: str, confidence: float | None = None,
+                          failure_kind: str | None = None,
+                          db_path: Path | None = None) -> dict:
+    """把 ``snapshot_filing_assets`` 拍下的用户资产落到**新** doc_id 上（重导的第二半）。
+
+    * ``folder_member``：快照里的**每一条**归属**原样搬**（多对多，一条不少）；
+      新 doc_id 上已有的同一条不重复插（``INSERT OR IGNORE``）。
+    * ``doc_filing_state``：搬 ``CARRY_STATE_FIELDS``（归位记录/建议去向），
+      ``stage`` / ``confidence`` / ``failure_kind`` 用调用方给的**这一次的解析结论**。
+      ``stage`` 另有一条推导：**归属搬过来了、而这一次解析没失败** ⇒ 它确实还在目录里
+      ⇒ 置 ``filed``（否则一篇"已归位"的文件重导之后会掉回「待确认」，
+      而它明明还在那个目录里）。解析失败（``stage='failed'``）时**不**改成 filed：
+      那会把"这篇文件根本不能用"这件事实盖住（KB-FOLDER-PLAN §十七：识别失败必须看得见）。
+
+    返回 ``{"doc_id", "moved_members", "members", "stage", "state_carried",
+             "carried_fields"}``（数字都是**真写进去的**，不猜）。
+
+    拒绝：新 doc_id 在 ``doc_meta`` 里不存在 ⇒ ``doc_not_found``（**不许**留下
+    指向不存在文档的挂靠行）；``stage`` 不在五枚举里 ⇒ ``invalid_stage``。
+    """
+    if stage not in STAGES:
+        raise _err(f"stage 只能是 {STAGES}，收到 {stage!r}", "invalid_stage")
+    snap = snapshot or {}
+    members = [str(m) for m in (snap.get("members") or [])]
+    old_state = snap.get("state") or None
+    final_stage = "filed" if (members and stage != "failed") else stage
+    with write_transaction(db_path) as conn:
+        if conn.execute("SELECT 1 FROM doc_meta WHERE doc_id=?", (new_doc_id,)).fetchone() is None:
+            raise _err(f"文档不存在: {new_doc_id}", "doc_not_found")
+        moved = 0
+        for folder_id in members:
+            moved += conn.execute(
+                "INSERT OR IGNORE INTO folder_member(folder_id, item_kind, item_id)"
+                " VALUES (?, 'file', ?)", (folder_id, new_doc_id)).rowcount
+        conn.execute("INSERT OR IGNORE INTO doc_filing_state(doc_id) VALUES (?)", (new_doc_id,))
+        sets = ["stage=?", "confidence=?", "failure_kind=?", "updated_at=datetime('now')"]
+        args: list[Any] = [final_stage, confidence, failure_kind]
+        carried_fields: list[str] = []
+        for k in CARRY_STATE_FIELDS:
+            if old_state is not None and k in old_state:
+                sets.append(f"{k}=?")
+                args.append(old_state[k])
+                carried_fields.append(k)
+        args.append(new_doc_id)
+        conn.execute(f"UPDATE doc_filing_state SET {', '.join(sets)} WHERE doc_id=?", args)
+    return {"doc_id": new_doc_id, "moved_members": moved, "members": members,
+            "stage": final_stage, "state_carried": old_state is not None,
+            "carried_fields": carried_fields}
+
+
 def mark_filed(doc_id: str, folder_id: str, placed_by: str = "system",
                confidence: float | None = None, db_path: Path | None = None) -> dict:
     """确认归位：把文件**放进**目录 + 状态置 ``filed`` + 记"谁在什么时候放进了哪个目录"。"""

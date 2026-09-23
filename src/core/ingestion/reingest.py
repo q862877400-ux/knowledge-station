@@ -12,6 +12,11 @@
 
 * **不另写一套解析**：全程只有 ``run_full_ingest(..., reingest=True)`` —— 那条路径
   ``run_full_ingest`` 里本来就有（新开一个 ``doc_id``、删掉同标准号的旧文档）。
+* **用户的整理成果必须跟着走**（2026-09-24 审计 A1）：重导会换 ``doc_id``，而"这一篇在
+  哪些目录里"（``folder_member``，多对多）与它的归位记录（``doc_filing_state``）都不是
+  文档表的附庸（**没有表级 FK**）⇒ 换 id 时**必须原样搬过去**。搬的那一半在
+  ``run_full_ingest`` 的 reingest 块里（删旧文档**前**拍快照、入库**成功后**落到新 id），
+  本模块只把结果如实带出来（``filing_assets_carried``）。
 * **不猜**：源文件路径取 ``doc_meta.file_path``。它不是一个真实存在的文件时**如实跳过**
   并把原因返回给调用方（批量导入的快扫占位行、文件被移走的行都属于这一类），
   **不许**拿标准号去磁盘上瞎找。
@@ -99,6 +104,9 @@ def _run(items: list[dict]) -> None:
             result["filing_stage"] = out.get("filing_stage")
             result["filing_failure_kind"] = out.get("filing_failure_kind")
             result["catalog_hidden"] = out.get("catalog_hidden")
+            # 归属与归位记录的搬运结果（审计 A1 的修法）：None = 没有旧文档要替换；
+            # 否则 = {moved_members, stage, carried_fields, …}（搬了几条、最终 stage）。
+            result["filing_assets_carried"] = out.get("filing_assets_carried")
             if out.get("status") != "ok":
                 # 没成功 ⇒ 旧行还在（reingest 的删除只发生在解析成功之后）：写"识别失败"，
                 # 别让它永远停在「识别中」。
