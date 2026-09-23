@@ -1154,11 +1154,49 @@ def test_stop_reason_limit_selected_done_and_no_candidates(db, monkeypatch):
     assert st3["stop_reason_label"] and st3["running"] is False
 
 
+def test_selected_batch_cut_by_limit_says_limit_not_selected_done(db, monkeypatch):
+    """**F1（复核 MED，2026-09-24 修）**：勾选批次被 ``limit`` 截过 ⇒ 说"到量"，
+    且**没轮到的那几篇一行都没动**（反向判据）。
+
+    为什么今天就能发生：路由**永远**把默认 ``limit=50`` 一起传下来
+    （``routes_kb_folders.py``）⇒ "勾 60 篇只跑 50 篇、剩 10 篇一行没动"。
+    那一刻说 ``selected_done``（"勾选的那几篇跑完了"）就是**界面说假话**。
+    """
+    _seed_doc("doc_ccs_f1a", "GB/T 90400-2020", [])
+    _seed_doc("doc_ccs_f1b", "GB/T 90401-2020", [])
+    _seed_doc("doc_ccs_f1c", "GB/T 90402-2020", [])
+    monkeypatch.setattr(cf, "resolve_ccs", lambda no, name="", **kw: {
+        "outcome": "found", "code": "K41", "sub": "变压器", "source": "official_api",
+        "keyword_form": "full", "matched_no": no, "attempts": []})
+    out = bf.start_ccs_backfill(doc_ids=["doc_ccs_f1a", "doc_ccs_f1b", "doc_ccs_f1c"],
+                               limit=2, pause_s=0.0)
+    assert out["queued"] == 2 and out["plan"]["total"] == 3, out
+    assert out["plan"]["truncated"] is True
+    _wait_done()
+    st = bf.ccs_backfill_status()
+    assert st["stop_reason"] == bf.STOP_LIMIT, st          # ← 不是 selected_done
+    assert st["stop_reason_label"] == bf.STOP_REASON_LABELS[bf.STOP_LIMIT]
+    assert st["scope"] == "selected" and st["truncated"] is True, st
+    # 反向：没轮到的那一篇没标签、没台账；轮到的两篇真补上了
+    left = {"doc_ccs_f1a", "doc_ccs_f1b", "doc_ccs_f1c"} - {
+        r["doc_id"] for r in st["results"]}
+    assert len(left) == 1, st["results"]
+    untouched = left.pop()
+    assert _tags_of(db, untouched) == [], f"{untouched} 没轮到却被写了标签"
+    assert ccs_store.get_ccs_state(untouched) is None, f"{untouched} 没轮到却落了台账"
+    assert st["missing_split"]["total"] == st["missing"] >= 1, st
+
+
 def test_decide_stop_reason_truth_table(monkeypatch):
     """**七个值互斥且各是各的**：决策函数按优先级取一个（不许有"两个都对"的糊账）。
 
     这一条是上一条的**真值表**：``exhausted`` / ``hard_cap`` / ``cancelled`` 在
     会话级临时库里造不出稳定现场，所以直接钉决策函数（纯函数，没有 IO）。
+
+    ⚠ **``truncated=True`` + ``scope='selected'`` 必须是 ``limit``**（复核 F1，2026-09-24）：
+    路由永远把默认 ``limit=50`` 一起传给勾选批次 ⇒ "勾了 60 篇只跑 50 篇"时**剩 10 篇
+    一行没动**，那一刻说 ``selected_done``（"勾选的那几篇跑完了"）就是**界面说假话**。
+    这条组合以前被本真值表**冻成了错规格**（绿着骗人），现在钉死成 ``limit``。
     """
     monkeypatch.setitem(bf._PROGRESS, "cancelled", False)
     monkeypatch.setitem(bf._PROGRESS, "hard_capped", False)
@@ -1167,9 +1205,14 @@ def test_decide_stop_reason_truth_table(monkeypatch):
     assert bf._decide_stop_reason() == bf.STOP_EXHAUSTED
     monkeypatch.setitem(bf._PROGRESS, "truncated", True)
     assert bf._decide_stop_reason() == bf.STOP_LIMIT
+    # ↑ 这一档**先于** scope 判：勾选的批次被量截过 ⇒ 说"到量"，不说"勾选的跑完了"
     monkeypatch.setitem(bf._PROGRESS, "scope", "selected")
+    assert bf._decide_stop_reason() == bf.STOP_LIMIT, \
+        "被 limit 截过的勾选批次说成了 selected_done（界面会说假话）"
+    monkeypatch.setitem(bf._PROGRESS, "truncated", False)
     assert bf._decide_stop_reason() == bf.STOP_SELECTED_DONE
     monkeypatch.setitem(bf._PROGRESS, "scope", "all")
+    assert bf._decide_stop_reason() == bf.STOP_EXHAUSTED
     monkeypatch.setitem(bf._PROGRESS, "hard_capped", True)
     assert bf._decide_stop_reason() == bf.STOP_HARD_CAP
     monkeypatch.setitem(bf._PROGRESS, "cancelled", True)
@@ -1181,6 +1224,105 @@ def test_decide_stop_reason_truth_table(monkeypatch):
     assert len(values) == 7
     assert values <= set(bf.STOP_REASON_LABELS)
     assert len(set(bf.STOP_REASON_LABELS.values())) == 7, "七种「为什么停」的说法不许重样"
+
+
+def test_revert_also_restores_updated_at(db, monkeypatch):
+    """**F2（复核 MED，2026-09-24 修）**：回退要把 ``updated_at`` 也**逐字**退回去。
+
+    复核现场：改前 ``2001-01-01 00:00:00`` → 补后 / 回退后都是 ``2026-09-23 17:45:50``
+    （``domain_tags`` 已逐字回退，只有这一列没回）。这里把那个现场造出来：先把
+    ``updated_at`` 钉到 2001 年（**不与"现在"同秒** —— "同秒巧合"当不了反证），
+    补完必须真的变过，回退必须逐字回来；再退一次仍然幂等。
+    """
+    from src.core.knowledge import ccs_undo
+    _seed_doc("doc_ccs_ua1", "GB/T 90410-2020", [])
+    db.execute("UPDATE doc_meta SET updated_at=? WHERE doc_id=?",
+               ("2001-01-01 00:00:00", "doc_ccs_ua1"))
+    db.commit()
+    before = _raw_updated_at(db, "doc_ccs_ua1")
+    assert before == "2001-01-01 00:00:00", before
+    monkeypatch.setattr(cf, "resolve_ccs", lambda no, name="", **kw: {
+        "outcome": "found", "code": "K41", "sub": "变压器", "source": "official_api",
+        "keyword_form": "full", "matched_no": no, "attempts": []})
+    out = bf.start_ccs_backfill(doc_ids=["doc_ccs_ua1"], pause_s=0.0)
+    _wait_done()
+    assert _raw_updated_at(db, "doc_ccs_ua1") != before, \
+        "这一批根本没动 updated_at？那这条用例证明不了什么"
+    res = ccs_undo.revert_ccs_backfill_journal(out["undo_journal"])
+    assert res["restored"] == 1, res
+    assert "updated_at" in res["restored_docs"][0]["restored"], res
+    assert _raw_updated_at(db, "doc_ccs_ua1") == before, "updated_at 没逐字回到改前"
+    # 幂等：``updated_at`` 也算在"是不是改前的样子"里
+    second = ccs_undo.revert_ccs_backfill_journal(out["undo_journal"])
+    assert second["restored"] == 0 and second["skipped"] == 1, second
+
+
+def test_db_path_is_honoured_by_the_worker_thread(db, tmp_path, monkeypatch):
+    """**F3（复核 LOW，2026-09-24 修）**：``db_path`` 必须一路传到**干活线程**。
+
+    旧样子：``db_path`` 只喂给 plan 与回退记录，干活线程写的是**默认库**
+    ⇒ 回退记录描述的是 X、改动落在 Y（复核探针 7）。生产路由不传 ``db_path``，
+    所以它是**陷阱**不是现患 —— 这里开第二个库把它钉死；顺带钉住"``str`` 形状的
+    ``db_path`` 不再在 ``path.parent`` 上 AttributeError"。
+    """
+    from src.core.storage.sqlite_db import get_db_connection, init_schema
+    other = tmp_path / "other.db"
+    init_schema(other)
+    _seed_doc("doc_ccs_other", "GB/T 90420-2020", [], db_path=other)
+    assert db.execute("SELECT 1 FROM doc_meta WHERE doc_id=?",
+                      ("doc_ccs_other",)).fetchone() is None, "基线：默认库里没有这一篇"
+    monkeypatch.setattr(cf, "resolve_ccs", lambda no, name="", **kw: {
+        "outcome": "found", "code": "K41", "sub": "变压器", "source": "official_api",
+        "keyword_form": "full", "matched_no": no, "attempts": []})
+    out = bf.start_ccs_backfill(doc_ids=["doc_ccs_other"], db_path=other, pause_s=0.0)
+    assert out["queued"] == 1, out
+    _wait_done()
+    oc = get_db_connection(other)
+    assert json.loads(oc.execute("SELECT domain_tags FROM doc_meta WHERE doc_id=?",
+                                 ("doc_ccs_other",)).fetchone()[0]) \
+        == ["CCS:K41 变压器"], "标签没落在 db_path 指的库里"
+    assert ccs_store.get_ccs_state("doc_ccs_other", db_path=other) is not None
+    # 反向：默认库**一个字节都没动**
+    assert db.execute("SELECT 1 FROM doc_meta WHERE doc_id=?",
+                      ("doc_ccs_other",)).fetchone() is None
+    # str 形状也认（复核 F3 的第二半：以前会在 sqlite_db 的 path.parent 上 AttributeError）
+    assert bf.missing_ccs_count(db_path=str(other)) == 0
+    assert ccs_store.ccs_tag_of(oc.execute(
+        "SELECT domain_tags FROM doc_meta WHERE doc_id=?",
+        ("doc_ccs_other",)).fetchone()[0]) == "CCS:K41 变压器"
+
+
+def test_broken_domain_tags_is_refused_not_silently_wiped(db, monkeypatch):
+    """**F4（复核 LOW，2026-09-24 修）**：``domain_tags`` 非空却不是 JSON 数组 ⇒ **拒改**，
+    不许"坏值当空"把别的标签整片冲掉（探针 6：``'消防、通用'`` → ``'["CCS:K41 变压器"]'``）。
+
+    真库当前 0 命中（复核只读核过）⇒ 这是**潜伏口**；但标签被冲掉是**不可逆**的，
+    所以写路径**宁可拒改、不许猜**（读路径仍然宽松，界面照常显示）。
+    """
+    from src.core.exceptions import KnowledgeStationError
+    _seed_doc("doc_ccs_f4", "GB/T 90430-2020", [])
+    db.execute("UPDATE doc_meta SET domain_tags=? WHERE doc_id=?",
+               ("消防、通用", "doc_ccs_f4"))
+    db.commit()
+    assert _raw_tags(db, "doc_ccs_f4") == "消防、通用"
+    # ① 直接调写路径：拒改 + 明确错误码，原文**一个字没变**
+    with pytest.raises(KnowledgeStationError) as ei:
+        ccs_store.apply_ccs_tag("doc_ccs_f4", "CCS:K41 变压器")
+    assert ei.value.code == "invalid_domain_tags"
+    assert _raw_tags(db, "doc_ccs_f4") == "消防、通用"
+    # ② 走整批：这一篇如实记 "拒绝改它"，旁边的正常篇照常补上（不许一篇坏值拖垮整批）
+    _seed_doc("doc_ccs_f4b", "GB/T 90431-2020", [])
+    monkeypatch.setattr(cf, "resolve_ccs", lambda no, name="", **kw: {
+        "outcome": "found", "code": "K41", "sub": "变压器", "source": "official_api",
+        "keyword_form": "full", "matched_no": no, "attempts": []})
+    bf.start_ccs_backfill(doc_ids=["doc_ccs_f4", "doc_ccs_f4b"], pause_s=0.0)
+    _wait_done()
+    row = ccs_store.get_ccs_state("doc_ccs_f4")
+    assert row is not None and row["outcome"] == "parse_failed", row
+    assert "拒绝改它" in row["reason"], row
+    assert json.loads(row["attempts_json"])[0]["result"] == "domain_tags_unparsable", row
+    assert _raw_tags(db, "doc_ccs_f4") == "消防、通用", "坏值被冲掉了（不可逆）"
+    assert _tags_of(db, "doc_ccs_f4b") == ["CCS:K41 变压器"]
 
 
 def test_stop_reason_exhausted_when_plan_had_no_remainder(db, monkeypatch):
@@ -1448,11 +1590,14 @@ def test_api_ccs_backfill_all_flag(client, db, monkeypatch):
 # ═══════════════════════════ 工具 ═══════════════════════════
 
 def _seed_doc(doc_id: str, standard_no: str, tags: list[str],
-              doc_type: str = "standard") -> None:
-    """直接写一行 `doc_meta`（走**唯一所有者** `clause_repo.insert_document`）。"""
+              doc_type: str = "standard", db_path=None) -> None:  # noqa: ANN001
+    """直接写一行 `doc_meta`（走**唯一所有者** `clause_repo.insert_document`）。
+
+    ``db_path`` 省略 = 会话级临时库（默认）；给了就写**那个**库（F3 用第二个库）。
+    """
     from src.core.storage import clause_repo
     from src.core.storage.sqlite_db import write_transaction
-    with write_transaction() as conn:
+    with write_transaction(db_path) as conn:
         clause_repo.insert_document(conn, {
             "doc_id": doc_id, "standard_no": standard_no,
             "standard_name": f"测试 {standard_no}", "short_code": standard_no,
@@ -1473,6 +1618,14 @@ def _tags_of(db, doc_id: str) -> list[str]:            # noqa: ANN001
 def _raw_tags(db, doc_id: str) -> str | None:          # noqa: ANN001
     """``domain_tags`` 的**原文**（不解析）—— "逐字回到改前"要按字节比。"""
     row = db.execute("SELECT domain_tags FROM doc_meta WHERE doc_id=?",
+                     (doc_id,)).fetchone()
+    assert row is not None, f"库里没有这一篇：{doc_id}"
+    return row[0]
+
+
+def _raw_updated_at(db, doc_id: str) -> str | None:     # noqa: ANN001
+    """``doc_meta.updated_at`` 的原文（F2：回退的**第三处**也要逐字比）。"""
+    row = db.execute("SELECT updated_at FROM doc_meta WHERE doc_id=?",
                      (doc_id,)).fetchone()
     assert row is not None, f"库里没有这一篇：{doc_id}"
     return row[0]
