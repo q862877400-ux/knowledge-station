@@ -249,6 +249,7 @@ type ColKey = (typeof COLUMNS)[number]['key']
  *   ⇒ `ui-render-shot.mjs` 的 `DIR_COLS_EXPECTED` / `DIR_HEAD_CELLS_EXPECTED` /
  *     两条固定轨的冻结值必须同步（那里逐条写了为什么）。
  */
+import { KsListHead } from './kbListUi'
 const DIR_COLUMNS = [
   { key: 'dpick', cls: 'ks-col-dpick', head: '' },
   { key: 'dname', cls: 'ks-col-dname', head: '目录' },
@@ -2642,13 +2643,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
       )}
       {inbox.length > 0 ? (
         <div className="ks-list ks-list-inbox ks-inbox">
-          <div className="ks-lhead">
-            {INBOX_COLUMNS.map((col) => (
-              <div className={`ks-cell ${col.cls}`} key={col.key}>
-                {col.head === '' ? null : <span className="ks-lhead-col">{col.head}</span>}
-              </div>
-            ))}
-          </div>
+          <KsListHead cols={INBOX_COLUMNS} />
           {inboxShown.map(renderInboxRow)}
         </div>
       ) : null}
@@ -3171,13 +3166,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                 只换一份列定义 DIR_COLUMNS 与一条自己的 --ks-cols）。 */}
             {subs.length > 0 || dirsShown.length > 0 ? (
               <div className="ks-list ks-list-dirs ks-dirs">
-                <div className="ks-lhead">
-                  {DIR_COLUMNS.map((col) => (
-                    <div className={`ks-cell ${col.cls}`} key={col.key}>
-                      {col.head === '' ? null : <span className="ks-lhead-col">{col.head}</span>}
-                    </div>
-                  ))}
-                </div>
+                <KsListHead cols={DIR_COLUMNS} />
                 {dirsShown.map((child) => {
                   const isOpen = menuFor === pickDirKey(child.folder_id)
                   /* 目录行的 ⋮ 菜单（第 5 步）：改名 / 新建下级 / 挪 / 复制 / 删。
@@ -3336,13 +3325,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
             {/* 文件层：这一级**直接**放的文件（分页）。 */}
             {files.length > 0 ? (
               <div className="ks-list">
-                <div className="ks-lhead">
-                  {COLUMNS.map((col) => (
-                    <div className={`ks-cell ${col.cls}`} key={col.key}>
-                      {col.head === '' ? null : <span className="ks-lhead-col">{col.head}</span>}
-                    </div>
-                  ))}
-                </div>
+                <KsListHead cols={COLUMNS} />
                 {filesShown.map((doc) => {
                   const st = STATUS[statusOf(doc.legal_status)]
                   const isOpen = menuFor === doc.doc_id

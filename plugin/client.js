@@ -40146,7 +40146,7 @@ function KsKnowledgePage({ useTabInfo }) {
     actionPanel,
     actMsg === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-ib-msg", role: "status", children: actMsg }),
     inbox.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-list ks-list-inbox ks-inbox", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-lhead", children: INBOX_COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: `ks-cell ${col.cls}`, children: col.head === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-lhead-col", children: col.head }) }, col.key)) }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsListHead, { cols: INBOX_COLUMNS }),
       inboxShown.map(renderInboxRow)
     ] }) : null,
     inbox.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-empty-card", children: [
@@ -40628,7 +40628,7 @@ function KsKnowledgePage({ useTabInfo }) {
         actionPanel,
         actMsg === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-ib-msg", role: "status", children: actMsg }),
         subs.length > 0 || dirsShown.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-list ks-list-dirs ks-dirs", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-lhead", children: DIR_COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: `ks-cell ${col.cls}`, children: col.head === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-lhead-col", children: col.head }) }, col.key)) }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsListHead, { cols: DIR_COLUMNS }),
           dirsShown.map((child) => {
             const isOpen = menuFor === pickDirKey(child.folder_id);
             const dirMenu = [
@@ -40797,7 +40797,7 @@ function KsKnowledgePage({ useTabInfo }) {
           )
         ] }) : null,
         files.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-list", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-lhead", children: COLUMNS.map((col) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: `ks-cell ${col.cls}`, children: col.head === "" ? null : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-lhead-col", children: col.head }) }, col.key)) }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsListHead, { cols: COLUMNS }),
           filesShown.map((doc) => {
             const st = STATUS[statusOf(doc.legal_status)];
             const isOpen = menuFor === doc.doc_id;
