@@ -568,7 +568,7 @@ def test_classify_org_kind_second_pass_on_real_names():
     """分类补准判据（2026-09-22 第二轮）：60 条首版未命中真名的代表例逐条归位。
 
     口径：粗分类只是回填起点（人工可改、永不覆盖）；无字面特征的**如实未分类**。"""
-    from src.core.knowledge.channel_repo import classify_org_kind as f
+    from src.core.storage.channel_repo import classify_org_kind as f
     assert f("住房和城乡建设部-政策发布") == "central"
     assert f("国家卫生健康委员会") == "central"
     assert f("人力资源和社会保障部") == "central"
