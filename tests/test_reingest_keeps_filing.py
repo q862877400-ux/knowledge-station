@@ -416,3 +416,44 @@ def test_restore_skips_folders_deleted_after_the_snapshot(db):
     fs.restore_filing_assets(snap, src, stage="confirming")   # 反向：源文档自己不受影响
     assert _members_of(src, db) == {keep}
 
+
+def test_restore_says_the_truth_when_every_folder_was_deleted(db):
+    """快照里的目录**全被删** ⇒ 一条都没搬成 ⇒ **不许**说它还归位在某个目录里。
+
+    ⚠ 这条是独立复核对 `0b05841` 的打回（2026-09-24，MED）：那一笔把 `final_stage` 从
+    "看快照里有几条归属"改成"看**真的搬成了几条**"（`folder_store.restore_filing_assets`
+    的 `moved`），但**这半个改动当时没有任何判据看管** —— 复核把它换回 `members` 时
+    **8 条用例全过、退出码 0**。原因是上一条用例只覆盖"**部分**目录被删"（那一跑 `moved=1`，
+    两种写法同判 `filed`）；唯一能把两者分开的形态是**目录全被删**（`moved=0`），而它没人造。
+    ⇒ 本条补的正是那一种。判据：① 返回值与**落库**的 stage 都必须是这一次的结论；
+    ② 一条挂靠行都不许插进去；③ 再搬一次仍如实（幂等）。
+    """
+    src = _mv_doc(db, "allgone_src")
+    dst = _mv_doc(db, "allgone_dst")
+    f1, f2 = _mkfolder("全删A"), _mkfolder("全删B")
+    fs.add_member(f1, "file", src)
+    fs.add_member(f2, "file", src)
+    snap = fs.snapshot_filing_assets(src)
+    assert set(snap["members"]) == {f1, f2}, snap
+
+    # 快照之后两个目录都被删（带成员行一起删，与 folder_store 真删目录的形态一致）
+    for fid in (f1, f2):
+        db.execute("DELETE FROM folder WHERE folder_id=?", (fid,))
+        db.execute("DELETE FROM folder_member WHERE folder_id=?", (fid,))
+    db.commit()
+
+    out = fs.restore_filing_assets(snap, dst, stage="confirming")
+    assert out["moved_members"] == 0, out
+    assert out["skipped_missing_folders"] == 2, out
+    assert set(out["missing_folders"]) == {f1, f2}, out
+    assert _members_of(dst, db) == set(), "目录全没了还往 folder_member 里插行（悬空挂靠）"
+    assert out["stage"] == "confirming", (
+        f"一条归属都没搬成，却仍报 {out['stage']!r} —— 「已归位」必须看**真搬成了几条**"
+        "（把 moved 换回 members 会在这里红）")
+    assert fs.get_filing_state(dst)["stage"] == "confirming", "落库的 stage 与返回值不一致"
+
+    # 幂等：同一条快照再搬一次，仍然一条都搬不成、仍说这一次的结论
+    again = fs.restore_filing_assets(snap, dst, stage="confirming")
+    assert again["moved_members"] == 0 and again["stage"] == "confirming", again
+    assert _members_of(dst, db) == set()
+
