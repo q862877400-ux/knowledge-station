@@ -500,11 +500,48 @@ export const KS_STYLES = `
 .ks-tabfolder:hover{color:var(--dsw-alias-label-primary);transform:translateY(-1px)}
 .ks-tabfolder-on{color:var(--dsw-alias-label-primary);font-weight:600;transform:translateY(-2px);
   background:var(--dsw-alias-border-l2);margin-bottom:-1px;padding-bottom:8px;
-/* 批·页头瘦身（2026-09-23 业主：横幅删掉、大标题删掉、只留一句介绍）+ 标签条贴顶统一。 */
-.ks-page-head{background:none;border:none;padding:4px 0 0;margin:0}
+  min-height:32px}
+/* ══════════════════════════════════════════════════════════════════════════════════════════
+   批·页头瘦身（2026-09-23 业主：横幅删掉、大标题删掉、只留一句介绍）+ 标签条贴顶统一。
+   ⚠⚠ **2026-09-23（接手批）根因更正 —— 这三条以前是"贴错位置"的，业务上等于没生效：**
+     改前这三条被写在上面 .ks-tabfolder-on{ 那个块**里面**（min-height:32px} 才是它的收尾）
+     ⇒ 浏览器按**现代 CSS 嵌套**解析成 & .ks-page-head{…} / & .ks-page-head :is(h1,h2,…){…}
+     —— 即"**被选中那个标签的后代**里才生效"，而页面头根本不是标签的后代 ⇒ **一条都没匹配上**。
+     实测取证（document.styleSheets 逐条 el.matches）：规则确实以 & .ks-page-head 出现在
+     样式表里、headMatch=false；.ks-page-title 的 computed display 因此仍是 block。
+     代价：上一模型为同一件事**连提 4 笔**（8cc6271 / 5623f6d / 4c7bbd7 / 86b7a62，标题都写着
+     "结构级必中"）都是同一个错 —— **往别人的块里粘**。⇒ 这次把 .ks-tabfolder-on 先**正常收尾**，
+     三条规则**独立成块**（下面三行）。这是本批唯一"贴对了位置"的形态。
+   ⚠ .ks-page-head 的**盒子形态**（display:flex / gap / 三向 padding）不在这里重复声明：
+     它已经由上面 .ks-page-head{…} 那条唯一所有；这里只管"留哪一句、藏哪些"。
+   ⚠⚠ 本段在**模板字符串内部**：注释里不许出现反引号（本仓已踩 20+ 次）—— 本批我自己就为了
+     这条注释里的反引号在 typecheck 上红了 3 次（同一个坑，记在这里当第 3 次留痕）。 */
 .ks-page-head :is(h1,h2,.ks-page-title){display:none}
 .ks-page-head > :not(.ks-page-sub){display:none}
-min-height:32px}
+/* 上面两条把页头**清成只剩一句介绍**（.ks-page-sub）。剩下的问题是"那一句自己占多高"：
+   改前它吃的是 .ks-page-head 原有的 padding:var(--ks-space-1) 0 var(--ks-space-3)
+   （下边 12px，是给"大标题 + 副标题"两行留的）⇒ 标题没了之后，页头仍会留出 16px 的空档，
+   而管理面**根本没有 .ks-page-sub**（业主点名删过），那 16px 就是纯空白。
+   ⇒ 页头下边距收到 4px（与 --ks-space-1 同档）：只留一句时上下都只是那 4px 的行距，
+     四标签条与内容区之间不再多出一块空白。上面那条 padding 声明仍在（它是页头形态的
+     唯一所有者），这里用**同特异性、靠后**的声明收窄它 —— 语义上与"页头瘦身"是同一件事。 */
+/* ⚠⚠ **四标签贴顶统一（2026-09-23 接手批；真机量出来的 8px 落差）：**
+   上面两条把页头清空之后，**管理面**（业主点名删过副标题 ⇒ 页头里一个成员都没有）
+   页头高实测 **8px**，而另外三个面（有那一句介绍）是 **26px** ⇒ 四标签下的分隔线
+   在管理面落 y=91、在另外三个面落 y=109 —— 切标签时分隔线会**跳 18px**。
+   ⇒ 给页头一条 min-height（= 一句介绍的 line-height 1.5 × --ks-fs-sm 12px = 18px，
+     取 26px 与另外三面的实测值**逐字相同**）：四个面的标签条→分隔线距离从此是**同一个数**。
+   ⚠ 写 26px 而不是 18px：实测口径就是"与另外三个面一样高"，写 18px 反而会再差 8px。 */
+.ks-page-head{padding:var(--ks-space-1) 0 var(--ks-space-1);min-height:26px}
+/* 批·页头瘦身（2026-09-23 接手批）：.ks-list-cap 那一行的「导出效力总览」。
+   改前它被塞在**文件夹名那个 span 里面**（那个 span 是 display:block;overflow:hidden，
+   只该装一个字符串）⇒ 按钮与名字之间的水平间隙实测 **0px**，两个东西贴成一个词。
+   现在它是这一行的**独立成员**（与名字/提问入口/计数平级），间距交给 .ks-list-cap 的 gap。
+   ⚠ 只补"看起来可以点"的最低限度提示（hover 变主色）——不自己编底色/描边：
+     这一行里另外三件东西也没各自带底色，多画一个色块反而把这一行弄花。 */
+.ks-export-effect{font-size:var(--ks-fs-2xs);color:var(--dsw-alias-label-secondary);
+  background:transparent;border:none;padding:0;cursor:pointer;white-space:nowrap}
+.ks-export-effect:hover{color:var(--dsw-alias-label-primary)}
 /* 批②（2026-09-23）：渠道库左树的行样式（容器复用 .ks-kb-tree/.ks-kb-row）。 */
 .ks-tree-item{display:block;width:100%;text-align:left;cursor:pointer;padding:4px 8px;
   min-height:28px;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);

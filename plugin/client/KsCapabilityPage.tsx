@@ -401,11 +401,42 @@ export function KsFixPage({ item, onBack }: { readonly item: OfficeItem; readonl
 
 /**
  * 办事台页（原「能力」页；导出名保留 `KsCapabilityPage` = 挂载点零改动）。
+ *
+ * ⚠⚠ **2026-09-23（接手批）新增 `embedded` 入参 —— 治"两层 `.ks-page` 嵌套"：**
+ *   本组件自带 `.ks-page > .ks-kb` 外壳（它**单独**挂在宿主插槽里时必须有，见 `--page
+ *   capabilities` 那一跑）。但 `KsKnowledgePage` 的**四标签外壳**里，外面已经有一层
+ *   `.ks-page > .ks-kb`（标签条 + 页头都在那里）⇒ 再套一层就成了
+ *   `.ks-page > .ks-kb > .ks-page > .ks-kb`：真机实测**页头/内容比另外三个面多缩进 24px、
+ *   整体下移 24px**（页头 x=60 而知识库/渠道库/备料三个面都是 x=36）—— 这正是业主说的
+ *   "四个面不一致"。`embedded=true` 时**只渲染内容**，外壳由调用方提供（判据：
+ *   `ui-render-shot.mjs` 的 `#face` —— 它要求三个面共用同一套骨架，且这一跑恰好 1 个
+ *   `.ks-page` / 1 个 `.ks-page-head`）。
+ *   ⚠ 默认 `false` = **单独挂载的形态一个字都没改**（`--page capabilities` 那一跑照样绿）。
  */
-export function KsCapabilityPage(): ReactNode {
+export function KsCapabilityPage(props: { embedded?: boolean } = {}): ReactNode {
   ensureKsStyles()
   const [activeId, setActiveId] = useState<string | null>(null)
   const active = OFFICE_ITEMS.find((i) => i.id === activeId) ?? null
+
+  /* 内容本体（两种挂法共用**同一份**，不许复制第二套）。 */
+  const body = active !== null ? (
+    active.id === 'egress'
+      ? <KsEgressPage item={active} onBack={() => { setActiveId(null) }} />
+      : active.id === 'fix'
+        ? <KsFixPage item={active} onBack={() => { setActiveId(null) }} />
+        : active.id === 'gap'
+          ? <KsGapPage item={active} onBack={() => { setActiveId(null) }} />
+          : <OfficePage item={active} onBack={() => { setActiveId(null) }} />
+  ) : (
+    <div role="menu" aria-label="办事台">
+      {OFFICE_ITEMS.map((item) => (
+        <KsOfficeRow key={item.id} item={item} onOpen={(id) => { setActiveId(id) }} />
+      ))}
+    </div>
+  )
+
+  /* 嵌入形态：外壳（.ks-page/.ks-kb/标签条/页头）由 KsKnowledgePage 的四标签外壳提供。 */
+  if (props.embedded === true) return body
 
   return (
     <div className="ks-page">
@@ -415,21 +446,7 @@ export function KsCapabilityPage(): ReactNode {
           <div className="ks-page-sub">点一项，开始一件活。</div>
         </header>
         <div className="ks-page-rule" />
-        {active !== null ? (
-          active.id === 'egress'
-            ? <KsEgressPage item={active} onBack={() => { setActiveId(null) }} />
-            : active.id === 'fix'
-              ? <KsFixPage item={active} onBack={() => { setActiveId(null) }} />
-              : active.id === 'gap'
-                ? <KsGapPage item={active} onBack={() => { setActiveId(null) }} />
-                : <OfficePage item={active} onBack={() => { setActiveId(null) }} />
-        ) : (
-          <div role="menu" aria-label="办事台">
-            {OFFICE_ITEMS.map((item) => (
-              <KsOfficeRow key={item.id} item={item} onOpen={(id) => { setActiveId(id) }} />
-            ))}
-          </div>
-        )}
+        {body}
       </div>
     </div>
   )

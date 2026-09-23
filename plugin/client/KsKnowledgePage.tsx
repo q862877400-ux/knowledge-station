@@ -1828,16 +1828,39 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
   }, [action, flatFolders])
 
   if (page === 'capabilities') {
+    /* ⚠⚠ **2026-09-23（接手批）就地改正 —— 两层 `.ks-page` 嵌套（真机实测过）：**
+       改前这里渲染 `.ks-page > KsTopTabs + KsCapabilityPage`，而 `KsCapabilityPage` **自己**
+       又渲染一层 `.ks-page > .ks-kb` ⇒ 真机 DOM 是 `.ks-page > .ks-page > .ks-kb`。
+       可见后果（量出来的，不是理论）：页头/内容的左缘落在 **x=60**，而知识库/渠道库/备料
+       三个面都是 **x=36**（多缩进 24px）；页头整体也从 y=75 掉到 y=99。业主说的
+       "四个面不一致"，在办事台这一面上就是这个 24px。
+       ⚠ 改法是"面板只出内容、外壳归外壳"（与备料/渠道库那两支**同一形态**）：
+         标签条 + 页头 + 分隔线由**这一层**给（另外三支也是这一层给的），
+         面板用 `embedded` 收掉它自己那层 `.ks-page > .ks-kb`
+         （它单独挂在宿主插槽里时仍然照旧自带外壳 —— 见 `--page capabilities` 那一跑）。
+       ⚠ 判据：`ui-render-shot.mjs` 的 `#face`（"恰好 1 个 .ks-page / 1 个 .ks-kb / 1 个页头"，
+         且页头里看得见的只有一句介绍）。 */
     return (
       <div className="ks-page">
-        <KsTopTabs page={page} onGo={(pp) => { setPageOverride(pp) }} onPdf={() => { tab.actions.openTab(KS_EVIDENCE_KIND) }} />
-        <KsCapabilityPage />
+        <div className="ks-kb">
+          <KsTopTabs page={page} onGo={(pp) => { setPageOverride(pp) }} onPdf={() => { tab.actions.openTab(KS_EVIDENCE_KIND) }} />
+          <header className="ks-page-head">
+            <div className="ks-page-title">办事台</div>
+            <div className="ks-page-sub">点一项，开始一件活。</div>
+          </header>
+          <div className="ks-page-rule" />
+          <KsCapabilityPage embedded />
+        </div>
       </div>
     )
   }
 
   if (page === 'materials') {
-    /* S5：备料（原设置「参考资料」）迁此 —— 业主动词表里的一级动作「备料」。 */
+    /* S5：备料（原设置「参考资料」）迁此 —— 业主动词表里的一级动作「备料」。
+       ⚠ **2026-09-23（接手批）**：`KsMaterialsPanel` 用 `embedded` 收掉它**自己**那层
+       `.ks-page` —— 改前真机 DOM 是 `.ks-page > .ks-kb > .ks-page > .ks-mat`（第 2 层
+       `.ks-page` 是多余的盒子套盒子）。外壳形态与另外三支**完全一致**
+       （`.ks-page > .ks-kb > 标签条 + 页头 + 分隔线 + 内容`）；单独挂载该面板的形态没动。 */
     return (
       <div className="ks-page">
         <div className="ks-kb">
@@ -1847,7 +1870,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
             <div className="ks-page-sub">上传的财报/制度/文章逐份就位；人工上传免评审，自采的要人批。</div>
           </header>
           <div className="ks-page-rule" />
-          <KsMaterialsPanel visible />
+          <KsMaterialsPanel visible embedded />
         </div>
       </div>
     )
@@ -3184,22 +3207,36 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
             {layer === 'inbox' ? inboxMain : (
               <>
             <div className="ks-list-cap">
+              {/* ⚠⚠ **2026-09-23（接手批）：`.ks-list-cap` 那一行的成员归属明确化。**
+                  改前：`导出效力总览` 这个按钮被放在**文件夹名那个 span 里面**
+                  （`<span class="ks-lhead-name">按钮 + 名字</span>`）⇒ 那个 span 自己有
+                  `overflow:hidden`（它本来只该装**一个字符串**、超长就出省略号），
+                  现在装了"按钮 + 纯文字"两件东西。真机实测两个后果：
+                    ① 按钮与名字之间只有行内那 8px `margin-left`，而**那个 span 不是 flex
+                       容器**（它是 `display:block` + `overflow:hidden`）⇒ 后面那个纯文字节点
+                       紧贴在按钮右边（水平间隙实测 **0px**）—— 两个东西贴成一个词；
+                    ② "名字超长就出省略号"这条规则**管不到**了（span 里已经不只是文字），
+                       名字变成可以自由换行。
+                  ⇒ 把导出按钮**移出**名字 span，作为这一行的**独立成员**（与名字 / 提问入口 /
+                    计数平级）。这样三件事各自成件、由 `.ks-list-cap` 的 `gap` 统一拉开，
+                    名字 span 也回到它唯一该干的活（装一个字符串、超长省略）。
+                  ⚠ 按钮**不许藏、不许删**（业主要求"功能按钮在位可见"）——只是换了宿主。 */}
               <span className="ks-lhead-name ks-kb-grow" title={['知识库', ...crumb.map((f) => f.name)].join(' / ')}>
-                {/* 批D2-2：效力总览的导出入口归位（菜单页已撤；能力不丢）。 */}
-                <button type="button" style={{ marginLeft: 8, fontSize: 11, cursor: 'pointer' }}
-                  title="导出《效力总览》Excel（全库四色效力现状）"
-                  onClick={() => {
-                    void (async () => {
-                      try {
-                        const { exportEffectReport } = await import('./api')
-                        await exportEffectReport('all', undefined, undefined)
-                      } catch {
-                        /* 导出失败：面板口径=如实报错；这里最小化为无动作（重试即可见） */
-                      }
-                    })()
-                  }}>导出效力总览</button>
                 {levelName}
               </span>
+              {/* 批D2-2：效力总览的导出入口归位（菜单页已撤；能力不丢）。 */}
+              <button type="button" className="ks-export-effect" style={{ fontSize: 11, cursor: 'pointer' }}
+                title="导出《效力总览》Excel（全库四色效力现状）"
+                onClick={() => {
+                  void (async () => {
+                    try {
+                      const { exportEffectReport } = await import('./api')
+                      await exportEffectReport('all', undefined, undefined)
+                    } catch {
+                      /* 导出失败：面板口径=如实报错；这里最小化为无动作（重试即可见） */
+                    }
+                  })()
+                }}>导出效力总览</button>
               {/* 业主 2026-09-22：提问入口搬到**当前文件夹名这一行**（搜索框上面那条 bar）——
                   这样一眼就知道"是在这个文件夹里搜"。 */}
               {askEntry}

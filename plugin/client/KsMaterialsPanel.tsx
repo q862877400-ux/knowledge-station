@@ -58,6 +58,18 @@ export interface KsMaterialsPanelProps {
   visible: boolean
   /** 把 `/materials use <prj_id>` 提示给用户（可选：宿主可把它写进输入框）。 */
   onUseProject?: (projectId: string, projectName: string) => void
+  /**
+   * ⚠⚠ **2026-09-23（接手批）新增**：借用方**已经**提供了 `.ks-page` 外壳（知识库页的四标签
+   *   外壳就是），本面板就**只出内容**（`.ks-mat`），不再自带那层 `.ks-page`。
+   *
+   * 为什么需要（真机实测，不是理论）：本面板自带 `.ks-page`（container-type）+ `.ks-mat`，
+   *   而四标签外壳那一支**外面又有一层** `.ks-page > .ks-kb` ⇒ 真机 DOM 成了
+   *   `.ks-page > .ks-kb > .ks-page > .ks-mat`，第 2 层 `.ks-page` 是**多余的盒子套盒子**
+   *   （它只做 container-type，但业主看的是"四个面是不是一套东西"）。
+   *   ⚠ 默认 `false` = **单独挂载的形态一个字都没改**（`--page materials` 那一跑照样绿；
+   *     设置窗里那一处挂载也照旧自带外壳）。
+   */
+  embedded?: boolean
 }
 
 /* ⚠ 2026-09-22 S3-a：写死色值换**宿主真 token**（F0 教训 + ui-audit 点名过本文件 ×6）——
@@ -702,13 +714,17 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
 
   const current = projects.find((p) => p.project_id === projectId)
 
-  return (
-    // ⚠ 5j（2026-09-20）：`.ks-page` 只做 container-type（页面留边的宽/窄两档靠它切；
-    //    CSS 里容器不能用自己的宽度查自己 ⇒ 留边落在后代的 `.ks-mat` 上）。
-    //    零内边距零外边距 ⇒ 不是"盒子套盒子"。里面的 JSX 缩进保持原样（本批不重排）。
-    //    ⚠ 本组件**同时**被设置窗的 KsCategory 包着渲染 ⇒ 那处会多出这层留边（16px）：
-    //      这是有意的（弹窗内容同样不该贴边），但它**不在**本轮的验收面上（见 UI-BASELINE 5j 边界）。
-    <div className="ks-page">
+  /**
+   * ⚠ 5j（2026-09-20）：`.ks-page` 只做 container-type（页面留边的宽/窄两档靠它切；
+   *    CSS 里容器不能用自己的宽度查自己 ⇒ 留边落在后代的 `.ks-mat` 上）。
+   *    零内边距零外边距 ⇒ 不是"盒子套盒子"。里面的 JSX 缩进保持原样（本批不重排）。
+   *    ⚠ 本组件**同时**被设置窗的 KsCategory 包着渲染 ⇒ 那处会多出这层留边（16px）：
+   *      这是有意的（弹窗内容同样不该贴边），但它**不在**本轮的验收面上（见 UI-BASELINE 5j 边界）。
+   * ⚠⚠ **2026-09-23（接手批）**：`props.embedded` 为真时**不**再输出这层 `.ks-page`
+   *    （知识库页的四标签外壳已经提供了一层）—— 为什么见上面 `embedded` 那段注释。
+   *    内容本体（`.ks-mat` 那一整棵）两种挂法**共用同一份 JSX**，不许复制第二套。
+   */
+  const mat = (
     <div className="ks-mat" style={{ fontSize: 13 }}>
       <p style={{ margin: '0 0 10px', fontSize: 12, color: 'var(--dsw-alias-label-secondary, #666)' }}>
         <strong>评审是硬门</strong>：只有<strong>已批准</strong>的材料会进入作答与产出物。
@@ -1220,8 +1236,11 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
         </div>
       )}
     </div>
-    </div>
   )
+
+  /* 嵌入形态：`.ks-page` 外壳由调用方（知识库页的四标签外壳）提供 —— 见上面 embedded 那段。 */
+  if (props.embedded === true) return mat
+  return <div className="ks-page">{mat}</div>
 }
 
 // ---------------------------------------------------------------- 交付物按钮组

@@ -33,6 +33,16 @@
  * ## 用法
  *   node plugin/scripts/ui-render-shot.mjs --page kb --out var/tmp/ui-shots/kb-520.png --width 520
  *   --page kb|ingest|capabilities|materials
+ *   --nav-page manage|channels|capabilities|materials
+ *                     **加法式**开关（2026-09-23 接手批）：只对 `--page kb` 有意义 —— 它改的是
+ *                     `PROPS.kb` 里 `navigation.params.page` 那个**页面分发值**（KsKnowledgePage
+ *                     靠它挑"四个面"）。不给这个开关时 `params.page` **与改前逐字相同**
+ *                     （仍是 'manage'）⇒ 原有场景一条都不变。
+ *                     为什么需要它：四个面里的**办事台/渠道库**只能从这里进 ——
+ *                     `--page capabilities` 挂的是 `KsCapabilityPage` **组件自己**（没有顶部四标签条），
+ *                     而业主判"四个面是不是一致"必须看到**标签条 + 面**同屏。
+ *                     `channels` 面**没有**独立 `--page`（它只活在 KsKnowledgePage 的分支里）。
+ *                     ⚠ 值必须落在下面的 NAV_PAGE_VALUES 里（写错 = exit 2，不静默回落）。
  *   --out  <png 路径>（同目录会写一份同名 .html）
  *   --width <px>     默认按页面给（kb 520 / ingest 520 / capabilities 900 / materials 900）
  *   --height <px>    窗口高**固定**（默认：量内容高，全页截图）
@@ -133,6 +143,27 @@ const PAGES = {
 }
 const page = arg('page', 'kb')
 if (!PAGES[page]) { console.error(`❌ 未知 --page ${page}（可选：${Object.keys(PAGES).join(' / ')}）`); process.exit(2) }
+/**
+ * `--nav-page`（**加法式**，2026-09-23 接手批）：KsKnowledgePage 的 `params.page` 分发值。
+ *
+ * ⚠⚠ **不给这个开关时行为必须与改前逐字相同**：`navPage` 的默认值就是原来写死的那一个字面量
+ *    `'manage'`，`PROPS.kb` 里那处引用改成变量之后，**不加开关的那条路走的就是同一个字符串**。
+ *   （判据 = 原有场景一条都不许变红，见本轮报告里的实测数字。）
+ * ⚠ 只对 `--page kb` 有意义：其余三个 `--page` 挂的是**组件自己**，根本不读 `params.page`。
+ *   给了却不生效 = 静默没做成 ⇒ **当场 exit 2**（本脚本对"什么都没做还成功"的一贯口径）。
+ */
+const NAV_PAGE_VALUES = ['manage', 'channels', 'capabilities', 'materials']
+const navPageRaw = arg('nav-page', '')
+if (navPageRaw !== '' && !NAV_PAGE_VALUES.includes(navPageRaw)) {
+  console.error(`❌ 未知 --nav-page ${navPageRaw}（可选：${NAV_PAGE_VALUES.join(' / ')}）`); process.exit(2)
+}
+if (navPageRaw !== '' && page !== 'kb') {
+  console.error(`❌ --nav-page 只对 --page kb 有意义（这一跑 --page ${page} 挂的是组件自己，`
+    + '不读 navigation.params.page）—— 给了它不会有任何效果，故按参数错退出（exit 2）')
+  process.exit(2)
+}
+/** ⚠ 默认值 = 改前那一个字面量，**逐字**。 */
+const navPage = navPageRaw === '' ? 'manage' : navPageRaw
 const outPng = resolve(arg('out', join(repoRoot, 'var', 'tmp', 'ui-shots', `${page}.png`)))
 const width = Number(arg('width', String(PAGES[page].width)))
 const fixedHeightRaw = arg('viewport', arg('height', ''))
@@ -596,7 +627,9 @@ const container = document.getElementById('root')
 
 const PROPS = {
   kb: {
-    useTabInfo: () => ({ tab: { id: 'ks-kb-tab', visible: true, navigation: { address: 'ks:kb', revision: 1, params: { page: 'manage' } } } }),
+    /* ⚠ `navPage` 的默认值就是改前那个字面量 'manage'（见上面 --nav-page 那段）：
+       不加开关 = 与改前逐字相同。 */
+    useTabInfo: () => ({ tab: { id: 'ks-kb-tab', visible: true, navigation: { address: 'ks:kb', revision: 1, params: { page: navPage } } } }),
     dataSource: 'mock',
   },
   ingest: { visible: true },
@@ -1145,6 +1178,36 @@ if (m === null) {
 }
 const ksStyles = m[1]
 
+/* ⚠⚠ **模板串完整性守卫**（2026-09-23 接手批新增）—— 为什么值得单写一条：
+ * `ksGuideStyles.ts` 的样式全写在**一个模板字符串**里，而注释里出现**反引号**会把模板串
+ * 提前截断：`tsc` 报出来的是一堆 `TS1005: ';' expected`（每一行都报），**看不出真正的原因**；
+ * 而本脚本这边的正则**照样能抠出一段**（截断点那一行本身就是反引号）⇒ 会拿一份**截掉尾巴的
+ * CSS** 去截图，图看着"像那么回事"却少了后面所有规则。
+ * ⚠ 这不是假想的坑：本批我自己**连踩 4 次**（同一个注释里写反引号），每次都要 `tsc` 报一大片
+ *   才发现。⇒ 两条机器判据，当场把原因说出来（而不是让人去数 200 行 TS1005）：
+ *   ① 抠出来的样式里**不许再有反引号**（有 ⇒ 模板串在更早处就被截断了）；
+ *   ② 抠出来的样式末尾必须是 `}`（模板串最后一条规则是 `.ks-page .ks-kb,…{…}`），
+ *      否则说明尾巴被切掉了。
+ * ⚠ 本段在**模板字符串内部**（外层是 html 模板）：这一段我自己**不许写反引号**
+ *   （写一个就把外层模板截断 —— 本批已经因为这个坑在 tsc 上红了 4 次），
+ *   需要提到那个字符时一律用 String.fromCharCode(96) 拼出来。 */
+{
+  const BT = String.fromCharCode(96)
+  const bt = ksStyles.indexOf(BT)
+  if (bt !== -1) {
+    console.error('❌ ksGuideStyles.ts 的 KS_STYLES **被提前截断了**：抠出来的样式里还有反引号'
+      + `（第 ${String(bt)} 个字符附近：${JSON.stringify(ksStyles.slice(Math.max(0, bt - 60), bt + 20))}）`
+      + ' —— 十有八九是**某段注释里写了反引号**。这不是 CSS 问题，tsc 报的一片 TS1005 都是这一个根因。')
+    process.exit(1)
+  }
+  if (!ksStyles.trimEnd().endsWith('}')) {
+    console.error('❌ ksGuideStyles.ts 的 KS_STYLES **尾巴被切掉了**：抠出来的样式最后不是'
+      + `「${'}'}」，而是 ${JSON.stringify(ksStyles.slice(-60))}`
+      + ' —— 模板串没有正常收尾（同上：注释里的反引号）。')
+    process.exit(1)
+  }
+}
+
 let themeCss = ''
 for (const f of (await readdir(themeDir)).filter((f) => f.endsWith('.css')).sort()) {
   themeCss += `\n/* ===== ${f} ===== */\n` + await readFile(join(themeDir, f), 'utf8')
@@ -1662,6 +1725,104 @@ const html = `<!doctype html>
                         pageN: document.querySelectorAll('.ks-page').length,
                         pageWrapped: rootWrapped ? 1 : 0, items: padItems };
     }
+    /* ══════════ 四个面的"页头一致 + 不压字"（2026-09-23 接手批新增） ══════════
+       ⚠⚠ 为什么必须新增（业主报障原话："把办事台唯一一个还能看的改更糟糕"）：
+          · --page kb 这一路以前**只能**截到 params.page='manage' 那一个面 ⇒ 另外三个面
+            **从来没有进过真浏览器**，"四个面一致"这件事此前**一次都没被量过**；
+          · .ks-list-cap（"当前文件夹名"那一行）里压着 导出效力总览 / 名字 / 在此范围内提问
+            / 刷新 —— 业主看的就是这一行"互相压字"。
+       这两段都是**只报告、由 Node 侧断言**（本文件一贯口径：报告值必须有断言兜着）。
+       ⚠ 本段在**注入脚本**里（外层是模板字符串）：注释里绝对不能出现反引号。 */
+    var oneBox = function (sel) {
+      var el = document.querySelector(sel);
+      if (!el) return null;
+      var r = el.getBoundingClientRect();
+      var cs = getComputedStyle(el);
+      return { x: Math.round(r.left), y: Math.round(r.top),
+               w: Math.round(r.width), h: Math.round(r.height),
+               fs: cs.fontSize, lh: cs.display, pad: cs.paddingTop + '/' + cs.paddingBottom,
+               gap: cs.gap, radius: '', n: el.querySelectorAll('.ks-tabfolder').length };
+    };
+    /* 四枚标签的名称与"哪一枚被选中"（按**渲染出来的文字**判，不按类名猜）。 */
+    var tabEls = [].slice.call(document.querySelectorAll('.ks-tabfolder'));
+    var tabLabels = tabEls.map(function (b) { return (b.textContent || '').trim(); });
+    var onLabels = tabEls.filter(function (b) { return b.className.indexOf('ks-tabfolder-on') >= 0; })
+      .map(function (b) { return (b.textContent || '').trim(); });
+    var strip = oneBox('.ks-tabfolder-strip');
+    if (strip) {
+      strip.pad = tabLabels.join('|');      // 借 pad：四枚标签的**渲染文字**
+      strip.gap = onLabels.join('|');       // 借 gap：**被选中**的那一枚（恰好一枚才合格）
+    }
+    out['#face'] = { n: document.querySelectorAll('.ks-tabfolder-strip').length,
+                     x: document.querySelectorAll('.ks-page').length,     // x = .ks-page 个数
+                     y: document.querySelectorAll('.ks-kb').length,       // y = .ks-kb 个数
+                     w: document.querySelectorAll('.ks-page-head').length,// w = 页头个数
+                     h: strip ? strip.h : 0,
+                     fs: '', lh: '', pad: '', gap: '', radius: '',
+                     strip: strip, head: oneBox('.ks-page-head'),
+                     /* 页头里**真的看得见**的成员（display:none 的不算）——"只留一句介绍"的可量形态。 */
+                     headKids: [].slice.call(document.querySelectorAll('.ks-page-head > *')).map(function (e) {
+                       var c = getComputedStyle(e);
+                       var rr = e.getBoundingClientRect();
+                       var shown = c.display !== 'none' && rr.width > 0.5 && rr.height > 0.5;
+                       return { cls: String(e.className || '').split(' ')[0], shown: shown ? 1 : 0 }; }) };
+    /* ── .ks-list-cap：这一行里可见成员两两**真的相交**吗（业主说的"压字"） ──
+       ⚠ "相交"用**边框盒真重叠**判（ox>0.5 且 oy>0.5），不是"看起来挤"；同时把相邻成员的
+         **最小水平间隙**报出来 —— 业主的"压字"两种形态（真重叠 / 贴在一起看不出来是两件东西）
+         都要有据可查。 */
+    var capEl = document.querySelector('.ks-list-cap');
+    if (capEl) {
+      var cvis = function (el) {
+        var c = getComputedStyle(el);
+        if (c.display === 'none' || c.visibility === 'hidden' || parseFloat(c.opacity) === 0) return false;
+        var r = el.getBoundingClientRect();
+        return r.width > 0.5 && r.height > 0.5;
+      };
+      /* 成员 = 这一行里"可读的叶子"：按钮 / 纯文字节点 / 计数 span。内层 svg/path 不单算。 */
+      var members = [];
+      var capNodes = [].slice.call(capEl.querySelectorAll('*'));
+      for (var ci = 0; ci < capNodes.length; ci++) {
+        var e = capNodes[ci];
+        if (!cvis(e)) continue;
+        if (e.querySelector('button,span,a,svg,input,select')) continue;
+        var r = e.getBoundingClientRect();
+        var t = (e.textContent || '').trim();
+        if (e.tagName === 'BUTTON' || (t !== '' && r.width > 4)) {
+          members.push({ tag: e.tagName.toLowerCase(), cls: String(e.className || '').split(' ')[0],
+                         txt: t.slice(0, 18), x: Math.round(r.left * 10) / 10, y: Math.round(r.top * 10) / 10,
+                         r: Math.round(r.right * 10) / 10, b: Math.round(r.bottom * 10) / 10 });
+        }
+      }
+      var overlaps = [];
+      for (var mi = 0; mi < members.length; mi++) {
+        for (var mj = mi + 1; mj < members.length; mj++) {
+          var A = members[mi], B = members[mj];
+          var ox = Math.min(A.r, B.r) - Math.max(A.x, B.x);
+          var oy = Math.min(A.b, B.b) - Math.max(A.y, B.y);
+          if (ox > 0.5 && oy > 0.5) {
+            overlaps.push({ a: A.tag + '.' + A.cls + '[' + A.txt + ']',
+                            b: B.tag + '.' + B.cls + '[' + B.txt + ']',
+                            ox: Math.round(ox * 10) / 10, oy: Math.round(oy * 10) / 10 });
+          }
+        }
+      }
+      /* 相邻成员（按左缘排序）之间的水平间隙：负数 = 真的叠在一起。 */
+      var sorted = members.slice().sort(function (p, qq) { return p.x - qq.x; });
+      var gaps = [];
+      for (var gi = 0; gi + 1 < sorted.length; gi++) {
+        gaps.push({ left: sorted[gi].tag + '.' + sorted[gi].cls + '[' + sorted[gi].txt + ']',
+                    right: sorted[gi + 1].tag + '.' + sorted[gi + 1].cls + '[' + sorted[gi + 1].txt + ']',
+                    gap: Math.round((sorted[gi + 1].x - sorted[gi].r) * 10) / 10 });
+      }
+      out['#listcap'] = { n: members.length, x: Math.round(capEl.getBoundingClientRect().left),
+                          y: Math.round(capEl.getBoundingClientRect().top),
+                          w: Math.round(capEl.getBoundingClientRect().width),
+                          h: Math.round(capEl.getBoundingClientRect().height),
+                          fs: '', lh: '', pad: '', gap: '', radius: '',
+                          overlaps: overlaps, gaps: gaps,
+                          members: members.map(function (m) {
+                            return m.tag + '.' + m.cls + '[' + m.txt + ']@' + String(m.x) + '-' + String(m.r); }) };
+    }
     document.title = 'h=' + document.documentElement.scrollHeight + '|m=' + JSON.stringify(out);
   } catch (e) {
     document.title = 'h=' + document.documentElement.scrollHeight + '|m={"error":' + JSON.stringify(String(e)) + '}';
@@ -1768,6 +1929,18 @@ let levelSkipReason = null
 let rowHeightJudged = false
 if (page !== 'kb') {
   levelSkipReason = `本页不是知识库页（page=${page}），左列/行高几何不适用`
+} else if (navPage !== 'manage') {
+  /* ⚠⚠ **2026-09-23（接手批）**：这条判据的适用面从"`page === 'kb'`"收窄成
+     "**知识库管理那一个面**"（`page=kb` 且 `params.page='manage'`）。
+     为什么必须收窄（而不是把新面也硬判）：这四个面共用同一个 `KsKnowledgePage` 外壳
+     （同一个组件、同一个标签条），但**只有 manage 面有左列目录树 + 右栏**
+     （`.ks-kb-tree` / `.ks-main`）—— 渠道库/办事台/备料三个面**结构上就没有它们**。
+     判据**强度没降**：管理面照样"量不到就红"（上面那条 `kbt === undefined` 分支没动），
+     非管理面**明说没判**（skipReason 带上面名，不静默通过）。
+     ⚠ 这条收窄**只对新增的 `--nav-page` 场景生效**：不给开关时 `navPage` 恒为 'manage'
+       ⇒ 原有全部场景走的分支**与改前逐字相同**（判据只增不减）。 */
+  levelSkipReason = `这一跑是知识库页的**另一个面**（params.page=${navPage}）：`
+    + '左列目录树/两层行高只存在于 manage 面，本面不适用'
 } else if (kbt === undefined) {
   levelProblems.push('这一跑**量不到 `#kbtree`**（左列目录树或右栏不在 DOM 里）—— 量不到就不算验过')
 } else {
@@ -1924,8 +2097,34 @@ const PAD_REQUIRED = {
   'capabilities|': ['.ks-kb', '.ks-page-head'],
   'ingest|ingest-batch': ['.ks-ing'],
   'materials|': ['.ks-mat'],
+  /* ⚠⚠ **2026-09-23（接手批）**：`--nav-page` 开出来的**另外三个面**（同一个 KsKnowledgePage
+     外壳、`params.page` 不同）。它们的元素集**比 manage 面窄**，所以必须**逐条显式声明** ——
+     这正是本表"不同面本来就有不同元素集，不许要求全都有（假红）、也不许找到就判（假绿）"的口径。
+     ⚠ 它们**都不含 `.ks-dirs`**：那三个面结构上没有左列目录树/目录层 ⇒ 目录层列几何与表头格
+       两条判据对它们**不适用**（走 skipReason，不静默通过）。
+     ⚠ 键里带 `nav-<面>`：键的唯一所有者是 `faceComboKey`（见下），它**只有**在
+       `--nav-page` 被显式给出时才带这一段 ⇒ `manage` 面（含全部原有场景）走的键
+       **与改前逐字相同**（`kb|` 等），本表原有的那些条目一个都不用动。
+     ⚠ `DIR_LAYER_COMBOS`（冻结清单）**没有**跟着改：它的三个守卫都只在 `startsWith('kb|')`
+       的条目上做双向核对，而这三条**都不含 .ks-dirs** ⇒ 不进那份清单（也不会被守卫判成
+       "声明了目录层却没入清单"）。 */
+  'kb|nav-channels|': ['.ks-kb', '.ks-page-head'],
+  'kb|nav-capabilities|': ['.ks-kb', '.ks-page-head'],
+  'kb|nav-materials|': ['.ks-kb', '.ks-page-head'],
 }
-const padComboKey = `${page}|${interacts.join('+')}`
+/**
+ * **组合键的唯一所有者**（`PAD_REQUIRED` / `DIR_LAYER_COMBOS` / 各处 skipReason 都读它）。
+ *
+ * ⚠⚠ **2026-09-23（接手批）**：`--nav-page` **显式给出**时，键里带一段 `nav-<面>` ——
+ *   不带的话，`--nav-page channels` 这一跑会算出与 manage 面**逐字相同**的键 `kb|`，
+ *   于是套用 manage 面的元素集（含 `.ks-dirs`）⇒ 三个新面**全被假红**（不是回归，是面本来窄）。
+ * ⚠ 不给 `--nav-page` 时（`navPage === 'manage'`）键 = 老写法 `${page}|${interacts}`（见下面那行）
+ *   —— **逐字相同** ⇒ 原有全部场景解析到的规则与改前**完全一样**（"判据只增不减"的兑现方式：
+ *   新面走新键、老面走老键，没有一条老断言被改写或放宽）。 */
+const faceComboKey = navPageRaw === ''
+  ? `${page}|${interacts.join('+')}`
+  : `${page}|nav-${navPage}|${interacts.join('+')}`
+const padComboKey = faceComboKey
 const padRequired = PAD_REQUIRED[padComboKey] ?? null
 const stylesSrcPath = join(pluginRoot, 'client', 'ksGuideStyles.ts')
 const baselineDocPath = join(repoRoot, 'docs', 'UI-BASELINE.md')
@@ -2174,7 +2373,19 @@ const DIR_LAYER_COMBOS = ['kb|', 'kb|kb-crumb', 'kb|kb-level', 'kb|kb-upload', '
      （否则上面第 ③ 条守卫会红："声明了 .ks-dirs 却不在清单里"）。
      它同时在 `smoke-kb-pad-pixels.mjs` 的 MATRIX 里跑 ⇒ 列几何这一跑真的量得到。 */
   'kb|kb-dirmenu']
-const dirColsPresenceRequired = DIR_LAYER_COMBOS.includes(padComboKey)
+/**
+ * **这一跑该不该看到目录层** —— 唯一判据 = 本组合在 `PAD_REQUIRED` 里**声明了 `.ks-dirs`**。
+ *
+ * ⚠⚠ **2026-09-23（接手批）就地改正**：这里原来写 `DIR_LAYER_COMBOS.includes(padComboKey)`
+ *   —— 那份冻结清单是"**矩阵会跑的管理面组合**"，把**没有目录层的面**（渠道库/办事台/备料，
+ *   见 `PAD_REQUIRED` 里新加的 `kb|nav-*` 三条）也算成"必须有目录层" ⇒ 那三个面一跑就红在
+ *   "量不到 #dircols"（假红：不是回归，是**面的元素集本来就窄**）。
+ *   ⇒ 改成读 `padRequired` 里**已经声明**的元素集：这既复用了本脚本既有的"逐组合声明"机制
+ *   （`PAD_REQUIRED` 是唯一所有者），又**不动**冻结清单 `DIR_LAYER_COMBOS`（它与
+ *   `smoke-kb-pad-pixels.mjs` 的 MATRIX 咬着棘轮）。
+ *   ⚠ **判据只增不减**：管理面（`kb|` / `kb|kb-*` 全部）在 `PAD_REQUIRED` 里**都**声明了
+ *     `.ks-dirs` ⇒ 它们走的分支与改前**逐字相同**（下面那段"量不到就红"一个字没改）。 */
+const dirColsPresenceRequired = Array.isArray(padRequired) && padRequired.includes('.ks-dirs')
 /* ── 目录层的**页码源声明**（第 5 步 §5 的守卫）：从页面源码抠 `DIR_COLUMNS` 的条数 ──
    ⚠ 抠的是**声明本体**（`DIR_COLUMNS = [ … ] as const` 里的 `key: '…'` 条数），不是"文本里出现过
      几次 DIR_COLUMNS" —— 注释里也写着这个名字，朴素 grep 会把散文判成声明。 */
@@ -2714,7 +2925,7 @@ const rowCtrlsCheck = {
 const dirHead = measured['#dirhead']
 const dirHeadProblems = [...dirColsProblemsShared]
 let dirHeadSkipReason = null
-const dirHeadPresenceRequired = DIR_LAYER_COMBOS.includes(padComboKey)
+const dirHeadPresenceRequired = Array.isArray(padRequired) && padRequired.includes('.ks-dirs')
 if (dirHead === undefined || !String(dirHead.lh ?? '').trim()) {
   if (dirHeadPresenceRequired) {
     dirHeadProblems.push(`这一跑的组合（${padComboKey}）在**冻结清单** DIR_LAYER_COMBOS 里（它必须有目录层），`
@@ -2739,6 +2950,135 @@ const dirHeadCheck = {
   problems: dirHeadProblems,
   displays: dirHead?.lh ?? null,
   cells: dirHead?.n ?? null,
+}
+
+/* ══════════ 新判据①（2026-09-23 接手批）：**四个面观感一致**（骨架 + 页头 + 选中标签） ══════════
+ * 业主口径（原话）："四个面行为一致（知识库 / 渠道库 / 办事台 / 预览器），页头观感一致、
+ *   **不重叠、不压字**"。改前这件事**一次都没量过** —— `--page kb` 只能截到 `params.page='manage'`
+ *   那一个面（见本轮新增的 `--nav-page`），另外三个面从来没进过真浏览器。
+ *
+ * 判据（每条都"量不到就红"，不静默通过）：
+ *   ① 四个面必须有**同一个骨架**：恰好 1 个 `.ks-page`、恰好 1 个 `.ks-kb`、恰好 1 个页头
+ *      —— 办事台改前是**两层 `.ks-page` 嵌套**（`.ks-page > .ks-page > .ks-kb`），
+ *      这一条就是抓它的（形态上"多套一层外壳"，看着就是另一个界面）。
+ *   ② 标签条必须**恰好四枚**、且**恰好一枚**被选中，选中那枚的文字必须与本面的 `params.page`
+ *      **对得上**（manage→知识库 / channels→渠道库 / capabilities→办事台）。
+ *      改前 `materials` 面实测 `ks-tabfolder-on` **一个都没有**（`--nav-page materials` 那跑）
+ *      —— 脸错位了还照样截图，正是这条要抓的。
+ *   ③ 页头里**真的看得见**的成员只许是 `.ks-page-sub`（"横幅删掉、大标题删掉、只留一句介绍"）：
+ *      报出 headKids 逐个成员，凡 `shown=1` 而类名不是 ks-page-sub ⇒ 红。
+ *      ⚠ 这一条判的是**渲染结果**（computed display + 盒子 > 0），不是"源码里写了什么"。
+ *
+ * ⚠ 适用范围：只在 `--page kb`（= 走 `KsKnowledgePage` 四标签外壳）时判 ——
+ *   `--page capabilities|ingest|materials` 挂的是**组件自己**（没有标签条），本条不适用 ⇒ 明说没判。
+ *   `--page kb` 但**没有** `.ks-page-head` 的跑（stub 里没有这种）⇒ 也明说没判，不静默通过。 */
+/** `params.page` → 本该被选中的那枚标签的文字（唯一所有者）。
+ *  ⚠ **`materials` 这一面按设计"不占标签"**：`KsTopTabs` 那四枚是
+ *    知识库 / 渠道库 / 办事台 / 预览器，备料（原「参考资料」）是**次级页**、收在开始页卡的 ▾ 里
+ *    （见 `KsTopTabs` 上方那段留痕）。⇒ 它的期望值是 `null` = **一枚都不许被选中**
+ *    —— 那不是"没登记"，而是**登记过的期望**（登记在下面这个 `null` 上；
+ *      `undefined` 才是"忘了登记"）。 */
+const FACE_TAB_LABEL = { manage: '知识库', channels: '渠道库', capabilities: '办事台', materials: null }
+const faceNavProblems = []
+let faceNavSkipReason = null
+const faceM = measured['#face']
+if (page !== 'kb') {
+  faceNavSkipReason = `本页挂的是组件自己（page=${page}）—— 没有四标签条，四个面一致性不适用`
+} else if (faceM === undefined) {
+  faceNavProblems.push('这一跑**量不到 `#face`**（标签条/页头不在 DOM 里）—— 量不到就不算验过')
+} else if (!(navPage in FACE_TAB_LABEL)) {
+  faceNavProblems.push(`本脚本的 FACE_TAB_LABEL 没有 ${JSON.stringify(navPage)} 这一面 —— `
+    + '加了 --nav-page 的取值却忘了在这里登记"它该选中哪枚标签"（按设计不占标签的面要显式登记成 null）')
+} else {
+  if (faceM.x !== 1) {
+    faceNavProblems.push(`这一跑有 ${String(faceM.x)} 个 .ks-page（必须恰好 1 个）`
+      + ' —— 多出来的那一层是"盒子套盒子"：页面根被两层外壳包着，观感与另外三个面就不一样了')
+  }
+  if (faceM.y !== 1) {
+    faceNavProblems.push(`这一跑有 ${String(faceM.y)} 个 .ks-kb（必须恰好 1 个）`)
+  }
+  if (faceM.w !== 1) {
+    faceNavProblems.push(`这一跑有 ${String(faceM.w)} 个 .ks-page-head（必须恰好 1 个）`)
+  }
+  const labels = String(faceM.strip?.pad ?? '').split('|')
+  if (labels.length !== 4 || labels.some((s) => s === '')) {
+    faceNavProblems.push(`标签条里渲染出来的标签不是 4 枚：${JSON.stringify(labels)}`)
+  }
+  const ons = String(faceM.strip?.gap ?? '').split('|').filter(Boolean)
+  const want = FACE_TAB_LABEL[navPage]
+  if (want === null) {
+    /* 按设计**不占标签**的面（备料）：期望是"一枚都不许被选中"。 */
+    if (ons.length !== 0) {
+      faceNavProblems.push(`本面（${navPage}）按设计**不占标签**（次级页），`
+        + `却有 ${String(ons.length)} 枚被选中：${JSON.stringify(ons)} —— 四枚标签里没有任何一枚该高亮`)
+    }
+  } else if (ons.length !== 1) {
+    faceNavProblems.push(`被选中的标签有 ${String(ons.length)} 枚（必须恰好 1 枚）：${JSON.stringify(ons)}`
+      + ` —— 本面是 ${navPage}，该选中「${want}」`)
+  } else if (ons[0] !== want) {
+    faceNavProblems.push(`选中的标签是「${ons[0]}」，而本面是 ${navPage}（该选中「${want}」）—— 面的脸错位了`)
+  }
+  const kids = Array.isArray(faceM.headKids) ? faceM.headKids : []
+  if (kids.length === 0) {
+    faceNavProblems.push('页头里一个成员都没量到 —— 量不到就不算验过')
+  }
+  const shownNotSub = kids.filter((k) => k.shown === 1 && k.cls !== 'ks-page-sub')
+  if (shownNotSub.length > 0) {
+    faceNavProblems.push(`页头里**看得见**的成员不止那一句介绍：`
+      + `${JSON.stringify(shownNotSub.map((k) => k.cls))} —— 业主口径是"横幅删掉、大标题删掉、只留一句介绍"`
+      + '（.ks-page-sub）')
+  }
+}
+const faceNavCheck = {
+  checked: faceNavProblems.length === 0 && faceNavSkipReason === null,
+  skipReason: faceNavSkipReason,
+  problems: faceNavProblems,
+  pages: faceM?.x ?? null,
+  kbRoots: faceM?.y ?? null,
+  heads: faceM?.w ?? null,
+  labels: faceM?.strip?.pad ?? null,
+  on: faceM?.strip?.gap ?? null,
+  headKids: faceM?.headKids ?? null,
+}
+
+/* ══════════ 新判据②（2026-09-23 接手批）：`.ks-list-cap` 那一行**不压字** ══════════
+ * 业主报障的就是这一行：`导出效力总览` 压在 `知识库` 上、`在此范围内提问` 与刷新挤在一处。
+ * 判据（**真重叠**才算压字；同时把"贴在一起"的间隙也报出来）：
+ *   ① 这一行里可见成员两两的**边框盒**不许相交（ox>0.5 且 oy>0.5 ⇒ 红）；
+ *   ② 相邻成员的**水平间隙**必须 ≥ LISTCAP_MIN_GAP（改前实测：`导出效力总览` 与 `知识库`
+ *      之间 **0px** —— 两个东西贴成一个词，用户读不出这是两件事）。
+ * ⚠ 适用面：**只有** `.ks-list-cap` 真的在 DOM 里时才判（它是 manage 面目录层那一行）；
+ *   没有它 ⇒ 明说没判（skipReason），不静默通过。 */
+const LISTCAP_MIN_GAP = 4
+const listCapProblems = []
+let listCapSkipReason = null
+const lc = measured['#listcap']
+if (lc === undefined) {
+  listCapSkipReason = `这一跑没有 .ks-list-cap（page=${page} navPage=${navPage}）—— 这一行不适用`
+} else {
+  if (!Number.isFinite(Number(lc.n)) || Number(lc.n) < 2) {
+    listCapProblems.push(`这一行里只量到 ${String(lc.n)} 个可见成员 —— 量不到成员就不算验过`
+      + '（这一行本来就该有"文件夹名 + 导出 + 提问 + 计数"好几件东西）')
+  }
+  for (const o of (Array.isArray(lc.overlaps) ? lc.overlaps : [])) {
+    listCapProblems.push(`**两个可见成员在压字**：${o.a} 与 ${o.b} 的边框盒真重叠`
+      + `（水平 ${String(o.ox)}px × 垂直 ${String(o.oy)}px）`)
+  }
+  for (const g of (Array.isArray(lc.gaps) ? lc.gaps : [])) {
+    if (Number(g.gap) < LISTCAP_MIN_GAP) {
+      listCapProblems.push(`相邻成员贴在一起（水平间隙 ${String(g.gap)}px < ${String(LISTCAP_MIN_GAP)}px）：`
+        + `${g.left} 与 ${g.right} —— 两个东西贴成一个词，用户读不出这是两件事`)
+    }
+  }
+}
+const listCapCheck = {
+  checked: listCapProblems.length === 0 && listCapSkipReason === null,
+  skipReason: listCapSkipReason,
+  problems: listCapProblems,
+  minGap: LISTCAP_MIN_GAP,
+  members: lc?.members ?? null,
+  gaps: lc?.gaps ?? null,
+  overlaps: lc?.overlaps ?? null,
 }
 
 // --viewport 给定时**按视口高截**（这才看得出 position:sticky；全页截图看不出来）
@@ -2777,6 +3117,8 @@ console.log(JSON.stringify({
   rowCtrlsCheck,
   dirHeadCheck,
   levelCheck,
+  faceNavCheck,
+  listCapCheck,
   capCardsCheck,
   ksPadCheck,
   renderedChars: rendered.length,
@@ -2975,6 +3317,46 @@ if (ksPadSkipReason !== null) {
   console.error('      ksGuideStyles.ts 的 `.ks-kb,.ks-ing,.ks-mat{padding-*:var(--ks-page-pad-x|y)}`，')
   console.error('      值在 :root 的 --ks-page-pad-x-narrow/wide（窄 16 / 宽 24，@container 660 切档）。')
   console.error('      把留边改成 0（或负 margin）、或把 token 改歪，就是这条断言要抓的回归。')
+  process.exit(1)
+}
+
+/* 新判据①（2026-09-23 接手批）：四个面观感一致。 */
+if (faceNavSkipReason !== null) {
+  console.error(`· #face 自检：**这一跑不判**（${faceNavSkipReason}）`)
+} else if (faceNavProblems.length === 0) {
+  console.error(`· #face 自检通过：面 ${navPage}；.ks-page ${String(faceNavCheck.pages)} 个 / `
+    + `.ks-kb ${String(faceNavCheck.kbRoots)} 个 / 页头 ${String(faceNavCheck.heads)} 个；`
+    + `四枚标签 ${JSON.stringify(String(faceNavCheck.labels).split('|'))}，选中 `
+    + `「${String(faceNavCheck.on)}」；页头里看得见的成员 `
+    + `${JSON.stringify((faceNavCheck.headKids ?? []).filter((k) => k.shown === 1).map((k) => k.cls))}`
+    + `（page=${page} width=${width} theme=${themeName}）`)
+} else {
+  console.error('')
+  console.error(`❌ 四个面一致性自检失败（业主：「四个面行为一致、页头观感一致、不重叠不压字」；`
+    + `page=${page} navPage=${navPage} width=${width} theme=${themeName}）：`)
+  for (const p of faceNavProblems) console.error(`   - ${p}`)
+  console.error('   ⇒ 四个面必须共用同一套骨架（.ks-page > .ks-kb > 标签条 + 页头 + 内容），'
+    + '标签条恰好四枚且恰好一枚选中（选中那枚的文字 = 本面名）。')
+  console.error('      办事台改前是 `.ks-page > .ks-page > .ks-kb`（多套一层外壳）—— 就是这条要抓的。')
+  process.exit(1)
+}
+
+/* 新判据②（2026-09-23 接手批）：`.ks-list-cap` 那一行不压字。 */
+if (listCapSkipReason !== null) {
+  console.error(`· #listcap 自检：**这一跑不判**（${listCapSkipReason}）`)
+} else if (listCapProblems.length === 0) {
+  const minGap = (listCapCheck.gaps ?? []).reduce((a, g) => Math.min(a, Number(g.gap)), Infinity)
+  console.error(`· #listcap 自检通过：这一行 ${String(listCapCheck.members.length)} 个可见成员、`
+    + `两两无重叠，相邻最小水平间隙 ${String(Number.isFinite(minGap) ? minGap : '(只有一个成员)')}px`
+    + `（下限 ${String(LISTCAP_MIN_GAP)}px）；成员 ${JSON.stringify(listCapCheck.members)}`
+    + `（page=${page} width=${width} theme=${themeName}）`)
+} else {
+  console.error('')
+  console.error(`❌ 「当前文件夹名」那一行压字自检失败（业主：「导出效力总览压在知识库上」；`
+    + `page=${page} width=${width} theme=${themeName}）：`)
+  for (const p of listCapProblems) console.error(`   - ${p}`)
+  console.error('   ⇒ 这一行（.ks-list-cap）里的成员（文件夹名 / 导出效力总览 / 在此范围内提问 / 计数）'
+    + '必须各自成件：既不许边框盒真重叠，也不许贴成 0px（两个东西贴成一个词）。')
   process.exit(1)
 }
 
