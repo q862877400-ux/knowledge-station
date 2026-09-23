@@ -28700,7 +28700,16 @@ function normalizeKbFolder(value) {
     created_at: str(o.created_at),
     file_count_direct: intOf(o.file_count_direct, 0),
     file_count_deep: intOf(o.file_count_deep, 0),
-    folder_count_deep: intOf(o.folder_count_deep, 0)
+    folder_count_deep: intOf(o.folder_count_deep, 0),
+    effect_deep: (() => {
+      const ef = o.effect_deep ?? {};
+      return {
+        green: intOf(ef.green, 0),
+        red: intOf(ef.red, 0),
+        yellow: intOf(ef.yellow, 0),
+        gray: intOf(ef.gray, 0)
+      };
+    })()
   };
 }
 function normalizeKbFile(value) {
@@ -34372,7 +34381,8 @@ var MENU_ITEMS = [
   { id: "manage", label: "\u77E5\u8BC6\u5E93\u7BA1\u7406" },
   { id: "capabilities", label: "\u529E\u4E8B\u53F0" },
   { id: "ingest", label: "\u6587\u4EF6\u5BFC\u5165" },
-  { id: "report", label: "\u6548\u529B\u603B\u89C8" },
+  // 「效力总览」菜单项撤（批D2，2026-09-22 业主定）：效力四色已融进知识库管理的目录行
+  // （文件夹行=一夹红绿灯）；导出入口在目录层顶部小按钮。不许再单立一页。
   { id: "channels", label: "\u6E20\u9053\u53F0\u8D26" },
   { id: "pdf", label: "\u6253\u5F00 PDF \u67E5\u770B\u5668" }
 ];
@@ -40717,23 +40727,46 @@ function KsKnowledgePage({ useTabInfo }) {
                     }
                   ) });
                 case "dname":
-                  return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
-                    "button",
-                    {
-                      type: "button",
-                      className: "ks-dir-open",
-                      title: `\u8FDB\u5165\u300C${child.name}\u300D\uFF08\u8FD9\u4E00\u68F5\u76EE\u5F55\u4E0B\u5171 ${child.file_count_deep} \u7BC7\uFF09`,
-                      "aria-label": `\u8FDB\u5165\u76EE\u5F55\u300C${child.name}\u300D\uFF0C\u8FD9\u4E00\u68F5\u76EE\u5F55\u4E0B\u5171 ${child.file_count_deep} \u7BC7`,
-                      onClick: () => {
-                        goto(child.folder_id);
-                      },
-                      children: [
-                        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-fileico", title: "\u76EE\u5F55", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconFolderOpenOutline16, {}) }),
-                        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-dir-name", title: child.name, children: child.name }),
-                        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-dir-go", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconChevronRightOutline14, {}) })
-                      ]
-                    }
-                  );
+                  return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(import_jsx_runtime16.Fragment, { children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+                      "button",
+                      {
+                        type: "button",
+                        className: "ks-dir-open",
+                        title: `\u8FDB\u5165\u300C${child.name}\u300D\uFF08\u8FD9\u4E00\u68F5\u76EE\u5F55\u4E0B\u5171 ${child.file_count_deep} \u7BC7\uFF09`,
+                        "aria-label": `\u8FDB\u5165\u76EE\u5F55\u300C${child.name}\u300D\uFF0C\u8FD9\u4E00\u68F5\u76EE\u5F55\u4E0B\u5171 ${child.file_count_deep} \u7BC7`,
+                        onClick: () => {
+                          goto(child.folder_id);
+                        },
+                        children: [
+                          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-fileico", title: "\u76EE\u5F55", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconFolderOpenOutline16, {}) }),
+                          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-dir-name", title: child.name, children: child.name }),
+                          /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", { className: "ks-dir-go", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_dsh_client_ui_primitives5.IconChevronRightOutline14, {}) })
+                        ]
+                      }
+                    ),
+                    /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
+                      "span",
+                      {
+                        style: {
+                          marginLeft: "auto",
+                          display: "inline-flex",
+                          gap: 6,
+                          fontSize: 11,
+                          whiteSpace: "nowrap",
+                          color: "var(--dsw-alias-label-secondary)"
+                        },
+                        title: `\u300C${child.name}\u300D\u8FD9\u4E00\u68F5\u91CC\uFF1A\u{1F7E2} \u73B0\u884C ${child.effect_deep.green} \xB7 \u{1F7E1} \u5373\u5C06\u5B9E\u65BD ${child.effect_deep.yellow} \xB7 \u{1F534} \u5E9F\u6B62/\u88AB\u4EE3 ${child.effect_deep.red} \xB7 \u26AA \u672A\u77E5 ${child.effect_deep.gray}`,
+                        children: [
+                          child.effect_deep.red ? `\u{1F534}${child.effect_deep.red} ` : "",
+                          child.effect_deep.yellow ? `\u{1F7E1}${child.effect_deep.yellow} ` : "",
+                          child.effect_deep.green ? `\u{1F7E2}${child.effect_deep.green}` : "",
+                          child.effect_deep.gray ? ` \u26AA${child.effect_deep.gray}` : "",
+                          child.effect_deep.red + child.effect_deep.yellow + child.effect_deep.green + child.effect_deep.gray === 0 ? "\u2014" : ""
+                        ]
+                      }
+                    )
+                  ] });
                 case "dcount":
                   return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", { className: "ks-kb-badge", children: [
                     child.file_count_deep,

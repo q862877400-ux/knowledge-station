@@ -38,7 +38,8 @@ const MENU_ITEMS: readonly { readonly id: KsKbPage | 'pdf'; readonly label: stri
   { id: 'manage', label: '知识库管理' },
   { id: 'capabilities', label: '办事台' },
   { id: 'ingest', label: '文件导入' },
-  { id: 'report', label: '效力总览' },
+  // 「效力总览」菜单项撤（批D2，2026-09-22 业主定）：效力四色已融进知识库管理的目录行
+  // （文件夹行=一夹红绿灯）；导出入口在目录层顶部小按钮。不许再单立一页。
   { id: 'channels', label: '渠道台账' },
   { id: 'pdf', label: '打开 PDF 查看器' },
 ]

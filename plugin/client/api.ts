@@ -3101,6 +3101,9 @@ export interface KsKbFolder {
   file_count_deep: number
   /** 这一棵子树里的目录数（不含自己）。 */
   folder_count_deep: number
+  /** 这一棵子树里文件的**效力四色**总览（green=现行 / red=在用废止·被代 / yellow=即将实施 /
+   *  gray=未知；口径 = 引擎 effect_report.STATUS_COLOR）。文件夹行的红绿灯用它（批D2）。 */
+  effect_deep: { green: number; red: number; yellow: number; gray: number }
 }
 
 /**
@@ -3179,6 +3182,13 @@ function normalizeKbFolder(value: unknown): KsKbFolder | null {
     file_count_direct: intOf(o.file_count_direct, 0),
     file_count_deep: intOf(o.file_count_deep, 0),
     folder_count_deep: intOf(o.folder_count_deep, 0),
+    effect_deep: (() => {
+      const ef = (o.effect_deep ?? {}) as Record<string, unknown>
+      return {
+        green: intOf(ef.green, 0), red: intOf(ef.red, 0),
+        yellow: intOf(ef.yellow, 0), gray: intOf(ef.gray, 0),
+      }
+    })(),
   }
 }
 

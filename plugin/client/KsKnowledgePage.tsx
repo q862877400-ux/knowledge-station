@@ -3220,19 +3220,32 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                         )
                       case 'dname':
                         /* ⚠ 「进入这一级」是**这一格里的真 button**（行本身是 div：行内要有
-                           勾选框与 ⋮ 两个真控件，button 里嵌 input 是非法 HTML）。 */
+                           勾选框与 ⋮ 两个真控件，button 里嵌 input 是非法 HTML）。
+                           批D2（业主 2026-09-22）：名字右侧空白处放**该夹效力四色灯**。 */
                         return (
-                          <button
-                            type="button"
-                            className="ks-dir-open"
-                            title={`进入「${child.name}」（这一棵目录下共 ${child.file_count_deep} 篇）`}
-                            aria-label={`进入目录「${child.name}」，这一棵目录下共 ${child.file_count_deep} 篇`}
-                            onClick={() => { goto(child.folder_id) }}
-                          >
-                            <span className="ks-fileico" title="目录"><IconFolderOpenOutline16 /></span>
-                            <span className="ks-dir-name" title={child.name}>{child.name}</span>
-                            <span className="ks-dir-go"><IconChevronRightOutline14 /></span>
-                          </button>
+                          <>
+                            <button
+                              type="button"
+                              className="ks-dir-open"
+                              title={`进入「${child.name}」（这一棵目录下共 ${child.file_count_deep} 篇）`}
+                              aria-label={`进入目录「${child.name}」，这一棵目录下共 ${child.file_count_deep} 篇`}
+                              onClick={() => { goto(child.folder_id) }}
+                            >
+                              <span className="ks-fileico" title="目录"><IconFolderOpenOutline16 /></span>
+                              <span className="ks-dir-name" title={child.name}>{child.name}</span>
+                              <span className="ks-dir-go"><IconChevronRightOutline14 /></span>
+                            </button>
+                            <span style={{ marginLeft: 'auto', display: 'inline-flex', gap: 6,
+                              fontSize: 11, whiteSpace: 'nowrap', color: 'var(--dsw-alias-label-secondary)' }}
+                              title={`「${child.name}」这一棵里：🟢 现行 ${child.effect_deep.green} · 🟡 即将实施 ${child.effect_deep.yellow} · 🔴 废止/被代 ${child.effect_deep.red} · ⚪ 未知 ${child.effect_deep.gray}`}>
+                              {child.effect_deep.red ? `🔴${child.effect_deep.red} ` : ''}
+                              {child.effect_deep.yellow ? `🟡${child.effect_deep.yellow} ` : ''}
+                              {child.effect_deep.green ? `🟢${child.effect_deep.green}` : ''}
+                              {child.effect_deep.gray ? ` ⚪${child.effect_deep.gray}` : ''}
+                              {child.effect_deep.red + child.effect_deep.yellow + child.effect_deep.green + child.effect_deep.gray === 0
+                                ? '—' : ''}
+                            </span>
+                          </>
                         )
                       case 'dcount':
                         // ⚠ 「篇数」= 这一**棵**下的篇数（后端 `file_count_deep`，含更深层）

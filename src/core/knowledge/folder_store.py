@@ -927,6 +927,14 @@ def list_folder(folder_id: str | None = None, file_offset: int = 0, file_limit: 
 
     edges = _folder_edges(conn)
     file_edges = _file_edges(conn)
+    # 效力四色（批D2，2026-09-22 业主定）：**该夹子树内文件**的效力总览（文件行有单篇
+    # "效力"列，文件夹行 = 一夹总览红绿灯，放名字右侧空白处）。口径唯一所有者 =
+    # effect_report.STATUS_COLOR（不在这儿写第二份映射）。
+    from src.core.exports.effect_report import STATUS_COLOR as _STATUS_COLOR
+    _status_by_doc = {
+        r["doc_id"]: r["legal_status"]
+        for r in conn.execute("SELECT doc_id, legal_status FROM doc_meta").fetchall()
+    }
     subfolders = []
     # ⚠ 排序在 **Python 里**做，不写成 SQL 的 ``ORDER BY``：拼音键要 pypinyin 算
     #   （SQLite 里没有这个函数），而 `lazy_pinyin` 是纯 Python。层级宽度在现实中是
@@ -936,12 +944,16 @@ def list_folder(folder_id: str | None = None, file_offset: int = 0, file_limit: 
         deep_files: set[str] = set()
         for fid in subtree:
             deep_files |= file_edges.get(fid, set())
+        effect_deep: dict[str, int] = {"green": 0, "red": 0, "yellow": 0, "gray": 0}
+        for did in deep_files:
+            effect_deep[_STATUS_COLOR.get(_status_by_doc.get(did), "gray")] += 1
         subfolders.append({
             "folder_id": r["folder_id"], "parent_id": r["parent_id"], "name": r["name"],
             "sort": r["sort"], "created_at": r["created_at"],
             "file_count_deep": len(deep_files),
             "file_count_direct": len(file_edges.get(r["folder_id"], set())),
             "folder_count_deep": len(subtree),
+            "effect_deep": effect_deep,
         })
 
     dcols = ", ".join(f"d.{c}" for c in cols)

@@ -651,3 +651,29 @@ def test_all_kb_endpoints_require_token(client):
                          ("get", "/api/v1/kb/folders/fld_x/items"),
                          ("delete", "/api/v1/kb/folders/fld_x")):
         assert getattr(c, method)(path).status_code == 401
+
+
+def test_folder_effect_deep_counts(client, db):
+    """批D2 判据（2026-09-22）：目录行的**效力四色灯**数据 —— `effect_deep` 按子树聚合。
+
+    口径唯一所有者 = `effect_report.STATUS_COLOR`（effective=绿 / upcoming=黄 /
+    superseded·withdrawn=红 / 空=灰）；不许在别处写第二份映射。"""
+    c, token = client
+    parent = _new(c, token)
+    child = _new(c, token, uniq("效力灯"), parent["folder_id"])
+    ids = []
+    for i2, st in enumerate(("effective", "withdrawn", None)):
+        d = mkdoc_full(db, f"efflamp_{next(_seq)}")
+        if st is not None:
+            db.execute("UPDATE doc_meta SET legal_status=? WHERE doc_id=?", (st, d))
+            db.commit()
+        ids.append(d)
+    assert api(c, token, "post", "/api/v1/kb/members",
+               json={"folder_id": child["folder_id"],
+                     "items": [{"kind": "file", "id": x} for x in ids]}
+               ).status_code == 200
+    subs = {s["folder_id"]: s for s in data_of(
+        api(c, token, "get", "/api/v1/kb/folders",
+            params={"parent_id": parent["folder_id"]}))["subfolders"]}
+    e = subs[child["folder_id"]]["effect_deep"]
+    assert e == {"green": 1, "red": 1, "yellow": 0, "gray": 1}, e
