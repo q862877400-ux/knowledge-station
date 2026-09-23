@@ -235,19 +235,19 @@ export function buildChannelFixPrompt(
     ...(bad.length > 0 ? bad.map(line) : ['（当前没有状态异常的渠道——请核对"可疑/失效/未探"里有没有漏网）']),
     '',
     '## 你的任务（对每条问题渠道逐条做，别只给泛泛而谈）',
-    '1. **诊断为什么失败**：用 web_fetch 实测链接现状（HTTP 码/落地页/是否改版/是否要登录或验证码）；',
+    '1. 诊断为什么失败：用 web_fetch 实测链接现状（HTTP 码/落地页/是否改版/是否要登录或验证码）；',
     '   再读我们的适配器代码判断是"站点变了"还是"我们的解析器坏了"（两者修法完全不同）。',
-    '2. **怎么修才行**：给具体方案——换端点/改解析/改请求头/换适配策略，说明改动会落在哪个文件。',
-    '3. **怎么长期有效**：修完怎么防止再坏（语义探针期望、回归用例、探测告警口径、负缓存）。',
-    '4. **需要用户怎么协助**：如实列出只有人能做的事（人工验证/注册账号/过验证码/授权/确认口径）——不要自己替用户决定。',
-    '5. **修复时用什么工具**：web_search/web_fetch（实测）、引擎探测端点 `POST /api/v1/channels/probe`（语义探针）、',
+    '2. 怎么修才行：给具体方案——换端点/改解析/改请求头/换适配策略，说明改动会落在哪个文件。',
+    '3. 怎么长期有效：修完怎么防止再坏（语义探针期望、回归用例、探测告警口径、负缓存）。',
+    '4. 需要用户怎么协助：如实列出只有人能做的事（人工验证/注册账号/过验证码/授权/确认口径）——不要自己替用户决定。',
+    '5. 修复时用什么工具：web_search/web_fetch（实测）、引擎探测端点 `POST /api/v1/channels/probe`（语义探针）、',
     '   测试 `tests/test_channel_repo.py` / `tests/test_ledger_chain.py`、门禁 `pwsh -File scripts/run-gates.ps1 -Quick`。',
     '',
     '## 边界与纪律',
     '- 先读 `docs/CHANNEL-COVERAGE-PLAN.md`（渠道覆盖方案与轮次台账）再动手；适配器在 `src/core/laws/`（按渠道分文件）。',
-    '- 修不动/证据不足的**如实说修不动**，登记原因，不要硬编一个"应该能用"的方案。',
+    '- 修不动/证据不足的如实说修不动，登记原因，不要硬编一个"应该能用"的方案。',
     '- 每步小提交，消息写清"改了什么/为什么/边界"；产出物只出 Markdown。',
-    '- 顺带把「未分类」的渠道标注**单位性质**（org_kind：central/local_congress/local_dept/industry/intl/commercial/tool/other），给出建议值表让我确认。',
+    '- 顺带把「未分类」的渠道标注单位性质（org_kind：central/local_congress/local_dept/industry/intl/commercial/tool/other），给出建议值表让我确认。',
     '- 有不确定的先问用户，不要默默替他做决定。',
   ].join('\n')
 }
@@ -410,21 +410,8 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
       () => setChannelEnabled(r.channel_id, r.enabled === 0))
   }, [runMutation])
 
-  /** 改号段（§11.0 R7）：**号段→渠道**是业主可维护的事实——链按它做加法（只加尾巴）。 */
-  const editSegments = useCallback(async (r: KsChannelRecord): Promise<void> => {
-    const next = window.prompt(
-      `改号段（${r.name}）——这条渠道管哪些标准号前缀？\n`
-      + `多个用逗号分开；号段里的空格有意义，别用空格当分隔符（例：HJ, GB 50, T/）\n`
-      + `注意：区分大小写（写 hj 不会命中 HJ），写错会静默失效\n`
-      + `留空则清空（= 不靠号段进链）：`,
-      parseSegments(r.segments_json).join(', '))
-    if (next === null) return                      // 取消
-    // ⚠ **只用逗号/顿号分隔，不用空白**：`GB 50` 里的空格是号段的一部分，
-    //   按空白拆会把一个号段拆成两个（`GB` + `50`），而 `50` 会命中一堆无关的号。
-    const parts = next.split(/[,，、]+/).map((s) => s.trim()).filter((s) => s !== '')
-    await runMutation('改号段',
-      () => updateChannel(r.channel_id, { segments_json: parts }))
-  }, [runMutation])
+  // （「改号段」处理器已随号段撤出用户面删除（NOT-DOING #17 同族，业主 2026-09-22）：
+  //  号段=后台维护事实，需要改走引擎 API/维护通道，不在用户面开口。）
 
   const editOrgKind = useCallback(async (r: KsChannelRecord): Promise<void> => {
 
@@ -445,7 +432,7 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
       let tc = await getChannelTestCase(r.channel_id)
       if (tc === null) {
         const u = window.prompt(
-          `给「${r.name}」配一个**已知文件**——样本链接\n（一个你确信能从这条渠道拿到的文件/页面地址）：`)
+          `给「${r.name}」配一个已知文件——样本链接\n（一个你确信能从这条渠道拿到的文件/页面地址）：`)
         if (u === null || u.trim() === '') throw new Error('没配样本（已取消）')
         const n = window.prompt('期望的标准号（从那个文件里抄一个，例：GB/T 10561-2005）：')
         if (n === null || n.trim() === '') throw new Error('没配期望标准号（已取消）')
@@ -646,7 +633,11 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
                           rel="noreferrer noopener">打开</a>
                       : null}
                   </span>
-                  <span className="ks-cell ks-col-cstate">{STATE_LABEL[r.state] ?? r.state}</span>
+                  <span className="ks-cell ks-col-cstate">{STATE_LABEL[r.state] ?? r.state}
+                    {r.state === 'unknown' && r.has_probe_target === false
+                      ? <span style={{ color: FAINT }}>（没配测试）</span>
+                      : null}
+                  </span>
                   <span className="ks-cell ks-col-cdate" title={r.last_ok_at ?? ''}>
                     {describeWhen(r.last_ok_at)}
                   </span>
@@ -681,7 +672,7 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
       <details style={{ color: FAINT }}>
         <summary style={{ cursor: 'pointer' }}>这些标记是什么意思？</summary>
         <ul style={{ margin: '4px 0 0', paddingLeft: 18, lineHeight: 1.7 }}>
-          <li>🟢 能抓 / 🟡 不太行 / 🔴 不能用 / ⚪ 没试过：这是**今天实测**的结果，不是永久标签。</li>
+          <li>🟢 能抓 / 🟡 不太行 / 🔴 不能用 / ⚪ 没试过：这是今天实测的结果，不是永久标签。</li>
           <li>「没试过」= 还没测过，不等于没问题；想测就点「立即巡检」。</li>
           <li>「（没配测试）」= 这条渠道按设计就不用测（比如代码仓库类）。</li>
           <li>「上次好用」列是北京时间；鼠标放上去看准确时刻。</li>

@@ -234,11 +234,12 @@ const panelMod = await loadModule('client/KsMaterialsPanel.tsx')
   const src = await readFile(join(pluginRoot, 'client', 'KsChannelsPanel.tsx'), 'utf8')
   check('懒加载门：visible=false 时不请求（与其它面板同契约）',
     /if \(!visible\) return undefined/.test(src))
-  check('摘要同时显示台账条数与能力条数（wired）',
-    src.includes('s.by_wiring.wired') && src.includes('s.total'))
-  check('接线与有效性**分列**（不许合成一个"有效"）',
-    src.includes('WIRING_LABEL') && src.includes('STATE_LABEL'))
-  check('时间列显式标注 UTC', src.includes('last_ok_at') && /UTC/.test(src))
+  check('摘要=用户语言四态（能用/不太行/不能用/没试过 + 总数）——旧接线话术回潮=红',
+    src.includes('能用 <b>{s.by_state.ok') && src.includes('没试过 <b>{s.by_state.unknown')
+    && src.includes('s.total') && !src.includes('能干活（已接线）'))
+  check('「接线」不上用户面（NOT-DOING #16 同批：技术列全撤）——有效性话术在',
+    !src.includes('WIRING_LABEL[') && src.includes('STATE_LABEL['))
+  check('时间列说明在（帮助里给「北京时间」口径）', src.includes('last_ok_at') && /UTC/.test(src))
   const settingsSrc = await readFile(join(pluginRoot, 'client', 'KsSettingsSection.tsx'), 'utf8')
   /* ⚠ S5 对账（2026-09-22 复核 P0-3）：「渠道台账」随巡检族搬去知识库 ▾「渠道台账」页位
      ⇒ 本条改钉**新家真挂载**（KsKnowledgePage 源码 <KsChannelsPanel）+ 负向（设置里不再挂）。
@@ -250,18 +251,17 @@ const panelMod = await loadModule('client/KsMaterialsPanel.tsx')
 
   // D5 R6：「⚪ 未探」不是一个处境，是**两个**——"按设计没有探针"（代码仓库/我方代码通路）
   //    与"配了还没探过"。混成一个灰，业主就看不出哪一行值得动手。
-  check('未探行区分"无探针"与"还没探过"（R6）',
-    /state === 'unknown' && r\.has_probe_target === false/.test(src)
-    && src.includes('（无探针）'))
+  check('未探行区分"没配测试"与"还没探过"（R6 语义；词随批B1 改用户话）',
+    /r\.state === 'unknown' && r\.has_probe_target === false/.test(src)
+    && src.includes('（没配测试）'))
   const apiSrc = await readFile(join(pluginRoot, 'client', 'api.ts'), 'utf8')
   check('KsChannelRecord 暴露 has_probe_target（引擎 R6 起返回）',
     /has_probe_target\?: boolean/.test(apiSrc))
 
-  // D7 号段可人工维护（§11.0 R7）：列可见 + 能改 + 分隔符**不许用空白**
-  check('号段：面板有独立列与「改号段」入口', /parseSegments\(r\.segments_json\)/.test(src)
-    && src.includes('改号段'))
-  check('号段：输入分隔符只用逗号/顿号（`GB 50` 里的空格是号段的一部分，按空白拆会拆坏）',
-    /split\(\/\[,，、\]\+\/\)/.test(src) && !/segments[\s\S]{0,200}split\(\/\[[^\]]*\\s/.test(src))
+  // D7 号段（NOT-DOING #17 同族，业主 2026-09-22：号段=后台维护事）：**不上用户面**——
+  //   负向钉（列/入口回潮=红）；parseSegments 工具函数仍留（AI 词与后台维护要用）。
+  check('号段：不上用户面（列头/「改号段」入口回潮=红）——后台维护事（AI 词里带号段是合法的）',
+    !src.includes('改号段') && !src.includes('号段</th>'))
   check('KsChannelRecord 暴露 segments_json（字符串，不是数组）',
     /segments_json\?: string \| null/.test(apiSrc))
 
