@@ -77,6 +77,12 @@
  *                    ⚠ `kb-level`（法律法规：**1 行目录 + 1 行文件**）是 `levelCheck` 的取证场景
  *                      —— 那是本版新增的几何断言（左列与右栏并排 + 两类行高逐字相同）。
  *   --theme light|dark  默认 light
+ *   --ccs               （加法式，2026-09-24 B3b）**只与 `--interact kb-inbox` 一起用**：
+ *                       把「补全分类号」那几个接口的桩打开（还缺 380 篇 / 五桶拆开 /
+ *                       刚跑完一批 / 回退记录路径 / 一篇失败清单）⇒ 截图上能一次看全新界面。
+ *                       ⚠ 不给它时那些路由照旧 STUB_MISS ⇒ 别的场景的 HTML/PNG 与改前**逐字相同**
+ *                       （`smoke-kb-pad-pixels` / `smoke-kb-cols` 拿它们当基线）；
+ *                       给了它却落在别的场景上 ⇒ **exit 2**（静默没做成不许当成功）。
  *   --browser <exe>  默认自动找 Edge/Chrome（可用 $KS_BROWSER 覆盖）
  *                    ⚠ 文档里说的"真 Chrome"是**约定叫法**（同一 Chromium 内核）：本机
  *                      （5i-补 2026-09-20 实测）命中的是 `msedge.exe`，不是 Google Chrome。
@@ -202,6 +208,25 @@ if (unknownScenarios.length > 0) {
   console.error(`   可用场景名（共 ${String(SCENARIOS.length)} 个）：${SCENARIOS.join(' / ')}`)
   console.error('   ⚠ 这不是"忽略一下继续跑"的情况：旧行为是**什么都不做还 exit 0**（复核 verify-freeze-5h'
     + ' 实测 --interact kb-empty ⇒ notes=[]、exit 0），那种静默本批已堵死。')
+  process.exit(2)
+}
+/**
+ * `--ccs`（**加法式**，2026-09-24 B3b）：把「补全分类号」那几个接口的桩**打开**。
+ *
+ * 为什么要它（而不是直接改桩）：本脚本的 `kb-inbox` 等场景的 HTML/PNG 被**别的脚本**当基线
+ * 用着（`smoke-kb-pad-pixels` 量留边与高度、`smoke-kb-cols` 量列几何）—— 给它们凭空加上
+ * 「补全分类号」那一块会**动到那些基线的版面**。所以默认**关着**：不加这个开关时，本脚本的
+ * 每一个场景**逐字**与改前一样；只有 `--ccs` 这一跑才喂 CCS 数据（截图给业主看新界面）。
+ *
+ * ⚠ 给了它却落在**没有那一块的场景**上 = 什么都没发生 ⇒ 与 `--nav-page` 同一条口径：
+ *   **当场 exit 2**，不静默忽略。
+ */
+const ccsStub = flag('ccs')
+if (ccsStub && interacts.includes('kb-inbox') === false) {
+  console.error('❌ `--ccs` 只对 `--interact kb-inbox`（「待分类」那一层）有意义：'
+    + `这一跑的场景是 [${interacts.join(', ') || '（空，默认最外层）'}]，那里没有「补全分类号」那一块。`)
+  console.error('   给了它却什么都不做 = 静默没做成，故按参数错退出（exit 2）。'
+    + '用法：--page kb --interact kb-inbox --ccs')
   process.exit(2)
 }
 /**
@@ -559,6 +584,67 @@ globalThis.fetch = async (input, init = {}) => {
       return reply({ code: 200, status: 'success', data: {
         running: was, total: kbReingestSeen.length, done: was ? 0 : kbReingestSeen.length,
         results: [], started_at: null, finished_at: null } })
+    }
+    /* ── 「补全分类号」（B3b 2026-09-24）：**只有 `--ccs` 那一跑**才回话 ──
+       形状逐字照 `ccs_backfill.ccs_backfill_status()` / `kb_ccs_summary`（B3a 提交 180397f）。
+       ⚠ 默认**关着**：不加 `--ccs` 时这些路由照旧走 STUB_MISS，别的场景的 HTML/PNG 与改前
+         **逐字相同**（那些基线被 smoke-kb-pad-pixels / smoke-kb-cols 用着）。
+       这一跑要一次给全：还缺 380 篇、五桶拆开、刚跑完一批（为什么停 = 到量）、
+       补前那份回退记录的路径、一批最多 200/默认 50、一篇失败清单。 */
+    if (ccsStub) {
+      const CCS_SPLIT = { total: 380, never_checked: 190, checked_not_found: 120,
+                          checked_failed: 41, not_applicable: 7, found_but_untagged: 22 }
+      const CCS_LABELS = {
+        found: '已补全',
+        not_found: '查无（答话的站点里都没有这个号）',
+        network_failed: '查询失败（网络不通/被拦，一个站点都没答上）',
+        parse_failed: '读不出来（站点答了，但没有分类号或读不出条目）',
+        not_applicable: '不适用（这一篇的标准号不像标准号，分类号对它不适用）',
+      }
+      const CCS_UNDO = 'D:\\KnowledgeStation\\backups\\ccs-undo-20260924-101402.json'
+      const CCS_FAILS = [
+        { doc_id: 'doc_in_rec', standard_no: 'GB/T 90002-2020', outcome: 'not_found',
+          reason: '查无：答话的站点里都没有这个标准号' },
+        { doc_id: 'doc_in_bad', standard_no: 'GB/T 90004-2020', outcome: 'not_found',
+          reason: '查无：答话的站点里都没有这个标准号' },
+        { doc_id: 'doc_law_fire', standard_no: '', outcome: 'network_failed',
+          reason: '查询失败：两个站点一个都没答上（连接被拒）' },
+      ]
+      const ccsStatus = {
+        running: false, total: 50, done: 50,
+        found: 47, not_found: 2, network_failed: 1, parse_failed: 0, not_applicable: 0,
+        applied: 47, skipped: 0, cancel_requested: false, cancelled: false,
+        started_at: '2026-09-24 10:14:02', finished_at: '2026-09-24 10:16:40',
+        missing: 380, missing_split: CCS_SPLIT,
+        undo_journal: CCS_UNDO,
+        stop_reason: 'limit', stop_reason_label: '到了这一批的量就停（剩下的下次再补）',
+        scope: 'library', force: false, truncated: true, hard_capped: false,
+        plan_total: 430, pages: 1, page: 1,
+        max_batch: 200, default_batch: 50, max_all: 2000,
+        results: [], failures: CCS_FAILS, skipped_list: [],
+      }
+      if (p === '/api/v1/kb/ccs/summary') {
+        return reply({ code: 200, status: 'success', data: {
+          missing: 380, missing_split: CCS_SPLIT,
+          by_outcome: { found: 47, not_found: 2, network_failed: 1, parse_failed: 0,
+                        not_applicable: 0 },
+          max_batch: 200, default_batch: 50, max_all: 2000,
+          outcome_labels: CCS_LABELS,
+          source_labels: { official_api: '官方接口', web_scrape: '网页抓取',
+                           local_table: '本地对照表', seed_file: '本地种子文件' },
+          sources: ['official_api', 'web_scrape', 'local_table', 'seed_file'],
+          stop_reason_labels: {
+            no_candidates: '一开始就没有候选（没有缺分类号的标准）',
+            exhausted: '候选扫完了（这一批没有剩余候选）',
+            limit: '到了这一批的量就停（剩下的下次再补）',
+            hard_cap: '到了硬上限就停（还剩没补的，不是补完了）',
+            selected_done: '勾选的那几篇跑完了（全库还有别的没补）',
+            cancelled: '被按停（已补好的不丢，没轮到的保持原样）',
+            error: '这一批出错了（内部错误，不是补完了）',
+          },
+          backfill: ccsStatus,
+        } })
+      }
     }
     if (p === '/api/v1/documents/batch-delete' && method === 'POST') {
       return reply({ code: 200, status: 'success', data: { deleted: 0 } })
