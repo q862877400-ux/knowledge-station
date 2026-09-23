@@ -71,6 +71,8 @@ const SUITES = [
   'scripts/smoke-compliance-sentry.mjs',
   // 尾件 1/4（批3）：生成式工具目录防漂移（目录=真定义生成物，手改/漏更皆红）。
   'scripts/smoke-tool-catalog.mjs',
+  // 渠道台账「分类 + AI 一键解决」（2026-09-22 业主点单）：分组纯函数 + 提示词六要素 + 真点击复制。
+  'scripts/smoke-channels-ai.mjs',
   'scripts/smoke-anchor-mark.mjs',
   // UI 批0-a（2026-09-22）：诊断 A2 死开关的判据——设置「显示红色定位箭头」必须**真的**传到
   // 查看器（KsEvidenceHost→KsEvidenceTab 的 prefs 透传；桩回显 props 的行为判据，
