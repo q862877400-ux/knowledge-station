@@ -427,15 +427,17 @@ try {
       # ⚠ **v4（2026-09-24 审计 B5）：环境白名单要"剔除已消失的节点"** ——
       #   原实现把旧白名单**逐字抄回**，于是名单**只增不减**：用例被删/改名之后名字还在，
       #   将来同名的用例以非环境原因跳过时，门禁会当"已知的环境跳过"放过去（永久放水）。
-      #   剔除的两个前提（缺一不可）：① 这一跑真拿到了节点表；② **pytest 没有失败/错误**
-      #   （有失败/错误时收集可能不全 ⇒ 凭这个剔除会误删合法条目，宁可先不剔、只打印）。
+      #   剔除的两个前提（缺一不可）：① 这一跑真拿到了节点表；② **没有收集错误**
+      #   （`$pytestErrors -eq 0` —— 注意**不是** `$pytestFailed`：用例"断言失败"不影响
+      #   "它被收集到了"这个事实，而且幽灵条目本身会让 `test_gate_baseline_whitelist.py`
+      #   失败 ⇒ 用 failed 当门槛会变成"幽灵让剔除永远不触发"的死循环，等于没修。
+      #   收集错误（import 崩了）才会让一批用例集体"看起来消失"，那种情况必须不剔。
       $envKept = @()
       if ($null -ne $base -and $base.environmental_skip_nodeids) {
         $envKept = @($base.environmental_skip_nodeids)
       }
       if ($envKept.Count -gt 0) {
-        if ($null -ne $envIdAlive -and $allNodeIds.Count -gt 0 -and
-            [int]$pytestFailed -eq 0 -and [int]$pytestErrors -eq 0) {
+        if ($null -ne $envIdAlive -and $allNodeIds.Count -gt 0 -and [int]$pytestErrors -eq 0) {
           $envDropped = @($envKept | Where-Object { -not (& $envIdAlive $_) })
           if ($envDropped.Count -gt 0) {
             $envKept = @($envKept | Where-Object { & $envIdAlive $_ })
@@ -443,7 +445,7 @@ try {
             $envDropped | ForEach-Object { Write-Host ("      − " + $_) -ForegroundColor Yellow }
           }
         } else {
-          Write-Host "   ⚠ 这一跑有失败/错误（或没拿到节点表）⇒ 白名单**不剔除**（收集可能不全，宁可先不剔）" -ForegroundColor DarkGray
+          Write-Host ("   ⚠ 这一跑有**收集错误**（errors={0}）或没拿到节点表 ⇒ 白名单**不剔除**（收集不全时凭它剔会误删；宁可先不剔）" -f [int]$pytestErrors) -ForegroundColor DarkGray
         }
       }
       @{ pytest_passed = $pytestPassed; pytest_skipped = $pytestSkipped; pytest_total = $totalRan
