@@ -346,3 +346,73 @@ def test_restore_refuses_a_missing_target_and_is_idempotent(db):
     before = fs.get_filing_state(d)
     fs.snapshot_filing_assets(d)
     assert fs.get_filing_state(d) == before
+
+
+# ═════════════ 复核打回 1/2（2026-09-24）：失败要说出来 / 已删目录不许插悬空行 ═════════════
+
+def test_carry_failure_is_reported_not_silent(db, tmp_path, synthetic_parser, monkeypatch):
+    """搬运**失败**必须与"没有旧文档要搬"分得开（``filing_assets_carry_error`` 非空）。
+
+    ⚠ 为什么单独一条：``filing_assets_carried is None`` 有两种含义，把它们混成一种
+    就是"把失败说成没有"——本仓明令禁止的假话形态。
+    """
+    synthetic_parser(REAL_BLOCKS)
+    pdf = _new_pdf(tmp_path, "carryboom.pdf")
+    no = _uniq_no()
+    first = pipeline_mod.run_full_ingest(pdf, no, "搬运会炸的原文档")
+    assert first["status"] == "ok"
+    f = _mkfolder("搬运炸")
+    fs.mark_filed(first["doc_id"], f)
+
+    def _boom(*a, **kw):
+        raise RuntimeError("搬运炸了（本用例故意打断）")
+
+    # ⚠ 用 `monkeypatch.context()`（不是 `undo()`）：undo 会把夹具打的补丁
+    #   （合成解析器 + 强制离线向量引擎）一起撤掉 ⇒ 反向那一跑会去跑真解析/真下模型。
+    with monkeypatch.context() as m:
+        m.setattr(fs, "restore_filing_assets", _boom)
+        out = pipeline_mod.run_full_ingest(pdf, no, "搬运会炸的重导", reingest=True)
+        assert out["status"] == "ok", out      # 搬运失败**不许**把一次成功的入库变成失败
+        assert out["filing_assets_carried"] is None
+        err = out["filing_assets_carry_error"]
+        assert err and "RuntimeError" in err and "搬运炸了" in err, \
+            f"搬运失败被静默成『没有要搬的』：{err!r}"
+    # 反向：同一套流程、这次不炸 ⇒ 两个字段反过来（carried 有值、error 为 None）
+    f2 = _mkfolder("搬运正常")
+    fs.mark_filed(out["doc_id"], f2)
+    ok = pipeline_mod.run_full_ingest(pdf, no, "搬运正常的一跑", reingest=True)
+    assert ok["filing_assets_carried"] is not None, ok.get("filing_assets_carry_error")
+    assert ok["filing_assets_carried"]["moved_members"] == 1, ok["filing_assets_carried"]
+    assert ok["filing_assets_carry_error"] is None, ok["filing_assets_carry_error"]
+
+
+def test_restore_skips_folders_deleted_after_the_snapshot(db):
+    """拍快照之后、落盘之前目录被删掉 ⇒ **不插**那条悬空挂靠；其余照搬、计数如实。
+
+    ⚠ 为什么可能发生：``folder_member`` **表级没有任何 FK**（见 schema.sql 那段），
+    而拍快照到落盘之间隔着一次真入库事务（几十秒起）—— 这期间用户删掉那个目录，
+    照原样插进去就是一条指向不存在目录的行（本批要消灭的那一类悬空行）。
+    """
+    src = _mv_doc(db, "stale_src")
+    dst = _mv_doc(db, "stale_dst")
+    keep, gone = _mkfolder("还在的目录"), _mkfolder("快照后被删的目录")
+    fs.add_member(keep, "file", src)
+    fs.add_member(gone, "file", src)
+    snap = fs.snapshot_filing_assets(src)
+    assert set(snap["members"]) == {keep, gone}
+
+    # 目录行没了（= 快照之后被删；带成员行一起删，与 folder_store 真删目录的形态一致）
+    db.execute("DELETE FROM folder WHERE folder_id=?", (gone,))
+    db.execute("DELETE FROM folder_member WHERE folder_id=?", (gone,))
+    db.commit()
+
+    out = fs.restore_filing_assets(snap, dst, stage="confirming")
+    assert out["missing_folders"] == [gone], out
+    assert out["skipped_missing_folders"] == 1, out
+    assert out["moved_members"] == 1, out
+    assert _members_of(dst, db) == {keep}, "把已删目录的挂靠行插进去了（悬空挂靠）"
+    # stage：**真的搬成了**一条归属 ⇒ 仍是「已归位」；一条都没搬成才退回这一次的结论
+    assert out["stage"] == "filed", out
+    fs.restore_filing_assets(snap, src, stage="confirming")   # 反向：源文档自己不受影响
+    assert _members_of(src, db) == {keep}
+

@@ -2319,20 +2319,25 @@ def run_full_ingest(pdf_path: Path, standard_no: str, standard_name: str,
     # 落到新 doc_id（这里）；③ 旧文档的挂靠与状态行由删除那一侧清掉（见 clause_repo）。
     # 为什么必须等到这里（而不是拍快照时顺手写）：新 doc_id 的 ``doc_meta`` 行是在
     # **入库事务**里插的，事务提交前写归属就会留下一批指向"还不存在的文档"的挂靠行。
-    # ⚠ 失败只记日志、不把一次成功的入库变成失败（归属搬不过去是**可观测**的：
-    #   ``filing_assets_carried`` 在返回值里）。
+    # ⚠ 失败只记日志、不把一次成功的入库变成失败；但**必须说出来**：
+    #   ``filing_assets_carried`` 是 None 有两种完全不同的含义 —— "这一跑没有旧文档要替换"
+    #   与"要搬、但搬炸了"。后者由 ``filing_assets_carry_error`` 如实带出去
+    #   （把失败说成"没有"是本仓明令禁止的那种假话）。
     filing_assets_carried = None
+    filing_assets_carry_error = None
     if _carried_assets is not None and _carried_assets.get("doc_id") != doc_id:
         try:
             from src.core.knowledge import folder_store as _fs_carry2
             filing_assets_carried = _fs_carry2.restore_filing_assets(
                 _carried_assets, doc_id, stage="failed" if no_content else "confirming",
                 confidence=confidence, failure_kind=failure_kind)
-            logger.info("重导搬运归属：doc=%s ← %s（目录 %d 条、归位记录 %s）",
+            logger.info("重导搬运归属：doc=%s ← %s（搬了 %d 条、跳过已删目录 %d 条、归位记录 %s）",
                         doc_id, _carried_assets.get("doc_id"),
                         filing_assets_carried["moved_members"],
+                        filing_assets_carried["skipped_missing_folders"],
                         filing_assets_carried["carried_fields"])
-        except Exception:                                   # noqa: BLE001
+        except Exception as exc:                            # noqa: BLE001
+            filing_assets_carry_error = f"{type(exc).__name__}: {exc}"
             logger.warning("重导搬运归属失败（不阻塞入库）doc=%s", doc_id, exc_info=True)
 
     # R8 运维日志：入库成功写 operation_log
@@ -2396,8 +2401,11 @@ def run_full_ingest(pdf_path: Path, standard_no: str, standard_name: str,
             "filing_state_written": filing_state_written,
             # 重导搬运的**如实**结果（审计 A1）：None = 这一跑不是"替换旧文档"，
             # 所以没有东西要搬；否则是 restore_filing_assets 的返回值（搬了几条目录
-            # 归属、最终 stage、搬了哪几个归位字段）。搬失败时也是 None —— 日志留痕。
+            # 归属、跳过几条已删目录、最终 stage、搬了哪几个归位字段）。
+            # ⚠ 搬**失败**时 ``filing_assets_carried`` 也是 None，但
+            #   ``filing_assets_carry_error`` 会写明失败原因（不许把失败说成"没有"）。
             "filing_assets_carried": filing_assets_carried,
+            "filing_assets_carry_error": filing_assets_carry_error,
             "catalog_hidden": bool(no_content and doc_type == "standard")}
 
 

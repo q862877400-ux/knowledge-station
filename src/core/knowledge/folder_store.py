@@ -1368,8 +1368,13 @@ def restore_filing_assets(snapshot: dict, new_doc_id: str, *,
                           db_path: Path | None = None) -> dict:
     """把 ``snapshot_filing_assets`` 拍下的用户资产落到**新** doc_id 上（重导的第二半）。
 
-    * ``folder_member``：快照里的**每一条**归属**原样搬**（多对多，一条不少）；
+    * ``folder_member``：快照里**目录还在**的每一条归属**原样搬**（多对多，一条不少）；
       新 doc_id 上已有的同一条不重复插（``INSERT OR IGNORE``）。
+      ⚠ **目录已经不在的**那几条**不插**，只在返回值里**如实计数**
+      （``skipped_missing_folders`` / ``missing_folders``）：拍快照到落盘之间隔着一次入库
+      事务（真文档几十秒起），这期间用户可能把那个目录删掉，而 ``folder_member``
+      **表级没有任何 FK**（见 schema.sql 那段）⇒ 插进去就是一条指向不存在目录的悬空挂靠行，
+      正是本批要消灭的那一类。**不许**静默丢：计数与 id 都在返回值里。
     * ``doc_filing_state``：搬 ``CARRY_STATE_FIELDS``（归位记录/建议去向），
       ``stage`` / ``confidence`` / ``failure_kind`` 用调用方给的**这一次的解析结论**。
       ``stage`` 另有一条推导：**归属搬过来了、而这一次解析没失败** ⇒ 它确实还在目录里
@@ -1378,7 +1383,8 @@ def restore_filing_assets(snapshot: dict, new_doc_id: str, *,
       那会把"这篇文件根本不能用"这件事实盖住（KB-FOLDER-PLAN §十七：识别失败必须看得见）。
 
     返回 ``{"doc_id", "moved_members", "members", "stage", "state_carried",
-             "carried_fields"}``（数字都是**真写进去的**，不猜）。
+             "carried_fields", "missing_folders", "skipped_missing_folders"}``
+    （数字都是**真写进去的**，不猜）。
 
     拒绝：新 doc_id 在 ``doc_meta`` 里不存在 ⇒ ``doc_not_found``（**不许**留下
     指向不存在文档的挂靠行）；``stage`` 不在五枚举里 ⇒ ``invalid_stage``。
@@ -1388,15 +1394,21 @@ def restore_filing_assets(snapshot: dict, new_doc_id: str, *,
     snap = snapshot or {}
     members = [str(m) for m in (snap.get("members") or [])]
     old_state = snap.get("state") or None
-    final_stage = "filed" if (members and stage != "failed") else stage
     with write_transaction(db_path) as conn:
         if conn.execute("SELECT 1 FROM doc_meta WHERE doc_id=?", (new_doc_id,)).fetchone() is None:
             raise _err(f"文档不存在: {new_doc_id}", "doc_not_found")
+        # 目录还在的才搬（见 docstring：快照到落盘之间目录可能被删，而本表没有 FK 兜底）
+        known = {r["folder_id"] for r in conn.execute("SELECT folder_id FROM folder")}
+        missing = [f for f in members if f not in known]
         moved = 0
         for folder_id in members:
+            if folder_id in missing:
+                continue
             moved += conn.execute(
                 "INSERT OR IGNORE INTO folder_member(folder_id, item_kind, item_id)"
                 " VALUES (?, 'file', ?)", (folder_id, new_doc_id)).rowcount
+        # 「已归位」只看**真的搬成了**的归属（目录全没了就不该说它还归位在某个目录里）
+        final_stage = "filed" if (moved and stage != "failed") else stage
         conn.execute("INSERT OR IGNORE INTO doc_filing_state(doc_id) VALUES (?)", (new_doc_id,))
         sets = ["stage=?", "confidence=?", "failure_kind=?", "updated_at=datetime('now')"]
         args: list[Any] = [final_stage, confidence, failure_kind]
@@ -1410,7 +1422,8 @@ def restore_filing_assets(snapshot: dict, new_doc_id: str, *,
         conn.execute(f"UPDATE doc_filing_state SET {', '.join(sets)} WHERE doc_id=?", args)
     return {"doc_id": new_doc_id, "moved_members": moved, "members": members,
             "stage": final_stage, "state_carried": old_state is not None,
-            "carried_fields": carried_fields}
+            "carried_fields": carried_fields,
+            "missing_folders": missing, "skipped_missing_folders": len(missing)}
 
 
 def mark_filed(doc_id: str, folder_id: str, placed_by: str = "system",

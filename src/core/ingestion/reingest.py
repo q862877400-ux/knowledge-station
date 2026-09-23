@@ -105,8 +105,11 @@ def _run(items: list[dict]) -> None:
             result["filing_failure_kind"] = out.get("filing_failure_kind")
             result["catalog_hidden"] = out.get("catalog_hidden")
             # 归属与归位记录的搬运结果（审计 A1 的修法）：None = 没有旧文档要替换；
-            # 否则 = {moved_members, stage, carried_fields, …}（搬了几条、最终 stage）。
+            # 否则 = {moved_members, skipped_missing_folders, stage, carried_fields, …}。
+            # ⚠ 搬**失败**时 carried 也是 None，但 ``filing_assets_carry_error`` 会写明原因
+            #   （不许把失败说成"没有"）。
             result["filing_assets_carried"] = out.get("filing_assets_carried")
+            result["filing_assets_carry_error"] = out.get("filing_assets_carry_error")
             if out.get("status") != "ok":
                 # 没成功 ⇒ 旧行还在（reingest 的删除只发生在解析成功之后）：写"识别失败"，
                 # 别让它永远停在「识别中」。
