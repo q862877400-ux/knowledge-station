@@ -588,6 +588,31 @@ def test_abort_is_sticky_against_worker_resurrection(client, db, tmp_path):
     assert (bulk.load_batch(bid) or {}).get("status") == "failed", "中止终态被收尾写顶成 done"
 
 
+def test_filed_doc_failure_writeback_flips_and_shows_in_inbox(db):
+    """乙3 判据（2026-09-22）：预标 `filed`（上传即归位）的文档，解析失败的回写必须
+    **翻成 `failed`** 并回到「待分类」可见。
+
+    残余 verify-kb-ui3 §⑥-2 原文「`stage='filed'` 是在解析之前写死的……解析失败不回
+    待分类（端到端未验）」——本钉补上那条端到端的一半（组合覆盖：真解析失败走
+    `_write_filing_state` **同一出口** = 上方零条款用例；本钉 = 出口对预标 filed 的翻写）。
+    翻不动 ⇒ 本用例红（残余为真）；翻得动 ⇒ 残余过时、从此有牙。"""
+    from _kb_folder_api_fixtures import mkdoc_full
+    mkdoc_full(db, "filed_flips_1", standard_no="GB/T 92400-2020")
+    doc_id = "filed_flips_1"
+    # 预标 filed = 「上传并直接放进某目录」的形态（归位发生在解析之前）
+    assert pipeline_mod._write_filing_state(doc_id, "filed") is True
+    assert fs.get_filing_state(doc_id)["stage"] == "filed"
+    # 解析失败回写（bulk / reingest / 零条款 三条失败路共用的那一个出口）
+    assert pipeline_mod._write_filing_state(
+        doc_id, "failed", failure_kind=fs.FAILURE_KIND_ZERO_CLAUSES) is True
+    row = fs.get_filing_state(doc_id)
+    assert row["stage"] == "failed", f"预标 filed 解析失败后没翻回来: {row}"
+    assert row["failure_kind"] == fs.FAILURE_KIND_ZERO_CLAUSES, row
+    # 「待分类」看得到（口径：可见 OR stage='failed'）
+    items = {r["doc_id"]: r for r in fs.list_pending_filing(limit=500)["items"]}
+    assert doc_id in items, "预标 filed 的文件解析失败后必须回到「待分类」"
+
+
 # ═════════════════════ 5. 目录选择器用的扁平清单 + 标签端点 ═════════════════════
 
 def test_flat_folders_supports_search_and_depth(client, tops, std_tree):
