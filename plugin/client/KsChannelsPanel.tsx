@@ -118,14 +118,30 @@ export function parseSegments(raw: string | null | undefined): string[] {
   }
 }
 
+/** 渠道搜索筛选（业主 2026-09-22：「可以搜网站名字也可以搜网站域名」）：纯函数，判据直接钉。
+ *  口径：不区分大小写；名字/整链接/域名主机 三处任一包含即命中；空查询 = 全部。 */
+export function filterChannels(rows: readonly KsChannelRecord[], q: string): KsChannelRecord[] {
+  const needle = q.trim().toLowerCase()
+  if (needle === '') return [...rows]
+  return rows.filter((r) => {
+    const name = (r.name ?? '').toLowerCase()
+    const url = (r.url ?? '').toLowerCase()
+    let host = ''
+    try {
+      host = url !== '' ? new URL(url.split(/[（\s]/)[0]).hostname.toLowerCase() : ''
+    } catch { /* 坏链接当无主机 */ }
+    return name.includes(needle) || url.includes(needle) || (host !== '' && host.includes(needle))
+  })
+}
+
 /** 目录层列（与知识库目录层同款 4 轨：占位/名称/条数/›——模板就是 .ks-list-dirs 那条）。 */
 const DIR_COLS: readonly KbListCol[] = [
   { key: 'dpick', head: '' }, { key: 'dname', head: '名称' },
   { key: 'dcount', head: '条数' }, { key: 'dmore', head: '' },
 ]
-/** 渠道文件层列（.ks-list-chans 自己那条 --ks-cols 的 6 轨）。 */
+/** 渠道文件层列（.ks-list-chans 自己那条 --ks-cols 的 5 轨；标签列已删 = NOT-DOING #17）。 */
 const CH_COLS: readonly KbListCol[] = [
-  { key: 'chan', head: '渠道' }, { key: 'tags', head: '标签' },
+  { key: 'chan', head: '渠道' },
   { key: 'cstate', head: '能不能用' }, { key: 'cdate', head: '上次好用' },
   { key: 'cissue', head: '问题' }, { key: 'cact', head: '操作' },
 ]
@@ -242,6 +258,7 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
   const [newNote, setNewNote] = useState<string>('')
   const [mutating, setMutating] = useState<boolean>(false)
   const [orgSel, setOrgSel] = useState<string | null>(null)
+  const [q, setQ] = useState<string>('')
 
   const load = useCallback(async (signal?: AbortSignal): Promise<void> => {
     setBusy(true)
@@ -287,6 +304,10 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
 
   const rows = data ? sortChannels(data.items) : []
   const s = data?.summary
+  // 当前该显示哪些渠道：搜索态=跨组平铺命中（找渠道一步到位）；组视图=该组的行。
+  const viewRows = q.trim() !== ''
+    ? filterChannels(rows, q)
+    : (groupRowsByOrgKind(rows).find((g) => g.key === orgSel)?.rows ?? [])
 
   /** 人工维护动作的统一外壳：一次只允许一个动（`mutating`）、错误**如实显示**原文。
    *  ⚠ 不把引擎的错误码翻译掉：`illegal_channel_field` / `channel_name_required` /
@@ -323,12 +344,6 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
   const toggleEnabled = useCallback(async (r: KsChannelRecord): Promise<void> => {
     await runMutation(r.enabled === 0 ? '启用渠道' : '停用渠道',
       () => setChannelEnabled(r.channel_id, r.enabled === 0))
-  }, [runMutation])
-
-  const editNote = useCallback(async (r: KsChannelRecord): Promise<void> => {
-    const next = window.prompt(`改备注（${r.name}）\n留空则清空该字段：`, r.note ?? '')
-    if (next === null) return                      // 取消
-    await runMutation('改备注', () => updateChannel(r.channel_id, { note: next }))
   }, [runMutation])
 
   /** 改号段（§11.0 R7）：**号段→渠道**是业主可维护的事实——链按它做加法（只加尾巴）。 */
@@ -406,6 +421,12 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
           title="人工加一条渠道：引擎侧已落（R6d），界面侧这一步是 R6f">
           {adding ? '× 取消新增' : '＋ 新增渠道'}
         </button>
+        <input className="ks-search" value={q} onChange={(e) => setQ(e.target.value)}
+          placeholder="搜网站名字 / 网站域名…" aria-label="搜渠道（名字或域名）"
+          style={{ ...$select, minWidth: 200 }} />
+        <span style={{ color: FAINT }}>
+          {q.trim() !== '' ? `命中 ${String(viewRows.length)} 条` : ''}
+        </span>
         <button type="button" data-ks-channels-ai-fix onClick={() => {
           const prompt = buildChannelFixPrompt(data?.items ?? rows, data?.summary)
           void copyTextToClipboard(prompt).then((ok) => {
@@ -466,12 +487,14 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
       {rows.length > 0 && (
         <div>
           <KsCrumb
-            items={orgSel === null
-              ? [{ name: '渠道台账' }]
-              : [{ name: '渠道台账', onGo: () => setOrgSel(null) },
-                 { name: ORG_KIND_LABEL[orgSel] ?? orgSel }]}
-            n={(groupRowsByOrgKind(rows).find((g) => g.key === orgSel)?.rows ?? rows).length} />
-          {orgSel === null ? (
+            items={q.trim() !== ''
+              ? [{ name: '渠道台账' }, { name: `搜索「${q.trim()}」` }]
+              : orgSel === null
+                ? [{ name: '渠道台账' }]
+                : [{ name: '渠道台账', onGo: () => setOrgSel(null) },
+                   { name: ORG_KIND_LABEL[orgSel] ?? orgSel }]}
+            n={viewRows.length} />
+          {orgSel === null && q.trim() === '' ? (
             <div className="ks-list ks-list-dirs ks-dirs">
               <KsListHead cols={DIR_COLS} />
               {groupRowsByOrgKind(rows).map((g) => (
@@ -493,7 +516,7 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
           ) : (
             <div className="ks-list ks-list-chans">
               <KsListHead cols={CH_COLS} />
-              {(groupRowsByOrgKind(rows).find((g) => g.key === orgSel)?.rows ?? []).map((r) => (
+              {viewRows.map((r) => (
                 <div key={r.channel_id} className="ks-item">
                   <span className="ks-cell ks-col-chan">
                     <span className="ks-chan-name" title={r.note ?? undefined}>
@@ -503,11 +526,6 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
                       ? <a className="ks-chan-open" href={r.url.split(/[（\s]/)[0]} target="_blank"
                           rel="noreferrer noopener">打开</a>
                       : null}
-                  </span>
-                  <span className="ks-cell ks-col-tags">
-                    {(r.note ?? '').split(/[、，,]/).map((s) => s.trim()).filter((s) => s !== '')
-                      .map((s) => <span key={s} className="ks-tag-chip">{s}</span>)}
-                    {(r.note ?? '').trim() === '' ? <span style={{ color: FAINT }}>—</span> : null}
                   </span>
                   <span className="ks-cell ks-col-cstate">{STATE_LABEL[r.state] ?? r.state}</span>
                   <span className="ks-cell ks-col-cdate" title={r.last_ok_at ?? ''}>
@@ -523,8 +541,7 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
                       {r.enabled === 0 ? '启用' : '停用'}
                     </button>
                     <button type="button" disabled={mutating} style={$mini}
-                      onClick={() => void editNote(r)}>改标签</button>
-                    <button type="button" disabled={mutating} style={$mini}
+                      onClick={() => void editOrgKind(r)}>改分类</button>                    <button type="button" disabled={mutating} style={$mini}
                       onClick={() => void editOrgKind(r)}>改分类</button>
                     <button type="button" disabled={mutating} style={{ ...$mini, color: '#c0392b' }}
                       onClick={() => void remove(r)}>删除</button>

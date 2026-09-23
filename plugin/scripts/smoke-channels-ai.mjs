@@ -92,6 +92,23 @@ try {
   check('分类：未分类组名就叫「未分类」（不编不存在的字段）',
     groups[3].label === '未分类', groups[3].label)
 
+  /* ── ①b 搜索筛选（业主 2026-09-22：搜网站名字/域名都行；标签已删 NOT-DOING #17） ── */
+  const srows = [
+    rec('s1', 'central', 'ok', { name: '住房和城乡建设部标准公告', url: 'https://www.mohurd.gov.cn/gg' }),
+    rec('s2', 'local_dept', 'ok', { name: '首都之窗-政府规章', url: 'https://www.beijing.gov.cn/zhengce' }),
+    rec('s3', 'industry', 'down', { name: '中国标准服务网', url: 'https://www.cssn.net.cn/list' }),
+  ]
+  const fByName = mod.filterChannels(srows, '标准')
+  check('搜索：按网站名字命中（「标准」= 两条名字含标准）',
+    fByName.map((r) => r.channel_id).sort().join(',') === 's1,s3',
+    JSON.stringify(fByName.map((r) => r.channel_id)))
+  const fByHost = mod.filterChannels(srows, 'beijing.gov.cn')
+  check('搜索：按网站域名命中（主机名包含即中，不必整串）',
+    fByHost.length === 1 && fByHost[0].channel_id === 's2',
+    JSON.stringify(fByHost.map((r) => r.channel_id)))
+  check('搜索：空查询=全部；大小写不敏感（CSSN≠cssn 反证）',
+    mod.filterChannels(srows, '').length === 3 && mod.filterChannels(srows, 'CSSN').length === 1)
+
   /* ── ② 提示词：buildChannelFixPrompt ──────────────────────── */
   const rows = [
     rec('ok-clean', 'central', 'ok'),
@@ -145,6 +162,8 @@ try {
   })
   await act(async () => { await new Promise((r) => setTimeout(r, 10)) })
   const html = () => host.innerHTML
+  check('搜索框在（搜网站名字/域名）+ 标签不上界面（负向）',
+    html().includes('搜网站名字') && !html().includes('改标签') && !html().includes('ks-tag-chip'))
   check('正装：目录层=知识库同款机制（.ks-list-dirs 容器 + .ks-dir-open/.ks-dir-go 行件）',
     html().includes('ks-list-dirs') && html().includes('ks-dir-open') && html().includes('ks-dir-go'),
     '手搓回潮 ⇒ 本条红')

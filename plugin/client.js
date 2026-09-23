@@ -33762,7 +33762,7 @@ var KS_STYLES = `
    .ks-item \u673A\u5236**\uFF08\u76EE\u5F55\u5C42\u751A\u81F3\u76F4\u63A5\u7528 .ks-list-dirs\u2014\u2014\u5217\u540C\u4E3A \u540D\u79F0/\u6761\u6570/\u203A\uFF09\uFF0C\u8FD9\u91CC\u53EA\u505A
    \u6E20\u9053\u6587\u4EF6\u5C42\u81EA\u5DF1\u7684\u4E00\u4EF6\u4E8B\uFF1A\u4E00\u6761**\u81EA\u5DF1\u7684** --ks-cols\uFF08\u6E20\u9053 / \u6807\u7B7E / \u80FD\u4E0D\u80FD\u7528 / \u4E0A\u6B21\u597D\u7528 /
    \u95EE\u9898 / \u64CD\u4F5C = 6 \u8F68\uFF09\u3002\u5217\u5BBD\u552F\u4E00\u6240\u6709\u8005\u4ECD\u662F --ks-cols\uFF0C\u8C01\u4E5F\u4E0D\u8BB8\u518D\u5199\u7B2C\u4E8C\u5957\u3002 */
-.ks-list-chans{--ks-cols:minmax(0,1.4fr) minmax(0,1fr) 84px 96px minmax(0,1fr) 200px}
+.ks-list-chans{--ks-cols:minmax(0,1.6fr) 84px 96px minmax(0,1fr) 200px}
 .ks-list-chans .ks-item{width:100%;box-sizing:border-box}
 .ks-item .ks-col-chan{display:grid;grid-template-columns:minmax(0,1fr);min-width:0}
 .ks-item .ks-chan-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -34886,6 +34886,20 @@ function parseSegments(raw) {
     return [];
   }
 }
+function filterChannels(rows, q) {
+  const needle = q.trim().toLowerCase();
+  if (needle === "") return [...rows];
+  return rows.filter((r) => {
+    const name = (r.name ?? "").toLowerCase();
+    const url = (r.url ?? "").toLowerCase();
+    let host = "";
+    try {
+      host = url !== "" ? new URL(url.split(/[（\s]/)[0]).hostname.toLowerCase() : "";
+    } catch {
+    }
+    return name.includes(needle) || url.includes(needle) || host !== "" && host.includes(needle);
+  });
+}
 var DIR_COLS = [
   { key: "dpick", head: "" },
   { key: "dname", head: "\u540D\u79F0" },
@@ -34894,7 +34908,6 @@ var DIR_COLS = [
 ];
 var CH_COLS = [
   { key: "chan", head: "\u6E20\u9053" },
-  { key: "tags", head: "\u6807\u7B7E" },
   { key: "cstate", head: "\u80FD\u4E0D\u80FD\u7528" },
   { key: "cdate", head: "\u4E0A\u6B21\u597D\u7528" },
   { key: "cissue", head: "\u95EE\u9898" },
@@ -34996,6 +35009,7 @@ function KsChannelsPanel(props) {
   const [newNote, setNewNote] = (0, import_react7.useState)("");
   const [mutating, setMutating] = (0, import_react7.useState)(false);
   const [orgSel, setOrgSel] = (0, import_react7.useState)(null);
+  const [q, setQ] = (0, import_react7.useState)("");
   const load = (0, import_react7.useCallback)(async (signal) => {
     setBusy(true);
     setError("");
@@ -35036,6 +35050,7 @@ function KsChannelsPanel(props) {
   }, [load, probeBusy]);
   const rows = data ? sortChannels(data.items) : [];
   const s = data?.summary;
+  const viewRows = q.trim() !== "" ? filterChannels(rows, q) : groupRowsByOrgKind(rows).find((g) => g.key === orgSel)?.rows ?? [];
   const runMutation = (0, import_react7.useCallback)(async (label, fn) => {
     if (mutating) return;
     setMutating(true);
@@ -35070,12 +35085,6 @@ function KsChannelsPanel(props) {
       r.enabled === 0 ? "\u542F\u7528\u6E20\u9053" : "\u505C\u7528\u6E20\u9053",
       () => setChannelEnabled(r.channel_id, r.enabled === 0)
     );
-  }, [runMutation]);
-  const editNote = (0, import_react7.useCallback)(async (r) => {
-    const next = window.prompt(`\u6539\u5907\u6CE8\uFF08${r.name}\uFF09
-\u7559\u7A7A\u5219\u6E05\u7A7A\u8BE5\u5B57\u6BB5\uFF1A`, r.note ?? "");
-    if (next === null) return;
-    await runMutation("\u6539\u5907\u6CE8", () => updateChannel(r.channel_id, { note: next }));
   }, [runMutation]);
   const editSegments = (0, import_react7.useCallback)(async (r) => {
     const next = window.prompt(
@@ -35180,6 +35189,18 @@ function KsChannelsPanel(props) {
         }
       ),
       /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+        "input",
+        {
+          className: "ks-search",
+          value: q,
+          onChange: (e) => setQ(e.target.value),
+          placeholder: "\u641C\u7F51\u7AD9\u540D\u5B57 / \u7F51\u7AD9\u57DF\u540D\u2026",
+          "aria-label": "\u641C\u6E20\u9053\uFF08\u540D\u5B57\u6216\u57DF\u540D\uFF09",
+          style: { ...$select, minWidth: 200 }
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { style: { color: FAINT }, children: q.trim() !== "" ? `\u547D\u4E2D ${String(viewRows.length)} \u6761` : "" }),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
         "button",
         {
           type: "button",
@@ -35259,14 +35280,14 @@ function KsChannelsPanel(props) {
       /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
         KsCrumb,
         {
-          items: orgSel === null ? [{ name: "\u6E20\u9053\u53F0\u8D26" }] : [
+          items: q.trim() !== "" ? [{ name: "\u6E20\u9053\u53F0\u8D26" }, { name: `\u641C\u7D22\u300C${q.trim()}\u300D` }] : orgSel === null ? [{ name: "\u6E20\u9053\u53F0\u8D26" }] : [
             { name: "\u6E20\u9053\u53F0\u8D26", onGo: () => setOrgSel(null) },
             { name: ORG_KIND_LABEL[orgSel] ?? orgSel }
           ],
-          n: (groupRowsByOrgKind(rows).find((g) => g.key === orgSel)?.rows ?? rows).length
+          n: viewRows.length
         }
       ),
-      orgSel === null ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-list ks-list-dirs ks-dirs", children: [
+      orgSel === null && q.trim() === "" ? /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-list ks-list-dirs ks-dirs", children: [
         /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(KsListHead, { cols: DIR_COLS }),
         groupRowsByOrgKind(rows).map((g) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
           "button",
@@ -35292,7 +35313,7 @@ function KsChannelsPanel(props) {
         ))
       ] }) : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-list ks-list-chans", children: [
         /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(KsListHead, { cols: CH_COLS }),
-        (groupRowsByOrgKind(rows).find((g) => g.key === orgSel)?.rows ?? []).map((r) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-item", children: [
+        viewRows.map((r) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { className: "ks-item", children: [
           /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-cell ks-col-chan", children: [
             /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-chan-name", title: r.note ?? void 0, children: [
               r.name,
@@ -35308,10 +35329,6 @@ function KsChannelsPanel(props) {
                 children: "\u6253\u5F00"
               }
             ) : null
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { className: "ks-cell ks-col-tags", children: [
-            (r.note ?? "").split(/[、，,]/).map((s2) => s2.trim()).filter((s2) => s2 !== "").map((s2) => /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-tag-chip", children: s2 }, s2)),
-            (r.note ?? "").trim() === "" ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { style: { color: FAINT }, children: "\u2014" }) : null
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-cell ks-col-cstate", children: STATE_LABEL[r.state] ?? r.state }),
           /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { className: "ks-cell ks-col-cdate", title: r.last_ok_at ?? "", children: describeWhen(r.last_ok_at) }),
@@ -35340,10 +35357,11 @@ function KsChannelsPanel(props) {
                 type: "button",
                 disabled: mutating,
                 style: $mini,
-                onClick: () => void editNote(r),
-                children: "\u6539\u6807\u7B7E"
+                onClick: () => void editOrgKind(r),
+                children: "\u6539\u5206\u7C7B"
               }
             ),
+            "                    ",
             /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
               "button",
               {

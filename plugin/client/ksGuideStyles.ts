@@ -488,7 +488,7 @@ export const KS_STYLES = `
    .ks-item 机制**（目录层甚至直接用 .ks-list-dirs——列同为 名称/条数/›），这里只做
    渠道文件层自己的一件事：一条**自己的** --ks-cols（渠道 / 标签 / 能不能用 / 上次好用 /
    问题 / 操作 = 6 轨）。列宽唯一所有者仍是 --ks-cols，谁也不许再写第二套。 */
-.ks-list-chans{--ks-cols:minmax(0,1.4fr) minmax(0,1fr) 84px 96px minmax(0,1fr) 200px}
+.ks-list-chans{--ks-cols:minmax(0,1.6fr) 84px 96px minmax(0,1fr) 200px}
 .ks-list-chans .ks-item{width:100%;box-sizing:border-box}
 .ks-item .ks-col-chan{display:grid;grid-template-columns:minmax(0,1fr);min-width:0}
 .ks-item .ks-chan-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
