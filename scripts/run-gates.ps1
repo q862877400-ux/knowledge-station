@@ -120,6 +120,13 @@ $env:KS_DATA_DIR = Join-Path ([System.IO.Path]::GetTempPath()) ("ks-gates-data-"
 #   `environmental_skip_nodeids` 里）⇒ 向量通道不可用 ⇒ **依赖检索**的两条
 #   （`test_compliance.py::test_behavior_review_face_collection`、
 #   `test_phase4.py::test_obligation_list_and_checklist`）降级失败。
+#   ⚠⚠ **2026-09-24 更正（审计 B5 时顺手实测；上面这两个例子现在都不存在了）**：
+#     ① `tests/test_compliance.py` **整个文件**随 2026-09-22 的删单批（`683c6f6`）被删除；
+#     ② `test_phase4.py::test_obligation_list_and_checklist` 也已不在（文件还在、那条没了）。
+#     留在这里不改会**把下一个人引去查一条不存在的用例**。教训本身仍然成立（模型没下到 ⇒
+#     **依赖检索的用例**会降级失败），过期的只是"举例"。
+#     ⇒ 正是这一次核对才发现白名单里那条幽灵（名单只增不减），修法与判据见
+#       `tests/test_gate_baseline_whitelist.py` 与下面棘轮段新增的那条判据。
 #   复核 2026-09-21 定性：与被验区间无关的环境假红（区间 `git diff --stat -- src tests` 为空）。
 # 处置：`KS_MODELS_DIR`（`src/core/config.py` 的 models_dir 覆盖）指到一个**常驻**目录 ⇒ 模型只落地
 #   一次。实测：那三条用例 **0.96s 全过**（原先是 218.87s 下载 / 代理挂死）。
@@ -193,6 +200,15 @@ $pytestSkipped = $null
 #   把"2 条失败"**误报成**"少收集了 2 条" —— 判据方向反了（失败 ≠ 少跑）。
 $pytestFailed = $null
 $pytestErrors = $null
+# ⚠ v4（2026-09-24 审计 B5）：pytest 那一步的**全表** nodeid（不止 skip 的那些）。
+#   白名单"幽灵条目"判据靠它：白名单里的节点必须这一跑**真的被收集到**。
+#   为什么必须有：`-UpdateBaseline` 原来把旧白名单**逐字抄回** ⇒ 名单**只增不减**，
+#   用例被删/改名之后名字还在 ⇒ 将来**同名**的用例以非环境原因跳过时，门禁会当
+#   "已知的环境跳过"放过去（永久放水）。实测到的第一条幽灵：
+#   `tests.test_compliance::test_behavior_review_face_collection`（整个文件已被 683c6f6 删除）。
+$allNodeIds = @()
+#: "这条白名单节点还在不在"的判据（在 pytest 那一步按 junit 建好，棘轮与 -UpdateBaseline 共用）。
+$envIdAlive = $null
 $hardError = $null
 
 try {
@@ -282,10 +298,15 @@ try {
       #   ② `classname` 由 **rootdir 相对路径**派生 ⇒ 只在**固定调用方式**（cwd/rootdir 不变）下才稳定。
       #   能站住的只是：**行号位移不再影响判据**（那正是 v2 的问题）。
       $skipNodeIds = @()
+      $allNodeIds = @()
       $junitError = $null
       if (Test-Path $junitPath) {
         try {
           [xml]$jx = Get-Content $junitPath -Raw
+          # ⚠ 全表先拿：junit 的 `//testcase` 涵盖 passed / skipped / failed 三种 ⇒
+          #   "在表里"≈"这一跑真的被收集到"（`-Full` 是整套跑）。幽灵判据靠它。
+          $allNodeIds = @($jx.SelectNodes('//testcase') |
+            ForEach-Object { "$($_.classname)::$($_.name)" } | Sort-Object -Unique)
           $skipNodeIds = @($jx.SelectNodes('//testcase') |
             Where-Object { $_.SelectSingleNode('skipped') -ne $null } |
             ForEach-Object { "$($_.classname)::$($_.name)" } | Sort-Object -Unique)
@@ -297,6 +318,18 @@ try {
       #   而 junit 里只认出 M≠N 条，那判据就不可信 —— 判红并说清差在哪，别"当没事发生"。
       if ($null -eq $junitError -and $skipNodeIds.Count -ne [int]$pytestSkipped) {
         $junitError = "junit 里认出 skipped=$($skipNodeIds.Count) 条，汇总说 skipped=$pytestSkipped 条 ⇒ 判据不可信"
+      }
+      # ⚠ v4（2026-09-24 审计 B5）：白名单节点的"还在不在"判据（棘轮与 -UpdateBaseline 共用）。
+      #   两种都算"在"：① 这一跑收集到了它；② **收集期跳过**的模块也在名单里时，junit 的键是
+      #   `::<模块>`（`classname=""`）⇒ 按模块名兜住，否则一条**合法**的收集期跳过会被误判成幽灵。
+      $collectedModules = @($allNodeIds | Where-Object { $_ -like '::*' } |
+        ForEach-Object { $_.Substring(2) } | Sort-Object -Unique)
+      $envIdAlive = {
+        param([string]$id)
+        if ($allNodeIds -contains $id) { return $true }
+        $mod = ($id -split '::')[0]
+        if ($mod -ne '' -and ($collectedModules -contains $mod)) { return $true }
+        return $false
       }
       $skipReasonsOfStep = @($skipNodeIds)
     }
@@ -349,6 +382,20 @@ try {
       if ($newIds.Count -gt 0) {
         $why += ("出现基线里没有的 skip nodeid（且不在环境白名单）：{0}" -f ($newIds -join ' / '))
       }
+      # ⚠ **v4（2026-09-24 审计 B5）：白名单"只增不减"的反面判据。**
+      #   环境白名单里每一条都必须**这一跑真的被收集到** —— 名字还在、用例已被删/改名 ⇒
+      #   **幽灵条目**，而幽灵正是"永久放水"的载体：将来**同名**的用例以非环境原因跳过时，
+      #   上面那条 `$newIds` 判据会把它当"已知的环境跳过"放过去（判据自己把洞盖上了）。
+      #   拿不到节点表（junit 缺失/解析失败）时**不许判**（那种情况已由 `$junitError` 判红），
+      #   否则会把"表没拿到"误报成"白名单里全是幽灵"。
+      if ($null -eq $envIdAlive -or $allNodeIds.Count -eq 0) {
+        Write-Host "   ⚠ 没拿到 junit 节点表 ⇒ 白名单幽灵判据**这一跑没判**（不是通过；已由 junit 那条判红）" -ForegroundColor Yellow
+      } else {
+        $ghostIds = @($envIds | Where-Object { -not (& $envIdAlive $_) })
+        if ($ghostIds.Count -gt 0) {
+          $why += ("环境白名单里有这一跑**根本没收集到**的节点（幽灵条目 ⇒ 只会放水）：{0}" -f ($ghostIds -join ' / '))
+        }
+      }
       if ($null -ne $junitError) { $why += $junitError }
       if ($why.Count -gt 0) {
         Write-Host ""
@@ -377,14 +424,35 @@ try {
       # ⚠ 键名与既有文件保持一致（`pytest_*` 前缀）——文档里曾写成 `{passed,skipped,total}`，
       #   与真实文件不符（复核 2026-09-19 抓到）。
       # ⚠ v3：键改成 **nodeid**（不再用 `文件:行号`，行号会随编辑位移导致假红）。
+      # ⚠ **v4（2026-09-24 审计 B5）：环境白名单要"剔除已消失的节点"** ——
+      #   原实现把旧白名单**逐字抄回**，于是名单**只增不减**：用例被删/改名之后名字还在，
+      #   将来同名的用例以非环境原因跳过时，门禁会当"已知的环境跳过"放过去（永久放水）。
+      #   剔除的两个前提（缺一不可）：① 这一跑真拿到了节点表；② **pytest 没有失败/错误**
+      #   （有失败/错误时收集可能不全 ⇒ 凭这个剔除会误删合法条目，宁可先不剔、只打印）。
+      $envKept = @()
+      if ($null -ne $base -and $base.environmental_skip_nodeids) {
+        $envKept = @($base.environmental_skip_nodeids)
+      }
+      if ($envKept.Count -gt 0) {
+        if ($null -ne $envIdAlive -and $allNodeIds.Count -gt 0 -and
+            [int]$pytestFailed -eq 0 -and [int]$pytestErrors -eq 0) {
+          $envDropped = @($envKept | Where-Object { -not (& $envIdAlive $_) })
+          if ($envDropped.Count -gt 0) {
+            $envKept = @($envKept | Where-Object { & $envIdAlive $_ })
+            Write-Host ("   ✅ 白名单剔除 {0} 条**这一跑没收集到**的节点（「只增不减」这个洞就是这么来的）：" -f $envDropped.Count) -ForegroundColor Yellow
+            $envDropped | ForEach-Object { Write-Host ("      − " + $_) -ForegroundColor Yellow }
+          }
+        } else {
+          Write-Host "   ⚠ 这一跑有失败/错误（或没拿到节点表）⇒ 白名单**不剔除**（收集可能不全，宁可先不剔）" -ForegroundColor DarkGray
+        }
+      }
       @{ pytest_passed = $pytestPassed; pytest_skipped = $pytestSkipped; pytest_total = $totalRan
          skip_nodeids = $skipNodeIds
-         environmental_skip_nodeids = $(if ($null -ne $base -and $base.environmental_skip_nodeids) {
-             @($base.environmental_skip_nodeids) } else { @() })
+         environmental_skip_nodeids = $envKept
          runLive = [bool]$env:RUN_LIVE
          updatedAt = (Get-Date).ToString('s') } | ConvertTo-Json -Depth 4 |
         Set-Content -Path $baselinePath -Encoding utf8
-      Write-Host ("   基线已更新：总账=" + $totalRan + "（passed=" + $pytestPassed + " skipped=" + $pytestSkipped + "，skip nodeid " + $skipNodeIds.Count + " 个）") -ForegroundColor Yellow
+      Write-Host ("   基线已更新：总账=" + $totalRan + "（passed=" + $pytestPassed + " skipped=" + $pytestSkipped + "，skip nodeid " + $skipNodeIds.Count + " 个，环境白名单 " + $envKept.Count + " 个）") -ForegroundColor Yellow
     }
   } elseif ($Full) {
     # ⛔ **不许在"没跑出数字"时静默放行**（复核 v3 的对抗性反例 M3，2026-09-20 修）：
