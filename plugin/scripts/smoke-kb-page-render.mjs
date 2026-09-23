@@ -299,7 +299,13 @@ export function mount(container, props) {
   /** 「重来一次」的状态（桩：起手 running，读一次之后 done）。 */
   let reingestRunning = false
   const reingestSeen = []
-  /* ── 「补全分类号」（2026-09-22 自愈机制）的桩：形状逐字照 `ccs_backfill.ccs_backfill_status` ── */
+  /* ── 「补全分类号」（2026-09-22 自愈机制）的桩：形状逐字照 `ccs_backfill.ccs_backfill_status` ──
+     ⚠ **2026-09-24（B3b）就地补齐**：B3a（提交 180397f）把「为什么停 / 还剩多少拆开 /
+     补前的回退记录 / 一批最多几篇 / 全部补完的硬上限」都下发出来了，而这里以前**一个都没有**
+     ⇒ 界面那边就算写了也读不到。现在按 `ccs_backfill.py` 的**真实字段名**补齐：
+     `missing_split`（五桶）/ `stop_reason` / `stop_reason_label` / `undo_journal` /
+     `max_batch` / `default_batch` / `max_all` / `scope` / `force` / `truncated` /
+     `hard_capped` / `plan_total` / `pages` / `page`。 */
   let ccsRunning = false
   let ccsSeen = []
   let ccsPolls = 0
@@ -310,6 +316,57 @@ export function mount(container, props) {
     parse_failed: '读不出来（站点答了，但没有分类号或读不出条目）',
     not_applicable: '不适用（这一篇的标准号不像标准号，分类号对它不适用）',
   }
+  /**
+   * 「还剩多少」**拆开**的那五桶（`missing_ccs_split` 的形状）。
+   * ⚠ 五个桶故意给**互不相同的数**（17/11/7/4/3，和 = 42）：界面要是把它们合并成一句
+   *   "部分失败"、或者漏掉某一桶，断言里的数字就**必然对不上**（合并/省略当场红）。
+   */
+  const CCS_SPLIT = { total: 42, never_checked: 17, checked_not_found: 11,
+                      checked_failed: 7, not_applicable: 4, found_but_untagged: 3 }
+  /** 补前那份**精确回退记录**的路径（形状 = `ccs_undo.write_undo_journal()` 的 `path`）。 */
+  const CCS_UNDO = 'D:\\KnowledgeStation\\backups\\ccs-undo-20260924-101500.json'
+  /**
+   * 「为什么停」的**中文说法表**（形状 = `ccs_backfill.STOP_REASON_LABELS`，七个互斥值）。
+   * ⚠ 这张表是**桩可控的**：N26 会把它换掉再挂一次页面 —— 界面若自己写死说法、或者自己
+   *   推断原因，那一条会当场红（这是"不许界面自己推断停的原因"的**反向判据**）。
+   */
+  let ccsStopLabels = {
+    no_candidates: '一开始就没有候选（没有缺分类号的标准）',
+    exhausted: '候选扫完了（这一批没有剩余候选）',
+    limit: '到了这一批的量就停（剩下的下次再补）',
+    hard_cap: '到了硬上限就停（还剩没补的，不是补完了）',
+    selected_done: '勾选的那几篇跑完了（全库还有别的没补）',
+    cancelled: '被按停（已补好的不丢，没轮到的保持原样）',
+    error: '这一批出错了（内部错误，不是补完了）',
+  }
+  /** 这一批为什么停（桩可控；N26 会换成 `hard_cap` 看界面会不会假装"补完了"）。 */
+  let ccsStopReason = 'limit'
+  /** 「哪几层」的中文说法（形状 = `ccs_fetcher.SOURCE_LABELS`）—— 同样桩可控（N28 换掉它）。 */
+  let ccsSourceLabels = { official_api: '官方接口', web_scrape: '网页抓取',
+                          local_table: '本地对照表', seed_file: '本地种子文件' }
+  let ccsSources = ['official_api', 'web_scrape', 'local_table', 'seed_file']
+  /**
+   * 一批最多几篇 / 默认几篇 / 「全部补完」的硬上限（形状 = `MAX_BACKFILL_DOCS` 等三个常量）。
+   * ⚠ 桩可控：第二跑（N27）会换成 137/41/777 这组**别处不可能出现**的数 —— 界面若自己
+   *   写死 200/50/2000，那一条会当场红（"数字来自后端"的判据必须有牙）。
+   */
+  let ccsStubMaxBatch = 200
+  let ccsStubDefaultBatch = 50
+  let ccsStubMaxAll = 2000
+  /** 补前的回退记录路径（`null` = 后端没给 ⇒ 界面必须如实说"读不到"）。 */
+  let ccsUndoJournal = CCS_UNDO
+  /**
+   * 全库还缺几篇（形状 = `ccs_backfill.missing_ccs_count()`）。
+   * ⚠ **一处定义、两处使用**（summary 与 status 都调它）：所以界面上的按钮数字与状态行里
+   *   "现在库里还缺 N 篇"**必然是同一个数** —— 两处不一致就说明界面自己编了一个。
+   * `ccsStubMissing` 是给第二跑用的旋钮（`null` = 用下面这个现算的值）：N28 会把它调到
+   * **比硬上限还大**，好让"一次最多补 X 篇 / 到上限就停"那一句真的露出来。
+   * ⚠ 它与 `CCS_SPLIT.total`（42）在桩里是**两个各自独立的旋钮**（后端那两个数本来是同一个
+   *   现算值）—— 这里只为把两条显示路各打一次，不追求它们相等。
+   */
+  const ccsMissingNow = () => (ccsRunning ? 2 : (ccsPolls >= 2 ? 1 : 3))
+  let ccsStubMissing = null
+  const ccsMissingValue = () => ccsStubMissing ?? ccsMissingNow()
   /** 补全状态的有效载荷（形状 = `ccs_backfill.ccs_backfill_status()`）。 */
   const ccsStatusPayload = () => ({
     running: ccsRunning, total: ccsSeen.length, done: ccsRunning ? 1 : ccsSeen.length,
@@ -318,7 +375,16 @@ export function mount(container, props) {
     applied: 1, skipped: 0, cancel_requested: false, cancelled: false,
     started_at: '2026-09-22 09:00:00',
     finished_at: ccsRunning ? null : '2026-09-22 09:00:05',
-    missing: ccsRunning ? 2 : 1,
+    missing: ccsMissingValue(),
+    missing_split: CCS_SPLIT,
+    /* ⚠ 只在**真跑过一批**（有篇数）时才有路径 —— 与后端一致（没候选时后端不写记录）。 */
+    undo_journal: ccsSeen.length > 0 ? ccsUndoJournal : null,
+    stop_reason: ccsSeen.length > 0 ? ccsStopReason : null,
+    stop_reason_label: ccsSeen.length > 0
+      ? (ccsStopLabels[ccsStopReason] ?? null) : null,
+    scope: 'library', force: false, truncated: true, hard_capped: false,
+    plan_total: 43, pages: 1, page: 1,
+    max_batch: ccsStubMaxBatch, default_batch: ccsStubDefaultBatch, max_all: ccsStubMaxAll,
     results: ccsSeen.map((id) => ({ doc_id: id, standard_no: 'GB/T 90002-2020',
                                     outcome: id === 'doc_in_bad' ? 'not_found' : 'found',
                                     source: 'official_api', keyword_form: 'full',
@@ -660,14 +726,16 @@ export function mount(container, props) {
           形状逐字照 `routes_kb_folders.py` 的 kb_ccs_* 与 `ccs_backfill.ccs_backfill_status` ── */
     if (p === '/api/v1/kb/ccs/summary') {
       return json({ code: 200, status: 'success', data: {
-        missing: ccsRunning ? 2 : 3,
+        missing: ccsMissingValue(),
+        missing_split: CCS_SPLIT,
         by_outcome: { found: 1, not_found: 1, network_failed: 0, parse_failed: 0,
                       not_applicable: 0 },
-        max_batch: 200, default_batch: 50,
+        max_batch: ccsStubMaxBatch, default_batch: ccsStubDefaultBatch,
+        max_all: ccsStubMaxAll,
         outcome_labels: CCS_LABELS,
-        source_labels: { official_api: '官方接口', web_scrape: '网页抓取',
-                         local_table: '本地对照表', seed_file: '本地种子文件' },
-        sources: ['official_api', 'web_scrape', 'local_table', 'seed_file'],
+        source_labels: ccsSourceLabels,
+        sources: ccsSources,
+        stop_reason_labels: ccsStopLabels,
         backfill: ccsStatusPayload(),
       } })
     }
@@ -679,6 +747,8 @@ export function mount(container, props) {
       } })
     }
     if (p === '/api/v1/kb/ccs/backfill' && method === 'POST') {
+      /* `all=true` 是「全部补完」（B3b 新入口）—— 桩照后端回 `pages` / `hard_capped`，
+         并把**收到的请求体**留着（N30 判"点「全部补完」真的发了 all:true"）。 */
       ccsSeen = ['doc_in_rec', 'doc_in_bad']
       ccsRunning = true
       ccsPolls = 0
@@ -686,6 +756,7 @@ export function mount(container, props) {
         queued: ccsSeen.length,
         started: ccsSeen.map((id) => ({ doc_id: id, standard_no: 'GB/T 90002-2020' })),
         skipped: [], plan: { candidates: [], total: 3, already_have: 6037, limit: 50, truncated: true },
+        undo_journal: ccsUndoJournal, pages: 1, hard_capped: false,
       } })
     }
     if (p === '/api/v1/kb/ccs/backfill/status') {
@@ -1670,6 +1741,156 @@ export function mount(container, props) {
     && destOf('doc_in_rec').includes('查无')
     && destOf('doc_in_bad').includes('还没查过分类号'),
     `doc_in_rec=${destOf('doc_in_rec')} / doc_in_bad=${destOf('doc_in_bad')}`)
+
+  /* ══════ N21–N30. B3b（2026-09-24）：界面上那六条（引擎半边 = B3a 提交 180397f）══════════
+     业主点名第①②③条 + 复核点名 LOW-1/LOW-2/LOW-3，全在这里逐条钉住。
+     ⚠ 这一组的判据**全部是"后端说了什么、界面就得说什么"**：桩里那几个数是**故意的**
+       （五桶各不相同的 17/11/7/4/3、批大小 200/50、硬上限 2000），界面若自己写死一份，
+       第二跑（N26–N30）把桩换成另一组数、换掉后端那句话，就会**当场红**。 */
+  const ccsPanel = () => q('.ks-ccs-bar')[0]
+  const ccsLineOf = (sel) => (q(sel)[0]?.textContent ?? '').replace(/\s+/g, ' ').trim()
+  const ccsAllBtn = () => q('.ks-ccs-all-btn')[0]
+  /* ① 补之前那份**精确回退记录**的路径（业主点名第①条）：跑过一批 ⇒ 界面上要能看见它在哪。 */
+  check('N21 补之前那份**回退记录**的路径如实显示（`.ks-ccs-undo`＝「已存回退记录：<路径>」，'
+    + '路径就是后端给的那条 —— 不许编一句"已自动备份"糊过去）',
+    q('.ks-ccs-undo').length === 1
+    && ccsLineOf('.ks-ccs-undo').includes('已存回退记录：')
+    && ccsLineOf('.ks-ccs-undo').includes(CCS_UNDO),
+    `.ks-ccs-undo ${String(q('.ks-ccs-undo').length)} 个 / 文字「${ccsLineOf('.ks-ccs-undo')}」`)
+  /* ② 「还剩多少」**逐桶**说（业主点名第②条）：五桶各一个数，一个都不许省/合并。 */
+  const splitLine = ccsLineOf('.ks-ccs-split')
+  check('N22 「还剩多少」**拆开**成五桶逐桶显示（从没查过 17 / 查过没查到 11 / 查过失败 7 / '
+    + '不适用 4 / 台账说补到了却没标签 3，和 = 42）—— 合并成一句"部分失败"就必然对不上',
+    splitLine.includes('还剩 42 篇没补')
+    && splitLine.includes('从没查过 17 篇')
+    && splitLine.includes('查过没查到 11 篇')
+    && splitLine.includes('查过失败 7 篇')
+    && splitLine.includes('不适用 4 篇')
+    && splitLine.includes('台账说补到了却没标签 3 篇'),
+    `状态行：「${splitLine}」`)
+  /* ③ 「为什么停」照念**后端下发**的那句话（界面不推断原因 —— 复核点名的 LOW-1 同一条纪律）。 */
+  check('N23 「为什么停」＝后端下发的那句（`.ks-ccs-stop` 上就是桩给 `limit` 的那句话）',
+    q('.ks-ccs-stop').length === 1
+    && ccsLineOf('.ks-ccs-stop').includes('为什么停：')
+    && ccsLineOf('.ks-ccs-stop').includes(ccsStopLabels.limit),
+    `「${ccsLineOf('.ks-ccs-stop')}」`)
+  /* ④ 「再按一次」写清一次最多几篇（复核 LOW-2：业主按一下就停、看不出为什么停）。 */
+  const barText = (ccsPanel()?.textContent ?? '').replace(/\s+/g, ' ')
+  check('N24 状态行写清「再按一次接着补」+ 一次默认几篇/最多几篇（数字来自后端 50 / 200）',
+    barText.includes('再按一次接着补')
+    && barText.includes(`一次默认补 ${String(ccsStubDefaultBatch)} 篇`)
+    && barText.includes(`最多 ${String(ccsStubMaxBatch)} 篇`),
+    `状态行：「${barText.slice(0, 220)}」`)
+  /* ⑤ 「全部补完」入口 + **按下之前**就把代价说清（这次补 N 篇 / 一篇一到几秒 / 大概等多久）。 */
+  const allCost = ccsLineOf('.ks-ccs-allcost')
+  const allTitle = ccsAllBtn()?.getAttribute('title') ?? ''
+  const willDo = Math.min(ccsMissingValue(), ccsStubMaxAll)
+  check('N25 「全部补完」入口在，且**按下之前**那一行就把代价写清了（这次补 N 篇 / 一篇一到几秒 / '
+    + '大约要等多久）—— 篇数就是后端现算的 `missing`',
+    ccsAllBtn() !== undefined
+    && (ccsAllBtn().textContent ?? '').trim() === '全部补完'
+    && allCost.includes(`这次会补 ${String(willDo)} 篇`)
+    && allCost.includes('一篇一到几秒')
+    && allCost.includes('大约要等')
+    && allTitle === allCost,
+    `按钮「${(ccsAllBtn()?.textContent ?? '(没有)').trim()}」/ 代价行「${allCost}」/ title「${allTitle}」`)
+  /* ⚠ **上面这几条只证明"界面上有"，不证明"这些字是后端给的"** ⇒ 下面第二跑把桩整个换一组：
+     换掉「为什么停」的说法、换掉四个层名、换掉三个批大小的数，并把"还缺几篇"调到比硬上限大
+     （这样"一次最多补 X 篇 / 到上限就停"那一句才会露出来），再挂一次页面看界面跟不跟着变。
+     换桩之前**先把第一跑那句话留档**（下面拿它判"旧的那句不再出现"）。 */
+  const firstStopLine = ccsLineOf('.ks-ccs-stop')
+  const oldHardCapLabel = ccsStopLabels.hard_cap
+  ccsStopLabels = { ...ccsStopLabels, hard_cap: '桩：后端换过的另一种说法（不是界面自己编的）' }
+  ccsStopReason = 'hard_cap'
+  ccsSourceLabels = { official_api: '桩层甲', web_scrape: '桩层乙',
+                      local_table: '桩层丙', seed_file: '桩层丁' }
+  ccsStubMaxBatch = 137
+  ccsStubDefaultBatch = 41
+  ccsStubMaxAll = 777
+  ccsStubMissing = 900
+  ccsUndoJournal = null            // 后端没给路径 ⇒ 界面必须**如实说读不到**
+  {
+    const c2 = document.createElement('div')
+    document.body.appendChild(c2)
+    const c2root = mount(c2, { useTabInfo, dataSource: 'render-smoke-ccs2' })
+    await flush(); await flush(); await flush()
+    const c2q = (sel) => [...c2.querySelectorAll(sel)]
+    const c2click = async (el) => {
+      el.dispatchEvent(new dom.window.MouseEvent('click', { bubbles: true, cancelable: true }))
+      await flush(); await flush()
+    }
+    await c2click(c2q('.ks-tree-name-inbox')[0])
+    await flush()
+    const c2text = (c2.textContent ?? '').replace(/\s+/g, ' ')
+    const c2line = (sel) => (c2q(sel)[0]?.textContent ?? '').replace(/\s+/g, ' ').trim()
+    /* ⚠ **反向判据**（B3b 任务书 §1.7 点名要的那一条）：界面**不许自己推断停的原因** ——
+       同一个原因代码（`hard_cap`），后端把**说法**换掉、界面就必须跟着换；而且
+       **后端原来那句话一个字都不许再出现**。 */
+    check('N26 **反向**：同一个停因（hard_cap）后端换了说法，界面跟着变（新句在场、**旧句不在场**）'
+      + '⇒ 原因文案来自后端注入的 label，不是界面自己推断/写死的',
+      c2line('.ks-ccs-stop').includes('为什么停：')
+      && c2line('.ks-ccs-stop').includes(ccsStopLabels.hard_cap)
+      && !c2text.includes(oldHardCapLabel),
+      `新句「${c2line('.ks-ccs-stop')}」/ 旧的 hard_cap 说法「${oldHardCapLabel}」还在场=`
+        + `${String(c2text.includes(oldHardCapLabel))}`
+        + `（第一跑时同一行的位置上是「${firstStopLine}」）`)
+    /* ⑤ 硬上限：后端说 `hard_cap` ⇒ 界面照念"停在上限、不是补完了"，并说清还剩多少。
+       ⚠ "还剩多少"那一句在**第一跑**（真跑过一批）的消息里 —— 第二跑没跑过，别拿它判。 */
+    check('N27 撞硬上限时**不假装补完了**：照念后端的 `hard_cap` 说法（第一跑的收尾消息里同时'
+      + '说清"现在还剩多少"，数字 = 后端现算的 `missing`）',
+      c2line('.ks-ccs-stop').includes(ccsStopLabels.hard_cap)
+      && (container.textContent ?? '').includes(`现在库里还缺 ${String(ccsMissingNow())} 篇`),
+      `停因「${c2line('.ks-ccs-stop')}」/ 第一跑消息里含"现在库里还缺 `
+        + `${String(ccsMissingNow())} 篇"=`
+        + `${String((container.textContent ?? '').includes(`现在库里还缺 ${String(ccsMissingNow())} 篇`))}`)
+    /* ④ 批大小 + 硬上限那几个数也跟着后端变（证明不是界面写死的 50/200/2000）。 */
+    check('N28 批大小与硬上限的**数字**也来自后端：换成 41 / 137 / 777（且还缺 900 篇 > 上限 777）'
+      + '之后，界面那两句跟着变（写死 50/200/2000 会红）',
+      c2text.includes(`一次默认补 ${String(ccsStubDefaultBatch)} 篇`)
+      && c2text.includes(`最多 ${String(ccsStubMaxBatch)} 篇`)
+      && c2text.includes(`这次会补 ${String(ccsStubMaxAll)} 篇`)
+      && c2text.includes(`一次最多补 ${String(ccsStubMaxAll)} 篇`)
+      && c2text.includes('到上限就停'),
+      `含「一次默认补 41 篇」=${String(c2text.includes('一次默认补 41 篇'))}`
+        + ` / 含「最多 137 篇」=${String(c2text.includes('最多 137 篇'))}`
+        + ` / 含「这次会补 777 篇」=${String(c2text.includes('这次会补 777 篇'))}`
+        + ` / 含「一次最多补 777 篇」=${String(c2text.includes('一次最多补 777 篇'))}`)
+    /* ⑥ 「哪几层」直接用后端下发的 `sources` + `source_labels`（复核 LOW-3：原来是三层、后端四项）。 */
+    const c2title = c2q('.ks-ccs-btn')[0]?.getAttribute('title') ?? ''
+    check('N29 按钮提示里的"哪几层"直接用后端下发的 `sources` + `source_labels` 拼（换掉层名跟着变；'
+      + '以前界面写死三层、而后端是四项）',
+      c2title.includes('「桩层甲 → 桩层乙 → 桩层丙 → 桩层丁」')
+      && !c2title.includes('官方接口'),
+      `title「${c2title}」`)
+    /* ① 读不到回退记录路径时**如实说读不到**（不许编"已自动备份"）。 */
+    check('N30 后端没给回退记录路径时**如实说读不到**（不是编一句"已自动备份"）',
+      (c2q('.ks-ccs-undo')[0]?.textContent ?? '').includes('已存回退记录：读不到'),
+      `「${c2line('.ks-ccs-undo')}」`)
+    /* ⑤ 「全部补完」真的打 `POST /kb/ccs/backfill` 且带 `all:true`（不是只换个界面文案）。 */
+    const beforeAll = calls.length
+    await c2click(c2q('.ks-ccs-all-btn')[0])
+    await flush(); await flush()
+    const allCall = calls.slice(beforeAll).find((c) => c.url === `${API}/api/v1/kb/ccs/backfill`)
+    check('N31 点「全部补完」⇒ 真的发 `POST /kb/ccs/backfill` 且请求体带 `"all":true`'
+      + '（与上面那个"补一批"的按钮是两件事）',
+      allCall !== undefined && allCall.method === 'POST'
+      && String(allCall.body ?? '').includes('"all":true'),
+      allCall === undefined ? '(没调 backfill)' : `${allCall.method} body=${String(allCall.body)}`)
+    check('N32 「全部补完」按下去之后界面说清"这次要补几篇"（不用"补完了"这种话冒充结果）',
+      (c2q('.ks-ib-msg')[0]?.textContent ?? '').includes('已开始「全部补完」')
+      && (c2q('.ks-ib-msg')[0]?.textContent ?? '').includes(`这次要补 ${String(ccsSeen.length)} 篇`),
+      `消息「${(c2q('.ks-ib-msg')[0]?.textContent ?? '(没有)').replace(/\s+/g, ' ').trim()}」`)
+    c2root.unmount()
+    await flush()
+    c2.remove()
+  }
+  /* 换桩只对**第二跑**有意义 ⇒ 换回来，免得后面的用例（P 段用同一个桩）跟着变。 */
+  ccsStopReason = 'limit'
+  ccsUndoJournal = CCS_UNDO
+  ccsStubMaxBatch = 200
+  ccsStubDefaultBatch = 50
+  ccsStubMaxAll = 2000
+  ccsStubMissing = null
 
   /* ══════════ P. 第 5 步：目录/文件的「建 / 改名 / 挪 / 复制 / 删」+ 批量（2026-09-21）══════════
      这一节判的全是**真行为**：每个动作都必须打到**真接口**（桩把每次请求都记下来），
