@@ -53,7 +53,10 @@ import socket
 import threading
 import time
 from datetime import datetime
+from pathlib import Path
 from typing import Any
+
+from src.core.exceptions import KnowledgeStationError
 
 logger = logging.getLogger("ks.knowledge.ccs_backfill")
 
@@ -112,6 +115,18 @@ def _now() -> str:
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 
+def _db_path(db_path: Any) -> Path | None:
+    """把调用方给的 ``db_path`` 规整成 ``Path``（``None`` 原样返回 = 用配置里的默认库）。
+
+    为什么要有这一步（复核 F3，2026-09-24）：``sqlite_db.get_db_connection`` 会做
+    ``path.parent.mkdir(...)``，传 ``str`` 会在那里 ``AttributeError`` —— 报错点离
+    调用方很远、看不出是参数形状问题。这里当场规整，形状问题不再变成"查库查到一半炸"。
+    """
+    if db_path is None:
+        return None
+    return db_path if isinstance(db_path, Path) else Path(str(db_path))
+
+
 # ─────────────────────────── 候选：算出来，不记名单 ───────────────────────────
 
 #: 「这一篇缺分类号」的判据（**唯一所有者**；``plan`` / ``status`` / ``summary`` 都从这里取）。
@@ -135,6 +150,7 @@ def plan_ccs_backfill(limit: int = 0, doc_ids: list[str] | None = None,
     """
     from src.core.storage.sqlite_db import get_db_connection
 
+    db_path = _db_path(db_path)
     lim = int(limit or 0)
     if lim < 0:
         raise ValueError("limit 不能为负")
@@ -170,7 +186,7 @@ def plan_ccs_backfill(limit: int = 0, doc_ids: list[str] | None = None,
 def missing_ccs_count(db_path: Any = None) -> int:
     """全库还有几篇标准没有分类号（界面显示"待补 N 篇"用；**只读**）。"""
     from src.core.storage.sqlite_db import get_db_connection
-    conn = get_db_connection(db_path)
+    conn = get_db_connection(_db_path(db_path))
     return int(conn.execute(
         f"SELECT COUNT(*) AS n FROM doc_meta d WHERE {_MISSING_CCS_SQL}").fetchone()["n"])
 
@@ -193,7 +209,7 @@ def missing_ccs_split(db_path: Any = None) -> dict:
     解释干净，否则"还剩 N 篇"里就有几篇**谁都说不清去哪了**。
     """
     from src.core.storage.sqlite_db import get_db_connection
-    conn = get_db_connection(db_path)
+    conn = get_db_connection(_db_path(db_path))
     row = conn.execute(
         "SELECT COUNT(*) AS total,"
         " SUM(CASE WHEN s.doc_id IS NULL THEN 1 ELSE 0 END) AS never_checked,"
@@ -241,6 +257,15 @@ def classify_backfill_exception(exc: BaseException) -> dict:
     也不是查无"。
     """
     detail = f"{type(exc).__name__}: {exc}"
+    if isinstance(exc, KnowledgeStationError) and \
+            getattr(exc, "code", "") == "invalid_domain_tags":
+        # 这一篇的 domain_tags 是坏值 ⇒ 写路径**拒改**（怕冲掉别的标签，见 ccs_store）。
+        # 这是**数据形状**的问题，不是代码缺陷、更不是网络问题 ⇒ 单独一句话说清楚。
+        return {"outcome": "parse_failed",
+                "reason": f"这一篇的 domain_tags 不是 JSON 数组，读不出来 —— "
+                          f"**拒绝改它**（怕把别的标签冲掉）：{detail}",
+                "attempt": {"layer": "internal", "keyword_form": None,
+                            "result": "domain_tags_unparsable", "detail": detail}}
     if _is_network_exc(exc):
         return {"outcome": "network_failed",
                 "reason": f"补全时网络层出错（{detail}）",
@@ -281,8 +306,13 @@ def _wait_between(pause_s: float | None, done_n: int, total_n: int) -> None:
         time.sleep(pause_s)
 
 
-def _run(pages: list[list[dict]], pause_s: float | None) -> None:
+def _run(pages: list[list[dict]], pause_s: float | None,
+         db_path: Path | None = None) -> None:
     """后台线程：**分页串行**补每一篇（状态写 ``_PROGRESS`` + ``doc_ccs_state``）。
+
+    ``db_path`` 必须**一路传到底**（复核 F3，2026-09-24）：它以前只喂给 plan 与备份，
+    干活线程却写默认库 ⇒ 回退记录描述的是 X、改动落在 Y（探针 7）。生产路由不传
+    ``db_path``，所以今天不可达，但这是**陷阱**：谁一传就中。
 
     ⚠ **整个函数体包在 try/finally 里**（复核 MED-5，2026-09-24）：循环体外的异常
     （例如 ``_update_counts`` 自己出错）以前会让 ``running`` 与 ``_LOCK`` **永久卡死**
@@ -312,7 +342,7 @@ def _run(pages: list[list[dict]], pause_s: float | None) -> None:
                 try:
                     # 幂等护栏：线程跑起来之后这一篇可能已被别处补上了（重复点、并发端点）
                     from src.core.storage.sqlite_db import get_db_connection
-                    row = get_db_connection().execute(
+                    row = get_db_connection(db_path).execute(
                         "SELECT domain_tags FROM doc_meta WHERE doc_id=?",
                         (doc_id,)).fetchone()
                     if row is None:
@@ -345,15 +375,17 @@ def _run(pages: list[list[dict]], pause_s: float | None) -> None:
                                 "keyword_form": got.get("keyword_form"),
                                 "matched_no": got.get("matched_no"),
                                 "code": got.get("code"), "sub": got.get("sub"),
-                                "reason": rec["reason"], "attempts": got.get("attempts")})
+                                "reason": rec["reason"], "attempts": got.get("attempts")},
+                                db_path=db_path)
                         else:
-                            res = ccs_store.apply_ccs_tag(doc_id, tag, result=got)
+                            res = ccs_store.apply_ccs_tag(doc_id, tag, result=got,
+                                                         db_path=db_path)
                             rec["tag"] = tag
                             rec["applied"] = res["applied"]
                             rec["replaced"] = res.get("replaced")
                             _PROGRESS["applied"] += int(bool(res["applied"]))
                     else:
-                        ccs_store.record_ccs_lookup(doc_id, got)
+                        ccs_store.record_ccs_lookup(doc_id, got, db_path=db_path)
                 except Exception as exc:                     # noqa: BLE001
                     # **按异常类型如实归类**（复核 MED-1）：只有传输层的事故才算网络失败，
                     # 代码缺陷落 parse_failed 桶、真话写进 reason 与 attempts（见
@@ -367,7 +399,7 @@ def _run(pages: list[list[dict]], pause_s: float | None) -> None:
                     try:
                         ccs_store.record_ccs_lookup(doc_id, {
                             "outcome": cls["outcome"], "reason": cls["reason"],
-                            "attempts": [cls["attempt"]]})
+                            "attempts": [cls["attempt"]]}, db_path=db_path)
                     except Exception:                        # noqa: BLE001
                         logger.warning("台账也写不进去 doc=%s", doc_id, exc_info=True)
                 _PROGRESS["results"].append(rec)
@@ -400,15 +432,21 @@ def _decide_stop_reason() -> str:
     优先级 = 谁更"具体"谁说话：``error``（异常路径自己设，不走这里）
     > ``cancelled``（有人按了停）> ``hard_cap``（"全部补完"撞了硬上限）
     > ``limit``（这一批到量）> ``selected_done``（勾选的跑完）> ``exhausted``。
+
+    ⚠ **``limit`` 必须排在 ``selected_done`` 前面**（复核 F1，2026-09-24 改）：
+    路由**永远**把默认 ``limit=50`` 也一起传给勾选批次（``routes_kb_folders.py``），
+    所以"勾了 60 篇、`limit=50`"会只跑 50 篇、剩 10 篇一行没动 —— 那一刻如果先判
+    ``scope=='selected'``，状态就会说"勾选的那几篇跑完了"（**界面说假话**）。
+    顺序写反过一次，这一条的判据（真值表 + 端到端用例）就是那次复核留下的。
     """
     if _PROGRESS.get("cancelled"):
         return STOP_CANCELLED
     if _PROGRESS.get("hard_capped"):
         return STOP_HARD_CAP
+    if _PROGRESS.get("truncated"):          # ← 先看"这一批是不是被量截过"
+        return STOP_LIMIT
     if _PROGRESS.get("scope") == "selected":
         return STOP_SELECTED_DONE
-    if _PROGRESS.get("truncated"):
-        return STOP_LIMIT
     return STOP_EXHAUSTED
 
 
@@ -462,9 +500,13 @@ def start_ccs_backfill(doc_ids: list[str] | None = None,
 
     返回 ``{queued, started, skipped, plan, undo_journal, pages, hard_capped}``；
     已有批次在跑 ⇒ ``RuntimeError("ccs_backfill_busy")``（路由映射成 409）。
+
+    ``db_path``（可选，测试/多库场景用）：**整条链都用它** —— 计划、回退记录、干活线程
+    的读写（复核 F3，2026-09-24 修：以前干活线程写的是默认库，回退记录却描述 ``db_path``）。
     """
     if all_docs and doc_ids:
         raise ValueError("「全部补完」与「只补勾选的这几篇」不能同时用")
+    db_path = _db_path(db_path)
     if not _LOCK.acquire(blocking=False):
         raise RuntimeError("ccs_backfill_busy")
     try:
@@ -498,7 +540,7 @@ def start_ccs_backfill(doc_ids: list[str] | None = None,
             return {"queued": 0, "started": [], "skipped": [], "plan": plan,
                     "undo_journal": None, "pages": 0, "hard_capped": False}
         _PROGRESS["pages"] = len(pages)
-        threading.Thread(target=_run, args=(pages, pause_s), daemon=True,
+        threading.Thread(target=_run, args=(pages, pause_s, db_path), daemon=True,
                          name="ks-ccs-backfill").start()
         return {"queued": len(items),
                 "started": [{"doc_id": c["doc_id"], "standard_no": c["standard_no"]}
@@ -543,6 +585,7 @@ def ccs_backfill_status(db_path: Any = None) -> dict:
     snap["max_batch"] = MAX_BACKFILL_DOCS
     snap["default_batch"] = DEFAULT_BACKFILL_DOCS
     snap["max_all"] = MAX_BACKFILL_ALL
+    db_path = _db_path(db_path)
     try:
         snap["missing"] = missing_ccs_count(db_path)
         snap["missing_split"] = missing_ccs_split(db_path)

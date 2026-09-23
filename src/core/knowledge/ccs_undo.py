@@ -7,9 +7,12 @@
 ⇒ 2.2 GB × N，把数据盘撑爆是迟早的事。而这件事真正会改的东西**极小**：
 只在 ``doc_meta.domain_tags`` 里加/换一条 ``CCS:…``，再更新 ``doc_ccs_state`` 的那一行。
 
-⇒ 所以这里是**精确回退记录**：只记**这一批会改的那几篇**的改前样子（``domain_tags``
-原文 + ``doc_ccs_state`` 整行，没有就记 null）。业主的原话是"补之前自动备份一次，
+⇒ 所以这里是**精确回退记录**：只记**这一批会改的那几篇**的改前样子（``domain_tags`` 原文 +
+``updated_at`` 原文 + ``doc_ccs_state`` 整行，没有就记 null）。业主的原话是"补之前自动备份一次，
 留回退说明" —— 精确记录满足它，且不制造 ×N 的 2.2 GB。
+
+⚠ ``updated_at`` 是**第三处**要退的东西（复核 F2，2026-09-24 补）：写标签那一步的 UPDATE
+带 ``datetime('now')``，所以只退 ``domain_tags`` 与台账**不够**"逐字回到改前"。
 
 ════════ 三条纪律 ════════
 
@@ -59,6 +62,11 @@ def _err(msg: str, code: str) -> KnowledgeStationError:
     return KnowledgeStationError(msg, code=code)
 
 
+#: 哨兵：记录里**没有这一项**（老格式）—— 与"这一项的值是 None"必须区分开。
+#: 用途见 ``updated_at``（老记录没有它 ⇒ 回退时**不碰**那一列，而不是写个 NULL 上去）。
+_UNSET: Any = object()
+
+
 def journal_dir() -> Path:
     """回退记录与快照**同一个备份目录**（唯一所有者：``backup._backups_dir()``）。
 
@@ -98,7 +106,7 @@ def write_undo_journal(items: list[dict], *, scope: str = "library",
     records: list[dict] = []
     for it in items:
         doc_id = str(it.get("doc_id") or "")
-        row = conn.execute("SELECT domain_tags FROM doc_meta WHERE doc_id=?",
+        row = conn.execute("SELECT domain_tags, updated_at FROM doc_meta WHERE doc_id=?",
                            (doc_id,)).fetchone()
         st = conn.execute("SELECT * FROM doc_ccs_state WHERE doc_id=?",
                           (doc_id,)).fetchone()
@@ -109,6 +117,12 @@ def write_undo_journal(items: list[dict], *, scope: str = "library",
             # 回退时跳过它（不重建一篇已经被删的文档 —— 那是另一件事，得有另一条指令）。
             "existed": row is not None,
             "domain_tags": (row["domain_tags"] if row is not None else None),
+            # ⚠ ``updated_at`` 也要记（复核 F2，2026-09-24）：写标签那一步会把它刷成
+            # "现在"（``ccs_store.apply_ccs_tag`` 的 UPDATE 带 ``datetime('now')``），
+            # 不记它就做不到"逐字回到改前"（复核现场：改前 2001-01-01 00:00:00，
+            # 补后与回退后都是 2026-09-23 17:45:50）。**别拿"某次探针里它没变"当反证**
+            # —— 那只是同秒巧合，不是"这一列不会变"。
+            "updated_at": (row["updated_at"] if row is not None else None),
             "ccs_state": (dict(st) if st is not None else None),
         })
     created = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -182,7 +196,7 @@ def _state_key(state: dict | None) -> dict:
 
 def revert_ccs_backfill_journal(journal_path: str | Path | None = None,
                                 db_path: Any = None) -> dict:
-    """按回退记录把 ``domain_tags`` 与 ``doc_ccs_state`` **恢复到改前**（一个事务）。
+    """按回退记录把 ``domain_tags``、``updated_at`` 与 ``doc_ccs_state`` **恢复到改前**（一个事务）。
 
     ``journal_path`` 省略 = 备份目录里**最近那一份**（:func:`latest_journal_path`）。
 
@@ -194,6 +208,9 @@ def revert_ccs_backfill_journal(journal_path: str | Path | None = None,
 
     * 已经一样 ⇒ 记为 ``skipped``（理由"已经是改前的样子"）—— 所以**回退两次是安全的**；
     * ``domain_tags`` 不一样 ⇒ 把记录里的**原文**写回；
+    * ``updated_at`` 不一样 ⇒ 把记录里的原文写回（复核 F2：写标签那一步会刷这一列，
+      不把它退回去就**不是**"逐字回到改前"）。老格式的记录没有这一项 ⇒ **不碰它**
+      （``updated_at`` 键缺席时跳过，宁可不退也不写一个猜的值）；
     * ``doc_ccs_state`` 不一样 ⇒ 改前没有这一行就**删掉**，改前有就整行写回；
     * 改前库里已经没有这一篇（``existed=False``）或现在被删了 ⇒ ``skipped`` 并写明理由
       （**不重建**一篇被删掉的文档 —— 那是另一件事）。
@@ -212,7 +229,7 @@ def revert_ccs_backfill_journal(journal_path: str | Path | None = None,
                 skipped.append({"doc_id": doc_id,
                                 "reason": "改前库里就已经没有这一篇（不重建被删的文档）"})
                 continue
-            cur = conn.execute("SELECT domain_tags FROM doc_meta WHERE doc_id=?",
+            cur = conn.execute("SELECT domain_tags, updated_at FROM doc_meta WHERE doc_id=?",
                                (doc_id,)).fetchone()
             if cur is None:
                 skipped.append({"doc_id": doc_id,
@@ -225,7 +242,10 @@ def revert_ccs_backfill_journal(journal_path: str | Path | None = None,
             cur_state = dict(cur_state_row) if cur_state_row is not None else None
             tags_same = (cur["domain_tags"] == pre_tags)
             state_same = (_state_key(cur_state) == _state_key(pre_state))
-            if tags_same and state_same:
+            # 老格式记录没有 updated_at 这一项 ⇒ 不碰那一列（pre_updated 为 _UNSET）
+            pre_updated = rec["updated_at"] if "updated_at" in rec else _UNSET
+            updated_same = (pre_updated is _UNSET) or (cur["updated_at"] == pre_updated)
+            if tags_same and state_same and updated_same:
                 skipped.append({"doc_id": doc_id, "reason": "已经是改前的样子（不重复动）"})
                 continue
             did: list[str] = []
@@ -233,6 +253,10 @@ def revert_ccs_backfill_journal(journal_path: str | Path | None = None,
                 conn.execute("UPDATE doc_meta SET domain_tags=? WHERE doc_id=?",
                              (pre_tags, doc_id))
                 did.append("domain_tags")
+            if not updated_same:
+                conn.execute("UPDATE doc_meta SET updated_at=? WHERE doc_id=?",
+                             (pre_updated, doc_id))
+                did.append("updated_at")
             if not state_same:
                 if pre_state is None:
                     conn.execute("DELETE FROM doc_ccs_state WHERE doc_id=?", (doc_id,))

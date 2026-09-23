@@ -60,7 +60,11 @@ def ccs_tag_of(domain_tags: Any) -> str | None:
 
 
 def _as_list(domain_tags: Any) -> list[Any]:
-    """``domain_tags`` 统一成 list（库里是 JSON 字符串；已是 list 就用它）。"""
+    """``domain_tags`` 统一成 list（库里是 JSON 字符串；已是 list 就用它）。
+
+    ⚠ **读路径**：坏值当空（解析不了就当"没有标签"）—— 界面/台账要照常显示，
+    读的时候不许抛。**写路径另用** :func:`_as_list_for_write`。
+    """
     if isinstance(domain_tags, list):
         return list(domain_tags)
     if not domain_tags:
@@ -70,6 +74,33 @@ def _as_list(domain_tags: Any) -> list[Any]:
     except (TypeError, ValueError):
         return []
     return got if isinstance(got, list) else []
+
+
+def _as_list_for_write(domain_tags: Any) -> list[Any]:
+    """**写路径**的严格版：非空却不是 JSON 数组 ⇒ **抛，拒改**（复核 F4，2026-09-24）。
+
+    旧行为（读路径现在仍然如此）是"坏值当空"：``domain_tags='消防、通用'`` 这种非 JSON 的
+    写法会被当成 ``[]`` ⇒ 写 CCS 标签时**把别的标签整片冲掉**（复核实测：``'消防、通用'``
+    → ``'["CCS:K41 变压器"]'``；真库当前 0 命中，所以这是**潜伏口**而不是现患）。
+
+    为什么会有非 JSON 的值：``domain_tags`` 是后来加列 + 历史迁移/外部工具都可能写别的写法。
+    ⇒ 写的时候**宁可拒改、不许猜** —— 猜错一次是**不可逆**的标签丢失。
+    """
+    if isinstance(domain_tags, list):
+        return list(domain_tags)
+    if not domain_tags:
+        return []
+    try:
+        got = json.loads(domain_tags)
+    except (TypeError, ValueError) as exc:
+        raise _err(f"domain_tags 不是 JSON 数组（读不出来）：{str(domain_tags)[:80]!r}"
+                   " —— 拒绝改它（怕把别的标签冲掉）",
+                   "invalid_domain_tags") from exc
+    if not isinstance(got, list):
+        raise _err(f"domain_tags 不是 JSON 数组（是 {type(got).__name__}）："
+                   f"{str(domain_tags)[:80]!r} —— 拒绝改它（怕把别的标签冲掉）",
+                   "invalid_domain_tags")
+    return got
 
 
 def record_ccs_lookup(doc_id: str, result: dict,
@@ -134,7 +165,7 @@ def apply_ccs_tag(doc_id: str, tag: str, result: dict | None = None,
                            (doc_id,)).fetchone()
         if row is None:
             raise _err(f"文档不存在: {doc_id}", "doc_not_found")
-        tags = _as_list(row["domain_tags"])
+        tags = _as_list_for_write(row["domain_tags"])
         replaced: str | None = None
         positions = [i for i, t in enumerate(tags)
                      if isinstance(t, str) and t.startswith("CCS:")]
