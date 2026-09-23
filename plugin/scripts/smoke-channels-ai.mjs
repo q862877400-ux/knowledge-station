@@ -19,6 +19,8 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 
 import { build } from 'esbuild'
 
+import { ksClientPrimitivesAlias } from './lib/ks-primitives-stub.mjs'
+
 const here = dirname(fileURLToPath(import.meta.url))
 const pluginRoot = resolve(here, '..')
 
@@ -64,12 +66,16 @@ try {
 const tmp = await mkdtemp(join(pluginRoot, 'node_modules', '.tmp-channels-ai-'))
 try {
   const entry = join(tmp, 'entry.mjs')
+  // 宿主 ui-primitives 的桩（从源码派生；面板现在引图标件 ⇒ 必须挂，否则打包无解）。
+  const primStubDir = await mkdtemp(join(tmpdir(), 'ks-channels-prim-'))
+  const primitivesAlias = ksClientPrimitivesAlias(pluginRoot, primStubDir)
   await writeFile(entry,
     `export * from ${JSON.stringify(join(pluginRoot, 'client', 'KsChannelsPanel.tsx'))}\n`, 'utf8')
   const out = join(tmp, 'bundle.mjs')
   await build({
     entryPoints: [entry], bundle: true, outfile: out, format: 'esm', platform: 'node',
     external: ['react', 'react-dom', 'react-dom/server', 'react/jsx-runtime'],
+    alias: { ...primitivesAlias },
     loader: { '.css': 'empty' }, jsx: 'automatic', logLevel: 'silent',
   })
   const mod = await import(pathToFileURL(out).href)

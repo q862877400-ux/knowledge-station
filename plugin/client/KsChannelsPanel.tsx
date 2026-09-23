@@ -30,6 +30,7 @@ import * as React from 'react'
 import { ensureKsStyles } from './ksGuideStyles'
 import { KsCrumb, KsListHead, type KbListCol } from './kbListUi'
 import { Fragment, useCallback, useEffect, useState } from 'react'
+import { IconChevronRightOutline14, IconFolderOpenOutline16 } from '@deepseek-ai/dsh-client-ui-primitives'
 
 import {
   createChannel,
@@ -308,6 +309,9 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
   const viewRows = q.trim() !== ''
     ? filterChannels(rows, q)
     : (groupRowsByOrgKind(rows).find((g) => g.key === orgSel)?.rows ?? [])
+  // 面包屑计数：树层=总条数（修「0 条」bug：orgSel=null 时 find 空组）；组/搜索=viewRows。
+  const crumbN = q.trim() !== '' ? viewRows.length
+    : orgSel === null ? rows.length : viewRows.length
 
   /** 人工维护动作的统一外壳：一次只允许一个动（`mutating`）、错误**如实显示**原文。
    *  ⚠ 不把引擎的错误码翻译掉：`illegal_channel_field` / `channel_name_required` /
@@ -421,12 +425,6 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
           title="人工加一条渠道：引擎侧已落（R6d），界面侧这一步是 R6f">
           {adding ? '× 取消新增' : '＋ 新增渠道'}
         </button>
-        <input className="ks-search" value={q} onChange={(e) => setQ(e.target.value)}
-          placeholder="搜网站名字 / 网站域名…" aria-label="搜渠道（名字或域名）"
-          style={{ ...$select, minWidth: 200 }} />
-        <span style={{ color: FAINT }}>
-          {q.trim() !== '' ? `命中 ${String(viewRows.length)} 条` : ''}
-        </span>
         <button type="button" data-ks-channels-ai-fix onClick={() => {
           const prompt = buildChannelFixPrompt(data?.items ?? rows, data?.summary)
           void copyTextToClipboard(prompt).then((ok) => {
@@ -438,6 +436,11 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
           title="生成一段诊断提示词并复制：粘到对话框发出去，AI 会诊断每条失效渠道为什么坏、怎么修、怎么长期有效、要你帮什么、用什么工具修">
           🤖 AI 一键解决
         </button>
+        <input className="ks-search" value={q} onChange={(e) => setQ(e.target.value)}
+          placeholder="搜网站名字 / 网站域名…" aria-label="搜渠道（名字或域名）" />
+        <span style={{ color: FAINT }}>
+          {q.trim() !== '' ? `命中 ${String(viewRows.length)} 条` : ''}
+        </span>
       </div>
 
       {/* 人工新增：只收「人能知道」的三样（名称/链接/备注）。
@@ -493,24 +496,37 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
                 ? [{ name: '渠道台账' }]
                 : [{ name: '渠道台账', onGo: () => setOrgSel(null) },
                    { name: ORG_KIND_LABEL[orgSel] ?? orgSel }]}
-            n={viewRows.length} />
+            n={crumbN} />
           {orgSel === null && q.trim() === '' ? (
             <div className="ks-list ks-list-dirs ks-dirs">
               <KsListHead cols={DIR_COLS} />
               {groupRowsByOrgKind(rows).map((g) => (
-                <button key={g.key} type="button" className="ks-item ks-dir-row"
-                  onClick={() => setOrgSel(g.key)}>
-                  <span className="ks-cell ks-col-dpick" />
-                  <span className="ks-cell ks-col-dname">
-                    <span className="ks-dir-open">
-                      <span aria-hidden="true" />
-                      <span className="ks-dir-name">{g.label}</span>
-                      <span className="ks-dir-go" aria-hidden="true">›</span>
-                    </span>
-                  </span>
-                  <span className="ks-cell ks-col-dcount">{g.rows.length} 条</span>
-                  <span className="ks-cell ks-col-dmore" />
-                </button>
+                /* 逐格照抄知识库 dirCell 真身：进入钮=真 button + 文件夹图标 + 图标箭头、
+                   条数=ks-kb-badge 胶囊、行=div 整行可点。勾选框/⋮ 未搬：分组没有对应动作，
+                   摆上去就是假按钮（红线）——要它们先定动作（如批量停用）。 */
+                <div key={g.key} className="ks-item ks-dir-row"
+                  onClick={(e) => {
+                    const t = e.target as (HTMLElement | null)
+                    if (t === null || typeof t.closest !== 'function') return
+                    if (t.closest('button,input,a,[role=menuitem],[role=menu]') !== null) return
+                    setOrgSel(g.key)
+                  }}>
+                  <div className="ks-cell ks-col-dpick" />
+                  <div className="ks-cell ks-col-dname">
+                    <button type="button" className="ks-dir-open"
+                      title={`进入「${g.label}」（共 ${String(g.rows.length)} 条）`}
+                      aria-label={`进入分类「${g.label}」，共 ${String(g.rows.length)} 条`}
+                      onClick={() => setOrgSel(g.key)}>
+                      <span className="ks-fileico" title="分类"><IconFolderOpenOutline16 /></span>
+                      <span className="ks-dir-name" title={g.label}>{g.label}</span>
+                      <span className="ks-dir-go"><IconChevronRightOutline14 /></span>
+                    </button>
+                  </div>
+                  <div className="ks-cell ks-col-dcount">
+                    <span className="ks-kb-badge">{g.rows.length} 条</span>
+                  </div>
+                  <div className="ks-cell ks-col-dmore" />
+                </div>
               ))}
             </div>
           ) : (
