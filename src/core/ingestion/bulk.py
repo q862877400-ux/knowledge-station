@@ -133,7 +133,9 @@ def _save_ckpt(batch_id: str, ckpt: dict, status: str | None = None,
     现状态迁入，SQL 侧原子判。根治两类复活：① ``fast_scan`` 起手写 ``'running'`` 与
     ``abort_batch`` 的终态写对撞（检查通过后、写出前被中止 ⇒ 中止被顶回 ``running``）；
     ② 工作线程的收尾写把用户中止的 ``failed(aborted_by_user)`` 顶成 ``done``。
-    状态未迁成时 checkpoint 照落（进度不丢、状态不许复活）。"""
+    状态未迁成时 checkpoint **一并不落**（单条条件 UPDATE：状态与 checkpoint 同生共死，
+    口径=「没留痕=没做过」）。⚠ 复核点名就地更正（2026-09-23）：原句写「checkpoint 照落」
+    与实现（:144-153 单条条件 UPDATE）相反——错话留痕，行为以实现为准。"""
     with write_transaction() as txn:
         cond = ""
         args: tuple = ()

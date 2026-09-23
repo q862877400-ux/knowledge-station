@@ -57,11 +57,14 @@ def set_test_case(channel_id: str, sample_url: str, expect_no: str,
                     (channel_id,)).fetchone() is None:
         return None
     with write_transaction() as txn:
+        # 复核点名修（2026-09-23）：配/改样本 = 重新起跑的声明 ⇒ **清掉旧样本的留痕**
+        # （原样会把旧样本的 ok/fail 挂到新样本头上=留痕误导，真数据口径的真缺陷）。
         txn.execute(
             "INSERT INTO channel_test_case(channel_id, sample_url, expect_no, note)"
             " VALUES (?,?,?,?) ON CONFLICT(channel_id) DO UPDATE SET"
             " sample_url=excluded.sample_url, expect_no=excluded.expect_no,"
-            " note=excluded.note, updated_at=datetime('now')",
+            " note=excluded.note, updated_at=datetime('now'),"
+            " last_result=NULL, last_detail=NULL, last_run_at=NULL",
             (channel_id, sample_url, expect_no, note))
     return get_test_case(channel_id)
 

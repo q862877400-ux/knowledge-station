@@ -63,8 +63,9 @@ def register(app, json_error):
     # 单位性质粗分类回填（2026-09-22）：只填 NULL、幂等、人工标的不覆盖。
     try:
         cr.backfill_org_kind()
-    except Exception:  # noqa: BLE001 —— 回填失败不挡路由注册（面板照常开，未分类可人工标）
-        pass
+    except Exception as exc:  # noqa: BLE001 —— 回填失败不挡路由注册（面板照常开，未分类可人工标）
+        # 复核点名修（2026-09-23）：原来是 except: pass 零留痕=静默失败；现在如实报一行。
+        print(f"[ks] org_kind 回填失败（不挡路由注册，可人工标分类）：{exc!r}")
     @app.get("/api/v1/channels")
     def list_channels(category: str | None = None, wiring: str | None = None,
                       state: str | None = None, verification: str | None = None,
