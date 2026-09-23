@@ -212,7 +212,7 @@ def test_fast_scan_no_cap_scans_all_450(db, tmp_path, monkeypatch):
     gran = {"n": 0}
     real_save = bulk._save_ckpt
 
-    def spy_save(batch_id, ckpt, status=None, total=None):
+    def spy_save(batch_id, ckpt, status=None, total=None, only_if_status_in=None):
         if status is None:
             gran["n"] += 1  # 批粒度 checkpoint（不带 status 的落盘）
         return real_save(batch_id, ckpt, status=status, total=total)

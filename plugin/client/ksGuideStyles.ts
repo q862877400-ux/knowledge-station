@@ -494,8 +494,7 @@ export const KS_STYLES = `
 .ks-item .ks-chan-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ks-item .ks-chan-open{flex:none;margin-left:var(--ks-space-2)}
 .ks-item .ks-col-tags{display:flex;flex-wrap:wrap;gap:4px;align-items:center;min-width:0;overflow:hidden}
-.ks-tag-chip{display:inline-block;padding:0 6px;border:var(--ks-stroke) solid var(--dsw-alias-border-l2);
-  border-radius:8px;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary)}
+/* （.ks-tag-chip 死样式已删：标签列/改备注随 NOT-DOING #17 撤出用户面，2026-09-22） */
 .ks-item .ks-col-cstate,.ks-item .ks-col-cdate{display:flex;align-items:center;min-width:0}
 .ks-item .ks-col-cdate{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary)}
 .ks-item .ks-col-cissue{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

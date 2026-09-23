@@ -34024,8 +34024,7 @@ var KS_STYLES = `
 .ks-item .ks-chan-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ks-item .ks-chan-open{flex:none;margin-left:var(--ks-space-2)}
 .ks-item .ks-col-tags{display:flex;flex-wrap:wrap;gap:4px;align-items:center;min-width:0;overflow:hidden}
-.ks-tag-chip{display:inline-block;padding:0 6px;border:var(--ks-stroke) solid var(--dsw-alias-border-l2);
-  border-radius:8px;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary)}
+/* \uFF08.ks-tag-chip \u6B7B\u6837\u5F0F\u5DF2\u5220\uFF1A\u6807\u7B7E\u5217/\u6539\u5907\u6CE8\u968F NOT-DOING #17 \u64A4\u51FA\u7528\u6237\u9762\uFF0C2026-09-22\uFF09 */
 .ks-item .ks-col-cstate,.ks-item .ks-col-cdate{display:flex;align-items:center;min-width:0}
 .ks-item .ks-col-cdate{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary)}
 .ks-item .ks-col-cissue{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -40680,7 +40679,7 @@ function KsKnowledgePage({ useTabInfo }) {
                         style: {
                           marginLeft: "auto",
                           display: "inline-flex",
-                          gap: 6,
+                          gap: 8,
                           fontSize: 11,
                           whiteSpace: "nowrap",
                           color: "var(--dsw-alias-label-secondary)"

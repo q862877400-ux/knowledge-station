@@ -3214,7 +3214,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                               <span className="ks-dir-name" title={child.name}>{child.name}</span>
                               <span className="ks-dir-go"><IconChevronRightOutline14 /></span>
                             </button>
-                            <span style={{ marginLeft: 'auto', display: 'inline-flex', gap: 6,
+                            <span style={{ marginLeft: 'auto', display: 'inline-flex', gap: 8,
                               fontSize: 11, whiteSpace: 'nowrap', color: 'var(--dsw-alias-label-secondary)' }}
                               title={`「${child.name}」这一棵里：🟢 现行 ${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).green} · 🟡 即将实施 ${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).yellow} · 🔴 废止/被代 ${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).red} · ⚪ 未知 ${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).gray}`}>
                               {(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).red ? `🔴${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).red} ` : ''}
