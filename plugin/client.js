@@ -2712,7 +2712,7 @@ __export(entry_exports, {
   inject: () => inject
 });
 module.exports = __toCommonJS(entry_exports);
-var import_react13 = require("react");
+var import_react12 = require("react");
 var import_client = require("react-dom/client");
 var import_dsh_client_ui_primitives6 = require("@deepseek-ai/dsh-client-ui-primitives");
 
@@ -30893,10 +30893,10 @@ function GroupList(props) {
 }
 function GroupRow(props) {
   const { group, onJump } = props;
-  const [open, setOpen] = (0, import_react2.useState)(false);
+  const [open, setOpen2] = (0, import_react2.useState)(false);
   const total = group.docs.length + group.groups.reduce((s, g) => s + g.docs.length, 0);
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...$row2, fontSize: 11.5, fontWeight: 600, color: "var(--dsw-alias-label-secondary, #666)" }, onClick: () => setOpen((s) => !s), children: [
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { style: { ...$row2, fontSize: 11.5, fontWeight: 600, color: "var(--dsw-alias-label-secondary, #666)" }, onClick: () => setOpen2((s) => !s), children: [
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { style: $caret2, children: total > 0 ? open ? "\u25BE" : "\u25B8" : "\xB7" }),
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { children: group.name }),
       /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { style: { fontWeight: 400, color: "var(--dsw-alias-label-tertiary, #999)", fontSize: 10 }, children: [
@@ -30914,7 +30914,7 @@ function GroupRow(props) {
 }
 function DocLeaf(props) {
   const { doc, onJump } = props;
-  const [open, setOpen] = (0, import_react2.useState)(false);
+  const [open, setOpen2] = (0, import_react2.useState)(false);
   const label = doc.standard_no ?? doc.standard_name ?? doc.doc_id;
   const struck = doc.legal_status !== null && doc.legal_status !== "effective";
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { children: [
@@ -30937,7 +30937,7 @@ function DocLeaf(props) {
         "span",
         {
           style: { marginLeft: 8, cursor: "pointer", color: "var(--dsw-alias-link, #1565c0)", fontSize: 10.5 },
-          onClick: () => setOpen((s) => !s),
+          onClick: () => setOpen2((s) => !s),
           title: "\u5C55\u5F00\u6761\u6B3E\u6536\u85CF",
           children: [
             open ? "\u25BE" : "\u25B8",
@@ -33549,7 +33549,6 @@ function KsEvidenceBody(props) {
 }
 
 // client/KsKnowledgeGuide.tsx
-var import_react5 = require("react");
 var import_dsh_client_ui_primitives = require("@deepseek-ai/dsh-client-ui-primitives");
 
 // client/ksGuideStyles.ts
@@ -34019,6 +34018,18 @@ var KS_STYLES = `
    \u6E20\u9053\u6587\u4EF6\u5C42\u81EA\u5DF1\u7684\u4E00\u4EF6\u4E8B\uFF1A\u4E00\u6761**\u81EA\u5DF1\u7684** --ks-cols\uFF08\u6E20\u9053 / \u6807\u7B7E / \u80FD\u4E0D\u80FD\u7528 / \u4E0A\u6B21\u597D\u7528 /
    \u95EE\u9898 / \u64CD\u4F5C = 6 \u8F68\uFF09\u3002\u5217\u5BBD\u552F\u4E00\u6240\u6709\u8005\u4ECD\u662F --ks-cols\uFF0C\u8C01\u4E5F\u4E0D\u8BB8\u518D\u5199\u7B2C\u4E8C\u5957\u3002 */
 .ks-list-chans{--ks-cols:minmax(0,1.6fr) 84px 96px minmax(0,1fr) 200px}
+/* \u6279E4\uFF08\u4E1A\u4E3B 2026-09-23\uFF09\uFF1A\u9875\u9762\u9876\u6761\u300C\u6587\u4EF6\u5939\u51F8\u51FA\u6807\u7B7E\u300D\u56DB\u5165\u53E3\u3002\u9009\u4E2D\u90A3\u5F20=\u88AB\u62BD\u51FA\u6765\u7684\u820C\uFF1A
+   \u4E0A\u6D6E 2px\u3001\u6E10\u53D8\u5E95\u3001\u6295\u5F71\u3001\u4E0B\u7F18\u4E0E\u5185\u5BB9\u533A\u8FDE\u901A\uFF1B\u5176\u4F59\u6807\u7B7E\u538B\u5728\u6761\u4E0A\uFF08\u5BA1\u7F8E\u6848\u6309\u4E1A\u4E3B\u6388\u6743\u81EA\u5B9A\uFF09\u3002 */
+.ks-tabfolder-strip{display:flex;gap:4px;align-items:flex-end;padding:6px var(--ks-page-pad-x) 0;
+  border-bottom:var(--ks-stroke) solid var(--dsw-alias-border-l2)}
+.ks-tabfolder{border:var(--ks-stroke) solid var(--dsw-alias-border-l2);border-bottom:none;
+  border-radius:var(--ks-radius) var(--ks-radius) 0 0;padding:4px 16px;cursor:pointer;
+  font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);background:transparent;
+  min-height:30px;transition:transform .12s ease}
+.ks-tabfolder:hover{color:var(--dsw-alias-label-primary);transform:translateY(-1px)}
+.ks-tabfolder-on{color:var(--dsw-alias-label-primary);font-weight:600;transform:translateY(-2px);
+  background:linear-gradient(180deg,var(--dsw-alias-bg-primary),var(--dsw-alias-bg-secondary));
+  box-shadow:0 -2px 6px rgba(0,0,0,.18);margin-bottom:-1px;padding-bottom:6px;min-height:32px}
 .ks-list-chans .ks-item{width:100%;box-sizing:border-box}
 .ks-item .ks-col-chan{display:grid;grid-template-columns:minmax(0,1fr);min-width:0}
 .ks-item .ks-chan-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -34623,19 +34634,9 @@ function ksTurnDefinition() {
 
 // client/KsKnowledgeGuide.tsx
 var import_jsx_runtime8 = require("react/jsx-runtime");
-var MENU_ITEMS = [
-  { id: "manage", label: "\u77E5\u8BC6\u5E93\u7BA1\u7406" },
-  { id: "capabilities", label: "\u529E\u4E8B\u53F0" },
-  { id: "ingest", label: "\u6587\u4EF6\u5BFC\u5165" },
-  // 「效力总览」菜单项撤（批D2，2026-09-22 业主定）：效力四色已融进知识库管理的目录行
-  // （文件夹行=一夹红绿灯）；导出入口在目录层顶部小按钮。不许再单立一页。
-  { id: "channels", label: "\u6E20\u9053\u5E93" },
-  { id: "pdf", label: "\u6253\u5F00 PDF \u67E5\u770B\u5668" }
-];
 function KsKnowledgeGuide({ title, description, kind, useTabInfo }) {
   ensureKsStyles();
   const { tab } = useTabInfo();
-  const [open, setOpen] = (0, import_react5.useState)(false);
   const go = (page) => {
     setOpen(false);
     if (page === "pdf") {
@@ -34644,56 +34645,24 @@ function KsKnowledgeGuide({ title, description, kind, useTabInfo }) {
     }
     tab.actions.openTab(KS_KB_KIND, { replaceTab: true, params: { page } });
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "ks-guide-entry", "data-sidebar-right-guide-entry": kind, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_dsh_client_ui_primitives.Button, { variant: "ghost", className: "ks-guide-main", onClick: () => {
-      go("manage");
-    }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(KsKnowledgeGuideIcon, { size: description === void 0 ? 22 : 26, className: "ks-guide-icon" }),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-guide-text", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-guide-title", children: title }),
-        description !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-guide-desc", children: description })
-      ] })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-      import_dsh_client_ui_primitives.Menu,
-      {
-        open,
-        portal: true,
-        autoFocus: true,
-        align: "end",
-        items: MENU_ITEMS,
-        onClose: () => {
-          setOpen(false);
-        },
-        onSelect: (id) => {
-          go(id);
-        },
-        anchor: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
-          import_dsh_client_ui_primitives.Button,
-          {
-            variant: "ghost",
-            className: "ks-guide-trigger",
-            "aria-label": "\u77E5\u8BC6\u5E93\u4E8C\u7EA7\u76EE\u5F55",
-            "aria-haspopup": "menu",
-            "aria-expanded": open,
-            onClick: () => {
-              setOpen((value) => !value);
-            },
-            children: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_dsh_client_ui_primitives.IconChevronDownOutline14, {})
-          }
-        )
-      }
-    )
-  ] });
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "ks-guide-entry", "data-sidebar-right-guide-entry": kind, children: /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_dsh_client_ui_primitives.Button, { variant: "ghost", className: "ks-guide-main", onClick: () => {
+    go("manage");
+  }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(KsKnowledgeGuideIcon, { size: description === void 0 ? 22 : 26, className: "ks-guide-icon" }),
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "ks-guide-text", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-guide-title", children: title }),
+      description !== void 0 && /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "ks-guide-desc", children: description })
+    ] })
+  ] }) });
 }
 
 // client/KsKnowledgePage.tsx
-var import_react11 = require("react");
+var import_react10 = require("react");
 var import_dsh_client_ui_primitives5 = require("@deepseek-ai/dsh-client-ui-primitives");
 init_api();
 
 // client/KsCapabilityPage.tsx
-var import_react6 = require("react");
+var import_react5 = require("react");
 var import_dsh_client_ui_primitives2 = require("@deepseek-ai/dsh-client-ui-primitives");
 init_api();
 var import_jsx_runtime9 = require("react/jsx-runtime");
@@ -34785,11 +34754,11 @@ function OfficePage({ item, onBack }) {
   ] });
 }
 function KsEgressPage({ item, onBack }) {
-  const [total, setTotal] = (0, import_react6.useState)(null);
-  const [items, setItems] = (0, import_react6.useState)([]);
-  const [phase, setPhase] = (0, import_react6.useState)("load");
-  const [errText, setErrText] = (0, import_react6.useState)("");
-  (0, import_react6.useEffect)(() => {
+  const [total, setTotal] = (0, import_react5.useState)(null);
+  const [items, setItems] = (0, import_react5.useState)([]);
+  const [phase, setPhase] = (0, import_react5.useState)("load");
+  const [errText, setErrText] = (0, import_react5.useState)("");
+  (0, import_react5.useEffect)(() => {
     let cancelled = false;
     setPhase("load");
     fetchEgressAudit({ limit: 50 }).then((out) => {
@@ -34871,11 +34840,11 @@ var VERDICT_WORD = {
   green: { text: "\u5408\u89C4", color: "var(--dsw-alias-state-success-primary)" }
 };
 function KsGapPage({ item, onBack }) {
-  const [name, setName] = (0, import_react6.useState)("");
-  const [text, setText] = (0, import_react6.useState)("");
-  const [phase, setPhase] = (0, import_react6.useState)("input");
-  const [result, setResult] = (0, import_react6.useState)(null);
-  const [errText, setErrText] = (0, import_react6.useState)("");
+  const [name, setName] = (0, import_react5.useState)("");
+  const [text, setText] = (0, import_react5.useState)("");
+  const [phase, setPhase] = (0, import_react5.useState)("input");
+  const [result, setResult] = (0, import_react5.useState)(null);
+  const [errText, setErrText] = (0, import_react5.useState)("");
   const str3 = (v) => typeof v === "string" ? v : v === null || v === void 0 ? "" : String(v);
   const run = () => {
     setPhase("run");
@@ -34943,19 +34912,19 @@ function KsGapPage({ item, onBack }) {
   ] });
 }
 function KsFixPage({ item, onBack }) {
-  const [rev, setRev] = (0, import_react6.useState)("");
-  const [fixed, setFixed] = (0, import_react6.useState)("");
-  const [patches, setPatches] = (0, import_react6.useState)([]);
-  const [warnText, setWarnText] = (0, import_react6.useState)("");
-  const [msg, setMsg] = (0, import_react6.useState)("");
-  const [errText, setErrText] = (0, import_react6.useState)("");
+  const [rev, setRev] = (0, import_react5.useState)("");
+  const [fixed, setFixed] = (0, import_react5.useState)("");
+  const [patches, setPatches] = (0, import_react5.useState)([]);
+  const [warnText, setWarnText] = (0, import_react5.useState)("");
+  const [msg, setMsg] = (0, import_react5.useState)("");
+  const [errText, setErrText] = (0, import_react5.useState)("");
   const str3 = (v) => typeof v === "string" ? v : v === null || v === void 0 ? "" : String(v);
   const reload = () => {
     listClausePatches({ limit: 50 }).then(setPatches).catch((error) => {
       setErrText(error instanceof Error ? error.message : String(error));
     });
   };
-  (0, import_react6.useEffect)(() => {
+  (0, import_react5.useEffect)(() => {
     reload();
   }, []);
   const submit = (force) => {
@@ -35044,7 +35013,7 @@ function KsFixPage({ item, onBack }) {
 }
 function KsCapabilityPage() {
   ensureKsStyles();
-  const [activeId, setActiveId] = (0, import_react6.useState)(null);
+  const [activeId, setActiveId] = (0, import_react5.useState)(null);
   const active = OFFICE_ITEMS.find((i) => i.id === activeId) ?? null;
   return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", { className: "ks-kb", children: [
     /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("header", { className: "ks-page-head", children: [
@@ -35087,12 +35056,12 @@ function KsListHead(props) {
 }
 
 // client/KsChannelsPanel.tsx
-var import_react8 = require("react");
+var import_react7 = require("react");
 var import_dsh_client_ui_primitives3 = require("@deepseek-ai/dsh-client-ui-primitives");
 init_api();
 
 // client/KsSettingsSection.tsx
-var import_react7 = require("react");
+var import_react6 = require("react");
 init_api();
 var import_jsx_runtime11 = require("react/jsx-runtime");
 var SUMMARY_HINT = {
@@ -35121,16 +35090,16 @@ function KsCategory({ title, hint, open, onToggle, children }) {
 }
 function KsSettingsSection(props) {
   const { openEvidence } = props;
-  const stored = (0, import_react7.useSyncExternalStore)(
+  const stored = (0, import_react6.useSyncExternalStore)(
     subscribePrefs,
     () => getPrefsSnapshot().showArrow,
     () => KS_PREFS_DEFAULT.showArrow
   );
-  const [saving, setSaving] = (0, import_react7.useState)(false);
-  const [error, setError] = (0, import_react7.useState)(null);
+  const [saving, setSaving] = (0, import_react6.useState)(false);
+  const [error, setError] = (0, import_react6.useState)(null);
   const shown = stored;
-  const [arrowOpen, setArrowOpen] = (0, import_react7.useState)(false);
-  const [apiOpen, setApiOpen] = (0, import_react7.useState)(false);
+  const [arrowOpen, setArrowOpen] = (0, import_react6.useState)(false);
+  const [apiOpen, setApiOpen] = (0, import_react6.useState)(false);
   const onToggle = (next) => {
     setError(null);
     setSaving(true);
@@ -35222,13 +35191,13 @@ function statusText(s) {
 }
 function KsInspectionPanel(props) {
   const { openedOnce } = props;
-  const [summary, setSummary] = (0, import_react7.useState)(null);
-  const [busy, setBusy] = (0, import_react7.useState)(false);
-  const [exporting, setExporting] = (0, import_react7.useState)(false);
-  const [error, setError] = (0, import_react7.useState)(null);
-  const [expError, setExpError] = (0, import_react7.useState)(null);
-  const [loadError, setLoadError] = (0, import_react7.useState)(false);
-  const load = (0, import_react7.useCallback)(async () => {
+  const [summary, setSummary] = (0, import_react6.useState)(null);
+  const [busy, setBusy] = (0, import_react6.useState)(false);
+  const [exporting, setExporting] = (0, import_react6.useState)(false);
+  const [error, setError] = (0, import_react6.useState)(null);
+  const [expError, setExpError] = (0, import_react6.useState)(null);
+  const [loadError, setLoadError] = (0, import_react6.useState)(false);
+  const load = (0, import_react6.useCallback)(async () => {
     try {
       const s = await fetchInspectionSummary();
       setSummary(s);
@@ -35237,12 +35206,12 @@ function KsInspectionPanel(props) {
       setLoadError(true);
     }
   }, []);
-  (0, import_react7.useEffect)(() => {
+  (0, import_react6.useEffect)(() => {
     if (!openedOnce) return;
     void load();
   }, [openedOnce, load]);
   const isRunning = summary?.last?.status === "running";
-  (0, import_react7.useEffect)(() => {
+  (0, import_react6.useEffect)(() => {
     if (!isRunning) return;
     let alive = true;
     let timer;
@@ -35283,8 +35252,8 @@ function KsInspectionPanel(props) {
   const last = summary?.last ?? null;
   const overdue = summary?.overdue_days ?? 0;
   const settings = summary?.settings ?? null;
-  const [autoSaving, setAutoSaving] = (0, import_react7.useState)(false);
-  const [autoError, setAutoError] = (0, import_react7.useState)(null);
+  const [autoSaving, setAutoSaving] = (0, import_react6.useState)(false);
+  const [autoError, setAutoError] = (0, import_react6.useState)(null);
   const patchSettings = async (patch) => {
     setAutoSaving(true);
     setAutoError(null);
@@ -35506,17 +35475,17 @@ function sourceStatusText(p) {
 }
 function KsAnnounceSourcesSection(props) {
   const { openedOnce } = props;
-  const [summary, setSummary] = (0, import_react7.useState)(null);
-  const [scanning, setScanning] = (0, import_react7.useState)(false);
-  const [error, setError] = (0, import_react7.useState)(null);
-  const [loadError, setLoadError] = (0, import_react7.useState)(false);
-  const [sources, setSources] = (0, import_react7.useState)(null);
-  const [sourcesError, setSourcesError] = (0, import_react7.useState)(null);
-  const [newName, setNewName] = (0, import_react7.useState)("");
-  const [newUrl, setNewUrl] = (0, import_react7.useState)("");
-  const [adding, setAdding] = (0, import_react7.useState)(false);
-  const [addError, setAddError] = (0, import_react7.useState)(null);
-  const load = (0, import_react7.useCallback)(async () => {
+  const [summary, setSummary] = (0, import_react6.useState)(null);
+  const [scanning, setScanning] = (0, import_react6.useState)(false);
+  const [error, setError] = (0, import_react6.useState)(null);
+  const [loadError, setLoadError] = (0, import_react6.useState)(false);
+  const [sources, setSources] = (0, import_react6.useState)(null);
+  const [sourcesError, setSourcesError] = (0, import_react6.useState)(null);
+  const [newName, setNewName] = (0, import_react6.useState)("");
+  const [newUrl, setNewUrl] = (0, import_react6.useState)("");
+  const [adding, setAdding] = (0, import_react6.useState)(false);
+  const [addError, setAddError] = (0, import_react6.useState)(null);
+  const load = (0, import_react6.useCallback)(async () => {
     try {
       const s = await fetchAnnounceSummary();
       setSummary(s);
@@ -35525,12 +35494,12 @@ function KsAnnounceSourcesSection(props) {
       setLoadError(true);
     }
   }, []);
-  (0, import_react7.useEffect)(() => {
+  (0, import_react6.useEffect)(() => {
     if (!openedOnce) return;
     void load();
   }, [openedOnce, load]);
   const isRunning = summary?.last?.status === "running";
-  (0, import_react7.useEffect)(() => {
+  (0, import_react6.useEffect)(() => {
     if (!isRunning) return;
     let alive = true;
     let timer;
@@ -35563,8 +35532,8 @@ function KsAnnounceSourcesSection(props) {
       setScanning(false);
     }
   };
-  const [exportingAnn, setExportingAnn] = (0, import_react7.useState)(false);
-  const [annExportError, setAnnExportError] = (0, import_react7.useState)(null);
+  const [exportingAnn, setExportingAnn] = (0, import_react6.useState)(false);
+  const [annExportError, setAnnExportError] = (0, import_react6.useState)(null);
   const onAnnExport = async () => {
     if (exportingAnn) return;
     setExportingAnn(true);
@@ -35577,7 +35546,7 @@ function KsAnnounceSourcesSection(props) {
       setExportingAnn(false);
     }
   };
-  const loadSources = (0, import_react7.useCallback)(async () => {
+  const loadSources = (0, import_react6.useCallback)(async () => {
     setSourcesError(null);
     try {
       const d = await fetchAnnounceSources();
@@ -35816,16 +35785,16 @@ function btnStyle(disabled) {
 }
 function KsApiConfigSection(props) {
   const { open, onOpenChange } = props;
-  const [status, setStatus] = (0, import_react7.useState)(null);
-  const [err, setErr] = (0, import_react7.useState)(null);
-  const [busy, setBusy] = (0, import_react7.useState)(null);
-  const [cloudKey, setCloudKey] = (0, import_react7.useState)("");
-  const [cloudUrl, setCloudUrl] = (0, import_react7.useState)("");
-  const [cloudMode, setCloudMode] = (0, import_react7.useState)("");
-  const [llmKey, setLlmKey] = (0, import_react7.useState)("");
-  const [llmUrl, setLlmUrl] = (0, import_react7.useState)("");
-  const [tests, setTests] = (0, import_react7.useState)({});
-  const load = (0, import_react7.useCallback)(async () => {
+  const [status, setStatus] = (0, import_react6.useState)(null);
+  const [err, setErr] = (0, import_react6.useState)(null);
+  const [busy, setBusy] = (0, import_react6.useState)(null);
+  const [cloudKey, setCloudKey] = (0, import_react6.useState)("");
+  const [cloudUrl, setCloudUrl] = (0, import_react6.useState)("");
+  const [cloudMode, setCloudMode] = (0, import_react6.useState)("");
+  const [llmKey, setLlmKey] = (0, import_react6.useState)("");
+  const [llmUrl, setLlmUrl] = (0, import_react6.useState)("");
+  const [tests, setTests] = (0, import_react6.useState)({});
+  const load = (0, import_react6.useCallback)(async () => {
     try {
       setStatus(await fetchApiConfig());
       setErr(null);
@@ -35833,8 +35802,8 @@ function KsApiConfigSection(props) {
       setErr(e instanceof Error ? e.message : String(e));
     }
   }, []);
-  const [openedOnce, setOpenedOnce] = (0, import_react7.useState)(false);
-  (0, import_react7.useEffect)(() => {
+  const [openedOnce, setOpenedOnce] = (0, import_react6.useState)(false);
+  (0, import_react6.useEffect)(() => {
     if (!open || openedOnce) return;
     setOpenedOnce(true);
     void load();
@@ -36228,23 +36197,23 @@ async function copyTextToClipboard(text) {
 function KsChannelsPanel(props) {
   const { visible } = props;
   ensureKsStyles();
-  const [data, setData] = (0, import_react8.useState)(null);
-  const [error, setError] = (0, import_react8.useState)("");
-  const [busy, setBusy] = (0, import_react8.useState)(false);
-  const [probeBusy, setProbeBusy] = (0, import_react8.useState)(false);
-  const [notice, setNotice] = (0, import_react8.useState)("");
-  const [cat, setCat] = (0, import_react8.useState)("");
-  const [state, setState] = (0, import_react8.useState)("");
-  const [adding, setAdding] = (0, import_react8.useState)(false);
-  const [newName, setNewName] = (0, import_react8.useState)("");
-  const [newUrl, setNewUrl] = (0, import_react8.useState)("");
-  const [newNote, setNewNote] = (0, import_react8.useState)("");
-  const [mutating, setMutating] = (0, import_react8.useState)(false);
-  const [orgSel, setOrgSel] = (0, import_react8.useState)(null);
-  const [q, setQ] = (0, import_react8.useState)("");
-  const [news, setNews] = (0, import_react8.useState)("");
-  const [showDetail, setShowDetail] = (0, import_react8.useState)(false);
-  const load = (0, import_react8.useCallback)(async (signal) => {
+  const [data, setData] = (0, import_react7.useState)(null);
+  const [error, setError] = (0, import_react7.useState)("");
+  const [busy, setBusy] = (0, import_react7.useState)(false);
+  const [probeBusy, setProbeBusy] = (0, import_react7.useState)(false);
+  const [notice, setNotice] = (0, import_react7.useState)("");
+  const [cat, setCat] = (0, import_react7.useState)("");
+  const [state, setState] = (0, import_react7.useState)("");
+  const [adding, setAdding] = (0, import_react7.useState)(false);
+  const [newName, setNewName] = (0, import_react7.useState)("");
+  const [newUrl, setNewUrl] = (0, import_react7.useState)("");
+  const [newNote, setNewNote] = (0, import_react7.useState)("");
+  const [mutating, setMutating] = (0, import_react7.useState)(false);
+  const [orgSel, setOrgSel] = (0, import_react7.useState)(null);
+  const [q, setQ] = (0, import_react7.useState)("");
+  const [news, setNews] = (0, import_react7.useState)("");
+  const [showDetail, setShowDetail] = (0, import_react7.useState)(false);
+  const load = (0, import_react7.useCallback)(async (signal) => {
     setBusy(true);
     setError("");
     try {
@@ -36259,7 +36228,7 @@ function KsChannelsPanel(props) {
       if (!signal?.aborted) setBusy(false);
     }
   }, [cat, state]);
-  (0, import_react8.useEffect)(() => {
+  (0, import_react7.useEffect)(() => {
     if (!visible) return void 0;
     const controller = new AbortController();
     void load(controller.signal);
@@ -36289,7 +36258,7 @@ function KsChannelsPanel(props) {
     })();
     return () => controller.abort();
   }, [visible, load]);
-  const probe = (0, import_react8.useCallback)(() => {
+  const probe = (0, import_react7.useCallback)(() => {
     if (probeBusy) return;
     setProbeBusy(true);
     setNotice("");
@@ -36310,7 +36279,7 @@ function KsChannelsPanel(props) {
   const s = data?.summary;
   const viewRows = q.trim() !== "" ? filterChannels(rows, q) : groupRowsByOrgKind(rows).find((g) => g.key === orgSel)?.rows ?? [];
   const crumbN = q.trim() !== "" ? viewRows.length : orgSel === null ? rows.length : viewRows.length;
-  const runMutation = (0, import_react8.useCallback)(async (label, fn) => {
+  const runMutation = (0, import_react7.useCallback)(async (label, fn) => {
     if (mutating) return;
     setMutating(true);
     setNotice("");
@@ -36324,7 +36293,7 @@ function KsChannelsPanel(props) {
       setMutating(false);
     }
   }, [load, mutating]);
-  const submitCreate = (0, import_react8.useCallback)(async () => {
+  const submitCreate = (0, import_react7.useCallback)(async () => {
     const name = newName.trim();
     if (name === "") return;
     await runMutation("\u65B0\u589E\u6E20\u9053", async () => {
@@ -36339,13 +36308,13 @@ function KsChannelsPanel(props) {
       setAdding(false);
     });
   }, [newName, newUrl, newNote, runMutation]);
-  const toggleEnabled = (0, import_react8.useCallback)(async (r) => {
+  const toggleEnabled = (0, import_react7.useCallback)(async (r) => {
     await runMutation(
       r.enabled === 0 ? "\u542F\u7528\u6E20\u9053" : "\u505C\u7528\u6E20\u9053",
       () => setChannelEnabled(r.channel_id, r.enabled === 0)
     );
   }, [runMutation]);
-  const editOrgKind = (0, import_react8.useCallback)(async (r) => {
+  const editOrgKind = (0, import_react7.useCallback)(async (r) => {
     const kinds = Object.entries(ORG_KIND_LABEL);
     const next = window.prompt(
       "\u6539\u5206\u7C7B\uFF08\u5355\u4F4D\u6027\u8D28\uFF09\u2014\u2014\u8F93\u5165\u5E8F\u53F7\uFF1A\n" + kinds.map(([k, v], i) => `${i + 1}. ${v}`).join("\n"),
@@ -36356,7 +36325,7 @@ function KsChannelsPanel(props) {
     const kind = kinds[idx] ? kinds[idx][0] : null;
     await runMutation("\u6539\u5206\u7C7B", () => updateChannel(r.channel_id, { org_kind: kind === "" ? null : kind }));
   }, [runMutation]);
-  const tryChannel = (0, import_react8.useCallback)(async (r) => {
+  const tryChannel = (0, import_react7.useCallback)(async (r) => {
     await runMutation(`\u8BD5\u4E00\u8BD5\uFF08${r.name}\uFF09`, async () => {
       let tc = await getChannelTestCase(r.channel_id);
       if (tc === null) {
@@ -36373,7 +36342,7 @@ function KsChannelsPanel(props) {
       throw new Error(`${out.result === "ok" ? "\u2705 \u6210\u529F" : "\u274C \u672A\u901A\u8FC7"}\uFF1A${out.detail}`);
     });
   }, [runMutation]);
-  const remove = (0, import_react8.useCallback)(async (r) => {
+  const remove = (0, import_react7.useCallback)(async (r) => {
     const ok = window.confirm(
       `\u786E\u5B9A\u5220\u9664\u300C${r.name}\u300D\uFF1F
 
@@ -36729,7 +36698,7 @@ var $btn2 = {
 };
 
 // client/KsIngestPanel.tsx
-var import_react9 = require("react");
+var import_react8 = require("react");
 var import_dsh_client_ui_primitives4 = require("@deepseek-ai/dsh-client-ui-primitives");
 init_api();
 var import_jsx_runtime13 = require("react/jsx-runtime");
@@ -36873,29 +36842,29 @@ function ReportDetail(props) {
 function KsIngestPanel(props) {
   ensureKsStyles();
   const { visible, initialDir, onDirChange } = props;
-  const abortRef = (0, import_react9.useRef)(null);
-  const [dir, setDir] = (0, import_react9.useState)("");
-  const [dirInput, setDirInput] = (0, import_react9.useState)("");
-  const [files, setFiles] = (0, import_react9.useState)([]);
-  const [degraded, setDegraded] = (0, import_react9.useState)(null);
-  const [listState, setListState] = (0, import_react9.useState)({ status: "idle" });
-  const [batchState, setBatchState] = (0, import_react9.useState)({ status: "idle" });
-  const [batch, setBatch] = (0, import_react9.useState)(null);
-  const [sample, setSample] = (0, import_react9.useState)(5);
-  const [detail, setDetail] = (0, import_react9.useState)(null);
-  const [detailName, setDetailName] = (0, import_react9.useState)("");
-  const [detailState, setDetailState] = (0, import_react9.useState)({ status: "idle" });
-  const [job, setJob] = (0, import_react9.useState)(null);
-  const [jobError, setJobError] = (0, import_react9.useState)(null);
-  const [allowDeep, setAllowDeep] = (0, import_react9.useState)(false);
-  const pollRef = (0, import_react9.useRef)(null);
-  const newController = (0, import_react9.useCallback)(() => {
+  const abortRef = (0, import_react8.useRef)(null);
+  const [dir, setDir] = (0, import_react8.useState)("");
+  const [dirInput, setDirInput] = (0, import_react8.useState)("");
+  const [files, setFiles] = (0, import_react8.useState)([]);
+  const [degraded, setDegraded] = (0, import_react8.useState)(null);
+  const [listState, setListState] = (0, import_react8.useState)({ status: "idle" });
+  const [batchState, setBatchState] = (0, import_react8.useState)({ status: "idle" });
+  const [batch, setBatch] = (0, import_react8.useState)(null);
+  const [sample, setSample] = (0, import_react8.useState)(5);
+  const [detail, setDetail] = (0, import_react8.useState)(null);
+  const [detailName, setDetailName] = (0, import_react8.useState)("");
+  const [detailState, setDetailState] = (0, import_react8.useState)({ status: "idle" });
+  const [job, setJob] = (0, import_react8.useState)(null);
+  const [jobError, setJobError] = (0, import_react8.useState)(null);
+  const [allowDeep, setAllowDeep] = (0, import_react8.useState)(false);
+  const pollRef = (0, import_react8.useRef)(null);
+  const newController = (0, import_react8.useCallback)(() => {
     abortRef.current?.abort();
     const c = new AbortController();
     abortRef.current = c;
     return c;
   }, []);
-  const loadInbox = (0, import_react9.useCallback)(async (override) => {
+  const loadInbox = (0, import_react8.useCallback)(async (override) => {
     const c = newController();
     setListState({ status: "loading" });
     try {
@@ -36917,12 +36886,12 @@ function KsIngestPanel(props) {
       setListState({ status: "error", message: e instanceof Error ? e.message : String(e) });
     }
   }, [dir, initialDir, newController, onDirChange]);
-  (0, import_react9.useEffect)(() => {
+  (0, import_react8.useEffect)(() => {
     if (!visible) return;
     if (listState.status === "idle") void loadInbox();
   }, [visible, listState.status, loadInbox]);
-  (0, import_react9.useEffect)(() => () => abortRef.current?.abort(), []);
-  const startBatch = (0, import_react9.useCallback)(async () => {
+  (0, import_react8.useEffect)(() => () => abortRef.current?.abort(), []);
+  const startBatch = (0, import_react8.useCallback)(async () => {
     const c = newController();
     setBatchState({ status: "loading" });
     setDetail(null);
@@ -36936,7 +36905,7 @@ function KsIngestPanel(props) {
       setBatchState({ status: "error", message: e instanceof Error ? e.message : String(e) });
     }
   }, [dir, sample, allowDeep, newController]);
-  const openDetail = (0, import_react9.useCallback)(async (row) => {
+  const openDetail = (0, import_react8.useCallback)(async (row) => {
     const c = newController();
     setDetailName(row.file_name);
     setDetail(null);
@@ -36950,13 +36919,13 @@ function KsIngestPanel(props) {
       setDetailState({ status: "error", message: e instanceof Error ? e.message : String(e) });
     }
   }, [allowDeep, newController]);
-  const stopJobPolling = (0, import_react9.useCallback)(() => {
+  const stopJobPolling = (0, import_react8.useCallback)(() => {
     if (pollRef.current !== null) {
       clearInterval(pollRef.current);
       pollRef.current = null;
     }
   }, []);
-  const pollJob = (0, import_react9.useCallback)(async (jobId) => {
+  const pollJob = (0, import_react8.useCallback)(async (jobId) => {
     try {
       const v = await fetchIngestJob(jobId);
       setJob(v);
@@ -36968,7 +36937,7 @@ function KsIngestPanel(props) {
       setJobError(e instanceof Error ? e.message : String(e));
     }
   }, [stopJobPolling]);
-  const startFullJob = (0, import_react9.useCallback)(async () => {
+  const startFullJob = (0, import_react8.useCallback)(async () => {
     setJobError(null);
     setJob(null);
     try {
@@ -36980,7 +36949,7 @@ function KsIngestPanel(props) {
       setJobError(e instanceof Error ? e.message : String(e));
     }
   }, [dir, allowDeep, pollJob, stopJobPolling]);
-  const abortFullJob = (0, import_react9.useCallback)(async () => {
+  const abortFullJob = (0, import_react8.useCallback)(async () => {
     if (!job) return;
     try {
       await abortIngestJob(job.job_id);
@@ -36988,7 +36957,7 @@ function KsIngestPanel(props) {
       setJobError(e instanceof Error ? e.message : String(e));
     }
   }, [job]);
-  (0, import_react9.useEffect)(() => () => stopJobPolling(), [stopJobPolling]);
+  (0, import_react8.useEffect)(() => () => stopJobPolling(), [stopJobPolling]);
   const busy = listState.status === "loading" || batchState.status === "loading" || detailState.status === "loading";
   return (
     // ⚠ 5j（2026-09-20）：`.ks-page` 只做 container-type（页面留边的宽/窄两档靠它切；
@@ -37208,7 +37177,7 @@ function KsIngestPanel(props) {
 }
 
 // client/KsMaterialsPanel.tsx
-var import_react10 = require("react");
+var import_react9 = require("react");
 init_api();
 var import_jsx_runtime14 = require("react/jsx-runtime");
 var GREEN = "var(--dsw-alias-state-success-primary)";
@@ -37349,41 +37318,41 @@ function AnchorNoteLine(props) {
 }
 function KsMaterialsPanel(props) {
   const { visible, onUseProject } = props;
-  const [projects, setProjects] = (0, import_react10.useState)([]);
-  const [projectId, setProjectId] = (0, import_react10.useState)("");
-  const [materials, setMaterials] = (0, import_react10.useState)([]);
-  const [tiers, setTiers] = (0, import_react10.useState)([]);
-  const [tierListFailed, setTierListFailed] = (0, import_react10.useState)(false);
-  const [inbox, setInbox] = (0, import_react10.useState)(
+  const [projects, setProjects] = (0, import_react9.useState)([]);
+  const [projectId, setProjectId] = (0, import_react9.useState)("");
+  const [materials, setMaterials] = (0, import_react9.useState)([]);
+  const [tiers, setTiers] = (0, import_react9.useState)([]);
+  const [tierListFailed, setTierListFailed] = (0, import_react9.useState)(false);
+  const [inbox, setInbox] = (0, import_react9.useState)(
     { dir: "", files: [] }
   );
-  const [loading, setLoading] = (0, import_react10.useState)(false);
-  const [busy, setBusy] = (0, import_react10.useState)("");
-  const [error, setError] = (0, import_react10.useState)("");
-  const [notice, setNotice] = (0, import_react10.useState)("");
-  const [warn2, setWarn] = (0, import_react10.useState)("");
-  const [newName, setNewName] = (0, import_react10.useState)("");
-  const [collectUrl, setCollectUrl] = (0, import_react10.useState)("");
-  const [collectNote, setCollectNote] = (0, import_react10.useState)("");
-  const [researchQuery, setResearchQuery] = (0, import_react10.useState)("");
-  const [flow, dispatch] = (0, import_react10.useReducer)(draftReducer, emptyDraftFlow);
+  const [loading, setLoading] = (0, import_react9.useState)(false);
+  const [busy, setBusy] = (0, import_react9.useState)("");
+  const [error, setError] = (0, import_react9.useState)("");
+  const [notice, setNotice] = (0, import_react9.useState)("");
+  const [warn2, setWarn] = (0, import_react9.useState)("");
+  const [newName, setNewName] = (0, import_react9.useState)("");
+  const [collectUrl, setCollectUrl] = (0, import_react9.useState)("");
+  const [collectNote, setCollectNote] = (0, import_react9.useState)("");
+  const [researchQuery, setResearchQuery] = (0, import_react9.useState)("");
+  const [flow, dispatch] = (0, import_react9.useReducer)(draftReducer, emptyDraftFlow);
   const conclusionMd = flow.conclusionMd;
   const draft = flow.draft;
-  const [report, setReport] = (0, import_react10.useState)(null);
-  const [showReport, setShowReport] = (0, import_react10.useState)(false);
-  const [anchors, setAnchors] = (0, import_react10.useState)({});
-  const [anchorNote, setAnchorNote] = (0, import_react10.useState)("");
-  const [openChunks, setOpenChunks] = (0, import_react10.useState)({});
-  const reloadProjects = (0, import_react10.useCallback)(async (signal) => {
+  const [report, setReport] = (0, import_react9.useState)(null);
+  const [showReport, setShowReport] = (0, import_react9.useState)(false);
+  const [anchors, setAnchors] = (0, import_react9.useState)({});
+  const [anchorNote, setAnchorNote] = (0, import_react9.useState)("");
+  const [openChunks, setOpenChunks] = (0, import_react9.useState)({});
+  const reloadProjects = (0, import_react9.useCallback)(async (signal) => {
     const list = await fetchMaterialProjects(signal);
     setProjects(list);
     return list;
   }, []);
-  const reloadMaterials = (0, import_react10.useCallback)(async (pid, signal) => {
+  const reloadMaterials = (0, import_react9.useCallback)(async (pid, signal) => {
     const list = await fetchMaterials(pid, void 0, signal);
     setMaterials(list);
   }, []);
-  const reloadInbox = (0, import_react10.useCallback)(async (pid, signal) => {
+  const reloadInbox = (0, import_react9.useCallback)(async (pid, signal) => {
     try {
       setInbox(await fetchMaterialInbox(pid, signal));
     } catch (err) {
@@ -37392,7 +37361,7 @@ function KsMaterialsPanel(props) {
       setError(`\u6536\u4EF6\u7BB1\u8BFB\u53D6\u5931\u8D25\uFF1A${err instanceof Error ? err.message : String(err)}\uFF08\u4E0B\u9762\u7684"\u672A\u767B\u8BB0"\u8BA1\u6570\u4E0D\u53EF\u4FE1\u2014\u2014\u4E0D\u662F"\u6CA1\u6709\u6587\u4EF6"\uFF0C\u662F**\u6CA1\u8BFB\u5230**\uFF09`);
     }
   }, []);
-  (0, import_react10.useEffect)(() => {
+  (0, import_react9.useEffect)(() => {
     if (!visible) return void 0;
     const ctl = new AbortController();
     let alive = true;
@@ -37426,7 +37395,7 @@ function KsMaterialsPanel(props) {
       ctl.abort();
     };
   }, [visible, reloadProjects]);
-  (0, import_react10.useEffect)(() => {
+  (0, import_react9.useEffect)(() => {
     if (!visible || projectId === "") {
       setMaterials([]);
       setInbox({ dir: "", files: [] });
@@ -37468,7 +37437,7 @@ function KsMaterialsPanel(props) {
       ctl.abort();
     };
   }, [visible, projectId, reloadMaterials, reloadInbox]);
-  const run = (0, import_react10.useCallback)(async (label, fn, refreshFor = null) => {
+  const run = (0, import_react9.useCallback)(async (label, fn, refreshFor = null) => {
     setBusy(label);
     setError("");
     setNotice("");
@@ -37482,7 +37451,7 @@ function KsMaterialsPanel(props) {
       setBusy("");
     }
   }, [reloadMaterials]);
-  const onCreate = (0, import_react10.useCallback)(() => {
+  const onCreate = (0, import_react9.useCallback)(() => {
     const name = newName.trim();
     if (name === "") {
       setError("\u8BF7\u5148\u586B\u9879\u76EE\u540D");
@@ -37496,7 +37465,7 @@ function KsMaterialsPanel(props) {
       return `\u5DF2\u5EFA\u9879\u76EE\u300C${proj.name}\u300D\u3002\u628A\u6750\u6599\u6587\u4EF6\u653E\u8FDB\u5B83\u7684\u53C2\u8003\u8D44\u6599\u6587\u4EF6\u5939\u540E\u70B9\u300C\u626B\u63CF\u6536\u4EF6\u300D\u3002`;
     }, null);
   }, [newName, reloadProjects, run]);
-  const onScan = (0, import_react10.useCallback)(() => {
+  const onScan = (0, import_react9.useCallback)(() => {
     if (projectId === "") return;
     void run("scan", async () => {
       const r = await scanMaterialProject(projectId);
@@ -37504,7 +37473,7 @@ function KsMaterialsPanel(props) {
       return `\u626B\u63CF\u5B8C\u6210\uFF1A\u767B\u8BB0 ${r.registered} / \u5171 ${r.scanned} \u4E2A\u6587\u4EF6\u3002\u65B0\u767B\u8BB0\u7684\u6750\u6599\u662F\u5F85\u8BC4\u5BA1\u72B6\u6001\uFF0C\u9700\u4F60\u5728\u4E0B\u65B9\u9010\u4EFD\u6279\u51C6\u540E\u624D\u4F1A\u8FDB\u5165\u4F5C\u7B54\u3002`;
     }, projectId);
   }, [projectId, reloadInbox, run]);
-  const onCollect = (0, import_react10.useCallback)(() => {
+  const onCollect = (0, import_react9.useCallback)(() => {
     if (projectId === "") return;
     const url = collectUrl.trim();
     if (url === "") {
@@ -37526,7 +37495,7 @@ function KsMaterialsPanel(props) {
       return `\u5DF2\u767B\u8BB0\u300C${title}\u300D\uFF08${chunks} \u4E2A\u5207\u7247\uFF0C\u6765\u6E90\u5C42\u7EA7 T3=\u4EC5\u7EBF\u7D22\uFF09` + (out.duplicate === true ? "\u2014\u2014\u26A0 \u8FD9\u4E2A\u7F51\u5740\u7684\u5185\u5BB9\u4E0E\u9879\u76EE\u91CC\u5DF2\u6709\u7684\u4E00\u4EFD\u76F8\u540C\uFF0C\u5F15\u64CE\u6CA1\u6709\u91CD\u590D\u767B\u8BB0\u3002" : "\u3002") + (out.truncated === true ? "\u26A0 \u6B63\u6587\u88AB\u622A\u65AD\u5230\u957F\u5EA6\u4E0A\u9650\uFF08\u4E0D\u662F\u5168\u6587\uFF09\u3002" : "") + "\u5B83\u73B0\u5728\u662F\u5F85\u8BC4\u5BA1\u3001\u4E0D\u4F1A\u8FDB\u5165\u4EFB\u4F55\u7ED3\u8BBA\uFF0C\u9700\u4F60\u5728\u4E0B\u65B9\u6279\u51C6\uFF08\u672C\u9762\u677F\u4E0D\u80FD\u4EE3\u6279\uFF09\u3002";
     }, projectId);
   }, [collectNote, collectUrl, projectId, run]);
-  const onExportReport = (0, import_react10.useCallback)(() => {
+  const onExportReport = (0, import_react9.useCallback)(() => {
     if (projectId === "") return;
     void run("report", async () => {
       const out = await exportResearchReport(projectId, {
@@ -37539,7 +37508,7 @@ function KsMaterialsPanel(props) {
       return `\u7814\u7A76\u62A5\u544A\u5DF2\u751F\u6210\uFF08\u5DF2\u6279\u51C6 ${out.counts?.approved ?? 0} / \u5F85\u8BC4\u5BA1 ${out.counts?.pending ?? 0}\uFF09` + (bad > 0 ? `\u2014\u2014\u26A0 \u6709 ${bad} \u6761\u5F15\u7528\u8B66\u544A\uFF0C\u89C1\u4E0B\u65B9\uFF08\u62A5\u544A\u91CC\u539F\u6837\u4FDD\u7559\u4E86\u90A3\u4E9B\u5F15\u7528\uFF09` : "");
     }, null);
   }, [conclusionMd, projectId, researchQuery, run]);
-  const onDraftConclusion = (0, import_react10.useCallback)(() => {
+  const onDraftConclusion = (0, import_react9.useCallback)(() => {
     if (projectId === "") return;
     const q = researchQuery.trim();
     if (q === "") {
@@ -37556,7 +37525,7 @@ function KsMaterialsPanel(props) {
       return "\u8349\u7A3F\u5DF2\u751F\u6210\uFF08\u672A\u7ECF\u6279\u51C6\uFF0C\u4E0D\u5F97\u4F5C\u4E3A\u4F9D\u636E\uFF09" + (n > 0 ? `\u2014\u2014\u26A0 ${n} \u6761\u63D0\u793A\uFF0C\u89C1\u4E0B\u65B9` : "");
     }, null);
   }, [projectId, researchQuery, run]);
-  const onReview = (0, import_react10.useCallback)((m, decision) => {
+  const onReview = (0, import_react9.useCallback)((m, decision) => {
     void run(`${decision}:${m.material_id}`, async () => {
       const out = await reviewMaterial(m.material_id, decision);
       const label = reviewLabel(out.review_status).text;
@@ -37565,7 +37534,7 @@ function KsMaterialsPanel(props) {
       return `\u300C${m.title}\u300D\u2192 ${label}${tlText}`;
     }, projectId);
   }, [projectId, run]);
-  const onTier = (0, import_react10.useCallback)((m, tier) => {
+  const onTier = (0, import_react9.useCallback)((m, tier) => {
     void run(`tier:${m.material_id}`, async () => {
       const out = await setMaterialTier(
         m.material_id,
@@ -37575,14 +37544,14 @@ function KsMaterialsPanel(props) {
       return `\u300C${m.title}\u300D\u6765\u6E90\u5C42\u7EA7 \u2192 ${out.tier_label ?? out.source_tier}\uFF08\u5DF2\u8BB0\u4E3A\u7528\u6237\u6539\u7684\uFF09`;
     }, projectId);
   }, [projectId, run]);
-  const [picked, setPicked] = (0, import_react10.useState)(/* @__PURE__ */ new Set());
-  const onRole = (0, import_react10.useCallback)((m, role) => {
+  const [picked, setPicked] = (0, import_react9.useState)(/* @__PURE__ */ new Set());
+  const onRole = (0, import_react9.useCallback)((m, role) => {
     void run(`role:${m.material_id}`, async () => {
       await setMaterialRole(m.material_id, role === "" ? null : role);
       return `\u300C${m.title}\u300D\u4EFB\u52A1\u5185\u6548\u529B\u5DF2\u66F4\u65B0`;
     }, projectId);
   }, [projectId, run]);
-  const onReverify = (0, import_react10.useCallback)((m) => {
+  const onReverify = (0, import_react9.useCallback)((m) => {
     void run(`reverify:${m.material_id}`, async () => {
       const out = await reverifyMaterialLocators(m.material_id);
       if (out.status === "match") return `\u300C${m.title}\u300D\u951A\u70B9\u590D\u7B97\uFF1A\u9010\u5B57\u8282\u4E00\u81F4\uFF08\u533A\u95F4\u4ECD\u6709\u6548\uFF09`;
@@ -37592,7 +37561,7 @@ function KsMaterialsPanel(props) {
       return `\u300C${m.title}\u300D\u951A\u70B9\u590D\u7B97\uFF1A\u9A8C\u4E0D\u4E86\uFF08${out.why}\uFF09`;
     }, null);
   }, [run]);
-  const onToggleChunks = (0, import_react10.useCallback)((m) => {
+  const onToggleChunks = (0, import_react9.useCallback)((m) => {
     const cur = openChunks[m.material_id];
     if (cur !== void 0) {
       setOpenChunks((prev) => {
@@ -38174,11 +38143,11 @@ function downloadBlob(url, name) {
 }
 function Deliverables(props) {
   const { names, paths } = props;
-  const [busy, setBusy] = (0, import_react10.useState)("");
-  const [error, setError] = (0, import_react10.useState)("");
-  const [copied, setCopied] = (0, import_react10.useState)(false);
+  const [busy, setBusy] = (0, import_react9.useState)("");
+  const [error, setError] = (0, import_react9.useState)("");
+  const [copied, setCopied] = (0, import_react9.useState)(false);
   const folder = paths.length > 0 ? folderOf(paths[0]) : "";
-  const open = (0, import_react10.useCallback)((name) => {
+  const open = (0, import_react9.useCallback)((name) => {
     if (busy !== "") return;
     setBusy(name);
     setError("");
@@ -38207,7 +38176,7 @@ function Deliverables(props) {
       }
     })();
   }, [busy]);
-  const copyFolder = (0, import_react10.useCallback)(() => {
+  const copyFolder = (0, import_react9.useCallback)(() => {
     if (folder === "") return;
     void navigator.clipboard.writeText(folder).then(
       () => {
@@ -38311,6 +38280,25 @@ function confidenceText(value) {
   const pct = value <= 1 ? value * 100 : value;
   return `${String(Math.round(pct))}%`;
 }
+function KsTopTabs(props) {
+  const tabs = [
+    { id: "manage", label: "\u77E5\u8BC6\u5E93", go: () => props.onGo("manage") },
+    { id: "channels", label: "\u6E20\u9053\u5E93", go: () => props.onGo("channels") },
+    { id: "capabilities", label: "\u529E\u4E8B\u53F0", go: () => props.onGo("capabilities") },
+    { id: "pdf", label: "\u9884\u89C8\u5668", go: props.onPdf }
+  ];
+  return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("nav", { className: "ks-tabfolder-strip", "aria-label": "\u9875\u9762", children: tabs.map((tb) => /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+    "button",
+    {
+      className: "ks-tabfolder" + (props.page === tb.id ? " ks-tabfolder-on" : ""),
+      type: "button",
+      "aria-current": props.page === tb.id ? "page" : void 0,
+      onClick: tb.go,
+      children: tb.label
+    },
+    tb.id
+  )) });
+}
 var INBOX_COLUMNS = [
   { key: "pick", cls: "ks-col-pick", head: "" },
   { key: "iname", cls: "ks-col-iname", head: "\u6587\u4EF6\u540D" },
@@ -38390,63 +38378,63 @@ function KsKnowledgePage({ useTabInfo }) {
   ensureKsStyles();
   const { tab } = useTabInfo();
   const page = tab.navigation.params?.page ?? "manage";
-  const [levelId, setLevelId] = (0, import_react11.useState)(null);
-  const [subs, setSubs] = (0, import_react11.useState)([]);
-  const [files, setFiles] = (0, import_react11.useState)([]);
-  const [filesTotal, setFilesTotal] = (0, import_react11.useState)(0);
-  const [fileOffset, setFileOffset] = (0, import_react11.useState)(0);
-  const [filesMore, setFilesMore] = (0, import_react11.useState)(false);
-  const [crumb, setCrumb] = (0, import_react11.useState)([]);
-  const [phase, setPhase] = (0, import_react11.useState)("loading");
-  const [errMsg, setErrMsg] = (0, import_react11.useState)("");
-  const [busy, setBusy] = (0, import_react11.useState)(false);
-  const [tree, setTree] = (0, import_react11.useState)({});
-  const treeRef = (0, import_react11.useRef)({});
-  const putTree = (0, import_react11.useCallback)((next) => {
+  const [levelId, setLevelId] = (0, import_react10.useState)(null);
+  const [subs, setSubs] = (0, import_react10.useState)([]);
+  const [files, setFiles] = (0, import_react10.useState)([]);
+  const [filesTotal, setFilesTotal] = (0, import_react10.useState)(0);
+  const [fileOffset, setFileOffset] = (0, import_react10.useState)(0);
+  const [filesMore, setFilesMore] = (0, import_react10.useState)(false);
+  const [crumb, setCrumb] = (0, import_react10.useState)([]);
+  const [phase, setPhase] = (0, import_react10.useState)("loading");
+  const [errMsg, setErrMsg] = (0, import_react10.useState)("");
+  const [busy, setBusy] = (0, import_react10.useState)(false);
+  const [tree, setTree] = (0, import_react10.useState)({});
+  const treeRef = (0, import_react10.useRef)({});
+  const putTree = (0, import_react10.useCallback)((next) => {
     treeRef.current = next;
     setTree(next);
   }, []);
-  const [treeOpen, setTreeOpen] = (0, import_react11.useState)(() => /* @__PURE__ */ new Set(["root"]));
-  const [search, setSearch] = (0, import_react11.useState)("");
-  const [openDoc, setOpenDoc] = (0, import_react11.useState)(null);
-  const [menuFor, setMenuFor] = (0, import_react11.useState)(null);
-  const [layer, setLayer] = (0, import_react11.useState)(page === "ingest" ? "inbox" : "folder");
-  const [inbox, setInbox] = (0, import_react11.useState)([]);
-  const [inboxTotal, setInboxTotal] = (0, import_react11.useState)(0);
-  const [inboxKnown, setInboxKnown] = (0, import_react11.useState)(false);
-  const [inboxOffset, setInboxOffset] = (0, import_react11.useState)(0);
-  const [inboxMore, setInboxMore] = (0, import_react11.useState)(false);
-  const [picked, setPicked] = (0, import_react11.useState)(() => /* @__PURE__ */ new Set());
-  const [action, setAction] = (0, import_react11.useState)(null);
-  const [delPreview, setDelPreview] = (0, import_react11.useState)(null);
-  const [upPreview, setUpPreview] = (0, import_react11.useState)(false);
-  const [pickFolder, setPickFolder] = (0, import_react11.useState)("");
-  const [pickQuery, setPickQuery] = (0, import_react11.useState)("");
-  const [newName, setNewName] = (0, import_react11.useState)("");
-  const [actMsg, setActMsg] = (0, import_react11.useState)("");
-  const [flatFolders, setFlatFolders] = (0, import_react11.useState)([]);
-  const [stageLabels, setStageLabels] = (0, import_react11.useState)(STAGE_LABELS);
-  const [reingesting, setReingesting] = (0, import_react11.useState)(false);
-  const [ccsMissing, setCcsMissing] = (0, import_react11.useState)(null);
-  const [ccsStatus, setCcsStatus] = (0, import_react11.useState)(null);
-  const [ccsRunning, setCcsRunning] = (0, import_react11.useState)(false);
-  const [askScope, setAskScope] = (0, import_react11.useState)(null);
-  const [askOpen, setAskOpen] = (0, import_react11.useState)(false);
-  const [askQ, setAskQ] = (0, import_react11.useState)("");
-  const [askPhase, setAskPhase] = (0, import_react11.useState)("idle");
-  const [askMsg, setAskMsg] = (0, import_react11.useState)("");
-  const [askRes, setAskRes] = (0, import_react11.useState)(null);
-  const [askCounts, setAskCounts] = (0, import_react11.useState)(null);
-  const [askCountErr, setAskCountErr] = (0, import_react11.useState)("");
-  const [upOpen, setUpOpen] = (0, import_react11.useState)(false);
-  const [upDir, setUpDir] = (0, import_react11.useState)("");
-  const [upPhase, setUpPhase] = (0, import_react11.useState)("idle");
-  const [upMsg, setUpMsg] = (0, import_react11.useState)("");
-  const [upCheck, setUpCheck] = (0, import_react11.useState)("");
-  const [upReingest, setUpReingest] = (0, import_react11.useState)(false);
-  const abortRef = (0, import_react11.useRef)(null);
-  const askSeqRef = (0, import_react11.useRef)(0);
-  const withSession = (0, import_react11.useCallback)(async (fn, signal) => {
+  const [treeOpen, setTreeOpen] = (0, import_react10.useState)(() => /* @__PURE__ */ new Set(["root"]));
+  const [search, setSearch] = (0, import_react10.useState)("");
+  const [openDoc, setOpenDoc] = (0, import_react10.useState)(null);
+  const [menuFor, setMenuFor] = (0, import_react10.useState)(null);
+  const [layer, setLayer] = (0, import_react10.useState)(page === "ingest" ? "inbox" : "folder");
+  const [inbox, setInbox] = (0, import_react10.useState)([]);
+  const [inboxTotal, setInboxTotal] = (0, import_react10.useState)(0);
+  const [inboxKnown, setInboxKnown] = (0, import_react10.useState)(false);
+  const [inboxOffset, setInboxOffset] = (0, import_react10.useState)(0);
+  const [inboxMore, setInboxMore] = (0, import_react10.useState)(false);
+  const [picked, setPicked] = (0, import_react10.useState)(() => /* @__PURE__ */ new Set());
+  const [action, setAction] = (0, import_react10.useState)(null);
+  const [delPreview, setDelPreview] = (0, import_react10.useState)(null);
+  const [upPreview, setUpPreview] = (0, import_react10.useState)(false);
+  const [pickFolder, setPickFolder] = (0, import_react10.useState)("");
+  const [pickQuery, setPickQuery] = (0, import_react10.useState)("");
+  const [newName, setNewName] = (0, import_react10.useState)("");
+  const [actMsg, setActMsg] = (0, import_react10.useState)("");
+  const [flatFolders, setFlatFolders] = (0, import_react10.useState)([]);
+  const [stageLabels, setStageLabels] = (0, import_react10.useState)(STAGE_LABELS);
+  const [reingesting, setReingesting] = (0, import_react10.useState)(false);
+  const [ccsMissing, setCcsMissing] = (0, import_react10.useState)(null);
+  const [ccsStatus, setCcsStatus] = (0, import_react10.useState)(null);
+  const [ccsRunning, setCcsRunning] = (0, import_react10.useState)(false);
+  const [askScope, setAskScope] = (0, import_react10.useState)(null);
+  const [askOpen, setAskOpen] = (0, import_react10.useState)(false);
+  const [askQ, setAskQ] = (0, import_react10.useState)("");
+  const [askPhase, setAskPhase] = (0, import_react10.useState)("idle");
+  const [askMsg, setAskMsg] = (0, import_react10.useState)("");
+  const [askRes, setAskRes] = (0, import_react10.useState)(null);
+  const [askCounts, setAskCounts] = (0, import_react10.useState)(null);
+  const [askCountErr, setAskCountErr] = (0, import_react10.useState)("");
+  const [upOpen, setUpOpen] = (0, import_react10.useState)(false);
+  const [upDir, setUpDir] = (0, import_react10.useState)("");
+  const [upPhase, setUpPhase] = (0, import_react10.useState)("idle");
+  const [upMsg, setUpMsg] = (0, import_react10.useState)("");
+  const [upCheck, setUpCheck] = (0, import_react10.useState)("");
+  const [upReingest, setUpReingest] = (0, import_react10.useState)(false);
+  const abortRef = (0, import_react10.useRef)(null);
+  const askSeqRef = (0, import_react10.useRef)(0);
+  const withSession = (0, import_react10.useCallback)(async (fn, signal) => {
     let session = await fetchSession(signal);
     try {
       return await fn(session.engine.port, session.token);
@@ -38458,7 +38446,7 @@ function KsKnowledgePage({ useTabInfo }) {
       throw error;
     }
   }, []);
-  const loadLevel = (0, import_react11.useCallback)(async (id, offset, opts = {}) => {
+  const loadLevel = (0, import_react10.useCallback)(async (id, offset, opts = {}) => {
     abortRef.current?.abort();
     const ctrl = new AbortController();
     abortRef.current = ctrl;
@@ -38506,7 +38494,7 @@ function KsKnowledgePage({ useTabInfo }) {
   }, [withSession]);
   const currentFolder = levelId === null ? null : crumb.find((f) => f.folder_id === levelId) ?? null;
   const levelName = currentFolder?.name ?? "\u77E5\u8BC6\u5E93";
-  const toggleTree = (0, import_react11.useCallback)(async (key) => {
+  const toggleTree = (0, import_react10.useCallback)(async (key) => {
     if (treeOpen.has(key)) {
       setTreeOpen((prev) => {
         const next = new Set(prev);
@@ -38526,7 +38514,7 @@ function KsKnowledgePage({ useTabInfo }) {
       putTree({ ...treeRef.current, [key]: { loading: false, error: errorText(error) } });
     }
   }, [putTree, treeOpen, withSession]);
-  const goto = (0, import_react11.useCallback)((id) => {
+  const goto = (0, import_react10.useCallback)((id) => {
     setLayer("folder");
     setLevelId(id);
     setOpenDoc(null);
@@ -38535,7 +38523,7 @@ function KsKnowledgePage({ useTabInfo }) {
     setPicked(/* @__PURE__ */ new Set());
     void loadLevel(id, 0);
   }, [loadLevel]);
-  const goUp = (0, import_react11.useCallback)(() => {
+  const goUp = (0, import_react10.useCallback)(() => {
     if (layer === "inbox") {
       goto(null);
       return;
@@ -38544,11 +38532,11 @@ function KsKnowledgePage({ useTabInfo }) {
     const parent = crumb.length >= 2 ? crumb[crumb.length - 2] : null;
     goto(parent === null ? null : parent.folder_id);
   }, [crumb, goto, layer, levelId]);
-  const goPage = (0, import_react11.useCallback)((offset) => {
+  const goPage = (0, import_react10.useCallback)((offset) => {
     if (offset < 0) return;
     void loadLevel(levelId, offset, { silent: true });
   }, [levelId, loadLevel]);
-  const loadInbox = (0, import_react11.useCallback)(async (offset, opts = {}) => {
+  const loadInbox = (0, import_react10.useCallback)(async (offset, opts = {}) => {
     abortRef.current?.abort();
     const ctrl = new AbortController();
     abortRef.current = ctrl;
@@ -38588,7 +38576,7 @@ function KsKnowledgePage({ useTabInfo }) {
       if (!ctrl.signal.aborted) setBusy(false);
     }
   }, [withSession]);
-  const refreshInboxBadge = (0, import_react11.useCallback)(async () => {
+  const refreshInboxBadge = (0, import_react10.useCallback)(async () => {
     try {
       const page2 = await withSession((port, token) => fetchKbInbox(port, token, { limit: 1 }));
       setInboxTotal(page2.total);
@@ -38596,7 +38584,7 @@ function KsKnowledgePage({ useTabInfo }) {
     } catch {
     }
   }, [withSession]);
-  const gotoInbox = (0, import_react11.useCallback)(() => {
+  const gotoInbox = (0, import_react10.useCallback)(() => {
     setLayer("inbox");
     setOpenDoc(null);
     setMenuFor(null);
@@ -38605,7 +38593,7 @@ function KsKnowledgePage({ useTabInfo }) {
     setPicked(/* @__PURE__ */ new Set());
     void loadInbox(0);
   }, [loadInbox]);
-  (0, import_react11.useEffect)(() => {
+  (0, import_react10.useEffect)(() => {
     if (page === "ingest") {
       void loadInbox(0);
       return () => {
@@ -38618,7 +38606,7 @@ function KsKnowledgePage({ useTabInfo }) {
       abortRef.current?.abort();
     };
   }, [loadInbox, loadLevel, page, refreshInboxBadge]);
-  const ensureFlatFolders = (0, import_react11.useCallback)(async () => {
+  const ensureFlatFolders = (0, import_react10.useCallback)(async () => {
     if (flatFolders.length > 0) return;
     try {
       const rows = await withSession((port, token) => fetchKbFoldersFlat(port, token));
@@ -38627,7 +38615,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setActMsg(`\u8BFB\u4E0D\u5230\u76EE\u5F55\u6E05\u5355\uFF1A${errorText(error)}`);
     }
   }, [flatFolders.length, withSession]);
-  const loadAskCounts = (0, import_react11.useCallback)(async (scope) => {
+  const loadAskCounts = (0, import_react10.useCallback)(async (scope) => {
     askSeqRef.current += 1;
     const seq = askSeqRef.current;
     setAskCounts(null);
@@ -38642,7 +38630,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setAskCountErr(errorText(error));
     }
   }, [withSession]);
-  const folderRowsForAsk = (0, import_react11.useMemo)(() => {
+  const folderRowsForAsk = (0, import_react10.useMemo)(() => {
     const rows = [];
     const seen = /* @__PURE__ */ new Set();
     const push = (id, name, parentId, path) => {
@@ -38659,7 +38647,7 @@ function KsKnowledgePage({ useTabInfo }) {
     }
     return rows;
   }, [crumb, levelId, subs]);
-  const openAsk = (0, import_react11.useCallback)((keys) => {
+  const openAsk = (0, import_react10.useCallback)((keys) => {
     const scope = askScopeOf(keys, folderRowsForAsk);
     if (scope === null) return;
     askSeqRef.current += 1;
@@ -38670,7 +38658,7 @@ function KsKnowledgePage({ useTabInfo }) {
     setAskPhase("idle");
     void loadAskCounts(scope);
   }, [folderRowsForAsk, loadAskCounts]);
-  const clearAsk = (0, import_react11.useCallback)(() => {
+  const clearAsk = (0, import_react10.useCallback)(() => {
     askSeqRef.current += 1;
     setAskScope(null);
     setAskOpen(false);
@@ -38680,17 +38668,17 @@ function KsKnowledgePage({ useTabInfo }) {
     setAskCounts(null);
     setAskCountErr("");
   }, []);
-  const askHereKeys = (0, import_react11.useMemo)(() => {
+  const askHereKeys = (0, import_react10.useMemo)(() => {
     if (picked.size > 0) return [...picked];
     if (layer === "folder" && levelId !== null) return [pickDirKey(levelId)];
     return [];
   }, [layer, levelId, picked]);
-  const askHereScope = (0, import_react11.useMemo)(
+  const askHereScope = (0, import_react10.useMemo)(
     () => askScopeOf(askHereKeys, folderRowsForAsk),
     [askHereKeys, folderRowsForAsk]
   );
   const askHereWhy = askHereScope !== null ? "" : layer === "inbox" ? "\u300C\u5F85\u5206\u7C7B\u300D\u4E0D\u662F\u76EE\u5F55\uFF1A\u5148\u52FE\u9009\u8981\u95EE\u7684\u90A3\u51E0\u7BC7\uFF08\u53EF\u591A\u9009\uFF09\uFF0C\u518D\u70B9\u8FD9\u91CC" : "\u4F60\u5728\u6700\u5916\u5C42 \u2014\u2014 \u6700\u5916\u5C42\u5C31\u662F\u6574\u4E2A\u77E5\u8BC6\u5E93\uFF0C\u6CA1\u6709\u8303\u56F4\u53EF\u8A00\uFF1A\u8FDB\u5230\u67D0\u4E2A\u76EE\u5F55\u91CC\u518D\u95EE\uFF0C\u6216\u5148\u52FE\u9009\u51E0\u4E2A\u76EE\u5F55\uFF08\u591A\u9009=\u5E76\u96C6\uFF09";
-  const runAsk = (0, import_react11.useCallback)(async () => {
+  const runAsk = (0, import_react10.useCallback)(async () => {
     const text = askQ.trim();
     if (text === "" || askScope === null) return;
     askSeqRef.current += 1;
@@ -38748,7 +38736,7 @@ function KsKnowledgePage({ useTabInfo }) {
       )
     ] })
   ] });
-  const togglePick = (0, import_react11.useCallback)((key, next) => {
+  const togglePick = (0, import_react10.useCallback)((key, next) => {
     setActMsg("");
     setPicked((prev) => {
       const out = new Set(prev);
@@ -38757,7 +38745,7 @@ function KsKnowledgePage({ useTabInfo }) {
       return out;
     });
   }, []);
-  const openAction = (0, import_react11.useCallback)((kind, targets) => {
+  const openAction = (0, import_react10.useCallback)((kind, targets) => {
     if (kind !== "mkdir" && targets.length === 0) return;
     setActMsg("");
     setAction({ kind, targets });
@@ -38796,7 +38784,7 @@ function KsKnowledgePage({ useTabInfo }) {
       })();
     }
   }, [ensureFlatFolders, inbox, subs, withSession]);
-  const placeInto = (0, import_react11.useCallback)(async (targets, folderId) => {
+  const placeInto = (0, import_react10.useCallback)(async (targets, folderId) => {
     if (folderId === "") {
       setActMsg("\u5148\u9009\u4E00\u4E2A\u76EE\u5F55");
       return;
@@ -38823,7 +38811,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [flatFolders, inboxOffset, loadInbox, withSession]);
-  const placeIntoNew = (0, import_react11.useCallback)(async (targets, parentId, name) => {
+  const placeIntoNew = (0, import_react10.useCallback)(async (targets, parentId, name) => {
     const clean = name.trim();
     if (parentId === "" || clean === "") {
       setActMsg("\u7236\u76EE\u5F55\u4E0E\u65B0\u76EE\u5F55\u540D\u90FD\u8981\u586B");
@@ -38853,7 +38841,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [flatFolders, inboxOffset, loadInbox, withSession]);
-  const acceptSuggestions = (0, import_react11.useCallback)(async (targets) => {
+  const acceptSuggestions = (0, import_react10.useCallback)(async (targets) => {
     const ok = targets.filter((docId) => (inbox.find((r) => r.doc_id === docId)?.suggested_folder_id ?? null) !== null);
     const skipped = targets.length - ok.length;
     if (ok.length === 0) {
@@ -38877,7 +38865,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [inbox, inboxOffset, loadInbox, withSession]);
-  const runReingest = (0, import_react11.useCallback)(async (targets) => {
+  const runReingest = (0, import_react10.useCallback)(async (targets) => {
     setBusy(true);
     try {
       const res = await withSession((port, token) => reingestKbDocs(port, token, targets));
@@ -38892,7 +38880,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [inboxOffset, loadInbox, withSession]);
-  const removeDocs = (0, import_react11.useCallback)(async (targets) => {
+  const removeDocs = (0, import_react10.useCallback)(async (targets) => {
     setBusy(true);
     try {
       await withSession((port, token) => batchDeleteDocs(port, [...targets], token));
@@ -38906,7 +38894,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [inboxOffset, loadInbox, withSession]);
-  const runOps = (0, import_react11.useCallback)(async (jobs) => {
+  const runOps = (0, import_react10.useCallback)(async (jobs) => {
     const failed = [];
     let done = 0;
     for (const job of jobs) {
@@ -38918,14 +38906,14 @@ function KsKnowledgePage({ useTabInfo }) {
     }
     return { done, failed };
   }, []);
-  const afterAction = (0, import_react11.useCallback)(async () => {
+  const afterAction = (0, import_react10.useCallback)(async () => {
     setAction(null);
     setDelPreview(null);
     setPicked(/* @__PURE__ */ new Set());
     if (layer === "inbox") await loadInbox(inboxOffset, { silent: true });
     else await loadLevel(levelId, fileOffset, { silent: true });
   }, [fileOffset, inboxOffset, layer, levelId, loadInbox, loadLevel]);
-  const runMkdir = (0, import_react11.useCallback)(async (name) => {
+  const runMkdir = (0, import_react10.useCallback)(async (name) => {
     const clean = name.trim();
     if (clean === "") {
       setActMsg("\u5148\u7ED9\u65B0\u76EE\u5F55\u8D77\u4E2A\u540D\u5B57");
@@ -38942,7 +38930,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [afterAction, levelId, levelName, withSession]);
-  const runRename = (0, import_react11.useCallback)(async (folderId, name) => {
+  const runRename = (0, import_react10.useCallback)(async (folderId, name) => {
     const clean = name.trim();
     if (folderId === "" || clean === "") {
       setActMsg("\u76EE\u5F55\u540D\u4E0D\u80FD\u7A7A");
@@ -38959,7 +38947,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [afterAction, withSession]);
-  const runMove = (0, import_react11.useCallback)(async (targets, destId) => {
+  const runMove = (0, import_react10.useCallback)(async (targets, destId) => {
     if (destId === "") {
       setActMsg("\u5148\u9009\u4E00\u4E2A\u53BB\u5904");
       return;
@@ -38999,7 +38987,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [afterAction, flatFolders, levelId, runOps, subs, withSession]);
-  const runCopy = (0, import_react11.useCallback)(async (targets, destId) => {
+  const runCopy = (0, import_react10.useCallback)(async (targets, destId) => {
     if (destId === "") {
       setActMsg("\u5148\u9009\u4E00\u4E2A\u53BB\u5904");
       return;
@@ -39038,7 +39026,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [afterAction, flatFolders, runOps, subs, withSession]);
-  const runAdd = (0, import_react11.useCallback)(async (targets, destId) => {
+  const runAdd = (0, import_react10.useCallback)(async (targets, destId) => {
     if (destId === "") {
       setActMsg("\u5148\u9009\u4E00\u4E2A\u53BB\u5904");
       return;
@@ -39064,7 +39052,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [afterAction, flatFolders, withSession]);
-  const runRemove = (0, import_react11.useCallback)(async (targets) => {
+  const runRemove = (0, import_react10.useCallback)(async (targets) => {
     if (levelId === null) {
       setActMsg("\u6700\u5916\u5C42\u7684\u6587\u4EF6\u4E0D\u5C5E\u4E8E\u4EFB\u4F55\u76EE\u5F55\uFF0C\u300C\u79FB\u51FA\u300D\u5728\u8FD9\u91CC\u6CA1\u6709\u5BF9\u8C61\u3002");
       return;
@@ -39090,7 +39078,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [afterAction, levelId, levelName, withSession]);
-  const runFolderDelete = (0, import_react11.useCallback)(async (mode) => {
+  const runFolderDelete = (0, import_react10.useCallback)(async (mode) => {
     const ids = folderIdsOf(action?.targets ?? []);
     const preview = delPreview ?? [];
     if (ids.length === 0) {
@@ -39122,7 +39110,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [action, afterAction, delPreview, runOps, withSession]);
-  (0, import_react11.useEffect)(() => {
+  (0, import_react10.useEffect)(() => {
     if (!reingesting) return void 0;
     let stopped = false;
     const timer = setInterval(() => {
@@ -39151,7 +39139,7 @@ function KsKnowledgePage({ useTabInfo }) {
       clearInterval(timer);
     };
   }, [inboxOffset, loadInbox, reingesting, withSession]);
-  const loadCcsSummary = (0, import_react11.useCallback)(async () => {
+  const loadCcsSummary = (0, import_react10.useCallback)(async () => {
     try {
       const s = await withSession((port, token) => fetchKbCcsSummary(port, token));
       setCcsMissing(s.missing);
@@ -39160,7 +39148,7 @@ function KsKnowledgePage({ useTabInfo }) {
     } catch {
     }
   }, [withSession]);
-  const runCcsBackfill = (0, import_react11.useCallback)(async () => {
+  const runCcsBackfill = (0, import_react10.useCallback)(async () => {
     setBusy(true);
     try {
       const res = await withSession((port, token) => startKbCcsBackfill(port, token, {}));
@@ -39177,7 +39165,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setBusy(false);
     }
   }, [loadCcsSummary, withSession]);
-  const stopCcsBackfill = (0, import_react11.useCallback)(async () => {
+  const stopCcsBackfill = (0, import_react10.useCallback)(async () => {
     try {
       const r = await withSession((port, token) => cancelKbCcsBackfill(port, token));
       setActMsg(r.running ? `\u5DF2\u8BF7\u6C42\u505C\u6B62\uFF1A\u8DD1\u5B8C\u5F53\u524D\u8FD9\u4E00\u7BC7\u5C31\u505C\uFF08\u5DF2\u5B8C\u6210 ${String(r.done)} / ${String(r.total)} \u7BC7\uFF09\u3002` : "\u8FD9\u4E00\u6279\u5DF2\u7ECF\u8DD1\u5B8C\u4E86\uFF0C\u6CA1\u4EC0\u4E48\u53EF\u505C\u7684\u3002");
@@ -39185,7 +39173,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setActMsg(`\u6CA1\u80FD\u8BF7\u6C42\u505C\u6B62\uFF1A${errorText(error)}`);
     }
   }, [withSession]);
-  (0, import_react11.useEffect)(() => {
+  (0, import_react10.useEffect)(() => {
     if (!ccsRunning) return void 0;
     let stopped = false;
     const timer = setInterval(() => {
@@ -39217,17 +39205,17 @@ function KsKnowledgePage({ useTabInfo }) {
       clearInterval(timer);
     };
   }, [ccsRunning, inboxOffset, loadCcsSummary, loadInbox, withSession]);
-  (0, import_react11.useEffect)(() => {
+  (0, import_react10.useEffect)(() => {
     void (async () => {
       await loadCcsSummary();
     })();
   }, [loadCcsSummary]);
   const needle = search.trim().toLowerCase();
-  const dirsShown = (0, import_react11.useMemo)(
+  const dirsShown = (0, import_react10.useMemo)(
     () => needle === "" ? subs : subs.filter((f) => f.name.toLowerCase().includes(needle)),
     [subs, needle]
   );
-  const filesShown = (0, import_react11.useMemo)(() => {
+  const filesShown = (0, import_react10.useMemo)(() => {
     if (needle === "") return files;
     return files.filter((f) => (f.standard_no ?? "").toLowerCase().includes(needle) || (f.standard_name ?? "").toLowerCase().includes(needle));
   }, [files, needle]);
@@ -39242,7 +39230,7 @@ function KsKnowledgePage({ useTabInfo }) {
     if (target.closest("button,a,[role=menuitem],[role=menu]") !== null) return;
     setOpenDoc((prev) => prev === doc.doc_id ? null : doc.doc_id);
   };
-  const openUpload = (0, import_react11.useCallback)(async () => {
+  const openUpload = (0, import_react10.useCallback)(async () => {
     const next = !upOpen;
     setUpOpen(next);
     if (!next || upDir !== "") return;
@@ -39253,7 +39241,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setUpMsg(`\u53D6\u4E0D\u5230\u9ED8\u8BA4\u7684\u300C\u5F85\u5165\u5E93\u300D\u76EE\u5F55\uFF1A${errorText(error)}\uFF08\u53EF\u4EE5\u624B\u586B\u4E00\u4E2A\u7EDD\u5BF9\u8DEF\u5F84\uFF09`);
     }
   }, [upDir, upOpen]);
-  const runUpload = (0, import_react11.useCallback)(async () => {
+  const runUpload = (0, import_react10.useCallback)(async () => {
     const dir = upDir.trim();
     if (dir === "" || upPhase === "running") return;
     setUpPhase("running");
@@ -39351,7 +39339,7 @@ function KsKnowledgePage({ useTabInfo }) {
       setUpMsg(`\u5BFC\u5165\u5931\u8D25\uFF1A${errorText(error)}`);
     }
   }, [layer, levelId, levelName, loadLevel, upDir, upPhase, upReingest, withSession]);
-  const runCheck = (0, import_react11.useCallback)(async () => {
+  const runCheck = (0, import_react10.useCallback)(async () => {
     const dir = upDir.trim();
     if (dir === "") {
       setUpCheck("\u5148\u586B\u4E00\u4E2A\u6765\u6E90\u76EE\u5F55");
@@ -39371,6 +39359,9 @@ function KsKnowledgePage({ useTabInfo }) {
   }
   if (page === "materials") {
     return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsTopTabs, { page, onGo: goto, onPdf: () => {
+        window.alert("\u9884\u89C8\u5668=\u6253\u5F00 PDF \u67E5\u770B\u5668\uFF1B\u8BF7\u4ECE\u5F00\u59CB\u9875\u7684\u300C\u77E5\u8BC6\u5E93\u300D\u5361 \u25BE \u91CC\u9009\u300C\u6253\u5F00 PDF \u67E5\u770B\u5668\u300D\u3002");
+      } }),
       /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("header", { className: "ks-page-head", children: [
         /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-title", children: "\u5907\u6599" }),
         /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-sub", children: "\u4E0A\u4F20\u7684\u8D22\u62A5/\u5236\u5EA6/\u6587\u7AE0\u9010\u4EFD\u5C31\u4F4D\uFF1B\u4EBA\u5DE5\u4E0A\u4F20\u514D\u8BC4\u5BA1\uFF0C\u81EA\u91C7\u7684\u8981\u4EBA\u6279\u3002" })
@@ -39381,6 +39372,9 @@ function KsKnowledgePage({ useTabInfo }) {
   }
   if (page === "channels") {
     return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsTopTabs, { page, onGo: goto, onPdf: () => {
+        window.alert("\u9884\u89C8\u5668=\u6253\u5F00 PDF \u67E5\u770B\u5668\uFF1B\u8BF7\u4ECE\u5F00\u59CB\u9875\u7684\u300C\u77E5\u8BC6\u5E93\u300D\u5361 \u25BE \u91CC\u9009\u300C\u6253\u5F00 PDF \u67E5\u770B\u5668\u300D\u3002");
+      } }),
       /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("header", { className: "ks-page-head", children: [
         /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-title", children: "\u6E20\u9053\u5E93" }),
         /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-sub", children: "\u77E5\u8BC6\u6765\u6E90\u6E20\u9053\u7684\u7BA1\u7406\u5E93\uFF1A\u5206\u7C7B\u3001\u4F53\u68C0\u3001\u7EF4\u62A4\u3002\u9876\u90E8\u5E38\u9A7B\u6700\u65B0\u52A8\u6001\u3002" })
@@ -39514,7 +39508,7 @@ function KsKnowledgePage({ useTabInfo }) {
       ]
     }
   ) }, "__inbox");
-  const inboxShown = (0, import_react11.useMemo)(() => {
+  const inboxShown = (0, import_react10.useMemo)(() => {
     if (needle === "") return inbox;
     return inbox.filter((r) => (r.standard_no ?? "").toLowerCase().includes(needle) || (r.standard_name ?? "").toLowerCase().includes(needle) || (r.suggested_path ?? "").toLowerCase().includes(needle));
   }, [inbox, needle]);
@@ -39526,7 +39520,7 @@ function KsKnowledgePage({ useTabInfo }) {
   const pickPathOf = pathOfFolder(flatFolders, pickFolder);
   const PICK_ROWS_MAX = 60;
   const pickNeedle = pickQuery.trim().toLowerCase();
-  const pickBase = (0, import_react11.useMemo)(() => {
+  const pickBase = (0, import_react10.useMemo)(() => {
     const banned = /* @__PURE__ */ new Set();
     for (const fid of folderIdsOf(action?.targets ?? [])) {
       const self = flatFolders.find((f) => f.folder_id === fid);
@@ -40208,6 +40202,9 @@ function KsKnowledgePage({ useTabInfo }) {
     ] }) : null
   ] });
   return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(KsTopTabs, { page, onGo: goto, onPdf: () => {
+      window.alert("\u9884\u89C8\u5668=\u6253\u5F00 PDF \u67E5\u770B\u5668\uFF1B\u8BF7\u4ECE\u5F00\u59CB\u9875\u7684\u300C\u77E5\u8BC6\u5E93\u300D\u5361 \u25BE \u91CC\u9009\u300C\u6253\u5F00 PDF \u67E5\u770B\u5668\u300D\u3002");
+    } }),
     /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("header", { className: "ks-page-head", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-title", children: "\u77E5\u8BC6\u5E93" }) }),
     /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page-rule" }),
     /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb-row", children: [
@@ -40255,7 +40252,7 @@ function KsKnowledgePage({ useTabInfo }) {
                   children: "\u77E5\u8BC6\u5E93"
                 }
               ) }),
-              layer === "inbox" ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_react11.Fragment, { children: [
+              layer === "inbox" ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_react10.Fragment, { children: [
                 /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-crumb-sep", "aria-hidden": "true", children: "/" }),
                 /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-crumb-item", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
                   "span",
@@ -40270,7 +40267,7 @@ function KsKnowledgePage({ useTabInfo }) {
               ] }, "__inbox") : null,
               layer === "inbox" ? null : crumb.map((node, i) => {
                 const here = i === crumb.length - 1;
-                return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_react11.Fragment, { children: [
+                return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_react10.Fragment, { children: [
                   /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-crumb-sep", "aria-hidden": "true", children: "/" }),
                   /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-crumb-item", children: here ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
                     "span",
@@ -40973,17 +40970,17 @@ function KsKnowledgePage({ useTabInfo }) {
 }
 
 // client/KsScopeChip.tsx
-var import_react12 = require("react");
+var import_react11 = require("react");
 init_api();
 var import_jsx_runtime16 = require("react/jsx-runtime");
 function KsScopeChip(props) {
   const { sessionId } = props;
-  const [folderName, setFolderName] = (0, import_react12.useState)(null);
-  const [busy, setBusy] = (0, import_react12.useState)(false);
-  const abortRef = (0, import_react12.useRef)(null);
-  const [sentry, setSentry] = (0, import_react12.useState)(false);
+  const [folderName, setFolderName] = (0, import_react11.useState)(null);
+  const [busy, setBusy] = (0, import_react11.useState)(false);
+  const abortRef = (0, import_react11.useRef)(null);
+  const [sentry, setSentry] = (0, import_react11.useState)(false);
   const draft = props.input?.draft ?? "";
-  (0, import_react12.useEffect)(() => {
+  (0, import_react11.useEffect)(() => {
     if (sessionId === void 0 || sessionId.length === 0) return;
     if (draft.trim().length === 0) {
       setSentry(false);
@@ -41001,7 +40998,7 @@ function KsScopeChip(props) {
     }, 300);
     return () => clearTimeout(timer);
   }, [sessionId, draft]);
-  (0, import_react12.useEffect)(() => {
+  (0, import_react11.useEffect)(() => {
     abortRef.current?.abort();
     const controller = new AbortController();
     abortRef.current = controller;
@@ -41020,7 +41017,7 @@ function KsScopeChip(props) {
     })();
     return () => controller.abort();
   }, [sessionId]);
-  const close = (0, import_react12.useCallback)(async () => {
+  const close = (0, import_react11.useCallback)(async () => {
     if (sessionId === void 0 || busy) return;
     setBusy(true);
     try {
@@ -41341,7 +41338,7 @@ function notifyEvidenceUnavailable() {
     const host = document.createElement("div");
     (document.body ?? document.documentElement).appendChild(host);
     const root = (0, import_client.createRoot)(host);
-    root.render((0, import_react13.createElement)(import_dsh_client_ui_primitives6.Toast, {
+    root.render((0, import_react12.createElement)(import_dsh_client_ui_primitives6.Toast, {
       text: "\u8BC1\u636E\u539F\u6587\u6682\u65F6\u6253\u4E0D\u5F00\uFF1APDF \u67E5\u770B\u5668\uFF08\u53F3\u4FA7\u680F\uFF09\u6CA1\u6302\u4E0A\u3002\u8BF7\u7A0D\u540E\u91CD\u8BD5\uFF1B\u82E5\u4E00\u76F4\u5982\u6B64\uFF0C\u8BF7\u68C0\u67E5 DSH \u7684\u4FA7\u680F\u63D2\u4EF6\u662F\u5426\u542F\u7528\u3002",
       anchor: document.body ?? document.documentElement,
       holdMs: 8e3,

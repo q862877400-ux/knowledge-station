@@ -19,30 +19,14 @@
  * （`packages/client/web/src/seed.ts:36`），我们能 require 到 —— 于是菜单**就是宿主那个菜单**。
  */
 
-import { useState, type ReactNode } from 'react'
+import { type ReactNode } from 'react'
 
-import { Button, IconChevronDownOutline14, Menu } from '@deepseek-ai/dsh-client-ui-primitives'
+import { Button } from '@deepseek-ai/dsh-client-ui-primitives'
 
 import { ensureKsStyles } from './ksGuideStyles'
 import { KsKnowledgeGuideIcon } from './KsKnowledgeGuideIcon'
 import { KS_EVIDENCE_KIND, KS_KB_KIND, type KsGuideCardProps, type KsKbPage } from './ksSidebar'
 
-/**
- * ▾ 菜单的项目（"刚刚说的东西"）。
- *
- * `pdf` 单列在末尾：卡片改名成「知识库」之后，PDF 阅读器从"开始页的一张卡"变成
- * "知识库这个入口下的一个去处"——**它本身没被删**，业主明确要求保留
- * （「我们的原件查看窗口 + 目录的形式还是要保留的」）。
- */
-const MENU_ITEMS: readonly { readonly id: KsKbPage | 'pdf'; readonly label: string }[] = [
-  { id: 'manage', label: '知识库管理' },
-  { id: 'capabilities', label: '办事台' },
-  { id: 'ingest', label: '文件导入' },
-  // 「效力总览」菜单项撤（批D2，2026-09-22 业主定）：效力四色已融进知识库管理的目录行
-  // （文件夹行=一夹红绿灯）；导出入口在目录层顶部小按钮。不许再单立一页。
-  { id: 'channels', label: '渠道库' },
-  { id: 'pdf', label: '打开 PDF 查看器' },
-]
 
 /**
  * 开始页上的「知识库」入口卡（主按钮 + ▾ 菜单）。
@@ -53,7 +37,6 @@ const MENU_ITEMS: readonly { readonly id: KsKbPage | 'pdf'; readonly label: stri
 export function KsKnowledgeGuide({ title, description, kind, useTabInfo }: KsGuideCardProps): ReactNode {
   ensureKsStyles()
   const { tab } = useTabInfo()
-  const [open, setOpen] = useState(false)
 
   const go = (page: KsKbPage | 'pdf'): void => {
     setOpen(false)
@@ -67,6 +50,7 @@ export function KsKnowledgeGuide({ title, description, kind, useTabInfo }: KsGui
 
   return (
     <div className="ks-guide-entry" data-sidebar-right-guide-entry={kind}>
+      {/* 业主 2026-09-23：▾ 下拉撤——整卡点一下=直进知识库管理；其余页面走顶条标签条。 */}
       <Button variant="ghost" className="ks-guide-main" onClick={() => { go('manage') }}>
         <KsKnowledgeGuideIcon size={description === undefined ? 22 : 26} className="ks-guide-icon" />
         <span className="ks-guide-text">
@@ -74,27 +58,6 @@ export function KsKnowledgeGuide({ title, description, kind, useTabInfo }: KsGui
           {description !== undefined && <span className="ks-guide-desc">{description}</span>}
         </span>
       </Button>
-      <Menu
-        open={open}
-        portal
-        autoFocus
-        align="end"
-        items={MENU_ITEMS}
-        onClose={() => { setOpen(false) }}
-        onSelect={(id) => { go(id as KsKbPage | 'pdf') }}
-        anchor={(
-          <Button
-            variant="ghost"
-            className="ks-guide-trigger"
-            aria-label="知识库二级目录"
-            aria-haspopup="menu"
-            aria-expanded={open}
-            onClick={() => { setOpen((value) => !value) }}
-          >
-            <IconChevronDownOutline14 />
-          </Button>
-        )}
-      />
     </div>
   )
 }
