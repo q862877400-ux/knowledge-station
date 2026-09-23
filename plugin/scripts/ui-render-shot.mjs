@@ -1874,13 +1874,130 @@ const html = `<!doctype html>
         }
         if (!placed) rowsMap.push([members[ri]]);
       }
+      /* ⚠⚠ **压字要查"同一个盒子里面两件东西贴在一起"**（2026-09-23 接手批，连踩两轮才立住）：
+         业主报障的那一处形态是 —— .ks-lhead-name 那个 span **里面**装着"导出效力总览 按钮 +
+         知识库 这段纯文字"，两者水平间隙实测 **0px**（贴成一个词）。
+         ✗ 只查"成员之间"：那个 span 自己就是一件成员，成员间隙照样 8px ⇒ **一条都不报**；
+         ✗ 只查"成员内部"：那个 span 因为**装得下别的控件**被判成"不是叶子"⇒ 它根本不进
+           成员表 ⇒ 里面那一层**没人查**（本批两次变异实测都是 exit 0，就是这么漏的）。
+         ✓ 正解 = **把这一行里所有"看得见的东西"摊平成一个列表**（叶元素 + 纯文字节点 Range 盒子），
+           **再剔除"完全装在某一件东西盒子里"的那些项**（它们只是别人的内容，不是独立成员；
+           不剔就会把"计数 span 在自己盒子里"误报成压字），剩下的按**同一行**两两量水平间隙。
+         这样既量得到成员之间、也量得到成员**内部**，而且**不重复计数**。
+         判据口径与原来一致：同一张 gaps 表、同一个下限 LISTCAP_MIN_GAP。既有的
+         "成员两两边框盒重叠"那张表（overlaps）照旧只按成员算 —— 它对"真叠上"那一类仍然有效。 */
+      var pieceBox = function (tag, cls, txt, rc) {
+        return { tag: tag, cls: cls, txt: txt,
+                 x: Math.round(rc.left * 10) / 10, y: Math.round(rc.top * 10) / 10,
+                 r: Math.round(rc.right * 10) / 10, b: Math.round(rc.bottom * 10) / 10 };
+      };
+      /* ⚠⚠ **纯文字节点的 Range 盒子必须"按最近的可裁剪祖先夹一下"**（2026-09-23 实测）：
+         Range 量的是**排版几何**，不认 overflow:hidden。ks-ask-chip-name 那种
+         overflow:hidden;text-overflow:ellipsis 的格子里，文字**排**得比格子宽、只是被裁掉了，
+         Range 却把整段文字的真实宽度报出来 ⇒ 它"伸进"了右边那个兄弟 span 的地盘，
+         于是量出一个 **-60px 的假压字**（本批真机实测：kb-ask@520 就是这么假红的）。
+         修法：从文字节点往上找**最近一个** overflow 不是 visible 的祖先，把盒子夹到它的
+         内容盒里 —— 夹完报的就是"用户**看得见**的那一段"，这才是"压字"该判的东西。 */
+      var clipRectOf = function (node) {
+        var cur = node.parentElement;
+        while (cur && cur !== capEl) {
+          var cs2 = getComputedStyle(cur);
+          if (cs2.overflow !== 'visible' || cs2.overflowX !== 'visible' || cs2.overflowY !== 'visible') {
+            var cr = cur.getBoundingClientRect();
+            var pl = parseFloat(cs2.paddingLeft); if (!isFinite(pl)) pl = 0;
+            var prr = parseFloat(cs2.paddingRight); if (!isFinite(prr)) prr = 0;
+            var pt = parseFloat(cs2.paddingTop); if (!isFinite(pt)) pt = 0;
+            var pb = parseFloat(cs2.paddingBottom); if (!isFinite(pb)) pb = 0;
+            return { l: cr.left + pl, r: cr.right - prr, t: cr.top + pt, b: cr.bottom - pb };
+          }
+          cur = cur.parentElement;
+        }
+        return null;
+      };
+      var pieces = [];
+      /* ① 叶元素（控件 / 自己带文字的元素；装得下别的控件或带字 span 的不算叶子）。 */
+      for (var pi = 0; pi < capNodes.length; pi++) {
+        var pe = capNodes[pi];
+        if (!cvis(pe)) continue;
+        if (!(isControl(pe) || hasOwnText(pe))) continue;
+        if (innerControl(pe) || innerTexted(pe)) continue;
+        var pr = pe.getBoundingClientRect();
+        if (pr.width <= 4 || pr.height <= 4) continue;
+        pieces.push(pieceBox(pe.tagName.toLowerCase(), String(pe.className || '').split(' ')[0],
+          (pe.textContent || '').trim().slice(0, 18), pr));
+      }
+      /* ② 纯文字节点（没有元素盒子）：用 Range 拿真盒子 —— "按钮压着四个字"里的那四个字
+            就是这一种，漏了它这一条就形同虚设。 */
+      var textNodes = [].slice.call(capEl.querySelectorAll('*'));
+      textNodes.unshift(capEl);
+      for (var ti2 = 0; ti2 < textNodes.length; ti2++) {
+        var hostN = textNodes[ti2];
+        var tns = [].slice.call(hostN.childNodes);
+        for (var tj = 0; tj < tns.length; tj++) {
+          if (tns[tj].nodeType !== 3 || (tns[tj].textContent || '').trim() === '') continue;
+          var rgn = document.createRange();
+          rgn.selectNodeContents(tns[tj]);
+          var trn = rgn.getBoundingClientRect();
+          if (trn.width <= 1 || trn.height <= 1) continue;
+          /* 夹到最近的可裁剪祖先的内容盒里（见上面 clipRectOf 那段：不夹就会把"被省略号
+             裁掉的那一段"也算进来，量出假压字）。 */
+          var clip = clipRectOf(tns[tj]);
+          var cxL = trn.left, cxR = trn.right, cyT = trn.top, cyB = trn.bottom;
+          if (clip) {
+            cxL = Math.max(cxL, clip.l); cxR = Math.min(cxR, clip.r);
+            cyT = Math.max(cyT, clip.t); cyB = Math.min(cyB, clip.b);
+          }
+          if (cxR - cxL <= 1 || cyB - cyT <= 1) continue;
+          pieces.push(pieceBox('#text', '', (tns[tj].textContent || '').trim().slice(0, 18),
+            { left: cxL, right: cxR, top: cyT, bottom: cyB }));
+        }
+      }
+      /* ⚠ **纯文字节点与"它自己那个元素"盒子**完全重合时要去掉一份**（2026-09-23 实测）：
+         例如 .ks-kb-hint 那种 span —— 它里面只有一个文字节点，两者的盒子**逐字相同**，
+         留着两份就会量出一个 0px 的"假压字"。判据：文字项的盒子与**某个元素项**的盒子
+         （四边各差 <= 2px）相同 ⇒ 那一项是人家自己的内容，不是独立成员。 */
+      var isDupOfElement = function (t) {
+        for (var di = 0; di < pieces.length; di++) {
+          var D = pieces[di];
+          if (D.tag === '#text') continue;
+          if (Math.abs(D.x - t.x) <= 2 && Math.abs(D.r - t.r) <= 2
+            && Math.abs(D.y - t.y) <= 2 && Math.abs(D.b - t.b) <= 2) return true;
+        }
+        return false;
+      };
+      pieces = pieces.filter(function (p) { return !(p.tag === '#text' && isDupOfElement(p)); });
+      /* 剔除"完全装在某一件**更大**的东西盒子里"的项（留 2px 容差）——
+         判据：存在另一项 P，P 的盒子在两个方向上都不小于它、且大得不止一点点。 */
+      var kept = [];
+      for (var ki2 = 0; ki2 < pieces.length; ki2++) {
+        var A2 = pieces[ki2];
+        var contained = false;
+        for (var kj = 0; kj < pieces.length; kj++) {
+          if (kj === ki2) continue;
+          var B2 = pieces[kj];
+          var bWider = (B2.x <= A2.x + 2) && (B2.r >= A2.r - 2);
+          var bTaller = (B2.y <= A2.y + 2) && (B2.b >= A2.b - 2);
+          var strictlyBigger = ((B2.r - B2.x) > (A2.r - A2.x) + 2) || ((B2.b - B2.y) > (A2.b - A2.y) + 2);
+          if (bWider && bTaller && strictlyBigger) { contained = true; break; }
+        }
+        if (!contained) kept.push(A2);
+      }
+      /* 同一行两两量水平间隙（只在"垂直方向真的重叠"的两件之间量 —— 折行不算压字）。 */
+      var prows = [];
+      for (var qi = 0; qi < kept.length; qi++) {
+        var qPlaced = false;
+        for (var qj = 0; qj < prows.length; qj++) {
+          if (sameRow(prows[qj][0], kept[qi])) { prows[qj].push(kept[qi]); qPlaced = true; break; }
+        }
+        if (!qPlaced) prows.push([kept[qi]]);
+      }
       var gaps = [];
-      for (var rk = 0; rk < rowsMap.length; rk++) {
-        var row = rowsMap[rk].slice().sort(function (p, q3) { return p.x - q3.x; });
-        for (var gi = 0; gi + 1 < row.length; gi++) {
-          gaps.push({ left: row[gi].tag + '.' + row[gi].cls + '[' + row[gi].txt + ']',
-                      right: row[gi + 1].tag + '.' + row[gi + 1].cls + '[' + row[gi + 1].txt + ']',
-                      gap: Math.round((row[gi + 1].x - row[gi].r) * 10) / 10 });
+      for (var qk = 0; qk < prows.length; qk++) {
+        var prow = prows[qk].slice().sort(function (p, q5) { return p.x - q5.x; });
+        for (var qg = 0; qg + 1 < prow.length; qg++) {
+          gaps.push({ left: prow[qg].tag + '.' + prow[qg].cls + '[' + prow[qg].txt + ']',
+                      right: prow[qg + 1].tag + '.' + prow[qg + 1].cls + '[' + prow[qg + 1].txt + ']',
+                      gap: Math.round((prow[qg + 1].x - prow[qg].r) * 10) / 10 });
         }
       }
       out['#listcap'] = { n: members.length, x: Math.round(capEl.getBoundingClientRect().left),
