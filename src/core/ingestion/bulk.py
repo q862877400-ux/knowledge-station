@@ -125,15 +125,29 @@ def _batch_status(batch_id: str) -> str | None:
 
 
 def _save_ckpt(batch_id: str, ckpt: dict, status: str | None = None,
-               total: int | None = None) -> None:
+               total: int | None = None,
+               only_if_status_in: tuple[str, ...] | None = None) -> None:
+    """落 checkpoint（可选改状态）。
+
+    ``only_if_status_in``：**条件状态写**（乙1 竞态修复，2026-09-22）——只许从列出的
+    现状态迁入，SQL 侧原子判。根治两类复活：① ``fast_scan`` 起手写 ``'running'`` 与
+    ``abort_batch`` 的终态写对撞（检查通过后、写出前被中止 ⇒ 中止被顶回 ``running``）；
+    ② 工作线程的收尾写把用户中止的 ``failed(aborted_by_user)`` 顶成 ``done``。
+    状态未迁成时 checkpoint 照落（进度不丢、状态不许复活）。"""
     with write_transaction() as txn:
+        cond = ""
+        args: tuple = ()
+        if only_if_status_in is not None:
+            marks = ",".join("?" for _ in only_if_status_in)
+            cond = f" AND status IN ({marks})"
+            args = tuple(only_if_status_in)
         if status and total is not None:
             txn.execute("UPDATE bulk_import_batch SET status=?, total=?,"
-                        " checkpoint_json=? WHERE batch_id=?",
-                        (status, total, json.dumps(ckpt, ensure_ascii=False), batch_id))
+                        f" checkpoint_json=? WHERE batch_id=?{cond}",
+                        (status, total, json.dumps(ckpt, ensure_ascii=False), batch_id) + args)
         elif status:
-            txn.execute("UPDATE bulk_import_batch SET status=?, checkpoint_json=? WHERE batch_id=?",
-                        (status, json.dumps(ckpt, ensure_ascii=False), batch_id))
+            txn.execute(f"UPDATE bulk_import_batch SET status=?, checkpoint_json=? WHERE batch_id=?{cond}",
+                        (status, json.dumps(ckpt, ensure_ascii=False), batch_id) + args)
         else:
             txn.execute("UPDATE bulk_import_batch SET checkpoint_json=? WHERE batch_id=?",
                         (json.dumps(ckpt, ensure_ascii=False), batch_id))
@@ -269,7 +283,11 @@ def fast_scan(batch_id: str, batch_size: int = DEFAULT_BATCH_SIZE,
         return batch
     ckpt = batch["checkpoint"]
     src = Path(ckpt.get("src_dir", ""))
-    _save_ckpt(batch_id, ckpt, "running")
+    # 乙1：'running' 只许从 pending/paused 迁入（原子条件写）——写出后复读一次状态，
+    # 被 abort 抢先 ⇒ 不是 running ⇒ 原样返回，不开工（复活窗口就此关闭）。
+    _save_ckpt(batch_id, ckpt, "running", only_if_status_in=("pending", "paused"))
+    if _batch_status(batch_id) != "running":
+        return _reload(batch_id)
     try:
         known = _known_files()
         quar_dir = src / DEFAULT_QUARANTINE_DIR
@@ -433,7 +451,9 @@ def parse_loop(batch_id: str, daily_budget: int = DEFAULT_PARSE_DAILY_BUDGET) ->
             except Exception:  # 快照失败不阻塞导入
                 pass
     remaining = [i for i in queue if i.get("status") not in ("parsed", "failed")]
-    _save_ckpt(batch_id, ckpt, "done" if not remaining else "failed")
+    # 乙1：收尾写只许从活态迁入——用户中止的终态（failed/aborted_by_user）不许被顶成 done。
+    _save_ckpt(batch_id, ckpt, "done" if not remaining else "failed",
+               only_if_status_in=("running", "paused", "pending"))
     return _reload(batch_id)
 
 

@@ -548,8 +548,44 @@ def test_bulk_endpoint_passes_force_and_reingest(client, db, tmp_path, monkeypat
                     {"src_dir": str(src), "reingest": True}):
         data = data_of(api(c, token, "post", "/api/v1/ingest/bulk", json=payload))
         bulk.abort_batch(data["batch_id"])
-        time.sleep(0.2)
+        # 乙1（2026-09-22）：原 `time.sleep(0.2)` 是补丁式同步（竞态族根源之一，复核
+        # verify-ui-s2fix §八 记载）。改为**轮询该批次到终态**再发第二次；引擎侧同时
+        # 改成条件状态写（终态不复活），两头堵。
+        deadline = time.time() + 5
+        while time.time() < deadline:
+            if (bulk.load_batch(data["batch_id"]) or {}).get("status") in ("done", "failed"):
+                break
+            time.sleep(0.05)
+        assert (bulk.load_batch(data["batch_id"]) or {}).get("status") in ("done", "failed"), \
+            "中止后 5s 未到终态"
     assert [s["reingest"] for s in seen][:2] == [True, True], seen
+
+
+def test_abort_is_sticky_against_worker_resurrection(client, db, tmp_path):
+    """乙1 判据（2026-09-22）：中止后的终态**不许**被工作线程的状态写复活。
+
+    复现竞态的两个写点（不靠时序——直接打条件写的语义）：
+    ① ``fast_scan`` 起手的 ``'running'`` 写（pending/paused 才许迁入）；
+    ② 工作线程收尾的 ``'done'``/``'failed'`` 写（活态才许迁入）。
+    去掉 ``_save_ckpt`` 的条件 ⇒ 本用例必红（终态被顶回）。"""
+    from _kb_folder_api_fixtures import api, data_of
+    src = tmp_path / "src_sticky"
+    src.mkdir()
+    _write_pdf(src / "s.pdf", "GB/T 100-2020")
+    c, token = client
+    data = data_of(api(c, token, "post", "/api/v1/ingest/bulk",
+                       json={"src_dir": str(src), "force": True}))
+    bid = data["batch_id"]
+    bulk.abort_batch(bid)
+    assert (bulk.load_batch(bid) or {}).get("status") == "failed"
+    # ① 模拟工作线程慢半拍的 'running' 起手写 ⇒ 不许把 failed 顶回 running。
+    bulk._save_ckpt(bid, bulk.load_batch(bid)["checkpoint"], "running",
+                    only_if_status_in=("pending", "paused"))
+    assert (bulk.load_batch(bid) or {}).get("status") == "failed", "中止终态被 'running' 写复活"
+    # ② 模拟工作线程收尾写 ⇒ 同样不许顶掉终态。
+    bulk._save_ckpt(bid, bulk.load_batch(bid)["checkpoint"], "done",
+                    only_if_status_in=("running", "paused", "pending"))
+    assert (bulk.load_batch(bid) or {}).get("status") == "failed", "中止终态被收尾写顶成 done"
 
 
 # ═════════════════════ 5. 目录选择器用的扁平清单 + 标签端点 ═════════════════════
