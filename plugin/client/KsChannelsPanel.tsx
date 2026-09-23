@@ -607,7 +607,37 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
           目录层直接用 .ks-list-dirs（同列同格同款行按钮），文件层=第四层 .ks-list-chans
           （复用 .ks-list/.ks-lhead/.ks-item，只给一条自己的 --ks-cols），面包屑=kbListUi 共用件。 */}
       {rows.length > 0 && (
-        <div>
+        <div className="ks-kb-row">
+          {/* 批E2（2026-09-23 业主点单）：左侧目录树——左边逐层点开看、要操作才用右边。
+              样式复用知识库 .ks-kb-tree/.ks-kb-row（零新 CSS，一套外观）。树=分类→网站两级，
+              点叶即达（右侧跟着换层）；当前项高亮。 */}
+          <aside className="ks-kb-tree" aria-label="渠道库目录">
+            <div className="ks-tree-root">
+              <button type="button" className="ks-tree-item"
+                onClick={() => { setOrgSel(null); setSiteSel(null) }}>
+                渠道库
+              </button>
+              {groupRowsByOrgKind(rows).map((g) => (
+                <div key={g.key}>
+                  <button type="button"
+                    className={'ks-tree-item' + (orgSel === g.key && siteSel === null ? ' ks-tree-on' : '')}
+                    title={g.label}
+                    onClick={() => { setOrgSel(g.key); setSiteSel(null) }}>
+                    {g.label}
+                  </button>
+                  {orgSel === g.key && groupRowsBySite(g.rows).sites.map((s) => (
+                    <button key={s.host} type="button"
+                      className={'ks-tree-item ks-tree-sub' + (siteSel === s.host ? ' ks-tree-on' : '')}
+                      title={s.label}
+                      onClick={() => { setOrgSel(g.key); setSiteSel(s.host) }}>
+                      {s.label}
+                    </button>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </aside>
+          <div className="ks-kb-main">
           <KsCrumb
             items={q.trim() !== ''
               ? [{ name: '渠道库' }, { name: `搜索「${q.trim()}」` }]
@@ -732,6 +762,7 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
               ))}
             </div>
           )}
+          </div>
         </div>
       )}
 
