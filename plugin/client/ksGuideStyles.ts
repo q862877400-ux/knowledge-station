@@ -506,6 +506,7 @@ export const KS_STYLES = `
 .ks-page-head > :not(.ks-page-sub){display:none}
 .ks-page-head > :not(.ks-page-sub){display:none}
 .ks-page-head > :not(.ks-page-sub){display:none}
+.ks-page-head > :not(.ks-page-sub){display:none}
 min-height:32px}
 /* 批②（2026-09-23）：渠道库左树的行样式（容器复用 .ks-kb-tree/.ks-kb-row）。 */
 .ks-tree-item{display:block;width:100%;text-align:left;cursor:pointer;padding:4px 8px;
