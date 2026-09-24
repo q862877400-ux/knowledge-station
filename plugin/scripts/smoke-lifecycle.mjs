@@ -519,6 +519,65 @@ const fakeRes = () => {
 
   globalThis.fetch = realFetch4
   disposeD()
+
+  /* D5/D6 —— **新进程**里判"开关是从磁盘读的"（这一条 D3b 判不到）：
+     D3b 走的是"内存里已被路由改成 false"；真正的风险是**重启之后第一次扫描** ——
+     那时内存是空的，若实现读的是"内存默认值（开）"，业主明明关了也会照旧入库。
+     ⇒ 起两个子进程（各自全新模块状态、同一个临时数据目录），只换 `ks-announce.json` 里的
+       `auto_ingest`，数入库请求：false 必须 0 次、true 必须 1 次（正向对照）。
+     ⚠ 子进程用**导出的** `triggerAfterInspection` 驱动（那条链的正式入口），不复制 host 内部实现。 */
+  const { spawnSync } = await import('node:child_process')
+  const { pathToFileURL } = await import('node:url')
+  const announceUrl = pathToFileURL(join(import.meta.dirname, '..', 'src', 'announce.js')).href
+  const childCode = `
+    const calls = []
+    globalThis.fetch = async (url) => {
+      const u = String(url)
+      const json = (b) => new Response(JSON.stringify(b),
+        { status: 200, headers: { 'Content-Type': 'application/json' } })
+      if (u.endsWith('/api/v1/update/announce-scan')) {
+        return json({ code: 200, status: 'success', data: { status: 'started', scan_id: 'scan-child' } })
+      }
+      if (u.includes('/announce-scan/last')) {
+        return json({ code: 200, status: 'success',
+          data: { scan_id: 'scan-child', status: 'done', new_count: 1, items_seen: 1,
+                  sources_total: 1, sources_done: 1, per_source: [], recent: [] } })
+      }
+      if (u.includes('/announce-items')) {
+        return json({ code: 200, status: 'success', data: { items: [], total: 0 } })
+      }
+      if (u.endsWith('/api/v1/update/announce-ingest')) {
+        calls.push(u)
+        return json({ code: 200, status: 'success', data: { tried: 1, ingested: 1, skipped: 0,
+          failed: 0, by_status: { effective: 1, reference: 0, withdrawn: 0 }, pending_left: 0,
+          stopped_early: false } })
+      }
+      return json({ code: 200, status: 'success', data: {} })
+    }
+    const m = await import(${JSON.stringify(announceUrl)})
+    const ctx = { webServer: { register: () => () => {} },
+                  logger: { info() {}, warn() {}, error() {} } }
+    const manager = { ensureLive: async () => ({ port: 65002, token: 'child' }),
+                      touchActivity() {} }
+    await m.triggerAfterInspection(ctx, manager)
+    await new Promise((r) => setTimeout(r, 900))
+    console.log('INGEST_CALLS=' + calls.length)
+  `
+  const runChild = async (auto) => {
+    await writeFile(announceFilePath(), JSON.stringify({
+      last: null, stale_run: false, auto_ingest: auto,
+    }, null, 2), 'utf8')
+    const r = spawnSync(process.execPath, ['--input-type=module', '-e', childCode],
+      { env: { ...process.env }, encoding: 'utf8' })
+    const m = /INGEST_CALLS=(\d+)/.exec(r.stdout ?? '')
+    return { n: m ? Number(m[1]) : -1, err: (r.stderr ?? '').slice(-300) }
+  }
+  const off = await runChild(false)
+  const on = await runChild(true)
+  check('D5 新进程 + 磁盘上开关=关 ⇒ 一次都不入库（重启后第一次扫描也守规矩）',
+    off.n === 0, `calls=${off.n} ${off.err}`)
+  check('D6 正向对照：新进程 + 磁盘上开关=开 ⇒ 确实入库一次（证明 D5 不是"永远不入库"）',
+    on.n === 1, `calls=${on.n} ${on.err}`)
 }
 
 

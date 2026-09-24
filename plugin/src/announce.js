@@ -80,6 +80,16 @@ const BODY_CAP = 65_536
  * ------------------------------------------------------------------ */
 
 let _state = null
+/**
+ * 状态文件**读没读过**（2026-09-24 §10.194 修的真缺陷）。
+ *
+ * 为什么不能只看 `_state === null`：`getState()` 在未加载时会给**内存默认值**并把 `_state` 填上，
+ * 于是"从没读过盘"这个事实被抹掉了 —— `initAnnounceState()` 是 `if (_state === null)`，
+ * 第二次调用直接 no-op。真机形态：**宿主重启后第一次扫描**时，开关是"关"（磁盘上写着），
+ * 但内存里是默认的"开" ⇒ **业主明明关了，还照样往库里入库**。
+ * 子进程判据 D5 实测过这条（改动前 calls=1）。现在只有 `initAnnounceState()` 能置位，
+ * 且它会把盘上的值**覆盖**掉那层默认值（磁盘是首次加载时的真值）。 */
+let _stateLoaded = false
 let _persistChain = Promise.resolve()
 /** 卸载代数：disposer 递增 ⇒ await 窗口里的启动收尾整段作废（见 announceStartupCheck）。 */
 let _announceEpoch = 0
@@ -183,7 +193,10 @@ function schedulePersist() {
 }
 
 async function initAnnounceState() {
-  if (_state === null) _state = await loadStateFile()
+  if (!_stateLoaded) {
+    _state = await loadStateFile()
+    _stateLoaded = true
+  }
   return _state
 }
 
@@ -290,8 +303,11 @@ async function runScanPoll(manager, ctx, scanId) {
     // 2026-09-24（§10.194）：扫完之后**自动把新公告正文入库**（默认开，可在界面关）。
     // ⚠ 只对**成功收尾**的扫描做（failed/never 时没有"新公告"可言）；
     //   整段有界（一次最多 AUTO_INGEST_LIMIT 条）+ 结果留痕（失败也留，不静默）。
-    if (status === 'done' && getState().auto_ingest !== false) {
-      await autoIngestTail(ctx, sess)
+    if (status === 'done') {
+      // ⚠ 先确保状态文件**读过**再判开关：`getState()` 在未加载时给的是**内存默认值**（开），
+      //   那会让"业主已经关掉了"这一事实被忽略（他会以为关掉了、其实还在入库）。
+      await initAnnounceState()
+      if (getState().auto_ingest !== false) await autoIngestTail(ctx, sess)
     }
     stopPoll()
     return
@@ -344,6 +360,8 @@ async function autoIngestTail(ctx, sess) {
  * 不做 host 侧源数判断（0 源时引擎秒级 done，比维护可能算错的缓存便宜）。
  */
 export async function triggerAfterInspection(ctx, manager) {
+  // ⚠ 先读盘再动状态（见 `_stateLoaded` 的说明）：否则"开关=关"会在重启后的第一次扫描里失效。
+  await initAnnounceState()
   let session
   try {
     session = await manager.ensureLive()
