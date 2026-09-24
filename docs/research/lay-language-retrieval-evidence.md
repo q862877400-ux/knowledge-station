@@ -1,0 +1,130 @@
+# 用户用大白话提问时，检索怎么接住——外部证据 + 本库实测
+
+> **性质**：调研产物（一手来源，逐条给 URL 与日期）。**未改任何产品代码、未写库**。
+> **触发**：业主质疑「靠字找不靠谱——用户不一定是专业人士，不知道专业词汇；而且很多问题是隐性的」。
+> **结论先说**：**业主的质疑成立**（词汇不匹配有硬数据），但**补救不是换检索方法**——
+> 十亿级系统第一层全部是字匹配，行业补这一刀的办法是**在检索之前加一层"把用户的话翻成库里的说法"**。
+
+---
+
+## 一、词汇不匹配：这是有名字、有量化的问题
+
+| 来源 | 数字 | 等级 |
+|---|---|---|
+| Furnas et al., *CACM* 30(11), 1987-11 — [DOI](https://doi.org/10.1145/32206.32212) | 任意两人对同一对象**选到同一个词的概率 <0.20**；只用设计者偏爱的单个入口词，**失败率 80–90%** | 论文（⚠ 我只读到书目页摘要，未读原 PDF） |
+| Zhao & Callan, SIGIR 2012 — [DOI](https://dl.acm.org/doi/10.1145/2348283.2348354) | 用户查询"**经常与大多数相关文档不匹配**"；term mismatch probability **可在检索前估计**；高质量人工扩展**减少用户工作量 33%** | 论文 |
+| **Sapru, arXiv:2609.01645, 2026-08-28** — [arXiv](https://arxiv.org/abs/2609.01645) | **同一段金标原文，只把措辞从书面语换成大白话**：BM25 **Recall@1 84%→16%**、**Recall@5 100%→44%（掉 56 个百分点）**；内容词重叠：正式措辞 **0.63** vs 大白话 **0.11**（5.9 倍差距） | 论文（受控基准：51 条规则 × 25 个需求） |
+| 同上，**补救** | 一个朴素的"大白话→正式词"**词表桥**，把大白话 BM25 **Recall@5 44%→80%** | 论文（⚠ **仍有约 20% 未覆盖**） |
+
+**这一组数就是业主那个担忧的量化版**：话一换，字面检索掉一半以上；而补救办法是**加词表**，不是换检索方法。
+
+---
+
+## 二、十亿级系统第一层是什么：**字匹配**（8 家一手证据）
+
+| 系统 | 第一层 | 一手原话 |
+|---|---|---|
+| **Vespa** [官方](https://learn.vespa.ai/reranking-ltr/multiphase-ranking/) | BM25 | 第一层要对"potentially millions"打分，"**This is not the place for neural network models**"；"**Let text search do heavy lifting in first phase**" |
+| **Amazon** [KDD 2019](https://ar5iv.labs.arxiv.org/html/1907.00937) | 倒排匹配 | 入口是"**lexical matching engine (typically an inverted index)**"；神经模型定位是"**complement**" |
+| **Meta/Facebook** [KDD 2020](https://ar5iv.labs.arxiv.org/html/2006.11632) | 布尔匹配 | "**still mainly based on a Boolean matching model**"；检索层要处理 billions/trillions，排序层每 session 只处理 hundreds；**没换掉倒排**，而是把 ANN 塞进倒排引擎当布尔操作符 |
+| **淘宝** [KDD 2021](https://ar5iv.labs.arxiv.org/html/2106.09297) | 倒排 | 倒排"**remains a vital part of current retrieval systems**"；**向量召回的 30% 因相关性低被丢弃**；用户抱怨"**不能精确匹配查询词**" |
+| **Elasticsearch** [官方](https://www.elastic.co/docs/solutions/search/ranking) | BM25 | "**BM25 is the default statistical scoring algorithm in Elasticsearch**"；漏斗："Earlier stages use cheap, fast algorithms" |
+| **Azure AI Search** [官方](https://learn.microsoft.com/en-us/azure/search/hybrid-search-overview) | 全文 + 向量**并行**，各 50 → RRF | "产品编号、**极专有行话**、日期、人名这类查询，**用关键字搜索效果更好，因为它能精确匹配**" |
+| **Google** [官方](https://www.google.com/search/howsearchworks/how-search-works/ranking-results/) | 字匹配 + **改查询** | 补字匹配缺口靠"**拼写纠正**"与"**同义词系统**"（"even if they don't contain the exact words you used"），量级"**over 30% of searches**" |
+| **Westlaw** [官方帮助](https://www.thomsonreuters.com/en-ca/help/westlaw-edge/searching/choose-connectors) | **布尔 + 位置连接符** | 查法条从选词 + 选词与词的关系（`/p` 同段、`/s` 同句、`/n` 相距 n 词）开始 |
+| **OpenLegalData**（开源）[README](https://github.com/openlegaldata/oldp) | Elasticsearch(BM25) | "**Elasticsearch 7.17.x: Our search engine backend**" |
+
+**没有任何一家公开声明"我们把倒排换掉了"。** 向量/语义的实际位置是：① 并行的第二路召回；② 精排特征；③ 在字匹配给出的候选集合**内部**做受约束近邻。
+
+**公开消融（很小，要如实说）**：Meta 加向量通道 **+0.8pt**（相关性 84.7→85.5）；Amazon 报告 Recall@100 **+4.7%**（对照是**语义检索**方法，不是 BM25）；Meta 的量化实测：向量通道自身**掉 5–7 个点召回**。
+
+**受控反例（要如实说）**：BEIR（NeurIPS 2021）"**BM25 remains a strong baseline for zero-shot text retrieval**"，平均最好配置是 **BM25 + 交叉重排**；Vespa 复现 BEIR：BM25 **0.453** / ColBERT **0.363** / 混合 **0.481**（域外 BM25 反超晚交互）。Anthropic 给了一个具体反例：查 "Error code TS-999"，向量漏、BM25 命中。
+另一侧反例：**BSARD**（法律、2.26 万条法条、**有监督微调**）稠密**显著赢**（74.8% R@100）——但规模比我们现在的库还小 20 倍，且有标注。
+
+---
+
+## 三、行业补"大白话"这一刀：**改写查询**（是标配件）
+
+| 来源 | 证据 |
+|---|---|
+| **Bing** [产品文档](https://learn.microsoft.com/en-us/previous-versions/bing/search-apis/bing-web-search/search-responses) | 改写后的查询是接口里的**一等字段**（`queryContext.alteredQuery`），原话"**Bing uses the alteredQuery … instead of the user's query string**"（⚠ 公开文档只覆盖拼写级） |
+| **京东** [ICDE 2021](https://arxiv.org/abs/2103.00800) / [CIKM 2024](https://doi.org/10.1145/3627673.3680109) | 用**点击日志**做循环一致训练；**2020 年夏起在生产上线、服务数亿用户**；2023-12 又上线 LLM 改写版（奖励取自召回率）。**公开版都不给绝对百分比** |
+| **Amazon** [CIKM 2023](https://dl.acm.org/doi/10.1145/3583780.3615474) | RLQR：相对标准生成式改写，**产品覆盖 +28.6%**（离线，无在线 A/B） |
+| **Elasticsearch** [官方](https://www.elastic.co/docs/solutions/search/full-text/search-with-synonyms) | 同义词/领域行话是**产品级机制**，推荐检索时扩展（改词表不必重建索引） |
+| **query2doc** [EMNLP 2023](https://arxiv.org/abs/2303.07678) | few-shot 生成伪文档拼到查询后，**BM25 +3%~15%**，不用微调 |
+| **HyDE** [ACL 2023](https://arxiv.org/abs/2212.10496) | 零样本 dense 接近有监督；⚠ 摘要**没给延迟/成本** |
+
+**共同的诚实边界**：**没有一篇公开"X% 的查询存在词汇不匹配"或"改写带来 X% 召回提升"的工业级绝对数字。** JD/Amazon 只给相对值或定性。
+
+---
+
+## 四、但改写会**伤害**查询，而且有实测
+
+| 来源 | 数字 |
+|---|---|
+| 2026 用户实验（108 人 × 43 条 TREC DL 2019）[arXiv:2607.12098](https://arxiv.org/abs/2607.12098) | **只有 20.9% 的查询从伪相关反馈受益，25.6% 变差**；"避免伤害"的价值约为"利用成功扩展"的**两倍** |
+| 2026 纯提示词改写 [arXiv:2603.13301](https://arxiv.org/abs/2603.13301) | nDCG@10：FiQA **−9.0%**、TREC-COVID +5.1%、SciFact 无显著变化。**95% 的改写只是换词**——**把已经匹配好的领域词换掉就变差**；**选择性门控无法稳定超过"从不改写"** |
+| Anthropic（厂商自测）[工程博客](https://www.anthropic.com/engineering/contextual-retrieval) | 给分块加通用文档摘要"**收益非常有限**"；对 HyDE 评测后"**低性能**" |
+
+---
+
+## 五、我在本库上拿业主那个例子实测（零写入、零模型钱）
+
+业主的例子：「我想让我的软件**自动点击同意用户协议**」。
+
+**① 目标法律在不在库里**
+
+| 找哪一部 | 库里 |
+|---|---|
+| **个人信息保护法** | **有（1 篇）** |
+| 网络安全法 / 电子商务法 / 消费者权益保护法 / App 违法违规认定方法 | **都没有** |
+
+⇒ **这不是"库里没有那一头"，是"话对不上"**——最干净的一个例子。
+
+**② 原话去查（字面）**
+
+| 词 | 命中条款 |
+|---|---|
+| 自动 | 6,522 |
+| 同意 | 705 |
+| 点击 | 65 |
+| 用户 协议 | 39 |
+| **任何两个词同时出现的条款** | **0 条** |
+
+**③ 换成库里的说法去查**
+
+| 查询词（库内词汇） | 命中 |
+|---|---|
+| 个人信息 + 同意 + **自愿** | **1 条**（GB/T 31524-2015 9.2.3） |
+| 个人信息 + 同意 + **明确** | **13 条**（含 GB/T 25069-2022 的术语条目：**明示同意 / 默许同意 / 授权同意**） |
+| 个人信息 + 同意 + **知情** | 2 条 |
+
+⇒ **从"一条都没有"变成"1–13 条，且正好是讲这件事的"**。差的**只是一层词**。
+
+（探针：`var/tmp/probe-user-example.py`，可当场重跑。）
+
+---
+
+## 六、合并结论：三层结构，缺的是第二层
+
+```
+① 看懂    判断"这句话是不是个合规问题"      ← 我们仓库已有（词表 1/8、Jev 8/8）
+② 翻译    把大白话翻成库里的说法             ← **我们完全没有**（understanding.py 全是规则，零模型调用）
+③ 找      靠字找（+ 向量当第二路/精排）      ← 十亿级第一层都这么做
+```
+
+**第二层（翻译）的三条硬要求**（证据都在第四节）：
+1. **必须可审计**——要能看见"这句话被翻成了哪几个词"；
+2. **只在真正对不上时才用**（无条件改写伤 1/4 的查询）；
+3. **必须能一键关掉**。
+
+---
+
+## 七、未能确定 / 证据不足
+
+1. **工业级绝对数字不存在**：没有公开的"X% 查询词汇不匹配"或"改写 +X% 召回"。JD/Amazon 只给相对值或定性。
+2. **LLM 改写的每查询延迟与成本**：没找到一手实测（Anthropic 的 $1.02/百万 token 是**索引期文档侧**）。
+3. **dense 相对 BM25 在"词汇不匹配类查询"上的增益%**：没有直接实验，只有间接证据（BEIR 域外、LIMIT 的维度上界、Anthropic 的 TS-999）。
+4. **词表桥的覆盖率上限**：受控实验里到 80%，**剩 20% 未覆盖**，原因未分解。
+5. **Googe BERT 博客正文、Bing 语义级改写、COLIEE/LeCaRD 数值**：均未取到原文，未作结论依据。
+6. Furnas 1987 与若干经典（Voorhees 1994 / Mitra 1998 / Yahoo CIKM 2016 / doc2query 原始论文）**只取到题录**，未读正文。
