@@ -195,6 +195,24 @@ def test_real_db_backfilled_values_match_rule():
     wrong = [(p["standard_no"][:40], p["new"], got.get(p["doc_id"])) for p in plan
              if p["doc_id"] not in corrected and got.get(p["doc_id"]) != p["new"]]
     assert not wrong, f"真库里这些行的信号与规则不符：{wrong[:5]}"
+    # ⚠⚠ **还要用规则独立复算标题**（独立复核 2026-09-24 MED-2 指出的恒等式）：
+    #   上面对账只拿"库里的值"比"**计划文件**里的值"，而计划文件**就是同一条规则生成的**
+    #   ⇒ 规则再离谱两边也一样 ⇒ 恒等式。**它证明不了规则没判错**——这正是那 5 条语义误标
+    #   能一路全绿的原因。这里**直接拿标题调规则**：库值必须等于"规则对这条标题的输出"。
+    titles = {}
+    conn = sqlite3.connect("file:" + str(real).replace("\\", "/") + "?mode=ro", uri=True)
+    try:
+        for d, no in conn.execute("SELECT doc_id, standard_no FROM doc_meta"):
+            titles[d] = no or ""
+    finally:
+        conn.close()
+    recomputed_bad = [
+        (d, got[d], web_ingest.classify_change_signal(titles.get(d, "")))
+        for d, v in got.items() if v is not None
+        and v != web_ingest.classify_change_signal(titles.get(d, ""))
+    ]
+    assert not recomputed_bad, (
+        f"库里的值与**规则对标题的复算**不符（独立复核 2026-09-24）：{recomputed_bad[:5]}")
     in_plan = {p["doc_id"] for p in plan}
     n_set = sum(1 for d, v in got.items() if v is not None)
     assert n_set == expect_n, \

@@ -784,9 +784,12 @@ function registerIngestRoutes(ctx, manager) {
     relayEngine(res, out)
   }
 
-  /** **只读** GET 探针（30s）：triage 每条要问一次 Jev（实测 ~0.5s/条、上限 200 条），
-   *  30s 是"引擎自己来不及会说清"与"host 别把请求挂死"之间的折中。
-   *  ⚠ 422 语义透传（非法 `signal` 之类）——照 `probe` 那条的口径，不吞成 200。 */
+  /** **只读** GET 探针：triage 每条要问一次 Jev。
+   *  ⚠ 超时按**实测**给，不是我拍的（2026-09-24 `var/tmp/measure-triage-latency.py`）：
+   *    真库 125 条待清 × **0.46s/条 = 57.6s**。第一版给 30s ⇒ 这批**必然超时失败**
+   *    （且是白等 30s 才发现）。这里给 180s：留 3 倍余量，且**上限有界**（不挂死）。
+   *    界面同时写"约 0.5 秒一条、请稍候"，让用户知道要等。
+   *  ⚠ 4xx 语义透传（非法 `signal` 之类）——照 `probe` 那条的口径，不吞成 200。 */
   const probeRead = async (res, enginePath) => {
     let session
     try {
@@ -797,7 +800,7 @@ function registerIngestRoutes(ctx, manager) {
       return
     }
     relayEngine(res, await apiGet(originUrl(session.port), enginePath,
-      { token: session.token, timeoutMs: 30_000 }))
+      { token: session.token, timeoutMs: 180_000 }))
   }
 
   /** 引擎响应 → host 响应：200 透出 data；4xx（422 等）透传；其余归 502。 */

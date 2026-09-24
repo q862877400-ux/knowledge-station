@@ -35384,7 +35384,7 @@ function AnnounceTriageSection() {
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { margin: "6px 0 0" }, children: [
           err !== null && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { role: "alert", style: { color: "var(--dsw-alias-state-error-primary)", margin: "0 0 4px" }, children: err }),
-          loading && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { margin: "0 0 4px" }, children: "\u5224\u65AD\u4E2D\uFF08\u6BCF\u6761\u8981\u8FC7\u4E00\u904D\u8BED\u4E49\u5224\u65AD\uFF0C\u7EA6\u534A\u79D2\u4E00\u6761\uFF09\u2026" }),
+          loading && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { margin: "0 0 4px" }, children: "\u5224\u65AD\u4E2D\uFF08\u6BCF\u6761\u8981\u8FC7\u4E00\u904D\u8BED\u4E49\u5224\u65AD\uFF0C\u5B9E\u6D4B\u7EA6 0.5 \u79D2\u4E00\u6761\uFF1B\u8FD9\u6279\u6709\u591A\u957F\u5C31\u8981\u7B49\u591A\u4E45\uFF0C\u8BF7\u7A0D\u5019\uFF09\u2026" }),
           data !== null && data.total === 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { margin: "0 0 4px" }, children: "\u6CA1\u6709\u5F85\u6E05\u6761\u76EE\u3002" }),
           data !== null && data.items.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
             /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "0 0 4px", lineHeight: "18px" }, children: [
@@ -35397,6 +35397,11 @@ function AnnounceTriageSection() {
               ' \u6761\u3001 \u5224"\u8BE5\u7559" ',
               data.counts.keep,
               " \u6761\u3002**\u8FD9\u91CC\u4E0D\u4F1A\u81EA\u52A8\u5220\u9664\u4EFB\u4F55\u4E1C\u897F**\u2014\u2014\u8981\u4E0D\u8981\u6E05\u7531\u4F60\u51B3\u5B9A\u3002"
+            ] }),
+            data.counts.clear > 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "0 0 4px", lineHeight: "18px" }, children: [
+              '\u5224"\u786E\u8BC1\u53EF\u6E05"\u7684 ',
+              data.counts.clear,
+              " \u6761\u662F**\u4E00\u6B21\u6210\u89C4\u6A21\u7684\u6E05\u7406**\uFF0C\u5EFA\u8BAE\u5148\u70B9\u4E0B\u9762\u7684\u94FE\u63A5\u9010\u6761\u770B\u8FC7\u518D\u51B3\u5B9A\uFF1B \u672C\u9875\u53EA\u5217\u524D 50 \u6761\u3002"
             ] }),
             /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("ul", { style: { margin: "4px 0 0", paddingLeft: 18 }, children: data.items.slice(0, 50).map((it, i) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("li", { style: { lineHeight: "19px" }, children: [
               /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { style: {

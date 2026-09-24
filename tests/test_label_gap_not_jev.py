@@ -36,7 +36,11 @@ from pathlib import Path
 
 REAL_DB = r"C:\Users\Zegel\AppData\Roaming\KnowledgeStation\database\knowledge.db"
 #: 迁移前后应当恒等的事实（真库量测时的取值；变了说明库被别处改过，先查再动）
-FACTS = {"total": 6797, "standard": 6417, "law": 380}
+FACTS = {"total": 6797, "standard": 6417, "law": 380,
+         # 独立复核 2026-09-24 补：结论**建立在这两个事实上**（缺口在"没跑完"、不在"没能力"）：
+         #   · 6087 篇的 `domain_tags` 里**已经带 CCS** ⇒ 分类能力早就有了；
+         #   · `doc_ccs_state` 只有 **50** 行 ⇒ 业主按过一次"补全分类号"、跑满一批就停了。
+         "domain_tags_with_ccs": 6087, "doc_ccs_state_rows": 50}
 
 
 def _ro():
@@ -52,7 +56,12 @@ def _require_real_db():
 
 
 def test_facts_still_hold():
-    """量测结论的前提是这些事实；库变了就先查来龙去脉，别拿旧结论当新依据。"""
+    """量测结论的前提是这些事实；库变了就先查来龙去脉，别拿旧结论当新依据。
+
+    ⚠ 独立复核 2026-09-24 指出：原先只锁了 3 个计数，**没锁"分类其实已经做了"那两个事实**
+    （`domain_tags` 里的 CCS、`doc_ccs_state` 的 50 行）——而**结论正是建立在这两个事实上**
+    （缺口在"没跑完"、不在"没能力"）。它们一变，结论就失效却不会红。已补。
+    """
     _require_real_db()
     c = _ro()
     try:
@@ -61,6 +70,9 @@ def test_facts_still_hold():
         law = c.execute("SELECT COUNT(*) FROM doc_meta WHERE doc_type<>'standard'").fetchone()[0]
         ccs = c.execute("SELECT COUNT(*) FROM doc_meta WHERE ccs_code IS NOT NULL"
                         " AND ccs_code<>''").fetchone()[0]
+        with_ccs_tags = c.execute(
+            "SELECT COUNT(*) FROM doc_meta WHERE domain_tags LIKE '%CCS:%'").fetchone()[0]
+        state_rows = c.execute("SELECT COUNT(*) FROM doc_ccs_state").fetchone()[0]
     finally:
         c.close()
     assert (total, std, law) == (FACTS["total"], FACTS["standard"], FACTS["law"]), \
@@ -68,6 +80,15 @@ def test_facts_still_hold():
     # 关键前提：CCS 补完机制仍**没跑完**（若已跑完，这条结论就该重估）
     assert ccs < FACTS["standard"], (
         f"ccs_code 已有 {ccs} 篇 ⇒ 『既有批量补完没跑完』这个前提变了，重估 B3-⑦")
+    # 另一个前提：**分类能力早就有了**（domain_tags 里已带 CCS）——它变少才说明能力退化，
+    # 它变多不影响结论（结论靠的是"ccs_code 空"那一侧）。
+    assert with_ccs_tags >= FACTS["domain_tags_with_ccs"], (
+        f"domain_tags 带 CCS 的从 {FACTS['domain_tags_with_ccs']} 掉到 {with_ccs_tags}"
+        f" ⇒ 『分类能力早就有了』这个前提变了（是不是回退过？）")
+    # 第三个前提：业主按过一次"补全分类号"（若已跑完，结论同样要重估）
+    assert state_rows >= FACTS["doc_ccs_state_rows"], (
+        f"doc_ccs_state 从 {FACTS['doc_ccs_state_rows']} 涨到 {state_rows}"
+        f" ⇒ 补全机制在推进，『没跑完』要重新量")
 
 
 def test_change_signal_column_exists_after_migration():

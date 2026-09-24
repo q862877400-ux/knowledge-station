@@ -336,7 +336,12 @@ def triage_pending(source_id: str | None = None, limit: int = 200) -> dict:
     """
     from src.core.update import jev_ingest
 
-    n = max(1, min(int(limit or 200), 500))
+    # ⚠ **上限与 host 代理的超时是一对**（2026-09-24 实测后对齐）：
+    #   实测 **0.46s/条**（`var/tmp/measure-triage-latency.py`，真库 125 条 = 57.6s），
+    #   host 的 `/ks/announce/ingest/triage` 超时给的是 **180s** ⇒ 本上限取 300 条
+    #   （300 × 0.46 ≈ 138s，留约 1.3 倍余量）。上限改了**必须同步改 host 那条 timeoutMs**，
+    #   否则会出现"引擎还在算、host 先掐断"的白等。
+    n = max(1, min(int(limit or 200), 300))
     urls, nos = _library_keys()          # ⚠ 算一次就够：每行重算会在大库上白扫两次全表
     rows = [r for r in _observed_rows(source_id=source_id)
             if not _is_in_library(r, urls, nos)

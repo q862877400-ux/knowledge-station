@@ -161,7 +161,11 @@ function AnnounceTriageSection() {
         {err !== null && (
           <p role="alert" style={{ color: 'var(--dsw-alias-state-error-primary)', margin: '0 0 4px' }}>{err}</p>
         )}
-        {loading && <p style={{ margin: '0 0 4px' }}>判断中（每条要过一遍语义判断，约半秒一条）…</p>}
+        {loading && (
+          <p style={{ margin: '0 0 4px' }}>
+            判断中（每条要过一遍语义判断，实测约 0.5 秒一条；这批有多长就要等多久，请稍候）…
+          </p>
+        )}
         {data !== null && data.total === 0 && <p style={{ margin: '0 0 4px' }}>没有待清条目。</p>}
         {data !== null && data.items.length > 0 && (
           <>
@@ -169,6 +173,12 @@ function AnnounceTriageSection() {
               共 {data.total} 条。判"确证是行政事务" {data.counts.clear} 条、判"没把握、留给你看" {data.counts.review} 条、
               判"该留" {data.counts.keep} 条。**这里不会自动删除任何东西**——要不要清由你决定。
             </p>
+            {data.counts.clear > 0 && (
+              <p style={{ margin: '0 0 4px', lineHeight: '18px' }}>
+                判"确证可清"的 {data.counts.clear} 条是**一次成规模的清理**，建议先点下面的链接逐条看过再决定；
+                本页只列前 50 条。
+              </p>
+            )}
             <ul style={{ margin: '4px 0 0', paddingLeft: 18 }}>
               {data.items.slice(0, 50).map((it, i) => (
                 <li key={`${it.url ?? it.title}-${i}`} style={{ lineHeight: '19px' }}>

@@ -452,6 +452,31 @@ const fakeRes = () => {
     resReadOnly.statusCode === 405 && engineCalls.length === 0,
     `${resReadOnly.statusCode} engineCalls=${engineCalls.length}`)
 
+  // C9（2026-09-24 真机量测后加）：triage 的**超时与条数上限是一对**，必须成对成立。
+  //   实测 0.46s/条（真库 125 条 = 57.6s）⇒ 我第一版给 30s 超时**必然白等 30s 才失败**。
+  //   这条钉住"引擎上限 × 单条耗时 ≤ host 超时"，改一边不改另一边就会红。
+  //   ⚠ 仓库根从**本文件位置**推（`../..`），不写死绝对路径——提取树里也必须能读。
+  {
+    const { fileURLToPath: toPath } = await import('node:url')
+    const { dirname } = await import('node:path')
+    const here = dirname(toPath(import.meta.url))              // …/plugin/scripts
+    const repoOfPlugin = join(here, '..', '..')                 // 仓库根（scripts → plugin → 根）
+    const src = await readFile(join(repoOfPlugin, 'src', 'core', 'update', 'web_ingest.py'), 'utf8')
+    const m = src.match(/min\(int\(limit or \d+\), (\d+)\)/)
+    const cap = m ? Number(m[1]) : 0
+    const PER_ITEM_S = 0.46          // 实测值（var/tmp/measure-triage-latency.py）
+    const hostSrc = await readFile(join(here, '..', 'src', 'announce.js'), 'utf8')
+    const t = hostSrc.match(/probeRead[\s\S]{0,900}?timeoutMs: ([\d_]+)/)
+    const timeoutS = t ? Number(t[1].replace(/_/g, '')) / 1000 : 0
+    // ⚠⚠ **两边必须同单位**（秒 vs 毫秒）——第一版拿"秒"去比"毫秒"，
+    //   300×0.46×1.2=165.6 ≤ 30000 恒成立 ⇒ 这条判据**恒真**，改超时它也不红
+    //   （2026-09-24 实测：把 180_000 改回 30_000，C9 照样 PASS，当场识破）。
+    const needS = cap * PER_ITEM_S * 1.2
+    check('C9 triage 超时与条数上限**成对**（上限 × 实测单条耗时 × 1.2 ≤ 超时，**秒对秒**）',
+      cap > 0 && timeoutS > 0 && needS <= timeoutS,
+      `上限 ${cap} 条 × ${PER_ITEM_S}s × 1.2 = ${needS.toFixed(0)}s vs host 超时 ${timeoutS}s`)
+  }
+
   globalThis.fetch = realFetch3
   disposeC()
 }
