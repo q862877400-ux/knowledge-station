@@ -2674,7 +2674,7 @@ const PAD_REQUIRED = {
      ⚠ `DIR_LAYER_COMBOS`（冻结清单）**没有**跟着改：它的三个守卫都只在 `startsWith('kb|')`
        的条目上做双向核对，而这三条**都不含 .ks-dirs** ⇒ 不进那份清单（也不会被守卫判成
        "声明了目录层却没入清单"）。 */
-  'kb|nav-channels|': ['.ks-kb', '.ks-page-head'],
+  'kb|nav-channels|': ['.ks-kb', '.ks-page-head', '.ks-kb-row', '.ks-kb-tree', '.ks-list'],
   'kb|nav-capabilities|': ['.ks-kb', '.ks-page-head'],
   'kb|nav-materials|': ['.ks-kb', '.ks-page-head'],
 }
@@ -3445,10 +3445,6 @@ if (rowCtrls === undefined
         + `（勾选框 + 行尾「⋮」+ 只展示的 .ks-status 徽章），实测 ${JSON.stringify(counts)}`
         + ' —— 行内加了/少了能点的东西？加了就**显式**改 ROW_CTRLS_EXPECTED 并说明为什么')
     }
-    if (new Set(counts).size > 1) {
-      rowCtrlsProblems.push(`文件行之间行内控件数**不一致**（${JSON.stringify(counts)}）——`
-        + '同一层的行应当长得一样；不一致说明某一行多/少了控件')
-    }
   }
   if (page === 'kb' && navPage === 'manage' && rowCtrlsDirRows.length > 0) {
     const odd = dirCounts.filter((c) => c !== ROW_CTRLS_DIR_EXPECTED)
@@ -3456,9 +3452,6 @@ if (rowCtrls === undefined
       rowCtrlsProblems.push(`知识库页的目录行行内可见控件数应当是**冻结的 ${String(ROW_CTRLS_DIR_EXPECTED)}**`
         + `（勾选框 + 名字那一格里的「进入」真 button + 行尾「⋮」），实测 ${JSON.stringify(dirCounts)}`
         + ' —— 行内加了/少了能点的东西？加了就**显式**改 ROW_CTRLS_DIR_EXPECTED 并说明为什么')
-    }
-    if (new Set(dirCounts).size > 1) {
-      rowCtrlsProblems.push(`目录行之间行内控件数**不一致**（${JSON.stringify(dirCounts)}）`)
     }
   }
   if (page === 'kb' && navPage === 'manage' && rowCtrlsInboxRows.length > 0) {
@@ -3468,8 +3461,15 @@ if (rowCtrls === undefined
         + `（勾选框 + 行尾「⋮」），实测 ${JSON.stringify(inboxCounts)}`
         + ' —— 行内又塞了能点的东西？加了就**显式**改 ROW_CTRLS_INBOX_EXPECTED 并说明为什么')
     }
-    if (new Set(inboxCounts).size > 1) {
-      rowCtrlsProblems.push(`待分类行之间行内控件数**不一致**（${JSON.stringify(inboxCounts)}）`)
+  }
+  /* ⚠⚠ **2026-09-24（渠道库面带数据之后）**：这三条"同类行之间必须一样"**与哪个面无关** ——
+     原来它们被写在上面那三个"等于几"的块里，于是渠道库/办事台/备料三面**吃不到**。
+     现在搬出来单独跑：任何面上"同一层的行长得不一样"都当场红（渠道库那面正是靠它看住
+     "分组行 / 站点行 / 渠道行"三类各自齐不齐）。 */
+  for (const [what, arr] of [['文件行', counts], ['待分类行', inboxCounts], ['目录行', dirCounts]]) {
+    if (arr.length > 1 && new Set(arr).size > 1) {
+      rowCtrlsProblems.push(`${what}之间行内控件数**不一致**（${JSON.stringify(arr)}）——`
+        + '同一层的行应当长得一样；不一致说明某一行多/少了控件')
     }
   }
   /* ⚠⚠ **2026-09-24（渠道库面）**：上面那三条期望**只对"知识库管理"那一面成立** —— 它们写的就是

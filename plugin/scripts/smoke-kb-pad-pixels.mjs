@@ -111,7 +111,9 @@ const MATRIX = [
      改更糟糕"）正落在这个盲区里。
      ⚠ 这三组同时是 `faceNavCheck`（骨架/标签/页头）与 `ksPadCheck`（三面的留边）的取证场景；
        它们进了 `PAD_REQUIRED`（`kb|nav-*` 三条）⇒ 本脚本的棘轮"声明了就必须有人跑"。 */
-  { page: 'kb', navPage: 'channels', width: 1300, interact: '', note: '面·渠道库（宽档：四标签 + 页头 + 面板）' },
+  { page: 'kb', navPage: 'channels', width: 1300, interact: '', chans: true,
+    note: '面·渠道库（宽档：四标签 + 页头 + **带数据的工具行/左树/右栏**）——2026-09-24 起这一跑喂数据：'
+      + '此前渲染器没有 /ks/channels 的桩，这一面只能渲染出"读取失败"，内容零判据（开发史 §10.188）' },
   { page: 'kb', navPage: 'capabilities', width: 1300, interact: '', note: '面·办事台（宽档：标签条贴顶 + 不再两层 .ks-page）' },
   { page: 'kb', navPage: 'materials', width: 1300, interact: '', note: '面·备料（宽档：标签条贴顶 + 不再两层 .ks-page）' },
 ]
@@ -133,6 +135,12 @@ for (const c of MATRIX) {
   const args = [shotScript, '--page', c.page, '--width', String(c.width),
     '--out', join(outDir, `padpixels-${c.page}-${String(c.width)}${navPage === '' ? '' : `-nav-${navPage}`}${c.interact === '' ? '' : `-${c.interact}`}${theme === 'light' ? '' : `-${theme}`}.png`)]
   if (navPage !== '') args.push('--nav-page', navPage)
+  /* ⚠ **2026-09-24**：`c.chans` = `ui-render-shot.mjs` 的 `--chans`（把渠道库那一面的数据喂上）。
+     不加它时那一面只能渲染出"读取失败" ⇒ `PAD_REQUIRED['kb|nav-channels|']` 里现在声明的
+     `.ks-kb-row` / `.ks-kb-tree` / `.ks-list` **一个都量不到**（"声明了就必须量到"那条会红）。
+     ⚠ 组合键里**不含**这个开关（`faceComboKey` 只看 page/nav-page/interact）⇒ 下面那份
+     "冻死的组合清单"**不用改**（仍是 `kb|nav-channels|@1300`）。 */
+  if (c.chans === true) args.push('--chans')
   if (c.interact !== '') args.push('--interact', c.interact)
   if (theme !== 'light') args.push('--theme', theme)
   const r = spawnSync(process.execPath, args, { cwd: repoRoot, encoding: 'utf8', timeout: 240_000 })
