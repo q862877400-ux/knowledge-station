@@ -142,6 +142,16 @@ export const KS_STYLES = `
       换行是**如实**的代价；压扁/叠字只会让字读不出来。 ⚠ 本段在模板字符串里，**不许出现反引号**。 */
 .ks-kb-row{display:flex;align-items:center;gap:var(--ks-space-2);flex-wrap:wrap}
 .ks-kb-row>button{white-space:nowrap}
+/* ---------- 工具行里的原生下拉（2026-09-24，渠道库面统一时新增） ----------
+   为什么要有它：渠道库那面的"全部类别 / 全部有效性"两个筛选是原生 select，改前各自
+   写一套内联样式（圆角 4 / 边框 / 内边距 / 字号 11 各写各的）⇒ 与知识库那面的宿主按钮
+   不是一个观感。**原生下拉没有宿主原语**（dsh 的 ui-primitives 里没有 Select），
+   所以在这里给它一个**共用类**：高度、字号、圆角、边框色全部走同一套 token，
+   与 --ks-btn-h-sm 的按钮等高。⚠ 本段在模板字符串里，不许出现反引号与美元加大括号。 */
+.ks-sel{height:var(--ks-btn-h-sm);box-sizing:border-box;font-size:var(--ks-fs-sm);
+  font-family:inherit;color:var(--dsw-alias-label-primary);background:var(--dsw-alias-bg-layer-2);
+  border:var(--ks-sep) solid var(--dsw-alias-border-l2);border-radius:var(--ks-r-sm);
+  padding:0 var(--ks-space-1)}
 .ks-kb-grow{flex:1;min-width:0}
 .ks-kb-hint{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
 /* ---------- 卡片标题档（P0-2，2026-09-20） ----------
@@ -557,14 +567,15 @@ export const KS_STYLES = `
 .ks-export-effect{font-size:var(--ks-fs-2xs);color:var(--dsw-alias-label-secondary);
   background:transparent;border:none;padding:0;cursor:pointer;white-space:nowrap}
 .ks-export-effect:hover{color:var(--dsw-alias-label-primary)}
-/* 批②（2026-09-23）：渠道库左树的行样式（容器复用 .ks-kb-tree/.ks-kb-row）。 */
-.ks-tree-item{display:block;width:100%;text-align:left;cursor:pointer;padding:4px 8px;
-  min-height:28px;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);
-  background:transparent;border:none;border-radius:var(--ks-radius)}
-.ks-tree-item:hover{color:var(--dsw-alias-label-primary)}
-.ks-tree-on{color:var(--dsw-alias-label-primary);font-weight:600;
-  background:var(--dsw-alias-border-l2)}
-.ks-tree-sub{padding-left:20px;font-size:var(--ks-fs-2xs)}
+/* 批②（2026-09-23）那三个**渠道库左树自己造的行类**（.ks-tree-item / .ks-tree-on /
+   .ks-tree-sub，以及没定义的 .ks-tree-root）**已删（2026-09-24）**：业主问"知识库和渠道库的
+   UI 还是不一样"之后查出来，它们与知识库左树的 .ks-tree-row（行高 44 / 字号继承 13 /
+   选中走宿主 interactive 底色 + 2px 标记条 / data-depth 缩进 token / 带 caret）**是两套外观**
+   （它们是 28px 行高、12px 字号、选中拿边框色档 --dsw-alias-border-l2 当背景）。
+   ⇒ 渠道库左树改成**逐字复用知识库那一套 markup 与类**，这三个类不再有任何使用者。
+   删掉而不是留着，是因为"留着但没人用"正是下次有人照抄回去的入口。
+   ⚠ 本文件是一个**模板字符串**：注释里不许出现反引号、也不许出现"美元号加大括号"那种插值开头
+   （第一版两样都写了 ⇒ build 直接红，esbuild 报 Expected ";" / Unexpected "**"）。 */
 .ks-list-chans .ks-item{width:100%;box-sizing:border-box}
 .ks-item .ks-col-chan{display:grid;grid-template-columns:minmax(0,1fr);min-width:0}
 .ks-item .ks-chan-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

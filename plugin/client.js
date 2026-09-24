@@ -33711,6 +33711,16 @@ var KS_STYLES = `
       \u6362\u884C\u662F**\u5982\u5B9E**\u7684\u4EE3\u4EF7\uFF1B\u538B\u6241/\u53E0\u5B57\u53EA\u4F1A\u8BA9\u5B57\u8BFB\u4E0D\u51FA\u6765\u3002 \u26A0 \u672C\u6BB5\u5728\u6A21\u677F\u5B57\u7B26\u4E32\u91CC\uFF0C**\u4E0D\u8BB8\u51FA\u73B0\u53CD\u5F15\u53F7**\u3002 */
 .ks-kb-row{display:flex;align-items:center;gap:var(--ks-space-2);flex-wrap:wrap}
 .ks-kb-row>button{white-space:nowrap}
+/* ---------- \u5DE5\u5177\u884C\u91CC\u7684\u539F\u751F\u4E0B\u62C9\uFF082026-09-24\uFF0C\u6E20\u9053\u5E93\u9762\u7EDF\u4E00\u65F6\u65B0\u589E\uFF09 ----------
+   \u4E3A\u4EC0\u4E48\u8981\u6709\u5B83\uFF1A\u6E20\u9053\u5E93\u90A3\u9762\u7684"\u5168\u90E8\u7C7B\u522B / \u5168\u90E8\u6709\u6548\u6027"\u4E24\u4E2A\u7B5B\u9009\u662F\u539F\u751F select\uFF0C\u6539\u524D\u5404\u81EA
+   \u5199\u4E00\u5957\u5185\u8054\u6837\u5F0F\uFF08\u5706\u89D2 4 / \u8FB9\u6846 / \u5185\u8FB9\u8DDD / \u5B57\u53F7 11 \u5404\u5199\u5404\u7684\uFF09\u21D2 \u4E0E\u77E5\u8BC6\u5E93\u90A3\u9762\u7684\u5BBF\u4E3B\u6309\u94AE
+   \u4E0D\u662F\u4E00\u4E2A\u89C2\u611F\u3002**\u539F\u751F\u4E0B\u62C9\u6CA1\u6709\u5BBF\u4E3B\u539F\u8BED**\uFF08dsh \u7684 ui-primitives \u91CC\u6CA1\u6709 Select\uFF09\uFF0C
+   \u6240\u4EE5\u5728\u8FD9\u91CC\u7ED9\u5B83\u4E00\u4E2A**\u5171\u7528\u7C7B**\uFF1A\u9AD8\u5EA6\u3001\u5B57\u53F7\u3001\u5706\u89D2\u3001\u8FB9\u6846\u8272\u5168\u90E8\u8D70\u540C\u4E00\u5957 token\uFF0C
+   \u4E0E --ks-btn-h-sm \u7684\u6309\u94AE\u7B49\u9AD8\u3002\u26A0 \u672C\u6BB5\u5728\u6A21\u677F\u5B57\u7B26\u4E32\u91CC\uFF0C\u4E0D\u8BB8\u51FA\u73B0\u53CD\u5F15\u53F7\u4E0E\u7F8E\u5143\u52A0\u5927\u62EC\u53F7\u3002 */
+.ks-sel{height:var(--ks-btn-h-sm);box-sizing:border-box;font-size:var(--ks-fs-sm);
+  font-family:inherit;color:var(--dsw-alias-label-primary);background:var(--dsw-alias-bg-layer-2);
+  border:var(--ks-sep) solid var(--dsw-alias-border-l2);border-radius:var(--ks-r-sm);
+  padding:0 var(--ks-space-1)}
 .ks-kb-grow{flex:1;min-width:0}
 .ks-kb-hint{font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-tertiary)}
 /* ---------- \u5361\u7247\u6807\u9898\u6863\uFF08P0-2\uFF0C2026-09-20\uFF09 ----------
@@ -34126,14 +34136,15 @@ var KS_STYLES = `
 .ks-export-effect{font-size:var(--ks-fs-2xs);color:var(--dsw-alias-label-secondary);
   background:transparent;border:none;padding:0;cursor:pointer;white-space:nowrap}
 .ks-export-effect:hover{color:var(--dsw-alias-label-primary)}
-/* \u6279\u2461\uFF082026-09-23\uFF09\uFF1A\u6E20\u9053\u5E93\u5DE6\u6811\u7684\u884C\u6837\u5F0F\uFF08\u5BB9\u5668\u590D\u7528 .ks-kb-tree/.ks-kb-row\uFF09\u3002 */
-.ks-tree-item{display:block;width:100%;text-align:left;cursor:pointer;padding:4px 8px;
-  min-height:28px;font-size:var(--ks-fs-sm);color:var(--dsw-alias-label-secondary);
-  background:transparent;border:none;border-radius:var(--ks-radius)}
-.ks-tree-item:hover{color:var(--dsw-alias-label-primary)}
-.ks-tree-on{color:var(--dsw-alias-label-primary);font-weight:600;
-  background:var(--dsw-alias-border-l2)}
-.ks-tree-sub{padding-left:20px;font-size:var(--ks-fs-2xs)}
+/* \u6279\u2461\uFF082026-09-23\uFF09\u90A3\u4E09\u4E2A**\u6E20\u9053\u5E93\u5DE6\u6811\u81EA\u5DF1\u9020\u7684\u884C\u7C7B**\uFF08.ks-tree-item / .ks-tree-on /
+   .ks-tree-sub\uFF0C\u4EE5\u53CA\u6CA1\u5B9A\u4E49\u7684 .ks-tree-root\uFF09**\u5DF2\u5220\uFF082026-09-24\uFF09**\uFF1A\u4E1A\u4E3B\u95EE"\u77E5\u8BC6\u5E93\u548C\u6E20\u9053\u5E93\u7684
+   UI \u8FD8\u662F\u4E0D\u4E00\u6837"\u4E4B\u540E\u67E5\u51FA\u6765\uFF0C\u5B83\u4EEC\u4E0E\u77E5\u8BC6\u5E93\u5DE6\u6811\u7684 .ks-tree-row\uFF08\u884C\u9AD8 44 / \u5B57\u53F7\u7EE7\u627F 13 /
+   \u9009\u4E2D\u8D70\u5BBF\u4E3B interactive \u5E95\u8272 + 2px \u6807\u8BB0\u6761 / data-depth \u7F29\u8FDB token / \u5E26 caret\uFF09**\u662F\u4E24\u5957\u5916\u89C2**
+   \uFF08\u5B83\u4EEC\u662F 28px \u884C\u9AD8\u300112px \u5B57\u53F7\u3001\u9009\u4E2D\u62FF\u8FB9\u6846\u8272\u6863 --dsw-alias-border-l2 \u5F53\u80CC\u666F\uFF09\u3002
+   \u21D2 \u6E20\u9053\u5E93\u5DE6\u6811\u6539\u6210**\u9010\u5B57\u590D\u7528\u77E5\u8BC6\u5E93\u90A3\u4E00\u5957 markup \u4E0E\u7C7B**\uFF0C\u8FD9\u4E09\u4E2A\u7C7B\u4E0D\u518D\u6709\u4EFB\u4F55\u4F7F\u7528\u8005\u3002
+   \u5220\u6389\u800C\u4E0D\u662F\u7559\u7740\uFF0C\u662F\u56E0\u4E3A"\u7559\u7740\u4F46\u6CA1\u4EBA\u7528"\u6B63\u662F\u4E0B\u6B21\u6709\u4EBA\u7167\u6284\u56DE\u53BB\u7684\u5165\u53E3\u3002
+   \u26A0 \u672C\u6587\u4EF6\u662F\u4E00\u4E2A**\u6A21\u677F\u5B57\u7B26\u4E32**\uFF1A\u6CE8\u91CA\u91CC\u4E0D\u8BB8\u51FA\u73B0\u53CD\u5F15\u53F7\u3001\u4E5F\u4E0D\u8BB8\u51FA\u73B0"\u7F8E\u5143\u53F7\u52A0\u5927\u62EC\u53F7"\u90A3\u79CD\u63D2\u503C\u5F00\u5934
+   \uFF08\u7B2C\u4E00\u7248\u4E24\u6837\u90FD\u5199\u4E86 \u21D2 build \u76F4\u63A5\u7EA2\uFF0Cesbuild \u62A5 Expected ";" / Unexpected "**"\uFF09\u3002 */
 .ks-list-chans .ks-item{width:100%;box-sizing:border-box}
 .ks-item .ks-col-chan{display:grid;grid-template-columns:minmax(0,1fr);min-width:0}
 .ks-item .ks-chan-name{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -36126,7 +36137,6 @@ function KsApiConfigSection(props) {
 
 // client/KsChannelsPanel.tsx
 var import_jsx_runtime12 = require("react/jsx-runtime");
-var LINE = "var(--dsw-alias-border-l2, #ccc)";
 var CATEGORY_LABEL = {
   law: "\u6CD5\u89C4",
   std_gb: "\u56FD\u6807",
@@ -36348,6 +36358,15 @@ function KsChannelsPanel(props) {
   const [mutating, setMutating] = (0, import_react7.useState)(false);
   const [orgSel, setOrgSel] = (0, import_react7.useState)(null);
   const [siteSel, setSiteSel] = (0, import_react7.useState)(null);
+  const [openKinds, setOpenKinds] = (0, import_react7.useState)(/* @__PURE__ */ new Set());
+  const toggleKind = (0, import_react7.useCallback)((key) => {
+    setOpenKinds((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+  }, []);
   const [q, setQ] = (0, import_react7.useState)("");
   const [news, setNews] = (0, import_react7.useState)("");
   const [showDetail, setShowDetail] = (0, import_react7.useState)(false);
@@ -36492,288 +36511,315 @@ function KsChannelsPanel(props) {
     if (!ok) return;
     await runMutation("\u5220\u9664\u6E20\u9053", () => deleteChannel(r.channel_id));
   }, [runMutation]);
-  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: 8, fontSize: 12 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: {
-      display: "flex",
-      alignItems: "center",
-      gap: 8,
-      border: `0.5px solid ${LINE}`,
-      borderRadius: 6,
-      padding: "6px 10px"
-    }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { flex: 1, minWidth: 0 }, children: news === "" ? "\u{1F4E2} \u8BFB\u53D6\u6700\u65B0\u52A8\u6001\u2026" : news }),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("button", { type: "button", style: $mini, onClick: () => setShowDetail((v) => !v), children: showDetail ? "\u6536\u8D77\u8BE6\u60C5" : "\u5DE1\u68C0\u4E0E\u516C\u544A\u8BE6\u60C5" })
-    ] }),
-    showDetail && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: 8 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("details", { open: false, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("summary", { style: { cursor: "pointer" }, children: "\u5DE1\u68C0\u8BE6\u60C5\uFF08\u81EA\u52A8\u5DE1\u68C0\u5F00\u5173 \xB7 \u5173\u6CE8\u6807\u51C6\u4E09\u8272 \xB7 \u5BFC\u51FA\uFF09" }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(KsInspectionPanel, { openedOnce: showDetail })
+  return (
+    /* ⚠ **2026-09-24 统一（开发史 §10.188 第二步）**：改前这里内联写死 `fontSize: 12` 与 `gap: 8`
+       ⇒ 这个面里所有"继承字号"的文字都比知识库那面**小一号**（外壳与知识库内容是 13px）。
+       现在字号**不再自己定**（继承外壳 `.ks-kb` 的 `--ks-fs-base`），间距走同一套 token。
+       ⚠ 这一层 div 留着（没有 `.ks-kb >` 直接子选择器，多这一层不影响观感；
+         知识库那面的内容也在这同一层之下）。 */
+    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: "var(--ks-space-2)" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-kb-banner", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { flex: 1, minWidth: 0 }, children: news === "" ? "\u{1F4E2} \u8BFB\u53D6\u6700\u65B0\u52A8\u6001\u2026" : news }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.Button, { variant: "outline", size: "sm", onClick: () => setShowDetail((v) => !v), children: showDetail ? "\u6536\u8D77\u8BE6\u60C5" : "\u5DE1\u68C0\u4E0E\u516C\u544A\u8BE6\u60C5" })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("details", { open: false, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("summary", { style: { cursor: "pointer" }, children: "\u516C\u544A\u8BE6\u60C5\uFF08\u516C\u544A\u6E90\u7BA1\u7406 \xB7 \u6700\u8FD1\u516C\u544A \xB7 \u5BFC\u51FA\uFF09" }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(KsAnnounceSourcesSection, { openedOnce: showDetail })
-      ] })
-    ] }),
-    s && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { color: GRAY, lineHeight: 1.7 }, children: [
-      "\u53F0\u8D26 ",
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("b", { children: s.total }),
-      " \u6761 \xB7 \u80FD\u7528 ",
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("b", { children: s.by_state.ok ?? 0 }),
-      " \xB7 \u4E0D\u592A\u884C ",
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("b", { children: s.by_state.suspicious ?? 0 }),
-      " \xB7 \u4E0D\u80FD\u7528 ",
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("b", { children: s.by_state.down ?? 0 }),
-      " \xB7 \u6CA1\u8BD5\u8FC7 ",
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("b", { children: s.by_state.unknown ?? 0 }),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("br", {}),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { color: FAINT }, children: "\u5DE6\u8FB9\u6309\u300C\u5355\u4F4D\u6027\u8D28\u300D\u5206\u7C7B\uFF08\u56FD\u5BB6\u90E8\u59D4/\u603B\u5C40\u3001\u5730\u65B9\u4EBA\u5927\u3001\u5730\u65B9\u5385\u5C40\u2026\uFF09\uFF1B\u70B9\u4E00\u7C7B\u770B\u5B83\u7684\u6E20\u9053\u3002" })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
-        "select",
-        {
-          value: cat,
-          onChange: (e) => setCat(e.target.value),
-          style: $select,
-          title: "\u6309\u7C7B\u522B\u7B5B\u9009\uFF08\u670D\u52A1\u7AEF\u7B5B\u9009\uFF09",
-          children: [
-            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("option", { value: "", children: "\u5168\u90E8\u7C7B\u522B" }),
-            Object.entries(CATEGORY_LABEL).map(([k, v]) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("option", { value: k, children: v }, k))
-          ]
-        }
-      ),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
-        "select",
-        {
-          value: state,
-          onChange: (e) => setState(e.target.value),
-          style: $select,
-          title: "\u6309\u6709\u6548\u6027\u7B5B\u9009\uFF08\u670D\u52A1\u7AEF\u7B5B\u9009\uFF09",
-          children: [
-            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("option", { value: "", children: "\u5168\u90E8\u6709\u6548\u6027" }),
-            Object.entries(STATE_LABEL).map(([k, v]) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("option", { value: k, children: v }, k))
-          ]
-        }
-      ),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("button", { type: "button", onClick: () => void load(), disabled: busy, style: $btn2, children: busy ? "\u8BFB\u53D6\u4E2D\u2026" : "\u27F3 \u5237\u65B0" }),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-        "button",
-        {
-          type: "button",
-          onClick: probe,
-          disabled: probeBusy,
-          style: $btn2,
-          title: "\u7ACB\u5373\u5DE1\u68C0\uFF1A\u5BF9\u914D\u4E86\u68C0\u67E5\u53E3\u5F84\u7684\u6E20\u9053\u5404\u63A2\u4E00\u904D\uFF0C\u5B9E\u6D4B\u4ECA\u5929\u80FD\u4E0D\u80FD\u6293\uFF08\u7EA6 10\u201330 \u79D2\uFF09\u3002\u4E0E\u6BCF\u65E5\u81EA\u52A8\u5DE1\u68C0\u662F\u540C\u4E00\u4EF6\u4E8B\u2014\u2014\u8FD9\u662F\u7ACB\u523B\u8DD1\u4E00\u6B21",
-          children: probeBusy ? "\u5DE1\u68C0\u4E2D\u2026\uFF08\u7EA6 10\u201330 \u79D2\uFF09" : "\u{1FA7A} \u7ACB\u5373\u5DE1\u68C0"
-        }
-      ),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-        "button",
-        {
-          type: "button",
-          onClick: () => setAdding((v) => !v),
-          style: $btn2,
-          title: "\u4EBA\u5DE5\u52A0\u4E00\u6761\u6E20\u9053\uFF1A\u5F15\u64CE\u4FA7\u5DF2\u843D\uFF08R6d\uFF09\uFF0C\u754C\u9762\u4FA7\u8FD9\u4E00\u6B65\u662F R6f",
-          children: adding ? "\xD7 \u53D6\u6D88\u65B0\u589E" : "\uFF0B \u65B0\u589E\u6E20\u9053"
-        }
-      ),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-        "button",
-        {
-          type: "button",
-          "data-ks-channels-ai-fix": true,
-          onClick: () => {
-            const prompt = buildChannelFixPrompt(data?.items ?? rows, data?.summary);
-            void copyTextToClipboard(prompt).then((ok) => {
-              setNotice(ok ? "\u63D0\u793A\u8BCD\u5DF2\u590D\u5236\u2014\u2014\u7C98\u5230\u5BF9\u8BDD\u6846\u53D1\u51FA\u53BB\uFF0CAI \u4F1A\u9010\u6761\u8BCA\u65AD\u5931\u6548\u539F\u56E0\u3001\u7ED9\u4FEE\u6CD5\u3001\u8BF4\u6E05\u8981\u4F60\u5E2E\u4EC0\u4E48\u3002" : "\u590D\u5236\u5931\u8D25\uFF1A\u6D4F\u89C8\u5668\u62D2\u7EDD\u4E86\u526A\u8D34\u677F\u6743\u9650\u3002\u8BF7\u624B\u52A8\u5168\u9009\u4E0B\u65B9\u63D0\u793A\u8BCD\u590D\u5236\u3002");
-            });
-          },
-          style: { ...$btn2, borderColor: "var(--dsw-alias-state-business-primary, #1565c0)" },
-          title: "\u751F\u6210\u4E00\u6BB5\u8BCA\u65AD\u63D0\u793A\u8BCD\u5E76\u590D\u5236\uFF1A\u7C98\u5230\u5BF9\u8BDD\u6846\u53D1\u51FA\u53BB\uFF0CAI \u4F1A\u8BCA\u65AD\u6BCF\u6761\u5931\u6548\u6E20\u9053\u4E3A\u4EC0\u4E48\u574F\u3001\u600E\u4E48\u4FEE\u3001\u600E\u4E48\u957F\u671F\u6709\u6548\u3001\u8981\u4F60\u5E2E\u4EC0\u4E48\u3001\u7528\u4EC0\u4E48\u5DE5\u5177\u4FEE",
-          children: "\u{1F916} AI \u4E00\u952E\u89E3\u51B3"
-        }
-      ),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-        "input",
-        {
-          className: "ks-search",
-          value: q,
-          onChange: (e) => setQ(e.target.value),
-          placeholder: "\u641C\u7F51\u7AD9\u540D\u5B57 / \u7F51\u7AD9\u57DF\u540D\u2026",
-          "aria-label": "\u641C\u6E20\u9053\uFF08\u540D\u5B57\u6216\u57DF\u540D\uFF09"
-        }
-      ),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { color: FAINT }, children: q.trim() !== "" ? `\u547D\u4E2D ${String(viewRows.length)} \u6761` : "" })
-    ] }),
-    adding && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: {
-      display: "flex",
-      gap: 6,
-      flexWrap: "wrap",
-      alignItems: "center",
-      border: `1px dashed ${LINE}`,
-      borderRadius: 6,
-      padding: 6
-    }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-        "input",
-        {
-          value: newName,
-          onChange: (e) => setNewName(e.target.value),
-          placeholder: "\u6E20\u9053\u540D\u79F0\uFF08\u5FC5\u586B\uFF0C\u4F8B\u5982\uFF1A\u67D0\u7701\u4F4F\u5EFA\u5385\u516C\u544A\uFF09",
-          style: { ...$select, minWidth: 220 },
-          "aria-label": "\u6E20\u9053\u540D\u79F0"
-        }
-      ),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-        "input",
-        {
-          value: newUrl,
-          onChange: (e) => setNewUrl(e.target.value),
-          placeholder: "\u94FE\u63A5\uFF08https://\u2026\uFF09",
-          style: { ...$select, minWidth: 240 },
-          "aria-label": "\u6E20\u9053\u94FE\u63A5"
-        }
-      ),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-        "input",
-        {
-          value: newNote,
-          onChange: (e) => setNewNote(e.target.value),
-          placeholder: "\u5907\u6CE8\uFF08\u4E3A\u4EC0\u4E48\u52A0\u5B83 / \u8C01\u7EF4\u62A4\uFF09",
-          style: { ...$select, minWidth: 200 },
-          "aria-label": "\u5907\u6CE8"
-        }
-      ),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-        "button",
-        {
-          type: "button",
-          onClick: () => void submitCreate(),
-          disabled: mutating || newName.trim() === "",
-          style: $btn2,
-          children: mutating ? "\u63D0\u4EA4\u4E2D\u2026" : "\u63D0\u4EA4"
-        }
-      ),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { color: FAINT }, children: "\u65B0\u589E\u7684\u6E20\u9053\u9ED8\u8BA4\uFF1A\u63A5\u7EBF `user`\uFF08\u662F\u4EBA\u52A0\u7684\uFF09\u3001\u6709\u6548\u6027 `unverified`\uFF08\u4EBA\u5DE5\u5F55\u5165\u2260\u5DF2\u6838\u5B9E\uFF09\u3001 \u63A2\u9488\u72B6\u6001 `unknown`\uFF08\u8FD8\u6CA1\u63A2\u8FC7\uFF09\u3002" })
-    ] }),
-    notice !== "" && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { role: "status", style: { margin: 0, color: GRAY }, children: notice }),
-    error !== "" && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("p", { role: "alert", style: { margin: 0, color: "#c0392b" }, children: [
-      "\u8BFB\u53D6\u5931\u8D25\uFF1A",
-      error,
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("br", {}),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { color: FAINT }, children: "\uFF08\u6E20\u9053\u5E93\u7AEF\u70B9\u8981\u5BBF\u4E3B/\u5F15\u64CE\u91CD\u542F\u540E\u624D\u5728\u7EBF\uFF1B\u82E5\u521A\u66F4\u65B0\u8FC7\u800C\u6CA1\u91CD\u542F\uFF0C\u8FD9\u91CC\u5C31\u4F1A\u62A5\u9519\u3002\uFF09" })
-    ] }),
-    data && rows.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { style: { color: GRAY, margin: 0 }, children: "\u6CA1\u6709\u7B26\u5408\u6761\u4EF6\u7684\u6E20\u9053\u3002" }),
-    rows.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-kb-row", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("aside", { className: "ks-kb-tree", "aria-label": "\u6E20\u9053\u5E93\u76EE\u5F55", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-tree-root", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-          "button",
+      showDetail && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: 8 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("details", { open: false, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("summary", { style: { cursor: "pointer" }, children: "\u5DE1\u68C0\u8BE6\u60C5\uFF08\u81EA\u52A8\u5DE1\u68C0\u5F00\u5173 \xB7 \u5173\u6CE8\u6807\u51C6\u4E09\u8272 \xB7 \u5BFC\u51FA\uFF09" }),
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(KsInspectionPanel, { openedOnce: showDetail })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("details", { open: false, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("summary", { style: { cursor: "pointer" }, children: "\u516C\u544A\u8BE6\u60C5\uFF08\u516C\u544A\u6E90\u7BA1\u7406 \xB7 \u6700\u8FD1\u516C\u544A \xB7 \u5BFC\u51FA\uFF09" }),
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(KsAnnounceSourcesSection, { openedOnce: showDetail })
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-kb-row", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+          "select",
           {
-            type: "button",
-            className: "ks-tree-item",
+            className: "ks-sel",
+            value: cat,
+            onChange: (e) => setCat(e.target.value),
+            title: "\u6309\u7C7B\u522B\u7B5B\u9009\uFF08\u670D\u52A1\u7AEF\u7B5B\u9009\uFF09",
+            children: [
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("option", { value: "", children: "\u5168\u90E8\u7C7B\u522B" }),
+              Object.entries(CATEGORY_LABEL).map(([k, v]) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("option", { value: k, children: v }, k))
+            ]
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+          "select",
+          {
+            className: "ks-sel",
+            value: state,
+            onChange: (e) => setState(e.target.value),
+            title: "\u6309\u6709\u6548\u6027\u7B5B\u9009\uFF08\u670D\u52A1\u7AEF\u7B5B\u9009\uFF09",
+            children: [
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("option", { value: "", children: "\u5168\u90E8\u6709\u6548\u6027" }),
+              Object.entries(STATE_LABEL).map(([k, v]) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("option", { value: k, children: v }, k))
+            ]
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.Button, { variant: "outline", size: "sm", disabled: busy, onClick: () => void load(), children: busy ? "\u8BFB\u53D6\u4E2D\u2026" : "\u27F3 \u5237\u65B0" }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+          import_dsh_client_ui_primitives3.Button,
+          {
+            variant: "outline",
+            size: "sm",
+            disabled: probeBusy,
+            onClick: probe,
+            title: "\u7ACB\u5373\u5DE1\u68C0\uFF1A\u5BF9\u914D\u4E86\u68C0\u67E5\u53E3\u5F84\u7684\u6E20\u9053\u5404\u63A2\u4E00\u904D\uFF0C\u5B9E\u6D4B\u4ECA\u5929\u80FD\u4E0D\u80FD\u6293\uFF08\u7EA6 10\u201330 \u79D2\uFF09\u3002\u4E0E\u6BCF\u65E5\u81EA\u52A8\u5DE1\u68C0\u662F\u540C\u4E00\u4EF6\u4E8B\u2014\u2014\u8FD9\u662F\u7ACB\u523B\u8DD1\u4E00\u6B21",
+            children: probeBusy ? "\u5DE1\u68C0\u4E2D\u2026\uFF08\u7EA6 10\u201330 \u79D2\uFF09" : "\u{1FA7A} \u7ACB\u5373\u5DE1\u68C0"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+          import_dsh_client_ui_primitives3.Button,
+          {
+            variant: "outline",
+            size: "sm",
+            onClick: () => setAdding((v) => !v),
+            title: "\u4EBA\u5DE5\u52A0\u4E00\u6761\u6E20\u9053\uFF1A\u5F15\u64CE\u4FA7\u5DF2\u843D\uFF08R6d\uFF09\uFF0C\u754C\u9762\u4FA7\u8FD9\u4E00\u6B65\u662F R6f",
+            children: adding ? "\xD7 \u53D6\u6D88\u65B0\u589E" : "\uFF0B \u65B0\u589E\u6E20\u9053"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+          import_dsh_client_ui_primitives3.Button,
+          {
+            variant: "outline",
+            size: "sm",
+            "data-ks-channels-ai-fix": true,
             onClick: () => {
-              setOrgSel(null);
-              setSiteSel(null);
+              const prompt = buildChannelFixPrompt(data?.items ?? rows, data?.summary);
+              void copyTextToClipboard(prompt).then((ok) => {
+                setNotice(ok ? "\u63D0\u793A\u8BCD\u5DF2\u590D\u5236\u2014\u2014\u7C98\u5230\u5BF9\u8BDD\u6846\u53D1\u51FA\u53BB\uFF0CAI \u4F1A\u9010\u6761\u8BCA\u65AD\u5931\u6548\u539F\u56E0\u3001\u7ED9\u4FEE\u6CD5\u3001\u8BF4\u6E05\u8981\u4F60\u5E2E\u4EC0\u4E48\u3002" : "\u590D\u5236\u5931\u8D25\uFF1A\u6D4F\u89C8\u5668\u62D2\u7EDD\u4E86\u526A\u8D34\u677F\u6743\u9650\u3002\u8BF7\u624B\u52A8\u5168\u9009\u4E0B\u65B9\u63D0\u793A\u8BCD\u590D\u5236\u3002");
+              });
             },
-            children: "\u6E20\u9053\u5E93"
+            title: "\u751F\u6210\u4E00\u6BB5\u8BCA\u65AD\u63D0\u793A\u8BCD\u5E76\u590D\u5236\uFF1A\u7C98\u5230\u5BF9\u8BDD\u6846\u53D1\u51FA\u53BB\uFF0CAI \u4F1A\u8BCA\u65AD\u6BCF\u6761\u5931\u6548\u6E20\u9053\u4E3A\u4EC0\u4E48\u574F\u3001\u600E\u4E48\u4FEE\u3001\u600E\u4E48\u957F\u671F\u6709\u6548\u3001\u8981\u4F60\u5E2E\u4EC0\u4E48\u3001\u7528\u4EC0\u4E48\u5DE5\u5177\u4FEE",
+            children: "\u{1F916} AI \u4E00\u952E\u89E3\u51B3"
           }
-        ),
-        groupRowsByOrgKind(rows).map((g) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-            "button",
-            {
-              type: "button",
-              className: "ks-tree-item" + (orgSel === g.key && siteSel === null ? " ks-tree-on" : ""),
-              title: g.label,
-              onClick: () => {
-                setOrgSel(g.key);
-                setSiteSel(null);
-              },
-              children: g.label
-            }
-          ),
-          orgSel === g.key && groupRowsBySite(g.rows).sites.map((s2) => /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-            "button",
-            {
-              type: "button",
-              className: "ks-tree-item ks-tree-sub" + (siteSel === s2.host ? " ks-tree-on" : ""),
-              title: s2.label,
-              onClick: () => {
-                setOrgSel(g.key);
-                setSiteSel(s2.host);
-              },
-              children: s2.label
-            },
-            s2.host
-          ))
-        ] }, g.key))
-      ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-kb-main", children: [
+        )
+      ] }),
+      adding && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-kb-row", style: {
+        border: "1px dashed var(--dsw-alias-border-l2)",
+        borderRadius: "var(--ks-r-md)",
+        padding: "var(--ks-space-2)"
+      }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-          KsCrumb,
+          import_dsh_client_ui_primitives3.Input,
           {
-            items: q.trim() !== "" ? [{ name: "\u6E20\u9053\u5E93" }, { name: `\u641C\u7D22\u300C${q.trim()}\u300D` }] : orgSel === null ? [{ name: "\u6E20\u9053\u5E93" }] : siteSel === null ? [
-              { name: "\u6E20\u9053\u5E93", onGo: () => setOrgSel(null) },
-              { name: ORG_KIND_LABEL[orgSel] ?? orgSel }
-            ] : [
-              { name: "\u6E20\u9053\u5E93", onGo: () => {
-                setOrgSel(null);
-                setSiteSel(null);
-              } },
-              { name: ORG_KIND_LABEL[orgSel] ?? orgSel, onGo: () => {
-                setSiteSel(null);
-              } },
-              { name: siteSel }
-            ],
-            n: crumbN
+            value: newName,
+            onChange: (e) => setNewName(e.target.value),
+            placeholder: "\u6E20\u9053\u540D\u79F0\uFF08\u5FC5\u586B\uFF0C\u4F8B\u5982\uFF1A\u67D0\u7701\u4F4F\u5EFA\u5385\u516C\u544A\uFF09",
+            style: { minWidth: 220 },
+            "aria-label": "\u6E20\u9053\u540D\u79F0"
           }
         ),
-        orgSel !== null && siteSel === null && q.trim() === "" && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-list ks-list-dirs ks-dirs", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(KsListHead, { cols: DIR_COLS }),
-          groupRowsBySite(viewRows).sites.map((s2) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+          import_dsh_client_ui_primitives3.Input,
+          {
+            value: newUrl,
+            onChange: (e) => setNewUrl(e.target.value),
+            placeholder: "\u94FE\u63A5\uFF08https://\u2026\uFF09",
+            style: { minWidth: 240 },
+            "aria-label": "\u6E20\u9053\u94FE\u63A5"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+          import_dsh_client_ui_primitives3.Input,
+          {
+            value: newNote,
+            onChange: (e) => setNewNote(e.target.value),
+            placeholder: "\u5907\u6CE8\uFF08\u4E3A\u4EC0\u4E48\u52A0\u5B83 / \u8C01\u7EF4\u62A4\uFF09",
+            style: { minWidth: 200 },
+            "aria-label": "\u5907\u6CE8"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+          import_dsh_client_ui_primitives3.Button,
+          {
+            variant: "primary",
+            size: "sm",
+            disabled: mutating || newName.trim() === "",
+            onClick: () => void submitCreate(),
+            children: mutating ? "\u63D0\u4EA4\u4E2D\u2026" : "\u63D0\u4EA4"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-kb-hint", children: "\u65B0\u589E\u7684\u6E20\u9053\u9ED8\u8BA4\uFF1A\u63A5\u7EBF `user`\uFF08\u662F\u4EBA\u52A0\u7684\uFF09\u3001\u6709\u6548\u6027 `unverified`\uFF08\u4EBA\u5DE5\u5F55\u5165\u2260\u5DF2\u6838\u5B9E\uFF09\u3001 \u63A2\u9488\u72B6\u6001 `unknown`\uFF08\u8FD8\u6CA1\u63A2\u8FC7\uFF09\u3002" })
+      ] }),
+      notice !== "" && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { role: "status", style: { margin: 0, color: GRAY }, children: notice }),
+      error !== "" && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("p", { role: "alert", style: { margin: 0, color: "#c0392b" }, children: [
+        "\u8BFB\u53D6\u5931\u8D25\uFF1A",
+        error,
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("br", {}),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { color: FAINT }, children: "\uFF08\u6E20\u9053\u5E93\u7AEF\u70B9\u8981\u5BBF\u4E3B/\u5F15\u64CE\u91CD\u542F\u540E\u624D\u5728\u7EBF\uFF1B\u82E5\u521A\u66F4\u65B0\u8FC7\u800C\u6CA1\u91CD\u542F\uFF0C\u8FD9\u91CC\u5C31\u4F1A\u62A5\u9519\u3002\uFF09" })
+      ] }),
+      data && rows.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("p", { style: { color: GRAY, margin: 0 }, children: "\u6CA1\u6709\u7B26\u5408\u6761\u4EF6\u7684\u6E20\u9053\u3002" }),
+      rows.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-split", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("aside", { className: "ks-kb-tree", "aria-label": "\u6E20\u9053\u5E93\u76EE\u5F55", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "ks-tree-node", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
             "div",
             {
-              className: "ks-item ks-dir-row",
-              onClick: (e) => {
-                const t = e.target;
-                if (t === null || typeof t.closest !== "function") return;
-                if (t.closest("button,input,a,[role=menuitem],[role=menu]") !== null) return;
-                setSiteSel(s2.host);
-              },
+              className: "ks-tree-row",
+              "data-on": orgSel === null && siteSel === null ? "true" : "false",
+              "data-depth": 0,
+              "aria-current": orgSel === null && siteSel === null ? "true" : void 0,
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "ks-cell ks-col-dpick" }),
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "ks-cell ks-col-dname", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-tree-caret ks-tree-caret-leaf", "aria-hidden": "true" }),
+                /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
                   "button",
                   {
                     type: "button",
-                    className: "ks-dir-open",
-                    title: `\u8FDB\u5165\u7F51\u7AD9\u300C${s2.label}\u300D\uFF08\u8FD9\u4E2A\u7F51\u7AD9\u6709 ${String(s2.rows.length)} \u4E2A\u9875\u9762\uFF09`,
-                    "aria-label": `\u8FDB\u5165\u7F51\u7AD9\u300C${s2.label}\u300D\uFF0C\u5171 ${String(s2.rows.length)} \u4E2A\u9875\u9762`,
-                    onClick: () => setSiteSel(s2.host),
+                    className: "ks-tree-name",
+                    title: `\u6E20\u9053\u5E93\uFF08\u5168\u90E8 ${String(rows.length)} \u6761\uFF09`,
+                    onClick: () => {
+                      setOrgSel(null);
+                      setSiteSel(null);
+                    },
                     children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-fileico", title: "\u7F51\u7AD9", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutline16, {}) }),
-                      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-dir-name", title: s2.label, children: s2.label }),
-                      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-dir-go", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconChevronRightOutline14, {}) })
+                      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutline16, {}),
+                      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-tree-label", children: "\u6E20\u9053\u5E93" })
                     ]
                   }
-                ) }),
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "ks-cell ks-col-dcount", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "ks-kb-badge", children: [
-                  s2.rows.length,
-                  " \u9875"
-                ] }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "ks-cell ks-col-dmore" })
+                ),
+                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-tree-count", children: rows.length })
               ]
-            },
-            s2.host
-          ))
+            }
+          ) }),
+          groupRowsByOrgKind(rows).map((g) => {
+            const sites = groupRowsBySite(g.rows).sites;
+            const hasKids = sites.length > 0;
+            const expanded = openKinds.has(g.key) || orgSel === g.key;
+            const on = orgSel === g.key && siteSel === null;
+            return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-tree-node", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+                "div",
+                {
+                  className: "ks-tree-row",
+                  "data-on": on ? "true" : "false",
+                  "data-depth": 1,
+                  "aria-current": on ? "true" : void 0,
+                  children: [
+                    hasKids ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+                      "button",
+                      {
+                        type: "button",
+                        className: "ks-tree-caret",
+                        "aria-label": `${expanded ? "\u6536\u8D77" : "\u5C55\u5F00"}\u300C${g.label}\u300D\u4E0B\u9762\u7684\u7AD9\u70B9`,
+                        "aria-expanded": expanded,
+                        title: expanded ? "\u6536\u8D77" : "\u5C55\u5F00",
+                        onClick: () => {
+                          toggleKind(g.key);
+                        },
+                        children: expanded ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconChevronDownOutline14, {}) : /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconChevronRightOutline14, {})
+                      }
+                    ) : /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-tree-caret ks-tree-caret-leaf", "aria-hidden": "true" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+                      "button",
+                      {
+                        type: "button",
+                        className: "ks-tree-name",
+                        title: `${g.label}\uFF08${String(g.rows.length)} \u6761\uFF09`,
+                        onClick: () => {
+                          setOrgSel(g.key);
+                          setSiteSel(null);
+                          setOpenKinds((prev) => new Set(prev).add(g.key));
+                        },
+                        children: [
+                          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutline16, {}),
+                          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-tree-label", children: g.label })
+                        ]
+                      }
+                    ),
+                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-tree-count", children: g.rows.length })
+                  ]
+                }
+              ),
+              expanded && sites.map((s2) => {
+                const son = siteSel === s2.host && orgSel === g.key;
+                return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+                  "div",
+                  {
+                    className: "ks-tree-row",
+                    "data-on": son ? "true" : "false",
+                    "data-depth": 2,
+                    "aria-current": son ? "true" : void 0,
+                    children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-tree-caret ks-tree-caret-leaf", "aria-hidden": "true" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+                        "button",
+                        {
+                          type: "button",
+                          className: "ks-tree-name",
+                          title: `${s2.label}\uFF08${String(s2.rows.length)} \u6761\uFF09`,
+                          onClick: () => {
+                            setOrgSel(g.key);
+                            setSiteSel(s2.host);
+                          },
+                          children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-tree-label", children: s2.label })
+                        }
+                      ),
+                      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-tree-count", children: s2.rows.length })
+                    ]
+                  },
+                  s2.host
+                );
+              })
+            ] }, g.key);
+          })
         ] }),
-        orgSel === null && q.trim() === "" ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-list ks-list-dirs ks-dirs", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(KsListHead, { cols: DIR_COLS }),
-          groupRowsByOrgKind(rows).map((g) => (
-            /* 逐格照抄知识库 dirCell 真身：进入钮=真 button + 文件夹图标 + 图标箭头、
-               条数=ks-kb-badge 胶囊、行=div 整行可点。勾选框/⋮ 未搬：分组没有对应动作，
-               摆上去就是假按钮（红线）——要它们先定动作（如批量停用）。 */
-            /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-main", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+            KsCrumb,
+            {
+              items: q.trim() !== "" ? [{ name: "\u6E20\u9053\u5E93" }, { name: `\u641C\u7D22\u300C${q.trim()}\u300D` }] : orgSel === null ? [{ name: "\u6E20\u9053\u5E93" }] : siteSel === null ? [
+                { name: "\u6E20\u9053\u5E93", onGo: () => setOrgSel(null) },
+                { name: ORG_KIND_LABEL[orgSel] ?? orgSel }
+              ] : [
+                { name: "\u6E20\u9053\u5E93", onGo: () => {
+                  setOrgSel(null);
+                  setSiteSel(null);
+                } },
+                { name: ORG_KIND_LABEL[orgSel] ?? orgSel, onGo: () => {
+                  setSiteSel(null);
+                } },
+                { name: siteSel }
+              ],
+              n: crumbN
+            }
+          ),
+          s && /* ⚠ 四个数**保持 `<b>` 加粗**：`smoke-catalog-ui.mjs` 有一条源码级判据钉着
+             "能用 <b>{s.by_state.ok…" 这一组字面量（"摘要＝用户语言四态、旧接线话术回潮就红"）。
+             本批只是把这一行搬进右栏 + 换共用类，**不动那条判据**（动它要另开一笔并说明理由）。 */
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-kb-banner", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { children: [
+              "\u53F0\u8D26 ",
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("b", { children: s.total }),
+              " \u6761 \xB7 \u80FD\u7528 ",
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("b", { children: s.by_state.ok ?? 0 }),
+              " \u6761 \xB7 \u4E0D\u592A\u884C ",
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("b", { children: s.by_state.suspicious ?? 0 }),
+              " \u6761 \xB7 \u4E0D\u80FD\u7528 ",
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("b", { children: s.by_state.down ?? 0 }),
+              " \u6761 \xB7 \u6CA1\u8BD5\u8FC7 ",
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("b", { children: s.by_state.unknown ?? 0 }),
+              " \u6761"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { marginLeft: "auto" }, children: q.trim() !== "" ? `\u547D\u4E2D ${String(viewRows.length)} \u6761` : "\u5DE6\u8FB9\u6309\u300C\u5355\u4F4D\u6027\u8D28\u300D\u5206\u7C7B\uFF1B\u70B9\u4E00\u7C7B\u770B\u5B83\u7684\u6E20\u9053\u3002" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-search", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+            import_dsh_client_ui_primitives3.Input,
+            {
+              icon: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconSearchOutline16, {}),
+              value: q,
+              placeholder: "\u641C\u7F51\u7AD9\u540D\u5B57 / \u7F51\u7AD9\u57DF\u540D\u2026",
+              "aria-label": "\u641C\u6E20\u9053\uFF08\u540D\u5B57\u6216\u57DF\u540D\uFF09",
+              onChange: (e) => {
+                setQ(e.target.value);
+              }
+            }
+          ) }),
+          orgSel !== null && siteSel === null && q.trim() === "" && /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-list ks-list-dirs ks-dirs", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(KsListHead, { cols: DIR_COLS }),
+            groupRowsBySite(viewRows).sites.map((s2) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
               "div",
               {
                 className: "ks-item ks-dir-row",
@@ -36781,7 +36827,7 @@ function KsChannelsPanel(props) {
                   const t = e.target;
                   if (t === null || typeof t.closest !== "function") return;
                   if (t.closest("button,input,a,[role=menuitem],[role=menu]") !== null) return;
-                  setOrgSel(g.key);
+                  setSiteSel(s2.host);
                 },
                 children: [
                   /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "ks-cell ks-col-dpick" }),
@@ -36790,124 +36836,160 @@ function KsChannelsPanel(props) {
                     {
                       type: "button",
                       className: "ks-dir-open",
-                      title: `\u8FDB\u5165\u300C${g.label}\u300D\uFF08\u5171 ${String(g.rows.length)} \u6761\uFF09`,
-                      "aria-label": `\u8FDB\u5165\u5206\u7C7B\u300C${g.label}\u300D\uFF0C\u5171 ${String(g.rows.length)} \u6761`,
-                      onClick: () => setOrgSel(g.key),
+                      title: `\u8FDB\u5165\u7F51\u7AD9\u300C${s2.label}\u300D\uFF08\u8FD9\u4E2A\u7F51\u7AD9\u6709 ${String(s2.rows.length)} \u4E2A\u9875\u9762\uFF09`,
+                      "aria-label": `\u8FDB\u5165\u7F51\u7AD9\u300C${s2.label}\u300D\uFF0C\u5171 ${String(s2.rows.length)} \u4E2A\u9875\u9762`,
+                      onClick: () => setSiteSel(s2.host),
                       children: [
-                        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-fileico", title: "\u5206\u7C7B", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutline16, {}) }),
-                        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-dir-name", title: g.label, children: g.label }),
+                        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-fileico", title: "\u7F51\u7AD9", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutline16, {}) }),
+                        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-dir-name", title: s2.label, children: s2.label }),
                         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-dir-go", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconChevronRightOutline14, {}) })
                       ]
                     }
                   ) }),
                   /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "ks-cell ks-col-dcount", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "ks-kb-badge", children: [
-                    g.rows.length,
-                    " \u6761"
+                    s2.rows.length,
+                    " \u9875"
                   ] }) }),
                   /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "ks-cell ks-col-dmore" })
                 ]
               },
-              g.key
-            )
-          ))
-        ] }) : /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-list ks-list-chans", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(KsListHead, { cols: CH_COLS }),
-          (siteSel !== null ? groupRowsBySite(viewRows).sites.find((s2) => s2.host === siteSel)?.rows ?? [] : orgSel !== null && q.trim() === "" ? groupRowsBySite(viewRows).solos : viewRows).map((r) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-item", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "ks-cell ks-col-chan", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "ks-chan-name", title: r.note ?? void 0, children: [
-                r.name,
-                r.enabled === 0 ? "\uFF08\u5DF2\u505C\u7528\uFF09" : ""
-              ] }),
-              r.url ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-                "a",
+              s2.host
+            ))
+          ] }),
+          orgSel === null && q.trim() === "" ? /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-list ks-list-dirs ks-dirs", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(KsListHead, { cols: DIR_COLS }),
+            groupRowsByOrgKind(rows).map((g) => (
+              /* 逐格照抄知识库 dirCell 真身：进入钮=真 button + 文件夹图标 + 图标箭头、
+                 条数=ks-kb-badge 胶囊、行=div 整行可点。勾选框/⋮ 未搬：分组没有对应动作，
+                 摆上去就是假按钮（红线）——要它们先定动作（如批量停用）。 */
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+                "div",
                 {
-                  className: "ks-chan-open",
-                  href: r.url.split(/[（\s]/)[0],
-                  target: "_blank",
-                  rel: "noreferrer noopener",
-                  children: "\u6253\u5F00"
-                }
-              ) : null
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "ks-cell ks-col-cstate", children: [
-              STATE_LABEL[r.state] ?? r.state,
-              r.state === "unknown" && r.has_probe_target === false ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { color: FAINT }, children: "\uFF08\u6CA1\u914D\u6D4B\u8BD5\uFF09" }) : null
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-cell ks-col-cdate", title: r.last_ok_at ?? "", children: describeWhen(r.last_ok_at) }),
-            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-              "span",
-              {
-                className: "ks-cell ks-col-cissue",
-                style: { color: r.last_error ? "#c0392b" : FAINT },
-                children: r.last_error ? r.last_error.slice(0, 40) : "\u2014"
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "ks-cell ks-col-cact", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-                "button",
-                {
-                  type: "button",
-                  disabled: mutating,
-                  style: $mini,
-                  onClick: () => void toggleEnabled(r),
-                  children: r.enabled === 0 ? "\u542F\u7528" : "\u505C\u7528"
-                }
-              ),
-              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-                "button",
-                {
-                  type: "button",
-                  disabled: mutating,
-                  style: $mini,
-                  onClick: () => void editOrgKind(r),
-                  children: "\u6539\u5206\u7C7B"
-                }
-              ),
-              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-                "button",
-                {
-                  type: "button",
-                  disabled: mutating,
-                  style: $mini,
-                  onClick: () => void tryChannel(r),
-                  title: "\u8BD5\u4E00\u8BD5\uFF1A\u62C9\u8FD9\u6761\u6E20\u9053\u7684\u300C\u5DF2\u77E5\u6587\u4EF6\u300D\uFF08\u6837\u672C\u94FE\u63A5+\u671F\u671B\u6807\u51C6\u53F7\uFF09\u2014\u2014\u771F\u4E0B\u8F7D/\u8BC6\u522B\u51FA\u6765=\u6E20\u9053\u7B97\u6570\u3002\u9996\u6B21\u70B9\u51FB\u4F1A\u5148\u914D\u6837\u672C",
-                  children: "\u8BD5\u4E00\u8BD5"
-                }
-              ),
-              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
-                "button",
-                {
-                  type: "button",
-                  disabled: mutating,
-                  style: { ...$mini, color: "#c0392b" },
-                  onClick: () => void remove(r),
-                  children: "\u5220\u9664"
-                }
+                  className: "ks-item ks-dir-row",
+                  onClick: (e) => {
+                    const t = e.target;
+                    if (t === null || typeof t.closest !== "function") return;
+                    if (t.closest("button,input,a,[role=menuitem],[role=menu]") !== null) return;
+                    setOrgSel(g.key);
+                  },
+                  children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "ks-cell ks-col-dpick" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "ks-cell ks-col-dname", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+                      "button",
+                      {
+                        type: "button",
+                        className: "ks-dir-open",
+                        title: `\u8FDB\u5165\u300C${g.label}\u300D\uFF08\u5171 ${String(g.rows.length)} \u6761\uFF09`,
+                        "aria-label": `\u8FDB\u5165\u5206\u7C7B\u300C${g.label}\u300D\uFF0C\u5171 ${String(g.rows.length)} \u6761`,
+                        onClick: () => setOrgSel(g.key),
+                        children: [
+                          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-fileico", title: "\u5206\u7C7B", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutline16, {}) }),
+                          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-dir-name", title: g.label, children: g.label }),
+                          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-dir-go", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconChevronRightOutline14, {}) })
+                        ]
+                      }
+                    ) }),
+                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "ks-cell ks-col-dcount", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "ks-kb-badge", children: [
+                      g.rows.length,
+                      " \u6761"
+                    ] }) }),
+                    /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "ks-cell ks-col-dmore" })
+                  ]
+                },
+                g.key
               )
-            ] })
-          ] }, r.channel_id))
+            ))
+          ] }) : /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-list ks-list-chans", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(KsListHead, { cols: CH_COLS }),
+            (siteSel !== null ? groupRowsBySite(viewRows).sites.find((s2) => s2.host === siteSel)?.rows ?? [] : orgSel !== null && q.trim() === "" ? groupRowsBySite(viewRows).solos : viewRows).map((r) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("div", { className: "ks-item", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "ks-cell ks-col-chan", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "ks-chan-name", title: r.note ?? void 0, children: [
+                  r.name,
+                  r.enabled === 0 ? "\uFF08\u5DF2\u505C\u7528\uFF09" : ""
+                ] }),
+                r.url ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+                  "a",
+                  {
+                    className: "ks-chan-open",
+                    href: r.url.split(/[（\s]/)[0],
+                    target: "_blank",
+                    rel: "noreferrer noopener",
+                    children: "\u6253\u5F00"
+                  }
+                ) : null
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "ks-cell ks-col-cstate", children: [
+                STATE_LABEL[r.state] ?? r.state,
+                r.state === "unknown" && r.has_probe_target === false ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { style: { color: FAINT }, children: "\uFF08\u6CA1\u914D\u6D4B\u8BD5\uFF09" }) : null
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-cell ks-col-cdate", title: r.last_ok_at ?? "", children: describeWhen(r.last_ok_at) }),
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+                "span",
+                {
+                  className: "ks-cell ks-col-cissue",
+                  style: { color: r.last_error ? "#c0392b" : FAINT },
+                  children: r.last_error ? r.last_error.slice(0, 40) : "\u2014"
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("span", { className: "ks-cell ks-col-cact", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+                  "button",
+                  {
+                    type: "button",
+                    disabled: mutating,
+                    style: $mini,
+                    onClick: () => void toggleEnabled(r),
+                    children: r.enabled === 0 ? "\u542F\u7528" : "\u505C\u7528"
+                  }
+                ),
+                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+                  "button",
+                  {
+                    type: "button",
+                    disabled: mutating,
+                    style: $mini,
+                    onClick: () => void editOrgKind(r),
+                    children: "\u6539\u5206\u7C7B"
+                  }
+                ),
+                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+                  "button",
+                  {
+                    type: "button",
+                    disabled: mutating,
+                    style: $mini,
+                    onClick: () => void tryChannel(r),
+                    title: "\u8BD5\u4E00\u8BD5\uFF1A\u62C9\u8FD9\u6761\u6E20\u9053\u7684\u300C\u5DF2\u77E5\u6587\u4EF6\u300D\uFF08\u6837\u672C\u94FE\u63A5+\u671F\u671B\u6807\u51C6\u53F7\uFF09\u2014\u2014\u771F\u4E0B\u8F7D/\u8BC6\u522B\u51FA\u6765=\u6E20\u9053\u7B97\u6570\u3002\u9996\u6B21\u70B9\u51FB\u4F1A\u5148\u914D\u6837\u672C",
+                    children: "\u8BD5\u4E00\u8BD5"
+                  }
+                ),
+                /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+                  "button",
+                  {
+                    type: "button",
+                    disabled: mutating,
+                    style: { ...$mini, color: "#c0392b" },
+                    onClick: () => void remove(r),
+                    children: "\u5220\u9664"
+                  }
+                )
+              ] })
+            ] }, r.channel_id))
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("details", { style: { color: FAINT }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("summary", { style: { cursor: "pointer" }, children: "\u8FD9\u4E9B\u6807\u8BB0\u662F\u4EC0\u4E48\u610F\u601D\uFF1F" }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("ul", { style: { margin: "4px 0 0", paddingLeft: 18, lineHeight: 1.7 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("li", { children: "\u{1F7E2} \u80FD\u6293 / \u{1F7E1} \u4E0D\u592A\u884C / \u{1F534} \u4E0D\u80FD\u7528 / \u26AA \u6CA1\u8BD5\u8FC7\uFF1A\u8FD9\u662F\u4ECA\u5929\u5B9E\u6D4B\u7684\u7ED3\u679C\uFF0C\u4E0D\u662F\u6C38\u4E45\u6807\u7B7E\u3002" }),
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("li", { children: "\u300C\u6CA1\u8BD5\u8FC7\u300D= \u8FD8\u6CA1\u6D4B\u8FC7\uFF0C\u4E0D\u7B49\u4E8E\u6CA1\u95EE\u9898\uFF1B\u60F3\u6D4B\u5C31\u70B9\u300C\u7ACB\u5373\u5DE1\u68C0\u300D\u3002" }),
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("li", { children: "\u300C\uFF08\u6CA1\u914D\u6D4B\u8BD5\uFF09\u300D= \u8FD9\u6761\u6E20\u9053\u6309\u8BBE\u8BA1\u5C31\u4E0D\u7528\u6D4B\uFF08\u6BD4\u5982\u4EE3\u7801\u4ED3\u5E93\u7C7B\uFF09\u3002" }),
+          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("li", { children: "\u300C\u4E0A\u6B21\u597D\u7528\u300D\u5217\u662F\u5317\u4EAC\u65F6\u95F4\uFF1B\u9F20\u6807\u653E\u4E0A\u53BB\u770B\u51C6\u786E\u65F6\u523B\u3002" })
         ] })
       ] })
-    ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("details", { style: { color: FAINT }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("summary", { style: { cursor: "pointer" }, children: "\u8FD9\u4E9B\u6807\u8BB0\u662F\u4EC0\u4E48\u610F\u601D\uFF1F" }),
-      /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("ul", { style: { margin: "4px 0 0", paddingLeft: 18, lineHeight: 1.7 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("li", { children: "\u{1F7E2} \u80FD\u6293 / \u{1F7E1} \u4E0D\u592A\u884C / \u{1F534} \u4E0D\u80FD\u7528 / \u26AA \u6CA1\u8BD5\u8FC7\uFF1A\u8FD9\u662F\u4ECA\u5929\u5B9E\u6D4B\u7684\u7ED3\u679C\uFF0C\u4E0D\u662F\u6C38\u4E45\u6807\u7B7E\u3002" }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("li", { children: "\u300C\u6CA1\u8BD5\u8FC7\u300D= \u8FD8\u6CA1\u6D4B\u8FC7\uFF0C\u4E0D\u7B49\u4E8E\u6CA1\u95EE\u9898\uFF1B\u60F3\u6D4B\u5C31\u70B9\u300C\u7ACB\u5373\u5DE1\u68C0\u300D\u3002" }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("li", { children: "\u300C\uFF08\u6CA1\u914D\u6D4B\u8BD5\uFF09\u300D= \u8FD9\u6761\u6E20\u9053\u6309\u8BBE\u8BA1\u5C31\u4E0D\u7528\u6D4B\uFF08\u6BD4\u5982\u4EE3\u7801\u4ED3\u5E93\u7C7B\uFF09\u3002" }),
-        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("li", { children: "\u300C\u4E0A\u6B21\u597D\u7528\u300D\u5217\u662F\u5317\u4EAC\u65F6\u95F4\uFF1B\u9F20\u6807\u653E\u4E0A\u53BB\u770B\u51C6\u786E\u65F6\u523B\u3002" })
-      ] })
     ] })
-  ] });
+  );
 }
-var $select = {
-  border: "1px solid var(--dsw-alias-border-l2, #ccc)",
-  background: "var(--dsw-alias-bg-layer-2, #fff)",
-  color: "var(--dsw-alias-label-primary, #111)",
-  borderRadius: 4,
-  padding: "2px 6px",
-  fontSize: 11.5
-};
 var $mini = {
   border: "1px solid var(--dsw-alias-border-l2, #ccc)",
   background: "var(--dsw-alias-bg-layer-2, #fff)",
@@ -36917,15 +36999,6 @@ var $mini = {
   fontSize: 11,
   cursor: "pointer",
   marginRight: 3
-};
-var $btn2 = {
-  border: "1px solid var(--dsw-alias-border-l2, #ccc)",
-  background: "var(--dsw-alias-bg-layer-2, #fff)",
-  color: "var(--dsw-alias-label-primary, #111)",
-  borderRadius: 4,
-  padding: "2px 10px",
-  fontSize: 11.5,
-  cursor: "pointer"
 };
 
 // client/KsIngestPanel.tsx

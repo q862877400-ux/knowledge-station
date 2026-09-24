@@ -30,7 +30,7 @@ import * as React from 'react'
 import { ensureKsStyles } from './ksGuideStyles'
 import { KsCrumb, KsListHead, type KbListCol } from './kbListUi'
 import { Fragment, useCallback, useEffect, useState } from 'react'
-import { IconChevronRightOutline14, IconFolderOpenOutline16 } from '@deepseek-ai/dsh-client-ui-primitives'
+import { Button, IconChevronDownOutline14, IconChevronRightOutline14, IconFolderOpenOutline16, IconSearchOutline16, Input } from '@deepseek-ai/dsh-client-ui-primitives'
 
 import {
   createChannel,
@@ -322,6 +322,17 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
   const [mutating, setMutating] = useState<boolean>(false)
   const [orgSel, setOrgSel] = useState<string | null>(null)
   const [siteSel, setSiteSel] = useState<string | null>(null)
+  /** 左树「展开了哪些单位性质」——与知识库左树同一套交互（caret 展开/收起，点名字＝选中该层）。
+   *  ⚠ 选中某一类时**自动展开**它（老行为：点一类就看它的站点），caret 只负责展开/收起。 */
+  const [openKinds, setOpenKinds] = useState<Set<string>>(new Set())
+  const toggleKind = useCallback((key: string): void => {
+    setOpenKinds((prev) => {
+      const next = new Set(prev)
+      if (next.has(key)) next.delete(key)
+      else next.add(key)
+      return next
+    })
+  }, [])
   const [q, setQ] = useState<string>('')
   const [news, setNews] = useState<string>('')
   const [showDetail, setShowDetail] = useState<boolean>(false)
@@ -484,15 +495,22 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
   }, [runMutation])
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 8, fontSize: 12 }}>
+    /* ⚠ **2026-09-24 统一（开发史 §10.188 第二步）**：改前这里内联写死 `fontSize: 12` 与 `gap: 8`
+       ⇒ 这个面里所有"继承字号"的文字都比知识库那面**小一号**（外壳与知识库内容是 13px）。
+       现在字号**不再自己定**（继承外壳 `.ks-kb` 的 `--ks-fs-base`），间距走同一套 token。
+       ⚠ 这一层 div 留着（没有 `.ks-kb >` 直接子选择器，多这一层不影响观感；
+         知识库那面的内容也在这同一层之下）。 */
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--ks-space-2)' }}>
       {/* 顶部常驻栏（业主 2026-09-22：「就在渠道台账顶部做一个常驻栏，就展示最新情况」）：
-          一句人话动态 + 小字链收详情（巡检/公告/导出都进折叠，默认合上——主面零字墙）。 */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8,
-        border: `0.5px solid ${LINE}`, borderRadius: 6, padding: '6px 10px' }}>
+          一句人话动态 + 一个钮收详情（巡检/公告/导出都进折叠，默认合上——主面零字墙）。
+          ⚠ **2026-09-24 统一（§10.188 第二步）**：改前这里自己画框（0.5px 边框 + 圆角 6 +
+          内联内边距 + 内联小钮），与知识库那面的提示行（.ks-kb-banner）不是一套；
+          现在用**同一个类** + 宿主 Button（size=sm，与知识库那面的按钮同高）。 */}
+      <div className="ks-kb-banner">
         <span style={{ flex: 1, minWidth: 0 }}>{news === '' ? '📢 读取最新动态…' : news}</span>
-        <button type="button" style={$mini} onClick={() => setShowDetail((v) => !v)}>
+        <Button variant="outline" size="sm" onClick={() => setShowDetail((v) => !v)}>
           {showDetail ? '收起详情' : '巡检与公告详情'}
-        </button>
+        </Button>
       </div>
       {showDetail && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
@@ -509,79 +527,70 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
           </details>
         </div>
       )}
-      {/* 摘要：**两个数都显示**（台账条数 ≠ 能力条数）*/}
-      {s && (
-        <div style={{ color: GRAY, lineHeight: 1.7 }}>
-          台账 <b>{s.total}</b> 条 · 能用 <b>{s.by_state.ok ?? 0}</b> · 不太行 <b>{s.by_state.suspicious ?? 0}</b> ·
-          不能用 <b>{s.by_state.down ?? 0}</b> · 没试过 <b>{s.by_state.unknown ?? 0}</b>
-          <br />
-          <span style={{ color: FAINT }}>
-            左边按「单位性质」分类（国家部委/总局、地方人大、地方厅局…）；点一类看它的渠道。
-          </span>
-        </div>
-      )}
-
-      {/* 工具行：筛选 + 立刻探测 */}
-      <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', alignItems: 'center' }}>
-        <select value={cat} onChange={(e) => setCat(e.target.value)} style={$select}
+      {/* 工具行：筛选 + 动作钮。
+          ⚠ **2026-09-24 统一（§10.188 第二步）**：改前是自己写的一排内联样式按钮
+          （11.5px 字号、自定内边距 ⇒ 比知识库那面的按钮小一圈）。现在容器用**知识库那面同一个类**
+          `.ks-kb-row`、按钮一律走宿主 `Button size="sm"`、两个原生下拉走**共用类** `.ks-sel`
+          （原生下拉没有宿主原语，见样式表里那段说明）。 */}
+      <div className="ks-kb-row">
+        <select className="ks-sel" value={cat} onChange={(e) => setCat(e.target.value)}
           title="按类别筛选（服务端筛选）">
           <option value="">全部类别</option>
           {Object.entries(CATEGORY_LABEL).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
         </select>
-        <select value={state} onChange={(e) => setState(e.target.value)} style={$select}
+        <select className="ks-sel" value={state} onChange={(e) => setState(e.target.value)}
           title="按有效性筛选（服务端筛选）">
           <option value="">全部有效性</option>
           {Object.entries(STATE_LABEL).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
         </select>
-        <button type="button" onClick={() => void load()} disabled={busy} style={$btn}>
+        <Button variant="outline" size="sm" disabled={busy} onClick={() => void load()}>
           {busy ? '读取中…' : '⟳ 刷新'}
-        </button>
-        <button type="button" onClick={probe} disabled={probeBusy} style={$btn}
+        </Button>
+        <Button variant="outline" size="sm" disabled={probeBusy} onClick={probe}
           title="立即巡检：对配了检查口径的渠道各探一遍，实测今天能不能抓（约 10–30 秒）。与每日自动巡检是同一件事——这是立刻跑一次">
           {probeBusy ? '巡检中…（约 10–30 秒）' : '🩺 立即巡检'}
-        </button>
-        <button type="button" onClick={() => setAdding((v) => !v)} style={$btn}
+        </Button>
+        <Button variant="outline" size="sm" onClick={() => setAdding((v) => !v)}
           title="人工加一条渠道：引擎侧已落（R6d），界面侧这一步是 R6f">
           {adding ? '× 取消新增' : '＋ 新增渠道'}
-        </button>
-        <button type="button" data-ks-channels-ai-fix onClick={() => {
+        </Button>
+        <Button variant="outline" size="sm" data-ks-channels-ai-fix onClick={() => {
           const prompt = buildChannelFixPrompt(data?.items ?? rows, data?.summary)
           void copyTextToClipboard(prompt).then((ok) => {
             setNotice(ok
               ? '提示词已复制——粘到对话框发出去，AI 会逐条诊断失效原因、给修法、说清要你帮什么。'
               : '复制失败：浏览器拒绝了剪贴板权限。请手动全选下方提示词复制。')
           })
-        }} style={{ ...$btn, borderColor: 'var(--dsw-alias-state-business-primary, #1565c0)' }}
+        }}
           title="生成一段诊断提示词并复制：粘到对话框发出去，AI 会诊断每条失效渠道为什么坏、怎么修、怎么长期有效、要你帮什么、用什么工具修">
           🤖 AI 一键解决
-        </button>
-        <input className="ks-search" value={q} onChange={(e) => setQ(e.target.value)}
-          placeholder="搜网站名字 / 网站域名…" aria-label="搜渠道（名字或域名）" />
-        <span style={{ color: FAINT }}>
-          {q.trim() !== '' ? `命中 ${String(viewRows.length)} 条` : ''}
-        </span>
+        </Button>
       </div>
 
       {/* 人工新增：只收「人能知道」的三样（名称/链接/备注）。
           类别、接线、健康度**不在表单里**——那些要么由引擎判定、要么由探针产出；
-          人在这里填了只会得到 422（引擎的 loud 拒绝），不如不摆这个坑。 */}
+          人在这里填了只会得到 422（引擎的 loud 拒绝），不如不摆这个坑。
+          ⚠ **2026-09-24 统一（§10.188 第二步）**：改前三个输入框是原生 `<input>` + 自己那套内联样式
+          （字号 11、自定内边距），提交钮也是自己画的小钮 ⇒ 与知识库那面的
+          "新建/改名"面板（宿主 Input + 宿主 Button size=sm）不是一个观感。
+          现在一律走宿主原语（`.ks-kb-hint` 是提示文字那一档）。 */}
       {adding && (
-        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', alignItems: 'center',
-                      border: `1px dashed ${LINE}`, borderRadius: 6, padding: 6 }}>
-          <input value={newName} onChange={(e) => setNewName(e.target.value)}
-            placeholder="渠道名称（必填，例如：某省住建厅公告）" style={{ ...$select, minWidth: 220 }}
+        <div className="ks-kb-row" style={{ border: '1px dashed var(--dsw-alias-border-l2)',
+                                            borderRadius: 'var(--ks-r-md)', padding: 'var(--ks-space-2)' }}>
+          <Input value={newName} onChange={(e) => setNewName(e.target.value)}
+            placeholder="渠道名称（必填，例如：某省住建厅公告）" style={{ minWidth: 220 }}
             aria-label="渠道名称" />
-          <input value={newUrl} onChange={(e) => setNewUrl(e.target.value)}
-            placeholder="链接（https://…）" style={{ ...$select, minWidth: 240 }}
+          <Input value={newUrl} onChange={(e) => setNewUrl(e.target.value)}
+            placeholder="链接（https://…）" style={{ minWidth: 240 }}
             aria-label="渠道链接" />
-          <input value={newNote} onChange={(e) => setNewNote(e.target.value)}
-            placeholder="备注（为什么加它 / 谁维护）" style={{ ...$select, minWidth: 200 }}
+          <Input value={newNote} onChange={(e) => setNewNote(e.target.value)}
+            placeholder="备注（为什么加它 / 谁维护）" style={{ minWidth: 200 }}
             aria-label="备注" />
-          <button type="button" onClick={() => void submitCreate()} disabled={mutating || newName.trim() === ''}
-            style={$btn}>
+          <Button variant="primary" size="sm" disabled={mutating || newName.trim() === ''}
+            onClick={() => void submitCreate()}>
             {mutating ? '提交中…' : '提交'}
-          </button>
-          <span style={{ color: FAINT }}>
+          </Button>
+          <span className="ks-kb-hint">
             新增的渠道默认：接线 `user`（是人加的）、有效性 `unverified`（人工录入≠已核实）、
             探针状态 `unknown`（还没探过）。
           </span>
@@ -607,37 +616,87 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
           目录层直接用 .ks-list-dirs（同列同格同款行按钮），文件层=第四层 .ks-list-chans
           （复用 .ks-list/.ks-lhead/.ks-item，只给一条自己的 --ks-cols），面包屑=kbListUi 共用件。 */}
       {rows.length > 0 && (
-        <div className="ks-kb-row">
+        <div className="ks-split">
           {/* 批E2（2026-09-23 业主点单）：左侧目录树——左边逐层点开看、要操作才用右边。
-              样式复用知识库 .ks-kb-tree/.ks-kb-row（零新 CSS，一套外观）。树=分类→网站两级，
-              点叶即达（右侧跟着换层）；当前项高亮。 */}
+              ⚠ **2026-09-24 统一（开发史 §10.188 第二步）**：改前这里用的是自己那套
+              `.ks-tree-item/.ks-tree-sub/.ks-tree-on`（样式表里另有一段"渠道库左树的行样式"，
+              行高 28px、字号 12px、选中拿边框色当背景），与知识库左树的
+              `.ks-tree-row`（行高 44px、字号继承 13px、选中走宿主 interactive 底色 + 2px 标记条、
+              data-depth 缩进 token、带 caret）**长得不一样**。现在**逐字用知识库那一套 markup 与类**，
+              那三个自己造的行类随之删除（样式表里也删掉，不留死样式）。
+              树=单位性质→网站两级；点叶即达（右侧跟着换层）。 */}
           <aside className="ks-kb-tree" aria-label="渠道库目录">
-            <div className="ks-tree-root">
-              <button type="button" className="ks-tree-item"
-                onClick={() => { setOrgSel(null); setSiteSel(null) }}>
-                渠道库
-              </button>
-              {groupRowsByOrgKind(rows).map((g) => (
-                <div key={g.key}>
-                  <button type="button"
-                    className={'ks-tree-item' + (orgSel === g.key && siteSel === null ? ' ks-tree-on' : '')}
-                    title={g.label}
-                    onClick={() => { setOrgSel(g.key); setSiteSel(null) }}>
-                    {g.label}
-                  </button>
-                  {orgSel === g.key && groupRowsBySite(g.rows).sites.map((s) => (
-                    <button key={s.host} type="button"
-                      className={'ks-tree-item ks-tree-sub' + (siteSel === s.host ? ' ks-tree-on' : '')}
-                      title={s.label}
-                      onClick={() => { setOrgSel(g.key); setSiteSel(s.host) }}>
-                      {s.label}
-                    </button>
-                  ))}
-                </div>
-              ))}
+            <div className="ks-tree-node">
+              <div className="ks-tree-row"
+                data-on={orgSel === null && siteSel === null ? 'true' : 'false'}
+                data-depth={0}
+                aria-current={orgSel === null && siteSel === null ? 'true' : undefined}>
+                <span className="ks-tree-caret ks-tree-caret-leaf" aria-hidden="true" />
+                <button type="button" className="ks-tree-name"
+                  title={`渠道库（全部 ${String(rows.length)} 条）`}
+                  onClick={() => { setOrgSel(null); setSiteSel(null) }}>
+                  <IconFolderOpenOutline16 />
+                  <span className="ks-tree-label">渠道库</span>
+                </button>
+                <span className="ks-tree-count">{rows.length}</span>
+              </div>
             </div>
+            {groupRowsByOrgKind(rows).map((g) => {
+              const sites = groupRowsBySite(g.rows).sites
+              /* 有的站点是"同站多页"⇒ 它下面还有一层；全是单页站 ⇒ 这一类没有下级（caret 用叶子位）。 */
+              const hasKids = sites.length > 0
+              const expanded = openKinds.has(g.key) || orgSel === g.key
+              const on = orgSel === g.key && siteSel === null
+              return (
+                <div className="ks-tree-node" key={g.key}>
+                  <div className="ks-tree-row"
+                    data-on={on ? 'true' : 'false'}
+                    data-depth={1}
+                    aria-current={on ? 'true' : undefined}>
+                    {hasKids ? (
+                      <button type="button" className="ks-tree-caret"
+                        aria-label={`${expanded ? '收起' : '展开'}「${g.label}」下面的站点`}
+                        aria-expanded={expanded}
+                        title={expanded ? '收起' : '展开'}
+                        onClick={() => { toggleKind(g.key) }}>
+                        {expanded ? <IconChevronDownOutline14 /> : <IconChevronRightOutline14 />}
+                      </button>
+                    ) : (
+                      <span className="ks-tree-caret ks-tree-caret-leaf" aria-hidden="true" />
+                    )}
+                    <button type="button" className="ks-tree-name"
+                      title={`${g.label}（${String(g.rows.length)} 条）`}
+                      onClick={() => {
+                        setOrgSel(g.key); setSiteSel(null)
+                        setOpenKinds((prev) => new Set(prev).add(g.key))
+                      }}>
+                      <IconFolderOpenOutline16 />
+                      <span className="ks-tree-label">{g.label}</span>
+                    </button>
+                    <span className="ks-tree-count">{g.rows.length}</span>
+                  </div>
+                  {expanded && sites.map((s) => {
+                    const son = siteSel === s.host && orgSel === g.key
+                    return (
+                      <div className="ks-tree-row" key={s.host}
+                        data-on={son ? 'true' : 'false'}
+                        data-depth={2}
+                        aria-current={son ? 'true' : undefined}>
+                        <span className="ks-tree-caret ks-tree-caret-leaf" aria-hidden="true" />
+                        <button type="button" className="ks-tree-name"
+                          title={`${s.label}（${String(s.rows.length)} 条）`}
+                          onClick={() => { setOrgSel(g.key); setSiteSel(s.host) }}>
+                          <span className="ks-tree-label">{s.label}</span>
+                        </button>
+                        <span className="ks-tree-count">{s.rows.length}</span>
+                      </div>
+                    )
+                  })}
+                </div>
+              )
+            })}
           </aside>
-          <div className="ks-kb-main">
+          <div className="ks-main">
           <KsCrumb
             items={q.trim() !== ''
               ? [{ name: '渠道库' }, { name: `搜索「${q.trim()}」` }]
@@ -650,6 +709,40 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
                      { name: ORG_KIND_LABEL[orgSel] ?? orgSel, onGo: () => { setSiteSel(null) } },
                      { name: siteSel }]}
             n={crumbN} />
+          {/* 摘要行 + 搜索框：**位置与知识库那一面逐字对齐** —— 面包屑下面先是这一行，
+              再是 `.ks-search` 搜索框，然后才是列表。
+              ⚠ **2026-09-24 统一（§10.188 第二步）**：改前这两样都在右栏**外面**——
+              摘要是一行灰字、搜索框横跨整页且只有 21px 高（知识库那面的搜索框在右栏里、
+              带放大镜图标、34px 高）⇒ 两个面一眼就不一样。
+              ⚠ 这一行**不是** `.ks-list-cap`：那个类是"当前文件夹名 + 导出效力总览 + 在此范围内提问 +
+              计数"专用的，跑起来有一条"这一行必须有控件、且成员不许互相压字"的判据
+              （业主那次"导出效力总览压在知识库上"就是它抓的）。渠道库这行是两个纯文字片段，
+              套上去会**当场假红**（实测：ctrlCount=0 判"什么都没量到" + span 与内层 b 被判压字）
+              ⇒ 用 `.ks-kb-banner`（知识库那面提示行的类）。 */}
+          {s && (
+            /* ⚠ 四个数**保持 `<b>` 加粗**：`smoke-catalog-ui.mjs` 有一条源码级判据钉着
+               "能用 <b>{s.by_state.ok…" 这一组字面量（"摘要＝用户语言四态、旧接线话术回潮就红"）。
+               本批只是把这一行搬进右栏 + 换共用类，**不动那条判据**（动它要另开一笔并说明理由）。 */
+            <div className="ks-kb-banner">
+              <span>
+                台账 <b>{s.total}</b> 条 · 能用 <b>{s.by_state.ok ?? 0}</b> 条 ·
+                不太行 <b>{s.by_state.suspicious ?? 0}</b> 条 ·
+                不能用 <b>{s.by_state.down ?? 0}</b> 条 ·
+                没试过 <b>{s.by_state.unknown ?? 0}</b> 条
+              </span>
+              <span style={{ marginLeft: 'auto' }}>
+                {q.trim() !== ''
+                  ? `命中 ${String(viewRows.length)} 条`
+                  : '左边按「单位性质」分类；点一类看它的渠道。'}
+              </span>
+            </div>
+          )}
+          <span className="ks-search">
+            <Input icon={<IconSearchOutline16 />} value={q}
+              placeholder="搜网站名字 / 网站域名…"
+              aria-label="搜渠道（名字或域名）"
+              onChange={(e) => { setQ(e.target.value) }} />
+          </span>
           {/* 批E1-2（2026-09-23）：「网站」一层——同站多页=网站文件夹（点开看站内页面行），
               单页站=下方普通行（文件夹与行共存，同知识库逻辑）。 */}
           {orgSel !== null && siteSel === null && q.trim() === '' && (
@@ -781,13 +874,6 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
   )
 }
 
-const $select: React.CSSProperties = {
-  border: '1px solid var(--dsw-alias-border-l2, #ccc)',
-  background: 'var(--dsw-alias-bg-layer-2, #fff)',
-  color: 'var(--dsw-alias-label-primary, #111)',
-  borderRadius: 4, padding: '2px 6px', fontSize: 11.5,
-}
-
 /** 行内维护按钮（比工具行的按钮更小：一列三颗，不能撑破表格）。 */
 const $mini: React.CSSProperties = {
   border: '1px solid var(--dsw-alias-border-l2, #ccc)',
@@ -796,12 +882,11 @@ const $mini: React.CSSProperties = {
   borderRadius: 3, padding: '1px 6px', fontSize: 11, cursor: 'pointer', marginRight: 3,
 }
 
-const $btn: React.CSSProperties = {
-  border: '1px solid var(--dsw-alias-border-l2, #ccc)',
-  background: 'var(--dsw-alias-bg-layer-2, #fff)',
-  color: 'var(--dsw-alias-label-primary, #111)',
-  borderRadius: 4, padding: '2px 10px', fontSize: 11.5, cursor: 'pointer',
-}
+/* ⚠ `$select` 与 `$btn` **已删（2026-09-24 统一，§10.188 第二步）**：工具行与新增表单都换成了
+   宿主的 Button(size=sm) / Input 与共用类 `.ks-sel` ⇒ 这两个自定样式对象不再有使用者。
+   留着"没人用的样式对象"正是下次有人照抄出一套新观感的入口。
+   ⚠ 同文件里 `$th` / `$td` / `$trWarn` 是**早先**（表格改 `.ks-list` 之前）留下的死对象，
+   不是本批造成的 —— 只登记，不在本批顺手删（跨轮次发现只登记）。 */
 
 const $th: React.CSSProperties = {
   borderBottom: '1px solid var(--dsw-alias-border-l1, #eee)',
