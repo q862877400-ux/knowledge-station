@@ -6,8 +6,9 @@
 - 状态真值 = doc_meta.legal_status 经 ``resolve_status`` 惰性翻转（与决策 22
   "只引现行版"同口径；绝不直读 raw——真机回归 F1：categories 叶节点未翻转的
   教训，本模块自行 resolve，不消费 categories 输出）。
-- 四色映射：effective→green（现行有效，可引用）/ upcoming→yellow（即将实施，
-  当前不可引用）/ superseded|withdrawn→red（在用已废止·被代替）/
+- 效力分色（2026-09-24 起**五档**，此前四档）：effective→green（现行有效，可引用）/
+  upcoming→yellow（即将实施，当前不可引用）/ superseded|withdrawn→red（在用已废止·被代替）/
+  reference→**自己一档**（🔵 参考资料·仅参考：征求意见稿/草案等未生效文本，可查不可作依据）/
   NULL→gray（**状态未知/未登记**——与巡检"官方查无此号"语义不同，UI/Excel
   文案必须区分，不得照抄巡检口径）。
 - 分类 = ``classify_document`` 两棵树（std：L2 CCS 大类→L3 区间→L4 类目；
@@ -35,29 +36,41 @@ from src.core.storage.sqlite_db import get_db_connection
 from src.core.exports.report_export import _exports_dir, _safe_name
 
 # ---------------------------------------------------------------- 口径常量
-#: resolved status → 四色（色系对齐 report.py 巡检报告；gray 文案区分见模块头）
+#: resolved status → 效力分色（色系对齐 report.py 巡检报告；gray 文案区分见模块头）
+#: ⚠ 2026-09-24 加成**五档**：`reference` = 征求意见稿/草案等"**仅参考**"的入库件
+#:   （业主：征求意见稿也要入库，"在有效性里作为单独的一个类别，当成仅做参考的有效性来用"）。
+#:   它**绝不能**并进 `gray`——gray 的含义是"库内未登记效力状态，建议补全元数据"，
+#:   而 `reference` 是**登记得明明白白**的一种状态（就是"未生效、不得作为依据"），
+#:   并进去等于对业主说"这个要补元数据"，是假话。
 STATUS_COLOR: dict[str | None, str] = {
     "effective": "green",
     "upcoming": "yellow",
     "superseded": "red",
     "withdrawn": "red",
+    "reference": "reference",
     None: "gray",
 }
-COLOR_ORDER = ("red", "yellow", "green", "gray")
+#: 展示/遍历顺序。`reference` **追加在末尾**：前四色的序号（报告、Excel、per_color 请求序、
+#: 面板四色灯）一字不变，纯加一档，不动既有约定。
+COLOR_ORDER = ("red", "yellow", "green", "gray", "reference")
 COLOR_LABELS: dict[str, str] = {
     "red": "🔴 在用已废止/被代替",
     "yellow": "🟡 即将实施",
     "green": "🟢 现行有效",
     "gray": "⚪ 状态未知/未登记",
+    "reference": "🔵 参考资料（仅参考）",
 }
 COLOR_MEANINGS: dict[str, str] = {
     "red": "已被替代或废止（当前引用违规）",
     "yellow": "已发布未实施（到点自动翻现行）",
     "green": "现行有效（可引用）",
     "gray": "库内未登记效力状态，建议补全元数据",
+    "reference": "征求意见稿/草案等未生效文本：可检索、可查阅，但不得作为现行依据",
 }
-#: E2 明细行的排序权重（报告第一职责是把问题顶上去）
-_COLOR_RANK = {"red": 0, "yellow": 1, "gray": 2, "green": 3}
+#: E2 明细行的排序权重（报告第一职责是把问题顶上去）。
+#: `reference` 排在 `gray` 之后、`green` 之前：它比"现行"更该被注意到（不能当依据），
+#: 但不像 `gray` 那样是"缺元数据"要人去补。
+_COLOR_RANK = {"red": 0, "yellow": 1, "gray": 2, "reference": 3, "green": 4}
 
 _WINDOWS = ("all", "upcoming90", "recent90", "retired90")
 #: E2 瘦身行（9 字段——全量行 15 字段含 domain_tags 原串，万级超 payload 红线）
@@ -180,7 +193,7 @@ def _doc_slim(d: dict) -> dict:
 
 # ---------------------------------------------------------------- E1 骨架+统计
 def collect_effect_report(window: str = "all", color=None) -> dict:
-    """骨架 + 四色统计（tree 到 L4 计数，无文档行——payload 红线见模块头）。"""
+    """骨架 + 效力分色统计（tree 到 L4 计数，无文档行——payload 红线见模块头）。"""
     colors_set = _normalize_colors(color)
     docs = _collect(window, colors_set)
     colors_total = _colors_of(docs)
@@ -300,11 +313,13 @@ def collect_effect_by_color(color: str, window: str = "all", limit: int = 20,
 
 # ---------------------------------------------------------------- E3 Excel 导出
 _XLSX_HEADERS = ["文献类型", "大类/效力等级", "区间/法律部门", "类目/领域",
-                 "标准号", "名称", "效力状态", "四色", "实施日期", "发布日期",
+                 "标准号", "名称", "效力状态", "效力色", "实施日期", "发布日期",
                  "被代替为", "废止日期", "doc_id"]
 _STATUS_CN = {"effective": "现行有效", "upcoming": "即将实施",
-              "superseded": "被代替", "withdrawn": "已废止", None: "状态未知"}
-_COLOR_CN = {"red": "🔴 红", "yellow": "🟡 黄", "green": "🟢 绿", "gray": "⚪ 灰"}
+              "superseded": "被代替", "withdrawn": "已废止",
+              "reference": "参考资料（仅参考）", None: "状态未知"}
+_COLOR_CN = {"red": "🔴 红", "yellow": "🟡 黄", "green": "🟢 绿", "gray": "⚪ 灰",
+             "reference": "🔵 蓝"}
 
 
 def _xlsx_header_style(ws, row: int, cols: int) -> None:
@@ -338,7 +353,7 @@ def export_effect_report_xlsx(window: str = "all", color=None) -> Path:
         ws.cell(row=3 + i, column=1, value=k).font = Font(bold=True)
         ws.cell(row=3 + i, column=2, value=v)
     r0 = 7
-    ws.cell(row=r0, column=1, value="四色统计").font = Font(bold=True)
+    ws.cell(row=r0, column=1, value="效力分色统计").font = Font(bold=True)
     _xlsx_header_style(ws, r0 + 1, 3)
     for c, h in enumerate(["色别", "含义", "数量"], start=1):
         ws.cell(row=r0 + 1, column=c, value=h)
@@ -347,12 +362,13 @@ def export_effect_report_xlsx(window: str = "all", color=None) -> Path:
         ws.cell(row=r0 + 2 + i, column=2, value=COLOR_MEANINGS[color_key])
         ws.cell(row=r0 + 2 + i, column=3, value=colors_total[color_key])
     ws.cell(row=r0 + 2 + len(COLOR_ORDER), column=1, value="合计").font = Font(bold=True)
-    ws.cell(row=r0 + 2 + len(COLOR_ORDER), column=2, value="四色恒等式 = 库内可见文档总数")
+    ws.cell(row=r0 + 2 + len(COLOR_ORDER), column=2, value="各色合计 = 库内可见文档总数")
     ws.cell(row=r0 + 2 + len(COLOR_ORDER), column=3,
             value=sum(colors_total.values())).font = Font(bold=True)
     ws.cell(row=r0 + 4 + len(COLOR_ORDER), column=1,
             value="口径注脚：状态以读取时惰性翻转（resolve_status）为准；"
-                  "⚪=库内未登记效力状态（与巡检「官方查无此号」语义不同）。")
+                  "⚪=库内未登记效力状态（与巡检「官方查无此号」语义不同）；"
+                  "🔵=征求意见稿/草案等未生效文本（仅参考，不得作为现行依据）。")
     ws.column_dimensions["A"].width = 24
     ws.column_dimensions["B"].width = 44
 

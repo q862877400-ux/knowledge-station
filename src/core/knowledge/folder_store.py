@@ -927,9 +927,13 @@ def list_folder(folder_id: str | None = None, file_offset: int = 0, file_limit: 
 
     edges = _folder_edges(conn)
     file_edges = _file_edges(conn)
-    # 效力四色（批D2，2026-09-22 业主定）：**该夹子树内文件**的效力总览（文件行有单篇
+    # 效力分色（批D2，2026-09-22 业主定）：**该夹子树内文件**的效力总览（文件行有单篇
     # "效力"列，文件夹行 = 一夹总览红绿灯，放名字右侧空白处）。口径唯一所有者 =
     # effect_report.STATUS_COLOR（不在这儿写第二份映射）。
+    # ⚠ 键集合也**跟着唯一所有者走**（`COLOR_ORDER`）：2026-09-24 加成五档（新增
+    #   `reference`＝仅参考）时，这里原来写死的四个键会让 `effect_deep["reference"]`
+    #   当场 KeyError（一夹里有征求意见稿就把整棵树读崩）。别再手抄键名。
+    from src.core.exports.effect_report import COLOR_ORDER as _COLOR_ORDER
     from src.core.exports.effect_report import STATUS_COLOR as _STATUS_COLOR
     _status_by_doc = {
         r["doc_id"]: r["legal_status"]
@@ -944,7 +948,7 @@ def list_folder(folder_id: str | None = None, file_offset: int = 0, file_limit: 
         deep_files: set[str] = set()
         for fid in subtree:
             deep_files |= file_edges.get(fid, set())
-        effect_deep: dict[str, int] = {"green": 0, "red": 0, "yellow": 0, "gray": 0}
+        effect_deep: dict[str, int] = {c: 0 for c in _COLOR_ORDER}
         for did in deep_files:
             effect_deep[_STATUS_COLOR.get(_status_by_doc.get(did), "gray")] += 1
         subfolders.append({

@@ -106,3 +106,42 @@ def test_resolve_clause_marks_basis_scope(client, db):
     assert d2["legal_status"] == "withdrawn"
     assert d2["basis_scope"] == "locate_only"
     assert "不得写入依据区" in d2["basis_notice"]
+
+
+def test_resolve_clause_reference_tier_speaks_chinese(client, db):
+    """新增的 `reference` 档（征求意见稿等**仅参考**件）也必须给**中文**禁令说明。
+
+    ⚠ 这条抓的是"内部英文标识漏到界面上"：`server.py` 的兜底是
+    `_label.get(str(ls), str(ls))` —— 少登记一个档，业主就会在界面上看到
+    "该条为「reference」"（最高指令：跟业主说话不许用内部叫法）。
+    """
+    from src.core.domain.models import ClauseRevisionModel
+    from src.core.storage import clause_repo
+    from src.core.storage.sqlite_db import write_transaction
+    if db.execute("SELECT 1 FROM doc_meta WHERE doc_id='rs_ref'").fetchone():
+        clause_repo.delete_document("rs_ref")
+    with write_transaction() as conn:
+        clause_repo.insert_document(conn, dict(
+            doc_id="rs_ref", standard_no="征求意见稿·危化品经营许可办法",
+            standard_name="危化品经营许可办法(修订征求意见稿)", short_code="zqyj",
+            current_revision_id="r", legal_status="reference",
+            domain_tags=["测试"], file_path="d.pdf", file_hash="hrs3"))
+    clause_repo.insert_clauses([
+        ClauseRevisionModel(
+            clause_revision_id="rs_r1", doc_id="rs_ref", clause_key="rsk3",
+            standard_no="征求意见稿·危化品经营许可办法", clause_number="全文",
+            content_text="征求意见稿全文。", knowledge_type="rule",
+            modality="应", modality_strength=3, page_start=1, page_end=1),
+    ])
+    c, token = client
+    r = c.get("/api/v1/clauses/resolve",
+              params={"standard_no": "征求意见稿·危化品经营许可办法",
+                      "clause_number": "全文"},
+              headers={"Authorization": f"Bearer {token}"})
+    assert r.status_code == 200, r.text
+    d = r.json()["data"]
+    assert d["legal_status"] == "reference"
+    assert d["basis_scope"] == "locate_only", "仅参考件不得算作可用依据"
+    assert "reference" not in d["basis_notice"], \
+        f"内部英文标识漏到界面上了：{d['basis_notice']}"
+    assert "参考资料" in d["basis_notice"] and "不得写入依据区" in d["basis_notice"]

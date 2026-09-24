@@ -9,9 +9,11 @@
 - 分类号补全 → CCS 那条线。
 
 **效力档的判定只在这一处**（`classify_status`）：
-- 标题含「征求意见 / 草案 / 公开征求」⇒ `draft`（**仅参考**）。
-  ⚠ 现在 `legal_status` 的 CHECK 里**还没有** `draft`（切片③ 做枚举迁移）⇒ 本切片对 `draft`
-  **拒绝落库**并如实返回 `reason="draft_pending_schema"`：既不静默丢掉，也不写非法值。
+- 标题含「征求意见 / 草案 / 公开征求」⇒ `reference`（**参考资料 / 仅参考**）。
+  ⚠ 2026-09-24 业主要求原文："**征求意见稿也要入库**，只是效力层级是参考资料，不是强制执行的那种"。
+  所以它是**要入库的**，只是效力档落在"仅参考"那一档（`doc_meta.legal_status` 的枚举里
+  因此多了 `reference` 一个值 —— 见 `sqlite_db._ensure_legal_status_reference` 的幂等迁移）。
+  ⇒ 展示、导出、引用都必须说清"仅参考、不是现行依据"。
 - 标题含「废止 / 失效 / 作废」⇒ `withdrawn`。
 - 其余（令 / 公告 / 通知 / 办法 / 规定 …）⇒ `effective`。
 """
@@ -63,26 +65,34 @@ def _inner_html(html: str, open_match: re.Match) -> str:
 
 
 def classify_status(title: str) -> str:
-    """标题 → 效力档：`draft`（仅参考）/ `withdrawn` / `effective`。
+    """标题 → 效力档：`reference`（参考资料/仅参考）/ `withdrawn` / `effective`。
 
     ⚠ 顺序有讲究：先判"征求意见稿"——因为「关于征求《XX办法（修订征求意见稿）》意见的通知」
     这类标题里同时会出现"办法"（像生效件）与"征求意见稿"，必须先认后者。
     """
     t = title or ""
     if _DRAFT_RE.search(t):
-        return "draft"
+        return "reference"
     if _WITHDRAWN_RE.search(t):
         return "withdrawn"
     return "effective"
 
 
 def classify_hierarchy(title: str) -> str:
-    """标题 → 法规树那一档（尽力而为，认不出落"其他"；不猜"法律/行政法规"那种高位阶）。"""
+    """标题 → 法规树那一档（尽力而为，认不出落"其他"；不猜"法律/行政法规"那种高位阶）。
+
+    ⚠ 返回值必须是**库内既有词汇**（`doc_catalog._HIER_TO_TIER` 那一套），否则法规树会把它
+    兜到"未定级"——部令就该写 `部门规章`（先前写的是 "规章"，映射表里没有这个词）。
+    """
     t = title or ""
     if _DRAFT_RE.search(t):
+        # 草案**没有生效位阶**：单列一档，别冒充它将来可能的位阶
+        # （冒充了就成了"把征求意见稿当规章用"，正是业主要避免的那种误导）。
         return "征求意见稿"
-    if re.search(r"部令|总局令|委员会令|人民政府令|第[一二三四五六七八九十百\d]+号令", t):
-        return "规章"
+    if re.search(r"人民政府令|地方政府规章", t):
+        return "地方政府规章"
+    if re.search(r"部令|总局令|委员会令|第[一二三四五六七八九十百\d]+号令", t):
+        return "部门规章"
     if re.search(r"办法|规定|细则|规程", t):
         return "规范性文件"
     if re.search(r"公告|通知|通告|批复|函", t):
@@ -130,7 +140,7 @@ def ingest_announcement(title: str, url: str, *, published_date: str | None = No
 
     返回形状：`{status, url, title, legal_status, reason?, chars?, ingest?}`
     - `status="ingested"` 正常入库（`ingest` 是 `ingest_law_text` 的原始返回）；
-    - `status="skipped"` + `reason`：`draft_pending_schema`（征求意见稿等切片③）/ `empty_body`；
+    - `status="skipped"` + `reason`：`empty_body`（正文太短，取不到内容）；
     - `status="failed"` + `reason`：`http_404` / `fetch_failed` / `law_text_error: …`。
     """
     from src.core.update import announce  # 延迟导入：避免与 announce 层循环依赖
@@ -150,10 +160,6 @@ def ingest_announcement(title: str, url: str, *, published_date: str | None = No
     out["chars"] = len(text)
     if len(text) < 40:
         out.update({"status": "skipped", "reason": "empty_body"})
-        return out
-    if out["legal_status"] == "draft":
-        # 切片③ 把 `draft` 加进枚举（含幂等迁移）之后，这里只需去掉这个分支。
-        out.update({"status": "skipped", "reason": "draft_pending_schema"})
         return out
 
     res = ingest_law_text(text, title, title,

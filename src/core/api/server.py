@@ -448,7 +448,11 @@ def create_app(token: str) -> FastAPI:
         else:
             out["basis_scope"] = "locate_only"
             _label = {"superseded": "已被替代", "withdrawn": "已废止",
-                      "upcoming": "尚未生效"}.get(str(ls), str(ls))
+                      "upcoming": "尚未生效",
+                      # 2026-09-24 新增档：征求意见稿等**仅参考**的入库件。
+                      # ⚠ 必须给中文名——`_label.get(..., str(ls))` 的兜底会把内部英文标识
+                      #   （"reference"）直接显示给业主（最高指令：不许把内部叫法露到界面上）。
+                      "reference": "参考资料（仅参考，未生效）"}.get(str(ls), str(ls))
             out["basis_notice"] = (f"该条为「{_label}」，只能用于定位、历史沿革或预告说明，"
                                    "不得写入依据区、不得作为合规结论的依据。")
         if folder_id:

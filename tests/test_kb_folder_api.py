@@ -654,17 +654,21 @@ def test_all_kb_endpoints_require_token(client):
 
 
 def test_folder_effect_deep_counts(client, db):
-    """批D2 判据（2026-09-22）：目录行的**效力四色灯**数据 —— `effect_deep` 按子树聚合。
+    """批D2 判据（2026-09-22）：目录行的**效力分色灯**数据 —— `effect_deep` 按子树聚合。
 
     口径唯一所有者 = `effect_report.STATUS_COLOR`（effective=绿 / upcoming=黄 /
-    superseded·withdrawn=红 / 空=灰）；不许在别处写第二份映射。"""
+    superseded·withdrawn=红 / 空=灰 / **reference=🔵仅参考**）；不许在别处写第二份映射。
+    ⚠ 键集合也照 `effect_report.COLOR_ORDER` 取（2026-09-24 加第五档时，这里原来写死的四键
+    会让引擎侧 `effect_deep["reference"]` 直接 KeyError —— 一夹里有征求意见稿就崩）。"""
     c, token = client
     parent = _new(c, token)
     child = _new(c, token, uniq("效力灯"), parent["folder_id"])
     ids = []
     # 复核修单②（2026-09-23）：fixture 改**非对称**（2绿+1红+1黄+1灰）——原 1绿1红对称
     # ⇒ red/green 互换计数不变（复核实测 MUT1 不红）；非对称后任何互换都必红。
-    for i2, st in enumerate(("effective", "effective", "withdrawn", "upcoming", None)):
+    # 2026-09-24 再加一档 1 蓝（reference）：五档全非零，任何一档错位/并桶都必红。
+    for i2, st in enumerate(("effective", "effective", "withdrawn", "upcoming", None,
+                             "reference")):
         d = mkdoc_full(db, f"efflamp_{next(_seq)}")
         if st is not None:
             db.execute("UPDATE doc_meta SET legal_status=? WHERE doc_id=?", (st, d))
@@ -678,4 +682,6 @@ def test_folder_effect_deep_counts(client, db):
         api(c, token, "get", "/api/v1/kb/folders",
             params={"parent_id": parent["folder_id"]}))["subfolders"]}
     e = subs[child["folder_id"]]["effect_deep"]
-    assert e == {"green": 2, "red": 1, "yellow": 1, "gray": 1}, e
+    assert e == {"green": 2, "red": 1, "yellow": 1, "gray": 1, "reference": 1}, e
+    assert sum(e.values()) == subs[child["folder_id"]]["file_count_deep"], \
+        "各色合计 == 这一棵里的篇数（否则有文件没被任何颜色数到）"

@@ -31,17 +31,28 @@ _ANNOUNCE_NO_CLAUSE = """<html><body><div class="TRS_Editor">
 <p>为推动危险化学品经营许可证管理改革，现就有关事项公告如下：自本公告发布之日起施行。</p>
 </div></body></html>"""
 
+#: 征求意见稿的正文（与上面那条**故意不同**：`law_text` 按正文哈希去重，用同一段文字会得到
+#: duplicate 而不是真入库——那是测试数据的坑，不是被测代码的行为）。
+_DRAFT_NO_CLAUSE = """<html><body><div class="TRS_Editor">
+<p>为加强危险化学品经营许可证管理，现将《危险化学品经营许可证管理办法（修订征求意见稿）》</p>
+<p>全文公布，向社会公开征求意见。有关单位和各界人士可在规定期限内提出意见。</p>
+</div></body></html>"""
+
 
 def test_web_i01_classify_status_priority():
-    """效力档判定：**先认"征求意见稿"**（标题里同时出现"办法"也要判成仅参考）。"""
-    assert web_ingest.classify_status("关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知") == "draft"
-    assert web_ingest.classify_status("应急管理部关于公开征求《中华人民共和国自然灾害防治法（草案征求意见稿）》意见的通知") == "draft"
+    """效力档判定：**先认"征求意见稿"**（标题里同时出现"办法"也要判成仅参考），
+    且它落的是 `reference`（**参考资料/仅参考**）—— 业主要求"要入库，但效力层级是参考资料"。"""
+    assert web_ingest.classify_status("关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知") == "reference"
+    assert web_ingest.classify_status("应急管理部关于公开征求《中华人民共和国自然灾害防治法（草案征求意见稿）》意见的通知") == "reference"
     assert web_ingest.classify_status("中华人民共和国应急管理部令（第23号）社会消防技术服务管理规定") == "effective"
     assert web_ingest.classify_status("商务部等5部门关于调整《向特定国家（地区）出口易制毒化学品管理目录》的公告") == "effective"
     assert web_ingest.classify_status("关于废止 AQ 3016—2008 等三项行业标准的公告") == "withdrawn"
-    # 层级也认征求意见稿这一档
+    # 层级也认征求意见稿这一档；且返回的必须是**库内既有词汇**（`doc_catalog._HIER_TO_TIER`），
+    # 否则法规树会把它兜到"未定级"（部令就该是 `部门规章`，不是 "规章"）。
     assert web_ingest.classify_hierarchy("关于公开征求《森林草原火灾数据统计规范》（征求意见稿）意见的通知") == "征求意见稿"
-    assert web_ingest.classify_hierarchy("中华人民共和国应急管理部令（第23号）社会消防技术服务管理规定") == "规章"
+    assert web_ingest.classify_hierarchy("中华人民共和国应急管理部令（第23号）社会消防技术服务管理规定") == "部门规章"
+    assert web_ingest.classify_hierarchy("湖南省人民政府令（第300号）湖南省实施《办法》细则") == "地方政府规章"
+    assert web_ingest.classify_hierarchy("应急管理部办公厅关于印发《办法》的通知") == "规范性文件"
 
 
 def test_web_i02_extract_body_text_drops_chrome():
@@ -100,18 +111,26 @@ def test_web_i04_no_clause_announcement_uses_single_clause(db):
     assert n == 1, f"整篇作一条（实测 {n}）"
 
 
-def test_web_i05_draft_refused_honestly_and_failures(db):
-    """**征求意见稿**：切片③ 的枚举迁移还没做 ⇒ 必须**如实拒绝**（不写非法值、也不静默丢）；
-    取不到页 / 空正文同样诚实归因。"""
+def test_web_i05_draft_ingested_as_reference_and_failures(db):
+    """**征求意见稿必须入库**（业主 2026-09-24 更正），但效力档是 `reference`（参考资料/仅参考）——
+    不是现行依据、不参与强制判定；取不到页 / 空正文仍然诚实归因。"""
     draft_url = "https://www.mem.gov.cn/gk/tzgg/202609/t20260921_717221.shtml"
-    tp = _FakeTransport({draft_url: (200, _ANNOUNCE_NO_CLAUSE)})
+    tp = _FakeTransport({draft_url: (200, _DRAFT_NO_CLAUSE)})
     out = web_ingest.ingest_announcement("关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
                                         draft_url, transport=tp)
-    assert out["status"] == "skipped" and out["reason"] == "draft_pending_schema", out
-    assert out["legal_status"] == "draft"
+    assert out["status"] == "ingested", out
+    assert out["legal_status"] == "reference", out
+    assert out["ingest"]["status"] not in ("error", "duplicate"), out["ingest"]
+
     from src.core.storage.sqlite_db import get_db_connection
-    assert get_db_connection().execute(
-        "SELECT COUNT(*) c FROM doc_meta WHERE source_url=?", (draft_url,)).fetchone()["c"] == 0
+    conn = get_db_connection()
+    row = conn.execute("SELECT doc_id, legal_hierarchy, legal_status FROM doc_meta WHERE source_url=?",
+                       (draft_url,)).fetchone()
+    assert row is not None, "征求意见稿也要落库（业主：要入库，效力层级是参考资料）"
+    assert row["legal_status"] == "reference"
+    assert row["legal_hierarchy"] == "征求意见稿"
+    n = conn.execute("SELECT COUNT(*) c FROM clause_revision WHERE doc_id=?", (row["doc_id"],)).fetchone()["c"]
+    assert n == 1, f"没有'第X条'的稿子整篇作一条（实测 {n}）"
 
     missing = web_ingest.ingest_announcement("某公告", "https://x.example.com/none.shtml", transport=tp)
     assert missing["status"] == "failed" and missing["reason"] == "http_404", missing

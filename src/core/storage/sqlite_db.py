@@ -1,6 +1,7 @@
 """SQLite 连接管理与初始化（WAL + 外键 + busy_timeout + sqlite-vec 扩展）。"""
 from __future__ import annotations
 
+import re
 import sqlite3
 import threading
 from contextlib import contextmanager
@@ -100,6 +101,7 @@ def init_schema(db_path: Path | None = None) -> None:
         _ensure_doc_meta_columns(conn)
         _ensure_bookmark_folder_columns(conn)
         _ensure_channel_columns(conn)
+        _ensure_legal_status_reference(conn)
         conn.commit()
     except sqlite3.Error as e:
         raise StorageError(f"初始化 schema 失败: {e}") from e
@@ -125,8 +127,80 @@ def _ensure_doc_meta_columns(conn) -> None:
             conn.execute(f"ALTER TABLE doc_meta ADD COLUMN {col} {ddl_type}")
 
 
-#: 收藏夹迁移（2026-10 收藏目录）：既有 user_bookmark / user_doc_bookmark 补 folder_id
-#: 列。schema.sql 的新库直接带列；老库 CREATE IF NOT EXISTS 不会改表 → PRAGMA 补列。
+#: 效力档新增值（2026-09-24；业主："**征求意见稿也要入库**，只是效力层级是参考资料，
+#: 不是强制执行的那种"）—— `reference` = **参考资料（仅参考）**：可以入库、可以检索，
+#: 但**永远不是现行依据**（回答里引用要显式说明，见 compliance-qa 那条纪律）。
+LEGAL_STATUS_REFERENCE = "reference"
+
+#: 要补 `reference` 的**只有 `doc_meta`**（文档平面的效力档）。
+#: ⚠ 为什么**不动** `update_change_event.current_legal_status`：那个字段的取值来自**渠道探测结果**
+#: （`channels/base.py` 的 `LEGAL_STATUSES`，四值 effective/upcoming/superseded/withdrawn），
+#: 库里没有任何一条通路会把 `reference` 写进去 —— 而 `reference` 是"**入库的文档**有多重"，
+#: 不是"某标准号当前是什么状态"。没有生产者的枚举值不该先塞进 CHECK：那只是把一条已验证的
+#: 契约放松，换不到任何东西（真要写时再随那条通路一起加，并补它的测试）。
+_LEGAL_STATUS_TABLES = ("doc_meta",)
+
+
+def _rename_table_in_ddl(ddl: str, old: str, new: str) -> str:
+    """`CREATE TABLE old (` → `CREATE TABLE new (` —— 只换**表名**那一处，别动列名/约束里的字串。"""
+    m = re.match(r"(?is)\s*CREATE\s+TABLE\s+([\"'\[]?)(\w+)\1", ddl)
+    if m is None or m.group(2) != old:
+        raise StorageError(f"建表语句的表名与预期不符（拒绝改）：{ddl[:80]}")
+    return ddl[:m.start(2)] + new + ddl[m.end(2):]
+
+
+def _ensure_legal_status_reference(conn) -> int:
+    """幂等：把效力枚举补上 `reference`（返回**重建了几张表**；0 = 本来就是新的）。
+
+    为什么必须重建表：SQLite **改不了 CHECK**，而 `doc_meta.legal_status` 的枚举是写死在 CHECK 里的。
+    按 SQLite 官方 12 步做，且**不能**先把 `doc_meta` 改名 —— `clause_revision` 等表有
+    `REFERENCES doc_meta(doc_id) ON DELETE CASCADE`，新版本 SQLite 执行 RENAME 时会把
+    子表的外键**一起改指到旧名**上（那样一改名就把全库的级联关系弄断）。
+    所以顺序是：**建新表 → 拷数据 → 删旧表 → 把新表改名成原名**（此时子表的外键字面量
+    `REFERENCES doc_meta` 自然指向新表）。`PRAGMA foreign_keys` 只在事务外才生效 ⇒ 先 commit、
+    关掉、重建、再打开，最后跑一次 `foreign_key_check` 自证没弄断关系。
+    """
+    done = 0
+    for table in _LEGAL_STATUS_TABLES:
+        row = conn.execute(
+            "SELECT sql FROM sqlite_master WHERE type='table' AND name=?", (table,)).fetchone()
+        ddl = row[0] if row is not None else None
+        if not ddl or LEGAL_STATUS_REFERENCE in ddl:
+            continue
+        # 只替换枚举那一串字面量 ⇒ 与**现状 DDL** 逐字一致（真库 doc_meta 有历史 ALTER 追加的列，
+        # 重写 DDL 会把那些列弄丢）。
+        new_ddl = ddl.replace("'withdrawn')", f"'withdrawn', '{LEGAL_STATUS_REFERENCE}')")
+        if new_ddl == ddl:
+            continue                      # 这张表的 DDL 里没有那串枚举 ⇒ 不猜、不动
+        cols = [r[1] for r in conn.execute(f"PRAGMA table_info({table})").fetchall()]
+        col_list = ", ".join(cols)
+        side = [r[0] for r in conn.execute(
+            "SELECT sql FROM sqlite_master WHERE tbl_name=? AND type IN ('index','trigger')"
+            " AND sql IS NOT NULL", (table,)).fetchall()]
+        tmp = f"{table}__new"
+        conn.commit()                     # PRAGMA foreign_keys 必须在事务外才生效
+        conn.execute("PRAGMA foreign_keys=OFF")
+        try:
+            conn.execute(_rename_table_in_ddl(new_ddl, table, tmp))
+            conn.execute(f"INSERT INTO {tmp} ({col_list}) SELECT {col_list} FROM {table}")
+            conn.execute(f"DROP TABLE {table}")
+            conn.execute(f"ALTER TABLE {tmp} RENAME TO {table}")
+            for sql in side:              # 索引/触发器随旧表一起没了 ⇒ 原样恢复
+                conn.execute(sql)
+            conn.commit()
+        except sqlite3.Error:
+            conn.rollback()
+            raise
+        finally:
+            conn.execute("PRAGMA foreign_keys=ON")
+        bad = conn.execute("PRAGMA foreign_key_check").fetchall()
+        if bad:
+            raise StorageError(f"重建 {table} 后外键自检不通过（{len(bad)} 条）—— 立刻停下，别继续写")
+        done += 1
+    return done
+
+
+#: 收藏夹迁移（2026-10 收藏目录）：既有 user_bookmark / user_doc_bookmark 补 folder_id#: 列。schema.sql 的新库直接带列；老库 CREATE IF NOT EXISTS 不会改表 → PRAGMA 补列。
 #: folder_id 不设表级 FK（补列 ALTER 无法加约束）——应用层（user_data）负责引用完整，
 #: 删夹时 UPDATE ... SET folder_id=NULL（收藏回「未分类」，绝不连坐删收藏）。
 _BOOKMARK_FOLDER_COLUMNS: list[tuple[str, str, str]] = [

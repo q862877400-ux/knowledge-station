@@ -88,20 +88,45 @@ def world(db):
     # 隐藏文档：全部缺席
     _mk_doc(db, "GB 5555-2020", "隐藏文档样例", status="effective",
             ccs="C80 消防", tags='["CCS:C80 消防"]', hidden=1)
+    # 2026-09-24 第五档：**征求意见稿**（业主："也要入库，效力层级是参考资料"）
+    # —— 它必须自成一档（🔵），**不许**并进 gray（gray 的含义是"状态未登记、建议补元数据"，
+    #    而它是登记得明明白白的一种状态）。
+    _mk_doc(db, "关于公开征求《危险化学品经营许可证管理办法(修订征求意见稿)》意见的通知",
+            "危化品经营许可办法修订征求意见稿", status="reference",
+            doc_type="法律法规", hierarchy="征求意见稿",
+            tags='["危险化学品"]')
     return db
 
 
-# ---------------------------------------------------------------- 四色与翻转
+# ---------------------------------------------------------------- 效力分色与翻转
 def test_eff_01_colors_and_flip(world):
-    """四色映射 + resolve_status 双向翻转口径（复用不复制）。"""
+    """五色映射 + resolve_status 双向翻转口径（复用不复制）。"""
     rep = effect_report.collect_effect_report()
-    assert rep["total"] == sum(rep["colors"].values()), "四色恒等式"
+    assert rep["total"] == sum(rep["colors"].values()), "各色合计 = 库内可见文档数"
+    assert set(rep["colors"]) == set(effect_report.COLOR_ORDER), \
+        "colors 的键集合必须就是 COLOR_ORDER（面板/工具契约都照它取数）"
     assert rep["colors"]["red"] == 2, "superseded+withdrawn 同红桶"
     assert rep["colors"]["green"] >= 3, "现行（含到期翻转的 7777）"
     assert rep["colors"]["yellow"] >= 2, "即将实施（含反向翻转的 6666）"
-    assert rep["colors"]["gray"] == 1, "NULL 状态 → 状态未知"
+    assert rep["colors"]["gray"] == 1, "NULL 状态 → 状态未知（**只数状态未登记那些**）"
+    assert rep["colors"]["reference"] == 1, "征求意见稿自成一档（🔵 仅参考），不许并进 gray"
+    assert effect_report.STATUS_COLOR["reference"] == "reference", \
+        "reference 不许映射到 gray（那会把'仅参考'说成'状态未登记'）"
     # 隐藏文档缺席
     assert rep["colors"]["green"] != 4, "catalog_hidden=1 不得计入"
+
+
+def test_eff_01b_reference_is_its_own_filterable_category(world):
+    """🔵 仅参考**能单独筛出来**（业主要的就是"在有效性里作为单独的一个类别"），
+    且它在法规树里自成一档（`征求意见稿（仅参考）`），不冒充任何生效位阶。"""
+    only_ref = effect_report.collect_effect_report(color="reference")
+    assert only_ref["total"] == 1 == only_ref["colors"]["reference"]
+    assert all(d["status"] == "reference" for d in
+               effect_report.collect_effect_docs(
+                   top="law", l2="征求意见稿（仅参考）")["docs"])
+    law = [t for t in effect_report.collect_effect_report()["tree"] if t["top"] == "law"][0]
+    assert "征求意见稿（仅参考）" in {l2["name"] for l2 in law["items"]}, \
+        "法规树里应当有这一档（草案没有位阶，不许塞进'部门规章'之类）"
 
 
 def test_eff_02_flip_doc_lands_in_green_bucket(world):
@@ -172,7 +197,7 @@ def test_eff_06_docs_endpoint_validation(world):
         top="std", l2="C 医药、卫生、劳动保护", l3=None, l4=None)
     ranks = [d["color"] for d in docs["docs"]]
     assert ranks == sorted(ranks, key=lambda c: {"red": 0, "yellow": 1,
-                                                 "gray": 2, "green": 3}[c])
+                                                 "gray": 2, "reference": 3, "green": 4}[c])
     # 瘦身行 9 字段
     assert set(docs["docs"][0].keys()) == {
         "doc_id", "standard_no", "standard_name", "status", "color",
@@ -206,9 +231,9 @@ def test_eff_08_export_xlsx_reopenable(world):
     assert wb.sheetnames == ["效力报告总览", "分类明细"]
     ws = wb["效力报告总览"]
     rep = effect_report.collect_effect_report()
-    # 四色统计区（表头行 8，数据 9-12）
-    got = [ws.cell(row=row, column=3).value for row in range(9, 13)]
-    assert got == [rep["colors"][c] for c in ("red", "yellow", "green", "gray")]
+    # 效力分色统计区（表头行 8，数据行 9 起——2026-09-24 起五档）
+    got = [ws.cell(row=row, column=3).value for row in range(9, 9 + len(effect_report.COLOR_ORDER))]
+    assert got == [rep["colors"][c] for c in effect_report.COLOR_ORDER]
     wd = wb["分类明细"]
     assert wd.max_row == 1 + rep["total"], "明细行数 == 库内可见文档数"
     rows = [[c.value for c in r] for r in wd.iter_rows(min_row=2)]
@@ -239,7 +264,7 @@ def test_eff_10_no_hidden_docs(world):
     rep = effect_report.collect_effect_report()
     docs = effect_report.collect_effect_docs(top="std", l2="C 医药、卫生、劳动保护")
     assert all(d["standard_no"] != "GB 5555-2020" for d in docs["docs"])
-    assert rep["total"] == 10  # 11 造数 - 1 隐藏
+    assert rep["total"] == 11  # 12 造数 - 1 隐藏（2026-09-24 加了第 12 篇：征求意见稿）
 
 
 # ---------------------------------------------------------------- E4 按色 top-N（模型工具）

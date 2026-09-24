@@ -221,6 +221,20 @@ def test_filter_effective_drops_non_effective_and_keeps_effective():
     assert all(e["clause_number"] == "a" for e in kept)  # 抽查字段保留
 
 
+def test_reference_clause_never_reaches_the_basis_list():
+    """**征求意见稿（`reference`）绝不能当依据**（业主 2026-09-24：那种只能"仅参考"）。
+
+    它跟 superseded/withdrawn 一样走"非现行 ⇒ 不得进 evidence"这一条：`_is_effective` 是
+    **白名单**（== 'effective'），所以新档天然被挡——这条用例把那个"天然"钉住：将来谁把
+    `_is_effective` 改成"排除某些档"的黑名单，这里立刻红。
+    """
+    ev = _ev(status="reference", standard_no="征求意见稿·危化品经营许可办法")
+    assert _is_effective(ev) is False
+    kept = _filter_effective([_ev(status="effective", standard_no="GB X-真现行"), ev])
+    assert [e["standard_no"] for e in kept] == ["GB X-真现行"], \
+        f"仅参考的条款不许进依据区（实测留下了 {[e['standard_no'] for e in kept]}）"
+
+
 def test_dedupe_by_revision_id_and_on_pairs():
     a = _ev(cid="c1")
     b = _ev(cid="c2", standard_no="GB Y-1", clause_number="b")

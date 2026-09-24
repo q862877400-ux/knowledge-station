@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS doc_meta (
     standard_name TEXT NOT NULL,
     short_code TEXT NOT NULL,
     current_revision_id TEXT NOT NULL,
-    legal_status TEXT CHECK(legal_status IN ('effective', 'upcoming', 'superseded', 'withdrawn')),
+    legal_status TEXT CHECK(legal_status IN ('effective', 'upcoming', 'superseded', 'withdrawn', 'reference')),
     legal_hierarchy TEXT DEFAULT 'GB',
     standard_type TEXT DEFAULT 'mandatory',
     doc_type TEXT DEFAULT 'standard',
