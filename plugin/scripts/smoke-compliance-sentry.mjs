@@ -99,13 +99,16 @@ check('② 标准号模式命中（GB/T 3608 / GB30871 / DB11/T 1234 / AQ 3009 �
 }
 
 /* ④ SKILL.md 字节同步（生成物 vs 常量）。⚠ F1 修复：**换行归一**后比——
-   autocrlf 检出（提取树/任何 CRLF checkout）不许把判据弄成恒红（复核 A/B 实证）。 */
+   autocrlf 检出（提取树/任何 CRLF checkout）不许把判据弄成恒红（复核 A/B 实证）。
+   ⚠ 2026-09-24 **独立复核 HIGH（门禁阻塞）**：`split('---\n')` 在 CRLF 检出里**切不开**
+   （文件里是 `---\r\n`）⇒ 整份（含 front-matter）被当正文 ⇒ 比对必红。
+   ⇒ **先归一换行再切 front-matter**（顺序：normalize → split，不是反过来）。 */
 {
   const norm = (s) => s.replace(/\r\n/g, '\n').trim()
   const file = await readFile(join(repoRoot, '.dsh', 'skills', 'compliance-qa', 'SKILL.md'), 'utf8')
-  const body = file.split('---\n').slice(2).join('---\n')
+  const body = norm(file).split('---\n').slice(2).join('---\n').trim()
   check('④ SKILL.md 正文 == COMPLIANCE_SKILL_BODY（CRLF 归一后比——防两边漂移）',
-    norm(body) === norm(COMPLIANCE_SKILL_BODY), `文件 ${String(norm(body).length)} 字 / 常量 ${String(norm(COMPLIANCE_SKILL_BODY).length)} 字`)
+    body === norm(COMPLIANCE_SKILL_BODY), `文件 ${String(body.length)} 字 / 常量 ${String(norm(COMPLIANCE_SKILL_BODY).length)} 字`)
 }
 
 /* ⑤ L1 每行 ⊆ SKILL_BODY + **覆盖方向**（F2 修复：单向 ⊆ 会被"少抄铁律"钻过——M6c 实证）：

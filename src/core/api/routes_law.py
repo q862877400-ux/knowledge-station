@@ -172,6 +172,38 @@ def register(app, json_error):
 
     # ===== 合规护栏判定（2026-09-24，Jev / TypeSafe System One）=====
 
+    @app.get("/api/v1/laws/change-signals")
+    def law_change_signals(request: Request, signal: str | None = None, limit: int = 100):
+        """**最近哪些法规/标准变了**（2026-09-24，§10.195 业主第一目的"实时获取发布/更新/修改/废止"）。
+
+        读 `doc_meta.change_signal`——**确定性规则**算出来的，不是模型输出（见
+        `web_ingest.classify_change_signal`）。`signal` 省略 = 四类都回；给了就只回那一类
+        （`draft`/`repealed`/`revised`/`issued`）；非法值给 422（**不静默当"全部"**）。
+        ⚠ 这是**线索**不是结论：它说"这份文件是某条发生变化的证据"，具体变成什么了要点开原文。
+        """
+        from src.core.storage.sqlite_db import get_db_connection
+        kinds = ("draft", "repealed", "revised", "issued")
+        want = (signal or "").strip()
+        if want and want not in kinds:
+            return json_error(422, "invalid_signal", f"signal 只能是 {kinds} 之一")
+        n = max(1, min(int(limit or 100), 500))
+        sql = ("SELECT doc_id, standard_no, standard_name, legal_status, change_signal,"
+               " published_at, effective_from, source_url"
+               " FROM doc_meta WHERE change_signal IS NOT NULL")
+        args: list = []
+        if want:
+            sql += " AND change_signal=?"
+            args.append(want)
+        sql += " ORDER BY COALESCE(published_at,'') DESC, doc_id DESC LIMIT ?"
+        args.append(n)
+        rows = get_db_connection().execute(sql, args).fetchall()
+        by_kind = {r[0]: r[1] for r in get_db_connection().execute(
+            "SELECT change_signal, COUNT(*) FROM doc_meta"
+            " WHERE change_signal IS NOT NULL GROUP BY 1").fetchall()}
+        return {"code": 200, "status": "success",
+                "data": {"count": len(rows), "by_signal": by_kind,
+                         "items": [dict(r) for r in rows]}}
+
     @app.post("/api/v1/laws/compliance-guard")
     def compliance_guard(body: dict | None = None):
         """判一段用户输入要不要带上合规查库流程（`jev_guard.judge` 的薄端点）。

@@ -54,6 +54,7 @@
 | B4（分类号 5 提交） | — | `ccs-chain-report.md` |
 | 判据补硬（`d508773`） | — | `d508773-report.md` |
 | 征求意见稿入库 + 公告批量入库（冻结 `verify-freeze-ingest` = `1da33f8`，基线 `4850f12`，8 笔） | 任务书在会话里（未单独留盘，见下） | [[VERIFY-REPORT-ingest.md]] |
+| **Jev 合规护栏**（冻结 `verify-freeze-jev-b1` = `7cbaf4a`，基线 `2f5c2f6`，1 笔） | 任务书在会话里（未单独留盘） | [[VERIFY-REPORT-jev-b1.md]] |
 
 **`VERIFY-REPORT-ingest.md`（2026-09-24）**：结论 **PASS-with-gaps** —— 产品行为零错
 （真库只读四条事实全对、统计三数自洽、16 条 `reference` 逐字对上、`client.js` 与源码现构建逐字节一致），
@@ -64,6 +65,37 @@
 "全绿"只对**修后那棵树**成立。另附 `announce-nav-cleanup-20260924.md`：
 那次真库删除（22 行栏目导航型误发现）的**完整清单与复算办法** ——
 它是本轮唯一一次删真实数据，证据不能只留在被 `.gitignore` 挡着的 `var/tmp/`。
+
+**`VERIFY-REPORT-jev-b1.md`（2026-09-24）结论：FAIL —— 5 个 MED + 1 个 HIGH 门禁阻塞，全部已修。**
+复核确认的部分：9/9 必测变异全红、额外的宽泛词表变异也红、新增断言**无恒真**、
+`def`/422/`available=false`/词表直达三类静默回落都用桩验过、`registerKsComplianceRoutes`
+三个调用点都改到、Jev 不参与内容/引用正确性。**它抓到的（都已修 + 补了"修后牙"）**：
+
+1. **MED-1 熔断冷却是坏的**：`_opened_at` 只在 streak **恰好等于**阈值时刷新 ⇒ 冷却 60s 后
+   再失败多少次都**开不了熔断**（每条消息都去等一次超时）。改为按"上次熔断时刻"判、
+   冷却后的失败**重新计时**。
+2. **MED-2 契约过浅**：`bool=True`（Python bool 是 int 子类）、`noul=1.1`、回包
+   `model=jev-latest` 都被当合法。新增 `_validate_body`：**逐题**验键一一对应、数值在 0~1
+   （显式排除 bool）、`model` 必须等于钉住的版本号。
+3. **MED-3 2s 外网没进限流**：`/api/v1/laws/compliance-guard` 原先 `is_heavy_path=false`
+   ⇒ 每条用户消息都占线程池令牌。已加进 `HEAVY_PREFIXES`（**逐条列**，不用 `/laws/` 前缀——
+   那会把两条廉价端点也关进闸门，§10.82 记的"闸门自己造排队"）。
+4. **MED-4 "2s"没钉死**：原断言是 `== JEV_TIMEOUT_S`（跟着常量走）⇒ 改成 20s 用例照样绿。
+   现在断言**字面值 2.0**。
+5. **MED-5 新端点无契约测试**：禁掉 `if verdict is None` 那支，Jev+threadpool 相关 26 条测试
+   仍全绿。补三条端点契约（422 缺 text / `available=false` / 正常透出）+ 重活闸门断言。
+6. **MED-6 审计两头不准**：原先只有**成功路径**登记 ⇒ HTTP 503 那次外发在审计里查不到；
+   而且源码写"只读"是错的（`record_egress` **会写** `debug_dump`）。改为**每次外发都审计**
+   （成功/HTTP 失败/异常三路），并把不准确的说法删掉。
+7. **HIGH 门禁阻塞（CRLF 检出）**：`smoke-compliance-sentry.mjs` 的 `split('---\n')`
+   在 CRLF 检出里切不开 ⇒ 整份 SKILL.md（含 front-matter）被当正文 ⇒ 必红。
+   改为**先归一换行再切**；已用 `var/tmp/verify-crlf-skill.py` **实测**（临时转 CRLF 跑 ⇒ exit 0，
+   再字节级还原）。
+8. **LOW（复核说的"注释错路"）**：父代理核过 5 处路径引用**全对**（`jev_guard.py` 确实在
+   `src/core/llm/`）⇒ 记为**复核误报**，留痕不静默丢弃。
+
+**修后自证**：`var/tmp/mutate-jev-guard.py` **17/17 变异全红、全部字节级还原**
+（9 条原有 + 8 条针对这 6 MED 与 HIGH 的"修后牙"）。
 
 - **两边内容不同时以本目录为准**，并当场把差异登记到 [开发史](../DEVELOPMENT-HISTORY.md)。
 - ⚠ **还只在 `var/tmp/` 的**：`verify-reports/B7-REPORT.md`（B7 那批的**实施**报告，与上面这批

@@ -212,7 +212,6 @@ def test_client_pins_model_version(monkeypatch):
         @staticmethod
         def json():
             return {"answers": {"a": {"noul": 0.5}}, "model": "jev-1.13.0"}
-
     def _post(url, headers=None, json=None, timeout=None):
         seen.update({"url": url, "payload": json, "timeout": timeout})
         return _Resp()
@@ -225,8 +224,170 @@ def test_client_pins_model_version(monkeypatch):
     assert body["answers"]["a"]["noul"] == 0.5
     assert seen["payload"]["model"] == "jev-1.13.0"
     assert seen["url"] == jev_client.JEV_ENDPOINT
-    assert seen["timeout"] == jev_client.JEV_TIMEOUT_S, "必须有超时上限（每条消息都可能走）"
+    # ⚠ **钉死 2s 这个字面值**（独立复核 MED-4：原先断言 `== JEV_TIMEOUT_S`，
+    #   把它从 2 改成 20 用例照样绿 ⇒ 根本没守住"每条消息最多等多久"）。
+    assert jev_client.JEV_TIMEOUT_S == 2.0, (
+        f"每条用户消息最多等 {jev_client.JEV_TIMEOUT_S}s；调大前先重跑 20 条中文样本")
+    assert seen["timeout"] == 2.0, seen["timeout"]
     jev_client.reset_breaker_for_tests()
+
+
+def _resp(body, status=200):
+    class _R:
+        def __init__(self):
+            self.status_code = status
+            self.text = "err" if status != 200 else ""
+        def json(self):
+            if self.status_code != 200:
+                raise ValueError("非 200 响应不该被 json()")
+            return body
+    return _R()
+
+
+def _patch_post(monkeypatch, body, status=200):
+    monkeypatch.setattr(jev_client, "_read_key", lambda: "k")
+    monkeypatch.setattr(jev_client, "record_egress", lambda **k: "dump_x")
+    monkeypatch.setattr(jev_client.requests, "post", lambda *_a, **_k: _resp(body, status))
+    jev_client.reset_breaker_for_tests()
+
+
+def test_client_rejects_bad_values(monkeypatch):
+    """**坏值不许当判定**（独立复核 MED-2：`True` / `1.1` / 模型别名都曾被当合法）。
+
+    - `bool` 是 Python `int` 的子类 ⇒ 朴素 `isinstance(v, (int,float))` 会放行 `True`；
+    - 概率越界（1.1）必须拒；
+    - 回包 `model` 漂成**别名**（`jev-latest`）必须拒：阈值是按 `jev-1.13.0` 量的。
+    """
+    q = {"a": jev_client.noul("?", yes="y", no="n")}
+    for bad in ({"answers": {"a": {"noul": True}}, "model": jev_client.JEV_MODEL},
+                {"answers": {"a": {"noul": 1.1}}, "model": jev_client.JEV_MODEL},
+                {"answers": {"a": {"noul": -0.1}}, "model": jev_client.JEV_MODEL},
+                {"answers": {"a": {"noul": 0.5}}, "model": "jev-latest"},
+                {"answers": {"a": {"noul": 0.5}}},                    # 缺 model
+                {"answers": {"b": {"noul": 0.5}}, "model": jev_client.JEV_MODEL},  # 键不对
+                {"answers": {}, "model": jev_client.JEV_MODEL}):
+        _patch_post(monkeypatch, bad)
+        with pytest.raises(jev_client.JevUnavailable):
+            jev_client.system_one("s", q)
+
+
+def test_client_rejects_bad_score_and_confidence(monkeypatch):
+    """Score/Choice 的 `score`/`confidence` 同样要在 0~1（`jev_ingest` 用它做门控）。"""
+    _patch_post(monkeypatch, {
+        "answers": {"k": {"type": "choice", "choice": "admin", "score": 9.0,
+                          "confidence": 0.9}}, "model": jev_client.JEV_MODEL})
+    with pytest.raises(jev_client.JevUnavailable):
+        jev_client.system_one("s", {"k": jev_client.choice("?", {"admin": "a", "other": "b"})})
+
+
+def test_breaker_reopens_after_cooldown(monkeypatch):
+    """**冷却一过、下一次失败会重新开熔断**（独立复核 MED-1 实测的洞：
+    原实现只在 streak **恰好等于**阈值时刷新 `opened_at` ⇒ 冷却过后再失败多少次都开不了）。
+
+    这里不用真等 60s：直接推进模块里的 `_opened_at` 模拟"冷却已过"。
+    """
+    class _Resp:
+        status_code = 500
+        text = "boom"
+    monkeypatch.setattr(jev_client, "_read_key", lambda: "k")
+    monkeypatch.setattr(jev_client, "record_egress", lambda **k: "dump_x")
+    monkeypatch.setattr(jev_client.requests, "post", lambda *_a, **_k: _Resp())
+    jev_client.reset_breaker_for_tests()
+    q = {"a": jev_client.noul("?", yes="y", no="n")}
+    for _ in range(jev_client.JEV_BREAKER_FAILS):
+        with pytest.raises(jev_client.JevUnavailable):
+            jev_client.system_one("s", q)
+    assert jev_client.breaker_open() is True
+    # 冷却期已过（把 opened_at 往前推）⇒ 不再短路
+    jev_client._opened_at -= jev_client.JEV_BREAKER_COOLDOWN_S + 1
+    assert jev_client.breaker_open() is False
+    # 冷却后**再失败一次** ⇒ 必须**重新**开熔断（旧实现这里不会）
+    with pytest.raises(jev_client.JevUnavailable):
+        jev_client.system_one("s", q)
+    assert jev_client.breaker_open() is True, "冷却后的失败没有重新开熔断（MED-1 未修）"
+    jev_client.reset_breaker_for_tests()
+
+
+def test_every_egress_is_audited(monkeypatch):
+    """**每一次外发都审计**（独立复核 MED-6：原先只有成功路径登记 ⇒ HTTP 503 那次查不到）。
+
+    而且审计**不是只读**（`record_egress` 会写 `debug_dump` 表并清旧行）——源码里
+    原来的"只读"说法不准确，已改。
+    """
+    seen: list[dict] = []
+    calls = {"n": 0}
+
+    class _Resp:
+        def __init__(self, status):
+            self.status_code = status
+            self.text = "" if status == 200 else "err"
+        def json(self):
+            if self.status_code != 200:
+                raise ValueError("非 200 响应不该被 json()")
+            return {"answers": {"a": {"noul": 0.5}}, "model": jev_client.JEV_MODEL}
+
+    def _post(*_a, **_k):
+        calls["n"] += 1
+        return _Resp(200 if calls["n"] == 1 else 503)
+
+    monkeypatch.setattr(jev_client, "_read_key", lambda: "k")
+    monkeypatch.setattr(jev_client.requests, "post", _post)
+    monkeypatch.setattr(jev_client, "record_egress", lambda **k: seen.append(k) or "dump_x")
+    jev_client.reset_breaker_for_tests()
+    q = {"a": jev_client.noul("?", yes="y", no="n")}
+    jev_client.system_one("s", q)                       # 成功
+    with pytest.raises(jev_client.JevUnavailable):     # HTTP 503
+        jev_client.system_one("s", q)
+    assert calls["n"] == 2, calls
+    assert len(seen) == 2, f"成功与失败都要审计（实测 {len(seen)} 次）"
+    assert seen[0]["response_meta"]["outcome"] == "ok", seen[0]
+    assert seen[1]["response_meta"]["outcome"] == "http_503", seen[1]
+    jev_client.reset_breaker_for_tests()
+
+
+def test_audit_failure_does_not_break_decision(monkeypatch):
+    """审计写失败**不反噬**判断结果（审计比判断重要，但不能让外部服务把护栏带崩）。"""
+    def _boom(**_k):
+        raise RuntimeError("db down")
+    _patch_post(monkeypatch, {"answers": {"a": {"noul": 0.5}}, "model": jev_client.JEV_MODEL})
+    monkeypatch.setattr(jev_client, "record_egress", _boom)
+    body = jev_client.system_one("s", {"a": jev_client.noul("?", yes="y", no="n")})
+    assert body["answers"]["a"]["noul"] == 0.5
+    jev_client.reset_breaker_for_tests()
+
+
+def test_compliance_guard_endpoint_contract(client, monkeypatch):
+    """端点契约（独立复核 MED-5：禁掉 `if verdict is None` 那支，26 条测试仍全绿 ⇒ 没钉住）。
+
+    三条都要钉：① 缺 `text` ⇒ 422；② Jev 不可用 ⇒ **200 + `available=false`**
+    （不是 500，也**不是**"判定为不触发"）；③ 正常 ⇒ 真把 verdict 透出去。
+    """
+    c, token = client
+    h = {"Authorization": f"Bearer {token}"}
+    r = c.post("/api/v1/laws/compliance-guard", json={}, headers=h)
+    assert r.status_code == 422, r.text
+    # `json_error` 的信封是 `error` 存**字符串 code**（server.py:332）——别当 dict 取。
+    assert r.json()["error"] == "missing_text", r.text
+
+    monkeypatch.setattr(jev_guard, "judge", lambda _t: None)
+    r2 = c.post("/api/v1/laws/compliance-guard", json={"text": "动火作业怎么分级？"}, headers=h)
+    assert r2.status_code == 200, r2.text
+    assert r2.json()["data"] == {"available": False, "verdict": "unknown"}, r2.text
+
+    monkeypatch.setattr(jev_guard, "judge",
+                        lambda _t: {"verdict": "trigger", "signals": {"a": 0.9}, "model": "x"})
+    r3 = c.post("/api/v1/laws/compliance-guard", json={"text": "动火作业怎么分级？"}, headers=h)
+    assert r3.status_code == 200 and r3.json()["data"]["available"] is True, r3.text
+    assert r3.json()["data"]["verdict"] == "trigger", r3.text
+
+
+def test_compliance_guard_is_heavy_path():
+    """2s 外网 ⇒ 吃重活令牌（MED-3；`tests/test_threadpool_bound.py` 也逐条列了它）。"""
+    from src.core.api import server
+    assert server.is_heavy_path("/api/v1/laws/compliance-guard")
+    # 廉价端点**不许**被顺手关进闸门（§10.82「闸门自己造排队」）
+    assert not server.is_heavy_path("/api/v1/laws/catalog")
+    assert not server.is_heavy_path("/api/v1/laws/sources")
 
 
 def test_client_breaker_trips_after_repeated_failures(monkeypatch):

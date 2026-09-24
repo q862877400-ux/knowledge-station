@@ -103,7 +103,10 @@ class TestHeavyGate:
                   "/api/v1/laws/ingest",
                   "/api/v1/laws/search",
                   "/api/v1/laws/check-updates",
-                  "/api/v1/laws/verify"):
+                  "/api/v1/laws/verify",
+                  # 2026-09-24（独立复核 MED-3）：合规护栏会在线程里打 **2s 外网**（Jev API），
+                  # 缺令牌 ⇒ 每条用户消息都占 16 个池令牌之一、别的端点跟着排队。
+                  "/api/v1/laws/compliance-guard"):
             assert server.is_heavy_path(p), p
         assert server.HEAVY_TOKENS < server.THREADPOOL_TOKENS, (
             "重活闸门必须**小于**线程池上限，否则等于没有给文件流留位")

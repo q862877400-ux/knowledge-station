@@ -108,12 +108,19 @@ def init_schema(db_path: Path | None = None) -> None:
 
 
 #: doc_meta 增量列（2026-08-27 体检回流）：已有库 ALTER 补列；幂等（PRAGMA 缺才 ADD）
+#: ⚠ 2026-09-24 加 `change_signal` 时**顺手给上面几列补了注释**（原先只有 3 列有）——
+#:   这不是新功能，是把"这列是什么"写清楚（接手的人不该靠猜）。
+#:   真库走的是 `ALTER TABLE ADD COLUMN`（6797 行，**不重建表**：重建要 2.15GB 备份 + 停机）。
 _DOC_META_EXTRA_COLS: list[tuple[str, str]] = [
     ("published_at", "TEXT"),   # 官方发布日期（cssn a101）
     ("ccs_code", "TEXT"),       # CCS 分类代码（cssn a825）
     ("ccs_name", "TEXT"),       # CCS 分类名称（cssn a825name）
     ("ics", "TEXT"),            # ICS 分类名称（cssn a826name）
     ("withdrawn_date", "TEXT"), # 废止日期（cssn a206 / ndls a206）
+    # 变更信号（2026-09-24，§10.195）：`draft`/`repealed`/`revised`/`issued`/NULL。
+    # ⚠ **不设 CHECK**：这一列会随词表演进（官方口径也在长），而 CHECK 要重建表才能改。
+    #   口径由 `web_ingest.classify_change_signal` 单点定义，查询侧按 NULL 之外即"有信号"。
+    ("change_signal", "TEXT"),
 ]
 
 

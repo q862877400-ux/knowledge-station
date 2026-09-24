@@ -94,6 +94,7 @@ def ingest_law_text(text: str, standard_no: str, standard_name: str,
                     legal_status: str | None = "__default__",
                     quality_grade: str | None = "__default__",
                     standard_type: str | None = "__default__",
+                    change_signal: str | None = "__default__",
                     fallback_single_clause: bool = False) -> dict:
     """法规纯文本 → 切分 → 分型 → 单事务原子入库（无源 PDF，file_path 记录来源标记）。
 
@@ -121,6 +122,11 @@ def ingest_law_text(text: str, standard_no: str, standard_name: str,
             （`docx_ingest.py` 与 `pipeline.py` 直接 `insert_document`）。
             哨兵真正护住的是**仓外/未来的调用方**以及 `track_l` 的两个分支：
             谁没显式传，就仍然拿到 `insert_document` 的默认值。
+        change_signal: 落 `doc_meta.change_signal`（2026-09-24，§10.195）——"这份文件是某个
+            法规/标准**发生变化**的线索"（`draft`/`repealed`/`revised`/`issued`/None），
+            与本文档自己的 `legal_status` **正交**。同样用 `__default__` 哨兵：
+            **不给 = 不写这列**（既有调用方行为一字不变），显式给 None = 写 NULL。
+            判定单点在 `web_ingest.classify_change_signal`（确定性规则，**不是模型输出**）。
     """
     settings = get_settings()
     init_schema()
@@ -198,6 +204,12 @@ def ingest_law_text(text: str, standard_no: str, standard_name: str,
         doc_row["quality_grade"] = quality_grade
     if standard_type != "__default__":
         doc_row["standard_type"] = standard_type
+    # 变更信号（2026-09-24，§10.195）：同样用 `__default__` 哨兵——不给 = **不写这列**
+    # （保持既有调用方的行为一字不变），给了（含显式 None）= 写 NULL。
+    # ⚠ 只有"这份文件是某法规/标准变化的线索"才给值；判定在
+    #   `web_ingest.classify_change_signal`（确定性规则，落库即可复算——**不是模型输出**）。
+    if change_signal != "__default__":
+        doc_row["change_signal"] = change_signal
 
     with write_transaction() as txn:
         clause_repo.insert_document(txn, doc_row)

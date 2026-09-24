@@ -64,6 +64,39 @@ def _inner_html(html: str, open_match: re.Match) -> str:
     return html[start:]
 
 
+#: **变更信号**词族（2026-09-24，§10.195 目标"实时获取发布/更新/修改/废止"）。
+#: ⚠ 顺序即优先级：征求意见 > 废止 > 修订 > 发布。一条标题可能同时命中多个
+#:   （「关于修改并废止部分条款的决定」），取**最靠前**的那个作为主信号。
+#: 判据只认**标题里明写**的措辞，不猜正文——这一列要能被任何人拿同一条规则复算。
+_CHANGE_SIGNAL_RULES: tuple[tuple[str, re.Pattern], ...] = (
+    ("draft", re.compile(r"征求意见|草案|公开征求")),
+    ("repealed", re.compile(r"废止|失效|作废|予以撤销|宣布无效")),
+    ("revised", re.compile(r"修订|修改|修正|变更|替代")),
+    ("issued", re.compile(r"发布|颁布|批准|纳入.{0,6}目录|公告.{0,4}标准")),
+)
+
+
+def classify_change_signal(title: str) -> str | None:
+    """标题 → 变更信号（`draft` / `repealed` / `revised` / `issued` / `None`）。
+
+    **这是什么**：说"这份文件是**某个法规/标准发生了变化的线索**"，而不是这份文件自己的效力档
+    （那是 `classify_status`/`legal_status` 的事，两者是正交的）。例：
+    「关于废止《X暂行办法》的通知」——文件本身现行有效（`effective`），
+    但它是"X 被废止了"的**证据**（`repealed`）。
+
+    **为什么用确定性规则而不是 Jev**：官方明示"typed output 保证接口、不保证为真"。
+    落库的标记必须是**拿同一条规则能复算出来的事实**。Jev 只在 `jev_ingest` 那里做
+    范围分档（结果不落库、只给清单与理由）。
+
+    `None` = 标题里没写，不猜。**宁漏不猜**：没有明说却标了信号，比漏标更容易误导人。
+    """
+    t = title or ""
+    for kind, pattern in _CHANGE_SIGNAL_RULES:
+        if pattern.search(t):
+            return kind
+    return None
+
+
 def classify_status(title: str) -> str:
     """标题 → 效力档：`reference`（参考资料/仅参考）/ `withdrawn` / `effective`。
 
@@ -348,7 +381,7 @@ def ingest_pending(limit: int = 10, source_id: str | None = None, *, transport: 
                                   source_name=row.get("source_name") or "",
                                   transport=tp, trace_id=trace_id)
         items.append({k: res.get(k) for k in ("url", "title", "status", "reason",
-                                              "legal_status", "chars")})
+                                              "legal_status", "chars", "change_signal")})
         # `status` 只有 ingested / skipped / failed 三种（`ingest_announcement` 的返回形状）
         key = res.get("status")
         if key in counts:
@@ -404,6 +437,7 @@ def ingest_announcement(title: str, url: str, *, published_date: str | None = No
     from src.core.text_utils import store_standard_no
 
     stored_no = store_standard_no(title)
+    signal = classify_change_signal(title)
     res = ingest_law_text(text, stored_no, title,
                           legal_hierarchy=classify_hierarchy(title),
                           effective_from=published_date,
@@ -411,7 +445,9 @@ def ingest_announcement(title: str, url: str, *, published_date: str | None = No
                           source_marker=f"web://{urlsplit(url).netloc}",
                           source_url=url,
                           legal_status=out["legal_status"],
+                          change_signal=signal,
                           fallback_single_clause=True)
+    out["change_signal"] = signal          # 回给调用方（清单里能直接看见这条是不是变更线索）
     out["ingest"] = res
     # ⚠ **如实区分三种"没插新文档"**（2026-09-24 真机跑出来的缺陷，见 §10.193）：
     #    `ingest_law_text` 只在真插了新文档时返回 `inserted`/`ok` 之类；

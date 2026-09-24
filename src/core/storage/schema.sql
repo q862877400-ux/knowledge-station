@@ -29,6 +29,9 @@ CREATE TABLE IF NOT EXISTS doc_meta (
     source_url TEXT,             -- 溯源 URL
     downloaded_at TEXT,          -- 下载时间 ISO
     source_status TEXT,          -- flk sxx 时效（3=有效）等
+    change_signal TEXT,          -- 变更信号 2026-09-24（§10.195）：draft/repealed/revised/issued/NULL
+                                 -- ⚠ 不设 CHECK（改 CHECK 要重建表）；口径单点在
+                                 -- web_ingest.classify_change_signal（确定性规则、可复算，非模型输出）
     created_at TEXT DEFAULT (datetime('now')),
     updated_at TEXT DEFAULT (datetime('now'))
 );

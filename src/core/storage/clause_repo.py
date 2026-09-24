@@ -226,12 +226,17 @@ def insert_document(conn: sqlite3.Connection, doc: dict[str, Any]) -> None:
     免得以后哪条新路径又漏进来时只剩静默。
     """
     doc = _store_form_doc(doc)
+    # ⚠ 这里是**显式列清单**：不在清单里的键会被**静默丢掉**（2026-09-24 实测踩到：
+    #   `change_signal` 传进来了却没落库——因为它没在这条 INSERT 里）。
+    #   ⇒ **doc_meta 加列要同时改这里**（schema.sql 新库 + `_DOC_META_EXTRA_COLS` 老库 ALTER
+    #   + 这一行），三处缺一不可。
     conn.execute(
         """INSERT INTO doc_meta (doc_id, standard_no, standard_name, short_code,
            current_revision_id, legal_status, legal_hierarchy, standard_type, doc_type,
            quality_grade, domain_tags, effective_from, published_at, superseded_by, normative_refs,
-           file_path, file_hash, source, source_id, source_url, downloaded_at, source_status)
-           VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
+           file_path, file_hash, source, source_id, source_url, downloaded_at, source_status,
+           change_signal)
+           VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)""",
         (doc["doc_id"], doc["standard_no"], doc["standard_name"], doc["short_code"],
          doc.get("current_revision_id", ""), doc.get("legal_status", "effective"),
          doc.get("legal_hierarchy", "GB"), doc.get("standard_type", "mandatory"),
@@ -241,7 +246,8 @@ def insert_document(conn: sqlite3.Connection, doc: dict[str, Any]) -> None:
          json.dumps(doc.get("normative_refs", []), ensure_ascii=False),
          doc["file_path"], doc["file_hash"],
          doc.get("source"), doc.get("source_id"), doc.get("source_url"),
-         doc.get("downloaded_at"), doc.get("source_status")))
+         doc.get("downloaded_at"), doc.get("source_status"),
+         doc.get("change_signal")))
 
 
 def insert_page_geometries(conn: sqlite3.Connection, doc_id: str,

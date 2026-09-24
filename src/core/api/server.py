@@ -122,6 +122,11 @@ HEAVY_PREFIXES: tuple[str, ...] = (
     "/api/v1/laws/check-updates",
     "/api/v1/laws/catalog/refresh",
     "/api/v1/laws/verify",
+    # 2026-09-24（独立复核 MED-3）：`/laws/compliance-guard` 会在**线程里打 2s 外网**
+    #   （Jev API，带超时+熔断）。它原先没进本表 ⇒ 每条用户消息都可能占住 16 个
+    #   线程池令牌之一（4 个并发就够把池子占满）⇒ 其他端点跟着排队。
+    #   与上面 5 条同类（"真的会打网络/长跑"），所以逐条列出而不是加 `/laws/` 前缀。
+    "/api/v1/laws/compliance-guard",
 )
 
 #: **按事件循环缓存**的重活闸门。⚠ 键用**循环对象本身**（`WeakKeyDictionary`），
