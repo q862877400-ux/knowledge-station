@@ -221,7 +221,7 @@ def pending_rows(limit: int | None = None, source_id: str | None = None,
     for row in _observed_rows(source_id=source_id):
         if _is_in_library(row, urls, nos):
             continue
-        if not include_non_normative and classify_scope(row.get("title")) != "normative":
+        if not include_non_normative and classify_scope(row.get("title") or "") != "normative":
             continue
         out.append(row)
         if limit is not None and len(out) >= limit:
@@ -241,10 +241,10 @@ def ingest_summary(source_id: str | None = None) -> dict:
     for row in rows:
         if _is_in_library(row, urls, nos):
             continue
-        if classify_scope(row.get("title")) != "normative":
+        if classify_scope(row.get("title") or "") != "normative":
             skipped_non_normative += 1
             continue
-        pending[classify_status(row.get("title"))] += 1
+        pending[classify_status(row.get("title") or "")] += 1
     return {
         "total": len(rows),
         "ingested": len(rows) - sum(pending.values()) - skipped_non_normative,
@@ -301,7 +301,7 @@ def ingest_pending(limit: int = 10, source_id: str | None = None, *, transport: 
             continue
         seen_urls.add(row["url"])
         # 范围判定再来一次（`force=True` 时不挡）—— 与 `pending_rows` 同一判据，不写第二份
-        if not force and classify_scope(row.get("title")) != "normative":
+        if not force and classify_scope(row.get("title") or "") != "normative":
             items.append({"url": row["url"], "title": row.get("title"), "status": "skipped",
                           "reason": "not_normative"})
             counts["skipped"] += 1
