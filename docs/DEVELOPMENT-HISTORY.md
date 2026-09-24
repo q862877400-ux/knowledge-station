@@ -11075,6 +11075,76 @@ pytest（`2363 passed / 0 failed`，含 B3a 的 18 + 4 条）⇒ 如实记成"**
 （`parse_list_page` 只从锚文本取日期）⇒ 那些条目日期为空、在"最近列表"里排最后。
 这**不影响"看得见"**（条目与链接都记下了），切片②抓正文时会从详情页拿准确日期。
 
+## §10.191 渠道库面统一的**独立复核**（结论 + 它抓到的 HIGH 已修 + 三条 MED 待办）2026-09-24
+
+**冻结条件**：tag `verify-freeze-chans-ui` = `a08dbe8`（被验批次 = `7c147ee` + `9426884` + `a08dbe8`，
+base `d2f436e`，`rev-list --count` = **3**，`merge-base --is-ancestor` 已核 exit 0）；
+树 `zcode-verify-chans`（由 B3b 那棵 worktree 改名而来）。报告两处内容相同（sha256 `AA50F185…`）：
+树内 `VERIFY-REPORT-chans-ui.md` 与 `var/tmp/verify-reports/VERIFY-REPORT-chans-ui.md`。
+**总判定 PASS-with-gaps ｜ FAIL 1 / UNVERIFIED 4 ｜ HIGH 1 / MED 3 / LOW 3。**
+
+**三条重点它都独立复现了**
+1. **五处统一是真的**（逐选择器量两个面）：`.ks-tree-row` 两面都是 n=6 / x=44 / w=152 / h=44 / fs=13px /
+   gap=4px / radius=6px / pad=0 4px；`.ks-tree-count` 都 11px；`.ks-main` x=212/w=1052/gap=8；
+   `.ks-split` x=36/w=1228/gap=8；`.ks-search` h=34、在右栏；DOM 里 `ks-tree-item/-on/-sub` = **0**；
+   `.ks-kb` 根 fs=**13px**（不再是 12）。它也**看了图**。
+2. **留边那 5 条是真扩、不是假扩**：baseline 27/27 PASS 且渠道库那组"声明元素 5"；
+   **反向**去掉 `chans: true` ⇒ 该组 **FAIL、整跑 exit 1**，报 `.ks-kb-tree`/`.ks-list` 根本没量到。
+   ⚠ 口径更正（它给的）：5 条里**只有这 2 条**依赖 `--chans`，`.ks-kb-row` 不喂数据也渲染。
+3. **`--chans` 是逐字节纯加法**：`d2f436e` 版脚本与新版同场景产出 `.html` 逐字节相同
+   （kb@1300 335407B `A934B177…`、kb@520 335406B、materials@1300 207150B，IDENTICAL=True）；
+   误用（capabilities/ingest/manage）三种都 **exit 2**。
+
+### 🔴 HIGH-1（唯一，**已修**：提交 `faaa83c`）
+
+`ui-render-shot.mjs` 的出口逻辑**先判 `rowCtrlsSkipReason`** ⇒ 非 manage 面（渠道库/办事台/备料）上
+"行内控件**不超过上限 3**"这条**被吞掉**。复现实测：渠道库 5 个分组行各加 3 个可见按钮（每行 4）⇒
+**exit 0 假绿**，而 JSON 里 `problems` 已写明 `[4,4,4,4,4]`。**这与 `a08dbe8` 说明里"`over` 不按面收窄、
+对哪个面都成立"相反** —— 病根正是 `7c147ee` 新加的"有行也 skip"路径（改前 skipReason 只在
+"一行都没有"时出现，那时 problems 必空）。
+**修法两处**：① 判红只由 `problems.length > 0` 决定，skipReason 只解释"等于几"不适用；
+② `smoke-kb-pad-pixels.mjs` **也读 `rowCtrlsCheck.problems`** —— 该判据此前**唯一消费者就是脚本自己的
+出口逻辑**（实测那个套件全文零处引用它），光修①不够。
+**父代理实跑取证**：改前同一变异 exit 0；修复后 exit 1（失败行原文即复核那条 `[4,4,4,4,4]`）；
+套件在变异下该组 FAIL、整跑 exit 1，两行证据（`exit=1` + `rowCtrlsCheck：…`）；**还原后 27/27 PASS**。
+
+### 三条 MED（**登记，未在本批做**）
+
+- **MED-1｜五处统一现在"零判据守着"**：复核把它改回自造类（`.ks-tree-item ks-tree-on` + 内联 28px/12px）
+  ⇒ `ui-render-shot` **exit 0**、ksPadCheck 全绿。⇒ 我在 `a08dbe8` 说明里"把它真正量起来、
+  否则会悄悄漂回去"是**夸大**：那一批量的是**留边存在性**，不是"五个面统一"。**更正留在本节。**
+- **MED-2｜`--chans` 桩没造出它声称的"网站"那一级**：9 条 host 互不相同，而 `groupRowsBySite`
+  只在"同 host >1 行"时建站 ⇒ 实测 **0 个真 caret、0 个 `aria-expanded`**、6 个叶子位；
+  复核把数据改成同 host 立刻出 1 个真 caret ⇒ **数据的锅，不是代码的锅**。
+  即：本批新加的 caret 展开/收起**从未被任何一跑渲染到**。
+- **MED-3｜我在 `9426884` 说明里把话说宽了**：写的是"`.ks-split`/`.ks-main`/`.ks-search` 的
+  **x/y/w/h** 一致"—— 实测 **x/w/h/fs/gap 同，`y` 差 36–50px**（来源：渠道库那面多一条提示/工具行、
+  少一条 `.ks-tree-head`）。**就地更正：一致的是 x/w/h/fs/gap，不是 y。**
+
+### LOW 与"顺手发现"（只登记）
+
+- `.ks-tree-head` 两面仍不一致（manage 1 个 / channels 0 个）—— 可见差异，**不在"五处"之列**。
+- `$th/$td/$trWarn` 死对象仍在（本批只删了自己造成的那两个）。
+- 渠道库那面行内控件"**等于几**"仍零判据（与 HIGH-1 叠加过 ⇒ 该面每行控件的绝对数量当时无人判）。
+- 显式 `--nav-page manage` ⇒ exit 1（护栏正常工作；manage 面只能靠"不给 `--nav-page`"渲染）。
+
+### UNVERIFIED / 覆盖缺口（它**没验成**的，别当我验过）
+
+① `7c147ee` 引的具体字节数与 sha256（333975B/`40FBBE24…` 那一组）今天复现不到 —— 树已前进到
+`9426884`，它只复现了"逐字节相同"这一**性质**；② `run-gates.ps1` / `smoke-all` 按任务书**禁跑**，
+只单跑了 5 条；③ **那棵树里没有 `.venv` ⇒ pytest 侧零覆盖**（本条由**主仓全量门禁**补上：
+同日 `-Full` **8/8 通过**、pytest `2372 passed / 3 skipped / 0 failed`）；④ 纯加法只覆盖 3 个跑法，
+未遍历 27 组 `--interact` 矩阵；⑤ "摘要套 `.ks-list-cap` 会假红"那次历史现场没复现。
+它复现的：`smoke-catalog-ui` 50/50（`<b>` 四态判据原样）、`smoke-kb-page-render` 188/188、
+`smoke-client-entry` 190/190（含交付件↔现构建整份一致 1736119/1736119）、`smoke-kb-cols` exit 0、
+`smoke-kb-pad-pixels` 27/27。
+
+**它的过程诚实**：6 项变异**全部还原**（每次变异前后 `git status --short`、`git checkout -- <绝对路径>`，
+**未用哈希**），临时件 `_verify_tmp_old_shot.mjs` 已删。
+⚠ 我中途催它时说的"树里那两处还改着"是**过时信息** —— 它当时已经清干净了（它在报告末尾给了
+`status --short` 为证）。⇒ 又一条"**说之前先自己看**"的实例。
+
+
 
 
 ## §10.188 「知识库和渠道库的 UI 不一样」——查过了：**外壳共用，内容没共用**（2026-09-24）
