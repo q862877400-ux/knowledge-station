@@ -11200,3 +11200,96 @@ base `d2f436e`，`rev-list --count` = **3**，`merge-base --is-ancestor` 已核 
 ⇒ 那是护栏在正常工作；**别把"我给错参数"读成"门禁有洞"**。
 
 
+## §10.192 `reference` 效力档：**征求意见稿也要入库，但只算"仅参考"**（2026-09-24）
+
+**业主更正（本条的唯一依据，原话）**：
+> 「我不是说了吗，征求意见稿也要入库，只是效力层级是参考资料，不是强制执行的那种」
+
+**⚠ 我先前做错的一步（留痕）**：切片② 那一版 `web_ingest` 里，征求意见稿被写成
+`legal_status='draft'` + `status='skipped', reason='draft_pending_schema'` —— **拒绝入库**，
+理由是"枚举迁移还没做"。那**不是**业主要的：他要的是**入库**、只是效力档低。
+（同一批里我还把 `draft` 这个值**先**塞进了 CHECK —— 等于先造了一个业主没要的档。
+现在它被 `reference` 取代，`draft` 值从 schema / 引擎 / 测试里全部去掉。）
+
+**做了什么（一个效力档，从库结构到界面全打通）**
+
+1. **库结构**：`doc_meta.legal_status` 的枚举 CHECK 从四值扩到五值（加 `reference`）。
+   SQLite **改不了 CHECK** ⇒ 按官方 12 步重建表（`sqlite_db._ensure_legal_status_reference`，
+   在 `init_schema()` 里幂等调用）：
+   **建新表 → 拷数据 → 删旧表 → 改名回原名**（顺序有讲究：先 `RENAME` 的写法会让
+   `clause_revision` 等子表的 `REFERENCES doc_meta(doc_id)` **被 SQLite 一起改指到旧名**上、
+   级联当场断掉）；`PRAGMA foreign_keys` 只在事务外生效 ⇒ 先 commit、关掉、重建、再打开，
+   最后跑一次 `foreign_key_check` 自证。索引/触发器从 `sqlite_master` 取原 DDL 原样恢复。
+2. **⚠ 只动 `doc_meta`，**不动** `update_change_event.current_legal_status`**：那个字段的取值来自
+   **渠道探测结果**（`channels/base.py:LEGAL_STATUSES`，四值），库里没有任何通路会写 `reference`
+   —— 它回答的是"某标准号**当前**是什么状态"，不是"**入库的文档**有多重"。
+   没有生产者的枚举值不该先塞进 CHECK（那只是把一条已验证的契约放松，换不到东西）。
+   `_LEGAL_STATUS_TABLES=("doc_meta",)` 的注释 + `tests/test_legal_status_reference.py::test_ref_migration_leaves_other_enum_alone`
+   两处都钉着这条（谁想加，必须同时带来写它的通路）。
+3. **入库判定**（`web_ingest.classify_status`，口径唯一所有者）：标题含
+   「征求意见 / 草案 / 公开征求」⇒ `reference`（**先于**"废止/其他"判，否则
+   「关于征求《XX办法（修订征求意见稿）》意见的通知」会被"办法"骗成现行件）；
+   含「废止/失效/作废」⇒ `withdrawn`；其余 ⇒ `effective`。入库走
+   `law_text.ingest_law_text(..., fallback_single_clause=True)`：没有"第X条"的公告整篇作一条
+   （编号"全文"）—— 政府站的公告大半没有条文，不这样会被"未识别到条文"整批挡在门外。
+4. **层级词汇修正（顺手抓到的一个真缺陷）**：`classify_hierarchy` 原来给部令返回 **"规章"**，
+   而 `doc_catalog._HIER_TO_TIER` 的词表里只有 **"部门规章"** ⇒ 那批文档在法规树第一级会落到
+   **"未定级"**（"我认不出来"），而不是它本来的位阶。现在返回库内既有词汇
+   （部令→`部门规章`、政府令→`地方政府规章`、办法/规定/公告→`规范性文件`）。
+   征求意见稿单列 `_HIER_TO_TIER["征求意见稿"]="征求意见稿（仅参考）"` —— **故意不在**
+   那份《分类编码体系》的 12 类官方位阶里（草案**没有位阶**，塞进任何一类都是"把草案当生效件"），
+   `LAW_TIERS` 一字不动。
+5. **界面（业主原话是"在有效性里作为单独的一个类别，当成仅做参考的有效性来用"）**：
+   - **效力分色从四档改五档**（`effect_report`）：`reference` **自己一档**
+     （🔵 参考资料（仅参考）），**不许并进 `gray`** —— gray 的文案是"库内未登记效力状态，
+     建议补全元数据"，把"登记得明明白白的一种状态"说成"要补元数据"是假话。
+     `COLOR_ORDER` **追加在末尾**（前四色的序号、面板四色灯、Excel 行序、`per_color` 请求序
+     一字不变）；`_COLOR_RANK` 里排在 gray 之后、green 之前。
+   - 知识库页：文档行徽章 `参考资料（仅参考）`；对话页 `参考资料（仅参考，非现行依据）`；
+     目录行五色灯 🟢🟡🔴⚪🔵（`🔵N` 只在该档非零时显示）；文件行鼠标提示
+     `（参考资料，仅参考、不作依据）`。
+   - 定位端点（`/api/v1/clauses/resolve`）：`reference` ⇒ `basis_scope='locate_only'`，
+     `basis_notice` 给中文名「参考资料（仅参考，未生效）」。
+     ⚠ 这里原来只有三个档的中文名，兜底是 `str(ls)` ⇒ 少登记一个档，**业主就会在界面上看到
+     "该条为「reference」"**（最高指令：不许把内部叫法露给他）。用例钉住："reference" 不许出现在 notice 里。
+   - **`folder_store.effect_deep` 的键集合改成跟着 `COLOR_ORDER` 走**（原来写死四键）：
+     加档那一刻它就是**真崩**（`effect_deep["reference"]` KeyError —— 一夹里有征求意见稿
+     就把整棵目录树读崩）。这条是"同一口径别写第二份"的实例。
+6. **依据纪律（`ks_answer` 一字未改，但把"天然安全"钉成判据）**：`_is_effective` 是**白名单**
+   （`== 'effective'`）⇒ `reference` 条款**不得进依据区**。新用例
+   `test_reference_clause_never_reaches_the_basis_list` 断言这一点：将来谁把它改成
+   "排除某些档"的黑名单，用例立刻红。
+   ⚠ **明确未做**：征求意见稿**不会**作为"参考资料"被塞进取证答案（只在库里可查、界面上标清）。
+   业主说的是"在**有效性**里单列一类"（展示面），不是"答案里当材料引"；要后者是**新口径**、
+   得他点头再加。
+
+**证据（都在本机实跑）**
+- 新增 `tests/test_legal_status_reference.py`（2 条）：迁移前写 `reference` **必须被 CHECK 拒**
+  （否则这文件是空转）、迁移后写得进、**数据一行不少**、**显式索引与原索引都回来**、
+  **真删一行证明外键级联还通**、`foreign_key_check` 干净、**幂等**（再跑返回 0）。
+  它造"迁移前那一版库"的方式是**取真 `schema.sql` 只把 doc_meta 的 CHECK 退回四值**
+  （并断言替换真的命中了，防"其实还是新库"的假绿）。
+- `tests/test_effect_report.py`：世界加一篇征求意见稿 ⇒ 断言 `colors['reference']==1`
+  且 `colors['gray']==1`（**不并桶**）、`set(colors)==set(COLOR_ORDER)`、
+  `color="reference"` **能单独筛出来**（业主的"单独一个类别"）、法规树里有
+  `征求意见稿（仅参考）` 这一档；Excel 五行的数逐行对得上（原来写死 9-12 行、四色列表）。
+- `tests/test_kb_folder_api.py`：效力灯 fixture 加到**五档全非零且互不相等**
+  （2绿1红1黄1灰1蓝）+ 断言"各色合计 == 这一棵篇数"（防"有文件没被任何颜色数到"）。
+- `tests/test_api.py`：新增 `reference` 档的中文 notice 用例（并断言英文标识不漏）。
+- UI：渲染器的目录 fixture 也改成五档（7绿/2红/1黄/3灰/4蓝）+ 运行态断言灯里有 `🔵4`。
+- 单跑：`tests/test_web_ingest.py` `tests/test_update_announce.py` `tests/test_legal_status_reference.py`
+  `tests/test_effect_report.py` `tests/test_kb_folder_api.py` `tests/test_ks_answer.py`
+  `tests/test_api.py` `tests/test_contract.py` **141 通过**（含新用例）。
+
+**残余 / 明确未做**
+1. **真库（6417 篇那份）还没迁**：`_ensure_legal_status_reference` 只在测试库上跑过。
+   上线前要在**备份副本**上先跑一遍再动真库（真库 facts：`doc_meta` 6417 行全 `effective`、
+   3 个显式索引 `idx_doc_short_code/hierarchy/file_hash`、`clause_revision` 等外键
+   `ON DELETE CASCADE`）。
+2. **抓取侧只做了一半**：翻页发现（切片①）+ 单条入库函数已就绪，**批量抓取 + 界面上那个
+   "入库"按钮还没做**（业主报的"大量应该入库的没入库"要靠它收口）。
+3. 渠道库面的 `.ks-tree-head` 与知识库仍不完全一致；渠道库行"等于几"那一列仍无判据（§10.191 的残余）。
+4. `docs/ENCYCLOPEDIA.md` 的 `doc_meta` 行已补第五档；`docs/tool-catalog.md` 是**生成物**，
+   已用 `node plugin/scripts/smoke-tool-catalog.mjs --write` 重生成（手改必红）。
+
+

@@ -357,7 +357,7 @@ wenjianmulu/                     # GB/T 39910-2021.pdf 等——⚠ 生产库 do
 ## 8.2 核心知识表
 
 ### doc_meta（文档元数据）
-`doc_id` PK(ULID)；`standard_no` UNIQUE（GB 30871-2022 / 个人信息保护法）；`standard_name`；`short_code`（归一化检索代码）；`current_revision_id`；`legal_status` CHECK（effective/upcoming/superseded/withdrawn）；`legal_hierarchy`（宪法/法律/行政法规/…/GB/JGJ/DB/T/企标）；`standard_type`（mandatory/recommended）；`doc_type`（standard/条文说明/立法释义/用户自定义/法律法规）；`quality_grade`（A/B/C）；`domain_tags` JSON；`effective_from`/`superseded_by`/`normative_refs`；`file_path`/`file_hash`（SHA-256 防重 R43）。
+`doc_id` PK(ULID)；`standard_no` UNIQUE（GB 30871-2022 / 个人信息保护法）；`standard_name`；`short_code`（归一化检索代码）；`current_revision_id`；`legal_status` CHECK（effective/upcoming/superseded/withdrawn/**reference**＝参考资料·仅参考；2026-09-24 加的第五档：征求意见稿/草案等**未生效**文本可以入库、可以检索，但**不得作为现行依据**）；`legal_hierarchy`（宪法/法律/行政法规/…/GB/JGJ/DB/T/企标）；`standard_type`（mandatory/recommended）；`doc_type`（standard/条文说明/立法释义/用户自定义/法律法规）；`quality_grade`（A/B/C）；`domain_tags` JSON；`effective_from`/`superseded_by`/`normative_refs`；`file_path`/`file_hash`（SHA-256 防重 R43）。
 
 ⚠ `file_path` 指向的文件是**证据 PDF 溯源载体**（证据 tab 预览/高亮打开它）——生产库现有两份指向仓库内部：`wenjianmulu/GBT+39910-2021.pdf` 与 `var/fixtures/测试法.pdf`，另有 21 份指向用户区 `D:\AI\work space\标准\` 与 DSH 附件目录。**删这些文件 = 该文档证据链断裂**。
 
