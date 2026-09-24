@@ -3491,9 +3491,16 @@ if (rowCtrls === undefined
   }
 }
 const rowCtrlsCheck = {
+  /* ⚠ `checked` 的语义 = "**完全**判过"（等于几 + 上限都判了）。
+     ⚠⚠ 但**判红不许看它**：2026-09-24 独立复核 HIGH-1 就是"先看 skipReason ⇒ 把 problems 一起吞掉"。
+     判红的唯一依据是 `problems.length > 0`（见下面的出口逻辑）。 */
   checked: rowCtrlsProblems.length === 0 && rowCtrlsSkipReason === null,
   skipReason: rowCtrlsSkipReason,
   problems: rowCtrlsProblems,
+  /* "不超过上限"这一条**与面无关**，永远都判（`maxJudged` 恒真，写出来是为了让消费方一眼看到口径）。 */
+  maxJudged: true,
+  /* "等于几"判没判（非 manage 面现在只吃上限 ⇒ 这里为 false 且 skipReason 非空）。 */
+  equalJudged: rowCtrlsSkipReason === null,
   counts: rowCtrlsFileRows.map((it) => it.ctrls),
   inboxCounts: rowCtrlsInboxRows.map((it) => it.ctrls),
   dirCounts: rowCtrlsDirRows.map((it) => it.ctrls),
@@ -4004,19 +4011,31 @@ if (askSkipReason !== null) {
   process.exit(1)
 }
 
-/* 复核打回 §④-C 补回来的两条（行内控件数 / 目录层表头格）—— 结论同样走 stderr。 */
-if (rowCtrlsSkipReason !== null) {
-  console.error(`· #rows 行内控件自检：**这一跑不判**（${rowCtrlsSkipReason}）`)
-} else if (rowCtrlsProblems.length === 0) {
-  console.error(`· #rows 行内控件自检通过：文件行 ${JSON.stringify(rowCtrlsCheck.counts)}`
-    + ` / 待分类行 ${JSON.stringify(rowCtrlsCheck.inboxCounts)}`
-    + ` / 目录行 ${JSON.stringify(rowCtrlsCheck.dirCounts)}`
-    + `（上限 ${String(ROW_CTRLS_MAX)}，真控件选择器口径；page=${page} width=${width} theme=${themeName}）`)
-} else {
+/* 复核打回 §④-C 补回来的两条（行内控件数 / 目录层表头格）—— 结论同样走 stderr。
+   ⚠⚠ **2026-09-24 独立复核 HIGH-1 就地修（就地留痕，原顺序在下面注释里）**：
+   原来这段是 `if (rowCtrlsSkipReason !== null) … else if (problems 为空) … else exit(1)` ——
+   **先看 skipReason**，于是"这一跑不判"会把 `problems` **一起吞掉**。复核实测：
+   渠道库那面 5 个分组行各加 3 个可见按钮（每行 **4** > 上限 3、且行行一致）⇒ **整跑 exit 0 假绿**，
+   而同一跑 JSON 里 `rowCtrlsCheck.problems` 已经写着"有 5 行的行内可见控件数 > 3（实测 [4,4,4,4,4]）"。
+   改前那条顺序本来是安全的（`skipReason` 只在"一行都没有"时出现，那时 `problems` 必空）——
+   是 `7c147ee` 新加的"**有行也 skip**"路径（非 manage 面只吃上限、不判"等于几"）把它变成了洞。
+   ⇒ 现在：**判红只由 `problems.length > 0` 决定**；`skipReason` 只解释"等于几"这一半不适用。
+   另：`smoke-kb-pad-pixels.mjs` 现在也读 `rowCtrlsCheck.problems`（第二道防线，防这段顺序被人改回去）。 */
+if (rowCtrlsProblems.length > 0) {
   console.error('')
   console.error(`❌ 行内控件数自检失败（P1-1 验收口径；page=${page} width=${width} theme=${themeName}）：`)
   for (const p of rowCtrlsProblems) console.error(`   - ${p}`)
   process.exit(1)
+} else if (rowCtrlsSkipReason !== null) {
+  console.error(`· #rows 行内控件自检：**"等于几"这一跑不判**（${rowCtrlsSkipReason}）；`
+    + `"不超过上限 ${String(ROW_CTRLS_MAX)}"这一条**照判** —— 文件行 ${JSON.stringify(rowCtrlsCheck.counts)}`
+    + ` / 待分类行 ${JSON.stringify(rowCtrlsCheck.inboxCounts)} / 目录行 ${JSON.stringify(rowCtrlsCheck.dirCounts)}`
+    + `（page=${page} width=${width} theme=${themeName}）`)
+} else {
+  console.error(`· #rows 行内控件自检通过：文件行 ${JSON.stringify(rowCtrlsCheck.counts)}`
+    + ` / 待分类行 ${JSON.stringify(rowCtrlsCheck.inboxCounts)}`
+    + ` / 目录行 ${JSON.stringify(rowCtrlsCheck.dirCounts)}`
+    + `（上限 ${String(ROW_CTRLS_MAX)}，真控件选择器口径；page=${page} width=${width} theme=${themeName}）`)
 }
 if (dirHeadSkipReason !== null) {
   console.error(`· #dirhead 自检：**这一跑不判**（${dirHeadSkipReason}）`)

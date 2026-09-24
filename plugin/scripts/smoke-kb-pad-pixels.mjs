@@ -179,6 +179,19 @@ for (const c of MATRIX) {
       + ' ⇒ 存在性没判（复核 E① 的假绿通道）')
   }
   for (const p of pad.problems ?? []) problems.push(p)
+  /* ⚠⚠ **2026-09-24（独立复核 HIGH-1 的修法之二：加第二道防线）**：`ui-render-shot.mjs` 自己那段
+     出口逻辑一度"先看 skipReason ⇒ 把 problems 一起吞掉"（渠道库那面每行 4 个控件也 exit 0）。
+     光修那一处**不够**：那条判据的**唯一消费者**就是那个脚本自己，顺序再被人改回去就又假绿。
+     ⇒ 本脚本也读 `rowCtrlsCheck.problems`（它走的是同一次运行的 JSON，不依赖那个脚本的出口逻辑）：
+       · `problems` 非空 ⇒ 红（把它原文打出来）；
+       · 有行（counts/inboxCounts/dirCounts 任一非空）却"既没判等于几、也没给理由" ⇒ 红（口径漏洞）。 */
+  const rc = j.rowCtrlsCheck ?? {}
+  for (const p of rc.problems ?? []) problems.push(`rowCtrlsCheck：${String(p)}`)
+  const rcHasRows = [...(rc.counts ?? []), ...(rc.inboxCounts ?? []), ...(rc.dirCounts ?? [])].length > 0
+  if (rcHasRows && rc.equalJudged !== true
+      && (rc.skipReason === null || rc.skipReason === undefined)) {
+    problems.push('rowCtrlsCheck：有行，却既没判"等于几"也没给 skipReason（口径漏洞）')
+  }
   /* ⚠⚠ **知识库页几何（2026-09-21 第 3 步起取代"卡片尺寸统一"）**：`levelCheck`。
    *   两条判据：① 左列目录树与右栏并排；② 同一级里目录行与文件行行高逐字相同。
    *   `page === 'kb'` 时**必须判到**（`skipReason` 非空 / `checked !== true` 都算失败）。
