@@ -257,6 +257,60 @@ def test_limit_bounds_and_failures_are_honest(db):
     assert out2["tried"] <= web_ingest.INGEST_BATCH_MAX, out2["tried"]
 
 
+def test_batch_caps_and_dedupe_have_teeth(db):
+    """三条"防跑飞"的机制**各自要有判据**（独立复核 MED-2/3/4：此前只有自然语言宣称，
+    把任一条去掉整个文件仍然全绿 —— 那种"判据"守不住回归）。
+
+    - 条数上限 `INGEST_BATCH_MAX`：给 999 也只抓 20 条（而且**只发 20 次请求**）；
+    - 时间预算 `budget_s`：预算为 0 时**一条都不抓**并如实报 `stop_reason='budget'`；
+    - 同一批里同一个 URL **只抓一次**（同一条公告挂在两个源下）。
+    """
+    class _AnyTransport:
+        """按 URL 造一份**各自不同**的正文 —— 正文相同的话除了第一条都会被 `law_text` 按哈希判
+        `duplicate`（那样它们就永远留在待入库里，见 §10.193 的残余第 7 条），**量不到"上限"**。"""
+
+        def __init__(self):
+            self.calls: list[str] = []
+
+        def fetch(self, url: str, **kw):
+            self.calls.append(url)
+            return (200, f'<html><body><div class="TRS_Editor">'
+                         f'<p>第一条 为了加强管理（{url}），制定本办法。</p>'
+                         f'<p>第二条 本办法适用于境内从事相关活动的单位。</p>'
+                         f'</div></body></html>')
+
+    # M2：25 条待入库，limit=999 ⇒ 只抓 20 条、只发 20 次请求
+    for i in range(25):
+        _mk_observed(db, _t(f"某某管理办法的通知（第{i}号）"),
+                     f"https://exp.example.com/cap{i}.shtml", published=f"2026-08-{i + 1:02d}")
+    tp = _AnyTransport()
+    out = web_ingest.ingest_pending(limit=999, transport=tp)
+    assert out["tried"] == web_ingest.INGEST_BATCH_MAX == 20, out["tried"]
+    assert len(tp.calls) == 20, f"上限必须**限制真正发出的请求数**（实测 {len(tp.calls)}）"
+    assert out["pending_left"] == 5, out["pending_left"]
+
+    # M3：预算**负值** ⇒ 一条都不抓，且归因是 budget（不是 limit）。
+    #   ⚠ 别用 `budget_s=0`：首条处理发生在 `started` 之后**微秒级**，
+    #   `now - started > 0` 在那点时间里可能是 0.0 ⇒ 会**偶发**地先抓上一条（这条用例我第一版就踩了）。
+    tp2 = _AnyTransport()
+    stopped = web_ingest.ingest_pending(limit=10, transport=tp2, budget_s=-1)
+    assert stopped["tried"] == 0 and tp2.calls == [], stopped
+    assert stopped["stopped_early"] is True and stopped["stop_reason"] == "budget", stopped
+
+    # M4：同一条公告挂在两个源下 ⇒ 同一次调用里只抓一次
+    from src.core.storage.sqlite_db import get_db_connection
+    get_db_connection().execute("DELETE FROM announcement_observed")
+    get_db_connection().commit()
+    u = "https://exp.example.com/twice.shtml"
+    _mk_observed(db, _t("某某管理办法的通知（两次）"), u, source_id="src_a")
+    _mk_observed(db, _t("某某管理办法的通知（两次）"), u, source_id="src_b")
+    tp3 = _AnyTransport()
+    dedup = web_ingest.ingest_pending(limit=10, transport=tp3)
+    assert len(tp3.calls) == 1, f"同一个 URL 只该抓一次（实测 {len(tp3.calls)}）"
+    assert dedup["tried"] == 2 and dedup["skipped"] == 1, dedup
+    assert dedup["items"][1]["reason"] == "duplicate_url_in_batch", dedup["items"]
+
+
 def test_routes_pending_and_ingest_wire(client, db, monkeypatch):
     """两个端点的**接线**：待入库计数出得来、入库入参原样转下去、非法 limit 给 422。
 
@@ -288,8 +342,10 @@ def test_routes_pending_and_ingest_wire(client, db, monkeypatch):
     assert seen == {"limit": 3, "source_id": "src_t1", "force": True}, seen
 
     r3 = c.post("/api/v1/update/announce-ingest", json={"limit": "不是数"}, headers=h)
-    assert r3.status_code == 200 and r3.json()["code"] == 422, r3.text
-    assert r3.json()["error"] == "invalid_limit"
+    # ⚠ 非法 limit 必须是**真 4xx**（独立复核 MED-1）：写成 200 + 信封里的 error 字段时，
+    #   客户端 `res.ok` 为真 ⇒ 界面会把"参数非法"当"成功、0 条"；host 代理的 422 分支也永不可达。
+    assert r3.status_code == 422, r3.text
+    assert r3.json()["error"] == "invalid_limit", r3.text
     # 空 body 也当默认值处理（前端直接点按钮不带参数）
     r4 = c.post("/api/v1/update/announce-ingest", headers=h)
     assert r4.status_code == 200 and seen["limit"] == 10, r4.text

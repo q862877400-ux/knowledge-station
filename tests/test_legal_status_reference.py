@@ -75,7 +75,8 @@ def test_ref_migration_rebuilds_doc_meta(tmp_path):
     conn.execute("CREATE INDEX IF NOT EXISTS idx_ref_test_short ON doc_meta(short_code)")
     conn.commit()
     n_before = conn.execute("SELECT COUNT(*) FROM doc_meta").fetchone()[0]
-    assert n_before == 1
+    n_clause_before = conn.execute("SELECT COUNT(*) FROM clause_revision").fetchone()[0]
+    assert n_before == 1 and n_clause_before == 1
 
     # ② 迁移（生产入口就是 init_schema）
     sqlite_db.init_schema(db_file)
@@ -84,6 +85,14 @@ def test_ref_migration_rebuilds_doc_meta(tmp_path):
 
     # ③ 数据一行不少 + 新值写得进
     assert conn.execute("SELECT COUNT(*) FROM doc_meta").fetchone()[0] == n_before
+    # ⚠⚠ **子表也必须一行不少**（2026-09-24 独立复核 HIGH-1 补的判据）：
+    #   重建表时若 `PRAGMA foreign_keys=OFF` 没生效（例如被谁"顺手简化"进事务里），
+    #   `DROP TABLE doc_meta` 会**触发级联**把子表删空 —— 而那时
+    #   ①只数 `doc_meta`（父子都删干净，行数照样对得上）、②`foreign_key_check` 也是干净的、
+    #   ③下面那条"真删一行看子行是否跟着没"**更会通过**（子行早就没了，删父行什么也证明不了）。
+    #   真库代价：`clause_revision` **52 万行**。⇒ 必须在**任何删除动作之前**数子表。
+    assert conn.execute("SELECT COUNT(*) FROM clause_revision").fetchone()[0] == n_clause_before, \
+        "迁移把子表行弄没了 ⇒ 重建时级联被触发（PRAGMA foreign_keys=OFF 没生效？）"
     _mk_doc(conn, "doc_ref_after", "征求意见稿·迁移后", status="reference")
     assert conn.execute("SELECT legal_status FROM doc_meta WHERE doc_id='doc_ref_after'"
                        ).fetchone()[0] == "reference"

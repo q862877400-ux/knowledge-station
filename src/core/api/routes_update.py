@@ -374,8 +374,11 @@ def register(app, json_error):
         try:
             limit = int(payload.get("limit") or 10)
         except (TypeError, ValueError):
-            return {"code": 422, "status": "error", "error": "invalid_limit",
-                    "message": "limit 必须是整数"}
+            # ⚠ **走 `json_error`（真 4xx），不要写成 200 + 信封里一个 error 字段**
+            #   （2026-09-24 独立复核 MED-1）：同文件其余 20+ 处 4xx 都是 `json_error`；
+            #   写成 200 会让 host 代理的 422 分支**永远不可达**、还会让客户端
+            #   `res.ok === true` ⇒ 界面把"参数非法"当"成功、0 条"。
+            return json_error(422, "invalid_limit", "limit 必须是整数")
         out = web_ingest.ingest_pending(
             limit=limit, source_id=payload.get("source_id"),
             force=bool(payload.get("force")))
