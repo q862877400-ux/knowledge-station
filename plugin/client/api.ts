@@ -2197,6 +2197,130 @@ export async function removeAnnounceSource(id: string, signal?: AbortSignal): Pr
 }
 
 /* ------------------------------------------------------------------ *
+ * 公告**正文入库**（2026-09-24 切片②下半，§10.193）
+ * 「应该入库的怎么没入库」的收口：已发现的公告 → 抓正文 → 进知识库。
+ * 纯代理 /ks/announce/ingest*；引擎是唯一真值（host 不存计数副本）。
+ * ------------------------------------------------------------------ */
+
+/** 入库进度（已发现/已入库/还差多少/跳过多少）。**不抓网页**，纯本地计数。 */
+export interface KsAnnounceIngestPending {
+  total: number
+  ingested: number
+  pending: number
+  pending_by_status: { effective: number; reference: number; withdrawn: number }
+  skipped_non_normative: number
+}
+
+/** 单条入库结果（失败/跳过都带原因，不静默）。 */
+export interface KsAnnounceIngestItem {
+  url: string
+  title: string
+  status: 'ingested' | 'skipped' | 'failed'
+  reason?: string
+  legal_status?: string
+  chars?: number
+}
+
+export interface KsAnnounceIngestResult {
+  tried: number
+  ingested: number
+  skipped: number
+  failed: number
+  by_status: { effective: number; reference: number; withdrawn: number }
+  pending_left: number
+  stopped_early: boolean
+  /** `limit`＝抓满了本批条数（正常，再点一次继续）；`budget`＝时间到了；null＝真做完了。 */
+  stop_reason: 'limit' | 'budget' | null
+  items: KsAnnounceIngestItem[]
+}
+
+function normalizeAnnounceIngestPending(value: unknown): KsAnnounceIngestPending {
+  const o = objOf(value)
+  const bs = objOf(o?.pending_by_status)
+  return {
+    total: intOf(o?.total, 0),
+    ingested: intOf(o?.ingested, 0),
+    pending: intOf(o?.pending, 0),
+    pending_by_status: {
+      effective: intOf(bs?.effective, 0),
+      reference: intOf(bs?.reference, 0),
+      withdrawn: intOf(bs?.withdrawn, 0),
+    },
+    skipped_non_normative: intOf(o?.skipped_non_normative, 0),
+  }
+}
+
+/** GET /ks/announce/ingest/pending */
+export async function fetchAnnounceIngestPending(
+  signal?: AbortSignal,
+): Promise<KsAnnounceIngestPending> {
+  const res = await fetch('/ks/announce/ingest/pending', {
+    headers: { accept: 'application/json' },
+    signal,
+  })
+  if (!res.ok) throw await parseInspectionError(res)
+  const body = (await res.json().catch(() => null)) as { ok?: boolean; data?: unknown } | null
+  if (body === null || body.ok !== true) throw new Error('公告入库进度响应异常')
+  return normalizeAnnounceIngestPending(body.data)
+}
+
+/** POST /ks/announce/ingest — 批量入库。
+ *  `force=true` 连"部门决算/公示/挂牌督办"那类也入（范围判错时的逃生口）。
+ *  ⚠ **真写库**：一次最多 `limit` 条（引擎上限 20），可能等十几秒。 */
+export async function ingestAnnouncements(
+  opts: { limit?: number; sourceId?: string; force?: boolean } = {},
+  signal?: AbortSignal,
+): Promise<KsAnnounceIngestResult> {
+  const payload: Record<string, unknown> = { limit: opts.limit ?? 10 }
+  if (opts.sourceId !== undefined) payload.source_id = opts.sourceId
+  if (opts.force === true) payload.force = true
+  const res = await fetch('/ks/announce/ingest', {
+    method: 'POST',
+    headers: { accept: 'application/json', 'content-type': 'application/json' },
+    body: JSON.stringify(payload),
+    signal,
+  })
+  if (!res.ok) throw await parseInspectionError(res)
+  const body = (await res.json().catch(() => null)) as { ok?: boolean; data?: unknown } | null
+  if (body === null || body.ok !== true) throw new Error('公告入库响应异常')
+  const d = objOf(body.data)
+  const bs = objOf(d?.by_status)
+  return {
+    tried: intOf(d?.tried, 0),
+    ingested: intOf(d?.ingested, 0),
+    skipped: intOf(d?.skipped, 0),
+    failed: intOf(d?.failed, 0),
+    by_status: {
+      effective: intOf(bs?.effective, 0),
+      reference: intOf(bs?.reference, 0),
+      withdrawn: intOf(bs?.withdrawn, 0),
+    },
+    pending_left: intOf(d?.pending_left, 0),
+    stopped_early: d?.stopped_early === true,
+    stop_reason: (() => {
+      const r = str(d?.stop_reason)
+      return r === 'limit' || r === 'budget' ? r : null
+    })(),
+    items: Array.isArray(d?.items)
+      ? (d.items as unknown[]).flatMap((x) => {
+        const it = objOf(x)
+        if (it === null || typeof it.url !== 'string') return []
+        const status = str(it.status)
+        return [{
+          url: it.url,
+          title: str(it.title) ?? '',
+          status: (status === 'ingested' || status === 'skipped' || status === 'failed'
+            ? status : 'failed') as KsAnnounceIngestItem['status'],
+          reason: str(it.reason) ?? undefined,
+          legal_status: str(it.legal_status) ?? undefined,
+          chars: it.chars === undefined || it.chars === null ? undefined : intOf(it.chars, 0),
+        }]
+      })
+      : [],
+  }
+}
+
+/* ------------------------------------------------------------------ *
  * 效力报告（决策 21 · 用户修订版：按文件目录分类体系，永不混排）
  * 全部同源走 host 代理 /ks/report/*（纯代理零缓存——即时聚合快照）。
  * ------------------------------------------------------------------ */

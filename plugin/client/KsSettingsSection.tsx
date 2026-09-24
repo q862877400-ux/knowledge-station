@@ -42,11 +42,15 @@ import {
   addAnnounceSource,
   exportAnnounceDiscovery,
   exportInspectionResult,
+  fetchAnnounceIngestPending,
   fetchAnnounceSources,
   fetchAnnounceSummary,
   fetchApiConfig,
   fetchInspectionSummary,
+  ingestAnnouncements,
   InspectionHttpError,
+  type KsAnnounceIngestPending,
+  type KsAnnounceIngestResult,
   type KsAnnouncePerSource,
   type KsAnnounceSource,
   type KsAnnounceSummary,
@@ -743,6 +747,40 @@ export function KsAnnounceSourcesSection(props: { openedOnce: boolean }): JSX.El
     }
   }
 
+  /* ---- 正文入库（2026-09-24 切片②下半）：业主报"应该入库的怎么没入库"，这是收口处。
+     进度是**展开这一格才拉**（与源管理同一纪律：打开设置页不拉起引擎、不抓网页）。 */
+  const [ingestPending, setIngestPending] = useState<KsAnnounceIngestPending | null>(null)
+  const [ingesting, setIngesting] = useState(false)
+  const [ingestResult, setIngestResult] = useState<KsAnnounceIngestResult | null>(null)
+  const [ingestError, setIngestError] = useState<string | null>(null)
+  const [ingestForce, setIngestForce] = useState(false)
+
+  const loadIngestPending = useCallback(async (): Promise<void> => {
+    setIngestError(null)
+    try {
+      setIngestPending(await fetchAnnounceIngestPending())
+    } catch (err) {
+      setIngestError(err instanceof Error ? err.message : String(err))
+    }
+  }, [])
+
+  const onIngest = async (): Promise<void> => {
+    if (ingesting) return
+    setIngesting(true)
+    setIngestError(null)
+    try {
+      const r = await ingestAnnouncements({ limit: 10, force: ingestForce })
+      setIngestResult(r)
+      await loadIngestPending()
+      await load()
+    } catch (err) {
+      setIngestError(err instanceof Error ? err.message : String(err))
+      void loadIngestPending()
+    } finally {
+      setIngesting(false)
+    }
+  }
+
   const loadSources = useCallback(async (): Promise<void> => {
     setSourcesError(null)
     try {
@@ -889,6 +927,95 @@ export function KsAnnounceSourcesSection(props: { openedOnce: boolean }): JSX.El
           <span role="alert" style={{ color: '#c0392b', fontSize: 12 }}>{error}</span>
         )}
       </div>
+
+      {/* 正文入库（切片②下半）：把"已发现但正文还没进库"的公告抓进来。
+          ⚠ 这一格是**展开才拉进度**（与源管理同一纪律：打开设置页不抓网页）。 */}
+      <details
+        style={{ fontSize: 12, margin: '2px 0', color: 'var(--dsw-alias-label-secondary, #666)' }}
+        onToggle={(e) => {
+          if ((e.currentTarget as HTMLDetailsElement).open && ingestPending === null) {
+            void loadIngestPending()
+          }
+        }}
+      >
+        <summary style={{ cursor: 'pointer' }}>
+          把公告正文入库
+          {ingestPending !== null ? `（还有 ${ingestPending.pending} 条没进库）` : '（展开加载）'}
+        </summary>
+        <div style={{ margin: '6px 0 0' }}>
+          {ingestPending === null ? (
+            <p style={{ margin: '0 0 6px' }}>加载中…</p>
+          ) : (
+            <p style={{ margin: '0 0 6px', lineHeight: '18px' }}>
+              已发现 {ingestPending.total} 条，其中 {ingestPending.ingested} 条已经进库；
+              还有 <b>{ingestPending.pending}</b> 条没进库
+              （现行 {ingestPending.pending_by_status.effective} ·
+              仅参考 {ingestPending.pending_by_status.reference} ·
+              已废止 {ingestPending.pending_by_status.withdrawn}）。
+              {ingestPending.skipped_non_normative > 0
+                ? `另有 ${ingestPending.skipped_non_normative} 条按"不属法规标准"跳过（部门决算/公示/挂牌督办那类）。`
+                : ''}
+            </p>
+          )}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '2px 0' }}>
+            {/* ⚠ 这一格的颜色**全走活的主题 token**（不像上面两个老按钮写死十六进制）：
+                `smoke-client-entry` 有一条"写死颜色只许减不许增"的棘轮，而业主明确要
+                深浅两套配色 —— 新写的按钮就不该再往那笔债上加。禁用态用 `opacity` 表达，
+                免得为一个状态再写死一组灰色。 */}
+            <button
+              type="button"
+              onClick={() => void onIngest()}
+              disabled={ingesting || (ingestPending !== null && ingestPending.pending === 0 && !ingestForce)}
+              title="抓正文并进知识库（一次最多 10 条，可能要等十几秒；再点一次继续剩下的）"
+              style={{
+                padding: '4px 14px',
+                borderRadius: 6,
+                border: '1px solid var(--dsw-alias-border-l2)',
+                background: 'var(--dsw-alias-bg-base)',
+                color: 'var(--dsw-alias-label-primary)',
+                opacity: ingesting ? 0.5 : 1,
+                cursor: ingesting ? 'default' : 'pointer',
+                fontSize: 13,
+              }}
+            >
+              {ingesting ? '入库中…（正在抓正文）' : '把新公告入库（每次 10 条）'}
+            </button>
+            <label style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+              <input
+                type="checkbox"
+                checked={ingestForce}
+                onChange={(e) => { setIngestForce(e.target.checked) }}
+              />
+              连"部门决算/公示"那类也入
+            </label>
+          </div>
+          {ingestError !== null && (
+            <p role="alert" style={{ color: 'var(--dsw-alias-state-error-primary)', margin: '4px 0 0' }}>
+              {ingestError}
+            </p>
+          )}
+          {ingestResult !== null && (
+            <p role="status" style={{ margin: '4px 0 0', lineHeight: '18px' }}>
+              本次抓了 {ingestResult.tried} 条：入进知识库 {ingestResult.ingested} 条
+              （现行 {ingestResult.by_status.effective} ·
+              仅参考 {ingestResult.by_status.reference} ·
+              已废止 {ingestResult.by_status.withdrawn}）
+              {ingestResult.skipped > 0 ? `，跳过 ${ingestResult.skipped} 条（库里已经有、或不属于法规标准）` : ''}
+              {ingestResult.failed > 0 ? `，失败 ${ingestResult.failed} 条（下次再点会重试）` : ''}
+              。还剩 {ingestResult.pending_left} 条没进库
+              {ingestResult.stop_reason === 'budget' ? '（这次时间到了、没做完，再点一次继续）' : ''}
+              {ingestResult.stop_reason === 'limit' ? '（这一批抓满了，再点一次继续）' : ''}
+              {ingestResult.failed > 0
+                ? `　失败原因：${ingestResult.items
+                  .filter((it) => it.status === 'failed')
+                  .slice(0, 3)
+                  .map((it) => `${it.title.slice(0, 18)}…（${it.reason ?? '未知'}）`)
+                  .join('；')}`
+                : ''}
+            </p>
+          )}
+        </div>
+      </details>
 
       <details style={{ fontSize: 12, margin: '2px 0', color: 'var(--dsw-alias-label-secondary, #666)' }}>
         <summary style={{ cursor: 'pointer' }}>最近公告（{last?.recent.length ?? 0} 条，点击展开）</summary>

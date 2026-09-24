@@ -87,6 +87,7 @@ __export(api_exports, {
   exportInspectionResult: () => exportInspectionResult,
   exportResearchDraft: () => exportResearchDraft,
   exportResearchReport: () => exportResearchReport,
+  fetchAnnounceIngestPending: () => fetchAnnounceIngestPending,
   fetchAnnounceSources: () => fetchAnnounceSources,
   fetchAnnounceSummary: () => fetchAnnounceSummary,
   fetchApiConfig: () => fetchApiConfig,
@@ -135,6 +136,7 @@ __export(api_exports, {
   fileDocsIntoFolder: () => fileDocsIntoFolder,
   getChannelTestCase: () => getChannelTestCase,
   importInternalPolicy: () => importInternalPolicy,
+  ingestAnnouncements: () => ingestAnnouncements,
   listClausePatches: () => listClausePatches,
   moveClauseBookmark: () => moveClauseBookmark,
   moveDocBookmark: () => moveDocBookmark,
@@ -1324,6 +1326,77 @@ async function removeAnnounceSource(id, signal) {
     signal
   });
   if (!res.ok) throw await parseInspectionError(res);
+}
+function normalizeAnnounceIngestPending(value) {
+  const o = objOf(value);
+  const bs = objOf(o?.pending_by_status);
+  return {
+    total: intOf(o?.total, 0),
+    ingested: intOf(o?.ingested, 0),
+    pending: intOf(o?.pending, 0),
+    pending_by_status: {
+      effective: intOf(bs?.effective, 0),
+      reference: intOf(bs?.reference, 0),
+      withdrawn: intOf(bs?.withdrawn, 0)
+    },
+    skipped_non_normative: intOf(o?.skipped_non_normative, 0)
+  };
+}
+async function fetchAnnounceIngestPending(signal) {
+  const res = await fetch("/ks/announce/ingest/pending", {
+    headers: { accept: "application/json" },
+    signal
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+  const body = await res.json().catch(() => null);
+  if (body === null || body.ok !== true) throw new Error("\u516C\u544A\u5165\u5E93\u8FDB\u5EA6\u54CD\u5E94\u5F02\u5E38");
+  return normalizeAnnounceIngestPending(body.data);
+}
+async function ingestAnnouncements(opts = {}, signal) {
+  const payload = { limit: opts.limit ?? 10 };
+  if (opts.sourceId !== void 0) payload.source_id = opts.sourceId;
+  if (opts.force === true) payload.force = true;
+  const res = await fetch("/ks/announce/ingest", {
+    method: "POST",
+    headers: { accept: "application/json", "content-type": "application/json" },
+    body: JSON.stringify(payload),
+    signal
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+  const body = await res.json().catch(() => null);
+  if (body === null || body.ok !== true) throw new Error("\u516C\u544A\u5165\u5E93\u54CD\u5E94\u5F02\u5E38");
+  const d = objOf(body.data);
+  const bs = objOf(d?.by_status);
+  return {
+    tried: intOf(d?.tried, 0),
+    ingested: intOf(d?.ingested, 0),
+    skipped: intOf(d?.skipped, 0),
+    failed: intOf(d?.failed, 0),
+    by_status: {
+      effective: intOf(bs?.effective, 0),
+      reference: intOf(bs?.reference, 0),
+      withdrawn: intOf(bs?.withdrawn, 0)
+    },
+    pending_left: intOf(d?.pending_left, 0),
+    stopped_early: d?.stopped_early === true,
+    stop_reason: (() => {
+      const r = str(d?.stop_reason);
+      return r === "limit" || r === "budget" ? r : null;
+    })(),
+    items: Array.isArray(d?.items) ? d.items.flatMap((x) => {
+      const it = objOf(x);
+      if (it === null || typeof it.url !== "string") return [];
+      const status = str(it.status);
+      return [{
+        url: it.url,
+        title: str(it.title) ?? "",
+        status: status === "ingested" || status === "skipped" || status === "failed" ? status : "failed",
+        reason: str(it.reason) ?? void 0,
+        legal_status: str(it.legal_status) ?? void 0,
+        chars: it.chars === void 0 || it.chars === null ? void 0 : intOf(it.chars, 0)
+      }];
+    }) : []
+  };
 }
 function qsOf(params) {
   const sp = new URLSearchParams();
@@ -35674,6 +35747,35 @@ function KsAnnounceSourcesSection(props) {
       setExportingAnn(false);
     }
   };
+  const [ingestPending, setIngestPending] = (0, import_react6.useState)(null);
+  const [ingesting, setIngesting] = (0, import_react6.useState)(false);
+  const [ingestResult, setIngestResult] = (0, import_react6.useState)(null);
+  const [ingestError, setIngestError] = (0, import_react6.useState)(null);
+  const [ingestForce, setIngestForce] = (0, import_react6.useState)(false);
+  const loadIngestPending = (0, import_react6.useCallback)(async () => {
+    setIngestError(null);
+    try {
+      setIngestPending(await fetchAnnounceIngestPending());
+    } catch (err) {
+      setIngestError(err instanceof Error ? err.message : String(err));
+    }
+  }, []);
+  const onIngest = async () => {
+    if (ingesting) return;
+    setIngesting(true);
+    setIngestError(null);
+    try {
+      const r = await ingestAnnouncements({ limit: 10, force: ingestForce });
+      setIngestResult(r);
+      await loadIngestPending();
+      await load();
+    } catch (err) {
+      setIngestError(err instanceof Error ? err.message : String(err));
+      void loadIngestPending();
+    } finally {
+      setIngesting(false);
+    }
+  };
   const loadSources = (0, import_react6.useCallback)(async () => {
     setSourcesError(null);
     try {
@@ -35797,6 +35899,98 @@ function KsAnnounceSourcesSection(props) {
       annExportError !== null && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: annExportError }),
       error !== null && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { role: "alert", style: { color: "#c0392b", fontSize: 12 }, children: error })
     ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+      "details",
+      {
+        style: { fontSize: 12, margin: "2px 0", color: "var(--dsw-alias-label-secondary, #666)" },
+        onToggle: (e) => {
+          if (e.currentTarget.open && ingestPending === null) {
+            void loadIngestPending();
+          }
+        },
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("summary", { style: { cursor: "pointer" }, children: [
+            "\u628A\u516C\u544A\u6B63\u6587\u5165\u5E93",
+            ingestPending !== null ? `\uFF08\u8FD8\u6709 ${ingestPending.pending} \u6761\u6CA1\u8FDB\u5E93\uFF09` : "\uFF08\u5C55\u5F00\u52A0\u8F7D\uFF09"
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { margin: "6px 0 0" }, children: [
+            ingestPending === null ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { margin: "0 0 6px" }, children: "\u52A0\u8F7D\u4E2D\u2026" }) : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "0 0 6px", lineHeight: "18px" }, children: [
+              "\u5DF2\u53D1\u73B0 ",
+              ingestPending.total,
+              " \u6761\uFF0C\u5176\u4E2D ",
+              ingestPending.ingested,
+              " \u6761\u5DF2\u7ECF\u8FDB\u5E93\uFF1B \u8FD8\u6709 ",
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("b", { children: ingestPending.pending }),
+              " \u6761\u6CA1\u8FDB\u5E93 \uFF08\u73B0\u884C ",
+              ingestPending.pending_by_status.effective,
+              " \xB7 \u4EC5\u53C2\u8003 ",
+              ingestPending.pending_by_status.reference,
+              " \xB7 \u5DF2\u5E9F\u6B62 ",
+              ingestPending.pending_by_status.withdrawn,
+              "\uFF09\u3002",
+              ingestPending.skipped_non_normative > 0 ? `\u53E6\u6709 ${ingestPending.skipped_non_normative} \u6761\u6309"\u4E0D\u5C5E\u6CD5\u89C4\u6807\u51C6"\u8DF3\u8FC7\uFF08\u90E8\u95E8\u51B3\u7B97/\u516C\u793A/\u6302\u724C\u7763\u529E\u90A3\u7C7B\uFF09\u3002` : ""
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "2px 0" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                "button",
+                {
+                  type: "button",
+                  onClick: () => void onIngest(),
+                  disabled: ingesting || ingestPending !== null && ingestPending.pending === 0 && !ingestForce,
+                  title: "\u6293\u6B63\u6587\u5E76\u8FDB\u77E5\u8BC6\u5E93\uFF08\u4E00\u6B21\u6700\u591A 10 \u6761\uFF0C\u53EF\u80FD\u8981\u7B49\u5341\u51E0\u79D2\uFF1B\u518D\u70B9\u4E00\u6B21\u7EE7\u7EED\u5269\u4E0B\u7684\uFF09",
+                  style: {
+                    padding: "4px 14px",
+                    borderRadius: 6,
+                    border: "1px solid var(--dsw-alias-border-l2)",
+                    background: "var(--dsw-alias-bg-base)",
+                    color: "var(--dsw-alias-label-primary)",
+                    opacity: ingesting ? 0.5 : 1,
+                    cursor: ingesting ? "default" : "pointer",
+                    fontSize: 13
+                  },
+                  children: ingesting ? "\u5165\u5E93\u4E2D\u2026\uFF08\u6B63\u5728\u6293\u6B63\u6587\uFF09" : "\u628A\u65B0\u516C\u544A\u5165\u5E93\uFF08\u6BCF\u6B21 10 \u6761\uFF09"
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("label", { style: { display: "inline-flex", alignItems: "center", gap: 4 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                  "input",
+                  {
+                    type: "checkbox",
+                    checked: ingestForce,
+                    onChange: (e) => {
+                      setIngestForce(e.target.checked);
+                    }
+                  }
+                ),
+                '\u8FDE"\u90E8\u95E8\u51B3\u7B97/\u516C\u793A"\u90A3\u7C7B\u4E5F\u5165'
+              ] })
+            ] }),
+            ingestError !== null && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { role: "alert", style: { color: "var(--dsw-alias-state-error-primary)", margin: "4px 0 0" }, children: ingestError }),
+            ingestResult !== null && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { role: "status", style: { margin: "4px 0 0", lineHeight: "18px" }, children: [
+              "\u672C\u6B21\u6293\u4E86 ",
+              ingestResult.tried,
+              " \u6761\uFF1A\u5165\u8FDB\u77E5\u8BC6\u5E93 ",
+              ingestResult.ingested,
+              " \u6761 \uFF08\u73B0\u884C ",
+              ingestResult.by_status.effective,
+              " \xB7 \u4EC5\u53C2\u8003 ",
+              ingestResult.by_status.reference,
+              " \xB7 \u5DF2\u5E9F\u6B62 ",
+              ingestResult.by_status.withdrawn,
+              "\uFF09",
+              ingestResult.skipped > 0 ? `\uFF0C\u8DF3\u8FC7 ${ingestResult.skipped} \u6761\uFF08\u5E93\u91CC\u5DF2\u7ECF\u6709\u3001\u6216\u4E0D\u5C5E\u4E8E\u6CD5\u89C4\u6807\u51C6\uFF09` : "",
+              ingestResult.failed > 0 ? `\uFF0C\u5931\u8D25 ${ingestResult.failed} \u6761\uFF08\u4E0B\u6B21\u518D\u70B9\u4F1A\u91CD\u8BD5\uFF09` : "",
+              "\u3002\u8FD8\u5269 ",
+              ingestResult.pending_left,
+              " \u6761\u6CA1\u8FDB\u5E93",
+              ingestResult.stop_reason === "budget" ? "\uFF08\u8FD9\u6B21\u65F6\u95F4\u5230\u4E86\u3001\u6CA1\u505A\u5B8C\uFF0C\u518D\u70B9\u4E00\u6B21\u7EE7\u7EED\uFF09" : "",
+              ingestResult.stop_reason === "limit" ? "\uFF08\u8FD9\u4E00\u6279\u6293\u6EE1\u4E86\uFF0C\u518D\u70B9\u4E00\u6B21\u7EE7\u7EED\uFF09" : "",
+              ingestResult.failed > 0 ? `\u3000\u5931\u8D25\u539F\u56E0\uFF1A${ingestResult.items.filter((it) => it.status === "failed").slice(0, 3).map((it) => `${it.title.slice(0, 18)}\u2026\uFF08${it.reason ?? "\u672A\u77E5"}\uFF09`).join("\uFF1B")}` : ""
+            ] })
+          ] })
+        ]
+      }
+    ),
     /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("details", { style: { fontSize: 12, margin: "2px 0", color: "var(--dsw-alias-label-secondary, #666)" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("summary", { style: { cursor: "pointer" }, children: [
         "\u6700\u8FD1\u516C\u544A\uFF08",

@@ -17,6 +17,9 @@
  *   - POST /ks/announce/scan        : 手动扫描（force=true 代理；409/503 透传）。
  *   - GET/POST /ks/announce/sources : 源清单/新增（纯代理，引擎 app_config 唯一真值）。
  *   - PUT/DELETE /ks/announce/sources/{id} : 部分更新（改 URL 引擎侧重置基线）/删除。
+ *   - GET  /ks/announce/ingest/pending : 待入库计数（纯代理；界面写"还有多少条没进库"）。
+ *   - POST /ks/announce/ingest         : 批量把已发现公告的**正文**入库（纯代理；
+ *     引擎侧受时间预算 + 条数上限封顶，`stopped_early`/`pending_left` 原样回给界面）。
  *   - triggerAfterInspection(ctx, manager) : 巡检 finalizeBatch 后触发（force=false，
  *     引擎侧 6h 时间闸防频繁）→ adoptScanPoll 轮询（touchActivity 保活）→
  *     终态落盘 state.last。
@@ -42,11 +45,16 @@ export const KS_ANNOUNCE_SUMMARY_PATH = '/ks/announce/summary'
 export const KS_ANNOUNCE_SCAN_PATH = '/ks/announce/scan'
 export const KS_ANNOUNCE_SOURCES_PATH = '/ks/announce/sources'
 export const KS_ANNOUNCE_EXPORT_PATH = '/ks/announce/export'
+/** 2026-09-24（切片②下半）：把已发现的公告**正文入库**（业主："应该入库的怎么没入库"）。 */
+export const KS_ANNOUNCE_INGEST_PATH = '/ks/announce/ingest'
+export const KS_ANNOUNCE_INGEST_PENDING_PATH = '/ks/announce/ingest/pending'
 
 const ENGINE_SCAN_PATH = '/api/v1/update/announce-scan'
 const ENGINE_SCAN_LAST_PATH = '/api/v1/update/announce-scan/last'
 const ENGINE_SOURCES_PATH = '/api/v1/update/announce-sources'
 const ENGINE_EXPORT_PATH = '/api/v1/update/announce-export'
+const ENGINE_INGEST_PATH = '/api/v1/update/announce-ingest'
+const ENGINE_INGEST_PENDING_PATH = '/api/v1/update/announce-ingest/pending'
 const ENGINE_DOWNLOAD_PATH = '/api/v1/export/download'
 
 const XLSX_MIME = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
@@ -644,6 +652,75 @@ function registerExportRoute(ctx, manager) {
   })
 }
 
+/** 公告**正文入库**（2026-09-24 切片②下半，开发史 §10.193）。
+ *
+ * 两条路由，都是**纯代理**（引擎是唯一真值，host 不存任何计数副本）：
+ *   · `GET  /ks/announce/ingest/pending` → 待入库计数（界面写一句实话："还有 27 条没进库"）；
+ *   · `POST /ks/announce/ingest`         → 批量入库（`{limit?, source_id?, force?}`）。
+ *
+ * ⚠ 超时按**引擎侧自己的预算**给：引擎单次最多跑 `web_ingest.INGEST_BUDGET_S`（45s）+ 收尾，
+ *   所以这里给 120s（比预算宽一倍多，让"引擎自己说没做完"永远比"host 先掐断"先发生 ——
+ *   掐断会得到一个没有原因的失败，而我们要的是那句 `stopped_early`/`pending_left`）。
+ * ⚠ 不当成"可缓存/可重试"的 GET：这条**真写库**（POST 语义），别让任何一层替它重放。
+ */
+function registerIngestRoutes(ctx, manager) {
+  const probe = async (res, method, enginePath, body) => {
+    let session
+    try {
+      session = await manager.ensureLive()
+    } catch (err) {
+      jsonResponse(res, 503, errorBody('engine_unavailable',
+        err instanceof Error ? err.message : String(err)))
+      return
+    }
+    const out = method === 'GET'
+      ? await apiGet(originUrl(session.port), enginePath,
+        { token: session.token, timeoutMs: 120_000 })
+      : await apiPost(originUrl(session.port), enginePath,
+        { token: session.token, timeoutMs: 120_000, body })
+    if (out.status === 200 && out.body && typeof out.body === 'object') {
+      jsonResponse(res, 200, { ok: true, data: out.body.data ?? {} })
+      return
+    }
+    // 422（limit 非法）等语义透传，其余归 502（镜像 sources 那条代理的口径）
+    const code = out.body && typeof out.body === 'object' ? out.body.error : null
+    const message = out.body && typeof out.body === 'object' && out.body.message
+      ? String(out.body.message) : `引擎返回 HTTP ${out.status}`
+    jsonResponse(res, out.status === 422 ? 422 : 502,
+      errorBody(typeof code === 'string' ? code : 'engine_error', message))
+  }
+
+  return [
+    ctx.webServer.register({
+      kind: 'exact',
+      path: KS_ANNOUNCE_INGEST_PENDING_PATH,
+      handler: async (req, res) => {
+        if (req.method !== 'GET') {
+          jsonResponse(res, 405, errorBody('method_not_allowed', 'GET only'))
+          return
+        }
+        await probe(res, 'GET', ENGINE_INGEST_PENDING_PATH, undefined)
+      },
+    }),
+    ctx.webServer.register({
+      kind: 'exact',
+      path: KS_ANNOUNCE_INGEST_PATH,
+      handler: async (req, res) => {
+        if (req.method !== 'POST') {
+          jsonResponse(res, 405, errorBody('method_not_allowed', 'POST only'))
+          return
+        }
+        const body = await readJsonBody(req).catch(() => undefined)
+        if (body === undefined) {
+          jsonResponse(res, 400, errorBody('bad_request', 'body 必须是合法 JSON'))
+          return
+        }
+        await probe(res, 'POST', ENGINE_INGEST_PATH, body ?? {})
+      },
+    }),
+  ]
+}
+
 /** Register all announce routes; returns the combined disposer. */
 export function registerKsAnnounceRoutes(ctx, manager) {
   const disposers = [
@@ -651,6 +728,7 @@ export function registerKsAnnounceRoutes(ctx, manager) {
     registerScanRoute(ctx, manager),
     registerSourcesRoutes(ctx, manager),
     registerExportRoute(ctx, manager),
+    ...registerIngestRoutes(ctx, manager),
   ]
   return () => {
     // 递增代数是必须的（作废仍在飞的启动收尾）；"放在 stopPoll 之前"不是必须的

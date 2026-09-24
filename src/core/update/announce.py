@@ -287,12 +287,32 @@ def _parse_date(text: str) -> str | None:
     return out
 
 
+#: **文章页**判据（2026-09-24 加，真机跑出来的）：政府站的列表页右/左栏会挂一堆
+#: **栏目导航链接**（`/gk/tzgg/yjglbgg/`、`/fw/dzzz/`、`/gk/sgcc/`…），旧解析把它们当成了公告：
+#: 真机实测 558 条"已发现"里有 **22 条**是导航（**22/22 都以 `/` 结尾**、且全都没有发布日期）。
+#: 所以判据就取那一条：**路径以 `/` 结尾 = 目录/栏目，不是文章**。
+#:
+#: ⚠ **刻意没加更严的那条**（"必须有 `.html/.shtml` 后缀或 `t20260923_717384` 这种文章名"）：
+#:   加上它当场打红 7 条既有用例（fixture 里的文章 URL 是 `https://gov.cn/news/a1` 这种
+#:   **无后缀**形态）—— 那是"把真公告也一起吃掉"的典型信号。业主要的正是"别再放过"，
+#:   所以这里只收**证据齐**的那一条（22/22 命中），余下的等有真机反例再说。
+_ARTICLE_EXT_RE = re.compile(r"\.(?:s?html?|jsp|asp|aspx|php)(?:$|[?#])", re.I)
+_ARTICLE_STAMP_RE = re.compile(r"/t20\d{6}_\d+\.", re.I)
+
+
+def looks_like_article(url: str) -> bool:
+    """这个 URL 像**文章页**（而不是栏目目录/导航）吗？见上面那段说明（只否掉目录型）。"""
+    path = urlsplit(url).path or ""
+    return not path.endswith("/")
+
+
 def parse_list_page(html: str, page_url: str) -> tuple[list[dict], dict]:
-    """通用列表页启发式解析：候选 <a> 抽取 → 噪音/静态资源过滤 → 绝对化 →
+    """通用列表页启发式解析：候选 <a> 抽取 → 噪音/静态资源/栏目导航过滤 → 绝对化 →
     日期/标准号识别。返回 (items, diag)；items 上限 50/页（truncated 标记）。
     解析不出条目不抛错——由调用方按 diag 判 reason（parse_empty/js_shell_suspected）。"""
     items: list[dict] = []
     seen_urls: set[str] = set()
+    nav_skipped = 0
     truncated = False
     for m in _A_TAG_RE.finditer(html or ""):
         href = (m.group(1) or "").strip()
@@ -306,6 +326,10 @@ def parse_list_page(html: str, page_url: str) -> tuple[list[dict], dict]:
             continue
         url = urljoin(page_url, href)
         if _STATIC_EXT_RE.search(url):
+            continue
+        # 栏目导航（目录型 URL）不是公告 —— 见 `looks_like_article` 的说明
+        if not looks_like_article(url):
+            nav_skipped += 1
             continue
         if _NOISE_RE.search(text):
             continue
@@ -322,7 +346,7 @@ def parse_list_page(html: str, page_url: str) -> tuple[list[dict], dict]:
             truncated = True
             break
     # JS 渲染壳启发：页面不小但几乎没有文本链接 → 疑似 JS 渲染（调用方判 failed）
-    diag = {"parsed": len(items), "truncated": truncated,
+    diag = {"parsed": len(items), "truncated": truncated, "nav_skipped": nav_skipped,
             "js_shell_suspected": len(items) == 0 and len(html or "") > 40_000
             and len(_A_TAG_RE.findall(html or "")) < 5}
     return items, diag

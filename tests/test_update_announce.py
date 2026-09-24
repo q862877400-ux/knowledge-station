@@ -143,6 +143,34 @@ def test_ann_n03_parse_normal_page_with_date_and_stdno():
     # 噪音（下一页/登录/备案号/JS 片段）与静态资源（logo.png）/js 伪协议被滤
     assert len(items) == 4
     assert all("下一页" not in it["title"] for it in items)
+
+
+def test_ann_n03b_directory_links_are_not_announcements():
+    """**栏目导航链接不是公告**（2026-09-24 真机缺陷的判据）。
+
+    真机跑出来 558 条"已发现"里有 **22 条**是政府站左/右栏的栏目链接
+    （`/gk/tzgg/yjglbgg/`、`/fw/dzzz/`…），它们**全部以 `/` 结尾、且全都没有发布日期**；
+    旧解析把标题一抽就当成了公告（会被当成"待入库"去抓，抓回来的是导航页）。
+    判据就取那一条：路径以 `/` 结尾 = 目录。
+    """
+    html = _page(
+        ("/gk/tzgg/yjglbgg/", "应急管理部公报"),          # 栏目（目录）
+        ("/fw/dzzz/", "应急管理部电子证照"),               # 栏目（目录）
+        ("/gk/zfxxgkpt/fdzdgknr/202609/t20260921_717182.shtml",
+         "中华人民共和国应急管理部令（第23号） 2026-09-21"),   # 真公告
+    )
+    items, diag = announce.parse_list_page(html, "https://www.mem.gov.cn/gk/tzgg/")
+    assert [it["url"] for it in items] == [
+        "https://www.mem.gov.cn/gk/zfxxgkpt/fdzdgknr/202609/t20260921_717182.shtml"]
+    assert diag["nav_skipped"] == 2, diag
+    # 判据本体：目录型（以 `/` 结尾）否掉、其余放行。
+    # ⚠ `https://x.gov.cn/fw/dzzz`（**不带尾斜杠的目录**）本判据**认不出来**（判 True）——
+    #   这是刻意的：只凭 URL 分不出"无后缀的目录"和"无后缀的文章页"，而真机那 22 条
+    #   **全部带尾斜杠**；要更严就得引入"必须有 .html 后缀"，实测会吃掉真公告（源码注释里有证据）。
+    assert announce.looks_like_article("https://x.gov.cn/gk/tzgg/") is False
+    assert announce.looks_like_article("https://x.gov.cn/fw/dzzz") is True
+    assert announce.looks_like_article("https://x.gov.cn/news/a1") is True
+    assert announce.looks_like_article("https://x.gov.cn/a/t20260921_717182.shtml") is True
     assert all("备案" not in it["title"] for it in items)
     assert all("document" not in it["title"] for it in items)
 

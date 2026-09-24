@@ -342,6 +342,45 @@ def register(app, json_error):
         return {"code": 200, "status": "success",
                 "data": {"path": str(path), "name": Path(path).name}}
 
+    # ---- 公告正文入库（切片②，§10.192/§10.193）----
+
+    @app.get("/api/v1/update/announce-ingest/pending")
+    def announce_ingest_pending(source_id: str | None = None):
+        """入库进度：已发现多少 / 已入库多少 / 还差多少（**不抓网页**，纯本地计数）。
+
+        界面拿它在按钮旁写一句实话（"还有 27 条没进库：现行 19 · 仅参考 6 · 已废止 2"）。
+        """
+        from src.core.update import web_ingest
+        return {"code": 200, "status": "success",
+                "data": web_ingest.ingest_summary(source_id=source_id)}
+
+    @app.post("/api/v1/update/announce-ingest")
+    def announce_ingest(body: dict | None = None):
+        """把**已发现但正文还没进库**的公告批量入库（正文进知识库）。
+
+        body（都可省）：
+        - ``limit``：本次最多抓几条（默认 10，**上限 20**，超了按上限走 —— 一次点下去
+          抓几百页不是"更努力"，是把请求挂死）；
+        - ``source_id``：只处理某个公告源；
+        - ``force``：连"业主点名的非规范性类别"（部门决算/公示/挂牌督办）也入 ——
+          **逃生口**：我给的范围判错了时，他不必等改代码。
+
+        单次有时间预算（`web_ingest.INGEST_BUDGET_S`）：到点就停，回 ``stopped_early`` +
+        ``pending_left``，**不假装做完了**；每条的结果都在 ``items`` 里（失败/跳过不静默）。
+        ⚠ 会**真的写库**（这是本端点唯一的目的），且每条要抓一次详情页 ⇒ 同步等待。
+        """
+        from src.core.update import web_ingest
+        payload = body if isinstance(body, dict) else {}
+        try:
+            limit = int(payload.get("limit") or 10)
+        except (TypeError, ValueError):
+            return {"code": 422, "status": "error", "error": "invalid_limit",
+                    "message": "limit 必须是整数"}
+        out = web_ingest.ingest_pending(
+            limit=limit, source_id=payload.get("source_id"),
+            force=bool(payload.get("force")))
+        return {"code": 200, "status": "success", "data": out}
+
     # ---- 找标（F-15~F-18）----
 
     @app.post("/api/v1/discover/classify")

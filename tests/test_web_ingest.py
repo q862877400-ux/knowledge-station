@@ -53,6 +53,13 @@ def test_web_i01_classify_status_priority():
     assert web_ingest.classify_hierarchy("中华人民共和国应急管理部令（第23号）社会消防技术服务管理规定") == "部门规章"
     assert web_ingest.classify_hierarchy("湖南省人民政府令（第300号）湖南省实施《办法》细则") == "地方政府规章"
     assert web_ingest.classify_hierarchy("应急管理部办公厅关于印发《办法》的通知") == "规范性文件"
+    # 通报/意见/决定/方案 这类也是部门规范性文件（真机 84 篇落到"未定级"就是因为漏了它们）
+    assert web_ingest.classify_hierarchy("应急管理部2026年第一季度政府网站检查情况通报") == "规范性文件"
+    assert web_ingest.classify_hierarchy("应急管理部 工业和信息化部关于加快应急管理装备创新发展的指导意见") == "规范性文件"
+    assert web_ingest.classify_hierarchy("应急管理部关于给予刘名芳等12名同志奖励的决定") == "规范性文件"
+    assert web_ingest.classify_hierarchy("关于调整危险化学品目录的公告") == "规范性文件"
+    # 认不出的仍然如实说"其他"（别硬塞一个位阶）
+    assert web_ingest.classify_hierarchy("安全生产治本攻坚") == "其他"
 
 
 def test_web_i02_extract_body_text_drops_chrome():
@@ -87,10 +94,12 @@ def test_web_i03_ingest_writes_document_with_source_url(db):
     n = conn.execute("SELECT COUNT(*) c FROM clause_revision WHERE doc_id=?", (row["doc_id"],)).fetchone()["c"]
     assert n >= 2, f"两条'第X条'应当切出来（实测 {n}）"
 
-    # 同一条再入一次 ⇒ 按正文哈希去重（不新建文档）
+    # 同一条再入一次 ⇒ 按正文哈希去重（不新建文档），且**如实报"库里已有"**，
+    # 不许报成"入库成功"（2026-09-24 真机缺陷：372 篇被报成 478 篇，见 §10.193）
     again = web_ingest.ingest_announcement("中华人民共和国应急管理部令（第23号）社会消防技术服务管理规定",
                                           url, transport=tp)
-    assert again["status"] == "ingested" and again["ingest"]["status"] == "duplicate", again
+    assert again["status"] == "skipped", again
+    assert again["reason"] == "already_in_library" and again["ingest_kind"] == "duplicate", again
     total = conn.execute("SELECT COUNT(*) c FROM doc_meta WHERE source_url=?", (url,)).fetchone()["c"]
     assert total == 1, "去重后仍然只该有一行"
 
