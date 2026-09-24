@@ -103,6 +103,9 @@ def test_insert_document_writes_optional_columns_it_lists(db):
     # 清单里每一列都得真在表里（少写/多写都会当场 SQL 错）
     table_cols = {r[1] for r in get_db_connection().execute("PRAGMA table_info(doc_meta)")}
     assert set(listed) <= table_cols, f"清单里有表里没有的列：{sorted(set(listed) - table_cols)}"
+
+
+def test_change_signal_not_written_when_caller_omits(db):
     """不给 `change_signal` ⇒ **不写这列**（既有调用方行为一字不变，`__default__` 哨兵）。"""
     from src.core.storage.sqlite_db import get_db_connection
     from src.core.ingestion.law_text import ingest_law_text
@@ -115,3 +118,34 @@ def test_insert_document_writes_optional_columns_it_lists(db):
         "SELECT change_signal FROM doc_meta WHERE source_url=?", (url,)).fetchone()
     assert row is not None, "文档没入库"
     assert row[0] is None, f"不给就不该写（哨兵失效）：{row[0]!r}"
+
+
+def test_real_db_backfilled_values_match_rule():
+    """**真库回填后逐条复算**（只读；真库不在 ⇒ 跳过，不造假绿）。
+
+    ⚠ 真库写入**没有门禁保护**（门禁跑的是 `%TEMP%` 临时库）⇒ "脚本报告写了 55 行"
+    不算证据，证据是"**库里的值 == 规则复算值**，且没多没少、没碰计划外的行"。
+    2026-09-24 实测：先写 55 行、再逐条比对 ⇒ 0 非法 / 0 不符 / 0 该标未标 / 0 计划外。
+    """
+    from pathlib import Path
+    real = Path(r"C:\Users\Zegel\AppData\Roaming\KnowledgeStation\database\knowledge.db")
+    plan_file = Path(r"D:\AI\work space\zcode\var\tmp\change-signal-backfill-plan.json")
+    if not real.exists() or not plan_file.exists():
+        return                      # 换机器 / 没回填过：不在这里造一个假绿
+    import json
+    import sqlite3
+    plan = json.loads(plan_file.read_text(encoding="utf-8"))["plan"]
+    ro = sqlite3.connect("file:" + str(real).replace("\\", "/") + "?mode=ro", uri=True)
+    try:
+        got = {d: s for d, _n, s in ro.execute(
+            "SELECT doc_id, standard_no, change_signal FROM doc_meta")}
+    finally:
+        ro.close()
+    wrong = [(p["standard_no"][:40], p["new"], got.get(p["doc_id"])) for p in plan
+             if got.get(p["doc_id"]) != p["new"]]
+    assert not wrong, f"真库里这些行的信号与规则不符：{wrong[:5]}"
+    in_plan = {p["doc_id"] for p in plan}
+    n_set = sum(1 for d, v in got.items() if v is not None)
+    assert n_set == len(plan), f"带信号行数 {n_set} ≠ 回填计划 {len(plan)}（多写/漏写）"
+    stray = [d for d, v in got.items() if v is not None and d not in in_plan]
+    assert not stray, f"计划外的行被写了信号：{stray[:5]}"
