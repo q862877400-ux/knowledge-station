@@ -38,11 +38,15 @@ export function KsScopeChip(props: KsScopeChipProps): JSX.Element | null {
      命中 ⇒ 短标记「⚖ 合规护航：待命」+ 宿主会话标记（提示段按需带 L1）。防抖 300ms；
      判据失效/未命中 = 零显示零开销，漏触发由哨句兜底（任务单 §二口径）。 */
   const [sentry, setSentry] = useState(false)
+  /** 2026-09-24：`review` 中间档（模型没把握）**原来算了没人看**——那是个死分支。
+   *  现在把它显示成一句**轻提示**（不插 659 字规则、也不打断）：它答的是"这题可能要用法规依据"。 */
+  const [sentryHint, setSentryHint] = useState<string | null>(null)
   const draft = props.input?.draft ?? ''
   useEffect(() => {
     if (sessionId === undefined || sessionId.length === 0) return
     if (draft.trim().length === 0) {
       setSentry(false)
+      setSentryHint(null)
       return
     }
     const timer = setTimeout(() => {
@@ -52,8 +56,17 @@ export function KsScopeChip(props: KsScopeChipProps): JSX.Element | null {
         body: JSON.stringify({ session: sessionId, text: draft }),
       })
         .then((r) => (r.ok ? r.json() : null))
-        .then((b) => { setSentry((b)?.data?.triggered === true) })
-        .catch(() => { /* 判据口不可用：静默（哨句兜底），不打扰输入 */ })
+        .then((b) => {
+          setSentry((b)?.data?.triggered === true)
+          setSentryHint((b)?.data?.verdict === 'review'
+            ? '这题可能要用法规依据（不确定，未自动启用）'
+            : null)
+        })
+        .catch(() => {
+          /* 判据口不可用：静默（哨句兜底），不打扰输入 */
+          setSentry(false)
+          setSentryHint(null)
+        })
     }, 300)
     return () => clearTimeout(timer)
   }, [sessionId, draft])
@@ -94,7 +107,7 @@ export function KsScopeChip(props: KsScopeChipProps): JSX.Element | null {
     }
   }, [sessionId, busy])
 
-  if (folderName === null && !sentry) return null
+  if (folderName === null && !sentry && sentryHint === null) return null
   return (
     <div style={{ display: 'flex', gap: 6, alignItems: 'center' }}>
     {sentry && (
@@ -109,6 +122,20 @@ export function KsScopeChip(props: KsScopeChipProps): JSX.Element | null {
         }}
       >
         ⚖ 合规护航：待命
+      </span>
+    )}
+    {sentryHint !== null && !sentry && (
+      <span
+        data-ks-compliance-hint=""
+        title="判断把握不大：没有自动启用合规流程，只提示一句（点「合规护航：待命」不存在即表示未启用）"
+        style={{
+          display: 'flex', alignItems: 'center', gap: 6, padding: '3px 10px', margin: '0 2px 4px',
+          borderRadius: 999, fontSize: 12,
+          color: 'var(--dsw-alias-label-secondary)',
+          border: '0.5px solid var(--dsw-alias-border-l2)',
+        }}
+      >
+        {sentryHint}
       </span>
     )}
     {folderName !== null && (
