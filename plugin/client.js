@@ -161,6 +161,7 @@ __export(api_exports, {
   saveApiConfig: () => saveApiConfig,
   scanAnnounceSources: () => scanAnnounceSources,
   scanMaterialProject: () => scanMaterialProject,
+  setAnnounceAutoIngest: () => setAnnounceAutoIngest,
   setChannelEnabled: () => setChannelEnabled,
   setChannelTestCase: () => setChannelTestCase,
   setMaterialRole: () => setMaterialRole,
@@ -1244,7 +1245,28 @@ async function fetchAnnounceSummary(signal) {
   if (!res.ok) throw await parseInspectionError(res);
   const body = await res.json().catch(() => null);
   if (body === null || body.ok !== true) throw new Error("\u516C\u544A\u53D1\u73B0\u72B6\u6001\u54CD\u5E94\u5F02\u5E38");
-  return { ok: true, last: body.last ?? null, stale_run: body.stale_run === true };
+  return {
+    ok: true,
+    last: body.last ?? null,
+    stale_run: body.stale_run === true,
+    // ⚠ 缺字段时按**开**（与服务端默认一致）：写成 false 会让界面显示"关"、
+    // 而实际行为是"开"—— 那是让业主按一个说谎的勾选框做决定。
+    auto_ingest: body.auto_ingest !== false
+  };
+}
+async function setAnnounceAutoIngest(enabled, signal) {
+  const res = await fetch("/ks/announce/auto-ingest", {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify({ enabled }),
+    signal
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+  const body = await res.json().catch(() => null);
+  if (body === null || body.ok !== true || typeof body.data?.auto_ingest !== "boolean") {
+    throw new Error("\u81EA\u52A8\u5165\u5E93\u5F00\u5173\u54CD\u5E94\u5F02\u5E38");
+  }
+  return body.data.auto_ingest;
 }
 async function scanAnnounceSources(signal) {
   const res = await fetch("/ks/announce/scan", {
@@ -35752,6 +35774,22 @@ function KsAnnounceSourcesSection(props) {
   const [ingestResult, setIngestResult] = (0, import_react6.useState)(null);
   const [ingestError, setIngestError] = (0, import_react6.useState)(null);
   const [ingestForce, setIngestForce] = (0, import_react6.useState)(false);
+  const [autoIngest, setAutoIngest] = (0, import_react6.useState)(null);
+  const [autoIngestErr, setAutoIngestErr] = (0, import_react6.useState)(null);
+  (0, import_react6.useEffect)(() => {
+    if (summary !== null) setAutoIngest(summary.auto_ingest);
+  }, [summary]);
+  const onToggleAutoIngest = async (next) => {
+    setAutoIngest(next);
+    setAutoIngestErr(null);
+    try {
+      const saved = await setAnnounceAutoIngest(next);
+      setAutoIngest(saved);
+    } catch (err) {
+      setAutoIngest(!next);
+      setAutoIngestErr(err instanceof Error ? err.message : String(err));
+    }
+  };
   const loadIngestPending = (0, import_react6.useCallback)(async () => {
     setIngestError(null);
     try {
@@ -35933,6 +35971,7 @@ function KsAnnounceSourcesSection(props) {
               ingestPending.skipped_non_normative > 0 ? `\u53E6\u6709 ${ingestPending.skipped_non_normative} \u6761\u6309"\u4E0D\u5C5E\u6CD5\u89C4\u6807\u51C6"\u8DF3\u8FC7\uFF08\u90E8\u95E8\u51B3\u7B97/\u516C\u793A/\u6302\u724C\u7763\u529E\u90A3\u7C7B\uFF09\u3002` : ""
             ] }),
             /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "2px 0" }, children: [
+              "            ",
               /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
                 "button",
                 {
@@ -35965,6 +36004,43 @@ function KsAnnounceSourcesSection(props) {
                   }
                 ),
                 '\u8FDE"\u90E8\u95E8\u51B3\u7B97/\u516C\u793A"\u90A3\u7C7B\u4E5F\u5165'
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "2px 0" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("label", { style: { display: "inline-flex", alignItems: "center", gap: 4 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+                  "input",
+                  {
+                    type: "checkbox",
+                    checked: autoIngest === true,
+                    disabled: autoIngest === null,
+                    onChange: (e) => {
+                      void onToggleAutoIngest(e.target.checked);
+                    }
+                  }
+                ),
+                "\u6BCF\u6B21\u67E5\u5B8C\u516C\u544A\uFF0C\u81EA\u52A8\u628A\u65B0\u516C\u544A\u5165\u5E93\uFF08\u9ED8\u8BA4\u5F00\uFF09"
+              ] }),
+              autoIngestErr !== null && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { role: "alert", style: { color: "var(--dsw-alias-state-error-primary)" }, children: autoIngestErr })
+            ] }),
+            last?.ingest != null && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "2px 0 0", lineHeight: "18px" }, children: [
+              "\u4E0A\u6B21\u81EA\u52A8\u5165\u5E93\uFF1A",
+              "error" in last.ingest && typeof last.ingest.error === "string" ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { role: "alert", style: { color: "var(--dsw-alias-state-error-primary)" }, children: last.ingest.error }) : /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
+                "\u6293\u4E86 ",
+                last.ingest.tried ?? 0,
+                " \u6761\u3001\u5165\u8FDB\u77E5\u8BC6\u5E93 ",
+                last.ingest.ingested ?? 0,
+                " \u6761 \uFF08\u73B0\u884C ",
+                last.ingest.by_status?.effective ?? 0,
+                " \xB7 \u4EC5\u53C2\u8003 ",
+                last.ingest.by_status?.reference ?? 0,
+                " \xB7 \u5DF2\u5E9F\u6B62 ",
+                last.ingest.by_status?.withdrawn ?? 0,
+                "\uFF09",
+                (last.ingest.failed ?? 0) > 0 ? `\uFF0C\u5931\u8D25 ${last.ingest.failed} \u6761\uFF08\u4E0B\u6B21\u4F1A\u91CD\u8BD5\uFF09` : "",
+                "\uFF0C\u8FD8\u5269 ",
+                last.ingest.pending_left ?? 0,
+                " \u6761"
               ] })
             ] }),
             ingestError !== null && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { role: "alert", style: { color: "var(--dsw-alias-state-error-primary)", margin: "4px 0 0" }, children: ingestError }),

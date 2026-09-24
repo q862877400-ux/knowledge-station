@@ -2066,6 +2066,17 @@ export interface KsAnnouncePerSource {
   baseline_items: number
 }
 
+export interface KsAnnounceLastIngest {
+  error?: string
+  tried?: number
+  ingested?: number
+  skipped?: number
+  failed?: number
+  by_status?: { effective: number; reference: number; withdrawn: number }
+  pending_left?: number
+  stopped_early?: boolean
+}
+
 export interface KsAnnounceLast {
   scan_id: string
   /** running | done | failed | never | unknown */
@@ -2081,6 +2092,8 @@ export interface KsAnnounceLast {
   per_source: KsAnnouncePerSource[]
   recent: KsAnnounceRecentItem[]
   error: string | null
+  /** 2026-09-24（§10.194）：扫描完成后自动入库的结果（无人值守也会发生，故留痕给人看）。 */
+  ingest?: KsAnnounceLastIngest | null
 }
 
 export interface KsAnnounceSummary {
@@ -2088,6 +2101,8 @@ export interface KsAnnounceSummary {
   last: KsAnnounceLast | null
   /** 上次扫描 running 遗留且无人接管（dsh 重启中断）→ UI 提示疑似中断。 */
   stale_run: boolean
+  /** 扫描完自动入库：默认 true（业主报的就是"该入库的没入库"）。 */
+  auto_ingest: boolean
 }
 
 /** GET /ks/announce/summary — 本地快照；绝不拉起引擎。 */
@@ -2100,7 +2115,32 @@ export async function fetchAnnounceSummary(signal?: AbortSignal): Promise<KsAnno
   if (!res.ok) throw await parseInspectionError(res)
   const body = (await res.json().catch(() => null)) as Partial<KsAnnounceSummary> | null
   if (body === null || body.ok !== true) throw new Error('公告发现状态响应异常')
-  return { ok: true, last: body.last ?? null, stale_run: body.stale_run === true }
+  return {
+    ok: true,
+    last: body.last ?? null,
+    stale_run: body.stale_run === true,
+    // ⚠ 缺字段时按**开**（与服务端默认一致）：写成 false 会让界面显示"关"、
+    // 而实际行为是"开"—— 那是让业主按一个说谎的勾选框做决定。
+    auto_ingest: body.auto_ingest !== false,
+  }
+}
+
+/** POST /ks/announce/auto-ingest — 开关"扫描完自动入库"（纯本地状态，立即生效）。 */
+export async function setAnnounceAutoIngest(
+  enabled: boolean, signal?: AbortSignal,
+): Promise<boolean> {
+  const res = await fetch('/ks/announce/auto-ingest', {
+    method: 'POST',
+    headers: { 'content-type': 'application/json', accept: 'application/json' },
+    body: JSON.stringify({ enabled }),
+    signal,
+  })
+  if (!res.ok) throw await parseInspectionError(res)
+  const body = (await res.json().catch(() => null)) as { ok?: boolean; data?: { auto_ingest?: boolean } } | null
+  if (body === null || body.ok !== true || typeof body.data?.auto_ingest !== 'boolean') {
+    throw new Error('自动入库开关响应异常')
+  }
+  return body.data.auto_ingest
 }
 
 /** POST /ks/announce/scan — 手动扫描（force=true，无视引擎 6h 时间闸）。 */

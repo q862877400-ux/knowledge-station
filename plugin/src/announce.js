@@ -20,6 +20,7 @@
  *   - GET  /ks/announce/ingest/pending : 待入库计数（纯代理；界面写"还有多少条没进库"）。
  *   - POST /ks/announce/ingest         : 批量把已发现公告的**正文**入库（纯代理；
  *     引擎侧受时间预算 + 条数上限封顶，`stopped_early`/`pending_left` 原样回给界面）。
+ *   - POST /ks/announce/auto-ingest    : 开/关"扫描完自动入库"（纯本地状态，默认**开**）。
  *   - triggerAfterInspection(ctx, manager) : 巡检 finalizeBatch 后触发（force=false，
  *     引擎侧 6h 时间闸防频繁）→ adoptScanPoll 轮询（touchActivity 保活）→
  *     终态落盘 state.last。
@@ -48,6 +49,13 @@ export const KS_ANNOUNCE_EXPORT_PATH = '/ks/announce/export'
 /** 2026-09-24（切片②下半）：把已发现的公告**正文入库**（业主："应该入库的怎么没入库"）。 */
 export const KS_ANNOUNCE_INGEST_PATH = '/ks/announce/ingest'
 export const KS_ANNOUNCE_INGEST_PENDING_PATH = '/ks/announce/ingest/pending'
+/** 2026-09-24（§10.194）：自动入库开关（默认**开** —— 业主报的就是"该入库的没入库"）。 */
+export const KS_ANNOUNCE_AUTO_INGEST_PATH = '/ks/announce/auto-ingest'
+
+/** 一次扫描完成后**自动**入库最多几条（引擎侧上限也是 20）。
+ *  ⚠ 有界是刻意的：这件事在**无人值守**时也会跑（每天巡检之后），
+ *  一次抓几百页不是"更努力"，是把宿主挂住。剩下的留给下一次扫描。 */
+const AUTO_INGEST_LIMIT = 20
 
 const ENGINE_SCAN_PATH = '/api/v1/update/announce-scan'
 const ENGINE_SCAN_LAST_PATH = '/api/v1/update/announce-scan/last'
@@ -80,6 +88,10 @@ function defaultState() {
   return {
     last: null, // 引擎 scan_state 快照（白名单清洗后），终态/最近一次
     stale_run: false, // 上次 running 遗留且无法接管
+    // 2026-09-24（§10.194）：扫描完成后**自动**把新公告正文入库。默认**开**——
+    // 业主的原话是"有大量应该入库但是放过了的东西"，靠"记得手动点按钮"正是会漏的原因。
+    // 他在界面上可以随时关掉；关掉之后行为回到"只发现、不入库"。
+    auto_ingest: true,
   }
 }
 
@@ -92,6 +104,7 @@ async function loadStateFile() {
       const p = parsed
       if (p.last && typeof p.last === 'object') s.last = sanitizeLast(p.last)
       if (p.stale_run === true) s.stale_run = true
+      if (typeof p.auto_ingest === 'boolean') s.auto_ingest = p.auto_ingest
       return s
     }
   } catch { /* absent or corrupt -> defaults */ }
@@ -134,6 +147,26 @@ function sanitizeLast(raw) {
     per_source: perSource,
     recent,
     error: typeof raw.error === 'string' ? raw.error : null,
+    // 自动入库的**结果**（无人值守也会发生的事，必须留痕给人看）：
+    // `{tried, ingested, skipped, failed, pending_left, stopped_early}` 或 `{error: "…"}`
+    ingest: sanitizeIngest(raw.ingest),
+  }
+}
+
+/** 自动/手动入库结果的白名单清洗（结构漂移安全网；误差一律留痕，不静默）。 */
+function sanitizeIngest(raw) {
+  if (!raw || typeof raw !== 'object') return null
+  if (typeof raw.error === 'string') return { error: raw.error }
+  const n = (v) => Number(v) || 0
+  const bs = raw.by_status && typeof raw.by_status === 'object' ? raw.by_status : {}
+  return {
+    tried: n(raw.tried),
+    ingested: n(raw.ingested),
+    skipped: n(raw.skipped),
+    failed: n(raw.failed),
+    by_status: { effective: n(bs.effective), reference: n(bs.reference), withdrawn: n(bs.withdrawn) },
+    pending_left: n(raw.pending_left),
+    stopped_early: raw.stopped_early === true,
   }
 }
 
@@ -254,9 +287,50 @@ async function runScanPoll(manager, ctx, scanId) {
       return s
     })
     ctx.logger?.info?.(`ks-announce: scan ${scanId} ${status}（新 ${data.new_count ?? 0} 条）`)
+    // 2026-09-24（§10.194）：扫完之后**自动把新公告正文入库**（默认开，可在界面关）。
+    // ⚠ 只对**成功收尾**的扫描做（failed/never 时没有"新公告"可言）；
+    //   整段有界（一次最多 AUTO_INGEST_LIMIT 条）+ 结果留痕（失败也留，不静默）。
+    if (status === 'done' && getState().auto_ingest !== false) {
+      await autoIngestTail(ctx, sess)
+    }
     stopPoll()
     return
   }
+}
+
+/**
+ * 扫描收尾后的自动入库（fire-and-forget 的尾巴，但**await 住**——它决定本轮的落盘快照）。
+ *
+ * 为什么放在 host 而不是引擎：引擎的扫描线程不该顺带带货（各干一件事）；
+ * 而"要不要自动入库"是**产品策略**，策略归 host，能力（抓正文入库）归引擎。
+ * ⚠ 失败**不许静默**：把 `{error}` 写进 `last.ingest`，界面与状态文件都看得到。
+ */
+async function autoIngestTail(ctx, sess) {
+  let out = null
+  try {
+    const res = await apiPost(originUrl(sess.port), ENGINE_INGEST_PATH,
+      { token: sess.token, timeoutMs: 120_000, body: { limit: AUTO_INGEST_LIMIT } })
+    if (res.status === 200 && res.body && typeof res.body === 'object') {
+      out = res.body.data ?? {}
+    } else {
+      out = { error: `自动入库失败：引擎 HTTP ${res.status} ${res.error || ''}`.trim() }
+    }
+  } catch (err) {
+    out = { error: `自动入库异常：${err instanceof Error ? err.message : String(err)}` }
+  }
+  const clean = sanitizeIngest(out) ?? { error: '自动入库：引擎未返回可读结果' }
+  update((s) => {
+    if (s.last) s.last.ingest = clean
+    return s
+  })
+  if ('error' in clean) {
+    ctx.logger?.warn?.(`ks-announce: ${clean.error}`)
+  } else {
+    ctx.logger?.info?.(
+      `ks-announce: 自动入库 抓${clean.tried} 入${clean.ingested} 跳${clean.skipped} `
+      + `失败${clean.failed} 剩${clean.pending_left}`)
+  }
+  return clean
 }
 
 /* ------------------------------------------------------------------ *
@@ -467,6 +541,9 @@ function registerSummaryRoute(ctx) {
         ok: true,
         last: s.last,
         stale_run: s.stale_run === true,
+        // 2026-09-24（§10.194）：自动入库开关也从这个快照出去（界面用它画勾选框；
+        // 这一条**不拉起引擎**的纪律不变）。
+        auto_ingest: s.auto_ingest !== false,
       })
     },
   })
@@ -721,6 +798,37 @@ function registerIngestRoutes(ctx, manager) {
   ]
 }
 
+/** 自动入库开关（2026-09-24，§10.194）：`POST {enabled: boolean}`。
+ *
+ * 为什么要有这个开关：这件事**无人值守**也会跑（每天巡检尾 → 扫描 → 入库），
+ * 而"哪些公告该进库"是**业主的判断**（他已经亲手圈过一遍该/不该）。
+ * 默认开（他报的毛病就是"该入库的没入库"），但他一句话就能关掉。
+ * 纯本地状态（`ks-announce.json`），不碰引擎、不碰库。
+ */
+function registerAutoIngestRoute(ctx) {
+  return ctx.webServer.register({
+    kind: 'exact',
+    path: KS_ANNOUNCE_AUTO_INGEST_PATH,
+    handler: async (req, res) => {
+      if (req.method !== 'POST') {
+        jsonResponse(res, 405, errorBody('method_not_allowed', 'POST only'))
+        return
+      }
+      const body = await readJsonBody(req).catch(() => undefined)
+      if (body === undefined || typeof body.enabled !== 'boolean') {
+        jsonResponse(res, 400, errorBody('bad_request', 'body 必须是 {"enabled": true|false}'))
+        return
+      }
+      update((s) => {
+        s.auto_ingest = body.enabled
+        return s
+      })
+      ctx.logger?.info?.(`ks-announce: 自动入库已${body.enabled ? '开启' : '关闭'}`)
+      jsonResponse(res, 200, { ok: true, data: { auto_ingest: body.enabled } })
+    },
+  })
+}
+
 /** Register all announce routes; returns the combined disposer. */
 export function registerKsAnnounceRoutes(ctx, manager) {
   const disposers = [
@@ -728,6 +836,7 @@ export function registerKsAnnounceRoutes(ctx, manager) {
     registerScanRoute(ctx, manager),
     registerSourcesRoutes(ctx, manager),
     registerExportRoute(ctx, manager),
+    registerAutoIngestRoute(ctx),
     ...registerIngestRoutes(ctx, manager),
   ]
   return () => {

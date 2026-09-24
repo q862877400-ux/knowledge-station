@@ -61,6 +61,7 @@ import {
   runInspection,
   saveApiConfig,
   scanAnnounceSources,
+  setAnnounceAutoIngest,
   testApiChannel,
   updateAnnounceSource,
   updateInspectionSettings,
@@ -754,6 +755,24 @@ export function KsAnnounceSourcesSection(props: { openedOnce: boolean }): JSX.El
   const [ingestResult, setIngestResult] = useState<KsAnnounceIngestResult | null>(null)
   const [ingestError, setIngestError] = useState<string | null>(null)
   const [ingestForce, setIngestForce] = useState(false)
+  /* 自动入库（2026-09-24 §10.194）：默认开。勾选框的初值取 summary（服务器状态），
+     用户一改就**立刻**写服务器（纯本地状态，不碰库/引擎），失败要如实报。 */
+  const [autoIngest, setAutoIngest] = useState<boolean | null>(null)
+  const [autoIngestErr, setAutoIngestErr] = useState<string | null>(null)
+  useEffect(() => {
+    if (summary !== null) setAutoIngest(summary.auto_ingest)
+  }, [summary])
+  const onToggleAutoIngest = async (next: boolean): Promise<void> => {
+    setAutoIngest(next)          // 乐观更新（改失败会回滚）
+    setAutoIngestErr(null)
+    try {
+      const saved = await setAnnounceAutoIngest(next)
+      setAutoIngest(saved)
+    } catch (err) {
+      setAutoIngest(!next)
+      setAutoIngestErr(err instanceof Error ? err.message : String(err))
+    }
+  }
 
   const loadIngestPending = useCallback(async (): Promise<void> => {
     setIngestError(null)
@@ -970,8 +989,7 @@ export function KsAnnounceSourcesSection(props: { openedOnce: boolean }): JSX.El
             {/* ⚠ 这一格的颜色**全走活的主题 token**（不像上面两个老按钮写死十六进制）：
                 `smoke-client-entry` 有一条"写死颜色只许减不许增"的棘轮，而业主明确要
                 深浅两套配色 —— 新写的按钮就不该再往那笔债上加。禁用态用 `opacity` 表达，
-                免得为一个状态再写死一组灰色。 */}
-            <button
+                免得为一个状态再写死一组灰色。 */}            <button
               type="button"
               onClick={() => void onIngest()}
               disabled={ingesting || (ingestPending !== null && ingestPending.pending === 0 && !ingestForce)}
@@ -998,6 +1016,41 @@ export function KsAnnounceSourcesSection(props: { openedOnce: boolean }): JSX.El
               连"部门决算/公示"那类也入
             </label>
           </div>
+          {/* 自动入库（2026-09-24 §10.194）：这件事**无人值守**也会跑（每天巡检尾 → 扫描 → 入库），
+              所以必须有一个看得见、关得掉的开关，和一句"上次自动入了几条"。 */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '2px 0' }}>
+            <label style={{ display: 'inline-flex', alignItems: 'center', gap: 4 }}>
+              <input
+                type="checkbox"
+                checked={autoIngest === true}
+                disabled={autoIngest === null}
+                onChange={(e) => { void onToggleAutoIngest(e.target.checked) }}
+              />
+              每次查完公告，自动把新公告入库（默认开）
+            </label>
+            {autoIngestErr !== null && (
+              <span role="alert" style={{ color: 'var(--dsw-alias-state-error-primary)' }}>
+                {autoIngestErr}
+              </span>
+            )}
+          </div>
+          {last?.ingest != null && (
+            <p style={{ margin: '2px 0 0', lineHeight: '18px' }}>
+              上次自动入库：
+              {'error' in last.ingest && typeof last.ingest.error === 'string'
+                ? <span role="alert" style={{ color: 'var(--dsw-alias-state-error-primary)' }}>
+                    {last.ingest.error}
+                  </span>
+                : <>
+                  抓了 {last.ingest.tried ?? 0} 条、入进知识库 {last.ingest.ingested ?? 0} 条
+                  （现行 {last.ingest.by_status?.effective ?? 0} ·
+                  仅参考 {last.ingest.by_status?.reference ?? 0} ·
+                  已废止 {last.ingest.by_status?.withdrawn ?? 0}）
+                  {(last.ingest.failed ?? 0) > 0 ? `，失败 ${last.ingest.failed} 条（下次会重试）` : ''}
+                  ，还剩 {last.ingest.pending_left ?? 0} 条
+                </>}
+            </p>
+          )}
           {ingestError !== null && (
             <p role="alert" style={{ color: 'var(--dsw-alias-state-error-primary)', margin: '4px 0 0' }}>
               {ingestError}

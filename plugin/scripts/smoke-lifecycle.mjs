@@ -289,6 +289,37 @@ globalThis.fetch = realFetch2
 
 
 /* ------------------------------------------------------------------ *
+ * C/D 共用的最小 req/res 桩（`readJsonBody` 只用到 req 的 on('data'|'end'|'error')）。
+ * ⚠ 放在**模块作用域**：C 段与 D 段都要用，而块作用域里的 `const` 另一块取不到
+ *   （第一版我把它们写在 C 里，D 一跑就 `ReferenceError: fakeRes is not defined`）。
+ * ------------------------------------------------------------------ */
+const _emitter = await import('node:events')
+const fakeReq = (method, body) => {
+  const req = new _emitter.EventEmitter()
+  req.method = method
+  req.url = '/ks/announce/ingest'
+  if (body !== undefined) {
+    const text = typeof body === 'string' ? body : JSON.stringify(body)
+    queueMicrotask(() => {
+      if (text) req.emit('data', Buffer.from(text, 'utf8'))
+      req.emit('end')
+    })
+  } else {
+    queueMicrotask(() => req.emit('end'))
+  }
+  return req
+}
+const fakeRes = () => {
+  const res = new _emitter.EventEmitter()
+  res.statusCode = 0
+  res.headers = {}
+  res.body = null
+  res.writeHead = (code) => { res.statusCode = code; return res }
+  res.end = (chunk) => { res.body = chunk === undefined ? '' : String(chunk); return res }
+  return res
+}
+
+/* ------------------------------------------------------------------ *
  * C. 公告**正文入库**那两条路由（2026-09-24 切片②下半，开发史 §10.193）
  *
  * 为什么单独加这一组：这两条是**面向上线的新契约**（界面按它们取数与写入），而
@@ -298,7 +329,6 @@ globalThis.fetch = realFetch2
  * ------------------------------------------------------------------ */
 
 {
-  const { EventEmitter } = await import('node:events')
   const registered = []
   const recCtx = {
     webServer: {
@@ -331,32 +361,6 @@ globalThis.fetch = realFetch2
       data: { tried: 1, ingested: 1, skipped: 0, failed: 0, pending_left: 0,
               stopped_early: false, stop_reason: null, items: [] } }),
     { status: 200, headers: { 'Content-Type': 'application/json' } })
-  }
-
-  /** 最小 req/res 桩：`readJsonBody` 只用到 req 的 on('data'|'end'|'error')。 */
-  const fakeReq = (method, body) => {
-    const req = new EventEmitter()
-    req.method = method
-    req.url = '/ks/announce/ingest'
-    if (body !== undefined) {
-      const text = typeof body === 'string' ? body : JSON.stringify(body)
-      queueMicrotask(() => {
-        if (text) req.emit('data', Buffer.from(text, 'utf8'))
-        req.emit('end')
-      })
-    } else {
-      queueMicrotask(() => req.emit('end'))
-    }
-    return req
-  }
-  const fakeRes = () => {
-    const res = new EventEmitter()
-    res.statusCode = 0
-    res.headers = {}
-    res.body = null
-    res.writeHead = (code) => { res.statusCode = code; return res }
-    res.end = (chunk) => { res.body = chunk === undefined ? '' : String(chunk); return res }
-    return res
   }
 
   const resGet = fakeRes()
@@ -399,6 +403,122 @@ globalThis.fetch = realFetch2
 
   globalThis.fetch = realFetch3
   disposeC()
+}
+
+
+/* ------------------------------------------------------------------ *
+ * D. 扫描收尾的**自动入库**（2026-09-24 §10.194）
+ *
+ * 这是**无人值守**也会跑的一步（每天巡检尾 → 扫描 → 入库），所以必须有判据：
+ *   ① 扫描成功收尾 ⇒ **确实**发了一次入库请求，且请求体是 `{limit: 20}`；
+ *   ② 入库结果**落进状态文件**（`last.ingest`，界面读它显示"上次自动入了几条"）；
+ *   ③ 开关关掉 ⇒ **一次都不发**（反向对照：只断言①会被"永远入库"的实现骗过，
+ *      只断言③会被"永远不入库"骗过 —— 两条都要）；
+ *   ④ 引擎报错 ⇒ 如实写 `{error}`，**不许静默**（这条最容易假绿：静默失败看起来"没坏"）。
+ * ------------------------------------------------------------------ */
+
+{
+  const { announceFilePath } = await import('../src/announce.js')
+
+  /* D 段自己注册一套路由到**记录式 ctx**（C 段的 `registered` 在 C 的块作用域里，取不到 ——
+     我第一版就写错在这儿）。这样 D 也能顺带再核一遍"入库相关路由确实注册了"。 */
+  const dRoutes = []
+  const dCtx = {
+    webServer: {
+      register: (route) => {
+        dRoutes.push(route)
+        return () => {}
+      },
+    },
+    logger: { info() {}, warn() {}, error() {} },
+  }
+  const disposeD = registerKsAnnounceRoutes(dCtx, managerB)
+  const registered = dRoutes
+  const realFetch4 = globalThis.fetch
+  let ingestCalls = []
+  /** 桩：扫描启动 → 状态查询 → 最近公告 → 入库。 */
+  const stubFor = (ingestBody, ingestHttp = 200) => async (url, init) => {
+    const u = String(url)
+    const json = (body, http = 200) => new Response(JSON.stringify(body),
+      { status: http, headers: { 'Content-Type': 'application/json' } })
+    if (u.endsWith('/api/v1/update/announce-scan')) {
+      return json({ code: 200, status: 'success', data: { status: 'started', scan_id: 'scan-D' } })
+    }
+    if (u.includes('/announce-scan/last')) {
+      return json({ code: 200, status: 'success',
+        data: { scan_id: 'scan-D', status: 'done', new_count: 2, items_seen: 3,
+                sources_total: 1, sources_done: 1, per_source: [], recent: [] } })
+    }
+    if (u.includes('/announce-items')) {
+      return json({ code: 200, status: 'success', data: { items: [], total: 0 } })
+    }
+    if (u.endsWith('/api/v1/update/announce-ingest')) {
+      ingestCalls.push({ url: u, body: init?.body ?? null, method: init?.method ?? 'GET' })
+      return ingestHttp === 200
+        ? json({ code: 200, status: 'success', data: ingestBody })
+        : json({ code: 500, status: 'error', message: 'boom' }, 500)
+    }
+    return json({ code: 200, status: 'success', data: {} })
+  }
+
+  /* 驱动方式说明：**不用** `announceStartupCheck`（它的语义是"引擎说同一个扫描还在跑才接管"，
+     我的桩说 done ⇒ 它按设计标 stale_run、不接管 ⇒ 根本走不到入库那一步；我第一版就这么写错的）。
+     改用真路由 `POST /ks/announce/scan` → `adoptScanPoll` → 终态 → 自动入库尾巴。 */
+  const scanRoute = registered.find((r) => r.path === '/ks/announce/scan')
+  const autoRoute = registered.find((r) => r.path === '/ks/announce/auto-ingest')
+  const drive = async () => {
+    const res = fakeRes()
+    await scanRoute.handler(fakeReq('POST', {}), res)
+    // 轮询是 fire-and-forget：等它把入库那一步做完
+    await waitFor(() => ingestCalls.length > 0, 6000, 20)
+    return res
+  }
+
+  // ①② 开着（默认就是开）⇒ 发一次、请求体对、结果落盘
+  ingestCalls = []
+  globalThis.fetch = stubFor({ tried: 3, ingested: 2, skipped: 1, failed: 0,
+    by_status: { effective: 1, reference: 1, withdrawn: 0 }, pending_left: 4,
+    stopped_early: true })
+  await drive()
+  const sentD = ingestCalls[0]?.body ? JSON.parse(ingestCalls[0].body) : null
+  check('D1 扫描成功后**确实**自动入库一次，请求体是 {limit: 20}',
+    ingestCalls.length === 1 && ingestCalls[0].method === 'POST' && sentD?.limit === 20,
+    `calls=${ingestCalls.length} body=${ingestCalls[0]?.body}`)
+  const stD = JSON.parse(await readFile(announceFilePath(), 'utf8'))
+  check('D2 自动入库的结果落进状态文件（界面靠它显示"上次自动入了几条"）',
+    stD.last?.ingest?.ingested === 2 && stD.last?.ingest?.pending_left === 4
+    && stD.last?.ingest?.by_status?.reference === 1,
+    JSON.stringify(stD.last?.ingest))
+
+  // ③ 关掉 ⇒ 一次都不发（反向对照）
+  const resOff = fakeRes()
+  await autoRoute.handler(fakeReq('POST', { enabled: false }), resOff)
+  check('D3a 开关路由能写状态（关）',
+    resOff.statusCode === 200 && JSON.parse(resOff.body).data.auto_ingest === false,
+    `${resOff.statusCode} ${resOff.body}`)
+  ingestCalls = []
+  globalThis.fetch = stubFor({ tried: 0, ingested: 0, skipped: 0, failed: 0,
+    by_status: { effective: 0, reference: 0, withdrawn: 0 }, pending_left: 0,
+    stopped_early: false })
+  await drive()
+  await new Promise((resolve) => { setTimeout(resolve, 400) })
+  check('D3b 开关关掉 ⇒ **一次都不发**（反向对照，防"永远入库"的实现）',
+    ingestCalls.length === 0, `calls=${ingestCalls.length}`)
+
+  // ④ 再开回来 + 引擎报错 ⇒ 如实留痕，不静默
+  const resOn = fakeRes()
+  await autoRoute.handler(fakeReq('POST', { enabled: true }), resOn)
+  ingestCalls = []
+  globalThis.fetch = stubFor(null, 500)
+  await drive()
+  await new Promise((resolve) => { setTimeout(resolve, 300) })
+  const stD4 = JSON.parse(await readFile(announceFilePath(), 'utf8'))
+  check('D4 自动入库失败 ⇒ 状态文件里留 error（**不许静默**）',
+    typeof stD4.last?.ingest?.error === 'string' && stD4.last.ingest.error.includes('500'),
+    JSON.stringify(stD4.last?.ingest))
+
+  globalThis.fetch = realFetch4
+  disposeD()
 }
 
 
