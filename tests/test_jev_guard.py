@@ -412,6 +412,34 @@ def test_compliance_guard_endpoint_contract(client, monkeypatch):
     assert r3.json()["data"]["verdict"] == "trigger", r3.text
 
 
+def test_change_signals_endpoint_contract(client, db):
+    """`/laws/change-signals` 的契约（2026-09-24 真机核查时补的）。
+
+    ⚠ **为什么单列**：`/laws/compliance-guard` 那条有契约判据，`change-signals` 原先**没有**
+    ——而"非法 `signal` 值给 422"恰好是最容易被改成"静默当全部返回"的那种
+    （改了会让按档筛选悄悄退化成"返回所有"）。
+
+    ⚠ **判据必须走真 `create_app`**（`client` fixture 提供）：先前我拿一个"返回字典的假
+    `json_error` 桩"写核查脚本，结果**状态码被桩吃掉**、4xx 看起来像 200，
+    差点报"引擎有 bug"——**代码是对的，脚本骗了我自己**。
+    """
+    c, token = client
+    h = {"Authorization": f"Bearer {token}"}
+    r = c.get("/api/v1/laws/change-signals", headers=h)
+    assert r.status_code == 200, r.text
+    d = r.json()["data"]
+    assert set(d["by_signal"]) <= {"draft", "repealed", "revised", "issued"}, d
+    for it in d["items"]:
+        assert it["change_signal"] in ("draft", "repealed", "revised", "issued"), it
+        assert it["doc_id"] and it["standard_no"], it
+    r2 = c.get("/api/v1/laws/change-signals", params={"signal": "repealed"}, headers=h)
+    assert r2.status_code == 200, r2.text
+    assert all(i["change_signal"] == "repealed" for i in r2.json()["data"]["items"]), r2.text
+    r3 = c.get("/api/v1/laws/change-signals", params={"signal": "瞎写"}, headers=h)
+    assert r3.status_code == 422, f"非法 signal 必须 422（不许静默当'全部'）：{r3.status_code}"
+    assert r3.json()["error"] == "invalid_signal", r3.text
+
+
 def test_compliance_guard_is_heavy_path():
     """2s 外网 ⇒ 吃重活令牌（MED-3；`tests/test_threadpool_bound.py` 也逐条列了它）。"""
     from src.core.api import server
