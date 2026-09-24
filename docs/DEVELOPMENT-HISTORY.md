@@ -11291,7 +11291,14 @@ base `d2f436e`，`rev-list --count` = **3**，`merge-base --is-ancestor` 已核 
 5. **宿主侧 `plugin/src/index.js` 还没重载**：引擎与浏览器侧都是新的（实测 `trees[].colors`
    已带 `reference`；交付产物 `client.js` 已重建），但**运行中的宿主进程仍持有旧的模块实例**
    ⇒ `ks_effect_report` 工具返回值顶层 `colors` 只有四键（它自己重新拼的那四个键，**不报错、
-   也不撒谎，只是少显示一档**）。改法是把 `include:ks-engine` 停用再启用（下次做入库入口时一并对齐）。
+   也不撒谎，只是少显示一档**）。
+   ⚠⚠ **就地更正（2026-09-24 当天实测打回）**：这里原文写的是"改法是把 `include:ks-engine`
+   **停用再启用**"。我照做了（`plugin_manager` 两次 `applied`、无 warning），然后再调一次
+   `ks_effect_report`：顶层 `colors` **仍是四键**（而 `trees[].colors` 已是五键 ⇒ 引擎新、宿主旧）
+   ⇒ **停用/启用不重载宿主侧插件模块**（Node 的 ESM 缓存；客户端 `client.js` 才是热更的那一半）。
+   **正确改法是重启一次 DSH**。教训同 AGENTS.md 那条"转述'更正'前自己核一遍"：
+   我写那句改法时**没先验**，是猜的。取证见 §10.193 的"宿主未加载"条与提交 `54059f9`
+   （界面遇 404 时直接告诉业主"请重启一次 DSH"）。
 
 **真库迁移（2026-09-24 12:44，`var/tmp/migrate-real-db.py` + `apply-real-migration.py` +
 `verify-real-migration.py`）**
