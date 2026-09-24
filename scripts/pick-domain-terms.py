@@ -111,9 +111,13 @@ def main() -> int:
     print(f"扫描 {n:,} 条；抽到候选术语 {len(term_docs):,} 个")
 
     # ③ 初筛：被 ≥3 篇文件正式定义，且落在 ≤2 个 CCS 大类里
+    # ⚠ 这里**必须 sorted**：`dset` 是 set，而 Python 的字符串哈希默认随机化
+    #   ⇒ 不排序的话 tags 顺序每次不同，后面 `Counter(tags).most_common(1)` 在打平时
+    #   会选到不同的大类，于是分桶与轮转取全变 —— **本脚本第一版就是这样不确定的**
+    #   （实测同一天连跑三次，末行分别是 地点概率 / 二乙基二硫代氨基甲酸钠 / 另一条）。
     pool: list[tuple[str, int, list[str]]] = []
     for t, dset in term_docs.items():
-        tags = [tg for d in dset for tg in doc_tags.get(d, ())]
+        tags = sorted(tg for d in sorted(dset) for tg in doc_tags.get(d, ()))
         if len(dset) < 3 or not tags:
             continue
         cats = {tg.split()[0].split(":")[1][0] for tg in tags}
