@@ -11282,14 +11282,38 @@ base `d2f436e`，`rev-list --count` = **3**，`merge-base --is-ancestor` 已核 
   `tests/test_api.py` `tests/test_contract.py` **141 通过**（含新用例）。
 
 **残余 / 明确未做**
-1. **真库（6417 篇那份）还没迁**：`_ensure_legal_status_reference` 只在测试库上跑过。
-   上线前要在**备份副本**上先跑一遍再动真库（真库 facts：`doc_meta` 6417 行全 `effective`、
-   3 个显式索引 `idx_doc_short_code/hierarchy/file_hash`、`clause_revision` 等外键
-   `ON DELETE CASCADE`）。
+1. ~~真库（6417 篇那份）还没迁~~ → **已迁且已核验**（2026-09-24 12:44，见下"真库迁移"一节）。
 2. **抓取侧只做了一半**：翻页发现（切片①）+ 单条入库函数已就绪，**批量抓取 + 界面上那个
    "入库"按钮还没做**（业主报的"大量应该入库的没入库"要靠它收口）。
 3. 渠道库面的 `.ks-tree-head` 与知识库仍不完全一致；渠道库行"等于几"那一列仍无判据（§10.191 的残余）。
 4. `docs/ENCYCLOPEDIA.md` 的 `doc_meta` 行已补第五档；`docs/tool-catalog.md` 是**生成物**，
    已用 `node plugin/scripts/smoke-tool-catalog.mjs --write` 重生成（手改必红）。
+5. **宿主侧 `plugin/src/index.js` 还没重载**：引擎与浏览器侧都是新的（实测 `trees[].colors`
+   已带 `reference`；交付产物 `client.js` 已重建），但**运行中的宿主进程仍持有旧的模块实例**
+   ⇒ `ks_effect_report` 工具返回值顶层 `colors` 只有四键（它自己重新拼的那四个键，**不报错、
+   也不撒谎，只是少显示一档**）。改法是把 `include:ks-engine` 停用再启用（下次做入库入口时一并对齐）。
+
+**真库迁移（2026-09-24 12:44，`var/tmp/migrate-real-db.py` + `apply-real-migration.py` +
+`verify-real-migration.py`）**
+
+- 安全网：`VACUUM INTO` 一致性快照
+  `%APPDATA%\KnowledgeStation\database\backup\knowledge-before-reference-20260924-124338.db`（2.15 GB，
+  **留着不删**）；预演用的是它的**副本**（核验完已删，真库本体在那之前一个字节没动）。
+- 预演（真库副本）：`init_schema()` **2.4s**，"数据/三个索引/四个子表外键/新档可写/
+  **级联仍通**/幂等"六项全过。
+- 真库：停引擎（pid 21128）→ `init_schema()` **0.7s** → 核验通过 → `ks_ping` 起新引擎
+  （旧 pid 死了走"过期会话"分支，新 pid 14820）。
+- 真库事实：`doc_meta` 6417 行**全 effective**、`clause_revision` **520504 行**；
+  三个显式索引在；四个子表（`clause_revision` / `doc_page_geometry` / `watch_list` /
+  `user_doc_bookmark`）的外键仍是 `doc_meta … CASCADE`；插一行 `reference` 能读回来、
+  删父行子行跟着没、`foreign_key_check` 干净、再跑一次返回 0。
+
+⚠ **我自己在这条链上犯的两个错（留痕）**：
+1. `migrate-real-db.py` 里 `VACUUM INTO` 我写了"可能几分钟"，实测 **6 秒**（2.3GB）——预估
+   比实际夸张了一个量级，写进注释的"代价"要按实测改，别凭印象吓自己（也吓业主）。
+2. `apply-real-migration.py` 报了唯一一条"数据变了"：真库连接是 `sqlite3.Row` 工厂，
+   而我拿来比的 `st_before` 是**只读连接取的 tuple** ⇒ `Row != tuple` **类型不等**被当成了
+   "数据变了"。**迁移本体是成功的**（DDL 已含 reference、6417 行未动）。同类错以前也犯过
+   （"字段描述 ≠ 运行时语义"）：**核验脚本里做相等比较之前，先把两边归一成同一种形状**。
 
 
