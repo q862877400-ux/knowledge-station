@@ -89,6 +89,10 @@ def main() -> int:
     # 第一个参数 = 要多少条术语（默认 50）。业主 2026-09-24："测试用例可以再多一点"
     # —— 50 条 × 2 条说法 = 100 条，命中数只有个位数，**分不出 2% 与 4% 的差别**。
     N = int(sys.argv[1]) if len(sys.argv) > 1 else 50
+    # 第二个参数 = "被几篇不同文件定义过"才算够重要（默认 3）。
+    # 要更大批量时**放宽这个**比放宽泛词阈值干净：加进来的是"更冷门但仍是真术语"，
+    # 而不是"更泛的词"（2026-09-24 业主："再来点，凑上两千条"）。
+    MIN_DOCS = int(sys.argv[2]) if len(sys.argv) > 2 else 3
     out_terms = OUT_DIR / f"terms-{N}.txt"
     out_table = OUT_DIR / f"terms-{N}-evidence.md"
     conn = sqlite3.connect(f"file:{DB}?mode=ro", uri=True)
@@ -122,13 +126,13 @@ def main() -> int:
     pool: list[tuple[str, int, list[str]]] = []
     for t, dset in term_docs.items():
         tags = sorted(tg for d in sorted(dset) for tg in doc_tags.get(d, ()))
-        if len(dset) < 3 or not tags:
+        if len(dset) < MIN_DOCS or not tags:
             continue
         cats = {tg.split()[0].split(":")[1][0] for tg in tags}
         if len(cats) > 2:
             continue
         pool.append((t, len(dset), tags))
-    print(f"初筛后（≥3 篇定义 且 ≤2 个大类）剩 {len(pool):,} 个")
+    print(f"初筛后（≥{MIN_DOCS} 篇定义 且 ≤2 个大类）剩 {len(pool):,} 个")
 
     # ④ 复筛：正式定义它的文件数 ÷ 它在库里的命中条数 —— 太小的是泛词。
     #    阈值**自适应**：先试 RATIO_MIN，不够 N 就依次放宽，并写明实际用了哪一档。
