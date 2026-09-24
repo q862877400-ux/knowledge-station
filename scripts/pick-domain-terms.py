@@ -50,8 +50,7 @@ sys.path.insert(0, str(REPO))
 from src.core.text_utils import segment_for_fts  # noqa: E402
 
 DB = Path(r"C:\Users\Zegel\AppData\Roaming\KnowledgeStation\database\knowledge.db")
-OUT_TERMS = Path(r"D:\AI\work space\zcode\var\tmp\terms-50.txt")
-OUT_TABLE = Path(r"D:\AI\work space\zcode\var\tmp\terms-50-evidence.md")
+OUT_DIR = Path(r"D:\AI\work space\zcode\var\tmp")
 
 TERM_RE = re.compile(
     r"^\s*(?:\d+(?:\.\d+)*)?\s*"
@@ -87,6 +86,11 @@ def clean(t: str) -> str | None:
 
 
 def main() -> int:
+    # 第一个参数 = 要多少条术语（默认 50）。业主 2026-09-24："测试用例可以再多一点"
+    # —— 50 条 × 2 条说法 = 100 条，命中数只有个位数，**分不出 2% 与 4% 的差别**。
+    N = int(sys.argv[1]) if len(sys.argv) > 1 else 50
+    out_terms = OUT_DIR / f"terms-{N}.txt"
+    out_table = OUT_DIR / f"terms-{N}-evidence.md"
     conn = sqlite3.connect(f"file:{DB}?mode=ro", uri=True)
 
     # ① 每篇文件的完整标签（用于显示领域，不做外部断言）
@@ -126,8 +130,10 @@ def main() -> int:
         pool.append((t, len(dset), tags))
     print(f"初筛后（≥3 篇定义 且 ≤2 个大类）剩 {len(pool):,} 个")
 
-    # ④ 复筛：正式定义它的文件数 ÷ 它在库里的命中条数 —— 太小的是泛词
-    kept: list[tuple[str, int, list[str], int, float]] = []
+    # ④ 复筛：正式定义它的文件数 ÷ 它在库里的命中条数 —— 太小的是泛词。
+    #    阈值**自适应**：先试 RATIO_MIN，不够 N 就依次放宽，并写明实际用了哪一档。
+    #    这样"要 300 条"不会因为阈值太紧只挤出几十条，也不会悄悄换掉判据而不留痕。
+    cand: list[tuple[str, int, list[str], int, float]] = []
     ratios: list[float] = []
     for t, dcnt, tags in pool:
         seg = segment_for_fts(t)
@@ -143,16 +149,22 @@ def main() -> int:
             continue
         r = dcnt / hits
         ratios.append(r)
-        if r >= RATIO_MIN:
-            kept.append((t, dcnt, tags, hits, r))
+        cand.append((t, dcnt, tags, hits, r))
     ratios.sort()
     if ratios:
         import statistics
         print(f"复筛前 {len(pool)} 个；比值(定义文件数/命中条数) 分布："
               f"最小 {ratios[0]:.4f} / 中位 {statistics.median(ratios):.4f} / 最大 {ratios[-1]:.4f}")
-    print(f"复筛后（比值 ≥ {RATIO_MIN:.4f}）剩 {len(kept):,} 个")
+    kept: list = []
+    used = None
+    for thr in (RATIO_MIN, 1 / 20, 1 / 30, 1 / 50, 0.0):
+        kept = [c for c in cand if c[4] >= thr]
+        used = thr
+        if len(kept) >= N:
+            break
+    print(f"泛词比值阈值实际用了 {used:.4f}（该档剩 {len(kept)} 个候选，要 {N} 个）")
 
-    # ⑤ 按"定义它的文件里最常见的完整标签"的大类字母分桶，轮转取满 50
+    # ⑤ 按"定义它的文件里最常见的完整标签"的大类字母分桶，轮转取满 N
     by_cat: dict[str, list] = defaultdict(list)
     for item in kept:
         cat = Counter(item[2]).most_common(1)[0][0].split()[0].split(":")[1][0]
@@ -163,10 +175,10 @@ def main() -> int:
 
     picked: list = []
     idx = 0
-    while len(picked) < 50:
+    while len(picked) < N:
         progressed = False
         for c in cats:
-            if idx < len(by_cat[c]) and len(picked) < 50:
+            if idx < len(by_cat[c]) and len(picked) < N:
                 picked.append(by_cat[c][idx])
                 progressed = True
         if not progressed:
@@ -175,7 +187,7 @@ def main() -> int:
 
     print()
     print("=" * 78)
-    print("给提示词 A 的术语清单（整段复制）")
+    print(f"给提示词 A 的术语清单（{len(picked)} 个，整段复制）")
     print("=" * 78)
     term_lines = "\n".join(p[0] for p in picked)
     print(term_lines)
@@ -196,9 +208,9 @@ def main() -> int:
             Counter(p[2]).most_common(1)[0][0].split()[0].split(":")[1][0] for p in picked
         ).most_common()))
 
-    OUT_TERMS.write_text(term_lines + "\n", encoding="utf-8")
-    OUT_TABLE.write_text("\n".join(rows) + "\n", encoding="utf-8")
-    print(f"\n已写 {OUT_TERMS}\n已写 {OUT_TABLE}")
+    out_terms.write_text(term_lines + "\n", encoding="utf-8")
+    out_table.write_text("\n".join(rows) + "\n", encoding="utf-8")
+    print(f"\n已写 {out_terms}\n已写 {out_table}")
     return 0
 
 
