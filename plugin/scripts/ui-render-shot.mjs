@@ -83,6 +83,11 @@
  *                       ⚠ 不给它时那些路由照旧 STUB_MISS ⇒ 别的场景的 HTML/PNG 与改前**逐字相同**
  *                       （`smoke-kb-pad-pixels` / `smoke-kb-cols` 拿它们当基线）；
  *                       给了它却落在别的场景上 ⇒ **exit 2**（静默没做成不许当成功）。
+ *   --chans             （加法式，2026-09-24）**只与 `--page kb --nav-page channels` 一起用**：
+ *                       把渠道库那一面要的数据喂上（`/ks/channels` + 巡检/公告两个 summary）
+ *                       ⇒ 这一面才出得了图、量得到几何（在此之前它只能渲染出"读取失败"）。
+ *                       ⚠ 不给它时那些路由照旧 STUB_MISS ⇒ 别的场景的 HTML/PNG 与改前**逐字相同**；
+ *                       给了它却落在别的面上 ⇒ **exit 2**（静默没做成不许当成功）。
  *   --browser <exe>  默认自动找 Edge/Chrome（可用 $KS_BROWSER 覆盖）
  *                    ⚠ 文档里说的"真 Chrome"是**约定叫法**（同一 Chromium 内核）：本机
  *                      （5i-补 2026-09-20 实测）命中的是 `msedge.exe`，不是 Google Chrome。
@@ -227,6 +232,22 @@ if (ccsStub && interacts.includes('kb-inbox') === false) {
     + `这一跑的场景是 [${interacts.join(', ') || '（空，默认最外层）'}]，那里没有「补全分类号」那一块。`)
   console.error('   给了它却什么都不做 = 静默没做成，故按参数错退出（exit 2）。'
     + '用法：--page kb --interact kb-inbox --ccs')
+  process.exit(2)
+}
+/**
+ * `--chans`（**加法式**，2026-09-24）：把**渠道库那一面**要的数据喂上（`/ks/channels` + 两个 summary）。
+ *
+ * 为什么要它：业主问「知识库和渠道库的 UI 还是不一样」—— 查下来第一件事是**这一面根本渲染不出
+ * 内容**（没有桩 ⇒ 只能渲染出"读取失败"）⇒ 它的观感差异从来没被量过、也没截过图（§10.188）。
+ * 与 `--ccs` 同一条口径：默认**关着**（别的场景 HTML/PNG 与改前逐字相同），
+ * 给了它却落在**别的面**上 ⇒ **当场 exit 2**，不静默忽略。
+ */
+const chansStub = flag('chans')
+if (chansStub && !(page === 'kb' && navPageRaw === 'channels')) {
+  console.error('❌ `--chans` 只对 `--page kb --nav-page channels`（渠道库那一面）有意义：'
+    + `这一跑是 --page ${page} --nav-page ${navPageRaw === '' ? '（没给）' : navPageRaw}，那里没有渠道库的内容。`)
+  console.error('   给了它却什么都不做 = 静默没做成，故按参数错退出（exit 2）。'
+    + '用法：--page kb --nav-page channels --chans')
   process.exit(2)
 }
 /**
@@ -700,7 +721,93 @@ globalThis.fetch = async (input, init = {}) => {
       } })
     }
   }
+    /* ── 渠道库面（`--chans`，2026-09-24）：**只有这一跑**才回话 ──
+       为什么加它：业主问「知识库和渠道库的 UI 还是不一样，看看是不是真的共用一套代码」，
+       查下来第一件事就是**这一面根本渲染不出内容**（渲染器没有 `/ks/channels` 的桩 ⇒ 只能渲染出
+       "读取失败：未预料的请求…"）⇒ 它的观感差异**谁都没量过、也没截过图**（见开发史 §10.188）。
+       喂上数据之后，这一面才能出图、能量几何，也才有资格被写进留边判据。
+       ⚠ 默认**关着**：不加 `--chans` 时这些路由照旧走 STUB_MISS ⇒ 别的场景的 HTML/PNG 与改前
+         **逐字相同**（`smoke-kb-pad-pixels` / `smoke-kb-cols` 拿它们当基线）。
+       ⚠ 形状逐字照 `api.ts`：`/ks/channels` 走 `ksJson`（即 `{ok:true,data:…}`），
+         两个 summary 走**顶层** `{ok:true,…}`（见 `fetchAnnounceSummary` / `fetchInspectionSummary`）。 */
+    if (chansStub) {
+      /* ⚠ 这里**不能用 `p`**：`const p = u.pathname` 只在 `url.startsWith(KB_API)` 那个块里有定义
+         （实测第一版就栽在这：面板报 "读取失败：p is not defined"，正是这一条）。`/ks/*` 是相对
+         URL，本块用的是 `url`（与上面那几条 `/ks/ingest/*` 同一个口径）。 */
+      const cpath = String(url).split('?')[0]
+      /** 9 条：三个单位性质 + 一个"未分类"，两个站点各带 2 条（好让左树真的出现"网站"那一级）。 */
+      const CH_ROWS = [
+        { channel_id: 'ch_sac_gb', name: '国家标准全文公开系统（GB）', category: 'std_gb',
+          org_kind: 'central', url: 'https://openstd.samr.gov.cn/bzgk/gb/', fetch_kind: 'http',
+          wiring: 'wired', verification: 'verified', state: 'ok', enabled: 1,
+          last_try_at: '2026-09-24 09:10:00', last_ok_at: '2026-09-24 09:10:01',
+          consecutive_failures: 0, latency_ms: 812, segments_json: '["GB"]', has_probe_target: true },
+        { channel_id: 'ch_sac_hb', name: '行业标准信息服务平台', category: 'std_hb',
+          org_kind: 'central', url: 'https://hbba.sac.gov.cn/', fetch_kind: 'http',
+          wiring: 'wired', verification: 'verified', state: 'ok', enabled: 1,
+          last_try_at: '2026-09-24 09:10:02', last_ok_at: '2026-09-24 09:10:03',
+          consecutive_failures: 0, latency_ms: 1240, segments_json: '["HJ","JG"]', has_probe_target: true },
+        { channel_id: 'ch_samr_std', name: '市场监管总局 · 标准公告', category: 'std_gb',
+          org_kind: 'central', url: 'https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/tzgg/', fetch_kind: 'http',
+          wiring: 'wired', verification: 'unverified', state: 'suspicious', enabled: 1,
+          last_try_at: '2026-09-24 09:10:04', last_ok_at: '2026-09-23 21:02:00',
+          last_error: '页面结构变了（正文块没找到）', last_error_code: 'parse_failed',
+          consecutive_failures: 2, latency_ms: 2240, has_probe_target: true },
+        { channel_id: 'ch_mem', name: '应急管理部 · 政策法规', category: 'law',
+          org_kind: 'central', url: 'https://www.mem.gov.cn/fw/flfgbz/', fetch_kind: 'http',
+          wiring: 'broken', verification: 'broken', state: 'down', enabled: 1,
+          last_try_at: '2026-09-24 09:10:06', last_ok_at: '2026-09-18 08:00:00',
+          last_error: '连接被拒（403）', last_error_code: 'network_failed',
+          consecutive_failures: 11, has_probe_target: true },
+        { channel_id: 'ch_hn_std', name: '湖南省市场监督管理局 · 标准', category: 'std_db',
+          org_kind: 'local_dept', url: 'https://amr.hunan.gov.cn/amr/zwx/', fetch_kind: 'http',
+          wiring: 'wired', verification: 'verified', state: 'ok', enabled: 1,
+          last_try_at: '2026-09-24 09:11:00', last_ok_at: '2026-09-24 09:11:01',
+          consecutive_failures: 0, latency_ms: 990, segments_json: '["DB43"]', has_probe_target: true },
+        { channel_id: 'ch_hn_law', name: '湖南省人大 · 地方性法规', category: 'law',
+          org_kind: 'local_dept', url: 'https://www.hnrd.gov.cn/', fetch_kind: 'http',
+          wiring: 'wired', verification: 'unverified', state: 'unknown', enabled: 1,
+          last_try_at: null, last_ok_at: null, consecutive_failures: 0, has_probe_target: true },
+        { channel_id: 'ch_iso', name: 'ISO 官网（国际标准）', category: 'std_intl',
+          org_kind: 'intl', url: 'https://www.iso.org/standards.html', fetch_kind: 'http',
+          wiring: 'unwired', verification: 'unverified', state: 'unknown', enabled: 0,
+          last_try_at: null, last_ok_at: null, consecutive_failures: 0, has_probe_target: false,
+          note: '未接线：只登记，抓取要另配' },
+        { channel_id: 'ch_gh', name: 'GitHub · 法规标准结构化项目', category: 'tool',
+          org_kind: 'tool', url: 'https://github.com/search?q=standard', fetch_kind: 'api',
+          wiring: 'user', verification: 'unverified', state: 'unknown', enabled: 1,
+          last_try_at: null, last_ok_at: null, consecutive_failures: 0,
+          has_probe_target: false, note: '按设计不做探针（代码仓库类）' },
+        { channel_id: 'ch_misc', name: '某聚合站（未分类）', category: 'aggregator',
+          org_kind: null, url: 'https://example-aggregator.test/list', fetch_kind: null,
+          wiring: 'seed_only', verification: 'unverified', state: 'unknown', enabled: 0,
+          last_try_at: null, last_ok_at: null, consecutive_failures: 0, has_probe_target: false },
+      ]
+      const CH_SUMMARY = {
+        total: CH_ROWS.length,
+        by_wiring: { wired: 5, unwired: 1, broken: 1, user: 1, seed_only: 1 },
+        by_state: { ok: 3, suspicious: 1, down: 1, unknown: 4 },
+        enabled: 8,
+      }
+      if (cpath === '/ks/channels' && method === 'GET') {
+        return reply({ ok: true, data: { summary: CH_SUMMARY, items: CH_ROWS } })
+      }
+      if (cpath === '/ks/announce/summary') {
+        return reply({ ok: true, stale_run: false, last: { recent: [
+          { title: '市场监管总局关于发布 12 项国家标准的公告', published_at: '2026-09-24 08:05:00',
+            url: 'https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/tzgg/art/2026/art_1.html' },
+        ] } })
+      }
+      if (cpath === '/ks/inspection/summary') {
+        return reply({ ok: true, stale_run: false, overdue_days: 0,
+          settings: { autoEnabled: true, time: '08:30', sundayTier1: false },
+          last: { batch_id: 'insp_20260924', status: 'done', total: 6416,
+            by_type: { new_version: 12, withdrawn: 3, superseded: 5, unchanged: 6396 },
+            started_at: '2026-09-24 08:30:00', finished_at: '2026-09-24 08:36:12' } })
+      }
+    }
   return reply({ ok: false, error: { code: 'STUB_MISS', message: `未预料的请求：${url}` } }, 404)
+
 }
 
 const { mount } = await import(pathToFileURL(bundleJs).href)
@@ -3331,7 +3438,7 @@ if (rowCtrls === undefined
   const counts = rowCtrlsFileRows.map((it) => Number(it.ctrls))
   const inboxCounts = rowCtrlsInboxRows.map((it) => Number(it.ctrls))
   const dirCounts = rowCtrlsDirRows.map((it) => Number(it.ctrls))
-  if (page === 'kb' && rowCtrlsFileRows.length > 0) {
+  if (page === 'kb' && navPage === 'manage' && rowCtrlsFileRows.length > 0) {
     const odd = counts.filter((c) => c !== ROW_CTRLS_EXPECTED)
     if (odd.length > 0) {
       rowCtrlsProblems.push(`知识库页的文件行行内可见控件数应当是**冻结的 ${String(ROW_CTRLS_EXPECTED)}**`
@@ -3343,7 +3450,7 @@ if (rowCtrls === undefined
         + '同一层的行应当长得一样；不一致说明某一行多/少了控件')
     }
   }
-  if (page === 'kb' && rowCtrlsDirRows.length > 0) {
+  if (page === 'kb' && navPage === 'manage' && rowCtrlsDirRows.length > 0) {
     const odd = dirCounts.filter((c) => c !== ROW_CTRLS_DIR_EXPECTED)
     if (odd.length > 0) {
       rowCtrlsProblems.push(`知识库页的目录行行内可见控件数应当是**冻结的 ${String(ROW_CTRLS_DIR_EXPECTED)}**`
@@ -3354,7 +3461,7 @@ if (rowCtrls === undefined
       rowCtrlsProblems.push(`目录行之间行内控件数**不一致**（${JSON.stringify(dirCounts)}）`)
     }
   }
-  if (page === 'kb' && rowCtrlsInboxRows.length > 0) {
+  if (page === 'kb' && navPage === 'manage' && rowCtrlsInboxRows.length > 0) {
     const odd = inboxCounts.filter((c) => c !== ROW_CTRLS_INBOX_EXPECTED)
     if (odd.length > 0) {
       rowCtrlsProblems.push(`待分类行的行内可见控件数应当是**冻结的 ${String(ROW_CTRLS_INBOX_EXPECTED)}**`
@@ -3364,6 +3471,17 @@ if (rowCtrls === undefined
     if (new Set(inboxCounts).size > 1) {
       rowCtrlsProblems.push(`待分类行之间行内控件数**不一致**（${JSON.stringify(inboxCounts)}）`)
     }
+  }
+  /* ⚠⚠ **2026-09-24（渠道库面）**：上面那三条期望**只对"知识库管理"那一面成立** —— 它们写的就是
+     "知识库页的…行"；而 `--page kb` 现在还能渲染渠道库/办事台/备料三个面（`--nav-page`），
+     那三个面的行构成本来就不一样（渠道库的目录行是"单位性质"分组行：只有条数，没有勾选框/⋮）。
+     ⇒ **按面收窄**，并给非 manage 面留一条**响亮的**不适用理由（不是静默通过）。
+     渠道库那面的行期望在**下一批显式声明**（开发史 §10.188 第三步）。
+     ⚠ 下面那条"不超过上限"（`over`）**不按面收窄**：它对哪个面都成立。 */
+  if (page === 'kb' && navPage !== 'manage' && rowCtrlsProblems.length === 0) {
+    rowCtrlsSkipReason = `这一跑是「${navPage}」面：上面三条期望是照**知识库管理面**的行构成写的`
+      + `（这一跑实测 文件行 ${JSON.stringify(counts)} / 待分类行 ${JSON.stringify(inboxCounts)}`
+      + ` / 目录行 ${JSON.stringify(dirCounts)}）⇒ 该面的"等于几"还没声明，只吃"不超过上限"那一条`
   }
   const over = [...counts, ...inboxCounts, ...dirCounts].filter((c) => !Number.isFinite(c) || c > ROW_CTRLS_MAX)
   if (over.length > 0) {
