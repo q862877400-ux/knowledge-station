@@ -431,7 +431,110 @@ def test_ann_x16_export_empty(db):
     from openpyxl import load_workbook
 
     out = announce.export_announce_xlsx()
-    wb = load_workbook(str(out), data_only=True)
+    wb = load_workbook(out, data_only=True)
     assert wb.sheetnames == ["最近扫描", "公告明细"]
     assert wb["公告明细"].max_row == 1
     assert "尚未完成过扫描" in str(wb["最近扫描"]["B3"].value) or wb["最近扫描"]["B3"].value is None
+
+
+# ---------------------------------------------------------------- 翻页（2026-09-24，§10.189）
+def test_ann_n17_discover_next_pages_js_pager():
+    """**JS 拼的翻页**（应急管理部那种）：原始 HTML 里没有真 `<a>`，只有
+    `document.write("…index_" + i + ".shtml…")` + `var countPage = N`
+    ⇒ 按 `index_N.shtml` 规律推出来，且**第 1 页（栏目页本身）不算在内**。
+
+    实测依据（开发史 §10.189）：该站第 2 页 = `index_1.shtml`、第 3 页 = `index_2.shtml`…
+    """
+    url = "https://www.mem.gov.cn/gk/tzgg/"
+    html = ("<html><body><div class='page'><script>var currentPage = 0;"
+            "var countPage = 5;document.write(\"<a href=\\\"index_\" + i + \".shtml\\\">\"+(i+1)+\"</a>\");"
+            "</script></div><a href=\"t20260922_717309.shtml\">某公告 2026-09-22</a></body></html>")
+    pages = announce.discover_next_pages(html, url)
+    assert pages == [url + "index_1.shtml", url + "index_2.shtml",
+                     url + "index_3.shtml", url + "index_4.shtml"], pages
+    # 条目详情页**不许**被当成翻页（它不在同目录的 index_N 规律里，也不叫"下一页"）
+    assert all("t20260922" not in p for p in pages)
+
+
+def test_ann_n18_discover_next_pages_real_links_and_none():
+    """**真 `<a>` 翻页链**收同目录的"下一页"；跨目录/跨站/静态资源一律不收；
+    没有翻页控件的页面返回空（不许凭 imagination 编页号）。"""
+    url = "https://x.example.com/gk/tzgg/"
+    html = _page(
+        ("index_1.shtml", "下一页"),
+        ("/gk/other/index_1.shtml", "下一页"),          # 跨目录 ⇒ 不收
+        ("https://other.example.com/gk/tzgg/index_1.shtml", "下一页"),  # 跨站 ⇒ 不收
+        ("index_1.css", "下一页"),                      # 静态资源 ⇒ 不收
+        ("t2026.shtml", "某公告 2026-09-01"),           # 条目 ⇒ 不收
+    )
+    assert announce.discover_next_pages(html, url) == [url + "index_1.shtml"]
+    assert announce.discover_next_pages(_page(("t2026.shtml", "某公告 2026-09-01")), url) == []
+
+
+def test_ann_n19_scan_walks_pages(db, monkeypatch):
+    """**翻页真的翻**：列表 3 页（第 2/3 页由 `index_1/index_2.shtml` 拼）
+    ⇒ 三页的条目**都**要进 `announcement_observed`，且 `pages` 如实报 3。
+
+    ⚠ 这条正是业主那句"应该入库的怎么没入库"的回归锚：改前只取第 1 页 ⇒ 断言会红在总数 2。
+    """
+    url = "https://www.mem.gov.cn/gk/tzgg/"
+    p1 = _page(("t1.shtml", "第一页的第一条公告 2026-09-20"),
+               ("t2.shtml", "第一页的第二条公告 2026-09-19"))
+    # JS 翻页壳（与真站同形）：countPage=3 ⇒ index_1 / index_2 两页
+    p1 += ("<script>var countPage = 3;document.write(\"<a href=\\\"index_\" + i + \".shtml\\\">\");"
+           "</script>")
+    p2 = _page(("t3.shtml", "第二页的公告事项标题 2026-09-18"))
+    p3 = _page(("t4.shtml", "第三页的公告事项标题 2026-09-17"))
+    transport = _mk_scan_world(monkeypatch, {
+        url: (200, p1), url + "index_1.shtml": (200, p2), url + "index_2.shtml": (200, p3)})
+    monkeypatch.setattr(announce, "PAGE_GAP_S", 0.0)
+    announce.add_source("翻页测试源", url)
+    announce.request_scan(force=True, trigger="manual", transport=transport)
+    state = _wait_done()
+    per = state["per_source"][0]
+    assert per["items"] == 4, per              # 4 条都见过（不是只 2 条）
+    assert per["pages"] == 3, per              # 三页都翻了
+    assert announce.list_items(limit=10)["total"] == 4
+    # 第 3 页（index_2.shtml）确实被取过
+    assert url + "index_2.shtml" in transport.calls
+
+
+def test_ann_n20_scan_stops_when_caught_up(db, monkeypatch):
+    """**追上历史就提前停**：所有条目都见过时，不许把预算页数全翻完
+    （第 2 次起扫描要便宜）——连续 `STOP_AFTER_BARREN_PAGES` 页没有"没见过"的 ⇒ 停。
+    同时：后续页 404 **不**把整源判失败（留下的页照样算，另记 page_errors）。
+    """
+    url = "https://www.mem.gov.cn/gk/tzgg/"
+    p1 = _page(("t1.shtml", "已经见过的公告 2026-09-20")) + (
+        "<script>var countPage = 9;document.write(\"<a href=\\\"index_\" + i + \".shtml\\\">\");</script>")
+    same = _page(("t1.shtml", "已经见过的公告 2026-09-20"))
+    transport = _mk_scan_world(monkeypatch, {
+        url: (200, p1),
+        **{f"{url}index_{i}.shtml": (200, same) for i in range(1, 9)}})
+    monkeypatch.setattr(announce, "PAGE_GAP_S", 0.0)
+    monkeypatch.setattr(announce, "STOP_AFTER_BARREN_PAGES", 2)
+    announce.add_source("追上测试源", url)
+    announce.request_scan(force=True, trigger="manual", transport=transport)   # 首扫：基线
+    _wait_done()
+    transport.calls.clear()
+    announce.request_scan(force=True, trigger="manual", transport=transport)   # 二扫：全是旧的
+    state = _wait_done()
+    per = state["per_source"][0]
+    assert state["new_count"] == 0
+    assert per["pages"] <= 3, per              # 第 1 页 + 2 页 barren 就停，不是 9 页
+    assert len(transport.calls) <= 3, transport.calls
+
+    # 后续页 404：整源仍 ok（拿到的页照算），另记 page_errors
+    # ⚠ 上一条源还留在配置里（本文件用例共享库），这一跑的 transport 里没有它的 URL ⇒ 它会 404；
+    #   所以下面**按名字取**这一条源的结果，不按下标（下标 0 是上一条源）。
+    url2 = "https://ok.example.com/gk/"
+    q1 = _page(("a.shtml", "有内容的一页 2026-09-01")) + (
+        "<script>var countPage = 3;document.write(\"<a href=\\\"index_\" + i + \".shtml\\\">\");</script>")
+    t2 = _mk_scan_world(monkeypatch, {url2: (200, q1)})       # index_1/2 未登记 ⇒ 404
+    announce.add_source("后续页404源", url2)
+    announce.request_scan(force=True, trigger="manual", transport=t2)
+    st2 = _wait_done()
+    per2 = next(p for p in st2["per_source"] if p["name"] == "后续页404源")
+    assert per2["status"] == "ok", per2
+    assert per2["items"] == 1 and per2["pages"] == 3, per2
+    assert per2["page_errors"] == 2, per2

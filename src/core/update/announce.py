@@ -66,6 +66,17 @@ PAGE_BYTES_MAX = 2 * 1024 * 1024    # 单页字节上限（截断标记）
 SOURCE_GAP_S = 1.0                  # 源间礼貌间隔
 SCAN_SOFT_CAP_S = 300               # 扫描全程软上限（超时剩余源标 skipped_timeout）
 MIN_INTERVAL_HOURS_DEFAULT = 6.0    # force=false 时间闸（app_config announce.min_interval_hours 可覆盖）
+# ── 翻页（2026-09-24，业主报"应该入库的没入库"引出；见开发史 §10.189）──────────────
+#: 单源最多翻几页。改前**只取第 1 页**（每页 20 条）⇒ 业主看的那个列表 857 条 / 58 页，
+#: 我们永远只看见 20 条 —— 这就是"大量应该入库的放过了"的直接原因。50 页 × 20 条 = 1000 条，
+#: 盖得住部委站的常见列表；真要更深的回溯再调这个数（或走 §10.189 的入库通道做全量回填）。
+PAGES_PER_SOURCE_MAX = 50
+#: 逐页礼貌间隔（同一站连翻 50 页不留间隔不礼貌，也容易被 WAF 记上）。
+PAGE_GAP_S = 0.4
+#: 单源翻页的总时间预算；超了就停在拿到的页数并如实标 truncated（不给单源拖垮整轮扫描）。
+SOURCE_TIME_BUDGET_S = 90.0
+#: 连续这么多页**一条"没见过"的都没有** ⇒ 判定已追上历史，提前停（第 2 次起扫描就便宜了）。
+STOP_AFTER_BARREN_PAGES = 3
 
 _SCAN_LOCK = threading.Lock()
 _announce_runs: set[str] = set()    # 进程内在跑扫描（与 scan_state.status 构成双闸）
@@ -461,11 +472,103 @@ def run_announce_scan(scan_id: str, trigger: str, transport: Any = None) -> dict
     return state
 
 
+#: 真 `<a>` 翻页：href 像"第 N 页"（`index_2.shtml` / `?page=2` / `list_2.html`）
+_PAGER_HREF_RE = re.compile(r"(?i)(^|/)(index|list|page|p)[_-]?\d+\.s?html?$|[?&]page=\d+")
+#: JS 拼的翻页（部委站最常见）：原始 HTML 里没有真 `<a>`，只有 `index_" + i + ".shtml`
+_PAGER_JS_HINT_RE = re.compile(r"index_(\d+)\.s?html", re.I)
+_PAGER_JS_COUNT_RE = re.compile(r"countPage\s*=\s*(\d+)", re.I)
+_PAGER_NEXT_TEXT_RE = re.compile(r"^\s*(下一页|下页|next|more|更多|»)\s*$", re.I)
+
+
+def discover_next_pages(html: str, page_url: str,
+                        max_pages: int = PAGES_PER_SOURCE_MAX) -> list[str]:
+    """从**当前这一页**找出后续页 URL（不含当前页；最多 `max_pages` 个）。
+
+    两种形态都实测过（开发史 §10.189）：
+    ① **真 `<a>` 翻页链**：href 像 `index_2.shtml` / `?page=2`，或锚文本是"下一页"。只收**同目录同站**，
+       且排除明显是条目的外链（跨目录/跨站一律不收）。
+    ② **JS 拼的翻页**（应急管理部等部委站）：`document.write("<a href=\\"index_"+i+".shtml\\">")`
+       + `var countPage = 25` ⇒ 原始 HTML 里**没有真 `<a>`**，只能按 `index_N.shtml` 的规律推。
+       实测该站：第 1 页 = 栏目页本身、第 2 页 = `index_1.shtml`（`?page=2` 会被忽略）。
+
+    ⚠ 这个函数只**提候选**，不保证每一页真有内容：后续页 404/空由调用方如实记账（不许当整源失败）。
+    """
+    out: list[str] = []
+    seen: set[str] = {normalize_url(page_url)}
+    base_dir = page_url.rsplit("/", 1)[0] + "/"
+
+    def _push(u: str) -> None:
+        key = normalize_url(u)
+        if key in seen or len(out) >= max_pages:
+            return
+        if urlsplit(u).netloc != urlsplit(page_url).netloc:
+            return
+        seen.add(key)
+        out.append(u)
+
+    for m in _A_TAG_RE.finditer(html or ""):
+        href = (m.group(1) or "").strip()
+        text = _TAG_STRIP_RE.sub("", m.group(2) or "").strip()
+        if not href or _SCHEME_BAD_RE.match(href):
+            continue
+        if _STATIC_EXT_RE.search(href):
+            continue
+        if not (_PAGER_NEXT_TEXT_RE.match(text) or _PAGER_HREF_RE.search(href)):
+            continue
+        u = urljoin(page_url, href)
+        # 只收同目录：跨目录的多半是"另一块栏目"，收了会把预算烧在无关页上
+        if not u.startswith(base_dir):
+            continue
+        _push(u)
+
+    # ② JS 拼的翻页：按 index_N.shtml 规律推（N 从 1 开始 = 第 2 页）
+    hints = [int(n) for n in _PAGER_JS_HINT_RE.findall(html or "")]
+    cm = _PAGER_JS_COUNT_RE.search(html or "")
+    count = None
+    if cm is not None:
+        try:
+            count = int(cm.group(1))
+        except ValueError:
+            count = None
+    if hints or count is not None:
+        top = max([*hints, (count - 1) if count else 0] or [0])
+        for n in range(1, min(top, max_pages) + 1):
+            _push(f"{base_dir}index_{n}.shtml")
+    return out
+
+
+def _unseen_count(source_id: str, items: list[dict]) -> int:
+    """这一页的条目里，有多少条**还没见过**（用于"连续几页没新东西就提前停"）。
+
+    只读；一条都查不到时返回 0（宁可多翻一页，也不因为查询异常提前停）。
+    """
+    if not items:
+        return 0
+    hashes = [url_hash(it["url"]) for it in items if it.get("url")]
+    if not hashes:
+        return 0
+    marks = ",".join("?" for _ in hashes)
+    try:
+        row = get_db_connection().execute(
+            f"SELECT COUNT(*) AS c FROM announcement_observed"
+            f" WHERE source_id=? AND url_hash IN ({marks})",
+            [source_id, *hashes]).fetchone()
+        return max(0, len(hashes) - int(row["c"]))
+    except Exception:  # noqa: BLE001 — 查询失败不影响扫描本身
+        return len(hashes)
+
+
 def _scan_one_source(transport: Any, src: dict, scan_id: str) -> dict:
-    """单源扫描：抓取（预算内）→ 解析 → 去重落库。失败诚实归因，绝不假装成功。"""
+    """单源扫描：抓取（预算内，**逐页**）→ 解析 → 去重落库。失败诚实归因，绝不假装成功。
+
+    ⚠ **2026-09-24 起会翻页**（改前只取第 1 页）：部委列表一页 20 条、而"新公告"常在第 2..N 页
+    ⇒ 只取第 1 页等于放过绝大多数。翻页的三种停法都**如实记账**：页码预算 / 单源时间预算 /
+    连续 `STOP_AFTER_BARREN_PAGES` 页一条没见过的都没有（追上历史）。后续页失败**不**把整源判失败
+    （留下的页照样算，另记 `page_errors`）。
+    """
     result = {"id": src["id"], "name": src.get("name", ""), "status": "ok",
               "http": None, "items": 0, "new_items": 0, "baseline_items": 0,
-              "reason": None, "truncated": False, "_recent": []}
+              "reason": None, "truncated": False, "pages": 0, "_recent": []}
     src_url = src.get("url", "")
     t0 = time.monotonic()
     try:
@@ -492,6 +595,40 @@ def _scan_one_source(transport: Any, src: dict, scan_id: str) -> dict:
             result["reason"] = ("js_shell_suspected" if diag.get("js_shell_suspected")
                                 else "parse_empty")
             return result
+
+        # ── 逐页翻（2026-09-24）：第 1 页解析**出东西**才谈翻页；一条都没解析出来时翻页没意义 ──
+        result["pages"] = 1
+        known = {normalize_url(it["url"]) for it in items}
+        barren = 0
+        for next_url in discover_next_pages(html, src_url):
+            if result["pages"] >= PAGES_PER_SOURCE_MAX:
+                result["truncated"] = True          # 页码预算用尽（如实标）
+                break
+            if time.monotonic() - t0 > SOURCE_TIME_BUDGET_S:
+                result["truncated"] = True          # 时间预算用尽（如实标）
+                break
+            time.sleep(PAGE_GAP_S)
+            try:
+                st2, body2 = transport.fetch(next_url, timeout=PAGE_TIMEOUT_S)
+            except Exception:  # noqa: BLE001 — 后续页取不到不拖垮整源
+                result["page_errors"] = int(result.get("page_errors") or 0) + 1
+                continue
+            result["pages"] += 1
+            if st2 != 200 or not isinstance(body2, str):
+                result["page_errors"] = int(result.get("page_errors") or 0) + 1
+                continue
+            more, _more_diag = parse_list_page(body2, next_url)
+            fresh = [it for it in more if normalize_url(it["url"]) not in known]
+            for it in fresh:
+                known.add(normalize_url(it["url"]))
+            items.extend(fresh)
+            if _unseen_count(src["id"], fresh) == 0:
+                barren += 1
+                if barren >= STOP_AFTER_BARREN_PAGES:
+                    break                            # 追上历史了（第 2 次起扫描就便宜）
+            else:
+                barren = 0
+        result["items"] = len(items)
 
         first_scan = src.get("first_scan_done") is not True
         new_items: list[dict] = []
