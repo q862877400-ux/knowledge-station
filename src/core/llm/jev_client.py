@@ -137,7 +137,7 @@ def system_one(state: Any, questions: dict[str, Any], *,
             _record_egress(service, payload, None, f"http_{r.status_code}", t0, audit)
             raise JevUnavailable(f"jev HTTP {r.status_code}: {r.text[:120]}")
         body = r.json()
-        _validate_body(body, set(questions))
+        _validate_body(body, set(questions), _score_levels(questions))
     except JevUnavailable:
         _note_fail()
         raise
@@ -150,12 +150,27 @@ def system_one(state: Any, questions: dict[str, Any], *,
     return body
 
 
-def _validate_body(body: Any, question_ids: set[str]) -> None:
+def _score_levels(questions: dict[str, Any]) -> dict[str, int]:
+    """从提问里取出每道 Score 题的**档位数**（`criteria` 列表长度），供回包值域校验用。"""
+    out: dict[str, int] = {}
+    for qid, q in questions.items():
+        if isinstance(q, dict) and q.get("type") == "score":
+            levels = q.get("criteria")
+            if isinstance(levels, list) and levels:
+                out[qid] = len(levels)
+    return out
+
+
+def _validate_body(body: Any, question_ids: set[str], score_levels: dict[str, int] | None = None) -> None:
     """**逐题验契约**（独立复核 2026-09-24 MED-2：原先只查 `answers` 存在，于是
     `True`（Python bool 是 int 子类）、`1.1`、以及回包 `model` 漂成别名都算"合法"）。
 
     - 答案键必须与请求的题一一对应（少一题不许当成功——调用方会当成"全判过了"）；
-    - 每个数值必须在 **0~1 闭区间**且是真 float/int（**排除 bool**）；
+    - `noul` 与 `confidence` 必须在 **0~1 闭区间**且是真 float/int（**排除 bool**）；
+    - ⚠ **`score` 不是 0~1**！官方 Score 是**有序量表**，回的是档位下标（0..档数−1，可为小数）。
+      我第一版把三个字段一起按 0~1 判 ⇒ **真机第一轮就把自己锁死**（4 题里带 Score 的那次
+      全部被判非法，隐性的 6 条全落熔断窗内——实测 miss 6/10，2026-09-24 17:0x）。
+      `score_levels` 传各题的档位数时按 `[0, 档数−1]` 判；没传就只查它是数值。
     - `model` 必须是我们钉的那个版本号：别名会随官方发布漂移，而阈值是按该版本量的。
     """
     if not isinstance(body, dict):
@@ -171,13 +186,21 @@ def _validate_body(body: Any, question_ids: set[str]) -> None:
     for qid, ans in answers.items():
         if not isinstance(ans, dict):
             raise JevUnavailable(f"jev 答案 {qid} 不是对象")
+        # Score 题的档位数（从提问里取；没有就退化成"只要是数值"）
+        levels = (score_levels or {}).get(qid)
         for field in ("noul", "score", "confidence"):
             if field not in ans:
                 continue
             val = ans[field]
             if isinstance(val, bool) or not isinstance(val, (int, float)):
                 raise JevUnavailable(f"jev 答案 {qid}.{field} 类型非法：{val!r}")
-            if not 0.0 <= float(val) <= 1.0:
+            val = float(val)
+            if field == "score" and levels:
+                if not 0.0 <= val <= float(levels - 1):
+                    raise JevUnavailable(
+                        f"jev 答案 {qid}.score 越界：{val}（量表 {levels} 档 ⇒ 合法 [0, "
+                        f"{levels - 1}]）")
+            elif not 0.0 <= val <= 1.0:
                 raise JevUnavailable(f"jev 答案 {qid}.{field} 越界：{val!r}")
 
 

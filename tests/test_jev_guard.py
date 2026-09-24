@@ -271,11 +271,42 @@ def test_client_rejects_bad_values(monkeypatch):
             jev_client.system_one("s", q)
 
 
-def test_client_rejects_bad_score_and_confidence(monkeypatch):
-    """Score/Choice 的 `score`/`confidence` 同样要在 0~1（`jev_ingest` 用它做门控）。"""
+def test_client_score_range_is_levels_not_unit_interval(monkeypatch):
+    """⚠ **Score 不是 0~1**（2026-09-24 真机踩到：我的校验把三个字段一起按 0~1 判，
+    而官方 Score 回的是**档位下标 0..档数−1** ⇒ 第一轮真机就把带 Score 的那次全判非法、
+    隐性的 6 条全落熔断窗内——实测 miss 6/10）。
+
+    现在：4 档量表回 `score=2.4` 必须**放行**；回 `score=9.0` 必须拒。
+    """
+    levels = ["无", "轻微", "严重", "特别严重"]
+    q = {"s": jev_client.score("有多严重？", levels)}
+    _patch_post(monkeypatch, {"answers": {"s": {"type": "score", "score": 2.4,
+                                               "confidence": 0.9}}, "model": jev_client.JEV_MODEL})
+    body = jev_client.system_one("x", q)          # 2.4 在 4 档量表的 [0,3] 内 ⇒ 合法
+    assert body["answers"]["s"]["score"] == 2.4
+    jev_client.reset_breaker_for_tests()
+    # 越界（9.0 > 3）必须拒
+    _patch_post(monkeypatch, {"answers": {"s": {"type": "score", "score": 9.0,
+                                               "confidence": 0.9}}, "model": jev_client.JEV_MODEL})
+    with pytest.raises(jev_client.JevUnavailable):
+        jev_client.system_one("x", q)
+    jev_client.reset_breaker_for_tests()
+    # 负档位也拒
+    _patch_post(monkeypatch, {"answers": {"s": {"type": "score", "score": -1.0,
+                                               "confidence": 0.9}}, "model": jev_client.JEV_MODEL})
+    with pytest.raises(jev_client.JevUnavailable):
+        jev_client.system_one("x", q)
+    jev_client.reset_breaker_for_tests()
+
+
+def test_client_rejects_bad_confidence(monkeypatch):
+    """Choice 的 `confidence` 必须在 0~1（`jev_ingest` 的 clear/review 门控靠它）。
+
+    （`score` 的量表值域由上一条专门测：**它不是 0~1**。）
+    """
     _patch_post(monkeypatch, {
-        "answers": {"k": {"type": "choice", "choice": "admin", "score": 9.0,
-                          "confidence": 0.9}}, "model": jev_client.JEV_MODEL})
+        "answers": {"k": {"type": "choice", "choice": "admin", "confidence": 1.4}},
+        "model": jev_client.JEV_MODEL})
     with pytest.raises(jev_client.JevUnavailable):
         jev_client.system_one("s", {"k": jev_client.choice("?", {"admin": "a", "other": "b"})})
 
