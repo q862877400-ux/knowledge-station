@@ -288,6 +288,118 @@ check('B5 正向对照：不卸载时**必须**探测（证明 B4 不是"永远�
 globalThis.fetch = realFetch2
 
 
+/* ------------------------------------------------------------------ *
+ * C. 公告**正文入库**那两条路由（2026-09-24 切片②下半，开发史 §10.193）
+ *
+ * 为什么单独加这一组：这两条是**面向上线的新契约**（界面按它们取数与写入），而
+ * "注册在哪个路径、POST 体怎么转、引擎路径常量写没写错"在别处**一条判据都没有**
+ * （引擎侧有端点用例，但那是引擎的路由，不是 host 的代理）。这里用**真模块 + 桩 fetch**
+ * 把代理这一段钉住：能抓住"常量写错/方法写错/体没转"这类改动。
+ * ------------------------------------------------------------------ */
+
+{
+  const { EventEmitter } = await import('node:events')
+  const registered = []
+  const recCtx = {
+    webServer: {
+      register: (route) => {
+        registered.push(route)
+        return () => {}
+      },
+    },
+    logger: { info() {}, warn() {}, error() {} },
+  }
+  const disposeC = registerKsAnnounceRoutes(recCtx, managerB)
+  const byPath = new Map(registered.map((r) => [r.path, r]))
+  check('C1 入库两条路由都注册成了 exact 路径',
+    byPath.get('/ks/announce/ingest')?.kind === 'exact'
+    && byPath.get('/ks/announce/ingest/pending')?.kind === 'exact',
+    registered.map((r) => `${r.kind} ${r.path}`).join(' | '))
+
+  const engineCalls = []
+  const realFetch3 = globalThis.fetch
+  globalThis.fetch = async (url, init) => {
+    engineCalls.push({ url: String(url), method: init?.method ?? 'GET', body: init?.body })
+    if (String(url).includes('/announce-ingest/pending')) {
+      return new Response(JSON.stringify({ code: 200, status: 'success',
+        data: { total: 7, ingested: 5, pending: 2,
+                pending_by_status: { effective: 1, reference: 1, withdrawn: 0 },
+                skipped_non_normative: 0 } }),
+      { status: 200, headers: { 'Content-Type': 'application/json' } })
+    }
+    return new Response(JSON.stringify({ code: 200, status: 'success',
+      data: { tried: 1, ingested: 1, skipped: 0, failed: 0, pending_left: 0,
+              stopped_early: false, stop_reason: null, items: [] } }),
+    { status: 200, headers: { 'Content-Type': 'application/json' } })
+  }
+
+  /** 最小 req/res 桩：`readJsonBody` 只用到 req 的 on('data'|'end'|'error')。 */
+  const fakeReq = (method, body) => {
+    const req = new EventEmitter()
+    req.method = method
+    req.url = '/ks/announce/ingest'
+    if (body !== undefined) {
+      const text = typeof body === 'string' ? body : JSON.stringify(body)
+      queueMicrotask(() => {
+        if (text) req.emit('data', Buffer.from(text, 'utf8'))
+        req.emit('end')
+      })
+    } else {
+      queueMicrotask(() => req.emit('end'))
+    }
+    return req
+  }
+  const fakeRes = () => {
+    const res = new EventEmitter()
+    res.statusCode = 0
+    res.headers = {}
+    res.body = null
+    res.writeHead = (code) => { res.statusCode = code; return res }
+    res.end = (chunk) => { res.body = chunk === undefined ? '' : String(chunk); return res }
+    return res
+  }
+
+  const resGet = fakeRes()
+  await byPath.get('/ks/announce/ingest/pending').handler(fakeReq('GET'), resGet)
+  const gotGet = JSON.parse(resGet.body)
+  check('C2 GET pending 打到引擎的 pending 端点、值原样回给界面',
+    engineCalls.length === 1
+    && engineCalls[0].url.includes('/api/v1/update/announce-ingest/pending')
+    && resGet.statusCode === 200 && gotGet.ok === true && gotGet.data.pending === 2,
+    `${engineCalls[0]?.url} → ${resGet.statusCode} ${resGet.body}`)
+
+  engineCalls.length = 0
+  const resPost = fakeRes()
+  await byPath.get('/ks/announce/ingest').handler(
+    fakeReq('POST', { limit: 3, source_id: 'src_x', force: true }), resPost)
+  const sent = engineCalls[0]?.body ? JSON.parse(engineCalls[0].body) : null
+  check('C3 POST ingest 打到引擎的 ingest 端点、**请求体原样转**（limit/source_id/force）',
+    engineCalls.length === 1
+    && engineCalls[0].method === 'POST'
+    && engineCalls[0].url.includes('/api/v1/update/announce-ingest')
+    && !engineCalls[0].url.includes('/pending')
+    && sent?.limit === 3 && sent?.source_id === 'src_x' && sent?.force === true,
+    `${engineCalls[0]?.url} body=${engineCalls[0]?.body}`)
+
+  // 反向：非法 JSON 必须 400（**不许**把它当空体转下去 —— 那会把 limit 悄悄变成默认值）
+  engineCalls.length = 0
+  const resBad = fakeRes()
+  await byPath.get('/ks/announce/ingest').handler(fakeReq('POST', '{不是 JSON'), resBad)
+  check('C4 非法 JSON ⇒ 400 且一个字节都不往引擎转',
+    resBad.statusCode === 400 && engineCalls.length === 0,
+    `${resBad.statusCode} engineCalls=${engineCalls.length}`)
+
+  // 方法纪律：GET 打 ingest（写路径）必须 405
+  const resMethod = fakeRes()
+  await byPath.get('/ks/announce/ingest').handler(fakeReq('GET'), resMethod)
+  check('C5 GET /ks/announce/ingest ⇒ 405（写路径不许被 GET 触发）',
+    resMethod.statusCode === 405 && engineCalls.length === 0, String(resMethod.statusCode))
+
+  globalThis.fetch = realFetch3
+  disposeC()
+}
+
+
 /* ------------------------------------------------------------------ */
 
 const failed = results.filter((r) => !r.ok)

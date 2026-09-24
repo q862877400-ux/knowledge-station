@@ -760,7 +760,10 @@ export function KsAnnounceSourcesSection(props: { openedOnce: boolean }): JSX.El
     try {
       setIngestPending(await fetchAnnounceIngestPending())
     } catch (err) {
-      setIngestError(err instanceof Error ? err.message : String(err))
+      const notLoaded = err instanceof InspectionHttpError && err.httpStatus === 404
+      setIngestError(notLoaded
+        ? '这个入口还没被主程序加载：请重启一次 DSH 再展开这里'
+        : err instanceof Error ? err.message : String(err))
     }
   }, [])
 
@@ -774,7 +777,13 @@ export function KsAnnounceSourcesSection(props: { openedOnce: boolean }): JSX.El
       await loadIngestPending()
       await load()
     } catch (err) {
-      setIngestError(err instanceof Error ? err.message : String(err))
+      // ⚠ 404 这个错**不是**"抓取失败"：它多半是"宿主还没加载新加的那条通道"
+      // （宿主侧的插件模块要 DSH 重启一次才会换成新的；引擎与界面是热更新的）。
+      // 说清楚该干什么，比把 HTTP 404 扔给业主强。
+      const notLoaded = err instanceof InspectionHttpError && err.httpStatus === 404
+      setIngestError(notLoaded
+        ? '这个入口还没被主程序加载：请重启一次 DSH，再回来点它（数据不会丢，公告都还在）'
+        : err instanceof Error ? err.message : String(err))
       void loadIngestPending()
     } finally {
       setIngesting(false)

@@ -35757,7 +35757,8 @@ function KsAnnounceSourcesSection(props) {
     try {
       setIngestPending(await fetchAnnounceIngestPending());
     } catch (err) {
-      setIngestError(err instanceof Error ? err.message : String(err));
+      const notLoaded = err instanceof InspectionHttpError && err.httpStatus === 404;
+      setIngestError(notLoaded ? "\u8FD9\u4E2A\u5165\u53E3\u8FD8\u6CA1\u88AB\u4E3B\u7A0B\u5E8F\u52A0\u8F7D\uFF1A\u8BF7\u91CD\u542F\u4E00\u6B21 DSH \u518D\u5C55\u5F00\u8FD9\u91CC" : err instanceof Error ? err.message : String(err));
     }
   }, []);
   const onIngest = async () => {
@@ -35770,7 +35771,8 @@ function KsAnnounceSourcesSection(props) {
       await loadIngestPending();
       await load();
     } catch (err) {
-      setIngestError(err instanceof Error ? err.message : String(err));
+      const notLoaded = err instanceof InspectionHttpError && err.httpStatus === 404;
+      setIngestError(notLoaded ? "\u8FD9\u4E2A\u5165\u53E3\u8FD8\u6CA1\u88AB\u4E3B\u7A0B\u5E8F\u52A0\u8F7D\uFF1A\u8BF7\u91CD\u542F\u4E00\u6B21 DSH\uFF0C\u518D\u56DE\u6765\u70B9\u5B83\uFF08\u6570\u636E\u4E0D\u4F1A\u4E22\uFF0C\u516C\u544A\u90FD\u8FD8\u5728\uFF09" : err instanceof Error ? err.message : String(err));
       void loadIngestPending();
     } finally {
       setIngesting(false);
