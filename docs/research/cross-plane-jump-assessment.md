@@ -58,6 +58,32 @@
 2. **"没有页"必须如实说没有** —— 今天 DOCX 把它填成 `1`，于是引用定位指向一个不存在的页。
    这是本仓最恨的"看着正常、其实错了"。
 
+### 这个契约**不用我们发明** —— W3C 已经定好了（2026-09-25 三路调研后补）
+
+我原先把它当"要自己设计的契约"，**错了**。现成的标准答案是
+**W3C Web Annotation Data Model**（Recommendation）：
+
+| 选择器 | 作用 | 用在我们这儿 |
+|---|---|---|
+| `TextQuoteSelector(exact + prefix + suffix)` | 用**实际文字**当载荷，不依赖偏移 | 换解析器/改段落也能重新找到那句话 |
+| `TextPositionSelector(start, end)` | 字符偏移 | 便宜、精确，但会漂 |
+| **`refinedBy`** | **粗选择器 + 细选择器叠加**（规范原例正是"段落 FragmentSelector refinedBy 短语 TextQuoteSelector"） | **这就是"没有页号"问题的正解**：粗容器（页 / 标题 slug / 段落 / HTML 锚）refinedBy 文字引用 |
+| `RangeSelector` | 起止各带一个 selector | 跨段引用 |
+
+**而且有可直接抄的参考实现**：[hypothesis/client](https://github.com/hypothesis/client)
+（**BSD-2-Clause**，可闭源商用）：三种 selector 同时产出 + **近似匹配打分**（`score` 0–1、`maxErrors` 容错）。
+
+**不要抄的三种做法**（都是别的产品的实际实现，但会坏）：
+
+| 做法 | 谁这么做 | 为什么不能抄 |
+|---|---|---|
+| `#page=N&selection=beginIdx,offset,endIdx,offset`（pdf.js **文本层 item 序号 + item 内偏移**） | Obsidian **PDF++**（MIT） | **换解析器或换 PDF 立刻失效**（源码注释即如此） |
+| `?page=N&box=<14位时间戳-7位>`（7 位 = `md5(positions)` 前 7 位） | 思源 SiYuan（AGPL-3.0） | **位置一改 id 就变**，锚点不稳定 |
+| 页级回链（只能回答"哪些页引用了它"） | MediaWiki（官方文档明说 **"cannot list the backlinks of a specific section/anchor only"**） | 到不了"哪一段"——**所以目标选择器必须存进链接里，不能只存目标页** |
+
+> 另抄 Zotero 一招兜底：**同时存一份渲染后的纯文本（`plainCitation`），用户手改过就停止自动更新**
+> —— 锚点失效时不至于无声无息。
+
 ---
 
 ## 四、一个好消息：格式越结构化，跳得越准
@@ -81,7 +107,7 @@
 | # | 要动 | 代价 | 风险 / 备注 |
 |---|---|---|---|
 | **0** | 补 **HTML** 解析；**DOCX 补真实位置**（PPT 缓办） | 中 | HTML 拿现成件（本仓已有 DSH 侧 docx 解析与 `office_roundtrip`） |
-| 1 | **定位坐标契约**（页/标题路径/段序/行号 + 格式字段） | 中 | 不定它，后面全是 PDF 专用 |
+| 1 | **定位坐标契约** —— **照 §三 的 W3C selector 栈做**（粗容器 `refinedBy` 文字引用），**不要自己设计** | 中 | 许可已核：参考实现 BSD-2-Clause（**可闭源商用**）；不定它，后面全是 PDF 专用 |
 | 2 | **引用抽取跑到通用侧**（复用同一函数，不写第二份） | 小 | 先修正则（那 47.6%） |
 | 3 | **解析目标到条款级**（标准号 + 条款号 + 版本钉版） | **中-大** | **正确性全在这**（见下节歧义实测） |
 | 4 | **边的存放**（跨平面边表，或给边加"节点种类"） | 小-中 | 迁移须幂等 + 补契约测试 |
@@ -138,8 +164,15 @@
 
 | | 拿什么 | 量什么 |
 |---|---|---|
-| **切片 A** | 一份 **Markdown 或 HTML**（引用是显式链接） | 跳对几条 / 跳错几条 / 库里缺哪几部 |
-| **切片 B** | 一份**散文 PDF**（靠正则猜） | 同上 |
+| **切片 A** | **现成的真实 Markdown**（引用是显式链接）——例如本仓 `docs/` 自身、或 DSH 官方文档 | 跳对几条 / 跳错几条 / 库里缺哪几部 |
+| **切片 B** | **现成的真实 PDF**——直接用 `D:\AI\work space\标准\…` 里那 5,400 篇之一 | 同上 |
+
+> ⚠ **更正（2026-09-25）**：这两份原先是**我手搓的**（`var/fixtures/cross-plane-jump/`），**已不作基准**。
+> 手搓件是"自我印证"——它只测我**已经想到**的陷阱，测不出我没料到的形态；真正的测试料是现成的：
+> **测试文档 = 真实标准 PDF；答案卡 = 它自己第 2 章那份引用清单**（5,400 篇，原件 **5,400/5,400 全在盘上**）。
+> 而且 **GB 30871-2022 自己第 2 章就列着** `GB 2894` / `GB/T 3608` / `GB 15577` / `GB/T 50493—2019` / `DL 409`
+> —— 我手搓的那 5 条"库里没有的标准"，真文档早写好了。
+> 附带实情：那是**扫描件** ⇒ 真实测试**第一步就要过 OCR**，这正是真料才有的东西。
 
 抽取是正则、解析是查库 ⇒ **不花模型钱、不碰真库写入**。
 **两个数的差距一出来，"能不能上、先支持哪些格式"就有答案了** —— 比先建表再发现不行便宜得多。
@@ -162,10 +195,61 @@
 
 ## 九、待业主拍板 / 未定
 
-1. **切片 A/B 用哪几份真实文档**（需要引用了标准的那种；业主手上应该就有）。
+1. **切片 A/B 具体挑哪几份** —— 已定为**现成的**：A 用真实 Markdown（本仓 `docs/` 自身或 DSH 官方文档），
+   B 用 `D:\AI\work space\标准\` 里那 5,400 篇真实 PDF 之一。剩下的选择只是"挑哪几篇"，**不再是"造什么"**。
 2. **是否先把"缺哪几部标准"做出来**——它不需要跨平面边表、不需要座标契约，
    **今天就能做**，而且直接服务"引用的规范有没有少"这个刚需。
 3. 条款级初版**准确率到多少才算值得上线**（先定线，再量）。
+
+---
+
+## 十、采纳清单（2026-09-25 三路调研后）
+
+### 10.1 一句话：这件事**没有现成件** —— 但也不是"抄一个项目"能解决的
+
+三路独立调研撞到同一堵墙：
+
+| 想要的能力 | 现成件 |
+|---|---|
+| (a) 抽「规范性引用文件」清单 | **没有**（中文、英文都没有） |
+| (b) 抽正文里的 GB 号 / 条号 / 法条号 | **没有**（GROBID 中文不可用；中文法律 OSS 全是 0–1★ 玩具） |
+| 「引用了 N 部、缺 M 部」 | **没有**（工标库只做"引用是否现行/正确"，企业版定制、无公开价） |
+| 「A 文档点一下 → 落到 B 文档的位置」 | **RAGFlow / Dify / WeKnora / Onyx 一家都没做**，全部停在"引用到 chunk"，跨文档定位留给应用层 |
+
+⇒ 正确做法是 **借零件 + 自己写最薄的那一层**，不是找一个项目接进来。
+
+### 10.2 借什么（每个都验过真身）
+
+| 零件 | 借哪一部分 | 许可 | 我验了什么 / 注意 |
+|---|---|---|---|
+| **RAGFlow** `ingestion_pipeline_laws.json` | 5 组层级正则 + `tree_merge` | Apache-2.0（可商用） | 实取 **29,741 字节**，`hierarchy:2`、`method:"hierarchy"`，中文条号正则在里面。⚠ **它是切块器，不是引用抽取器** |
+| **hypothesis/client** | **W3C selector 栈** + 引文近似匹配（`score` / `maxErrors`） | **BSD-2-Clause（可闭源商用）** | 三种 selector 同时产出；规范 `refinedBy` 的原例正是"段落 refinedBy 短语"。**不抄** Zotero 的 bbox、PDF++ 的 item 索引、MediaWiki 的页级回链 |
+| **openlegaldata/legal-reference-extraction** | 引用对象模型（`type` / `span` / 归一化 id + `map_span_to_raw` + 一串 serializer） | MIT（GitHub API 判定；**根 LICENSE 404，未逐字核**） | 活跃（2026-09-23），德国法场景——结构可照搬来承载「GB 30871-2022 第 5.2 条」 |
+| **GROBID** | 只借「正文锚点 ↔ 引用条目」**回指模型** + bbox 随引用输出 | Apache-2.0 | ⚠ **中文不可用，有维护者亲口证据**（issue #1034「训练数据里几乎没有中文样本」；#477 开于 2019 至今 open） |
+| **relaton-gb** | 标准号前缀正则 `(GB\|GB/T\|GB/Z)` + CCS 字段定义 | BSD-2-Clause | **README 原文确认**：`GB/T 1.1` 解析不了、**必须带年号**；且它是**联网抓取**不是离线正则 ⇒ 年号缺失要自己补 |
+| **eyecite** | 「谁引用了它」**反向索引**的对象设计 | BSD-2-Clause | 只做美国判例、中文零支持 |
+
+### 10.3 哪一层必须自己写（而且是最薄的）
+
+- **抽出「你文档里这句话引用了哪部标准的哪一条」** —— 没有现成件。
+- 但有一条硬约束：**接到仓里已有的那份标准号名单上，不许写第 5 份**
+  （现已有 **4 份互不一致**；抽取用的那份只有 6 项、且前缀可选 ⇒ 正是 §四 那 **47.6% 噪声**的来源）。
+- **缺哪部去抓：用已有渠道**（`official_gb` / `ndls`；行标侧 [`std_samr_hb`](../../src/core/update/channels/std_samr_hb.py)
+  **已打通同一台机器的 JSON**，还早解掉了"必须传归一号否则退化成 match-all"那个坑）——**不要新写抓取器**。
+
+### 10.4 顺手两个"现成件缺一块"
+
+1. **WeKnora** 的 `internal/infrastructure/chunker/patterns.go` 里 `ChineseChapterPattern` **不含「条」**
+   （只到 `章|节|節|部分|篇`）⇒ 做条级切块会漏，得照 RAGFlow 补。
+2. **OmniDocBench 与 MinerU 同属 OpenDataLab** ⇒ **不能用它证明 MinerU 的中文质量**（那是自评，不是第三方）。
+   （建议登记，免得以后又被当独立证据引用。）
+
+### 10.5 三个共同局限（三路都一样，如实标出）
+
+1. 三路**都没有运行过任何候选**（纯源码/文档/活体 API 取证）；我也没有。
+   "能不能跑、中文好不好"是读代码与文档得出的，**不是实测**。
+2. refex 的 MIT、relaton-gb 的 `LICENSE.txt`，**只有 GitHub API 自动判定，没逐字核**。
+3. **"未找到现成件" ≠ "不存在"**（例如 `chinese-law-corpus` 在 GitHub 上搜不到，可能已下架或改名）。
 
 ---
 
@@ -182,3 +266,18 @@
 | `var/tmp/probe-versions.py` | 39 组多版本、78 篇旧版仍标现行 |
 | `var/tmp/probe-knn.py` | KNN 566–641 ms（k=5 与 k=20 同价）vs FTS5 0.4 ms |
 | `var/tmp/probe-materials.py` | 通用平面真库：1 项目 / 1 材料 / 1 切片 / pending |
+| `var/tmp/probe-prefixlists.py` | **仓内 4 份标准号前缀名单互不一致**（19/19/17/6 项；抽取用的那份前缀可选） |
+| `var/tmp/probe-locate.py` | 5,400 篇有引用清单的文档，**原件 5,400/5,400 全在盘上**（`D:\AI\work space\标准\`） |
+| `var/tmp/probe-lawcatalog.py` / `probe-sxx.py` / `probe-sxx2.py` | `law_catalog` 是**法规**目录（29,764 行）；`sxx` 有 6 个取值；`doc_meta.source_id` **全空** ⇒ 目录与库**无连接键** |
+| `var/tmp/probe-pick.py` / `probe-domainver.py` / `probe-names.py` | 挑测试件用的标准（**手搓时期**产物，供核对；测试料已改为真实 PDF） |
+
+**外部一手核验（2026-09-25，本机实取）**：
+
+| 核了什么 | 结果 |
+|---|---|
+| GBMCP `src/gbmcp/models.py` | `StandardItem` / `StandardDetail` **没有** `replaced_standard_no` |
+| `std.samr.gov.cn/gb/search/gbAdvancedSearchPage` | JSON 通、**无验证码**；`TOTAL_REPE` 是**向后指针**（GB 18030 两版实测） |
+| `flk.npc.gov.cn/law-search/*` | 我们**已在新接口上**；`enumData` **不含** sxx 字典（[flk_client.py](../../src/core/knowledge/law_source/flk_client.py#L34) 注释写错了） |
+| RAGFlow `ingestion_pipeline_laws.json` | 存在（29,741 字节），`hierarchy:2` / `method:"hierarchy"` / 5 组 `levels` |
+| relaton-gb README | 原文确认**必须带年号**、且是**联网抓取** |
+
