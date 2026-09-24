@@ -45,7 +45,9 @@ import {
   fetchAnnounceIngestPending,
   fetchAnnounceSources,
   fetchAnnounceSummary,
+  fetchAnnounceTriage,
   fetchApiConfig,
+  fetchChangeSignals,
   fetchInspectionSummary,
   ingestAnnouncements,
   InspectionHttpError,
@@ -56,7 +58,9 @@ import {
   type KsAnnounceSummary,
   type KsApiChannel,
   type KsApiConfigStatus,
+  type KsChangeSignalsResult,
   type KsInspectionSummary,
+  type KsTriageResult,
   removeAnnounceSource,
   runInspection,
   saveApiConfig,
@@ -123,6 +127,174 @@ const SUMMARY_HINT: React.CSSProperties = {
 /** 折叠类目包装：外框分隔线 + summary 标题行 + hint 副标。children 恒挂载
  *  （details 语义），请求门由各面板自己的 visible prop（由 onToggle 驱动）
  *  或各组的展开才拉模式保证。 */
+/**
+ * 「待清清单」（2026-09-24）：规则判"不收"、但要不要真清那批的分档。
+ *
+ * ⚠ **这里没有删除按钮**——删除是业主的决定（本项目的规矩：不可逆删除要业主点名）。
+ * 本格只给**判据与理由**（哪条判"确证是行政事务"、哪条"没把握交你看"），让他自己拍板。
+ * ⚠ 展开才加载：triage 每条要问一次 Jev（实测 ~0.5s/条），不该在打开设置页时就发出去。
+ */
+function AnnounceTriageSection() {
+  const [data, setData] = useState<KsTriageResult | null>(null)
+  const [err, setErr] = useState<string | null>(null)
+  const [loading, setLoading] = useState(false)
+  const load = () => {
+    setLoading(true)
+    setErr(null)
+    void fetchAnnounceTriage()
+      .then(setData)
+      .catch((e) => setErr(e instanceof Error ? e.message : String(e)))
+      .finally(() => setLoading(false))
+  }
+  return (
+    <details
+      style={{ fontSize: 12, margin: '2px 0', color: 'var(--dsw-alias-label-secondary, #666)' }}
+      onToggle={(e) => {
+        if ((e.currentTarget as HTMLDetailsElement).open && data === null && !loading) load()
+      }}
+    >
+      <summary style={{ cursor: 'pointer' }}>
+        待清清单（规则判"不属法规标准"的那批）
+        {data !== null ? `：确证可清 ${data.counts.clear} · 待你确认 ${data.counts.review}` : '（展开加载）'}
+      </summary>
+      <div style={{ margin: '6px 0 0' }}>
+        {err !== null && (
+          <p role="alert" style={{ color: 'var(--dsw-alias-state-error-primary)', margin: '0 0 4px' }}>{err}</p>
+        )}
+        {loading && <p style={{ margin: '0 0 4px' }}>判断中（每条要过一遍语义判断，约半秒一条）…</p>}
+        {data !== null && data.total === 0 && <p style={{ margin: '0 0 4px' }}>没有待清条目。</p>}
+        {data !== null && data.items.length > 0 && (
+          <>
+            <p style={{ margin: '0 0 4px', lineHeight: '18px' }}>
+              共 {data.total} 条。判"确证是行政事务" {data.counts.clear} 条、判"没把握、留给你看" {data.counts.review} 条、
+              判"该留" {data.counts.keep} 条。**这里不会自动删除任何东西**——要不要清由你决定。
+            </p>
+            <ul style={{ margin: '4px 0 0', paddingLeft: 18 }}>
+              {data.items.slice(0, 50).map((it, i) => (
+                <li key={`${it.url ?? it.title}-${i}`} style={{ lineHeight: '19px' }}>
+                  <span style={{
+                    marginRight: 6,
+                    color: it.verdict === 'clear' ? 'var(--dsw-alias-state-error-primary)'
+                      : it.verdict === 'review' ? 'var(--dsw-alias-state-warn-primary)'
+                        : 'var(--dsw-alias-label-secondary)',
+                  }}>
+                    {it.verdict === 'clear' ? '判可清' : it.verdict === 'review' ? '待你确认' : '判该留'}
+                  </span>
+                  {it.url !== null
+                    ? <a href={it.url} target="_blank" rel="noreferrer" style={{ color: 'var(--dsw-alias-label-primary)' }}>{it.title}</a>
+                    : <span>{it.title}</span>}
+                  {it.confidence !== null && <span style={{ marginLeft: 6 }}>把握 {Math.round(it.confidence * 100)}%</span>}
+                </li>
+              ))}
+            </ul>
+            {data.items.length > 50 && (
+              <p style={{ margin: '4px 0 0' }}>（只列了前 50 条，共 {data.items.length} 条）</p>
+            )}
+          </>
+        )}
+      </div>
+    </details>
+  )
+}
+
+/**
+ * 「最近变了什么」（2026-09-24）：发布/更新/修改/废止的线索（业主第一目的）。
+ * 四档：征求意见稿 / 发布 / 修订 / 废止。**这是线索不是结论**——具体变成什么了要点开原文看。
+ */
+function ChangeSignalsSection() {
+  const [data, setData] = useState<KsChangeSignalsResult | null>(null)
+  const [err, setErr] = useState<string | null>(null)
+  const [loading, setLoading] = useState(false)
+  const [filter, setFilter] = useState<'draft' | 'repealed' | 'revised' | 'issued' | undefined>(undefined)
+  const load = (f = filter) => {
+    setLoading(true)
+    setErr(null)
+    void fetchChangeSignals(f)
+      .then(setData)
+      .catch((e) => setErr(e instanceof Error ? e.message : String(e)))
+      .finally(() => setLoading(false))
+  }
+  const labels: Record<string, string> = {
+    draft: '征求意见稿', issued: '新发布', revised: '有修订', repealed: '已废止',
+  }
+  return (
+    <details
+      style={{ fontSize: 12, margin: '2px 0', color: 'var(--dsw-alias-label-secondary, #666)' }}
+      onToggle={(e) => {
+        if ((e.currentTarget as HTMLDetailsElement).open && data === null && !loading) load()
+      }}
+    >
+      <summary style={{ cursor: 'pointer' }}>
+        最近变了什么（发布/更新/修改/废止）
+        {data !== null ? `：${data.count} 条线索` : '（展开加载）'}
+      </summary>
+      <div style={{ margin: '6px 0 0' }}>
+        {err !== null && (
+          <p role="alert" style={{ color: 'var(--dsw-alias-state-error-primary)', margin: '0 0 4px' }}>{err}</p>
+        )}
+        {loading && <p style={{ margin: '0 0 4px' }}>读取中…</p>}
+        {data !== null && data.count === 0 && <p style={{ margin: '0 0 4px' }}>还没有变更线索（新公告入库时会自动标出）。</p>}
+        {data !== null && data.count > 0 && (
+          <>
+            <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', padding: '2px 0 4px' }}>
+              <button
+                type="button"
+                onClick={() => { setFilter(undefined); load(undefined) }}
+                style={{
+                  padding: '2px 10px', borderRadius: 6, fontSize: 12,
+                  border: '1px solid var(--dsw-alias-border-l2)',
+                  background: 'var(--dsw-alias-bg-base)', color: 'var(--dsw-alias-label-primary)',
+                  opacity: filter === undefined ? 0.6 : 1, cursor: 'pointer',
+                }}
+              >
+                全部 {data.count}
+              </button>
+              {(['repealed', 'revised', 'issued', 'draft'] as const).map((k) => (
+                <button
+                  key={k}
+                  type="button"
+                  onClick={() => { setFilter(k); load(k) }}
+                  style={{
+                    padding: '2px 10px', borderRadius: 6, fontSize: 12,
+                    border: '1px solid var(--dsw-alias-border-l2)',
+                    background: 'var(--dsw-alias-bg-base)', color: 'var(--dsw-alias-label-primary)',
+                    opacity: filter === k ? 0.6 : 1, cursor: 'pointer',
+                  }}
+                >
+                  {labels[k]} {data.by_signal[k] ?? 0}
+                </button>
+              ))}
+            </div>
+            <ul style={{ margin: '4px 0 0', paddingLeft: 18 }}>
+              {data.items.slice(0, 50).map((it) => (
+                <li key={it.doc_id} style={{ lineHeight: '19px' }}>
+                  <span style={{
+                    marginRight: 6,
+                    color: it.change_signal === 'repealed' ? 'var(--dsw-alias-state-error-primary)'
+                      : it.change_signal === 'revised' ? 'var(--dsw-alias-state-warn-primary)'
+                        : 'var(--dsw-alias-label-secondary)',
+                  }}>
+                    {labels[it.change_signal]}
+                  </span>
+                  {it.source_url !== null
+                    ? <a href={it.source_url} target="_blank" rel="noreferrer" style={{ color: 'var(--dsw-alias-label-primary)' }}>{it.standard_no}</a>
+                    : <span>{it.standard_no}</span>}
+                  {it.legal_status !== null && <span style={{ marginLeft: 6 }}>效力：{it.legal_status}</span>}
+                </li>
+              ))}
+            </ul>
+            {data.items.length > 50 && (
+              <p style={{ margin: '4px 0 0' }}>（只列了前 50 条，共 {data.items.length} 条）</p>
+            )}
+            <p style={{ margin: '4px 0 0' }}>这些是"某条法规/标准变了"的线索，具体变成什么了要点开原文看。</p>
+          </>
+        )}
+      </div>
+    </details>
+  )
+}
+
+
 function KsCategory({ title, hint, open, onToggle, children }: {
   title: string
   hint?: React.ReactNode
@@ -1078,6 +1250,14 @@ export function KsAnnounceSourcesSection(props: { openedOnce: boolean }): JSX.El
           )}
         </div>
       </details>
+
+      {/* 2026-09-24：两条**只读**出口接进界面（此前有引擎端点、界面完全没接 = 白做）。
+          - 「待清清单」：规则判"不收"、但要不要真清那批的分档。**这里没有删除按钮**——
+            删除是业主的决定（他的口径是判据，不是授权我下手），本格只给判据与理由。
+          - 「最近变了什么」：发布/更新/修改/废止的线索（第一目的"实时获取"的落点）。
+          两格都**展开才加载**（打开设置页不外发、不抓网页）。 */}
+      <AnnounceTriageSection />
+      <ChangeSignalsSection />
 
       <details style={{ fontSize: 12, margin: '2px 0', color: 'var(--dsw-alias-label-secondary, #666)' }}>
         <summary style={{ cursor: 'pointer' }}>最近公告（{last?.recent.length ?? 0} 条，点击展开）</summary>

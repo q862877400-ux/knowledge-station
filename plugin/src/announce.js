@@ -51,6 +51,14 @@ export const KS_ANNOUNCE_INGEST_PATH = '/ks/announce/ingest'
 export const KS_ANNOUNCE_INGEST_PENDING_PATH = '/ks/announce/ingest/pending'
 /** 2026-09-24（§10.194）：自动入库开关（默认**开** —— 业主报的就是"该入库的没入库"）。 */
 export const KS_ANNOUNCE_AUTO_INGEST_PATH = '/ks/announce/auto-ingest'
+/** 2026-09-24（§10.196/§10.199）：两条**只读**出口——
+ *  · `triage`：Jev 给"规则判不收那批"分 clear/review/keep（**删除仍由业主拍板**）；
+ *  · `change-signals`：「最近哪些法规标准变了」（业主第一目的：发布/更新/修改/废止）。 */
+export const KS_ANNOUNCE_TRIAGE_PATH = '/ks/announce/ingest/triage'
+export const KS_ANNOUNCE_CHANGE_SIGNALS_PATH = '/ks/announce/change-signals'
+/** 对应的引擎端点。 */
+const ENGINE_TRIAGE_PATH = '/api/v1/update/announce-ingest/triage'
+const ENGINE_CHANGE_SIGNALS_PATH = '/api/v1/laws/change-signals'
 
 /** 一次扫描完成后**自动**入库最多几条（引擎侧上限也是 20）。
  *  ⚠ 有界是刻意的：这件事在**无人值守**时也会跑（每天巡检之后），
@@ -773,6 +781,27 @@ function registerIngestRoutes(ctx, manager) {
         { token: session.token, timeoutMs: 120_000 })
       : await apiPost(originUrl(session.port), enginePath,
         { token: session.token, timeoutMs: 120_000, body })
+    relayEngine(res, out)
+  }
+
+  /** **只读** GET 探针（30s）：triage 每条要问一次 Jev（实测 ~0.5s/条、上限 200 条），
+   *  30s 是"引擎自己来不及会说清"与"host 别把请求挂死"之间的折中。
+   *  ⚠ 422 语义透传（非法 `signal` 之类）——照 `probe` 那条的口径，不吞成 200。 */
+  const probeRead = async (res, enginePath) => {
+    let session
+    try {
+      session = await manager.ensureLive()
+    } catch (err) {
+      jsonResponse(res, 503, errorBody('engine_unavailable',
+        err instanceof Error ? err.message : String(err)))
+      return
+    }
+    relayEngine(res, await apiGet(originUrl(session.port), enginePath,
+      { token: session.token, timeoutMs: 30_000 }))
+  }
+
+  /** 引擎响应 → host 响应：200 透出 data；4xx（422 等）透传；其余归 502。 */
+  const relayEngine = (res, out) => {
     if (out.status === 200 && out.body && typeof out.body === 'object') {
       jsonResponse(res, 200, { ok: true, data: out.body.data ?? {} })
       return
@@ -811,6 +840,33 @@ function registerIngestRoutes(ctx, manager) {
           return
         }
         await probe(res, 'POST', ENGINE_INGEST_PATH, body ?? {})
+      },
+    }),
+    // 2026-09-24：两条**只读**出口（此前有引擎端点、界面完全没接 ⇒ 业主看不到 = 白做）。
+    //   · `GET /ks/announce/ingest/triage` → 「规则判不收、但要不要真清」那批的
+    //     clear/review/keep 清单（Jev 判"清"，**删除仍由业主拍板**，host 与引擎都不删）。
+    //   · `GET /ks/announce/change-signals` → 「最近哪些法规标准变了」（业主第一目的）。
+    // 两条都是 GET + **只读**：不写库、不抓正文；超时给 30s（triage 每条要问一次 Jev）。
+    ctx.webServer.register({
+      kind: 'exact',
+      path: KS_ANNOUNCE_TRIAGE_PATH,
+      handler: async (req, res) => {
+        if (req.method !== 'GET') {
+          jsonResponse(res, 405, errorBody('method_not_allowed', 'GET only'))
+          return
+        }
+        await probeRead(res, ENGINE_TRIAGE_PATH)
+      },
+    }),
+    ctx.webServer.register({
+      kind: 'exact',
+      path: KS_ANNOUNCE_CHANGE_SIGNALS_PATH,
+      handler: async (req, res) => {
+        if (req.method !== 'GET') {
+          jsonResponse(res, 405, errorBody('method_not_allowed', 'GET only'))
+          return
+        }
+        await probeRead(res, ENGINE_CHANGE_SIGNALS_PATH)
       },
     }),
   ]

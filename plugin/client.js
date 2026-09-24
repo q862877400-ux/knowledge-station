@@ -90,6 +90,7 @@ __export(api_exports, {
   fetchAnnounceIngestPending: () => fetchAnnounceIngestPending,
   fetchAnnounceSources: () => fetchAnnounceSources,
   fetchAnnounceSummary: () => fetchAnnounceSummary,
+  fetchAnnounceTriage: () => fetchAnnounceTriage,
   fetchApiConfig: () => fetchApiConfig,
   fetchBbox: () => fetchBbox,
   fetchBookmarkFolderTree: () => fetchBookmarkFolderTree,
@@ -97,6 +98,7 @@ __export(api_exports, {
   fetchBookmarks: () => fetchBookmarks,
   fetchBulkIngest: () => fetchBulkIngest,
   fetchCategories: () => fetchCategories,
+  fetchChangeSignals: () => fetchChangeSignals,
   fetchChannels: () => fetchChannels,
   fetchChatMode: () => fetchChatMode,
   fetchClauseMeta: () => fetchClauseMeta,
@@ -1373,6 +1375,72 @@ async function fetchAnnounceIngestPending(signal) {
   const body = await res.json().catch(() => null);
   if (body === null || body.ok !== true) throw new Error("\u516C\u544A\u5165\u5E93\u8FDB\u5EA6\u54CD\u5E94\u5F02\u5E38");
   return normalizeAnnounceIngestPending(body.data);
+}
+async function fetchAnnounceTriage(signal) {
+  const res = await fetch("/ks/announce/ingest/triage", {
+    headers: { accept: "application/json" },
+    signal
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+  const body = await res.json().catch(() => null);
+  if (body === null || body.ok !== true) throw new Error("\u5F85\u6E05\u6E05\u5355\u54CD\u5E94\u5F02\u5E38");
+  const d = objOf(body.data);
+  const counts = objOf(d?.counts);
+  const raw = Array.isArray(d?.items) ? d.items : [];
+  return {
+    total: intOf(d?.total, raw.length),
+    counts: {
+      clear: intOf(counts?.clear, 0),
+      review: intOf(counts?.review, 0),
+      keep: intOf(counts?.keep, 0)
+    },
+    items: raw.map((it) => {
+      const o = objOf(it);
+      const verdict = str(o?.verdict);
+      return {
+        title: str(o?.title) ?? "",
+        url: typeof o?.url === "string" ? o.url : null,
+        published_date: typeof o?.published_date === "string" ? o.published_date : null,
+        verdict: verdict === "clear" || verdict === "review" ? verdict : "keep",
+        choice: typeof o?.choice === "string" ? o.choice : null,
+        confidence: typeof o?.confidence === "number" ? o.confidence : null,
+        change_signal: typeof o?.change_signal === "number" ? o.change_signal : null
+      };
+    })
+  };
+}
+async function fetchChangeSignals(signal, abort) {
+  const qs = signal === void 0 ? "" : `?signal=${encodeURIComponent(signal)}`;
+  const res = await fetch(`/ks/announce/change-signals${qs}`, {
+    headers: { accept: "application/json" },
+    signal: abort
+  });
+  if (!res.ok) throw await parseInspectionError(res);
+  const body = await res.json().catch(() => null);
+  if (body === null || body.ok !== true) throw new Error("\u53D8\u66F4\u4FE1\u53F7\u54CD\u5E94\u5F02\u5E38");
+  const d = objOf(body.data);
+  const raw = Array.isArray(d?.items) ? d.items : [];
+  const byRaw = objOf(d?.by_signal) ?? {};
+  const by = {};
+  for (const [k, v] of Object.entries(byRaw)) by[k] = intOf(v, 0);
+  return {
+    count: intOf(d?.count, raw.length),
+    by_signal: by,
+    items: raw.map((it) => {
+      const o = objOf(it);
+      const s = str(o?.change_signal);
+      return {
+        doc_id: str(o?.doc_id) ?? "",
+        standard_no: str(o?.standard_no) ?? "",
+        standard_name: typeof o?.standard_name === "string" ? o.standard_name : null,
+        legal_status: typeof o?.legal_status === "string" ? o.legal_status : null,
+        change_signal: s === "draft" || s === "repealed" || s === "revised" ? s : "issued",
+        published_at: typeof o?.published_at === "string" ? o.published_at : null,
+        effective_from: typeof o?.effective_from === "string" ? o.effective_from : null,
+        source_url: typeof o?.source_url === "string" ? o.source_url : null
+      };
+    })
+  };
 }
 async function ingestAnnouncements(opts = {}, signal) {
   const payload = { limit: opts.limit ?? 10 };
@@ -35293,6 +35361,174 @@ var SUMMARY_HINT = {
   fontWeight: 400,
   color: "var(--dsw-alias-label-secondary, #888)"
 };
+function AnnounceTriageSection() {
+  const [data, setData] = (0, import_react6.useState)(null);
+  const [err, setErr] = (0, import_react6.useState)(null);
+  const [loading, setLoading] = (0, import_react6.useState)(false);
+  const load = () => {
+    setLoading(true);
+    setErr(null);
+    void fetchAnnounceTriage().then(setData).catch((e) => setErr(e instanceof Error ? e.message : String(e))).finally(() => setLoading(false));
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+    "details",
+    {
+      style: { fontSize: 12, margin: "2px 0", color: "var(--dsw-alias-label-secondary, #666)" },
+      onToggle: (e) => {
+        if (e.currentTarget.open && data === null && !loading) load();
+      },
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("summary", { style: { cursor: "pointer" }, children: [
+          '\u5F85\u6E05\u6E05\u5355\uFF08\u89C4\u5219\u5224"\u4E0D\u5C5E\u6CD5\u89C4\u6807\u51C6"\u7684\u90A3\u6279\uFF09',
+          data !== null ? `\uFF1A\u786E\u8BC1\u53EF\u6E05 ${data.counts.clear} \xB7 \u5F85\u4F60\u786E\u8BA4 ${data.counts.review}` : "\uFF08\u5C55\u5F00\u52A0\u8F7D\uFF09"
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { margin: "6px 0 0" }, children: [
+          err !== null && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { role: "alert", style: { color: "var(--dsw-alias-state-error-primary)", margin: "0 0 4px" }, children: err }),
+          loading && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { margin: "0 0 4px" }, children: "\u5224\u65AD\u4E2D\uFF08\u6BCF\u6761\u8981\u8FC7\u4E00\u904D\u8BED\u4E49\u5224\u65AD\uFF0C\u7EA6\u534A\u79D2\u4E00\u6761\uFF09\u2026" }),
+          data !== null && data.total === 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { margin: "0 0 4px" }, children: "\u6CA1\u6709\u5F85\u6E05\u6761\u76EE\u3002" }),
+          data !== null && data.items.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "0 0 4px", lineHeight: "18px" }, children: [
+              "\u5171 ",
+              data.total,
+              ' \u6761\u3002\u5224"\u786E\u8BC1\u662F\u884C\u653F\u4E8B\u52A1" ',
+              data.counts.clear,
+              ' \u6761\u3001\u5224"\u6CA1\u628A\u63E1\u3001\u7559\u7ED9\u4F60\u770B" ',
+              data.counts.review,
+              ' \u6761\u3001 \u5224"\u8BE5\u7559" ',
+              data.counts.keep,
+              " \u6761\u3002**\u8FD9\u91CC\u4E0D\u4F1A\u81EA\u52A8\u5220\u9664\u4EFB\u4F55\u4E1C\u897F**\u2014\u2014\u8981\u4E0D\u8981\u6E05\u7531\u4F60\u51B3\u5B9A\u3002"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("ul", { style: { margin: "4px 0 0", paddingLeft: 18 }, children: data.items.slice(0, 50).map((it, i) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("li", { style: { lineHeight: "19px" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { style: {
+                marginRight: 6,
+                color: it.verdict === "clear" ? "var(--dsw-alias-state-error-primary)" : it.verdict === "review" ? "var(--dsw-alias-state-warn-primary)" : "var(--dsw-alias-label-secondary)"
+              }, children: it.verdict === "clear" ? "\u5224\u53EF\u6E05" : it.verdict === "review" ? "\u5F85\u4F60\u786E\u8BA4" : "\u5224\u8BE5\u7559" }),
+              it.url !== null ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("a", { href: it.url, target: "_blank", rel: "noreferrer", style: { color: "var(--dsw-alias-label-primary)" }, children: it.title }) : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { children: it.title }),
+              it.confidence !== null && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { style: { marginLeft: 6 }, children: [
+                "\u628A\u63E1 ",
+                Math.round(it.confidence * 100),
+                "%"
+              ] })
+            ] }, `${it.url ?? it.title}-${i}`)) }),
+            data.items.length > 50 && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "4px 0 0" }, children: [
+              "\uFF08\u53EA\u5217\u4E86\u524D 50 \u6761\uFF0C\u5171 ",
+              data.items.length,
+              " \u6761\uFF09"
+            ] })
+          ] })
+        ] })
+      ]
+    }
+  );
+}
+function ChangeSignalsSection() {
+  const [data, setData] = (0, import_react6.useState)(null);
+  const [err, setErr] = (0, import_react6.useState)(null);
+  const [loading, setLoading] = (0, import_react6.useState)(false);
+  const [filter, setFilter] = (0, import_react6.useState)(void 0);
+  const load = (f = filter) => {
+    setLoading(true);
+    setErr(null);
+    void fetchChangeSignals(f).then(setData).catch((e) => setErr(e instanceof Error ? e.message : String(e))).finally(() => setLoading(false));
+  };
+  const labels = {
+    draft: "\u5F81\u6C42\u610F\u89C1\u7A3F",
+    issued: "\u65B0\u53D1\u5E03",
+    revised: "\u6709\u4FEE\u8BA2",
+    repealed: "\u5DF2\u5E9F\u6B62"
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+    "details",
+    {
+      style: { fontSize: 12, margin: "2px 0", color: "var(--dsw-alias-label-secondary, #666)" },
+      onToggle: (e) => {
+        if (e.currentTarget.open && data === null && !loading) load();
+      },
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("summary", { style: { cursor: "pointer" }, children: [
+          "\u6700\u8FD1\u53D8\u4E86\u4EC0\u4E48\uFF08\u53D1\u5E03/\u66F4\u65B0/\u4FEE\u6539/\u5E9F\u6B62\uFF09",
+          data !== null ? `\uFF1A${data.count} \u6761\u7EBF\u7D22` : "\uFF08\u5C55\u5F00\u52A0\u8F7D\uFF09"
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { margin: "6px 0 0" }, children: [
+          err !== null && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { role: "alert", style: { color: "var(--dsw-alias-state-error-primary)", margin: "0 0 4px" }, children: err }),
+          loading && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { margin: "0 0 4px" }, children: "\u8BFB\u53D6\u4E2D\u2026" }),
+          data !== null && data.count === 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { margin: "0 0 4px" }, children: "\u8FD8\u6CA1\u6709\u53D8\u66F4\u7EBF\u7D22\uFF08\u65B0\u516C\u544A\u5165\u5E93\u65F6\u4F1A\u81EA\u52A8\u6807\u51FA\uFF09\u3002" }),
+          data !== null && data.count > 0 && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", { style: { display: "flex", gap: 10, flexWrap: "wrap", padding: "2px 0 4px" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+                "button",
+                {
+                  type: "button",
+                  onClick: () => {
+                    setFilter(void 0);
+                    load(void 0);
+                  },
+                  style: {
+                    padding: "2px 10px",
+                    borderRadius: 6,
+                    fontSize: 12,
+                    border: "1px solid var(--dsw-alias-border-l2)",
+                    background: "var(--dsw-alias-bg-base)",
+                    color: "var(--dsw-alias-label-primary)",
+                    opacity: filter === void 0 ? 0.6 : 1,
+                    cursor: "pointer"
+                  },
+                  children: [
+                    "\u5168\u90E8 ",
+                    data.count
+                  ]
+                }
+              ),
+              ["repealed", "revised", "issued", "draft"].map((k) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+                "button",
+                {
+                  type: "button",
+                  onClick: () => {
+                    setFilter(k);
+                    load(k);
+                  },
+                  style: {
+                    padding: "2px 10px",
+                    borderRadius: 6,
+                    fontSize: 12,
+                    border: "1px solid var(--dsw-alias-border-l2)",
+                    background: "var(--dsw-alias-bg-base)",
+                    color: "var(--dsw-alias-label-primary)",
+                    opacity: filter === k ? 0.6 : 1,
+                    cursor: "pointer"
+                  },
+                  children: [
+                    labels[k],
+                    " ",
+                    data.by_signal[k] ?? 0
+                  ]
+                },
+                k
+              ))
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("ul", { style: { margin: "4px 0 0", paddingLeft: 18 }, children: data.items.slice(0, 50).map((it) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("li", { style: { lineHeight: "19px" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { style: {
+                marginRight: 6,
+                color: it.change_signal === "repealed" ? "var(--dsw-alias-state-error-primary)" : it.change_signal === "revised" ? "var(--dsw-alias-state-warn-primary)" : "var(--dsw-alias-label-secondary)"
+              }, children: labels[it.change_signal] }),
+              it.source_url !== null ? /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("a", { href: it.source_url, target: "_blank", rel: "noreferrer", style: { color: "var(--dsw-alias-label-primary)" }, children: it.standard_no }) : /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", { children: it.standard_no }),
+              it.legal_status !== null && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("span", { style: { marginLeft: 6 }, children: [
+                "\u6548\u529B\uFF1A",
+                it.legal_status
+              ] })
+            ] }, it.doc_id)) }),
+            data.items.length > 50 && /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("p", { style: { margin: "4px 0 0" }, children: [
+              "\uFF08\u53EA\u5217\u4E86\u524D 50 \u6761\uFF0C\u5171 ",
+              data.items.length,
+              " \u6761\uFF09"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("p", { style: { margin: "4px 0 0" }, children: '\u8FD9\u4E9B\u662F"\u67D0\u6761\u6CD5\u89C4/\u6807\u51C6\u53D8\u4E86"\u7684\u7EBF\u7D22\uFF0C\u5177\u4F53\u53D8\u6210\u4EC0\u4E48\u4E86\u8981\u70B9\u5F00\u539F\u6587\u770B\u3002' })
+          ] })
+        ] })
+      ]
+    }
+  );
+}
 function KsCategory({ title, hint, open, onToggle, children }) {
   return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
     "details",
@@ -36069,6 +36305,8 @@ function KsAnnounceSourcesSection(props) {
         ]
       }
     ),
+    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(AnnounceTriageSection, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(ChangeSignalsSection, {}),
     /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("details", { style: { fontSize: 12, margin: "2px 0", color: "var(--dsw-alias-label-secondary, #666)" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("summary", { style: { cursor: "pointer" }, children: [
         "\u6700\u8FD1\u516C\u544A\uFF08",

@@ -2304,10 +2304,122 @@ export async function fetchAnnounceIngestPending(
   return normalizeAnnounceIngestPending(body.data)
 }
 
+/* ===== 2026-09-24：两条**只读**出口（此前有引擎端点、界面完全没接 = 白做）=====
+ *  - triage：规则判不收、但要不要真清那批的 clear/review/keep 清单。
+ *    **删除仍由业主拍板**：这里只给判据与理由，客户端不给删除入口。
+ *  - change-signals：最近哪些法规标准变了（业主第一目的：发布/更新/修改/废止）。 */
+
+export interface KsTriageItem {
+  title: string
+  url: string | null
+  published_date: string | null
+  verdict: 'clear' | 'review' | 'keep'
+  choice: string | null
+  confidence: number | null
+  change_signal: number | null
+}
+
+export interface KsTriageResult {
+  total: number
+  counts: { clear: number; review: number; keep: number }
+  items: KsTriageItem[]
+}
+
+/** GET /ks/announce/ingest/triage —— 只读分档；不删库（引擎与 host 都不删）。 */
+export async function fetchAnnounceTriage(
+  signal?: AbortSignal,
+): Promise<KsTriageResult> {
+  const res = await fetch('/ks/announce/ingest/triage', {
+    headers: { accept: 'application/json' },
+    signal,
+  })
+  if (!res.ok) throw await parseInspectionError(res)
+  const body = (await res.json().catch(() => null)) as { ok?: boolean; data?: unknown } | null
+  if (body === null || body.ok !== true) throw new Error('待清清单响应异常')
+  const d = objOf(body.data)
+  const counts = objOf(d?.counts)
+  const raw = Array.isArray(d?.items) ? (d.items as unknown[]) : []
+  return {
+    total: intOf(d?.total, raw.length),
+    counts: {
+      clear: intOf(counts?.clear, 0),
+      review: intOf(counts?.review, 0),
+      keep: intOf(counts?.keep, 0),
+    },
+    items: raw.map((it) => {
+      const o = objOf(it)
+      const verdict = str(o?.verdict)
+      return {
+        title: str(o?.title) ?? '',
+        url: typeof o?.url === 'string' ? o.url : null,
+        published_date: typeof o?.published_date === 'string' ? o.published_date : null,
+        verdict: verdict === 'clear' || verdict === 'review' ? verdict : 'keep',
+        choice: typeof o?.choice === 'string' ? o.choice : null,
+        confidence: typeof o?.confidence === 'number' ? o.confidence : null,
+        change_signal: typeof o?.change_signal === 'number' ? o.change_signal : null,
+      }
+    }),
+  }
+}
+
+export interface KsChangeSignalItem {
+  doc_id: string
+  standard_no: string
+  standard_name: string | null
+  legal_status: string | null
+  change_signal: 'draft' | 'repealed' | 'revised' | 'issued'
+  published_at: string | null
+  effective_from: string | null
+  source_url: string | null
+}
+
+export interface KsChangeSignalsResult {
+  count: number
+  by_signal: Record<string, number>
+  items: KsChangeSignalItem[]
+}
+
+/** GET /ks/announce/change-signals —— 只读；signal 省略 = 四类都回。 */
+export async function fetchChangeSignals(
+  signal?: 'draft' | 'repealed' | 'revised' | 'issued',
+  abort?: AbortSignal,
+): Promise<KsChangeSignalsResult> {
+  const qs = signal === undefined ? '' : `?signal=${encodeURIComponent(signal)}`
+  const res = await fetch(`/ks/announce/change-signals${qs}`, {
+    headers: { accept: 'application/json' },
+    signal: abort,
+  })
+  if (!res.ok) throw await parseInspectionError(res)
+  const body = (await res.json().catch(() => null)) as { ok?: boolean; data?: unknown } | null
+  if (body === null || body.ok !== true) throw new Error('变更信号响应异常')
+  const d = objOf(body.data)
+  const raw = Array.isArray(d?.items) ? (d.items as unknown[]) : []
+  const byRaw = objOf(d?.by_signal) ?? {}
+  const by: Record<string, number> = {}
+  for (const [k, v] of Object.entries(byRaw)) by[k] = intOf(v, 0)
+  return {
+    count: intOf(d?.count, raw.length),
+    by_signal: by,
+    items: raw.map((it) => {
+      const o = objOf(it)
+      const s = str(o?.change_signal)
+      return {
+        doc_id: str(o?.doc_id) ?? '',
+        standard_no: str(o?.standard_no) ?? '',
+        standard_name: typeof o?.standard_name === 'string' ? o.standard_name : null,
+        legal_status: typeof o?.legal_status === 'string' ? o.legal_status : null,
+        change_signal: (s === 'draft' || s === 'repealed' || s === 'revised' ? s : 'issued'),
+        published_at: typeof o?.published_at === 'string' ? o.published_at : null,
+        effective_from: typeof o?.effective_from === 'string' ? o.effective_from : null,
+        source_url: typeof o?.source_url === 'string' ? o.source_url : null,
+      }
+    }),
+  }
+}
+
 /** POST /ks/announce/ingest — 批量入库。
  *  `force=true` 连"部门决算/公示/挂牌督办"那类也入（范围判错时的逃生口）。
- *  ⚠ **真写库**：一次最多 `limit` 条（引擎上限 20），可能等十几秒。 */
-export async function ingestAnnouncements(
+ *  ⚠ **真写库**：一次最多 `limit` 条（引擎上限 20），可能等十几秒。 */export async function ingestAnnouncements(
   opts: { limit?: number; sourceId?: string; force?: boolean } = {},
   signal?: AbortSignal,
 ): Promise<KsAnnounceIngestResult> {

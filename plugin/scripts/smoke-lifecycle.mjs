@@ -401,6 +401,57 @@ const fakeRes = () => {
   check('C5 GET /ks/announce/ingest ⇒ 405（写路径不许被 GET 触发）',
     resMethod.statusCode === 405 && engineCalls.length === 0, String(resMethod.statusCode))
 
+  /* C6–C8（2026-09-24）：两条**只读**出口 —— 此前有引擎端点、界面完全没接（= 白做）。
+     钉三件事：① 路由注册成 exact；② 打到**路径全等**的引擎端点且值原样回；
+     ③ POST 打只读口 ⇒ 405（不许"只读口能写"）。 */
+  check('C6 两条只读出口都注册成了 exact 路径',
+    byPath.get('/ks/announce/ingest/triage')?.kind === 'exact'
+    && byPath.get('/ks/announce/change-signals')?.kind === 'exact',
+    registered.map((r) => `${r.kind} ${r.path}`).join(' | '))
+
+  engineCalls.length = 0
+  globalThis.fetch = async (url, init) => {
+    engineCalls.push({ url: String(url), method: init?.method ?? 'GET', body: init?.body })
+    const p = enginePathOf(String(url))
+    if (p === '/api/v1/update/announce-ingest/triage') {
+      return new Response(JSON.stringify({ code: 200, status: 'success',
+        data: { total: 3, counts: { clear: 1, review: 1, keep: 1 },
+                items: [{ title: 'A', verdict: 'clear', confidence: 0.97 },
+                        { title: 'B', verdict: 'review', confidence: 0.82 },
+                        { title: 'C', verdict: 'keep', confidence: 0.4 }] } }),
+      { status: 200, headers: { 'Content-Type': 'application/json' } })
+    }
+    if (p === '/api/v1/laws/change-signals') {
+      return new Response(JSON.stringify({ code: 200, status: 'success',
+        data: { count: 55, by_signal: { draft: 16, issued: 28, repealed: 4, revised: 7 },
+                items: [{ doc_id: 'd1', standard_no: 'X', change_signal: 'repealed' }] } }),
+      { status: 200, headers: { 'Content-Type': 'application/json' } })
+    }
+    return new Response(JSON.stringify({ code: 500, status: 'error', error: 'unexpected',
+      message: p }), { status: 500, headers: { 'Content-Type': 'application/json' } })
+  }
+  const resTri = fakeRes()
+  await byPath.get('/ks/announce/ingest/triage').handler(fakeReq('GET'), resTri)
+  const gotTri = JSON.parse(resTri.body)
+  const resSig = fakeRes()
+  await byPath.get('/ks/announce/change-signals').handler(fakeReq('GET'), resSig)
+  const gotSig = JSON.parse(resSig.body)
+  check('C7 两条只读出口打到**路径全等**的引擎端点、值原样回给界面',
+    engineCalls.length === 2
+    && enginePathOf(engineCalls[0].url) === '/api/v1/update/announce-ingest/triage'
+    && enginePathOf(engineCalls[1].url) === '/api/v1/laws/change-signals'
+    && resTri.statusCode === 200 && gotTri.ok === true && gotTri.data.counts?.review === 1
+    && resSig.statusCode === 200 && gotSig.ok === true && gotSig.data.count === 55,
+    `${engineCalls.map((c) => enginePathOf(c.url)).join(' , ')}`
+    + ` ⇒ ${resTri.statusCode} ${resTri.body} / ${resSig.statusCode} ${resSig.body}`)
+
+  engineCalls.length = 0
+  const resReadOnly = fakeRes()
+  await byPath.get('/ks/announce/ingest/triage').handler(fakeReq('POST', {}), resReadOnly)
+  check('C8 POST 打只读口 ⇒ 405 且一个字节都不往引擎转',
+    resReadOnly.statusCode === 405 && engineCalls.length === 0,
+    `${resReadOnly.statusCode} engineCalls=${engineCalls.length}`)
+
   globalThis.fetch = realFetch3
   disposeC()
 }
