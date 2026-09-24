@@ -1795,8 +1795,10 @@ export function apply(ctx, config = {}) {
       // 「本轮」依据只读口（S1-b）：纯 host 内存暂存，ks_answer 返回前写入；
       // 与 chatmode 同族（host 状态、不碰引擎）。栅栏由 webCtx 统一施加。
       const disposeTurn = registerKsTurnRoutes(webCtx)
-      // 合规哨兵触发口（C2-a）：输入坞芯片把草稿发来宿主判（词表唯一在宿主）。
-      const disposeCompliance = registerKsComplianceRoutes(webCtx)
+      // 合规哨兵触发口（C2-a）：输入坞芯片把草稿发来宿主判。
+      // 2026-09-24：词表未命中时经 manager 问引擎的 Jev 护栏（隐性合规只有那条路看得见），
+      // Jev 不可用时静默回落词表（见 compliance-sentry.js 的说明）。
+      const disposeCompliance = registerKsComplianceRoutes(webCtx, manager)
       // 采集审批门（C2-b）：ks_collect 每次抓取前 {kind:'ask'} 问人——**每次都先问**（业主硬规矩）。
       const disposeAskGate = registerComplianceAskGate(ctx)
       // R27 入库预览 / 批量分桶（2026-09-11）：纯代理零缓存——引擎做解析与体检，

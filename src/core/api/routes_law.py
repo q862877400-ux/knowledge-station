@@ -169,3 +169,27 @@ def register(app, json_error):
             return json_error(422, "missing_bbbs", "缺少 bbbs")
         return {"code": 200, "status": "success",
                 "data": verify_law(bbbs)}
+
+    # ===== 合规护栏判定（2026-09-24，Jev / TypeSafe System One）=====
+
+    @app.post("/api/v1/laws/compliance-guard")
+    def compliance_guard(body: dict | None = None):
+        """判一段用户输入要不要带上合规查库流程（`jev_guard.judge` 的薄端点）。
+
+        - 返回 `data.available=false` 表示 **Jev 不可用**（没配 Key / 熔断 / 响应不合契约）
+          —— 调用方据此退回词表，**不得**当"判定为不触发"。
+        - `verdict` ∈ `trigger`（带完整规则）/ `review`（中间档）/ `silent`（安静）。
+        - ⚠ 同步端点（**`def` 不是 `async def`**，见本文件头 §10.93：绕开线程池闸门）。
+          Jev 有 2s 超时 + 熔断（`jev_client`），最坏情况就是这次调用等 2s。
+        """
+        from src.core.llm import jev_guard
+        payload = body if isinstance(body, dict) else {}
+        text = payload.get("text")
+        if not isinstance(text, str) or not text.strip():
+            return json_error(422, "missing_text", "缺少 text")
+        verdict = jev_guard.judge(text)
+        if verdict is None:
+            return {"code": 200, "status": "success",
+                    "data": {"available": False, "verdict": "unknown"}}
+        return {"code": 200, "status": "success",
+                "data": {"available": True, **verdict}}

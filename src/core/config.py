@@ -102,6 +102,17 @@ def _read_llm_base_url() -> str:
     return _read_secret(_LLM_URL_VARS[0], _LLM_URL_VARS[1:], DEFAULT_LLM_BASE_URL)
 
 
+def _read_jev_key() -> str:
+    """Jev（TypeSafe System One）Key（2026-09-24）。
+
+    与 LLM Key **同一个唯一入口**（`_read_secret`：env → DPAPI 加密存储 → 旧系统层只读兼容），
+    只是**另一个键名**（`KS_JEV_API_KEY`）——两个服务两个 Key，互不影响：
+    丢了 Jev Key 不影响取证问答，反之亦然。
+    不做系统层回退：Jev 是 2026-09 新接的，没有"旧安装"需要兼容。
+    """
+    return _read_secret("KS_JEV_API_KEY", (), "")
+
+
 def _read_llm_model() -> str:
     return _read_secret(_LLM_MODEL_VARS[0], _LLM_MODEL_VARS[1:], "deepseek-chat")
 
@@ -152,6 +163,18 @@ class Settings:
     mineru_cloud_base_url: str = field(default_factory=_read_mineru_base_url)
     # 模型版本：pipeline（默认）/ vlm（推荐）/ MinerU-HTML —— 官方 v4 契约
     mineru_cloud_model_version: str = field(default_factory=_read_mineru_model_version)
+    # ===== Jev / TypeSafe System One（2026-09-24 接入）=====
+    # Key 与 LLM Key 同一个唯一入口（`_read_secret`），存引擎加密存储；客户端/host 侧永不接触。
+    jev_api_key: str = field(default_factory=_read_jev_key)
+    #: 合规护栏两道阈值。**不是协议常量**（会随中文域实测调整）⇒ 按 harness 规范做成可改字段。
+    #: 默认值来自 2026-09-24 本机实测（20 条样本：10 条该触发全中、10 条技术话零误触发，
+    #: 0.47s/条）；改之前先用 `tests/test_jev_guard.py` 的中文样本重跑一遍。
+    jev_guard_review_threshold: float = 0.35
+    jev_guard_action_threshold: float = 0.70
+    #: 严重度 Score 到几级 ⇒ 把 review 升级为触发（官方护栏蓝本同一形状）。
+    jev_guard_severity_block: float = 2.0
+    #: 护栏整体开关（关＝完全不问 Jev，只用词表；出问题时业主可一键退回）。
+    jev_guard_enabled: bool = True
 
     @property
     def db_path(self) -> Path:

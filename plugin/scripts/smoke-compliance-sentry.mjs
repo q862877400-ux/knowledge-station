@@ -60,11 +60,26 @@ function check(name, ok, detail) {
     outside === 0 && inOwner === 2, `文件外 ${String(outside)} 处：${outsideWhere} / 文件内 ${String(inOwner)} 处`)
 }
 
-/* ② 预判据三组用例。 */
-check('② 词族命中（法规/应当/制度…宽进）',
-  ['按安全生产法这个怎么算？', '吊装作业有什么规定', '这台设备要资质吗'].every((s) => matchComplianceSentry(s)))
+/* ② 预判据用例。
+ * ⚠ 2026-09-24 **就地改判据**（业主管辖："我输入了合规问题聊天，还触发了合规护航：待命，
+ *   但其实我们没有在聊需要用法规标准解释的事情"）。旧用例把「应当」「有什么规定」当正例
+ *   ——那正是误触发源（"单元测试覆盖率**应当**达到 80% 吗"）。旧口径原文保留在下面一行：
+ *     旧：['按安全生产法这个怎么算？', '吊装作业有什么规定', '这台设备要资质吗']
+ * 新口径：词表只收**点不出歧义的专名**；泛义务词（必须/应当/不得/禁止）与泛规定词
+ * （标准/规范/规定）交给 Jev 护栏判（smoke-jev-guard 钉那一侧），词表不再背这口锅。 */
+check('② 词族命中（法规/国标/资质…专名）',
+  ['按安全生产法这个怎么算？', '这台设备要资质吗', '危险化学品经营需要审批吗', 'GB 30871 怎么分级']
+    .every((s) => matchComplianceSentry(s)))
 check('② 全不命中 ⇒ false（零开销前提）',
   ['帮我把这段话改通顺', '今天天气怎么样', '写个排序函数'].every((s) => !matchComplianceSentry(s)))
+check('② **泛义务词/泛规定词不再误触发**（2026-09-24 瘦身后的核心判据）',
+  ['这个函数必须先排序再二分', '重构这段代码不得引入新的依赖，怎么做',
+    '单元测试覆盖率必须达到 80% 吗', '这个 API 的标准错误码应该怎么设计',
+    '文档里禁止使用 emoji，这是什么规范', '数据库事务隔离级别设错了会怎样，必须怎么配',
+    '用 git 不得在主干上直接提交，这条规范对吗', '前端路由必须懒加载，否则首屏白屏',
+    'Python 里 list 应当用生成器还是列表推导？']
+    .every((s) => !matchComplianceSentry(s)),
+  '这 9 条在瘦身前 9/9 全误触发（真机实测，业主报障同源）')
 check('② 标准号模式命中（GB/T 3608 / GB30871 / DB11/T 1234 / AQ 3009 形）',
   ['GB/T 3608-2008 怎么说', '按 GB30871 第 4 条', 'DB11/T 1234-2020 适用吗', 'AQ 3009-2004 呢']
     .every((s) => matchComplianceSentry(s)),
@@ -153,13 +168,90 @@ check('② 标准号模式命中（GB/T 3608 / GB30871 / DB11/T 1234 / AQ 3009 �
   markComplianceTriggered('s9', false, 2000)
   check('⑦ 清除（草稿不再命中）⇒ 立即关', isComplianceTriggered('s9', 2000) === false)
   let routeShape = null
-  registerKsComplianceRoutes({ webServer: { register: (d) => { routeShape = d; return () => {} } } })
+  let registerCompliance = () => {}
+  // ⚠ manager 在**注册时**被闭包捕获 ⇒ 要换 manager 必须重新注册一次路由。
+  let activeMgr = null
+  registerCompliance = (mgr) => {
+    activeMgr = mgr
+    registerKsComplianceRoutes(
+      { webServer: { register: (d) => { routeShape = d; return () => {} } } },
+      mgr,
+    )
+  }
+  registerCompliance(null)
   const out = { status: null, body: null }
   const res = { writeHead(s) { out.status = s }, end(t) { try { out.body = JSON.parse(t) } catch { out.body = t } } }
   await routeShape.handler({ method: 'GET', url: '/ks/compliance/ping' }, res)
   check('⑦ ping 路由 exact/无尾斜杠 + 非 POST → 405（只判不写）',
     routeShape.kind === 'exact' && routeShape.path === '/ks/compliance/ping' && out.status === 405,
     `${routeShape.kind} ${routeShape.path} → ${String(out.status)}`)
+
+  /* ⑦b Jev 接线（2026-09-24）：词表命中直达；未命中才问引擎；引擎/Jev 挂了回落词表。 */
+  const { EventEmitter } = await import('node:events')
+
+  const ping = async (text, manager) => {
+    if (manager !== activeMgr) registerCompliance(manager)
+    const o = { status: null, body: null }
+    const r = {
+      writeHead(s) { o.status = s },
+      end(t) { try { o.body = JSON.parse(t) } catch { o.body = t } },
+    }
+    const req = new EventEmitter()
+    req.method = 'POST'
+    req.url = '/ks/compliance/ping'
+    queueMicrotask(() => {
+      req.emit('data', Buffer.from(JSON.stringify({ text, session: 'probe' }), 'utf8'))
+      req.emit('end')
+    })
+    await routeShape.handler(req, r)
+    return o.body?.data
+  }
+  // 词表命中 ⇒ 零网络直达（不 manager 也要能用）
+  const direct = await ping('按安全生产法这个怎么算？', null)
+  check('⑦b 词表命中 ⇒ 直达触发（零网络，且不依赖 manager）',
+    direct?.triggered === true && direct?.verdict === 'trigger' && direct?.source === 'wordlist',
+    JSON.stringify(direct))
+  // 无 manager ⇒ 静默回落词表（判 false），不报错
+  const noMgr = await ping('写个排序函数', null)
+  check('⑦b 无 manager / Jev 不可用 ⇒ 静默回落词表（不报错、不阻塞输入）',
+    noMgr?.triggered === false && noMgr?.source === 'wordlist', JSON.stringify(noMgr))
+
+  // 词表没命中 + 引擎回 verdict ⇒ 真按 Jev 的判（拦截 fetch 打桩，零网络）
+  const realFetch = globalThis.fetch
+  const seen = []
+  const stub = (payload) => {
+    globalThis.fetch = async (url) => {
+      seen.push(String(url))
+      return new Response(JSON.stringify(payload), { status: 200, headers: { 'Content-Type': 'application/json' } })
+    }
+  }
+  const mgr = { ensureLive: async () => ({ port: 9, token: 't' }) }
+  try {
+    // 隐性合规：词表看不见，Jev 说 trigger ⇒ host 必须触发
+    stub({ code: 200, status: 'success', data: { available: true, verdict: 'trigger' } })
+    const jevHit = await ping('我想让程序自动帮用户点『已阅读并同意』的服务协议', mgr)
+    check('⑦b 词表漏掉的隐性合规 ⇒ Jev 说触发就触发（且真的问了引擎）',
+      jevHit?.triggered === true && jevHit?.verdict === 'trigger' && jevHit?.source === 'jev'
+      && seen.some((u) => u.includes('/api/v1/laws/compliance-guard')),
+      `${JSON.stringify(jevHit)} calls=${JSON.stringify(seen)}`)
+    // Jev 说静默 ⇒ 不触发
+    stub({ code: 200, status: 'success', data: { available: true, verdict: 'silent' } })
+    const jevSilent = await ping('帮我写个快速排序', mgr)
+    check('⑦b Jev 说静默 ⇒ 不触发', jevSilent?.triggered === false && jevSilent?.source === 'jev',
+      JSON.stringify(jevSilent))
+    // Jev 不可用（available=false）⇒ 回落词表
+    stub({ code: 200, status: 'success', data: { available: false, verdict: 'unknown' } })
+    const jevDown = await ping('帮我写个快速排序', mgr)
+    check('⑦b Jev 不可用（available=false）⇒ 回落词表（不当作"不触发"的真相）',
+      jevDown?.triggered === false && jevDown?.source === 'wordlist', JSON.stringify(jevDown))
+    // 引擎报错 ⇒ 回落，不把错误抛给输入坞
+    globalThis.fetch = async () => { throw new Error('engine down') }
+    const engineDown = await ping('帮我写个快速排序', mgr)
+    check('⑦b 引擎不可达 ⇒ 静默回落词表（绝不让护栏变成打断输入的错误源）',
+      engineDown?.triggered === false && engineDown?.source === 'wordlist', JSON.stringify(engineDown))
+  } finally {
+    globalThis.fetch = realFetch
+  }
 }
 
 /* ⑧ C2-b 采集审批门：ks_collect **每次**都 ask（人话问句逐字）；其余工具原样放行。 */

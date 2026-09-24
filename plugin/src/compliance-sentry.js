@@ -20,9 +20,23 @@ import { errorBody, jsonResponse, readJsonBody } from './route_util.js'
 export const KS_COMPLIANCE_SENTRY =
   '涉及法规/国标/行标/公司制度的结论，必须先用 ks 工具核验（先查库拿原文）。'
 
-/** 预判据词族（宽进：误触发可容忍——多花一次 L1；漏触发由哨句兜底）。
- *  `(?<![方算想说])法` 覆盖"安全生产法"这类法名形（宽进；方法/算法/想法/说法除外）。 */
-const TRIGGER_WORDS = /法规|法律|条例|办法|规定|标准|国标|行标|团标|地标|制度|合规|审批|许可|资质|禁止|不得|应当|必须|(?<![方算想说])法/
+/**
+ * 预判据词族。2026-09-24 瘦身（业主报障：「我输入了合规问题聊天，还触发了合规护航：待命，
+ * 但其实我们没有在聊需要用法规标准解释的事情」——真机复现：9 条纯技术话 9/9 误触发）。
+ *
+ * **删掉的是这些普通词**：禁止、不得、应当、必须、标准、规范、规定。理由按实测分两类：
+ *   · 「必须 / 应当 / 不得」是中文技术写作的**日常用词**——"这个函数必须先排序"、
+ *     "重构这段代码不得引入新依赖"、"单元测试覆盖率必须达到 80% 吗"全被命中。
+ *   · 「标准 / 规范 / 规定」单字太泛——"这个 API 的标准错误码怎么设计"、
+ *     "文档里禁止使用 emoji，这是什么规范"同样全被命中。
+ * 它们对应的真问题（"必须"式的义务性表述、"标准/规范"作为**受规章管的对象**）改由
+ * Jev 护栏判（`/ks/compliance/ping` 第二次问，见 `src/core/update/jev_guard.py`）；
+ * 词表只保留**点不出歧义的专名**。
+ *
+ * 保留的仍按"宽进"：误触发可容忍（多花一次 L1），漏触发由 L0 哨句兜底（它每轮常驻）。
+ * `(?<![方算想说])法` 覆盖"安全生产法"这类法名形（方法/算法/想法/说法除外）。
+ */
+const TRIGGER_WORDS = /法规|法律|条例|国标|行标|团标|地标|合规|审批|许可|资质|(?<![方算想说])法/
 
 /**
  * 标准号模式的**前缀表**——与 `src/core/knowledge/doc_catalog.py` 的 `_STD_NO_PREFIX`
@@ -149,8 +163,16 @@ export function isComplianceTriggered(sessionId, now = Date.now()) {
   return typeof until === 'number' && now < until
 }
 
-/** 只读判定口（POST 草稿 → 回 {triggered}；exact 路由、无尾斜杠）。 */
-export function registerKsComplianceRoutes(ctx) {
+/** 只读判定口（POST 草稿 → 回 {triggered}；exact 路由、无尾斜杠）。
+ *
+ * 2026-09-24：接入 **Jev 护栏**（引擎侧 `jev_guard`，TypeSafe System One）。顺序刻意如此：
+ *   ① 词表**命中** ⇒ 直接触发（零网络、零延迟，且命中项都是法规/国标/资质这类专名，可信度高）；
+ *   ② 词表**没命中** ⇒ 问一次引擎（0.5s 内），由 Jev 判"要不要带上合规查库流程"——
+ *      这条是**唯一**能看见隐性合规的路（"自动点已阅读并同意""工伤私了"…词表 1/8，Jev 8/8）。
+ *   ③ Jev 不可用（没配 Key / 熔断 / 网络失败）⇒ **静默回落到词表**，绝不因此报错或阻塞输入。
+ * 词表瘦身后仍保留：它是"专名直达"那条零延迟快路径，也是 Jev 挂掉时的兜底。
+ */
+export function registerKsComplianceRoutes(ctx, manager) {
   return ctx.webServer.register({
     kind: 'exact',
     path: '/ks/compliance/ping',
@@ -162,11 +184,38 @@ export function registerKsComplianceRoutes(ctx) {
       const body = await readJsonBody(req)
       const text = typeof body.text === 'string' ? body.text : ''
       const sessionId = typeof body.session === 'string' ? body.session : ''
-      const hit = matchComplianceSentry(text)
-      markComplianceTriggered(sessionId, hit)
-      jsonResponse(res, 200, { ok: true, data: { triggered: hit } })
+      const byWords = matchComplianceSentry(text)
+      let verdict = byWords ? 'trigger' : 'silent'
+      let source = 'wordlist'
+      if (!byWords && text.trim() !== '' && manager) {
+        const judged = await askEngineGuard(manager, text)
+        if (judged !== null) {
+          verdict = judged
+          source = 'jev'
+        }
+      }
+      markComplianceTriggered(sessionId, verdict === 'trigger')
+      jsonResponse(res, 200, { ok: true, data: { triggered: verdict === 'trigger', verdict, source } })
     },
   })
+}
+
+/** 问引擎的护栏端点。**任何失败都返回 null**（调用方回落词表）。
+ *  失败**不外泄**给界面：合规护栏是"锦上添花"，不能变成打断输入的错误源。 */
+async function askEngineGuard(manager, text) {
+  try {
+    const session = await manager.ensureLive()
+    const { apiPost, originUrl } = await import('./engine.js')
+    const probe = await apiPost(originUrl(session.port), '/api/v1/laws/compliance-guard',
+      { token: session.token, timeoutMs: 4000, body: { text } })
+    if (probe.status !== 200 || !probe.body || probe.body.code !== 200) return null
+    const data = probe.body.data
+    if (!data || data.available !== true) return null
+    if (data.verdict !== 'trigger' && data.verdict !== 'review' && data.verdict !== 'silent') return null
+    return data.verdict
+  } catch {
+    return null
+  }
 }
 
 /* ============================================================================
