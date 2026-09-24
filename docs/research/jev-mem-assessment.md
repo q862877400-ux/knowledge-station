@@ -17,9 +17,11 @@
 | 项 | 内容 |
 |---|---|
 | 论文 | *Jev-Mem: System-One-Controlled Agentic Memory for Efficient AI Agents*，arXiv [2609.23986](https://arxiv.org/abs/2609.23986)，2026-09-21，UT Dallas（Dongming Jiang / Yi Li / Bingzhe Li） |
-| 代码 | <https://github.com/libingzheren/Jev-Mem> —— **MIT 许可**，有离线 demo（不需要 Key、不下模型） |
+| 代码 | <https://github.com/libingzheren/Jev-Mem> —— **MIT 许可**，Python（约 730 KB），有离线 demo（不需要 Key、不下模型） |
 | 基准 | LoCoMo（长期对话记忆），答案模型 GPT-4o-mini |
 | 主张分数 | 综合 0.777（最强基线 MAGMA 0.700，+11.0%）；建库 158s（最快竞争者 1044s，6.6×）；查询 0.93s（MAGMA 1.47s，−36.7%） |
+| 社区反应（2026-09-24 实查） | HF 论文页 **25 赞**；GitHub **76 星 / 5 fork / 1 watcher**；**issue 数为 0**（唯一一条 #1 已关闭，标题「中国速度🏎️💨」、正文 "fking rapidly"，无技术内容）。HF 讨论区**只有 2 条**：提交者自己的一句简介 + Librarian Bot 的自动推荐 ⇒ **没有任何人挑毛病，也没有任何实质讨论** |
+| 维护痕迹（实查提交历史） | 建仓 2026-09-20，最后一次推送 **2026-09-22**。**代码是一次性上传**（`Add files via upload`），此后**只有 README/文档的修改，没有任何代码提交、没有修 bug 的提交**。⇒ 它是一个**代码快照**，看不到迭代与响应问题的痕迹 |
 
 **架构**：三个平面 —— ① **System-One 控制面**（Jev：记忆分类、关系判断、查询路由、预算分配、候选打分、**自适应停止**）；
 ② **共享多关系记忆面**（同一批节点，四种关系视图：语义 / 时间 / 因果 / 实体，外加向量与字面两个索引）；
@@ -65,6 +67,48 @@
 **附带一个印证**：论文锚点召回用 **RRF，κ=60** —— 与我们生产口径 `RRF k=60` **完全相同**。
 这不是抄，是收敛，说明这条口径是行业默认值。
 
+### 四·补：可以直接照着改的原料（已取到原文，不是从论文转述）
+
+**默认配置**（`config/jev_mem.json` 全文已取）：
+
+| 项 | 值 | 对我们的意义 |
+|---|---|---|
+| `candidate_top_k` | 10 | 写库时每题最多比 10 个候选 ⇒ 成本**不随记忆规模增长** |
+| `anchor_count` | 30 | 初始锚点条数 |
+| `answer_top_k` / `multihop_top_k` | 40 / 50 | 送进 System-Two 的证据上限 |
+| `total_graph_budget` / `minimum_graph_budget` | 80 / 1 | 扩展总预算与每个视图的保底 |
+| `graph_activation_threshold` | 0.1 | 路由概率高于它就激活那个视图（**可多视图同时激活**） |
+| `beam_width` / `maximum_depth` | 10 / 8 | 每轮留 10 条；最大深度 8 |
+| `maximum_nodes` / `maximum_edges` | 60 / 2400 | 遍历硬上限 |
+| **`maximum_jev_calls`** | **16** | **"问它几次"的硬上限**（不是时间上限） |
+| `max_latency_seconds` | 15 | 辅助；论文自己说这是"操作之间检查"，非严格挂钟 |
+| `evidence_sufficient_threshold` | 0.95 | 判定"够了"的门 |
+| `continue_threshold` | 0.15 | 判定"继续找不值了"的门 |
+| `relation_threshold` | 0.6 | 建边的门 |
+| `timeout_seconds` / `max_retries` | 3 / 2 | 单次调用超时与重试 |
+| `admission_enabled` | false | 默认**全存不筛**（宁留勿丢） |
+| `jev_model` | `"jev-latest"` | ⚠ **与我们不同**：我们钉死 `jev-1.13.0`（自家阈值是按该版本量的，官方也明示调过阈值就别用会漂的别名）⇒ **这一处我们比它严** |
+
+**决策题目**（`memory/jev_questions.py` 全文已取，MIT）。三组对我们直接有用：
+
+* **路由（`routing_questions`，6 题）** —— 每题都是"要么/要么"，输出概率：
+  `semantic` / `temporal` / `causal` / `entity` 四路该不该开，
+  **`multi_hop_need`**（"这个问题要不要把至少两处证据合起来"），
+  `recency_importance`（"要最新的还是历史的"）。
+  ⇒ **`multi_hop_need` 正是我们缺的那个闸**：我们现在的多跳是写死一跳，没有"这条问题到底要不要多跳"的判断。
+* **停止（`stopping_questions`，4 题）** —— `evidence_sufficient` / `continue_useful` /
+  `missing_evidence` / `contradiction`，即 §四第 4 条那个清单的原文。
+* **候选打分（`traversal_questions`，4 题/候选）** —— `relevance` / `relation_usefulness` /
+  `new_information` / `supports_current_evidence`。
+  ⇒ 这是我们**排序问题的另一条路**：我们生产上把重排模型关着（`rerank` 默认 False），
+  而它用 4 个有界问题打分、不需要另开一个模型。**代价**：每题都要问，必须批量
+  （它自己的设计就写明"共享同一 state 的题可以合在一次调用里评估"）——
+  我们的 `jev_client.system_one(state, {…})` **本来就支持一次发多题**，所以这条可落地。
+
+**它自己的两条纪律原话**（与我们踩过的坑一致，可直接引用）：
+"question IDs are NOT model input"；"Noul outputs are probabilities of defined propositions,
+**not graded importance**"（Noul 输出的是命题概率，**不是重要度评分**）。
+
 ## 五、**不**该借鉴的四条（含理由）
 
 1. **多关系记忆图本身。** 它的记忆单元是**对话与经历**（叙事），天然富含时间/因果/实体关系；
@@ -102,6 +146,15 @@
 1. **Jev 的调用成本与延迟上界**：论文只给 `maximum_jev_calls=16` 的调用次数上限，没给单次延迟；
    我们本机实测是 **0.47–0.5s/条**（`src/core/config.py:171` 注）⇒ 16 次是**秒级**开销，能否接受要实测。
 2. **它那套路由/停止在"条款"这类非叙事语料上是否有增益**：论文没有这类实验。
-3. **LoCoMo 上 Jev 与各类基线的公平性**：只读到作者自测，**未找到第三方复现**。
+3. **LoCoMo 上 Jev 与各类基线的公平性**：只读到作者自测，**未找到第三方复现**；
+   HF 讨论区无实质讨论（仅 2 条：作者自介 + 机器人推荐）、GitHub issue 数为 0
+   ⇒ **看不到任何独立验证的痕迹**。
 4. **许可适用性**：代码 MIT 可抄（需随附版权声明，与 WeKnora MIT 同规矩）；
    但它 `data/README.md` 里的数据集要各自回原发行方取，许可另算。
+5. **它自己的代码能不能跑通**：README 说离线 demo 不需要 Key、不下模型，但**我没有实际克隆安装**；
+   且提交历史显示代码是一次性上传（`Add files via upload`）、之后**没有任何代码提交**
+   ⇒ 若要**依赖它的实现**（而不只是照抄题目设计），须先自己跑一遍并评估维护风险。
+6. **邻居工作未评估**：HF 的 Librarian Bot 推荐了 RippleMem（2608.13334）、
+   **[Zero-Mem: Zero-Token Memory Operations for LLM Agents](https://huggingface.co/papers/2607.29377)**、
+   LycheeMemory V2（2608.12990）、LeanMem 等。其中 **Zero-Mem 的题目（"零 token 的记忆操作"）
+   与我们的省 token 硬约束直接相关**，本轮**未读**，只登记。
