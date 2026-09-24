@@ -214,7 +214,7 @@ async function main() {
   console.log(`\n-- live value --\n${JSON.stringify(value, null, 2)}\n`)
 
   check('LIVE ok=true', value.ok === true)
-  check('LIVE four-colour block', ['red', 'yellow', 'green', 'gray']
+  check('LIVE five-colour block', ['red', 'yellow', 'green', 'gray', 'reference']
     .every((c) => typeof value.colors?.[c] === 'number'))
   check('F16 constant window omitted', !('window' in value))
   check('no undefined anywhere', findUndefined(value) === null, findUndefined(value) ?? '')

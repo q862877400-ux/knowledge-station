@@ -121,23 +121,23 @@ const EFFECT_SUMMARY = {
   data: {
     generated_at: '2026-10-01 09:00:00',
     window: 'all',
-    colors: { red: 2, yellow: 1, green: 5, gray: 2 },
+    colors: { red: 2, yellow: 1, green: 5, gray: 2, reference: 0 },
     total: 10,
-    std: { total: 8, colors: { red: 2, yellow: 1, green: 4, gray: 1 } },
-    law: { total: 2, colors: { red: 0, yellow: 0, green: 1, gray: 1 } },
+    std: { total: 8, colors: { red: 2, yellow: 1, green: 4, gray: 1, reference: 0 } },
+    law: { total: 2, colors: { red: 0, yellow: 0, green: 1, gray: 1, reference: 0 } },
     tree: [
       {
         top: 'std',
         name: '国家标准·行业标准·团体标准',
-        colors: { red: 2, yellow: 1, green: 4, gray: 1 },
+        colors: { red: 2, yellow: 1, green: 4, gray: 1, reference: 0 },
         items: [
-          { name: 'C 医药、卫生、劳动保护', colors: { red: 1, yellow: 1, green: 1, gray: 1 } },
-          { name: 'F 能源、核技术', colors: { red: 1, yellow: 0, green: 1, gray: 0 } },
-          { name: 'J 机械', colors: { red: 0, yellow: 0, green: 1, gray: 0 } },
-          { name: 'K 电工', colors: { red: 0, yellow: 0, green: 1, gray: 0 } },
+          { name: 'C 医药、卫生、劳动保护', colors: { red: 1, yellow: 1, green: 1, gray: 1, reference: 0 } },
+          { name: 'F 能源、核技术', colors: { red: 1, yellow: 0, green: 1, gray: 0, reference: 0 } },
+          { name: 'J 机械', colors: { red: 0, yellow: 0, green: 1, gray: 0, reference: 0 } },
+          { name: 'K 电工', colors: { red: 0, yellow: 0, green: 1, gray: 0, reference: 0 } },
         ],
       },
-      { top: 'law', name: '法律法规', colors: { red: 0, yellow: 0, green: 1, gray: 1 }, items: [] },
+      { top: 'law', name: '法律法规', colors: { red: 0, yellow: 0, green: 1, gray: 1, reference: 0 }, items: [] },
     ],
   },
 }

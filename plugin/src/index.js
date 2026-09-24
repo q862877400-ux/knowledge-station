@@ -604,9 +604,12 @@ export function makeEffectReportTool(manager) {
     name: 'ks_effect_report',
     description:
       // 批3-c 瘦身（纯精简；顺手把 S4 改名后的「效力总览」页名写正）。
-      '库内标准/法规的效力现状总览（效力报告）：四色统计（🔴在用已废止/被替代 · 🟡即将实施 · '
-      + '🟢现行有效 · ⚪状态未知）+ 标准树/法规树分计 + 红/黄清单（各 top 10）。用户问'
-      + '"库里标准还有效吗/有没有已废止的/哪些即将实施/效力报告"时调用。attention_error 非空 = '
+      // 2026-09-24：四色→五色（+🔵 参考资料·仅参考＝征求意见稿/草案）。
+      '库内标准/法规的效力现状总览（效力报告）：五色统计（🔴在用已废止/被代替 · 🟡即将实施 · '
+      + '🟢现行有效 · ⚪状态未知 · 🔵参考资料（仅参考，不得作为现行依据））+ 标准树/法规树分计 '
+      + '+ 红/黄清单（各 top 10）。用户问'
+      + '"库里标准还有效吗/有没有已废止的/哪些即将实施/效力报告/有没有征求意见稿"时调用。'
+      + 'attention_error 非空 = '
       + '红/黄清单没取到（统计仍有效，别当成"没有废止文件"）。列已废止标准时把 evidence_url 写成 '
       + 'Markdown 链接。只读零 LLM；完整清单在「效力总览」页。',
     parameters: {
@@ -644,8 +647,10 @@ export function makeEffectReportTool(manager) {
               yellow: { type: 'number' },
               green: { type: 'number' },
               gray: { type: 'number' },
+              // 第五档（2026-09-24）：🔵 参考资料（仅参考）—— 征求意见稿/草案等未生效文本。
+              reference: { type: 'number' },
             },
-            required: ['red', 'yellow', 'green', 'gray'],
+            required: ['red', 'yellow', 'green', 'gray', 'reference'],
           },
           std_total: { type: 'number' },
           law_total: { type: 'number' },
@@ -739,6 +744,9 @@ export function makeEffectReportTool(manager) {
         }
         const d = env.data
         const colors = d.colors && typeof d.colors === 'object' ? d.colors : {}
+        // ⚠ 这里的键集合与下面 `output.schema.properties.colors` 必须**同步改**：
+        //   schema 是 `additionalProperties:false` + 全 required，多一个/少一个键
+        //   都会被宿主判成 ToolOutputError（每次调用 isError）。
         const out = {
           ok: true,
           generated_at: d.generated_at ?? null,
@@ -746,6 +754,8 @@ export function makeEffectReportTool(manager) {
           colors: {
             red: colors.red ?? 0, yellow: colors.yellow ?? 0,
             green: colors.green ?? 0, gray: colors.gray ?? 0,
+            // 2026-09-24 第五档（🔵 参考资料·仅参考：征求意见稿/草案）。
+            reference: colors.reference ?? 0,
           },
           std_total: d.std?.total ?? 0,
           law_total: d.law?.total ?? 0,

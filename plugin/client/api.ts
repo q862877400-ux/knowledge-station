@@ -2231,7 +2231,7 @@ export interface KsEffectDoc {
   standard_no: string | null
   standard_name: string | null
   status: string | null
-  color: 'red' | 'yellow' | 'green' | 'gray'
+  color: 'red' | 'yellow' | 'green' | 'gray' | 'reference'
   effective_from: string | null
   published_at: string | null
   superseded_by: string | null
@@ -3148,7 +3148,7 @@ export interface KsKbFolder {
   folder_count_deep: number
   /** 这一棵子树里文件的**效力四色**总览（green=现行 / red=在用废止·被代 / yellow=即将实施 /
    *  gray=未知；口径 = 引擎 effect_report.STATUS_COLOR）。文件夹行的红绿灯用它（批D2）。 */
-  effect_deep: { green: number; red: number; yellow: number; gray: number }
+  effect_deep: { green: number; red: number; yellow: number; gray: number; reference: number }
 }
 
 /**
@@ -3232,6 +3232,8 @@ function normalizeKbFolder(value: unknown): KsKbFolder | null {
       return {
         green: intOf(ef.green, 0), red: intOf(ef.red, 0),
         yellow: intOf(ef.yellow, 0), gray: intOf(ef.gray, 0),
+        // 2026-09-24 第五档：🔵 仅参考（征求意见稿/草案）
+        reference: intOf(ef.reference, 0),
       }
     })(),
   }

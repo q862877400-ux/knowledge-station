@@ -93,6 +93,9 @@ function statusBadge(ev: KsTurnEvidenceItem): { text: string; color: string } {
   }
   if (s === 'superseded') return { text: '已被替代', color: 'var(--dsw-alias-state-error-primary)' }
   if (s === 'withdrawn') return { text: '已废止', color: 'var(--dsw-alias-state-error-primary)' }
+  /* ⚠ 2026-09-24 新增这一档（业主："征求意见稿也要入库，只是效力层级是参考资料"）：
+     它**不是**现行依据 —— 徽章必须把"仅参考"说在字面上，别让它看起来像个有效档。 */
+  if (s === 'reference') return { text: '参考资料（仅参考，非现行依据）', color: 'var(--dsw-alias-label-secondary)' }
   return { text: '状态未知', color: 'var(--dsw-alias-label-tertiary)' }
 }
 

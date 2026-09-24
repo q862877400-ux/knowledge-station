@@ -307,7 +307,7 @@
     {
       "id": "ks_effect_report.summary",
       "tool": "ks_effect_report",
-      "_source": "请求 plugin/src/index.js:409（**无查询串**）；响应 src/core/api/routes_report.py:36-51 的 {code,status,data} 信封 + src/core/exports/effect_report.py:218-235（data 的键：generated_at/window/colors/total/std/law/tree）+ 节点形状 :186-188,205-218 + _empty_colors :70-71。",
+      "_source": "请求 plugin/src/index.js:409（**无查询串**）；响应 src/core/api/routes_report.py:36-51 的 {code,status,data} 信封 + src/core/exports/effect_report.py:218-235（data 的键：generated_at/window/colors/total/std/law/tree）+ 节点形状 :186-188,205-218 + _empty_colors :70-71。⚠ 2026-09-24 起每个 colors 对象多一档 `reference`（🔵 参考资料·仅参考），键集合的唯一所有者 = effect_report.COLOR_ORDER。",
       "request": { "method": "GET", "path": "/api/v1/report/effect", "query": null, "rawQuery": "", "body": null, "auth": "bearer" },
       "response": {
         "http": 200,
@@ -318,22 +318,22 @@
           "data": {
             "generated_at": "2026-10-05 09:12:33",
             "window": "all",
-            "colors": { "red": 1, "yellow": 1, "green": 2, "gray": 1 },
+            "colors": { "red": 1, "yellow": 1, "green": 2, "gray": 1, "reference": 0 },
             "total": 5,
-            "std": { "total": 3, "colors": { "red": 1, "yellow": 0, "green": 2, "gray": 0 } },
-            "law": { "total": 2, "colors": { "red": 0, "yellow": 1, "green": 0, "gray": 1 } },
+            "std": { "total": 3, "colors": { "red": 1, "yellow": 0, "green": 2, "gray": 0, "reference": 0 } },
+            "law": { "total": 2, "colors": { "red": 0, "yellow": 1, "green": 0, "gray": 1, "reference": 0 } },
             "tree": [
               {
-                "colors": { "red": 1, "yellow": 0, "green": 2, "gray": 0 },
+                "colors": { "red": 1, "yellow": 0, "green": 2, "gray": 0, "reference": 0 },
                 "top": "std",
                 "name": "标准",
                 "items": [
                   {
-                    "colors": { "red": 1, "yellow": 0, "green": 1, "gray": 0 },
+                    "colors": { "red": 1, "yellow": 0, "green": 1, "gray": 0, "reference": 0 },
                     "name": "工程建设标准",
                     "items": [
                       {
-                        "colors": { "red": 1, "yellow": 0, "green": 0, "gray": 0 },
+                        "colors": { "red": 1, "yellow": 0, "green": 0, "gray": 0, "reference": 0 },
                         "name": "作业安全",
                         "count": 1
                       }
@@ -342,12 +342,12 @@
                 ]
               },
               {
-                "colors": { "red": 0, "yellow": 1, "green": 0, "gray": 1 },
+                "colors": { "red": 0, "yellow": 1, "green": 0, "gray": 1, "reference": 0 },
                 "top": "law",
                 "name": "法规",
                 "items": [
                   {
-                    "colors": { "red": 0, "yellow": 1, "green": 0, "gray": 0 },
+                    "colors": { "red": 0, "yellow": 1, "green": 0, "gray": 0, "reference": 0 },
                     "name": "行政法规",
                     "count": 1
                   }
@@ -366,6 +366,7 @@
         "data.colors.yellow",
         "data.colors.green",
         "data.colors.gray",
+        "data.colors.reference",
         "data.std.total",
         "data.law.total",
         "data.tree[].top",
@@ -374,11 +375,13 @@
         "data.tree[].colors.yellow",
         "data.tree[].colors.green",
         "data.tree[].colors.gray",
+        "data.tree[].colors.reference",
         "data.tree[].items[].name",
         "data.tree[].items[].colors.red",
         "data.tree[].items[].colors.yellow",
         "data.tree[].items[].colors.green",
-        "data.tree[].items[].colors.gray"
+        "data.tree[].items[].colors.gray",
+        "data.tree[].items[].colors.reference"
       ],
       "minimal": {
         "code": 200,
@@ -386,29 +389,29 @@
           "generated_at": "2026-10-05 09:12:33",
           "total": 5,
           "window": "all",
-          "colors": { "red": 1, "yellow": 1, "green": 2, "gray": 1 },
+          "colors": { "red": 1, "yellow": 1, "green": 2, "gray": 1, "reference": 0 },
           "std": { "total": 3 },
           "law": { "total": 2 },
           "tree": [
             {
               "top": "std",
               "name": "标准",
-              "colors": { "red": 1, "yellow": 0, "green": 2, "gray": 0 },
+              "colors": { "red": 1, "yellow": 0, "green": 2, "gray": 0, "reference": 0 },
               "items": [
                 {
                   "name": "工程建设标准",
-                  "colors": { "red": 1, "yellow": 0, "green": 1, "gray": 0 }
+                  "colors": { "red": 1, "yellow": 0, "green": 1, "gray": 0, "reference": 0 }
                 }
               ]
             },
             {
               "top": "law",
               "name": "法规",
-              "colors": { "red": 0, "yellow": 1, "green": 0, "gray": 1 },
+              "colors": { "red": 0, "yellow": 1, "green": 0, "gray": 1, "reference": 0 },
               "items": [
                 {
                   "name": "行政法规",
-                  "colors": { "red": 0, "yellow": 1, "green": 0, "gray": 0 }
+                  "colors": { "red": 0, "yellow": 1, "green": 0, "gray": 0, "reference": 0 }
                 }
               ]
             }
@@ -438,7 +441,7 @@
           "code": 200,
           "status": "success",
           "data": {
-            "colors": { "red": 1, "yellow": 1, "green": 2, "gray": 1 },
+            "colors": { "red": 1, "yellow": 1, "green": 2, "gray": 1, "reference": 0 },
             "count": 5,
             "per_color": true,
             "docs": [

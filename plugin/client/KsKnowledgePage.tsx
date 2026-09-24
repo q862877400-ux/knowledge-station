@@ -149,15 +149,19 @@ const FILE_PAGE_SIZE = 50
 
 /**
  * 效力状态的呈现分档。`legal_status` 的取值域是 `doc_meta` 的 CHECK：
- * `effective | upcoming | superseded | withdrawn`（另加"读不到/为空"这一档如实显示 `—`）。
+ * `effective | upcoming | superseded | withdrawn | reference`（另加"读不到/为空"这一档如实显示 `—`）。
+ * ⚠ `reference`（2026-09-24 加）= **参考资料（仅参考）**：业主点名要的那一档 ——
+ * "征求意见稿也要入库，只是效力层级是参考资料，不是强制执行的那种"。
+ * 它不是"有效"的任何变体 ⇒ 单独一档、中性色，且**引用时必须说明仅参考**。
  */
-type Status = 'current' | 'upcoming' | 'withdrawn' | 'superseded' | 'unknown'
+type Status = 'current' | 'upcoming' | 'withdrawn' | 'superseded' | 'reference' | 'unknown'
 
 const STATUS: Record<Status, { readonly cls: string; readonly text: string }> = {
   current: { cls: 'ks-status ks-status-ok', text: '现行' },
   upcoming: { cls: 'ks-status ks-status-warn', text: '即将实施' },
   withdrawn: { cls: 'ks-status ks-status-bad', text: '已废止' },
   superseded: { cls: 'ks-status ks-status-neutral', text: '被替代' },
+  reference: { cls: 'ks-status ks-status-neutral', text: '参考资料（仅参考）' },
   unknown: { cls: 'ks-status ks-status-neutral', text: '—' },
 }
 
@@ -166,6 +170,7 @@ function statusOf(raw: string | null): Status {
   if (raw === 'upcoming') return 'upcoming'
   if (raw === 'withdrawn') return 'withdrawn'
   if (raw === 'superseded') return 'superseded'
+  if (raw === 'reference') return 'reference'
   return 'unknown'
 }
 
@@ -3531,6 +3536,11 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                     { id: 'ask', label: '在此范围内提问' },
                     { id: 'delete', label: '删掉这个目录…' },
                   ]
+                  /* ⚠ 效力分色的键集合由引擎给（`effect_report.COLOR_ORDER`，2026-09-24 起五档：
+                     红/黄/绿/灰 + **🔵仅参考**＝征求意见稿·草案那种"未生效、可查不可作依据"）。
+                     这里只做 `?? 0` 兜底，不自己定键名（写死键名会在加档时让某一档永远显示 0）。 */
+                  const ed = (child.effect_deep ?? {}) as Record<string, number>
+                  const edN = (k: string): number => ed[k] ?? 0
                   const dirCell = (key: DirColKey): ReactNode => {
                     switch (key) {
                       case 'dpick':
@@ -3564,12 +3574,13 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                             </button>
                             <span style={{ marginLeft: 'auto', display: 'inline-flex', gap: 8,
                               fontSize: 11, whiteSpace: 'nowrap', color: 'var(--dsw-alias-label-secondary)' }}
-                              title={`「${child.name}」这一棵里：🟢 现行 ${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).green} · 🟡 即将实施 ${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).yellow} · 🔴 废止/被代 ${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).red} · ⚪ 未知 ${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).gray}`}>
-                              {(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).red ? `🔴${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).red} ` : ''}
-                              {(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).yellow ? `🟡${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).yellow} ` : ''}
-                              {(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).green ? `🟢${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).green}` : ''}
-                              {(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).gray ? ` ⚪${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).gray}` : ''}
-                              {(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).red + (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).yellow + (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).green + (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).gray === 0
+                              title={`「${child.name}」这一棵里：🟢 现行 ${edN('green')} · 🟡 即将实施 ${edN('yellow')} · 🔴 废止/被代 ${edN('red')} · 🔵 仅参考 ${edN('reference')} · ⚪ 未知 ${edN('gray')}`}>
+                              {edN('red') ? `🔴${edN('red')} ` : ''}
+                              {edN('yellow') ? `🟡${edN('yellow')} ` : ''}
+                              {edN('green') ? `🟢${edN('green')}` : ''}
+                              {edN('gray') ? ` ⚪${edN('gray')}` : ''}
+                              {edN('reference') ? ` 🔵${edN('reference')}` : ''}
+                              {edN('red') + edN('yellow') + edN('green') + edN('gray') + edN('reference') === 0
                                 ? '—' : ''}
                             </span>
                           </>

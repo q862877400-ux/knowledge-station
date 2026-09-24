@@ -285,6 +285,9 @@ export function KsFilesView(props: KsFilesViewProps): JSX.Element {
     const wd = d.legal_status === 'withdrawn' || d.legal_status === 'superseded'
       ? (d.withdrawn_date ?? '')
       : ''
+    // 2026-09-24：征求意见稿/草案等**仅参考**件（legal_status='reference'）不禁用、不打删除线，
+    // 但鼠标停在上面必须说清它不能当依据——否则业主会把它当现行文本用。
+    const refOnly = d.legal_status === 'reference'
     const metaBits = [
       d.ccs_name ? (d.ccs_code ? `${d.ccs_code} ${d.ccs_name}` : d.ccs_name) : '',
     ].filter(Boolean)
@@ -308,7 +311,9 @@ export function KsFilesView(props: KsFilesViewProps): JSX.Element {
           ...(catMulti ? { cursor: 'pointer' } : {}),
         }}
         title={[
-          (d.standard_no + ' ' + (d.standard_name ?? '')).trim() + (struck ? '（已废止，仅供参考）' : ''),
+          (d.standard_no + ' ' + (d.standard_name ?? '')).trim()
+            + (struck ? '（已废止，仅供参考）' : '')
+            + (refOnly ? '（参考资料，仅参考、不作依据）' : ''),
           dateBits.length ? dateBits.join(' · ') : '',
         ].filter(Boolean).join('\n')}
       >

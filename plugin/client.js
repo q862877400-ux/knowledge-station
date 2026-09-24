@@ -1759,7 +1759,9 @@ function normalizeKbFolder(value) {
         green: intOf(ef.green, 0),
         red: intOf(ef.red, 0),
         yellow: intOf(ef.yellow, 0),
-        gray: intOf(ef.gray, 0)
+        gray: intOf(ef.gray, 0),
+        // 2026-09-24 第五档：🔵 仅参考（征求意见稿/草案）
+        reference: intOf(ef.reference, 0)
       };
     })()
   };
@@ -30188,6 +30190,7 @@ function KsFilesView(props) {
   const renderLeaf = (d) => {
     const struck = d.legal_status === "superseded" || d.legal_status === "withdrawn";
     const wd = d.legal_status === "withdrawn" || d.legal_status === "superseded" ? d.withdrawn_date ?? "" : "";
+    const refOnly = d.legal_status === "reference";
     const metaBits = [
       d.ccs_name ? d.ccs_code ? `${d.ccs_code} ${d.ccs_name}` : d.ccs_name : ""
     ].filter(Boolean);
@@ -30211,7 +30214,7 @@ function KsFilesView(props) {
           ...catMulti ? { cursor: "pointer" } : {}
         },
         title: [
-          (d.standard_no + " " + (d.standard_name ?? "")).trim() + (struck ? "\uFF08\u5DF2\u5E9F\u6B62\uFF0C\u4EC5\u4F9B\u53C2\u8003\uFF09" : ""),
+          (d.standard_no + " " + (d.standard_name ?? "")).trim() + (struck ? "\uFF08\u5DF2\u5E9F\u6B62\uFF0C\u4EC5\u4F9B\u53C2\u8003\uFF09" : "") + (refOnly ? "\uFF08\u53C2\u8003\u8D44\u6599\uFF0C\u4EC5\u53C2\u8003\u3001\u4E0D\u4F5C\u4F9D\u636E\uFF09" : ""),
           dateBits.length ? dateBits.join(" \xB7 ") : ""
         ].filter(Boolean).join("\n"),
         children: [
@@ -38554,6 +38557,7 @@ var STATUS = {
   upcoming: { cls: "ks-status ks-status-warn", text: "\u5373\u5C06\u5B9E\u65BD" },
   withdrawn: { cls: "ks-status ks-status-bad", text: "\u5DF2\u5E9F\u6B62" },
   superseded: { cls: "ks-status ks-status-neutral", text: "\u88AB\u66FF\u4EE3" },
+  reference: { cls: "ks-status ks-status-neutral", text: "\u53C2\u8003\u8D44\u6599\uFF08\u4EC5\u53C2\u8003\uFF09" },
   unknown: { cls: "ks-status ks-status-neutral", text: "\u2014" }
 };
 function statusOf(raw) {
@@ -38561,6 +38565,7 @@ function statusOf(raw) {
   if (raw === "upcoming") return "upcoming";
   if (raw === "withdrawn") return "withdrawn";
   if (raw === "superseded") return "superseded";
+  if (raw === "reference") return "reference";
   return "unknown";
 }
 var STAGE_LABELS = {
@@ -41066,6 +41071,8 @@ function KsKnowledgePage({ useTabInfo }) {
               { id: "ask", label: "\u5728\u6B64\u8303\u56F4\u5185\u63D0\u95EE" },
               { id: "delete", label: "\u5220\u6389\u8FD9\u4E2A\u76EE\u5F55\u2026" }
             ];
+            const ed = child.effect_deep ?? {};
+            const edN = (k) => ed[k] ?? 0;
             const dirCell = (key) => {
               switch (key) {
                 case "dpick":
@@ -41111,13 +41118,14 @@ function KsKnowledgePage({ useTabInfo }) {
                           whiteSpace: "nowrap",
                           color: "var(--dsw-alias-label-secondary)"
                         },
-                        title: `\u300C${child.name}\u300D\u8FD9\u4E00\u68F5\u91CC\uFF1A\u{1F7E2} \u73B0\u884C ${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).green} \xB7 \u{1F7E1} \u5373\u5C06\u5B9E\u65BD ${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).yellow} \xB7 \u{1F534} \u5E9F\u6B62/\u88AB\u4EE3 ${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).red} \xB7 \u26AA \u672A\u77E5 ${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).gray}`,
+                        title: `\u300C${child.name}\u300D\u8FD9\u4E00\u68F5\u91CC\uFF1A\u{1F7E2} \u73B0\u884C ${edN("green")} \xB7 \u{1F7E1} \u5373\u5C06\u5B9E\u65BD ${edN("yellow")} \xB7 \u{1F534} \u5E9F\u6B62/\u88AB\u4EE3 ${edN("red")} \xB7 \u{1F535} \u4EC5\u53C2\u8003 ${edN("reference")} \xB7 \u26AA \u672A\u77E5 ${edN("gray")}`,
                         children: [
-                          (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).red ? `\u{1F534}${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).red} ` : "",
-                          (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).yellow ? `\u{1F7E1}${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).yellow} ` : "",
-                          (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).green ? `\u{1F7E2}${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).green}` : "",
-                          (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).gray ? ` \u26AA${(child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).gray}` : "",
-                          (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).red + (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).yellow + (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).green + (child.effect_deep ?? { green: 0, red: 0, yellow: 0, gray: 0 }).gray === 0 ? "\u2014" : ""
+                          edN("red") ? `\u{1F534}${edN("red")} ` : "",
+                          edN("yellow") ? `\u{1F7E1}${edN("yellow")} ` : "",
+                          edN("green") ? `\u{1F7E2}${edN("green")}` : "",
+                          edN("gray") ? ` \u26AA${edN("gray")}` : "",
+                          edN("reference") ? ` \u{1F535}${edN("reference")}` : "",
+                          edN("red") + edN("yellow") + edN("green") + edN("gray") + edN("reference") === 0 ? "\u2014" : ""
                         ]
                       }
                     )
@@ -41554,6 +41562,7 @@ function statusBadge(ev) {
   }
   if (s === "superseded") return { text: "\u5DF2\u88AB\u66FF\u4EE3", color: "var(--dsw-alias-state-error-primary)" };
   if (s === "withdrawn") return { text: "\u5DF2\u5E9F\u6B62", color: "var(--dsw-alias-state-error-primary)" };
+  if (s === "reference") return { text: "\u53C2\u8003\u8D44\u6599\uFF08\u4EC5\u53C2\u8003\uFF0C\u975E\u73B0\u884C\u4F9D\u636E\uFF09", color: "var(--dsw-alias-label-secondary)" };
   return { text: "\u72B6\u6001\u672A\u77E5", color: "var(--dsw-alias-label-tertiary)" };
 }
 function KsTurnModeChip(props) {
