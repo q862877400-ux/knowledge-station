@@ -31,12 +31,13 @@
  * 退出码：0 = 每一组都判过且都合规；1 = 任一组红/没判到；2 = 参数错（本脚本不收参数）。
  */
 import { spawnSync } from 'node:child_process'
-import { mkdir } from 'node:fs/promises'
+import { mkdir, readFile } from 'node:fs/promises'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const here = dirname(fileURLToPath(import.meta.url))
 const repoRoot = resolve(here, '..', '..')
+const pluginRoot = join(repoRoot, 'plugin')
 const shotScript = join(here, 'ui-render-shot.mjs')
 
 if (process.argv.slice(2).length > 0) {
@@ -191,6 +192,45 @@ for (const c of MATRIX) {
   if (rcHasRows && rc.equalJudged !== true
       && (rc.skipReason === null || rc.skipReason === undefined)) {
     problems.push('rowCtrlsCheck：有行，却既没判"等于几"也没给 skipReason（口径漏洞）')
+  }
+  /* ⚠⚠ **2026-09-24 独立复核 MED-1 / MED-2：这一块是补它们要的判据。**
+     MED-1（它实测）：把渠道库左树改回**自造那套类**（`.ks-tree-item/.ks-tree-on` + 内联 28px/12px）时，
+     `ui-render-shot` **exit 0**、ksPadCheck 全绿 ⇒ "五处统一"当时**零判据守着**，
+     所以 `a08dbe8` 说明里"把它真正量起来、否则会悄悄漂回去"是**夸大**（那一批量的是留边存在性）。
+     MED-2（它实测）：`--chans` 桩原先没有"同 host 多行" ⇒ **0 个真 caret**，
+     本批新加的展开/收起从未被渲染到。
+     ⇒ 这里只对"渠道库那一组"判四条：两栏容器 / 右栏 / 左树行 用的是知识库那套；
+       左树有**真 caret**（"网站"那一级真的造出来了）；根字号是外壳那档。
+       外加**源码级**反查（退回到自造类就红）—— 双保险：DOM 量到 + 源码里不该再出现那几个名字。 */
+  if (c.page === 'kb' && c.navPage === 'channels' && c.chans === true) {
+    const m = j.measured ?? {}
+    const cnt = (k) => m[k]?.n ?? 0
+    if (cnt('.ks-split') !== 1) problems.push('渠道库那面没用知识库那套两栏容器 .ks-split')
+    if (cnt('.ks-main') !== 1) problems.push('渠道库那面没用知识库那套右栏 .ks-main')
+    if (cnt('.ks-tree-row') < 1) problems.push('渠道库左树没用知识库那套行 .ks-tree-row')
+    if (cnt('.ks-tree-caret') < 1) {
+      problems.push('渠道库左树没有**真 caret** ⇒ "网站"那一级没造出来（展开/收起等于没被渲染过）')
+    }
+    const kbFs = m['.ks-kb']?.fs ?? ''
+    if (kbFs !== '13px') problems.push(`渠道库那面字号不是外壳那档（.ks-kb fs=${String(kbFs)}，应为 13px）`)
+    try {
+      const panelSrc = await readFile(join(pluginRoot, 'client', 'KsChannelsPanel.tsx'), 'utf8')
+      /* ⚠ **注释要先剥掉**：那几个自造类名**在注释里被点名**（"改前用的是 .ks-tree-item/.ks-tree-on…"）
+         ⇒ 直接 `includes()` 会把注释当代码，**当场假红**（第一版实测就是这么红的）。
+         与 B3b 复核给 `.ks-list-cap` 那条判据的评价同源：**源码文本判据是弱判据**，
+         它挡"改名/退回"，挡不住"注释里提到"⇒ 至少把注释剥了再判。 */
+      const panelCode = panelSrc
+        .replace(/\/\*[\s\S]*?\*\//g, '')
+        .replace(/(^|[^:])\/\/[^\n]*/g, '$1')
+      for (const bad of ['ks-tree-item', 'ks-tree-on', 'ks-tree-sub', 'ks-kb-main']) {
+        if (panelCode.includes(bad)) problems.push(`渠道库面板**代码**里又出现自造类 ${bad}（回到老那套了）`)
+      }
+      for (const good of ['className="ks-split"', 'className="ks-main"', 'ks-tree-row']) {
+        if (!panelCode.includes(good)) problems.push(`渠道库面板代码里缺 ${good}（被换掉了）`)
+      }
+    } catch (e) {
+      problems.push(`渠道库面板源码读不到（统一那几条没判）：${String(e)}`)
+    }
   }
   /* ⚠⚠ **知识库页几何（2026-09-21 第 3 步起取代"卡片尺寸统一"）**：`levelCheck`。
    *   两条判据：① 左列目录树与右栏并排；② 同一级里目录行与文件行行高逐字相同。

@@ -765,7 +765,12 @@ globalThis.fetch = async (input, init = {}) => {
           last_try_at: '2026-09-24 09:11:00', last_ok_at: '2026-09-24 09:11:01',
           consecutive_failures: 0, latency_ms: 990, segments_json: '["DB43"]', has_probe_target: true },
         { channel_id: 'ch_hn_law', name: '湖南省人大 · 地方性法规', category: 'law',
-          org_kind: 'local_dept', url: 'https://www.hnrd.gov.cn/', fetch_kind: 'http',
+          /* ⚠ **2026-09-24（独立复核 MED-2）**：改前这一条的 host 与上一条不同 ⇒ 桩里
+             **一个"网站"分组都造不出来**（`groupRowsBySite` 只在"同 host >1 行"时建站），
+             于是本批新加的左树 caret 展开/收起**从未被任何一跑渲染到**。
+             现在它与上一条共用 host ⇒ 左树真的出现"网站"那一级（判据见
+             `smoke-kb-pad-pixels.mjs` 里那条"渠道库面与知识库同一套"。 */
+          org_kind: 'local_dept', url: 'https://amr.hunan.gov.cn/amr/zwx/notice/', fetch_kind: 'http',
           wiring: 'wired', verification: 'unverified', state: 'unknown', enabled: 1,
           last_try_at: null, last_ok_at: null, consecutive_failures: 0, has_probe_target: true },
         { channel_id: 'ch_iso', name: 'ISO 官网（国际标准）', category: 'std_intl',
@@ -1467,6 +1472,12 @@ const html = `<!doctype html>
                 /* 2026-09-21（第 3 步）新形态的量点：左列目录树 / 面包屑（逐级可点）/ 返回 /
                    目录层列表 / 翻页条 / 上传面板 / 错误条。 */
                 '.ks-kb-tree','.ks-tree-head','.ks-tree-row','.ks-tree-name','.ks-tree-count',
+                /* ⚠ **2026-09-24（独立复核 MED-2 补）**：.ks-tree-caret 是**真展开按钮**的存在性证据 ——
+                   渠道库那面改前一个 caret 都造不出来（桩里没有"同 host 多行"），
+                   所以本批新加的展开/收起**从未被渲染到**。现在把它纳入量点：
+                   没有真 caret ⇒ 那一级没被造出来 ⇒ smoke-kb-pad-pixels 会红。
+                   ⚠ 本段在**注入脚本**里：注释不许出现反引号（第一版写了 ⇒ 每一组都渲染失败）。 */
+                '.ks-tree-caret',
                 '.ks-crumb','.ks-crumb-path','.ks-crumb-item','.ks-crumb-go','.ks-crumb-here','.ks-crumb-n',
                 '.ks-back','.ks-pager','.ks-pager-n','.ks-pager-btn','.ks-upload','.ks-upload-row',
                 '.ks-upload-note','.ks-upload-msg','.ks-kb-err',
