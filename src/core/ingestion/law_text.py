@@ -93,7 +93,8 @@ def ingest_law_text(text: str, standard_no: str, standard_name: str,
                     clause_doc_type: str | None = None,
                     legal_status: str | None = "__default__",
                     quality_grade: str | None = "__default__",
-                    standard_type: str | None = "__default__") -> dict:
+                    standard_type: str | None = "__default__",
+                    fallback_single_clause: bool = False) -> dict:
     """法规纯文本 → 切分 → 分型 → 单事务原子入库（无源 PDF，file_path 记录来源标记）。
 
     Args:
@@ -141,6 +142,13 @@ def ingest_law_text(text: str, standard_no: str, standard_name: str,
     articles = split_law_text(text)
     if not articles:
         articles = split_gb_text(text)
+    if not articles and fallback_single_clause:
+        # 政府网站的**公告/通知**常常没有"第X条"（一句到几段就是全文）。
+        # 这类正文走同一条通道时不该被"未识别到条文"挡在门外 ⇒ 整篇作**一条**（编号"全文"）。
+        # ⚠ 只在这个显式开关为真时生效：既有调用方（法规/标准正文）行为一字不变。
+        body = text.strip()
+        if body:
+            articles = [("全文", body)]
     if not articles:
         return {"status": "error", "message": "未识别到任何'第X条'条文"}
 
