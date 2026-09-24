@@ -384,6 +384,19 @@ def register(app, json_error):
             force=bool(payload.get("force")))
         return {"code": 200, "status": "success", "data": out}
 
+    @app.get("/api/v1/update/announce-ingest/triage")
+    def announce_ingest_triage(source_id: str | None = None, limit: int = 200):
+        """给"规则判不收、但要不要真清"的那批**分档**（2026-09-24 B2，Jev 管清）。
+
+        ⚠ **只读**：不删库、不改库、不抓正文——只回 clear/review/keep 清单 + 判据。
+        真正删除是业主的决定（他的口径：「不是规范性、不需要别人遵守其内容 ⇒ 不入库」；
+        但**哪几条属于哪类**由这条端点提供证据，不由它替他下手）。
+        Jev 不可用 ⇒ 全部落 `keep`（按规则原样处理，不因外部服务挂了就误清）。
+        """
+        from src.core.update import web_ingest
+        return {"code": 200, "status": "success",
+                "data": web_ingest.triage_pending(source_id=source_id, limit=limit)}
+
     # ---- 找标（F-15~F-18）----
 
     @app.post("/api/v1/discover/classify")

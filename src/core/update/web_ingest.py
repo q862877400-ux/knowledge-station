@@ -254,6 +254,43 @@ def ingest_summary(source_id: str | None = None) -> dict:
     }
 
 
+def triage_pending(source_id: str | None = None, limit: int = 200) -> dict:
+    """给"规则判不收、但要不要真清"的那批**分档**（2026-09-24 B2）。
+
+    ⚠ **只读**：不删库、不改库、不抓正文，只回一份清/灰/留的清单。
+    真正删除是业主的决定——本函数只提供判据与理由（`web_ingest.classify_scope` 的命中词
+    + Jev 的 choice/confidence），**替不了他拍板**。
+
+    - `clear`：Jev 判 admin 且 `confidence ≥ 0.90`（确证是行政事务）；
+    - `review`：0.70~0.90 灰区 ⇒ **交人看，不动**；
+    - `keep`：其余（含规范、变更信号、置信度不足的 admin）⇒ 留着。
+
+    Jev 不可用 ⇒ 全部落 `keep`（按规则原样处理，绝不因外部服务挂了就误清）。
+    """
+    from src.core.update import jev_ingest
+
+    n = max(1, min(int(limit or 200), 500))
+    urls, nos = _library_keys()          # ⚠ 算一次就够：每行重算会在大库上白扫两次全表
+    rows = [r for r in _observed_rows(source_id=source_id)
+            if not _is_in_library(r, urls, nos)
+            and classify_scope(r.get("title") or "") != "normative"][:n]
+    verdicts = jev_ingest.judge_many([r.get("title") or "" for r in rows])
+    out: list[dict] = []
+    counts = {jev_ingest.CLEAR: 0, jev_ingest.REVIEW: 0, jev_ingest.KEEP: 0}
+    for row in rows:
+        title = row.get("title") or ""
+        v = verdicts.get(title)
+        verdict = (v or {}).get("verdict") or jev_ingest.KEEP
+        counts[verdict] += 1
+        out.append({"title": title, "url": row.get("url"),
+                    "published_date": row.get("published_date"),
+                    "verdict": verdict,
+                    "choice": (v or {}).get("choice"),
+                    "confidence": (v or {}).get("confidence"),
+                    "change_signal": (v or {}).get("change")})
+    return {"total": len(rows), "counts": counts, "items": out}
+
+
 #: 单次批量入库的**时间预算**（秒）：到点停下、把"还没做完"如实报回去，绝不把请求挂死。
 #: （前端可以再点一次；每次调用都报 `pending_left`，所以进度是看得见的。）
 INGEST_BUDGET_S = 45.0
