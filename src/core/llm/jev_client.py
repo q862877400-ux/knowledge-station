@@ -195,8 +195,12 @@ def _validate_body(body: Any, question_ids: set[str], score_levels: dict[str, in
             if isinstance(val, bool) or not isinstance(val, (int, float)):
                 raise JevUnavailable(f"jev 答案 {qid}.{field} 类型非法：{val!r}")
             val = float(val)
-            if field == "score" and levels:
-                if not 0.0 <= val <= float(levels - 1):
+            if field == "score":
+                # ⚠ **量表值不是概率**：按 `[0, 档数−1]` 判；**档数拿不到时不判值域**，
+                #   只保留上面那道"必须是数值"（独立复核 2026-09-24 MED：我第一版在这里
+                #   退回 0~1 判 ⇒ 仍是**假严**——Score 题正常回 2.4 会被当成越界拒掉，
+                #   而那正是我上一轮真机锁死自己的同一个错，只是换了条路径）。
+                if levels and not 0.0 <= val <= float(levels - 1):
                     raise JevUnavailable(
                         f"jev 答案 {qid}.score 越界：{val}（量表 {levels} 档 ⇒ 合法 [0, "
                         f"{levels - 1}]）")

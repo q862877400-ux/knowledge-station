@@ -299,6 +299,39 @@ def test_client_score_range_is_levels_not_unit_interval(monkeypatch):
     jev_client.reset_breaker_for_tests()
 
 
+def test_client_score_range_unknown_scale_does_not_reject(monkeypatch):
+    """**量表档数拿不到时，不判 `score` 的值域**（独立复核 2026-09-24 MED 抓到的假严）。
+
+    复核实测：`criteria_missing` + `score=2.4` ⇒ 我这一版**REJECT**（退回按 0~1 判），
+    而源码注释写的是"没传就只查是数值"——**注释与行为不符**，且这正是把 Score 当概率的
+    同一个错换条路径复发（Score 回的永远是档位下标，不是概率）。
+
+    ⇒ 档数未知时只保留"必须是数值（排除 bool）"；`noul`/`confidence` 仍按 0~1 判。
+    """
+    # 提问里**没有** criteria 列表（拿不到档数）⇒ score 只查类型
+    _patch_post(monkeypatch, {"answers": {"s": {"type": "score", "score": 2.4,
+                                               "confidence": 0.9}},
+                               "model": jev_client.JEV_MODEL})
+    body = jev_client.system_one("x", {"s": {"type": "score", "instructions": "多严重？"}})
+    assert body["answers"]["s"]["score"] == 2.4, "档数未知时不该按 0~1 拒（假严）"
+    jev_client.reset_breaker_for_tests()
+    # 仍然拒"不是数值"（bool 也拒）
+    for bad in (True, "高", None):
+        _patch_post(monkeypatch, {"answers": {"s": {"type": "score", "score": bad,
+                                                   "confidence": 0.9}},
+                                   "model": jev_client.JEV_MODEL})
+        with pytest.raises(jev_client.JevUnavailable):
+            jev_client.system_one("x", {"s": {"type": "score", "instructions": "多严重？"}})
+        jev_client.reset_breaker_for_tests()
+    # confidence 仍按 0~1 判（档数未知也不放松 confidence）
+    _patch_post(monkeypatch, {"answers": {"s": {"type": "score", "score": 1.0,
+                                               "confidence": 1.4}},
+                               "model": jev_client.JEV_MODEL})
+    with pytest.raises(jev_client.JevUnavailable):
+        jev_client.system_one("x", {"s": {"type": "score", "instructions": "多严重？"}})
+    jev_client.reset_breaker_for_tests()
+
+
 def test_client_rejects_bad_confidence(monkeypatch):
     """Choice 的 `confidence` 必须在 0~1（`jev_ingest` 的 clear/review 门控靠它）。
 

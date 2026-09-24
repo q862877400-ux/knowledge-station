@@ -43,10 +43,17 @@ def _ro():
     return sqlite3.connect("file:" + REAL_DB.replace("\\", "/") + "?mode=ro", uri=True)
 
 
+def _require_real_db():
+    """**真库不在就显式 skip，不许静默通过**（独立复核 2026-09-24 指出 `if not exists(): return`
+    会让判据恒真——换台机器/库还没建时，测试"通过"但什么都没验）。"""
+    import pytest
+    if not Path(REAL_DB).exists():
+        pytest.skip(f"真库不在：{REAL_DB}（静默 return 会让这条判据恒真）")
+
+
 def test_facts_still_hold():
     """量测结论的前提是这些事实；库变了就先查来龙去脉，别拿旧结论当新依据。"""
-    if not Path(REAL_DB).exists():
-        return
+    _require_real_db()
     c = _ro()
     try:
         total = c.execute("SELECT COUNT(*) FROM doc_meta").fetchone()[0]
@@ -69,8 +76,7 @@ def test_change_signal_column_exists_after_migration():
     ⚠ 这条是 2026-09-24 真机才发现的：代码加了列、真库**没跑过新代码** ⇒ 查询端点一查就
     `no such column`。真库已补（回退记录 `var/tmp/change-signal-backup.json`）。
     """
-    if not Path(REAL_DB).exists():
-        return
+    _require_real_db()
     c = _ro()
     try:
         cols = [r[1] for r in c.execute("PRAGMA table_info(doc_meta)")]

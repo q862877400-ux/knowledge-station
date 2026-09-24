@@ -45,23 +45,37 @@ from pathlib import Path
 
 MEASURE = Path(r"D:\AI\work space\zcode\var\tmp\rag-gate-measure.json")
 
-#: 量测时的"应该被拦下"条数与"实际会被闸拦下"条数——**故意让它们不相等**：
-#: 这就是"低分≠不相关"的证据本身（若哪天有人想接进链路，这三个数会不一致）。
-EXPECTED_BOX = [
-    ("特种作业人员操作证复审周期是多久", 5, 5),
-    ("危险化学品仓库的储存禁忌有哪些", 5, 5),
-    ("动火作业的分级标准", 2, 1),
-    ("生产经营单位安全生产主体责任包括什么", 2, 1),
-    ("应急预案演练的频次要求", 4, 1),
-    ("有限空间作业的通风要求", 3, 0),
+#: 量测时的对照表：每问的 top-5 里"闸会拦下"条数。⚠ **只作记录，不作断言**
+#:   （第一版把 `would/actual` 填成猜测值、却没断言它们 ⇒ 一堆没用的数字在文件里晃）。
+#:   真正被断言的是 `max(relevant) < 0.30` 与"≥4/5 命中相关法规"（见下面的用例）。
+MEASURED_QUERIES = [
+    "特种作业人员操作证复审周期是多久",
+    "危险化学品仓库的储存禁忌有哪些",
+    "动火作业的分级标准",
+    "生产经营单位安全生产主体责任包括什么",
+    "应急预案演练的频次要求",
+    "有限空间作业的通风要求",
 ]
+#: 前两组：Jev 给分低，但 bge 的 top-5 **命中的法规是对的** ⇒ "低分≠不相关"的核心证据
+LOW_BUT_RIGHT = ("特种作业人员操作证复审周期是多久", "危险化学品仓库的储存禁忌有哪些")
+
+
+def _require_measure():
+    """**缺量测数据就显式 skip，不许静默通过**（独立复核 2026-09-24 指出：
+    原先是 `if not exists(): return` ⇒ 换台机器/数据没落盘时，这条判据**恒真**）。
+    ⚠ `pytest.skip` 会出现在 skip 清单里（门禁盯 skip nodeid），而 `return` 什么痕迹都不留。
+    """
+    import pytest
+    if not MEASURE.exists():
+        pytest.skip(f"量测数据不在：{MEASURE}（重跑 var/tmp/measure-rag-gate.py；"
+                    f"静默 return 会让这条判据恒真——独立复核 2026-09-24 指出）")
 
 
 def test_measure_file_exists_and_has_all_queries():
-    assert MEASURE.exists(), f"量测结果不在：{MEASURE}（重新跑 var/tmp/measure-rag-gate.py）"
+    _require_measure()
     data = json.loads(MEASURE.read_text(encoding="utf-8"))
     got = [q["q"] for q in data["queries"]]
-    for q, _would, _actual in EXPECTED_BOX:
+    for q in MEASURED_QUERIES:
         assert q in got, f"量测少了这一问：{q}"
     for q in data["queries"]:
         assert len(q["hits"]) == 5, (q["q"], len(q["hits"]))
@@ -75,12 +89,10 @@ def test_low_score_does_not_mean_irrelevant_documented():
     这条不是测现在的实现（现在没接闸），是**把量测结论钉住**：
     将来谁拿这批低分去接链路当"噪声过滤"，会先把真答案扔掉——正是业主最不能接受的方向。
     """
-    if not MEASURE.exists():
-        return
+    _require_measure()
     data = json.loads(MEASURE.read_text(encoding="utf-8"))
-    low_but_right = ("特种作业人员操作证复审周期是多久", "危险化学品仓库的储存禁忌有哪些")
     for q in data["queries"]:
-        if q["q"] not in low_but_right:
+        if q["q"] not in LOW_BUT_RIGHT:
             continue
         scores = [h["relevant"] for h in q["hits"]]
         assert scores and max(scores) < 0.30, (q["q"], scores)
