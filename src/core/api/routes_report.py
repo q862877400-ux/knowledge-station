@@ -35,10 +35,11 @@ from src.core.exceptions import KnowledgeStationError
 def register(app, json_error):
     @app.get("/api/v1/report/effect")
     def effect_report(window: str = "all", color: str | None = None):
-        """效力报告骨架+四色统计（按文件目录分类体系，永不混排——决策 21 用户修订）。
+        """效力报告骨架+**效力分色**统计（2026-09-24 起五档：red/yellow/green/gray/**reference**；
+        按文件目录分类体系，永不混排——决策 21 用户修订）。
 
         - ``window``：all(默认)/upcoming90/recent90/retired90（分桶前过滤）；
-        - ``color``：可选 CSV 子集（red,yellow,green,gray），全局色清单视图；
+        - ``color``：可选 CSV 子集（red,yellow,green,gray,reference），全局色清单视图；
         - 状态以读取时惰性翻转（resolve_status）为准，与决策 22 同口径。
         """
         from src.core.exports import effect_report
@@ -55,7 +56,7 @@ def register(app, json_error):
                            l4: str | None = None, window: str = "all",
                            color: str | None = None, limit: int = 1000,
                            offset: int = 0):
-        """节点明细（瘦身行 9 字段；排序 red→yellow→gray→green → 标准号升序）。
+        """节点明细（瘦身行 9 字段；排序 red→yellow→gray→**reference**→green → 标准号升序）。
 
         - ``top``/``l2`` 必填（防两树 L2 同名）；l3/l4 可选下钻；
         - 未知名路径 → 200 空集（展示串非稳定 ID，不 404）。

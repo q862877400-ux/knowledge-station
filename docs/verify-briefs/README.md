@@ -53,6 +53,17 @@
 | B6（黑屏修复 + 棘轮基线） | — | `b6-p0-report.md` |
 | B4（分类号 5 提交） | — | `ccs-chain-report.md` |
 | 判据补硬（`d508773`） | — | `d508773-report.md` |
+| 征求意见稿入库 + 公告批量入库（冻结 `verify-freeze-ingest` = `1da33f8`，基线 `4850f12`，8 笔） | 任务书在会话里（未单独留盘，见下） | [[VERIFY-REPORT-ingest.md]] |
+
+**`VERIFY-REPORT-ingest.md`（2026-09-24）**：结论 **PASS-with-gaps** —— 产品行为零错
+（真库只读四条事实全对、统计三数自洽、16 条 `reference` 逐字对上、`client.js` 与源码现构建逐字节一致），
+判据/记账上 2 HIGH + 5 MED + 8 LOW，**已逐条落地**（修单见开发史 §10.193 末"复核修单"与提交 `74d51a8`）。
+⚠ 两条最要紧的：① **`PRAGMA foreign_keys=OFF` 零牙齿**（去掉它迁移用例仍全绿，而真库会因此
+被级联删掉 52 万行 `clause_revision`）—— 现补"迁移前后子表行数不变"的断言；
+② **冻结提交上 `mypy` 是红的**（本批引入 4 处 arg-type，作者 12 分钟后才修）⇒
+"全绿"只对**修后那棵树**成立。另附 `announce-nav-cleanup-20260924.md`：
+那次真库删除（22 行栏目导航型误发现）的**完整清单与复算办法** ——
+它是本轮唯一一次删真实数据，证据不能只留在被 `.gitignore` 挡着的 `var/tmp/`。
 
 - **两边内容不同时以本目录为准**，并当场把差异登记到 [开发史](../DEVELOPMENT-HISTORY.md)。
 - ⚠ **还只在 `var/tmp/` 的**：`verify-reports/B7-REPORT.md`（B7 那批的**实施**报告，与上面这批

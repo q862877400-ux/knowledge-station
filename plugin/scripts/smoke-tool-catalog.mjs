@@ -80,6 +80,15 @@ if (existing === generated) {
   console.log(`== tool-catalog smoke PASS（目录与真工具定义逐字一致，${String(tools.length)} 件）==`)
   process.exit(0)
 }
+/* ⚠ **比之前先归一化行尾**（2026-09-24 独立复核 MED-5）：本仓 `core.autocrlf=true`，
+   checkout 出来的工作区文件是 CRLF，而**生成器吐的是 LF** ⇒ 在提取树/干净 checkout 里
+   这条会**假红**（复核实测：磁盘 6552B / 59 个 CRLF vs blob 6493B / 纯 LF，差的 59 字节
+   正好等于报告首行那段字数）。判据要判**内容漂移**，不判行尾 —— 那两件事无关。 */
+if (existing.replace(/\r\n/g, '\n') === generated) {
+  console.log(`== tool-catalog smoke PASS（目录与真工具定义一致；行尾归一后逐字相同，`
+    + `${String(tools.length)} 件）==`)
+  process.exit(0)
+}
 console.log('FAIL  docs/tool-catalog.md 与真工具定义**漂移**（说明书改了没重新生成？）')
 console.log(`  仓库 ${String(existing.length)} 字 / 生成 ${String(generated.length)} 字`)
 console.log('  修法：node plugin/scripts/smoke-tool-catalog.mjs --write（生成物更新后一起提交）')

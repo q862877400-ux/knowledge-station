@@ -362,9 +362,12 @@ globalThis.fetch = realFetch2
   const resGet = fakeRes()
   await byPath.get('/ks/announce/ingest/pending').handler(fakeReq('GET'), resGet)
   const gotGet = JSON.parse(resGet.body)
+  /* ⚠ 判**路径全等**，不用 `url.includes(...)`（独立复核：把引擎路径常量
+     `…/announce-ingest/pending` 改成 `…/pendingX` 时，子串判据仍然 PASS —— 后缀型手滑漏掉）。 */
+  const enginePathOf = (u) => { try { return new URL(u).pathname } catch { return String(u) } }
   check('C2 GET pending 打到引擎的 pending 端点、值原样回给界面',
     engineCalls.length === 1
-    && engineCalls[0].url.includes('/api/v1/update/announce-ingest/pending')
+    && enginePathOf(engineCalls[0].url) === '/api/v1/update/announce-ingest/pending'
     && resGet.statusCode === 200 && gotGet.ok === true && gotGet.data.pending === 2,
     `${engineCalls[0]?.url} → ${resGet.statusCode} ${resGet.body}`)
 
@@ -376,8 +379,7 @@ globalThis.fetch = realFetch2
   check('C3 POST ingest 打到引擎的 ingest 端点、**请求体原样转**（limit/source_id/force）',
     engineCalls.length === 1
     && engineCalls[0].method === 'POST'
-    && engineCalls[0].url.includes('/api/v1/update/announce-ingest')
-    && !engineCalls[0].url.includes('/pending')
+    && enginePathOf(engineCalls[0].url) === '/api/v1/update/announce-ingest'
     && sent?.limit === 3 && sent?.source_id === 'src_x' && sent?.force === true,
     `${engineCalls[0]?.url} body=${engineCalls[0]?.body}`)
 

@@ -251,7 +251,7 @@ def collect_effect_report(window: str = "all", color=None) -> dict:
 def collect_effect_docs(top: str, l2: str, l3: str | None = None,
                         l4: str | None = None, window: str = "all", color=None,
                         limit: int = 1000, offset: int = 0) -> dict:
-    """节点明细（瘦身行）：red→yellow→gray→green → 标准号升序——问题顶上去。"""
+    """节点明细（瘦身行）：red→yellow→gray→**reference**→green → 标准号升序——问题顶上去。"""
     if top not in ("std", "law"):
         raise ValueError("invalid_top")
     if not (l2 or "").strip():

@@ -200,7 +200,8 @@ def _ensure_legal_status_reference(conn) -> int:
     return done
 
 
-#: 收藏夹迁移（2026-10 收藏目录）：既有 user_bookmark / user_doc_bookmark 补 folder_id#: 列。schema.sql 的新库直接带列；老库 CREATE IF NOT EXISTS 不会改表 → PRAGMA 补列。
+#: 收藏夹迁移（2026-10 收藏目录）：既有 user_bookmark / user_doc_bookmark 补 folder_id 列。
+#: schema.sql 的新库直接带列；老库 CREATE IF NOT EXISTS 不会改表 → PRAGMA 补列。
 #: folder_id 不设表级 FK（补列 ALTER 无法加约束）——应用层（user_data）负责引用完整，
 #: 删夹时 UPDATE ... SET folder_id=NULL（收藏回「未分类」，绝不连坐删收藏）。
 _BOOKMARK_FOLDER_COLUMNS: list[tuple[str, str, str]] = [
