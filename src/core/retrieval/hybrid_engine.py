@@ -20,6 +20,20 @@ CHANNEL_WEIGHTS: Dict[str, float] = {
     "modality": 0.8, "legal_element": 0.8, "behavior_scope": 1.2,
 }
 
+#: **每条通道最多取多少行**（2026-09-25，P0.4）。
+#:
+#: 为什么必须有：通道 A（精确条款号）/ D（模态）/ E（法理要素）原先**完全没有上限**，
+#: 实测一句带"应"的话会把**全库 27%（140,555 条）**一次拉进内存，`clause_number='1'`
+#: 会拉 **6,379 条**（B/F 本来就有 `LIMIT 20`，C 按 k 取）。
+#:
+#: 为什么是 500（而不是更小）：RRF 的名次权重是 `W/(RRF_K+rank+1)`。取 W 最大的一路（exact，2.0）：
+#:   第 1 名 2.0/61 = 0.0328；**第 500 名 2.0/561 = 0.0036**（只有第 1 名的 11%）。
+#: 六条路满配也顶不住这个量级，所以第 500 名之后的条目**进不了最终 top-k**；
+#: 而 cap ≥ top_k 时，"某一条路单独命中"的返回结果**逐条不变**（取的就是它最前那几行）。
+#: 500 相比 140,555 已经是 **280 倍**的内存削减，同时给"极端情况下靠后名次翻盘"留了很大余量。
+CHANNEL_ROW_CAP = 500
+
+
 # 2026-09-13 附录细分配套修复：附录字母章号前置——"E.5.2" 先被截出 "5.2" 返回
 # **错标准**的正文条款（GB 30871 5.2 等，看起来对实则错——比查不到更危险）。
 # 字母章号形态（A-Z 单字母 + 点分段）优先尝试；命不中再回落数字/法条旧正则。
@@ -174,9 +188,13 @@ def perform_hybrid_search(
                 # 也不与"未核验不得承重"冲突——那是"谁排前面"，这是"能不能承重"（承重判据在
                 # `authority`/`evidence` 那一侧，不在排序里）。若要"已废止也沉到未核验之后"，
                 # 那是**新口径**，需业主拍板（不是"顺手改一下"）。
-                # ⚠ 另一处不对称：**A 这条没有 id 兜底** ⇒ 同状态多行时次序仍不保证（非全序）；
-                # D/E 用 `cr.clause_revision_id` 兜底成全序（见各自注释）。
-                + " ORDER BY (dm.legal_status IS NULL), dm.legal_status",
+                # ⚠ 另一处不对称：**A 这条原先没有 id 兜底** ⇒ 同状态多行时次序不保证（非全序）。
+                # **2026-09-25（P0.4）补上 `cr.clause_revision_id` 兜底**——这是加 `LIMIT` 的**前提**：
+                # 非全序 + LIMIT 会让"取到哪 500 条"变成**不确定的**（比不加上限更糟，
+                # 因为不加上限时至少"集合"是确定的）。补齐后 A 与 D/E 口径一致（全序）。
+                + " ORDER BY (dm.legal_status IS NULL), dm.legal_status, cr.clause_revision_id"
+                # 上限：见 CHANNEL_ROW_CAP 的注释（为什么是 500）
+                + f" LIMIT {CHANNEL_ROW_CAP}",
                 ((exact_no, scope_json) if scope_active else (exact_no,))).fetchall()
             if want_keys:
                 rows = [r for r in rows if standard_key(r[1] or "") in want_keys]
@@ -235,7 +253,9 @@ def perform_hybrid_search(
             # 排序口径与通道 A 一致：未核验（NULL）沉底，已知状态按名排，最后用 id 兜底
             # 保证**全序**（同状态多行时也确定）。取舍（已废止排在未核验之前）与 A 相同，
             # 见通道 A 那条注释——**口径的唯一所有者在 A**，这里只负责"更全"（多了 id 兜底）。
-            + " ORDER BY (dm.legal_status IS NULL), dm.legal_status, cr.clause_revision_id",
+            + " ORDER BY (dm.legal_status IS NULL), dm.legal_status, cr.clause_revision_id"
+            # 上限：见 CHANNEL_ROW_CAP（原先这条**完全没有上限**，模态='应' 一次拉 14 万条）
+            + f" LIMIT {CHANNEL_ROW_CAP}",
             ((modality_filter, scope_json) if scope_active else (modality_filter,))).fetchall()
         for rank, row in enumerate(rows):
             scores[row[0]] = scores.get(row[0], 0.0) + CHANNEL_WEIGHTS["modality"] / (RRF_K + rank + 1)
@@ -258,7 +278,9 @@ def perform_hybrid_search(
             # 本步把**口径与通道 A/D 对齐**：未核验（NULL）沉底、已知状态按名排、id 兜底成全序。
             # 取舍（已废止排在未核验之前）见通道 A 注释（唯一所有者）；本处与 A 的差别是
             # **多了 id 兜底** ⇒ 这条是**全序**，A 不是（复核 b12 的 INFO）。
-            + " ORDER BY (dm.legal_status IS NULL), dm.legal_status, cr.clause_revision_id",
+            + " ORDER BY (dm.legal_status IS NULL), dm.legal_status, cr.clause_revision_id"
+            # 上限：见 CHANNEL_ROW_CAP（这条原先也没有上限）
+            + f" LIMIT {CHANNEL_ROW_CAP}",
             ((subject_filter, scope_json) if scope_active else (subject_filter,))).fetchall()
         for rank, row in enumerate(rows):
             scores[row[0]] = scores.get(row[0], 0.0) + CHANNEL_WEIGHTS["legal_element"] / (RRF_K + rank + 1)
