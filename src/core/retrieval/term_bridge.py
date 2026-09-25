@@ -8,7 +8,9 @@
 1. **语义选术语**——不问"怎么把大白话翻成任意说法"，而问
    "这条大白话指的是我库里这几个术语中的哪一个"（**有界选择**，不是自由生成）。
    实测：字面判据 ≈ 随机（top-1 0.7% vs 0.20%，且排对的那些是**0 字重合靠字母序蒙的**）；
-   语义 top-1 **22.2%** / top-5 **47.3%**（500 候选，生产同款 `bge-small-zh-v1.5`）。
+   语义 top-1 **22.2%** / top-5 **47.3%**（**500 个候选**，生产同款 `bge-small-zh-v1.5`）。
+   ⚠ 500 是**说法文件里那 500 个答案术语**（最乐观上界）；全库 42,181 个候选下这条路
+   塌到 top-1 **2.5%** / top-5 **8.6%**（探针，见下）。
 2. **术语用"定义正文"表示**（不是只用术语名）——500 候选下实测 22.2% vs 16.4%。
    定义正文库里现成：术语条款天生是「中文名 英文名 定义」三段式。
 3. **扇出 top-k 个术语、每个各查一次，用「轮转交错」合并**——
@@ -79,7 +81,12 @@ class TermIndex:
     vectors: list[list[float]] = field(default_factory=list)
     #: 归一化后的矩阵缓存（`None` = 还没建）。见 `_matrix`。
     _mat: object = None
-    _mat_n: int = -1
+    #: 缓存**认的是"哪一份 vectors 对象"**，不是条数。
+    #: ⚠ 复核 2026-09-25 抓到：只按 `len(vectors)` 失效时，
+    #: **等长换集**（收窄候选时换了内容但条数没变）会**静默复用旧矩阵**。
+    #: 现在存对象引用比对（`is`）；原地改同一个 list 的内容仍看不出来——
+    #: 但本仓没有任何地方这么干，且那是 Python 层面的普遍坑，不是这一处的。
+    _mat_src: object = None
 
     def __len__(self) -> int:
         return len(self.entries)
@@ -98,16 +105,20 @@ class TermIndex:
             import numpy as np
         except ImportError:                     # pragma: no cover - 环境相关
             return None
-        if self._mat is None or self._mat_n != len(self.vectors):
-            # ⚠ **float64**（不是 float32）：这条路径必须与纯 Python 参照实现
-            #   `_cos`（Python 浮点＝float64）在**同一精度**上算，
-            #   否则边界上的名次会因为精度差而变，而"加速没改变结论"就没了证据。
+        if self._mat is None or self._mat_src is not self.vectors:
+            # ⚠ **float64（不是 float32）**：这是**设计理由，不是测量结论**——
+            #   `_cos`（纯 Python 参照实现）用 Python 浮点＝float64，
+            #   让加速路径与它在**同一精度**上算，可以少一类"边界上名次变了"的可能。
             #   代价是矩阵大一倍（42,181×512 ≈ 173 MB）＋ BLAS 慢约 2×（仍是毫秒级）。
+            #   ⚠ 原来这里写的是"**必须** float64，否则边界名次会变"——
+            #   **那句话没有实测支撑**（复核 2026-09-25 指出，我认）。已改成现在这种说法。
+            #   已测到的是另一件事：float64 矩阵下，加速路径与参照实现在 25 条真查询 ×
+            #   42,181 候选上 **top-5/top-20 集合与名次全部相同**（探针 probe-topk-equivalence.py）。
             m = np.asarray(self.vectors, dtype=np.float64)
             n = np.linalg.norm(m, axis=1, keepdims=True)
             n[n == 0] = 1.0
             self._mat = m / n
-            self._mat_n = len(self.vectors)
+            self._mat_src = self.vectors
         return self._mat
 
     # ── 构建 ───────────────────────────────────────────────────────────────
@@ -152,12 +163,18 @@ class TermIndex:
 
 
 def topk_by_cos(qv, vectors, k: int, matrix=None, *, use_numpy: bool = True) -> list[int]:
-    """按余弦相似度取前 `k` 个**下标**（同分按小下标优先）。
+    """按余弦相似度取前 `k` 个**下标**（**分数降序；同分下标小的在前**）。
 
     `use_numpy=False` 或没装 numpy 时走**纯 Python 参照实现**——
     它是这条判据的**唯一真源**，`use_numpy=True` 那条只是它的加速等价物
     （`tests/test_term_bridge.py` 拿前者当裁判逐点比后者）。
     `matrix` 是调用方传进来的归一化矩阵（`TermIndex._matrix()`），省得每次重建。
+
+    ⚠ **同分那条保证是 2026-09-25 复核打回后补上的**：原来写的是
+    `head = head[np.argsort(-sims[head], kind="stable")]`，而 `argpartition` 取出的
+    前 k 个**本身就是乱序**的，`kind="stable"` 只保留"argpartition 给出的那个乱序"，
+    **不等于"同分按下标"**（复核构造出并列输入，两条路径给出不同序列）。
+    现在改成显式按 `(分数, 下标)` 排序，注释说的才算数。
     """
     k = max(1, min(k, len(vectors)))
     if use_numpy:
@@ -174,9 +191,11 @@ def topk_by_cos(qv, vectors, k: int, matrix=None, *, use_numpy: bool = True) -> 
                 q = q / qn
             sims = matrix @ q
             head = np.argpartition(-sims, k - 1)[:k]
-            # 同分按**下标**定序（与下面纯 Python 那条的 `sorted` 稳定序一致）
-            head = head[np.argsort(-sims[head], kind="stable")]
-            return [int(i) for i in head]
+            # ⚠ 这一行**不是**可有可无的收尾：`argpartition` 只保证"这 k 个是最大的"，
+            #   **不保证它们有序**。实测（探针见 tests 里那条前提断言）：
+            #   d=8、n=2000、k=20 的一组输入上，argpartition 的前缀有 6 处逆序。
+            #   显式排序同时把"同分按下标"这条保证做实。
+            return sorted((int(i) for i in head), key=lambda i: (-float(sims[i]), i))
         except ImportError:                     # pragma: no cover - 环境相关
             pass
     return sorted(range(len(vectors)), key=lambda i: -_cos(qv, vectors[i]))[:k]
@@ -205,8 +224,13 @@ def merge_round_robin(lists: Sequence[Sequence[str]]) -> list[str]:
     """**轮转交错**合并（1,1,1,1,1,2,2,2,…），并去掉重复。
 
     为什么不是顺序拼接：实测顺序拼接时 top-1 术语的 N 条把返回位占满，
-    后面选中的术语**一条都进不了前 20** ⇒ 扇出的收益被合并顺序吃掉
-    （前 20：顺序 20.6% vs 轮转 29.4%，同一批 1651 条、同样查询数）。
+    后面选中的术语**一条都进不了前 20** ⇒ 扇出的收益被合并顺序吃掉。
+    ⚠ **两个数别混**（复核 2026-09-25 抓到同一件事在树里有两个值）：
+    * **29.4%** = 暂存区那批实验（`var/tmp/repro-fanout.py`，自带一套内联选择逻辑）量到的**轮转前 20**，
+      同批前 5 是 **15.7%**；
+    * **29.7%** = 入库复算脚本 `scripts/measure-term-bridge.py`（本模块的选择逻辑）量到的，前 5 **15.8%**。
+    两次是**不同实现上的两次实验**，数字接近但不是同一个数——所以本文件统一写
+    **入库脚本的那一组（29.7% / 15.8%）**，早期那组只在文档里作为出处保留。
     """
     out: list[str] = []
     seen: set[str] = set()

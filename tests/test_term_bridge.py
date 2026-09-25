@@ -9,9 +9,14 @@
   `scripts/measure-term-bridge.py` 扫真库量（实测 42,181 条），**不是**靠本文件的
   合成样例。本文件的样例是按**实测形态**手写的，**别把它读成"真库长这样"**。
 
-⚠ `topk_by_cos` 那条是**判据**（不是普通用例）：numpy 路径与纯 Python 参照实现的
-逐点一致是"加速没改变结论"的**唯一机械证据**。将来谁改了其中一条而没改另一条，
-它会红。
+⚠ `topk_by_cos` 那两条是**判据**（不是普通用例）：numpy 路径与纯 Python 参照实现
+逐点一致、以及"返回的头是**降序**的"是"加速没改变结论"的机械证据。
+⚠ **2026-09-25 独立复核打回后重写**（原文留痕）：第一版文件头写着"谁改了其中一条而没改
+另一条，**它会红**"——**那句是假的**。复核实测：把 numpy 分支里负责排序的那行整行删掉，
+20 条**全部仍然 passed**。根因是 `np.argpartition` 取出的前 k 个**碰巧几乎总是已经降序**
+（小样本上尤其如此），所以旧用例是**空操作**。现在补了一条**前提断言 + 大输入**的用例
+（见 `test_topk_by_cos_head_is_sorted_and_that_assertion_is_not_vacuous`），
+它选的那组输入实测有 6 处逆序，删掉排序那行**必然变红**。
 """
 from __future__ import annotations
 
@@ -105,11 +110,55 @@ def test_topk_by_cos_numpy_path_agrees_with_the_python_reference():
 
 
 def test_topk_by_cos_ties_break_by_smallest_index_on_both_paths():
-    """同分必须**按下标**定序，否则两条实现会在边界上给出不同答案。"""
+    """同分必须**按下标**定序，否则两条实现会在边界上给出不同答案。
+
+    ⚠ 这条以前**抓不到东西**（复核 2026-09-25 实测）：4 条完全相同的向量是全并列，
+    `argpartition` 在这种输入上是平凡保序的。现在实现改成显式按 `(分数, 下标)` 排序，
+    这条保证才真正成立；下面另有一条大输入的用例负责抓"把排序那步删掉"。
+    """
     v = [1.0, 0.0, 0.0]
     vectors = [v, v, v, v]
     assert topk_by_cos(v, vectors, 2, use_numpy=True) == [0, 1]
     assert topk_by_cos(v, vectors, 2, use_numpy=False) == [0, 1]
+
+
+def test_topk_by_cos_ties_break_by_smallest_index_even_when_unsorted_prefix():
+    """并列 + `argpartition` 前缀乱序时，仍必须按小下标取。
+
+    构造：把 4 条相同向量的**前面**塞几条分数更低的，逼 `argpartition` 在并列段里
+    给出乱序前缀——只按"分数"排的实现会在这里露馅。
+    """
+    hi = [1.0, 0.0]
+    lo = [0.0, 1.0]
+    vectors = [lo, hi, hi, lo, hi, lo]
+    assert topk_by_cos(hi, vectors, 3, use_numpy=True) == [1, 2, 4]
+    assert topk_by_cos(hi, vectors, 3, use_numpy=False) == [1, 2, 4]
+
+
+def test_topk_by_cos_head_is_sorted_and_that_assertion_is_not_vacuous():
+    """**返回的头必须是降序**——而且这条用例的前提本身要被机械检查。
+
+    为什么单独写一条：复核实测发现"删掉排序那行"在旧用例上**不红**，
+    因为 `argpartition` 的前缀在小样本上碰巧已降序。这组输入（d=8、n=2000、k=20、seed=8）
+    实测有 **6 处逆序**，所以它不是空操作。
+    如果哪天 numpy 换了行为、这组输入不再有逆序，**下面那条前提断言会先失败**
+    （而不是让用例悄悄变成恒真）——这正是防"空闸门"的写法。
+    """
+    np = pytest.importorskip("numpy")
+    rng = np.random.default_rng(8)
+    V = rng.normal(size=(2000, 8))
+    q = rng.normal(size=8)
+    Vn = V / np.linalg.norm(V, axis=1, keepdims=True)
+    s = Vn @ (q / np.linalg.norm(q))
+
+    raw = np.argpartition(-s, 19)[:20]
+    assert (np.diff(s[raw]) > 0).sum() > 0, (
+        "前提不成立：这组输入下 argpartition 的前缀已经是降序，本条用例会变成空操作")
+
+    got = topk_by_cos(q, V.tolist(), 20, use_numpy=True)
+    scores = [float(s[i]) for i in got]
+    assert scores == sorted(scores, reverse=True), "返回的头不是降序 —— 排序那步丢了"
+    assert got == topk_by_cos(q, V.tolist(), 20, use_numpy=False)
 
 
 def test_topk_by_cos_caps_k_at_the_number_of_candidates():
@@ -140,13 +189,26 @@ def test_term_index_select_returns_empty_without_vectors():
     assert idx.select("随便问一句", k=3) == []
 
 
-def test_term_index_matrix_cache_invalidates_when_the_candidate_set_changes():
-    """候选集被收窄（`entries`/`vectors` 重新赋值）后，矩阵不许还是旧的那份。"""
+def test_term_index_matrix_cache_invalidates_when_the_length_changes():
     np = pytest.importorskip("numpy")
     idx = TermIndex(vectors=[[1.0, 0.0], [0.0, 1.0]])
     assert idx._matrix().shape == (2, 2)
     idx.vectors = [[1.0, 0.0], [0.0, 1.0], [1.0, 1.0]]
     assert idx._matrix().shape == (3, 2)
+
+
+def test_term_index_matrix_cache_invalidates_when_the_candidate_set_is_replaced():
+    """**等长换集**也必须失效（复核 2026-09-25 抓到的洞）。
+
+    原来只按 `len(vectors)` 判失效 ⇒ 把 `vectors` **换成另等长的一份**会**静默复用旧矩阵**，
+    名次全错而没有任何报错。现在按对象身份判。
+    （上面那条用例的名字原先声称覆盖"候选集变了"，其实只覆盖了"长度变了"——已改名。）
+    """
+    np = pytest.importorskip("numpy")
+    idx = TermIndex(vectors=[[1.0, 0.0], [0.0, 1.0]])
+    assert np.allclose(idx._matrix(), [[1.0, 0.0], [0.0, 1.0]])
+    idx.vectors = [[1.0, 1.0], [1.0, 1.0]]          # 等长、内容不同
+    assert not np.allclose(idx._matrix(), [[1.0, 0.0], [0.0, 1.0]]), "等长换集没失效"
 
 
 def test_term_index_matrix_is_normalised():
