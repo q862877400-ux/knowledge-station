@@ -217,7 +217,21 @@ def main() -> int:
             worst = int((r - base).max())
             print(f"{k:<18}{line}{int(np.median(r)):>7}  {better:>6}{same:>6}{worse:>7}{worst:>9}")
 
-        # 分层：gold 名下只有 1 条定义的那些 —— 干净的"受害侧"
+        # ── 基准偏置（复核点名的那一条，这里机械地量出来）──────────────────────
+        # 为什么要印：gold 的重名程度若与总体差很多，则"按名取最大"给 gold 的加成
+        # 系统性大于多数对手 ⇒ 涨幅里有一部分是**基准造出来的**，搬去生产要打折。
+        # 更要紧的是**"gold 只有 1 条定义"那一层有多少条**：那一层里 gold 根本无法从
+        # 合并中受益，是干净的"受害侧"；若**一条都没有**，这套基准就**说不出**
+        # "对典型目标（总体 92% 是单条）会怎样"——那就只能承认**无法外推**。
+        pop_multi = int((counts >= 2).sum()) / len(counts)
+        print()
+        print(f"  基准偏置：gold 名下条目 均值 {gcount.mean():.2f} / 中位 "
+              f"{int(np.median(gcount))} / max {int(gcount.max())}")
+        print(f"            全部候选名 均值 {counts.mean():.2f} / 中位 {int(np.median(counts))}"
+              f" / max {int(counts.max())}；有 ≥2 条的名字占总体 {pop_multi:.1%}")
+        print(f"            gold 里**只有 1 条定义**的：{int((gcount == 1).sum())} 条"
+              f"（这一层是干净的受害侧；为 0 就说明基准覆盖不到'典型目标'）")
+        print(f"            ⚠ 所以本表的涨幅**含基准偏置**，不能直接读成生产预期。")
         for lo, hi, lab in ((1, 1, "gold 只有 1 条定义"), (2, 3, "gold 2~3 条"),
                             (4, 7, "gold 4~7 条"), (8, 10 ** 9, "gold 8+ 条")):
             sel = (gcount >= lo) & (gcount <= hi)
