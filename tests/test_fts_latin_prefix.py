@@ -104,6 +104,47 @@ def test_short_function_words_are_not_expanded():
         assert fts_match_expr(q, latin_prefix=True) == fts_match_expr(q, latin_prefix=False), q
 
 
+def test_short_stems_are_not_expanded():
+    """**词干太短**的不扩写（词面够长也不行）。
+
+    复核 2026-09-25 打回时实测：第一版只判**词面**长度，于是
+    `uses`→`"us"*`、`being`→`"be"*`、`harness`→`"har"*` 全都放过去了；
+    在真语料上 `be*` 把候选池放大 **35.8×**、`us*` **8.0×**。
+    现在词干长度下限 4（`_MIN_STEM`）。⚠ 词面 ≥4 但词干 <4 的形态正是本条的靶子。
+    """
+    for q in ["uses", "using", "being", "doing", "harness", "harnesses", "opted", "ties"]:
+        assert fts_match_expr(q, latin_prefix=True) == fts_match_expr(q, latin_prefix=False), q
+
+
+def test_internal_capitals_are_not_expanded():
+    """**有内部大写**的标识符/缩写不扩写（`RoHS`/`camelCase`/`backgroundColor`/`MAYBECAPS`）。
+
+    复核打回时实测：第一版用"非全大写"，挡不住**混合大小写**这一整类。
+    """
+    for q in ["RoHS", "camelCase", "backgroundColor", "MAYBECAPS mixedCASE",
+              "API KEY ROTATION", "ISO 9001"]:
+        assert fts_match_expr(q, latin_prefix=True) == fts_match_expr(q, latin_prefix=False), q
+
+
+def test_sentence_initial_capital_is_still_expanded():
+    """句首大写的普通词**要**放行（否则英文提问一半都白搭）。"""
+    assert fts_match_expr("Extinguishers shall be tagged") != \
+        fts_match_expr("Extinguishers shall be tagged", latin_prefix=False)
+    assert '"extinguish"*' in fts_match_expr("Extinguishers shall be tagged")
+
+
+def test_known_false_hit_proper_noun_is_pinned():
+    """**钉住一个已知的误命中，不许它悄悄变化。**
+
+    `Redis` 与 `Extinguishers` 的大小写形态**无法区分**（都是首字母大写），
+    所以形状判据挡不住它：`Redis` → `"redi"*`，会命中 `redirect`
+    （复核 2026-09-25 给了可复现的例子）。**这是已知边界，不是没发现。**
+    本条把现状钉住：哪天规则变了（变好或变坏），这里会红，逼人重新评估而不是放任漂移。
+    """
+    expr = fts_match_expr("Redis 缓存怎么配")
+    assert '"redi"*' in expr, "规则变了：请重新评估 'Redis→redi* 命中 redirect' 这个已知边界"
+
+
 def test_mixed_query_keeps_chinese_intact_and_expands_only_the_english_word():
     expr = fts_match_expr("灭火器的 extinguishers 要求")
     assert '"灭火器"' in expr or "灭火器" in expr

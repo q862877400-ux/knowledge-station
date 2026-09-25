@@ -1372,12 +1372,20 @@ def segment_for_fts(text: str | None) -> str:
     return " ".join(w.strip() for w in jieba.cut_for_search(text or "") if w.strip())
 
 
-#: 拉丁字母词（**纯字母、长度 ≥4、非全大写**）才做"词干前缀"扩写。
-#: 判据逐条都有理由（见 `_latin_prefix_token`）：
-#:   · 纯字母 ⇒ 标准号/哈希/配置键（`30871`、`GB/T`、`sha256`）**天然被排除**；
-#:   · 长度 ≥4 ⇒ 放过 `the`/`and`/`to` 这类虚词（它们做前缀查询只会灌垃圾候选）；
-#:   · 非全大写 ⇒ 放过 `GB`/`ISO`/`API` 这类缩写。
+#: 拉丁字母词（**纯字母、长度 ≥4、无内部大写**）才做"词干前缀"扩写。
+#: 判据逐条都有实测理由（见 `_latin_prefix_token`）：
+#:   · 纯字母 ⇒ 标准号/哈希（`30871`、`GB/T`、`sha256`）天然被排除；
+#:   · 长度 ≥4 ⇒ 放过 `the`/`and`/`to` 这类虚词；
+#:   · **无内部大写** ⇒ 放过 `GB`/`ISO` 这类缩写，也挡住 `RoHS`/`camelCase`/`backgroundColor`。
+#: ⚠ **长度判词面，词干长度另判**（见 `_MIN_STEM`）——复核 2026-09-25 打回时实测：
+#:   只判词面会放过 `uses`→`"us"*`、`being`→`"be"*`、`harness`→`"har"*`。
 _LATIN_WORD_RE = re.compile(r"^[A-Za-z]{4,}$")
+
+#: 词干长度下限。**由实测选定，不是拍的**（探针 `probe-gate-tuning.py` / `probe-gate-offenders.py`，
+#: 语料＝DSH 官方文档 5,412 段）：
+#:   词干≥3 → 覆盖率 97.9%（＝不设下限时一样）；词干≥4 → **97.6%**；词干≥5 → 89.3%（掉太多）。
+#:   取 4：几乎不损覆盖率，且把 `har`/`roh`/`opt`/`cli`/`def` 这类 3 字母词干挡掉。
+_MIN_STEM = 4
 
 _stem_local = threading.local()
 _stem_cache: dict[str, str] = {}
@@ -1422,6 +1430,19 @@ def _porter_stem(word: str) -> str:
     return stem
 
 
+def _plain_case(tok: str) -> bool:
+    """**没有内部大写**：全小写，或只有首字母大写。
+
+    `Extinguishers`（句首大写）要放行；`RoHS` / `camelCase` / `backgroundColor` / `MAYBECAPS`
+    要挡住——它们是缩写/标识符，词干常常很短，前缀会撞上一堆无关词。
+    ⚠ **挡不住 `Redis`**：它与 `Extinguishers` 的大小写形态**无法区分**（都是首字母大写）。
+    这是形状判据的固有边界，**如实记在这里**，别假装它解决了：
+    `Redis` → `"redi"*` 会命中 `redirect`（复核 2026-09-25 给了可复现的例子）。
+    真正的出路在**排序层**（P2）或"这个词在库里稀有才扩写"（未实现，登记）。
+    """
+    return tok == tok.lower() or tok == tok[:1].upper() + tok[1:].lower()
+
+
 def _latin_prefix_token(tok: str) -> str | None:
     """把拉丁字母词换成 `"词干"*` 前缀查询；不符合条件返回 `None`（＝照原样加引号）。
 
@@ -1430,14 +1451,18 @@ def _latin_prefix_token(tok: str) -> str | None:
     同一段文字里只有 `extinguisher`，你拿 `extinguishers` 去搜，命中率 **0/291 = 0.0%**。
     提问侧改成"词干 + 前缀"后 **285/291 = 97.9%**，而**索引一个字都不用重建**。
 
-    代价（**实测，必须一起说**）：候选池**中位放大 3.3×、最大 182×**
-    （同一批语料、同一把尺子）。所以只在"确实有词形变化可摘"的词上做，
-    且全大写/带数字的一律不动。
+    代价（**实测的真实分布，别只引一个数**；DSH 5,412 段、4+ 字母词 8,762 个）：
+    候选池放大 **中位 1.1× / p90 20.7× / 最大 3144×**。
+    最狠的那批是**常见技术词**（`typing`→`type*` 3144×、`packing`→`pack*` 2559×、
+    `modeled`→`model*` 886×、`generalize`→`gener*` 680×、`indexing`→`index*` 456×），
+    **不是怪词**——所以这个代价必须当真，它是**排序层（P2）的活**。
+    ⚠ 本函数第一版报的是"最大 182×"，那是**取样空档**造成的假上限
+    （尺子只拿 ≥6 字母的词造候选对，把 4~5 字母那一带整段漏掉了）。复核抓出，已改。
     """
-    if not _LATIN_WORD_RE.match(tok) or tok.isupper():
+    if not _LATIN_WORD_RE.match(tok) or not _plain_case(tok):
         return None
     stem = _porter_stem(tok)
-    if not stem or not stem.isalpha():
+    if len(stem) < _MIN_STEM or not stem.isalpha():
         return None
     return f'"{stem}"*'
 

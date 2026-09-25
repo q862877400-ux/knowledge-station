@@ -228,12 +228,17 @@ def main() -> int:
 
     pairs: list[tuple[str, str]] = []
     for w in sorted(ascii_terms):
-        if len(w) < 6 or not w.isalpha():
+        # ⚠ **下限放到 4**（复核 2026-09-25 打回）：原来写 `len(w) < 6: continue`，
+        #   于是候选对**只从 ≥6 字母的词里造**，把 4~5 字母那一带整段排除在测量之外。
+        #   而"候选池放大"那一栏正是在那一带上最凶（`opted`→`opt*` 541×、
+        #   `ties`→`ti*` 281×）⇒ 报出来的"最大 182×"是**取样空档造成的假上限**。
+        #   现在与生产闸口一致：≥4 字母。
+        if len(w) < 4 or not w.isalpha():
             continue
         for b in sorted(variants(w)):
             if b != w and b in ascii_terms:
                 pairs.append((w, b))  # 段落含 w，用 b 去搜
-    print(f"  候选对数 {len(pairs)}")
+    print(f"  候选对数 {len(pairs)}（词面下限 4 字母，与生产闸口一致）")
     if not pairs:
         print("  这份资料里没有拉丁字母词形变化（纯中文资料属于正常结果）。")
         return 0
@@ -259,9 +264,12 @@ def main() -> int:
             continue
         tgt = sorted(target)[0]
         r["ascii_cov"] += int(exists(conn, "fts_ascii", b, tgt, latin_prefix=False))
-        r["porter_cov"] += int(exists(conn, "fts_porter", b, tgt))
+        # ⚠ **porter 那一栏也必须关掉新口径**（复核 2026-09-25 打回）：
+        #   它比的是"重建索引用 porter"这条路，若提问侧还叠着前缀，量到的就是
+        #   "porter 索引 + 前缀查询"，那一栏会虚高（实测 282→290）。
+        r["porter_cov"] += int(exists(conn, "fts_porter", b, tgt, latin_prefix=False))
         r["ascii_top"] += int(tgt in set(search(conn, "fts_ascii", b, k=5, latin_prefix=False)))
-        r["porter_top"] += int(tgt in set(search(conn, "fts_porter", b, k=5)))
+        r["porter_top"] += int(tgt in set(search(conn, "fts_porter", b, k=5, latin_prefix=False)))
         r["new_cov"] += int(exists(conn, "fts_ascii", b, tgt))          # 生产现状＝前缀已开
         r["new_top"] += int(tgt in set(search(conn, "fts_ascii", b, k=5)))
         checked.append((b, tgt))
@@ -317,7 +325,10 @@ def main() -> int:
     print(f"       前缀* （索引不动）  {pt}/{n} = {pt / n:.1%}")
 
     ratios, exacts, prefs = [], [], []
-    for b, _t in checked[:60]:
+    # ⚠ 取样从 `checked[:60]`（＝**按字母序前 60 个**，不是随机）改成**全部**（复核打回）：
+    #   字母序前 60 会系统性地偏向 a/b/c 开头的词，而"最大放大"这种尾部统计恰恰
+    #   最怕取样偏差。全部算完只多几秒。
+    for b, _t in checked:
         try:
             # ⚠ 这里**必须显式关掉新口径**：P3.1 之后 `fts_match_expr(b)` 自己就带前缀了，
             #   两边都带就等于拿前缀比前缀 ⇒ 比值恒为 1.0，**"代价"那一栏变成空话**。
@@ -333,8 +344,11 @@ def main() -> int:
             prefs.append(p)
             ratios.append(p / e)
     if ratios:
+        r_sorted = sorted(ratios)
+        p90 = r_sorted[min(len(r_sorted) - 1, int(len(r_sorted) * 0.9))]
         print("    ③ 前缀的代价：候选池放大倍数"
-              f" 中位 {statistics.median(ratios):.1f}× / 最大 {max(ratios):.0f}×")
+              f" 中位 {statistics.median(ratios):.1f}× / p90 {p90:.1f}× / 最大 {max(ratios):.0f}×"
+              f"（{len(ratios)} 个词，全部）")
         print(f"       旧口径命中段数中位 {statistics.median(exacts):.0f}；"
               f"新口径（前缀）命中段数中位 {statistics.median(prefs):.0f}")
         print("       ⚠ 这一栏量的是**代价**：前缀把候选池放大多少 ⇒ 排序压力变大。")
