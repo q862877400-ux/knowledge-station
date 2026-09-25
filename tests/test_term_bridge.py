@@ -239,6 +239,31 @@ def test_extract_term_entries_keeps_only_the_first_clause_per_term():
     assert out[0].doc_id == "d1"
 
 
+def test_extract_term_entries_keep_all_exposes_the_dropped_same_name_entries():
+    """`keep_all=True` 把**同名**的其余定义也取出来 —— 把"有损"变成可实验的东西。
+
+    为什么这条测试要存在（2026-09-25 独立标签审计）：默认"只留第一条"是**有损**的
+    （真库 48,524 条术语条目 ↔ 42,181 个名字 ⇒ 丢 6,343 条；500 个答案术语里 484 个有多个
+    互不相同的同名定义）。实测**只换**用哪条同名定义（oracle）前 5 就从 8.6% → 13.7%。
+    ⇒ 没有这个口子，"哪条定义"这类对照实验根本做不了，而这个有损选择会被当成客观事实。
+    ⚠ 同时钉住**默认不许变**：改默认会动到已入库主判据的口径（单独一轮 + 必验）。
+    """
+    rows = [
+        ("c1", "d1", "3.1 危险作业 special work 第一条定义"),
+        ("c2", "d2", "3.1 危险作业 special work 某标准里的另一条定义"),
+        ("c3", "d3", "3.1 危险作业 special work 第三条定义"),
+        ("c4", "d1", "3.2 动火作业 hot work 定义正文"),
+    ]
+    default = extract_term_entries(_fake_conn(rows))
+    assert [e.term for e in default] == ["危险作业", "动火作业"], "默认口径不许变"
+
+    every = extract_term_entries(_fake_conn(rows), keep_all=True)
+    assert [e.term for e in every] == ["危险作业", "危险作业", "危险作业", "动火作业"]
+    assert [e.clause_revision_id for e in every] == ["c1", "c2", "c3", "c4"]
+    assert len({e.definition for e in every if e.term == "危险作业"}) == 3, (
+        "三条同名定义互不相同 ⇒ 默认口径确实丢了信息，不是'库里只有一条'")
+
+
 def test_extract_term_entries_strips_wrapping_punctuation_and_folds_whitespace():
     conn = _fake_conn([("c1", "d1", "3.1 危险作业· special work 定义正文\n续行")])
     out = extract_term_entries(conn)

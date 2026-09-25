@@ -201,8 +201,30 @@ def topk_by_cos(qv, vectors, k: int, matrix=None, *, use_numpy: bool = True) -> 
     return sorted(range(len(vectors)), key=lambda i: -_cos(qv, vectors[i]))[:k]
 
 
-def extract_term_entries(conn: sqlite3.Connection) -> list[TermEntry]:
-    """从库里扫出所有术语条款。同一个术语只留**第一条**（与实测口径一致）。"""
+def extract_term_entries(conn: sqlite3.Connection, *,
+                         keep_all: bool = False) -> list[TermEntry]:
+    """从库里扫出所有术语条款。默认同一个术语名只留**第一条**。
+
+    ⚠⚠ **这是个有损选择，不是"库里只有一条"**（2026-09-25 独立标签审计实测，此前这里只写
+    了"与实测口径一致"，把有损说得像客观事实）：
+      · 库里术语条目 **48,524** 条，但不同术语名只有 **42,181** 个 ⇒ **6,343 条同名定义被丢掉**；
+      · 500 个**答案术语**里 **484 个**在库里有 ≥2 条**定义正文互不相同**的同名条目。
+
+    **实测后果**（只换"用哪一条同名定义"这一个变量、模型与做法全不变）：
+    真术语进全库前 5 从 **8.6% → 13.7%**、前 50 从 **25.7% → 34.2%**、中位名次 386 → 170。
+    ⚠ 但那是 **oracle 上界**（挑哪条定义时看了答案），**不是可部署数字**：longest / shortest /
+    centroid / corpusfreq 四种**事前可定**的规则只把前 5 挪到 **7.9~8.8%** ⇒ **oracle 那 5 个点
+    不能靠规则免费拿到**。两句都要一起引用，只引一句会得出相反的结论。
+    ⚠ 另有实打实的**抽错**：`松动爆破` / `休止位置` 这两条，术语名与说法都对，
+    库里也另有更贴切的同名定义，只是"第一条"恰好不是它。
+
+    ⚠ 还有一处**口径打架**（审计点名）：`scripts/measure-term-selection.py` 判"选对没有"时，
+    **靶子**是"该术语的**任意一条**定义条款"，而**向量**是这里的**第一条**定义 ——
+    靶子比向量宽，两个数不是一把尺子量的。`keep_all=True` 可以把全部同名条目都取出来，
+    给"哪条定义"这类对照实验用。
+    ⚠ 默认值**保持** `False`：改默认会动到已入库主判据的口径（属于单独一轮 + 必验），
+    本函数只把"有损"这件事**说清并给出口**，不在这一批偷偷改数。
+    """
     seen: set[str] = set()
     out: list[TermEntry] = []
     for cid, doc, txt in conn.execute(
@@ -211,7 +233,7 @@ def extract_term_entries(conn: sqlite3.Connection) -> list[TermEntry]:
         if not m:
             continue
         t = m.group(1).strip().strip(_TRIM)
-        if not t or t in seen:
+        if not t or (t in seen and not keep_all):
             continue
         seen.add(t)
         out.append(TermEntry(term=t, english=m.group(2).strip(),
