@@ -90,6 +90,40 @@ def test_empty_key_never_matches():
     assert _std_key_hits_doc("", "GB 30871-2022") is False
 
 
+#: 真库实测存在的 5 组**后缀碰撞**（键是另一部标准号的子串）：
+#: 这是**快照库里一对都没有**的东西 —— 快照 19 篇，真库 6,797 篇。
+#: 第四轮复核的"残余 1"就是靠这个事实躲过所有测试的。
+COLLISION_PAIRS = (
+    ("2033-2008", "GB/T 12033-2008"),
+    ("247-2008", "GB/T 10247-2008"),
+    ("7718-2011", "GB/T 27718-2011"),
+    ("144-2024", "GB/T 30144-2024"),
+    ("151-2014", "GB/T 31151-2014"),
+)
+
+
+def test_row_filter_helper_is_boundary_based_not_bare_containment():
+    """**打在行筛函数上**（第四轮复核的"残余 1"）。
+
+    复核实测：把**调用点**的判据换成**裸包含**（`k in canon_standard_no(...)`）时，
+    全部测试**仍然全绿** —— 因为①纯函数用例测的是 `_std_key_hits_doc`、绕开了调用点；
+    ②**快照库里一对后缀碰撞都没有**，而真库有 5 对。
+    ⇒ 这个变异在真库上会**真的放回第二轮 P0-2 那类假命中**，两把尺子都看不见。
+    本用例用真库那 5 对（写成字面量，不依赖库）把这一层钉死。
+    """
+    from src.core.retrieval.hybrid_engine import _rows_matching_standard_keys
+    for key, other in COLLISION_PAIRS:
+        # 裸包含会在这里误留下另一部标准；词边界必须把它剔掉
+        assert _rows_matching_standard_keys([("cid", other)], {key}) == [], \
+            f"行筛失效：{key} 不该命中 {other}"
+        # 真身仍要留下
+        real = f"GB/T {key}"
+        assert _rows_matching_standard_keys([("cid", real)], {key}) == [("cid", real)]
+    # 认不出标准号 ⇒ 原样返回（历史行为一字不改）
+    rows = [("cid", "x")]
+    assert _rows_matching_standard_keys(rows, set()) == rows
+
+
 def test_known_standard_keys_drops_what_the_library_does_not_have():
     """**库里没有的标准号不许筛**（否则会把权重最高的通道 A 整条清空）。
 
@@ -178,6 +212,14 @@ def test_row_filter_actually_scopes_to_the_named_standard(tmp_path):
             " WHERE cr.clause_number = ? LIMIT 1", (num,)).fetchone()[0]
         res = perform_hybrid_search(f"{std} 第{num}条", top_k=50,
                                     channels=["exact"], rerank=False)
+        # ⚠ **第二个哨兵**（第四轮复核的"残余 2"）：不点名标准时，该条款号必须**真的跨多部标准**
+        # ——否则本用例的鉴别力会依赖 `top_k` 的大小：`top_k=1` 时"只返回点名那部"**恒真**，
+        # 删掉行筛也照样全绿（复核实测 TOPK1+A / TOPK1+C 都是 15 passed）。
+        un = perform_hybrid_search(f"第{num}条", top_k=50, channels=["exact"], rerank=False)
+        un_stds = {r.standard_no for r in un}
+        assert len(un_stds) >= 2, (
+            f"哨兵：条款号 {num} 在不点名标准时应跨多部标准，实得 {un_stds}"
+            " ⇒ 本用例会因 top_k 变小而恒真")
         assert res, f"哨兵：点名 {std} 第{num}条 不该返回空（用例没走到被测路径？）"
         got = {r.standard_no for r in res}
         assert got == {std}, f"行筛失效：点名 {std} 却返回了 {got}"

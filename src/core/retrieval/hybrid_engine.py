@@ -29,8 +29,12 @@ CHANNEL_WEIGHTS: Dict[str, float] = {
 #: 第 1 名的 11%，翻不了盘"——**那个论证预设了"名次 = 相关性名次"，而它不是**。
 #: 通道 A/D/E 的 `ORDER BY` 头两个键是 `(dm.legal_status IS NULL), dm.legal_status`，
 #: 而真库里它们**几乎不分档**（clause 级实测 effective **521,984** / withdrawn 21 /
-#: reference 16 / superseded **0** / NULL **0**）⇒ 522,000 个候选里 **99.997% 落在同一档**
+#: reference 16 / superseded **0** / NULL **0**）⇒ **通道 A 的候选行（= 去掉 withdrawn/superseded
+#: 之后的 522,000 行，见下）里 99.997% 落在同一档**
 #: ⇒ **通道内名次实质上等于灌库顺序（`clause_revision_id` 序），与相关性无关**。
+#: ⚠ **分母要写明**（第四轮复核 INFO）：522,000 = 521,984 + 16（`include_superseded=False`
+#: 排掉 withdrawn/superseded 后的候选行）；**全库是 522,021 行**。拿 522,021 当分母只会算出
+#: 99.993%，看着像矛盾。`99.997% = 521,984 / 522,000`。
 #: ⚠ **措辞更正（第三轮复核的"低"）**：初版这里写"**恒为常数**"并只列了
 #: effective/withdrawn/superseded/NULL —— 那**不准确**：`reference` 有 16 条，
 #: 第二个键并非严格常数，且列数漏了 reference。**结论不受影响**（同档比例仍是 99.997%），
@@ -100,6 +104,21 @@ def _std_key_hits_doc(key: str, doc_standard_no: str | None) -> bool:
     from src.core.text_utils import canon_standard_no
     return re.search(rf"(?<!\d){re.escape(key)}(?!\d)",
                      canon_standard_no(doc_standard_no)) is not None
+
+
+def _rows_matching_standard_keys(rows, want_keys) -> list:
+    """把候选行按「提问点名的标准」过滤（判据是 `_std_key_hits_doc` 的词边界包含）。
+
+    为什么单独抽成函数（2026-09-25，第四轮复核的"残余 1"）：复核实测——
+    把**调用点**的判据换成**裸包含**时，**全部测试仍然全绿**。原因是
+    **快照库里一对后缀碰撞都没有**（真库有 5 对），所以那把尺子**结构上看不见**这个变异。
+    抽成纯函数后，可以用真库那 5 对在单测里直接钉死（见 `tests/test_golden_criterion.py`）。
+
+    `want_keys` 为空 ⇒ **原样返回**（认不出标准号 ⇒ 历史行为一字不改）。
+    """
+    if not want_keys:
+        return list(rows)
+    return [r for r in rows if any(_std_key_hits_doc(k, r[1]) for k in want_keys)]
 
 
 def _known_standard_keys(want_keys, doc_standard_nos) -> set[str]:
@@ -260,10 +279,12 @@ def perform_hybrid_search(
                 + " ORDER BY (dm.legal_status IS NULL), dm.legal_status, cr.clause_revision_id",
                 ((exact_no, scope_json) if scope_active else (exact_no,))).fetchall()
             if want_keys:
-                # ⚠ 判据是 `_std_key_hits_doc`（**词边界包含**），不是裸包含——
+                # 判据是 `_std_key_hits_doc`（**词边界包含**），不是裸包含——
                 # 裸包含会把 `GB/T 2033-2008` 的键命中到 `GB/T 12033-2008`（数字后缀），
                 # 正是上一批要关掉的那类假命中（第二轮复核实测端到端复现）。
-                rows = [r for r in rows if any(_std_key_hits_doc(k, r[1]) for k in want_keys)]
+                # ⚠ 抽成函数是为了可单测（第四轮复核的"残余 1"）：快照库里**一对后缀碰撞都没有**，
+                #   所以把判据换成裸包含时全仓测试**全绿** —— 那把尺子结构上看不见。
+                rows = _rows_matching_standard_keys(rows, want_keys)
             for rank, row in enumerate(rows):
                 scores[row[0]] = scores.get(row[0], 0.0) + CHANNEL_WEIGHTS["exact"] / (RRF_K + rank + 1)
 
