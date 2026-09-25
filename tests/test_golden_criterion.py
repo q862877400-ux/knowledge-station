@@ -57,17 +57,85 @@ def test_standard_key_normalisation_equates_case_and_dashes():
     assert standard_key("AQ 3028-2008") == standard_key("aq3028\u20142008")
 
 
-def test_standard_no_with_trailing_chinese_still_matches():
-    """真库有 **7 篇** `standard_no` 尾部带中文（复核 2026-09-25 的 P1）。
+# ── 标准号与文档的匹配判据（**词边界包含**，第二轮复核 P0 的两侧反例）────────
+
+def test_key_matches_standard_no_with_trailing_chinese():
+    """真库 4 篇 `standard_no` 尾部带中文 ⇒ 判据必须允许"键是前缀部分"。
 
     旧判据用「键**相等**」⇒ 这种串的 `standard_key` 退化成整串、与提问算出的键不等
-    ⇒ **权重最高（2.0）的精确通道对这 7 篇整条失效**（复核实测 base 通道 A n=1 / frozen n=0）。
-    修法是把判据改成「键**包含**」。本用例把"相等会失效、包含才成立"两件事一起钉住。
+    ⇒ **权重最高（2.0）的通道 A 对这 4 篇整条失效**（复核实测 base 通道 A n=0）。
     """
-    sno = "GB/T 27668-2023显微镜光学显微术术语(1)"
-    key = standard_key("GB/T 27668-2023")
-    assert key in canon_standard_no(sno)          # 包含 ⇒ 成立
-    assert standard_key(sno) != key               # 相等 ⇒ 正是旧判据失效的原因
+    from src.core.retrieval.hybrid_engine import _std_key_hits_doc
+    assert _std_key_hits_doc("5009.12-2023", "GB 5009.12-2023食品安全国家标准") is True
+    assert _std_key_hits_doc("27668-2023", "GB/T 27668-2023显微镜光学显微术术语(1)") is True
+
+
+def test_key_does_not_match_a_longer_number_that_merely_ends_with_it():
+    """**核心反例**：裸「包含」过头——`2033-2008` 是 `GBT12033-2008` 的子串。
+
+    第二轮复核实测端到端：提问点名 `GB/T 2033-2008`，裸包含时**第 1 名返回
+    `GB/T 12033-2008`**（正是上一批要关掉的那类假命中）。数字左边界把它挡住。
+    本用例在"把判据改回裸包含"的变异下**必红**。
+    """
+    from src.core.retrieval.hybrid_engine import _std_key_hits_doc
+    assert _std_key_hits_doc("2033-2008", "GB/T 12033-2008") is False
+    assert _std_key_hits_doc("247-2008", "GB/T 10247-2008") is False
+    assert _std_key_hits_doc("7718-2011", "GB/T 27718-2011") is False
+    # 但真正那本必须命中
+    assert _std_key_hits_doc("2033-2008", "GB/T 2033-2008") is True
+
+
+def test_empty_key_never_matches():
+    from src.core.retrieval.hybrid_engine import _std_key_hits_doc
+    assert _std_key_hits_doc("", "GB 30871-2022") is False
+
+
+def test_known_standard_keys_drops_what_the_library_does_not_have():
+    """**库里没有的标准号不许筛**（否则会把权重最高的通道 A 整条清空）。
+
+    `FY2021-2022` 这种形态正则拦不住（见下一条用例），真正的防线是这道守卫。
+    """
+    from src.core.retrieval.hybrid_engine import _known_standard_keys
+    lib = ["GB 30871-2022", "AQ 3028-2008"]
+    assert _known_standard_keys({"2021-2022", "ABC123-4567"}, lib) == set()
+    assert _known_standard_keys({"30871-2022"}, lib) == {"30871-2022"}
+
+
+def test_unknown_standard_in_query_behaves_exactly_like_no_standard(tmp_path):
+    """**打在调用点上**：删掉引擎里那道守卫，本用例会红。
+
+    为什么需要它：上面几条只测纯函数——第二轮复核实测"把存在性守卫整块删掉"时
+    测试**全绿**（守卫的调用点零覆盖）。这条用真检索比对两次返回，
+    守卫没了就会让第二位提问的精确通道被清空 ⇒ 两次返回不再相同。
+    """
+    import shutil
+
+    import pytest
+
+    from src.core.retrieval.hybrid_engine import perform_hybrid_search, set_db_override
+    from src.core.storage.sqlite_db import get_db_connection, load_vec_extension
+
+    snap = ROOT / "eval" / "golden" / "knowledge-snapshot.db"
+    if not snap.exists():
+        pytest.skip("快照库缺失（先跑 eval/golden/build_golden.py）")
+    db = tmp_path / "snap.db"
+    shutil.copy2(snap, db)          # 拷副本：get_db_connection 会写 WAL，别脏了仓库
+    set_db_override(str(db))
+    try:
+        conn = get_db_connection(db)
+        load_vec_extension(conn)
+        # ⚠ **只留精确通道**（`channels=["exact"]`）：否则加了 "ZZ 9999-2099" 之后
+        # FTS/向量通道拿到的查询串也变了，返回本来就会不同 —— 那样测的就不是守卫了。
+        # （第一版就是这么写错的：两条提问的 token 不同 ⇒ 不隔离通道 ⇒ 假红。）
+        plain = [r.clause_revision_id for r in
+                 perform_hybrid_search("第3.1条", top_k=10, channels=["exact"], rerank=False)]
+        weird = [r.clause_revision_id for r in
+                 perform_hybrid_search("ZZ 9999-2099 第3.1条", top_k=10,
+                                       channels=["exact"], rerank=False)]
+        assert plain, "哨兵：前一次检索不该为空（否则本用例没走到被测路径）"
+        assert weird == plain, "库里没有的标准号不该改变检索结果（守卫失效了？）"
+    finally:
+        set_db_override(None)
 
 
 # ── 从提问里认标准号的正则 ─────────────────────────────────────────────────

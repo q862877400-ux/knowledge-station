@@ -20,18 +20,28 @@ CHANNEL_WEIGHTS: Dict[str, float] = {
     "modality": 0.8, "legal_element": 0.8, "behavior_scope": 1.2,
 }
 
-#: **每条通道最多取多少行**（2026-09-25，P0.4）。
+#: ⚠ **不设行数上限——这是算过之后刻意不做的**（2026-09-25，第二轮独立复核 P0 打回）。
 #:
-#: 为什么必须有：通道 A（精确条款号）/ D（模态）/ E（法理要素）原先**完全没有上限**，
-#: 实测一句带"应"的话会把**全库 27%（140,555 条）**一次拉进内存，`clause_number='1'`
-#: 会拉 **6,379 条**（B/F 本来就有 `LIMIT 20`，C 按 k 取）。
+#: 起因：通道 A（精确条款号）/ D（模态）/ E（法理要素）原先没有上限，实测模态 `'应'` 一次拉
+#: **140,555 条**（全库 26.9%）、`clause_number='1'` 拉 **6,379 条** ⇒ 想做 `LIMIT 500` 收口。
 #:
-#: 为什么是 500（而不是更小）：RRF 的名次权重是 `W/(RRF_K+rank+1)`。取 W 最大的一路（exact，2.0）：
-#:   第 1 名 2.0/61 = 0.0328；**第 500 名 2.0/561 = 0.0036**（只有第 1 名的 11%）。
-#: 六条路满配也顶不住这个量级，所以第 500 名之后的条目**进不了最终 top-k**；
-#: 而 cap ≥ top_k 时，"某一条路单独命中"的返回结果**逐条不变**（取的就是它最前那几行）。
-#: 500 相比 140,555 已经是 **280 倍**的内存削减，同时给"极端情况下靠后名次翻盘"留了很大余量。
-CHANNEL_ROW_CAP = 500
+#: **为什么不能简单加 `LIMIT`**：加闸的论证是"RRF 名次权重 `W/(60+rank+1)`，第 500 名只有
+#: 第 1 名的 11%，翻不了盘"——**那个论证预设了"名次 = 相关性名次"，而它不是**。
+#: 通道 A/D/E 的 `ORDER BY` 头两个键是 `(dm.legal_status IS NULL), dm.legal_status`，
+#: 而真库里这两个键**恒为常数**（实测 effective 521,984 / withdrawn 21 / superseded **0** / NULL **0**）
+#: ⇒ **通道内名次等于灌库顺序（`clause_revision_id` 序），与相关性无关**。
+#: 于是 `LIMIT` 会**任意**丢掉候选，而不是丢掉"最不相关的"。
+#:
+#: **复核实测的代价**（真库 + 默认六通道 + 普通提问）：
+#:   * **6/6** 提问里，用户**点名的那条条款**被挤出前 10（在基准树上是第 0 名）；
+#:   * 通道 A 候选 522,000 行里，名次 >500 被砍掉 **177,829 行 = 34.1%**；
+#:   * **384 / 6,793 篇文档的全部条款都被砍光**（通道 A 对它们完全失效）。
+#:   * 而`金标四项一字未动`是**空证据**：快照库只有 19 篇、最大条款分组 **13** 条，
+#:     闸在快照上**结构上不可能生效**，所以它证明不了闸安全。
+#:
+#: ⇒ **结论：在把通道 A/D/E 的排序改成"与相关性有关"之前，不许给它们加行数上限。**
+#: 内存问题（14 万行）**仍然存在**，已登记为独立缺陷（长周期计划 P0），不在这里偷偷解决。
+#: 谁要重新加闸，先回答：**这条通道的名次凭什么算相关性名次？**
 
 
 # 2026-09-13 附录细分配套修复：附录字母章号前置——"E.5.2" 先被截出 "5.2" 返回
@@ -60,6 +70,43 @@ _MODALTITY_RE = re.compile("严禁|禁止|不得|不应|不能|应当|必须|宜
 _STD_IN_QUERY_RE = re.compile(
     r"[A-Z]{1,6}(?:\s*/\s*[A-Z]{1,3})?\s*\d{3,5}(?:\.\d+)?\s*[\u2014\-\u2013]\s*\d{2,4}",
     re.I)
+
+
+def _std_key_hits_doc(key: str, doc_standard_no: str | None) -> bool:
+    """提问里的标准号键 `key` 是否命中这部文档的 `standard_no`。
+
+    ⚠ 判据是**词边界包含**（`(?<!\\d)…(?!\\d)`），**不是裸包含**。两个反例各自定住了它：
+
+    * 裸「相等」不够 —— 真库有 **4 篇** `standard_no` 尾部带中文
+      （`GB 5009.12-2023食品安全国家标准`、`GB/T 27668-2023显微镜光学显微术术语(1)`…），
+      `standard_key` 对这种串会退化成整串 ⇒ 与提问算出的键不等
+      ⇒ **权重最高（2.0）的通道 A 对这 4 篇整条失效**（复核实测 base 通道 A n=0 / 修后 n≥1）。
+      所以必须允许"键是标准号的**前缀部分**"。
+    * 裸「包含」**过头** —— `standard_key("GB/T 2033-2008")` = `2033-2008`，而
+      `canon_standard_no("GB/T 12033-2008")` = `GBT12033-2008` **包含** `2033-2008`
+      ⇒ 提问点名 `GB/T 2033-2008`，第 1 名返回 **`GB/T 12033-2008`**（第二轮复核实测端到端复现）。
+      加数字左边界后 `…12033-2008` 里的 `2033` 前面是数字 ⇒ 不命中。
+
+    真库实测的 5 组后缀碰撞：`7718-2011`↔`GB/T 27718-2011`、`144-2024`↔`GB/T 30144-2024`、
+    `151-2014`↔`GB/T 31151-2014`、`2033-2008`↔`GB/T 12033-2008`、`247-2008`↔`GB/T 10247-2008`。
+    """
+    if not key:
+        return False
+    from src.core.text_utils import canon_standard_no
+    return re.search(rf"(?<!\d){re.escape(key)}(?!\d)",
+                     canon_standard_no(doc_standard_no)) is not None
+
+
+def _known_standard_keys(want_keys, doc_standard_nos) -> set[str]:
+    """从提问里抽出的候选键中，**挑出库里真的有对应文档的那些**。
+
+    为什么必须有这道闸（第二轮复核 P0）：形态像标准号、库里却没有对应文档的记号
+    （`FY2021-2022` / `ABC123-4567` / `T/CCSAS 001-2022`…）若照筛，会把**权重最高（2.0）的
+    通道 A 整条清空**并把首位结果换掉——复核实测 22 条提问里 6 条如此。
+    库里没有 ⇒ 不筛（退回历史行为）。耗时实测约 **16 ms/次**（真库 6,797 行）。
+    """
+    return {k for k in want_keys if any(_std_key_hits_doc(k, s) for s in doc_standard_nos)}
+
 
 
 # 评测/门禁用：临时覆盖库路径（eval benchmark 对快照库跑，可复现、不依赖本机 %APPDATA%）
@@ -163,22 +210,17 @@ def perform_hybrid_search(
             # 为什么必须做：实测库里 `clause_number='5.2'` 有 **4,910 条**，只有 1 条属 GB 30871-2022。
             # 不限定的话，用户问「查 AQ 3028-2008 第 3.1 条」会把**全库所有叫 3.1 的条款**
             # 一起拉出来（本通道权重 2.0，六路最高）⇒ 正确的那条被别家的 3.1 挤掉。
-            # 实测代价：金标 90 条检索题里，**47 条**是靠"匹配到别的标准的同名条款"被判成命中的。
+            # 实测代价（**快照库，与门禁同口径**）：金标 90 条检索题里，旧判据比诚实判据
+            # "多算"**14 / 4 / 0** 条（按前 1 / 前 5 / 前 10）。⚠ 作者原写"47 条"是**错的**——
+            # 47 是**真库**上的数（67−20），被误填进了快照的表里，第二轮复核已打回并留痕。
             # 认不出标准号时（`want_keys` 为空）**行为一字不改** —— 历史语义完整保留。
-            from src.core.text_utils import canon_standard_no, standard_key
+            from src.core.text_utils import standard_key
             want_keys = {standard_key(s) for s in _STD_IN_QUERY_RE.findall(query)}
-            # ⚠ **必须在库里验证这一步**（2026-09-25 复核 P1）：形态像标准号、库里却没有对应
-            # 文档的记号（`FY2021-2022` / `ABC123-4567` / `T/CCSAS 001-2022`…），若照筛，
-            # 会把**权重最高（2.0）的通道 A 整条清空**、并把首位结果换掉——实测 22 条提问里
-            # 6 条如此。库里没有 ⇒ 不筛（历史行为一字不改）。
+            # ⚠ **必须在库里验证这一步**（第二轮复核 P0）：库里没有对应文档的记号不许筛。
+            # 判据与耗时见 `_known_standard_keys` 的 docstring（词边界包含 + 约 16 ms/次）。
             if want_keys:
-                known = set()
-                for (sno,) in conn.execute("SELECT standard_no FROM doc_meta"):
-                    c = canon_standard_no(sno)
-                    for k in want_keys:
-                        if k and k in c:
-                            known.add(k)
-                want_keys = known
+                want_keys = _known_standard_keys(
+                    want_keys, [s for (s,) in conn.execute("SELECT standard_no FROM doc_meta")])
             rows = conn.execute(
                 "SELECT cr.clause_revision_id, dm.standard_no FROM clause_revision cr"
                 " JOIN doc_meta dm ON dm.doc_id = cr.doc_id"
@@ -206,21 +248,17 @@ def perform_hybrid_search(
                 # `authority`/`evidence` 那一侧，不在排序里）。若要"已废止也沉到未核验之后"，
                 # 那是**新口径**，需业主拍板（不是"顺手改一下"）。
                 # ⚠ 另一处不对称：**A 这条原先没有 id 兜底** ⇒ 同状态多行时次序不保证（非全序）。
-                # **2026-09-25（P0.4）补上 `cr.clause_revision_id` 兜底**——这是加 `LIMIT` 的**前提**：
-                # 非全序 + LIMIT 会让"取到哪 500 条"变成**不确定的**（比不加上限更糟，
-                # 因为不加上限时至少"集合"是确定的）。补齐后 A 与 D/E 口径一致（全序）。
-                + " ORDER BY (dm.legal_status IS NULL), dm.legal_status, cr.clause_revision_id"
-                # 上限：见 CHANNEL_ROW_CAP 的注释（为什么是 500）
-                + f" LIMIT {CHANNEL_ROW_CAP}",
+                # **2026-09-25（P0.4）补上 `cr.clause_revision_id` 兜底**：原先是**非全序**，
+                # 同状态多行时次序不保证。补齐后 A 与 D/E 口径一致（全序）。
+                # ⚠ **本通道刻意不加行数上限**——理由见文件上方那段长注释（第二轮复核 P0：
+                #   通道内名次不是相关性名次，`LIMIT` 会任意丢候选，实测 6/6 挤出正确条款）。
+                + " ORDER BY (dm.legal_status IS NULL), dm.legal_status, cr.clause_revision_id",
                 ((exact_no, scope_json) if scope_active else (exact_no,))).fetchall()
             if want_keys:
-                # ⚠ 用**包含**而不是相等（2026-09-25 复核 P1）：真库有 7 篇 `standard_no`
-                # 尾部带中文（如 `GB/T 27668-2023显微镜光学显微术术语(1)`），
-                # `standard_key` 对这种串会退化成整串 ⇒ 与提问算出的 `27668-2023` 不等
-                # ⇒ 权重最高的通道 A 对这 7 篇**整条失效**（实测 base 通道 A n=1 / frozen n=0）。
-                # 包含判据对尾部长中文免疫，且不放宽"必须真的是这部标准"。
-                rows = [r for r in rows
-                        if any(k in canon_standard_no(r[1] or "") for k in want_keys)]
+                # ⚠ 判据是 `_std_key_hits_doc`（**词边界包含**），不是裸包含——
+                # 裸包含会把 `GB/T 2033-2008` 的键命中到 `GB/T 12033-2008`（数字后缀），
+                # 正是上一批要关掉的那类假命中（第二轮复核实测端到端复现）。
+                rows = [r for r in rows if any(_std_key_hits_doc(k, r[1]) for k in want_keys)]
             for rank, row in enumerate(rows):
                 scores[row[0]] = scores.get(row[0], 0.0) + CHANNEL_WEIGHTS["exact"] / (RRF_K + rank + 1)
 
@@ -276,9 +314,9 @@ def perform_hybrid_search(
             # 排序口径与通道 A 一致：未核验（NULL）沉底，已知状态按名排，最后用 id 兜底
             # 保证**全序**（同状态多行时也确定）。取舍（已废止排在未核验之前）与 A 相同，
             # 见通道 A 那条注释——**口径的唯一所有者在 A**，这里只负责"更全"（多了 id 兜底）。
-            + " ORDER BY (dm.legal_status IS NULL), dm.legal_status, cr.clause_revision_id"
-            # 上限：见 CHANNEL_ROW_CAP（原先这条**完全没有上限**，模态='应' 一次拉 14 万条）
-            + f" LIMIT {CHANNEL_ROW_CAP}",
+            # ⚠ **本通道刻意不加行数上限**（第二轮复核 P0）：见文件上方长注释。
+            # （原先这条**完全没有上限**，模态='应' 一次拉 14 万条 ⇒ 内存问题仍在，已登记为独立缺陷。）
+            + " ORDER BY (dm.legal_status IS NULL), dm.legal_status, cr.clause_revision_id",
             ((modality_filter, scope_json) if scope_active else (modality_filter,))).fetchall()
         for rank, row in enumerate(rows):
             scores[row[0]] = scores.get(row[0], 0.0) + CHANNEL_WEIGHTS["modality"] / (RRF_K + rank + 1)
@@ -301,9 +339,8 @@ def perform_hybrid_search(
             # 本步把**口径与通道 A/D 对齐**：未核验（NULL）沉底、已知状态按名排、id 兜底成全序。
             # 取舍（已废止排在未核验之前）见通道 A 注释（唯一所有者）；本处与 A 的差别是
             # **多了 id 兜底** ⇒ 这条是**全序**，A 不是（复核 b12 的 INFO）。
-            + " ORDER BY (dm.legal_status IS NULL), dm.legal_status, cr.clause_revision_id"
-            # 上限：见 CHANNEL_ROW_CAP（这条原先也没有上限）
-            + f" LIMIT {CHANNEL_ROW_CAP}",
+            # ⚠ **本通道刻意不加行数上限**（第二轮复核 P0）：见文件上方长注释。
+            + " ORDER BY (dm.legal_status IS NULL), dm.legal_status, cr.clause_revision_id",
             ((subject_filter, scope_json) if scope_active else (subject_filter,))).fetchall()
         for rank, row in enumerate(rows):
             scores[row[0]] = scores.get(row[0], 0.0) + CHANNEL_WEIGHTS["legal_element"] / (RRF_K + rank + 1)
