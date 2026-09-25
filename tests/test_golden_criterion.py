@@ -138,6 +138,54 @@ def test_unknown_standard_in_query_behaves_exactly_like_no_standard(tmp_path):
         set_db_override(None)
 
 
+def test_row_filter_actually_scopes_to_the_named_standard(tmp_path):
+    """**行筛**本身也要有覆盖（第三轮复核的变异 C 盲区）。
+
+    上面那条用例打的是**守卫**（"库里没有 ⇒ 不筛"）。复核实测：把守卫**与行筛一起**删掉时，
+    它**全绿** —— 因为那时 `want_keys` 非空却没有任何过滤，两次检索又变得相同。
+    本用例直接把行筛钉死：**点名一部标准，返回里就不许出现别的标准**。
+
+    会空转的情形（快照里没有跨标准重号的条款）已用 `skip` 明确挡出来，不静默通过。
+    """
+    import shutil
+
+    import pytest
+
+    from src.core.retrieval.hybrid_engine import perform_hybrid_search, set_db_override
+    from src.core.storage.sqlite_db import get_db_connection, load_vec_extension
+
+    snap = ROOT / "eval" / "golden" / "knowledge-snapshot.db"
+    if not snap.exists():
+        pytest.skip("快照库缺失（先跑 eval/golden/build_golden.py）")
+    db = tmp_path / "snap.db"
+    shutil.copy2(snap, db)
+    set_db_override(str(db))
+    try:
+        conn = get_db_connection(db)
+        load_vec_extension(conn)
+        # 找一个**至少在 2 部标准里都出现**的条款号——否则"只返回点名那本"会空转成立
+        row = conn.execute(
+            "SELECT cr.clause_number FROM clause_revision cr"
+            " JOIN doc_meta dm ON dm.doc_id = cr.doc_id"
+            " GROUP BY cr.clause_number"
+            " HAVING count(DISTINCT dm.standard_no) >= 2 LIMIT 1").fetchone()
+        if not row:
+            pytest.skip("快照库里没有跨标准重号的条款 ⇒ 本用例会空转，显式跳过")
+        num = row[0]
+        std = conn.execute(
+            "SELECT dm.standard_no FROM clause_revision cr"
+            " JOIN doc_meta dm ON dm.doc_id = cr.doc_id"
+            " WHERE cr.clause_number = ? LIMIT 1", (num,)).fetchone()[0]
+        res = perform_hybrid_search(f"{std} 第{num}条", top_k=50,
+                                    channels=["exact"], rerank=False)
+        assert res, f"哨兵：点名 {std} 第{num}条 不该返回空（用例没走到被测路径？）"
+        got = {r.standard_no for r in res}
+        assert got == {std}, f"行筛失效：点名 {std} 却返回了 {got}"
+    finally:
+        set_db_override(None)
+
+
+
 # ── 从提问里认标准号的正则 ─────────────────────────────────────────────────
 
 def test_regex_finds_real_standard_numbers():

@@ -28,8 +28,13 @@ CHANNEL_WEIGHTS: Dict[str, float] = {
 #: **为什么不能简单加 `LIMIT`**：加闸的论证是"RRF 名次权重 `W/(60+rank+1)`，第 500 名只有
 #: 第 1 名的 11%，翻不了盘"——**那个论证预设了"名次 = 相关性名次"，而它不是**。
 #: 通道 A/D/E 的 `ORDER BY` 头两个键是 `(dm.legal_status IS NULL), dm.legal_status`，
-#: 而真库里这两个键**恒为常数**（实测 effective 521,984 / withdrawn 21 / superseded **0** / NULL **0**）
-#: ⇒ **通道内名次等于灌库顺序（`clause_revision_id` 序），与相关性无关**。
+#: 而真库里它们**几乎不分档**（clause 级实测 effective **521,984** / withdrawn 21 /
+#: reference 16 / superseded **0** / NULL **0**）⇒ 522,000 个候选里 **99.997% 落在同一档**
+#: ⇒ **通道内名次实质上等于灌库顺序（`clause_revision_id` 序），与相关性无关**。
+#: ⚠ **措辞更正（第三轮复核的"低"）**：初版这里写"**恒为常数**"并只列了
+#: effective/withdrawn/superseded/NULL —— 那**不准确**：`reference` 有 16 条，
+#: 第二个键并非严格常数，且列数漏了 reference。**结论不受影响**（同档比例仍是 99.997%），
+#: 但这是论证的地基，措辞必须准。
 #: 于是 `LIMIT` 会**任意**丢掉候选，而不是丢掉"最不相关的"。
 #:
 #: **复核实测的代价**（真库 + 默认六通道 + 普通提问）：
