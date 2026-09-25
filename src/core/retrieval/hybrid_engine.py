@@ -52,8 +52,13 @@ _MODALTITY_RE = re.compile("严禁|禁止|不得|不应|不能|应当|必须|宜
 #: 这里只认**形态**，认出来之后再拿库里的 `standard_no` 去比（同一个 `standard_key` 口径）。
 #: ⚠ 与 `_WM_STD_CORE` **不是一回事**：那个是页眉水印清洗判据，必须防"数字+大写字母"
 #: 误吃条款标题（`5.2.3 试验方法`）；本处输入是**提问**，且要求"号-年"形态，不存在那个风险。
+#: ⚠ **2026-09-25 复核打回后的两处收紧**（原版会把不是标准号的记号当标准号，把通道清空）：
+#:   ① 数字位下限 **1 → 3**（`\d{3,5}`）：原版把 `A1-2020`、`GB 5-2022` 也认成标准号；
+#:   ② 抽出候选后**必须先在 `doc_meta` 里验证它真的存在**（见通道 A 里的 `want_keys`）——
+#:      这条是关键：`FY2021-2022`、`ABC123-4567`、`T/CCSAS 001-2022` 这类就算形态像，
+#:      只要库里没有对应文档，就**不筛**（退回历史行为），而不是把权重最高的通道整条清空。
 _STD_IN_QUERY_RE = re.compile(
-    r"[A-Z]{1,6}(?:\s*/\s*[A-Z]{1,3})?\s*\d{1,5}(?:\.\d+)?\s*[\u2014\-\u2013]\s*\d{2,4}",
+    r"[A-Z]{1,6}(?:\s*/\s*[A-Z]{1,3})?\s*\d{3,5}(?:\.\d+)?\s*[\u2014\-\u2013]\s*\d{2,4}",
     re.I)
 
 
@@ -160,8 +165,20 @@ def perform_hybrid_search(
             # 一起拉出来（本通道权重 2.0，六路最高）⇒ 正确的那条被别家的 3.1 挤掉。
             # 实测代价：金标 90 条检索题里，**47 条**是靠"匹配到别的标准的同名条款"被判成命中的。
             # 认不出标准号时（`want_keys` 为空）**行为一字不改** —— 历史语义完整保留。
-            from src.core.text_utils import standard_key
+            from src.core.text_utils import canon_standard_no, standard_key
             want_keys = {standard_key(s) for s in _STD_IN_QUERY_RE.findall(query)}
+            # ⚠ **必须在库里验证这一步**（2026-09-25 复核 P1）：形态像标准号、库里却没有对应
+            # 文档的记号（`FY2021-2022` / `ABC123-4567` / `T/CCSAS 001-2022`…），若照筛，
+            # 会把**权重最高（2.0）的通道 A 整条清空**、并把首位结果换掉——实测 22 条提问里
+            # 6 条如此。库里没有 ⇒ 不筛（历史行为一字不改）。
+            if want_keys:
+                known = set()
+                for (sno,) in conn.execute("SELECT standard_no FROM doc_meta"):
+                    c = canon_standard_no(sno)
+                    for k in want_keys:
+                        if k and k in c:
+                            known.add(k)
+                want_keys = known
             rows = conn.execute(
                 "SELECT cr.clause_revision_id, dm.standard_no FROM clause_revision cr"
                 " JOIN doc_meta dm ON dm.doc_id = cr.doc_id"
@@ -197,7 +214,13 @@ def perform_hybrid_search(
                 + f" LIMIT {CHANNEL_ROW_CAP}",
                 ((exact_no, scope_json) if scope_active else (exact_no,))).fetchall()
             if want_keys:
-                rows = [r for r in rows if standard_key(r[1] or "") in want_keys]
+                # ⚠ 用**包含**而不是相等（2026-09-25 复核 P1）：真库有 7 篇 `standard_no`
+                # 尾部带中文（如 `GB/T 27668-2023显微镜光学显微术术语(1)`），
+                # `standard_key` 对这种串会退化成整串 ⇒ 与提问算出的 `27668-2023` 不等
+                # ⇒ 权重最高的通道 A 对这 7 篇**整条失效**（实测 base 通道 A n=1 / frozen n=0）。
+                # 包含判据对尾部长中文免疫，且不放宽"必须真的是这部标准"。
+                rows = [r for r in rows
+                        if any(k in canon_standard_no(r[1] or "") for k in want_keys)]
             for rank, row in enumerate(rows):
                 scores[row[0]] = scores.get(row[0], 0.0) + CHANNEL_WEIGHTS["exact"] / (RRF_K + rank + 1)
 
