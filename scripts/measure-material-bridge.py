@@ -44,6 +44,40 @@ BOLD = re.compile(r"\*\*(.+?)\*\*")
 CODE = re.compile(r"`([^`\n]{2,40})`")
 PAIR = re.compile(r"[\u4e00-\u9fff]{2,12}[（(]([A-Za-z][A-Za-z0-9+_.\- ]{1,30})[）)]")
 HAS_WORD = re.compile(r"[\u4e00-\u9fffA-Za-z]")
+#: 句读/从句标点：**术语里不该出现**（出现就说明这是句子片段，不是术语）
+CLAUSE_PUNCT = re.compile(r"[，。；：！？、,;:!?]")
+#: 平衡括号：允许 `中英并列（English）`，但不允许括号没配平
+PAIR_OK = re.compile(r"^[^（(）)]*([（(][^（(）)]*[）)])?[^（(）)]*$")
+#: 很短的虚词/强调词（加粗时常是"强调"而不是"术语"）
+STOP_SHORT = {"不要", "但是", "否则", "因此", "如果", "这个", "那个", "可能", "必须",
+              "只能", "已经", "不是", "就是", "因为", "所以", "而且", "或者", "一旦",
+              "一样", "直接", "完全", "其实", "真正", "唯一", "最多", "至少", "很少"}
+
+
+def clean_terms(raw: dict[str, str], level: int) -> dict[str, str]:
+    """逐级清洗（level 越大越严）。**每一级都单列一臂去测**，不靠嘴说"清洗更好"。
+
+    level 0：原始抽取（加粗/反引号/中英并列）
+    level 1：+ 括号必须配平、不许有引号      —— 干掉 `压缩（Compression`、`把"…"当标签`
+    level 2：+ 不许含句读标点、中文侧长度 ≤16 —— 干掉整句被加粗的情况
+    level 3：+ 去掉很短的虚词/强调词          —— 干掉 `不要`、`因此`
+    """
+    out: dict[str, str] = {}
+    for t, d in raw.items():
+        if level >= 1:
+            if not PAIR_OK.match(t):
+                continue
+            if '"' in t or "“" in t or "”" in t or "'" in t:
+                continue
+        if level >= 2:
+            if CLAUSE_PUNCT.search(t):
+                continue
+            if re.search(r"[\u4e00-\u9fff]", t) and len(t) > 16:
+                continue
+        if level >= 3 and t in STOP_SHORT:
+            continue
+        out[t] = d
+    return out
 
 
 def extract_terms(text: str) -> dict[str, str]:
@@ -79,6 +113,8 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--project", default=None)
     ap.add_argument("--k", type=int, default=5, help="选几个术语")
+    ap.add_argument("--ablate", action="store_true",
+                    help="跑逐级清洗消融（level 0~3），看清洗到底买到多少召回")
     args = ap.parse_args()
 
     for s in (sys.stdout, sys.stderr):
@@ -94,17 +130,24 @@ def main() -> int:
         return 2
 
     # ── 从这份资料自己身上建术语表 ─────────────────────────────────────────
-    terms: dict[str, str] = {}
+    raw_terms: dict[str, str] = {}
     docs: dict[str, list[dict]] = {}
     for p in matrecall.NOTES:
         if not p.is_file():
             continue
-        terms.update(extract_terms(p.read_text(encoding="utf-8")))
+        raw_terms.update(extract_terms(p.read_text(encoding="utf-8")))
         for m in mr.list_materials(pid):
             if m["title"] == p.stem:
                 docs[str(p)] = mr.material_chunks(m["material_id"])
                 break
-    print(f"资料项目 {pid}；从这 5 份笔记抽出候选术语 **{len(terms)}** 个")
+    print(f"资料项目 {pid}；从这 5 份笔记抽出候选术语 **{len(raw_terms)}** 个")
+    # ⚠ 默认取 **level 2**（括号配平 / 无引号 / 无句读 / 中文长度≤16）。
+    #   **选它的理由不是"数字更好"，而是"规则本身正当"**（术语里不该有句读、不该括号不配平）；
+    #   消融实测（`--ablate`）显示各级差异**落在噪声内**（20 个用例，1 例＝5 个百分点），
+    #   **"清洗术语表能白捡召回"这个说法已被本脚本自己否掉**——见计划里的留痕。
+    terms = clean_terms(raw_terms, 2)
+    print(f"  清洗后（level 3）剩 **{len(terms)}** 个；逐级条数："
+          + "  ".join(f"L{i}={len(clean_terms(raw_terms, i))}" for i in range(4)))
     idx = TermIndex(
         entries=[TermEntry(term=t, english="", clause_revision_id="m", doc_id="m",
                            definition=d) for t, d in terms.items()])
@@ -123,7 +166,8 @@ def main() -> int:
                 cases.append((q, anchor, chunks))
     print(f"有效用例 {len(cases)} 条（大白话提问，材料里没有这些说法）")
 
-    def run(mode: str) -> tuple[int, int, int, float, list[str]]:
+    def run(mode: str, index: TermIndex | None = None) -> tuple[int, int, int, float, list[str]]:
+        use = index if index is not None else idx
         h1 = h5 = h8 = 0
         rr = 0.0
         n = 0
@@ -132,7 +176,7 @@ def main() -> int:
             tgt = matrecall._chunk_containing(chunks, anchor)
             if tgt is None:
                 continue
-            sel = idx.select(q, k=args.k)
+            sel = use.select(q, k=args.k)
             names = [e.term for e in sel]
             if mode == "A":
                 query = q
@@ -171,8 +215,28 @@ def main() -> int:
     print()
     print("  上界参考：**用材料原话问**时前5 = 92.8%（`measure-material-recall.py` 量的）。")
     print("  读法：B/C 比 A 涨多少，就是这套机制换一份资料还能不能用的直接证据。")
-    print("  ⚠ 术语表是**机械抽的**（加粗/反引号/中英并列），没人工清洗；")
-    print("     抽进来的噪声术语会同时拉低 B 与 C，所以这一测给的是**下界**。")
+
+    # ── 逐级清洗消融：清洗到底买到多少召回？ ────────────────────────────────
+    if args.ablate:
+        print()
+        print("=" * 74)
+        print("逐级清洗消融（同一批用例；L0=原始抽取，L3=最严）")
+        print("=" * 74)
+        print(f"  {'清洗级别':<22}{'术语数':>7}{'前1':>8}{'前5':>8}{'前8':>8}{'MRR':>8}")
+        for lvl in range(4):
+            sub = clean_terms(raw_terms, lvl)
+            ix = TermIndex(
+                entries=[TermEntry(term=t, english="", clause_revision_id="m", doc_id="m",
+                                   definition=d) for t, d in sub.items()])
+            ix.vectors = embedder.embed_batch([e.definition for e in ix.entries])
+            for mode, mlabel in (("B", "B 翻译"), ("C", "C 混合")):
+                h1, h5, h8, mrr, _s = run(mode, ix)
+                n = len(cases)
+                print(f"  L{lvl} {mlabel:<19}{len(sub):>7}{h1/n:>8.1%}{h5/n:>8.1%}"
+                      f"{h8/n:>8.1%}{mrr:>8.3f}")
+        print()
+        print("  读法：哪一级开始不再涨 ⇒ 清洗到那儿就够了，再加规则只是白费。")
+        print("       ⚠ 20 个用例，级间差 1~2 个用例就换一位小数 ⇒ **只看趋势，别抠小数点**。")
     return 0
 
 
