@@ -85,6 +85,9 @@ def _headings(text: str) -> list[str]:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--project", default=None, help="参考资料项目 id（默认用库里已有的第一个）")
+    ap.add_argument("--dup-notes", type=int, default=0,
+                    help="把前 N 份笔记的**近似副本**也入库（模拟'教程原文与我们笔记并存'），"
+                         "测完自动删除。用来量'近重复内容会不会抢名次'")
     args = ap.parse_args()
 
     for s in (sys.stdout, sys.stderr):
@@ -116,55 +119,82 @@ def main() -> int:
         print(f"   {p.name:<28}{flag:<12} 切片 {len(chunks):>4}  状态 {r.get('review_status')}")
 
     # ── ② 术语式档：拿小节标题当查询 ───────────────────────────────────────
-    print()
-    print("② 召回实测")
-    for label, is_lay in (("术语式（材料里原样有）", False), ("大白话（材料里没有）", True)):
-        hits1 = hits5 = hits8 = 0
-        rr = 0.0
-        n = 0
-        misses: list[str] = []
-        if is_lay:
+    def measure() -> None:
+        print()
+        print("② 召回实测")
+        for label, is_lay in (("术语式（材料里原样有）", False), ("大白话（材料里没有）", True)):
+            hits1 = hits5 = hits8 = 0
+            rr = 0.0
+            n = 0
+            misses: list[str] = []
             cases: list[tuple[str, str, list[dict]]] = []
             for p in NOTES:
                 chunks = ingested.get(str(p)) or []
                 txt = p.read_text(encoding="utf-8") if p.is_file() else ""
-                for q, anchor in LAY_QUERIES:
-                    if anchor in txt and chunks:
-                        cases.append((q, anchor, chunks))
-        else:
-            cases = []
-            for p in NOTES:
-                chunks = ingested.get(str(p)) or []
-                txt = p.read_text(encoding="utf-8") if p.is_file() else ""
-                for h in _headings(txt):
-                    if chunks:
+                if not chunks:
+                    continue
+                if is_lay:
+                    for q, anchor in LAY_QUERIES:
+                        if anchor in txt:
+                            cases.append((q, anchor, chunks))
+                else:
+                    for h in _headings(txt):
                         cases.append((h, h, chunks))
 
-        for q, anchor, chunks in cases:
-            tgt = _chunk_containing(chunks, anchor)
-            if tgt is None:
-                continue
-            n += 1
-            res = mr.search_materials(pid, q, limit=8)
-            ids = [x.get("chunk_id") for x in res]
-            want = chunks[tgt].get("chunk_id")
-            if want in ids:
-                rank = ids.index(want) + 1
-                rr += 1.0 / rank
-                hits1 += int(rank <= 1)
-                hits5 += int(rank <= 5)
-                hits8 += int(rank <= 8)
-            elif len(misses) < 5:
-                misses.append(q)
+            for q, anchor, chunks in cases:
+                tgt = _chunk_containing(chunks, anchor)
+                if tgt is None:
+                    continue
+                n += 1
+                res = mr.search_materials(pid, q, limit=8)
+                ids = [x.get("chunk_id") for x in res]
+                want = chunks[tgt].get("chunk_id")
+                if want in ids:
+                    rank = ids.index(want) + 1
+                    rr += 1.0 / rank
+                    hits1 += int(rank <= 1)
+                    hits5 += int(rank <= 5)
+                    hits8 += int(rank <= 8)
+                elif len(misses) < 5:
+                    misses.append(q)
 
-        if not n:
-            print(f"   {label}：没有有效用例（锚句/标题没对上切片）")
-            continue
-        print(f"   {label}")
-        print(f"     用例 {n:>3}   前1 {hits1/n:>6.1%}   前5 {hits5/n:>6.1%}"
-              f"   前8 {hits8/n:>6.1%}   MRR {rr/n:.3f}")
-        if misses:
-            print(f"     没召回的例子：{misses}")
+            if not n:
+                print(f"   {label}：没有有效用例（锚句/标题没对上切片）")
+                continue
+            print(f"   {label}")
+            print(f"     用例 {n:>3}   前1 {hits1/n:>6.1%}   前5 {hits5/n:>6.1%}"
+                  f"   前8 {hits8/n:>6.1%}   MRR {rr/n:.3f}")
+            if misses:
+                print(f"     没召回的例子：{misses}")
+
+    measure()
+
+    # ── ③ 近重复内容的干扰（可选）：模拟"教程原文与我们的笔记并存" ──────────
+    if args.dup_notes > 0:
+        print()
+        print(f"③ 近重复干扰：把前 {args.dup_notes} 份笔记的**近似副本**也入库，再测一遍")
+        print("   （为什么这么测：`add_material` 的查重是**按整份文件的哈希**算的，")
+        print("     所以我们笔记里的逐字引文**不会**被判重复——两份内容会并存抢名次。）")
+        dup_paths: list[Path] = []
+        dup_mids: list[str] = []
+        for p in NOTES[:args.dup_notes]:
+            if not p.is_file():
+                continue
+            q = REPO / "var" / "tmp" / "study" / f"dup-{p.name}"
+            q.write_text("（原文副本·仅用于测量近重复干扰）\n\n" + p.read_text(encoding="utf-8"),
+                         encoding="utf-8")
+            dup_paths.append(q)
+            r = ingest_material_file(pid, q, origin="user")
+            dup_mids.append(r["material_id"])
+            print(f"   + {q.name:<32} 切片 {len(mr.material_chunks(r['material_id'])):>4}")
+        print("   —— 加了副本之后的数字：")
+        measure()
+        # 自清理：测完把副本材料删掉（**只删我们自己刚建的这几份**）
+        for mid in dup_mids:
+            mr.delete_material(mid)
+        for q in dup_paths:
+            q.unlink(missing_ok=True)
+        print(f"   （已删除刚建的 {len(dup_mids)} 份副本材料与它们的临时文件，库恢复原状）")
 
     print()
     print("  读法：**术语式与大白话的差距**才是要害 —— 术语式高、大白话低，")
