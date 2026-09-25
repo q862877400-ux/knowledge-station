@@ -81,10 +81,20 @@ def main() -> int:
     print(f"答案术语命中术语表 {len(gold)}/{len(rows)}")
     print(f"它们定义长度：中位 {int(np.median(gl))}、p90 {int(np.percentile(gl, 90))}、max {int(gl.max())}")
     # 每条说法都挂在某个术语上 ⇒ 覆盖按"说法数"算是等权的（这里按术语数，平均 3.66 条/术语）
-    print(f"其中有 >{args.slice_chars} 字定义的：{n_multi}/{len(gold)} = {n_multi/len(gold):.1%}")
+    print(f"其中有 >{args.slice_chars} 字定义的：{n_multi}/{len(gold)} **术语**"
+          f" = {n_multi/len(gold):.1%}")
+    # ⚠ 单位别滑（2026-09-25 复核点名）：上面是**按术语**算的，而"能影响多少**说法**"
+    # 要按说法数加权（平均 3.66 条/术语）。两个数接近（0.6% vs 0.66%）纯属巧合，**单位不同**。
+    hit = {i for i in gold if lens[i] > args.slice_chars}
+    n_lay = sum(len(r.get("lay") or []) for r in rows)
+    n_lay_multi = sum(len(r.get("lay") or []) for r in rows
+                      if r["term"] in pos and pos[r["term"]] in hit)
+    print(f"  按**说法**加权：{n_lay_multi}/{n_lay} = "
+          f"{(n_lay_multi / n_lay if n_lay else 0):.2%}（⚠ 与上一行单位不同，别混用）")
     print()
-    print(f"⇒ **切片多向量最多只能影响 {n_multi/len(gold):.1%} 的说法**；"
-          f"超过这个比例的部分，瓶颈**不在表示长度上**。")
+    print(f"⇒ **切片多向量最多只能影响 {n_multi/len(gold):.1%} 的术语"
+          f"（按说法加权 {(n_lay_multi / n_lay if n_lay else 0):.2%}）**；"
+          f"其余部分的瓶颈**不在表示长度上**。")
     print("⚠ 这**只**否掉'表示被截断'这个机制，**不**否掉 token 级 late interaction。")
     return 0
 

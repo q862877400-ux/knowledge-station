@@ -179,12 +179,17 @@ def _keep_all_candidates(conn):
     if CACHE_KEEP_ALL.exists():
         idx = TermIndex.load(CACHE_KEEP_ALL)
         entries = idx.entries
-        vecs = np.asarray(idx.vectors)
     else:
         entries = extract_term_entries(conn, keep_all=True)
         # ⚠ 精度**对齐默认路径**（那份是 `embed_batch` 的 float32）——否则两跑不可比
         vecs = np.asarray(embedder.embed_batch([e.definition for e in entries]))
         TermIndex(entries=entries, vectors=vecs.tolist()).save(CACHE_KEEP_ALL)
+        idx = TermIndex(entries=entries, vectors=vecs.tolist())
+    # ⚠ **必须走与默认路径同一把尺子**（`_matrix()` 的行归一化）。
+    # 2026-09-25 复核打回：本路径原先是 `Q @ vecs.T`（**未归一化**），
+    # 而默认走 `index._matrix()`（已归一化）⇒ 两跑残留 ~1e-7（实测 gold 分数有 375 条"下降"、
+    # min −4.46e-08）。虽然不改变任何结论，但"两跑不是逐位同一把尺子"本身就是口径缺陷。
+    vecs = np.asarray(idx._matrix())
     names = sorted({e.term for e in entries})
     # ⚠ 必须走字典：`names.index(...)` 是每条 O(名数)，48,524 × 42,181 ≈ 20 亿次（实测会卡死）
     name_to_i = {n: i for i, n in enumerate(names)}
