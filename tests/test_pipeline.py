@@ -192,6 +192,79 @@ class TestNonChineseTextIsNotMangled:
         assert _looks_unlike_latin_prose(garbled) is True
 
 
+class TestLatinProseThresholdIsAnchored:
+    """**阈值 0.70 不许是拍的**（2026-09-25 复核 P-2 打回后补）。
+
+    打回的原因：上面那三条测试只断言 `is True/False`，而把两个阈值
+    0.70 → **0.90** 之后**仍然 45 passed 全绿** ⇒ "阈值到底是多少"这件事
+    **当时没有任何测试在管**（复核实测：约 [0.42, 0.954] 的任意阈值都能全绿）。
+
+    本类改用**实测锚**：先量真值的带，再断言阈值落在这条带里、且不贴边。
+
+    ⚠ 锚点数值的出处（本机实测，2026-09-25，`var/tmp/probe-threshold-anchors.py`；
+      该探针在 gitignore 的 `var/` 下，故把结论抄在这里留痕，脚本本身不入库）：
+      · **17 份真语料**（`var/tmp/library/text/`，含 16 份英文论文/教材 + 1 份中文样章）
+        按判据四同口径取"头部 4000 字"，英文档 s1 ∈ **[0.8836**, 0.9624]、
+        s2 ∈ **[0.8871**, 0.9612]，**无一份被判乱码**；
+      · **真乱码夹具** s1 ∈ [0.4865, 0.8235]、s2 ∈ [0.2727, **0.3808**]，**全部判中**。
+        ⚠ 注意乱码的 s1 **可以很高**（取模现造的乱码 s1=0.8235）——真正承重的是
+        **s2**；所以下面钉的是 s2 那一侧，没敢假装"乱码 s1 一定低"。
+
+    为什么还要留余量（`_MARGIN`）而不是贴着 0.8836 放：判据四吃的是**头部聚合样本**，
+    真英文里**标点密集的头**是真实存在的——同一份真语料（Lin/Nogueira/Yates 综述）
+    的**目录段**实测 **s1=0.5765**（点线页码），参考文献段 s1=0.8824。
+    阈值一旦上抬到贴着文档级下界，这类文档就会被整份判乱码（**又是 0 字**）。
+    """
+
+    #: 实测锚（出处见类 docstring）。改判据的人只该改阈值，不该改这几个数。
+    _EN_S1_MIN = 0.8836
+    _EN_S2_MIN = 0.8871
+    _GARBLE_S2_MAX = 0.3808
+    #: 阈值离真英文下界必须留的不动余量（理由见类 docstring 的"目录段 s1=0.5765"）。
+    _MARGIN = 0.05
+
+    #: 一段**逐字取自真语料**的英文（`2019_Passage_Reranking_with_BERT` 正文，
+    #: 即 ours 已入库的 PDF 转文本；不是编的样例），它带引用/括号/括号年份，
+    #: 是实测里**较难**的一档（s1≈0.88、s2≈0.85），所以拿它当活锚。
+    _EN_REAL = (
+        "1 INTRODUCTION We have seen rapid progress in machine reading compression in recent "
+        "years with the introduction of large-scale datasets, such as SQuAD (Rajpurkar et al., "
+        "2016), MS MARCO (Nguyen et al., 2016), SearchQA (Dunn et al., 2017), TriviaQA (Joshi "
+        "et al., 2017), and QUASAR-T (Dhingra et al., 2017), and the broad adoption of neural "
+        "models, such as BiDAF (Seo et al., 2016), DrQA (Chen et al., 2017), DocumentQA (Clark "
+        "& Gardner, 2017), and QAnet (Yu et al., 2018). The information retrieval community has "
+        "also produced large-scale datasets and effective neural rankers."
+    )
+
+    def test_real_english_excerpt_stays_above_both_thresholds(self):
+        """活锚：真语料里较难的一段，两个量都还高过阈值**且留有余量**。"""
+        from src.core.ingestion.mineru_adapter import (
+            _MIN_LETTER_RATIO, _MIN_WORDY_RATIO, _latin_prose_signals,
+        )
+        s1, s2 = _latin_prose_signals(self._EN_REAL)
+        assert len(self._EN_REAL) >= 200, "前提：样本 ≥200 字，否则判据四不生效"
+        assert s1 > _MIN_LETTER_RATIO and s2 > _MIN_WORDY_RATIO, (
+            f"真英文段落被两个量判成「不像散文」（s1={s1:.4f} s2={s2:.4f}）⇒ 整份 0 字")
+        assert s1 - _MIN_LETTER_RATIO >= self._MARGIN, (
+            f"阈值离实测真英文太近（s1={s1:.4f} vs 阈值 {_MIN_LETTER_RATIO}）")
+
+    def test_thresholds_sit_inside_the_measured_gap(self):
+        """把阈值钉在实测间隔内：**抬高到贴近真英文会红，压低到贴住乱码也会红**。"""
+        from src.core.ingestion.mineru_adapter import (
+            _MIN_LETTER_RATIO, _MIN_WORDY_RATIO,
+        )
+        # ① 真英文一侧：阈值必须低于实测下界并留余量（0.70→0.90 这一改就死在这条）
+        assert _MIN_LETTER_RATIO <= self._EN_S1_MIN - self._MARGIN, (
+            f"字母/标点阈值 {_MIN_LETTER_RATIO} 太靠近实测真英文下界 "
+            f"{self._EN_S1_MIN} ⇒ 头部标点密集的真文档会被整份判乱码")
+        assert _MIN_WORDY_RATIO <= self._EN_S2_MIN - self._MARGIN, (
+            f"像词串阈值 {_MIN_WORDY_RATIO} 太靠近实测真英文下界 {self._EN_S2_MIN}")
+        # ② 乱码一侧：阈值必须高过乱码实测的最高 s2，否则乱码会漏进库
+        assert _MIN_WORDY_RATIO > self._GARBLE_S2_MAX, (
+            f"像词串阈值 {_MIN_WORDY_RATIO} 已低于乱码实测最高 s2 "
+            f"{self._GARBLE_S2_MAX} ⇒ 真乱码会漏")
+
+
 def test_delete_document_uses_bulk_fts_delete(db):
     """E10 性能根因（2026-08-28 试点实测）：clause_fts.clause_revision_id 是
     UNINDEXED 列，逐行 DELETE 每行都全表扫描 24 万行 FTS 索引——覆盖式重入库

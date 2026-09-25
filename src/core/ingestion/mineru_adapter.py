@@ -149,6 +149,36 @@ def _reflow_block(b: dict, fn) -> dict:
 _VOWELS = frozenset("aeiouAEIOU")
 _NONVOWEL_RUN = re.compile(r"[^aeiouAEIOU\s]{5,}", re.IGNORECASE)
 
+#: 判据四的两个阈值。**不是拍的**，是从实测间隔里选的，两侧都留了余量：
+#:   · 字母/(字母+标点)：真英文 0.94~0.96，乱码 0.53~0.69
+#:   · 像词串占比：真英文 0.91~0.95，乱码 0.27~0.40
+#: 独立复核（2026-09-25）在**全语料 54 个真 PDF** 上量到英文文档级
+#: s1 ∈ [0.855, 0.975]、s2 ∈ [0.882, 0.953]，真英文最近的一侧仍留 +0.155/+0.182。
+#: ⚠ 改这两个数**必须两侧都实测**（夹具仍判中 + 全语料 A/B 不掉块），
+#:   见 `_looks_unlike_latin_prose` 里"误判代价"那段。
+#: `tests/test_pipeline.py::TestLatinProseThresholdIsAnchored` 会断言它们
+#: **落在实测间隔内且离真英文一侧留有余量**——所以改宽改严都会当场变红。
+_MIN_LETTER_RATIO = 0.70
+_MIN_WORDY_RATIO = 0.70
+
+
+def _latin_prose_signals(text: str) -> tuple[float, float]:
+    """判据四的两个量：`(字母/(字母+标点), 像词串占比)`。判据见 `_looks_unlike_latin_prose`。
+
+    抽出来是为了**能被测试直接断言数值**：原先两个量埋在布尔函数里，测试只能断言
+    `is True/False`，于是阈值改成任何值都可能照样全绿（2026-09-25 复核 P-2 实测
+    0.70→0.90 仍 45 passed）——"阈值是多少"这件事当时**没有任何测试在管**。
+    """
+    letters = sum(1 for ch in text if ch.isascii() and ch.isalpha())
+    punct = sum(1 for ch in text if ch.isascii() and not ch.isalnum() and not ch.isspace())
+    ratio = letters / max(letters + punct, 1)
+    runs = re.findall(r"[A-Za-z]{2,}", text)
+    if not runs:
+        return ratio, 0.0                      # 一个字母串都没有 ⇒ 记为 0（必判乱码）
+    wordy = sum(len(r) for r in runs
+                if len(r) >= 3 and (set(r) & _VOWELS) and not _NONVOWEL_RUN.search(r))
+    return ratio, wordy / max(sum(len(r) for r in runs), 1)
+
 
 def _looks_unlike_latin_prose(text: str) -> bool:
     """这段文字**像不像正常的拉丁文散文**？（不像 ⇒ 倾向判乱码）
@@ -162,19 +192,17 @@ def _looks_unlike_latin_prose(text: str) -> bool:
 
     阈值 0.70 取自 `var/tmp/probe-pua-discriminator.py` 的实测对照表
     （正样本＝仓里既有的 GB/T 35210.1-2023 与 cid 乱码夹具；负样本＝三篇 arXiv 英文论文
-    前 4,000 字 + 正常英文句）。⚠ 对**纯公式密集**的英文页可能偏保守（判成不像散文 ⇒
-    多走一次 OCR）；代价是多花时间，**不会把乱码放进库**——这个方向的代价是可接受的。
+    前 4,000 字 + 正常英文句）。⚠ 对**纯公式密集**的英文页可能偏保守（判成不像散文）。
+
+    ⚠⚠ **误判的代价不是"多走一次 OCR"**（2026-09-25 复核打回并更正，这里原文写错过）：
+    判成 mangled ⇒ `blocks=[]`，而**材料入库默认 `deep_fallback=False`**（深通道云优先、
+    会外发，见本文件 `if not blocks:` 分支）⇒ **没有人来救 ⇒ 整份 0 字**，
+    与 P0.11 那个病**一模一样**。所以两个方向都不免费：判宽了放进真乱码，
+    判严了英文文档整份消失。⇒ **动这两个阈值必须两侧都实测**：
+    ① 构造乱码夹具仍判 True；② 全语料 A/B 不许出现"有块变 0 块"。
     """
-    letters = sum(1 for ch in text if ch.isascii() and ch.isalpha())
-    punct = sum(1 for ch in text if ch.isascii() and not ch.isalnum() and not ch.isspace())
-    if letters / max(letters + punct, 1) < 0.70:
-        return True
-    runs = re.findall(r"[A-Za-z]{2,}", text)
-    if not runs:
-        return True
-    wordy = sum(len(r) for r in runs
-                if len(r) >= 3 and (set(r) & _VOWELS) and not _NONVOWEL_RUN.search(r))
-    return wordy / max(sum(len(r) for r in runs), 1) < 0.70
+    letter_ratio, wordy_ratio = _latin_prose_signals(text)
+    return letter_ratio < _MIN_LETTER_RATIO or wordy_ratio < _MIN_WORDY_RATIO
 
 
 def text_layer_pua_mangled(blocks: List[dict]) -> bool:
@@ -219,7 +247,10 @@ def text_layer_pua_mangled(blocks: List[dict]) -> bool:
         # 汉字被整体映射为 ASCII 拉丁/标点（"34.567.589.:;) a)*<'*!'=>yz+a>?k@>GA"），
         # 无怪区字符、无非 ASCII 长跑，前三判据全漏。
         # 中文国标正文不可能没有汉字：样本 ≥200 字而 CJK 占比 <5% 即判乱码。
-        # 误判代价仅为多走一次 OCR，零数据风险。
+        # ⚠ 原文此处写「误判代价仅为多走一次 OCR，零数据风险」——**错话，已更正**
+        #   （2026-09-25 复核打回）：`deep_fallback=False`（材料入库默认）时没有 OCR 可走，
+        #   误判 ⇒ `blocks=[]` ⇒ **整份 0 字**，就是 P0.11 这个病本身。代价见
+        #   `_looks_unlike_latin_prose` 的说明。
         # 🔴 2026-09-25 修误判（计划 P0.11）：原来**只**看"CJK 占比 <5%"就判乱码，
         # 于是**任何非中文文档**（英文论文/技术文档）都被判 PUA mangled ⇒ blocks=[]；
         # 而材料入库默认 deep_fallback=False（深通道云优先、会外发）⇒ 无人救 ⇒ 整份 0 字。

@@ -198,6 +198,49 @@ class TestIngest:
         assert m["chunk_count"] == 0
         assert "扫描件" in (m["tier_reason"] or "")
 
+    def test_judged_garbled_pdf_is_not_reported_as_scanned(self, project, tmp_path):
+        """**成因要分开回显**（2026-09-25 复核 P-4）：文本层被判乱码 ≠ 没有文本层。
+
+        这是 P0.11 的**第二个缺陷**：文本层被判 `pua_mangled` 时，材料登记给用户的
+        原因是「未解析出文本（**可能是扫描件**）」——**归因错了**。真原因是"我们的判据
+        把文本层整份判掉了"，而那种情况下文本层往往**好着**（`2023_Query2doc.pdf`
+        实测抽出 181 个干净文本块仍被判 mangled）⇒ 让用户去重扫一遍原件是**白费**，
+        该做的是别的东西（修判据 / 换解析通道）。
+
+        ⚠ 夹具在仓里**现造**（fitz 把乱码写进真 PDF 的文本层），**不依赖 `var/*`**
+        —— 那是 gitignore 的，靠它会把测试变成提取树里的假红。
+        ⚠ 与上面那条 `test_unparsable_pdf_is_registered_but_flagged`（空白页 = 真·无文本层）
+        配成一对：**同一句提示语必须能区分这两种输入**，否则这条测试没意义。
+        """
+        import fitz
+        from src.core.ingestion.mineru_adapter import text_layer_pua_mangled
+
+        # 判据四的第四形态：汉字被整体映射成 ASCII 印刷区字符（GB/T 35210.1-2023 实测形态）。
+        # 用"取模压进 0x21..0x7E"现造，避免把 700 字乱码字面量复制第二份。
+        garbage = "".join(chr(0x21 + ord(c) % 94)
+                          for c in ("汉字被映射成 ASCII 的乱码形态" * 40))
+        assert len(garbage) > 400
+        assert text_layer_pua_mangled([{"text": garbage}]) is True, "夹具本身要先被判中"
+
+        doc = fitz.open()
+        page = doc.new_page()
+        # 分多行写入，避免超出页面后被 PyMuPDF 截断（文本层要够 200 字样本）
+        for i in range(0, len(garbage), 60):
+            page.insert_text((36, 60 + 10 * (i // 60)), garbage[i:i + 60], fontsize=7)
+        p = tmp_path / "乱码.pdf"
+        doc.save(str(p))
+        doc.close()
+
+        m = mi.ingest_material_file(project["project_id"], p, deep_fallback=False)
+        assert m["chunk_count"] == 0
+        reason = m["tier_reason"] or ""
+        # ① 成因被如实报出：文本层被判不可用
+        assert "文本层被判为不可用" in reason, reason
+        # ② **不再归因成扫描件**——这是本条测试的正题
+        assert "扫描件" not in reason, reason
+        # ③ 指纹里存的就是实测状态（提示语是从它回读的，不是另算一遍）
+        assert "text_layer=pua_mangled" in (m["parser_fingerprint"] or "")
+
     def test_unsupported_suffix_rejected(self, project, tmp_path):
         p = tmp_path / "x.bin"
         p.write_bytes(b"\x00\x01")

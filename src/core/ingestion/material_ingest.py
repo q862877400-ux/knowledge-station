@@ -82,6 +82,20 @@ def _provenance_fingerprint(suffix: str, *, deep_fallback: bool,
     return ";".join(str(p) for p in parts)
 
 
+def _fingerprint_field(fingerprint: str, key: str) -> str:
+    """从解析器指纹里回读一个 `k=v` 字段；取不到给**空串**（不猜）。
+
+    指纹是 `;` 分隔的（见 `_provenance_fingerprint`）。这里回读它、而不是给
+    `extract_pages_with_provenance` 加第三个返回值：那个函数已有 3 个调用点、2 处
+    monkeypatch 依赖 `(页文本, 指纹)` 这个二元组，为一句提示语改契约不值当。
+    """
+    for part in (fingerprint or "").split(";"):
+        k, _, v = part.partition("=")
+        if k.strip() == key:
+            return v.strip()
+    return ""
+
+
 def extract_pages_with_provenance(path: Path, *, deep_fallback: bool = False,
                                   work_dir: Path | None = None
                                   ) -> tuple[list[tuple[int, str]], str]:
@@ -280,9 +294,10 @@ def ingest_material_file(project_id: str, path: Path, *, origin: str = "user",
     - **查重**：同项目内 `content_hash` 已存在 → 直接返回既有材料并标 `duplicate=True`
       （重复放同一份文件不该产生两份材料）；
     - **自包含存储**：文件不在项目目录内就复制进来（材料平面要能被独立备份/清理）；
-    - 解析不出文本（扫描件且未开云深度解析）→ **仍登记材料**，但 `chunk_count=0` 且
-      在 `tier_reason`/返回里如实说明原因——**不能假装它可用**，也不能因此把它丢掉
-      （用户得看得见"这份没解析出文字"）。
+    - 解析不出文本（**扫描件**，或**文本层被判成乱码**，且未开云深度解析）→ **仍登记材料**，
+      但 `chunk_count=0` 且在 `tier_reason`/返回里如实说明原因——**不能假装它可用**，
+      也不能因此把它丢掉（用户得看得见"这份没解析出文字"）。
+      ⚠ 上面两种成因**要分开回显**（2026-09-25 复核 P-4）：它们要的补救动作不一样。
     """
     src = Path(path)
     if not src.is_file():
@@ -314,8 +329,27 @@ def ingest_material_file(project_id: str, path: Path, *, origin: str = "user",
 
     note = None
     if not chunks:
-        note = ("未解析出文本（可能是扫描件）；默认不走云深度解析，"
-                "如需云解析请显式允许（allow_deep）后再试")
+        # 🔴 分开回显成因（2026-09-25 复核 P-4）：原先只有一句「可能是扫描件」，
+        # 而"**我们的判据把文本层判成乱码**"与"**压根没有文本层**"是两回事：
+        # 前者文本层其实可能好着（P0.11 就是这种——英文 PDF 被判 mangled，
+        # 抽出来 181 个干净文本块，却被整份丢掉）；报成"扫描件"会让用户
+        # 去重扫一遍原件——**归因错，补救方向就错**。
+        # 依据取自已存的解析器指纹（`text_layer=` 是解析时**实测**写进去的，不是猜的）。
+        state = _fingerprint_field(fingerprint, "text_layer")
+        if state == "pua_mangled":
+            note = ("未解析出文本：文本层被判为不可用（疑似错位字体编码/编码损坏），"
+                    "不是「没有文本层」；默认不走云深度解析，"
+                    "如需云解析请显式允许（allow_deep）后再试")
+        elif state == "empty":
+            note = ("未解析出文本（可能是扫描件）；默认不走云深度解析，"
+                    "如需云解析请显式允许（allow_deep）后再试")
+        elif state:
+            note = (f"未解析出文本（文本层状态 {state}）；默认不走云深度解析，"
+                    "如需云解析请显式允许（allow_deep）后再试")
+        else:
+            # 非 PDF（docx/txt 等）没有"文本层"这一说，取不到状态 ⇒ 不臆测原因
+            note = ("未解析出文本；默认不走云深度解析，"
+                    "如需云解析请显式允许（allow_deep）后再试")
     mat = mr.add_material(
         project_id,
         strip_duplicate_suffix(stored.stem),
