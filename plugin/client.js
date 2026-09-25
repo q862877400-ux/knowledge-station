@@ -38729,7 +38729,8 @@ function KsMaterialsPanel(props) {
             chunks === "loading" && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("p", { style: { margin: "6px 0 0", fontSize: 12, color: GRAY2 }, children: "\u8BFB\u53D6\u5207\u7247\u2026" }),
             Array.isArray(chunks) && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { style: { marginTop: 6, maxHeight: 240, overflow: "auto", fontSize: 12 }, children: [
               chunks.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("p", { style: { margin: 0, color: GRAY2 }, children: [
-                "\u6CA1\u6709\u5207\u7247\u2014\u2014\u8BE5\u6587\u4EF6\u53EF\u80FD\u6CA1\u89E3\u6790\u51FA\u6587\u672C\uFF08\u626B\u63CF\u4EF6\uFF1F\uFF09\u3002",
+                "\u6CA1\u6709\u5207\u7247\u2014\u2014",
+                m.tier_reason ? "\u539F\u56E0\u89C1\u4E0A\u9762\u7684\u300C\u5224\u7EA7\u8BF4\u660E\u300D\uFF08\u8FD9\u91CC\u4E0D\u518D\u53E6\u731C\u4E00\u4E2A\uFF0C\u514D\u5F97\u4E24\u53E5\u8BDD\u4E92\u76F8\u6253\u67B6\uFF09\u3002" : "\u8BE5\u6587\u4EF6\u53EF\u80FD\u6CA1\u89E3\u6790\u51FA\u6587\u672C\uFF08\u626B\u63CF\u4EF6\uFF1F\uFF09\u3002",
                 /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("strong", { children: "\u6CA1\u6709\u6B63\u6587\u5C31\u65E0\u6CD5\u8BC4\u5BA1" }),
                 "\u3002"
               ] }),

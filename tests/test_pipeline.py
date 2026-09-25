@@ -318,27 +318,34 @@ class TestLatinProseThresholdIsAnchored:
     def test_letter_ratio_side_has_no_repo_fixture_lower_bound(self):
         """**诚实登记**：字母/标点那一侧的**下界在本仓钉不住**——别假装钉住了。
 
-        复核变异 B（`_MIN_LETTER_RATIO = 0.0`）实测 **83 passed 全绿**：因为仓里
-        所有乱码夹具的 s2（≤0.4143）都被 `_MIN_WORDY_RATIO=0.70` 单独兜住，
-        **没有任何一条夹具是"只有 s1 才能抓住"的**。⇒ 我不写一条假的"下界断言"
-        来制造安全感；这里把这个空白**显式记录下来**：
+        ⚠ **本条第 1 版写成 `pytest.skip()`，被棘轮当场打回**（`-Full` 实测：
+        "出现基线里没有的 skip nodeid" ⇒ 整体失败）。仓规里"测试只涨不跌"**专门防
+        "悄悄跳过"**，所以**登记空白不能用 skip 表达**——skip 会在每次门禁里留下一条
+        永久豁免，相当于把"没在测"伪装成"测过了"。⇒ 本条改成**纯断言 + 说明**。
 
-        · 想真正约束 s1 的下界，得先有**一条 s1 低、s2 高**的真乱码样本
-          （复核提醒：本机真乱码 chap1/chap10 是 s1=0.7185/s2=0.6649，属**判据三a**抓的，
-          且 s2 离 0.70 只有 0.035 —— 它也不是那种样本）；
-        · 在那之前，**s1 只是 s2 的旁证**，不是承重判据。
+        事实（复核变异 B 实测）：`_MIN_LETTER_RATIO = 0.0` 时 **83 passed 全绿**——
+        因为仓里所有乱码夹具的 s2（≤0.4143）都被 `_MIN_WORDY_RATIO=0.70` 单独兜住，
+        **没有任何一条夹具是"只有 s1 才能抓住"的**。⇒ 想真正约束 s1 的下界，
+        得先有**一条 s1 低、s2 高**的真乱码样本；在那之前 **s1 只是 s2 的旁证**，
+        不是承重判据。本仓现有真乱码（chap1/chap10，s1=0.7185/s2=0.6649）是**判据三a**抓的，
+        也不是那种样本。
+
+        所以这里断言的是**可以证实的那一半**：s1 的门槛确实没有仓内锚（把它调到 0
+        也仍然全绿）——写成断言而不是 skip，是为了让"这条空白"每次门禁都被**机械地过一遍**，
+        而不是躺在注释里。
         """
         from src.core.ingestion.mineru_adapter import (
             _MIN_LETTER_RATIO, _MIN_WORDY_RATIO, _latin_prose_signals,
         )
-        # 把"有没有只靠 s1 才抓得住"这件事**机械地量出来**（而不是嘴上说说）
-        only_s1 = []
-        for g in (GARBLED_ASCII_396, GARBLED_ASCII_270, GARBLED_CID):
-            s1, s2 = _latin_prose_signals(g)
-            if s1 < _MIN_LETTER_RATIO and s2 >= _MIN_WORDY_RATIO:
-                only_s1.append((s1, s2))
-        if not only_s1:
-            pytest.skip("本仓没有「只有 s1 抓得住」的乱码夹具 ⇒ s1 的下界无处可锚（已登记）")
+        only_s1 = [(s1, s2) for s1, s2 in (
+            _latin_prose_signals(GARBLED_ASCII_396),
+            _latin_prose_signals(GARBLED_ASCII_270),
+            _latin_prose_signals(GARBLED_CID),
+        ) if s1 < _MIN_LETTER_RATIO and s2 >= _MIN_WORDY_RATIO]
+        assert not only_s1, (
+            f"仓里**出现**了「只有 s1 才抓得住」的乱码夹具 {only_s1} ⇒ "
+            f"现在可以给 `_MIN_LETTER_RATIO` 补一条真的下界断言了"
+            f"（本条的空白已消失，请更新这里）")
 
 
 def test_delete_document_uses_bulk_fts_delete(db):
