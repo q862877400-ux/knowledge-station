@@ -143,6 +143,40 @@ def _reflow_block(b: dict, fn) -> dict:
     return b2
 
 
+#: 「像词」的判定：≥3 个字母、含元音、且没有 5 个以上连续非元音字母。
+#: 真英文散文里绝大多数字母串都满足；"汉字被映射成 ASCII"的乱码则不满足
+#: （字母串短、密集夹标点/变音字母）。
+_VOWELS = frozenset("aeiouAEIOU")
+_NONVOWEL_RUN = re.compile(r"[^aeiouAEIOU\s]{5,}", re.IGNORECASE)
+
+
+def _looks_unlike_latin_prose(text: str) -> bool:
+    """这段文字**像不像正常的拉丁文散文**？（不像 ⇒ 倾向判乱码）
+
+    为修 P0.11 而加（2026-09-25）：判据四原先只看"CJK 占比 <5%"，把英文文档全判成乱码。
+    这里给两个**互相独立**的量，任一异常即认为"不像正常拉丁散文"：
+
+    1. **字母/(字母+标点)**：正常英文散文 ≈0.94~0.98（标点稀疏）；
+       "汉字被映射成 ASCII"的乱码 ≈0.53~0.69（标点密集）。
+    2. **像词串占比**：正常英文 ≈0.91~0.95；乱码 ≈0.27~0.40。
+
+    阈值 0.70 取自 `var/tmp/probe-pua-discriminator.py` 的实测对照表
+    （正样本＝仓里既有的 GB/T 35210.1-2023 与 cid 乱码夹具；负样本＝三篇 arXiv 英文论文
+    前 4,000 字 + 正常英文句）。⚠ 对**纯公式密集**的英文页可能偏保守（判成不像散文 ⇒
+    多走一次 OCR）；代价是多花时间，**不会把乱码放进库**——这个方向的代价是可接受的。
+    """
+    letters = sum(1 for ch in text if ch.isascii() and ch.isalpha())
+    punct = sum(1 for ch in text if ch.isascii() and not ch.isalnum() and not ch.isspace())
+    if letters / max(letters + punct, 1) < 0.70:
+        return True
+    runs = re.findall(r"[A-Za-z]{2,}", text)
+    if not runs:
+        return True
+    wordy = sum(len(r) for r in runs
+                if len(r) >= 3 and (set(r) & _VOWELS) and not _NONVOWEL_RUN.search(r))
+    return wordy / max(sum(len(r) for r in runs), 1) < 0.70
+
+
 def text_layer_pua_mangled(blocks: List[dict]) -> bool:
     """文本层是否为 PUA 错位字体（不可用于条款切分，必须走像素 OCR）。"""
     sample: List[str] = []
@@ -186,8 +220,19 @@ def text_layer_pua_mangled(blocks: List[dict]) -> bool:
         # 无怪区字符、无非 ASCII 长跑，前三判据全漏。
         # 中文国标正文不可能没有汉字：样本 ≥200 字而 CJK 占比 <5% 即判乱码。
         # 误判代价仅为多走一次 OCR，零数据风险。
+        # 🔴 2026-09-25 修误判（计划 P0.11）：原来**只**看"CJK 占比 <5%"就判乱码，
+        # 于是**任何非中文文档**（英文论文/技术文档）都被判 PUA mangled ⇒ blocks=[]；
+        # 而材料入库默认 deep_fallback=False（深通道云优先、会外发）⇒ 无人救 ⇒ 整份 0 字。
+        # 实测 `2023_Query2doc.pdf`（arXiv）：抽出 181 个块、文字干净，却被判 mangled。
+        # ⇒ 叠加"**这不像真拉丁文本**"两个量（阈值由实测选定，见
+        #   var/tmp/probe-pua-discriminator.py 的对照表）：
+        #     · 字母/(字母+标点)：乱码 0.53~0.69 vs 真英文 0.94~0.96
+        #     · 像词串占比（≥3 字母、含元音、无 5 连辅音的串占比）：乱码 0.27~0.40 vs 0.91~0.95
+        #   两者取**或**：任一项像"不是正常拉丁散文"就仍判乱码（宁可多走一次 OCR，
+        #   也不能让真乱码进来）；**真英文两项都高，因此不再被误伤**。
+        # ⚠ 前置条件"CJK<5%"保留：中文文档（CJK≥5%）根本走不到这里，不受影响。
         cjk = sum(1 for ch in joined if "\u4e00" <= ch <= "\u9fff")
-        if cjk / len(joined) < 0.05:
+        if cjk / len(joined) < 0.05 and _looks_unlike_latin_prose(joined):
             return True
     run, prev = 1, None
     for ch in joined:

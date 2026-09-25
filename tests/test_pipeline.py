@@ -138,6 +138,60 @@ def test_pua_detector_catches_ascii_mapped_garbage():
     assert text_layer_pua_mangled([{"text": normal}]) is False
 
 
+class TestNonChineseTextIsNotMangled:
+    """**非中文文档不许被判成 PUA 乱码**（2026-09-25 修 P0.11）。
+
+    起因（实测）：`2023_Query2doc.pdf`（arXiv 英文论文）`_extract_text_blocks` 抽出
+    **181 个块、文字干净**，却被判 `pua_mangled` ⇒ `blocks=[]`；
+    而材料入库默认 `deep_fallback=False`（深通道云优先、会外发）⇒ 无人救 ⇒ **整份材料 0 字**。
+    根因是判据四「CJK 占比 <5% ⇒ 乱码」——它按"中文国标"写的，**对任何非中文文档都成立**。
+
+    修法：判据四叠加"**这不像真拉丁文本**"（两个量，阈值 0.70 由实测选定；
+    对照表见 `var/tmp/probe-pua-discriminator.py`）。本类把**两个方向**都钉住：
+    真英文不许误伤、真乱码仍须判中（后者由上面两个既有测试覆盖，这里再各放一条）。
+    """
+
+    #: 一段**真英文论文体**文字（≥200 字，判据四才会生效）。
+    #: 不是抄某篇的具体段落，而是按论文常见行文写的，含公式符号/引用/括号。
+    _EN = (
+        "Retrieval-augmented generation has become a standard approach for knowledge-intensive "
+        "tasks. Given a query q, the retriever selects a set of passages from a corpus D, and the "
+        "generator conditions on both. Prior work reports consistent gains on open-domain QA "
+        "(e.g., Natural Questions, TriviaQA), while recent studies question whether those gains "
+        "reflect genuine retrieval ability or parametric knowledge already encoded in the model. "
+        "We therefore measure recall at k for k in {1, 5, 20}, together with mean reciprocal "
+        "rank, and we report the fraction of queries whose gold passage is absent from the index. "
+        "Our results indicate that a dense bi-encoder degrades as the index grows, whereas sparse "
+        "lexical matching remains comparatively stable, which motivates hybrid fusion."
+    )
+
+    def test_english_paper_text_is_not_mangled(self):
+        from src.core.ingestion.mineru_adapter import text_layer_pua_mangled
+        assert len(self._EN) >= 200, "前提：样本必须 ≥200 字，否则判据四不生效"
+        assert text_layer_pua_mangled([{"text": self._EN}]) is False, (
+            "真英文文档被判成 PUA 乱码 —— 会把整份材料挡在库外（P0.11 复发）")
+
+    def test_garbled_ascii_mapped_chinese_is_still_mangled(self):
+        """对照：**原来的真乱码案例仍须判中**（别为了修误伤把这条判据废掉）。"""
+        from src.core.ingestion.mineru_adapter import text_layer_pua_mangled
+        garbage = (
+            "34.567.589.:;) a)*<\"*!'=>yz+a>?k@>GA)!!\"!#!\"#$%,$\"#%#! www.bzfxw.com"
+            "%!!$!!WXtuYZ[PM?s\u00afBCWXDE\u00a8[P\u00b5F]GH(IJKnM?01+sWX\u00b5D] 2Ln 3 M C)W X t u Y Z "
+            "[ P$\\ [ ] v . 0 1 b c N E n \u00c4 O+m ? U V 1 - ] 1)-.$/#%\"!* P\u00af\u00b6QRST("
+            "<WXtuYZ[P$\\[]v.ghnej+UVlmpW)%%%k!lm'STUV1)%%%k\"lm' ]1)-.$/#%\"!*,!"
+        )
+        assert len(garbage) >= 200
+        assert text_layer_pua_mangled([{"text": garbage}]) is True
+
+    def test_the_two_signals_separate_english_from_garbled_ascii(self):
+        """把判据背后的**两个量**单独钉住（这样以后谁改了阈值，能看出动的是哪一条）。"""
+        from src.core.ingestion.mineru_adapter import _looks_unlike_latin_prose
+        assert _looks_unlike_latin_prose(self._EN) is False
+        garbled = ("34.567.589.:;) a)*<\"*!'=>yz+a>?k@>GA)!!\"!#!\"#$%,$\"#%#! www.bzfxw.com"
+                   "%!!$!!WXtuYZ[PM?s\u00afBCWXDE\u00a8[P\u00b5F]GH(IJKnM?01+sWX\u00b5D] 2Ln 3 M C)W X t u Y Z ")
+        assert _looks_unlike_latin_prose(garbled) is True
+
+
 def test_delete_document_uses_bulk_fts_delete(db):
     """E10 性能根因（2026-08-28 试点实测）：clause_fts.clause_revision_id 是
     UNINDEXED 列，逐行 DELETE 每行都全表扫描 24 万行 FTS 索引——覆盖式重入库
