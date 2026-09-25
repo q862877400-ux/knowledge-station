@@ -8,6 +8,7 @@
 ⚠ 许可证纪律：只导入"能从官方入口免费拿到"的材料；每份的许可证写在文件头，
 随文本一起入库 ⇒ 将来谁导出都能看见限制。
 ⚠ 不导入无明示许可/ACM 版权的那几篇（MMR/RRF/docTTTTTquery）——它们只做**链接索引**，不进正文。
+   **该规则由下面 `NO_TEXT_LICENSE` 在代码里强制**（拦住会打印，不静默跳过）。
 
 用法：
     .venv\\Scripts\\python.exe scripts\\ingest-library-text.py [--project 名称] [--dir 目录] [--dry-run]
@@ -29,6 +30,20 @@ PROJECT_NOTE = ("权威教材与论文（信息检索 / RAG）。文本由 PDF �
                 "每份开头带来源 URL 与许可证。"
                 "⚠ 多数为**内部语料**（arXiv 非独占 / 版权方保留权利）⇒ 不得对外分发；"
                 "明确可再分发的只有 CC BY 4.0 的几份（见各文件头）。")
+
+#: 🔴 **只做链接索引、不进正文**的几篇（无明示许可 / ACM 版权）。
+#: 依据：这几份的 PDF 里扫不到**任何**许可证文本（`var/tmp/library/_pdf_license_scan.json`
+#: 实测 `license_lines: []`），与 `docs/research/` 里记的下载决定一致。
+#:
+#: ⚠ **2026-09-25 实测发现的窟窿**：本文件原先只在 docstring 里写了这条规矩，
+#: **代码里没有任何强制**（旧版第 59/67 行把目录里的 `*.md` 照单全收）。
+#: 批次 1 之所以没违规，只是因为那三份**恰好没被列进转换清单**——是运气，不是机制。
+#: 一个机械的"把整个目录导进去"就会违规。⇒ 现在把"说的"变成"做的"。
+NO_TEXT_LICENSE = frozenset({
+    "1998_MMR_Carbonell_Goldstein",     # ACM 版权，无开放许可
+    "2009_RRF_Cormack",                 # 无许可声明
+    "2019_docTTTTTquery",               # 无许可声明
+})
 
 
 def main() -> int:
@@ -56,8 +71,12 @@ def main() -> int:
         print(f"已有项目：{pid}")
 
     d = REPO / args.dir
-    files = sorted(p for p in d.glob("*.md") if p.is_file())
+    all_md = sorted(p for p in d.glob("*.md") if p.is_file())
+    blocked = [p for p in all_md if p.stem in NO_TEXT_LICENSE]
+    files = [p for p in all_md if p.stem not in NO_TEXT_LICENSE]
     print(f"待导入 {len(files)} 份（来自 {d}）")
+    for p in blocked:
+        print(f"  ⛔ 拦住 {p.name:<56} 无明示许可 ⇒ 只做链接索引，不进正文")
     if args.dry_run:
         for p in files:
             print(f"  [dry-run] {p.name:<58} {p.stat().st_size:>10,} B")

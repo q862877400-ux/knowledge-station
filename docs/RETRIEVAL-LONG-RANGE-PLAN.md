@@ -394,8 +394,38 @@ porter 重建索引（94.9%）**，而重建还要把标识符改坏（porter �
   runoob 页版权归菜鸟教程、不在 CC 范围。
   ⇒ **只作内部语料，不得对外发布。**已写进项目备注与 `SOURCE.md`。
 
-### P3 登记（新）：**材料平面只有"按字找"一路，没有向量**（2026-09-25 核）
+### P3 登记（新）：**权威文献批次 2 入库 22 篇**，并**第二次独立复现"换个说法就找不着"**（2026-09-25）
 
+**做了什么**：把子代理交付的论文 PDF **转文本后入库**（`scripts/convert-library-to-text.py`
+→ `scripts/ingest-library-text.py`）。项目「权威文献（检索/RAG）」`prj_01M3C0GT2F9Y8AFQ4HC81DX2HW`
+现为 **38 份材料 / 7,354 片**（批次 1 的 17 份 + 本批 21 份）。**0 切片的材料：无。**
+
+**本批入的 21 篇**（全部 INTERNAL——arXiv 非独占/版权方保留权利，见每份文件头）：
+IRCoT、When-Not-to-Trust、ALCE、AlignScore、ARES、Attribution-AutoEval、FActScore、FLARE、
+RAGAS、Self-RAG、SelfCheckGPT、SKR、Adaptive-RAG、CRAG、DRAGIN、MiniCheck、RAGChecker、
+Sufficient-Context、When-to-Retrieve、AdaRAGUE、QueryExpansion-KnowledgeLeakage。
+
+**🔴 顺手抓到一个真窟窿（已修，属"说的和做的不一样"）**：
+`scripts/ingest-library-text.py` 的 docstring 一直写着"不导入无明示许可的 MMR/RRF/docTTTTTquery
+（只做链接索引、不进正文）"，**而代码里没有任何强制**——旧版把目录里的 `*.md` 照单全收。
+批次 1 之所以没违规，只是因为那三份**恰好没被列进转换清单**（**是运气，不是机制**）；
+我若机械地把整目录塞进清单，就会把无许可的正文导进库。
+⇒ 已补 `NO_TEXT_LICENSE` **在代码里硬拦**（拦住会打印，不静默跳过），并**造了两份假文件实测**：
+该拦的拦住、该放的放行（拦 1 放 1）。⚠ 这条正是本仓最看重的失败形态：**声称的机制不是真机制**。
+
+**本批另外 12 份 PDF 被显式排除**（每份有理由，不静默丢）：三份无许可（见上）；
+8 份 `*.published-ccby.pdf` 是**同一篇的出版版副本**（arXiv 版都已在清单内，无一篇丢失），
+且这 8 份**没有**被许可证扫描覆盖过（是"**未扫**"、不是"扫了没有"）；
+1 份 `2023_Lost-in-the-Middle.pdf` 与已转过的 `2023_Lost_in_the_Middle.pdf` **字节完全相同**（sha256 相同）。
+
+**🔴 主线的病第二次独立复现**（本批最有价值的副产品）：术语式查询在新语料上**非常好**——
+`corrective retrieval` / `self-reflection` / `factual precision` / `long context` /
+`uncertainty routing` / `citation precision` 六条，各自对应论文都占满前三。
+但同一次探针里的两句**大白话**（`追问能不能不检索`、`回答里的引用是不是真的支持那句话`）
+**一条相关结果都没有**，返回的全是那本中文教材的无关段落。
+⇒ 与教程语料上的结论一致：**换资料类型照样犯同一个病**（现在有了**更大、更权威**的测试床）。
+
+### P3 登记（新）：**材料平面只有"按字找"一路，没有向量**（2026-09-25 核）
 `material_repo.search_materials` 的 SQL 只有 `material_fts MATCH`（BM25），
 **没有任何向量通道**（`git grep material_vec|material.*embed` = 0 命中）。
 ⇒ 两条要紧的推论：
