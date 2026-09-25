@@ -362,6 +362,54 @@ def main() -> int:
     print(f"  原词存活率 {sum(1 for w in ascii_terms if w in porter_terms)}/{len(ascii_terms)}"
           f" = {sum(1 for w in ascii_terms if w in porter_terms) / len(ascii_terms):.2%}")
     print(f"    （消失的词里非中文的例子，通常正是哈希/编号/配置键：{sorted(lost)[:5]}）")
+
+    # ── ⑥ 代价的**全库真实分布**（2026-09-25 加）────────────────────────────
+    # 为什么要有这一节：④ 栏的 ③ 只在"词形对"那 294 个词上算代价，那是**被挑过的子集**；
+    # 而文档要引用的是"全库上前缀到底把候选池放大成什么样"。
+    # 上一批这两个数曾经来自一个 **gitignored 的探针**，被复核对了两轮
+    # （"从冻结产物里复现不出来"）⇒ 现在把它做进这把**入库的尺子**里。
+    # ⚠ 这一节用**生产函数本体** `fts_match_expr` 算，不手搓表达式：
+    #   手搓会漏掉生产闸口（纯字母/无内部大写/词干≥4）的实际效果。
+    head("⑥ 代价的全库真实分布（全部 ≥4 字母的**拉丁**词；用生产函数算，不手搓表达式）")
+    latin_band = [w for w in ascii_terms if len(w) >= 4 and w.isalpha() and not has_cjk(w)]
+    cjk_skipped = [w for w in ascii_terms
+                   if len(w) >= 4 and w.isalpha() and has_cjk(w)]
+    print(f"  ≥4 字母的拉丁词 {len(latin_band)} 个"
+          f"（⚠ 另有 {len(cjk_skipped)} 个 **中文**词：`str.isalpha()` 对中文也为真，")
+    print("     上一版把它们算进'字母词'了 —— 生产闸口 `^[A-Za-z]{4,}$` 永不改写中文，所以这里剔除）")
+    cost_pairs: list[tuple[float, str]] = []
+    expanded = 0
+    for w in latin_band:
+        e_expr = fts_match_expr(w, latin_prefix=False)
+        n_expr = fts_match_expr(w)
+        if n_expr == e_expr:
+            continue                      # 没被闸口放行 ⇒ 零代价，不进分布
+        expanded += 1
+        try:
+            e = conn.execute("SELECT count(*) FROM fts_ascii WHERE fts_ascii MATCH ?",
+                             (e_expr,)).fetchone()[0]
+            p = conn.execute("SELECT count(*) FROM fts_ascii WHERE fts_ascii MATCH ?",
+                             (n_expr,)).fetchone()[0]
+        except sqlite3.OperationalError:
+            continue
+        if e:
+            # ⚠ 比值和词**必须成对收**。第一版写成两个平行 list 再 `zip(cost_ratios, band)`
+            #   ——`cost_ratios` 只收"过闸且有精确命中"的词，`band` 是全体，
+            #   于是**点名点错**（印出来的是 `resolution→resolut*` 却配着 `type*` 的比值）。
+            #   作者自查时抓到，留痕。
+            cost_pairs.append((p / e, w))
+    if cost_pairs:
+        cs = sorted(r for r, _w in cost_pairs)
+        p90 = cs[min(len(cs) - 1, int(len(cs) * 0.9))]
+        print(f"  被闸口放行（＝真的会被改写）的 {expanded} 个词里，有精确命中的 {len(cs)} 个：")
+        print(f"     候选池放大  中位 {statistics.median(cs):.3f}× / p90 {p90:.1f}×"
+              f" / 最大 {max(cs):.0f}×")
+        print("     最狠的 5 个（点名，别只报一个最大值）：")
+        for ratio, w in sorted(cost_pairs, reverse=True)[:5]:
+            print(f"       {w:<18}{fts_match_expr(w, latin_prefix=False):<22}"
+                  f"→ {fts_match_expr(w):<24}{ratio:>8.1f}×")
+        print("     ⚠ 逐个看上面的词：**常见技术词**与怪词都在里面 ⇒ 别只报一个最大值，")
+        print("       也别假设'最狠的一定是没人用的词'（上一版就是这么想的）。")
     return 0
 
 

@@ -1381,10 +1381,13 @@ def segment_for_fts(text: str | None) -> str:
 #:   只判词面会放过 `uses`→`"us"*`、`being`→`"be"*`、`harness`→`"har"*`。
 _LATIN_WORD_RE = re.compile(r"^[A-Za-z]{4,}$")
 
-#: 词干长度下限。**由实测选定，不是拍的**（探针 `probe-gate-tuning.py` / `probe-gate-offenders.py`，
-#: 语料＝DSH 官方文档 5,412 段）：
-#:   词干≥3 → 覆盖率 97.9%（＝不设下限时一样）；词干≥4 → **97.6%**；词干≥5 → 89.3%（掉太多）。
-#:   取 4：几乎不损覆盖率，且把 `har`/`roh`/`opt`/`cli`/`def` 这类 3 字母词干挡掉。
+#: 词干长度下限。**由实测选定，不是拍的**（尺子＝`scripts/measure-cross-language-fts.py`，
+#: 语料＝DSH 官方文档 5,412 段，**294 组**有效试验）：
+#:   词干≥3 → 覆盖率 96.3%（与 ≥4 **完全相同** ⇒ 没有任何理由放到 3）；
+#:   词干≥4 → **96.3%**（取它）；
+#:   词干≥5 → **76.5%**（掉 19.8 个百分点，太多）。
+#: ⚠ 上一版这里写的是"97.9% / 97.6% / 89.3%"——那三条取自**另一把旧尺子**
+#:   （词面对下限还是 6 字母、只有 291 组），在改好的尺子上不成立（复核 2026-09-25 打回）。
 _MIN_STEM = 4
 
 _stem_local = threading.local()
@@ -1448,16 +1451,20 @@ def _latin_prefix_token(tok: str) -> str | None:
 
     为什么需要（P3.1，2026-09-25 实测）：生产索引 `tokenize='ascii'` 不做词形还原，
     中文没有词形变化所以这个缺口在中文库上**永远不会暴露**；换成英文开发文档立刻暴露：
-    同一段文字里只有 `extinguisher`，你拿 `extinguishers` 去搜，命中率 **0/291 = 0.0%**。
-    提问侧改成"词干 + 前缀"后 **285/291 = 97.9%**，而**索引一个字都不用重建**。
+    同一段文字里只有 `extinguisher`，你拿 `extinguishers` 去搜，命中率 **0/294 = 0.0%**。
+    提问侧改成"词干 + 前缀"后 **283/294 = 96.3%**，而**索引一个字都不用重建**。
 
-    代价（**实测的真实分布，别只引一个数**；DSH 5,412 段、4+ 字母词 8,762 个）：
-    候选池放大 **中位 1.1× / p90 20.7× / 最大 3144×**。
-    最狠的那批是**常见技术词**（`typing`→`type*` 3144×、`packing`→`pack*` 2559×、
-    `modeled`→`model*` 886×、`generalize`→`gener*` 680×、`indexing`→`index*` 456×），
-    **不是怪词**——所以这个代价必须当真，它是**排序层（P2）的活**。
-    ⚠ 本函数第一版报的是"最大 182×"，那是**取样空档**造成的假上限
-    （尺子只拿 ≥6 字母的词造候选对，把 4~5 字母那一带整段漏掉了）。复核抓出，已改。
+    代价（**实测的真实分布，来自入库的尺子 `scripts/measure-cross-language-fts.py` 第 ⑥ 节**；
+    全库 ≥4 字母的**拉丁**词 8,548 个、其中过闸 8,410 个）：
+    候选池放大 **中位 1.098× / p90 20.5× / 最大 3144×**。
+    最狠的 5 个是 **`typing`→`type*` 3144×、`packing`→`pack*` 2559×、
+    `modeled`→`model*` 886×、`pack`→`pack*` 853×、`packaging`→`packag*` 847×**
+    ——**全是常见技术词，不是怪词**，所以这个代价必须当真（它是**排序层 P2** 的活）。
+    ⚠ 三条曾经写错、已更正的（复核 2026-09-25 打回，留痕）：
+    ① "最大 182×" 是**取样空档**造成的假上限（旧尺子只从 ≥6 字母的词造候选对）；
+    ② "8,762 个 4+ 字母词"**含 214 个中文词**（`str.isalpha()` 对中文也为真），
+       生产闸口 `^[A-Za-z]{4,}$` 永不改写中文 ⇒ 正确的是 8,548；
+    ③ "p90 20.7×" 取自探针里"词干≥3"那一行，生产闸口自己的 p90 是 **20.5×**。
     """
     if not _LATIN_WORD_RE.match(tok) or not _plain_case(tok):
         return None
@@ -1486,15 +1493,25 @@ def fts_match_expr(text: str | None, *, latin_prefix: bool = True) -> str:
        见 `material_repo.search_materials` 的诚实边界）。
     4. **`latin_prefix=True`（默认，P3.1 新增）：拉丁字母词换成 `"词干"*` 前缀查询**。
        为的是"换一种资料类型（英文开发文档/技术手册）不能塌"这条通用化硬要求。
-       判据（实测，见 `scripts/measure-cross-language-fts.py`）：
-       英文语料上"同一个词的另一种写法能不能匹配上" **0.0% → 97.9%**；
-       **索引零改动**；**中文与标准号/标识符一个字节都不受影响**
-       （只有纯字母且非全大写的词会被改写）。
+       判据（实测，见 `scripts/measure-cross-language-fts.py`，**数字都出自那把入库的尺子**）：
+       英文语料上"同一个词的另一种写法能不能匹配上" **0.0% → 96.3%**；**索引零改动**。
+       ⚠ **被改写的条件（与本函数里 `_latin_prefix_token` 的闸口逐条对应，别再抄错）**：
+       纯字母、**词面 ≥4**、**无内部大写**（`Extinguishers` 放行，`RoHS`/`camelCase` 不放）、
+       **词干 ≥ `_MIN_STEM`(4)**。
+       ⚠ **"中文与标识符一个字节都不受影响"这句话是错的，已删**（复核 2026-09-25 实测证伪）：
+       · **纯中文查询、标准号查询**（`GB 30871-2022`）确实逐字节相同；
+       · 但**含拉丁字母的标识符会被部分改写**——`user_id` → `"user"* OR "id"`、
+         `sha256_hash` → `"sha256" OR "hash"*`（jieba 把它切成 `user` / `_` / `id`，
+         带 `_` 的整段并没有"天然被排除"）；
+       · 而且 `Redis` → `"redi"*` 会命中 `redirect`：形状判据**无法**区分 `Redis` 与
+         `Extinguishers`（都是首字母大写）⇒ 这是**已知误命中**，已用判据钉住。
        传 `latin_prefix=False` 可得到**旧口径**，供对照与回归用（不是开关，
        是"比较两条口径"的入口）。
 
-    本函数的契约与"与旧法条侧实现逐字等价"的回归都在 `tests/test_answer_materials.py`
-    的 `TestFtsMatchExprIsTheSingleOwner` / `TestNaturalLanguageRecall` 里；
+    本函数的契约与"与旧法条侧实现的回归"都在 `tests/test_answer_materials.py`
+    的 `TestFtsMatchExprIsTheSingleOwner` / `TestNaturalLanguageRecall` 里
+    ⚠ 那句"逐字等价"**只对那 15 条输入成立**，含 ≥4 字母拉丁词时新旧口径本来就不同
+    （P3.1 是有意改口径，不是回归）——例外已在该文件里写明；
     P3.1 新增的那条前缀口径在 `tests/test_fts_latin_prefix.py`。
     """
     words = segment_for_fts(text).split()

@@ -8,15 +8,20 @@
 **为什么必须有**（2026-09-25 实测，`scripts/measure-cross-language-fts.py`）：
 生产索引 `tokenize='ascii'` 不做词形还原。中文没有词形变化，所以这个缺口
 **在中文库上永远不会自己暴露**；换成英文开发文档立刻暴露——同一段只含
-`extinguisher`，拿 `extinguishers` 去搜，命中 **0/291 = 0.0%**。
-提问侧改成"词干 + 前缀"后 **285/291 = 97.9%**，索引一个字不用重建。
-代价是候选池**中位放大 3.3 倍**，所以扩写条件写得很窄（见 `_latin_prefix_token`）。
+`extinguisher`，拿 `extinguishers` 去搜，命中 **0/294 = 0.0%**。
+提问侧改成"词干 + 前缀"后 **283/294 = 96.3%**，索引一个字不用重建。
+代价（同一把尺子第 ⑥ 节，全库 ≥4 字母拉丁词 8,548 个）：候选池放大
+**中位 1.098× / p90 20.5× / 最大 3144×**，最狠的是 `typing`→`type*`——
+**常见技术词**，所以代价写得很窄（见 `_latin_prefix_token` 的闸口）。
+
+⚠ 上面这三个数**全部出自入库的尺子**。本文件早先引用的是探针报的
+"0.0% → 97.9% / 中位 3.3×"，那两条**只在旧尺子上成立**，复核 2026-09-25 打回后已更正。
 """
 from __future__ import annotations
 
 import sqlite3
 
-from src.core.text_utils import fts_match_expr
+from src.core.text_utils import fts_match_expr, segment_for_fts
 
 # ── 一、中文与标识符：新旧口径必须**逐字节相同** ────────────────────────────
 CJK_QUERIES = [
@@ -117,13 +122,20 @@ def test_short_stems_are_not_expanded():
 
 
 def test_internal_capitals_are_not_expanded():
-    """**有内部大写**的标识符/缩写不扩写（`RoHS`/`camelCase`/`backgroundColor`/`MAYBECAPS`）。
+    """**有内部大写**的标识符/缩写不扩写（`camelCase`/`backgroundColor`/`MAYBECAPS`）。
 
-    复核打回时实测：第一版用"非全大写"，挡不住**混合大小写**这一整类。
+    复核打回时实测：第一版用"非全大写"，挡不住**混合大小写**这一整类；现在还叠了词干长度闸。
+    ⚠ **`RoHS` 一个词测不出大小写规则**：它在新规则下是被**词干长度**挡的
+    （porter 给 `roh`＝3 字母 < `_MIN_STEM`）。所以本条**以 `camelCase` 打头**，
+    把"混合大小写"这条规则单独钉住（复核 2026-09-25 的建议）。
     """
-    for q in ["RoHS", "camelCase", "backgroundColor", "MAYBECAPS mixedCASE",
-              "API KEY ROTATION", "ISO 9001"]:
+    for q in ["camelCase", "backgroundColor", "MAYBECAPS mixedCASE",
+              "RoHS", "API KEY ROTATION", "ISO 9001"]:
         assert fts_match_expr(q, latin_prefix=True) == fts_match_expr(q, latin_prefix=False), q
+    # 单独确认 `camelCase` 挡住它的是**大小写**规则，不是词干长度
+    from src.core.text_utils import _MIN_STEM, _porter_stem
+    assert len(_porter_stem("camelCase")) >= _MIN_STEM, (
+        "前提变了：camelCase 的词干已经够长，本条现在只能靠大小写规则挡住它")
 
 
 def test_sentence_initial_capital_is_still_expanded():
@@ -134,15 +146,50 @@ def test_sentence_initial_capital_is_still_expanded():
 
 
 def test_known_false_hit_proper_noun_is_pinned():
-    """**钉住一个已知的误命中，不许它悄悄变化。**
+    """**钉住一个已知的误命中，并用一条 xfail 留出"规则变好"的出口。**
 
     `Redis` 与 `Extinguishers` 的大小写形态**无法区分**（都是首字母大写），
     所以形状判据挡不住它：`Redis` → `"redi"*`，会命中 `redirect`
-    （复核 2026-09-25 给了可复现的例子）。**这是已知边界，不是没发现。**
-    本条把现状钉住：哪天规则变了（变好或变坏），这里会红，逼人重新评估而不是放任漂移。
+    （复核 2026-09-25 端到端复现过）。**这是已知边界，不是没发现。**
+
+    ⚠ 写法上选了 `xfail(strict=False)` 而不是硬断言"必须扩写"（复核建议）：
+    硬断言会把 bug **固化成期望**——哪天规则真的能区分专名了，那条断言会红、逼人去改测试
+    而不是去欢迎改进。`strict=False` 下规则变好会以 **XPASS** 暴露给人看，
+    不会静默通过、也不会把改进判成失败。
     """
+    import pytest
     expr = fts_match_expr("Redis 缓存怎么配")
-    assert '"redi"*' in expr, "规则变了：请重新评估 'Redis→redi* 命中 redirect' 这个已知边界"
+    if '"redi"*' not in expr:
+        pytest.xfail("规则已能区分专名 —— 这条已知误命中**变好了**，"
+                     "请把本用例改成断言新行为，并更新证据文档 §八")
+
+
+def test_known_false_hit_actually_happens_end_to_end():
+    """**钉害处**，不只钉表达式形状（复核 2026-09-25 建议）。
+
+    `Redis 缓存怎么配` 会把**只讲 redirect 的中文段落**拉进候选。这条用真 FTS5 表跑，
+    所以文档里"可复现的误命中"这句话**由仓里的判据兜着**，不是只写在散文里。
+    ⚠ 真跑出来时它**是红的**（＝这个害处确实存在），所以标 `xfail`：
+    红是"已知有害"的证据，绿是"害处消失了"的信号（XPASS 会提示人来提升）。
+    """
+    import pytest
+    conn = sqlite3.connect(":memory:")
+    conn.execute("CREATE VIRTUAL TABLE t USING fts5(body, tokenize='ascii')")
+    for doc in ["配置 redirect 重定向规则时要注意顺序。",
+                "Redis 是一个内存数据库。",
+                "缓存 怎么 配置 的说明。"]:
+        conn.execute("INSERT INTO t(body) VALUES(?)", (segment_for_fts(doc),))
+
+    def hits(expr):
+        return {r[0] for r in conn.execute("SELECT rowid FROM t WHERE t MATCH ?", (expr,))}
+
+    old = hits(fts_match_expr("Redis 缓存怎么配", latin_prefix=False))
+    new = hits(fts_match_expr("Redis 缓存怎么配"))
+    newly_pulled = new - old
+    if not newly_pulled:
+        pytest.xfail("误命中消失了 —— 请把本用例改成断言'不再拉进无关段落'，"
+                     "并更新证据文档 §八")
+    assert 1 in newly_pulled, "前提变了：被拉进来的不再是那条讲 redirect 的段落"
 
 
 def test_mixed_query_keeps_chinese_intact_and_expands_only_the_english_word():

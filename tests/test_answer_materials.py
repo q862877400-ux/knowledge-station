@@ -278,7 +278,16 @@ class TestNaturalLanguageRecall:
 
 
 class TestFtsMatchExprIsTheSingleOwner:
-    """`fts_match_expr` 必须与法条侧迁走前的旧实现**逐字等价**（迁移不改行为）。"""
+    """`fts_match_expr` 必须与法条侧迁走前的旧实现**逐字等价** ——
+    ⚠ **只对下面那 15 条参数成立，不是一条普遍保证**（2026-09-25 复核指出，原文留痕）。
+
+    为什么不是普遍保证：P3.1（2026-09-25）给拉丁字母词加了"词干 + 前缀"（`latin_prefix=True`
+    是默认），那是**有意改口径**、不是迁移回归。任何含 **≥4 字母拉丁词**的输入新旧都不同：
+        `extinguishers` → `"extinguish"*`（旧：`"extinguishers"`）
+        `user_id`       → `"user"* OR "id"`（旧：`"user" OR "id"`）
+    ⇒ 下面那 15 条**恰好都不含**这种词，所以逐字等价成立；
+    例外由 `test_latin_prefix_is_the_documented_exception` 显式钉住。
+    """
 
     #: 旧 `hybrid_engine._fts_query` 的算法（迁移前的实现，作为参照保留）。
     @staticmethod
@@ -301,6 +310,22 @@ class TestFtsMatchExprIsTheSingleOwner:
     def test_matches_old_law_side_implementation(self, text):
         from src.core.text_utils import fts_match_expr
         assert fts_match_expr(text) == self._old_ref(text), f"迁移改变了行为: {text!r}"
+
+    @pytest.mark.parametrize("text", [
+        "extinguishers", "Redis 缓存怎么配", "sha256_hash", "user_id",
+    ])
+    def test_latin_prefix_is_the_documented_exception(self, text):
+        """**P3.1 的例外要显式钉住**，不能靠"那 15 条恰好没覆盖到"来蒙。
+
+        复核 2026-09-25 实测：这 4 条含 ≥4 字母拉丁词的输入，新旧**全部不等**。
+        本条把它们写成**预期的不等**——这样"哪天它们又变得相等了"会红（提示口径被人改回去了），
+        而不是像以前那样**一条假契约静默绿着**。
+        """
+        from src.core.text_utils import fts_match_expr
+        assert fts_match_expr(text) != self._old_ref(text), (
+            f"{text!r} 又变成逐字等价了 —— P3.1 的拉丁前缀口径是否被改回去了？")
+        # 且**只有**拉丁那部分变：中文/标准号部分仍必须一样
+        assert fts_match_expr(text, latin_prefix=False) == self._old_ref(text)
 
     def test_law_side_delegates_to_the_owner(self):
         from src.core.retrieval.hybrid_engine import _fts_query
