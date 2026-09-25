@@ -30,6 +30,19 @@ _CLAUSE_NO_APPENDIX_RE = re.compile(
     r"(?<![A-Za-z0-9])([A-Z]\.\d+(?:\.\d+)*)(?![A-Za-z0-9])")
 _MODALTITY_RE = re.compile("严禁|禁止|不得|不应|不能|应当|必须|宜|可以|有权|鼓励|提倡|支持")
 
+#: 从**用户提问**里认出标准号（2026-09-24）。形态：字母前缀（可带 `/T` 之类分册）+ 号 + 连字符 + 年。
+#: 例：`AQ 3028-2008`、`GB/T 10029-2010`、`GB 55037—2022`。
+#:
+#: ⚠ **刻意不列前缀族**：仓里已有两份前缀表（`text_utils._WM_STD_CORE` 与
+#: `doc_catalog._STD_NO_PREFIX`）且两份并不一致，再加第三份正是要避免的事。
+#: 这里只认**形态**，认出来之后再拿库里的 `standard_no` 去比（同一个 `standard_key` 口径）。
+#: ⚠ 与 `_WM_STD_CORE` **不是一回事**：那个是页眉水印清洗判据，必须防"数字+大写字母"
+#: 误吃条款标题（`5.2.3 试验方法`）；本处输入是**提问**，且要求"号-年"形态，不存在那个风险。
+_STD_IN_QUERY_RE = re.compile(
+    r"[A-Z]{1,6}(?:\s*/\s*[A-Z]{1,3})?\s*\d{1,5}(?:\.\d+)?\s*[\u2014\-\u2013]\s*\d{2,4}",
+    re.I)
+
+
 # 评测/门禁用：临时覆盖库路径（eval benchmark 对快照库跑，可复现、不依赖本机 %APPDATA%）
 _DB_OVERRIDE: Any | None = None
 
@@ -127,8 +140,16 @@ def perform_hybrid_search(
         elif m:
             exact_no = m.group(1)
         if exact_no:
+            # 2026-09-24：**提问里认得出标准号时，把本通道限定到那本标准。**
+            # 为什么必须做：实测库里 `clause_number='5.2'` 有 **4,910 条**，只有 1 条属 GB 30871-2022。
+            # 不限定的话，用户问「查 AQ 3028-2008 第 3.1 条」会把**全库所有叫 3.1 的条款**
+            # 一起拉出来（本通道权重 2.0，六路最高）⇒ 正确的那条被别家的 3.1 挤掉。
+            # 实测代价：金标 90 条检索题里，**47 条**是靠"匹配到别的标准的同名条款"被判成命中的。
+            # 认不出标准号时（`want_keys` 为空）**行为一字不改** —— 历史语义完整保留。
+            from src.core.text_utils import standard_key
+            want_keys = {standard_key(s) for s in _STD_IN_QUERY_RE.findall(query)}
             rows = conn.execute(
-                "SELECT cr.clause_revision_id FROM clause_revision cr"
+                "SELECT cr.clause_revision_id, dm.standard_no FROM clause_revision cr"
                 " JOIN doc_meta dm ON dm.doc_id = cr.doc_id"
                 " WHERE cr.clause_number = ?"
                 + ("" if include_superseded
@@ -157,6 +178,8 @@ def perform_hybrid_search(
                 # D/E 用 `cr.clause_revision_id` 兜底成全序（见各自注释）。
                 + " ORDER BY (dm.legal_status IS NULL), dm.legal_status",
                 ((exact_no, scope_json) if scope_active else (exact_no,))).fetchall()
+            if want_keys:
+                rows = [r for r in rows if standard_key(r[1] or "") in want_keys]
             for rank, row in enumerate(rows):
                 scores[row[0]] = scores.get(row[0], 0.0) + CHANNEL_WEIGHTS["exact"] / (RRF_K + rank + 1)
 

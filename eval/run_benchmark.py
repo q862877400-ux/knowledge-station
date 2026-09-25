@@ -24,14 +24,27 @@ from src.core.retrieval.hybrid_engine import (
     perform_hybrid_search, set_db_override,
 )
 from src.core.storage.sqlite_db import load_vec_extension, get_db_connection
+from src.core.text_utils import standard_key
 from src.core.verification.typed_verifier import verify_llm_output
 
 GOLDEN_PATH = Path(__file__).resolve().parent / "golden" / "golden.json"
 SNAPSHOT_PATH = Path(__file__).resolve().parent / "golden" / "knowledge-snapshot.db"
 
 
-def _hit(ids: list, answers: list) -> bool:
-    return bool(answers and any(a in ids for a in answers))
+def _hit(pairs: list, expect: set) -> bool:
+    """命中 = 返回里出现了期望的 **(标准号, 条款号)** 对。
+
+    ⚠ **2026-09-24 改**：此前这里**只比条款号**（`any(a in ids)`），`standard_no` 全程不参与。
+    后果实测：库里 `clause_number='5.2'` 有 **4,910 条**，只有 1 条属 GB 30871-2022
+    ⇒ 搜回**别的标准**的同名条款也被判成命中。在快照库上实测，旧判据 90 条里有
+    **47 条**是这种假命中（数字被抬高：前 1 名 94.4% 对诚实判据的 78.9%）。
+
+    为什么现在改**不会**改变数字：同一天先把根因修了
+    （`hybrid_engine` 的精确条款号通道在提问里认得出标准号时限定到那本标准），
+    修后两种判据**逐条一致、假命中 0 条** ⇒ 本改动是**关门**，不是调分。
+    标准号比较用 `text_utils.standard_key`（仓里唯一的比较键，不自造第二套）。
+    """
+    return bool(expect and any(p in expect for p in pairs))
 
 
 def run_benchmark(disable_channel: str | None = None, golden_path: Path = GOLDEN_PATH,
@@ -64,12 +77,15 @@ def _run(disable_channel: str | None, golden_path: Path, with_rerank: bool = Fal
             continue
         res = perform_hybrid_search(it["query"], top_k=10, channels=channels,
                                     rerank=with_rerank)
-        ids = [r.clause_number for r in res]
-        if _hit(ids[:1], it["answer"]):
+        std = standard_key(it.get("standard_no") or "")
+        expect = {(std, str(a).strip()) for a in it["answer"]}
+        pairs = [(standard_key(getattr(r, "standard_no", "") or ""),
+                  str(getattr(r, "clause_number", "") or "").strip()) for r in res]
+        if _hit(pairs[:1], expect):
             exact_hit += 1
-        if _hit(ids[:5], it["answer"]):
+        if _hit(pairs[:5], expect):
             recall5 += 1
-        if _hit(ids[:10], it["answer"]):
+        if _hit(pairs[:10], expect):
             recall10 += 1
         n_search += 1
 
