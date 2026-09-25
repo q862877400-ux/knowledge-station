@@ -10,6 +10,34 @@ from src.core.ingestion.pipeline import (
 )
 from src.core.knowledge.classifier import classify_clause, normalize_clause_number
 
+#: 判据四的**真乱码夹具**（形状：汉字被整体映射成 ASCII 印刷区字符；
+#: 出自 GB/T 35210.1-2023 的用户实测报障，见各测试的 docstring）。
+#:
+#: ⚠ **提到模块级是为了让"阈值锚点"测试与既有测试共用同一批字面量**。
+#: 2026-09-25 复核实测教训：锚点测试里我另写了一份"乱码样本"（取模现造的那条），
+#: 于是它量到的 s2 上界是 **0.3808**，而**仓里真正在用的两条夹具**上界是 **0.4143**
+#: —— 锚点因此比真实约束松，正好授权了一个"三条新测试全绿、而判据四对真乱码失效"
+#: 的阈值组合（复核的变异 D）。**夹具一旦分两份，锚点就会锚在错的地方。**
+GARBLED_ASCII_396 = (
+    "34.567.589.:;) a)*<\"*!'=>yz+a>?k@>GA)!!\"!#!\"#$%,$\"#%#! www.bzfxw.com"
+    "%!!$!!WXtuYZ[PM?s¯BCWXDE¨[PµF]GH(IJKnM?01+sWXµD] 2Ln 3 M C)W X t u Y Z "
+    "[ P$\\ [ ] v . 0 1 b c N E n Ä O+m ? U V 1 - ] 1)-.$/#%\"!* P¯¶QRST("
+    "<WXtuYZ[P$\\[]v.ghnej+UVlmpW)%%%k!lm'STUV1)%%%k\"lm' ]1)-.$/#%\"!*,!"
+    "%\"*!'yzMXwÜ%+YZ[denh(\\]/^/JKn _+YZ[P M?nE`æç-Mabcdyef)fgæçnhi+RSb?"
+    "M?vjn[P]?tu¯W Xkln [P]+mn<©Mn[P]+¥3MCtu[PJKo[PVp [P]qf?¡¢[P]"
+)
+GARBLED_ASCII_270 = (
+    "34.567.589.:;) a)*<\"*!'=>yz+a>?k@>GA)!!\"!#!\"#$%,$\"#%#! www.bzfxw.com"
+    "%!!$!!WXtuYZ[PM?s\u00afBCWXDE\u00a8[P\u00b5F]GH(IJKnM?01+sWX\u00b5D] 2Ln 3 M C)W X t u Y Z "
+    "[ P$\\ [ ] v . 0 1 b c N E n \u00c4 O+m ? U V 1 - ] 1)-.$/#%\"!* P\u00af\u00b6QRST("
+    "<WXtuYZ[P$\\[]v.ghnej+UVlmpW)%%%k!lm'STUV1)%%%k\"lm' ]1)-.$/#%\"!*,!"
+)
+#: cid 乱码第三形态（拉丁扩展 + 泰米尔 + 超长同字跑），由**判据三**抓。
+GARBLED_CID = (
+    "www.bzfxw.com / 㼬 ௿ / ಆ૆㠯ఠ ಆććććććććććććććććććććććććć / "
+    "ಇ૆㻰㠯ᕓᑁ⩔᪳Т ಆćććććććććććććććććććććććć"
+)
+
 
 def _mk_middle(tmp_path: Path) -> Path:
     """合成一份 2 页 middle.json：封面/前言 + 2 条款(跨页拼接) + 但书 + 表绑定 + 附录。"""
@@ -110,8 +138,7 @@ def test_pua_detector_catches_cid_garbage_without_pua_glyphs():
     也必须判乱码转 OCR，否则 0 条款入库。"""
     from src.core.ingestion.mineru_adapter import text_layer_pua_mangled
 
-    garbage = "www.bzfxw.com / 㼬 ௿ / ಆ૆㠯ఠ ಆććććććććććććććććććććććććć / ಇ૆㻰㠯ᕓᑁ⩔᪳Т ಆćććććććććććććććććććććććć"
-    assert text_layer_pua_mangled([{"text": garbage}] * 3), "cid 乱码必须被判中"
+    assert text_layer_pua_mangled([{"text": GARBLED_CID}] * 3), "cid 乱码必须被判中"
     # 正常中文不得误伤
     normal = "4.1 化学成分应符合表 1 的规定。表 1 中的数值……\n4.2 抗拉强度不小于 1103 N/mm²。"
     assert not text_layer_pua_mangled([{"text": normal}]), "正常文本不得误判"
@@ -123,14 +150,7 @@ def test_pua_detector_catches_ascii_mapped_garbage():
     仅能靠「中文标准正文无汉字」捕获。"""
     from src.core.ingestion.mineru_adapter import text_layer_pua_mangled
 
-    garbage = (
-        "34.567.589.:;) a)*<\"*!'=>yz+a>?k@>GA)!!\"!#!\"#$%,$\"#%#! www.bzfxw.com"
-        "%!!$!!WXtuYZ[PM?s¯BCWXDE¨[PµF]GH(IJKnM?01+sWXµD] 2Ln 3 M C)W X t u Y Z "
-        "[ P$\\ [ ] v . 0 1 b c N E n Ä O+m ? U V 1 - ] 1)-.$/#%\"!* P¯¶QRST("
-        "<WXtuYZ[P$\\[]v.ghnej+UVlmpW)%%%k!lm'STUV1)%%%k\"lm' ]1)-.$/#%\"!*,!"
-        "%\"*!'yzMXwÜ%+YZ[denh(\\]/^/JKn _+YZ[P M?nE`æç-Mabcdyef)fgæçnhi+RSb?"
-        "M?vjn[P]?tu¯W Xkln [P]+mn<©Mn[P]+¥3MCtu[PJKo[PVp [P]qf?¡¢[P]"
-    )
+    garbage = GARBLED_ASCII_396
     assert len(garbage) >= 200
     assert text_layer_pua_mangled([{"text": garbage}]) is True
     # 正常中文条款不受影响
@@ -174,12 +194,7 @@ class TestNonChineseTextIsNotMangled:
     def test_garbled_ascii_mapped_chinese_is_still_mangled(self):
         """对照：**原来的真乱码案例仍须判中**（别为了修误伤把这条判据废掉）。"""
         from src.core.ingestion.mineru_adapter import text_layer_pua_mangled
-        garbage = (
-            "34.567.589.:;) a)*<\"*!'=>yz+a>?k@>GA)!!\"!#!\"#$%,$\"#%#! www.bzfxw.com"
-            "%!!$!!WXtuYZ[PM?s\u00afBCWXDE\u00a8[P\u00b5F]GH(IJKnM?01+sWX\u00b5D] 2Ln 3 M C)W X t u Y Z "
-            "[ P$\\ [ ] v . 0 1 b c N E n \u00c4 O+m ? U V 1 - ] 1)-.$/#%\"!* P\u00af\u00b6QRST("
-            "<WXtuYZ[P$\\[]v.ghnej+UVlmpW)%%%k!lm'STUV1)%%%k\"lm' ]1)-.$/#%\"!*,!"
-        )
+        garbage = GARBLED_ASCII_270
         assert len(garbage) >= 200
         assert text_layer_pua_mangled([{"text": garbage}]) is True
 
@@ -187,45 +202,56 @@ class TestNonChineseTextIsNotMangled:
         """把判据背后的**两个量**单独钉住（这样以后谁改了阈值，能看出动的是哪一条）。"""
         from src.core.ingestion.mineru_adapter import _looks_unlike_latin_prose
         assert _looks_unlike_latin_prose(self._EN) is False
-        garbled = ("34.567.589.:;) a)*<\"*!'=>yz+a>?k@>GA)!!\"!#!\"#$%,$\"#%#! www.bzfxw.com"
-                   "%!!$!!WXtuYZ[PM?s\u00afBCWXDE\u00a8[P\u00b5F]GH(IJKnM?01+sWX\u00b5D] 2Ln 3 M C)W X t u Y Z ")
-        assert _looks_unlike_latin_prose(garbled) is True
+        assert _looks_unlike_latin_prose(GARBLED_ASCII_270) is True
 
 
 class TestLatinProseThresholdIsAnchored:
-    """**阈值 0.70 不许是拍的**（2026-09-25 复核 P-2 打回后补）。
+    """**阈值 0.70 不许是拍的**（2026-09-25 复核 P-2 打回后补，第 2 轮又被打回后重写）。
 
-    打回的原因：上面那三条测试只断言 `is True/False`，而把两个阈值
-    0.70 → **0.90** 之后**仍然 45 passed 全绿** ⇒ "阈值到底是多少"这件事
-    **当时没有任何测试在管**（复核实测：约 [0.42, 0.954] 的任意阈值都能全绿）。
+    第 1 次打回的原因：上面那三条测试只断言 `is True/False`，把两个阈值 0.70 → **0.90**
+    之后**仍然 45 passed 全绿** ⇒ "阈值到底是多少"**当时没有任何测试在管**。
 
-    本类改用**实测锚**：先量真值的带，再断言阈值落在这条带里、且不贴边。
+    第 2 次打回的原因（**这一版是按它重写的**）：我补的锚点用**自己另写的一份乱码样本**
+    （取模现造那条）量 s2 上界 = 0.3808，而**仓里真正在用的两条乱码夹具**上界是 **0.4143**。
+    ⇒ 锚点比真实约束松，它授权了一个组合（把字母/标点阈值放到 0.0、像词串阈值放到 0.381），
+    在那个组合下**三条新测试全绿，而判据四对仓里那两条真乱码夹具已经失效**（复核变异 D）。
+    ⇒ **教训写进断言里**：锚点只用**仓里既有夹具**，而且断言的是**行为不变量**
+    （"每条乱码夹具都必须仍被判中"），不是我从某个样本上量出来的标量。
 
-    ⚠ 锚点数值的出处（本机实测，2026-09-25，`var/tmp/probe-threshold-anchors.py`；
-      该探针在 gitignore 的 `var/` 下，故把结论抄在这里留痕，脚本本身不入库）：
-      · **17 份真语料**（`var/tmp/library/text/`，含 16 份英文论文/教材 + 1 份中文样章）
-        按判据四同口径取"头部 4000 字"，英文档 s1 ∈ **[0.8836**, 0.9624]、
-        s2 ∈ **[0.8871**, 0.9612]，**无一份被判乱码**；
-      · **真乱码夹具** s1 ∈ [0.4865, 0.8235]、s2 ∈ [0.2727, **0.3808**]，**全部判中**。
-        ⚠ 注意乱码的 s1 **可以很高**（取模现造的乱码 s1=0.8235）——真正承重的是
-        **s2**；所以下面钉的是 s2 那一侧，没敢假装"乱码 s1 一定低"。
+    ⚠ 锚点数值的出处（本机实测；探针在 gitignore 的 `var/` 下，故把结论抄在这里留痕）：
+      · **真英文下界**（54 个真 PDF，独立复核 2026-09-25 机械复算，判据四在 PDF 上的真实口径
+        `blocks[:120]`）：未判乱码的 51 份英文档 **s1 ∈ [0.8547, 0.9749]**。
+        ⚠ 我自己先前的读法（38 份 `.md` 头部 4000 字）报的是 **0.8836**，
+        **对不上，是偏乐观的**；原因见下面那条留痕。
+      · **乱码夹具 s2 上界 0.4143**（`GARBLED_ASCII_270`；`GARBLED_ASCII_396` 是 0.4000）
+        —— 复核逐字 AST 提取仓里全部夹具复算所得，与我的 0.3808 不符（我量错了样本）。
+      · **目录段 s1 = 0.5765**（Lin/Nogueira/Yates 综述；复核扫窗独立量到 0.5762，Δ0.0003 ⇒ **真**），
+        参考文献段 0.8824（复核量到 0.8832）。复核还在 Croft 教材 `blocks[20:]` 量到真英文低至
+        **0.3524**（就是 Contents 点线页码区）—— 这两份现在安全只是因为开头 20 块恰好是版权页。
 
-    为什么还要留余量（`_MARGIN`）而不是贴着 0.8836 放：判据四吃的是**头部聚合样本**，
-    真英文里**标点密集的头**是真实存在的——同一份真语料（Lin/Nogueira/Yates 综述）
-    的**目录段**实测 **s1=0.5765**（点线页码），参考文献段 s1=0.8824。
-    阈值一旦上抬到贴着文档级下界，这类文档就会被整份判乱码（**又是 0 字**）。
+    ⚠ **留痕（两处对不上的数，别当成我量过）**：
+      ① 我报的 `s1 ∈ [0.8836, 0.9624] / s2 ∈ [0.8871, 0.9612]` 复核**两种读法都复现不出**
+         （它量到 `s1 ∈ [0.8787, 0.9608] / [0.8913, 0.9611]`）。**不能说是假的**：
+         `.md` 的 mtime（18:59）晚于我提交（18:51）——**我随后跑了批次 2 的转换**，
+         语料在提交后被整体重写过，旧版无备份、不进 git ⇒ 那组数**现在复核不了**，已不再引用。
+      ② 我写的"真正承重的是 s2"——**在本机真语料上没有实例支撑**（唯一一对真乱码 chap1/chap10
+         是**判据三a**抓的，s1=0.7185/s2=0.6649）。这句只对**取模现造那条**成立。
+         准确的说法是：**不许只看 s1**（s1 单独抓不住取模现造那条，它 s1=0.8235 很高）。
+
+    为什么还要留余量（`_MARGIN`）而不是贴着下界放：判据四吃的是**头部聚合样本**，而真英文里
+    "标点密集的头"是真实存在的（目录段 0.5765、Croft 的 Contents 区 0.3524）⇒ 阈值一旦上抬到
+    贴着文档级下界，这类文档就会被整份判乱码（**又是 0 字**）。
     """
 
-    #: 实测锚（出处见类 docstring）。改判据的人只该改阈值，不该改这几个数。
-    _EN_S1_MIN = 0.8836
-    _EN_S2_MIN = 0.8871
-    _GARBLE_S2_MAX = 0.3808
-    #: 阈值离真英文下界必须留的不动余量（理由见类 docstring 的"目录段 s1=0.5765"）。
+    #: 真英文下界（出处见类 docstring）。**这是"不许误伤"那一侧的锚**。
+    _EN_S1_MIN = 0.8547
+    _EN_S2_MIN = 0.8861
+    #: 阈值离真英文下界必须留的不动余量（理由见类 docstring 末段）。
     _MARGIN = 0.05
 
     #: 一段**逐字取自真语料**的英文（`2019_Passage_Reranking_with_BERT` 正文，
-    #: 即 ours 已入库的 PDF 转文本；不是编的样例），它带引用/括号/括号年份，
-    #: 是实测里**较难**的一档（s1≈0.88、s2≈0.85），所以拿它当活锚。
+    #: 即我们已入库的 PDF 转文本；不是编的样例），它带引用/括号/年份，
+    #: 是实测里**较难**的一档（s1≈0.88），所以拿它当活锚。
     _EN_REAL = (
         "1 INTRODUCTION We have seen rapid progress in machine reading compression in recent "
         "years with the introduction of large-scale datasets, such as SQuAD (Rajpurkar et al., "
@@ -249,20 +275,70 @@ class TestLatinProseThresholdIsAnchored:
             f"阈值离实测真英文太近（s1={s1:.4f} vs 阈值 {_MIN_LETTER_RATIO}）")
 
     def test_thresholds_sit_inside_the_measured_gap(self):
-        """把阈值钉在实测间隔内：**抬高到贴近真英文会红，压低到贴住乱码也会红**。"""
+        """阈值不许贴住真英文下界（这一条杀"改严"：0.70→0.90 就死在这里）。"""
         from src.core.ingestion.mineru_adapter import (
             _MIN_LETTER_RATIO, _MIN_WORDY_RATIO,
         )
-        # ① 真英文一侧：阈值必须低于实测下界并留余量（0.70→0.90 这一改就死在这条）
         assert _MIN_LETTER_RATIO <= self._EN_S1_MIN - self._MARGIN, (
             f"字母/标点阈值 {_MIN_LETTER_RATIO} 太靠近实测真英文下界 "
             f"{self._EN_S1_MIN} ⇒ 头部标点密集的真文档会被整份判乱码")
         assert _MIN_WORDY_RATIO <= self._EN_S2_MIN - self._MARGIN, (
             f"像词串阈值 {_MIN_WORDY_RATIO} 太靠近实测真英文下界 {self._EN_S2_MIN}")
-        # ② 乱码一侧：阈值必须高过乱码实测的最高 s2，否则乱码会漏进库
-        assert _MIN_WORDY_RATIO > self._GARBLE_S2_MAX, (
-            f"像词串阈值 {_MIN_WORDY_RATIO} 已低于乱码实测最高 s2 "
-            f"{self._GARBLE_S2_MAX} ⇒ 真乱码会漏")
+
+    def test_every_repo_garbled_fixture_is_still_caught(self):
+        """**行为不变量**：仓里每一条乱码夹具都必须仍被判中（这一条杀"改宽"）。
+
+        为什么不写成"阈值 > 某个 s2 标量"：那样只约束了一个数，而判据是
+        `s1 < T1 or s2 < T2` 的**或**——两个阈值一起放宽就能从旁边绕过去
+        （复核变异 D：T1=0.0 + T2=0.381 ⇒ 标量断言仍绿、真乱码已漏）。
+        断言行为本身，绕不过去。
+
+        ⚠ 这里**故意只用仓里既有的夹具**（模块级那三条 + 取模现造那条），
+        不另造样本 —— 第 2 次打回就是因为锚点锚在了我自己另写的样本上。
+        """
+        from src.core.ingestion.mineru_adapter import (
+            _MIN_LETTER_RATIO, _MIN_WORDY_RATIO, _latin_prose_signals,
+        )
+        mod94 = "".join(chr(0x21 + ord(c) % 94)
+                        for c in ("汉字被映射成 ASCII 的乱码形态" * 40))
+        fixtures = {
+            "GARBLED_ASCII_396（仓里既有，判据四型）": GARBLED_ASCII_396,
+            "GARBLED_ASCII_270（仓里既有，判据四型）": GARBLED_ASCII_270,
+            "GARBLED_CID（仓里既有，判据三型）": GARBLED_CID,
+            "取模现造（本仓新测试用的那条）": mod94,
+        }
+        for name, g in fixtures.items():
+            s1, s2 = _latin_prose_signals(g)
+            assert s1 < _MIN_LETTER_RATIO or s2 < _MIN_WORDY_RATIO, (
+                f"{name} 已不被「不像散文」判据抓住（s1={s1:.4f} s2={s2:.4f} vs "
+                f"阈值 {_MIN_LETTER_RATIO}/{_MIN_WORDY_RATIO}）⇒ 真乱码会漏进库。"
+                f"⚠ 注意这是**或**关系：单独放宽任一个都还能被另一个兜住，"
+                f"两个一起放宽就会从旁边绕过去。")
+
+    def test_letter_ratio_side_has_no_repo_fixture_lower_bound(self):
+        """**诚实登记**：字母/标点那一侧的**下界在本仓钉不住**——别假装钉住了。
+
+        复核变异 B（`_MIN_LETTER_RATIO = 0.0`）实测 **83 passed 全绿**：因为仓里
+        所有乱码夹具的 s2（≤0.4143）都被 `_MIN_WORDY_RATIO=0.70` 单独兜住，
+        **没有任何一条夹具是"只有 s1 才能抓住"的**。⇒ 我不写一条假的"下界断言"
+        来制造安全感；这里把这个空白**显式记录下来**：
+
+        · 想真正约束 s1 的下界，得先有**一条 s1 低、s2 高**的真乱码样本
+          （复核提醒：本机真乱码 chap1/chap10 是 s1=0.7185/s2=0.6649，属**判据三a**抓的，
+          且 s2 离 0.70 只有 0.035 —— 它也不是那种样本）；
+        · 在那之前，**s1 只是 s2 的旁证**，不是承重判据。
+        """
+        from src.core.ingestion.mineru_adapter import (
+            _MIN_LETTER_RATIO, _MIN_WORDY_RATIO, _latin_prose_signals,
+        )
+        # 把"有没有只靠 s1 才抓得住"这件事**机械地量出来**（而不是嘴上说说）
+        only_s1 = []
+        for g in (GARBLED_ASCII_396, GARBLED_ASCII_270, GARBLED_CID):
+            s1, s2 = _latin_prose_signals(g)
+            if s1 < _MIN_LETTER_RATIO and s2 >= _MIN_WORDY_RATIO:
+                only_s1.append((s1, s2))
+        if not only_s1:
+            pytest.skip("本仓没有「只有 s1 抓得住」的乱码夹具 ⇒ s1 的下界无处可锚（已登记）")
 
 
 def test_delete_document_uses_bulk_fts_delete(db):

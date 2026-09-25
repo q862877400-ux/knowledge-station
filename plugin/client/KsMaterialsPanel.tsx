@@ -1044,7 +1044,11 @@ export function KsMaterialsPanel(props: KsMaterialsPanelProps): React.ReactEleme
               <div style={{ marginTop: 6, maxHeight: 240, overflow: 'auto', fontSize: 12 }}>
                 {chunks.length === 0 && (
                   <p style={{ margin: 0, color: GRAY }}>
-                    没有切片——该文件可能没解析出文本（扫描件？）。<strong>没有正文就无法评审</strong>。
+                    没有切片——
+                    {m.tier_reason
+                      ? '原因见上面的「判级说明」（这里不再另猜一个，免得两句话互相打架）。'
+                      : '该文件可能没解析出文本（扫描件？）。'}
+                    <strong>没有正文就无法评审</strong>。
                   </p>
                 )}
                 {chunks.map((c, i) => (

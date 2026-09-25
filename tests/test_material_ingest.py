@@ -241,6 +241,25 @@ class TestIngest:
         # ③ 指纹里存的就是实测状态（提示语是从它回读的，不是另算一遍）
         assert "text_layer=pua_mangled" in (m["parser_fingerprint"] or "")
 
+    def test_empty_txt_does_not_guess_a_cause(self, project, tmp_path):
+        """**取不到文本层状态时不许臆测原因**（2026-09-25 第 2 轮复核 Q4：这条分支无测试）。
+
+        `.docx`/`.txt`/`.md` 的指纹里**没有** `text_layer=` 字段（那不是 PDF，
+        没有"文本层"这一说）⇒ 提示语只能说到"没解析出文本"，**不许**替用户猜
+        "扫描件"或"乱码"——猜错会把人引去白折腾（重扫原件 / 换解析器）。
+        复核的变异 I（把这一支改回「可能是扫描件」）当时**全绿**，就是缺这条。
+        """
+        p = tmp_path / "空白.txt"
+        p.write_text("   \n\n\t\n  ", encoding="utf-8")
+        m = mi.ingest_material_file(project["project_id"], p)
+        assert m["chunk_count"] == 0
+        reason = m["tier_reason"] or ""
+        assert "未解析出文本" in reason, reason
+        assert "扫描件" not in reason, f"非 PDF 不该猜「扫描件」：{reason}"
+        assert "乱码" not in reason, f"非 PDF 不该猜「乱码」：{reason}"
+        assert "text_layer=" not in (m["parser_fingerprint"] or ""), (
+            "前提：非 PDF 的指纹里本来就没有 text_layer 字段（这正是本条的成因）")
+
     def test_unsupported_suffix_rejected(self, project, tmp_path):
         p = tmp_path / "x.bin"
         p.write_bytes(b"\x00\x01")
