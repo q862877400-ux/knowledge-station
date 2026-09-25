@@ -124,8 +124,9 @@ def vocab(conn: sqlite3.Connection, tbl: str) -> set[str]:
     return {t for (t,) in conn.execute(f"SELECT term FROM v_{tbl}")}
 
 
-def search(conn: sqlite3.Connection, tbl: str, q: str, k: int = 5) -> list[int]:
-    expr = fts_match_expr(q)
+def search(conn: sqlite3.Connection, tbl: str, q: str, k: int = 5, *,
+           latin_prefix: bool = True) -> list[int]:
+    expr = fts_match_expr(q, latin_prefix=latin_prefix)
     if not expr.strip():
         return []
     try:
@@ -138,9 +139,10 @@ def search(conn: sqlite3.Connection, tbl: str, q: str, k: int = 5) -> list[int]:
         return []
 
 
-def exists(conn: sqlite3.Connection, tbl: str, q: str, rowid: int) -> bool:
+def exists(conn: sqlite3.Connection, tbl: str, q: str, rowid: int, *,
+           latin_prefix: bool = True) -> bool:
     """这个段落**能不能**被 q 匹配上（不看排名）。"""
-    expr = fts_match_expr(q)
+    expr = fts_match_expr(q, latin_prefix=latin_prefix)
     if not expr.strip():
         return False
     cur = conn.execute(
@@ -168,6 +170,16 @@ def has_cjk(s: str) -> bool:
 
 
 def main() -> int:
+    # ⚠ 本机控制台默认 GBK：报告里的 `⇒`/`×` 等符号会让 `print` **跑到一半炸掉**
+    #   （2026-09-25 实测：已经装完 5,412 段语料、建完两张索引，挂在第 ③ 步的
+    #   f-string 上 ⇒ 前面几分钟全白跑）。P3 要把本脚本当"换资料类型就跑一遍"的
+    #   规定动作，这条必须先修掉，否则那把尺子**根本走不完**。
+    for s in (sys.stdout, sys.stderr):
+        try:
+            s.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, OSError):       # pragma: no cover - 环境相关
+            pass
+
     root = Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_CORPUS
     pattern = sys.argv[2] if len(sys.argv) > 2 else "*.md"
     if not root.exists():
@@ -231,21 +243,27 @@ def main() -> int:
     trials = pairs[::step][:300]
     print(f"  抽样试验 {len(trials)} 组")
 
-    r = {"ascii_cov": 0, "porter_cov": 0, "ascii_top": 0, "porter_top": 0}
+    r = {"ascii_cov": 0, "porter_cov": 0, "ascii_top": 0, "porter_top": 0,
+         "new_cov": 0, "new_top": 0}
     checked: list[tuple[str, int]] = []
     for a, b in trials:
-        hits_a = set(search(conn, "fts_ascii", a, k=50))
+        # ⚠ **旧口径**（`latin_prefix=False`）与生产现状**必须分开量**：
+        #   P3.1 之后生产默认已经开了前缀，若这里还拿 `fts_match_expr(b)` 当"生产现状"，
+        #   那把尺子就**悄悄换了含义**（两栏会变成同一个数）。所以显式传两遍。
+        hits_a = set(search(conn, "fts_ascii", a, k=50, latin_prefix=False))
         if not hits_a:
             continue
         # 目标 = 只含 A 形的段落（ascii 搜得到 A、搜不到 B ⇒ 确实没有 B 形）
-        target = hits_a - set(search(conn, "fts_ascii", b, k=2000))
+        target = hits_a - set(search(conn, "fts_ascii", b, k=2000, latin_prefix=False))
         if not target:
             continue
         tgt = sorted(target)[0]
-        r["ascii_cov"] += int(exists(conn, "fts_ascii", b, tgt))
+        r["ascii_cov"] += int(exists(conn, "fts_ascii", b, tgt, latin_prefix=False))
         r["porter_cov"] += int(exists(conn, "fts_porter", b, tgt))
-        r["ascii_top"] += int(tgt in set(search(conn, "fts_ascii", b, k=5)))
+        r["ascii_top"] += int(tgt in set(search(conn, "fts_ascii", b, k=5, latin_prefix=False)))
         r["porter_top"] += int(tgt in set(search(conn, "fts_porter", b, k=5)))
+        r["new_cov"] += int(exists(conn, "fts_ascii", b, tgt))          # 生产现状＝前缀已开
+        r["new_top"] += int(tgt in set(search(conn, "fts_ascii", b, k=5)))
         checked.append((b, tgt))
 
     n = len(checked)
@@ -255,8 +273,9 @@ def main() -> int:
 
     print(f"  有效试验 {n} 组")
     print("    ① 能不能匹配上（不看排名）：")
-    print(f"       ascii （生产现状）  {r['ascii_cov']}/{n} = {r['ascii_cov'] / n:.1%}")
-    print(f"       porter（重建索引）  {r['porter_cov']}/{n} = {r['porter_cov'] / n:.1%}")
+    print(f"       旧口径（P3.1 之前的 ascii）  {r['ascii_cov']}/{n} = {r['ascii_cov'] / n:.1%}")
+    print(f"       **新口径（生产现状＝词干前缀）**  {r['new_cov']}/{n} = {r['new_cov'] / n:.1%}")
+    print(f"       porter（重建索引，仅供对照）  {r['porter_cov']}/{n} = {r['porter_cov'] / n:.1%}")
 
     # 第三条路：索引一个字不动，只在提问时把词换成「词干*」前缀查询。
     # 词干用 SQLite 自带 porter 分词器取，不引入第二套实现（口径唯一这条规矩照旧）。
@@ -292,15 +311,19 @@ def main() -> int:
     print(f"       前缀* （索引不动）  {pc}/{n} = {pc / n:.1%}")
 
     print("    ② 排进前 5（⚠ 单词查询下最苛刻，只用于横向比较，不是生产效果）")
-    print(f"       ascii （生产现状）  {r['ascii_top']}/{n} = {r['ascii_top'] / n:.1%}")
-    print(f"       porter（重建索引）  {r['porter_top']}/{n} = {r['porter_top'] / n:.1%}")
+    print(f"       旧口径（ascii）      {r['ascii_top']}/{n} = {r['ascii_top'] / n:.1%}")
+    print(f"       新口径（词干前缀）    {r['new_top']}/{n} = {r['new_top'] / n:.1%}")
+    print(f"       porter（重建索引）   {r['porter_top']}/{n} = {r['porter_top'] / n:.1%}")
     print(f"       前缀* （索引不动）  {pt}/{n} = {pt / n:.1%}")
 
     ratios, exacts, prefs = [], [], []
     for b, _t in checked[:60]:
         try:
+            # ⚠ 这里**必须显式关掉新口径**：P3.1 之后 `fts_match_expr(b)` 自己就带前缀了，
+            #   两边都带就等于拿前缀比前缀 ⇒ 比值恒为 1.0，**"代价"那一栏变成空话**。
+            #   （第一版改完就是这么显示 1.0× 的，作者自查时抓到，留痕。）
             e = conn.execute("SELECT count(*) FROM fts_ascii WHERE fts_ascii MATCH ?",
-                             (fts_match_expr(b),)).fetchone()[0]
+                             (fts_match_expr(b, latin_prefix=False),)).fetchone()[0]
             p = conn.execute("SELECT count(*) FROM fts_ascii WHERE fts_ascii MATCH ?",
                              (pref(b),)).fetchone()[0]
         except sqlite3.OperationalError:
@@ -312,8 +335,9 @@ def main() -> int:
     if ratios:
         print("    ③ 前缀的代价：候选池放大倍数"
               f" 中位 {statistics.median(ratios):.1f}× / 最大 {max(ratios):.0f}×")
-        print(f"       精确词命中段数中位 {statistics.median(exacts):.0f}；"
-              f"前缀命中段数中位 {statistics.median(prefs):.0f}")
+        print(f"       旧口径命中段数中位 {statistics.median(exacts):.0f}；"
+              f"新口径（前缀）命中段数中位 {statistics.median(prefs):.0f}")
+        print("       ⚠ 这一栏量的是**代价**：前缀把候选池放大多少 ⇒ 排序压力变大。")
 
     head("⑤ 反向对照：porter 会不会改坏中文词 / 标识符")
     lost = ascii_terms - porter_terms

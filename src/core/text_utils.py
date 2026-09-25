@@ -15,6 +15,7 @@ latex_to_text / clean_eq_tags：MinerU 行内公式 <eq>LaTeX</eq> → 可读 Un
 from __future__ import annotations
 
 import re
+import threading
 import unicodedata
 
 _PARA_START_RE = re.compile(
@@ -1371,7 +1372,77 @@ def segment_for_fts(text: str | None) -> str:
     return " ".join(w.strip() for w in jieba.cut_for_search(text or "") if w.strip())
 
 
-def fts_match_expr(text: str | None) -> str:
+#: 拉丁字母词（**纯字母、长度 ≥4、非全大写**）才做"词干前缀"扩写。
+#: 判据逐条都有理由（见 `_latin_prefix_token`）：
+#:   · 纯字母 ⇒ 标准号/哈希/配置键（`30871`、`GB/T`、`sha256`）**天然被排除**；
+#:   · 长度 ≥4 ⇒ 放过 `the`/`and`/`to` 这类虚词（它们做前缀查询只会灌垃圾候选）；
+#:   · 非全大写 ⇒ 放过 `GB`/`ISO`/`API` 这类缩写。
+_LATIN_WORD_RE = re.compile(r"^[A-Za-z]{4,}$")
+
+_stem_local = threading.local()
+_stem_cache: dict[str, str] = {}
+
+
+def _porter_stem(word: str) -> str:
+    """取 SQLite **自带** `porter` 分词器给出的词干（带缓存）。
+
+    为什么借 SQLite 而不是自己写一份 Porter：本仓 2026-09-17 立的规矩是
+    "**分词/检索口径只能有一个所有者**"（`segment_for_fts` / `fts_match_expr` 都是
+    为此集中到本模块的）。词形还原是**第三道**口径，自己再写一份就是等着两条线分叉。
+    `porter` 是 SQLite 内建的，**索引侧一个字都不动**，只在提问侧用。
+
+    ⚠ 为什么不直接把 `porter` 用来建索引：实测它会**改坏标识符**——
+    在 DSH 官方文档上原词存活率只有 **61.6%**，消失的正是哈希/编号/配置键
+    （见 `scripts/measure-cross-language-fts.py` ⑤）。所以索引侧继续用 `ascii`。
+
+    ⚠⚠ **连接必须每线程一个**（`threading.local()`）：SQLite 连接**不能跨线程用**。
+    本函数由 FastAPI 的**同步路由**调用，那些路由跑在 AnyIO 的工作线程池里
+    ⇒ 共用一个连接会抛 `SQLite objects created in a thread can only be used in that
+    same thread`。**这是我自己写完自查时抓到的**（当时拿 8 线程跑 200 次调用，
+    第二次就炸）；不修的话生产上会在第二个线程上直接失败，而且很可能被上层
+    兜底 except 吞成"没有命中"——**静默失效，最坏的一种**。
+    判据见 `tests/test_fts_latin_prefix.py::test_stem_helper_is_usable_from_many_threads`。
+    """
+    w = word.lower()
+    hit = _stem_cache.get(w)
+    if hit is not None:
+        return hit
+    conn = getattr(_stem_local, "conn", None)
+    if conn is None:
+        import sqlite3
+        conn = sqlite3.connect(":memory:")
+        conn.execute("CREATE VIRTUAL TABLE s USING fts5(w, tokenize='porter')")
+        conn.execute("CREATE VIRTUAL TABLE sv USING fts5vocab(s, 'row')")
+        _stem_local.conn = conn
+    conn.execute("DELETE FROM s")
+    conn.execute("INSERT INTO s(w) VALUES(?)", (w,))
+    row = conn.execute("SELECT term FROM sv LIMIT 1").fetchone()
+    stem = row[0] if row else w
+    _stem_cache[w] = stem
+    return stem
+
+
+def _latin_prefix_token(tok: str) -> str | None:
+    """把拉丁字母词换成 `"词干"*` 前缀查询；不符合条件返回 `None`（＝照原样加引号）。
+
+    为什么需要（P3.1，2026-09-25 实测）：生产索引 `tokenize='ascii'` 不做词形还原，
+    中文没有词形变化所以这个缺口在中文库上**永远不会暴露**；换成英文开发文档立刻暴露：
+    同一段文字里只有 `extinguisher`，你拿 `extinguishers` 去搜，命中率 **0/291 = 0.0%**。
+    提问侧改成"词干 + 前缀"后 **285/291 = 97.9%**，而**索引一个字都不用重建**。
+
+    代价（**实测，必须一起说**）：候选池**中位放大 3.3×、最大 182×**
+    （同一批语料、同一把尺子）。所以只在"确实有词形变化可摘"的词上做，
+    且全大写/带数字的一律不动。
+    """
+    if not _LATIN_WORD_RE.match(tok) or tok.isupper():
+        return None
+    stem = _porter_stem(tok)
+    if not stem or not stem.isalpha():
+        return None
+    return f'"{stem}"*'
+
+
+def fts_match_expr(text: str | None, *, latin_prefix: bool = True) -> str:
     """FTS5 `MATCH` 表达式的**唯一**构造器（2026-09-17 集中到此处）。
 
     为什么必须只有一个：这是"分词"之后的第二道**检索口径**，两条检索线若各写一份，
@@ -1388,9 +1459,18 @@ def fts_match_expr(text: str | None) -> str:
        ⇒ 已知代价：`'5.2.3'` 这种**整个表达式都是单字符**的查询会得到空串 ⇒ 该查询在
        FTS 上**无命中**（法条侧靠"精确条款号通道"补上，材料侧目前没有对应通道，
        见 `material_repo.search_materials` 的诚实边界）。
+    4. **`latin_prefix=True`（默认，P3.1 新增）：拉丁字母词换成 `"词干"*` 前缀查询**。
+       为的是"换一种资料类型（英文开发文档/技术手册）不能塌"这条通用化硬要求。
+       判据（实测，见 `scripts/measure-cross-language-fts.py`）：
+       英文语料上"同一个词的另一种写法能不能匹配上" **0.0% → 97.9%**；
+       **索引零改动**；**中文与标准号/标识符一个字节都不受影响**
+       （只有纯字母且非全大写的词会被改写）。
+       传 `latin_prefix=False` 可得到**旧口径**，供对照与回归用（不是开关，
+       是"比较两条口径"的入口）。
 
     本函数的契约与"与旧法条侧实现逐字等价"的回归都在 `tests/test_answer_materials.py`
-    的 `TestFtsMatchExprIsTheSingleOwner` / `TestNaturalLanguageRecall` 里。
+    的 `TestFtsMatchExprIsTheSingleOwner` / `TestNaturalLanguageRecall` 里；
+    P3.1 新增的那条前缀口径在 `tests/test_fts_latin_prefix.py`。
     """
     words = segment_for_fts(text).split()
     quoted: list[str] = []
@@ -1398,7 +1478,8 @@ def fts_match_expr(text: str | None) -> str:
         safe = re.sub(r"[^\w\u4e00-\u9fff]", " ", w)   # 只留字母数字/下划线/中文
         for tok in safe.split():
             if len(tok) > 1:
-                quoted.append(f'"{tok}"')
+                pfx = _latin_prefix_token(tok) if latin_prefix else None
+                quoted.append(pfx or f'"{tok}"')
     return " OR ".join(quoted)
 
 
