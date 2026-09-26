@@ -416,32 +416,55 @@ try {
   # ⇒ 修法：口径搬进代码 —— **比较与记账两侧都扣掉未跟踪的**，于是"有它"与"没它"
   #    得到**同一个数**，余量回到 0，删任何一条都红。助手：`scripts/gates-tracked-total.py`
   #    （它自己有判据，含反向：不扣减时那两个数必须不同）。
-  # ⚠ 拿不到**完整**节点表时**不扣**（退回旧口径）并**大声说**：宁可这一跑口径旧，
-  #    也不能拿半张表去扣——那会把"少收集"误判成"用例被删"（方向反了）。
+  # ⚠ **方向要说对**（2026-09-26 复核打回——我原来这里写反了）：`totalForRatchet = totalRan − 未跟踪数`
+  #   ⇒ **少扣只会放宽**（结果 ≥ 真值）⇒ **不可能假红**；能假红的只有**多扣**。
+  #   所以"算式没跑成"的真正危害不是"误判用例被删"，而是**静默放宽**，
+  #   外加**记账时把实测总数写回基线 ⇒ 把已拆的定时炸弹原样装回去**。
+  # ⚠ 自检开关（与 `KS_GATES_SELFTEST` 同一约定）：把助手换成别的路径，用来**实测错误路径**。
   $trackedExcluded = 0
   $caliberOk = $false
-  if ($null -ne $pytestPassed -and $allNodeIds.Count -gt 0 -and
-      $allNodeIds.Count -eq $totalRan -and (Test-Path $junitPath)) {
-    try {
-      $caliber = (& $py (Join-Path $repo 'scripts\gates-tracked-total.py') `
-                    --junit $junitPath --repo $repo | ConvertFrom-Json)
-      $trackedExcluded = [int]$caliber.untracked
-      $caliberOk = $true
-      if ($trackedExcluded -gt 0) {
-        Write-Host ("   棘轮口径：扣掉**未跟踪文件**里的 {0} 条用例 ⇒ 计 {1}（实测总数 {2}）" -f `
-          $trackedExcluded, ($totalRan - $trackedExcluded), $totalRan) -ForegroundColor DarkGray
-        $caliber.untracked_files.PSObject.Properties | ForEach-Object {
-          Write-Host ("      − {0}：{1} 条" -f $_.Name, $_.Value) -ForegroundColor DarkGray
-        }
+  $caliberWhy = ""
+  if ($null -ne $pytestPassed -and $allNodeIds.Count -gt 0 -and (Test-Path $junitPath)) {
+    if ($allNodeIds.Count -ne $totalRan) {
+      $caliberWhy = "junit 条目 $($allNodeIds.Count) ≠ 总账 $totalRan（节点表不全）"
+    } else {
+      $caliberScript = if ($env:KS_GATES_SELFTEST_CALIBER) { $env:KS_GATES_SELFTEST_CALIBER }
+                       else { Join-Path $repo 'scripts\gates-tracked-total.py' }
+      $raw = $null
+      try { $raw = & $py $caliberScript --junit $junitPath --repo $repo 2>$null } catch { $raw = $null }
+      $caliber = $null
+      if ($raw) { try { $caliber = $raw | ConvertFrom-Json } catch { $caliber = $null } }
+      # ⚠⚠ **必须逐字段验**（复核 MED-1 实测）：助手崩溃时 stdout 为空 ⇒ `ConvertFrom-Json`
+      #   得 `$null` **而不抛** ⇒ 原来那个 `catch` 对**最可能的失败形态是死代码**，
+      #   而且还会打出与事实相反的"没有未跟踪文件里的用例"。这里显式验字段，不留这种空间。
+      if ($null -eq $caliber -or $null -eq $caliber.untracked -or $null -eq $caliber.collected) {
+        $caliberWhy = "口径助手没有给出可用结果（stdout 空或字段缺失）"
+      } elseif ([int]$caliber.unmapped -gt 0) {
+        # ⚠ `unmapped>0` = **有节点认不出文件** ⇒ 口径**算不全**，不许说成"没有未跟踪用例"。
+        #   （复核 MED-2 实测：带点目录如 `tests/v1.2/` 会让盲拆点分名失败，
+        #    untracked 用例可**逃过**扣减、凭空造余量。本仓今日未占坑。）
+        #   宁愿整跑退回旧口径，也不许口径**看起来生效**而实际漏扣。
+        $caliberWhy = "$([int]$caliber.unmapped) 个节点认不出文件（口径算不全）"
       } else {
-        Write-Host "   棘轮口径：没有未跟踪文件里的用例（计 $totalRan）" -ForegroundColor DarkGray
+        $trackedExcluded = [int]$caliber.untracked
+        $caliberOk = $true
+        if ($trackedExcluded -gt 0) {
+          Write-Host ("   棘轮口径：扣掉**未跟踪文件**里的 {0} 条用例 ⇒ 计 {1}（实测总数 {2}）" -f `
+            $trackedExcluded, ($totalRan - $trackedExcluded), $totalRan) -ForegroundColor DarkGray
+          $caliber.untracked_files.PSObject.Properties | ForEach-Object {
+            Write-Host ("      − {0}：{1} 条" -f $_.Name, $_.Value) -ForegroundColor DarkGray
+          }
+        } else {
+          Write-Host "   棘轮口径：没有未跟踪文件里的用例（计 $totalRan）" -ForegroundColor DarkGray
+        }
       }
-    } catch {
-      Write-Host ("   ⚠ 棘轮口径助手跑失败（{0}）⇒ 本跑按**实测总数**判（旧口径）" -f $_.Exception.Message) -ForegroundColor Yellow
     }
   } else {
-    Write-Host ("   ⚠ 拿不到完整节点表（junit 条目 {0} ≠ 总账 {1}）⇒ 棘轮本跑按**实测总数**判（旧口径）" -f `
-      $allNodeIds.Count, $totalRan) -ForegroundColor Yellow
+    $caliberWhy = "拿不到节点表或没有 junit"
+  }
+  if (-not $caliberOk) {
+    Write-Host ("   ⚠ 棘轮口径**这一跑没生效**：{0}" -f $caliberWhy) -ForegroundColor Yellow
+    Write-Host ("       ⇒ 按**实测总数** {0} 判（更宽松、**不会假红**）；⚠ **本跑不许记基线**（见下）" -f $totalRan) -ForegroundColor Yellow
   }
   #: 棘轮**判据用的**总账（口径生效时 = 实测总数 − 未跟踪用例数）
   $totalForRatchet = if ($caliberOk) { $totalRan - $trackedExcluded } else { $totalRan }
@@ -547,15 +570,44 @@ try {
       #   现在两侧同口径 ⇒ "有它/没它"同一个数、余量回到 0。
       # `pytest_passed` 按 `总账 − skipped − failed − errors` **推出**，让文件自洽
       #   （它是信息性字段；判据只用 `pytest_total`）。
-      @{ pytest_passed = ([int]$totalForRatchet - [int]$pytestSkipped - [int]$pytestFailed - [int]$pytestErrors)
-         pytest_skipped = $pytestSkipped; pytest_total = $totalForRatchet
-         untracked_excluded = $trackedExcluded
-         skip_nodeids = $skipNodeIds
-         environmental_skip_nodeids = $envKept
-         runLive = [bool]$env:RUN_LIVE
-         updatedAt = (Get-Date).ToString('s') } | ConvertTo-Json -Depth 4 |
-        Set-Content -Path $baselinePath -Encoding utf8
-      Write-Host ("   基线已更新：总账=" + $totalForRatchet + "（passed=" + ([int]$totalForRatchet - [int]$pytestSkipped - [int]$pytestFailed - [int]$pytestErrors) + " skipped=" + $pytestSkipped + "，另扣未跟踪 " + $trackedExcluded + " 条；skip nodeid " + $skipNodeIds.Count + " 个，环境白名单 " + $envKept.Count + " 个）") -ForegroundColor Yellow
+      # ⚠⚠ **口径没生效时不许把实测总数写进基线**（2026-09-26 复核 MED-1 的要害）：
+      #   写进去 = 把"未跟踪文件的用例"钉进棘轮 ⇒ ① 那文件一被删就假红；
+      #   ② **把已拆的定时炸弹原样装回去**（复核实测：非 git 树/助手崩溃时正是这条路）。
+      #   ⇒ 此时**整组"总数相关"字段一律沿用旧值**（total / passed / skipped /
+      #     untracked_excluded / caliber_applied —— 只留新值会让文件**自相矛盾**：
+      #     我第一版就写成"total=2527（旧）但 excluded=0（新）"，读的人会以为 2527 含全部用例）。
+      #     白名单与 skip 名单、updatedAt 照常更新；连可沿用的旧值都没有 ⇒ **本次不写盘**。
+      $totalToRecord = $totalForRatchet
+      $prevExcluded = $trackedExcluded
+      $prevApplied = $caliberOk
+      if (-not $caliberOk) {
+        $prev = $null
+        if (Test-Path $baselinePath) {
+          try { $prev = Get-Content $baselinePath -Raw | ConvertFrom-Json } catch { $prev = $null }
+        }
+        if ($null -eq $prev -or [int]$prev.pytest_total -le 0) {
+          Write-Host "⛔ 口径没生效，且没有可沿用的旧总账 ⇒ **本次不写基线**（棘轮仍按'没有基线'判红，不许静默放行）" -ForegroundColor Red
+          $totalToRecord = -1
+        } else {
+          Write-Host ("⛔ 口径没生效 ⇒ 基线**总账相关字段整体沿用旧值**（total {0} / 另扣 {1} / 口径生效 {2}），**不写**实测总数 {3}（否则定时炸弹复活）" -f `
+            [int]$prev.pytest_total, [int]$prev.untracked_excluded, $prev.caliber_applied, $totalRan) -ForegroundColor Red
+          $totalToRecord = [int]$prev.pytest_total
+          $prevExcluded = [int]$prev.untracked_excluded
+          $prevApplied = [bool]$prev.caliber_applied
+        }
+      }
+      if ($totalToRecord -ge 0) {
+        @{ pytest_passed = ([int]$totalToRecord - [int]$pytestSkipped - [int]$pytestFailed - [int]$pytestErrors)
+           pytest_skipped = $pytestSkipped; pytest_total = $totalToRecord
+           untracked_excluded = $prevExcluded
+           caliber_applied = $prevApplied
+           skip_nodeids = $skipNodeIds
+           environmental_skip_nodeids = $envKept
+           runLive = [bool]$env:RUN_LIVE
+           updatedAt = (Get-Date).ToString('s') } | ConvertTo-Json -Depth 4 |
+          Set-Content -Path $baselinePath -Encoding utf8
+        Write-Host ("   基线已更新：总账=" + $totalToRecord + "（passed=" + ([int]$totalToRecord - [int]$pytestSkipped - [int]$pytestFailed - [int]$pytestErrors) + " skipped=" + $pytestSkipped + "，另扣未跟踪 " + $prevExcluded + " 条；口径生效=" + $prevApplied + "；skip nodeid " + $skipNodeIds.Count + " 个，环境白名单 " + $envKept.Count + " 个）") -ForegroundColor Yellow
+      }
     }
   } elseif ($Full) {
     # ⛔ **不许在"没跑出数字"时静默放行**（复核 v3 的对抗性反例 M3，2026-09-20 修）：

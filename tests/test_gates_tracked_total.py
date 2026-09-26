@@ -117,3 +117,23 @@ def test_class_based_and_parametrised_names_map_to_the_file(tmp_path):
     info = gtt.compute(j, repo)
     assert info["untracked"] == 1, info
     assert info["tracked_total"] == 0, info
+
+
+def test_helper_raises_instead_of_guessing_when_git_is_unavailable(tmp_path):
+    """**调用方的安全网**：没有 git（如 `git archive` 提取树没有 `.git`）时**必须抛**，
+    不许"猜一个 0"悄悄返回。
+
+    为什么这条要紧（2026-09-26 复核 MED-1）：调用方（`run-gates.ps1`）原先假设"助手崩了会进
+    catch"，而实测**空 stdout 不会抛**（`ConvertFrom-Json` 得 `$null`）⇒ 那个 catch 是死代码、
+    还会打出与事实相反的"没有未跟踪文件里的用例"。
+    现在调用方改成**逐字段验**结果；本测试保证**助手这一侧**在拿不到 git 时是**抛**而不是**编**——
+    两侧合起来才没有"看起来生效、其实没算"的空间。
+    """
+    import subprocess as sp
+
+    (tmp_path / "tests").mkdir(exist_ok=True)
+    (tmp_path / "tests" / "test_x.py").write_text("def test_a():\n    pass\n",
+                                                  encoding="utf-8")
+    j = _junit(tmp_path / "j.xml", [("tests.test_x", "test_a")])
+    with pytest.raises(sp.CalledProcessError):
+        gtt.compute(j, tmp_path)        # tmp_path **不是** git 仓库

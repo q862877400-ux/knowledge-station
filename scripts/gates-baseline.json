@@ -1,7 +1,4 @@
 {
-  "untracked_excluded": 5,
-  "pytest_skipped": 3,
-  "runLive": false,
   "environmental_skip_nodeids": [
     "tests.test_golden_set::test_qa_retrieval_hits_golden",
     "tests.test_pipeline::test_real_middle_json_integration",
@@ -14,7 +11,11 @@
     "tests.test_reranker::test_rerank_real_model_reorders",
     "tests.test_update_channels::test_live_openstd_homepage_default_transport_200"
   ],
-  "updatedAt": "2026-09-26T12:30:48",
-  "pytest_total": 2527,
-  "pytest_passed": 2524
+  "untracked_excluded": 5,
+  "updatedAt": "2026-09-26T13:48:25",
+  "pytest_total": 2528,
+  "pytest_passed": 2525,
+  "runLive": false,
+  "pytest_skipped": 3,
+  "caliber_applied": true
 }
