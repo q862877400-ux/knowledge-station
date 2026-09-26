@@ -437,8 +437,13 @@ try {
       # ⚠⚠ **必须逐字段验**（复核 MED-1 实测）：助手崩溃时 stdout 为空 ⇒ `ConvertFrom-Json`
       #   得 `$null` **而不抛** ⇒ 原来那个 `catch` 对**最可能的失败形态是死代码**，
       #   而且还会打出与事实相反的"没有未跟踪文件里的用例"。这里显式验字段，不留这种空间。
-      if ($null -eq $caliber -or $null -eq $caliber.untracked -or $null -eq $caliber.collected) {
+      if ($null -eq $caliber -or $null -eq $caliber.untracked -or $null -eq $caliber.collected -or
+          $null -eq $caliber.unmapped) {
         $caliberWhy = "口径助手没有给出可用结果（stdout 空或字段缺失）"
+      } elseif ([int]$caliber.untracked -ge $totalRan) {
+        # ⚠ **多扣守卫**（2026-09-26 复核 L-4）：上面注释说"能假红的只有**多扣**"——
+        #   那就必须把多扣挡住，否则那句只是话。扣减数 ≥ 总账显然不合理（会算出负的真值 ⇒ 假红）。
+        $caliberWhy = "扣减数 $([int]$caliber.untracked) ≥ 总账 $totalRan（多扣 ⇒ 会假红，拒用）"
       } elseif ([int]$caliber.unmapped -gt 0) {
         # ⚠ `unmapped>0` = **有节点认不出文件** ⇒ 口径**算不全**，不许说成"没有未跟踪用例"。
         #   （复核 MED-2 实测：带点目录如 `tests/v1.2/` 会让盲拆点分名失败，
@@ -476,7 +481,7 @@ try {
       if ($totalForRatchet -lt $baseTotal) {
         $why += ("总账 {0} < 基线 {1}（passed {2} + skipped {3} + failed {4} + errors {5}；口径：{6}）" -f `
           $totalForRatchet, $baseTotal, $pytestPassed, $pytestSkipped, [int]$pytestFailed,
-          [int]$pytestErrors, $(if ($caliberOk) { "只算受版本控制的用例，已扣 $trackedExcluded 条未跟踪" } else { "实测总数（节点表不全）" }))
+          [int]$pytestErrors, $(if ($caliberOk) { "只算受版本控制的用例，已扣 $trackedExcluded 条未跟踪" } else { "实测总数（**口径未生效**：$caliberWhy）" }))
       }
       # 环境类 skip 白名单（基线里声明）：它们**随环境出现/消失是正常的**，不当回归。
       # 白名单**外**的**新** nodeid ⇒ 红（有人新加了一条跳过，或某个依赖坏了让用例开始 skip）。
@@ -580,25 +585,38 @@ try {
       $totalToRecord = $totalForRatchet
       $prevExcluded = $trackedExcluded
       $prevApplied = $caliberOk
+      #: 沿用旧的 passed/skipped（口径没生效时整组都要用旧值 —— 复核 L-1 实测：
+      #:   我第一版只沿用了 total/excluded/applied，passed/skipped 却是这一跑新算的，
+      #:   于是文件出现"9999 配 9995"这种组合，而我的注释却写着"整组沿用" —— **文字与代码不符**）。
+      $prevPassed = [int]$totalForRatchet - [int]$pytestSkipped - [int]$pytestFailed - [int]$pytestErrors
+      $prevSkipped = $pytestSkipped
       if (-not $caliberOk) {
         $prev = $null
         if (Test-Path $baselinePath) {
           try { $prev = Get-Content $baselinePath -Raw | ConvertFrom-Json } catch { $prev = $null }
         }
         if ($null -eq $prev -or [int]$prev.pytest_total -le 0) {
-          Write-Host "⛔ 口径没生效，且没有可沿用的旧总账 ⇒ **本次不写基线**（棘轮仍按'没有基线'判红，不许静默放行）" -ForegroundColor Red
+          # ⚠ **复核 L-3：这里原写"棘轮仍按'没有基线'判红"，那句是假的** ——
+          #   下面比较会把 `pytest_total ≤ 0` 兜底成 `passed+skipped` ⇒ 实际判**绿**、
+          #   而且每跑都印一次假话。现在**真的判红**（口径没生效 + 无可沿用的旧值
+          #   ⇒ 无从判定，按本脚本"'没跑'≠'通过'"的教条）。
+          $why += "口径没生效，且基线里没有可沿用的总账 ⇒ 棘轮无从判定"
+          $baselineDrop = $true
+          Write-Host "⛔ 口径没生效，且没有可沿用的旧总账 ⇒ **本次不写基线**，且**棘轮判红**（'没跑'≠'通过'）" -ForegroundColor Red
           $totalToRecord = -1
         } else {
-          Write-Host ("⛔ 口径没生效 ⇒ 基线**总账相关字段整体沿用旧值**（total {0} / 另扣 {1} / 口径生效 {2}），**不写**实测总数 {3}（否则定时炸弹复活）" -f `
-            [int]$prev.pytest_total, [int]$prev.untracked_excluded, $prev.caliber_applied, $totalRan) -ForegroundColor Red
+          Write-Host ("⛔ 口径没生效 ⇒ 基线**总账相关字段整体沿用旧值**（total {0} / passed {1} / skipped {2} / 另扣 {3} / 口径生效 {4}），**不写**实测总数 {5}（否则定时炸弹复活）" -f `
+            [int]$prev.pytest_total, [int]$prev.pytest_passed, [int]$prev.pytest_skipped, [int]$prev.untracked_excluded, $prev.caliber_applied, $totalRan) -ForegroundColor Red
           $totalToRecord = [int]$prev.pytest_total
           $prevExcluded = [int]$prev.untracked_excluded
           $prevApplied = [bool]$prev.caliber_applied
+          $prevPassed = [int]$prev.pytest_passed
+          $prevSkipped = [int]$prev.pytest_skipped
         }
       }
       if ($totalToRecord -ge 0) {
-        @{ pytest_passed = ([int]$totalToRecord - [int]$pytestSkipped - [int]$pytestFailed - [int]$pytestErrors)
-           pytest_skipped = $pytestSkipped; pytest_total = $totalToRecord
+        @{ pytest_passed = $prevPassed
+           pytest_skipped = $prevSkipped; pytest_total = $totalToRecord
            untracked_excluded = $prevExcluded
            caliber_applied = $prevApplied
            skip_nodeids = $skipNodeIds
@@ -606,7 +624,10 @@ try {
            runLive = [bool]$env:RUN_LIVE
            updatedAt = (Get-Date).ToString('s') } | ConvertTo-Json -Depth 4 |
           Set-Content -Path $baselinePath -Encoding utf8
-        Write-Host ("   基线已更新：总账=" + $totalToRecord + "（passed=" + ([int]$totalToRecord - [int]$pytestSkipped - [int]$pytestFailed - [int]$pytestErrors) + " skipped=" + $pytestSkipped + "，另扣未跟踪 " + $prevExcluded + " 条；口径生效=" + $prevApplied + "；skip nodeid " + $skipNodeIds.Count + " 个，环境白名单 " + $envKept.Count + " 个）") -ForegroundColor Yellow
+        # ⚠ 这里必须印 `$prevPassed/$prevSkipped`（**实际写进文件的那两个值**），
+        #   不许现算 —— 现算会和文件打架：实测把基线 `passed` 做旧成 1111 后，
+        #   文件里是 1111、而这行印 2525（同一类"文字与代码不符"，复核 L-1 的兄弟）。
+        Write-Host ("   基线已更新：总账=" + $totalToRecord + "（passed=" + $prevPassed + " skipped=" + $prevSkipped + "，另扣未跟踪 " + $prevExcluded + " 条；口径生效=" + $prevApplied + "；skip nodeid " + $skipNodeIds.Count + " 个，环境白名单 " + $envKept.Count + " 个）") -ForegroundColor Yellow
       }
     }
   } elseif ($Full) {
