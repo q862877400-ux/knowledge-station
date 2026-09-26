@@ -183,3 +183,51 @@ def test_record_egress_call_site_prunes_its_own_type_with_its_own_cap(db, monkey
         "调用点裁错了类型：它把**提问证据**裁了（复核 MED-1 的变异之一）")
     assert _count(conn, TYPE_EGRESS) == 3, (
         "调用点没用它自己的上限（KEEP_EGRESS）——审计会无界增长，或上限静默失效")
+
+
+# ── 索引（2026-09-26 MED-2：上限提高后发现这张表**原先没有索引**）──────────────
+def test_debug_dump_has_the_type_created_index_and_the_paging_query_uses_it(db):
+    """索引必须在，且**分页查询真的用得上它**。
+
+    为什么要有这条（复核 MED-2）：上限从 1000 提到 6000 后实测"审计导出 17.6→205 ms、
+    `record_egress` 单次 1.2→19.4 ms（×16）"，根因是**这张表原先没有任何索引**。
+    加索引时还踩过一次：只放 `(trigger_type, created_at DESC)` 会让"取全表"的导出**变慢 7%**，
+    必须照 `ORDER BY` 的列序**放全**（`…, dump_id DESC`）。
+
+    ⚠ **断的是"索引在"且"计划里用得上"**，不是"快了多少"——后者在 CI 上必然 flaky。
+    这条能抓住：有人删掉索引、改了列序、或改了查询的排序形状。
+    """
+    names = {r[0] for r in db.execute(
+        "SELECT name FROM sqlite_master WHERE type='index' AND tbl_name='debug_dump'")}
+    assert "idx_debug_dump_type_created" in names, f"缺索引；现有：{sorted(names)}"
+
+    plan = " ".join(str(r[3]) for r in db.execute(
+        "EXPLAIN QUERY PLAN SELECT * FROM debug_dump"
+        " WHERE trigger_type IN ('user_export','egress')"
+        " ORDER BY created_at DESC, dump_id DESC LIMIT 50"))
+    assert "idx_debug_dump_type_created" in plan, (
+        f"分页查询没走这条索引（列序或排序形状变了？）：{plan}")
+
+
+def test_init_schema_recreates_the_index_on_an_existing_db(db):
+    """**已有库**（缺这条索引）在 `init_schema` 时会被**自动补建** —— 这是"不必写迁移函数"的依据。
+
+    为什么单独钉这条：`schema.sql` 是用 `executescript` 整份跑的，`CREATE INDEX IF NOT EXISTS`
+    对**已存在的表**同样生效 —— 但这是**机制推断**，不是保证。生产库（已有 1000 行）拿不拿得到
+    这条索引，就取决于这一条。⇒ 断它：先把索引删掉（模拟旧库），再 `init_schema()`，必须回来。
+    """
+    from src.core.storage.sqlite_db import init_schema
+
+    conn = get_db_connection()
+    conn.execute("DROP INDEX IF EXISTS idx_debug_dump_type_created")
+    conn.commit()
+    assert not conn.execute(
+        "SELECT 1 FROM sqlite_master WHERE type='index'"
+        " AND name='idx_debug_dump_type_created'").fetchone(), "前提：索引已删（模拟旧库）"
+
+    init_schema()
+
+    assert conn.execute(
+        "SELECT 1 FROM sqlite_master WHERE type='index'"
+        " AND name='idx_debug_dump_type_created'").fetchone(), (
+        "已有库**没有**补建这条索引 ⇒ 生产库永远拿不到它（那加索引就只对新库有效）")
