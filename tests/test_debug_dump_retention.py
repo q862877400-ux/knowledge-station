@@ -158,3 +158,28 @@ def test_question_evidence_outlives_the_audit_window():
     否则"提问活得比审计久"这个修复意图会在有人调小它时静默消失。"""
     assert KEEP_QUESTION_EVIDENCE > KEEP_EGRESS, (
         "提问证据的保留上限不该小于/等于审计的：它不可再生，而审计每天上百条")
+
+
+# ── 调用点（2026-09-26 复核 MED-1：上面那些只测了 prune 助手，**没测接线**）────────
+# 复核实测：三处**语法合法**的调用点变异（把 server 改成裁 egress、把 record_egress
+# 改成裁提问、上限抄成另一个常量）**全部 0 红灯存活** —— 而"哪个写入者裁哪一类"
+# 正是本批改的东西。本条把**真实调用点**钉住。
+# ⚠ 不跑 1200 次真实写入：`KEEP_*` 是 `from … import` 绑进**调用点所在模块**的名字
+#   ⇒ monkeypatch 它 = 改调用点用的上限，几次写入就能看出裁剪对不对。
+def test_record_egress_call_site_prunes_its_own_type_with_its_own_cap(db, monkeypatch):
+    """`record_egress` 必须裁 **egress**、且用**它自己的上限**。"""
+    from src.core.llm import egress_audit
+
+    monkeypatch.setattr(egress_audit, "KEEP_EGRESS", 3)     # 免跑上千次真实写入
+    conn = get_db_connection()
+    _reset(conn)
+    _insert(conn, TYPE_QUESTION, "真实提问（不可再生）")
+
+    for i in range(6):
+        egress_audit.record_egress(service="s", endpoint="e", payload={"i": i},
+                                   query=f"cloud call {i}")
+
+    assert _count(conn, TYPE_QUESTION) == 1, (
+        "调用点裁错了类型：它把**提问证据**裁了（复核 MED-1 的变异之一）")
+    assert _count(conn, TYPE_EGRESS) == 3, (
+        "调用点没用它自己的上限（KEEP_EGRESS）——审计会无界增长，或上限静默失效")

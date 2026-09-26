@@ -135,3 +135,39 @@ def test_ks_answer_leaves_audit_record(client, db):
     assert "is_valid" in vres, "verification dict 应被完整落库"
     logs = json.loads(row["logs"])
     assert logs["trace"]["stage"] == "ks_answer"
+
+
+def test_ks_answer_record_is_not_evicted_by_egress_volume(client, db, monkeypatch):
+    """**服务端那个写入者**必须裁「提问证据」这一类（2026-09-26 复核 MED-1 的另半边）。
+
+    复核实测：把 `server.py` 那处改成裁 `egress`（于是提问证据永不清理）、或把上限
+    抄成 `KEEP_EGRESS` —— **两种变异都 0 红灯存活**。本条把这条接线钉住。
+    与 `tests/test_debug_dump_retention.py` 里那条（管 `record_egress` 的接线）配成一对。
+
+    做法：把提问证据的上限改小到 1，连发**两次**取证请求 ⇒
+    * 裁对了类型：提问证据只留最新那条、**审计行一条不动**；
+    * 裁错类型（裁 egress）：提问证据会变 2 条 —— 断言当场红。
+    ⚠ `KEEP_QUESTION_EVIDENCE` 是**函数体内 import** 的 ⇒ monkeypatch 模块属性即生效。
+    """
+    from src.core.storage import debug_dump_retention as ret
+
+    monkeypatch.setattr(ret, "KEEP_QUESTION_EVIDENCE", 1)
+    db.execute("DELETE FROM debug_dump")
+    db.commit()
+    egress_before = db.execute(
+        "SELECT COUNT(*) FROM debug_dump WHERE trigger_type='egress'").fetchone()[0]
+
+    c, token = client
+    for q in ("防火间距", "安全出口"):
+        r = c.post("/api/v1/ks/answer", json={"query": q, "params": {"top_k": 1}},
+                   headers={"Authorization": f"Bearer {token}"})
+        assert r.status_code == 200, r.text
+
+    q_rows = db.execute(
+        "SELECT COUNT(*) FROM debug_dump WHERE trigger_type='user_export'").fetchone()[0]
+    assert q_rows == 1, (
+        f"服务端没按自己的上限裁提问证据（期望 1 条，实得 {q_rows}）——"
+        f"要么它裁错了类型，要么上限抄成了别的常量")
+    assert db.execute("SELECT COUNT(*) FROM debug_dump"
+                      " WHERE trigger_type='egress'").fetchone()[0] == egress_before, (
+        "裁提问证据时动了审计记录")

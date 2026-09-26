@@ -2154,10 +2154,13 @@ def create_app(token: str) -> FastAPI:
         1. `ks_answer.answer()` 返回的 `_meta` **本就注明"供已接入的 debug_dump"**
            （`ks_answer.py:687`）——数据一直是准备好的，只是从未接线。
         2. `trigger_type` 沿用 `'user_export'`（与 SSE 路径同口径），**无需改
-           `_AUDIT_TRIGGER_TYPES`**；但 `debug_dump` 有「1000 行滚动」保留策略，
-           而生产库 egress 记录约 50 分钟即写满一轮（实测），故本记录的**可查窗口
-           仍然很短**。保留策略是独立议题（见 reports §B.4 的旁路落点方案），
-           本函数只负责让这条路径**机械上被审计到**。
+           `_AUDIT_TRIGGER_TYPES`**。⚠ **保留策略已在 2026-09-25 改掉，这句随之更正**：
+           原写"`debug_dump` 有「1000 行滚动」保留策略、生产库约 50 分钟写满一轮，
+           故本记录的可查窗口仍然很短"——**现在按类型各自清理**（审计 1000 /
+           **提问证据 5000**），所以**本路径写的这条记录不再与审计同寿**，
+           不会被审计的量挤掉。⚠ 但"窗口"仍由**写入速率**决定（审计忙碌时实测约 50 分钟
+           写满它自己那一档），论"天"没有意义；详见
+           `src/core/storage/debug_dump_retention.py` 的模块说明。
         """
         if not isinstance(data, dict):
             return
