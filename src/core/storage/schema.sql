@@ -496,6 +496,18 @@ CREATE INDEX IF NOT EXISTS idx_doc_file_hash ON doc_meta(file_hash);
 -- ③④ 时间线 UNION ALL 排序需要 created_at 索引，否则两表全扫 + 临时 B 树
 CREATE INDEX IF NOT EXISTS idx_event_log_created ON event_log(created_at);
 CREATE INDEX IF NOT EXISTS idx_operation_log_created ON operation_log(created_at);
+-- ⑤ `debug_dump` 原先**没有任何索引**（2026-09-26 实测发现的代价）：
+--    它的两种读法都按 `trigger_type` 过滤 + `ORDER BY created_at DESC, dump_id DESC`
+--    （取证答案与审计聚合都查 `trigger_type IN ('user_export','egress')`；两处清理也按
+--    `trigger_type` 分组）。上限从 1000 提到 6000 之后实测：审计导出 17.6 → 205 ms、
+--    `record_egress` 单次 1.2 → 19.4 ms（×16）。
+-- ⚠ **列要放全**（`var/tmp/probe-debug-dump-index.py` 三种形态 × 四种读法实测）：
+--    只放 `(trigger_type, created_at DESC)` 会让**导出全表变慢 1.07×**（走索引 + 逐行回表），
+--    而把 ORDER BY 的 `dump_id` 也放进去 ⇒ **翻页 16× 快、游标翻页 8× 快、写入 4.5× 快、
+--    导出不再变差（0.99×）**。⇒ 加索引时**必须照 ORDER BY 的列序放全**，别只放前缀两列。
+-- `IF NOT EXISTS` ⇒ 幂等、无需迁移函数（已有库在下次 `init_schema` 时补建）。
+CREATE INDEX IF NOT EXISTS idx_debug_dump_type_created
+    ON debug_dump(trigger_type, created_at DESC, dump_id DESC);
 
 -- ============================================================================
 -- 材料平面（2026-09-17 定位转移：通用资料研究 + 交付）

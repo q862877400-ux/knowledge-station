@@ -220,15 +220,23 @@ def egress_audit_export(ctx: dict) -> dict:
     """`GET /api/v1/egress/audit/export`：把外发记录导成 JSON 落盘（§10.76）。
 
     ⚠ **这条本来就不大**：`export_egress()` 读 `debug_dump` 里 `trigger_type in
-    ('user_export','egress')` 的行，而那张表有保留策略（最多 1000 行）⇒ 上限就有界。
-    种子 1000 行只是把上界铺满，好让"改 `def` 有没有意义"有个数字（而不是靠感觉）。
+    ('user_export','egress')` 的行，而那张表有保留策略 ⇒ 上限就有界。
+    ⚠ **更正（2026-09-26）**：上限**不再是 1000 行**——保留策略已**按类型分开**
+    （审计 1000 + 提问证据 5000 ⇒ 最多 6000 行），且该表**已有索引**
+    `idx_debug_dump_type_created(trigger_type, created_at DESC, dump_id DESC)`。
+    ⇒ 本用例仍用 1000 行种子（历史可比），但**它不再等于上界**；6000 行下的实测见
+    `var/tmp/probe-debug-dump-index.py` 与 `docs/RETRIEVAL-LONG-RANGE-PLAN.md` 的 P5-MED2 行。
     """
     return {"method": "GET", "path": "/api/v1/egress/audit/export",
             "body": None, "setup": _seed_egress_audit}
 
 
 def _seed_egress_audit(ctx: dict) -> None:
-    """把 `debug_dump` 的审计行铺到保留上限（1000 行），只碰临时库。"""
+    """把 `debug_dump` 的审计行铺 **1000 行**（历史口径，便于与旧数字对比），只碰临时库。
+
+    ⚠ 2026-09-26：**1000 不再是保留上限**（按类型分开后是审计 1000 + 提问证据 5000）。
+    本函数保留 1000 只是为了与它自己那批历史数字可比。
+    """
     from src.core.storage.sqlite_db import get_db_connection
 
     conn = get_db_connection()

@@ -904,7 +904,7 @@ material_chunk   chunk_id · material_id · ord · text · char_start · char_en
     |---|---|---|
     | 改 `def` | `export/obligations`｜`export/review`｜`export/citations`｜`egress/audit/export`｜`snapshots/{id}/restore`｜`update/report`｜`update/report-xlsx`（docx/xlsx/JSON 落盘 + 读包 sha256） | ✅ 完成；AG1–AG4 变异 RED（含**跨文件**的 `routes_update.py`） |
     | `export/citations` 取 body | 原是 `async def` **只为** `await request.json()`，随后 docx 落盘（与 §10.71 的 `/report/effect/export` 同款）⇒ body 改走**签名**。⚠ **措辞更正**（b13 的 LOW-1）：改前**坏 JSON 与"没有 body"都是 500**（这条从来没有那个 `except`），不是"吞成空 body"；改后 **422** | ✅ 并补了此前**缺失的** HTTP 契约测试（`test_phase7.py::test_export_citations_body_contract`，3 断言） |
-    | **本族收益很小（如实记）** | 唯一能铺满量的是 `/egress/audit/export`（`debug_dump` 保留上限 1000 行）：实测请求 0.0305s、空档 0.030s → 改后 0.016s（噪声底）。**另外 6 条未测**——要有生产规模的批次/清单/2.2GB 库快照才有意义，临时空库只会给出**假小**数字 | 📝 已写进闸门注释与 §10.76：这一族进表靠**结构性**判据，不是战果 |
+    | **本族收益很小（如实记）** | 唯一能铺满量的是 `/egress/audit/export`（当时 `debug_dump` 的保留上限是 **1000 行**）：实测请求 0.0305s、空档 0.030s → 改后 0.016s（噪声底）。**另外 6 条未测**——要有生产规模的批次/清单/2.2GB 库快照才有意义，临时空库只会给出**假小**数字 | 📝 已写进闸门注释与 §10.76：这一族进表靠**结构性**判据，不是战果。⚠ **2026-09-26 更正**：保留策略已**按类型分开**（审计 1000 + 提问证据 5000 ⇒ 最多 6000 行），且该表**已加索引**（`trigger_type, created_at DESC, dump_id DESC`）⇒ "上限 1000 行"这个前提**已不成立**，上面那组数只在 1000 行口径下可比。6000 行下的实测见 `var/tmp/probe-debug-dump-index.py` 与 [检索长周期计划](RETRIEVAL-LONG-RANGE-PLAN.md) 的 P5-MED2 行 |
 
     **下一步**：① `dry_run` 同文件并发按哈希加锁 → ② 补 `/formula`、`/table-image` HTTP 测试
     → ③ 审计标记表补"库内部网络/重活"族 → ④ 派独立复核 **b13**（先 `git tag` 冻区间 +
