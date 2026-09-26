@@ -2124,9 +2124,15 @@ def create_app(token: str) -> FastAPI:
                 ' VALUES (?,?,?,?,?,?,?,?)',
                 (f'dump_{ULID()}', 'user_export', query, retr, prompt,
                  (answer or '')[:4000], vjson, logs))
-            conn.execute(
-                'DELETE FROM debug_dump WHERE dump_id NOT IN ('
-                ' SELECT dump_id FROM debug_dump ORDER BY created_at DESC LIMIT 1000)')
+            # ⚠ **按类型清理**（2026-09-25 修真缺陷）：原先这里是**全表**裁到 1000 行，
+            #   而外发审计量大（约 110 条/天）⇒ **把提问证据挤出去**——而这一路写的
+            #   `retrieval_result`（命中了哪些标准号+条款号）**不可再生**，是 P1/P5 要用的
+            #   （实测当时 1,000 行里只剩 8 行带它）。详见
+            #   `src/core/storage/debug_dump_retention.py` 的模块说明。
+            from src.core.storage.debug_dump_retention import (
+                KEEP_QUESTION_EVIDENCE, TYPE_QUESTION, prune as prune_debug_dump,
+            )
+            prune_debug_dump(conn, TYPE_QUESTION, KEEP_QUESTION_EVIDENCE)
             conn.commit()
         except Exception as e:  # noqa: BLE001
             logger.warning("debug_dump 写入失败: %s", e)

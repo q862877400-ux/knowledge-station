@@ -18,6 +18,9 @@ from typing import Any
 from ulid import ULID
 
 from src.core.config import get_settings
+from src.core.storage.debug_dump_retention import (
+    KEEP_EGRESS, TYPE_EGRESS, prune as prune_debug_dump,
+)
 from src.core.storage.sqlite_db import get_db_connection
 
 # 审计聚合时视为"外发记录"的 trigger_type 集合
@@ -51,9 +54,11 @@ def record_egress(service: str, endpoint: str, payload: Any,
         " VALUES (?,?,?,?,?,?)",
         (dump_id, "egress", (query or "")[:500], prompt_preview or payload_json[:4000],
          "", logs))
-    conn.execute(
-        "DELETE FROM debug_dump WHERE dump_id NOT IN ("
-        " SELECT dump_id FROM debug_dump ORDER BY created_at DESC LIMIT 1000)")
+    # ⚠ **按类型清理**（2026-09-25 修真缺陷）：原先这里是**全表**裁到 1000 行，
+    #   而外发审计量大（实测 992/1000、约 110 条/天）⇒ **把"提问证据"挤出去**
+    #   （实测：1,000 行里只剩 8 行带检索结果，提问最多活约 9 天）。
+    #   详见 `src/core/storage/debug_dump_retention.py` 的模块说明。
+    prune_debug_dump(conn, TYPE_EGRESS, KEEP_EGRESS)
     conn.commit()
     return dump_id
 
