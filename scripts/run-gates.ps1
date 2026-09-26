@@ -404,14 +404,56 @@ try {
   if ($null -ne $pytestPassed) {
     $totalRan = $pytestPassed + ([int]$pytestSkipped) + ([int]$pytestFailed) + ([int]$pytestErrors)
   }
+
+  # ── 棘轮**口径**：只统计**受版本控制**的用例（2026-09-26 复核 MED-1 的"定时炸弹"）──────
+  # 为什么：实测总数里可能含**未跟踪文件**的用例 —— 本仓实测 `tests/test_jev_cn_baseline.py`
+  #   不被 git 跟踪、却贡献 5 条。两层恶性后果：
+  #     ① 记进基线 ⇒ 那份文件一被删（git clean / 提取树天然没有 / 别人清理），总账掉 5、
+  #        **棘轮假红**，而且红在一个**不归本仓控制**的文件上；
+  #     ② 反过来，**手工把基线调低**去躲这个假红（我 2026-09-25 就是这么干的）⇒
+  #        紧接着新增用例就造出**余量** ⇒ **余量内的用例可以被静默删掉而棘轮不红**
+  #        （复核量化：余量 0 → 6，那 6 条正是"保护提问证据不被销毁"的测试）。
+  # ⇒ 修法：口径搬进代码 —— **比较与记账两侧都扣掉未跟踪的**，于是"有它"与"没它"
+  #    得到**同一个数**，余量回到 0，删任何一条都红。助手：`scripts/gates-tracked-total.py`
+  #    （它自己有判据，含反向：不扣减时那两个数必须不同）。
+  # ⚠ 拿不到**完整**节点表时**不扣**（退回旧口径）并**大声说**：宁可这一跑口径旧，
+  #    也不能拿半张表去扣——那会把"少收集"误判成"用例被删"（方向反了）。
+  $trackedExcluded = 0
+  $caliberOk = $false
+  if ($null -ne $pytestPassed -and $allNodeIds.Count -gt 0 -and
+      $allNodeIds.Count -eq $totalRan -and (Test-Path $junitPath)) {
+    try {
+      $caliber = (& $py (Join-Path $repo 'scripts\gates-tracked-total.py') `
+                    --junit $junitPath --repo $repo | ConvertFrom-Json)
+      $trackedExcluded = [int]$caliber.untracked
+      $caliberOk = $true
+      if ($trackedExcluded -gt 0) {
+        Write-Host ("   棘轮口径：扣掉**未跟踪文件**里的 {0} 条用例 ⇒ 计 {1}（实测总数 {2}）" -f `
+          $trackedExcluded, ($totalRan - $trackedExcluded), $totalRan) -ForegroundColor DarkGray
+        $caliber.untracked_files.PSObject.Properties | ForEach-Object {
+          Write-Host ("      − {0}：{1} 条" -f $_.Name, $_.Value) -ForegroundColor DarkGray
+        }
+      } else {
+        Write-Host "   棘轮口径：没有未跟踪文件里的用例（计 $totalRan）" -ForegroundColor DarkGray
+      }
+    } catch {
+      Write-Host ("   ⚠ 棘轮口径助手跑失败（{0}）⇒ 本跑按**实测总数**判（旧口径）" -f $_.Exception.Message) -ForegroundColor Yellow
+    }
+  } else {
+    Write-Host ("   ⚠ 拿不到完整节点表（junit 条目 {0} ≠ 总账 {1}）⇒ 棘轮本跑按**实测总数**判（旧口径）" -f `
+      $allNodeIds.Count, $totalRan) -ForegroundColor Yellow
+  }
+  #: 棘轮**判据用的**总账（口径生效时 = 实测总数 − 未跟踪用例数）
+  $totalForRatchet = if ($caliberOk) { $totalRan - $trackedExcluded } else { $totalRan }
   if ($null -ne $pytestPassed) {
     if (Test-Path $baselinePath) {
       $base = Get-Content $baselinePath -Raw | ConvertFrom-Json
       $baseTotal = [int]$base.pytest_total
       if ($baseTotal -le 0) { $baseTotal = [int]$base.pytest_passed + [int]$base.pytest_skipped }
-      if ($totalRan -lt $baseTotal) {
-        $why += ("总账 {0} < 基线 {1}（passed {2} + skipped {3} + failed {4} + errors {5}）" -f $totalRan, $baseTotal,
-          $pytestPassed, $pytestSkipped, [int]$pytestFailed, [int]$pytestErrors)
+      if ($totalForRatchet -lt $baseTotal) {
+        $why += ("总账 {0} < 基线 {1}（passed {2} + skipped {3} + failed {4} + errors {5}；口径：{6}）" -f `
+          $totalForRatchet, $baseTotal, $pytestPassed, $pytestSkipped, [int]$pytestFailed,
+          [int]$pytestErrors, $(if ($caliberOk) { "只算受版本控制的用例，已扣 $trackedExcluded 条未跟踪" } else { "实测总数（节点表不全）" }))
       }
       # 环境类 skip 白名单（基线里声明）：它们**随环境出现/消失是正常的**，不当回归。
       # 白名单**外**的**新** nodeid ⇒ 红（有人新加了一条跳过，或某个依赖坏了让用例开始 skip）。
@@ -441,11 +483,11 @@ try {
         Write-Host ("⛔ **只涨不跌被破**：" + ($why -join '；')) -ForegroundColor Red
         $baselineDrop = $true
       } else {
-        $msg = "   pytest 总账 $totalRan ≥ 基线 $baseTotal（passed $pytestPassed / skipped $pytestSkipped / failed $([int]$pytestFailed) / errors $([int]$pytestErrors)），"
+        $msg = "   pytest 总账 $totalForRatchet ≥ 基线 $baseTotal（passed $pytestPassed / skipped $pytestSkipped / failed $([int]$pytestFailed) / errors $([int]$pytestErrors)），"
         $msg += "skip nodeid 全在基线或环境白名单内"
         Write-Host $msg -ForegroundColor Green
-        if ($totalRan -gt $baseTotal) {
-          Write-Host ("   （比基线多 $($totalRan - $baseTotal) 条 ⇒ 新增用例后请 -UpdateBaseline 记一次）") -ForegroundColor DarkGray
+        if ($totalForRatchet -gt $baseTotal) {
+          Write-Host ("   （比基线多 $($totalForRatchet - $baseTotal) 条 ⇒ 新增用例后请 -UpdateBaseline 记一次）") -ForegroundColor DarkGray
         }
       }
     } else {
@@ -499,13 +541,21 @@ try {
           Write-Host ("   ⚠ 这一跑有**收集错误**（errors={0}）或没拿到节点表 ⇒ 白名单**不剔除**（收集不全时凭它剔会误删；宁可先不剔）" -f [int]$pytestErrors) -ForegroundColor DarkGray
         }
       }
-      @{ pytest_passed = $pytestPassed; pytest_skipped = $pytestSkipped; pytest_total = $totalRan
+      # ⚠ **记账也用棘轮口径**（2026-09-26，修复核 MED-1 的"定时炸弹"）：
+      #   原先这里写 `$totalRan`（实测总数）⇒ 未跟踪文件的用例被钉进基线 ⇒
+      #   ① 那份文件一被删就假红；② 我手工调低去躲它 ⇒ 造出"可静默删用例"的余量。
+      #   现在两侧同口径 ⇒ "有它/没它"同一个数、余量回到 0。
+      # `pytest_passed` 按 `总账 − skipped − failed − errors` **推出**，让文件自洽
+      #   （它是信息性字段；判据只用 `pytest_total`）。
+      @{ pytest_passed = ([int]$totalForRatchet - [int]$pytestSkipped - [int]$pytestFailed - [int]$pytestErrors)
+         pytest_skipped = $pytestSkipped; pytest_total = $totalForRatchet
+         untracked_excluded = $trackedExcluded
          skip_nodeids = $skipNodeIds
          environmental_skip_nodeids = $envKept
          runLive = [bool]$env:RUN_LIVE
          updatedAt = (Get-Date).ToString('s') } | ConvertTo-Json -Depth 4 |
         Set-Content -Path $baselinePath -Encoding utf8
-      Write-Host ("   基线已更新：总账=" + $totalRan + "（passed=" + $pytestPassed + " skipped=" + $pytestSkipped + "，skip nodeid " + $skipNodeIds.Count + " 个，环境白名单 " + $envKept.Count + " 个）") -ForegroundColor Yellow
+      Write-Host ("   基线已更新：总账=" + $totalForRatchet + "（passed=" + ([int]$totalForRatchet - [int]$pytestSkipped - [int]$pytestFailed - [int]$pytestErrors) + " skipped=" + $pytestSkipped + "，另扣未跟踪 " + $trackedExcluded + " 条；skip nodeid " + $skipNodeIds.Count + " 个，环境白名单 " + $envKept.Count + " 个）") -ForegroundColor Yellow
     }
   } elseif ($Full) {
     # ⛔ **不许在"没跑出数字"时静默放行**（复核 v3 的对抗性反例 M3，2026-09-20 修）：
