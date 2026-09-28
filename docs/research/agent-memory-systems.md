@@ -424,8 +424,14 @@ LongMemEval_S 约 **115k token**（≈40 会话）；MemoryAgentBench **103k–1
 ### 5.3 三条**直接打在我们身上**的发现（比一般综述更有用）
 
 1. **我们用的 `sqlite-vec` 官方自述是 brute-force only，官方 benchmark 只做到 100k 向量。**
+   🔴 **2026-09-27 待复核 —— 这条前提可能已过期**：`sqlite-vec` 的 ANN 索引（`rescore` / `diskann`）
+   已进主线、只在 `v0.1.10-alpha.*`。**我亲手核到**：PyPI 有 Windows 轮子
+   （`sqlite_vec-0.1.10a4-py3-none-win_amd64.whl`，310,292 B）、该 DLL 里 `Build flags: rescore diskann`、
+   `vec_version() = v0.1.10-alpha.4` 可加载。**但我没核通 ANN 的建表语法，也没在真实规模上量过召回与耗时。**
+   ⇒ 在拿到权威语法 + 自测之前，**本条暂不撤回**（详见 `docs/research/solutions-for-open-problems.md` §1.9）。
+   下面那句"IVF / DiskANN 仍是独立分支"**已被上述事实推翻**，保留原文仅为留痕。
    ⇒ 与 §6 我们实测的"**522k 行 636.6 ms、随条数线性**"完全一致：**这不是我们的 bug，是这条技术路线的天花板**。
-   要上百万/千万，必须换索引形态（官方仓库里 IVF / DiskANN 仍是**独立分支**，未并入 main——我核到 `TODO.md` 的描述，
+   要上百万/千万，必须换索引形态（**原话**：官方仓库里 IVF / DiskANN 仍是**独立分支**，未并入 main——我核到 `TODO.md` 的描述，
    **未核当前 main 的实际索引能力**）。
 2. **"按项目拆库"这条路上有两个官方点名的反模式。** Qdrant 官方逐字："**Creating a separate collection for
    each tenant is rarely the most efficient approach**"（推荐"**全部租户放一个 collection**，用分区/分片隔离"；

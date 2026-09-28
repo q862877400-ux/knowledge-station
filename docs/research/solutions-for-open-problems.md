@@ -115,6 +115,38 @@
 ⚠ **H1 与 D7 是同一类**：D7 记的是"判据看不出有没有真跑"，H1 记的是"**判据查错了对象**"⇒ 两者合起来是
 "空验证"这一族的两个不同面。**第一版清单只写了 D7 那一面，漏了 H1 那一面。**
 
+### 1.9 一条**正在核实中**的好消息：`sqlite-vec` 可能已经有 ANN 了（B 组报，我核到一半）
+
+B 组中期快报：`sqlite-vec` 主线在 2026-03-31 合进了 ANN（PR #273/#276/#277/#278），
+**稳定版仍是 0.1.9，ANN 只在 v0.1.10-alpha.1~4**。
+⇒ **若成立，我在 `agent-memory-systems.md` §5.3 写的「`sqlite-vec` 官方自述只能暴力扫、
+官方 benchmark 只做到 100k」就是过期前提**（B1 的解法可能不用换引擎）。
+
+**我本轮亲手核到的（可复现）**：
+1. **PyPI 上确有 `0.1.10a4` 的 Windows 预编译轮子**：`sqlite_vec-0.1.10a4-py3-none-win_amd64.whl`，
+   **310,292 B**，上传 2026-05-18 06:54:36；我下下来解包，**大小与 PyPI 声明逐字节相符**。
+2. **该 DLL 里确实编进了 ANN 代码路径**：`rescore` 出现 **25** 次、`diskann` **30** 次；
+   有影子表 DDL（`_rescore_chunks`/`_rescore_vectors`/`_diskann_buffer`/`_diskann_nodes`）、
+   bitvector / int8 的向量化距离核；且有一行 **`Build flags:   rescore  diskann`**
+   ⇒ **本机这个 Windows 构建真的带这两个索引**。
+3. **加载成功**：`vec_version() = v0.1.10-alpha.4`（在一次性 venv 里，**未动本仓 .venv**）。
+4. **本仓 .venv 仍是 v0.1.9**（我直接查的）⇒ 升级是**独立决定**，不是既成事实。
+
+**我没核到的（不许当结论用）**：
+- 🔴 **ANN 能不能在本机真的建起来并加速**：我试了 4 种 DDL 写法全失败，最后一次是
+  `could not parse table option 'rescore(quantizer=bit, oversample=20)'`。
+  ⚠ **失败的是我的语法，不是这个功能**（DLL 里只有 `quantizer` 与 `oversample` 两个内层键名，我试遍组合仍解析不过），
+  **我没找到权威语法文档**。
+- 🔴 **B 组自己存的 `vec0.md` / `api-reference.md` / `CHANGELOG.md` 里搜不到
+  `rescore` / `diskann` / `quantizer` / `oversample` 任何一个** ⇒ 它存的是**合并前**的文档；
+  **"已合并"目前只有它的摘要，没有随件的一手出处**。
+- 它报的 522k 行实测（flat 788.7 ms → rescore int8 458.3 ms → rescore bit 71.4 ms）
+  **我未复现**；它自己也标注 bit 那档 recall 0.215 是合成数据失真。
+
+**⇒ 本轮结论：前提可能已过期，但「我们的规模墙因此解除」尚未成立。**
+在拿到**权威建表语法 + 在我们真实数据上量出召回与耗时**之前，
+`agent-memory-systems.md` §5.3 那句"只能暴力扫"**暂不撤回**，但已在该处标注**待复核**。
+
 ### 1.8 明确**不在**本次范围内（避免把台账里已否掉的形态重新端上来）
 
 `NOT-DOING` 逐条对过，以下不作为待办：产出 Word/PPT（#1）、bbox 高亮框（#2）、通用层自己设计手搓（#6）、
