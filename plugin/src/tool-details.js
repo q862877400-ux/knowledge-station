@@ -60,7 +60,10 @@ export function firstUseReceipt(exec, toolName) {
   detailSeq += 1
   exec.deferContext({
     id: `ks-detail-${toolName}-${Date.now().toString(36)}-${String(detailSeq)}`,
-    source: { kind: 'plugin', plugin: 'ks-dsh-plugin' },
+    // v4 生产者合约：kind 是生产者自己的身份、plugin 字段被丢弃
+    // （DSH `session-format-v3-to-v4/src/sources.ts` 的 rewritePluginSource 原文：
+    //   "kind is the producer's own kind and whose `plugin` field is dropped"）
+    source: { kind: 'plugin:ks-dsh-plugin' },
     role: 'user',
     content: [{ type: 'text', text: detail }],
   })

@@ -130,9 +130,23 @@ check('② 标准号模式命中（GB/T 3608 / GB30871 / DB11/T 1234 / AQ 3009 �
     assembled === `${KS_COMPLIANCE_SENTRY}\n\n${extractL1()}`, `组装 ${String(assembled.length)} 字`)
 }
 
+/* v4 源契约判据（模块作用域，⑨ 与 ⑩ 共用）。
+   ⚠ v4 契约（2026-09-28 对齐 DSH 校验原文，非猜测）：
+     `packages/session/session-format-v3-to-v4/src/message-sources.ts:9` 拒收 `kind === 'plugin'`；
+     同包 `sources.ts` 的 `rewritePluginSource` 文档字符串逐字："kind is the producer's own kind and whose
+     `plugin` field is dropped" ⇒ **正确形状是 `kind: 'plugin:<name>'` 且不带 `plugin` 字段**。
+     本仓插件的生产者名 = `ks-dsh-plugin`。
+   刻意**不**只硬编码整串 —— 那样换生产者名就假红；钉住真正承重的三件：
+   kind 非退休值、带我们的生产者名、不带遗留 plugin 字段。 */
+const v4SourceOk = (s) =>
+  typeof s?.kind === 'string' && s.kind.length > 0
+  && s.kind !== 'plugin'                      // v4 拒收的退休值
+  && s.kind === 'plugin:ks-dsh-plugin'        // 我们的生产者身份
+  && s.plugin === undefined;                 // v4 迁移会丢弃该字段
+
 /* ⑨ P0-1/F3 形状判据（假桩比真件宽松 = 漏检根因——本块按真宿主必填面钉）：
    ① 段声明的 order 必须是**有限数**（缺 = 真宿主拒整段 ⇒ 整插件不激活）；
-   ② deferContext 消息必填 id（唯一）+ source={kind:'plugin',…}。 */
+   ② deferContext 消息必填 id（唯一）+ source 的 v4 生产者合约。 */
 {
   const section = buildComplianceSection()
   check('⑨ 段声明含**有限数 order**（缺 order ⇒ 真宿主拒整段 ⇒ 整插件不激活——P0-1 回归牙）',
@@ -140,10 +154,14 @@ check('② 标准号模式命中（GB/T 3608 / GB30871 / DB11/T 1234 / AQ 3009 �
     `order=${String(section.order)}`)
   const m1 = complianceNextStepMessage()
   const m2 = complianceNextStepMessage()
-  check('⑨ deferContext 消息必填 id（唯一不撞）+ source 合约形状（F3 回归牙）',
+  check('⑨ deferContext 消息必填 id（唯一不撞）+ source 合约形状（F3 回归牙·v4）',
     typeof m1.id === 'string' && m1.id.startsWith('ks-compliance-') && m1.id !== m2.id
-    && m1.source?.kind === 'plugin' && m1.source?.plugin === 'ks-dsh-plugin',
+    && v4SourceOk(m1.source),
     JSON.stringify({ id: m1.id, source: m1.source }))
+  // 回归牙：kind 退回退休值 'plugin' 必须被本断言抓住（v4 下会让消息落不了盘、回合第一步就死）
+  check('⑨ 源契约回归牙：kind 退回 "plugin" 必判不合格',
+    v4SourceOk({ kind: 'plugin', plugin: 'ks-dsh-plugin' }) === false,
+    'v4 拒收 kind==="plugin"，断言必须能抓住它')
 }
 
 /* ⑥ 前缀表与引擎 _STD_NO_PREFIX 逐词同步。 */
@@ -314,10 +332,10 @@ check('② 标准号模式命中（GB/T 3608 / GB30871 / DB11/T 1234 / AQ 3009 �
   check('⑩ 首用回执：每会话每工具**恰一次**（同会话二调不重发、异会话各发）',
     got.length === 2 && got[0].content[0].text === KS_ANSWER_DETAIL,
     `发出 ${String(got.length)} 份`)
-  check('⑩ 回执消息必填形状（id 唯一 + source 合约——F3 内建防重演）',
+  check('⑩ 回执消息必填形状（id 唯一 + source 合约——F3 内建防重演·v4）',
     got.every((m) => typeof m.id === 'string' && m.id.startsWith('ks-detail-')
-      && m.source?.kind === 'plugin' && m.source?.plugin === 'ks-dsh-plugin'),
-    JSON.stringify(got.map((m) => m.id)))
+      && v4SourceOk(m.source)),
+    JSON.stringify(got.map((m) => ({ id: m.id, source: m.source }))))
   firstUseReceipt({ agent: { session: { id: 'sess-r3' } } }, 'ks_answer')
   check('⑩ deferContext 缺席 ⇒ 探针降级不炸（可缺省面纪律）', true)
 }

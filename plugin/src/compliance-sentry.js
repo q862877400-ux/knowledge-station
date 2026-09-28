@@ -266,7 +266,7 @@ export function complianceNextStepMessage() {
   nextStepSeq += 1
   return {
     id: `ks-compliance-${Date.now().toString(36)}-${String(nextStepSeq)}`,
-    source: { kind: 'plugin', plugin: 'ks-dsh-plugin' },
+    source: { kind: 'plugin:ks-dsh-plugin' },
     role: 'user',
     content: [{ type: 'text', text: buildComplianceNextStep() }],
   }
