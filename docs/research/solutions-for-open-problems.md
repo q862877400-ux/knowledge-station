@@ -70,7 +70,7 @@
 |---|---|---|---|
 | D1 | `AGENTS.md` **只增不减** | **188 行**；`复核` 一节 **77 行 = 41%**；**42 条里 14 条超过它自己定的「1–3 行」**；21 次改动**新增 197 行 / 删除 9 行 = 21.9 : 1** | `AGENTS.md` 自身 |
 | D2 | **两份文档对门禁给了两个说法** | `AGENTS.md`：一条命令、**8 步**、"没浏览器就是**红**"；`README.md`：**"五道门禁"**、5 条命令、"没浏览器则 **SKIP**" | `README.md` / `AGENTS.md` |
-| D3 | `README.md` **有假话** | 写「生产库**还没有 `material*` 表**」——实测**五张表都在**、3 项目 / 81 份 / 7,872 切片；门禁数字写 **1708 passed**（实际 **2532**）。⚠ 材料平面状态 2026-09-26 已在 `docs/VISION-TREE.md` 更正，README 未跟上 | `README.md` |
+| D3 | `README.md` **有假话** | 写「生产库**还没有 `material*` 表**」——本轮**只读实测**：`material_project`/`material`/`material_chunk`/`material_fts` **五张表都在**，**3 个项目 / 81 份材料 / 7,872 切片**；门禁数字写 **1708 passed**，而棘轮基线 `scripts/gates-baseline.json` 记录 **总账 2530 / passed 2527 / skipped 3**（由 **2026-09-26 16:38:54 那次 8/8 全绿**写下）⇒ **差 822 条**。⚠ 材料平面状态 2026-09-26 已在 `docs/VISION-TREE.md` 更正，README 未跟上 | `README.md` |
 | D4 | **棘轮可被静默删保护性测试** | 复核警告：某批"暴露面"从 0 涨到 6 ⇒ **一次例行 `-UpdateBaseline` 就把这 6 条"保护数据不被销毁"的测试变成可静默删除**；**棘轮不会红** | 计划 P5-棘轮 |
 | D5 | **同型洞还有 5 条未登记** | 5 条测试依赖 artifact（2 条依赖未跟踪 `var/tmp/rag-gate-measure.json`、2 条依赖**仓外活库**、1 条依赖未跟踪 `var/tmp/jev-cn-baseline.py` 且**硬编码主仓绝对路径** ⇒ 被清就 **error**，**下调总账挡不住** | 计划 0.6b-MED2 / 0.6b-LOW-3 |
 | D6 | 门禁脚本**自身没有单测** | 把 `run-gates.ps1` 里 8 处 `$totalForRatchet` 逐字改回 `$totalRan` ⇒ **22 条相关测试全绿、零红** | 计划 0.6b-MED1-修2 登记 |
