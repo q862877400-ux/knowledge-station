@@ -20,6 +20,8 @@
 | 有没有场景对得上的先例？ | **有一半。** 裂成两半：一半有我们的场景但无优化，一半有优化但无我们的场景 | §5 |
 | "知识层长起来会失控"有人解决过吗？ | **四篇一篇都没有。** 共同根因：**没一篇跑到会显形的规模** | §2.3 |
 | "不涨分的规矩怎么留"有人解决过吗？ | **族内有解**（EvoSkill 定容前沿），我上一份说"别指望抄到答案"**过宽** | §6.1 |
+| 🔧 "什么该过期"是空白吗？ | **不是空白，我说过头了。** 已有命名的失效模式（Library Drift）、棘轮理论、硬阈值与生命周期八阶段。**真正的空白窄得多：LLM 技能之间的语义冲突检测** | §4.5 |
+| 溯源边只有 `PURPOSE.md` 一种？ | **不是**，而且文献**一致往"运行时强制"走**；`PURPOSE.md` 是最左端的"纯文档字段"档，**已知会被洗掉** | §4.5 |
 
 ---
 
@@ -140,7 +142,10 @@ Trace2Skill §C.2 是四篇中**唯一**给出"知识会变脏"实证的地方�
 
 ⇒ 与 [记忆系统调研](agent-memory-systems.md) §3.3 **互补**：那批文献**测了脏率**
 （mem0 生产库 10,134 条里 97.8% 不可用、单条幻觉被复制 668 份），这批文献**测了涨分**。
-**"脏了之后该怎么办"，两批文献合起来仍然没有答案。**
+
+🔧 **更正（2026-09-28，D 路回后）**：我在这里写过的 **"脏了之后该怎么办，两批文献合起来仍然没有答案"——这句过头了。**
+§4.5 列出**已有的**答案：命名的失效模式（library drift）、闭式判据的棘轮、硬阈值、以及把
+"repair or prune stale entries" 写进生命周期的八阶段综述。**真正剩下的空白要窄得多**（语义冲突检测）。
 
 ---
 
@@ -246,6 +251,74 @@ gist 把那个文件抽出来当整个方案的核心。**方向相反**：gist 
 
 ---
 
+## §4.5 溯源边与"什么该过期"（Track D）
+
+### 4.5.1 溯源边不是只有 `PURPOSE.md` 一种，**而且文献一致往"运行时强制"走**
+
+`PURPOSE.md` 是**最左端的"纯文档字段"那一档**。往右是逐步强化的形态：
+
+| 形态 | 出处 | 关键原文/要点 |
+|---|---|---|
+| 每条记忆必带 origin/timestamp/evidence pointer + **citation lock**（只许引真读过的证据） | 2608.29606 Agent Zero Memory | 运行时锁 |
+| typed 执行图（agents/sources/memories/claims/actions） | 2608.10509 MAP-Graph | **"provenance 是运行时控制信号，不只是事后审计元数据"** |
+| 🔴 **边会被"洗掉"** | **2607.29167 Memory Provenance Laundering** | **不强制就会在记忆整合时失效**——对"只在文档里写个字段"这条路线是最重要的警告 |
+| 扩展 **W3C PROV + MCP**（唯一走国际标准的） | 2508.02866 PROV-AGENT | 标准件 |
+| 技能的三条 trace（Expression / Implementation / Operational SOG） | 2608.05204 SkillTrace | 最贴近 `PURPOSE.md` 的工业化版 |
+| **"把证据与治理规则分开、并把规则当作有生命周期的治理对象"** | 2607.16130 | **与业主"三条寿命"的判断同构**（逐字） |
+
+其余命中：2608.09153 TRACE、2607.25637 F(AI)2R（aiprov 两条不变式）、2606.22142 RoboLineage、2606.31272 部件级指纹。
+
+### 4.5.2 知识库与技能"统一管理"的分类（业主要的那个答案）
+
+| 类别 | 代表 | 说明 |
+|---|---|---|
+| **(a) 统一存储 / 统一 API** | 2606.02304 UCE（Memory+Strategy+Workflow+Skill 同一 library 同一管线）、**2609.25991 Knowledge-as-Skill**（知识文件进 `SKILL.md` 结构，frontmatter = topic/type/**provenance**/**lifecycle**）、2604.16911 Skilldex、2609.16669（记忆即 Skill，L0/L1/L2） | 少数派 |
+| **(b) 分开 + 交叉引用** | WikiSkill 本体、2605.10114 SkillRAE、2608.09153 TRACE（四源分开 + 跨层归因）、2609.14631 IntentCap、**2605.29250 OmniRetrieval**（逐字 `not homogenization but an overarching layer`）、2608.25091 Auto-Policy、2605.22634 Contractual Skills | **多数派** |
+| **(c) 完全分开、互不引用** | **无显式先例** | 负结论：**这是默认状态，不是被辩护的立场** |
+
+⚠ 两处自我标注：2609.16669 自陈其信号是"存在性信号"而非确证率；
+2605.29250 的对象是**异构知识源**，与我们"条款库"只是**类比**。
+
+### 4.5.3 🔧 更正：**"什么该过期"不是空白**（我说过头了）
+
+D 路给了完整检索词与命中数，可复核：
+`abs:"skill" AND abs:"stale"`=13 ｜ `AND abs:"outdated"`=13 ｜ `all:"skill" AND all:"retire"`=12 ｜
+`AND abs:"lifecycle"`=97 ｜ `AND abs:"pruning"`=83 ｜ `AND abs:"audit"`=211 ｜ `AND abs:"conflict"`=134
+
+**已有的答案**：
+
+| 贡献 | 出处 |
+|---|---|
+| 八阶段生命周期**明文含** `repair or prune stale entries` 与 `provenance and rollback`（TMLR 2026，审计 124 篇） | 2607.10113 |
+| **给这个失效模式命了名：library drift**；台账 = append-only evidence log + per-skill contribution scores + attribution verdicts | 2605.19576 |
+| **闭式判据的棘轮**：judge 把失败判过 ≥(1−τ)/2，则**任何样本量都裁不掉** | 2605.22148 Ratchet |
+| **false-pass 率 0.45 是硬阈值**，越过则**静默关掉治理，任何汇总指标都看不到** | 2607.07436 Blind Curator |
+| **57 个真实仓库 / 105 次 release transition，每次都让部分技能失效**，前沿 agent 仅 29.9–69.7% F1 | 2608.21964 Repo2Skill-Evo |
+
+⇒ **真正的空白要窄得多：LLM 技能之间的语义冲突检测**——
+那 134 条 `conflict` 命中**全部**是机器人 / IoT / SDN / 自动驾驶 / 传统 rule-based，**没有一条是 LLM 技能之间**。
+
+### 4.5.4 反面证据：ClawHavoc 核实通过，**数字能追到一手**
+
+- "nearly 1,200" 的实际出处：**Antiy CERT 2026-02-06 逐字 `at least 1,184 malicious Skills`**（12 个作者 ID 分解合计正好 1184）。
+- **独立交叉验证更硬**：arXiv **2603.00195 v2 的更正逐字**写着
+  `ClawHavoc counts are 341, later 824, and 1,184 by source and date, not "over 1,200"`
+  ——**一篇正式论文专门把这个流传说法订正掉**。
+- 三类资产（API key / 钱包 / 浏览器凭据）均由 Antiy + PolySwarm 独立确认。
+- ⚠ **别混三个数**：**1184** = 恶意包数 ｜ **1467** = 含任一缺陷的技能数（Snyk）｜ **76** = Snyk 人工确认的恶意载荷数。
+
+**同类与最硬的教训**：
+
+| 原文/结论 | 出处 |
+|---|---|
+| **"skill writing without validation is no better than using no skills"** | 2605.29668 GRASP |
+| **"post-hoc rollback recovers only a small fraction"**（污染不可逆） | 2608.05810 |
+| 三条独立谱系：**能力全部↑ 的同时未授权变更也全部↑** | 2608.17684 |
+| 三个扫描器在 61,990 个共有技能上，对 23,702 个结论不一致 | 2609.17274 |
+| 技能级联 / 后门 / 隐蔽策略操纵 / SkillBloat | 2609.30383 / 2608.09577 / 2609.02564 / 2608.21929 |
+
+---
+
 ## §5 与我们场景的交叉点：谁对得上、**差在哪**
 
 ### 5.1 有一篇横跨了一半
@@ -283,6 +356,8 @@ Codex gated accuracy **45.3% → 55.8%**，**两个不同底模收敛到 0.4pp �
 | 3 | 「记忆侧最贵的那条通道实测贡献≈0」 | ➕ **被加强但被限定**：Meta-Harness 独立得到同类现象（同等上下文下 +7.8，压到最低反而输）；但它搜的是"**怎么用** BM25"，**没有替代我们的向量路线** |
 | 4 | 「我们的原始层/知识层已有」 | ⚠ **修正为更坏**：技能层 **55 份散三处、无清单、无溯源边、已有一处会导致查错库的矛盾** |
 | 5 | 「WikiSkill 值得借鉴」 | ⚠ **大幅收窄**：它**没有官方代码**；而四篇**都没有**裁剪机制、都没跑到会显形的规模 |
+| 6 | 「**脏了之后该怎么办，两批文献合起来仍然没有答案**」 | 🔧 **过头了。** 已有 library drift（命名）、Ratchet（闭式判据）、Blind Curator（0.45 硬阈值）、八阶段生命周期含 `repair or prune stale entries`（TMLR 2026，124 篇审计）。**剩下的真空白窄得多：LLM 技能间的语义冲突检测** |
+| 7 | 「G1 = 给判据补一条 `PURPOSE.md` 式的边」 | ⚠ **被限定**：2607.29167 证明**只写在文件里的边会在记忆整合时被洗掉**；2608.10509 明说 provenance 应是**运行时控制信号**而非事后元数据。⇒ **纯文档字段是最左端、最弱的一档** |
 
 ---
 
@@ -305,13 +380,26 @@ Codex gated accuracy **45.3% → 55.8%**，**两个不同底模收敛到 0.4pp �
 
 ---
 
-## §8 还没查的
+## §8 四路已齐，剩下的空白与已知失效
 
-- **D 路（溯源边与规则治理的先例）**——**仍在跑**。要回答的是：
-  除 `PURPOSE.md` 外还有哪些"把一条规程指回它所依据的知识条目"的做法；
-  "知识库与技能统一管理"有 (a) 统一存储 /(b) 分开但交叉引用 /(c) 完全分开 哪类先例；
-  **"什么该过期"是不是空白**（给出检索词）；以及反面证据（已知线索：SoK 提到的 ClawHavoc 事件）。
-- 四份完整报告与 64 个原始件在 `var/tmp/study/skill-evo/`（**gitignore**）。
+**四路全部完成**（A 仓库 / B 同族 / C 运行壳 / D 溯源边与治理）。完整报告与 64 个原始件在
+`var/tmp/study/skill-evo/`（**gitignore**）：`A-repos.md`（23 KB）、`B-siblings.md`（54 KB）、
+`C-harness.md`（43 KB）、`D-provenance.md`（**481 行**）。
+
+**文献层面的真空白（收敛后）**：
+1. **LLM 技能之间的语义冲突检测** —— 唯一确认的空白（134 条 `conflict` 命中全是机器人/IoT/SDN/自动驾驶/传统 rule-based）。
+2. **可溯源条款库 + 版本/效力 + 审批硬门 + 几万到几十万条款** 的端到端自动化（§5）。
+3. **"带 diff 的拒绝台账 + 显著性检验的接受门"** —— 四篇里最强的 WikiSkill 也没做显著性检验（§2.4）。
+
+**方法层面的已知失效（子代理自报，照实列）**：
+- 🔴 **D 路：arXiv 官方 API 全程对本机 IP 持续 429/406，5 轮退避无效。** 改用 `arxiv.org` 官方 abs 页
+  的 citation meta 标签取逐字标题/摘要 + 官方 advanced search 取检索 —— **仍是 arXiv 一手来源**，
+  但**只有"最新优先"无 relevance 排序、单次最多 50 条** ⇒ D 路所有"未找到"都受此口径限制。
+- **C 路：arXiv API 429 导致三组关键检索失败且未重跑成功** ⇒ "没找到"只覆盖约 40 篇候选。
+- 除 WikiSkill 外**未读 PDF 全文**；**论文自报的数字一个都没复现**（只核了内部算术一致性）。
+- **未做 GitHub 仓库实证**（社区里是否真有人在用 `PURPOSE.md` 式做法）；**未查 Anthropic/OpenAI 官方 skill 规范原文**。
+- ClawHavoc **无受害者侧取证**，Koi 原报告未直接读到。
+- ⚠ **该领域每月新增数十篇**，2026-09-28 的索引下结论可能很快需要更新。
 
 ---
 
@@ -319,7 +407,7 @@ Codex gated accuracy **45.3% → 55.8%**，**两个不同底模收敛到 0.4pp �
 
 | 层 | 位置 |
 |---|---|
-| 完整报告（四份） | `var/tmp/study/skill-evo/A-repos.md`（23 KB）、`B-siblings.md`（54 KB）、`C-harness.md`（43 KB）、`D-provenance.md`（**待回**） |
+| 完整报告（四份） | `var/tmp/study/skill-evo/A-repos.md`（23 KB）、`B-siblings.md`（54 KB）、`C-harness.md`（43 KB）、`D-provenance.md`（481 行） |
 | 原始件 | 同目录 `raw/`（64 个文件）＋ `var/tmp/study/memory/raw/papers/wikiskill.2608.27454.pdf` |
 | WikiSkill 单篇评估（含 §12 同族增补与更正） | [wikiskill-integration-assessment.md](wikiskill-integration-assessment.md) |
 | 记忆系统侧调研 | [agent-memory-systems.md](agent-memory-systems.md) |
