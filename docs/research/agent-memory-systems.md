@@ -274,7 +274,7 @@ arXiv 标题逐字取自 arXiv 官方 API（`raw/arxiv_meta.json`）。报告 `v
 | **Letta 实测**（MemGPT 原作者，`letta.com` 官方博客 2025-08-12） | `竞品实测`（有利益关系但方法公开） | GPT-4o mini + **纯文件系统**（`grep`/`search_files`/`open`）在 LoCoMo 拿 **74.0%**，原文点名 "significantly above **Mem0's reported 68.5%**" | ✅ 原文逐字核到 |
 | **Mem0 从未答复质询**（issue `#3004`） | `竞品质询` `可机械核实` | Letta CTO 问"MemGPT 的数字是怎么跑出来的"，**comments = 0**，5 个月后被关 | ✅ `gh api` 核到 |
 | **Mem0 自己的论文 Table 2** | `厂商论文内部` | **full-context 72.90 > Mem0 66.88**，而摘要与引言强调的是 "consistently outperform" | ✅ 原文核到 |
-| **ECHO 自审**（`2608.21755`） | `独立第三方`（作者自审） | 检索 Hit@10 **96.29%** 却在匹配的 91 题 QA 上 **41.76% vs Mem0 OSS 64.84%**（McNemar **p=.00107**）⇒ **检索指标 ≠ 答案质量** | ✅ 摘要逐字核到 |
+| **ECHO 自审**（`2608.21755`） | `独立第三方`（作者自审） | 检索 Hit@10 **96.29%** 却在匹配的 91 题 QA 上 **41.76% vs Mem0 OSS 64.84%**（McNemar **p=.00107**）⇒ **检索指标 ≠ 答案质量** | ✅ 摘要逐字核到 **（2026-09-27 我再核一次 abs 页：标题逐字为 "ECHO: A Cognitively Inspired, Auditable Memory Plane for Long-Horizon Agents"，四个数字全部逐字命中）** |
 | **Bench'd 独立评测**（issue `#5141`） | `独立第三方`（商业公司，有自家产品） | LongMemEval 32.4% / LoCoMo **0.0%** / 基线 57.6% | ⚠ **不打问号不能用**：LoCoMo 0.0% 极可能是它自己 harness 出错，题数也对不上 ⇒ 只当"存在争议"的线索 |
 | **现场审计**（issue `#4573`） | `第三方现场报告` `单例非受控` | 32 天 / **10,134 条**导出，人工逐条读完仅 **224** 条存活 = **"97.8% junk"**；**单条反馈回路幻觉被复制 668 份** | ✅ issue 原文核到；**不能外推**成"普遍如此" |
 | **"整合制造虚假确定性"**（`2606.29279`，单作者） | `独立研究者` `未见同行评审` | "a casual, hedged remark becomes a confident, dated assertion the agent then obeys like a verified fact"；**"No attacker is needed"**；被动 "unverified" 标签**被忽略** | ✅ 原文核到，但**降级**使用 |
