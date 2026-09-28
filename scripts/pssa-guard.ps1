@@ -7,17 +7,22 @@
 # 为什么用 PSSA（本机实测 2026-09-28）：
 #   原始件命中 0 条；把 7 处读取改回、只留赋值点 ⇒ 命中 1 条
 #   「Line 475: The variable 'totalForRatchet' is assigned but never used.」
-#   ⇒ 一次命中、原始件零误报。复现命令见 docs/research/TECH-PATH-2026-09-28.md §6。
+#   ⇒ 一次命中、原始件零误报。
 #
-# 只扫两条规则，不扫全规则集：run-gates.ps1 本身就有 64 条诊断
-# （WriteHost / PositionalParams / EmptyCatch / BOM），全扫等于永久红。
-# 这两条分别治「变量算了没人用」「参数声明了没人读」——正是命令层空验证的两种形态。
+# 扫的范围（**不是**全规则集）：run-gates.ps1 本身就有 60+ 条诊断
+#   （WriteHost / PositionalParams / EmptyCatch / BOM），全扫等于永久红。
+#   这里只判两条，**含义不同**：
+#     ① PSUseDeclaredVarsMoreThanAssignments —— 变量算了没人用（治本缺陷）
+#     ② Severity=ParseError/FileReadError —— 文件读不动/语法坏（防假绿，见下）
+#   ⚠ 独立复核（verify-freeze-pssa-guard）抓到：只筛 RuleName 会把 ParseError 静默吞掉，
+#     语法坏掉的文件照样拿绿灯 ⇒ ② 是复核逼出来的那一条，不是可有可无。
 
 $ErrorActionPreference = 'Stop'
 
 $repo = Split-Path -Parent $PSScriptRoot
 
-# PSSA 可能装在系统模块路径，也可能只在 var/tmp 下（见 TECH-PATH §1.14.1）
+# PSSA 优先取**正式的 CurrentUser 模块**（自包含：任何干净检出/提取树都认）。
+# var/tmp 那条回落是历史路径、已被 gitignore，只为老环境留个兜底。
 $pssaCandidates = @(
   (Join-Path $env:USERPROFILE 'Documents\PowerShell\Modules\PSScriptAnalyzer'),
   (Join-Path $repo 'var\tmp\study\r2-pssa\PSScriptAnalyzer')
@@ -46,27 +51,44 @@ if (-not $targets) {
   exit 3
 }
 
-$hits = @()
+# 🔴 独立复核（2026-09-28，`verify-freeze-pssa-guard`）抓到的 fail-open 洞，已修：
+#   只按 `RuleName -in $rules` 筛 ⇒ PSSA 的 `Severity=ParseError`
+#   （MissingEndCurlyBrace / FileReadError 等）**被静默丢**。
+#   ⇒ 把一个 .ps1 打成语法错误、或用 FileShare.None 锁住文件，本门禁**照样 exit 0 报"零命中"**。
+#   这与本仓 2026-09-19 修过的「命令不存在 ⇒ 恒绿」是同一族假绿。
+# 修法：ParseError / FileReadError 一律**单独收集并计为命中**（无论是否在 $rules 里），
+#   且"有文件读不动/解析不了"与"规则零命中"在输出上分开讲——绝不让前者显示成绿色 OK。
+$hits = @()        # 目标规则命中
+$unreadable = @()  # 解析错误 / 读不到的文件
 foreach ($f in $targets) {
-  $d = Invoke-ScriptAnalyzer -Path $f.FullName | Where-Object { $_.RuleName -in $rules }
+  $d = Invoke-ScriptAnalyzer -Path $f.FullName
   foreach ($x in $d) {
-    $hits += [pscustomobject]@{
-      File = $f.FullName.Substring($repo.Length + 1)
-      Line = $x.Line
-      Rule = $x.RuleName
-      Msg = $x.Message
+    $rel = $f.FullName.Substring($repo.Length + 1)
+    if ($x.Severity -eq 'ParseError') {
+      $unreadable += [pscustomobject]@{ File = $rel; Line = $x.Line; Rule = $x.RuleName; Msg = $x.Message }
+    } elseif ($x.RuleName -in $rules) {
+      $hits += [pscustomobject]@{ File = $rel; Line = $x.Line; Rule = $x.RuleName; Msg = $x.Message }
     }
   }
 }
 
+if ($unreadable.Count -gt 0) {
+  Write-Host "PSSA-guard: 有 $($unreadable.Count) 个文件**未能分析**（解析错误/读不到）—— 判失败" -ForegroundColor Red
+  $unreadable | ForEach-Object { Write-Host ("  {0}:{1}  [{2}] {3}" -f $_.File, $_.Line, $_.Rule, $_.Msg) -ForegroundColor Red }
+  Write-Host '' -ForegroundColor Red
+  Write-Host '这一类**不算"通过"**：语法坏掉或读不到的文件拿绿灯，就是假绿。' -ForegroundColor Yellow
+  exit 4
+}
+
 if ($hits.Count -eq 0) {
-  Write-Host "PSSA-guard: OK —— 扫了 $($targets.Count) 个脚本，两条规则零命中。" -ForegroundColor Green
+  $ruleStr = ($rules -join ', ')
+  Write-Host "PSSA-guard: OK —— 扫了 $($targets.Count) 个脚本，规则[$ruleStr]零命中、零未能分析。" -ForegroundColor Green
   exit 0
 }
 
 Write-Host "PSSA-guard: 命中 $($hits.Count) 条 —— 判失败" -ForegroundColor Red
 $hits | ForEach-Object { Write-Host ("  {0}:{1}  [{2}] {3}" -f $_.File, $_.Line, $_.Rule, $_.Msg) -ForegroundColor Red }
 Write-Host ''
-Write-Host '这两条的含义：变量算了没人用 / 参数声明了没人读。' -ForegroundColor Yellow
-Write-Host '若某条确实是**故意**留着（例如为将来接线），在该处加抑制注释，不要改宽规则。' -ForegroundColor Yellow
+Write-Host '命中的含义：变量算了没人用（PSUseDeclaredVarsMoreThanAssignments）。' -ForegroundColor Yellow
+Write-Host '若某处确实是**故意**留着（例如为将来接线），在该处加抑制注释，不要改宽规则。' -ForegroundColor Yellow
 exit 1
