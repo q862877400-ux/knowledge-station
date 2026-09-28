@@ -546,6 +546,86 @@ Pester 5 `-Skip` 官方原文（本机只有 Pester 3.4.0）｜**编码检测"�
 PDF 字体 ToUnicode 缺失检测｜AST 级产物↔源码比较的成熟工具｜CLI 参数覆盖率专门工具｜
 **`ts-exhaustive` 与 `codeinvest` 在 npm 不存在**｜**metamorphic testing 综述原文**（这是"无 oracle"的标准答案，值得下一轮补）｜Adam Tornhill 行为变更分析原文。
 
+### 1.14 ⭐⭐⭐ BANN 组：最贵那一条有了答案（**规模天花板没解除，但今天能白拿 11×**）
+
+> 出处：`var/tmp/study/problems/BANN-verify.md`（含逐字语法与出处行号）；原始件 23 行 MANIFEST；
+> 临时库在 `var/tmp/bann-bench/dbs/`（约 **7.6 GB，可删**）。**生产库全程 `mode=ro`，本仓 `.venv` 未触碰。**
+
+#### 1.14.1 权威建表语法（三方交叉一致：`repo/tests/` + PR body + 本机 alpha.4 二进制）
+
+索引子句是**列级**的，**必须写 `INDEXED BY`**（漏掉直接解析失败）：
+
+```sql
+-- rescore：quantizer 必填，bit | int8；oversample 默认 8
+CREATE VIRTUAL TABLE t USING vec0(embedding float[128] indexed by rescore(quantizer=bit))
+CREATE VIRTUAL TABLE t USING vec0(embedding float[128] indexed by rescore(quantizer=bit, oversample=16))
+-- diskann：n_neighbors 默认 72、search_list_size 默认 128
+CREATE VIRTUAL TABLE t USING vec0(emb float[128] INDEXED BY diskann(
+    neighbor_quantizer=binary, n_neighbors=48, search_list_size=256))
+-- flat：无参数
+CREATE VIRTUAL TABLE t USING vec0(emb float[4] indexed by flat())
+```
+出处：`repo/tests/test-diskann.py:9-13,44-48`；默认值在 `test-unit.c:1202` / `:1229-1230`。
+⚠ **`search_list_size` 与 `search_list_size_search` 不能混用**（`test-diskann.py:557-563`）。
+运行期可调：`INSERT INTO t(t) VALUES ('oversample=32')`。
+查询两种写法都实测通过：`… MATCH ? AND k = ?` 与 `… MATCH ? ORDER BY distance LIMIT ?`。
+🔴 **`ivf` 在 wheel 里根本没编进去**（实测 REJECTED），作者自承需 `SQLITE_VEC_EXPERIMENTAL_IVF_ENABLE`、
+且 **"the API will likely change and break in the future"**。
+
+#### 1.14.2 522,021 行实测（512 维 / 生产同款 L2 / 30 查询 × 5 次取中位数）
+
+| k | flat | rescore-int8 | rescore-bit |
+|---|---|---|---|
+| 1 | 563.1 ms | 226.3 ms | **16.8 ms** |
+| 20 | 590.0 ms | 272.1 ms | **53.7 ms**（**11.0×**） |
+| 500 | 762.6 ms | 572.1 ms | 359.4 ms |
+
+**召回**（真值 = flat 暴力，⚠ **自我参照，不是人工标注**）：
+**int8 在 k=1/20/500 全是 1.0000**；**bit 在 k=20 掉到 0.9311、k=500 掉到 0.9233、单条最差 0.75**。
+bit 的 `oversample=64` 能把召回拉回 1.0000，但只剩 **1.74×**。体积 2.02×(bit) / 2.24×(int8)：1034 → 2088 / 2311 MiB。
+
+✅ **交叉验证成立**：它的 flat k=20 = **590.0 ms** vs 我实测的 **606.0 ms**，**差 2.6%** ⇒ 环境可比，两组数字互证。
+
+#### 1.14.3 🔴 规模天花板**没有解除**——作者原话 + 我们的数据独立印证
+
+作者原话：rescore *"is technically still a brute-force search… query time will also grow, **roughly linearly**"*。
+
+**代理给的独立印证（这条推理很漂亮）**：加速比是**常数**——k=1 **33.6×**、k=20 **11.0×**、k=500 **2.1×**。
+**N 不变而比值差 16 倍 ⇒ 改的是系数，不是复杂度。**
+
+外推（**是外推**）：100 万 → bit k=20 约 **103 ms**；1000 万 → 约 **1.03 s** ⇒ **又回到今天的数量级。**
+⇒ **今天就能白拿 11×（590 → 53.7 ms），但不解除规模天花板。** 只有 diskann/ivf 改复杂度，
+而 diskann 作者自报**插入慢 121 倍**（1M 条 55 分钟）、体积 3.1×。
+
+#### 1.14.4 🔴 三条与我们既有判断不同的证据
+
+| # | 内容 |
+|---|---|
+| 1 | **ANN 与 metadata 过滤是硬互斥**（实测逐字报错）：`Metadata columns are not supported with rescore indexes` / `Partition key columns are not supported with rescore indexes`（aux 列 `+text` 可以）。⚠ **但我已只读确认我们今天的 `clause_vec` 只有 `['clause_revision_id','embedding']` 两列、没有 metadata/partition key ⇒ 今天不阻塞**，它堵死的是"以后把过滤做进表里"那条路 |
+| 2 | ⭐ **我们语料 8.06% 是逐字节相同的重复向量**（见 1.14.5，我已独立核实） |
+| 3 | ⚠ **「上 ANN 就掉召回」这个说法要收窄**：**int8 是 100% 零损失**；掉召回的是 **bit**（11× 那个）。⇒ 不是"ANN vs 召回"，是"**bit 量化 vs 召回**" |
+
+#### 1.14.5 ⭐⭐ 关于**我们数据本身**的一条事实（我已独立核实，脚本 `var/tmp/verify-dup-vectors.py`，只读）
+
+| 项 | 值 |
+|---|---|
+| 向量行数 | 522,021 |
+| **唯一向量（哈希）数** | **490,017** |
+| 落在重复组里的行数 | **42,064（8.06%）** |
+| 重复组个数 | **10,060** |
+| **可去掉的冗余行**（组内多出来的） | **32,004（6.13%）** ← **我加的量，代理只报到 8.06%** |
+| 最大一组完全相同的条数 | **1,165** |
+
+⇒ **去重能白缩索引 6.13%，且零信息损失**（相同向量本来就检索不出差别）。
+⚠ 这也是 flat 与 numpy 精确解在 k=1 只有 93.3% 一致的原因（**并列打破，不是算错**）。
+
+#### 1.14.6 ⚠ 上 ANN 的两条风险（代理如实报的）
+
+1. **上游自己的 benchmark 只做到 100k**（`benchmarks-ann/README.md` 的 make 目标最高 `bench-100k`）
+   ⇒ **1M+ 上 rescore/diskann 的对比数据上游自己都还没跑全。**
+2. 作者那组 1M×1024 维的好结果用的是**专门按量化训练过的 `mxbai` 模型**（他自注 "your mileage may vary"）
+   ⇒ **我们的 bge 系不是量化训练模型，不能直接套那个加速比。**
+
 ---
 
 ## §1.5 ⭐ 续上后拿到的一条**省掉一整轮返工**的结论：`s*` 不能直接套，且给了绕法
