@@ -142,6 +142,10 @@
 - 差分覆盖（`diff-cover`，⚠ PyPI 名与仓库 owner 不同名，核过才对）：口径是"**你这次改的这些行有没有测试**"，比"用例总数"贴近我们 D4 的问题。**抄思路不抄工具。**
 
 ⚠ **一条结构性洞察（比它给的工具更有用）**：**所有这些工具都在测试层。** 而我们的 D4（一次 `-UpdateBaseline` 就把 6 条保护测试变可删、棘轮不红）和"参数没被读却退出 0"是**命令层**空验证 ⇒ **没有工具能扫**，唯一现成解法就是我们在用的手动变异。**别用工具假装它被自动化了。**
+> 🔴 **更正（2026-09-28，RH2 组 + 我自己复现）**：上句「**没有工具能扫**」**对 PowerShell 不成立**。
+> PSScriptAnalyzer 的 `PSUseDeclaredVarsMoreThanAssignments` 一次命中我们那个"22 条测试全绿零红"的缺陷，
+> **且原始件零误报**（我跑的：`var/tmp/verify-pssa-command-layer.ps1`，只读主仓）。
+> ⇒ 详见 **§1.13**。**仍成立的部分**：对"恒假条件/检查对象错位"它管不了。**原句留痕不删。**
 
 ### 2.5 🔴 我们自己的一个活 bug（F 组实测，**优先级最高因为它最便宜**）
 
@@ -163,7 +167,7 @@
 | **4** | **"检索不如长上下文直读"的分界点** | 所有这类结论都在 ≤1.5M token 内测的；我们是 522k 条条款，**远超任何长上下文** ⇒ 不可套用（已派 E 组查边界） |
 | **5** | **古籍 / 技术文档 / 法律条文上的分词器公开对比** | G 组明确写「**没找到 —— 我不敢下结论，建议本仓自己实测**」 |
 | **6** | **"自动语料类型检测 → 分词器/索引路由"的现成框架** | G 组核过 ES/Lucene 官方文档，**确认不存在**（ES 只有按字符组分流） |
-| **7** | **命令层空验证的机械检测** | D 组已证：成熟工具全在测试层；**命令层没有工具能扫**。已派代理专查（这是 H 组第一优先项） |
+| **7** | ~~**命令层空验证的机械检测**~~ | ~~D 组已证：成熟工具全在测试层；**命令层没有工具能扫**~~ ⇒ 🔴 **已被 §1.13 推翻（对 PowerShell 不成立，我已自己复现）**。仍成立的部分：**恒假条件**（检查对象错位）PSSA 管不了 |
 
 ### 1.6 🔴🔴 RC2 带回的**最重一条**：我们设想的默认形状**有一个已知的攻击面**
 
@@ -395,6 +399,152 @@ k=5=0.6580 vs k=61=0.6258，**差 0.0322**；**`k=2` 与 `k=61` 在 WANDS 上 42
 最接近的波兰 ASCR-H vs DTF **成本结构不同**、不是单变量对照）｜中文 cross-encoder 在**中文法律文本**上的
 第三方实测数字（C-MTEB 榜单抓不到表，`C_MTEB/leaderboard.csv` **404**）｜BM25 k1/b 在**中文短文本条款**上的
 公开结论（STARD 直接用 Pyserini 默认、**根本没报数值**）｜「加一条弱路会不会让 RRF 掉分」的直接实验。
+
+### 1.12 🔴 RE 组收工：解开一个硬约束，但**它的 ALCE 数字我用错了列**
+
+> 出处：`var/tmp/study/problems/RE-eval.md`（52.5 KB / 11 节）。**这一节包含一条我自己核出的实质错误。**
+
+#### 1.12.1 ⚠ 先记本轮的**核验缺口**（不是我推责，是事实）
+
+- RE 组**经 ar5iv 读了 6 篇全文但没落盘**（它自己在收工信里声明了"反限流纪律"）⇒ **那 6 篇的数字目前是"经代理转述"，我不能独立复核**。
+- 我核 `raw/RE/`：唯一的全文件是 `2605.07313.txt`；`arxiv-2305.14627-html.html` **其实是 arXiv 的 404 错误页**（逐字 `No document for '2305.14627v3'`），
+  而 abs 页里**没有** 38.3/40.4/32.9/20.8 ⇒ **ALCE 那组数字在盘上根本无从核**。
+- ⇒ 我**自己去 ar5iv 取了 ALCE 原文**（480,329 B，标题逐字 *Enabling Large Language Models to Generate Text with Citations*）逐格重核 —— 见下。
+
+#### 1.12.2 🔴 更正：ALCE 那组数字**我用错了列，两个结论的方向都被带偏**
+
+代理报的是：「ASQA 上 ClosedBook **38.3** → 检索 **40.4**（**只买 2.1 pp**）；QAMPARI 上 ClosedBook **32.9** → 检索 **20.8**（**检索有害**）」。
+
+**我回原文逐格重核（`alce-ar5iv.html`）**——那张表是**四列**，代理在 ASQA 用了「引用召回」列、
+在 QAMPARI 用了「正确性」列，**列不一致**：
+
+| 基准 | **正确性 Correct.** | 引用召回 Cit. Rec. | 引用精度 Cit. Prec. |
+|---|---|---|---|
+| **ASQA**（GPT-4 行） | 闭卷 **52.7** → ChatGPT+5psg **66.6** ⇒ **检索帮助很大（+13.9）** | 38.3 → 40.4（+2.1） | 26.7 → **73.6** |
+| **QAMPARI**（ChatGPT 行） | 闭卷 **32.9** → 检索 **20.8** ⇒ **检索有害（−12.1）** | 19.8 → 20.8 | 10.0 → **20.5** |
+
+**正确的读法**：
+- **ASQA 上检索是有大帮助的**（正确性 +13.9，引用精度从 26.7 拉到 73.6）；「只买 2.1 pp」是**引用召回**这一列、且闭卷基线本来就低（它几乎不引）。
+- **QAMPARI 上检索确实有害**（正确性 −12.1）。
+⇒ **两句话都要说、且必须标清是哪一列。** 代理那版会让人以为"检索在 ASQA 上也基本没用"——**那是错的**。
+
+#### 1.12.3 ⭐⭐ 本轮最大的一条放松：**「没有标注数据」这个硬约束被解开了**
+
+**Sufficient Context**（arXiv 2411.06037）—— 我核到**摘要**逐字：
+> "we develop a new notion of sufficient context, along with **a method to classify instances that have
+> enough information to answer the query**"；"the prompts used in our **autorater** analysis are available
+> on our github"
+
+⇒ **它用的是「autorater」（模型判上下文够不够），不是金标。**
+⚠ **未核到盘上的两句**：代理报的逐字 "**does not require a ground truth answer**" 与 **Gemini-1.5-Pro 判别器 Acc 0.930（115 条人工标注，Table 1）** 都在正文，**而正文没落盘** ⇒ **这两句我标为「经代理转述、未独立复核」**，不当作已核。
+
+⇒ **对我们的意义**：这条一旦成立，**评测不必等金标修好**就能先开一条轴
+（判"检索到的条款够不够回答"，不需要知道正确答案是什么）。
+⚠ 但要连着 1.6 那条一起看：**Sufficient Context 同时证明大模型"该不答时硬答"** ⇒ 充分性判据必须与派生层可信度解耦。
+
+#### 1.12.4 建议抄的位置（可核性已标注）
+
+| 抄什么 | 在哪 | 可核性 |
+|---|---|---|
+| **三成因①/② 判据**（把 k 从 10 抬到 50 看金标落点） | ECHO §VI-C 逐字 "A post-gate **Top-50 diagnostic places many gold turns at ranks 16–41, implicating candidate coverage and ranking rather than ingestion**" | ✅ 已核（`:1527`） |
+| **单轮规模尺**：文档按**是否含答案**切 positive/negative，扫**噪声比 {0,.2,.4,.6,.8}** | RGB（`2309.01431`，AAAI 2024，中英双语）。**它给了明确门槛**：噪声比 **>0.8** 简单题显著下降、**>0.4** 需整合多文档的题就崩（α=0.05） | ⚠ 经转述 |
+| **答案片段字段**：ALCE §3.2 三分支（EM 子串 / recall-5 饱和 / **LLM 生成 3 条 sub-claims 再做蕴含**）；最后一条**不需要标准号存在于真库** ⇒ 绕开 70/90 失效的已发表形状 | ALCE `2305.14627` | ⚠ 经转述（我只核到表，没核 §3.2 正文） |
+| **CoF 流水线**（管住引用漂移）：Self-Instruct 造题 → **128-token 块级序号引用 `[k]`（序号不漂移）** → 块内选句 → **丢弃引用数不足的样本**；可借 **LongCite-45k（44,600 条中英双语）** | LongCite `2409.02897`（ACL Findings 2025） | ⚠ 经转述 |
+| **更准的判据**：LongCite 逐字点名 ALCE 不够准（"may overlook partially supporting cases due to the limited capacity of the NLI model"）⇒ recall 改 **0/0.5/1 三值**、precision 放宽为「至少部分支持」、裁判换 GPT-4o | 同上 | ⚠ 经转述 |
+| **裁判去偏**：`2406.07791` 的 RS/PC/PF 三公式；两条方法论比数字重要——**「RS 是 PC 的前置」**（Gemini-1.5-flash RS 0.04 却 PC 0.92 = 假的高一致）、**「k 候选 → k 个排列、每个候选各占一次首位」**。换边 18%–45% 判断翻转 | Dartmouth | ⚠ 经转述 |
+| **规模边界（长上下文那条）**：`2409.01666`(NVIDIA) 逐字声明其量程：每题一篇 15 万词文档、候选 ≤~1,170 块、全文 117K–196K token、sweet point **16K–48K** ⇒ **全部「检索打败长上下文」证据都在这个量程内，比我们小 2–3 个数量级、不可套** | 同上 | ⚠ 经转述（但与我们的量级差是算术，可信） |
+| **省钱否定结论** | 顺序保持类优化**只在 k≈100 块时才有收益、k=8 无差别** ⇒ **我们 k=5/20 不必做** | ⚠ 经转述 |
+
+#### 1.12.5 对我们既有判断的四条影响
+
+| # | 关系 | 内容 |
+|---|---|---|
+| **F1** | ⚠ **加强金标问题，但要改我一句** | Sufficient Context 逐字点名 "**the ground truth answer conflicts with the answer provided in the source**" ⇒ 我们的 70/90 是**已发表的公认病**。**但天花板不是 20/90**——因为 **35–62% 的题在上下文不足时仍靠参数知识答对** ⇒ **那部分既不能算检索的功劳，也不能算充分性的功劳**。我此前说"检索已经打在天花板上"**要改口** |
+| **F2** | ⭐ **推翻** | 「没有标注数据是硬约束」——见 1.12.3 |
+| **F4** | ⚠ **削弱**「多轮/迭代检索是要走的路」 | ALCE 迭代检索**不涨反跌**（ASQA 32.4<40.4、QAMPARI 17.2<20.8）。⚠ **口径必带**：他们的迭代**只在已取回的 top-100 内搜** ⇒ **不能据此说"全库迭代无用"** |
+| **F7** | 🔴 **收紧**「LLM 裁判可用」 | 换边 **18%（GPT-4）到 45%（listwise）** 判断翻转；⚠ **质量差距越小偏置越强** ⇒ **我们那 90 条里"两系统都半对"的题，正是裁判最不可靠的题** |
+
+#### 1.12.6 RE 明确没找到的
+
+「超出 ≤1.5M token 后结论反转」的**明文声明 —— NOT FOUND**（搜过 RAG vs long-context boundary / context rot 等）
+⇒ 能拿到的**最强负面证据**是 ECHO 的 BEAM 新鲜门：同配置、**1 个 history → 5 个预注册 history**，
+三道预注册门槛**全不达标**（事件排序切片 Hit@10 掉到 **40.0%**），且作者明说 **"does not characterize BEAM-1M/10M"**。
+另：中文法规条款 + 抽取式答案片段的公开数据集（NOT FOUND，LongCite-45k 领域不匹配）｜自我偏好量级与 PriDe 实测（未查实）｜
+零样本重排「bubble 退化」数值（存疑未核）。
+
+### 1.13 🔴🔴 RH2 推翻**我自己写进这份文件的话**：命令层空验证**有工具能扫**
+
+> 出处：`var/tmp/study/problems/RH2-verification.md`（12 节）。
+> ⚠ **我此前在 §2.4 写的是**：「**所有这些工具都在测试层。** 而我们的 D4 缺陷……是**命令层**空验证
+> ⇒ **没有工具能扫**」——**这句是错的，就 PowerShell 而言。**
+
+#### 1.13.1 ⭐⭐ 我自己复现了（脚本 `var/tmp/verify-pssa-command-layer.ps1`，只读主仓）
+
+`PSScriptAnalyzer` 的 `PSUseDeclaredVarsMoreThanAssignments` 规则：
+
+| | 命中数 |
+|---|---|
+| **原始** `scripts/run-gates.ps1`（`$totalForRatchet` 出现 **8** 次） | **0 条** |
+| **变异件**（7 处读取改回 `$totalRan`、只留第 475 行赋值 ⇒ 只剩 **1** 次） | **1 条**：`Line 475: The variable 'totalForRatchet' is assigned but never used.` |
+
+⇒ **成立**：原始件零误报、变异件一次命中。
+**那个"把 8 处逐字改回、22 条相关测试全绿零红"的缺陷，一条静态规则就抓到。**
+
+**可直接用的门禁命令**（代理给出，我未跑门禁形态、只跑了规则本身）：
+```powershell
+$guard = @('PSUseDeclaredVarsMoreThanAssignments','PSReviewUnusedParameter')
+Invoke-ScriptAnalyzer -Path scripts -Recurse |
+  Where-Object { $_.RuleName -in $guard } | Tee-Object -Variable d
+if ($d) { exit 1 }
+```
+⚠ 本机 PSSA **未装**（`Get-Module -ListAvailable` = 未安装）；子代理装在 `var/tmp/study/r2-pssa/`，**我用的就是那一份**。
+⇒ **要不要装进本机、如何进 `pyproject`/门禁，属未定的实现决策，本文件不排期。**
+
+#### 1.13.2 ⚠ 它同时**实测否定了 PSSA 能管什么**（这半也要记）
+
+- 🔴 **PSSA 看不见恒假条件** ⇒ 缺陷②（"检查对象错位"：只查"文案在场"）**它管不了**；
+- 🔴 `PSAvoidUsingComputerNameHardcoded` **只匹配 `-ComputerName` 这类 cmdlet 参数**，
+  对 UNC、`$env:COMPUTERNAME`、**硬编码 `D:\...` 绝对路径全部 miss**
+  ⇒ 我们"硬编码主仓绝对路径"那条**不被它覆盖**。
+
+#### 1.13.3 其余可抄项（按优先级；能直接用的命令优先）
+
+| 优先 | 抄什么 | 命令 / 出处 | 治哪条 |
+|---|---|---|---|
+| **P0** | **esbuild metafile 断言源文件真的在产物里** | `npx esbuild <entry> --bundle --metafile=var/tmp/meta.json --outfile=plugin/client.js` → 断 `meta.outputs['./plugin/client.js'].inputs['./plugin/client/KsX.tsx'].bytesInOutput > 0` | 缺陷② **检查对象错位**（PSSA 管不了的那条） |
+| **P1** | `PSUseCompatibleSyntax` | `-Settings @{Rules=@{PSUseCompatibleSyntax=@{Enable=$true;TargetVersions=@('5.1','6.0')}}}` ⇒ 代理**实测抓到 2 条**（`??=`、三元） | pwsh 7 语法漏到 5.1 单机 |
+| **P1** | 依赖语义三件套 | `pytest -rxXs` 的形状：**独立 skip 计数 + 原因字符串 + 强制展开** | 缺陷⑤（**别用 `-UpdateBaseline` 躲开**） |
+| **P1** | typescript-eslint 穷尽规则 | ⚠ **必须**把 `allowDefaultCaseForExhaustiveSwitch` 设为 `false`（默认 `true` ⇒ 有 default 就不报） | union 非穷尽（那半） |
+| **P2** | `knip` 的 `enumMembers` | `npx knip --include enumMembers`（**默认不报**，须显式 include；只对 enum 形态，纯 type union 未核实） | union 非穷尽（另一半） |
+
+**Go testscript 的一条关键设计**（值得单独抄思想）：
+`skip [message]` = skipped，而 **`stop [message]` = "marking it as passing"**
+⇒ **Go 自己把"跳过"和"通过"拆成两个结果。**
+⇒ 我们那 5 条缺 artifact 的测试，语义正确做法是 **skip + 写明缺什么**，**绝不能当通过**。
+
+**Go 那边的答案形状**（能抄形状、不能抄执行器）：
+`-coverpkg` 逐字 "For a build that targets package 'main' … apply coverage analysis to each package whose import path matches the patterns"；
+`GOCOVERDIR` 逐字 "Directory into which to write code coverage data files generated by running a `go build -cover` binary"
+⇒ **形状 = 跑真命令、落盘覆盖率**；**执行器抄不了**（Go 有插桩编译器 `go build -cover`，PowerShell 没有）。
+
+#### 1.13.4 它纠正的**我任务书里的两处错**（如实记）
+
+| 我写的 | 实际 |
+|---|---|
+| `q1-pssa-about.html` 是「KDE 的 **Python** 静态分析框架 PSA」 | **是 PowerShell / PSScriptAnalyzer（微软）**。⚠ 我这个错标签很可能让上一轮**放弃了对最对症工具的利用** |
+| `q1-go-cmd.html` 与 `q1-go-cover2.html` 是「Go 的命令覆盖率工具」两页 | **两者字节完全相同**（同一份 256,715 B，都是 `pkg.go.dev/cmd/go`），**都不是覆盖率专页**；`q1-go-cover3.html` 是 Rob Pike《The cover story》(2013-12-02)，讲**覆盖率算法**不是 main 包测试 |
+
+#### 1.13.5 ⚠ 它诚实报的**抓取失败**（本轮共有 5 例"HTTP 200 但没抓对"）
+
+`go.dev/doc/tutorial/cover` 正文是 "file does not exist"｜`pester.dev` 是客户端渲染 SPA｜`diff-cover` readthedocs "Project not found"｜
+`knip` README 404（真实仓库是 `webpro-nl/knip`）｜**`ts-exhaustive` 与 `codeinvest` 在 npm 上根本不存在**（若之前有结论引用请撤回）。
+
+#### 1.13.6 RH2 明确没找到的
+
+Pester 5 `-Skip` 官方原文（本机只有 Pester 3.4.0）｜**编码检测"谁实测过、准确率多少"**与
+**阈值法 vs 旁证式判据的系统对比/失效案例**（charset_normalizer 的 FAQ/CLI 页都是 200 但 404 壳）｜
+PDF 字体 ToUnicode 缺失检测｜AST 级产物↔源码比较的成熟工具｜CLI 参数覆盖率专门工具｜
+**`ts-exhaustive` 与 `codeinvest` 在 npm 不存在**｜**metamorphic testing 综述原文**（这是"无 oracle"的标准答案，值得下一轮补）｜Adam Tornhill 行为变更分析原文。
 
 ---
 
