@@ -130,19 +130,29 @@ check('② 标准号模式命中（GB/T 3608 / GB30871 / DB11/T 1234 / AQ 3009 �
     assembled === `${KS_COMPLIANCE_SENTRY}\n\n${extractL1()}`, `组装 ${String(assembled.length)} 字`)
 }
 
+/* 本插件在 v4 下的生产者身份。单一常量，判据与断言都从这里取（避免字面量散落）。 */
+const KS_PRODUCER_KIND = 'plugin:ks-dsh-plugin'
+
 /* v4 源契约判据（模块作用域，⑨ 与 ⑩ 共用）。
-   ⚠ v4 契约（2026-09-28 对齐 DSH 校验原文，非猜测）：
-     `packages/session/session-format-v3-to-v4/src/message-sources.ts:9` 拒收 `kind === 'plugin'`；
-     同包 `sources.ts` 的 `rewritePluginSource` 文档字符串逐字："kind is the producer's own kind and whose
-     `plugin` field is dropped" ⇒ **正确形状是 `kind: 'plugin:<name>'` 且不带 `plugin` 字段**。
-     本仓插件的生产者名 = `ks-dsh-plugin`。
-   刻意**不**只硬编码整串 —— 那样换生产者名就假红；钉住真正承重的三件：
-   kind 非退休值、带我们的生产者名、不带遗留 plugin 字段。 */
+   ⚠ v4 契约（2026-09-28 对齐 DSH 校验原文，非猜测；复核 `verify-v4-source` 独立核过）：
+     【准入规则】`packages/session/session-format-v3-to-v4/src/message-sources.ts:9` 逐字
+       拒收 `kind === 'plugin'`（**只查 kind，完全不管 plugin 字段**；同规则另见 developer.ts:26）。
+     【迁移行为】同包 `sources.ts` 的 `rewritePluginSource` 文档字符串逐字："kind is the producer's
+       own kind and whose `plugin` field is dropped" ⇒ **v4 迁移会丢弃 `plugin` 字段**。
+     ⚠ 依据分工要说清：**"不带 plugin 字段"的依据是迁移行为（sources.ts），不是准入规则
+       （message-sources.ts 那条对该字段根本不看）**。复核指出我原先把它挂在准入规则名下、依据链有一环虚，
+       此处更正。结论不变（该删），且本判据比 DSH 准入**更严**（DSH 允许留 plugin 字段）——方向是安全的。
+     全 DSH `packages/session` 扫 `source['plugin']` 共 16 处，全在 v0-to-v1/v2-to-v3 旧迁移包，
+     **v4 读路径零消费者** ⇒ 删掉不丢信息（复核实测）。
+   钉住**三件承重条件**：kind 非退休值、带我们的生产者名、不带遗留 plugin 字段。
+   🔴 更正留痕（复核打回）：我原先在这里写「刻意**不**只硬编码整串、那样换生产者名就假红」——**那句是假的**，
+   实现就是硬编码 KS_PRODUCER_KIND。复核用变异 M2 实测：改成 `plugin:other-producer` ⇒ FAIL(32/34) exit 1。
+   **改名时门禁会红，是故意的**（钉死身份正是本判据的目的），不是缺陷。此处改为如实描述。 */
 const v4SourceOk = (s) =>
   typeof s?.kind === 'string' && s.kind.length > 0
-  && s.kind !== 'plugin'                      // v4 拒收的退休值
-  && s.kind === 'plugin:ks-dsh-plugin'        // 我们的生产者身份
-  && s.plugin === undefined;                 // v4 迁移会丢弃该字段
+  && s.kind !== 'plugin'                      // ① v4 拒收的退休值
+  && s.kind === KS_PRODUCER_KIND              // ② 我们的生产者身份（刻意钉死）
+  && s.plugin === undefined;                 // ③ v4 迁移会丢弃该字段（依据见上）
 
 /* ⑨ P0-1/F3 形状判据（假桩比真件宽松 = 漏检根因——本块按真宿主必填面钉）：
    ① 段声明的 order 必须是**有限数**（缺 = 真宿主拒整段 ⇒ 整插件不激活）；
@@ -162,6 +172,45 @@ const v4SourceOk = (s) =>
   check('⑨ 源契约回归牙：kind 退回 "plugin" 必判不合格',
     v4SourceOk({ kind: 'plugin', plugin: 'ks-dsh-plugin' }) === false,
     'v4 拒收 kind==="plugin"，断言必须能抓住它')
+  // 回归牙组（复核建议③）：把 M4/M5/M6 三种"形状坏"钉成常驻断言，
+  // 使 v4SourceOk 的**三件承重条件逐条**都有反例覆盖（此前只有 kind==='plugin' 一条）。
+  check('⑨ 源契约回归牙组：source 缺失 / 类型错 / kind 空串 / 遗留 plugin 字段 必判不合格',
+    v4SourceOk(undefined) === false            // M4 缺失
+    && v4SourceOk('plugin:ks-dsh-plugin') === false  // M5 类型错（非对象）
+    && v4SourceOk({ kind: '' }) === false       // M6 kind 空串
+    && v4SourceOk({ kind: KS_PRODUCER_KIND, plugin: 'ks-dsh-plugin' }) === false, // M3 带回遗留字段
+    '四种坏形状都必须判不合格')
+  check('⑨ 源契约正向对照：合规形状（kind=生产者名、无 plugin 字段）必判**合格**',
+    v4SourceOk({ kind: KS_PRODUCER_KIND }) === true
+    && v4SourceOk(m1.source) === true,
+    '防止判据退化成恒假（那样上面的反例就全被抓、但真件也过不了）')
+}
+
+/* ⑨b v4 源契约**反漂移牙**（复核建议②，2026-09-28）。
+   `v4SourceOk` 是手抄 DSH 规则的镜像：DSH 改了规则、本仓不会自动知道。
+   仿 ⑥ 的成熟范式（读引擎/宿主源码逐词比对），这里直接读 DSH 校验原文，
+   断言它**仍拒收 kind==='plugin'**。
+   ⚠ 读不到该文件 ⇒ **判 skipped，绝不判 passed**（本仓纪律：依赖不可用不得伪装成通过）。 */
+{
+  let dsh = null
+  let dshErr = ''
+  // 依次尝试：环境变量显式指定 → 从仓根上溯（../DSH/…）→ 本机已知检出位置 D:\AI\DSH\…
+  const roots = [process.env.KS_DSH_ROOT, join(repoRoot, '..', 'DSH', 'deepseek-harness'), 'D:\\AI\\DSH\\deepseek-harness']
+  for (const base of roots) {
+    if (!base) continue
+    const p = join(base, 'packages', 'session', 'session-format-v3-to-v4', 'src', 'message-sources.ts')
+    try {
+      dsh = await readFile(p, 'utf8'); break
+    } catch (e) { dshErr = String(e && e.code || e) }
+  }
+  if (dsh === null) {
+    check('⑨b v4 源契约反漂移：DSH 校验原文可读（读不到 ⇒ 判**未验证**、不判通过）', false,
+      `读不到 message-sources.ts（最后错误 ${dshErr}）；设 KS_DSH_ROOT 指向 DSH 检出可恢复本条`)
+  } else {
+    check('⑨b v4 源契约反漂移：DSH 校验原文**仍拒收** kind==="plugin"（v4SourceOk 是它的镜像）',
+      /kind['"]\s*\)?\s*===\s*'plugin'/.test(dsh) || /===\s*'plugin'/.test(dsh),
+      'DSH 若不再拒收退休值，本仓这条判据的依据就变了，须复核')
+  }
 }
 
 /* ⑥ 前缀表与引擎 _STD_NO_PREFIX 逐词同步。 */
