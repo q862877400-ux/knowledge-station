@@ -209,6 +209,11 @@ if ($env:KS_GATES_SELFTEST -eq '1') {
   # 假绿自检（复核 2026-09-19 抓到的那条）：命令**不存在**时必须判失败并照常打汇总，
   # 而不是"弹出 try、静默退出 0"。提取树里没有 `.venv` 时踩的就是这条路。
   Add-Step 'selftest（命令不存在）' 'ks-no-such-command-xyz' @('--nope') $repo
+} elseif ($env:KS_GATES_SELFTEST -eq '3') {
+  # pssa-guard 的**自身**回归测试（2026-09-28 复核建议②）：判据不能零测试。
+  # 跑 T1 原样件(0+版本号) / T2 未用变量(1+定位) / T3 语法错误(≠0，作 fail-open 回归锁)。
+  # ⚠ 只在自检档跑、**不进正式档**——它专门测门禁本身，每次门禁都自测会拖慢且无意义。
+  Add-Step 'pssa-guard-selftest（门禁自测）' 'pwsh' @('-NoProfile', '-File', (Join-Path $repo 'scripts\pssa-guard-selftest.ps1')) $repo
 } else {
 # 快档：按"最快能发现破坏"的顺序（tsc → mypy → 命令契约 → 全链 smoke）
 Add-Step 'tsc（客户端类型）'      'npx' @('tsc', '--noEmit', '-p', 'plugin/client') $repo
