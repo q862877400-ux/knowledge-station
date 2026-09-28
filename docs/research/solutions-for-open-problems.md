@@ -133,19 +133,69 @@ B 组中期快报：`sqlite-vec` 主线在 2026-03-31 合进了 ANN（PR #273/#2
 4. **本仓 .venv 仍是 v0.1.9**（我直接查的）⇒ 升级是**独立决定**，不是既成事实。
 
 **我没核到的（不许当结论用）**：
-- 🔴 **ANN 能不能在本机真的建起来并加速**：我试了 4 种 DDL 写法全失败，最后一次是
-  `could not parse table option 'rescore(quantizer=bit, oversample=20)'`。
-  ⚠ **失败的是我的语法，不是这个功能**（DLL 里只有 `quantizer` 与 `oversample` 两个内层键名，我试遍组合仍解析不过），
-  **我没找到权威语法文档**。
-- 🔴 **B 组自己存的 `vec0.md` / `api-reference.md` / `CHANGELOG.md` 里搜不到
+- 🔴 **ANN 建表语法**：我先后试了 6 种写法（`rescore(k=…)`、`rescore(quantizer=…)`、
+  `INDEXED BY rescore(…)`、小写 `indexed by rescore(…)`、`diskann(…)`）**全部失败**。
+  ⚠ **失败的是我的语法，不是这个功能**（DLL 里能核到 `rescore`/`diskann` 代码路径与
+  `Build flags: rescore diskann`），**我没找到权威语法文档**。
+  📌 **B 组完整报告已回（`B-scale.md`）并给出它自己跑通的 DDL**；
+  它用的是 **`INDEXED BY <index>(...)` 形式**，而我从 DLL 字符串里读到的 token 是小写 `indexed`
+  ⇒ **大小写/分隔符的确切写法仍需以 B 组的可复现脚本为准**（`raw/B/probe_indexes.py` 在盘上，可直接跑）。
+- 🔴 **B 组自存的 `vec0.md` / `api-reference.md` / `CHANGELOG.md` 里搜不到
   `rescore` / `diskann` / `quantizer` / `oversample` 任何一个** ⇒ 它存的是**合并前**的文档；
-  **"已合并"目前只有它的摘要，没有随件的一手出处**。
-- 它报的 522k 行实测（flat 788.7 ms → rescore int8 458.3 ms → rescore bit 71.4 ms）
-  **我未复现**；它自己也标注 bit 那档 recall 0.215 是合成数据失真。
+  **"已合并"的一手出处是它另存的 4 个 PR 页**（`raw/B/pr273.html` / `pr276` / `pr277` / `pr278`）。
+- ⚠ **B 组自己标注的坑（比它的结论更重要）**：
+  ① 官方 1M 基准里 recall 0.988 的那个模型是**按量化训练过的** `mxbai-embed-large-v1`，
+  我们的 `bge-small-zh-v1.5` **没有** ⇒ 作者原话"没按量化训练时 recall 掉到 70–80"
+  ⇒ **那个 0.988 不能照抄**；
+  ② issue **#308** 报告 ANN 后端会**静默丢弃 `distance` 约束**；
+  ③ 它自己量的 522k 实测（flat 641.8 ms → int8 465.5 ms / recall 0.955）**我仍未复现**
+  （我只在 20k 合成数据上跑通了 flat）。**bit 那档召回 0.19–0.53 是近均匀相似度分布的产物**，
+  它量到 `cos_top20=0.176`、真文本嵌入头部分差大得多 ⇒ **bit 档不可定档**。
 
 **⇒ 本轮结论：前提可能已过期，但「我们的规模墙因此解除」尚未成立。**
 在拿到**权威建表语法 + 在我们真实数据上量出召回与耗时**之前，
 `agent-memory-systems.md` §5.3 那句"只能暴力扫"**暂不撤回**，但已在该处标注**待复核**。
+
+### 1.10 ⚠ 一条方法论警告，来源是子代理**自己踩的坑**（比本轮任何结论都重要）
+
+A 组任务书里要求它回一手件核标题。它回报：**自己凭记忆写了 8 个 arXiv 编号去核，
+8 个里 6 个指向完全无关的论文**（`2303.05608` = 湍流对流、`2305.14788` = 上下文压缩、
+`2409.18802` = 引力物理…）。它改用论文索引核标题才纠正过来。
+
+⇒ **新增一条纪律**：**凭记忆写的论文编号一律不可直接引用，必须逐个回一手 API 核标题。**
+⚠ 这与本项目原有的「抓到 ≠ 抓对」**是两种不同的失效**：
+原来那条是"URL 返回 200 但内容不对"；**这条是"编号本身是编的"**，
+**它连 HTTP 200 都不会有** ⇒ 常规的"抓取留痕"根本发现不了。
+
+### 1.11 A 组带回来的三条**推翻/动摇**（对我们既定结论）
+
+- **A1「53% 原理上无解」我写得太绝对**：A 组诚实指出
+  **没有任何论文报过「在零字面重合这个子集上的绝对提升」**（HyDE / Query2doc / Promptagator / QUARK / MVRAG
+  **全都没分开报这个切片**）⇒ **既不能说有解，也不能说无解**；**我们自己的实测证据等级高于这些论文**。
+  两处实质动摇：① 真正的限制是**候选集规模**，不是"词不一样"——
+  我们自己的 `term_bridge.py` 已量到 **500 候选前20 = 32.6%，真实 42,181 候选 = 8.4%**（基线 4.6%）
+  ⇒ 机制**是正的**，53% 不是死路；② **"按意思找 5.8% ≈ 按字找 6.8%" 可能是单向量表示的结构性上限**，
+  文献原话 "single-vector models remain markedly weaker than multi-vector representations,
+  **pointing to fundamental limitations**" + 语料越大相关文档越被淹没 ⇒ **我们 52.2 万条款正落在这个区间**。
+- **A8 的理由升级**：从"密度低"变成「**跨文档边 = 0，所以"多跳"这个操作根本不存在**」——比"密度不够"硬得多。
+- ⚠ **一条会污染我们排序测量的坑**：若用 LLM 裁判比较方案 A/B，
+  有论文自陈 position bias *"reversing the order… leads to substantially different,
+  and in some cases opposite, judgments"*；且 Qwen2.5-7B / DeepSeek-7B / Mistral-7B 实测
+  **一致偏好靠后位置**（推翻"普遍偏好开头"）⇒ **结论可能是顺序的产物**。
+
+### 1.12 A 组核到的**零依赖好消息**（可立即抄）
+
+- **SQLite FTS5 原生支持 BM25F 逐列权重**：官方逐字 `bm25(table, w1, w2, …)`，不足的列默认 **1.0**
+  （`fts5.html:1598-1623`）。我们的 `clause_fts` **已经是 7 列**，而现在 `bm25(clause_fts)` 是**全列等权**
+  ⇒ **零依赖、零重建**。
+- **A5 有专门论文**：《The Impact of Score Ties on Repeatability in Document Ranking》(SIGIR 2019)——
+  Lucene 逐字"score ties are broken by internal document ids, **which are assigned at index time**"，
+  与我们 `hybrid_engine.py:279/345/369` 那三处结构完全一致；处方是"用**外部**稳定 id 破并列"
+  ⇒ 正对 P0.4b 那个"排序键是常量"的主项。
+- **A6 我把问题定义错了方向**：中文分词准确率与检索效果**非单调**，**70% 附近有反效果拐点**
+  （COLING 2002 逐字 + ISDA 2008 独立来源）⇒ **别急着换分词器**。
+  正解是 CJK bigram 过滤器，它逐字保证「**All non-CJK input is passed through unmodified**」
+  ⇒ **这正是"保标准号"的两全方案**。
 
 ### 1.8 明确**不在**本次范围内（避免把台账里已否掉的形态重新端上来）
 
