@@ -165,6 +165,58 @@
 | **6** | **"自动语料类型检测 → 分词器/索引路由"的现成框架** | G 组核过 ES/Lucene 官方文档，**确认不存在**（ES 只有按字符组分流） |
 | **7** | **命令层空验证的机械检测** | D 组已证：成熟工具全在测试层；**命令层没有工具能扫**。已派代理专查（这是 H 组第一优先项） |
 
+### 1.6 🔴🔴 RC2 带回的**最重一条**：我们设想的默认形状**有一个已知的攻击面**
+
+> 出处：RC2 代理，`var/tmp/study/problems/RC2-derived.md`（23 KB）。**我已回一手件核标题**：
+> `raw/RC2/01__arxiv-2503.03704.txt:41` 的 `citation_title` 逐字 =
+> **"Memory Injection Attacks on LLM Agents via Query-Only Interaction"**（MINJA）。
+
+**逐字**：攻击者 *"injects malicious records into the memory bank by **only interacting with the agent
+via queries and output observations**"*；*"MINJA enables **any user** to influence agent memory"*。
+
+**这直接打在我们设想的默认形状上**：我们的派生层**由提问生成** ⇒ **提问流就是写入通道，默认是开放的。**
+⇒ 之前我说"派生层要加 `invalidation_source` + `material_review` 两列"时，**把它当成了"好实践"**。
+**RC2 指出它其实是"必需"**——不是防幻觉，是**防投毒**。
+
+**第二条独立证据，同向**（Sufficient Context，arXiv 2411.06037，标题已核）：
+大模型**"该不答时硬答"**（输出错答案而不是 abstain）。
+⇒ 若把"**已答过**"当作充分性信号，**会让系统更倾向去用最脏的那层作答**。
+⇒ **充分性判据必须与派生层可信度解耦**，不能合成一个信号。
+
+**⇒ 方案要改的一处**：派生层的写入**默认不能开**。至少要区分
+「这条派生记录是谁产生的」（平台 / 模型 / 用户提问）与「谁能改它」，并且**提问产生的记录默认不可直接承重**。
+
+### 1.7 一条**削弱**（不是加强）我们判断的证据 —— 如实记
+
+**Zeta Alpha 这类已上线商业产品**（③厂商）：记忆层**没有提问记录层、没有失效/推翻机制**、
+`inject_context` 默认 true 把**全部记忆无上限注入提示词**、写侧只有白名单闸且**不公开任何阈值**。
+
+⇒ 我们的候选层**在商业产品里确无对应物**（对我们是利好：没人占位）。
+⚠ **但同一件事的另一面是**：**市场也没证明它有价值**（对我们是风险）。
+⇒ **支持"先做最小可查询集"，不支持"按完整三层一次做完"。**
+
+### 1.8 TierMem：**sufficiency router 不可机械判**，但它旁边那块能抄
+
+| 抄什么 | 出处 | 等级 | 判断 |
+|---|---|---|---|
+| ❌ **sufficiency router 本体** | 线上默认走 LLM 提示词；机械版阈值全是手调常数（`s_max<0.3`、`熵>1.5`、threshold 0.5），**源码无注释、论文无依据** | ⑤ | **不能当尺子搬** |
+| ✅ **证据链接的确定性化** | `_link_facts_to_pages`：模型只出 `(fact, evidence_quote)`，**`source_pages` 由确定性子串匹配决定**（兜底 = 关键词半数阈值） | ④ | **最值得抄的一条**——把"模型引条款"变成"子串核条款原文"，**幻觉链接被结构性消灭**，不需要额外评审 |
+| ✅ **写侧 ID 机械校验后回落** | `_is_valid_memory_id` 校验后回落 ADD | ④ | 能抄 |
+| ✅ **「答案必须逐字在原文里，否则不走摘要」** | router.py:600 | ④ | **机械可判**，正对上我们实测的 53% 零字面重合 |
+| ⛔ **反着抄**：失败方向 | 两个 router 失败方向相反——训练版异常时 fail-closed，**线上版空响应/解析失败 fail-open** | ⑤ | **我们必须把默认设成「不答」** |
+
+**许可**：`FreedomIntelligence/Tiermem` 根 LICENSE 逐字 = `MIT License` / `Copyright (c) 2025 FreedomIntelligence`（④）。
+
+### 1.9 许可证陷阱又坐实一次（这一条是**方法**，不只是结论）
+
+`joelparkerhenderson/architecture-decision-record` —— 看着最像通用 ADR 模板、README 被广为引用，
+根 `LICENSE.md` 逐字是 **CC BY-NC-SA（含非商用）**。⇒ **不可抄。**
+其余（读根文件原文、非 API 字段）：`npryce/adr-tools` = **GPL-3.0-or-later** ⚠；`thomvaill/log4brains` = **Apache-2.0** ✅；`ThakiCloud/SKILLRET` 根 LICENSE **404** ❌；另有 **7 个仓 ROOT LICENSE NOT RETRIEVED**。
+
+⚠ **方法论两条**：
+1. **GitHub API 已从本机 IP 限流**（盘上两个抓取件内容就是 `API rate limit exceeded`）⇒ **许可证核验必须走 `raw.githubusercontent.com`**。
+2. **"广为引用"不代表可抄** —— 引用量与许可无关。
+
 ---
 
 ## §1.5 ⭐ 续上后拿到的一条**省掉一整轮返工**的结论：`s*` 不能直接套，且给了绕法
