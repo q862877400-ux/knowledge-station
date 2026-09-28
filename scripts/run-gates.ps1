@@ -214,6 +214,13 @@ if ($env:KS_GATES_SELFTEST -eq '1') {
 Add-Step 'tsc（客户端类型）'      'npx' @('tsc', '--noEmit', '-p', 'plugin/client') $repo
 Add-Step 'mypy（引擎类型）'        $py  @('-m', 'mypy') $repo
 Add-Step 'verify:commands'        'npm' @('run', 'verify:commands') $plugin
+# 命令层空验证的机械检测（2026-09-28 引入）。治这条：本文件 8 处 $totalForRatchet 被逐字改回
+# $totalRan 时，22 条相关测试全绿零红——因为**本脚本自身没有单测**，全仓对它的引用全是注释。
+# PSScriptAnalyzer 的 PSUseDeclaredVarsMoreThanAssignments 对原始件零误报、对该变异一次命中
+# （本机实测；复现命令见 docs/research/TECH-PATH-2026-09-28.md §6）。
+# ⚠ 只扫 scripts/ 下 .ps1、只判那一条规则（其余误报源见 scripts/pssa-guard.ps1 头注）；
+#   未装 PSScriptAnalyzer 时**判失败、不跳过**（本仓纪律：SKIP ≠ 通过）。
+Add-Step 'pssa-guard（命令层）'   'pwsh' @('-NoProfile', '-File', (Join-Path $repo 'scripts\pssa-guard.ps1')) $repo
 Add-Step 'smoke（全链）'           'npm' @('run', 'smoke') $plugin
 if ($Full) {
   Add-Step 'pytest（引擎用例）'     $py  @('-m', 'pytest', '-q', '-rs', '--durations=10', "--junitxml=$junitPath") $repo
