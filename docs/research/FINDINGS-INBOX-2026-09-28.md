@@ -217,6 +217,74 @@ via queries and output observations**"*；*"MINJA enables **any user** to influe
 1. **GitHub API 已从本机 IP 限流**（盘上两个抓取件内容就是 `API rate limit exceeded`）⇒ **许可证核验必须走 `raw.githubusercontent.com`**。
 2. **"广为引用"不代表可抄** —— 引用量与许可无关。
 
+### 1.10 🔴 我一直在转述一个**配对错了的数字**，以及 ECHR 那条被高估的强度
+
+> 出处：RA 代理，`var/tmp/study/problems/RA-retrieval.md`（36 KB）。**我已回一手件核**。
+
+#### 1.10.1 ⭐ 更正：「BM25 0.822 打败全部 12 个稠密模型」——**数字配对错了**
+
+| 我此前写的 | **实际**（`raw/RA/bekko-text.txt`） |
+|---|---|
+| 「BM25 0.822 / **最强稠密 0.740**」 | **0.822 与 0.740 都是 BM25 自己的分**，分属两个基准：NanoLongEmbed **0.822**、NanoMLDR **0.740**（`:3929`）。各基准最强稠密分别是 **0.706 / 0.681**（`:3937` / `:3946`） |
+
+**更要命的是同一篇论文自己给了对照**：短文本 NanoBEIR 上 BM25 = **0.465**，而它逐字写着
+**"every dense model beat BM25"**。
+
+⇒ **我们 522,021 条条款是短文本单元** ⇒ 「BM25 打败 12 个稠密模型」**不能搬到我们这儿**。
+⇒ **谁要据此主张"别投向量了、回到 BM25"，这个推论是反的。**
+⚠ Bekko 自己披露 MLDR 是 **BGE-M3 论文自建、且 BGE-M3 在其上训过** ⇒ 披露诚实，**结论照读、不可外推**。
+（等级：③厂商/作者自报）
+
+**这条同时更正了 `F-chunking.md` 与 `B-scale.md` 里同样的措辞**——它们写的是同一句话。
+
+#### 1.10.2 ⚠ ECHR「按相似度排比随机还差」——**强度被我们高估了**
+
+| 项 | 实际 |
+|---|---|
+| 出处 | arXiv **2606.03728**（ASAIL 2026 **workshop**、**两人**、TUM、**自报**） |
+| 引用 | **Sciverse CITATIONS = 0**，**无人复现、无人反驳** |
+| 🔴 最要紧 | **Table 3 里根本没有 random 那一行** —— "比随机差"是用 MGR=37.4 对比 top-50 随机期望 25.5 **反推**的，而摘要与结论**当实测事实陈述** |
+| 覆盖面 | **只测了 GTR-T5-XL 一个稠密检索器，没有 BM25 路** |
+
+⇒ **方向可用**（与我们"47% 里只有 4.4% 进前五"同病），**强度不可用**。
+
+#### 1.10.3 我们想要的那两条出路（PRF / HyDE）**被独立测出是负的**
+
+| 路线 | 结果 | 出处 |
+|---|---|---|
+| **常规 PRF**（BM25 + Rocchio） | TREC DL 2019 上**自己就是负的**：MAP 0.2697→**0.2350**、nDCG@1 0.5972→**0.5000**（均显著）。逐字 "weak signals hurt the effectiveness significantly across all metrics, with some losses **even larger than 60%**" | **①SIGIR'22**（`github.com/ielab/Noise-PRF`）⚠ **它故意用 Rocchio 不用 RM3**（为做同策略对照），是同族不是本尊 |
+| **HyDE** | 0/159 字面命中的安全公告集上：**BM25 0.641 > HyDE(Llama3.3 **70B**) 0.151 > E5-large 0.069**。逐字 "Adding 70B parameters … **cannot bridge a vocabulary gap that originates in the query itself**" | CAR（**solo 预印本零引用 ⇒ 当强假设不当事实**） |
+| ✅ **真解法：结构化** | 「Regex-NER 抽实体后查索引」= **TCA@5 1.000**，且 "requires no fine-tuned embeddings, no cross-encoder reranking, and **no oracle labels**" | CAR |
+
+#### 1.10.4 ⭐ 建议抄的（按优先级）
+
+| 优先 | 抄什么 | 去哪 |
+|---|---|---|
+| **P0** | 🔴 **`bge-small-zh-v1.5(512)` → `bge-base-zh-v1.5(768)`**：C-MTEB Retrieval **61.77 → 69.49（+7.72）**，而 large 才 70.46（**只差 0.97**）。**本机现装的正是那个差 8.7 分的 small。** 不需任何新方法 | HF `BAAI/bge-base-zh-v1.5` |
+| **P1** | 受控词表路加**可信度闸门**（共识法生成难度标签 + 分类器预测难度，高难走回退） | *Same but Different*（ACM SAC 2019） |
+| **P1** | 歧义消解形状：同名候选集 → 取每个候选的**上位类**当义项指示 → 上下文 × 上位类相似度（**法律域已上线**） | **Lynx**（Inf. Systems 2022） |
+| **P2** | 结构化路的可行性判据 Δ(q)（Prop 2 / Thm 4） | `github.com/andremir/car-retrieval` |
+| **P2** | PRF **开关化而非禁用**：只在反馈信号中/强时开 | `Noise-PRF` 的 strong/moderate/weak 分级 |
+| **P3** | 冷启动造评测集：对比对 + 种子查询 + 对比式生成 topicality 标签 + Virtual Judge；**查询长度 KL 0.66 vs InPars 12.03（好 7.5×）**，生产在跑 | **Airbnb**（arXiv 2026-05-20） |
+
+⛔ **明确不要投**：PRF/RM3 全量、HyDE、通用同义词扩展、多向量切片、拿 LLM 裁判分当训练信号。
+
+#### 1.10.5 三条与既有判断的关系（如实分档）
+
+| 关系 | 内容 |
+|---|---|
+| ✅ **加强了"继续攻零重叠"** | **"评测集造偏了"这个台阶没找到任何支撑**，反而三方独立支持「零重叠是 IR 经典病」：**Furnas 1987** 词面重合只有 **7%**、SIGIR'22 弱反馈下 PRF 掉 20–60%、CAR 零重叠下语义检索崩到 0.07 |
+| 🔴 **对我们不利** | CAR 实测 **MTEB 排名越高、参数越多，在零重叠任务上越差**（E5-large 0.069 < MiniLM 0.132 < BM25 0.641），逐字 "a practitioner optimizing for MTEB would select the model that performs worst here"。⇒ **这是对我们"按 C-MTEB 选模型"这个做法本身的一次警告，且与 1.10.4 的 P0 方向相反。** 代理按证据等级记为「**需本机实测验证的假设**」，**没有拿它否定 P0**——这个处理我认同 |
+| ✅ 有利 | 已证伪的「多向量切片」在 **KoBankIR（ICAIF'25）独立复现**：BGE-M3 Multi 0.6789 **<** Dense 0.6848，Sparse+Dense 0.7109 最好 |
+| ⚠ 弱证据 | 多义词歧义（Carmen et al. 1997）说明 **53% 里有一部分是"提问本身有歧义"，那部分检索修不了**，要澄清式交互。**建议把 53% 拆成「术语不懂」/「说法有歧义」两堆再决策——本轮没有这个拆分数据** |
+
+#### 1.10.6 RA 明确没找到的
+
+ECHR 那条的复现/反驳（0 引用）｜**RM3 本尊**在零重叠上的独立数字（那篇改用了 Rocchio）｜
+**中文国标术语级**的公开基准（只有类案检索 IEEE Access、金融 KoBankIR）｜
+中文小模型 vs 大模型的**独立第三方**复核（⚠ 「小模型接近大模型」**全部出自 BAAI 自家模型卡③**）｜
+国标条款→术语表的现成抽取器（CAR 靠 CVE 这类**规整 ID**，与我们难度不同）。
+
 ---
 
 ## §1.5 ⭐ 续上后拿到的一条**省掉一整轮返工**的结论：`s*` 不能直接套，且给了绕法
