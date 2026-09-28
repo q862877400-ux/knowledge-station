@@ -285,6 +285,117 @@ ECHR 那条的复现/反驳（0 引用）｜**RM3 本尊**在零重叠上的独�
 中文小模型 vs 大模型的**独立第三方**复核（⚠ 「小模型接近大模型」**全部出自 BAAI 自家模型卡③**）｜
 国标条款→术语表的现成抽取器（CAR 靠 CVE 这类**规整 ID**，与我们难度不同）。
 
+### 1.11 ⭐⭐ RR 组带回**三条直接改我们判断**的证据（每条我回一手件核过）
+
+> 出处：`var/tmp/study/problems/RR-ranking.md`（27.9 KB）。核验：
+> k=60 逐字我从 `raw/RR/cormack2009-rrf.pdf` 抽的；
+> STARD 逐字在 `raw/RR/arxiv-2406.15313-STARD-chinese-statute.txt:431`；
+> 波兰消融逐字在 `raw/RR/polish-statutory.txt:101`。
+
+#### 1.11.1 `k=60` 的出处查到了，**而且论文自己说"无关紧要"**
+
+逐字（Cormack, SIGIR 2009）：
+> "**k = 60 was fixed during a pilot investigation**"；"four pilot experiments, each combining the
+> results of 30 configurations of Wumpus Search applied to four different TREC collections"；
+> "indicated that **k = 60 was near-optimal, but that the choice was not critical**"
+
+**Table 1（pilot 那组）**：k=0 → .2072 ｜ 20 → .2134 ｜ 50 → .2144 ｜ 60 → .2145 ｜ **70 → .2146（实际最高）** ｜ 100 → .2142 ｜ 500 → .2098
+⇒ **k∈[20,100] 的极差只有 0.0013 MAP（≈0.6% 相对）**；**k 是一片平坦高原，不是调出来的点**；陡坡只在 `k<10` 与 `k>100`。
+论文给的机制：`The constant k mitigates the impact of high rankings by outlier systems.`
+
+⚠ **但 k<20 那一段论文没测，Qdrant 官方文档测了**：单目标场景最佳 k 是 **2 或 5**；CodeSearchNet（1 相关/查询）
+k=5=0.6580 vs k=61=0.6258，**差 0.0322**；**`k=2` 与 `k=61` 在 WANDS 上 42% 的查询换掉了 top-1**。
+⇒ **我们是单目标场景**（专家直接输术语的上限 68.8%）⇒ **优先扫 k∈{2,5}**，但**必须实测，不许直接改**。
+
+#### 1.11.2 🔴 推翻我预期的一条：**法规语料上 rerank 被独立实测为正，而且是全study最大效应**
+
+**波兰成文法**（arXiv 2608.30929，**82,508 条法条 / 1,133 部法 / 300 道波兰律师资格考试真题**，单目标标签）：
+**去掉 reranker，Hit@1 72.3% → 44.7%（−27.6 pp，p<0.001）**，MRR 0.764 → 0.524。
+逐字：**"Reranking acts on ordering rather than on candidate coverage"**（Hit@20 只掉 9.5 pp）。
+
+⚠ **三条折扣必须一起记，否则会误用**：
+1. 它用 **listwise LLM over 40 候选**，**不是 cross-encoder** ⇒ **不能直接推给我们的 `bge-reranker-base`**；
+2. 🔴 **增益完全没传到答案层**：citation accuracy 67.3% vs BM25 66.0%（p=0.61）/ RRF 67.7%（p=1.00）/ dtf 70.3%（p=0.19）**全无统计差异**。逐字 "the generator is tolerant of position within the retrieved context but sensitive to presence"；
+3. **作者自曝覆盖率混淆**：代理标注只覆盖 27.0% 语料却 100% 命中金标；原话是 "some unknown share of their rank-one advantage is attributable to that asymmetry rather than to the retrieval design. **We did not measure… we do not have an experiment that separates the two.**"
+
+⇒ **改写我们既有说法**：我此前写「修好 rerank 大概没收益」——**部分被推翻**。
+我们唯一的实测是「**术语候选上为负**」，而那**确实不是条款级** ⇒ **不能外推**。
+另有一条机制补全：那次为负**很可能只是拿默认/手调融合当分母**（见 1.11.4 第 2 条）。
+
+#### 1.11.3 ⭐⭐⭐ **同语言、同"外行问法"、同"按条检索"的尺子：零样本 BM25 打赢全部神经模型**
+
+**STARD**（arXiv 2406.15313，MIT；**1,543 条真实法律咨询外行问题 / 55,348 条中文法规**）逐字：
+> "Under the zero-shot setting, traditional lexical matching techniques **surpass both general and
+> legal-domain pre-trained language models**"
+
+| 方法 | R@5 |
+|---|---|
+| **BM25** | **0.3349** |
+| Chinese-RoBERTa | 0.3216 |
+| Lawformer | 0.2411 |
+| SEED | 0.2897 |
+| SAILER | 0.2330 |
+| coCondenser | 0.1120 |
+| 🔴 **Dense-CAIL**（**在法考数据上训的**） | **0.0887 —— 比 BM25 差 3.8 倍** |
+| ✅ Dense-STARD（**本域微调**） | **0.5206** |
+
+**独立复现**：bBSARD（arXiv 2412.07462，22,417 条比利时法条 + 公民真实提问）逐字
+"zero-shot dense models only fully outperforming it **starting from 300 million parameters**"；
+法/荷双语 BM25 nDCG@10 21.54/20.07，而微调小模型 FlauBERT-base(138M) 46.69 / CamemBERT-base(111M) 44.25。
+
+⇒ **这两把尺子比 Bekko 那条更适合我们对标**（同语言、同"外行问法"、同"按条检索"）。
+⇒ **两条对我们直接生效的推论**：
+**① 域内微调是唯一真拉开差距的手段**（0.5206 vs 0.3349），零样本换模型基本白换 ——
+**这与 §1.10.4 的 P0（换 bge-base-zh）方向一致、互为加强**；
+**② 但"在法考数据上训的 Dense-CAIL"反而最差（0.0887）** ⇒ **微调数据必须同分布，训错分布比不训更糟**。
+
+#### 1.11.4 🔴 对我们六路融合的**直接警告**（这条最该进方案）
+
+波兰文逐字：**`oracle-doc`**（给对法、篇内**随机**条文）citation **37.7%**，
+**比闭卷 47.0% 还低 9.3 pp，p<0.001**，原话：
+> **"Plausible but incorrect provisions displace correct parametric knowledge."**
+
+⇒ **把"不像的条款"塞进前五，可能比不塞更糟。** 这直接关系到我们六路加权：
+四路中若有近似但错误的候选，**它们会挤掉真正的那条**。
+⇒ 这是"要不要继续加检索路"的一个**新约束**（此前我们只论证了"加路有用但不够"）。
+
+**另一条把我们的 4.4% 变成上界**：波兰文引 Smyński-Pohl (2025) 测到
+"问题**由目标条文导出**"与"**老百姓提问**"两类数据集之间**约 45 个 nDCG@10 的差距**，
+并警告前者 `too optimistic`。**我们那"47% 有字面重合"的批次正是"前者"** ⇒ **4.4% 是上界。**
+
+#### 1.11.5 建议抄的参数（按优先级）
+
+| 优先 | 抄什么 | 依据 |
+|---|---|---|
+| **P0** | **候选数从 10 起，不要 50/100** | Qdrant 逐字：10 候选 CPU 上 `47 to 156 ms per query`；而 100 候选 0.5–5 s/query，我们 `bge-reranker-base` CPU 16–45 docs/s ⇒ **0.2–0.5 查询/秒**，与我们第二路预取 0.6–1.5 ms **差 3 个数量级** |
+| **P0** | 🔴 **rerank 的分母必须换成"调过的融合"** | Qdrant 实测 WANDS：`rerank +0.039 over default RRF`，但 **`−0.008 vs tuned fusion`**；`tuned fusion beat all four models at every candidate count`。**我们若拿 k=60+手调权重当分母，很可能复现这个 +0.039 假阳性** |
+| **P1** | **权重是绝对值且必须与 k 绑定** | 逐字 "The pair is absolute, so (1,2) and (2,4) are two different settings"、"Settle k first, since a pair is only valid for the k you tested it with" ⇒ 我们的 `exact`=2.0 **必须和 k 一起报、一起扫** |
+| **P1** | **先核我们 k 的下标口径**（纯代码事实） | 1-based `r`+k=60 ⇒ 等价 Qdrant k=61（与 Cormack 口径一致）；0-based+60 ⇒ 等价 k=59、**偏 1** |
+| **P1** | rerank 前跑两个机械诊断 | ① 用 reranker 的 tokenizer 量 query-doc 对的 **p95 长度** vs 模型窗口（512）；② 核模型卡的语言/领域。Qdrant 说这两条解释了它表里 "every loss" |
+| **P2** | 客户端 `(-score, +doc_id)` 二次排序 | ⚠ Qdrant 实测 k=61 下并列只 2.8%，**优先级低**；真问题是**同号条款**（业务上真等价）⇒ 走 **grouping**（每 `(标准号,条号)` 组只回一条），不是 tie |
+| **P2** | BM25 `b` 值得扫（`b∈{0,0.4,0.6,0.75}`，k1 固定 1.2） | ⚠ **转述**：波兰文引 Louis & Spanakis (2022) 对法条调出 `k1=1.0, b=0.6`。**代理未回核原文，标为转述** |
+| ⛔ **不抄** | `jina-reranker-v2`（**CC-BY-NC-4.0 非商用**）；DBSF | DBSF 前提不成立：我们 4 个元数据路输出的是**布尔/计数**不是连续分，它要的"分数分布"没有 |
+| ⛔ **不抄** | 「长片段天然吃亏」这个假设 | **方向被说反了**：波兰文逐字 `Max-pooling gives longer articles more opportunities to score`；法条均长仅 143 词 |
+
+#### 1.11.6 验收尺子**必须加答案层指标**
+
+1.11.2 那条已经演示了：**rerank 赢 27.6 pp 排序指标，答案层 p=0.61 无差异。**
+⇒ **我们若只测"前五精度"，会得出"rerank 有效"而下游一分为零。**
+
+#### 1.11.7 「其余四路 ≈0」这条要**改读法**（不是推翻，是限定）
+
+- **强支持**：波兰实测 **RRF 61.7% 与 BM25-raw 61.7% 完全相同**（加权 RRF 对最强单路**零增益**），dense 52.3% 反而低于 BM25。STARD / bBSARD / Bekko 三方独立佐证。
+- ⚠ **但方法学上是下界**：FunnelAudit（arXiv 2609.06964）在九路漏斗上实测
+  `single-control ablation recovers only 0.36–7.45%` ⇒ **路间重叠互相遮蔽**。
+- ⇒ **「≈0」应读作"单路消融测不出"，不等于"真为 0"。** 这一句要写进我们的判据说明。
+
+#### 1.11.8 RR 明确没找到的
+
+「先融合再 rerank」vs「先 rerank 再融合」的**受控对照**（搜完 arXiv API 全量 86 命中 + 4 组 web 搜；
+最接近的波兰 ASCR-H vs DTF **成本结构不同**、不是单变量对照）｜中文 cross-encoder 在**中文法律文本**上的
+第三方实测数字（C-MTEB 榜单抓不到表，`C_MTEB/leaderboard.csv` **404**）｜BM25 k1/b 在**中文短文本条款**上的
+公开结论（STARD 直接用 Pyserini 默认、**根本没报数值**）｜「加一条弱路会不会让 RRF 掉分」的直接实验。
+
 ---
 
 ## §1.5 ⭐ 续上后拿到的一条**省掉一整轮返工**的结论：`s*` 不能直接套，且给了绕法
