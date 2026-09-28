@@ -504,3 +504,69 @@ configuration L2292 把它总结成一句：**"what lets a single bank be federa
 - 中文实体的误并率（§9.6）：**只是读文档读出来的风险，未实测**。
 - Control Plane（官方 Web UI）能不能接中文界面：未核，与本项目决策无关。
 - `HINDSIGHT_API_ENABLE_TEXT_SEARCH=false` 之后我们的召回会掉多少：未实测。
+
+---
+
+## §12 更正 §5：那份二手材料，**我第一轮判错了两处**（2026-09-28 第三轮）
+
+§5 当时的结论是「**方向对、细节错**」，并点名两条"错"：
+
+> ❌ 错的：`retain` 单次请求**没有** `context` 参数（官方 `RetainRequest` 只有 `items`/`async`/`document_tags`/`operation_id`）；
+> **`extraction_mode`/`concise`/`verbose` 整个不存在**（整份 spec 0 次命中）。
+
+### §12.1 核完的结论：**这两条"错"是我自己核错了，不是材料错**
+
+在一手件 `llms-full.txt`（938,683 B，2026-09-28T19:18:34Z 生成）里机械计数：
+
+| 检索串 | 命中 | §5 的说法 | 实情 |
+|---|---|---|---|
+| `retain_extraction_mode` | **19 次** | 「整个不存在」 | ❌ 存在 |
+| `concise` | **19 次** | 「整个不存在」 | ❌ 存在（`retain_extraction_mode` 的枚举值之一） |
+| `verbose` | **19 次** | 「整个不存在」 | ❌ 存在（同上） |
+| `### context` | **2 次** | 「retain 没有 context 参数」 | ❌ 存在，是**正式参数小节** |
+| `Category for the memory` | **2 次** | — | 存在（MCP + SDK） |
+
+**逐条对照一手件：**
+
+1. **`context` 确实是 REST retain 的正式参数**，不是 SDK 才有。`api/retain.mdx` **L173–177** 有独立小节 `### context`，原话：
+   > "A short label describing the source or situation… **It is injected directly into the LLM prompt, so it actively shapes how facts are extracted.** The same sentence can mean something very different depending on context: 'the project was terminated' in a `'performance review'` context versus a `'product roadmap'` context produces different memories."
+   ⇒ **那份材料第 323 行几乎是逐字转述这一段**（连"绩效评估 vs 产品路线图"这个例子都一样）。**材料引对了，是我的核法错了。**
+
+2. **`concise` / `verbose` 确实存在**，是 `retain_extraction_mode` 的枚举值。`api/memory-banks.mdx` **L118–128** 列了五档：`concise`（默认）/ `verbose` / `custom` / `verbatim` / `chunks`；`mcp-server.md` **L632** 重列一次。
+
+⇒ **§5 的标题结论「材料方向对、细节错」不成立。材料在我点名的两条"细节"上是对的。**
+
+### §12.2 §5 的证据已经不在机器上，无法复验
+
+§5 写的依据是「整份 spec 0 次命中」，指 `openapi.json`（记为 603,960 B / v0.10.1）。
+⚠ **本机现在没有这个文件**：`C:\Users\Zegel\AppData\Local\Temp\hs-docs2\` 下只有 `llms-full.txt`、`llms.txt`、`sitemap.xml` 和 `split\`。
+⇒ 那次核验**不可复现**，且它的结论与一手件直接矛盾。
+
+### §12.3 最可能的原因（**假设，未验证**）
+
+§0 记着本文档站是 Docusaurus SPA，`/docs/*` 全返回同一个 22,747 B 的 404 壳、**HTTP 200 但不是正文**。
+§5 要在"整份 spec 0 次命中"上得出"字段不存在"，如果当时取到的其实是**壳页或空文件**，"0 命中"就会被读成"字段不存在"。
+⚠ **这只是假设**——我没法重跑那次核验（文件已不在）。
+但**它与 §0 记的坑是同一类错误**，且本条与 §12.1 的实测结果方向一致，**足以把 §5 那两条判据整体作废**。
+
+### §12.4 仍然成立的部分
+
+§5 点名的另两条**经本轮复核仍然成立**：
+
+- ✅ **bank 级导出/导入/克隆是真的**（`admin-cli L459–478`、`api/memory-banks L920–934`；`import-bank` 的 "Target bank must not exist" 见 `admin-cli L12536`）。
+- ✅ **bank 级 `mission` 字段是真的**（`retain_mission` / `reflect_mission` / `observations_mission`，见 `api/memory-banks L107–116 / L280–290` 与 `configuration L2289 / L2372`）。
+
+### §12.5 顺带：那份材料另一处**确实编了**的地方
+
+材料第 17 行称「有一个叫 `reprocess_docs` 的后台任务，**每 15 分钟自动重试**抽取失败的文档」。
+🔴 **官方没有这个东西。** 官方有的是**手动一次性**接口
+`POST /v1/default/banks/{bank_id}/documents/{document_id}/reprocess`（`api/documents`，见 `llms-full.txt L967`），没有周期性后台重试任务。
+
+### §12.6 这轮的教训（比结论重要）
+
+§12.1 的错误和第一轮 §0 记的错误**是同一类**：**拿"检索没命中"当作"东西不存在"**。
+第一次是拿二手材料的关键词去官方文档里找；这次是拿一次 grep 的 0 命中去否定材料。
+⇒ **新增纪律**：凡是要说"官方没有 X"，**必须在两个独立一手件上都是 0 命中**才能这么写；
+只有一份、或者那份的可信度存疑，**只能写"我没查到"，不能写"不存在"**。
+
+**§5 那两条判据据此作废；该节的读者请以本节为准。**
