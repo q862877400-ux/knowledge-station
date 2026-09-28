@@ -259,4 +259,113 @@ iterations**"（排除了"当下不涨、但为后续铺路"的提案）。
 | arXiv 页面 | https://arxiv.org/abs/2608.27454 |
 | 本仓相关归属层 | 解析管线 → `docs/ENCYCLOPEDIA.md`；已否决 → `docs/NOT-DOING.md`；棘轮与门禁 → `scripts/gates-baseline.json` / `eval/baseline.json` / `tests/test_golden_gate.py`；长周期计划 → `docs/RETRIEVAL-LONG-RANGE-PLAN.md` |
 
+---
+
+## §12 2026-09-28 增补：把同族四篇与真实仓库一起核进来之后
+
+> 本节是**同族横向核验**的结果，证据在 `var/tmp/study/skill-evo/A-repos.md` 与 `B-siblings.md`
+> （gitignore 目录，原始件在同目录 `raw/`）。**本节只增补与更正，不推翻上文；上文若有与本节冲突处，以本节为准。**
+
+### 12.1 🔧 更正：§7 那个"别指望从它那儿抄到答案"——**对 WikiSkill 成立，对整个族不成立**
+
+§7 我写的是：论文自认排除 neutral 提案 ⇒ **"我们缺的不是门，是怎么给 neutral 的东西判账的办法；论文没解决，所以别指望从它那儿抄到答案"**。
+
+**这句话的后半句过宽了。** 同族四篇在接受判据上分成两派：
+
+| | 判据（原文/伪码） | 允不允许"不涨但接受" |
+|---|---|---|
+| WikiSkill | `R(T_val,k) > R_best`（比**历史最好**，平局拒） | ❌ |
+| SkillOpt | `score_cand > score_cur`，超参原文 "strictly greater—ties are rejected" | ❌ |
+| **EvoSkill** | `\|G\|<k or s̃ > min_{q∈G} SCORE(q)`（**比队尾最弱即可**） | ✅ **四篇中唯一** |
+| Trace2Skill | **主流程没有接受门**，只有格式 guardrail | — |
+
+⇒ **"怎么给不涨分的东西判账"，EvoSkill 用「定容前沿 + 只比最弱」在同族内给了机制**。
+**代价也要写清**：这样收下之后**前沿的最优分可能下降**，论文没有讨论这一点。
+
+**更正范围**：§7 的判断**对 WikiSkill 单篇仍然成立**（它确实自认排除 neutral）；被更正的是"这个族没有答案"这半句。
+
+### 12.2 四篇的持久层与裁剪：严格说**一篇都没解决**
+
+| | 持久层 | 裁剪机制 |
+|---|---|---|
+| WikiSkill | 轨迹 + `wiki/`（patterns / index / logs / skill-impact）+ `skills/` | **无**（作者自曝；同段还有"每轮 pattern 数量无硬上限"） |
+| SkillOpt | **只有一个 `best_skill.md`** | 无 wiki、无技能库 |
+| EvoSkill | git 分支技能夹 + **定容前沿 K=3** + 累计反馈历史 H | **只淘汰候选池**（未入围分支删除，原文明写 "to prevent repository bloat"）；**真正线性增长的 H 无界** |
+| Trace2Skill | 单个技能目录 `S=(SKILL.md, references/)` | **连承认都没有** |
+
+**SkillOpt 的"每步编辑条数上限"（默认 4、余弦衰减到 2）是变化率不是总量**——每步都涨分就能一直长，
+论文自报最终增长 **×2.5 到 ×53**；它的真实对策是**从设计上回避**，Limitations 逐字
+"intentionally optimizes a single portable skill rather than growing a large skill library"。
+
+**共同根因（四篇一致）**：**没有一篇跑到会显形的规模。** 最长演化 = WikiSkill 8 轮 / EvoSkill 约 5–11 轮 /
+SkillOpt 4 个 epoch / Trace2Skill 单趟；持久层最终都停在**个位数到十几条**。
+**这是"没碰到"，不是"解决了"。** ⇒ §9 那个对比（论文 6.3–8.9 vs 我们 42 条）由此**加强而非削弱**。
+
+### 12.3 拒绝留痕的强弱（这是 §6 G2 的现成参照）
+
+**WikiSkill 最强**（`skill-impact.md` 永久累积，含 **unified diff + 验证分 + Accepted/Rejected**）
+＞ EvoSkill（H 永久但无界，有分数与判决、**无 diff**）
+＞ SkillOpt（rejected-edit buffer **每 epoch 重置**，不是永久台账）
+＞ Trace2Skill（无）。
+
+⚠ **四篇都没有在接受门上做显著性检验。** WikiSkill 的配对 bootstrap 只用于报表排名；
+EvoSkill 自曝 "single run… Variance analysis left to future work"。
+⇒ 对照本仓：`tests/test_golden_gate.py` 的 ≤2pp 是**绝对阈值**，同样**无显著性检验**（§6 G3 成立）。
+
+### 12.4 一条反直觉的发现（可能比上面所有结论都值钱）
+
+Trace2Skill §C.2 是四篇中**唯一**给出"知识会变脏"实证的地方（且测的是**补丁池**、不是知识层，
+只在选择性补丁实验里）：**323 条补丁里 4 个主题被反复引用（55.1% / 54.8% / 42.7% / 16.4%），贪心选十轮仍回到同几个主题**；
+单步内 **57 个 fail-to-pass 对 21 个 pass-to-fail**。
+
+它的结论与"脏了就删"**相反**：**全量整合 > 贪心选择**；低支持内容"**不丢弃，而是归入 13 个补充参考文件**"。
+
+⚠ **四篇没有任何一篇报告过垃圾率 / 陈旧率 / 冲突率 / 失效条目比例。**
+⇒ 与 [记忆系统调研](agent-memory-systems.md) §3.3 互补：那批文献**测了脏率**（mem0 生产库 10,134 条里 97.8% 不可用），
+这批文献**测了涨分**。**"脏了之后该怎么办"这个问题，两批文献合起来仍然没有答案。**
+
+### 12.5 🔴 真实仓库与许可：**"抄"这件事在多数情况下不成立**
+
+8 个官方仓（代码用 `git/trees` 逐个点算，非看 README 长度；数值核到 2026-09-28）：
+
+| 仓 | ★ | 根 LICENSE 原文 | API 字段 |
+|---|---|---|---|
+| `microsoft/SkillOpt` | 17,698 | **MIT** | MIT ✅ |
+| `benchflow-ai/skillsbench` | 1,818 | Apache-2.0 | Apache-2.0 ✅ |
+| `stanford-iris-lab/meta-harness` | 1,621 | **MIT** | MIT ✅ |
+| `sentient-agi/EvoSkill` | 1,230 | Apache-2.0 | Apache-2.0 ✅ |
+| `Darwin-Agent/HarnessX` | 479 | **MIT** | MIT ✅ |
+| `Qwen-Applications/Trace2Skill` | 295 | 🔴 **无 LICENSE 文件** | 空 |
+| `shiqichen17/SkillCraft` | 106 | 🔴 **无 LICENSE 文件** | 空 |
+| `ThakiCloud/SKILLRET` | 26 | 🔴 **无 LICENSE 文件** | 空 |
+
+**三条许可事实（我逐条独立复核过）**：
+
+1. **🔴🔴 Trace2Skill 发布的 4 套最优技能资产不是自由资产。** `released_skills/*/LICENSE.txt` 原文（我读出全文，1466 字节）：
+   `© 2025 Anthropic, PBC. All rights reserved.`，且明文 **禁止** 提取/留存副本、**禁止复制**、
+   **禁止制作衍生作品**、**禁止分发或转授权**、**禁止逆向**。
+   ⇒ **论文最值得抄的那批结果，恰恰是最不能抄的。**
+2. **🔴 徽章不构成授权。** Trace2Skill 与 SKILLRET 的 README 都挂 Apache-2.0 徽章，
+   **而根目录没有 LICENSE 文件**；SKILLRET 的徽章还相对链接到一个 **404 的 LICENSE**。法律上等同"保留所有权利"。
+3. **API 字段两个方向都会骗人。** 反例：`Tencent/SkillHone` API 报 `NOASSERTION`，
+   而 LICENSE 原文逐字是 MIT（1,429 字节，非标准抬头导致识别失败）。
+   ⚠ 另一处易混：SKILLRET 的 **GitHub 仓无许可**，但其 **HuggingFace 数据集与 embedding/reranker 权重是 apache-2.0**
+   ——**三者法律状态不同，不能混说**。
+
+**另外两条**：
+- **WikiSkill（2608.27454）没有官方仓库** —— `google-research` 组织下一个都没有，搜到的全是第三方复现
+  （4 个 MIT，star 251 / 38 / 5 / 2）。**论文开源了，代码没开源。**
+- **8 个仓对"文档知识库 + 技能"的直接支持 = 基本为零。** 路径级扫描：Trace2Skill / EvoSkill / meta-harness 命中 **0**；
+  README 里搜 knowledge base / 知识库 **0 次实质命中**；所有 "rag" 命中都是子串误配（`Ave-rag-e`、`del-e-rag-e`）。
+  HarnessX 的 `memory_retrieval.py` 最接近，但那是**agent 对话记忆，不是文档库**。
+  **概念上唯一对得上的就是 WikiSkill，而它没开源。**
+
+### 12.6 本节自身的证据边界
+
+- WikiSkill 的 **8 轮演化**是**推断**（据附录 Table 5 把接受更新分成 0–1 / 2–4 / 5–7 三组），**正文没有直写**。
+- **SkillOpt 正文那句 "±2.7 points" 与它自己 Table 3 的实际差值（1.6 / 4.6 / 2.4）对不上**，口径不明 ⇒ 引用应直接引表里的数。
+- **EvoSkill 全文零次出现 "limitation"**，没有 Limitations 章节 ⇒ 四篇里自省最少。
+- 各仓的 CI/测试**是否真跑未核**（只读文件树，**未 clone、未执行**）；国内可访问性、issue 与弃坑情况**未核**。
+
 > 本文**只登记，不改任何代码或判据**。§6 的四条缺口**均未实施**；是否实施由业主决定。
+> 同族与仓库层面的完整证据见 `var/tmp/study/skill-evo/A-repos.md`、`B-siblings.md`（gitignore 目录）。
