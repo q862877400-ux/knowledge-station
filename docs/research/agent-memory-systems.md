@@ -225,7 +225,7 @@ Postgres 18.1，**25 张表、0 张分区表**。核心：
 
 | # | 抄什么 | 出处 | 为什么值得抄 |
 |---|---|---|---|
-| 1 | **时间边失效**：`valid_at` / `invalid_at` / `expired_at` + `resolve_edge_contradictions` | `graphiti` | "旧依据被新依据取代但**不删历史**"的最小实现，可直接映射我们的 `有效/失效/被替代` |
+| 1 | ~~**时间边失效**：`valid_at`/`invalid_at`/`expired_at` + `resolve_edge_contradictions`~~ 🔴 **原话保留**：我原写"「旧依据被新依据取代但不删历史」的最小实现，**可直接映射**我们的 `有效/失效/被替代`"。<br>🔴 **2026-09-27 撤回其中的「算法可抄」**（依据：`docs/research/solutions-for-open-problems.md` §4，源 `var/tmp/study/problems/C-memory.md` §0.1）⇒ **只抄那三列双时态字段，算法本身不抄。**<br>**依据**（`getzep/graphiti` main 源码逐行）：`graphiti_core/utils/maintenance/edge_operations.py:414` 传的是 **`search_filter=SearchFilters()`（空过滤器**；隔壁 `:399` 那次才是 `SearchFilters(edge_uuids=...)`）⇒ 失效候选集 = 该 group 内**每一条**语义相似的边，**不要求与新事实共享任何实体**，随后由 LLM 返回一串下标就盖 `invalid_at`。<br>**反证**（两个独立来源）：上游 issue **#1728**（约 **3,950** 条事实的生产图里 **41%** 的边带 `invalid_at`，抽检 4 条 **3 条误伤**）+ 第三方现场报告 40 例分层人工盲判 **28 例误伤 = 70%**，Wilson 95% CI **[54.6%, 81.9%]**；修复 PR **#1729** 自 2026-08-04 起 open 未审。<br>⚠ **元教训**：审计要查 `expired_at`（事务时间）**不是** `invalid_at`（会被回填）—— 查错列会让可判定集小到 1/4。 | `graphiti` | **只抄三列双时态字段** ⇒ 可映射我们的 `有效/失效/被替代`；**算法不抄**（误伤 70%，而我们的「效力由发布机关决定」比"新记忆推翻旧记忆"硬得多） |
 | 2 | **consolidation 约束**：UPDATE 优先、只在被取代时删、**删除必须指名目标 id 否则整批作废** | `hindsight` | 这一条正好是我们**已经踩过的坑**（"保留多久"曾在两处独立决定 ⇒ 记录被误删） |
 | 3 | **`.dsh-plugin/` 骨架** | `MemPalace` | 唯一针对 DeepSeek Harness 写过记忆插件的项目；已解决两个坑：DSH 会话是 zstd 压缩、钩子拿到**空转录路径**⇒自己存 append-only 转录；首次装配要等记忆⇒有 `firstAssemblyBudgetMs`（默认 10 s，冷启动实测 7.4 s） |
 | 4 | **遗忘分三档，起点选第二档** | supermemory → graphiti → hindsight | 第一档是 `forgetAfter` + `forgetReason` 两个字段；第二档是图边失效；第三档是观察合并+页面重写。**我们有权威效力来源，比"新记忆推翻旧记忆"更硬** ⇒ 第二档；把第一档两个字段并进我们的效力状态 |
@@ -517,6 +517,16 @@ LongMemEval_S 约 **115k token**（≈40 会话）；MemoryAgentBench **103k–1
 * 忙时那次（636.6 ms）是**同时跑着 5 个调研代理**时量的；已按承诺**在机器静下来后复测**（606.0 ms），
   两者相差 <5% ⇒ **量级结论站得住**；
 * "贡献≈0"的含义是"**把它去掉，问答指标不动**"，**不是**"它永远没用"；
+* 🔴 **2026-09-27 补一条更要紧的：这条消融只证了"无贡献"，没证"无害"。**
+  外部三条独立反证（源 `var/tmp/study/problems/F-chunking.md` §推翻既有做法）：
+  ① **Bekko（arXiv 2607.25180, 2026-07）实测 BM25 打败全部 12 个稠密模型**于长文档基准
+  （NanoLongEmbed 0.822 / NanoMLDR 0.740），并引 bge-m3 论文自报"dense long-document retrieval
+  remains an open problem"；② **ECHR 法律域实测按相似度排比随机排还差**
+  （arXiv 2606.03728 原文："ranking by similarity performs **worse than random selection**
+  at surfacing gold citation paragraphs"）—— **这一条正落在我们的语料类型上**；
+  ③ 强塞静态通道在留出折上**显著变差**（arXiv 2608.02112）。
+  ⇒ **"去掉它指标不动"与"它会拖后腿"是两件事，我们只做过前者。**
+  在 ECHR 那条出来之前，**不能**把"默认关掉向量通道"当成已证无害的动作；
 * 默认关掉它属**行为改动**（要复核），且这属**业主决定**。
 
 ### 6.2 与 §1.4 对照：两套系统的墙**不是同一面**
