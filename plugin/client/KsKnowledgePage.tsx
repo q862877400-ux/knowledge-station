@@ -74,7 +74,7 @@
  */
 
 import { Fragment, useCallback, useEffect, useMemo, useRef, useState, type MouseEvent as ReactMouseEvent, type ReactNode } from 'react'
-import { Button, Checkbox, IconChecklistOutline14, IconChevronDownOutline14, IconChevronLeftOutline14, IconChevronRightOutline14, IconCloseOutline16, IconEllipsisOutline16, IconFolderOpenOutline16, IconInfoOutline14, IconPlusOutline16, IconQuestionOutline14, IconRefreshOutline16, IconSearchOutline16, IconTrashOutline16, IconWarningOutline16, Input, Menu } from '@deepseek-ai/dsh-client-ui-primitives'
+import { Button, Checkbox, IconChecklistOutlineRegular, IconChevronDownOutlineRegular, IconChevronLeftOutlineRegular, IconChevronRightOutlineRegular, IconCloseOutlineRegular, IconEllipsisOutlineRegular, IconFolderOpenOutlineRegular, IconInfoOutlineRegular, IconPlusOutlineRegular, IconQuestionOutlineRegular, IconRefreshOutlineRegular, IconSearchOutlineRegular, IconTrashOutlineRegular, IconWarningOutlineRegular, Input, Menu } from '@deepseek-ai/dsh-client-ui-primitives'
 
 import {
   addKbMembers,
@@ -992,7 +992,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
         {/* 图标语义（诊断 J1，2026-09-22）：这里原来是**放大镜**——那是"搜索"的字面义，
             挂在"提问"按钮上会把用户带偏（第一眼都当搜索框）。换成问号 = 提问的字面义。
             宿主图标全集核过（ui-primitives/lib/types/icons/*.d.ts）：无对话气泡类，问号最贴。 */}
-        <IconQuestionOutline14 />
+        <IconQuestionOutlineRegular />
         在此范围内提问
       </Button>
       {/* 范围 chip（业主："发起前/发起后都要能看出当前范围是什么"）：目录名 + 篇数 + 可清掉。
@@ -1015,7 +1015,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
             title="清掉范围（连提问面板一起收起；清掉之后这一页不会做「不限定范围」的提问）"
             onClick={clearAsk}
           >
-            <IconCloseOutline16 />
+            <IconCloseOutlineRegular />
           </button>
         </span>
       )}
@@ -2114,7 +2114,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
       <div className="ks-page">
         <div className="ks-kb">
           <div className="ks-kb-banner" title="本页只落了入口与外壳，内容还没有。">
-            <IconInfoOutline14 />
+            <IconInfoOutlineRegular />
             <strong>这一页尚未实现</strong>
           </div>
           <div className="ks-kb-card">
@@ -2138,7 +2138,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
   const searchBox = KB_PAGE_SEARCH ? (
     <span className="ks-search">
       <Input
-        icon={<IconSearchOutline16 />}
+        icon={<IconSearchOutlineRegular />}
         value={search}
         placeholder="搜索目录名或标准号/名称…"
         aria-label="在当前这一层按目录名或文件标准号/名称过滤（本地过滤，不检索语料）"
@@ -2180,7 +2180,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
               title={expanded ? '收起' : '展开'}
               onClick={() => { void toggleTree(key) }}
             >
-              {expanded ? <IconChevronDownOutline14 /> : <IconChevronRightOutline14 />}
+              {expanded ? <IconChevronDownOutlineRegular /> : <IconChevronRightOutlineRegular />}
             </button>
           ) : (
             <span className="ks-tree-caret ks-tree-caret-leaf" aria-hidden="true" />
@@ -2191,7 +2191,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
             title={`${name}${count === null ? '' : `（这一棵下共 ${String(count)} 篇）`}`}
             onClick={() => { goto(key === 'root' ? null : key) }}
           >
-            <IconFolderOpenOutline16 />
+            <IconFolderOpenOutlineRegular />
             <span className="ks-tree-label">{name}</span>
           </button>
           {count === null ? null : <span className="ks-tree-count">{count}</span>}
@@ -2230,7 +2230,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
             : '待分类：还没归位的文件'}
           onClick={gotoInbox}
         >
-          <IconChecklistOutline14 />
+          <IconChecklistOutlineRegular />
           <span className="ks-tree-label">待分类</span>
         </button>
         {inboxKnown ? <span className="ks-tree-count ks-tree-count-inbox">{inboxTotal}</span> : null}
@@ -2434,7 +2434,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                     title="处置这一篇（放进目录 / 按建议归位 / 重来一次 / 删除）"
                     onClick={() => { setMenuFor(isOpen ? null : doc.doc_id) }}
                   >
-                    <IconEllipsisOutline16 />
+                    <IconEllipsisOutlineRegular />
                   </Button>
                 )}
               />
@@ -2495,7 +2495,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
             title="让引擎把这批重新解析一遍（后台跑，状态列会跟着变）"
             onClick={() => { void runReingest(pickedDocIds) }}
           >
-            <IconRefreshOutline16 />
+            <IconRefreshOutlineRegular />
             重来一次
           </Button>
           <Button
@@ -2505,7 +2505,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
             title="删除是不可撤销的（条款/向量/证据一并删；收藏与批注不删）"
             onClick={() => { openAction('del', [...picked]) }}
           >
-            <IconTrashOutline16 />
+            <IconTrashOutlineRegular />
             删除
           </Button>
         </>
@@ -2564,7 +2564,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
               title="删目录（不是删文档）：先读这几个目录的真实影响，再让你二选一"
               onClick={() => { openAction('folder-del', [...picked]) }}
             >
-              <IconTrashOutline16 />
+              <IconTrashOutlineRegular />
               删掉目录…
             </Button>
           ) : null}
@@ -2619,7 +2619,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
       {action.kind === 'del' ? (
         <>
           <span className="ks-act-head">
-            <IconWarningOutline16 />
+            <IconWarningOutlineRegular />
             <strong>确认删除 {action.targets.length} 篇？</strong>
           </span>
           <span className="ks-act-hint">
@@ -2637,7 +2637,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
               className="ks-act-go ks-danger"
               onClick={() => { void removeDocs(docIdsOf(action.targets)) }}
             >
-              <IconTrashOutline16 />
+              <IconTrashOutlineRegular />
               确认删除
             </Button>
           </div>
@@ -2645,10 +2645,10 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
       ) : action.kind === 'folder-del' ? (
         <>
           <span className="ks-act-head">
-            <IconWarningOutline16 />
+            <IconWarningOutlineRegular />
             <strong>删掉这 {folderIdsOf(action.targets).length} 个目录？</strong>
             <Button variant="ghost" size="sm" title="关掉这个面板" onClick={() => { setAction(null) }}>
-              <IconCloseOutline16 />
+              <IconCloseOutlineRegular />
             </Button>
           </span>
           {delPreview === null ? (
@@ -2697,7 +2697,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                     className="ks-act-go ks-danger"
                     onClick={() => { void runFolderDelete(null) }}
                   >
-                    <IconTrashOutline16 />
+                    <IconTrashOutlineRegular />
                     删除这些空目录
                   </Button>
                 ) : (
@@ -2721,7 +2721,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                       title="连里面的下级目录一起删；文件只从这些目录里拿掉，不会再出现在任何目录里的才真删"
                       onClick={() => { void runFolderDelete('purge') }}
                     >
-                      <IconTrashOutline16 />
+                      <IconTrashOutlineRegular />
                       连里面的文件一起删
                     </Button>
                   </>
@@ -2739,7 +2739,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                 : `把目录「${subs.find((f) => f.folder_id === folderIdsOf(action.targets)[0])?.name ?? ''}」改成什么名字？`}
             </strong>
             <Button variant="ghost" size="sm" title="关掉这个面板" onClick={() => { setAction(null) }}>
-              <IconCloseOutline16 />
+              <IconCloseOutlineRegular />
             </Button>
           </span>
           <div className="ks-act-row">
@@ -2783,7 +2783,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                 : `把 ${actWhat}${pickVerb[action.kind] ?? '放进'}哪个目录？`}
             </strong>
             <Button variant="ghost" size="sm" title="关掉这个面板" onClick={() => { setAction(null) }}>
-              <IconCloseOutline16 />
+              <IconCloseOutlineRegular />
             </Button>
           </span>
           {action.kind === 'new' ? (
@@ -2819,7 +2819,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                 title={f.path}
                 onClick={() => { setPickFolder(f.folder_id) }}
               >
-                <IconFolderOpenOutline16 />
+                <IconFolderOpenOutlineRegular />
                 <span className="ks-act-item-name">{f.name}</span>
                 <span className="ks-act-item-path">{f.path}</span>
               </button>
@@ -2973,7 +2973,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
       ) : null}
       {inbox.length === 0 ? (
         <div className="ks-empty-card">
-          <span className="ks-empty-ico"><IconChecklistOutline14 size={28} /></span>
+          <span className="ks-empty-ico"><IconChecklistOutlineRegular size={28} /></span>
           <span className="ks-empty-t">没有排队等归位的文件</span>
           <span className="ks-empty-d">
             库里每一篇都已经归位了。用上面的「上传到这一层」把新文件导进来，
@@ -2983,7 +2983,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
       ) : null}
       {inbox.length > 0 && inboxShown.length === 0 && needle !== '' ? (
         <div className="ks-empty-card">
-          <span className="ks-empty-ico"><IconSearchOutline16 size={28} /></span>
+          <span className="ks-empty-ico"><IconSearchOutlineRegular size={28} /></span>
           <span className="ks-empty-t">这一层没有符合搜索的条目</span>
           <span className="ks-empty-d">
             本页 {inbox.length} 篇里没有标准号/名称含「{search.trim()}」的。
@@ -3004,7 +3004,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
             title="上一页"
             onClick={() => { void loadInbox(Math.max(0, inboxOffset - INBOX_PAGE_SIZE), { silent: true }) }}
           >
-            <IconChevronLeftOutline14 />
+            <IconChevronLeftOutlineRegular />
           </Button>
           <span className="ks-pager-n">
             第 {Math.floor(inboxOffset / INBOX_PAGE_SIZE) + 1} / {Math.max(1, Math.ceil(inboxTotal / INBOX_PAGE_SIZE))} 页
@@ -3018,7 +3018,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
             title="下一页"
             onClick={() => { void loadInbox(inboxOffset + INBOX_PAGE_SIZE, { silent: true }) }}
           >
-            <IconChevronRightOutline14 />
+            <IconChevronRightOutlineRegular />
           </Button>
         </div>
       ) : null}
@@ -3074,7 +3074,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                 : `回到上一层（现在在：${['知识库', ...crumb.map((f) => f.name)].join(' / ')}）`)}
             onClick={goUp}
           >
-            <IconChevronLeftOutline14 />
+            <IconChevronLeftOutlineRegular />
             返回上一层
           </Button>
           <span
@@ -3184,7 +3184,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                 : `在「${levelName}」下面建一个下级目录`}
               onClick={() => { openAction('mkdir', []) }}
             >
-              <IconPlusOutline16 />
+              <IconPlusOutlineRegular />
               新建下级目录
             </Button>
           ) : null}
@@ -3200,7 +3200,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                 : `把「来源目录」里的文件导入并直接放进「${levelName}」`)}
             onClick={() => { void openUpload() }}
           >
-            <IconPlusOutline16 />
+            <IconPlusOutlineRegular />
             上传到这一层
           </Button>
           <Button
@@ -3213,7 +3213,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
               else void loadLevel(levelId, fileOffset, { silent: true })
             }}
           >
-            <IconRefreshOutline16 />
+            <IconRefreshOutlineRegular />
           </Button>
         </div>
 
@@ -3255,7 +3255,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                 title="只读体检（抽样 5 篇）：能进 / 要留意 / 进不了；不写库、不调云解析"
                 onClick={() => { void runCheck() }}
               >
-                <IconChecklistOutline14 />
+                <IconChecklistOutlineRegular />
                 先体检（只读）
               </Button>
               <span className="ks-upload-hint">
@@ -3274,7 +3274,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                 title="逐篇只读预览（分级/裁决/样例/识别与版面指标；不写库、默认不外发）"
                 onClick={() => { setUpPreview(!upPreview) }}
               >
-                <IconChevronDownOutline14 />
+                <IconChevronDownOutlineRegular />
                 逐篇看
               </Button>
             </div>
@@ -3335,11 +3335,11 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
               <div className="ks-kb-grow" />
               <Button variant="ghost" size="sm" className="ks-ask-close" title="收起提问面板（范围留着）"
                 onClick={() => { setAskOpen(false) }}>
-                <IconChevronDownOutline14 />
+                <IconChevronDownOutlineRegular />
                 收起
               </Button>
               <Button variant="ghost" size="sm" className="ks-ask-clear" title="清掉范围并收起面板" onClick={clearAsk}>
-                <IconCloseOutline16 />
+                <IconCloseOutlineRegular />
                 清掉范围
               </Button>
             </div>
@@ -3568,9 +3568,9 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                               aria-label={`进入目录「${child.name}」，这一棵目录下共 ${child.file_count_deep} 篇`}
                               onClick={() => { goto(child.folder_id) }}
                             >
-                              <span className="ks-fileico" title="目录"><IconFolderOpenOutline16 /></span>
+                              <span className="ks-fileico" title="目录"><IconFolderOpenOutlineRegular /></span>
                               <span className="ks-dir-name" title={child.name}>{child.name}</span>
-                              <span className="ks-dir-go"><IconChevronRightOutline14 /></span>
+                              <span className="ks-dir-go"><IconChevronRightOutlineRegular /></span>
                             </button>
                             <span style={{ marginLeft: 'auto', display: 'inline-flex', gap: 8,
                               fontSize: 11, whiteSpace: 'nowrap', color: 'var(--dsw-alias-label-secondary)' }}
@@ -3618,7 +3618,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                                   title="处置这个目录（改名 / 新建下级 / 移动到 / 复制到 / 删）"
                                   onClick={() => { setMenuFor(isOpen ? null : pickDirKey(child.folder_id)) }}
                                 >
-                                  <IconEllipsisOutline16 />
+                                  <IconEllipsisOutlineRegular />
                                 </Button>
                               )}
                             />
@@ -3652,7 +3652,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
             {/* 空态（需求 6）：分清**本来就没东西**与**被搜索筛没了** */}
             {levelEmpty ? (
               <div className="ks-empty-card">
-                <span className="ks-empty-ico"><IconFolderOpenOutline16 size={28} /></span>
+                <span className="ks-empty-ico"><IconFolderOpenOutlineRegular size={28} /></span>
                 <span className="ks-empty-t">这一层还没有东西</span>
                 <span className="ks-empty-d">
                   这一层里既没有下级目录，也没有直接放在这里的文件。
@@ -3664,7 +3664,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
             ) : null}
             {!levelEmpty && nothingShown && needle !== '' ? (
               <div className="ks-empty-card">
-                <span className="ks-empty-ico"><IconSearchOutline16 size={28} /></span>
+                <span className="ks-empty-ico"><IconSearchOutlineRegular size={28} /></span>
                 <span className="ks-empty-t">这一层没有符合搜索的条目</span>
                 <span className="ks-empty-d">
                   本页 {subs.length} 个目录 / {files.length} 篇文件里，没有名字或标准号含「{search.trim()}」的。
@@ -3787,7 +3787,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                                   title="更多操作（详情 / 移动到 / 复制到 / 移出）——「移出」只把这一篇从当前目录移出，文件不会删除"
                                   onClick={() => { setMenuFor(isOpen ? null : doc.doc_id) }}
                                 >
-                                  <IconEllipsisOutline16 />
+                                  <IconEllipsisOutlineRegular />
                                 </Button>
                               )}
                             />
@@ -3824,7 +3824,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                   title="上一页"
                   onClick={() => { goPage(Math.max(0, fileOffset - FILE_PAGE_SIZE)) }}
                 >
-                  <IconChevronLeftOutline14 />
+                  <IconChevronLeftOutlineRegular />
                 </Button>
                 <span className="ks-pager-n">
                   第 {pageNo} / {pageMax} 页 · 共 {filesTotal} 篇
@@ -3837,7 +3837,7 @@ export function KsKnowledgePage({ useTabInfo }: KsPaneBodyProps & KsKbInjected):
                   title="下一页"
                   onClick={() => { goPage(fileOffset + FILE_PAGE_SIZE) }}
                 >
-                  <IconChevronRightOutline14 />
+                  <IconChevronRightOutlineRegular />
                 </Button>
               </div>
             ) : null}

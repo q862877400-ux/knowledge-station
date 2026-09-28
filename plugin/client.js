@@ -34956,9 +34956,9 @@ var import_dsh_client_ui_primitives2 = require("@deepseek-ai/dsh-client-ui-primi
 init_api();
 var import_jsx_runtime9 = require("react/jsx-runtime");
 var OFFICE_ITEMS = [
-  { id: "gap", name: "\u5236\u5EA6\u5DEE\u8DDD\u5206\u6790", hint: "\u5185\u90E8\u5236\u5EA6\u6BD4\u6CD5\u89C4\u7F3A\u4EC0\u4E48", icon: import_dsh_client_ui_primitives2.IconPlanOutline14, status: "ready", verb: "\u4E0A\u4F20\u5236\u5EA6\u6BD4\u5BF9", pageDesc: "\u4E0A\u4F20\u5185\u90E8\u5236\u5EA6\uFF0C\u81EA\u52A8\u5BF9\u6BD4\u6CD5\u5B9A\u8981\u6C42\uFF0C\u9010\u6761\u5217\u51FA\u7F3A\u4EC0\u4E48\uFF0C\u51FA\u5DEE\u8DDD\u62A5\u544A\u3002" },
-  { id: "fix", name: "\u7EA0\u9519\u4FEE\u8BA2", hint: "\u6807\u8BB0\u8BC6\u522B\u9519\u7684\u6761\u6B3E\uFF0C\u53EF\u56DE\u9000", icon: import_dsh_client_ui_primitives2.IconListPenOutline16, status: "ready", verb: "\u6253\u5F00\u539F\u6587\u9875\u6807\u8BB0", pageDesc: "\u53D1\u73B0\u6761\u6B3E\u8BC6\u522B\u9519\u4E86\uFF0C\u5728\u539F\u6587\u9875\u6807\u8BB0\u5E76\u63D0\u4EA4\u4FEE\u6539\uFF1B\u6BCF\u7B14\u4FEE\u6539\u7559\u75D5\u3001\u53EF\u56DE\u9000\u3002\u4E5F\u53EF\u4EE5\u5728 PDF \u9605\u8BFB\u5668\u7684\u6761\u6B3E\u884C\u300C\u22EE\u300D\u91CC\u70B9\u300C\u8FD9\u6761\u8BC6\u522B\u9519\u4E86\u300D\u3002" },
-  { id: "egress", name: "\u5916\u53D1\u5BA1\u8BA1", hint: "\u6BCF\u6B21\u5916\u53D1\u8BB0\u5F55\uFF0C\u53EF\u67E5\u53EF\u5BFC\u51FA", icon: import_dsh_client_ui_primitives2.IconClockOutline16, status: "ready", verb: "\u67E5\u770B\u5916\u53D1\u8BB0\u5F55", pageDesc: "\u6BCF\u6B21\u8C03\u7528\u4E91\u7AEF\u7684\u5B8C\u6574\u8BB0\u5F55\uFF0C\u53EF\u67E5\u53EF\u5BFC\u51FA\u2014\u2014\u6570\u636E\u51FA\u4E86\u672C\u673A\u4E00\u5B9A\u7559\u75D5\u3002" }
+  { id: "gap", name: "\u5236\u5EA6\u5DEE\u8DDD\u5206\u6790", hint: "\u5185\u90E8\u5236\u5EA6\u6BD4\u6CD5\u89C4\u7F3A\u4EC0\u4E48", icon: import_dsh_client_ui_primitives2.IconPlanOutlineRegular, status: "ready", verb: "\u4E0A\u4F20\u5236\u5EA6\u6BD4\u5BF9", pageDesc: "\u4E0A\u4F20\u5185\u90E8\u5236\u5EA6\uFF0C\u81EA\u52A8\u5BF9\u6BD4\u6CD5\u5B9A\u8981\u6C42\uFF0C\u9010\u6761\u5217\u51FA\u7F3A\u4EC0\u4E48\uFF0C\u51FA\u5DEE\u8DDD\u62A5\u544A\u3002" },
+  { id: "fix", name: "\u7EA0\u9519\u4FEE\u8BA2", hint: "\u6807\u8BB0\u8BC6\u522B\u9519\u7684\u6761\u6B3E\uFF0C\u53EF\u56DE\u9000", icon: import_dsh_client_ui_primitives2.IconListPenOutlineRegular, status: "ready", verb: "\u6253\u5F00\u539F\u6587\u9875\u6807\u8BB0", pageDesc: "\u53D1\u73B0\u6761\u6B3E\u8BC6\u522B\u9519\u4E86\uFF0C\u5728\u539F\u6587\u9875\u6807\u8BB0\u5E76\u63D0\u4EA4\u4FEE\u6539\uFF1B\u6BCF\u7B14\u4FEE\u6539\u7559\u75D5\u3001\u53EF\u56DE\u9000\u3002\u4E5F\u53EF\u4EE5\u5728 PDF \u9605\u8BFB\u5668\u7684\u6761\u6B3E\u884C\u300C\u22EE\u300D\u91CC\u70B9\u300C\u8FD9\u6761\u8BC6\u522B\u9519\u4E86\u300D\u3002" },
+  { id: "egress", name: "\u5916\u53D1\u5BA1\u8BA1", hint: "\u6BCF\u6B21\u5916\u53D1\u8BB0\u5F55\uFF0C\u53EF\u67E5\u53EF\u5BFC\u51FA", icon: import_dsh_client_ui_primitives2.IconClockOutlineRegular, status: "ready", verb: "\u67E5\u770B\u5916\u53D1\u8BB0\u5F55", pageDesc: "\u6BCF\u6B21\u8C03\u7528\u4E91\u7AEF\u7684\u5B8C\u6574\u8BB0\u5F55\uFF0C\u53EF\u67E5\u53EF\u5BFC\u51FA\u2014\u2014\u6570\u636E\u51FA\u4E86\u672C\u673A\u4E00\u5B9A\u7559\u75D5\u3002" }
 ];
 function KsOfficeRow(props) {
   const { item, onOpen } = props;
@@ -37193,7 +37193,7 @@ function KsChannelsPanel(props) {
                       setSiteSel(null);
                     },
                     children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutline16, {}),
+                      /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutlineRegular, {}),
                       /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-tree-label", children: "\u6E20\u9053\u5E93" })
                     ]
                   }
@@ -37227,7 +37227,7 @@ function KsChannelsPanel(props) {
                         onClick: () => {
                           toggleKind(g.key);
                         },
-                        children: expanded ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconChevronDownOutline14, {}) : /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconChevronRightOutline14, {})
+                        children: expanded ? /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconChevronDownOutlineRegular, {}) : /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconChevronRightOutlineRegular, {})
                       }
                     ) : /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-tree-caret ks-tree-caret-leaf", "aria-hidden": "true" }),
                     /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
@@ -37242,7 +37242,7 @@ function KsChannelsPanel(props) {
                           setOpenKinds((prev) => new Set(prev).add(g.key));
                         },
                         children: [
-                          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutline16, {}),
+                          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutlineRegular, {}),
                           /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-tree-label", children: g.label })
                         ]
                       }
@@ -37326,7 +37326,7 @@ function KsChannelsPanel(props) {
           /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-search", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
             import_dsh_client_ui_primitives3.Input,
             {
-              icon: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconSearchOutline16, {}),
+              icon: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconSearchOutlineRegular, {}),
               value: q,
               placeholder: "\u641C\u7F51\u7AD9\u540D\u5B57 / \u7F51\u7AD9\u57DF\u540D\u2026",
               "aria-label": "\u641C\u6E20\u9053\uFF08\u540D\u5B57\u6216\u57DF\u540D\uFF09",
@@ -37358,9 +37358,9 @@ function KsChannelsPanel(props) {
                       "aria-label": `\u8FDB\u5165\u7F51\u7AD9\u300C${s2.label}\u300D\uFF0C\u5171 ${String(s2.rows.length)} \u4E2A\u9875\u9762`,
                       onClick: () => setSiteSel(s2.host),
                       children: [
-                        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-fileico", title: "\u7F51\u7AD9", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutline16, {}) }),
+                        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-fileico", title: "\u7F51\u7AD9", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutlineRegular, {}) }),
                         /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-dir-name", title: s2.label, children: s2.label }),
-                        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-dir-go", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconChevronRightOutline14, {}) })
+                        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-dir-go", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconChevronRightOutlineRegular, {}) })
                       ]
                     }
                   ) }),
@@ -37401,9 +37401,9 @@ function KsChannelsPanel(props) {
                         "aria-label": `\u8FDB\u5165\u5206\u7C7B\u300C${g.label}\u300D\uFF0C\u5171 ${String(g.rows.length)} \u6761`,
                         onClick: () => setOrgSel(g.key),
                         children: [
-                          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-fileico", title: "\u5206\u7C7B", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutline16, {}) }),
+                          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-fileico", title: "\u5206\u7C7B", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconFolderOpenOutlineRegular, {}) }),
                           /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-dir-name", title: g.label, children: g.label }),
-                          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-dir-go", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconChevronRightOutline14, {}) })
+                          /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", { className: "ks-dir-go", children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(import_dsh_client_ui_primitives3.IconChevronRightOutlineRegular, {}) })
                         ]
                       }
                     ) }),
@@ -39536,7 +39536,7 @@ function KsKnowledgePage({ useTabInfo }) {
           void openAsk(askHereKeys);
         },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconQuestionOutline14, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconQuestionOutlineRegular, {}),
           "\u5728\u6B64\u8303\u56F4\u5185\u63D0\u95EE"
         ]
       }
@@ -39553,7 +39553,7 @@ function KsKnowledgePage({ useTabInfo }) {
           "aria-label": "\u6E05\u6389\u8303\u56F4",
           title: "\u6E05\u6389\u8303\u56F4\uFF08\u8FDE\u63D0\u95EE\u9762\u677F\u4E00\u8D77\u6536\u8D77\uFF1B\u6E05\u6389\u4E4B\u540E\u8FD9\u4E00\u9875\u4E0D\u4F1A\u505A\u300C\u4E0D\u9650\u5B9A\u8303\u56F4\u300D\u7684\u63D0\u95EE\uFF09",
           onClick: clearAsk,
-          children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconCloseOutline16, {})
+          children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconCloseOutlineRegular, {})
         }
       )
     ] })
@@ -40333,7 +40333,7 @@ function KsKnowledgePage({ useTabInfo }) {
       //    CSS 里容器不能用自己的宽度查自己，所以留边必须落在它的后代 `.ks-kb` 上）。
       /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-page", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb", children: [
         /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb-banner", title: "\u672C\u9875\u53EA\u843D\u4E86\u5165\u53E3\u4E0E\u5916\u58F3\uFF0C\u5185\u5BB9\u8FD8\u6CA1\u6709\u3002", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconInfoOutline14, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconInfoOutlineRegular, {}),
           /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { children: "\u8FD9\u4E00\u9875\u5C1A\u672A\u5B9E\u73B0" })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-kb-card", children: [
@@ -40354,7 +40354,7 @@ function KsKnowledgePage({ useTabInfo }) {
   const searchBox = KB_PAGE_SEARCH ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-search", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
     import_dsh_client_ui_primitives5.Input,
     {
-      icon: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconSearchOutline16, {}),
+      icon: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconSearchOutlineRegular, {}),
       value: search,
       placeholder: "\u641C\u7D22\u76EE\u5F55\u540D\u6216\u6807\u51C6\u53F7/\u540D\u79F0\u2026",
       "aria-label": "\u5728\u5F53\u524D\u8FD9\u4E00\u5C42\u6309\u76EE\u5F55\u540D\u6216\u6587\u4EF6\u6807\u51C6\u53F7/\u540D\u79F0\u8FC7\u6EE4\uFF08\u672C\u5730\u8FC7\u6EE4\uFF0C\u4E0D\u68C0\u7D22\u8BED\u6599\uFF09",
@@ -40388,7 +40388,7 @@ function KsKnowledgePage({ useTabInfo }) {
                 onClick: () => {
                   void toggleTree(key);
                 },
-                children: expanded ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronDownOutline14, {}) : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronRightOutline14, {})
+                children: expanded ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronDownOutlineRegular, {}) : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronRightOutlineRegular, {})
               }
             ) : /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-tree-caret ks-tree-caret-leaf", "aria-hidden": "true" }),
             /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
@@ -40401,7 +40401,7 @@ function KsKnowledgePage({ useTabInfo }) {
                   goto(key === "root" ? null : key);
                 },
                 children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconFolderOpenOutline16, {}),
+                  /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconFolderOpenOutlineRegular, {}),
                   /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-tree-label", children: name })
                 ]
               }
@@ -40442,7 +40442,7 @@ function KsKnowledgePage({ useTabInfo }) {
             title: inboxKnown ? `\u5F85\u5206\u7C7B\uFF1A\u8FD8\u6CA1\u5F52\u4F4D\u7684\u6587\u4EF6 ${String(inboxTotal)} \u7BC7\uFF08\u542B\u8BC6\u522B\u5931\u8D25\u7684\u90A3\u4E00\u6279\uFF09` : "\u5F85\u5206\u7C7B\uFF1A\u8FD8\u6CA1\u5F52\u4F4D\u7684\u6587\u4EF6",
             onClick: gotoInbox,
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChecklistOutline14, {}),
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChecklistOutlineRegular, {}),
               /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-tree-label", children: "\u5F85\u5206\u7C7B" })
             ]
           }
@@ -40583,7 +40583,7 @@ function KsKnowledgePage({ useTabInfo }) {
                   onClick: () => {
                     setMenuFor(isOpen ? null : doc.doc_id);
                   },
-                  children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconEllipsisOutline16, {})
+                  children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconEllipsisOutlineRegular, {})
                 }
               )
             }
@@ -40635,7 +40635,7 @@ function KsKnowledgePage({ useTabInfo }) {
             void runReingest(pickedDocIds);
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconRefreshOutline16, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconRefreshOutlineRegular, {}),
             "\u91CD\u6765\u4E00\u6B21"
           ]
         }
@@ -40651,7 +40651,7 @@ function KsKnowledgePage({ useTabInfo }) {
             openAction("del", [...picked]);
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconTrashOutline16, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconTrashOutlineRegular, {}),
             "\u5220\u9664"
           ]
         }
@@ -40720,7 +40720,7 @@ function KsKnowledgePage({ useTabInfo }) {
             openAction("folder-del", [...picked]);
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconTrashOutline16, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconTrashOutlineRegular, {}),
             "\u5220\u6389\u76EE\u5F55\u2026"
           ]
         }
@@ -40747,7 +40747,7 @@ function KsKnowledgePage({ useTabInfo }) {
       "aria-label": action.kind === "del" || action.kind === "folder-del" ? "\u5220\u9664\u786E\u8BA4" : "\u9009\u62E9\u76EE\u6807\u76EE\u5F55",
       children: action.kind === "del" ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
         /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-act-head", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconWarningOutline16, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconWarningOutlineRegular, {}),
           /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("strong", { children: [
             "\u786E\u8BA4\u5220\u9664 ",
             action.targets.length,
@@ -40769,7 +40769,7 @@ function KsKnowledgePage({ useTabInfo }) {
                 void removeDocs(docIdsOf(action.targets));
               },
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconTrashOutline16, {}),
+                /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconTrashOutlineRegular, {}),
                 "\u786E\u8BA4\u5220\u9664"
               ]
             }
@@ -40777,7 +40777,7 @@ function KsKnowledgePage({ useTabInfo }) {
         ] })
       ] }) : action.kind === "folder-del" ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
         /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-act-head", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconWarningOutline16, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconWarningOutlineRegular, {}),
           /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("strong", { children: [
             "\u5220\u6389\u8FD9 ",
             folderIdsOf(action.targets).length,
@@ -40785,7 +40785,7 @@ function KsKnowledgePage({ useTabInfo }) {
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.Button, { variant: "ghost", size: "sm", title: "\u5173\u6389\u8FD9\u4E2A\u9762\u677F", onClick: () => {
             setAction(null);
-          }, children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconCloseOutline16, {}) })
+          }, children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconCloseOutlineRegular, {}) })
         ] }),
         delPreview === null ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-act-hint", children: "\u6B63\u5728\u8BFB\u8FD9\u51E0\u4E2A\u76EE\u5F55\u7684\u771F\u5B9E\u5F71\u54CD\uFF08\u53EA\u8BFB\uFF0C\u8FD8\u6CA1\u52A8\u4EFB\u4F55\u4E1C\u897F\uFF09\u2026" }) : /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_jsx_runtime15.Fragment, { children: [
           /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "ks-act-list ks-act-list-del", children: delPreview.map((p) => /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-act-delrow", children: [
@@ -40826,7 +40826,7 @@ function KsKnowledgePage({ useTabInfo }) {
                     void runFolderDelete(null);
                   },
                   children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconTrashOutline16, {}),
+                    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconTrashOutlineRegular, {}),
                     "\u5220\u9664\u8FD9\u4E9B\u7A7A\u76EE\u5F55"
                   ]
                 }
@@ -40857,7 +40857,7 @@ function KsKnowledgePage({ useTabInfo }) {
                     void runFolderDelete("purge");
                   },
                   children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconTrashOutline16, {}),
+                    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconTrashOutlineRegular, {}),
                     "\u8FDE\u91CC\u9762\u7684\u6587\u4EF6\u4E00\u8D77\u5220"
                   ]
                 }
@@ -40870,7 +40870,7 @@ function KsKnowledgePage({ useTabInfo }) {
           /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { children: action.kind === "mkdir" ? `\u5728\u300C${levelName}\u300D\u4E0B\u9762\u65B0\u5EFA\u4E00\u4E2A\u76EE\u5F55` : `\u628A\u76EE\u5F55\u300C${subs.find((f) => f.folder_id === folderIdsOf(action.targets)[0])?.name ?? ""}\u300D\u6539\u6210\u4EC0\u4E48\u540D\u5B57\uFF1F` }),
           /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.Button, { variant: "ghost", size: "sm", title: "\u5173\u6389\u8FD9\u4E2A\u9762\u677F", onClick: () => {
             setAction(null);
-          }, children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconCloseOutline16, {}) })
+          }, children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconCloseOutlineRegular, {}) })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-act-row", children: [
           /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-act-label", children: action.kind === "mkdir" ? "\u65B0\u76EE\u5F55\u540D" : "\u65B0\u540D\u5B57" }),
@@ -40911,7 +40911,7 @@ function KsKnowledgePage({ useTabInfo }) {
           /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("strong", { children: action.kind === "new" ? `\u5728\u9009\u4E2D\u7684\u76EE\u5F55\u4E0B\u65B0\u5EFA\u300C${newName.trim() === "" ? "\u2026" : newName.trim()}\u300D\u518D\u653E ${String(pickedDocIds.length)} \u7BC7` : `\u628A ${actWhat}${pickVerb[action.kind] ?? "\u653E\u8FDB"}\u54EA\u4E2A\u76EE\u5F55\uFF1F` }),
           /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.Button, { variant: "ghost", size: "sm", title: "\u5173\u6389\u8FD9\u4E2A\u9762\u677F", onClick: () => {
             setAction(null);
-          }, children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconCloseOutline16, {}) })
+          }, children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconCloseOutlineRegular, {}) })
         ] }),
         action.kind === "new" ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-act-row", children: [
           /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-act-label", children: "\u65B0\u76EE\u5F55\u540D" }),
@@ -40956,7 +40956,7 @@ function KsKnowledgePage({ useTabInfo }) {
                 setPickFolder(f.folder_id);
               },
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconFolderOpenOutline16, {}),
+                /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconFolderOpenOutlineRegular, {}),
                 /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-act-item-name", children: f.name }),
                 /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-act-item-path", children: f.path })
               ]
@@ -41090,12 +41090,12 @@ function KsKnowledgePage({ useTabInfo }) {
       inboxShown.map(renderInboxRow)
     ] }) : null,
     inbox.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-empty-card", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChecklistOutline14, { size: 28 }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChecklistOutlineRegular, { size: 28 }) }),
       /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-t", children: "\u6CA1\u6709\u6392\u961F\u7B49\u5F52\u4F4D\u7684\u6587\u4EF6" }),
       /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-d", children: "\u5E93\u91CC\u6BCF\u4E00\u7BC7\u90FD\u5DF2\u7ECF\u5F52\u4F4D\u4E86\u3002\u7528\u4E0A\u9762\u7684\u300C\u4E0A\u4F20\u5230\u8FD9\u4E00\u5C42\u300D\u628A\u65B0\u6587\u4EF6\u5BFC\u8FDB\u6765\uFF0C \u5B83\u4EEC\u4F1A\u5148\u6392\u961F\u7B49\u5728\u8FD9\u91CC\u3002" })
     ] }) : null,
     inbox.length > 0 && inboxShown.length === 0 && needle !== "" ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-empty-card", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconSearchOutline16, { size: 28 }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconSearchOutlineRegular, { size: 28 }) }),
       /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-t", children: "\u8FD9\u4E00\u5C42\u6CA1\u6709\u7B26\u5408\u641C\u7D22\u7684\u6761\u76EE" }),
       /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-empty-d", children: [
         "\u672C\u9875 ",
@@ -41120,7 +41120,7 @@ function KsKnowledgePage({ useTabInfo }) {
           onClick: () => {
             void loadInbox(Math.max(0, inboxOffset - INBOX_PAGE_SIZE), { silent: true });
           },
-          children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronLeftOutline14, {})
+          children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronLeftOutlineRegular, {})
         }
       ),
       /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-pager-n", children: [
@@ -41143,7 +41143,7 @@ function KsKnowledgePage({ useTabInfo }) {
           onClick: () => {
             void loadInbox(inboxOffset + INBOX_PAGE_SIZE, { silent: true });
           },
-          children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronRightOutline14, {})
+          children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronRightOutlineRegular, {})
         }
       )
     ] }) : null
@@ -41170,7 +41170,7 @@ function KsKnowledgePage({ useTabInfo }) {
           title: layer === "inbox" ? "\u56DE\u5230\u6700\u5916\u5C42\uFF08\u79BB\u5F00\u300C\u5F85\u5206\u7C7B\u300D\uFF09" : levelId === null ? "\u4F60\u5DF2\u7ECF\u662F\u6700\u5916\u5C42\uFF0C\u6CA1\u6709\u4E0A\u4E00\u7EA7\u53EF\u56DE" : `\u56DE\u5230\u4E0A\u4E00\u5C42\uFF08\u73B0\u5728\u5728\uFF1A${["\u77E5\u8BC6\u5E93", ...crumb.map((f) => f.name)].join(" / ")}\uFF09`,
           onClick: goUp,
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronLeftOutline14, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronLeftOutlineRegular, {}),
             "\u8FD4\u56DE\u4E0A\u4E00\u5C42"
           ]
         }
@@ -41262,7 +41262,7 @@ function KsKnowledgePage({ useTabInfo }) {
             openAction("mkdir", []);
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconPlusOutline16, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconPlusOutlineRegular, {}),
             "\u65B0\u5EFA\u4E0B\u7EA7\u76EE\u5F55"
           ]
         }
@@ -41279,7 +41279,7 @@ function KsKnowledgePage({ useTabInfo }) {
             void openUpload();
           },
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconPlusOutline16, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconPlusOutlineRegular, {}),
             "\u4E0A\u4F20\u5230\u8FD9\u4E00\u5C42"
           ]
         }
@@ -41295,7 +41295,7 @@ function KsKnowledgePage({ useTabInfo }) {
             if (layer === "inbox") void loadInbox(inboxOffset, { silent: true });
             else void loadLevel(levelId, fileOffset, { silent: true });
           },
-          children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconRefreshOutline16, {})
+          children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconRefreshOutlineRegular, {})
         }
       )
     ] }),
@@ -41343,7 +41343,7 @@ function KsKnowledgePage({ useTabInfo }) {
               void runCheck();
             },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChecklistOutline14, {}),
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChecklistOutlineRegular, {}),
               "\u5148\u4F53\u68C0\uFF08\u53EA\u8BFB\uFF09"
             ]
           }
@@ -41361,7 +41361,7 @@ function KsKnowledgePage({ useTabInfo }) {
               setUpPreview(!upPreview);
             },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronDownOutline14, {}),
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronDownOutlineRegular, {}),
               "\u9010\u7BC7\u770B"
             ]
           }
@@ -41412,13 +41412,13 @@ function KsKnowledgePage({ useTabInfo }) {
               setAskOpen(false);
             },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronDownOutline14, {}),
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronDownOutlineRegular, {}),
               "\u6536\u8D77"
             ]
           }
         ),
         /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(import_dsh_client_ui_primitives5.Button, { variant: "ghost", size: "sm", className: "ks-ask-clear", title: "\u6E05\u6389\u8303\u56F4\u5E76\u6536\u8D77\u9762\u677F", onClick: clearAsk, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconCloseOutline16, {}),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconCloseOutlineRegular, {}),
           "\u6E05\u6389\u8303\u56F4"
         ] })
       ] }),
@@ -41617,9 +41617,9 @@ function KsKnowledgePage({ useTabInfo }) {
                           goto(child.folder_id);
                         },
                         children: [
-                          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-fileico", title: "\u76EE\u5F55", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconFolderOpenOutline16, {}) }),
+                          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-fileico", title: "\u76EE\u5F55", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconFolderOpenOutlineRegular, {}) }),
                           /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-dir-name", title: child.name, children: child.name }),
-                          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-dir-go", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronRightOutline14, {}) })
+                          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-dir-go", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronRightOutlineRegular, {}) })
                         ]
                       }
                     ),
@@ -41685,7 +41685,7 @@ function KsKnowledgePage({ useTabInfo }) {
                           onClick: () => {
                             setMenuFor(isOpen ? null : pickDirKey(child.folder_id));
                           },
-                          children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconEllipsisOutline16, {})
+                          children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconEllipsisOutlineRegular, {})
                         }
                       )
                     }
@@ -41714,7 +41714,7 @@ function KsKnowledgePage({ useTabInfo }) {
           })
         ] }) : null,
         levelEmpty ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-empty-card", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconFolderOpenOutline16, { size: 28 }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconFolderOpenOutlineRegular, { size: 28 }) }),
           /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-t", children: "\u8FD9\u4E00\u5C42\u8FD8\u6CA1\u6709\u4E1C\u897F" }),
           /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-empty-d", children: [
             "\u8FD9\u4E00\u5C42\u91CC\u65E2\u6CA1\u6709\u4E0B\u7EA7\u76EE\u5F55\uFF0C\u4E5F\u6CA1\u6709\u76F4\u63A5\u653E\u5728\u8FD9\u91CC\u7684\u6587\u4EF6\u3002",
@@ -41722,7 +41722,7 @@ function KsKnowledgePage({ useTabInfo }) {
           ] })
         ] }) : null,
         !levelEmpty && nothingShown && needle !== "" ? /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "ks-empty-card", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconSearchOutline16, { size: 28 }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-ico", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconSearchOutlineRegular, { size: 28 }) }),
           /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "ks-empty-t", children: "\u8FD9\u4E00\u5C42\u6CA1\u6709\u7B26\u5408\u641C\u7D22\u7684\u6761\u76EE" }),
           /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-empty-d", children: [
             "\u672C\u9875 ",
@@ -41832,7 +41832,7 @@ function KsKnowledgePage({ useTabInfo }) {
                           onClick: () => {
                             setMenuFor(isOpen ? null : doc.doc_id);
                           },
-                          children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconEllipsisOutline16, {})
+                          children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconEllipsisOutlineRegular, {})
                         }
                       )
                     }
@@ -41869,7 +41869,7 @@ function KsKnowledgePage({ useTabInfo }) {
               onClick: () => {
                 goPage(Math.max(0, fileOffset - FILE_PAGE_SIZE));
               },
-              children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronLeftOutline14, {})
+              children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronLeftOutlineRegular, {})
             }
           ),
           /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", { className: "ks-pager-n", children: [
@@ -41892,7 +41892,7 @@ function KsKnowledgePage({ useTabInfo }) {
               onClick: () => {
                 goPage(fileOffset + FILE_PAGE_SIZE);
               },
-              children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronRightOutline14, {})
+              children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_dsh_client_ui_primitives5.IconChevronRightOutlineRegular, {})
             }
           )
         ] }) : null

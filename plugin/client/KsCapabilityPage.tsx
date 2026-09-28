@@ -19,9 +19,9 @@ import { useEffect, useState, type ComponentType, type ReactNode } from 'react'
 
 import {
   Button,
-  IconClockOutline16,
-  IconListPenOutline16,
-  IconPlanOutline14,
+  IconClockOutlineRegular,
+  IconListPenOutlineRegular,
+  IconPlanOutlineRegular,
   Input,
   Tag,
 } from '@deepseek-ai/dsh-client-ui-primitives'
@@ -46,9 +46,9 @@ export interface OfficeItem {
 
 /** 八行文案**逐字**照 v3 定稿原型（冒烟钉死；改文案 = 改判据 + 业主过目）。 */
 export const OFFICE_ITEMS: readonly OfficeItem[] = [
-  { id: 'gap', name: '制度差距分析', hint: '内部制度比法规缺什么', icon: IconPlanOutline14, status: 'ready', verb: '上传制度比对', pageDesc: '上传内部制度，自动对比法定要求，逐条列出缺什么，出差距报告。' },
-  { id: 'fix', name: '纠错修订', hint: '标记识别错的条款，可回退', icon: IconListPenOutline16, status: 'ready', verb: '打开原文页标记', pageDesc: '发现条款识别错了，在原文页标记并提交修改；每笔修改留痕、可回退。也可以在 PDF 阅读器的条款行「⋮」里点「这条识别错了」。' },
-  { id: 'egress', name: '外发审计', hint: '每次外发记录，可查可导出', icon: IconClockOutline16, status: 'ready', verb: '查看外发记录', pageDesc: '每次调用云端的完整记录，可查可导出——数据出了本机一定留痕。' },
+  { id: 'gap', name: '制度差距分析', hint: '内部制度比法规缺什么', icon: IconPlanOutlineRegular, status: 'ready', verb: '上传制度比对', pageDesc: '上传内部制度，自动对比法定要求，逐条列出缺什么，出差距报告。' },
+  { id: 'fix', name: '纠错修订', hint: '标记识别错的条款，可回退', icon: IconListPenOutlineRegular, status: 'ready', verb: '打开原文页标记', pageDesc: '发现条款识别错了，在原文页标记并提交修改；每笔修改留痕、可回退。也可以在 PDF 阅读器的条款行「⋮」里点「这条识别错了」。' },
+  { id: 'egress', name: '外发审计', hint: '每次外发记录，可查可导出', icon: IconClockOutlineRegular, status: 'ready', verb: '查看外发记录', pageDesc: '每次调用云端的完整记录，可查可导出——数据出了本机一定留痕。' },
 ]
 
 /** 等高菜单行（纯组件；两行制：名称在上、短语在下。冒烟钉结构与文案）。 */

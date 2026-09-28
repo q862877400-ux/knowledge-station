@@ -30,7 +30,7 @@ import * as React from 'react'
 import { ensureKsStyles } from './ksGuideStyles'
 import { KsCrumb, KsListHead, type KbListCol } from './kbListUi'
 import { Fragment, useCallback, useEffect, useState } from 'react'
-import { Button, IconChevronDownOutline14, IconChevronRightOutline14, IconFolderOpenOutline16, IconSearchOutline16, Input } from '@deepseek-ai/dsh-client-ui-primitives'
+import { Button, IconChevronDownOutlineRegular, IconChevronRightOutlineRegular, IconFolderOpenOutlineRegular, IconSearchOutlineRegular, Input } from '@deepseek-ai/dsh-client-ui-primitives'
 
 import {
   createChannel,
@@ -635,7 +635,7 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
                 <button type="button" className="ks-tree-name"
                   title={`渠道库（全部 ${String(rows.length)} 条）`}
                   onClick={() => { setOrgSel(null); setSiteSel(null) }}>
-                  <IconFolderOpenOutline16 />
+                  <IconFolderOpenOutlineRegular />
                   <span className="ks-tree-label">渠道库</span>
                 </button>
                 <span className="ks-tree-count">{rows.length}</span>
@@ -659,7 +659,7 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
                         aria-expanded={expanded}
                         title={expanded ? '收起' : '展开'}
                         onClick={() => { toggleKind(g.key) }}>
-                        {expanded ? <IconChevronDownOutline14 /> : <IconChevronRightOutline14 />}
+                        {expanded ? <IconChevronDownOutlineRegular /> : <IconChevronRightOutlineRegular />}
                       </button>
                     ) : (
                       <span className="ks-tree-caret ks-tree-caret-leaf" aria-hidden="true" />
@@ -670,7 +670,7 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
                         setOrgSel(g.key); setSiteSel(null)
                         setOpenKinds((prev) => new Set(prev).add(g.key))
                       }}>
-                      <IconFolderOpenOutline16 />
+                      <IconFolderOpenOutlineRegular />
                       <span className="ks-tree-label">{g.label}</span>
                     </button>
                     <span className="ks-tree-count">{g.rows.length}</span>
@@ -738,7 +738,7 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
             </div>
           )}
           <span className="ks-search">
-            <Input icon={<IconSearchOutline16 />} value={q}
+            <Input icon={<IconSearchOutlineRegular />} value={q}
               placeholder="搜网站名字 / 网站域名…"
               aria-label="搜渠道（名字或域名）"
               onChange={(e) => { setQ(e.target.value) }} />
@@ -762,9 +762,9 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
                       title={`进入网站「${s.label}」（这个网站有 ${String(s.rows.length)} 个页面）`}
                       aria-label={`进入网站「${s.label}」，共 ${String(s.rows.length)} 个页面`}
                       onClick={() => setSiteSel(s.host)}>
-                      <span className="ks-fileico" title="网站"><IconFolderOpenOutline16 /></span>
+                      <span className="ks-fileico" title="网站"><IconFolderOpenOutlineRegular /></span>
                       <span className="ks-dir-name" title={s.label}>{s.label}</span>
-                      <span className="ks-dir-go"><IconChevronRightOutline14 /></span>
+                      <span className="ks-dir-go"><IconChevronRightOutlineRegular /></span>
                     </button>
                   </div>
                   <div className="ks-cell ks-col-dcount">
@@ -795,9 +795,9 @@ export function KsChannelsPanel(props: KsChannelsPanelProps): JSX.Element {
                       title={`进入「${g.label}」（共 ${String(g.rows.length)} 条）`}
                       aria-label={`进入分类「${g.label}」，共 ${String(g.rows.length)} 条`}
                       onClick={() => setOrgSel(g.key)}>
-                      <span className="ks-fileico" title="分类"><IconFolderOpenOutline16 /></span>
+                      <span className="ks-fileico" title="分类"><IconFolderOpenOutlineRegular /></span>
                       <span className="ks-dir-name" title={g.label}>{g.label}</span>
-                      <span className="ks-dir-go"><IconChevronRightOutline14 /></span>
+                      <span className="ks-dir-go"><IconChevronRightOutlineRegular /></span>
                     </button>
                   </div>
                   <div className="ks-cell ks-col-dcount">
