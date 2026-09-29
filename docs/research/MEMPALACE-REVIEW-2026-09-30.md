@@ -576,3 +576,210 @@ Penfield 在同一份分析里写：
 - `#27` 的 **39 条评论**、`#875` 的 **6 条评论**里的**维护者回应全文** —— **未读**
 - 上述所有指控**我一条都没有独立复现它的基准**；本报告的依据是
   **"多方独立报告 + 项目自认 + 我在源码上复核的存在性"**，**不是我自己跑出的数**
+
+---
+
+## 十、第四轮：arXiv 正文细读 + Discussion #849
+
+> 本轮把 arXiv 2604.21284 **正文**（54,747 字符纯文本）读完，并读了中文讨论 #849。
+> ⚠ **论文自己标着 `Preprint—not peer-reviewed`（预印本，未经同行评审）**——引用时须带这个限定。
+
+### 10.1 🔴 两条要**修正我之前结论**的（先说这个）
+
+**修正一：我 §3.1 / §8.3 报的"README 声明不做并排对比、BENCHMARKS.md 里却有"——可能已部分过时。**
+
+论文 §5.8 原文：
+> "**Self-correction on benchmarks (v3.3.0).** The maintainers replaced their 100% LongMemEval
+> headline with 98.4% R@5 on held-out data, and **removed cross-system comparison tables** that
+> they acknowledged contained category errors (mixing R@5 retrieval recall with QA accuracy
+> from other systems). **This responsible self-correction is commendable** and supports the
+> project's maturation."
+
+⚠ **我实测到的是**：`develop` 分支的 `benchmarks/BENCHMARKS.md` **仍有**那张含 Hindsight 91.4% 的对比表。
+⇒ 两者不矛盾也不互相印证，只能并存记录：**官网的对比表被移除了（论文说），仓库基准文档里的还在（我实测）。**
+
+**修正二：那段知乎评论说"tunnel 在 graph 里定义了但搜索没用到"——现已在 v3.3.0 补上。**
+
+论文 §5.8 原文：
+> "**Closet layer and BM25 hybrid search (v3.3.0).** A new 'Closet' organizational layer was added
+> between Rooms and Drawers… **BM25 keyword search was integrated alongside semantic similarity**…
+> **Cross-wing 'tunnels' were also added**, enabling links between related drawers across different wings."
+
+⇒ 那条批评针对的是**当时的版本**，**批评合理**；但**项目后来真的补了**。我 §8.1 把它判"未定论"是对的，现在可以结案。
+
+### 10.2 🔴 论文独立估算的真实问答准确率：**约 67.2%**
+
+论文 Table 5「MemPalace honest performance profile」：
+
+| 指标 | 值 | 说明 |
+|---|---|---|
+| LongMemEval Recall@5 (raw) | **96.6%** | ChromaDB + 原文 |
+| **LongMemEval 问答准确率** | **~67.2%** | **端到端问答** |
+| LoCoMo Recall@10 (raw) | 60.3% | 无重排 |
+| LoCoMo Recall@10 (hybrid) | 88.9% | 带 LLM 重排 |
+| AAAK 模式召回 | 84.2% | **有损摘要** |
+| 唤醒成本 | ~170–900 tokens | L0+L1 |
+| 写入延迟 | 确定性 | **零 API 成本** |
+
+⇒ **头条 96.6% 与真实问答 ~67.2%，差约 29 个点。**
+（与 #125 用 BEAM 测出的 49%、以及第三方 #214 用纯 BM25 复现的 93.8%，方向一致：**检索分 ≠ 问答能力**。）
+
+### 10.3 ⭐ §5.5 是给我们的那一节：**抽取为什么有害**
+
+这是全篇对我最有价值的一段，**直接解释了我们的"53% 大白话零重合"问题**：
+
+> "The extraction step introduces two forms of error:
+> 1. **False negatives**: The LLM fails to extract information that will be relevant to a future query.
+>    **Since future queries are unknown at extraction time, any extraction is a bet on future relevance.**
+> 2. **Semantic distortion**: The LLM's restatement of facts introduces subtle changes in wording that
+>    **degrade embedding similarity with the future query**. **Verbatim text is a better embedding target
+>    because it preserves the original language the user will likely echo.**
+>
+> This insight—that **the retrieval problem is better solved at read time than write time**—is analogous
+> to the database community's shift from **pre-computed views to query-time aggregation**… it is a
+> **useful corrective to the AI memory field's premature optimization of the write path**."
+
+⇒ **"semantic distortion"这一条正好命中我们的痛点**：用户说大白话，原文是文言式条文；
+**一旦经过抽取/改写，原文里那套"用户会照着说的词"就没了**。原文不动，才能保住用户可能复述的原话。
+
+### 10.4 §5.1「真正新颖的六条」与 §5.2「其实不新颖的五条」
+
+**六条真贡献：**
+1. **原文优先的存储哲学**——"store everything, never summarize, solve retrieval separately"
+2. 空间隐喻作为**组织原则**（是"HCI 贡献"，不是算法贡献）
+3. **零 LLM 写入路径**——确定性、可复现、可离线、无速率限制
+4. **极低唤醒成本**（~170–900 tokens）
+5. **每个智能体一本日记**
+6. `PALACE_PROTOCOL` 提示词工程——"search before claiming ignorance"
+
+**五条不新颖：**
+1. **metadata 过滤**——"+34% 宫殿提升"就是每个向量库入门教程里的一等功能
+2. **嵌入语义检索**——"**the 96.6% Recall@5 is achievable with a bare ChromaDB collection and verbatim text, without any palace structure**"
+3. 固定长度分块（800 字符）——标准 RAG 做法
+4. 简易知识图谱——"**comparable to undergraduate database course examples**"
+5. 按智能体隔离记忆——ByteRover / ClawVault 已有
+
+### 10.5 §3.2 结构性判定的权威表述
+
+> "**A critical finding: the palace hierarchy is entirely flat in storage. All drawers exist in a
+> single ChromaDB collection (mempalace_drawers). The hierarchical structure is represented solely
+> through metadata fields.** This is functionally equivalent to tagging documents with category labels
+> and filtering on those labels during search—**a standard pattern in every vector database deployment guide**."
+
+⇒ **这与业主贴的那条评论（"还是扁平的…通过 metadata 过滤实现的伪层级"）
+以及 §5.2 第 1 条，三方独立说法一致。**
+
+### 10.6 §5.4 认知科学的判决（三段论）
+
+| 视角 | 结论 |
+|---|---|
+| **作为计算技术** | **否**。"The spatial metaphor does not improve retrieval accuracy, reduce latency, or enable capabilities that a flat vector database cannot provide. **The brain's hippocampal place cell system and ChromaDB's HNSW index are not analogous mechanisms.**" |
+| **作为认知工效** | **是（有保留）**。对**不懂技术的用户**提供了连贯的心智模型 |
+| **作为设计原则** | **部分**。层级确实改善记忆系统，但"MemPalace implements hierarchy as metadata tagging, **capturing the structural benefit (scoped retrieval) without the associative benefit (spreading activation, inheritance, priming)**" |
+
+### 10.7 §5.3「营销与科学的落差」——但它给了项目一个公道
+
+论文列了五处落差（96.6% 归因不足／100% 未披露调参／"30x 无损"／"矛盾检测"名不副实／LoCoMo top_k=50），
+但紧接着写：
+
+> "**To the maintainers' credit, all these claims were corrected when challenged. This distinguishes
+> MemPalace from projects that double down on disputed claims.** However, the initial overclaiming had
+> consequences: **the project's rapid growth (now >48,000 stars) began during the period of maximum claim inflation.**"
+
+### 10.8 §5.8 其他必须记的更新
+
+| 项 | 内容 |
+|---|---|
+| **🔴 `hnsw:space=cosine` 缺陷（v3.3.0 披露）** | 早期版本**没设 `hnsw:space=cosine`**，ChromaDB 默认走 **L2 欧氏距离**而非余弦。因 all-MiniLM 向量已归一化，L2 与余弦**排序等价**，但"**the 96.6% benchmark result should be understood as having been measured under L2 distance**" |
+| **后端可插拔（v3.2.0）** | `backends/base.py` 抽象接口落地，为 LanceDB / **PostgreSQL + pgvector** / 社区后端开门 |
+| **国际化（v3.2.0–v3.3.1）** | **支持 13 种语言 + 多语言实体识别** |
+| **Mem0 的追赶** | Mem0 2026-04 的省 token 算法：LongMemEval **49% → 93.4%**，LoCoMo **85.0%**，**BEAM-1M 62%** |
+| **差距判定** | "The gap between MemPalace (96.6%) and Mem0 (93.4%) is now **within statistical noise** for many practical applications" |
+| 星标 | 初析时约 42,000 → 4/19 超 47,900（当前 59,359） |
+
+### 10.9 §7 十维评估框架（**我们可以直接拿来用**）
+
+论文 Table 7（第三列是它给 MemPalace 的星级）：
+
+| 维度 | 定义 | MemPalace |
+|---|---|---|
+| **保真度** | 信息保留程度 | ★★★★★（原文） |
+| 检索准确度 | 搜索结果质量 | ★★★★☆（96.6% R@5） |
+| **写入成本** | 存储资源占用 | ★★★★★（零 LLM） |
+| 读取成本 | 检索资源占用 | ★★★★☆（仅嵌入） |
+| **唤醒成本** | 初始化占的上下文 | ★★★★★（~170 tokens） |
+| **关系深度** | 关系查询能力 | ★★☆☆☆（扁平三元组） |
+| 时序推理 | 时间受限事实 | ★★★☆☆（valid_from/to） |
+| 可扩展性 | 大数据量表现 | ★★★☆☆（单集合） |
+| **隐私** | 数据本地与控制 | ★★★★★（全本地） |
+| 可部署性 | 安装难度 | ★★★★★（2 个依赖） |
+
+论文结论：
+> "**No single system excels on all dimensions.**… This suggests the AI memory landscape **will not
+> converge on a single architecture**—a pattern familiar from the database world."
+
+### 10.10 §8.3 收尾那两句（值得原样记住）
+
+> "The greatest legacy of MemPalace may not be the palace metaphor itself but **the demonstration that
+> the AI memory problem is easier than the field assumed**. **You don't need knowledge graphs, entity
+> extraction, or multi-agent agentic search to achieve 96.6% retrieval accuracy. You need to store
+> everything, embed it well, and search it honestly.** The rest—the wings, rooms, and drawers—is
+> **how you help humans understand what the machine remembers**."
+
+**§8.2 给研究界的三条建议（第一条正是我们关心的）：**
+> 1. "**Revisit the extraction assumption.** MemPalace's results suggest that **the default approach
+>    (extract-then-store) may be dominated by store-then-retrieve for many use cases.**"
+> 2. "**Develop standardized benchmarks.** LongMemEval tests retrieval, not end-to-end memory utility."
+> 3. "Study human factors."
+
+### 10.11 Discussion #849（简体中文用户看过来）——**它本身也要打折扣**
+
+⚠ **这是一份第三方中文整理，不是一手证据**，而且**我查出它有错**：
+
+| 它写的 | 实际情况 |
+|---|---|
+| "项目创建于 2026-04-05，截至 4-7 仅 **7 次提交**" | 那是 **4 月快照**；现在提交数已达数千 |
+| "最新版本 **v3.0.0**" | 现为 **v3.10.0** |
+| "**3,500+ Star**，338 Fork"（另一处又写 988 Star） | **同文自相矛盾**；现为 59,359 星 / 7,561 fork |
+| "自称演员 Milla Jovovich" | 它也只能说"自称" |
+
+**它的价值在于汇总了两条我们没见过的信息：**
+
+1. **身份质疑的原始出处**：LinkedIn 上用户 **Jehandad Kamal** 问
+   "**如何确认这是真正的 Milla Jovovich？GitHub 账号是新账号**"；
+   支持证据是 **X / Facebook / Instagram 的官方账号在同步推广**；
+   它的结论是"**中等置信度**——跨平台一致提供一定支撑，**但无法完全排除营销或团队包装可能性**"
+2. **社区 Issue #19：Windows 上挖掘速度极慢** ← ⚠ **与我们同平台，值得注意**
+3. **LoCoMo 审计的量化**：裁判对**故意错误但切题的模糊答案接受了 62.81%**；
+   且"**多个已发布系统得分超过数据集错误上限，暗示受益于错误答案**"；
+   举例：**EverMemOS 宣称 92.32%，第三方复现只有 38.38%**
+
+### 10.12 ※ 论文自身的一处错误（我核出来的）
+
+论文 §6 把 Hindsight 写成 **"Hindsight (Hindsight AI, 2025)"**。
+**Hindsight 是 Vectorize 的产品**，不是"Hindsight AI"。
+⇒ 说明**这篇论文对我们的工具也不是零误差**，引用时要留这个边。
+
+### 10.13 修正后的总判断
+
+| 之前说 | 现在说 |
+|---|---|
+| §7.1 / §8.4：**"原文不动"这条路线有价值，连批评者都承认** | ✅ **成立，而且现在是全篇最强的一条**——论文 §5.5 给了机制解释（假阴性 + **语义失真**），§8.3 直接劝研究界"重新审视抽取假设" |
+| §8.4 隐含：值得考虑采用它 | ❌ **仍要改**——论文 §5.2 明说 96.6% **不用宫殿结构也能拿到**；§8.3 说"the rest… is how you help humans understand" |
+| §9.7：它家模式端到端都不如裸库 | ✅ **成立**，且论文给了独立估计 **~67.2%**（对比头条 96.6%） |
+| §3.1：README 与 BENCHMARKS 矛盾 | ⚠️ **要加限定**：官网的表已移除（论文说），仓库的表还在（我实测） |
+| §8.1 第 5 条：tunnel 是否进检索"未定论" | ✅ **结案**：v3.3.0 已补（BM25 + closet + 跨翼 tunnel） |
+| §9.8 第 4 条：Mem0 在追赶 | ✅ **强化**：93.4%，且论文判定与 96.6% **"在统计噪声范围内"** |
+
+**⇒ 一句话给业主：这个项目证明了一条设计原则（原文不动、写入零成本、唤醒极省），
+但那条原则我们不需要靠装它来实现；而它自己的"宫殿结构"连论文都说不提升检索。**
+
+### 10.14 本轮仍未核的
+
+- 论文的 **10 张表**只细读了 Table 5 / 6 / 7；**附录 A（代码统计）、B（基准复现说明）未读**
+- 论文代码与数据仓库 `web3guru888/mempalace-scientific-analysis` —— **未打开**
+- **§4.2 The Benchmark Controversy** 全节 —— **未逐字读**
+- `#27` 的 39 条评论、`#875` 的 6 条评论里的**维护者回应全文** —— **仍未读**
+- **Discussion #747** 正文 —— **未读**
+- ⚠ 论文是**预印本、未经同行评审**；且**它自己也有一处事实错误**（把 Hindsight 归给"Hindsight AI"）
+- ⚠ **我依然没有独立复现任何一方的基准**
