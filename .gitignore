@@ -57,6 +57,16 @@ docs/research/hindsight-official/llms-full.txt
 docs/research/hindsight-official/openapi.json
 docs/research/hindsight-official/split/
 
+# 检索文献调研的外部原件（2026-09-30 自 %TEMP%\rag\ 迁入）。
+# 同样是「原始外部资料不入库」：PDF/HTML 共约 0.57 MB，**取得命令与 SHA256
+# 记在 docs/research/papers/README.md**（那份必须跟踪，否则原件丢了无处可查）。
+# ⚠ 取件有三条坑，都记在 README 里：web_fetch 不支持 PDF；r.jina.ai 被 401；
+#   猜文件名会下到 404 页而**不报错**（必须验 PDF 文件头）。
+docs/research/papers/*.pdf
+docs/research/papers/*.html
+# 但 mst.txt 是**我提取的纯文本**（读过的证据），跟踪它
+!docs/research/papers/README.md
+
 # ⚠ 教训留痕（2026-09-22，错话/多余动作保留 + 就地更正）：这里曾加过一条
 #   `plugin/scripts/e2e-mut*.mjs`，为的是"把**变异副本**放进代码树、再用 ignore 遮住"。
 #   **那个办法是坏的**：① 副本会被 `tests/test_credentials_namespace.py` 的**全仓旧名扫描**扫到

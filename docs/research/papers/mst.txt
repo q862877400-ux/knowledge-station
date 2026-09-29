@@ -1,0 +1,771 @@
+ 
+ [2602.10321] Single-Turn LLM Reformulation Powered Multi-Stage Hybrid Re-Ranking for Tip-of-the-Tongue Known-Item Retrieval 
+ Single-Turn LLM Reformulation Powered Multi-Stage Hybrid Re-Ranking for Tip-of-the-Tongue Known-Item Retrieval Conference:  ; ; 
+ Debayan Mukhopadhyay
+ Affiliation:  Independent Researcher 
+ email: debayan.mukherjee14@gmail.com 
+ , 
+ Utshab Kumar Ghosh
+ Affiliation:  Missouri University of Science and Technology 
+ email: u.ghosh@mst.edu 
+ and 
+ Shubham Chatterjee
+ Affiliation:  Missouri University of Science and Technology 
+ email: shubham.chatterjee@mst.edu 
+ © , ; Date: February 2026 
+ Abstract. 
+ Retrieving known items from vague, partial, or inaccurate descriptions, a phenomenon known as Tip-of-the-Tongue (ToT) retrieval, remains a significant challenge for modern information retrieval systems. 
+ Our approach integrates a single call to an 8B-parameter Large Language Model (LLM) using a model agnostic prompt for query reformulation and controlled expansion to bridge the gap between ill-formed ToT queries and well-specified information needs in scenarios where Pseudo-Relevance Feedback (PRF) based expansion methods are rendered ineffective, due to poor first stage Recall and Ranking using the raw queries, resulting in expansion using the incorrect documents. 
+ Importantly, the LLM employed in our framework was deliberately kept generic : it was not fine-tuned for Tip-of-the-Tongue (ToT) queries, nor adapted to any specific content domains (e.g., movies, books, landmarks). This design choice underscores that the observed gains stem from the formulation of the proposed prompting and expansion strategy itself, rather than from task or domain-specific specialization of the underlying model. 
+ Rewritten queries are then processed by a multi-stage retrieval pipeline consisting of an initial sparse retrieval stage (BM25), followed by an ensemble of bi-encoder and late-interaction re-rankers (Contriever, E5-large-v2, and ColBERTv2), cross-encoder re-ranking using monoT5, and a final list-wise re-ranking stage powered by a 72B-parameter LLM (Qwen 2.5 Instruct, 4-bit quantized). 
+ Experiments on the datasets provided in the 2025 TREC-ToT track show that supplying original user queries directly to this otherwise competitive multi-stage ranking pipeline still yields poor retrieval effectiveness, highlighting the central role of query formulation in ToT scenarios. 
+ In contrast our light-weight LLM based pre-retrieval query transformation improves the initial Recall net by 20.61% and then subsequent re-ranking using the re-written queries improves nDCG@10 by 33.88%, MRR by 29.92% and Map@10 by 29.98% over the same pipeline operating on raw queries, indicating that it serves as a highly cost-effective intervention, unlocking substantial performance gains and enabling downstream retrievers and rankers to realize their full potential in Tip-of-the-Tongue retrieval. 
+ All code, data, experimental results and instructions for reproducibility are available at: https://github.com/debayan1405/TREC-TOT-2025 
+ 1. Introduction 
+ Tip-of-the-Tongue (ToT) refers to the process of retrieving information from fragmented, distorted, or incomplete memory. One of the most persistent and difficult problems in cognitive science and information retrieval (IR) is this phenomenon. ToT scenarios are distinguished by a fundamental disconnect between the user’s internal representation of an item and the external identifiers needed to locate it, in contrast to traditional known-item search, where a user may recall a title or author imprecisely but retains a clear semantic link to the target ( Brown and McNeill 1966 ; Arguello et al. 2021 ) . This disconnect shows up in queries that are frequently verbose, full of phenomenological descriptions of the user’s experience (such as "I watched this in my childhood" or "The cover was blue"), and filled with false memories or uncertainty markers ( Arguello et al. 2021 ; Lin et al. 2023 ) . 
+ The field is at a turning point as we get together for the TREC 2025 Tip-of-the-Tongue Track. This track’s development, from its original focus on movie identification to the addition of landmarks and celebrities to the more recent open-domain reasoning challenges, reflects the larger evolution of artificial intelligence from pattern matching to agentic reasoning. Early methods relied on dense embeddings to bridge the lexical gap between a user’s ambiguous description and a document’s metadata, treating ToT retrieval as a specialized case of ad-hoc retrieval ( Bhargav et al. 2022 ) . However, recent scholarship, particularly the introduction of benchmarks such as BLUR (Browsing Lost Unformed Recollections), has demonstrated that semantic similarity alone is insufficient for resolving the most difficult ToT queries ( Wang et al. 2025 ) . Humans solve these problems not simply by matching terms, but by executing complex multi-hop reasoning chains, by validating hypotheses, rejecting false premises and utilizing external tools to bridge gaps in memory ( Wang et al. 2025 ) . 
+ This document summarizes the theoretical foundations and methodological developments that characterize the current state of the art and functions as the foundational Notebook Paper for the 2026 track. We contend that ToT retrieval is no longer just a ranking problem. Rather, it needs to be rethought as an agentic, iterative process of recollection reconstruction , in which the retrieval system collaborates with the user to improve their memory trace. 
+ The magnitude of the issue in practical contexts emphasizes how urgent this research is. Analyses of online communities such as Reddit /tipofmytongue reveal millions of unmet information needs and users often resort to human crowdsourcing only when traditional search engines have failed ( Fröbe et al. 2023 ; Bhargav et al. 2022 ) . In both personal and professional contexts, the persistent ToT state is associated with high levels of frustration and cognitive load ( Arguello et al. 2021 ) . In professional settings, the inability to find information again leads to significant productivity losses. Additionally, the democratization of query elicitation through Large Language Models (LLMs) ( He et al. 2025 ) has enabled the creation of large synthetic datasets that can replicate user behavior at previously unachievable scales. 
+ In this introduction, we describe how the ToT problem has persisted in spite of developments in large language models. Although models such as GPT-4 ( OpenAI et al. 2024b ) and Claude 3.5 Sonnet show remarkable encyclopedic recall, they often experience hallucinations or are unable to navigate the “uncertainty regions” present in ToT queries ( Wang et al. 2025 ) . In order to assess the reasoning traces and tool-use capabilities of systems, the 2026 track goes beyond static retrieval effectiveness. Our goal is to create systems that not only retrieve but also deduce by combining the most recent architectural advancements in agentic search with insights from cognitive psychology regarding memory access ( Brown and McNeill 1966 ) . 
+ 2. Literature Review 
+ With concepts from information retrieval, natural language processing, cognitive psychology and library science, the literature on tip-of-the-tongue retrieval is inherently interdisciplinary. The cognitive underpinnings of the phenomenon, the emergence of community-based datasets, the development of specialized retrieval methodologies (from decomposition to simulation), and the current shift toward agentic reasoning benchmarks are the four distinct phases into which this review divides the landscape. 
+ The theoretical basis for the ToT track is rooted in the seminal work of Brown and McNeill ( Brown and McNeill 1966 ) , who first experimentally induced and described the "Tip of the Tongue" state. They characterized it not as a state of total ignorance, but as a state of partial access . Subjects in a ToT state often possessed specific, albeit incomplete, information about the target word, such as its first letter, the number of syllables, or its stress pattern ( Brown and McNeill 1966 ) . This finding is crucial for IR because it suggests that the "missing" query terms are not randomly absent; rather, users retain structural and sensory fragments of the target while losing the identifying label. 
+ In the context of known-item retrieval, this translates to users recalling "peripheral" attributes rather than "central" identifiers. Arguello et al. expanded this cognitive definition into the digital search domain, conducting a comprehensive annotation study of ToT queries for movies ( Arguello et al. 2021 ) . They identified that searchers rely heavily on three types of information: 
+ (1) 
+ Content details: Descriptions of plot, characters, or scenes. 
+ (2) 
+ Context of engagement: Biographical details about when and where the user consumed the content (e.g. I watched this with my father in the 1990s). 
+ (3) 
+ Previous search attempts: Meta-commentary on failed strategies (e.g. I already searched for "movie with red car" but found nothing). 
+ Some queries are marked by linguistic hedging. Phrases like "I think", "maybe" or "it might have been" explicitly signal low confidence in specific query facets ( He et al. 2025 ; Arguello et al. 2021 ) . This uncertainty brings a severe challenge for traditional lexical models like BM25, which treat all query terms with equal weight. Let a user query be "I think the actor was Tom Hanks". In this case, a standard retriever will heavily penalize documents without "Tom Hanks", even if the user’s memory is incorrect and the actor was actually Bill Paxton. This phenomenon of "false memories" is a pervasive feature of ToT queries and requires systems that can treat query terms as probabilistic constraints rather than absolute requirements ( Hauff et al. 2012 ) . The linguistic structure of these queries further complicates retrieval. 
+ Unlike the terse keywords typical of navigational search, ToT queries are notoriously verbose. Analysis of the WhatsThatBook dataset reveals an average query length of 156.20 words, vastly exceeding the 7-20 word averages found in standard retrieval benchmarks like MS MARCO or Natural Questions ( Lin et al. 2023 ) . This verbosity dilutes the signal of key terms, as users often bury critical details within lengthy narratives about their search process or emotional state. 
+ 2.1. The Evolution of Datasets 
+ Progress in ToT retrieval has been historically bottlenecked by data scarcity. Unlike ad-hoc retrieval, where relevance judgments can be crowd-sourced, ToT queries require a ground truth that only the original searcher can verify. The evolution of datasets reflects a migration from small, hand-curated collections to massive, community-mined and synthetically generated corpora. 
+ 2.1.1. Community Question Answering (CQA) : 
+ Mining Community Question Answering (CQA) platforms, particularly the r/tipofmytongue subreddit, led to the first breakthrough in data availability. 
+ • 
+ Reddit-TOMT: This method was formalized by Bhargav et al., who created the Reddit-TOMT dataset ( Bhargav et al. 2022 ) by scraping solved threads from Reddit. 15,000 query-item pairs with a movie and book focus were included in this dataset. It determined the task’s baseline difficulty and demonstrated that neural retrievers such as DPR (Dense Passage Retrieval) greatly outperformed lexical baselines because of the semantic difference between the formal metadata of the items and the user’s verbose description ( Bhargav et al. 2022 ) . 
+ • 
+ TOMT-KIS: This method was greatly expanded by Frobe et al., who published the TOMT-KIS dataset with 1.28 million known-item questions ( Fröbe et al. 2023 ) . Only 47% of the queries had identified answers and the emphasis was primarily on Query Performance Prediction (QPP) rather than pure retrieval effectiveness, despite the dataset’s unmatched scale. By using the term "time to solve" as a stand-in for query difficulty, their analysis showed that known-item questions have different performance characteristics than typical informational queries ( Fröbe et al. 2023 ) . 
+ • 
+ WhatsThatBook: Further specializing, Lin et al. presented the WhatsThatBook dataset, which consists of 14,441 pairs created especially for book retrieval ( Lin et al. 2023 ) . This dataset was special because it included rich metadata fields, such as images of book covers, which made multimodal retrieval techniques possible. It highlighted that users often recall visual features ("a yellow cover with a cat silhouette") that textual descriptions in standard indices fail to capture ( Lin et al. 2023 ) . 
+ 2.1.2. The Synthetic Turn: Elicitation and Simulation : 
+ Despite the volume of CQA data, these datasets suffer from inherent domain skew. As noted by He et al., CQA platforms are heavily biased toward casual leisure topics such as movies, games and music, leaving domains like "People" or "Landmarks" underrepresented ( He et al. 2025 ) . To address this, the field has moved toward query elicitation and simulation . 
+ He et al. introduced a dual-method framework for generating ToT queries ( He et al. 2025 ) . First, they employed LLM-based Simulation . By prompting Large Language Models (LLMs) with Wikipedia summaries and specific instructions to "role-play" a forgetful user (e.g. "express doubt", "mix up details"), they generated synthetic queries that achieved high correlation with real human queries in terms of system ranking performance. Second, they utilized Human Elicitation via Visual Stimuli . To capture genuine human memory failures, they developed an interface that showed participants images of famous entities (movies, landmarks) and asked them to recall the name. If the participant recognized the entity but failed to name it, they were in a genuine ToT state and were asked to write a query. 
+ 2.2. Methodological Advances: Decomposition and Multimodality 
+ The complexity of ToT queries renders standard single-vector retrieval ineffective. A single embedding vector struggles to encode the "plot", "cover description", "time period" and "user sentiment" simultaneously without losing fidelity. This has led to the adoption of Query Decomposition and Facet-Specific Retrieval . 
+ 2.2.1. Query Decomposition : 
+ Lin et al. proposed a framework that decomposes complex ToT queries into individual "clues" or sub-queries, which are then routed to specialized retrieval experts ( Lin et al. 2023 ) . For instance, a query mentioning "a yellow cover" and "a plot about a boy and a cat" is split. A "Cover Retriever" (using CLIP) processes the visual description, while a "Plot Retriever" (using Contriever) processes the narrative elements. 
+ They distinguished between Extractive and Predictive decomposition. Their results showed that Predictive Decomposition significantly outperformed extractive methods, as it bridges the gap between the user’s experience (context) and the document’s metadata (facts) ( Lin et al. 2023 ) . 
+ 2.2.2. Multimodal Integration : 
+ The integration of visual data has become increasingly central. The WhatsThatBook dataset demonstrated that cover image retrieval (via CLIP) could resolve queries that were textually ambiguous ( Lin et al. 2023 ) . Similarly, the BLUR benchmark contains file uploads (images, audio clips) as query inputs, which shows the reality that users often possess a visual fragment (e.g. a screenshot of a scene) but lack the semantic label ( Wang et al. 2025 ) . 
+ 2.3. The Agentic Shift: Reasoning and Benchmark Validity 
+ The most significant recent development, driving the agenda for TREC 2026, is the realization that ToT retrieval is often a multi-hop reasoning problem rather than a static matching problem. Wang et al. introduced the BLUR (Browsing Lost Unformed Recollections) benchmark to test this capability rigorously ( Wang et al. 2025 ) . 
+ 2.3.1. Limitations of Static Retrieval : 
+ BLUR showed that even the most advanced static retrievers and base LLMs (such as GPT-4o ( OpenAI et al. 2024a ) or Llama 3.1) fall well short of near-perfect human performance (98%) on complex ToT questions, achieving only ∼ \sim 56% accuracy ( Wang et al. 2025 ) . Models have trouble with orchestration and contextual verification , according to the failure case analysis. 
+ 2.3.2. Tool Use and Agentic Systems : 
+ A change toward Agentic Search has been required as a result. According to this paradigm, the system is an active agent capable of using tools (browsers, maps, OCR, calculators) rather than a passive retriever. The BLUR benchmark specifically assesses how well a system can plan a search strategy, carry out actions and compare the results to the user’s ambiguous description ( Wang et al. 2025 ) .
+However, Wang et al. discovered an unexpected "Agentic Gap" - complex agent frameworks frequently only slightly outperformed the base LLMs they wrapped ( Wang et al. 2025 ) . This implies that the fundamental challenge is not only having access to tools but also having the reasoning capability needed to deal with uncertainty. 
+ 3. Methodology 
+ 3.1. Motivation: The Challenge of ToT Artifacts 
+ Our initial analysis of the queries provided by the TREC-TOT 2025 Track Organizers ( TREC-TOT Organizers 2025 ) revealed significant challenges for current State-of-the-Art (SoTA) Retrieval-Augmented Generation (RAG) systems. The original queries often contain what we term "ToT artifacts", which are verbose, circumlocutory descriptions characteristic of the Tip-of-the-Tongue phenomenon, where the user describes an item without naming it directly. These artifacts cause a vocabulary mismatch between the queries and the target document in the corpus, which is composed of keyword rich metadata. 
+ We established this finding quantitatively by analyzing the baseline performance. As shown in (Table  1 ), the original queries yield suboptimal retrieval performance across all dataset splits. This motivated our adoption of a query rewriting mechanism to transform these artifact-laden descriptions into more precise, keyword-centric queries suitable for efficient retrieval. 
+ Our methodology is guided by the premise that tip-of-the-tongue (TOT) retrieval is fundamentally a problem of cognitive signal reconstruction rather than conventional document ranking. TOT queries typically encode partial, uncertain, and highly verbose memory traces that are poorly aligned with the assumptions of standard retrieval systems. Accordingly, we adopt a query-centric design philosophy, treating query interpretation and reformulation as first-class components of the retrieval pipeline. 
+ Specifically, we introduce a structured, LLM-driven reformulation process that sequentially transforms raw TOT queries into semantically grounded representations suitable for downstream retrieval. This process includes controlled entity identification and expansion embedded directly within the prompt, with explicit guardrails to preserve faithfulness to the original user intent and mitigate hallucination. Rather than injecting externally retrieved entities or aligning to corpus-specific identifiers, expansion is performed at the level of query cognition, allowing the system to remain agnostic to the structure and contents of any particular collection. 
+ Importantly, this design choice also avoids reliance on external knowledge bases for entity expansion. Conventional entity expansion typically involves linking queries to canonical identifiers in resources such as Wikidata ( Vrandečić and Krötzsch 2014 ) or Google Knowledge Graph ( Google Developers 2025 ) , which implicitly couples retrieval performance to the coverage and assumptions of these public information domains. Such coupling is incompatible with realistic ToT scenarios, where targets may be private, proprietary, emerging, or otherwise absent from curated knowledge graphs. In these settings, controlled expansion based strictly on information present in the user query is the only viable alternative. Accordingly, our approach performs guardrailed entity and vocabulary expansion entirely within the prompt, restricting additions to aliases, canonical forms, and domain descriptors that are directly supported by the input, and abstaining from expansion when ambiguity remains. 
+ This design contrasts with corpus-centric retrieval paradigms, which emphasize adapting models to a fixed dataset through domain-specific indexing, finetuning, or synthetic supervision. While such approaches can be highly effective when the target domain and corpus are known a priori, they inherently couple system performance to the stability and characteristics of that collection. In contrast, our approach deliberately avoids corpus-dependent training signals and assumes an open-world setting in which domains are unknown and document collections may evolve dynamically (e.g., web-scale retrieval). 
+ All large language models in our pipeline are used entirely off-the-shelf and in a zero-shot manner, without any task-specific finetuning or supervised adaptation. System behavior is instead governed through carefully designed prompting, enabling controlled query reconstruction without reliance on closed feedback loops or domain-tailored supervision. 
+ Conceptually, we frame TOT retrieval as a two-stage process: (i) cognitive reconstruction of the latent target intent from noisy natural-language memory cues, followed by (ii) retrieval and ranking over candidate documents. By prioritizing the former, our method emphasizes robustness under distribution shift and transferability across arbitrary domains. 
+ This framing allows the same system to operate over heterogeneous corpora without modification, treating the LLM primarily as a reasoning and interpretation component rather than as a domain-adapted retriever. As a result, our pipeline is designed to generalize beyond benchmark-specific conditions, supporting realistic deployment scenarios where corpus characteristics are unknown or continuously changing, and where retraining or finetuning on the target collection is infeasible. 
+ Table 1. Baseline retrieval performance across dataset splits using the original queries 
+ Dataset Split 
+ nDCG@10 
+ Recall@1000 
+ MRR 
+ Train 
+ 0.0585 
+ 0.4475 
+ 0.0537 
+ Dev1 
+ 0.0834 
+ 0.4437 
+ 0.0806 
+ Dev2 
+ 0.0840 
+ 0.4476 
+ 0.0696 
+ Dev3 
+ 0.3366 
+ 0.7705 
+ 0.3129 
+ Test 
+ 0.1223 
+ 0.4855 
+ 0.1114 
+ 3.2. Multi-Model Query Rewriting 
+ To mitigate the influence of ToT artifacts, we adopt a diverse rewriting strategy using three instruction-tuned large language models: Meta-Llama-3.1-8B-Instruct   ( Dubey et al. 2024 ) , Mistral-7B-Instruct-v0.3   ( Jiang et al. 2023 ) , and Qwen2.5-7B-Instruct   ( Qwen et al. 2025 ) . All models are deployed at their maximum supported BF16 precision and decoded using greedy decoding ( do_sample = False \texttt{do\_sample}=\mathrm{False} ), with temperature set to 0.0 0.0 , nucleus sampling threshold top_p = 0.95 \texttt{top\_p}=0.95 (reported for completeness), and max_new_tokens = 128 \texttt{max\_new\_tokens}=128 . All decoding parameters are fixed across models to ensure deterministic generation and facilitate reproducibility. 
+ The core of our strategy involves directing these LLMs to strip away the conversational fluff and focus on the semantic core of the user’s intent. We utilized the following specific prompt to guide the rewriting process which forces the models to act as a strict filter, distilling the user’s vague recollection into a structured search query.: 
+ Rewriter Prompt 
+ System Prompt: You are a query rewriter for a search engine. Your task is to rewrite a complex, verbose, tip-of-the-tongue description into a simple, keyword-focused search query.
+ Guidelines: 
+1. Identify the core entity type if implied (e.g., could be a movie, book, song, product, place, person, software tool, concept, etc. - the domain is open-ended). Perform cautious entity expansion by adding closely related aliases or canonical forms only if the anchor entity is directly mentioned or supported by the input text. Never guess, invent, or infer entities that are not explicitly mentioned or unambiguously implied. If unsure, do not expand.
+ 2. Incorporating domain specific vocabulary (e.g., movies: “cinematography”, “anthology film”; books: “epistolary novel”, “bildungsroman”; science: “biochemical pathway”, “quantum phenomenon”; products: “form factor”, “backwards compatibility”). 
+ 3. Extract key details in a domain-agnostic way: concrete attributes such as events, functions, features, relationships, names, dates, locations, behaviors, or other unique identifiers explicitly stated in the input (e.g., plot points for media, specifications for products, symptoms for medical queries, APIs for software, etc.). Do not add new facts.
+ 4. Remove conversational filler ("I think it was…", "It might be…", "I remember seeing…").
+ 5. Remove negative constraints or uncertainty unless crucial ("Not sure if…").
+ 6. Strict grounding rule: Do NOT introduce any information, entities, attributes, or assumptions that are not present in the input query. Every token in the rewritten query must be traceable to the original text or to safe lexical transformations (e.g., synonyms). No external knowledge.
+ 7. Formulate a concise query that a standard search engine (like Google or BM25) would understand. Output ONLY the rewritten query text. Do not output any explanations.
+ 3.3. First-Stage Sparse Retrieval (Stage 1) 
+ To establish a strong sparse retrieval baseline, we employed the Okapi BM25 ( Robertson and Zaragoza 2009 ) and implemented a rigorous, sequential hyperparameter optimization strategy to maximize retrieval performance, specifically targeting Recall@1000. 
+ 3.3.1. Sequential Adaptive Grid Search : 
+ We adopted a multi-stage tuning approach that progressed sequentially through our dataset splits ( train → \rightarrow dev1 → \rightarrow dev2 ). 
+ This strategy allows for the refinement of parameters on unseen data while carrying forward the "knowledge" (optimal parameters) from the previous stage, thereby preventing overfitting to a single development set. 
+ The optimization process was divided into two distinct phases: 
+ 1. Phase I: Global Search (Training Set) : 
+On the initial training set, we conducted a coarse-grained grid search over a broad range of values to identify the global optimal region. The search spaces were defined as follows: 
+ • 
+ BM25: We explored k 1 ∈ [ 0.4 , 4.0 ] k_{1}\in[0.4,4.0] and b ∈ [ 0.3 , 1.0 ] b\in[0.3,1.0] 
+ 2. Phase II: Refined Local Search (Development Sets) : 
+For subsequent datasets ( dev1 , dev2 ), we employed a refined local search strategy. Instead of searching the global grid again, we generated a narrower, high-resolution grid centered around the best parameters found in the previous stage.
+Let θ b ​ e ​ s ​ t \theta_{best} be the optimal value for a parameter from the previous dataset. The new search space S S was constructed as: 
+ (1) 
+ S = linspace ​ ( θ b ​ e ​ s ​ t − δ , θ b ​ e ​ s ​ t + δ , steps = 5 ) S=\text{linspace}(\theta_{best}-\delta,\theta_{best}+\delta,\text{steps}=5) 
+ where δ \delta represents the refinement radius ( δ k ​ 1 = 0.4 \delta_{k1}=0.4 , δ b = 0.2 \delta_{b}=0.2 ). 
+ The optimization pipeline was implemented using the PyTerrier framework. To handle the computational load of evaluating hundreds of configurations over the 6.4M document corpus, we utilized a high-performance computing environment with 500GB of RAM. We employed parallel processing via ThreadPoolExecutor , allowing for concurrent evaluation of multiple parameter configurations. The index structures were loaded into memory using the fileinmem property to minimize I/O latency during the iterative retrieval process. 
+ 3.4. Bi-encoder and Late Interaction Based Re-ranking (Stage 2) 
+ Following the initial sparse retrieval, we employed traditional bi-encoders and ColBERTv2’s Late Interaction mechanism to address the vocabulary mismatch inherent in Tip-of-the-Tongue queries. This stage was designed as a high-recall filter, aggregating semantic signals from multiple architectures. We would also like to point out that, even for re-ranking, the queries rewritten by the Mistral model, is being used. 
+ 3.4.1. Ensemble Architecture : 
+ (1) 
+ ColBERTv2.0: A late-interaction model ( Santhanam et al. 2022 ) that retains token-level granularity, effective for capturing fine-grained details in verbose ToT queries. 
+ (2) 
+ Contriever: An unsupervised dense retriever trained via contrastive learning ( Izacard et al. 2021 ) , offering robust zero-shot performance. 
+ (3) 
+ E5-Large-v2: A text-embedding model ( Wang et al. 2024 ) trained with weak supervision, providing strong semantic matching capabilities. 
+ The outputs of these three models were combined using Reciprocal Rank Fusion (RRF) with a RRF constant k = 60 k=60 to produce a single, robust candidate list. 
+ 3.4.2. Robust Candidate Depth Tuning : 
+ A critical design choice was the selection of the candidate depth K d ​ e ​ n ​ s ​ e K_{dense} . Unlike standard approaches that optimize for nDCG, we optimized for Recall@1000 again to ensure the relevant document was retained for the downstream stages. To avoid overfitting to the training set, we employed a Robust Aggregate Tuning strategy. We defined a robust score S K S_{K} for each candidate depth K K : 
+ (2) 
+ S K = μ ⁡ ( R ​ @ ​ K ) − α ⋅ σ ⁡ ( R ​ @ ​ K ) S_{K}=\mu(R@K)-\alpha\cdot\sigma(R@K) 
+ where μ \mu and σ \sigma are the mean and standard deviation of Recall@K across the train , dev1 , and dev2 splits, and α = 0.5 \alpha=0.5 is a stability penalty. 
+ To implement this efficiently, we utilized a "Virtual Tuning" approach: we ran inference once to generate a master list of the top-5000 candidates and subsequently simulated smaller K K values by slicing this list. 
+ 3.5. Cross-Encoder Re-ranking (Stage 3) 
+ The Bi-encoder and Late Interaction Based Re-ranking Stage, while improving recall, introduced precision errors by prioritizing broad semantic matches over specific keyword constraints. To correct this "semantic drift", we implemented a Cross-Encoder stage using the monoT5-large ( Nogueira et al. 2020 ) model. 
+ 3.5.1. Hybrid Input Pooling : 
+ To maximize the probability of including the relevant document, we devised a hybrid input strategy. Rather than re-ranking only the dense output, we constructed a union pool consisting of the top-100 candidates from the sparse BM25 stage and the top-100 candidates from the RRF performed in the previous stage. This ensured that the Cross-Encoder had access to both exact keyword matches and semantic matches. 
+ 3.5.2. Implementation and Optimization : 
+ The monoT5 model processes query-document pairs jointly, which is computationally intensive. We optimized throughput by enabling FP16 (half-precision) inference and distributing the workload across two NVIDIA RTX 6000 GPUs using DataParallel . 
+ 3.6. Large Language Model Re-ranking (Stage 4) 
+ The final stage employed a 72 72 B-parameter large language model,
+ Qwen2.5-72B-Instruct-AWQ ,
+served via vLLM  ( Qwen et al. 2025 ; Team 2024 ) , to perform zero-shot listwise re-ranking. This component acted as the final arbiter, leveraging the model’s world knowledge to resolve subtle ambiguities in ToT descriptions. 
+ Decoding details : 
+ We used greedy decoding with sampling disabled (i.e., do_sample = False \texttt{do\_sample}=\texttt{False} ), yielding fully deterministic outputs for identical inputs. The maximum generation length was set to max_new_tokens = 128 \texttt{max\_new\_tokens}=128 . Since greedy decoding was employed, temperature , top_p , and top_k were not applied. The repetition penalty was set to its default value of repetition_penalty = 1.0 \texttt{repetition\_penalty}=1.0 , with no additional presence or frequency penalties. The padding token was aligned with the end-of-sequence token (i.e., pad_token_id = eos_token_id \texttt{pad\_token\_id}=\texttt{eos\_token\_id} ). Under this configuration, the model selects the highest-probability token at each decoding step. 
+ 3.6.1. Listwise Ranking Strategy : 
+ We employed a list-wise approach, in which the LLM is presented with the query and a batch of candidates simultaneously and prompted to output the optimal permutation of Document IDs. This method allows the model to compare candidates directly against each other, rather than scoring them in isolation.
+ A manual inspection of Wikipedia pages revealed that, the Introduction section of these web pages are usually in the range 450-600 characters. To fit within the context window while retaining critical information, document text was truncated to the first 500 characters, capturing the introductory summaries typical of Wikipedia articles.
+ While it is highly likely that the queries might ask for information buried deeper inside the full text, supplying the full text as the context window has the following issues:
+ • 
+ Cost/Speed: Processing full documents (e.g., 2000 tokens) for 50 candidates would explode the input size to 100k+ tokens per query. This would make the 72B model extremely slow, essentially moving from seconds to minutes to process each query, and could also confuse it with irrelevant details.
+ • 
+ "Lost in the Middle": LLMs often focus on the beginning and end of long contexts. Truncating ensures the model focuses on the most "dense" information (the start). ToT queries are often descriptive and conceptual (e.g., "movie where guy is stuck on Mars growing potatoes"). The relevant document (e.g., a Wikipedia plot summary) usually contains the key matching concepts early in the text (title, introduction, first paragraph). 
+ List-wise Re-ranker Prompt 
+ You are an expert search relevance ranker.
+Your task is to re-rank the following candidate documents based on their relevance to the user query.
+The goal is to place the true relevant document at the very top (Rank 1). 
+ Query: query 
+ Candidates:
+candidates 
+ Instructions:
+ 1. Analyze the query and the candidates carefully.
+ 2. Output the ranking as a list of IDs in order of relevance, from most relevant to least relevant.
+ 3. Use the format: [ID] > [ID] > [ID] …
+ 4. Only output the ranking, no explanation.
+ Ranking: 
+ 3.6.2. Joint Hyperparameter Tuning : 
+ Recognizing the dependency between the Cross-Encoder and the LLM, we performed a joint grid search to optimize the input depth ( K c ​ r ​ o ​ s ​ s K_{cross} ) fed to the LLM and the final re-ranking depth ( K l ​ l ​ m K_{llm} ). 
+ Figure 1. The proposed Retrieval Pipeline with four distinct stages: the Sparse Retrieval Stage (Stage 1), Dense Retrieval Bi-encoder (Stage 2), Cross-Encoder Stage (Stage 3), and the LLM Re-ranker Stage (Stage 4).
+The input re-written query set in the diagram has been generated using Mistral-7B-Instruct-v0.3, as discussed in Section  4 . 
+ 4. Results and Analysis 
+ 4.1. Efficacy of LLM-based Query Rewriting 
+ The introduction of an LLM-based rewriting step at the beginning of the retrieval pipeline introduces a non-trivial computational cost and latency overhead. Therefore, the primary question we must address is whether this additional complexity translates into justifiable performance gains. 
+ To evaluate this, we create an ablation environment, where we fix the first stage retriever to BM25 and analyze the rewrites of three distinct Large Language Models (LLMs)-Llama, Mistral, Qwen against the baseline of the original Tip-of-the-Tongue (ToT) queries. 
+ It is important to establish our evaluation protocol regarding the dataset splits. The train , dev1 , and dev2 splits were utilized exclusively to fine-tune the hyperparameters of the retrieval models (specifically k ​ 1 k1 and b b for BM25), a process detailed in (Section 3.3 ) . Consequently, the dev3 split functions as a pseudo-test set, representing unseen data where no parameter optimization was performed. This distinction ensures that the results presented on dev3 reflect generalized performance. 
+ 4.1.1. Failure of Pseudo Relevance Feedback (PRF) : 
+ Pseudo-Relevance Feedback (PRF) settings: 
+ Unless otherwise specified, all query expansion methods use PyTerrier defaults: Bo1, KL, and RM3 are configured with 3 feedback documents and 10 expansion terms. RM3 additionally uses λ = 0.6 \lambda=0.6 , controlling the weight of the relevance model in query interpolation. 
+ Discussion: 
+ Contrary to expectations, all three pseudo-relevance feedback methods (RM3, Bo1, and KL divergence) underperform the BM25 baseline across every evaluation metric (Table 6 ) . Most notably, their Recall@1000 values collapse substantially (RM3: 0.5093, Bo1: 0.7295, KL: 0.7332) compared to the original queries (0.7705), indicating a severe degradation in first-stage retrieval coverage. 
+ This behavior can be attributed to the inherent difficulty of Tip-of-the-Tongue (ToT) queries, which are typically sparse, noisy, and semantically incomplete. Under such conditions, the initial BM25 rankings are often unreliable, causing PRF methods to expand queries using predominantly non-relevant documents. Rather than correcting the query intent, this process amplifies retrieval drift, leading to degraded recall and ranking quality. 
+ This failure mode is further exacerbated by the shallow relevance judgments of the TREC ToT 2025 collection, which effectively represents a single-relevant-document setting. In such a regime, even minor errors in early-stage retrieval are catastrophic: once the sole relevant document is missed in the top- k k candidates, PRF mechanisms inevitably reinforce incorrect topical signals. 
+ As a result, PRF-based expansion not only fails to recover missing relevance but actively suppresses it, producing recall losses of up to 26% relative to the baseline (RM3 vs. Original). These findings highlight a fundamental limitation of traditional feedback approaches in low-recall, single-relevance scenarios and motivate the need for semantically informed reformulation mechanisms. 
+ 4.1.2. Performance Comparison and Model Selection : 
+ The results on the pseudo-test set ( dev3 ) clearly demonstrate that Query Rewriting provides a massive performance boost compared to the original queries. 
+ As illustrated in (Table 6 ) , beyond improvements in ranking-oriented metrics such as nDCG@10 and MRR, LLM-based rewriting also delivers consistent gains in Recall@1000 , which is critical for downstream re-ranking pipelines. While the original queries achieve a Recall@1000 of 0.7705, Mistral increases this to 0.8284, representing a substantial expansion of the candidate set containing the relevant document. This enhanced first-stage recall directly enables more effective second-stage re-ranking, explaining the large improvements observed in Success@100 and MAP@10. 
+ Importantly, this behavior contrasts sharply with PRF-based approaches, whose reduced recall severely limits any potential gains from subsequent ranking models. Among the evaluated LLMs, Mistral demonstrates the strongest ability to recover latent query intent, producing both the highest recall and the best overall retrieval effectiveness. Consequently, we adopt Mistral as the default query rewriter for all subsequent experiments. 
+ 4.1.3. Rewrite Reproducibility Analysis 
+ Motivation. 
+ LLM-based query reformulation can introduce stochasticity, raising concerns about whether observed improvements reflect consistent model behavior or isolated favorable generations. To assess reproducibility, we conduct an Rewrite Reproducibility Analysis using Recall@1000 as the target metric, quantifying variability across repeated reformulation runs. 
+ Experimental Setup. 
+ We deterministically sampled 100 queries from the test set using a fixed random seed (SEED=42). For each query, we performed three independent reformulation runs with identical decoding parameters. All experiments were conducted using the Mistral-7B-Instruct-v0.3 model at its maximum supported BF16 precision. 
+ Generation was performed using greedy decoding ( do_sample = False \texttt{do\_sample}=\mathrm{False} ), with temperature set to 0.0 0.0 , nucleus sampling threshold top_p = 0.95 \texttt{top\_p}=0.95 (reported for completeness), and max_new_tokens = 128 \texttt{max\_new\_tokens}=128 . Each reformulated query was evaluated independently, and Recall ​ @ ​ 1000 \mathrm{Recall@1000} was computed per run before aggregating statistics across all sampled queries. 
+ Because decoding is fully deterministic under this configuration, we do not report results across multiple random seeds: varying the seed does not affect generation outcomes in the absence of sampling. All decoding parameters are fixed across runs to ensure deterministic behavior and facilitate reproducibility. 
+ Metrics: 
+ We report mean Recall@1000 ( μ \mu ), standard deviation ( σ \sigma ), and coefficient of variation (CV), defined as: 
+ (3) 
+ CV = σ μ × 100 % . \mathrm{CV}=\frac{\sigma}{\mu}\times 100\%. 
+ The CV provides a normalized measure of dispersion relative to overall performance. 
+ Results: 
+ The Recall@1000 values across runs were {0.71, 0.70, 0.75}, yielding a mean of 0.7200 and a standard deviation of 0.0265, corresponding to a CV of 3.67%. Table  2 summarizes these results. 
+ Table 2. Rewrite Reproducibility analysis of LLM-based query reformulation across three runs on 100 sampled test queries. 
+ Model 
+ Runs 
+ Mean R@1000 
+ Std. Dev. 
+ CV (%) 
+ Mistral 
+ 3 
+ 0.7200 
+ 0.0265 
+ 3.67 
+ Discussion: 
+ Based on our predefined criteria, CV values below 2% indicate high stability, while values between 5–10% require explicit reporting of variability. The observed CV of 3.67% falls within the moderate range, indicating limited sensitivity to stochastic generation effects. We therefore report mean ± \pm standard deviation and conclude that performance gains are reproducible across runs rather than attributable to isolated LLM outputs. Residual variability is acknowledged as a limitation. 
+ 4.1.4. Query Type Analysis 
+ Motivation: 
+ We analyze performance by query type to understand where our proposed reformulation method excels and where it fails versus the original queries which we treat as the baseline. 
+ Methodology: 
+ We deterministically sampled (SEED = 42) and manually labeled 100 queries (from 622 total test queries) according to difficulty and intent. The resulting categories were: 
+ • 
+ Simple entity recall : e.g., “A book by Malcolm Gladwell about 10,000 hours” 
+ • 
+ Complex constraints : e.g., “Sci-fi movie, 90s, time loop, NOT Groundhog Day” 
+ • 
+ False memory : e.g., “That song by Nirvana with the violin solo” 
+ • 
+ Visual or descriptive recall : e.g., “Painting with melting clocks” 
+ For each category, we compute Recall@1000 (R@1000) 
+ Results: 
+ Our proposed method shows consistent gains on higher-level semantic queries. The largest improvement appears on False Memory queries (+0.29 R@1000), suggesting stronger robustness to incorrect or misleading premises. Substantial gains are also observed for Visual or Descriptive Recall (+0.15) and Complex Constraints (+0.09), indicating improved compositional and descriptive reformulation. 
+ In contrast, performance degrades on Simple Entity Recall (–0.20), where the baseline already performs strongly. This suggests that the method primarily benefits ambiguous, compositional, or concept-heavy queries, while offering limited advantage for straightforward factual retrieval. 
+ Table 3. Recall@1000 by query type. Underlying retrieval was performed using BM25 
+ Category 
+ Count 
+ Baseline R@1000 
+ Mistral R@1000 
+ Δ \Delta R@1000 
+ Complex Constraints 
+ 34 
+ 0.5294 
+ 0.6176 
+ +0.0882 
+ False Memory 
+ 7 
+ 0.4286 
+ 0.7143 
+ +0.2857 
+ Simple Entity Recall 
+ 5 
+ 0.8000 
+ 0.6000 
+ –0.2000 
+ Visual / Descriptive Recall 
+ 54 
+ 0.3704 
+ 0.5185 
+ +0.1481 
+ Discussion: 
+ Overall, these results indicate that improvements are concentrated in harder query classes requiring abstraction or constraint satisfaction, rather than direct entity lookup. 
+ 4.1.5. Domain Centric Vocabulary Injection Analysis 
+ Motivation: 
+ Effective query reformulation should ideally introduce domain-appropriate terminology, as specialized vocabulary can improve retrieval by better aligning queries with corpus-specific language. We therefore analyze whether the LLM produces domain-specific phrasing or defaults to generic paraphrasing during reformulation. 
+ Methodology: 
+ Using the same deterministically sampled test subset (SEED = 42), we manually inspected 100 reformulated queries and categorized each output according to vocabulary usage: 
+ • 
+ Domain-Specific : reformulations include specialized terminology appropriate to the query domain (e.g., movies: “cinematography”, “anthology film”; books: “epistolary novel”, “bildungsroman”; science: “biochemical pathway”, “quantum phenomenon”; products: “form factor”, “backwards compatibility”); 
+ • 
+ Generic : reformulations rely on nonspecific constructions (e.g., “a movie about”, “a book where”). 
+ We report counts and fractions per category. Let Y Y denote the number of generically paraphrased queries; we report the generic rate as Y / 100 Y/100 . 
+ Results: 
+ As shown in Table  4 , 63% of the reformulations employed domain-specific vocabulary, while 37% relied on generic paraphrasing. 
+ Table 4. Domain vocabulary usage in reformulated queries on the deterministically sampled test subset (SEED = 42). 
+ Category 
+ Fraction 
+ Domain-Specific 
+ 63% 
+ Generic 
+ 37% 
+ Discussion: 
+ The model introduces domain-specific terminology in a majority of cases, suggesting that the reformulation strategy often enriches queries with specialized language rather than relying solely on generic templates. However, over one-third of outputs remain generic, indicating room for improvement in consistently leveraging domain knowledge. 
+ 4.1.6. Guard-railed Entity Expansion in Resolving Indirect References 
+ Motivation: 
+ To further analyze the behavior of LLM-driven query reformulation under indirect references, we conduct an auxiliary study on indirect reference resolution. Indirect references arise when a query refers to a target entity only through a relational description, for example, “the author of [book]”, “the actor from [movie]”, or “the company that makes [product]”, rather than naming the entity explicitly. Such constructions are common in ToT queries and pose a critical challenge for entity expansion mechanisms. 
+ Methodology: 
+ We evaluate reformulation outputs along two dimensions. First, we identify whether a query contains an indirect entity pointer. Second, we categorize the reformulation behavior into one of four outcomes: Resolved, where the pointer is replaced with an explicit entity name (e.g., “author of 1984” → “George Orwell”); Paraphrased, where the reference is reworded but remains unresolved (e.g., “the writer of the dystopian novel 1984”); Removed, where the reference is deleted; and Kept Unchanged, where it is preserved verbatim. 
+ Results: 
+ Operating on a fixed sample of 100 test queries (SEED = 42), we observe that the reformulation process overwhelmingly favors paraphrasing over explicit resolution. As shown in Table  5 , for the Mistral model 94.68% of indirect references are paraphrased, while only 1.06% are resolved to a concrete entity name; 2.13% are removed and 2.13% remain unchanged. This yields a high unresolved ratio, indicating that the model generally refrains from committing to specific entity instantiations when indirect references are present. 
+ Table 5. Distribution of reformulation behaviors for indirect entity references on a 100-query sample (SEED = 42) using Mistral. 
+ Reformulation Outcome 
+ Percentage (%) 
+ Paraphrased 
+ 94.68% 
+ Resolved 
+ 1.06% 
+ Removed 
+ 2.13% 
+ Kept Unchanged 
+ 2.13% 
+ Discussion: 
+ This behavior is consistent with the design principles of our guardrailed entity expansion strategy. Unlike KB-based entity expansion approaches, where indirect references are aggressively resolved by linking to canonical identifiers in external resources such as Wikidata ( Vrandečić and Krötzsch 2014 ) or Google Knowledge Graph ( Google Developers 2025 ) , our method explicitly restricts expansion to information that is unambiguously supported by the input query. As a result, when the prompt does not contain sufficient evidence to justify a specific entity instantiation, the model defaults to paraphrasing rather than speculative resolution. 
+ Importantly, this conservatism should not be interpreted as a failure of reformulation, but rather as a deliberate trade-off aligned with open-world ToT retrieval. In many realistic scenarios, the intended target may be private, emerging, domain-specific, or absent from public knowledge bases altogether. In such cases, KB-dependent resolution would either fail silently or introduce hallucinated entities, tightly coupling system behavior to the coverage and biases of the underlying knowledge graph. By contrast, prompt-internal paraphrasing preserves semantic intent while avoiding overcommitment, allowing downstream retrieval to operate over a broader hypothesis space. 
+ Taken together, these findings reinforce the distinction between cognitive reconstruction and knowledge-base completion. Our reformulation strategy prioritizes faithfulness and robustness over maximal entity resolution, ensuring that entity expansion remains query-grounded rather than knowledge-base driven. This design choice supports reliable behavior under ambiguity and distribution shift, which are defining characteristics of ToT retrieval settings. 
+ Table 6. Retrieval Performance Across Query Versions on the Pseudo-Test Set (dev3) using BM25. 
+ Query Version 
+ nDCG@10 
+ Recall@1000 
+ Success@100 
+ MRR 
+ MAP@10 
+ Original 
+ 0.3366 
+ 0.7705 
+ 0.6007 
+ 0.3129 
+ 0.3055 
+ RM3 + BM25 
+ 0.2704 
+ 0.5093 
+ 0.3526 
+ 0.2663 
+ 0.2638 
+ Bo1 + BM25 
+ 0.3034 
+ 0.7295 
+ 0.5597 
+ 0.2798 
+ 0.2731 
+ KL + BM25 
+ 0.3093 
+ 0.7332 
+ 0.5690 
+ 0.2854 
+ 0.2785 
+ Qwen 
+ 0.3720 
+ 0.7836 
+ 0.6474 
+ 0.3455 
+ 0.3382 
+ Llama 
+ 0.3889 
+ 0.7836 
+ 0.6549 
+ 0.3597 
+ 0.3533 
+ Mistral 
+ 0.4609 
+ 0.8284 
+ 0.7183 
+ 0.4338 
+ 0.4275 
+ 4.2. Analysis of Re-ranking by Bi-Encoder and Late-Interaction Models 
+ Following the sparse retrieval stage, we employed a Bi-encoder and Late Interaction Based Re-ranking ensemble consisting of ColBERTv2.0, Contriever, and E5-large. These models were combined using Reciprocal Rank Fusion (RRF) with a constant k = 60 k=60 . 
+ To ensure computational efficiency without sacrificing coverage, we first performed the Robust Candidate Depth Tuning thoroughly discussed in (Section 3.4.2 ) . 
+ 4.2.1. Optimal Candidate Depth Selection : 
+ The depth tuning process revealed a decisive plateau in performance across all three bi-encoder models. Increasing the candidate depth ( K K ) from 1,000 to 5,000 yielded zero improvement in the Robust Score or Mean Recall. This phenomenon confirms that the "recall ceiling" is strictly determined by the top-1000 documents retrieved by the sparse stage. Consequently, we selected K = 1000 K=1000 as the optimal depth. Fetching candidates beyond this point incurs computational cost with zero potential gain in relevant document coverage. 
+ 4.2.2. The Sparse vs. Bi-Encoder Trade-off : 
+ Upon executing the bi-encoder stage with K = 1000 K=1000 and fusing the results, we observed a specific phenomenon often described as the "Sparse Ceiling". (Table 7 ) compares the performance of the input list (Mistral BM25) against the output list (Dense Fusion) on the pseudo-test set. 
+ Table 7. Performance comparison between the Input (Sparse) and Output (Dense Fusion) stages on the dev3 split. 
+ Metric 
+ Mistral BM25 
+ Bi-Encoder Fusion 
+ Change 
+ nDCG@10 
+ 0.4609 
+ 0.3778 
+ -18.0% 
+ Success@100 
+ 0.7183 
+ 0.7724 
+ +7.5% 
+ Success@10 
+ 0.5672 
+ 0.5448 
+ -3.9% 
+ Map@10 
+ 0.4275 
+ 0.3249 
+ -24.0% 
+ MRR 
+ 0.4338 
+ 0.3352 
+ -22.7% 
+ This data highlights a critical divergence between Ranking Quality and Recall Coverage: 
+ (1) 
+ Ranking Degradation: The Bi-Encoder and Late Interaction Re-ranking stage significantly degraded the ranking quality, dropping nDCG@10 by 18%. This likely stems from the nature of the rewritten queries. Mistral optimized the ToT queries for lexical overlap (keywords), which BM25 exploits perfectly. The Dense models, trained on natural semantic matching, likely penalized these "keyword-stuffed" queries, down-ranking exact matches in favor of semantically broad but partially incorrect documents. 
+ Strategic Decision: While the drop in nDCG is suboptimal, the subsequent Cross-Encoder stage is explicitly designed to repair ranking errors within a high-recall pool. By proceeding with the RRF lists, we aim to combine the semantic signals captured by the bi-encoders and late-interaction mechanism with the precision of the Cross-Encoder, relying on the fact that the relevant documents are still present within the candidate pool. 
+ 4.3. Analysis of Cross-Encoder Reranking 
+ To address the ranking degradation observed in the previous stage, we deployed a Cross-Encoder (monoT5) to re-rank the fused candidate lists. Unlike bi-encoders, which rely on compressed vector representations, the cross-encoder processes the query and document simultaneously, allowing for a fine-grained assessment of semantic relevance. 
+ 4.3.1. Performance Recovery and State-of-the-Art Results : 
+ The results on the pseudo-test set ( dev3 ) demonstrate a "Phoenix-like" recovery. As detailed in (Table 8 ) , the Cross-Encoder not only repaired the performance loss incurred during the dense stage but significantly outperformed the initial sparse baseline. 
+ Table 8. Performance comparison between the Dense Baseline (Input) and Cross-Encoder (Output) on the dev3 split. 
+ Metric 
+ Sparse Baseline 
+ Bi-Encoder Baseline 
+ Cross-Encoder 
+ Gain vs Bi-Encoder Baseline 
+ Gain vs Sparse Baseline 
+ nDCG@10 
+ 0.4609 
+ 0.3778 
+ 0.5196 
+ +37.5% 
+ +12.7% 
+ Success@10 
+ 0.5672 
+ 0.5448 
+ 0.6549 
+ +20.2% 
+ +15.5% 
+ Map@10 
+ 0.4275 
+ 0.3249 
+ 0.4765 
+ +46.7% 
+ +11.5% 
+ MRR 
+ 0.4338 
+ 0.3352 
+ 0.4808 
+ +43.4% 
+ +10.8 % 
+ Two critical insights emerge from this data: 
+ • 
+ Correction of Semantic Confusion: The Bi-encoder and Late Interaction Based models struggled with the keyword-heavy nature of the rewritten queries, often burying relevant documents outside the top-10. The monoT5 model successfully identified these relevant pairs within the deeper candidate pool and elevated them to the top ranks, boosting Success@10 from 0.54 to 0.65. 
+ • 
+ Recall Trade-off: The total recall dropped from 0.828 to 0.733. This is an expected consequence of truncating the list to a fixed depth for re-ranking. However, the trade-off is highly favorable: we sacrifice the long-tail recall (documents ranked >300) to secure a massive improvement in top-tier ranking quality. 
+ 4.3.2. Optimization of Re-ranking Depth : 
+ Given the high computational cost of Cross-Encoder inference, optimizing the candidate depth ( K K ) is crucial for pipeline latency. We performed a robust tuning sweep to identify the smallest K K that maximizes ranking quality without introducing instability. 
+ Using the same approach we used for the bi-encoder stage (Section 3.4.2 ), but instead tuning on nDCG@10, the robust score peaks at a remarkably shallow depth of K = 50 K=50 . This finding indicates that the "signal" for the Cross-Encoder is concentrated in the very top portion of the Dense Fusion list. Re-ranking deeper candidates (100–300) introduces more noise than relevance, diluting the robust score. Consequently, we configured the final pipeline to re-rank only the top 50 candidates, ensuring maximum efficiency for the final LLM generation stage. 
+ 4.4. Analysis of List-wise LLM Re-ranking 
+ To achieve the final tier of ranking precision, we employed Qwen-2.5-72B Instruct AWQ as a List-wise Re-ranker. Unlike the point-wise or pair-wise scoring of previous stages, the LLM evaluates the candidate list holistically, leveraging its broad world knowledge to resolve the complex descriptions typical of ToT queries. 
+ 4.4.1. Performance on the Pseudo-Test Data : 
+ The deployment of the LLM reranker resulted in a dramatic performance leap on the blind test set ( dev3 ), establishing a new state-of-the-art benchmark for this pipeline. As shown in (Table 9 ) , the LLM successfully refined the Cross-Encoder’s output, achieving an nDCG@10 of 0.6347 . 
+ Table 9. Performance comparison between the Cross-Encoder (Input) and LLM Reranker (Output) on the pseudo-test set (dev3). 
+ Metric 
+ Cross-Encoder 
+ LLM Reranker 
+ Gain 
+ nDCG@10 
+ 0.5196 
+ 0.6347 
+ +22.1% 
+ Success@10 
+ 0.6549 
+ 0.6828 
+ +4.3% 
+ Map@10 
+ 0.4765 
+ 0.6190 
+ +29.9% 
+ MRR 
+ 0.4808 
+ 0.6213 
+ +29.2% 
+ The 29.2% boost in MRR is particularly telling. It indicates that Qwen-72B is exceptionally effective at identifying the ground truth within the top candidates and moving it to the Rank-1 position-a nuance that the smaller Cross-Encoder often missed. 
+ 4.4.2. Joint Parameter Tuning : 
+ To optimize efficiency, we conducted a joint tuning sweep of the candidate window size passed from the Cross-Encoder ( K c ​ r ​ o ​ s ​ s K_{cross} ) and the depth of the LLM reranking ( K l ​ l ​ m K_{llm} ). 
+ The results indicated that the performance saturates quickly. As observed in the tuning logs, smaller window sizes ( K c ​ r ​ o ​ s ​ s = 30 K_{cross}=30 ) frequently outperformed or matched larger windows ( K c ​ r ​ o ​ s ​ s = 50 + K_{cross}=50+ ). This validates the efficiency of the pipeline: the relevant signals are concentrated at the very top. Forcing the LLM to process deeper ranks (e.g., rank 31-100) introduces noise rather than signal. Consequently, we configured the final stage with K c ​ r ​ o ​ s ​ s = 30 K_{cross}=30 and K l ​ l ​ m = 10 K_{llm}=10 , balancing maximum precision with computational cost. 
+ 5. Final Evaluation and Pipeline Analysis 
+ To validate the efficacy of our proposed architecture, we evaluated the complete multi-stage pipeline on the held-out test set. This split proved to be significantly more challenging than the development sets, characterized by lower absolute recall baselines and higher query ambiguity. Despite these challenges, the results confirm that a cascaded retrieval approach powered by the rewriting strategy is essential for solving Tip-of-the-Tongue (ToT) tasks. 
+ 5.1. Overall Performance Trajectory 
+ The experimental results demonstrate a consistent, step-by-step improvement in ranking quality as the pipeline progresses from sparse retrieval to LLM powered list-wise re-ranking. As summarized in (Table 10 ) , no single model is sufficient; rather, each stage contributes a specific layer of refinement. 
+ Table 10. Cumulative performance of the retrieval pipeline on the test set, grouped by pipeline stage and query formulation. 
+ Table Group 1: Using Original Queries (Maximum Recall@1000 was recorded for the BM25 + KL combination (0.5225), which was used for downstream re-ranking 
+ Model / Method 
+ nDCG@10 
+ MRR 
+ Success@10 
+ MAP@10 
+ Gain (nDCG@10) 
+ Sparse Retrieval (Stage 1) 
+ BM25 
+ 0.1223 
+ 0.1114 
+ 0.3039 
+ 0.1064 
+ 0.00% 
+ BM25 + RM3 
+ 0.1033 
+ 0.0978 
+ 0.2363 
+ 0.0939 
+ –15.53% 
+ BM25 + Bo1 
+ 0.1136 
+ 0.1002 
+ 0.3103 
+ 0.0950 
+ –7.11% 
+ BM25 + KL 
+ 0.1154 
+ 0.1030 
+ 0.3135 
+ 0.0974 
+ –5.64% 
+ Bi-encoder Re-ranking (Stage 2) 
+ Contriever 
+ 0.1021 
+ 0.0896 
+ 0.3312 
+ 0.0832 
+ –11.52% 
+ ColBERTv2 
+ 0.0723 
+ 0.0654 
+ 0.2878 
+ 0.0588 
+ –37.34% 
+ E5-Large-v2 
+ 0.1837 
+ 0.1660 
+ 0.4228 
+ 0.1596 
+ +59.18% 
+ Dense Fusion (RRF) 
+ 0.1579 
+ 0.1394 
+ 0.4068 
+ 0.1325 
+ +36.82% 
+ Cross-Encoder Re-ranking (Stage 3) 
+ MonoT5 
+ 0.1839 
+ 0.1637 
+ 0.4164 
+ 0.1577 
+ +16.46% 
+ List-wise LLM Re-ranking (Stage 4) 
+ Qwen 2.5 72B Instruct (4-bit) 
+ 0.2768 
+ 0.2680 
+ 0.4180 
+ 0.2645 
+ +50.51% 
+ Net 
+ – 
+ – 
+ – 
+ – 
+ +139.86% 
+ Table Group 2: Using Mistral Rewritten Queries (Ours). The first stage Recall@1000 is 0.6302, which already nets 20.61% more relevant documents, than the best performing PRF using the original queries 
+ Model / Method 
+ nDCG@10 
+ MRR 
+ Success@10 
+ MAP@10 
+ Gain (nDCG@10) 
+ Sparse Retrieval (Stage 1) 
+ BM25 
+ 0.1738 
+ 0.1586 
+ 0.2476 
+ 0.1515 
+ 0.00% 
+ Bi-encoder Re-ranking (Stage 2) 
+ Contriever 
+ 0.1458 
+ 0.1283 
+ 0.2331 
+ 0.1188 
+ –16.15% 
+ ColBERTv2 
+ 0.1361 
+ 0.1256 
+ 0.1961 
+ 0.1176 
+ –21.73% 
+ E5-Large-v2 
+ 0.2253 
+ 0.1989 
+ 0.3376 
+ 0.1905 
+ +29.59% 
+ Dense Fusion (RRF) 
+ 0.2338 
+ 0.2081 
+ 0.3457 
+ 0.1987 
+ +34.48% 
+ Cross-Encoder Re-ranking (Stage 3) 
+ MonoT5 
+ 0.3110 
+ 0.2822 
+ 0.4244 
+ 0.2757 
+ +33.04% 
+ List-wise LLM Re-ranking (Stage 4) 
+ Qwen 2.5 72B Instruct (4-bit) 
+ 0.3706 
+ 0.3482 
+ 0.4550 
+ 0.3438 
+ +19.16% 
+ Net 
+ – 
+ – 
+ – 
+ – 
+ +113.21% 
+ Net Gain over Original 
+ – 
+ – 
+ – 
+ – 
+ +33.88% 
+ The final system achieves an nDCG@10 of 0.3706 , representing a +113.21% gain over the sparse baseline. This dramatic lift validates our hypothesis: while lexical matching provides a necessary foundation, only deep semantic interaction (Cross-Encoders) and world-knowledge reasoning (LLMs) can bridge the vocabulary gap inherent in ToT queries. 
+ From Group 1 in Table  10 , we observe that even a strong multi-stage retrieval and re-ranking pipeline performs poorly when applied directly to raw ToT queries. The primary failure mode occurs at the first retrieval stage, where Recall@1000 drops by 20.67%. Specifically, the BM25+KL configuration achieves a maximum Recall@1000 of 0.5225 using the original queries, compared to 0.6302 when operating on Mistral-rewritten queries. This substantial loss of candidate coverage prevents downstream re-rankers from recovering relevant documents, since they are constrained to re-ranking only the top-1000 results produced by the initial retriever. Consequently, this early-stage recall deficit propagates through the pipeline, yielding overall gains of 33.88% in nDCG@10, 29.92% in MRR, and 29.98% in MAP@10 when rewritten queries are used instead of the raw inputs. 
+ 5.2. Stage-by-Stage Analysis 
+ 5.2.1. Stage 1: The Sparse Foundation : 
+ The BM25 baseline, augmented with Mistral-based query rewriting, achieved a Recall@1000 of 0.6302. Compared to the development sets (where recall often exceeded 0.80), this lower ceiling indicates that the test set contains "hard" queries with severe vocabulary mismatches that even generative rewriting could not fully resolve. This established a strict upper bound for retrieval coverage in subsequent stages. 
+ 5.2.2. Stage 2: Bi-encoder and Late Interaction Based Re-ranking and The "E5 Factor" : 
+ The Bi-encoder and Late Interaction Based Re-ranking stage acted as a critical recovery mechanism, boosting nDCG@10 to 0.2338. However, the performance distribution among the constituent dense models was highly uneven: 
+ • 
+ ColBERTv2 (0.1361) and Contriever (0.1458): These models underperformed the sparse baseline. This suggests a "semantic drift" where the models, confused by the abstract nature of the rewritten queries, retrieved documents that were topically related but factually incorrect. 
+ • 
+ E5-Large (0.2253): The E5 model significantly outperformed its peers, single-handedly driving the success of the dense stage. Its strong instruction-following capabilities likely aligned better with the structure of the rewritten queries. 
+ The Reciprocal Rank Fusion (RRF) successfully combined these divergent signals, producing a final list (0.2338) that outperformed even the best single model (E5), justifying the computational overhead of the ensemble. 
+ 5.2.3. The Recall Ceiling Phenomenon : 
+ This is a structural consequence of our "Sparse-First Cascade" design. The dense models were configured to re-rank the top-1000 candidates provided by BM25 rather than retrieving from the full corpus. Consequently, the previous stage recall was mathematically capped by the sparse stage recall. While this limits total coverage, it massively reduces the search space for the dense vectors, thereby leading to the creation of a latency vs accuracy trade-off 
+ 5.2.4. Stages 3 and 4: Precision Enhancement : 
+ The final two stages acted as "Precision Enhancers", tasked with cleaning the noisy candidate list. 
+ • 
+ Cross-Encoder: The MonoT5 model delivered the single largest jump in the pipeline, increasing nDCG@10 from 0.2338 to 0.3110. It successfully identified relevant documents that had been buried deep in the fusion list and promoted them to the top 10. 
+ • 
+ LLM Reranker: The 72B parameter model provided the final polish, achieving a further +19% gain over the Cross-Encoder. By leveraging its extensive world knowledge, it rescued hard cases, pushing Success@10 to 0.4550, demonstrating an ability to solve queries that lacked sufficient semantic overlap for the smaller models to detect. 
+ 6. Conclusion 
+ This work reframes Tip-of-the-Tongue (ToT) retrieval as a problem of cognitive signal reconstruction rather than conventional document ranking. Through extensive evaluation on the TREC-ToT 2025 benchmark, we demonstrate that even a strong multi-stage retrieval pipeline struggles when operating directly on raw ToT queries, confirming that query formulation constitutes the dominant bottleneck in this setting. 
+ By introducing a lightweight, single-pass LLM-driven query reformulation and controlled expansion step prior to retrieval, we achieve substantial gains in both first-stage recall and downstream ranking effectiveness. Notably, this intervention requires no task-specific fine-tuning, no corpus-aware supervision, and no domain adaptation. All models are used off-the-shelf in a zero-shot configuration, indicating that the observed improvements stem from prompt design and query reconstruction strategy rather than specialization of the underlying LLMs. 
+ Our results show that modest pre-retrieval cognitive reconstruction unlocks large performance improvements across the entire pipeline, yielding consistent gains in Recall, nDCG@10, MRR, and MAP@10 relative to identical systems operating on original queries. These findings underscore the importance of treating query interpretation as a first-class component of retrieval, particularly in scenarios characterized by vague, partial, or inaccurate user memories. 
+ More broadly, the proposed approach supports an open-world retrieval paradigm in which collections evolve and target domains are not known in advance. By decoupling effectiveness from corpus-specific training and emphasizing query-centric reasoning, the framework offers a practical and cost-effective path toward robust ToT retrieval in realistic deployment settings. We hope this work encourages further investigation of cognitive reconstruction as a foundational layer in future information retrieval systems.
+ Limitations and Future Work: Several limitations point to promising directions for future research. First, our approach performs query reconstruction in a single pass; iterative refinement that incorporates retrieval feedback may yield further gains, albeit at increased computational cost. Second, while we focus exclusively on text-based ToT queries, the effectiveness of cognitive reconstruction for multimodal ToT scenarios such as visual memories combined with partial textual descriptions remains unexplored. Finally, although we observe consistent improvements across three families of 8B-parameter LLMs, evaluating larger-capacity models (e.g., 72B or 120B) and extending experiments to additional languages would further strengthen claims of generalizability, particularly given the potential benefits of increased internal reasoning capacity. Finally, while our current system enforces a single, query-grounded expansion policy, an important direction for future work is adaptive entity expansion. In practice, different deployment settings impose different constraints: fixed-domain environments may benefit from explicit linking to external resources such as Wikidata ( Vrandečić and Krötzsch 2014 ) or Google Knowledge Graph ( Google Developers 2025 ) , whereas open-world or private corpora require strict grounding to the input query alone. A promising extension of our framework would be to automatically select between KB-backed resolution and prompt-internal, query-faithful paraphrasing based on the target domain and data regime, enabling the same cognitive reconstruction pipeline to operate robustly across closed-world, open-world, and proprietary settings. 
+ References 
+ (1) 
+ Arguello et al . (2021) 
+Jaime Arguello, Adam Ferguson, Emery Fine, Bhaskar Mitra, Hamed Zamani, and Fernando Diaz. 2021.
+ Tip of the Tongue Known-Item Retrieval: A Case Study in Movie Identification. In Proceedings of the 2021 Conference on Human Information Interaction and Retrieval (CHIIR ’21) . ACM, 5–14.
+ Bhargav et al . (2022) 
+Samarth Bhargav, Georgios Sidiropoulos, and Evangelos Kanoulas. 2022.
+ ’It’s on the tip of my tongue’: A new dataset for known-item retrieval. In Proceedings of the Fifteenth ACM International Conference on Web Search and Data Mining (WSDM ’22) . ACM, 48–56.
+ Brown and McNeill (1966) 
+Roger Brown and David McNeill. 1966.
+ The “tip of the tongue” phenomenon.
+ Journal of Verbal Learning and Verbal Behavior 5, 4 (1966), 325–337.
+ Dubey et al . (2024) 
+Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pandey, Abhishek Kadian, Ahmad Al-Dahle, Aiesha Letman, Akhil Mathur, Alan Schelten, Amy Yang, Angela Fan, et al . 2024.
+ The llama 3 herd of models.
+ arXiv e-prints (2024), arXiv–2407.
+ Fröbe et al . (2023) 
+Maik Fröbe, Eric Oliver Schmidt, and Matthias Hagen. 2023.
+ A Large-Scale Dataset for Known-Item Question Performance Prediction. In Proceedings of the QPP++ 2023 Workshop at ECIR (CEUR Workshop Proceedings, Vol. 3366) . 13–19.
+ Google Developers (2025) 
+Google Developers. 2025.
+ Google Knowledge Graph Search API.
+ https://developers.google.com/knowledge-graph 
+ Hauff et al . (2012) 
+Claudia Hauff, Matthias Hagen, Anna Beyer, and Benno Stein. 2012.
+ Towards realistic known-item topics for the ClueWeb. In Proceedings of the 4th Information Interaction in Context Symposium (IIiX ’12) . ACM, 274–277.
+ He et al . (2025) 
+Yifan He, To Eun Kim, Fernando Diaz, Jaime Arguello, and Bhaskar Mitra. 2025.
+ Tip of the Tongue Query Elicitation for Simulated Evaluation. In Proceedings of the 48th International ACM SIGIR Conference on Research and Development in Information Retrieval . 3398–3407.
+ Izacard et al . (2021) 
+Gautier Izacard, Mathilde Caron, Lucas Hosseini, Sebastian Riedel, Piotr Bojanowski, Armand Joulin, and Edouard Grave. 2021.
+ Towards Unsupervised Dense Information Retrieval with Contrastive Learning.
+ arXiv preprint arXiv:2112.09118 (2021).
+ Jiang et al . (2023) 
+Albert Q. Jiang, Alexandre Sablayrolles, Arthur Mensch, Chris Bamford, Devendra Singh Chaplot, Diego de las Casas, Florian Bressand, Gianna Lengyel, Guillaume Lample, Lucile Saulnier, Lélio Renard Lavaud, Marie-Anne Lachaux, Pierre Stock, Teven Le Scao, Thibaut Lavril, Thomas Wang, Timothée Lacroix, and William El Sayed. 2023.
+ Mistral 7B.
+ arXiv:2310.06825 [cs.CL]
+ https://arxiv.org/abs/2310.06825 
+ Lin et al . (2023) 
+Kevin Lin, Kyle Lo, Joseph E Gonzalez, and Dan Klein. 2023.
+ Decomposing Complex Queries for Tip-of-the-tongue Retrieval. In Findings of the Association for Computational Linguistics: EMNLP 2023 . 5521–5533.
+ Nogueira et al . (2020) 
+Rodrigo Nogueira, Zhiying Jiang, and Jimmy Lin. 2020.
+ Document Ranking with a Pretrained Sequence-to-Sequence Model.
+ arXiv:2003.06713 [cs.IR]
+ https://arxiv.org/abs/2003.06713 
+ OpenAI et al . (2024a) 
+OpenAI, :, Aaron Hurst, Adam Lerer, Adam P. Goucher, Adam Perelman, Aditya Ramesh, Aidan Clark, AJ Ostrow, Akila Welihinda, Alan Hayes, Alec Radford, Aleksander Mądry, Alex Baker-Whitcomb, Alex Beutel, Alex Borzunov, Alex Carney, Alex Chow, Alex Kirillov, Alex Nichol, Alex Paino, Alex Renzin, Alex Tachard Passos, Alexander Kirillov, Alexi Christakis, Alexis Conneau, Ali Kamali, Allan Jabri, Allison Moyer, Allison Tam, Amadou Crookes,
+Amin Tootoochian, Amin Tootoonchian, Ananya Kumar, Andrea Vallone, Andrej Karpathy, Andrew Braunstein, Andrew Cann, Andrew Codispoti, Andrew Galu, Andrew Kondrich, Andrew Tulloch, Andrey Mishchenko, Angela Baek, Angela Jiang, Antoine Pelisse, Antonia Woodford, Anuj Gosalia, Arka Dhar, Ashley Pantuliano, Avi Nayak, Avital Oliver, Barret Zoph, Behrooz Ghorbani, Ben Leimberger, Ben Rossen, Ben Sokolowsky, Ben Wang, Benjamin Zweig, Beth Hoover, Blake Samic, Bob
+McGrew, Bobby Spero, Bogo Giertler, Bowen Cheng, Brad Lightcap, Brandon Walkin, Brendan Quinn, Brian Guarraci, Brian Hsu, Bright Kellogg, Brydon Eastman, Camillo Lugaresi, Carroll Wainwright, Cary Bassin, Cary Hudson, Casey Chu, Chad Nelson, Chak Li, Chan Jun Shern, Channing Conger, Charlotte Barette, Chelsea Voss, Chen Ding, Cheng Lu, Chong Zhang, Chris Beaumont, Chris Hallacy, Chris Koch, Christian Gibson, Christina Kim, Christine Choi, Christine McLeavey,
+Christopher Hesse, Claudia Fischer, Clemens Winter, Coley Czarnecki, Colin Jarvis, Colin Wei, Constantin Koumouzelis, Dane Sherburn, Daniel Kappler, Daniel Levin, Daniel Levy, David Carr, David Farhi, David Mely, David Robinson, David Sasaki, Denny Jin, Dev Valladares, Dimitris Tsipras, Doug Li, Duc Phong Nguyen, Duncan Findlay, Edede Oiwoh, Edmund Wong, Ehsan Asdar, Elizabeth Proehl, Elizabeth Yang, Eric Antonow, Eric Kramer, Eric Peterson, Eric Sigler,
+Eric Wallace, Eugene Brevdo, Evan Mays, Farzad Khorasani, Felipe Petroski Such, Filippo Raso, Francis Zhang, Fred von Lohmann, Freddie Sulit, Gabriel Goh, Gene Oden, Geoff Salmon, Giulio Starace, Greg Brockman, Hadi Salman, Haiming Bao, Haitang Hu, Hannah Wong, Haoyu Wang, Heather Schmidt, Heather Whitney, Heewoo Jun, Hendrik Kirchner, Henrique Ponde de Oliveira Pinto, Hongyu Ren, Huiwen Chang, Hyung Won Chung, Ian Kivlichan, Ian O’Connell, Ian O’Connell, Ian
+Osband, Ian Silber, Ian Sohl, Ibrahim Okuyucu, Ikai Lan, Ilya Kostrikov, Ilya Sutskever, Ingmar Kanitscheider, Ishaan Gulrajani, Jacob Coxon, Jacob Menick, Jakub Pachocki, James Aung, James Betker, James Crooks, James Lennon, Jamie Kiros, Jan Leike, Jane Park, Jason Kwon, Jason Phang, Jason Teplitz, Jason Wei, Jason Wolfe, Jay Chen, Jeff Harris, Jenia Varavva, Jessica Gan Lee, Jessica Shieh, Ji Lin, Jiahui Yu, Jiayi Weng, Jie Tang,
+Jieqi Yu, Joanne Jang, Joaquin Quinonero Candela, Joe Beutler, Joe Landers, Joel Parish, Johannes Heidecke, John Schulman, Jonathan Lachman, Jonathan McKay, Jonathan Uesato, Jonathan Ward, Jong Wook Kim, Joost Huizinga, Jordan Sitkin, Jos Kraaijeveld, Josh Gross, Josh Kaplan, Josh Snyder, Joshua Achiam, Joy Jiao, Joyce Lee, Juntang Zhuang, Justyn Harriman, Kai Fricke, Kai Hayashi, Karan Singhal, Katy Shi, Kavin Karthik, Kayla Wood, Kendra Rimbach,
+Kenny Hsu, Kenny Nguyen, Keren Gu-Lemberg, Kevin Button, Kevin Liu, Kiel Howe, Krithika Muthukumar, Kyle Luther, Lama Ahmad, Larry Kai, Lauren Itow, Lauren Workman, Leher Pathak, Leo Chen, Li Jing, Lia Guy, Liam Fedus, Liang Zhou, Lien Mamitsuka, Lilian Weng, Lindsay McCallum, Lindsey Held, Long Ouyang, Louis Feuvrier, Lu Zhang, Lukas Kondraciuk, Lukasz Kaiser, Luke Hewitt, Luke Metz, Lyric Doshi, Mada Aflak, Maddie Simens,
+Madelaine Boyd, Madeleine Thompson, Marat Dukhan, Mark Chen, Mark Gray, Mark Hudnall, Marvin Zhang, Marwan Aljubeh, Mateusz Litwin, Matthew Zeng, Max Johnson, Maya Shetty, Mayank Gupta, Meghan Shah, Mehmet Yatbaz, Meng Jia Yang, Mengchao Zhong, Mia Glaese, Mianna Chen, Michael Janner, Michael Lampe, Michael Petrov, Michael Wu, Michele Wang, Michelle Fradin, Michelle Pokrass, Miguel Castro, Miguel Oom Temudo de Castro, Mikhail Pavlov, Miles Brundage, Miles
+Wang, Minal Khan, Mira Murati, Mo Bavarian, Molly Lin, Murat Yesildal, Nacho Soto, Natalia Gimelshein, Natalie Cone, Natalie Staudacher, Natalie Summers, Natan LaFontaine, Neil Chowdhury, Nick Ryder, Nick Stathas, Nick Turley, Nik Tezak, Niko Felix, Nithanth Kudige, Nitish Keskar, Noah Deutsch, Noel Bundick, Nora Puckett, Ofir Nachum, Ola Okelola, Oleg Boiko, Oleg Murk, Oliver Jaffe, Olivia Watkins, Olivier Godement, Owen Campbell-Moore, Patrick Chao,
+Paul McMillan, Pavel Belov, Peng Su, Peter Bak, Peter Bakkum, Peter Deng, Peter Dolan, Peter Hoeschele, Peter Welinder, Phil Tillet, Philip Pronin, Philippe Tillet, Prafulla Dhariwal, Qiming Yuan, Rachel Dias, Rachel Lim, Rahul Arora, Rajan Troll, Randall Lin, Rapha Gontijo Lopes, Raul Puri, Reah Miyara, Reimar Leike, Renaud Gaubert, Reza Zamani, Ricky Wang, Rob Donnelly, Rob Honsby, Rocky Smith, Rohan Sahai, Rohit Ramchandani, Romain Huet,
+Rory Carmichael, Rowan Zellers, Roy Chen, Ruby Chen, Ruslan Nigmatullin, Ryan Cheu, Saachi Jain, Sam Altman, Sam Schoenholz, Sam Toizer, Samuel Miserendino, Sandhini Agarwal, Sara Culver, Scott Ethersmith, Scott Gray, Sean Grove, Sean Metzger, Shamez Hermani, Shantanu Jain, Shengjia Zhao, Sherwin Wu, Shino Jomoto, Shirong Wu, Shuaiqi, Xia, Sonia Phene, Spencer Papay, Srinivas Narayanan, Steve Coffey, Steve Lee, Stewart Hall, Suchir Balaji,
+Tal Broda, Tal Stramer, Tao Xu, Tarun Gogineni, Taya Christianson, Ted Sanders, Tejal Patwardhan, Thomas Cunninghman, Thomas Degry, Thomas Dimson, Thomas Raoux, Thomas Shadwell, Tianhao Zheng, Todd Underwood, Todor Markov, Toki Sherbakov, Tom Rubin, Tom Stasi, Tomer Kaftan, Tristan Heywood, Troy Peterson, Tyce Walters, Tyna Eloundou, Valerie Qi, Veit Moeller, Vinnie Monaco, Vishal Kuo, Vlad Fomenko, Wayne Chang, Weiyi Zheng, Wenda Zhou, Wesam
+Manassra, Will Sheu, Wojciech Zaremba, Yash Patil, Yilei Qian, Yongjik Kim, Youlong Cheng, Yu Zhang, Yuchen He, Yuchen Zhang, Yujia Jin, Yunxing Dai, and Yury Malkov. 2024a.
+ GPT-4o System Card.
+ arXiv:2410.21276 [cs.CL]
+ https://arxiv.org/abs/2410.21276 
+ OpenAI et al . (2024b) 
+OpenAI, Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, Red Avila, Igor Babuschkin, Suchir Balaji, Valerie Balcom, Paul Baltescu, Haiming Bao, Mohammad Bavarian, Jeff Belgum, Irwan Bello, Jake Berdine, Gabriel Bernadett-Shapiro, Christopher Berner, Lenny Bogdonoff, Oleg Boiko, Madelaine Boyd, Anna-Luisa Brakman, Greg Brockman, Tim Brooks, Miles Brundage,
+Kevin Button, Trevor Cai, Rosie Campbell, Andrew Cann, Brittany Carey, Chelsea Carlson, Rory Carmichael, Brooke Chan, Che Chang, Fotis Chantzis, Derek Chen, Sully Chen, Ruby Chen, Jason Chen, Mark Chen, Ben Chess, Chester Cho, Casey Chu, Hyung Won Chung, Dave Cummings, Jeremiah Currier, Yunxing Dai, Cory Decareaux, Thomas Degry, Noah Deutsch, Damien Deville, Arka Dhar, David Dohan, Steve Dowling, Sheila Dunning, Adrien Ecoffet, Atty Eleti,
+Tyna Eloundou, David Farhi, Liam Fedus, Niko Felix, Simón Posada Fishman, Juston Forte, Isabella Fulford, Leo Gao, Elie Georges, Christian Gibson, Vik Goel, Tarun Gogineni, Gabriel Goh, Rapha Gontijo-Lopes, Jonathan Gordon, Morgan Grafstein, Scott Gray, Ryan Greene, Joshua Gross, Shixiang Shane Gu, Yufei Guo, Chris Hallacy, Jesse Han, Jeff Harris, Yuchen He, Mike Heaton, Johannes Heidecke, Chris Hesse, Alan Hickey, Wade Hickey, Peter Hoeschele,
+Brandon Houghton, Kenny Hsu, Shengli Hu, Xin Hu, Joost Huizinga, Shantanu Jain, Shawn Jain, Joanne Jang, Angela Jiang, Roger Jiang, Haozhun Jin, Denny Jin, Shino Jomoto, Billie Jonn, Heewoo Jun, Tomer Kaftan, Łukasz Kaiser, Ali Kamali, Ingmar Kanitscheider, Nitish Shirish Keskar, Tabarak Khan, Logan Kilpatrick, Jong Wook Kim, Christina Kim, Yongjik Kim, Jan Hendrik Kirchner, Jamie Kiros, Matt Knight, Daniel Kokotajlo, Łukasz Kondraciuk, Andrew Kondrich,
+Aris Konstantinidis, Kyle Kosic, Gretchen Krueger, Vishal Kuo, Michael Lampe, Ikai Lan, Teddy Lee, Jan Leike, Jade Leung, Daniel Levy, Chak Ming Li, Rachel Lim, Molly Lin, Stephanie Lin, Mateusz Litwin, Theresa Lopez, Ryan Lowe, Patricia Lue, Anna Makanju, Kim Malfacini, Sam Manning, Todor Markov, Yaniv Markovski, Bianca Martin, Katie Mayer, Andrew Mayne, Bob McGrew, Scott Mayer McKinney, Christine McLeavey, Paul McMillan, Jake McNeil, David
+Medina, Aalok Mehta, Jacob Menick, Luke Metz, Andrey Mishchenko, Pamela Mishkin, Vinnie Monaco, Evan Morikawa, Daniel Mossing, Tong Mu, Mira Murati, Oleg Murk, David Mély, Ashvin Nair, Reiichiro Nakano, Rajeev Nayak, Arvind Neelakantan, Richard Ngo, Hyeonwoo Noh, Long Ouyang, Cullen O’Keefe, Jakub Pachocki, Alex Paino, Joe Palermo, Ashley Pantuliano, Giambattista Parascandolo, Joel Parish, Emy Parparita, Alex Passos, Mikhail Pavlov, Andrew Peng, Adam
+Perelman, Filipe de Avila Belbute Peres, Michael Petrov, Henrique Ponde de Oliveira Pinto, Michael, Pokorny, Michelle Pokrass, Vitchyr H. Pong, Tolly Powell, Alethea Power, Boris Power, Elizabeth Proehl, Raul Puri, Alec Radford, Jack Rae, Aditya Ramesh, Cameron Raymond, Francis Real, Kendra Rimbach, Carl Ross, Bob Rotsted, Henri Roussez, Nick Ryder, Mario Saltarelli, Ted Sanders, Shibani Santurkar, Girish Sastry, Heather Schmidt, David Schnurr, John Schulman, Daniel Selsam,
+Kyla Sheppard, Toki Sherbakov, Jessica Shieh, Sarah Shoker, Pranav Shyam, Szymon Sidor, Eric Sigler, Maddie Simens, Jordan Sitkin, Katarina Slama, Ian Sohl, Benjamin Sokolowsky, Yang Song, Natalie Staudacher, Felipe Petroski Such, Natalie Summers, Ilya Sutskever, Jie Tang, Nikolas Tezak, Madeleine B. Thompson, Phil Tillet, Amin Tootoonchian, Elizabeth Tseng, Preston Tuggle, Nick Turley, Jerry Tworek, Juan Felipe Cerón Uribe, Andrea Vallone, Arun Vijayvergiya, Chelsea Voss,
+Carroll Wainwright, Justin Jay Wang, Alvin Wang, Ben Wang, Jonathan Ward, Jason Wei, CJ Weinmann, Akila Welihinda, Peter Welinder, Jiayi Weng, Lilian Weng, Matt Wiethoff, Dave Willner, Clemens Winter, Samuel Wolrich, Hannah Wong, Lauren Workman, Sherwin Wu, Jeff Wu, Michael Wu, Kai Xiao, Tao Xu, Sarah Yoo, Kevin Yu, Qiming Yuan, Wojciech Zaremba, Rowan Zellers, Chong Zhang, Marvin Zhang, Shengjia Zhao, Tianhao Zheng, Juntang Zhuang,
+William Zhuk, and Barret Zoph. 2024b.
+ GPT-4 Technical Report.
+ arXiv:2303.08774 [cs.CL]
+ https://arxiv.org/abs/2303.08774 
+ Qwen et al . (2025) 
+Qwen, :, An Yang, Baosong Yang, Beichen Zhang, Binyuan Hui, Bo Zheng, Bowen Yu, Chengyuan Li, Dayiheng Liu, Fei Huang, Haoran Wei, Huan Lin, Jian Yang, Jianhong Tu, Jianwei Zhang, Jianxin Yang, Jiaxi Yang, Jingren Zhou, Junyang Lin, Kai Dang, Keming Lu, Keqin Bao, Kexin Yang, Le Yu, Mei Li, Mingfeng Xue, Pei Zhang, Qin Zhu, Rui Men, Runji Lin, Tianhao Li, Tianyi Tang, Tingyu Xia,
+Xingzhang Ren, Xuancheng Ren, Yang Fan, Yang Su, Yichang Zhang, Yu Wan, Yuqiong Liu, Zeyu Cui, Zhenru Zhang, and Zihan Qiu. 2025.
+ Qwen2.5 Technical Report.
+ arXiv:2412.15115 [cs.CL]
+ https://arxiv.org/abs/2412.15115 
+ Robertson and Zaragoza (2009) 
+Stephen Robertson and Hugo Zaragoza. 2009.
+ The Probabilistic Relevance Framework: BM25 and Beyond.
+ Found. Trends Inf. Retr. 3, 4 (April 2009), 333–389.
+ doi: 10.1561/1500000019 
+ Santhanam et al . (2022) 
+Keshav Santhanam, Omar Khattab, Jon Saad-Falcon, Christopher Potts, and Matei Zaharia. 2022.
+ ColBERTv2: Effective and Efficient Retrieval via Lightweight Late Interaction. In Proceedings of the 2022 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies , Marine Carpuat, Marie-Catherine de Marneffe, and Ivan Vladimir Meza Ruiz (Eds.). Association for Computational Linguistics, Seattle, United States, 3715–3734.
+ doi: 10.18653/v1/2022.naacl-main.272 
+ Team (2024) 
+Qwen Team. 2024.
+ Qwen2.5: A Party of Foundation Models.
+ https://qwenlm.github.io/blog/qwen2.5/ 
+ TREC-TOT Organizers (2025) 
+TREC-TOT Organizers. 2025.
+ TREC-TOT 2025 Guidelines .
+ https://trec-tot.github.io/guidelines 
+ Vrandečić and Krötzsch (2014) 
+Denny Vrandečić and Markus Krötzsch. 2014.
+ Wikidata: a free collaborative knowledgebase.
+ Commun. ACM 57, 10 (Sept. 2014), 78–85.
+ doi: 10.1145/2629489 
+ Wang et al . (2024) 
+Liang Wang, Nan Yang, Xiaolong Huang, Binxing Jiao, Linjun Yang, Daxin Jiang, Rangan Majumder, and Furu Wei. 2024.
+ Text Embeddings by Weakly-Supervised Contrastive Pre-training.
+ arXiv:2212.03533 [cs.CL]
+ https://arxiv.org/abs/2212.03533 
+ Wang et al . (2025) 
+Sky CH Wang, Darshan Deshpande, Smaranda Muresan, Anand Kannappan, and Rebecca Qian. 2025.
+ Browsing Lost Unformed Recollections: A Benchmark for Tip-of-the-Tongue Search and Reasoning. In Proceedings of the 63rd Annual Meeting of the Association for Computational Linguistics (ACL) . Association for Computational Linguistics, 8317–8331.
+ ◄ 
+ Feeling lucky? 
+ Conversion report 
+ Report an issue 
+ View original on arXiv ► 
+ Copyright 
+ Privacy Policy 
+ Generated by L a T e XML oxide 
