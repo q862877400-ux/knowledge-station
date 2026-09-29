@@ -829,3 +829,56 @@ configuration L2292 把它总结成一句：**"what lets a single bank be federa
 - **真正的解大概率不在这个旋钮上**，而在 §15.1 那道"要重启"的闸后面：
   `bucket_batching` / `FP16` 是**官方自称"质量完全等价"**的提速，代价只是重启一次宿主。
   ⇒ **该问业主的是：能不能安排一次 Hindsight 宿主重启窗口。**
+
+---
+
+## §16 🔴 事故留痕：手工重启 Hindsight 差点指向空库（2026-09-29）
+
+> **本轮真的把服务搞停了一次，约 15 分钟。** 数据未丢、未覆盖，但过程是事故，规程要留下。
+
+### §16.1 发生了什么
+
+用户要求重启 Hindsight（改服务器级配置要用）。**第一次拉起来失败，两次原因都是我的：**
+
+| # | 原因 | 表现 | 根因 |
+|---|---|---|---|
+| 1 | 继承了 `no_proxy`（值含 IPv6 `[::1]`） | 启动即崩：`httpx.InvalidURL: Invalid port: ':1]'` | `dsh.env` 里**没有**代理变量；原进程在 DSH 干净环境下起。**是我这个 PowerShell 会话带进去的** |
+| 2 | 🔴 **pg0 实例名变了** | 起来后 `banks: []`，118,653 条"消失" | 原进程带参数起，pg0 命名实例为 **`hindsight-embed-dsh`**；**我直接跑 exe 没带这个参数**，pg0 老老实实新建了空实例 **`hindsight`** |
+
+**关键澄清：数据从头到尾没被删、没被覆盖。**
+真数据在 `C:\Users\Zegel\.pg0\instances\hindsight-embed-dsh\data` = **6.18 GB**；
+我误建的是 `...\instances\hindsight\data` = **49.8 MB**（空）。改回指旧库即恢复。
+
+**恢复后实测**：14 个库全部回来（`coding-agent::zcode` / `::SW` / `::DSH` / `::AI` /
+`::ComfyUI_windows_portable` / `::deepseek-harness` / `::work space` / `dsh-resources` /
+`dsh-sessions` / `dsh-user` / `dsh-knowledge` / `dsh-peer-zcode` + 两个探针库）；
+`coding-agent::zcode` = **118,805 条事实 / 3,532 篇 / 5,713,893 条边**
+（比停前 118,653 多 152 条 = 本轮探针写入，属正常）。
+
+### §16.2 🔴 手工重启规程（三样缺一个就出事）
+
+| 项 | 值 | 缺了会怎样 |
+|---|---|---|
+| **数据库地址（最要命）** | `HINDSIGHT_API_DATABASE_URL=postgresql://hindsight:hindsight@127.0.0.1:5432/hindsight` | 🔴 **pg0 新建空实例，看起来"数据全没了"** |
+| **清掉继承的代理变量** | 删 `ALL_PROXY` / `HTTP_PROXY` / `https_proxy` / `no_proxy` / `NO_PROXY` / `NODE_USE_ENV_PROXY`；`no_proxy` 只留 `localhost,127.0.0.1` | 崩在 `Invalid port: ':1]'` |
+| **启动后核三样** | ① `/v1/default/banks` 的 `total` ② 生产库 `total_nodes` ③ MCP 端点 | 起没起来、指着哪个库，全都不知道 |
+
+⚠ **强烈建议：不要手工重启。** 正确的入口是让 **DSH 侧拉起** Hindsight（它知道实例名）。
+**本轮这次事故的全部根因，都是"绕过了那个知道内情的启动器"。**
+手工拉起只应作为"DSH 拉不起来时的应急手段"，且必须逐条照上表核。
+
+### §16.3 收尾核对（已做）
+
+- ✅ 空实例残留进程（PID 17208，占 5433）已停，端口已释放
+- ✅ `5432`（真库，PID 28396）未受影响
+- ✅ API `/health` 连续 3 次 `healthy` / `database: connected`
+- ✅ 生产库 `facts=118805` 读得到
+- ⚠ **MCP 端点活检返回 400** —— 需单独查清（`tools/list` 的请求形状可能不对，
+  **不排除是我这次探测姿势的问题而非服务问题**；未查清，不作结论）
+
+### §16.4 本节教训
+
+**"起起来了"和"起对了"是两件事。** 我第一次拉起时 `/health` 回了 `healthy`、
+`database: connected`——**全绿**，而它连的是一个空库。
+⇒ **健康检查通过不等于指着对的库**；必须再核"库里有几条事实"。
+**这条与 §15.3 那条（干净得不像话的结果先查装置）是同一个毛病的两面。**
