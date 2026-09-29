@@ -685,6 +685,118 @@ configuration L2292 把它总结成一句：**"what lets a single bank be federa
 
 ---
 
+## §14 深读轮：33 篇补读（2026-09-29）
+
+> 上一轮我承认只逐行读完 9/42（23%）。本轮把剩下 33 篇**自己逐行读完**，含全站最大的两篇
+> `configuration.mdx`（3,060 行）与 `models.mdx`（1,187 行）。**机械核验：42/42 全覆盖。**
+
+### §14.1 🔴 本轮收回的三条（都是我此前说错的）
+
+| 此前说 | 出处 | 判定 |
+|---|---|---|
+| 「降候选池 ⇒ 重排要打 fewer 分 ⇒ 变快」 | `retrieval.md` **L369**："Reranking pre-filter (300 candidates) is **independent of budget** — it's a separate knob" | ❌ **机制错了**。§15 那个 5.1× 延迟下降是真的，**但不是这个原因** |
+| 「recall 是确定的（5/5 一致）」 | `retain.md` **L314**："Extraction is **not fully deterministic** — a borderline document can yield facts on one run and none on the next" | ⚠ **只对读成立，对写不成立**。两条得分开记 |
+| 「归并没跑是因为关了观察层」 | `services.md` **L25** + 日志 `hindsight_api.worker.poller` | ✅ 成立（worker 在 API 进程内，8889 不监听是**正常**）。但我此前一度怀疑 worker 没跑，**那个怀疑是错的** |
+
+**另有三条被证实**：
+- §9.6 猜的"标准号要 `resolve_entities: false`" ⇒ **官方确有此参数**（`api/retain.mdx` L273："the names are passing are **authoritative and must be stored exactly as written**"）。
+- 我们那套 ONNX 配置 ⇒ **逐字等于官方推荐配方**（`configuration.mdx` L1005–1009）。
+- 两次「服务没响应」⇒ **`services.md` L25 证明默认就是进程内处理**，不是缺 worker。
+
+### §14.2 🔴 重启事故的根因，文档里本来就写着（我之前没读到）
+
+`sdks__hindsight-all.md` **L81**：
+> "Each profile gets its own embedded PostgreSQL database (stored in **`~/.pg0/instances/hindsight-embed-{profile}/`**)"`
+
+profile 名 = `dsh` ⇒ 目录名 = **`hindsight-embed-dsh`** —— 正是旧进程用的那个实例。
+⇒ **正确启动方式是 `hindsight-embed daemon --profile dsh start`（或 `hindsight profile create`），
+不是直接跑 `hindsight-api.exe`。** §16 那次事故的全部根因（新建了空的 `hindsight` 实例）**在这一行写着**，
+我上一轮读的是 configuration/installation，没读 SDK 那几篇。
+
+### §14.3 深读查出的 12 条新发现（每条附行号）
+
+| # | 发现 | 出处 |
+|---|---|---|
+| 1 | 🔴 **failover 链里，重试非末位成员只会拖慢切换**。官方处方：全局 `LLM_MAX_RETRIES=0`，只给**末位**成员单独预算 | `configuration.mdx` **L662–670** |
+| 2 | 🔴 **这解释了我们 4 个失败作业**：`stage=llm.openai.retain_extract_facts.attempt=2/4` 卡满 3600s —— 主模型每次先自己重试满，才轮到兜底 | 同上 + 实测日志 |
+| 3 | 🔴 **严格模式下，没日期的事实也必须吐一个字符串，"最像的就是文本里提到的别的日期"**。对标准条文＝可能给出**错日期** | `configuration.mdx` **L1720**（`RETAIN_OPTIONAL_FACT_DIMENSIONS` 为此存在） |
+| 4 | 🔴 **`FAIL_ON_EXTRACTION_ERRORS` 默认关** ⇒ 抽取出错也报"成功"。我们 9,365 个"已完成"里可能有静默丢的条文 | `configuration.mdx` **L1734** |
+| 5 | 🔴 **本地端点必须写进 `NO_PROXY`**，官方明写"**nothing is exempted automatically**"。这正是我重启事故里 `[::1]` 崩掉的机制 | `configuration.mdx` **L1559–1564** |
+| 6 | **`rrf` 是一个合法重排器**：不做神经重排、保留融合顺序、**而不是失败**。作兜底成员即"fail open" | `configuration.mdx` **L1286–1293** |
+| 7 | **失败会记录进 history**（`kind: refresh_failed`）。此前"刷新失败一周的文档"与"没人刷新过的"**分辨不出来** | `api/mental-models.mdx` **L1177** |
+| 8 | **失败的刷新会暂停自动刷新**（重试 3 次后停，除非手动刷成功） | `api/mental-models.mdx` **L211** |
+| 9 | 🔴 **导出的 bank 模板只含"显式设过的覆盖项"**。我们生产库 `overrides` 为空 ⇒ **现在导出会得到一份几乎空的模板** | `api/bank-templates.mdx` **L383** |
+| 10 | ⚠ **`observation_scopes: []`（空数组）会静默退回 `combined`**，不是 `shared` | `api/retain.mdx` **L318–320** |
+| 11 | ⚠ **空 tags + 默认 `any` = 不过滤，且会把没标签的也放进来**。按效力档筛**必须用 `_strict`** | `api/recall.mdx` **L449** |
+| 12 | ⚠ **`list_documents` 的 `tags_match` 默认 `any_strict`，`recall` 的默认是 `any`** —— 两处默认值不同 | `api/documents.mdx` **L511** |
+
+**另有若干中低优先，但对我们领域有意义的**：
+- **Memory Defense 的 PII 规则只有美国格式**（`ssn_us`、信用卡）——**没有中国身份证号/手机号**（`memory-defense/index.md` L136–142）。
+- **`Legal Analysis` 性格预设：怀疑 5 / 字面 5 / 共情 2**（`reflect.mdx` **L151**）。
+- **工具有官方恢复口**：`hindsight-admin worker-status` / `decommission-worker(s)`（把卡死的 `processing` 重置回 `pending`）/ `hindsight bank consolidation-recover`（`admin-cli.md` L364–392、`cli.mdx` L238）。
+- **卡死的 `processing` 作业，cancel 会立刻生效**（无进程在跑），再 `/retry` 重新排队（`api/operations.mdx` **L281–283**）。
+- **`DeferOperation` 扩展钩子**：把作业**推迟到配额窗口重开**，而不是重试烧掉一小时（`extensions.md` L309–342）。
+- **作业记录默认永久保留**（`OPERATION_RETENTION_DAYS=0`），连 payload 一起（`configuration.mdx` L2465）。
+- **文档标签是集合比较**，只重排数组不触发重整 —— 规范化扫描只在真改动那轮付费（`api/documents.mdx` L336）。
+
+### §14.4 🔴 更正：官方**没有**微调过的小模型
+
+业主说"官方给了个微调过的小模型可以本地部署"。**这一条不成立**：
+我把 938 KB 全站搜了 `fine-tun` / `finetun` / `distilled` / 各档模型规格，**零命中**。
+
+**你记的"小模型"是真的，只是形式不同**——是**通用小模型**，不是微调的：
+
+> `llms-full.txt` **L18634**（models.mdx）："The fact extraction process is structured and well-defined, so **smaller, faster models work extremely well**. Our recommended model is `gpt-oss-20b`."
+
+而且官方给的答案比"换一个模型"更细——**按操作分层配**：
+
+> **L18711**："Retain (fact extraction) is structured work that **does not need a frontier model**; **reflect can use a lighter model still**. On a constrained box, point each operation at the smallest model that holds up"
+
+```bash
+export HINDSIGHT_API_RETAIN_LLM_MODEL=<结构化输出好的>
+export HINDSIGHT_API_REFLECT_LLM_MODEL=<小而快的>
+```
+
+配套三条（`L18719–18728`）：
+- `LLM_REASONING_EFFORT=low`（`none` 是彻底关）——**"reasoning token 对抽取和归并路径纯粹是延迟"**
+- `CONSOLIDATION_LLM_BATCH_SIZE=2`（默认 8）——小模型上大批次＝超长 prompt + 易错
+- 本地端点要**调低退避**（`L18707`）——本地不会限流，猛退避只是把真错误拖慢
+
+⚠ 硬门槛（L153）：模型必须支持**至少 65,000 输出 token**，否则抽取不可靠（可下调 `RETAIN_MAX_COMPLETION_TOKENS` 绕过）。
+⚠ 本地接法文档给了全套（`L18731–18742`）：`llamacpp` + `GPU_LAYERS=-1` + `CONTEXT_SIZE` + `--n_threads`。
+
+### §14.5 本机配置的事实更正（三条）
+
+1. 🔴 **主模型已经是这个对话的模型**：`space-bunny-free` @ `opencode.ai/zen/v1`（与本会话同源且免费）。
+   **DeepSeek 只是 failover 链的第三位兜底**（`LLM_2`），不是主链路、也不是官方默认。
+   官方默认是 `openai` / **`gpt-5-mini`**（`configuration.mdx` L274/L276）。
+2. ⚠ **那槽 DeepSeek 已经是它能给的最便宜形态**：官方说 `deepseek-v4-flash` 默认开思考，要用 `deepseek-chat` 才是非思考别名（更快更便宜）（L462–467）；
+   我们已配 `EXTRA_BODY={"thinking":{"type":"disabled"}}`。
+   **⇒ 删它省不下钱，只是少一道保险。**
+3. ⚠ **嵌入/重排已经比官方默认好**：默认是 `BAAI/bge-small-en-v1.5` + `ms-marco-MiniLM-L-6-v2`（**都是英文模型**）；
+   我们是 `multilingual-e5-small` + `BAAI/bge-reranker-base`（**都是中文模型**）。
+   官方给中国大陆用户的现成配方（`installation.md` L364–386）里，**嵌入那半用的仍是英文模型**。
+
+### §14.6 本轮新增的、可立即执行的检查（都还没做）
+
+| 检查 | 怎么查 | 为什么 |
+|---|---|---|
+| 8 张知识页有没有失败刷新记录 | `GET /mental-models/{id}/history`，看有没有 `kind: refresh_failed` | 失败会**暂停自动刷新**（L211），而以前"失败一周"和"没人刷新过"分辨不出来（L1177） |
+| 有多少文档 `memory_unit_count=0` | `GET /documents` 过滤 `memory_unit_count=0` | 存进去了、检索**永远找不到**，而 retain **报成功**（`webhooks.mdx` L141） |
+| 8 个卡在 `processing` 的刷新作业 | `worker-status` → 若 `last_update_ago` 一直涨就是死的 | 死 worker 的活永远没人认领（`admin-cli.md` L485） |
+| 每库向量局部索引是否齐全 | `hindsight-admin repair-bank --all --dry-run` | 缺了就静默退化成"全局索引+事后过滤"，**更慢且会少召回**（L76） |
+| 当前解析出的配置 vs 预期 | `GET /config` 逐项对 | 我们 `overrides` 为空 ⇒ 导出模板得不到真实配置（`bank-templates` L383） |
+
+### §14.7 本轮确认为**官方内部矛盾**的三处（引用时必须二选一）
+
+1. **reflect 的工具清单**：`reflect.mdx` L29–36 列 `search_mental_models`/`read_mental_models`/`search_observations`/`recall`/`expand`/`done`；
+   `api/reflect.mdx` **L464** 列 `lookup`/`recall`/`learn`/`expand`。（本轮两处都读过原文，确认矛盾）
+2. **pg0 存储模型**：`sdks/embed.md` **L22**"Each bank gets its own embedded PostgreSQL database"、
+   `sdks/hindsight-all.md` **L81** 同款说法 ⇒ 与 `admin-cli.md` **L478**（"一个 PG、一个 schema 装多个 bank、向量维度按 schema 共享"）矛盾。**按后者可信**（它与实测的实例目录结构吻合）。
+3. **provider 枚举大小**：`configuration.mdx` L274 列 30 个 provider；`sdks/embed.md` **L116** 只列 6 个。以 configuration 为准。
+
+---
+
 ## §14 消融 + 文字 A/B：重排就是全部瓶颈，而它买的是"第一名"（2026-09-29）
 
 > 两个探针库：`probe-import-20`（原文带空格，7,608 条）/ `probe-clean-20`（**去空格**，7,463 条）。
