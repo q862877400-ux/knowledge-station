@@ -47,6 +47,16 @@ _rescue/
 # 人对账请看 docs/research/dsh-official/INGEST-LEDGER.md）
 docs/research/dsh-official/ingest-state*.json
 
+# Hindsight 官方文档的本地副本（2026-09-29 迁入，2026-09-28 自 %TEMP%\hs-docs2\ 挪来）。
+# 原始外部资料，约 1.5 MB，可从 hindsight.vectorize.io 随时重下，**不入版本库**。
+# ⚠ 与 docs/research/dsh-official/ 的约定一致：那里也是「原始文档不入库，
+#   入库的是 README / 清单 / 蒸馏笔记」—— 故本目录只排除这两个大文件，
+#   **不排除整个目录**（README.md 版本口径、referenced-files.txt、split.py 必须跟踪，
+#   否则这个目录不可见、取件坑无处可查）。
+docs/research/hindsight-official/llms-full.txt
+docs/research/hindsight-official/openapi.json
+docs/research/hindsight-official/split/
+
 # ⚠ 教训留痕（2026-09-22，错话/多余动作保留 + 就地更正）：这里曾加过一条
 #   `plugin/scripts/e2e-mut*.mjs`，为的是"把**变异副本**放进代码树、再用 ignore 遮住"。
 #   **那个办法是坏的**：① 副本会被 `tests/test_credentials_namespace.py` 的**全仓旧名扫描**扫到
