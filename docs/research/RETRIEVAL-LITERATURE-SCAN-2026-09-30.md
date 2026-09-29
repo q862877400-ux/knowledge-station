@@ -201,3 +201,144 @@
 - **[BLUR 基准](https://arxiv.org/abs/2504.05651)**（Wang et al.）—— 只从转引里看到数，**原文未读**。
 - **以上全部是英文/多语言工作，有没有人做过中文——未查。**
 - ⚠ **本文件全部是"读别人的结论"，我一次都没有在本库上复现它们。**
+
+---
+
+## 六、第二轮：把 PDF 下到本机读（2026-09-30）
+
+> 首轮 `r.jina.ai` 被 401 限流、`web_fetch` 不支持 PDF。
+> **解法：用 `curl` 带浏览器 UA 下到本机，再用本机 `read_pdf` 读**（`trec.nist.gov` 可直连）。
+> 下到本机：`SRCB.mllm.tot.pdf`（118,267 字节，冠军）、`UAmsterdam.tot.pdf`（256,212 字节）。
+
+### 6.1 🏆 冠军 SRCB（NDCG@1000 = 0.6824）到底怎么做的
+
+**管线**：稠密检索取 **top 2000** → 重排。主干 **Qwen3-Embedding 系列**。
+
+**检索侧四招**：
+
+1. **先把问题变成"线索清单"（cue list）**，用 DeepSeek-V3——
+   > "transform each original query into a **refined list of cues** … removes redundant or noisy content,
+   > highlights information that is most useful for retrieval, and **corrects typos and grammatical errors**.
+   > **All modules take cue lists as input rather than raw queries.**"
+
+   **提示词原文（Table 4，我读到图了）**关键几句：
+   > "Your task is to **extract a list of cues** from the user's input. Cues are any meaningful pieces of
+   > information that may help in identifying the intended entity."
+   > 十类线索：外观/内容/特征、情节片段/场景/事件/引语、**感官细节**、**情绪或氛围**、
+   > 经历场景（"小时候看的"/"在意大利旅行时"）、年代、语言/地区/文化、相关人物群体物、
+   > **类比（"感觉像 X 和 Y 的混合"）**、其他任何细节。
+   > **"Directly output the list, and do not attempt to guess the actual entity—just extract the cues."**
+
+   ⇒ 🔴 **这跟 DS@GT 的改写是两种路子**：DS@GT 把问题压成**关键词检索式**；
+   **SRCB 只抽线索、明确"不许猜实体"**。
+   ⚠ **对本库的含义**：本纲 P1 走的是"**从库的术语表里选**"——那是"猜实体"那条路。
+   SRCB 提示了一条**第三种可能：不选术语，只抽线索，让线索去撞**。**未测，登记。**
+
+2. **用 Wikidata 过滤语料**：**640 万 → 约 50 万篇**（12.8 倍）。
+   做法：算每个实体的 "instance of" 属性嵌入与 "Movie" 嵌入的余弦相似度，取最高者当领域相关分，低于阈值者滤掉。
+   ⇒ ⚠ **这是"按域缩窄"，但缩的是【语料】不是【查询侧候选】，且离线做一次。**
+   **与我此前否掉的"按领域缩窄术语候选"不是同一件事**（那个要一个前置分类器，已实测无效）。
+   ⇒ 本库语料只有 **6,797 篇**，已经不大了；此招对我们的适用性**未判**。
+
+3. **微调稠密检索器**（Qwen3-Retriever-8B，索引取每篇前 512 token）
+   训练数据 = 官方训练集 + dev1 + **外部 1,000 条**（Webis 的 ToT Known-Item Search Triplets）
+   **三种数据增强**（每条训练样本造三个变体）：
+   * **删一条线索**：删掉"不重要"的那条——重要性 = 该线索与金标文档的余弦相似度；
+   * **换同义词**：把一条线索换成同义说法；
+   * **换误导性说法**：故意改成**改变语义**的说法。
+   ⇒ ⚠ **这三种增强正好对应 ToT 的三种现象（漏线索、换说法、假记忆）——可直接借鉴为造训练数据的配方。**
+
+4. **拿大模型当检索器**：提示 DeepSeek-R1 与 GPT-5 **直接回忆条目名/URL**，取并集前 10，
+   再用 URL 或 Wikimedia API 对齐回语料。
+   ⇒ 🔴 **这就是"用大模型的世界知识当检索路"。对我们的场景不可抄**（答案必须出自那条原文）。
+
+**重排侧三招**：微调 pointwise 重排器（受控负采样）→ 大模型 listwise 重排 → 同义词替换 + 排序集成。
+
+### 6.2 🔴 两篇论文是**两套对立的路子**，这决定我们选哪条
+
+| | **DS@GT（0.4106）** | **SRCB 冠军（0.6824）** |
+|---|---|---|
+| 外部知识库 | ❌ **明确不用**："Such coupling is incompatible with realistic ToT scenarios" | ✅ **用 Wikidata** 过滤语料 |
+| 领域微调 | ❌ 全 zero-shot："no task-specific finetuning" | ✅ **检索器与重排器都微调** |
+| 大模型世界知识 | ❌ 严格接地："No external knowledge" | ✅ **用它当一条检索路** |
+| 自述适用范围 | 开放世界、私有语料、领域未知 | 固定语料、领域已知 |
+
+**TREC 总览也印证了这一点**：
+> "**The top four runs leveraged a combination of provided and other datasets for training.**"
+
+⇒ **我们的位置**：本库语料**固定且已知**（6,797 篇 / 522,001 条）——
+**DS@GT「不要耦合语料」的理由对我们不成立** ⇒ **SRCB 那条路的前提是成立的**。
+⇒ ⚠ **但 SRCB 的两个主力杠杆，一个我们不能抄（世界知识），一个被本纲 §7 挡着（学习式）**——见 6.3。
+
+### 6.3 🔴 一处**撞车，必须报业主**（按台账规矩我不提，只报）
+
+本纲 §7「明确不做」里有一条：
+
+> | **学习式排序 / 学习式稀疏**（**没有标注数据**） | 同上 |
+
+**但两件事变了**：
+1. **我本轮刚入库的 `eval/lay-phrasing/gen-V2.jsonl` 就是 1,832 条（外行说法 → 术语）配对**——
+   对 **P1 的"选中术语"这一步**而言，**那是标注数据**。
+   ⚠ 但它**不是条款级标注**（标签是术语，不是条文）⇒ **对"条款排序"确实仍无标注数据。**
+2. **SRCB 的三种数据增强（删线索/换同义/换误导）是"没有标注也能自己造"的配方**，
+   且它明确写了"**construct three augmented variants for each training sample**"。
+
+⇒ **所以"没有标注数据"这个理由，对"P1 的术语选择"这一步可能已经过时；对"条款级排序"仍然成立。**
+⇒ **要翻案请你明说**；不说就维持 §7 现状，本条只作留痕。
+
+### 6.4 ⭐ UvA 那篇：冲着"合成语料"来的，有一组数字**直接打我们**
+
+**《[Hedge Removal, Query Drift, and the Simulation Gap in ToT Retrieval](https://trec.nist.gov/pubs/trec34/papers/UAmsterdam.tot.pdf)》**（Sotic & Kamps，阿姆斯特丹大学）
+
+**摘要里的三条硬结论（原话）**：
+
+1. 🔴 **模拟差距**：
+   > "Our experiments reveal a **substantial divergence between LLM-simulated development data and the
+   > official test set.** Hedge removal yielded large gains on verbose synthetic queries
+   > (**+25.4% NDCG on dev3**), but **minimal improvement on sparse human queries (+2.7% on test,
+   > not significant)**."
+   ⇒ ⚠⚠ **这就是对我们那 1,832 条合成语料的直接警告**：
+   **一个在合成数据上看着大涨（+25.4%）的手法，在真人数据上只有 +2.7% 且不显著。**
+2. **"Negation penalties produced no measurable effect across all conditions."**
+   ⇒ 与 DS@GT 的"删否定"警告方向一致但更强：**加否定惩罚根本没用**。
+3. **"Pseudo-Relance Feedback (RM3) consistently degraded performance, amplifying query drift
+   rather than resolving vocabulary mismatch."**
+   ⇒ **这是第三个独立来源说 PRF 在这里有害**（DS@GT 的 Table 6 也是 RM3 变差；本篇说"一致地变差"）。
+
+**并且它给了一个独立的召回瓶颈数**：
+> "Analysis of the recall pool reveals a fundamental bottleneck: **only 32% of target documents
+> appeared among the top 100 BM25 results on the test set.**"
+
+⇒ **三个独立来源的"第一级召回天花板"**：
+| 来源 | 数 |
+|---|---|
+| DS@GT | 原问题 Recall@1000 = **0.5225** |
+| TREC 总览（BM25 基线） | Recall@1000 = **0.4855** |
+| **UvA** | 目标落在 BM25 **前 100** 只 **32%** |
+
+**⭐ 最有行动价值的一条**：
+> "hybrid dense reranking **improved early precision by 10.6% on hard queries where lexical matching
+> failed**, but **degraded performance on queries with strong term overlap**."
+
+⇒ 🔴 **这正是本纲 P4「检索分类闸」要的东西，而且它给了一个可测的路由信号：词面重叠强弱。**
+⇒ **本纲 §1.2 已经把问题天然分成两半**（**53.0% 零重合** / **47.0% 有重合**）——
+**那两半正好就是"该开稠密"与"该开词面"的分界。**
+⇒ ⚠ **按"通用层纯借鉴"的口径，这是可以直接抄的现成做法**（别人实测过的信号）。
+
+**一条工程细节（与我们硬件相近）**：作者只有 **16GB 内存 + 单张消费级 GPU**，
+用**字节偏移查表**在原始 JSONL 上做常数时间取文档正文，避免把 20GB 语料装进内存。
+
+**结论原话**：
+> "systems optimized on LLM-simulated ToT data risk **overfitting to synthetic linguistic patterns
+> that do not reflect the sparse, fragmented nature of real human memory retrieval**."
+
+### 6.5 本轮**仍未读**的（不得当结论）
+
+- **SRCB 的第 3.2 节与结果表**（PDF 共 8 页，我读到第 5 页）；它的**负采样细节**未读。
+- **UvA 的第 3–5 节**（合成数据结果、真人数据结果、分析）——**只读了摘要与引言**。
+  它的 RQ1/RQ2/RQ3 逐项结果、以及"混合重排 10.6%"的**条件细节**都在那里。
+- **DS@GT 的 PDF 文件名没猜对**（下到 276 字节的 404）⇒ 该篇**仍只有 arXiv 摘要与正文网页版**。
+- 仍未读：Yale@TREC2024、IISERK@TREC2024、BLUR 基准原文、**CLEF Social Book Search（2011–2016，"Name that Book"）**。
+- **有没有中文工作——仍未查。**
+- ⚠ **以上全部仍是"读别人的结论"，我一次都没有在本库复现。**
+
