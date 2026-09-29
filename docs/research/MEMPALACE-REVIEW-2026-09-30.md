@@ -287,3 +287,108 @@
 - "**Validated by Virginia Tech**" 这个说法 —— 未核
 - 59,359 星里**有多少是"明星效应"带来的** —— 未核（4/9 当天 3.3k→17.4k，与量子位报道同期）
 - 它对**中文法规语料**的实际表现 —— **未测**（它自己没有中文跑分）
+
+---
+
+## 八、第二轮：对批评意见的代码级核查（2026-09-30 追加）
+
+> 触发：业主转来一段评论（**来源未确认，格式像知乎**——带时间戳/回复/赞数，
+> 用户名 `雪影-Snow`、`PeterMa11111`、`yanzcc003`、`冰冻君`）。
+> ⚠ **该段不属于 B站那个视频**：已实测该视频 44 条评论的 34 个用户名，**无一条吻合**。
+> 核查方式：**不采信业主、也不采信批评者**，全部回到 `develop` 分支源码逐条验。
+
+### 8.0 一条方法学更正（我自己先踩了）
+
+⚠ 首次核查我用的是 **`main` 分支**。`gh api` 显示**默认分支是 `develop`**。
+两分支内容有差异（如 `hallways.py`：`develop` 40,133 字节 vs `main` 17,924 字节）。
+**下文全部数字取自 `develop`**（= 默认分支 = 安装时拿到的）。
+
+### 8.1 那段评论的七条指控，逐条判定
+
+| # | 指控 | 判定 | 代码依据（`develop`） |
+|---|---|---|---|
+| 1 | `wing`/`hall` 只是命名空间分层，靠 **metadata 过滤**实现的伪层级 | **成立** | `hallways.py` 用 `.get(where={"wing": ...}, limit=…, offset=…)` ⇒ 是**扁表加过滤**，非树/递归 |
+| 2 | 预加载取 **top15 importance**，但 **importance 没设置** | **成立** | `layers.py` `MAX_DRAWERS = 15`；`importance = 3.0`（硬编码）；注释自认见 8.2 |
+| 3 | 预加载**截断 200 字符**，质量极低 | **成立** | `layers.py` L255–256 `if len(snippet) > 200: snippet = snippet[:197] + "..."` |
+| 4 | "hall 没看到"（没写完） | **不成立** | `hallways.py` 在 `develop` 有 40,133 字节，且实现**实体对**走廊：`_hallway_id(wing, entity_a, entity_b)`、`compute_hallways_for_wing` |
+| 5 | `tunnel` 在 graph 里定义了但**搜索没用** | **未定论** | `tunnels_tool.py` 确实存在（12,396 字节，有 `tunnel_endpoints`/`_link_key`/`contains`/`add`）。是否接入检索路径**本轮未验完** |
+| 6 | raw 96 本质是 **chromaDB 裸分**，"20 行代码就能实现" | **未核** | 未实测复现，**不当结论** |
+| 7 | 100 的 hybrid 版**按 raw 的错题做了针对性改动**，泛化性难说 | **成立（项目自认）** | README 原文："the last 0.6% was reached by **inspecting specific wrong answers** … **teaching to the test**" |
+
+### 8.2 最有分量的一处：`layers.py` 的注释是开发组自己写的认罪书
+
+`mempalace/layers.py` 注释原文：
+
+> "NOTE: the ingest pipeline (miner, convo_miner, diary, add_drawer) records provenance
+> metadata — wing/room/source/chunk/filed_at — but **never an evaluative importance/weight field**.
+> So `importance` is **absent on virtually every drawer** and ties at the default, which used
+> to collapse the sort to insertion order (oldest first). `filed_at` is present on every drawer,
+> so it is the ***effective* ordering signal: newest first**. This keeps importance as the primary
+> key **for the day a scoring pass populates it**…"
+
+⇒ **批评者说的"importance 没设置"，是代码自己写着的。**
+⚠ **但要说公道**：开发组后来修了**一半**——候选窗口从"后端随便给的 2000 条"改成"最近归档的 2000 条"（注释里引 #1630）。**"importance 不存在"这一半至今没修**，排序实际只按时间新旧。
+
+### 8.3 另一份批评：Penfield Labs《MemPalace Benchmark Fraud Analysis》
+
+来源：`lhl/agentic-memory` 仓库收录的 `penfield-mempalace-analysis.md`（原发 Substack，2026-04-07）。
+四条核心指控，**我逐条核了**：
+
+| # | 指控 | 判定 | 依据 |
+|---|---|---|---|
+| 1 | **LoCoMo 取巧**：`top_k` 超过会话总数，embedding 检索被完全绕过 | **成立（项目自认）** | `BENCHMARKS.md` L127 原文：`Hybrid v5 + Sonnet rerank (top-50) ｜ 100% ｜ … ｜ **Structurally guaranteed (top-k > sessions)**` |
+| 2 | **LongMemEval 指标类别错误**：榜单测端到端问答，它只做检索（`recall_any@5`） | **成立（项目自认）** | `BENCHMARKS.md` L48–51 原文："Retrieval recall and QA accuracy **are not comparable**" |
+| 3 | 宣称的"**矛盾检测**"在代码里不存在 | **成立** | `knowledge_graph.py`（**988 行**）里 `contradict` 命中 **0 次** |
+| 4 | AAAK 宣称"**30x 无损压缩**"，实际 55 字符截断 | **成立，且比指控更狠** | `dialect.py` L12：`NOTE: AAAK is **NOT lossless compression**. The original text cannot be reconstructed`；L531–532 截断至 55；**L1092 命令行自己打印** `(lossy summary, not lossless compression)` |
+
+**Penfield 的一句总评值得原样记下：**
+> "BENCHMARKS.md is 5,000+ words of careful self-critique that **directly contradicts the launch tweet**.
+> Internal documentation acknowledged every flaw. **Marketing stripped every caveat.**"
+
+⇒ 这与 §3.1 那条**内部矛盾**（README 声明"刻意不做并排对比"、`BENCHMARKS.md` 里却有该对比表）**是同一个模式**。
+
+### 8.4 ⭐ 连批评者都承认的那一条（对我们最重要）
+
+Penfield 在同一份分析里写：
+
+> "**What's Genuinely Interesting** — Raw verbatim text with default embeddings
+> **outperforms LLM-extraction approaches for session retrieval** — suggesting the field
+> **over-engineers memory extraction**. A legitimate finding that didn't require inflated numbers."
+
+⇒ **这独立印证了 §7.1 的判断**：**"原文不动 + 语义检索"这条路线本身是有价值的**——
+**连花力气拆它的人，也承认这一点**。问题不在架构，在**它的营销把保留意见全删了**。
+
+### 8.5 本轮新发现的四个外部批评源（此前完全不知道）
+
+| 类型 | 出处 |
+|---|---|
+| **学术论文** | 《Spatial Metaphors for LLM Memory: A Critical Analysis of the MemPalace Architecture》（Dey & Viradecha，arXiv 2604.21284） |
+| **GitHub Issue** | `MemPalace/mempalace` **#875**：《README 与官网仍含**虚假基准声明**》 |
+| **GitHub Issue** | **#27**（Leonard Lin 提交，宣称的矛盾检测不在代码里） |
+| **GitHub Discussion** | **#849**：简体中文用户看过来 |
+
+⚠ `#875` 这个号**在它自己的 `BENCHMARKS.md` 里被我见过**（"…For a fair head-to-head, run the same metric on the same split."）
+⇒ 项目**知道**这个指控，并在基准文档里回应过。**上述论文/issue 本轮均未展开细读，只登记。**
+
+### 8.6 视频评论区：要"多找技术发言"——结论是**找不到**
+
+| 项 | 实测 |
+|---|---|
+| 总评论数 | **553**（`cursor.all_count`） |
+| **不登录能取到的顶层评论** | **仅 3 条**（B站翻页被限制） |
+| 楼中楼 | 41 条（该接口未被限制） |
+| **这 44 条里的技术发言** | **0 条**——全是「是不是她本人」和「游戏 NPC 幻想」 |
+| `bili-cli` | **无评论命令** |
+| `opencli bilibili comments` | **有**，但需 Chrome + OpenCLI 扩展（实测 `BROWSER_CONNECT: extension not connected`） |
+
+⇒ **那个视频的评论区挖不出技术内容。** 你贴的那段（质量高得多）**不是它**——
+技术讨论在**知乎 / GitHub issues / arXiv**，不在这个 35 秒短视频下面。
+
+### 8.7 本轮未核清单（不得当结论）
+
+- 那段评论的**真实出处**（只推定"像知乎"，**未找到原文页**）
+- `tunnel` 是否接入检索路径
+- 「raw 96 是 chromaDB 裸分、20 行可复现」—— **未复现**
+- arXiv 2604.21284 全文、issue #875 / #27、discussion #849 的**正文** —— **只登记，未细读**
+- 那四条 Penfield 指控我验的是**"项目是否自认/代码是否存在"**，
+  **不是我独立重跑了它的基准** —— 所以"取巧成立"的依据是**它的自认**，不是我的复现
