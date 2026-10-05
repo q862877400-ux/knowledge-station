@@ -48,6 +48,7 @@
 | 位置 | 是什么 |
 |---|---|
 | `pyproject.toml` | Python 工程配置（引擎） |
+| `pelican-bike.html` | ⚠ **别人的未提交件**——既不属于本项目，也不是本会话产出的。**MUST NOT 动、MUST NOT 提交** |
 | `package.json` / `package-lock.json` | Node 工程配置（插件） |
 | `.gitignore` | 忽略规则 |
 | `AGENTS.md` | **项目规矩**（每个会话都读的那一份） |
