@@ -52,7 +52,7 @@
 
 - 配对是**三个同目录兄弟文件**：`foo.md` + `foo.zh.md` + `foo.i18n.yaml`；> “No locale directories, no separate translation repo, no interleaved bilingual files. Pairs merge whole: a PR never lands one language without the other two files.” → `i18n/README.md:10`
 - `foo.i18n.yaml` 记的是**两侧的 git blob hash**（不是 commit hash），`--write` 才代表“我确认这一对一致”，且必须点名 pair（`--write --all` 是显式全量形式）→ `i18n/README.md:11-18`
-- 语言切换行固定：中文侧 H1 后 `[English](foo.md) | 中文`，作者手写的英文侧反向写 `English | [中文](foo.zh.md)`；**生成**的英文源省略该行以保持与生成器字节一致 → `i18n/README.md:21`
+- 语言切换行固定：中文侧 H1 后 ``[English](foo.md)` | 中文`，作者手写的英文侧反向写 `English | `[中文](foo.zh.md)``；**生成**的英文源省略该行以保持与生成器字节一致 → `i18n/README.md:21`
 - 结构必须一一对应：标题层级与顺序、列表种类、有序列表起始、列表项数、表格行列数、语义链接目标（含精确 query/fragment）、代码块逐字节一致；相对文档链接在语料内必须按侧选 `.md` / `.zh.md`，**缺对侧是错误而不是回退** → `i18n/README.md:22`；`translation-rules.md:24-31`
 - > “fenced code blocks — **byte-identical, including comments**”；inline code（命令、flag、配置键、文件路径、事件名、API 名、版本号）**verbatim，绝不翻译或重排** → `i18n/translation-rules.md:29-30`
 - 术语必须服从真源：> “every listed term MUST follow its row and its ‘不要译作’ prohibitions”；未列入的术语若无权威先例，中文侧**保留英文**并登记「待定术语」，不得自行创造译名 → `i18n/translation-rules.md:37-39`；术语表见 `i18n/terminology.md`（例如 `seam`、`slot`、`fiber`、`subagent`、`Typert`、`spill`、`Cordis 插件` vs `Cordis 配置项` 全部**保留英文**；`plugin`→插件、`tool`→工具、`skill`→技能、`waterfall`→waterfall（瀑布式事件）→ `i18n/terminology.md:59-70,119-120`）
