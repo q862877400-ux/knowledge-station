@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **118 份** / **5296 KB**。
+> 共 **120 份** / **5323 KB**。
 
 ## 方案与台账（9 份 / 463 KB）
 
@@ -88,7 +88,7 @@
 | `docs/research/dsh-official/dshdocs-G.md` | 23 | 2026-09-19 | Repo `D:\AI\DSH\deepseek-harness`; all `file:line` are again |
 | `docs/research/dsh-official/INGEST-LEDGER.md` | 23 | 2026-09-19 | 核对方式：对每篇 `GET /documents/<id>` 取回 `original_text`，算 sha256 与 |
 | `docs/research/dsh-official/dshdocs-E.md` | 22 | 2026-09-19 | 来源：`D:\AI\DSH\deepseek-harness\docs\`。只读英文原本，跳过 `*.zh.md` /  |
-| `docs/DSH-ALIGNMENT-AUDIT.md` | 21 | 2026-09-24 | **怎么做的**：DSH 全量文档（3465 篇 `.md`）入库后，派 **3 个独立子代理**分别审 |
+| `docs/DSH-ALIGNMENT-AUDIT.md` | 21 | 2026-10-05 | **怎么做的**：DSH 全量文档（3465 篇 `.md`）入库后，派 **3 个独立子代理**分别审 |
 | `docs/research/dsh-official/dshdocs-F.md` | 21 | 2026-10-05 | 覆盖范围：`docs/postmortem/`(5)、`docs/i18n/`(5)、`docs/persistence |
 | `docs/research/dsh-official/dshdocs-H.md` | 21 | 2026-09-19 | 源仓库根 `D:\AI\DSH\deepseek-harness`；下文所有 `file:line` 均相对该根。 |
 | `docs/research/dsh-official/REALIGN.md` | 20 | 2026-09-19 | **谁用**：业主让**别的对话**去升级 DSH；升完告诉本会话，本会话按本文更新文档与记忆。 |
@@ -102,12 +102,12 @@
 | `docs/research/dsh-official/INGEST-LEDGER-pkg-agents.md` | 2 | 2026-09-19 | 核对方式：对每篇 `GET /documents/<id>` 取回 `original_text`，算 sha256 与 |
 | `docs/research/dsh-official/INGEST-LEDGER-root.md` | 2 | 2026-09-19 | 核对方式：对每篇 `GET /documents/<id>` 取回 `original_text`，算 sha256 与 |
 
-## 根文档与其他（29 份 / 1537 KB）
+## 根文档与其他（29 份 / 562 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
-| `docs/DEVELOPMENT-HISTORY.md` | 1053 | 2026-10-05 | 一、前史：引擎从零到 phase 14（2026-08-19 ~ 09-02，无 git 时期） |
 | `docs/research/HINDSIGHT-DOCS-READING-2026-09-28.md` | 84 | 2026-09-29 | §0 取件过程中踩到的坑（留给新对话） |
+| `docs/DEVELOPMENT-HISTORY.md` | 78 | 2026-10-05 | 一、前史：引擎从零到 phase 14（2026-08-19 ~ 09-02，无 git 时期） |
 | `docs/research/MEMPALACE-REVIEW-2026-09-30.md` | 46 | 2026-09-30 | 一、先说结论（三句话） |
 | `docs/research/HINDSIGHT-FACTCHECK-2026-09-30.md` | 37 | 未提交 | 零、核查用到的取证入口（可复现） |
 | `docs/research/skill-knowledge-three-layer-reference.md` | 29 | 2026-09-28 | §0 一页速查 |
@@ -127,34 +127,36 @@
 | `docs/research/REVIEW-PLAN-A-verification.md` | 9 | 2026-09-28 | 0. 一句话背景 |
 | `docs/PROJECT-CONSOLIDATION-2026-10-05.md` | 6 | 2026-10-05 | 一、结论先行 |
 | `docs/tool-catalog.md` | 6 | 2026-09-24 | ks_answer（说明书 998 字） |
-| `docs/README.md` | 5 | 未提交 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
+| `docs/README.md` | 5 | 2026-10-05 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
 | `docs/research/MODEL-AVAILABILITY-2026-09-28.md` | 5 | 2026-09-28 | 一、结论表（今天 2026-09-28 实测） |
 | `docs/CODE-REVIEW-CHECKLIST.md` | 4 | 2026-09-23 | 评审七条（逐条问，缺一不签） |
-| `docs/wiki/architecture.md` | 4 | 未提交 | **这一页给接手的人**：读完能说出这个项目要做什么、现在做到哪、主要部件各干什么。 |
+| `docs/wiki/architecture.md` | 4 | 2026-10-05 | **这一页给接手的人**：读完能说出这个项目要做什么、现在做到哪、主要部件各干什么。 |
 | `docs/research/hindsight-official/README.md` | 3 | 2026-09-30 | **这是什么**：Hindsight 官方文档站（`hindsight.vectorize.io`）整站正文的**本地逐 |
 | `docs/research/papers/README.md` | 3 | 2026-09-30 | 一、这里有什么 |
 | `docs/TEST-FLAKES.md` | 3 | 2026-09-25 | 处置纪律 |
 | `docs/WSL2-VLM-BACKEND-DECISION.md` | 2 | 2026-10-05 | **状态**：否决，保留复议权。本文档为执行计划 v3 阶段 0c 归档件（对评审 R6 的闭环）。 |
 
-## 归档（15 份 / 273 KB）
+## 归档（17 份 / 1275 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
-| `docs/archive/review-briefs/VERIFY-REPORT-ingest.md` | 42 | 未提交 | 复核者：独立复核代理（证伪导向）。复核对象：冻结提交 `1da33f8`（tag `verify-freeze-inge |
-| `docs/archive/review-briefs/b3a-engine-report.md` | 29 | 未提交 | * 复核树（唯一）：`D:\AI\work space\zcode-verify-b3a` |
-| `docs/archive/review-briefs/b3b-ccs-ui-report.md` | 29 | 未提交 | 实跑核过；`git merge-base --is-ancestor 12cb6b0 aaad270` ⇒ exit 0 |
-| `docs/archive/review-briefs/b6-p0-report.md` | 29 | 未提交 | 复核树：`D:\AI\work space\zcode-verify-b6`（`git worktree add --d |
-| `docs/archive/review-briefs/ccs-chain-report.md` | 28 | 未提交 | 复核树（唯一读写面）：`D:\AI\work space\zcode-verify-ccs`（detached，标签 ` |
-| `docs/archive/review-briefs/b1b2-report.md` | 23 | 未提交 | 复核树：`D:\AI\work space\zcode-verify-b1b2`（冻结 tag `verify-free |
-| `docs/archive/review-briefs/b5-gate-report.md` | 22 | 未提交 | 复核代理（独立，非本批作者）。冻结树 `D:\AI\work space\zcode-verify-b5`，tag `v |
-| `docs/archive/review-briefs/VERIFY-REPORT-jev-b1.md` | 22 | 未提交 | 结论 |
-| `docs/archive/review-briefs/d508773-report.md` | 12 | 未提交 | 复核树：`D:\AI\work space\zcode-verify-d508`（冻结 tag `verify-free |
-| `docs/archive/review-briefs/README.md` | 9 | 未提交 | **这里放独立 verifier 的任务书与结论摘要。** |
-| `docs/archive/review-briefs/b3b-ccs-ui-brief.md` | 8 | 未提交 | 1. 在哪棵树上干（冻结树，绝对路径） |
-| `docs/archive/review-briefs/b1b2-brief.md` | 7 | 未提交 | 0. 你的工作树（唯一） |
-| `docs/archive/review-briefs/b5-gate-brief.md` | 7 | 未提交 | 0. 你的工作树（唯一） |
-| `docs/archive/README.md` | 3 | 未提交 | 一、四类，按**性质**分（不按时间） |
-| `docs/archive/review-briefs/announce-nav-cleanup-20260924.md` | 3 | 未提交 | **为什么要留档**：这是我唯一一次**删真实数据**的动作（删除 22 行 `announcement_observe |
+| `docs/archive/history/rounds-10.1-10.203.md` | 999 | 未提交 | 1. **业主对"权威性"的举例逼出了一个根本性设计**：业主说"上传公司制度问怎么做，那肯定要遵守制度"。但公司制度的 |
+| `docs/archive/review-briefs/VERIFY-REPORT-ingest.md` | 42 | 2026-10-05 | 复核者：独立复核代理（证伪导向）。复核对象：冻结提交 `1da33f8`（tag `verify-freeze-inge |
+| `docs/archive/review-briefs/b3a-engine-report.md` | 29 | 2026-10-05 | * 复核树（唯一）：`D:\AI\work space\zcode-verify-b3a` |
+| `docs/archive/review-briefs/b3b-ccs-ui-report.md` | 29 | 2026-10-05 | 实跑核过；`git merge-base --is-ancestor 12cb6b0 aaad270` ⇒ exit 0 |
+| `docs/archive/review-briefs/b6-p0-report.md` | 29 | 2026-10-05 | 复核树：`D:\AI\work space\zcode-verify-b6`（`git worktree add --d |
+| `docs/archive/review-briefs/ccs-chain-report.md` | 28 | 2026-10-05 | 复核树（唯一读写面）：`D:\AI\work space\zcode-verify-ccs`（detached，标签 ` |
+| `docs/archive/review-briefs/b1b2-report.md` | 23 | 2026-10-05 | 复核树：`D:\AI\work space\zcode-verify-b1b2`（冻结 tag `verify-free |
+| `docs/archive/review-briefs/b5-gate-report.md` | 22 | 2026-10-05 | 复核代理（独立，非本批作者）。冻结树 `D:\AI\work space\zcode-verify-b5`，tag `v |
+| `docs/archive/review-briefs/VERIFY-REPORT-jev-b1.md` | 22 | 2026-10-05 | 结论 |
+| `docs/archive/review-briefs/d508773-report.md` | 12 | 2026-10-05 | 复核树：`D:\AI\work space\zcode-verify-d508`（冻结 tag `verify-free |
+| `docs/archive/review-briefs/README.md` | 9 | 2026-10-05 | **这里放独立 verifier 的任务书与结论摘要。** |
+| `docs/archive/review-briefs/b3b-ccs-ui-brief.md` | 8 | 2026-10-05 | 1. 在哪棵树上干（冻结树，绝对路径） |
+| `docs/archive/review-briefs/b1b2-brief.md` | 7 | 2026-10-05 | 0. 你的工作树（唯一） |
+| `docs/archive/review-briefs/b5-gate-brief.md` | 7 | 2026-10-05 | 0. 你的工作树（唯一） |
+| `docs/archive/history/README.md` | 3 | 未提交 | **这里是什么**：KnowledgeStation 从 2026-09-17 起，**逐轮开发记录**的全文。 |
+| `docs/archive/README.md` | 3 | 2026-10-05 | 一、四类，按**性质**分（不按时间） |
+| `docs/archive/review-briefs/announce-nav-cleanup-20260924.md` | 3 | 2026-10-05 | **为什么要留档**：这是我唯一一次**删真实数据**的动作（删除 22 行 `announcement_observe |
 
 ---
 
