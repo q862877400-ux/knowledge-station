@@ -7477,9 +7477,9 @@ R6c-7 又把它修准了——**但面板从头到尾没读过它**（批次收�
 
 **留了什么，为什么**
 
-- `REALTIME_VALIDITY_VERIFY_RESEARCH.md`：**代码里 3 处引用它**当权威映射来源（`law_source/verify.py`、`catalog.py`）；
-- `WSL2_VLM_BACKEND_DECISION.md`：活跃 OCR 工作流的决策记录；
-- `LAW_SOURCE_PLAN` / `STD_STATUS_CHANNELS` / `CHANNEL_PROBE_REPORT`：ENCYCLOPEDIA §6/§9 明写「保留原文件」作工程证据；
+- `REALTIME-VALIDITY-VERIFY-RESEARCH.md`：**代码里 3 处引用它**当权威映射来源（`law_source/verify.py`、`catalog.py`）；
+- `WSL2-VLM-BACKEND-DECISION.md`：活跃 OCR 工作流的决策记录；
+- `LAW-SOURCE-PLAN` / `STD-STATUS-CHANNELS` / `CHANNEL-PROBE-REPORT`：ENCYCLOPEDIA §6/§9 明写「保留原文件」作工程证据；
 - `DEVELOPMENT-HISTORY.md`：项目记忆（被 33 处引用）——**业主 2026-09-19 明确决定保留，不再列为删除候选**；
 - `var/ocr-loop/`：**是活的**——`vlm_ocr.py` 最后修改 **2026-09-18 22:06**，约 50 个被跟踪 `.py` + `fixed_classes.json`；
   `.gitignore` 特意放行并写明理由：丢了会「**再次静默丢内容**」。故未动其数据目录。

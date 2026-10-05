@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS doc_meta (
     normative_refs TEXT,
     file_path TEXT NOT NULL,
     file_hash TEXT NOT NULL,
-    source TEXT,                 -- 官方来源: flk | govcn（LAW_SOURCE_PLAN §5）
+    source TEXT,                 -- 官方来源: flk | govcn（LAW-SOURCE-PLAN §5）
     source_id TEXT,              -- 幂等键: flk bbbs | govcn url hash
     source_url TEXT,             -- 溯源 URL
     downloaded_at TEXT,          -- 下载时间 ISO

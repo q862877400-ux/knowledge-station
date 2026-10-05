@@ -1,4 +1,4 @@
-"""官方来源管线测试（docs/LAW_SOURCE_PLAN.md P1）：
+"""官方来源管线测试（docs/LAW-SOURCE-PLAN.md P1）：
 域白名单 / 魔数校验 / flk 搜索构造与解析 / gov.cn 搜索与详情下载链接 / 转换器探测 / 编排元数据。
 全程 mock 网络（不发真实请求）；仅离线可测部分直连。
 """

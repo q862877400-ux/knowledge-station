@@ -1,6 +1,6 @@
 """gov.cn 国务院政策文件库客户端（官方公开接口）。
 
-搜索后端（核实于 2026-06，见 docs/LAW_SOURCE_PLAN.md §2）：
+搜索后端（核实于 2026-06，见 docs/LAW-SOURCE-PLAN.md §2）：
   GET https://sousuo.www.gov.cn/search-gov/data?t=zhengcelibrary&q=...
 详情页（www.gov.cn/...）：解析标题/正文/日期 + 官方下载链接（.docx/.doc/.ofd/.wps）。
 """

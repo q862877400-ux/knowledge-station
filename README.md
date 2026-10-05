@@ -76,8 +76,8 @@ scripts/        # 运维脚本（凭据迁移/交接打包/巡检/法规抓取/l
 tests/          # 测试文件（契约/检索/入库/API/合规/凭据/门禁；2026-09-18 实测 118 个 test_*.py）eval/           # Golden Set 门禁三件最小集（golden/ + run_benchmark.py + baseline.json）⚠ 勿删
 docs/           # ENCYCLOPEDIA(技术百科) / INTRODUCTION(产品) / VISION-TREE(功能愿景)
                 # / DEVELOPMENT-HISTORY(开发简史) / MATERIALS-PLANE-PLAN(材料平面方案+§12 台账)
-                # / LAW_SOURCE_PLAN + STD_STATUS_CHANNELS(工程参考)
-                # / CHANNEL_PROBE_REPORT(渠道实证)
+                # / LAW-SOURCE-PLAN + STD-STATUS-CHANNELS(工程参考)
+                # / CHANNEL-PROBE-REPORT(渠道实证)
 pipeline/       # 只剩 03-contract-delta.md（契约增量台账）——⚠ 在**仓库根**，不在 docs/ 下
 wenjianmulu/    # ⚠ 生产库 doc_meta.file_path 指向这里的 PDF（活数据，勿删）
 var/            # gitignore 工作区（engine.log / mineru_cli_out 测试依赖 / fixtures 活数据）

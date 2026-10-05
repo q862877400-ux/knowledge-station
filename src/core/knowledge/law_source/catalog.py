@@ -11,7 +11,7 @@
   （完整性由爬取时每分类 search 的 remote_total 顶满 + 翻页保险丝告警保证）。
 - 存储：SQLite law_catalog 表，幂等迁移建表（参考 clause_repo.ensure_content_hash_column 先例）。
 
-已知坑（照抄自 docs/REALTIME_VALIDITY_VERIFY_RESEARCH.md §1.1）：
+已知坑（照抄自 docs/REALTIME-VALIDITY-VERIFY-RESEARCH.md §1.1）：
 - sxx 权威映射：1=已废止 2=已修改 3=现行有效 4=尚未生效；
 - flk 站点有 JA3/TLS 指纹 WAF：本机 requests 握手可能 SSLEOFError（任务 2 的
   CurlCffiTransport 通道解决）；届时 refresh_catalog 在 enum_data 处抛 RuntimeError 属预期。
@@ -34,7 +34,7 @@ from src.core.storage.sqlite_db import get_db_connection, write_transaction
 
 logger = logging.getLogger(__name__)
 
-# sxx 时效状态码权威映射（docs/REALTIME_VALIDITY_VERIFY_RESEARCH.md §1.1 表）
+# sxx 时效状态码权威映射（docs/REALTIME-VALIDITY-VERIFY-RESEARCH.md §1.1 表）
 SXX_LABELS: dict[int, str] = {1: "已废止", 2: "已修改", 3: "现行有效", 4: "尚未生效"}
 
 # aggregateData 接口不在 flk_client 内（避免改动既有文件），直接走共享 http 层（白名单/限速同源）

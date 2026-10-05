@@ -1,4 +1,4 @@
-"""官方法律法规来源管线（docs/LAW_SOURCE_PLAN.md）：
+"""官方法律法规来源管线（docs/LAW-SOURCE-PLAN.md）：
 
 flk.npc.gov.cn（国家法律法规数据库）+ gov.cn（国务院政策文件库）→
 官方带格式 Word → LibreOffice/WPS 转 PDF → 现有 run_full_ingest 管线

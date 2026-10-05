@@ -17,7 +17,7 @@ import urllib3
 # 官方站证书链问题已知（参考实现同款 verify=False）；只抑制告警，不改变校验策略
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-# ---- 官方来源白名单（方案 LAW_SOURCE_PLAN §0）----
+# ---- 官方来源白名单（方案 LAW-SOURCE-PLAN §0）----
 ALLOWED_HOSTS = frozenset({
     "flk.npc.gov.cn",          # 国家法律法规数据库（含 OSS 签名下载域 flkoss.obs-bj2.cucloud.cn 由签名 URL 携带，校验时放行 OBS 域）
     "sousuo.www.gov.cn",       # 国务院政策文件库搜索后端

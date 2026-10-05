@@ -1,4 +1,4 @@
-"""官方法规来源 API 测试（LAW_SOURCE_PLAN P2）：sources / search / ingest（mock 网络）。"""
+"""官方法规来源 API 测试（LAW-SOURCE-PLAN P2）：sources / search / ingest（mock 网络）。"""
 import pytest
 
 

@@ -1,6 +1,6 @@
 """渠道适配器索引：新增渠道在此注册，inspector 按标准号特征路由。
 
-渠道分层（2026-08 四队实测，见 docs/LAW_SOURCE_PLAN.md 附 B）：
+渠道分层（2026-08 四队实测，见 docs/LAW-SOURCE-PLAN.md 附 B）：
 - mem_gov：AQ 行业标准状态（应急部公告）+ 全文（标准文本 PDF）
 - std_samr_hb：行业标准目录状态（std.samr /hb/search/hbPage JSON）
 - hbba：行业标准平台（POST /stdQueryList）

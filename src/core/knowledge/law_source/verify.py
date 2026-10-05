@@ -1,4 +1,4 @@
-"""法规效力「点开即核验」服务（任务 2，docs/REALTIME_VALIDITY_VERIFY_RESEARCH.md §2/§3）。
+"""法规效力「点开即核验」服务（任务 2，docs/REALTIME-VALIDITY-VERIFY-RESEARCH.md §2/§3）。
 
 对外契约（唯一入口）::
 

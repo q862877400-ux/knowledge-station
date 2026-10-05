@@ -73,7 +73,7 @@ def _store_form_doc(doc: dict[str, Any]) -> dict[str, Any]:
 
 
 def ensure_law_source_columns() -> None:
-    """官方来源溯源列迁移（docs/LAW_SOURCE_PLAN.md §5）：
+    """官方来源溯源列迁移（docs/LAW-SOURCE-PLAN.md §5）：
     doc_meta 增加 source / source_id / source_url / downloaded_at / source_status。
     SQLite 无 ADD COLUMN IF NOT EXISTS，PRAGMA 检查后逐列 ALTER；幂等。
     """

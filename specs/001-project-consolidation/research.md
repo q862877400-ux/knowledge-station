@@ -17,7 +17,7 @@
 
 **Rationale**：
 - 现状是四种混用：中文拼音（`wenjianmulu/`）、全大写（`B3A-REPORT.md`）、
-  下划线全大写（`STD_STATUS_CHANNELS.md`）、kebab（`gen-doc-index.py`）。
+  下划线全大写（`STD-STATUS-CHANNELS.md`）、kebab（`gen-doc-index.py`）。
   ⇒ **读者无法从名字判断"这是当前真源还是历史"**，而这正是业主诉求的核心。
 - 用前缀分类会**把分类写死在名字里**：一个文档从"计划"变成"历史"就要改名。
   用目录分类则只需移动文件——**目录是分类器，文件名只表身份**。

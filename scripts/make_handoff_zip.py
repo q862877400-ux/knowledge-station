@@ -8,7 +8,7 @@ vite.config.ts、public/pagecmp、dist*）已整体删除，排除表里对应�
 （保留无害，防同名目录复活）；还原说明改为 DSH 插件形态。
 
 冗余清剿同步（2026-09-12 同日）：docs/ 收敛为百科 + 产品介绍 + 需求 SSOT +
-开发简史 + 工程参考（LAW_SOURCE_PLAN/STD_STATUS_CHANNELS/CHANNEL_PROBE_REPORT）
+开发简史 + 工程参考（LAW-SOURCE-PLAN/STD-STATUS-CHANNELS/CHANNEL-PROBE-REPORT）
 + pipeline/03-contract-delta.md；DSH_REINCARNATION/onboarding/loop2-design 等
 旧文档已删（结论并入百科与开发简史）；pytest 基线以实测为准。
 """

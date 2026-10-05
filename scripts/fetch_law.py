@@ -1,4 +1,4 @@
-"""官方法规抓取 CLI（docs/LAW_SOURCE_PLAN.md P1/P3）。
+"""官方法规抓取 CLI（docs/LAW-SOURCE-PLAN.md P1/P3）。
 
 用法：
   # 搜索候选（不落库）

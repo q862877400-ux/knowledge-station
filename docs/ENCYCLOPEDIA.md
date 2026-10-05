@@ -457,12 +457,12 @@ write_queue / event_log（统一事件模型）/ debug_dump（每次提问落库
 - **入库**：docx 落 `<data_dir>/law_source/<source>/<source_id>/`（meta.json 溯源）→ run_full_ingest(doc_type="法律法规")；doc_meta 溯源列（source/source_id/source_url/downloaded_at/source_status）幂等迁移。
 - **更新检查**：detail.sxx 与入库 source_status 比对报时效变更。
 - **CLI/API**：`scripts/fetch_law.py`；`/api/v1/laws/sources|search|ingest|check-updates`。
-- 工程细节（端点参数/附 A 接口探测法/§7 合规边界）见 `docs/LAW_SOURCE_PLAN.md`（保留原文件）。
+- 工程细节（端点参数/附 A 接口探测法/§7 合规边界）见 `docs/LAW-SOURCE-PLAN.md`（保留原文件）。
 - 限速 ≥0.6s/请求；3 次退避重试。
 
 ## 9.9 标准状态巡检渠道（2026-08-27 实测定型）
 
-渠道能力矩阵（保留原文件 `docs/STD_STATUS_CHANNELS.md`）：**cssn 单渠道覆盖国标 1~6 类**（openstd 盲区正是此前 270 条 miss/53% 的根因）；ndls 有验证码；全渠道探测实证见 `docs/CHANNEL_PROBE_REPORT.md`（含 ANOM-002 JA3/TLS 指纹拦截与 curl_cffi impersonate 决策）。铁律：**真实站点先于 mock**（ANOM-003 教训）；渠道适配器 RUN_LIVE 门控。
+渠道能力矩阵（保留原文件 `docs/STD-STATUS-CHANNELS.md`）：**cssn 单渠道覆盖国标 1~6 类**（openstd 盲区正是此前 270 条 miss/53% 的根因）；ndls 有验证码；全渠道探测实证见 `docs/CHANNEL-PROBE-REPORT.md`（含 ANOM-002 JA3/TLS 指纹拦截与 curl_cffi impersonate 决策）。铁律：**真实站点先于 mock**（ANOM-003 教训）；渠道适配器 RUN_LIVE 门控。
 
 
 ---

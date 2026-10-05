@@ -1,6 +1,6 @@
 """flk.npc.gov.cn 国家法律法规数据库客户端（官方公开 API）。
 
-接口状态核实于 2026-06（见 docs/LAW_SOURCE_PLAN.md §1）：
+接口状态核实于 2026-06（见 docs/LAW-SOURCE-PLAN.md §1）：
   POST /law-search/search/list      搜索（JSON body）
   GET  /law-search/search/enumData  分类/机关/时效枚举
   GET  /law-search/search/flfgDetails?bbbs=  详情（元数据+章条结构+ossFile）

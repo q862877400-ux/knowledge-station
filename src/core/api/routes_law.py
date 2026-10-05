@@ -1,6 +1,6 @@
 """官方法规来源 API 路由（2026-08-26，P3-②）：从 server.py create_app 闭包抽出。
 
-- /api/v1/laws/sources|search|ingest|check-updates（LAW_SOURCE_PLAN P2）
+- /api/v1/laws/sources|search|ingest|check-updates（LAW-SOURCE-PLAN P2）
 - /api/v1/laws/catalog|refresh|verify（LAW_CATALOG_ONDEMAND_PLAN 任务 1/2）
 
 ⚠ **本文件的端点一律声明成 `def`**（§10.93 收口 §10.79 的遗留项）：
@@ -27,7 +27,7 @@ logger = logging.getLogger("ks.api.law")
 
 
 def register(app, json_error):
-    # ===== 官方法规来源（LAW_SOURCE_PLAN P2）：搜索候选 / 入库 =====
+    # ===== 官方法规来源（LAW-SOURCE-PLAN P2）：搜索候选 / 入库 =====
 
     @app.get("/api/v1/laws/sources")
     def law_sources():
