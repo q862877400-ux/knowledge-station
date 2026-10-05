@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **120 份** / **5323 KB**。
+> 共 **120 份** / **5324 KB**。
 
 ## 方案与台账（9 份 / 463 KB）
 
@@ -102,7 +102,7 @@
 | `docs/research/dsh-official/INGEST-LEDGER-pkg-agents.md` | 2 | 2026-09-19 | 核对方式：对每篇 `GET /documents/<id>` 取回 `original_text`，算 sha256 与 |
 | `docs/research/dsh-official/INGEST-LEDGER-root.md` | 2 | 2026-09-19 | 核对方式：对每篇 `GET /documents/<id>` 取回 `original_text`，算 sha256 与 |
 
-## 根文档与其他（29 份 / 562 KB）
+## 根文档与其他（29 份 / 563 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -126,8 +126,8 @@
 | `docs/research/HINDSIGHT-CAPABILITY-AUDIT-2026-09-28.md` | 9 | 未提交 | 0. 先说方法与一次"抓到了≠抓对了" |
 | `docs/research/REVIEW-PLAN-A-verification.md` | 9 | 2026-09-28 | 0. 一句话背景 |
 | `docs/PROJECT-CONSOLIDATION-2026-10-05.md` | 6 | 2026-10-05 | 一、结论先行 |
+| `docs/README.md` | 6 | 2026-10-05 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
 | `docs/tool-catalog.md` | 6 | 2026-09-24 | ks_answer（说明书 998 字） |
-| `docs/README.md` | 5 | 2026-10-05 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
 | `docs/research/MODEL-AVAILABILITY-2026-09-28.md` | 5 | 2026-09-28 | 一、结论表（今天 2026-09-28 实测） |
 | `docs/CODE-REVIEW-CHECKLIST.md` | 4 | 2026-09-23 | 评审七条（逐条问，缺一不签） |
 | `docs/wiki/architecture.md` | 4 | 2026-10-05 | **这一页给接手的人**：读完能说出这个项目要做什么、现在做到哪、主要部件各干什么。 |
@@ -140,7 +140,7 @@
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
-| `docs/archive/history/rounds-10.1-10.203.md` | 999 | 未提交 | 1. **业主对"权威性"的举例逼出了一个根本性设计**：业主说"上传公司制度问怎么做，那肯定要遵守制度"。但公司制度的 |
+| `docs/archive/history/rounds-10.1-10.203.md` | 999 | 2026-10-05 | 1. **业主对"权威性"的举例逼出了一个根本性设计**：业主说"上传公司制度问怎么做，那肯定要遵守制度"。但公司制度的 |
 | `docs/archive/review-briefs/VERIFY-REPORT-ingest.md` | 42 | 2026-10-05 | 复核者：独立复核代理（证伪导向）。复核对象：冻结提交 `1da33f8`（tag `verify-freeze-inge |
 | `docs/archive/review-briefs/b3a-engine-report.md` | 29 | 2026-10-05 | * 复核树（唯一）：`D:\AI\work space\zcode-verify-b3a` |
 | `docs/archive/review-briefs/b3b-ccs-ui-report.md` | 29 | 2026-10-05 | 实跑核过；`git merge-base --is-ancestor 12cb6b0 aaad270` ⇒ exit 0 |
@@ -154,7 +154,7 @@
 | `docs/archive/review-briefs/b3b-ccs-ui-brief.md` | 8 | 2026-10-05 | 1. 在哪棵树上干（冻结树，绝对路径） |
 | `docs/archive/review-briefs/b1b2-brief.md` | 7 | 2026-10-05 | 0. 你的工作树（唯一） |
 | `docs/archive/review-briefs/b5-gate-brief.md` | 7 | 2026-10-05 | 0. 你的工作树（唯一） |
-| `docs/archive/history/README.md` | 3 | 未提交 | **这里是什么**：KnowledgeStation 从 2026-09-17 起，**逐轮开发记录**的全文。 |
+| `docs/archive/history/README.md` | 3 | 2026-10-05 | **这里是什么**：KnowledgeStation 从 2026-09-17 起，**逐轮开发记录**的全文。 |
 | `docs/archive/README.md` | 3 | 2026-10-05 | 一、四类，按**性质**分（不按时间） |
 | `docs/archive/review-briefs/announce-nav-cleanup-20260924.md` | 3 | 2026-10-05 | **为什么要留档**：这是我唯一一次**删真实数据**的动作（删除 22 行 `announcement_observe |
 
