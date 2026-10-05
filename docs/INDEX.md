@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **145 份** / **5461 KB**。
+> 共 **145 份** / **5463 KB**。
 
 ## 方案与台账（9 份 / 465 KB）
 
@@ -103,7 +103,7 @@
 | `docs/research/dsh-official/INGEST-LEDGER-pkg-agents.md` | 2 | 2026-09-19 | 核对方式：对每篇 `GET /documents/<id>` 取回 `original_text`，算 sha256 与 |
 | `docs/research/dsh-official/INGEST-LEDGER-root.md` | 2 | 2026-09-19 | 核对方式：对每篇 `GET /documents/<id>` 取回 `original_text`，算 sha256 与 |
 
-## 根文档与其他（51 份 / 652 KB）
+## 根文档与其他（51 份 / 654 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -124,8 +124,8 @@
 | `docs/LAW-SOURCE-PLAN.md` | 14 | 2026-10-05 | 0. 目标与原则 |
 | `docs/research/HINDSIGHT-DEPLOYMENT-STATUS-2026-09-30.md` | 13 | 2026-09-30 | 一、一句话现状 |
 | `docs/research/REVIEW-PLAN-B-innovation.md` | 12 | 2026-09-28 | 0. 业主真正要解决的问题（原话，不是转述） |
+| `docs/BASELINE-PLAN-2026-10-06.md` | 11 | 2026-10-06 | 〇、一句话 |
 | `docs/BASELINE-DIAGNOSIS-2026-10-06.md` | 10 | 2026-10-06 | 〇、先定两件事（业主 2026-10-06 亲述，不再讨论） |
-| `docs/BASELINE-PLAN-2026-10-06.md` | 9 | 未提交 | 〇、一句话 |
 | `docs/research/HINDSIGHT-CAPABILITY-AUDIT-2026-09-28.md` | 9 | 未提交 | 0. 先说方法与一次"抓到了≠抓对了" |
 | `docs/research/REVIEW-PLAN-A-verification.md` | 9 | 2026-09-28 | 0. 一句话背景 |
 | `docs/README.md` | 7 | 2026-10-05 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
