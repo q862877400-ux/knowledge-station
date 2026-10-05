@@ -1,20 +1,20 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **142 份** / **5432 KB**。
+> 共 **143 份** / **5441 KB**。
 
-## 方案与台账（9 份 / 463 KB）
+## 方案与台账（9 份 / 465 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
 | `docs/KB-FOLDER-PLAN.md` | 154 | 2026-09-24 | 一、定案（业主原话要点） |
 | `docs/MATERIALS-PLANE-PLAN.md` | 154 | 2026-09-26 | 0. 业主已裁定的事项（本方案的前提，不是提议） |
-| `docs/ENCYCLOPEDIA.md` | 74 | 2026-10-05 | 1. 项目概览与产品承诺 |
+| `docs/ENCYCLOPEDIA.md` | 75 | 2026-10-05 | 1. 项目概览与产品承诺 |
 | `docs/EXECUTION-PLAN.md` | 18 | 2026-09-20 | **怎么用这份文件**：每轮开工先读它 → 按序做 → 收工把该行状态改成「✅ 完成（提交号+快照）」 |
 | `docs/AUTO-DRAFT-PLAN.md` | 17 | 2026-09-19 | 1. 结论（先给结论） |
 | `docs/VISION-TREE.md` | 16 | 2026-09-25 | 本版修订记录（2026-09-25） |
 | `docs/AUTORUN-PLAN-2026-09-24.md` | 13 | 2026-09-24 | 0. 执行纪律（每条都来自 AGENTS.md，血泪换的） |
-| `docs/INTRODUCTION.md` | 10 | 2026-09-19 | 一、我们解决的问题 |
+| `docs/INTRODUCTION.md` | 11 | 2026-09-19 | 一、我们解决的问题 |
 | `docs/HANDOVER-2026-09-23.md` | 7 | 2026-09-24 | 给接手的 AI 开发者。目标：把这个项目的收尾做完、把下面点名的问题修好。字数所限只给骨架；细读代码与 `docs/DE |
 
 ## 检索与通用化研究（29 份 / 1161 KB）
@@ -103,7 +103,7 @@
 | `docs/research/dsh-official/INGEST-LEDGER-pkg-agents.md` | 2 | 2026-09-19 | 核对方式：对每篇 `GET /documents/<id>` 取回 `original_text`，算 sha256 与 |
 | `docs/research/dsh-official/INGEST-LEDGER-root.md` | 2 | 2026-09-19 | 核对方式：对每篇 `GET /documents/<id>` 取回 `original_text`，算 sha256 与 |
 
-## 根文档与其他（48 份 / 626 KB）
+## 根文档与其他（49 份 / 633 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -128,6 +128,7 @@
 | `docs/research/REVIEW-PLAN-A-verification.md` | 9 | 2026-09-28 | 0. 一句话背景 |
 | `docs/README.md` | 7 | 2026-10-05 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
 | `docs/PROJECT-CONSOLIDATION-2026-10-05.md` | 6 | 2026-10-05 | 一、结论先行 |
+| `docs/PROJECT-STATUS-2026-10-05.md` | 6 | 未提交 | 一、状态：**开发暂停** |
 | `docs/tool-catalog.md` | 6 | 2026-09-24 | ks_answer（说明书 998 字） |
 | `docs/wiki/architecture.md` | 6 | 2026-10-05 | **这一页给接手的人**：读完能说出这个项目要做什么、现在做到哪、主要部件各干什么。 |
 | `docs/wiki/components/plugin-tools.md` | 6 | 2026-10-05 | **位置**：`plugin/src/`（注册在 `index.js` 的 `apply()`） |
@@ -136,6 +137,7 @@
 | `docs/wiki/components/exports.md` | 4 | 2026-10-05 | **位置**：`src/core/exports/` |
 | `docs/wiki/components/law-source.md` | 4 | 2026-10-05 | **位置**：`src/core/knowledge/law_source/` |
 | `docs/wiki/components/llm.md` | 4 | 2026-10-05 | **位置**：`src/core/llm/` |
+| `docs/wiki/components/quality.md` | 4 | 2026-10-05 | **位置**：`src/core/quality/` |
 | `docs/wiki/components/update-channels.md` | 4 | 2026-10-05 | **位置**：`src/core/update/channels/` |
 | `docs/research/hindsight-official/README.md` | 3 | 2026-09-30 | **这是什么**：Hindsight 官方文档站（`hindsight.vectorize.io`）整站正文的**本地逐 |
 | `docs/research/papers/README.md` | 3 | 2026-09-30 | 一、这里有什么 |
@@ -143,7 +145,6 @@
 | `docs/wiki/components/api.md` | 3 | 2026-10-05 | **位置**：`src/core/api/` |
 | `docs/wiki/components/compliance.md` | 3 | 2026-10-05 | **位置**：`src/core/compliance/` |
 | `docs/wiki/components/domain.md` | 3 | 2026-10-05 | **位置**：`src/core/domain/` |
-| `docs/wiki/components/quality.md` | 3 | 2026-10-05 | **位置**：`src/core/quality/` |
 | `docs/wiki/components/query.md` | 3 | 2026-10-05 | **位置**：`src/core/query/` |
 | `docs/wiki/components/README.md` | 3 | 2026-10-05 | **每套组件一篇**，逐篇回答同一个问题：**这块负责什么、提供什么、依赖什么、明确不做什么。** |
 | `docs/wiki/components/retrieval.md` | 3 | 2026-10-05 | **位置**：`src/core/retrieval/` |
