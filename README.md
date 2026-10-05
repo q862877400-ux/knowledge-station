@@ -67,33 +67,33 @@ npm run typecheck                           # tsc：0 错误（tsc --noEmit -p p
 - **依附链**：夹内提问 ⊃ 仅收藏 ⊃ 查法规模式——开夹自动开启查法规（取证链路保证），关夹只关夹维度。
 - 实现要点：引擎 `user_bookmark_folder` 表 + `folder_id` 列（PRAGMA 自迁移）；`GET /api/v1/bookmark-folders/tree` 供树；`ks_answer` 支持 `folder_id` 过滤（候选池过滤、空夹如实、夹丢失如实降级并在 notes 声明）；host `/ks/chat-mode` PUT 扩展 `folderId/folderName` 维度；工具层强制合并 `folder_id`（模型无法劫持范围）。
 
-## 目录结构
+## ⚠ 动之前必看：勿删清单
 
-```text
-src/core/       # 引擎本体（api/storage/retrieval/ingestion/compliance/llm/update/…）
-plugin/         # DSH 插件：宿主桥(src/index.js) + 侧栏 client(React) + 4 个模型工具
-scripts/        # 运维脚本（凭据迁移/交接打包/巡检/法规抓取/loop2 收敛环）
-tests/          # 测试文件（契约/检索/入库/API/合规/凭据/门禁；2026-09-18 实测 118 个 test_*.py）eval/           # Golden Set 门禁三件最小集（golden/ + run_benchmark.py + baseline.json）⚠ 勿删
-docs/           # ENCYCLOPEDIA(技术百科) / INTRODUCTION(产品) / VISION-TREE(功能愿景)
-                # / DEVELOPMENT-HISTORY(开发简史) / MATERIALS-PLANE-PLAN(材料平面方案+§12 台账)
-                # / LAW-SOURCE-PLAN + STD-STATUS-CHANNELS(工程参考)
-                # / CHANNEL-PROBE-REPORT(渠道实证)
-pipeline/       # 只剩 03-contract-delta.md（契约增量台账）——⚠ 在**仓库根**，不在 docs/ 下
-wenjianmulu/    # ⚠ 生产库 doc_meta.file_path 指向这里的 PDF（活数据，勿删）
-var/            # gitignore 工作区（engine.log / mineru_cli_out 测试依赖 / fixtures 活数据）
-                # 例外：var/ocr-loop/ 的**代码**与 CONTRACT/HANDOFF/REPORT 已跟踪（见 .gitignore）
-```
+**这几样删了会出事**（别的都是可重建的）：
 
-## 文档地图（接手必读）
+| 勿删 | 为什么 |
+|---|---|
+| **`wenjianmulu/`** | **生产库 `doc_meta.file_path` 指向这里的 PDF——活数据**。它是证据 PDF 的溯源载体（证据 tab 预览/高亮打开的就是它）。删了知识库的证据链就断 |
+| **`pipeline/03-contract-delta.md`** | **schema 契约增量台账**（每次 schema 变更记 DDL / 影响面 / **回滚 SQL**）。改 schema 前必读 |
+| **`eval/golden/`** | Golden Set 门禁三件最小集（`golden/` + `run_benchmark.py` + `baseline.json`） |
+| **`var/fixtures/`** | 测试依赖的活数据 |
+| **`var/ocr-loop/` 的代码与 CONTRACT/HANDOFF/REPORT** | 该目录整体被 gitignore，**这几样是白名单里的、受版本控制**（见 `.gitignore`） |
 
-1. **`docs/ENCYCLOPEDIA.md`**——技术百科全书（架构/数据契约/检索/入库/坑全集/红线宪法），先读。
-2. `docs/INTRODUCTION.md`——产品介绍（是什么/为什么可信/能力清单）。
-3. `docs/VISION-TREE.md`——功能愿景（客户视角：每条能力标注"今天点得到吗"；取代已移除的旧主计划 v4.3）。
-4. `docs/DEVELOPMENT-HISTORY.md`——开发历程简史（2026-08 引擎从零 → 2026-09 DSH 转生 → 批 0~10 → 冗余清剿）。
-5. 改 schema/API/SSE 前 → ENCYCLOPEDIA §8/§10 + `pipeline/03-contract-delta.md`。
-6. 改插件 client 前 → `plugin/client/ksSidebar.ts`（**官方右侧栏契约 + 新旧映射表**）
-   与 `plugin/client/ks-evidence-props.ts`（证据组件的自有 props 契约）。
-   ⚠ 2026-09-16 迁移：第三方 `dsh-better-sidebar` 已被官方 `@deepseek-ai/dsh-client-ui-sidebar-right` 取代，`bsContract.ts` / `dsh-better-sidebar.d.ts` / `smoke-bs-contract.mjs` 均已删除（git 可溯）。
+**动 schema / API / SSE 前** ⇒ 先读 `docs/ENCYCLOPEDIA.md` §8/§10 + `pipeline/03-contract-delta.md`。
+**动插件 client 前** ⇒ 先读 `plugin/client/ksSidebar.ts`（官方右侧栏契约 + 新旧映射表）
+与 `plugin/client/ks-evidence-props.ts`（证据组件的 props 契约）。
+
+## 文件在哪、文档怎么读
+
+- **每一样东西在哪、干什么** ⇒ [`docs/README.md`](docs/README.md)（**文件地图**）
+- **这个项目要做什么、现在做到哪** ⇒ [`docs/wiki/architecture.md`](docs/wiki/architecture.md)
+- **某块代码负责什么、改它会影响谁** ⇒ [`docs/wiki/components/`](docs/wiki/components/README.md)
+- **历史与备份在哪** ⇒ [`docs/archive/README.md`](docs/archive/README.md)
+- **接手先读哪一份** ⇒ **`docs/ENCYCLOPEDIA.md`**（技术百科全书：架构/数据契约/检索/入库/坑全集/红线宪法）
+- **113 份文档的机械索引** ⇒ [`docs/INDEX.md`](docs/INDEX.md)（脚本生成，勿手改）
+
+> 本文件只做**入口**：我是什么、怎么跑、**动之前勿删什么**、**剩下的去哪读**。
+> 具体的地图与说明住在上面那几个链接里——**同一件事不在两处写全文**。
 
 ## 安全约束
 
