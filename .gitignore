@@ -80,3 +80,6 @@ docs/research/papers/*.html
 
 # 本机探测日志（0 受控，2026-10-05 移入 var/_trash-2026-10-05/）
 stdscan/
+
+# var/ 的说明文档要跟仓库走（其余 var/* 仍忽略）
+!var/README.md
