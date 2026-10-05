@@ -1,45 +1,62 @@
 # plugin-tools（插件对 agent 暴露的工具）
 
-**位置**：`plugin/src/index.js`
-**一句话**：这是本产品对 agent 的「手」——它只暴露少数几个动作。
+**位置**：`plugin/src/`（注册在 `index.js` 的 `apply()`）
+**一句话**：引擎能力对 agent 的入口——四个读、一个只读、一个写。
 
 ## 职责
 
-插件把引擎能力包成**模型可见的工具**。实测暴露 5 个（`plugin/src/index.js`）：
+插件把引擎的 HTTP 能力包成**模型可见的工具**。实测注册 **6 个**（`index.js` 里 `ctx.tools.register` × 6）：
 
-| 工具 | 用途 | 定义位置 |
-|---|---|---|
-| `ks_ping` | 探活（`GET /api/v1/health`，**无 token**） | index.js L820 |
-| `ks_resolve_clause` | **条款定位**——按标准号/条款号取原文（`GET /clauses/resolve`，Bearer） | L908 |
-| `ks_answer` | 问答（`POST /ks/answer`，Bearer） | L1075 |
-| `ks_effect_report` | 效果上报 | L604 |
-| `ks_materials` | 材料平面**只读** | 见 `materials_routes.js` |
+| 工具 | 用途 | 定义位置 | 落地端点 |
+|---|---|---|---|
+| `ks_ping` | 探活 | `index.js` `makePingTool` | `GET /api/v1/health`（**无 token**） |
+| `ks_resolve_clause` | 条款定位 | `index.js` `makeResolveTool` | `GET /api/v1/clauses/resolve`（Bearer） |
+| `ks_answer` | 取证问答 | `index.js` `makeAnswerTool` | `POST /api/v1/ks/answer`（Bearer） |
+| `ks_effect_report` | 库内效力现状总览 | `index.js` `makeEffectReportTool` | `/api/v1/report/effect`（Bearer） |
+| `ks_materials` | 参考资料项目与材料（**只读**） | `materials.js` `makeMaterialsTool` | 引擎材料端点（只读） |
+| `ks_collect` | 采一个 URL 登记为**待评审**材料（**写**） | `collect.js` `makeCollectTool` | 引擎采集端点 |
 
-**另有一批错误码常量**（不是工具）：`ks_engine_unavailable` / `ks_engine_auth` / `ks_bbox_unavailable` / `ks_doc_image_unavailable` / `ks_image_not_found`。
+## 逐工具契约
 
-**它不负责**：不做业务逻辑：**插件是搬运工**，判断都在引擎里。
+**`ks_ping`** — 用途：查引擎在不在、端口 / 进程 / 组件状态。参数：无。返回：`ok` / `httpStatus` / `engine{port,pid,reused}` / `status` / `uptimeSeconds` / `dbStatus` / `vectorEngine` / `parserWorker`。边界：`vectorEngine` 是**便宜的三态**（ok = 曾加载成功 / offline = 上次加载失败 / unknown = 从没试过），**不是压测**；20 秒超时；声明可并行。
 
-## 对外提供什么
+**`ks_resolve_clause`** — 用途：按「标准号 + 条款号」取原文。参数：`standard_no`、`clause_number`（都必填，工具自己 URL 编码）。返回：命中的条款（含 `legal_status`、`evidence_url` 可点 PDF 锚、`bookmarked`）或明确的查无此条标记。边界：查法规模式 / 收藏夹模式下，命中范围外的条款带 `bookmarks_scope` / `folder_scope: "outside"`——**只能用于定位，不得写入依据区**；非 effective 的只能作历史沿革或预告说明。
 
-| 5 个模型可见工具 | DSH 工具注册 | agent |
-| 宿主桥 | `plugin/src/index.js` | DSH 宿主 |
-| 侧栏 React 界面 | `plugin/client/` | 用户 |
+**`ks_answer`** — 用途：取证问答。参数：`query`（必填）；`params` 可选 `top_k`（≤50）、`bookmarks_only`、`folder_id`、`max_evidence`、`material_project_id`、`kb_folder_ids`、`kb_doc_ids`。返回：依据 / 推导 / 结论三段式 + `tier` + `verification` + `notes` + `answer_scope`。边界：引擎自带推理，**可超 120 秒**；空数组 ≠ 「没给范围」——引擎回 422 且**一次检索都不做**，绝不退化成全库；`verification.unsupported_context` 列出的引用 MUST 如实披露；与 `ks_effect_report` 一样**不声明可并行**（走 exclusive）。
+
+**`ks_effect_report`** — 用途：库内效力现状。参数：`include_attention`（默认 true）、`limit`（默认 10，上限 20）。返回：五色统计（🔴 在用已废止 / 被代替 · 🟡 即将实施 · 🟢 现行有效 · ⚪ 状态未知 · 🔵 参考资料·仅参考）+ 标准树与法规树分计 + 红黄清单 top-N。边界：**只读聚合、零 LLM**；host 侧裁剪，**绝不回传全量分类树**；`attention_error` 非空 = 红黄清单没取到（统计仍有效，**别当成「没有废止文件」**）；声明可并行。引擎侧实现在 [exports](exports.md) 的 `effect_report.py`。
+
+**`ks_materials`** — 用途：找项目 id、看材料评审状态。参数：`action`（`projects` 默认 / `materials` / `inbox`）、`project_id`、`status`（`pending` / `approved` / `rejected`）。返回：项目、材料（评审三态、来源层级 T0~T4、任务效力、切片数）、未登记文件。边界：**只读是纪律**——没有批准 / 拒绝路径；只有 `approved` 的材料会进 `ks_answer` 提示词；有 pending 就如实说「未批准、不进结论」。
+
+**`ks_collect`** — 用途：抓一个 URL 的正文，登记成该项目的待评审材料。参数：`url`（必填，内网 / 保留地址会被拒）、`project_id`、`title`、`note`。返回：登记后的材料与 `review_status`，以及本次已用 / 上限。边界：**只能登记 `pending`**，发不出批准；**不发 `source_tier`**（不得自 claim 可信度）；**一次一条**（引擎端点只收单条 URL），会话内上限**暂定 20**，超出**响亮报错**、不静默截断；不声明可并行。
 
 ## 依赖什么
 
-| 引擎 HTTP API | 外部（本地） | 全部工具的落地 |
-| DSH 宿主 | 外部 | 工具注册与界面容器 |
+| 依赖 | 类型 | 用途 |
+|---|---|---|
+| 引擎 HTTP API | 本地服务 | 全部工具的落地；Bearer token 从引擎 session 文件读 |
+| DSH 宿主 | 外部 | 工具注册（`ctx.tools.register`，随 fiber 释放）与界面容器 |
 
 ## 明确不做什么
 
-- **MUST NOT 把能力只写在插件里**：所有能力**先进引擎的 HTTP 接口**，插件只当「其中一种入口」。
-  理由：这样换宿主（或让别人接）时不用重写。（业主 2026-10-05 认可的兼容路线）
-- **材料工具 MUST 保持只读**：注释里明写「**只读是纪律**：评审是用户的判断」。
-- **不做检索排序**：它调引擎，不自己排。
+- **不直连数据库、不读本地数据文件**：全部经引擎的鉴权 HTTP API；能力必须先在引擎侧有端点，插件只当入口之一。
+- **不替用户评审材料**：读一个工具、写一个工具，**名字即权限**；写的那一个也只能登记 pending。
+- **不做检索排序、不生成答案、不做核验**：这些在引擎侧（`retrieval` / `llm` / `verification`）。
+- **不把「取不到」说成「没有」**：HTTP 200 但信封缺 `data` 一律**抛错**，不许当成空结果。
+- **不做范围参数的最终裁决**：host 会强制覆盖模型的 `folder_id` / `material_project_id` / `kb_folder_ids`；回执里的 `answer_scope` 只证明 **host 传了参**，**不证明引擎侧过滤生效**。
+
+## 关键数据
+
+无自有表：数据全在引擎侧。工具只读引擎 session 文件（端口 / token，每次启动轮换）。
+
+## 改了它会影响谁
+
+- **agent 的实际行为**：工具描述每轮随工具表进上下文（`ks_answer` 因此压到 ≤10 行，完整用法只在**首次调用回执**里给）
+- **引擎端点契约**：改工具参数即改对引擎的调用面
+- **`chatmode.js` 的强制范围**：会话级收藏夹 / 项目由 host 注入 `ks_answer`
 
 ## 已知边界（诚实）
 
-- 🔴 **已知缺陷（登记未修）**：`plugin/client/` 三个页面（`KsCapabilityPage` / `KsChannelsPanel` / `KsKnowledgePage`）
-  引用的图标导出名（`Icon*OutlineRegular`）与 DSH 当前版本不匹配，**`tsc` 报错**。
-  根因是 DSH 在 2026-09-28 之后又改了图标导出名。详见 `specs/001-project-consolidation/baseline.md`。
+- **引擎按需拉起并复用**：只有本插件拉起的实例才会被它停；已存在的健康实例只复用、不杀。
+- **`ks_collect` 的会话上限 20 是暂定值**（采集预算未定案），不是产品决定；插件重载后计数归零（它是刹车，不是账本）。
 - ⚠ **`plugin/src/*.bak-20260927-*` 是别人的未提交件**，不许动。

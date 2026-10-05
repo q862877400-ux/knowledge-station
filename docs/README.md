@@ -57,6 +57,9 @@
 
 ### 1.4 本地产物与缓存（**不进版本控制，不是项目文件**）
 
+> ⚠ **本表只列"不进版本控制"的东西。**
+> `wenjianmulu/`（活数据）与 `pipeline/`（活真源）**受版本控制，不属本表**——它们在 §1.1/§1.2 与 §三。
+
 | 位置 | 是什么 | 能不能删 |
 |---|---|---|
 | `var/` | 本机工作产物：`tmp/`（临时）、`fixtures/`、`ocr-loop/`、`backup/`、`cad/`、`articles/`、`hindsight-*/`、`mineru_cli_out/` | ⚠ **只移不删**——它没有版本控制这个安全网 |
@@ -65,7 +68,7 @@
 | `.mypy_cache/` `.pytest_cache/` | 工具缓存 | 可删 |
 | `.dsh/` | 项目级 skill 副本与本地状态 | 可删（用户级 `~/.dsh/` 有同一份） |
 | `.zcode/` `.browser4-cli/` | 本机工具状态 | 可删 |
-| `wenjianmulu/` `stdscan/` `pipeline/` | ⚠ **来历不明**，见 §三 |
+| `stdscan/` | ✅ **已处置**：移到 `var/_trash-2026-10-05/` 并加进 `.gitignore`（见 §三） | 已不在顶层 |
 
 ---
 
@@ -93,8 +96,8 @@
 
 | 条目 | **实际是什么** | 处置 |
 |---|---|---|
-| **`wenjianmulu/`** | 🔴 **生产库 `doc_meta.file_path` 指向这里的 PDF——活数据**。它是**证据 PDF 的溯源载体**（证据 tab 预览/高亮打开的就是它）。现有两份：`中国标准文献分类法（中标分类CCS）.pdf`、`GBT+39910-2021.pdf` | **MUST NOT 删、MUST NOT 移**。移了知识库的证据链就断 |
-| **`pipeline/03-contract-delta.md`** | 🔴 **schema 契约增量台账——活真源**（每次 schema 变更记录 DDL/影响面/回滚 SQL），**79 处引用** | **保留在原位**（它在仓库根不是 `docs/` 下，是历史原因）。改 schema 前必读 |
+| **`wenjianmulu/`** | 🔴 **生产库 `doc_meta.file_path` 指向这里的 PDF——活数据**。它是**证据 PDF 的溯源载体**（证据 tab 预览/高亮打开的就是它）。现有两份：`中国标准文献分类法（中标分类CCS）.pdf`、`GBT+39910-2021.pdf`。**受版本控制** | **MUST NOT 删、MUST NOT 移**。移了知识库的证据链就断 |
+| **`pipeline/03-contract-delta.md`** | 🔴 **schema 契约增量台账——活真源**（每次 schema 变更记录 DDL/影响面/回滚 SQL），**79 处引用**。**受版本控制**（`git ls-files` 可验） | **保留在原位**（它在仓库根不是 `docs/` 下，是历史原因）。改 schema 前必读 |
 | `stdscan/` | 本机探测日志（3 个 `.log`，**0 个受版本控制**） | ✅ **已处置**：移到 `var/_trash-2026-10-05/stdscan/`（只移不删），并加进 `.gitignore` |
 | `.browser4-cli/` | 浏览器工具的截图与快照（**0 个受版本控制**） | **已在 `.gitignore`（L40）**，无需处理 |
 | ~~`B3A-REPORT.md` / `B3B-REPORT.md`~~ | 根目录两份实施报告（工作树产物） | ✅ **已归位**：移到 [`archive/impl-reports/`](archive/impl-reports/) |

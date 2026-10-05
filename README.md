@@ -14,7 +14,19 @@
 
 ## 形态（2026-09-12 批 8 定稿）
 
-**引擎 + DSH 插件一体，无独立 EXE**。Python FastAPI 引擎（`src/core/`，入口 `python -m src.core.main`）+ Node DSH 插件（`plugin/`）。旧 Electron/Vite/双栏 SPA 已整体退役（git `0dcb67f`）。
+**引擎 + DSH 插件，一起交付；没有独立 EXE。**
+Python FastAPI 引擎（`src/core/`，入口 `python -m src.core.main`）+ Node DSH 插件（`plugin/`）。
+旧 Electron/Vite/双栏 SPA 已整体退役（git `0dcb67f`）。
+
+**「一起交付」不等于「同一个进程」——运行时是 `两个进程`**：
+
+| 进程 | 是什么 | 谁拉起 |
+|---|---|---|
+| **DSH 宿主** | 跑插件、给界面（侧栏 React） | 你（`dsh web`） |
+| **引擎** | 跑 `src/core/`，对外是 HTTP（`/api/v1/...`） | 插件按需拉起 |
+
+**⇒ 改 schema 后必须重启这两个进程**，引擎重启时由 `init_schema()` 建表。
+（本仓有过一次教训：建表提交晚于当时活着的两个进程 ⇒ 生产库没有该表、路由未注册，那个平面**还没在真机跑过一次**。）
 
 ## 五道门禁（改代码后必跑）
 

@@ -35,6 +35,16 @@
 
 ⚠ **以上是某一时点的快照。** 要引用请以最新门禁跑出来的数字为准。
 
+**⚠ 两处数字看起来对不上，是口径不同，不是矛盾**（这一点必须先说清，否则读者会以为哪份写错了）：
+
+| 数字 | 口径 | 来源 |
+|---|---|---|
+| `src/` **152 个 py** | **文件系统里有多少个 `.py`**（含 `__init__.py`、脚本性模块） | 本节，实测 `Get-ChildItem` |
+| mypy **134 个文件** | **门禁实际类型检查了多少个**（有排除规则） | 根 `README.md` 的「五道门禁」基线 |
+
+**⇒ 一个是"有多少文件"，一个是"查了多少文件"，本来就不该相等。**
+同理 `tests/` 的「约 163 个文件」与 pytest 的「1708 passed」也是两个口径——**后者是用例数，不是文件数**。
+
 ---
 
 ## 三、主要部件
@@ -53,11 +63,17 @@
 | `storage` | sqlite 存取、schema、向量索引 |
 | `update` + `update/channels` | 渠道巡检与台账 |
 | `materials` | 材料平面（用户上传与自采资料） |
-| `llm` | 模型调用 |
+| `llm` | 模型调用与作答 |
 | `exports` | 交付物导出 |
-| `quality` / `verification` | 质检与核验 |
-| `compliance` | 合规触发与作答门 |
-| `settings` / `vision` / `query` / `domain` | 配置 / 图像 / 查询 / 领域模型 |
+| `quality` / `verification` | 质检与分型核验 |
+| `compliance` | 合规门与差距分析 |
+| `query` | 查询理解（检索前把问句读懂） |
+| `settings` / `vision` / `domain` | 配置与凭据 / 图像 / 域模型契约 |
+
+> **「改 `retrieval` 具体要动哪个文件、哪个函数」** —— 本页只到**子系统**这一层。
+> **要文件级的下手点，看 [`components/retrieval.md`](components/retrieval.md)**：
+> 那里逐个列了 `hybrid_engine.py`（六路 + RRF）/ `term_bridge.py`（术语桥）/ `embedder.py` / `reranker.py`
+> 各自负责什么、以及谁调它们。**本页不重复那些内容**（一个事实一个归属层）。
 
 ### 3.2 插件（`plugin/`，Node）
 

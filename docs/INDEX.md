@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **130 份** / **5385 KB**。
+> 共 **142 份** / **5432 KB**。
 
 ## 方案与台账（9 份 / 463 KB）
 
@@ -17,7 +17,7 @@
 | `docs/INTRODUCTION.md` | 10 | 2026-09-19 | 一、我们解决的问题 |
 | `docs/HANDOVER-2026-09-23.md` | 7 | 2026-09-24 | 给接手的 AI 开发者。目标：把这个项目的收尾做完、把下面点名的问题修好。字数所限只给骨架；细读代码与 `docs/DE |
 
-## 检索与通用化研究（28 份 / 1158 KB）
+## 检索与通用化研究（29 份 / 1161 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -49,6 +49,7 @@
 | `docs/research/STANDARDS-AND-RETRIEVAL-DIRECTION-2026-10-05.md` | 8 | 2026-10-05 | 一、结论（三句） |
 | `docs/research/lay-phrasing-prompt.md` | 7 | 2026-09-25 | 一、v1 实测暴露的三个毛病（v2 就是为修它们） |
 | `docs/research/lay-phrasing-retrieval-test.md` | 7 | 2026-09-25 | 一、材料 |
+| `docs/wiki/components/vision.md` | 3 | 2026-10-05 | **位置**：`src/core/vision/` |
 
 ## 渠道与巡检（9 份 / 655 KB）
 
@@ -102,7 +103,7 @@
 | `docs/research/dsh-official/INGEST-LEDGER-pkg-agents.md` | 2 | 2026-09-19 | 核对方式：对每篇 `GET /documents/<id>` 取回 `original_text`，算 sha256 与 |
 | `docs/research/dsh-official/INGEST-LEDGER-root.md` | 2 | 2026-09-19 | 核对方式：对每篇 `GET /documents/<id>` 取回 `original_text`，算 sha256 与 |
 
-## 根文档与其他（37 份 / 582 KB）
+## 根文档与其他（48 份 / 626 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -125,23 +126,34 @@
 | `docs/research/REVIEW-PLAN-B-innovation.md` | 12 | 2026-09-28 | 0. 业主真正要解决的问题（原话，不是转述） |
 | `docs/research/HINDSIGHT-CAPABILITY-AUDIT-2026-09-28.md` | 9 | 未提交 | 0. 先说方法与一次"抓到了≠抓对了" |
 | `docs/research/REVIEW-PLAN-A-verification.md` | 9 | 2026-09-28 | 0. 一句话背景 |
+| `docs/README.md` | 7 | 2026-10-05 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
 | `docs/PROJECT-CONSOLIDATION-2026-10-05.md` | 6 | 2026-10-05 | 一、结论先行 |
-| `docs/README.md` | 6 | 2026-10-05 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
 | `docs/tool-catalog.md` | 6 | 2026-09-24 | ks_answer（说明书 998 字） |
+| `docs/wiki/architecture.md` | 6 | 2026-10-05 | **这一页给接手的人**：读完能说出这个项目要做什么、现在做到哪、主要部件各干什么。 |
+| `docs/wiki/components/plugin-tools.md` | 6 | 2026-10-05 | **位置**：`plugin/src/`（注册在 `index.js` 的 `apply()`） |
 | `docs/research/MODEL-AVAILABILITY-2026-09-28.md` | 5 | 2026-09-28 | 一、结论表（今天 2026-09-28 实测） |
 | `docs/CODE-REVIEW-CHECKLIST.md` | 4 | 2026-09-23 | 评审七条（逐条问，缺一不签） |
-| `docs/wiki/architecture.md` | 4 | 2026-10-05 | **这一页给接手的人**：读完能说出这个项目要做什么、现在做到哪、主要部件各干什么。 |
+| `docs/wiki/components/exports.md` | 4 | 2026-10-05 | **位置**：`src/core/exports/` |
+| `docs/wiki/components/law-source.md` | 4 | 2026-10-05 | **位置**：`src/core/knowledge/law_source/` |
+| `docs/wiki/components/llm.md` | 4 | 2026-10-05 | **位置**：`src/core/llm/` |
+| `docs/wiki/components/update-channels.md` | 4 | 2026-10-05 | **位置**：`src/core/update/channels/` |
 | `docs/research/hindsight-official/README.md` | 3 | 2026-09-30 | **这是什么**：Hindsight 官方文档站（`hindsight.vectorize.io`）整站正文的**本地逐 |
 | `docs/research/papers/README.md` | 3 | 2026-09-30 | 一、这里有什么 |
 | `docs/TEST-FLAKES.md` | 3 | 2026-09-25 | 处置纪律 |
 | `docs/wiki/components/api.md` | 3 | 2026-10-05 | **位置**：`src/core/api/` |
+| `docs/wiki/components/compliance.md` | 3 | 2026-10-05 | **位置**：`src/core/compliance/` |
+| `docs/wiki/components/domain.md` | 3 | 2026-10-05 | **位置**：`src/core/domain/` |
+| `docs/wiki/components/quality.md` | 3 | 2026-10-05 | **位置**：`src/core/quality/` |
+| `docs/wiki/components/query.md` | 3 | 2026-10-05 | **位置**：`src/core/query/` |
+| `docs/wiki/components/README.md` | 3 | 2026-10-05 | **每套组件一篇**，逐篇回答同一个问题：**这块负责什么、提供什么、依赖什么、明确不做什么。** |
 | `docs/wiki/components/retrieval.md` | 3 | 2026-10-05 | **位置**：`src/core/retrieval/` |
+| `docs/wiki/components/settings.md` | 3 | 2026-10-05 | **位置**：`src/core/settings/` |
 | `docs/wiki/components/storage.md` | 3 | 2026-10-05 | **位置**：`src/core/storage/` |
-| `docs/wiki/components/ingestion.md` | 2 | 未提交 | **位置**：`src/core/ingestion/` |
-| `docs/wiki/components/knowledge.md` | 2 | 未提交 | **位置**：`src/core/knowledge/` |
-| `docs/wiki/components/materials.md` | 2 | 未提交 | **位置**：`src/core/materials/` |
-| `docs/wiki/components/README.md` | 2 | 未提交 | **每套组件一篇**，逐篇回答同一个问题：**这块负责什么、提供什么、依赖什么、明确不做什么。** |
-| `docs/wiki/components/update.md` | 2 | 未提交 | **位置**：`src/core/update/` |
+| `docs/wiki/components/verification.md` | 3 | 2026-10-05 | **位置**：`src/core/verification/` |
+| `docs/wiki/components/ingestion.md` | 2 | 2026-10-05 | **位置**：`src/core/ingestion/` |
+| `docs/wiki/components/knowledge.md` | 2 | 2026-10-05 | **位置**：`src/core/knowledge/` |
+| `docs/wiki/components/materials.md` | 2 | 2026-10-05 | **位置**：`src/core/materials/` |
+| `docs/wiki/components/update.md` | 2 | 2026-10-05 | **位置**：`src/core/update/` |
 | `docs/WSL2-VLM-BACKEND-DECISION.md` | 2 | 2026-10-05 | **状态**：否决，保留复议权。本文档为执行计划 v3 阶段 0c 归档件（对评审 R6 的闭环）。 |
 
 ## 归档（19 份 / 1317 KB）
