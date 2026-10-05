@@ -43,14 +43,14 @@ description: "Task list for 001-project-consolidation"
 **Independent Test**: 随机抽 20 个文件，仅凭路径判断分类，与对应表一致率 100%（[quickstart.md](./quickstart.md) V2）。
 
 - [ ] T007 [US1] 用 T006 的输出生成 `specs/001-project-consolidation/rename-map.md`（E2 名称对应表）：每行含现名 / 新名 / 归属分类 / 改名理由 / 受影响引用数。**必须覆盖全部违规项；跳过项单列一节写明原因**
-- [ ] T008 [US1] 人工审一遍 T007 的表：检查有无两个不同文件算出同一新名（撞车必须停下来报告，不许静默加后缀）；检查例外清单外是否有人需要全大写
+- [ ] T008 [US1] 人工审 `specs/001-project-consolidation/rename-map.md`：检查有无两个不同文件算出同一新名（撞车必须停下来报告，不许静默加后缀）；检查例外清单外是否有人需要全大写
 - [ ] T009 [US1] 写 `scripts/docs/apply-rename.ps1`：读 `rename-map.md`，用 `git mv` 机械执行；每步打印；失败即停
 - [ ] T010 [US1] 用 T009 执行重命名，并按 [contracts/naming-convention.md](./contracts/naming-convention.md) §八 同步修正三类引用：文档间链接（基线 **207** 处）、代码里引用的文档路径（基线 **28** 处）、门禁脚本断言
-- [ ] T011 [US1] 跑 T004 的断链检查，**残留必须为 0**（SC-001）。若有残留，逐个修正后重跑，不许只改计数
+- [ ] T011 [US1] 跑 `scripts/docs/check-links.py`，**残留必须为 0**（SC-001），结果追加进 `specs/001-project-consolidation/baseline.md`。若有残留，逐个修正后重跑，不许只改计数
 - [ ] T012 [US1] 用 `git grep` 全仓搜全部旧名，确认残留 0；把命令与输出记进 `specs/001-project-consolidation/baseline.md`
 - [ ] T013 [US1] 跑门禁 `pwsh -File scripts/run-gates.ps1 -Quick`，退出码必须 0；测试通过数不得低于 T002 记的基线
 - [ ] T014 [US1] 更新 `docs/naming-convention.md`：把执行中发现的、规范没覆盖到的情况补进去（规范 MUST 反映实际执行过的判定）
-- [ ] T015 [US1] 收口提交：改了什么 / 为什么 / 边界
+- [ ] T015 [US1] 收口提交并更新 `specs/001-project-consolidation/baseline.md`：改了什么 / 为什么 / 边界
 
 **Checkpoint**: 名字统一后，仅凭路径即可判断分类。**此处可独立交付。**
 
@@ -70,7 +70,7 @@ description: "Task list for 001-project-consolidation"
 - [ ] T022 [P] [US2] 整理 `var/` 的 9 个子目录：每个写一行用途说明到 `var/README.md`（本地文件，不进版本控制也可）；明显临时产物移入 `var/_trash-2026-10-05/`；**业务资料（cad / articles 等）不动**
 - [ ] T023 [US2] 处理根目录的两份散落报告 `B3A-REPORT.md` / `B3B-REPORT.md`：按 T016 的定性归位
 - [ ] T024 [US2] 跑门禁 `-Quick` 确认没改坏；确认 T002 记的五份"别人的文件"哈希未变（SC-009）
-- [ ] T025 [US2] 收口提交
+- [ ] T025 [US2] 收口提交并更新 `specs/001-project-consolidation/baseline.md`
 
 **Checkpoint**: 仓库顶层每项可答"它是什么、在哪一类"。**此处可独立交付。**
 
@@ -89,7 +89,7 @@ description: "Task list for 001-project-consolidation"
 - [ ] T031 [US3] 把 `README.md`（仓库根）改成 wiki 入口：一屏内说清项目是什么、从哪读起，并链接到 `docs/README.md` → `wiki/architecture.md` → `wiki/components/`
 - [ ] T032 [US3] 在 `docs/README.md` 里写明 wiki 的**更新责任**（spec FR-018）：改了哪类代码该改哪份文档
 - [ ] T033 [US3] 重跑 `scripts/docs/gen-doc-index.py` 生成 `docs/INDEX.md`（文件名已变，索引必须同步）
-- [ ] T034 [US3] 收口提交
+- [ ] T034 [US3] 收口提交并重跑 `scripts/docs/check-links.py` 确认断链仍为 0
 
 **Checkpoint**: 外人只读 wiki 即可答出项目目标、现状、功能归属。
 
@@ -101,7 +101,7 @@ description: "Task list for 001-project-consolidation"
 - [ ] T036 派一个**没读过本仓的 agent** 验 V5（只给 `README.md`，问三类问题），把它的原始回答与评分记进 `acceptance.md`。**不许我自己代答**（本仓已有"父代理看串了"的实测记录）
 - [ ] T037 复核 `docs/trash-2026-10-05/` 的清单：逐项确认"确实无用"，确认后删除；**拿不准的移回归档区**
 - [ ] T038 跑全量门禁 `pwsh -File scripts/run-gates.ps1 -Full`，退出码 0
-- [ ] T039 核对 SC-009：五份"别人的文件"哈希与 T002 基线逐字节一致
+- [ ] T039 核对 SC-009：五份"别人的文件"（`pelican-bike.html`、`tests/test_jev_cn_baseline.py`、`plugin/src/*.bak-20260927-*`、两份 `docs/research/HINDSIGHT-*`）的哈希与 `specs/001-project-consolidation/baseline.md` 逐字节一致
 - [ ] T040 写 `specs/001-project-consolidation/acceptance.md` 的结论节：逐条 SC-001..SC-009 给"达成/未达成 + 证据"
 - [ ] T041 收口提交 + 快照 `& .\scripts\snapshot-project.ps1 -Label 项目整理收口`
 
