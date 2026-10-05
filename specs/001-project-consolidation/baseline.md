@@ -161,3 +161,17 @@
 3. 本仓 `docs/TEST-FLAKES.md` 有已知竞态型 flake 清单，重跑时先对一遍
 
 **⚠ 未办**：重跑与对照两条都还没做。登记为收口前的必办项。
+
+### 坑 5（新，git add -A 那个坑的变种）：`git add -u` 也不安全
+
+**`-A` 与 `-u` 都会收进"别人的未提交改动"**，只是路径不同：
+- `-A`：连**未跟踪**的新文件一起收（收进 HINDSIGHT 那两份）
+- `-u`：收**所有已跟踪文件的改动**（收进别人改的 `AGENTS.md` —— 它从 09-30 起就是 ` M` 状态）
+
+**⇒ 正确做法：`git add <明确列出的路径>`，一次都不要用 `-A` / `-u`。**
+**⇒ 提交前 MUST 看 `git diff --cached --name-status`。**
+
+本仓永远不该由我提交的：
+`pelican-bike.html`、`tests/test_jev_cn_baseline.py`、`plugin/src/*.bak-20260927-*`、
+`docs/research/HINDSIGHT-CAPABILITY-AUDIT-2026-09-28.md`、
+`docs/research/HINDSIGHT-FACTCHECK-2026-09-30.md`、**以及 `AGENTS.md`**（它长期是 ` M` 状态）。
