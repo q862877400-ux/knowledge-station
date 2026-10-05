@@ -3,6 +3,7 @@
 > **性质**：查证结论。**本文只记"查到了什么"，不写方案**（方案还没定）。
 > **归属**：基础层/检索的现状事实。总纲在 [`RETRIEVAL-LONG-RANGE-PLAN.md`](RETRIEVAL-LONG-RANGE-PLAN.md)，
 > 暂停状态在 [`PROJECT-STATUS-2026-10-05.md`](PROJECT-STATUS-2026-10-05.md)。
+> **⇒ 据此定下的决定与实验路线在 [BASELINE-PLAN-2026-10-06.md](BASELINE-PLAN-2026-10-06.md)。**
 > **为什么单独一篇**：这些数散在多次对话里，不落盘就会反复重查、反复争论。
 
 ---
