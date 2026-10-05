@@ -20,29 +20,29 @@
 | [knowledge](knowledge.md) | 法规知识本体 | 目录、分类号 CCS、别名反查 |
 | [update](update.md) | 渠道巡检与变更 | 盯 131 条渠道，把「还活着吗」变成可实测事实 |
 | [materials](materials.md) | 材料平面 | 自有材料也能当依据，但要过权威性纪律 |
-| [llm](llm.md) | 模型调用与作答 | 把证据交给模型，拿回只依据证据的答案 |
-| [exports](exports.md) | 交付物导出 | 报告 / 草稿 / Office 往返编辑 |
-| [quality](quality.md) | 质量分级与体检 | 打分定级挑毛病，**阈值与规则的唯一所有者** |
-| [verification](verification.md) | 分型核验 | 检查答案里「按规定该是什么」的东西对不对 |
-| [compliance](compliance.md) | 合规触发与差距分析 | 制度 vs 法规的逐条缺口 |
-| [domain](domain.md) | 域模型契约 | 全项目共用的数据形状（T00 冻结） |
-| [vision](vision.md) | 本地视觉 | 无云端视觉 API 也能看图 |
-| [query](query.md) | 查询理解 | 检索之前先把问句读懂 |
-| [settings](settings.md) | 设置与凭据 | 存密钥——而且**不碰系统层** |
-| [law-source](law-source.md) | 官方法规来源管线 | 抓官方法规原文，与标准件同构入库 |
-| [update-channels](update-channels.md) | 渠道适配器 | 每条官方渠道一个适配器（实测 14 个） |
+| [llm](llm.md) | 模型调用与作答 | 把「问题 + 证据」送进模型，装配成可核验的答案 |
+| [exports](exports.md) | 产出物组装与导出 | 效力报告 / 研究报告 / 引用块 / Excel / Office 往返 |
+| [quality](quality.md) | 质量判定 | 判定解析结果坏没坏，**阈值与规则的唯一所有者** |
+| [verification](verification.md) | 核验与纠错守卫 | 检查「模型说的」有没有证据、「用户改的」有没有改坏 |
+| [compliance](compliance.md) | 合规差距分析 | 制度逐条对回法规义务，指出缺在哪 |
+| [domain](domain.md) | 域模型契约 | 全项目共用的对象定义与模态强度（T00 冻结） |
+| [vision](vision.md) | 本地视觉反查 | 截图 → 文字 → 条款，全程本机 |
+| [query](query.md) | 查询理解 | 检索之前，先把问句拆成意图、主题与槽位 |
+| [settings](settings.md) | 设置与凭据 | 密钥只存引擎自己这里——**不碰系统层** |
+| [law-source](law-source.md) | 官方法规来源管线 | 从官方站抓法规原文，与标准件同构入库（`knowledge/` 子目录） |
+| [update-channels](update-channels.md) | 渠道适配器 | 每条官方渠道一个适配器（实测登记 13 个，`update/` 子目录） |
 
 ## 二、插件侧（`plugin/`）
 
 | 篇 | 覆盖 | 一句话 |
 |---|---|---|
-| [plugin-tools](plugin-tools.md) | 5 个模型可见工具 + 错误码常量 + 侧栏 | 本产品对 agent 的「手」 |
+| [plugin-tools](plugin-tools.md) | **6 个**模型可见工具（逐工具给用途 / 参数 / 返回 / 边界） | 引擎能力对 agent 的入口 |
 
 ---
 
 ## 三、进度与规矩
 
-**✅ 覆盖率 100%**：`src/core/` 的 **18 个子系统**逐篇 + 插件侧 1 篇 = **19 篇**（SC-006 达成）。
+**✅ 覆盖率 100%**：`src/core/` 的 **18 个组件**（16 个一级目录 + `knowledge/law_source`、`update/channels` 两个子目录）逐篇 + 插件侧 1 篇 = **19 篇**（SC-006 达成）。
 
 **若日后新增子系统**：**必须补一篇**，否则覆盖率不再是 100%——那时要在这里如实改回"未满"。
 

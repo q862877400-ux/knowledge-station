@@ -1,30 +1,55 @@
 # settings（设置与凭据）
 
 **位置**：`src/core/settings/`
-**一句话**：存密钥与配置——而且不碰系统层。
+**一句话**：密钥与通道配置只存在引擎自己这里——不碰系统层。
 
 ## 职责
 
-**配置与凭据**：API 凭据存储（`api_credentials.py` 19.1 KB，OCR / LLM 双通道，2026-09-11 命名空间化）、引擎侧密钥存储（`secret_store.py`）。
-
-**它不负责**：不做业务判断；不含任何领域逻辑。
+**凭据的唯一写落点**：`secret_store.py` 管 `<data_dir>/secrets.json`（Windows DPAPI 用户态加密、原子写、带锁）；`api_credentials.py` 管通道（两条，**一律 KS_ 前缀**：`mineru_cloud` = `KS_MINERU_CLOUD_API_KEY` + `KS_MINERU_CLOUD_BASE_URL`；`llm` = `KS_LLM_API_KEY` + `KS_LLM_BASE_URL`），以及旧名迁移（`DEEPSEEK_*` → `KS_LLM_*`）与系统层清理。
 
 ## 对外提供什么
 
-| API 凭据读写 | `api_credentials.py` | 引擎启动与调用链路 |
-| 密钥存储 | `secret_store.py` | 同上 |
+| 提供物 | 形式 | 调用方 |
+|---|---|---|
+| 密钥读写 | `secret_store.read_value()` / `has_value()` / `write_values()` / `stored_names()` | `api_credentials`、`config.py`（懒 import） |
+| 密钥文件路径 | `secret_store.store_path(data_dir)` | `storage/backup.py` |
+| 凭据写入与状态 | `api_credentials.set_credential()` / `get_status()` / `stored_channels()` | `api/routes_settings.py` |
+| 通道连通性测试 | `api_credentials.test_channel(channel)` | `api/routes_settings.py` |
+| 旧系统层迁移 | `import_system_layer()` / `adopt_legacy()` / `legacy_status()` | 设置界面 |
+| 系统层检查与清理 | `system_layer_names()` / `system_layer_status()` / `clean_system_layer(names)` | 设置界面 |
 
 ## 依赖什么
 
-| 本机文件系统 | 外部 | 存储（**命名空间化，不碰系统层**） |
+| 依赖 | 类型 | 用途 |
+|---|---|---|
+| 本机文件系统（`<data_dir>/secrets.json`） | 存储 | 唯一写落点 |
+| Windows DPAPI（`CryptProtectData` / `CryptUnprotectData`） | 操作系统 | 用户态加密 |
+| `HKCU\Environment` / 进程环境变量 | 操作系统 | **只读**：迁移前兼容与迁移工具的读取源 |
 
 ## 明确不做什么
 
-- 🔴 **MUST NOT 碰系统层**：业主 2026-09-11 指令「**不要动系统层**」——不写注册表、不写全局环境变量、不用 `--global`。
-- **不把凭据写进日志**。
-- **不做凭据的权限管理**：本机单用户场景，不做多用户隔离。
+- 🔴 **MUST NOT 碰系统层**：业主 2026-09-11 指令「不要动系统层」——不写注册表、不写系统 / 全局环境变量、不用 `--global`；系统层**只读**。
+- **唯一允许的系统层写操作是删除**：`clean_system_layer()`，且**先核对加密存储读回一致才删**。
+- **不回显密钥**：只回状态（有没有、来源是哪一层）。
+- **不写数据库**：密钥不进表。
+- **不替调用方选模型 / 版本之外的事**：只存 `api_key` / `base_url` / `model_version` 三个值，不决定用哪家。
+- **不做多用户隔离**（未核：是否有此需求登记）。
+
+## 关键数据
+
+| 对象 | 关键字段 | 说明 |
+|---|---|---|
+| `<data_dir>/secrets.json` | 通道名 → 加密后的值 | DPAPI 加密；`KS_DATA_DIR` 可重定向 |
+| 通道表（`api_credentials.py` 内） | 2 条：`mineru_cloud` / `llm` | 键名与 `KS_` 前缀写死在这里 |
+
+## 改了它会影响谁
+
+- **`api/routes_settings.py`**：设置界面的全部端点
+- **`llm`**：Key 未配置时抛 `LLMError`、降级为占位答案
+- **`storage/backup.py`**：备份含 `store_path`
+- **DSH 宿主**：历史上写系统层曾把 DSH 的模型设置页密钥输入框永久置灰（两次真实事故），本模块就是为断掉这条链而存在
 
 ## 已知边界（诚实）
 
-- **命名空间化是 2026-09-11 的改动**：在此之前的写法可能与现在不同，读旧文档时注意。
-- ⚠ 本仓有全局纪律「**Never touch the system tier**」，本模块是它在产品侧的落地。
+- **DPAPI 是 Windows 用户态**：换用户或换机器，`secrets.json` 解不开。
+- **旧名 `DEEPSEEK_*` 仍被读取**（迁移兼容），但**新值只写 `KS_*`**。
