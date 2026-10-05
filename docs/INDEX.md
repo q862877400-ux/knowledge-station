@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **143 份** / **5441 KB**。
+> 共 **144 份** / **5452 KB**。
 
 ## 方案与台账（9 份 / 465 KB）
 
@@ -9,20 +9,20 @@
 |---|---:|---|---|
 | `docs/KB-FOLDER-PLAN.md` | 154 | 2026-09-24 | 一、定案（业主原话要点） |
 | `docs/MATERIALS-PLANE-PLAN.md` | 154 | 2026-09-26 | 0. 业主已裁定的事项（本方案的前提，不是提议） |
-| `docs/ENCYCLOPEDIA.md` | 75 | 2026-10-05 | 1. 项目概览与产品承诺 |
+| `docs/ENCYCLOPEDIA.md` | 75 | 2026-10-06 | 1. 项目概览与产品承诺 |
 | `docs/EXECUTION-PLAN.md` | 18 | 2026-09-20 | **怎么用这份文件**：每轮开工先读它 → 按序做 → 收工把该行状态改成「✅ 完成（提交号+快照）」 |
 | `docs/AUTO-DRAFT-PLAN.md` | 17 | 2026-09-19 | 1. 结论（先给结论） |
 | `docs/VISION-TREE.md` | 16 | 2026-09-25 | 本版修订记录（2026-09-25） |
 | `docs/AUTORUN-PLAN-2026-09-24.md` | 13 | 2026-09-24 | 0. 执行纪律（每条都来自 AGENTS.md，血泪换的） |
-| `docs/INTRODUCTION.md` | 11 | 2026-09-19 | 一、我们解决的问题 |
+| `docs/INTRODUCTION.md` | 11 | 2026-10-06 | 一、我们解决的问题 |
 | `docs/HANDOVER-2026-09-23.md` | 7 | 2026-09-24 | 给接手的 AI 开发者。目标：把这个项目的收尾做完、把下面点名的问题修好。字数所限只给骨架；细读代码与 `docs/DE |
 
-## 检索与通用化研究（29 份 / 1161 KB）
+## 检索与通用化研究（29 份 / 1162 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
 | `docs/research/weknora-ui/02-shell-and-other-pages.md` | 115 | 2026-09-19 | 0. 一张图先看结论 |
-| `docs/RETRIEVAL-LONG-RANGE-PLAN.md` | 96 | 2026-10-05 | 1. 现状基线（一页看完，全部是实测） |
+| `docs/RETRIEVAL-LONG-RANGE-PLAN.md` | 97 | 2026-10-06 | 1. 现状基线（一页看完，全部是实测） |
 | `docs/research/weknora-kb-ui/02-components-and-visual-language.md` | 87 | 2026-09-19 | 1. 组件清单 |
 | `docs/research/weknora-kb-ui/01-pages-and-flows.md` | 86 | 2026-09-19 | **来源**：`D:\AI\WeKnora`（Git checkout），commit `b82fd6c0f9939e8 |
 | `docs/research/weknora-ui/01-chat-and-citations.md` | 86 | 2026-09-19 | 0. 页面 / 路由清单表 |
@@ -103,7 +103,7 @@
 | `docs/research/dsh-official/INGEST-LEDGER-pkg-agents.md` | 2 | 2026-09-19 | 核对方式：对每篇 `GET /documents/<id>` 取回 `original_text`，算 sha256 与 |
 | `docs/research/dsh-official/INGEST-LEDGER-root.md` | 2 | 2026-09-19 | 核对方式：对每篇 `GET /documents/<id>` 取回 `original_text`，算 sha256 与 |
 
-## 根文档与其他（49 份 / 633 KB）
+## 根文档与其他（50 份 / 643 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -124,13 +124,14 @@
 | `docs/LAW-SOURCE-PLAN.md` | 14 | 2026-10-05 | 0. 目标与原则 |
 | `docs/research/HINDSIGHT-DEPLOYMENT-STATUS-2026-09-30.md` | 13 | 2026-09-30 | 一、一句话现状 |
 | `docs/research/REVIEW-PLAN-B-innovation.md` | 12 | 2026-09-28 | 0. 业主真正要解决的问题（原话，不是转述） |
+| `docs/BASELINE-DIAGNOSIS-2026-10-06.md` | 10 | 未提交 | 〇、先定两件事（业主 2026-10-06 亲述，不再讨论） |
 | `docs/research/HINDSIGHT-CAPABILITY-AUDIT-2026-09-28.md` | 9 | 未提交 | 0. 先说方法与一次"抓到了≠抓对了" |
 | `docs/research/REVIEW-PLAN-A-verification.md` | 9 | 2026-09-28 | 0. 一句话背景 |
 | `docs/README.md` | 7 | 2026-10-05 | **这是什么**：仓库里**每一样东西在哪、用来干什么**。 |
 | `docs/PROJECT-CONSOLIDATION-2026-10-05.md` | 6 | 2026-10-05 | 一、结论先行 |
-| `docs/PROJECT-STATUS-2026-10-05.md` | 6 | 未提交 | 一、状态：**开发暂停** |
+| `docs/PROJECT-STATUS-2026-10-05.md` | 6 | 2026-10-06 | 一、状态：**开发暂停** |
 | `docs/tool-catalog.md` | 6 | 2026-09-24 | ks_answer（说明书 998 字） |
-| `docs/wiki/architecture.md` | 6 | 2026-10-05 | **这一页给接手的人**：读完能说出这个项目要做什么、现在做到哪、主要部件各干什么。 |
+| `docs/wiki/architecture.md` | 6 | 2026-10-06 | **这一页给接手的人**：读完能说出这个项目要做什么、现在做到哪、主要部件各干什么。 |
 | `docs/wiki/components/plugin-tools.md` | 6 | 2026-10-05 | **位置**：`plugin/src/`（注册在 `index.js` 的 `apply()`） |
 | `docs/research/MODEL-AVAILABILITY-2026-09-28.md` | 5 | 2026-09-28 | 一、结论表（今天 2026-09-28 实测） |
 | `docs/CODE-REVIEW-CHECKLIST.md` | 4 | 2026-09-23 | 评审七条（逐条问，缺一不签） |
