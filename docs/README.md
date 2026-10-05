@@ -89,9 +89,9 @@
 |---|---|---|
 | **`wenjianmulu/`** | 🔴 **生产库 `doc_meta.file_path` 指向这里的 PDF——活数据**。它是**证据 PDF 的溯源载体**（证据 tab 预览/高亮打开的就是它）。现有两份：`中国标准文献分类法（中标分类CCS）.pdf`、`GBT+39910-2021.pdf` | **MUST NOT 删、MUST NOT 移**。移了知识库的证据链就断 |
 | **`pipeline/03-contract-delta.md`** | 🔴 **schema 契约增量台账——活真源**（每次 schema 变更记录 DDL/影响面/回滚 SQL），**79 处引用** | **保留在原位**（它在仓库根不是 `docs/` 下，是历史原因）。改 schema 前必读 |
-| `stdscan/` | 本机探测日志（3 个 `.log`，**0 个受版本控制**） | 本机产物，可清理 |
+| `stdscan/` | 本机探测日志（3 个 `.log`，**0 个受版本控制**） | ✅ **已处置**：移到 `var/_trash-2026-10-05/stdscan/`（只移不删），并加进 `.gitignore` |
 | `.browser4-cli/` | 浏览器工具的截图与快照（**0 个受版本控制**） | **已在 `.gitignore`（L40）**，无需处理 |
-| `B3A-REPORT.md` / `B3B-REPORT.md` | 根目录两份实施报告（**工作树产物**，`D:\AI\work space\zcode-b3a-ccs` 那棵树的） | ⏳ **真·待归位** |
+| ~~`B3A-REPORT.md` / `B3B-REPORT.md`~~ | 根目录两份实施报告（工作树产物） | ✅ **已归位**：移到 [`archive/impl-reports/`](archive/impl-reports/) |
 
 **教训（写给下次的我）**：**判一个条目"来历不明"之前，先读根 `README.md` 的「目录结构」一节。**
 它逐条写了每个目录是什么、哪些是活数据。我这次没先读，差点把生产库的证据 PDF 当垃圾。

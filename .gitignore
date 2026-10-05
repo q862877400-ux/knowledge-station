@@ -77,3 +77,6 @@ docs/research/papers/*.html
 
 # 项目级 .dsh/：skill 副本与本地状态，用户级 ~/.dsh/ 已有同一份
 .dsh/
+
+# 本机探测日志（0 受控，2026-10-05 移入 var/_trash-2026-10-05/）
+stdscan/
