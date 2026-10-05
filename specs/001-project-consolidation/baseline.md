@@ -175,3 +175,25 @@
 `pelican-bike.html`、`tests/test_jev_cn_baseline.py`、`plugin/src/*.bak-20260927-*`、
 `docs/research/HINDSIGHT-CAPABILITY-AUDIT-2026-09-28.md`、
 `docs/research/HINDSIGHT-FACTCHECK-2026-09-30.md`、**以及 `AGENTS.md`**（它长期是 ` M` 状态）。
+
+### smoke 失败：**已定案 —— 与本特征无关（有机械证据）；但缺陷真实且可复现**
+
+前面记的"原因未确定"**现在可以收口了**。重跑一次（安静机器、只跑该脚本，不再并发别的作业）后：
+
+| 证据 | 结果 |
+|---|---|
+| **本特征改过 `plugin/` 的文件数** | **0**（`git diff --name-only <开工前>..HEAD -- plugin/` 为空） |
+| smoke 渲染的是什么 | `plugin/client/` 的界面 |
+| **⇒ 逻辑上不可能被本特征影响** | ✅ |
+| 复现性 | **两次都红，同样那 2 个场景**（`kb|kb-filemenu@520`、`kb|kb-dirmenu@520`，均 `ui-render-shot exit=null`）⇒ **不是偶发 flake** |
+| 在 `docs/TEST-FLAKES.md` 已知 flake 清单里吗 | **不在** |
+| `ui-render-shot.mjs` 自述 | 这 2 个场景是 **2026-09-22 新增**，且**当时就出过事**（原话：「断言全过、截图却是一张没有菜单的页面」） |
+
+**⇒ 结论：**
+1. **不是本特征造成的**（0 个 `plugin/` 文件被改，机械可证）
+2. **但它是一个真实、稳定可复现的红**，出在 2026-09-22 新增、且有前科的两个场景上
+3. **登记为独立缺陷。本特征不修**——修它需要先弄清 `ui-render-shot` 在
+   `--interact kb-filemenu` / `kb-dirmenu` 两条路上为什么返回 `exit=null`（子进程没跑完），
+   那是插件侧的活，超出"文件组织与文档"的边界。
+
+**⚠ 先前那条"收口前 MUST 重跑"的要求已履行**，结果记在此处。

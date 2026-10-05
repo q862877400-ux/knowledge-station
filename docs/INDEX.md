@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **122 份** / **5366 KB**。
+> 共 **125 份** / **5375 KB**。
 
 ## 方案与台账（9 份 / 463 KB）
 
@@ -102,7 +102,7 @@
 | `docs/research/dsh-official/INGEST-LEDGER-pkg-agents.md` | 2 | 2026-09-19 | 核对方式：对每篇 `GET /documents/<id>` 取回 `original_text`，算 sha256 与 |
 | `docs/research/dsh-official/INGEST-LEDGER-root.md` | 2 | 2026-09-19 | 核对方式：对每篇 `GET /documents/<id>` 取回 `original_text`，算 sha256 与 |
 
-## 根文档与其他（29 份 / 563 KB）
+## 根文档与其他（32 份 / 572 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -134,6 +134,9 @@
 | `docs/research/hindsight-official/README.md` | 3 | 2026-09-30 | **这是什么**：Hindsight 官方文档站（`hindsight.vectorize.io`）整站正文的**本地逐 |
 | `docs/research/papers/README.md` | 3 | 2026-09-30 | 一、这里有什么 |
 | `docs/TEST-FLAKES.md` | 3 | 2026-09-25 | 处置纪律 |
+| `docs/wiki/components/api.md` | 3 | 未提交 | **位置**：`src/core/api/` |
+| `docs/wiki/components/retrieval.md` | 3 | 未提交 | **位置**：`src/core/retrieval/` |
+| `docs/wiki/components/storage.md` | 3 | 未提交 | **位置**：`src/core/storage/` |
 | `docs/WSL2-VLM-BACKEND-DECISION.md` | 2 | 2026-10-05 | **状态**：否决，保留复议权。本文档为执行计划 v3 阶段 0c 归档件（对评审 R6 的闭环）。 |
 
 ## 归档（19 份 / 1317 KB）
@@ -146,11 +149,11 @@
 | `docs/archive/review-briefs/b3b-ccs-ui-report.md` | 29 | 2026-10-05 | 实跑核过；`git merge-base --is-ancestor 12cb6b0 aaad270` ⇒ exit 0 |
 | `docs/archive/review-briefs/b6-p0-report.md` | 29 | 2026-10-05 | 复核树：`D:\AI\work space\zcode-verify-b6`（`git worktree add --d |
 | `docs/archive/review-briefs/ccs-chain-report.md` | 28 | 2026-10-05 | 复核树（唯一读写面）：`D:\AI\work space\zcode-verify-ccs`（detached，标签 ` |
-| `docs/archive/impl-reports/B3A-REPORT.md` | 27 | 未提交 | **不在 master 历史里**；主仓里对应的三笔是 `aa139db` / `94a85c3` / `425c4fe |
+| `docs/archive/impl-reports/B3A-REPORT.md` | 27 | 2026-10-05 | **不在 master 历史里**；主仓里对应的三笔是 `aa139db` / `94a85c3` / `425c4fe |
 | `docs/archive/review-briefs/b1b2-report.md` | 23 | 2026-10-05 | 复核树：`D:\AI\work space\zcode-verify-b1b2`（冻结 tag `verify-free |
 | `docs/archive/review-briefs/b5-gate-report.md` | 22 | 2026-10-05 | 复核代理（独立，非本批作者）。冻结树 `D:\AI\work space\zcode-verify-b5`，tag `v |
 | `docs/archive/review-briefs/VERIFY-REPORT-jev-b1.md` | 22 | 2026-10-05 | 结论 |
-| `docs/archive/impl-reports/B3B-REPORT.md` | 15 | 未提交 | **不在 master 历史里**；主仓里对应的三笔是 `2d10e6c` / `f9116d3` / `aaad270 |
+| `docs/archive/impl-reports/B3B-REPORT.md` | 15 | 2026-10-05 | **不在 master 历史里**；主仓里对应的三笔是 `2d10e6c` / `f9116d3` / `aaad270 |
 | `docs/archive/review-briefs/d508773-report.md` | 12 | 2026-10-05 | 复核树：`D:\AI\work space\zcode-verify-d508`（冻结 tag `verify-free |
 | `docs/archive/review-briefs/README.md` | 9 | 2026-10-05 | **这里放独立 verifier 的任务书与结论摘要。** |
 | `docs/archive/review-briefs/b3b-ccs-ui-brief.md` | 8 | 2026-10-05 | 1. 在哪棵树上干（冻结树，绝对路径） |
