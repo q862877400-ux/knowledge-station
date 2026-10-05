@@ -1,6 +1,6 @@
 import pathlib, re, subprocess, collections
 root = pathlib.Path(".").resolve()
-docs = sorted((root/"docs").rglob("*.md"))
+docs = sorted(p for p in (root/"docs").rglob("*.md") if p.name != "INDEX.md")
 def first_desc(p):
     try: t = p.read_text(encoding="utf-8", errors="replace")
     except Exception: return ""

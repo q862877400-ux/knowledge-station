@@ -1,7 +1,7 @@
 # docs/ 总索引（机械生成，勿手改）
 
 > 生成脚本见本文末尾命令。**只列文件名、体积、最后提交日、一句话**；正文各自住在原文件里。
-> 共 **116 份** / **5298 KB**。
+> 共 **115 份** / **5283 KB**。
 
 ## 方案与台账（10 份 / 477 KB）
 
@@ -122,7 +122,7 @@
 | `docs/verify-briefs/b5-gate-brief.md` | 7 | 2026-09-24 | 0. 你的工作树（唯一） |
 | `docs/verify-briefs/announce-nav-cleanup-20260924.md` | 3 | 2026-09-24 | **为什么要留档**：这是我唯一一次**删真实数据**的动作（删除 22 行 `announcement_observe |
 
-## 根文档与其他（27 份 / 1529 KB）
+## 根文档与其他（26 份 / 1514 KB）
 
 | 文档 | KB | 最后改 | 一句话 |
 |---|---:|---|---|
@@ -139,7 +139,6 @@
 | `docs/research/cross-plane-jump-assessment.md` | 20 | 2026-09-24 | 一、问题与已定的范围 |
 | `docs/research/TECH-PATH-2026-09-28.md` | 20 | 2026-09-28 | §0 状态表（截至 2026-09-28 收工，给业主看） |
 | `docs/research/DECISION-TABLE-2026-09-28.md` | 17 | 2026-09-28 | §0 三栏速览（一张表看全；细节在 §A–§F） |
-| `docs/INDEX.md` | 15 | 2026-10-05 | 方案与台账（10 份 / 477 KB） |
 | `docs/NEXT-DEV-PLAN-2026-09-28.md` | 15 | 2026-09-30 | 一、我们现在进行到哪里（一页） |
 | `docs/research/HINDSIGHT-DEPLOYMENT-STATUS-2026-09-30.md` | 13 | 2026-09-30 | 一、一句话现状 |
 | `docs/research/REVIEW-PLAN-B-innovation.md` | 12 | 2026-09-28 | 0. 业主真正要解决的问题（原话，不是转述） |
