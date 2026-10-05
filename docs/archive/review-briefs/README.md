@@ -4,7 +4,7 @@
 
 ## 为什么要有这个目录（2026-09-19 整改）
 
-此前任务书写在 `var/tmp/VERIFY-BRIEF-bNN.md`，而 `var/tmp/` 被 [.gitignore](../../.gitignore) 整体忽略
+此前任务书写在 `var/tmp/VERIFY-BRIEF-bNN.md`，而 `var/tmp/` 被 [.gitignore(../../../.gitignore) 整体忽略
 ⇒ **复核任务书与复核结论都不在版本控制里**：换机器就没了，事后想复查"当时让 verifier 验的是哪份代码"
 只能从史书里人工摘录的几句去猜。实测清理后 `var/tmp/` 里 `VERIFY-BRIEF*` **0 个**。
 
@@ -19,7 +19,7 @@
 - verifier **在冻结提交的提取树上验**（`git worktree add` / `git archive`），
   并在报告**首尾各记一次** `git rev-parse HEAD` + `git status --short`。
 - 结论只往这里写**摘要**；逐条详述可以落在这里，也可以只在史书里留一行链接。
-- 这条纪律的正文在根 [AGENTS.md](../../AGENTS.md) 的"复核"一节——**这里是它的证据落地处**。
+- 这条纪律的正文在根 [AGENTS.md(../../../AGENTS.md) 的"复核"一节——**这里是它的证据落地处**。
 - **⚠ 复核也要守门禁的锁**（2026-09-19 起，用血换的）：verifier 在提取树里跑冒烟时**必须**走
   `npm run smoke`（= `plugin/scripts/smoke-all.mjs`，它与 `run-gates.ps1` **共用同一个锁文件**）；
   拿到**退出码 3 = 有人在跑**，要**等**，不是失败。写成这条的原因是：上一轮的 `-Full` 里
@@ -97,7 +97,7 @@
 **修后自证**：`var/tmp/mutate-jev-guard.py` **17/17 变异全红、全部字节级还原**
 （9 条原有 + 8 条针对这 6 MED 与 HIGH 的"修后牙"）。
 
-- **两边内容不同时以本目录为准**，并当场把差异登记到 [开发史](../DEVELOPMENT-HISTORY.md)。
+- **两边内容不同时以本目录为准**，并当场把差异登记到 [开发史(../../DEVELOPMENT-HISTORY.md)。
 - ⚠ **还只在 `var/tmp/` 的**：`verify-reports/B7-REPORT.md`（B7 那批的**实施**报告，与上面这批
   "复核结论"不同类；根目录已有 `B3A-REPORT.md`/`B3B-REPORT.md` 的先例，搬不搬**待定**）
   ＋ 三份 `verify-*-residuals.md` 笔记（残余清单，内容已进史书）。

@@ -8430,7 +8430,7 @@ disposer 体**全同步** = run-to-completion，两条语句之间不可能插�
 
 1. **我在任务书里写了一个不存在的标签**：`verify-freeze-lifecycle`（我压根没 `git tag` 过，
    只写了哈希）。复核 `git tag -l` 扑空、改用哈希提取，**但它本可以就此停下**。
-   ⇒ 已补打该标签，并把"先打标签再写任务书"的顺序写死（[verify-briefs 约定](verify-briefs/README.md)）。
+   ⇒ 已补打该标签，并把"先打标签再写任务书"的顺序写死（[verify-briefs 约定](archive/review-briefs/README.md)）。
 2. 我让复核"绕开 `run-gates.ps1` 直接跑单个冒烟"——这条建议**正是**当轮 `-Full` 里
    `smoke-chatmode` 172/173 假红的来源（锁当时拦不住那条路，见第八节）。
 
@@ -8471,7 +8471,7 @@ disposer 体**全同步** = run-to-completion，两条语句之间不可能插�
 ⚠ 边界：若此刻活着的宿主进程内存里已缓存过这份状态，它**下次落盘会把它写回来**——
 我只做到"当前磁盘干净 + 已留证"，**没有**去动那个进程。
 
-纪律侧补两条到 [verify-briefs 约定](verify-briefs/README.md)：**复核跑冒烟前必须把
+纪律侧补两条到 [verify-briefs 约定](archive/review-briefs/README.md)：**复核跑冒烟前必须把
 `KS_DATA_DIR` 指到临时目录**（冻结提交里的冒烟可能还没这个修复），以及**冒烟要走带锁的入口**。
 
 ### 八、那次假红追出来的两条门禁缺陷（本轮一并修）
@@ -8576,7 +8576,7 @@ tsc 0、引擎门禁 4/4 全绿。**单独重跑 `smoke-chatmode` → 173/173 �
 - **真机未验**：门禁、冒烟、棘轮全是本机命令；`RUN_LIVE` 那条联网用例**没跑**（默认 skip 是刻意的）。
 - **锁的时效兜底是拍脑袋的 6 小时**（门禁实测 ~7 分钟）；pid 复用撞上"恰好又是个 pwsh"仍会误判。
 - **`KS_DATA_DIR` 临时目录只盖住走脚本那条路**：直接 `node scripts/smoke-*.mjs` 仍可能写真实数据区
-  （已写进 [verify-briefs 约定](verify-briefs/README.md)）。
+  （已写进 [verify-briefs 约定](archive/review-briefs/README.md)）。
 - **`inject` 改完没有真机验证**：我只证明了代码与桩契约一致（冒烟 22 条命令断言全绿），
   **没有**在真宿主里卸掉 `commands` 服务看它是否照常吼日志。
 
