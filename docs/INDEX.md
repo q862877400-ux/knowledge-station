@@ -47,7 +47,7 @@
 | `docs/research/lay-language-retrieval-evidence.md` | 13 | 2026-09-25 | 一、词汇不匹配：这是有名字、有量化的问题 |
 | `docs/research/lay-phrasing-scaleup-test.md` | 10 | 2026-09-25 | 一、两批文件是什么（先校清，别猜） |
 | `docs/research/RETRIEVAL-RESEARCH-LEDGER-2026-09-30.md` | 9 | 2026-09-30 | 1. 一句话现状（2026-09-30 收尾时） |
-| `docs/research/STANDARDS-AND-RETRIEVAL-DIRECTION-2026-09-30.md` | 8 | 2026-10-05 | 一、结论（三句） |
+| `docs/research/STANDARDS-AND-RETRIEVAL-DIRECTION-2026-10-05.md` | 8 | 未提交 | 一、结论（三句） |
 | `docs/research/lay-phrasing-prompt.md` | 7 | 2026-09-25 | 一、v1 实测暴露的三个毛病（v2 就是为修它们） |
 | `docs/research/lay-phrasing-retrieval-test.md` | 7 | 2026-09-25 | 一、材料 |
 
@@ -144,7 +144,7 @@
 | `docs/research/REVIEW-PLAN-B-innovation.md` | 12 | 2026-09-28 | 0. 业主真正要解决的问题（原话，不是转述） |
 | `docs/research/HINDSIGHT-CAPABILITY-AUDIT-2026-09-28.md` | 9 | 未提交 | 0. 先说方法与一次"抓到了≠抓对了" |
 | `docs/research/REVIEW-PLAN-A-verification.md` | 9 | 2026-09-28 | 0. 一句话背景 |
-| `docs/PROJECT-CONSOLIDATION-2026-09-30.md` | 6 | 2026-10-05 | 一、结论先行 |
+| `docs/PROJECT-CONSOLIDATION-2026-10-05.md` | 6 | 未提交 | 一、结论先行 |
 | `docs/tool-catalog.md` | 6 | 2026-09-24 | ks_answer（说明书 998 字） |
 | `docs/research/MODEL-AVAILABILITY-2026-09-28.md` | 5 | 2026-09-28 | 一、结论表（今天 2026-09-28 实测） |
 | `docs/CODE-REVIEW-CHECKLIST.md` | 4 | 2026-09-23 | 评审七条（逐条问，缺一不签） |

@@ -1,4 +1,4 @@
-# 项目盘整（2026-09-30）：第一性原理看文档与进度
+# 项目盘整（2026-10-05）：第一性原理看文档与进度
 
 > 触发：业主「分析现在项目开发进度和项目代码文件结构以及项目所有文档，**按照第一性原理进行整理，该抛弃的历史记录就抛弃**，
 > 不然周期这么长这么多轮，文本很快就又臭又长了」。
@@ -113,7 +113,7 @@
 
 | 类 | 文件 | 处置 |
 |---|---|---|
-| **🔴 别的会话的未提交件** | `HINDSIGHT-CAPABILITY-AUDIT-2026-09-28.md`、`HINDSIGHT-FACTCHECK-2026-09-30.md` | **我不动**（不是我的产物，且在写） |
+| **🔴 别的会话的未提交件** | `HINDSIGHT-CAPABILITY-AUDIT-2026-09-28.md`、`HINDSIGHT-FACTCHECK-2026-10-05.md` | **我不动**（不是我的产物，且在写） |
 | **一套 6 份** | `INGEST-LEDGER-{pkg-readme-zh,pkg-readme,repo-docs,skills,pkg-agents,root}.md`（50+48+30+5+2+2 KB，都是 09-19） | ⚠ **先查有没有索引**；是一套就合一份或建索引 |
 | **其余 5 份** | `rag-encyclopedia-study.md` 21、`retrieval-pipeline-design-merge.md` 16、`jev-mem-assessment.md` 14、`lay-language-retrieval-evidence.md` 13、+ 本轮新写的 3 份 | 逐个定性 |
 

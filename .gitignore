@@ -74,3 +74,6 @@ docs/research/papers/*.html
 #   （本仓真出过 `.gitignore` 吞生产文件的事故，见开发史 §10 批 0 第 1 条）。
 #   ⇒ **glob 已删除**；现在把变异副本放 `%TEMP%`（副本内把 `REPO` 指向仓库绝对路径），树里不留副本。
 #   完整经过见 `docs/DEVELOPMENT-HISTORY.md` §10.148 的更正小节。
+
+# 项目级 .dsh/：skill 副本与本地状态，用户级 ~/.dsh/ 已有同一份
+.dsh/
