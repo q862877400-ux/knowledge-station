@@ -93,11 +93,25 @@ $py = '.venv\Scripts\python.exe'
 
 & $py eval\recall-funnel\exp-1-contextual\01-copy-db.py       # 真库 → 副本（只读源，不改真库）
 & $py eval\recall-funnel\exp-1-contextual\02-build-text.py    # 在建好的副本里生成 retrieval_text_ctx
+& $py eval\recall-funnel\exp-1-contextual\02b-align-arms.py   # ★ 把两臂的候选集合对齐（见下）
 & $py eval\recall-funnel\exp-1-contextual\03-embed.py         # 逐批算向量 → clause_vec_ctx（断点续跑）
 & $py eval\recall-funnel\exp-1-contextual\04a-control-check.py # 先证对照臂能复现基线（见下）
 & $py eval\recall-funnel\exp-1-contextual\04-ab-eval.py --dry-run  # 再证并集定义能复现基线
 & $py eval\recall-funnel\exp-1-contextual\04-ab-eval.py       # 两臂对照
 ```
+
+### ★ `02b-align-arms.py`：为什么必须有这一步
+
+中途体检发现：对照臂 `clause_vec` = **522,021** 行，而实验臂只会到 **521,978** 行 ——
+差的 **43 条是正文为空**的条文（它们的向量在对照臂里是用 `"\n"` 算出来的，属于**退化的垃圾干扰项**）。
+
+**两臂候选集合不一致 ⇒ 名次不可比**：少 43 个干扰项会让实验臂的名次**看似变好**，
+而这与"换文本"毫无关系。这也正是 `stop-loss.json` 里 `hard_fail_conditions` 写死的那一条。
+
+⇒ 对齐办法：**从副本里删掉那 43 条对照臂向量**（**只动副本，真库一个字节不碰**），
+使两臂都只在"**有正文的 521,978 条**"上排名。
+**删完必须重跑 `04a-control-check.py`**：实测仍逐位复现基线（0.1000 / 0.1750 / 0.3583），
+说明那 43 条从未进过这批题的前 1000 名。
 
 ### ⚠ 两个"先证仪器、再看结果"的自检（**都必须先过**）
 
