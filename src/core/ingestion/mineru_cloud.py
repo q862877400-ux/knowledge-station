@@ -239,16 +239,25 @@ def _safe_extract(zip_path: Path, dest: Path) -> None:
 def _validate_middle(path: Path) -> None:
     """schema 守卫：云产物 middle.json 必须与本地同构（大声报错不静默）。
 
-    同构判据（load_middle_items 消费的最小充分结构）：
-    - JSON 对象；pdf_info 是非空列表；
+    同构判据（``load_middle_items`` 消费的最小充分结构）：
+    - 可被 :func:`middle_schema.load_middle_json` 归一（3.4 的 ``pdf_info`` 或 4.0 的 ``pages``）；
+    - 归一后 ``pdf_info`` 是非空列表；
     - 每页是 dict 且带 page_idx（para_blocks 允许 None——空页合法）。
+
+    **2026-10-07 扩到 MinerU 4.0**：归一器收成单一所有者后，本守卫与本地通道
+    （``pipeline.load_middle_items``）共用同一判据；两者都不是 ⇒ ``MiddleSchemaError``
+    ⇒ 翻成本模块的 :class:`MineruCloudError` 抛出。原先只认 ``pdf_info``，
+    服务端换 4.0 结构后这里会**大声**拒绝（本地通道则**静默**返回 0 条——
+    那条静默正是业主 2026-10-07 报的 933/933 本 items=0）。
     """
+    from src.core.ingestion.middle_schema import MiddleSchemaError, load_middle_json
+
     try:
-        mj = json.loads(path.read_text(encoding="utf-8"))
-    except Exception as e:  # noqa: BLE001
+        mj = load_middle_json(path)
+    except MiddleSchemaError as e:
         raise MineruCloudError(
-            f"云产物 middle.json 无法解析（服务端产物结构可能已变更）: {e}") from e
-    pages = mj.get("pdf_info") if isinstance(mj, dict) else None
+            f"云产物 middle.json 非同构产物，拒绝消费（服务端产物结构可能已变更）: {e}") from e
+    pages = mj.get("pdf_info")
     if not isinstance(pages, list) or not pages:
         raise MineruCloudError(
             "云产物 middle.json 缺 pdf_info 列表（非同构产物，拒绝消费）")

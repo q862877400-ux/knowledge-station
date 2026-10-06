@@ -1,0 +1,29 @@
+{
+ "why": "修复后用生产代码回归 933 本国标（对照原型脚本的结果）",
+ "production_path": "pipeline.load_middle_items → middle_schema.load_middle_json → split_items_into_clauses",
+ "docs": 1014,
+ "success": 1014,
+ "errors": 0,
+ "zero_clause": 0,
+ "clause_stats": {
+  "median": 58,
+  "min": 1,
+  "max": 878,
+  "total": 93336
+ },
+ "prototype_baseline": {
+  "success": 933,
+  "zero_clause": 0,
+  "clause_stats": {
+   "median": 53,
+   "min": 1,
+   "max": 586,
+   "total": 69517
+  }
+ },
+ "error_sample": [],
+ "boundary": [
+  "只读源目录；未连库、未写库。",
+  "条款数只能证明'切出来了'，不等于内容正确。"
+ ]
+}

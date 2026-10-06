@@ -36,6 +36,7 @@ from ulid import ULID
 
 from src.core.config import get_settings
 from src.core.domain.models import ClauseRevisionModel, SourceSpanModel
+from src.core.ingestion.middle_schema import load_middle_json
 from src.core.ingestion.parser_worker import run_parser_isolated
 from src.core.knowledge.classifier import (
     build_hierarchy_path, classify_clause, normalize_clause_number, strip_revision_marks,
@@ -607,8 +608,15 @@ def load_middle_items(middle_path: Path) -> tuple[list[MidItem], dict[int, tuple
     """解析 middle.json → 阅读顺序条目 + 每页尺寸。
 
     discarded_blocks（页眉/页脚/页码）直接跳过 —— R65 边角过滤 + E4 跨页杂音消除。
+
+    **结构归一在 :mod:`src.core.ingestion.middle_schema`**（2026-10-07）：
+    MinerU 4.0 把顶层键从 ``pdf_info`` 换成 ``pages``，旧读法是
+    ``mj.get("pdf_info", [])`` ⇒ 键不在就给空列表 ⇒ **静默返回 0 条、不报错**
+    （业主 OCR 的 933 本国标实测 933/933 本 items=0）。现在统一走
+    ``load_middle_json``：4.0 归一成 3.4 形状，**两者都不是则大声抛
+    :class:`MiddleSchemaError`**，不再静默。
     """
-    mj = json.loads(middle_path.read_text(encoding="utf-8"))
+    mj = load_middle_json(middle_path)
     items: list[MidItem] = []
     page_sizes: dict[int, tuple[float, float]] = {}
     last_img: tuple[int, list[float], MidItem] | None = None   # (page_idx, bbox, item)
