@@ -84,7 +84,7 @@ def main() -> int:
         if (i // args.batch) % 100 == 0:
             el = time.perf_counter() - t_start
             rate = done / el if el else 0
-            print(f"[embed] {done}/{len(todo)}  {el:.0f}s  {rate*1000:.1f} 条/s"
+            print(f"[embed] {done}/{len(todo)}  {el:.0f}s  {rate:.1f} 条/s"
                   f"  预计剩余 {max(0,(len(todo)-done)/rate/60):.0f} 分钟", flush=True)
     conn.commit()
     el = time.perf_counter() - t_start
