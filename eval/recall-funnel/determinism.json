@@ -1,0 +1,10 @@
+{
+ "meta": {
+  "n_picked": 12,
+  "source": "D:\\AI\\work space\\zcode\\eval\\recall-funnel\\benchmark-v2.jsonl",
+  "what": "六路候选列表 + 融合顺序，各跑两遍逐字比较"
+ },
+ "n_identical": 12,
+ "n_different": 0,
+ "samples": []
+}

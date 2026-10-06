@@ -1,0 +1,1917 @@
+{
+ "meta": {
+  "source": "D:\\AI\\work space\\zcode\\eval\\recall-funnel\\benchmark-v2.jsonl",
+  "db": "C:\\Users\\Zegel\\AppData\\Roaming\\KnowledgeStation\\database\\knowledge.db",
+  "tokenizer": "text_utils.segment_for_fts + fts_match_expr 的过滤规则（与通道 B 同口径）",
+  "compare_against": "gold 条款在 clause_fts.content_segmented 里的词集合",
+  "why": "一个共同词都没有 ⇒ 通道 B 结构上召不回这条 gold（是表示/词汇问题，不是排序问题）"
+ },
+ "all": {
+  "n": 171,
+  "zero_overlap": 132,
+  "zero_overlap_pct": 0.7719,
+  "coverage_mean": 0.0337,
+  "coverage_median": 0
+ },
+ "by_kind": {
+  "定义": {
+   "n": 136,
+   "zero_overlap": 105,
+   "zero_overlap_pct": 0.7721,
+   "coverage_mean": 0.0327,
+   "coverage_median": 0
+  },
+  "要求": {
+   "n": 35,
+   "zero_overlap": 27,
+   "zero_overlap_pct": 0.7714,
+   "coverage_mean": 0.0377,
+   "coverage_median": 0
+  }
+ },
+ "examples_zero": [
+  {
+   "i": 1,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "退潮后在海泥里插竹竿吊养生蚝，这种做法属于哪种行当？"
+  },
+  {
+   "i": 2,
+   "kind": "定义",
+   "n_tokens": 10,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "车间墙角那个呼呼吸空气测细菌的小圆盒子，是干什么用的？"
+  },
+  {
+   "i": 3,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "木炭通红通红的却不见半点火苗，这算着火吗？"
+  },
+  {
+   "i": 4,
+   "kind": "定义",
+   "n_tokens": 7,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "电炉丝烧到透红但不起火，跟普通着火有啥区别？"
+  },
+  {
+   "i": 5,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "巡检发现堆垛内部暗红透亮冒烟，这属于哪种情况？"
+  },
+  {
+   "i": 6,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "分拣时怎么一眼看出哪些拉杆箱是贵宾客户的？"
+  },
+  {
+   "i": 8,
+   "kind": "定义",
+   "n_tokens": 7,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "柜子里留着这块没暴晒过的原色塑料片是干嘛用的？"
+  },
+  {
+   "i": 9,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "每次做老化测试前，为啥都要特意锁一包料在恒温箱里？"
+  }
+ ],
+ "per_query": [
+  {
+   "i": 1,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "退潮后在海泥里插竹竿吊养生蚝，这种做法属于哪种行当？"
+  },
+  {
+   "i": 2,
+   "kind": "定义",
+   "n_tokens": 10,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "车间墙角那个呼呼吸空气测细菌的小圆盒子，是干什么用的？"
+  },
+  {
+   "i": 3,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "木炭通红通红的却不见半点火苗，这算着火吗？"
+  },
+  {
+   "i": 4,
+   "kind": "定义",
+   "n_tokens": 7,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "电炉丝烧到透红但不起火，跟普通着火有啥区别？"
+  },
+  {
+   "i": 5,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "巡检发现堆垛内部暗红透亮冒烟，这属于哪种情况？"
+  },
+  {
+   "i": 6,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "分拣时怎么一眼看出哪些拉杆箱是贵宾客户的？"
+  },
+  {
+   "i": 7,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 1,
+   "coverage": 0.125,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "减压"
+   ],
+   "query": "从钢瓶到减压阀这一大串管路，行业里一般管它叫啥？"
+  },
+  {
+   "i": 8,
+   "kind": "定义",
+   "n_tokens": 7,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "柜子里留着这块没暴晒过的原色塑料片是干嘛用的？"
+  },
+  {
+   "i": 9,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "每次做老化测试前，为啥都要特意锁一包料在恒温箱里？"
+  },
+  {
+   "i": 10,
+   "kind": "定义",
+   "n_tokens": 6,
+   "n_hit": 1,
+   "coverage": 0.167,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "用来"
+   ],
+   "query": "这种专门留着不拿去测、最后用来比对的对照样叫啥？"
+  },
+  {
+   "i": 11,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 1,
+   "coverage": 0.111,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "联网"
+   ],
+   "query": "咱们工厂不光卖机床还包后期联网运维，这算啥业务？"
+  },
+  {
+   "i": 12,
+   "kind": "定义",
+   "n_tokens": 10,
+   "n_hit": 2,
+   "coverage": 0.2,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "工程",
+    "模式"
+   ],
+   "query": "搞工程的公司现在连物料采购和后期维修全包，属于啥模式？"
+  },
+  {
+   "i": 13,
+   "kind": "定义",
+   "n_tokens": 10,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "这根插头线上一直测到微小的杂波信号，到底是什么东西？"
+  },
+  {
+   "i": 14,
+   "kind": "定义",
+   "n_tokens": 7,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "音响只要插上电，喇叭里就一直有滋滋声，这是啥干扰？"
+  },
+  {
+   "i": 15,
+   "kind": "定义",
+   "n_tokens": 10,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "示波器上那条24伏电线里一直抖个不停的毛刺叫什么？"
+  },
+  {
+   "i": 16,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "矿井打完钻孔后拔掉阀门等水自己喷出来是在测啥？"
+  },
+  {
+   "i": 17,
+   "kind": "定义",
+   "n_tokens": 10,
+   "n_hit": 1,
+   "coverage": 0.1,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "水压"
+   ],
+   "query": "巷道老渗水，工程师说要打开导水管排空看水压是干嘛？"
+  },
+  {
+   "i": 18,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "工人们把3号孔封口拆掉记录水流速度到底在测什么？"
+  },
+  {
+   "i": 19,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "变电站大柜子没输送实际电量却在补偿电压是哪种状态？"
+  },
+  {
+   "i": 20,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "电工说机器现在不传电量只调节电网相位到底算什么模式？"
+  },
+  {
+   "i": 21,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "加油站加的标着E10含一成酒精的汽油属于哪类油品？"
+  },
+  {
+   "i": 22,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "把炸鸡店用过的废弃地沟油提炼出来加进车里算什么能源？"
+  },
+  {
+   "i": 23,
+   "kind": "定义",
+   "n_tokens": 12,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "农场自己压榨的菜籽油兑进普通柴油给拖拉机烧算不算？"
+  },
+  {
+   "i": 24,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "我按一下绿钮机子自己焊完不用管，这算哪种工法？"
+  },
+  {
+   "i": 25,
+   "kind": "定义",
+   "n_tokens": 7,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "厂里买的六轴机械臂自己走焊道，这属于啥工艺？"
+  },
+  {
+   "i": 26,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 1,
+   "coverage": 0.091,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "辐射"
+   ],
+   "query": "医院拍片子时，机器照到墙上再弹回来的辐射是什么？"
+  },
+  {
+   "i": 27,
+   "kind": "定义",
+   "n_tokens": 6,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "做X光探伤时，钢管被穿透后自己又散出来的光叫啥？"
+  },
+  {
+   "i": 28,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "直接照过来的主光束和被打到的物体反激出的光有啥不同？"
+  },
+  {
+   "i": 29,
+   "kind": "定义",
+   "n_tokens": 6,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "我想把写好的代码灌进芯片里，手里该拿个啥家伙？"
+  },
+  {
+   "i": 30,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "车间流水线上给100块主板灌软件的小黑盒是干嘛的？"
+  },
+  {
+   "i": 31,
+   "kind": "定义",
+   "n_tokens": 6,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "网上常说的烧写夹和烧录枪到底是个什么玩意？"
+  },
+  {
+   "i": 32,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "我奶奶下楼梯摔倒大腿根剧痛动不了，这算不算大腿断了？"
+  },
+  {
+   "i": 33,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "拍片子显示大腿那根骨头裂了3公分缝，在医学上算哪种伤？"
+  },
+  {
+   "i": 34,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "工地干活砸到腿，诊断书写的位置到底是不是最长的那根腿骨？"
+  },
+  {
+   "i": 35,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "想查阳光里紫外线跟红外线各占多少比例，要找哪种图看？"
+  },
+  {
+   "i": 36,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "家里燃气探头既能报数值又能接指令关阀门，它高级在哪？"
+  },
+  {
+   "i": 37,
+   "kind": "定义",
+   "n_tokens": 10,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "买这种两百块带芯片能收发数据的探头，比起老式的多了啥？"
+  },
+  {
+   "i": 38,
+   "kind": "定义",
+   "n_tokens": 12,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "流水线上能测温又能听电脑指挥的感应器，到底指哪种设备？"
+  },
+  {
+   "i": 39,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "在矿井挖煤老往外渗水，拿大泵把土抽干算这种工序吗？"
+  },
+  {
+   "i": 40,
+   "kind": "定义",
+   "n_tokens": 10,
+   "n_hit": 1,
+   "coverage": 0.1,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "盐碱"
+   ],
+   "query": "盐碱地底下埋100米透水管道排盐，大家管这叫什么？"
+  },
+  {
+   "i": 41,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "听说打井把地层里的地下水强行抽干，这法子有什么用处？"
+  },
+  {
+   "i": 42,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "开车时踩下脚踏板动力就切断、松开又连上的那个是啥？"
+  },
+  {
+   "i": 43,
+   "kind": "定义",
+   "n_tokens": 12,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "发动机和变速箱中间夹着的那个20公分圆盘，到底是干嘛的？"
+  },
+  {
+   "i": 44,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "机器里能让转着的铁棍瞬间咬合或者脱开的装置叫什么？"
+  },
+  {
+   "i": 45,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "化验单上写的CEC这个数值，到底是代表泥巴有多肥啊？"
+  },
+  {
+   "i": 46,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "我们农场测土壤，师傅说的这个吸肥能力到底是个啥？"
+  },
+  {
+   "i": 47,
+   "kind": "定义",
+   "n_tokens": 14,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "车间制氧系统里，专门用来滤掉二氧化碳的大罐子是哪个？"
+  },
+  {
+   "i": 48,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "空分装置前面装了10吨白球球的那个过滤罐，是起啥作用的？"
+  },
+  {
+   "i": 49,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 1,
+   "coverage": 0.091,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "干燥"
+   ],
+   "query": "师傅，气罐前面那个装满干燥小石子的是用来吸水的吗？"
+  },
+  {
+   "i": 50,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "布袋除尘器每次停下来轮流给小隔间吹风抖灰，这叫啥技术？"
+  },
+  {
+   "i": 51,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 1,
+   "coverage": 0.111,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "机构"
+   ],
+   "query": "顶上那个机械臂转到1号仓停下喷气，这套机构是干嘛的？"
+  },
+  {
+   "i": 52,
+   "kind": "定义",
+   "n_tokens": 10,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "厂里那个转着圈给滤袋喷风除粉尘的设备，到底怎么工作的？"
+  },
+  {
+   "i": 53,
+   "kind": "定义",
+   "n_tokens": 6,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "组装哮喘喷药瓶时，卡在盖子里托着弹簧的小塑料筒是干啥的？"
+  },
+  {
+   "i": 54,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "按一下正好喷出50微升药液的罐子，里面是靠哪个部件控量的？"
+  },
+  {
+   "i": 55,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "熔硅料时，这种质地结实、没蜂窝眼的碎块跟疏松料有啥区别？"
+  },
+  {
+   "i": 56,
+   "kind": "定义",
+   "n_tokens": 12,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "想给矿用挖煤机换一套装有48把刀头的破岩旋转总成，管它叫什么？"
+  },
+  {
+   "i": 57,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "看纪录片里采煤机最前端专门用来削煤壁的大爪子到底算啥装置？"
+  },
+  {
+   "i": 58,
+   "kind": "定义",
+   "n_tokens": 10,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "试验室里那个匀速加砝码测土块承重的铁架子叫啥？"
+  },
+  {
+   "i": 59,
+   "kind": "定义",
+   "n_tokens": 7,
+   "n_hit": 1,
+   "coverage": 0.143,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "控制"
+   ],
+   "query": "这种匀速加力的测土机跟按变形控制的有啥区别？"
+  },
+  {
+   "i": 60,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "我把租来的两百个木栈板直接交接给下家算啥？"
+  },
+  {
+   "i": 61,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "仓库垫板没到期直接转给接手的新租客叫什么名堂？"
+  },
+  {
+   "i": 62,
+   "kind": "定义",
+   "n_tokens": 7,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "别人租的地台板现在换成我们接着付租金，这叫啥？"
+  },
+  {
+   "i": 63,
+   "kind": "定义",
+   "n_tokens": 7,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "铝水灌满模具后为了防缩水，再加零点五兆帕是啥力？"
+  },
+  {
+   "i": 64,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "轮毂刚浇满那会儿，炉子里突然加大力气顶着是干嘛？"
+  },
+  {
+   "i": 65,
+   "kind": "定义",
+   "n_tokens": 7,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "铁水灌满后比刚才进料时更猛的那股劲到底是什么？"
+  },
+  {
+   "i": 66,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "买化妆品送的硬纸盒波纹特别细，这种纸板叫什么？"
+  },
+  {
+   "i": 67,
+   "kind": "定义",
+   "n_tokens": 10,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "量纸板夹层波纹高度只有1毫米，算不算最薄的那种纸？"
+  },
+  {
+   "i": 68,
+   "kind": "定义",
+   "n_tokens": 10,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "村里统计各家各户想盖房要多少地，这个指标到底指啥？"
+  },
+  {
+   "i": 69,
+   "kind": "定义",
+   "n_tokens": 10,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "我们厂扩产想拿隔壁地皮，统计表里写的用地诉求是啥意思？"
+  },
+  {
+   "i": 70,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "我买的电磁炉隔几秒开一下停一下，这种加热方式叫什么？"
+  },
+  {
+   "i": 71,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "电炉子通电几个周期又断开几个周期来调温，这叫啥技术？"
+  },
+  {
+   "i": 72,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "工厂新买的20千瓦加热器上写着多周期调节，到底啥意思？"
+  },
+  {
+   "i": 73,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "会计让我报仓储和送货总共贴进去多少钱，具体都得包括哪几样？"
+  },
+  {
+   "i": 74,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "领导让我核实博览会的门禁刷卡流水，这种查证报表的事叫什么？"
+  },
+  {
+   "i": 75,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "展销会刚办完，来查我们展商数量和成交单据的专家是在查什么？"
+  },
+  {
+   "i": 76,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "路边那个黄底黑边画着感叹号的牌子是干啥用的？"
+  },
+  {
+   "i": 77,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "车间变压器旁边贴着带闪电三角形的是什么牌子？"
+  },
+  {
+   "i": 78,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "吊车停稳后往地面撑下去的那四根柱子叫什么？"
+  },
+  {
+   "i": 79,
+   "kind": "定义",
+   "n_tokens": 7,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "车底两侧能伸出来支在路面上的4条铁脚是啥构件？"
+  },
+  {
+   "i": 80,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "泵车底下用来把整台车架起来防侧翻的部件叫啥名字？"
+  },
+  {
+   "i": 81,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "印书机烤箱里一烤就能干透的那种颜料是什么类型？"
+  },
+  {
+   "i": 82,
+   "kind": "定义",
+   "n_tokens": 7,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "烘箱温度要烧到150度才结膜的印刷墨水叫什么？"
+  },
+  {
+   "i": 83,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "这种印高速滚筒画册的快干颜料和普通的有什么区别？"
+  },
+  {
+   "i": 84,
+   "kind": "定义",
+   "n_tokens": 6,
+   "n_hit": 1,
+   "coverage": 0.167,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "背发"
+   ],
+   "query": "我脚背又烫又肿走不了路，大夫说的足背发到底是啥病？"
+  },
+  {
+   "i": 85,
+   "kind": "定义",
+   "n_tokens": 6,
+   "n_hit": 2,
+   "coverage": 0.333,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "红肿",
+    "化脓"
+   ],
+   "query": "脚面红肿扩散还化脓烂了快7天，这在医学上叫什么？"
+  },
+  {
+   "i": 86,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "医生，脚背大面积发红流脓跟烂脚丫到底有什么不同？"
+  },
+  {
+   "i": 87,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 2,
+   "coverage": 0.25,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "直径",
+    "压头"
+   ],
+   "query": "量管子直径前，用压头轻轻顶住它的那个劲儿叫什么？"
+  },
+  {
+   "i": 88,
+   "kind": "定义",
+   "n_tokens": 6,
+   "n_hit": 1,
+   "coverage": 0.167,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "持续"
+   ],
+   "query": "测胶圈粗细前，先加2牛顿持续按住它的力是干啥的？"
+  },
+  {
+   "i": 89,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "师傅，正式压碎前机器先给样品顶上的力气是干嘛的？"
+  },
+  {
+   "i": 90,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "送来时箱子还热乎、撕开封口就能动筷的快餐是叫这个吗？"
+  },
+  {
+   "i": 91,
+   "kind": "定义",
+   "n_tokens": 12,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "我们用60度恒温箱送出去的套餐，算不算你们说的这种？"
+  },
+  {
+   "i": 92,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "把态度占40分、效率占60分的综合打分表是这种套路吗？"
+  },
+  {
+   "i": 93,
+   "kind": "定义",
+   "n_tokens": 10,
+   "n_hit": 1,
+   "coverage": 0.1,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "中间"
+   ],
+   "query": "在工地做完一批试块抗压回弹后，技术员说的中间数是指哪个数？"
+  },
+  {
+   "i": 94,
+   "kind": "定义",
+   "n_tokens": 7,
+   "n_hit": 1,
+   "coverage": 0.143,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "那个"
+   ],
+   "query": "我们测了5块钢板的厚度，排在第3位的那个尺寸叫什么值？"
+  },
+  {
+   "i": 95,
+   "kind": "定义",
+   "n_tokens": 12,
+   "n_hit": 1,
+   "coverage": 0.083,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "平均"
+   ],
+   "query": "质检单上算出来的这个中位数和普通算术平均有什么不同？"
+  },
+  {
+   "i": 96,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 2,
+   "coverage": 0.25,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "图纸",
+    "说明"
+   ],
+   "query": "师傅给我的那叠施工图纸和说明，在你们行业里管这叫啥？"
+  },
+  {
+   "i": 97,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "工地上改了方案后新送来的那几张改动通知单，到底算不算这个？"
+  },
+  {
+   "i": 98,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 1,
+   "coverage": 0.111,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "图纸"
+   ],
+   "query": "装修公司收了我3套图纸和厚厚一叠字，这整套东西官方名字是啥？"
+  },
+  {
+   "i": 99,
+   "kind": "定义",
+   "n_tokens": 10,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "我家厨房装在墙洞里往外抽油烟呼呼转的玩意，算这类设备吗？"
+  },
+  {
+   "i": 100,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "车间顶上那个像大圆筒一样的吹风大喇叭，跟一般的电风扇有啥区别？"
+  },
+  {
+   "i": 101,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "仓库里装了2台专门往外排粉尘的大机器，能管它叫这名字吗？"
+  },
+  {
+   "i": 102,
+   "kind": "定义",
+   "n_tokens": 10,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "我打完电话按了红色挂断键，在你们通信系统里管这个过程叫啥？"
+  },
+  {
+   "i": 103,
+   "kind": "定义",
+   "n_tokens": 12,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "客服后台显示有2通电话彻底掐断了，你们专业上管这叫什么？"
+  },
+  {
+   "i": 104,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "花盆里的泥巴硬得像石头浇不进水算怎么回事？"
+  },
+  {
+   "i": 105,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 1,
+   "coverage": 0.111,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "状况"
+   ],
+   "query": "工地被压路机碾压后土面结成硬壳属于啥状况？"
+  },
+  {
+   "i": 106,
+   "kind": "定义",
+   "n_tokens": 7,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "绿化带浇了10升水全浮在硬土上是出了啥问题？"
+  },
+  {
+   "i": 107,
+   "kind": "定义",
+   "n_tokens": 7,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "买的石茶盘吸饱水后重了50克这个特性在专业上叫啥？"
+  },
+  {
+   "i": 108,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "把一块大理石直接泡在水桶里看它吃水算什么指标？"
+  },
+  {
+   "i": 109,
+   "kind": "定义",
+   "n_tokens": 5,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "净化塔把废气里95%的硫给洗掉了这数据叫啥？"
+  },
+  {
+   "i": 110,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "厂里烟囱冒烟时洗掉脏东西的比例在行话里叫什么？"
+  },
+  {
+   "i": 111,
+   "kind": "定义",
+   "n_tokens": 10,
+   "n_hit": 1,
+   "coverage": 0.1,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "油水"
+   ],
+   "query": "船舱底下排出来的黑油水，要过哪个机器才能排海？"
+  },
+  {
+   "i": 112,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 1,
+   "coverage": 0.125,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "机舱"
+   ],
+   "query": "机舱角落连着排污管的那个大铁罐子是干嘛用的？"
+  },
+  {
+   "i": 113,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 1,
+   "coverage": 0.111,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "装置"
+   ],
+   "query": "轮机房里专门把漏油跟废水分开的过滤装置叫什么？"
+  },
+  {
+   "i": 114,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "家里配电盒里负责自动跳闸的那个空开到底属于什么？"
+  },
+  {
+   "i": 115,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 1,
+   "coverage": 0.111,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "保护"
+   ],
+   "query": "工地接220伏临时电用的漏电保护开关算哪类器件？"
+  },
+  {
+   "i": 116,
+   "kind": "定义",
+   "n_tokens": 10,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "配电房里那些负责日常分合闸的电控开关统称叫什么？"
+  },
+  {
+   "i": 117,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 1,
+   "coverage": 0.091,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "粗糙"
+   ],
+   "query": "冬天脚后跟干硬粗糙，还裂开好几道流血口子是啥毛病？"
+  },
+  {
+   "i": 118,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "天天徒手抹水泥导致掌心干硬脱皮裂开，这叫什么病？"
+  },
+  {
+   "i": 119,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 1,
+   "coverage": 0.111,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "渗血"
+   ],
+   "query": "工人脚底板冻出3道渗血的深口子，在医学上叫什么？"
+  },
+  {
+   "i": 120,
+   "kind": "定义",
+   "n_tokens": 12,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "装修厨房做橱柜时，装在台面中间用来洗菜洗碗的金属大盆到底叫啥？"
+  },
+  {
+   "i": 121,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "天天加班累到吃不下饭还水肿，中医讲的这个脏腑问题究竟是指哪？"
+  },
+  {
+   "i": 122,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "大夫说我是脾上的毛病，经常肚子胀拉稀，这跟胃病算一回事吗？"
+  },
+  {
+   "i": 123,
+   "kind": "定义",
+   "n_tokens": 12,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "夜里路上看前面大卡车尾部发亮的发光贴纸，到底是干嘛用的？"
+  },
+  {
+   "i": 124,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "大货车车厢后面贴的那圈红白相间的3M亮条，专业名字叫什么？"
+  },
+  {
+   "i": 125,
+   "kind": "定义",
+   "n_tokens": 10,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "给厢式货车两侧贴的发亮警示带，跟普通的夜光贴纸有什么区别？"
+  },
+  {
+   "i": 126,
+   "kind": "定义",
+   "n_tokens": 10,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "打印机打出来字很淡，师傅说的那个刚起作用的伏数是啥？"
+  },
+  {
+   "i": 127,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "调到负五百伏碳粉才刚粘上鼓芯，这叫什么门槛值？"
+  },
+  {
+   "i": 128,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "新买的复印机测试时，碳粉刚沾到绿辊上的起始点电位是啥？"
+  },
+  {
+   "i": 129,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "墙上画着急救箱和灭火器的绿牌子属于哪种标识？"
+  },
+  {
+   "i": 130,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 2,
+   "coverage": 0.222,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "外面",
+    "上下"
+   ],
+   "query": "除尘箱里套在布筒外面上下刮着喷气清理的圆圈是啥玩意？"
+  },
+  {
+   "i": 131,
+   "kind": "定义",
+   "n_tokens": 11,
+   "n_hit": 1,
+   "coverage": 0.091,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "上下"
+   ],
+   "query": "车间里那个直径30公分的喷气圆环上下套着布袋吹灰叫什么？"
+  },
+  {
+   "i": 132,
+   "kind": "定义",
+   "n_tokens": 8,
+   "n_hit": 2,
+   "coverage": 0.25,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "外面",
+    "上下"
+   ],
+   "query": "套在长筒外面上下跑着喷气的装置跟脉冲喷吹有啥不同？"
+  },
+  {
+   "i": 133,
+   "kind": "定义",
+   "n_tokens": 10,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "我们村这口大泉，上游两公里溶洞水都算它的供水地盘吗？"
+  },
+  {
+   "i": 134,
+   "kind": "定义",
+   "n_tokens": 12,
+   "n_hit": 2,
+   "coverage": 0.167,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "空间",
+    "研究"
+   ],
+   "query": "送上空间站那3只小白鼠和水稻种子，是在做哪门子研究？"
+  },
+  {
+   "i": 135,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "看新闻说失重状态下看植物根系怎么长，这属于啥专业领域？"
+  },
+  {
+   "i": 136,
+   "kind": "定义",
+   "n_tokens": 9,
+   "n_hit": 1,
+   "coverage": 0.111,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "开始"
+   ],
+   "query": "仪表说明书写的反应快慢到底是从哪一步开始算的？"
+  },
+  {
+   "i": 137,
+   "kind": "要求",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "质检科拿这批刚烧透冷却的齿轮切片做显微分析，到底看啥指标？"
+  },
+  {
+   "i": 138,
+   "kind": "要求",
+   "n_tokens": 12,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "我拿两百斤重物压在拉长的人字梯上，卡扣要是卡死算合格吗？"
+  },
+  {
+   "i": 139,
+   "kind": "要求",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "工人在外墙刷漆时把梯子拉到最长，关节处崩出小口子还能用吗？"
+  },
+  {
+   "i": 140,
+   "kind": "要求",
+   "n_tokens": 9,
+   "n_hit": 2,
+   "coverage": 0.222,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "折叠",
+    "每次"
+   ],
+   "query": "新买的折叠爬梯每次收纳时卡簧都卡壳，质检能通过吗？"
+  },
+  {
+   "i": 141,
+   "kind": "要求",
+   "n_tokens": 10,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "送检单上化验出来的氯盐比例写着0.15%，算不算超标？"
+  },
+  {
+   "i": 142,
+   "kind": "要求",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "我们搅拌站打水泥桩时，监理非要查材料含氯超没超该怎么应对？"
+  },
+  {
+   "i": 143,
+   "kind": "要求",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "买这辆大翻斗车拉渣土，上牌时环保测尾气能通过吗？"
+  },
+  {
+   "i": 144,
+   "kind": "要求",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "我们找两家机构验同一批矿石，数据差了0.5个点算违规吗？"
+  },
+  {
+   "i": 145,
+   "kind": "要求",
+   "n_tokens": 11,
+   "n_hit": 1,
+   "coverage": 0.091,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "要求"
+   ],
+   "query": "质检员查出有一批瓷砖吸水率超标，我们能当场要求重抽吗？"
+  },
+  {
+   "i": 146,
+   "kind": "要求",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "混凝土初测强度差一点，现场多钻6个芯样复核还能算过吗？"
+  },
+  {
+   "i": 147,
+   "kind": "要求",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "第一次抽检没过关，多抽一倍样品重测及格了监理会认吗？"
+  },
+  {
+   "i": 148,
+   "kind": "要求",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "燃气警报机从一米高掉地上外壳裂了点，插电还能继续用吗？"
+  },
+  {
+   "i": 149,
+   "kind": "要求",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "打籽滚轮和箱子侧板之间留了3毫米空隙，能通过验收吗？"
+  },
+  {
+   "i": 150,
+   "kind": "要求",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "转动的铁片离箱边太远总卡棉花，算安装不到位吗？"
+  },
+  {
+   "i": 151,
+   "kind": "要求",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "两个检测所测出的重金属数值差了0.5，到底按谁的算？"
+  },
+  {
+   "i": 152,
+   "kind": "要求",
+   "n_tokens": 12,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "送检同一个样品，两份报告的成分相差多少算正常范围？"
+  },
+  {
+   "i": 153,
+   "kind": "要求",
+   "n_tokens": 11,
+   "n_hit": 4,
+   "coverage": 0.364,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "无人",
+    "人机",
+    "无人机",
+    "状态"
+   ],
+   "query": "送去检测遥控站时，整套无人机必须处于平时运转状态吗？"
+  },
+  {
+   "i": 154,
+   "kind": "要求",
+   "n_tokens": 13,
+   "n_hit": 1,
+   "coverage": 0.077,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "测试"
+   ],
+   "query": "只验手柄电磁辐射，检测站非要整套飞机连着一起开机测试吗？"
+  },
+  {
+   "i": 155,
+   "kind": "要求",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "合同里客户没说免检，出厂前每台都必须做重物承重拉力测试吗？"
+  },
+  {
+   "i": 156,
+   "kind": "要求",
+   "n_tokens": 11,
+   "n_hit": 1,
+   "coverage": 0.091,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "软管"
+   ],
+   "query": "工人戴着面罩钻进排污管时软管打了个死结，会不会吸不上气？"
+  },
+  {
+   "i": 157,
+   "kind": "要求",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "安检验收时故意把供气胶管拧了3圈看松不松，通得过吗？"
+  },
+  {
+   "i": 158,
+   "kind": "要求",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "如果接头不小心被脚手架卡住拽了一下，会不会突然断掉漏气？"
+  },
+  {
+   "i": 159,
+   "kind": "要求",
+   "n_tokens": 6,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "在盐水箱里闷了整整4天，金属壳上起了一点锈斑算不合格吗？"
+  },
+  {
+   "i": 160,
+   "kind": "要求",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "质检员来抽检这批柴油嘴，除了看生锈还要测通电漏不漏吗？"
+  },
+  {
+   "i": 161,
+   "kind": "要求",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "站牌上画两个小孩的警示图，底色做成纯白而不是发光绿合规吗？"
+  },
+  {
+   "i": 162,
+   "kind": "要求",
+   "n_tokens": 7,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "吊车配20毫米粗的钢缆，绞盘要多大才算合规？"
+  },
+  {
+   "i": 163,
+   "kind": "要求",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "前年测完留下的单据堆成山，放够两年可以全扔了吗？"
+  },
+  {
+   "i": 164,
+   "kind": "要求",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "质检员进厂检查台账，我得把多久之前的底单翻出来？"
+  },
+  {
+   "i": 165,
+   "kind": "要求",
+   "n_tokens": 11,
+   "n_hit": 1,
+   "coverage": 0.091,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "出厂"
+   ],
+   "query": "安检员查这批减速闸出厂单时，到底要核对哪几道电测记录？"
+  },
+  {
+   "i": 166,
+   "kind": "要求",
+   "n_tokens": 11,
+   "n_hit": 2,
+   "coverage": 0.182,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "名单",
+    "20"
+   ],
+   "query": "我递交摘掉黑名单材料都满20天了，为啥官方还没下发结果？"
+  },
+  {
+   "i": 167,
+   "kind": "要求",
+   "n_tokens": 10,
+   "n_hit": 2,
+   "coverage": 0.2,
+   "zero_overlap": false,
+   "hit_tokens": [
+    "申请",
+    "失信"
+   ],
+   "query": "公司申请解除失信黑榜被驳回了，主管局必须给咱书面答复吗？"
+  },
+  {
+   "i": 168,
+   "kind": "要求",
+   "n_tokens": 9,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "过门时警报响了，保安让我张开双臂拿手持机扫是合规的吗？"
+  },
+  {
+   "i": 169,
+   "kind": "要求",
+   "n_tokens": 8,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "扫包机屏幕上看不清瓶里装的液体，我必须开包翻看吗？"
+  },
+  {
+   "i": 170,
+   "kind": "要求",
+   "n_tokens": 12,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "要是某个温度传感器突然坏掉，防爆阀门会自动乱喷吗？"
+  },
+  {
+   "i": 171,
+   "kind": "要求",
+   "n_tokens": 11,
+   "n_hit": 0,
+   "coverage": 0.0,
+   "zero_overlap": true,
+   "hit_tokens": [],
+   "query": "1个继电器烧断会导致整套紧急切断装置直接误启动吗？"
+  }
+ ]
+}

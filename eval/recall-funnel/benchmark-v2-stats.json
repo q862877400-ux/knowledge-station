@@ -1,0 +1,336 @@
+{
+ "meta": {
+  "source": "eval/reverse-benchmark/benchmark-171.jsonl",
+  "db": "C:\\Users\\Zegel\\AppData\\Roaming\\KnowledgeStation\\database\\knowledge.db",
+  "n_input": 171,
+  "note": "只做轻清洗：不重新生成问题、不重判；gold 在库里 (标准号,条款号) 唯一已实测"
+ },
+ "counts": {
+  "all": 171,
+  "bucket_keep_3of3": 143,
+  "bucket_split": 28,
+  "headline": 120,
+  "headline_excluded_gold_not_unique": 23,
+  "flagged_has_subclauses": 7
+ },
+ "vote_shapes": {
+  "('PASS', 'PASS', 'PASS')": 143,
+  "('PASS', 'FAIL', 'PASS')": 7,
+  "('FAIL', 'PASS', 'PASS')": 9,
+  "('PASS', 'PASS', 'FAIL')": 9,
+  "('PASS', 'PASS')": 2,
+  "('PASS', 'FAIL')": 1
+ },
+ "kind": {
+  "定义": 136,
+  "要求": 35
+ },
+ "kind_main_clean": {
+  "定义": 98,
+  "要求": 22
+ },
+ "register": {
+  "consumer": 51,
+  "worker": 72,
+  "owner": 48
+ },
+ "confidence": {
+  "高": 166,
+  "中": 5
+ },
+ "uniqueness": {
+  "unique_gold_clause": 79,
+  "unique_gold_doc": 72,
+  "gold_clause_with_multi_query": 59,
+  "top_repeated": {
+   "GB/T 21352-2022 3.2": [
+    3,
+    4,
+    5
+   ],
+   "GB/T 14522-2008 3.1": [
+    8,
+    9,
+    10
+   ],
+   "GB/T 29259-2012 3.23": [
+    13,
+    14,
+    15
+   ],
+   "GB/T 14157-2023 8.4.5": [
+    16,
+    17,
+    18
+   ],
+   "GB/T 12918-2023 3.5": [
+    21,
+    22,
+    23
+   ],
+   "GB/T 36416.2-2018 8.1.9": [
+    26,
+    27,
+    28
+   ],
+   "GB/T 22033-2017 2.114": [
+    29,
+    30,
+    31
+   ],
+   "GB/T 16751.1-2023 5.6.1.12": [
+    32,
+    33,
+    34
+   ],
+   "GB/T 33905.3-2017 3.2": [
+    36,
+    37,
+    38
+   ],
+   "GB/T 30943-2014 5.3.42": [
+    39,
+    40,
+    41
+   ]
+  }
+ },
+ "flags": {
+  "counts": {
+   "gold_multi_def": 24,
+   "gold_dup_text": 5,
+   "has_subclauses": 7
+  },
+  "in_main_3of3": {
+   "gold_multi_def": 22,
+   "gold_dup_text": 4,
+   "has_subclauses": 6
+  }
+ },
+ "dropped_from_main": {
+  "n": 28,
+  "reason": "非 3/3 一致（2/3 或只记 2 票）⇒ 移出主结果，样本保留在 benchmark-v2.jsonl",
+  "fail_main_reasons": {
+   "对象不对": 21,
+   "类型不对": 4,
+   "两者都不对": 1
+  },
+  "samples": [
+   {
+    "i": 157,
+    "votes": [
+     "PASS",
+     "FAIL"
+    ],
+    "n_pass": 1,
+    "n_fail": 1,
+    "kind": "要求",
+    "confidence": "中",
+    "fail_main_reasons": {
+     "对象不对": 1
+    },
+    "query": "安检验收时故意把供气胶管拧了3圈看松不松，通得过吗？",
+    "gold_std": "GB 23394-2024",
+    "gold_clause": "5.9.1"
+   },
+   {
+    "i": 14,
+    "votes": [
+     "PASS",
+     "FAIL",
+     "PASS"
+    ],
+    "n_pass": 2,
+    "n_fail": 1,
+    "kind": "定义",
+    "confidence": "高",
+    "fail_main_reasons": {
+     "对象不对": 1
+    },
+    "query": "音响只要插上电，喇叭里就一直有滋滋声，这是啥干扰？",
+    "gold_std": "GB/T 29259-2012",
+    "gold_clause": "3.23"
+   },
+   {
+    "i": 18,
+    "votes": [
+     "FAIL",
+     "PASS",
+     "PASS"
+    ],
+    "n_pass": 2,
+    "n_fail": 1,
+    "kind": "定义",
+    "confidence": "高",
+    "fail_main_reasons": {
+     "对象不对": 1
+    },
+    "query": "工人们把3号孔封口拆掉记录水流速度到底在测什么？",
+    "gold_std": "GB/T 14157-2023",
+    "gold_clause": "8.4.5"
+   },
+   {
+    "i": 28,
+    "votes": [
+     "FAIL",
+     "PASS",
+     "PASS"
+    ],
+    "n_pass": 2,
+    "n_fail": 1,
+    "kind": "定义",
+    "confidence": "高",
+    "fail_main_reasons": {
+     "对象不对": 1
+    },
+    "query": "直接照过来的主光束和被打到的物体反激出的光有啥不同？",
+    "gold_std": "GB/T 36416.2-2018",
+    "gold_clause": "8.1.9"
+   },
+   {
+    "i": 34,
+    "votes": [
+     "PASS",
+     "FAIL",
+     "PASS"
+    ],
+    "n_pass": 2,
+    "n_fail": 1,
+    "kind": "定义",
+    "confidence": "高",
+    "fail_main_reasons": {
+     "对象不对": 1
+    },
+    "query": "工地干活砸到腿，诊断书写的位置到底是不是最长的那根腿骨？",
+    "gold_std": "GB/T 16751.1-2023",
+    "gold_clause": "5.6.1.12"
+   },
+   {
+    "i": 59,
+    "votes": [
+     "PASS",
+     "PASS",
+     "FAIL"
+    ],
+    "n_pass": 2,
+    "n_fail": 1,
+    "kind": "定义",
+    "confidence": "高",
+    "fail_main_reasons": {
+     "对象不对": 1
+    },
+    "query": "这种匀速加力的测土机跟按变形控制的有啥区别？",
+    "gold_std": "GB/T 24106-2009",
+    "gold_clause": "3.1.6.1.2"
+   },
+   {
+    "i": 70,
+    "votes": [
+     "PASS",
+     "PASS",
+     "FAIL"
+    ],
+    "n_pass": 2,
+    "n_fail": 1,
+    "kind": "定义",
+    "confidence": "高",
+    "fail_main_reasons": {
+     "对象不对": 1
+    },
+    "query": "我买的电磁炉隔几秒开一下停一下，这种加热方式叫什么？",
+    "gold_std": "GB/T 13870.2-2016",
+    "gold_clause": "3.4"
+   },
+   {
+    "i": 74,
+    "votes": [
+     "FAIL",
+     "PASS",
+     "PASS"
+    ],
+    "n_pass": 2,
+    "n_fail": 1,
+    "kind": "定义",
+    "confidence": "高",
+    "fail_main_reasons": {
+     "对象不对": 1
+    },
+    "query": "领导让我核实博览会的门禁刷卡流水，这种查证报表的事叫什么？",
+    "gold_std": "GB/T 26165-2021",
+    "gold_clause": "3.4.17"
+   },
+   {
+    "i": 77,
+    "votes": [
+     "PASS",
+     "PASS",
+     "FAIL"
+    ],
+    "n_pass": 2,
+    "n_fail": 1,
+    "kind": "定义",
+    "confidence": "高",
+    "fail_main_reasons": {
+     "类型不对": 1
+    },
+    "query": "车间变压器旁边贴着带闪电三角形的是什么牌子？",
+    "gold_std": "GB/T 37113.1-2018",
+    "gold_clause": "3.6"
+   },
+   {
+    "i": 86,
+    "votes": [
+     "PASS",
+     "PASS",
+     "FAIL"
+    ],
+    "n_pass": 2,
+    "n_fail": 1,
+    "kind": "定义",
+    "confidence": "高",
+    "fail_main_reasons": {
+     "对象不对": 1
+    },
+    "query": "医生，脚背大面积发红流脓跟烂脚丫到底有什么不同？",
+    "gold_std": "GB/T 16751.1-2023",
+    "gold_clause": "10.2.4.7"
+   },
+   {
+    "i": 95,
+    "votes": [
+     "FAIL",
+     "PASS",
+     "PASS"
+    ],
+    "n_pass": 2,
+    "n_fail": 1,
+    "kind": "定义",
+    "confidence": "高",
+    "fail_main_reasons": {
+     "对象不对": 1
+    },
+    "query": "质检单上算出来的这个中位数和普通算术平均有什么不同？",
+    "gold_std": "GB/T 28429-2012",
+    "gold_clause": "3.3"
+   },
+   {
+    "i": 100,
+    "votes": [
+     "PASS",
+     "PASS",
+     "FAIL"
+    ],
+    "n_pass": 2,
+    "n_fail": 1,
+    "kind": "定义",
+    "confidence": "中",
+    "fail_main_reasons": {
+     "对象不对": 1
+    },
+    "query": "车间顶上那个像大圆筒一样的吹风大喇叭，跟一般的电风扇有啥区别？",
+    "gold_std": "GB/T 29053-2012",
+    "gold_clause": "3.3.28"
+   }
+  ]
+ }
+}
