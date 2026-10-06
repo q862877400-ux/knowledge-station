@@ -1,0 +1,229 @@
+{
+ "why": "业主要找『把法律法规与判决全扒下来公开下载』的开源项目；本脚本核实数据是否真能拿到",
+ "repos": {
+  "Li2zon3/law-crawler-unified": {
+   "desc": "爬虫（国家法律法规库/规章库/条约库）",
+   "license": "MIT",
+   "stars": 8,
+   "size_kb": 21,
+   "pushed_at": "2026-04-18T07:57:18Z",
+   "archived": false,
+   "language": "Python",
+   "top_level": [
+    {
+     "name": ".gitignore",
+     "type": "file",
+     "size_kb": 0.3
+    },
+    {
+     "name": "LICENSE",
+     "type": "file",
+     "size_kb": 1.0
+    },
+    {
+     "name": "README.md",
+     "type": "file",
+     "size_kb": 10.3
+    },
+    {
+     "name": "law_crawler_unified.py",
+     "type": "file",
+     "size_kb": 45.1
+    },
+    {
+     "name": "requirements.txt",
+     "type": "file",
+     "size_kb": 0.0
+    }
+   ]
+  },
+  "gzx5418/lvyan-lawtext": {
+   "desc": "数据仓库（法律/司法解释 markdown）",
+   "license": null,
+   "stars": 0,
+   "size_kb": 10969,
+   "pushed_at": "2026-08-07T02:55:52Z",
+   "archived": false,
+   "language": null,
+   "top_level": [
+    {
+     "name": ".gitignore",
+     "type": "file",
+     "size_kb": 0.1
+    },
+    {
+     "name": "README.md",
+     "type": "file",
+     "size_kb": 2.0
+    },
+    {
+     "name": "content",
+     "type": "dir",
+     "size_kb": 0.0
+    }
+   ]
+  },
+  "thu-lawyer/china-law-mcp": {
+   "desc": "条目库 + 引用核验（SQLite 随仓库）",
+   "license": "MIT",
+   "stars": 2,
+   "size_kb": 4407,
+   "pushed_at": "2026-10-05T09:59:32Z",
+   "archived": false,
+   "language": "Python",
+   "top_level": [
+    {
+     "name": ".dockerignore",
+     "type": "file",
+     "size_kb": 0.1
+    },
+    {
+     "name": ".github",
+     "type": "dir",
+     "size_kb": 0.0
+    },
+    {
+     "name": ".gitignore",
+     "type": "file",
+     "size_kb": 0.1
+    },
+    {
+     "name": "Dockerfile",
+     "type": "file",
+     "size_kb": 0.7
+    },
+    {
+     "name": "LICENSE",
+     "type": "file",
+     "size_kb": 1.0
+    },
+    {
+     "name": "README.en.md",
+     "type": "file",
+     "size_kb": 2.4
+    },
+    {
+     "name": "README.md",
+     "type": "file",
+     "size_kb": 7.4
+    },
+    {
+     "name": "data",
+     "type": "dir",
+     "size_kb": 0.0
+    },
+    {
+     "name": "pyproject.toml",
+     "type": "file",
+     "size_kb": 1.0
+    },
+    {
+     "name": "requirements-dev.txt",
+     "type": "file",
+     "size_kb": 0.0
+    },
+    {
+     "name": "requirements.txt",
+     "type": "file",
+     "size_kb": 0.0
+    },
+    {
+     "name": "scripts",
+     "type": "dir",
+     "size_kb": 0.0
+    },
+    {
+     "name": "server.json",
+     "type": "file",
+     "size_kb": 0.8
+    },
+    {
+     "name": "src",
+     "type": "dir",
+     "size_kb": 0.0
+    },
+    {
+     "name": "tests",
+     "type": "dir",
+     "size_kb": 0.0
+    }
+   ]
+  },
+  "cncases/cases": {
+   "desc": "裁判文书本地搜索（数据走 BT）",
+   "license": "MPL-2.0",
+   "stars": 1128,
+   "size_kb": 2076,
+   "pushed_at": "2026-09-28T08:32:54Z",
+   "archived": false,
+   "language": "Rust",
+   "top_level": [
+    {
+     "name": ".github",
+     "type": "dir",
+     "size_kb": 0.0
+    },
+    {
+     "name": ".gitignore",
+     "type": "file",
+     "size_kb": 0.1
+    },
+    {
+     "name": "810air.torrent",
+     "type": "file",
+     "size_kb": 947.1
+    },
+    {
+     "name": "Cargo.lock",
+     "type": "file",
+     "size_kb": 126.6
+    },
+    {
+     "name": "Cargo.toml",
+     "type": "file",
+     "size_kb": 1.7
+    },
+    {
+     "name": "LICENSE",
+     "type": "file",
+     "size_kb": 16.3
+    },
+    {
+     "name": "README.md",
+     "type": "file",
+     "size_kb": 2.7
+    },
+    {
+     "name": "config.toml",
+     "type": "file",
+     "size_kb": 0.7
+    },
+    {
+     "name": "examples",
+     "type": "dir",
+     "size_kb": 0.0
+    },
+    {
+     "name": "src",
+     "type": "dir",
+     "size_kb": 0.0
+    },
+    {
+     "name": "static",
+     "type": "dir",
+     "size_kb": 0.0
+    },
+    {
+     "name": "stopwords.txt",
+     "type": "file",
+     "size_kb": 1.4
+    },
+    {
+     "name": "templates",
+     "type": "dir",
+     "size_kb": 0.0
+    }
+   ]
+  }
+ }
+}
