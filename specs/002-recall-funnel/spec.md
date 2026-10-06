@@ -1,5 +1,7 @@
 # Feature Specification: 召回漏斗诊断与第一轮改进
 
+> **给业主看的版本（大白话）→ [读我-大白话版.md](读我-大白话版.md)**　—— 本文是技术文档，业主不必读。
+
 **Feature Branch**: `002-recall-funnel`
 
 **Created**: 2026-10-06

@@ -1,5 +1,7 @@
 # Implementation Plan: 召回漏斗诊断与第一轮改进
 
+> **给业主看的版本（大白话）→ [读我-大白话版.md](读我-大白话版.md)**　—— 本文是技术文档，业主不必读。
+
 **Branch**: `002-recall-funnel` | **Date**: 2026-10-06 | **Spec**: [spec.md](spec.md)
 
 **Input**: Feature specification from `/specs/002-recall-funnel/spec.md`
