@@ -8,8 +8,12 @@
  · 全程只碰**副本** `exp.db`，真库一个字节都不动。
 
 用法：
-    .venv\\Scripts\\python.exe eval\\recall-funnel\\exp-1-contextual\\03-embed.py            # 全量
+    .venv\\Scripts\\python.exe eval\\recall-funnel\\exp-1-contextual\\03-embed.py            # 全量（默认 e1a）
     .venv\\Scripts\\python.exe eval\\recall-funnel\\exp-1-contextual\\03-embed.py --limit 200 # 冒烟
+    .venv\\Scripts\\python.exe eval\\recall-funnel\\exp-1-contextual\\03-embed.py --variant e1b
+
+⚠ 变体到表名的映射必须与 `02-build-text.py` 一致：`e1a` → `retrieval_text_ctx` / `clause_vec_ctx`
+（首次跑的表名，**不许改**，否则正在跑的链与守候进程会找不到表）；其余 → `..._<变体>`。
 """
 from __future__ import annotations
 
@@ -26,13 +30,23 @@ sys.path.insert(0, str(ROOT))
 EXP = HERE / "exp.db"
 BATCH = 64
 COMMIT_EVERY = 50          # 批
+VARIANTS = ("e1a", "e1b", "e1c", "e1d")
+
+
+def tables_of(variant: str) -> tuple[str, str]:
+    """→ (文本表, 向量表)。"""
+    if variant == "e1a":
+        return "retrieval_text_ctx", "clause_vec_ctx"
+    return f"retrieval_text_{variant}", f"clause_vec_{variant}"
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--batch", type=int, default=BATCH)
+    ap.add_argument("--variant", choices=VARIANTS, default="e1a")
     args = ap.parse_args()
+    txt_tbl, vec_tbl = tables_of(args.variant)
 
     from src.core.retrieval import embedder
     from src.core.storage.sqlite_db import load_vec_extension
@@ -41,22 +55,26 @@ def main() -> int:
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL")
     conn.execute("PRAGMA synchronous=NORMAL")
+    # ⚠ 必须设写锁等待：2026-10-06 实测崩过一次 —— 我在它跑的时候用**另一个进程**
+    #   往同一份副本写 52 万行文本（02-build-text.py --variant e1b，持锁 84 秒），
+    #   本进程的 INSERT 直接抛 `database is locked` 退出。
+    #   ⇒ 两条纪律：① 同一份库**不许并发写**；② 写进程仍要设超时兜底。
+    conn.execute("PRAGMA busy_timeout=120000")
     if not load_vec_extension(conn):
         print("⛔ sqlite-vec 加载失败")
         return 1
-    conn.execute("CREATE VIRTUAL TABLE IF NOT EXISTS clause_vec_ctx USING vec0("
+    conn.execute(f"CREATE VIRTUAL TABLE IF NOT EXISTS {vec_tbl} USING vec0("
                  "clause_revision_id TEXT PRIMARY KEY, embedding FLOAT[512])")
     conn.commit()
 
-    have = {r[0] for r in conn.execute("SELECT clause_revision_id FROM clause_vec_ctx")}
-    print(f"[embed] 已有 {len(have)} 条", flush=True)
+    have = {r[0] for r in conn.execute(f"SELECT clause_revision_id FROM {vec_tbl}")}
+    print(f"[embed:{args.variant}] 已有 {len(have)} 条（文本表 {txt_tbl} → 向量表 {vec_tbl}）", flush=True)
     rows = conn.execute(
-        "SELECT clause_revision_id, retrieval_text FROM retrieval_text_ctx"
-        " ORDER BY rowid").fetchall()
+        f"SELECT clause_revision_id, retrieval_text FROM {txt_tbl} ORDER BY rowid").fetchall()
     todo = [(r[0], r[1]) for r in rows if r[0] not in have]
     if args.limit:
         todo = todo[:args.limit]
-    print(f"[embed] 待算 {len(todo)} 条（batch={args.batch}）", flush=True)
+    print(f"[embed:{args.variant}] 待算 {len(todo)} 条（batch={args.batch}）", flush=True)
     if not todo:
         print("[embed] 没有待算的")
         return 0
@@ -74,7 +92,7 @@ def main() -> int:
         embs = embedder.embed_batch([t for _, t in chunk])
         payload = [(cid, array.array("f", e).tobytes()) for (cid, _), e in zip(chunk, embs)]
         conn.executemany(
-            "INSERT OR REPLACE INTO clause_vec_ctx (clause_revision_id, embedding)"
+            f"INSERT OR REPLACE INTO {vec_tbl} (clause_revision_id, embedding)"
             " VALUES (?, ?)", payload)
         done += len(chunk)
         batches_since_commit += 1
@@ -84,13 +102,13 @@ def main() -> int:
         if (i // args.batch) % 100 == 0:
             el = time.perf_counter() - t_start
             rate = done / el if el else 0
-            print(f"[embed] {done}/{len(todo)}  {el:.0f}s  {rate:.1f} 条/s"
+            print(f"[embed:{args.variant}] {done}/{len(todo)}  {el:.0f}s  {rate:.1f} 条/s"
                   f"  预计剩余 {max(0,(len(todo)-done)/rate/60):.0f} 分钟", flush=True)
     conn.commit()
     el = time.perf_counter() - t_start
-    print(f"[embed] 完成 {done} 条，用时 {el/60:.1f} 分钟（{done/el:.1f} 条/s）", flush=True)
-    n = conn.execute("SELECT COUNT(*) FROM clause_vec_ctx").fetchone()[0]
-    print(f"[embed] clause_vec_ctx 现有 {n} 行", flush=True)
+    print(f"[embed:{args.variant}] 完成 {done} 条，用时 {el/60:.1f} 分钟（{done/el:.1f} 条/s）", flush=True)
+    n = conn.execute(f"SELECT COUNT(*) FROM {vec_tbl}").fetchone()[0]
+    print(f"[embed:{args.variant}] {vec_tbl} 现有 {n} 行", flush=True)
     conn.close()
     return 0
 
