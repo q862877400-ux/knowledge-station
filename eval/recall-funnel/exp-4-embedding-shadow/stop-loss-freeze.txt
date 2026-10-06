@@ -1,0 +1,5 @@
+file: stop-loss.json
+sha256: d5c2a1eb1eb1a33a3860daaca2e05b2b1b86878a41cd072661e66f74fe589955
+bytes: 3845
+frozen_at: 2026-10-07T03:18:04+08:00
+meaning: 本文件之外的一切 E4 跑分结果都晚于此刻 ⇒ 止损线先落盘、后跑（FR-014）
