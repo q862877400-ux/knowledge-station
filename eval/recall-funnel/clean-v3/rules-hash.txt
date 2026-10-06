@@ -1,0 +1,5 @@
+file: RULES-FROZEN.md
+sha256: d1d433461afaa18373a98a91edbeeb55bb2e2dbe41b5cda5449783384d73b28a
+bytes: 5885
+frozen_at: 2026-10-07T02:49:50+08:00
+meaning: 本文件之外的任何标注输出都晚于此刻 ⇒ 规则先冻结、后执行

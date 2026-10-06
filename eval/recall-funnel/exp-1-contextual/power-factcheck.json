@@ -1,0 +1,54 @@
+{
+ "why": "业主分工：事实核查由本仓自己做 —— 不转述外部结论",
+ "input": {
+  "headline_120": {
+   "rows": 120,
+   "clusters": 64,
+   "se_of_diff_pp": 4.17
+  },
+  "all_171": {
+   "rows": 171,
+   "clusters": 79,
+   "se_of_diff_pp": 3.31
+  },
+  "source": "cluster-significance.json 的簇级 bootstrap 差值 sd（10000 次）"
+ },
+ "what_is_8_18": {
+  "definition_used": "1.96 × SE（双尾 0.05 的**显著性阈值**）",
+  "is_it_a_proper_MDE": false,
+  "note": "标准意义上的 MDE 通常指「给定 α 与把握度（如 80%）下可检出的最小效应」。1.96×SE 是**显著性阈值**，恰好等于**把握度 50%** 那一点，不是 80% 把握度的 MDE。",
+  "power_at_various_effects_headline": {
+   "5pt": 0.2241,
+   "8pt": 0.4835,
+   "8.18pt": 0.5007,
+   "10pt": 0.6694,
+   "12pt": 0.8206,
+   "15pt": 0.9492
+  },
+  "proper_MDE_80pct_headline_pp": 11.68,
+  "proper_MDE_80pct_all171_pp": 9.27
+ },
+ "sample_size_to_reach_MDE": {
+  "external_claim": "120×(8.18/5)² ≈ 322 rows（**条目**口径）",
+  "our_check_rows_basis": 655.1,
+  "our_check_cluster_basis": {
+   "by": "clusters",
+   "target_MDE_80pct_pp": 5.0,
+   "clusters_needed": 349.4,
+   "rows_if_same_ratio": 655.1
+  },
+  "external_target_350_400_rows_180_200_clusters": {
+   "implied_SE_at_190_clusters_pp": 2.42,
+   "implied_MDE_80pct_at_190_clusters_pp": 6.78,
+   "verdict": "**达不到 5pt**（80% 把握度下约 6.8pt）—— 它这条换算把簇口径丢了，正是它自己警告过的错"
+  }
+ },
+ "conclusions": [
+  "① 它对**表述**的纠正是对的：8.18pt 不是 80% 把握度的 MDE，而是显著性阈值（≈50% 把握度点）。",
+  "   我原来那句「+10pt 只有约一半把握」**错了**：实测把握度约 67%。（改正后仍不影响「本次没检测到效果」这个结论。）",
+  "   按 80% 把握度算，主结果口径的真实 MDE 是 **11.68pt**，不是 8.18pt。",
+  "② 它给的 322 rows 换算是**条目口径**；按簇口径（我们刚确立必须这么算）到 5pt 需要 **349.4 个簇**（≈655.1 行）。",
+  "③ 它给的目标「350–400 行、180–200 簇」在 80% 把握度下对应约 6.78pt —— **是进步，但够不到 5pt**。若要 5pt，得 ~349 簇。",
+  "⚠ 以上全是**正态近似的换算**，不是新模拟；且 SE 来自 10000 次簇级 bootstrap（已注明）。"
+ ]
+}
