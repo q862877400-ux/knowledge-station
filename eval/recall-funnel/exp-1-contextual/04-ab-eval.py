@@ -93,6 +93,8 @@ def main() -> int:
             full = knn(db, table, qv, max(DEPTHS))
             cands[arm] = full
             rec[arm] = {"n": len(full)}
+            # 精确名次（在上限 1000 的候选表内）—— 报告不只是"过没过线"，还要看整体有没有往前挪
+            rec[arm]["rank"] = rank_of(gold, full)
             for d in DEPTHS:
                 rec[arm][f"rank@{d}"] = rank_of(gold, full[:d])
         # 并集：**照 funnel.py 的两个口径**，只把通道 C 换成该臂 —— 其余五路逐字不动。
