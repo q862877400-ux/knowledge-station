@@ -28,21 +28,25 @@ EXP = HERE / "exp.db"
 PY = ROOT / ".venv" / "Scripts" / "python.exe"
 
 
-def count(table: str) -> int:
+def count(table: str, where: str = "") -> int:
     """⚠ 读 `vec0` 表**必须**加载 sqlite-vec 扩展（本会话已踩过四次）。"""
     sys.path.insert(0, str(ROOT))
     from src.core.storage.sqlite_db import load_vec_extension
     c = sqlite3.connect(f"file:{EXP.as_posix()}?mode=ro", uri=True)
     try:
         load_vec_extension(c)
-        return c.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0]
+        return c.execute(f"SELECT COUNT(*) FROM {table} {where}").fetchone()[0]
     finally:
         c.close()
 
 
 def main() -> int:
-    target = count("clause_vec")
-    print(f"[wait] 目标 = {target} 行（= clause_vec 的行数）", flush=True)
+    # ⚠ 目标**不能**取 `clause_vec` 的行数（522,021）——
+    #   实验表的来源是"正文非空"的条文（521,978），拿 522,021 当门槛会**永远等不到**。
+    #   这是本脚本第一版的 bug，已修（留痕）。
+    target = count("clause_revision", "WHERE trim(coalesce(content_text,'')) <> ''")
+    print(f"[wait] 目标 = {target} 行（= 正文非空的条文数；**不是** clause_vec 的 "
+          f"{count('clause_vec')} 行）", flush=True)
     prev = -1
     while True:
         n = count("clause_vec_qwen")
