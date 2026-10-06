@@ -1,0 +1,53 @@
+{
+ "sample_dir": "GB 1094.5-2008 电力变压器 第5部分：承受短路的能力.mineru-4.0.10-vlm",
+ "files": [
+  "images\\page_0_image_8.jpg",
+  "images\\page_11_image_3.jpg",
+  "images\\page_11_image_7.jpg",
+  "images\\page_17_equation_20.jpg",
+  "images\\page_17_equation_22.jpg",
+  "images\\page_17_equation_24.jpg",
+  "images\\page_18_equation_21.jpg",
+  "images\\page_18_equation_24.jpg",
+  "images\\page_18_equation_26.jpg",
+  "images\\page_19_equation_11.jpg",
+  "images\\page_19_equation_14.jpg",
+  "images\\page_19_equation_16.jpg",
+  "images\\page_19_equation_18.jpg",
+  "images\\page_19_equation_20.jpg",
+  "images\\page_19_equation_22.jpg",
+  "images\\page_19_equation_28.jpg",
+  "images\\page_19_equation_3.jpg",
+  "images\\page_19_equation_30.jpg",
+  "images\\page_19_equation_32.jpg",
+  "images\\page_19_equation_34.jpg",
+  "images\\page_19_equation_36.jpg",
+  "images\\page_19_equation_38.jpg",
+  "images\\page_19_equation_5.jpg",
+  "images\\page_19_equation_7.jpg",
+  "images\\page_19_equation_9.jpg",
+  "images\\page_20_equation_2.jpg",
+  "images\\page_20_table_14.jpg",
+  "images\\page_21_table_2.jpg",
+  "images\\page_21_table_4.jpg",
+  "images\\page_22_equation_6.jpg"
+ ],
+ "middle_json.json_keys": [
+  "metadata",
+  "extensions",
+  "pages",
+  "is_full_document",
+  "schema",
+  "schema_version"
+ ],
+ "pages0_keys": [
+  "page_idx",
+  "blocks"
+ ],
+ "structured_content.json_keys": [
+  "pages",
+  "metadata",
+  "extensions",
+  "is_full_document"
+ ]
+}

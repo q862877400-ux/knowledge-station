@@ -1,0 +1,78 @@
+{
+ "why": "实测生产切分器（读 middle_json）在 MinerU 4.0 产物上的表现",
+ "note": "上一轮走的是 law_text.py（读 markdown.md），不是国标的正经入库路径",
+ "success": 5,
+ "fail": 0,
+ "rows": [
+  {
+   "dir": "GB 1094.5-2008 电力变压器 第5部分：承受短路的能力.mineru-4.0.10-vlm",
+   "middle_keys": [
+    "metadata",
+    "extensions",
+    "pages",
+    "is_full_document",
+    "schema",
+    "schema_version"
+   ],
+   "items": 0,
+   "clauses": 0,
+   "head": []
+  },
+  {
+   "dir": "GB 1103.1-2023 棉花 第1部分：锯齿加工细绒棉.mineru-4.0.10-vlm",
+   "middle_keys": [
+    "metadata",
+    "extensions",
+    "pages",
+    "is_full_document",
+    "schema",
+    "schema_version"
+   ],
+   "items": 0,
+   "clauses": 0,
+   "head": []
+  },
+  {
+   "dir": "GB 1219-2008 指示表.mineru-4.0.10-vlm",
+   "middle_keys": [
+    "metadata",
+    "extensions",
+    "pages",
+    "is_full_document",
+    "schema",
+    "schema_version"
+   ],
+   "items": 0,
+   "clauses": 0,
+   "head": []
+  },
+  {
+   "dir": "GB 1499.1-2024 钢筋混凝土用钢 第1部分：热轧光圆钢筋(1).mineru-4.0.10-vlm",
+   "middle_keys": [
+    "metadata",
+    "extensions",
+    "pages",
+    "is_full_document",
+    "schema",
+    "schema_version"
+   ],
+   "items": 0,
+   "clauses": 0,
+   "head": []
+  },
+  {
+   "dir": "GB 1499.1-2024 钢筋混凝土用钢 第1部分：热轧光圆钢筋(2).mineru-4.0.10-vlm",
+   "middle_keys": [
+    "metadata",
+    "extensions",
+    "pages",
+    "is_full_document",
+    "schema",
+    "schema_version"
+   ],
+   "items": 0,
+   "clauses": 0,
+   "head": []
+  }
+ ]
+}

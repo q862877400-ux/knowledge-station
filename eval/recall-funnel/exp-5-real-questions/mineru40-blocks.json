@@ -1,0 +1,142 @@
+{
+ "why": "MinerU 4.0 的块类型与块内容明细（做 3.4 兼容层用）",
+ "dirs_scanned": 30,
+ "pages": 367,
+ "block_types": {
+  "header": 355,
+  "doc_title": 139,
+  "text": 3864,
+  "image": 105,
+  "footer": 34,
+  "paragraph_title": 1303,
+  "index": 2,
+  "page_number": 303,
+  "table": 138,
+  "equation": 127,
+  "page_footnote": 15,
+  "aside_text": 3,
+  "chart": 14,
+  "code": 3
+ },
+ "inner_types": {
+  "text": 6754,
+  "image_body": 105,
+  "equation_inline": 900,
+  "table_caption": 153,
+  "table_body": 136,
+  "image_footnote": 15,
+  "image_caption": 30,
+  "table_footnote": 1,
+  "chart_body": 14,
+  "chart_caption": 10,
+  "code_body": 3,
+  "chart_footnote": 7
+ },
+ "block_samples": {
+  "header": {
+   "type": "header",
+   "index": 0,
+   "bbox": "list[4]",
+   "content": "list[1]"
+  },
+  "doc_title": {
+   "type": "doc_title",
+   "index": 2,
+   "bbox": "list[4]",
+   "content": "list[1]",
+   "level": 1
+  },
+  "text": {
+   "type": "text",
+   "index": 3,
+   "bbox": "list[4]",
+   "content": "list[1]"
+  },
+  "image": {
+   "type": "image",
+   "index": 8,
+   "bbox": "list[4]",
+   "content": "list[1]"
+  },
+  "footer": {
+   "type": "footer",
+   "index": 11,
+   "bbox": "list[4]",
+   "content": "list[1]"
+  },
+  "paragraph_title": {
+   "type": "paragraph_title",
+   "index": 1,
+   "bbox": "list[4]",
+   "content": "list[1]",
+   "level": 2
+  },
+  "index": {
+   "type": "index",
+   "index": 2,
+   "bbox": "list[4]",
+   "content": "list[15]"
+  },
+  "page_number": {
+   "type": "page_number",
+   "index": 33,
+   "bbox": "list[4]",
+   "content": "list[1]"
+  },
+  "table": {
+   "type": "table",
+   "index": 12,
+   "bbox": "list[4]",
+   "content": "list[2]"
+  },
+  "equation": {
+   "type": "equation",
+   "index": 6,
+   "bbox": "list[4]",
+   "image_path": "images/page_7_equation_6.jpg",
+   "content": "I = \\frac {U}{\\sqrt {3} \\times (Z _ {\\mathrm{t}} \\times Z _ {\\mathrm{s}})}\\tag{1}"
+  },
+  "page_footnote": {
+   "type": "page_footnote",
+   "index": 34,
+   "bbox": "list[4]",
+   "content": "list[1]"
+  },
+  "aside_text": {
+   "type": "aside_text",
+   "index": 17,
+   "bbox": "list[4]",
+   "content": "list[1]"
+  },
+  "chart": {
+   "type": "chart",
+   "index": 5,
+   "bbox": "list[4]",
+   "content": "list[2]"
+  },
+  "code": {
+   "type": "code",
+   "index": 7,
+   "bbox": "list[4]",
+   "content": "list[1]",
+   "sub_type": "code",
+   "guess_lang": "txt"
+  }
+ },
+ "table_sample": {
+  "dir": "GB 1094.5-2008 电力变压器 第5部分：承受短路的能力.mineru-4.0.10-vl",
+  "type": "table",
+  "inner": {
+   "type": "table_body",
+   "index": 12,
+   "bbox": [
+    0.097,
+    0.378,
+    0.874,
+    0.627
+   ],
+   "image_path": "images/page_5_table_12.jpg",
+   "content": "<table><tr><td>额定容量/kVA</td><td>最小短路阻抗/%</td></tr><tr><td>25~630</td><td>4.0</td></tr><tr><td>631~1 250</td><td>5.0</td></tr><tr><td>1 251~2 500</td><td>6.0</td></tr><tr><td>2 501~6 300</td><td>7.0</td></tr><tr><td>6 301~25 000</td><td>8.0</td></tr><tr><td>25 001~40 000</td><td>10.0</td></tr><tr><td>40 001~63 000</td><td>11.0</td></tr><tr><td>63 001~100 000</td><td>12.5</td></tr><tr><td>100 000以上</td><td>&gt;12.5</td></tr><tr><td colspan=\"2\">注1:额定容量大于100 000 kVA的短路阻抗值一般由制造方和用户协商确定。注2:在由单相变压器组成三相组的情况下,额定容量值适用于三相组。注3:不同额定容量及电压等级的具体短路阻抗值,见相应的标准。</td></tr></table>"
+  }
+ }
+}
