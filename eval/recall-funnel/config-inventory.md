@@ -43,8 +43,9 @@
 **库侧规模（实测）**：`clause_fts` **522,021 行**；`content_segmented` 非空 521,978（43 行空）。
 
 ⇒ **通道 B 的实际形态是「宽 OR + bm25 排序 + 硬截断 20」**：一句外行话被 jieba 切成一串词后
-用 OR 全连起来，命中池是"任意一个词出现过"的条款。实测命中池大小在**几百到几万条**之间
-（本次 171 条问法逐条记了 `fts_pool`）。
+用 OR 全连起来，命中池是"任意一个词出现过"的条款。实测命中池大小在 **72 ~ 75,490 条**之间
+（中位 **9,715** 条；本次 171 条问法逐条记了 `fts_pool`）。
+⚠ 初版这里写的是"几百到几万条"——**下限不对**（实测最小 72），已按实测区间改写。
 
 ---
 
@@ -59,7 +60,7 @@
 | 输入 | 融合后前 `rerank_n` 条（默认 **24**）的 `content_text[:512]` | `hybrid_engine._rerank_results` |
 | 降级 | 模型不可用/异常 → **原序返回** + `rerank_offline=true`，不阻塞 | `reranker.rerank` 与 `_rerank_results` |
 | 例外保护 | 含"但书/除外/另有规定"的候选被 rerank 挤出时**强制保留** | `_protect_exception_clauses` |
-| 生产是否开 | **关闭** —— `ks_answer` 取 `params.get("rerank", False)`，默认 False | `src/core/llm/ks_answer.py` |
+| 生产是否开 | **按调用点不同**：`ks_answer.py` 取 `params.get("rerank", False)` ⇒ **关**；`api/server.py` 与 `local_vision.py` 都不传 ⇒ 落到引擎默认 **`True`** ⇒ **开**（见下一节的表） | `src/core/llm/ks_answer.py` / `src/core/api/server.py` / `hybrid_engine.perform_hybrid_search` 的 `rerank: bool = True` |
 
 ---
 
@@ -79,23 +80,31 @@
 
 ### 生产问答路径实际传了哪些 filter（三个调用点全查过）
 
-| 调用点 | 调用 | 传了 subject / behavior_scope？ | rerank 默认 | top_k 默认 |
+> ⚠ **2026-10-06 更正（独立复核打回，这一行三处错）**：本表初版把 `api/server.py` 写成
+> "与上面同形 / rerank 同上(=False) / top_k 同上(=8)"。**三处都错**：它**没传 `rerank`**
+> （⇒ 落到引擎默认 `True`，即**开**），`top_k` 默认是 **3** 不是 8。
+> 连带"生产 rerank 关闭"这句话**只对 `ks_answer` 那条路成立**。**原话作废，下表为准。**
+
+| 调用点 | 调用 | 传了 subject / behavior_scope？ | rerank | top_k 默认 |
 |---|---|---|---|---|
-| `src/core/llm/ks_answer.py` | `search_with_details(search_query, top_k, channels, include_superseded, rerank, doc_ids)` | **都没有** | `False` | **8** |
-| `src/core/api/server.py` | 与上面同形 | **都没有** | 同上 | 同上 |
-| `src/core/vision/local_vision.py` | `perform_hybrid_search(query, top_k=top_k)` | **都没有** | 引擎默认 `True` | 调用方给 |
+| `src/core/llm/ks_answer.py` | `search_with_details(search_query, top_k, channels, include_superseded, rerank, doc_ids)` | **都没有** | `params.get("rerank", False)` ⇒ **关** | `params.get("top_k", 8)` ⇒ **8** |
+| `src/core/api/server.py` | `search_with_details(search_query, top_k, channels, include_superseded)` | **都没有** | **不传** ⇒ 引擎默认 `True` ⇒ **开** | `body.get("top_k", 3)` ⇒ **3** |
+| `src/core/vision/local_vision.py` | `perform_hybrid_search(query, top_k=top_k)` | **都没有** | 引擎默认 `True` ⇒ **开** | 调用方给 |
 
 ⇒ **结论（实测，不是推断）**：在"用户用大白话提问"这条路上，
 **通道 E、F 恒为 0 候选**；**通道 D 只在提问里出现模态词时才开**；
 **通道 A 只在提问里出现条款号时才开**。
 **恒常工作的只有 B（FTS）与 C（向量）两路。**
+⚠ 但 **rerank 开不开、`top_k` 给多少按调用点不同**（见上表）——别把 `ks_answer` 的口径
+当成"生产只有一套"。本报告记的融合名次一律按 **`rerank=False`、`top_k=1000`**
+（`ks_answer` 那条路），并单独记 `rerank=True, top_k=8` 那一路做对照。
 
 ### 通道各自的"料"有多少（真库实测）
 
 | 通道 | 依赖的列 | 非空行数 / 全库 522,021 | 说明 |
 |---|---|---|---|
-| D `modality` | `clause_revision.modality` | **215,597（41.3%）** | `应` 140,555 / `可` 23,798 / `不应` 15,338 / `可以` 9,566 / `宜` 5,826 / `不得` 4,820 / `不能` 4,690 |
-| E `legal_element` | `clause_revision.subject` | **2,171（0.42%）** | 几乎没建起来 |
+| D `modality` | `clause_revision.modality` | **215,597（41.3%）** | 最多的 7 个取值：`应` 140,555 / `可` 23,798 / `不应` 15,338 / `可以` 9,566 / `宜` 5,826 / `不得` 4,820 / `不能` 4,690（合计 204,593）；**另有 10 个取值合计 11,004**（`严禁` 578 / `原则上` 307 / `应当` 1,773 / `必须` 1,831 / `提倡` 28 / `支持` 3,078 / `有权` 313 / `禁止` 989 / `鼓励` 1,473 / `一般应` 634） |
+| E `legal_element` | `clause_revision.subject` | **2,171（0.42%）** | ⚠ **E 实际能匹配的更少**：它的 SQL 还要求 `knowledge_type='legal'`，两者同时成立的只有 **1,148** ⇒ 2,171 是**上界**、1,148 才是 E 的料 |
 | F `behavior_scope` | `clause_fts.behavior_scope_segmented` | **0（0%）** | 🔴 **列全空** ⇒ 即便有人传 filter，F 也**结构上**匹配不到任何东西 |
 
 ---
@@ -131,8 +140,10 @@
 `_filter_effective` → 按 `max_evidence` 截断。
 检索**之前**还有：`qu.parse_declared` / `detect_theme` / `classify_intent` /
 `refine_search_query` + `expand_with_alias`（别名扩展）+ `expand_query_with_history`（追问并入）。
-⇒ **喂给六条通道的不是用户的原始问法，是这一串处理后的串**（本次 171 条里，
-**13 条**处理后与原始问法不同）。
+⇒ **喂给六条通道的不是用户的原始问法，是这一串处理后的串**。
+**逐条清单已落盘**：`query-preprocess.json`（由 `preprocess-diff.py` 生成，可复算）
+—— 171 条里 **13 条**处理后与原始问法不同（多为别名扩展追加领域词，如「对比 要求」「特殊作业」）。
+⚠ 初版本处只写了数字、**没有任何产物可核**（独立复核指出）；现已补上清单。
 
 ---
 

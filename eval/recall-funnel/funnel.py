@@ -2,16 +2,19 @@
 
 ## 这份脚本要回答的三个问题
  1. **每一路**分别把 gold 召回到第几名（Top20 / Top100 / Top1000）；
- 2. 六路**并起来**的 recall@20/@100/@1000（分"生产口径"与"深读口径"两种）；
+ 2. 六路**并起来**的 recall@20/@100/@1000（**同预算口径**与**生产上限口径**两个都出、名字分开）；
  3. 六路**融合后**（RRF+时效过滤，即生产实际排序）gold 在第几名。
 
 ## 两条口径必须分开说（否则数字会被误读）
- * **生产口径**：完全照 `hybrid_engine.perform_hybrid_search` 的参数 ——
+ * **生产上限口径**（`union.prod_caps`）：照 `hybrid_engine.perform_hybrid_search` 的**真实限量** ——
    通道 B（FTS5）`LIMIT 20`、通道 C（向量）`k = 20`、通道 F `LIMIT 20`；
-   通道 A/D/E **无行数上限**。⇒ 这一口径下 `union@100` 与 `union@1000` 必然等于 `union@20`。
- * **深读口径（探针）**：同一条 SQL、同一个排序，只把 B/C 的 `k` 放大到 100/1000。
-   **它不是生产行为**，只用来把"召回不到"与"截断了"分开：
-   若 gold 在 `deep@1000` 里而不在 `@20` 里 ⇒ 是**截断/排序**问题，不是"模型不认识"。
+   通道 A/D/E **无行数上限 ⇒ 取全量**。
+ * **同预算口径**（`union.same_budget`，**本报告主口径**）：每一路都只取**前 d 条**再取并集，
+   d ∈ {20,100,1000}。这是"给每一路同样大的预算"的探针：d>20 时 B/C 用深读列表
+   （同一条 SQL、同一个排序，只把 `k` 放大），**它不是生产行为**。
+   若 gold 在 `@1000` 里而不在 `@20` 里 ⇒ 是**截断**问题，不是"模型不认识"。
+   ⚠ 这两个口径**名字必须分开用**：2026-10-06 独立复核打回的正是"把 A/D/E 也按 d 截断、
+   却仍叫它生产口径"，于是同一份数据在报告里出现 103 与 104 两个"六路全未命中"。
 
 ## 六路在当前库里实际触发的实情（本脚本会逐条记录，不在别处猜）
  * A（条款号精确）只在提问含条款号时触发（外行问法里极少）；
@@ -245,7 +248,7 @@ def main() -> int:
             cands["modality"] = channel_modality(conn, mfilter)
             cands["legal_element"] = []          # 生产问答路径不传 subject_filter
             cands["behavior_scope"] = []         # 生产问答路径不传 behavior_scope_filter
-            # 深读口径（B/C 放大到 1000）
+            # 深读列表（同预算口径在 d>20 时才用；生产只跑到前 20）
             deep = dict(cands)
             deep["fts"] = channel_fts(conn, q, 1000)
             deep["vec"] = channel_vec(conn, q, 1000)
@@ -271,15 +274,32 @@ def main() -> int:
                     "deep_gold_rank": rank_of(gold, dl),
                     "fires": bool(lst),
                 }
-            # 四种口径的并集：生产（B/C 只到 20）/ 深读（B/C 到 1000）
-            for label, table in (("prod", cands), ("deep", deep)):
-                for d in DEPTHS:
-                    pool: set[str] = set()
-                    for c in CHANNELS:
-                        pool |= set(table[c][:d]) if table[c] else set()
-                    rec.setdefault("union", {}).setdefault(label, {})[f"@{d}"] = gold in pool
-                    if d == 1000:
-                        rec["union"][label]["pool@1000"] = len(pool)
+            # ── 并集：**一条规则，两个口径，名字必须分开** ────────────────────
+            # ⚠ 2026-10-06 独立复核打回的真实缺陷（原版把 A/D/E 也按 d 截断，与
+            #   本文件 docstring 写的"A/D/E 无上限"矛盾 ⇒ 同一概念两个数）：
+            #   · **同预算口径（本报告主口径）**：每一路都只取**前 d 条**再取并集。
+            #     d ∈ {20,100,1000}。B/C 在 d>20 时用深读列表，A/D/E 用它们完整列表的前 d 条。
+            #   · **生产上限口径**：照 `perform_hybrid_search` 的真实限量 ——
+            #     A/D/E **不限量（取全量）**、B/C/F 取前 20。
+            #     这一条才是"系统手里到底有没有这条条文"。
+            same = {}
+            for d in DEPTHS:
+                pool: set[str] = set()
+                for c in CHANNELS:
+                    pool |= set(deep[c][:d])
+                same[f"@{d}"] = gold in pool
+                if d == 1000:
+                    same["pool@1000"] = len(pool)
+            prod_pool: set[str] = set()
+            for c in CHANNELS:
+                if PROD_CAP[c] is None:
+                    prod_pool |= set(cands[c])            # A/D/E：生产不限量
+                else:
+                    prod_pool |= set(cands[c][:PROD_CAP[c]])
+            rec["union"] = {
+                "same_budget": same,
+                "prod_caps": {"pool": len(prod_pool), "hit": gold in prod_pool},
+            }
             # 融合（生产实际排序：RRF + 时效过滤；rerank 默认关闭，与 ks_answer 一致）
             found = search_with_details(q, top_k=1000, rerank=False,
                                         boost_bookmarks=False, expand_chain=False)
@@ -297,10 +317,13 @@ def main() -> int:
                     }
                 except Exception as e:  # noqa: BLE001
                     rec["fused_rerank8"] = {"hit": None, "error": str(e)[:120]}
-            # 独家/共同命中（按深读 1000 口径）
-            hit_channels = [c for c in CHANNELS if rec["channels"][c]["deep_gold_rank"]]
+            # 独家/共同命中：**与并集同一条口径**（每路前 1000 条）——
+            # ⚠ 复核打回的第二处：原版这里用的是"各路未截断名次"，于是会出现
+            #   "命中通道非空、并集 @1000 为假"（i=142：模态路 gold 在第 80,101 名），
+            #   同一条数据在报告里同时出现 103 与 104 两个"六路全未命中"。
+            hit_channels = [c for c in CHANNELS if gold in (deep[c][:1000] if deep[c] else [])]
             rec["hit_channels"] = hit_channels
-            rec["hit_in_deep_union"] = rec["union"]["deep"]["@1000"]
+            rec["hit_in_deep_union"] = rec["union"]["same_budget"]["@1000"]
             if not args.no_fts_pool:
                 rec["fts_pool"] = channel_fts_pool(conn, q)
             # 一致性校验：本脚本的通道副本 vs 生产 `perform_hybrid_search`（单通道）

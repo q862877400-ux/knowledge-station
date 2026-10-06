@@ -1,0 +1,1670 @@
+{
+ "meta": {
+  "source": "D:\\AI\\work space\\zcode\\eval\\recall-funnel\\benchmark-v2.jsonl",
+  "chain": "parse_declared → detect_theme/classify_intent → refine_search_query → expand_with_alias → expand_query_with_history",
+  "producer": "src/core/llm/ks_answer.py（检索前那一串）",
+  "why": "六路通道实际收到的是 search_query，不是用户原始问法"
+ },
+ "n": 171,
+ "n_changed": 13,
+ "changed": [
+  {
+   "i": 4,
+   "raw": "电炉丝烧到透红但不起火，跟普通着火有啥区别？",
+   "search_query": "电炉丝烧到透红但不起火，跟普通着火有啥区别？ 对比 要求",
+   "changed": true,
+   "theme": "general",
+   "intent": "compare",
+   "alias_ok": true
+  },
+  {
+   "i": 28,
+   "raw": "直接照过来的主光束和被打到的物体反激出的光有啥不同？",
+   "search_query": "直接照过来的主光束和被打到的物体反激出的光有啥不同？ 对比 要求",
+   "changed": true,
+   "theme": "general",
+   "intent": "compare",
+   "alias_ok": true
+  },
+  {
+   "i": 29,
+   "raw": "我想把写好的代码灌进芯片里，手里该拿个啥家伙？",
+   "search_query": "把写好的代码灌进芯片里，手里该拿个啥家伙？",
+   "changed": true,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 36,
+   "raw": "家里燃气探头既能报数值又能接指令关阀门，它高级在哪？",
+   "search_query": "家里燃气探头既能报数值又能接指令关阀门，它高级在哪？ 特殊作业",
+   "changed": true,
+   "theme": "special_work",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 37,
+   "raw": "买这种两百块带芯片能收发数据的探头，比起老式的多了啥？",
+   "search_query": "买这种两百块带芯片能收发数据的探头，比起老式的多了啥？ 特殊作业",
+   "changed": true,
+   "theme": "special_work",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 55,
+   "raw": "熔硅料时，这种质地结实、没蜂窝眼的碎块跟疏松料有啥区别？",
+   "search_query": "熔硅料时，这种质地结实、没蜂窝眼的碎块跟疏松料有啥区别？ 对比 要求",
+   "changed": true,
+   "theme": "general",
+   "intent": "compare",
+   "alias_ok": true
+  },
+  {
+   "i": 59,
+   "raw": "这种匀速加力的测土机跟按变形控制的有啥区别？",
+   "search_query": "这种匀速加力的测土机跟按变形控制的有啥区别？ 对比 要求",
+   "changed": true,
+   "theme": "general",
+   "intent": "compare",
+   "alias_ok": true
+  },
+  {
+   "i": 83,
+   "raw": "这种印高速滚筒画册的快干颜料和普通的有什么区别？",
+   "search_query": "这种印高速滚筒画册的快干颜料和普通的有什么区别？ 对比 要求",
+   "changed": true,
+   "theme": "general",
+   "intent": "compare",
+   "alias_ok": true
+  },
+  {
+   "i": 86,
+   "raw": "医生，脚背大面积发红流脓跟烂脚丫到底有什么不同？",
+   "search_query": "医生，脚背大面积发红流脓跟烂脚丫到底有什么不同？ 对比 要求",
+   "changed": true,
+   "theme": "general",
+   "intent": "compare",
+   "alias_ok": true
+  },
+  {
+   "i": 95,
+   "raw": "质检单上算出来的这个中位数和普通算术平均有什么不同？",
+   "search_query": "质检单上算出来的这个中位数和普通算术平均有什么不同？ 对比 要求",
+   "changed": true,
+   "theme": "general",
+   "intent": "compare",
+   "alias_ok": true
+  },
+  {
+   "i": 100,
+   "raw": "车间顶上那个像大圆筒一样的吹风大喇叭，跟一般的电风扇有啥区别？",
+   "search_query": "车间顶上那个像大圆筒一样的吹风大喇叭，跟一般的电风扇有啥区别？ 对比 要求",
+   "changed": true,
+   "theme": "general",
+   "intent": "compare",
+   "alias_ok": true
+  },
+  {
+   "i": 125,
+   "raw": "给厢式货车两侧贴的发亮警示带，跟普通的夜光贴纸有什么区别？",
+   "search_query": "给厢式货车两侧贴的发亮警示带，跟普通的夜光贴纸有什么区别？ 对比 要求",
+   "changed": true,
+   "theme": "general",
+   "intent": "compare",
+   "alias_ok": true
+  },
+  {
+   "i": 132,
+   "raw": "套在长筒外面上下跑着喷气的装置跟脉冲喷吹有啥不同？",
+   "search_query": "套在长筒外面上下跑着喷气的装置跟脉冲喷吹有啥不同？ 对比 要求",
+   "changed": true,
+   "theme": "general",
+   "intent": "compare",
+   "alias_ok": true
+  }
+ ],
+ "per_query": [
+  {
+   "i": 1,
+   "raw": "退潮后在海泥里插竹竿吊养生蚝，这种做法属于哪种行当？",
+   "search_query": "退潮后在海泥里插竹竿吊养生蚝，这种做法属于哪种行当？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 2,
+   "raw": "车间墙角那个呼呼吸空气测细菌的小圆盒子，是干什么用的？",
+   "search_query": "车间墙角那个呼呼吸空气测细菌的小圆盒子，是干什么用的？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 3,
+   "raw": "木炭通红通红的却不见半点火苗，这算着火吗？",
+   "search_query": "木炭通红通红的却不见半点火苗，这算着火吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 4,
+   "raw": "电炉丝烧到透红但不起火，跟普通着火有啥区别？",
+   "search_query": "电炉丝烧到透红但不起火，跟普通着火有啥区别？ 对比 要求",
+   "changed": true,
+   "theme": "general",
+   "intent": "compare",
+   "alias_ok": true
+  },
+  {
+   "i": 5,
+   "raw": "巡检发现堆垛内部暗红透亮冒烟，这属于哪种情况？",
+   "search_query": "巡检发现堆垛内部暗红透亮冒烟，这属于哪种情况？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 6,
+   "raw": "分拣时怎么一眼看出哪些拉杆箱是贵宾客户的？",
+   "search_query": "分拣时怎么一眼看出哪些拉杆箱是贵宾客户的？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 7,
+   "raw": "从钢瓶到减压阀这一大串管路，行业里一般管它叫啥？",
+   "search_query": "从钢瓶到减压阀这一大串管路，行业里一般管它叫啥？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 8,
+   "raw": "柜子里留着这块没暴晒过的原色塑料片是干嘛用的？",
+   "search_query": "柜子里留着这块没暴晒过的原色塑料片是干嘛用的？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 9,
+   "raw": "每次做老化测试前，为啥都要特意锁一包料在恒温箱里？",
+   "search_query": "每次做老化测试前，为啥都要特意锁一包料在恒温箱里？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 10,
+   "raw": "这种专门留着不拿去测、最后用来比对的对照样叫啥？",
+   "search_query": "这种专门留着不拿去测、最后用来比对的对照样叫啥？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 11,
+   "raw": "咱们工厂不光卖机床还包后期联网运维，这算啥业务？",
+   "search_query": "咱们工厂不光卖机床还包后期联网运维，这算啥业务？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 12,
+   "raw": "搞工程的公司现在连物料采购和后期维修全包，属于啥模式？",
+   "search_query": "搞工程的公司现在连物料采购和后期维修全包，属于啥模式？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 13,
+   "raw": "这根插头线上一直测到微小的杂波信号，到底是什么东西？",
+   "search_query": "这根插头线上一直测到微小的杂波信号，到底是什么东西？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 14,
+   "raw": "音响只要插上电，喇叭里就一直有滋滋声，这是啥干扰？",
+   "search_query": "音响只要插上电，喇叭里就一直有滋滋声，这是啥干扰？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 15,
+   "raw": "示波器上那条24伏电线里一直抖个不停的毛刺叫什么？",
+   "search_query": "示波器上那条24伏电线里一直抖个不停的毛刺叫什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "clause_lookup",
+   "alias_ok": true
+  },
+  {
+   "i": 16,
+   "raw": "矿井打完钻孔后拔掉阀门等水自己喷出来是在测啥？",
+   "search_query": "矿井打完钻孔后拔掉阀门等水自己喷出来是在测啥？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 17,
+   "raw": "巷道老渗水，工程师说要打开导水管排空看水压是干嘛？",
+   "search_query": "巷道老渗水，工程师说要打开导水管排空看水压是干嘛？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 18,
+   "raw": "工人们把3号孔封口拆掉记录水流速度到底在测什么？",
+   "search_query": "工人们把3号孔封口拆掉记录水流速度到底在测什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 19,
+   "raw": "变电站大柜子没输送实际电量却在补偿电压是哪种状态？",
+   "search_query": "变电站大柜子没输送实际电量却在补偿电压是哪种状态？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 20,
+   "raw": "电工说机器现在不传电量只调节电网相位到底算什么模式？",
+   "search_query": "电工说机器现在不传电量只调节电网相位到底算什么模式？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 21,
+   "raw": "加油站加的标着E10含一成酒精的汽油属于哪类油品？",
+   "search_query": "加油站加的标着E10含一成酒精的汽油属于哪类油品？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 22,
+   "raw": "把炸鸡店用过的废弃地沟油提炼出来加进车里算什么能源？",
+   "search_query": "把炸鸡店用过的废弃地沟油提炼出来加进车里算什么能源？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 23,
+   "raw": "农场自己压榨的菜籽油兑进普通柴油给拖拉机烧算不算？",
+   "search_query": "农场自己压榨的菜籽油兑进普通柴油给拖拉机烧算不算？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 24,
+   "raw": "我按一下绿钮机子自己焊完不用管，这算哪种工法？",
+   "search_query": "我按一下绿钮机子自己焊完不用管，这算哪种工法？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 25,
+   "raw": "厂里买的六轴机械臂自己走焊道，这属于啥工艺？",
+   "search_query": "厂里买的六轴机械臂自己走焊道，这属于啥工艺？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 26,
+   "raw": "医院拍片子时，机器照到墙上再弹回来的辐射是什么？",
+   "search_query": "医院拍片子时，机器照到墙上再弹回来的辐射是什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 27,
+   "raw": "做X光探伤时，钢管被穿透后自己又散出来的光叫啥？",
+   "search_query": "做X光探伤时，钢管被穿透后自己又散出来的光叫啥？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 28,
+   "raw": "直接照过来的主光束和被打到的物体反激出的光有啥不同？",
+   "search_query": "直接照过来的主光束和被打到的物体反激出的光有啥不同？ 对比 要求",
+   "changed": true,
+   "theme": "general",
+   "intent": "compare",
+   "alias_ok": true
+  },
+  {
+   "i": 29,
+   "raw": "我想把写好的代码灌进芯片里，手里该拿个啥家伙？",
+   "search_query": "把写好的代码灌进芯片里，手里该拿个啥家伙？",
+   "changed": true,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 30,
+   "raw": "车间流水线上给100块主板灌软件的小黑盒是干嘛的？",
+   "search_query": "车间流水线上给100块主板灌软件的小黑盒是干嘛的？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 31,
+   "raw": "网上常说的烧写夹和烧录枪到底是个什么玩意？",
+   "search_query": "网上常说的烧写夹和烧录枪到底是个什么玩意？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 32,
+   "raw": "我奶奶下楼梯摔倒大腿根剧痛动不了，这算不算大腿断了？",
+   "search_query": "我奶奶下楼梯摔倒大腿根剧痛动不了，这算不算大腿断了？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 33,
+   "raw": "拍片子显示大腿那根骨头裂了3公分缝，在医学上算哪种伤？",
+   "search_query": "拍片子显示大腿那根骨头裂了3公分缝，在医学上算哪种伤？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 34,
+   "raw": "工地干活砸到腿，诊断书写的位置到底是不是最长的那根腿骨？",
+   "search_query": "工地干活砸到腿，诊断书写的位置到底是不是最长的那根腿骨？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 35,
+   "raw": "想查阳光里紫外线跟红外线各占多少比例，要找哪种图看？",
+   "search_query": "想查阳光里紫外线跟红外线各占多少比例，要找哪种图看？",
+   "changed": false,
+   "theme": "general",
+   "intent": "clause_lookup",
+   "alias_ok": true
+  },
+  {
+   "i": 36,
+   "raw": "家里燃气探头既能报数值又能接指令关阀门，它高级在哪？",
+   "search_query": "家里燃气探头既能报数值又能接指令关阀门，它高级在哪？ 特殊作业",
+   "changed": true,
+   "theme": "special_work",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 37,
+   "raw": "买这种两百块带芯片能收发数据的探头，比起老式的多了啥？",
+   "search_query": "买这种两百块带芯片能收发数据的探头，比起老式的多了啥？ 特殊作业",
+   "changed": true,
+   "theme": "special_work",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 38,
+   "raw": "流水线上能测温又能听电脑指挥的感应器，到底指哪种设备？",
+   "search_query": "流水线上能测温又能听电脑指挥的感应器，到底指哪种设备？",
+   "changed": false,
+   "theme": "general",
+   "intent": "rule_query",
+   "alias_ok": true
+  },
+  {
+   "i": 39,
+   "raw": "在矿井挖煤老往外渗水，拿大泵把土抽干算这种工序吗？",
+   "search_query": "在矿井挖煤老往外渗水，拿大泵把土抽干算这种工序吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 40,
+   "raw": "盐碱地底下埋100米透水管道排盐，大家管这叫什么？",
+   "search_query": "盐碱地底下埋100米透水管道排盐，大家管这叫什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "data_query",
+   "alias_ok": true
+  },
+  {
+   "i": 41,
+   "raw": "听说打井把地层里的地下水强行抽干，这法子有什么用处？",
+   "search_query": "听说打井把地层里的地下水强行抽干，这法子有什么用处？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 42,
+   "raw": "开车时踩下脚踏板动力就切断、松开又连上的那个是啥？",
+   "search_query": "开车时踩下脚踏板动力就切断、松开又连上的那个是啥？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 43,
+   "raw": "发动机和变速箱中间夹着的那个20公分圆盘，到底是干嘛的？",
+   "search_query": "发动机和变速箱中间夹着的那个20公分圆盘，到底是干嘛的？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 44,
+   "raw": "机器里能让转着的铁棍瞬间咬合或者脱开的装置叫什么？",
+   "search_query": "机器里能让转着的铁棍瞬间咬合或者脱开的装置叫什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 45,
+   "raw": "化验单上写的CEC这个数值，到底是代表泥巴有多肥啊？",
+   "search_query": "化验单上写的CEC这个数值，到底是代表泥巴有多肥啊？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 46,
+   "raw": "我们农场测土壤，师傅说的这个吸肥能力到底是个啥？",
+   "search_query": "我们农场测土壤，师傅说的这个吸肥能力到底是个啥？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 47,
+   "raw": "车间制氧系统里，专门用来滤掉二氧化碳的大罐子是哪个？",
+   "search_query": "车间制氧系统里，专门用来滤掉二氧化碳的大罐子是哪个？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 48,
+   "raw": "空分装置前面装了10吨白球球的那个过滤罐，是起啥作用的？",
+   "search_query": "空分装置前面装了10吨白球球的那个过滤罐，是起啥作用的？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 49,
+   "raw": "师傅，气罐前面那个装满干燥小石子的是用来吸水的吗？",
+   "search_query": "师傅，气罐前面那个装满干燥小石子的是用来吸水的吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 50,
+   "raw": "布袋除尘器每次停下来轮流给小隔间吹风抖灰，这叫啥技术？",
+   "search_query": "布袋除尘器每次停下来轮流给小隔间吹风抖灰，这叫啥技术？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 51,
+   "raw": "顶上那个机械臂转到1号仓停下喷气，这套机构是干嘛的？",
+   "search_query": "顶上那个机械臂转到1号仓停下喷气，这套机构是干嘛的？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 52,
+   "raw": "厂里那个转着圈给滤袋喷风除粉尘的设备，到底怎么工作的？",
+   "search_query": "厂里那个转着圈给滤袋喷风除粉尘的设备，到底怎么工作的？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 53,
+   "raw": "组装哮喘喷药瓶时，卡在盖子里托着弹簧的小塑料筒是干啥的？",
+   "search_query": "组装哮喘喷药瓶时，卡在盖子里托着弹簧的小塑料筒是干啥的？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 54,
+   "raw": "按一下正好喷出50微升药液的罐子，里面是靠哪个部件控量的？",
+   "search_query": "按一下正好喷出50微升药液的罐子，里面是靠哪个部件控量的？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 55,
+   "raw": "熔硅料时，这种质地结实、没蜂窝眼的碎块跟疏松料有啥区别？",
+   "search_query": "熔硅料时，这种质地结实、没蜂窝眼的碎块跟疏松料有啥区别？ 对比 要求",
+   "changed": true,
+   "theme": "general",
+   "intent": "compare",
+   "alias_ok": true
+  },
+  {
+   "i": 56,
+   "raw": "想给矿用挖煤机换一套装有48把刀头的破岩旋转总成，管它叫什么？",
+   "search_query": "想给矿用挖煤机换一套装有48把刀头的破岩旋转总成，管它叫什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 57,
+   "raw": "看纪录片里采煤机最前端专门用来削煤壁的大爪子到底算啥装置？",
+   "search_query": "看纪录片里采煤机最前端专门用来削煤壁的大爪子到底算啥装置？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 58,
+   "raw": "试验室里那个匀速加砝码测土块承重的铁架子叫啥？",
+   "search_query": "试验室里那个匀速加砝码测土块承重的铁架子叫啥？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 59,
+   "raw": "这种匀速加力的测土机跟按变形控制的有啥区别？",
+   "search_query": "这种匀速加力的测土机跟按变形控制的有啥区别？ 对比 要求",
+   "changed": true,
+   "theme": "general",
+   "intent": "compare",
+   "alias_ok": true
+  },
+  {
+   "i": 60,
+   "raw": "我把租来的两百个木栈板直接交接给下家算啥？",
+   "search_query": "我把租来的两百个木栈板直接交接给下家算啥？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 61,
+   "raw": "仓库垫板没到期直接转给接手的新租客叫什么名堂？",
+   "search_query": "仓库垫板没到期直接转给接手的新租客叫什么名堂？",
+   "changed": false,
+   "theme": "building",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 62,
+   "raw": "别人租的地台板现在换成我们接着付租金，这叫啥？",
+   "search_query": "别人租的地台板现在换成我们接着付租金，这叫啥？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 63,
+   "raw": "铝水灌满模具后为了防缩水，再加零点五兆帕是啥力？",
+   "search_query": "铝水灌满模具后为了防缩水，再加零点五兆帕是啥力？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 64,
+   "raw": "轮毂刚浇满那会儿，炉子里突然加大力气顶着是干嘛？",
+   "search_query": "轮毂刚浇满那会儿，炉子里突然加大力气顶着是干嘛？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 65,
+   "raw": "铁水灌满后比刚才进料时更猛的那股劲到底是什么？",
+   "search_query": "铁水灌满后比刚才进料时更猛的那股劲到底是什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 66,
+   "raw": "买化妆品送的硬纸盒波纹特别细，这种纸板叫什么？",
+   "search_query": "买化妆品送的硬纸盒波纹特别细，这种纸板叫什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 67,
+   "raw": "量纸板夹层波纹高度只有1毫米，算不算最薄的那种纸？",
+   "search_query": "量纸板夹层波纹高度只有1毫米，算不算最薄的那种纸？",
+   "changed": false,
+   "theme": "general",
+   "intent": "data_query",
+   "alias_ok": true
+  },
+  {
+   "i": 68,
+   "raw": "村里统计各家各户想盖房要多少地，这个指标到底指啥？",
+   "search_query": "村里统计各家各户想盖房要多少地，这个指标到底指啥？",
+   "changed": false,
+   "theme": "general",
+   "intent": "data_query",
+   "alias_ok": true
+  },
+  {
+   "i": 69,
+   "raw": "我们厂扩产想拿隔壁地皮，统计表里写的用地诉求是啥意思？",
+   "search_query": "我们厂扩产想拿隔壁地皮，统计表里写的用地诉求是啥意思？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 70,
+   "raw": "我买的电磁炉隔几秒开一下停一下，这种加热方式叫什么？",
+   "search_query": "我买的电磁炉隔几秒开一下停一下，这种加热方式叫什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 71,
+   "raw": "电炉子通电几个周期又断开几个周期来调温，这叫啥技术？",
+   "search_query": "电炉子通电几个周期又断开几个周期来调温，这叫啥技术？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 72,
+   "raw": "工厂新买的20千瓦加热器上写着多周期调节，到底啥意思？",
+   "search_query": "工厂新买的20千瓦加热器上写着多周期调节，到底啥意思？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 73,
+   "raw": "会计让我报仓储和送货总共贴进去多少钱，具体都得包括哪几样？",
+   "search_query": "会计让我报仓储和送货总共贴进去多少钱，具体都得包括哪几样？",
+   "changed": false,
+   "theme": "general",
+   "intent": "data_query",
+   "alias_ok": true
+  },
+  {
+   "i": 74,
+   "raw": "领导让我核实博览会的门禁刷卡流水，这种查证报表的事叫什么？",
+   "search_query": "领导让我核实博览会的门禁刷卡流水，这种查证报表的事叫什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "clause_lookup",
+   "alias_ok": true
+  },
+  {
+   "i": 75,
+   "raw": "展销会刚办完，来查我们展商数量和成交单据的专家是在查什么？",
+   "search_query": "展销会刚办完，来查我们展商数量和成交单据的专家是在查什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "clause_lookup",
+   "alias_ok": true
+  },
+  {
+   "i": 76,
+   "raw": "路边那个黄底黑边画着感叹号的牌子是干啥用的？",
+   "search_query": "路边那个黄底黑边画着感叹号的牌子是干啥用的？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 77,
+   "raw": "车间变压器旁边贴着带闪电三角形的是什么牌子？",
+   "search_query": "车间变压器旁边贴着带闪电三角形的是什么牌子？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 78,
+   "raw": "吊车停稳后往地面撑下去的那四根柱子叫什么？",
+   "search_query": "吊车停稳后往地面撑下去的那四根柱子叫什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 79,
+   "raw": "车底两侧能伸出来支在路面上的4条铁脚是啥构件？",
+   "search_query": "车底两侧能伸出来支在路面上的4条铁脚是啥构件？",
+   "changed": false,
+   "theme": "general",
+   "intent": "clause_lookup",
+   "alias_ok": true
+  },
+  {
+   "i": 80,
+   "raw": "泵车底下用来把整台车架起来防侧翻的部件叫啥名字？",
+   "search_query": "泵车底下用来把整台车架起来防侧翻的部件叫啥名字？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 81,
+   "raw": "印书机烤箱里一烤就能干透的那种颜料是什么类型？",
+   "search_query": "印书机烤箱里一烤就能干透的那种颜料是什么类型？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 82,
+   "raw": "烘箱温度要烧到150度才结膜的印刷墨水叫什么？",
+   "search_query": "烘箱温度要烧到150度才结膜的印刷墨水叫什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 83,
+   "raw": "这种印高速滚筒画册的快干颜料和普通的有什么区别？",
+   "search_query": "这种印高速滚筒画册的快干颜料和普通的有什么区别？ 对比 要求",
+   "changed": true,
+   "theme": "general",
+   "intent": "compare",
+   "alias_ok": true
+  },
+  {
+   "i": 84,
+   "raw": "我脚背又烫又肿走不了路，大夫说的足背发到底是啥病？",
+   "search_query": "我脚背又烫又肿走不了路，大夫说的足背发到底是啥病？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 85,
+   "raw": "脚面红肿扩散还化脓烂了快7天，这在医学上叫什么？",
+   "search_query": "脚面红肿扩散还化脓烂了快7天，这在医学上叫什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 86,
+   "raw": "医生，脚背大面积发红流脓跟烂脚丫到底有什么不同？",
+   "search_query": "医生，脚背大面积发红流脓跟烂脚丫到底有什么不同？ 对比 要求",
+   "changed": true,
+   "theme": "general",
+   "intent": "compare",
+   "alias_ok": true
+  },
+  {
+   "i": 87,
+   "raw": "量管子直径前，用压头轻轻顶住它的那个劲儿叫什么？",
+   "search_query": "量管子直径前，用压头轻轻顶住它的那个劲儿叫什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 88,
+   "raw": "测胶圈粗细前，先加2牛顿持续按住它的力是干啥的？",
+   "search_query": "测胶圈粗细前，先加2牛顿持续按住它的力是干啥的？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 89,
+   "raw": "师傅，正式压碎前机器先给样品顶上的力气是干嘛的？",
+   "search_query": "师傅，正式压碎前机器先给样品顶上的力气是干嘛的？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 90,
+   "raw": "送来时箱子还热乎、撕开封口就能动筷的快餐是叫这个吗？",
+   "search_query": "送来时箱子还热乎、撕开封口就能动筷的快餐是叫这个吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 91,
+   "raw": "我们用60度恒温箱送出去的套餐，算不算你们说的这种？",
+   "search_query": "我们用60度恒温箱送出去的套餐，算不算你们说的这种？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 92,
+   "raw": "把态度占40分、效率占60分的综合打分表是这种套路吗？",
+   "search_query": "把态度占40分、效率占60分的综合打分表是这种套路吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 93,
+   "raw": "在工地做完一批试块抗压回弹后，技术员说的中间数是指哪个数？",
+   "search_query": "在工地做完一批试块抗压回弹后，技术员说的中间数是指哪个数？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 94,
+   "raw": "我们测了5块钢板的厚度，排在第3位的那个尺寸叫什么值？",
+   "search_query": "我们测了5块钢板的厚度，排在第3位的那个尺寸叫什么值？",
+   "changed": false,
+   "theme": "general",
+   "intent": "clause_lookup",
+   "alias_ok": true
+  },
+  {
+   "i": 95,
+   "raw": "质检单上算出来的这个中位数和普通算术平均有什么不同？",
+   "search_query": "质检单上算出来的这个中位数和普通算术平均有什么不同？ 对比 要求",
+   "changed": true,
+   "theme": "general",
+   "intent": "compare",
+   "alias_ok": true
+  },
+  {
+   "i": 96,
+   "raw": "师傅给我的那叠施工图纸和说明，在你们行业里管这叫啥？",
+   "search_query": "师傅给我的那叠施工图纸和说明，在你们行业里管这叫啥？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 97,
+   "raw": "工地上改了方案后新送来的那几张改动通知单，到底算不算这个？",
+   "search_query": "工地上改了方案后新送来的那几张改动通知单，到底算不算这个？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 98,
+   "raw": "装修公司收了我3套图纸和厚厚一叠字，这整套东西官方名字是啥？",
+   "search_query": "装修公司收了我3套图纸和厚厚一叠字，这整套东西官方名字是啥？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 99,
+   "raw": "我家厨房装在墙洞里往外抽油烟呼呼转的玩意，算这类设备吗？",
+   "search_query": "我家厨房装在墙洞里往外抽油烟呼呼转的玩意，算这类设备吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 100,
+   "raw": "车间顶上那个像大圆筒一样的吹风大喇叭，跟一般的电风扇有啥区别？",
+   "search_query": "车间顶上那个像大圆筒一样的吹风大喇叭，跟一般的电风扇有啥区别？ 对比 要求",
+   "changed": true,
+   "theme": "general",
+   "intent": "compare",
+   "alias_ok": true
+  },
+  {
+   "i": 101,
+   "raw": "仓库里装了2台专门往外排粉尘的大机器，能管它叫这名字吗？",
+   "search_query": "仓库里装了2台专门往外排粉尘的大机器，能管它叫这名字吗？",
+   "changed": false,
+   "theme": "building",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 102,
+   "raw": "我打完电话按了红色挂断键，在你们通信系统里管这个过程叫啥？",
+   "search_query": "我打完电话按了红色挂断键，在你们通信系统里管这个过程叫啥？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 103,
+   "raw": "客服后台显示有2通电话彻底掐断了，你们专业上管这叫什么？",
+   "search_query": "客服后台显示有2通电话彻底掐断了，你们专业上管这叫什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 104,
+   "raw": "花盆里的泥巴硬得像石头浇不进水算怎么回事？",
+   "search_query": "花盆里的泥巴硬得像石头浇不进水算怎么回事？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 105,
+   "raw": "工地被压路机碾压后土面结成硬壳属于啥状况？",
+   "search_query": "工地被压路机碾压后土面结成硬壳属于啥状况？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 106,
+   "raw": "绿化带浇了10升水全浮在硬土上是出了啥问题？",
+   "search_query": "绿化带浇了10升水全浮在硬土上是出了啥问题？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 107,
+   "raw": "买的石茶盘吸饱水后重了50克这个特性在专业上叫啥？",
+   "search_query": "买的石茶盘吸饱水后重了50克这个特性在专业上叫啥？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 108,
+   "raw": "把一块大理石直接泡在水桶里看它吃水算什么指标？",
+   "search_query": "把一块大理石直接泡在水桶里看它吃水算什么指标？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 109,
+   "raw": "净化塔把废气里95%的硫给洗掉了这数据叫啥？",
+   "search_query": "净化塔把废气里95%的硫给洗掉了这数据叫啥？",
+   "changed": false,
+   "theme": "privacy",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 110,
+   "raw": "厂里烟囱冒烟时洗掉脏东西的比例在行话里叫什么？",
+   "search_query": "厂里烟囱冒烟时洗掉脏东西的比例在行话里叫什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 111,
+   "raw": "船舱底下排出来的黑油水，要过哪个机器才能排海？",
+   "search_query": "船舱底下排出来的黑油水，要过哪个机器才能排海？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 112,
+   "raw": "机舱角落连着排污管的那个大铁罐子是干嘛用的？",
+   "search_query": "机舱角落连着排污管的那个大铁罐子是干嘛用的？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 113,
+   "raw": "轮机房里专门把漏油跟废水分开的过滤装置叫什么？",
+   "search_query": "轮机房里专门把漏油跟废水分开的过滤装置叫什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 114,
+   "raw": "家里配电盒里负责自动跳闸的那个空开到底属于什么？",
+   "search_query": "家里配电盒里负责自动跳闸的那个空开到底属于什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 115,
+   "raw": "工地接220伏临时电用的漏电保护开关算哪类器件？",
+   "search_query": "工地接220伏临时电用的漏电保护开关算哪类器件？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 116,
+   "raw": "配电房里那些负责日常分合闸的电控开关统称叫什么？",
+   "search_query": "配电房里那些负责日常分合闸的电控开关统称叫什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 117,
+   "raw": "冬天脚后跟干硬粗糙，还裂开好几道流血口子是啥毛病？",
+   "search_query": "冬天脚后跟干硬粗糙，还裂开好几道流血口子是啥毛病？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 118,
+   "raw": "天天徒手抹水泥导致掌心干硬脱皮裂开，这叫什么病？",
+   "search_query": "天天徒手抹水泥导致掌心干硬脱皮裂开，这叫什么病？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 119,
+   "raw": "工人脚底板冻出3道渗血的深口子，在医学上叫什么？",
+   "search_query": "工人脚底板冻出3道渗血的深口子，在医学上叫什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 120,
+   "raw": "装修厨房做橱柜时，装在台面中间用来洗菜洗碗的金属大盆到底叫啥？",
+   "search_query": "装修厨房做橱柜时，装在台面中间用来洗菜洗碗的金属大盆到底叫啥？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 121,
+   "raw": "天天加班累到吃不下饭还水肿，中医讲的这个脏腑问题究竟是指哪？",
+   "search_query": "天天加班累到吃不下饭还水肿，中医讲的这个脏腑问题究竟是指哪？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 122,
+   "raw": "大夫说我是脾上的毛病，经常肚子胀拉稀，这跟胃病算一回事吗？",
+   "search_query": "大夫说我是脾上的毛病，经常肚子胀拉稀，这跟胃病算一回事吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 123,
+   "raw": "夜里路上看前面大卡车尾部发亮的发光贴纸，到底是干嘛用的？",
+   "search_query": "夜里路上看前面大卡车尾部发亮的发光贴纸，到底是干嘛用的？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 124,
+   "raw": "大货车车厢后面贴的那圈红白相间的3M亮条，专业名字叫什么？",
+   "search_query": "大货车车厢后面贴的那圈红白相间的3M亮条，专业名字叫什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "clause_lookup",
+   "alias_ok": true
+  },
+  {
+   "i": 125,
+   "raw": "给厢式货车两侧贴的发亮警示带，跟普通的夜光贴纸有什么区别？",
+   "search_query": "给厢式货车两侧贴的发亮警示带，跟普通的夜光贴纸有什么区别？ 对比 要求",
+   "changed": true,
+   "theme": "general",
+   "intent": "compare",
+   "alias_ok": true
+  },
+  {
+   "i": 126,
+   "raw": "打印机打出来字很淡，师傅说的那个刚起作用的伏数是啥？",
+   "search_query": "打印机打出来字很淡，师傅说的那个刚起作用的伏数是啥？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 127,
+   "raw": "调到负五百伏碳粉才刚粘上鼓芯，这叫什么门槛值？",
+   "search_query": "调到负五百伏碳粉才刚粘上鼓芯，这叫什么门槛值？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 128,
+   "raw": "新买的复印机测试时，碳粉刚沾到绿辊上的起始点电位是啥？",
+   "search_query": "新买的复印机测试时，碳粉刚沾到绿辊上的起始点电位是啥？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 129,
+   "raw": "墙上画着急救箱和灭火器的绿牌子属于哪种标识？",
+   "search_query": "墙上画着急救箱和灭火器的绿牌子属于哪种标识？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 130,
+   "raw": "除尘箱里套在布筒外面上下刮着喷气清理的圆圈是啥玩意？",
+   "search_query": "除尘箱里套在布筒外面上下刮着喷气清理的圆圈是啥玩意？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 131,
+   "raw": "车间里那个直径30公分的喷气圆环上下套着布袋吹灰叫什么？",
+   "search_query": "车间里那个直径30公分的喷气圆环上下套着布袋吹灰叫什么？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 132,
+   "raw": "套在长筒外面上下跑着喷气的装置跟脉冲喷吹有啥不同？",
+   "search_query": "套在长筒外面上下跑着喷气的装置跟脉冲喷吹有啥不同？ 对比 要求",
+   "changed": true,
+   "theme": "general",
+   "intent": "compare",
+   "alias_ok": true
+  },
+  {
+   "i": 133,
+   "raw": "我们村这口大泉，上游两公里溶洞水都算它的供水地盘吗？",
+   "search_query": "我们村这口大泉，上游两公里溶洞水都算它的供水地盘吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 134,
+   "raw": "送上空间站那3只小白鼠和水稻种子，是在做哪门子研究？",
+   "search_query": "送上空间站那3只小白鼠和水稻种子，是在做哪门子研究？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 135,
+   "raw": "看新闻说失重状态下看植物根系怎么长，这属于啥专业领域？",
+   "search_query": "看新闻说失重状态下看植物根系怎么长，这属于啥专业领域？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 136,
+   "raw": "仪表说明书写的反应快慢到底是从哪一步开始算的？",
+   "search_query": "仪表说明书写的反应快慢到底是从哪一步开始算的？",
+   "changed": false,
+   "theme": "general",
+   "intent": "rule_query",
+   "alias_ok": true
+  },
+  {
+   "i": 137,
+   "raw": "质检科拿这批刚烧透冷却的齿轮切片做显微分析，到底看啥指标？",
+   "search_query": "质检科拿这批刚烧透冷却的齿轮切片做显微分析，到底看啥指标？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 138,
+   "raw": "我拿两百斤重物压在拉长的人字梯上，卡扣要是卡死算合格吗？",
+   "search_query": "我拿两百斤重物压在拉长的人字梯上，卡扣要是卡死算合格吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 139,
+   "raw": "工人在外墙刷漆时把梯子拉到最长，关节处崩出小口子还能用吗？",
+   "search_query": "工人在外墙刷漆时把梯子拉到最长，关节处崩出小口子还能用吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 140,
+   "raw": "新买的折叠爬梯每次收纳时卡簧都卡壳，质检能通过吗？",
+   "search_query": "新买的折叠爬梯每次收纳时卡簧都卡壳，质检能通过吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 141,
+   "raw": "送检单上化验出来的氯盐比例写着0.15%，算不算超标？",
+   "search_query": "送检单上化验出来的氯盐比例写着0.15%，算不算超标？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 142,
+   "raw": "我们搅拌站打水泥桩时，监理非要查材料含氯超没超该怎么应对？",
+   "search_query": "我们搅拌站打水泥桩时，监理非要查材料含氯超没超该怎么应对？",
+   "changed": false,
+   "theme": "general",
+   "intent": "clause_lookup",
+   "alias_ok": true
+  },
+  {
+   "i": 143,
+   "raw": "买这辆大翻斗车拉渣土，上牌时环保测尾气能通过吗？",
+   "search_query": "买这辆大翻斗车拉渣土，上牌时环保测尾气能通过吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 144,
+   "raw": "我们找两家机构验同一批矿石，数据差了0.5个点算违规吗？",
+   "search_query": "我们找两家机构验同一批矿石，数据差了0.5个点算违规吗？",
+   "changed": false,
+   "theme": "privacy",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 145,
+   "raw": "质检员查出有一批瓷砖吸水率超标，我们能当场要求重抽吗？",
+   "search_query": "质检员查出有一批瓷砖吸水率超标，我们能当场要求重抽吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "clause_lookup",
+   "alias_ok": true
+  },
+  {
+   "i": 146,
+   "raw": "混凝土初测强度差一点，现场多钻6个芯样复核还能算过吗？",
+   "search_query": "混凝土初测强度差一点，现场多钻6个芯样复核还能算过吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 147,
+   "raw": "第一次抽检没过关，多抽一倍样品重测及格了监理会认吗？",
+   "search_query": "第一次抽检没过关，多抽一倍样品重测及格了监理会认吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "clause_lookup",
+   "alias_ok": true
+  },
+  {
+   "i": 148,
+   "raw": "燃气警报机从一米高掉地上外壳裂了点，插电还能继续用吗？",
+   "search_query": "燃气警报机从一米高掉地上外壳裂了点，插电还能继续用吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "data_query",
+   "alias_ok": true
+  },
+  {
+   "i": 149,
+   "raw": "打籽滚轮和箱子侧板之间留了3毫米空隙，能通过验收吗？",
+   "search_query": "打籽滚轮和箱子侧板之间留了3毫米空隙，能通过验收吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "data_query",
+   "alias_ok": true
+  },
+  {
+   "i": 150,
+   "raw": "转动的铁片离箱边太远总卡棉花，算安装不到位吗？",
+   "search_query": "转动的铁片离箱边太远总卡棉花，算安装不到位吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 151,
+   "raw": "两个检测所测出的重金属数值差了0.5，到底按谁的算？",
+   "search_query": "两个检测所测出的重金属数值差了0.5，到底按谁的算？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 152,
+   "raw": "送检同一个样品，两份报告的成分相差多少算正常范围？",
+   "search_query": "送检同一个样品，两份报告的成分相差多少算正常范围？",
+   "changed": false,
+   "theme": "general",
+   "intent": "data_query",
+   "alias_ok": true
+  },
+  {
+   "i": 153,
+   "raw": "送去检测遥控站时，整套无人机必须处于平时运转状态吗？",
+   "search_query": "送去检测遥控站时，整套无人机必须处于平时运转状态吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "rule_query",
+   "alias_ok": true
+  },
+  {
+   "i": 154,
+   "raw": "只验手柄电磁辐射，检测站非要整套飞机连着一起开机测试吗？",
+   "search_query": "只验手柄电磁辐射，检测站非要整套飞机连着一起开机测试吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 155,
+   "raw": "合同里客户没说免检，出厂前每台都必须做重物承重拉力测试吗？",
+   "search_query": "合同里客户没说免检，出厂前每台都必须做重物承重拉力测试吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "rule_query",
+   "alias_ok": true
+  },
+  {
+   "i": 156,
+   "raw": "工人戴着面罩钻进排污管时软管打了个死结，会不会吸不上气？",
+   "search_query": "工人戴着面罩钻进排污管时软管打了个死结，会不会吸不上气？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 157,
+   "raw": "安检验收时故意把供气胶管拧了3圈看松不松，通得过吗？",
+   "search_query": "安检验收时故意把供气胶管拧了3圈看松不松，通得过吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 158,
+   "raw": "如果接头不小心被脚手架卡住拽了一下，会不会突然断掉漏气？",
+   "search_query": "如果接头不小心被脚手架卡住拽了一下，会不会突然断掉漏气？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 159,
+   "raw": "在盐水箱里闷了整整4天，金属壳上起了一点锈斑算不合格吗？",
+   "search_query": "在盐水箱里闷了整整4天，金属壳上起了一点锈斑算不合格吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 160,
+   "raw": "质检员来抽检这批柴油嘴，除了看生锈还要测通电漏不漏吗？",
+   "search_query": "质检员来抽检这批柴油嘴，除了看生锈还要测通电漏不漏吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 161,
+   "raw": "站牌上画两个小孩的警示图，底色做成纯白而不是发光绿合规吗？",
+   "search_query": "站牌上画两个小孩的警示图，底色做成纯白而不是发光绿合规吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "compliance_review",
+   "alias_ok": true
+  },
+  {
+   "i": 162,
+   "raw": "吊车配20毫米粗的钢缆，绞盘要多大才算合规？",
+   "search_query": "吊车配20毫米粗的钢缆，绞盘要多大才算合规？",
+   "changed": false,
+   "theme": "general",
+   "intent": "data_query",
+   "alias_ok": true
+  },
+  {
+   "i": 163,
+   "raw": "前年测完留下的单据堆成山，放够两年可以全扔了吗？",
+   "search_query": "前年测完留下的单据堆成山，放够两年可以全扔了吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 164,
+   "raw": "质检员进厂检查台账，我得把多久之前的底单翻出来？",
+   "search_query": "质检员进厂检查台账，我得把多久之前的底单翻出来？",
+   "changed": false,
+   "theme": "general",
+   "intent": "clause_lookup",
+   "alias_ok": true
+  },
+  {
+   "i": 165,
+   "raw": "安检员查这批减速闸出厂单时，到底要核对哪几道电测记录？",
+   "search_query": "安检员查这批减速闸出厂单时，到底要核对哪几道电测记录？",
+   "changed": false,
+   "theme": "general",
+   "intent": "clause_lookup",
+   "alias_ok": true
+  },
+  {
+   "i": 166,
+   "raw": "我递交摘掉黑名单材料都满20天了，为啥官方还没下发结果？",
+   "search_query": "我递交摘掉黑名单材料都满20天了，为啥官方还没下发结果？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 167,
+   "raw": "公司申请解除失信黑榜被驳回了，主管局必须给咱书面答复吗？",
+   "search_query": "公司申请解除失信黑榜被驳回了，主管局必须给咱书面答复吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "rule_query",
+   "alias_ok": true
+  },
+  {
+   "i": 168,
+   "raw": "过门时警报响了，保安让我张开双臂拿手持机扫是合规的吗？",
+   "search_query": "过门时警报响了，保安让我张开双臂拿手持机扫是合规的吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 169,
+   "raw": "扫包机屏幕上看不清瓶里装的液体，我必须开包翻看吗？",
+   "search_query": "扫包机屏幕上看不清瓶里装的液体，我必须开包翻看吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "rule_query",
+   "alias_ok": true
+  },
+  {
+   "i": 170,
+   "raw": "要是某个温度传感器突然坏掉，防爆阀门会自动乱喷吗？",
+   "search_query": "要是某个温度传感器突然坏掉，防爆阀门会自动乱喷吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  },
+  {
+   "i": 171,
+   "raw": "1个继电器烧断会导致整套紧急切断装置直接误启动吗？",
+   "search_query": "1个继电器烧断会导致整套紧急切断装置直接误启动吗？",
+   "changed": false,
+   "theme": "general",
+   "intent": "general",
+   "alias_ok": true
+  }
+ ]
+}

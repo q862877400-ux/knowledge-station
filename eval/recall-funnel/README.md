@@ -19,6 +19,7 @@
 | `funnel-summary.json` | 上面那份折出来的表（含全量 / 主结果 / 按类型三套） | 报告的数据源 |
 | `failure-samples.jsonl` | 六路深读 1000 全未命中的问法（50 条）+ 当时六路返回的候选 | 下一阶段 |
 | `lexical-overlap.json` | 问法与 gold 条文的**字面重合率**（"按字找"的先天天花板） | 报告 B 节 |
+| `query-preprocess.json` | 生产**实际喂给六路通道**的查询串逐条清单（与原始问法的差异） | 报告 §八 第 4 条 |
 | `determinism.json` | 同一套设置跑两遍是否逐字一致 | 质量证据 |
 | `config-inventory.md` | 任务 5：当前检索配置盘点（只读代码与库） | 业主 + 外部评估 |
 
@@ -26,15 +27,16 @@
 
 ## 二、口径（**读数字之前必须先读这一节**）
 
-### 1. 两种口径必须分开
+### 1. 并集的两种口径（**名字必须分开用**）
 
 | 口径 | 定义 | 用途 |
 |---|---|---|
-| **生产口径** | 完全照 `hybrid_engine.perform_hybrid_search` 的现有参数：B（FTS5）`LIMIT 20`、C（向量）`k = 20`、F `LIMIT 20`；A/D/E 无上限 | 回答"**现在**这套东西能不能召回" |
-| **深读口径（探针）** | 同一条 SQL、同一个排序，只把 B/C 的 `k` 放大到 100/1000 | 把"**召回不到**"与"**截断了**"分开 |
+| **同预算口径**（`union.same_budget`，**报告主口径**） | 每一路都只取**前 d 条**再取并集，`d ∈ {20,100,1000}`；`d>20` 时 B/C 用深读列表 | 把"**召回不到**"与"**被截断**"分开 |
+| **生产上限口径**（`union.prod_caps`） | 照 `perform_hybrid_search` 的**真实限量**：A/D/E **取全量**、B/C/F 取前 20 | 回答"**系统手里到底有没有**这条条文" |
 
-⇒ 生产口径下 `union@100` 与 `union@1000` **必然**等于 `union@20`（因为没有任何一路能出 20 条以外）。
-看到三个数一样不是 bug，是**当前实现的硬上限**。
+⚠ 两者**不是一回事**，也**不许混着叫**（2026-10-06 独立复核打回的就是这一点）：
+生产口径下通道 D 一次能拉 14 万条，于是"gold 在候选池里"可能只是名次在**第 8 万位**、
+RRF 权重约 `1e-5`（名义上有、实际等于没有）。**报告的主口径是同预算口径。**
 
 ### 2. "六路"在这个库里的实际状态（逐条实测，不是推断）
 
@@ -62,6 +64,10 @@
 与 `perform_hybrid_search(q, channels=[单通道], top_k=20)` 的返回逐个比较。
 **任何一条不一致都会写进 `funnel-summary.json` 的 `replica_check`**，不一致就是仪器坏了，结论作废。
 
+⚠ **这层自检的覆盖面要说准**（独立复核指出初版说法过宽）：它只覆盖
+**A / B / C / D 四路**（E/F 在生产路径上恒 0 候选，不参与），而且**只比前 20 条**。
+**深读 1000 的名次不在这层自检里** —— 那部分由复核手工重跑生产函数抽验（6 个深读名次 + 1 个 8 万名次，全部一致）。
+
 ---
 
 ## 三、怎么复跑
@@ -82,9 +88,10 @@ cd 'D:\AI\work space\zcode'
 # 4) 失败样本留证
 & .venv\Scripts\python.exe eval\recall-funnel\failure-samples.py
 
-# 5) 两条质量证据
-& .venv\Scripts\python.exe eval\recall-funnel\lexical-overlap.py    # 字面重合率
-& .venv\Scripts\python.exe eval\recall-funnel\determinism.py --n 12 # 跑两遍是否一致
+# 5) 三条质量证据
+& .venv\Scripts\python.exe eval\recall-funnel\lexical-overlap.py     # 字面重合率
+& .venv\Scripts\python.exe eval\recall-funnel\determinism.py --n 12  # 跑两遍是否一致
+& .venv\Scripts\python.exe eval\recall-funnel\preprocess-diff.py     # 生产实际搜索串清单
 ```
 
 **先跑 3 条校验**（改脚本后必做）：`funnel.py --limit 3`，看 `replica_check` 是不是 `"ok"`。
