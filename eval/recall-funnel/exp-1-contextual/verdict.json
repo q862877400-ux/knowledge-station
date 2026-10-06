@@ -1,0 +1,72 @@
+{
+ "experiment": "E1：Contextual Retrieval Representation A/B",
+ "primary_endpoint": "Vector @1000（主结果 120 条口径）",
+ "baseline_from_stop_loss": {
+  "vector_at_20": 0.1,
+  "vector_at_100": 0.175,
+  "vector_at_1000": 0.3583,
+  "same_budget_union_at_1000": 0.4,
+  "_source": "eval/recall-funnel/funnel-summary.json 的 headline 块（120 条）"
+ },
+ "measured": {
+  "headline_n": 120,
+  "base_vec@20": 0.1,
+  "ctx_vec@20": 0.075,
+  "base_vec@100": 0.175,
+  "ctx_vec@100": 0.1917,
+  "base_vec@1000": 0.3583,
+  "ctx_vec@1000": 0.3667,
+  "base_union@1000": 0.4,
+  "ctx_union@1000": 0.4,
+  "net_gain_pp_vec@1000": 0.84,
+  "flip_vec@1000": {
+   "in": 10,
+   "out": 9,
+   "net_pp": 0.83
+  },
+  "flip_union@1000": {
+   "in": 7,
+   "out": 7
+  }
+ },
+ "decision_rule_applied": {
+  "thresholds": {
+   "推广（值得继续做「结构化检索表示 + 重建索引」）": {
+    "net_gain_pp": ">= 12",
+    "and": "翻进来的 >= 3 × 翻出去的",
+    "meaning": "超过独立二项 2.7 倍标准差，且方向一边倒"
+   },
+   "观察（不推广、不放弃，补做第二个变体再判）": {
+    "net_gain_pp": "5 ~ 12",
+    "meaning": "落在 1~2.7 倍标准差之间，单次跑分不出来"
+   },
+   "放弃（问题不只是条文上下文）": {
+    "net_gain_pp": "< 5",
+    "meaning": "在噪声范围内 ⇒ 改走「查询改写 / 别名扩展 / 大白话→标准术语」那条路"
+   }
+  },
+  "matched": "放弃"
+ },
+ "hard_fail_triggered": [],
+ "negative_findings": [
+  "Vector@20 下降：0.1000 → 0.0750（-2.5pt）"
+ ],
+ "verdict": "放弃",
+ "next_step_per_plan": "问题不只是条文上下文 ⇒ 改走「查询改写 / 别名扩展 / 大白话→标准术语」那条路",
+ "rescued_from_104": {
+  "n": 11,
+  "ids": [
+   2,
+   8,
+   25,
+   34,
+   57,
+   59,
+   66,
+   67,
+   126,
+   143,
+   168
+  ]
+ }
+}

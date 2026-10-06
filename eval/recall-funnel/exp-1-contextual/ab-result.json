@@ -1,0 +1,4707 @@
+{
+ "meta": {
+  "exp": "E1 Contextual Retrieval Representation A/B",
+  "arm_control": "clause_vec（现役：title + '\\n' + content_text[:512]）",
+  "arm_experiment": "clause_vec_ctx（标准名 + 章节路径 + 条款号 + content_text[:512]）",
+  "query_side": "一字不改（benchmark-v2.jsonl 的 query）",
+  "stop_loss": "stop-loss.json（跑之前已落盘）",
+  "n_ctx": 521978,
+  "n_base": 521978
+ },
+ "headline_120": {
+  "n": 120,
+  "base_vec@20": 0.1,
+  "base_vec@100": 0.175,
+  "base_vec@1000": 0.3583,
+  "base_union_prod": 0.1333,
+  "base_union@1000": 0.4,
+  "ctx_vec@20": 0.075,
+  "ctx_vec@100": 0.1917,
+  "ctx_vec@1000": 0.3667,
+  "ctx_union_prod": 0.1,
+  "ctx_union@1000": 0.4,
+  "vec@20_flip": {
+   "in": 1,
+   "out": 4,
+   "net_pp": -2.5
+  },
+  "vec@100_flip": {
+   "in": 7,
+   "out": 5,
+   "net_pp": 1.67
+  },
+  "vec@1000_flip": {
+   "in": 10,
+   "out": 9,
+   "net_pp": 0.83
+  },
+  "union@1000_flip": {
+   "in": 7,
+   "out": 7
+  }
+ },
+ "all_171": {
+  "n": 171,
+  "base_vec@20": 0.0877,
+  "base_vec@100": 0.152,
+  "base_vec@1000": 0.345,
+  "base_union_prod": 0.117,
+  "base_union@1000": 0.3918,
+  "ctx_vec@20": 0.076,
+  "ctx_vec@100": 0.1637,
+  "ctx_vec@1000": 0.3392,
+  "ctx_union_prod": 0.0994,
+  "ctx_union@1000": 0.3918,
+  "vec@20_flip": {
+   "in": 2,
+   "out": 4,
+   "net_pp": -1.17
+  },
+  "vec@100_flip": {
+   "in": 8,
+   "out": 6,
+   "net_pp": 1.17
+  },
+  "vec@1000_flip": {
+   "in": 14,
+   "out": 15,
+   "net_pp": -0.58
+  },
+  "union@1000_flip": {
+   "in": 11,
+   "out": 11
+  }
+ },
+ "rescued_from_104": [
+  2,
+  8,
+  25,
+  34,
+  57,
+  59,
+  66,
+  67,
+  126,
+  143,
+  168
+ ],
+ "per_query": [
+  {
+   "i": 1,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": 10,
+    "rank@20": 10,
+    "rank@100": 10,
+    "rank@1000": 10
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 14,
+    "rank@20": 14,
+    "rank@100": 14,
+    "rank@1000": 14
+   },
+   "union_prod": {
+    "base": true,
+    "ctx": true
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 2,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 980,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 980
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": true
+   }
+  },
+  {
+   "i": 3,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 4,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 5,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 6,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 7,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 8,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 370,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 370
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": true
+   }
+  },
+  {
+   "i": 9,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 10,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 11,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 12,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 13,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 14,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": 448,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 448
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 346,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 346
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 15,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 16,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 158,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 158
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 875,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 875
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 17,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 423,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 423
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": false
+   }
+  },
+  {
+   "i": 18,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 19,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 20,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 21,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 784,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 784
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 450,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 450
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 22,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 23,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 24,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 100,
+    "rank@20": null,
+    "rank@100": 100,
+    "rank@1000": 100
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 22,
+    "rank@20": null,
+    "rank@100": 22,
+    "rank@1000": 22
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 25,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 378,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 378
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": true
+   }
+  },
+  {
+   "i": 26,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 101,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 101
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 57,
+    "rank@20": null,
+    "rank@100": 57,
+    "rank@1000": 57
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 27,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 28,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 29,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 56,
+    "rank@20": null,
+    "rank@100": 56,
+    "rank@1000": 56
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 287,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 287
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 30,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 31,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 32,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 33,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 34,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 714,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 714
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": true
+   }
+  },
+  {
+   "i": 35,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 36,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 37,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 38,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 39,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 187,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 187
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 648,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 648
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 40,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 57,
+    "rank@20": null,
+    "rank@100": 57,
+    "rank@1000": 57
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 320,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 320
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 41,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 103,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 103
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 356,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 356
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 42,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 43,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 44,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": 486,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 486
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": false
+   }
+  },
+  {
+   "i": 45,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 46,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 47,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 48,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 49,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 50,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 614,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 614
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 39,
+    "rank@20": null,
+    "rank@100": 39,
+    "rank@1000": 39
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 51,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 52,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 53,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 54,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 55,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 6,
+    "rank@20": 6,
+    "rank@100": 6,
+    "rank@1000": 6
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 7,
+    "rank@20": 7,
+    "rank@100": 7,
+    "rank@1000": 7
+   },
+   "union_prod": {
+    "base": true,
+    "ctx": true
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 56,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 57,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 628,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 628
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": true
+   }
+  },
+  {
+   "i": 58,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 59,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 348,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 348
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": true
+   }
+  },
+  {
+   "i": 60,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 979,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 979
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": false
+   }
+  },
+  {
+   "i": 61,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 79,
+    "rank@20": null,
+    "rank@100": 79,
+    "rank@1000": 79
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 30,
+    "rank@20": null,
+    "rank@100": 30,
+    "rank@1000": 30
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 62,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 63,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 64,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 883,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 883
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": false
+   }
+  },
+  {
+   "i": 65,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 66,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 619,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 619
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": true
+   }
+  },
+  {
+   "i": 67,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 499,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 499
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": true
+   }
+  },
+  {
+   "i": 68,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 69,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 70,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 71,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 72,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 73,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 74,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": 749,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 749
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 448,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 448
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 75,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 1,
+    "rank@20": 1,
+    "rank@100": 1,
+    "rank@1000": 1
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 1,
+    "rank@20": 1,
+    "rank@100": 1,
+    "rank@1000": 1
+   },
+   "union_prod": {
+    "base": true,
+    "ctx": true
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 76,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 77,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 78,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 79,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 961,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 961
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 80,
+    "rank@20": null,
+    "rank@100": 80,
+    "rank@1000": 80
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 80,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 81,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 947,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 947
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": false
+   }
+  },
+  {
+   "i": 82,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 286,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 286
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 257,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 257
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 83,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 84,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 4,
+    "rank@20": 4,
+    "rank@100": 4,
+    "rank@1000": 4
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 1,
+    "rank@20": 1,
+    "rank@100": 1,
+    "rank@1000": 1
+   },
+   "union_prod": {
+    "base": true,
+    "ctx": true
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 85,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 394,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 394
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 20,
+    "rank@20": 20,
+    "rank@100": 20,
+    "rank@1000": 20
+   },
+   "union_prod": {
+    "base": true,
+    "ctx": true
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 86,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": 39,
+    "rank@20": null,
+    "rank@100": 39,
+    "rank@1000": 39
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 2,
+    "rank@20": 2,
+    "rank@100": 2,
+    "rank@1000": 2
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": true
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 87,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 34,
+    "rank@20": null,
+    "rank@100": 34,
+    "rank@1000": 34
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 28,
+    "rank@20": null,
+    "rank@100": 28,
+    "rank@1000": 28
+   },
+   "union_prod": {
+    "base": true,
+    "ctx": true
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 88,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 89,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 310,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 310
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 34,
+    "rank@20": null,
+    "rank@100": 34,
+    "rank@1000": 34
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 90,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 1,
+    "rank@20": 1,
+    "rank@100": 1,
+    "rank@1000": 1
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 4,
+    "rank@20": 4,
+    "rank@100": 4,
+    "rank@1000": 4
+   },
+   "union_prod": {
+    "base": true,
+    "ctx": true
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 91,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 92,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 93,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 94,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 95,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 96,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 255,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 255
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 97,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 98,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 624,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 624
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 99,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 100,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": 169,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 169
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 731,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 731
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 101,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 102,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 103,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 104,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 105,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 106,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 107,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 108,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 109,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": 160,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 160
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 221,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 221
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 110,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 111,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 42,
+    "rank@20": null,
+    "rank@100": 42,
+    "rank@1000": 42
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 112,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 872,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 872
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 113,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 11,
+    "rank@20": 11,
+    "rank@100": 11,
+    "rank@1000": 11
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 376,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 376
+   },
+   "union_prod": {
+    "base": true,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 114,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 115,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 116,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 117,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 5,
+    "rank@20": 5,
+    "rank@100": 5,
+    "rank@1000": 5
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 1,
+    "rank@20": 1,
+    "rank@100": 1,
+    "rank@1000": 1
+   },
+   "union_prod": {
+    "base": true,
+    "ctx": true
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 118,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 1,
+    "rank@20": 1,
+    "rank@100": 1,
+    "rank@1000": 1
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 1,
+    "rank@20": 1,
+    "rank@100": 1,
+    "rank@1000": 1
+   },
+   "union_prod": {
+    "base": true,
+    "ctx": true
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 119,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 379,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 379
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 44,
+    "rank@20": null,
+    "rank@100": 44,
+    "rank@1000": 44
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 120,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 430,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 430
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 451,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 451
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 121,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 77,
+    "rank@20": null,
+    "rank@100": 77,
+    "rank@1000": 77
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 39,
+    "rank@20": null,
+    "rank@100": 39,
+    "rank@1000": 39
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 122,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 70,
+    "rank@20": null,
+    "rank@100": 70,
+    "rank@1000": 70
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 66,
+    "rank@20": null,
+    "rank@100": 66,
+    "rank@1000": 66
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 123,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 814,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 814
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": false
+   }
+  },
+  {
+   "i": 124,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 125,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 126,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 319,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 319
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": true
+   }
+  },
+  {
+   "i": 127,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 128,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": 489,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 489
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 34,
+    "rank@20": null,
+    "rank@100": 34,
+    "rank@1000": 34
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 129,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 130,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 53,
+    "rank@20": null,
+    "rank@100": 53,
+    "rank@1000": 53
+   },
+   "union_prod": {
+    "base": true,
+    "ctx": true
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 131,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 1,
+    "rank@20": 1,
+    "rank@100": 1,
+    "rank@1000": 1
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 1,
+    "rank@20": 1,
+    "rank@100": 1,
+    "rank@1000": 1
+   },
+   "union_prod": {
+    "base": true,
+    "ctx": true
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 132,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": 360,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 360
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": true,
+    "ctx": true
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 133,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 9,
+    "rank@20": 9,
+    "rank@100": 9,
+    "rank@1000": 9
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 1,
+    "rank@20": 1,
+    "rank@100": 1,
+    "rank@1000": 1
+   },
+   "union_prod": {
+    "base": true,
+    "ctx": true
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 134,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": 497,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 497
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 135,
+   "kind": "定义",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 136,
+   "kind": "定义",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": 965,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 965
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 788,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 788
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 137,
+   "kind": "要求",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 138,
+   "kind": "要求",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 139,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 140,
+   "kind": "要求",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": 9,
+    "rank@20": 9,
+    "rank@100": 9,
+    "rank@1000": 9
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 3,
+    "rank@20": 3,
+    "rank@100": 3,
+    "rank@1000": 3
+   },
+   "union_prod": {
+    "base": true,
+    "ctx": true
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 141,
+   "kind": "要求",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": 39,
+    "rank@20": null,
+    "rank@100": 39,
+    "rank@1000": 39
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": false
+   }
+  },
+  {
+   "i": 142,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": true,
+    "ctx": true
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 143,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 487,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 487
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": true
+   }
+  },
+  {
+   "i": 144,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 145,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 146,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 147,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 148,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 442,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 442
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 198,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 198
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 149,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 1,
+    "rank@20": 1,
+    "rank@100": 1,
+    "rank@1000": 1
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 166,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 166
+   },
+   "union_prod": {
+    "base": true,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 150,
+   "kind": "要求",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": 313,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 313
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": false
+   }
+  },
+  {
+   "i": 151,
+   "kind": "要求",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": 473,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 473
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": false
+   }
+  },
+  {
+   "i": 152,
+   "kind": "要求",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 153,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 73,
+    "rank@20": null,
+    "rank@100": 73,
+    "rank@1000": 73
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 45,
+    "rank@20": null,
+    "rank@100": 45,
+    "rank@1000": 45
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 154,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 155,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 156,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 157,
+   "kind": "要求",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 158,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 423,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 423
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": false
+   }
+  },
+  {
+   "i": 159,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 160,
+   "kind": "要求",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 161,
+   "kind": "要求",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": 6,
+    "rank@20": 6,
+    "rank@100": 6,
+    "rank@1000": 6
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 9,
+    "rank@20": 9,
+    "rank@100": 9,
+    "rank@1000": 9
+   },
+   "union_prod": {
+    "base": true,
+    "ctx": true
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 162,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 163,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 654,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 654
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": false
+   }
+  },
+  {
+   "i": 164,
+   "kind": "要求",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 165,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 240,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 240
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 530,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 530
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 166,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 11,
+    "rank@20": 11,
+    "rank@100": 11,
+    "rank@1000": 11
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 23,
+    "rank@20": null,
+    "rank@100": 23,
+    "rank@1000": 23
+   },
+   "union_prod": {
+    "base": true,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 167,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": 11,
+    "rank@20": 11,
+    "rank@100": 11,
+    "rank@1000": 11
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 25,
+    "rank@20": null,
+    "rank@100": 25,
+    "rank@1000": 25
+   },
+   "union_prod": {
+    "base": true,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": true,
+    "ctx": true
+   }
+  },
+  {
+   "i": 168,
+   "kind": "要求",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": 308,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": 308
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": true
+   }
+  },
+  {
+   "i": 169,
+   "kind": "要求",
+   "headline": false,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 170,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  },
+  {
+   "i": 171,
+   "kind": "要求",
+   "headline": true,
+   "base": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "ctx": {
+    "n": 1000,
+    "rank": null,
+    "rank@20": null,
+    "rank@100": null,
+    "rank@1000": null
+   },
+   "union_prod": {
+    "base": false,
+    "ctx": false
+   },
+   "union_same_budget@1000": {
+    "base": false,
+    "ctx": false
+   }
+  }
+ ]
+}
