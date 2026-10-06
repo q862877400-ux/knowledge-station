@@ -1,0 +1,228 @@
+{
+ "why": "全量扫已 OCR 的 markdown：有多少含条款号结构（决定能否沿用现有按条款切分）",
+ "source": "D:\\AI\\work space\\标准\\🇨🇳《国家标准》(35000+ 141G)\\GB",
+ "stats": {
+  "total": 756,
+  "with_clause": 4,
+  "with_chapter": 257,
+  "with_numeric_clause": 0,
+  "with_md_table": 432,
+  "with_html_table": 524,
+  "with_image_link": 648,
+  "empty": 0
+ },
+ "chars": {
+  "median": 8612,
+  "min": 559,
+  "max": 57390
+ },
+ "per_subdir": {
+  "GB 00001 - GB 10000": {
+   "markdown": 345,
+   "with_clause": 1
+  },
+  "GB 10001 - GB 20000": {
+   "markdown": 168,
+   "with_clause": 1
+  },
+  "GB 20001 - GB 30000": {
+   "markdown": 75,
+   "with_clause": 1
+  },
+  "GB 30001 - GB 40000": {
+   "markdown": 77,
+   "with_clause": 0
+  },
+  "GB 40001 - GB 50000": {
+   "markdown": 88,
+   "with_clause": 1
+  },
+  "GB 50001 - GB 60000": {
+   "markdown": 3,
+   "with_clause": 0
+  }
+ },
+ "with_clause_sample": [
+  {
+   "doc": "GB 16297-1996 大气污染物综合排放标准.mineru-4.0.10-vlm",
+   "chars": 37187,
+   "sub": "GB 10001 - GB 20000",
+   "clause": true,
+   "chapter": false,
+   "numeric_clause": false,
+   "md_table": false,
+   "html_table": true,
+   "image_link": true
+  },
+  {
+   "doc": "GB 42301-2022 口岸公共卫生核心能力建设技术规范.mineru-4.0.10-vlm",
+   "chars": 22152,
+   "sub": "GB 40001 - GB 50000",
+   "clause": true,
+   "chapter": true,
+   "numeric_clause": false,
+   "md_table": true,
+   "html_table": false,
+   "image_link": true
+  },
+  {
+   "doc": "GB 8410-2006 汽车内饰材料的燃烧特性.mineru-4.0.10-vlm",
+   "chars": 6930,
+   "sub": "GB 00001 - GB 10000",
+   "clause": true,
+   "chapter": true,
+   "numeric_clause": false,
+   "md_table": false,
+   "html_table": false,
+   "image_link": true
+  },
+  {
+   "doc": "GB 21522-2008煤层气（煤矿瓦斯）排放标准.mineru-4.0.10-vlm",
+   "chars": 4000,
+   "sub": "GB 20001 - GB 30000",
+   "clause": true,
+   "chapter": false,
+   "numeric_clause": false,
+   "md_table": false,
+   "html_table": true,
+   "image_link": false
+  }
+ ],
+ "without_clause_sample": [
+  {
+   "doc": "GB 30254-2024 高压三相笼型异步电动机能效限定值及能效等级(1).mineru-4.0.10-vlm",
+   "chars": 57390,
+   "sub": "GB 30001 - GB 40000",
+   "clause": false,
+   "chapter": true,
+   "numeric_clause": false,
+   "md_table": false,
+   "html_table": true,
+   "image_link": true
+  },
+  {
+   "doc": "GB 30254-2024 高压三相笼型异步电动机能效限定值及能效等级.mineru-4.0.10-vlm",
+   "chars": 57362,
+   "sub": "GB 30001 - GB 40000",
+   "clause": false,
+   "chapter": true,
+   "numeric_clause": false,
+   "md_table": false,
+   "html_table": true,
+   "image_link": true
+  },
+  {
+   "doc": "GB 30871-2014 化学品生产单位特殊作业安全规程.mineru-4.0.10-vlm",
+   "chars": 34332,
+   "sub": "GB 30001 - GB 40000",
+   "clause": false,
+   "chapter": true,
+   "numeric_clause": false,
+   "md_table": true,
+   "html_table": true,
+   "image_link": true
+  },
+  {
+   "doc": "GB 5009.7-2016 食品安全国家标准 食品中还原糖的测定.mineru-4.0.10-vlm",
+   "chars": 34161,
+   "sub": "GB 00001 - GB 10000",
+   "clause": false,
+   "chapter": false,
+   "numeric_clause": false,
+   "md_table": true,
+   "html_table": true,
+   "image_link": true
+  },
+  {
+   "doc": "GB 4716-2024 点型感温火灾探测器.mineru-4.0.10-vlm",
+   "chars": 33899,
+   "sub": "GB 00001 - GB 10000",
+   "clause": false,
+   "chapter": true,
+   "numeric_clause": false,
+   "md_table": true,
+   "html_table": true,
+   "image_link": true
+  },
+  {
+   "doc": "GB 31572-2015 合成树脂工业污染物排放标准.mineru-4.0.10-vlm",
+   "chars": 32435,
+   "sub": "GB 30001 - GB 40000",
+   "clause": false,
+   "chapter": false,
+   "numeric_clause": false,
+   "md_table": true,
+   "html_table": true,
+   "image_link": false
+  },
+  {
+   "doc": "GB 4789.4-2024 食品安全国家标准 食品微生物学检验 沙门氏菌检验.mineru-4.0.10-vlm",
+   "chars": 31184,
+   "sub": "GB 00001 - GB 10000",
+   "clause": false,
+   "chapter": false,
+   "numeric_clause": false,
+   "md_table": true,
+   "html_table": true,
+   "image_link": true
+  },
+  {
+   "doc": "GB 11121-2006 汽油机油.mineru-4.0.10-vlm",
+   "chars": 30768,
+   "sub": "GB 10001 - GB 20000",
+   "clause": false,
+   "chapter": true,
+   "numeric_clause": false,
+   "md_table": false,
+   "html_table": true,
+   "image_link": false
+  },
+  {
+   "doc": "GB 31573-2015 无机化学工业污染物排放标准.mineru-4.0.10-vlm",
+   "chars": 30585,
+   "sub": "GB 30001 - GB 40000",
+   "clause": false,
+   "chapter": false,
+   "numeric_clause": false,
+   "md_table": true,
+   "html_table": true,
+   "image_link": false
+  },
+  {
+   "doc": "GB 43219-2023 移动煤流机械化采样系统检查导则.mineru-4.0.10-vlm",
+   "chars": 30564,
+   "sub": "GB 40001 - GB 50000",
+   "clause": false,
+   "chapter": false,
+   "numeric_clause": false,
+   "md_table": true,
+   "html_table": true,
+   "image_link": true
+  },
+  {
+   "doc": "GB 5009.82-2016 食品安全国家标准 食品中维生素A、D、E的测定.mineru-4.0.10-vlm",
+   "chars": 30416,
+   "sub": "GB 00001 - GB 10000",
+   "clause": false,
+   "chapter": false,
+   "numeric_clause": false,
+   "md_table": true,
+   "html_table": false,
+   "image_link": true
+  },
+  {
+   "doc": "GB 5009.268-2025 食品安全国家标准 食品中多元素的测定.mineru-4.0.10-vlm",
+   "chars": 29907,
+   "sub": "GB 00001 - GB 10000",
+   "clause": false,
+   "chapter": true,
+   "numeric_clause": false,
+   "md_table": true,
+   "html_table": true,
+   "image_link": true
+  }
+ ],
+ "boundary": [
+  "只读源目录；统计按字符串出现判断，不等于语义正确。"
+ ]
+}

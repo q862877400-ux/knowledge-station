@@ -1,0 +1,200 @@
+{
+ "why": "体检业主正在产出的 MinerU OCR 结果：进度 + 质量（重点表格与数字）",
+ "source": "D:\\AI\\work space\\标准\\🇨🇳《国家标准》(35000+ 141G)\\GB",
+ "progress": {
+  "pdf_total": 2176,
+  "mineru_dirs": 753,
+  "with_markdown": 753,
+  "ratio": 0.346,
+  "per_subdir": {
+   "GB 00001 - GB 10000": {
+    "pdf": 918,
+    "done": 342
+   },
+   "GB 10001 - GB 20000": {
+    "pdf": 454,
+    "done": 168
+   },
+   "GB 20001 - GB 30000": {
+    "pdf": 216,
+    "done": 75
+   },
+   "GB 30001 - GB 40000": {
+    "pdf": 194,
+    "done": 77
+   },
+   "GB 40001 - GB 50000": {
+    "pdf": 238,
+    "done": 88
+   },
+   "GB 50001 - GB 60000": {
+    "pdf": 156,
+    "done": 3
+   }
+  }
+ },
+ "sampled": 12,
+ "markdown": {
+  "chars_median": 6886,
+  "chars_min": 1487,
+  "chars_max": 29899,
+  "docs_with_clause_numbers": 0,
+  "docs_with_table_as_text": 12,
+  "docs_with_table_images": 12,
+  "docs_with_image_links": 10
+ },
+ "reading": {
+  "表格变成文字的比例": "12/12（这些表格内容**可被检索**）",
+  "存在表格图的比例": "12/12（表格另有图片，若正文只有图链则**不可检索**）",
+  "含第X条的比例": "0/12（决定能不能按条款切分）"
+ },
+ "samples": [
+  {
+   "doc": "GB 5009.304-2025 食品安全国家标准 食品中三价铬和六价铬的测定.mineru-4.0.10-vlm",
+   "chars": 7491,
+   "clauses": 0,
+   "md_table": false,
+   "html_table": true,
+   "image_links": true,
+   "table_images": 1,
+   "equation_images": 2,
+   "images_total": 6,
+   "head": "# 中 华 人 民 共 和 国 国 家 标 准  GB5009304—2025  # 食品安全国家标准食品中三价铬和六价铬的测定  ![](images/page_0_image_3.jpg)  2025-03-16发布  2025-09-16实施  中华人民共和国国家卫生健康委员会发 布国 家 市 场 监 督 管 理 总 局  # 食品安全国家标准  # 食品中三价铬和六价铬的测定  ## 1 范围  本标准第一篇规定了食品中六价铬的测定方法。  本标准第一篇适用于特殊医学用途配方食品和特殊医学用途婴儿配方食品中六价铬的测定。本标准第二篇规定了食品中三价铬的测定方法  本标准第二篇适用于特殊"
+  },
+  {
+   "doc": "GB 11859.3-1989 低度米香型白酒.mineru-4.0.10-vlm",
+   "chars": 1487,
+   "clauses": 0,
+   "md_table": false,
+   "html_table": true,
+   "image_links": false,
+   "table_images": 3,
+   "equation_images": 0,
+   "images_total": 3,
+   "head": "# 低度米香型白酒  # Rice aromatic Chinese spirits of low concentration  ## 1 主题内容与适用范围  本标准规定了40度以下的低度米香型白酒产品的技术要求。  本标准适用于以大米为原料，经半固态发酵、蒸馏、贮存、勾兑酿制而成的，具有小曲米香特点的蒸馏酒。  ## 2 引用标准  GB 2757 蒸馏酒及配制酒卫生标准  GB 5009 食品卫生检验方法 理化部分  GB 10344 饮料酒标签标准  GB 10345 白酒试验方法  GB 10346 白酒检验规则  ## 3 技术要求  ## 3.1 感官要求见表 1。  表1  <"
+  },
+  {
+   "doc": "GB 3608-2025 高处作业分级.mineru-4.0.10-vlm",
+   "chars": 4480,
+   "clauses": 0,
+   "md_table": true,
+   "html_table": true,
+   "image_links": true,
+   "table_images": 3,
+   "equation_images": 0,
+   "images_total": 9,
+   "head": "# 中 华 人 民 共 和 国 国 家 标 准  GB3608—2025  代替GB/T3608—2008  高 处 作 业 分 级  Classificationofworkatheights  ![](images/page_0_image_5.jpg)  2025-10-05发布  2026-05-01实施  <sup>国</sup> <sup>家</sup> <sup>市</sup> <sup>场</sup> <sup>监</sup> <sup>督</sup> <sup>管</sup> <sup>理</sup> <sup>总</sup> <sup>局</sup><sub>国 家 标 准"
+  },
+  {
+   "doc": "GB 7098-2025 食品安全国家标准 罐头食品.mineru-4.0.10-vlm",
+   "chars": 1613,
+   "clauses": 0,
+   "md_table": true,
+   "html_table": true,
+   "image_links": true,
+   "table_images": 3,
+   "equation_images": 0,
+   "images_total": 4,
+   "head": "# 中 华 人 民 共 和 国 国 家 标 准  GB7098—2025  # 食品安全国家标准  罐头食品  ![](images/page_0_image_4.jpg)  2025-03-16发布  2026-03-16实施  中华人民共和国国家卫生健康委员会发 布国 家 市 场 监 督 管 理 总 局  ## 前言  本标准代替 — 《食品安全国家标准 罐头食品》。  本标准与 相比 主要变化如下  修改了术语和定义;  修改了感官要求;  ———修改了理化指标检验方法;  修改了组胺指标;  修改了微生物限量;  ———增加了第 章“其他”。  # 食品安全国家标准  # 罐 头 食 "
+  },
+  {
+   "doc": "GB 31604.57-2023食品安全国家标准 食品接触材料及制品 二苯甲酮类物质迁移量的测定.mineru-4.0.",
+   "chars": 19495,
+   "clauses": 0,
+   "md_table": true,
+   "html_table": true,
+   "image_links": true,
+   "table_images": 7,
+   "equation_images": 3,
+   "images_total": 26,
+   "head": "# 中华人民共和国国家标准  GB 31604.57—2023  # 食品安全国家标准 食品接触材料及制品 二苯甲酮类物质迁移量的测定  ![](images/page_0_image_3.jpg)  2023-09-06 发布  2024-03-06 实施  # 食品安全国家标准   食品接触材料及制品   二苯甲酮类物质迁移量的测定  ## 1 范围  本标准规定了食品接触材料及制品中8种二苯甲酮类物质迁移量的测定方法。  第一法液相色谱法适用于塑料、涂料和涂层、橡胶、使用油墨的食品接触材料及制品中(2-羟基-4-甲氧基苯基)(2-羟苯基)甲酮、2,4-二羟基二苯甲酮、(2-羟基-4-甲氧"
+  },
+  {
+   "doc": "GB 31616-2025 食品安全国家标准 食用畜禽副产品加工卫生规范.mineru-4.0.10-vlm",
+   "chars": 5044,
+   "clauses": 0,
+   "md_table": false,
+   "html_table": true,
+   "image_links": false,
+   "table_images": 1,
+   "equation_images": 0,
+   "images_total": 1,
+   "head": "# 中 华 人 民 共 和 国 国 家 标 准  GB31616—2025  # 食品安全国家标准食用畜禽副产品加工卫生规范  2025-03-16发布  2026-03-16实施  # 食品安全国家标准  # 食用畜禽副产品加工卫生规范  ## 1 范围  本标准规定了食用畜禽副产品加工过程中的原料收集、分类、修整、清洗、冷却、冷冻、检验、包装、贮存与运输 产品追溯与召回等环节的场所 设施设备 人员的基本要求和卫生控制的管理准则  本标准适用于食用畜禽副产品的加工。  ## 2 术语和定义  和 界定的术语和定义适用于本标准。  ## 3 选址及厂区环境  应符合 和 的相关规定。  ## "
+  },
+  {
+   "doc": "GB 44503-2024 警车车徽(1).mineru-4.0.10-vlm",
+   "chars": 15785,
+   "clauses": 0,
+   "md_table": true,
+   "html_table": true,
+   "image_links": true,
+   "table_images": 7,
+   "equation_images": 0,
+   "images_total": 13,
+   "head": "# 中华人民共和国国家标准  GB 44503—2024  警车车徽  # Emblem for police vehicle  ![](images/page_0_image_4.jpg)  2024-08-23 发布  2025-03-01 实施  国家市场监督管理总局发布 国家标准标准化管理委员会  ## 前言  本文件按照 GB/T 1.1—2020《标准化工作导则 第 1 部分: 标准化文件的结构和起草规则》的规定起草。  请注意本文件的某些内容可能涉及专利。本文件的发布机构不承担识别专利的责任。  本文件由中华人民共和国公安部提出并归口。  ## 警车车徽  ## 1 范围  本文"
+  },
+  {
+   "doc": "GB 29448-2022 海绵钛和钛锭单位产品能源消耗限额.mineru-4.0.10-vlm",
+   "chars": 5907,
+   "clauses": 0,
+   "md_table": false,
+   "html_table": true,
+   "image_links": true,
+   "table_images": 5,
+   "equation_images": 2,
+   "images_total": 10,
+   "head": "# 中华人民共和国国家标准  GB 29448—2022  代替 GB 29136—2012, GB 29448—2012  # 海绵钛和钛锭单位产品能源消耗限额  # The norm of energy consumption per unit production of sponge titanium and titanium ingot  ![](images/page_0_image_5.jpg)  2022-12-29 发布  2024-01-01 实施  ## 前言  本文件按照 GB/T 1.1—2020《标准化工作导则 第 1 部分: 标准化文件的结构和起草规则》的规定起草。"
+  },
+  {
+   "doc": "GB 4706.59-2008 家用和类似用途电器的安全 口腔卫生器具的特殊要求.mineru-4.0.10-vlm",
+   "chars": 6281,
+   "clauses": 0,
+   "md_table": true,
+   "html_table": false,
+   "image_links": true,
+   "table_images": 1,
+   "equation_images": 0,
+   "images_total": 2,
+   "head": "# 中华人民共和国国家标准  GB 4706.59—2008/IEC 60335-2-52:2002(Ed3.0)  代替 GB 4706.59—2002  # 家用和类似用途电器的安全 口腔卫生器具的特殊要求  # Household and similar electrical appliances—Safety— Particular requirements for oral hygiene appliances  (IEC 60335-2-52:2002(Ed3.0), IDT)  ![](images/page_0_image_6.jpg)  2008-12-15 发布  2010"
+  },
+  {
+   "doc": "GB 6067.5-2014 起重机械安全规程 第5部分 桥式和门式起重机.mineru-4.0.10-vlm",
+   "chars": 29899,
+   "clauses": 0,
+   "md_table": false,
+   "html_table": true,
+   "image_links": true,
+   "table_images": 7,
+   "equation_images": 0,
+   "images_total": 8,
+   "head": "# 中华人民共和国国家标准  部分代替 GB/T 18224—2008, GB/T 19912—2005, GB/T 21920—2008  GB 6067.5—2014  # 起重机械安全规程 第 5 部分: 桥式和门式起重机  # Safety rules for lifting appliances—Part 5: Bridge and gantry cranes  ![](images/page_0_image_5.jpg)  2014-09-03 发布  2015-02-01 实施  ## 前言  本部分的 3.2、3.4、3.6.1～3.6.4、3.6.6、3.6.7、3.7.1～"
+  },
+  {
+   "doc": "GB 4789.3-2025 食品安全国家标准 食品微生物学检验 大肠菌群计数.mineru-4.0.10-vlm",
+   "chars": 14398,
+   "clauses": 0,
+   "md_table": true,
+   "html_table": true,
+   "image_links": true,
+   "table_images": 10,
+   "equation_images": 3,
+   "images_total": 16,
+   "head": "# 中 华 人 民 共 和 国 国 家 标 准  GB47893—2025  # 食品安全国家标准食品微生物学检验 大肠菌群计数  ![](images/page_0_image_3.jpg)  2025-03-16发布  2025-09-16实施  ## 前言  本标准代替 食品安全国家标准 食品微生物学检验 大肠菌群计数  本标准与 相比 主要变化如下  删除了检验原理  ———修改了术语和定义;  ———修改了设备和材料、培养基和试剂;  修改了检验程序、操作步骤、结果与报告和附录。  # 食品安全国家标准  # 食品微生物学检验 大肠菌群计数  ## 1 范围  本标准规定了食品中大肠"
+  },
+  {
+   "doc": "GB 20128-2024 惰性气体灭火剂.mineru-4.0.10-vlm",
+   "chars": 7988,
+   "clauses": 0,
+   "md_table": true,
+   "html_table": true,
+   "image_links": true,
+   "table_images": 5,
+   "equation_images": 1,
+   "images_total": 7,
+   "head": "# 中华人民共和国国家标准  GB 20128—2024  代替 GB 20128—2006  ## 惰性气体灭火剂  Inert gas extinguishing agent  (ISO 14520-12:2015, Gaseous fire-extinguishing systems—Physical properties and system design—Part 12: IG-01 extinguishant; ISO 14520-13:2015,  Gaseous fire-extinguishing systems—Physical properties and system "
+  }
+ ],
+ "boundary": [
+  "抽样是随机的、n 小，只判方向；只读源目录，未写任何内容。"
+ ]
+}

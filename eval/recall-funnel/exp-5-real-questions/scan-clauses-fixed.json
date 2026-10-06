@@ -1,0 +1,70 @@
+{
+ "why": "全量扫已 OCR 的 markdown 的条款结构（**修正版**）",
+ "correction": "上一版报『含形如 5.1.3 的条款号 0/756』是**我的度量错误**：正则漏 `re.M`，`^` 只匹配整串开头。实测 GB 16297-1996 确认条款号都在（形态为 `## 1.1 主题内容` 与 `1.2.1 在我国…`）。本版分三种形态分别量。",
+ "source": "D:\\AI\\work space\\标准\\🇨🇳《国家标准》(35000+ 141G)\\GB",
+ "markdown_total": 763,
+ "stats": {
+  "head_num_docs": 761,
+  "line_num_docs": 594,
+  "legal_docs": 4,
+  "md_table_docs": 438,
+  "html_table_docs": 528,
+  "structured_docs": 761
+ },
+ "chars": {
+  "median": 8665,
+  "min": 559,
+  "max": 57390
+ },
+ "per_subdir": {
+  "GB 00001 - GB 10000": {
+   "markdown": 346,
+   "structured": 346
+  },
+  "GB 10001 - GB 20000": {
+   "markdown": 170,
+   "structured": 169
+  },
+  "GB 20001 - GB 30000": {
+   "markdown": 79,
+   "structured": 78
+  },
+  "GB 30001 - GB 40000": {
+   "markdown": 77,
+   "structured": 77
+  },
+  "GB 40001 - GB 50000": {
+   "markdown": 88,
+   "structured": 88
+  },
+  "GB 50001 - GB 60000": {
+   "markdown": 3,
+   "structured": 3
+  }
+ },
+ "no_structure_sample": [
+  {
+   "doc": "GB 12331-1990 有毒作业分级.mineru-4.0.10-vlm",
+   "chars": 3834,
+   "heads": 0,
+   "line_nums": 0,
+   "legal": false,
+   "md_table": true,
+   "html_table": true,
+   "structured": false
+  },
+  {
+   "doc": "GB 26687-2011 复配食品添加剂通则 第1号修改单.mineru-4.0.10-vlm",
+   "chars": 559,
+   "heads": 0,
+   "line_nums": 0,
+   "legal": false,
+   "md_table": true,
+   "html_table": true,
+   "structured": false
+  }
+ ],
+ "boundary": [
+  "按字符串形态统计，不等于切分正确；只读源目录。"
+ ]
+}

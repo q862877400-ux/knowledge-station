@@ -1,0 +1,223 @@
+{
+ "why": "OCR 终检：表格可检索性 + 数字损伤线索",
+ "source": "D:\\AI\\work space\\标准\\🇨🇳《国家标准》(35000+ 141G)\\GB",
+ "docs": 767,
+ "stats": {
+  "docs": 767,
+  "has_table_text": 644,
+  "has_table_image": 644,
+  "table_image_no_text": 0,
+  "has_equation_image": 386,
+  "docs_with_bad_alnum": 11,
+  "docs_with_spaced_dot": 182,
+  "total_bad_alnum": 94,
+  "total_spaced_dot": 1861
+ },
+ "table_image_no_text_sample": [],
+ "per_doc_sample": [
+  {
+   "doc": "GB 1588-2024 医用玻璃体温计.mineru-4.0.10-vlm",
+   "table_images": 4,
+   "equation_images": 2,
+   "md_table": false,
+   "html_table": true,
+   "table_text": true,
+   "bad_alnum": 0,
+   "spaced_dot": 0
+  },
+  {
+   "doc": "GB 1886.231-2023 食品安全国家标准 食品添加剂 乳酸链球菌素.mineru-4.0.10-vlm",
+   "table_images": 3,
+   "equation_images": 3,
+   "md_table": true,
+   "html_table": true,
+   "table_text": true,
+   "bad_alnum": 0,
+   "spaced_dot": 0
+  },
+  {
+   "doc": "GB 1886.235-2016 食品安全国家标准 食品添加剂 柠檬酸.mineru-4.0.10-vlm",
+   "table_images": 2,
+   "equation_images": 8,
+   "md_table": false,
+   "html_table": true,
+   "table_text": true,
+   "bad_alnum": 0,
+   "spaced_dot": 12
+  },
+  {
+   "doc": "GB 1886.256-2024 食品安全国家标准 食品添加剂 甲基纤维素.mineru-4.0.10-vlm",
+   "table_images": 3,
+   "equation_images": 4,
+   "md_table": false,
+   "html_table": true,
+   "table_text": true,
+   "bad_alnum": 0,
+   "spaced_dot": 2
+  },
+  {
+   "doc": "GB 1886.350-2021 食品安全国家标准 食品添加剂 氧化亚氮 含2025年第1号修改单.mineru",
+   "table_images": 2,
+   "equation_images": 3,
+   "md_table": false,
+   "html_table": true,
+   "table_text": true,
+   "bad_alnum": 0,
+   "spaced_dot": 8
+  },
+  {
+   "doc": "GB 1886.365-2023 食品安全国家标准 食品添加剂 5-甲基-2-呋喃甲硫醇.mineru-4.0.",
+   "table_images": 2,
+   "equation_images": 0,
+   "md_table": true,
+   "html_table": true,
+   "table_text": true,
+   "bad_alnum": 0,
+   "spaced_dot": 0
+  },
+  {
+   "doc": "GB 1886.366-2023食品安全国家标准 食品添加剂 β-胡萝卜素.mineru-4.0.10-vlm",
+   "table_images": 4,
+   "equation_images": 6,
+   "md_table": false,
+   "html_table": true,
+   "table_text": true,
+   "bad_alnum": 0,
+   "spaced_dot": 0
+  },
+  {
+   "doc": "GB 1886.367-2023 食品安全国家标准食品添加剂6-甲基辛醛.mineru-4.0.10-vlm",
+   "table_images": 2,
+   "equation_images": 1,
+   "md_table": true,
+   "html_table": true,
+   "table_text": true,
+   "bad_alnum": 0,
+   "spaced_dot": 0
+  },
+  {
+   "doc": "GB 1886.368-2023 食品安全国家标准 食品添加剂 (2S,5R)-N-[4-(2-氨基-2-氧代乙",
+   "table_images": 2,
+   "equation_images": 1,
+   "md_table": true,
+   "html_table": true,
+   "table_text": true,
+   "bad_alnum": 0,
+   "spaced_dot": 0
+  },
+  {
+   "doc": "GB 1886.369-2023 食品安全国家标准 食品添加剂 蓝锭果红.mineru-4.0.10-vlm",
+   "table_images": 2,
+   "equation_images": 1,
+   "md_table": false,
+   "html_table": true,
+   "table_text": true,
+   "bad_alnum": 0,
+   "spaced_dot": 0
+  },
+  {
+   "doc": "GB 1886.370-2023 食品安全国家标准 食品添加剂 辛烯基琥珀酸淀粉钠.mineru-4.0.10-",
+   "table_images": 2,
+   "equation_images": 1,
+   "md_table": false,
+   "html_table": true,
+   "table_text": true,
+   "bad_alnum": 0,
+   "spaced_dot": 0
+  },
+  {
+   "doc": "GB 1886.371-2023 食品安全国家标准 食品添加剂 ε-聚赖氨酸盐酸盐.mineru-4.0.10-",
+   "table_images": 2,
+   "equation_images": 3,
+   "md_table": false,
+   "html_table": true,
+   "table_text": true,
+   "bad_alnum": 0,
+   "spaced_dot": 0
+  },
+  {
+   "doc": "GB 1886.372-2023 食品安全国家标准 食品添加剂 L-蛋氨酰基甘氨酸盐酸盐.mineru-4.0.",
+   "table_images": 2,
+   "equation_images": 2,
+   "md_table": true,
+   "html_table": true,
+   "table_text": true,
+   "bad_alnum": 0,
+   "spaced_dot": 1
+  },
+  {
+   "doc": "GB 1886.373-2023 食品安全国家标准 食品添加剂 甲醇钠.mineru-4.0.10-vlm",
+   "table_images": 2,
+   "equation_images": 6,
+   "md_table": true,
+   "html_table": true,
+   "table_text": true,
+   "bad_alnum": 0,
+   "spaced_dot": 0
+  },
+  {
+   "doc": "GB 1886.374-2024 食品安全国家标准 食品添加剂 纤维素.mineru-4.0.10-vlm",
+   "table_images": 5,
+   "equation_images": 7,
+   "md_table": false,
+   "html_table": true,
+   "table_text": true,
+   "bad_alnum": 0,
+   "spaced_dot": 0
+  },
+  {
+   "doc": "GB 1886.375-2024 食品安全国家标准 食品添加剂 氢氧化钙.mineru-4.0.10-vlm",
+   "table_images": 3,
+   "equation_images": 5,
+   "md_table": true,
+   "html_table": true,
+   "table_text": true,
+   "bad_alnum": 0,
+   "spaced_dot": 7
+  },
+  {
+   "doc": "GB 1886.376-2024 食品安全国家标准 食品添加剂 5-戊基-3H-呋喃-2-酮.mineru-4.",
+   "table_images": 2,
+   "equation_images": 1,
+   "md_table": true,
+   "html_table": true,
+   "table_text": true,
+   "bad_alnum": 0,
+   "spaced_dot": 0
+  },
+  {
+   "doc": "GB 1886.377-2024 食品安全国家标准 食品添加剂 爱德万甜.mineru-4.0.10-vlm",
+   "table_images": 4,
+   "equation_images": 5,
+   "md_table": true,
+   "html_table": true,
+   "table_text": true,
+   "bad_alnum": 0,
+   "spaced_dot": 0
+  },
+  {
+   "doc": "GB 1886.378-2024 食品安全国家标准 食品添加剂 茶黄素.mineru-4.0.10-vlm",
+   "table_images": 6,
+   "equation_images": 3,
+   "md_table": true,
+   "html_table": true,
+   "table_text": true,
+   "bad_alnum": 0,
+   "spaced_dot": 11
+  },
+  {
+   "doc": "GB 1886.379-2024 食品安全国家标准 食品添加剂 皂树皮提取物.mineru-4.0.10-vlm",
+   "table_images": 3,
+   "equation_images": 3,
+   "md_table": true,
+   "html_table": true,
+   "table_text": true,
+   "bad_alnum": 0,
+   "spaced_dot": 0
+  }
+ ],
+ "boundary": [
+  "数字损伤项是**启发式线索**，不是错字率；真正的错字率需人工逐格比对原 PDF。",
+  "只读源目录。"
+ ]
+}
