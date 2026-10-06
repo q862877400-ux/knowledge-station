@@ -1,0 +1,377 @@
+{
+ "why": "量化国标 OCR 的切分损伤：可切位点 vs split_gb_text 实切",
+ "docs": 805,
+ "totals": {
+  "sites": 55078,
+  "split_gb": 15892,
+  "hit_rate": 0.2885,
+  "top_level_headings_missed": 11138,
+  "docs_with_zero_clauses": 146
+ },
+ "ratio_stats": {
+  "median": 0.2,
+  "min": 0.0,
+  "max": 1.2426470588235294
+ },
+ "suspect_clause_numbers": {
+  "末段多位/层次过深": 1155
+ },
+ "worst10": [
+  {
+   "dir": "GB 1787-2018 航空活塞式发动机燃料.mineru-4.0.10-vlm",
+   "sites": 14,
+   "top_level_heads": 7,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.231-2023 食品安全国家标准 食品添加剂 乳酸链球菌素.mineru-4.0.10",
+   "sites": 9,
+   "top_level_heads": 3,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.235-2016 食品安全国家标准 食品添加剂 柠檬酸.mineru-4.0.10-vl",
+   "sites": 8,
+   "top_level_heads": 7,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.256-2024 食品安全国家标准 食品添加剂 甲基纤维素.mineru-4.0.10-",
+   "sites": 9,
+   "top_level_heads": 3,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.350-2021 食品安全国家标准 食品添加剂 氧化亚氮 含2025年第1号修改单.mi",
+   "sites": 9,
+   "top_level_heads": 8,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.371-2023 食品安全国家标准 食品添加剂 ε-聚赖氨酸盐酸盐.mineru-4.0",
+   "sites": 8,
+   "top_level_heads": 3,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.374-2024 食品安全国家标准 食品添加剂 纤维素.mineru-4.0.10-vl",
+   "sites": 12,
+   "top_level_heads": 3,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.376-2024 食品安全国家标准 食品添加剂 5-戊基-3H-呋喃-2-酮.miner",
+   "sites": 9,
+   "top_level_heads": 3,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.378-2024 食品安全国家标准 食品添加剂 茶黄素.mineru-4.0.10-vl",
+   "sites": 9,
+   "top_level_heads": 2,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.379-2024 食品安全国家标准 食品添加剂 皂树皮提取物.mineru-4.0.10",
+   "sites": 7,
+   "top_level_heads": 3,
+   "split_gb": 0,
+   "ratio": 0.0
+  }
+ ],
+ "per_doc_sample": [
+  {
+   "dir": "GB 1588-2024 医用玻璃体温计.mineru-4.0.10-vlm",
+   "sites": 67,
+   "top_level_heads": 7,
+   "split_gb": 27,
+   "ratio": 0.4
+  },
+  {
+   "dir": "GB 175-2023 通用硅酸盐水泥.mineru-4.0.10-vlm",
+   "sites": 64,
+   "top_level_heads": 10,
+   "split_gb": 6,
+   "ratio": 0.09
+  },
+  {
+   "dir": "GB 1787-2018 航空活塞式发动机燃料.mineru-4.0.10-vlm",
+   "sites": 14,
+   "top_level_heads": 7,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.104-2024 食品安全国家标准 食品添加剂 喹啉黄.mineru-4.0.10-vl",
+   "sites": 14,
+   "top_level_heads": 3,
+   "split_gb": 1,
+   "ratio": 0.07
+  },
+  {
+   "dir": "GB 1886.231-2023 食品安全国家标准 食品添加剂 乳酸链球菌素.mineru-4.0.10",
+   "sites": 9,
+   "top_level_heads": 3,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.235-2016 食品安全国家标准 食品添加剂 柠檬酸.mineru-4.0.10-vl",
+   "sites": 8,
+   "top_level_heads": 7,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.256-2024 食品安全国家标准 食品添加剂 甲基纤维素.mineru-4.0.10-",
+   "sites": 9,
+   "top_level_heads": 3,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.350-2021 食品安全国家标准 食品添加剂 氧化亚氮 含2025年第1号修改单.mi",
+   "sites": 9,
+   "top_level_heads": 8,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.365-2023 食品安全国家标准 食品添加剂 5-甲基-2-呋喃甲硫醇.mineru-",
+   "sites": 9,
+   "top_level_heads": 3,
+   "split_gb": 1,
+   "ratio": 0.11
+  },
+  {
+   "dir": "GB 1886.366-2023食品安全国家标准 食品添加剂 β-胡萝卜素.mineru-4.0.10-",
+   "sites": 22,
+   "top_level_heads": 6,
+   "split_gb": 2,
+   "ratio": 0.09
+  },
+  {
+   "dir": "GB 1886.367-2023 食品安全国家标准食品添加剂6-甲基辛醛.mineru-4.0.10-v",
+   "sites": 8,
+   "top_level_heads": 3,
+   "split_gb": 1,
+   "ratio": 0.12
+  },
+  {
+   "dir": "GB 1886.368-2023 食品安全国家标准 食品添加剂 (2S,5R)-N-[4-(2-氨基-2",
+   "sites": 9,
+   "top_level_heads": 3,
+   "split_gb": 1,
+   "ratio": 0.11
+  },
+  {
+   "dir": "GB 1886.369-2023 食品安全国家标准 食品添加剂 蓝锭果红.mineru-4.0.10-v",
+   "sites": 9,
+   "top_level_heads": 3,
+   "split_gb": 1,
+   "ratio": 0.11
+  },
+  {
+   "dir": "GB 1886.370-2023 食品安全国家标准 食品添加剂 辛烯基琥珀酸淀粉钠.mineru-4.0",
+   "sites": 5,
+   "top_level_heads": 2,
+   "split_gb": 1,
+   "ratio": 0.2
+  },
+  {
+   "dir": "GB 1886.371-2023 食品安全国家标准 食品添加剂 ε-聚赖氨酸盐酸盐.mineru-4.0",
+   "sites": 8,
+   "top_level_heads": 3,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.372-2023 食品安全国家标准 食品添加剂 L-蛋氨酰基甘氨酸盐酸盐.mineru-",
+   "sites": 10,
+   "top_level_heads": 3,
+   "split_gb": 2,
+   "ratio": 0.2
+  },
+  {
+   "dir": "GB 1886.373-2023 食品安全国家标准 食品添加剂 甲醇钠.mineru-4.0.10-vl",
+   "sites": 13,
+   "top_level_heads": 4,
+   "split_gb": 3,
+   "ratio": 0.23
+  },
+  {
+   "dir": "GB 1886.374-2024 食品安全国家标准 食品添加剂 纤维素.mineru-4.0.10-vl",
+   "sites": 12,
+   "top_level_heads": 3,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.375-2024 食品安全国家标准 食品添加剂 氢氧化钙.mineru-4.0.10-v",
+   "sites": 9,
+   "top_level_heads": 3,
+   "split_gb": 1,
+   "ratio": 0.11
+  },
+  {
+   "dir": "GB 1886.376-2024 食品安全国家标准 食品添加剂 5-戊基-3H-呋喃-2-酮.miner",
+   "sites": 9,
+   "top_level_heads": 3,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.377-2024 食品安全国家标准 食品添加剂 爱德万甜.mineru-4.0.10-v",
+   "sites": 11,
+   "top_level_heads": 3,
+   "split_gb": 1,
+   "ratio": 0.09
+  },
+  {
+   "dir": "GB 1886.378-2024 食品安全国家标准 食品添加剂 茶黄素.mineru-4.0.10-vl",
+   "sites": 9,
+   "top_level_heads": 2,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.379-2024 食品安全国家标准 食品添加剂 皂树皮提取物.mineru-4.0.10",
+   "sites": 7,
+   "top_level_heads": 3,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.380-2024 食品安全国家标准 食品添加剂 甲酸钠.mineru-4.0.10-vl",
+   "sites": 14,
+   "top_level_heads": 3,
+   "split_gb": 3,
+   "ratio": 0.21
+  },
+  {
+   "dir": "GB 1886.381-2024 食品安全国家标准 食品添加剂 酒石酸铁.mineru-4.0.10-v",
+   "sites": 16,
+   "top_level_heads": 3,
+   "split_gb": 6,
+   "ratio": 0.38
+  },
+  {
+   "dir": "GB 1886.382-2025 食品安全国家标准 食品添加剂 叶黄素.mineru-4.0.10-vl",
+   "sites": 8,
+   "top_level_heads": 8,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.383-2025 食品安全国家标准 食品添加剂 聚乙烯醇.mineru-4.0.10-v",
+   "sites": 7,
+   "top_level_heads": 7,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.384-2025 食品安全国家标准 食品添加剂 植物炭黑.mineru-4.0.10-v",
+   "sites": 8,
+   "top_level_heads": 8,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.385-2025 食品安全国家标准 食品添加剂 聚葡萄糖.mineru-4.0.10-v",
+   "sites": 7,
+   "top_level_heads": 5,
+   "split_gb": 1,
+   "ratio": 0.14
+  },
+  {
+   "dir": "GB 1886.96-2024 食品安全国家标准 食品添加剂 松香季戊四醇酯.mineru-4.0.10",
+   "sites": 4,
+   "top_level_heads": 2,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1886.98-2024 食品安全国家标准 食品添加剂 乳糖醇（又名4-β-D吡喃半乳糖-D-山梨",
+   "sites": 10,
+   "top_level_heads": 3,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1903.59-2023 食品安全国家标准 食品营养强化剂 氯化铬.mineru-4.0.10-v",
+   "sites": 12,
+   "top_level_heads": 3,
+   "split_gb": 1,
+   "ratio": 0.08
+  },
+  {
+   "dir": "GB 1903.60-2023 食品安全国家标准 食品营养强化剂 L-肉碱酒石酸盐.mineru-4.0",
+   "sites": 10,
+   "top_level_heads": 3,
+   "split_gb": 1,
+   "ratio": 0.1
+  },
+  {
+   "dir": "GB 1903.61-2023 食品安全国家标准 食品营养强化剂 碳酸铜.mineru-4.0.10-v",
+   "sites": 10,
+   "top_level_heads": 3,
+   "split_gb": 1,
+   "ratio": 0.1
+  },
+  {
+   "dir": "GB 1903.62-2023 食品安全国家标准 食品营养强化剂 还原铁.mineru-4.0.10-v",
+   "sites": 9,
+   "top_level_heads": 3,
+   "split_gb": 1,
+   "ratio": 0.11
+  },
+  {
+   "dir": "GB 1903.63-2023 食品安全国家标准 食品营养强化剂 甘油磷酸钙.mineru-4.0.10",
+   "sites": 10,
+   "top_level_heads": 3,
+   "split_gb": 1,
+   "ratio": 0.1
+  },
+  {
+   "dir": "GB 1903.64-2023 食品安全国家标准 食品营养强化剂 氯化锰.mineru-4.0.10-v",
+   "sites": 8,
+   "top_level_heads": 3,
+   "split_gb": 1,
+   "ratio": 0.12
+  },
+  {
+   "dir": "GB 1903.65-2024 食品安全国家标准 食品营养强化剂 花生四烯酸油脂(发酵法).mineru",
+   "sites": 9,
+   "top_level_heads": 3,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1903.66-2024 食品安全国家标准 食品营养强化剂 二十二碳六烯酸油脂（发酵法）.mine",
+   "sites": 9,
+   "top_level_heads": 3,
+   "split_gb": 0,
+   "ratio": 0.0
+  },
+  {
+   "dir": "GB 1903.67-2024 食品安全国家标准 食品营养强化剂 植物甲萘醌(维生素 K1).miner",
+   "sites": 9,
+   "top_level_heads": 3,
+   "split_gb": 0,
+   "ratio": 0.0
+  }
+ ],
+ "boundary": [
+  "可切位点按『行首数字+空格+非空』正则统计，是**上界**（含少量非条款数字）；",
+  "本脚本只读源目录与切分函数，未写任何库。"
+ ]
+}

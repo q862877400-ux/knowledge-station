@@ -1,4 +1,3 @@
-.exp.db
-exp.db
-exp.db-wal
-exp.db-shm
+var/tmp/ingest-trial/
+*.db-wal
+*.db-shm

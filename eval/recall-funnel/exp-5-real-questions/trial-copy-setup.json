@@ -1,0 +1,25 @@
+{
+ "why": "入库试跑前建真库副本；之后一切操作在 KS_DATA_DIR 指向的副本上进行",
+ "real_db": "C:\\Users\\Zegel\\AppData\\Roaming\\KnowledgeStation\\database\\knowledge.db",
+ "trial_dir": "D:\\AI\\work space\\zcode\\var\\tmp\\ingest-trial\\data",
+ "copy_db": "D:\\AI\\work space\\zcode\\var\\tmp\\ingest-trial\\data\\database\\knowledge.db",
+ "real_size_gb": 2.395,
+ "copy_size_gb": 2.395,
+ "seconds": 17.8,
+ "counts_real": {
+  "doc_meta": 6797,
+  "clause_revision": 522021
+ },
+ "counts_copy": {
+  "doc_meta": 6797,
+  "clause_revision": 522021
+ },
+ "counts_match": true,
+ "env_to_use": {
+  "KS_DATA_DIR": "D:\\AI\\work space\\zcode\\var\\tmp\\ingest-trial\\data",
+  "KS_MODELS_DIR": "C:\\Users\\Zegel\\AppData\\Roaming\\KnowledgeStation\\models"
+ },
+ "boundary": [
+  "真库以 mode=ro 打开；副本用 sqlite3 backup API 生成。"
+ ]
+}

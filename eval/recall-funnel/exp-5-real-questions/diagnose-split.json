@@ -1,0 +1,128 @@
+{
+ "why": "诊断国标 OCR 入库后条款数过少的原因",
+ "docs_in_trial": [
+  {
+   "doc_id": "doc_01M49PWRFRW5A25R6PFC8FFZDV",
+   "standard_no": "GB 175-2023",
+   "name": "通用硅酸盐水泥"
+  },
+  {
+   "doc_id": "doc_01M49PWT46FD05M604WNA0RD45",
+   "standard_no": "GB 1886.104-2024",
+   "name": "食品安全国家标准 食品添加剂 喹啉黄"
+  }
+ ],
+ "probe": [
+  {
+   "dir": "GB 1588-2024 医用玻璃体温计.mineru-4.0.10-vlm",
+   "head_any": 33,
+   "head_dotted": 26,
+   "line_num": 27,
+   "all_num_lines": 67,
+   "split_gb": 27,
+   "split_law": 0
+  },
+  {
+   "dir": "GB 175-2023 通用硅酸盐水泥.mineru-4.0.10-vlm",
+   "head_any": 51,
+   "head_dotted": 41,
+   "line_num": 13,
+   "all_num_lines": 64,
+   "split_gb": 6,
+   "split_law": 0
+  },
+  {
+   "dir": "GB 1787-2018 航空活塞式发动机燃料.mineru-4.0.10-vlm",
+   "head_any": 14,
+   "head_dotted": 7,
+   "line_num": 0,
+   "all_num_lines": 14,
+   "split_gb": 0,
+   "split_law": 0
+  },
+  {
+   "dir": "GB 1886.104-2024 食品安全国家标准 食品添加剂 喹啉黄.mineru-4.0.10-vlm",
+   "head_any": 9,
+   "head_dotted": 6,
+   "line_num": 0,
+   "all_num_lines": 14,
+   "split_gb": 1,
+   "split_law": 0
+  },
+  {
+   "dir": "GB 1886.231-2023 食品安全国家标准 食品添加剂 乳酸链球菌素.mineru-4.0.10-vlm",
+   "head_any": 9,
+   "head_dotted": 6,
+   "line_num": 0,
+   "all_num_lines": 9,
+   "split_gb": 0,
+   "split_law": 0
+  },
+  {
+   "dir": "GB 1886.235-2016 食品安全国家标准 食品添加剂 柠檬酸.mineru-4.0.10-vlm",
+   "head_any": 8,
+   "head_dotted": 1,
+   "line_num": 0,
+   "all_num_lines": 8,
+   "split_gb": 0,
+   "split_law": 0
+  },
+  {
+   "dir": "GB 1886.256-2024 食品安全国家标准 食品添加剂 甲基纤维素.mineru-4.0.10-vlm",
+   "head_any": 9,
+   "head_dotted": 6,
+   "line_num": 0,
+   "all_num_lines": 9,
+   "split_gb": 0,
+   "split_law": 0
+  },
+  {
+   "dir": "GB 1886.350-2021 食品安全国家标准 食品添加剂 氧化亚氮 含2025年第1号修改单.mineru",
+   "head_any": 8,
+   "head_dotted": 0,
+   "line_num": 0,
+   "all_num_lines": 9,
+   "split_gb": 0,
+   "split_law": 0
+  },
+  {
+   "dir": "GB 1886.365-2023 食品安全国家标准 食品添加剂 5-甲基-2-呋喃甲硫醇.mineru-4.0.",
+   "head_any": 9,
+   "head_dotted": 6,
+   "line_num": 0,
+   "all_num_lines": 9,
+   "split_gb": 1,
+   "split_law": 0
+  },
+  {
+   "dir": "GB 1886.366-2023食品安全国家标准 食品添加剂 β-胡萝卜素.mineru-4.0.10-vlm",
+   "head_any": 18,
+   "head_dotted": 12,
+   "line_num": 0,
+   "all_num_lines": 22,
+   "split_gb": 2,
+   "split_law": 0
+  },
+  {
+   "dir": "GB 1886.367-2023 食品安全国家标准食品添加剂6-甲基辛醛.mineru-4.0.10-vlm",
+   "head_any": 8,
+   "head_dotted": 5,
+   "line_num": 0,
+   "all_num_lines": 8,
+   "split_gb": 1,
+   "split_law": 0
+  },
+  {
+   "dir": "GB 1886.368-2023 食品安全国家标准 食品添加剂 (2S,5R)-N-[4-(2-氨基-2-氧代乙",
+   "head_any": 9,
+   "head_dotted": 6,
+   "line_num": 0,
+   "all_num_lines": 9,
+   "split_gb": 1,
+   "split_law": 0
+  }
+ ],
+ "boundary": [
+  "只读；切分函数用源 markdown 直接调用，未写库。"
+ ]
+}

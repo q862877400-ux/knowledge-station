@@ -1,0 +1,95 @@
+{
+ "why": "入库试跑（小样本）：法规 markdown + MinerU OCR 国标，走 law_text.ingest_law_text",
+ "guard": {
+  "engine_db": "D:\\AI\\work space\\zcode\\var\\tmp\\ingest-trial\\data\\database\\knowledge.db",
+  "trial_root": "D:\\AI\\work space\\zcode\\var\\tmp\\ingest-trial\\data",
+  "passed": true
+ },
+ "before": {
+  "doc_meta": 6799,
+  "clause_revision": 522028
+ },
+ "after": {
+  "doc_meta": 6807,
+  "clause_revision": 522784
+ },
+ "delta": {
+  "docs": 8,
+  "clauses": 756
+ },
+ "results": [
+  {
+   "kind": "law",
+   "file": "劳动法(2018-12-29).md",
+   "status": "ok",
+   "clauses": null,
+   "doc_id": "doc_01M49PYC2NM242TE1QZY8FR804"
+  },
+  {
+   "kind": "law",
+   "file": "职业病防治法(2018-12-29).md",
+   "status": "ok",
+   "clauses": null,
+   "doc_id": "doc_01M49PYFE9MZA1SGGB1H1YA7RG"
+  },
+  {
+   "kind": "law",
+   "file": "环境保护法(2014-04-24).md",
+   "status": "ok",
+   "clauses": null,
+   "doc_id": "doc_01M49PYKQ1SA1C71MAWKKBVZ5P"
+  },
+  {
+   "kind": "law",
+   "file": "特种设备安全法(2013-06-29).md",
+   "status": "ok",
+   "clauses": null,
+   "doc_id": "doc_01M49PYNQD5ECQY6MKK2P23NRN"
+  },
+  {
+   "kind": "law",
+   "file": "社会保险法(2018-12-29).md",
+   "status": "ok",
+   "clauses": null,
+   "doc_id": "doc_01M49PYS9YJ1WM1ZF6XZV2RF8K"
+  },
+  {
+   "kind": "law",
+   "file": "行政处罚法(2021-01-22).md",
+   "status": "ok",
+   "clauses": null,
+   "doc_id": "doc_01M49PYV8R5WHEZNB4BQ0TMG97"
+  },
+  {
+   "kind": "law",
+   "file": "矿山安全法(2009-08-27).md",
+   "status": "ok",
+   "clauses": null,
+   "doc_id": "doc_01M49PYZT18MZ4SJ1MQXCMJ6Q9"
+  },
+  {
+   "kind": "law",
+   "file": "劳动合同法(2012-12-28).md",
+   "status": "ok",
+   "clauses": null,
+   "doc_id": "doc_01M49PZ0D3KZZP6G2QFYFN9HMF"
+  },
+  {
+   "kind": "law",
+   "file": "README.md",
+   "status": "error",
+   "clauses": null,
+   "doc_id": null
+  },
+  {
+   "kind": "law",
+   "file": "_index.md",
+   "status": "error",
+   "clauses": null,
+   "doc_id": null
+  }
+ ],
+ "boundary": [
+  "小样本，只判方向；真库未被写（引擎指向副本，且有护栏断言）。"
+ ]
+}
