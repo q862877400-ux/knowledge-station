@@ -1,0 +1,1135 @@
+{
+ "why": "业主打回：先前找到的项目星数低；本清单按 GitHub 官方搜索接口 sort=stars 取，跨 12 个关键词去重",
+ "note": "`data_in_repo_guess` 是**按顶层目录名猜的**，不是实证（实证见 where-is-the-data.json）",
+ "n_repos": 75,
+ "repos": [
+  {
+   "full_name": "fighting41love/funNLP",
+   "stars": 83715,
+   "license": null,
+   "size_kb": 174188,
+   "pushed_at": "2024-05-10T07:38:24Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "中英文敏感词、语言检测、中外手机/电话归属地/运营商查询、名字推断性别、手机号抽取、身份证抽取、邮箱抽取、中日文人名库、中文缩写库、拆字词典、词汇情感值、停用词、反动词表、暴恐词表、繁简体转换、英文模拟中文发音、汪峰歌词生成器、职业名称词库、同义词库、反义词库、否定词库、汽车品牌词库、汽车零件词库、",
+   "found_by": [
+    "法律法规"
+   ],
+   "top_level": [
+    ".github",
+    "README.md",
+    "data"
+   ],
+   "data_in_repo_guess": true
+  },
+  {
+   "full_name": "eternity4719/HowToLiveBetter",
+   "stars": 46520,
+   "license": "CC-BY-4.0",
+   "size_kb": 15601,
+   "pushed_at": "2026-10-06T03:03:14Z",
+   "archived": false,
+   "language": "HTML",
+   "desc": "高性价比人生指南: 长寿防病、急救、省钱理财、法律红线、失业与工伤、医保社保、恋爱婚育、怀孕育儿、创业与做平台合规、出国与技能。每条写明成本、收益、证据等级和原始出处，只引期刊论文与官方文件。",
+   "found_by": [
+    "法律法规"
+   ],
+   "top_level": [
+    ".claude",
+    ".github",
+    ".gitignore",
+    ".nojekyll",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "LICENSE",
+    "LICENSE-CODE",
+    "README.md",
+    "ads",
+    "book",
+    "docs",
+    "index.html",
+    "og.png"
+   ],
+   "data_in_repo_guess": false
+  },
+  {
+   "full_name": "Dujltqzv/Some-Many-Books",
+   "stars": 24367,
+   "license": null,
+   "size_kb": 2710343,
+   "pushed_at": "2026-06-18T05:36:05Z",
+   "archived": false,
+   "language": null,
+   "desc": "个人收藏书籍列表　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　",
+   "found_by": [
+    "法律法规"
+   ],
+   "top_level": [
+    "PDF-file",
+    "README.md"
+   ],
+   "data_in_repo_guess": false
+  },
+  {
+   "full_name": "nusr/hacker-laws-zh",
+   "stars": 12493,
+   "license": "MIT",
+   "size_kb": 1418,
+   "pushed_at": "2023-06-06T06:22:30Z",
+   "archived": false,
+   "language": null,
+   "desc": "💻📖对开发人员有用的定律、理论、原则和模式。(Laws, Theories, Principles and Patterns that developers will find useful.)",
+   "found_by": [
+    "chinese law"
+   ],
+   "top_level": [
+    ".gitignore",
+    ".travis.yml",
+    "LICENSE",
+    "README.md",
+    "assets",
+    "gfw.md",
+    "images"
+   ],
+   "data_in_repo_guess": false
+  },
+  {
+   "full_name": "PKU-YuanGroup/ChatLaw",
+   "stars": 7615,
+   "license": "AGPL-3.0",
+   "size_kb": 11499,
+   "pushed_at": "2025-01-04T15:29:26Z",
+   "archived": false,
+   "language": null,
+   "desc": "ChatLaw：A Powerful LLM Tailored for Chinese Legal. 中文法律大模型",
+   "found_by": [
+    "chinese law"
+   ],
+   "top_level": [
+    "LICENSE",
+    "MERGE.md",
+    "README.md",
+    "assert",
+    "data",
+    "demo",
+    "images"
+   ],
+   "data_in_repo_guess": true
+  },
+  {
+   "full_name": "houbb/sensitive-word",
+   "stars": 6060,
+   "license": "Apache-2.0",
+   "size_kb": 5723,
+   "pushed_at": "2026-03-23T10:35:47Z",
+   "archived": false,
+   "language": "Java",
+   "desc": " 👮‍♂️The sensitive word tool for java.(敏感词/违禁词/违法词/脏词。基于 DFA 算法实现的高性能 java 敏感词过滤工具框架。内置支持单词标签分类分级。请勿发布涉及政治、广告、营销、翻墙、违反国家法律法规等内容。高性能敏感词检测过滤组件，附带繁体简体互换，",
+   "found_by": [
+    "法律法规"
+   ],
+   "top_level": [
+    ".coveralls.yml",
+    ".gitignore",
+    ".idea",
+    ".travis.yml",
+    "CHANGE_LOG.md",
+    "LICENSE.txt",
+    "README.md",
+    "WECHAT.png",
+    "cgit.bat",
+    "cgit.sh",
+    "doc",
+    "lmxxf_reword.png",
+    "pom.xml",
+    "release.bat"
+   ],
+   "data_in_repo_guess": false
+  },
+  {
+   "full_name": "pengxiao-song/LaWGPT",
+   "stars": 6057,
+   "license": "GPL-3.0",
+   "size_kb": 4586,
+   "pushed_at": "2024-06-11T07:20:19Z",
+   "archived": false,
+   "language": "Python",
+   "desc": " 🎉 Repo for LaWGPT, Chinese-Llama tuned with Chinese Legal knowledge. 基于中文法律知识的大语言模型",
+   "found_by": [
+    "chinese law"
+   ],
+   "top_level": [
+    ".gitignore",
+    "LICENSE",
+    "README.md",
+    "assets",
+    "data",
+    "finetune.py",
+    "infer.py",
+    "merge.py",
+    "models",
+    "outputs",
+    "requirements.txt",
+    "resources",
+    "scripts",
+    "templates"
+   ],
+   "data_in_repo_guess": true
+  },
+  {
+   "full_name": "cirosantilli/x86-bare-metal-examples",
+   "stars": 5385,
+   "license": "NOASSERTION",
+   "size_kb": 1080,
+   "pushed_at": "2022-07-18T05:40:51Z",
+   "archived": false,
+   "language": "Assembly",
+   "desc": "Dozens of minimal operating systems to learn x86 system programming. Tested on Ubuntu 17.10 host in QEMU 2.10 and real hardware. Userland cheat at: ht",
+   "found_by": [
+    "法律法规"
+   ],
+   "top_level": [
+    ".gitignore",
+    "LICENSE.adoc",
+    "Makefile",
+    "README.adoc",
+    "apm_shutdown.S",
+    "apm_shutdown2.S",
+    "bios_background.S",
+    "bios_carriage_return.S",
+    "bios_clear_screen.S",
+    "bios_color.S",
+    "bios_cursor_position.S",
+    "bios_detect_memory.S",
+    "bios_disk_load.S",
+    "bios_disk_load2.S"
+   ],
+   "data_in_repo_guess": false
+  },
+  {
+   "full_name": "hiddendevj/Crawler_Illegal_Cases_In_China",
+   "stars": 4738,
+   "license": null,
+   "size_kb": 635,
+   "pushed_at": "2026-03-12T13:39:06Z",
+   "archived": false,
+   "language": "HTML",
+   "desc": "Collection of China illegal cases about web crawler 本项目用来整理所有中国大陆爬虫开发者涉诉与违规相关的新闻、资料与法律法规。致力于帮助在中国大陆工作的爬虫行业从业者了解我国相关法律，避免触碰数据合规红线。 ",
+   "found_by": [
+    "法律法规"
+   ],
+   "top_level": [
+    "README.md",
+    "case1",
+    "case10",
+    "case11",
+    "case12",
+    "case14",
+    "case15",
+    "case2",
+    "case3",
+    "case6",
+    "case7"
+   ],
+   "data_in_repo_guess": false
+  },
+  {
+   "full_name": "cirosantilli/china-dictatorship",
+   "stars": 3254,
+   "license": "CC-BY-SA-4.0",
+   "size_kb": 105457,
+   "pushed_at": "2026-02-05T07:59:11Z",
+   "archived": false,
+   "language": "HTML",
+   "desc": "反中共政治宣传库。Anti Chinese government propaganda. 住在中国真名用户的网友请别给星星，不然你要被警察请喝茶。常见问答集，新闻集和饭店和音乐建议。卐习万岁卐。冠状病毒审查郝海东新疆改造中心六四事件法轮功 996.ICU709大抓捕巴拿马文件邓家贵低端人口西藏骚乱。",
+   "found_by": [
+    "法律法规"
+   ],
+   "top_level": [
+    ".github",
+    ".gitignore",
+    ".gitlab-ci.yml",
+    "CONTRIBUTING.md",
+    "Gemfile",
+    "Gemfile.lock",
+    "LICENSE",
+    "MANIFEST.in",
+    "Makefile",
+    "README-docinfo.html",
+    "README.adoc",
+    "ZOV by Pavel Filatyev 2022.txt",
+    "ZOV от Павла Филатьева 2022.txt",
+    "action.js"
+   ],
+   "data_in_repo_guess": false
+  },
+  {
+   "full_name": "RanKKI/LawRefBook",
+   "stars": 2458,
+   "license": "NOASSERTION",
+   "size_kb": 46784,
+   "pushed_at": "2025-08-14T12:27:13Z",
+   "archived": false,
+   "language": "Swift",
+   "desc": "中华人民共和国法律手册",
+   "found_by": [
+    "中国法律"
+   ],
+   "top_level": [
+    ".github",
+    ".gitignore",
+    ".gitmodules",
+    "CHANGELOG.md",
+    "Gemfile",
+    "Gemfile.lock",
+    "LICENSE",
+    "Preview Content",
+    "README.md",
+    "Shared",
+    "UnitTests",
+    "fastlane",
+    "iOS",
+    "law.handbook.xcodeproj"
+   ],
+   "data_in_repo_guess": false
+  },
+  {
+   "full_name": "gege-circle/.github",
+   "stars": 2033,
+   "license": null,
+   "size_kb": 1706,
+   "pushed_at": "2025-10-04T07:56:18Z",
+   "archived": false,
+   "language": null,
+   "desc": "这里是GitHub的草场，也是戈戈圈爱好者的交流地，主要讨论动漫、游戏、科技、人文、生活等所有话题，欢迎各位小伙伴们在此讨论趣事。This is GitHub grassland, and the community place for Gege circle lovers, mainly disc",
+   "found_by": [
+    "法律法规"
+   ],
+   "top_level": [
+    ".github",
+    "README.md",
+    "profile"
+   ],
+   "data_in_repo_guess": false
+  },
+  {
+   "full_name": "ScottZt/jin-ce-zhi-suan",
+   "stars": 1466,
+   "license": "NOASSERTION",
+   "size_kb": 27204,
+   "pushed_at": "2026-07-20T04:32:48Z",
+   "archived": false,
+   "language": "HTML",
+   "desc": "【金策智算】➡️不靠情绪买卖、不追小道消息，专注用客观数据辅助决策。 我们仅提供本地化私有行情数据服务与历史回测工具，帮你把主观想法变成可验证的交易规则，用历史数据检验方法有效性，通过指标监控约束随意操作、控制回撤风险，让交易更有纪律、更落地。 本产品为纯量化工具，不荐股、不指导买卖、不预测行情、不",
+   "found_by": [
+    "法律法规"
+   ]
+  },
+  {
+   "full_name": "cncases/cases",
+   "stars": 1128,
+   "license": "MPL-2.0",
+   "size_kb": 2076,
+   "pushed_at": "2026-09-28T08:32:54Z",
+   "archived": false,
+   "language": "Rust",
+   "desc": "中国裁判文书网本地搜索",
+   "found_by": [
+    "裁判文书"
+   ]
+  },
+  {
+   "full_name": "LoseNine/Crack-JS-Spider",
+   "stars": 1040,
+   "license": null,
+   "size_kb": 4756,
+   "pushed_at": "2024-05-03T12:51:26Z",
+   "archived": false,
+   "language": "JavaScript",
+   "desc": "JS破解逆向，破解JS反爬虫加密参数，已破解极验滑块w（2022.2.19），QQ音乐sign（2022.2.13），拼多多anti_content，boss直聘zp_token，知乎x-zse-96，酷狗kg_mid/dfid，唯品会mars_cid，中国裁判文书网（2020-06-30更新），淘",
+   "found_by": [
+    "裁判文书"
+   ]
+  },
+  {
+   "full_name": "AndrewZhe/lawyer-llama",
+   "stars": 1001,
+   "license": "Apache-2.0",
+   "size_kb": 7183,
+   "pushed_at": "2024-08-28T09:23:35Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "中文法律LLaMA (LLaMA for Chinese legel domain)",
+   "found_by": [
+    "chinese law"
+   ]
+  },
+  {
+   "full_name": "ImCa0/just-laws",
+   "stars": 781,
+   "license": "MIT",
+   "size_kb": 14723,
+   "pushed_at": "2026-09-29T09:35:31Z",
+   "archived": false,
+   "language": "JavaScript",
+   "desc": "一个简洁、便捷的中国法律文库 | A Simple and Convenient Laws Library of China.",
+   "found_by": [
+    "中国法律"
+   ]
+  },
+  {
+   "full_name": "Don-Jimmy/kongshoudao-fangdai",
+   "stars": 658,
+   "license": null,
+   "size_kb": 29,
+   "pushed_at": "2022-08-04T03:31:23Z",
+   "archived": false,
+   "language": null,
+   "desc": "说明：偶然看到大约十年前收藏的一篇文章，今天读来也不过时，分享给大家（手机码字，聚聚们将就看看） 房贷空手道 昨晚，和一个开典当行的同学喝酒。 　　我问同学，“你买了多少套房子，多少间铺面？” 　　“房子22套，铺面12间。”同学炫耀似的答道。 　　“那你花了多少钱呢？”同学虽然是千万级的富翁，但他",
+   "found_by": [
+    "民法典"
+   ]
+  },
+  {
+   "full_name": "5d5d5f5f5f/abc",
+   "stars": 618,
+   "license": null,
+   "size_kb": 3344,
+   "pushed_at": "2026-10-06T15:17:29Z",
+   "archived": false,
+   "language": "JavaScript",
+   "desc": "本项目仅供学习、技术研究与测试用途。  请使用者遵守所在国家或地区的法律法规，不得用于任何商业用途或非法用途。  因使用本项目产生的任何问题与法律责任，均由使用者自行承担，与本项目作者无关。  本项目不保证其合法性、准确性、完整性或可用性。",
+   "found_by": [
+    "法律法规"
+   ]
+  },
+  {
+   "full_name": "zhang17173/Event-Extraction",
+   "stars": 609,
+   "license": null,
+   "size_kb": 207263,
+   "pushed_at": "2026-03-07T04:07:01Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "基于法律裁判文书的事件抽取及其应用，包括数据的分词、词性标注、命名实体识别、事件要素抽取和判决结果预测等内容",
+   "found_by": [
+    "裁判文书"
+   ]
+  },
+  {
+   "full_name": "DevnorsAI/devnors-data-python",
+   "stars": 538,
+   "license": "MIT",
+   "size_kb": 26,
+   "pushed_at": "2026-09-15T05:21:10Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "Devnors Data - Python SDK: 接口,数据API,裁判文书,Legal Case,法律法规,法条,Law Article,企业工商,Company Registry,企业年报,Annual Report,税号开票,Tax Invoice,失信核查,Dishonest Judgm",
+   "found_by": [
+    "法律法规"
+   ]
+  },
+  {
+   "full_name": "pxvr-official/1",
+   "stars": 534,
+   "license": null,
+   "size_kb": 1,
+   "pushed_at": "2021-03-15T13:23:42Z",
+   "archived": false,
+   "language": null,
+   "desc": "無許諾配信 企業理念剽窃 動物の森収益化 大神ミオ権利者削除 戌神権利侵害発言 常闇トワ炎上 夜空メルストーカー被害 建築王サポーター放置 赤十字マーク 魔乃アロエ卒業 一つの中國支持声明 大空昴3Dライブ 無限延期清掃員職業差別 日清コラボ楽曲 musedash非公開 rog案件取り消し 壁画ライ",
+   "found_by": [
+    "中国法律"
+   ]
+  },
+  {
+   "full_name": "thunlp/CAIL",
+   "stars": 516,
+   "license": "MIT",
+   "size_kb": 462,
+   "pushed_at": "2019-05-13T06:22:27Z",
+   "archived": false,
+   "language": null,
+   "desc": "Chinese AI & Law Challenge",
+   "found_by": [
+    "chinese law"
+   ]
+  },
+  {
+   "full_name": "DevnorsAI/devnors-data-mcp",
+   "stars": 449,
+   "license": "MIT",
+   "size_kb": 38,
+   "pushed_at": "2026-09-15T05:21:11Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "Devnors Data - MCP Server: MCP,Model Context Protocol,Claude,Cursor,WorkBuddy,接口,数据API,裁判文书,Legal Case,法律法规,法条,Law Article,企业工商,Company Registry,企业年报,",
+   "found_by": [
+    "法律法规"
+   ]
+  },
+  {
+   "full_name": "irlab-sdu/fuzi.mingcha",
+   "stars": 395,
+   "license": "Apache-2.0",
+   "size_kb": 12496,
+   "pushed_at": "2025-07-30T06:24:22Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "夫子•明察司法大模型是由山东大学、浪潮云、中国政法大学联合研发，以 ChatGLM 为大模型底座，基于海量中文无监督司法语料与有监督司法微调数据训练的中文司法大模型。该模型支持法条检索、案例分析、三段论推理判决以及司法对话等功能，旨在为用户提供全方位、高精准的法律咨询与解答服务。",
+   "found_by": [
+    "中国法律"
+   ]
+  },
+  {
+   "full_name": "cirosantilli/china-dictatroship-7",
+   "stars": 370,
+   "license": "CC-BY-SA-4.0",
+   "size_kb": 17476,
+   "pushed_at": "2026-02-05T07:59:02Z",
+   "archived": false,
+   "language": "HTML",
+   "desc": "反中共政治宣传库。Anti Chinese government propaganda. https://github.com/cirosantilli/china-dictatorship 的备份backup. 住在中国真名用户的网友请别给星星，不然你要被警察请喝茶。常见问答集，新闻集和饭店和音乐",
+   "found_by": [
+    "法律法规"
+   ]
+  },
+  {
+   "full_name": "liuhuanyong/LawCrimeMining",
+   "stars": 365,
+   "license": null,
+   "size_kb": 33507,
+   "pushed_at": "2018-12-15T05:27:56Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "Law Crime Mining Based on Corpus build and content analysis by NLP methods. 基于领域语料库构建与NLP方法的裁判文书与犯罪案例文本挖掘项目",
+   "found_by": [
+    "裁判文书"
+   ]
+  },
+  {
+   "full_name": "hiboys/ExploreFinance",
+   "stars": 364,
+   "license": null,
+   "size_kb": 14046,
+   "pushed_at": "2026-06-17T21:20:19Z",
+   "archived": false,
+   "language": "MDX",
+   "desc": "金融知识学习整理，知识来源包括行业书籍、财新周刊、前沿论文、法律法规等",
+   "found_by": [
+    "法律法规"
+   ]
+  },
+  {
+   "full_name": "sixs/wenshu_spider",
+   "stars": 351,
+   "license": null,
+   "size_kb": 91,
+   "pushed_at": "2022-12-08T02:23:11Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "中国裁判文书网爬虫(2018-08-28更新)",
+   "found_by": [
+    "裁判文书"
+   ]
+  },
+  {
+   "full_name": "cirosantilli/cirosantilli",
+   "stars": 312,
+   "license": null,
+   "size_kb": 2355,
+   "pushed_at": "2026-09-22T07:03:41Z",
+   "archived": false,
+   "language": "JavaScript",
+   "desc": "小粉红小朋友们，新issue 在这儿开： https://github.com/cirosantilli/china-dictatorship/issues # 21世纪新政宣言（2020年4月5曰笫四次修改稿)（2020年6月19曰第七次修改，以下“【】”内文字为非正文内容的说明）20世纪苏联的消",
+   "found_by": [
+    "法律法规"
+   ]
+  },
+  {
+   "full_name": "liyf-code/reverse_practice",
+   "stars": 300,
+   "license": null,
+   "size_kb": 18771,
+   "pushed_at": "2026-04-30T09:15:58Z",
+   "archived": false,
+   "language": "JavaScript",
+   "desc": "python爬虫练习案例，汇总一些简单的js逆向案例。抖音接口：http://117.72.170.87:9191/docs 。专利数据、工商数据、裁判文书数据，需要可联系。可代爬取xhs数据",
+   "found_by": [
+    "裁判文书"
+   ]
+  },
+  {
+   "full_name": "risshun/Chinese_Laws",
+   "stars": 287,
+   "license": null,
+   "size_kb": 270,
+   "pushed_at": "2022-08-06T00:11:39Z",
+   "archived": false,
+   "language": null,
+   "desc": "本项目旨在收集中华人民共和国的各类法律条文；项目重启中，期望PR",
+   "found_by": [
+    "中国法律"
+   ]
+  },
+  {
+   "full_name": "CSlawyer1985/contract-review-pro",
+   "stars": 275,
+   "license": null,
+   "size_kb": 333,
+   "pushed_at": "2026-08-14T02:11:12Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "专业合同审核 Skill，基于合同审核方法论体系构建，中国法律人适用",
+   "found_by": [
+    "中国法律"
+   ]
+  },
+  {
+   "full_name": "renjunxiang/Competition_CAIL",
+   "stars": 224,
+   "license": null,
+   "size_kb": 75265,
+   "pushed_at": "2018-07-16T11:31:41Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "2018中国‘法研杯’法律智能挑战赛（CAIL2018）个人作品",
+   "found_by": [
+    "中国法律"
+   ]
+  },
+  {
+   "full_name": "mRFWq7LwNPZjaVv5v6eo/cihna-dictattorshrip-8",
+   "stars": 211,
+   "license": "CC-BY-SA-4.0",
+   "size_kb": 12715,
+   "pushed_at": "2026-02-05T07:59:02Z",
+   "archived": false,
+   "language": "HTML",
+   "desc": "反中共政治宣传库。Anti Chinese government propaganda. https://github.com/cirosantilli/china-dictatorship 的备份backup. 住在中国真名用户的网友请别给星星，不然你要被警察请喝茶。常见问答集，新闻集和饭店和音乐",
+   "found_by": [
+    "法律 数据集"
+   ]
+  },
+  {
+   "full_name": "Henryhaohao/Wenshu_Spider",
+   "stars": 206,
+   "license": "MIT",
+   "size_kb": 2490,
+   "pushed_at": "2018-12-24T08:40:17Z",
+   "archived": false,
+   "language": "Python",
+   "desc": ":rainbow:Wenshu_Spider-Scrapy框架爬取中国裁判文书网案件数据(2019-1-9最新版)",
+   "found_by": [
+    "裁判文书"
+   ]
+  },
+  {
+   "full_name": "yinhao0214/ParseLawDocuments",
+   "stars": 205,
+   "license": null,
+   "size_kb": 6512,
+   "pushed_at": "2017-03-21T12:47:39Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "对收集的法律文档进行一系列分析，包括根据规范自动切分、案件相似度计算、案件聚类、法律条文推荐等（试验目前基于婚姻类案件，可扩展至其它领域）。",
+   "found_by": [
+    "法律条文"
+   ]
+  },
+  {
+   "full_name": "panbinibn/OpenPacketFix_",
+   "stars": 202,
+   "license": "MIT",
+   "size_kb": 558,
+   "pushed_at": "2022-08-12T01:54:00Z",
+   "archived": false,
+   "language": null,
+   "desc": "大陆修宪香港恶法台湾武统朝鲜毁约美中冷战等都是王沪宁愚弄习思想极左命运共同体的大策划中共窃国这半个多世纪所犯下的滔天罪恶，前期是毛泽东策划的，中期6.4前后是邓小平策划的，黄牛数据分析后期是毛的极左追随者三朝罪恶元凶王沪宁策划的。王沪宁高小肆业因文革政治和情报需要保送“学院外语班“红色仕途翻身，所以",
+   "found_by": [
+    "法律 数据集"
+   ]
+  },
+  {
+   "full_name": "xiaodingfeng/contract-review",
+   "stars": 151,
+   "license": "MIT",
+   "size_kb": 22478,
+   "pushed_at": "2026-08-05T08:09:49Z",
+   "archived": false,
+   "language": "JavaScript",
+   "desc": "Contract Review 是一个面向中文合同审查场景的 Web 应用。系统支持合同上传、AI 预分析、审查点配置、OnlyOffice 在线预览编辑、知识库检索、裁判文书增强、智能问答和受控联网搜索。【 ChatGPT逆向文生文，文生图为爱发电网站 https://gpt.fengzhengx",
+   "found_by": [
+    "裁判文书"
+   ]
+  },
+  {
+   "full_name": "ProfessorX/Electronic-Books",
+   "stars": 141,
+   "license": "GPL-2.0",
+   "size_kb": 733069,
+   "pushed_at": "2025-01-09T09:23:00Z",
+   "archived": false,
+   "language": "TeX",
+   "desc": "This is a new repo to exchange ebooks from some Chinese websites. Yet again, in sincere hope that this behavior would not violate the laws of United S",
+   "found_by": [
+    "chinese law"
+   ]
+  },
+  {
+   "full_name": "xiongma/chinese-law-bert-similarity",
+   "stars": 140,
+   "license": "MIT",
+   "size_kb": 50,
+   "pushed_at": "2019-11-07T05:18:54Z",
+   "archived": true,
+   "language": "Python",
+   "desc": "bert chinese similarity ",
+   "found_by": [
+    "chinese law"
+   ]
+  },
+  {
+   "full_name": "zpc1314521/PCL2",
+   "stars": 127,
+   "license": "MIT",
+   "size_kb": 5251,
+   "pushed_at": "2022-08-12T02:54:51Z",
+   "archived": false,
+   "language": null,
+   "desc": "[stays mad] 反PCL宣传库。Anti PCL propaganda. 大陆修宪香港恶法台湾武统朝鲜毁约美中冷战等都是王沪宁愚弄习思想极左命运共同体的大策划中共窃国这半个多世纪所犯下的滔天罪恶，前期是毛泽东策划的，中期6.4前后是邓小平策划的，黄牛数据分析后期是毛的极左追随者三朝罪恶元凶王",
+   "found_by": [
+    "法律 数据集"
+   ]
+  },
+  {
+   "full_name": "huanghe/startup-equity-guide",
+   "stars": 112,
+   "license": "NOASSERTION",
+   "size_kb": 5029,
+   "pushed_at": "2026-08-20T08:46:52Z",
+   "archived": false,
+   "language": "HTML",
+   "desc": "你手里的期权到底能不能拿走？机制拆解、四起实名案例、找律师实操手册，以及一份裁判文书数据研究。",
+   "found_by": [
+    "裁判文书"
+   ]
+  },
+  {
+   "full_name": "XiaomingX/awesome-chinese-law",
+   "stars": 108,
+   "license": "Apache-2.0",
+   "size_kb": 43,
+   "pushed_at": "2026-02-08T12:33:32Z",
+   "archived": false,
+   "language": null,
+   "desc": "一个网络安全法律法规、安全政策、国家标准、行业标准知识库。A knowledge base of cybersecurity laws and regulations, security policies, national standards, and industry standards.",
+   "found_by": [
+    "chinese law"
+   ]
+  },
+  {
+   "full_name": "pa1nrui1/legal-skills",
+   "stars": 100,
+   "license": "MIT",
+   "size_kb": 2824,
+   "pushed_at": "2026-07-03T13:10:40Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "Chinese legal workflow skills for AI agents",
+   "found_by": [
+    "chinese law"
+   ]
+  },
+  {
+   "full_name": "zaohmeing/21-",
+   "stars": 83,
+   "license": null,
+   "size_kb": 38,
+   "pushed_at": "2021-03-07T08:53:40Z",
+   "archived": false,
+   "language": null,
+   "desc": "召赫名推荐：“21世纪新政宣言”和“三朝罪恶元凶王沪宁” ----推崇一篇见解温和奇特不左不右极罕见难得而又解困可行很有现实意义的文章《21世纪新政宣言》，和介绍一篇见解也独特但观点很强硬的《三朝罪恶元凶王沪宁》供比较和参考：                        21世纪新政宣言【让香港先",
+   "found_by": [
+    "民法典"
+   ]
+  },
+  {
+   "full_name": "ZongziForu/cn-law-hub",
+   "stars": 79,
+   "license": "NOASSERTION",
+   "size_kb": 518,
+   "pushed_at": "2026-09-21T01:59:47Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "中国法条与法律法规检索 Agent Skill｜Chinese legal research Agent Skill for retrieving and verifying Chinese laws from official sources｜支持具体法条检索、现行有效核验、10 个官方法律数据源",
+   "found_by": [
+    "chinese law"
+   ]
+  },
+  {
+   "full_name": "meituan-longcat/UNO-Bench",
+   "stars": 79,
+   "license": "MIT",
+   "size_kb": 54469,
+   "pushed_at": "2026-01-12T02:51:14Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "Omni Model Benchmark with high quality and diversity, which reveals the Compositional Law. We’re now focused on Chinese scenarios — and actively seeki",
+   "found_by": [
+    "chinese law"
+   ]
+  },
+  {
+   "full_name": "ExposeYangJingyuan/judgment-of-yangjingyuan",
+   "stars": 78,
+   "license": "MIT",
+   "size_kb": 1180,
+   "pushed_at": "2025-08-01T10:55:41Z",
+   "archived": false,
+   "language": null,
+   "desc": "杨景媛诉肖某某性骚扰损害责任纠纷一审民事判决书",
+   "found_by": [
+    "判决书"
+   ]
+  },
+  {
+   "full_name": "Youchu-lawhub/gutachten-civil-case",
+   "stars": 77,
+   "license": "NOASSERTION",
+   "size_kb": 97,
+   "pushed_at": "2026-08-01T03:58:49Z",
+   "archived": false,
+   "language": null,
+   "desc": "中国民法典请求权基础鉴定式案例研习skill，严格基于德国鉴定式案例分析思维方法，结合中国民法典的请求权基础检视框架设计，设置空白能力槽供用户自行配置第三方MCP和本地知识库。",
+   "found_by": [
+    "民法典"
+   ]
+  },
+  {
+   "full_name": "weilueluo/Chinese-Civil-Code-Notes",
+   "stars": 47,
+   "license": "BSD-3-Clause",
+   "size_kb": 3884,
+   "pushed_at": "2021-02-06T11:03:36Z",
+   "archived": false,
+   "language": null,
+   "desc": "民法典学习笔记",
+   "found_by": [
+    "民法典"
+   ]
+  },
+  {
+   "full_name": "Materialism-1/Contract-Review-Judgment-Summary-prompt",
+   "stars": 45,
+   "license": null,
+   "size_kb": 14,
+   "pushed_at": "2024-07-07T17:54:05Z",
+   "archived": false,
+   "language": null,
+   "desc": "推荐使用最新的大模型，合同审查/判决书摘要  提示词",
+   "found_by": [
+    "判决书"
+   ]
+  },
+  {
+   "full_name": "zhaohmng-outlook-com/21-",
+   "stars": 41,
+   "license": null,
+   "size_kb": 0,
+   "pushed_at": "2019-08-23T01:32:55Z",
+   "archived": false,
+   "language": null,
+   "desc": "“21世纪新政宣言”和“三朝罪恶元凶王沪宁”  ----推崇一篇见解温和奇特不左不右极罕见难得解困可行很有现实意义的文章《21世纪新政宣言》，和介绍一篇见解也独特但观点很强硬的《三朝罪恶元凶王沪宁》供比较和参考：   21世纪新政宣言【让香港先行是唯一圆满解决问提的双赢方案！】（第3次修改）    ",
+   "found_by": [
+    "判决书"
+   ]
+  },
+  {
+   "full_name": "dengcao/Chinese-Laws",
+   "stars": 40,
+   "license": null,
+   "size_kb": 27,
+   "pushed_at": "2025-06-17T22:13:53Z",
+   "archived": false,
+   "language": null,
+   "desc": "中国现行法律文本数据集，本项目收集中国的各类法律法规、部门规章、案例等。",
+   "found_by": [
+    "法律 数据集"
+   ]
+  },
+  {
+   "full_name": "shaoxing-xie/etf-options-ai-assistant",
+   "stars": 36,
+   "license": "MIT",
+   "size_kb": 9688,
+   "pushed_at": "2026-05-23T12:09:00Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "基于 OpenClaw 的 A股/ETF 交易智能助手，面向个人投资者与开发者，提供“数据采集—分析研判—风控校验—通知执行—复盘留痕”全流程能力。项目支持多 Agent 协作与 Cron 工作流，可在盘前、盘中、盘后自动完成关键任务；内置股票、指数、ETF 多源行情采集，结合趋势与波动分析、信号生",
+   "found_by": [
+    "判决书"
+   ]
+  },
+  {
+   "full_name": "yuwenhan07/LawLLM-cupl-buaa",
+   "stars": 29,
+   "license": null,
+   "size_kb": 2841944,
+   "pushed_at": "2024-09-06T16:42:20Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "由中国政法大学和北京航空航天大学共同设计，基于GLM-9B的法律文书处理和判决预测模型",
+   "found_by": [
+    "判决书"
+   ]
+  },
+  {
+   "full_name": "lttxzmj/chinese-law-corpus",
+   "stars": 23,
+   "license": "NOASSERTION",
+   "size_kb": 8516,
+   "pushed_at": "2026-09-29T11:22:38Z",
+   "archived": false,
+   "language": null,
+   "desc": "中国法律法规与案例结构化语料库：446 部法律/司法解释逐条 JSON（含效力状态）+ 278 指导性案例 + 445 公报案例，CC0",
+   "found_by": [
+    "司法解释"
+   ]
+  },
+  {
+   "full_name": "hacker4257/legal-ai-assistant",
+   "stars": 22,
+   "license": "MIT",
+   "size_kb": 291,
+   "pushed_at": "2026-02-09T14:32:20Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "一个基于 Claude AI 的智能法律案例分析系统，提供双视角解读（专业版 + 普通人版）+RAG，让法律判决书人人都能看懂。",
+   "found_by": [
+    "判决书"
+   ]
+  },
+  {
+   "full_name": "StefanCHEN2026/Chinese-IP-Law-Basic-Rule-Book-",
+   "stars": 15,
+   "license": "NOASSERTION",
+   "size_kb": 1330,
+   "pushed_at": "2026-09-08T14:28:49Z",
+   "archived": false,
+   "language": null,
+   "desc": "中国知识产权法基本法律法规+司法解释+入库案例+法答网精选，按照评注体例编撰，md格式适合AI阅读和编辑，用obsidian打开后适合人类阅读和编辑。（仅供研究学习使用，禁止商用）",
+   "found_by": [
+    "司法解释"
+   ]
+  },
+  {
+   "full_name": "moyuweiqing/Sentence-reference-model-of-criminal-decision-based-on-historical-precedents",
+   "stars": 14,
+   "license": null,
+   "size_kb": 19420,
+   "pushed_at": "2023-09-12T01:52:51Z",
+   "archived": false,
+   "language": "Jupyter Notebook",
+   "desc": "本项目将会以部分裁判文书网上面案由为故意杀人罪的刑事一审判决书为原始数据，通过爬虫的方式获取数据，并通过文本分析的方式对原始的文本进行目标文本提取，并对判决书中针对被告人信息、法院认定、判决情况等部分的信息进行特征提取，并进行特征转换以构建建模变量。本项目以法院的一审判决作为目标变量进行建模，观察该",
+   "found_by": [
+    "判决书"
+   ]
+  },
+  {
+   "full_name": "KevinIvery/BigData-QuerySystem",
+   "stars": 13,
+   "license": "NOASSERTION",
+   "size_kb": 14508,
+   "pushed_at": "2025-08-05T15:25:30Z",
+   "archived": false,
+   "language": "Vue",
+   "desc": "大数据查询系统源码，前后端分离。支持司法，婚姻。多头借贷等多种接口配置。支持支付宝微信支付，支持短信验证码和微信自动登录。带有代理系统。后台管理系统。判决书查询源码。API配置",
+   "found_by": [
+    "判决书"
+   ]
+  },
+  {
+   "full_name": "jangviktor-web/huangyuanyu",
+   "stars": 13,
+   "license": null,
+   "size_kb": 4701,
+   "pushed_at": "2026-08-23T04:09:48Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "黄元御视角的中医Agent Skill，完整复刻清代名医黄元御一气周流、土枢四象中医辨证体系，融合《四圣心源》《周易悬象》《道德悬解》三书同源思想，是面向 AI Agent 的专业中医辨证技能插件。项目内置 15 套中医诊断公式、8 棵辨证决策树、10 组问诊协议、273 条病机关键词索引，复刻黄元",
+   "found_by": [
+    "判决书"
+   ]
+  },
+  {
+   "full_name": "tomtang110/law_for_chat",
+   "stars": 12,
+   "license": "MIT",
+   "size_kb": 48472,
+   "pushed_at": "2023-07-16T14:56:14Z",
+   "archived": false,
+   "language": "Python",
+   "desc": " 本项目主要研究大模型在单独的法律数据集上的效果，现在支持belle和chatglm相关的模型训练，预测，验证和在线部署， 另外增加爬虫代码，langchain，结合数据库预测等功能。",
+   "found_by": [
+    "法律 数据集"
+   ]
+  },
+  {
+   "full_name": "ngxme/FineTuning-Qwen2.5-7b",
+   "stars": 11,
+   "license": null,
+   "size_kb": 11,
+   "pushed_at": "2024-12-29T13:41:44Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "基于Qwen2.5模型、使用DISC-Law-SFT-Pair数据集微调的法律大模型",
+   "found_by": [
+    "法律 数据集"
+   ]
+  },
+  {
+   "full_name": "xuhu0115/Awesome-LLM-In-Law",
+   "stars": 3,
+   "license": null,
+   "size_kb": 30,
+   "pushed_at": "2024-10-17T11:53:07Z",
+   "archived": false,
+   "language": null,
+   "desc": "Collect and organize relevant content on LLM in the legal field, including models, tools, datasets, evaluations, papers, repositories, etc（收集整理关于LLM在法",
+   "found_by": [
+    "法律 数据集"
+   ]
+  },
+  {
+   "full_name": "hanxindawnag/law_ai",
+   "stars": 3,
+   "license": null,
+   "size_kb": 26,
+   "pushed_at": "2025-12-27T07:54:47Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "本系统以大规模中文法律数据集 CAIL2018为基石，深度融合了中文预训练模型 BERT-base-Chinese与前沿的检索增强生成（RAG）技术。本项目为能够精准识别案件中的关键法律要素，并为司法工作者提供高效、可靠的定性分析与量刑建议辅助而努力。",
+   "found_by": [
+    "法律 数据集"
+   ]
+  },
+  {
+   "full_name": "WENTER2222/LLM_NLP",
+   "stars": 3,
+   "license": null,
+   "size_kb": 663,
+   "pushed_at": "2026-01-06T12:03:35Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "构建一个基于大语言模型的中文领域特定问答系统（Domain-Specific QA）。选择一个专业领域（法律），收集领域数据集，实现一个支持长上下文、多轮对话的RAG（Retrieval-Augmented Generation）系统，能够准确回答专业问题并提供可解释的引用来源。",
+   "found_by": [
+    "法律 数据集"
+   ]
+  },
+  {
+   "full_name": "siat-nlp/Multi-task-Learning-for-Answer-Selection",
+   "stars": 3,
+   "license": null,
+   "size_kb": 614,
+   "pushed_at": "2019-07-07T09:35:20Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "A Multi-Task Learning Approach for Answer Selection: A Study and a Chinese Law Dataset",
+   "found_by": [
+    "china law dataset"
+   ]
+  },
+  {
+   "full_name": "Shiori-pope/c-claim",
+   "stars": 3,
+   "license": null,
+   "size_kb": 719,
+   "pushed_at": "2026-04-10T13:29:52Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "C-CLAIM: Chinese Criminal Law Mapping Dataset | 中国刑法条文与司法解释映射数据集（含484项标准案由与高精度标注）",
+   "found_by": [
+    "china law dataset"
+   ]
+  },
+  {
+   "full_name": "chao-niverse/offshore-energy-law-dataset",
+   "stars": 2,
+   "license": "MIT",
+   "size_kb": 157,
+   "pushed_at": "2026-08-29T03:42:14Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "52 law students + 1 professor building a provenance-first dataset of Chinese offshore energy law | 由师生共建的海洋能源法结构化数据库",
+   "found_by": [
+    "china law dataset"
+   ]
+  },
+  {
+   "full_name": "noah-white-python/legal-sft-dataset",
+   "stars": 1,
+   "license": null,
+   "size_kb": 136,
+   "pushed_at": "2026-07-06T05:04:44Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "中文法律领域 SFT 数据集：采集→清洗→去重→过滤→格式化",
+   "found_by": [
+    "法律 数据集"
+   ]
+  },
+  {
+   "full_name": "godlockin/prc-law-data",
+   "stars": 1,
+   "license": "NOASSERTION",
+   "size_kb": 78,
+   "pushed_at": "2026-09-19T05:24:44Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "中国大陆法律离线数据集 — PRC-Law skill 配套独立仓库. 18,000+ 部法律全文, 来自公开 GitHub/HF 数据集合并, 零 credit, MIT/Apache-2.0 许可",
+   "found_by": [
+    "法律 数据集"
+   ]
+  },
+  {
+   "full_name": "jeremy-217/law-llm",
+   "stars": 0,
+   "license": null,
+   "size_kb": 9,
+   "pushed_at": "2025-05-31T15:03:42Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "A lightweight domain-adapted language model for legal document analysis and classification in traditional Chinese, fine-tuned using LoRA and JSONL-for",
+   "found_by": [
+    "china law dataset"
+   ]
+  },
+  {
+   "full_name": "Tang-Mingze/Laws-for-Gen-AI",
+   "stars": 0,
+   "license": null,
+   "size_kb": 242,
+   "pushed_at": "2025-11-07T16:12:38Z",
+   "archived": false,
+   "language": null,
+   "desc": "This project compiles datasets from major AI regulations in the EU, China, Japan, and South Korea, pairing key legal provisions with neutral prompts a",
+   "found_by": [
+    "china law dataset"
+   ]
+  },
+  {
+   "full_name": "froeve/ML-FaceRecognition",
+   "stars": 0,
+   "license": null,
+   "size_kb": 670,
+   "pushed_at": "2026-02-28T07:23:55Z",
+   "archived": false,
+   "language": "Python",
+   "desc": "因为是团队实训项目，有其他小组成员的人脸，按照中国肖像权把其他人的人脸公开在网上这是违法行为，所以人脸数据集请自己解决~Since this is a team training project, it contains the faces of other team members. Accord",
+   "found_by": [
+    "china law dataset"
+   ]
+  }
+ ]
+}

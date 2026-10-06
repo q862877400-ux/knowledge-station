@@ -1,0 +1,100 @@
+{
+ "why": "业主要问清楚：这些开源项目是『挂了数据』还是『只给工具』",
+ "repos": {
+  "gzx5418/lvyan-lawtext": {
+   "datadir": "content",
+   "subdirs": [
+    "司法解释",
+    "宪法",
+    "法律",
+    "监察法规",
+    "行政法规"
+   ],
+   "n_files_2levels": 2445,
+   "total_mb_2levels": 37.93,
+   "sample_top": [
+    {
+     "name": "司法解释",
+     "type": "dir",
+     "kb": 0.0
+    },
+    {
+     "name": "宪法",
+     "type": "dir",
+     "kb": 0.0
+    },
+    {
+     "name": "法律",
+     "type": "dir",
+     "kb": 0.0
+    },
+    {
+     "name": "监察法规",
+     "type": "dir",
+     "kb": 0.0
+    },
+    {
+     "name": "行政法规",
+     "type": "dir",
+     "kb": 0.0
+    }
+   ],
+   "n_releases": 0,
+   "release_assets": []
+  },
+  "thu-lawyer/china-law-mcp": {
+   "datadir": "data",
+   "subdirs": [],
+   "n_files_2levels": 1,
+   "total_mb_2levels": 15.27,
+   "sample_top": [
+    {
+     "name": "laws.db",
+     "type": "file",
+     "kb": 14908.0
+    }
+   ],
+   "n_releases": 0,
+   "release_assets": []
+  },
+  "Li2zon3/law-crawler-unified": {
+   "n_releases": 0,
+   "release_assets": []
+  },
+  "cncases/cases": {
+   "n_releases": 2,
+   "release_assets": [
+    {
+     "tag": "v0.2.12",
+     "name": "v0.2.12-aarch64-apple-darwin.zip",
+     "mb": 10.7
+    },
+    {
+     "tag": "v0.2.12",
+     "name": "v0.2.12-x86_64-pc-windows-msvc.zip",
+     "mb": 10.3
+    },
+    {
+     "tag": "v0.2.12",
+     "name": "v0.2.12-x86_64-unknown-linux-gnu.zip",
+     "mb": 12.0
+    },
+    {
+     "tag": "v0.2.11",
+     "name": "v0.2.11-aarch64-apple-darwin.zip",
+     "mb": 10.9
+    },
+    {
+     "tag": "v0.2.11",
+     "name": "v0.2.11-x86_64-pc-windows-msvc.zip",
+     "mb": 10.5
+    },
+    {
+     "tag": "v0.2.11",
+     "name": "v0.2.11-x86_64-unknown-linux-gnu.zip",
+     "mb": 12.3
+    }
+   ]
+  }
+ }
+}

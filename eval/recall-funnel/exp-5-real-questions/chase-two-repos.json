@@ -1,0 +1,115 @@
+{
+ "why": "追查是否有『热门 + 真装全量法规数据』的项目",
+ "LawRefBook_gitmodules": "",
+ "LawRefBook_top": [
+  {
+   "name": ".github",
+   "type": "dir",
+   "mb": 0.0
+  },
+  {
+   "name": ".gitignore",
+   "type": "file",
+   "mb": 0.0
+  },
+  {
+   "name": ".gitmodules",
+   "type": "file",
+   "mb": 0.0
+  },
+  {
+   "name": "CHANGELOG.md",
+   "type": "file",
+   "mb": 0.01
+  },
+  {
+   "name": "Gemfile",
+   "type": "file",
+   "mb": 0.0
+  },
+  {
+   "name": "Gemfile.lock",
+   "type": "file",
+   "mb": 0.01
+  },
+  {
+   "name": "LICENSE",
+   "type": "file",
+   "mb": 0.0
+  },
+  {
+   "name": "Preview Content",
+   "type": "dir",
+   "mb": 0.0
+  },
+  {
+   "name": "README.md",
+   "type": "file",
+   "mb": 0.0
+  },
+  {
+   "name": "Shared",
+   "type": "dir",
+   "mb": 0.0
+  },
+  {
+   "name": "UnitTests",
+   "type": "dir",
+   "mb": 0.0
+  },
+  {
+   "name": "fastlane",
+   "type": "dir",
+   "mb": 0.0
+  },
+  {
+   "name": "iOS",
+   "type": "dir",
+   "mb": 0.0
+  },
+  {
+   "name": "law.handbook.xcodeproj",
+   "type": "dir",
+   "mb": 0.0
+  },
+  {
+   "name": "laws.meta",
+   "type": "file",
+   "mb": 0.0
+  },
+  {
+   "name": "laws.zip",
+   "type": "file",
+   "mb": 8.26
+  },
+  {
+   "name": "pack_laws.sh",
+   "type": "file",
+   "mb": 0.0
+  },
+  {
+   "name": "resources",
+   "type": "dir",
+   "mb": 0.0
+  }
+ ],
+ "just_laws": {
+  "data": {
+   "sample_files": [],
+   "dirs": [
+    "criminal-offenses"
+   ],
+   "mb": 0.0
+  },
+  "data/criminal-offenses": {
+   "sample_files": [
+    "sources.json",
+    "timeline.json"
+   ],
+   "dirs": [],
+   "mb": 0.19
+  }
+ },
+ "RanKKI/LawRefBook_readme_head": "![Swift](https://img.shields.io/badge/swift-F54A2A?style=for-the-badge&logo=swift&logoColor=white)\n[![App Store](https://img.shields.io/badge/App_Store-0D96F6?style=for-the-badge&logo=app-store&logoColor=white)](https://apps.apple.com/app/apple-store/id1612953870?pt=124208302&ct=github&mt=8)\n[在线版](https://lawrefbook.github.io/)\n\n# 中国法律\n\n根据《中华人民共和国著作权法》第五条，本作品的内容不适用于该法。如不受其他法律、法规保护，本作品内容在中国大陆和其他地区属于公有领域。\n\n不适用于《中华人民共和国著作权法》的作品包括：\n- （一）法律、法规，国家机关的决议、决定、命令和其他具有立法、行政、司法性质的文件，及其官方正式译文；\n- （二）单纯事实消息；\n- （三）历法、通用数表、通用表格和公式。\n\n法律内容来源于[国家法律法规数据库](https://flk.npc.gov.cn)，该项目仅做整合和搜索等功能，如果您在使用过程中发现部分法条有误，或不完整，请联系开发者进行修改。\n\n![](https://s2.loli.net/2022/03/17/EemiTDZlXO9SvfP.png)\n\n## 截图\n![screenshot1.png](./resources/screenshot1.png)\n\n## 贡献\n如果你有任何的想法或者意见，欢迎提 Issue 或者 PR\n\n<a href=\"https://github.com/RanKKI/LawRefBook/graphs/contributors\">\n  <img src=\"https://contrib.rocks/image?repo=RanKKI/LawRefBook\" />\n</",
+ "ImCa0/just-laws_readme_head": "# Just Laws\n\n<p align=\"center\">\n  <a href=\"https://www.justlaws.cn\"><img src=\"https://cdn.jsdelivr.net/gh/ImCa0/image-hosting/just-laws/exhibition.png\"></a>\n</p>\n\n把 311 部现行有效法律整理成清晰、可检索、适合长期阅读的数字文本。\n\n立即访问：[justlaws.cn](https://www.justlaws.cn)\n\n## 收录概览\n\n- 311 部法律已收录\n- 100% 覆盖现行有效法律\n- 8 个法律部门\n- 数据更新至 2026 年 6 月\n\n## 特点\n\n- 清晰结构\n\n  按编、章、节和条文组织，长法典保留分卷导航。\n\n- 跨端访问\n\n  PC 与移动端都保持轻量阅读，适合临时检索，也适合连续研读。\n\n- 持续维护\n\n  跟随现行有效法律目录更新，并保留可追踪的收录进度。\n\n## 贡献指南\n\n[JustLaws 法律文库贡献指南](CONTRIBUTING.md)\n\n## 发现错误？\n\n欢迎提交 issue 和 pull request\n\n<p>\n  <a href=\"https://github.com/ImCa0/just-laws/issues\"><img alt=\"issues\" src=\"https://img.shields.io/github/issues/ImCa0/just-laws\"></a>\n  <a href=\"https://github.com/ImCa0/just-laws/pulls\"><img alt=\"pr\" src=\"https://img.shields.io/github/issues-pr/ImCa0/just-laws\"></a>\n\n</p>\n\n## 许可协议\n\n<p>\n  <a href=\"https://github.com/ImCa0/just-laws/blob/master/LICENSE\"><img alt=\"license\" src"
+}

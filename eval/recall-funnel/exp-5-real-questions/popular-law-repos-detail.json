@@ -1,0 +1,684 @@
+{
+ "why": "业主打回星数太少 ⇒ 按星数搜到热门项目后，逐个点开看内容（不靠简介）",
+ "targets": {
+  "RanKKI/LawRefBook": {
+   "label": "中华人民共和国法律手册",
+   "stars": 2458,
+   "license": "NOASSERTION",
+   "size_kb": 46784,
+   "pushed_at": "2025-08-14T12:27:13Z",
+   "desc": "中华人民共和国法律手册",
+   "top_level": [
+    {
+     "name": ".github",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": ".gitignore",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": ".gitmodules",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": "CHANGELOG.md",
+     "type": "file",
+     "mb": 0.01
+    },
+    {
+     "name": "Gemfile",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": "Gemfile.lock",
+     "type": "file",
+     "mb": 0.01
+    },
+    {
+     "name": "LICENSE",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": "Preview Content",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "README.md",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": "Shared",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "UnitTests",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "fastlane",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "iOS",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "law.handbook.xcodeproj",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "laws.meta",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": "laws.zip",
+     "type": "file",
+     "mb": 8.26
+    },
+    {
+     "name": "pack_laws.sh",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": "resources",
+     "type": "dir",
+     "mb": 0.0
+    }
+   ],
+   "data_dirs": {
+    "Preview Content": {
+     "files": 0,
+     "dirs": [
+      "Preview Assets.xcassets"
+     ],
+     "mb": 0.0,
+     "sample": [
+      "Preview Assets.xcassets"
+     ]
+    }
+   }
+  },
+  "ImCa0/just-laws": {
+   "label": "中国法律文库",
+   "stars": 781,
+   "license": "MIT",
+   "size_kb": 14723,
+   "pushed_at": "2026-09-29T09:35:31Z",
+   "desc": "一个简洁、便捷的中国法律文库 | A Simple and Convenient Laws Library of China.",
+   "top_level": [
+    {
+     "name": ".agents",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": ".github",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": ".gitignore",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": "AGENTS.md",
+     "type": "file",
+     "mb": 0.01
+    },
+    {
+     "name": "CLAUDE.md",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": "CODE_OF_CONDUCT.md",
+     "type": "file",
+     "mb": 0.01
+    },
+    {
+     "name": "CONTRIBUTING.md",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": "LAWS_PROGRESS.md",
+     "type": "file",
+     "mb": 0.03
+    },
+    {
+     "name": "LICENSE",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": "README.md",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": "data",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "docs",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "package-lock.json",
+     "type": "file",
+     "mb": 0.1
+    },
+    {
+     "name": "package.json",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": "scripts",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "tests",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "yarn.lock",
+     "type": "file",
+     "mb": 0.05
+    }
+   ],
+   "data_dirs": {
+    "data": {
+     "files": 0,
+     "dirs": [
+      "criminal-offenses"
+     ],
+     "mb": 0.0,
+     "sample": [
+      "criminal-offenses"
+     ]
+    }
+   }
+  },
+  "PKU-YuanGroup/ChatLaw": {
+   "label": "中文法律大模型（北大）",
+   "stars": 7615,
+   "license": "AGPL-3.0",
+   "size_kb": 11499,
+   "pushed_at": "2025-01-04T15:29:26Z",
+   "desc": "ChatLaw：A Powerful LLM Tailored for Chinese Legal. 中文法律大模型",
+   "top_level": [
+    {
+     "name": "LICENSE",
+     "type": "file",
+     "mb": 0.03
+    },
+    {
+     "name": "MERGE.md",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": "README.md",
+     "type": "file",
+     "mb": 0.01
+    },
+    {
+     "name": "assert",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "data",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "demo",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "images",
+     "type": "dir",
+     "mb": 0.0
+    }
+   ],
+   "data_dirs": {
+    "data": {
+     "files": 3,
+     "dirs": [
+      "ELO_val"
+     ],
+     "mb": 0.07,
+     "sample": [
+      "ELO_val",
+      "demo_data_stage2.json",
+      "demo_data_法律咨询.jsonl",
+      "demo_data_法律概念.jsonl"
+     ]
+    }
+   }
+  },
+  "pengxiao-song/LaWGPT": {
+   "label": "中文法律 LLaMA",
+   "stars": 6057,
+   "license": "GPL-3.0",
+   "size_kb": 4586,
+   "pushed_at": "2024-06-11T07:20:19Z",
+   "desc": " 🎉 Repo for LaWGPT, Chinese-Llama tuned with Chinese Legal knowledge. 基于中文法律知识的大语言模型",
+   "top_level": [
+    {
+     "name": ".gitignore",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": "LICENSE",
+     "type": "file",
+     "mb": 0.04
+    },
+    {
+     "name": "README.md",
+     "type": "file",
+     "mb": 0.01
+    },
+    {
+     "name": "assets",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "data",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "finetune.py",
+     "type": "file",
+     "mb": 0.01
+    },
+    {
+     "name": "infer.py",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": "merge.py",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": "models",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "outputs",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "requirements.txt",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": "resources",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "scripts",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "templates",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "tools",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "train_clm.py",
+     "type": "file",
+     "mb": 0.01
+    },
+    {
+     "name": "utils",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "webui.py",
+     "type": "file",
+     "mb": 0.01
+    }
+   ],
+   "data_dirs": {
+    "data": {
+     "files": 1,
+     "dirs": [],
+     "mb": 0.0,
+     "sample": [
+      ".gitkeep"
+     ]
+    }
+   }
+  },
+  "AndrewZhe/lawyer-llama": {
+   "label": "中文法律 LLaMA",
+   "stars": 1001,
+   "license": "Apache-2.0",
+   "size_kb": 7183,
+   "pushed_at": "2024-08-28T09:23:35Z",
+   "desc": "中文法律LLaMA (LLaMA for Chinese legel domain)",
+   "top_level": [
+    {
+     "name": ".gitignore",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": "LICENSE",
+     "type": "file",
+     "mb": 0.01
+    },
+    {
+     "name": "README.md",
+     "type": "file",
+     "mb": 0.02
+    },
+    {
+     "name": "README_en.md",
+     "type": "file",
+     "mb": 0.02
+    },
+    {
+     "name": "README_old.md",
+     "type": "file",
+     "mb": 0.02
+    },
+    {
+     "name": "data",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "demo",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "lawyer_llama_report.pdf",
+     "type": "file",
+     "mb": 0.82
+    },
+    {
+     "name": "scripts",
+     "type": "dir",
+     "mb": 0.0
+    }
+   ],
+   "data_dirs": {
+    "data": {
+     "files": 8,
+     "dirs": [],
+     "mb": 26.97,
+     "sample": [
+      "fakao_gpt4.json",
+      "judical_examination.json",
+      "judical_examination_v2.json",
+      "legal_advice.json",
+      "legal_counsel_multi_turn_with_article_v2.json",
+      "legal_counsel_v2.json"
+     ]
+    }
+   }
+  },
+  "zhang17173/Event-Extraction": {
+   "label": "裁判文书事件抽取（含数据）",
+   "stars": 609,
+   "license": null,
+   "size_kb": 207263,
+   "pushed_at": "2026-03-07T04:07:01Z",
+   "desc": "基于法律裁判文书的事件抽取及其应用，包括数据的分词、词性标注、命名实体识别、事件要素抽取和判决结果预测等内容",
+   "top_level": [
+    {
+     "name": ".gitignore",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": "01数据预处理",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "02分词",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "03基于CRF的事件要素抽取",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "04应用",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "05其他工具",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "06判决结果预测",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "07案件相似度",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "README.md",
+     "type": "file",
+     "mb": 0.01
+    },
+    {
+     "name": "project_utils.py",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": "requirements.txt",
+     "type": "file",
+     "mb": 0.0
+    },
+    {
+     "name": "run_project.py",
+     "type": "file",
+     "mb": 0.01
+    },
+    {
+     "name": "参考文档",
+     "type": "dir",
+     "mb": 0.0
+    },
+    {
+     "name": "标准数据",
+     "type": "dir",
+     "mb": 0.0
+    }
+   ]
+  }
+ },
+ "retry_search": {
+  "法规 数据库": [
+   {
+    "full_name": "lawtext/laws",
+    "stars": 107,
+    "license": null,
+    "desc": "中国法律法规在线文库（超过两千件），原始文件来自国家法律法规数据库 https://flk.npc.gov.cn/index"
+   },
+   {
+    "full_name": "szhuima/Laws",
+    "stars": 72,
+    "license": null,
+    "desc": "国家法律法规数据库数据爬取"
+   },
+   {
+    "full_name": "abaiar/-LexAI",
+    "stars": 32,
+    "license": null,
+    "desc": "小理智法 AI 是一款基于大语言模型（LLM）的智能法律咨询平台，集成了法律咨询、合同审查、文书生成、合同起草、合同对比、智能校对、法律文书解读等多项 AI 法律服务。系统采用 LangChain Agent 架构，结合"
+   },
+   {
+    "full_name": "lawtext/law-flk-vol1",
+    "stars": 30,
+    "license": null,
+    "desc": "中国法律法规数据库：全国卷（docx/doc文档）"
+   },
+   {
+    "full_name": "Ayjiran/hyqb",
+    "stars": 18,
+    "license": "Unlicense",
+    "desc": "幻隐网络科技Ay悸然开源产品「幻隐Q绑查询工具 v1.0」重磅亮相，以技术合规性为基石，构建个人信息查询安全屏障，该工具支持QQ绑定手机号与手机号查QQ双向查询，核心功能设计严格对标《中华人民共和国民法典》《治安管理处罚"
+   },
+   {
+    "full_name": "Superwaterbro/-2",
+    "stars": 15,
+    "license": null,
+    "desc": "1.1 研究内容 本项目主要是在软件工程指导思想下研究安卓手机软件开发技术、云端大数据存储和分 析技术。研究并搭建智能化服务平台，在该平台上可以实现系统登陆、提交报修地址、报修 信息、报修内容等，首页显示今日报修数量及未"
+   },
+   {
+    "full_name": "lawtext/law-flk-vol2",
+    "stars": 14,
+    "license": null,
+    "desc": "中国法律法规数据库：地方卷（docx/doc文档）"
+   },
+   {
+    "full_name": "DennisDZh/law_spider",
+    "stars": 12,
+    "license": null,
+    "desc": "爬取国家法律法规数据库条文、国际条约库条文。"
+   }
+  ],
+  "legal judgment china": [
+   {
+    "full_name": "Aryia-Behroziuan/Other-sources",
+    "stars": 43,
+    "license": null,
+    "desc": "Asada, M.; Hosoda, K.; Kuniyoshi, Y.; Ishiguro, H.; Inui, T.; Yoshikawa, Y.; Ogino, M.; Yoshida, C. (2009). \"C"
+   },
+   {
+    "full_name": "yqmark/agreement",
+    "stars": 27,
+    "license": null,
+    "desc": "Privacy Policy introduction We understand the importance of personal information to you and will do our utmost"
+   },
+   {
+    "full_name": "yuwenhan07/MSLR-Bench",
+    "stars": 7,
+    "license": "Apache-2.0",
+    "desc": "MSLR (Multi-Step-Reasoning-Trace) is a Chinese benchmark for evaluating large language models’ legal reasoning"
+   },
+   {
+    "full_name": "RuixiangS/CN_PowerBI_Datetable",
+    "stars": 3,
+    "license": "MIT",
+    "desc": "Through python, you can generate a PowerBI date table suitable for use in China, which not only supports the r"
+   },
+   {
+    "full_name": "maheran123/LegalNER-19",
+    "stars": 0,
+    "license": "NOASSERTION",
+    "desc": "De-identified 19-class Chinese criminal judgment NER dataset with full train/dev data, a public test subset, c"
+   },
+   {
+    "full_name": "yingyingshi1/risk-index-for-Chinese-English-legal-translation",
+    "stars": 0,
+    "license": "MIT",
+    "desc": "A dual-channel risk index for Chinese-English legal translation: Evaluating LLM translation risk on real Hong "
+   },
+   {
+    "full_name": "Skywalk99/legal-case-research-agent",
+    "stars": 0,
+    "license": "MIT",
+    "desc": "A LangGraph-based Chinese judicial case research agent featuring multi-agent task planning, legal case retriev"
+   },
+   {
+    "full_name": "gzfutureai/mcp-server-moke-wenshu",
+    "stars": 0,
+    "license": null,
+    "desc": "MokeWenShu is an AI-powered analysis tool for China Judgments Online, leveraging NLP and legal knowledge graph"
+   }
+  ],
+  "law database china": [
+   {
+    "full_name": "abcddcbaxxxx/chinese-law-mcp",
+    "stars": 5,
+    "license": "Apache-2.0",
+    "desc": "Chinese law database covering cybersecurity, data protection, commercial law, and anti-monopoly legislation wi"
+   },
+   {
+    "full_name": "jacksunhack/China_Law_Database",
+    "stars": 4,
+    "license": null,
+    "desc": "This project is an automated web scraping tool designed to extract and archive legal documents from a Chinese "
+   },
+   {
+    "full_name": "YuleBest/LawBaseCN",
+    "stars": 2,
+    "license": null,
+    "desc": "中国法律法规数据库丨Law Base China"
+   },
+   {
+    "full_name": "stevwang0512/legal-doc-site",
+    "stars": 0,
+    "license": null,
+    "desc": "clickable Chinese law database"
+   },
+   {
+    "full_name": "law-star-cn/lawstar-mcp",
+    "stars": 0,
+    "license": "MIT",
+    "desc": "LawStar legal-data MCP - cloud-hosted Streamable HTTP server (regulation/semantic search/clause/law-reference)"
+   },
+   {
+    "full_name": "fongfabi/aml-case-database",
+    "stars": 0,
+    "license": null,
+    "desc": "Chinese Anti-Monopoly Law (AML) enforcement case database — covering monopoly agreements, abuse of dominance, "
+   }
+  ]
+ }
+}
