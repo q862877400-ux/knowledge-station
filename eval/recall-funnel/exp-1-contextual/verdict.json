@@ -18,7 +18,7 @@
   "ctx_vec@1000": 0.3667,
   "base_union@1000": 0.4,
   "ctx_union@1000": 0.4,
-  "net_gain_pp_vec@1000": 0.84,
+  "net_gain_pp_vec@1000": 0.83,
   "flip_vec@1000": {
    "in": 10,
    "out": 9,
@@ -48,6 +48,12 @@
   "matched": "放弃（未检测到效果）"
  },
  "hard_fail_triggered": [],
+ "arm_set_check": {
+  "only_base": 0,
+  "only_ctx": 0,
+  "identical": true,
+  "rule": "双向 EXCEPT 均为 0 ⇔ 两臂候选集合完全相同"
+ },
  "negative_findings": [
   {
    "what": "Vector@20 下降：0.1000 → 0.0750（-2.5pt）",
@@ -60,18 +66,21 @@
  "power_of_this_run": {
   "@20": {
    "discordant_pairs": 5,
-   "min_detectable_net_items": 5,
-   "min_detectable_pp": 4.17
+   "min_detectable_net_items": null,
+   "min_detectable_pp": null,
+   "note": "对所有不一致对数而言，这种规模**任何结果都不可能达到 p<0.05**"
   },
   "@100": {
    "discordant_pairs": 12,
    "min_detectable_net_items": 8,
-   "min_detectable_pp": 6.67
+   "min_detectable_pp": 6.67,
+   "note": null
   },
   "@1000": {
    "discordant_pairs": 19,
    "min_detectable_net_items": 11,
-   "min_detectable_pp": 9.17
+   "min_detectable_pp": 9.17,
+   "note": null
   }
  },
  "verdict": "放弃（未检测到效果）",

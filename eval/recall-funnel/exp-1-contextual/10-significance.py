@@ -30,13 +30,18 @@ def binom_two_sided(k: int, n: int) -> float:
     return min(1.0, sum(pmf(i) for i in range(n + 1) if pmf(i) <= obs + 1e-12))
 
 
-def min_detectable(n: int) -> int:
-    """n 对不一致时，达到双侧 p<0.05 所需的**净差**（= |2k-n| 的最小值）。"""
+def min_detectable(n: int) -> int | None:
+    """n 对不一致时，达到双侧 p<0.05 所需的**净差**；**做不到就返回 None**。
+
+    ⚠ 更正（独立复核 F13）：初版 `return n` 兜底，于是 n=5 时报出「5 条 / 4.17pp」——
+    而 n=5 时双侧最小 p = 0.0625 > 0.05，**任何结果都不可能显著**。
+    兜底必须是「不可能」，不能是一个像结论的数。
+    """
     for net in range(0, n + 1):
         for k in (n // 2 - net // 2, n // 2 + (net + 1) // 2):
             if 0 <= k <= n and abs(2 * k - n) == net and binom_two_sided(k, n) < 0.05:
                 return net
-    return n
+    return None
 
 
 def main() -> int:
@@ -55,7 +60,9 @@ def main() -> int:
                 "exact_binom_two_sided_p": round(p, 4),
                 "significant_at_0.05": p < 0.05,
                 "min_detectable_net_items": md,
-                "min_detectable_pp": round(md / blk["n"] * 100, 2),
+                "min_detectable_pp": (round(md / blk["n"] * 100, 2) if md is not None else None),
+                "note": ("不一致对数太少 ⇒ **任何结果都不可能达到 p<0.05**"
+                         if md is None else None),
             })
     result = {
         "why": "配对比较 ⇒ 用 McNemar 的精确二项检验；只看百分点会把噪声读成结论",

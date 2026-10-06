@@ -20,11 +20,45 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[2]
+sys.path.insert(0, str(ROOT))
 SL = HERE / "stop-loss.json"
 AB = HERE / "ab-result.json"
 OUT = HERE / "verdict.json"
+EXP_DB = HERE / "exp.db"
 
 PRIMARY = "vec@1000"
+
+
+def set_check() -> dict | None:
+    """**真集合比较**（独立复核 F5）：两臂的 `clause_revision_id` 集合是否完全一致。
+
+    为什么不能只比数量：**数量相等但成员不同，名次照样不可比** —— 这正是
+    `stop-loss.json` 第 3 条要挡的。这里用双向 `EXCEPT` 各数一次。
+
+    ⚠ 读 `vec0` 表**必须**加载 sqlite-vec 扩展（本批已踩过三次：不加载就报 no such module: vec0）。
+    """
+    if not EXP_DB.exists():
+        return None
+    import sqlite3
+    from src.core.storage.sqlite_db import load_vec_extension
+    c = sqlite3.connect(f"file:{EXP_DB.as_posix()}?mode=ro", uri=True)
+    try:
+        if not load_vec_extension(c):
+            return None
+        only_base = c.execute(
+            "SELECT COUNT(*) FROM clause_vec v WHERE NOT EXISTS ("
+            "  SELECT 1 FROM clause_vec_ctx x WHERE x.clause_revision_id = v.clause_revision_id)"
+        ).fetchone()[0]
+        only_ctx = c.execute(
+            "SELECT COUNT(*) FROM clause_vec_ctx x WHERE NOT EXISTS ("
+            "  SELECT 1 FROM clause_vec v WHERE v.clause_revision_id = x.clause_revision_id)"
+        ).fetchone()[0]
+        return {"only_base": only_base, "only_ctx": only_ctx,
+                "identical": only_base == 0 and only_ctx == 0,
+                "rule": "双向 EXCEPT 均为 0 ⇔ 两臂候选集合完全相同"}
+    finally:
+        c.close()
 
 
 def binom_two_sided(k: int, n: int) -> float:
@@ -36,13 +70,18 @@ def binom_two_sided(k: int, n: int) -> float:
     return min(1.0, sum(pmf(i) for i in range(n + 1) if pmf(i) <= obs + 1e-12))
 
 
-def min_detectable(n: int) -> int:
-    """n 对不一致时，达到双侧 p<0.05 所需的净差条数。"""
+def min_detectable(n: int) -> int | None:
+    """n 对不一致时，达到双侧 p<0.05 所需的净差条数；**做不到就返回 None**。
+
+    ⚠ 2026-10-06 更正（独立复核 F13）：初版写 `return n` 兜底，于是 n=5 时报出
+    "5 条 / 4.17pt" 这种**永远不可能达到**的值 —— n=5 时双侧最小 p = 0.0625 > 0.05，
+    **没有任何一种结果能显著**。兜底必须是「不可能」，不能是一个像结论的数。
+    """
     for net in range(0, n + 1):
         for k in (n // 2 - net // 2, n // 2 + (net + 1) // 2):
             if 0 <= k <= n and abs(2 * k - n) == net and binom_two_sided(k, n) < 0.05:
                 return net
-    return n
+    return None
 
 
 def main() -> int:
@@ -55,16 +94,26 @@ def main() -> int:
 
     base = head["base_vec@1000"]
     ctx = head["ctx_vec@1000"]
-    net_pp = round((ctx - base) * 100, 2)
     flip = head["vec@1000_flip"]
+    # ⚠ 净提升用**条数**算，不用四舍五入后的率相减（独立复核 F6）：
+    #   用率会得 0.3667−0.3583 = 0.84，用条数得 1/120 = 0.8333 ⇒ 0.83。
+    #   同一批、同一个量不该有两个值；以条数为准。
+    net_items = flip["in"] - flip["out"]
+    net_pp = round(net_items / head["n"] * 100, 2)
 
     # ── 仪器类 hard_fail（**只放"仪器坏了 / 结论不可归因"**）────────────────
-    # ⚠ 2026-10-06 更正：初版把"@20 下降"也塞进这里，于是判成"作废（仪器/归因问题）"——
-    #   **那是错的**：@20 下降是**真实的负结果**，不是仪器故障。两者混在一起会把结论说反。
-    #   "合并成一句"正是本仓纪律禁止的事，故拆成两个字段。
+    # ⚠ 2026-10-06 两次更正：
+    #   ① 初版把"@20 下降"也塞进这里，于是判成"作废（仪器/归因问题）"——**那是错的**：
+    #      @20 下降是**真实的负结果**，不是仪器故障。两者混在一起会把结论说反。
+    #   ② 独立复核 F5：`stop-loss.json` 第 3 条要求的是"**条目集合**有任何一处不一致"，
+    #      初版只查了**数量**（`n_ctx != n_base`）—— 那是弱化实现。现补**真集合比较**。
     hard = []
     if ab["meta"]["n_ctx"] != ab["meta"]["n_base"]:
         hard.append(f"两臂条目数不一致：{ab['meta']['n_base']} vs {ab['meta']['n_ctx']}")
+    setchk = set_check()
+    if setchk and not setchk["identical"]:
+        hard.append(f"两臂条目**集合**不一致：仅对照臂有 {setchk['only_base']} 条、"
+                    f"仅实验臂有 {setchk['only_ctx']} 条")
     if flip["in"] == 0 and flip["out"] == 0 and abs(net_pp) < 0.01:
         hard.append("两臂逐条完全相同 ⇒ 实验臂文本很可能没生效（查 02/03）")
 
@@ -99,9 +148,13 @@ def main() -> int:
         f = head[f"vec@{d}_flip"]
         n = f["in"] + f["out"]
         md = min_detectable(n)
-        power[f"@{d}"] = {"discordant_pairs": n,
-                          "min_detectable_net_items": md,
-                          "min_detectable_pp": round(md / head["n"] * 100, 2)}
+        power[f"@{d}"] = {
+            "discordant_pairs": n,
+            "min_detectable_net_items": md,
+            "min_detectable_pp": (round(md / head["n"] * 100, 2) if md is not None else None),
+            "note": ("对所有不一致对数而言，这种规模**任何结果都不可能达到 p<0.05**"
+                     if md is None else None),
+        }
 
     if hard:
         verdict = "作废（仪器问题，不许解释结果）"
@@ -132,6 +185,7 @@ def main() -> int:
             "matched": verdict,
         },
         "hard_fail_triggered": hard,
+        "arm_set_check": setchk,
         "negative_findings": negatives,
         "power_of_this_run": power,
         "verdict": verdict,

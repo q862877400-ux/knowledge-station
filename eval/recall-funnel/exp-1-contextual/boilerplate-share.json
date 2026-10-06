@@ -1,21 +1,28 @@
 {
- "note": "上下文（样板）在送进模型的文本里占多大比重；用来解释先行指标的负号",
- "library_sample_20000": {
-  "boiler_median": 28.0,
-  "body_median": 63.0,
-  "total_median": 103.0,
-  "share_median": 0.2897873493159962,
-  "share_mean": 0.32233846869660693,
-  "share_p90": 0.5909090909090909
+ "definition": "样板字符数 / 整段字符数；样板 = 标准名 + '> ' + 章节路径 + '> ' + 条款号 + 换行；样板字符数 = len(retrieval_text) − len(body)",
+ "scope": "全表 521978 / 521978 条（不是抽样，不是前缀）",
+ "why_v2": "v1 没写定义、且只取前 20000 行（正文中位 63 vs 全库 55，偏长）—— 独立复核 F7 指出后重做",
+ "library": {
+  "n": 521978,
+  "boiler_chars_median": 32.0,
+  "body_chars_median": 55.0,
+  "total_chars_median": 90.0,
+  "share_median": 0.3706,
+  "share_mean": 0.4011,
+  "share_p90": 0.7333,
+  "share_p99": 0.8421
  },
- "no_hierarchy_path": {
-  "n": 63399,
-  "of": 521978,
-  "pct": 0.1214591419561744
+ "benchmark_171_gold_by_kind": {
+  "定义": {
+   "n": 59,
+   "share_median": 0.2893,
+   "share_mean": 0.2904
+  },
+  "要求": {
+   "n": 20,
+   "share_median": 0.3295,
+   "share_mean": 0.3157
+  }
  },
- "conclusion": [
-  "样板占全文中位 29%（均值 32%）—— 稀释是实质性的，足够解释「整体几乎没赚头」。",
-  "但定义/要求的样板占比几乎相同（23.1% vs 25.4%）⇒ **解释不了要求类 Δmargin 明显更负**（−0.0262 vs −0.0008）。",
-  "所以「稀释」只解释了一半，另一半待全量名次出来后按逐条翻转再查。"
- ]
+ "note_for_the_dilution_hypothesis": "定义/要求两类的样板占比几乎相同 ⇒ 占比本身**解释不了**要求类表现更差；那半个问题在 ab-analysis.json 的逐条翻转里（要求类翻出多于翻进），但那是**观测**，机制**未单验**"
 }
