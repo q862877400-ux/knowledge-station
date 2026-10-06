@@ -1,0 +1,127 @@
+{
+ "why": "外部评估打回：分辨力按条目算，但 120 条只落在 64 条独立条文上 ⇒ 必须按簇重算",
+ "cluster_definition": "gold_cr_id（同一条文的多条问法算一簇）",
+ "n_bootstrap": 10000,
+ "seed": 20261006,
+ "headline_by_kind": {
+  "定义": {
+   "n_items": 98,
+   "n_clusters": 48
+  },
+  "要求": {
+   "n_items": 22,
+   "n_clusters": 16
+  }
+ },
+ "subsets": {
+  "headline_120": {
+   "n_items": 120,
+   "n_clusters": 64,
+   "items_per_cluster": 1.875,
+   "@20": {
+    "item_base": 0.1,
+    "item_ctx": 0.075,
+    "item_diff_pp": -2.5,
+    "cluster_boot_diff_pp_mean": -2.53,
+    "cluster_boot_ci95_pp": [
+     -7.26,
+     0.92
+    ],
+    "cluster_boot_p_two_sided": 0.3216,
+    "significant_at_0.05": false
+   },
+   "@100": {
+    "item_base": 0.175,
+    "item_ctx": 0.1917,
+    "item_diff_pp": 1.67,
+    "cluster_boot_diff_pp_mean": 1.69,
+    "cluster_boot_ci95_pp": [
+     -4.39,
+     7.56
+    ],
+    "cluster_boot_p_two_sided": 0.6728,
+    "significant_at_0.05": false
+   },
+   "@1000": {
+    "item_base": 0.3583,
+    "item_ctx": 0.3667,
+    "item_diff_pp": 0.83,
+    "cluster_boot_diff_pp_mean": 0.9,
+    "cluster_boot_ci95_pp": [
+     -7.09,
+     9.35
+    ],
+    "cluster_boot_p_two_sided": 0.9106,
+    "significant_at_0.05": false
+   },
+   "design_effect": {
+    "deff": 1.294,
+    "effective_n": 92.8,
+    "note": "deff ≈ (簇间方差 / 条目方差) × 平均簇大小；>1 = 条目口径高估了独立信息量"
+   },
+   "cluster_power": {
+    "method": "簇级 bootstrap（10000 次）下差值分布 ±1.96 sd 的宽度",
+    "sd_of_diff_pp": 4.17,
+    "min_detectable_pp": 8.18,
+    "min_detectable_items": 10
+   }
+  },
+  "all_171": {
+   "n_items": 171,
+   "n_clusters": 79,
+   "items_per_cluster": 2.165,
+   "@20": {
+    "item_base": 0.0877,
+    "item_ctx": 0.076,
+    "item_diff_pp": -1.17,
+    "cluster_boot_diff_pp_mean": -1.2,
+    "cluster_boot_ci95_pp": [
+     -4.85,
+     2.37
+    ],
+    "cluster_boot_p_two_sided": 0.6142,
+    "significant_at_0.05": false
+   },
+   "@100": {
+    "item_base": 0.152,
+    "item_ctx": 0.1637,
+    "item_diff_pp": 1.17,
+    "cluster_boot_diff_pp_mean": 1.16,
+    "cluster_boot_ci95_pp": [
+     -3.55,
+     5.56
+    ],
+    "cluster_boot_p_two_sided": 0.6996,
+    "significant_at_0.05": false
+   },
+   "@1000": {
+    "item_base": 0.345,
+    "item_ctx": 0.3392,
+    "item_diff_pp": -0.58,
+    "cluster_boot_diff_pp_mean": -0.64,
+    "cluster_boot_ci95_pp": [
+     -7.1,
+     5.95
+    ],
+    "cluster_boot_p_two_sided": 0.9088,
+    "significant_at_0.05": false
+   },
+   "design_effect": {
+    "deff": 1.177,
+    "effective_n": 145.3,
+    "note": "deff ≈ (簇间方差 / 条目方差) × 平均簇大小；>1 = 条目口径高估了独立信息量"
+   },
+   "cluster_power": {
+    "method": "簇级 bootstrap（10000 次）下差值分布 ±1.96 sd 的宽度",
+    "sd_of_diff_pp": 3.31,
+    "min_detectable_pp": 6.49,
+    "min_detectable_items": 11
+   }
+  }
+ },
+ "reading": [
+  "`item_*` 是上一版口径（把条目当独立）—— 偏乐观。",
+  "`cluster_boot_*` 以**独立条文**为重抽样单位 —— 这才是该报的口径。",
+  "方向一致而显著性更弱 ⇒ 「没检测到效果」的结论不变，但 p 值与分辨力必须按簇口径说。"
+ ]
+}

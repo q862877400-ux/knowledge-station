@@ -1,0 +1,104 @@
+{
+ "why": "外部评估点名要做的拆分诊断：文档级命中 vs 文档内名次",
+ "k": 1000,
+ "observation_only": "这是观测，不是干预实验",
+ "all_171": {
+  "base": {
+   "n": 171,
+   "doc_hit@20": 0.3099,
+   "gold_hit@20": 0.0877,
+   "doc_hit@100": 0.4854,
+   "gold_hit@100": 0.152,
+   "doc_hit@1000": 0.7661,
+   "gold_hit@1000": 0.345,
+   "n_doc_present@1000": 131,
+   "doc_best_rank_median": 43,
+   "within_doc_pos_median": 4,
+   "within_doc_pos_mean": 11.66,
+   "gold_in_top1000_given_doc_present": 0.4504
+  },
+  "ctx": {
+   "n": 171,
+   "doc_hit@20": 0.2749,
+   "gold_hit@20": 0.076,
+   "doc_hit@100": 0.462,
+   "gold_hit@100": 0.1637,
+   "doc_hit@1000": 0.7193,
+   "gold_hit@1000": 0.3392,
+   "n_doc_present@1000": 123,
+   "doc_best_rank_median": 47,
+   "within_doc_pos_median": 3.0,
+   "within_doc_pos_mean": 10.52,
+   "gold_in_top1000_given_doc_present": 0.4715
+  },
+  "delta": {
+   "n": null,
+   "doc_hit@20": -0.035,
+   "gold_hit@20": -0.0117,
+   "doc_hit@100": -0.0234,
+   "gold_hit@100": 0.0117,
+   "doc_hit@1000": -0.0468,
+   "gold_hit@1000": -0.0058,
+   "n_doc_present@1000": null,
+   "doc_best_rank_median": null,
+   "within_doc_pos_median": null,
+   "within_doc_pos_mean": -1.14,
+   "gold_in_top1000_given_doc_present": 0.0211
+  }
+ },
+ "headline_120": {
+  "base": {
+   "n": 120,
+   "doc_hit@20": 0.3167,
+   "gold_hit@20": 0.1,
+   "doc_hit@100": 0.5083,
+   "gold_hit@100": 0.175,
+   "doc_hit@1000": 0.775,
+   "gold_hit@1000": 0.3583,
+   "n_doc_present@1000": 93,
+   "doc_best_rank_median": 40,
+   "within_doc_pos_median": 4,
+   "within_doc_pos_mean": 12.81,
+   "gold_in_top1000_given_doc_present": 0.4624
+  },
+  "ctx": {
+   "n": 120,
+   "doc_hit@20": 0.2917,
+   "gold_hit@20": 0.075,
+   "doc_hit@100": 0.5,
+   "gold_hit@100": 0.1917,
+   "doc_hit@1000": 0.75,
+   "gold_hit@1000": 0.3667,
+   "n_doc_present@1000": 90,
+   "doc_best_rank_median": 47.5,
+   "within_doc_pos_median": 2.0,
+   "within_doc_pos_mean": 11.75,
+   "gold_in_top1000_given_doc_present": 0.4889
+  },
+  "delta": {
+   "n": null,
+   "doc_hit@20": -0.025,
+   "gold_hit@20": -0.025,
+   "doc_hit@100": -0.0083,
+   "gold_hit@100": 0.0167,
+   "doc_hit@1000": -0.025,
+   "gold_hit@1000": 0.0084,
+   "n_doc_present@1000": null,
+   "doc_best_rank_median": null,
+   "within_doc_pos_median": null,
+   "within_doc_pos_mean": -1.06,
+   "gold_in_top1000_given_doc_present": 0.0265
+  }
+ },
+ "verdict": "**前缀主导未获支持**：没有出现「文档级命中升、文档内名次降」的组合 —— 如实报，不圆",
+ "numbers_for_the_verdict": {
+  "headline doc_hit@20 base→ctx": [
+   0.3167,
+   0.2917
+  ],
+  "headline within_doc_pos_median base→ctx": [
+   4,
+   2.0
+  ]
+ }
+}
