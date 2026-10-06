@@ -1,0 +1,347 @@
+{
+ "experiment": "E4：embedding shadow test（Qwen3-Embedding-0.6B，第一轮固定 512 维）",
+ "primary_endpoint": "Vector @1000（主结果 120 条口径；与 E1 同口径便于横向比较）",
+ "instrument_selfcheck": {
+  "headline_120": {
+   "want": {
+    "rank@1000": 0.3583,
+    "union_same@1000": 0.4,
+    "rank@100": 0.175
+   },
+   "got": {
+    "rank@1000": 0.3583,
+    "union_same@1000": 0.4,
+    "rank@100": 0.175
+   },
+   "ok": true
+  },
+  "all_171": {
+   "want": {
+    "rank@1000": 0.345,
+    "union_same@1000": 0.3918
+   },
+   "got": {
+    "rank@1000": 0.345,
+    "union_same@1000": 0.3918
+   },
+   "ok": true
+  }
+ },
+ "fts_instrument_control": {
+  "mismatch_items": 0,
+  "ok": true
+ },
+ "real_db_untouched": {
+  "clause_vec": 522021,
+  "has_clause_vec_qwen": false,
+  "ok": true
+ },
+ "arm_set_check": {
+  "only_base": 0,
+  "only_ctx": 0,
+  "ok": true
+ },
+ "hard_fail_triggered": [],
+ "primary_result_headline120_vector@1000": {
+  "n_items": 120,
+  "n_clusters": 64,
+  "base": 0.3583,
+  "ctx": 0.6833,
+  "delta_pp": 32.5,
+  "ci95_pp": [
+   22.95,
+   42.52
+  ],
+  "boot_p_two_sided": 0.0,
+  "flip_in": 44,
+  "flip_out": 5,
+  "mcnemar_exact_p": 0.0,
+  "significant_at_0.05": true
+ },
+ "all_endpoints": {
+  "all_171": {
+   "rank@20": {
+    "n_items": 171,
+    "n_clusters": 79,
+    "base": 0.0877,
+    "ctx": 0.2105,
+    "delta_pp": 12.28,
+    "ci95_pp": [
+     6.86,
+     17.93
+    ],
+    "boot_p_two_sided": 0.0,
+    "flip_in": 22,
+    "flip_out": 1,
+    "mcnemar_exact_p": 0.0,
+    "significant_at_0.05": true
+   },
+   "rank@100": {
+    "n_items": 171,
+    "n_clusters": 79,
+    "base": 0.152,
+    "ctx": 0.345,
+    "delta_pp": 19.3,
+    "ci95_pp": [
+     11.63,
+     26.86
+    ],
+    "boot_p_two_sided": 0.0,
+    "flip_in": 39,
+    "flip_out": 6,
+    "mcnemar_exact_p": 0.0,
+    "significant_at_0.05": true
+   },
+   "rank@1000": {
+    "n_items": 171,
+    "n_clusters": 79,
+    "base": 0.345,
+    "ctx": 0.6667,
+    "delta_pp": 32.16,
+    "ci95_pp": [
+     23.76,
+     40.59
+    ],
+    "boot_p_two_sided": 0.0,
+    "flip_in": 62,
+    "flip_out": 7,
+    "mcnemar_exact_p": 0.0,
+    "significant_at_0.05": true
+   },
+   "union_same@20": {
+    "n_items": 171,
+    "n_clusters": 79,
+    "base": 0.1111,
+    "ctx": 0.2222,
+    "delta_pp": 11.11,
+    "ci95_pp": [
+     6.02,
+     16.67
+    ],
+    "boot_p_two_sided": 0.0,
+    "flip_in": 20,
+    "flip_out": 1,
+    "mcnemar_exact_p": 0.0,
+    "significant_at_0.05": true
+   },
+   "union_same@100": {
+    "n_items": 171,
+    "n_clusters": 79,
+    "base": 0.1988,
+    "ctx": 0.3743,
+    "delta_pp": 17.54,
+    "ci95_pp": [
+     10.78,
+     24.58
+    ],
+    "boot_p_two_sided": 0.0,
+    "flip_in": 33,
+    "flip_out": 3,
+    "mcnemar_exact_p": 0.0,
+    "significant_at_0.05": true
+   },
+   "union_same@1000": {
+    "n_items": 171,
+    "n_clusters": 79,
+    "base": 0.3918,
+    "ctx": 0.6784,
+    "delta_pp": 28.65,
+    "ci95_pp": [
+     20.23,
+     37.08
+    ],
+    "boot_p_two_sided": 0.0,
+    "flip_in": 56,
+    "flip_out": 7,
+    "mcnemar_exact_p": 0.0,
+    "significant_at_0.05": true
+   },
+   "union_prod": {
+    "n_items": 171,
+    "n_clusters": 79,
+    "base": 0.117,
+    "ctx": 0.2281,
+    "delta_pp": 11.11,
+    "ci95_pp": [
+     5.92,
+     16.67
+    ],
+    "boot_p_two_sided": 0.0,
+    "flip_in": 20,
+    "flip_out": 1,
+    "mcnemar_exact_p": 0.0,
+    "significant_at_0.05": true
+   },
+   "fts@1000": {
+    "n_items": 171,
+    "n_clusters": 79,
+    "base": 0.1345,
+    "ctx": 0.1345,
+    "delta_pp": 0.0,
+    "ci95_pp": [
+     0.0,
+     0.0
+    ],
+    "boot_p_two_sided": 1.0,
+    "flip_in": 0,
+    "flip_out": 0,
+    "mcnemar_exact_p": null,
+    "significant_at_0.05": false
+   }
+  },
+  "headline_120": {
+   "rank@20": {
+    "n_items": 120,
+    "n_clusters": 64,
+    "base": 0.1,
+    "ctx": 0.2417,
+    "delta_pp": 14.17,
+    "ci95_pp": [
+     7.76,
+     21.1
+    ],
+    "boot_p_two_sided": 0.0,
+    "flip_in": 17,
+    "flip_out": 0,
+    "mcnemar_exact_p": 0.0,
+    "significant_at_0.05": true
+   },
+   "rank@100": {
+    "n_items": 120,
+    "n_clusters": 64,
+    "base": 0.175,
+    "ctx": 0.3583,
+    "delta_pp": 18.33,
+    "ci95_pp": [
+     8.85,
+     28.33
+    ],
+    "boot_p_two_sided": 0.0002,
+    "flip_in": 28,
+    "flip_out": 6,
+    "mcnemar_exact_p": 0.0002,
+    "significant_at_0.05": true
+   },
+   "rank@1000": {
+    "n_items": 120,
+    "n_clusters": 64,
+    "base": 0.3583,
+    "ctx": 0.6833,
+    "delta_pp": 32.5,
+    "ci95_pp": [
+     22.95,
+     42.52
+    ],
+    "boot_p_two_sided": 0.0,
+    "flip_in": 44,
+    "flip_out": 5,
+    "mcnemar_exact_p": 0.0,
+    "significant_at_0.05": true
+   },
+   "union_same@20": {
+    "n_items": 120,
+    "n_clusters": 64,
+    "base": 0.125,
+    "ctx": 0.25,
+    "delta_pp": 12.5,
+    "ci95_pp": [
+     6.36,
+     19.51
+    ],
+    "boot_p_two_sided": 0.0,
+    "flip_in": 15,
+    "flip_out": 0,
+    "mcnemar_exact_p": 0.0001,
+    "significant_at_0.05": true
+   },
+   "union_same@100": {
+    "n_items": 120,
+    "n_clusters": 64,
+    "base": 0.225,
+    "ctx": 0.3917,
+    "delta_pp": 16.67,
+    "ci95_pp": [
+     8.2,
+     25.64
+    ],
+    "boot_p_two_sided": 0.0002,
+    "flip_in": 23,
+    "flip_out": 3,
+    "mcnemar_exact_p": 0.0001,
+    "significant_at_0.05": true
+   },
+   "union_same@1000": {
+    "n_items": 120,
+    "n_clusters": 64,
+    "base": 0.4,
+    "ctx": 0.6917,
+    "delta_pp": 29.17,
+    "ci95_pp": [
+     19.51,
+     39.5
+    ],
+    "boot_p_two_sided": 0.0,
+    "flip_in": 40,
+    "flip_out": 5,
+    "mcnemar_exact_p": 0.0,
+    "significant_at_0.05": true
+   },
+   "union_prod": {
+    "n_items": 120,
+    "n_clusters": 64,
+    "base": 0.1333,
+    "ctx": 0.2583,
+    "delta_pp": 12.5,
+    "ci95_pp": [
+     6.45,
+     19.49
+    ],
+    "boot_p_two_sided": 0.0,
+    "flip_in": 15,
+    "flip_out": 0,
+    "mcnemar_exact_p": 0.0001,
+    "significant_at_0.05": true
+   },
+   "fts@1000": {
+    "n_items": 120,
+    "n_clusters": 64,
+    "base": 0.1417,
+    "ctx": 0.1417,
+    "delta_pp": 0.0,
+    "ci95_pp": [
+     0.0,
+     0.0
+    ],
+    "boot_p_two_sided": 1.0,
+    "flip_in": 0,
+    "flip_out": 0,
+    "mcnemar_exact_p": null,
+    "significant_at_0.05": false
+   }
+  }
+ },
+ "decision_rule_applied": {
+  "thresholds": {
+   "放弃（这个模型不值得）": {
+    "net_gain_pp": "< 8",
+    "meaning": "低于本仓实测的显著性阈值（8.18pt）⇒ 换它没有可分辨的收益"
+   },
+   "灰区（不能据此换生产模型）": {
+    "net_gain_pp": "8 ~ 10",
+    "meaning": "刚过显著线、但远低于 80% 把握度 MDE（11.68pt）⇒ 单次跑分不出来"
+   },
+   "进第二轮验证": {
+    "net_gain_pp": ">= 10",
+    "meaning": "仍**不是**确证有效；须看**簇级置信区间**，并另立第二轮实验"
+   }
+  },
+  "matched": "进第二轮验证"
+ },
+ "verdict": "进第二轮验证",
+ "next_step": "仍**不是**确证有效 ⇒ 须看簇级置信区间，并另立第二轮实验（如 1024 维 / BGE-M3 / 加指令前缀）",
+ "must_read": [
+  "**涨跌两侧都报**：若新模型更差，那就是「更差」的结论。",
+  "主终点是 Vector@1000（主结果 120）；其余终点只作参考，**不许因副终点好看改主终点**。",
+  "8pt 是分辨率线、不是生产切换线；≥10pt 仍低于本仓实测的 80% 把握度 MDE（11.68pt）。"
+ ]
+}

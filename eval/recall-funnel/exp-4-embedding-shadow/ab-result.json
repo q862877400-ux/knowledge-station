@@ -1,0 +1,106 @@
+{
+ "experiment": "E4 embedding shadow test（Qwen3-Embedding-0.6B, 512d）",
+ "single_variable": "嵌入模型（条文文本一字不动；查询两臂都不加指令前缀）",
+ "primary_endpoint": "Vector @1000（主结果 120 条口径）",
+ "summary": {
+  "all_171": {
+   "n": 171,
+   "n_clusters": 79,
+   "base": {
+    "rank@20": 0.0877,
+    "rank@100": 0.152,
+    "rank@1000": 0.345,
+    "union_same@20": 0.1111,
+    "union_same@100": 0.1988,
+    "union_same@1000": 0.3918,
+    "union_prod": 0.117,
+    "fts@20": 0.0292,
+    "fts@100": 0.0877,
+    "fts@1000": 0.1345
+   },
+   "ctx": {
+    "rank@20": 0.2105,
+    "rank@100": 0.345,
+    "rank@1000": 0.6667,
+    "union_same@20": 0.2222,
+    "union_same@100": 0.3743,
+    "union_same@1000": 0.6784,
+    "union_prod": 0.2281,
+    "fts@20": 0.0292,
+    "fts@100": 0.0877,
+    "fts@1000": 0.1345
+   },
+   "delta_pp": {
+    "rank@20": 12.28,
+    "rank@100": 19.3,
+    "rank@1000": 32.17,
+    "union_same@20": 11.11,
+    "union_same@100": 17.55,
+    "union_same@1000": 28.66,
+    "union_prod": 11.11,
+    "fts@20": 0.0,
+    "fts@100": 0.0,
+    "fts@1000": 0.0
+   },
+   "flip_rank@1000": {
+    "in": 62,
+    "out": 7
+   }
+  },
+  "headline_120": {
+   "n": 120,
+   "n_clusters": 64,
+   "base": {
+    "rank@20": 0.1,
+    "rank@100": 0.175,
+    "rank@1000": 0.3583,
+    "union_same@20": 0.125,
+    "union_same@100": 0.225,
+    "union_same@1000": 0.4,
+    "union_prod": 0.1333,
+    "fts@20": 0.0333,
+    "fts@100": 0.1083,
+    "fts@1000": 0.1417
+   },
+   "ctx": {
+    "rank@20": 0.2417,
+    "rank@100": 0.3583,
+    "rank@1000": 0.6833,
+    "union_same@20": 0.25,
+    "union_same@100": 0.3917,
+    "union_same@1000": 0.6917,
+    "union_prod": 0.2583,
+    "fts@20": 0.0333,
+    "fts@100": 0.1083,
+    "fts@1000": 0.1417
+   },
+   "delta_pp": {
+    "rank@20": 14.17,
+    "rank@100": 18.33,
+    "rank@1000": 32.5,
+    "union_same@20": 12.5,
+    "union_same@100": 16.67,
+    "union_same@1000": 29.17,
+    "union_prod": 12.5,
+    "fts@20": 0.0,
+    "fts@100": 0.0,
+    "fts@1000": 0.0
+   },
+   "flip_rank@1000": {
+    "in": 44,
+    "out": 5
+   }
+  }
+ },
+ "instrument_control": {
+  "fts_mismatch_items": 0,
+  "meaning": "FTS 两臂必须完全相同（按字找与嵌入模型无关）；非 0 ⇒ 先查仪器"
+ },
+ "baseline_selfcheck": {
+  "funnel_headline_vec@1000": 0.3583,
+  "funnel_all_vec@1000": 0.345,
+  "funnel_headline_union@1000": 0.4,
+  "funnel_all_union@1000": 0.3918
+ },
+ "elapsed_s": 392.4
+}
