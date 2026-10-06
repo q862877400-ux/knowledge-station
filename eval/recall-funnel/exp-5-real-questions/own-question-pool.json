@@ -1,0 +1,44 @@
+{
+ "why": "计划记录：真实提问曾被保留策略销毁、2026-09-26 已修（提问证据保留 5000）。本脚本查现状。",
+ "db": "C:\\Users\\Zegel\\AppData\\Roaming\\KnowledgeStation\\database\\knowledge.db",
+ "debug_dump_columns": [
+  "dump_id",
+  "trigger_type",
+  "query",
+  "retrieval_result",
+  "prompt",
+  "llm_output",
+  "claim_parsed",
+  "verification_result",
+  "logs",
+  "created_at"
+ ],
+ "total_rows": 1001,
+ "by_trigger_type": [
+  {
+   "trigger_type": "egress",
+   "n": 1000,
+   "first": "2026-09-29 05:41:47",
+   "last": "2026-09-29 08:36:45"
+  },
+  {
+   "trigger_type": "user_export",
+   "n": 1,
+   "first": "2026-10-05 15:58:51",
+   "last": "2026-10-05 15:58:51"
+  }
+ ],
+ "question_evidence": {
+  "keep_limit": 5000,
+  "rows": 1,
+  "unique_queries": 1,
+  "rows_with_llm_output": 1,
+  "samples": [
+   {
+    "query": "概括本文件内容",
+    "at": "2026-10-05 15:58:51"
+   }
+  ]
+ },
+ "can_it_be_a_benchmark": "还不能直接当考卷：考卷需要**每条问法对应到具体条文**（gold）。提问证据里只有问法与回答，**没有检索命中的条文 id** ⇒ 要做成考卷，仍需对每条问题单独定 gold。"
+}
