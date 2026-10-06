@@ -94,8 +94,22 @@ $py = '.venv\Scripts\python.exe'
 & $py eval\recall-funnel\exp-1-contextual\01-copy-db.py       # 真库 → 副本（只读源，不改真库）
 & $py eval\recall-funnel\exp-1-contextual\02-build-text.py    # 在建好的副本里生成 retrieval_text_ctx
 & $py eval\recall-funnel\exp-1-contextual\03-embed.py         # 逐批算向量 → clause_vec_ctx（断点续跑）
-& $py eval\recall-funnel\exp-1-contextual\04-ab-eval.py       # 两个臂在同一批条目上对照
+& $py eval\recall-funnel\exp-1-contextual\04a-control-check.py # 先证对照臂能复现基线（见下）
+& $py eval\recall-funnel\exp-1-contextual\04-ab-eval.py --dry-run  # 再证并集定义能复现基线
+& $py eval\recall-funnel\exp-1-contextual\04-ab-eval.py       # 两臂对照
 ```
+
+### ⚠ 两个"先证仪器、再看结果"的自检（**都必须先过**）
+
+`ab-result.json` 里"实验臂涨了多少"是**相对对照臂**算的。所以对照臂必须先证明**无偏**，
+否则差异说不清是"换文本的效果"还是"我的管线跟原管线不同"。
+
+| 自检 | 期望 | 实测 |
+|---|---|---|
+| `04a-control-check.py`：副本对照臂的 Vector @20/@100/@1000 | 0.1000 / 0.1750 / 0.3583 | **逐位相同** ✅ |
+| `04-ab-eval.py --dry-run`：副本对照臂的并集 @1000 | 0.4000（funnel 的 headline） | **0.4000** ✅，且两臂完全相同 |
+
+**⇒ 两个自检都过，实验臂的差异才能归因到文本。** 若哪个没过 ⇒ **先查测量管线，不许解释结果**。
 
 **产物**（全在 `eval/recall-funnel/exp-1-contextual/` 下）：
 
