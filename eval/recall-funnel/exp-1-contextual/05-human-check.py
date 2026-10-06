@@ -68,15 +68,36 @@ def main() -> int:
         picked.extend(chosen)
     picked.sort(key=lambda x: x["i"])
 
+    def suspicion(it: dict) -> str:
+        """把系统**机械**查出来的疑点翻成人话，供填表人参考。
+
+        ⚠ 这是**提示，不是判断** —— 它只说明"这条有这些特征"，绝不等于"这条 gold 有问题"。
+          判定权在人。
+        """
+        fl = set(it["v2"]["flags"])
+        d = it["v2"].get("flag_detail") or {}
+        out = []
+        if "gold_multi_def" in fl:
+            out.append(f"库里另有 {d.get('same_def_docs', '?')} 篇文档也定义了同一术语"
+                       f"「{d.get('term', '?')}」⇒ 答案可能不止一条")
+        if "gold_dup_text" in fl:
+            out.append(f"这段条文在 {d.get('dup_text_docs', '?')} 篇文档里字节级重复")
+        if "has_subclauses" in fl:
+            out.append(f"这条是分节标题（下面还有 {d.get('n_subclauses', '?')} 条子条款）"
+                       f"⇒ 外行问的可能是子条款")
+        return "；".join(out) if out else "（机械检查没发现疑点）"
+
     csv_path = HERE / "human-check.csv"
     md_path = HERE / "human-check.md"
     with csv_path.open("w", encoding="utf-8-sig", newline="") as fh:
         w = csv.writer(fh)
         w.writerow(["序号", "问法（用户原话）", "标准号", "条款号", "条文原文",
+                    "系统怀疑（供参考，不是结论）",
                     "你的判断（对 / 错 / 多个都对 / 说不清）", "备注"])
         for k, it in enumerate(picked, 1):
             w.writerow([k, it["query"], it["gold_std"], it["gold_clause"],
-                        (it.get("gold_text") or "").replace("\r", ""), "", ""])
+                        (it.get("gold_text") or "").replace("\r", ""),
+                        suspicion(it), "", ""])
 
     lines = [
         "# 人工抽查清单（E1 的质量闸门）",
@@ -85,25 +106,30 @@ def main() -> int:
         "",
         "> **这个问法，答案真的是右边这条条文吗？**",
         "",
-        "**怎么填**：在最后一列写 `对` / `错` / `多个都对` / `说不清`。",
+        "**怎么填**：在「你的判断」列写 `对` / `错` / `多个都对` / `说不清`。",
         "",
         "- `错` ⇒ 这条 gold 不该用（会污染 A/B 实验的结论）；",
         "- `多个都对` ⇒ 说明库里不止一条合理答案 → 同样要标出来；",
         "- `说不清` ⇒ 也照填，**不要猜**。",
+        "",
+        "**「系统怀疑」那一列只是提示，不是结论**：它是系统按机械规则查出来的特征"
+        "（比如「同一术语在别的文档里也有定义」），**它说不上算不算问题，判定权在你**。",
+        "把怀疑列出来，是为了让你**先看最可能有问题的那些**，不必逐条从零判断。",
         "",
         "**⚠ 这不是重新做一套考卷**，只是回答\"我们现在是不是在拿错误目标调系统\"。",
         f"抽样：一条独立条文最多一题、按定义/要求分层、跨文档铺开（随机种子 {args.seed}，可复算）。",
         "",
         f"填完后请回填到 `human-check.csv`（同一份内容），我再把结果算进报告。",
         "",
-        "| # | 问法（用户原话） | 正确条文 | 条文原文 | 判断 |",
-        "|---|---|---|---|---|",
+        "| # | 问法（用户原话） | 正确条文 | 条文原文 | 系统怀疑（提示） | 判断 |",
+        "|---|---|---|---|---|---|",
     ]
     for k, it in enumerate(picked, 1):
         txt = (it.get("gold_text") or "").replace("\n", " ").strip()
         if len(txt) > 180:
             txt = txt[:180] + "…"
-        lines.append(f"| {k} | {it['query']} | {it['gold_std']} {it['gold_clause']} | {txt} |  |")
+        lines.append(f"| {k} | {it['query']} | {it['gold_std']} {it['gold_clause']} | {txt} |"
+                     f" {suspicion(it)} |  |")
     md_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
     n_def = sum(1 for x in picked if x["kind"] == "定义")
