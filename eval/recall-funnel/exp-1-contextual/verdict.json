@@ -45,14 +45,43 @@
     "meaning": "在噪声范围内 ⇒ 改走「查询改写 / 别名扩展 / 大白话→标准术语」那条路"
    }
   },
-  "matched": "放弃"
+  "matched": "放弃（未检测到效果）"
  },
  "hard_fail_triggered": [],
  "negative_findings": [
-  "Vector@20 下降：0.1000 → 0.0750（-2.5pt）"
+  {
+   "what": "Vector@20 下降：0.1000 → 0.0750（-2.5pt）",
+   "flip_in": 1,
+   "flip_out": 4,
+   "exact_binom_two_sided_p": 0.375,
+   "within_noise": true
+  }
  ],
- "verdict": "放弃",
- "next_step_per_plan": "问题不只是条文上下文 ⇒ 改走「查询改写 / 别名扩展 / 大白话→标准术语」那条路",
+ "power_of_this_run": {
+  "@20": {
+   "discordant_pairs": 5,
+   "min_detectable_net_items": 5,
+   "min_detectable_pp": 4.17
+  },
+  "@100": {
+   "discordant_pairs": 12,
+   "min_detectable_net_items": 8,
+   "min_detectable_pp": 6.67
+  },
+  "@1000": {
+   "discordant_pairs": 19,
+   "min_detectable_net_items": 11,
+   "min_detectable_pp": 9.17
+  }
+ },
+ "verdict": "放弃（未检测到效果）",
+ "next_step_per_plan": "本次**没有检测到效果**（不是「变差了」）⇒ 按预先分叉改走「查询改写 / 别名扩展 / 大白话→标准术语」；若要试备选臂，每次只改文本这一处、各自单独写止损线",
+ "how_to_read_this": [
+  "配对比较 ⇒ 看**分歧对**（翻进/翻出）与精确二项 p，不看百分点。",
+  "本次每一档 p 都远大于 0.05 ⇒ **两个方向都不显著**；",
+  "结合 power_of_this_run：@1000 要净差 11 条（≈9.2pt）才显著 ⇒",
+  "**这个样本量只能分辨大效果**，小改动本来就测不出来（这正是预登记门槛定在 +12pt 的原因）。"
+ ],
  "rescued_from_104": {
   "n": 11,
   "ids": [

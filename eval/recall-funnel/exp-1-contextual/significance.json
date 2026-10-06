@@ -1,0 +1,90 @@
+{
+ "why": "配对比较 ⇒ 用 McNemar 的精确二项检验；只看百分点会把噪声读成结论",
+ "test": "exact two-sided binomial, p=0.5, on the discordant pairs",
+ "rows": [
+  {
+   "subset": "主结果 120",
+   "cutoff": "@20",
+   "flip_in": 1,
+   "flip_out": 4,
+   "discordant": 5,
+   "net_items": -3,
+   "net_pp": -2.5,
+   "exact_binom_two_sided_p": 0.375,
+   "significant_at_0.05": false,
+   "min_detectable_net_items": 5,
+   "min_detectable_pp": 4.17
+  },
+  {
+   "subset": "主结果 120",
+   "cutoff": "@100",
+   "flip_in": 7,
+   "flip_out": 5,
+   "discordant": 12,
+   "net_items": 2,
+   "net_pp": 1.67,
+   "exact_binom_two_sided_p": 0.7744,
+   "significant_at_0.05": false,
+   "min_detectable_net_items": 8,
+   "min_detectable_pp": 6.67
+  },
+  {
+   "subset": "主结果 120",
+   "cutoff": "@1000",
+   "flip_in": 10,
+   "flip_out": 9,
+   "discordant": 19,
+   "net_items": 1,
+   "net_pp": 0.83,
+   "exact_binom_two_sided_p": 1.0,
+   "significant_at_0.05": false,
+   "min_detectable_net_items": 11,
+   "min_detectable_pp": 9.17
+  },
+  {
+   "subset": "全量 171",
+   "cutoff": "@20",
+   "flip_in": 2,
+   "flip_out": 4,
+   "discordant": 6,
+   "net_items": -2,
+   "net_pp": -1.17,
+   "exact_binom_two_sided_p": 0.6875,
+   "significant_at_0.05": false,
+   "min_detectable_net_items": 6,
+   "min_detectable_pp": 3.51
+  },
+  {
+   "subset": "全量 171",
+   "cutoff": "@100",
+   "flip_in": 8,
+   "flip_out": 6,
+   "discordant": 14,
+   "net_items": 2,
+   "net_pp": 1.17,
+   "exact_binom_two_sided_p": 0.7905,
+   "significant_at_0.05": false,
+   "min_detectable_net_items": 10,
+   "min_detectable_pp": 5.85
+  },
+  {
+   "subset": "全量 171",
+   "cutoff": "@1000",
+   "flip_in": 14,
+   "flip_out": 15,
+   "discordant": 29,
+   "net_items": -1,
+   "net_pp": -0.58,
+   "exact_binom_two_sided_p": 1.0,
+   "significant_at_0.05": false,
+   "min_detectable_net_items": 13,
+   "min_detectable_pp": 7.6
+  }
+ ],
+ "conclusion": [
+  "没有任何一档达到显著（全部 p 远大于 0.05）——**两个方向都不显著**。",
+  "⇒ 正确的说法是「**本次没有检测到效果**」，而**不是**「变差了」或「略微变好」。",
+  "更要紧的是**这个实验的分辨力**：@1000 只有 19 对不一致，要到净差 11 条（≈9.2pt）才显著；",
+  "这正是预登记把「推广」门槛定在 +12pt 的原因 —— 小改动本来就不该指望被这个样本量测出来。"
+ ]
+}

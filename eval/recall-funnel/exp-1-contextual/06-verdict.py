@@ -15,6 +15,7 @@
 from __future__ import annotations
 
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -24,6 +25,24 @@ AB = HERE / "ab-result.json"
 OUT = HERE / "verdict.json"
 
 PRIMARY = "vec@1000"
+
+
+def binom_two_sided(k: int, n: int) -> float:
+    """精确二项检验（p=0.5）双侧 p 值 —— 配对比较就该用它，不该只看百分点。"""
+    if n == 0:
+        return 1.0
+    pmf = lambda i: math.comb(n, i) * 0.5 ** n       # noqa: E731
+    obs = pmf(k)
+    return min(1.0, sum(pmf(i) for i in range(n + 1) if pmf(i) <= obs + 1e-12))
+
+
+def min_detectable(n: int) -> int:
+    """n 对不一致时，达到双侧 p<0.05 所需的净差条数。"""
+    for net in range(0, n + 1):
+        for k in (n // 2 - net // 2, n // 2 + (net + 1) // 2):
+            if 0 <= k <= n and abs(2 * k - n) == net and binom_two_sided(k, n) < 0.05:
+                return net
+    return n
 
 
 def main() -> int:
@@ -49,17 +68,40 @@ def main() -> int:
     if flip["in"] == 0 and flip["out"] == 0 and abs(net_pp) < 0.01:
         hard.append("两臂逐条完全相同 ⇒ 实验臂文本很可能没生效（查 02/03）")
 
-    # ── 负结果（**要报，但不是"作废"**）────────────────────────────────────
+    # ── 负向发现（**要报，但不是"作废"**）──────────────────────────────────
+    # ⚠ 2026-10-06 第二次更正：这里原先把"@20 下降 2.5pt"直接写成"负向发现"，
+    #   而没说它**是不是可分辨**。算过之后：@20 的分歧对只有 5 对（翻进 1 / 翻出 4），
+    #   精确二项双侧 **p = 0.375** ⇒ **在噪声里**。把它说成"实打实变差"是**在相反方向上超出证据**。
+    #   ⇒ 现在每条负向发现都**必须带显著性**；同时还报**这个样本量最小能测出多大的效果**。
     negatives = []
-    for depth in (20, 100):
+    for depth in (20, 100, 1000):
         b, c = head.get(f"base_vec@{depth}"), head.get(f"ctx_vec@{depth}")
-        if b is not None and c is not None and c < b:
-            negatives.append(f"Vector@{depth} 下降：{b:.4f} → {c:.4f}"
-                             f"（{round((c-b)*100,2)}pt）")
+        if b is None or c is None or c >= b:
+            continue
+        f = head[f"vec@{depth}_flip"]
+        p = binom_two_sided(f["in"], f["in"] + f["out"])
+        negatives.append({
+            "what": f"Vector@{depth} 下降：{b:.4f} → {c:.4f}（{round((c-b)*100,2)}pt）",
+            "flip_in": f["in"], "flip_out": f["out"],
+            "exact_binom_two_sided_p": round(p, 4),
+            "within_noise": p >= 0.05,
+        })
     if head["base_union@1000"] is not None and head["ctx_union@1000"] is not None \
             and head["ctx_union@1000"] < head["base_union@1000"]:
-        negatives.append(f"六路并集@1000 下降：{head['base_union@1000']:.4f} →"
-                         f" {head['ctx_union@1000']:.4f}")
+        negatives.append({"what": f"六路并集@1000 下降：{head['base_union@1000']:.4f} →"
+                                  f" {head['ctx_union@1000']:.4f}",
+                          "flip_in": None, "flip_out": None,
+                          "exact_binom_two_sided_p": None, "within_noise": None})
+
+    # ── 本次实验的分辨力（**防止把"没测出来"说成"没有效果"或"变差了"**）──────
+    power = {}
+    for d in (20, 100, 1000):
+        f = head[f"vec@{d}_flip"]
+        n = f["in"] + f["out"]
+        md = min_detectable(n)
+        power[f"@{d}"] = {"discordant_pairs": n,
+                          "min_detectable_net_items": md,
+                          "min_detectable_pp": round(md / head["n"] * 100, 2)}
 
     if hard:
         verdict = "作废（仪器问题，不许解释结果）"
@@ -69,7 +111,7 @@ def main() -> int:
         elif net_pp >= 5:
             verdict = "观察"
         else:
-            verdict = "放弃"
+            verdict = "放弃（未检测到效果）"
 
     out = {
         "experiment": sl["experiment"],
@@ -91,12 +133,21 @@ def main() -> int:
         },
         "hard_fail_triggered": hard,
         "negative_findings": negatives,
+        "power_of_this_run": power,
         "verdict": verdict,
         "next_step_per_plan": ({
             "推广": "继续做结构化检索表示 + 重建索引；之后再处理 Top1000→Top20 的截断",
             "观察": "单次跑分不出来 ⇒ 按 README §七 跑备选臂（E1b 只加标准名 / E1c 加路径 / E1d 正文前置）",
-            "放弃": "问题不只是条文上下文 ⇒ 改走「查询改写 / 别名扩展 / 大白话→标准术语」那条路",
+            "放弃（未检测到效果）":
+                "本次**没有检测到效果**（不是「变差了」）⇒ 按预先分叉改走「查询改写 / 别名扩展 / 大白话→标准术语」；"
+                "若要试备选臂，每次只改文本这一处、各自单独写止损线",
         }.get(verdict, "先查 hard_fail 那几条，别解释结果")),
+        "how_to_read_this": [
+            "配对比较 ⇒ 看**分歧对**（翻进/翻出）与精确二项 p，不看百分点。",
+            "本次每一档 p 都远大于 0.05 ⇒ **两个方向都不显著**；",
+            "结合 power_of_this_run：@1000 要净差 11 条（≈9.2pt）才显著 ⇒",
+            "**这个样本量只能分辨大效果**，小改动本来就测不出来（这正是预登记门槛定在 +12pt 的原因）。",
+        ],
         "rescued_from_104": {"n": len(ab.get("rescued_from_104", [])),
                              "ids": ab.get("rescued_from_104", [])[:30]},
     }
