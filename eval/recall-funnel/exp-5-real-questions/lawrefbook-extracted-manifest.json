@@ -1,0 +1,63 @@
+{
+ "why": "业主指示：把 LawRefBook 的 8MB 法规数据解到 D:\\AI\\work space\\标准\\法律法规，保持原目录结构",
+ "source_zip": {
+  "path": "D:\\AI\\work space\\zcode\\var\\tmp\\lawrefbook\\laws.zip",
+  "bytes": 8259238,
+  "sha256": "ef09feccf6fc528074fca7c64b58e7ea1b0dca16dae20be245b93a1960109d42"
+ },
+ "target": "D:\\AI\\work space\\标准\\法律法规",
+ "extracted": {
+  "dirs": 25,
+  "files": 1588,
+  "bytes": 26333633
+ },
+ "verified_on_disk": {
+  "files": 1588,
+  "bytes": 26333633,
+  "no_mojibake_in_names": true,
+  "utf8_readable_of_first12": 11
+ },
+ "top_level": {
+  "行政法规": 684,
+  "司法解释": 440,
+  "行政法": 119,
+  "经济法": 91,
+  "宪法相关法": 57,
+  "案例": 57,
+  "部门规章": 32,
+  "社会法": 31,
+  "民法商法": 26,
+  "刑法": 14,
+  "诉讼与非诉讼程序法": 14,
+  "民法典": 9,
+  "宪法": 7,
+  "其他": 3,
+  "__cache__": 0
+ },
+ "root_files": {
+  "db.sqlite3": 1400832,
+  "README.md": 1160,
+  "requirements.txt": 201,
+  "法律法规模版.md": 579
+ },
+ "names_sample": [
+  "宪法相关法/国籍法(1980-09-10).md",
+  "宪法相关法/监察法(2024-12-25).md",
+  "宪法相关法/澳门特别行政区基本法(1993-03-31).md",
+  "宪法相关法/国防法(2020-12-26).md",
+  "宪法相关法/反恐怖主义法(2018-04-27).md",
+  "宪法相关法/缔结条约程序法(1990-12-28).md",
+  "宪法相关法/立法法(2015-03-15).md",
+  "宪法相关法/国家安全法(2015-07-01).md"
+ ],
+ "sample_body": {
+  "file": "README.md",
+  "chars": 612,
+  "head": "---\ndraft: true\n---\n\n本项目收集各类法律法规、部门规章、案例等，并将其按照章节等信息进行了处理。\n\n## 应用\n\n - [LawRefBook](https://github.com/RanKKI/LawRefBook) 是原生 iOS 应用，使用 SwiftUI 构建。\n\n## 贡献指南\n\n### 手动贡献\n\n - 根据[法律法规模版](法律法规模版.md) 的格式，将法律法规放入 `法律法规` 文件夹下合适的位置\n - 在 `scripts` 目录下运行 `python database.py`（会自动更新 `sqlite` 内容）\n - 提交更改，并提 pr\n\n### 自动脚本\n\n`scripts` 目录下有一 `request.py` 脚本，支持从 [国家法律法规数据库](https://flk.npc.gov.cn) 爬取最新的法律法规。\n\n在 `script"
+ },
+ "boundary": [
+  "只写目标目录；未碰真库与仓库内数据。",
+  "原 zip 的名录是 UTF-8 被按 CP437 解出的乱码 ⇒ 本脚本自行还原后写盘（用 extractall 会建乱码目录）。",
+  "许可：LawRefBook 仓库 SPDX=NOASSERTION，README 主张依《著作权法》第五条属公有领域；引入前的合规判断由业主负责。"
+ ]
+}
