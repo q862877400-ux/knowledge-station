@@ -1,0 +1,158 @@
+{
+ "why": "业主指示第①步：多家部委试采前的入口探测",
+ "egress": "direct（境内政府站直连，不走本地代理 —— 本仓 G28）",
+ "notes": [
+  "本仓 G27：NO_PROXY 含 [::1] 会让 httpx 构造失败，已在进程内改写成 ::1"
+ ],
+ "ministries": {
+  "应急管理部": [
+   {
+    "url": "https://www.mem.gov.cn/hd/gzly/hdhdly/",
+    "status": 200,
+    "len": 39696,
+    "qa_markers": [
+     "留言",
+     "咨询",
+     "回复",
+     "答复",
+     "常见问题",
+     "答复意见"
+    ],
+    "detail_patterns": [
+     {
+      "pattern": "应急部式 相对 ../lyhf/",
+      "n": 6,
+      "sample": [
+       "../lyhf/202609/t20260910_715731.shtml",
+       "../lyhf/202609/t20260902_710216.shtml"
+      ]
+     }
+    ]
+   }
+  ],
+  "生态环境部": [
+   {
+    "url": "https://www.mee.gov.cn/hdjl/",
+    "status": 200,
+    "len": 76377,
+    "qa_markers": [
+     "留言",
+     "咨询",
+     "回复",
+     "常见问题"
+    ],
+    "detail_patterns": []
+   },
+   {
+    "url": "https://www.mee.gov.cn/hdjl/zxly/",
+    "status": 200,
+    "len": 30094,
+    "qa_markers": [],
+    "detail_patterns": []
+   },
+   {
+    "url": "https://www.mee.gov.cn/hdjl/cjwt/",
+    "status": 200,
+    "len": 49389,
+    "qa_markers": [
+     "留言",
+     "咨询",
+     "常见问题"
+    ],
+    "detail_patterns": []
+   }
+  ],
+  "住房和城乡建设部": [
+   {
+    "url": "https://www.mohurd.gov.cn/hdjl/",
+    "status": 404,
+    "len": 548,
+    "qa_markers": [],
+    "detail_patterns": []
+   },
+   {
+    "url": "https://www.mohurd.gov.cn/hdjl/zxft/",
+    "status": 404,
+    "len": 548,
+    "qa_markers": [],
+    "detail_patterns": []
+   }
+  ],
+  "国家市场监督管理总局": [
+   {
+    "url": "https://xgzlyhd.samr.gov.cn/gjjly/",
+    "status": 200,
+    "len": 7906,
+    "qa_markers": [
+     "留言",
+     "咨询",
+     "回复",
+     "答复"
+    ],
+    "detail_patterns": []
+   },
+   {
+    "url": "https://www.samr.gov.cn/hd/",
+    "status": 200,
+    "len": 13852,
+    "qa_markers": [
+     "留言",
+     "咨询"
+    ],
+    "detail_patterns": []
+   }
+  ],
+  "国家卫生健康委员会": [
+   {
+    "url": "http://www.nhc.gov.cn/hdjl/",
+    "status": 412,
+    "len": 3454,
+    "qa_markers": [],
+    "detail_patterns": []
+   },
+   {
+    "url": "http://www.nhc.gov.cn/hdjl/zxly/",
+    "status": 412,
+    "len": 3452,
+    "qa_markers": [],
+    "detail_patterns": []
+   }
+  ],
+  "工业和信息化部": [
+   {
+    "url": "https://www.miit.gov.cn/hdjl/",
+    "status": 200,
+    "len": 9297,
+    "qa_markers": [
+     "咨询"
+    ],
+    "detail_patterns": []
+   },
+   {
+    "url": "https://www.miit.gov.cn/gzcy/",
+    "status": 200,
+    "len": 14841,
+    "qa_markers": [
+     "咨询"
+    ],
+    "detail_patterns": []
+   }
+  ],
+  "国家消防救援局": [
+   {
+    "url": "https://www.119.gov.cn/hd/gzly",
+    "status": 405,
+    "len": 22657,
+    "qa_markers": [],
+    "detail_patterns": []
+   },
+   {
+    "url": "https://www.119.gov.cn/hd/",
+    "status": 412,
+    "len": 22657,
+    "qa_markers": [],
+    "detail_patterns": []
+   }
+  ]
+ }
+}

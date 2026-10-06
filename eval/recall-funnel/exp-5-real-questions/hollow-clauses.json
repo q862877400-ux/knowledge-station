@@ -1,0 +1,92 @@
+{
+ "question": "库里有多少条文是『空壳』（正文只有标题、没有内容）？",
+ "how_found": "建『真问题+官方金标』考卷时，官方答复点名一份**在库**文件的第十条，按条号定位却一条都对不上 ⇒ 查下去发现那 37 条正文全是同一句标题。",
+ "why_it_matters": [
+  "这类条文**永远答不出任何问题**（正文里没有可检索内容）；",
+  "它会**污染检索**：可能被任意问题匹配上、占掉前面的位置；",
+  "它解释了早前在考卷里发现的 q166/q167『第二十条 标题：』——**那不是个别现象**。"
+ ],
+ "totals": {
+  "clauses": 522021,
+  "with_title_marker": 1463,
+  "hollow": 90,
+  "hollow_pct": 0.017,
+  "docs_affected": 19,
+  "docs_entirely_hollow": 0
+ },
+ "top_docs": [
+  {
+   "doc_id": "doc_01M38W21BRZCCFCKG3K6G1SJYV",
+   "standard_no": "应急管理部关于给予王谋生等15名同志奖励的决定",
+   "standard_name": "应急管理部关于给予王谋生等15名同志奖励的决定",
+   "hollow_clauses": 20,
+   "total_clauses": 59
+  },
+  {
+   "doc_id": "doc_01M38VZNCETR1ZYGN6JZ6QTMAQ",
+   "standard_no": "中华人民共和国应急管理部令（第22号）煤矿企业安全生产许可证实施办法",
+   "standard_name": "中华人民共和国应急管理部令（第22号）煤矿企业安全生产许可证实施办法",
+   "hollow_clauses": 13,
+   "total_clauses": 64
+  },
+  {
+   "doc_id": "doc_01M38W0FC6BYDPSB110RHQP9H8",
+   "standard_no": "中华人民共和国应急管理部令（第15号）应急管理部行政复议和行政应诉工作办法",
+   "standard_name": "中华人民共和国应急管理部令（第15号）应急管理部行政复议和行政应诉工作办法",
+   "hollow_clauses": 7,
+   "total_clauses": 56
+  },
+  {
+   "doc_id": "doc_01M38W2S84HWJ2APWN2CGSWCPR",
+   "standard_no": "中华人民共和国应急管理部令（第5号）高层民用建筑消防安全管理规定",
+   "standard_name": "中华人民共和国应急管理部令（第5号）高层民用建筑消防安全管理规定",
+   "hollow_clauses": 7,
+   "total_clauses": 59
+  },
+  {
+   "doc_id": "doc_01M38VZY5G1B1JB8WWACRAHZH2",
+   "standard_no": "应急管理部 人力资源社会保障部关于印发《应急救援员职业资格管理办法（试行）》的通知",
+   "standard_name": "应急管理部 人力资源社会保障部关于印发《应急救援员职业资格管理办法（试行）》的通知",
+   "hollow_clauses": 5,
+   "total_clauses": 37
+  },
+  {
+   "doc_id": "doc_01M38W0KZCF13Z7301QGSSF5GC",
+   "standard_no": "中华人民共和国应急管理部令（第14号）生产安全事故罚款处罚规定",
+   "standard_name": "中华人民共和国应急管理部令（第14号）生产安全事故罚款处罚规定",
+   "hollow_clauses": 5,
+   "total_clauses": 33
+  },
+  {
+   "doc_id": "doc_01M38W2JBZCTF1JGPQW5AST25M",
+   "standard_no": "中华人民共和国应急管理部令（第6号)工贸企业粉尘防爆安全规定",
+   "standard_name": "中华人民共和国应急管理部令（第6号)工贸企业粉尘防爆安全规定",
+   "hollow_clauses": 5,
+   "total_clauses": 37
+  },
+  {
+   "doc_id": "doc_01M38VZT3NHH30C132EQ9ZZPPM",
+   "standard_no": "中华人民共和国应急管理部令（第20号）安全评价检测检验机构管理办法",
+   "standard_name": "中华人民共和国应急管理部令（第20号）安全评价检测检验机构管理办法",
+   "hollow_clauses": 4,
+   "total_clauses": 43
+  },
+  {
+   "doc_id": "doc_01M38W22G63R2QPEBXX3B7J106",
+   "standard_no": "中华人民共和国应急管理部令（第7号)社会消防技术服务管理规定",
+   "standard_name": "中华人民共和国应急管理部令（第7号)社会消防技术服务管理规定",
+   "hollow_clauses": 4,
+   "total_clauses": 43
+  },
+  {
+   "doc_id": "doc_01M38VZ69K4FX518TK6HEKX5CH",
+   "standard_no": "中华人民共和国应急管理部令（第23号）社会消防技术服务管理规定",
+   "standard_name": "中华人民共和国应急管理部令（第23号）社会消防技术服务管理规定",
+   "hollow_clauses": 3,
+   "total_clauses": 52
+  }
+ ],
+ "boundary": [
+  "判据是启发式（去掉『第X条 标题：』后 ≤80 字），可能有少量误判；只读真库。"
+ ]
+}
