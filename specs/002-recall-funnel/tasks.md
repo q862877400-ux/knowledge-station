@@ -58,7 +58,11 @@
       **E/F 恒 0**（E 的字段 `subject` 非空仅 2,171 且还要 `knowledge_type='legal'` 只剩 1,148；
       F 匹配的 `behavior_scope_segmented` **全库 0 行**）→ `config-inventory.md` §四
 - [x] T008 把「四个检索角度 / `semantic_exact` vs `semantic_ann`」的旧口径**就地更正**为实测事实
-      （本仓 `clause_vec` 是 `vec0`、无 ANN）→ 7 篇文档，提交 `cee48cf`
+      （本仓 `clause_vec` 是 `vec0`、无 ANN）→ `specs/002-recall-funnel/` 下 **8 篇**
+      （`spec.md` / `plan.md` / `quickstart.md` / `data-model.md` / `读我-大白话版.md` /
+      `contracts/funnel.schema.md` / `contracts/benchmark.schema.md` / `contracts/baseline.schema.md`），
+      提交 `cee48cf`
+      ⚠ **更正**：本行初版写「7 篇」—— `git show --stat cee48cf` 实际是 **8 个文件**，已改。
 
 **Checkpoint**: 口径统一、现状清楚 —— 可以开始量了。
 
@@ -78,22 +82,24 @@
 - [x] T011 [US1] 仪器自检 `replica_check`：每条问法把"通道副本前 20"与
       `perform_hybrid_search(单通道)` 逐个比 ⇒ **171/171 一致**
       （⚠ 覆盖面：只 A/B/C/D 四路、只比前 20；深读名次另由复核抽验）
+      → 结果写在 `eval/recall-funnel/funnel-per-query.jsonl` 的 `replica_check` 字段，
+      汇总在 `funnel-summary.json` 的 `replica_check`（`n_mismatch = 0`）
 - [x] T012 [US1] 汇总表：每通道 @20/@100/@1000、**两个并集口径分开命名**
       （`same_budget` / `prod_caps`）、融合后名次 → `eval/recall-funnel/funnel-summary.json`（`summarize.py`）
 - [x] T013 [US1] 分诊成三档 + 留证失败样本 50 条：
       够不着 **104** / 被截断 **48** / 融合丢 **4** / 进得了用户看的 8 条 **9**
       → `failure-samples.jsonl`、`REPORT.md` §C
 - [x] T014 [US1] 结论报告 A–F → `eval/recall-funnel/REPORT.md`
-- [ ] **T015 [US1] 🔴 未做 —— 基准的"人工确认"**（FR-004 / SC-003 要求"每条的答案经人工确认"）。
+- [ ] T015 [US1] 🔴 未做 —— 基准的"人工确认"（FR-004 / SC-003 要求"每条的答案经人工确认"）。
       本批 gold 是**从条文反推问法 + 另一个模型盲判 3 次**，**不是人工确认的**，
       这条**违反** `contracts/benchmark.schema.md` 的"`confirmed_by` 必须是人"。
       **做完的标志**：抽 **≥30 条**（跨定义/要求、跨 register）请人逐条判"这条问法的答案确实是它吗"，
       结果落 `eval/recall-funnel/benchmark-v2-humancheck.jsonl`，并在 `REPORT.md` §八 更新该条限制的实际影响；
       若做不到，**MUST 在报告里把"人工确认"降级为"未做"，不许含糊**。
-- [ ] **T016 [US1] 未做 —— 按 spec 的四个子集切片**（FR-005 / FR-009：短条款 / 字面零重合 / 带标准号 / 普通）。
+- [ ] T016 [US1] 未做 —— 按 spec 的四个子集切片（FR-005 / FR-009：短条款 / 字面零重合 / 带标准号 / 普通）。
       实测只切了 **kind（定义/要求）** 与 **零重合**；**"短条款"（<40 字）与"带标准号"两个切片没有做**。
       **做完的标志**：`funnel-summary.json` 里出现 `by_subset`，四个子集各有命中率**且各带分母**。
-- [ ] **T017 [US1] 未做 —— `answer_out_of_corpus` 字段**（FR-006：答案不在库内的题要能标出并排除）。
+- [ ] T017 [US1] 未做 —— `answer_out_of_corpus` 字段（FR-006：答案不在库内的题要能标出并排除）。
       本批 171 条 gold **全部在库内**（171/171 可查）⇒ 本轮不构成风险，但**字段不存在** ⇒ 换考卷时会裸奔。
       **做完的标志**：`benchmark-v2.jsonl` 每条带该布尔字段，且统计时能排除。
 
@@ -114,7 +120,8 @@
 - [x] T021 [US2] 可复跑：抽 12 条各跑两遍逐字一致（`determinism.json`）；
       **加强**：全量 171 条重跑对照，逐条通道名次 **0 处差异**（`rerun-consistency.json`，基线由 `git show` 取回，可复算）
 - [x] T022 [US2] 记录代码版本（快照 `step-240` / `step-241`）供"这份基线是哪版跑的"追溯
-- [ ] **T023 [US2] 未做 —— 按 `contracts/baseline.schema.md` 的三件套格式建基线**。
+      → 快照脚本 `scripts/snapshot-project.ps1`；`git tag -l "step-24*"` 可列出
+- [ ] T023 [US2] 未做 —— 按 `contracts/baseline.schema.md` 的三件套格式建基线。
       现状是"散文 + jsonl"，**不是**契约要求的 `baseline-v0/{config,metrics,results}`。
       契约已在 `cee48cf` 里**如实标注"原定目录从未落地"**；
       **做完的标志**：要么补齐三件套，要么把契约改成与实际一致（**二选一，不许两套并存**）。
@@ -129,12 +136,12 @@
 
 **Independent Test**: 只改一个环节、其他全部固定，跑出改前/改后两组数。
 
-- [ ] **T024 [US3] 🔴 未做 —— 第一个改进实验**（FR-013/FR-015）。**一步都没跑。**
+- [ ] T024 [US3] 🔴 未做 —— 第一个改进实验（FR-013/FR-015）。**一步都没跑。**
       按 spec FR-015，第一个实验**只许改"文档送给模型理解时所用的文本"**（原文/页码/坐标一律不动）。
       **做完的标志**：`eval/recall-funnel/exp-1-<改动名>/` 里有 `changed`（只有一项）+ 改前/改后两组数。
-- [ ] **T025 [US3] 未做 —— 开跑前先写止损线**（FR-014：放弃 / 观察 / 推广三档阈值）。
+- [ ] T025 [US3] 未做 —— 开跑前先写止损线（FR-014：放弃 / 观察 / 推广三档阈值）。
       **必须写在跑之前**，跑完再补无效。**做完的标志**：`exp-1-*/stop_loss.json` 的 mtime **早于** 结果文件。
-- [ ] **T026 [US3] 未做 —— 改前/改后对照与结论**（SC-004）。
+- [ ] T026 [US3] 未做 —— 改前/改后对照与结论（SC-004）。
       结论必须直接从前后的数字读出，**不接受"感觉变好了"**。
       **做完的标志**：`exp-1-*/verdict.json`，且每条结论能挂回具体条目。
 
@@ -147,13 +154,14 @@
 - [x] T027 口径与复跑说明 → `eval/recall-funnel/README.md`
 - [x] T028 更正留痕：两轮独立复核共 15 条问题逐条登记（含原错话与改法）→ `REPORT.md` §八
 - [x] T029 小提交 + 快照（`step-240` / `step-241`）+ 冻结批次标签 `verify-freeze-funnel-1/2/3`
-- [ ] **T030 未做 —— 把本次收口结果写回交接文档**：`docs/HANDOVER-2026-10-06.md` §五 那张表
-      保留原表 + 追加"收口结果"列，**不删历史**。**做完的标志**：该文档 §五 每行都有 ✅/❌ 与出处。
-- [ ] **T031 未做 —— 两批考卷的口径说明**（交接 §五 第 5 条）。
+      → 快照脚本 `scripts/snapshot-project.ps1`；冻结标签 `git tag -l "verify-freeze-funnel-*"`
+- [x] T030 已完成 —— 本次收口结果已写回交接文档：`docs/HANDOVER-2026-10-06.md` §五 那张表
+      保留原表 + 追加"收口结果"列，**不删历史**。→ 产出：`docs/HANDOVER-2026-10-06.md` §五·收口结果。
+- [x] T031 已完成 —— 两批考卷的口径说明（交接 §五 第 5 条）。
       `eval/bunny-benchmark/`（正向，24 条且**自标"只能算待复验"**：同一对输入 4 次调用结论相反）
       vs `eval/reverse-benchmark/`（反向，171 条）**口径不同、不许混用**。
-      **做完的标志**：一处归属层写明各自的造法、样本量、已知缺陷、**能用它算什么/不能算什么**。
-- [ ] **T032 未做 —— 下次改进实验前的准备**：按本仓纪律，
+      → 产出：`eval/README.md` §二（含"正向 24 条 vs 正向 106 条"的指代更正）。
+- [ ] T032 未做 —— 下次改进实验前的准备：按本仓纪律，
       ① 开跑前 `git tag` 冻结批次并数出提交条数写进任务书；② 派 verifier 前机械确认"没人在写这棵树"；
       ③ 只跑被触碰面的最小证据 + 快照。**做完的标志**：`exp-1-*/` 目录旁有一份 `PRE-EXP-CHECKLIST.md` 并逐项打过勾。
 
