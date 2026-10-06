@@ -17,10 +17,11 @@
 | `benchmark-v2-stats.json` | 考卷统计（唯一条款数 / 票型 / 标记数 / 移出样本与原因） | 复核 |
 | `funnel-per-query.jsonl` | **逐条**漏斗原始记录（每条：六路各自的 gold 名次 + 并集 + 融合 + 一致性校验） | 复核、复算 |
 | `funnel-summary.json` | 上面那份折出来的表（含全量 / 主结果 / 按类型三套） | 报告的数据源 |
-| `failure-samples.jsonl` | 六路深读 1000 全未命中的问法（50 条）+ 当时六路返回的候选 | 下一阶段 |
+| `failure-samples.jsonl` | **同预算并集 @1000 未命中**的问法（50 条）+ 当时六路返回的候选 | 下一阶段 |
 | `lexical-overlap.json` | 问法与 gold 条文的**字面重合率**（"按字找"的先天天花板） | 报告 B 节 |
 | `query-preprocess.json` | 生产**实际喂给六路通道**的查询串逐条清单（与原始问法的差异） | 报告 §八 第 4 条 |
-| `determinism.json` | 同一套设置跑两遍是否逐字一致 | 质量证据 |
+| `determinism.json` | 抽 12 条各跑两遍是否逐字一致 | 质量证据 |
+| `rerun-consistency.json` | **全量**重跑对照（171 条 × 6 路 × 5 字段，基线由 `git show bd7516a:…` 取回，可复算） | 报告头部那条断言 |
 | `config-inventory.md` | 任务 5：当前检索配置盘点（只读代码与库） | 业主 + 外部评估 |
 
 ---
@@ -66,7 +67,7 @@ RRF 权重约 `1e-5`（名义上有、实际等于没有）。**报告的主口�
 
 ⚠ **这层自检的覆盖面要说准**（独立复核指出初版说法过宽）：它只覆盖
 **A / B / C / D 四路**（E/F 在生产路径上恒 0 候选，不参与），而且**只比前 20 条**。
-**深读 1000 的名次不在这层自检里** —— 那部分由复核手工重跑生产函数抽验（6 个深读名次 + 1 个 8 万名次，全部一致）。
+**深读 1000 的名次不在这层自检里** —— 那部分由复核**独立重跑生产函数抽验 9 条问法**的名次（随机 5 条 + 针对性 4 条，含模态那一路第 80,101 名），全部一致。
 
 ---
 
@@ -90,7 +91,8 @@ cd 'D:\AI\work space\zcode'
 
 # 5) 三条质量证据
 & .venv\Scripts\python.exe eval\recall-funnel\lexical-overlap.py     # 字面重合率
-& .venv\Scripts\python.exe eval\recall-funnel\determinism.py --n 12  # 跑两遍是否一致
+& .venv\Scripts\python.exe eval\recall-funnel\determinism.py --n 12        # 抽 12 条跑两遍是否一致
+& .venv\Scripts\python.exe eval\recall-funnel\rerun-consistency.py       # 全量重跑对照（需 git 里的旧记录）
 & .venv\Scripts\python.exe eval\recall-funnel\preprocess-diff.py     # 生产实际搜索串清单
 ```
 

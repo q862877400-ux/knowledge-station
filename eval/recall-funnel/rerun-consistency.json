@@ -1,0 +1,31 @@
+{
+ "meta": {
+  "base": "bd7516a:eval/recall-funnel/funnel-per-query.jsonl（并集口径修好之前的跑，由 git show 取回，可复算）",
+  "current": "D:\\AI\\work space\\zcode\\eval\\recall-funnel\\funnel-per-query.jsonl",
+  "what": "同样输入跑两遍，逐条比每路候选数与 gold 名次",
+  "why": "报告头部断言'全量重跑对照 0 处差异'，独立复核指出没有产物可核"
+ },
+ "n_compared": 171,
+ "rank_field_diffs": {
+  "n": 0,
+  "samples": []
+ },
+ "other_field_diffs": {
+  "n": 0,
+  "samples": []
+ },
+ "caliber_field_diffs": {
+  "n": 1,
+  "note": "口径类字段（命中通道）**本来就该不同**——那次是旧实现跑的；实测只翻了这几条",
+  "samples": [
+   {
+    "i": 142,
+    "old": [
+     "modality"
+    ],
+    "new": []
+   }
+  ]
+ },
+ "verdict": "名次类字段跨两跑完全一致"
+}
