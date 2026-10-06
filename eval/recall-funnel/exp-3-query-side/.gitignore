@@ -1,0 +1,5 @@
+# E3 的实验副本：2.6 GB，**不入库**（与 exp-1-contextual 同一纪律）
+exp.db
+exp.db-wal
+exp.db-shm
+exp.db-journal
