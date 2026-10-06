@@ -1,0 +1,32 @@
+{
+ "why": "删掉 43 条之后基线必须仍复现（E1 同款检查）",
+ "n": 120,
+ "depths": [
+  {
+   "depth": 20,
+   "want_items": 12,
+   "got_items": 12,
+   "want_rate": 0.1,
+   "got_rate": 0.1,
+   "ok": true
+  },
+  {
+   "depth": 100,
+   "want_items": 21,
+   "got_items": 21,
+   "want_rate": 0.175,
+   "got_rate": 0.175,
+   "ok": true
+  },
+  {
+   "depth": 1000,
+   "want_items": 43,
+   "got_items": 43,
+   "want_rate": 0.3583,
+   "got_rate": 0.3583,
+   "ok": true
+  }
+ ],
+ "ok": true,
+ "verdict": "✅ 对照臂复现基线 ⇒ 删那 43 条无副作用"
+}
