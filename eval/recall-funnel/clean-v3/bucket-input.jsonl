@@ -1,0 +1,50 @@
+{"id": "f2", "query": "车间墙角那个呼呼吸空气测细菌的小圆盒子，是干什么用的？", "gold_std": "GB/T 29909-2013", "gold_clause": "3.4.9", "gold_text": "3.4.9\n微生物采样器 microbial sampler\n用于采集作业环境中的微生物的仪器。"}
+{"id": "f3", "query": "木炭通红通红的却不见半点火苗，这算着火吗？", "gold_std": "GB/T 21352-2022", "gold_clause": "3.2", "gold_text": "3.2\n无焰燃烧 glowing\n因热而发光的燃烧(无火焰)。"}
+{"id": "f4", "query": "电炉丝烧到透红但不起火，跟普通着火有啥区别？", "gold_std": "GB/T 21352-2022", "gold_clause": "3.2", "gold_text": "3.2\n无焰燃烧 glowing\n因热而发光的燃烧(无火焰)。"}
+{"id": "f5", "query": "巡检发现堆垛内部暗红透亮冒烟，这属于哪种情况？", "gold_std": "GB/T 21352-2022", "gold_clause": "3.2", "gold_text": "3.2\n无焰燃烧 glowing\n因热而发光的燃烧(无火焰)。"}
+{"id": "f6", "query": "分拣时怎么一眼看出哪些拉杆箱是贵宾客户的？", "gold_std": "GB/T 18764-2002", "gold_clause": "11.2.6", "gold_text": "11.2.6 重要旅客行李牌 baggage tag for VIP\n\n拴挂或粘贴在重要旅客行李(11.1)上的识别标识牌。"}
+{"id": "f7", "query": "从钢瓶到减压阀这一大串管路，行业里一般管它叫啥？", "gold_std": "GB 23394-2024", "gold_clause": "3.2", "gold_text": "3.2\n高压系统 high pressure system\n由气瓶、气瓶阀、减压器、手动补给阀、压力指示器和报警器等承载高压氧气的部件及连接件所组成\n的呼吸器高压气路部分。"}
+{"id": "f8", "query": "柜子里留着这块没暴晒过的原色塑料片是干嘛用的？", "gold_std": "GB/T 14522-2008", "gold_clause": "3.1", "gold_text": "3.1\n存放样品 file specimen\n存放在稳定的条件下用来比较暴露前后性能变化的部分试验材料。"}
+{"id": "f9", "query": "每次做老化测试前，为啥都要特意锁一包料在恒温箱里？", "gold_std": "GB/T 14522-2008", "gold_clause": "3.1", "gold_text": "3.1\n存放样品 file specimen\n存放在稳定的条件下用来比较暴露前后性能变化的部分试验材料。"}
+{"id": "f11", "query": "咱们工厂不光卖机床还包后期联网运维，这算啥业务？", "gold_std": "GB/T 23031.6-2023", "gold_clause": "3.1.3", "gold_text": "3.1.3\n工程服务化 engineering service\n以工程服务为主要对象,企业基于工业互联网平台提供的工程一体化服务、工程延续性服务、供应链管理服务等创新服务模式。"}
+{"id": "f13", "query": "这根插头线上一直测到微小的杂波信号，到底是什么东西？", "gold_std": "GB/T 29259-2012", "gold_clause": "3.23", "gold_text": "3.23\n连续传导发射 continuous conducted emissions\n存在于电源线或其他引线中持续的噪声电压/电流。"}
+{"id": "f15", "query": "示波器上那条24伏电线里一直抖个不停的毛刺叫什么？", "gold_std": "GB/T 29259-2012", "gold_clause": "3.23", "gold_text": "3.23\n连续传导发射 continuous conducted emissions\n存在于电源线或其他引线中持续的噪声电压/电流。"}
+{"id": "f18", "query": "工人们把3号孔封口拆掉记录水流速度到底在测什么？", "gold_std": "GB/T 14157-2023", "gold_clause": "8.4.5", "gold_text": "8.4.5\n放水试验dewatering test\n在井下通过井孔，利用含水层的天然静水压力自行泄水，引起上部地下水水位下降，以获得有关水\n文地质参数及查清揭露含水层水文地质条件的试验。"}
+{"id": "f19", "query": "变电站大柜子没输送实际电量却在补偿电压是哪种状态？", "gold_std": "GB/T 37011-2018", "gold_clause": "3.1.16", "gold_text": "3.1.16\n容性运行 capacitive operation\n换流器在与交流系统交换或不交换有功功率的情况下发出无功功率的运行方式。"}
+{"id": "f20", "query": "电工说机器现在不传电量只调节电网相位到底算什么模式？", "gold_std": "GB/T 37011-2018", "gold_clause": "3.1.16", "gold_text": "3.1.16\n容性运行 capacitive operation\n换流器在与交流系统交换或不交换有功功率的情况下发出无功功率的运行方式。"}
+{"id": "f22", "query": "把炸鸡店用过的废弃地沟油提炼出来加进车里算什么能源？", "gold_std": "GB/T 12918-2023", "gold_clause": "3.5", "gold_text": "3.5\n生物燃料 bio-fuels\n乙醇、脂肪酸甲基酯(FAME)、植物油(甘油三酯)、直链和支链烷烃(C10-C26)，以及这些产品与石\n油调和产生的混合物。"}
+{"id": "f23", "query": "农场自己压榨的菜籽油兑进普通柴油给拖拉机烧算不算？", "gold_std": "GB/T 12918-2023", "gold_clause": "3.5", "gold_text": "3.5\n生物燃料 bio-fuels\n乙醇、脂肪酸甲基酯(FAME)、植物油(甘油三酯)、直链和支链烷烃(C10-C26)，以及这些产品与石\n油调和产生的混合物。"}
+{"id": "f25", "query": "厂里买的六轴机械臂自己走焊道，这属于啥工艺？", "gold_std": "GB/T 37818-2019", "gold_clause": "3.4", "gold_text": "3.4\n自动化焊接 automatic welding\n焊接操作工启动焊接后，焊接过程直至结束全部由焊机自动完成，一般无需操作工监视或调整，或仅需偶尔调整的一种焊接方式，包括埋弧自动焊、自动TIG焊、自动MIG焊、垂直气电焊、机器人焊接、自适应控制焊接以及其他自动化焊接方式。"}
+{"id": "f27", "query": "做X光探伤时，钢管被穿透后自己又散出来的光叫啥？", "gold_std": "GB/T 36416.2-2018", "gold_clause": "8.1.9", "gold_text": "8.1.9\n二次射线 secondary radiation\n由一次射线照射的物质所辐射的射线。"}
+{"id": "f28", "query": "直接照过来的主光束和被打到的物体反激出的光有啥不同？", "gold_std": "GB/T 36416.2-2018", "gold_clause": "8.1.9", "gold_text": "8.1.9\n二次射线 secondary radiation\n由一次射线照射的物质所辐射的射线。"}
+{"id": "f30", "query": "车间流水线上给100块主板灌软件的小黑盒是干嘛的？", "gold_std": "GB/T 22033-2017", "gold_clause": "2.114", "gold_text": "2.114\n编程工具 programmer\n编程器\n将程序固化到嵌入式系统存储器内的工具。"}
+{"id": "f31", "query": "网上常说的烧写夹和烧录枪到底是个什么玩意？", "gold_std": "GB/T 22033-2017", "gold_clause": "2.114", "gold_text": "2.114\n编程工具 programmer\n编程器\n将程序固化到嵌入式系统存储器内的工具。"}
+{"id": "f32", "query": "我奶奶下楼梯摔倒大腿根剧痛动不了，这算不算大腿断了？", "gold_std": "GB/T 16751.1-2023", "gold_clause": "5.6.1.12", "gold_text": "5.6.1.12\n股骨骨折 fracture of the femur\n因外力作用致使股骨颈、转子间、股骨干、髁上、髁部的连续性和完整性遭到破坏的骨折病。"}
+{"id": "f33", "query": "拍片子显示大腿那根骨头裂了3公分缝，在医学上算哪种伤？", "gold_std": "GB/T 16751.1-2023", "gold_clause": "5.6.1.12", "gold_text": "5.6.1.12\n股骨骨折 fracture of the femur\n因外力作用致使股骨颈、转子间、股骨干、髁上、髁部的连续性和完整性遭到破坏的骨折病。"}
+{"id": "f34", "query": "工地干活砸到腿，诊断书写的位置到底是不是最长的那根腿骨？", "gold_std": "GB/T 16751.1-2023", "gold_clause": "5.6.1.12", "gold_text": "5.6.1.12\n股骨骨折 fracture of the femur\n因外力作用致使股骨颈、转子间、股骨干、髁上、髁部的连续性和完整性遭到破坏的骨折病。"}
+{"id": "f35", "query": "想查阳光里紫外线跟红外线各占多少比例，要找哪种图看？", "gold_std": "GB/T 36299-2018", "gold_clause": "2.4", "gold_text": "2.4\n太阳辐射波谱 solar radiation spectrum\n表示太阳辐射能量按波长或频率分布的图谱。\n注：改写 GB/T 14950—2009，定义 4.108。"}
+{"id": "f36", "query": "家里燃气探头既能报数值又能接指令关阀门，它高级在哪？", "gold_std": "GB/T 33905.3-2017", "gold_clause": "3.2", "gold_text": "3.2\n智能传感器 intelligent sensor\n具有与外部系统双向通信手段，用于发送测量、状态信息，接收和处理外部命令的传感器。\n注：智能传感器是包含信息处理装置的传感器，传感器是智能传感器必不可少的组成部分。"}
+{"id": "f37", "query": "买这种两百块带芯片能收发数据的探头，比起老式的多了啥？", "gold_std": "GB/T 33905.3-2017", "gold_clause": "3.2", "gold_text": "3.2\n智能传感器 intelligent sensor\n具有与外部系统双向通信手段，用于发送测量、状态信息，接收和处理外部命令的传感器。\n注：智能传感器是包含信息处理装置的传感器，传感器是智能传感器必不可少的组成部分。"}
+{"id": "f38", "query": "流水线上能测温又能听电脑指挥的感应器，到底指哪种设备？", "gold_std": "GB/T 33905.3-2017", "gold_clause": "3.2", "gold_text": "3.2\n智能传感器 intelligent sensor\n具有与外部系统双向通信手段，用于发送测量、状态信息，接收和处理外部命令的传感器。\n注：智能传感器是包含信息处理装置的传感器，传感器是智能传感器必不可少的组成部分。"}
+{"id": "f42", "query": "开车时踩下脚踏板动力就切断、松开又连上的那个是啥？", "gold_std": "GB/T 13965-2010", "gold_clause": "2.1.131", "gold_text": "2.1.131\n离合器 clutch\n能方便地将两轴接合，以传递运动和转矩，并能随意地使它们分离以停止传递运动和转矩的器件。"}
+{"id": "f43", "query": "发动机和变速箱中间夹着的那个20公分圆盘，到底是干嘛的？", "gold_std": "GB/T 13965-2010", "gold_clause": "2.1.131", "gold_text": "2.1.131\n离合器 clutch\n能方便地将两轴接合，以传递运动和转矩，并能随意地使它们分离以停止传递运动和转矩的器件。"}
+{"id": "f45", "query": "化验单上写的CEC这个数值，到底是代表泥巴有多肥啊？", "gold_std": "GB/T 14157-2023", "gold_clause": "3.4.6.3", "gold_text": "3.4.6.3\n阳离子交换吸附容量cation exchange capacity\n每百克干土(岩)所含的全部交换性阳离子的毫克当量数。\n注：其单位为 meq/100 g。"}
+{"id": "f46", "query": "我们农场测土壤，师傅说的这个吸肥能力到底是个啥？", "gold_std": "GB/T 14157-2023", "gold_clause": "3.4.6.3", "gold_text": "3.4.6.3\n阳离子交换吸附容量cation exchange capacity\n每百克干土(岩)所含的全部交换性阳离子的毫克当量数。\n注：其单位为 meq/100 g。"}
+{"id": "f47", "query": "车间制氧系统里，专门用来滤掉二氧化碳的大罐子是哪个？", "gold_std": "GB/T 10606-2023", "gold_clause": "4.3.16", "gold_text": "4.3.16\n分子筛吸附器molecular sieve adsorber\n内装分子筛、干燥剂等吸附剂，用于净除空气中的水分、C O₂ 、 C₂H₂及部分碳氢化合物的吸附设备。"}
+{"id": "f48", "query": "空分装置前面装了10吨白球球的那个过滤罐，是起啥作用的？", "gold_std": "GB/T 10606-2023", "gold_clause": "4.3.16", "gold_text": "4.3.16\n分子筛吸附器molecular sieve adsorber\n内装分子筛、干燥剂等吸附剂，用于净除空气中的水分、C O₂ 、 C₂H₂及部分碳氢化合物的吸附设备。"}
+{"id": "f49", "query": "师傅，气罐前面那个装满干燥小石子的是用来吸水的吗？", "gold_std": "GB/T 10606-2023", "gold_clause": "4.3.16", "gold_text": "4.3.16\n分子筛吸附器molecular sieve adsorber\n内装分子筛、干燥剂等吸附剂，用于净除空气中的水分、C O₂ 、 C₂H₂及部分碳氢化合物的吸附设备。"}
+{"id": "f51", "query": "顶上那个机械臂转到1号仓停下喷气，这套机构是干嘛的？", "gold_std": "GB/T 16845-2017", "gold_clause": "2.3.6.42", "gold_text": "2.3.6.42\n分室定位回转反吹 sectional（compartment）rotary fixed reverse blow\n利用回转机构对分隔的袋室逐个定位进行静态反吹清灰。"}
+{"id": "f52", "query": "厂里那个转着圈给滤袋喷风除粉尘的设备，到底怎么工作的？", "gold_std": "GB/T 16845-2017", "gold_clause": "2.3.6.42", "gold_text": "2.3.6.42\n分室定位回转反吹 sectional（compartment）rotary fixed reverse blow\n利用回转机构对分隔的袋室逐个定位进行静态反吹清灰。"}
+{"id": "f53", "query": "组装哮喘喷药瓶时，卡在盖子里托着弹簧的小塑料筒是干啥的？", "gold_std": "GB/T 17447-2012", "gold_clause": "3.21", "gold_text": "3.21\n定量阀体 metering valve housing\n定量型气雾阀中装在固定盖里用来支承气雾阀其他元件，并确定气雾阀定量值的元件。"}
+{"id": "f54", "query": "按一下正好喷出50微升药液的罐子，里面是靠哪个部件控量的？", "gold_std": "GB/T 17447-2012", "gold_clause": "3.21", "gold_text": "3.21\n定量阀体 metering valve housing\n定量型气雾阀中装在固定盖里用来支承气雾阀其他元件，并确定气雾阀定量值的元件。"}
+{"id": "f56", "query": "想给矿用挖煤机换一套装有48把刀头的破岩旋转总成，管它叫什么？", "gold_std": "GB/T 15663.10-2008", "gold_clause": "2.3", "gold_text": "2.3\n截割机构 cutting machanism\n采掘机械上直接实现截割功能的构件组成。"}
+{"id": "f57", "query": "看纪录片里采煤机最前端专门用来削煤壁的大爪子到底算啥装置？", "gold_std": "GB/T 15663.10-2008", "gold_clause": "2.3", "gold_text": "2.3\n截割机构 cutting machanism\n采掘机械上直接实现截割功能的构件组成。"}
+{"id": "f58", "query": "试验室里那个匀速加砝码测土块承重的铁架子叫啥？", "gold_std": "GB/T 24106-2009", "gold_clause": "3.1.6.1.2", "gold_text": "3.1.6.1.2\n应力控制式无侧限压缩仪 stress controlled unconfined compression test apparatus\n以施加恒荷重速率作为加荷方式的无侧限压缩仪。"}
+{"id": "f59", "query": "这种匀速加力的测土机跟按变形控制的有啥区别？", "gold_std": "GB/T 24106-2009", "gold_clause": "3.1.6.1.2", "gold_text": "3.1.6.1.2\n应力控制式无侧限压缩仪 stress controlled unconfined compression test apparatus\n以施加恒荷重速率作为加荷方式的无侧限压缩仪。"}
+{"id": "f62", "query": "别人租的地台板现在换成我们接着付租金，这叫啥？", "gold_std": "GB/T 38115-2019", "gold_clause": "3.2", "gold_text": "3.2\n托盘转户 pallet transfer\n将托盘承租使用权从一方转移到另一方的过程。"}
+{"id": "f63", "query": "铝水灌满模具后为了防缩水，再加零点五兆帕是啥力？", "gold_std": "GB/T 28688-2012", "gold_clause": "3.4", "gold_text": "3.4\n保压压力 holding pressure\n在低压铸造过程中,铸型充满后,为补缩的需要,在保温炉内的金属液面上施加比充型压力高的压力。"}
+{"id": "f65", "query": "铁水灌满后比刚才进料时更猛的那股劲到底是什么？", "gold_std": "GB/T 28688-2012", "gold_clause": "3.4", "gold_text": "3.4\n保压压力 holding pressure\n在低压铸造过程中,铸型充满后,为补缩的需要,在保温炉内的金属液面上施加比充型压力高的压力。"}
+{"id": "f66", "query": "买化妆品送的硬纸盒波纹特别细，这种纸板叫什么？", "gold_std": "GB/T 34053.6-2017", "gold_clause": "3.2", "gold_text": "3.2\n微型瓦楞 micro corrugated\n楞高小于 1.2 mm 且 30 cm 内瓦楞个数多于 92 的瓦楞。"}
+{"id": "f67", "query": "量纸板夹层波纹高度只有1毫米，算不算最薄的那种纸？", "gold_std": "GB/T 34053.6-2017", "gold_clause": "3.2", "gold_text": "3.2\n微型瓦楞 micro corrugated\n楞高小于 1.2 mm 且 30 cm 内瓦楞个数多于 92 的瓦楞。"}
+{"id": "f68", "query": "村里统计各家各户想盖房要多少地，这个指标到底指啥？", "gold_std": "GB/T 19231-2003", "gold_clause": "5.6.2", "gold_text": "5.6.2\n土地需求 land demand\n人们为满足生产和(或)生活需要而产生的获取土地的要求和能力。"}
+{"id": "f69", "query": "我们厂扩产想拿隔壁地皮，统计表里写的用地诉求是啥意思？", "gold_std": "GB/T 19231-2003", "gold_clause": "5.6.2", "gold_text": "5.6.2\n土地需求 land demand\n人们为满足生产和(或)生活需要而产生的获取土地的要求和能力。"}
