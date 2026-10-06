@@ -1,0 +1,236 @@
+{
+ "why": "外部评估：用清洗后的金标给 E1 重打分，不重算向量，只当探索，不改判决",
+ "source": "ab-result.json（E1 逐条名次）+ benchmark-v3.jsonl（v3 分层标签）",
+ "unchanged": "本脚本**不修改**任何 E1 原始数字、**不改判决**（判决见 exp-1-contextual/verdict.json）",
+ "strata": {
+  "headline_120_all": {
+   "label": "主结果 120 全部",
+   "n_items": 120,
+   "n_clusters": 64,
+   "@20": {
+    "base_n": 12,
+    "ctx_n": 9,
+    "base": 0.1,
+    "ctx": 0.075,
+    "delta_pp": -2.5,
+    "flip_in": 1,
+    "flip_out": 4
+   },
+   "@100": {
+    "base_n": 21,
+    "ctx_n": 23,
+    "base": 0.175,
+    "ctx": 0.1917,
+    "delta_pp": 1.67,
+    "flip_in": 7,
+    "flip_out": 5
+   },
+   "@1000": {
+    "base_n": 43,
+    "ctx_n": 44,
+    "base": 0.3583,
+    "ctx": 0.3667,
+    "delta_pp": 0.83,
+    "flip_in": 10,
+    "flip_out": 9
+   }
+  },
+  "headline_def": {
+   "label": "主结果：定义类",
+   "n_items": 98,
+   "n_clusters": 48,
+   "@20": {
+    "base_n": 9,
+    "ctx_n": 9,
+    "base": 0.0918,
+    "ctx": 0.0918,
+    "delta_pp": 0.0,
+    "flip_in": 1,
+    "flip_out": 1
+   },
+   "@100": {
+    "base_n": 17,
+    "ctx_n": 20,
+    "base": 0.1735,
+    "ctx": 0.2041,
+    "delta_pp": 3.06,
+    "flip_in": 7,
+    "flip_out": 4
+   },
+   "@1000": {
+    "base_n": 35,
+    "ctx_n": 37,
+    "base": 0.3571,
+    "ctx": 0.3776,
+    "delta_pp": 2.04,
+    "flip_in": 9,
+    "flip_out": 7
+   }
+  },
+  "headline_req_all": {
+   "label": "主结果：要求类（合计）",
+   "n_items": 22,
+   "n_clusters": 16,
+   "@20": {
+    "base_n": 3,
+    "ctx_n": 0,
+    "base": 0.1364,
+    "ctx": 0.0,
+    "delta_pp": -13.64,
+    "flip_in": 0,
+    "flip_out": 3
+   },
+   "@100": {
+    "base_n": 4,
+    "ctx_n": 3,
+    "base": 0.1818,
+    "ctx": 0.1364,
+    "delta_pp": -4.55,
+    "flip_in": 0,
+    "flip_out": 1
+   },
+   "@1000": {
+    "base_n": 8,
+    "ctx_n": 7,
+    "base": 0.3636,
+    "ctx": 0.3182,
+    "delta_pp": -4.55,
+    "flip_in": 1,
+    "flip_out": 2
+   }
+  },
+  "headline_req_R2": {
+   "label": "要求类 R2 条件/复合",
+   "n_items": 6,
+   "n_clusters": 4,
+   "@20": {
+    "base_n": 1,
+    "ctx_n": 0,
+    "base": 0.1667,
+    "ctx": 0.0,
+    "delta_pp": -16.67,
+    "flip_in": 0,
+    "flip_out": 1
+   },
+   "@100": {
+    "base_n": 1,
+    "ctx_n": 0,
+    "base": 0.1667,
+    "ctx": 0.0,
+    "delta_pp": -16.67,
+    "flip_in": 0,
+    "flip_out": 1
+   },
+   "@1000": {
+    "base_n": 3,
+    "ctx_n": 1,
+    "base": 0.5,
+    "ctx": 0.1667,
+    "delta_pp": -33.33,
+    "flip_in": 0,
+    "flip_out": 2
+   }
+  },
+  "headline_req_R3": {
+   "label": "要求类 R3 复杂规范关系",
+   "n_items": 16,
+   "n_clusters": 12,
+   "@20": {
+    "base_n": 2,
+    "ctx_n": 0,
+    "base": 0.125,
+    "ctx": 0.0,
+    "delta_pp": -12.5,
+    "flip_in": 0,
+    "flip_out": 2
+   },
+   "@100": {
+    "base_n": 3,
+    "ctx_n": 3,
+    "base": 0.1875,
+    "ctx": 0.1875,
+    "delta_pp": 0.0,
+    "flip_in": 0,
+    "flip_out": 0
+   },
+   "@1000": {
+    "base_n": 5,
+    "ctx_n": 6,
+    "base": 0.3125,
+    "ctx": 0.375,
+    "delta_pp": 6.25,
+    "flip_in": 1,
+    "flip_out": 0
+   }
+  },
+  "headline_req_R1": {
+   "label": "要求类 R1 原子（**本批为 0**）",
+   "n_items": 0,
+   "n_clusters": 0,
+   "@20": {
+    "base_n": 0,
+    "ctx_n": 0,
+    "base": null,
+    "ctx": null,
+    "delta_pp": null,
+    "flip_in": 0,
+    "flip_out": 0
+   },
+   "@100": {
+    "base_n": 0,
+    "ctx_n": 0,
+    "base": null,
+    "ctx": null,
+    "delta_pp": null,
+    "flip_in": 0,
+    "flip_out": 0
+   },
+   "@1000": {
+    "base_n": 0,
+    "ctx_n": 0,
+    "base": null,
+    "ctx": null,
+    "delta_pp": null,
+    "flip_in": 0,
+    "flip_out": 0
+   }
+  },
+  "sensitivity_excl_suspect_parse": {
+   "label": "敏感性：剔除 4 条疑似解析残留后",
+   "n_items": 117,
+   "n_clusters": 62,
+   "@20": {
+    "base_n": 10,
+    "ctx_n": 9,
+    "base": 0.0855,
+    "ctx": 0.0769,
+    "delta_pp": -0.85,
+    "flip_in": 1,
+    "flip_out": 2
+   },
+   "@100": {
+    "base_n": 19,
+    "ctx_n": 21,
+    "base": 0.1624,
+    "ctx": 0.1795,
+    "delta_pp": 1.71,
+    "flip_in": 7,
+    "flip_out": 5
+   },
+   "@1000": {
+    "base_n": 40,
+    "ctx_n": 42,
+    "base": 0.3419,
+    "ctx": 0.359,
+    "delta_pp": 1.71,
+    "flip_in": 10,
+    "flip_out": 8
+   }
+  }
+ },
+ "reading": [
+  "分层后每一格的**条数很小**（要求类总共 22 条、12 簇）⇒ 任何单格差异都在噪声里，**不许当结论**。",
+  "价值在于**看结构**：本批**没有 R1（原子要求）** ⇒ 外部假设里『最该受益的那一档』在这套考卷上缺席。",
+  "所有分层都报**独立簇数**；条目数 ≠ 信息量（120 条只落在 64 簇上）。"
+ ]
+}
