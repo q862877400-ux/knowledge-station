@@ -62,18 +62,32 @@ def ro_conn(path: Path) -> sqlite3.Connection:
 
 
 def fuse(rankings: dict[str, list[str]], arm: str) -> dict[str, float]:
-    """四种融合。rankings[c] = 该通道按名次排好的 clause_revision_id 列表。"""
+    """六种融合。rankings[c] = 该通道按名次排好的 clause_revision_id 列表。
+
+    ⚠ **2026-10-07 复核打回后补的臂**（原版只有 A/B/C/D，被 verifier-design 指出
+    「A→D、B→C 都同时改了算子与分母，不满足『每次只改一处』」）：
+      A   Σ  w/(k+r+1)   ← 生产现状（1-based RRF，与生产逐字一致）
+      B   Σ  1/(k+r+1)   ← 只去权重
+      Ap  Σ  w/(k+r)     ← sum 侧的**分母偏移**（与 A 只差 +1）
+      C   max 1/(k+r)    ← RefWalk 原样（无权、0-based）
+      Dp  max w/(k+r+1)  ← **纯算子**：与 A 只差 Σ→max（权、分母都同 A）
+      D   max w/(k+r)    ← 加权 0-based
+    ⇒ 干净的对照对：**A↔Dp（纯算子，权与分母都相同）**、**A↔Ap（纯分母偏移）**、**B↔C（无权，0-based）**。
+    """
     sc: dict[str, float] = {}
-    if arm in ("A", "B"):
+    if arm in ("A", "B", "Ap"):
+        w_use = arm != "B"
+        off = 0 if arm == "Ap" else 1
         for c, lst in rankings.items():
-            w = W[c] if arm == "A" else 1.0
+            w = W[c] if w_use else 1.0
             for rank, cid in enumerate(lst):
-                sc[cid] = sc.get(cid, 0.0) + w / (K + rank + 1)
-    else:  # C / D
+                sc[cid] = sc.get(cid, 0.0) + w / (K + rank + off)
+    else:  # C / Dp / D
         for c, lst in rankings.items():
             w = 1.0 if arm == "C" else W[c]
+            off = 1 if arm == "Dp" else 0
             for rank, cid in enumerate(lst):
-                v = w / (K + rank)
+                v = w / (K + rank + off)
                 if v > sc.get(cid, 0.0):
                     sc[cid] = v
     return sc
@@ -185,7 +199,7 @@ def main() -> int:
         " JOIN doc_meta dm ON dm.doc_id=cr.doc_id")}
     print(f"[exp7] 预载 legal_status {len(status)} 条", flush=True)
 
-    arms = ("A", "B", "C", "D")
+    arms = ("A", "B", "Ap", "C", "Dp", "D")
     per_query: list[dict] = []
     t0 = time.perf_counter()
     for n, it in enumerate(items, 1):
@@ -202,7 +216,12 @@ def main() -> int:
             "vec": funnel.channel_vec(conn, q, PROD_CAP["vec"]),
             "modality": funnel.channel_modality(conn, mfilter),
         }
-        rec: dict = {"i": it["i"], "gold_std": it["gold_std"], "gold_clause": it["gold_clause"]}
+        rec: dict = {"i": it["i"], "gold_std": it["gold_std"], "gold_clause": it["gold_clause"],
+                     "modality_filter": mfilter,
+                     "ch_n": {c: len(rk[c]) for c in LIVE},
+                     "gold_rank_in_ch": {c: rank_of(gold, rk[c]) for c in LIVE},
+                     "pool": len(set().union(*[set(v) for v in rk.values()])),
+                     "overlap": sum(1 for x in set(rk["fts"]) if x in set(rk["vec"]))}
         for arm in arms:
             sc = fuse(rk, arm)
             lst = order(sc, status, depth)
@@ -248,7 +267,7 @@ def main() -> int:
     res["vs_A"] = {}
     for d in (8, 20):
         a = [1 if r["A"][f"@{d}"] else 0 for r in per_query]
-        for arm in ("B", "C", "D"):
+        for arm in ("B", "Ap", "C", "Dp", "D"):
             bvec = [1 if r[arm][f"@{d}"] else 0 for r in per_query]
             n01 = sum(1 for x, y in zip(a, bvec) if x == 0 and y == 1)   # A 错 arm 对
             n10 = sum(1 for x, y in zip(a, bvec) if x == 1 and y == 0)   # A 对 arm 错
@@ -271,7 +290,29 @@ def main() -> int:
     for dkey, v in sorted(res["vs_A"].items()):
         print(f"   {dkey:6s} Δ={v['delta_pt']:+6.2f}pt  b={v['b_A错arm对']:3d} c={v['c_A对arm错']:3d}"
               f"  p={v['mcnemar_p']:.4f}  CI95=[{v['ci95'][0]:+.2f},{v['ci95'][1]:+.2f}]")
+    res["per_query"] = per_query
     OUT.write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")
+    # 逐条明细单独落一份（便于事后分层/追翻转）
+    (HERE / "per-query.jsonl").write_text(
+        "\n".join(json.dumps(r, ensure_ascii=False) for r in per_query), encoding="utf-8")
+    # ★ 追出翻转来源
+    flip = []
+    for r in per_query:
+        for arm in ("B", "Ap", "C", "Dp", "D"):
+            if r[arm]["@8"] and not r["A"]["@8"]:
+                flip.append({"i": r["i"], "arm": arm, "gold_std": r["gold_std"],
+                             "modality_filter": r["modality_filter"],
+                             "ch_n": r["ch_n"], "gold_rank_in_ch": r["gold_rank_in_ch"],
+                             "pool": r["pool"], "overlap": r["overlap"],
+                             "A_rank": r["A"]["rank"], arm + "_rank": r[arm]["rank"]})
+            if r["A"]["@8"] and not r[arm]["@8"]:
+                flip.append({"i": r["i"], "arm": arm, "reverse": True,
+                             "gold_std": r["gold_std"], "modality_filter": r["modality_filter"]})
+    res["flips"] = flip
+    OUT.write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"\n[exp7] ==== 翻转明细（{len(flip)} 条）====")
+    for f in flip:
+        print("   ", json.dumps(f, ensure_ascii=False))
     print(f"\n[exp7] 已写 {OUT}")
     conn.close()
     return 0

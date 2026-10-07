@@ -12,7 +12,15 @@
    "@8": 5.83,
    "@20": 8.33
   },
+  "Ap": {
+   "@8": 5.83,
+   "@20": 8.33
+  },
   "C": {
+   "@8": 6.67,
+   "@20": 8.33
+  },
+  "Dp": {
    "@8": 6.67,
    "@20": 8.33
   },
@@ -51,7 +59,27 @@
     0.0
    ]
   },
+  "Ap@8": {
+   "delta_pt": 0.0,
+   "b_A错arm对": 0,
+   "c_A对arm错": 0,
+   "mcnemar_p": 1.0,
+   "ci95": [
+    0.0,
+    0.0
+   ]
+  },
   "C@8": {
+   "delta_pt": 0.83,
+   "b_A错arm对": 1,
+   "c_A对arm错": 0,
+   "mcnemar_p": 1.0,
+   "ci95": [
+    0.0,
+    2.65
+   ]
+  },
+  "Dp@8": {
    "delta_pt": 0.83,
    "b_A错arm对": 1,
    "c_A对arm错": 0,
@@ -81,7 +109,27 @@
     0.0
    ]
   },
+  "Ap@20": {
+   "delta_pt": 0.0,
+   "b_A错arm对": 0,
+   "c_A对arm错": 0,
+   "mcnemar_p": 1.0,
+   "ci95": [
+    0.0,
+    0.0
+   ]
+  },
   "C@20": {
+   "delta_pt": 0.0,
+   "b_A错arm对": 0,
+   "c_A对arm错": 0,
+   "mcnemar_p": 1.0,
+   "ci95": [
+    0.0,
+    0.0
+   ]
+  },
+  "Dp@20": {
    "delta_pt": 0.0,
    "b_A错arm对": 0,
    "c_A对arm错": 0,
@@ -101,5 +149,8115 @@
     0.0
    ]
   }
- }
+ },
+ "per_query": [
+  {
+   "i": 2,
+   "gold_std": "GB/T 29909-2013",
+   "gold_clause": "3.4.9",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 6,
+   "gold_std": "GB/T 18764-2002",
+   "gold_clause": "11.2.6",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 11,
+   "gold_std": "GB/T 23031.6-2023",
+   "gold_clause": "3.1.3",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 12,
+   "gold_std": "GB/T 23031.6-2023",
+   "gold_clause": "3.1.3",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 13,
+   "gold_std": "GB/T 29259-2012",
+   "gold_clause": "3.23",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 38,
+   "overlap": 2,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 15,
+   "gold_std": "GB/T 29259-2012",
+   "gold_clause": "3.23",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 16,
+   "gold_std": "GB/T 14157-2023",
+   "gold_clause": "8.4.5",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 17,
+   "gold_std": "GB/T 14157-2023",
+   "gold_clause": "8.4.5",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 19,
+   "gold_std": "GB/T 37011-2018",
+   "gold_clause": "3.1.16",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 20,
+   "gold_std": "GB/T 37011-2018",
+   "gold_clause": "3.1.16",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 37,
+   "overlap": 3,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 21,
+   "gold_std": "GB/T 12918-2023",
+   "gold_clause": "3.5",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 22,
+   "gold_std": "GB/T 12918-2023",
+   "gold_clause": "3.5",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 23,
+   "gold_std": "GB/T 12918-2023",
+   "gold_clause": "3.5",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 24,
+   "gold_std": "GB/T 37818-2019",
+   "gold_clause": "3.4",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 25,
+   "gold_std": "GB/T 37818-2019",
+   "gold_clause": "3.4",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 26,
+   "gold_std": "GB/T 36416.2-2018",
+   "gold_clause": "8.1.9",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 38,
+   "overlap": 2,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 27,
+   "gold_std": "GB/T 36416.2-2018",
+   "gold_clause": "8.1.9",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 29,
+   "gold_std": "GB/T 22033-2017",
+   "gold_clause": "2.114",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 30,
+   "gold_std": "GB/T 22033-2017",
+   "gold_clause": "2.114",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 31,
+   "gold_std": "GB/T 22033-2017",
+   "gold_clause": "2.114",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 32,
+   "gold_std": "GB/T 16751.1-2023",
+   "gold_clause": "5.6.1.12",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 33,
+   "gold_std": "GB/T 16751.1-2023",
+   "gold_clause": "5.6.1.12",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 35,
+   "gold_std": "GB/T 36299-2018",
+   "gold_clause": "2.4",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 39,
+   "gold_std": "GB/T 30943-2014",
+   "gold_clause": "5.3.42",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 40,
+   "gold_std": "GB/T 30943-2014",
+   "gold_clause": "5.3.42",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 41,
+   "gold_std": "GB/T 30943-2014",
+   "gold_clause": "5.3.42",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 45,
+   "gold_std": "GB/T 14157-2023",
+   "gold_clause": "3.4.6.3",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 46,
+   "gold_std": "GB/T 14157-2023",
+   "gold_clause": "3.4.6.3",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 47,
+   "gold_std": "GB/T 10606-2023",
+   "gold_clause": "4.3.16",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 48,
+   "gold_std": "GB/T 10606-2023",
+   "gold_clause": "4.3.16",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 49,
+   "gold_std": "GB/T 10606-2023",
+   "gold_clause": "4.3.16",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 50,
+   "gold_std": "GB/T 16845-2017",
+   "gold_clause": "2.3.6.42",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 37,
+   "overlap": 3,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 51,
+   "gold_std": "GB/T 16845-2017",
+   "gold_clause": "2.3.6.42",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 52,
+   "gold_std": "GB/T 16845-2017",
+   "gold_clause": "2.3.6.42",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 53,
+   "gold_std": "GB/T 17447-2012",
+   "gold_clause": "3.21",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 54,
+   "gold_std": "GB/T 17447-2012",
+   "gold_clause": "3.21",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 55,
+   "gold_std": "GB/T 14264-2024",
+   "gold_clause": "3.235",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": 6,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 12
+   },
+   "B": {
+    "@8": false,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 12
+   },
+   "Ap": {
+    "@8": false,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 12
+   },
+   "C": {
+    "@8": false,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 12
+   },
+   "Dp": {
+    "@8": false,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 12
+   },
+   "D": {
+    "@8": false,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 12
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 56,
+   "gold_std": "GB/T 15663.10-2008",
+   "gold_clause": "2.3",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 57,
+   "gold_std": "GB/T 15663.10-2008",
+   "gold_clause": "2.3",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 32,
+   "overlap": 8,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 58,
+   "gold_std": "GB/T 24106-2009",
+   "gold_clause": "3.1.6.1.2",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 60,
+   "gold_std": "GB/T 38115-2019",
+   "gold_clause": "3.2",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 61,
+   "gold_std": "GB/T 38115-2019",
+   "gold_clause": "3.2",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 38,
+   "overlap": 2,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 62,
+   "gold_std": "GB/T 38115-2019",
+   "gold_clause": "3.2",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 36,
+   "overlap": 4,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 63,
+   "gold_std": "GB/T 28688-2012",
+   "gold_clause": "3.4",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 64,
+   "gold_std": "GB/T 28688-2012",
+   "gold_clause": "3.4",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 65,
+   "gold_std": "GB/T 28688-2012",
+   "gold_clause": "3.4",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 38,
+   "overlap": 2,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 66,
+   "gold_std": "GB/T 34053.6-2017",
+   "gold_clause": "3.2",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 67,
+   "gold_std": "GB/T 34053.6-2017",
+   "gold_clause": "3.2",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 68,
+   "gold_std": "GB/T 19231-2003",
+   "gold_clause": "5.6.2",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 69,
+   "gold_std": "GB/T 19231-2003",
+   "gold_clause": "5.6.2",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 71,
+   "gold_std": "GB/T 13870.2-2016",
+   "gold_clause": "3.4",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 72,
+   "gold_std": "GB/T 13870.2-2016",
+   "gold_clause": "3.4",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 73,
+   "gold_std": "GB/T 18354-2021",
+   "gold_clause": "3.23",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 38,
+   "overlap": 2,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 75,
+   "gold_std": "GB/T 26165-2021",
+   "gold_clause": "3.4.17",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": 1,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 3
+   },
+   "B": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 3
+   },
+   "Ap": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 3
+   },
+   "C": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "Dp": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "D": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 78,
+   "gold_std": "GB/T 22357-2008",
+   "gold_clause": "5.1.5",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 79,
+   "gold_std": "GB/T 22357-2008",
+   "gold_clause": "5.1.5",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 80,
+   "gold_std": "GB/T 22357-2008",
+   "gold_clause": "5.1.5",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 81,
+   "gold_std": "GB/T 15962-2018",
+   "gold_clause": "2.10",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 82,
+   "gold_std": "GB/T 15962-2018",
+   "gold_clause": "2.10",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 83,
+   "gold_std": "GB/T 15962-2018",
+   "gold_clause": "2.10",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 84,
+   "gold_std": "GB/T 16751.1-2023",
+   "gold_clause": "10.2.4.7",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": 4,
+    "vec": 4,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 1
+   },
+   "B": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 1
+   },
+   "Ap": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 1
+   },
+   "C": {
+    "@8": true,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 7
+   },
+   "Dp": {
+    "@8": true,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 7
+   },
+   "D": {
+    "@8": true,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 7
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 85,
+   "gold_std": "GB/T 16751.1-2023",
+   "gold_clause": "10.2.4.7",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": 3,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 38,
+   "overlap": 2,
+   "A": {
+    "@8": true,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 7
+   },
+   "B": {
+    "@8": true,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 7
+   },
+   "Ap": {
+    "@8": true,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 7
+   },
+   "C": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 5
+   },
+   "Dp": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 5
+   },
+   "D": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 5
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 87,
+   "gold_std": "GB/T 22838.6-2024",
+   "gold_clause": "3.5",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": 17,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 33
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 33
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 33
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 33
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 33
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 33
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 88,
+   "gold_std": "GB/T 22838.6-2024",
+   "gold_clause": "3.5",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 89,
+   "gold_std": "GB/T 22838.6-2024",
+   "gold_clause": "3.5",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 90,
+   "gold_std": "GB/T 13317-2024",
+   "gold_clause": "5.6.4",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": 1,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "B": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "Ap": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "C": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "Dp": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "D": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 91,
+   "gold_std": "GB/T 13317-2024",
+   "gold_clause": "5.6.4",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 36,
+   "overlap": 4,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 92,
+   "gold_std": "GB/T 36953.1-2018",
+   "gold_clause": "3.4",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 96,
+   "gold_std": "GB 50755-2012",
+   "gold_clause": "2.1.1",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 37,
+   "overlap": 3,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 97,
+   "gold_std": "GB 50755-2012",
+   "gold_clause": "2.1.1",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 98,
+   "gold_std": "GB 50755-2012",
+   "gold_clause": "2.1.1",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 99,
+   "gold_std": "GB/T 29053-2012",
+   "gold_clause": "3.3.28",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 38,
+   "overlap": 2,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 101,
+   "gold_std": "GB/T 29053-2012",
+   "gold_clause": "3.3.28",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 104,
+   "gold_std": "GB/T 21439-2008",
+   "gold_clause": "3.9",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 105,
+   "gold_std": "GB/T 21439-2008",
+   "gold_clause": "3.9",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 106,
+   "gold_std": "GB/T 21439-2008",
+   "gold_clause": "3.9",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 107,
+   "gold_std": "GB/T 23561.5-2009",
+   "gold_clause": "2.1",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 108,
+   "gold_std": "GB/T 23561.5-2009",
+   "gold_clause": "2.1",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 111,
+   "gold_std": "GB/T 19945-2005",
+   "gold_clause": "3.8.36",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 112,
+   "gold_std": "GB/T 19945-2005",
+   "gold_clause": "3.8.36",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 113,
+   "gold_std": "GB/T 19945-2005",
+   "gold_clause": "3.8.36",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": 16,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 32
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 32
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 32
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 32
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 32
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 32
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 114,
+   "gold_std": "GB/T 2900.18-2008",
+   "gold_clause": "3.1.1",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 38,
+   "overlap": 2,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 115,
+   "gold_std": "GB/T 2900.18-2008",
+   "gold_clause": "3.1.1",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 37,
+   "overlap": 3,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 117,
+   "gold_std": "GB/T 16751.1-2023",
+   "gold_clause": "10.1.49",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": 5,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 10
+   },
+   "B": {
+    "@8": false,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 10
+   },
+   "Ap": {
+    "@8": false,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 10
+   },
+   "C": {
+    "@8": false,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 10
+   },
+   "Dp": {
+    "@8": false,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 10
+   },
+   "D": {
+    "@8": false,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 10
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 118,
+   "gold_std": "GB/T 16751.1-2023",
+   "gold_clause": "10.1.49",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": 1,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "B": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "Ap": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "C": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "Dp": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "D": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 119,
+   "gold_std": "GB/T 16751.1-2023",
+   "gold_clause": "10.1.49",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 120,
+   "gold_std": "GB/T 38474-2020",
+   "gold_clause": "3.1",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 121,
+   "gold_std": "GB/T 16751.1-2023",
+   "gold_clause": "6.3",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 122,
+   "gold_std": "GB/T 16751.1-2023",
+   "gold_clause": "6.3",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 37,
+   "overlap": 3,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 123,
+   "gold_std": "GB 11564-2024",
+   "gold_clause": "3.1.2",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 124,
+   "gold_std": "GB 11564-2024",
+   "gold_clause": "3.1.2",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 126,
+   "gold_std": "GB/T 13963-2025",
+   "gold_clause": "4.2.87",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 127,
+   "gold_std": "GB/T 13963-2025",
+   "gold_clause": "4.2.87",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 129,
+   "gold_std": "GB/T 31200-2014",
+   "gold_clause": "3.6.4",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 38,
+   "overlap": 2,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 130,
+   "gold_std": "GB/T 16845-2017",
+   "gold_clause": "2.3.6.40",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": 5,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 38,
+   "overlap": 2,
+   "A": {
+    "@8": false,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 9
+   },
+   "B": {
+    "@8": false,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 9
+   },
+   "Ap": {
+    "@8": false,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 9
+   },
+   "C": {
+    "@8": true,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 8
+   },
+   "Dp": {
+    "@8": true,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 8
+   },
+   "D": {
+    "@8": true,
+    "@20": true,
+    "@5": false,
+    "@100": true,
+    "rank": 8
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 131,
+   "gold_std": "GB/T 16845-2017",
+   "gold_clause": "2.3.6.40",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": 1,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "B": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "Ap": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "C": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "Dp": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "D": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 133,
+   "gold_std": "GB/T 14157-2023",
+   "gold_clause": "4.6.2.8",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": 14,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 28
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 28
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 28
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 28
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 28
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 28
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 135,
+   "gold_std": "GB/T 30114.1-2013",
+   "gold_clause": "2.43",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 139,
+   "gold_std": "GB/T 17889.4-2024",
+   "gold_clause": "6.1",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 142,
+   "gold_std": "GB/T 28294-2024",
+   "gold_clause": "6.2.2",
+   "modality_filter": "应",
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 169624
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": 80101
+   },
+   "pool": 169645,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 143,
+   "gold_std": "GB/T 35195-2017",
+   "gold_clause": "4.2.8",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 38,
+   "overlap": 2,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 144,
+   "gold_std": "GB/T 30896-2014",
+   "gold_clause": "G.7",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 145,
+   "gold_std": "GB/T 22517.1-2024",
+   "gold_clause": "7.1.2",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 146,
+   "gold_std": "GB/T 22517.1-2024",
+   "gold_clause": "7.1.2",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 37,
+   "overlap": 3,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 147,
+   "gold_std": "GB/T 22517.1-2024",
+   "gold_clause": "7.1.2",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 38,
+   "overlap": 2,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 148,
+   "gold_std": "GB/T 34004-2017",
+   "gold_clause": "5.1.3.26",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 149,
+   "gold_std": "GB/T 21306-2007",
+   "gold_clause": "4.3.4.6",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": 1,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "B": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "Ap": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "C": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "Dp": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "D": {
+    "@8": true,
+    "@20": true,
+    "@5": true,
+    "@100": true,
+    "rank": 2
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 153,
+   "gold_std": "GB/T 38058-2019",
+   "gold_clause": "6.9.2.1.1",
+   "modality_filter": "必须",
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 3346
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 3384,
+   "overlap": 2,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 154,
+   "gold_std": "GB/T 38058-2019",
+   "gold_clause": "6.9.2.1.1",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 155,
+   "gold_std": "GB/T 17744-2020",
+   "gold_clause": "9.12.1.5",
+   "modality_filter": "必须",
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 3346
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 3380,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 156,
+   "gold_std": "GB 23394-2024",
+   "gold_clause": "5.9.1",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 158,
+   "gold_std": "GB 23394-2024",
+   "gold_clause": "5.9.1",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 159,
+   "gold_std": "GB/T 25362-2010",
+   "gold_clause": "4.14",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 38,
+   "overlap": 2,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 162,
+   "gold_std": "GB/T 14783-2009",
+   "gold_clause": "3.6.6.1",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 163,
+   "gold_std": "GB/T 34240-2017",
+   "gold_clause": "7.2.5",
+   "modality_filter": "可以",
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 15904
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 15942,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 165,
+   "gold_std": "GB/T 26662-2011",
+   "gold_clause": "7.1",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 39,
+   "overlap": 1,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 166,
+   "gold_std": "中华人民共和国应急管理部令（第11号）安全生产严重失信主体名单管理办法",
+   "gold_clause": "第二十条",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": 18,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 36
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 36
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 36
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 36
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 36
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": true,
+    "rank": 36
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 167,
+   "gold_std": "中华人民共和国应急管理部令（第11号）安全生产严重失信主体名单管理办法",
+   "gold_clause": "第二十条",
+   "modality_filter": "必须",
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 3346
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 3386,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 170,
+   "gold_std": "GB/T 13626-2021",
+   "gold_clause": "6.4.2",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 36,
+   "overlap": 4,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  },
+  {
+   "i": 171,
+   "gold_std": "GB/T 13626-2021",
+   "gold_clause": "6.4.2",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": null,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 40,
+   "overlap": 0,
+   "A": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "B": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Ap": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "C": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "Dp": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "D": {
+    "@8": false,
+    "@20": false,
+    "@5": false,
+    "@100": false,
+    "rank": null
+   },
+   "_check": {
+    "prod_len": 20,
+    "A_len": 20,
+    "identical": true
+   }
+  }
+ ],
+ "flips": [
+  {
+   "i": 130,
+   "arm": "C",
+   "gold_std": "GB/T 16845-2017",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": 5,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 38,
+   "overlap": 2,
+   "A_rank": 9,
+   "C_rank": 8
+  },
+  {
+   "i": 130,
+   "arm": "Dp",
+   "gold_std": "GB/T 16845-2017",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": 5,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 38,
+   "overlap": 2,
+   "A_rank": 9,
+   "Dp_rank": 8
+  },
+  {
+   "i": 130,
+   "arm": "D",
+   "gold_std": "GB/T 16845-2017",
+   "modality_filter": null,
+   "ch_n": {
+    "exact": 0,
+    "fts": 20,
+    "vec": 20,
+    "modality": 0
+   },
+   "gold_rank_in_ch": {
+    "exact": null,
+    "fts": 5,
+    "vec": null,
+    "modality": null
+   },
+   "pool": 38,
+   "overlap": 2,
+   "A_rank": 9,
+   "D_rank": 8
+  }
+ ]
 }
