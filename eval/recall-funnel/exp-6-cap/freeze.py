@@ -33,15 +33,44 @@ def sha(p: Path) -> str:
 
 
 def main() -> int:
-    rec = {"why": "P2 实验 #1 开跑前的冻结记录（上限 20 → 100）", "files": {}}
+    # ⚠ **本脚本可重复运行，但文件里却有冻结记录** —— 这是我的设计缺陷：
+    #   第二遍跑会把原始冻结值**刷成当前值**，于是"比对"永远通过（自己骗自己）。
+    #   实测 2026-10-07 踩到。修法：**记录已存在就不覆盖**，改写一份带时间戳的复核件，
+    #   并把两边的差异打出来 —— 那才是"复核"，不是"重刷"。
+    import time as _t
+    if OUT.exists():
+        old = json.loads(OUT.read_text(encoding="utf-8"))
+        alt = OUT.parent / f"FREEZE-recheck-{_t.strftime('%Y%m%d-%H%M%S')}.json"
+        print(f"⚠ {OUT.name} 已在（冻结于 {old.get('frozen_at', '未知')}）—— **不覆盖**。")
+        print(f"  本次只做复核，写 {alt.name}")
+        _write(alt, old)
+        return 0
+    print("首次冻结（记录不存在）")
+    _write(OUT, None)
+    return 0
+
+
+def _write(out: Path, old: dict | None) -> int:
+    rec = {"why": "P2 实验 #1 开跑前的冻结记录（上限 20 → 100）",
+           "frozen_at": __import__("time").strftime("%Y-%m-%d %H:%M:%S"),
+           "files": {}}
+    changed = []
     for rel in FILES:
         p = ROOT / rel
         if not p.exists():
             rec["files"][rel] = "**不存在**"
             continue
-        rec["files"][rel] = {"sha256": sha(p), "bytes": p.stat().st_size}
-        print(f"  {rel}\n      sha256 = {rec['files'][rel]['sha256']}"
-              f"  ({rec['files'][rel]['bytes']} 字节)")
+        h = sha(p)
+        rec["files"][rel] = {"sha256": h, "bytes": p.stat().st_size}
+        mark = ""
+        if old and isinstance(old["files"].get(rel), dict):
+            o = old["files"][rel]["sha256"]
+            if o != h:
+                mark = f"   ⛔ **与冻结值不同**（冻结 {o[:16]}）"
+                changed.append(rel)
+            else:
+                mark = "   ✅ 与冻结值一致"
+        print(f"  {rel}\n      sha256 = {h}{mark}")
     try:
         rec["git_head"] = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT,
                                          capture_output=True, text=True).stdout.strip()
@@ -51,8 +80,12 @@ def main() -> int:
         rec["git_error"] = f"{type(e).__name__}: {e}"
     print(f"\n  git HEAD = {rec.get('git_head')}")
     print(f"  git status = {rec.get('git_status_short') or '(干净)'}")
-    OUT.write_text(json.dumps(rec, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(f"\n已写 {OUT}")
+    if changed:
+        rec["changed_vs_frozen"] = changed
+        print(f"\n  ⛔ **有 {len(changed)} 个文件与冻结值不同**：{changed}")
+        print("     ⇒ 开跑前先查清楚是谁改的、该不该改。")
+    out.write_text(json.dumps(rec, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"\n已写 {out}")
     return 0
 
 
