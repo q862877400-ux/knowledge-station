@@ -15,7 +15,13 @@
 """
 from __future__ import annotations
 
+from pathlib import Path
+
 from adapters._liuyan_common import harvest_liuyan
+
+#: 游标文件：时间流按时间排序，每轮**从上次位置续采**（否则去重会把新数据全挡掉，
+#: 实测不加游标时一轮只新增 1 条）
+CURSOR = Path(__file__).resolve().parent.parent / "data" / ".people-liuyan-df.cursor"
 
 SITE = {
     "key": "people-liuyan-df",
@@ -25,10 +31,11 @@ SITE = {
     "entry": "https://liuyan.people.com.cn/index",
     "status": "ok",
     "note": "地方版块 threads/list/df（showUnAnswer=0=已办理）；"
-            "省/市/县归属在 extra.pForumNames；限流冷却后分批采",
+            "省/市/县归属在 extra.pForumNames；游标续采 + 限流冷却后分批",
 }
 
 
 def harvest(fetch, *, limit: int | None = None) -> list[dict]:
     """按统一记录格式返回地方版块带官方答复的问答（详见 _liuyan_common）。"""
-    return harvest_liuyan(fetch, SITE=SITE, stream="df", limit=limit)
+    return harvest_liuyan(fetch, SITE=SITE, stream="df", limit=limit,
+                          cursor_file=CURSOR)

@@ -109,7 +109,8 @@ def _ts(unix) -> str | None:
 def harvest_liuyan(fetch, *, SITE: dict, stream: str = "bw",
                    fid: str | None = None,
                    limit: int | None = None, pause: float = PAUSE,
-                   rows_per_page: int = LIST_ROWS) -> list[dict]:
+                   rows_per_page: int = LIST_ROWS,
+                   cursor_file: "Path | None" = None) -> list[dict]:
     """抓版块（`stream="df"` 地方 / `"bw"` 部委）的**已办理**留言 + 官方答复。
 
     ⚠ `fetch` 是 harvest.py 注入的 `_Fetcher`：本站接口是 POST，
@@ -120,10 +121,19 @@ def harvest_liuyan(fetch, *, SITE: dict, stream: str = "bw",
     不传 = 全站时间流（广度；单批常聚集在一个省）。
     定向时 fid 从已采数据的 `extra.fid` + `extra.pForumNames` 累积成表（见
     `recon/liuyan-fid-map.json`）——**广度靠时间流、深度靠 fid 定向**。
+
+    `cursor_file`：**游标持久化**（2026-10-07 加）。时间流按时间排序，若每轮都从流头跑，
+    去重会把新数据全挡掉（实测一轮只新增 1 条）。传了游标文件就**从上次的 `lastItem`
+    继续**，每成功翻一页即写回 —— 一轮配额（约 40 次调用）能落在**新的**数据上。
     """
     out: list[dict] = []
     list_path = f"/v1/threads/list/{stream}"
     last_item, position, fetched, scanned = "", 1, 0, 0
+    if cursor_file is not None and cursor_file.exists():
+        saved = cursor_file.read_text(encoding="utf-8").strip()
+        if saved:
+            last_item = saved
+            print(f"    [{SITE['key']}] 从游标续采：{saved[:24]}…")
     while True:
         param = {"showUnAnswer": 0, "lastItem": last_item, "position": position,
                  "rows": rows_per_page, "orderType": 2}
@@ -195,8 +205,19 @@ def harvest_liuyan(fetch, *, SITE: dict, stream: str = "bw",
             })
             fetched += 1
             if limit and fetched >= limit:
+                if cursor_file is not None:
+                    # ⚠ 这里必须用**本页返回的**游标：`last_item` 要到页末才更新，
+                    #   提前返回时它还是上一页的值（空则根本不写 → 游标永远不推进）
+                    cur = rd.get("lastItem") or last_item
+                    if cur:
+                        cursor_file.parent.mkdir(parents=True, exist_ok=True)
+                        cursor_file.write_text(cur, encoding="utf-8")
                 return out
         last_item = rd.get("lastItem") or ""
+        if cursor_file is not None and last_item:
+            # 每翻一页就落游标：403/中断后再跑能接着走，不会重复扫流头
+            cursor_file.parent.mkdir(parents=True, exist_ok=True)
+            cursor_file.write_text(last_item, encoding="utf-8")
         if not last_item or rd.get("hasData") in (0, None):
             break
         position += 1
