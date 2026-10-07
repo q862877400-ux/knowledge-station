@@ -12,7 +12,7 @@
 | `hunan-st` | **湖南省生态环境厅** | **接口** | **3813 条** | 湖南全省统一互动平台 `https://hd.hunan.gov.cn/communication/api-mailbox/frontMail/mailList2ie`，`deptId` 在各厅 `hdjl_index.js` 里（生态=`c0fc18f4…`） |
 | `hunan-yj` | **湖南省应急管理厅** | **接口** | **538 条** | 同上平台，`deptId=5c247692…`；**湖南其他厅局 = 复制薄适配器填 deptId 即可** |
 | `people-liuyan` | **人民网领导留言板·部委** | **接口+签名** | 30 条（首日） | `POST /v1/threads/list/bw`（`showUnAnswer=0`=只要已办理）+ `/v1/threads/content`（`dataType=9`=官方答复）；签名 `md5(路径+param+md5(appCode)[:16])`，算法与验证见 `adapters/_liuyan_common.py` 头注 |
-| `people-liuyan-df` | **人民网领导留言板·地方** | **接口+签名** | 通道已验证，批量待采 | `POST /v1/threads/list/df`，与部委流同构；**`extra.pForumNames` 自带省→市→县归属**（实测样例 `["河北省","衡水市"]`）⇒ 一条流全国省市县覆盖，按它分省归档即可。⚠ 403 限流阈值很敏感（见下） |
+| `people-liuyan-df` | **人民网领导留言板·地方** | **接口+签名** | **30 条（首批，北京市）** | `POST /v1/threads/list/df`，与部委流同构、答复同为 `dataType==4`；**`extra.pForumNames` 自带省→市→县归属**（实测 `["北京市","昌平区"]`）。⚠ **流按时间排序 ⇒ 单批常聚集在一个省**（首批 30 条全北京）——要全国铺开得**多批慢跑**（每窗约 30 条，冷却 ≥1 小时）。答复是地方办理答复（「您好，关于您反映的问题，昌平区回复：经…核实…」），**少点名依据**（本批 A 类仅 1/30）⇒ **当语料用，不当考卷主力** |
 | `gd-yj` | **广东省应急管理厅** | **接口（Laravel CSRF）** | **179 条（全历史）** | `POST /hdjlpt/letter/pubList`：先 GET 落地页拿 `XSRF-TOKEN` cookie，POST 带 `X-XSRF-TOKEN` 头；**时间窗服务端限 1 年** ⇒ 按 365 天窗翻历史；**列表自带问答全文**（reply 含点名依据，A 类率 35%） |
 | `gd-*` | **广东省 37 厅局**（同款 hdjlpt 平台，43 域名探测 37 命中） | **接口** | **31,092 条** | 域名全清单 `recon/gd-dept-domains-full.json`（名录页 `/zwgk/szfjg/` 抓的**真实域名**，别再猜）；命中/失败 `gd-dept-domains-probed.json`；引擎 `adapters/_gd_hdjlpt_common.py`；**30 个薄壳由生成器 `recon/gen-gd-adapters.py` 产出**（勿手改壳文件，改引擎一处全生效）。大户：市监 6134 / 人社 6120（⚠ 每窗恒 510 疑截断）/ 统计 4275 / 生态 3329 / 自然资源 1682 / 教育 1165；其余 30 个单位 34~976。A 类合计 3,105 |
 
