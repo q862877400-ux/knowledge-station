@@ -1,0 +1,24 @@
+{
+ "why": "P2 实验 #1 开跑前的冻结记录（上限 20 → 100）",
+ "frozen_at": "2026-10-07 17:30:31",
+ "files": {
+  "src/core/retrieval/hybrid_engine.py": {
+   "sha256": "9b18bcf8c0a1714afd96cbc988425a5a88e8e6553b3c4a11876fa2c16b45e448",
+   "bytes": 37049
+  },
+  "eval/recall-funnel/funnel.py": {
+   "sha256": "2cdfe6256fe9546f58a44885eeb0135fdecafd8911c89d80d18808254b6dd350",
+   "bytes": 17377
+  },
+  "eval/recall-funnel/summarize.py": {
+   "sha256": "80afbcf46195e115a3a51ee157ab25d52c6e0e6c5b8209f3c6e62ac663313ee6",
+   "bytes": 8368
+  },
+  "eval/recall-funnel/benchmark-v2.jsonl": {
+   "sha256": "5c641a9c17c1e68a5d1d655a5759835f50e39b3dc6babfa90e905c2b87647848",
+   "bytes": 132475
+  }
+ },
+ "git_head": "35490798d2ca83e27a4fe8efc9b33184c2aa69d1",
+ "git_status_short": "M AGENTS.md\n M eval/recall-funnel/exp-6-cap/freeze.py\n?? docs/research/HINDSIGHT-CAPABILITY-AUDIT-2026-09-28.md\n?? docs/research/HINDSIGHT-FACTCHECK-2026-09-30.md\n?? pelican-bike.html\n?? plugin/src/compliance-sentry.js.bak-20260927-003328-before-v4-source\n?? plugin/src/compliance-sentry.js.bak-20260927-003346-before-v4-source\n?? plugin/src/tool-details.js.bak-20260927-003346-before-v4-source\n?? plugin/src/tool-details.js.bak-20260927-003530-before-v4-source\n?? tests/test_jev_cn_baseline.py"
+}
