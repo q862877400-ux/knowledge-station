@@ -26,9 +26,37 @@ from src.core.storage import clause_repo
 from src.core.storage.sqlite_db import get_db_connection, init_schema, write_transaction
 from src.core.text_utils import store_standard_no
 
-_LAW_SPLIT = re.compile(r"(?=第[一二三四五六七八九十百千零]+条)")
-_LAW_NO = re.compile(r"^(第[一二三四五六七八九十百千零]+条)")
+#: ⚠ **2026-10-07 改：只认行首的「第X条」**（原为 `(?=第X条)`，任何位置都切）。
+#: 起因（实测 1,514 个法规文件）：全文共 76,790 处「第X条」，其中 **12,122 处（15.8%）
+#: 在句子中间**——都是**引用别条**（"依照本法第五十条规定…"）。
+#: 旧切法把引用也当条款起点 ⇒ 一部法律被切碎。
+#: 用 9 部**已知真实条数**的法律当裁判：旧切法完全一致 2/9、平均偏差 **25.6 条**；
+#: 只认行首完全一致 **7/9**、平均偏差 **6.1 条**（对照脚本 `38-compare-split-variants.py`）。
+#: ⚠ `^` 必须配 `re.M` —— 否则 `^` 只匹配整串开头（我今天在同一件事上栽过三次）。
+_LAW_SPLIT = re.compile(r"(?=^[ \t]*(?:\*\*)?第[一二三四五六七八九十百千零]+条)", re.M)
+_LAW_NO = re.compile(r"^[ \t]*(?:\*\*)?(第[一二三四五六七八九十百千零]+条)")
 _CHAPTER_HEAD = re.compile(r"^第[一二三四五六七八九十百千]+[章节编]\s*.*$")
+
+#: **文件头剥离**（2026-10-07 新增）：法规 markdown 开头是「一级标题 + 立法沿革 +
+#: `<!-- INFO END -->`」，它会被当成"章节上下文"**逐条前置**（而且用过不重置）
+#: ⇒ **整部法律的每一条都背上同一段文件头**（实测中位 122 字、最大 2351 字）。
+#: 剥掉它；但 `## 第X章` 这类**真章节标题要保留**（那才是上下文该带的东西）。
+_LAW_INFO_END = re.compile(r"<!--\s*INFO\s*END\s*-->")
+_LAW_YAML = re.compile(r"\A\s*---\n.*?\n---\n", re.S)
+_LAW_H1 = re.compile(r"\A\s*#[^#\n]*\n")
+
+
+def _strip_law_front_matter(text: str) -> str:
+    """剥掉法规正文之前的**文件头**（标题/立法沿革/`<!-- INFO END -->`）。
+
+    有 `<!-- INFO END -->` 标记就切到它之后（LawRefBook 全库都有）；
+    没有标记的退化为：去 YAML front matter + 去首个一级标题。
+    """
+    m = _LAW_INFO_END.search(text)
+    if m:
+        return text[m.end():].lstrip("\n")
+    t = _LAW_YAML.sub("", text)
+    return _LAW_H1.sub("", t).lstrip("\n")
 
 #: 「一、二、三、」编号（2026-10-07：部分司法解释/规定不用「第X条」）。
 #: 只匹配**行首**（允许 `## ` 这类 markdown 标题前缀）的编号，两种形态都认：
@@ -73,7 +101,14 @@ def split_law_text(text: str) -> list[tuple[str, str]]:
     """按'第X条'切分法规文本。返回 [(条号, 正文)]；章/节标题并入其后条文上下文。
 
     支持网文常见格式：'第一条 xxx'、'**第一条** xxx'、'1. 第一条'。
+
+    **2026-10-07 两处修正**（业主批准，依据见模块顶部与 `_LAW_SPLIT` 注释）：
+     ① 切分点**只认行首**的「第X条」—— 不再把正文里的**引用**（"依照本法第五十条规定"）
+        当成新条款的起点。9 部已知条数的法律上：完全一致 2/9 → **7/9**，平均偏差 25.6 → **6.1 条**；
+     ② 切分前**剥掉文件头**（标题 + 立法沿革 + `<!-- INFO END -->`）—— 原先它被当成章节上下文
+        **逐条前置**，使整部法律每条都背上同一段文件头（中位 122 字）。
     """
+    text = _strip_law_front_matter(text)
     # 归一 markdown 粗体与序号前缀
     text = re.sub(r"\r\n", "\n", text)
     text = re.sub(r"^[ \t]*\d+[\.、]\s*(?=第[一二三四五六七八九十百千零]+条)", "", text,
