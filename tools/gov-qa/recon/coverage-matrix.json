@@ -59,6 +59,10 @@
    "ah-st": 145,
    "people-liuyan-prov": 28
   },
+  "辽宁省": {
+   "people-liuyan-prov": 36,
+   "ln-st": 24
+  },
   "四川省": {
    "people-liuyan-prov": 28,
    "sc-st": 15
@@ -67,9 +71,6 @@
    "people-liuyan-prov": 36
   },
   "内蒙古自治区": {
-   "people-liuyan-prov": 36
-  },
-  "辽宁省": {
    "people-liuyan-prov": 36
   },
   "黑龙江省": {
@@ -148,10 +149,10 @@
   "北京市": 409,
   "国家级（部委）": 242,
   "安徽省": 173,
+  "辽宁省": 60,
   "四川省": 43,
   "山西省": 36,
   "内蒙古自治区": 36,
-  "辽宁省": 36,
   "黑龙江省": 36,
   "江西省": 36,
   "吉林省": 34,
@@ -223,8 +224,9 @@
   "people-liuyan": 37,
   "gd-gdaudit": 36,
   "gd-jgsw": 34,
+  "ln-st": 24,
   "sc-st": 15
  },
- "grand_total": 36989,
+ "grand_total": 37013,
  "n_provinces_covered": 31
 }

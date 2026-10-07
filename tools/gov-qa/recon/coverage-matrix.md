@@ -1,6 +1,6 @@
 # 全国覆盖矩阵（省级 × 来源）
 
-语料总计 **36989** 条；覆盖省级行政区 **31** 个（另有「国家级（部委）」一类）。
+语料总计 **37013** 条；覆盖省级行政区 **31** 个（另有「国家级（部委）」一类）。
 
 | 省级归属 | 条数 | 来源构成 |
 |---|---|---|
@@ -9,10 +9,10 @@
 | 北京市 | 409 | people-liuyan-fid 245、people-liuyan-df 142、people-liuyan-prov 22 |
 | 国家级（部委） | 242 | mee 145、mem 60、people-liuyan 37 |
 | 安徽省 | 173 | ah-st 145、people-liuyan-prov 28 |
+| 辽宁省 | 60 | people-liuyan-prov 36、ln-st 24 |
 | 四川省 | 43 | people-liuyan-prov 28、sc-st 15 |
 | 山西省 | 36 | people-liuyan-prov 36 |
 | 内蒙古自治区 | 36 | people-liuyan-prov 36 |
-| 辽宁省 | 36 | people-liuyan-prov 36 |
 | 黑龙江省 | 36 | people-liuyan-prov 36 |
 | 江西省 | 36 | people-liuyan-prov 36 |
 | 吉林省 | 34 | people-liuyan-prov 34 |
@@ -87,4 +87,5 @@
 | people-liuyan | 37 |
 | gd-gdaudit | 36 |
 | gd-jgsw | 34 |
+| ln-st | 24 |
 | sc-st | 15 |
