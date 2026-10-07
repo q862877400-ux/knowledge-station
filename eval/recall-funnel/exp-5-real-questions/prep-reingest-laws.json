@@ -1,0 +1,17 @@
+{
+ "why": "重入法规前：删旧法规 + 清台账 law:: 行（新切分器才生效）",
+ "deleted": 1462,
+ "delete_failed": 0,
+ "seconds": 978.0,
+ "journal_lines_dropped": 1640,
+ "journal_lines_kept": 1089,
+ "counts_after": {
+  "doc_meta": 7553,
+  "clause_revision": 605098,
+  "clause_vec": 605098
+ },
+ "law_docs_left": 0,
+ "boundary": [
+  "只删来源标记为 lawrefbook:// 的文档；不动国标、不动真库。"
+ ]
+}

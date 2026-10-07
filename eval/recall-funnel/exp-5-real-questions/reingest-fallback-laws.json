@@ -1,0 +1,114 @@
+{
+ "why": "重入走兜底分支的法规（旧逻辑未剥文件头）",
+ "fallback_docs": [
+  {
+   "doc_id": "doc_01M4ACGQX0WZEVRJ2612JXBXSN",
+   "name": "劳动仲裁和劳动诉讼的攻略"
+  },
+  {
+   "doc_id": "doc_01M4ACH5W59M9E55X0YHGBP7HE",
+   "name": "刑法修正案（二）"
+  },
+  {
+   "doc_id": "doc_01M4ACH964JMV9XNB5FGSDE7J6",
+   "name": "刑法修正案（十）"
+  },
+  {
+   "doc_id": "doc_01M4ACJT2NKWK34P0Y261BP8R6",
+   "name": "最高人民检察院关于工人等非监管机关在编监管人员私放在押人员行为和失职致使在押人员脱逃行为适用法律问题的解释"
+  },
+  {
+   "doc_id": "doc_01M4ACJT5TTCWX89R6YG1Q1MK3",
+   "name": "最高人民检察院关于擅自销售进料加工保税货物的行为法律适用问题的解释"
+  },
+  {
+   "doc_id": "doc_01M4ACJT87EHT8GPRTMP5WXD0R",
+   "name": "最高人民检察院关于构成嫖宿幼女罪主观上是否需要具备明知要件的解释"
+  },
+  {
+   "doc_id": "doc_01M4ACJTCCCWRD663JKX0T55XQ",
+   "name": "最高人民检察院关于适用刑法分则规定的犯罪的罪名的意见"
+  },
+  {
+   "doc_id": "doc_01M4ACJW0RFSPPPJK4TFDJ4WT9",
+   "name": "最高人民法院、最高人民检察院关于办理伪造、贩卖伪造的高等院校学历、学位证明刑事案件如何适用法律问题的解释"
+  },
+  {
+   "doc_id": "doc_01M4ACKH6MG5F06C4XDHZPAN67",
+   "name": "最高人民法院、最高人民检察院关于执行《刑法》 确定罪名的补充规定（七）"
+  },
+  {
+   "doc_id": "doc_01M4ACKHAA40PG1ESES631T352",
+   "name": "最高人民法院、最高人民检察院关于执行《刑法》确定罪名的补充规定"
+  },
+  {
+   "doc_id": "doc_01M4ACKHCQQQEXJ3MVEEKFN1MK",
+   "name": "最高人民法院、最高人民检察院关于执行《刑法》确定罪名的补充规定（三）"
+  },
+  {
+   "doc_id": "doc_01M4ACKHFRZ9NMZYSESVWB2CK5",
+   "name": "最高人民法院、最高人民检察院关于执行《刑法》确定罪名的补充规定（二）"
+  },
+  {
+   "doc_id": "doc_01M4ACKHHXNFPE9JQCYE82JJ48",
+   "name": "最高人民法院、最高人民检察院关于执行《刑法》确定罪名的补充规定（五）"
+  },
+  {
+   "doc_id": "doc_01M4ACKHMPK6ZBP7P9E9GQ7KFS",
+   "name": "最高人民法院、最高人民检察院关于执行《刑法》确定罪名的补充规定（八）"
+  },
+  {
+   "doc_id": "doc_01M4ACKHQ4GYYQFE3JX1N65CTD",
+   "name": "最高人民法院、最高人民检察院关于执行《刑法》确定罪名的补充规定（六）"
+  },
+  {
+   "doc_id": "doc_01M4ACKHSWJXPEWVFCY6TAJBTX",
+   "name": "最高人民法院、最高人民检察院关于执行《刑法》确定罪名的补充规定（四）"
+  },
+  {
+   "doc_id": "doc_01M4ACM7GCDABGS6RQKZ0AQVT2",
+   "name": "最高人民法院关于修改《关于审理掩饰、隐瞒犯罪所得、犯罪所得收益刑事案件适用法律若干问题的解释》的决定"
+  },
+  {
+   "doc_id": "doc_01M4ACM9B5RBHX9CMWN8HE1GY4",
+   "name": "最高人民法院关于修改《最高人民法院关于审理食品药品纠纷案件适用法律若干问题的规定》的决定"
+  },
+  {
+   "doc_id": "doc_01M4ACMQV6AD1YD91ZB924SCNS",
+   "name": "最高人民法院关于国有资产产权管理行政案件管辖问题的解释"
+  },
+  {
+   "doc_id": "doc_01M4ACMSN6J56V35A612E8FBMS",
+   "name": "最高人民法院关于如何认定国有控股、参股股份有限公司中的国有公司、企业人员的解释"
+  },
+  {
+   "doc_id": "doc_01M4ACQ2FTA6VV0D0CDQN0BRAK",
+   "name": "最高人民法院关于对为索取法律不予保护的债务非法拘禁他人行为如何定罪问题的解释"
+  },
+  {
+   "doc_id": "doc_01M4ACQ2HWCWJNWCF30K07TYV7",
+   "name": "最高人民法院关于对变造、倒卖变造邮票行为如何适用法律问题的解释"
+  },
+  {
+   "doc_id": "doc_01M4ACQ34XVVRRVGJQKA74XFCM",
+   "name": "最高人民法院关于当事人申请财产保全错误造成案外人损失应否承担赔偿责任问题的解释"
+  },
+  {
+   "doc_id": "doc_01M4ACQBE992FNRMQSHGTZKYNH",
+   "name": "最高人民法院关于海关行政处罚案件诉讼管辖问题的解释"
+  },
+  {
+   "doc_id": "doc_01M4ACQEG21V8RE1ZASAETNHJ9",
+   "name": "最高人民法院关于知识产权侵权诉讼中被告以原告滥用权利为由请求赔偿合理开支问题的批复"
+  },
+  {
+   "doc_id": "doc_01M4ADCETZ5TDFMMJQY3FZXDEQ",
+   "name": "国务院关于高级专家退休问题的补充规定"
+  }
+ ],
+ "deleted": 26,
+ "journal_lines_dropped": 26,
+ "boundary": [
+  "只删『单条且条号=全文且来源=lawrefbook://』的法规；不动国标、不动真库。"
+ ]
+}

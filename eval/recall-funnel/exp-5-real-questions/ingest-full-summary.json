@@ -1,6 +1,6 @@
 {
  "phase": "law",
- "started": "2026-10-07 12:09:34",
+ "started": "2026-10-07 13:39:09",
  "ok": 0,
  "duplicate": 0,
  "standard_exists": 0,
@@ -9,16 +9,16 @@
  "errors": [],
  "by_phase": {
   "law": {
-   "ok": 8,
+   "ok": 26,
    "err": 0,
-   "skip": 1505,
+   "skip": 1487,
    "total": 1513
   }
  },
  "db_after": {
-  "doc_meta": 9015,
-  "clause_revision": 673918,
-  "clause_vec": 673918
+  "doc_meta": 8983,
+  "clause_revision": 663634,
+  "clause_vec": 663634
  },
- "finished": "2026-10-07 12:09:36"
+ "finished": "2026-10-07 13:39:14"
 }

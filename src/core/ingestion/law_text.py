@@ -227,6 +227,13 @@ def ingest_law_text(text: str, standard_no: str, standard_name: str,
         return {"status": "standard_exists", "existing_doc_id": same_no["doc_id"]}
 
     doc_id = f"doc_{ULID()}"
+    # ⚠ **2026-10-07 修**：剥文件头必须在这里做一次，**不能只靠 `split_law_text` 内部那次**。
+    # 原缺陷（全量重入后抽检抓到）：两条切分都切不出的法规会走下面的
+    # `fallback_single_clause` 兜底（整篇作一条）—— 那条分支**不经过 `split_law_text`**
+    # ⇒ 文件头原样进了条文（实测 `刑法修正案（二）` 的「全文」条以
+    # `# 中华人民共和国刑法修正案（二） 2001年8月31日 …会议通过 <!-- INFO …` 开头）。
+    # 在这里统一剥一次（`_strip_law_front_matter` 幂等，`split_law_text` 内部再剥一次无害）。
+    text = _strip_law_front_matter(text)
     articles = split_law_text(text)
     if not articles:
         # 2026-10-07：司法解释/规定常用「一、二、三、」而不是「第X条」。

@@ -13,7 +13,9 @@
  · 把 `_LAW_SPLIT` 改回不认行首 ⇒ `test_reference_does_not_split` 红；
  · 去掉 `_strip_law_front_matter` 调用 ⇒ `test_front_matter_not_in_body` 红。
 """
-from src.core.ingestion.law_text import _strip_law_front_matter, split_law_text
+from src.core.ingestion.law_text import (
+    _strip_law_front_matter, ingest_law_text, split_law_text)
+from src.core.storage.sqlite_db import get_db_connection
 
 LAW_WITH_FRONT_MATTER = """# 中华人民共和国示例法
 
@@ -105,3 +107,35 @@ class TestEnumStillWorks:
         t = "一、总则内容。\n\n二、分则内容。\n"
         arts = split_law_text(t)
         assert arts == [] or [a[0] for a in arts] == ["一", "二"]
+
+
+class TestFallbackAlsoStripsFrontMatter:
+    """兜底分支（整篇作一条）**也必须**剥文件头。
+
+    实测缺陷：全量重入后抽检抓到 `刑法修正案（二）` 的「全文」条以
+    `# 中华人民共和国刑法修正案（二） 2001年8月31日 …会议通过 <!-- INFO …` 开头 ——
+    它两条切分都切不出，走了 `fallback_single_clause`，而那条分支不经过 `split_law_text`。
+    """
+
+    #: 没有任何条款编号、只有文件头 + 一段正文
+    NO_CLAUSE_DOC = """# 中华人民共和国示例修正案（二）
+
+2001年8月31日 第九届全国人民代表大会常务委员会第二十三次会议通过
+
+<!-- INFO END -->
+
+将刑法第一百一十四条修改为："放火、决水、爆炸…尚未造成严重后果的，处三年以上十年以下有期徒刑。"
+"""
+
+    def test_fallback_clause_has_no_front_matter(self):
+        r = ingest_law_text(self.NO_CLAUSE_DOC, standard_no="示例修正案二(测试)",
+                            standard_name="示例修正案二(测试)", fallback_single_clause=True)
+        assert r.get("status") == "ok", r
+        assert r.get("total_clauses") == 1, "无编号正文应整篇作一条"
+        conn = get_db_connection()
+        row = conn.execute(
+            "SELECT content_text FROM clause_revision WHERE doc_id=?", (r["doc_id"],)).fetchone()
+        body = row[0] if row else ""
+        assert "全国人民代表大会常务委员会" not in body, f"文件头没剥掉：{body[:80]}"
+        assert "<!-- INFO" not in body, f"INFO 标记没剥掉：{body[:80]}"
+        assert "放火、决水" in body, "正文不该被剥掉"
