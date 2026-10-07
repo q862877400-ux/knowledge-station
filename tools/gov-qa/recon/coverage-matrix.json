@@ -55,23 +55,26 @@
    "people-liuyan-df": 82,
    "people-liuyan-prov": 6
   },
-  "天津市": {
-   "people-liuyan-prov": 6
-  },
   "河北省": {
-   "people-liuyan-prov": 4
+   "people-liuyan-prov": 12
   },
   "山西省": {
-   "people-liuyan-prov": 4
+   "people-liuyan-prov": 12
   },
   "内蒙古自治区": {
-   "people-liuyan-prov": 4
+   "people-liuyan-prov": 12
   },
   "辽宁省": {
-   "people-liuyan-prov": 4
+   "people-liuyan-prov": 12
   },
   "黑龙江省": {
-   "people-liuyan-prov": 4
+   "people-liuyan-prov": 12
+  },
+  "吉林省": {
+   "people-liuyan-prov": 10
+  },
+  "天津市": {
+   "people-liuyan-prov": 6
   },
   "上海市": {
    "people-liuyan-prov": 4
@@ -115,9 +118,6 @@
   "贵州省": {
    "people-liuyan-prov": 3
   },
-  "吉林省": {
-   "people-liuyan-prov": 2
-  },
   "云南省": {
    "people-liuyan-prov": 2
   },
@@ -145,12 +145,13 @@
   "湖南省": 4355,
   "国家级（部委）": 242,
   "北京市": 193,
+  "河北省": 12,
+  "山西省": 12,
+  "内蒙古自治区": 12,
+  "辽宁省": 12,
+  "黑龙江省": 12,
+  "吉林省": 10,
   "天津市": 6,
-  "河北省": 4,
-  "山西省": 4,
-  "内蒙古自治区": 4,
-  "辽宁省": 4,
-  "黑龙江省": 4,
   "上海市": 4,
   "江苏省": 4,
   "浙江省": 4,
@@ -165,7 +166,6 @@
   "重庆市": 4,
   "四川省": 4,
   "贵州省": 3,
-  "吉林省": 2,
   "云南省": 2,
   "西藏自治区": 2,
   "陕西省": 2,
@@ -202,10 +202,10 @@
   "gd-yj": 179,
   "gd-zfcxjst": 177,
   "gd-hsa": 173,
+  "people-liuyan-prov": 158,
   "gd-dara": 155,
   "mee": 145,
   "gd-coop": 133,
-  "people-liuyan-prov": 110,
   "people-liuyan-fid": 105,
   "gd-gdjyj": 98,
   "people-liuyan-df": 82,
@@ -221,6 +221,6 @@
   "gd-gdaudit": 36,
   "gd-jgsw": 34
  },
- "grand_total": 35982,
+ "grand_total": 36030,
  "n_provinces_covered": 31
 }
