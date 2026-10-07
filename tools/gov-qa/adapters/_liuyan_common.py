@@ -38,9 +38,16 @@ signature  = md5(路径 + paramJSON + secret16)         # 路径带前导斜杠�
 ## 响应结构（实测）
  · 列表 `resultData.data[]`：`tid / forumName(留言对象=部委+领导) / subject(标题) /
    content(留言全文) / typeName(分类) / stateInfo(已办理…) / createDateline(unix)`。
- · 详情 `resultData.contentList[]`：`[0]` = 留言本体（含 `cUrl` 公开链接），
-   `dataType==9` 的条目 = **官方答复**（`content` + `dateline`）；`dataType==4` 是办理说明/追评，
-   不当答复用。
+ · 详情 `resultData.contentList[]`：`[0]` = 留言本体（含 `cUrl` 公开链接）。
+
+   ⛔ **2026-10-07 更正（本行此前写反，见 SITE-REGISTRY 未决问题④）**：
+   `dataType==9` **不是官方答复，是「网友跟帖」**（部委流与地方流都如此；证据
+   `recon/bw-answers-review.txt`——"答复"里出现网友反问「如果遇上套牌车呢？」）。
+   官方答复**极可能是 `dataType==4`**（实测长度最大、位于末尾），**尚待配额冷却后验证**
+   （诊断脚本 `recon/df-datatype-diagnose.py`）。
+   ⇒ **本基座当前产出的 `answer` 字段不可信**；两个源的数据已隔离在
+   `recon/bw-suspect-30records.jsonl` / `recon/df-suspect-5records.jsonl`。
+   修好前 `people-liuyan` / `people-liuyan-df` 一律记 0 条可用。
 
 ## 礼貌抓取
 详情接口对 UA 有要求（过短的 UA 会拿到非 JSON），且每请求间隔 ≥1.5s；单线程。
