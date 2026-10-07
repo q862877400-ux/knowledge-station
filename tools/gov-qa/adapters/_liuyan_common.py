@@ -64,7 +64,9 @@ LIST_ROWS = 20
 TAG_RE = re.compile(r"<[^>]+>")
 
 #: 统一字段之外的原始键进 extra（挑长期有价值的；全量原始行在接口里可重取）
-EXTRA_KEYS = ("typeName", "domainName", "domainId", "fid", "forumPathName")
+#: pForumNames = 行政层级归属（如 ["河北省","衡水市"]）—— 地方版块省市县归属全靠它
+EXTRA_KEYS = ("typeName", "domainName", "domainId", "fid", "forumPathName",
+              "pForumNames", "pforumNames")
 
 
 def _md5(s: str) -> str:
