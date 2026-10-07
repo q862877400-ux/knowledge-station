@@ -1,0 +1,105 @@
+{
+ "n": 120,
+ "check_pass": "120/120",
+ "k": 60,
+ "depth": 1000,
+ "arms": {
+  "A": {
+   "@8": 5.83,
+   "@20": 8.33
+  },
+  "B": {
+   "@8": 5.83,
+   "@20": 8.33
+  },
+  "C": {
+   "@8": 6.67,
+   "@20": 8.33
+  },
+  "D": {
+   "@8": 6.67,
+   "@20": 8.33
+  }
+ },
+ "fusion": {
+  "A": "sum w/(k+r+1)",
+  "B": "sum 1/(k+r+1)",
+  "C": "max 1/(k+r)",
+  "D": "max w/(k+r)"
+ },
+ "live_channels": [
+  "exact",
+  "fts",
+  "vec",
+  "modality"
+ ],
+ "prod_cap": {
+  "exact": null,
+  "fts": 20,
+  "vec": 20,
+  "modality": null
+ },
+ "rerank": false,
+ "vs_A": {
+  "B@8": {
+   "delta_pt": 0.0,
+   "b_A错arm对": 0,
+   "c_A对arm错": 0,
+   "mcnemar_p": 1.0,
+   "ci95": [
+    0.0,
+    0.0
+   ]
+  },
+  "C@8": {
+   "delta_pt": 0.83,
+   "b_A错arm对": 1,
+   "c_A对arm错": 0,
+   "mcnemar_p": 1.0,
+   "ci95": [
+    0.0,
+    2.65
+   ]
+  },
+  "D@8": {
+   "delta_pt": 0.83,
+   "b_A错arm对": 1,
+   "c_A对arm错": 0,
+   "mcnemar_p": 1.0,
+   "ci95": [
+    0.0,
+    2.65
+   ]
+  },
+  "B@20": {
+   "delta_pt": 0.0,
+   "b_A错arm对": 0,
+   "c_A对arm错": 0,
+   "mcnemar_p": 1.0,
+   "ci95": [
+    0.0,
+    0.0
+   ]
+  },
+  "C@20": {
+   "delta_pt": 0.0,
+   "b_A错arm对": 0,
+   "c_A对arm错": 0,
+   "mcnemar_p": 1.0,
+   "ci95": [
+    0.0,
+    0.0
+   ]
+  },
+  "D@20": {
+   "delta_pt": 0.0,
+   "b_A错arm对": 0,
+   "c_A对arm错": 0,
+   "mcnemar_p": 1.0,
+   "ci95": [
+    0.0,
+    0.0
+   ]
+  }
+ }
+}
