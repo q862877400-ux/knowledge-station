@@ -1,0 +1,27 @@
+  贵州省应急管理厅 https://yjt.guizhou.gov.cn/ → ConnectError
+  贵州省应急管理厅 无指纹（试过 6 个路径）
+★ 贵州省卫生健康委 https://wjw.guizhou.gov.cn/ [200] 指纹 {'/IGI/': 3, 'openGovmsgbox': 1, 'listGovmsgboxs': 1}
+      siteId : 500663
+      appId : 321
+      siteId : 500663
+      siteId : 500663
+★ 贵州省市场监督管理局 https://amr.guizhou.gov.cn/ [200] 指纹 {'/IGI/': 3}
+      siteId=41
+      siteId=41
+      appId=88
+      siteId: 85
+      siteId=85
+      siteId: 85
+  贵州省交通运输厅 无指纹（试过 6 个路径）
+  吉林省应急管理厅 无指纹（试过 6 个路径）
+★ 吉林省卫生健康委 https://wsjkw.jl.gov.cn/ [200] 指纹 {'openGovmsgbox': 1, 'listGovmsgboxs': 1}
+      appId=575
+      siteId = 117
+      appId = 96
+      groupId=178
+★ 吉林省卫生健康委 https://wsjkw.jl.gov.cn/hdjl/ [200] 指纹 {'openGovmsgbox': 1, 'listGovmsgboxs': 1}
+      appId=575
+      siteId = 117
+      appId = 96
+      groupId=178
+  吉林省市场监督管理厅 无指纹（试过 6 个路径）

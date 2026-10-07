@@ -1,0 +1,484 @@
+{
+ "A_考卷": [
+  {
+   "source": "gz-wjw",
+   "id": "27760929",
+   "url": "https://wjw.guizhou.gov.cn/?id=27760929",
+   "question": "欧洲蕨(学名:Pteridium aquilinum&nbsp;(L.) Kuhn)是蕨科蕨属植物&nbsp;因为地方长期有食用蕨菜的习惯，现在想使用蕨菜来加工成酱腌菜，不知道蕨菜（欧洲蕨菜）能否作为普通食品原料？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "既是食品又是药品的物品名单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27741738",
+   "url": "https://wjw.guizhou.gov.cn/?id=27741738",
+   "question": "景天三七（又名费菜、养心菜），曾列入国家林业局发布的《山野菜》（LY/T1673-2006）标准,但该标准已于2024年12月31日废止，由国家农业部发布的《绿色食品 山野菜》（NY/T1507-2016）标准未将该品种列入。曾收录在《中国",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27710073",
+   "url": "https://wjw.guizhou.gov.cn/?id=27710073",
+   "question": "尊敬的领导：&nbsp; &nbsp; 你好！&nbsp; &nbsp; &nbsp;我们本地制作花糯米饭时布依族人民到山上采紫蓝草（可浸染出紫色）、枫叶（可浸染出黑色）、苏木（可浸染出红色）等植物，然后用水煮出色，再把糯米倒入染成不同的色",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "既是食品又是药品的物品名单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27707287",
+   "url": "https://wjw.guizhou.gov.cn/?id=27707287",
+   "question": "“红曲米”在食品安全国家标准食品添加剂中可作为着色剂使用，但不能用于生干面制品，但在实际应用中，有将红曲米磨面后作为原料和小麦粉混合制作成挂面，请问红曲米面可不可以作为普通食品原料生产挂面？",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27634816",
+   "url": "https://wjw.guizhou.gov.cn/?id=27634816",
+   "question": "根据贵州省卫生健康委员会2025年2月7日发布的2025年第1号通告，贵州省食品安全地方标准DBS52／008—2015饮用天然泉水标准已废止，且未见卫健委执行新标准的公告/通告。2025年3月20日数次致电贵州省卫生健康委员会食品安全标准",
+   "cited_hits": [
+    {
+     "name": "食品安全国家标准饮用天然矿泉水",
+     "lib_no": "GB 8537-2018",
+     "weak": false
+    },
+    {
+     "name": "食品安全国家标准包装饮用水",
+     "lib_no": "GB 19298-2014",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国食品安全法",
+     "lib_no": "食品安全法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "食品安全地方标准饮用天然泉水",
+    "食品安全标准管理办法要求",
+    "食品安全地方标准饮用天然泉水",
+    "食品安全地方标准饮用天然泉水",
+    "GB8537-2018",
+    "GB19298-2014"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27548270",
+   "url": "https://wjw.guizhou.gov.cn/?id=27548270",
+   "question": "关于新生儿医学出生证明是否强制需要跟父方或者母方姓，能否跟孩子亲生爷爷姓",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "出生医学证明"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "gz-wjw",
+   "id": "27775181",
+   "url": "https://wjw.guizhou.gov.cn/?id=27775181",
+   "question": "2013年及以前的本科毕业生，在2016年进入二级医疗机构工作，用本科的学历申报副高。请问是否需要提供规培证？请提供文件依据。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发&lt;关于建立贵州省住院医师规范化培训制度的实施方案&gt;的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27710051",
+   "url": "https://wjw.guizhou.gov.cn/?id=27710051",
+   "question": "贵阳恒昌生态农业有限公司的企业标准，备案号为5201162S-2025的食品安全企业标准《干制食用菌》存在以下问题：1.不符合《食品安全国家标准 食用菌及其制品》GB 7096-2014的有关要求，国家标准在感官要求中的状态要求：无正常视力",
+   "cited_hits": [],
+   "cited_missing": [
+    "GB／T 38581－2020"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27708268",
+   "url": "https://wjw.guizhou.gov.cn/?id=27708268",
+   "question": "本人是2018年7月贵州省中专（农村医学）毕业生，2019年通过执业助理医师资格考试并注册满5年余。这次主要想来深度了解一下，关于考过执业医师后，注册是否受限，是否能注册在除乡镇卫生院以上民营二级或者公立医院二甲及以上医疗机构执业。",
+   "cited_hits": [],
+   "cited_missing": [
+    "医师资格考试报名资格规定（2014版）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27686549",
+   "url": "https://wjw.guizhou.gov.cn/?id=27686549",
+   "question": "针对DBS 52/ 048—2020《食品安全地方标准 铁皮石斛茎》和国家卫生健康委员会、国家市场监督管理总局公告（2023年 第9号）《关于党参等9种新增按照传统既是食品又是中药材的物质公告》，向政务机构咨询铁皮石斛茎产品标签标识和判定问",
+   "cited_hits": [],
+   "cited_missing": [
+    "食品安全地方标准铁皮石斛茎（DBS52／048－2020）",
+    "关于党参等9种新增按照传统既是食品又是中药材的物质公告（2023年第9号）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27681181",
+   "url": "https://wjw.guizhou.gov.cn/?id=27681181",
+   "question": "尊敬的领导：&nbsp; &nbsp; &nbsp; &nbsp;您好！&nbsp; &nbsp; &nbsp; &nbsp;柠檬为芸香科柑橘属植物，其外层黄色果皮（即柠檬皮）富含芳香油脂，是食品风味的重要来源。目前，橘皮（陈皮）已被明确列",
+   "cited_hits": [],
+   "cited_missing": [
+    "中国药典",
+    "DBS13／002－2015食品安全地方标准代用茶"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27666955",
+   "url": "https://wjw.guizhou.gov.cn/?id=27666955",
+   "question": "县级疾病预防控制中心临床医师能否通过增加执业范围考试加注预防保健专业？临床医学医师长期在县级疾病预防控制中心从事预防保健工作，单位医疗机构许可证诊疗科目有预防保健专业，单位开展的许多工作都属于预防保健专业范围（如：健康教育、职业卫生、环境卫",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于医师执业注册中执业范围的暂行规定",
+    "卫生部关于医师执业地点中县及县以下医疗机构范围界定的批复",
+    "关于医师执业注册中执业范围的暂行规定",
+    "关于医师执业注册中执业范围的暂行规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27664813",
+   "url": "https://wjw.guizhou.gov.cn/?id=27664813",
+   "question": "请问今年新征求的健康科普专家库和资源库管理办法已经征求结束3个月了，何时能下发？",
+   "cited_hits": [],
+   "cited_missing": [
+    "贵州省健康科普资源库建设和管理办法（试行）",
+    "贵州省健康科普专家库建设和管理办法（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27653776",
+   "url": "https://wjw.guizhou.gov.cn/?id=27653776",
+   "question": "贵州省地方标准dbs52/011执行标准第三点二条，风味辣椒面的定义是，以辣椒干为主要原料，先熟制成辣椒面。在制作过程中配入一定量的辅料，辅料包括花生、大豆、芝麻、花椒、食盐、味精等全部或其中部分，部分辅料需经烘焙或炒制。分别将辅料粉碎，与",
+   "cited_hits": [],
+   "cited_missing": [
+    "新食品原料安全性审查管理办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27631524",
+   "url": "https://wjw.guizhou.gov.cn/?id=27631524",
+   "question": "老师好，想咨询一下配料仅为红茶和绿茶的茶产品，能否执行GB 31608。",
+   "cited_hits": [],
+   "cited_missing": [
+    "食品安全国家标准 茶叶"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27626763",
+   "url": "https://wjw.guizhou.gov.cn/?id=27626763",
+   "question": "想咨询一下2024年贵州卫生专业技术省内合格名单多久能颁布呢？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于领取2024年卫生专业技术资格考试贵州省内合格电子证书的公告",
+    "省卫生健康委 省人力资源社会保障厅关于2024年度全国卫生专业技术资格考试贵州省内合格人员名单"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27597691",
+   "url": "https://wjw.guizhou.gov.cn/?id=27597691",
+   "question": "尊敬的卫健委老师们：您好！我是一名2014年毕业的医生，目前在县级二级医院工作，对于晋升高级职称是否需要接受住院医师规范化培训（规培）存在疑问，特此咨询。据我县之前的会议通知，自2016年起，新进入二级医疗机构的本科及以上学历医学类毕业生需",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于印发＜关于建立贵州省住院医师规范化培训制度的实施方案＞的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27581998",
+   "url": "https://wjw.guizhou.gov.cn/?id=27581998",
+   "question": "我想了解一下规培文件里面要求新进入指毕业上班时间还是考资格证后注册到医院执业的时间",
+   "cited_hits": [],
+   "cited_missing": [
+    " 关于印发＜关于建立贵州省住院医师规范化培训制度的实施方案＞的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27581360",
+   "url": "https://wjw.guizhou.gov.cn/?id=27581360",
+   "question": "领导您好！目前贵阳市幼儿园招聘保健医生均需要应聘者持有\"幼儿保健医证”才能报名，该证在哪里报考，如何报考，并没有官方解读。涉及个人就业，想请有关部门解答，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [
+    "全国卫生专业技术资格考试",
+    "全国医师资格考试",
+    "全国卫生专业技术资格考试"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27576667",
+   "url": "https://wjw.guizhou.gov.cn/?id=27576667",
+   "question": "我问的是“（黔入口发[2006]23号）贵州省《独生子女父母光荣证》办理规定”究竟是有效文件还是是失效文件？请给予正面回复，不要推诿！",
+   "cited_hits": [],
+   "cited_missing": [
+    "独生子女父母光荣证",
+    "独生子女父母光荣证",
+    "贵州省卫生和计划生育委员会关于实施全面两孩政策有关问题的意见",
+    "独生子女父母光荣证",
+    "独生子女父母光荣证"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27568524",
+   "url": "https://wjw.guizhou.gov.cn/?id=27568524",
+   "question": "尊敬的领导：党的二十大报告明确指出：深化医药卫生体制改革，促进医保、医疗、医药协同发展和治理。促进优质医疗资源扩容和区域均衡布局，坚持预防为主，加强重大慢性病健康管理，提高基层防病治病和健康管理能力。深化以公益性为导向的公立医院改革，规范民",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家卫生健康委办公厅、国家医保局办公室关于印发长期处方管理规范（试行）的通知",
+    "全面提升医疗质量行动实施方案（2023—2025年）"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27556894",
+   "url": "https://wjw.guizhou.gov.cn/?id=27556894",
+   "question": "您好，请问省卫健委2022年信息公开年报如何查阅？谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    " 贵州省卫生健康委2022年政府信息公开工作年度报告 "
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27517680",
+   "url": "https://wjw.guizhou.gov.cn/?id=27517680",
+   "question": "您好！打扰，我想咨询《省卫生健康委关于开展老年友善医疗机构建设工作的通知》文件内容，包括文件附件。谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于开展建设老年友善医疗机构工作的通知",
+    "省卫生健康委关于开展老年友善医疗机构建设工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27498696",
+   "url": "https://wjw.guizhou.gov.cn/?id=27498696",
+   "question": "根据国家卫健委国卫老龄函〔2020〕457号《关于开展建设老年友善医疗机构工作的通知》，决定在全国开展建设老年友善医疗机构工作。文件中明确了适用范围是：“综合性医院、康复医院、护理院和基层医疗机构等为老年人提供医疗服务的医疗机构。鼓励其他各",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于切实解决老年人运用智能技术困难的实施方案",
+    "关于建立完善老年健康服务体系的指导意见",
+    "关于开展建设老年友善医疗机构工作的通知",
+    "省卫生健康委关于开展老年友善医疗机构建设工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27455615",
+   "url": "https://wjw.guizhou.gov.cn/?id=27455615",
+   "question": "请问2022年考的卫生资格专业技术考试贵州省省级资格证书什么时候才可以收到？",
+   "cited_hits": [],
+   "cited_missing": [
+    "省卫生健康委 省人力资源社会保障厅关于印发2022年度全国卫生专业技术资格考试贵州省内合格人员名单及有关事项的通知",
+    "关于启用电子版贵州省专业技术职务资格证书的通知"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "gz-wjw",
+   "id": "27756083",
+   "url": "https://wjw.guizhou.gov.cn/?id=27756083",
+   "question": "致贵州省人民医院观山湖院区泌尿外科的感谢信&nbsp; &nbsp; &nbsp;尊敬的贵州省人民医院观山湖院区泌尿外科单刚主任、李帅杰医生、王腾达医生、全体医护及护理人员：&nbsp; &nbsp; &nbsp;您们好！&nbsp; &n",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27754150",
+   "url": "https://wjw.guizhou.gov.cn/?id=27754150",
+   "question": "2026年6月9日 我因韧带二级损伤住院于6楼中医科2026年6月10日am11点 我第一次做中医科内的理疗项目 小针刀 由陈一主任亲自操刀在打下麻药后（我没有任何麻药过敏反应） 我突发了严重的心理应激反应 浑身抽搐 颤抖 暴汗 流泪 在意",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27742133",
+   "url": "https://wjw.guizhou.gov.cn/?id=27742133",
+   "question": "2026年要求健康教育工作录入的贵州省健康教育报表系统，但是该系统目前存在以下问题：1、由于村医使用电脑不方便，有的村医不会用电脑或者使用电脑不熟悉或许没有电脑，录入资料困难，建议尽快开发手机版本。2、登录不方便，每次登录都需要接受手机验证",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27706034",
+   "url": "https://wjw.guizhou.gov.cn/?id=27706034",
+   "question": "感谢信&nbsp;尊敬的贵州省人民医院（观山湖院区）透析室全体医护人员：&nbsp;您们好！&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;提笔写下这封信时，我们全家心中满溢着感激之情。转眼间我在贵科室接受透析治疗已有一年",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27667920",
+   "url": "https://wjw.guizhou.gov.cn/?id=27667920",
+   "question": "2025年度卫生专业技术资格证书如何申请网上邮寄",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27623744",
+   "url": "https://wjw.guizhou.gov.cn/?id=27623744",
+   "question": "老师，您好，想咨询一下关于产品执行标准的问题，如何判定一个标准能够作为产品执行标准，能够作为产品执行标准需要满足什么条件？GB 31608能作为茉莉花茶的产品执行标准吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27591455",
+   "url": "https://wjw.guizhou.gov.cn/?id=27591455",
+   "question": "医疗机构执业许可证机构名称、法定代表人、地址名称等变更，母婴保健技术服务执业许可证是否需要及时变更，变更的期限是多久？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27586101",
+   "url": "https://wjw.guizhou.gov.cn/?id=27586101",
+   "question": "往年公布规培结业理论考核结果涉及个人隐私信息泄露，例如个人姓名，建议把公布文件中的姓名列换为准考证号，保护个人信息，从大家做起，谢谢谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27581658",
+   "url": "https://wjw.guizhou.gov.cn/?id=27581658",
+   "question": "贵州省高危人群出生缺陷防治补助试点项目是否2024年仍在持续实施中？属于项目适用人群的孕妇是否可以免费申请做无创DNA检测？申请的话需要什么资料？户籍属于外省的是否可以申请？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27573948",
+   "url": "https://wjw.guizhou.gov.cn/?id=27573948",
+   "question": "1，请问关于贵州省消毒产品卫生许可证审批公告在哪里可以查询。2，请告知（黔）卫消证字（2019）第520381-001号，属于哪家企业注册取得，是否在有效期内。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27566466",
+   "url": "https://wjw.guizhou.gov.cn/?id=27566466",
+   "question": "尊敬的领导，你好。由于亲人生病，问了我们贵阳三个三甲医院病人病重能否办理入院情况，都说要到门诊挂号排队等候，而且也不知道排到什么时候，加上病人也不能长时间等候。我就想问一下，对危重病人入院治疗是否有完善的应急处置方案，在线等？急，盼回复。多",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27565514",
+   "url": "https://wjw.guizhou.gov.cn/?id=27565514",
+   "question": "关于奖励扶助系统使用板块优化功能的建议省卫生健康委领导：一个系统的开发启用，应该是在原来系统的基础上优化，旨在如何减轻基层负担，简便易操作，操作程序一目了然，这才有意义，最起码我们作为系统的实际操作使用者是这样认为的。奖励扶助系统的实际操作",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27553445",
+   "url": "https://wjw.guizhou.gov.cn/?id=27553445",
+   "question": "您好，想咨询一下省卫健委主要领导信息在哪可以查看？方便的话提供一下网址，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27497937",
+   "url": "https://wjw.guizhou.gov.cn/?id=27497937",
+   "question": "2023年度卫生专业技术资格考试结束后通过人员的资格证能否领取国家人社部和卫健委颁发的那个纸质版的证书？因为我现在在外省工作，所以需要那个纸质版的证书",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "gz-wjw",
+   "id": "27490962",
+   "url": "https://wjw.guizhou.gov.cn/?id=27490962",
+   "question": "2022年全省高危人群出生缺陷防治补助试点项目启动，各州市都有名额为孕妇免费申请无创DNA一次，目前2023年只有贵阳户籍免费，请问其他市州2023年还有这个惠民政策吗，望回复，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

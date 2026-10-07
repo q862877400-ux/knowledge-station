@@ -1,0 +1,446 @@
+{
+ "A_考卷": [
+  {
+   "source": "jl-wjw",
+   "id": "33148",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=33148",
+   "question": "剖宫产是否在180天产假的基础上再增加15天",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "32638",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=32638",
+   "question": "想问询目前产假日期是否为180天？剖腹产算难产吗？难产是不是有15天假，产假和难产是不是可以叠加休假195天？",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "吉林省进一步完善和落实积极生育支持措施的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "30645",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=30645",
+   "question": "每天共计一小时的哺乳时间，路上的往返时间怎么算？是视为工作时间，还是上下班时间",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-wjw",
+   "id": "30487",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=30487",
+   "question": "您好，老师，请问女职工在怀孕期间，需要定期到医院产检，带薪产检假的具体规定，请详细告知，感谢",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-wjw",
+   "id": "30153",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=30153",
+   "question": "女职工剖腹产假期是不是休息195天，如果是的话麻烦回复具体依据的法律条例来解释相应假期的算法，制度是否需要并行执行？",
+   "cited_hits": [
+    {
+     "name": "女职工劳动保护特别规定",
+     "lib_no": "女职工劳动保护特别规定(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "吉林省进一步完善和落实积极生育支持措施的实施意见"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "jl-wjw",
+   "id": "36535",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=36535",
+   "question": "吉林市编制内教师是否有育儿假并详细政策",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省进一步完善和落实积极生育支持措施的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "35031",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=35031",
+   "question": "育儿假期间扣了绩效，人事科回复扣的工作量绩效，但计算下来是按照月绩效工资÷30×5（休假天数），作为行政人员，单位也未明确过如何计算工作量，咨询这样扣钱是否合理。",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-wjw",
+   "id": "35023",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=35023",
+   "question": "长春市公立幼儿园 产假遇到寒暑假，那么产假可以顺延吗？再一个 卫健委有没有红头文件说这个事的？如果有是哪一年发的红头文件！谢谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于三孩生育政策及配套支持措施在实施中有关问题指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "34949",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=34949",
+   "question": "尊敬的省卫健委领导您好，我是长春市差额拨款事业单位在编职工，依据吉卫联发〔2023〕56号文件相关政策向您咨询产假薪资差额问题。政策原文明确女职工符合法规生育享受产假180天，职工休上述假期期间按正常工作对待，工资、奖金照发，其他福利待遇不",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省进一步完善和落实积极生育支持措施的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "34426",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=34426",
+   "question": "请问现在吉林省婚假是15个工作日还是自然日，相关文件规定是什么？如与用人单位自行设定的规章制度不同，按哪个执行？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于三孩生育政策及配套支持措施在实施中有关问题指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "33455",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=33455",
+   "question": "长春市经开区区编女教师，产假期间连上了寒假，请问产假到期后可以按照寒假天数向后顺延吗？学校人事和教育局有权利拒绝驳回吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于三孩生育政策及配套支持措施在实施中有关问题指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "33415",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=33415",
+   "question": "您好，我市当前最新的男方陪产假政策是什么？休假时间多长时间？遇法定节假日是否顺延？对采用综合工时企业有没有要求或指导意见？",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于三孩生育政策及配套支持措施在实施中有关问题指导意见",
+    "吉林省进一步完善和落实积极生育支持措施的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "33275",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=33275",
+   "question": "吉林省事业单位女教师想申请延长产假至一年，如果单位不同意延长产假该怎么办？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省人口与计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "33090",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=33090",
+   "question": "我的产假于七月一日到期向单位申请了延迟产假一年，单位已经同意，走流程时到人社局，人社局说需要提供红头文件，可以帮忙出示一下相关文件吗？非常感谢",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于三孩生育政策及配套支持措施在实施中有关问题指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "32774",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=32774",
+   "question": "《吉林省进一步完善和落实积极生育支持措施的实施意见》通知中，第二章的第（十二）条规定的独生子女父母年满60周岁后患病住院的，其独生子女每年享受累计15天照护假。请问文件中的父母包括岳父、岳母或者公婆吗？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省进一步完善和落实积极生育支持措施的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "31896",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=31896",
+   "question": "吉林省陪产假25天、育儿假20天/年（子女3周岁前），按《吉林省人口与计划生育条例》，是否不含周六日、不含法定节假日，按工作日计算？请明确答复并提供文件依据，谢谢！",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于三孩生育政策及配套支持措施在实施中有关问题指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "31857",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=31857",
+   "question": "您好，想咨询一下关于产假195天含难产假15天，但生育津贴发放173天含难产15天，期间差额22天工资待遇如何发放，黑龙江省女职工保护条例明确了（第十二条对参加生育保险的女职工产假期间的生育津贴，按照用人单位上年度职工月平均工资标准由医疗保",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省进一步完善和落实积极生育支持措施的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "31835",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=31835",
+   "question": "事业编、公务员、企业的男职工都缴纳了生育保险，在其配偶生孩子时，男职工的生育护理补贴与护理假的工资是否可以同时享受？请分别说明三种情形？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省人口与计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "31718",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=31718",
+   "question": "吉林省婚假是15天还是15个工作日，以什么文件为准？如15个工作日是否包含公休日及法定假节日？敬请回复。",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于三孩生育政策及配套支持措施在实施中有关问题指导意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "31638",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=31638",
+   "question": "2026年吉林省婚假为多少天，以什么文件实施？",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省人口与计划生育条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "31549",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=31549",
+   "question": "吉林省直事业单位能享受二十天育儿假么，这个是硬性规定还是单位自己决定能不能修",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省进一步完善和落实积极生育支持措施的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "30305",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=30305",
+   "question": "您好！根据《吉林省进一步完善和落实积极生育支持措施的实施意见》（吉卫联发〔2023〕56 号）文件规定：\"符合法律、法规规定生育的女职工享受产假 180 天，男方享受护理假 25 天\"吉林卫健委。现特向贵单位咨询：男方 25 天护理假的具体",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省进一步完善和落实积极生育支持措施的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "30301",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=30301",
+   "question": "省内女职工哺乳假是否可以合并使用，产假是否可以同公司协商延长至一年",
+   "cited_hits": [],
+   "cited_missing": [
+    "女职工劳工保护特别规定",
+    "吉林省人口与计划生育条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-wjw",
+   "id": "30059",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=30059",
+   "question": "您好 我的爱人怀孕了三个月 今天问了下单位人事 单位人事说产假只有90天 咱们是有文章吗产假具体多少天 如果单位就给90天 我应该找哪个部门协调 这种用人单位合法吗？ 如果产假180天这个工资谁来发 我的爱人一直交的生育险 请回复谢谢啦！",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省进一步完善和落实积极生育支持措施的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "29736",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=29736",
+   "question": "吉林省产假及育儿假国有企业是否应该按照产假180天执行",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省进一步完善和落实积极生育支持措施的实施意见"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "29513",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=29513",
+   "question": "您好，我是2025年10月13日审批通过的育儿补贴流程，至今还没发放，请问什么时候可以发放。",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省育儿补贴制度实施方案"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "jl-wjw",
+   "id": "35849",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=35849",
+   "question": "尊敬的吉林省卫生健康委员会领导： 您好！ 我们是患者管书田的家属。患者于2026年8月31日在吉林大学中日联谊医院结直肠外科二疗区，由盛世厚主任主刀完成手术。在此，我们特此写信，表扬盛世厚主任高尚的医德与暖心的人文关怀。 在住院治疗期间，盛",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "35818",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=35818",
+   "question": "领导您好，我于2010年12月年取得执业助理医师资格证书，次年2011年6月注册取得执业助理医师执业证书。2020年9月通过执业医师资格考试，取得执业医师资格，2020年12月注册取得执业医师执业证书。期间注册无中断，无变更执业范围。请问执",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "35523",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=35523",
+   "question": "新的《执业医师注册管理办法》已经正式实施，需要确定唯一主执业机构。因为确定后，涉及2026医师定期考核事宜，其他省份已经开始定期考核，不知道吉林省2026年执业医师定期考核什么时间开始？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "35021",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=35021",
+   "question": "您好，请问，入职日期是2026/8/24，孩子是在2026/2/1出生的，第一周岁的育儿假周期是从2026/8/24-2027/1/31吗？还是20天吗？还是要按入职日期进行折算？例如20/365*（2027/1/31-2026/8/24+",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "32772",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=32772",
+   "question": "吉林省是否有非独生子女照护假？相关文件能否出示？非常感谢。请问在哪里看回复？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "32611",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=32611",
+   "question": "《吉林省进一步完善和落实积极生育支持措施的实施意见》中说“在子女3岁前，每人每年各享受育儿假累计20天”，这里范围不够清晰，请问这个“每人每年”指的是自然年还是孩子的周岁年？比如孩子2026年9月出生，第一年的育儿假是在2026年9月至20",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "32404",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=32404",
+   "question": "女教职工产假遇到寒暑假，顺延吗",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "32260",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=32260",
+   "question": "你好，我爱人是一名公立小学女教师，我想咨询一下，按照：关于印发《吉林省人口与计划生育条例》实施中问题解释的通知中的二、关于奖励政策相关问题5.婚假、护理假不含公休日和国家法定假日；产假含公休日和国家法定假日，但不含其工作所在行业或者系统内部",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "31839",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=31839",
+   "question": "我是2026年1月26日审核通过的，昌邑区，丰满区船营区都发放了，甚至县里都发了。龙潭区至今未发。我咨询一下，这个发放节点是国家规定还是地方自己决定什么时候发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "31758",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=31758",
+   "question": "我是一名精神科医师，国家卫健委《心理治疗规范》中要求的精神科医师开展心理治疗，要参加规范心理培训。请问哪些机构有培训资质？网络上有很多培训机构，如中国心理协会，中国卫生心理协会以及其他各类培训中心，鱼龙混杂，作为医生个人无法甄别，恳请行政监",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "30899",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=30899",
+   "question": "根据关于印发《吉林省进一步完善和落实积极生育支持措施的实施意见》的通知吉卫联发〔2023〕56号中独生子女护理假的相关规定提出如下疑问，希望能在1个工作日内回复。前期已咨询过人社，人社反馈此为卫健委发布的文件，人社不负责解释。 1.休假时长",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "30813",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=30813",
+   "question": "尊敬的吉林省卫健委工作人员： 您好！我是一名在职宝妈，符合吉林省育儿假享受政策，子女未满3周岁，依法享有年度20天育儿假。 本年度因单位工作安排、频繁加班，导致我部分育儿假未能按时休完即将过期，并非个人原因造成假期未休。现咨询并申请：因单位",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "29758",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=29758",
+   "question": "尊敬的卫健委领导：您好！ 我是一名吉林省的在职员工，现就育儿假的相关规定向您咨询。我的孩子出生于2023年9月2日，到2026年9月2日将满三周岁。根据目前政策，职工在子女三周岁前每年可享受育儿假。我理解每年育儿假的天数为20天，但对于具体",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-wjw",
+   "id": "29469",
+   "url": "https://wsjkw.jl.gov.cn/hdjl/?id=29469",
+   "question": "非农业户口迁入到农村户口的(60周岁之后落到农村户口的)是否能够享受农村奖扶政策.",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}
