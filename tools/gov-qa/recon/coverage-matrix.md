@@ -1,24 +1,25 @@
 # 全国覆盖矩阵（省级 × 来源）
 
-语料总计 **36651** 条；覆盖省级行政区 **31** 个（另有「国家级（部委）」一类）。
+语料总计 **36731** 条；覆盖省级行政区 **31** 个（另有「国家级（部委）」一类）。
 
 | 省级归属 | 条数 | 来源构成 |
 |---|---|---|
 | 广东省 | 31104 | gd-amr 6134、gd-hr 6120、gd-stats 4275、gd-st 3329、gd-nr 1682、gd-edu 1165 …共 38 个来源 |
 | 湖南省 | 4371 | hunan-st 3813、hunan-yj 538、people-liuyan-prov 20 |
-| 北京市 | 367 | people-liuyan-fid 211、people-liuyan-df 142、people-liuyan-prov 14 |
+| 北京市 | 391 | people-liuyan-fid 227、people-liuyan-df 142、people-liuyan-prov 22 |
 | 国家级（部委） | 242 | mee 145、mem 60、people-liuyan 37 |
-| 山西省 | 28 | people-liuyan-prov 28 |
-| 内蒙古自治区 | 28 | people-liuyan-prov 28 |
-| 辽宁省 | 28 | people-liuyan-prov 28 |
-| 黑龙江省 | 28 | people-liuyan-prov 28 |
+| 山西省 | 36 | people-liuyan-prov 36 |
+| 内蒙古自治区 | 36 | people-liuyan-prov 36 |
+| 辽宁省 | 36 | people-liuyan-prov 36 |
+| 黑龙江省 | 36 | people-liuyan-prov 36 |
+| 吉林省 | 34 | people-liuyan-prov 34 |
 | 上海市 | 28 | people-liuyan-prov 28 |
 | 江苏省 | 28 | people-liuyan-prov 28 |
 | 浙江省 | 28 | people-liuyan-prov 28 |
 | 安徽省 | 28 | people-liuyan-prov 28 |
 | 福建省 | 28 | people-liuyan-prov 28 |
 | 江西省 | 28 | people-liuyan-prov 28 |
-| 吉林省 | 26 | people-liuyan-prov 26 |
+| 河北省 | 24 | people-liuyan-prov 24 |
 | 广西壮族自治区 | 20 | people-liuyan-prov 20 |
 | 海南省 | 20 | people-liuyan-prov 20 |
 | 四川省 | 20 | people-liuyan-prov 20 |
@@ -27,14 +28,13 @@
 | 陕西省 | 18 | people-liuyan-prov 18 |
 | 甘肃省 | 18 | people-liuyan-prov 18 |
 | 宁夏回族自治区 | 18 | people-liuyan-prov 18 |
-| 河北省 | 16 | people-liuyan-prov 16 |
 | 重庆市 | 16 | people-liuyan-prov 16 |
 | 贵州省 | 15 | people-liuyan-prov 15 |
 | 青海省 | 15 | people-liuyan-prov 15 |
+| 天津市 | 14 | people-liuyan-prov 14 |
 | 西藏自治区 | 14 | people-liuyan-prov 14 |
 | 河南省 | 12 | people-liuyan-prov 12 |
 | 湖北省 | 12 | people-liuyan-prov 12 |
-| 天津市 | 6 | people-liuyan-prov 6 |
 | 新疆维吾尔自治区 | 5 | people-liuyan-prov 5 |
 
 ## 各来源总量
@@ -50,7 +50,7 @@
 | gd-edu | 1165 |
 | gd-smzt | 976 |
 | gd-ws | 909 |
-| people-liuyan-prov | 613 |
+| people-liuyan-prov | 677 |
 | hunan-yj | 538 |
 | gd-jy | 513 |
 | gd-gdii | 486 |
@@ -65,7 +65,7 @@
 | gd-com | 326 |
 | gd-gbdsj | 274 |
 | gd-lyj | 234 |
-| people-liuyan-fid | 211 |
+| people-liuyan-fid | 227 |
 | gd-whly | 202 |
 | gd-yj | 179 |
 | gd-zfcxjst | 177 |

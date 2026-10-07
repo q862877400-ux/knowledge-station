@@ -279,6 +279,85 @@
    ],
    "cited_missing": [],
    "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26132156",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26132156",
+   "question": "精装房空调被装修污染，开发商拒不整改\n本人系门头沟区永定镇风范嘉园B‑5#住宅楼140*室业主。\n该房屋为精装修交付，2024年底办理交房，至今尚未满两年。房屋客厅配套中央空调自去年起便存在刺激性异味（卧室无），因属于精装新房，当时未做重点",
+   "cited_hits": [
+    {
+     "name": "建设工程质量管理条例",
+     "lib_no": "建设工程质量管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "房屋建筑工程质量保修办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26081630",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26081630",
+   "question": "门头沟长安麓院业主停车难，停车贵\n门头沟长安麓院业主没有公共区域的停车位，成为难题，地库收费高，百姓承受不起，是周边最贵的地下停车场，希望领导给解决公共区域没有车位的问题！",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25798324",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25798324",
+   "question": "督促东小口镇开通中东路西段断头路\n中东路西段断头路已经建好很久了，迟迟不开通，导致车流全部进入贺家村路，严重影响周边居民，希望协调各单位，尽快通车中东路西段断头路。",
+   "cited_hits": [
+    {
+     "name": "城市道路管理条例",
+     "lib_no": "城市道路管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25528354",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25528354",
+   "question": "物业管理\n本人为本小区业主，物业长期禁止外卖骑手电动车进入小区，该规定极不合理。近期小区大门、各楼栋新增门禁，管控进一步加码，外卖骑手无法自行入户配送，每一单外卖至少致电业主4次，本人工作繁忙时常无法接听电话，频繁漏接外卖、收餐受阻，严重干",
+   "cited_hits": [
+    {
+     "name": "物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "通坝东路10号院小区物业管理规定"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "24515708",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=24515708",
+   "question": "大兴新城地铁站到美澜湾小区之间能否修一人行道\n领导您好！是否能在大兴新城地铁站和美澜湾小区之间新修一下人行道和非机动车道？目前只有机动车道，行人和汽车、电动车混在一起走，车速很快，行人非常不安全。\n美澜湾小区已入住有大量居民，大兴新城地铁站",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
   }
  ],
  "B_补料": [
@@ -826,6 +905,17 @@
    "cited_hits": [],
    "cited_missing": [
     "北京市慢行系统规划(2020年-2035年)"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25593265",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25593265",
+   "question": "占道经营 乱扔垃圾\n尊敬的相关管理领导：\n本人为德茂小区业主，现反映小区西侧道路长期违规占道摆摊的问题，具体情况如下：\n小区西侧道路几乎每天都有六七家流动摊贩占道经营，今日更是出现货车直接停靠路边拉货、摆摊售卖的情况。小区内部道路本身狭窄，",
+   "cited_hits": [],
+   "cited_missing": [
+    "违法停车告知单"
    ],
    "has_clause_no": false
   }
@@ -2150,6 +2240,96 @@
    "id": "21725771",
    "url": "http://liuyan.people.com.cn/threads/content?tid=21725771",
    "question": "南海子公园二期外围步道破损严重\n南海子公园二期内部的步道大部分已经破烂不堪，请关注并尽快修复，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "22776392",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=22776392",
+   "question": "私搭乱建违法建筑，占用河道非法经营露营\n1.河南营1站过桥东侧50米，村民林地内违法建设用房，侵占林地。\r\n2.未取得经营许可，自行占用河道从事露营，存在安全隐患。\r\n以上问题希望有关部门核实，拆除违法建设恢复自然环境，停止违法露营活动，恢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "22289421",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=22289421",
+   "question": "物业不作为\n我是北京市密云区久润花园东区的业主，我们小区存在以下问题：\r\n小区进出及停放车辆无人管理，小区内大量非业主车辆停放，导致业主的权益受到严重影响。小区门禁长期处于断电状态，完全是个摆设。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26167992",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26167992",
+   "question": "石景山工疗家属院拟占用公共绿地建车位请求叫停\n尊敬的领导：\r\n 您好！我是北京市石景山区工人疗养院家属院业主。小区业委会联合物业，计划铲除5号楼南侧550㎡业主共有绿地，硬化改建16-17个停车位。该车位距离居民楼外墙仅2.5米，车辆尾气、",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26157901",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26157901",
+   "question": "关于人民渠路北侧地铁1号线支线衙门口西站\n尊敬的领导您好！目前地铁1号线支线衙门口西站正在建设，但出入口位置并不清晰。\n\n想问一下，等衙门口西站建成后，人民渠路北侧是否有1号线支线的出入口？如果没有出口的话，会否有地下通道或过街天桥连接到路",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25794031",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25794031",
+   "question": "小区树木虫害治理作业问题\n尊敬的领导，您好！\n我在的小区是北京朝阳 望京 花家地西里二区，最近发现小区的内部道路两旁的大量的树木 的树叶出现成片的黄叶（树叶枯死），目前正是7月不应该出现这种情况，另外同时发现停树下的车辆上爬满毛毛虫，两者联",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25699808",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25699808",
+   "question": "北投如郡 绿化问题\n领导您好，我是北投如郡南区的业主，\n六月份物业未做任何调查和民意问询，直接铲除小区原有破败不堪的草坪（交付两年不到小区绿化一直未达标，到处都是干枯的草坪），六月中旬改种植了另一种草，截止到现在为止都是白花花一片，小区毫无",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25684868",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25684868",
+   "question": "交通标线不合理反馈\n中关村大街与北四环交汇，南向东行驶路线，右转车道长期停放大量电动车，右转处车道出现三变一情况，巨堵，而且容易出现剐蹭事故。\n建议严格按照机动车道管理，禁止电动车停放在机动车道中\n右转处多搞长一点实线，引导走专门的右转车道",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25531909",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25531909",
+   "question": "三间房南里4号院加装电梯\n领导您好！三间房南里4号院建于1982年，均为5层或6层居民楼，没有电梯。居民多以老年人为主，出行非常不便。欣闻北京市住建委近期发布了《北京市既有多层住宅加装电梯操作指引》也是官方给出了老楼加装电梯推进的支持。是否",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25582562",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25582562",
+   "question": "大兴发展亦生悦小区绿化\n举报大兴发展亦生悦小区绿化偷工减料，多次沟通拒不整改，以C区2号楼区域为例，具体问题如下：\n一、乔木栽种数量远低于规划标准\n \n1. 2号楼一单元东侧：规划9棵，实际仅5棵，缺失4棵\n2. 一二单元中间绿化带：规划1",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25012047",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25012047",
+   "question": "建议督促完成小区电动车充电桩消防合规性检查\n一品嘉园小区存在较多个人搭建的电动汽车充电桩，为保证消防安全，请社区督促物业完成小区个人充电桩统计，并进行合规性检查、公示，明确现有个人充电桩是否满足消防安全要求，排除安全隐患，保障社区居民人身财",
    "cited_hits": [],
    "cited_missing": [],
    "has_clause_no": false
