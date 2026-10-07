@@ -56,6 +56,21 @@
    ],
    "cited_missing": [],
    "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26088252",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26088252",
+   "question": "上林苑小区开北门相关事宜\n大兴区上林苑小区2025年7月份就开始调研投票开北门，2026年初的时候就有过短暂两天施工情况，然后就停止了施工，至今北门都没开。到目前都一年多了这个事情一直没有落实完成，现在开门的消息又遥遥无期了。希望领导能够推",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
   }
  ],
  "B_补料": [
@@ -101,6 +116,122 @@
    "cited_hits": [],
    "cited_missing": [
     "南苑森林湿地公园地区FT00-2301～2313街区控制性详细规划（2020年-2035年）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26108549",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26108549",
+   "question": "建议优化房山F75路公交，延伸至房山高岭北\n尊敬的领导，您好。\n我是房山区长阳片区居民，在此向贵部门提出公交线路优化的建议，希望将 F75 路公交车线路延伸至房山高岭北公交站，解决周边新建小区孩子上下学出行难、出行不安全的现实问题。\n我家孩",
+   "cited_hits": [],
+   "cited_missing": [
+    "房山区域公交合作协议"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26065991",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26065991",
+   "question": "关于加强共享单车和共享电动车数字化管控的建议\n一、问题描述\n我居住在回龙观龙禧二区，近期发现小区内共享单车、共享电动车乱停乱放现象越来越严重：\n乱象表现：部分住户将共享单车或共享电动车骑入小区，随意停放在单元门口、楼道口甚至绿化带旁；\n影响",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市非机动停车管理条例",
+    "应用“电子围栏”技术加强互联网租赁自行车停放秩序管理工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26189082",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26189082",
+   "question": "朝阳区劲松四区402号楼垃圾站影响生活\n劲松四区402号楼楼前大件垃圾处理站影响生活\n劲松四区402号楼楼前垃圾桶距离4单元太近，味道太大，影响日常生活，影响休息\n劲松四区402号楼楼前京**的垃圾桶距离4单元太近，味道太大，影响日常生活，",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于加强本市大件垃圾管理的指导意见",
+    "生活垃圾收集运输技术规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26174862",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26174862",
+   "question": "关于改善中海首开拾光里周边环境的建议\n书记您好！我是朝阳区金盏乡中海首开拾光里小区居民。本小区自2023年交付入住以来，周边环境提升问题一直未能落地解决。小区东侧老河湾区域目前仍处于荒置状态，仅设置围挡隔离，环境面貌较差，影响区域市容。\n ",
+   "cited_hits": [],
+   "cited_missing": [
+    "建设用地规划许可证",
+    "北京市代征城市绿化用地移交建设管理办法",
+    "北京市公共绿地建设管理办法",
+    "北京市公共绿地建设管理办法",
+    "北京市代征城市绿化用地移交建设管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26019141",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26019141",
+   "question": "以“两园一河”为依托推动全民健身高质量发展\n关于以“两园一河”为依托推动全民健身高质量发展的建议\n\n“两园一河”（首钢园、园博园、永定河）是北京在京西谋划的新一“极”，被定位为“首都人文会客厅、京西山水活力带”。“十五五”时期，北京将重点打",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市公园条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25805120",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25805120",
+   "question": "建议瀛海地铁增加收费停车场\n领导好，瀛海地铁附近停车较难，P+R车位有限，早晨不到7点就几乎没有车位了。马路两旁，虽然免费，但是几乎不可能有位置(大量僵尸车长期霸占车位)，只要停在线外，就有可能被贴条，其他商业停车场，离的又很远，建议，将马",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市机动车停车条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26111597",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26111597",
+   "question": "科创十四街（经海路至经海五路段）人行步道重铺\n锋创科技园南门左右两侧的人行步道的地砖已经服役了十好几年了，大部分都已经碎末了，有的甚至完全成为坑了，导致每次从这里路过都是深一脚浅一脚，好几天走路都难受，这里的人行步道据我所知，这十多年从来没",
+   "cited_hits": [],
+   "cited_missing": [
+    "城市道路日常养护作业规程"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26136713",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26136713",
+   "question": "张仪村橡树澜湾小区商业歺饮油烟及烧烤污染\n我是橡树澜湾小区居民，近期我小区商业开了两家歺馆，两歺馆所排油烟及烧烤烟严重影响我们日常生活，每天晚上南向窗户阵阵油烟及烧烤味，请有关部门领导督促整改工作，给小区居民一个能正常开窗通风的生活环境。",
+   "cited_hits": [],
+   "cited_missing": [
+    "餐饮业大气污染物排放标准"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25691900",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25691900",
+   "question": "金璟阳光北区电动车充电诉求\n本人为北京市丰台区璟熙路1号院，金璟阳光小区北区的一名普通住户。北区因小区内居民活动空间较小，且没有足够多停放电动自行车的位置，更没有充足的充电接口给电动自行车充电，导致小区内电动自行车摆放杂乱，下班晚回家小区内",
+   "cited_hits": [],
+   "cited_missing": [
+    "首都城市环境建设管理委员会办公室关于印发进一步加强本市电动自行车全链条管控工作方案的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25965849",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25965849",
+   "question": "842路公共汽车车站无雨棚\n842路公共汽车有两站 裕园路北口 裕园路 无候车设施。",
+   "cited_hits": [],
+   "cited_missing": [
+    "公共汽电车站台规范"
    ],
    "has_clause_no": false
   }
@@ -309,6 +440,312 @@
    "id": "26236010",
    "url": "http://liuyan.people.com.cn/threads/content?tid=26236010",
    "question": "车辆乱停占用人行便道并堵塞消防通道。\n海淀区莱圳家园小区南区5号楼和8号楼南侧消防通道及人行便道上，经常被乱停乱放的车辆侵占。既妨碍了行人在便道上行走。也影响消防车的通行。有时通道仅为三米多宽，就是发生了火灾。消防车辆也很难进入。希望相关部",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26192715",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26192715",
+   "question": "汽车占用行人便道。影响行人通行。\n海淀区莱圳家园小区南区。机动车长期占用行人便道。迫使行人走机动车道。遇有汽车过来，行人无处躲闪。望市领导予以关注解决。以便行人能顺利通行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26179677",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26179677",
+   "question": "污水井气味难闻\n领导你好，我想向你反应一个问题，位于昌平区北七家镇平西府村这个地方污水雨篦子内，在白天上午或者中午的时，这个地方会发出一阵难闻的气味，非常难闻，希望处理一下，每天如此",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26176127",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26176127",
+   "question": "楼上邻居违建私搭建雨棚致楼下漏水严重\n1. 北京青年城20号楼3单元业主在露台上违规私搭雨棚，雨天雨棚往下流水，直接冲刷楼下飘窗致楼下飘窗漏水，直接导致地板和衣柜被泡水，产生经济损失\n2. 私搭雨棚使用彩钢瓦泡沫顶，有直接的消防隐患",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26257582",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26257582",
+   "question": "367路增加站点\n367路往天鑫家园方向希望能增加回龙观桥北和路东的京昌回龙观站，不然我们龙域路这边的居民要想去到G6对面的回龙观派出所，一站就给拉到北郊农场桥站了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26249500",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26249500",
+   "question": "芦东路道路标线快磨没了\n这一段标线非常浅，建议重新画一下，都快看不出来了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26232738",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26232738",
+   "question": "建议优化大兴区公交路线\n您好，\n\n 我住在瀛海镇兴海路14号亦城亦禧小区（在亦庄龙湖天街正对面），到亦庄开发区北环东路一号（在亦庄创意生活广场正对面）上班，这两个热门地段都有公交站，但没有一条包括上述站点的公交站，导致我只能退而求其次乘坐兴",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26148185",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26148185",
+   "question": "建议增加稻田地区运动场馆建设\n1、稻田地区今年入住人流量大增，但配套运动设施场馆严重短缺，周围公园均为郊野公园，无任何运动场馆。希望在稻田地区增设运动场馆，一年四季均可进行运动健身。\n2、稻田地铁站北部设有运动体育用地，为节约投资成本，可增",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25882765",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25882765",
+   "question": "关于长阳清华附西侧路边杂菜情况\n希望相关部门来走走看看，杂草有的有一人高了，美化没做到，安全性也就没有了\n希望能得到重视，做好修剪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26269108",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26269108",
+   "question": "关于北七家镇地铁17号支线设站问题反馈\n我是北七家镇附近燕城苑居民，就17号支线设站，向您寻求帮助，17号支线本来就是一项惠民政策，有利于北七家镇附近居住工作人员出行，没必要设置大站制，燕丹村附近设置一站非常合理，一，距离上：距离天通苑东站",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26042513",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26042513",
+   "question": "新康园小区建议增加有偿回收箱\n领导您好！我是新康园小区居民。目前咱们小区缺少有偿智能回收设备，家里纸箱、塑料瓶、旧衣物等可回收物没有方便的投放渠道，不少居民直接扔进普通垃圾桶，既浪费再生资源，也不利于垃圾分类推进 。\n 现在很多小区都布设了",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26006732",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26006732",
+   "question": "建议华威西里小区增设单杠健身器材\n您好！\n 我是朝阳区潘家园街道华威西里小区居民，特此留言建议完善小区公共健身设施。\n 我小区现有健身设施全部为老年康复器材，功能单一、受众面极窄，实用性不强，平日里几乎没有居民使用，公共健身资源长期闲置。小",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26115532",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26115532",
+   "question": "建议延伸永定河森林公园小火车路线\n这几年眼看着两河一园的建设逐渐成型，非常高兴。永定河森林公园是连接两园的一个重要区域。公园本身是长条形，南北距离比较远，离首钢园北区核心地段也比较远。我试着徒步从首钢园永定河集走到永森码头，非常远，一般情况",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25879409",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25879409",
+   "question": "建议：建设跳舞的广场\n近闻首钢园东南角，建设体育小公园。\n建议：学习张仪村公园 建设一个600多平的跳舞大棚 古 金 苹三角区有大量老年人口集中 现在的当代商城舞场 本就不是跳舞的广场 受周围条件限制 不利于大家健身热情的需求\n其实首钢园本",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26060631",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26060631",
+   "question": "施工区和居民区统一规划\n领导你好，西红门东目前南侧有四个工地，附近还有几个已经入住的楼盘。我想问一下这种情况，是不是该统一管理施工方案的车辆或者施工。居民区隔离开来？\n最近几天白天，凌晨，施工车扰民的我拍了好多证据，希望领导协调解决",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26208724",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26208724",
+   "question": "西三旗新馨苑南侧禾瑞南街需要尽快开通\n西三旗新馨苑社区789地块南侧东西向主路禾瑞南街与后屯路建成多年一直封闭，造成新馨苑社区住户车辆只能绕行北侧建材城西路，早晚高峰时段车多拥挤，增加了建材城西路到西三旗桥路段交通压力。\n\n如果开通禾瑞南街",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26159623",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26159623",
+   "question": "朝阳区孙河康营家园楼顶露台都需做封闭\n各位领导，北京市朝阳区孙河地区康营家园小区嗯楼顶设计都有问题，都有露台，露台会造成漏水啊，本人建议而且这次办房本，因为有这个封闭的这个露台就不给办理，很多居民都建议将这个楼顶各户露台，各家自行封闭建议不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26143309",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26143309",
+   "question": "449路的永丰场站可以北延两站吗\n您好，我在中关村学院附近上班，每天坐449路很不方便，别的公交也不方便乘坐，方便把449路公交在永丰场站向北延2站吗？这样也方便大悦城/中关村学院/AI北纬社区/崔家窑公园的上班租，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25888477",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25888477",
+   "question": "高层加装电梯\n北京市经济技术开发区荣华街道天华园一里三区新康家园于2000年一期竣工，三十岁左右的年轻人欢欢喜喜买了房子入住，后来又有了二期，房屋质量很好，楼层高也不在话下。\r\n但是随着时间推移，当初的年轻人已经退休，父母已经年迈，显现出生",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25809805",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25809805",
+   "question": "在建公园缺少体育场地\n位于经开区汀塘家园小区东侧在建公园，只有5个简易老年健身器材，无法满足青少年等多人群多样式锻炼，请相关部门评估加大体育健身器材的布置，让附近居民口袋公园真正发挥好健身作用，谢谢。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26127493",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26127493",
+   "question": "瀛志路和瀛通路交通问题\n1.瀛志路两侧自行车道存在大量机动车违停，兴瀛嘉苑北门、杏海苑北院北门路段问题最突出，小区门口两侧甚至并排停放两排车辆。车辆遮挡小区出口的通行视线；部分红绿灯路口，还有车辆紧贴斑马线停放，骑行人无空间等灯。非机动车不",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26007308",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26007308",
+   "question": "关于礼贤镇汇贤家园三期至京台高速连接路段破损\n我是大兴区礼贤镇汇贤家园三期的居民，日常出行经常往返于小区与京台高速之间，目前汇贤家园三期通往京台高速入口的连接道路路面坑洼不平，多处出现破损、沉降现象，普通家用轿车通行时极易磕碰车辆底盘，存在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25851594",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25851594",
+   "question": "关于地铁4号线清源路站增设西南出口的建议\n为了老百姓出行更便捷，同时可能提升新辰天地商业，我建议增设地铁4号线清源路站西南出口，此出口可以考虑采用西红门地铁站的设计，除了有正常地上出口以外，在地下增加直通新辰天地商场的通道，这样下雨天就可以",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26216848",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26216848",
+   "question": "关于在依山路公园增设风雨两用乒乓球场地的建议\n依山路公园（中冶蓝城公园）篮球场北侧有一块现成硬化空地，土地属于公园公共用地，地面已经硬化，无需开挖绿化，非常适合改造乒乓球场地。\n周边中冶蓝城、饶乐府原香漫谷等大型居住区，乒乓球爱好者众多，目",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25665957",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25665957",
+   "question": "开通青龙湖中心街区到篱笆房地铁站、房山东公交\n随着京郊铁路房山东站的开通，给房山居民通勤带来了重大利好，必须点赞！目前，青龙湖中心街区入住居民越来越多，乘坐地铁房山线进城要乘坐F50路绕行到阎村东站，乘坐京郊铁路线要到良乡站，通勤时间比从篱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25982268",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25982268",
+   "question": "闫村镇小紫草坞公厕长期脱岗，公厕脏乱差\n尊敬的领导好，我反映村公厕管护员经常脱岗，公厕长期脏乱差，清扫维护不到位，村民和路人都在使用，实在是脏乱差，容易传播疾病，而且几次去都无人值守。恳请领导督促加强公厕卫生管理，人员及考勤管理，及时全面的",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26139382",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26139382",
+   "question": "南站地面交通改善建议\n区长您好，每天上下班在北京南站乘地铁通勤，遇到些状况请您知悉并帮助解决。\n1. 四路通路和北京南站路的交叉口，机动车车速过快，且对行人不让行。虽有让行人的标识但无人遵守。机动车转弯时，车速极快。建议设置机动车停车让行标",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25913433",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25913433",
+   "question": "观承望溪交通出行问题\n高丽营镇观承望溪业主需要公交车开到小区附近路上，设置停车点，有一个黄色的驿站为什么不投入使用，一直空着，还有13路，945公交车，923需要沟通绕到观承望溪门口，居住人口较多，去地铁口去公交站都不方便",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25819389",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25819389",
+   "question": "公交车首班车发车时间\n顺义区顺4公交车，仁和镇卫生院站开往航空配餐站，首班车为5:50，到达西海洪需要1个小时，大量上班人员需要乘坐顺4去往地铁南法信站，但是顺4到达西海洪的时间大概在7点，时间有点晚，建议首班车，发车时间提前到5点。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26264942",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26264942",
+   "question": "顺义区云河砚物业擅自封堵车库出口\n顺义区云河砚小区50号院，小区有两个车库出入口，一个是入口，一个是出口，物业擅自封闭了出口，导致只能从入口进行出入，非常不方便，并且存在撞车和剐蹭的危险。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25894171",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25894171",
+   "question": "乱停车，影响行人安全通行\n领导您好，顺义区政务服务中心枫桥车站旁人行道停满机动车，行人只能走非进动车道，非机动车道上摩托车，电动车又骑贼快，影响行人安全，建议在人行道和非机动车道加装安全桩，防止机动车乱停。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25577320",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25577320",
+   "question": "新建小区停车位\n建议取消顺泰路公园和御小区路段禁停标志，并进一步增划路边车位，满足新建小区的停车需求。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25828431",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25828431",
+   "question": "建议\n我们在丰台区303所也有住房，物业就是首*，服务质量比现在西直门南大街25号楼的新*物业强多了，建议由首*物业接管25号楼物业。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "25666716",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25666716",
+   "question": "莲花河南街西段车辆违停问题\n莲花河南街西段紧邻北京西站，从路西头红绿灯开始，白天非机动车道上停满了去西站接站的网约车。不仅阻碍交通，还有随地小便的恶习。同时为一小学的正门口，早晚多时段接送学生的电动车数量庞大。违停机动车占了非机动车道，公交",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-fid",
+   "id": "26160189",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26160189",
+   "question": "垃圾箱设置在我家窗下\n西城区白纸坊西街17号院7号楼的垃圾站被拆除，我家是位于这个楼的2楼的西北角。目前8个垃圾箱被放置在我家窗户下面，整个楼的生活垃圾和厨余垃圾的臭味直接通过窗户进入我家，要求把这些垃圾箱移到适当的位置。",
    "cited_hits": [],
    "cited_missing": [],
    "has_clause_no": false

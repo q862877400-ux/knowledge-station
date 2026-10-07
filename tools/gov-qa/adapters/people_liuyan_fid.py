@@ -37,6 +37,7 @@ SITE = {
 
 MAP_FILE = Path(__file__).resolve().parent.parent / "recon" / "liuyan-fid-map.json"
 CURSOR_DIR = Path(__file__).resolve().parent.parent / "data"
+ROTATION_FILE = CURSOR_DIR / ".people-liuyan-fid.rotation"
 MAX_FIDS_PER_RUN = 5
 
 
@@ -45,25 +46,44 @@ def _load_fids() -> list[dict]:
         print(f"    [{SITE['key']}] 缺 {MAP_FILE.name}（先跑 recon/build-fid-map.py）")
         return []
     rows = json.loads(MAP_FILE.read_text(encoding="utf-8"))
-    return rows[:MAX_FIDS_PER_RUN]
+    if not rows:
+        return []
+    # 轮转起点：上一轮采到哪，这一轮从下一个版块开始（保证 22 个版块都被轮到）
+    start = 0
+    if ROTATION_FILE.exists():
+        try:
+            start = int(ROTATION_FILE.read_text(encoding="utf-8").strip() or 0)
+        except ValueError:
+            start = 0
+    start %= len(rows)
+    picked = [rows[(start + i) % len(rows)] for i in range(min(MAX_FIDS_PER_RUN, len(rows)))]
+    ROTATION_FILE.parent.mkdir(parents=True, exist_ok=True)
+    ROTATION_FILE.write_text(str((start + len(picked)) % len(rows)), encoding="utf-8")
+    return picked
 
 
 def harvest(fetch, *, limit: int | None = None) -> list[dict]:
-    """按映射表逐个版块采（每个版块采满已办理且有官方答复的留言）。
+    """按映射表**轮转**采若干版块（每个版块采满已办理且有官方答复的留言）。
 
-    ⚠ **每个版块一个游标**（`data/.people-liuyan-fid-<fid>.cursor`）：版块列表同样按时间倒序，
-    没有游标就会每次重读版块头部、被去重全挡（与时间流同一个坑，已踩过一次）。
+    两个要点（都是踩过的坑）：
+     ① **每版块独立游标**（`data/.people-liuyan-fid-<fid>.cursor`）——版块列表按时间倒序，
+        没有游标就会每次重读头部被去重全挡；
+     ② **配额均分 + 版块轮转**——否则一轮全花在第一个版块上，后面的版块永远轮不到。
     """
     out: list[dict] = []
-    for row in _load_fids():
+    fids = _load_fids()
+    if not fids:
+        return out
+    per_board = max(1, (limit or 20) // len(fids)) if limit else None
+    for row in fids:
         fid = str(row.get("fid") or "")
         if not fid:
             continue
         label = row.get("label") or row.get("province") or fid
-        print(f"    [{SITE['key']}] 定向版块 fid={fid}（{label}）")
+        print(f"    [{SITE['key']}] 定向版块 fid={fid}（{label}）配额 {per_board}")
         cursor = CURSOR_DIR / f".people-liuyan-fid-{fid}.cursor"
         rows = harvest_liuyan(fetch, SITE=SITE, stream="df", fid=fid,
-                              limit=limit, cursor_file=cursor)
+                              limit=per_board, cursor_file=cursor)
         for r in rows:
             r.setdefault("extra", {})["fid_label"] = label
         out += rows
