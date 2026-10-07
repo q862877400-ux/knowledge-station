@@ -29,6 +29,12 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--db", required=True, help="要跑的库（只读打开）")
     ap.add_argument("--prefix", required=True, help="输出前缀，如 before / after")
+    ap.add_argument("--prod-cap", type=int, default=None,
+                    help="把 funnel.PROD_CAP 里**有上限的那几路**统一改成这个值。"
+                         "用途：P2 实验 #1 改了 `hybrid_engine` 的每路取数上限，"
+                         "而 `funnel.PROD_CAP` 自称是该常量的镜像（注释原文："
+                         "『照 perform_hybrid_search 的常量』）⇒ 上限改了镜像也要跟着改，"
+                         "否则它算出来的『生产口径』是假的。**跑分器代码本身不改。**")
     args = ap.parse_args()
 
     db = Path(args.db)
@@ -44,6 +50,12 @@ def main() -> int:
     funnel.OUT_FAIL = HERE / f"failure-samples-{args.prefix}.jsonl"
     print(f"[run] 库 = {db}  ({db.stat().st_size/1e9:.2f} GB)", flush=True)
     print(f"[run] 输出前缀 = {args.prefix}", flush=True)
+    if args.prod_cap:
+        old = dict(funnel.PROD_CAP)
+        funnel.PROD_CAP = {k: (args.prod_cap if v is not None else None)
+                           for k, v in old.items()}
+        print(f"[run] ⚠ 覆盖 funnel.PROD_CAP：{old} → {funnel.PROD_CAP}"
+              f"（与 hybrid_engine 的新上限对齐；**跑分器代码未改**）", flush=True)
 
     sys.argv = ["funnel.py"]          # 不给额外参数：跑全量 171 条
     rc = funnel.main()
