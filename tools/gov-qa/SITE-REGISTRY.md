@@ -177,6 +177,13 @@
 `/list` `/getSubForums` `/subForumList`）全 404。证据 `recon/liuyan-substation-probe2.json`。
 ⇒ **别再找这类接口**，市县级就走上面两条路（时间流 + 已发现 fid 轮转）。
 
+⛔ **也没有「按省聚合」的过滤参数**（2026-10-07 实测）：对 `list/df` 试 `pFid`/`parentFid`/
+`parentId`/`pid`/`provinceId`/`provinceFid`/`areaId`/`withSub`/`includeSub`/`deep` 共 10 个候选，
+**除 `fid` 外一律被服务端忽略**（返回的还是默认流，非目标省）。证据
+`recon/liuyan-province-filter-probe.json`。
+⚠ 教训：判断「参数生效」要看**返回内容是否真的换了省**，不能只看「返回了多条不同版块」——
+默认流本身就是多版块（我第一次就误判成命中）。
+
 ## 二·补、★ 2026-10-07 真浏览器实测（业主指示："搜不到就直接用 browser use"）用受控浏览器实测了两家**直连拿不下**的站，结论**改变了原先的判断**：
 
 | 站 | 直连 | **真浏览器** | 判读 |
