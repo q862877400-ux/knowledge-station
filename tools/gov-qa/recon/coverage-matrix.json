@@ -45,15 +45,15 @@
    "hunan-yj": 538,
    "people-liuyan-prov": 12
   },
+  "北京市": {
+   "people-liuyan-fid": 141,
+   "people-liuyan-df": 112,
+   "people-liuyan-prov": 14
+  },
   "国家级（部委）": {
    "mee": 145,
    "mem": 60,
    "people-liuyan": 37
-  },
-  "北京市": {
-   "people-liuyan-df": 112,
-   "people-liuyan-fid": 107,
-   "people-liuyan-prov": 14
   },
   "山西省": {
    "people-liuyan-prov": 28
@@ -143,8 +143,8 @@
  "province_totals": {
   "广东省": 31104,
   "湖南省": 4363,
+  "北京市": 267,
   "国家级（部委）": 242,
-  "北京市": 233,
   "山西省": 28,
   "内蒙古自治区": 28,
   "辽宁省": 28,
@@ -205,9 +205,9 @@
   "gd-hsa": 173,
   "gd-dara": 155,
   "mee": 145,
+  "people-liuyan-fid": 141,
   "gd-coop": 133,
   "people-liuyan-df": 112,
-  "people-liuyan-fid": 107,
   "gd-gdjyj": 98,
   "gd-dfz": 78,
   "gd-gdwsxf": 78,
@@ -221,6 +221,6 @@
   "gd-gdaudit": 36,
   "gd-jgsw": 34
  },
- "grand_total": 36389,
+ "grand_total": 36423,
  "n_provinces_covered": 31
 }

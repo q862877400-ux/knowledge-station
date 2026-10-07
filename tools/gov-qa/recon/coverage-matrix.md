@@ -1,13 +1,13 @@
 # 全国覆盖矩阵（省级 × 来源）
 
-语料总计 **36389** 条；覆盖省级行政区 **31** 个（另有「国家级（部委）」一类）。
+语料总计 **36423** 条；覆盖省级行政区 **31** 个（另有「国家级（部委）」一类）。
 
 | 省级归属 | 条数 | 来源构成 |
 |---|---|---|
 | 广东省 | 31104 | gd-amr 6134、gd-hr 6120、gd-stats 4275、gd-st 3329、gd-nr 1682、gd-edu 1165 …共 38 个来源 |
 | 湖南省 | 4363 | hunan-st 3813、hunan-yj 538、people-liuyan-prov 12 |
+| 北京市 | 267 | people-liuyan-fid 141、people-liuyan-df 112、people-liuyan-prov 14 |
 | 国家级（部委） | 242 | mee 145、mem 60、people-liuyan 37 |
-| 北京市 | 233 | people-liuyan-df 112、people-liuyan-fid 107、people-liuyan-prov 14 |
 | 山西省 | 28 | people-liuyan-prov 28 |
 | 内蒙古自治区 | 28 | people-liuyan-prov 28 |
 | 辽宁省 | 28 | people-liuyan-prov 28 |
@@ -71,9 +71,9 @@
 | gd-hsa | 173 |
 | gd-dara | 155 |
 | mee | 145 |
+| people-liuyan-fid | 141 |
 | gd-coop | 133 |
 | people-liuyan-df | 112 |
-| people-liuyan-fid | 107 |
 | gd-gdjyj | 98 |
 | gd-dfz | 78 |
 | gd-gdwsxf | 78 |
