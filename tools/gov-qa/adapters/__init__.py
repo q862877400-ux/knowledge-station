@@ -60,6 +60,7 @@ ADAPTERS: dict[str, str] = {
     "sc-st": "adapters.sc_sthjt",      # 四川省生态环境厅（互动知识库，静态页，量小）
     "ah-st": "adapters.ah_sthjt",      # 安徽省生态环境厅（问答知识库，约145条，翻页）
     "ln-st": "adapters.ln_sthjt",      # 辽宁省生态环境厅（历史咨询服务，问答内联）
+    "jl-st": "adapters.jl_sthjt",      # 吉林省生态环境厅（海云平台接口，省/市/区三级归属）
     "mem": "adapters.mem_gov",            # 应急管理部（静态列表，已跑通）
     "mee": "adapters.mee_gov",            # 生态环境部（WAS5 接口，已跑通）
     "people-liuyan": "adapters.people_liuyan",  # 人民网领导留言板·部委版块（接口+签名，已跑通）

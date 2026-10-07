@@ -1,0 +1,23 @@
+--- method= ---
+</a> <a href="javascript:void(0)" value="yws" title="一网搜" TARGET="_self">一网搜</a> </div> </div> <form action="https://intellsearch.jl.gov.cn/search/index.html" method="get" target="_blank" onsubmit="return checknav()"> <input id="search_val_nav" type="text" class="input_Search_1" onfocus="this.placeholder=''" onblur="this.placeholder='请输入搜索关键字'" placeholder="请输入搜索关键字" onkeyup="checkLength2(this, 200);" o
+
+--- method= ---
+tPath = "http://10.207.4.141/IGI"; //全局变量，路径地址 function save() { var score = $('input[name="pj"]:checked').val(); $.ajax({ type: "GET", url: contextPath + "/nbhd/mygovmsgbox.do?method=evaluateMyGovmsgbox", dataType: "json", data:{ metadataId:govmsgboxId,//信件标题 score:score,//信件内容 sessionId:token, }, success: function (result) { if(result.statusCode =="200"){ $("#tishiTc
+
+--- method= ---
+iv> </div> </li> </ul> </div> </div> <div class="foot_b"> <div class="footer_db"> <div><a href="http://bszs.conac.cn/sitename?method=show&amp;id=21F8C334A0ED3400E053022819ACC6C8" target="_blank" title=""><img src="../../../images/sthjt_dzbs_20221222.png" title="党政机关" alt="党政机关" /></a></div> <div><script id="_jiucuo_" sitecode="2200000010" src="../../../images/jiucuo20220714.js"></
+
+--- ajax ---
+"text/css" href="../../../images/style_znd_20211011.css" /> <script type="text/javascript" src="../../../images/time_cmy_20211110.js"></script> <!--<script type="text/javascript" src="../../../images/ajax_xxxl_cmy_20211110.js"></script>--> <script type="text/javascript" src="https://www.jl.gov.cn/images/ajax_xxxl_cmy_20231218.js"></script> <!-- 信箱新增 结束--> <div class="content-level"> <div class="content clearfix"> <div class="listM"> <div class="hfxl-xqq
+
+--- ajax ---
+images/time_cmy_20211110.js"></script> <!--<script type="text/javascript" src="../../../images/ajax_xxxl_cmy_20211110.js"></script>--> <script type="text/javascript" src="https://www.jl.gov.cn/images/ajax_xxxl_cmy_20231218.js"></script> <!-- 信箱新增 结束--> <div class="content-level"> <div class="content clearfix"> <div class="listM"> <div class="hfxl-xqq"> <!-- <h2><a href="./" target="_blank">留言选登</a></h2> --> <!--改造内容开始--> <div class="Tit_2022
+
+--- ajax ---
+firSiteId[1].split("&"); var siteId = twoSiteId[0]; } var contextPath = "http://10.207.4.141/IGI"; //全局变量，路径地址 function save() { var score = $('input[name="pj"]:checked').val(); $.ajax({ type: "GET", url: contextPath + "/nbhd/mygovmsgbox.do?method=evaluateMyGovmsgbox", dataType: "json", data:{ metadataId:govmsgboxId,//信件标题 score:score,//信件内容 sessionId:token, }, succe
+
+--- contextPath ---
+// 站点siteId（其实也是必传） if (link.indexOf("siteId") > 0) { var firSiteId = link.split("siteId="); var twoSiteId = firSiteId[1].split("&"); var siteId = twoSiteId[0]; } var contextPath = "http://10.207.4.141/IGI"; //全局变量，路径地址 function save() { var score = $('input[name="pj"]:checked').val(); $.ajax({ type: "GET", url: contextPath + "/nbhd/mygovmsgbox.do?method=evaluateMyGovmsgbox", dataType: "json", data
+
+--- contextPath ---
+Id = twoSiteId[0]; } var contextPath = "http://10.207.4.141/IGI"; //全局变量，路径地址 function save() { var score = $('input[name="pj"]:checked').val(); $.ajax({ type: "GET", url: contextPath + "/nbhd/mygovmsgbox.do?method=evaluateMyGovmsgbox", dataType: "json", data:{ metadataId:govmsgboxId,//信件标题 score:score,//信件内容 sessionId:token, }, success: function (result) { if(result.sta

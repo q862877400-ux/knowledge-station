@@ -1,0 +1,646 @@
+{
+ "A_考卷": [
+  {
+   "source": "jl-st",
+   "id": "34162",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=34162&siteId=117",
+   "question": "吉林省生态环境厅起草的《吉林省噪声污染防治条例（草案）》第七章 社会生活噪声污染防治 第五十四条【噪声敏感建筑物集中区噪声防治】 居民住宅区安装电梯、水泵、变压器等共用设施设备的，建设单位应当合理设置，采取减少振动、降低噪声的措施，符合民用",
+   "cited_hits": [
+    {
+     "name": "社会生活环境噪声排放标准",
+     "lib_no": "GB 22337-2008",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国环境噪声污染防治法",
+     "lib_no": "噪声污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "吉林省噪声污染防治条例（草案）",
+    "关于居民楼内生活服务设备产生噪声适用环境保护标准问题的复函",
+    "噪声法",
+    "噪声法",
+    "GB 22337-2008"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "30559",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=30559&siteId=117",
+   "question": "近几个月来，我们楼下营业执照为馄饨店铺实则以酒吧为主营收的店存在严重的噪音扰民问题，影响了居民的正常生活. 1.夜间10-02点酒吧室内说话声音很大、唱歌.跳舞.甚至在深夜还在吵闹、叫嚷，给我们居民造成了严重的噪音扰民。 2. 噪音污染使我",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国治安管理处罚法",
+     "lib_no": "治安管理处罚法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-st",
+   "id": "28514",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=28514&siteId=117",
+   "question": "我是中海水岸春城小区A25号楼的居民。近几个月来，我们楼下酒吧存在严重的噪音扰民问题，影响了居民的正常生活. 1.夜间11-12点酒吧室内说话声音很大、唱歌.跳舞.哭喊，甚至在深夜还在吵闹、叫嚷，给我们居民造成了严重的噪音扰民。 2. 我家",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国噪声污染防治法",
+     "lib_no": "噪声污染防治法(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-st",
+   "id": "26616",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=26616&siteId=117",
+   "question": "您好，咨询一下： 中国境内企业在安装、调试及维保境外二类射线装置（如工业CT机）时是否需要在辐射安全许可证的种类和范围中获取“使用”许可资质？未取得使用许可情况下能否进行以上活动？未取得使用许可情况下进行以上活动是否合规合法？境外企业是否和",
+   "cited_hits": [
+    {
+     "name": "放射性同位素与射线装置安全和防护条例",
+     "lib_no": "放射性同位素与射线装置安全和防护条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "放射性同位素与射线装置安全许可管理办法",
+    "放射性同位素与射线装置安全和防护管理办法",
+    "放射性同位素与射线装置安全和防护管理办法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-st",
+   "id": "23980",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=23980&siteId=117",
+   "question": "请问饮用水源准保护区、二级保护区是否可以规模化养殖，有哪些标准和依据",
+   "cited_hits": [
+    {
+     "name": "中华人民共和国水污染防治法",
+     "lib_no": "水污染防治法(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "畜禽规模养殖污染防治条例",
+     "lib_no": "畜禽规模养殖污染防治条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-st",
+   "id": "18452",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=18452&siteId=117",
+   "question": "吉林大路乐群街交汇每天九点敲锣打鼓，严重扰民，夜班工作人员无法休息，多次投诉无果，请领导为民做主",
+   "cited_hits": [
+    {
+     "name": "长春市人民政府办公厅关于明确 &lt;中华人民共和国噪声污染防治法&gt;部分条款执法主体的通知",
+     "lib_no": "噪声污染防治法(OCR采集)",
+     "weak": true
+    }
+   ],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "12723",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=12723&siteId=117",
+   "question": "我于2023-10-30,2023-11-11两次在吉林省生态环境厅厅长信箱举报通化钢铁股份有限公司长期非法跨省转移危废-煤焦油，该举报交由通化市生态环境局具体查办。通化钢铁股份有限公司长期通过网络竞拍平台销售危废煤焦油，购买企业中含有大量",
+   "cited_hits": [
+    {
+     "name": "固体废物鉴别标准通则 GB34330-2017",
+     "lib_no": "GB 34330-2017",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "检验报告",
+    "煤焦油标准（YB/T5075-2010）",
+    "GB34330-2017"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "12057",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=12057&siteId=117",
+   "question": "吉林建龙钢铁有限责任公司销售危废-煤焦油，未按危废处理流程审核购买企业是否为实体危废利用企业，在竞拍购买、运输、转移相关环节均未按危废管理。高温煤焦油，危废代码:451-003-11，豁免内容:利用过程中不按危险废物管理，豁免环节只是危废利",
+   "cited_hits": [
+    {
+     "name": "固体废物鉴别标准通则 GB34330-2017",
+     "lib_no": "GB 34330-2017",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "检验报告",
+    "煤焦油标准（YB/T5075-2010）",
+    "GB34330-2017"
+   ],
+   "has_clause_no": false
+  }
+ ],
+ "B_补料": [
+  {
+   "source": "jl-st",
+   "id": "25296",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=25296&siteId=117",
+   "question": "新农乡新农村曹面铺屯7组,养殖户非法排放猪尿，影响居民正常生活，十分严重，村干部以及乡干部渎职，不作为，多次反应无果。老百姓有苦难言，此行为是否构成非法排放？根据国家相关规定要求，需求牲畜粪便等排泄物要求统一堆放，统一管理，养殖户此举是否构",
+   "cited_hits": [],
+   "cited_missing": [
+    "长春市农村环境治理条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "24455",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=24455&siteId=117",
+   "question": "您好，我想要咨询贵省是否印发《吉林省生态环境机构监测监察执法垂直管理制度改革实施方案》的文件？如果有印发该文件却未公开发布，能否麻烦你们口头告知该文件的印发日期。本人是上海大学的研究生，承诺该信息仅用于论文的写作，而且不会私自任意地将这些信",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省生态环境机构监测监察执法垂直管理制度改革实施方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "22246",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=22246&siteId=117",
+   "question": "长春市二道区东丰名郡小区二次供水水泵持续噪声扰民，市民先后投诉至12345，吉林信访，街道，住建局，环保部门，都未能解决噪声扰民问题，时至今日噪声越来越大。环保局以房屋问题归住建局管，住建局以噪声问题归环保局管为借口，相互推诿。在市长热线和",
+   "cited_hits": [],
+   "cited_missing": [
+    "噪声法"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-st",
+   "id": "17814",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=17814&siteId=117",
+   "question": "尊敬的领导 我是居住在延边州延吉市河南街道天池路尚品公馆小区的一名孕妇，很抱歉占用您的宝贵时间。目前，我居住的尚品公馆小区西侧正在建设北山小学华盛校区项目。作为普通市民，我非常开心，也非常支持项目建设，我也了解东北气候导致施工期偏短，各项项",
+   "cited_hits": [],
+   "cited_missing": [
+    "延吉市申请夜间建筑施工作业审批表"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "14845",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=14845&siteId=117",
+   "question": "想问一下移动的机房能建在小区里吗，一楼是他们的机房，二楼是我们家，对我们有没有影响，他们里边那么多设备电池安全吗",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省通信设施建设与保护条例"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "jl-st",
+   "id": "13990",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=13990&siteId=117",
+   "question": "随着秋收季节临近，秸秆露天焚烧问题即将显现，这也是秋冬季空气质量相比于春夏季更差的主要原因之一，为了防止空气污染，还我市一片蓝蓝的天空，我有如下建议：政府应当加强秸秆禁烧力度，出台相关政策，相关部门配合执行，严禁露天焚烧。同时疏通渠道，加快",
+   "cited_hits": [],
+   "cited_missing": [
+    "吉林省2023年度秸秆全域禁烧工作方案"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "13638",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=13638&siteId=117",
+   "question": "根据 新的 产业结构调整指导目录（2024 年本）： ①“第三类 淘汰类 二、落后产品 （七）机械 66．每小时 2 蒸吨及以下生物质锅炉 ” ②限制类 十一、机械 57．每小时 35 蒸吨及以下固定炉排式生物质锅炉 新的产业结构调整指导目",
+   "cited_hits": [],
+   "cited_missing": [
+    "产业结构调整指导目录（2024&nbsp;年本）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "13479",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=13479&siteId=117",
+   "question": "本人于2023-10-30，2023-11-11，2023-12-13三次通过生态环境厅厅长信箱举报通化钢铁股份有限公司非法向非利用企业（贸易公司）销售危废-煤焦油，转移过程中均未按危废转移流程申报。通化市生态环境局三次回复：通化钢铁股份有",
+   "cited_hits": [],
+   "cited_missing": [
+    "煤焦油标准",
+    "吉林省生态环境厅关于通化钢铁股份有限公司焦化工序产生煤焦油管理有关意见的函"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "13364",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=13364&siteId=117",
+   "question": "根据吉林省环境保护厅关于长春大政药业科技有限公司建设年产150公斤氧化樟脑项目环境影响报告书的批复：长春大政药业科技有限公司运营期清净下水经管网直接排入长春市兴隆山污水处理厂处理；生产工艺废水、设备清洗废水、车间地面清洗废水和生活污水排入厂",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于印发制浆造纸等十四个行业建设项目重大变动清单的通知",
+    "制药建设项目重大变动清单（试行）"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "10159",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=10159&siteId=117",
+   "question": "由同心街道设立在这里的夜晚露天烧烤集中点距离居民区不足五十米，每晚四点多开始经营至凌晨两三点收摊，经营期间产生的油烟直接飘进居民家里，致使附近居民无法正常开窗通风，半夜收摊嘈杂声影响居民睡眠，常常被吵醒！而且，摊贩们白天将炉具堆放在绿化带上",
+   "cited_hits": [],
+   "cited_missing": [
+    "长春市生态环境保护工作职责规定"
+   ],
+   "has_clause_no": true
+  }
+ ],
+ "C_无依据": [
+  {
+   "source": "jl-st",
+   "id": "33978",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=33978&siteId=117",
+   "question": "尊敬的领导：长春市自2022年实行一厂一策雨污分流以来，金祥嘉园小区共计18栋楼其中有14栋已经实施雨污分流，其中有4个栋没有进行至今没有分流改造，一到雨季雨水直接流到污水井，导致污水井排水不畅溢出积水，影响百姓正常生活，盼职能部门解决百姓",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "32569",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=32569&siteId=117",
+   "question": "我经常去净月潭国家森林公园爬山。我想知道在哪看净月潭每天的空气指数，是否事宜爬山",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "30721",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=30721&siteId=117",
+   "question": "感谢工作人员的快速反应准确答复",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "29319",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=29319&siteId=117",
+   "question": "感谢工作人员的及时准确答复，为我论文数据提供了有利支撑。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "27646",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=27646&siteId=117",
+   "question": "汽开区中铁香堤美郡小区门前河流夏季异味严重,已严重影响附近居民的日常生活，请问何时能出具处理方案?",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "27029",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=27029&siteId=117",
+   "question": "反映人反映居住在中铁城小区，从2022年入住以来一直受到异味类似烧胶皮味道，偶尔混合电焊粉尘气味，经与邻居沟通均收到此味道困扰。长春市12345市长公开电话反复接到该异味投诉，下去环保监察大队召集居民开会反馈是一汽模具制造有限公司排放，要求",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "26252",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=26252&siteId=117",
+   "question": "请问企业环境信用评价结果如何查询？在官网找不到入口。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "24020",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=24020&siteId=117",
+   "question": "尊敬的各位领导，想咨询一下锅炉的燃料，生物质颗粒属不属于清洁能源。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "23600",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=23600&siteId=117",
+   "question": "1.中海南湖壹品 项目 深夜施工扰民 投诉多次 无人处理 2.最为国有地产业企业 对 施工时间 毫不遵守 投诉无门 根本没有解决方案",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "22350",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=22350&siteId=117",
+   "question": "应用化学专业是生态环境工程相近专业吗？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "21710",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=21710&siteId=117",
+   "question": "尊敬的厅长，您好！ 我咨询的问题是与《中华人民共和国大气污染防治法》相关的问题。 一、《中华人民共和国大气污染防治法》是否为我国强制性法律（要求所有在其适用范围内的主体都必须遵循，否则将承担相应的法律责任）。 二、关于《中华人民共和国大气污",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "20670",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=20670&siteId=117",
+   "question": "尊敬的领导，现在我们都提倡打造好的人居环境，根据国家污染防治法总则第二条不干扰他人正常生活工作和学习，以及第六十六条，对已竣工的住宅楼室内装修，应当按照规定限定作业时间，防止减轻噪声污染，这个时间是怎么规定的，因为我们日常都需要工作，周六周",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "19783",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=19783&siteId=117",
+   "question": "您好，我是一名安徽大学在读研究生，因研究需要，向贵单位申请2000-2022年吉林省行政分区（地级市）的工业固废物综合利用率以及工业废水排放量数据，望批准！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "19260",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=19260&siteId=117",
+   "question": "最新规定的吉林生态环境保护条例在哪可以查阅",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "17504",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=17504&siteId=117",
+   "question": "曾因毕业论文需要吉林省各市州近三年的废水排放量的数据，并需要将工业废水和生活废水的量在此平台进行咨询。没想到很快就得到了回复。感谢工作人员的及时答复，并且致电提醒，没有耽误论文进度，我已顺利毕业，特此前来感谢！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "17170",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=17170&siteId=117",
+   "question": "我市一家规模以上印刷企业被确认为挥发性有机物重点源排放企业，涉及挥发性有机物排放有5 个排放口，其中4个排放口生产工艺中所使用的油墨都是低挥发分的（有油墨检测报告为证），是不是可以把这4 个排放口作为一般排放口管理，不要求上自动监测？",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "16698",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=16698&siteId=117",
+   "question": "关于打造节水节肥农业绿色低碳新引擎的提案 一、提案背景与意义 随着全球气候变化的加剧和资源的日益紧张，农业作为用水和用肥大户，其绿色低碳转型显得尤为重要。打造节水节肥农业绿色低碳新引擎，不仅是实现农业可持续发展的必然要求，也是保障国家粮食安",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "15805",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=15805&siteId=117",
+   "question": "吉林生态环境保护条例在哪可以查阅，网上提供链接地址即可。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "14178",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=14178&siteId=117",
+   "question": "根据产业结构调整指导目录（2024 年本）： 二、落后产品 （七）机械 66．每小时 2 蒸吨及以下生物质锅炉 ”列为淘汰类，请问1.4MW燃生物质热水锅炉是否也为淘汰类。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "13687",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=13687&siteId=117",
+   "question": "长岭县金伦小区 十里桃花音乐烤吧 噪音扰民，多次投诉未得到彻底解决！投诉了或报警了 好个一两天，弄得派出所也很无奈！长岭县环保局已上门测音了，受理时间是2023-12-18日，办结日期2023-12-29日，环保局根据违法事实审议并作出处罚",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "13513",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=13513&siteId=117",
+   "question": "姓谢建小区的人不知道在山上又干什么今年夏天就有过一回忍了冬天还整猪粪 如果不信可以在26号27号楼走访调查如果我说的话不符实愿意承担法律责任",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "13369",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=13369&siteId=117",
+   "question": "安牛牧业在农安县巴吉垒镇孟城村孟城屯西草甸子上开荒种地（玉米茬还在）并在紧挨着垦荒河河坝挖了一条宽10米、深五米、长一千五百米左右的长沟，还用土把垦荒河河道堵上了，安牛牧业现在严重破坏了生态环境，我能提供现场照片。请求生态环境厅执法部门到现",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "13259",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=13259&siteId=117",
+   "question": "我是长春市朝阳区乐山镇莲花村村民，我村南侧与伊通满族自治县接壤的永久基本农田被所属伊通满族自治县的生物质热电厂排的污水锁淹，现已达成赔偿协议，但我的诉求是上次要求四平环保部门出具第三方鉴定报告（到现在为止我并没看到环保部门的检测报告），但在",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "13225",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=13225&siteId=117",
+   "question": "12月22日，北部污水处理厂在管网巡检中发现该企业西门（雨水井）有生产废水排放，中药味道浓烈，取样检测结果表明污染物含量严重超标。12月25日与该企业负责人沟通西门（雨水井）废水排污问题，并向中韩环保局上报此问题，中韩环保局及时响应并积极处",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "13223",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=13223&siteId=117",
+   "question": "11月22日，北部污水处理厂在管网巡检中发现该企业西门（雨水井）有生产废水排放，中药味道浓烈，取样检测结果表明污染物含量严重超标。11月25日与该企业负责人沟通西门（雨水井）废水排污问题，并向中韩环保局上报此问题，中韩环保局及时响应并积极处",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "13105",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=13105&siteId=117",
+   "question": "2023年10月一个施工队在农安县巴吉垒镇孟城村孟城屯西垦荒河东草甸子上紧挨着河道挖了一条十米宽，五米深，一千多米长大沟一共土地三公顷左右，这三公顷土地被永久破坏。现在这块草甸子七十多公顷被他们开荒种地，玉米茬还在。10月26日张万君秋收时",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "13104",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=13104&siteId=117",
+   "question": "生态环境厅领导你好 我举报赵德海在农安县巴吉垒镇孟城村光伏发电厂东把国海河河道、堤坝上的土一共一万多立方米拉到路南垫个一万多平米的房厂盖了一个养殖场破坏生态环境违法案件。 反映问题事实、照片等 赵德海在2022年10月破坏国海河堤坝和河道，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "13059",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=13059&siteId=117",
+   "question": "大政药业科技有限公司污水处理主题工艺为气浮+A/O+斜管沉淀池。12.25日，对该污水站检查发现，生化工艺（A/O）池中没有活性污泥，我们有理由相信该企业污水处理设施非正常运行。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "12937",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=12937&siteId=117",
+   "question": "厅长您好，非常感谢您在百忙中看到我的投诉，同时盼望您给解决，我们屯南侧是一块几十亩永久基本农田，是我们生存的根本，前两年四平市伊通县在两市的交界出，也就是我们这块永久基本农田的南侧建了个热电厂，这个热电厂经常烧一些废品还经常排放乌黑的废水，",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "12618",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=12618&siteId=117",
+   "question": "亚泰制药（航空街）、吉林省化工新材料重大科技创新基地（应化新路），未在排污许可公开平台查询排污许可，但在企业污水井内有废水排放，且某些指标超过纳管标准限值要求；长春雷允上药业有限公司（新浦路），排放废水超过其排污许可限值。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "12363",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=12363&siteId=117",
+   "question": "您好，我是英伦小镇34栋的居民，34栋外侧有一个信号塔，基站！离居民楼距离特别近，电磁辐射严重，希望领导给解决！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "12272",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=12272&siteId=117",
+   "question": "您好，我是北环城路英伦小镇A区34号楼居民，34号楼北侧有一个通信基站，离居民楼距离不足10米远，家里辐射严重超标，影响居民身体健康！希望您为老百姓早日解决这个问题！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "12226",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=12226&siteId=117",
+   "question": "基站距离居民楼很近很近，也就10米，都快建到楼里了，影响真的很大，领导们帮忙给它移走吧",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "12167",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=12167&siteId=117",
+   "question": "21年时因原有基站位置施工迁址迁到距离居民楼十米左右的距离，不断的在增加发射装置，从原有的数个增加到数十个，已经与住宅平行，发射源针对着卧室，对生活造成困扰。希望政府重视此问题，现原有位置已成空地，建议搬回原址，并对刚发布的“吉环辐射字〔2",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "12166",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=12166&siteId=117",
+   "question": "21年时因原有基站迁址迁到距离居民楼十米左右的距离，不断的在增加发射装置，从原有的数个增加到数十个，已经与住宅平行，发射源针对着卧室，对生活造成困扰。希望政府重视此问题，建议搬回原址，并对刚发布的“吉环辐射字〔2023〕9号”进行公开入户对",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "11769",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=11769&siteId=117",
+   "question": "您好，请问贵单位2020年政府信息公开年报哪里看，是否可以下载。网上回复即可",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "11670",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=11670&siteId=117",
+   "question": "多次投诉无果，依旧我行我素，噪音分贝严重超标，严重影响附近居民休息。尤其是每天晚上都11点12点了还在开着排风。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "11111",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=11111&siteId=117",
+   "question": "厅长你好，我是吉林市厦门街台北路小区居民，汇城天越是开发商新拿的地块，处于密集居民区，施工三个月了，天天施工到后半夜2-3点，凌晨4-5点开始施工，最近十一假期整宿施工，几十个工人在浇筑和打桩，尤其半夜声音巨大且特别扰民，我们小区打了无数个",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "10923",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=10923&siteId=117",
+   "question": "净月区“中信净月山”小区113栋私自挖掘地下室，使用挖掘机，打桩机，铲车等大型车辆在小区内昼夜施工！是昼夜！噪音极大！尘土飞扬！夏天甚至不干开窗，小区内老人小孩都无法得到好好休息，而且节假日甚至孩子中考高考期间都未停止！前段时间半夜施工的噪",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "10360",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=10360&siteId=117",
+   "question": "您好，我们是华东师范大学生态与环境科学学院共绘生物多样性保护蓝图实践团，本次实践小组成员选取浙江省天目山，吉林省长白山，上海市崇明东滩，四川省龙溪虹口，吉林省三角龙湾等六个国家级自然保护区考察调研，深入学习关于国家自然保护区建设的相关知识理",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "10245",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=10245&siteId=117",
+   "question": "尊敬的生态环境厅领导您好，在得知吉林省第二生态环境督察组入驻白山市开展第二轮生态环境保护督察工作后，晚辈倍感开心，我们居住的小区是长白山管委会池西区锦江花园三期，家里有一个刚上高中的孩子，每逢傍晚十分，17.30至20.00小区内有一群至少",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "jl-st",
+   "id": "10004",
+   "url": "https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/lyxdct.html?id=10004&siteId=117",
+   "question": "麻烦提供吉林省2016-2021年工业废气排放量和一般工业固体废物产生量数据，谢谢",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  }
+ ]
+}

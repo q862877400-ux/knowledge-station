@@ -1,0 +1,6 @@
+      iframe.src = "https://user.jl.gov.cn/v1/apigw/none/user/authentication/checklogin?appId=575ecd1d2d70450ea4c5a6b468c50c7f&version=1.0.0&format=json&charset=utf-8&timestamp=2019-08-10%2016:46:13&backUrl=" + protocol + iframeHost + "sthjt.jl.gov.cn/kz/dl/";
+	var siteId = 117;
+    var appId = 96;
+		var contextPath ="https://haiyun.jl.gov.cn/IGI"	;					
+            url: contextPath + "/nbhd/openGovmsgbox.do?method=listGovmsgboxs&siteId=" + siteId + "&order=" + order + "&appId=" + appId + "&pageIndex=" + pageIndex + "&pageSize=" + pageSize+ "&groupId=" + groupId,
+				         "<a target='_blank' href='../" + jumpPath + ".html?id=" + data.datas.data[i].METADATAID + "&siteId=" + siteId + "' class='ckqb'>" +

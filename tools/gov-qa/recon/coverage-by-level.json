@@ -1,13 +1,14 @@
 {
- "total": 36829,
+ "total": 37073,
  "by_level": {
-  "无归属链": 35648,
+  "无归属链": 35832,
+  "省+市+县": 60,
   "省级": 899,
   "省+市/区": 282
  },
  "distinct_provinces": 31,
- "distinct_city_pairs": 15,
- "distinct_county_triples": 0,
+ "distinct_city_pairs": 24,
+ "distinct_county_triples": 20,
  "by_source": {
   "gd-amr": {
    "无归属链": 6134
@@ -100,6 +101,9 @@
   "gd-dara": {
    "无归属链": 155
   },
+  "ah-st": {
+   "无归属链": 145
+  },
   "mee": {
    "无归属链": 145
   },
@@ -128,6 +132,9 @@
   "gd-gzw": {
    "无归属链": 68
   },
+  "jl-st": {
+   "省+市+县": 60
+  },
   "mem": {
    "无归属链": 60
   },
@@ -145,24 +152,59 @@
   },
   "gd-jgsw": {
    "无归属链": 34
+  },
+  "ln-st": {
+   "无归属链": 24
+  },
+  "sc-st": {
+   "无归属链": 15
   }
  },
  "samples": {
   "无归属链": [
    {
-    "source": "gd-amr",
+    "source": "ah-st",
     "chain": [],
-    "dept": "广东省市场监督管理局"
+    "dept": "安徽省生态环境厅"
    },
    {
-    "source": "gd-amr",
+    "source": "ah-st",
     "chain": [],
-    "dept": "广东省市场监督管理局"
+    "dept": "安徽省生态环境厅"
    },
    {
-    "source": "gd-amr",
+    "source": "ah-st",
     "chain": [],
-    "dept": "广东省市场监督管理局"
+    "dept": "安徽省生态环境厅"
+   }
+  ],
+  "省+市+县": [
+   {
+    "source": "jl-st",
+    "chain": [
+     "吉林省",
+     "延边朝鲜族自治州",
+     "延吉市"
+    ],
+    "dept": "吉林省生态环境厅"
+   },
+   {
+    "source": "jl-st",
+    "chain": [
+     "吉林省",
+     "长春市",
+     "绿园区"
+    ],
+    "dept": "吉林省生态环境厅"
+   },
+   {
+    "source": "jl-st",
+    "chain": [
+     "吉林省",
+     "长春市",
+     "南关区"
+    ],
+    "dept": "吉林省生态环境厅"
    }
   ],
   "省级": [

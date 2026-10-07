@@ -1,0 +1,55 @@
+列表 https://sthjt.jl.gov.cn/zmhd/tzxx/lyxd/ [200] len=34798
+正文前 700：吉林省生态环境厅 登录 退出登录 注册 智能小吉 敬老版 无障碍 搜本站 搜本站 一网搜 热门搜索： 环境影响评价 空气质量 首页 政策解读 政务服务 政民互动 环境数据 要闻动态 组织机构 环境质量 机关党建 专题专栏 首页 &nbsp;&gt;&nbsp; 助企惠民 &nbsp;&gt;&nbsp; 厅长信箱 &nbsp;&gt;&nbsp; 留言选登 当前位置： 首页 &nbsp;>&nbsp; 助企惠民 &nbsp;>&nbsp; 厅长信箱 &nbsp;>&nbsp; 留言选登 留言选登 近期留言 更多 在线咨询 更多 厅长信箱 更多 中国政府网 国内生态环境部门 生态环境部 北京 天津 河北 山西 内蒙古 辽宁 吉林 黑龙江 上海 江苏 浙江 安徽 福建 江西 山东 河南 湖北 湖南 广东 广西 海南 重庆 四川 贵州 云南 西藏 陕西 甘肃 青海 宁夏 新疆 新疆生产建设兵团生态环境局 省政府及各部门单位 吉林省人民政府 省发展和改革委员会 省教育厅 省科学技术厅 省工业和信息化厅 省民族事务委员会 省公安厅 省民政厅 省司法厅 省财政厅 省人力资源和社会保障厅 省自然资源厅 省生态环境厅 省住房和城乡建设厅 省交通运输厅 省水利厅 省农业农村厅 省商务厅 省文化和旅游厅 省卫生健康委员会 省退役军人事务厅 省应急管理厅 省审计厅 省外事办公室 省市场监督管理厅 省国有资产监督管理委员会 省广播电视局 省体育局 省统计局 省医疗保障局 省机关事务管理局 省粮食和物资储备局 省人民防空办公室 省地方金融监督管理局 省政务服务和数字化建设管理局 省林业和草原局 省能源局
+
+脚本 https://sthjt.jl.gov.cn/images/ajax_index_cmy_20211110.js [200] len=5298
+
+--- js「ajax」---
+ var pageIndex = 1;     var pageSize = 4;    //默认是5     var order = 1; 	var groupId=172;     function tableInfoPage() {         var tabAllPage;         $.ajax({             type: "GET",             url: contextPath + "/nbhd/openGovmsgbox.do?method=listGovmsgboxs&siteId=" + siteId + "&order=" + order + "&appId=" + a
+
+--- js「ajax」---
+.totalResults : 0;     } else {         var tabTotalPage = 1;         var setTotalCount = 1     }  	 	// 统计 	tongji(); 	function tongji() {         $.ajax({             type: "GET",             url: contextPath + "/nbhd/openGovmsgbox.do?method=countGovmsgboxs&siteId="+siteId+"&appId="+appId+ "&deptIds=" + group
+
+--- js「url」---
+//默认是5     var order = 1; 	var groupId=172;     function tableInfoPage() {         var tabAllPage;         $.ajax({             type: "GET",             url: contextPath + "/nbhd/openGovmsgbox.do?method=listGovmsgboxs&siteId=" + siteId + "&order=" + order + "&appId=" + appId + "&pageIndex=" + pageIndex + "&pageSize
+
+--- js「url」---
+tabTotalPage = 1;         var setTotalCount = 1     }  	 	// 统计 	tongji(); 	function tongji() {         $.ajax({             type: "GET",             url: contextPath + "/nbhd/openGovmsgbox.do?method=countGovmsgboxs&siteId="+siteId+"&appId="+appId+ "&deptIds=" + groupId,             async: false,             d
+
+--- js「lyxd」---
+     var appIds = null;         var appIds = threeSrc[0];//上一个页面传递过来的siteId     }     var contextPath = "https://haiyun.jl.gov.cn/IGI";     var jumpPath = "lyxdct";//跳转页面的名称      siteId = siteIds ? siteIds : 117;     appId = appIds ? appIds : 96;            // 信件列表     var pageIndex = 1;     var pageSize =
+
+--- js「siteId」---
+/**  * 18.8.23 yxl  * 问政信箱详情  */ var StartDate; $(document).ready(function () {     var link = window.location.href;     var siteId;     var appId;     if (link.indexOf("siteId") > 0) {         var firSrc = link.split("siteId=");         var twoSrc = firSrc[1].split("&");         var s
+
+--- js「siteId」---
+  * 问政信箱详情  */ var StartDate; $(document).ready(function () {     var link = window.location.href;     var siteId;     var appId;     if (link.indexOf("siteId") > 0) {         var firSrc = link.split("siteId=");         var twoSrc = firSrc[1].split("&");         var siteIds = null;         var siteIds = twoSrc[0]
+
+--- js「siteId」---
+y(function () {     var link = window.location.href;     var siteId;     var appId;     if (link.indexOf("siteId") > 0) {         var firSrc = link.split("siteId=");         var twoSrc = firSrc[1].split("&");         var siteIds = null;         var siteIds = twoSrc[0];//上一个页面传递过来的siteId     }     if (link.indexOf("
+
+--- js「siteId」---
+d;     var appId;     if (link.indexOf("siteId") > 0) {         var firSrc = link.split("siteId=");         var twoSrc = firSrc[1].split("&");         var siteIds = null;         var siteIds = twoSrc[0];//上一个页面传递过来的siteId     }     if (link.indexOf("siteid") > 0) {         var firSrc = link.split("siteid=");       
+
+--- js「appId」---
+/**  * 18.8.23 yxl  * 问政信箱详情  */ var StartDate; $(document).ready(function () {     var link = window.location.href;     var siteId;     var appId;     if (link.indexOf("siteId") > 0) {         var firSrc = link.split("siteId=");         var twoSrc = firSrc[1].split("&");         var siteIds = null; 
+
+--- js「appId」---
+=");         var twoSrc = firSrc[1].split("&");         var siteIds = null;         var siteIds = twoSrc[0];//上一个页面传递过来的siteId     }     if (link.indexOf("appId") > 0) {         var secSrc = link.split("appId=");         var threeSrc = secSrc[1].split("&");         var appIds = null;         var appIds = threeSrc[0
+
+--- js「appId」---
+         var siteIds = null;         var siteIds = twoSrc[0];//上一个页面传递过来的siteId     }     if (link.indexOf("appId") > 0) {         var secSrc = link.split("appId=");         var threeSrc = secSrc[1].split("&");         var appIds = null;         var appIds = threeSrc[0];//上一个页面传递过来的siteId     }     var contextPath 
+
+--- js「appId」---
+传递过来的siteId     }     if (link.indexOf("appId") > 0) {         var secSrc = link.split("appId=");         var threeSrc = secSrc[1].split("&");         var appIds = null;         var appIds = threeSrc[0];//上一个页面传递过来的siteId     }     var contextPath = "https://haiyun.jl.gov.cn/IGI";     var jumpPath = "lyxdct";//跳转页面
+
+--- js「page」---
+cn/IGI";     var jumpPath = "lyxdct";//跳转页面的名称      siteId = siteIds ? siteIds : 117;     appId = appIds ? appIds : 96;            // 信件列表     var pageIndex = 1;     var pageSize = 4;    //默认是5     var order = 1; 	var groupId=172;     function tableInfoPage() {         var tabAllPage;         $.ajax({  
+
+--- js「page」---
+th = "lyxdct";//跳转页面的名称      siteId = siteIds ? siteIds : 117;     appId = appIds ? appIds : 96;            // 信件列表     var pageIndex = 1;     var pageSize = 4;    //默认是5     var order = 1; 	var groupId=172;     function tableInfoPage() {         var tabAllPage;         $.ajax({             type: "GET",
+
+--- js「page」---
+ appIds : 96;            // 信件列表     var pageIndex = 1;     var pageSize = 4;    //默认是5     var order = 1; 	var groupId=172;     function tableInfoPage() {         var tabAllPage;         $.ajax({             type: "GET",             url: contextPath + "/nbhd/openGovmsgbox.do?method=listGovmsgboxs&siteId="
+
+--- js「page」---
+     // 信件列表     var pageIndex = 1;     var pageSize = 4;    //默认是5     var order = 1; 	var groupId=172;     function tableInfoPage() {         var tabAllPage;         $.ajax({             type: "GET",             url: contextPath + "/nbhd/openGovmsgbox.do?method=listGovmsgboxs&siteId=" + siteId + "&order=" + orde
