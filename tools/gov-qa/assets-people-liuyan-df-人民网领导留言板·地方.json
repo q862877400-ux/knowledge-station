@@ -150,6 +150,82 @@
     "北京市商品房预售合同"
    ],
    "has_clause_no": true
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26136822",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26136822",
+   "question": "每次晚上下班要在京密路这里拐弯堵车很久\n每次都堵很久，这个桥洞子能不能改造成双车道。",
+   "cited_hits": [
+    {
+     "name": "城市道路交通标志和标线设置规范",
+     "lib_no": "GB 51038-2015",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "朝阳分区规划（国土空间规划）（2017年—2035年）",
+    "城市道路工程设计规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26132156",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26132156",
+   "question": "精装房空调被装修污染，开发商拒不整改\n本人系门头沟区永定镇风范嘉园B‑5#住宅楼140*室业主。\n该房屋为精装修交付，2024年底办理交房，至今尚未满两年。房屋客厅配套中央空调自去年起便存在刺激性异味（卧室无），因属于精装新房，当时未做重点",
+   "cited_hits": [
+    {
+     "name": "建设工程质量管理条例",
+     "lib_no": "建设工程质量管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "房屋建筑工程质量保修办法"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26116660",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26116660",
+   "question": "小区环境多年脏乱差\n1、小区内环境极其脏乱差，仅有的少量绿化空间被砌墙或围栏占用，或堆放杂物，部分居民私自占地，无人管理；\n2、部分居民在住宅楼单元门旁或空地处私搭乱建废品存储（纸箱、泡沫等等），全部是易燃物，如着火可顺着建筑外保温燃烧，无",
+   "cited_hits": [
+    {
+     "name": "北京市物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    },
+    {
+     "name": "中华人民共和国民法典",
+     "lib_no": "中华人民共和国民法典",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "城镇内涝防治技术规范"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26112825",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26112825",
+   "question": "宝成雅园小区多处位置未按规划图建设并使用\n宝成雅园，自2023年八月入住后发现小区内有以下几处位置与规划图纸不符。\n1、现3号楼(规划图中的2#楼)西面，2号楼(规划图中的1#楼)南面，属于小区业主的休闲活动场地和消防车回车场及消防通道，被",
+   "cited_hits": [
+    {
+     "name": "北京市物业管理条例",
+     "lib_no": "物业管理条例(OCR采集)",
+     "weak": false
+    }
+   ],
+   "cited_missing": [
+    "查处违法建设执法手册",
+    "已建成违法建设执法流程",
+    "限期拆除决定书"
+   ],
+   "has_clause_no": true
   }
  ],
  "B_补料": [
@@ -437,6 +513,67 @@
    "cited_hits": [],
    "cited_missing": [
     "北京市城乡规划条例"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26122266",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26122266",
+   "question": "北京阜外医院复查时间问题\n你好，我想咨询一下，如果之前在北京阜外医院看过病，过了三个月，再去复查的时候，从开始到结束，需要多久，用不用做手术，麻烦你们北京阜外医院照相关工作人员与客户电话联系一下，具体讲解一下，谢谢，从2026年6月15日至",
+   "cited_hits": [],
+   "cited_missing": [
+    "国家医保局 财政部关于进一步做好基本医疗保险跨省异地就医直接结算工作的通知"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26122203",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26122203",
+   "question": "泰禾中央广场周边杂草蚊虫太多\n泰禾中央广场由多个绿地隔开，但部分地块杂草已经很多了也没有清理，蚊子特别多，而且易过敏的人一靠近就会打喷嚏。尤其该地块还有幼儿园，都是小朋友居多，还需要户外活动，但蚊子太多，园方只能使用大量花露水，终究不是治本",
+   "cited_hits": [],
+   "cited_missing": [
+    "城镇绿地养护技术规范",
+    "城镇绿地养护技术规范"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26115580",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26115580",
+   "question": "业主的生命谁来保护\n市长您好：\n我是平谷区府悦居小区业主，我们小区电梯应该8月份到期检验，北京城*物业公司到9月8日还没有检验，还在运行，对我们居民的生命安全造成极大隐患。2026年5月1日实施的《特种设备使用管理规则》对物业公司的硬性规定",
+   "cited_hits": [],
+   "cited_missing": [
+    "特种设备使用管理规则"
+   ],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26109569",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26109569",
+   "question": "营业地址是否可以变更\n北京时*驿站酒店管理有限公司，原地址东城区笔杆胡同*号。现欲迁址到东城区西北井胡同1号楼，建筑面积4300平。欲建成三星级高端酒店。请问，是否可以完成经营地址的变更？",
+   "cited_hits": [],
+   "cited_missing": [
+    "北京市新增产业的禁止和限制目录（2022年版）",
+    "禁限目录",
+    "禁限目录",
+    "东城区酒店业管理暂行办法",
+    "东城区酒店业管理暂行办法",
+    "特种行业许可证"
+   ],
+   "has_clause_no": true
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26101830",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26101830",
+   "question": "小区内违法存在广场舞噪声扰民\n我是海淀区田村路街道乐府江南小区居民。位于小区内的南广场十多年来从早上7点半到11点左右一直盘踞着三四波健身和跳广场舞人员，她们大声嬉闹大声外放音乐，完全不顾及居住在此的居民的安宁权。我们希望政府取缔跳舞健身者",
+   "cited_hits": [],
+   "cited_missing": [
+    "关于规范乐府家园社区南广场活动温馨提示"
    ],
    "has_clause_no": false
   }
@@ -1149,6 +1286,195 @@
    "id": "26151844",
    "url": "http://liuyan.people.com.cn/threads/content?tid=26151844",
    "question": "小区慢慢停车都在项目通道\n海淀区东升镇莱圳家园。成绩存在车辆乱停乱放阻碍了消防通道。此现象长期存在。请领导协调解决以上问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26137731",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26137731",
+   "question": "楼上狗扰民\n西山庭院13号楼3单元50*的狗扰民，已经找物业沟通多次，现要求对方把狗迁走。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26134279",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26134279",
+   "question": "东坝保利天汇道路和公交诉求\n尊敬的领导：\n我是朝阳区东坝保利天汇小区的住户。小区现已大量业主入住，但是小区周边配套规划支路仍在施工，暂无家门口公交站点。居民日常出行需要步行近 500 米前往地铁东坝北站，老人、小孩出行十分不便。\n现提出两点",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26133184",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26133184",
+   "question": "举报通州区金隅通和园消防隐患\n您好，我投诉消防隐患，地址：通州区金隅通和园，106号楼1单元1**3。房屋使用人齐**，私自将原本内开入户门改成向外开启。\n开门会直接占用楼道疏散通道，属于堵塞安全出口的消防违法行为。8月6日社区人民调解已经",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26131858",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26131858",
+   "question": "瀛宏路、瀛皓路、瀛至路、瀛安街违章停车问题\n标题中道路两侧自行车道存在大量机动车违停，兴瀛嘉苑北门、杏海苑北院北门路段问题最突出，小区门口两侧甚至并排停放两排车辆。\n导致路边规划车位占用道路空间，剩余自行车道宽度不足，仅可供单车勉强通行，非",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26131464",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26131464",
+   "question": "东城区广渠门北里配电箱占用人行道\n东城区广渠门北里辅路 一配电箱设立于人行道上 导致变道可通行长度不足50公分 行人行经此处需要到非机动车道借道 极易与行经此处电动车自行车发生碰撞 请求迁移配电箱",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26128676",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26128676",
+   "question": "旧宫镇餐饮店油烟扰民\n旧宫东亚五环国际底商多家餐饮店晚17-22点存在多次且长期油烟扰民。废气浓烟肉眼可见随风刮入居民家中，异常呛人，严重影响居民生活及周边生态环境。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26124654",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26124654",
+   "question": "增加公交车线路\n尊敬的领导：\n您好！我是丰台区卢沟桥街道金璟阳光小区居民。金璟阳光为原二通厂地块大型新建共有产权社区，入住居民规模大。小区建设前为厂区，历史上公交线路稀少，居民公共交通出行长期存在困难。\n金璟阳光、华熙府、金曦阳光苑等小区居",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26123983",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26123983",
+   "question": "小区停车管理\n本小区近期将停车管理制度进行了优化，出台了一户一车、亲情访客车辆晚间八点后收费加价的规范政策，初衷是公平分配车位资源、缓解小区停车紧张问题，整体规则较合理。\n 但目前政策制度较已完善，日常落地管理存在明显缺位，出现规则与实际管",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26121904",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26121904",
+   "question": "油烟排放\n反映顺义区祥云小镇“康**”在经营过程中存在油烟、异味及深夜噪声扰民问题。该商户营业及烹饪期间产生较明显油烟和气味，对周边环境及居民正常生活造成影响；同时，夜间尤其是较晚时段，店内及店外顾客聚集、饮酒后大声说话、喊叫、大笑等情况较",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "25486992",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=25486992",
+   "question": "关于持续擦亮运河西岸文旅名片、提质升级运营管\n运河西岸改造提升后群众反响热烈，已然成为城市副中心标志性文旅新名片。为巩固现有建设成效、长效守护文旅品质，现就优化运营管护、提升综合服务提出如下建议：\n严控步行街通行秩序\n在步行街各入口增设专人",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26117004",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26117004",
+   "question": "南苑西路未来会扩建道路吗\n书记好，图中所示南苑西路这一段大概1公里的干道，目前只有双向车道，连非机动车道都没有，各种交通隐患小事故时常发生，两侧都是大树和小区。不知道未来这条路能不能扩路成双向四车道，或者说增加两侧辅路非机动车的道路，早高峰",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26116629",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26116629",
+   "question": "夜间噪音\n您好！\n2026年9月8日凌晨2时许，北京排**在半月园南路路段进行管道疏通施工作业，施工时长约30分钟。施工位置距离两侧居民楼不足50米，夜间环境本就安静，施工产生的机械噪音异常刺耳，在夜深人静时尤为明显，导致附近居民从睡梦中惊",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26115265",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26115265",
+   "question": "鹏润家园静苑有人长期遛狗不栓绳\n鹏润家园静苑A座1*层有一个中年妇女，长期遛狗不栓绳，多次大摇大摆地和孩子带狗进电梯，无牵引的狗给单元邻居造成很大危险和惊吓，希望有人管一管。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26112869",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26112869",
+   "question": "新房交付数月外立面现质量问题，开发商拖延保修\n领导您好：\n我是经开区亦庄新城台湖板块招商璀璨时代小区业主，【2025 年 11 月】收房后发现外立面【鼓包、房顶房沿明显破损】。已向开发商报修【90天】未处理，恳请相关部门现场督办，并监督开发",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26111547",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26111547",
+   "question": "朝庭公寓三号楼业主违规外挂空调外机\n尊敬的领导：\n\n您好！\n现就我小区3号楼顶层某业主在装修过程中，未按规划位置安装空调外机，擅自将其悬挂于阳台外侧公共外立面一事，正式提出投诉。该行为不仅违背了业主签署的装修承诺书，也明显改变了建筑原有外立",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26111377",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26111377",
+   "question": "阳光100国际公寓\n阳光100国际公寓A座38楼消防通道堆放建筑施工垃圾，希望有关部门勒令其清除易燃垃圾",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26111059",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26111059",
+   "question": "违法占道\n丰台区蒲黄榆地区长期违法占道，*猪肉和螺狮粉店铺长期占道，将行人及非机动车挤向马路中间",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26110319",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26110319",
+   "question": "万泉河快速路（又称京密引水渠北侧路）的进展\n想咨询一下万泉河快速路北延（又称京密引水渠北侧路）的进展情况，希望尽快开工，解决交通拥堵问题。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26110269",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26110269",
+   "question": "装修楼板噪音震动太大\n莲葩园9号楼50*装修拆除噪音太大，请相关执法部门尽快巡查是否动承重墙改变原有结构了。",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26101612",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26101612",
+   "question": "通宵噪音扰民\n领导您好：\n近半年我家长期遭受夜间通宵噪音扰民，从晚10点后依然不定时出现跺地、挪家具、重物撞击、关门、物品滚动等异响，持续到凌晨五六点，随机突发，时常惊醒家人。\n诉求是查出噪音来源并停止夜间噪音！",
+   "cited_hits": [],
+   "cited_missing": [],
+   "has_clause_no": false
+  },
+  {
+   "source": "people-liuyan-df",
+   "id": "26102394",
+   "url": "http://liuyan.people.com.cn/threads/content?tid=26102394",
+   "question": "西四环看丹桥富丰桥无隔音板，噪音扰民\n尊敬的领导，西四环看丹桥富丰桥无隔音板，噪音污染严重扰民，途径韩庄子新华街等居民住宅区，距离近，噪声污染十分严重，望领导体恤民情。",
    "cited_hits": [],
    "cited_missing": [],
    "has_clause_no": false
